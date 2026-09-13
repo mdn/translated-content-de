@@ -1,14 +1,14 @@
 ---
-title: CSS-Eigenschaft `inset-block`
+title: "`inset-block` CSS-Eigenschaft"
 short-title: inset-block
 slug: Web/CSS/Reference/Properties/inset-block
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`inset-block`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logischen Anfangs- und Endabstände eines Elements im Block, die je nach Schreibmodus, Richtung und Textausrichtung des Elements auf physische Abstände abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-block`** [CSS](/de/docs/Web/CSS) [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) Eigenschaft definiert die logischen Block-Start- und End-Offsets eines Elements, die basierend auf dem Schreibmodus, der Richtung und der Textausrichtung des Elements den physischen Offsets zugeordnet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keinen Effekt auf nicht-positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-block")}}
 
@@ -65,7 +65,7 @@ writing-mode: vertical-lr;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zusammenfassende Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -98,7 +98,7 @@ inset-block: unset;
 
 ### Werte
 
-Die `inset-block`-Eigenschaft akzeptiert die gleichen Werte wie die Eigenschaft {{cssxref("top")}}.
+Die `inset-block`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -110,7 +110,7 @@ Die `inset-block`-Eigenschaft akzeptiert die gleichen Werte wie die Eigenschaft 
 
 ## Beispiele
 
-### Festlegen der Blockanfangs- und -endabstände
+### Festlegen von Block-Start- und End-Offsets
 
 #### HTML
 
@@ -151,7 +151,7 @@ div {
 
 ## Siehe auch
 
-- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
-- Die abgebildete physische Kurzform: {{cssxref("inset")}}
-- Die abgebildete Inline-Kurzform: {{cssxref("inset-inline")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Das zugeordnete physische Kürzel: {{cssxref("inset")}}
+- Das zugeordnete Inline-Kürzel: {{cssxref("inset-inline")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

@@ -3,12 +3,12 @@ title: "HTMLFontElement: size-Eigenschaft"
 short-title: size
 slug: Web/API/HTMLFontElement/size
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{ APIRef("HTML DOM") }}
+{{ APIRef("HTML DOM") }}
 
-Die veraltete **`HTMLFontElement.size`**-Eigenschaft ist ein String, der das [`size`](/de/docs/Web/HTML/Reference/Elements/font#size)-HTML-Attribut widerspiegelt. Es kann entweder eine Schriftgröße von 1 bis 7 oder eine Zahl relativ zum Standardwert 3 enthalten, zum Beispiel -2 oder +1.
+Die veraltete **`HTMLFontElement.size`**-Eigenschaft ist ein String, der das [`size`](/de/docs/Web/HTML/Reference/Elements/font#size) HTML-Attribut widerspiegelt. Sie enthält entweder eine Schriftgröße im Bereich von 1 bis 7 oder eine Zahl relativ zu dem Standardwert 3, zum Beispiel -2 oder +1.
 
 Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen:
 
@@ -22,14 +22,14 @@ Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen:
   </thead>
   <tbody>
     <tr>
-      <td>Gültiger Größenanzahl-String</td>
+      <td>Gültige Größen-Nummer als String</td>
       <td><em>Ganzzahl im Bereich von 1-7</em></td>
       <td><code>6</code></td>
     </tr>
     <tr>
-      <td>Relativer Größenstring</td>
+      <td>Relative Größen-String</td>
       <td>
-        <em>+x oder -x, wobei x eine Zahl ist, die sich relativ zu 3 verhält (das Ergebnis sollte im Bereich von 1-7 liegen)</em>
+        <em>+x oder -x, wobei x eine Zahl relativ zu 3 ist (das Ergebnis sollte im Bereich von 1-7 liegen)</em>
       </td>
       <td>
         <code>+2<br />-1</code>

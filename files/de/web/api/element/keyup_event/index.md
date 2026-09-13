@@ -3,22 +3,24 @@ title: "Element: keyup event"
 short-title: keyup
 slug: Web/API/Element/keyup_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 358daf81ac9cf3db999cc8af7aed81ef4ff0c3f6
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`keyup`**-Ereignis wird ausgelöst, wenn eine Taste losgelassen wird.
+Das **`keyup`** Ereignis wird ausgelöst, wenn eine Taste losgelassen wird.
 
-Die [`keydown`](/de/docs/Web/API/Element/keydown_event)- und `keyup`-Ereignisse liefern einen Code, der anzeigt, welche Taste gedrückt wird, während `keypress` angibt, welches Zeichen eingegeben wurde. Beispielsweise wird ein kleines "a" von `keydown` und `keyup` als 65 gemeldet, aber von `keypress` als 97. Ein großes "A" wird von allen Ereignissen als 65 gemeldet.
+Die [`keydown`](/de/docs/Web/API/Element/keydown_event) und `keyup` Ereignisse liefern einen Code, der angibt, welche Taste gedrückt wurde, während `keypress` angibt, welches Zeichen eingegeben wurde. Zum Beispiel wird ein kleines "a" sowohl bei `keydown` als auch bei `keyup` als 65 gemeldet, aber als 97 bei `keypress`. Ein großes "A" wird von allen Ereignissen als 65 gemeldet.
 
-Das Ereignisziel eines Tastenereignisses ist das aktuell fokussierte Element, das die Tastaturaktivität verarbeitet. Dazu gehören: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}, alles, was [`contentEditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) ist, und alles andere, mit dem über die Tastatur interagiert werden kann, wie zum Beispiel {{HTMLElement("a")}}, {{HTMLElement("button")}} und {{HTMLElement("summary")}}. Wenn kein geeignetes Element fokussiert ist, ist das Ereignisziel der {{HTMLElement("body")}} oder die Wurzel. Das Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling). Es kann [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) erreichen.
+Das Ziel eines Tastaturereignisses ist das derzeit fokussierte Element, das die Tastaturaktivität verarbeitet. Dazu gehören: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}, alles, was [`contentEditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) ist, und alles andere, was mit der Tastatur interagiert werden kann, wie {{HTMLElement("a")}}, {{HTMLElement("button")}}, und {{HTMLElement("summary")}}. Wenn kein geeignetes Element fokussiert ist, ist das Ereignisziel der {{HTMLElement("body")}} oder die Wurzel. Das Ereignis [bubbles](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling). Es kann [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) erreichen.
 
-Das Ereignisziel kann zwischen verschiedenen Tastenereignissen wechseln. Beispielsweise wäre das `keydown`-Ziel beim Drücken der <kbd>Tab</kbd>-Taste anders als das `keyup`-Ziel, da sich der Fokus geändert hat.
+Das Ereignisziel kann zwischen verschiedenen Tastaturereignissen wechseln. Wenn zum Beispiel die <kbd>Tab</kbd>-Taste gedrückt wird, unterscheidet sich das `keydown`-Ziel vom `keyup`-Ziel, weil sich der Fokus geändert hat.
+
+Da das Ereignis ausgelöst wird, nachdem die Taste losgelassen wurde, reflektieren die Modifiziertasten-Eigenschaften ([`ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey), [`altKey`](/de/docs/Web/API/KeyboardEvent/altKey), [`shiftKey`](/de/docs/Web/API/KeyboardEvent/shiftKey) und [`metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey)) den Zustand nach dem Loslassen. Zum Beispiel ist `ctrlKey` bei einem `keyup`-Ereignis für die <kbd>Control</kbd>-Taste selbst `false`. Wenn eine andere Taste losgelassen wird, während die <kbd>Control</kbd>-Taste weiterhin gedrückt bleibt, ist `ctrlKey` für das `keyup`-Ereignis dieser Taste `true`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("keyup", (event) => { })
@@ -34,9 +36,9 @@ Ein [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent). Erbt von [`UIEvent`](/de/
 
 ## Beispiele
 
-### addEventListener keyup-Beispiel
+### addEventListener keyup Beispiel
 
-Dieses Beispiel protokolliert den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code), wann immer Sie eine Taste innerhalb des {{HtmlElement("input")}}-Elements loslassen.
+Dieses Beispiel protokolliert den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code), wenn Sie eine Taste im {{HtmlElement("input")}}-Element loslassen.
 
 ```html
 <input placeholder="Click here, then press and release a key." size="40" />
@@ -56,9 +58,9 @@ function logKey(e) {
 
 {{EmbedLiveSample("addEventListener_keyup_example")}}
 
-### keyup-Ereignisse mit IME
+### keyup Ereignisse mit IME
 
-Seit Firefox 65 werden die [`keydown`](/de/docs/Web/API/Element/keydown_event)- und `keyup`-Ereignisse jetzt während der {{Glossary("Input_method_editor", "Input Method Editor")}}-Komposition ausgelöst, um die browserübergreifende Kompatibilität für CJKT-Benutzer zu verbessern ([Firefox-Bug 354358](https://bugzil.la/354358)). Um alle `keyup`-Ereignisse zu ignorieren, die Teil der Komposition sind, machen Sie Folgendes:
+Seit Firefox 65 werden die [`keydown`](/de/docs/Web/API/Element/keydown_event) und `keyup` Ereignisse während der {{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} Komposition ausgelöst, um die Kompatibilität zwischen Browsern für CJKT-Benutzer zu verbessern ([Firefox bug 354358](https://bugzil.la/354358)). Um alle `keyup` Ereignisse zu ignorieren, die Teil der Komposition sind, tun Sie Folgendes:
 
 ```js
 eventTarget.addEventListener("keyup", (event) => {
@@ -70,7 +72,7 @@ eventTarget.addEventListener("keyup", (event) => {
 ```
 
 > [!NOTE]
-> Im Gegensatz zu `keydown`-Ereignissen haben `keyup`-Ereignisse keine speziellen [`keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode)-Werte für IME-Ereignisse. Ähnlich wie bei `keydown` kann jedoch `compositionstart` _nach_ `keyup` ausgelöst werden, wenn Sie das erste Zeichen eingeben, das den IME öffnet, und `compositionend` kann _vor_ `keyup` ausgelöst werden, wenn Sie das letzte Zeichen eingeben, das den IME schließt. In diesen Fällen ist `isComposing` falsch, auch wenn das Ereignis Teil der Komposition ist.
+> Im Gegensatz zu `keydown` haben `keyup`-Ereignisse keine speziellen [`keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) Werte für IME-Ereignisse. Jedoch, wie bei `keydown`, kann `compositionstart` _nach_ `keyup` ausgelöst werden, wenn das erste Zeichen eingegeben wird, das den IME öffnet, und `compositionend` kann _vor_ `keyup` ausgelöst werden, wenn das letzte Zeichen eingegeben wird, das den IME schließt. In diesen Fällen ist `isComposing` falsch, selbst wenn das Ereignis Teil der Komposition ist.
 
 ## Spezifikationen
 

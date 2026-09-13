@@ -1,17 +1,17 @@
 ---
-title: "HTMLTableRowElement: Eigenschaft align"
+title: "HTMLTableRowElement: align-Eigenschaft"
 short-title: align
 slug: Web/API/HTMLTableRowElement/align
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die **`align`**-Eigenschaft der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Schnittstelle ist ein String, der angibt, wie Text horizontal in der {{htmlelement("tr")}}-Tabellenzeile ausgerichtet wird. Einzelne Zellen können dies überschreiben.
+Die **`align`**-Eigenschaft der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Schnittstelle ist ein String, der angibt, wie der Text in der {{htmlelement("tr")}} Tabellenzeile horizontal ausgerichtet werden soll. Einzelne Zellen können dies überschreiben.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Zelle horizontal auszurichten. Verwenden Sie stattdessen die CSS {{cssxref("text-align")}}-Eigenschaft, die Vorrang hat, um Text in einer Zeile horizontal auszurichten.
+> Diese Eigenschaft ist veraltet, und es sollte CSS verwendet werden, um Text in einer Zelle horizontal auszurichten. Verwenden Sie die CSS-{{cssxref("text-align")}}-Eigenschaft, die Vorrang hat, um stattdessen Text in einer Zeile horizontal auszurichten.
 
 ## Wert
 
@@ -26,11 +26,11 @@ Die möglichen Werte sind:
 - `justify`
   - : Verteilen Sie den Text über die Zelle. Verwenden Sie stattdessen `text-align: justify`.
 - `char`
-  - : Nie vollständig unterstützt, richten Sie Text an einem bestimmten Zeichen aus. Verwenden Sie `text-align: <string>`, wobei der String ein einzelnes Zeichen ist, falls unterstützt.
+  - : Wurde nie vollständig unterstützt, richtet den Text an einem bestimmten Zeichen aus. Verwenden Sie `text-align: <string>`, wobei der String ein einzelnes Zeichen ist, wenn dies unterstützt wird.
 
 ## Beispiele
 
-Verwenden Sie stattdessen das CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/Reference/Properties/text-align#table_alignment) ist auf der {{cssxref("text-align")}}-Seite verfügbar.
+Verwenden Sie stattdessen CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/Reference/Properties/text-align#table_alignment) ist auf der Seite {{cssxref("text-align")}} verfügbar.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ Verwenden Sie stattdessen das CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/
 ## Siehe auch
 
 - {{cssxref("text-align")}}
-- [Lernen: Styling von Tabellen](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
+- [Lernen: Tabellen stylen](/de/docs/Learn_web_development/Core/Styling_basics/Tables)

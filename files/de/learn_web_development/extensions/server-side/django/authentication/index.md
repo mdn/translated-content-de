@@ -1,53 +1,53 @@
 ---
-title: "Django Tutorial Teil 8: Benutzer-Authentifizierung und Berechtigungen"
+title: "Django-Tutorial Teil 8: Benutzerauthentifizierung und Berechtigungen"
 short-title: "8: Authentifizierung und Berechtigungen"
 slug: Learn_web_development/Extensions/Server-side/Django/Authentication
 l10n:
-  sourceCommit: 668056c1a1f2950a734e9669e88c642b890bbf3e
+  sourceCommit: f3f56081b4d400cdfa28d80a881b6be325774e5e
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Sessions", "Learn_web_development/Extensions/Server-side/Django/Forms", "Learn_web_development/Extensions/Server-side/Django")}}
 
-In diesem Tutorial zeigen wir Ihnen, wie Sie Benutzern erlauben, sich mit ihren eigenen Konten auf Ihrer Website anzumelden, und wie Sie kontrollieren, was sie basierend auf ihrem Anmeldestatus und ihren _Berechtigungen_ sehen und tun können. Im Rahmen dieser Demonstration erweitern wir die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website)-Website und fügen Anmelde- und Abmeldeseiten sowie benutzer- und mitarbeiterspezifische Seiten zum Ansehen ausgeliehener Bücher hinzu.
+In diesem Tutorial zeigen wir Ihnen, wie Sie Benutzern ermöglichen, sich mit ihren eigenen Konten auf Ihrer Website anzumelden, und wie Sie steuern können, was sie abhängig davon, ob sie angemeldet sind, und anhand ihrer _Berechtigungen_ tun und sehen dürfen. Im Rahmen dieser Demonstration erweitern wir die Website [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website), indem wir Anmelde- und Abmeldeseiten sowie benutzer- und mitarbeiterspezifische Seiten zum Anzeigen ausgeliehener Bücher hinzufügen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Beenden Sie alle vorherigen Tutorial-Themen bis einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Sessions">Django Tutorial Teil 7: Sitzungs-Framework</a>.
+        Schließen Sie alle vorherigen Tutorial-Themen ab, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Sessions">Django-Tutorial Teil 7: Sitzungs-Framework</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, wie Benutzer-Authentifizierung und Berechtigungen eingerichtet und verwendet werden.
+        Verstehen, wie Benutzerauthentifizierung und Berechtigungen eingerichtet und verwendet werden.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Übersicht
+## Überblick
 
-Django bietet ein Authentifizierungs- und Autorisierungs- ("Berechtigungs-") System, das auf dem im [vorherigen Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/Sessions) besprochenen Sitzungs-Framework aufbaut und es Ihnen ermöglicht, Benutzeranmeldeinformationen zu überprüfen und zu definieren, welche Aktionen jedem Benutzer erlaubt sind. Das Framework enthält integrierte Modelle für `Users` und `Groups` (eine generische Möglichkeit, Berechtigungen auf mehr als einen Benutzer gleichzeitig anzuwenden), Berechtigungen/Flags zur Bezeichnung von Benutzeraufgaben, Formulare und Ansichten zur Anmeldung von Benutzern sowie Ansichts-Tools zur Inhaltsbeschränkung.
-
-> [!NOTE]
-> Laut Django soll das Authentifizierungssystem sehr generisch sein und bietet daher nicht einige Funktionen, die in anderen Web-Authentifizierungssystemen bereitgestellt werden. Lösungen für einige häufige Probleme sind als Drittanbieter-Pakete verfügbar. Zum Beispiel {{Glossary("throttle", "Drosselung")}} von Anmeldeversuchen und Authentifizierung gegen Dritte (z. B. OAuth).
-
-In diesem Tutorial zeigen wir Ihnen, wie Sie die Benutzer-Authentifizierung auf der [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website)-Website aktivieren, eigene Anmelde- und Abmeldeseiten erstellen, Berechtigungen zu Ihren Modellen hinzufügen und den Zugriff auf Seiten steuern können. Wir verwenden das Authentifizierungs-/Berechtigungs-System, um Listen von ausgeliehenen Büchern für Benutzer und Bibliothekare anzuzeigen.
-
-Das Authentifizierungssystem ist sehr flexibel, und Sie können Ihre URLs, Formulare, Ansichten und Vorlagen von Grund auf neu aufbauen, indem Sie einfach die bereitgestellte API zur Anmeldung des Benutzers aufrufen. In diesem Artikel werden wir jedoch die "Lager"-Authentifizierungsansichten und -formulare von Django für unsere Anmelde- und Abmeldeseiten verwenden. Wir müssen immer noch einige Vorlagen erstellen, aber das ist ziemlich einfach.
-
-Wir zeigen Ihnen auch, wie man Berechtigungen erstellt und den Anmeldestatus und die Berechtigungen sowohl in Ansichten als auch in Vorlagen überprüft.
-
-## Aktivieren der Authentifizierung
-
-Die Authentifizierung wurde automatisch aktiviert, als wir die [Skeleton-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) (im Tutorial 2) erstellt haben, sodass Sie an dieser Stelle nichts weiter tun müssen.
+Django stellt ein Authentifizierungs- und Autorisierungssystem („Berechtigungs“-System) bereit, das auf dem im [vorherigen Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/Sessions) behandelten Sitzungs-Framework aufbaut. Es ermöglicht Ihnen, Benutzeranmeldedaten zu überprüfen und festzulegen, welche Aktionen jeder Benutzer ausführen darf. Das Framework enthält integrierte Modelle für `Users` und `Groups` (eine allgemeine Möglichkeit, Berechtigungen gleichzeitig auf mehr als einen Benutzer anzuwenden), Berechtigungen/Flags, die festlegen, ob ein Benutzer eine Aufgabe ausführen darf, Formulare und Views für die Benutzeranmeldung sowie View-Werkzeuge zum Einschränken von Inhalten.
 
 > [!NOTE]
-> Die notwendige Konfiguration wurde für uns erledigt, als wir die App mit dem Befehl `django-admin startproject` erstellt haben. Die Datenbanktabellen für Benutzer und Modellberechtigungen wurden erstellt, als wir zum ersten Mal `python manage.py migrate` aufriefen.
+> Laut Django soll das Authentifizierungssystem sehr allgemein gehalten sein und stellt daher einige Funktionen anderer Web-Authentifizierungssysteme nicht bereit. Lösungen für einige häufige Probleme sind als Drittanbieterpakete verfügbar. Zum Beispiel die {{Glossary("throttle", "Drosselung")}} von Anmeldeversuchen und die Authentifizierung gegenüber Drittanbietern (z. B. OAuth).
 
-Die Konfiguration erfolgt in den Abschnitten `INSTALLED_APPS` und `MIDDLEWARE` der Projektdatei (**django-locallibrary-tutorial/locallibrary/settings.py**), wie unten gezeigt:
+In diesem Tutorial zeigen wir Ihnen, wie Sie die Benutzerauthentifizierung auf der Website [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) aktivieren, eigene Anmelde- und Abmeldeseiten erstellen, Berechtigungen zu Ihren Modellen hinzufügen und den Zugriff auf Seiten steuern. Wir verwenden die Authentifizierung/Berechtigungen, um Listen ausgeliehener Bücher sowohl für Benutzer als auch für Bibliothekare anzuzeigen.
+
+Das Authentifizierungssystem ist sehr flexibel, und Sie können Ihre URLs, Formulare, Views und Templates bei Bedarf vollständig selbst erstellen und nur die bereitgestellte API verwenden, um den Benutzer anzumelden. In diesem Artikel verwenden wir jedoch Djangos „standardmäßige“ Authentifizierungs-Views und -Formulare für unsere Anmelde- und Abmeldeseiten. Wir müssen weiterhin einige Templates erstellen, aber das ist recht einfach.
+
+Wir zeigen Ihnen außerdem, wie Sie Berechtigungen erstellen und den Anmeldestatus sowie Berechtigungen sowohl in Views als auch in Templates überprüfen.
+
+## Authentifizierung aktivieren
+
+Die Authentifizierung wurde automatisch aktiviert, als wir die [Skelett-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) erstellt haben (im Tutorial 2). Daher müssen Sie an dieser Stelle nichts weiter tun.
+
+> [!NOTE]
+> Die erforderliche Konfiguration wurde bereits vorgenommen, als wir die App mit dem Befehl `django-admin startproject` erstellt haben. Die Datenbanktabellen für Benutzer und Modellberechtigungen wurden erstellt, als wir erstmals `python manage.py migrate` aufgerufen haben.
+
+Die Konfiguration wird in den Abschnitten `INSTALLED_APPS` und `MIDDLEWARE` der Projektdatei (**django-locallibrary-tutorial/locallibrary/settings.py**) eingerichtet, wie unten dargestellt:
 
 ```python
 INSTALLED_APPS = [
@@ -64,99 +64,99 @@ MIDDLEWARE = [
     # …
 ```
 
-## Erstellen von Benutzern und Gruppen
+## Benutzer und Gruppen erstellen
 
-Sie haben Ihren ersten Benutzer bereits erstellt, als wir uns das [Django Admin Site](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site) im Tutorial 4 angesehen haben (dies war ein Superuser, erstellt mit dem Befehl `python manage.py createsuperuser`).
-Unser Superuser ist bereits authentifiziert und hat alle Berechtigungen, also müssen wir einen Testbenutzer erstellen, der einen normalen Website-Benutzer repräsentiert. Wir werden die Admin-Site verwenden, um unsere _locallibrary_ Gruppen und Website-Anmeldungen zu erstellen, da dies eine der schnellsten Möglichkeiten ist.
+Sie haben Ihren ersten Benutzer bereits erstellt, als wir uns in Tutorial 4 mit der [Django-Admin-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site) beschäftigt haben (dies war ein Superuser, der mit dem Befehl `python manage.py createsuperuser` erstellt wurde).
+Unser Superuser ist bereits authentifiziert und verfügt über alle Berechtigungen. Daher müssen wir einen Testbenutzer erstellen, der einen normalen Websitebenutzer repräsentiert. Wir verwenden die Admin-Website, um unsere _locallibrary_-Gruppen und Website-Anmeldungen zu erstellen, da dies eine der schnellsten Möglichkeiten dafür ist.
 
 > [!NOTE]
 > Sie können Benutzer auch programmgesteuert erstellen, wie unten gezeigt.
-> Sie müssten dies tun, wenn Sie beispielsweise eine Schnittstelle entwickeln, die "gewöhnliche" Benutzer ihre eigenen Logins erstellen lässt (Sie sollten den meisten Benutzern keinen Zugriff auf die Admin-Site geben).
+> Dies müssten Sie beispielsweise tun, wenn Sie eine Schnittstelle entwickeln, über die „normale“ Benutzer ihre eigenen Anmeldungen erstellen können (Sie sollten den meisten Benutzern keinen Zugriff auf die Admin-Website geben).
 >
 > ```python
 > from django.contrib.auth.models import User
 >
-> # Nutzer erstellen und in der Datenbank speichern
+> # Create user and save to the database
 > user = User.objects.create_user('myusername', 'myemail@crazymail.com', 'mypassword')
 >
-> # Felder aktualisieren und dann erneut speichern
+> # Update fields and then save again
 > user.first_name = 'Tyrone'
 > user.last_name = 'Citizen'
 > user.save()
 > ```
 >
-> Beachten Sie jedoch, dass es sehr empfehlenswert ist, ein _benutzerdefiniertes Benutzermodell_ zu erstellen, wenn Sie ein Projekt starten, da Sie dieses in Zukunft bei Bedarf problemlos anpassen können.
-> Wenn ein benutzerdefiniertes Benutzermodell verwendet wird, sieht der Code zum Erstellen desselben Benutzers so aus:
+> Beachten Sie jedoch, dass es dringend empfohlen wird, beim Start eines Projekts ein _benutzerdefiniertes Benutzermodell_ einzurichten, da Sie dieses künftig bei Bedarf einfach anpassen können.
+> Wenn Sie ein benutzerdefiniertes Benutzermodell verwenden, würde der Code zum Erstellen desselben Benutzers wie folgt aussehen:
 >
 > ```python
-> # Aktuelles Benutzermodell aus den Einstellungen abrufen
+> # Get current user model from settings
 > from django.contrib.auth import get_user_model
 > User = get_user_model()
 >
-> # Nutzer aus Modell erstellen und in der Datenbank speichern
+> # Create user from model and save to the database
 > user = User.objects.create_user('myusername', 'myemail@crazymail.com', 'mypassword')
 >
-> # Felder aktualisieren und dann erneut speichern
+> # Update fields and then save again
 > user.first_name = 'Tyrone'
 > user.last_name = 'Citizen'
 > user.save()
 > ```
 >
-> Weitere Informationen finden Sie unter [Verwendung eines benutzerdefinierten Benutzermodells beim Start eines Projekts](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project) (Django-Dokumentation).
+> Weitere Informationen finden Sie unter [Verwenden eines benutzerdefinierten Benutzermodells beim Start eines Projekts](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project) (Django-Dokumentation).
 
-Im Folgenden erstellen wir zuerst eine Gruppe und dann einen Benutzer. Auch wenn wir für unsere Bibliotheksmitglieder noch keine Berechtigungen hinzufügen müssen, wird es später viel einfacher sein, sie einmal der Gruppe hinzuzufügen, als sie jedem Mitglied einzeln zuzuweisen.
+Im Folgenden erstellen wir zuerst eine Gruppe und anschließend einen Benutzer. Auch wenn wir für unsere Bibliotheksmitglieder noch keine Berechtigungen hinzufügen müssen, wird es später wesentlich einfacher sein, sie einmalig der Gruppe statt jedem Mitglied einzeln hinzuzufügen.
 
-Starten Sie den Entwicklungsserver und navigieren Sie zur Admin-Site in Ihrem lokalen Webbrowser (`http://127.0.0.1:8000/admin/`). Melden Sie sich mit den Anmeldedaten für Ihr Superuser-Konto an. Auf der obersten Ebene der Admin-Site werden alle Ihre Modelle nach „Django-Anwendung“ sortiert angezeigt. Im Abschnitt **Authentifizierung und Berechtigungen** können Sie auf die Links **Benutzer** oder **Gruppen** klicken, um deren vorhandene Datensätze anzuzeigen.
+Starten Sie den Entwicklungsserver und navigieren Sie in Ihrem lokalen Webbrowser zur Admin-Website (`http://127.0.0.1:8000/admin/`). Melden Sie sich mit den Anmeldedaten Ihres Superuser-Kontos auf der Website an. Die oberste Ebene der Admin-Website zeigt alle Ihre Modelle an, sortiert nach „Django-Anwendung“. Im Abschnitt **Authentication and Authorization** können Sie auf die Links **Users** oder **Groups** klicken, um deren vorhandene Datensätze anzuzeigen.
 
-![Admin-Site - Gruppen oder Benutzer hinzufügen](admin_authentication_add.png)
+![Admin-Website – Gruppen oder Benutzer hinzufügen](admin_authentication_add.png)
 
-Zuerst erstellen wir eine neue Gruppe für unsere Bibliotheksmitglieder.
+Erstellen wir zunächst eine neue Gruppe für unsere Bibliotheksmitglieder.
 
-1. Klicken Sie auf die Schaltfläche **Hinzufügen** (neben Gruppe), um eine neue _Gruppe_ zu erstellen; geben Sie **Name** "Bibliotheksmitglieder" für die Gruppe ein.
-   ![Admin-Site - Gruppe hinzufügen](admin_authentication_add_group.png)
-2. Wir benötigen keine Berechtigungen für die Gruppe, daher drücken Sie einfach **SPEICHERN** (Sie werden zu einer Liste der Gruppen weitergeleitet).
+1. Klicken Sie auf die Schaltfläche **Add** (neben Group), um eine neue _Group_ zu erstellen; geben Sie als **Name** der Gruppe „Library Members“ ein.
+   ![Admin-Website – Gruppe hinzufügen](admin_authentication_add_group.png)
+2. Wir benötigen keine Berechtigungen für die Gruppe. Klicken Sie daher einfach auf **SAVE** (Sie gelangen zu einer Liste der Gruppen).
 
-Erstellen wir jetzt einen Benutzer:
+Erstellen wir nun einen Benutzer:
 
-1. Navigieren Sie zurück zur Startseite der Admin-Site
-2. Klicken Sie auf die Schaltfläche **Hinzufügen** neben _Benutzer_, um das Dialogfeld _Benutzer hinzufügen_ zu öffnen.
-   ![Admin-Site - Benutzer hinzufügen pt1](admin_authentication_add_user_prt1.png)
-3. Geben Sie einen geeigneten **Benutzernamen** und ein **Passwort**/**Passwortbestätigung** für Ihren Testbenutzer ein
-4. Drücken Sie **SPEICHERN**, um den Benutzer zu erstellen.
+1. Navigieren Sie zurück zur Startseite der Admin-Website.
+2. Klicken Sie neben _Users_ auf die Schaltfläche **Add**, um das Dialogfeld _Add user_ zu öffnen.
+   ![Admin-Website – Benutzer hinzufügen, Teil 1](admin_authentication_add_user_prt1.png)
+3. Geben Sie einen geeigneten **Username** sowie **Password**/**Password confirmation** für Ihren Testbenutzer ein.
+4. Klicken Sie auf **SAVE**, um den Benutzer zu erstellen.
 
-   Die Admin-Site erstellt den neuen Benutzer und führt Sie sofort zu einem _Benutzer ändern_-Bildschirm, in dem Sie Ihren **Benutzernamen** ändern und Informationen für die optionalen Felder des Benutzer-Modells hinzufügen können. Diese Felder umfassen den Vor- und Nachnamen, die E-Mail-Adresse und den Status und die Berechtigungen des Benutzers (nur das **Aktiv**-Flag sollte gesetzt sein). Weiter unten können Sie die Gruppen und Berechtigungen des Benutzers festlegen und wichtige Daten im Zusammenhang mit dem Benutzer anzeigen (z. B. sein Beitrittsdatum und das Datum der letzten Anmeldung).
-   ![Admin-Site - Benutzer hinzufügen pt2](admin_authentication_add_user_prt2.png)
+   Die Admin-Website erstellt den neuen Benutzer und führt Sie sofort zu einem Bildschirm _Change user_, in dem Sie den **username** ändern und Informationen für die optionalen Felder des User-Modells hinzufügen können. Diese Felder umfassen Vorname, Nachname, E-Mail-Adresse sowie Status und Berechtigungen des Benutzers (nur das Flag **Active** sollte gesetzt sein). Weiter unten können Sie die Gruppen und Berechtigungen des Benutzers angeben sowie wichtige benutzerbezogene Daten sehen (z. B. das Beitrittsdatum und das Datum der letzten Anmeldung).
+   ![Admin-Website – Benutzer hinzufügen, Teil 2](admin_authentication_add_user_prt2.png)
 
-5. Wählen Sie im Abschnitt _Gruppen_ die Gruppe **Bibliotheksmitglied** aus der Liste der _Verfügbaren Gruppen_ aus und drücken Sie dann den **Rechtspfeil** zwischen den Kästchen, um sie in das _Ausgewählte Gruppen_-Kästchen zu verschieben.
-   ![Admin-Site - Benutzer zur Gruppe hinzufügen](admin_authentication_user_add_group.png)
-6. Hier müssen wir nichts weiter tun, wählen Sie also einfach erneut **SPEICHERN**, um zur Liste der Benutzer zu gelangen.
+5. Wählen Sie im Abschnitt _Groups_ die Gruppe **Library Member** aus der Liste _Available groups_ aus und klicken Sie dann auf den **Pfeil nach rechts** zwischen den Feldern, um sie in das Feld _Chosen groups_ zu verschieben.
+   ![Admin-Website – Benutzer zu Gruppe hinzufügen](admin_authentication_user_add_group.png)
+6. Hier müssen wir nichts weiter tun. Wählen Sie daher erneut **SAVE**, um zur Benutzerliste zu gelangen.
 
-Das war's! Jetzt haben Sie ein "normales Bibliotheksmitglieds"-Konto, das Sie zum Testen verwenden können (sobald wir die Seiten implementiert haben, die ihnen das Anmelden ermöglichen).
-
-> [!NOTE]
-> Sie sollten versuchen, einen weiteren Bibliotheksbenutzer zu erstellen. Erstellen Sie auch eine Gruppe für Bibliothekare und fügen Sie einen Benutzer hinzu!
-
-## Einrichten der Authentifizierungsansichten
-
-Django bietet fast alles, was Sie benötigen, um Authentifizierungsseiten "out of the box" zu erstellen, um die Anmeldung, Abmeldung und das Passwortmanagement zu bearbeiten. Dazu gehören ein URL-Mapping, Ansichten und Formulare, jedoch keine Vorlagen – diese müssen wir selbst erstellen!
-
-In diesem Abschnitt zeigen wir, wie Sie das Standardsystem in die _LocalLibrary_ Website integrieren und die Vorlagen erstellen.
+Das war's! Sie haben nun ein Konto für ein „normales Bibliotheksmitglied“, das Sie für Tests verwenden können (sobald wir die Seiten implementiert haben, über die sich Benutzer anmelden können).
 
 > [!NOTE]
-> Django enthält keine eingebaute Authentifizierungsansicht für die Erstregistrierung von Benutzern ("Anmeldung").
-> Sie können bei Bedarf selbst eine erstellen, aber für dieses Tutorial gehen wir davon aus, dass nur Bibliothekare Benutzer registrieren dürfen und dies über die Django-Admin-Oberfläche tun.
+> Sie sollten versuchen, einen weiteren Benutzer als Bibliotheksmitglied zu erstellen. Erstellen Sie außerdem eine Gruppe für Bibliothekare und fügen Sie dieser ebenfalls einen Benutzer hinzu!
+
+## Ihre Authentifizierungs-Views einrichten
+
+Django stellt fast alles bereit, was Sie benötigen, um Authentifizierungsseiten für Anmeldung, Abmeldung und Passwortverwaltung „sofort einsatzbereit“ zu erstellen. Dies umfasst einen URL-Mapper, Views und Formulare, aber keine Templates — diese müssen wir selbst erstellen!
+
+In diesem Abschnitt zeigen wir, wie Sie das Standardsystem in die Website _LocalLibrary_ integrieren und die Templates erstellen.
 
 > [!NOTE]
-> Sie müssen keinen dieser Codes verwenden, aber es ist wahrscheinlich, dass Sie dies tun möchten, da es die Dinge erheblich vereinfacht.
-> Sie müssen fast sicher den Code zur Formularbearbeitung ändern, wenn Sie Ihr Benutzermodell ändern, aber selbst dann können Sie die Standard-Ansichtsfunktionen verwenden.
+> Django enthält keine integrierte Authentifizierungs-View für die erstmalige Benutzerregistrierung („signup“).
+> Sie können bei Bedarf selbst eine erstellen. Für dieses Tutorial gehen wir jedoch davon aus, dass nur Bibliothekare Benutzer registrieren dürfen und dies über die Django-Admin-Oberfläche tun würden.
 
 > [!NOTE]
-> In diesem Fall könnten wir vernünftigerweise die Authentifizierungsseiten, einschließlich der URLs und Vorlagen, innerhalb unserer Kataloganwendung platzieren.
-> Wenn wir jedoch mehrere Anwendungen hätten, wäre es besser, dieses gemeinsame Anmeldeverhalten zu trennen und auf der ganzen Website verfügbar zu machen, daher haben wir das hier gezeigt!
+> Sie müssen keinen dieser Codes verwenden, aber wahrscheinlich werden Sie dies tun wollen, weil es vieles erheblich erleichtert.
+> Sie werden den Code zur Formularverarbeitung fast sicher ändern müssen, falls Sie Ihr Benutzermodell ändern. Dennoch könnten Sie weiterhin die standardmäßigen View-Funktionen verwenden.
+
+> [!NOTE]
+> In diesem Fall könnten wir die Authentifizierungsseiten, einschließlich der URLs und Templates, sinnvollerweise in unserer catalog-Anwendung ablegen.
+> Wenn wir jedoch mehrere Anwendungen hätten, wäre es besser, dieses gemeinsame Anmeldeverhalten auszulagern und für die gesamte Website verfügbar zu machen. Deshalb zeigen wir es hier so!
 
 ### Projekt-URLs
 
-Fügen Sie das Folgende an das Ende der Datei urls.py des Projekts (\*\*django-locallibrary-tutorial/locallibrary/urls.py\*\*) hinzu:
+Fügen Sie Folgendes am Ende der Datei urls.py des Projekts (**django-locallibrary-tutorial/locallibrary/urls.py**) hinzu:
 
 ```python
 # Add Django site authentication urls (for login, logout, password management)
@@ -166,12 +166,12 @@ urlpatterns += [
 ]
 ```
 
-Navigieren Sie zur URL `http://127.0.0.1:8000/accounts/` (achten Sie auf den abschließenden Schrägstrich!).
-Django zeigt einen Fehler an, dass es dieses URL-Mapping nicht finden konnte, und listet alle URLs auf, die es versucht hat.
-Daraus können Sie sehen, welche URLs funktionieren werden, sobald wir Vorlagen erstellt haben.
+Navigieren Sie zur URL `http://127.0.0.1:8000/accounts/` (beachten Sie den abschließenden Schrägstrich!).
+Django zeigt einen Fehler an, dass keine Zuordnung für diese URL gefunden wurde, und listet alle URLs auf, die es versucht hat.
+Daran können Sie die URLs erkennen, die funktionieren werden, sobald wir Templates erstellt haben.
 
 > [!NOTE]
-> Durch Hinzufügen des `accounts/` Pfades wie oben gezeigt, werden die folgenden URLs hinzugefügt, zusammen mit Namen (in eckigen Klammern), die verwendet werden können, um die URL-Mappings zu reversen. Sie müssen nichts Weiteres implementieren – das obige URL-Mapping mappt automatisch die unten genannten URLs.
+> Das Hinzufügen des Pfads `accounts/` wie oben gezeigt fügt die folgenden URLs zusammen mit Namen hinzu (in eckigen Klammern angegeben), die zum Umkehren der URL-Zuordnungen verwendet werden können. Sie müssen nichts weiter implementieren — die obige URL-Zuordnung bildet die unten genannten URLs automatisch ab.
 >
 > ```python
 > accounts/ login/ [name='login']
@@ -184,43 +184,43 @@ Daraus können Sie sehen, welche URLs funktionieren werden, sobald wir Vorlagen 
 > accounts/ reset/done/ [name='password_reset_complete']
 > ```
 
-Versuchen Sie nun, zur Anmelde-URL (`http://127.0.0.1:8000/accounts/login/`) zu navigieren. Dies wird erneut fehlschlagen, jedoch mit einem Fehler, der Ihnen mitteilt, dass die erforderliche Vorlage (**registration/login.html**) im Vorlagen-Suchpfad fehlt.
-Sie sehen die folgenden Zeilen oben im gelben Abschnitt aufgeführt:
+Versuchen Sie nun, zur Anmelde-URL (`http://127.0.0.1:8000/accounts/login/`) zu navigieren. Dies schlägt erneut fehl, diesmal jedoch mit einem Fehler, der Ihnen mitteilt, dass das erforderliche Template (**registration/login.html**) im Template-Suchpfad fehlt.
+Sie sehen die folgenden Zeilen im gelben Abschnitt oben aufgeführt:
 
 ```python
 Exception Type:    TemplateDoesNotExist
 Exception Value:    registration/login.html
 ```
 
-Der nächste Schritt besteht darin, ein Verzeichnis für die Vorlagen namens "registration" zu erstellen und dann die **login.html**-Datei hinzuzufügen.
+Der nächste Schritt besteht darin, ein Verzeichnis für die Templates mit dem Namen „registration“ zu erstellen und anschließend die Datei **login.html** hinzuzufügen.
 
-### Vorlagenverzeichnis
+### Template-Verzeichnis
 
-Die URLs (und implizit die Ansichten), die wir gerade hinzugefügt haben, erwarten, dass die zugehörigen Vorlagen in einem Verzeichnis namens **/registration/** irgendwo im Vorlagen-Suchpfad gefunden werden.
+Die gerade hinzugefügten URLs (und implizit die Views) erwarten, dass ihre zugehörigen Templates in einem Verzeichnis **/registration/** irgendwo im Template-Suchpfad gefunden werden.
 
-Für diese Website werden wir unsere HTML-Seiten im **templates/registration/**-Verzeichnis ablegen. Dieses Verzeichnis sollte sich in Ihrem Projektstammverzeichnis befinden, also im selben Verzeichnis wie die **catalog** und **locallibrary** Ordner. Bitte erstellen Sie diese Ordner jetzt.
+Für diese Website legen wir unsere HTML-Seiten im Verzeichnis **templates/registration/** ab. Dieses Verzeichnis sollte sich im Stammverzeichnis Ihres Projekts befinden, also im selben Verzeichnis wie die Ordner **catalog** und **locallibrary**. Bitte erstellen Sie diese Ordner jetzt.
 
 > [!NOTE]
-> Ihre Ordnerstruktur sollte nun wie unten aussehen:
+> Ihre Ordnerstruktur sollte nun wie folgt aussehen:
 >
 > ```plain
-> django-locallibrary-tutorial/   # Django oberstes Projektverzeichnis
+> django-locallibrary-tutorial/   # Django top level project folder
 >   catalog/
 >   locallibrary/
 >   templates/
 >     registration/
 > ```
 
-Um das **templates**-Verzeichnis für den Vorlagenlader sichtbar zu machen, müssen wir es im Vorlagen-Suchpfad hinzufügen.
+Damit das Verzeichnis **templates** für den Template-Loader sichtbar wird, müssen wir es zum Template-Suchpfad hinzufügen.
 Öffnen Sie die Projekteinstellungen (**/django-locallibrary-tutorial/locallibrary/settings.py**).
 
-Importieren Sie dann das `os`-Modul (fügen Sie die folgende Zeile nahe der Oberseite der Datei hinzu, wenn sie nicht bereits vorhanden ist).
+Importieren Sie dann das Modul `os` (fügen Sie die folgende Zeile nahe dem Anfang der Datei hinzu, falls sie noch nicht vorhanden ist).
 
 ```python
 import os # needed by code below
 ```
 
-Aktualisieren Sie die `TEMPLATES`-Sektion des `'DIRS'`-Eintrags wie gezeigt:
+Aktualisieren Sie die Zeile `'DIRS'` im Abschnitt `TEMPLATES` wie gezeigt:
 
 ```python
     # …
@@ -232,12 +232,12 @@ Aktualisieren Sie die `TEMPLATES`-Sektion des `'DIRS'`-Eintrags wie gezeigt:
        # …
 ```
 
-### Anmeldevorlage
+### Anmelde-Template
 
 > [!WARNING]
-> Die in diesem Artikel bereitgestellten Authentifizierungsvorlagen sind eine sehr einfache/leicht modifizierte Version der Django-Demonstrationsanmeldevorlagen. Möglicherweise müssen Sie sie für Ihre eigenen Zwecke anpassen!
+> Die in diesem Artikel bereitgestellten Authentifizierungs-Templates sind eine sehr einfache bzw. leicht modifizierte Version der Django-Demonstrations-Anmelde-Templates. Möglicherweise müssen Sie sie für Ihre eigene Verwendung anpassen!
 
-Erstellen Sie eine neue HTML-Datei namens /**django-locallibrary-tutorial/templates/registration/login.html** und geben Sie ihr den folgenden Inhalt:
+Erstellen Sie eine neue HTML-Datei mit dem Namen /**django-locallibrary-tutorial/templates/registration/login.html** und fügen Sie ihr den folgenden Inhalt hinzu:
 
 ```django
 {% extends "base_generic.html" %}
@@ -251,9 +251,9 @@ Erstellen Sie eine neue HTML-Datei namens /**django-locallibrary-tutorial/templa
   {% if next %}
     {% if user.is_authenticated %}
       <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
+      please log in with an account that has access.</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p>Please log in to see this page.</p>
     {% endif %}
   {% endif %}
 
@@ -279,25 +279,25 @@ Erstellen Sie eine neue HTML-Datei namens /**django-locallibrary-tutorial/templa
 {% endblock %}
 ```
 
-Diese Vorlage weist einige Ähnlichkeiten mit den zuvor gesehenen auf – sie erweitert unsere Basisklasse und überschreibt den `content` Block. Der Rest des Codes ist ein ziemlich standardmäßiger Formularbearbeitungscode, den wir in einem späteren Tutorial besprechen werden. Alles, was Sie jetzt wissen müssen, ist, dass dies ein Formular anzeigt, in das Sie Ihren Benutzernamen und Ihr Passwort eingeben können, und dass Sie aufgefordert werden, gültige Werte einzugeben, wenn Sie ungültige Werte eingeben und die Seite aktualisiert wird.
+Dieses Template weist einige Ähnlichkeiten mit denen auf, die wir zuvor gesehen haben — es erweitert unser Basistemplate und überschreibt den Block `content`. Der Rest des Codes ist weitgehend standardmäßiger Code zur Formularverarbeitung, den wir in einem späteren Tutorial besprechen werden. Alles, was Sie vorerst wissen müssen, ist, dass dadurch ein Formular angezeigt wird, in das Sie Ihren Benutzernamen und Ihr Passwort eingeben können. Wenn Sie ungültige Werte eingeben, werden Sie beim Neuladen der Seite aufgefordert, korrekte Werte einzugeben.
 
-Navigieren Sie zurück zur Anmeldeseite (`http://127.0.0.1:8000/accounts/login/`), nachdem Sie Ihre Vorlage gespeichert haben, und Sie sollten etwas sehen, das so aussieht:
+Navigieren Sie nach dem Speichern Ihres Templates zurück zur Anmeldeseite (`http://127.0.0.1:8000/accounts/login/`). Sie sollten ungefähr Folgendes sehen:
 
-![Library Login-Seite v1](library_login.png)
+![Bibliotheks-Anmeldeseite v1](library_login.png)
 
-Wenn Sie sich mit gültigen Anmeldedaten anmelden, werden Sie auf eine andere Seite umgeleitet (standardmäßig `http://127.0.0.1:8000/accounts/profile/`). Das Problem ist, dass Django standardmäßig davon ausgeht, dass Sie nach der Anmeldung zu einer Profilseite weitergeleitet werden möchten, was der Fall sein _kann_ oder auch nicht. Da Sie diese Seite noch nicht definiert haben, erhalten Sie einen weiteren Fehler!
+Wenn Sie sich mit gültigen Anmeldedaten anmelden, werden Sie zu einer anderen Seite weitergeleitet (standardmäßig ist dies `http://127.0.0.1:8000/accounts/profile/`). Das Problem ist, dass Django standardmäßig erwartet, dass Sie nach der Anmeldung zu einer Profilseite gelangen möchten, was möglicherweise nicht der Fall ist. Da Sie diese Seite noch nicht definiert haben, erhalten Sie einen weiteren Fehler!
 
-Öffnen Sie die Projekteinstellungen (**/django-locallibrary-tutorial/locallibrary/settings.py**) und fügen Sie den unten stehenden Text am Ende hinzu. Nun sollten Sie nach der Anmeldung standardmäßig zur Startseite der Website weitergeleitet werden.
+Öffnen Sie die Projekteinstellungen (**/django-locallibrary-tutorial/locallibrary/settings.py**) und fügen Sie den folgenden Text am Ende hinzu. Wenn Sie sich jetzt anmelden, sollten Sie standardmäßig zur Startseite der Website weitergeleitet werden.
 
 ```python
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 ```
 
-### Abmeldevorlage
+### Abmelde-Template
 
-Wenn Sie zur Abmelde-URL (`http://127.0.0.1:8000/accounts/logout/`) navigieren, erhalten Sie einen Fehler, da Django 5 keine Abmeldung über `GET`, sondern nur über `POST` erlaubt.
-Wir werden in Kürze ein Formular hinzufügen, mit dem Sie sich abmelden können, aber zuerst erstellen wir die Seite, zu der Benutzer nach der Abmeldung weitergeleitet werden.
+Wenn Sie zur Abmelde-URL (`http://127.0.0.1:8000/accounts/logout/`) navigieren, erhalten Sie einen Fehler, da Django 5 die Abmeldung über `GET` nicht erlaubt, sondern nur über `POST`.
+Wir fügen gleich ein Formular hinzu, mit dem Sie sich abmelden können. Zuerst erstellen wir jedoch die Seite, zu der Benutzer nach der Abmeldung gelangen.
 
 Erstellen und öffnen Sie **/django-locallibrary-tutorial/templates/registration/logged_out.html**. Kopieren Sie den folgenden Text hinein:
 
@@ -306,23 +306,23 @@ Erstellen und öffnen Sie **/django-locallibrary-tutorial/templates/registration
 
 {% block content %}
   <p>Logged out!</p>
-  <a href="{% url 'login'%}">Click here to login again.</a>
+  <a href="{% url 'login'%}">Click here to log in again.</a>
 {% endblock %}
 ```
 
-Diese Vorlage ist sehr einfach. Sie zeigt nur eine Meldung an, dass Sie abgemeldet wurden, und bietet einen Link an, über den Sie zurück zur Anmeldeseite gelangen. Der Bildschirm rendert so (nach Abmeldung):
+Dieses Template ist sehr einfach. Es zeigt lediglich eine Nachricht an, die Sie darüber informiert, dass Sie abgemeldet wurden, und enthält einen Link, den Sie anklicken können, um zum Anmeldebildschirm zurückzukehren. Der Bildschirm wird nach der Abmeldung so dargestellt:
 
-![Library Abmeldeseite v1](library_logout.png)
+![Bibliotheks-Abmeldeseite v1](library_logout.png)
 
-### Passwort-Zurücksetzen-Vorlagen
+### Templates zum Zurücksetzen des Passworts
 
-Das Standard-Passwort-Zurücksetzungssystem verwendet E-Mail, um dem Benutzer einen Link zum Zurücksetzen zu senden. Sie müssen Formulare erstellen, um die E-Mail-Adresse des Benutzers zu erhalten, die E-Mail zu senden, dem Benutzer die Eingabe eines neuen Passworts zu ermöglichen und den Abschluss des gesamten Prozesses zu vermerken.
+Das standardmäßige System zum Zurücksetzen von Passwörtern verwendet E-Mails, um dem Benutzer einen Link zum Zurücksetzen zu senden. Sie müssen Formulare erstellen, um die E-Mail-Adresse des Benutzers abzufragen, die E-Mail zu versenden, ihm die Eingabe eines neuen Passworts zu ermöglichen und festzustellen, wann der gesamte Vorgang abgeschlossen ist.
 
-Die folgenden Vorlagen können als Ausgangspunkt verwendet werden.
+Die folgenden Templates können als Ausgangspunkt verwendet werden.
 
-#### Passwort-Zurücksetzungs-Formular
+#### Formular zum Zurücksetzen des Passworts
 
-Dies ist das Formular, das verwendet wird, um die E-Mail-Adresse des Benutzers (zum Senden der Passwort-Zurücksetzungs-E-Mail) zu erhalten. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_form.html** und geben Sie ihm den folgenden Inhalt:
+Dies ist das Formular zum Abrufen der E-Mail-Adresse des Benutzers, um die E-Mail zum Zurücksetzen des Passworts zu senden. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_form.html** und geben Sie ihm den folgenden Inhalt:
 
 ```django
 {% extends "base_generic.html" %}
@@ -339,7 +339,7 @@ Dies ist das Formular, das verwendet wird, um die E-Mail-Adresse des Benutzers (
 {% endblock %}
 ```
 
-#### Passwort-Zurücksetzen abgeschlossen
+#### Zurücksetzen des Passworts abgeschlossen
 
 Dieses Formular wird angezeigt, nachdem Ihre E-Mail-Adresse erfasst wurde. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_done.html** und geben Sie ihm den folgenden Inhalt:
 
@@ -351,18 +351,18 @@ Dieses Formular wird angezeigt, nachdem Ihre E-Mail-Adresse erfasst wurde. Erste
 {% endblock %}
 ```
 
-#### Passwort-Zurücksetzungs-E-Mail
+#### E-Mail zum Zurücksetzen des Passworts
 
-Diese Vorlage bietet den Text der HTML-E-Mail mit dem Zurücksetzungslink, den wir an Benutzer senden werden. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_email.html** und geben Sie ihm den folgenden Inhalt:
+Dieses Template stellt den Text der HTML-E-Mail bereit, die den Link zum Zurücksetzen enthält und an Benutzer gesendet wird. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_email.html** und geben Sie ihm den folgenden Inhalt:
 
 ```django
 Someone asked for password reset for email \{{ email }}. Follow the link below:
 \{{ protocol }}://\{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
 ```
 
-#### Passwort-Zurücksetzen-Confirm
+#### Zurücksetzen des Passworts bestätigen
 
-Diese Seite ist der Ort, an dem Sie Ihr neues Passwort eingeben, nachdem Sie auf den Link in der Passwort-Zurücksetzungs-E-Mail geklickt haben. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_confirm.html** und geben Sie ihm den folgenden Inhalt:
+Auf dieser Seite geben Sie nach dem Anklicken des Links in der E-Mail zum Zurücksetzen des Passworts Ihr neues Passwort ein. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_confirm.html** und geben Sie ihm den folgenden Inhalt:
 
 ```django
 {% extends "base_generic.html" %}
@@ -396,9 +396,9 @@ Diese Seite ist der Ort, an dem Sie Ihr neues Passwort eingeben, nachdem Sie auf
 {% endblock %}
 ```
 
-#### Passwort-Zurücksetzen abgeschlossen
+#### Zurücksetzen des Passworts vollständig
 
-Dies ist die letzte Passwort-Zurücksetzen-Vorlage, die angezeigt wird, um Sie zu benachrichtigen, wenn das Zurücksetzen des Passworts erfolgreich war. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_complete.html** und geben Sie ihm den folgenden Inhalt:
+Dies ist das letzte Template zum Zurücksetzen des Passworts. Es wird angezeigt, um Sie darüber zu informieren, dass das Zurücksetzen des Passworts erfolgreich war. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_complete.html** und geben Sie ihm den folgenden Inhalt:
 
 ```django
 {% extends "base_generic.html" %}
@@ -409,17 +409,17 @@ Dies ist die letzte Passwort-Zurücksetzen-Vorlage, die angezeigt wird, um Sie z
 {% endblock %}
 ```
 
-### Testen der neuen Authentifizierungsseiten
+### Die neuen Authentifizierungsseiten testen
 
-Nachdem Sie die URL-Konfiguration hinzugefügt und all diese Vorlagen erstellt haben, sollten die Authentifizierungsseiten (ausgenommen Logout) jetzt einfach funktionieren!
+Nachdem Sie nun die URL-Konfiguration hinzugefügt und all diese Templates erstellt haben, sollten die Authentifizierungsseiten — mit Ausnahme der Abmeldung — einfach funktionieren!
 
-Sie können die neuen Authentifizierungsseiten testen, indem Sie zuerst versuchen, sich mit Ihrem Superuser-Konto unter der URL `http://127.0.0.1:8000/accounts/login/` anzumelden.
-Sie können die Passwort-Zurücksetzungs-Funktionalität über den Link in der Anmeldeseite testen. **Beachten Sie, dass Django nur Zurücksetzungs-E-Mails an Adressen (Benutzer) sendet, die bereits in seiner Datenbank gespeichert sind!**
+Sie können die neuen Authentifizierungsseiten testen, indem Sie zunächst versuchen, sich über die URL `http://127.0.0.1:8000/accounts/login/` bei Ihrem Superuser-Konto anzumelden.
+Die Funktion zum Zurücksetzen des Passworts können Sie über den Link auf der Anmeldeseite testen. **Beachten Sie, dass Django E-Mails zum Zurücksetzen nur an Adressen bzw. Benutzer sendet, die bereits in seiner Datenbank gespeichert sind!**
 
-Beachten Sie, dass Sie die Abmeldung noch nicht testen können, da Abmeldeanforderungen als `POST` und nicht als `GET`-Anfrage gesendet werden müssen.
+Beachten Sie, dass Sie die Kontoabmeldung noch nicht testen können, da Abmeldeanforderungen als `POST`- statt als `GET`-Anforderung gesendet werden müssen.
 
 > [!NOTE]
-> Das Passwort-Zurücksetzen-System erfordert, dass Ihre Website E-Mail unterstützt, was über den Umfang dieses Artikels hinausgeht, sodass dieser Teil **nicht funktioniert**. Um das Testen zu ermöglichen, platzieren Sie die folgende Zeile am Ende Ihrer settings.py Datei. Dies protokolliert alle gesendeten E-Mails in der Konsole (sodass Sie den Passwort-Zurücksetzungs-Link aus der Konsole kopieren können).
+> Das System zum Zurücksetzen des Passworts erfordert, dass Ihre Website E-Mails unterstützt, was über den Umfang dieses Artikels hinausgeht. Daher wird dieser Teil **noch nicht funktionieren**. Um Tests zu ermöglichen, fügen Sie die folgende Zeile am Ende Ihrer Datei settings.py ein. Dadurch werden alle gesendeten E-Mails in der Konsole protokolliert, sodass Sie den Link zum Zurücksetzen des Passworts aus der Konsole kopieren können.
 >
 > ```python
 > EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -427,17 +427,17 @@ Beachten Sie, dass Sie die Abmeldung noch nicht testen können, da Abmeldeanford
 >
 > Weitere Informationen finden Sie unter [E-Mails senden](https://docs.djangoproject.com/en/5.0/topics/email/) (Django-Dokumentation).
 
-## Testen gegen authentifizierte Benutzer
+## Gegenüber authentifizierten Benutzern testen
 
-In diesem Abschnitt wird erläutert, was wir tun können, um selektiv zu steuern, welche Inhalte der Benutzer sieht, basierend darauf, ob er angemeldet ist oder nicht.
+In diesem Abschnitt betrachten wir, wie wir die Inhalte, die der Benutzer sieht, abhängig davon steuern können, ob er angemeldet ist oder nicht.
 
-### Testen in Vorlagen
+### In Templates testen
 
-Sie können in Vorlagen Informationen über den aktuell angemeldeten Benutzer mit der `\{{ user }}`-Vorlagenvariable abrufen (diese wird dem Vorlagenkontext standardmäßig hinzugefügt, wenn Sie das Projekt wie bei unserem Gerüst eingerichtet haben).
+Sie können in Templates mit der Template-Variablen `\{{ user }}` Informationen über den aktuell angemeldeten Benutzer abrufen (diese wird standardmäßig zum Template-Kontext hinzugefügt, wenn Sie das Projekt wie bei unserem Skelett einrichten).
 
-Typischerweise werden Sie zuerst die `\{{ user.is_authenticated }}`-Vorlagenvariable testen, um zu bestimmen, ob der Benutzer berechtigt ist, bestimmte Inhalte zu sehen. Um dies zu demonstrieren, aktualisieren wir als nächstes unsere Sidebar, um einen "Login"-Link anzuzeigen, wenn der Benutzer abgemeldet ist, und einen "Logout"-Link, wenn er angemeldet ist.
+Üblicherweise prüfen Sie zunächst die Template-Variable `\{{ user.is_authenticated }}`, um festzustellen, ob der Benutzer bestimmte Inhalte sehen darf. Um dies zu demonstrieren, aktualisieren wir als Nächstes unsere Seitenleiste, damit ein Link „Login“ angezeigt wird, wenn der Benutzer abgemeldet ist, und ein Link „Logout“, wenn er angemeldet ist.
 
-Öffnen Sie die Basiseinheit (**/django-locallibrary-tutorial/catalog/templates/base_generic.html**) und kopieren Sie den folgenden Text in den `sidebar-block`, unmittelbar vor dem `endblock-Template-Tag`.
+Öffnen Sie das Basistemplate (**/django-locallibrary-tutorial/catalog/templates/base_generic.html**) und kopieren Sie den folgenden Text in den Block `sidebar`, unmittelbar vor dem Template-Tag `endblock`.
 
 ```django
   <ul class="sidebar-nav">
@@ -457,14 +457,14 @@ Typischerweise werden Sie zuerst die `\{{ user.is_authenticated }}`-Vorlagenvari
   </ul>
 ```
 
-Wie Sie sehen können, verwenden wir `if` / `else` / `endif`-Template-Tags, um Text basierend darauf bedingt anzuzeigen, ob `\{{ user.is_authenticated }}` wahr ist. Wenn der Benutzer authentifiziert ist, wissen wir, dass wir einen gültigen Benutzer haben, weshalb wir `\{{ user.get_username }}` aufrufen, um seinen Namen anzuzeigen.
+Wie Sie sehen können, verwenden wir die Template-Tags `if` / `else` / `endif`, um Text abhängig davon anzuzeigen, ob `\{{ user.is_authenticated }}` wahr ist. Wenn der Benutzer authentifiziert ist, wissen wir, dass wir einen gültigen Benutzer haben, und rufen daher `\{{ user.get_username }}` auf, um seinen Namen anzuzeigen.
 
-Wir erstellen den Anmeldelink der URL mithilfe des `url`-Template-Tags und dem Namen der URL-Konfiguration `login`. Beachten Sie auch, wie wir `?next=\{{ request.path }}` an das Ende der URL angehängt haben. Was dies tut, ist, einen URL-Parameter `next` hinzuzufügen, der die Adresse (URL) der _aktuellen_ Seite enthält, an das Ende der verknüpften URL. Nachdem der Benutzer sich erfolgreich angemeldet hat, wird die Ansicht diesen `next`-Wert verwenden, um den Benutzer zurück auf die Seite zu leiten, von der aus er auf den Anmeldelink geklickt hat.
+Wir erstellen die URL des Anmeldelinks mit dem Template-Tag `url` und dem Namen der URL-Konfiguration `login`. Beachten Sie auch, dass wir `?next=\{{ request.path }}` an das Ende der URL angehängt haben. Dadurch wird am Ende der verlinkten URL ein URL-Parameter `next` hinzugefügt, der die Adresse (URL) der _aktuellen_ Seite enthält. Nachdem sich der Benutzer erfolgreich angemeldet hat, verwendet die View diesen Wert `next`, um den Benutzer auf die Seite zurückzuleiten, auf der er erstmals auf den Anmeldelink geklickt hat.
 
-Der Logout-Template-Code ist anders, da Sie sich bei Django 5 abmelden müssen, indem Sie an die URL `admin:logout` über ein Formular mit einer Schaltfläche `POST` senden.
-Standardmäßig würde dies als Schaltfläche gerendert werden, aber Sie können die Schaltfläche so gestalten, dass sie wie ein Link aussieht.
-Für dieses Beispiel verwenden wir _Bootstrap_, sodass wir die Schaltfläche durch Anwendung von `class="btn btn-link"` wie einen Link ansehen lassen.
-Sie müssen auch die folgenden Styles der Datei **/django-locallibrary-tutorial/catalog/static/css/styles.css** hinzufügen, um den Logout-Link korrekt neben allen anderen Sidebar-Links zu positionieren:
+Der Code des Abmelde-Templates unterscheidet sich, da Sie sich ab Django 5 mit `POST` an der URL `admin:logout` über ein Formular mit einer Schaltfläche abmelden müssen.
+Standardmäßig würde dies als Schaltfläche dargestellt, Sie können die Schaltfläche jedoch so gestalten, dass sie als Link angezeigt wird.
+Für dieses Beispiel verwenden wir _Bootstrap_. Daher lassen wir die Schaltfläche durch Anwenden von `class="btn btn-link"` wie einen Link aussehen.
+Sie müssen außerdem die folgenden Styles an **/django-locallibrary-tutorial/catalog/static/css/styles.css** anhängen, um den Abmeldelink korrekt neben allen anderen Links der Seitenleiste zu positionieren:
 
 ```css
 #logout-form {
@@ -476,12 +476,12 @@ Sie müssen auch die folgenden Styles der Datei **/django-locallibrary-tutorial/
 }
 ```
 
-Probieren Sie es aus, indem Sie auf die Anmelde-/Abmelde-Links in der Sidebar klicken.
-Sie sollten zu den Anmeldeseiten gelangen, die Sie im [Vorlagenverzeichnis](#vorlagenverzeichnis) definiert haben.
+Probieren Sie es aus, indem Sie auf die Links Login/Logout in der Seitenleiste klicken.
+Sie sollten zu den Abmelde-/Anmeldeseiten gelangen, die Sie oben unter [Template-Verzeichnis](#template-verzeichnis) definiert haben.
 
-### Testen in Ansichten
+### In Views testen
 
-Wenn Sie funktionsbasierte Ansichten verwenden, ist es der einfachste Weg, den Zugriff auf Ihre Funktionen zu beschränken, den `login_required`-Decorator auf Ihre Ansichts-Funktion anzuwenden, wie unten gezeigt. Wenn der Benutzer angemeldet ist, wird Ihr Ansichtscode wie gewohnt ausgeführt. Wenn der Benutzer nicht angemeldet ist, wird dies zur Anmeldeseite weiterleiten, die in den Projekteinstellungen (`settings.LOGIN_URL`) definiert ist, und den aktuellen absoluten Pfad als `next' URL-Parameter übergeben. Wenn der Benutzer sich erfolgreich anmeldet, wird er zurück auf diese Seite geleitet, jetzt jedoch authentifiziert.
+Wenn Sie funktionsbasierte Views verwenden, können Sie den Zugriff auf Ihre Funktionen am einfachsten einschränken, indem Sie den Decorator `login_required` auf Ihre View-Funktion anwenden, wie unten gezeigt. Wenn der Benutzer angemeldet ist, wird Ihr View-Code normal ausgeführt. Wenn der Benutzer nicht angemeldet ist, erfolgt eine Weiterleitung zur in den Projekteinstellungen definierten Anmelde-URL (`settings.LOGIN_URL`), wobei der aktuelle absolute Pfad als URL-Parameter `next` übergeben wird. Wenn der Benutzer sich erfolgreich anmeldet, kehrt er zu dieser Seite zurück, diesmal jedoch authentifiziert.
 
 ```python
 from django.contrib.auth.decorators import login_required
@@ -492,9 +492,9 @@ def my_view(request):
 ```
 
 > [!NOTE]
-> Sie können dasselbe manuell machen, indem Sie auf `request.user.is_authenticated` testen, aber der Decorator ist viel bequemer!
+> Sie können dasselbe auch manuell tun, indem Sie `request.user.is_authenticated` prüfen, aber der Decorator ist wesentlich praktischer!
 
-In ähnlicher Weise besteht die einfachste Möglichkeit, den Zugriff auf angemeldete Benutzer in Ihren klassengebasierten Ansichten einzuschränken, darin, von `LoginRequiredMixin` abgeleitet zu werden. Sie müssen diesen Mixin zuerst in der Liste der Superklassen angeben, vor der Hauptansichtsklasse.
+Entsprechend können Sie den Zugriff auf angemeldete Benutzer in Ihren klassenbasierten Views am einfachsten einschränken, indem Sie von `LoginRequiredMixin` ableiten. Sie müssen dieses Mixin in der Liste der Oberklassen zuerst, vor der Haupt-View-Klasse, deklarieren.
 
 ```python
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -503,7 +503,7 @@ class MyView(LoginRequiredMixin, View):
     # …
 ```
 
-Dieses Verhalten hat genau dasselbe Umleitungsverhalten wie der `login_required`-Decorator. Sie können auch einen alternativen Ort angeben, um den Benutzer im Falle einer fehlenden Authentifizierung umzuleiten (`login_url`) und einen URL-Parameter-Namen anstelle von `next`, um den aktuellen absoluten Pfad (`redirect_field_name`) einzufügen.
+Dies hat exakt dasselbe Weiterleitungsverhalten wie der Decorator `login_required`. Sie können außerdem einen alternativen Ort angeben, zu dem der Benutzer weitergeleitet wird, falls er nicht authentifiziert ist (`login_url`), sowie anstelle von `next` einen Namen für den URL-Parameter, in den der aktuelle absolute Pfad eingefügt wird (`redirect_field_name`).
 
 ```python
 class MyView(LoginRequiredMixin, View):
@@ -511,34 +511,34 @@ class MyView(LoginRequiredMixin, View):
     redirect_field_name = 'redirect_to'
 ```
 
-Weitere Informationen finden Sie in den [Django-Dokumenten hier](https://docs.djangoproject.com/en/5.0/topics/auth/default/#limiting-access-to-logged-in-users).
+Weitere Details finden Sie in der [Django-Dokumentation](https://docs.djangoproject.com/en/5.0/topics/auth/default/#limiting-access-to-logged-in-users).
 
-## Beispiel — Auflisten der Bücher des aktuellen Benutzers
+## Beispiel — Bücher des aktuellen Benutzers auflisten
 
-Da wir wissen, wie wir eine Seite auf einen bestimmten Benutzer beschränken können, erstellen wir eine Ansicht der Bücher, die der aktuelle Benutzer ausgeliehen hat.
+Da wir nun wissen, wie wir eine Seite auf einen bestimmten Benutzer beschränken, erstellen wir eine Ansicht der Bücher, die der aktuelle Benutzer ausgeliehen hat.
 
-Leider haben wir noch keine Möglichkeit für Benutzer, Bücher auszuleihen! Bevor wir die Buchliste erstellen können, erweitern wir das `BookInstance`-Modell, um das Konzept des Ausleihens zu unterstützen, und verwenden die Django-Admin-Anwendung, um eine Anzahl von Büchern an unseren Testbenutzer auszuleihen.
+Leider haben wir noch keine Möglichkeit, Bücher auszuleihen! Bevor wir also die Bücherliste erstellen können, erweitern wir zunächst das Modell `BookInstance`, um das Konzept des Ausleihens zu unterstützen, und verwenden die Django-Admin-Anwendung, um unserem Testbenutzer mehrere Bücher auszuleihen.
 
 ### Modelle
 
-Zuerst müssen wir es Benutzern ermöglichen, eine `BookInstance` auszuleihen (wir haben bereits einen `status` und ein `due_back`-Datum, aber wir haben noch keine Verknüpfung zwischen diesem Modell und einem bestimmten Benutzer. Wir erstellen eine solche Verknüpfung mithilfe eines `ForeignKey` (One-to-Many)-Felds. Wir benötigen auch eine einfache Mechanismus, um zu überprüfen, ob ein ausgeliehenes Buch überfällig ist.
+Zuerst müssen wir ermöglichen, dass Benutzer eine `BookInstance` ausgeliehen haben können. Wir haben bereits ein `status`- und ein `due_back`-Datum, aber noch keine Verknüpfung zwischen diesem Modell und einem bestimmten Benutzer. Wir erstellen eine solche über ein Feld `ForeignKey` (eins-zu-viele). Außerdem benötigen wir einen einfachen Mechanismus, um zu prüfen, ob ein ausgeliehenes Buch überfällig ist.
 
-Öffnen Sie **catalog/models.py** und importieren Sie die `settings` aus `django.conf` (fügen Sie dies direkt unter der vorhergehenden Import-Zeile an der Oberseite der Datei hinzu, sodass die Einstellungen für den nachfolgenden Code, der sie verwendet, verfügbar sind):
+Öffnen Sie **catalog/models.py** und importieren Sie `settings` aus `django.conf` (fügen Sie dies direkt unter der vorherigen Importzeile am Anfang der Datei hinzu, damit die Einstellungen für nachfolgenden Code verfügbar sind, der sie verwendet):
 
 ```python
 from django.conf import settings
 ```
 
-Fügen Sie als nächstes das `borrower`-Feld zum `BookInstance`-Modell hinzu und setzen Sie das Benutzermodell für den Schlüssel als den Wert der Einstellung `AUTH_USER_MODEL`.
-Da wir die Einstellung nicht mit einem [benutzerdefinierten Benutzermodell](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/) überschrieben haben, mappt dies auf das Standard-Benutzermodell von `django.contrib.auth.models`.
+Fügen Sie als Nächstes das Feld `borrower` zum Modell `BookInstance` hinzu und legen Sie das Benutzermodell für den Schlüssel als Wert der Einstellung `AUTH_USER_MODEL` fest.
+Da wir die Einstellung nicht mit einem [benutzerdefinierten Benutzermodell](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/) überschrieben haben, verweist dies auf das Standardmodell `User` aus `django.contrib.auth.models`.
 
 ```python
 borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
 ```
 
 > [!NOTE]
-> Indem Sie das Modell auf diese Weise importieren, verringern Sie die Arbeit, die erforderlich ist, falls Sie später feststellen, dass Sie ein benutzerdefiniertes Benutzermodell benötigen.
-> Dieses Tutorial verwendet das Standardmodell, daher könnten Sie das `User`-Modell auch direkt mit den folgenden Zeilen importieren:
+> Das Importieren des Modells auf diese Weise verringert den Aufwand, falls Sie später feststellen, dass Sie ein benutzerdefiniertes Benutzermodell benötigen.
+> Dieses Tutorial verwendet das Standardmodell, daher könnten Sie stattdessen das Modell `User` direkt mit den folgenden Zeilen importieren:
 >
 > ```python
 > from django.contrib.auth.models import User
@@ -548,20 +548,20 @@ borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL
 > borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 > ```
 
-Da wir hier sind, lassen Sie uns eine Methode hinzufügen, die wir aus unseren Vorlagen aufrufen können, um zu überprüfen, ob eine bestimmte Buchinstanz überfällig ist.
-Obwohl wir dies in der Vorlage selbst berechnen könnten, wird die Verwendung einer [Methode](https://docs.python.org/3/library/functions.html#property) wie unten gezeigt viel effizienter sein.
+Während wir hier sind, fügen wir eine Eigenschaft hinzu, die wir aus unseren Templates aufrufen können, um festzustellen, ob eine bestimmte Buchinstanz überfällig ist.
+Wir könnten dies zwar im Template selbst berechnen, die Verwendung einer [Eigenschaft](https://docs.python.org/3/library/functions.html#property), wie unten gezeigt, ist jedoch deutlich effizienter.
 
-Fügen Sie das irgendwo nahe der Oberseite der Datei hinzu:
+Fügen Sie Folgendes irgendwo nahe dem Anfang der Datei hinzu:
 
 ```python
 from datetime import date
 ```
 
-Fügen Sie nun die folgende Methode zu der `BookInstance`-Klasse hinzu:
+Fügen Sie nun die folgende Eigenschaftsdefinition zur Klasse `BookInstance` hinzu:
 
 > [!NOTE]
-> Der folgende Code verwendet Python's `bool()`-Funktion, die ein Objekt oder das resultierende Objekt eines Ausdrucks auswertet und `True` zurückgibt, es sei denn, das Ergebnis ist "falsy", in diesem Fall gibt es `False` zurück.
-> In Python ist ein Objekt _falsch_ (wertet als `False`), wenn es: leer (wie `[]`, `()`, `{}`), `0`, `None` ist oder wenn es `False` ist.
+> Der folgende Code verwendet die Python-Funktion `bool()`, die ein Objekt oder das resultierende Objekt eines Ausdrucks auswertet und `True` zurückgibt, sofern das Ergebnis nicht „falsy“ ist; in diesem Fall wird `False` zurückgegeben.
+> In Python ist ein Objekt _falsy_ (wird als `False` ausgewertet), wenn es leer ist (wie `[]`, `()`, `{}`), `0`, `None` oder `False` ist.
 
 ```python
 @property
@@ -571,9 +571,9 @@ def is_overdue(self):
 ```
 
 > [!NOTE]
-> Wir überprüfen zuerst, ob `due_back` leer ist, bevor wir einen Vergleich anstellen. Ein leeres `due_back`-Feld würde Django einen Fehler auslösen lassen, anstatt die Seite anzuzeigen: Leere Werte sind nicht vergleichbar. Dies möchten wir unseren Benutzern nicht erleben lassen!
+> Wir prüfen zuerst, ob `due_back` leer ist, bevor wir einen Vergleich durchführen. Ein leeres Feld `due_back` würde dazu führen, dass Django einen Fehler auslöst, anstatt die Seite anzuzeigen: Leere Werte sind nicht vergleichbar. Dies sollten unsere Benutzer nicht erleben!
 
-Nachdem wir unsere Modelle aktualisiert haben, müssen wir auf dem Projekt neue Migrationen durchführen und dann diese Migrationen anwenden:
+Da wir unsere Modelle nun aktualisiert haben, müssen wir im Projekt neue Migrationen erstellen und diese anschließend anwenden:
 
 ```bash
 python3 manage.py makemigrations
@@ -582,8 +582,8 @@ python3 manage.py migrate
 
 ### Admin
 
-Öffnen Sie nun **catalog/admin.py** und fügen Sie das `borrower`-Feld zur `BookInstanceAdmin`-Klasse sowohl in die `list_display` als auch in die `fieldsets` ein, wie unten gezeigt.
-Dies macht das Feld im Admin-Bereich sichtbar, sodass wir einem `BookInstance` bei Bedarf einen `User` zuweisen können.
+Öffnen Sie nun **catalog/admin.py** und fügen Sie das Feld `borrower` zur Klasse `BookInstanceAdmin` sowohl in `list_display` als auch in `fieldsets` hinzu, wie unten gezeigt.
+Dadurch wird das Feld im Admin-Bereich sichtbar und wir können bei Bedarf einen `User` einer `BookInstance` zuweisen.
 
 ```python
 @admin.register(BookInstance)
@@ -603,16 +603,16 @@ class BookInstanceAdmin(admin.ModelAdmin):
 
 ### Einige Bücher ausleihen
 
-Nun, da es möglich ist, Bücher an einen bestimmten Benutzer zu verleihen, leihen Sie eine Anzahl von `BookInstance`-Datensätzen aus. Setzen Sie deren `borrower`-Feld auf Ihren Testbenutzer, setzen Sie den `status` auf "On loan" und setzen Sie sowohl zukünftige als auch vergangene Fälligkeitsdaten.
+Da es jetzt möglich ist, Bücher an einen bestimmten Benutzer auszuleihen, leihen Sie mehrere `BookInstance`-Datensätze aus. Setzen Sie ihr Feld `borrowed` auf Ihren Testbenutzer, setzen Sie den `status` auf „On loan“ und legen Sie Fälligkeitsdaten sowohl in der Zukunft als auch in der Vergangenheit fest.
 
 > [!NOTE]
-> Wir werden den Prozess nicht im Detail erläutern, da Sie bereits mit der Nutzung der Admin-Site vertraut sind!
+> Wir erläutern den Prozess nicht genauer, da Sie bereits wissen, wie die Admin-Website verwendet wird!
 
-### Zur-ausleihe-Ansicht
+### View für Ausleihen
 
-Nun werden wir eine Ansicht hinzufügen, um die Liste aller Bücher zu erhalten, die dem aktuellen Benutzer geliehen wurden. Wir verwenden die gleiche generische klassengebundene Listenansicht, die wir bereits kennen, importieren und leiten jedoch von `LoginRequiredMixin` ab, damit nur ein angemeldeter Benutzer diese Ansicht aufrufen kann. Wir entscheiden uns auch dafür, einen `template_name` anzugeben, anstatt den Standard zu verwenden, da wir möglicherweise einige verschiedene Listen von `BookInstance`-Datensätzen mit verschiedenen Ansichten und Vorlagen haben.
+Nun fügen wir eine View hinzu, um die Liste aller Bücher abzurufen, die an den aktuellen Benutzer ausgeliehen wurden. Wir verwenden dieselbe generische klassenbasierte Listen-View, mit der wir vertraut sind, importieren diesmal jedoch auch `LoginRequiredMixin` und leiten davon ab, sodass nur ein angemeldeter Benutzer diese View aufrufen kann. Außerdem entscheiden wir uns dafür, einen `template_name` zu deklarieren, statt den Standardwert zu verwenden, da wir möglicherweise mehrere verschiedene Listen von BookInstance-Datensätzen mit unterschiedlichen Views und Templates erhalten.
 
-Fügen Sie das Folgende zu **catalog/views.py** hinzu:
+Fügen Sie Folgendes zu **catalog/views.py** hinzu:
 
 ```python
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -631,11 +631,11 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
         )
 ```
 
-Um unsere Abfrage nur auf die `BookInstance`-Objekte für den aktuellen Benutzer zu beschränken, implementieren wir `get_queryset()` wie oben gezeigt. Beachten Sie, dass "o" der gespeicherte Code für "on loan" ist und wir nach dem `due_back`-Datum ordnen, sodass die ältesten Elemente zuerst angezeigt werden.
+Um unsere Abfrage auf die `BookInstance`-Objekte für den aktuellen Benutzer zu beschränken, implementieren wir `get_queryset()` wie oben gezeigt neu. Beachten Sie, dass „o“ der gespeicherte Code für „on loan“ ist und wir nach dem Datum `due_back` sortieren, damit die ältesten Elemente zuerst angezeigt werden.
 
-### URL-Konfiguration für geliehene Bücher
+### URL-Konfiguration für ausgeliehene Bücher
 
-Öffnen Sie nun **/catalog/urls.py** und fügen Sie einen `path()` hinzu, der auf die obige Ansicht verweist (Sie können den folgenden Text einfach ans Ende der Datei kopieren).
+Öffnen Sie nun **/catalog/urls.py** und fügen Sie einen `path()` hinzu, der auf die obige View verweist. Sie können den folgenden Text einfach an das Ende der Datei kopieren.
 
 ```python
 urlpatterns += [
@@ -643,9 +643,9 @@ urlpatterns += [
 ]
 ```
 
-### Vorlage für geliehene Bücher
+### Template für ausgeliehene Bücher
 
-Jetzt müssen wir nur noch eine Vorlage für diese Seite hinzufügen. Erstellen Sie zuerst die Vorlagendatei **/catalog/templates/catalog/bookinstance_list_borrowed_user.html** und geben Sie ihr den folgenden Inhalt:
+Jetzt müssen wir für diese Seite nur noch ein Template hinzufügen. Erstellen Sie zunächst die Template-Datei **/catalog/templates/catalog/bookinstance_list_borrowed_user.html** und geben Sie ihr den folgenden Inhalt:
 
 ```django
 {% extends "base_generic.html" %}
@@ -669,16 +669,16 @@ Jetzt müssen wir nur noch eine Vorlage für diese Seite hinzufügen. Erstellen 
 {% endblock %}
 ```
 
-Diese Vorlage ist sehr ähnlich zu denjenigen, die wir zuvor für die `Book`- und `Author`-Objekte erstellt haben.
-Das einzige "neue" hier ist, dass wir die Methode überprüfen, die wir im Modell hinzugefügt haben (`bookinst.is_overdue`) und verwenden, um die Farbe überfälliger Elemente zu ändern.
+Dieses Template ist denjenigen sehr ähnlich, die wir zuvor für die Objekte `Book` und `Author` erstellt haben.
+Das einzige „Neue“ besteht darin, dass wir die Methode prüfen, die wir dem Modell hinzugefügt haben (`bookinst.is_overdue`), und sie verwenden, um die Farbe überfälliger Elemente zu ändern.
 
-Wenn der Entwicklungsserver läuft, sollten Sie jetzt die Liste für einen angemeldeten Benutzer in Ihrem Browser unter `http://127.0.0.1:8000/catalog/mybooks/` anzeigen können. Testen Sie dies mit Ihrem Benutzer, sowohl wenn Sie angemeldet sind als auch abgemeldet (im zweiten Fall sollten Sie zur Anmeldeseite weitergeleitet werden).
+Wenn der Entwicklungsserver läuft, sollten Sie die Liste für einen angemeldeten Benutzer jetzt unter `http://127.0.0.1:8000/catalog/mybooks/` in Ihrem Browser anzeigen können. Probieren Sie dies sowohl angemeldet als auch abgemeldet aus. Im zweiten Fall sollten Sie zur Anmeldeseite weitergeleitet werden.
 
-### Fügen Sie die Liste zur Sidebar hinzu
+### Die Liste zur Seitenleiste hinzufügen
 
-Der allerletzte Schritt besteht darin, einen Link für diese neue Seite in die Sidebar hinzuzufügen. Wir werden dies im gleichen Abschnitt machen, in dem wir andere Informationen für den angemeldeten Benutzer anzeigen.
+Der allerletzte Schritt besteht darin, einen Link für diese neue Seite zur Seitenleiste hinzuzufügen. Wir platzieren ihn im selben Abschnitt, in dem wir weitere Informationen für den angemeldeten Benutzer anzeigen.
 
-Öffnen Sie die Basiseinheit (**/django-locallibrary-tutorial/catalog/templates/base_generic.html**) und fügen Sie die Zeile "Meine Ausleihen" in die Sidebar in der unten gezeigten Position ein.
+Öffnen Sie das Basistemplate (**/django-locallibrary-tutorial/catalog/templates/base_generic.html**) und fügen Sie die Zeile „My Borrowed“ an der unten gezeigten Position zur Seitenleiste hinzu.
 
 ```django
  <ul class="sidebar-nav">
@@ -701,21 +701,21 @@ Der allerletzte Schritt besteht darin, einen Link für diese neue Seite in die S
 
 ### Wie sieht es aus?
 
-Wenn ein Benutzer angemeldet ist, wird er den _Meine Ausleihen_-Link in der Sidebar sehen und die Liste der Bücher wird wie unten angezeigt (das erste Buch hat kein Fälligkeitsdatum, was ein Fehler ist, den wir in einem späteren Tutorial beheben möchten!).
+Wenn ein Benutzer angemeldet ist, sieht er den Link _My Borrowed_ in der Seitenleiste sowie die unten dargestellte Bücherliste. Das erste Buch hat kein Fälligkeitsdatum, was ein Fehler ist, den wir hoffentlich in einem späteren Tutorial beheben werden!
 
-![Bibliothek - ausgeliehene Bücher nach Benutzer](library_borrowed_by_user.png)
+![Bibliothek – vom Benutzer ausgeliehene Bücher](library_borrowed_by_user.png)
 
 ## Berechtigungen
 
-Berechtigungen sind mit Modellen verknüpft und definieren die Operationen, die ein Benutzer mit der Berechtigung an einem Modell-Exemplar durchführen kann. Standardmäßig gibt Django automatisch _Hinzufügen_-, _Ändern_- und _Löschen_-Berechtigungen für alle Modelle, die Benutzern mit den Berechtigungen erlauben, die zugehörigen Aktionen über die Admin-Site durchzuführen. Sie können Ihre eigenen Berechtigungen für Modelle definieren und bestimmten Benutzern zuweisen. Sie können auch die Berechtigungen ändern, die mit verschiedenen Instanzen desselben Modells verknüpft sind.
+Berechtigungen sind Modellen zugeordnet und definieren die Operationen, die ein Benutzer mit dieser Berechtigung für eine Modellinstanz ausführen kann. Standardmäßig erteilt Django automatisch allen Modellen die Berechtigungen _add_, _change_ und _delete_, die Benutzern mit diesen Berechtigungen erlauben, die zugehörigen Aktionen über die Admin-Website auszuführen. Sie können Ihren Modellen eigene Berechtigungen definieren und diese bestimmten Benutzern erteilen. Sie können auch die Berechtigungen ändern, die verschiedenen Instanzen desselben Modells zugeordnet sind.
 
-Das Testen von Berechtigungen in Ansichten und Vorlagen ist dann sehr ähnlich wie das Testen des Authentifizierungsstatus (und tatsächlich testet das Überprüfen einer Berechtigung auch die Authentifizierung).
+Das Prüfen von Berechtigungen in Views und Templates ist dann dem Prüfen des Authentifizierungsstatus sehr ähnlich. Tatsächlich prüft eine Berechtigungsabfrage auch die Authentifizierung.
 
 ### Modelle
 
-Berechtigungen werden im Abschnitt `class Meta` eines Modells definiert, indem das Feld `permissions` verwendet wird.
-Sie können so viele Berechtigungen wie nötig in einem Tupel angeben, wobei jede Berechtigung selbst in einem verschachtelten Tupel definiert wird, bestehend aus dem Berechtigungsnamen und dem Wert zur Anzeige.
-Zum Beispiel könnten wir eine Berechtigung definieren, die es einem Benutzer erlaubt, zu markieren, dass ein Buch, wie gezeigt, zurückgegeben wurde:
+Berechtigungen werden im Abschnitt `class Meta` des Modells mithilfe des Felds `permissions` definiert.
+Sie können in einem Tupel so viele Berechtigungen angeben, wie Sie benötigen. Jede Berechtigung wird dabei selbst in einem verschachtelten Tupel definiert, das den Namen der Berechtigung und ihren Anzeigewert enthält.
+Beispielsweise könnten wir eine Berechtigung definieren, die einem Benutzer erlaubt, ein Buch als zurückgegeben zu markieren:
 
 ```python
 class BookInstance(models.Model):
@@ -725,13 +725,13 @@ class BookInstance(models.Model):
         permissions = (("can_mark_returned", "Set book as returned"),)
 ```
 
-Wir könnten dann die Berechtigung einer "Librarian"-Gruppe auf der Admin-Site zuweisen.
+Anschließend könnten wir die Berechtigung auf der Admin-Website einer Gruppe „Librarian“ zuweisen.
 
-Öffnen Sie **catalog/models.py** und fügen Sie die Berechtigung wie oben gezeigt hinzu. Sie müssen Ihre Migrationen erneut ausführen (rufen Sie `python3 manage.py makemigrations` und `python3 manage.py migrate` auf), um die Datenbank entsprechend zu aktualisieren.
+Öffnen Sie **catalog/models.py** und fügen Sie die Berechtigung wie oben gezeigt hinzu. Sie müssen Ihre Migrationen erneut ausführen — rufen Sie `python3 manage.py makemigrations` und `python3 manage.py migrate` auf —, um die Datenbank entsprechend zu aktualisieren.
 
-### Vorlagen
+### Templates
 
-Die aktuellen Berechtigungen des Benutzers werden in einer Vorlagenvariable namens `\{{ perms }}` gespeichert. Sie können prüfen, ob der aktuelle Benutzer eine bestimmte Berechtigung hat, indem Sie den spezifischen Variablennamen innerhalb der zugehörigen Django-"App" verwenden — z. B. wird `\{{ perms.catalog.can_mark_returned }}` `True` sein, wenn der Benutzer diese Berechtigung hat, und `False` andernfalls. Normalerweise prüfen wir die Berechtigung mit dem `{% if %}`-Tag der Vorlage, wie gezeigt:
+Die Berechtigungen des aktuellen Benutzers werden in einer Template-Variablen namens `\{{ perms }}` gespeichert. Sie können prüfen, ob der aktuelle Benutzer eine bestimmte Berechtigung besitzt, indem Sie den spezifischen Variablennamen innerhalb der zugehörigen Django-„App“ verwenden — z. B. ist `\{{ perms.catalog.can_mark_returned }}` `True`, wenn der Benutzer diese Berechtigung besitzt, und andernfalls `False`. Üblicherweise prüfen wir die Berechtigung mit dem Template-Tag `{% if %}`, wie gezeigt:
 
 ```django
 {% if perms.catalog.can_mark_returned %}
@@ -740,11 +740,11 @@ Die aktuellen Berechtigungen des Benutzers werden in einer Vorlagenvariable name
 {% endif %}
 ```
 
-### Ansichten
+### Views
 
-Berechtigungen können in Funktionsansichten mit dem `permission_required`-Decorator oder in einer klassengebundenen Ansicht mit dem `PermissionRequiredMixin` getestet werden. Das Muster ist das gleiche wie bei der Anmeldeauthentifizierung, allerdings müssen Sie möglicherweise mehrere Berechtigungen hinzufügen.
+Berechtigungen können in einer Funktions-View mit dem Decorator `permission_required` oder in einer klassenbasierten View mit `PermissionRequiredMixin` geprüft werden. Die Muster entsprechen denen für die Anmeldeauthentifizierung, obwohl Sie selbstverständlich mehrere Berechtigungen hinzufügen müssen könnten.
 
-Decorator für Funktionsansichten:
+Decorator für Funktions-Views:
 
 ```python
 from django.contrib.auth.decorators import permission_required
@@ -755,7 +755,7 @@ def my_view(request):
     # …
 ```
 
-Ein Mixin, das Berechtigungen für klassengebundene Ansichten erfordert.
+Ein Mixin für erforderliche Berechtigungen in klassenbasierten Views:
 
 ```python
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -769,12 +769,12 @@ class MyView(PermissionRequiredMixin, View):
 ```
 
 > [!NOTE]
-> Es gibt einen kleinen Standardunterschied im Verhalten oben. Standardverhalten für einen angemeldeten Benutzer bei einer Berechtigungsverletzung:
+> Es gibt einen kleinen Standardunterschied im obigen Verhalten. **Standardmäßig** gilt bei einem angemeldeten Benutzer mit einer Berechtigungsverletzung:
 >
-> - `@permission_required` leitet zur Anmeldeseite um (HTTP Status 302).
-> - `PermissionRequiredMixin` gibt 403 (HTTP Status Verboten) zurück.
+> - `@permission_required` leitet zum Anmeldebildschirm weiter (HTTP-Status 302).
+> - `PermissionRequiredMixin` gibt 403 zurück (HTTP-Status Forbidden).
 >
-> Normalerweise möchten Sie das Verhalten von `PermissionRequiredMixin`: 403 zurückgeben, wenn ein Benutzer angemeldet, aber nicht die richtige Berechtigung hat. Um dies für eine Funktionsansicht zu tun, verwenden Sie `@login_required` und `@permission_required` mit `raise_exception=True` wie unten gezeigt:
+> Normalerweise möchten Sie das Verhalten von `PermissionRequiredMixin`: Geben Sie 403 zurück, wenn ein Benutzer angemeldet ist, jedoch nicht die richtige Berechtigung hat. Verwenden Sie dazu bei einer Funktions-View `@login_required` und `@permission_required` mit `raise_exception=True`, wie gezeigt:
 >
 > ```python
 > from django.contrib.auth.decorators import login_required, permission_required
@@ -787,32 +787,32 @@ class MyView(PermissionRequiredMixin, View):
 
 ### Beispiel
 
-Wir werden die _LocalLibrary_ hier nicht aktualisieren; vielleicht im nächsten Tutorial!
+Wir aktualisieren _LocalLibrary_ hier nicht; vielleicht im nächsten Tutorial!
 
-## Fordern Sie sich heraus
+## Fordern Sie sich selbst heraus
 
-Früher in diesem Artikel haben wir Ihnen gezeigt, wie Sie eine Seite für den aktuellen Benutzer erstellen, die die Bücher auflistet, die sie ausgeliehen haben.
-Die Herausforderung besteht jetzt darin, eine ähnliche Seite zu erstellen, die nur für Bibliothekare sichtbar ist und die _alle_ ausgeliehenen Bücher anzeigt, einschließlich des Namens jedes Ausleihers.
+Weiter oben in diesem Artikel haben wir Ihnen gezeigt, wie Sie eine Seite für den aktuellen Benutzer erstellen, die die von ihm ausgeliehenen Bücher auflistet.
+Die Herausforderung besteht nun darin, eine ähnliche Seite zu erstellen, die nur für Bibliothekare sichtbar ist, _alle_ ausgeliehenen Bücher anzeigt und den Namen jedes Ausleihers enthält.
 
-Sie sollten demselben Muster wie bei der anderen Ansicht folgen können. Der Hauptunterschied besteht darin, dass Sie die Ansicht nur für Bibliothekare einschränken müssen. Sie könnten dies basierend darauf tun, ob der Benutzer ein Mitarbeiter ist (Funktionsdecorator: `staff_member_required`, Vorlagenvariable: `user.is_staff`), aber wir empfehlen, dass Sie stattdessen die `can_mark_returned`-Berechtigung und `PermissionRequiredMixin` verwenden, wie im vorherigen Abschnitt beschrieben.
+Sie sollten demselben Muster wie bei der anderen View folgen können. Der Hauptunterschied besteht darin, dass Sie die View auf Bibliothekare beschränken müssen. Sie könnten dies danach tun, ob der Benutzer ein Mitarbeiter ist (Funktions-Decorator: `staff_member_required`, Template-Variable: `user.is_staff`). Wir empfehlen jedoch, stattdessen die Berechtigung `can_mark_returned` und `PermissionRequiredMixin` zu verwenden, wie im vorherigen Abschnitt beschrieben.
 
 > [!WARNING]
-> Denken Sie daran, dass Sie Ihren Superuser nicht für berechtigungsbasierte Tests verwenden sollten (Berechtigungsprüfungen geben immer `true` für Superuser zurück, auch wenn eine Berechtigung noch nicht definiert wurde!). Erstellen Sie stattdessen einen Bibliothekarbenutzer und fügen Sie die erforderliche Fähigkeit hinzu.
+> Denken Sie daran, für Tests auf Basis von Berechtigungen nicht Ihren Superuser zu verwenden (Berechtigungsprüfungen geben für Superuser immer true zurück, selbst wenn eine Berechtigung noch nicht definiert wurde!). Erstellen Sie stattdessen einen Benutzer für einen Bibliothekar und fügen Sie die erforderliche Berechtigung hinzu.
 
-Wenn Sie fertig sind, sollte Ihre Seite wie der untenstehende Screenshot aussehen.
+Wenn Sie fertig sind, sollte Ihre Seite ungefähr wie im folgenden Screenshot aussehen.
 
-![Alle ausgeliehenen Bücher, beschränkt auf Bibliothekar](library_borrowed_all.png)
+![Alle ausgeliehenen Bücher, auf Bibliothekare beschränkt](library_borrowed_all.png)
 
 ## Zusammenfassung
 
-Ausgezeichnete Arbeit — Sie haben nun eine Website erstellt, auf der Bibliotheksmitglieder sich anmelden und ihre eigenen Inhalte anzeigen können, und auf der Bibliothekare (mit der entsprechenden Berechtigung) alle ausgeliehenen Bücher und ihre Ausleiher sehen können. Im Moment betrachten wir immer noch nur Inhalte, aber dieselben Prinzipien und Techniken werden verwendet, wenn Sie anfangen wollen, Daten zu ändern und hinzuzufügen.
+Ausgezeichnete Arbeit — Sie haben nun eine Website erstellt, auf der sich Bibliotheksmitglieder anmelden und ihre eigenen Inhalte anzeigen können und auf der Bibliothekare mit der richtigen Berechtigung alle ausgeliehenen Bücher und deren Ausleiher anzeigen können. Momentan betrachten wir nur Inhalte, aber dieselben Prinzipien und Techniken werden verwendet, wenn Sie beginnen möchten, Daten zu ändern und hinzuzufügen.
 
-In unserem nächsten Artikel werden wir uns ansehen, wie Sie mit Django-Formularen Benutzereingaben sammeln können, und beginnen, einige unserer gespeicherten Daten zu ändern.
+In unserem nächsten Artikel betrachten wir, wie Sie Django-Formulare verwenden können, um Benutzereingaben zu erfassen, und beginnen dann damit, einige unserer gespeicherten Daten zu ändern.
 
 ## Siehe auch
 
-- [Benutzer-Authentifizierung in Django](https://docs.djangoproject.com/en/5.0/topics/auth/) (Django-Dokumentation)
-- [Verwenden des (Standard-)Django-Authentifizierungssystems](https://docs.djangoproject.com/en/5.0/topics/auth/default/) (Django-Dokumentation)
-- [Einführung in klassengebundene Ansichten > Dekorieren von klassengebundenen Ansichten](https://docs.djangoproject.com/en/5.0/topics/class-based-views/intro/#decorating-class-based-views) (Django-Dokumentation)
+- [Benutzerauthentifizierung in Django](https://docs.djangoproject.com/en/5.0/topics/auth/) (Django-Dokumentation)
+- [Verwenden des standardmäßigen Django-Authentifizierungssystems](https://docs.djangoproject.com/en/5.0/topics/auth/default/) (Django-Dokumentation)
+- [Einführung in klassenbasierte Views > Klassenbasierte Views dekorieren](https://docs.djangoproject.com/en/5.0/topics/class-based-views/intro/#decorating-class-based-views) (Django-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Sessions", "Learn_web_development/Extensions/Server-side/Django/Forms", "Learn_web_development/Extensions/Server-side/Django")}}

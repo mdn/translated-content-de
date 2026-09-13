@@ -1,12 +1,12 @@
 ---
-title: CSS-Eigenschaft `background`
+title: "`background` CSS-Eigenschaft"
 short-title: background
 slug: Web/CSS/Reference/Properties/background
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`background`**-Eigenschaft ist eine [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) von [CSS](/de/docs/Web/CSS), die alle Hintergrund-Stileigenschaften auf einmal festlegt, wie Farbe, Bild, Ursprung, Größe und Wiederholmethode.
+Die **`background`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert alle Hintergrund-Stileigenschaften auf einmal, wie z.B. Farbe, Bild, Ursprung, Größe und Wiederholungsmethode.
 
 {{InteractiveExample("CSS Demo: background")}}
 
@@ -48,9 +48,9 @@ background:
 }
 ```
 
-## Bestandteileigenschaften
+## Bestandteile der Eigenschaft
 
-Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
+Diese Kurzschreibweise steht für folgende CSS-Eigenschaften:
 
 - {{cssxref("background-attachment")}}
 - {{cssxref("background-clip")}}
@@ -87,50 +87,50 @@ background: unset;
 ### Werte
 
 - `<attachment>`
-  - : Siehe {{cssxref("background-attachment")}}. Standard: `scroll`.
+  - : Siehe {{cssxref("background-attachment")}}. Standardwert: `scroll`.
 - `<visual-box>`
-  - : Siehe {{cssxref("background-clip")}} und {{cssxref("background-origin")}}. Standard: `border-box` und `padding-box` jeweils.
+  - : Siehe {{cssxref("background-clip")}} und {{cssxref("background-origin")}}. Standardwerte: `border-box` und `padding-box`.
 - `<'background-color'>`
-  - : Siehe {{cssxref("background-color")}}. Standard: `transparent`.
+  - : Siehe {{cssxref("background-color")}}. Standardwert: `transparent`.
 - `<bg-image>`
-  - : Siehe {{Cssxref("background-image")}}. Standard: `none`.
+  - : Siehe {{Cssxref("background-image")}}. Standardwert: `none`.
 - `<bg-position>`
-  - : Siehe {{cssxref("background-position")}}. Standard: `0% 0%`.
+  - : Siehe {{cssxref("background-position")}}. Standardwert: `0% 0%`.
 - `<repeat-style>`
-  - : Siehe {{cssxref("background-repeat")}}. Standard: `repeat`.
+  - : Siehe {{cssxref("background-repeat")}}. Standardwert: `repeat`.
 - `<bg-size>`
-  - : Siehe {{cssxref("background-size")}}. Standard: `auto`.
+  - : Siehe {{cssxref("background-size")}}. Standardwert: `auto`.
 
 ## Beschreibung
 
-Die Shorthand-Eigenschaft `background` ermöglicht es Ihnen, alle CSS-Hintergrund-Eigenschaften in einer einzigen Deklaration festzulegen. Der Hintergrund liegt unter dem Inhalt eines Elements. Wenn Sie mehrere, durch Kommas getrennte Hintergrundwerte haben, ist jeder ein Hintergrund-Layer, der über den vorherigen Layern gemalt wird.
+Die `background` Kurzschreibweise ermöglicht es, alle CSS-Hintergrund-Eigenschaften in einer einzigen Deklaration anzugeben. Der Hintergrund liegt unter dem Inhalt eines Elements. Wenn Sie mehrere, durch Kommas getrennte Hintergrundwerte haben, ist jeder ein Hintergrund-Layer, der auf den vorherigen Layern gemalt wird.
 
-Die `background`-Eigenschaft wird als eine oder mehrere Hintergrund-Layer angegeben, getrennt durch Kommas. Jeder Layer kann null, ein oder zwei `<visual-box>` Komponenten sowie null oder eine `<attachment>`, `<bg-image>`, `<bg-position>`, `<bg-size>`, und `<repeat-style>` Komponenten enthalten. Wenn zwei `<bg-position>`, `<bg-size>`, oder `<repeat-style>` Komponenten angegeben werden, ist der erste Wert der horizontale Wert und der zweite Wert der vertikale Wert. Wenn nur ein einziger Wert festgelegt ist, wird dieser Wert auf beide Dimensionen angewendet.
+Die `background`-Eigenschaft wird als einer oder mehrere Hintergrund-Layer beschrieben, die durch Kommas getrennt sind. Jeder Layer kann null, eins oder zwei `<visual-box>`-Komponenten und null oder eins `<attachment>`, `<bg-image>`, `<bg-position>`, `<bg-size>` und `<repeat-style>` Komponenten enthalten. Wenn zwei `<bg-position>`, `<bg-size>` oder `<repeat-style>` Komponenten angegeben sind, ist der erste Wert der horizontale Wert und der zweite Wert ist der vertikale Wert. Wenn nur ein einzelner Wert gesetzt ist, wird dieser Wert auf beide Dimensionen angewendet.
 
-Die Komponente `<'background-color'>` kann nur im zuletzt angegebenen Hintergrund-Layer enthalten sein.
+Die `<'background-color'>`-Komponente darf nur im letzten angegebenen Hintergrund-Layer enthalten sein.
 
-Komponenteneigenschaften, die in der Shorthand-Eigenschaft `background`-Deklaration nicht gesetzt sind, werden auf ihre Standardwerte gesetzt.
+Komponenteneigenschaften, die nicht in der `background`-Kurzschreibweise-Deklaration gesetzt sind, werden auf ihre Standardwerte zurückgesetzt.
 
-### Reihenfolge der Komponenteneigenschaften
+### Reihenfolge der Komponenten-Eigenschaften
 
-Da einige der Komponenteneigenschaften gemeinsame Wertetypen aufweisen, ist die Reihenfolge dieser Komponenteneigenschaften innerhalb der Shorthand wichtig.
+Da einige der Komponenten-Eigenschaften denselben Wertetyp teilen, ist die Reihenfolge dieser Komponenten-Eigenschaften innerhalb der Kurzschreibweise wichtig.
 
-Der `<bg-size>`-Wert darf nur unmittelbar nach `<bg-position>` enthalten sein, getrennt durch das `/`-Zeichen. Beispiel: `10px 10px / 80% 80%` bedeutet, dass das Hintergrundbild `80%` so hoch und breit wie das Element sein soll und `10px` von oben und `10px` von der linken oberen Ecke des Elements positioniert wird. Innerhalb der `<bg-position>`, wenn beide Werte Längen sind oder einer eine Länge und der andere `center` ist, bezieht sich der erste Wert auf die horizontale Position und der zweite Wert auf die vertikale Position.
+Der `<bg-size>` Wert darf nur unmittelbar nach `<bg-position>` enthalten sein, getrennt durch das `/` Zeichen. Zum Beispiel: `10px 10px / 80% 80%` bedeutet, dass das Hintergrundbild `80%` so hoch und so breit wie das Element ist und `10px` von oben und `10px` von der linken oberen Ecke des Elements positioniert wird. Innerhalb von `<bg-position>`, wenn beide Werte Längen sind, oder wenn einer eine Länge und der andere `center` ist, bezieht sich der erste Wert auf die horizontale Position und der zweite Wert auf die vertikale Position.
 
-Jeder Hintergrundlayer kann null, ein oder zwei [`<visual-box>`](/de/docs/Web/CSS/Reference/Values/box-edge#visual-box)-Werte enthalten. Wenn nur ein Wert enthalten ist, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Wenn zwei Werte vorhanden sind, gibt der erste das `background-origin` und der zweite den `background-clip`-Wert an. Wenn keine `<visual-box>`-Werte vorhanden sind, ist der Standard für `background-origin` `padding-box` und für `background-clip` `border-box`.
+Jeder Hintergrund-Layer kann null, eine, oder zwei [`<visual-box>`](/de/docs/Web/CSS/Reference/Values/box-edge#visual-box) Werte enthalten. Wenn nur ein Wert enthalten ist, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Sind zwei Werte vorhanden, spezifiziert der erste die `background-origin` und der zweite den `background-clip` Wert. Sind keine `<visual-box>` Werte vorhanden, ist die `background-origin` standardmäßig `padding-box` und der `background-clip` standardmäßig `border-box`.
 
-Obwohl keine Reihenfolge für die anderen Hintergrund-Eigenschaften erforderlich ist, wird die folgende Reihenfolge aus Konsistenz- und Lesbarkeitsgründen empfohlen; denken Sie daran, dass keiner der Werte erforderlich ist:
+Während es keine Reihenfolgenanforderung für die anderen Hintergrund-Eigenschaften gibt, wird folgende Reihenfolge aus Konsistenz- und Lesbarkeitsgründen empfohlen; denken Sie daran, dass keiner der Werte erforderlich ist:
 
 `<bg-image> <bg-position> / <bg-size> <repeat-style> <attachment> <bg-clip> <bg-origin> <'background-color'>`
 
-Der folgende `background` setzt explizit alle Standardwerte in dieser Reihenfolge:
+Das folgende `background` setzt explizit alle Standardwerte in dieser Reihenfolge:
 
 ```css
 background: none 0% 0% / auto auto repeat scroll border-box padding-box
   transparent;
 ```
 
-Die folgenden drei Zeilen CSS sind äquivalent zu oben, auch wenn die Reihenfolge unterschiedlich ist:
+Die folgenden drei Zeilen CSS sind äquivalent zu obigem, auch wenn die Reihenfolge anders ist:
 
 ```css
 background: none;
@@ -138,17 +138,17 @@ background: transparent;
 background: repeat scroll 0% 0% / auto padding-box border-box none transparent;
 ```
 
-### Reihenfolge der Bildbearbeitung
+### Reihenfolge der Bilder
 
-Wenn mehrere, durch Komma getrennte Hintergründe enthalten sind, erzeugen sie mehrere Hintergrund-Layer, die übereinander liegen. Der erste Hintergrund in der Liste erzeugt den obersten Layer. Wenn der oberste Layer keine transparenten Bereiche enthält, ist dies der einzige sichtbar.
+Wenn mehrere, durch Kommas getrennte Hintergründe enthalten sind, erzeugen diese mehrere Hintergrundschichten übereinander. Der erste Hintergrund in der Liste erstellt die oberste Schicht. Wenn die oberste Schicht keine transparenten Bereiche enthält, ist dies die einzige sichtbare Schicht.
 
-Der letzte Layer ist der unterste Layer. Die Hintergrundfarbe ist immer in diesem Layer enthalten.
+Die letzte Schicht ist die unterste. Die Hintergrundfarbe ist immer in dieser Schicht enthalten.
 
 ### Hintergrund des Body auf das gesamte Dokument anwenden
 
-Wenn der berechnete `background-image`-Wert des Dokument-Elementes {{htmlelement("html")}} `:root` `none` ist und seine `background-color` `transparent` ist, wird der Browser die auf das {{htmlelement("body")}}-Element gesetzten `background`-Stile auf `:root` übertragen und das `<body>` so behandeln, als ob `background: initial` gesetzt wäre. Mit anderen Worten, das `<html>`-Element erhält alle auf das `<body>`-Element gesetzten `background`-Stile, und die Hintergrund-Eigenschaften des `<body>`-Elements werden auf ihre Anfangswerte gesetzt.
+Wenn der berechnete `background-image` Wert des `:root` Elements für das Dokument {{htmlelement("html")}} `none` ist und seine `background-color` `transparent` ist, überträgt der Browser die auf das {{htmlelement("body")}} Element gesetzten Hintergründe auf das `:root` und behandelt das `<body>`, als wäre `background: initial` gesetzt. Mit anderen Worten, das `<html>`-Element erhält alle auf das `<body>` Element gesetzten Hintergrundstile, und die Hintergrund-Eigenschaften des `<body>` Elements werden auf ihre Anfangswerte gesetzt.
 
-Aufgrund dieses Verhaltens empfehlen die Autoren der Spezifikation, die Hintergrundstile Ihres Dokuments im Stilblock von `body` statt im Stilblock von `html` festzulegen. Es ist jedoch wichtig zu beachten, dass die Verwendung von Containment dieses Verhalten deaktiviert. Wenn die Eigenschaft {{cssxref("contain")}} auf entweder dem `<html>`- oder `<body>`-Element auf etwas anderes als `none` gesetzt ist, wird die `background`-Eigenschaft und ihre Langform-Komponenten nicht vom `<body>`-Element auf das Root-`<html>`-Element übertragen.
+Aufgrund dieses Verhaltens empfehlen die Autoren der Spezifikation, die Hintergrundstile des Dokuments im `body`-Stilblock zu setzen, anstatt im `html`-Stilblock. Es ist jedoch wichtig zu beachten, dass die Verwendung von Containment dieses Verhalten deaktiviert. Wenn die {{cssxref("contain")}}-Eigenschaft auf etwas anderes als `none` entweder auf dem `<html>` oder `<body>` Element gesetzt ist, wird die `background`-Eigenschaft und ihre Langform-Komponenten nicht vom `<body>` Element auf das Wurzelelement `<html>` übertragen.
 
 ## Formale Definition
 
@@ -160,14 +160,14 @@ Aufgrund dieses Verhaltens empfehlen die Autoren der Spezifikation, die Hintergr
 
 ## Barrierefreiheit
 
-Browser bieten keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologie. Dies ist hauptsächlich für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigt und daher nichts an seine Benutzer weitergibt. Wenn das Bild Informationen enthält, die für das Verständnis des Gesamtzwecks der Seite wichtig sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Browser bieten keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien an. Dies ist vor allem für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigt und somit den Benutzern nichts vermittelt. Wenn das Bild Informationen enthält, die für das Verständnis des gesamten Zwecks der Seite entscheidend sind, ist es besser, es im Dokument semantisch zu beschreiben.
 
-- [MDN Verständnis WCAG, Leitfaden 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verstehen des Erfolgskriteriums 1.1.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Understanding WCAG, Leitfaden 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Beispiele
 
-### Setzen von Hintergründen mit Farb-Schlüsselwörtern und Bildern
+### Hintergründe mit Farbstichwörtern und Bildern setzen
 
 #### HTML
 

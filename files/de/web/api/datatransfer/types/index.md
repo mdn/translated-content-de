@@ -3,20 +3,22 @@ title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
-  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) existieren.
+Die schreibgeschützte **`types`**-Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
+
+Während eines Ziehvorgangs kann diese Eigenschaft in jedem Ziehereignis-Handler gelesen werden, selbst wenn der Ziehdaten-Speicher im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) ist. Die verfügbaren Formate bleiben zugänglich, aber die Daten selbst können nur in den Handlern für die [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)- und [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisse gelesen werden. Siehe [Lesen des Ziehdaten-Speichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store) für Details.
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist ein String, der in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten einschloss, ist diese Liste leer. Wenn Dateien in den Ziehvorgang einbezogen sind, wird einer der Typen der String `Files` sein.
+Ein Array der Datenformate. Jedes Format ist ein String, der im Allgemeinen ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn die Ziehoperation keine Daten einschließt, wird diese Liste leer sein. Wenn irgendwelche Dateien in die Ziehoperation einbezogen sind, wird einer der Typen der String `Files` sein.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und [`items`](/de/docs/Web/API/DataTransfer/items).
+Dieses Beispiel zeigt die Verwendung der `types`- und [`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaften.
 
 ```html
 <ul>
@@ -97,6 +99,6 @@ target.addEventListener("dragover", (ev) => {
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Arbeiten mit dem Zieh-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Ziehdaten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

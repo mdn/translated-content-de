@@ -3,14 +3,16 @@ title: "WebTransportDatagramDuplexStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/WebTransportDatagramDuplexStream/writable
 l10n:
-  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
+  sourceCommit: c4ced66f871dd67ff683526ecc38e9eb7ebb5c9a
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces gibt eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die verwendet werden kann, um Datagramme ohne Zuverlässigkeit in den Stream zu schreiben.
+Die schreibgeschützte Eigenschaft **`writable`** der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) gibt eine Instanz von [`WritableStream`](/de/docs/Web/API/WritableStream) zurück, die verwendet werden kann, um ausgehende Datagramme unzuverlässig in den Stream zu schreiben.
 
-"Ohne Zuverlässigkeit" bedeutet, dass die Übertragung von Daten nicht garantiert ist, ebenso wenig das Eintreffen in einer bestimmten Reihenfolge. Dies ist in einigen Situationen akzeptabel und ermöglicht eine sehr schnelle Übermittlung. Beispielsweise könnten Sie regelmäßige Spielstatus-Updates übertragen wollen, bei denen jede Nachricht die letzte, die ankommt, überschreibt und die Reihenfolge nicht wichtig ist.
+"Unzuverlässig" bedeutet, dass die Übertragung von Daten nicht garantiert ist, noch das Eintreffen in einer bestimmten Reihenfolge. Dies ist in einigen Situationen in Ordnung und ermöglicht eine sehr schnelle Lieferung. Zum Beispiel könnte man regelmäßig Updates des Spielstatus übertragen wollen, bei denen jede Nachricht die letzte, die ankommt, ersetzt und die Reihenfolge nicht wichtig ist.
+
+[`createWritable()`](/de/docs/Web/API/WebTransportDatagramDuplexStream/createWritable) sollte vorzugsweise verwendet werden.
 
 ## Wert
 
@@ -18,11 +20,11 @@ Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Siehe die Hauptseite des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces.
+Siehe die Hauptseite der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream).
 
 ## Spezifikationen
 
-{{Specifications}}
+Diese Funktion wurde aus der Spezifikation entfernt.
 
 ## Browser-Kompatibilität
 

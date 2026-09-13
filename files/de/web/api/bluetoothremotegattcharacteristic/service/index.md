@@ -3,7 +3,7 @@ title: "BluetoothRemoteGATTCharacteristic: service-Eigenschaft"
 short-title: service
 slug: Web/API/BluetoothRemoteGATTCharacteristic/service
 l10n:
-  sourceCommit: bfc735c04506625c8c60054fe6f2f136bc43bbea
+  sourceCommit: b4f5ddf589cb20df5a6d2b2b78e7fdb8ac29ce6f
 ---
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}

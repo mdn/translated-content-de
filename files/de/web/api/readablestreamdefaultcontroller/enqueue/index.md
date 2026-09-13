@@ -3,12 +3,12 @@ title: "ReadableStreamDefaultController: enqueue()-Methode"
 short-title: enqueue()
 slug: Web/API/ReadableStreamDefaultController/enqueue
 l10n:
-  sourceCommit: 229a116d8b974da85bc3541a6d457f310d627be8
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`enqueue()`**-Methode des [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Interfaces fügt ein angegebenes [Chunk](/de/docs/Web/API/Streams_API/Concepts#chunks) in den zugehörigen Stream ein.
+Die **`enqueue()`**-Methode des [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Interfaces reiht einen gegebenen [Chunk](/de/docs/Web/API/Streams_API/Concepts#chunks) in den verbundenen Stream ein.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ enqueue(chunk)
 ### Parameter
 
 - `chunk`
-  - : Das Chunk, das eingefügt werden soll.
+  - : Der einzureihende Chunk.
 
 ### Rückgabewert
 
@@ -28,13 +28,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `enqueue()` aufgerufen wird, während der Stream nicht lesbar ist, weil er bereits geschlossen, abgebrochen oder fehlerhaft ist, oder weil die zugrunde liegende Quelle gebeten hat, ihn zu schließen, dies aber noch nicht getan hat, da noch eingefügte Chunks zum Lesen vorhanden sind.
+  - : Wird ausgelöst, wenn `enqueue()` aufgerufen wird, während der Stream nicht lesbar ist — weil er bereits geschlossen, abgebrochen oder fehlerhaft ist — oder weil er durch die zugrunde liegende Quelle zum Schließen aufgefordert wurde, dies aber noch nicht getan hat, da noch Chunks zum Lesen vorhanden sind.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mithilfe eines Konstruktors erstellt (siehe unser [Einfaches Beispiel für einen zufälligen Stream](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion erzeugt jede Sekunde einen zufällig generierten Textstring und fügt diesen in den Stream ein — siehe `controller.enqueue(string)`. Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Erzeugung zu stoppen, wenn [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
+Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mithilfe eines Konstruktors erstellt (siehe unser [Einfaches Zufallsstream-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion generiert jede Sekunde einen zufälligen Textstring und reiht ihn in den Stream ein — siehe `controller.enqueue(string)`. Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Generierung zu stoppen, falls [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
 
-Wenn ein Button gedrückt wird, wird die Erzeugung gestoppt, der Stream wird mit [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) geschlossen, und eine andere Funktion wird ausgeführt, die die Daten erneut aus dem Stream liest.
+Wenn eine Schaltfläche gedrückt wird, wird die Generierung gestoppt, der Stream wird mittels [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) geschlossen, und eine weitere Funktion wird ausgeführt, die die Daten aus dem Stream zurückliest.
 
 ```js
 let interval;

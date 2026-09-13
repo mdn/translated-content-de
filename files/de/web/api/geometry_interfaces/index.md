@@ -2,23 +2,26 @@
 title: Geometry interfaces
 slug: Web/API/Geometry_interfaces
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: e8979460dbee67d29e4fc12edb431b1ad7b9d1e5
 ---
 
 {{DefaultAPISidebar("Geometry Interfaces")}}
 
-**Geometrie-Schnittstellen** ist ein CSS-Modul, das Schnittstellen zum Arbeiten mit 3D- und 2D-Grafiken bereitstellt – insbesondere für die Arbeit mit Punkten, Rechtecken, Vierecken und [Transformationsmatrizen](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices) (für Operationen, die Grafiken übersetzen/bewegen, skalieren, drehen, verzerren/scheren/neigen, und spiegeln sowie zum Multiplizieren/Verketten und Umkehren/Rückgängigmachen dieser Operationen).
+**Geometrieschnittstellen** sind ein CSS-Modul, das Schnittstellen für die Arbeit mit 3D- und 2D-Grafiken bereitstellt — insbesondere für die Arbeit mit Punkten, Rechtecken, Vierecken und [Transformationsmatrizen](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices) (für Operationen zum Verschieben, Skalieren, Drehen, Scheren/Neigen und Spiegeln von Grafiken sowie zum Multiplizieren/Verketten und Invertieren/Rückgängigmachen dieser Operationen).
 
-Als Webentwickler verwenden Sie die Geometrie-Schnittstellen nicht immer direkt, sondern nutzen stattdessen andere Funktionen, die sie im Hintergrund verwenden: Teile von [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms), die [Canvas-API](/de/docs/Web/API/Canvas_API), die [WebXR-Device-API](/de/docs/Web/API/WebXR_Device_API) und (direkter) [`VideoFrame.visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect), [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) und [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+Als Webentwickler verwenden Sie die Geometrieschnittstellen nicht immer direkt, sondern stattdessen andere Funktionen, die sie im Hintergrund verwenden: Teile von [CSS Transforms](/de/docs/Web/CSS/Guides/Transforms), die [Canvas API](/de/docs/Web/API/Canvas_API), die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) und (direkter) [`VideoFrame.visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect), [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) und [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+
+> [!NOTE]
+> Die Geometrieschnittstellen sind für andere Web-APIs wie die oben aufgeführten vorgesehen und nicht als allgemeine Bibliothek für lineare Algebra. Die Transformationsmethoden, wie etwa [`DOMMatrixReadOnly.transformPoint()`](/de/docs/Web/API/DOMMatrixReadOnly/transformPoint), dienen der Bequemlichkeit und können aufgrund internen Overheads deutlich langsamer sein als entsprechendes handgeschriebenes JavaScript. Erstellen Sie für rechenintensiven Code Profile verschiedener Ansätze und erwägen Sie, einfache JavaScript-Objekte oder Arrays für Zwischenberechnungen zu verwenden.
 
 ## Schnittstellen
 
 - [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)
-  - : Repräsentiert eine [Transformationsmatrix](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices), für Operationen, die Grafiken übersetzen/bewegen, skalieren, drehen, verzerren/scheren/neigen, und spiegeln sowie zum Multiplizieren/Verketten und Umkehren/Rückgängigmachen dieser Operationen.
+  - : Repräsentiert eine [Transformationsmatrix](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices) für Operationen zum Verschieben, Skalieren, Drehen, Scheren/Neigen und Spiegeln von Grafiken sowie zum Multiplizieren/Verketten und Invertieren/Rückgängigmachen dieser Operationen.
 - [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)
   - : Schreibgeschützte Version von [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
 - [`DOMPoint`](/de/docs/Web/API/DOMPoint)
-  - : Repräsentiert einen 2D- oder 3D-Punkt in einem Koordinatensystem; es enthält Werte für die Koordinaten in bis zu drei Dimensionen sowie einen optionalen Perspektivwert.
+  - : Repräsentiert einen 2D- oder 3D-Punkt in einem Koordinatensystem; er enthält Werte für die Koordinaten in bis zu drei Dimensionen sowie einen optionalen Perspektivwert.
 - [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)
   - : Schreibgeschützte Version von [`DOMPoint`](/de/docs/Web/API/DOMPoint).
 - [`DOMQuad`](/de/docs/Web/API/DOMQuad)
@@ -30,7 +33,7 @@ Als Webentwickler verwenden Sie die Geometrie-Schnittstellen nicht immer direkt,
 
 ## Beispiele
 
-Die Artikel zu [`Path2D.addPath()`](/de/docs/Web/API/Path2D/addPath) und [`CanvasPattern.setTransform()`](/de/docs/Web/API/CanvasPattern/setTransform) enthalten Beispiele, die einige der Geometrie-Schnittstellen verwenden.
+Die Artikel zu [`Path2D.addPath()`](/de/docs/Web/API/Path2D/addPath) und [`CanvasPattern.setTransform()`](/de/docs/Web/API/CanvasPattern/setTransform) enthalten Beispiele, die einige der Geometrieschnittstellen verwenden.
 
 ## Spezifikationen
 

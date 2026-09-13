@@ -3,80 +3,80 @@ title: Grundkonzepte von Flexbox
 short-title: Basic concepts
 slug: Web/CSS/Guides/Flexible_box_layout/Basic_concepts
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: 3143a6094e7b87cf1a96b61f9551fb4d95049777
 ---
 
-Das [Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul (meistens als Flexbox bezeichnet) ist ein eindimensionales Layout-Modell zur Verteilung von Platz zwischen Elementen und umfasst zahlreiche Ausrichtungsfähigkeiten. Dieser Artikel gibt einen Überblick über die Hauptmerkmale von Flexbox, die wir in den restlichen Leitfäden genauer untersuchen werden.
+Das [Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul (üblicherweise als Flexbox bezeichnet) ist ein eindimensionales Layoutmodell zur Verteilung von Raum zwischen Elementen und beinhaltet zahlreiche Ausrichtungsfähigkeiten. Dieser Artikel bietet einen Überblick über die Hauptmerkmale von Flexbox, die wir in den restlichen Leitfäden detaillierter erkunden werden.
 
-Wenn wir Flexbox als eindimensional beschreiben, sprechen wir darüber, dass Flexbox das Layout in einer Dimension gleichzeitig verarbeitet - entweder als Zeile oder als Spalte. Dies steht im Gegensatz zu dem zweidimensionalen Modell des [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout), das sowohl Spalten als auch Zeilen steuert.
+Wenn wir Flexbox als eindimensional beschreiben, beziehen wir uns darauf, dass Flexbox das Layout in einer Dimension auf einmal behandelt — entweder als Zeile oder als Spalte. Dies kann im Kontrast zum zweidimensionalen Modell des [CSS Grid Layouts](/de/docs/Web/CSS/Guides/Grid_layout) stehen, das Spalten und Zeilen zusammen kontrolliert.
 
-## Die zwei Achsen von Flexbox
+## Die beiden Achsen von Flexbox
 
-Beim Arbeiten mit Flexbox müssen Sie in Bezug auf zwei Achsen denken - die _Hauptachse_ und die _Querachse_. Die [Hauptachse](#die_hauptachse) wird durch die {{cssxref("flex-direction")}} Eigenschaft definiert, und die [Querachse](#die_querachse) verläuft senkrecht dazu. Alles, was wir mit Flexbox tun, bezieht sich auf diese Achsen, daher lohnt es sich, von Anfang an zu verstehen, wie sie funktionieren.
+Beim Arbeiten mit Flexbox müssen Sie in Bezug auf zwei Achsen denken — die _Hauptachse_ und die _Querachse_. Die [Hauptachse](#die_hauptachse) wird durch die {{cssxref("flex-direction")}} Eigenschaft definiert, und die [Querachse](#die_querachse) verläuft senkrecht dazu. Alles, was wir mit Flexbox tun, bezieht sich auf diese Achsen, daher ist es sinnvoll, von Anfang an zu verstehen, wie sie funktionieren.
 
 ### Die Hauptachse
 
-Die {{Glossary("main_axis", "Hauptachse")}} wird durch `flex-direction` definiert, das vier mögliche Werte hat:
+Die {{Glossary("main_axis", "Hauptachse")}} wird durch `flex-direction` definiert, welche vier mögliche Werte hat:
 
 - `row`
 - `row-reverse`
 - `column`
 - `column-reverse`
 
-Wenn Sie `row` oder `row-reverse` wählen, verläuft Ihre Hauptachse entlang der Zeile in der **Inline-Richtung**.
+Wenn Sie `row` oder `row-reverse` wählen, verläuft Ihre Hauptachse entlang der Zeile in **Inline-Richtung**.
 
-![Wenn flex-direction auf row gesetzt ist, verläuft die Hauptachse in der Inline-Richtung.](basics1.svg)
+![Wenn flex-direction auf row gesetzt ist, verläuft die Hauptachse entlang der Zeile in der Inline-Richtung.](basics1.svg)
 
-Wählen Sie `column` oder `column-reverse`, und Ihre Hauptachse verläuft in der **Block-Richtung**, von oben nach unten.
+Entscheiden Sie sich für `column` oder `column-reverse`, verläuft Ihre Hauptachse in **Block-Richtung**, von oben nach unten auf der Seite.
 
 ![Wenn flex-direction auf column gesetzt ist, verläuft die Hauptachse in der Block-Richtung.](basics2.svg)
 
 ### Die Querachse
 
-Die {{Glossary("cross_axis", "Querachse")}} verläuft senkrecht zur Hauptachse. Wenn Ihre `flex-direction` (Hauptachse) auf `row` oder `row-reverse` gesetzt ist, verläuft die Querachse durch die Spalten.
+Die {{Glossary("cross_axis", "Querachse")}} verläuft senkrecht zur Hauptachse. Daher gilt: Wenn Ihre `flex-direction` (Hauptachse) auf `row` oder `row-reverse` gesetzt ist, verläuft die Querachse entlang der Spalten.
 
 ![Wenn flex-direction auf row gesetzt ist, verläuft die Querachse in der Block-Richtung.](basics3.svg)
 
-Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Querachse entlang der Reihen.
+Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Querachse entlang der Zeilen.
 
 ![Wenn flex-direction auf column gesetzt ist, verläuft die Querachse in der Inline-Richtung.](basics4.svg)
 
-## Anfangs- und Endlinien
+## Start- und Endlinien
 
-Ein weiterer wichtiger Bereich des Verständnisses ist, dass Flexbox keine Annahmen über den Schreibmodus des Dokuments macht. Flexbox geht nicht einfach davon aus, dass alle Textzeilen oben links in einem Dokument beginnen und zur rechten Seite laufen, mit neuen Zeilen, die darunter erscheinen. Vielmehr unterstützt es alle Schreibmodi, wie andere [logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values).
+Ein weiterer wichtiger Bereich des Verständnisses ist, dass Flexbox keine Annahmen über den Schreibmodus des Dokuments macht. Flexbox geht nicht einfach davon aus, dass alle Textzeilen am oberen linken Rand eines Dokuments beginnen und sich nach rechts bewegen, während neue Zeilen untereinander erscheinen. Vielmehr unterstützt es alle Schreibmodi, wie auch andere [logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values).
 
-Sie können [mehr über den Zusammenhang zwischen Flexbox und Schreibmodi lesen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods#writing_modes) in einem späteren Artikel; die folgende Beschreibung sollte jedoch erklären, warum wir nicht über links und rechts sowie oben und unten sprechen, wenn wir die Richtung beschreiben, in der unsere Flex-Items fließen.
+Sie können [mehr über die Beziehung zwischen Flexbox und Schreibmodi lesen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods#writing_modes) in einem späteren Artikel, aber die folgende Beschreibung sollte helfen zu erklären, warum wir nicht von links und rechts und oben und unten sprechen, wenn wir die Richtung beschreiben, in die unsere Flex-Elemente fließen.
 
-Wenn die `flex-direction` `row` ist und ich auf Englisch arbeite, befindet sich die Startkante der Hauptachse links, die Endkante rechts.
+Wenn die `flex-direction` `row` ist und ich in Englisch arbeite, wird die Startkante der Hauptachse links sein, das Endkante rechts.
 
-![Beim Arbeiten auf Englisch befindet sich die Startkante links.](basics5.svg)
+![In Englisch ist die Startkante links.](basics5.svg)
 
-Wenn ich in Arabisch arbeiten würde, befände sich die Startkante meiner Hauptachse rechts und die Endkante links.
+Wenn ich in Arabisch arbeite, wird die Startkante meiner Hauptachse rechts sein und die Endkante links.
 
-![Die Startkante in einer RTL-Sprache befindet sich rechts.](basics6.svg)
+![Die Startkante in einer RTL-Sprache ist rechts.](basics6.svg)
 
-In beiden Fällen befindet sich die Startkante der Querachse oben im Flex-Container und die Endkante unten, da beide Sprachen einen horizontalen Schreibmodus haben.
+In beiden Fällen ist die Startkante der Querachse oben im Flex-Container und die Endkante unten, da beide Sprachen einen horizontalen Schreibmodus haben.
 
-Nach einer Weile wird es natürlich, über Anfang und Ende anstatt über links und rechts zu denken, was Ihnen nützlich sein wird, wenn Sie mit anderen Layout-Methoden wie CSS Grid Layout arbeiten, die denselben Mustern folgen.
+Nach einer Weile wird es natürlich, über Start und Ende statt über links und rechts nachzudenken, und das wird Ihnen bei der Arbeit mit anderen Layoutmethoden, wie CSS Grid Layout, nützlich sein, die den gleichen Mustern folgen.
 
 ## Der Flex-Container
 
-Ein Bereich eines Dokuments, der mit Flexbox layoutet wird, wird als **Flex-Container** bezeichnet. Um einen {{Glossary("flex_container", "Flex-Container")}} zu erstellen, setzen Sie die {{cssxref("display")}} Eigenschaft des Bereichs auf `flex`. Wenn wir dies tun, werden die direkten Kinder dieses Containers zu **Flex-Items**. Sie können explizit steuern, ob der Container selbst im Inline- oder Block-Formatierungskontext angezeigt wird, indem Sie `inline flex` oder `inline-flex` für Inline-Flex-Container oder `block flex` oder `flex` für Block-Level-Flex-Container verwenden.
+Ein Bereich eines Dokuments, der mit Flexbox layoutet wird, wird als **Flex-Container** bezeichnet. Um einen {{Glossary("flex_container", "Flex-Container")}} zu erstellen, setzen Sie die {{cssxref("display")}} Eigenschaft des Bereichs auf `flex`. Wenn wir dies tun, werden die direkten Kinder dieses Containers zu **Flex-Items**. Sie können explizit steuern, ob der Container selbst in einem Inline- oder Blockformatierungskontext angezeigt wird, indem Sie `inline flex` oder `inline-flex` für Inline-Flex-Container oder `block flex` oder `flex` für Block-Level-Flex-Container verwenden.
 
 ### Anfangswerte
 
-Wie bei allen Eigenschaften in CSS sind einige Anfangswerte definiert, sodass der Inhalt eines neuen Flex-Containers folgendermaßen funktioniert:
+Wie bei allen Eigenschaften in CSS sind einige Anfangswerte definiert, sodass sich die Inhalte eines neuen Flex-Containers auf folgende Weise verhalten:
 
 - Elemente werden in einer Reihe angezeigt (der Standardwert der {{cssxref("flex-direction")}} Eigenschaft ist `row`).
-- Die Elemente beginnen an der Startkante der Hauptachse.
-- Die Elemente strecken sich nicht in der Hauptdimension, können aber schrumpfen (der Standardwert der {{cssxref("flex-grow")}} Eigenschaft eines Flex-Items ist `0` und der der {{cssxref("flex-shrink")}} Eigenschaft ist `1`).
-- Die Elemente strecken sich, um die Größe der Querachse auszufüllen (der Standardwert der {{cssxref("align-items")}} Eigenschaft ist `stretch`).
-- Der Standardwert der {{cssxref("flex-basis")}} Eigenschaft eines Flex-Items ist `auto`. Dies bedeutet, dass es in jedem Fall gleich der {{cssxref("width")}} des Flex-Items im horizontalen Schreibmodus und der {{cssxref("height")}} im vertikalen Schreibmodus ist. Wenn die entsprechende `width`/`height` ebenfalls auf `auto` gesetzt ist, wird stattdessen der `content` Wert von `flex-basis` verwendet.
-- Alle Elemente befinden sich in einer einzigen Zeile (der Standardwert der {{cssxref("flex-wrap")}} Eigenschaft ist `nowrap`), überlaufen ihren Container, wenn ihre kombinierte `width`/`height` die `width`/`height` des umgebenden Elements überschreitet.
+- Die Elemente beginnen von der Startkante der Hauptachse.
+- Die Elemente dehnen sich nicht in der Hauptachse, können aber schrumpfen (der Standardwert der {{cssxref("flex-grow")}} Eigenschaft eines Flex-Items ist `0` und der Standardwert der {{cssxref("flex-shrink")}} Eigenschaft ist `1`).
+- Die Elemente werden sich dehnen, um die Größe der Querachse zu füllen (der Standardwert der {{cssxref("align-items")}} Eigenschaft ist `stretch`).
+- Der Standardwert der {{cssxref("flex-basis")}} Eigenschaft eines Flex-Items ist `auto`. Das bedeutet, dass es in jedem Fall gleichbedeutend mit der {{cssxref("width")}} des Flex-Items im horizontalen Schreibmodus und der {{cssxref("height")}} des Flex-Items im vertikalen Schreibmodus sein wird. Wenn die entsprechende `width`/`height` ebenfalls auf `auto` gesetzt ist, wird der `content`-Wert von `flex-basis` stattdessen verwendet.
+- Alle Elemente werden in einer einzigen Zeile sein (der Standardwert der {{cssxref("flex-wrap")}} Eigenschaft ist `nowrap`), und überschreiten ihren Container, wenn ihre kombinierte `width`/`height` die `width`/`height` des beinhaltenden Elements übersteigt.
 
-Das Ergebnis ist, dass sich Ihre Elemente alle in einer Reihe aufstellen und die Größe des Inhalts als ihre Größe in der Hauptachse verwenden. Wenn es mehr Elemente gibt, als in den Container passen, werden sie nicht umbrochen, sondern überlaufen. Wenn einige Elemente höher sind als andere, strecken sich alle Elemente über die gesamte Länge der Querachse.
+Das Ergebnis davon ist, dass sich Ihre Elemente alle in einer Zeile ausrichten werden, indem sie die Größe des Inhalts als ihre Größe in der Hauptachse verwenden. Wenn mehr Elemente vorhanden sind, als in den Container passen, werden sie nicht umbrechen, sondern vielmehr überlaufen. Wenn einige Elemente höher als andere sind, werden sich alle Elemente entlang der gesamten Länge der Querachse strecken.
 
-Sie können im lebendigen Beispiel unten sehen, wie das aussieht. Klicken Sie auf "Play", um das Beispiel im MDN-Playground zu öffnen und die Elemente zu bearbeiten oder neue Elemente hinzuzufügen, um das Anfangsverhalten von Flexbox auszuprobieren:
+Im lebendigen Beispiel unten können Sie sehen, wie dies aussieht. Klicken Sie auf "Play", um das Beispiel im MDN Playground zu öffnen und die Elemente zu bearbeiten oder neue Elemente hinzuzufügen, um das anfängliche Verhalten von Flexbox auszuprobieren:
 
 ```html live-sample___the-flex-container
 <div class="box">
@@ -101,13 +101,13 @@ Sie können im lebendigen Beispiel unten sehen, wie das aussieht. Klicken Sie au
 
 {{EmbedLiveSample("the-flex-container")}}
 
-### Änderung der flex-direction
+### Ändern von flex-direction
 
-Durch Hinzufügen der {{cssxref("flex-direction")}} Eigenschaft zum Flex-Container können wir die Richtung ändern, in der unsere Flex-Items angezeigt werden. Das Setzen von `flex-direction: row-reverse` behält die Anzeige der Elemente in der Zeile bei, jedoch werden die Anfangs- und Endlinien vertauscht.
+Durch Hinzufügen der {{cssxref("flex-direction")}} Eigenschaft zum Flex-Container können wir die Richtung ändern, in der unsere Flex-Elemente angezeigt werden. Wenn `flex-direction: row-reverse` gesetzt ist, werden die Elemente entlang der Zeile angezeigt, jedoch sind die Start- und Endlinien vertauscht.
 
-Wenn wir die `flex-direction` auf `column` ändern, wechselt die Hauptachse und unsere Elemente werden nun in einer Spalte angezeigt. Setzen Sie `column-reverse` und die Anfangs- und Endlinien werden erneut vertauscht.
+Wenn wir `flex-direction` auf `column` ändern, wechselt die Hauptachse und unsere Elemente werden nun in einer Spalte angezeigt. Bei `column-reverse` werden die Start- und Endlinien erneut vertauscht.
 
-Das lebende Beispiel unten hat `flex-direction` auf `row-reverse` gesetzt. Versuchen Sie die anderen Werte - `row`, `column` und `column-reverse` - um zu sehen, was mit dem Inhalt passiert.
+Das lebendige Beispiel unten hat `flex-direction` auf `row-reverse` gesetzt. Versuchen Sie die anderen Werte — `row`, `column` und `column-reverse` — um zu sehen, was mit dem Inhalt passiert.
 
 ```html live-sample___flex-direction
 <div class="box">
@@ -135,9 +135,9 @@ Das lebende Beispiel unten hat `flex-direction` auf `row-reverse` gesetzt. Versu
 
 ## Mehrzeilige Flex-Container mit flex-wrap
 
-Obwohl Flexbox ein eindimensionales Modell ist, ist es möglich, Flex-Items in mehrere Zeilen umzubrechen. Wenn Sie dies tun, sollten Sie jede Zeile als neuen Flex-Container betrachten. Jede Raumverteilung erfolgt über jede Zeile, ohne Rücksicht auf die vorherigen oder nachfolgenden Zeilen.
+Obwohl Flexbox ein eindimensionales Modell ist, ist es möglich, Flex-Elemente über mehrere Zeilen zu verteilen. Wenn Sie dies tun, sollten Sie jede Zeile als neuen Flex-Container betrachten. Jegliche Raumverteilung wird über jede Zeile hinweg erfolgen, ohne Bezug zu den vorherigen oder nachfolgenden Zeilen.
 
-Um das Umbruchverhalten zu verursachen, fügen Sie die Eigenschaft {{cssxref("flex-wrap")}} mit einem Wert von `wrap` hinzu. Wenn Ihre Elemente jetzt zu groß sind, um alle in einer Zeile angezeigt zu werden, werden sie in eine andere Zeile umgebrochen. Das lebende Beispiel unten enthält Elemente, die eine `width` erhalten haben. Die Gesamtbreite der Elemente ist zu groß für den Flex-Container. Da `flex-wrap` auf `wrap` gesetzt ist, werden die Elemente in mehrere Zeilen umgebrochen. Wenn Sie es auf `nowrap` setzen, was der Anfangswert ist, werden sie schrumpfen, um in den Container zu passen. Sie schrumpfen, weil sie anfängliche Flexbox-Werte verwenden, einschließlich `flex-shrink: 1`, was es den Elementen erlaubt zu schrumpfen. Die Verwendung von `nowrap` würde ein [Overflow](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) verursachen, wenn die Elemente nicht schrumpfen könnten oder nicht klein genug schrumpfen könnten, um zu passen.
+Um Umbruchverhalten zu verursachen, fügen Sie die Eigenschaft {{cssxref("flex-wrap")}} mit einem Wert von `wrap` hinzu. Wenn Ihre Elemente zu groß sind, um alle in einer Zeile angezeigt zu werden, brechen sie auf eine andere Zeile um. Das lebhafte Beispiel unten enthält Elemente, denen eine `width` zugewiesen wurde. Die Gesamtbreite der Elemente ist zu breit für den Flex-Container. Da `flex-wrap` auf `wrap` gesetzt ist, brechen die Elemente über mehrere Zeilen um. Wenn Sie es auf `nowrap` setzen, was der Anfangswert ist, werden sie sich an den Container anpassen. Sie schrumpfen, weil sie anfängliche Flexbox-Werte verwenden, einschließlich `flex-shrink: 1`, das es den Elementen ermöglicht zu schrumpfen. Das Verwenden von `nowrap` würde einen [Overflow](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) verursachen, wenn die Elemente nicht schrumpfen können oder nicht klein genug schrumpfen können, um zu passen.
 
 ```html live-sample___flex-wrap
 <div class="box">
@@ -165,13 +165,13 @@ Um das Umbruchverhalten zu verursachen, fügen Sie die Eigenschaft {{cssxref("fl
 
 {{EmbedLiveSample("flex-wrap")}}
 
-Erfahren Sie mehr über das Umwickeln von Flex-Items im Leitfaden [Flex-Items umwickeln meistern](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items).
+Erfahren Sie mehr über das Umwickeln von Flex-Elementen im Leitfaden [Beherrschen des Umwickelns von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items).
 
 ## Das flex-flow Shorthand
 
-Sie können die zwei Eigenschaften `flex-direction` und `flex-wrap` in das {{cssxref("flex-flow")}} Shorthand kombinieren.
+Sie können die beiden Eigenschaften `flex-direction` und `flex-wrap` in der {{cssxref("flex-flow")}} Shorthand kombinieren.
 
-Im lebenden Beispiel unten, versuchen Sie, den ersten Wert in einen der zulässigen Werte für `flex-direction` zu ändern - `row`, `row-reverse`, `column` oder `column-reverse`, und ändern Sie auch den zweiten Wert in `wrap` und `nowrap`.
+Im lebhaften Beispiel unten, versuchen Sie den ersten Wert in einem der zulässigen Werte für `flex-direction` zu ändern - `row`, `row-reverse`, `column` oder `column-reverse`, und ändern Sie auch den zweiten in `wrap` und `nowrap`.
 
 ```html live-sample___flex-flow
 <div class="box">
@@ -199,50 +199,50 @@ Im lebenden Beispiel unten, versuchen Sie, den ersten Wert in einen der zulässi
 
 {{EmbedLiveSample("flex-flow")}}
 
-## Eigenschaften, die auf Flex-Items angewendet werden
+## Eigenschaften auf Flex-Items anwenden
 
-Um die Inline-Größe jedes Flex-Items zu steuern, zielen wir direkt auf sie ab, indem wir drei Eigenschaften verwenden:
+Um die Inline-Größe jedes Flex-Items zu steuern, sprechen wir sie direkt über drei Eigenschaften an:
 
 - {{cssxref("flex-grow")}}
 - {{cssxref("flex-shrink")}}
 - {{cssxref("flex-basis")}}
 
-Wir werden einen kurzen Blick auf diese Eigenschaften unten werfen, aber wenn Sie umfassendere Informationen wünschen, werfen Sie einen Blick auf den Leitfaden [Verhältnisse von Flex-Items auf der Hauptachse steuern](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios).
+Wir werden uns diese Eigenschaften kurz ansehen, aber wenn Sie umfassendere Informationen möchten, schauen Sie sich den Leitfaden [Kontrollieren der Verhältnisse von Flex-Items auf der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) an.
 
-Bevor wir diese Eigenschaften sinnvoll verwenden können, müssen wir das Konzept des **verfügbaren Raums** berücksichtigen. Wenn wir den Wert dieser Flex-Eigenschaften ändern, ändern wir die Art und Weise, wie der verfügbare Raum unter unseren Elementen verteilt wird. Dieses Konzept des verfügbaren Raums ist auch wichtig, wenn wir uns das Ausrichten von Elementen ansehen.
+Bevor wir diesen Eigenschaften einen Sinn geben können, müssen wir das Konzept des **verfügbaren Raums** betrachten. Was wir tun, wenn wir die Werte dieser Flex-Eigenschaften ändern, ist die Art zu ändern, wie verfügbarer Raum unter unseren Elementen verteilt wird. Dieses Konzept des verfügbaren Raums ist auch wichtig, wenn wir uns die Ausrichtung von Elementen ansehen.
 
-Wenn wir drei 100 Pixel breite Elemente in einem Container haben, der 500 Pixel breit ist, dann benötigen wir 300 Pixel Platz, um unsere Elemente anzuordnen. Dies lässt 200 Pixel verfügbaren Raum. Wenn wir die Anfangswerte nicht ändern, legt Flexbox diesen Raum nach dem letzten Element ab.
+Wenn wir drei 100 Pixel breite Elemente in einem Container haben, der 500 Pixel breit ist, dann ist der Platz, den wir benötigen, um unsere Elemente anzuordnen, 300 Pixel. Das lässt 200 Pixel verfügbaren Raum übrig. Wenn wir die Anfangswerte nicht ändern, wird Flexbox diesen Raum nach dem letzten Element belassen.
 
-![Dieser Flex-Container hat verfügbaren Raum nach dem Anordnen der Elemente.](basics7.svg)
+![Dieser Flex-Container hat verfügbaren Raum nach der Anordnung der Elemente.](basics7.svg)
 
-Wenn wir stattdessen möchten, dass die Elemente wachsen und den Raum ausfüllen, dann müssen wir eine Methode haben, um den übrig gebliebenen Raum zwischen den Elementen zu verteilen. Die `flex` Eigenschaften, die wir den Elementen selbst anwenden, ermöglichen es, wie dieser verfügbare Raum zwischen den untergeordneten Flex-Items verteilt werden sollte.
+Wenn wir stattdessen möchten, dass die Elemente wachsen und den Raum füllen, dann brauchen wir eine Methode, um den verbleibenden Raum zwischen den Elementen zu verteilen. Die `flex` Eigenschaften, die wir auf die Elemente selbst anwenden, ermöglichen es, zu diktieren, wie dieser verfügbare Raum unter den Geschwister-Flex-Items verteilt werden sollte.
 
 ### Die flex-basis Eigenschaft
 
-`flex-basis` definiert die Größe dieses Elements im Hinblick auf den Raum, den es als verfügbaren Raum hinterlässt. Der Anfangswert dieser Eigenschaft ist `auto` - in diesem Fall prüft der Browser, ob das Element eine Größe hat. Im obigen Beispiel haben alle Elemente eine Breite von 100 Pixeln. Dies wird als `flex-basis` verwendet.
+Das `flex-basis` definiert die Größe dieses Elements in Bezug auf den Raum, den es als verfügbaren Raum belässt. Der Anfangswert dieser Eigenschaft ist `auto` — in diesem Fall schaut der Browser, ob das Element eine Größe hat. In dem obigen Beispiel haben alle Elemente eine Breite von 100 Pixel. Dies wird als `flex-basis` verwendet.
 
-Wenn die Elemente keine Größe haben, dann wird die Größe des Inhalts als flex-basis verwendet. Deshalb, wenn wir einfach `display: flex` auf dem übergeordneten Element deklarieren, um Flex-Items zu erstellen, bewegen sich alle Elemente in eine Zeile und nehmen nur so viel Platz ein, wie sie benötigen, um ihre Inhalte anzuzeigen.
+Wenn die Elemente keine Größe haben, wird die Größe des Inhalts als flex-basis verwendet. Deshalb, wenn wir einfach `display: flex` auf dem Elternteil erklären, um Flex-Elemente zu erstellen, bewegen sich die Elemente alle in eine Reihe und nehmen nur so viel Platz ein, wie sie benötigen, um ihre Inhalte darzustellen.
 
 ### Die flex-grow Eigenschaft
 
-Wenn die `flex-grow` Eigenschaft auf einen positiven Ganzzahlwert gesetzt ist, kann das Flex-Item entlang der Hauptachse von seinem `flex-basis` aus wachsen, wenn verfügbarer Raum vorhanden ist. Ob das Element sich so weit streckt, dass es den gesamten verfügbaren Raum auf dieser Achse einnimmt, oder nur einen Teil des verfügbaren Raums, hängt davon ab, ob auch die anderen Elemente wachsen dürfen und welchen Wert ihre `flex-grow` Eigenschaften haben.
+Mit der `flex-grow` Eigenschaft auf eine positive Ganzzahl gesetzt, kann das Flex-Item, wenn verfügbarer Raum vorhanden ist, entlang der Hauptachse von seiner `flex-basis` aus wachsen. Ob sich das Element streckt, um den gesamten verfügbaren Raum auf dieser Achse einzunehmen, oder nur einen Teil des verfügbaren Raums, hängt davon ab, ob auch die anderen Elemente wachsen dürfen und von den Werten ihrer `flex-grow` Eigenschaften.
 
-Jedes Element mit einem positiven Wert nimmt einen Teil des verfügbaren Raums ein, basierend auf ihrem `flex-grow` Wert. Wenn wir allen unseren Elementen im obigen Beispiel einen `flex-grow` Wert von 1 geben würden, dann würde der verfügbarer Raum im Flex-Container gleichmäßig zwischen den Elementen geteilt werden, und sie würden sich ausstrecken, um den Container auf der Hauptachse auszufüllen. Wenn wir unserem ersten Element einen `flex-grow` Wert von 2 geben und den anderen Elementen jeweils einen Wert von 1, gibt es insgesamt 4 Teile; 2 Teile des verfügbaren Raums werden dem ersten Element gegeben (100px von 200px im Beispiel oben) und 1 Teil jeweils den anderen beiden (jeweils 50px von insgesamt 200px).
+Jedes Element mit einem positiven Wert verbraucht einen Teil des verfügbaren Raums basierend auf seinem `flex-grow` Wert. Wenn wir allen unseren Elementen im obigen Beispiel einen `flex-grow` Wert von 1 geben, dann wird der verfügbare Raum im Flex-Container gleichmäßig unter unseren Elementen aufgeteilt und sie würden sich entlang der Hauptachse bis zur Größe des Containers strecken. Wenn wir unserem ersten Element einen `flex-grow` Wert von 2 geben und den anderen Elementen jeweils einen Wert von 1, gibt es insgesamt 4 Teile; 2 Teile des verfügbaren Raums werden dem ersten Element zugewiesen (100px von 200px im Fall des obigen Beispiels) und jeweils 1 Teil für die beiden anderen (jeweils 50px von den insgesamt 200px).
 
 ### Die flex-shrink Eigenschaft
 
-Während die `flex-grow` Eigenschaft den Platz in der Hauptachse hinzufügt, kontrolliert die `flex-shrink` Eigenschaft, wie er weggenommen wird. Wenn wir nicht genug Platz im Container haben, um unsere Elemente anzuordnen, und `flex-shrink` auf einen positiven Ganzzahlwert gesetzt ist, dann kann das Element kleiner als die `flex-basis` werden. Wie bei `flex-grow` können unterschiedliche Werte zugeordnet werden, um ein Element dazu zu bringen, schneller zu schrumpfen als andere - ein Element mit einem höheren Wert für `flex-shrink` wird schneller schrumpfen als seine Geschwister mit niedrigeren Werten.
+Wo die `flex-grow` Eigenschaft sich mit dem Hinzufügen von Raum auf der Hauptachse beschäftigt, kontrolliert die `flex-shrink` Eigenschaft, wie er weggenommen wird. Wenn wir nicht genug Platz im Container haben, um unsere Elemente zu arrangieren, und `flex-shrink` auf eine positive Ganzzahl gesetzt ist, dann kann das Element kleiner als die `flex-basis` werden. Wie bei `flex-grow`, können verschiedene Werte zugewiesen werden, um zu bewirken, dass ein Element schneller schrumpft als andere — ein Element mit einem höheren Wert für `flex-shrink` schrumpft schneller als seine Geschwister mit niedrigeren Werten.
 
-Ein Element kann bis zu seiner {{cssxref("min-content")}} Größe schrumpfen. Diese Mindestgröße wird berücksichtigt, während der tatsächliche Schrumpfungsbetrag berechnet wird, was bedeutet, dass `flex-shrink` das Potenzial hat, im Verhalten weniger konsistent zu erscheinen als `flex-grow`. Daher werden wir uns dieses Algorithmus in dem Artikel [Verhältnisse der Elemente entlang der Hauptachse steuern](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) genauer ansehen.
+Ein Element kann bis zu seiner {{cssxref("min-content")}} Größe schrumpfen. Diese Mindestgröße wird bei der Berechnung des tatsächlichen Schrumpfungsbetrags berücksichtigt, was bedeutet, dass `flex-shrink` das Potenzial hat, weniger konsistent als `flex-grow` im Verhalten zu erscheinen. Wir werden daher einen detaillierteren Blick darauf werfen, wie dieser Algorithmus im Artikel [Kontrollieren der Verhältnisse von Items entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) funktioniert.
 
 > [!NOTE]
-> Diese Werte für `flex-grow` und `flex-shrink` sind Verhältnisse. Normalerweise, wenn wir alle unsere Elemente auf `flex: 1 1 200px` gesetzt haben und dann wollen, dass ein Element mit doppelter Rate wächst, würden wir dieses Element auf `flex: 2 1 200px` setzen. Sie könnten jedoch auch `flex: 10 1 200px` und `flex: 20 1 200px` verwenden, wenn Sie möchten.
+> Diese Werte für `flex-grow` und `flex-shrink` sind Proportionen. Typischerweise, wenn wir alle unsere Elemente auf `flex: 1 1 200px` gesetzt hätten und dann ein Element mit doppelter Rate wachsen lassen möchten, würden wir dieses Element auf `flex: 2 1 200px` setzen. Sie könnten jedoch auch `flex: 10 1 200px` und `flex: 20 1 200px` verwenden, wenn Sie möchten.
 
-### Shorthand-Werte für die flex Eigenschaften
+### Shorthand-Werte für die Flex-Eigenschaften
 
-Sie werden sehr selten die `flex-grow`, `flex-shrink` und `flex-basis` Eigenschaften einzeln sehen; stattdessen werden sie in das {{cssxref("flex")}} Shorthand kombiniert. Das `flex` Shorthand erlaubt es Ihnen, die drei Werte in dieser Reihenfolge zu setzen - `flex-grow`, `flex-shrink`, `flex-basis`.
+Sie werden sehr selten die `flex-grow`, `flex-shrink` und `flex-basis` Eigenschaften einzeln verwendet sehen; stattdessen werden sie in der {{cssxref("flex")}} Shorthand kombiniert. Die `flex` Shorthand ermöglicht es Ihnen, die drei Werte in dieser Reihenfolge festzulegen — `flex-grow`, `flex-shrink`, `flex-basis`.
 
-Im lebenden Beispiel unten können Sie die verschiedenen Werte des flex Shorthands ausprobieren; denken Sie daran, dass der erste Wert `flex-grow` ist. Wenn Sie diesem einen positiven Wert geben, kann das Element wachsen. Der zweite ist `flex-shrink` - mit einem positiven Wert können sich die Elemente verkleinern, aber nur, wenn ihre Gesamtwerte die Hauptachse überlaufen. Der letzte Wert ist `flex-basis`; dies ist der Wert, den die Elemente als Basiswert verwenden, um von dort aus zu wachsen und zu schrumpfen.
+Im lebhaften Beispiel unten können Sie die verschiedenen Werte der flex Shorthand ausprobieren; denken Sie daran, dass der erste Wert `flex-grow` ist. Indem Sie diesem einen positiven Wert geben, bedeutet das, dass das Element wachsen kann. Der zweite ist `flex-shrink` — mit einem positiven Wert können die Elemente schrumpfen, aber nur, wenn ihre Gesamtwerte die Hauptachse überschreiten. Der letzte Wert ist `flex-basis`; dies ist der Wert, den die Elemente als Basiswert verwenden, von dem aus sie wachsen und sich verkleinern.
 
 ```html live-sample___flex-properties
 <div class="box">
@@ -279,22 +279,22 @@ Im lebenden Beispiel unten können Sie die verschiedenen Werte des flex Shorthan
 
 {{EmbedLiveSample("flex-properties")}}
 
-Es gibt auch einige vordefinierte Shorthand-Werte, die die meisten Anwendungsfälle abdecken. Diese werden häufig in Tutorials verwendet, und in vielen Fällen sind dies alle, die Sie verwenden müssen. Die vordefinierten Werte sind wie folgt:
+Es gibt auch einige vordefinierte Shorthand-Werte, die die meisten Anwendungsfälle abdecken. Sie werden diese häufig in Tutorials sehen, und in vielen Fällen sind dies alle Werte, die Sie verwenden müssen. Die vordefinierten Werte sind wie folgt:
 
 - `flex: initial`
 - `flex: auto`
 - `flex: none`
 - `flex: <positive-number>`
 
-Der `initial` Wert ist ein [CSS-weites Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords), das den Anfangswert für eine Eigenschaft darstellt. Das Setzen von `flex: initial` setzt das Element auf die [Angangswerte](#anfangswerte) der drei Langform-Eigenschaften zurück, was dasselbe ist wie `flex: 0 1 auto`. Der Anfangswert von `flex-grow` ist `0`, sodass die Elemente nicht größer als ihre `flex-basis` Größe werden. Der Anfangswert von `flex-shrink` ist `1`, sodass die Elemente schrumpfen können, wenn sie es müssen, anstatt überzulaufen. Der Anfangswert von `flex-basis` ist `auto`. Die Elemente verwenden entweder die auf dem Element in der Hauptdimension festgelegte Größe oder erhalten ihre Größe von der Inhaltsgröße.
+Der `initial` Wert ist ein [CSS-weites Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords), das den Anfangswert für eine Eigenschaft darstellt. Wenn `flex: initial` eingestellt ist, wird das Element auf die [Anfangswerte](#anfangswerte) der drei Langformen-Eigenschaften zurückgesetzt, was dem gleichen entspricht wie `flex: 0 1 auto`. Der Anfangswert von `flex-grow` ist `0`, daher werden Elemente nicht größer als ihre `flex-basis` Größe wachsen. Der Anfangswert von `flex-shrink` ist `1`, daher können Elemente schrumpfen, wenn sie müssen, anstatt überzufließen. Der Anfangswert von `flex-basis` ist `auto`. Elemente verwenden entweder eine auf das Element in der Hauptdimension gesetzte Größe oder sie erhalten ihre Größe aus der Inhaltsgröße.
 
-Die Verwendung von `flex: auto` ist dasselbe wie die Verwendung von `flex: 1 1 auto`; dies ist ähnlich wie `flex: initial`, außer dass die Elemente wachsen und den Container ausfüllen sowie schrumpfen können, wenn nötig.
+Die Verwendung von `flex: auto` ist das gleiche wie die Verwendung von `flex: 1 1 auto`; dies ähnelt `flex: initial`, außer dass die Elemente wachsen und den Container füllen können, sowie schrumpfen, wenn nötig.
 
-Die Verwendung von `flex: none` erstellt vollständig unflexible Flex-Items. Es ist, als ob Sie `flex: 0 0 auto` geschrieben hätten. Die Elemente können nicht wachsen oder schrumpfen und werden mithilfe von Flexbox mit einer `flex-basis` von `auto` angeordnet.
+Die Verwendung von `flex: none` erstellt vollständig unflexible Flex-Items. Es ist, als ob Sie `flex: 0 0 auto` schreiben. Die Elemente können weder wachsen noch schrumpfen und werden mit Flexbox mit einer `flex-basis` von `auto` layoutet.
 
-Das Shorthand, das Sie in Tutorials oft sehen, ist `flex: 1` oder `flex: 2` usw. Das ist dasselbe, wie `flex: 1 1 0` oder `flex: 2 1 0` usw. zu schreiben. Die Elemente erhalten eine minimale Größe aufgrund von `flex-basis: 0` und wachsen dann proportional, um den verfügbaren Raum zu füllen. In diesem Fall ist der `flex-shrink` Wert von `1` redundant, da die Elemente mit minimaler Größe beginnen - sie erhalten keine Größe, die sie dazu bringen könnte, den Flex-Container zu überlaufen.
+Die Shorthand, die Sie häufig in Tutorials sehen, ist `flex: 1` oder `flex: 2` und so weiter. Dies ist das gleiche wie das Schreiben von `flex: 1 1 0` oder `flex: 2 1 0` und so weiter, jeweils. Die Elemente erhalten eine Mindestgröße aufgrund `flex-basis: 0` und wachsen dann proportional um den verfügbaren Raum zu füllen. In diesem Fall ist der `flex-shrink` Wert von `1` redundant, weil die Elemente mit einer Mindestgröße beginnen — ihnen wird keine Größe gegeben, die sie dazu bringen könnte, den Flex-Container zu überfüllen.
 
-Versuchen Sie diese Shorthand-Werte im lebenden Beispiel unten.
+Versuchen Sie diese Shorthand-Werte im lebhaften Beispiel unten.
 
 ```html live-sample___flex-shorthands
 <div class="box">
@@ -333,15 +333,15 @@ Versuchen Sie diese Shorthand-Werte im lebenden Beispiel unten.
 
 ## Ausrichtung, Rechtfertigung und Verteilung von freiem Raum zwischen Elementen
 
-Ein Hauptmerkmal von Flexbox ist die Fähigkeit, Elemente auf den Haupt- und Querachsen auszurichten und zu rechtfertigen sowie Raum zwischen Flex-Items zu verteilen. Beachten Sie, dass diese Eigenschaften auf den Flex-Container gesetzt werden, nicht auf die Elemente selbst.
+Ein Hauptmerkmal von Flexbox ist die Fähigkeit, Elemente auf den Haupt- und Querachsen auszurichten und zu rechtfertigen und Platz zwischen Flex-Elementen zu verteilen. Beachten Sie, dass diese Eigenschaften auf den Flex-Container gesetzt sind, nicht auf die Elemente selbst.
 
 ### align-items
 
-Die {{cssxref("align-items")}} Eigenschaft richtet alle Flex-Items auf der Querachse aus.
+Die {{cssxref("align-items")}} Eigenschaft richtet alle Flex-Elemente auf der Querachse aus.
 
-Der Anfangswert für diese Eigenschaft ist `stretch` und ist der Grund, warum Flex-Items standardmäßig bis zur Höhe des Flex-Containers gestreckt werden (oder zur Breite, wenn `flex-direction` auf `column` oder `column-reverse` gesetzt ist). Diese Höhe kann vom höchsten Element im Container oder von der auf den Flex-Container selbst gesetzten Größe stammen.
+Der Anfangswert für diese Eigenschaft ist `stretch` und ist der Grund, warum Flex-Elemente standardmäßig auf die Höhe des Flex-Containers gestreckt werden (oder die Breite, wenn `flex-direction` auf `column` oder `column-reverse` gesetzt ist). Diese Höhe kann von dem höchsten Element im Container oder der auf den Flex-Container selbst gesetzten Größe kommen.
 
-Sie könnten stattdessen `align-items` auf `flex-start` oder einfach `start` setzen, um die Elemente an der Startseite des Flex-Containers auszurichten, `flex-end` oder einfach `end`, um sie am Ende auszurichten, oder `center`, um sie in der Mitte auszurichten. Versuchen Sie dies im lebenden Beispiel - ich habe dem Flex-Container eine Höhe gegeben, damit Sie sehen können, wie die Elemente im Container bewegt werden können. Sehen Sie, was passiert, wenn Sie den Wert von align-items auf setzen:
+Sie könnten stattdessen `align-items` auf `flex-start` oder einfach `start` setzen, um die Elemente am Anfang des Flex-Containers auszurichten, `flex-end` oder einfach `end`, um sie am Ende auszurichten, oder `center`, um sie in der Mitte auszurichten. Probieren Sie dies im lebhaften Beispiel aus — Ich habe dem Flex-Container eine Höhe gegeben, damit Sie sehen können, wie die Elemente im Inneren des Containers bewegt werden können. Sehen Sie, was passiert, wenn Sie den Wert von align-items auf:
 
 - `stretch`
 - `flex-start`
@@ -351,6 +351,8 @@ Sie könnten stattdessen `align-items` auf `flex-start` oder einfach `start` set
 - `center`
 - `baseline`
 - `last baseline`
+
+setzen.
 
 ```html live-sample___align-items
 <div class="box">
@@ -378,15 +380,15 @@ Sie könnten stattdessen `align-items` auf `flex-start` oder einfach `start` set
 
 {{EmbedLiveSample("align-items")}}
 
-Die `align-items` wird auf den Flex-Container gesetzt und betrifft alle Flex-Items. Wenn Sie ein Flex-Item anders als die anderen ausrichten möchten, können Sie {{cssxref("align-self")}} auf dem Flex-Item setzen.
+Das `align-items` wird am Flex-Container eingestellt und betrifft alle Flex-Elemente. Wenn Sie ein Flex-Item anders als die anderen ausrichten möchten, können Sie das {{cssxref("align-self")}} auf dem Flex-Item setzen.
 
 ### justify-content
 
-Die {{cssxref("justify-content")}} Eigenschaft wird verwendet, um die Elemente auf der Hauptachse auszurichten, die Richtung, in die `flex-direction` den Fluss gesetzt hat. Der Anfangswert ist `flex-start`, was die Elemente an der startenden Kante des Containers ausrichten wird, aber Sie könnten den Wert auch auf `flex-end` setzen, um sie am Ende auszurichten, oder `center`, um sie in der Mitte zu positionieren.
+Die {{cssxref("justify-content")}} Eigenschaft wird verwendet, um die Elemente auf der Hauptachse auszurichten, die Richtung, in der `flex-direction` den Fluss gesetzt hat. Der Anfangswert ist `flex-start`, was die Elemente an die Startkante des Containers ausrichtet, aber Sie könnten auch den Wert auf `flex-end` setzen, um sie am Ende auszurichten, oder `center`, um sie in der Mitte auszurichten.
 
-Sie können auch den Wert `space-between` verwenden, um den gesamten freien Platz zu nehmen, nachdem die Elemente angeordnet wurden, und ihn gleichmäßig zwischen den Elementen zu teilen, sodass ein gleicher Abstand zwischen jedem Element entsteht. Um einen gleichen Abstand auf der rechten und linken Seite (oder oben und unten für Spalten) jedes Elements zu erzeugen, verwenden Sie den Wert `space-around`. Mit `space-around` haben die Elemente einen halben Raum an jedem Ende. Oder um Elemente mit gleichmäßigem Raum um sie herum zu haben, verwenden Sie den Wert `space-evenly`. Mit `space-evenly` haben die Elemente einen ganzen Raum an jedem Ende.
+Sie können auch den Wert `space-between` verwenden, um den gesamten freien Raum zu nehmen, nachdem die Elemente angeordnet wurden, und ihn gleichmäßig zwischen den Elementen aufzuteilen, sodass ein gleichmäßiger Abstand zwischen jedem Element entsteht. Um einen gleichmäßigen Abstand rechts und links (oder oben und unten für Spalten) von jedem Element zu verursachen, verwenden Sie den Wert `space-around`. Bei `space-around` haben Elemente an jedem Ende einen halben Größenabstand. Oder um Elemente einen gleichmäßigeren Raum um sie herum zu geben, verwenden Sie den Wert `space-evenly`. Bei `space-evenly` haben Elemente an jedem Ende einen vollständigen Größenabstand.
 
-Versuchen Sie die folgenden Werte von `justify-content` im lebenden Beispiel:
+Probieren Sie die folgenden Werte von `justify-content` im lebhaften Beispiel aus:
 
 - `start`
 - `end`
@@ -425,7 +427,7 @@ Versuchen Sie die folgenden Werte von `justify-content` im lebenden Beispiel:
 
 {{EmbedLiveSample("justify-content")}}
 
-Der Artikel [Elemente in einem Flex-Container ausrichten](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) untersucht diese Eigenschaften eingehender, um ein besseres Verständnis dafür zu bekommen, wie sie funktionieren. Diese grundlegenden Beispiele sind jedoch für die meisten Anwendungsfälle nützlich.
+Der Artikel [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) untersucht diese Eigenschaften in tieferer Weise, um ein besseres Verständnis davon zu erhalten, wie sie funktionieren. Diese grundlegenden Beispiele sind jedoch in den meisten Anwendungsfällen nützlich.
 
 ### justify-items
 
@@ -433,10 +435,10 @@ Die {{cssxref("justify-items")}} Eigenschaft wird in Flexbox-Layouts ignoriert.
 
 ### place-items und place-content
 
-Die {{cssxref("place-items")}} Eigenschaft ist eine Shorthand-Eigenschaft für `align-items` und `justify-items`. Wenn sie auf einen Flex-Container gesetzt ist, wird sie die Ausrichtung, aber nicht die Rechtfertigung festlegen, da `justify-items` in Flexbox ignoriert wird.
+Die {{cssxref("place-items")}} Eigenschaft ist eine Shorthand-Eigenschaft für `align-items` und `justify-items`. Wenn sie in einem Flex-Container eingestellt ist, wird sie die Ausrichtung, aber nicht die Rechtfertigung festlegen, da `justify-items` in Flexbox ignoriert wird.
 
-Es gibt eine andere Shorthand-Eigenschaft, {{cssxref("place-content")}}, die die {{cssxref("align-content")}} und `justify-content` Eigenschaften definiert. Die `align-content` Eigenschaft beeinflusst nur Flex-Container, die umgebrochen werden, und wird in [Elemente in einem Flex-Container ausrichten](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) besprochen.
+Es gibt eine andere Shorthand-Eigenschaft, {{cssxref("place-content")}}, die die {{cssxref("align-content")}} und `justify-content` Eigenschaften definiert. Die `align-content` Eigenschaft betrifft nur Flex-Container, die wRap, und wird in [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) diskutiert.
 
 ## Nächste Schritte
 
-Nach dem Lesen dieses Artikels sollten Sie ein Verständnis für die grundlegenden Funktionen von Flexbox haben. Im nächsten Artikel werden wir uns ansehen, [wie diese Spezifikation sich auf andere Teile von CSS bezieht](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods).
+Nach dem Lesen dieses Artikels sollten Sie ein Verständnis für die grundlegenden Merkmale von Flexbox haben. Im nächsten Artikel werden wir uns ansehen, [wie diese Spezifikation in Beziehung zu anderen Teilen von CSS steht](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods).

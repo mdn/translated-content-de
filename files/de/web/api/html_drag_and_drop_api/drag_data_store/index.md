@@ -1,42 +1,42 @@
 ---
-title: Arbeiten mit dem Drag-Daten-Store
+title: Arbeiten mit dem Drag-Datenspeicher
 slug: Web/API/HTML_Drag_and_Drop_API/Drag_data_store
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 2a4ce8db664c71d41fa179be43f3336ad384ab65
 ---
 
 {{DefaultAPISidebar("HTML Drag and Drop API")}}
 
-Das [`DragEvent`](/de/docs/Web/API/DragEvent)-Interface hat eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft, die ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt ist. [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte repräsentieren den Hauptkontext der Drag-Operation und bleiben über die Auslösung verschiedener Ereignisse hinweg konsistent. Es umfasst die [Drag-Daten](/de/docs/Web/API/HTML_Drag_and_Drop_API#drag_data_store), das [Drag-Bild](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#setting_the_drag_feedback_image), die [Drop-Effekt](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#drop_effects), usw. Dieser Artikel konzentriert sich auf den _Daten-Store_-Teil des `dataTransfer`.
+Die Schnittstelle [`DragEvent`](/de/docs/Web/API/DragEvent) verfügt über eine Eigenschaft [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer), die ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt ist. [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte stellen den Hauptkontext des Drag-Vorgangs dar und bleiben beim Auslösen verschiedener Ereignisse konsistent. Sie umfassen die [Drag-Daten](/de/docs/Web/API/HTML_Drag_and_Drop_API#drag_data_store), das [Drag-Bild](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#setting_the_drag_feedback_image), den [Drop-Effekt](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#drop_effects) usw. Dieser Artikel konzentriert sich auf den Teil des _Datenspeichers_ von `dataTransfer`.
 
-## Struktur des Drag-Daten-Stores
+## Struktur des Drag-Datenspeichers
 
-Grundsätzlich ist der Drag-Daten-Store eine Liste von Elementen, dargestellt als eine [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten. Jedes Element kann einer von zwei [Arten](/de/docs/Web/API/DataTransferItem/kind) sein:
+Grundsätzlich ist der Drag-Datenspeicher eine Liste von Einträgen, dargestellt als [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) aus [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten. Jeder Eintrag kann eine von zwei [Arten](/de/docs/Web/API/DataTransferItem/kind) sein:
 
-- `string`: sein Nutzlast ist ein String und kann mit [`getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString) abgerufen werden.
-- `file`: sein Nutzlast ist ein Dateiobjekt, abrufbar mit [`getAsFile()`](/de/docs/Web/API/DataTransferItem/getAsFile) (oder [`getAsFileSystemHandle()`](/de/docs/Web/API/DataTransferItem/getAsFileSystemHandle) oder [`webkitGetAsEntry()`](/de/docs/Web/API/DataTransferItem/webkitGetAsEntry), wenn komplexere Dateisystemoperationen notwendig sind).
+- `string`: Seine Nutzlast ist ein String, abrufbar mit [`getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString).
+- `file`: Seine Nutzlast ist ein Dateiobjekt, abrufbar mit [`getAsFile()`](/de/docs/Web/API/DataTransferItem/getAsFile) (oder [`getAsFileSystemHandle()`](/de/docs/Web/API/DataTransferItem/getAsFileSystemHandle) bzw. [`webkitGetAsEntry()`](/de/docs/Web/API/DataTransferItem/webkitGetAsEntry), wenn komplexere Dateisystemoperationen erforderlich sind).
 
-Weiterhin wird das Element auch durch einen [Typ](/de/docs/Web/API/DataTransferItem/type) identifiziert, der konventionell in der Form eines [MIME-Typs](/de/docs/Web/HTTP/Guides/MIME_types) ist. Dieser Typ kann den Verbraucher anweisen, wie die Nutzlast analysiert oder dekodiert werden soll. Für alle Textelemente kann die Liste nur ein Element jedes Typs haben, sodass die Liste effektiv zwei getrennte Sammlungen enthält: eine Liste von Dateien mit möglicherweise doppelten Typen und eine {{jsxref("Map")}} von Textelementen, die nach ihrem Typ schlüssig sind. Im Allgemeinen repräsentiert die Dateiliste mehrere Dateien, die gezogen werden. Die Textzuordnung repräsentiert _nicht_ mehrere Ressourcen, die übertragen werden, sondern dieselbe Ressource, die auf verschiedene Weise kodiert ist, sodass das empfangende Ende die geeignetste unterstützte Interpretation wählen kann. Die Textelemente sollen in absteigender Reihenfolge der Präferenz sortiert werden.
+Darüber hinaus wird der Eintrag durch einen [Typ](/de/docs/Web/API/DataTransferItem/type) identifiziert, der konventionsgemäß die Form eines [MIME-Typs](/de/docs/Web/HTTP/Guides/MIME_types) hat. Dieser Typ kann dem Empfänger vorgeben, wie die Nutzlast geparst oder dekodiert werden soll. Für alle Texteinträge darf die Liste nur einen Eintrag jedes Typs enthalten. Die Liste enthält daher faktisch zwei getrennte Sammlungen: eine Liste von Dateien mit möglicherweise doppelten Typen und eine {{jsxref("Map")}} von Texteinträgen, die durch ihren Typ als Schlüssel bestimmt werden. Im Allgemeinen stellt die Dateiliste mehrere gezogene Dateien dar. Die Text-Map stellt _nicht_ mehrere übertragene Ressourcen dar, sondern dieselbe Ressource, die auf unterschiedliche Arten kodiert ist, sodass die empfangende Seite die am besten geeignete unterstützte Interpretation auswählen kann. Die Texteinträge sollen in absteigender Reihenfolge ihrer Präferenz sortiert sein.
 
-Diese Liste ist über die [`DataTransfer.items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaft zugänglich.
+Auf diese Liste kann über die Eigenschaft [`DataTransfer.items`](/de/docs/Web/API/DataTransfer/items) zugegriffen werden.
 
-Die HTML Drag and Drop API durchlief mehrere Iterationen, was zu zwei koexistierenden Wegen zur Verwaltung des Daten-Stores führte. Vor den `DataTransferItemList` und `DataTransferItem` Interfaces verwendete der "alte Weg" die folgenden Eigenschaften auf `DataTransfer`:
+Die HTML Drag and Drop API durchlief mehrere Iterationen, wodurch zwei nebeneinander bestehende Möglichkeiten zur Verwaltung des Datenspeichers entstanden. Vor den Schnittstellen `DataTransferItemList` und `DataTransferItem` verwendete die „alte Methode“ die folgenden Eigenschaften von `DataTransfer`:
 
-- [`types`](/de/docs/Web/API/DataTransfer/types): enthält die `type`-Eigenschaften der _Textelemente_ in der Liste, plus der Wert `"files"`, wenn es _Dateielemente_ gibt.
-- [`setData()`](/de/docs/Web/API/DataTransfer/setData), [`getData()`](/de/docs/Web/API/DataTransfer/getData), [`clearData()`](/de/docs/Web/API/DataTransfer/clearData): bieten Zugriff auf die _Textelemente_ in der Liste unter Verwendung des "type-to-payload mapping" Modells.
-- [`files`](/de/docs/Web/API/DataTransfer/files): bietet Zugriff auf die _Dateielemente_ in der Liste als [`FileList`](/de/docs/Web/API/FileList).
+- [`types`](/de/docs/Web/API/DataTransfer/types): Enthält die `type`-Eigenschaften der _Texteinträge_ in der Liste sowie den Wert `"files"`, falls _Dateieinträge_ vorhanden sind.
+- [`setData()`](/de/docs/Web/API/DataTransfer/setData), [`getData()`](/de/docs/Web/API/DataTransfer/getData), [`clearData()`](/de/docs/Web/API/DataTransfer/clearData): Ermöglichen über das Modell der „Typ-zu-Nutzlast-Zuordnung“ den Zugriff auf die _Texteinträge_ in der Liste.
+- [`files`](/de/docs/Web/API/DataTransfer/files): Ermöglicht den Zugriff auf die _Dateieinträge_ in der Liste als [`FileList`](/de/docs/Web/API/FileList).
 
-Sie werden feststellen, dass die Typen der _Dateielemente_ nicht direkt freigelegt werden. Sie sind immer noch zugänglich, jedoch nur über die [`type`](/de/docs/Web/API/Blob/type)-Eigenschaft jedes [`File`](/de/docs/Web/API/File)-Objekts in der `files`-Liste, sodass, wenn Sie die Dateien nicht lesen können, dann können Sie auch ihre Typen nicht erkennen (siehe [Lesen des Drag-Daten-Stores](#lesen_des_drag-daten-stores) wann der Store lesbar ist).
+Sie werden möglicherweise feststellen, dass die Typen der _Dateieinträge_ nicht direkt verfügbar gemacht werden. Sie sind weiterhin zugänglich, jedoch nur über die Eigenschaft [`type`](/de/docs/Web/API/Blob/type) jedes [`File`](/de/docs/Web/API/File)-Objekts in der Liste `files`. Wenn Sie die Dateien nicht lesen können, können Sie daher auch ihre Typen nicht ermitteln (siehe [Lesen des Drag-Datenspeichers](#den_drag-datenspeicher_lesen), um zu erfahren, wann der Speicher lesbar ist).
 
-Um die Dateien und ihre Typen zu erhalten, empfehlen wir die Verwendung der `items`-Eigenschaft, da sie eine flexiblere und konsistentere Schnittstelle bietet. Für Textelemente sollten Sie auch die `items`-Eigenschaft der Konsistenz wegen bevorzugen, obwohl die `getData()` Methode bequemer für den Zugriff auf einen bestimmten Typ zu entfernen ist.
+Um die Dateien und ihre Typen abzurufen, empfehlen wir die Verwendung der Eigenschaft `items`, da sie eine flexiblere und konsistentere Schnittstelle bietet. Auch für Texteinträge sollten Sie aus Gründen der Konsistenz vorzugsweise die Eigenschaft `items` verwenden, obwohl die Methode `getData()` bequemer ist, um auf einen bestimmten Typ zuzugreifen oder ihn zu entfernen.
 
-Ein weiterer wichtiger Unterschied zwischen den [`DataTransfer`](/de/docs/Web/API/DataTransfer) und [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Interfaces ist, dass das erstere die synchrone [`getData()`](/de/docs/Web/API/DataTransfer/getData) Methode benutzt, um auf die Textnutzlast zuzugreifen, während das letztere stattdessen die asynchrone [`getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString) Methode verwendet.
+Ein weiterer wichtiger Unterschied zwischen den Schnittstellen [`DataTransfer`](/de/docs/Web/API/DataTransfer) und [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) besteht darin, dass erstere die synchrone Methode [`getData()`](/de/docs/Web/API/DataTransfer/getData) verwendet, um auf die Textnutzlast zuzugreifen, während letztere stattdessen die asynchrone Methode [`getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString) verwendet.
 
-## Ändern des Drag-Daten-Stores
+## Den Drag-Datenspeicher ändern
 
-Für die standardmäßig ziehbaren Elemente wie Bilder, Links und Auswahlen sind die Drag-Daten bereits durch den Browser definiert; für benutzerdefinierte ziehbare Elemente, die mit dem `draggable`-Attribut definiert sind, müssen Sie die Drag-Daten selbst definieren. Die einzige Zeit, um Änderungen am Daten-Store vorzunehmen, ist innerhalb des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Handlers—für das `dataTransfer` jedes anderen Drag-Ereignisses ist der Daten-Store nicht änderbar.
+Für standardmäßig ziehbare Elemente wie Bilder, Links und Auswahlen sind die Drag-Daten bereits vom Browser definiert; für benutzerdefinierte ziehbare Elemente, die mit dem Attribut `draggable` definiert werden, müssen Sie die Drag-Daten selbst festlegen. Änderungen am Datenspeicher können nur innerhalb des Handlers für [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) vorgenommen werden – für das `dataTransfer` jedes anderen Drag-Ereignisses ist der Datenspeicher nicht veränderbar.
 
-Um Textdaten dem Drag-Daten-Store hinzuzufügen, verwendet der "neue Weg" die [`DataTransferItemList.add()`](/de/docs/Web/API/DataTransferItemList/add) Methode, während der "alte Weg" die [`DataTransfer.setData()`](/de/docs/Web/API/DataTransfer/setData) Methode verwendet.
+Um Textdaten zum Drag-Datenspeicher hinzuzufügen, verwendet die „neue Methode“ die Methode [`DataTransferItemList.add()`](/de/docs/Web/API/DataTransferItemList/add), während die „alte Methode“ die Methode [`DataTransfer.setData()`](/de/docs/Web/API/DataTransfer/setData) verwendet.
 
 ```js
 function dragstartHandler(ev) {
@@ -50,9 +50,9 @@ const p1 = document.getElementById("p1");
 p1.addEventListener("dragstart", dragstartHandler);
 ```
 
-Für beide Methoden, wenn sie aufgerufen werden, wenn der Daten-Store nicht änderbar ist, passiert nichts. Wenn bereits ein Textelement mit demselben Typ existiert, wirft `add()` einen Fehler, während `setData()` das vorhandene Element überschreibt.
+Bei beiden Methoden geschieht nichts, wenn sie aufgerufen werden, während der Datenspeicher nicht veränderbar ist. Wenn bereits ein Texteintrag desselben Typs vorhanden ist, löst `add()` einen Fehler aus, während `setData()` den vorhandenen Eintrag überschreibt.
 
-Um Dateidaten zum Drag-Daten-Store hinzuzufügen, verwendet der "neue Weg" immer noch die [`DataTransferItemList.add()`](/de/docs/Web/API/DataTransferItemList/add) Methode. Da der "alte Weg" Dateielemente in der [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) Eigenschaft speichert, die eine schreibgeschützte [`FileList`](/de/docs/Web/API/FileList) ist, gibt es kein direktes Äquivalent.
+Um Dateidaten zum Drag-Datenspeicher hinzuzufügen, verwendet die „neue Methode“ weiterhin die Methode [`DataTransferItemList.add()`](/de/docs/Web/API/DataTransferItemList/add). Da die „alte Methode“ Dateieinträge in der Eigenschaft [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) speichert, die eine schreibgeschützte [`FileList`](/de/docs/Web/API/FileList) ist, gibt es kein direktes Äquivalent.
 
 ```js
 function dragstartHandler(ev) {
@@ -64,10 +64,10 @@ const p1 = document.getElementById("p1");
 p1.addEventListener("dragstart", dragstartHandler);
 ```
 
-Beachten Sie, dass beim Hinzufügen von Dateidaten `add()` den `type`-Parameter ignoriert und die [`type`](/de/docs/Web/API/Blob/type)-Eigenschaft des `File`-Objekts verwendet.
+Beachten Sie, dass `add()` beim Hinzufügen von Dateidaten den Parameter `type` ignoriert und die Eigenschaft [`type`](/de/docs/Web/API/Blob/type) des `File`-Objekts verwendet.
 
 > [!NOTE]
-> Der Lese-/Schreibschutz erfolgt auf einer [pro-Job-Basis](/de/docs/Web/JavaScript/Reference/Execution_model#job_queue_and_event_loop), was bedeutet, dass nur der _synchrone Code_ innerhalb des `dragstart`-Handlers den Daten-Store ändern kann. Wenn Sie versuchen, nach einer asynchronen Operation auf den Daten-Store zuzugreifen, haben Sie keine Schreibberechtigungen mehr. Zum Beispiel funktioniert das nicht:
+> Der Lese-/Schreibschutz erfolgt [pro Job](/de/docs/Web/JavaScript/Reference/Execution_model#job_queue_and_event_loop). Das bedeutet, dass nur der _synchrone Code_ innerhalb des `dragstart`-Handlers den Datenspeicher ändern kann. Wenn Sie nach einer asynchronen Operation versuchen, auf den Datenspeicher zuzugreifen, verfügen Sie nicht mehr über Schreibberechtigungen. Das Folgende funktioniert beispielsweise nicht:
 >
 > ```js example-bad
 > function dragstartHandler(ev) {
@@ -77,13 +77,13 @@ Beachten Sie, dass beim Hinzufügen von Dateidaten `add()` den `type`-Parameter 
 > }
 > ```
 
-Das Entfernen von Daten ist ähnlich, unter Verwendung der Methoden [`DataTransferItemList.remove()`](/de/docs/Web/API/DataTransferItemList/remove), [`DataTransferItemList.clear()`](/de/docs/Web/API/DataTransferItemList/clear) oder [`DataTransfer.clearData()`](/de/docs/Web/API/DataTransfer/clearData).
+Das Entfernen von Daten ist ähnlich und erfolgt mit den Methoden [`DataTransferItemList.remove()`](/de/docs/Web/API/DataTransferItemList/remove), [`DataTransferItemList.clear()`](/de/docs/Web/API/DataTransferItemList/clear) oder [`DataTransfer.clearData()`](/de/docs/Web/API/DataTransfer/clearData).
 
-## Lesen des Drag-Daten-Stores
+## Den Drag-Datenspeicher lesen
 
-Das einzige Mal, dass Sie aus dem Daten-Store _lesen_ können, abgesehen vom `dragstart`-Ereignis, wenn Sie vollen Zugriff auf den Daten-Store haben, ist während des [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisses, das es dem Drop-Ziel ermöglicht, die Daten abzurufen.
+Abgesehen vom Ereignis `dragstart`, bei dem Sie vollständigen Zugriff auf den Datenspeicher haben, können Sie den Datenspeicher nur während des Ereignisses [`drop`](/de/docs/Web/API/HTMLElement/drop_event) _lesen_. Dadurch kann das Drop-Ziel die Daten abrufen.
 
-Um Textdaten aus dem Drag-Daten-Store zu lesen, verwendet der "neue Weg" das [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, während der "alte Weg" die [`DataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData) Methode verwendet. Der neue Weg ist bequemer, um durch alle Elemente zu schleifen, während der alte Weg bequemer ist, um auf einen bestimmten Typ zuzugreifen.
+Um Textdaten aus dem Drag-Datenspeicher zu lesen, verwendet die „neue Methode“ das Objekt [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList), während die „alte Methode“ die Methode [`DataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData) verwendet. Die neue Methode ist bequemer, um alle Einträge zu durchlaufen, während die alte Methode bequemer ist, um auf einen bestimmten Typ zuzugreifen.
 
 ```js
 function dropHandler(ev) {
@@ -103,7 +103,7 @@ const p1 = document.getElementById("p1");
 p1.addEventListener("drop", dropHandler);
 ```
 
-Um Dateidaten aus dem Drag-Daten-Store zu lesen, verwendet der "neue Weg" immer noch das [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, während der "alte Weg" die [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files)-Eigenschaft verwendet.
+Um Dateidaten aus dem Drag-Datenspeicher zu lesen, verwendet die „neue Methode“ weiterhin das Objekt [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList), während die „alte Methode“ die Eigenschaft [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) verwendet.
 
 ```js
 function dropHandler(ev) {
@@ -125,15 +125,15 @@ p1.addEventListener("drop", dropHandler);
 
 ### Geschützter Modus
 
-Außerhalb der `dragstart`- und `drop`-Ereignisse befindet sich der Daten-Store im _geschützten Modus_, der Code daran hindert, auf irgendeine Nutzlast zuzugreifen. Das bedeutet konkret:
+Außerhalb der Ereignisse `dragstart` und `drop` befindet sich der Datenspeicher im _geschützten Modus_, der verhindert, dass Code auf irgendeine Nutzlast zugreift. Im Einzelnen:
 
-- Alle [Modifikationsversuche](#ändern_des_drag-daten-stores) tun stillschweigend nichts oder werfen einen `DOMException` (nur für `items.add()` und `items.remove()`).
+- Alle [Änderungsversuche](#den_drag-datenspeicher_ändern) führen stillschweigend zu keiner Aktion oder lösen eine `DOMException` aus (nur bei `items.remove()`).
 - `DataTransfer.getData()` gibt immer den leeren String zurück.
 - `DataTransfer.files` gibt immer eine leere Liste zurück.
-- `DataTransferItem.getAsString()` kehrt zurück, ohne je den Callback aufzurufen.
+- `DataTransferItem.getAsString()` wird beendet, ohne jemals den Callback aufzurufen.
 - `DataTransferItem.getAsFile()` gibt immer `null` zurück.
 
-Wieder erfolgt der Lese-/Schreibschutz auf einer [pro-Job-Basis](/de/docs/Web/JavaScript/Reference/Execution_model#job_queue_and_event_loop), was bedeutet, dass nur der _synchrone Code_ innerhalb des `drop`-Handlers den Daten-Store lesen kann. Wenn Sie versuchen, nach einer asynchronen Operation auf den Daten-Store zuzugreifen, werden Sie keine Schreibberechtigungen mehr haben. Zum Beispiel funktioniert das nicht:
+Auch hier erfolgt der Lese-/Schreibschutz [pro Job](/de/docs/Web/JavaScript/Reference/Execution_model#job_queue_and_event_loop). Das bedeutet, dass nur der _synchrone Code_ innerhalb des `drop`-Handlers den Datenspeicher lesen kann. Wenn Sie nach einer asynchronen Operation versuchen, auf den Datenspeicher zuzugreifen, verfügen Sie nicht mehr über Schreibberechtigungen. Das Folgende funktioniert beispielsweise nicht:
 
 ```js example-bad
 function getDataPromise(item) {
@@ -157,7 +157,7 @@ const p1 = document.getElementById("p1");
 p1.addEventListener("drop", dropHandler);
 ```
 
-Stattdessen müssen Sie alle Zugriffsmethoden synchron sofort aufrufen und später auf ihre Ergebnisse warten:
+Stattdessen müssen Sie alle Zugriffsmethoden zunächst synchron aufrufen und später auf ihre Ergebnisse warten:
 
 ```js example-good
 async function dropHandler(ev) {
@@ -172,50 +172,50 @@ async function dropHandler(ev) {
 }
 ```
 
-## Häufige Drag-Daten-Typen
+## Häufige Drag-Datentypen
 
-Die Spezifikation definiert nur das Verhalten für einige wenige Datentypen, aber Browser haben manchmal native Unterstützung für weitere Typen. Im Allgemeinen sind Typen als _Protokoll_ gedacht, genau wie MIME-Typen, und Sie können jeden Typ verwenden, solange das empfangende Ende (eine andere Webseite, ein anderer Teil derselben Webseite oder sogar außerhalb des Browsers) es versteht. Dieser Abschnitt beschreibt einige gängige Konventionen und das Standardverhalten der Browser.
+Die Spezifikation definiert das Verhalten nur für einige wenige Datentypen, aber Browser unterstützen manchmal weitere Typen nativ. Im Allgemeinen sind Typen als _Protokoll_ gedacht, genau wie MIME-Typen, und Sie können jeden Typ verwenden, solange die empfangende Seite (eine andere Webseite, ein anderer Teil derselben Webseite oder sogar ein Ort außerhalb des Browsers) ihn versteht. Dieser Abschnitt beschreibt einige gängige Konventionen und das Standardverhalten von Browsern.
 
-Beachten Sie, dass die folgenden Szenarien sich auf die _Absicht_ und nicht das _Verhalten_ beziehen. Wenn wir zum Beispiel sagen "einen Link ziehen", kann der Benutzer möglicherweise kein tatsächliches `<a>` Element ziehen; er kann einen Container ziehen, der ein oder mehrere Links enthält, aber die Absicht ist, die Links als Daten zu übertragen, sodass der von Ihnen vorbereitete Daten-Store derselbe sein kann, wie wenn der Benutzer einen tatsächlichen Link zöge.
+Beachten Sie, dass sich die folgenden Szenarien auf die _Absicht_ und nicht auf das _Verhalten_ beziehen. Wenn wir beispielsweise „Ziehen eines Links“ sagen, zieht der Benutzer möglicherweise kein tatsächliches `<a>`-Element; er kann einen Container ziehen, der einen oder mehrere Links enthält. Die Absicht besteht jedoch darin, den oder die Links als Daten zu übertragen, sodass der von Ihnen vorbereitete Datenspeicher derselbe sein kann, als würde der Benutzer einen tatsächlichen Link ziehen.
 
-### Ziehen von Text
+### Text ziehen
 
-Für das Ziehen von Text verwenden Sie den Typ `text/plain` mit dem gezogenen String als Wert. Zum Beispiel:
+Verwenden Sie zum Ziehen von Text den Typ `text/plain`, wobei der gezogene String der Wert ist. Zum Beispiel:
 
 ```js
 event.dataTransfer.items.add("This is text to drag", "text/plain");
 ```
 
-Sie sollten immer Daten vom Typ `text/plain` als Fallback für Anwendungen oder Drop-Ziele, die keine anderen Typen unterstützen, hinzufügen, es sei denn, es gibt keine logische Textalternative. Fügen Sie diesen `text/plain`-Typ immer zuletzt hinzu, da er am wenigsten spezifisch ist und nicht bevorzugt werden sollte.
+Sie sollten immer Daten des Typs `text/plain` als Fallback für Anwendungen oder Drop-Ziele hinzufügen, die keine anderen Typen unterstützen, es sei denn, es gibt keine sinnvolle Textalternative. Fügen Sie diesen Typ `text/plain` immer zuletzt hinzu, da er am wenigsten spezifisch ist und nicht bevorzugt werden sollte.
 
-In `getData()`, `setData()` und `clearData()` wird der Typ `Text` (nicht empfindlich gegenüber Groß-/Kleinschreibung) als `text/plain` behandelt.
+In `getData()`, `setData()` und `clearData()` wird der Typ `Text` (Groß-/Kleinschreibung wird nicht berücksichtigt) als `text/plain` behandelt.
 
-Standardmäßig wird beim Ziehen einer Auswahl die folgenden Daten-Items erstellt:
+Standardmäßig werden beim Ziehen einer Auswahl die folgenden Dateneinträge erstellt:
 
-- `text/plain`: enthält den ausgewählten Text. Firefox und Safari sortieren dieses Element nach `text/html`, obwohl die Spezifikation es zuerst zu sein erfordert.
-- `text/html`: enthält den vollständigen HTML-Quellcode der ausgewählten Elemente (mit allen in den Styles eingebundenen Stilen).
+- `text/plain`: Enthält den ausgewählten Text. Firefox und Safari sortieren diesen Eintrag nach `text/html`, obwohl die Spezifikation verlangt, dass er an erster Stelle steht.
+- `text/html`: Enthält den vollständigen HTML-Quelltext der ausgewählten Elemente (mit allen inline eingefügten Styles).
 
-Die Spezifikation erfordert auch ein weiteres Element vom Typ `application/microdata+json`, das die [Microdata](/de/docs/Web/HTML/Guides/Microdata) enthält, die aus dem/den Element(en) in der gezogenen Auswahl extrahiert wurde(n). Kein Browser implementiert dieses Element.
+Die Spezifikation verlangt außerdem einen weiteren Eintrag des Typs `application/microdata+json`, der die aus dem bzw. den Elementen der gezogenen Auswahl extrahierten [Mikrodaten](/de/docs/Web/HTML/Guides/Microdata) enthält. Kein Browser implementiert diesen Eintrag.
 
-Beim Drop auf ein bearbeitbares Textfeld, wie ein {{HTMLElement("textarea")}} oder [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text), wird das `text/plain`-Item standardmäßig in das Feld kopiert (ohne Ereignisbehandlung).
+Beim Ablegen in einem bearbeitbaren Textfeld wie einem {{HTMLElement("textarea")}} oder [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) wird der Eintrag `text/plain` standardmäßig in das Feld kopiert (ohne Ereignisbehandlung).
 
-### Ziehen von Links
+### Links ziehen
 
-Gezogene Hyperlinks sollten Daten von zwei Typen enthalten: `text/uri-list` und `text/plain`. _Beide_ Typen sollten dieselbe URL für ihre Daten verwenden. Hinweis: der URL-Typ lautet `uri-list` mit einem _I_, nicht einem _L_.
+Gezogene Hyperlinks sollten Daten von zwei Typen enthalten: `text/uri-list` und `text/plain`. _Beide_ Typen sollten die URL des Links als Daten verwenden. Hinweis: Der URL-Typ lautet `uri-list` mit einem _I_, nicht mit einem _L_.
 
-Wie üblich setzen Sie den Typ `text/plain` zuletzt als Fallback für den Typ `text/uri-list`. Zum Beispiel:
+Legen Sie wie üblich den Typ `text/plain` zuletzt als Fallback für den Typ `text/uri-list` fest. Zum Beispiel:
 
 ```js
 event.dataTransfer.items.add("https://www.mozilla.org", "text/uri-list");
 event.dataTransfer.items.add("https://www.mozilla.org", "text/plain");
 ```
 
-Um mehrere Links zu ziehen, trennen Sie jeden Link in den `text/uri-list`-Daten mit einem CRLF-Zeilenumbruch. Zeilen, die mit einem Nummernzeichen (`#`) beginnen, sind Kommentare und sollten nicht als URLs betrachtet werden. Sie können Kommentare verwenden, um den Zweck einer URL anzugeben, den Titel, der mit einer URL verbunden ist, oder andere Daten.
+Um mehrere Links zu ziehen, trennen Sie jeden Link in den Daten `text/uri-list` mit einem CRLF-Zeilenumbruch. Zeilen, die mit einem Nummernzeichen (`#`) beginnen, sind Kommentare und sollten nicht als URLs betrachtet werden. Sie können Kommentare verwenden, um den Zweck einer URL, den mit einer URL verknüpften Titel oder andere Daten anzugeben.
 
 > [!WARNING]
-> Der `text/plain`-Fallback für mehrere Links sollte alle URLs, aber keine Kommentare enthalten.
+> Der Fallback `text/plain` für mehrere Links sollte alle URLs, aber keine Kommentare enthalten.
 
-Zum Beispiel enthalten diese Beispiel-`text/uri-list`-Daten zwei Links und einen Kommentar:
+Die folgenden Beispieldaten `text/uri-list` enthalten zwei Links und einen Kommentar:
 
 ```plain
 https://www.mozilla.org
@@ -223,78 +223,78 @@ https://www.mozilla.org
 http://www.example.com
 ```
 
-Beim Abrufen eines abgelegten Links stellen Sie sicher, dass Sie damit umgehen, wenn mehrere Links gezogen werden, einschließlich aller Kommentare.
+Stellen Sie beim Abrufen eines abgelegten Links sicher, dass Sie den Fall behandeln, dass mehrere Links gezogen werden, einschließlich etwaiger Kommentare.
 
-In `getData()`, `setData()` und `clearData()` wird der `URL`-Typ (nicht empfindlich gegenüber Groß-/Kleinschreibung) als `text/uri-list` behandelt. Für `getData()` enthält das Ergebnis nur die erste URL in der Liste.
+In `getData()`, `setData()` und `clearData()` wird der Typ `URL` (Groß-/Kleinschreibung wird nicht berücksichtigt) als `text/uri-list` behandelt. Bei `getData()` enthält das Ergebnis nur die erste URL in der Liste.
 
-Standardmäßig wird beim Ziehen eines {{HTMLElement("a")}}-Elements die folgenden Daten-Items erstellt:
+Standardmäßig werden beim Ziehen eines {{HTMLElement("a")}}-Elements die folgenden Dateneinträge erstellt:
 
-- `text/x-moz-url` (nur Firefox): enthält sowohl das `href`-Attribut als auch den Linktext, getrennt durch einen Zeilenumbruch.
-- `text/x-moz-url-data` (nur Firefox): enthält nur das `href`.
-- `text/x-moz-url-desc` (nur Firefox): enthält nur den Linktext.
-- `text/uri-list`: enthält das `href`-Attribut.
-- `text/html` (nur Chrome und Firefox): enthält die vollständige HTML-Quelle des `<a>`-Elements (mit allen in den Styles eingebundenen Stilen).
-- `text/plain`: enthält ebenfalls das `href`-Attribut. Chrome sortiert dieses Element vor `text/uri-list`.
+- `text/x-moz-url` (nur Firefox): Enthält sowohl das Attribut `href` als auch den Linktext, getrennt durch einen Zeilenumbruch.
+- `text/x-moz-url-data` (nur Firefox): Enthält nur `href`.
+- `text/x-moz-url-desc` (nur Firefox): Enthält nur den Linktext.
+- `text/uri-list`: Enthält das Attribut `href`.
+- `text/html` (nur Chrome und Firefox): Enthält den vollständigen HTML-Quelltext des `<a>`-Elements (mit allen inline eingefügten Styles).
+- `text/plain`: Enthält ebenfalls das Attribut `href`. Chrome sortiert diesen Eintrag vor `text/uri-list`.
 
-### Ziehen von Bildern
+### Bilder ziehen
 
-Direktes Ziehen von Bildern (d.h. die Daten sind die Pixelinhalte) ist nicht üblich und kann auf bestimmten Plattformen nicht unterstützt werden. Stattdessen werden Bilder normalerweise nur durch ihre URLs gezogen. Verwenden Sie dazu den `text/uri-list`-Typ wie bei anderen URLs. Die Daten sollten die URL des Bildes sein oder eine [`data:` URL](/de/docs/Web/URI/Reference/Schemes/data), wenn das Bild nicht auf einer Website gespeichert oder auf der Festplatte ist.
+Das direkte Ziehen von Bildern (d.h. die Daten sind der Pixelinhalt) ist nicht üblich und wird möglicherweise auf bestimmten Plattformen nicht unterstützt. Stattdessen werden Bilder gewöhnlich nur anhand ihrer URLs gezogen. Verwenden Sie dazu, wie bei anderen URLs, den Typ `text/uri-list`. Die Daten sollten die URL des Bildes sein oder eine [`data:`-URL](/de/docs/Web/URI/Reference/Schemes/data), wenn das Bild nicht auf einer Website oder Festplatte gespeichert ist.
 
-Wie bei Links sollten die Daten für den `text/plain`-Typ ebenfalls die URL enthalten. Eine `data:`-URL ist jedoch in einem Textkontext normalerweise nicht nützlich, sodass Sie in dieser Situation möglicherweise die `text/plain`-Daten ausschließen möchten.
+Wie bei Links sollten die Daten für den Typ `text/plain` ebenfalls die URL enthalten. Eine `data:`-URL ist in einem Textkontext jedoch normalerweise nicht nützlich, daher möchten Sie die Daten `text/plain` in dieser Situation möglicherweise weglassen.
 
 ```js
 event.dataTransfer.items.add(imageURL, "text/uri-list");
 event.dataTransfer.items.add(imageURL, "text/plain");
 ```
 
-Standardmäßig wird beim Ziehen eines {{HTMLElement("img")}}-Elements die folgenden Daten-Items erstellt:
+Standardmäßig werden beim Ziehen eines {{HTMLElement("img")}}-Elements die folgenden Dateneinträge erstellt:
 
-- `text/x-moz-url` (nur Firefox): enthält sowohl das `src`-Attribut als auch den Alternativtext (oder das `src` erneut, wenn das Alt leer ist), getrennt durch einen Zeilenumbruch.
-- `text/x-moz-url-data` (nur Firefox): enthält nur das `src`-Attribut.
-- `text/x-moz-url-desc` (nur Firefox): enthält nur den Alternativtext (oder das `src`, wenn das Alt leer ist).
-- `text/uri-list`: enthält das `src`-Attribut.
-- `text/html`: enthält die vollständige HTML-Quelle des `<img>`-Elements (mit allen in den Styles eingebundenen Stilen).
-- `text/plain` (nur Firefox): enthält das `src`-Attribut.
+- `text/x-moz-url` (nur Firefox): Enthält sowohl das Attribut `src` als auch den Alternativtext (oder erneut `src`, wenn der Alternativtext leer ist), getrennt durch einen Zeilenumbruch.
+- `text/x-moz-url-data` (nur Firefox): Enthält nur `src`.
+- `text/x-moz-url-desc` (nur Firefox): Enthält nur den Alternativtext (oder `src`, wenn der Alternativtext leer ist).
+- `text/uri-list`: Enthält das Attribut `src`.
+- `text/html`: Enthält den vollständigen HTML-Quelltext des `<img>`-Elements (mit allen inline eingefügten Styles).
+- `text/plain` (nur Firefox): Enthält das Attribut `src`.
 
-Safari erstellt auch ein Dateielement mit den Bilddaten und dem entsprechenden MIME-Typ wie `image/png`.
+Safari erstellt außerdem einen Dateieintrag, der die Bilddaten mit dem passenden MIME-Typ wie `image/png` enthält.
 
-### Ziehen von Elementen
+### Elemente ziehen
 
-Wenn das gezogene Element ein beliebiges Element mit `draggable="true"` ist, hängt das Festzulegen der Daten davon ab, was Sie zu übertragen beabsichtigen.
+Wenn das gezogene Element ein beliebiges Element mit `draggable="true"` ist, hängt die festzulegende Datenmenge davon ab, was Sie übertragen möchten.
 
-Ein üblicher Weg, das Element zu übertragen, ist die Verwendung des `text/html`-Typs, der den serialisierten HTML-Quellcode enthält, den das empfangende Ende dann analysieren und einfügen kann. Zum Beispiel wäre es sinnvoll, seine Daten auf den Wert der [`outerHTML`](/de/docs/Web/API/Element/outerHTML)-Eigenschaft eines Elements zu setzen. `text/xml` kann ebenfalls verwendet werden, aber stellen Sie sicher, dass die Daten gut geformtes XML sind.
+Eine häufige Möglichkeit zur Übertragung des Elements ist die Verwendung des Typs `text/html`, der serialisierten HTML-Quellcode enthält, den die empfangende Seite anschließend parsen und einfügen kann. Beispielsweise wäre es geeignet, die Daten auf den Wert der Eigenschaft [`outerHTML`](/de/docs/Web/API/Element/outerHTML) eines Elements zu setzen. Auch `text/xml` kann verwendet werden, stellen Sie jedoch sicher, dass die Daten wohlgeformtes XML sind.
 
-Sie können auch eine einfache Textdarstellung der HTML- oder XML-Daten mit dem `text/plain`-Typ hinzufügen. Die Daten sollten nur der Text ohne jegliche Quell-Tags oder Attribute sein. Zum Beispiel:
+Sie können auch eine Klartextdarstellung der HTML- oder XML-Daten mit dem Typ `text/plain` einschließen. Die Daten sollten nur den Text ohne die Quell-Tags oder Attribute enthalten. Zum Beispiel:
 
 ```js
-event.dataTransfer.items.add("text/html", element.outerHTML);
-event.dataTransfer.items.add("text/plain", element.innerText);
+event.dataTransfer.items.add(element.outerHTML, "text/html");
+event.dataTransfer.items.add(element.innerText, "text/plain");
 ```
 
-Sie können auch andere Typen verwenden, die Sie für kundenspezifische Zwecke erfinden. Streben Sie danach, immer eine `text/plain`-Alternative einzuschließen, es sei denn, das gezogene Objekt ist spezifisch für eine bestimmte Site oder Anwendung. In diesem Fall stellt der benutzerdefinierte Typ sicher, dass die Daten woanders nicht abgelegt werden können.
+Sie können auch andere Typen verwenden, die Sie für benutzerdefinierte Zwecke erfinden. Bemühen Sie sich, immer eine Alternative `text/plain` einzuschließen, es sei denn, das gezogene Objekt ist spezifisch für eine bestimmte Website oder Anwendung. In diesem Fall stellt der benutzerdefinierte Typ sicher, dass die Daten nicht an anderer Stelle abgelegt werden können.
 
-### Ziehen von Dateien aus einem Dateibrowser des Betriebssystems
+### Dateien aus einem Dateiexplorer des Betriebssystems ziehen
 
-Wenn das gezogene Element eine Datei ist, wird dem Drag-Daten-Store ein Element der Art `file` hinzugefügt. Der `type` wird auf den MIME-Typ der Datei gesetzt (wie vom Betriebssystem bereitgestellt) oder `application/octet-stream`, wenn der Typ unbekannt ist. Derzeit können gezogene Dateien nur außerhalb des Browsers stammen, beispielsweise aus einem Dateibrowser.
+Wenn das gezogene Element eine Datei ist, wird den Drag-Daten ein Eintrag der Art `file` hinzugefügt. Der MIME-Typ wird gewöhnlich anhand der Erweiterung bestimmt, ohne den Inhalt der Datei zu untersuchen. Alle Browser geben einen leeren String zurück, wenn der MIME-Typ nicht bestimmt werden kann, obwohl die Spezifikation `application/octet-stream` verlangt. Derzeit können gezogene Dateien nur außerhalb des Browsers stammen, beispielsweise aus einem Dateiexplorer.
 
-Firefox fügt auch einen nicht-standardmäßigen Textgegenstand vom Typ `application/x-moz-file` hinzu, der den vollständigen Pfad der Datei auf dem Dateisystem des Benutzers enthält. Es sei denn, innerhalb privilegierten Codes (z. B. einer Erweiterung), ist sein Wert der leere String.
+Firefox fügt außerdem einen nicht standardmäßigen Texteintrag des Typs `application/x-moz-file` hinzu, der den vollständigen Pfad der Datei im Dateisystem des Benutzers enthält. Außerhalb privilegierten Codes (wie einer Erweiterung) ist sein Wert der leere String.
 
-### Ziehen von Dateien zu einem Dateibrowser des Betriebssystems
+### Dateien in einen Dateiexplorer des Betriebssystems ziehen
 
-Was aus dem Browser übertragen werden kann, hängt hauptsächlich vom Browser und davon ab, wohin es gezogen wird. [Das Ziehen von Bildern](#ziehen_von_bildern) auf die lokale Festplatte wird häufig unterstützt und führt dazu, dass das Bild heruntergeladen wird.
+Was aus dem Browser übertragen werden kann, hängt größtenteils vom Browser und vom Ziel ab, auf das es gezogen wird. Das [Ziehen von Bildern](#bilder_ziehen) in das lokale Dateisystem wird häufig unterstützt und führt dazu, dass das Bild heruntergeladen wird.
 
-Chrome unterstützt den nicht standardmäßigen `DownloadURL`-Typ. Die Nutzlast sollte in der Form `<MIME-Typ>:<Dateiname>:<Datei-URL>` sein. Zum Beispiel:
+Chrome unterstützt den nicht standardmäßigen Typ `DownloadURL`. Die Nutzlast sollte Text in der Form `<MIME type>:<file name>:<file URL>` sein. Zum Beispiel:
 
 ```js
 event.dataTransfer.items.add(
-  "DownloadURL",
   "image/png:example.png:data:image/png;base64,iVBORw0K...",
+  "DownloadURL",
 );
 ```
 
-Dies ermöglicht es, eine beliebige Datei herunterzuladen, wenn sie zum Dateibrowser gezogen wird, oder wenn sie in ein anderes Browserfenster abgelegt wird, als ob eine [Datei gezogen wird](#ziehen_von_dateien_aus_einem_dateibrowser_des_betriebssystems) (obwohl CORS-Einschränkungen gelten können). Siehe [Drag out files like Gmail](https://ryanseddon.com/html5/gmail-dragout/) für einen praktischen Anwendungsfall.
+Dadurch kann eine beliebige Datei heruntergeladen werden, wenn sie in den Dateiexplorer gezogen wird, oder beim Ablegen in ein anderes Browserfenster so behandelt werden, als ob [eine Datei abgelegt würde](#dateien_aus_einem_dateiexplorer_des_betriebssystems_ziehen) (obwohl CORS-Einschränkungen gelten können). Siehe [Dateien wie Gmail herausziehen](https://ryanseddon.com/html5/gmail-dragout/) für einen praktischen Anwendungsfall.
 
 ## Siehe auch
 
 - [HTML Drag and Drop API (Übersicht)](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)

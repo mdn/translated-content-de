@@ -3,17 +3,20 @@ title: "BaseAudioContext: currentTime-Eigenschaft"
 short-title: currentTime
 slug: Web/API/BaseAudioContext/currentTime
 l10n:
-  sourceCommit: 3b5a1c0dfd59257c0a51052a9efa7b0108f8ecca
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte `currentTime`-Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
-Interfaces gibt einen Double-Wert zurück, der einen ständig zunehmenden Hardware-Zeitstempel in Sekunden darstellt, welcher für die Planung von Audio-Wiedergaben, zur Visualisierung von Zeitachsen, etc. verwendet werden kann. Dieser beginnt bei 0.
+Die schreibgeschützte Eigenschaft `currentTime` der Schnittstelle [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) gibt eine Gleitkommazahl zurück, die die verstrichene Zeit in der Audiotimeline des Kontextes in Sekunden darstellt. Diese kann verwendet werden, um die Audiowiedergabe zu planen, Timelines zu visualisieren usw. Sie beginnt bei 0.
+
+Während der Kontext läuft, erhöht sich dieser Wert in Schritten eines Audio-Rendering-Blocks bzw. _Render-Quantums_ und repräsentiert den Beginn des nächsten zu verarbeitenden Blocks. Für einen Block von 128 Beispiel-Frames sind dies ungefähr 2,9 ms bei einer [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) von 44,1 kHz oder 2,7 ms bei 48 kHz. Bei wiederholten Lesevorgängen kann derselbe Wert zurückgegeben werden, bis der nächste Block verarbeitet wird.
+
+Diese Audiotimeline ist getrennt von der Systemuhr, die von {{jsxref("Date.now()")}} verwendet wird. Sie hört auf zu laufen, während der Kontext ausgesetzt ist. Bei einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) wird sie unabhängig von der verstrichenen Echtzeit weitergeführt, während Audio gerendert wird.
 
 ## Wert
 
-Eine Fließkommazahl.
+Eine Gleitkommazahl, die die aktuelle Zeit in Sekunden darstellt.
 
 ## Beispiele
 
@@ -26,27 +29,33 @@ const audioCtx = new AudioContext();
 console.log(audioCtx.currentTime);
 ```
 
-## Reduzierte Zeitpräzision
+## Reduzierte Zeitgenauigkeit
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Präzision von `audioCtx.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Option `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Genauigkeit von `audioCtx.currentTime` je nach Browsereinstellungen reduziert werden.
 
-Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `audioCtx.currentTime` immer ein Vielfaches von 0,002 sein oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting`.
+Der Wert von `audioCtx.currentTime` basiert auf der Anzahl der verarbeiteten Audio-Beispielframes. In Chrome und Safari wendet der Browser auf diesen Wert keine zusätzliche Timer-Rundung an.
+
+In Firefox ist die Voreinstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und verwendet ein Rundungsintervall von 1 ms oder 0,02 ms in kontextübergreifend isolierten Umgebungen. Firefox vergleicht jedoch zuerst die Dauer eines 128-Frame-Audioblocks mit dem durch `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` konfigurierten Intervall (standardmäßig 1 ms), unabhängig von der kontextübergreifenden Isolation. Ist die Blockdauer größer, überspringt Firefox die Timer-Rundung. Bei gängigen Sample-Raten wie 44,1 kHz und 48 kHz folgt der Standardwert daher dem Audio-Block-Timing, anstatt gerundet zu werden.
+
+Wenn `privacy.resistFingerprinting` aktiviert ist, beträgt das Rundungsintervall 16,667 ms oder das durch `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` konfigurierte Intervall, je nachdem, welches größer ist. In diesem Fall verwendet die Audioblock-Dauerprüfung auch dieses größere Intervall.
+
+Zum Beispiel sind dies mögliche Werte in Firefox:
 
 ```js
-// reduced time precision (2ms) in Firefox 60
+// Audio block timing at 48 kHz with default settings
 audioCtx.currentTime;
 // Might be:
-// 23.404
-// 24.192
-// 25.514
+// 0.0026666666666666666
+// 0.005333333333333333
+// 0.008
 // …
 
-// reduced time precision with `privacy.resistFingerprinting` enabled
+// Reduced time precision with `privacy.resistFingerprinting` enabled
 audioCtx.currentTime;
 // Might be:
-// 49.8
-// 50.6
-// 51.7
+// 0.050001
+// 0.066668
+// 0.083335
 // …
 ```
 

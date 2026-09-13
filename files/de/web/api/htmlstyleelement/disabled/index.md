@@ -3,33 +3,33 @@ title: "HTMLStyleElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLStyleElement/disabled
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 4ad860d817cf6d8ca24f41b3846b29e158934d27
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLStyleElement.disabled`**-Eigenschaft kann verwendet werden, um festzulegen oder abzurufen, ob das Stylesheet deaktiviert (`true`) oder nicht (`false`) ist.
+Die **`HTMLStyleElement.disabled`**-Eigenschaft kann verwendet werden, um festzustellen, ob das Stylesheet deaktiviert (`true`) oder nicht (`false`) ist und um es entsprechend zu setzen.
 
-Beachten Sie, dass es kein entsprechendes `disabled`-Attribut auf dem [HTML `<style>`-Element](/de/docs/Web/HTML/Reference/Elements/style) gibt.
+Beachten Sie, dass es kein entsprechendes `disabled`-Attribut im [HTML `<style>`-Element](/de/docs/Web/HTML/Reference/Elements/style) gibt.
 
 ## Wert
 
-Gibt `true` zurück, wenn das Stylesheet deaktiviert ist oder kein zugeordnetes Stylesheet vorhanden ist; ansonsten `false`.
-Der Wert ist standardmäßig `false` (wenn ein zugeordnetes Stylesheet vorhanden ist).
+Gibt `true` zurück, wenn das Stylesheet deaktiviert ist oder kein zugehöriges Stylesheet vorhanden ist; ansonsten `false`.
+Der Standardwert ist `false` (wenn ein zugehöriges Stylesheet vorhanden ist).
 
-Die Eigenschaft kann verwendet werden, um ein zugeordnetes Stylesheet zu aktivieren oder zu deaktivieren.
-Das Setzen der Eigenschaft auf `true`, wenn kein zugeordnetes Stylesheet vorhanden ist, hat keine Wirkung.
+Die Eigenschaft kann verwendet werden, um ein zugehöriges Stylesheet zu aktivieren oder zu deaktivieren.
+Das Festlegen der Eigenschaft auf `true`, wenn kein zugehöriges Stylesheet vorhanden ist, hat keinen Effekt.
 
 ## Beispiele
 
-### Deaktivieren eines Inline-Styles
+### Ein Inline-Style deaktivieren
 
-Dieses Beispiel demonstriert das programmgesteuerte Setzen der disabled-Eigenschaft auf einen Stil, der im HTML mithilfe des [HTML `<style>`-Elements](/de/docs/Web/HTML/Reference/Elements/style) definiert wurde.
-Beachten Sie, dass Sie auch auf alle Stylesheets im Dokument mittels [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) zugreifen können.
+Dieses Beispiel demonstriert das programmatische Setzen der deaktivierten Eigenschaft auf einen Stil, der im HTML unter Verwendung des [HTML `<style>`-Elements](/de/docs/Web/HTML/Reference/Elements/style) definiert wurde.
+Beachten Sie, dass Sie auch auf beliebige oder alle Stylesheets im Dokument über [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) zugreifen können.
 
 #### HTML
 
-Das HTML enthält ein HTML [`<style>`](/de/docs/Web/HTML/Reference/Elements/style)-Element, das die Absatz-Elemente blau färbt, ein Absatz-Element und einen Button, der verwendet wird, um den Stil zu aktivieren und zu deaktivieren.
+Das HTML enthält ein HTML [`<style>`](/de/docs/Web/HTML/Reference/Elements/style)-Element, das Absatz-Elemente blau färbt, ein Absatz-Element und einen Button, der verwendet wird, um den Stil zu aktivieren und zu deaktivieren.
 
 ```html
 <button>Enable</button>
@@ -44,8 +44,8 @@ Das HTML enthält ein HTML [`<style>`](/de/docs/Web/HTML/Reference/Elements/styl
 
 #### JavaScript
 
-Der untenstehende Code erhält das `style`-Element über seine ID und setzt es dann als deaktiviert.
-Da der Stil bereits existiert, da er im SVG definiert ist, sollte dies gelingen.
+Der untenstehende Code holt das `style`-Element anhand seiner ID und setzt es dann als deaktiviert.
+Da der Stil bereits existiert, wie er im SVG definiert ist, sollte dies erfolgreich sein.
 
 ```js
 const style = document.getElementById("InlineStyle");
@@ -66,18 +66,17 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Ergebnis wird unten angezeigt.
-Drücken Sie den Button, um den `disabled`-Eigenschaftswert des Stils für den Absatztext umzuschalten.
+Das Ergebnis wird unten gezeigt. Drücken Sie den Button, um den `disabled`-Eigenschaftswert für den Stil zu toggeln, der für den Absatztext verwendet wird.
 
-{{EmbedLiveSample("Deaktivierung eines Stils, der im SVG definiert ist")}}
+{{EmbedLiveSample("Deaktivieren eines im SVG definierten Stils")}}
 
-### Deaktivieren eines programmatisch definierten Stils
+### Einen programmatisch definierten Stil deaktivieren
 
-Dieses Beispiel ist dem obigen sehr ähnlich, mit dem Unterschied, dass der Stil programmatisch definiert wird.
+Dieses Beispiel ist sehr ähnlich zu dem oben, außer dass der Stil programmatisch definiert wird.
 
 #### HTML
 
-Das HTML ist ähnlich zum vorherigen Fall, aber die Definition enthält kein Standardstyling.
+Das HTML ist ähnlich wie im vorherigen Fall, aber die Definition enthält keine Standard-Stile.
 
 ```html
 <button>Enable</button>
@@ -88,7 +87,7 @@ Das HTML ist ähnlich zum vorherigen Fall, aber die Definition enthält kein Sta
 #### JavaScript
 
 Zuerst erstellen wir das neue Style-Element im HTML.
-Dies geschieht, indem zunächst ein Style-Element mithilfe von [`Document.createElement()`](/de/docs/Web/API/Document/createElement) erstellt wird, ein Textknoten mit der Stildefinition erstellt und angehängt wird, und dann das Style-Element an den Dokumentenkörper angehängt wird.
+Dies wird erreicht, indem zuerst ein Style-Element mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) erstellt, ein Textknoten mit der Stildefinition erstellt und hinzugefügt und dann das Style-Element dem Dokumentenkörper hinzugefügt wird.
 
 ```js
 // Create the `style` element
@@ -98,16 +97,16 @@ style.appendChild(node);
 document.body.appendChild(style);
 ```
 
-Wir können den Stil dann wie unten gezeigt deaktivieren.
+Wir können dann den Stil wie unten gezeigt deaktivieren.
 Beachten Sie, dass dies der früheste Punkt ist, an dem das Setzen der Eigenschaft auf `true` erfolgreich sein wird.
-Vor diesem Punkt hatte das Dokument keinen zugeordneten Stil, sodass der Wert standardmäßig `false` ist.
+Vor diesem Punkt hatte das Dokument keinen zugehörigen Stil, und daher ist der Wert standardmäßig `false`.
 
 ```js
 // Disable the style
 style.disabled = true;
 ```
 
-Zum Schluss fügen wir einen Ereignishandler für den Button hinzu, der den deaktivierten Zustand und den Button-Text umschaltet (dies ist derselbe wie im vorherigen Beispiel).
+Zuletzt fügen wir einen Ereignishandler für den Button hinzu, der den deaktivierten Zustand und den Button-Text umschaltet (dies ist dasselbe wie im vorherigen Beispiel).
 
 ```js
 const button = document.querySelector("button");
@@ -121,10 +120,9 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Ergebnis wird unten angezeigt.
-Drücken Sie den Button, um den deaktivierten Zustand des Stils, der für den Text verwendet wird, umzuschalten.
+Das Ergebnis wird unten gezeigt. Drücken Sie den Button, um den deaktivierten Zustand des Stils zu toggeln, der für den Text verwendet wird.
 
-{{EmbedLiveSample("Deaktivierung eines programmatisch definierten Stils")}}
+{{EmbedLiveSample("Deaktivieren eines programmatisch definierten Stils")}}
 
 ## Spezifikationen
 

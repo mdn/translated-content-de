@@ -1,18 +1,21 @@
 ---
-title: CSS-Abstände
+title: CSS-Lücken
 short-title: Gaps
 slug: Web/CSS/Guides/Gaps
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 8a13259a44523cd17b4fe347088b62c6d7a35265
 ---
 
-Das **CSS-Abstände**-Modul ermöglicht es Ihnen, Abstände oder "Gaps" zwischen Elementen in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Layouts festzulegen. Das [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout)-Modul definierte ursprünglich Lücken und Regeln zur Steuerung der Abstände zwischen Spalten in Mehrspalten-Containern. Dieses Modul erweitert diese sichtbaren Trennungen, genannt _Gap-Dekorationen_, und erstreckt sie auf Grid und Flexbox.
+Das **CSS-Gaps**-Modul ermöglicht es Ihnen, Abstände oder "Lücken" zwischen Elementen in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout) anzugeben. Das Modul [CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) definierte ursprünglich die Lücken und Regeln, die den Abstand zwischen Spalten in Mehrspalten-Containern steuern. Dieses Modul erweitert diese sichtbaren Trennzeichen, die als _Lückendekorationen_ bezeichnet werden, und erweitert es auf Grid und Flexbox.
 
-Während {{cssxref("margin")}} und {{cssxref("padding")}} visuelle Abstände um einzelne Boxen spezifizieren, ermöglichen die Eigenschaften in diesem Modul, die Abstände zwischen benachbarten Boxen innerhalb eines gegebenen Layout-Kontexts für Layouts zu spezifizieren, die {{Glossary("gutters", "Rinnen")}} und Lücken haben, wenn der Abstand zwischen benachbarten Boxen anders ist als zwischen der ersten Box, der letzten Box und dem Rand des Containers. Sie können Regeln in jeder Lücke oder in einem Teil der Lücken anzeigen, indem vollständig animierbare Regelbreiten, Farben und Einfügungen definiert werden.
+Während {{cssxref("margin")}} und {{cssxref("padding")}} visuelle Abstände um einzelne Boxen spezifizieren, ermöglichen die Eigenschaften in diesem Modul die Spezifikation der Abstände zwischen benachbarten Boxen innerhalb eines bestimmten Layout-Kontexts für Layouts, die {{Glossary("gutters", "Rinnen")}} und Lücken haben, wenn der Abstand zwischen Geschwisterboxen anders ist als zwischen der ersten Box, der letzten Box und dem Rand des Containers. Sie können Regeln in jeder Lücke oder in einem Teil der Lücken anzeigen, indem Sie vollständig animierbare Regelbreiten, Farben und Einzüge definieren.
+
+Lückendekorationen werden innerhalb einer Lücke als ein oder mehrere Lückendekorationssegmente gemalt, wobei Segmente zwischen zwei benachbarten Elementen auftreten.
+Wenn alle Segmente gezeichnet sind, erstrecken sich Spalten- und Zeilenregeln über die gesamte Höhe und Breite des Containers. Die {{cssxref("rule-visibility-items")}}-Eigenschaft definiert, ob Segmente um Bereiche gezeichnet werden, die nicht von Elementen besetzt sind. Die {{cssxref("rule-break")}}-Eigenschaften bestimmen, ob Linien brechen, wenn sie auf eine Lücke stoßen, während {{cssxref("rule-inset")}} definiert, wo Segmente beginnen und enden, wenn Regeln brechen. Brechen sie nicht, definiert die {{cssxref("rule-overlap")}}-Eigenschaft die Malreihenfolge der Regeln.
 
 ## Lücken in Aktion
 
-In diesem Beispiel wird das Gedicht von der Amtseinführung 2021 in den USA, _The Hill We Climb_ von Amanda Gorman, über mehrere Spalten hinweg angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn Sie JavaScript aktiviert haben, ermöglichen Steuerelemente die Anpassung der {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} Eigenschaften sowie die bevorzugte Anzahl von Spalten und ob der Titel und ein Zitat alle Spalten einnehmen sollen.
+In diesem Beispiel wird das Gedicht von 2021 zur Amtseinführung in den USA, _The Hill We Climb_ von Amanda Gorman, über mehrere Spalten verteilt dargestellt, ähnlich wie Artikel in gedruckten Zeitungen angezeigt werden. Wenn Sie JavaScript aktiviert haben, ermöglichen Steuerungen das Ändern der Eigenschaften {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}}, sowie die bevorzugte Anzahl der Spalten und ob der Titel und ein Zitat alle Spalten überspannen sollen.
 
 ```html hidden live-sample___multicol
 <article>
@@ -140,10 +143,6 @@ In diesem Beispiel wird das Gedicht von der Amtseinführung 2021 in den USA, _Th
   </legend>
   <div id="controls">
     <p>
-      <label for="colCount">Number of columns:</label>
-      <input type="number" min="0" max="5" value="5" id="colCount" />
-    </p>
-    <p>
       <input type="checkbox" checked id="colSpan" />
       <label for="colSpan">Byline spans all columns</label>
     </p>
@@ -151,41 +150,69 @@ In diesem Beispiel wird das Gedicht von der Amtseinführung 2021 in den USA, _Th
       <input type="checkbox" id="blockSpan" />
       <label for="blockSpan">Blockquote spans all columns</label>
     </p>
-    <p class="code">
-      <input type="range" min="0" max="10" value="1" step="0.5" id="gapSize" />
-      <label for="gapSize">column-gap: </label><output id="gap">1em;</output>
-    </p>
-    <p class="code">
-      <input
-        type="range"
-        min="0"
-        max="10"
-        value="0.25"
-        step="0.25"
-        id="columnRuleWidth" />
-      <label for="columnRuleWidth">column-rule-width: </label
-      ><output id="ruleWidth">0.25em;</output>
-    </p>
-    <p class="code">
-      <label for="colColor">column-rule-color:</label>
-      <input type="color" id="colColor" />
-    </p>
-    <p class="code">
-      <label for="columnRuleStyle">column-rule-style:</label>
-      <select id="columnRuleStyle">
-        <option>none</option>
-        <option>hidden</option>
-        <option>dotted</option>
-        <option selected>dashed</option>
-        <option>solid</option>
-        <option>double</option>
-        <option>groove</option>
-        <option>ridge</option>
-        <option>inset</option>
-        <option>outset</option>
-        <option></option>
-      </select>
-    </p>
+    <section>
+      <p>
+        <label for="colCount">column-count</label>
+        <input type="number" min="0" max="5" value="5" id="colCount" />
+      </p>
+      <p>
+        <label for="colHeight">column-height:</label>
+        <input
+          type="number"
+          min="0"
+          max="100"
+          value="20"
+          id="colHeight"
+          step="5" /><label for="colHeight">vh</label>
+      </p>
+      <p>
+        <label for="colColor">rule-color:</label>
+        <input type="color" id="colColor" value="#FF0000" />
+      </p>
+      <p>
+        <label for="columnRuleStyle">rule-style:</label>
+        <select id="columnRuleStyle">
+          <option>none</option>
+          <option>hidden</option>
+          <option>dotted</option>
+          <option>dashed</option>
+          <option>solid</option>
+          <option selected>double</option>
+          <option>groove</option>
+          <option>ridge</option>
+          <option>inset</option>
+          <option>outset</option>
+          <option></option>
+        </select>
+      </p>
+      <p>
+        <input type="range" min="0" max="4" value="1" step="0.5" id="gapSize" />
+        <label for="gapSize">gap: </label
+        ><output id="gap" class="output">1em</output>
+      </p>
+      <p>
+        <input
+          type="range"
+          min="0"
+          max="3"
+          value="0.3"
+          step="0.1"
+          id="columnRuleWidth" />
+        <label for="columnRuleWidth">rule-width: </label
+        ><output id="ruleWidth" class="output">0.3em</output>
+      </p>
+      <p>
+        <input
+          type="range"
+          min="-50"
+          max="200"
+          value="0"
+          step="5"
+          id="ruleInset" />
+        <label for="ruleInset">rule-inset: </label
+        ><output id="inset" class="output">0%</output>
+      </p>
+    </section>
   </div>
 </fieldset>
 ```
@@ -209,6 +236,9 @@ const ruleWidth = document.getElementById("ruleWidth");
 const columnRuleStyle = document.getElementById("columnRuleStyle");
 const ruleStyle = document.getElementById("ruleStyle");
 const columnRuleColor = document.getElementById("colColor");
+const colHeight = document.getElementById("colHeight");
+const ruleInset = document.getElementById("ruleInset");
+const inset = document.getElementById("inset");
 
 // Make options visible if JavaScript is enabled
 option.style.display = "revert";
@@ -221,18 +251,28 @@ colCount.addEventListener("change", () => {
   page.style.columnCount = colCount.value;
 });
 
-gapSize.addEventListener("change", () => {
+colHeight.addEventListener("input", () => {
+  page.style.columnHeight = `${colHeight.value}vh`;
+});
+
+gapSize.addEventListener("input", () => {
   page.style.gap = `${gapSize.value}em`;
-  gap.innerText = `${gapSize.value}em;`;
+  gap.innerText = `${gapSize.value}em`;
+});
+ruleInset.addEventListener("input", () => {
+  page.style.ruleInset = `${ruleInset.value}%`;
+  inset.innerText = `${ruleInset.value}%`;
 });
 
-columnRuleWidth.addEventListener("change", () => {
+columnRuleWidth.addEventListener("input", () => {
   page.style.columnRuleWidth = `${columnRuleWidth.value}em`;
-  ruleWidth.innerText = `${columnRuleWidth.value}em;`;
+  page.style.ruleWidth = `${columnRuleWidth.value}em`;
+  ruleWidth.innerText = `${columnRuleWidth.value}em`;
 });
 
-columnRuleStyle.addEventListener("change", () => {
+columnRuleStyle.addEventListener("input", () => {
   page.style.columnRuleStyle = columnRuleStyle.value;
+  page.style.ruleStyle = columnRuleStyle.value;
 });
 
 colSpan.addEventListener("change", () => {
@@ -243,8 +283,9 @@ blockSpan.addEventListener("change", () => {
   setColSpan(blockSpan, blockquote);
 });
 
-columnRuleColor.addEventListener("change", () => {
-  page.style.columnRuleColor = colColor.value;
+columnRuleColor.addEventListener("input", () => {
+  page.style.columnRuleColor = columnRuleColor.value;
+  page.style.ruleColor = columnRuleColor.value;
 });
 
 function showAndHideMenu() {
@@ -274,7 +315,9 @@ function setColSpan(control, element) {
 article {
   column-count: 5;
   gap: 1em;
-  column-rule: 0.25em dashed currentColor;
+  column-rule: 0.3em double red;
+  rule: 0.3em double red;
+  column-height: 20vh;
 }
 .title {
   column-span: all;
@@ -287,45 +330,6 @@ p {
   margin: 0 0 1em 0;
   line-height: 1.4;
 }
-.code {
-  font-family: monospace;
-}
-.breakInside * {
-  break-inside: avoid;
-}
-#options {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: white;
-  display: none;
-}
-fieldset p {
-  margin-bottom: 0.25em;
-}
-legend {
-  position: relative;
-  top: 0;
-  transition: 200ms;
-}
-legend.closed {
-  top: 0.75em;
-}
-legend.closed + #controls {
-  display: none;
-}
-legend {
-  background-color: #dedede;
-  padding: 0.5em;
-}
-legend > button {
-  all: unset;
-  cursor: pointer;
-}
-legend.closed {
-  margin: -1em;
-  display: inline-block;
-}
 blockquote {
   font-weight: bold;
   font-style: italic;
@@ -337,11 +341,55 @@ blockquote p::after {
   vertical-align: baseline;
   color: red;
 }
+
+@layer form {
+  #options {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    display: none;
+    padding: 0.5em 1em;
+  }
+  section {
+    font-family: monospace;
+  }
+  fieldset p {
+    margin-bottom: 0.25em;
+  }
+  legend {
+    position: relative;
+    top: 0;
+    transition: 200ms;
+  }
+  legend.closed {
+    top: 0.75em;
+  }
+  legend.closed + #controls {
+    display: none;
+  }
+  legend {
+    background-color: #dedede;
+    padding: 0.5em;
+  }
+  legend > button {
+    all: unset;
+    cursor: pointer;
+  }
+  legend.closed {
+    margin: -1em;
+    display: inline-block;
+  }
+  .output {
+    display: inline-block;
+    width: 2em;
+  }
+}
 ```
 
 {{EmbedLiveSample("multicol", "", "800px")}}
 
-Wenn die Spaltenregel breiter als der Spaltenabstand ist, erscheint die dekorative Linie hinter dem Text; sie ändert nicht die Größe der Lücke.
+Wenn die Spaltenregel größer als die Spaltenlücke ist, erscheint die dekorative Linie hinter dem Text; sie ändert nicht die Größe der Lücke.
 
 ## Referenz
 
@@ -399,21 +447,21 @@ Wenn die Spaltenregel breiter als der Spaltenabstand ist, erscheint die dekorati
 - {{Glossary("Grid_cell", "Grid-Zelle")}}
 - {{Glossary("Grid_column", "Grid-Spalte")}}
 - {{Glossary("Grid_lines", "Grid-Linien")}}
-- {{Glossary("Grid_row", "Grid-Reihe")}}
+- {{Glossary("Grid_row", "Grid-Zeile")}}
 - {{Glossary("Gutters", "Rinnen")}}
 
 ## Leitfäden
 
 - [Spalten stylen](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
-  - : Leitfaden zum Stylen von Spalten und zur Verwaltung der Abstände zwischen Spalten.
-- [Umgang mit Inhaltsumbrüchen im Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
-  - : Einführung in die Fragmentierungsspezifikation und wie man kontrolliert, wo Spalteninhalte umbrochen werden.
+  - : Leitfaden zum Gestalten von Spalten und Verwalten der Abstände zwischen Spalten.
+- [Umgang mit Inhaltsumbrüchen im Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
+  - : Einführung in die Fragmentierungsspezifikation und wie man kontrolliert, wo der Inhalt der Spalten bricht.
 - [Box-Ausrichtungsleitfäden](/de/docs/Web/CSS/Guides/Box_alignment#guides)
-  - : Wie [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und für [Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
+  - : Wie [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und für [Block-, absolut positionierten und Tabellen-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
 
 ## Verwandte Konzepte
 
-[CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+[CSS Flexibles Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
 
 - {{cssxref("flex")}}
 - {{cssxref("flex-basis")}}
@@ -423,30 +471,30 @@ Wenn die Spaltenregel breiter als der Spaltenabstand ist, erscheint die dekorati
 - {{cssxref("flex-shrink")}}
 - {{cssxref("flex-wrap")}}
 
-[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+[CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
 
 - {{CSSxRef("grid")}}
 - {{CSSxRef("grid-column")}}
 - {{CSSxRef("grid-row")}}
 - {{cssxref("repeat()")}}
 
-[CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
+[CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
 
 - {{cssxref("column-fill")}}
 - {{cssxref("column-span")}}
-- {{cssxref("columns")}} Shorthand
+- {{cssxref("columns")}} Kurzform
   - {{cssxref("column-count")}}
   - {{cssxref("column-height")}}
   - {{cssxref("column-width")}}
 - {{cssxref("column-wrap")}}
 - {{cssxref("::column")}}
 
-[CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
+[CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
 
 - {{cssxref("align-content")}}
 - {{cssxref("justify-content")}}
 
-[CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+[CSS Box-Größenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 
 - {{cssxref("height")}}
 - {{cssxref("max-height")}}
@@ -454,7 +502,7 @@ Wenn die Spaltenregel breiter als der Spaltenabstand ist, erscheint die dekorati
 - {{cssxref("width")}}
 - {{cssxref("max-width")}}
 
-[CSS-Display](/de/docs/Web/CSS/Guides/Display) Modul
+[CSS Anzeige](/de/docs/Web/CSS/Guides/Display) Modul
 
 - {{cssxref("display")}}
 - [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Leitfaden
@@ -466,5 +514,5 @@ Wenn die Spaltenregel breiter als der Spaltenabstand ist, erscheint die dekorati
 ## Siehe auch
 
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [Elemente in einem Flex-Container ausrichten](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)

@@ -3,24 +3,24 @@ title: "HTMLMediaElement: currentTime-Eigenschaft"
 short-title: currentTime
 slug: Web/API/HTMLMediaElement/currentTime
 l10n:
-  sourceCommit: 3b5a1c0dfd59257c0a51052a9efa7b0108f8ecca
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die **`currentTime`**-Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt die aktuelle Wiedergabezeit in Sekunden an.
 
-Das Ändern des Wertes von `currentTime` springt den Medieninhalt zur neuen Zeit.
+Das Ändern des Wertes von `currentTime` springt das Medium zur neuen Zeit.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der die aktuelle Wiedergabezeit in Sekunden angibt.
+Ein Gleitkomma-Doppelpräzisionswert, der die aktuelle Wiedergabezeit in Sekunden angibt.
 
-Wenn das Medium noch nicht abgespielt wird, gibt der Wert von `currentTime` die Zeitposition innerhalb des Mediums an, bei der die Wiedergabe beginnt, sobald die [`play()`](/de/docs/Web/API/HTMLMediaElement/play)-Methode aufgerufen wird.
+Wenn das Medium noch nicht spielt, zeigt der Wert von `currentTime` die Zeitposition innerhalb des Mediums an, bei der die Wiedergabe beginnt, sobald die [`play()`](/de/docs/Web/API/HTMLMediaElement/play)-Methode aufgerufen wird.
 
-Das Setzen von `currentTime` auf einen neuen Wert springt den Medieninhalt zur angegebenen Zeit, sofern das Medium verfügbar ist.
+Das Setzen von `currentTime` auf einen neuen Wert springt das Medium zur angegebenen Zeit, sofern das Medium verfügbar ist.
 
-Bei Medien ohne bekannte Dauer—wie beispielsweise live gestreamte Medien—kann es sein, dass der Browser Teile des Mediums, die aus dem Medienpuffer abgelaufen sind, nicht abrufen kann. Außerdem kann bei Medien, deren Zeitachse nicht bei 0 Sekunden beginnt, nicht zu einer Zeit vor der frühesten Zeit ihrer Zeitachse gesprungen werden.
+Bei Medien ohne bekannte Dauer – wie z.B. live gestreamte Medien – ist es möglich, dass der Browser Teile des Mediums nicht mehr abrufen kann, die aus dem Mediabuffer entfernt wurden. Auch Medien, deren Zeitachse nicht bei 0 Sekunden beginnt, können nicht zu einer Zeit vor dieser frühesten Zeit der Zeitachse gesprungen werden.
 
 Die Länge des Mediums in Sekunden kann mit der [`duration`](/de/docs/Web/API/HTMLMediaElement/duration)-Eigenschaft bestimmt werden.
 
@@ -31,29 +31,24 @@ const video = document.createElement("video");
 console.log(video.currentTime);
 ```
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-### Reduzierte Zeitgenauigkeit
+### Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Genauigkeit von `video.currentTime` je nach Browsereinstellung gerundet werden. In Firefox ist die Präferenz `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in welchem Fall die Präzision 100ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` beträgt, je nachdem, welcher größer ist.
+Der Browser wendet keine Timer-Rundung auf `currentTime` an, einschließlich Werte, die durch Skripte bereitgestellt werden. Das Springen kann die resultierende Wiedergabeposition dennoch auf eine von dem Medium unterstützte Position anpassen.
 
-Zum Beispiel wird mit reduzierter Zeitgenauigkeit das Ergebnis von `video.currentTime` immer ein Vielfaches von 0,002 sein, oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
+Der Wert von `currentTime` ist eine Annäherung an die aktuelle Wiedergabeposition. Der Browser aktualisiert diesen Wert, während die Wiedergabe fortschreitet. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/media.html#official-playback-position) erfordert, dass die gemeldete Wiedergabeposition stabil bleibt, während Skripte ausgeführt werden.
+
+Die Aktualisierungsfrequenz hängt vom Browser und der Medienwiedergabepipeline ab. Daher können aufeinanderfolgende Abfragen denselben `currentTime` zurückgeben, auch wenn {{jsxref("Date.now()")}} vorangeschritten ist. Die Anzahl der Dezimalstellen im Wert zeigt nicht an, wie oft er aktualisiert wird oder wie genau er mit dem präsentierten Audio oder Video übereinstimmt.
+
+Zum Beispiel könnten aufeinanderfolgende Abfragen während der Wiedergabe diese Werte liefern:
 
 ```js
-// reduced time precision (2ms) in Firefox 60
 video.currentTime;
 // Might be:
 // 23.404
-// 24.192
-// 25.514
-// …
-
-// reduced time precision with `privacy.resistFingerprinting` enabled
-video.currentTime;
-// Might be:
-// 49.8
-// 50.6
-// 51.7
+// 23.404
+// 23.452
 // …
 ```
 
@@ -68,5 +63,5 @@ video.currentTime;
 ## Siehe auch
 
 - [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Interface zur Definition der `HTMLMediaElement.currentTime`-Eigenschaft
-- [`HTMLMediaElement.fastSeek()`](/de/docs/Web/API/HTMLMediaElement/fastSeek): Eine andere Möglichkeit, die Zeit einzustellen
+- [`HTMLMediaElement.fastSeek()`](/de/docs/Web/API/HTMLMediaElement/fastSeek): Eine andere Methode, um die Zeit einzustellen
 - [`HTMLMediaElement.duration`](/de/docs/Web/API/HTMLMediaElement/duration): Die Dauer des Mediums in Sekunden

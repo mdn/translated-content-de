@@ -1,30 +1,28 @@
 ---
-title: "`<rb>` HTML ruby base element"
+title: "`<rb>` HTML-`ruby`-Basiselement"
 short-title: <rb>
 slug: Web/HTML/Reference/Elements/rb
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}
-
-Das **`<rb>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um die Basistextkomponente einer {{HTMLElement("ruby")}}-Annotation zu begrenzen, d.h. den Text, der annotiert wird. Ein `<rb>`-Element sollte jedes separate atomare Segment des Basistextes umschließen.
+Das **`<rb>`**-Element des [HTML](/de/docs/Web/HTML) wird verwendet, um die Basiskomponente einer {{HTMLElement("ruby")}}-Annotation zu kennzeichnen, d.h. den Text, der annotiert wird. Jedes `<rb>`-Element sollte jedes separate atomare Segment des Basistextes umfassen.
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [Globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-- Ruby-Annotationen dienen der Anzeige der Aussprache von ostasiatischen Schriftzeichen, wie die Verwendung von japanischem Furigana oder taiwanesischen Bopomofo-Zeichen. Das `<rb>`-Element wird verwendet, um jedes Segment des Ruby-Basistextes zu trennen.
-- Obwohl `<rb>` kein {{Glossary("void_element", "leeres Element")}} ist, ist es üblich, nur das öffnende Tag jedes Elements im Quellcode einzuschließen, damit das Ruby-Markup weniger komplex und leichter zu lesen ist. Der Browser kann dann das vollständige Element in der gerenderten Version ausfüllen.
-- Sie müssen für jedes Basissegment/`<rb>`-Element, das Sie annotieren möchten, ein {{htmlelement("rt")}}-Element einschließen.
+- Ruby-Annotationen werden verwendet, um die Aussprache ostasiatischer Zeichen anzuzeigen, beispielsweise bei der Verwendung von japanischen Furigana oder taiwanesischen Bopomofo-Zeichen. Das `<rb>`-Element wird verwendet, um jedes Segment des `ruby`-Basistextes zu trennen.
+- Auch wenn `<rb>` kein {{Glossary("void_element", "leeres Element")}} ist, ist es üblich, nur das öffnende Tag jedes Elements im Quellcode einzufügen, damit die `ruby`-Auszeichnung weniger komplex und leichter lesbar ist. Der Browser kann dann das vollständige Element in der gerenderten Version auffüllen.
+- Sie müssen ein {{htmlelement("rt")}}-Element für jedes Basissegment/`<rb>`-Element einfügen, das Sie annotieren möchten.
 
 ## Beispiele
 
-### Verwendung von rb
+### Verwendung von `rb`
 
-In diesem Beispiel bieten wir eine Annotation für das ursprüngliche Zeichenäquivalent von "Kanji" an:
+In diesem Beispiel liefern wir eine Annotation für das ursprüngliche Zeichenäquivalent von "Kanji":
 
 ```html
 <ruby>
@@ -32,15 +30,15 @@ In diesem Beispiel bieten wir eine Annotation für das ursprüngliche Zeichenäq
 </ruby>
 ```
 
-Beachten Sie, wie wir zwei `<rb>`-Elemente eingeschlossen haben, um die zwei getrennten Teile des Ruby-Basistextes zu begrenzen. Die Annotation hingegen ist durch zwei {{htmlelement("rt")}}-Elemente begrenzt.
+Beachten Sie, dass wir zwei `<rb>`-Elemente eingefügt haben, um die beiden separaten Teile des `ruby`-Basistextes zu kennzeichnen. Die Annotation dagegen wird durch zwei {{htmlelement("rt")}}-Elemente abgegrenzt.
 
 #### Ergebnis
 
 {{EmbedLiveSample("Using_rb", "100%", 60)}}
 
-### Separate Annotationen
+### Getrennte Annotationen
 
-Beachten Sie, dass wir dieses Beispiel auch mit den zwei Basisteilen vollständig separat annotiert schreiben könnten. In diesem Fall müssen wir keine `<rb>`-Elemente einschließen:
+Beachten Sie, dass wir dieses Beispiel auch mit den zwei Basisteilen vollständig getrennt annotiert schreiben könnten. In diesem Fall brauchen wir keine `<rb>`-Elemente einzufügen:
 
 ```html
 <ruby>
@@ -52,7 +50,7 @@ Beachten Sie, dass wir dieses Beispiel auch mit den zwei Basisteilen vollständi
 
 {{EmbedLiveSample('Separate annotations')}}
 
-Weitere Beispiele finden Sie im Artikel über das {{HTMLElement("ruby")}}-Element.
+Sehen Sie sich den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele an.
 
 ## Technische Zusammenfassung
 
@@ -71,13 +69,13 @@ Weitere Beispiele finden Sie im Artikel über das {{HTMLElement("ruby")}}-Elemen
       <td>Als Kind eines {{htmlelement("ruby")}}-Elements.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Weglassen des Tags</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Element sofort von einem
-        {{HTMLElement("rt")}}, {{HTMLElement("rtc")}}, oder
-        {{HTMLElement("rp")}}-Element oder einem anderen
-        <code>&#x3C;rb></code>-Element gefolgt wird oder wenn es keinen weiteren Inhalt im
-        Elternelement gibt.
+        Das Schlusstag kann weggelassen werden, wenn das Element unmittelbar von
+        einem {{HTMLElement("rt")}}, {{HTMLElement("rtc")}} oder
+        {{HTMLElement("rp")}} Element oder einem anderen
+        <code>&#x3C;rb></code> Element gefolgt wird oder wenn kein Inhalt mehr im
+        Elternelement vorhanden ist.
       </td>
     </tr>
     <tr>
@@ -109,4 +107,4 @@ Weitere Beispiele finden Sie im Artikel über das {{HTMLElement("ruby")}}-Elemen
 - {{HTMLElement("rt")}}
 - {{HTMLElement("rp")}}
 - {{HTMLElement("rtc")}}
-- [CSS Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout)-Modul
+- [CSS ruby layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul

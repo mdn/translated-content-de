@@ -3,15 +3,15 @@ title: "WebTransportDatagramsWritable: sendOrder-Eigenschaft"
 short-title: sendOrder
 slug: Web/API/WebTransportDatagramsWritable/sendOrder
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: c4ced66f871dd67ff683526ecc38e9eb7ebb5c9a
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`sendOrder`**-Eigenschaft des [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Interfaces ruft eine Ganzzahl ab oder setzt sie, die die Priorität der Datagramme dieses Streams relativ zu anderen Streams und Datagrammen in derselben [`sendGroup`](/de/docs/Web/API/WebTransportDatagramsWritable/sendGroup) angibt.
+Die **`sendOrder`**-Eigenschaft der [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Schnittstelle repräsentiert die Priorität von Datagrammen dieses Streams relativ zu anderen Streams und Datagrammen in derselben [`sendGroup`](/de/docs/Web/API/WebTransportDatagramsWritable/sendGroup), als Ganzzahl.
 
-Innerhalb einer `sendGroup` werden die zum Senden in die Warteschlange gestellten Bytes auf Streams und Datagrammen mit einer höheren `sendOrder` vor jeglichen Bytes von niedriger priorisierten gesendet.
-Verschiedene Gruppen sollten für die Zwecke der Bandbreitenzuweisung gleich behandelt werden — wobei die genaue Art und Weise, wie die Bandbreite zwischen Gruppen aufgeteilt wird, implementierungsspezifisch ist.
+Innerhalb einer `sendGroup` werden Bytes, die zum Senden auf Streams und Datagrammen mit einer höheren `sendOrder`-Priorität eingereiht sind, vor allen Bytes mit niedrigerer Priorität gesendet.
+Verschiedene Gruppen werden gleich behandelt, was die Zuweisung von Bandbreite betrifft — obwohl die genaue Art und Weise, wie Bandbreite zwischen Gruppen aufgeteilt wird, von der Implementierung definiert ist.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Der Standardwert ist `0`.
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt, wie Sie die anfängliche `sendOrder` festlegen können, wenn Sie [`createWritable()`](/de/docs/Web/API/WebTransportDatagramDuplexStream/createWritable) aufrufen, um den beschreibbaren Stream zu erstellen, den Wert aus dem Stream auszulesen und ihn dann zu ändern:
+Das folgende Beispiel zeigt, wie Sie die anfängliche `sendOrder`-Priorität festlegen können, wenn [`createWritable()`](/de/docs/Web/API/WebTransportDatagramDuplexStream/createWritable) aufgerufen wird, um den schreibbaren Stream zu erstellen, den Wert vom Stream zurücklesen und ihn dann ändern:
 
 ```js
 const writable = transport.datagrams.createWritable({
@@ -51,5 +51,5 @@ console.log(`Send order: ${writable.sendOrder}`); // Send order: 2
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [Streams API](/de/docs/Web/API/Streams_API)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)

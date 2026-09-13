@@ -2,46 +2,45 @@
 title: <use>
 slug: Web/SVG/Reference/Element/use
 l10n:
-  sourceCommit: 049effd31f65c1d5503ac807a8a7c3d39e661be2
+  sourceCommit: 27bb49e1849433e05c964c8a645c448f184380ce
 ---
 
-Das **`<use>`**-Element nimmt Knoten innerhalb eines SVG-Dokuments und dupliziert sie an einer anderen Stelle.
-Der Effekt ist derselbe, als ob die Knoten tief in einen nicht sichtbaren DOM geklont und dann dort eingefügt würden, wo sich das `<use>`-Element befindet, ähnlich wie geklonte {{HTMLElement("template")}}-Elemente.
+Das **`<use>`** Element nimmt Knoten aus einem SVG-Dokument und dupliziert sie an anderer Stelle. Der Effekt ist derselbe, als ob die Knoten tief in ein nicht offengelegtes DOM geklont und dann dort eingefügt würden, wo das `<use>` Element ist, ähnlich wie geklonte {{HTMLElement("template")}} Elemente.
 
-## Verwendungskontext
+## Einsatzkontext
 
-{{SVGInfo}}
+{{svginfo}}
 
 ## Attribute
 
 - {{SVGAttr("href")}}
-  - : Die URL zu einem Element/Fragment, das dupliziert werden muss. Siehe [Hinweise zur Verwendung](#verwendungshinweise) für Details zu häufigen Fallstricken.<br/> _Wertetyp_: [**`<URL>`**](/de/docs/Web/SVG/Guides/Content_type#url); _Standardwert_: keiner; _Animierbar_: **ja**
-- {{SVGAttr("xlink:href")}} {{Deprecated_Inline}}
-  - : Ein [`<IRI>`](/de/docs/Web/SVG/Guides/Content_type#iri)-Verweis auf ein Element/Fragment, das dupliziert werden muss. Wenn sowohl {{SVGAttr("href")}} als auch {{SVGAttr("xlink:href")}} vorhanden sind, wird der in {{SVGAttr("href")}} angegebene Wert verwendet.<br/> _Wertetyp_: [**`<IRI>`**](/de/docs/Web/SVG/Guides/Content_type#iri); _Standardwert_: keiner; _Animierbar_: **ja**
+  - : Die URL zu einem Element/Fragment, das dupliziert werden muss. Siehe [Nutzungshinweise](#nutzungshinweise) für Details zu häufigen Fallstricken.<br/> _Werttyp_: [**`<URL>`**](/de/docs/Web/SVG/Guides/Content_type#url); _Standardwert_: keiner; _Animierbar_: **ja**
+- {{SVGAttr("xlink:href")}} {{deprecated_inline}}
+  - : Eine [`<IRI>`](/de/docs/Web/SVG/Guides/Content_type#iri) Referenz zu einem Element/Fragment, das dupliziert werden muss. Wenn sowohl {{SVGAttr("href")}} als auch {{SVGAttr("xlink:href")}} vorhanden sind, wird der Wert von {{SVGAttr("href")}} verwendet.<br/> _Werttyp_: [**`<IRI>`**](/de/docs/Web/SVG/Guides/Content_type#iri); _Standardwert_: keiner; _Animierbar_: **ja**
     > [!WARNING]
-    > Seit SVG 2 ist das Attribut {{SVGAttr("xlink:href")}} zugunsten von {{SVGAttr("href")}} veraltet. Weitere Informationen finden Sie auf der Seite {{SVGAttr("xlink:href")}}.
+    > Seit SVG 2 ist das {{SVGAttr("xlink:href")}} Attribut zugunsten von {{SVGAttr("href")}} veraltet. Siehe die {{SVGAttr("xlink:href")}} Seite für weitere Informationen.
 - {{SVGAttr("x")}}
-  - : Die x-Koordinate einer zusätzlichen abschließenden Offset-Transformation, die auf das `<use>`-Element angewendet wird.<br/> _Wertetyp_: [**`<coordinate>`**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die x-Koordinate einer zusätzlichen, abschließenden Offset-Transformation, die auf das `<use>` Element angewendet wird.<br/> _Werttyp_: [**`<coordinate>`**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Die y-Koordinate einer zusätzlichen abschließenden Offset-Transformation, die auf das `<use>`-Element angewendet wird.<br/> _Wertetyp_: [**`<coordinate>`**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die y-Koordinate einer zusätzlichen, abschließenden Offset-Transformation, die auf das `<use>` Element angewendet wird.<br/> _Werttyp_: [**`<coordinate>`**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
-  - : Die Breite des `<use>`-Elements.<br/> _Wertetyp_: [**`<length>`**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die Breite des `<use>` Elements.<br/> _Werttyp_: [**`<length>`**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("height")}}
-  - : Die Höhe des `<use>`-Elements.<br/> _Wertetyp_: [**`<length>`**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die Höhe des `<use>` Elements.<br/> _Werttyp_: [**`<length>`**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `0`; _Animierbar_: **ja**
 
 > [!NOTE]
-> `width` und `height` haben keine Auswirkungen auf `<use>`-Elemente, es sei denn, das referenzierte Element hat ein [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox) - d.h. sie haben nur Einfluss, wenn `<use>` sich auf ein `<svg>`- oder `<symbol>`-Element bezieht.
+> `width` und `height` haben keine Wirkung auf `<use>` Elemente, es sei denn, das referenzierte Element hat einen [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox) - das heißt, sie haben nur eine Wirkung, wenn `<use>` sich auf ein `<svg>` oder `<symbol>` Element bezieht.
 
 > [!NOTE]
-> Ab SVG2 sind `x`, `y`, `width` und `height` _Geometry Properties_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
+> Ab SVG2 sind `x`, `y`, `width` und `height` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGUseElement`](/de/docs/Web/API/SVGUseElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGUseElement`](/de/docs/Web/API/SVGUseElement) Schnittstelle.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt, wie man das `<use>`-Element verwendet, um mehrere Kreise mit unterschiedlichen Füll- und Konturfarben zu zeichnen.
+Das folgende Beispiel zeigt, wie das `<use>` Element verwendet wird, um mehrere Kreise mit unterschiedlichen Füll- und Strichfarben zu zeichnen.
 
 ```css hidden
 html,
@@ -61,17 +60,17 @@ svg {
 
 {{EmbedLiveSample('Example', 200, 200)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Die meisten Attribute von `<use>` werden ignoriert, wenn das entsprechende Attribut bereits auf dem durch `<use>` referenzierten Element definiert ist. (Dies unterscheidet sich davon, wie CSS-Stilattributvorgaben die früher in der Kaskade gesetzten Eigenschaften überschreiben). **Nur** die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}} und {{SVGAttr("href")}} am `<use>`-Element werden oder könnten eine gewisse Wirkung haben, wie später beschrieben, wenn das referenzierte Element bereits das entsprechende Attribut definiert hat. Jedoch **werden alle anderen Attribute**, die am referenzierten Element nicht gesetzt sind, auf das `<use>`-Element angewendet.
+Die meisten Attribute auf `<use>` werden ignoriert, wenn das entsprechende Attribut bereits auf dem durch `<use>` referenzierten Element definiert ist. (Dies unterscheidet sich von der Art und Weise, wie CSS-Stilattributen Vorrang vor früher gesetzten in der Kaskade gegeben wird). **Nur** die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}} und {{SVGAttr("href")}} auf dem `<use>` Element werden oder können einen Effekt haben, der nachfolgend beschrieben wird, wenn das referenzierte Element das entsprechende Attribut bereits definiert hat. **Alle anderen Attribute**, die nicht auf dem referenzierten Element gesetzt sind, **werden** jedoch auf das `<use>` Element angewendet.
 
-Da die geklonten Knoten nicht sichtbar sind, muss bei der Verwendung von [CSS](/de/docs/Web/CSS) zur Gestaltung eines `<use>`-Elements und seiner geklonten Nachfolger Vorsicht walten lassen. CSS-Eigenschaften werden nicht garantiert von dem geklonten DOM geerbt, es sei denn, Sie beauftragen sie ausdrücklich durch [CSS-Inheritance](/de/docs/Web/CSS/Guides/Cascade/Inheritance).
+Da die geklonten Knoten nicht offenliegen, muss beim Stylen eines `<use>` Elements und seiner geklonten Nachkommen mit [CSS](/de/docs/Web/CSS) Vorsicht walten gelassen werden. CSS-Eigenschaften werden nicht garantiert von dem geklonten DOM geerbt, es sei denn, Sie fordern dies ausdrücklich an, indem Sie [CSS-Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) verwenden.
 
-Aus Sicherheitsgründen können Browser die [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy) auf `<use>`-Elemente anwenden und möglicherweise das Laden einer Cross-Origin-URL im {{SVGAttr("href")}}-Attribut verweigern. Derzeit gibt es keine definierte Möglichkeit, eine Cross-Origin-Richtlinie für `<use>`-Elemente festzulegen.
+Aus Sicherheitsgründen können Browser die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) auf `<use>` Elemente anwenden und möglicherweise das Laden einer Cross-Origin-URL im {{SVGAttr("href")}} Attribut ablehnen. Derzeit gibt es keine definierte Möglichkeit, eine Cross-Origin-Richtlinie für `<use>` Elemente festzulegen.
 
-### Laden von Ressourcen aus externen Dateien über `<use>`
+### Laden von Ressourcen aus externen Dateien via `<use>`
 
-Sie können Knoten aus einer externen SVG-Datei über das `<use>`-Element laden, indem Sie den Pfad der Datei angeben, gefolgt von einem URL-Fragment, das auf die `id` des zu ladenden Knotens zeigt:
+Sie können Knoten aus einer externen SVG-Datei über das `<use>` Element laden, indem Sie den Pfad der Datei gefolgt von einem URL-Fragment angeben, das auf die `id` des zu ladenden Knotens zeigt:
 
 ```html
 <svg>
@@ -79,7 +78,7 @@ Sie können Knoten aus einer externen SVG-Datei über das `<use>`-Element laden,
 </svg>
 ```
 
-Historisch war das URL-Fragment immer erforderlich, selbst wenn Sie das gesamte SVG-Dokument laden wollten. In einem solchen Fall würde die `id` auf dem SVG-Wurzelelement enthalten sein:
+Historisch gesehen war das URL-Fragment immer erforderlich, selbst wenn Sie nur das gesamte SVG-Dokument laden wollten. In einem solchen Fall würde die `id` auf dem SVG-Wurzelelement enthalten sein:
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" id="my-fragment">
@@ -87,7 +86,7 @@ Historisch war das URL-Fragment immer erforderlich, selbst wenn Sie das gesamte 
 </svg>
 ```
 
-Moderne Implementierungen wurden jedoch aktualisiert, sodass, wenn Sie das gesamte externe Dokument laden möchten, Sie darauf verweisen können, ohne ein URL-Fragment (und die `id` ist nicht mehr auf dem Wurzelelement des SVG-Dokuments erforderlich):
+Moderne Implementierungen wurden jedoch aktualisiert, sodass Sie, wenn Sie das gesamte externe Dokument laden möchten, auf dieses ohne ein URL-Fragment verweisen können (und die `id` ist nicht mehr erforderlich auf dem SVG-Dokumentenwurzelelement):
 
 ```html
 <svg>
@@ -95,13 +94,13 @@ Moderne Implementierungen wurden jedoch aktualisiert, sodass, wenn Sie das gesam
 </svg>
 ```
 
-Prüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität)-Tabelle für die Unterstützung durch Browser.
+Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität) Tabelle für die Browserunterstützung.
 
-### Laden von Ressourcen aus Daten-URIs über `<use>`
+### Laden von Ressourcen aus Daten-URIs via `<use>`
 
-Das Laden von Ressourcen mit Daten-URIs im `href`-Attribut ist aus Sicherheitsgründen veraltet. Dies gilt für `<use href="data:..."` und auch beim Setzen von `href` durch die Verwendung der [`set`](/de/docs/Web/SVG/Reference/Element/set) oder [`setAttribute`](/de/docs/Web/API/Element/setAttribute)-Methode.
+Das Laden von Ressourcen mit Daten-URIs im `href` Attribut ist aus Sicherheitsgründen veraltet. Dies gilt für `<use href="data:..."` ebenso wie für das Setzen von `href` durch die Verwendung der [`set`](/de/docs/Web/SVG/Reference/Element/set) oder [`setAttribute`](/de/docs/Web/API/Element/setAttribute) Methode.
 
-Auch hier sollten Sie die [Browser-Kompatibilität](#browser-kompatibilität)-Tabelle für die Unterstützung durch Browser überprüfen.
+Auch hier sollten Sie die [Browser-Kompatibilität](#browser-kompatibilität) Tabelle für die Browserunterstützung überprüfen.
 
 ## Spezifikationen
 

@@ -3,16 +3,16 @@ title: "RTCTransportStats: packetsReceived-Eigenschaft"
 short-title: packetsReceived
 slug: Web/API/RTCTransportStats/packetsReceived
 l10n:
-  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
+  sourceCommit: 22415524e883da3d4119d12260b37137ffc7165f
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`packetsReceived`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs gibt die Gesamtanzahl der Pakete an, die über diesen Transport empfangen wurden.
+Die **`packetsReceived`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs gibt die Gesamtanzahl der empfangenen Pakete auf diesem Transport an.
 
 ## Wert
 
-Eine positive ganze Zahl, die die Anzahl der über den Transport empfangenen Pakete angibt.
+Eine nicht-negative Ganzzahl, die die Anzahl der auf dem Transport empfangenen Pakete angibt.
 
 ## Spezifikationen
 

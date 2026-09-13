@@ -3,10 +3,10 @@ title: "`border-right` CSS-Eigenschaft"
 short-title: border-right
 slug: Web/CSS/Reference/Properties/border-right
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`border-right`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Randes](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
+Die **`border-right`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-right")}}
 
@@ -48,9 +48,9 @@ border-right: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-## Bestandeigenschaften
+## Zusätzliche Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
@@ -71,7 +71,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -84,7 +84,7 @@ Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angege
 
 ## Beschreibung
 
-Wie bei allen Kurzform-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, selbst wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie folgenden Code:
+Wie bei allen Kurzschreibweisen setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-right-style: dotted;
@@ -98,7 +98,7 @@ border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wird, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Fehlen der `border-style` Angabe zu keinem Rand.
+Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Weglassen des `border-style`-Teils dazu, dass kein Rahmen existiert.
 
 ## Formale Definition
 
@@ -110,7 +110,7 @@ Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben
 
 ## Beispiele
 
-### Anwenden eines rechten Randes
+### Anwenden eines rechten Rahmens
 
 #### HTML
 

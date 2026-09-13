@@ -1,18 +1,18 @@
 ---
-title: "Dokument: beforescriptexecute-Ereignis"
+title: "Dokumentation: beforescriptexecute-Ereignis"
 short-title: beforescriptexecute
 slug: Web/API/Document/beforescriptexecute_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{non-standard_header}}{{deprecated_header}}
+{{APIRef("DOM")}}{{non-standard_header}}
 
-Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}} kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js-nolint
 addEventListener("beforescriptexecute", (event) => { })
@@ -36,11 +36,11 @@ document.addEventListener("beforescriptexecute", starting);
 document.onbeforescriptexecute = starting;
 ```
 
-[Live-Beispiel ansehen](https://mdn.dev/archives/media/samples/html/currentScript.html)
+[Beispiel live anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

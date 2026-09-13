@@ -3,40 +3,20 @@ title: "AnimationPlaybackEvent: currentTime-Eigenschaft"
 short-title: currentTime
 slug: Web/API/AnimationPlaybackEvent/currentTime
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die **`currentTime`** schreibgeschützte Eigenschaft des [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent) Interfaces stellt die aktuelle Zeit der Animation dar, die das Ereignis im Moment der Ereigniswarteschlange erzeugt hat. Diese wird als ungelöst betrachtet, wenn die Animation zum Zeitpunkt der Ereigniserzeugung `idle` war.
+Die **`currentTime`**-Schreibgeschützte Eigenschaft des [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Interfaces repräsentiert die aktuelle Zeit der Animation, die das Ereignis generiert hat, in dem Moment, in dem das Ereignis in die Warteschlange gestellt wurde. Bei browsergenerierten `cancel`-Ereignissen ist der Wert `null`.
 
 ## Wert
 
 Eine Zahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`.
 
-## Reduzierte Zeitgenauigkeit
+Wenn ein Wert an den [`AnimationPlaybackEvent()`](/de/docs/Web/API/AnimationPlaybackEvent/AnimationPlaybackEvent)-Konstruktor übergeben wird, wendet Chrome und Firefox keine Timer-Rundung auf den zurückgegebenen Wert an. In Safari rundet der Browser den zurückgegebenen Wert auf 0,001 ms, die Auflösung, die zur Darstellung von Animationszeiten verwendet wird.
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Genauigkeit von `playbackEvent.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Option `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2 ms eingestellt. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Genauigkeit 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
-
-Zum Beispiel wird bei reduzierter Zeitgenauigkeit das Ergebnis von `playbackEvent.currentTime` immer ein Vielfaches von 0,002 oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting` sein.
-
-```js
-// reduced time precision (2ms) in Firefox 60
-playbackEvent.currentTime;
-// Might be:
-// 23.404
-// 24.192
-// 25.514
-// …
-
-// reduced time precision with `privacy.resistFingerprinting` enabled
-playbackEvent.currentTime;
-// Might be:
-// 49.8
-// 50.6
-// 51.7
-// …
-```
+Bei browsergenerierten `finish`- und `remove`-Ereignissen erbt diese Eigenschaft den Wert und die Präzision von [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime), wenn das Ereignis in die Warteschlange gestellt wird, ohne zusätzliche Ungenauigkeit einzuführen.
 
 ## Spezifikationen
 

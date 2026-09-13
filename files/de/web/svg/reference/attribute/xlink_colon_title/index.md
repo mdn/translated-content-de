@@ -2,21 +2,19 @@
 title: xlink:title
 slug: Web/SVG/Reference/Attribute/xlink:title
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
+Das Attribut **`xlink:title`** wird verwendet, um die Bedeutung eines Links oder einer Ressource in einer für Menschen lesbaren Weise zu beschreiben.
 
-Das **`xlink:title`** Attribut wird verwendet, um die Bedeutung eines Links oder einer Ressource auf eine für Menschen lesbare Weise zu beschreiben.
-
-Die Nutzung dieser Information hängt stark von der durchgeführten Verarbeitung ab. Sie kann zum Beispiel verwendet werden, um Titel für Anwendungen zur Verfügung zu stellen, die von sehbehinderten Nutzern genutzt werden, um eine Tabelle von Links zu erstellen oder um Hilfetexte anzuzeigen, die erscheinen, wenn ein Benutzer den Mauszeiger über eine startende Ressource schweben lässt.
+Die Verwendung dieser Information hängt stark von der Art der Verarbeitung ab. Es kann beispielsweise verwendet werden, um Titel für Anwendungen verfügbar zu machen, die von sehbehinderten Nutzern genutzt werden, oder um eine Tabelle mit Links zu erstellen oder um Hilfetext anzuzeigen, der erscheint, wenn ein Nutzer den Mauszeiger über eine startende Ressource bewegt.
 
 > [!NOTE]
-> Neue Inhalte sollten ein {{SVGElement("title")}} Kind-Element anstelle eines `xlink:title` Attributs verwenden.
+> Neue Inhalte sollten ein {{SVGElement("title")}} Kindelement anstelle eines `xlink:title` Attributs verwenden.
 
 ## Elemente
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
@@ -34,7 +32,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("use")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -60,7 +58,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<anything>`
-  - : Dieser Wert gibt den Titel an, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
+  - : Dieser Wert spezifiziert den Titel, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
 
 ## Spezifikationen
 

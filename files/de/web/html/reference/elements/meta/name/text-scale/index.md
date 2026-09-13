@@ -3,35 +3,35 @@ title: <meta name="text-scale">
 short-title: text-scale
 slug: Web/HTML/Reference/Elements/meta/name/text-scale
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: 4c58f4735f986a91bee1b77e336143630df727a2
 ---
 
 {{SeeCompatTable}}
 
-Der Wert **`text-scale`** für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)-Attribut eines {{htmlelement("meta")}}-Elements ermöglicht es, die Seite so einzustellen, dass das anfängliche {{cssxref("font-size")}} des {{htmlelement("html")}}-Root-Elements im Verhältnis zu den Betriebssystem- und Browser-Einstellungen skaliert wird.
+Der **`text-scale`** Wert für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)-Attribut eines {{htmlelement("meta")}}-Elements ermöglicht es, dass die Seite in den anfänglichen {{cssxref("font-size")}}-Maßstab des {{htmlelement("html")}}-Root-Elements im Verhältnis zu den Textskalierungseinstellungen des Betriebssystems und Browsers eintritt.
 
 > [!WARNING]
-> Wenn Sie `<meta name="text-scale" content="scale" />` auf Ihrer Website einbinden, um dieses Textskalierungsverhalten zu aktivieren, müssen Sie sicherstellen, dass es Textgrößen bis zum maximalen Skalierungsfaktor für Ihre Zielplattformen unterstützt. Dies reicht typischerweise von 200 % bis über 300 % auf mobilen Plattformen, wobei einige Barrierefreiheitsfunktionen noch größere Textskalierungen ermöglichen. Stellen Sie sicher, dass Ihre Website für Benutzer, die größere oder kleinere Schriftgrößeneinstellungen verwenden, nicht fehlerhaft aussieht.
+> Wenn Sie `<meta name="text-scale" content="scale" />` auf Ihrer Website einfügen, um dieses Verhalten der Textskalierung zu aktivieren, müssen Sie sicherstellen, dass die Unterstützung von Textgrößen bis zum maximalen Textskalierungsfaktor für Ihre Zielplattformen gegeben ist. Dies reicht typischerweise von 200 % bis über 300 % auf mobilen Plattformen, wobei einige Barrierefreiheitsfunktionen sogar noch größere Textskalierungen ermöglichen. Stellen Sie sicher, dass Ihre Website nicht fehlerhaft aussieht, wenn Nutzer größere oder kleinere Schriftgrößeinstellungen im Betriebssystem vornehmen.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Ein `<meta name="text-scale">`-Element hat die folgenden zusätzlichen Attribute:
+Ein `<meta name="text-scale">`-Element hat folgende zusätzliche Attribute:
 
 - [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)
-  - : Gibt das {{cssxref("font-size")}}-Opt-In-Verhalten an.
+  - : Gibt das Verhalten der {{cssxref("font-size")}}-Skalierung an.
     Sein Wert ist ein Schlüsselwort, das eines der folgenden sein kann:
     - `scale`
-      - : Aktiviert die Seite für die anfängliche Skalierung des {{htmlelement("html")}}-Root-Elements im Verhältnis zu Betriebssystem- und Browser-Einstellungen. Es bewirkt auch, dass der Browser bestehende browserbasierte Mechanismen und Heuristiken (z. B. automatische Textgrößenänderung auf Mobilgeräten) deaktiviert.
+      - : Optiert die Seite, indem das anfängliche {{cssxref("font-size")}}-Verhältnis des {{htmlelement("html")}}-Root-Elements im Verhältnis zu den Textskalierungseinstellungen des Betriebssystems und Browsers skaliert wird. Es führt auch dazu, dass der Browser bestehende browserbasierte Mechanismen und Heuristiken deaktiviert (z. B. automatische Textgrößenanpassung auf mobilen Geräten).
     - `legacy`
-      - : Der Standardwert. Die Seite ist nicht für die Skalierung des `font-size` des Root-Elements im Verhältnis zu Betriebssystem- und Browser-Einstellungen aktiviert. Dies hat den gleichen Effekt wie das Nicht-Einschließen des `<meta>`-Elements (Betriebssystem-Schriftvoreinstellungen werden ignoriert).
+      - : Der Standardwert. Die Seite wird nicht in die Skalierung der `font-size` des Root-Elements im Verhältnis zu den Textskalierungseinstellungen des Betriebssystems und Browsers eingebunden. Dies hat denselben Effekt wie das völlige Weglassen des `<meta>`-Elements (Betriebssystem-Schriftvoreinstellungen werden ignoriert).
 
 ## Beschreibung
 
-Das Element `<meta name="text-scale" content="scale" />` kann in das {{htmlelement("head")}} eines Dokuments aufgenommen werden, um dem Browser zu signalisieren, dass die Seite so dimensioniert ist, dass sie gut mit verschiedenen vom Benutzer ausgewählten Schriftgrößenvoreinstellungen skaliert. Gleichzeitig werden bestehende browserbasierte Mechanismen und Heuristiken deaktiviert.
+Das `<meta name="text-scale" content="scale" />`-Element kann in den {{htmlelement("head")}} eines Dokuments eingefügt werden, um dem Browser zu signalisieren, dass die Seite in einer Weise skaliert ist, die über verschiedene vom Nutzer ausgewählte Schriftgrößeneinstellungen hinweg gut dargestellt wird; es deaktiviert auch bestehende browserbasierte Mechanismen und Heuristiken.
 
-Es legt speziell fest, dass der anfängliche Wert des {{htmlelement("html")}}-Root-Elements `font-size` im Verhältnis zu benutzerdefinierten Betriebssystem- und Browsereinstellungen skaliert wird. Der {{cssxref("initial")}} Wert des Root-{{cssxref("font-size")}} ist `medium`, was den Wert der [`rem`](/de/docs/Web/CSS/Reference/Values/length#rem)-Einheit definiert. Vorausgesetzt, Sie setzen oder lassen zu, dass das Root-`font-size` standardmäßig auf eine [lokale oder root-schriftverhältnis `<length>`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths)-Einheit eingestellt ist, werden nachfolgende Schlüsselwörter (wie `medium`) oder schriftverhältnismäßige Längen (wie `em` und `rem`) im Verhältnis zu Betriebssystem- oder Browserschriftgrößeneinstellungen skaliert.
+Insbesondere definiert es den Wert der anfänglichen `font-size` des {{htmlelement("html")}}-Root-Elements, um proportional zu benutzerdefinierten Betriebssystem- und Browserschriftgrößeneinstellungen zu skalieren. Der {{cssxref("initial")}}-Wert der Root-{{cssxref("font-size")}} ist `medium`, was den Wert der [`rem`](/de/docs/Web/CSS/Reference/Values/length#rem)-Einheit definiert. Vorausgesetzt, Sie setzen oder erlauben die Voreinstellung der `font-size` des Root-Elements auf eine [lokale oder root-schriftverwandte `<Länge>`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) Einheit, wird jedes nachfolgende Schlüsselwort (wie `medium`) oder jede schriftverwandte Länge (wie `em` und `rem`) proportional zu den Betriebssystem- oder Browserschriftgrößeneinstellungen skaliert.
 
-Zum Beispiel würde die folgende Regel, wenn `<meta name="text-scale" content="scale">` auf der Seite eingefügt ist:
+Zum Beispiel führt die Aufnahme von `<meta name="text-scale" content="scale">` auf der Seite dazu, dass die folgende Regel:
 
 ```css
 p {
@@ -39,40 +39,40 @@ p {
 }
 ```
 
-dazu führen, dass alle {{htmlelement("p")}}-Elemente eine skalierte Schriftgröße erhalten. Sie könnten auch `font-size` auf `initial` setzen, um den gleichen Effekt zu erzielen.
+dazu führt, dass alle {{htmlelement("p")}}-Elemente eine skalierte Schriftgröße erhalten. Sie könnten auch `font-size` auf `initial` setzen, um denselben Effekt zu erzielen.
 
-Auf mobilen Plattformen ist dies standardmäßig nicht der Fall. `<meta name="text-scale" content="scale" />` aktiviert diese Skalierung. Auf Desktop-Plattformen hat dies zur Folge, dass die [`env(preferred-text-scale)`](/de/docs/Web/CSS/Reference/Values/env#preferred-text-scale)-Umgebungsvariable auf den Multiplikator abgestimmt wird, der den Browserschriftgrößeneinstellungen entspricht, aber ansonsten keinen erkennbaren Vorteil.
+Auf mobilen Plattformen ist dies standardmäßig nicht der Fall. `<meta name="text-scale" content="scale" />` aktiviert diese Skalierung. Auf Desktop-Plattformen bewirkt es, dass die [`env(preferred-text-scale)`](/de/docs/Web/CSS/Reference/Values/env#preferred-text-scale) Umgebung eine Zahl widergibt, die dem Multiplikator entspricht, der auf Browserschriftgrößeinstellungen basiert, aber sonst hat es keinen erkennbaren Vorteil.
 
-### Zusammenfassung der Nutzung
+### Zusammenfassung der Verwendung
 
-Zusammenfassend sollten Sie `scale` nur setzen, wenn Ihre App darauf ausgelegt ist, Schriftgrößenanpassung zu unterstützen. Die empfohlene Nutzung ist:
+Zusammengefasst, setzen Sie `scale` nur, wenn Ihre Anwendung so gestaltet ist, dass sie die Schriftgrößenanpassung unterstützt. Empfohlene Verwendung:
 
-1. Fügen Sie `<meta name="text-scale" content="scale" />` in den `<head>` Ihrer Seite ein.
+1. Fügen Sie `<meta name="text-scale" content="scale" />` im `<head>` Ihrer Seite ein.
 2. Überschreiben Sie nicht die anfängliche {{cssxref(":root")}} `font-size` mit einem [absoluten Längenwert](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units) (wie `16px`).
-3. Verwenden Sie nur [schriftverhältnismäßige Einheiten](/de/docs/Web/CSS/Reference/Values/length#relative_length_units_based_on_font) wie `em`/`rem` oder Schlüsselwörter wie `small`, `x-large` usw., um den Inhalt zu skalieren.
+3. Verwenden Sie nur [schriftverwandte Einheiten](/de/docs/Web/CSS/Reference/Values/length#relative_length_units_based_on_font) wie `em`/`rem` oder Schlüsselwörter wie `small`, `x-large` usw., um Inhalte zu dimensionieren.
 
 ### `<meta name="text-scale">` versus `env(preferred-text-scale)`
 
-Die Verwendung von `<meta name="text-scale" />`, um Dimensionen relativ zu Betriebssystem-Textskalierungseinstellungen zu setzen, wird gegenüber der [`env(preferred-text-scale)`](/de/docs/Web/CSS/Reference/Values/env#preferred-text-scale)-Umgebungsvariable empfohlen. Sie haben ähnliche Effekte auf Mobilgeräten, aber `<meta>` liefert auch Verbesserungen für Desktop-Browser (und ist einfacher zu verwenden).
+Die Verwendung von `<meta name="text-scale" />`, um Dimensionen im Verhältnis zu den Textskalierungseinstellungen des Betriebssystems zu dimensionieren, wird gegenüber der [`env(preferred-text-scale)`](/de/docs/Web/CSS/Reference/Values/env#preferred-text-scale) Umgebung empfohlen. Sie haben auf mobilen Geräten einen ähnlichen Effekt, aber `<meta>` bietet auch Verbesserungen für Desktop-Browser (und ist einfacher zu verwenden).
 
-Vermeiden Sie es, beide Funktionen gleichzeitig zu verwenden, da die Textskalierung zweimal angewendet werden könnte, und kleine schriftverhältnismäßige Dimensionen kleiner und große schriftverhältnismäßige Dimensionen größer machen könnte.
+Vermeiden Sie die gleichzeitige Verwendung beider Funktionen, da die Textskalierung möglicherweise zweimal angewandt wird, wodurch kleine schriftverwandte Dimensionen kleiner und große schriftverwandte Dimensionen größer werden.
 
 ## Beispiele
 
-### Demonstration der Meta-Viewport-Textskalierung
+### Meta-Viewport-Textskalierungs-Demonstration
 
-Dieses Beispiel demonstriert die Wirkung von `<meta name="text-scale" content="scale">`.
+Dieses Beispiel zeigt die Wirkung von `<meta name="text-scale" content="scale">`.
 
 #### HTML
 
-Wir nehmen das `<meta name="text-scale" content="scale">`-Element in den `<head>` des Dokuments auf, sowie ein [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)-Element, um eine korrekte Anzeige auf mobilen Geräten sicherzustellen. Wir fügen auch einigen Textinhalt in {{htmlelement("p")}}-Elementen mit verschiedenen `class`-Attributen hinzu, um sie mit unterschiedlichen Stilen ansprechen zu können.
+Wir fügen das `<meta name="text-scale" content="scale">`-Element im `<head>` des Dokuments ein, sowie ein [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)-Element, um eine korrekte Anzeige auf mobilen Geräten zu gewährleisten. Wir platzieren auch einige Textinhalte in {{htmlelement("p")}}-Elemente mit verschiedenen `class`-Attributen, die es uns erlauben, sie mit unterschiedlichen Stilen anzusprechen.
 
 ```html live-sample___text-scale
 <!doctype html>
 <html lang="en-US">
   <head>
     <meta name="text-scale" content="scale" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
   </head>
   <body>
     <p class="text-scale">
@@ -93,7 +93,7 @@ Wir nehmen das `<meta name="text-scale" content="scale">`-Element in den `<head>
 <!doctype html>
 <html lang="en-US">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
   </head>
   <body>
     <p class="text-scale">
@@ -111,7 +111,7 @@ Wir nehmen das `<meta name="text-scale" content="scale">`-Element in den `<head>
 
 #### CSS
 
-Textcontainer mit einer `class` von `text-scale` erhalten eine {{cssxref("font-size")}} von `1rem`, was bedeutet, dass in Browsern, die `<meta name="text-scale" content="scale">` unterstützen, dieser Text skaliert, wenn die Betriebssystem-/Browserschriftvoreinstellungen geändert werden. Textcontainer mit einer `class` von `fixed` erhalten eine `font-size` von `20px`, was bedeutet, dass dieser Text unabhängig von Änderungen der Betriebssystem-/Browser-Schriftvoreinstellungen eine feste Größe behält.
+Textcontainer mit einer `class` von `text-scale` erhalten eine {{cssxref("font-size")}} von `1rem`, was bedeutet, dass in Browsern, die `<meta name="text-scale" content="scale">` unterstützen, dieser Text skaliert wird, wenn die OS/Browser-Schriftgrößeneinstellungen geändert werden. Textcontainer mit einer `class` von `fixed` erhalten eine `font-size` von `20px`, was bedeutet, dass dieser Text in einer festen Größe bleibt, wenn die OS/Browser-Schriftgrößeneinstellungen geändert werden.
 
 ```css live-sample___text-scale live-sample___no-text-scale
 .text-scale {
@@ -129,31 +129,31 @@ Diese Version enthält das `<meta name="text-scale">`-Element:
 
 {{embedlivesample("text-scale", "100%", "200")}}
 
-Diese Version enthält das `<meta name="text-scale">`-Element NICHT:
+Diese Version enthält NICHT das `<meta name="text-scale">`-Element:
 
 {{embedlivesample("no-text-scale", "100%", "200")}}
 
-Testen Sie diese Beispiele in einem mobilen Browser. Ändern Sie die bevorzugte Schriftgröße in den Anzeige- oder Barrierefreiheitseinstellungen des Mobilgeräts. Beachten Sie, wie im ersten Beispiel, wenn `<meta name="text-scale">` enthalten ist, die oberen und unteren Textzeilen proportional zu den Betriebssystemeinstellungen skaliert werden, während die mittlere Zeile, mit `font-size` in absoluten Einheiten, nicht in der Größe verändert wird. Ohne das `<meta name="text-scale">`-Element skaliert der Text nicht proportional zu den Betriebssystemeinstellungen.
+Testen Sie diese Beispiele in einem mobilen Browser. Ändern Sie die bevorzugte Schriftgröße in den Anzeige- oder Barrierefreiheitseinstellungen des mobilen Geräts. Beachten Sie, wie im ersten Beispiel, wenn `<meta name="text-scale">` enthalten ist, die Ober- und Unterzeilen des Textes proportional zu den OS-Einstellungen skalieren, während die mittlere Zeile, deren `font-size` mit absoluten Einheiten gesetzt ist, nicht ihre Größe ändert. Ohne das `<meta name="text-scale">`-Element wird der Text nicht proportional zu den OS-Einstellungen skaliert.
 
-Um das Testen zu erleichtern, können Sie beide Versionen im Vollbildmodus in einem separaten Tab mit den unten stehenden Links öffnen:
+Um das Testen zu erleichtern, können Sie beide Versionen in einem separaten Tab im Vollbildmodus mit den untenstehenden Links öffnen:
 
 - {{ LiveSampleLink("text-scale", "Beispiel mit <code>&lt;meta name=&quot;text-scale&quot;&gt;</code>") }}
 - {{ LiveSampleLink("no-text-scale", "Beispiel ohne <code>&lt;meta name=&quot;text-scale&quot;&gt;</code>") }}
 
-### Ein textskalierungssensibles Layout
+### Ein textskalierungsresponsives Layout
 
-Dieses Beispiel zeigt, dass mit `<meta name="text-scale">` auf einer Seite schriftverhältnismäßige Größen in {{cssxref("@media")}}-Abfragen verwendet werden können, um mobile Browser dazu zu bringen, Breakpoints automatisch anzupassen, wenn die OS-Schriftgröße geändert wird.
+Dieses Beispiel zeigt, dass mit `<meta name="text-scale">` auf einer Seite, schriftverwandte Größen innerhalb von {{cssxref("@media")}} Abfragen verwendet werden können, um mobile Browser automatisch Breakpoints anpassen zu lassen, wenn die OS-Schriftgröße geändert wird.
 
 #### HTML
 
-Wie im vorherigen Beispiel enthält unser Markup wieder die `<meta name="text-scale">` und `<meta name="viewport">`-Elemente im `<head>`. In diesem Demo enthält der Body-Inhalt zwei Elemente — {{htmlelement("main")}} und {{htmlelement("aside")}} — zur Darstellung einer Hauptinhaltsspalte und einer Seitenleiste.
+Wie im vorherigen Beispiel enthält unser Markup wieder die `<meta name="text-scale">` und `<meta name="viewport">` Elemente im `<head>`. In diesem Demo enthalten die Hauptinhalte zwei Elemente — {{htmlelement("main")}} und {{htmlelement("aside")}} — um eine Hauptinhaltsspalte und eine Seitenleiste darzustellen.
 
 ```html live-sample___text-scale-layout
 <!doctype html>
 <html lang="en-US">
   <head>
     <meta name="text-scale" content="scale" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
   </head>
   <body>
     <main>Main content</main>
@@ -164,7 +164,7 @@ Wie im vorherigen Beispiel enthält unser Markup wieder die `<meta name="text-sc
 
 #### CSS
 
-Standardmäßig sind der Hauptinhalt und die Seitenleiste übereinander angeordnet. Wir fügen eine {{cssxref("@media")}}-Abfrage ein, die die Elemente nebeneinander anordnet, wenn der Viewport breiter als `35rem` wird.
+Standardmäßig werden der Hauptinhalt und die Seitenleiste untereinander angeordnet. Wir fügen eine {{cssxref("@media")}} Abfrage ein, die die Elemente nebeneinander mit [CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout) anordnet, wenn der Viewport breiter als `35rem` wird.
 
 ```css hidden live-sample___text-scale-layout
 body {
@@ -193,11 +193,11 @@ aside {
 
 {{embedlivesample("text-scale-layout", "100%", "200")}}
 
-Testen Sie dies in einem mobilen Browser. Sie werden sehen, dass, wenn die OS-Schriftgröße erhöht wird, die Breakpoint-Größe proportional dazu zunimmt. Bei größeren OS-Schriftgrößen erscheinen der Haupt- und Nebeninhalt übereinander, während sie zuvor nebeneinander dargestellt wurden. Sie müssen möglicherweise im Querformat schauen, um den Effekt zu sehen.
+Testen Sie dies in einem mobilen Browser. Sie werden sehen, dass bei Erhöhung der OS-Schriftgröße die Größe des Breakpoints proportional erhöht wird. Bei größeren Schriftgrößen des Betriebssystems erscheinen der Hauptinhalt und die Seite übereinander, während sie vorher nebeneinander erschienen. Sie müssen es möglicherweise in der horizontalen Ausrichtung ansehen, um den Effekt zu sehen.
 
-Sie können die Demo in einem separaten Tab mit dem unten stehenden Link öffnen, um das Testen zu erleichtern:
+Sie können das Demo in einem separaten Tab mit dem untenstehenden Link zum einfacheren Testen öffnen:
 
-{{ LiveSampleLink("text-scale-layout", "Beispiel für ein responsives Layout") }}
+{{ LiveSampleLink("text-scale-layout", "Responsives Layout-Beispiel") }}
 
 ## Spezifikationen
 
@@ -210,4 +210,4 @@ Sie können die Demo in einem separaten Tab mit dem unten stehenden Link öffnen
 ## Siehe auch
 
 - [`env(preferred-text-scale)`](/de/docs/Web/CSS/Reference/Values/env#preferred-text-scale)
-- [[meta text-scale] Support für WebView](https://chromium.googlesource.com/chromium/src/+/b29d63222d10f4c7e620d057578d737969eb7ae3) auf chromium.googlesource.com (2026)
+- [[meta text-scale] Unterstützung für WebView](https://chromium.googlesource.com/chromium/src/+/b29d63222d10f4c7e620d057578d737969eb7ae3) auf chromium.googlesource.com (2026)

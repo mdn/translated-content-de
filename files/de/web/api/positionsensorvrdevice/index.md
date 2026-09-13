@@ -2,30 +2,30 @@
 title: PositionSensorVRDevice
 slug: Web/API/PositionSensorVRDevice
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Das **`PositionSensorVRDevice`**-Interface der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert den Positionssensor der VR-Hardware. Sie können Informationen wie die aktuelle Position und Orientierung des Sensors in Bezug auf das Head-Mounted Display über die Methode [`PositionSensorVRDevice.getState()`](/de/docs/Web/API/PositionSensorVRDevice/getState) abrufen.
+Das **`PositionSensorVRDevice`**-Interface der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert den Positionssensor der VR-Hardware. Sie können Informationen wie die aktuelle Position und Ausrichtung des Sensors in Bezug auf das Head-Mounted Display über die Methode [`PositionSensorVRDevice.getState()`](/de/docs/Web/API/PositionSensorVRDevice/getState) abrufen.
 
 ## Instanzmethoden
 
 - [`PositionSensorVRDevice.getState()`](/de/docs/Web/API/PositionSensorVRDevice/getState) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt den aktuellen Zustand des Positionssensors für den aktuellen Frame zurück (z. B. innerhalb des aktuellen [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Callbacks) oder für den vorherigen Frame, enthalten in einem [`VRPose`](/de/docs/Web/API/VRPose)-Objekt. Dies ist die Methode, die Sie normalerweise verwenden möchten, im Gegensatz zu `getImmediateState()`.
+  - : Gibt den aktuellen Zustand des Positionssensors für den aktuellen Frame zurück (z.B. innerhalb des aktuellen [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) Callbacks) oder für den vorherigen Frame, enthalten in einem [`VRPose`](/de/docs/Web/API/VRPose)-Objekt. Dies ist die Methode, die Sie normalerweise verwenden wollen, im Gegensatz zu `getImmediateState()`.
 - [`PositionSensorVRDevice.getImmediateState()`](/de/docs/Web/API/PositionSensorVRDevice/getImmediateState) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt den aktuellen momentanen Zustand des Positionssensors zurück. Dies ist nur selten zu verwenden, für bestimmte Spezialfälle, beispielsweise um die unmittelbare Position eines Handsensors zu erfassen – oder zumindest wird es in der Zukunft der Fall sein.
+  - : Gibt den aktuellen, unmittelbaren Zustand des Positionssensors zurück. Dies ist nur selten zu verwenden, für bestimmte spezielle Verwendungszwecke, wie z.B. das Abtasten der unmittelbaren Position eines Handorientierungssensors — oder zumindest wird es in Zukunft sein.
 - [`PositionSensorVRDevice.resetSensor()`](/de/docs/Web/API/PositionSensorVRDevice/resetSensor) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : _Kann verwendet werden, um den Sensor zurückzusetzen, falls gewünscht, und die_ Position und Orientierungswerte auf null zurückzusetzen.
+  - : _Kann verwendet werden, um den Sensor zurückzusetzen, wenn gewünscht, wodurch die_ Positions- und Orientierungswerte auf Null zurückgesetzt werden.
 
 ## Instanzeigenschaften
 
-_Dieses Interface definiert keine eigenen Eigenschaften, aber es erbt die Eigenschaften seines Eltern-Interfaces, [`VRDisplay`](/de/docs/Web/API/VRDisplay)._
+_Dieses Interface definiert keine eigenen Eigenschaften, erbt jedoch die Eigenschaften seines übergeordneten Interfaces, [`VRDisplay`](/de/docs/Web/API/VRDisplay)._
 
 - [`VRDisplay.displayId`](/de/docs/Web/API/VRDisplay/displayId) {{ReadOnlyInline}}
-  - : Gibt die ID für dieses spezifische `VRDevice` zurück. Die ID sollte sich über Browser-Neustarts hinweg nicht ändern, sodass Konfigurationsdaten basierend darauf gespeichert werden können.
+  - : Gibt die ID für dieses spezielle `VRDevice` zurück. Die ID sollte sich über Browser-Neustarts hinweg nicht ändern, was es ermöglicht, Konfigurationsdaten darauf basierend zu speichern.
 - [`VRDisplay.displayName`](/de/docs/Web/API/VRDisplay/displayName) {{ReadOnlyInline}}
-  - : Ein lesbarer Name, um das `VRDevice` zu identifizieren.
+  - : Ein menschenlesbarer Name zur Identifizierung des `VRDevice`.
 
 ## Beispiele
 
@@ -56,9 +56,9 @@ function setView() {
 }
 ```
 
-Hier greifen wir auf ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt mithilfe von [`PositionSensorVRDevice.getState()`](/de/docs/Web/API/PositionSensorVRDevice/getState) zu und speichern es in `posState`. Wir prüfen dann, ob Positions- und Orientierungsinformationen im aktuellen Frame vorhanden sind, indem wir [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) verwenden (diese geben `null` zurück, wenn zum Beispiel das Head-Mounted Display ausgeschaltet ist oder nicht auf den Positionssensor zeigt, was zu einem Fehler führen würde).
+Hier greifen wir auf ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt zu, indem wir [`PositionSensorVRDevice.getState()`](/de/docs/Web/API/PositionSensorVRDevice/getState) verwenden und es in `posState` speichern. Wir prüfen dann, ob Positions- und Orientierungsinformationen im aktuellen Frame vorhanden sind, indem wir [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) verwenden (diese geben `null` zurück, wenn z.B. das Head-Mounted Display ausgeschaltet ist oder nicht auf den Positionssensor zeigt, was einen Fehler verursachen würde).
 
-Wir geben dann die x-, y- und z-Position und -Orientierungswerte zu Informationszwecken aus und verwenden diese Werte, um die Variablen `xPos`, `yPos`, `zPos`, `xOrient`, `yOrient` und `zOrient` zu aktualisieren, die verwendet werden, um die Szenen-Rendering in jedem Frame zu aktualisieren.
+Wir geben dann die x-, y- und z-Positions- und Orientierungswerte zu Informationszwecken aus und verwenden diese Werte, um die Variablen `xPos`, `yPos`, `zPos`, `xOrient`, `yOrient` und `zOrient` zu aktualisieren, die dazu verwendet werden, das Szenen-Rendering in jedem Frame zu aktualisieren.
 
 ## Browser-Kompatibilität
 

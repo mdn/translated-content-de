@@ -2,27 +2,31 @@
 title: CSSMathValue
 slug: Web/API/CSSMathValue
 l10n:
-  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSMathValue`**-Interface der [CSS Typed Object Model-API](/de/docs/Web/API/CSS_Object_Model) ist eine Basisklasse für Klassen, die komplexe numerische Werte darstellen.
+Das **`CSSMathValue`** Interface des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ist das Basisinterface für Objekte, die komplexe numerische Werte darstellen, die von den CSS-Funktionen {{cssxref("calc()")}}, {{cssxref("min()")}}, {{cssxref("max()")}} und {{cssxref("clamp()")}} produziert werden.
+
+> [!NOTE]
+> `CSSMathValue` kann nicht direkt erstellt werden.
+> Instanzen werden von der Plattform zurückgegeben (z.B. über [`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get)) als eine ihrer unten aufgeführten Untertypen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- [`CSSMathValue.operator`](/de/docs/Web/API/CSSMathValue/operator)
-  - : Gibt den Operator an, den der aktuelle Subtyp darstellt.
+- [`CSSMathValue.operator`](/de/docs/Web/API/CSSMathValue/operator) {{ReadOnlyInline}}
+  - : Gibt den Operator zurück, den der aktuelle Untertyp darstellt.
 
 ## Statische Methoden
 
-_Erbt auch Methoden von seinem Eltern-Interface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)._
+_Erbt auch Methoden von seinem Elterninterface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)._
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von seinem Eltern-Interface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)._
+_Erbt auch Methoden von seinem Elterninterface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)._
 
 ## Schnittstellen basierend auf CSSMathValue
 
@@ -36,33 +40,66 @@ _Erbt auch Methoden von seinem Eltern-Interface, [`CSSNumericValue`](/de/docs/We
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer {{cssxref("width")}}, die mithilfe einer {{cssxref("calc()")}}-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static) für den `operator`.
+### `calc()` Darstellungen
+
+Dieses Beispiel zeigt, wie die [`operator`](/de/docs/Web/API/CSSMathValue/operator) Eigenschaft die Operation identifiziert, die von einem {{cssxref("calc()")}} Wert des `CSSMathValue` Untertyps dargestellt wird, einschließlich eines verschachtelten Wertes.
+
+#### HTML
 
 ```html
-<div>has width</div>
+<div id="demoBox">Text</div>
 ```
 
-Wir weisen eine `width` mit einer Berechnung zu
+```html hidden
+<pre id="log"></pre>
+```
+
+#### CSS
+
+`width` wird mit einer `calc()` Subtraktion gesetzt, die als `CSSMathSum` dargestellt wird, dessen zweiter Term negiert ist.
 
 ```css
-div {
+#demoBox {
   width: calc(30% - 20px);
 }
 ```
 
-Wir fügen das JavaScript hinzu
-
-```js
-const styleMap = document.querySelector("div").computedStyleMap();
-
-console.log(styleMap.get("width")); // CSSMathSum {values: CSSNumericArray, operator: "sum"}
-console.log(styleMap.get("width").operator); // 'sum'
-console.log(styleMap.get("width").values[1].value); // -20
+```css hidden
+#log {
+  height: 80px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
 ```
 
-{{EmbedLiveSample("Examples", 120, 300)}}
+#### JavaScript
 
-Der `CSSMathValue.operator` gibt `"sum"` zurück, weil `styleMap.get("width").values[1].value );` `-20` ist: Hinzufügen einer negativen Zahl.
+```js hidden
+const logElement = document.querySelector("#log");
+function log(text) {
+  logElement.innerText += `${text}\n`;
+}
+```
+
+Wir lesen den `width` Wert mit [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) und protokollieren dann seinen `operator` und den `operator` seines verschachtelten Wertes.
+
+```js
+const styleMap = document.querySelector("#demoBox").computedStyleMap();
+const width = styleMap.get("width");
+
+log(`type: ${width.constructor.name}`);
+log(`operator: ${width.operator}`);
+log(`nested value type: ${width.values[1].constructor.name}`);
+log(`nested value operator: ${width.values[1].operator}`);
+```
+
+#### Ergebnis
+
+`width` wird durch ein `CSSMathSum` Objekt dargestellt, dessen `operator` `"sum"` ist, weil `calc(30% - 20px)` als Addition von `30%` und der Negation von `20px` dargestellt wird.
+Der zweite verschachtelte Werttyp ist `CSSMathNegate` und sein `operator` ist `"negate"` (was die Negation widerspiegelt).
+
+{{EmbedLiveSample("`calc()` representations", 300, 170)}}
 
 ## Spezifikationen
 

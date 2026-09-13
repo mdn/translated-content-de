@@ -3,19 +3,20 @@ title: "PerformanceTiming: loadEventEnd-Eigenschaft"
 short-title: loadEventEnd
 slug: Web/API/PerformanceTiming/loadEventEnd
 l10n:
-  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Performance API")}}{{Deprecated_Header}}
+{{APIRef("Performance API")}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die schreibgeschützte Eigenschaft [`PerformanceNavigationTiming.loadEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventEnd) des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Interface.
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
+> Schnittstelle und deren schreibgeschützte Eigenschaft [`PerformanceNavigationTiming.loadEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventEnd).
 
 Die veraltete
 **`PerformanceTiming.loadEventEnd`**
-schreibgeschützte Eigenschaft gibt einen `unsigned long long` zurück, der den Moment darstellt,
-in Millisekunden seit der UNIX-Epoche, wann der [`load`](/de/docs/Web/API/Window/load_event) Ereignishandler
-beendet wurde, das heißt, wann das Ladeereignis abgeschlossen ist. Wenn dieses Ereignis noch nicht gesendet oder abgeschlossen wurde, wird `0` zurückgegeben.
+schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment darstellt,
+in Millisekunden seit dem UNIX-Epoch, in dem der [`load`](/de/docs/Web/API/Window/load_event)-Ereignishandler
+abgeschlossen wurde, also wenn das Ladeereignis abgeschlossen ist. Wenn dieses Ereignis noch nicht gesendet oder abgeschlossen wurde, gibt sie `0` zurück.
 
 ## Wert
 

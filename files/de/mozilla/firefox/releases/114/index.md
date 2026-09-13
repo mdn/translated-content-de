@@ -3,7 +3,7 @@ title: Firefox 114 Versionshinweise für Entwickler
 short-title: Firefox 114
 slug: Mozilla/Firefox/Releases/114
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 114, die Entwickler betreffen. Firefox 114 wurde am 06. Juni 2023 veröffentlicht.
@@ -12,7 +12,8 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 114, die En
 
 ### Entwicklerwerkzeuge
 
-- Ein Problem wurde behoben, bei dem der [Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) ARIA-Rollen in Elementen nicht korrekt anzeigte, was die Anzeige von [landmark roles](/de/docs/Web/Accessibility/ARIA/Reference/Roles/landmark_role) beeinträchtigte. Rollen, die nicht auf ARIA abgebildet werden können, verwenden einen internen Gecko-Rollennamen ([Firefox-Bug 1572512](https://bugzil.la/1572512)).
+- Ein Problem wurde behoben, bei dem der [Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) ARIA-Rollen auf Elementen nicht korrekt anzeigte, was die Darstellung von [landmark roles](/de/docs/Web/Accessibility/ARIA/Reference/Roles/landmark_role) beeinträchtigte.
+  Rollen, die nicht auf ARIA abgebildet werden können, verwenden einen internen Geckorollen-Namen ([Firefox-Bug 1572512](https://bugzil.la/1572512)).
 
 ### HTML
 
@@ -20,47 +21,52 @@ Keine bemerkenswerten Änderungen.
 
 ### CSS
 
-- Die [`:lang()`](/de/docs/Web/CSS/Reference/Selectors/:lang)-Pseudoklasse verwendet jetzt string-Matching-Semantik (einschließlich `*` Platzhaltern) zum Abgleichen von Sprachcodes anstelle von Präfix-Matching-Semantik. Außerdem werden jetzt durch Kommas getrennte Listen von Sprachen unterstützt, um mehrere Sprachen abzugleichen ([Firefox-Bug 1121792](https://bugzil.la/1121792)).
-- Die [`-webkit-text-security`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-security)-Eigenschaft, die es Ihnen ermöglicht, Zeichen durch Formen zu ersetzen, wird jetzt unterstützt. Sie können jetzt mit dieser Eigenschaft die Darstellung der Textsicherheit steuern ([Firefox-Bug 1826629](https://bugzil.la/1826629)).
-- Die Konstanten `infinity` und `NaN` werden jetzt innerhalb der [`calc()`](/de/docs/Web/CSS/Reference/Values/calc)-Funktion unterstützt ([Firefox-Bug 1830759](https://bugzil.la/1830759)).
+- Die [`:lang()`](/de/docs/Web/CSS/Reference/Selectors/:lang) Pseudoklasse verwendet nun String-Matching-Semantik (einschließlich `*` Platzhalter) zum Abgleichen von Sprachcodes anstelle von Präfix-Matching-Semantik.
+  Zusätzlich werden jetzt kommaseparierte Listen von Sprachen unterstützt, um mehrere Sprachen abzugleichen ([Firefox-Bug 1121792](https://bugzil.la/1121792)).
+- Die Eigenschaft [`-webkit-text-security`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-security), die es ermöglicht, Zeichen durch Formen zu ersetzen, wird jetzt unterstützt. Sie können nun die Darstellung von Textsicherheit mit dieser Eigenschaft steuern ([Firefox-Bug 1826629](https://bugzil.la/1826629)).
+- Die Konstanten `infinity` und `NaN` werden jetzt in der [`calc()`](/de/docs/Web/CSS/Reference/Values/calc) Funktion unterstützt ([Firefox-Bug 1830759](https://bugzil.la/1830759)).
 
 ### JavaScript
 
-- [Workers](/de/docs/Web/API/Web_Workers_API) unterstützen jetzt das Laden von [ECMAScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules). Sie können Module in Workers laden, indem Sie die Option `{type: "module"}` im [`Worker`](/de/docs/Web/API/Worker/Worker#type) und [`SharedWorker` constructors](/de/docs/Web/API/SharedWorker/SharedWorker#type) angeben. Worker-Skripte können auch Module statisch oder dynamisch mit [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) und [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) importieren ([Firefox-Bug 1812591](https://bugzil.la/1812591)).
+- [Workers](/de/docs/Web/API/Web_Workers_API) unterstützen nun das Laden von [ECMAScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules).
+  Sie können Module in Workers laden, indem Sie die Option `{type: "module"}` in den Konstruktoren [`Worker`](/de/docs/Web/API/Worker/Worker#type) und [`SharedWorker`](/de/docs/Web/API/SharedWorker/SharedWorker#type) angeben.
+  Worker-Skripte können Module auch statisch oder dynamisch mit [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) bzw. [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) importieren ([Firefox-Bug 1812591](https://bugzil.la/1812591)).
 - [Worklets](/de/docs/Web/API/Worklet) können jetzt [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) verwenden, um [ECMAScript/JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) statisch zu importieren ([Firefox-Bug 1812591](https://bugzil.la/1812591)).
 
 ### SVG
 
-- Das [`crossorigin`](/de/docs/Web/SVG/Reference/Attribute/crossorigin)-Attribut wird jetzt in [`image`](/de/docs/Web/SVG/Reference/Element/image)- und [`feImage`](/de/docs/Web/SVG/Reference/Element/feImage)-Elementen unterstützt ([Firefox-Bug 1240357](https://bugzil.la/1240357)).
+- Das [`crossorigin`](/de/docs/Web/SVG/Reference/Attribute/crossorigin) Attribut wird nun in [`image`](/de/docs/Web/SVG/Reference/Element/image) und [`feImage`](/de/docs/Web/SVG/Reference/Element/feImage) Elementen unterstützt ([Firefox-Bug 1240357](https://bugzil.la/1240357)).
 
 ### APIs
 
-- [`Window.print()`](/de/docs/Web/API/Window/print) öffnet jetzt ein Druckdialogfeld in Firefox für Android, das es ermöglicht, das aktuelle Dokument zu drucken ([Firefox-Bug 1809922](https://bugzil.la/1809922)).
-- Die [WebTransport API](/de/docs/Web/API/WebTransport_API) wird jetzt unterstützt, einschließlich der folgenden Schnittstellen: [`WebTransport`](/de/docs/Web/API/WebTransport), [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream), [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream), [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream), [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream), [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) und [`WebTransportError`](/de/docs/Web/API/WebTransportError). Für weitere Informationen siehe [Firefox-Bug 1692754](https://bugzil.la/1692754), [Firefox-Bug 1818754](https://bugzil.la/1818754) und [Firefox-Bug 1791835](https://bugzil.la/1791835).
+- [`Window.print()`](/de/docs/Web/API/Window/print) öffnet nun einen Druckdialog in Firefox für Android, der es ermöglicht, das aktuelle Dokument zu drucken ([Firefox-Bug 1809922](https://bugzil.la/1809922)).
+- Die [WebTransport-API](/de/docs/Web/API/WebTransport_API) wird jetzt unterstützt, einschließlich der folgenden Schnittstellen: [`WebTransport`](/de/docs/Web/API/WebTransport), [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream), [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream), [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream), [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream), [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) und [`WebTransportError`](/de/docs/Web/API/WebTransportError).
+  Für weitere Informationen, siehe [Firefox-Bug 1692754](https://bugzil.la/1692754), [Firefox-Bug 1818754](https://bugzil.la/1818754) und [Firefox-Bug 1791835](https://bugzil.la/1791835).
 
-- [`CSSImportRule.supportsText`](/de/docs/Web/API/CSSImportRule/supportsText) kann jetzt verwendet werden, um alle `supports()`-Bedingungen zu erhalten, die angegeben wurden, als die {{cssxref("@import")}} [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules) verwendet wurde ([Firefox-Bug 1829590](https://bugzil.la/1829590)).
+- [`CSSImportRule.supportsText`](/de/docs/Web/API/CSSImportRule/supportsText) kann jetzt verwendet werden, um jegliche `supports()` Bedingungen abzurufen, die bei der Verwendung der {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) spezifiziert wurden ([Firefox-Bug 1829590](https://bugzil.la/1829590)).
 
 #### Entfernungen
 
-- Die veraltete und nicht standardisierte `mozImageSmoothingEnabled`-Eigenschaft wurde dauerhaft entfernt. Siehe die [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled)-Eigenschaft zum Glätten in skalierter Bilder ([Firefox-Bug 1228850](https://bugzil.la/1228850)).
+- Die veraltete und nicht standardisierte Eigenschaft `mozImageSmoothingEnabled` wurde endgültig entfernt.
+  Sehen Sie die [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) Eigenschaft für Glättung in skalierten Bildern an ([Firefox-Bug 1228850](https://bugzil.la/1228850)).
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
 #### WebDriver BiDi
 
-- Unterstützung für die Befehle `input.performActions` und `input.releaseActions` hinzugefügt, die verwendet werden können, um Benutzereingaben zu emulieren, um mit Elementen auf Webseiten zu interagieren. Ähnlich wie bei Marionette werden alle verfügbaren Eingabequellen der WebDriver-Spezifikation unterstützt, nämlich `key`, `pointer` und `wheel` ([Firefox-Bug 1832380](https://bugzil.la/1832380)).
-- Unterstützung für benutzerdefinierte Nachrichten vom Browser zum Client hinzugefügt, die es ermöglichen, ein `script.message`-Ereignis aus einem zuvor über `script.addPreloadScript` installierten Skript zu senden ([Firefox-Bug 1824187](https://bugzil.la/1824187)).
+- Unterstützung für die Befehle `input.performActions` und `input.releaseActions` hinzugefügt, die zur Emulation von Benutzereingaben für die Interaktion mit Elementen auf Webseiten verwendet werden können. Ähnlich wie Marionette werden alle verfügbaren Eingabequellen der WebDriver-Spezifikation unterstützt, nämlich `key`, `pointer` und `wheel` ([Firefox-Bug 1832380](https://bugzil.la/1832380)).
+- Unterstützung für benutzerdefinierte Browser-zu-Client-Nachrichten hinzugefügt, die es erlauben, ein `script.message` Ereignis aus einem innerhalb eines Skripts gesendeten Ereignis auszulösen, das zuvor mit `script.addPreloadScript` installiert wurde ([Firefox-Bug 1824187](https://bugzil.la/1824187)).
 - Unterstützung für den Parameter `serializationOptions` für `script.evaluate` und `script.callFunction` hinzugefügt, um die `RemoteValue`-Serialisierung anzupassen ([Firefox-Bug 1824953](https://bugzil.la/1824953)).
-- Ein Problem wurde behoben, bei dem sowohl die `script.evaluate`- als auch die `script.callFunction`-Befehle den Stack-Trace nicht einschlossen und die Ausnahmeangaben für ein abgelehntes Promise nicht ordnungsgemäß erstellten ([Firefox-Bug 1829630](https://bugzil.la/1829630)).
-- Ein Problem wurde behoben, bei dem die Ereignisse `browsingContext.domContentLoaded` und `browsingContext.load` die korrekte `url` nicht reportierten, wenn die Seite einen `<base>`-Meta-Tag definierte ([Firefox-Bug 1825634](https://bugzil.la/1825634)).
+- Ein Problem behoben, bei dem die Befehle `script.evaluate` und `script.callFunction` den Stack-Trace nicht einschlossen und die Ausnahme-Details für ein abgelehntes Promise nicht richtig erstellten ([Firefox-Bug 1829630](https://bugzil.la/1829630)).
+- Ein Problem behoben, bei dem die Ereignisse `browsingContext.domContentLoaded` und `browsingContext.load` nicht die korrekte `url` berichteten, wenn die Seite einen `<base>` Meta-Tag definiert hatte ([Firefox-Bug 1825634](https://bugzil.la/1825634)).
 
 #### Marionette
 
-- Ein Problem wurde behoben, bei dem der Befehl `WebDriver:GetComputedRole` die WAI-ARIA-Rollen nicht ordnungsgemäß zurückgab ([Firefox-Bug 1822112](https://bugzil.la/1822112)).
-- Ein Problem wurde behoben, bei dem Modifikatortasten nicht zurückgesetzt wurden, wenn sie erneut innerhalb desselben `WebDriver:ElementSendKeys`-Befehls verwendet wurden ([Firefox-Bug 1776190](https://bugzil.la/1776190)).
+- Ein Problem behoben, bei dem der Befehl `WebDriver:GetComputedRole` die WAI-ARIA-Rollen nicht korrekt zurückgab ([Firefox-Bug 1822112](https://bugzil.la/1822112)).
+- Ein Problem behoben, bei dem Modifikatortasten nicht zurückgesetzt wurden, wenn sie innerhalb desselben Befehls `WebDriver:ElementSendKeys` erneut verwendet wurden ([Firefox-Bug 1776190](https://bugzil.la/1776190)).
 
 ## Änderungen für Add-on-Entwickler
 
 ### Entfernungen
 
-- Die Unterstützung für [`browser_style`](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles) in den Manifest-Schlüsseln [`action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action), [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui), [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) und [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) ist für Manifest V3 Erweiterungen veraltet ([Firefox-Bug 1827910](https://bugzil.la/1827910)). Siehe [Manifest v3 migration](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration) für Informationen zur Umstellung von `browser_style` in Manifest V3-Erweiterungen.
+- Die Unterstützung für [`browser_style`](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles) in den Manifest-Schlüsseln [`action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action), [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui), [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) und [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) ist für Manifest V3 Erweiterungen veraltet ([Firefox-Bug 1827910](https://bugzil.la/1827910)). Weitere Informationen zum Übergang von `browser_style` in Manifest V3 Erweiterungen finden Sie unter [Manifest v3 migration](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration).

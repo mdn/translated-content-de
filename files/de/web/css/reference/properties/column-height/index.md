@@ -3,14 +3,14 @@ title: "`column-height` CSS property"
 short-title: column-height
 slug: Web/CSS/Reference/Properties/column-height
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 8e2fe58f37aad757276d6bfdfa8f2a57aac73749
 ---
 
 {{SeeCompatTable}}
 
-Die **`column-height`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Höhe der Spalten in einem [CSS-Multi-Column-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) an.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-height`** gibt die Höhe der Spalten in einem [CSS-Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout) an.
 
-Die {{cssxref("columns")}} Kurzschreibweise kann verwendet werden, um die Werte der Eigenschaften `column-height`, {{cssxref("column-count")}} und {{cssxref("column-width")}} in einer einzigen Deklaration festzulegen.
+Die Kurzform-Eigenschaft {{cssxref("columns")}} kann verwendet werden, um die Werte der Eigenschaften `column-height`, {{cssxref("column-count")}} und {{cssxref("column-width")}} in einer einzigen Deklaration festzulegen.
 
 ## Syntax
 
@@ -33,20 +33,22 @@ column-height: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste angegeben:
+
 - `auto`
-  - : Der Anfangswert. Wenn der Inhaltscontainer eine festgelegte Höhe hat, wachsen die Inhaltsspalten auf diese Höhe und laufen zur Seite über, wenn der Inhalt nicht in den Container passt. Hat der Inhaltscontainer keine festgelegte Höhe, wird der Inhalt gleichmäßig zwischen den im Container erzeugten Spalten verteilt.
+  - : Der Anfangswert. Wenn der Inhaltscontainer eine festgelegte Höhe hat, wachsen die Inhaltsspalten bis zu dieser Höhe und laufen seitlich über, wenn der Inhalt nicht in den Container passt. Wenn der Inhaltscontainer keine festgelegte Höhe hat, wird der Inhalt gleichmäßig auf die innerhalb des Containers erzeugten Spalten verteilt.
 - {{cssxref("&lt;length>")}}
   - : Die Höhe der Spalten. Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die Eigenschaft `column-height` legt die Höhe der Spalten in einem [Multi-Column-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) fest. Dies ist nützlich, um die Spaltenhöhe für eine bessere Lesbarkeit einzuschränken, wenn mehrere Spalten mit den Eigenschaften {{cssxref("column-count")}} oder {{cssxref("column-width")}} eingerichtet werden.
+Die Eigenschaft `column-height` legt die Höhe der Spalten in einem [Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout) fest. Dies ist nützlich, um die Spaltenhöhe für eine bessere Lesbarkeit zu begrenzen, wenn mehrere Spalten mit der Eigenschaft {{cssxref("column-count")}} oder {{cssxref("column-width")}} festgelegt werden.
 
-Ohne `column-height`, wenn die Höhe des mehrspaltigen Inhalts die Höhe des Viewports übersteigt, müssen Leser bis zum Ende einer Spalte scrollen und dann zurück nach oben zur nächsten Spalte. Eine mögliche Lösung wäre, eine feste Höhe für den Inhaltscontainer zu setzen, jedoch laufen dann überschüssige Spalten zur Seite über, und Leser müssen in der Zeilenrichtung scrollen, um den gesamten Inhalt zu lesen.
+Ohne `column-height` müssen Lesende, wenn die Höhe des Mehrspalteninhalts die Viewport-Höhe überschreitet, bis zum Ende einer Spalte nach unten und dann wieder bis zum Anfang der nächsten Spalte nach oben scrollen. Eine mögliche Lösung wäre, eine feste Höhe für den Inhaltscontainer festzulegen. Überschüssige Spalten würden dann jedoch seitlich überlaufen, und Lesende müssten in Inline-Richtung scrollen, um den gesamten Inhalt zu lesen.
 
-Die Eigenschaft `column-height` ermöglicht zusammen mit {{cssxref("column-wrap")}}, eine spezifische Höhe für die Spalten festzulegen und sie auf eine neue Reihe von Spalten umzubrechen, wenn die Containerkante erreicht wird.
+Die Eigenschaft `column-height` ermöglicht es Ihnen zusammen mit {{cssxref("column-wrap")}}, eine bestimmte Höhe für die Spalten festzulegen und sie in eine neue Spaltenzeile umzubrechen, wenn der Rand des Containers erreicht wird.
 
-Der Standardwert von `column-wrap` ist `auto`, was zu `wrap` aufgelöst wird, wenn `column-height` auf einen `<length>`-Wert gesetzt ist; `wrap` ermöglicht es den festgelegten Spaltenhöhen, in mehrere Reihen umgebrochen zu werden. Wenn `column-height` gleich `auto` ist, löst sich `column-wrap: auto` in `nowrap` auf, wodurch die Spalten horizontal überlaufen dürfen, falls eine feste Containerhöhe gesetzt ist. Aufgrund dieses Standardverhaltens müssen Sie die Eigenschaft `column-wrap` im Allgemeinen nicht explizit festlegen.
+Der Standardwert von `column-wrap` ist `auto`, was zu `wrap` aufgelöst wird, wenn `column-height` auf einen `<length>`-Wert gesetzt ist; `wrap` ermöglicht es den Spalten mit fester Höhe, in mehrere Zeilen umzubrechen. Wenn `column-height` gleich `auto` ist, wird `column-wrap: auto` zu `nowrap` aufgelöst, wodurch die Spalten horizontal überlaufen können, wenn eine feste Containerhöhe festgelegt ist. Aufgrund dieses Standardverhaltens müssen Sie die Eigenschaft `column-wrap` im Allgemeinen nicht explizit festlegen.
 
 ## Formale Definition
 
@@ -60,11 +62,11 @@ Der Standardwert von `column-wrap` ist `auto`, was zu `wrap` aufgelöst wird, we
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `column-height`-Eigenschaft, um ein umbrochenes Mehrspaltenlayout zu erstellen.
+Dieses Beispiel demonstriert die grundlegende Verwendung der Eigenschaft `column-height`, um ein umbrochenes Mehrspaltenlayout zu erstellen.
 
 #### HTML
 
-Wir fügen ein Gedicht von Dr. Seuss ein, indem wir ein {{htmlelement("ol")}} mit 28 {{htmlelement("li")}}s verwenden, gefolgt vom Namen des Autors in einem {{htmlelement("p")}}.
+Wir fügen ein Gedicht von Dr. Seuss mithilfe eines {{htmlelement("ol")}} mit 28 {{htmlelement("li")}}s ein, gefolgt vom Namen des Autors in einem {{htmlelement("p")}}.
 
 ```html
 <ol>
@@ -113,7 +115,7 @@ Wir fügen ein Gedicht von Dr. Seuss ein, indem wir ein {{htmlelement("ol")}} mi
 
 #### CSS
 
-Wir definieren das `<ol>` als Mehrspaltencontainer, indem wir die Eigenschaft {{cssxref("column-width")}} auf `150px` setzen, was bedeutet, dass der Container so viele Spalten wie möglich enthalten wird, wobei jede mindestens `150px` breit sein muss. Die Eigenschaft {{cssxref("gap")}} von `2em` setzt einen horizontalen Abstand zwischen den Spalten und einen vertikalen Abstand zwischen den Reihen der Spalten. Wir setzen dann die `column-height` auf `2em`, wodurch sich der Standardwert `auto` der Eigenschaft `column-wrap` zu `wrap` auflöst, um umgebrochene Spaltenreihen zu erzeugen.
+Wir definieren `<ol>` als Mehrspaltencontainer, indem wir die Eigenschaft {{cssxref("column-width")}} auf `150px` setzen. Das bedeutet, dass der Container so viele Spalten wie möglich enthält, wobei jede mindestens `150px` breit ist. Die Eigenschaft {{cssxref("gap")}} mit `2em` legt einen horizontalen Abstand zwischen Spalten und einen vertikalen Abstand zwischen Spaltenzeilen fest. Anschließend setzen wir `column-height` auf `2em`, wodurch der Standardwert `auto` der Eigenschaft `column-wrap` zu `wrap` aufgelöst wird, um umbrochene Spaltenzeilen zu erstellen.
 
 ```css live-sample___basic-example
 ol {
@@ -127,13 +129,13 @@ ol {
 
 {{EmbedLiveSample("basic-example", "100%", "300")}}
 
-### Scroll-verriegelte Spalten
+### Scroll-Snap-Spalten
 
-Dieses Beispiel kombiniert ein umgebrochenes Mehrspaltenlayout mit [CSS-Scroll-Locking](/de/docs/Web/CSS/Guides/Scroll_snap) und schafft eine benutzerfreundliche Erfahrung, bei der jede Scroll-Aktion eine neue Spaltenreihe sauber innerhalb der vollen Höhe des Viewports einrastet, um komfortabeles Lesen zu ermöglichen.
+Dieses Beispiel kombiniert ein umbrochenes Mehrspaltenlayout mit [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) und erzeugt eine nutzbare Erfahrung, bei der jede Scroll-Aktion eine neue Spaltenzeile sauber innerhalb der gesamten Viewport-Höhe einrastet, um ein angenehmes Lesen zu ermöglichen.
 
 #### HTML
 
-Das HTML, das mehrere Absätze mit Inhalten von den MDN-Seiten zu HTML, CSS und JavaScript enthält, wurde zur Übersichtlichkeit ausgeblendet.
+Das HTML, das mehrere Inhaltsabsätze von den MDN-Startseiten für HTML, CSS und JavaScript enthält, wurde der Kürze halber ausgeblendet.
 
 ```html hidden live-sample___scroll-snapped live-sample___column-playground
 <h1>HTML, CSS, and JavaScript summaries</h1>
@@ -144,10 +146,11 @@ Das HTML, das mehrere Absätze mit Inhalten von den MDN-Seiten zu HTML, CSS und 
   appearance (CSS) or behavior (JavaScript).
 </p>
 <p>
-  "Hypertext" refers to links that connect web pages to one another, either
-  within a single website or between websites. Links are a fundamental aspect of
-  the Web. By uploading content to the Internet and linking it to pages created
-  by other people, you become an active participant in the World Wide Web.
+  "Hypertext" refers to text containing links that connect web pages to one
+  another, either within a single website or between websites. Links are a
+  fundamental aspect of the Web. By uploading content to the Internet and
+  linking it to pages created by other people, you become an active participant
+  in the World Wide Web.
 </p>
 <p>
   HTML uses "markup" to annotate text, images, and other content for display in
@@ -392,9 +395,9 @@ Das HTML, das mehrere Absätze mit Inhalten von den MDN-Seiten zu HTML, CSS und 
 
 #### CSS
 
-Wir beginnen, indem wir die Eigenschaft {{cssxref("column-width")}} auf das {{htmlelement("body")}}-Element setzen, um die bevorzugte Breite für die Spalten zu definieren. Ein {{cssxref("gap")}} von `3em 2em` resultiert in einem Abstand von `3em` zwischen den Reihen und `2em` zwischen den Spalten. Die Eigenschaft {{cssxref("column-rule")}} fügt eine Linie in die Mitte des Abstands zwischen den Spalten ein. Die `column-height` von `95vh` macht die Spalten fast so hoch wie den Viewport.
+Wir beginnen mit dem Setzen von {{cssxref("column-width")}} auf dem Element {{htmlelement("body")}}, um die bevorzugte Breite für die Spalten zu definieren. Ein {{cssxref("gap")}} von `3em 2em` führt zu einem Abstand von `3em` zwischen Zeilen und von `2em` zwischen Spalten. {{cssxref("column-rule")}} fügt in der Mitte des Abstands zwischen den Spalten eine Linie hinzu. Die `column-height` von `95vh` bewirkt, dass die Spalten fast so hoch wie der Viewport sind.
 
-Wir setzen explizit {{cssxref("column-wrap")}} auf `wrap` als Erinnerung an das angewendete Umbruchverhalten. Wir hätten den Wert auf `auto` setzen oder die Eigenschaft ganz weglassen können, da `column-wrap` standardmäßig zu `wrap` auflöst, wenn die `column-height` auf einen `<length>`-Wert gesetzt ist.
+Wir setzen {{cssxref("column-wrap")}} explizit auf `wrap`, um an das angewendete Umbruchverhalten zu erinnern. Wir hätten den Wert auf `auto` setzen oder die Eigenschaft ganz weglassen können, da `column-wrap` standardmäßig zu `wrap` aufgelöst wird, wenn `column-height` auf einen `<length>`-Wert gesetzt ist.
 
 ```css live-sample___scroll-snapped
 body {
@@ -407,7 +410,7 @@ body {
 }
 ```
 
-Anschließend setzen wir die {{cssxref("column-span")}}-Eigenschaft des [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)-Elements auf `all`, damit die Überschrift über alle Spalten reicht, und setzen die {{cssxref("margin-top")}}-Eigenschaft des ersten {{htmlelement("p")}} auf `0`, sodass es mit der oberen Kante der Spalten übereinstimmt.
+Als Nächstes setzen wir die Eigenschaft {{cssxref("column-span")}} des Elements [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) auf `all`, damit die Überschrift alle Spalten überspannt, und setzen die Eigenschaft {{cssxref("margin-top")}} des ersten {{htmlelement("p")}} auf `0`, damit sie mit dem oberen Rand der Spalten ausgerichtet ist.
 
 ```css live-sample___scroll-snapped live-sample___column-playground
 h1 {
@@ -419,7 +422,7 @@ p:first-of-type {
 }
 ```
 
-Schließlich fügen wir Scroll-Locking hinzu, indem wir die Eigenschaft {{cssxref("scroll-snap-type")}} auf `y mandatory` am {{htmlelement("html")}}-Element setzen und {{cssxref("scroll-snap-align")}} auf `start` bei den {{cssxref("::column")}} Pseudo-Elementen, die jede erzeugte Spalte repräsentieren. Dadurch rastet der Inhalt beim Scrollen an der oberen Kante einer neuen Spalte ein.
+Schließlich fügen wir Scroll Snap hinzu, indem wir {{cssxref("scroll-snap-type")}} auf dem Element {{htmlelement("html")}} auf `y mandatory` setzen und {{cssxref("scroll-snap-align")}} auf den {{cssxref("::column")}}-Pseudoelementen, die jede erzeugte Spalte darstellen, auf `start` setzen. Dadurch rastet der Inhalt bei jedem Scrollen am oberen Rand einer neuen Spalte ein.
 
 ```css live-sample___scroll-snapped
 html {
@@ -461,15 +464,15 @@ p {
 
 {{EmbedLiveSample("scroll-snapped", "100%", "400")}}
 
-Versuchen Sie, den Inhalt zu scrollen. Beachten Sie, wie jede neue Spaltenreihe den Viewport ausfüllt und wie der Inhalt mit jedem Scrollen sauber an der oberen Kante einer neuen Reihe einrastet.
+Versuchen Sie, durch den Inhalt zu scrollen. Beachten Sie, wie jede neue Spaltenzeile den Viewport ausfüllt und wie der Inhalt bei jedem Scrollen sauber am oberen Rand einer neuen Zeile einrastet.
 
-### `column-height` und `column-count` Spielwiese
+### Spielwiese für `column-height` und `column-count`
 
-Dieses Beispiel baut auf dem vorherigen auf, indem es zwei Bereichsschieberegler enthält, mit denen Sie die Spaltenanzahl und die Spaltenhöhe des Mehrspaltenlayouts anpassen können.
+Dieses Beispiel baut auf dem vorherigen auf und enthält zwei Bereichsregler, mit denen Sie die Spaltenanzahl und die Spaltenhöhe des Mehrspaltenlayouts anpassen können.
 
 #### HTML und JavaScript
 
-Das HTML ist das gleiche wie im vorherigen Beispiel, mit der Ergänzung eines Formulars, das zwei [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Elemente enthält, die die Werte für `column-count` und `column-height` über JavaScript aktualisieren. Das HTML und JavaScript sind aus Platzgründen ausgeblendet.
+Das HTML entspricht dem vorherigen Beispiel, ergänzt um ein Formular mit zwei Elementen [`<input="range">`](/de/docs/Web/HTML/Reference/Elements/input/range), die die Werte für `column-count` und `column-height` über JavaScript aktualisieren. Das HTML und JavaScript wurden der Kürze halber ausgeblendet.
 
 ```html hidden live-sample___column-playground
 <form>
@@ -507,7 +510,7 @@ columnHeightRange.addEventListener("input", () => {
 
 #### CSS
 
-Wir geben die Werte für {{cssxref("column-rule")}} und {{cssxref("gap")}} wie im vorherigen Beispiel an. Wir geben keine `column-width` an; stattdessen erstellen wir ein Mehrspaltenlayout mit der Eigenschaft {{cssxref("column-count")}}, wobei die Anzahl der Spalten und die Höhe der Spaltenreihen interaktiv mit JavaScript festgelegt werden. Scroll-Locking ist in diesem Beispiel nicht enthalten.
+Wir geben {{cssxref("column-rule")}} und {{cssxref("gap")}} mit denselben Werten wie im vorherigen Beispiel an. Wir legen kein `column-width` fest; stattdessen erstellen wir mit der Eigenschaft {{cssxref("column-count")}} ein Mehrspaltenlayout und setzen die Anzahl der Spalten sowie die Höhe der Spaltenzeilen interaktiv mit JavaScript. Scroll Snap ist in diesem Beispiel nicht enthalten.
 
 ```css live-sample___column-playground
 body {
@@ -555,6 +558,6 @@ Passen Sie die Anzahl der Spalten und die Spaltenhöhe an, um die Wirkung dieser
 
 - {{cssxref("column-count")}}
 - {{cssxref("column-width")}}
-- {{cssxref("columns")}} Kurzform
+- Kurzform {{cssxref("columns")}}
 - {{Cssxref("column-wrap")}}
-- [CSS-Multi-Column-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
+- Modul [CSS-Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout)

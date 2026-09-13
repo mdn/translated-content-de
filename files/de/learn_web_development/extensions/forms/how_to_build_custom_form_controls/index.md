@@ -1,84 +1,85 @@
 ---
-title: Anleitung zum Erstellen benutzerdefinierter Formularelemente
-short-title: Benutzerdefinierte Formularelemente
+title: Anleitung zum Erstellen benutzerdefinierter Formularsteuerelemente
+short-title: Benutzerdefinierte Formularsteuerelemente
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: d93983dfe60b65633f67fffe04676c241ff92960
 ---
 
-Es gibt einige Fälle, in denen die verfügbaren nativen HTML-Formularelemente möglicherweise nicht ausreichen. Wenn Sie beispielsweise [erweiterte Formatierungen](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) auf einige Elemente wie das {{HTMLElement("select")}}-Element anwenden möchten oder benutzerdefiniertes Verhalten bieten möchten, sollten Sie in Erwägung ziehen, eigene Steuerelemente zu erstellen.
+Es gibt einige Fälle, in denen die verfügbaren nativen HTML-Formularsteuerelemente möglicherweise nicht ausreichen. Wenn Sie beispielsweise bei einigen Steuerelementen wie dem {{HTMLElement("select")}}-Element [erweiterte Stile anwenden](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) müssen oder benutzerdefinierte Verhaltensweisen bereitstellen möchten, können Sie erwägen, eigene Steuerelemente zu erstellen.
 
-In diesem Artikel werden wir besprechen, wie man ein benutzerdefiniertes Steuerelement erstellt. Dazu werden wir mit einem Beispiel arbeiten: dem Nachbau des {{HTMLElement("select")}}-Elements. Wir werden auch erörtern, wie, wann und ob es sinnvoll ist, ein eigenes Steuerelement zu erstellen, und was zu beachten ist, wenn der Bau eines Steuerelements erforderlich ist.
+In diesem Artikel besprechen wir, wie Sie ein benutzerdefiniertes Steuerelement erstellen. Dazu arbeiten wir mit einem Beispiel: dem Nachbau des {{HTMLElement("select")}}-Elements. Wir besprechen außerdem, wie, wann und ob es sinnvoll ist, ein eigenes Steuerelement zu erstellen, und was zu beachten ist, wenn das Erstellen eines Steuerelements erforderlich ist.
 
 > [!NOTE]
-> Wir konzentrieren uns darauf, das Steuerelement zu erstellen, nicht darauf, wie man den Code generisch und wiederverwendbar macht; das würde einige nicht triviale JavaScript-Codierungen und DOM-Manipulationen in einem unbekannten Kontext erfordern und liegt außerhalb des Umfangs dieses Artikels.
+> Wir konzentrieren uns auf das Erstellen des Steuerelements, nicht darauf, den Code generisch und wiederverwendbar zu machen; dies würde nicht trivialen JavaScript-Code und DOM-Manipulation in einem unbekannten Kontext erfordern und liegt außerhalb des Umfangs dieses Artikels.
 
 ## Design, Struktur und Semantik
 
-Bevor Sie ein benutzerdefiniertes Steuerelement erstellen, sollten Sie sich genau überlegen, was Sie wollen. Dies spart Ihnen wertvolle Zeit. Insbesondere ist es wichtig, alle Zustände Ihres Steuerelements klar zu definieren. Um dies zu tun, ist es gut, mit einem vorhandenen Steuerelement zu beginnen, dessen Zustände und Verhalten bekannt sind, damit Sie diese so weit wie möglich nachahmen können.
+Bevor Sie ein benutzerdefiniertes Steuerelement erstellen, sollten Sie zunächst genau herausfinden, was Sie möchten. Das spart Ihnen wertvolle Zeit. Insbesondere ist es wichtig, alle Zustände Ihres Steuerelements klar zu definieren. Dafür ist es sinnvoll, mit einem bestehenden Steuerelement zu beginnen, dessen Zustände und Verhalten gut bekannt sind, damit Sie diese so weit wie möglich nachbilden können.
 
-In unserem Beispiel werden wir das {{HTMLElement("select")}}-Element neu erstellen. Hier ist das Ergebnis, das wir erreichen möchten:
+In unserem Beispiel bauen wir das {{HTMLElement("select")}}-Element nach. Dies ist das Ergebnis, das wir erreichen möchten:
 
-![The three states of a select box](custom-select.png)
+![Die drei Zustände eines Auswahlfelds](custom-select.png)
 
-Dieser Screenshot zeigt die drei Hauptzustände unseres Steuerelements: den normalen Zustand (links); den aktiven Zustand (in der Mitte) und den offenen Zustand (rechts).
+Dieser Screenshot zeigt die drei Hauptzustände unseres Steuerelements: den Normalzustand (links), den aktiven Zustand (in der Mitte) und den geöffneten Zustand (rechts).
 
-In Bezug auf das Verhalten erstellen wir ein natives HTML-Element nach. Daher sollte es die gleichen Verhaltensweisen und Semantiken wie das native HTML-Element haben. Wir benötigen, dass unser Steuerelement sowohl mit der Maus als auch mit der Tastatur nutzbar ist und für einen Screenreader verständlich, genau wie jedes native Steuerelement. Fangen wir damit an, zu definieren, wie das Steuerelement jeden Zustand erreicht:
+Hinsichtlich des Verhaltens erstellen wir ein natives HTML-Element nach. Daher sollte es dieselben Verhaltensweisen und dieselbe Semantik wie das native HTML-Element aufweisen. Unser Steuerelement muss sowohl mit einer Maus als auch mit einer Tastatur verwendbar und für einen Screenreader verständlich sein, genau wie jedes native Steuerelement. Beginnen wir damit, zu definieren, wie das Steuerelement jeden Zustand erreicht:
 
 **Das Steuerelement befindet sich im Normalzustand, wenn:**
 
 - die Seite geladen wird.
-- das Steuerelement aktiv war und der Nutzer außerhalb davon klickt.
-- das Steuerelement aktiv war und der Nutzer mit der Tastatur (z.B. die <kbd>Tab</kbd>-Taste) den Fokus auf ein anderes Steuerelement verschiebt.
+- das Steuerelement aktiv war und der Benutzer irgendwo außerhalb davon klickt.
+- das Steuerelement aktiv war und der Benutzer den Fokus mithilfe der Tastatur auf ein anderes Steuerelement verschiebt (z. B. mit der <kbd>Tab</kbd>-Taste).
 
 **Das Steuerelement befindet sich im aktiven Zustand, wenn:**
 
-- der Nutzer darauf klickt oder es auf einem Touchscreen berührt.
-- der Nutzer die Tabulatortaste drückt und es den Fokus erhält.
-- das Steuerelement im geöffneten Zustand war und der Nutzer darauf klickt.
+- der Benutzer darauf klickt oder es auf einem Touchscreen berührt.
+- der Benutzer die Tabulatortaste drückt und es den Fokus erhält.
+- das Steuerelement im geöffneten Zustand war und der Benutzer darauf klickt.
 
 **Das Steuerelement befindet sich im geöffneten Zustand, wenn:**
 
-- das Steuerelement sich in einem anderen Zustand als offen befindet und der Nutzer darauf klickt.
+- das Steuerelement sich in einem anderen Zustand als dem geöffneten befindet und der Benutzer darauf klickt.
 
-Sobald wir wissen, wie sich die Zustände ändern, ist es wichtig zu definieren, wie sich der Wert des Steuerelements ändert:
+Sobald wir wissen, wie Zustände geändert werden, ist es wichtig zu definieren, wie der Wert des Steuerelements geändert wird:
 
 **Der Wert ändert sich, wenn:**
 
-- der Nutzer auf eine Option klickt, während das Steuerelement im geöffneten Zustand ist.
-- der Nutzer die Pfeiltasten nach oben oder unten drückt, während das Steuerelement im aktiven Zustand ist.
+- der Benutzer auf eine Option klickt, während sich das Steuerelement im geöffneten Zustand befindet.
+- der Benutzer die Pfeiltaste nach oben oder unten drückt, während sich das Steuerelement im aktiven Zustand befindet.
 
 **Der Wert ändert sich nicht, wenn:**
 
-- der Nutzer die Pfeiltaste nach oben drückt, wenn die erste Option ausgewählt ist.
-- der Nutzer die Pfeiltaste nach unten drückt, wenn die letzte Option ausgewählt ist.
+- der Benutzer die Pfeiltaste nach oben drückt, während die erste Option ausgewählt ist.
+- der Benutzer die Pfeiltaste nach unten drückt, während die letzte Option ausgewählt ist.
 
-Schließlich lassen Sie uns definieren, wie sich die Optionen des Steuerelements verhalten werden:
+Definieren wir abschließend, wie sich die Optionen des Steuerelements verhalten:
 
 - Wenn das Steuerelement geöffnet wird, wird die ausgewählte Option hervorgehoben.
 - Wenn sich die Maus über einer Option befindet, wird die Option hervorgehoben und die zuvor hervorgehobene Option kehrt in ihren Normalzustand zurück.
 
-Für die Zwecke unseres Beispiels belassen wir es dabei; wenn Sie jedoch sorgfältig lesen, werden Sie bemerken, dass einige Verhaltensweisen fehlen. Zum Beispiel, was glauben Sie, wird passieren, wenn der Benutzer die Tabulatortaste drückt, während das Steuerelement im geöffneten Zustand ist? Die Antwort lautet _nichts_. Der richtige Ablauf scheint offensichtlich, aber weil er nicht in unseren Spezifikationen definiert ist, ist es sehr leicht, dieses Verhalten zu übersehen. Dies gilt besonders in einem Teamumfeld, in dem die Personen, die das Verhalten entwerfen, sich von denen unterscheiden, die es implementieren.
+Für die Zwecke unseres Beispiels belassen wir es dabei; wenn Sie jedoch aufmerksam lesen, werden Sie feststellen, dass einige Verhaltensweisen fehlen. Was glauben Sie beispielsweise, passiert, wenn der Benutzer die Tabulatortaste drückt, während sich das Steuerelement im geöffneten Zustand befindet? Die Antwort lautet: _nichts_. Gut, das richtige Verhalten scheint offensichtlich, aber da es in unserer Spezifikation nicht definiert ist, lässt sich dieses Verhalten sehr leicht übersehen. Dies gilt insbesondere in einer Teamumgebung, wenn die Personen, die das Verhalten des Steuerelements entwerfen, nicht dieselben sind wie diejenigen, die es implementieren.
 
-Ein weiteres interessantes Beispiel: Was wird passieren, wenn der Benutzer die Pfeiltasten nach oben oder unten drückt, während das Steuerelement im geöffneten Zustand ist? Dies ist etwas kniffliger. Wenn Sie davon ausgehen, dass sich der aktive Zustand und der geöffnete Zustand vollständig unterscheiden, lautet die Antwort erneut "nichts wird passieren", weil wir keine Tastaturinteraktionen für den geöffneten Zustand definiert haben. Andererseits, wenn Sie davon ausgehen, dass der aktive Zustand und der geöffnete Zustand sich ein wenig überschneiden, könnte sich der Wert ändern, aber die Option wird definitiv nicht entsprechend hervorgehoben, da wir keine Tastaturinteraktionen über Optionen definiert haben, wenn das Steuerelement im geöffneten Zustand ist (wir haben nur definiert, was passieren soll, wenn das Steuerelement geöffnet wird, aber nichts danach).
+Ein weiteres interessantes Beispiel: Was passiert, wenn der Benutzer die Pfeiltasten nach oben oder unten drückt, während sich das Steuerelement im geöffneten Zustand befindet? Dies ist etwas komplizierter. Wenn Sie davon ausgehen, dass der aktive und der geöffnete Zustand vollständig verschieden sind, lautet die Antwort wiederum „nichts passiert“, da wir keine Tastaturinteraktionen für den geöffneten Zustand definiert haben. Wenn Sie andererseits davon ausgehen, dass sich der aktive und der geöffnete Zustand etwas überschneiden, kann sich der Wert ändern, aber die Option wird definitiv nicht entsprechend hervorgehoben, wiederum weil wir keine Tastaturinteraktionen für Optionen definiert haben, während sich das Steuerelement im geöffneten Zustand befindet (wir haben nur definiert, was beim Öffnen des Steuerelements passieren soll, aber nichts danach).
 
-Wir müssen etwas weiterdenken: Was ist mit der Escape-Taste? Das Drücken der <kbd>Esc</kbd>-Taste schließt eine geöffnete Auswahl. Denken Sie daran, wenn Sie die gleiche Funktionalität wie bei der bestehenden nativen {{htmlelement('select')}} bereitstellen möchten, sollte es sich in jedem Auftrag für alle Benutzer genauso verhalten wie das Auswahlfeld, von der Tastatur bis zur Maus, zum Touchscreen-Reader und jedem anderen Eingabegerät.
+Wir müssen etwas weiterdenken: Was ist mit der Escape-Taste? Das Drücken der <kbd>Esc</kbd>-Taste schließt ein geöffnetes select. Denken Sie daran: Wenn Sie dieselbe Funktionalität wie das vorhandene native {{htmlelement('select')}} bereitstellen möchten, sollte es sich für alle Benutzer exakt genauso verhalten wie das select, unabhängig davon, ob sie eine Tastatur, Maus, Touch-Eingabe, einen Screenreader oder ein anderes Eingabegerät verwenden.
 
-In unserem Beispiel sind die fehlenden Spezifikationen offensichtlich, daher werden wir sie behandeln, aber es kann ein echtes Problem für exotische neue Steuerelemente sein. Bei standardisierten Elementen, zu denen auch das {{htmlelement('select')}} gehört, haben die Autor:innen enorme Anstrengungen unternommen, alle Interaktionen für jedes Anwendungsszenario und jedes Eingabegerät zu spezifizieren. Neue Steuerelemente zu erstellen ist nicht so einfach, besonders wenn man etwas erschafft, das zuvor nicht existierte und von dem niemand die leiseste Ahnung hat, wie die erwarteten Verhaltensweisen und Interaktionen sein sollen. Mindestens wurde das Selektionsfeld vorher erstellt, sodass wir wissen, wie es sich verhalten sollte!
+In unserem Beispiel sind die fehlenden Spezifikationen offensichtlich, daher werden wir sie behandeln. Bei exotischen neuen Steuerelementen kann dies jedoch ein echtes Problem sein. Bei standardisierten Elementen, zu denen auch {{htmlelement('select')}} gehört, haben die Autoren der Spezifikation außerordentlich viel Zeit darauf verwendet, alle Interaktionen für jeden Anwendungsfall und jedes Eingabegerät zu spezifizieren. Das Erstellen neuer Steuerelemente ist nicht so einfach, insbesondere wenn Sie etwas erstellen, das es zuvor noch nicht gab und daher
+niemand auch nur die geringste Vorstellung davon hat, welches Verhalten und welche Interaktionen erwartet werden. Zumindest select gab es bereits, daher wissen wir, wie es sich verhalten sollte!
 
-Die Gestaltung neuer Interaktionen ist im Allgemeinen nur eine Option für sehr große Branchenakteure, die ausreichend Reichweite haben, um eine von ihnen erstellte Interaktion zu einem Standard zu machen. Beispielsweise führte Apple 2001 das Scrollrad mit dem iPod ein. Sie hatten den Marktanteil, um erfolgreich eine völlig neue Art der Interaktion mit einem Gerät zu etablieren, was die meisten Geräteunternehmen nicht können.
+Das Entwerfen neuer Interaktionen ist im Allgemeinen nur für sehr große Akteure der Branche eine Option, die über ausreichend Reichweite verfügen, damit eine von ihnen entwickelte Interaktion zum Standard werden kann. Apple führte beispielsweise 2001 mit dem iPod das Scrollrad ein. Das Unternehmen verfügte über genügend Marktanteil, um eine vollständig neue Art der Interaktion mit einem Gerät erfolgreich einzuführen – etwas, das die meisten Gerätehersteller nicht leisten können.
 
-Es ist besser, keine neuen Benutzerinteraktionen zu erfinden. Für jede Interaktion, die Sie hinzufügen, ist es lebenswichtig, in der Entwurfsphase Zeit zu investieren; wenn Sie ein Verhalten schlecht definieren oder vergessen, eines zu definieren, wird es sehr schwer sein, es neu zu definieren, sobald die Benutzer daran gewöhnt sind. Wenn Sie Zweifel haben, fragen Sie nach der Meinung anderer, und wenn Sie das Budget dafür haben, zögern Sie nicht, [Benutzertests durchzuführen](https://en.wikipedia.org/wiki/Usability_testing). Dieser Prozess wird als UX-Design bezeichnet. Wenn Sie mehr über dieses Thema erfahren möchten, sollten Sie sich die folgenden hilfreichen Ressourcen ansehen:
+Es ist am besten, keine neuen Benutzerinteraktionen zu erfinden. Für jede Interaktion, die Sie hinzufügen, ist es entscheidend, Zeit in die Entwurfsphase zu investieren; wenn Sie ein Verhalten schlecht definieren oder vergessen, eines zu definieren, wird es sehr schwierig sein, es neu zu definieren, nachdem sich Benutzer daran gewöhnt haben. Wenn Sie Zweifel haben, holen Sie die Meinungen anderer ein, und wenn Sie das Budget dafür haben, zögern Sie nicht, [Benutzertests durchzuführen](https://en.wikipedia.org/wiki/Usability_testing). Dieser Prozess wird UX-Design genannt. Wenn Sie mehr über dieses Thema erfahren möchten, sollten Sie sich die folgenden hilfreichen Ressourcen ansehen:
 
 - [UXMatters.com](https://www.uxmatters.com/)
 - [Der UX-Design-Bereich von SmashingMagazine](https://www.smashingmagazine.com/)
 
 > [!NOTE]
-> Ebenso gibt es in den meisten Systemen eine Möglichkeit, das {{HTMLElement("select")}}-Element mit der Tastatur zu öffnen, um alle verfügbaren Optionen anzusehen (das ist dasselbe wie das Klicken auf das {{HTMLElement("select")}}-Element mit einer Maus). Dies wird unter Windows mit <kbd>Alt</kbd> + <kbd>Pfeiltaste unten</kbd> erreicht. Wir haben dies nicht in unser Beispiel implementiert, aber es wäre einfach zu tun, da der Mechanismus bereits für das `click`-Ereignis umgesetzt wurde.
+> Außerdem gibt es in den meisten Systemen eine Möglichkeit, das {{HTMLElement("select")}}-Element mit der Tastatur zu öffnen, um alle verfügbaren Auswahlmöglichkeiten anzuzeigen (dies entspricht dem Klicken auf das {{HTMLElement("select")}}-Element mit der Maus). Unter Windows wird dies mit <kbd>Alt</kbd> + <kbd>Down</kbd> erreicht. Wir haben dies in unserem Beispiel nicht implementiert, aber es wäre einfach umzusetzen, da der Mechanismus bereits für das `click`-Ereignis implementiert wurde.
 
-## Definieren der HTML-Struktur und (einige) Semantiken
+## Definieren der HTML-Struktur und (einiger) Semantik
 
-Nun, da die grundlegende Funktionalität des Steuerelements entschieden ist, ist es an der Zeit, mit dem Aufbau zu beginnen. Der erste Schritt ist, seine HTML-Struktur zu definieren und ihm einige grundlegende Semantiken zu verleihen. Hier ist, was wir brauchen, um ein {{HTMLElement("select")}}-Element neu zu erstellen:
+Nachdem die grundlegende Funktionalität des Steuerelements festgelegt wurde, ist es Zeit, mit seiner Erstellung zu beginnen. Der erste Schritt besteht darin, seine HTML-Struktur zu definieren und ihm eine grundlegende Semantik zu geben. Folgendes benötigen wir, um ein {{HTMLElement("select")}}-Element nachzubauen:
 
 ```html
 <!-- This is our main container for our control.
@@ -102,17 +103,17 @@ Nun, da die grundlegende Funktionalität des Steuerelements entschieden ist, ist
 </div>
 ```
 
-Beachten Sie die Verwendung von Klassennamen; diese identifizieren jeden relevanten Teil unabhängig von den tatsächlich verwendeten HTML-Elementen. Dies ist wichtig, um sicherzustellen, dass wir unser CSS und JavaScript nicht an eine feste HTML-Struktur binden, sodass wir später Implementierungsänderungen vornehmen können, ohne Code zu brechen, der das Steuerelement verwendet. Was wäre beispielsweise, wenn Sie später das Äquivalent des {{HTMLElement("optgroup")}}-Elements umsetzen möchten?
+Beachten Sie die Verwendung von Klassennamen; sie identifizieren jeden relevanten Teil unabhängig von den tatsächlich verwendeten zugrunde liegenden HTML-Elementen. Dies ist wichtig, damit wir unser CSS und JavaScript nicht an eine starre HTML-Struktur binden und später Implementierungsänderungen vornehmen können, ohne Code zu beschädigen, der das Steuerelement verwendet. Was beispielsweise, wenn Sie später das Äquivalent des {{HTMLElement("optgroup")}}-Elements implementieren möchten?
 
-Klassennamen bieten jedoch keinen semantischen Wert. In diesem aktuellen Zustand "sieht" der Screenreader-Benutzer nur eine ungeordnete Liste. Wir werden in einem Moment ARIA-Semantik hinzufügen.
+Klassennamen bieten jedoch keinen semantischen Wert. Im aktuellen Zustand „sieht“ ein Screenreader-Benutzer nur eine unsortierte Liste. Wir werden gleich ARIA-Semantik hinzufügen.
 
-## Erstellen des Erscheinungsbildes mit CSS
+## Erstellen von Aussehen und Verhalten mit CSS
 
-Nun, da wir eine Struktur haben, können wir mit dem Design unseres Steuerelements beginnen. Der ganze Punkt beim Erstellen dieses benutzerdefinierten Steuerelements ist, es genau so zu gestalten, wie wir es wollen. Zu diesem Zweck werden wir unsere CSS-Arbeit in zwei Teile aufteilen: Der erste Teil wird die absolut notwendigen CSS-Regeln sein, um unser Steuerelement wie ein {{HTMLElement("select")}}-Element verhalten zu lassen, und der zweite Teil wird aus den stilvollen Stilen bestehen, die verwendet werden, um es so aussehen zu lassen, wie wir es wollen.
+Jetzt, da wir eine Struktur haben, können wir mit dem Entwurf unseres Steuerelements beginnen. Der ganze Zweck der Erstellung dieses benutzerdefinierten Steuerelements besteht darin, es genau nach unseren Wünschen gestalten zu können. Dazu teilen wir unsere CSS-Arbeit in zwei Teile auf: Der erste Teil enthält die CSS-Regeln, die unbedingt erforderlich sind, damit sich unser Steuerelement wie ein {{HTMLElement("select")}}-Element verhält, und der zweite Teil besteht aus den dekorativen Stilen, die ihm das gewünschte Aussehen verleihen.
 
 ### Erforderliche Stile
 
-Die erforderlichen Stile sind diejenigen, die notwendig sind, um die drei Zustände unseres Steuerelements zu handhaben.
+Die erforderlichen Stile sind jene, die notwendig sind, um die drei Zustände unseres Steuerelements zu behandeln.
 
 ```css
 .select {
@@ -126,7 +127,7 @@ Die erforderlichen Stile sind diejenigen, die notwendig sind, um die drei Zustä
 }
 ```
 
-Wir benötigen eine zusätzliche Klasse `active`, um das Erscheinungsbild unseres Steuerelements zu definieren, wenn es sich im aktiven Zustand befindet. Da unser Steuerelement fokussierbar ist, doppeln wir diesen benutzerdefinierten Stil mit der {{cssxref(":focus")}}-Pseudoklasse, um sicherzustellen, dass sie gleich funktionieren.
+Wir benötigen eine zusätzliche Klasse `active`, um das Aussehen unseres Steuerelements zu definieren, wenn es sich im aktiven Zustand befindet. Da unser Steuerelement fokussierbar ist, ergänzen wir diesen benutzerdefinierten Stil mit der {{cssxref(":focus")}}-Pseudoklasse, um sicherzustellen, dass sie sich gleich verhalten.
 
 ```css
 .select.active,
@@ -139,7 +140,7 @@ Wir benötigen eine zusätzliche Klasse `active`, um das Erscheinungsbild unsere
 }
 ```
 
-Nun, lassen Sie uns die Liste der Optionen behandeln:
+Nun behandeln wir die Optionsliste:
 
 ```css
 /* The .select selector here helps to make sure we only select
@@ -153,7 +154,7 @@ Nun, lassen Sie uns die Liste der Optionen behandeln:
 }
 ```
 
-Wir benötigen eine zusätzliche Klasse, um zu steuern, wann die Liste der Optionen ausgeblendet ist. Dies ist notwendig, um die Unterschiede zwischen dem aktiven Zustand und dem offenen Zustand zu verwalten, die nicht genau übereinstimmen.
+Wir benötigen eine zusätzliche Klasse, um zu behandeln, wann die Optionsliste ausgeblendet ist. Dies ist erforderlich, um die Unterschiede zwischen dem aktiven und dem geöffneten Zustand zu verwalten, die nicht exakt übereinstimmen.
 
 ```css
 .select .optList.hidden {
@@ -165,11 +166,11 @@ Wir benötigen eine zusätzliche Klasse, um zu steuern, wann die Liste der Optio
 ```
 
 > [!NOTE]
-> Wir hätten auch `transform: scale(1, 0)` verwenden können, um der Optionsliste keine Höhe, aber volle Breite zu geben.
+> Wir hätten auch `transform: scale(1, 0)` verwenden können, um der Optionsliste keine Höhe und die volle Breite zu geben.
 
 ### Verschönerung
 
-Nun, da die grundlegende Funktionalität vorhanden ist, kann der Spaß beginnen. Das Folgende ist nur ein Beispiel, was möglich ist, und wird dem Screenshot am Anfang dieses Artikels entsprechen. Sie sollten jedoch nicht zögern, zu experimentieren und zu sehen, was Sie sich einfallen lassen können.
+Da die grundlegende Funktionalität nun vorhanden ist, kann der interessante Teil beginnen. Das Folgende ist nur ein Beispiel dafür, was möglich ist, und entspricht dem Screenshot am Anfang dieses Artikels. Sie können jedoch gerne experimentieren und sehen, was Ihnen einfällt.
 
 ```css
 .select {
@@ -203,7 +204,7 @@ Nun, da die grundlegende Funktionalität vorhanden ist, kann der Spaß beginnen.
 }
 ```
 
-Wir benötigen kein zusätzliches Element, um den Pfeil nach unten zu gestalten; stattdessen verwenden wir das {{cssxref("::after")}}-Pseudo-Element. Es könnte auch mit einem einfachen Hintergrundbild auf der `select`-Klasse implementiert werden.
+Wir benötigen kein zusätzliches Element, um den Abwärtspfeil zu gestalten; stattdessen verwenden wir das {{cssxref("::after")}}-Pseudo-Element. Es könnte auch mithilfe eines einfachen Hintergrundbilds für die Klasse `select` implementiert werden.
 
 ```css
 .select::after {
@@ -228,7 +229,7 @@ Wir benötigen kein zusätzliches Element, um den Pfeil nach unten zu gestalten;
 }
 ```
 
-Als nächstes gestalten wir die Liste der Optionen:
+Als Nächstes gestalten wir die Optionsliste:
 
 ```css
 .select .optList {
@@ -262,7 +263,7 @@ Als nächstes gestalten wir die Liste der Optionen:
 }
 ```
 
-Für die Optionen müssen wir eine `highlight`-Klasse hinzufügen, um den Wert identifizieren zu können, den der Benutzer wählen wird (oder gewählt hat).
+Für die Optionen müssen wir eine Klasse `highlight` hinzufügen, um den Wert identifizieren zu können, den der Benutzer auswählen wird (oder ausgewählt hat).
 
 ```css
 .select .option {
@@ -275,7 +276,7 @@ Für die Optionen müssen wir eine `highlight`-Klasse hinzufügen, um den Wert i
 }
 ```
 
-Das ist das Ergebnis mit unseren drei Zuständen ([siehe den Quellcode hier](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_1)):
+Hier ist also das Ergebnis mit unseren drei Zuständen ([sehen Sie sich hier den Quellcode an](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_1)):
 
 #### Grundzustand
 
@@ -519,7 +520,7 @@ Das ist das Ergebnis mit unseren drei Zuständen ([siehe den Quellcode hier](/de
 
 {{EmbedLiveSample("Active_state",120,130)}}
 
-#### Offener Zustand
+#### Geöffneter Zustand
 
 ```html hidden
 <div class="select active">
@@ -640,32 +641,32 @@ Das ist das Ergebnis mit unseren drei Zuständen ([siehe den Quellcode hier](/de
 
 {{EmbedLiveSample("Open_state",120,130)}}
 
-## Bringen Sie Ihr Steuerelement mit JavaScript zum Leben
+## Ihr Steuerelement mit JavaScript zum Leben erwecken
 
-Nun, da Design und Struktur bereit sind, können wir den JavaScript-Code schreiben, um das Steuerelement tatsächlich funktionsfähig zu machen.
+Nachdem unser Design und unsere Struktur fertig sind, können wir den JavaScript-Code schreiben, damit das Steuerelement tatsächlich funktioniert.
 
 > [!WARNING]
-> Der Folgende ist Bildungscode, kein Produktionscode, und sollte nicht unverändert verwendet werden. Er ist weder zukunftssicher noch wird er in älteren Browsern funktionieren. Er hat auch redundante Teile, die im Produktionscode optimiert werden sollten.
+> Das Folgende ist Lehrcode, kein Produktionscode, und sollte nicht unverändert verwendet werden. Er ist weder zukunftssicher noch funktioniert er in älteren Browsern. Er enthält außerdem redundante Teile, die im Produktionscode optimiert werden sollten.
 
 ### Warum funktioniert es nicht?
 
-Bevor Sie beginnen, ist es wichtig, daran zu denken, dass **JavaScript im Browser eine unzuverlässige Technologie ist**. Benutzerdefinierte Steuerelemente sind auf JavaScript angewiesen, um alles zu verknüpfen. Es gibt jedoch Fälle, in denen JavaScript nicht im Browser laufen kann:
+Bevor wir beginnen, ist es wichtig, sich daran zu erinnern: **JavaScript im Browser ist eine unzuverlässige Technologie**. Benutzerdefinierte Steuerelemente verlassen sich auf JavaScript, um alles miteinander zu verbinden. Es gibt jedoch Fälle, in denen JavaScript im Browser nicht ausgeführt werden kann:
 
-- Der User hat JavaScript deaktiviert: Das ist ungewöhnlich; sehr wenige Menschen deaktivieren heutzutage JavaScript.
-- Das Skript wurde nicht geladen: Dies ist einer der häufigsten Fälle, insbesondere in der mobilen Welt, wo das Netzwerk nicht sehr zuverlässig ist.
-- Das Skript ist fehlerhaft: Diese Möglichkeit sollten Sie immer in Betracht ziehen.
-- Das Skript steht im Konflikt mit einem Drittanbieter-Skript: Dies kann mit Tracking-Skripten oder Lesezeichenlettern passieren, die der Benutzer verwendet.
-- Das Skript steht im Konflikt mit oder wird von einer Browser-Erweiterung (wie die Firefox-Erweiterung [NoScript](https://addons.mozilla.org/fr/firefox/addon/noscript/) oder die Chrome-Erweiterung [ScriptBlock](https://chromewebstore.google.com/detail/scriptblock/hcdjknjpbnhdoabbngpmfekaecnpajba)) beeinflusst.
-- Der User benutzt einen älteren Browser und eins der benötigten Features ist nicht unterstützt: Das wird häufig passieren, wenn Sie von den neuesten APIs Gebrauch machen.
-- Der User interagiert mit dem Inhalt, bevor das JavaScript vollständig heruntergeladen, analysiert und ausgeführt wurde.
+- Der Benutzer hat JavaScript deaktiviert: Das ist ungewöhnlich; heutzutage deaktivieren nur sehr wenige Menschen JavaScript.
+- Das Skript wurde nicht geladen: Dies ist einer der häufigsten Fälle, insbesondere in der mobilen Welt, in der das Netzwerk nicht sehr zuverlässig ist.
+- Das Skript ist fehlerhaft: Sie sollten diese Möglichkeit stets in Betracht ziehen.
+- Das Skript steht in Konflikt mit einem Drittanbieter-Skript: Dies kann bei Tracking-Skripten oder Bookmarklets auftreten, die der Benutzer verwendet.
+- Das Skript steht in Konflikt mit einer Browsererweiterung oder wird von ihr beeinflusst (etwa von Firefox' Erweiterung [NoScript](https://addons.mozilla.org/fr/firefox/addon/noscript/) oder Chromes Erweiterung [ScriptBlock](https://chromewebstore.google.com/detail/scriptblock/hcdjknjpbnhdoabbngpmfekaecnpajba)).
+- Der Benutzer verwendet einen älteren Browser und eines der erforderlichen Features wird nicht unterstützt: Dies geschieht häufig, wenn Sie moderne APIs verwenden.
+- Der Benutzer interagiert mit dem Inhalt, bevor JavaScript vollständig heruntergeladen, geparst und ausgeführt wurde.
 
-Angesichts dieser Risiken ist es wirklich wichtig, ernsthaft zu überlegen, was passieren wird, wenn Ihr JavaScript nicht funktioniert. Wir werden Optionen betrachten, die in Betracht gezogen werden sollten und die Grundlagen in unserem Beispiel abdecken (eine vollständige Betrachtung der Lösung dieses Problems für alle Szenarien würde ein Buch erfordern). Denken Sie einfach daran, dass es entscheidend ist, Ihr Skript generisch und wiederverwendbar zu machen.
+Aufgrund dieser Risiken ist es sehr wichtig, ernsthaft darüber nachzudenken, was passiert, wenn Ihr JavaScript nicht funktioniert. Wir besprechen zu berücksichtigende Optionen und behandeln die Grundlagen in unserem Beispiel (eine vollständige Diskussion zur Lösung dieses Problems für alle Szenarien würde ein Buch erfordern). Denken Sie einfach daran: Es ist entscheidend, Ihr Skript generisch und wiederverwendbar zu machen.
 
-In unserem Beispiel, wenn unser JavaScript-Code nicht ausgeführt wird, werden wir zurückfallen, um ein Standard-{{HTMLElement("select")}}-Element anzuzeigen. Wir schließen unser Steuerelement und das {{HTMLElement("select")}}-Element ein; welches angezeigt wird, hängt von der Klasse des Body-Elements ab, wobei die Klasse des Body-Elements von dem Skript aktualisiert wird, das das Steuerelement funktionsfähig macht, wenn es erfolgreich geladen wurde.
+In unserem Beispiel greifen wir auf die Anzeige eines standardmäßigen {{HTMLElement("select")}}-Elements zurück, wenn unser JavaScript-Code nicht ausgeführt wird. Wir schließen unser Steuerelement und das {{HTMLElement("select")}} ein; welches angezeigt wird, hängt von der Klasse des body-Elements ab. Die Klasse des body-Elements wird durch das Skript aktualisiert, das das Steuerelement funktionsfähig macht, sobald es erfolgreich geladen wurde.
 
-Um dies zu erreichen, brauchen wir zwei Dinge:
+Dafür benötigen wir zwei Dinge:
 
-Zuerst müssen wir ein reguläres {{HTMLElement("select")}}-Element vor jeder Instanz unseres benutzerdefinierten Steuerelements hinzufügen. Es hat einen Vorteil, dieses "extra" Auswahlelement zu haben, auch wenn unser JavaScript wie erhofft funktioniert: Wir werden dieses Auswahlfeld verwenden, um Daten von unserem benutzerdefinierten Steuerelement zusammen mit den restlichen Formulardaten zu senden. Wir werden dies später ausführlicher besprechen.
+Zunächst müssen wir vor jeder Instanz unseres benutzerdefinierten Steuerelements ein reguläres {{HTMLElement("select")}}-Element hinzufügen. Es hat auch dann einen Vorteil, dieses „zusätzliche“ select zu haben, wenn unser JavaScript wie erhofft funktioniert: Wir verwenden dieses select, um Daten aus unserem benutzerdefinierten Steuerelement zusammen mit den übrigen Formulardaten zu senden. Dies besprechen wir später ausführlicher.
 
 ```html
 <body class="no-widget">
@@ -692,7 +693,7 @@ Zuerst müssen wir ein reguläres {{HTMLElement("select")}}-Element vor jeder In
 </body>
 ```
 
-Zweitens benötigen wir zwei neue Klassen, um das nicht benötigte Element auszublenden: Wir verbergen das benutzerdefinierte Steuerelement visuell, wenn unser Skript nicht ausgeführt wird, oder das "echte" {{HTMLElement("select")}}-Element, wenn es ausgeführt wird. Beachten Sie, dass unser HTML-Code standardmäßig unser benutzerdefiniertes Steuerelement ausblendet.
+Zweitens benötigen wir zwei neue Klassen, mit denen wir das nicht benötigte Element ausblenden können: Wir blenden das benutzerdefinierte Steuerelement visuell aus, wenn unser Skript nicht läuft, oder das „echte“ {{HTMLElement("select")}}-Element, wenn es läuft. Beachten Sie, dass unser HTML-Code standardmäßig das benutzerdefinierte Steuerelement ausblendet.
 
 ```css
 .widget select,
@@ -708,9 +709,9 @@ Zweitens benötigen wir zwei neue Klassen, um das nicht benötigte Element auszu
 }
 ```
 
-Dieses CSS blendet eines der Elemente visuell aus, ist aber immer noch für Screenreader verfügbar.
+Dieses CSS blendet eines der Elemente visuell aus, es bleibt jedoch für Screenreader verfügbar.
 
-Jetzt brauchen wir einen JavaScript-Schalter, um festzustellen, ob das Skript läuft oder nicht. Dieser Schalter ist ein paar Zeilen: Wenn zum Zeitpunkt des Seitenladens unser Skript ausgeführt wird, wird es die Klasse `no-widget` entfernen und die Klasse `widget` hinzufügen, wodurch die Sichtbarkeit des {{HTMLElement("select")}}-Elements und des benutzerdefinierten Steuerelements vertauscht wird.
+Nun benötigen wir einen JavaScript-Schalter, um festzustellen, ob das Skript läuft oder nicht. Dieser Schalter besteht aus wenigen Zeilen: Wenn unser Skript beim Laden der Seite läuft, entfernt es die Klasse `no-widget` und fügt die Klasse `widget` hinzu. Dadurch wird die Sichtbarkeit des {{HTMLElement("select")}}-Elements und des benutzerdefinierten Steuerelements vertauscht.
 
 ```js
 document.body.classList.remove("no-widget");
@@ -719,7 +720,7 @@ document.body.classList.add("widget");
 
 #### Ohne JS
 
-Schauen Sie sich den [vollständigen Quellcode hier](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_2#no_js) an.
+Sehen Sie sich den [vollständigen Quellcode](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_2#no_js) an.
 
 ```html hidden
 <form class="no-widget">
@@ -758,7 +759,7 @@ Schauen Sie sich den [vollständigen Quellcode hier](/de/docs/Learn_web_developm
 
 #### Mit JS
 
-Schauen Sie sich den [vollständigen Quellcode hier](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_2#js) an.
+Sehen Sie sich den [vollständigen Quellcode](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_2#js) an.
 
 ```html hidden
 <form class="no-widget">
@@ -905,20 +906,20 @@ form.classList.add("widget");
 {{EmbedLiveSample("With_JS",120,130)}}
 
 > [!NOTE]
-> Wenn Sie wirklich möchten, dass Ihr Code generisch und wiederverwendbar ist, ist es anstelle eines Klassenschalters viel besser, einfach die Widget-Klasse hinzuzufügen, um die {{HTMLElement("select")}}-Elemente zu verstecken, und den DOM-Baum dynamisch hinzuzufügen, der das benutzerdefinierte Steuerelement darstellt, nachdem jedes {{HTMLElement("select")}}-Element auf der Seite hinzugefügt wurde.
+> Wenn Sie Ihren Code wirklich generisch und wiederverwendbar machen möchten, ist es wesentlich besser, statt eines Klassenwechsels einfach die Klasse widget hinzuzufügen, um die {{HTMLElement("select")}}-Elemente auszublenden, und den DOM-Baum, der das benutzerdefinierte Steuerelement darstellt, dynamisch nach jedem {{HTMLElement("select")}}-Element auf der Seite hinzuzufügen.
 
-### Den Job erleichtern
+### Die Arbeit erleichtern
 
-In dem Code, den wir zu erstellen beabsichtigen, werden wir die Standard-JavaScript- und DOM-APIs verwenden, um alle Arbeiten zu erledigen, die wir benötigen. Die Features, die wir verwenden wollen, sind die folgenden:
+Im Code, den wir gleich erstellen, verwenden wir die standardmäßigen JavaScript- und DOM-APIs, um alle erforderlichen Aufgaben auszuführen. Wir planen, die folgenden Features zu verwenden:
 
 1. [`classList`](/de/docs/Web/API/Element/classList)
 2. [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)
 3. [`NodeList.forEach()`](/de/docs/Web/API/NodeList/forEach)
 4. [`querySelector()`](/de/docs/Web/API/Element/querySelector) und [`querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
 
-### Event-Callbacks erstellen
+### Ereignis-Callbacks erstellen
 
-Die Grundlage ist gelegt. Wir können nun beginnen, alle Funktionen zu definieren, die jedes Mal verwendet werden, wenn der Benutzer mit unserem Steuerelement interagiert.
+Die Grundlagen sind erledigt. Nun können wir damit beginnen, alle Funktionen zu definieren, die jedes Mal verwendet werden, wenn der Benutzer mit unserem Steuerelement interagiert.
 
 ```js
 // This function will be used each time we want to deactivate a custom control
@@ -986,9 +987,9 @@ function highlightOption(select, option) {
 }
 ```
 
-Sie benötigen diese, um die verschiedenen Zustände des benutzerdefinierten Steuerelements zu handhaben.
+Sie benötigen diese, um die verschiedenen Zustände des benutzerdefinierten Steuerelements zu behandeln.
 
-Als nächstes binden wir diese Funktionen an die entsprechenden Ereignisse:
+Als Nächstes binden wir diese Funktionen an die entsprechenden Ereignisse:
 
 ```js
 const selectList = document.querySelectorAll(".select");
@@ -1036,7 +1037,7 @@ selectList.forEach((select) => {
     deactivateSelect(select);
   });
 
-  // Loose focus if the user hits `esc`
+  // Lose focus if the user hits `esc`
   select.addEventListener("keyup", (event) => {
     // deactivate on keyup of `esc`
     if (event.key === "Escape") {
@@ -1046,11 +1047,11 @@ selectList.forEach((select) => {
 });
 ```
 
-An diesem Punkt wird unser Steuerelement seinen Zustand entsprechend unserem Design ändern, aber sein Wert wird noch nicht aktualisiert. Damit befassen wir uns als nächstes.
+Zu diesem Zeitpunkt ändert unser Steuerelement seinen Zustand entsprechend unserem Entwurf, aber sein Wert wird noch nicht aktualisiert. Das behandeln wir als Nächstes.
 
 #### Live-Beispiel
 
-Sehen Sie sich den [vollständigen Quellcode an](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_3).
+Sehen Sie sich den [vollständigen Quellcode](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_3) an.
 
 ```html hidden
 <form class="no-widget">
@@ -1258,13 +1259,13 @@ selectList.forEach((select) => {
 
 {{EmbedLiveSample("Live_example",120,130)}}
 
-### Den Wert des Steuerelements ändern
+### Den Wert des Steuerelements behandeln
 
-Jetzt, da unser Steuerelement funktioniert, müssen wir Code hinzufügen, um seinen Wert entsprechend den Benutzereingaben zu aktualisieren und es möglich zu machen, den Wert zusammen mit Formulardaten zu senden.
+Jetzt, da unser Steuerelement funktioniert, müssen wir Code hinzufügen, um seinen Wert gemäß Benutzereingaben zu aktualisieren und das Senden des Werts zusammen mit Formulardaten zu ermöglichen.
 
-Der einfachste Weg, dies zu tun, ist, ein natives Steuerelement im Hintergrund zu verwenden. Ein solches Steuerelement wird den Wert mit allen vom Browser bereitgestellten integrierten Steuerelementen verfolgen, und der Wert wird wie gewohnt gesendet, wenn ein Formular übermittelt wird. Es macht keinen Sinn, das Rad neu zu erfinden, wenn wir all dies für uns erledigen können.
+Am einfachsten gelingt dies mithilfe eines nativen Steuerelements im Hintergrund. Ein solches Steuerelement verfolgt den Wert mit allen vom Browser bereitgestellten integrierten Funktionen, und der Wert wird beim Absenden eines Formulars wie gewohnt gesendet. Es gibt keinen Grund, das Rad neu zu erfinden, wenn all dies für uns erledigt werden kann.
 
-Wie zuvor gesehen, verwenden wir bereits ein natives Auswahlelement als Fallback aus Barrierefreiheitsgründen; wir können seinen Wert mit dem unseres benutzerdefinierten Steuerelements synchronisieren:
+Wie zuvor gesehen, verwenden wir bereits ein natives select-Steuerelement als Fallback aus Gründen der Barrierefreiheit; wir können seinen Wert mit dem unseres benutzerdefinierten Steuerelements synchronisieren:
 
 ```js
 // This function updates the displayed value and synchronizes it with the native control.
@@ -1362,13 +1363,13 @@ selectList.forEach((select) => {
 });
 ```
 
-Im obigen Code ist die Verwendung der Eigenschaft [`tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex) bemerkenswert. Die Verwendung dieser Eigenschaft ist notwendig, um sicherzustellen, dass das native Steuerelement niemals den Fokus erhält und um sicherzustellen, dass unser benutzerdefiniertes Steuerelement den Fokus erlangt, wenn der Benutzer die Tastatur oder Maus verwendet.
+Im obigen Code ist die Verwendung der Eigenschaft [`tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex) erwähnenswert. Die Verwendung dieser Eigenschaft ist notwendig, um sicherzustellen, dass das native Steuerelement niemals den Fokus erhält, und um sicherzustellen, dass unser benutzerdefiniertes Steuerelement den Fokus erhält, wenn der Benutzer seine Tastatur oder Maus verwendet.
 
 Damit sind wir fertig!
 
 #### Live-Beispiel
 
-Sehen Sie sich den [Quellcode hier an](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_4).
+Sehen Sie sich den [Quellcode hier](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_4) an.
 
 ```html hidden
 <form class="no-widget">
@@ -1622,19 +1623,19 @@ selectList.forEach((select) => {
 
 Aber warten Sie einen Moment, sind wir wirklich fertig?
 
-## Es zugänglich machen
+## Barrierefreiheit herstellen
 
-Wir haben etwas gebaut, das funktioniert, und obwohl wir weit entfernt von einer voll ausgestatteten Auswahlbox sind, funktioniert es gut. Aber was wir getan haben, ist nicht mehr, als mit dem DOM zu spielen. Es hat keine wirkliche Semantik, und selbst wenn es wie eine Auswahlbox aussieht, ist es aus der Sicht des Browsers keine, also werden unterstützende Technologien nicht in der Lage sein zu verstehen, dass es sich um eine Auswahlbox handelt. Kurz gesagt, diese hübsche neue Auswahlbox ist nicht barrierefrei!
+Wir haben etwas erstellt, das funktioniert, und obwohl wir noch weit von einem voll ausgestatteten Auswahlfeld entfernt sind, funktioniert es gut. Doch was wir getan haben, ist nichts weiter als Manipulation des DOM. Es hat keine echte Semantik, und obwohl es wie ein Auswahlfeld aussieht, ist es aus Sicht des Browsers keines. Daher können assistive Technologien nicht verstehen, dass es ein Auswahlfeld ist. Kurz gesagt: Dieses hübsche neue Auswahlfeld ist nicht barrierefrei!
 
-Glücklicherweise gibt es eine Lösung, die [ARIA](/de/docs/Web/Accessibility/ARIA) genannt wird. ARIA steht für "Accessible Rich Internet Application" und ist [eine W3C-Spezifikation](https://w3c.github.io/aria/), die speziell für das entwickelt wurde, was wir hier tun: Webanwendungen und benutzerdefinierte Steuerelemente zugänglich machen. Es ist im Grunde ein Satz von Attributen, die HTML erweitern, damit wir Rollen, Zustände und Eigenschaften besser beschreiben können, als wäre das von uns entwickelte Element das nativen Element, das es zu imitieren versucht. Die Verwendung dieser Attribute kann durch Bearbeitung des HTML-Markups erfolgen. Wir aktualisieren die ARIA-Attribute auch über JavaScript, während der Benutzer seinen ausgewählten Wert aktualisiert.
+Glücklicherweise gibt es eine Lösung, und sie heißt [ARIA](/de/docs/Web/Accessibility/ARIA). ARIA steht für „Accessible Rich Internet Application“ und ist [eine W3C-Spezifikation](https://w3c.github.io/aria/), die speziell für das entwickelt wurde, was wir hier tun: Webanwendungen und benutzerdefinierte Steuerelemente barrierefrei machen. Sie ist im Grunde eine Reihe von Attributen, die HTML erweitern, damit wir Rollen, Zustände und Eigenschaften besser beschreiben können, als wäre das gerade entwickelte Element das native Element, als das es sich ausgibt. Diese Attribute können durch Bearbeiten des HTML-Markups verwendet werden. Außerdem aktualisieren wir die ARIA-Attribute über JavaScript, wenn der Benutzer seinen ausgewählten Wert aktualisiert.
 
-### Das `role`-Attribut
+### Das Attribut `role`
 
-Das Schlüsselattribut, das von [ARIA](/de/docs/Web/Accessibility/ARIA) verwendet wird, ist das [`role`](/de/docs/Web/Accessibility/ARIA/Guides/Techniques)-Attribut. Das [`role`](/de/docs/Web/Accessibility/ARIA/Guides/Techniques)-Attribut akzeptiert einen Wert, der definiert, wofür ein Element verwendet wird. Jede Rolle definiert ihre eigenen Anforderungen und Verhaltensweisen. In unserem Beispiel werden wir die [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)-Rolle verwenden. Es ist eine "kompositorische Rolle", was bedeutet, dass Elemente mit dieser Rolle erwartet werden, Kinder zu haben, von denen jedes eine spezifische Rolle hat (in diesem Fall mindestens ein Kind mit der `option`-Rolle).
+Das von [ARIA](/de/docs/Web/Accessibility/ARIA) verwendete Schlüsselattribut ist das Attribut [`role`](/de/docs/Web/Accessibility/ARIA/Guides/Techniques). Das Attribut [`role`](/de/docs/Web/Accessibility/ARIA/Guides/Techniques) akzeptiert einen Wert, der definiert, wofür ein Element verwendet wird. Jede Rolle definiert eigene Anforderungen und Verhaltensweisen. In unserem Beispiel verwenden wir die Rolle [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role). Es handelt sich um eine „zusammengesetzte Rolle“, was bedeutet, dass Elemente mit dieser Rolle Kinder mit jeweils einer bestimmten Rolle erwarten (in diesem Fall mindestens ein Kind mit der Rolle `option`).
 
-Es ist auch erwähnenswert, dass ARIA Rollen definiert, die standardmäßig auf standardmäßiges HTML-Markup angewendet werden. Zum Beispiel entspricht das {{HTMLElement("table")}}-Element der Rolle `grid`, und das {{HTMLElement("ul")}}-Element entspricht der Rolle `list`. Da wir ein {{HTMLElement("ul")}}-Element verwenden, möchten wir sicherstellen, dass die `listbox`-Rolle unseres Steuerelements die `list`-Rolle des {{HTMLElement("ul")}}-Elements überlagert. Zu diesem Zweck werden wir die Rolle `presentation` verwenden. Diese Rolle wurde entwickelt, um uns anzugeben, dass ein Element keine besondere Bedeutung hat und ausschließlich zur Präsentation von Informationen verwendet wird. Wir werden sie auf unser {{HTMLElement("ul")}}-Element anwenden.
+Erwähnenswert ist auch, dass ARIA Rollen definiert, die standardmäßig auf standardmäßiges HTML-Markup angewendet werden. Beispielsweise entspricht das {{HTMLElement("table")}}-Element der Rolle `grid`, und das {{HTMLElement("ul")}}-Element entspricht der Rolle `list`. Da wir ein {{HTMLElement("ul")}}-Element verwenden, möchten wir sicherstellen, dass die Rolle `listbox` unseres Steuerelements die Rolle `list` des {{HTMLElement("ul")}}-Elements überschreibt. Dafür verwenden wir die Rolle `presentation`. Diese Rolle dient dazu anzugeben, dass ein Element keine besondere Bedeutung hat und ausschließlich zur Darstellung von Informationen verwendet wird. Wir wenden sie auf unser {{HTMLElement("ul")}}-Element an.
 
-Um die [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)-Rolle zu unterstützen, müssen wir unser HTML wie folgt aktualisieren:
+Um die Rolle [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role) zu unterstützen, müssen wir unser HTML nur wie folgt aktualisieren:
 
 ```html
 <!-- We add the role="listbox" attribute to our top element -->
@@ -1653,13 +1654,13 @@ Um die [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
 ```
 
 > [!NOTE]
-> Es ist nicht notwendig, sowohl das `role`-Attribut als auch ein `class`-Attribut einzuschließen. Anstelle von `.option` verwenden Sie die Attributselektoren [role="option"] [attribute selectors](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) in Ihrem CSS.
+> Es ist nicht notwendig, sowohl das Attribut `role` als auch ein Attribut `class` einzuschließen. Verwenden Sie statt `.option` die `[role="option"]`-[Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) in Ihrem CSS.
 
-### Das `aria-selected`-Attribut
+### Das Attribut `aria-selected`
 
-Die Verwendung des [`role`](/de/docs/Web/Accessibility/ARIA/Guides/Techniques)-Attributs ist nicht genug. [ARIA](/de/docs/Web/Accessibility/ARIA) bietet auch viele Zustands- und Eigenschaftsattribute. Je mehr und besser Sie sie verwenden, desto besser wird Ihr Steuerelement von unterstützender Technologie verstanden. In unserem Fall werden wir unseren Gebrauch auf ein Attribut beschränken: `aria-selected`.
+Die Verwendung des Attributs [`role`](/de/docs/Web/Accessibility/ARIA/Guides/Techniques) reicht nicht aus. [ARIA](/de/docs/Web/Accessibility/ARIA) bietet außerdem viele Zustands- und Eigenschaftsattribute. Je mehr und besser Sie diese verwenden, desto besser wird Ihr Steuerelement von assistiven Technologien verstanden. In unserem Fall beschränken wir unsere Verwendung auf ein Attribut: `aria-selected`.
 
-Das `aria-selected`-Attribut wird verwendet, um zu markieren, welche Option derzeit ausgewählt ist; dies ermöglicht unterstützenden Technologien, den Benutzer darüber zu informieren, was die aktuelle Auswahl ist. Wir werden es dynamisch mit JavaScript verwenden, um die ausgewählte Option jedes Mal zu markieren, wenn der Benutzer eine auswählt. Zu diesem Zweck müssen wir unsere `updateValue()`-Funktion überarbeiten:
+Das Attribut `aria-selected` wird verwendet, um zu markieren, welche Option derzeit ausgewählt ist; dadurch können assistive Technologien den Benutzer über die aktuelle Auswahl informieren. Wir verwenden es dynamisch mit JavaScript, um die ausgewählte Option jedes Mal zu markieren, wenn der Benutzer eine Option auswählt. Dafür müssen wir unsere Funktion `updateValue()` überarbeiten:
 
 ```js
 function updateValue(select, index) {
@@ -1681,13 +1682,13 @@ function updateValue(select, index) {
 }
 ```
 
-Es hätte einfacher erscheinen können, einen Screenreader auf das Off-Screen-Auswahlelement fokussieren zu lassen und unser stilisiertes zu ignorieren, aber dies ist keine barrierefreie Lösung. Screenreader sind nicht nur auf blinde Menschen beschränkt; Menschen mit schwachem Sehvermögen und sogar perfektem Sehvermögen verwenden sie ebenfalls. Aus diesem Grund können Sie nicht den Screenreader auf ein Off-Screen-Element fokussieren lassen.
+Es hätte vielleicht einfacher gewirkt, einen Screenreader auf das select außerhalb des sichtbaren Bereichs zu fokussieren und unser gestaltetes Element zu ignorieren, aber dies ist keine barrierefreie Lösung. Screenreader sind nicht auf blinde Menschen beschränkt; auch Menschen mit Sehbehinderung und sogar Menschen mit perfektem Sehvermögen verwenden sie. Aus diesem Grund können Sie den Screenreader nicht auf ein Element außerhalb des sichtbaren Bereichs fokussieren lassen.
 
-Unten ist das endgültige Ergebnis all dieser Änderungen (Sie erhalten ein besseres Gefühl für dies, wenn Sie es mit einer unterstützenden Technologie wie [NVDA](https://www.nvaccess.org/) oder [VoiceOver](https://www.apple.com/accessibility/features/?vision) ausprobieren).
+Nachfolgend sehen Sie das endgültige Ergebnis all dieser Änderungen (Sie bekommen ein besseres Gefühl dafür, wenn Sie es mit einer assistiven Technologie wie [NVDA](https://www.nvaccess.org/) oder [VoiceOver](https://www.apple.com/accessibility/features/?vision) ausprobieren).
 
 #### Live-Beispiel
 
-Schauen Sie sich den [vollständigen Quellcode hier an](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_5).
+Sehen Sie sich den [vollständigen Quellcode hier](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_5) an.
 
 ```html hidden
 <form class="no-widget">
@@ -1937,15 +1938,15 @@ selectList.forEach((select) => {
 
 {{EmbedLiveSample("live_example_3",120,130)}}
 
-Wenn Sie weitergehen möchten, benötigt der Code in diesem Beispiel einige Verbesserungen, bevor er generisch und wiederverwendbar wird. Dies ist eine Übung, die Sie versuchen können, durchzuführen. Zwei Hinweise, um Ihnen dabei zu helfen: Das erste Argument für all unsere Funktionen ist dasselbe, was bedeutet, dass diese Funktionen denselben Kontext erfordern. Ein Objekt zu erstellen, um diesen Kontext zu teilen, wäre ratsam.
+Wenn Sie weitermachen möchten, benötigt der Code in diesem Beispiel einige Verbesserungen, bevor er generisch und wiederverwendbar wird. Sie können versuchen, dies als Übung umzusetzen. Zwei Hinweise dazu: Das erste Argument aller unserer Funktionen ist gleich, was bedeutet, dass diese Funktionen denselben Kontext benötigen. Es wäre sinnvoll, ein Objekt zu erstellen, um diesen Kontext zu teilen.
 
-## Ein alternativer Ansatz: Radio-Buttons verwenden
+## Ein alternativer Ansatz: Verwendung von Radio-Buttons
 
-Im obigen Beispiel haben wir ein {{htmlelement('select')}}-Element mit nicht-semantischem HTML, CSS und JavaScript neu erfunden. Dieses Auswahlkästchen wählte eine Option aus einer begrenzten Anzahl von Optionen aus, was die gleiche Funktionalität wie eine gleichnamige Gruppe von {{htmlelement('input/radio', 'radio')}}-Buttons hat.
+Im obigen Beispiel haben wir ein {{htmlelement('select')}}-Element mithilfe von nicht semantischem HTML, CSS und JavaScript neu erfunden. Dieses select wählte eine Option aus einer begrenzten Anzahl von Optionen aus, was dieselbe Funktionalität wie eine gleichnamige Gruppe von {{htmlelement('input/radio', 'radio')}}-Buttons ist.
 
-Wir könnten dies daher mit Radio-Buttons neu erfinden; sehen wir uns diese Option.
+Wir könnten dies daher stattdessen mit Radio-Buttons neu erfinden; sehen wir uns diese Option an.
 
-Wir können mit einer völlig semantischen, zugänglichen, ungeordneten Liste von {{htmlelement('input/radio','radio')}}-Schaltflächen beginnen, die mit einem zugehörigen {{htmlelement('label')}} enthalten sind, wobei die gesamte Gruppe mit einem semantisch passenden {{htmlelement('fieldset')}} und {{htmlelement('legend')}}-Paar bezeichnet wird.
+Wir können mit einer vollständig semantischen, barrierefreien, unsortierten Liste von {{htmlelement('input/radio','radio')}}-Buttons mit zugehörigen {{htmlelement('label')}} beginnen und die gesamte Gruppe mit einem semantisch passenden Paar aus {{htmlelement('fieldset')}} und {{htmlelement('legend')}} beschriften.
 
 ```html
 <fieldset>
@@ -1984,7 +1985,7 @@ Wir können mit einer völlig semantischen, zugänglichen, ungeordneten Liste vo
 </fieldset>
 ```
 
-Wir werden die Liste der Radio-Buttons (nicht die Legende/Feldset) ein wenig gestalten, um sie wie das vorherige Beispiel aussehen zu lassen, nur um zu zeigen, dass es möglich ist:
+Wir gestalten die Liste der Radio-Buttons (nicht legend/fieldset) ein wenig, damit sie etwas wie das frühere Beispiel aussieht – nur um zu zeigen, dass dies möglich ist:
 
 ```css
 .styledSelect {
@@ -2036,24 +2037,24 @@ Wir werden die Liste der Radio-Buttons (nicht die Legende/Feldset) ein wenig ges
 }
 ```
 
-Ohne JavaScript und nur ein wenig CSS können wir die Liste der Radio-Buttons so gestalten, dass nur das überprüfte Element angezeigt wird. Wenn der Fokus innerhalb der `<ul>` im `<fieldset>` ist, öffnet sich die Liste, und die Auf- und Ab-Pfeiltasten (sowie links und rechts) funktionieren, um die vorherigen und nächsten Elemente auszuwählen. Probieren Sie es aus:
+Ohne JavaScript und nur mit etwas CSS können wir die Liste der Radio-Buttons so gestalten, dass nur das aktivierte Element angezeigt wird. Wenn sich der Fokus innerhalb des `<ul>` im `<fieldset>` befindet, öffnet sich die Liste, und die Pfeiltasten nach oben und unten (sowie links und rechts) wählen die vorherigen und nächsten Elemente aus. Probieren Sie es aus:
 
 {{EmbedLiveSample("An_alternative_approach_Using_radio_buttons",200,240)}}
 
-Dies funktioniert, bis zu einem gewissen Grad, ohne JavaScript. Wir haben ein ähnliches Steuerelement zu unserem benutzerdefinierten Steuerelement erstellt, das auch dann funktioniert, wenn das JavaScript ausfällt. Sieht nach einer tollen Lösung aus, oder? Nun, nicht zu 100%. Es funktioniert mit der Tastatur, aber nicht wie erwartet mit einem Mausklick. Es macht wahrscheinlich mehr Sinn, Webstandards als Basis für benutzerdefinierte Steuerelemente zu verwenden, anstatt sich auf Frameworks zu verlassen, um Elemente ohne native Semantik zu erstellen. Unser Steuerelement hat jedoch nicht die gleiche Funktionalität, die ein `<select>` nativer hat.
+Dies funktioniert bis zu einem gewissen Grad ohne JavaScript. Wir haben ein unserem benutzerdefinierten Steuerelement ähnliches Steuerelement erstellt, das auch funktioniert, wenn JavaScript ausfällt. Klingt nach einer großartigen Lösung, oder? Nun, nicht zu 100 %. Es funktioniert mit der Tastatur, aber bei einem Mausklick nicht wie erwartet. Es ist vermutlich sinnvoller, Webstandards als Grundlage für benutzerdefinierte Steuerelemente zu verwenden, statt sich auf Frameworks zu verlassen, um Elemente ohne native Semantik zu erstellen. Unser Steuerelement verfügt jedoch nicht über dieselbe Funktionalität wie ein `<select>` nativ.
 
-Auf der positiven Seite ist dieses Steuerelement vollständig für einen Screenreader zugänglich und kann vollständig über die Tastatur navigiert werden. Dieses Steuerelement ist jedoch kein Ersatz für ein {{htmlelement('select')}}. Es gibt Funktionen, die sich unterscheiden und/oder fehlen. Zum Beispiel navigieren alle vier Pfeile durch die Optionen, aber das Klicken auf den Abwärtspfeil, wenn der Benutzer auf der letzten Schaltfläche ist, führt ihn zur ersten Schaltfläche; es stoppt nicht oben und unten in der Optionsliste wie ein `<select>` es tut.
+Positiv ist, dass dieses Steuerelement vollständig für einen Screenreader zugänglich und vollständig über die Tastatur navigierbar ist. Dieses Steuerelement ist jedoch kein Ersatz für {{htmlelement('select')}}. Einige Funktionen unterscheiden sich und/oder fehlen. Beispielsweise navigieren alle vier Pfeiltasten durch die Optionen, aber ein Klick auf den Abwärtspfeil, wenn sich der Benutzer auf dem letzten Button befindet, bringt ihn zum ersten Button; es stoppt nicht oben und unten in der Optionsliste wie ein `<select>`.
 
 Das Hinzufügen dieser fehlenden Funktionalität überlassen wir als Übung dem Leser.
 
 ## Fazit
 
-Wir haben alle Grundlagen zum Erstellen eines benutzerdefinierten Formularelements gesehen, aber wie Sie sehen können, ist es nicht trivial, dies zu tun. Bevor Sie Ihr eigenes benutzerdefiniertes Steuerelement erstellen, überlegen Sie, ob HTML alternative Elemente bietet, die Ihre Anforderungen angemessen unterstützen können. Wenn Sie ein benutzerdefiniertes Steuerelement erstellen müssen, ist es oft einfacher, auf Drittanbieter-Bibliotheken zuzugreifen, anstatt Ihr eigenes zu erstellen. Aber wenn Sie Ihr eigenes erstellen, bestehende Elemente ändern oder ein Framework verwenden, um ein vorgefertigtes Steuerelement zu implementieren, denken Sie daran, dass das Erstellen eines benutzerfreundlichen und zugänglichen Formularelements komplizierter ist, als es aussieht.
+Wir haben alle Grundlagen für das Erstellen eines benutzerdefinierten Formularsteuerelements gesehen, aber wie Sie sehen können, ist dies nicht trivial. Bevor Sie Ihr eigenes angepasstes Steuerelement erstellen, prüfen Sie, ob HTML alternative Elemente bietet, die Ihre Anforderungen angemessen unterstützen können. Wenn Sie ein benutzerdefiniertes Steuerelement erstellen müssen, ist es oft einfacher, auf Drittanbieter-Bibliotheken zurückzugreifen, statt selbst eines zu erstellen. Wenn Sie jedoch ein eigenes Steuerelement erstellen, vorhandene Elemente verändern oder ein Framework verwenden, um ein vorgefertigtes Steuerelement zu implementieren, denken Sie daran, dass die Erstellung eines verwendbaren und barrierefreien Formularsteuerelements komplizierter ist, als es aussieht.
 
-Hier sind einige Bibliotheken, die Sie in Betracht ziehen sollten, bevor Sie Ihren eigenen Code schreiben:
+Hier sind einige Bibliotheken, die Sie vor dem Schreiben eines eigenen Steuerelements in Betracht ziehen sollten:
 
 - [jQuery UI](https://jqueryui.com/)
-- [AXE zugängliche benutzerdefinierte Auswahl-Dropdowns](https://www.webaxe.org/accessible-custom-select-dropdowns/)
+- [AXE accessible custom select dropdowns](https://www.webaxe.org/accessible-custom-select-dropdowns/)
 - [msDropDown](https://github.com/marghoobsuleman/ms-Dropdown)
 
-Wenn Sie alternative Steuerelemente über Radio-Buttons, Ihr eigenes JavaScript oder mit einer Drittanbieter-Bibliothek erstellen, stellen Sie sicher, dass es zugänglich und zukunftssicher ist; das heißt, es sollte mit einer Vielzahl von Browsern besser funktionieren, deren Kompatibilität mit den Webstandards, die sie verwenden, variiert. Viel Spaß!
+Wenn Sie alternative Steuerelemente über Radio-Buttons, eigenes JavaScript oder mit einer Drittanbieter-Bibliothek erstellen, stellen Sie sicher, dass sie barrierefrei und zukunftssicher sind; das heißt, sie müssen mit einer Vielzahl von Browsern besser funktionieren können, deren Kompatibilität mit den verwendeten Webstandards unterschiedlich ist. Viel Spaß!

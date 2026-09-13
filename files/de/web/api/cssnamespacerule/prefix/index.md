@@ -3,20 +3,20 @@ title: "CSSNamespaceRule: prefix-Eigenschaft"
 short-title: prefix
 slug: Web/API/CSSNamespaceRule/prefix
 l10n:
-  sourceCommit: d7ed76f4fc715a30d1f0a98dcc77b109cb7abde5
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`prefix`**-Eigenschaft der [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) gibt eine Zeichenkette zurück, die den Namen des Präfixes enthält, das mit diesem Namespace verknüpft ist. Wenn es kein solches Präfix gibt, wird eine leere Zeichenkette zurückgegeben.
+Die schreibgeschützte **`prefix`**-Eigenschaft der [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) gibt einen String mit dem Namen des Präfixes zurück, das mit diesem Namespace verknüpft ist. Wenn es kein solches Präfix gibt, wird ein leerer String zurückgegeben.
 
 ## Wert
 
-Eine Zeichenkette, die das Präfix enthält, das mit diesem Namespace verknüpft ist. Wenn es kein Präfix gibt, eine leere Zeichenkette.
+Ein String, der das mit diesem Namespace verknüpfte Präfix enthält. Wenn es kein Präfix gibt, wird ein leerer String zurückgegeben.
 
 ## Beispiele
 
-Das Stylesheet enthält zwei Namespace-Regeln. Die erste hat kein Präfix, die zweite das Präfix `svg`. Zwei `CSSNamespaceRule`-Objekte werden zurückgegeben. Der Wert der `prefix`-Eigenschaft für das erste wird eine leere Zeichenkette sein, für das zweite `svg`.
+Das Stylesheet enthält zwei Namespace-Regeln. Die erste hat kein Präfix, die zweite das Präfix `svg`. Zwei `CSSNamespaceRule`-Objekte werden zurückgegeben. Der Wert der `prefix`-Eigenschaft für das erste wird ein leerer String sein, für das zweite `svg`.
 
 ```css
 @namespace url("http://www.w3.org/1999/xhtml");

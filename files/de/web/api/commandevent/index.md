@@ -2,14 +2,14 @@
 title: CommandEvent
 slug: Web/API/CommandEvent
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Die **`CommandEvent`** Schnittstelle stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen dabei ist, ein interaktives Element auszulösen.
+Das **`CommandEvent`**-Interface repräsentiert ein Ereignis, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen im Begriff ist, ein interaktives Element aufzurufen.
 
-Dies ist das Ereignisobjekt für das `HTMLElement` [`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion von einem Invoker Control darstellt, wenn es ausgelöst wird (zum Beispiel, wenn es angeklickt oder gedrückt wird).
+Dies ist das Ereignisobjekt für das `HTMLElement`-[`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion eines Invoker Controls darstellt, wenn es aufgerufen wird (zum Beispiel, wenn es angeklickt oder gedrückt wird).
 
 {{InheritanceDiagram}}
 
@@ -18,18 +18,18 @@ Dies ist das Ereignisobjekt für das `HTMLElement` [`command`](/de/docs/Web/API/
 - [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent)
   - : Erstellt ein `CommandEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Objekt, [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}}
-  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button darstellt, der diese Auslösung verursacht hat.
+  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button repräsentiert, der diese Ausführung verursacht hat.
 - [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}}
-  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quell-Buttons darstellt.
+  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Ursprungsbuttons repräsentiert.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```html
 <button commandfor="mypopover" command="show-popover">Show popover</button>
@@ -52,9 +52,9 @@ popover.addEventListener("command", (event) => {
 });
 ```
 
-### Verwendung benutzerdefinierter Werte für Befehle
+### Verwenden von benutzerdefinierten Werten für Befehle
 
-In diesem Beispiel wurden drei Buttons mit [`commands` mit benutzerdefinierten Werten](/de/docs/Web/HTML/Reference/Elements/button#custom_values) erstellt.
+In diesem Beispiel wurden drei Buttons mit [`Befehlen mit benutzerdefinierten Werten`](/de/docs/Web/HTML/Reference/Elements/button#custom_values) erstellt.
 
 ```html
 <div class="controls">
@@ -75,7 +75,8 @@ In diesem Beispiel wurden drei Buttons mit [`commands` mit benutzerdefinierten W
 }
 ```
 
-Ein Ereignis-Listener wird an das Bild mit dem [`command`-Ereignis](/de/docs/Web/API/HTMLElement/command_event) angehängt. Wenn einer der Buttons angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen wurde, rotiert das Bild und aktualisiert auch seinen `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
+Ein Ereignis-Listener wird an das Bild gebunden, der das [`command`-Ereignis](/de/docs/Web/API/HTMLElement/command_event) verwendet.
+Wenn einer der Buttons angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen wurde, dreht das Bild und aktualisiert auch seinen `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
 
 ```js
 const image = document.getElementById("the-image");

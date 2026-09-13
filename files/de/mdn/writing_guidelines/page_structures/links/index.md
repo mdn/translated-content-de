@@ -2,25 +2,25 @@
 title: Link-Makros
 slug: MDN/Writing_guidelines/Page_structures/Links
 l10n:
-  sourceCommit: 94e900db86109d76e8a1e120e3b135db0d543c87
+  sourceCommit: abc914f085fb9913c41c4cd4453da432e9d4e761
 ---
 
-MDN bietet zahlreiche Makros, um stets aktuelle Links zu MDN-Inhalten zu erstellen. In diesem Leitfaden erfahren Sie mehr über MDN-Querverweis-Makros, die Sie verwenden können, um einen einzelnen Link zu einer anderen Seite oder eine Liste von Links zu allen Unterseiten eines Dokuments einzufügen.
+MDN stellt zahlreiche Makros bereit, um stets aktuelle Links zu MDN-Inhalten zu erstellen. In diesem Leitfaden erfahren Sie mehr über MDN-Querverweis-Makros, mit denen Sie einen einzelnen Link zu einer anderen Seite oder eine Liste von Links zu allen Unterseiten eines Dokuments einfügen können.
 
-## Listen von Links
+## Linklisten
 
-MDN bietet Makros, die eine Liste von Links erstellen:
+MDN stellt Makros bereit, die eine Liste von Links erstellen:
 
 - [`\{{SubpagesWithSummaries}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/subpages_with_summaries.rs)
-  - : Fügt eine Definitionsliste ({{HTMLElement("dl")}}) der Unterseiten der aktuellen Seite ein, wobei der Titel jeder Seite als {{HTMLElement("dt")}}-Begriff und der erste Absatz als {{HTMLElement("dd")}}-Begriff verwendet wird.
+  - : Fügt eine Definitionsliste ({{HTMLElement("dl")}}) der Unterseiten der aktuellen Seite ein, wobei der Titel jeder Seite als {{HTMLElement("dt")}}-Begriff und ihr erster Absatz als {{HTMLElement("dd")}}-Begriff verwendet wird.
 
 - [`\{{ListSubpagesForSidebar()}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/list_subpages_for_sidebar.rs)
-  - : Wenn ohne Parameter eingeschlossen, wird eine geordnete Liste von Links zu den Unterseiten der aktuellen Seite eingefügt. Der erste Parameter ist ein Slug der übergeordneten Seite des Linkbaums. Der Linktext wird als Code angezeigt. Das Setzen eines zweiten Parameters auf `true` oder `1` wandelt die Links in reinen Text um. Das Setzen eines dritten Parameters auf `true` oder `1` fügt oben in der Liste einen Link zur Slug- (übergeordneten) Seite mit "Überblick" als Linktext hinzu.
+  - : Wenn es ohne Parameter eingefügt wird, fügt es eine geordnete Liste von Links zu den Unterseiten der aktuellen Seite ein. Der erste Parameter ist ein Slug der übergeordneten Seite des Linkbaums. Der Linktext wird als Code angezeigt. Wenn der zweite Parameter auf `true` oder `1` gesetzt wird, werden die Links in einfachen Text umgewandelt. Wenn der dritte Parameter auf `true` oder `1` gesetzt wird, wird oben in der Liste ein Link zur Slug-Seite (übergeordneten Seite) mit „Overview“ als Linktext hinzugefügt.
 
 - [`\{{QuickLinksWithSubpages()}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/quick_links_with_subpages.rs)
-  - : Erstellt eine Reihe von Schnelllinks, die die Kinder der aktuellen Seite (oder der angegebenen Seite) als Ziele verwenden. Dies erstellt hierarchische Listen bis zu zwei Ebenen tief. Die Titel der Seiten werden als Linktexte und deren Zusammenfassungen als Tooltips verwendet.
+  - : Erstellt eine Reihe von Schnelllinks, die die untergeordneten Seiten der aktuellen Seite (oder der angegebenen Seite) als Ziele verwenden. Dadurch werden hierarchische Listen mit einer Tiefe von bis zu zwei Ebenen erstellt. Die Titel der Seiten werden als Linktext und ihre Zusammenfassungen als Tooltips verwendet.
 
-Um beispielsweise eine geordnete Liste von Links einzuschließen, die diese Seite und ihre Geschwister umfasst, schreiben Sie Folgendes:
+Um beispielsweise eine geordnete Liste von Links einzufügen, die diese Seite und ihre Geschwisterseiten enthält, schreiben Sie Folgendes:
 
 ```md
 \{{ListSubpagesForSidebar("/en-US/docs/MDN/Writing_guidelines/Page_structures/Macros", 1)}}
@@ -28,7 +28,7 @@ Um beispielsweise eine geordnete Liste von Links einzuschließen, die diese Seit
 
 ## Querverweis-Links
 
-Einige Makros erstellen einen einzelnen Link, um ein CSS-, JavaScript-, SVG- oder HTML-Feature zu referenzieren, einschließlich Attribute, Elemente, Eigenschaften, Datentypen und APIs. Die Makros, die einzelne Links erstellen, erfordern mindestens einen Parameter: das referenzierte Feature.
+Einige Makros erstellen einen einzelnen Link, um auf ein CSS-, JavaScript-, SVG- oder HTML-Feature zu verweisen, einschließlich Attribute, Elemente, Eigenschaften, Datentypen und APIs. Die Makros, die einzelne Links erstellen, erfordern mindestens einen Parameter: das referenzierte Feature.
 
 Diese Makros sind:
 
@@ -44,77 +44,82 @@ Diese Makros sind:
 
 ### Grundlegende Verwendung
 
-Für den ersten erforderlichen Parameter leiten Sie den Featurename aus dem letzten Abschnitt des Slugs des Dokuments ab, auf das Sie verweisen möchten. Um zum Beispiel auf die `<select>`-Elementseite mit dem Slug `Web/HTML/Reference/Elements/select` zu verlinken, schreiben Sie das Makro als `\{{HTMLElement("select")}}`. Dies erzeugt den Link "{{HTMLElement("select")}}", der sowohl als Code formatiert ist als auch die spitzen Klammern einschließt. Dies liegt daran, dass Makros zusätzliche formatierungsspezifische Anpassungen zum Linktext hinzufügen. Daher müssen Sie sich beim Verwenden eines Makros nie um mehr als den Featurename kümmern. Deshalb ist die Verwendung von Makros zum Hinzufügen von Links schnell und einfach.
+Für den ersten erforderlichen Parameter leiten Sie den Namen des Features aus dem letzten Abschnitt des Slugs des Dokuments ab, auf das Sie verlinken möchten.
+Um beispielsweise auf die Seite des `<select>`-Elements mit dem Slug `Web/HTML/Reference/Elements/select` zu verlinken, schreiben Sie das Makro als `\{{HTMLElement("select")}}`.
+Dadurch wird der Link „{{HTMLElement("select")}}“ erzeugt, der sowohl als Code formatiert ist als auch die spitzen Klammern enthält.
+Das liegt daran, dass Makros dem Linktext zusätzliches Feature-spezifisches Formatieren hinzufügen.
+Bei der Verwendung eines Makros müssen Sie sich daher nie um mehr als den Namen des Features selbst kümmern.
+Deshalb ist das Hinzufügen von Links mithilfe von Makros schnell und einfach.
 
-### Anpassen des Anzeigetextes
+### Anzeigetext anpassen
 
-Standardmäßig ist der Anzeigetext des Links der erste Parameter, der an das Makro übergeben wird. Um einen anderen Text anzuzeigen, verwenden Sie den zweiten Parameter. Zum Beispiel erzeugt `\{{JSxRef("Array")}}` {{JSxRef("Array")}}. Um eine Variation dieses Texts anzuzeigen, verwenden Sie `\{{JSxRef("Array", "JavaScript arrays")}}`, was {{JSxRef("Array", "JavaScript arrays")}} produziert. Sie werden bemerken, dass der resultierende Link codeformatiert ist, wegen des Standardverhaltens des Makros. Schauen Sie sich den Abschnitt über [Deaktivieren der Code-Formatierung](#deaktivieren_der_code-formatierung) an, um zu sehen, wie Sie die Code-Styling überspringen.
+Standardmäßig ist der Anzeigetext des Links der erste Parameter, der an das Makro übergeben wird. Um einen anderen Text anzuzeigen, verwenden Sie den zweiten Parameter. Beispielsweise erzeugt `\{{JSxRef("Array")}}` {{JSxRef("Array")}}. Um eine Variante dieses Textes anzuzeigen, verwenden Sie `\{{JSxRef("Array", "JavaScript arrays")}}`, wodurch {{JSxRef("Array", "JavaScript arrays")}} erzeugt wird. Sie werden feststellen, dass der resultierende Link aufgrund des Standardverhaltens des Makros als Code formatiert ist. Im Abschnitt [Codeformatierung deaktivieren](#codeformatierung_deaktivieren) erfahren Sie, wie Sie die Codeformatierung überspringen können.
 
-### Verlinken zu verschachtelten Seiten
+### Verlinken auf verschachtelte Seiten
 
-Einige Referenz-Features haben verschachtelte Seiten für verwandte Features. Zum Beispiel hat das HTML-`<input>`-Element mehrere verschachtelte Seiten für unterschiedliche Eingabetypen, wie `Web/HTML/Reference/Elements/input/range` für den Bereichs-Eingabetyp.
+Einige Referenz-Features haben verschachtelte Seiten für verwandte Features. Beispielsweise hat das HTML-Element `<input>` mehrere verschachtelte Seiten für verschiedene Eingabetypen, etwa `Web/HTML/Reference/Elements/input/range` für den Eingabetyp range.
 
-Das Übergeben der Pfadinfo an das Makro im ersten Parameter wie in `\{{HTMLElement("input/range")}}` erzeugt den Link als "{{HTMLElement("input/range")}}", was nicht wünschenswert ist. Verwenden Sie den zweiten Parameter, um einen anderen Linktext anzuzeigen. Für einen Link zum Bereichs-Eingabetyp schreiben wir das Makro als `\{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}`, um "{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}" zu erzeugen. (Beachten Sie, dass wenn der zweite Parameter ein Leerzeichen enthält, wie zwischen `input` und `type` hier, dieses Makro die Code-Formatierung entfernt; daher haben wir die {{HTMLElement("code")}}-Tags explizit hinzugefügt.)
+Wenn Sie die Pfadinformationen im ersten Parameter an das Makro übergeben, wie in `\{{HTMLElement("input/range")}}`, wird der Link als „{{HTMLElement("input/range")}}“ erzeugt, was nicht erwünscht ist. Verwenden Sie den zweiten Parameter, um einen anderen Linktext anzuzeigen. Für einen Link zum Eingabetyp range würden wir das Makro daher als `\{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}` schreiben, um „{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}“ zu erzeugen. (Beachten Sie, dass dieses Makro die Codeformatierung entfernt, wenn der zweite Parameter ein Leerzeichen enthält, etwa zwischen `input` und `type`; deshalb haben wir die Tags {{HTMLElement("code")}} explizit hinzugefügt.)
 
 ### Verwendung von `CSSxRef` mit der CSS-Referenz
 
-Jedes Makro ist leicht unterschiedlich.
+Jedes Makro unterscheidet sich geringfügig.
 
-Das `CSSxRef`-Makro bestimmt automatisch den korrekten Pfad vom Featurename, den Sie als ersten Parameter an das Makro angeben. Das Makro erkennt, ob ein Feature eine Eigenschaft, ein Selektor, eine Regel, eine Funktion oder ein Datentyp ist, und verlinkt auf das entsprechende Dokument unter `Web/CSS/Reference/`.
+Das Makro `CSSxRef` ermittelt automatisch den korrekten Pfad anhand des Feature-Namens, den Sie als ersten Parameter an das Makro übergeben. Das Makro erkennt, ob ein Feature eine Eigenschaft, ein Selektor, eine At-Regel, eine Funktion oder ein Datentyp ist, und verlinkt auf das entsprechende Dokument unter `Web/CSS/Reference/`.
 
-Zum Beispiel:
+Beispiele:
 
 - `\{{CSSxRef("cursor")}}` verlinkt auf die Eigenschaftsseite unter `Web/CSS/Reference/Properties/cursor`.
-- `\{{CSSxRef(":hover")}}` verlinkt auf die Pseudoklassen-Seite unter `Web/CSS/Reference/Selectors/:hover`.
-- `\{{CSSxRef("@media")}}` verlinkt auf die Regel-Seite unter `Web/CSS/Reference/At-rules/@media`.
+- `\{{CSSxRef(":hover")}}` verlinkt auf die Pseudoklassenseite unter `Web/CSS/Reference/Selectors/:hover`.
+- `\{{CSSxRef("@media")}}` verlinkt auf die At-Regelseite unter `Web/CSS/Reference/At-rules/@media`.
 - `\{{CSSxRef("pow")}}` verlinkt auf die Funktionsseite unter `Web/CSS/Reference/Values/pow`.
-- `\{{CSSxRef("<color>")}}` verlinkt auf die Datentyp-Seite unter `Web/CSS/Reference/Values/color_value`.
+- `\{{CSSxRef("<color>")}}` verlinkt auf die Datentypseite unter `Web/CSS/Reference/Values/color_value`.
 
-Genau wie das `HTMLElement`-Makro fügt das `CSSxRef`-Makro dem Linktext das passende Styling basierend auf dem Typ des Features hinzu. So fügt `\{{CSSxRef("acos")}}` spitze Klammern zum resultierenden Linktext wie in {{CSSxRef("acos")}} hinzu.
+Genau wie das Makro `HTMLElement` fügt das Makro `CSSxRef` dem Linktext je nach Typ des Features die entsprechende Formatierung hinzu. Daher fügt `\{{CSSxRef("acos")}}` dem resultierenden Linktext spitze Klammern hinzu, wie in {{CSSxRef("acos")}}.
 
-Einige weitere Verhaltensweisen des `CSSxRef`-Makros, die es zu beachten gilt, umfassen:
+Einige weitere erwähnenswerte Verhaltensweisen des Makros `CSSxRef` sind:
 
-- Verschachtelte Seiten werden automatisch behandelt. Zum Beispiel:
+- Verschachtelte Seiten werden automatisch verarbeitet. Beispiel:
   - `\{{CSSxRef("basic-shape/circle")}}` verlinkt auf das Dokument unter `Web/CSS/Reference/Values/basic-shape/circle` mit dem Link {{CSSxRef("basic-shape/circle")}}.
   - `\{{CSSxRef("animation-timeline/scroll")}}` verlinkt auf das Dokument unter `Web/CSS/Reference/Properties/animation-timeline/scroll` mit dem Link {{CSSxRef("animation-timeline/scroll")}}.
-- Einige CSS-Features haben denselben Namen. Neben ihrem Verzeichnisstandort enthalten ihre Slugs Suffixe, um ihren Typ widerzuspiegeln. Zum Beispiel hat die `position`-Eigenschaft den Slug `Web/CSS/Reference/Properties/position`, während der `<position>`-Datentyp den Slug `Web/CSS/Reference/Values/position_value` hat.
+- Einige CSS-Features haben denselben Namen. Zusätzlich zu ihrer Verzeichnisposition enthalten ihre Slugs Suffixe, die ihren Typ widerspiegeln. Beispielsweise hat die Eigenschaft `position` den Slug `Web/CSS/Reference/Properties/position`, während der Datentyp `<position>` den Slug `Web/CSS/Reference/Values/position_value` hat.
 
-  Das `CSSxRef`-Makro behandelt diese gleichnamigen Features automatisch. Daher verlinkt `\{{CSSxRef("position")}}` auf die Eigenschaftsseite mit dem Link {{CSSxRef("position")}}, und `\{{CSSxRef("<position>")}}` verlinkt auf die Datentyp-Seite mit dem Link {{CSSxRef("&lt;position&gt;")}}.
+  Das Makro `CSSxRef` verarbeitet diese gleichnamigen Features automatisch. So verlinkt `\{{CSSxRef("position")}}` auf die Eigenschaftsseite mit dem Link {{CSSxRef("position")}}, und `\{{CSSxRef("<position>")}}` verlinkt auf die Datentypseite mit dem Link {{CSSxRef("&lt;position&gt;")}}.
 
   Weitere Features mit gemeinsamen Namen sind:
-  - `color`-Eigenschaft (`Web/CSS/Reference/Properties/color`) vs. `<color>`-Datentyp (`Web/CSS/Reference/Values/color_value`)
+  - Eigenschaft `color` (`Web/CSS/Reference/Properties/color`) gegenüber Datentyp `<color>` (`Web/CSS/Reference/Values/color_value`)
 
-    **Makro**: `\{{CSSxRef("color")}}` vs. `\{{CSSxRef("<color>")}}`
+    **Makro**: `\{{CSSxRef("color")}}` gegenüber `\{{CSSxRef("<color>")}}`
 
-  - `fit-content()`-Funktion (`Web/CSS/Reference/Values/fit-content_function`) vs. `fit-content`-Schlüsselwort (`Web/CSS/Reference/Values/fit-content`)
+  - Funktion `fit-content()` (`Web/CSS/Reference/Values/fit-content_function`) gegenüber Schlüsselwort `fit-content` (`Web/CSS/Reference/Values/fit-content`)
 
-    **Makro**: `\{{CSSxRef("fit-content()")}}` vs. `\{{CSSxRef("fit-content")}}`
+    **Makro**: `\{{CSSxRef("fit-content()")}}` gegenüber `\{{CSSxRef("fit-content")}}`
 
-  - `flex`-Eigenschaft (`Web/CSS/Reference/Properties/flex`) vs. `<flex>`-Datentyp (`Web/CSS/Reference/Values/flex_value`)
+  - Eigenschaft `flex` (`Web/CSS/Reference/Properties/flex`) gegenüber Datentyp `<flex>` (`Web/CSS/Reference/Values/flex_value`)
 
-    **Makro**: `\{{CSSxRef("flex")}}` vs. `\{{CSSxRef("<flex>")}}`
+    **Makro**: `\{{CSSxRef("flex")}}` gegenüber `\{{CSSxRef("<flex>")}}`
 
-  - `:host`-Pseudoklasse (`Web/CSS/Reference/Selectors/:host`) vs. `:host()`-Pseudoklassenfunktion (`Web/CSS/Reference/Values/:host_function`)
+  - Pseudoklasse `:host` (`Web/CSS/Reference/Selectors/:host`) gegenüber Pseudoklassenfunktion `:host()` (`Web/CSS/Reference/Values/:host_function`)
 
-    **Makro**: `\{{CSSxRef(":host")}}` vs. `\{{CSSxRef(":host()")}}`
+    **Makro**: `\{{CSSxRef(":host")}}` gegenüber `\{{CSSxRef(":host()")}}`
 
-  - `overflow`-Eigenschaft (`Web/CSS/Reference/Properties/overflow`) vs. `<overflow>`-Datentyp (`Web/CSS/Reference/Values/overflow_value`)
+  - Eigenschaft `overflow` (`Web/CSS/Reference/Properties/overflow`) gegenüber Datentyp `<overflow>` (`Web/CSS/Reference/Values/overflow_value`)
 
-    **Makro**: `\{{CSSxRef("overflow")}}` vs. `\{{CSSxRef("<overflow>")}}`
+    **Makro**: `\{{CSSxRef("overflow")}}` gegenüber `\{{CSSxRef("<overflow>")}}`
 
-  - `url()`-Funktion (`Web/CSS/Reference/Values/url_function`) vs. `<url>`-Datentyp (`Web/CSS/Reference/Values/url_value`)
+  - Funktion `url()` (`Web/CSS/Reference/Values/url_function`) gegenüber Datentyp `<url>` (`Web/CSS/Reference/Values/url_value`)
 
-    **Makro**: `\{{CSSxRef("url()")}}` vs. `\{{CSSxRef("<url>")}}`
+    **Makro**: `\{{CSSxRef("url()")}}` gegenüber `\{{CSSxRef("<url>")}}`
 
-### Deaktivieren der Code-Formatierung
+### Codeformatierung deaktivieren
 
-Die Querverweis-Makros wenden standardmäßig eine Code-Formatierung auf den Linktext an.
-Um HTML-Code-Semantik und CSS-Code-Styling, die von den Makros angewendet werden, zu vermeiden, verwenden Sie den `"nocode"`-Parameter.
+Die Querverweis-Makros wenden standardmäßig eine Codeformatierung auf den Linktext an.
+Um die von den Makros angewendete HTML-Code-Semantik und CSS-Codeformatierung zu vermeiden, verwenden Sie den Parameter `"nocode"`.
 
-Zum Beispiel erstellt `\{{CSSxRef("background-color")}}` den "{{CSSxRef("background-color")}}" Link mit Code-Styling, während `\{{domxref("CSS.supports_static", "check support", "", "nocode")}}` den einfachen Textlink "[check support](/de/docs/Web/API/CSS/supports_static)" erstellt. Ebenso schreiben wir, um den JavaScript-Array-Link ohne Code-Formatierung zu erstellen, `\{{JSxRef("Array", "JavaScript arrays", "", "nocode")}}`, um "{{JSxRef("Array", "JavaScript arrays", "", "nocode")}}" zu produzieren.
+Beispielsweise erstellt `\{{CSSxRef("background-color")}}` den Link „{{CSSxRef("background-color")}}“ mit Codeformatierung, während `\{{domxref("CSS.supports_static", "check support", "", "nocode")}}` den einfachen Textlink „[check support](/de/docs/Web/API/CSS/supports_static)“ erstellt. Um den JavaScript-Array-Link ohne Codeformatierung zu erstellen, würden wir entsprechend `\{{JSxRef("Array", "JavaScript arrays", "", "nocode")}}` schreiben, um „{{JSxRef("Array", "JavaScript arrays", "", "nocode")}}“ zu erzeugen.
 
 ## Siehe auch
 
-- [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros)
-- [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros), einschließlich BCD-Makros (`\{{Compat}}`) und Spezifikations-Makros (`\{{Specifications}}`).
-- [Hinweise und Warnhinweise Leitfaden](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices) einschließlich der `\{{SeeCompatTable}}`, `\{{Deprecated_Header}}` und `\{{SecureContext_Header}}` Makros.
+- [Makros verwenden](/de/docs/MDN/Writing_guidelines/Page_structures/Macros)
+- [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros), einschließlich BCD-Makros (`\{{Compat}}`) und Spezifikationsmakros (`\{{Specifications}}`).
+- [Leitfaden zu Bannern und Hinweisen](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices), einschließlich der Makros `\{{SeeCompatTable}}` und `\{{SecureContext_Header}}`.

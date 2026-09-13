@@ -1,28 +1,26 @@
 ---
-title: "HTMLImageElement: y Eigenschaft"
+title: "HTMLImageElement: y-Eigenschaft"
 short-title: y
 slug: Web/API/HTMLImageElement/y
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: 384b4f1e0490f2f91f154a9ca977da78e0cc63a9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`y`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Schnittstelle gibt die y-Koordinate der oberen Randkante des {{HTMLElement("img")}} Elements relativ zum Ursprung des Wurzelelements an.
-
-Die [`x`](/de/docs/Web/API/HTMLImageElement/x)- und `y`-Eigenschaften sind nur für ein Bild gültig, wenn die berechnete Eigenschaft {{cssxref("display")}} den Wert `table-column` oder `table-column-group` hat. Mit anderen Worten: Es hat entweder einen dieser Werte explizit festgelegt, es hat ihn von einem umgebenden Element geerbt oder es befindet sich innerhalb einer Spalte, die durch entweder {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
+Die schreibgeschützte **`y`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt die y-Koordinate der oberen Randkante des {{HTMLElement("img")}}-Elements relativ zum Ursprung des Wurzelelements an.
 
 ## Wert
 
-Ein ganzzahliger Wert, der den Abstand in Pixeln von der oberen Kante des nächstgelegenen Wurzelelements zur oberen Kante der Randbox des {{HTMLElement("img")}} Elements angibt. Das nächstgelegene Wurzelelement ist das äußerste {{HTMLElement("html")}} Element, das das Bild enthält. Wenn sich das Bild in einem {{HTMLElement("iframe")}} befindet, ist sein `y` relativ zu diesem Frame.
+Ein ganzzahliger Wert, der den Abstand in Pixeln von der oberen Kante des nächstgelegenen Wurzelelements zur oberen Kante des Border-Box des {{HTMLElement("img")}}-Elements angibt. Das nächstgelegene Wurzelelement ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Befindet sich das Bild in einem {{HTMLElement("iframe")}}, ist dessen `y` relativ zu diesem Frame.
 
-In dem untenstehenden Diagramm ist die obere Randkante die obere Kante des blauen Polsterbereichs. Der von `y` zurückgegebene Wert würde also die Distanz von diesem Punkt zur oberen Kante des Inhaltsbereichs darstellen.
+Im untenstehenden Diagramm ist die obere Randkante die obere Kante des blauen Auffüllbereichs. Daher wäre der von `y` zurückgegebene Wert der Abstand von diesem Punkt zur oberen Kante des Inhaltsbereichs.
 
 ![Diagramm, das die Beziehungen zwischen den verschiedenen mit einem Element verbundenen Boxen zeigt](boxmodel-3.png)
 
-## Beispiel
+## Beispiele
 
-Siehe [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x#example) für ein Beispielcode, das die Verwendung von `HTMLImageElement.y` (und `HTMLImageElement.x`) demonstriert.
+Beispiele finden Sie auf der Seite der [`x`](/de/docs/Web/API/HTMLImageElement/x)-Eigenschaft.
 
 ## Spezifikationen
 
@@ -34,7 +32,4 @@ Siehe [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x#example) für e
 
 ## Siehe auch
 
-- {{cssxref("display")}}
-- {{HTMLElement("col")}}
-- {{HTMLElement("colgroup")}}
 - [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x)

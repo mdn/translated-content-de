@@ -3,14 +3,14 @@ title: "DOMTokenList: keys() Methode"
 short-title: keys()
 slug: Web/API/DOMTokenList/keys
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("DOM")}}
 
-Die **`keys()`** Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Interfaces
-gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der das Durchlaufen aller in diesem Objekt enthaltenen Schlüssel ermöglicht.
-Die Schlüssel sind vorzeichenlose ganze Zahlen.
+Die **`keys()`** Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Interfaces
+gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der es Ihnen ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen.
+Die Schlüssel sind vorzeichenlose Ganzzahlen.
 
 ## Syntax
 
@@ -28,10 +28,11 @@ Gibt einen {{jsxref("Iteration_protocols","iterator","",1)}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
-{{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Wir rufen dann einen Iterator ab, der die Schlüssel enthält, indem wir `keys()` verwenden,
+Im folgenden Beispiel rufen wir die Liste der auf einem
+{{htmlelement("span")}}-Element gesetzten Klassen als `DOMTokenList` mit
+[`Element.classList`](/de/docs/Web/API/Element/classList) ab. Wir rufen dann mit `keys()` einen Iterator ab, der die Schlüssel enthält,
 und iterieren durch diese Schlüssel mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
-wobei wir jeden einzelnen an den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` schreiben.
+wobei jeder Schlüssel in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` geschrieben wird.
 
 Zuerst das HTML:
 
@@ -39,7 +40,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Jetzt das JavaScript:
+Nun das JavaScript:
 
 ```js
 const span = document.querySelector("span");

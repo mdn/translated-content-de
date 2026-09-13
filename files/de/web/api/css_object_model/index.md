@@ -2,14 +2,14 @@
 title: CSS Object Model (CSSOM)
 slug: Web/API/CSS_Object_Model
 l10n:
-  sourceCommit: 8446f51f9a446af6a9ed878ff8f9515d60d28ed5
+  sourceCommit: 8f0171397993605739530a8d32f24a804d06f882
 ---
 
 {{DefaultAPISidebar("CSSOM")}}
 
-Das **CSS-Objektmodell** ist eine Sammlung von APIs, die es ermöglichen, CSS von JavaScript aus zu manipulieren. Es ist dem DOM sehr ähnlich, jedoch für CSS statt für HTML. Es erlaubt Benutzern, CSS-Stile dynamisch zu lesen und zu ändern.
+Das **CSS Object Model** ist eine Sammlung von APIs, die es ermöglichen, CSS von JavaScript aus zu manipulieren. Es ähnelt dem DOM, jedoch für CSS statt für HTML. Damit können Benutzer CSS-Stile dynamisch lesen und ändern.
 
-Die Werte von CSS werden untypisiert dargestellt, das heißt, sie verwenden {{JSxRef("String")}}-Objekte.
+Die Werte von CSS werden untypisiert dargestellt, das heißt, sie nutzen {{JSxRef("String")}}-Objekte.
 
 ## Referenz
 
@@ -55,9 +55,9 @@ Die Werte von CSS werden untypisiert dargestellt, das heißt, sie verwenden {{JS
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport)
 
-Mehrere andere Schnittstellen werden auch von den CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`SVGElement`](/de/docs/Web/API/SVGElement).
+Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`SVGElement`](/de/docs/Web/API/SVGElement).
 
-### CSS Typisiertes Objektmodell
+### CSS Typed Object Model
 
 - [`CSSImageValue`](/de/docs/Web/API/CSSImageValue)
 - [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)
@@ -91,16 +91,14 @@ Mehrere andere Schnittstellen werden auch von den CSSOM-bezogenen Spezifikatione
 
 ### Veraltete CSSOM-Schnittstellen {{deprecated_inline}}
 
-{{deprecated_header}}
-
 - [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) {{deprecated_inline}}
 - [`CSSValue`](/de/docs/Web/API/CSSValue) {{deprecated_inline}}
 - [`CSSValueList`](/de/docs/Web/API/CSSValueList) {{deprecated_inline}}
 
 ## Anleitungen
 
-- [Ermitteln der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
-- [Verwalten der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Bestimmen der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
 
 ## Spezifikationen
 
@@ -108,9 +106,9 @@ Mehrere andere Schnittstellen werden auch von den CSSOM-bezogenen Spezifikatione
 
 ## Browser-Kompatibilität
 
-All diese Funktionen wurden über die Jahre hinweg nach und nach zu den verschiedenen Browsern hinzugefügt: Es war ein ziemlich komplexer Prozess, der sich nicht in einer einfachen Tabelle zusammenfassen lässt. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für deren Verfügbarkeit.
+All diese Funktionen wurden im Laufe der Jahre nach und nach in verschiedenen Browsern hinzugefügt: Es war ein ziemlich komplexer Prozess, der nicht in einer einfachen Tabelle zusammengefasst werden kann. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für deren Verfügbarkeit.
 
 ## Siehe auch
 
-- [Dokumenten-Objektmodell (DOM)](/de/docs/Web/API/Document_Object_Model)
-- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
+- [Document Object Model (DOM)](/de/docs/Web/API/Document_Object_Model)
+- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)

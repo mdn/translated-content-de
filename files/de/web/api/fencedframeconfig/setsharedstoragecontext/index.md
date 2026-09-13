@@ -1,14 +1,15 @@
 ---
-title: "FencedFrameConfig: Methode setSharedStorageContext()"
+title: "FencedFrameConfig: setSharedStorageContext() Methode"
 short-title: setSharedStorageContext()
 slug: Web/API/FencedFrameConfig/setSharedStorageContext
 l10n:
-  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("Fenced Frame API")}}{{SeeCompatTable}}
+{{APIRef("Fenced Frame API")}}
 
-Die **`setSharedStorageContext()`**-Methode der [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Schnittstelle übergibt kontextuelle Daten vom einbettenden Dokument an den [geteilten Speicher](https://privacysandbox.google.com/private-advertising/shared-storage) des `<fencedframe>`.
+Die **`setSharedStorageContext()`** Methode der
+[`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Schnittstelle übergibt kontextuelle Daten vom einbettenden Dokument an den `<fencedframe>` [Shared Storage](https://privacysandbox.google.com/private-advertising/shared-storage).
 
 ## Syntax
 
@@ -19,7 +20,7 @@ setSharedStorageContext(context)
 ### Parameter
 
 - `context`
-  - : Ein String, der die kontextuellen Daten repräsentiert, die in den geteilten Speicher übergeben werden sollen. Sobald festgelegt, wird dies in der internen Konfiguration der [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Instanz gespeichert.
+  - : Ein String, der die kontextuellen Daten darstellt, die in den Shared Storage übergeben werden sollen. Einmal gesetzt, werden diese im internen Konfigurationsobjekt der [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Instanz gespeichert.
 
 ### Rückgabewert
 
@@ -27,13 +28,13 @@ Keiner (`Undefined`).
 
 ## Beispiele
 
-### Kontextuelle Daten via `setSharedStorageContext()` übergeben
+### Kontextuelle Daten über `setSharedStorageContext()` übergeben
 
-Sie können die [Private Aggregation API](https://privacysandbox.google.com/private-advertising/private-aggregation) verwenden, um Berichte zu erstellen, die Ereignis-Level-Daten in eingeschlossenen Frames mit kontextuellen Daten des einbettenden Dokuments kombinieren. `setSharedStorageContext()` kann verwendet werden, um kontextuelle Daten vom Einbettungsdokument an die von der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) initiierte geteilte Speicher-Worklets zu übergeben.
+Sie können die [Private Aggregation API](https://privacysandbox.google.com/private-advertising/private-aggregation) verwenden, um Berichte zu erstellen, die Ereignisdaten innerhalb von Fenced Frames mit kontextuellen Daten des einbettenden Dokuments kombinieren. `setSharedStorageContext()` kann verwendet werden, um kontextuelle Daten vom Einbettenden an Shared Storage Worklets zu übergeben, die von der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) initiiert werden.
 
-Im folgenden Beispiel speichern wir Daten sowohl von der einbettenden Seite als auch vom eingeschlossenen Frame im [geteilten Speicher](https://privacysandbox.google.com/private-advertising/shared-storage).
+Im folgenden Beispiel speichern wir Daten sowohl von der einbettenden Seite als auch vom Fenced Frame in [Shared Storage](https://privacysandbox.google.com/private-advertising/shared-storage).
 
-Auf der einbettenden Seite setzen wir eine simulierte Ereignis-ID als Kontext des geteilten Speichers mithilfe von `setSharedStorageContext()`:
+In der einbettenden Seite werden wir eine simulierte Ereignis-ID als Shared Storage Kontext mit `setSharedStorageContext()` festlegen:
 
 ```js
 const frameConfig = await navigator.runAdAuction({ resolveToConfig: true });
@@ -45,7 +46,7 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-Im eingeschlossenen Frame fügen wir das Worklet-Modul mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzu und senden dann die Ereignis-Level-Daten in das geteilte Speicher-Worklet mithilfe von [`window.sharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) (dies ist nicht verwandt mit den kontextuellen Daten des einbettenden Dokuments):
+Im Fenced Frame fügen wir das Worklet-Modul mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzu und senden dann die Ereignisdaten in das Shared Storage Worklet mit [`window.sharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) (dies steht nicht im Zusammenhang mit den kontextuellen Daten des einbettenden Dokuments):
 
 ```js
 const frameData = {
@@ -61,7 +62,7 @@ await window.sharedStorage.run("send-report", {
 });
 ```
 
-Im `reporting-worklet.js`-Worklet lesen wir die Ereignis-ID des Einbettungsdokuments aus `sharedStorage.context` und die Ereignis-Level-Daten des Frames aus dem Datenobjekt, und berichten diese dann durch Private Aggregation:
+Im `reporting-worklet.js` Worklet lesen wir die Ereignis-ID des einbettenden Dokuments von `sharedStorage.context` und die Ereignis-Level-Daten des Frames aus dem Datenobjekt und berichten sie über Private Aggregation:
 
 ```js
 class ReportingOperation {
@@ -99,5 +100,5 @@ register("send-report", ReportingOperation);
 
 ## Siehe auch
 
-- [Eingeschlossene Frames](https://privacysandbox.google.com/private-advertising/fenced-frame) auf privacysandbox.google.com
-- [Das Privacy Sandbox](https://privacysandbox.google.com/) auf privacysandbox.google.com
+- [Fenced frames](https://privacysandbox.google.com/private-advertising/fenced-frame) auf privacysandbox.google.com
+- [The Privacy Sandbox](https://privacysandbox.google.com/) auf privacysandbox.google.com

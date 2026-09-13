@@ -1,30 +1,30 @@
 ---
-title: "LayoutShift: value-Eigenschaft"
+title: "LayoutShift: Eigenschaft value"
 short-title: value
 slug: Web/API/LayoutShift/value
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die eigenschaft **`value`** (nur lesbar) des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces gibt den Layout-Shift-Score zurück, der als das Produkt aus dem Impact-Fraction (der Anteil des Viewports, der verschoben wurde) und der Distance-Fraction (die Bewegung als Anteil am Viewport) berechnet wird.
+Die **`value`**-Eigenschaft, die schreibgeschützt in der [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Schnittstelle ist, gibt den Layout-Shift-Score zurück. Dieser wird berechnet als Produkt aus dem Einflussbruchteil (Bruchteil des Viewports, der verschoben wurde) und dem Distanzbruchteil (verschobene Distanz als Bruchteil des Viewports).
 
 ## Wert
 
-Eine Zahl zwischen `0,0` und `1,0`, die den Layout-Shift-Score anzeigt.
+Eine Zahl zwischen `0.0` und `1.0`, die den Layout-Shift-Score angibt.
 
-Er wird als das Produkt aus dem Impact-Fraction (der Anteil des Viewports, der verschoben wurde) und der Distance-Fraction (die Bewegung als Anteil am Viewport) berechnet.
+Der Score wird berechnet als das Produkt aus dem Einflussbruchteil (Bruchteil des Viewports, der verschoben wurde) und dem Distanzbruchteil (verschobene Distanz als Bruchteil des Viewports).
 
 ```plain
 layout shift score = impact fraction * distance fraction
 ```
 
-Für weitere Details siehe [Layout Shift Score](https://web.dev/articles/cls#layout_shift_score) auf web.dev.
+Für weitere Details, siehe [Layout shift score](https://web.dev/articles/cls#layout_shift_score) auf web.dev.
 
 ## Beispiele
 
-### Protokollierung des Layout-Shift-Scores des Eintrags
+### Protokollierung des Layout-Shift-Scores eines Eintrags
 
 Das folgende Beispiel zeigt, wie die `value`-Eigenschaft verwendet wird, um den Layout-Shift-Score zu protokollieren.
 

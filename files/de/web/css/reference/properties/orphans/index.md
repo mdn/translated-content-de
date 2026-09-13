@@ -3,12 +3,12 @@ title: "`orphans` CSS property"
 short-title: orphans
 slug: Web/CSS/Reference/Properties/orphans
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: e4ed2e4bfb88dab98ae65c44c134e3359b623d9b
 ---
 
-Die **`orphans`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die am _Ende_ einer [Seite](/de/docs/Web/CSS/Guides/Paged_media), eines Bereichs oder einer [Spalte](/de/docs/Web/CSS/Guides/Multicol_layout) angezeigt werden müssen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`orphans`** legt die Mindestanzahl von Zeilen in einem Block-Container fest, die am _unteren_ Rand einer [Seite](/de/docs/Web/CSS/Guides/Paged_media), Region oder [Spalte](/de/docs/Web/CSS/Guides/Multicol_layout) angezeigt werden müssen.
 
-In der Typografie bezeichnet man als _Waisen_ die erste Zeile eines Absatzes, die alleine am Ende einer Seite erscheint. (Der Absatz wird auf der folgenden Seite fortgesetzt.)
+In der Typografie ist ein _Schusterjunge_ die erste Zeile eines Absatzes, die allein am unteren Rand einer Seite erscheint. (Der Absatz wird auf der folgenden Seite fortgesetzt.)
 
 ## Syntax
 
@@ -28,7 +28,7 @@ orphans: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die minimale Anzahl von Zeilen, die am Ende eines Fragments vor einem Fragmentationswechsel alleine stehen können. Der Wert muss positiv sein.
+  - : Die Mindestanzahl von Zeilen, die vor einem Fragmentierungsumbruch allein am unteren Rand eines Fragments verbleiben können. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -40,7 +40,9 @@ orphans: unset;
 
 ## Beispiele
 
-### Festlegen einer minimalen Waisenanzahl von drei Zeilen
+### Schusterjungen in Spalten steuern
+
+Dieses Beispiel verwendet ein Kontrollkästchen, um `orphans` zwischen `2` und `1` umzuschalten. Bei `orphans: 2` müssen mindestens zwei Zeilen eines Absatzes am unteren Rand einer Spalte erscheinen. Bei `orphans: 1` kann der Absatz an jeder Stelle umbrochen werden.
 
 #### HTML
 
@@ -56,6 +58,10 @@ orphans: unset;
     one.
   </p>
 </div>
+<form>
+  <input type="checkbox" id="orphans" checked />
+  <label for="orphans">Apply orphans: 2</label>
+</form>
 ```
 
 #### CSS
@@ -63,9 +69,16 @@ orphans: unset;
 ```css
 div {
   background-color: #8cffa0;
-  height: 150px;
+  width: 420px;
+  height: 120px;
   columns: 3;
-  orphans: 3;
+  column-fill: auto;
+  orphans: 1;
+  widows: 1;
+}
+
+div:has(~ form input:checked) {
+  orphans: 2;
 }
 
 p {
@@ -79,7 +92,11 @@ p:first-child {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Setting_a_minimum_orphan_size_of_three_lines", 380, 150)}}
+{{EmbedLiveSample("Controlling_column_orphans", "", 240)}}
+
+In Firefox, das `orphans` nicht unterstützt, entspricht das Verhalten in diesem Beispiel unabhängig vom Zustand des Kontrollkästchens im Wesentlichen `orphans: 1`. Der folgende Screenshot zeigt das Ergebnis mit `orphans: 2` in einem unterstützenden Browser:
+
+![Drei Absätze in drei Spalten. Der erste Absatz füllt die erste Spalte. Der zweite Absatz beginnt in der zweiten Spalte, lässt unter dem ersten Absatz Platz und wird in der dritten Spalte fortgesetzt. Der dritte Absatz füllt den restlichen Teil der dritten Spalte.](with-orphans.png)
 
 ## Spezifikationen
 

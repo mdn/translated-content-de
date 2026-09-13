@@ -3,12 +3,12 @@ title: "CSSKeywordValue: CSSKeywordValue() Konstruktor"
 short-title: CSSKeywordValue()
 slug: Web/API/CSSKeywordValue/CSSKeywordValue
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: c18df1fc9001b563c8f14bd8b0988fc3a3bf79e5
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSKeywordValue()`** Konstruktor erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) Objekt, das ein CSS-Schlüsselwort oder einen anderen Bezeichner repräsentiert.
+Der **`CSSKeywordValue()`** Konstruktor erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Objekt, das ein CSS-Schlüsselwort oder einen anderen Bezeichner darstellt.
 
 ## Syntax
 
@@ -24,17 +24,17 @@ new CSSKeywordValue(value)
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn der `value`-Parameter nicht angegeben oder ein leerer String ist.
+  - : Wird ausgelöst, wenn der `value`-Parameter nicht angegeben ist oder wenn er ein leerer String ist.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf `initial`, indem ein `CSSKeywordValue` für das Schlüsselwort konstruiert wird.
+In diesem Beispiel wird die CSS-Eigenschaft {{cssxref('display')}} auf `initial` gesetzt, wobei ein `CSSKeywordValue` für das Schlüsselwort erstellt wird.
 
 #### HTML
 
-Das HTML definiert ein Element, für das wir den Wert des `display`-Schlüsselworts setzen, ein {{htmlelement("hr")}}-Element, einen Button, der verwendet wird, um den Wert des `display`-Schlüsselworts zu setzen, und einen „Reset“-Button, um das Beispiel zurückzusetzen.
+Das HTML definiert ein Element, bei dem wir den Wert des `display`-Schlüsselworts setzen, ein {{htmlelement("hr")}}-Element, einen Button, der verwendet wird, um den Wert des `display`-Schlüsselworts zu setzen, und einen "Zurücksetzen"-Button, um das Beispiel zurückzusetzen.
 
 ```html
 <div id="myElement">
@@ -48,7 +48,7 @@ Das HTML definiert ein Element, für das wir den Wert des `display`-Schlüsselwo
 
 #### CSS
 
-Das CSS setzt das Element zunächst auf `flex`, wodurch es vollbreit angezeigt wird, und verleiht ihm einen soliden Rahmen mit Polsterung und Rändern.
+Das CSS setzt das Element initial auf `flex`, wodurch es voll breit angezeigt wird, und gibt ihm einen festen Rahmen mit Polsterung und Rändern.
 
 ```css
 #myElement {
@@ -61,10 +61,10 @@ Das CSS setzt das Element zunächst auf `flex`, wodurch es vollbreit angezeigt w
 
 #### JavaScript
 
-Der Code holt zunächst einen Griff auf den „Set initial“-Button und fügt einen Listener hinzu, um das Klickereignis zu bearbeiten, wenn es gedrückt wird.
+Der Code erhält zuerst eine Referenz auf den "Set initial"-Button und fügt einen Listener hinzu, um das Klickereignis zu behandeln, wenn er gedrückt wird.
 
-Der Listener ruft dann die Inline-Stile des Elements mit {{domxref(Element.attributeStyleMap)}} ab und setzt das `display`-Attribut mit einem neu konstruierten `CSSKeywordValue`.
-Anschließend wird der Wert dieses Schlüsselworts in der Konsole protokolliert.
+Der Listener ruft dann die Inline-Stile des Elements mit [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap) ab und setzt das `display`-Attribut mit einem neu erstellten `CSSKeywordValue`.
+Es wird dann der Wert dieses Schlüsselworts in der Konsole protokolliert.
 
 ```js
 const setInitialButton = document.querySelector("#set-initial");
@@ -77,7 +77,7 @@ setInitialButton.addEventListener("click", () => {
 });
 ```
 
-Beachten Sie, dass wir den Wert der Inline-Stile nicht vor dem Drücken der Taste protokollieren können, da es keine gibt.
+Beachten Sie, dass wir den Wert der Inline-Stile nicht protokollieren können, bevor der Button gedrückt wird, da keine vorhanden sind.
 
 ```js hidden
 const resetButton = document.querySelector("#reset");
@@ -88,10 +88,10 @@ resetButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Klicken Sie mit der rechten Maustaste auf das Element und öffnen Sie den [Developer Tools Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html), um seine Stile zu inspizieren.
+Klicken Sie mit der rechten Maustaste auf das Element und öffnen Sie den [Entwickler-Tools-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html), um die Stile zu inspizieren.
 Sie sollten sehen, dass `display: flex` auf `#myElement` gesetzt ist.
-Drücken Sie „Set initial“, um den Inline-Stil von `display` auf `"initial"` zu setzen.
-Sie sollten die Änderungen der Stile im Inspektor sehen, und das Element wird sich auch leicht verkleinern, da das `flex` deaktiviert ist.
+Drücken Sie "Set initial", um den Inline-Stil von `display` auf `"initial"` zu setzen.
+Sie sollten sehen, dass sich die Stile im Inspektor ändern, und das Element wird sich auch leicht verkleinern, da das `flex` deaktiviert ist.
 
 {{EmbedLiveSample("Basic usage", 120, 150)}}
 

@@ -3,16 +3,16 @@ title: "LanguageModel: clone() Methode"
 short-title: clone()
 slug: Web/API/LanguageModel/clone
 l10n:
-  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
 
-Die **`clone()`** Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel) Schnittstelle erstellt eine Kopie des `LanguageModel`, auf dem sie aufgerufen wird, einschließlich seines vollständigen Kontextfensterzustands. Die geklonte Sitzung kann unabhängig verwendet werden, ohne das Original zu beeinflussen.
+Die **`clone()`** Methode des [`LanguageModel`](/de/docs/Web/API/LanguageModel) Interfaces erstellt eine Kopie des `LanguageModel`, auf dem sie aufgerufen wird, einschließlich seines vollständigen Kontextfenster-Zustands. Die geklonte Sitzung kann unabhängig verwendet werden, ohne das Original zu beeinflussen.
 
-Das Original und der Klon teilen bis zum Zeitpunkt des Klonens dieselbe Kontextgeschichte, was es ermöglicht, mehrere Antwortpfade zu erkunden oder Variationen zu testen, ohne von vorne zu beginnen.
+Das Original und das Klon teilen den gleichen Kontextverlauf bis zum Zeitpunkt des Klonens, sodass Sie mehrere Antwortwege erkunden oder Variationen testen können, ohne von vorne zu beginnen.
 
-Zum Beispiel könnten Sie einen gemeinsamen Kontext durch [`append()`](/de/docs/Web/API/LanguageModel/append) oder frühe [`prompt()`](/de/docs/Web/API/LanguageModel/prompt) `prompt()`-Aufrufe erstellen, die Sitzung klonen und dann unterschiedliche Anschlussbefehle parallel an jeden Klon senden.
+Zum Beispiel können Sie einen gemeinsamen Kontext mit [`append()`](/de/docs/Web/API/LanguageModel/append) oder frühen [`prompt()`](/de/docs/Web/API/LanguageModel/prompt) `prompt()` Aufrufen erstellen, die Sitzung klonen und dann unterschiedliche Folgeaufrufe parallel an jeden Klon senden.
 
 ## Syntax
 
@@ -24,10 +24,9 @@ clone(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die übergebenen Optionen darstellt. Wenn dieses Argument fehlt, werden die `options` der ursprünglichen Sitzung, wie etwa ihr Abort-Signal, verwendet.
-    Eigenschaften umfassen:
+  - : Ein Objekt, das die übergebbaren Optionen repräsentiert. Wenn dieses Argument fehlt, werden die `options` aus der ursprünglichen Sitzung, wie z.B. das Abbruchs-Signal, verwendet. Eigenschaften umfassen:
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zur Stornierung des Klonvorgangs.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), um den Klonvorgang abzubrechen.
 
 ### Rückgabewert
 
@@ -36,19 +35,19 @@ Ein {{jsxref("Promise")}}, das mit einer geklonten [`LanguageModel`](/de/docs/We
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Vorgang über die `signal`-Option abgebrochen wird.
+  - : Wird ausgelöst, wenn der Vorgang über die `signal` Option abgebrochen wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Nutzung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}} {{httpheader("Permissions-Policy")}} blockiert ist.
+  - : Wird ausgelöst, wenn die Nutzung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}} {{httpheader("Permissions-Policy")}} blockiert wird.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Klonen aus einem anderen Grund fehlschlägt, der nicht in den anderen Ausnahmetypen aufgeführt ist.
+  - : Wird ausgelöst, wenn das Klonen aus einem anderen hier nicht aufgeführten Grund fehlschlägt.
 
 ## Beispiele
 
 Siehe auch [Verwendung der Prompt API > Klonen einer Sitzung](/de/docs/Web/API/Prompt_API/Using#cloning_a_session).
 
-### Erkundung mehrerer Antwortpfade
+### Erkunden mehrerer Antwortwege
 
-Das folgende Beispiel zeigt, wie verschiedene Antwortpfade untersucht werden können. Zuerst wird eine einzelne Sitzung mit dem Beginn einer Geschichte erstellt. Dann wird die ursprüngliche Sitzung zweimal geklont, bevor unterschiedliche Endungen abgefragt werden. Dieser Ansatz bewahrt die ursprüngliche Sitzung, falls weitere Erkundungen gewünscht sind.
+Das folgende Beispiel zeigt, wie verschiedene Antwortwege erkundet werden. Zuerst wird eine einzelne Sitzung mit dem Anfang einer Geschichte erstellt. Dann wird die ursprüngliche Sitzung zweimal geklont, bevor für verschiedene Enden aufgefordert wird. Dieser Ansatz bewahrt die ursprüngliche Sitzung, falls weitere Erkundungen gewünscht sind.
 
 ```js
 const session = await LanguageModel.create({
@@ -72,9 +71,9 @@ console.log("Happy ending:", ending1);
 console.log("Mysterious ending:", ending2);
 ```
 
-### Klonen, um nach einem Kontextüberlauf neu zu versuchen
+### Klonen, um nach einem Kontextüberlauf zu wiederholen
 
-Dieses Beispiel verwendet ein Checkpoint- und Rollback-Muster, um den Zustand einer Sitzung zu speichern, bevor versucht wird, eine große Menge an Daten anzuhängen. Das Klonen der Sitzung vor dem Aufruf von `append()` ermöglicht es der App, den Zustand wiederherzustellen, wenn das Kontextfenster überschritten wird.
+Dieses Beispiel verwendet ein Checkpoint- und Rollback-Muster, um den Zustand einer Sitzung zu speichern, bevor versucht wird, eine große Menge an Daten anzuhängen. Das Klonen der Sitzung vor dem Aufruf von `append()` ermöglicht es der App, den Zustand wiederherzustellen, falls das Kontextfenster überschritten wird.
 
 ```js
 const veryLargeDocument = "This is my very long story...";
@@ -91,9 +90,9 @@ try {
 }
 ```
 
-### Klonen einer Sitzung mit einem Abbruchsignal
+### Klonen einer Sitzung mit einem Abbruchs-Signal
 
-Das folgende Beispiel erstellt ein Timeout, um den Klonvorgang abzubrechen, wenn er länger als drei Sekunden dauert.
+Das folgende Beispiel erstellt einen Timeout, um den Klon-Vorgang abzubrechen, wenn er länger als drei Sekunden dauert.
 
 ```js
 const controller = new AbortController();
@@ -124,4 +123,4 @@ try {
 - [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append)
 - [Prompt API](/de/docs/Web/API/Prompt_API)
 - [Verwendung der Prompt API](/de/docs/Web/API/Prompt_API/Using)
-- [Hinzufügen von Kontext mit initialen und laufenden Eingaben](/de/docs/Web/API/Prompt_API/Adding_context)
+- [Hinzufügen von Kontext mit anfänglichen und fortlaufenden Eingabeaufforderungen](/de/docs/Web/API/Prompt_API/Adding_context)

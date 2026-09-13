@@ -1,13 +1,13 @@
 ---
-title: Das "Warum" der Web-Performance
+title: Der "Warum" von Web-Performance
 slug: Learn_web_development/Extensions/Performance/why_web_performance
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 87adaa5384b1015690f3435ce0ba64ac097764eb
 ---
 
 {{NextMenu("Learn_web_development/Extensions/Performance/What_is_web_performance", "Learn_web_development/Extensions/Performance")}}
 
-Web-Performance dreht sich darum, Websites schnell zu machen, einschließlich langsame Prozesse _schnell_ erscheinen zu lassen. Dieser Artikel bietet eine Einführung darin, warum Web-Performance wichtig für Seitenbesucher und für Ihre Geschäftsziele ist.
+Web-Performance dreht sich darum, Websites schnell zu machen, einschließlich langsamer Prozesse, die _schnell_ erscheinen. Dieser Artikel gibt eine Einführung, warum Web-Performance für die Besucher Ihrer Website und für Ihre geschäftlichen Ziele wichtig ist.
 
 <table>
   <tbody>
@@ -17,61 +17,60 @@ Web-Performance dreht sich darum, Websites schnell zu machen, einschließlich la
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software"
           >Grundlegende Software installiert</a
-        > und Grundwissen über
+        >, und grundlegende Kenntnisse von
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
-          >client-seitige Web-Technologien</a
+          >clientseitigen Webtechnologien</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein grundlegendes Verständnis dafür zu erlangen, warum Web-Performance
-        für ein gutes Benutzererlebnis wichtig ist.
+        Ein grundlegendes Verständnis dafür zu erlangen, warum Web-Performance für eine gute Benutzererfahrung wichtig ist.
       </td>
     </tr>
   </tbody>
 </table>
 
-Web-Performance bezieht sich darauf, wie schnell Webseiten-Inhalte in einem Webbrowser **laden** und **gerendert** werden und wie gut sie auf Benutzerinteraktion reagieren. Schlecht performende Websites sind langsam beim Anzeigen und bei der Reaktion auf Eingaben. Schlecht performende Websites erhöhen den Seitenabbruch. Im schlimmsten Fall führt schlechte Performance dazu, dass Inhalte vollständig unzugänglich sind. Ein gutes Ziel für die Web-Performance ist, dass Nutzer die Performance nicht bemerken. Obwohl die Wahrnehmung der Seitenperformance subjektiv ist, können Laden und Rendern gemessen werden. Gute Performance mag den meisten Seitenbesuchern nicht auffallen, aber die meisten erkennen sofort eine träge Seite. Deshalb ist es wichtig.
+Web-Performance bezieht sich darauf, wie schnell der Inhalt einer Website in einem Webbrowser **lädt** und **gerendert** wird und wie gut er auf Benutzerinteraktionen reagiert. Schlecht performende Seiten sind langsam beim Anzeigen und langsam bei der Eingabe-Reaktion. Schlecht performende Seiten erhöhen die Seitenabbruchrate. Im schlimmsten Fall führt schlechte Performance dazu, dass Inhalte völlig unzugänglich sind. Ein gutes Ziel für Web-Performance ist es, dass die Benutzer die Performance nicht bemerken. Während die Wahrnehmung der Website-Performance subjektiv ist, können Laden und Rendern gemessen werden. Gute Performance mag den meisten Website-Besuchern nicht auffallen, aber die meisten werden sofort eine langsame Seite erkennen. Deshalb kümmern wir uns darum.
 
-## Warum ist Performance wichtig?
+## Warum liegt uns die Leistung am Herzen?
 
-Web-Performance — und die damit verbundenen Best Practices — sind entscheidend, damit Ihre Webseitenbesucher ein gutes Erlebnis haben. In gewisser Hinsicht kann Web-Performance als Teilmenge der [Web-Accessibility](/de/docs/Learn_web_development/Core/Accessibility) betrachtet werden. Wie bei der Barrierefreiheit berücksichtigt man auch bei der Performance, welches Gerät ein Seitenbesucher nutzt, um auf die Seite zuzugreifen, und die Verbindungsgeschwindigkeit des Geräts.
+Web-Performance und die damit verbundenen Best Practices sind entscheidend für Ihre Website-Besucher, um eine gute Erfahrung zu haben. In gewisser Weise kann Web-Performance als Teilmenge der [Web-Zugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility) betrachtet werden. Bei der Performance sowie bei der Zugänglichkeit berücksichtigen Sie, welches Gerät ein Website-Besucher verwendet, um auf die Website zuzugreifen, und die Geschwindigkeit der Geräteverbindung.
 
-Als Beispiel: Überlegen Sie sich das Ladeerlebnis von CNN.com, das zum Zeitpunkt des Schreibens über 400 HTTP-Anfragen mit einer Dateigröße von über 22,6 MB hatte.
+Ein Beispiel: Betrachten Sie die Ladeerfahrung von CNN.com, das zum Zeitpunkt des Schreibens über 400 HTTP-Anfragen mit einer Dateigröße von über 22,6 MB hatte.
 
-- Stellen Sie sich vor, dies auf einem Desktop-Computer zu laden, der mit einem Glasfasernetzwerk verbunden ist. Dies würde relativ schnell wirken, und die Dateigröße wäre größtenteils irrelevant.
-- Stellen Sie sich vor, dieselbe Seite mit mobil geteilten Daten auf einem neun Jahre alten iPad zu laden, während Sie mit öffentlichen Verkehrsmitteln nach Hause pendeln. Dieselbe Seite wäre langsam zu laden, möglicherweise unbenutzbar je nach Mobilfunkabdeckung. Sie könnten aufgeben, bevor es vollständig geladen ist.
-- Stellen Sie sich vor, dieselbe Seite auf einem kostengünstigen Gerät in einem Gebiet mit eingeschränkter Abdeckung zu laden. Die Seite wird sehr langsam geladen—wenn sie überhaupt geladen wird—wobei blockierende Skripte möglicherweise Zeitlimits überschreiten und negative CPU-Auswirkungen potenziell zu Browserabstürzen führen könnten, wenn sie geladen wird.
+- Stellen Sie sich vor, dies auf einem Desktop-Computer zu laden, der mit einem Glasfasernetzwerk verbunden ist. Dies würde relativ schnell erscheinen, und die Dateigröße wäre weitgehend irrelevant.
+- Stellen Sie sich vor, dieselbe Seite mit einem getetherden mobilen Daten auf einem neun Jahre alten iPad beim Pendeln auf öffentlichen Verkehrsmitteln zu laden. Die gleiche Seite wird langsam laden, möglicherweise an der Grenze zur Unbenutzbarkeit je nach Mobilfunkabdeckung. Sie könnten aufgeben, bevor es fertig geladen ist.
+- Stellen Sie sich vor, dieselbe Seite auf einem kostengünstigen Gerät in einem Gebiet mit begrenzter Abdeckung zu laden. Die Website wird sehr langsam laden – wenn sie überhaupt lädt – wobei blockierende Skripte möglicherweise auslaufen und der nachteilige Einfluss auf die CPU potenziell zu Browser-Abstürzen führen kann, wenn sie lädt.
 
-Eine 22,6 MB große Seite könnte auf einem 3G-Netzwerk bis zu 83 Sekunden zum Laden benötigen, wobei [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) (was die Basis-HTML-Struktur der Seite bedeutet) bei 31,86 Sekunden liegt.
+Eine Website mit 22,6 MB könnte bis zu 83 Sekunden auf einem 3G-Netzwerk zum Laden benötigen, wobei [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) (bedeutet die Basis-HTML-Struktur der Website) bei 31,86 Sekunden liegt.
 
-Und es ist nicht nur die Zeit, die für das Herunterladen benötigt wird, die ein großes Problem darstellt. In einigen Regionen werden Internetverbindungen pro Megabyte abgerechnet, was große Downloads unerschwinglich macht. Unser Beispielerlebnis mit 22,6 MB von CNN.com würde einen erheblichen Teil des täglichen Datenvolumens eines Mobilfunknutzers kosten oder sogar zu hohen Gebühren in bestimmten internationalen Roaming-Tarifen führen.
+Und es ist nicht nur die Zeit, die zum Herunterladen benötigt wird, das ein großes Problem darstellt. In einigen Regionen werden Internetverbindungen nach Megabyte abgerechnet, was große Downloads unerschwinglich teuer macht. Unser Beispielerlebnis auf CNN.com mit 22,6 MB würde einen erheblichen Teil des täglichen Datenvolumens eines mobilen Nutzers kosten oder sogar zu hohen Gebühren bei bestimmten internationalen Roaming-Tarifen führen.
 
-### Konversionsraten verbessern
+### Conversion-Raten verbessern
 
-Die Reduzierung der Download- und Renderzeit einer Seite verbessert die Konversionsraten und Benutzerbindung.
+Das Reduzieren der Download- und Renderzeit einer Website verbessert die Conversion-Raten und die Benutzerbindung.
 
-Eine **Konversionsrate** ist die Rate, mit der Seitenbesucher eine gemessene oder gewünschte Aktion ausführen. Zum Beispiel könnte dies ein Kauf sein, das Lesen eines Artikels oder das Abonnieren eines Newsletters. Die Aktion, die als Konversionsrate gemessen wird, hängt von den Geschäftszielen der Website ab.
+Eine **Conversion-Rate** ist die Rate, mit der Website-Besucher eine gemessene oder gewünschte Aktion ausführen. Zum Beispiel könnte dies der Kauf eines Produkts, das Lesen eines Artikels oder das Abonnieren eines Newsletters sein. Die als Conversion-Rate gemessene Aktion hängt von den Geschäftszielen der Website ab.
 
-Performance wirkt sich auf die Konversion aus; Verbesserung der Web-Performance verbessert die Konversion. Seitenbesucher erwarten, dass eine Seite in zwei Sekunden oder weniger lädt; manchmal sogar weniger auf Mobilgeräten (wo es in der Regel länger dauert). Diese gleichen Seitenbesucher beginnen, langsame Seiten nach 3 Sekunden zu verlassen.
+Die Performance beeinflusst die Conversion; eine Verbesserung der Web-Performance verbessert die Conversion. Website-Besucher erwarten, dass eine Website in zwei Sekunden oder weniger geladen wird; manchmal sogar weniger auf mobilen Geräten (wo es generell länger dauert). Dieselben Website-Besucher beginnen, langsame Websites nach 3 Sekunden zu verlassen.
 
-Die Geschwindigkeit, mit der eine Seite lädt, ist ein Faktor. Wenn die Seite langsam auf Benutzerinteraktion reagiert oder ruckelig wirkt, verlieren die Seitenbesucher Interesse und Vertrauen.
+Die Geschwindigkeit, mit der eine Website lädt, ist ein Faktor. Wenn die Website langsam auf Benutzerinteraktionen reagiert oder sprunghaft erscheint, verliert dies das Interesse und das Vertrauen der Website-Besucher.
 
-Hier sind einige Beispiele aus der Praxis für Performance-Verbesserungen:
+Hier sind einige Beispiele aus der Praxis für Leistungsverbesserungen:
 
-- [Tokopedia hat die Renderzeit von 14s auf 2s für 3G-Verbindungen reduziert und sah einen Anstieg der Besucher um 19%, eine Erhöhung der Gesamtsitzungen um 35%, einen Zuwachs von neuen Benutzern um 7%, eine Steigerung der aktiven Nutzer um 17% und 16% mehr Sitzungen pro Nutzer.](https://wpostats.com/2018/05/30/tokopedia-new-users.html)
-- [Der Neuaufbau der Pinterest-Seiten für Performance führte zu einer 40%igen Reduzierung der Wartezeit, einer 15%igen Erhöhung des SEO-Traffics und einer 15%igen Steigerung der Konversionsrate bei Anmeldungen.](https://wpostats.com/2017/03/10/pinterest-seo.html)
+- [Tokopedia reduzierte die Renderzeit von 14 s auf 2 s für 3G-Verbindungen und verzeichnete eine Steigerung von 19 % bei den Besuchern, 35 % bei den gesamten Sitzungen, 7 % bei den neuen Benutzern, 17 % bei den aktiven Nutzern und 16 % bei den Sitzungen pro Benutzer.](https://wpostats.com/2018/05/30/tokopedia-new-users.html)
+- [Der Neuaufbau von Pinterest-Seiten zur Verbesserung der Performance führte zu einer Reduktion der Wartezeit um 40 %, einem Anstieg des SEO-Verkehrs um 15 % und einer Steigerung der Conversion-Rate zur Anmeldung um 15 %.](https://wpostats.com/2017/03/10/pinterest-seo.html)
 
-Um Websites und Anwendungen zu erstellen, die Menschen nutzen möchten; um Seitenbesucher anzuziehen und zu halten, müssen Sie eine zugängliche Seite schaffen, die ein gutes Benutzererlebnis bietet. Der Bau von Websites erfordert HTML, CSS und JavaScript, typischerweise einschließlich binärer Dateitypen wie Bilder und Videos. Die Entscheidungen, die Sie treffen, und die Werkzeuge, die Sie wählen, während Sie Ihre Seite erstellen, können die Performance des fertigen Werks stark beeinflussen.
+Um Websites und Anwendungen zu erstellen, die Menschen nutzen möchten; um Website-Besucher anzuziehen und zu halten, müssen Sie eine zugängliche Website erstellen, die eine gute Benutzererfahrung bietet. Das Erstellen von Websites erfordert HTML, CSS und JavaScript, typischerweise inklusive binärer Dateitypen wie Bildern und Videos. Die Entscheidungen, die Sie treffen und die Werkzeuge, die Sie wählen, während Sie Ihre Website erstellen, können die Performance des fertigen Werks stark beeinflussen.
 
-Gute Performance ist ein Vorteil. Schlechte Performance ist eine Belastung. Die Geschwindigkeit der Seite beeinflusst direkt Absprungraten, Konversion, Einnahmen, Benutzerzufriedenheit und das Ranking in Suchmaschinen. Leistungsstarke Seiten haben sich als vorteilhaft zur Erhöhung der Besucherbindung und Benutzerzufriedenheit erwiesen. Langsame Inhalte haben sich als Ursache für Seitenabbrüche herausgestellt, wobei einige Besucher die Seiten verlassen und nie zurückkehren. Die Reduzierung der Datenmenge, die zwischen Client und Server übertragen wird, senkt die Kosten für alle Beteiligten. Durch die Reduzierung von HTML/CSS/JavaScript und Mediendateigrößen wird sowohl die Ladezeit als auch der Stromverbrauch der Seite reduziert (siehe [Leistungsbudgets](/de/docs/Web/Performance/Guides/Performance_budgets)).
+Gute Performance ist ein Vorteil. Schlechte Performance ist eine Belastung. Die Geschwindigkeit der Website beeinflusst direkt die Absprungraten, die Conversion, den Umsatz, die Benutzerzufriedenheit und das Ranking in Suchmaschinen. Es wurde gezeigt, dass performante Websites die Besucherbindung und die Benutzerzufriedenheit erhöhen. Langsame Inhalte haben gezeigt, dass sie zum Abbruch von Websites führen, wobei einige Besucher einmal gehen und nie wiederkommen. Die Reduzierung der Datenmenge, die zwischen dem Client und dem Server übertragen wird, senkt die Kosten für alle Parteien. Die Reduzierung der Größe von HTML/CSS/JavaScript und Mediendateien verringert sowohl die Ladezeit als auch den Stromverbrauch einer Website (siehe [Performance-Budgets](/de/docs/Web/Performance/Guides/Performance_budgets)).
 
-Die Verfolgung der Performance ist wichtig. Mehrere Faktoren, einschließlich Netzgeschwindigkeit und Gerätefähigkeiten, beeinflussen die Performance. Es gibt keine einzelne Performance-Metrik; und unterschiedliche Geschäftsziele können bedeuten, dass unterschiedliche Metriken relevanter für die Ziele der Seite oder der unterstützenden Organisation sind. Wie die Performance Ihrer Seite wahrgenommen wird, ist Benutzererfahrung!
+Das Verfolgen der Performance ist wichtig. Mehrere Faktoren, einschließlich der Netzwerkgeschwindigkeit und der Gerätefähigkeiten beeinflussen die Performance. Es gibt keine einzelne Performance-Kennzahl; und unterschiedliche Geschäftsziele können bedeuten, dass verschiedene Kennzahlen für die Ziele der Website oder der Organisation, die sie unterstützt, relevanter sind. Wie die Leistung Ihrer Website wahrgenommen wird, ist Benutzererfahrung!
 
 ## Fazit
 
-Web-Performance ist wichtig für die Zugänglichkeit und auch für andere Website-Metriken, die den Zielen einer Organisation oder eines Unternehmens dienen. Gute oder schlechte Website-Performance korreliert stark mit der Benutzererfahrung sowie der Gesamtwirksamkeit der meisten Seiten. Aus diesem Grund sollten Sie sich für Web-Performance interessieren.
+Web-Performance ist wichtig für die Zugänglichkeit und auch für andere Website-Metriken, die die Ziele einer Organisation oder eines Unternehmens unterstützen. Gute oder schlechte Website-Performance korreliert stark mit der Benutzererfahrung sowie der Gesamteffektivität der meisten Websites. Aus diesem Grund sollten Sie sich um die Web-Performance kümmern.
 
 {{NextMenu("Learn_web_development/Extensions/Performance/What_is_web_performance", "Learn_web_development/Extensions/Performance")}}

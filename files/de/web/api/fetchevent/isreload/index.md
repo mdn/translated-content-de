@@ -1,20 +1,18 @@
 ---
-title: "FetchEvent: isReload-Eigenschaft"
+title: "FetchEvent: isReload Eigenschaft"
 short-title: isReload
 slug: Web/API/FetchEvent/isReload
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Service Workers API")}}{{deprecated_header}}{{Non-standard_header}}{{AvailableInWorkers("service")}}
+{{APIRef("Service Workers API")}}{{Non-standard_header}}{{AvailableInWorkers("service")}}
 
-Die **`isReload`** schreibgeschützte Eigenschaft des
-[`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt `true` zurück, wenn das Ereignis dadurch ausgelöst wurde, dass der Benutzer versucht hat, die Seite neu zu laden, und `false` in allen anderen Fällen.
-Das Drücken der Aktualisierungstaste ist ein Neuladen, während das Klicken auf einen Link und das Drücken der Zurück-Taste kein Neuladen ist.
+Die schreibgeschützte **`isReload`**-Eigenschaft des [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt `true` zurück, wenn das Ereignis durch den Versuch des Nutzers, die Seite neu zu laden, ausgelöst wurde, und `false` in anderen Fällen. Das Drücken der Aktualisieren-Schaltfläche ist ein Neuladen, während das Klicken auf einen Link und das Drücken der Zurück-Schaltfläche kein Neuladen sind.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Beispiele
 
@@ -36,6 +34,6 @@ self.addEventListener("fetch", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Servicearbeitern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Code-Beispiel für Servicearbeiter](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web-Arbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Service Worker: Einfaches Codebeispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Web Worker verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

@@ -3,16 +3,16 @@ title: "RTCEncodedVideoFrame: timestamp-Eigenschaft"
 short-title: timestamp
 slug: Web/API/RTCEncodedVideoFrame/timestamp
 l10n:
-  sourceCommit: 3dd7df0af3b0ada1a7c5784cc2bc5448adcda8af
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}{{non-standard_header}}
 
-Die **`timestamp`**-Eigenschaft, die nur lesbar ist, der [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Schnittstelle gibt an, zu welchem Zeitpunkt die Frame-Abtastung begann.
+Die schreibgeschützte **`timestamp`**-Eigenschaft der [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Schnittstelle gibt an, zu welchem Zeitpunkt das Sampling des Frames begonnen hat.
 
 ## Wert
 
-Ein positiver Ganzzahlwert, der den Abtastzeitpunkt des ersten Bytes in diesem Frame in Mikrosekunden enthält.
+Eine positive Ganzzahl, die den Sampling-Zeitpunkt des ersten Bytes in diesem Frame in Mikrosekunden enthält.
 
 ## Spezifikationen
 

@@ -1,17 +1,17 @@
 ---
-title: "PushManager: hasPermission()-Methode"
+title: "PushManager: hasPermission() Methode"
 short-title: hasPermission()
 slug: Web/API/PushManager/hasPermission
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
+{{ApiRef("Push API")}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`PushManager.hasPermission()`**-Methode des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das den `PushPermissionStatus` der anfragenden Web-App auflöst, welcher einer von `granted`, `denied` oder `default` sein wird.
+Die **`PushManager.hasPermission()`** Methode des [`PushManager`](/de/docs/Web/API/PushManager) Interfaces gibt ein {{jsxref("Promise")}} zurück, das sich in den `PushPermissionStatus` der anfragenden Web-App auflöst und einen der Werte `granted`, `denied` oder `default` annimmt.
 
 > [!NOTE]
-> Diese Funktion wurde durch die [`PushManager.permissionState()`](/de/docs/Web/API/PushManager/permissionState)-Methode ersetzt.
+> Diese Funktion wurde durch die [`PushManager.permissionState()`](/de/docs/Web/API/PushManager/permissionState) Methode ersetzt.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zum `PushPermissionStatus` auflöst.
+Ein {{jsxref("Promise")}}, das sich in den `PushPermissionStatus` auflöst.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Ein {{jsxref("Promise")}}, das sich zum `PushPermissionStatus` auflöst.
 
 ## Spezifikationen
 
-Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie steht nicht mehr im Plan, ein Standard zu werden.
+Diese Funktion ist Teil keiner Spezifikation mehr. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

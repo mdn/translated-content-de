@@ -3,18 +3,18 @@ title: "WorkerGlobalScope: languagechange Ereignis"
 short-title: languagechange
 slug: Web/API/WorkerGlobalScope/languagechange_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
+{{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Das **`languagechange`**-Ereignis wird am globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
+Das **`languagechange`** Ereignis wird beim globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("languagechange", (event) => { })
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie können das `languagechange`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `languagechange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
 
 ```js
 worker.addEventListener("languagechange", () => {
@@ -36,7 +36,7 @@ worker.addEventListener("languagechange", () => {
 });
 ```
 
-Oder die `onlanguagechange`-Ereignishandlereigenschaft nutzen:
+Oder die `onlanguagechange` Ereignishandler-Eigenschaft nutzen:
 
 ```js
 worker.onlanguagechange = (event) => {

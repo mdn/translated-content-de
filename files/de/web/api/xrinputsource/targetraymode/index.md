@@ -1,47 +1,49 @@
 ---
-title: "XRInputSource: Eigenschaft targetRayMode"
+title: "XRInputSource: targetRayMode-Eigenschaft"
 short-title: targetRayMode
 slug: Web/API/XRInputSource/targetRayMode
 l10n:
-  sourceCommit: c0f1aecaed48d75652c6dd97f30c7febd07e5cde
+  sourceCommit: 46a755ea71206e4512e3639596e6f68f4e71f041
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft **`targetRayMode`** gibt an, auf welche Weise der Zielstrahl für die Eingabequelle erzeugt und dem Benutzer präsentiert werden soll.
+Die schreibgeschützte [`XRInputSource`](/de/docs/Web/API/XRInputSource)
+Eigenschaft **`targetRayMode`** gibt die Methode an, mit der der Zielstrahl für die
+Eingabequelle erzeugt und dem Benutzer präsentiert werden soll.
 
-Typischerweise wird ein Zielstrahl von der Quelle des Zielsystems entlang des Zielstrahls in die Richtung gezeichnet, in die der Benutzer schaut oder zeigt. Die Gestaltung des Strahls bleibt im Allgemeinen Ihnen überlassen, ebenso die Methode zur Kennzeichnung des Endpunkts des Strahls. Der angezielte Punkt oder das Objekt kann durch Zeichnen einer Form oder Hervorheben der anvisierten Oberfläche oder des Objekts angezeigt werden.
+Typischerweise wird ein Zielstrahl von der Quelle des Zielsystems entlang des Zielstrahls in die Richtung gezeichnet, in die der Benutzer schaut oder zeigt. Der Stil des Strahls liegt normalerweise bei Ihnen, ebenso wie die Methode zur Anzeige des Endpunkts des Strahls. Der anvisierte Punkt oder das Objekt könnte durch das Zeichnen einer Form oder das Hervorheben der anvisierten Oberfläche oder des Objekts angezeigt werden.
 
 Ein Zielstrahl, der von einem Handcontroller ausgesendet wird:
 
-![Ein Screenshot, der einen von einem Handcontroller ausgesendeten Zielstrahl zeigt](https://mdn.github.io/shared-assets/images/examples/hand-controller-target-ray.gif)
+![Ein Screenshot, der einen Zielstrahl zeigt, der von einem Handcontroller ausgesendet wird](https://mdn.github.io/shared-assets/images/examples/hand-controller-target-ray.gif)
 
-Der Zielstrahl kann alles von einer einfachen Linie (idealerweise über die Entfernung verblassend) bis hin zu einem animierten Effekt wie dem im obigen Screenshot gezeigten Science-Fiction-"Phaser"-Stil sein.
+Der Zielstrahl kann alles sein, von einer einfachen Linie (idealerweise im Verlauf der Distanz verblassend) bis hin zu einem animierten Effekt wie dem im obigen Screenshot gezeigten Science-Fiction-"Phaser"-Stil.
 
 ## Wert
 
-Ein String, der angibt, welche Methode zur Erzeugung und Präsentation des Zielstrahls für den Benutzer verwendet werden soll. Die möglichen Werte sind:
+Ein String, der angibt, welche Methode verwendet werden soll, um den Zielstrahl für den Benutzer zu erzeugen und zu präsentieren. Die möglichen Werte sind:
 
 - `gaze`
-  - : Der Benutzer verwendet ein Blickverfolgungssystem (oder **Blickeingabe**), das die Richtung erkennt, in die der Benutzer schaut. Der Zielstrahl wird von den Augen des Betrachters ausgehend gezeichnet und folgt der Blickrichtung.
+  - : Der Benutzer verwendet ein Blickverfolgungssystem (oder **Blick-Eingabe**), das die Richtung erkennt, in die der Benutzer schaut. Der Zielstrahl wird von den Augen des Betrachters ausgehen und der Blickrichtung folgen.
 - `screen`
-  - : Die Richtung des Zielstrahls wird durch Tippen auf einen Touchscreen, eine Maus oder ein anderes taktiles Eingabegerät angezeigt.
+  - : Die Richtung des Zielstrahls wird durch ein Tippen auf einen Touchscreen, eine Maus oder ein anderes taktiles Eingabegerät angegeben.
 - `tracked-pointer`
-  - : Die Zielerfassung erfolgt mit einem Handgerät oder einem Handverfolgungssystem, das der Benutzer in die Richtung des Ziels zeigt. Der Zielstrahl erstreckt sich von der Hand (oder dem Objekt in der Hand) in die anvisierte Richtung. Die Richtung wird basierend auf plattformspezifischen Regeln bestimmt, obwohl, falls solche Regeln nicht existieren, die Richtung durch Annahme gewählt wird, dass der Benutzer seinen Zeigefinger gerade aus seiner Hand heraus zeigt.
+  - : Das Zielen erfolgt mit einem Handgerät oder einem Handverfolgungssystem, mit dem der Benutzer in die Richtung des Ziels zeigt. Der Zielstrahl erstreckt sich von der Hand (oder dem Objekt in der Hand) in die anvisierte Richtung. Die Richtung wird anhand plattformspezifischer Regeln bestimmt, wobei, falls solche Regeln fehlen, davon ausgegangen wird, dass der Benutzer seinen Zeigefinger gerade aus seiner Hand heraus zeigt.
 - `transient-pointer`
-  - : Die Eingabequelle wurde als Teil einer Betriebssystem-Interaktionsabsicht und nicht durch ein spezifisches Hardwareteil erzeugt. Einige Beispiele schließen Benutzerintentionen ein, die auf Informationen basieren, die zu sensibel sind, um direkt offengelegt zu werden, wie z.B. Blick, synthetisierte Eingaben von Web-Treibern oder Eingaben, die von unterstützender Technologie erzeugt wurden.
+  - : Die Eingabequelle wurde als Teil einer Betriebssystem-Interaktionsabsicht generiert und nicht von einem bestimmten Hardwarestück. Einige Beispiele umfassen Benutzerabsichten, die auf Informationen beruhen, die zu sensibel sind, um direkt offengelegt zu werden, wie etwa Blick, synthetisierte Eingaben von Webtreibern oder Eingaben, die von unterstützenden Technologien generiert wurden.
 
 ## Nutzungshinweise
 
-Die [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) der Eingabequelle gibt die Position und Orientierung des Zielstrahls an und kann verwendet werden, um zu bestimmen, wo der Strahl gerendert werden soll.
+Der [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) der Eingabequelle gibt die Position und Ausrichtung des Zielstrahls an und kann verwendet werden, um zu bestimmen, wo der Strahl gerendert werden soll.
 
 ## Beispiele
 
-Dieses Codefragment zeigt einen Teil einer Funktion, die einmal pro Frame aufgerufen werden soll. Es sucht nach Eingaben, die eine nicht-`null`-Wert für [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) haben. Eingaben, die einen Wert für diese Eigenschaft haben, repräsentieren Eingaben, die einen Zielstrahl vom Benutzer aus in die Ferne projizieren.
+Dieses Codefragment zeigt einen Teil einer Funktion, die einmal pro Frame aufgerufen werden soll. Es sucht nach Eingaben, die ein nicht-`null` [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) haben. Eingaben mit einem Wert für diese Eigenschaft repräsentieren Eingaben, die einen Zielstrahl vom Benutzer weg projizieren.
 
-Für jede solche Eingabe sucht dieses Beispiel nach Eingaben, deren `targetRayMode` `tracked-pointer` ist, was anzeigt, dass die Eingabe tatsächlich ein Zielgerät anstelle eines Blickgerätes, Bildschirmpunktes oder Mausklicks darstellen soll. Für verfolgte Zeiger wird die Funktion `myRenderTargetRayAsBeam()` aufgerufen, um einen Strahl vom virtuellen Standort des Eingabereglers in die Richtung zu rendern, in die er zeigt.
+Für jede solche Eingabe sucht dieses Beispiel nach Eingaben, deren `targetRayMode` `tracked-pointer` ist, was darauf hinweist, dass die Eingabe tatsächlich dazu gedacht ist, ein Zielgerät darzustellen und keine Blickrichtung, Bildschirmberührung oder Mausklick. Für verfolgte Zeiger wird eine Funktion `myRenderTargetRayAsBeam()` aufgerufen, um einen Strahl von der virtuellen Position des Eingabecontrollers nach außen in die Richtung, in die er zeigt, zu rendern.
 
-Der Code sollte weiterhin Aufgaben wie das Zeichnen von Controllern oder von Objekten, die die Positionen der Benutzerhände im virtuellen Raum repräsentieren, sowie alle anderen eingabebezogenen Aufgaben ausführen.
+Der Code sollte weiterhin Aufgaben wie das Zeichnen von Controllern oder von Objekten, die die Positionen der Hände des Benutzers im virtuellen Raum repräsentieren, sowie alle anderen eingabebezogenen Aufgaben ausführen.
 
 ```js
 function updateInputSources(session, frame, refSpace) {
@@ -59,7 +61,7 @@ function updateInputSources(session, frame, refSpace) {
 }
 ```
 
-Siehe den Artikel [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs) für weitere Details und ein vollständigeres Beispiel.
+Lesen Sie den Artikel [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs) für weitere Details und ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -73,4 +75,3 @@ Siehe den Artikel [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_AP
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
 - [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)
-- [Verwendung von Gamepads in WebXR-Anwendungen](/de/docs/Web/API/WebXR_Device_API/Gamepads)

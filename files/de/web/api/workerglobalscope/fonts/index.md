@@ -3,23 +3,22 @@ title: "WorkerGlobalScope: fonts-Eigenschaft"
 short-title: fonts
 slug: Web/API/WorkerGlobalScope/fonts
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers("worker")}}
 
 Die **`fonts`**-Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Workers zurück.
 
-Diese Eigenschaft ist Teil der [CSS-Schriftartenlade-API](/de/docs/Web/API/CSS_Font_Loading_API).
+Diese Eigenschaft ist Teil der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API).
 
 ## Wert
 
-Der zurückgegebene Wert ist die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Workers.
-Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten usw.
+Der zurückgegebene Wert ist die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Workers. Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriften, Überprüfen des Status bereits geladener Schriften usw.
 
 ## Beispiele
 
-### Operationen ausführen, nachdem alle Schriftarten geladen sind
+### Ausführung einer Operation, nachdem alle Schriften geladen sind
 
 ```js
 fonts.ready.then(() => {

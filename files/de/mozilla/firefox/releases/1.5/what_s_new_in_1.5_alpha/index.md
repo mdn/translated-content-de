@@ -1,149 +1,149 @@
 ---
-title: Was ist neu in Deer Park Alpha
+title: Neuerungen in Deer Park Alpha
 slug: Mozilla/Firefox/Releases/1.5/What_s_new_in_1.5_alpha
 l10n:
-  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
+  sourceCommit: f5ea8950d5cc7bc42691e0bb8a3e634160814bac
 ---
 
-Diese Seite basiert größtenteils auf [https://www.squarefree.com/burningedg...eases/](https://www.squarefree.com/burningedge/releases/) (danke Jesse).
+Diese Seite basiert größtenteils auf [https://www.squarefree.com/burningedg...eases/](https://www.squarefree.com/burningedge/releases/) (danke, Jesse).
 
 ## Neue Funktionen für Webentwickler
 
 ### HTML
 
 - Elemente mit `tabindex="-1"` sollten fokussierbar sein
-  - : Elemente mit einem negativen tabIndex-Attribut können jetzt den Fokus erhalten, auch wenn sie nicht in der Tabulatorfolge sind.
-- Object sollte senden
-  - : Gemäß der HTML4-Spezifikation können `<object>`-Elemente nun als Teil eines Formulars übermittelt werden.
+  - : Elemente mit einem negativen `tabIndex`-Attribut können jetzt den Fokus erhalten, auch wenn sie nicht in der Tabulatorreihenfolge enthalten sind.
+- Object sollte übermittelt werden
+  - : Gemäß der HTML4-Spezifikation können `<object>`-Elemente jetzt als Teil eines Formulars übermittelt werden.
 
 ### CSS
 
-- CSS2 Zitate-Nestung
-  - : Ab dieser Version wird die [`quotes`](/de/docs/Web/CSS/Reference/Properties/quotes) CSS2-Eigenschaft vollständig unterstützt, wobei je nach Verschachtelungsebene das richtige Anführungszeichen für open-quote und close-quote verwendet wird.
+- CSS2-Verschachtelung von Anführungszeichen
+  - : Ab dieser Version wird die CSS2-Eigenschaft [`quotes`](/de/docs/Web/CSS/Reference/Properties/quotes) vollständig unterstützt, wobei für `open-quote` und `close-quote` das korrekte Anführungszeichen (abhängig von der Verschachtelungsebene) verwendet wird.
 - CSS3 [`:only-child`](/de/docs/Web/CSS/Reference/Selectors/:only-child)
-  - : Dieser CSS3-Selektor ermöglicht das Auswählen eines Elements, das keine anderen Elemente als Geschwister im DOM hat.
-- CSS3 Spalten
-  - : Eine experimentelle Implementierung des vorgeschlagenen [CSS3 Multicolumn Layout](https://drafts.csswg.org/css-multicol/)-Entwurfs. Dies ermöglicht eine einfache Präsentation im Zeitungsstil mit mehreren Spalten.
-- CSS3 `overflow-x` und `overflow-y` Eigenschaften
-  - : Diese Eigenschaften können verwendet werden, um das Überlaufverhalten in horizontaler und vertikaler Richtung weitgehend unabhängig zu steuern. Zum Beispiel könnte der Überlauf in horizontaler Richtung verborgen werden, während der Überlauf in vertikaler Richtung scrollbar ist.
-- CSS3 Cursor
-  - : Weitere [Maus-Cursor-Namen](/de/docs/Web/CSS/Reference/Properties/cursor) werden nun unterstützt.
-- URI-Werte auf CSS `cursor` Eigenschaften
-  - : Unter Windows, OS/2 und Linux (Gtk+ 2.x) kann jetzt ein beliebiges Bild als Maus-Cursor verwendet werden, während sich der Mauszeiger über einem bestimmten DOM-Element befindet.
-    Jedes von Gecko unterstützte Bildformat kann für das Bild verwendet werden.
+  - : Dieser CSS3-Selektor ermöglicht die Auswahl eines Elements, das keine anderen Elemente als Geschwister im DOM hat.
+- CSS3-Spalten
+  - : Eine experimentelle Implementierung des vorgeschlagenen Entwurfs für [CSS3-Multispaltenlayout](https://drafts.csswg.org/css-multicol/). Dies ermöglicht auf einfache Weise eine mehrspaltige Darstellung im Zeitungsstil.
+- CSS3-Eigenschaften `overflow-x` und `overflow-y`
+  - : Diese Eigenschaften können verwendet werden, um das Überlaufverhalten in horizontaler und vertikaler Richtung teilweise unabhängig voneinander zu steuern. Beispielsweise kann der Überlauf in horizontaler Richtung ausgeblendet werden, während in vertikaler Richtung gescrollt werden kann.
+- CSS3-Cursor
+  - : Weitere [Mauszeigernamen](/de/docs/Web/CSS/Reference/Properties/cursor) werden jetzt unterstützt.
+- URI-Werte für CSS-Eigenschaften `cursor`
+  - : Unter Windows, OS/2 und Linux (Gtk+ 2.x) kann jetzt ein beliebiges Bild als Mauszeiger verwendet werden, während ein bestimmter DOM-Knoten mit der Maus überfahren wird.
+    Für das Bild kann jedes von Gecko unterstützte Bildformat verwendet werden.
     (SVG, animierte GIFs und ANI-Cursor werden nicht unterstützt.)
-    Siehe {{CSSxRef("cursor")}} für eine Beschreibung der Funktion.
+    Eine Beschreibung der Funktion finden Sie unter {{CSSxRef("cursor")}}.
 - `-moz-outline-radius`
-  - : CSS-Umrisse können jetzt abgerundete Ecken haben.
-- CSS `outline` Eigenschaft
-  - : [CSS-Umrisse](/de/docs/Web/CSS/Reference/Properties/outline) können jetzt verwendet werden. Diese unterscheiden sich von Rändern dadurch, dass sie das Seitenlayout nicht beeinflussen.
+  - : CSS-Konturen können jetzt abgerundete Ecken haben.
+- CSS-Eigenschaft `outline`
+  - : [CSS-Konturen](/de/docs/Web/CSS/Reference/Properties/outline) können jetzt verwendet werden. Sie unterscheiden sich von Rahmen dadurch, dass sie das Seitenlayout nicht beeinflussen.
 - Zähler in CSS-generierten Inhalten
-  - : [CSS2-Zähler](/de/docs/Web/CSS/Guides/Lists) werden jetzt vollständig unterstützt (die Implementierung entspricht nicht dem aktuellen CSS2.1-Entwurf, sondern dem kommenden). Dies ermöglicht die automatische Nummerierung von Abschnitten, Überschriften und so weiter über Stylesheets.
+  - : [CSS2-Zähler](/de/docs/Web/CSS/Guides/Lists) werden jetzt vollständig unterstützt (die Implementierung entspricht nicht dem aktuellen CSS2.1-Entwurf, aber dem kommenden). Dies ermöglicht die automatische Nummerierung von Abschnitten, Überschriften usw. über Stylesheets.
 
 ### JavaScript und DOM
 
 - Array-Erweiterungen
-  - : Neue Methoden wurden dem Array-Objekt hinzugefügt, um gängige Aufgaben zu erleichtern. Weitere Informationen finden Sie im [JavaScript 1.5 Array Object](/de/docs/Web/JavaScript/Reference/Global_Objects/Array).
+  - : Dem Array-Objekt wurden neue Methoden hinzugefügt, um häufige Aufgaben zu erleichtern. Siehe [JavaScript-1.5-Array-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Array).
 - `document.open("text/plain")`
-  - : Text, der in neuen Dokumenten geschrieben wird, die mit document.open("text/plain") erstellt wurden, wird jetzt als Text statt HTML behandelt, sodass Zeilenumbrüche intakt bleiben und Tags nicht geparst werden.
-- XML-Ereignisse
-  - : "XML Events" ist eine W3C-Spezifikation, die XML-Sprachen die Fähigkeit gibt, deklarative Ereignislistener und Ereignis-Handler zu integrieren.
-- Abbrechen von keydown
-  - : Das Abbrechen des keydown-Ereignisses führt nun gemäß der DOM-Spezifikation dazu, dass alle entsprechenden keyup/keypress-Ereignisse ebenfalls ordnungsgemäß abgebrochen werden.
+  - : Text, der in neuen Dokumenten geschrieben wird, die mit `document.open("text/plain")` erstellt wurden, wird jetzt als Text statt als HTML behandelt. Dadurch bleiben Zeilenumbrüche erhalten und Tags werden nicht geparst.
+- XML Events
+  - : „XML Events“ ist eine W3C-Spezifikation, die XML-Sprachen die Möglichkeit bietet, deklarative Event Listener und Event Handler zu integrieren.
+- Abbrechen von `keydown`
+  - : Das Abbrechen des `keydown`-Ereignisses bricht jetzt gemäß der DOM-Spezifikation auch alle entsprechenden `keyup`-/`keypress`-Ereignisse ordnungsgemäß ab.
 - Barrierefreiheits-APIs für DHTML
-  - : Mozilla erlaubt es jetzt DHTML-Entwicklern, Rollen- und Zustandssemantik zu benutzerdefinierten Elementen hinzuzufügen und diese Informationen über MSAA und ATK bereitzustellen.
+  - : Mozilla ermöglicht DHTML-Autoren jetzt, benutzerdefinierten Elementen Rollen- und Zustandssemantik hinzuzufügen, und stellt diese Informationen über MSAA und ATK bereit.
 - DHTML-Leistungsverbesserungen
-  - : Eine Reihe von Änderungen wurden vorgenommen, um die Geschwindigkeit und Glätte von DHTML erheblich zu verbessern.
+  - : Es wurden mehrere Änderungen vorgenommen, um Geschwindigkeit und Flüssigkeit von DHTML erheblich zu verbessern.
 
-### Grafiken
+### Grafik
 
 - SVG-Unterstützung
-  - : SVG ist eine W3C-Spezifikation, die auflösungsunabhängige skalierbare Vektorgrafiken zusammen mit einem DOM bereitstellt. Ein Technologie-Vorschau auf die native SVG-Unterstützung ist in dieser Version enthalten. Derzeit umfasst die Funktionalität nicht Filter, deklarative Animationen und SVG-definierte Schriften.
-- `<canvas>` Unterstützung
-  - : `<canvas>` ist eine skriptbare Zeichenfläche zum dynamischen Erstellen von Bitmap-Grafiken. Für eine weitere Einführung siehe [Zeichnen mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial).
+  - : SVG ist eine W3C-Spezifikation für auflösungsunabhängige skalierbare Vektorgrafiken einschließlich eines DOM. Diese Version enthält eine Technologie-Vorschau der nativen SVG-Unterstützung. Derzeit wird eine Teilmenge von SVG 1.1 Full unterstützt; fehlende Funktionen umfassen Filter, deklarative Animationen und SVG-definierte Schriftarten.
+- `<canvas>`-Unterstützung
+  - : `<canvas>` ist eine skriptfähige Zeichenfläche zum dynamischen Erstellen von Bitmap-Grafiken. Eine weiterführende Einführung finden Sie unter [Grafiken mit Canvas zeichnen](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ### Verschiedenes
 
-- Unterstützung für HTTP/1.1 408 Antwortcode
-  - : Eine persistente Verbindung wird jetzt korrekt geschlossen, wenn ein 408-Antwortcode (Anfrage-Zeitüberschreitung) empfangen wird. Die Anfrage wird in einer neuen Verbindung erneut versucht.
-- URIs immer als UTF8 gesendet
-  - : URIs werden jetzt immer als UTF8 an den Server gesendet, unabhängig von der Codierung der verlinkenden Seite. Dies behebt Bilder und Links auf Webseiten mit nicht-ASCII-Dateinamen.
+- Unterstützung für HTTP/1.1-Antwortcode 408
+  - : Eine persistente Verbindung wird jetzt korrekt geschlossen, wenn ein 408-Antwortcode (Request timeout) empfangen wird. Die Anfrage wird über eine neue Verbindung erneut versucht.
+- URIs werden immer als UTF8 gesendet
+  - : URIs werden jetzt unabhängig von der Kodierung der verlinkenden Seite immer als UTF8 an den Server gesendet. Dies behebt Bilder und Links auf Websites mit Nicht-ASCII-Dateinamen.
 - XForms-Unterstützung
-  - : Die [XML-Formulare des W3C](https://www.w3.org/MarkUp/Forms/) ermöglichen das Schreiben komplexer Formulare in XML und beinhalten Funktionen, die reguläre HTML-Formulare nicht haben, wie clientseitige Validierung gegen [XML-Schema](https://www.w3.org/XML/Schema) und XML-Einreichung/-Abruf. XForms-Unterstützung kommt als Erweiterung, siehe [Mozilla XForms-Projektseite](https://www-archive.mozilla.org/projects/xforms/).
+  - : Die Sprache [XML Forms des W3C](https://www.w3.org/MarkUp/Forms/) ermöglicht das Schreiben komplexer Formulare in XML und umfasst Funktionen, die reguläre HTML-Formulare nicht besitzen, etwa clientseitige Validierung anhand von [XML Schema](https://www.w3.org/XML/Schema) sowie XML-Übermittlung und -Abruf. Die Unterstützung für XForms wird als Erweiterung bereitgestellt; siehe [Mozilla-XForms-Projektseite](https://www-archive.mozilla.org/projects/xforms/).
 
 ## Neue Funktionen für Erweiterungsentwickler
 
-- Verborgene Referrer-Spalte für den Verlauf
-  - : Erweiterungen können jetzt auf die Referrer-Informationen für Seiten im Browser-Verlauf zugreifen. Diese Funktion kann verwendet werden, um alternative Verlaufsmöglichkeiten und andere nützliche Funktionen bereitzustellen. [Firefox Fehler 128398](https://bugzil.la/128398)
+- Ausgeblendete Referrer-Spalte für den Verlauf
+  - : Erweiterungen können jetzt auf die Referrer-Informationen für Seiten zugreifen, die im Browserverlauf gespeichert sind. Diese Funktion kann verwendet werden, um alternative Verlaufsansichten und andere nützliche Funktionen bereitzustellen. [Firefox-Bug 128398](https://bugzil.la/128398)
 
 - API zur Priorisierung von HTTP-Verbindungen
-  - : Die Mozilla-Netzwerkbibliothek unterstützt jetzt die Priorisierung von Verbindungen zu einem bestimmten Server mithilfe von `nsISupportsPriority`. [Firefox Fehler 278531](https://bugzil.la/278531)
+  - : Die Mozilla-Netzwerkbibliothek unterstützt jetzt die Priorisierung von Verbindungen zu einem bestimmten Server mit `nsISupportsPriority`. [Firefox-Bug 278531](https://bugzil.la/278531)
 
-- API zur Verwaltung von Nutzer- und UA-Stylesheets
-  - : Erweiterungen können jetzt Stylesheet-URIs als zusätzliche Nutzer- und UA-Stylesheets registrieren. Dadurch müssen Erweiterungen nicht mehr versuchen, `userContent.css` zu bearbeiten, um Stile (zum Beispiel für die XBL-Bindungszuordnung) zu Webseiten hinzuzufügen. Siehe [Verwendung des Stylesheet-Services](https://web.archive.org/web/20210413211020/https://developer.mozilla.org/de/docs/Archive/Add-ons/Using_the_Stylesheet_Service).
+- API zur Verwaltung von Benutzer- und UA-Stylesheets
+  - : Erweiterungen können jetzt Stylesheet-URIs als zusätzliche Benutzer- und UA-Stylesheets registrieren. Das bedeutet, dass Erweiterungen nicht mehr versuchen müssen, `userContent.css` zu bearbeiten, um Webseiten Styling hinzuzufügen, beispielsweise für das Anhängen von XBL-Bindungen. Siehe [Using the Stylesheet Service](https://web.archive.org/web/20210413211020/https://developer.mozilla.org/de/docs/Archive/Add-ons/Using_the_Stylesheet_Service).
 
 - API zur Konfiguration von Proxys
-  - : Es ist jetzt möglich, dass Erweiterungen die Proxy-Konfiguration einfach überschreiben, ohne die für den Benutzer sichtbaren Einstellungen zu beeinflussen. Siehe `nsIProtocolProxyService`, `nsIProtocolProxyFilter` und `nsIProtocolProxyCallback`. [Firefox Fehler 282442](https://bugzil.la/282442)
+  - : Erweiterungen können jetzt die Proxy-Konfiguration einfach überschreiben, ohne sichtbare Benutzereinstellungen zu beeinflussen. Siehe `nsIProtocolProxyService`, `nsIProtocolProxyFilter` und `nsIProtocolProxyCallback`. [Firefox-Bug 282442](https://bugzil.la/282442)
 
 - Dynamische Overlays
-  - : Das Laden von XUL-Overlays, nachdem das Dokument angezeigt wurde, wird jetzt unterstützt. Siehe `nsIDOMXULDocument`. [Firefox Fehler 282103](https://bugzil.la/282103)
+  - : Das Laden von XUL-Overlays, nachdem das Dokument angezeigt wurde, wird jetzt unterstützt. Siehe `nsIDOMXULDocument`. [Firefox-Bug 282103](https://bugzil.la/282103)
 
 - ECMAScript für XML (E4X)
-  - : Die Mozilla-JavaScript-Engine unterstützt jetzt ECMAScript für XML (E4X), ein ECMA-Entwurfsstandard, der native XML-Datentypen zur Sprache hinzufügt und Operatoren für gängige XML-Operationen bereitstellt. Siehe [die ECMA-Spezifikation](https://ecma-international.org/publications-and-standards/standards/ecma-357/). [Firefox Fehler 246441](https://bugzil.la/246441)
+  - : Die Mozilla-JavaScript-Engine unterstützt jetzt ECMAScript für XML (E4X), einen ECMA-Standardentwurf, der der Sprache native XML-Datentypen hinzufügt und Operatoren für häufige XML-Operationen bereitstellt. Siehe [die ECMA-Spezifikation](https://ecma-international.org/publications-and-standards/standards/ecma-357/). [Firefox-Bug 246441](https://bugzil.la/246441)
 
-- Translucente Fenster (Windows/Linux)
-  - : Unter Windows und Linux werden XUL-Fenster mit transparentem Hintergrund jetzt unterstützt. Dies ermöglicht es, dass das, was sich unter dem Fenster befindet, durch den Fensterhintergrund hindurchschimmert.
+- Durchscheinende Fenster (Windows/Linux)
+  - : Unter Windows und Linux werden jetzt XUL-Fenster mit transparentem Hintergrund unterstützt. Dadurch kann alles, was sich hinter dem Fenster befindet, durch dessen Hintergrund hindurchscheinen.
 
-- Hinzufügen von Tokens zur User-Agent-Zeichenkette
-  - : Es ist jetzt möglich, dass Anwendungen, Erweiterungen und Anbieter alle Tokens zur User-Agent-Zeichenkette hinzufügen können (mithilfe von Standardvoreinstellungen), ohne sich gegenseitig zu überschreiben.
-    Siehe [Dokumentation](/de/docs/Web/HTTP/Reference/Headers/User-Agent). [Firefox Fehler 274928](https://bugzil.la/274928)
+- Tokens zur User-Agent-Zeichenfolge hinzufügen
+  - : Anwendungen, Erweiterungen und Anbieter können jetzt alle Tokens zur User-Agent-Zeichenfolge hinzufügen (mithilfe von Standardeinstellungen), ohne sich gegenseitig zu überschreiben.
+    Siehe [Dokumentation](/de/docs/Web/HTTP/Reference/Headers/User-Agent). [Firefox-Bug 274928](https://bugzil.la/274928)
 
-- Toolkit Chrome-Registry
-  - : Die Registrierung von Chrome wurde erheblich verbessert, um einfache Klartext-Chrome-Registrierungsmanifeste zu verwenden, und behält nicht mehr den chrome.rdf/overlayinfo-Cache.
-    Siehe [Chrome Registrierung](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration).
+- Toolkit-Chrome-Registrierung
+  - : Die Chrome-Registrierung wurde erheblich verbessert, um einfache Klartext-Chrome-Registrierungsmanifeste zu verwenden, und behält den Cache `chrome.rdf/overlayinfo` nicht mehr bei.
+    Siehe [Chrome Registration](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration).
 
-- Erweiterungsmanager
-  - : Folgende neue Funktionen sind enthalten:
-    - Es ist jetzt möglich, Erweiterungen außerhalb der Profil- und Anwendungs-Erweiterungsverzeichnisse zu haben.
-    - Die Installation von Erweiterungen kann nun durch das Ablegen einer XPI-Datei in das Profil- oder Anwendungs-Erweiterungsverzeichnis erfolgen.
-    - Das Deinstallieren einer Erweiterung erfordert nun das Löschen seines Ordners aus dem Profil- oder Anwendungs-Erweiterungsverzeichnis.
+- Extension Manager
+  - : Folgende neue Funktionen stehen zur Verfügung:
+    - Erweiterungen können jetzt außerhalb der Profil- und Anwendungs-Erweiterungsverzeichnisse liegen.
+    - Erweiterungen können jetzt installiert werden, indem eine XPI-Datei in das Profil- oder Anwendungs-Erweiterungsverzeichnis abgelegt wird.
+    - Die Deinstallation einer Erweiterung erfolgt jetzt durch Löschen ihres Ordners aus dem Profil- oder Anwendungs-Erweiterungsverzeichnis.
 
-- Neue Präferenzbindungen
-  - : Diese [neuen Bindungen](https://forums.mozillazine.org/viewtopic.php?t=263028) erleichtern das Erstellen von Präferenzfenstern für Erweiterungen. Die neuen Präferenzfenster unterstützen das Sofort-Anwenden-Verhalten, das standardmäßig auf Mac und Linux aktiviert ist.
+- Neue Preferences-Bindungen
+  - : Diese [neuen Bindungen](https://forums.mozillazine.org/viewtopic.php?t=263028) erleichtern das Erstellen von Einstellungsfenstern für Erweiterungen. Die neuen Einstellungsfenster unterstützen das Sofortübernahme-Verhalten, das auf Mac und Linux standardmäßig aktiviert ist.
 
-- API zur Implementierung neuer Befehlszeitschalter
-  - : Eine API wurde eingeführt, sodass Erweiterungen komplexe Befehlszeilenflags einfach handhaben können. Diese API wird für 1.1 stabil und eingefroren sein. Siehe die Schnittstellen `nsICommandLine` und `nsICommandLineHandler`.
+- API zur Implementierung neuer Befehlszeilenoptionen
+  - : Es wurde eine API eingeführt, mit der Erweiterungen komplexe Befehlszeilen-Flags einfach verarbeiten können. Diese API wird für 1.1 stabil und eingefroren sein. Siehe die Schnittstellen `nsICommandLine` und `nsICommandLineHandler`.
 
 - XTF-Unterstützung
-  - : Das eXtensible Tag Framework ermöglicht das Hinzufügen von Unterstützung für neue Namensräume mithilfe von XPCOM-Komponenten zu Mozilla (geschrieben in JavaScript oder C++). Siehe [XTF Startseite](https://web.archive.org/web/20070527160710/http://www.croczilla.com/xtf).
+  - : Das eXtensible Tag Framework ermöglicht es, Mozilla mithilfe von XPCOM-Komponenten (geschrieben in JavaScript oder C++) Unterstützung für neue Namespaces hinzuzufügen. Siehe [XTF-Startseite](https://web.archive.org/web/20070527160710/http://www.croczilla.com/xtf).
 
-## Neue Browser-Funktionen
+## Neue Browserfunktionen
 
-### Verbesserte Präferenzen
+### Verbesserte Einstellungen
 
-- Sofort-Anwenden-Verhalten auf Linux und Mac
-  - : Änderungen, die im Präferenzfenster vorgenommen werden, werden jetzt sofort angewendet, entsprechend dem typischen Verhalten in anderen Mac OS X und GNOME-Anwendungen. Diese Änderung entspricht den Apple und GNOME Human Interface Guidelines.
-- Suchfähiger Download-Aktions-Manager
-  - : Es ist möglich, den Download-Aktions-Manager nach Dateiendung oder Beschreibung zu durchsuchen.
-- Suchfähiger Cookie-Manager
-  - : Cookies können nach Hostname/Domain und Cookie-Name durchsucht werden und sind im Baumformat nach Hostname organisiert, anstatt in einer flachen Liste.
+- Sofortübernahme-Verhalten unter Linux und Mac
+  - : Änderungen im Einstellungsfenster werden jetzt sofort angewendet, entsprechend dem typischen Verhalten anderer Mac-OS-X- und GNOME-Anwendungen. Diese Änderung entspricht den Apple- und GNOME-Richtlinien für Benutzeroberflächen.
+- Durchsuchbarer Download-Actions-Manager
+  - : Der Download-Actions-Manager kann nach Dateierweiterung oder Beschreibung durchsucht werden.
+- Durchsuchbarer Cookie-Manager
+  - : Cookies können nach Hostname/Domain und Cookie-Name durchsucht werden und werden nach Hostname in einer Baumstruktur statt in einer flachen Liste organisiert.
 
 ### Bereitstellung
 
-- Firefox MSI-Paket
+- Firefox-MSI-Paket
   - : Das neue MSI-Installationspaket erleichtert die verteilte Installation und bietet Netzwerkadministratoren, die Firefox in einer Unternehmensumgebung bereitstellen möchten, größere Flexibilität.
-- Unterstützung für "temp"-Profilverzeichnis im lokalen Dateisystem
-  - : Es ist jetzt möglich, den Netzwerkcache (Kopien der besuchten Webseiten) und den XUL-Fastload-Cache (vorkompilierter Benutzerschnittstellencode) auf einem lokalen Laufwerk zu speichern, während der Rest der Profildaten auf einem Netzlaufwerk verbleiben. Dies erhöht die Leistung und reduziert den Netzwerkverkehr für Benutzer in einer Netzwerkumgebung.
+- Unterstützung für das Profilverzeichnis „temp“ im lokalen Dateisystem
+  - : Es ist jetzt möglich, den Netzwerk-Cache (Kopien besuchter Webseiten) und den XUL-Fastload-Cache (vorkompilierter Benutzeroberflächencode) auf einem lokalen Laufwerk zu speichern, während die restlichen Profildaten auf einem Netzlaufwerk verbleiben. Dies erhöht die Leistung und reduziert den Netzwerkverkehr für Benutzer in einer Netzwerkumgebung.
 
-### Sonstiges
+### Weitere
 
-- "Sanitize"-Datenschutz-Funktion
-  - : Die "Sanitize"-Funktion bietet eine einfache Möglichkeit, um schnell den Browserverlauf, Cookies, Cache, gespeicherte Formularinformationen und andere persönliche Daten zu entfernen. Die zu entfernenden Elemente können angepasst werden, und die Funktion kann entweder über eine Tastenkombination oder über ein Menüelement aktiviert werden.
-- Bild-Thumbnails als Tab-Icons
-  - : Beim Anzeigen von Bildern zeigen Tab-Icons jetzt Thumbnails des angezeigten Bildes.
-- Schnelles Zurück- (und Vor-)Navigieren
-  - : Diese sehr experimentelle Funktion ermöglicht eine viel schnellere Navigation in der Sitzungshistorie. Die Funktion ist standardmäßig deaktiviert, kann jedoch zu Testzwecken aktiviert werden, indem die `browser.sessionhistory.max_viewers`-Einstellung auf eine von null verschiedene Zahl gesetzt wird.
-- Verhalten bei fehlgeschlagenem anonymen FTP-Login
+- Datenschutzfunktion „Sanitize“
+  - : Die Funktion „Sanitize“ bietet eine einfache Möglichkeit, schnell den Browserverlauf, Cookies, Cache, gespeicherte Formularinformationen und andere persönliche Daten zu entfernen. Die zu entfernenden Elemente können angepasst werden, und die Funktion kann entweder über eine Tastenkombination oder einen Menüeintrag aktiviert werden.
+- Bildminiaturen als Tab-Symbole
+  - : Beim Anzeigen von Bildern zeigen Tab-Symbole jetzt Miniaturen des angezeigten Bildes.
+- Schnelles Zurück- und Vorwärtsnavigieren
+  - : Diese sehr experimentelle Funktion ermöglicht eine deutlich schnellere Navigation im Sitzungsverlauf. Die Funktion ist standardmäßig deaktiviert, kann jedoch zu Testzwecken aktiviert werden, indem die Einstellung `browser.sessionhistory.max_viewers` auf eine Zahl ungleich null gesetzt wird.
+- Verhalten bei fehlgeschlagener anonymer FTP-Anmeldung
   - : FTP-Benutzer werden jetzt aufgefordert, einen Namen und ein Passwort einzugeben, wenn der anonyme Zugriff fehlschlägt.
-- CSS-At-Regel für das Matching der Site/Dokument-URL
-  - : Die neue `@-moz-document`-Regel gibt Benutzern die Möglichkeit, Seitenobjekte pro Site mithilfe von CSS abzugleichen. Dies macht es möglich, Site-spezifische Regeln in Nutzer-Stylesheets (userContent.css) einzuschließen. [David Barons Beitrag zu `www-style`](https://lists.w3.org/Archives/Public/www-style/2004Aug/0135.html) erklärt, wie die Regel verwendet werden kann.
+- CSS-At-Regel zum Abgleichen mit Website-/Dokument-URL
+  - : Die neue Regel `@-moz-document` ermöglicht es Benutzern, Seitenobjekte mit CSS pro Website abzugleichen. Dadurch können websitespezifische Regeln in Benutzer-Stylesheets (`userContent.css`) aufgenommen werden. [David Barons Beitrag zu `www-style`](https://lists.w3.org/Archives/Public/www-style/2004Aug/0135.html) erläutert, wie die Regel verwendet werden kann.

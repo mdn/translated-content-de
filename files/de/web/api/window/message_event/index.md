@@ -3,18 +3,18 @@ title: "Window: message event"
 short-title: message
 slug: Web/API/Window/message_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das `message`-Ereignis wird auf einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn das Fenster eine Nachricht erhält, beispielsweise durch einen Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
+Das `message`-Ereignis wird bei einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn das Fenster eine Nachricht erhält, zum Beispiel durch einen Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
 
-Dieses Ereignis ist nicht abbrechbar und blubbert nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js-nolint
 addEventListener("message", (event) => { })
@@ -42,7 +42,7 @@ windowMessageButton.addEventListener("click", () => {
 });
 ```
 
-Der Empfänger kann mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) den Empfang der Nachricht überwachen, mit Code wie diesem:
+Der Empfänger kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf die Nachricht hören, mit folgendem Code:
 
 ```js
 window.addEventListener("message", (event) => {
@@ -50,7 +50,7 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-Alternativ könnte der Zuhörer die `onmessage` Ereignishandler-Eigenschaft verwenden:
+Alternativ könnte der Listener die `onmessage`-Ereignisbehandlereigenschaft nutzen:
 
 ```js
 window.onmessage = (event) => {

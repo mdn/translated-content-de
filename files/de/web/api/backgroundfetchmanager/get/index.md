@@ -3,12 +3,12 @@ title: "BackgroundFetchManager: get()-Methode"
 short-title: get()
 slug: Web/API/BackgroundFetchManager/get
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`get()`**-Methode der [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) aufgelöst wird, die mit der angegebenen `id` verknüpft ist, oder mit {{jsxref("undefined")}}, wenn die `id` nicht gefunden wird.
+Die **`get()`**-Methode der [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) aufgelöst wird, die der angegebenen `id` zugeordnet ist, oder mit {{jsxref("undefined")}}, wenn die `id` nicht gefunden wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ get(id)
 ### Parameter
 
 - `id`
-  - : Die ID einer [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration), die durch den Aufruf von [`fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) definiert wird.
+  - : Die ID einer [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration), die durch den Aufruf von [`fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) definiert ist.
 
 ### Rückgabewert
 

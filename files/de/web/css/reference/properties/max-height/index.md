@@ -3,10 +3,12 @@ title: "`max-height` CSS property"
 short-title: max-height
 slug: Web/CSS/Reference/Properties/max-height
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`max-height`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die maximale Höhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der {{cssxref("height")}}-Eigenschaft größer wird als der für `max-height` angegebene Wert.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`max-height`** legt die maximale Höhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der Eigenschaft {{cssxref("height")}} größer wird als der für `max-height` angegebene Wert.
+
+`max-height` überschreibt {{cssxref("height")}}, aber {{cssxref("min-height")}} überschreibt `max-height`.
 
 {{InteractiveExample("CSS Demo: max-height")}}
 
@@ -45,8 +47,6 @@ max-height: 10px;
 }
 ```
 
-`max-height` überschreibt {{cssxref("height")}}, aber {{cssxref("min-height")}} überschreibt `max-height`.
-
 ## Syntax
 
 ```css
@@ -77,31 +77,31 @@ max-height: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Definiert die `max-height` als absoluten Wert.
+  - : Definiert `max-height` als absoluten Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die `max-height` als Prozentsatz der Höhe des enthaltenden Blocks.
+  - : Definiert `max-height` als Prozentsatz der Höhe des enthaltenden Blocks.
 - `none`
-  - : Keine Begrenzung der Größe des Elementes.
+  - : Keine Begrenzung für die Größe der Box.
 - {{cssxref("max-content")}}
-  - : Die intrinsische bevorzugte `max-height`.
+  - : Die intrinsisch bevorzugte `max-height`.
 - {{cssxref("min-content")}}
   - : Die intrinsische minimale `max-height`.
 - {{cssxref("fit-content")}}
-  - : Verwendet den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Verwendet den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
   - : Verwendet die `fit-content`-Formel, wobei der verfügbare Platz durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-  - : Begrenzung der maximalen Höhe der [Marginalbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [enthältenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, die Marginalbox in den verfügbaren Raum des enthaltenden Blocks zu füllen, verhält sich also ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Marginalbox anstatt auf die Box an, die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmt wird.
+  - : Begrenzt die maximale Höhe der [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [enthaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es wird versucht, die margin box den verfügbaren Platz im enthaltenden Block ausfüllen zu lassen, sodass sich dies ähnlich wie `100%` verhält, die resultierende Größe jedoch auf die margin box statt auf die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmte Box angewendet wird.
 
     > [!NOTE]
-    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, sehen Sie sich den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) an.
+    > Informationen zu von Browsern für den Wert `stretch` verwendeten Aliasnamen und zu dessen Implementierungsstatus finden Sie im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer `max-height` nicht abgeschnitten werden und/oder andere Inhalte nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit einer gesetzten `max-height` beim Zoomen der Seite zur Vergrößerung der Textgröße nicht abgeschnitten werden und/oder andere Inhalte verdecken.
 
-- [MDN Verständnis von WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN-Erklärungen zu WCAG, Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erfolgskriterium 1.4.4 verstehen | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -113,7 +113,7 @@ Stellen Sie sicher, dass Elemente mit einer `max-height` nicht abgeschnitten wer
 
 ## Beispiele
 
-### Festlegen der max-height mit Prozent- und Schlüsselwortwerten
+### max-height mithilfe von Prozent- und Schlüsselwortwerten festlegen
 
 ```css
 table {
@@ -140,5 +140,5 @@ form {
 - {{cssxref("max-inline-size")}}
 - {{cssxref("max-block-size")}}
 - {{cssxref("box-sizing")}}
-- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
-- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- Leitfaden [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
+- Modul [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model)

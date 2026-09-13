@@ -3,10 +3,10 @@ title: "HTMLTableCellElement: bgColor-Eigenschaft"
 short-title: bgColor
 slug: Web/API/HTMLTableCellElement/bgColor
 l10n:
-  sourceCommit: 21fddb9643fae34dce16aec8eb5dd86cc29e0b7c
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
 Die **`HTMLTableCellElement.bgColor`**-Eigenschaft wird verwendet, um die Hintergrundfarbe einer Zelle festzulegen oder den Wert des veralteten [`bgColor`](/de/docs/Web/HTML/Reference/Elements/td#bgcolor)-Attributs abzurufen, falls vorhanden.
 
@@ -15,17 +15,17 @@ Die **`HTMLTableCellElement.bgColor`**-Eigenschaft wird verwendet, um die Hinter
 
 ## Wert
 
-Einer der folgenden Wertetypen kann verwendet werden:
+Es kann einer der folgenden Wertetypen verwendet werden:
 
-- ein benannter Farbname, wie `red` oder `blue`
-- ein Hexadezimalcode, wie `#0000dd` oder `#00d`
+- ein benannter Farbwert wie `red` oder `blue`
+- ein Hex-Code wie `#0000dd` oder `#00d`
 
 > [!NOTE]
-> Die hier akzeptierten Werte sind eine begrenzte Teilmenge der CSS-Farbwerte. Nur {{cssxref("named-color")}} und 3- oder 6-stellige {{cssxref("hex-color")}} (ohne Alpha-Kanal). Während alle HTML-Farbwerte in CSS gültig sind, gilt dies nicht in der anderen Richtung.
+> Die hier akzeptierten Werte sind eine begrenzte Teilmenge der CSS-Farbwerte. Nur {{cssxref("named-color")}} und 3- oder 6-stellige {{cssxref("hex-color")}} (ohne Alphakanal). Während alle HTML-Farbwerte in CSS gültig sind, trifft dies in umgekehrter Richtung nicht zu.
 
 ## Beispiele
 
-Verwenden Sie stattdessen das CSS `background-color`. Ein Beispiel für die Verwendung von [`background-color` mit HTML-Tabellenelementen](/de/docs/Web/CSS/Reference/Properties/background-color#colorized_tables) ist auf der {{cssxref("background-color")}}-Seite verfügbar.
+Verwenden Sie stattdessen CSS `background-color`. Ein Beispiel für die Verwendung von [`background-color` mit HTML-Tabellenelementen](/de/docs/Web/CSS/Reference/Properties/background-color#colorized_tables) finden Sie auf der {{cssxref("background-color")}}-Seite.
 
 ## Spezifikationen
 

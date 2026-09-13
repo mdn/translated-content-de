@@ -2,40 +2,40 @@
 title: MediaSession
 slug: Web/API/MediaSession
 l10n:
-  sourceCommit: d22284cbba8b64afd6ad8c965d4ac2c927c59550
+  sourceCommit: e0f9d50e9d81a00f6059b6d496014ad417ac9b61
 ---
 
 {{APIRef("Media Session API")}}
 
-Das **`MediaSession`** Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, benutzerdefinierte Verhaltensweisen für standardmäßige Medienwiedergabe-Interaktionen bereitzustellen und Metadaten zu melden, die vom Benutzeragenten an das Gerät oder Betriebssystem zur Darstellung in standardisierten Benutzerschnittstellenelementen gesendet werden können.
+Die **`MediaSession`**-Schnittstelle der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, benutzerdefinierte Verhaltensweisen für Standardinteraktionen bei der Medienwiedergabe bereitzustellen und Metadaten zu melden, die vom User-Agent an das Gerät oder Betriebssystem zur Darstellung in standardisierten Benutzeroberflächenelementen gesendet werden können.
 
-Ein Smartphone könnte beispielsweise ein standardisiertes Panel auf seinem Sperrbildschirm haben, das Steuerungen für die Medienwiedergabe und die Informationsanzeige bietet. Ein Browser auf dem Gerät kann `MediaSession` verwenden, um die Browserwiedergabe von dieser standardisierten/globalen Benutzerschnittstelle aus steuerbar zu machen.
+Beispielsweise kann ein Smartphone auf seinem Sperrbildschirm ein Standardpanel haben, das Steuerelemente für die Medienwiedergabe und die Anzeige von Informationen bereitstellt. Ein Browser auf dem Gerät kann `MediaSession` verwenden, damit die Wiedergabe im Browser über diese standardisierte/globale Benutzeroberfläche gesteuert werden kann.
 
 ## Instanzeigenschaften
 
 - [`metadata`](/de/docs/Web/API/MediaSession/metadata)
-  - : Gibt eine Instanz von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) zurück, die reichhaltige Medienmetadaten zur Anzeige in einer Plattform-Benutzeroberfläche enthält.
+  - : Gibt eine Instanz von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) zurück, die umfangreiche Medienmetadaten zur Anzeige in einer Plattform-Benutzeroberfläche enthält.
 - [`playbackState`](/de/docs/Web/API/MediaSession/playbackState)
-  - : Gibt an, ob die aktuelle Mediensitzung läuft. Gültige Werte sind `none`, `paused` oder `playing`.
+  - : Gibt an, ob die aktuelle Mediensitzung wiedergegeben wird. Gültige Werte sind `none`, `paused` oder `playing`.
 
 ## Instanzmethoden
 
 - [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler)
-  - : Legt einen Aktionshandler für eine Mediensitzungsaktion, wie abspielen oder pausieren, fest.
+  - : Legt einen Action-Handler für eine Mediensitzungsaktion fest, beispielsweise Wiedergabe oder Pause.
 - [`setCameraActive()`](/de/docs/Web/API/MediaSession/setCameraActive)
-  - : Zeigt dem Benutzeragenten an, ob die Kamera des Benutzers als aktiv angesehen wird.
+  - : Gibt dem User-Agent an, ob die Kamera des Benutzers als aktiv betrachtet wird.
 - [`setMicrophoneActive()`](/de/docs/Web/API/MediaSession/setMicrophoneActive)
-  - : Zeigt dem Benutzeragenten an, ob das Mikrofon des Benutzers derzeit als stummgeschaltet betrachtet wird.
+  - : Gibt dem User-Agent an, ob das Mikrofon des Benutzers als derzeit stummgeschaltet betrachtet wird.
 - [`setPositionState()`](/de/docs/Web/API/MediaSession/setPositionState)
-  - : Legt die aktuelle Wiedergabeposition und -geschwindigkeit des derzeit präsentierten Mediums fest.
+  - : Legt die aktuelle Wiedergabeposition und -geschwindigkeit der derzeit dargestellten Medien fest.
 - [`setScreenshareActive()`](/de/docs/Web/API/MediaSession/setScreenshareActive) {{experimental_inline}}
-  - : Zeigt dem Benutzeragenten den von der Seite gewünschten Status der Bildschirmerkennung an.
+  - : Gibt dem User-Agent den von der Seite gewünschten Erfassungsstatus der Bildschirmfreigabe an.
 
 ## Beispiele
 
-### Einrichten von Aktionshandlern für einen Musikplayer
+### Action-Handler für einen Musikplayer einrichten
 
-Das folgende Beispiel erstellt eine neue Mediensitzung und weist ihr Aktionshandler zu:
+Das folgende Beispiel erstellt eine neue Mediensitzung und weist ihr Action-Handler zu:
 
 ```js
 if ("mediaSession" in navigator) {
@@ -116,31 +116,45 @@ if ("mediaSession" in navigator) {
 }
 ```
 
-Das folgende Beispiel richtet zwei Funktionen zum Abspielen und Pausieren ein und verwendet sie dann als Rückrufe mit den entsprechenden Aktionshandlern.
+### Audio wiedergeben und pausieren
+
+Das folgende Beispiel richtet zwei Funktionen für Wiedergabe und Pausieren ein und verwendet sie anschließend als Callbacks mit den entsprechenden Action-Handlern.
+
+#### HTML
+
+```html
+<audio id="audio" controls src="/shared-assets/audio/guitar.mp3"></audio>
+<p><output id="status">No media session action received yet.</output></p>
+```
+
+#### JavaScript
+
+Die Action-Handler aktualisieren das Ausgabeelement, wenn sie ausgeführt werden.
 
 ```js
+const audioEl = document.getElementById("audio");
+const statusEl = document.getElementById("status");
+
 const actionHandlers = [
-  // play
   [
     "play",
     async () => {
-      // play our audio
-      await audioEl.play();
-      // set playback state
-      navigator.mediaSession.playbackState = "playing";
-      // update our status element
-      updateStatus(allMeta[index], "Action: play  |  Track is playing…");
+      // Play our audio; with a custom play handler, this doesn't happen
+      // automatically
+      try {
+        await audioEl.play();
+        statusEl.textContent = "Action: play | Track is playing…";
+      } catch (error) {
+        statusEl.textContent = `Unable to play audio: ${error.message}`;
+      }
     },
   ],
   [
     "pause",
     () => {
-      // pause out audio
+      // Pause our audio
       audioEl.pause();
-      // set playback state
-      navigator.mediaSession.playbackState = "paused";
-      // update our status element
-      updateStatus(allMeta[index], "Action: pause  |  Track has been paused…");
+      statusEl.textContent = "Action: pause | Track has been paused…";
     },
   ],
 ];
@@ -149,14 +163,20 @@ for (const [action, handler] of actionHandlers) {
   try {
     navigator.mediaSession.setActionHandler(action, handler);
   } catch (error) {
-    console.log(`The media session action "${action}" is not supported yet.`);
+    statusEl.textContent = `Unable to register the "${action}" action: ${error.message}`;
   }
 }
 ```
 
-### Verwendung von Aktionshandlern zur Steuerung einer Folienpräsentation
+#### Ergebnis
 
-Die `"previousslide"` und `"nextslide"` Aktionshandler können verwendet werden, um das Vor- und Zurückblättern durch eine Folienpräsentation zu steuern, zum Beispiel wenn der Benutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API) Fenster legt und die vom Browser bereitgestellten Steuerungen zum Navigieren durch Folien drückt.
+Starten Sie die Wiedergabe über die Audiosteuerung und verwenden Sie dann die Medientasten Ihres Geräts oder die Mediensteuerung des Browsers oder Betriebssystems, um die Audiowiedergabe abzuspielen oder zu pausieren. Die verfügbaren Steuerelemente hängen von Ihrem Browser und Gerät ab. Das Ausgabeelement zeigt an, welcher Mediensitzungs-Action-Handler ausgeführt wurde.
+
+{{EmbedLiveSample("Playing and pausing audio", "100%", 150)}}
+
+### Action-Handler zur Steuerung einer Folienpräsentation verwenden
+
+Die Action-Handler `"previousslide"` und `"nextslide"` können verwendet werden, um das Vor- und Zurückblättern in einer Folienpräsentation zu handhaben, beispielsweise wenn der Benutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Fenster verschiebt und die vom Browser bereitgestellten Steuerelemente zur Navigation durch Folien betätigt.
 
 ```js
 try {
@@ -180,7 +200,7 @@ try {
 }
 ```
 
-Siehe [Presenting Slides / Media Session Sample](https://googlechrome.github.io/samples/media-session/slides.html) für ein funktionierendes Beispiel.
+Ein funktionierendes Beispiel finden Sie unter [Presenting Slides / Media Session Sample](https://googlechrome.github.io/samples/media-session/slides.html).
 
 ## Spezifikationen
 

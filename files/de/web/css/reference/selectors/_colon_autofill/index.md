@@ -3,10 +3,10 @@ title: "`:autofill` CSS-Pseudoklasse"
 short-title: :autofill
 slug: Web/CSS/Reference/Selectors/:autofill
 l10n:
-  sourceCommit: a8b7faffbd3fdeae5c0be97793d963d8a31cd1cf
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
-Die **`:autofill`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wird angewendet, wenn ein {{HTMLElement("input")}}-Element seinen Wert vom Browser automatisch ausgefüllt hat. Sie hört auf, zutreffend zu sein, wenn der Benutzer das Feld bearbeitet.
+Die **`:autofill`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) stimmt überein, wenn ein {{HTMLElement("input")}}-Element vom Browser automatisch ausgefüllt wurde. Die Klasse hört auf zu passen, wenn der Benutzer das Feld bearbeitet.
 
 {{InteractiveExample("CSS Demo: :autofill", "tabbed-shorter")}}
 
@@ -44,25 +44,25 @@ input:autofill {
 
 ## Beschreibung
 
-Die `:autofill`-Pseudoklasse wählt {{htmlelement("input")}}-Elemente aus, die unveränderte Inhalte enthalten, die vom User-Agent automatisch ausgefüllt wurden. Die Autovervollständigung kann auftreten, wenn die Browsereinstellungen so konfiguriert sind, dass Autovervollständigung aktiviert ist oder das [`autocomplete`-Attribut](/de/docs/Web/HTML/Reference/Attributes/autocomplete) am Element selbst gesetzt ist.
+Die `:autofill` Pseudoklasse wählt {{htmlelement("input")}}-Elemente aus, die unveränderte Inhalte enthalten, die vom Benutzeragenten automatisch ausgefüllt wurden. Die Autovervollständigung kann auftreten, wenn die Browsereinstellungen so gesetzt sind, dass Autovervollständigung aktiviert ist, oder das [`autocomplete`-Attribut](/de/docs/Web/HTML/Reference/Attributes/autocomplete) direkt am Element gesetzt ist.
 
-Wenn der Benutzer die Autovervollständigungsfunktion des Browsers verwendet, um ein Formularelement automatisch auszufüllen, werden alle Formularelemente, die basierend auf der Auswahl ausgefüllt werden können, befüllt. Diese werden alle mit dem `:autofill`-UI-Status übereinstimmen. Falls der Benutzer ein Element bearbeitet, wird dieses Element nicht mehr mit `:autofill` übereinstimmen, selbst wenn der Wert derselbe wie der automatisch ausgefüllte Wert ist.
+Wenn der Benutzer die Autovervollständigungsfunktion des Browsers zum automatischen Ausfüllen eines Steuerelements verwendet, werden alle Formularsteuerelemente, die basierend auf der Auswahl automatisch ausgefüllt werden können, befüllt. Diese passen alle zum `:autofill` UI-Zustand. Wenn der Benutzer ein Steuerelement bearbeitet, wird dieses Steuerelement nicht mehr mit `:autofill` übereinstimmen, selbst wenn der Wert der gleiche ist wie der automatisch ausgefüllte Wert.
 
-Die Spezifikation enthält die vendor-spezifische `:-webkit-autofill`-Pseudoklasse als Alias. Diese trifft auch auf Eingabeelemente zu, die vom User-Agent automatisch ausgefüllt wurden, und trifft nicht mehr zu, wenn der Benutzer das automatisch ausgefüllte Feld bearbeitet.
+Die Spezifikation enthält die anbieterpräfixierte `:-webkit-autofill` Pseudoklasse als Alias. Diese stimmt ebenfalls mit Eingabeelementen überein, die vom Benutzeragenten automatisch ausgefüllt wurden, und stimmt nicht mehr, wenn der Benutzer das automatisch ausgefüllte Feld bearbeitet.
 
-Beachten Sie, dass die User-Agent-Stylesheets vieler Browser `!important` in ihren Style-Deklarationen verwenden, wodurch einige Styles nicht überschrieben werden können. Zum Beispiel hat Chrome folgendes in seinem internen Stylesheet:
+Beachten Sie, dass die Benutzeragenten-Stilblätter vieler Browser `!important` in ihren Stildeklarationen verwenden, was einige Stile nicht überschreibbar macht. Zum Beispiel hat Chrome folgendes in seinem internen Stilblatt:
 
 ```css-nolint
 input:-internal-autofill-selected {
   appearance: menulist-button;
   background-image: none !important;
   background-color:
-    light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    light-dark(rgb(232 240 254), rgb(70 90 126 / 0.4)) !important;
   color: fieldtext !important;
 }
 ```
 
-Das bedeutet, dass Sie die Standardwerte für {{cssxref('background-color')}}, {{cssxref('background-image')}} oder {{cssxref('color')}} bei ausgewählten automatisch ausgefüllten Eingabeelementen in Ihren eigenen Regeln nicht überschreiben können, aber Sie können das {{cssxref('appearance')}} überschreiben, sowie diese Eigenschaften für nicht aktuell fokussierte automatisch ausgefüllte Elemente.
+Das bedeutet, dass Sie die Standardwerte von {{cssxref('background-color')}}, {{cssxref('background-image')}}, oder {{cssxref('color')}} bei ausgewählten automatisch ausgefüllten Eingabeelementen in Ihren eigenen Regeln nicht überschreiben können, aber Sie können das {{cssxref('appearance')}} überschreiben, und Sie können diese Eigenschaften für die automatisch ausgefüllten Elemente überschreiben, die derzeit nicht fokussiert sind.
 
 ## Syntax
 
@@ -74,11 +74,11 @@ Das bedeutet, dass Sie die Standardwerte für {{cssxref('background-color')}}, {
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert die Verwendung der `:autofill`-Pseudoklasse, um die Umrandung eines Textfelds zu ändern, das vom Browser automatisch ausgefüllt wurde.
+Das folgende Beispiel zeigt die Verwendung der `:autofill` Pseudoklasse, um den Rand eines Textfeldes zu ändern, das vom Browser automatisch vervollständigt wurde.
 
 ### HTML
 
-Wir fügen drei HTML-`<input>`-Elemente ein, jedes mit einem zugehörigen {{htmlelement("label")}}. Der `name` und `email` werden wahrscheinlich automatisch ausgefüllt und `:autofill` entsprechen, während der `pet`-Wert eher nicht.
+Wir fügen drei HTML `<input>`-Elemente ein, jedes mit einem zugehörigen {{htmlelement("label")}}. `name` und `email` werden wahrscheinlich automatisch ausgefüllt und stimmen mit `:autofill` überein, während der Wert `pet` dies wahrscheinlich nicht tut.
 
 ```html
 <form method="post" action="">
@@ -99,7 +99,7 @@ Wir fügen drei HTML-`<input>`-Elemente ein, jedes mit einem zugehörigen {{html
 
 ### CSS
 
-Wir wenden einen {{cssxref("border-radius")}}, {{cssxref("outline")}} und {{cssxref("border-color")}} auf die `<input>`-Elemente an, wenn sie mit dem `:autofill`-Status übereinstimmen.
+Wir wenden einen {{cssxref("border-radius")}}, {{cssxref("outline")}}, und {{cssxref("border-color")}} auf die `<input>` Elemente an, wenn sie den `:autofill` Zustand erfüllen.
 
 ```css
 input {
@@ -129,7 +129,7 @@ input:autofill {
 
 {{EmbedLiveSample('Examples')}}
 
-Wenn Sie das `name`-Feld automatisch ausfüllen lassen, werden sowohl `name` als auch `email` eine abgerundete Umrandung und eine magentafarbene Umrandung haben, obwohl sich die Umrandung aufgrund der `!important`-Markierung im User-Agent-Stylesheet wahrscheinlich nicht ändern wird. Versuchen Sie, eines der Felder zu bearbeiten: Beachten Sie, wie sich nach der Bearbeitung der Wert, selbst wenn Sie ihn auf den Autovervollständigungswert zurücksetzen, die `:autofill`-Styles nicht mehr anwenden.
+Wenn Sie das `name` automatisch ausfüllen lassen, haben `name` und `email` beide einen abgerundeten Rand und eine magentafarbene Umrandung, obwohl sich der Rand aufgrund des im Benutzeragenten-Stilblatt festgelegten `!important`-Flags wahrscheinlich nicht ändern wird. Versuchen Sie, eines der Felder zu bearbeiten: Beachten Sie, wie die `:autofill`-Stile nicht mehr angewendet werden, sobald Sie den Wert bearbeiten, auch wenn Sie ihn auf seinen Autovervollständigungswert zurücksetzen.
 
 ## Spezifikationen
 
@@ -141,5 +141,5 @@ Wenn Sie das `name`-Feld automatisch ausfüllen lassen, werden sowohl `name` als
 
 ## Siehe auch
 
-- [`<input>`-Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#input_pseudo-classes)
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- [`<input>` Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#input_pseudo-classes)
+- [CSS Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul

@@ -3,12 +3,12 @@ title: "`align-items` CSS property"
 short-title: align-items
 slug: Web/CSS/Reference/Properties/align-items
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 1474534461893381d54c502e655f334b5568e597
 ---
 
-Die [CSS](/de/docs/Web/CSS) **`align-items`**-Eigenschaft setzt den {{cssxref("align-self")}}-Wert für alle direkten Kinder als Gruppe. Im Flexbox-Layout steuert sie die Ausrichtung der Elemente auf der {{Glossary("cross_axis", "Querachse")}}. Im Grid-Layout steuert sie die Ausrichtung der Elemente auf der Blockachse innerhalb ihrer {{Glossary("grid_areas", "Rasterbereiche")}}.
+Die [CSS](/de/docs/Web/CSS) **`align-items`** Eigenschaft setzt den {{cssxref("align-self")}} Wert für alle direkten Kinder als Gruppe. In Flexbox steuert sie die Ausrichtung der Elemente auf der {{Glossary("cross_axis", "Querachse")}}. In Grid-Layout steuert sie die Ausrichtung der Elemente auf der Blockachse innerhalb ihrer {{Glossary("grid_areas", "Gitterbereiche")}}.
 
-Das interaktive Beispiel unten verwendet ein Grid-Layout, um einige der Werte dieser Eigenschaft zu demonstrieren.
+Das interaktive Beispiel unten verwendet Grid-Layout, um einige der Werte dieser Eigenschaft zu demonstrieren.
 
 {{InteractiveExample("CSS Demo: align-items")}}
 
@@ -93,69 +93,69 @@ align-items: unset;
 
 ### Werte
 
-Diese Eigenschaft kann mit einem oder zwei der folgenden Schlüsselwortwerte angegeben werden:
+Diese Eigenschaft wird als ein oder zwei der folgenden Schlüsselwortwerte angegeben:
 
 - `normal`
-  - : Die Wirkung dieses Schlüsselworts hängt vom verwendeten Layoutmodus ab:
+  - : Die Wirkung dieses Schlüsselwortes hängt vom Layout-Modus ab:
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
     - In der statischen Position von absolut positionierten Layouts verhält sich das Schlüsselwort wie `stretch`.
     - Für Flex-Elemente verhält sich das Schlüsselwort wie `stretch`.
-    - Für Grid-Elemente führt dieses Schlüsselwort zu einem Verhalten ähnlich `stretch`, außer für Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder einer intrinsischen Größe, wo es sich wie `start` verhält.
-    - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenelemente.
+    - Für Grid-Elemente führt dieses Schlüsselwort zu einem ähnlichen Verhalten wie `stretch`, außer für Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder einer intrinsischen Größe, wo es sich wie `start` verhält.
+    - Die Eigenschaft gilt nicht für Block-Elemente und für Tabellenzellen.
 
 - `center`
-  - : Die Margin-Boxen der Flex-Elemente sind innerhalb der Linie auf der Querachse zentriert. Wenn die Querschnittsgröße eines Elements größer ist als der Flex-Container, läuft es in beide Richtungen gleichmäßig über.
+  - : Die Margins der Flex-Elemente werden innerhalb der Zeile auf der Querachse zentriert. Wenn die Quergröße eines Elements größer als der Flex-Container ist, wird es in beide Richtungen gleichmäßig überlaufen.
 
 - `start`
-  - : Die Elemente sind bündig zueinander in Richtung der Startkante des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
+  - : Die Elemente werden dicht aneinander zur Startkante des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
 
 - `end`
-  - : Die Elemente sind bündig zueinander in Richtung der Endkante des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
+  - : Die Elemente werden dicht aneinander zur Endkante des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
 
 - `self-start`
-  - : Die Elemente sind bündig zur Kante der Startseite des Ausrichtungscontainers des Elements gepackt, auf der entsprechenden Achse.
+  - : Die Elemente werden dicht an die Kante auf der Startseite des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
 
 - `self-end`
-  - : Die Elemente sind bündig zur Kante der Endseite des Ausrichtungscontainers des Elements gepackt, auf der entsprechenden Achse.
+  - : Die Elemente werden dicht an die Kante auf der Endseite des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
 
 - `baseline`, `first baseline`, `last baseline`
-  - : Alle Flex-Elemente sind so ausgerichtet, dass ihre [Flex-Container-Baselines](https://drafts.csswg.org/css-flexbox-1/#flex-baselines) ausgerichtet sind. Das Element mit dem größten Abstand zwischen seiner Querstart-Margin-Kante und seiner Baseline ist mit der Querstartkante der Linie bündig.
+  - : Alle Flex-Elemente sind so ausgerichtet, dass ihre [Flex-Container Baselines](https://drafts.csswg.org/css-flexbox-1/#flex-baselines) übereinstimmen. Das Element mit dem größten Abstand zwischen seinem cross-start Margin-Rand und seiner Baseline wird mit dem cross-start Rand des Liniebündels verbunden.
 
 - `stretch`
-  - : Wenn die Querschnittsgröße des Elements `auto` ist, wird die verwendete Größe auf die Länge gesetzt, die erforderlich ist, um den Container so weit wie möglich zu füllen, unter Berücksichtigung der Breiten- und Höhenlimits des Elements. Wenn das Element nicht automatisch dimensioniert ist, fällt dieser Wert auf `flex-start` zurück und auf `self-start` oder `self-end`, wenn {{cssxref("align-content")}} des Containers `first baseline` (oder `baseline`) oder `last baseline` ist.
+  - : Wenn die Quergröße des Elements `auto` ist, wird die verwendete Größe auf die Länge gesetzt, die erforderlich ist, um den Container so gut wie möglich zu füllen, unter Berücksichtigung der Breiten- und Höhenbeschränkungen des Elements. Wenn das Element nicht automatisch skaliert wird, fällt dieser Wert auf `flex-start` zurück, und auf `self-start` oder `self-end`, wenn das {{cssxref("align-content")}} des Containers `first baseline` (oder `baseline`) oder `last baseline` ist.
 
 - `anchor-center`
-  - : Bei [Anker-positionierten](/de/docs/Web/CSS/Guides/Anchor_positioning) Elementen richtet es die Elemente in der Blockrichtung zur Mitte des zugehörigen Ankerelements aus. Siehe [Zentrieren auf dem Anker mit `anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
+  - : Im Fall von [ankerverankerten](/de/docs/Web/CSS/Guides/Anchor_positioning) Elementen werden die Elemente zum Zentrum des zugehörigen Ankerelements in Blockrichtung ausgerichtet. Siehe [Zentrieren auf dem Anker mit `anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
 
 - `safe`
-  - : Wird zusammen mit einem Ausrichtungs-Schlüsselwort verwendet. Wenn das gewählte Schlüsselwort bedeutet, dass das Element den Ausrichtungscontainer überläuft, was zum Datenverlust führt, wird das Element stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
+  - : Wird zusammen mit einem Ausrichtungsschlüsselwort verwendet. Wenn das gewählte Schlüsselwort bedeutet, dass das Element den Ausrichtungscontainer überläuft und Datenverlust verursacht, wird das Element stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
 
 - `unsafe`
-  - : Wird zusammen mit einem Ausrichtungs-Schlüsselwort verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers und ob ein Überlauf, der Datenverlust verursacht, auftreten könnte, wird der gegebene Ausrichtungswert beibehalten.
+  - : Wird zusammen mit einem Ausrichtungsschlüsselwort verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers und ob überlaufender Datenverlust entstehen könnte, wird der angegebene Ausrichtungswert beibehalten.
 
-Es gibt auch zwei Werte, die für Flexbox definiert wurden, da sie auf [Flexmodelachsen](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model)-Konzepte basieren und auch in Grid-Layouts funktionieren:
+Es gibt auch zwei Werte, die für Flexbox definiert wurden, da sie auf den [Flexmodellachsen](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model) Konzepten basieren, die auch in Grid-Layouts funktionieren:
 
 - `flex-start`
-  - : Wird nur im Flex-Layout verwendet, richtet die Flex-Elemente bündig zur Hauptstart- oder Querstart-Seite des Flex-Containers aus. Wenn außerhalb eines flexiblen Formatierungskontexts verwendet, verhält sich dieser Wert wie `start`.
+  - : Nur im Flex-Layout verwendet, richtet die Flex-Elemente bündig gegen die Haupt-Start- oder Quer-Startseite des Flex-Containers aus. Wenn es außerhalb eines Flex-Formatierungskontexts verwendet wird, verhält sich dieser Wert wie `start`.
 
 - `flex-end`
-  - : Wird nur im Flex-Layout verwendet, richtet die Flex-Elemente bündig zur Hauptend- oder Querend-Seite des Flex-Containers aus. Wenn außerhalb eines flexiblen Formatierungskontexts verwendet, verhält sich dieser Wert wie `end`.
+  - : Nur im Flex-Layout verwendet, richtet die Flex-Elemente bündig gegen die Haupt-End- oder Quer-Endseite des Flex-Containers aus. Wenn es außerhalb eines Flex-Formatierungskontexts verwendet wird, verhält sich dieser Wert wie `end`.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-In diesem Beispiel haben wir einen Container mit sechs Kindern. Ein {{htmlelement("select")}}-Dropdown-Menü ermöglicht das Umschalten des {{cssxref("display")}} des Containers zwischen `grid` und `flex`. Ein zweites Menü ermöglicht das Ändern des Werts der `align-items`-Eigenschaft des Containers.
+In diesem Beispiel haben wir einen Container mit sechs Kindern. Ein {{htmlelement("select")}} Dropdown-Menü ermöglicht das Umschalten des {{cssxref("display")}} des Containers zwischen `grid` und `flex`. Ein zweites Menü ermöglicht das Ändern des Werts der `align-items`-Eigenschaft des Containers.
 
 ### CSS
 
-Wir gestalten den Container und die Elemente so, dass wir zwei Linien oder Reihen von Elementen haben. Wir haben `.flex`- und `.grid`-Klassen definiert, die mit JavaScript auf den Container angewendet werden. Sie setzen den {{cssxref("display")}}-Wert des Containers und ändern seine Hintergrund- und Randfarben, um einen zusätzlichen Indikator dafür zu bieten, dass sich das Layout geändert hat. Die sechs Flex-Elemente haben jeweils eine andere Hintergrundfarbe, wobei das 4. Element zwei Linien lang ist und das 6. Element eine vergrößerte Schrift hat.
+Wir gestalten den Container und die Elemente so, dass wir zwei Linien oder Reihen von Elementen haben. Wir haben `.flex` und `.grid` Klassen definiert, die dem Container mit JavaScript zugewiesen werden. Sie setzen den {{cssxref("display")}}-Wert des Containers und ändern dessen Hintergrund- und Rahmenfarben, was einen zusätzlichen Hinweis darauf gibt, dass sich das Layout geändert hat. Die sechs Flex-Elemente haben jeweils eine andere Hintergrundfarbe, wobei das 4. Element zwei Zeilen lang ist und das 6. Element eine vergrößerte Schriftart hat.
 
 ```css
 .flex,
@@ -234,7 +234,7 @@ div > div {
 
 ### HTML
 
-Wir schließen einen Container {{htmlelement("div")}} mit sechs verschachtelten `<div>`-Kindern ein. Das HTML für das Formular und das JavaScript, das die Klasse des Containers ändert, wurde der Kürze halber versteckt.
+Wir fügen einen {{htmlelement("div")}} Container mit sechs verschachtelten `<div>` Kindern ein. Der HTML-Code für das Formular und das JavaScript, das die Klasse des Containers ändert, wurde der Kürze halber verborgen.
 
 ```html
 <div id="container" class="flex">
@@ -320,9 +320,9 @@ display.addEventListener("change", (evt) => {
 - {{cssxref("align-content")}}
 - {{cssxref("justify-items")}}
 - {{cssxref("place-items")}} Kurzform
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Elemente in einem Flex-Container ausrichten](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
-- [CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
-- [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+- [CSS-Box-Ausrichtungs](/de/docs/Web/CSS/Guides/Box_alignment) Modul
+- [CSS-Flexible-Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul

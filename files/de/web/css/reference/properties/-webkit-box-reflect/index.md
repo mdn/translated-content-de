@@ -3,12 +3,12 @@ title: "`-webkit-box-reflect` CSS property"
 short-title: -webkit-box-reflect
 slug: Web/CSS/Reference/Properties/-webkit-box-reflect
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_Header}}
 
-Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, den Inhalt eines Elements in eine spezifische Richtung zu spiegeln.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-webkit-box-reflect`** ermöglicht es Ihnen, den Inhalt eines Elements in eine bestimmte Richtung zu spiegeln.
 
 ## Syntax
 
@@ -35,8 +35,10 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es
 
 ### Werte
 
-- `above`, `below`, `right`, `left`
-  - : Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
+Diese Eigenschaft wird als durch Leerzeichen getrennte Liste der folgenden Werte angegeben:
+
+- `above`_,_ `below`_,_ `right`_,_ `left`
+  - : Sind Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Gibt die Größe der Spiegelung an.
 - {{cssxref("image")}}
@@ -52,7 +54,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es
 
 ## Spezifikationen
 
-Ist Teil keines Standards. Der standardisierte Weg, um Spiegelungen in CSS durchzuführen, ist die Verwendung der CSS-Funktion {{cssxref("element()")}}.
+Nicht Teil eines Standards. Die standardmäßige Methode, Spiegelungen in CSS zu erstellen, besteht darin, die CSS-Funktion {{cssxref("element()")}} zu verwenden.
 
 ## Browser-Kompatibilität
 
@@ -60,5 +62,5 @@ Ist Teil keines Standards. Der standardisierte Weg, um Spiegelungen in CSS durch
 
 ## Siehe auch
 
-- Die Apple [Dokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html).
-- Die WebKit [Spezifikation](https://webkit.org/blog/182/css-reflections/).
+- Die Apple-[Dokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html).
+- Die WebKit-[Spezifikation](https://webkit.org/blog/182/css-reflections/).

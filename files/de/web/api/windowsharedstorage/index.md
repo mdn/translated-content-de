@@ -2,30 +2,30 @@
 title: WindowSharedStorage
 slug: Web/API/WindowSharedStorage
 l10n:
-  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}
 
-Die **`WindowSharedStorage`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung innerhalb eines Standard-Browsing-Kontexts.
+Die **`WindowSharedStorage`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung innerhalb eines standardmäßigen Browser-Kontextes.
 
 `WindowSharedStorage` wird über [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage) aufgerufen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`worklet`](/de/docs/Web/API/WindowSharedStorage/worklet) {{deprecated_inline}}
   - : Beinhaltet die [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Instanz, die den gemeinsamen Speicher-Worklet für den aktuellen Ursprung darstellt. `SharedStorageWorklet` umfasst die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule), die verwendet wird, um ein Modul zum gemeinsamen Speicher-Worklet hinzuzufügen.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_`WindowSharedStorage` erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`SharedStorage`](/de/docs/Web/API/SharedStorage)._
+_`WindowSharedStorage` erbt Eigenschaften von seiner Elterschnittstelle, [`SharedStorage`](/de/docs/Web/API/SharedStorage)._
 
 - [`run()`](/de/docs/Web/API/WindowSharedStorage/run) {{Deprecated_Inline}}
-  - : Führt eine [Run Output Gate](/de/docs/Web/API/Shared_Storage_API#run)-Operation aus, die in einem hinzugefügten Modul im [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) des aktuellen Ursprungs registriert wurde.
+  - : Führt eine [Run Output Gate](/de/docs/Web/API/Shared_Storage_API#run)-Operation aus, die in einem Modul registriert wurde, das dem [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) des aktuellen Ursprungs hinzugefügt wurde.
 - [`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) {{Deprecated_Inline}}
-  - : Führt eine [URL Selection Output Gate](/de/docs/Web/API/Shared_Storage_API#url_selection)-Operation aus, die in einem hinzugefügten Modul im [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) des aktuellen Ursprungs registriert wurde.
+  - : Führt eine [URL Selection Output Gate](/de/docs/Web/API/Shared_Storage_API#url_selection)-Operation aus, die in einem Modul registriert wurde, das dem [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) des aktuellen Ursprungs hinzugefügt wurde.
 
 ## Beispiele
 
@@ -63,7 +63,7 @@ async function injectContent() {
 injectContent();
 ```
 
-Sehen Sie sich die Übersichtsseite der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen an.
+Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für eine ausführliche Erklärung dieses Beispiels und Links zu weiteren Beispielen an.
 
 ## Spezifikationen
 

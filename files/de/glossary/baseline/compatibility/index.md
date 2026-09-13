@@ -2,10 +2,10 @@
 title: Baseline (Kompatibilität)
 slug: Glossary/Baseline/Compatibility
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 28f5f3b9b463fa842fa686ccc73c9e1d9b06282b
 ---
 
-**Baseline** identifiziert die Verfügbarkeit von Webplattform-Features über beliebte Browser hinweg, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Web-Features als entweder weit verbreitet oder neu verfügbar. Features, die die Baseline-Kriterien nicht erfüllen, haben eine eingeschränkte Verfügbarkeit.
+**Baseline** identifiziert die Verfügbarkeit von Webplattform-Funktionen über beliebte Browser hinweg, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Webfunktionen als entweder weit verbreitet oder neu verfügbar. Funktionen, die die Baseline-Kriterien nicht erfüllen, gelten als begrenzt verfügbar.
 
 Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 
@@ -17,29 +17,37 @@ Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 - Mozilla Firefox (Android)
 - Mozilla Firefox (Desktop)
 
-Baseline ist eine Zusammenfassung der Browser-Unterstützung. Es ist kein Ersatz für Zugänglichkeit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Tests. Baseline gibt möglicherweise nicht an, ob ein Feature funktioniert mit:
+Baseline ist eine Zusammenfassung der Browser-Unterstützung. Es ersetzt nicht die Zugänglichkeit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Tests. Baseline gibt möglicherweise nicht an, ob eine Funktion funktioniert mit:
 
 - Älteren Geräten und Browser-Versionen
-- Browsern, die nicht von der Baseline-Definition abgedeckt sind, wie z.B. Betriebssystem-Web-Views
-- Unterstützender Technologie wie Bildschirmlesegeräten.
+- Browsern, die nicht durch die Baseline-Definition abgedeckt werden, wie z. B. Betriebssystem-Webansichten
+- Unterstützender Technologie, wie Bildschirmlesern.
 
 ## Baseline-Abzeichen
 
-![Grünes Widget mit dem Häkchen: Baseline, weit verbreitet. Vier Browser-Logos, alle mit Häkchen.](high.png)
+![Grünes Widget mit Häkchen: Baseline, weit verbreitet. Vier Browser-Logos, alle mit Häkchen.](widely.png)
 
-Als **weit verbreitet** gelistete Features haben eine konstante Unterstützungsgeschichte in jedem der Baseline-Browser für mindestens 2,5 Jahre.
+Als **weit verbreitet** gelistete Funktionen haben eine konsistente Unterstützungsgeschichte in jedem der Baseline-Browser für mindestens 2,5 Jahre.
 
-![Blaues Widget mit dem Häkchen: Baseline 2022, neu verfügbar. Vier Browser-Logos, alle mit Häkchen.](limited.png)
+![Blaues Widget mit Häkchen: Baseline 2022, neu verfügbar. Vier Browser-Logos, alle mit Häkchen.](newly.png)
 
-Als **neu verfügbar** gelistete Features funktionieren in mindestens der neuesten stabilen Version jedes der Baseline-Browser, aber möglicherweise nicht mit älteren Browsern und Geräten.
+Als **neu verfügbar** gelistete Funktionen funktionieren in mindestens der neuesten stabilen Version jedes Baseline-Browsers, funktionieren jedoch möglicherweise nicht mit älteren Browsern und Geräten.
 
-![Graues Widget mit dem Kreuz: eingeschränkte Verfügbarkeit. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](low.png)
+![Graues Widget mit Kreuz: Begrenzte Verfügbarkeit. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](limited.png)
 
-Als **eingeschränkt verfügbar** gelistete Features sind _noch nicht_ in allen Browsern verfügbar.
+Mit **begrenzter Verfügbarkeit** gelistete Funktionen sind _noch nicht_ in allen Browsern verfügbar.
+
+![Graues Widget mit gepunktetem Diamanten: Veraltet. Vier Browser-Logos, alle mit Häkchen.](deprecated.png)
+
+Als **veraltet** gelistete Funktionen können in einem oder mehreren Browsern verfügbar sein, sollten jedoch in der Entwicklung nicht verwendet werden.
+
+![Rotes Widget mit Kreuz: Veraltet, soll entfernt werden. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](removed.png)
+
+Als **veraltet, soll entfernt werden** gelistete Funktionen können in einem oder mehreren Browsern verfügbar sein, sollen jedoch entfernt werden und sollten in der Entwicklung nicht verwendet werden.
 
 ## Siehe auch
 
-- [Testing](/de/docs/Learn_web_development/Extensions/Testing)
+- [Testen](/de/docs/Learn_web_development/Extensions/Testing)
 - [web-platform-dx/web-features repository](https://github.com/web-platform-dx/web-features)
 - [W3C WebDX Community Group](https://www.w3.org/community/webdx/)
 - [mdn/browser-compat-data repository](https://github.com/mdn/browser-compat-data)

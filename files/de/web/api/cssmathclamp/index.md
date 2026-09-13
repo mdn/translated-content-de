@@ -2,7 +2,7 @@
 title: CSSMathClamp
 slug: Web/API/CSSMathClamp
 l10n:
-  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
@@ -16,38 +16,142 @@ Die **`CSSMathClamp`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/W
 - [`CSSMathClamp()`](/de/docs/Web/API/CSSMathClamp/CSSMathClamp)
   - : Erstellt ein neues `CSSMathClamp`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 - [`CSSMathClamp.lower`](/de/docs/Web/API/CSSMathClamp/lower) {{readonlyinline}}
-  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den minimalen Wert enthält.
+  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Minimalwert enthält.
 - [`CSSMathClamp.value`](/de/docs/Web/API/CSSMathClamp/value) {{readonlyinline}}
   - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den bevorzugten Wert enthält.
 - [`CSSMathClamp.upper`](/de/docs/Web/API/CSSMathClamp/upper) {{readonlyinline}}
-  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den oberen Wert enthält.
+  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Höchstwert enthält.
 
 ## Statische Methoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt auch Methoden von seiner übergeordneten Schnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt auch Methoden von seiner übergeordneten Schnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+
+## Beschreibung
+
+Die CSS-Funktion {{CSSXref("clamp", "clamp()")}} nimmt drei Argumente: einen Minimalwert, einen bevorzugten und einen Höchstwert, und gibt den bevorzugten Wert zurück, der zwischen dem Minimal- und Höchstwert eingegrenzt ist.
+
+Wenn alle drei Argumente absolute Werte sind, wie Pixelgrößen, wird `clamp()` zur Parsing-Zeit auf einen einzelnen Wert aufgelöst, der im CSS Typed Object Model als [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) dargestellt wird.
+Wenn der `clamp()`-Ausdruck nicht zur Parsing-Zeit auf einen einzelnen Wert aufgelöst werden kann (zum Beispiel, weil eines seiner Argumente eine relative Einheit wie `vw` oder `%` verwendet), wird die Funktion als `CSSMathClamp`-Objekt dargestellt, und die drei an `clamp()` (oder den `CSSMathClamp()`-Konstruktor) übergebenen Argumente werden als `lower`, `value` und `upper`-Eigenschaften verfügbar gemacht.
+
+Beachten Sie, dass `CSSMathClamp` die `clamp()`-Funktion darstellt, nicht deren aufgelösten Wert.
+Um den Wert einer eingegrenzten Eigenschaft zu bestimmen, müssen Sie den berechneten Stil lesen (zum Beispiel mit [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle)).
 
 ## Beispiele
 
-### Untersuchen eines begrenzten Werts
+### Grundlegende Verwendung
 
-In diesem Beispiel werden drei Bereichsregler verwendet, um die `lower`, `preferred` und `upper` Werte eines `CSSMathClamp` festzulegen, und dann auf die Breite eines Kastens mittels [`attributeStyleMap.set()`](/de/docs/Web/API/StylePropertyMap/set) angewendet.
-Dies ermöglicht Ihnen, die Auswirkungen der Änderung des Bereichs auf den begrenzten Wert der `width` zu sehen.
+Der folgende Code erstellt eine `CSSMathClamp`-Instanz aus drei Längen und liest dann ihre `lower`, `value` und `upper`-Eigenschaften aus.
 
-Das Ziehen eines Schiebereglers ändert, was `lower`, `value`, und `upper` melden, weil sie immer die drei an die `CSSMathClamp` übergebenen Operanden spiegeln — es ist zu beachten, dass `value` in `vw` angegeben wird, nicht die Pixel, die auf dem Schieberegler angezeigt werden. Die Ausgabe neben dem bevorzugten Schieberegler zeigt sowohl den Pixelwert als auch das tatsächlich an den Konstruktor übergebene `vw`-Äquivalent, sodass die Umwandlung sichtbar bleibt. Die tatsächlich gerenderte Breite des Kastens hingegen ist das Ergebnis des Clamping dieses `vw`-Werts zwischen den beiden Pixelgrenzen und kann erheblich von `value` selbst abweichen — zum Beispiel, wenn der bevorzugte Schieberegler unter den unteren oder über den oberen Schieberegler gezogen wird.
+```js
+const clamp = new CSSMathClamp(CSS.px(10), CSS.percent(50), CSS.px(500));
+
+console.log(clamp.constructor.name); // "CSSMathClamp"
+console.log(clamp.lower); // CSSUnitValue {value: 10, unit: "px"}
+console.log(clamp.value); // CSSUnitValue {value: 50, unit: "percent"}
+console.log(clamp.upper); // CSSUnitValue {value: 500, unit: "px"}
+```
+
+### `clamp()`-Darstellungen
+
+Dieses Beispiel zeigt, wie {{CSSXref("clamp","clamp()")}} je nach Verwendung aller absoluten Werte entweder durch einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) oder ein `CSSMathClamp` dargestellt wird.
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("div")}}-Element für den skalierbaren Kasten, drei Schieberegler, um die minimalen, bevorzugten und oberen Werte seiner Breite festzulegen, und {{htmlelement("output")}}-Elemente, um die Schiebereglerwerte numerisch anzuzeigen.
-Alle drei Schieberegler teilen denselben Bereich von 0 bis 400 Pixel, sodass ihre Positionen direkt vergleichbar sind.
+Zuerst deklarieren wir ein {{htmlelement("div")}}-Element, `#demoBox`, dem wir einige eingegrenzte Eigenschaften zuweisen.
+
+```html
+<div id="demoBox">Text</div>
+```
+
+```html hidden
+<pre id="log"></pre>
+```
+
+#### CSS
+
+Die `width` der Box wird mit einem `clamp()` festgelegt, dessen drei Argumente alle absolute Längen sind, sodass der Browser dies sofort auf einen einzelnen festen Wert auflösen kann.
+`font-size` wird mit einem `clamp()` festgelegt, dessen bevorzugter Wert die relative Einheit `vw` verwendet, sodass der Browser dies erst beim Aufbau auflösen kann (dies wird durch ein `CSSMathClamp` dargestellt).
+
+```css
+#demoBox {
+  width: clamp(10px, 50px, 500px);
+  font-size: clamp(1rem, 5vw, 3rem);
+}
+```
+
+```css hidden
+#log {
+  height: 200px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+```
+
+#### JavaScript
+
+```js hidden
+const logElement = document.querySelector("#log");
+function log(text) {
+  logElement.innerText += `${text}\n`;
+}
+```
+
+Zuerst finden wir die Stilregel der Demo-Box und lesen ihre `width`- und `font-size`-Werte mithilfe von [`styleMap`](/de/docs/Web/API/CSSStyleRule/styleMap).
+
+```js
+const demoBox = document.querySelector("#demoBox");
+
+const rules = document.getElementById("css-output").sheet.cssRules;
+const rule = [...rules].find((r) => r.selectorText === "#demoBox");
+const styleMap = rule.styleMap;
+const width = styleMap.get("width");
+const fontSize = styleMap.get("font-size");
+```
+
+Wir protokollieren dann den Typ und den Wert der Darstellungen des CSS Typed Object Models, gefolgt von den berechneten (aufgelösten) Werten.
+
+```js
+log("width");
+log(` type: ${width.constructor.name}`);
+log(` value: ${width}`);
+log(` resolved: ${getComputedStyle(demoBox).width}`);
+
+log("\nfont-size");
+log(` type: ${fontSize.constructor.name}`);
+log(` lower: ${fontSize.lower}`);
+log(` value: ${fontSize.value}`);
+log(` upper: ${fontSize.upper}`);
+log(` resolved: ${getComputedStyle(demoBox).fontSize}`);
+```
+
+#### Ergebnis
+
+`width` wird als einzelner `CSSUnitValue` protokolliert, und sein aufgelöster Wert entspricht direkt diesem Wert.
+`font-size` wird als `CSSMathClamp` protokolliert, das die ursprünglichen Operanden der `clamp()`-Funktion freigibt.
+
+{{EmbedLiveSample("`clamp()` representations", 300, 300)}}
+
+### Untersuchung eines eingegrenzten Werts
+
+Dieses Beispiel verwendet drei Bereichsschieberegler, um die `lower`, `preferred` und `upper`-Werte eines `CSSMathClamp` festzulegen und dann auf die Breite einer Box mithilfe von [`attributeStyleMap.set()`](/de/docs/Web/API/StylePropertyMap/set) anzuwenden.
+Auf diese Weise können Sie den Effekt einer Änderung des Bereichs auf den eingegrenzten Wert der `width` sehen.
+
+Das Ziehen eines Schiebereglers verändert, was `lower`, `value` und `upper` melden, da sie immer die drei an `CSSMathClamp` übergebenen Operanden widerspiegeln - beachten Sie, dass `value` in `vw` gemeldet wird, nicht die auf seinem Schieberegler angezeigten Pixel. Die Ausgabe neben dem bevorzugten Schieberegler zeigt sowohl seinen Pixelwert als auch das tatsächlich an den Konstruktor übergebene `vw`-Äquivalent, sodass die Umrechnung sichtbar bleibt. Die tatsächliche gerenderte Breite der Box hingegen ist das Ergebnis der Einengung dieses `vw`-Werts zwischen den beiden Pixelgrenzen und kann sich erheblich von `value` selbst unterscheiden - zum Beispiel wenn der bevorzugte Schieberegler unter den unteren oder über den oberen Schieberegler gezogen wird.
+
+#### HTML
+
+Zuerst definieren wir ein {{htmlelement("div")}}-Element für die skalierbare Box, drei Schieberegler zur Einstellung der minimalen, bevorzugten und oberen Werte ihrer Breite und {{htmlelement("output")}}-Elemente zur numerischen Anzeige der Schiebereglerwerte.
+Alle drei Schieberegler teilen denselben 0 bis 400 Pixel Bereich, sodass ihre Positionen direkt vergleichbar sind.
 Wir setzen die Anfangswerte so, dass `lower < pref < upper`.
 
 ```html
@@ -68,11 +172,11 @@ Wir setzen die Anfangswerte so, dass `lower < pref < upper`.
 <pre id="log"></pre>
 ```
 
-Am Ende definieren wir ein `#log`-Element, um Informationen über die Kastenbreite auszugeben.
+Am Ende definieren wir ein `#log`-Element zur Ausgabe von Informationen über die Breite der Box.
 
 #### CSS
 
-Das CSS legt die visuellen Eigenschaften und die Ausrichtung des Kastens, der Schieberegler und anderer Elemente fest.
+Das CSS legt die visuellen Eigenschaften und die Ausrichtung der Box, Schieberegler und anderer Elemente fest.
 
 ```css
 #box {
@@ -105,7 +209,7 @@ Das CSS legt die visuellen Eigenschaften und die Ausrichtung des Kastens, der Sc
 
 #### JavaScript
 
-Zuerst erstellen wir Variablen, um den Kasten, die Schieberegler und die Ausgabeelemente zu referenzieren.
+Zuerst erstellen wir Variablen, um auf die Box, die Schieberegler und die Ausgabeelemente zuzugreifen.
 
 ```js
 const box = document.querySelector("#box");
@@ -124,8 +228,8 @@ function log(text) {
 }
 ```
 
-Dann rufen wir die `update()`-Funktion auf, um den Kasten und die Ausgabeelemente basierend auf dem Schiebereglerwert zu aktualisieren.
-Wir richten einen Listener ein, damit die Funktion aufgerufen wird, wann immer sich die Schiebereglerpositionen ändern.
+Dann rufen wir die `update()`-Funktion auf, um die Box und die Ausgabeelemente basierend auf dem Schiebereglerwert zu aktualisieren.
+Wir richten einen Listener ein, damit die Funktion aufgerufen wird, wann immer sich die Positionen der Schieberegler ändern.
 
 ```js
 [lowerInput, prefInput, upperInput].forEach((el) =>
@@ -135,12 +239,12 @@ update();
 ```
 
 Die `update()`-Funktion wird unten gezeigt.
-Diese protokolliert die Werte der Schieberegler und verwendet sie bei der Erstellung eines `CSSMathClamp`, der anschließend auf das `width`-Attribut des Kastens gesetzt wird.
-Die Attributstile des Kastens werden dann mittels [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap) gelesen, und die abgerufenen Werte von `width` werden ebenfalls protokolliert, zusammen mit der gerenderten Breite des Kastens.
+Diese protokolliert die Werte der Schieberegler und verwendet sie bei der Erstellung eines `CSSMathClamp`, das dann auf das `width`-Attribut der Box gesetzt wird.
+Die Attributstile der Box werden dann mithilfe von [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap) gelesen und die abgerufenen `width`-Werte werden ebenfalls protokolliert, zusammen mit der gerenderten Breite der Box.
 
-Eine Komplexität im Code besteht darin, dass während `lower` und `upper` als Pixel an den `CSSMathClamp()`-Konstruktor übergeben werden, die genau ihren Schiebereglern entsprechen, der Pixelwert von `preferred` zuerst in `vw` (Viewport-Breite) Einheiten umgewandelt wird.
-Dies wurde getan, weil, wenn alle drei Operanden absolute Längen waren (zum Beispiel alle in Pixeln), der Browser `clamp()` auf eine einzelne feste Zahl herunterlösen könnte, die dann als [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zurückgelesen wird, anstatt als `CSSMathClamp`.
-Die Umwandlung von `preferred` in eine relative Einheit wie `vw` bedeutet, dass der Browser den Ausdruck bis zum Layout nicht auflösen kann, sodass er den Wert als einen live `CSSMathClamp` mit allen drei intakten Operanden behält.
+Eine Komplexität im Code besteht darin, dass während `lower` und `upper` als Pixel an den `CSSMathClamp()`-Konstruktor übergeben werden, genau passend zu ihren Schiebereglern, der Pixelwert von `preferred` zuerst in `vw`- (viewport width) Einheiten umgewandelt wird.
+Dies wurde so gemacht, weil wenn alle drei Operanden absolute Längen wären (zum Beispiel alle in Pixeln), der Browser `clamp()` auf eine einzige feste Zahl auflösen könnte, was als [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) anstelle eines `CSSMathClamp` gelesen würde.
+Die Umwandlung von `preferred` in eine relative Einheit wie `vw` bedeutet, dass der Browser den Ausdruck bis zum Layout nicht auflösen kann, sodass er den Wert als Live-`CSSMathClamp` mit allen drei intakten Operanden beibehält.
 
 ```js
 function update() {
@@ -175,7 +279,7 @@ function update() {
 
 #### Ergebnis
 
-Ziehen Sie die Schieberegler, um zu sehen, wie `lower`, `value` und `upper` immer die Positionen der Schieberegler entsprechen, während die gerenderte Breite zwischen `lower` und `upper` beschränkt wird.
+Ziehen Sie die Schieberegler, um zu sehen, wie `lower`, `value` und `upper` immer den Schiebereglerpositionen entsprechen, während die gerenderte Breite zwischen `lower` und `upper` eingegrenzt wird.
 
 {{EmbedLiveSample("Inspecting a clamped value", 300, 350)}}
 

@@ -3,10 +3,10 @@ title: "`flex-flow` CSS-Eigenschaft"
 short-title: flex-flow
 slug: Web/CSS/Reference/Properties/flex-flow
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Richtung eines Flex-Containers sowie dessen Umbruchverhalten fest.
+Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt sowohl die Richtung eines Flex-Containers als auch sein Umbruchverhalten fest.
 
 {{InteractiveExample("CSS Demo: flex-flow")}}
 
@@ -19,11 +19,19 @@ flex-flow: row-reverse nowrap;
 ```
 
 ```css interactive-example-choice
+flex-flow: row wrap balance;
+```
+
+```css interactive-example-choice
 flex-flow: column wrap-reverse;
 ```
 
 ```css interactive-example-choice
 flex-flow: column wrap;
+```
+
+```css interactive-example-choice
+flex-flow: column balance wrap;
 ```
 
 ```html interactive-example
@@ -35,6 +43,7 @@ flex-flow: column wrap;
     <div>Item Four</div>
     <div>Item Five</div>
     <div>Item Six</div>
+    <div>Item Seven</div>
   </div>
 </section>
 ```
@@ -51,13 +60,13 @@ flex-flow: column wrap;
   background-color: rgb(0 0 255 / 0.2);
   border: 3px solid blue;
   width: 60px;
-  margin: 10px;
+  margin: 5px 10px;
 }
 ```
 
-## Bestanteileigenschaften
+## Bestandteile
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("flex-direction")}}
 - {{cssxref("flex-wrap")}}
@@ -75,11 +84,14 @@ flex-flow: column-reverse;
 flex-flow: nowrap;
 flex-flow: wrap;
 flex-flow: wrap-reverse;
+flex-flow: wrap balance;
+flex-flow: balance wrap-reverse;
 
 /* flex-flow: <'flex-direction'> and <'flex-wrap'> */
 flex-flow: row nowrap;
 flex-flow: column wrap;
 flex-flow: column-reverse wrap-reverse;
+flex-flow: row-reverse balance wrap
 
 /* Global values */
 flex-flow: inherit;
@@ -93,6 +105,26 @@ flex-flow: unset;
 
 Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu den Werten.
 
+## Beschreibung
+
+Die `flex-flow` Kurzschreibweise bestimmt die Eigenschaften {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}}, definiert die Richtung eines Flex-Containers und dessen Umbruchverhalten. Sie kann auch festlegen, dass Flex-Elemente ausgeglichen verteilt werden, wenn Umbrüche erlaubt sind.
+
+Zum Beispiel setzt `column-reverse wrap` die Hauptachse in die Blockrichtung mit einem umgekehrten Hauptstart und Hauptende, wobei Flex-Elemente Umbrüche erlauben und bei Bedarf neue Zeilen erstellen.
+
+```css
+.container {
+  flex-flow: column-reverse wrap;
+}
+```
+
+Um die Flex-Elemente gleichmäßig über jede Flex-Zeile zu verteilen, können Sie das `flex-wrap` Schlagwort [`balance`](/de/docs/Web/CSS/Reference/Properties/flex-wrap#balance) zusätzlich zu `wrap` einschließen:
+
+```css
+.container {
+  flex-flow: column-reverse wrap balance;
+}
+```
+
 ## Formale Definition
 
 {{cssinfo}}
@@ -103,15 +135,77 @@ Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu
 
 ## Beispiele
 
-### column-reverse und wrap setzen
+### Grundlegende Verwendung
 
-In diesem Beispiel ist die Hauptachse die Blockrichtung, mit umgekehrtem Haupt-Start und Haupt-Ende. Die Flex-Elemente dürfen umbrechen und bei Bedarf neue Zeilen erstellen.
+Dieses Beispiel demonstriert die Verwendung der `flex-flow` Kurzschreibweise auf einem Flex-Container, sodass die Elemente rückwärts über mehrere Zeilen angeordnet werden.
+
+#### HTML
+
+Wir fügen eine Liste von Wörtern in alphabetischer Reihenfolge ein:
+
+```html
+<ul>
+  <li>Alphabet</li>
+  <li>Banana</li>
+  <li>Crayons</li>
+  <li>Dinosaurs</li>
+  <li>Eggplant</li>
+  <li>Foundation</li>
+  <li>Ghosts</li>
+  <li>Happy</li>
+  <li>Igloo</li>
+  <li>Janitors</li>
+  <li>Kittens</li>
+  <li>Lasso</li>
+  <li>Magic 8-ball</li>
+  <li>Nincompoop</li>
+  <li>Orange</li>
+  <li>Petunia</li>
+  <li>Quality</li>
+  <li>Rancid</li>
+  <li>Shoelace</li>
+  <li>Terydactyl</li>
+  <li>Umbrella</li>
+  <li>Valentine</li>
+  <li>Westward</li>
+  <li>Xylophone</li>
+</ul>
+```
+
+#### CSS
+
+Wir setzen den {{HTMLElement("ul")}} als Flex-Container mit der {{cssxref("display")}}-Eigenschaft, definieren eine {{cssxref("width")}}, fügen ein {{cssxref("gap")}} hinzu, damit etwas Platz zwischen den Flex-Elementen und Flex-Zeilen ist, und setzen dann den `flex-flow`, um die Elemente in umgekehrter Reihenfolge zu umbrechen. Zusätzliche CSS wurde der Kürze halber ausgeblendet.
 
 ```css
-.container {
-  flex-flow: column-reverse wrap;
+ul {
+  display: flex;
+  width: 31em;
+  gap: 1em;
+
+  flex-flow: row-reverse wrap-reverse;
 }
 ```
+
+```css hidden
+ul {
+  list-style: none;
+  border: 1px solid;
+  font-family: sans-serif;
+}
+li {
+  font-size: 1.25rem;
+  padding: 5px;
+  border: 1px solid;
+  background-color: lightpink;
+}
+li:nth-of-type(even) {
+  background-color: lightgreen;
+}
+```
+
+#### Ergebnis
+
+{{EmbedLiveSample("Basic usage","",310)}}
 
 ## Spezifikationen
 
@@ -123,5 +217,5 @@ In diesem Beispiel ist die Hauptachse die Blockrichtung, mit umgekehrtem Haupt-S
 
 ## Siehe auch
 
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Flex-Elemente anordnen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)

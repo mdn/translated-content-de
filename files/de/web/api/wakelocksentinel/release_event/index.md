@@ -1,20 +1,21 @@
 ---
-title: "WakeLockSentinel: release Ereignis"
+title: "WakeLockSentinel: release-Ereignis"
 short-title: release
 slug: Web/API/WakeLockSentinel/release_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 55c52058769cbd20b5c85393b5fbb34f969cfdb2
 ---
 
 {{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-Das **`release`**-Ereignis der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Schnittstelle wird ausgelöst, wenn der Handle des Sentinel-Objekts freigegeben wurde.
+Das **`release`**-Ereignis der Schnittstelle [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) wird ausgelöst, wenn das Handle des Sentinel-Objekts freigegeben wurde.
 
-Ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) kann manuell über die `release()`-Methode oder automatisch über die Plattform-Wachsamkeitssperre freigegeben werden. Dies kann passieren, wenn das Dokument inaktiv wird oder die Sichtbarkeit verliert, wenn das Gerät wenig Strom hat oder der Benutzer den Energiesparmodus aktiviert.
+Ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) kann manuell über die Methode `release()` oder automatisch über die Wake Lock der Plattform freigegeben werden.
+Dies kann geschehen, wenn das Dokument inaktiv wird oder seine Sichtbarkeit verliert, wenn der Akku des Geräts schwach ist oder die Benutzerin bzw. der Benutzer einen Energiesparmodus aktiviert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("release", (event) => { })
@@ -28,7 +29,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert die Benutzeroberfläche, wenn die Wachsamkeitssperre freigegeben wird.
+Dieses Beispiel aktualisiert die Benutzeroberfläche, wenn die Wake Lock freigegeben wird.
 
 ```js
 wakeLock.addEventListener("release", () => {
@@ -47,4 +48,4 @@ wakeLock.addEventListener("release", () => {
 
 ## Siehe auch
 
-- [Wachbleiben mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)
+- [Mit der Screen Wake Lock API wach bleiben](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)

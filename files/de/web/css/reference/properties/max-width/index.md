@@ -3,10 +3,12 @@ title: "`max-width` CSS property"
 short-title: max-width
 slug: Web/CSS/Reference/Properties/max-width
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`max-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die maximale Breite eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der {{cssxref("width")}}-Eigenschaft größer wird als der durch `max-width` angegebene Wert.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`max-width`** legt die maximale Breite eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der Eigenschaft {{cssxref("width")}} größer wird als der durch `max-width` angegebene Wert.
+
+`max-width` überschreibt {{cssxref("width")}}, aber {{cssxref("min-width")}} überschreibt `max-width`.
 
 {{InteractiveExample("CSS Demo: max-width")}}
 
@@ -45,8 +47,6 @@ max-width: 20ch;
 }
 ```
 
-`max-width` überschreibt {{cssxref("width")}}, jedoch überschreibt {{cssxref("min-width")}} `max-width`.
-
 ## Syntax
 
 ```css
@@ -77,31 +77,31 @@ max-width: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Definiert die `max-width` als absoluten Wert.
+  - : Definiert `max-width` als absoluten Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die `max-width` als Prozentsatz der Breite des umgebenden Blocks.
+  - : Definiert `max-width` als Prozentsatz der Breite des enthaltenden Blocks.
 - `none`
-  - : Keine Begrenzung der Größe des Kastens.
+  - : Keine Begrenzung für die Größe der Box.
 - {{cssxref("max-content")}}
-  - : Die intrinsische bevorzugte `max-width`.
+  - : Die intrinsisch bevorzugte `max-width`.
 - {{cssxref("min-content")}}
   - : Die intrinsische minimale `max-width`.
 - {{cssxref("fit-content")}}
-  - : Nutzen Sie den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Verwendet den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
-  - : Verwendet die `fit-content`-Formel mit dem verfügbaren Platz, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
+  - : Verwendet die `fit-content`-Formel, wobei der verfügbare Platz durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-  - : Begrenzung der maximalen Breite der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [Containment-Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Sie versucht, die Margin-Box so zu gestalten, dass sie den verfügbaren Platz im Containment-Block ausfüllt, verhält sich also in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Margin-Box an, anstatt auf den Kasten, der durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmt wird.
+  - : Begrenzt die maximale Breite der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [enthaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box den verfügbaren Platz im enthaltenden Block ausfüllen zu lassen und verhält sich damit in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Margin-Box statt auf die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmte Box an.
 
     > [!NOTE]
-    > Um Aliase, die von Browsern für den `stretch`-Wert verwendet werden, und ihren Implementierungsstatus zu überprüfen, sehen Sie sich den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) an.
+    > Informationen zu den von Browsern für den Wert `stretch` verwendeten Aliassen und zu seinem Implementierungsstatus finden Sie im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer `max-width` nicht abgeschnitten werden und/oder keine anderen Inhalte verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit festgelegtem `max-width` nicht abgeschnitten werden und/oder keine anderen Inhalte verdecken, wenn die Seite gezoomt wird, um die Textgröße zu erhöhen.
 
-- [MDN Erklärung zu WCAG, Leitfaden 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN-Erklärungen zum Verständnis von WCAG, Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erfolgskriterium 1.4.4 verstehen | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -113,9 +113,9 @@ Stellen Sie sicher, dass Elemente mit einer `max-width` nicht abgeschnitten werd
 
 ## Beispiele
 
-### Setzen der maximalen Breite in Pixeln
+### Maximale Breite in Pixeln festlegen
 
-In diesem Beispiel wird das "Child" entweder 150 Pixel breit oder so breit wie das "Parent", je nachdem, was kleiner ist.
+In diesem Beispiel ist das „child“ entweder 150 Pixel breit oder so breit wie das „parent“, je nachdem, welcher Wert kleiner ist.
 
 #### HTML
 
@@ -161,5 +161,5 @@ In diesem Beispiel wird das "Child" entweder 150 Pixel breit oder so breit wie d
 - {{cssxref("max-inline-size")}}
 - {{cssxref("max-block-size")}}
 - {{cssxref("box-sizing")}}
-- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
-- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- Leitfaden [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
+- Modul [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model)

@@ -3,24 +3,24 @@ title: "Element: securitypolicyviolation-Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/Element/securitypolicyviolation_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: f37e438c6dece2b381d2b9f35dc53af21a916a75
 ---
 
 {{APIRef("Reporting API")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verletzt wird.
+Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn gegen eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verstoßen wird.
 
-Das Ereignis wird auf dem Element ausgelöst, wenn es zu einer Verletzung der CSP-Richtlinie kommt.
+Das Ereignis wird auf dem Element ausgelöst, wenn es einen Verstoß gegen die CSP-Richtlinie gibt.
 
-Dieses Ereignis [blubbert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) bis zum [`Window`](/de/docs/Web/API/Window)-Objekt und ist [composed](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum [`Window`](/de/docs/Web/API/Window)-Objekt und ist [composed](/de/docs/Web/API/Event/composed).
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis im Allgemeinen zu einem obersten Objekt hinzufügen (z.B. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
-> Während HTML-Elemente technisch gesehen das Ziel des `securitypolicyviolation`-Ereignisses sein können, wird dieses Ereignis in der Praxis nicht auf ihnen ausgelöst—zum Beispiel löst eine blockierte `<img>`-Quelle dieses Ereignis direkt auf `document` als Ziel aus, anstatt vom `<img>`-Element zu blubbern.
+> Sie sollten den Handler für dieses Ereignis im Allgemeinen zu einem Objekt der obersten Ebene hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Obwohl HTML-Elemente technisch gesehen das Ziel des `securitypolicyviolation`-Ereignisses sein können, wird dieses Ereignis in der Praxis nicht auf ihnen ausgelöst – beispielsweise löst eine blockierte `<img>`-Quelle dieses Ereignis direkt auf `document` als Ziel aus, anstatt vom `<img>`-Element zu bubblen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("securitypolicyviolation", (event) => { })
@@ -36,9 +36,9 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-### Überwachung von securitypolicyviolation auf Window
+### Auf securitypolicyviolation bei Window lauschen
 
-Der folgende Code zeigt, wie Sie eine Ereignishandlerfunktion über die globale Ereignishandlereigenschaft `onsecuritypolicyviolation` oder `addEventListener()` auf dem obersten `Window` hinzufügen könnten (Sie könnten genau denselben Ansatz auf `Document` verwenden).
+Der folgende Code zeigt, wie Sie eine Event-Handler-Funktion mithilfe der globalen Event-Handler-Eigenschaft `onsecuritypolicyviolation` oder `addEventListener()` auf dem `Window` der obersten Ebene hinzufügen können (Sie könnten denselben Ansatz auch bei `Document` verwenden).
 
 ```js
 window.onsecuritypolicyviolation = (e) => {

@@ -1,12 +1,14 @@
 ---
-title: "`:invalid` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:invalid`
 short-title: :invalid
 slug: Web/CSS/Reference/Selectors/:invalid
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`:invalid`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} oder andere {{HTMLElement("form")}}-Element, dessen Inhalt die [Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht besteht.
+Die **`:invalid`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} oder andere {{HTMLElement("form")}}-Element, dessen Inhalt die [Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht besteht.
+
+Diese Pseudoklasse ist nützlich, um Feldfehler für die Benutzer hervorzuheben.
 
 {{InteractiveExample("CSS Demo: :invalid", "tabbed-shorter")}}
 
@@ -42,8 +44,6 @@ input:invalid {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer Feldfehler hervorzuheben.
-
 ## Syntax
 
 ```css
@@ -54,10 +54,10 @@ Diese Pseudoklasse ist nützlich, um dem Benutzer Feldfehler hervorzuheben.
 
 ## Barrierefreiheit
 
-Die Farbe Rot wird häufig verwendet, um ungültige Eingaben anzuzeigen. Personen mit bestimmten Arten von Farbenblindheit werden den Status der Eingabe nicht feststellen können, es sei denn, es wird ein zusätzlicher Indikator verwendet, der sich nicht auf Farbe verlässt, um Bedeutung zu vermitteln. Typischerweise werden erläuternder Text und/oder ein Symbol verwendet.
+Die Farbe Rot wird häufig verwendet, um ungültige Eingaben anzuzeigen. Personen mit bestimmten Arten von Farbenblindheit können den Zustand der Eingabe nicht erkennen, sofern sie nicht von einem zusätzlichen Indikator begleitet wird, der sich nicht auf Farbe stützt, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Leitfaden zum Verständnis der WCAG, Erklärungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
+- [MDN: Erläuterungen zum Verständnis von WCAG, Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erfolgskriterium 1.4.1 verstehen | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 ## Beispiele
 
@@ -123,9 +123,9 @@ input:required:invalid {
 
 {{EmbedLiveSample('Coloring elements to show validation', 600, 200)}}
 
-### Abschnitte stufenweise anzeigen
+### Abschnitte schrittweise anzeigen
 
-In diesem Beispiel verwenden wir `:invalid` zusammen mit `~`, dem [nachfolgenden Geschwisterkombinator](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator), um ein Formular in Stufen erscheinen zu lassen, sodass das Formular zunächst das erste auszufüllende Element anzeigt. Wenn der Benutzer jedes Element ausfüllt, wird das nächste angezeigt. Wenn das gesamte Formular ausgefüllt ist, kann der Benutzer es absenden.
+In diesem Beispiel verwenden wir `:invalid` zusammen mit `~`, dem [Subsequent-sibling-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator), um ein Formular schrittweise erscheinen zu lassen. Das Formular zeigt zunächst das erste auszufüllende Element an; wenn der Benutzer jedes Element ausfüllt, zeigt das Formular das nächste an. Wenn das gesamte Formular vollständig ist, kann der Benutzer es absenden.
 
 #### HTML
 
@@ -192,11 +192,11 @@ button {
 
 ### Radio-Buttons
 
-Wenn eines der Radio-Buttons in einer Gruppe `required` ist, wird die `:invalid`-Pseudoklasse auf alle angewendet, wenn keiner der Buttons in der Gruppe ausgewählt ist. (Gruppierte Radio-Buttons teilen denselben Wert für ihr `name`-Attribut.)
+Wenn einer der Radio-Buttons in einer Gruppe `required` ist, wird die Pseudoklasse `:invalid` auf alle angewendet, wenn keiner der Buttons in der Gruppe ausgewählt ist. (Gruppierte Radio-Buttons teilen denselben Wert für ihr Attribut `name`.)
 
-### Gecko-Standardeinstellungen
+### Gecko-Standardwerte
 
-Standardmäßig wendet Gecko keinen Stil auf die `:invalid`-Pseudoklasse an. Es wird jedoch ein Stil (ein rotes "Leuchten" mithilfe der {{Cssxref("box-shadow")}}-Eigenschaft) auf die {{cssxref(":user-invalid")}}-Pseudoklasse angewendet, die in einem Teil der Fälle von `:invalid` zutrifft.
+Standardmäßig wendet Gecko keinen Stil auf die Pseudoklasse `:invalid` an. Es wendet jedoch einen Stil (ein rotes „Leuchten“ mithilfe der Eigenschaft {{Cssxref("box-shadow")}}) auf die Pseudoklasse {{cssxref(":user-invalid")}} an, die in einer Teilmenge der Fälle für `:invalid` gilt.
 
 ## Spezifikationen
 
@@ -210,5 +210,5 @@ Standardmäßig wendet Gecko keinen Stil auf die `:invalid`-Pseudoklasse an. Es 
 
 - Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":valid") }}
 - Verwandte Mozilla-Pseudoklassen: {{cssxref(":user-invalid")}}, {{cssxref(":-moz-submit-invalid")}}
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- Zugriff auf den [Gültigkeitsstatus](/de/docs/Web/API/ValidityState) aus JavaScript
+- [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- Zugriff auf den [Gültigkeitsstatus](/de/docs/Web/API/ValidityState) über JavaScript

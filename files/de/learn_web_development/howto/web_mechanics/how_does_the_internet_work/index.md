@@ -2,7 +2,7 @@
 title: Wie funktioniert das Internet?
 slug: Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work
 l10n:
-  sourceCommit: f33de00c56ac53878eb2cb7cb5849df1f9ab8db7
+  sourceCommit: 3a5d88d0377791fea0700a772ca047f6c2463083
 ---
 
 Dieser Artikel erläutert, was das Internet ist und wie es funktioniert.
@@ -12,9 +12,9 @@ Dieser Artikel erläutert, was das Internet ist und wie es funktioniert.
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Keine, aber wir empfehlen Ihnen, zuerst den
+        Keine, aber wir empfehlen Ihnen, zunächst den
         <a href="/de/docs/Learn_web_development/Howto/Design_and_accessibility/Thinking_before_coding"
-          >Artikel über das Festlegen von Projektzielen</a
+          >Artikel über das Setzen von Projektzielen</a
         >
         zu lesen.
       </td>
@@ -22,7 +22,7 @@ Dieser Artikel erläutert, was das Internet ist und wie es funktioniert.
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Sie werden die Grundlagen der technischen Infrastruktur des Webs und den Unterschied zwischen Internet und Web erlernen.
+        Sie werden die Grundlagen der technischen Infrastruktur des Webs und den Unterschied zwischen Internet und Web kennenlernen.
       </td>
     </tr>
   </tbody>
@@ -30,85 +30,90 @@ Dieser Artikel erläutert, was das Internet ist und wie es funktioniert.
 
 ## Zusammenfassung
 
-Das **Internet** ist das Rückgrat des Webs, die technische Infrastruktur, die das Web möglich macht. Im einfachsten Sinne ist das Internet ein großes Netzwerk von Computern, die alle miteinander kommunizieren.
+Das **Internet** ist das Rückgrat des Webs, die technische Infrastruktur, die das Web möglich macht. Im wesentlichen ist das Internet ein großes Netzwerk von Computern, die alle miteinander kommunizieren.
 
-[Die Geschichte des Internets ist etwas undurchsichtig](https://en.wikipedia.org/wiki/Internet#History). Es begann in den 1960er Jahren als ein von der US-Armee finanziertes Forschungsprojekt und entwickelte sich in den 1980er Jahren zu einer öffentlichen Infrastruktur mit Unterstützung vieler öffentlicher Universitäten und privater Unternehmen. Die verschiedenen Technologien, die das Internet unterstützen, haben sich im Laufe der Zeit weiterentwickelt, aber die Funktionsweise hat sich nicht wesentlich verändert: Das Internet ist eine Möglichkeit, Computer miteinander zu verbinden und sicherzustellen, dass sie, egal was passiert, einen Weg finden, verbunden zu bleiben.
+[Die Geschichte des Internets ist etwas unklar](https://en.wikipedia.org/wiki/Internet#History). Es begann in den 1960er Jahren als ein von der US-Armee finanziertes Forschungsprojekt und entwickelte sich dann in den 1980er Jahren zu einer öffentlichen Infrastruktur mit Unterstützung vieler öffentlicher Universitäten und privater Unternehmen. Die verschiedenen Technologien, die das Internet unterstützen, haben sich im Laufe der Zeit weiterentwickelt, aber die Funktionsweise hat sich nicht wesentlich verändert: Das Internet ist ein Weg, um Computer miteinander zu verbinden und sicherzustellen, dass sie, egal was passiert, eine Möglichkeit finden, verbunden zu bleiben.
 
 ## Videos über das Internet
 
-- [Wie das Internet in 5 Minuten funktioniert](https://www.youtube.com/watch?v=7_LPdttKXPc): Ein 5-minütiges Video von Aaron Titus, um die Grundlagen des Internets zu verstehen.
-- [Wie funktioniert das Internet?](https://www.youtube.com/watch?v=x3c1ih2NJEg) Ein detailliertes und gut visualisiertes 9-minütiges Video.
+- [How the internet Works in 5 minutes](https://www.youtube.com/watch?v=7_LPdttKXPc): Ein 5-minütiges Video, um die Grundlagen des Internets von Aaron Titus zu verstehen.
+- [How does the Internet work?](https://www.youtube.com/watch?v=x3c1ih2NJEg) Detailliertes, gut visualisiertes 9-minütiges Video.
 
-## Vertiefung
+## Vertiefter Einblick
 
 ### Ein einfaches Netzwerk
 
-Wenn zwei Computer kommunizieren müssen, müssen Sie sie entweder physisch (normalerweise mit einem [Ethernet-Kabel](https://en.wikipedia.org/wiki/Ethernet_crossover_cable)) oder drahtlos (zum Beispiel mit [Wi-Fi](https://en.wikipedia.org/wiki/Wi-Fi) oder [Bluetooth](https://en.wikipedia.org/wiki/Bluetooth)-Systemen) verbinden. Alle modernen Computer können diese Verbindungen aufrechterhalten.
+Wenn zwei Computer miteinander kommunizieren müssen, müssen Sie sie entweder physisch (normalerweise mit einem [Ethernet-Kabel](https://en.wikipedia.org/wiki/Ethernet_crossover_cable)) oder drahtlos (zum Beispiel mit [Wi-Fi](https://en.wikipedia.org/wiki/Wi-Fi) oder [Bluetooth](https://en.wikipedia.org/wiki/Bluetooth) Systemen) verbinden. Alle modernen Computer können eine dieser Verbindungen aufrechterhalten.
 
 > [!NOTE]
-> Im restlichen Artikel werden wir nur über physische Kabel sprechen, aber drahtlose Netzwerke funktionieren genauso.
+> Im Rest dieses Artikels werden wir nur über physische Kabel sprechen, aber drahtlose Netzwerke funktionieren genauso.
 
-![Zwei miteinander verbundene Computer](internet-schema-1.png)
+![Zwei Computer, die miteinander verbunden sind](internet-schema-1.png)
 
-Ein solches Netzwerk ist nicht auf zwei Computer beschränkt. Sie können so viele Computer verbinden, wie Sie möchten. Aber es wird schnell kompliziert. Wenn Sie versuchen, beispielsweise zehn Computer zu verbinden, benötigen Sie 45 Kabel mit neun Steckern pro Computer!
+Ein solches Netzwerk ist nicht auf zwei Computer beschränkt. Sie können so viele Computer verbinden, wie Sie möchten. Aber es wird schnell kompliziert. Wenn Sie versuchen, zum Beispiel zehn Computer zu verbinden, benötigen Sie 45 Kabel mit jeweils neun Steckern pro Computer!
 
-![Zehn Computer zusammen](internet-schema-2.png)
+![Zehn Computer alle zusammen](internet-schema-2.png)
 
-Um dieses Problem zu lösen, wird jeder Computer in einem Netzwerk mit einem speziellen kleinen Computer verbunden, der _Netzwerkswitch_ (oder kurz _Switch_) genannt wird. Dieser Switch hat nur eine Aufgabe: Ähnlich einem Weichensteller in einem Bahnhof stellt er sicher, dass die von einem bestimmten Computer gesendeten Nachrichten nur bei ihrem Ziel-Computer ankommen. Um eine Nachricht an Computer B zu senden, sendet Computer A die Nachricht an den Switch, der wiederum die Nachricht an Computer B weiterleitet — Computer B erhält keine Nachrichten, die für andere Computer bestimmt sind, und keine der Nachrichten für Computer B erreicht andere Computer im lokalen Netzwerk.
+Um dieses Problem zu lösen, wird jeder Computer in einem Netzwerk mit einem speziellen kleinen Computer namens _Netzwerk-Switch_ (oder kurz _Switch_) verbunden. Dieser Switch hat nur eine Aufgabe: wie ein Fahrdienstleiter am Bahnhof leitet er Nachrichten an ihre vorgesehenen Empfänger weiter. Um eine Nachricht an Computer B zu senden, sendet Computer A die Nachricht an den Switch, der wiederum die Nachricht an Computer B weiterleitet.
 
-Sobald wir einen Switch in das System einfügen, benötigt unser Netzwerk mit 10 Computern nur 10 Kabel: einen einzigen Stecker für jeden Computer und einen Switch mit 10 Steckern.
+Sobald wir ein Switch in das System eingeführt haben, benötigt unser Netzwerk von 10 Computern nur noch 10 Kabel: einen einzigen Stecker für jeden Computer und einen Switch mit 10 Steckern.
 
 ![Zehn Computer mit einem Switch](internet-schema-3.png)
 
+Um Computer auseinanderzuhalten, verwendet der Switch _MAC-Adressen_, die Netzwerk-Schnittstellen für die Zustellung innerhalb des lokalen Netzwerks identifizieren. MAC-Adressen sind wie Fingerabdrücke; sie werden typischerweise vom Hersteller zugewiesen, können aber aus Datenschutzgründen auch durch Software zugewiesen oder geändert werden. Jede Nachricht enthält die MAC-Adressen des Absenders und des Empfängers. Der Switch liest die Adresse des Absenders und merkt sich, von welcher Verbindung die Nachricht kam, sodass er weiß, wohin er zukünftige Nachrichten an diesen Absender weiterleiten muss. Wenn er noch nicht gelernt hat, wo sich ein Empfänger befindet, leitet er die Nachricht über alle seine anderen Verbindungen weiter. Wenn der Empfänger eine Nachricht zurücksendet, lernt der Switch auch dessen Position.
+
 ### Ein Netzwerk von Netzwerken
 
-So weit, so gut. Aber was ist mit der Verbindung von Hunderten, Tausenden, Milliarden von Computern? Natürlich kann ein einziger Switch nicht so weit skalieren, aber wenn Sie genau lesen, sagten wir, dass ein Switch ein Computer wie jeder andere ist, also was hält uns davon ab, zwei Switches miteinander zu verbinden? Nichts, also tun wir das.
+Soweit so gut. Aber was ist mit der Verbindung von Hunderten, Tausenden, Milliarden von Computern? Natürlich kann ein einzelner Switch nicht so weit skalieren, aber, wenn Sie aufmerksam gelesen haben, haben wir gesagt, dass ein Switch ein Computer wie jeder andere ist. Was hindert uns also daran, zwei Switches zusammenzuschalten? Nichts, also machen wir das doch.
 
-![Zwei miteinander verbundene Switches](internet-schema-4.png)
+![Zwei Switches, die miteinander verbunden sind](internet-schema-4.png)
 
 Sie können sich vorstellen, dass wir Switches unendlich miteinander verbinden können, um ein Netzwerk wie dieses zu bilden:
 
-![Switches, die mit Switches verbunden sind](internet-schema-5.png)
+![Switches, die zu Switches verbunden sind](internet-schema-5.png)
 
-In der Realität führt dies zu vielen technische Herausforderungen. Je mehr Switches ein Paket durchlaufen muss, desto länger dauert es, bis es sein Ziel erreicht. Und Sie können nicht nur eine Baumstruktur von Switches haben, denn ein einziger Switch-Ausfall kann einen großen Teil der Geräte trennen. Um dieses Problem zu lösen, halten wir jedes lokale Netzwerk so klein wie möglich und verbinden diese lokalen Netzwerke mit einem separaten Gerät, das _Router_ genannt wird. Ein Router ist ein Computer, der weiß, wie Nachrichten zwischen Netzwerken weitergeleitet werden. Der Router ist wie ein Postamt: Wenn ein Paket eintrifft, liest er die Empfängeradresse und leitet das Paket direkt an den richtigen Empfänger weiter, ohne durch mehrere Vermittlungsstellen zu gehen.
+Das Verbinden von Switches auf diese Weise erweitert ein einzelnes lokales Netzwerk. Jeder Switch hat eine umfangreiche Karte, welche Verbindung für jede MAC-Adresse in seinem lokalen Netzwerk zu verwenden ist. Wenn Sie zehn Milliarden Computer in diesem Netzwerk verbinden würden, müsste jeder Switch bis zu zehn Milliarden MAC-Adressen speichern. Wann immer die Adresse des Empfängers unbekannt ist (oder aufgrund von Inaktivität gelöscht wurde), müssen Switches die Nachricht an alle Computer im lokalen Netzwerk ausstrahlen. Je größer das Netzwerk wird, desto kostspieliger wird es, einzelne Geräte zu verfolgen und unbekannte Empfänger zu finden.
 
-Ein solches Netzwerk kommt dem, was wir als Internet bezeichnen, sehr nahe. Wir benötigen nur noch das physische Medium (Kabel), um all diese Router zu verbinden. Glücklicherweise existierte eine solche Infrastruktur bereits vor dem Internet, und das ist das Telefonnetz. Um unser Netzwerk mit der Telefoninfrastruktur zu verbinden, benötigen wir ein spezielles Gerät namens _Modem_. Dieses _Modem_ wandelt die Informationen aus unserem Netzwerk in für die Telefoninfrastruktur handhabbare Informationen um und umgekehrt.
+Das Hauptproblem ist, dass unsere Adressen keine Hierarchie haben und nicht die Netzwerkstruktur widerspiegeln – es ist, als ob man versuchen würde, herauszufinden, an wen Post zu liefern ist, indem man jeden Fingerabdruck vergleicht. Um dieses Problem zu lösen, teilen wir Computer in separate lokale Netzwerke auf und verbinden diese Netzwerke mithilfe eines Geräts namens _Router_. Dieser verwendet eine andere Art von Adresse, eine _{{Glossary("IP_address", "IP-Adresse")}}_, die eine vierstellige Zahlenfolge wie `142.250.190.78` ist. Anders als MAC-Adressen, die „Fingerabdrücke“ sind, sind IP-Adressen „Straßenadressen“ und werden beim Verbinden eines Computers mit einem Netzwerk zugewiesen, identifiziert im IP-Adresse durch ein gemeinsames _Präfix_. Ein Router kann daher Weiterleitungsanweisungen für eine ganze Gruppe von Adressen speichern (z. B. „weiterleiten an diesen Router, wann immer die IP-Adresse mit `142.250` beginnt“), ohne den Standort jedes einzelnen Computers in dieser Gruppe lernen zu müssen.
+
+> [!NOTE]
+> Sie fragen sich vielleicht, warum wir MAC-Adressen und Switches benötigen, wenn IP-Adressen und Router auch End-to-End-Netzwerke durchführen können. Switches haben viele praktische Vorteile. Einer davon ist, dass ein geswitchtes lokales Netzwerk einem Gerät ermöglicht, dieselbe IP-Adresse beizubehalten, während es zwischen Verbindungen innerhalb dieses Netzwerks wechselt (z. B. zwischen zwei Wi-Fi-Zugangspunkten): Der Switch lernt neu, an welchem Anschluss sich Ihre MAC-Adresse befindet, sodass Ihre IP-Adresse – und alle Verbindungen, die sie bereits verwenden – weiterhin funktionieren. Ein weiterer Punkt ist, dass Router selbst MAC-Adressen benötigen: Um ein Paket an den nächsten Router entlang des Weges weiterzuleiten, muss ein Router weiterhin identifizieren, welches Gerät im gemeinsamen Netzwerk es empfangen soll.
+
+Ein solches Netzwerk kommt dem, was wir Internet nennen, sehr nahe. Wir benötigen nur noch das physische Medium (Kabel), um all diese Router zu verbinden. Zum Glück existierte eine solche Infrastruktur bereits vor dem Internet, nämlich das Telefonnetz. Um unser Netzwerk mit der Telefoninfrastruktur zu verbinden, benötigen wir ein spezielles Gerät namens _Modem_. Dieses _Modem_ wandelt die Informationen aus unserem Netzwerk in Informationen um, die von der Telefoninfrastruktur verwaltet werden können, und umgekehrt.
 
 ![Ein Router, der mit einem Modem verbunden ist](internet-schema-6.png)
 
-Beachten Sie, dass der kommerzielle Router in Ihrem Zuhause wahrscheinlich eine Kombination aus einem Switch, einem Router und einem Modem, alles in einem Gerät, ist.
+Beachten Sie, dass der kommerzielle Router in Ihrem Zuhause wahrscheinlich eine Kombination aus einem Switch, einem Router und einem Modem in einem einzigen Gerät ist.
 
-So sind wir mit der Telefoninfrastruktur verbunden. Der nächste Schritt ist es, die Nachrichten von unserem Netzwerk an das Netzwerk zu senden, das wir erreichen möchten. Dafür verbinden wir unser Netzwerk mit einem Internet Service Provider (ISP). Ein ISP ist ein Unternehmen, das einige spezielle _Router_ verwaltet, die alle miteinander verbunden sind und auch auf die Router anderer ISPs zugreifen können. Die Nachricht von unserem Netzwerk wird durch das Netzwerk von ISP-Netzwerken zum Zielnetzwerk geleitet. Das Internet besteht aus dieser gesamten Infrastruktur von Netzwerken.
+Wir sind also mit der Telefoninfrastruktur verbunden. Der nächste Schritt ist das Senden der Nachrichten von unserem Netzwerk zu dem Netzwerk, das wir erreichen möchten. Dazu werden wir unser Netzwerk mit einem Internet Service Provider (ISP) verbinden. Ein ISP ist ein Unternehmen, das einige spezielle _Router_ verwaltet, die alle miteinander verbunden sind und auch auf die Router anderer ISPs zugreifen können. So wird die Nachricht von unserem Netzwerk durch das Netzwerk der ISP-Netzwerke zum Zielnetzwerk getragen. Das Internet besteht aus dieser gesamten Infrastruktur von Netzwerken.
 
 ![Vollständiger Internet-Stack](internet-schema-7.png)
 
-### Computer finden
+### Domain-Namen
 
-Wenn Sie eine Nachricht an einen Computer senden möchten, müssen Sie angeben, welcher. Daher hat jeder Computer, der mit einem Netzwerk verbunden ist, eine eindeutige Adresse, die ihn identifiziert, genannt "IP-Adresse" (wo IP für _Internet Protocol_ steht). Es ist eine Adresse, die aus einer Reihe von vier Zahlen besteht, die durch Punkte getrennt sind, zum Beispiel: `192.0.2.172`.
+IP-Adressen sind für Computer völlig ausreichend, aber wir Menschen haben Schwierigkeiten, sich solche Adressen zu merken. Um die Sache zu erleichtern, können wir einer IP-Adresse einen menschenlesbaren Namen zuweisen, der als _Domain-Name_ bezeichnet wird. Zum Beispiel (zum Zeitpunkt des Schreibens; IP-Adressen können sich ändern) ist `google.com` der Domain-Name, der über der IP-Adresse `142.250.190.78` verwendet wird. Die Verwendung des Domain-Namens ist also der einfachste Weg für uns, einen Computer über das Internet zu erreichen.
 
-Das ist für Computer völlig in Ordnung, aber wir Menschen können sich solch eine Adresse schwer merken. Um die Sache zu erleichtern, können wir eine IP-Adresse mit einem menschenlesbaren Namen aliassen, der _Domain-Name_ genannt wird. Zum Beispiel (zum Zeitpunkt des Schreibens; IP-Adressen können sich ändern) ist `google.com` der Domain-Name, der über der IP-Adresse `142.250.190.78` verwendet wird. Der Domain-Name ist für uns der einfachste Weg, um über das Internet auf einen Computer zuzugreifen.
-
-![Zeigt, wie ein Domain-Name eine IP-Adresse aliassen kann](dns-ip.png)
+![zeigt, wie ein Domain-Name eine IP-Adresse aliasieren kann](dns-ip.png)
 
 ### Internet und das Web
 
-Wie Sie vielleicht bemerken, verwenden wir beim Surfen im Web mit einem Webbrowser normalerweise den Domainnamen, um eine Website zu erreichen. Bedeutet das, dass Internet und Web dasselbe sind? So einfach ist es nicht. Wie wir gesehen haben, ist das Internet eine technische Infrastruktur, die es Milliarden von Computern ermöglicht, miteinander verbunden zu sein. Unter diesen Computern können einige Computer (genannt _Webserver_) Nachrichten senden, die von Webbrowsern verstanden werden können. Das _Internet_ ist eine Infrastruktur, während das _Web_ ein Dienst ist, der auf dieser Infrastruktur aufbaut. Es ist erwähnenswert, dass es mehrere andere Dienste gibt, die auf dem Internet basieren, wie E-Mail und {{Glossary("IRC", "IRC")}}.
+Wie Sie vielleicht bemerken, verwenden wir normalerweise den Domain-Namen, um eine Website zu erreichen, wenn wir mit einem Webbrowser im Web browsen. Bedeutet das, dass das Internet und das Web dasselbe sind? So einfach ist es nicht. Wie wir gesehen haben, ist das Internet eine technische Infrastruktur, die es ermöglicht, Milliarden von Computern miteinander zu verbinden. Zu diesen Computern gehören einige Computer (sogenannte _Webserver_), die Nachrichten senden können, die für Webbrowser verständlich sind. Das _Internet_ ist eine Infrastruktur, während das _Web_ ein Dienst ist, der auf der Infrastruktur aufgebaut ist. Es ist erwähnenswert, dass es mehrere andere Dienste gibt, die auf dem Internet aufbauen, wie zum Beispiel E-Mail und {{Glossary("IRC", "IRC")}}.
 
 ### Intranets und Extranets
 
 Intranets sind _private_ Netzwerke, die auf Mitglieder einer bestimmten Organisation beschränkt sind.
-Sie werden häufig genutzt, um Mitgliedern sicher Zugang zu gemeinsamen Ressourcen zu bieten, die Zusammenarbeit und Kommunikation zu fördern.
-Zum Beispiel könnte ein Intranet einer Organisation Webseiten zur gemeinsamen Nutzung von Abteilungs- oder Teaminformationen, freigegebene Laufwerke zur Verwaltung wichtiger Dokumente und Dateien,
-Portale zur Erledigung von Verwaltungstätigkeiten und Kollaborationstools wie Wikis, Diskussionsforen und Nachrichtensysteme hosten.
+Sie werden häufig genutzt, um einen sicheren Zugang zu gemeinsam genutzten Ressourcen, Zusammenarbeit und Kommunikation zu ermöglichen.
+Ein Intranet einer Organisation könnte zum Beispiel Webseiten für das Teilen von Abteilungs- oder Teaminformationen, gemeinsame Laufwerke zur Verwaltung wichtiger Dokumente und Dateien,
+Portale zur Durchführung von Geschäftsverwaltungstätigkeiten sowie Kollaborationstools wie Wikis, Diskussionsforen und Nachrichtensysteme hosten.
 
-Extranets sind den Intranets sehr ähnlich, öffnen jedoch ein ganzes oder einen Teil eines privaten Netzwerks, um den Austausch und die Zusammenarbeit mit anderen Organisationen zu ermöglichen.
-Sie werden typischerweise genutzt, um sicher und geschützt Informationen mit Kunden und Partnern auszutauschen, die eng mit einem Unternehmen zusammenarbeiten.
-Ihre Funktionen ähneln oft denen, die ein Intranet bietet: Informations- und Dateiaustausch, Kollaborationstools, Diskussionsforen usw.
+Extranets sind Intranets sehr ähnlich, mit dem Unterschied, dass sie das gesamte oder einen Teil des privaten Netzwerks öffnen, um den Austausch und die Zusammenarbeit mit anderen Organisationen zu ermöglichen.
+Sie werden in der Regel genutzt, um Informationen sicher mit Kunden und Interessengruppen zu teilen, die eng mit einem Unternehmen zusammenarbeiten.
+Oft bieten ihre Funktionen ähnliche Dienste wie ein Intranet: Informations- und Dateiaustausch, Kollaborationstools, Diskussionsforen usw.
 
-Sowohl Intranets als auch Extranets laufen auf der gleichen Art von Infrastruktur wie das Internet und verwenden die gleichen Protokolle.
-Daher können sie von autorisierten Mitgliedern von verschiedenen physischen Standorten aus abgerufen werden.
+Sowohl Intranets als auch Extranets laufen auf derselben Art von Infrastruktur wie das Internet und verwenden dieselben Protokolle.
+Daher können sie von berechtigten Mitgliedern an verschiedenen physischen Standorten abgerufen werden.
 
-![Grafische Darstellung, wie Extranet und Intranet funktionieren](internet-schema-8.png)
+![Graphische Darstellung wie Extranet und Intranet funktionieren](internet-schema-8.png)
 
 ## Nächste Schritte
 

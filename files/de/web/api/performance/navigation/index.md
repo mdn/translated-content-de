@@ -3,12 +3,12 @@ title: "Performance: navigation-Eigenschaft"
 short-title: navigation
 slug: Web/API/Performance/navigation
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Performance API")}}{{Deprecated_Header}}
+{{APIRef("Performance API")}}
 
-Die veraltete, schreibgeschützte Eigenschaft **`Performance.navigation`** gibt ein [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekt zurück, das die Art der Navigation im gegebenen Browsing-Kontext darstellt, wie zum Beispiel die Anzahl der Weiterleitungen, die erforderlich sind, um die Ressource abzurufen.
+Die veraltete, schreibgeschützte **`Performance.navigation`**-Eigenschaft gibt ein [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekt zurück, das den Typ der Navigation darstellt, der im gegebenen Browsing-Kontext auftritt, wie z.B. die Anzahl der Umleitungen, die benötigt werden, um die Ressource abzurufen.
 
 Diese Eigenschaft ist in Workern nicht verfügbar.
 

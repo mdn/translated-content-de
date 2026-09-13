@@ -2,12 +2,12 @@
 title: Element.ariaRowIndexText
 slug: Web/API/Element/ariaRowIndexText
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 868de6e278b0e5c635cea5ee4bb06d35fbc3e11b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowIndexText`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext)-Attributes wider, welches eine für Menschen lesbare Textalternative zu aria-rowindex definiert.
+Die Eigenschaft **`ariaRowIndexText`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) spiegelt den Wert des Attributs [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext) wider, das eine menschenlesbare Textalternative für aria-rowindex definiert.
 
 ## Wert
 
@@ -15,7 +15,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-rowindextext`-Attribut auf dem Element mit der ID `role-heading` auf "Heading row" gesetzt. Mit `ariaRowIndexText` aktualisieren wir den Wert zu "Updated heading row".
+In diesem Beispiel wird das Attribut `aria-rowindextext` des Elements mit der ID `role-heading` auf „Heading row“ gesetzt. Mit `ariaRowIndexText` aktualisieren wir den Wert auf „Updated heading row“.
 
 ```html
 <table

@@ -2,12 +2,12 @@
 title: onCommand
 slug: Mozilla/Add-ons/WebExtensions/API/commands/onCommand
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 0630d0cb464c0b8bd352d4ecd6bead43864ac78f
 ---
 
-Ausgelöst, wenn ein Befehl über seine zugeordnete Tastenkombination ausgeführt wird.
+Ausgelöst, wenn ein Befehl über sein zugehöriges Tastenkürzel ausgeführt wird.
 
-Dem Listener wird der Name des Befehls übergeben. Dieser stimmt mit dem im [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegebenen Namen überein.
+Das Ereignis übergibt dem Listener den Namen des Befehls. Dieser Name entspricht dem Namen, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) zugewiesen wurde.
 
 ## Syntax
 
@@ -22,42 +22,42 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn ein Benutzer die Tastenkombination für den Befehl eingibt. Die Funktion erhält folgende Argumente:
+  - : Die Funktion, die aufgerufen wird, wenn ein Benutzer das Tastenkürzel des Befehls eingibt. Die Funktion erhält folgende Argumente:
     - `name`
-      - : `string`. Name des Befehls. Dieser stimmt mit dem im [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegebenen Namen überein.
+      - : `string`. Name des Befehls. Dieser Name entspricht dem Namen, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) zugewiesen wurde.
     - `tab`
-      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als die Tastenkombination für den Befehl eingegeben wurde.
+      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als das Befehls-Tastenkürzel eingegeben wurde.
 
 ## Beispiele
 
-Angenommen, ein manifest.json-Eintrag sieht folgendermaßen aus:
+Bei einem solchen manifest.json-Eintrag:
 
 ```json
 "commands": {
-  "toggle-feature": {
+  "duplicate-tab": {
     "suggested_key": {
-      "default": "Ctrl+Shift+Y"
+      "default": "Ctrl+Shift+D"
     },
-    "description": "Send a 'toggle-feature' event"
+    "description": "Duplicate the active tab"
   }
 }
 ```
 
-Sie könnten für diesen bestimmten Befehl wie folgt lauschen:
+Können Sie auf diesen Befehl lauschen und den `tab`, der an den Listener übergeben wird, verwenden, um den aktiven Tab zu duplizieren, wie folgt:
 
 ```js
-browser.commands.onCommand.addListener((command) => {
-  if (command === "toggle-feature") {
-    console.log("toggling the feature!");
+browser.commands.onCommand.addListener((command, tab) => {
+  if (command === "duplicate-tab") {
+    browser.tabs.duplicate(tab.id);
   }
 });
 ```
@@ -69,4 +69,4 @@ browser.commands.onCommand.addListener((command) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands).
+> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.

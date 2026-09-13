@@ -1,22 +1,23 @@
 ---
-title: "Herausforderung: Ein mobilfreundliches Layout"
-short-title: "Herausforderung: Mobil zuerst"
+title: "Herausforderung: Ein Mobile-First-Layout"
+short-title: "Herausforderung: mobile-first"
 slug: Learn_web_development/Core/CSS_layout/Mobile-first_challenge
 l10n:
-  sourceCommit: 418fefaa02f8e1ea53d53cb6fc510a4dc4100dc5
+  sourceCommit: 4c58f4735f986a91bee1b77e336143630df727a2
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Test_your_skills/Responsive_design", "Learn_web_development/Core/Scripting", "Learn_web_development/Core/CSS_layout")}}
-Diese Herausforderung schließt das Modul [CSS Layout](/de/docs/Learn_web_development/Core/CSS_layout) ab, indem Sie aufgefordert werden, ein bestehendes mobiles Layout zu aktualisieren, sodass es auch auf Desktop-Browsern gut funktioniert. Dabei werden Sie auch in responsiven Layout-Funktionen wie Media Queries, CSS Grid, Flexbox und responsiven Bildern getestet.
 
-Nachdem Sie diese Herausforderung abgeschlossen haben, können Sie zum nächsten Thema übergehen: der Implementierung dynamischen Verhaltens mit [JavaScript](/de/docs/Learn_web_development/Core/Scripting).
+Diese Herausforderung rundet das Modul [CSS-Layout](/de/docs/Learn_web_development/Core/CSS_layout) ab, indem Sie ein bestehendes Mobile-Layout so aktualisieren, dass es auch gut auf Desktop-Browsern funktioniert. Dabei werden Sie auf responsive Layout-Features wie Media Queries, CSS Grid, Flexbox und responsive Bilder getestet.
+
+Nachdem Sie diese Herausforderung abgeschlossen haben, können Sie damit fortfahren, das Implementieren dynamischen Verhaltens mit [JavaScript](/de/docs/Learn_web_development/Core/Scripting) zu lernen.
 
 ## Ausgangspunkt
 
-Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebung lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster anzeigen, um sicherzustellen, dass die Layout-Funktionen wie erwartet funktionieren.
+Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungsumgebung zu lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster ansehen, um sicherzustellen, dass die Layout-Features wie erwartet funktionieren.
 
 1. Erstellen Sie einen neuen Ordner auf Ihrem Computer mit dem Namen `mobile-first-challenge`.
-2. Erstellen Sie in diesem Ordner eine Datei `index.html` und fügen Sie den folgenden Inhalt ein:
+2. Erstellen Sie innerhalb des Ordners eine `index.html` Datei und fügen Sie den folgenden Inhalt ein:
 
    ```html
    <!doctype html>
@@ -121,7 +122,7 @@ Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    </html>
    ```
 
-3. Erstellen Sie in diesem Ordner eine Datei `style.css` und fügen Sie den folgenden Inhalt ein:
+3. Erstellen Sie innerhalb des Ordners eine `style.css` Datei und fügen Sie den folgenden Inhalt ein:
 
    ```css
    /* General styles */
@@ -224,7 +225,7 @@ Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    }
    ```
 
-4. Erstellen Sie in diesem Ordner eine Datei `script.js` und fügen Sie den folgenden Inhalt ein:
+4. Erstellen Sie innerhalb des Ordners eine `script.js` Datei und fügen Sie den folgenden Inhalt ein:
 
    ```js
    const btn = document.querySelector("button");
@@ -267,41 +268,41 @@ Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    window.addEventListener("resize", handleEventListeners);
    ```
 
-5. Erstellen Sie in diesem Ordner einen Unterordner mit dem Namen `images` und speichern Sie die folgenden Bilddateien darin:
+5. Erstellen Sie einen Unterordner im Ordner mit dem Namen `images` und speichern Sie die folgenden Bilddateien darin:
    - [`square1.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square1.jpg)
    - [`square2.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square2.jpg)
    - [`square3.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square3.jpg)
    - [`square4.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square4.jpg)
    - [`square5.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square5.jpg)
    - [`square6.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square6.jpg)
-6. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um die Seite zu testen. Der Ausgangspunkt der Seite sollte in einem schmalen Viewport etwa so aussehen:
+6. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um es zu testen. Der Ausgangspunkt der Seite sollte etwa so aussehen, wenn er in einem schmalen Viewport angezeigt wird:
 
-   ![Ausgangspunkt der Aufgabe "Mobil zuerst". Ein einspaltiges Layout mit einem Logo oben und einem Hamburger-Menü-Symbol, gefolgt von einer Hauptüberschrift und danach Textinhalt mit einem schwebenden Bild.](rwd-task-start.png)
+   ![Ausgangspunkt der Mobile-First-Aufgabe. Ein einspaltiges Layout mit einem Logo oben und einem Hamburger-Menü-Symbol, gefolgt von einer Hauptüberschrift, gefolgt von Textinhalt mit einem schwebenden Bild.](rwd-task-start.png)
 
-## Projektbeschreibung
+## Projektauftrag
 
-Der für dieses Beispiel bereitgestellte Inhalt ist derselbe wie der Inhalt der vorherigen Herausforderung, [Grundlegendes Layoutverständnis](/de/docs/Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension), mit einigen geringfügigen strukturellen Unterschieden. Es hat auch von Anfang an ein größtenteils komplettes Layout, obwohl Sie vielleicht bemerkt haben, dass es in einem Breitbild-Viewport schrecklich aussieht!
+Der bereitgestellte Inhalt für dieses Beispiel ist der gleiche wie der Inhalt aus der vorherigen Herausforderung, [Grundlegendes Layout-Verständnis](/de/docs/Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension), mit einigen geringfügigen strukturellen Unterschieden. Es hat auch von Anfang an ein fast vollständiges Layout, obwohl es, wie Sie vielleicht bemerkt haben, in einem Breitbild-Viewport schrecklich aussieht!
 
-Das liegt daran, dass wir Ihnen ein mobiles Layout gegeben haben, mit dem Sie beginnen können. Beachten Sie, wie das Navigationsmenü durch Drücken des "Hamburger-Menü"-Symbols aufgerufen werden kann und durch Klicken auf ein Menüelement oder Drücken der <kbd>Esc</kbd>-Taste wieder geschlossen werden kann. Diese Funktionalität wird mit JavaScript gehandhabt und funktioniert nur, wenn der Viewport weniger als `800px` breit ist, damit es nicht mit den von Ihnen zu implementierenden Breitbild-Layouts interferiert.
+Dies liegt daran, dass wir Ihnen zu Beginn ein Mobile-Layout bereitgestellt haben. Beachten Sie, wie das Navigationsmenü durch Drücken des "Hamburger-Menü"-Symbols aufgerufen wird und durch Klicken auf einen Menüpunkt oder durch Drücken der <kbd>Esc</kbd>-Taste ausgeblendet werden kann. Diese Funktionalität wird mit JavaScript gehandhabt und funktioniert nur, wenn der Viewport weniger als `800px` breit ist, damit es nicht mit den breiteren Layouts, die Sie implementieren werden, interferiert.
 
-Konkret möchten wir, dass Sie zwei Layouts implementieren: Das erste wird aktiviert, wenn die Breite mehr als `800px` beträgt, und das zweite wird bei über `1300px` aktiviert. Wir werden Sie auch bitten, ein paar Probleme mit dem vorhandenen Code zu beheben und einige zusätzliche Funktionen zu implementieren.
+Konkret möchten wir, dass Sie zwei Layouts implementieren: Das erste wird ausgelöst, wenn die Breite mehr als `800px` beträgt, und das zweite wird bei mehr als `1300px` ausgelöst. Wir werden Sie auch einige Probleme im vorhandenen Code beheben und zusätzliche Features implementieren lassen.
 
-### Behebung einiger Anzeigeprobleme
+### Behebung einiger Anzeigefehler
 
-Zuerst müssen Sie ein paar Probleme lösen, die wir im Startvorlage gelassen haben.
+Zuerst müssen Sie ein paar Probleme lösen, die wir in der Ausgangsvorlage belassen haben.
 
-1. Momentan werden Ihre Layouts in mobilen Browsern nicht richtig angezeigt. Fügen Sie dem `<head>` Ihres `<html>`-Dokuments ein Tag hinzu, um dies zu beheben.
-2. Bei schmaler Fensterbreite sehen Sie unten auf der Seite, dass die Fotogalerie nicht richtig angezeigt wird, weil die Fotos aus ihren Containern herausbrechen. Fügen Sie eine Deklaration in Ihre CSS-Datei ein, um dies zu beheben.
+1. Derzeit werden Ihre Layouts in mobilen Browsern nicht richtig angezeigt. Fügen Sie einen Tag in den `<head>` Ihres `<html>`-Dokuments ein, um dies zu beheben.
+2. Wenn das Browserfenster auf eine schmale Breite eingestellt ist, sehen Sie sich das untere Ende der Seite an — Sie werden sehen, dass die Foto-Galerie nicht richtig angezeigt wird, weil die Fotos aus ihren Containern herausbrechen. Fügen Sie eine Deklaration in Ihre CSS-Datei ein, um dies zu beheben.
 
-### Erstellung des mittleren Layouts
+### Erstellen des mittleren Layouts
 
-Das mittlere Layout muss auf der Seite oberhalb einer Viewport-Breite von `800px` angewendet werden. Befolgen Sie diese Schritte, um das Layout abzuschließen:
+Das mittlere Layout muss auf die Seite über eine Viewport-Breite von `800px` angewendet werden. Befolgen Sie diese Schritte, um das Layout zu vervollständigen:
 
-1. Blenden Sie das Menü-`<button>` aus und zeigen Sie das `<nav>`. Wir möchten das Menü-Aus- und Einblenden nur im mobilen Layout nutzen.
-2. Ändern Sie die Positionierung des `<nav>`, sodass es statt über der meiste Inhalte zu stehen, am oberen Rand der Seite, direkt unter dem "My exciting website!"-Logo, sitzt. Wir möchten auch, dass es am oberen Rand des Viewports haftet, sobald der Inhalt so weit nach oben gescrollt ist.
-3. Die Navigationslistenelemente werden derzeit in einer Spalte angezeigt. Für dieses Layout möchten Sie stattdessen, dass sie als Reihe über den gesamten Bildschirm angezeigt werden.
-4. Passen Sie die `<a>`-Elemente innerhalb der Listenelemente an, um ihnen `10px` Top- und Bottom-Padding sowie eine kleinere Schriftgröße (sagen wir `100%`) zu geben.
-5. Die Elemente `<nav>`, `<article>`, und `<aside>` sind allesamt Kinder des `<main>`-Elements. Wir möchten, dass Sie sie als Raster mit benannten Grid-Vorlagenbereiche in der folgenden Struktur anordnen:
+1. Blenden Sie den Menü-`<button>` aus und zeigen Sie das `<nav>` an. Wir möchten das Verbergen/Anzeigen-Menü nur im mobilen Layout verwenden.
+2. Ändern Sie die Positionierung des `<nav>`, damit es statt über dem Großteil des Inhalts zu sitzen, oben auf der Seite sitzt, direkt unter dem "My exciting website!" Logo. Wir möchten auch, dass es an den oberen Rand des Viewports anheftet, sobald der Inhalt so weit hoch gescrollt ist.
+3. Die Navigationslistenelemente werden derzeit in einer Spalte angezeigt. Für dieses Layout möchten Sie, dass sie stattdessen als Reihe über den gesamten Bildschirm angezeigt werden.
+4. Passen Sie die `<a>`-Elemente innerhalb der Listenelemente an, um ihnen `10px` obere und untere Innenabstände zu geben, und eine kleinere Schriftgröße (zum Beispiel `100%`).
+5. Die `<nav>`, `<article>` und `<aside>` Elemente sind alle Kinder des `<main>`-Elements. Wir möchten, dass Sie sie als Raster mit benannten Raster-Template-Bereichen in der folgenden Struktur anordnen:
 
    ```plain
    ┌----------------------------------------┐
@@ -311,13 +312,13 @@ Das mittlere Layout muss auf der Seite oberhalb einer Viewport-Breite von `800px
    |                              |         |
    ```
 
-   Das `<article>`-Element sollte eine Breite haben, die dreimal so groß ist wie die des `<aside>`-Elements; beide Elemente sollten in derselben Zeile bleiben. Das `<nav>`-Element sollte in einer separaten Zeile über den anderen beiden Elementen sein und die gesamte verfügbare Breite einnehmen. Wir möchten auch, dass Sie einen Abstand von `20px` zwischen den verschiedenen Rasterelementen einfügen.
+   Das `<article>`-Element sollte eine Breite haben, die dreimal so groß wie die des `<aside>`-Elements ist; beide Elemente sollten sich in derselben Reihe befinden. Das `<nav>`-Element sollte in einer separaten Zeile über den anderen beiden Elementen sein und die gesamte verfügbare Breite überspannen. Wir möchten auch, dass Sie einen Abstand von `20px` zwischen den verschiedenen Rasterelementen einfügen.
 
-### Erstellung des Breitbild-Layouts
+### Erstellen des Breitbild-Layouts
 
-Das Breitbild-Layout muss auf der Seite oberhalb einer Viewport-Breite von `1300px` angewendet werden. Befolgen Sie diese Schritte, um das Layout abzuschließen:
+Das Breitbild-Layout muss auf die Seite über eine Viewport-Breite von `1300px` angewendet werden. Befolgen Sie diese Schritte, um das Layout zu vervollständigen:
 
-1. Ändern Sie das Rasterlayout, das Sie für das mittlere Layout implementiert haben, in ein anderes, ebenfalls unter Verwendung von benannten Grid-Vorlagenbereiche. Diesmal sollte die Struktur so aussehen:
+1. Ändern Sie das Raster-Layout, das Sie für das mittlere Layout implementiert haben, in ein anderes, wiederum mit benannten Raster-Template-Bereichen. Diese Struktur sollte so aussehen:
 
    ```plain
    ┌--------┬------------------------------┬---------┐
@@ -325,48 +326,48 @@ Das Breitbild-Layout muss auf der Seite oberhalb einer Viewport-Breite von `1300
    |        |                              |         |
    ```
 
-   Dieses Mal sind alle drei Elemente in derselben Zeile. Die Elemente `<nav>` und `<aside>` sollten die gleiche Breite einnehmen; das `<article>`-Element sollte dreimal die Breite der anderen beiden haben.
+   Diesmal sollten alle drei Elemente in derselben Reihe sein. Die `<nav>` und `<aside>`-Elemente sollten dieselbe Breite einnehmen; das `<article>`-Element sollte dreimal so breit sein wie die anderen beiden.
 
-2. Die Navigationslistenelemente werden aufgrund des mittleren Layouts in einer Reihe angezeigt; für das Breitbild-Layout müssen Sie die Listenformatierung so anpassen, dass die Listenelemente wieder in einer Spalte angezeigt werden, wie im mobilen Layout.
-3. Die Listenelemente haben momentan einen `flex`-Wert von `1`, was bedeutet, dass sie sich über die gesamte Höhe der Spalte strecken. Passen Sie diesen Eigenschaftswert so an, dass die Navigationselemente nur so hoch sind wie ihr Inhalt und das festgelegte `padding`.
+2. Die Navigationslistenelemente werden aufgrund des mittleren Layouts in einer Zeile angezeigt; damit das Breitbild-Layout funktioniert, müssen Sie das Listenstyling anpassen, damit die Listenelemente wieder in einer Spalte wie im mobilen Layout angezeigt werden.
+3. Die Listenelemente haben derzeit einen `flex`-Wert von `1`, was bedeutet, dass sie sich ausdehnen, um die gesamte Höhe der Spalte zu füllen. Passen Sie diesen Eigenschaftswert so an, dass die Navigationsitems nur so hoch sind wie ihr Inhalt und der eingestellte `padding`.
 
-### Implementierung von responsiver Typografie
+### Implementierung von responsive Typografie
 
-Wir möchten, dass Sie das Styling der `<h1>`- und `<h2>`-Elemente so anpassen, dass sie:
+Wir möchten, dass Sie das Styling der `<h1>` und `<h2>`-Elemente anpassen, damit sie:
 
-1. Oberes und unteres `margin` entfernt haben, damit sie besser mit dem Inhalt darüber und darunter passen.
-2. Ihre Größe sich responsiv ändert, während der Viewport vergrößert oder verkleinert wird, während sie trotzdem zoombar sind. Sie sollten geeignete Einheiten wählen, sodass die Überschriften den verfügbaren Platz ausfüllen, ohne auf mehrere Zeilen umzubrechen.
+1. Ihre obere und untere `margin` entfernen, sodass sie sich enger an den darüber und darunter liegenden Inhalt anpassen.
+2. Ihre Größe responsiv ändern, während das Viewport verbreitet oder verengt wird, während sie weiterhin zoomfähig sind. Sie sollten geeignete Einheiten wählen, damit die Überschriften den verfügbaren Raum schön ausfüllen, ohne auf mehrere Zeilen umgebrochen zu werden.
 
 ### Anpassung des Layouts für den Druck
 
-Fügen Sie einen Stilblock hinzu, der die `<button>`- und `<nav>`-Elemente aus dem Layout entfernt, wenn Sie die Seite drucken.
+Fügen Sie einen Stilblock hinzu, der die `<button>` und `<nav>`-Elemente aus dem Layout entfernt, wenn Sie die Seite drucken.
 
 ## Hinweise und Tipps
 
 1. Sie müssen das JavaScript nicht bearbeiten, um diese Herausforderung abzuschließen.
-2. Es gibt einige Möglichkeiten, einige der Aufgaben in der Projektbeschreibung zu erreichen, und oft gibt es nicht unbedingt einen richtigen oder falschen Weg. Probieren Sie ein paar verschiedene Ansätze und sehen Sie, was am besten funktioniert. Machen Sie sich beim Experimentieren Notizen.
-3. Manchmal wird ein Eigenschaftswert, der für ein vorheriges Layout festgelegt wurde, bei nachfolgenden Layouts Probleme verursachen. Ein Teil der Fähigkeiten im responsiven Design besteht darin zu wissen, wann man zuvor festgelegte Eigenschaftswerte aufheben oder überschreiben muss.
+2. Es gibt mehrere Möglichkeiten, einige der Aufgaben im Projektauftrag zu erreichen, und oft gibt es nicht den einen richtigen oder falschen Weg, Dinge zu tun. Probieren Sie verschiedene Ansätze aus und sehen Sie, was am besten funktioniert. Machen Sie Notizen, während Sie experimentieren.
+3. Manchmal kann ein Eigenschaftswert, der für ein vorheriges Layout festgelegt wurde, Probleme mit nachfolgenden Layouts verursachen. Ein Teil der Fähigkeiten im Responsive Design besteht darin, zu wissen, wann man vorher gesetzte Eigenschaftswerte entfernen oder überschreiben muss.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt, wie das fertige mittlere Layout aussehen soll:
+Der folgende Screenshot zeigt, wie das fertige mittlere Layout aussehen sollte:
 
-![Fertiges RWD-Aufgaben-Website-Mittellayout. Ein Logo oben, gefolgt von einem horizontalen Navigationsmenü, gefolgt von zwei Spalten: Textinhalt links und eine Fotogalerie rechts.](rwd-task-middle.png)
+![Fertiges Layout der Aufgabe RWD mittleres Layout. Ein Logo oben, gefolgt von einem horizontalen Navigationsmenü, gefolgt von zwei Spalten, Textinhalt auf der linken Seite und einem Foto-Galerie auf der rechten Seite.](rwd-task-middle.png)
 
-Der folgende Screenshot zeigt, wie das fertige Breitbild-Layout aussehen soll:
+Der folgende Screenshot zeigt, wie das fertige Breitbild-Layout aussehen sollte:
 
-![Fertiges RWD-Aufgaben-Website-Breitbildlayout. Ein Logo oben, gefolgt von drei Spalten: vertikales Navigationsmenü links, Textinhalt in der Mitte und eine Fotogalerie rechts.](rwd-task-widescreen.png)
+![Fertiges Layout der Aufgabe RWD Breitbild-Layout. Ein Logo oben, gefolgt von drei Spalten, vertikales Navigationsmenü auf der linken Seite, Textinhalt in der Mitte und eine Foto-Galerie auf der rechten Seite.](rwd-task-widescreen.png)
 
 <details>
 <summary>Klicken Sie hier, um eine mögliche Lösung anzuzeigen</summary>
 
-Um die Layouts in mobilen Browsern richtig anzuzeigen, müssen Sie ein Viewport-`<meta>`-Tag in den `<head>` des HTML-Dokuments einfügen:
+Um die Layouts in mobilen Browsern richtig anzuzeigen, müssen Sie einen Viewport `<meta>`-Tag in den `<head>` des HTML-Dokuments einfügen:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width" />
 ```
 
-Das fertige CSS sollte etwa so aussehen:
+Das fertige CSS sollte in etwa so aussehen:
 
 ```css
 /* General styles */

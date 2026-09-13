@@ -3,12 +3,12 @@ title: "MediaStreamEvent: MediaStreamEvent() Konstruktor"
 short-title: MediaStreamEvent()
 slug: Web/API/MediaStreamEvent/MediaStreamEvent
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("WebRTC")}}{{Non-standard_Header}}
 
-Der **`MediaStreamEvent()`** Konstruktor erzeugt ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent)-Objekt.
+Der **`MediaStreamEvent()`** Konstruktor erstellt ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent) Objekt.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Der **`MediaStreamEvent()`** Konstruktor erzeugt ein neues [`MediaStreamEvent`](
 - `type`
   - : Ein String mit dem Namen des Ereignisses, wie `addstream` oder `removestream`.
 - `options`
-  - : Ein Objekt, das zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften folgende Eigenschaften haben kann:
     - `stream`
-      - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den Stream darstellt, der vom Ereignis betroffen ist.
+      - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den Stream darstellt, der durch das Ereignis betroffen ist.
 
 ### Rückgabewert
 
-Ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent)-Objekt.
+Ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent) Objekt.
 
 ## Beispiel
 

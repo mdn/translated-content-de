@@ -1,12 +1,12 @@
 ---
-title: "Attr: specified Eigenschaft"
+title: "Attr: Angegebene Eigenschaft"
 short-title: specified
 slug: Web/API/Attr/specified
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{Deprecated_header}}
+{{APIRef("DOM")}}
 
 Die schreibgeschützte **`specified`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt immer `true` zurück.
 

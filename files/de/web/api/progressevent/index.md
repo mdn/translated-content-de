@@ -2,46 +2,46 @@
 title: ProgressEvent
 slug: Web/API/ProgressEvent
 l10n:
-  sourceCommit: 03ca44d7f71637a4cad71413fac4e31d5de66638
+  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
 ---
 
 {{APIRef("XMLHttpRequest API")}}{{AvailableInWorkers}}
 
-Die **`ProgressEvent`**-Schnittstelle repräsentiert Ereignisse, die den Fortschritt eines zugrundeliegenden Prozesses messen, wie zum Beispiel eine HTTP-Anfrage (z.B. ein `XMLHttpRequest` oder das Laden der zugrundeliegenden Ressource eines {{HTMLElement("img")}}, {{HTMLElement("audio")}}, {{HTMLElement("video")}}, {{HTMLElement("style")}} oder {{HTMLElement("link")}}).
+Die **`ProgressEvent`** Schnittstelle repräsentiert Ereignisse, die den Fortschritt eines zugrunde liegenden Prozesses messen, wie z.B. eine HTTP-Anfrage (z.B. ein `XMLHttpRequest` oder das Laden der zugrunde liegenden Ressource eines {{HTMLElement("img")}}, {{HTMLElement("audio")}}, {{HTMLElement("video")}}, {{HTMLElement("style")}} oder {{HTMLElement("link")}}).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`ProgressEvent()`](/de/docs/Web/API/ProgressEvent/ProgressEvent)
-  - : Erstellt ein `ProgressEvent`-Ereignis mit den angegebenen Parametern.
+  - : Erstellt ein `ProgressEvent` Ereignis mit den angegebenen Parametern.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob das Verhältnis zwischen der Größe der bereits übertragenen oder verarbeiteten Daten (`loaded`) und der Gesamtgröße der Daten (`total`) berechenbar ist.
+  - : Ein booleanisches Flag, das anzeigt, ob das Verhältnis zwischen der bereits übertragenen oder verarbeiteten Datenmenge (`loaded`) und der Gesamtdatenmenge (`total`) berechenbar ist.
     Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
 - [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
   - : Eine Zahl, die die Größe der bereits übertragenen oder verarbeiteten Daten angibt.
-    Bei einem `ProgressEvent`, das vom Browser in HTTP-Nachrichten ausgelöst wird, bezieht sich der Wert auf die Größe des Nachrichtenkörpers in Bytes, exklusive Header und andere Overheads.
-    Bei komprimierten Nachrichten mit unbekannter Gesamtgröße könnte sich `loaded` auf die Größe der komprimierten oder unkomprimierten Daten beziehen, je nach Browser.
-    Ab 2024 enthält es die Größe der komprimierten Daten in Firefox und der unkomprimierten Daten in Chrome.
-    Bei einem selbst erstellten `ProgressEvent` können Sie `loaded` einen beliebigen numerischen Wert zuweisen, der den Fortschritt relativ zum `total`-Wert repräsentiert.
+    Bei einem vom Browser in HTTP-Nachrichten ausgelösten `ProgressEvent` bezieht sich der Wert auf die Größe des Nachrichtenkörpers in Bytes, exklusive Header und anderer Overhead.
+    In komprimierten Nachrichten unbekannter Gesamtgröße kann `loaded` sich auf die Größe der komprimierten oder unkomprimierten Daten beziehen, abhängig vom Browser.
+    Ab 2024 enthält er die Größe der komprimierten Daten in Firefox und die unkomprimierten Daten in Chrome.
+    In einem selbst erstellten `ProgressEvent` können Sie jedem numerischen Wert für `loaded` zuweisen, der die Menge der im Verhältnis zu `total` abgeschlossenen Arbeit repräsentiert.
 - [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Gesamtgröße der zu übertragenden oder zu verarbeitenden Daten angibt.
-    Bei `ProgressEvent`, die vom Browser in HTTP-Nachrichten ausgelöst werden, bezieht sich der Wert auf die Größe einer Ressource in Bytes und leitet sich aus dem `Content-Length`-Header ab.
-    Bei einem selbst erstellten `ProgressEvent` könnten Sie `total` auf einen Wert wie `100` oder `1` normieren, falls die exakte Anzahl der Bytes einer Ressource nicht offengelegt werden soll.
-    Wenn Sie zum Beispiel `1` als Gesamtwert verwenden, würde `loaded` einen dezimalen Wert zwischen `0` und `1` annehmen.
+  - : Eine Zahl, die die Gesamtgröße der Daten angibt, die übertragen oder verarbeitet werden.
+    Bei vom Browser in HTTP-Nachrichten ausgelösten `ProgressEvent`s bezieht sich der Wert auf die Größe einer Ressource in Bytes und wird aus dem `Content-Length`-Header abgeleitet.
+    In einem selbst erstellten `ProgressEvent` könnten Sie `total` auf einen Wert wie `100` oder `1` normalisieren, wenn das Offenlegen der genauen Anzahl von Bytes einer Ressource ein Problem darstellt.
+    Wenn Sie beispielsweise `1` als Gesamtwert verwenden, würde `loaded` einen Dezimalwert zwischen `0` und `1` haben.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-### Status einer Anfrage anzeigen
+### Den Status einer Anfrage anzeigen
 
 Das folgende Beispiel fügt einem neuen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) ein `ProgressEvent` hinzu und verwendet es, um den Status der Anfrage anzuzeigen.
 
@@ -63,7 +63,7 @@ client.send();
 
 ### Verwendung von Bruchteilen in einem ProgressEvent
 
-Die Gesamtanzahl der Bytes einer Ressource könnte zu viele Informationen über eine Ressource preisgeben, daher kann stattdessen eine Zahl zwischen 0 und 1 in einem [`ProgressEvent()`](/de/docs/Web/API/ProgressEvent/ProgressEvent) verwendet werden:
+Die Gesamtzahl der Bytes einer Ressource kann zu viele Informationen über eine Ressource preisgeben, daher kann stattdessen eine Zahl zwischen 0 und 1 in einem [`ProgressEvent()`](/de/docs/Web/API/ProgressEvent/ProgressEvent) verwendet werden:
 
 ```js
 function updateProgress(loaded, total) {

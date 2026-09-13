@@ -2,26 +2,26 @@
 title: Point
 slug: Web/API/WebKitPoint
 l10n:
-  sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("CSS3 Transforms")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("CSS3 Transforms")}}{{Non-standard_Header}}
 
 Das **`Point`**-Interface repräsentiert einen Punkt im zweidimensionalen Raum. Es ist nicht standardisiert, nicht weitgehend kompatibel und sollte nicht verwendet werden.
 
 > [!NOTE]
-> Obwohl es nicht direkt mit diesem obsoleten Interface zusammenhängt, suchen Sie wahrscheinlich nach [`DOMPoint`](/de/docs/Web/API/DOMPoint).
+> Obwohl es nicht direkt mit diesem veralteten Interface in Verbindung steht, suchen Sie wahrscheinlich nach [`DOMPoint`](/de/docs/Web/API/DOMPoint).
 
 ## Instanz-Eigenschaften
 
 - `x` {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein Gleitkommawert, der die Position des Punktes in Bezug auf die X-(horizontale) Achse angibt.
+  - : Ein Gleitkommawert, der die Position des Punktes in Bezug auf die X-Achse (horizontal) angibt.
 - `y` {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein Gleitkommawert, der die Position des Punktes in Bezug auf die Y-(vertikale) Achse angibt.
+  - : Ein Gleitkommawert, der die Position des Punktes in Bezug auf die Y-Achse (vertikal) angibt.
 
 ## Spezifikationen
 
-Diese Klasse wurde im [veralteten Entwurf vom 20. März 2009 des CSS 2D Transforms Module Level 3](https://www.w3.org/TR/2009/WD-css3-2d-transforms-20090320/) spezifiziert. Sie ist in keiner aktuellen Spezifikation enthalten.
+Diese Klasse wurde in [dem veralteten Arbeitsentwurf vom 20. März 2009 des CSS 2D Transforms Module Level 3](https://www.w3.org/TR/2009/WD-css3-2d-transforms-20090320/) spezifiziert. Sie ist in keinem aktuellen Standard vorhanden.
 
 ## Browser-Kompatibilität
 

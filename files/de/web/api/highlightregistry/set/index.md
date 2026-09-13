@@ -1,16 +1,16 @@
 ---
-title: "HighlightRegistry: set() Methode"
+title: "HighlightRegistry: Methode set()"
 short-title: set()
 slug: Web/API/HighlightRegistry/set
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 81a384e18b61c1d1b23d7f58f1fbd8ec3af45558
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`set()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen zum Register hinzu oder aktualisiert es.
+Die Methode **`set()`** des Interfaces [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen zur Registry hinzu oder aktualisiert es.
 
-`HighlightRegistry` ist ein dem {{jsxref("Map")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Nutzung von {{jsxref("Map.set()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ähnelt dies der Verwendung von {{jsxref("Map.set()")}}.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ set(name, highlight)
 ### Parameter
 
 - `name`
-  - : Der Name des `Highlight`-Objekts, das hinzugefügt oder aktualisiert werden soll. Der Name muss ein {{jsxref("String")}} sein.
+  - : Der Name des hinzuzufügenden oder zu aktualisierenden `Highlight`-Objekts. Der Name muss ein {{jsxref("String")}} sein.
 - `highlight`
-  - : Das `Highlight`-Objekt, das hinzugefügt oder aktualisiert werden soll. Dies muss eine Instanz der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle sein.
+  - : Das hinzuzufügende oder zu aktualisierende `Highlight`-Objekt. Dies muss eine Instanz des Interfaces [`Highlight`](/de/docs/Web/API/Highlight) sein.
 
 ### Rückgabewert
 
@@ -31,16 +31,16 @@ Das `HighlightRegistry`-Objekt.
 
 ## Beispiele
 
-### Nutzung von set()
+### Verwendung von set()
 
 ```js
 const fooHighlight = new Highlight();
 CSS.highlights.set("foo", fooHighlight);
 ```
 
-### Nutzung von set() mit Verkettung
+### Verwendung von set() mit Verkettung
 
-Da die `set()`-Methode das Register zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
+Da die Methode `set()` die Registry zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
 
 ```js
 const fooHighlight = new Highlight();
@@ -64,5 +64,5 @@ CSS.highlights
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- Modul [CSS custom highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

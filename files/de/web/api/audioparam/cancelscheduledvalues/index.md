@@ -1,14 +1,15 @@
 ---
-title: "AudioParam: Methode cancelScheduledValues()"
+title: "AudioParam: cancelScheduledValues()-Methode"
 short-title: cancelScheduledValues()
 slug: Web/API/AudioParam/cancelScheduledValues
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `cancelScheduledValues()`-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle storniert alle geplanten zukünftigen Änderungen am `AudioParam`.
+Die `cancelScheduledValues()`-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)
+Schnittstelle storniert alle geplanten zukünftigen Änderungen am `AudioParam`.
 
 ## Syntax
 
@@ -19,11 +20,13 @@ cancelScheduledValues(startTime)
 ### Parameter
 
 - `startTime`
-  - : Ein Double, das die Zeit (in Sekunden) angibt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) erstmals erstellt wurde und nach der alle geplanten Änderungen storniert werden.
+  - : Ein Doppelwert, der die Zeit (in Sekunden) darstellt, nach der der [`AudioContext`](/de/docs/Web/API/AudioContext)
+    zuerst erstellt wurde und nach der alle geplanten Änderungen storniert werden.
 
 ### Rückgabewert
 
-Eine Referenz auf dieses `AudioParam`-Objekt. In einigen älteren Implementierungen gibt diese Methode {{jsxref('undefined')}} zurück.
+Eine Referenz auf dieses `AudioParam`-Objekt. In einigen älteren Implementierungen gibt diese
+Methode {{jsxref('undefined')}} zurück.
 
 ## Beispiele
 

@@ -2,14 +2,14 @@
 title: theme.reset()
 slug: Mozilla/Add-ons/WebExtensions/API/theme/reset
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
 ---
 
-Setzt ein beliebiges mit der Methode {{WebExtAPIRef("theme.update()")}} angewendetes Theme zurück.
+Setzt ein beliebiges Thema zurück, das mit der Methode {{WebExtAPIRef("theme.update()")}} angewendet wurde.
 
-Um diese Methode zu nutzen, muss eine Erweiterung die "theme"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um diese Methode zu verwenden, muss eine Erweiterung die Berechtigung "theme" in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) anfordern.
 
-Beachten Sie, dass dies das Theme immer auf das ursprüngliche Standard-Theme zurücksetzt, selbst wenn der Benutzer vorher ein anderes Theme ausgewählt hat, bevor das Theme dieser Erweiterung angewendet wurde (siehe [bug 1415267](https://bugzil.la/1415267)).
+Beachten Sie, dass dies das Thema immer auf das ursprüngliche Standardthema zurücksetzt, selbst wenn der Benutzer zuvor ein anderes Thema ausgewählt hat, bevor das Thema dieser Erweiterung angewendet wurde (siehe [Bug 1415267](https://bugzil.la/1415267)).
 
 ## Syntax
 
@@ -22,11 +22,11 @@ browser.theme.reset(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn dies angegeben ist, wird das auf dieses Fenster angewendete Theme zurückgesetzt. Wenn es weggelassen wird, wird das Theme in allen Fenstern zurückgesetzt.
+  - : `integer`. Die ID eines Fensters. Wenn dies angegeben wird, wird das auf dieses Fenster angewendete Thema zurückgesetzt. Wenn es weggelassen wird, wird das Thema in allen Fenstern zurückgesetzt.
 
 ## Beispiele
 
-Dieser Code wendet ein Theme an und entfernt es dann, wenn der Benutzer auf eine Browser-Aktion klickt:
+Dieser Code wendet ein Thema an und entfernt es dann, wenn der Benutzer auf eine Browser-Aktion klickt:
 
 ```js
 browser.theme.update(themes.night);

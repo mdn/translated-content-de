@@ -3,15 +3,15 @@ title: "Dokument: queryCommandState()-Methode"
 short-title: queryCommandState()
 slug: Web/API/Document/queryCommandState
 l10n:
-  sourceCommit: 22cf84fc5704222a2e2e5ac67b95b02dcfea08ff
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
+{{ApiRef("DOM")}}{{Non-standard_header}}
 
 > [!NOTE]
-> Obwohl die [`execCommand()`](/de/docs/Web/API/Document/execCommand)-Methode veraltet ist, gibt es immer noch einige gültige Anwendungsfälle, für die es noch keine brauchbaren Alternativen gibt, wie im Artikel zu `execCommand()` erwähnt. In diesen Fällen kann es nützlich sein, diese Methode für ein umfassendes Benutzererlebnis zu implementieren, jedoch sollte die Browser-Kompatibilität getestet werden.
+> Obwohl die Methode [`execCommand()`](/de/docs/Web/API/Document/execCommand) veraltet ist, gibt es immer noch einige gültige Anwendungsfälle, für die es noch keine brauchbaren Alternativen gibt, wie im Artikel zu `execCommand()` erwähnt. In diesen Fällen kann sich diese Methode als nützlich erweisen, um ein vollständiges Benutzererlebnis zu implementieren, aber testen Sie, um eine plattformübergreifende Browser-Kompatibilität sicherzustellen.
 
-Die **`queryCommandState()`**-Methode teilt Ihnen mit, ob die aktuelle Auswahl einen bestimmten [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)-Befehl angewendet hat.
+Die **`queryCommandState()`**-Methode informiert Sie darüber, ob die aktuelle Auswahl einen bestimmten [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)-Befehl angewendet hat.
 
 ## Syntax
 
@@ -76,7 +76,7 @@ document.querySelector("button").addEventListener("click", makeBold);
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden. Es gibt einen inoffiziellen [W3C execCommand-Spezifikationsentwurf](https://w3c.github.io/editing/docs/execCommand/).
+Dieses Merkmal ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden. Es gibt einen inoffiziellen [W3C execCommand Spezifikationsentwurf](https://w3c.github.io/editing/docs/execCommand/).
 
 ## Browser-Kompatibilität
 
@@ -87,4 +87,4 @@ Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf de
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
 - [`document.designMode`](/de/docs/Web/API/Document/designMode)
 - [`document.execCommand()`](/de/docs/Web/API/Document/execCommand)
-- Browserfehler in Bezug auf `queryCommandState()`: [Scribes "Browser Inconsistencies"-Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)
+- Browser-Fehler im Zusammenhang mit `queryCommandState()`: [Scribe's "Browser Inconsistencies" Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)

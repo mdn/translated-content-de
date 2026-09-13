@@ -2,22 +2,23 @@
 title: <mpath>
 slug: Web/SVG/Reference/Element/mpath
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 1ea9b498e0af377455459fbbe33164091fb75f61
 ---
 
-Das **`<mpath>`** [SVG](/de/docs/Web/SVG) Sub-Element für das {{SVGElement("animateMotion")}} Element bietet die Möglichkeit, ein externes {{SVGElement("path")}} Element als Definition eines Bewegungspfads zu referenzieren.
+Das **`<mpath>`** [SVG](/de/docs/Web/SVG)-Unterelement für das {{SVGElement("animateMotion")}}-Element ermöglicht es, ein externes {{SVGElement("path")}}-Element als Definition eines Bewegungspfads zu referenzieren.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
 ## Attribute
 
+- {{SVGAttr("href")}}
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
 ## DOM-Interface
 
-Dieses Element implementiert das [`SVGMPathElement`](/de/docs/Web/API/SVGMPathElement) Interface.
+Dieses Element implementiert das [`SVGMPathElement`](/de/docs/Web/API/SVGMPathElement)-Interface.
 
 ## Beispiel
 

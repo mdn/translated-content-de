@@ -1,21 +1,21 @@
 ---
-title: "VRFieldOfView: downDegrees-Eigenschaft"
+title: "VRFieldOfView: downDegrees Eigenschaft"
 short-title: downDegrees
 slug: Web/API/VRFieldOfView/downDegrees
 l10n:
-  sourceCommit: ce094c10e0b71ff594e013d459b9c29110a6442a
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebVR API")}}{{Deprecated_header}}{{Non-standard_header}}
+{{APIRef("WebVR API")}}{{Non-standard_header}}
 
-Die **`downDegrees`** Eigenschaft des [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView)-Interfaces gibt die Anzahl der Grad an, um die der Sichtbereich nach unten erweitert wird.
+Die schreibgeschützte Eigenschaft **`downDegrees`** der [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView)-Schnittstelle gibt die Anzahl der Grad an, um die sich das Sichtfeld nach unten erstreckt.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
 ## Wert
 
-Ein Double.
+Ein Gleitkommawert (double).
 
 ## Beispiele
 
@@ -23,9 +23,9 @@ Siehe [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView#examples) für Beispielco
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden zum Portieren von WebVR zu WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 
@@ -33,4 +33,4 @@ Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundam
 
 ## Siehe auch
 
-- [WebVR-API](/de/docs/Web/API/WebVR_API)
+- [WebVR API](/de/docs/Web/API/WebVR_API)

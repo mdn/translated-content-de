@@ -1,19 +1,19 @@
 ---
-title: "FileReader: readAsBinaryString() Methode"
+title: "FileReader: readAsBinaryString()-Methode"
 short-title: readAsBinaryString()
 slug: Web/API/FileReader/readAsBinaryString
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("File API")}}{{AvailableInWorkers}}{{Deprecated_Header}}
+{{APIRef("File API")}}{{AvailableInWorkers}}
 
 > [!NOTE]
 > Diese Methode ist zugunsten von [`readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) veraltet.
 
-Die **`readAsBinaryString()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um das Lesen der Inhalte des spezifizierten [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu starten. Wenn der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft `DONE` und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält die [`result`](/de/docs/Web/API/FileReader/result)-Eigenschaft die rohen Binärdaten aus der Datei.
+Die **`readAsBinaryString()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um das Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu starten. Wenn der Lesevorgang beendet ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft `DONE`, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält die [`result`](/de/docs/Web/API/FileReader/result)-Eigenschaft die rohen Binärdaten aus der Datei.
 
-Beachten Sie, dass diese Methode einst aus der File API-Spezifikation entfernt, aber zur Rückwärtskompatibilität wieder eingeführt wurde. Die Verwendung von [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) wird empfohlen.
+Beachten Sie, dass diese Methode einst aus der File API-Spezifikation entfernt, aber aus Gründen der Rückwärtskompatibilität wieder eingeführt wurde. Es wird empfohlen, [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) zu verwenden.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ readAsBinaryString(blob)
 ### Parameter
 
 - `blob`
-  - : Der [`Blob`](/de/docs/Web/API/Blob) oder die [`File`](/de/docs/Web/API/File), von dem/der gelesen werden soll.
+  - : Das [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File), von dem gelesen werden soll.
 
 ### Rückgabewert
 

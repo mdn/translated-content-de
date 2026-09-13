@@ -1,18 +1,18 @@
 ---
-title: "SharedStorageWorkletGlobalScope: sharedStorage-Eigenschaft"
+title: "SharedStorageWorkletGlobalScope: Eigenschaft sharedStorage"
 short-title: sharedStorage
 slug: Web/API/SharedStorageWorkletGlobalScope/sharedStorage
 l10n:
-  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("Shared Storage API")}}{{non-standard_header}}
 
-Die schreibgeschützte **`context`**-Eigenschaft des [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope)-Interfaces enthält eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objektinstanz, die den gemeinsamen Speicher für einen bestimmten Ursprung darstellt, wie er einem Worklet-Kontext zur Verfügung steht.
+Die **`context`** schreibgeschützte Eigenschaft der Schnittstelle [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope) enthält eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) Objektinstanz, die den gemeinsam genutzten Speicher für einen bestimmten Ursprung darstellt, wie er einem Worklet-Kontext zugänglich gemacht wird.
 
 ## Wert
 
-Eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objektinstanz.
+Eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) Objektinstanz.
 
 ## Beispiele
 

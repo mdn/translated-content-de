@@ -2,16 +2,16 @@
 title: Compression Streams API
 slug: Web/API/Compression_Streams_API
 l10n:
-  sourceCommit: 7d17bd76546fce1b3889f151876481507bce2a31
+  sourceCommit: ce12c10364f35c64184dec44be85537b7e10d91f
 ---
 
 {{DefaultAPISidebar("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die **Compression Streams API** bietet eine JavaScript-API zur Komprimierung und Dekomprimierung von Datenströmen unter Verwendung der gzip- oder deflate-Formate.
+Die **Compression Streams API** bietet eine JavaScript-API zum Komprimieren und Dekomprimieren von Datenströmen unter Verwendung der gzip- oder deflate-Formate.
 
-Durch die eingebaute Kompression müssen JavaScript-Anwendungen keine Kompressionsbibliothek enthalten, was die Downloadgröße der Anwendung verringert.
+Da die Komprimierung eingebaut ist, müssen JavaScript-Anwendungen keine Komprimierungsbibliothek einbinden, was die Download-Größe der Anwendung verringert.
 
-Die Fetch API's [`Response`](/de/docs/Web/API/Response) kann verwendet werden, um Streams in folgende Formate zu konvertieren:
+Die [`Response`](/de/docs/Web/API/Response) der Fetch API kann verwendet werden, um Streams in folgende Formate zu konvertieren:
 
 - {{jsxref("ArrayBuffer")}}
 - [`Blob`](/de/docs/Web/API/Blob)
@@ -28,7 +28,7 @@ Die Fetch API's [`Response`](/de/docs/Web/API/Response) kann verwendet werden, u
 
 ## Beispiele
 
-In diesem Beispiel wird ein Stream mithilfe der gzip-Komprimierung komprimiert.
+In diesem Beispiel wird ein Stream mittels gzip-Kompression komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(
@@ -36,7 +36,7 @@ const compressedReadableStream = inputReadableStream.pipeThrough(
 );
 ```
 
-Im folgenden Beispiel dekomprimiert eine Funktion einen Blob mit gzip.
+Im folgenden Beispiel dekomprimiert eine Funktion einen Blob mittels gzip.
 
 ```js
 async function DecompressBlob(blob) {

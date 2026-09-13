@@ -3,12 +3,12 @@ title: "MediaStreamEvent: stream-Eigenschaft"
 short-title: stream
 slug: Web/API/MediaStreamEvent/stream
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{deprecated_header}}{{Non-standard_header}}
+{{APIRef("WebRTC")}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`MediaStreamEvent.stream`** gibt den [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der mit dem Ereignis verknüpft ist.
+Die schreibgeschützte Eigenschaft **`MediaStreamEvent.stream`** gibt den [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der mit dem Ereignis assoziiert ist.
 
 ## Beispiel
 

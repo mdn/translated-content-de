@@ -3,17 +3,15 @@ title: "WebGLRenderingContext: stencilFuncSeparate() Methode"
 short-title: stencilFuncSeparate()
 slug: Web/API/WebGLRenderingContext/stencilFuncSeparate
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 11a5944cd0a3bf015b2ee9c7ee4c55025dd878ca
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.stencilFuncSeparate()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) legt die Vorder- und/oder Rückseite
-Funktion und Referenzwert für den Stencil-Test fest.
+Die **`WebGLRenderingContext.stencilFuncSeparate()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) setzt die Funktion und den Referenzwert für das Stencil-Testing sowohl für die Vorder- als auch Rückseite.
 
-Stencilling ermöglicht das Zeichnen auf Pixel-Basis zu aktivieren oder zu deaktivieren. Es wird typischerweise im
-Multipass-Rendering verwendet, um spezielle Effekte zu erzielen.
+Stencil-Testing ermöglicht und deaktiviert das Zeichnen auf einer Pixel-für-Pixel-Basis. Es wird typischerweise beim Mehrfachdurchlaufs-Rendering verwendet, um Spezialeffekte zu erzielen.
 
 ## Syntax
 
@@ -24,8 +22,7 @@ stencilFuncSeparate(face, func, ref, mask)
 ### Parameter
 
 - `face`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der vordere und/oder hintere Stencil-Zustand
-    aktualisiert wird. Die möglichen Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der Stencil-Zustand der Vorder- und/oder Rückseite aktualisiert wird. Die möglichen Werte sind:
     - `gl.FRONT`
     - `gl.BACK`
     - `gl.FRONT_AND_BACK`
@@ -44,10 +41,9 @@ stencilFuncSeparate(face, func, ref, mask)
 
 - `ref`
   - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Referenzwert für den Stencil-Test angibt. Dieser
-    Wert wird in den Bereich 0 bis 2^n - 1 geklammert, wobei n die Anzahl der Bitplanes
-    im Stencil-Puffer ist. Der Standardwert ist 0.
+    Wert wird auf den Bereich 0 bis 2^n - 1 begrenzt, wobei n die Anzahl der Bitplanes im Stencil-Buffer ist. Der Standardwert ist 0.
 - `mask`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der eine Bit-weise Maske angibt, die verwendet wird, um den Referenzwert und den gespeicherten Stencilwert zu ver-UND-en, wenn der Test durchgeführt wird. Der Standardwert ist alle 1.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der eine Bit-weise Maske angibt, die verwendet wird, um den Referenzwert und den gespeicherten Stencil-Wert bei der Durchführung des Tests mit einem AND zu verknüpfen. Der Standardwert ist alles 1.
 
 ### Rückgabewert
 
@@ -56,8 +52,8 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 Das Stencil-Testing ist standardmäßig deaktiviert. Um das Stencil-Testing zu aktivieren oder zu deaktivieren, verwenden Sie
-die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und
-[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument
+die [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und
+[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) Methoden mit dem Argument
 `gl.STENCIL_TEST`.
 
 ```js
@@ -65,8 +61,8 @@ gl.enable(gl.STENCIL_TEST);
 gl.stencilFuncSeparate(gl.FRONT, gl.LESS, 0.2, 1110011);
 ```
 
-Um die aktuelle Stencil-Funktion, den Referenzwert oder andere Stencil-Informationen abzurufen,
-fragen Sie die folgenden Konstanten mit [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) ab.
+Um die aktuelle Stencil-Funktion, den Referenzwert oder andere Stencil-Informationen zu erhalten,
+fragen Sie folgende Konstanten mit [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) ab.
 
 ```js
 gl.getParameter(gl.STENCIL_FUNC);

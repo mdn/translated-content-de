@@ -3,10 +3,12 @@ title: "`text-decoration-line` CSS property"
 short-title: text-decoration-line
 slug: Web/CSS/Reference/Properties/text-decoration-line
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`text-decoration-line`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Art der Dekoration fest, die auf Text in einem Element angewendet wird, wie zum Beispiel ein Unterstrich oder eine Überlinie.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-decoration-line`** legt die Art der Dekoration fest, die auf Text in einem Element verwendet wird, beispielsweise eine Unterstreichung oder Überstreichung.
+
+Wenn mehrere Zeilendekorationseigenschaften gleichzeitig festgelegt werden, kann es praktischer sein, stattdessen die Kurzschreibweise {{cssxref("text-decoration")}} zu verwenden.
 
 {{InteractiveExample("CSS Demo: text-decoration-line")}}
 
@@ -58,8 +60,6 @@ p {
 }
 ```
 
-Beim gleichzeitigen Setzen mehrerer Linien-Dekorationseigenschaften kann es praktischer sein, die verkürzte Eigenschaft {{cssxref("text-decoration")}} zu verwenden.
-
 ## Syntax
 
 ```css
@@ -86,25 +86,25 @@ text-decoration-line: unset;
 
 ### Werte
 
-Diese Eigenschaft wird entweder als `none` oder als durch Leerzeichen getrennte Liste von Schlüsselwortwerten aus der untenstehenden Liste angegeben:
+Diese Eigenschaft wird entweder als `none` oder als durch Leerzeichen getrennte Liste von Schlüsselwortwerten aus der folgenden Liste angegeben:
 
 - `none`
-  - : Es wird keine Textdekoration erzeugt.
+  - : Erzeugt keine Textdekoration.
 - `underline`
-  - : Jede Textzeile hat eine dekorative Linie unterhalb.
+  - : Jede Textzeile hat eine dekorative Linie darunter.
 - `overline`
-  - : Jede Textzeile hat eine dekorative Linie oberhalb.
+  - : Jede Textzeile hat eine dekorative Linie darüber.
 - `line-through`
-  - : Jede Textzeile hat eine dekorative Linie, die durch ihre Mitte verläuft.
+  - : Jede Textzeile hat eine dekorative Linie durch ihre Mitte.
 - `blink`
-  - : Der Text blinkt (wechselt zwischen sichtbar und unsichtbar). Übereinstimmende Nutzeragenten lassen den Text möglicherweise nicht blinken. Dieser Wert ist **veraltet** zugunsten von [CSS-Animationen](/de/docs/Web/CSS/Reference/Properties/animation).
+  - : Der Text blinkt (wechselt zwischen sichtbar und unsichtbar). Konforme User Agents müssen den Text möglicherweise nicht blinken lassen. Dieser Wert ist zugunsten von [CSS-Animationen](/de/docs/Web/CSS/Reference/Properties/animation) **veraltet**.
 - `spelling-error`
-  - : Jede Textzeile verwendet die Methode des Nutzeragenten, um Rechtschreibfehler hervorzuheben, was in den meisten Browsern eine gepunktete rote Linie ist.
+  - : Jede Textzeile verwendet die Methode des User Agents zum Hervorheben von Rechtschreibfehlern, die in den meisten Browsern aus einer gepunkteten roten Linie besteht.
 - `grammar-error`
-  - : Jede Textzeile verwendet die Methode des Nutzeragenten, um Grammatikfehler hervorzuheben, was in den meisten Browsern eine gepunktete grüne Linie ist.
+  - : Jede Textzeile verwendet die Methode des User Agents zum Hervorheben von Grammatikfehlern, die in den meisten Browsern aus einer gepunkteten grünen Linie besteht.
 
 > [!NOTE]
-> Bei der Verwendung der Werte `spelling-error` und `grammar-error` ignoriert der Browser die anderen Eigenschaften in der {{cssxref("text-decoration")}}-Verkürzung (wie {{cssxref("text-underline-position")}}, `color` oder `stroke`).
+> Bei Verwendung der Werte `spelling-error` und `grammar-error` ignoriert der Browser die anderen Eigenschaften in der Kurzschreibweise {{cssxref("text-decoration")}} (wie {{cssxref("text-underline-position")}}, `color` oder `stroke`).
 
 ## Formale Definition
 
@@ -116,7 +116,7 @@ Diese Eigenschaft wird entweder als `none` oder als durch Leerzeichen getrennte 
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```html
 <p class="wavy">Here's some text with wavy red underline!</p>
@@ -137,9 +137,9 @@ Diese Eigenschaft wird entweder als `none` oder als durch Leerzeichen getrennte 
 
 {{EmbedLiveSample('basic_example',,90)}}
 
-### Fehlerbeispiel
+### Beispiel für Fehler
 
-In diesem Beispiel enthält der erste Absatz einen Rechtschreibfehler und nutzt das Styling des Browsers für Rechtschreibfehler beim falsch geschriebenen Wort. Der zweite Absatz verwendet das Styling des Browsers für Grammatikfehler. Es gibt keine Stylingänderung in Browsern, die diese `text-decoration-line`-Werte nicht unterstützen.
+In diesem Beispiel enthält der erste Absatz einen Rechtschreibfehler und verwendet die Browser-Stilgestaltung für Rechtschreibfehler beim falsch geschriebenen Wort. Der zweite Absatz verwendet die Browser-Stilgestaltung für Grammatikfehler. In Browsern, die diese `text-decoration-line`-Werte nicht unterstützen, gibt es keine Änderung der Stilgestaltung.
 
 <!-- cSpell:ignore speling -->
 
@@ -170,7 +170,7 @@ In diesem Beispiel enthält der erste Absatz einen Rechtschreibfehler und nutzt 
 
 ## Siehe auch
 
-- Beim gleichzeitigen Setzen mehrerer Linien-Dekorationseigenschaften kann es praktischer sein, die verkürzte Eigenschaft {{cssxref("text-decoration")}} zu verwenden, die auch folgende umfasst:
+- Wenn mehrere Zeilendekorationseigenschaften gleichzeitig festgelegt werden, kann es praktischer sein, stattdessen die Kurzschreibweise {{cssxref("text-decoration")}} zu verwenden, die außerdem Folgendes umfasst:
   - {{cssxref("text-decoration-style")}}
   - {{cssxref("text-decoration-color")}}
   - {{cssxref("text-decoration-thickness")}}

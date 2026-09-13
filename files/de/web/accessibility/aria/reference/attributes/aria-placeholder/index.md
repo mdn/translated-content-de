@@ -3,16 +3,16 @@ title: "ARIA: aria-placeholder-Attribut"
 short-title: aria-placeholder
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-placeholder
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: 76824348ac7be05f30c32f29e9495e7b29f71876
 ---
 
 Das `aria-placeholder`-Attribut definiert einen kurzen Hinweis (ein Wort oder eine kurze Phrase), der dem Benutzer bei der Dateneingabe helfen soll, wenn ein Formularelement keinen Wert hat. Der Hinweis kann ein Beispielwert oder eine kurze Beschreibung des erwarteten Formats sein.
 
 ## Beschreibung
 
-Ein Platzhalter ist ein Text, der im Formularelement erscheint, wenn kein Wert gesetzt ist. Das HTML-Attribut [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) ermöglicht das Bereitstellen eines Beispielwerts oder einer kurzen Beschreibung des erwarteten Formats für verschiedene HTML-{{HTMLElement('input')}}-Typen und {{HTMLElement('textarea')}}.
+Ein Platzhalter ist ein Text, der im Formularelement erscheint, wenn kein Wert festgelegt ist. Das HTML-Attribut [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) ermöglicht es, einen Beispielwert oder eine kurze Beschreibung des erwarteten Formats für verschiedene HTML {{HTMLElement('input')}}-Typen und {{HTMLElement('textarea')}} bereitzustellen.
 
-Wenn Sie ein `textbox` mit einem anderen Element erstellen, wird `placeholder` nicht unterstützt. Hier kommt `aria-placeholder` ins Spiel. Das `aria-placeholder`-Attribut kann verwendet werden, um einen kurzen Hinweis zu definieren, der dem Benutzer hilft, zu verstehen, welche Art von Daten erwartet wird, wenn ein formulieres Formularelement keinen Wert hat.
+Wenn Sie ein `textbox` mit einem anderen Element erstellen, wird `placeholder` nicht unterstützt. Hier kommt `aria-placeholder` ins Spiel. Das `aria-placeholder`-Attribut kann verwendet werden, um einen kurzen Hinweis zu definieren, der dem Benutzer verständlich macht, welche Art von Daten erwartet wird, wenn ein nicht-semantisches Formularelement keinen Wert hat.
 
 ```html
 <span id="date-of-birth">Birthday</span>
@@ -25,23 +25,23 @@ Wenn Sie ein `textbox` mit einem anderen Element erstellen, wird `placeholder` n
 </div>
 ```
 
-Der Platzhalterhinweis sollte dem Benutzer immer angezeigt werden, wenn der Wert des Steuerelements leer ist, einschließlich wenn ein Wert gelöscht wird.
+Der Platzhalter-Hinweis sollte dem Benutzer immer dann angezeigt werden, wenn der Wert des Steuerelements leer ist, auch wenn ein Wert gelöscht wird.
 
 > [!NOTE]
-> ARIA ändert nur den Barrierenfreiheitsbaum für ein Element und damit, wie unterstützende Technologien den Inhalt Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements. Wenn Sie semantische HTML-Elemente nicht für ihren vorgesehenen Zweck und ihre Standardfunktionalität verwenden, müssen Sie JavaScript verwenden, um das Verhalten zu steuern.
+> ARIA verändert nur die Zugänglichkeitshierarchie eines Elements und damit, wie unterstützende Technologien den Inhalt Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements. Wenn Sie keine semantischen HTML-Elemente für ihren vorgesehenen Zweck und ihre Standardfunktionalität verwenden, müssen Sie JavaScript zur Verwaltung des Verhaltens einsetzen.
 
-Das `aria-placeholder` wird zusätzlich zu, nicht anstelle eines Labels verwendet. Sie haben unterschiedliche Zwecke und unterschiedliche Funktionalitäten. Ein Label erklärt, welche Art von Informationen erwartet wird. Der Platzhaltertext bietet einen Hinweis auf den erwarteten Wert.
+Das `aria-placeholder` wird zusätzlich zu einem Label verwendet, nicht anstatt eines Labels. Sie haben unterschiedliche Zwecke und unterschiedliche Funktionen. Ein Label erklärt, welche Art von Informationen erwartet wird. Platzhaltertext gibt einen Hinweis auf den erwarteten Wert.
 
 > [!WARNING]
-> Die Verwendung eines Platzhalters anstelle eines sichtbaren Labels beeinträchtigt die Barrierefreiheit und Benutzerfreundlichkeit für viele Benutzer, einschließlich älterer Benutzer und Benutzer mit kognitiven, Mobilitäts-, Feinmotorik- und Sehbehinderungen. Labels sind besser: Sie sind immer sichtbar und bieten eine größere Trefferfläche, um sich auf das Steuerelement zu konzentrieren. Platzhalter haben mehrere Nachteile: Sie verschwinden, wenn das Steuerelement einen Wert hat, einschließlich Leerzeichen. Sie können Benutzer verwirren und denken lassen, dass der Wert vorab ausgefüllt ist, und die Standardfarbe hat einen unzureichenden Kontrast.
+> Die Verwendung eines Platzhalters anstelle eines sichtbaren Labels beeinträchtigt die Barrierefreiheit und Benutzerfreundlichkeit für viele Nutzer, einschließlich älterer Nutzer und Nutzer mit kognitiven, motorischen, feinmotorischen und Sehbeeinträchtigungen. Labels sind besser: Sie sind immer sichtbar und bieten eine größere Trefferfläche, um das Steuerelement zu fokussieren. Platzhalter haben mehrere Nachteile: Sie verschwinden, wenn das Steuerelement einen Wert enthält, auch wenn es nur Leerzeichen sind, sie können Nutzer verwirren und sie glauben lassen, dass der Wert vorausgefüllt ist, und die Standardfarbe hat einen unzureichenden Kontrast.
 
 > [!NOTE]
-> Platzhalter sollten nur verwendet werden, um ein Beispiel für die Art von Daten zu zeigen, die in ein Formular eingegeben werden sollten; sie ersetzen kein richtiges Label.
+> Platzhalter sollten nur verwendet werden, um ein Beispiel für die Art der Daten zu zeigen, die in ein Formular eingegeben werden sollten; sie ersetzen kein ordentliches Label.
 
 ## Werte
 
 - `<string>`
-  - : Das Wort oder die kurze Phrase, die in einem Steuerelement angezeigt werden soll, wenn das Steuerelement keinen Wert hat.
+  - : Das Wort oder die kurze Phrase, die in einem Steuerelement angezeigt wird, wenn das Steuerelement keinen Wert hat.
 
 ## Zugehörige Schnittstellen
 
@@ -52,11 +52,11 @@ Das `aria-placeholder` wird zusätzlich zu, nicht anstelle eines Labels verwende
 
 ## Zugehörige Rollen
 
-Genutzt in Rollen:
+Verwendet in Rollen:
 
 - [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)
 
-Vererbt in Rollen:
+Geerbt in Rollen:
 
 - [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role)
 

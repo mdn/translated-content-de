@@ -1,18 +1,18 @@
 ---
-title: "PaymentAddress: organization Eigenschaft"
+title: "PaymentAddress: Organisationseigenschaft"
 short-title: organization
 slug: Web/API/PaymentAddress/organization
 l10n:
-  sourceCommit: a5d90e4c36c0155024621fe00e15ae61f3697d88
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`organization`** des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen Zeichenfolgenwert zurück, der den Namen der Organisation, Firma, Unternehmen oder Institution an der Adresse enthält.
+Die schreibgeschützte **`organization`**-Eigenschaft des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der den Namen der Organisation, Firma, des Unternehmens oder der Institution an der Adresse enthält.
 
 ## Wert
 
-Eine Zeichenkette, deren Wert der Name der Organisation oder des Unternehmens ist, das sich an der durch das `PaymentAddress`-Objekt beschriebenen Adresse befindet. Dies sollte der Name der Organisation sein, die die Lieferung für Versandadressen erhalten soll oder die für Zahlungsadressen verantwortlich ist.
+Ein String, dessen Wert der Name der Organisation oder des Unternehmens ist, das sich an der durch das `PaymentAddress`-Objekt beschriebenen Adresse befindet. Dies sollte der Name der Organisation sein, die die Lieferung für Versandadressen erhält oder die für Zahlungsadressen verantwortlich ist.
 
 ## Browser-Kompatibilität
 

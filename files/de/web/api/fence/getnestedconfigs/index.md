@@ -3,12 +3,13 @@ title: "Fence: getNestedConfigs() Methode"
 short-title: getNestedConfigs()
 slug: Web/API/Fence/getNestedConfigs
 l10n:
-  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
+{{APIRef("Fenced Frame API")}}
 
-Die **`getNestedConfigs()`** Methode der [`Fence`](/de/docs/Web/API/Fence) Schnittstelle gibt die [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s zurück, die in `<fencedframe>`s geladen sind, die innerhalb des aktuellen `<fencedframe>` eingebettet sind.
+Die **`getNestedConfigs()`** Methode des
+[`Fence`](/de/docs/Web/API/Fence) Interfaces gibt die [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s zurück, die in `<fencedframe>`s geladen sind, welche innerhalb des aktuellen `<fencedframe>` eingebettet sind.
 
 ## Syntax
 
@@ -24,8 +25,8 @@ Keine.
 
 `getNestedConfigs()` hat zwei mögliche Rückgabewerte:
 
-- Ein Array von 20 [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekten, wenn die Konfiguration des aktuellen `<fencedframe>` mit einer API erstellt wurde, die verschachtelte Konfigurationen unterstützt (zum Beispiel [Protected Audience](https://privacysandbox.google.com/private-advertising/protected-audience)). Von diesen 20 Konfigurationen sind die ersten N diejenigen, die über die API registriert wurden, und der Rest sind Füllkonfigurationen, die zu `about:blank` navigieren, sodass die Anzahl der Konfigurationen verborgen bleibt und keine Informationen preisgegeben werden können.
-- `null`, wenn die Konfiguration des aktuellen `<fencedframe>` mit einer API erstellt wurde, die verschachtelte Konfigurationen nicht unterstützt (zum Beispiel [Shared Storage](/de/docs/Web/API/Shared_Storage_API)).
+- Ein Array von 20 [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig) Objekten, wenn die Konfiguration des aktuellen `<fencedframe>` mit einer API erstellt wurde, die verschachtelte Konfigurationen unterstützt (beispielsweise [Protected Audience](https://privacysandbox.google.com/private-advertising/protected-audience)). Von diesen 20 Konfigurationen sind die ersten N Konfigurationen jene, die über die API registriert wurden, und der Rest sind Platzhalter-Konfigurationen, die zu `about:blank` navigieren, sodass die Anzahl der Konfigurationen verborgen bleibt und keine Informationen preisgibt.
+- `null` wenn die Konfiguration des aktuellen `<fencedframe>` mit einer API erstellt wurde, die keine verschachtelten Konfigurationen unterstützt (beispielsweise [Shared Storage](/de/docs/Web/API/Shared_Storage_API)).
 
 ## Beispiele
 

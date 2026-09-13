@@ -3,10 +3,10 @@ title: RegExp.prototype[Symbol.replace]()
 short-title: "[Symbol.replace]()"
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 5b3aa7e4e8cd54f1b662534d8c97074e522b7fc4
 ---
 
-Die Methode **`[Symbol.replace]()`** von {{jsxref("RegExp")}}-Instanzen legt fest, wie [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) und [`String.prototype.replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) funktionieren sollen, wenn der reguläre Ausdruck als Muster übergeben wird.
+Die Methode **`[Symbol.replace]()`** von {{jsxref("RegExp")}}-Instanzen gibt an, wie [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) und [`String.prototype.replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) sich verhalten sollen, wenn der reguläre Ausdruck als Muster übergeben wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype[Symbol.replace]()")}}
 
@@ -32,19 +32,19 @@ regexp[Symbol.replace](str, replacement)
 ### Parameter
 
 - `str`
-  - : Ein {{jsxref("String")}}, der das Ziel des Ersetzens ist.
+  - : Ein {{jsxref("String")}}, auf den die Ersetzung abzielt.
 - `replacement`
   - : Kann ein String oder eine Funktion sein.
-    - Wenn es ein String ist, ersetzt er den Teilstring, der vom aktuellen Regexp übereingestimmt wird. Eine Reihe von speziellen Ersetzungsmustern wird unterstützt; siehe den Abschnitt [Einen String als Ersetzung angeben](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_string_as_the_replacement) von `String.prototype.replace`.
-    - Wenn es eine Funktion ist, wird diese für jedes Übereinstimmung aufgerufen und der Rückgabewert wird als Ersetzungstext verwendet. Die an diese Funktion übergebenen Argumente sind im Abschnitt [Eine Funktion als Ersetzung angeben](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_function_as_the_replacement) von `String.prototype.replace` beschrieben.
+    - Wenn es ein String ist, wird die Teilzeichenkette ersetzt, die dem aktuellen RegExp entspricht. Eine Anzahl von speziellen Ersetzungsmustern wird unterstützt; siehe den Abschnitt [Einen String als Ersetzung angeben](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_string_as_the_replacement) von `String.prototype.replace`.
+    - Wenn es eine Funktion ist, wird sie für jedes Vorkommen aufgerufen und der Rückgabewert wird als Ersetzungstext verwendet. Die Argumente, die dieser Funktion übergeben werden, sind im Abschnitt [Eine Funktion als Ersetzung angeben](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_function_as_the_replacement) von `String.prototype.replace` beschrieben.
 
 ### Rückgabewert
 
-Ein neuer String, bei dem eines, einige oder alle Übereinstimmungen des Musters durch die angegebene Ersetzung ersetzt werden.
+Ein neuer String, bei dem ein, einige oder alle Muster durch die angegebene Ersetzung ersetzt wurden.
 
 ## Beschreibung
 
-Diese Methode wird intern in {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} aufgerufen, wenn das `pattern`-Argument ein {{jsxref("RegExp")}}-Objekt ist. So geben zum Beispiel die folgenden zwei Beispiele das gleiche Ergebnis zurück.
+Diese Methode existiert zur Anpassung des Ersetzungsverhaltens in `RegExp`-Unterklassen. Sie wird intern in {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} aufgerufen, wenn das `pattern`-Argument ein {{jsxref("RegExp")}}-Objekt ist. Zum Beispiel liefern die folgenden zwei Beispiele dasselbe Ergebnis.
 
 ```js
 "abc".replace(/a/, "A");
@@ -52,9 +52,18 @@ Diese Methode wird intern in {{jsxref("String.prototype.replace()")}} und {{jsxr
 /a/[Symbol.replace]("abc", "A");
 ```
 
-Wenn der Regex global ist (mit dem `g`-Flag), wird die Methode `exec()` des Regex wiederholt aufgerufen, bis `exec()` `null` zurückgibt. Andernfalls würde `exec()` nur einmal aufgerufen werden. Für jedes Ergebnis von `exec()` wird die Ersetzung basierend auf der Beschreibung in [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#description) vorbereitet.
+Wenn der reguläre Ausdruck global ist (mit dem `g`-Flag), wird dessen [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) zuerst auf 0 gesetzt, sodass das Matching immer am Anfang des Strings beginnt, und die `exec()`-Methode des regulären Ausdrucks wird wiederholt aufgerufen, bis `exec()` `null` zurückgibt. Wenn das aktuelle Vorkommen ein leerer String ist, würde `lastIndex` trotzdem erhöht — wenn der reguläre Ausdruck [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist, würde er um einen Unicode-Codepunkt erhöht; andernfalls erhöht er sich um eine UTF-16-Codierungseinheit.
 
-Da `[Symbol.replace]()` `exec()` weiterhin aufrufen würde, bis es `null` zurückgibt, und `exec()` den `lastIndex` des Regex automatisch auf 0 zurücksetzt, wenn die letzte Übereinstimmung fehlschlägt, hätte `[Symbol.replace]()` typischerweise keine Nebeneffekte, wenn es beendet wird. Wenn der Regex jedoch [haftend](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky) ist, aber nicht global, würde `lastIndex` nicht zurückgesetzt werden. In diesem Fall könnte jeder Aufruf von `replace()` ein anderes Ergebnis liefern.
+```js
+console.log("😄".replace(/(?:)/g, " ")); // " \ud83d \ude04 "
+console.log("😄".replace(/(?:)/gu, " ")); // " 😄 "
+```
+
+Wenn der reguläre Ausdruck nicht global ist, würde `exec()` nur einmal aufgerufen werden.
+
+Die Ersetzung erfolgt, nachdem alle passenden Teilzeichenketten identifiziert wurden. Für jedes erfolgreiche `exec()`-Ergebnis wird ein Ersetzungsstring basierend auf dem `replacement`-Argument erstellt, dessen Prozess in [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#description) beschrieben ist.
+
+Die Methode `exec()` setzt `lastIndex` automatisch auf 0 zurück, wenn das letzte Matching fehlschlägt; für globale reguläre Ausdrücke mit `lastIndex`, das bei 0 beginnt, erzeugt `[Symbol.replace]()` im Allgemeinen keine Nebenwirkungen. Ist der reguläre Ausdruck jedoch [klebrig](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky), aber nicht global, wird `exec()` nur einmal aufgerufen und setzt daher `lastIndex` nicht zurück, wenn das Matching erfolgreich war. In diesem Fall kann jeder Aufruf von `replace()` ein anderes Ergebnis liefern.
 
 ```js
 const re = /a/y;
@@ -70,26 +79,17 @@ for (let i = 0; i < 5; i++) {
 // baa 1
 ```
 
-Wenn der Regex haftend und global ist, würde er weiterhin haftende Übereinstimmungen durchführen — d.h. er würde keine Vorkommen jenseits des `lastIndex` übereinstimmen.
+Wenn der reguläre Ausdruck klebrig und global ist, würde er trotzdem klebrige Übereinstimmungen durchführen — das heißt, er würde es nicht schaffen, Vorkommen jenseits des `lastIndex` zu finden.
 
 ```js
 console.log("aa-a".replace(/a/gy, "b")); // "bb-a"
 ```
 
-Wenn die aktuelle Übereinstimmung ein leerer String ist, würde der `lastIndex` trotzdem erhöht werden — wenn der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist, würde er um einen Unicode-Codepunkt erhöht; andernfalls wird er um eine UTF-16-Codeeinheit erhöht.
-
-```js
-console.log("😄".replace(/(?:)/g, " ")); // " \ud83d \ude04 "
-console.log("😄".replace(/(?:)/gu, " ")); // " 😄 "
-```
-
-Diese Methode existiert, um das Ersetzungsverhalten in `RegExp`-Unterklassen anzupassen.
-
 ## Beispiele
 
 ### Direkter Aufruf
 
-Diese Methode kann fast genauso wie {{jsxref("String.prototype.replace()")}} verwendet werden, mit Ausnahme der unterschiedlichen `this`-Objekte und der unterschiedlichen Argumentreihenfolge.
+Diese Methode kann fast auf die gleiche Weise wie {{jsxref("String.prototype.replace()")}} verwendet werden, außer, dass `this` und die Argumentreihenfolge unterschiedlich sind.
 
 ```js
 const re = /-/g;
@@ -100,7 +100,7 @@ console.log(newStr); // 2016.01.01
 
 ### Verwendung von `[Symbol.replace]()` in Unterklassen
 
-Unterklassen von {{jsxref("RegExp")}} können die Methode `[Symbol.replace]()` überschreiben, um das Standardverhalten zu verändern.
+Unterklassen von {{jsxref("RegExp")}} können die `[Symbol.replace]()`-Methode überschreiben, um das Standardverhalten zu ändern.
 
 ```js
 class MyRegExp extends RegExp {

@@ -2,51 +2,51 @@
 title: Internationalisierung
 slug: Mozilla/Add-ons/WebExtensions/Internationalization
 l10n:
-  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
-Die [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions) API bietet ein sehr nützliches Modul zur Internationalisierung von Erweiterungen — [i18n](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n). In diesem Artikel werden wir seine Funktionen untersuchen und ein praktisches Beispiel dafür geben, wie es funktioniert.
+Die [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions) API bietet ein sehr praktisches Modul zur Internationalisierung von Erweiterungen — [i18n](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n). In diesem Artikel werden wir seine Funktionen erkunden und ein praktisches Beispiel zeigen, wie es funktioniert.
 
 > [!NOTE]
-> Die in diesem Artikel vorgestellte Beispiel-Erweiterung — [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) — ist auf GitHub verfügbar. Folgen Sie dem Quellcode, während Sie die Abschnitte unten durchgehen.
+> Die in diesem Artikel vorgestellte Beispielerweiterung — [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) — ist auf GitHub verfügbar. Folgen Sie dem Quellcode, während Sie die nachstehenden Abschnitte durchgehen.
 
-## Aufbau einer internationalisierten Erweiterung
+## Anatomie einer internationalisierten Erweiterung
 
-Eine internationalisierte Erweiterung kann dieselben Funktionen wie jede andere Erweiterung enthalten — [background scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts), [content scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) usw. — besitzt jedoch auch einige zusätzliche Teile, die es ermöglichen, zwischen verschiedenen Lokalen zu wechseln. Diese sind in der folgenden Verzeichnisstruktur zusammengefasst:
+Eine internationalisierte Erweiterung kann die gleichen Funktionen enthalten wie jede andere Erweiterung — [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts), [Inhaltsskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) usw. — aber sie enthält auch einige zusätzliche Teile, die es ermöglichen, zwischen verschiedenen Gebietsschemata zu wechseln. Diese werden im folgenden Verzeichnisbaum zusammengefasst:
 
-- extension-root-directory/
+- Verzeichnis-Wurzelverzeichnis/
   - \_locales
     - en
       - messages.json
-        - Englische Nachrichten (Zeichenfolgen)
+        - Englische Nachrichten (Zeichenketten)
 
     - de
       - messages.json
-        - Deutsche Nachrichten (Zeichenfolgen)
+        - Deutsche Nachrichten (Zeichenketten)
 
     - usw.
 
   - manifest.json
-    - von der Sprache abhängige Metadaten
+    - gebietsschemataabhängige Metadaten
 
   - myJavascript.js
-    - JavaScript für das Abrufen des Browser-Lokals, lokalspezifische Nachrichten usw.
+    - JavaScript zum Abrufen des Browser-Gebietsschemas, gebietsschemataabhängige Nachrichten usw.
 
   - myStyles.css
-    - von der Sprache abhängige CSS
+    - gebietsschemataabhängiges CSS
 
-Lassen Sie uns nun jede der neuen Funktionen der Reihe nach erkunden — jeder der folgenden Abschnitte stellt einen Schritt zur Internationalisierung Ihrer Erweiterung dar.
+Lassen Sie uns jede der neuen Funktionen der Reihe nach erkunden — jeder der untenstehenden Abschnitte stellt einen Schritt dar, den Sie befolgen sollten, wenn Sie Ihre Erweiterung internationalisieren.
 
-## Bereitstellung lokalisierter Zeichenfolgen in \_locales
+## Bereitstellen lokalisierter Zeichenketten in \_locales
 
 > [!NOTE]
-> Sie können Sprach-Subtags mit dem _Find_-Tool auf der [Language subtag lookup page](https://r12a.github.io/app-subtags/) nachschlagen. Beachten Sie, dass Sie den englischen Namen der Sprache suchen müssen.
+> Sie können Sprachsubtags mit dem _Finden_-Tool auf der [Language subtag lookup-Seite](https://r12a.github.io/app-subtags/) nachschlagen. Beachten Sie, dass Sie nach dem englischen Namen der Sprache suchen müssen.
 
-Jedes i18n-System erfordert die Bereitstellung von Zeichenfolgen, die in alle unterstützten lokalen Sprachen übersetzt sind. In Erweiterungen sind diese innerhalb eines Verzeichnisses namens `_locales` enthalten, das sich im Stammverzeichnis der Erweiterung befindet. Jedes individuelle Lokal hat seine Zeichenfolgen (als Nachrichten bezeichnet) innerhalb einer Datei namens `messages.json`, die in einem Unterverzeichnis von `_locales` abgelegt ist, welches den Sprach-Subtag der jeweiligen Sprache trägt.
+Jedes i18n-System erfordert die Bereitstellung von Zeichenketten, die in alle verschiedenen unterstützten Gebietsschemas übersetzt wurden. In Erweiterungen werden diese in einem Verzeichnis namens `_locales` enthalten, das im Erweiterungsstamm platziert ist. Jedes einzelne Gebietsschema hat seine Zeichenketten (genannt Nachrichten) in einer Datei namens `messages.json`, die in einem Unterverzeichnis von `_locales` abgelegt wird, das mit dem Sprachsubtag für die Sprache dieses Gebietsschemas benannt ist.
 
-Beachten Sie, dass, wenn der Subtag eine grundlegende Sprache plus eine regionale Variante einschließt, die Sprache und Variante üblicherweise durch einen Bindestrich getrennt werden: zum Beispiel "en-US". In den Verzeichnissen unter `_locales` muss der Trennstrich jedoch durch einen Unterstrich ersetzt werden: "en_US".
+Beachten Sie, dass, wenn der Subtag eine grundlegende Sprache plus eine regionale Variante umfasst, Sprache und Variante konventionell durch einen Bindestrich getrennt werden: zum Beispiel "en-US". Im Verzeichnis unter `_locales` **muss der Trenner jedoch ein Unterstrich sein**: "en_US".
 
-Zum Beispiel haben wir in unserer [Beispielanwendung](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n/_locales) Verzeichnisse für "en" (Englisch), "de" (Deutsch), "nl" (Niederländisch) und "ja" (Japanisch). Jedes dieser Verzeichnisse enthält eine `messages.json`-Datei.
+So haben wir [zum Beispiel in unserer Beispiel-App](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n/_locales) Verzeichnisse für "en" (Englisch), "de" (Deutsch), "nl" (Niederländisch) und "ja" (Japanisch). Jedes hat eine `messages.json` Datei darin.
 
 Schauen wir uns nun die Struktur einer dieser Dateien an ([\_locales/en/messages.json](https://github.com/mdn/webextensions-examples/blob/main/notify-link-clicks-i18n/_locales/en/messages.json)):
 
@@ -80,32 +80,32 @@ Schauen wir uns nun die Struktur einer dieser Dateien an ([\_locales/en/messages
 }
 ```
 
-Diese Datei ist standardmäßiges JSON — jedes ihrer Mitglieder ist ein Objekt mit einem Namen, das eine `message` und eine `description` enthält. All diese Elemente sind Zeichenfolgen; `$URL$` ist ein Platzhalter, der zur Laufzeit durch einen Teilstring ersetzt wird, wenn das `notificationContent`-Feld von der Erweiterung aufgerufen wird. Wie das funktioniert, erfahren Sie im Abschnitt [Abrufen von Nachrichtentexten aus JavaScript](#abrufen_von_nachrichtenzeichenfolgen_aus_javascript).
+Diese Datei ist ein standardmäßiges JSON — jedes ihrer Mitglieder ist ein Objekt mit einem Namen, das ein `message` und eine `description` enthält. Alle diese Elemente sind Zeichenketten; `$URL$` ist ein Platzhalter, der durch eine Teilzeichenkette ersetzt wird, wenn das `notificationContent`-Mitglied von der Erweiterung aufgerufen wird. Sie erfahren, wie man dies im Abschnitt [Abrufen von Nachrichtenzeichenketten aus JavaScript](#abrufen_von_nachrichtenzeichenketten_aus_javascript) macht.
 
 > [!NOTE]
-> Sie finden viel mehr Informationen über den Inhalt von `messages.json`-Dateien in unserem [Referenz zu Lokalspezifischen Nachrichten](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/Locale-Specific_Message_reference).
+> Weitere Informationen über den Inhalt von `messages.json`-Dateien finden Sie in unserem [Gebietsschema-spezifischen Nachrichtenreferenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/Locale-Specific_Message_reference).
 
-## Internationalisierung von manifest.json
+## Internationalisieren von manifest.json
 
-Es gibt einige verschiedene Aufgaben, die Sie durchführen müssen, um Ihre manifest.json zu internationalisieren.
+Es gibt einige verschiedene Aufgaben, die ausgeführt werden müssen, um Ihre manifest.json zu internationalisieren.
 
-### Abrufen lokalisierter Zeichenfolgen in Manifests
+### Abrufen lokalisierter Zeichenketten in Manifesten
 
-Ihre [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/notify-link-clicks-i18n/manifest.json) enthält Zeichenfolgen, die dem Benutzer angezeigt werden, wie z. B. den Namen und die Beschreibung der Erweiterung. Wenn Sie diese Zeichenfolgen internationalisieren und die entsprechenden Übersetzungen in messages.json ablegen, wird die korrekte Übersetzung der Zeichenfolge basierend auf dem aktuellen Lokal des Nutzers angezeigt.
+Ihre [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/notify-link-clicks-i18n/manifest.json) enthält Zeichenketten, die dem Benutzer angezeigt werden, wie der Name und die Beschreibung der Erweiterung. Wenn Sie diese Zeichenketten internationalisieren und die entsprechenden Übersetzungen in `messages.json` ablegen, wird die korrekte Übersetzung der Zeichenkette basierend auf dem aktuellen Gebietsschema des Benutzers angezeigt.
 
-Um Zeichenfolgen zu internationalisieren, geben Sie sie folgendermaßen an:
+Um Zeichenketten zu internationalisieren, geben Sie sie folgendermaßen an:
 
 ```json
 "name": "__MSG_extensionName__",
 "description": "__MSG_extensionDescription__",
 ```
 
-Hierbei rufen wir Nachrichtenzeichenfolgen ab, die vom Lokal des Browsers abhängen, anstatt nur statische Zeichenfolgen einzubinden.
+Hier rufen wir nachrichtenspezifische Zeichenketten ab, die vom Gebietsschema des Browsers abhängen, anstatt einfach statische Zeichenketten einzufügen.
 
-Um eine Nachrichtenzeichenfolge auf diese Weise aufzurufen, müssen Sie sie folgendermaßen angeben:
+Um eine Nachrichtenzeichenkette wie diese aufzurufen, müssen Sie sie folgendermaßen angeben:
 
 1. Zwei Unterstriche, gefolgt von
-2. Der Zeichenfolge "MSG", gefolgt von
+2. Der Zeichenkette "MSG", gefolgt von
 3. Einem Unterstrich, gefolgt von
 4. Dem Namen der Nachricht, die Sie aufrufen möchten, wie in `messages.json` definiert, gefolgt von
 5. Zwei Unterstrichen
@@ -114,19 +114,19 @@ Um eine Nachrichtenzeichenfolge auf diese Weise aufzurufen, müssen Sie sie folg
 __MSG_ + messageName + __
 ```
 
-### Festlegen eines Standardlokals
+### Spezifizieren eines Standardgebietsschemas
 
-Ein weiteres Feld, das Sie in Ihrer manifest.json angeben sollten, ist [default_locale](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/default_locale):
+Ein weiteres Feld, das Sie in ihrer manifest.json angeben sollten, ist [default_locale](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/default_locale):
 
 ```json
 "default_locale": "en"
 ```
 
-Dies gibt ein Standardlokal an, das verwendet wird, falls die Erweiterung keine lokalisierte Zeichenfolge für das aktuelle Browser-Lokal enthält. Alle Nachrichtenzeichenfolgen, die im Browser-Lokal nicht verfügbar sind, werden stattdessen aus dem Standardlokal entnommen. Es gibt einige weitere Details darüber, wie der Browser Zeichenfolgen auswählt — siehe [Localized string selection](#auswahl_lokalisierter_zeichenfolgen).
+Dies gibt ein Standardgebietsschema an, das verwendet wird, wenn die Erweiterung keine lokalisierte Zeichenkette für das aktuelle Browser-Gebietsschema enthält. Alle Nachrichtenzeichenketten, die im Browser-Gebietsschema nicht verfügbar sind, werden stattdessen aus dem Standardgebietsschema genommen. Es gibt einige weitere Details, die zu beachten sind, wie der Browser Zeichenketten auswählt — siehe [Auswahl lokalisierter Zeichenketten](#auswahl_lokalisierter_zeichenketten).
 
-## Von der Sprache abhängige CSS
+## Gebietsschemataabhängiges CSS
 
-Beachten Sie, dass Sie auch lokalisierte Zeichenfolgen aus CSS-Dateien in der Erweiterung abrufen können. Zum Beispiel möchten Sie möglicherweise eine lokalabhängige CSS-Regel konstruieren, wie diese:
+Beachten Sie, dass Sie auch lokalisierte Zeichenketten aus CSS-Dateien in der Erweiterung abrufen können. Zum Beispiel könnten Sie eine gebietsschemataabhängige CSS-Regel konstruieren, wie diese:
 
 ```css
 header {
@@ -134,24 +134,24 @@ header {
 }
 ```
 
-Dies ist nützlich, obwohl es möglicherweise besser ist, eine solche Situation mit [Predefinierten Nachrichten](#vordefinierte_nachrichten) zu handhaben.
+Dies ist nützlich, obwohl es besser wäre, eine solche Situation mit [vordefinierten Nachrichten](#vordefinierte_nachrichten) zu handhaben.
 
-## Abrufen von Nachrichtenzeichenfolgen aus JavaScript
+## Abrufen von Nachrichtenzeichenketten aus JavaScript
 
-Sie haben also Ihre Nachrichtenzeichenfolgen eingerichtet und Ihr Manifest. Jetzt müssen Sie nur noch beginnen, Ihre Nachrichtenzeichenfolgen aus JavaScript aufzurufen, damit Ihre Erweiterung so gut wie möglich die richtige Sprache spricht. Die eigentliche [i18n API](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n) ist ziemlich einfach und enthält nur vier Hauptmethoden:
+Jetzt, wo Sie Ihre Nachrichtenzeichenketten eingerichtet haben und Ihr Manifest vorbereitet ist, müssen Sie nur noch beginnen, Ihre Nachrichtenzeichenketten aus JavaScript abzurufen, damit Ihre Erweiterung möglichst die richtige Sprache spricht. Die eigentliche [i18n API](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n) ist ziemlich einfach und enthält nur vier Hauptmethoden:
 
-- Sie werden wahrscheinlich am häufigsten {{WebExtAPIRef("i18n.getMessage()")}} verwenden — dies ist die Methode, mit der Sie eine bestimmte Sprachzeichenfolge abrufen, wie oben erwähnt. Wir werden unten spezifische Anwendungsbeispiele dafür sehen.
-- Die Methoden {{WebExtAPIRef("i18n.getAcceptLanguages()")}} und {{WebExtAPIRef("i18n.getUILanguage()")}} könnten verwendet werden, wenn Sie die Benutzeroberfläche je nach Lokal anpassen müssen — möglicherweise möchten Sie spezifische Präferenzen für die bevorzugten Sprachen der Benutzer höher in einer Präferenzliste anzeigen oder kulturelle Informationen anzeigen, die nur für eine bestimmte Sprache relevant sind, oder angezeigte Daten gemäß dem Browser-Lokal formatieren.
+- Sie werden wahrscheinlich am häufigsten {{WebExtAPIRef("i18n.getMessage()")}} verwenden — dies ist die Methode, die Sie verwenden, um eine spezifische Sprachzeichenkette abzurufen, wie oben erwähnt. Unten werden wir spezifische Anwendungsbeispiele dafür sehen.
+- Die Methoden {{WebExtAPIRef("i18n.getAcceptLanguages()")}} und {{WebExtAPIRef("i18n.getUILanguage()")}} könnten verwendet werden, wenn Sie die Benutzeroberfläche je nach Gebietsschema anpassen müssen — vielleicht möchten Sie spezifische Benutzerpräferenzsprachen höher in einer Liste anzeigen, kulturell spezifische Informationen nur für eine bestimmte Sprache anzeigen oder angezeigte Daten entsprechend dem Browser-Gebietsschema formatieren.
 - Die Methode {{WebExtAPIRef("i18n.detectLanguage()")}} könnte verwendet werden, um die Sprache von benutzereingereichten Inhalten zu erkennen und sie entsprechend zu formatieren.
 
-In unserem [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Beispiel enthält das [background script](https://github.com/mdn/webextensions-examples/blob/main/notify-link-clicks-i18n/background-script.js) die folgenden Zeilen:
+In unserem [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Beispiel enthält das [Hintergrundskript](https://github.com/mdn/webextensions-examples/blob/main/notify-link-clicks-i18n/background-script.js) die folgenden Zeilen:
 
 ```js
 let title = browser.i18n.getMessage("notificationTitle");
 let content = browser.i18n.getMessage("notificationContent", message.url);
 ```
 
-Die erste Zeile ruft einfach das `notificationTitle message`-Feld aus der am besten geeigneten `messages.json`-Datei für das aktuelle Browser-Lokal ab. Die zweite Zeile ist ähnlich, aber es wird eine URL als zweiter Parameter übergeben. Was ist hier los? So geben Sie den Inhalt an, der den `$URL$`-Platzhalter ersetzt, den wir im `notificationContent message`-Feld sehen:
+Die erste Zeile ruft einfach das `notificationTitle message` Feld aus der verfügbaren `messages.json` Datei ab, die für das aktuelle Gebietsschema des Browsers am geeignetsten ist. Die zweite ist ähnlich, aber es wird eine URL als zweiter Parameter übergeben. Wieso das? So geben Sie den Inhalt an, der den `$URL$` Platzhalter ersetzt, den wir im `notificationContent message` Feld sehen:
 
 ```json
 "notificationContent": {
@@ -166,23 +166,23 @@ Die erste Zeile ruft einfach das `notificationTitle message`-Feld aus der am bes
 }
 ```
 
-Das `"placeholders"`-Element definiert alle Platzhalter und woher sie abgerufen werden. Der `"url"`-Platzhalter gibt an, dass sein Inhalt von `$1` stammt, welches der erste Wert ist, der im zweiten Parameter von `getMessage()` angegeben wird. Da der Platzhalter `"url"` genannt wird, verwenden wir `$URL$`, um ihn innerhalb der tatsächlichen Nachrichtenzeichenfolge aufzurufen (für `"name"` würden Sie `$NAME$` verwenden, usw.). Wenn Sie mehrere Platzhalter haben, können Sie sie in einem Array angeben, das dem zweiten Parameter von {{WebExtAPIRef("i18n.getMessage()")}} zugeordnet wird — `[a, b, c]` stehen als `$1`, `$2` und `$3` zur Verfügung und so weiter, innerhalb von `messages.json`.
+Das `"placeholders"` Element definiert alle Platzhalter und von wo sie abgerufen werden. Der `"url"` Platzhalter gibt an, dass sein Inhalt von `$1` genommen wird, das der erste Wert ist, der im zweiten Parameter von `getMessage()` gegeben wird. Da der Platzhalter `"url"` genannt wird, verwenden wir `$URL$`, um ihn in der eigentlichen Nachrichtenzeichenkette aufzurufen (für `"name"` würden Sie `$NAME$` verwenden, usw.). Wenn Sie mehrere Platzhalter haben, können Sie sie in einem Array bereitstellen, das als zweiter Parameter an {{WebExtAPIRef("i18n.getMessage()")}} gegeben wird — `[a, b, c]` wird in `messages.json` als `$1`, `$2` und `$3`, usw., verfügbar sein.
 
-Lassen Sie uns ein Beispiel durchgehen: Die ursprüngliche `notificationContent`-Nachrichtenzeichenfolge in der `en/messages.json` Datei ist
+Betrachten wir ein Beispiel: Die ursprüngliche `notificationContent` Nachrichtenzeichenkette in der `en/messages.json` Datei ist
 
 ```plain
 You clicked $URL$.
 ```
 
-Angenommen, der geklickte Link verweist auf `https://developer.mozilla.org`. Nach dem {{WebExtAPIRef("i18n.getMessage()")}}-Aufruf sind die Inhalte des zweiten Parameters in `messages.json` als `$1` verfügbar, welches den `$URL$`-Platzhalter ersetzt, wie im `"url"`-Platzhalter definiert. Also lautet die endgültige Nachrichtenzeichenfolge
+Angenommen, der angeklickte Link zeigt auf `https://developer.mozilla.org`. Nach dem {{WebExtAPIRef("i18n.getMessage()")}} Aufruf sind die Inhalte des zweiten Parameters in `messages.json` als `$1` verfügbar, der den `$URL$` Platzhalter gemäß dem `"url"` Platzhalter ersetzt. Also lautet die endgültige Nachrichtenzeichenkette
 
 ```plain
 You clicked https://developer.mozilla.org.
 ```
 
-### Direkte Platzhalterverwendung
+### Direkte Verwendung von Platzhaltern
 
-Es ist möglich, Ihre Variablen (`$1`, `$2`, `$3`, usw.) direkt in die Nachrichtenzeichenfolgen einzufügen, zum Beispiel könnten wir das oben genannte `"notificationContent"`-Element folgendermaßen umschreiben:
+Es ist möglich, Variablen (`$1`, `$2`, `$3`, usw.) direkt in den Nachrichtenzeichenketten einzusetzen. Zum Beispiel könnten wir das oben `"notificationContent"`-Mitglied umschreiben, wie folgt:
 
 ```json
 "notificationContent": {
@@ -191,11 +191,11 @@ Es ist möglich, Ihre Variablen (`$1`, `$2`, `$3`, usw.) direkt in die Nachricht
 }
 ```
 
-Dies mag schneller und weniger komplex erscheinen, aber die andere Methode (unter Verwendung von `"placeholders"`) wird als Best Practice angesehen. Dies liegt daran, dass der Platzhaltername (z. B. `"url"`) und das Beispiel helfen, sich zu erinnern, wofür der Platzhalter ist - eine Woche nach dem Schreiben Ihres Codes werden Sie wahrscheinlich vergessen, wofür `$1` – `$8` stehen, aber Sie werden eher wissen, wofür Ihre Platzhalternamen stehen.
+Dies mag schneller und weniger komplex erscheinen, aber die andere Methode (die `"placeholders"` verwendet) wird als Best Practice angesehen. Dies liegt daran, dass der Platzhaltername (z. B. `"url"`) und das Beispiel Ihnen helfen, sich daran zu erinnern, wofür der Platzhalter gedacht ist — eine Woche, nachdem Sie Ihren Code geschrieben haben, erinnern Sie sich wahrscheinlich nicht mehr genau, was `$1`–`$8` bedeutet, aber Sie werden wahrscheinlich wissen, worauf sich Ihre Platzhalternamen beziehen.
 
-### Hartkodierte Substitution
+### Harcodierte Ersetzung
 
-Es ist auch möglich, hartkodierte Zeichenfolgen in Platzhaltern einzubeziehen, sodass der gleiche Wert jedes Mal verwendet wird, anstatt den Wert aus einer Variablen in Ihrem Code zu erhalten. Zum Beispiel:
+Es ist auch möglich, festverdrahtete Zeichenketten in Platzhaltern zu verwenden, so dass der gleiche Wert jedes Mal verwendet wird, anstatt den Wert aus einer Variablen in Ihrem Code zu nehmen. Zum Beispiel:
 
 ```json
 "mdn_banner": {
@@ -209,24 +209,24 @@ Es ist auch möglich, hartkodierte Zeichenfolgen in Platzhaltern einzubeziehen, 
 }
 ```
 
-In diesem Fall hartkodieren wir einfach den Platzhalterinhalt, anstatt ihn aus einem Variablenwert wie `$1` zu holen. Dies kann manchmal nützlich sein, wenn Ihre Nachrichten-Datei sehr komplex ist und Sie verschiedene Werte aufteilen möchten, um die Zeichenfolgen in der Datei lesbarer zu machen, außerdem können diese Werte dann programmgesteuert abgerufen werden.
+In diesem Fall platzieren wir einfach den festen Inhalt für den Platzhalter fest, anstatt ihn aus einem Variablenwert wie `$1` zu nehmen. Dies kann nützlich sein, wenn Ihre Nachrichtendatei sehr komplex ist, und Sie verschiedene Werte aufteilen möchten, um die Zeichenketten in der Datei lesbarer zu machen; diese Werte könnten dann auch programmatisch abgerufen werden.
 
-Zusätzlich können Sie solche Ersetzungen verwenden, um Teile der Zeichenfolge zu definieren, die nicht übersetzt werden sollen, wie etwa Personen- oder Firmennamen.
+Zusätzlich können Sie solche Ersetzungen verwenden, um Teile der Zeichenkette anzugeben, die nicht übersetzt werden sollen, wie z. B. Personen- oder Firmennamen.
 
-## Auswahl lokalisierter Zeichenfolgen
+## Auswahl lokalisierter Zeichenketten
 
-Lokale werden mit einem Sprachcode, wie `fr` oder `en`, angegeben, der mit einem Skript- und einem Regionscode qualifiziert werden kann, z.B. `en-US` oder `zh-Hans-CN`. Wenn Ihre Erweiterung nach einer lokalisierten Zeichenfolge fragt, gibt das i18n-System die Zeichenfolge aus den `messages.json`-Dateien in dieser Prioritätsreihenfolge zurück:
+Gebietsschemata werden mit einem Sprachcode spezifiziert, wie `fr` oder `en`, der mit einem Skript- und Regionscode qualifiziert werden kann, wie `en-US` oder `zh-Hans-CN`. Wenn Ihre Erweiterung eine lokalisierte Zeichenkette anfordert, gibt das i18n-System die Zeichenkette aus den `messages.json`-Dateien in dieser Prioritätsreihenfolge zurück:
 
-1. Die Datei für das Benutzer-Browser-Lokal, z.B. `zh-Hans-CN`.
-2. Wenn das Browser-Lokal mit einem Skript oder einer Region qualifiziert ist, die Datei für die regionslose Version, z.B. `zh-Hans`.
-3. Wenn das Browser-Lokal mit einem Skript oder einer Region qualifiziert ist, die Datei für die skriptlose Version, z.B. `zh`.
-4. Die Datei für das in der `manifest.json`-Datei definierte `default_locale`.
+1. Die Datei für das Browser-Gebietsschema des Benutzers, z.B. `zh-Hans-CN`.
+2. Wenn das Browser-Gebietsschema mit einem Skript oder einer Region qualifiziert ist, die Datei für die skriptholde Version, z.B. `zh-Hans`.
+3. Wenn das Browser-Gebietsschema mit einem Skript oder einer Region qualifiziert ist, die Datei für die skriptlose Version, z.B. `zh`.
+4. Die Datei für das `default_locale`, wie im `manifest.json`-File definiert.
 
-Wenn die angeforderte Zeichenfolge in keiner dieser Dateien vorhanden ist, wird eine leere Zeichenfolge zurückgegeben.
+Wenn die angeforderte Zeichenkette in keiner dieser Dateien vorhanden ist, wird eine leere Zeichenkette zurückgegeben.
 
-Nehmen wir dieses Beispiel:
+Betrachten Sie dieses Beispiel:
 
-- extension-root-directory/
+- Erweiterungs-Wurzelverzeichnis/
   - \_locales
     - en_GB
       - messages.json
@@ -242,29 +242,29 @@ Nehmen wir dieses Beispiel:
         - `{ "colorLocalized": { "message": "couleur", "description": "Farbe." }, /* … */}`
         - `{ "colorBlue": { "message": "Bleu", "description": "Blau." }, /* … */ }`
 
-Mit dem `default_locale` auf `fr` festgelegt.
+Mit dem `default_locale` auf `fr` gesetzt.
 
-- Wenn das Browser-Lokal `en-GB` ist:
-  - `getMessage("colorLocalized")` gibt "colour" zurück, weil `_locales/en_GB/messages.json` die `colorLocalized`-Nachricht enthält.
-  - `getMessage("colorBlue")`, gibt "blue" zurück, weil es auf die `colorBlue`-Nachricht in `_locales/en/messages.json` zurückfällt.
-- Wenn das Browser-Lokal `en-US` ist:
-  - `getMessage("colorLocalized")` gibt "color" zurück, weil es keine `_locales/en_US/messages.json`-Datei gibt, sodass es auf die Nachricht in `_locales/en/messages.json` zurückfällt.
-  - `getMessage("colorBlue")` gibt "blue" zurück, weil es auf die `colorBlue`-Nachricht in `_locales/en/messages.json` zurückfällt.
-- Wenn das Browser-Lokal `zh-Hans-CN` ist:
-  - `getMessage("colorLocalized")` gibt "couleur" zurück, weil es keinen Regions-, Skript- oder Sprach-Match zum `zh-Hans-CN`-Lokal gibt (d.h. keine `messages.json`-Datei in einem `zh-Hans-CN`, `zh-Hans` oder `zh`-Verzeichnis).
-  - `getMessage("colorBlue")` gibt "bleu" zurück, weil es keinen Regions-, Skript- oder Sprach-Match zum `zh-Hans-CN`-Lokal gibt.
+- Ist das Browser-Gebietsschema `en-GB`:
+  - `getMessage("colorLocalized")` gibt "colour" zurück, weil `_locales/en_GB/messages.json` die `colorLocalized` Nachricht enthält.
+  - `getMessage("colorBlue")`, gibt "blue" zurück, weil es auf die `colorBlue` Nachricht in `_locales/en/messages.json` zurückgreift.
+- Ist das Browser-Gebietsschema `en-US`:
+  - `getMessage("colorLocalized")` gibt "color" zurück, weil es keine `_locales/en_US/messages.json` Datei gibt, also auf die Nachricht in `_locales/en/messages.json` zurückgegriffen wird.
+  - `getMessage("colorBlue")` gibt "blue" zurück, weil es auf die `colorBlue` Nachricht in `_locales/en/messages.json` zurückgreift.
+- Ist das Browser-Gebietsschema `zh-Hans-CN`:
+  - `getMessage("colorLocalized")` gibt "couleur" zurück, weil es kein Regionen-, Skript- oder Sprachmatch für das `zh-Hans-CN`-Gebietsschema gibt (d.h. keine `messages.json`-Datei in einem `zh-Hans-CN`, `zh-Hans`, oder `zh`-Ordner).
+  - `getMessage("colorBlue")` gibt "bleu" zurück, weil es kein Regionen-, Skript- oder Sprachmatch für das `zh-Hans-CN`-Gebietsschema gibt.
 
-Wenn die Erweiterung `getMessage("colorRed")` aufruft, wird eine leere Zeichenfolge zurückgegeben, da es in keiner der Sprachdateien eine Eigenschaft für `"colorRed"` gibt.
+Wenn die Erweiterung `getMessage("colorRed")` aufruft, wird eine leere Zeichenkette zurückgegeben, da es in keiner der Sprachdateien eine Eigenschaft für `"colorRed"` gibt.
 
 ## Vordefinierte Nachrichten
 
-Das i18n-Modul stellt uns einige vordefinierte Nachrichten zur Verfügung, die wir auf die gleiche Weise aufrufen können, wie wir es früher bei [Abrufen lokalisierter Zeichenfolgen in Manifests](#abrufen_lokalisierter_zeichenfolgen_in_manifests) und [Von der Sprache abhängige CSS](#von_der_sprache_abhängige_css) gesehen haben. Zum Beispiel:
+Das i18n-Modul bietet uns einige vordefinierte Nachrichten, die wir auf die gleiche Weise aufrufen können, wie wir es früher in den Abschnitten [Abrufen lokalisierter Zeichenketten in Manifesten](#abrufen_lokalisierter_zeichenketten_in_manifesten) und [Gebietsschemataabhängiges CSS](#gebietsschemataabhängiges_css) gesehen haben. Zum Beispiel:
 
 ```plain
 __MSG_extensionName__
 ```
 
-Vordefinierte Nachrichten verwenden genau die gleiche Syntax, außer mit `@@` vor dem Nachrichtenamen, zum Beispiel
+Vordefinierte Nachrichten verwenden genau die gleiche Syntax, außer dass sie `@@` vor dem Nachrichtennamen haben, beispielsweise
 
 ```plain
 __MSG_@@ui_locale__
@@ -284,67 +284,53 @@ Die folgende Tabelle zeigt die verschiedenen verfügbaren vordefinierten Nachric
       <td><code>@@extension_id</code></td>
       <td>
         <p>
-          Die intern generierte UUID der Erweiterung. Sie könnten diese Zeichenfolge verwenden,
-          um URLs für Ressourcen innerhalb der Erweiterung zu konstruieren. Auch nicht lokalisierte
-          Erweiterungen können diese Nachricht verwenden.
+          Die intern generierte UUID der Erweiterung. Sie könnten diese Zeichenkette verwenden, um URLs für Ressourcen innerhalb der Erweiterung zu konstruieren. Auch nicht lokalisierte Erweiterungen können diese Nachricht verwenden.
         </p>
         <p>Sie können diese Nachricht nicht in einer Manifestdatei verwenden.</p>
         <p>
-          Beachten Sie auch, dass diese ID <em>nicht</em> die Add-on-ID ist, die von
-          {{WebExtAPIRef("runtime.id")}} zurückgegeben wird, und die mit dem
+          Beachten Sie auch, dass diese ID <em>nicht</em> die Add-on-ID ist, die von {{WebExtAPIRef("runtime.id")}} zurückgegeben wird und die gesetzt werden kann, indem man den
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings"
             >browser_specific_settings</a
           >
-          Schlüssel in manifest.json gesetzt werden kann. Es ist die generierte UUID, die in der
-          URL des Add-ons erscheint. Das bedeutet, dass Sie diesen Wert nicht als
-          <code>extensionId</code>-Parameter von
-          {{WebExtAPIRef("runtime.sendMessage()")}} verwenden können, und
-          ihn nicht mit der <code>id</code>-Eigenschaft eines
-          {{WebExtAPIRef("runtime.MessageSender")}}-Objekts abgleichen können.
+          Schlüssel in der manifest.json-Datei verwendet. Es ist die generierte UUID, die in der URL des Add-ons erscheint. Das bedeutet, dass Sie diesen Wert nicht als <code>extensionId</code>-Parameter für {{WebExtAPIRef("runtime.sendMessage()")}} verwenden können und ihn nicht verwenden können, um die Übereinstimmung mit der <code>id</code>-Eigenschaft eines {{WebExtAPIRef("runtime.MessageSender")}}-Objekts zu überprüfen.
         </p>
       </td>
     </tr>
     <tr>
       <td><code>@@ui_locale</code></td>
       <td>
-        Das aktuelle Locale; Sie könnten diese Zeichenfolge verwenden, um
-        lokalspezifische URLs zu konstruieren.
+        Das aktuelle Gebietsschema; Sie könnten diese Zeichenkette verwenden, um gebietsschemata-spezifische URLs zu konstruieren.
       </td>
     </tr>
     <tr>
       <td><code>@@bidi_dir</code></td>
       <td>
-        Die Textausrichtung für das aktuelle Locale, entweder "ltr" für
-        von links nach rechts Sprachen wie Englisch oder "rtl" für
-        von rechts nach links Sprachen wie Arabisch.
+        Die Textrichtung für das aktuelle Gebietsschema, entweder "ltr" für von links nach rechts lesende Sprachen wie Englisch oder "rtl" für von rechts nach links lesende Sprachen wie Arabisch.
       </td>
     </tr>
     <tr>
       <td><code>@@bidi_reversed_dir</code></td>
       <td>
-        Wenn das <code>@@bidi_dir</code> "ltr" ist, dann ist dies "rtl"; andernfalls
-        ist es "ltr".
+        Wenn das <code>@@bidi_dir</code> "ltr" ist, dann ist dies "rtl"; andernfalls ist es "ltr".
       </td>
     </tr>
     <tr>
       <td><code>@@bidi_start_edge</code></td>
       <td>
-        Wenn das <code>@@bidi_dir</code> "ltr" ist, dann ist dies "left"; andernfalls
-        ist es "right".
+        Wenn das <code>@@bidi_dir</code> "ltr" ist, dann ist dies "left"; andernfalls ist es "right".
       </td>
     </tr>
     <tr>
       <td><code>@@bidi_end_edge</code></td>
       <td>
-        Wenn das <code>@@bidi_dir</code> "ltr" ist, dann ist dies "right";
-        andernfalls ist es "left".
+        Wenn das <code>@@bidi_dir</code> "ltr" ist, dann ist dies "right"; andernfalls ist es "left".
       </td>
     </tr>
   </tbody>
 </table>
 
-Zurück zu unserem früheren Beispiel: Es wäre sinnvoller, es so zu schreiben:
+Zurück zu unserem früheren Beispiel: Es würde mehr Sinn machen, es so zu schreiben:
 
 ```css
 header {
@@ -352,9 +338,9 @@ header {
 }
 ```
 
-Jetzt können wir einfach unsere lokalspezifischen Bilder in Verzeichnissen speichern, die zu den verschiedenen von uns unterstützten Lokalen passen — en, de, usw. — was viel mehr Sinn ergibt.
+Jetzt können wir einfach unsere lokal spezifischen Bilder in Verzeichnissen speichern, die den verschiedenen von uns unterstützten Gebietsschemata entsprechen — en, de, usw. — was viel sinnvoller ist.
 
-Schauen wir uns ein Beispiel für die Verwendung von `@@bidi_*`-Nachrichten in einer CSS-Datei an:
+Lassen Sie uns ein Beispiel für die Verwendung von `@@bidi_*` Nachrichten in einer CSS-Datei ansehen:
 
 ```css
 body {
@@ -371,7 +357,7 @@ div#header {
 }
 ```
 
-Für von links nach rechts Sprachen wie Englisch würden die CSS-Deklarationen, die die vordefinierten Nachrichten oben beinhalten, in die folgenden endgültigen Codezeilen übersetzt:
+Für von links nach rechts lesende Sprachen wie Englisch würden sich die CSS-Erklärungen, die die oben genannten vordefinierten Nachrichten betreffen, in die folgenden endgültigen Codezeilen übersetzen:
 
 ```css
 direction: ltr;
@@ -379,7 +365,7 @@ padding-left: 0;
 padding-right: 1.5em;
 ```
 
-Für eine von rechts nach links Sprache wie Arabisch würden Sie erhalten:
+Für eine von rechts nach links lesende Sprache wie Arabisch erhalten Sie:
 
 ```css
 direction: rtl;
@@ -389,7 +375,7 @@ padding-left: 1.5em;
 
 ## Testen Ihrer Erweiterung
 
-Für Informationen zu den Werkzeugen und Prozessen zum Testen Ihrer Lokalisierungen siehe:
+Für Informationen zu den Werkzeugen und dem Prozess des Testens Ihrer Lokalisierungen, siehe:
 
 - Firefox: [Testen von Lokalisierungen](https://extensionworkshop.com/documentation/develop/test-localizations/) im Extension Workshop
-- Chrome: [Festlegen des Browser-Lokals](https://developer.chrome.com/docs/extensions/reference/api/i18n#how-to-set-browsers-locale)
+- Chrome: [Gebietsschema des Browsers festlegen](https://developer.chrome.com/docs/extensions/reference/api/i18n#how-to-set-browsers-locale)

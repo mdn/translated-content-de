@@ -3,15 +3,13 @@ title: String.prototype.strike()
 short-title: strike()
 slug: Web/JavaScript/Reference/Global_Objects/String/strike
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-Die **`strike()`** Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("strike")}}-Element einbettet (`<strike>str</strike>`), wodurch dieser String als durchgestrichener Text angezeigt wird.
+Die **`strike()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in ein {{HTMLElement("strike")}} Element einbettet (`<strike>str</strike>`), wodurch dieser String als durchgestrichener Text angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `strike()` wurde das `<strike>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen das {{HTMLElement("del")}} für gelöschte Inhalte oder das {{HTMLElement("s")}} für Inhalte, die nicht mehr korrekt oder relevant sind, verwenden.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `strike()` wurde das `<strike>` Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen das {{HTMLElement("del")}} für gelöschte Inhalte oder das {{HTMLElement("s")}} für Inhalte verwenden, die nicht mehr korrekt oder relevant sind.
 
 ## Syntax
 
@@ -25,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<strike>`-Start-Tag beginnt, dann den Text `str`, und dann ein `</strike>`-End-Tag.
+Ein String, beginnend mit einem `<strike>` Start-Tag, dann der Text `str`, und dann ein `</strike>` End-Tag.
 
 ## Beispiele
 
@@ -46,7 +44,7 @@ Dies erzeugt das folgende HTML:
 ```
 
 > [!WARNING]
-> Diese Markup ist ungültig, da `strike` kein gültiges Element mehr ist.
+> Dieses Markup ist ungültig, da `strike` kein gültiges Element mehr ist.
 
 Anstatt `strike()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
@@ -69,5 +67,5 @@ document.body.appendChild(elem);
 
 - [Polyfill von `String.prototype.strike` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims Polyfill von `String.prototype.strike`](https://www.npmjs.com/package/es-string-html-methods)
-- [HTML Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("strike")}}

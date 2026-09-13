@@ -2,26 +2,26 @@
 title: VRFieldOfView
 slug: Web/API/VRFieldOfView
 l10n:
-  sourceCommit: ce094c10e0b71ff594e013d459b9c29110a6442a
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebVR API")}}{{Deprecated_header}}{{Non-standard_header}}
+{{APIRef("WebVR API")}}{{Non-standard_header}}
 
-Die **`VRFieldOfView`**-Schnittstelle der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert ein Sichtfeld, das durch 4 verschiedene Gradwerte beschrieben wird, die die Ansicht von einem Mittelpunkt aus beschreiben.
+Die **`VRFieldOfView`**-Schnittstelle der [WebVR-API](/de/docs/Web/API/WebVR_API) repräsentiert ein Sichtfeld, das durch 4 verschiedene Gradzahlen definiert wird, die den Blick von einem Mittelpunkt beschreiben.
 
 > [!NOTE]
-> Diese Schnittstelle war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Schnittstelle war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR-Device-API](https://immersive-web.github.io/webxr/) ersetzt.
 
 ## Instanzeigenschaften
 
 - [`VRFieldOfView.upDegrees`](/de/docs/Web/API/VRFieldOfView/upDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad nach oben, um die sich das Sichtfeld erstreckt.
+  - : Die Anzahl der Grad nach oben, die das Sichtfeld erstreckt.
 - [`VRFieldOfView.rightDegrees`](/de/docs/Web/API/VRFieldOfView/rightDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad nach rechts, um die sich das Sichtfeld erstreckt.
+  - : Die Anzahl der Grad nach rechts, die das Sichtfeld erstreckt.
 - [`VRFieldOfView.downDegrees`](/de/docs/Web/API/VRFieldOfView/downDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad nach unten, um die sich das Sichtfeld erstreckt.
+  - : Die Anzahl der Grad nach unten, die das Sichtfeld erstreckt.
 - [`VRFieldOfView.leftDegrees`](/de/docs/Web/API/VRFieldOfView/leftDegrees) {{deprecated_inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Die Anzahl der Grad nach links, um die sich das Sichtfeld erstreckt.
+  - : Die Anzahl der Grad nach links, die das Sichtfeld erstreckt.
 
 ## Beispiele
 
@@ -84,9 +84,9 @@ Left degrees: ${rFOV.leftDegrees}`;
 
 ## Spezifikationen
 
-Diese Schnittstelle war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Schnittstelle war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR-Device-API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu stützen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) von Meta für weitere Informationen.
 
 ## Browser-Kompatibilität
 

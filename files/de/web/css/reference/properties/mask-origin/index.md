@@ -3,10 +3,11 @@ title: "`mask-origin` CSS property"
 short-title: mask-origin
 slug: Web/CSS/Reference/Properties/mask-origin
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 1474534461893381d54c502e655f334b5568e597
 ---
 
-Die **`mask-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Ursprung einer Maske fest. Diese Eigenschaft bestimmt den Maskenpositionierungsbereich: der Bereich, innerhalb dessen ein Maskenbild positioniert wird. HTML-Elemente können Masken enthalten, die sich innerhalb ihres Inhaltsrahmens, des Padding-Rahmens oder des Inhaltsrahmens befinden, während SVG-Elemente (die keine zugehörigen CSS-Layoutboxen haben) Masken innerhalb ihres Füll-, Strich- oder Ansichtsrahmens enthalten können. Für Elemente, die als mehrere Boxen gerendert werden, wie ein {{htmlelement("span")}} von Text, der sich über mehr als eine Zeile erstreckt, gibt die Eigenschaft `mask-origin` an, auf welche Boxen die {{cssxref("box-decoration-break")}}-Eigenschaft wirkt, um den Maskenpositionierungsbereich zu bestimmen.
+Die **`mask-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Ursprung einer Maske fest. Diese Eigenschaft bestimmt den Maskierung-Positionsbereich: den Bereich, innerhalb dessen ein Maskenbild positioniert wird. HTML-Elemente können Masken innerhalb ihres Inhaltsrahmenkastens, Polsterrahmenkastens oder Inhaltskastens enthalten, während SVG-Elemente (die keine zugehörigen CSS-Layout-Boxen haben) Masken innerhalb ihrer Füllung, ihres Strichs oder ihres Ansichtsrahmens enthalten können.
+Für Elemente, die als mehrere Boxen dargestellt werden, wie ein {{htmlelement("span")}} eines Textes, der sich über mehr als eine Zeile erstreckt, gibt die `mask-origin`-Eigenschaft an, auf welche Boxen die {{cssxref("box-decoration-break")}} Eigenschaft angewendet wird, um den Maskierungs-Positionsbereich zu bestimmen.
 
 ## Syntax
 
@@ -33,38 +34,38 @@ mask-origin: unset;
 
 ### Werte
 
-Die Eigenschaft `mask-origin` ist eine kommagetrennte Liste von `<coord-box>` Schlüsselwortwerten, einschließlich:
+Die `mask-origin`-Eigenschaft ist eine durch Kommas getrennte Liste von `<coord-box>` Schlüsselwortwerten, einschließlich:
 
 - `content-box`
-  - : Die Position ist relativ zum [Inhaltsrahmen](/de/docs/Web/CSS/Guides/Shapes/From_box_values#content-box).
+  - : Die Position ist relativ zum [Inhaltskasten](/de/docs/Web/CSS/Guides/Shapes/From_box_values#content-box).
 - `padding-box`
-  - : Die Position ist relativ zum [Padding-Rahmen](/de/docs/Web/CSS/Guides/Shapes/From_box_values#padding-box).
+  - : Die Position ist relativ zum [Polsterkasten](/de/docs/Web/CSS/Guides/Shapes/From_box_values#padding-box).
 - `border-box`
-  - : Die Position ist relativ zum [Rahmenrahmen](/de/docs/Web/CSS/Guides/Shapes/From_box_values#border-box).
+  - : Die Position ist relativ zum [Rahmenkasten](/de/docs/Web/CSS/Guides/Shapes/From_box_values#border-box).
 - `fill-box`
-  - : Die Position ist relativ zur Begrenzungsbox des Objekts.
+  - : Die Position ist relativ zum Begrenzungsrahmen des Objekts.
 - `stroke-box`
-  - : Die Position ist relativ zur Strichbegrenzungsbox.
+  - : Die Position ist relativ zum Begrenzungsrahmen des Strichs.
 - `view-box`
-  - : Verwendet die nächstgelegene SVG-Ansichtsbox als Referenzrahmen. Wenn ein {{svgattr("viewBox")}}-Attribut für das Element, das den SVG-Ansichtsrahmen erstellt, angegeben ist, wird der Referenzrahmen an der Ursprungsposition des vom `viewBox`-Attribut festgelegten Koordinatensystems positioniert und die Dimension des Referenzrahmens auf die Breite und Höhe des `viewBox`-Attributs eingestellt.
+  - : Verwendet den nächsten SVG-Ansichtsfenster als Referenzbox. Wenn ein {{svgattr("viewBox")}} Attribut für das Element spezifiziert ist, das das SVG-Ansichtsfenster erstellt, wird die Referenzbox am Ursprung des durch das `viewBox` Attribut etablierten Koordinatensystems positioniert, und die Dimension der Referenzbox wird auf die Breite und Höhe des `viewBox` Attributs gesetzt.
 
-Es gibt drei nicht standardisierte Werte, die Abkürzungen für standardmäßige `<coord-box>`-Werte sind: `content` ist ein Alias für `content-box`, `padding` ist ein Alias für `padding-box` und `border` ist ein Alias für `border-box`.
+Es gibt drei nicht standardisierte Werte als Abkürzungen für die standardmäßigen `<coord-box>` Werte: `content` ist ein Alias für `content-box`, `padding` ist ein Alias für `padding-box`, und `border` ist ein Alias für `border-box`.
 
 ## Beschreibung
 
-Die `mask-origin`-Eigenschaft ist der {{cssxref("background-origin")}}-Eigenschaft sehr ähnlich, hat jedoch einen anderen Satz von Werten und einen anderen Anfangswert. Der Anfangswert hängt davon ab, ob es eine zugehörige CSS-Layoutbox gibt; wenn ja, ist der Standardwert `border-box`. Im Vergleich dazu ist der Standardwert für `background-origin` `padding-box`.
+Die `mask-origin`-Eigenschaft ist der {{cssxref("background-origin")}}-Eigenschaft sehr ähnlich, jedoch hat sie einen anderen Satz von Werten und einen anderen Anfangswert. Der Anfangswert hängt davon ab, ob es eine zugehörige CSS-Layout-Box gibt; wenn ja, ist der Standardwert `border-box`. Im Vergleich dazu ist der Standardwert für `background-origin` `padding-box`.
 
-Für SVG-Elemente ohne zugehörige CSS-Layoutbox werden die Werte `content-box`, `padding-box` und `border-box` (der Standardwert) zu `fill-box` berechnet, was bedeutet, dass die Position relativ zur Begrenzungsbox des Objekts ist. Für HTML-Elemente, wenn ein SVG-bezogener Wert von `fill-box`, `stroke-box` oder `view-box` festgelegt ist, wird der Wert zu `border-box` berechnet.
+Für SVG-Elemente ohne zugehörige CSS-Layout-Box berechnen sich die Werte `content-box`, `padding-box` und `border-box` (der Standardwert) zu `fill-box`, was bedeutet, dass die Position relativ zum Begrenzungsrahmen des Objekts ist. Für HTML-Elemente, wenn ein SVG-bezogener Wert wie `fill-box`, `stroke-box` oder `view-box` festgelegt ist, wird der Wert zu `border-box` berechnet.
 
-Ein Element kann mehrere Maskenschichten haben. Die Anzahl der Schichten wird durch die Anzahl der kommagetrennten Werte in der {{cssxref("mask-image")}}-Eigenschaft bestimmt (auch wenn einer oder mehrere dieser Werte `none` sind). Jeder `mask-origin`-Wert in der kommagetrennten Liste von Werten wird mit einem kommagetrennten `mask-image`-Wert in der gleichen Reihenfolge abgeglichen.
+Ein Element kann mehrere Maskenschichten haben, die angewendet werden. Die Anzahl der Schichten wird durch die Anzahl der durch Kommas getrennten Werte in der {{cssxref("mask-image")}} Eigenschaftswert bestimmt (auch wenn einer oder mehrere dieser Werte `none` sind). Jeder `mask-origin` Wert in der durch Kommas getrennten Liste der Werte wird mit einem durch Kommas getrennten `mask-image` Wert, in der gleichen Reihenfolge, abgeglichen.
 
-Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist, werden überschüssige `mask-origin`-Werte nicht verwendet, wenn `mask-origin` mehr Werte als `mask-image` hat. Wenn `mask-origin` weniger Werte als `mask-image` hat, werden die `mask-origin`-Werte wiederholt.
+Falls sich die Anzahl der Werte in den beiden Eigenschaften unterscheidet, werden überschüssige `mask-origin` Werte nicht verwendet, wenn `mask-origin` mehr Werte als `mask-image` hat. Wenn `mask-origin` weniger Werte als `mask-image` hat, werden die `mask-origin` Werte wiederholt.
 
-Für Elemente, die als eine einzelne Box gerendert werden, gibt diese Eigenschaft den Maskenpositionierungsbereich an — oder die Ursprungsposition — des Bildes, das von der `mask-image`-Eigenschaft referenziert wird.
+Für Elemente, die als einzelnes Kästchen gerendert werden, gibt diese Eigenschaft den Maskierungs-Positionsbereich an — oder die Ursprungsposition — des Bildes, das von der `mask-image` Eigenschaft referenziert wird.
 
-Für Elemente, die als mehrere Boxen gerendert werden, wie Inline-Boxen, die sich über mehr als eine Zeile erstrecken, gibt die `mask-origin`-Eigenschaft an, auf welche Boxen die {{cssxref("box-decoration-break")}}-Eigenschaft wirkt, um den Maskenpositionierungsbereich zu bestimmen.
+Für Elemente, die als mehrere Kästchen gerendert werden, wie Inline-Boxen, die sich über mehr als eine Zeile erstrecken, gibt die `mask-origin` Eigenschaft an, auf welche Boxen die {{cssxref("box-decoration-break")}} Eigenschaft angewendet wird, um den Maskierungs-Positionsbereich zu bestimmen.
 
-Die `mask-origin`-Eigenschaft kann dazu führen, dass das Maskenschichtbild abgeschnitten wird. Wenn beispielsweise die {{cssxref("mask-clip")}}-Eigenschaft auf `padding-box` gesetzt ist, `mask-origin` auf `border-box`, die {{cssxref("mask-position")}} auf die `top left`-Kante gesetzt ist und das Element einen Rahmen hat, wird das Maskenschichtbild an der oberen linken Kante abgeschnitten.
+Die `mask-origin` kann dazu führen, dass das Maskenschichtbild abgeschnitten wird. Zum Beispiel, wenn die {{cssxref("mask-clip")}} Eigenschaft auf `padding-box` gesetzt ist, die `mask-origin` auf `border-box`, die {{cssxref("mask-position")}} auf den `top left` Rand, und das Element einen Rahmen hat, wird das Maskenschichtbild am oberen linken Rand abgeschnitten.
 
 ## Formale Definition
 
@@ -76,13 +77,13 @@ Die `mask-origin`-Eigenschaft kann dazu führen, dass das Maskenschichtbild abge
 
 ## Beispiele
 
-### Vergleich von Inhalt, Padding und Rahmen
+### Vergleich von Inhalt, Polsterung und Rahmen
 
-Dieses Beispiel zeigt die grundlegende Verwendung und vergleicht drei Werte der `mask-origin`-Eigenschaft.
+Dieses Beispiel demonstriert die grundlegende Verwendung, während es drei Werte der `mask-origin` Eigenschaft vergleicht.
 
 #### HTML
 
-Wir fügen vier {{htmlelement("section")}}-Elemente ein, die jeweils ein {{htmlelement("div")}}-Element enthalten.
+Wir fügen vier {{htmlelement("section")}} Elemente ein, die jeweils ein {{htmlelement("div")}} Element enthalten.
 
 ```html
 <section class="content">
@@ -101,7 +102,7 @@ Wir fügen vier {{htmlelement("section")}}-Elemente ein, die jeweils ein {{htmle
 
 #### CSS
 
-Wir wenden {{cssxref("border")}}, {{cssxref("padding")}} und {{cssxref("margin")}} auf jedes `<div>` an. Diese erstellen die Referenzpunkte für den Ursprung des Maskenbilds. Die `border`-Kurzschreibweise enthält eine {{cssxref("border-color")}}. Wir fügen auch eine {{cssxref("background-color")}} hinzu. Diese bieten einen grünen Hintergrund und einen blauen Rahmen zur Maskierung. Schließlich werden alle unsere `<div>`-Elemente mit einem {{cssxref("mask-image")}} versehen.
+Wir wenden {{cssxref("border")}}, {{cssxref("padding")}}, und {{cssxref("margin")}} auf jedes `<div>` an. Diese schaffen die Referenzpunkte für den Ursprung des Maskenbildes. Die `border` Kurzform enthält eine {{cssxref("border-color")}}. Wir fügen auch eine {{cssxref("background-color")}} hinzu. Diese bieten einen grünen Hintergrund und einen blauen Rahmen zur Maske. Schließlich werden alle unsere `<div>` Elemente mit einem {{cssxref("mask-image")}} ausgestattet.
 
 ```css
 div {
@@ -118,7 +119,7 @@ section {
 }
 ```
 
-Wir geben jedem `<div>` einen anderen `mask-origin`-Wert.
+Wir geben jedem `<div>` einen anderen `mask-origin` Wert.
 
 ```css
 .content div {
@@ -138,7 +139,7 @@ Wir geben jedem `<div>` einen anderen `mask-origin`-Wert.
 }
 ```
 
-Wir erzeugen auch etwas Text in jedem `<section>`, um den Maskenursprung für jeden `<div>`-Container anzuzeigen.
+Wir generieren auch etwas Text in jedem `<section>`, um den Maskenursprung für jeden `<div>` Container anzuzeigen.
 
 ```css
 section::before {
@@ -158,23 +159,23 @@ body {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Vergleich von Inhalt, Padding und Rahmen", "", "200")}}
+{{EmbedLiveSample("Vergleich von Inhalt, Polsterung und Rahmen", "", "200")}}
 
-Beachten Sie den Unterschied zwischen den drei Werten. In den ersten drei Boxen kommt die Maske jeweils von:
+Beachten Sie den Unterschied zwischen den drei Werten. In den ersten drei Boxen stammt die Maske jeweils von:
 
 - Der äußeren Kante des Rahmens.
-- Der inneren Rahmenecke, was die äußere Kante des Padding-Rahmens ist.
-- Der inneren Padding-Kante, was die äußere Kante des Inhaltsrahmens ist.
+- Der inneren Rahmenkante, die die äußere Kante des Polsterrahmens ist.
+- Der inneren Polsterkante, die die äußere Kante des Inhaltskastens ist.
 
-Die vierte Box hat kein `mask-image` angegeben: Es ist ein Referenzbild, das eingefügt wurde, um Ihnen zu ermöglichen, das Ausmaß der Inhalts- und Padding-Bereiche leicht zu visualisieren.
+Die vierte Box hat keine `mask-image` spezifiziert: sie ist ein Referenzbild, das es Ihnen ermöglicht, das Ausmaß der Inhalts- und Polsterbereiche leicht zu visualisieren.
 
 ### Mehrere Werte
 
-Dieses Beispiel zeigt die Verwendung unterschiedlicher `mask-origin`-Werte für verschiedene `mask-image`s, die auf ein einzelnes Element angewendet werden.
+Dieses Beispiel demonstriert die Verwendung unterschiedlicher `mask-origin` Werte für verschiedene `mask-image`s, die auf ein einzelnes Element angewendet werden.
 
 #### HTML
 
-Wir fügen ein einzelnes `<div>` hinzu.
+Wir fügen ein einzelnes `<div>` ein.
 
 ```html
 <div></div>
@@ -182,7 +183,7 @@ Wir fügen ein einzelnes `<div>` hinzu.
 
 #### CSS
 
-Wir wenden drei Maskenbilder anstelle eines an, jedes mit einer anderen {{cssxref("mask-position")}}. Wir setzen auch die Maskenbilder so, dass sie sich nicht wiederholen.
+Wir wenden drei Maskenbilder anstelle eines an, jedes mit einer unterschiedlichen {{cssxref("mask-position")}}. Wir setzen auch die Maskenbilder so, dass sie sich nicht wiederholen.
 
 ```css
 div {
@@ -209,7 +210,7 @@ div {
 
 {{EmbedLiveSample("Mehrere Werte", "", "200")}}
 
-Wir haben drei `mask-image`-Werte, aber nur zwei `mask-origin`-Werte. Dies bedeutet, dass die `mask-origin`-Werte wiederholt werden, als hätten wir `mask-origin: content-box, padding-box, content-box;` gesetzt. Der `border-box`-Stern, die einzige Maske, die sich über den Rahmen hinweg erstreckt, ist der obere rechte Stern.
+Wir haben drei `mask-image` Werte, aber nur zwei `mask-origin` Werte. Dies bedeutet, dass die `mask-origin` Werte wiederholt werden, als ob wir `mask-origin: content-box, padding-box, content-box;` gesetzt hätten. Der `border-box` Stern, die einzige Maske, die den Rahmen überlappt, ist der oben rechts Stern.
 
 ## Spezifikationen
 
@@ -227,7 +228,7 @@ Wir haben drei `mask-image`-Werte, aber nur zwei `mask-origin`-Werte. Dies bedeu
 - {{cssxref("mask-repeat")}}
 - {{cssxref("mask-size")}}
 - {{cssxref("mask")}} Kurzform
-- [Einführung in CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
-- [CSS `mask`-Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
-- [Deklaration mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
-- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul
+- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [CSS `mask` Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
+- [CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking) Modul

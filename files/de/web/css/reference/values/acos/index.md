@@ -3,7 +3,7 @@ title: "`acos()` CSS-Funktion"
 short-title: acos()
 slug: Web/CSS/Reference/Values/acos
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: daa035392f8466e6d75f290d9ffa4317adca4070
 ---
 
 Die **`acos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Arkuskosinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzige Berechnung, die einen {{cssxref("angle")}} zwischen `0deg` und `180deg` zurückgibt.
@@ -22,14 +22,14 @@ transform: rotate(acos(e / 3));
 
 ### Parameter
 
-Die `acos(number)` Funktion akzeptiert nur einen Wert als ihren Parameter.
+Die Funktion `acos(number)` akzeptiert nur einen Wert als Parameter.
 
 - `number`
-  - : Eine Berechnung, die auf eine {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` aufgelöst wird.
+  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` auflöst.
 
 ### Rückgabewert
 
-Der Arkuskosinus einer `number` gibt immer einen {{cssxref("angle")}} zwischen `0deg` und `180deg` zurück.
+Der Arkuskosinus einer `number` wird immer einen {{cssxref("angle")}} zwischen `0deg` und `180deg` zurückgeben.
 
 - Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
 - Wenn `number` genau `1` ist, ist das Ergebnis `0`.
@@ -40,9 +40,9 @@ Der Arkuskosinus einer `number` gibt immer einen {{cssxref("angle")}} zwischen `
 
 ## Beispiele
 
-### Elemente drehen
+### Elemente rotieren
 
-Die `acos()` Funktion kann verwendet werden, um {{cssxref("transform-function/rotate", "Elemente zu drehen")}}, da sie einen {{cssxref("angle")}} zurückgibt.
+Die `acos()`-Funktion kann verwendet werden, um Elemente mit der {{cssxref("transform-function/rotate", "rotate")}}-Funktion zu drehen, da sie einen {{cssxref("angle")}} zurückgibt.
 
 #### HTML
 

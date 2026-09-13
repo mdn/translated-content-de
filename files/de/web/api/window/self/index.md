@@ -3,20 +3,20 @@ title: "Window: self-Eigenschaft"
 short-title: self
 slug: Web/API/Window/self
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`Window.self`**-Eigenschaft gibt das Fenster selbst zurück, als ein {{Glossary("WindowProxy", "WindowProxy")}}. Sie kann mit Punktnotation auf einem `window`-Objekt verwendet werden (d.h. `window.self`) oder eigenständig (`self`). Der Vorteil der eigenständigen Notation besteht darin, dass eine ähnliche Notation für Nicht-Fenster-Kontexte existiert, wie z. B. in [Web Workers](/de/docs/Web/API/Worker). Durch die Verwendung von `self` kann man auf den globalen Kontext in einer Art und Weise verweisen, die nicht nur im Fenstermenü-Kontext funktioniert (`self` wird zu `window.self` aufgelöst), sondern auch im Worker-Kontext (`self` wird dann zu [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self)).
+Die **`Window.self`** Leseeigenschaft gibt das Fenster selbst zurück, als ein {{Glossary("WindowProxy", "WindowProxy")}}. Sie kann mit Punktnotation auf einem `window` Objekt verwendet werden (also `window.self`) oder eigenständig (`self`). Der Vorteil der eigenständigen Notation besteht darin, dass eine ähnliche Notation für Nicht-Fenster-Kontexte existiert, wie beispielsweise in [Web Workers](/de/docs/Web/API/Worker). Indem Sie `self` verwenden, können Sie auf den globalen Geltungsbereich in einer Weise verweisen, die nicht nur in einem Fensterkontext funktioniert (`self` wird zu `window.self` aufgelöst), sondern auch in einem Worker-Kontext (`self` wird dann zu [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self)) aufgelöst.
 
 ## Wert
 
-Ein {{Glossary("WindowProxy", "WindowProxy")}}-Objekt.
+Ein {{Glossary("WindowProxy", "WindowProxy")}} Objekt.
 
 ## Beispiele
 
-Verwendungen von `window.self` wie die folgenden könnten ebenso gut durch `window` ersetzt werden.
+Verwendungen von `window.self` wie das folgende können genauso gut durch `window` ersetzt werden.
 
 ```js
 if (window.parent.frames[0] !== window.self) {
@@ -24,7 +24,7 @@ if (window.parent.frames[0] !== window.self) {
 }
 ```
 
-Außerdem, wenn in dem aktiven Dokument eines Browsing-Kontextes ausgeführt, ist `window` ein Verweis auf das aktuelle globale Objekt, und somit sind alle folgenden Äquivalente:
+Darüber hinaus ist `window` während der Ausführung im aktiven Dokument eines Browsing-Kontextes eine Referenz auf das aktuelle globale Objekt, und somit sind alle folgenden gleichwertig:
 
 ```js
 const w1 = window;

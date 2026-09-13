@@ -1,14 +1,17 @@
 ---
-title: "OffscreenCanvasRenderingContext2D: commit()-Methode"
+title: "OffscreenCanvasRenderingContext2D: commit() Methode"
 short-title: commit()
 slug: Web/API/OffscreenCanvasRenderingContext2D/commit
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Canvas API")}}{{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("Canvas API")}}{{AvailableInWorkers}}{{non-standard_header}}
 
-Die Methode **`OffscreenCanvasRenderingContext2D.commit()`** der [Canvas 2D API](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) sollte ursprünglich den Bitmap des Rendering-Kontexts auf den Bitmap des Platzhalters des zugehörigen `OffscreenCanvas`-Objekts kopieren. Der Kopiervorgang ist synchron. Der Aufruf dieser Methode ist für die Übertragung nicht erforderlich, da dies automatisch während der Ausführung der Ereignisschleife erfolgt.
+Die
+**`OffscreenCanvasRenderingContext2D.commit()`**
+Methode der [Canvas 2D API](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) war dazu gedacht, das Bitmap des Rendering-Kontexts auf das Bitmap des Platzhalter-{{HtmlElement("canvas")}}-Elements des zugehörigen `OffscreenCanvas`-Objekts zu kopieren.
+Der Kopiervorgang ist synchron. Der Aufruf dieser Methode ist für die Übertragung nicht erforderlich, da diese automatisch während der Ausführung der Ereignisschleife erfolgt.
 
 ## Syntax
 
@@ -22,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -41,7 +44,7 @@ ctx.commit();
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -49,4 +52,4 @@ Teil keiner Spezifikation.
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)

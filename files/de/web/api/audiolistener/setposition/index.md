@@ -1,16 +1,16 @@
 ---
-title: "AudioListener: setPosition() Methode"
+title: "AudioListener: setPosition()-Methode"
 short-title: setPosition()
 slug: Web/API/AudioListener/setPosition
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ APIRef("Web Audio API") }} {{deprecated_header}}
+{{ APIRef("Web Audio API") }}
 
 Die `setPosition()`-Methode der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle definiert die Position des Hörers.
 
-Die drei Parameter `x`, `y` und `z` sind einheitenlos und beschreiben die Position des Hörers im 3D-Raum gemäß dem kartesischen Rechtshändersystem. [`PannerNode`](/de/docs/Web/API/PannerNode)-Objekte verwenden diese Position relativ zu den einzelnen Audioquellen zur räumlichen Klangdarstellung.
+Die drei Parameter `x`, `y` und `z` sind einheitenlos und beschreiben die Position des Hörers im 3D-Raum gemäß dem rechtshändigen kartesischen Koordinatensystem. [`PannerNode`](/de/docs/Web/API/PannerNode)-Objekte verwenden diese Position relativ zu einzelnen Audioquellen für die Räumlichkeit.
 
 Der Standardwert des Positionsvektors ist `(0, 0, 0)`.
 
@@ -38,7 +38,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples) für Beispielcode.
+Sehen Sie sich [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples) für Beispielcode an.
 
 ## Spezifikationen
 

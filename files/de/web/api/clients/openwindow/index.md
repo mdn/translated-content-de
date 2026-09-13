@@ -1,19 +1,24 @@
 ---
-title: "Clients: openWindow() Methode"
+title: "Clients: openWindow()-Methode"
 short-title: openWindow()
 slug: Web/API/Clients/openWindow
 l10n:
-  sourceCommit: ff42d1f779857392d9c9c339c0b8916a9e08c030
+  sourceCommit: f37e438c6dece2b381d2b9f35dc53af21a916a75
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`openWindow()`** Methode der [`Clients`](/de/docs/Web/API/Clients)
-Schnittstelle erstellt einen neuen, obersten Browsing-Kontext und lädt eine gegebene URL. Wenn das aufrufende Skript keine Berechtigung zum Anzeigen von Pop-ups hat, wird `openWindow()` einen `InvalidAccessError` auslösen.
+Die Methode **`openWindow()`** des Interfaces [`Clients`](/de/docs/Web/API/Clients)
+erstellt einen neuen Browsing-Kontext der obersten Ebene und lädt eine angegebene URL. Wenn das aufrufende
+Skript keine Berechtigung zum Anzeigen von Pop-ups hat, löst `openWindow()` einen
+`InvalidAccessError` aus.
 
-In Firefox darf die Methode nur Pop-ups anzeigen, wenn sie als Ergebnis eines Benachrichtigungsklickereignisses aufgerufen wird.
+In Firefox darf die Methode Pop-ups nur anzeigen, wenn sie als Ergebnis eines
+Klickereignisses auf eine Benachrichtigung aufgerufen wird.
 
-In Chrome für Android kann die Methode stattdessen die URL in einem vorhandenen Browsing-Kontext öffnen, der durch eine zuvor auf dem Startbildschirm des Benutzers hinzugefügte [Standalone-Web-App](/de/docs/Web/Progressive_web_apps) bereitgestellt wird. Seit Kurzem funktioniert dies auch in Chrome für Windows.
+In Chrome für Android kann die Methode stattdessen die URL in einem vorhandenen Browsing-Kontext
+einer [eigenständigen Web-App](/de/docs/Web/Progressive_web_apps) öffnen, die zuvor zum Startbildschirm des Benutzers hinzugefügt wurde. Seit Kurzem funktioniert dies auch in
+Chrome für Windows.
 
 ## Syntax
 
@@ -24,31 +29,34 @@ openWindow(url)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des Clients darstellt, den Sie im Fenster öffnen möchten. In der Regel muss dieser Wert eine URL aus demselben Ursprungsort wie das aufrufende Skript sein.
+  - : Ein String, der die URL des Clients darstellt, den Sie im
+    Fenster öffnen möchten. Im Allgemeinen muss dieser Wert eine URL derselben Origin wie das aufrufende
+    Skript sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die URL aus demselben Ursprung wie der Service Worker stammt, oder andernfalls ein {{Glossary("null", "Null-Wert")}}.
+Ein {{jsxref("Promise")}}, das zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die
+URL dieselbe Origin wie der Service Worker hat, oder andernfalls zu einem {{Glossary("null", "null-Wert")}}.
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Versprechen wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App [vorübergehende Aktivierung](/de/docs/Web/Security/Defenses/User_activation) hat.
+  - : Das Promise wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster in der Origin der App über eine [transiente Aktivierung](/de/docs/Web/Security/Defenses/User_activation) verfügt.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprung der App muss [vorübergehende Aktivierung](/de/docs/Web/Security/Defenses/User_activation) haben.
+- Mindestens ein Fenster in der Origin der App muss über eine [transiente Aktivierung](/de/docs/Web/Security/Defenses/User_activation) verfügen.
 
 ## Beispiele
 
-### Öffnen eines Fensters bei einem Benachrichtigungsklick
+### Öffnen eines Fensters bei einem Klick auf eine Benachrichtigung
 
-In diesem Beispiel erstellt und zeigt ein Service Worker eine Benachrichtigung an, die eine zugehörige URL enthält, die unter den Geltungsbereich des Service Workers fällt. Wenn der Benutzer auf die Benachrichtigung klickt:
+In diesem Beispiel erstellt ein Service Worker eine Benachrichtigung mit einer zugeordneten URL, die innerhalb des Geltungsbereichs des Service Workers liegt, und zeigt sie anschließend an. Wenn der Benutzer auf die Benachrichtigung klickt:
 
-- Wenn die Seite mit der URL der Benachrichtigung bereits geöffnet ist, fokussiert sie der Service Worker.
+- Wenn die Seite unter der URL der Benachrichtigung bereits geöffnet ist, fokussiert der Service Worker sie.
 - Andernfalls öffnet der Service Worker die Seite in einem neuen Fenster.
 
-Beachten Sie, dass die [`Client.url`](/de/docs/Web/API/Client/url) Eigenschaft nicht aktualisiert wird, es sei denn, eine neue Seite wird tatsächlich geladen. Dies bedeutet, dass sie nicht aktualisiert wird, wenn der Benutzer innerhalb derselben Seite mit einem URL-Fragment navigiert oder wenn eine {{Glossary("SPA", "Single-Page-App (SPA)")}} ein Navigationsevent abfängt (zum Beispiel mit der [Navigation API](/de/docs/Web/API/Navigation_API)) und den Seiteninhalt mit clientseitigem Code aktualisiert. Folglich ist diese Technik nicht für SPAs geeignet.
+Beachten Sie, dass die Eigenschaft [`Client.url`](/de/docs/Web/API/Client/url) nicht aktualisiert wird, sofern nicht tatsächlich eine neue Seite geladen wird. Das bedeutet, dass sie nicht aktualisiert wird, wenn der Benutzer innerhalb derselben Seite mithilfe eines URL-Fragments navigiert oder wenn eine {{Glossary("SPA", "Single-Page-App (SPA)")}} ein Navigationsereignis abfängt (beispielsweise mithilfe der [Navigation API](/de/docs/Web/API/Navigation_API)) und den Seiteninhalt mithilfe von clientseitigem Code aktualisiert. Daher ist diese Technik nicht für SPAs geeignet.
 
 ```js
 // Create and show notification

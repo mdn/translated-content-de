@@ -2,15 +2,15 @@
 title: clip-rule
 slug: Web/SVG/Reference/Attribute/clip-rule
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 8d0c8728f49f2a0577ca17910f2149d6dd36b37e
 ---
 
-Das Attribut `clip-rule` gilt nur für Grafikelemente, die innerhalb eines {{ SVGElement("clipPath") }}-Elements enthalten sind. Das Attribut `clip-rule` funktioniert im Grunde wie das Attribut {{ SVGAttr("fill-rule") }}, außer dass es auf {{ SVGElement("clipPath") }}-Definitionen angewendet wird.
+Das `clip-rule` Attribut gilt nur für Grafikelemente, die innerhalb eines {{ SVGElement("clipPath") }} Elements enthalten sind. Das `clip-rule` Attribut funktioniert im Wesentlichen wie das {{ SVGAttr("fill-rule") }} Attribut, mit dem Unterschied, dass es für {{ SVGElement("clipPath") }} Definitionen angewendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `clip-rule` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("clip-rule")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `clip-rule` auch ein CSS-Äquivalent: {{cssxref("clip-rule")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Der folgende Codeausschnitt sorgt dafür, dass eine evenodd-Ausschneidungsregel auf den Ausschneidungspfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }}-Element angegeben ist, das die Ausschneideform definiert:
+Der folgende Codeausschnitt führt dazu, dass eine evenodd-Zuschneidungsregel auf den Clipping-Pfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }} Element angegeben ist, das die Zuschneideform definiert:
 
 ```html
 <g>
@@ -21,7 +21,7 @@ Der folgende Codeausschnitt sorgt dafür, dass eine evenodd-Ausschneidungsregel 
 </g>
 ```
 
-während der folgende Codeausschnitt keine evenodd-Ausschneidungsregel anwenden wird, da `clip-rule` auf dem referenzierenden Element und nicht auf dem Objekt angegeben ist, das die Ausschneideform definiert:
+während der folgende Codeausschnitt keine evenodd-Zuschneidungsregel anwendet, weil `clip-rule` auf dem verweisenden Element angegeben ist, nicht auf dem Objekt, das die Zuschneideform definiert:
 
 ```html
 <g>
@@ -52,18 +52,14 @@ während der folgende Codeausschnitt keine evenodd-Ausschneidungsregel anwenden 
 </table>
 
 - nonzero
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
+  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }} Eigenschaft.
 - evenodd
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
+  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }} Eigenschaft.
 
 ## Beispiel
 
 ```html
-<svg
-  width="100"
-  viewBox="0 0 100 90"
-  xmlns="http://www.w3.org/2000/svg"
-  version="1.1">
+<svg width="100" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
   <!-- Define star path -->
   <defs>
     <path d="M50,0 21,90 98,35 2,35 79,90z" id="star" />
@@ -87,7 +83,7 @@ während der folgende Codeausschnitt keine evenodd-Ausschneidungsregel anwenden 
 
 ## Elemente
 
-Die folgenden Elemente können das Attribut `clip-rule` verwenden, aber nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }}-Elements befinden.
+Die folgenden Elemente können das `clip-rule` Attribut verwenden, aber nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }} Elements befinden.
 
 - [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
 
@@ -102,4 +98,4 @@ Die folgenden Elemente können das Attribut `clip-rule` verwenden, aber nur, wen
 ## Siehe auch
 
 - {{ SVGElement("clipPath") }}
-- CSS {{cssxref("clip-rule")}}-Eigenschaft
+- CSS {{cssxref("clip-rule")}} Eigenschaft

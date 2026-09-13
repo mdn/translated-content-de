@@ -3,23 +3,24 @@ title: "CharacterData: data-Eigenschaft"
 short-title: data
 slug: Web/API/CharacterData/data
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: f78ca75460fbdbc7f17b6e366dad47b9760054b0
 ---
 
 {{APIRef("DOM")}}
 
-Die **`data`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle repräsentiert den Wert der Daten des aktuellen Objekts.
+Die **`data`**-Eigenschaft des [`CharacterData`](/de/docs/Web/API/CharacterData) Interfaces repräsentiert den Wert der Daten des aktuellen Objekts.
 
 ## Wert
 
-Ein Zeichenkette mit den im [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthaltenen Zeicheninformationen.
+Ein String mit den Zeicheninformationen, die im [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthalten sind.
 
-Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in die leere Zeichenkette (`""`) konvertiert, sodass `cd.data = null` gleichbedeutend mit `cd.data = ""` ist.
+Wenn er auf den Wert `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt. Somit ist `cd.data = null` äquivalent zu `cd.data = ""`.
 
 ## Beispiel
 
-> [!NOTE] > [`CharacterData`](/de/docs/Web/API/CharacterData) ist eine abstrakte Schnittstelle.
-> Die folgenden Beispiele verwenden zwei konkrete Schnittstellen, die diese implementieren, [`Text`](/de/docs/Web/API/Text) und [`Comment`](/de/docs/Web/API/Comment).
+> [!NOTE]
+> [`CharacterData`](/de/docs/Web/API/CharacterData) ist ein abstraktes Interface.
+> Die Beispiele unten verwenden zwei konkrete Interfaces, die es implementieren: [`Text`](/de/docs/Web/API/Text) und [`Comment`](/de/docs/Web/API/Comment).
 
 ### Lesen eines Kommentars mit data
 
@@ -37,7 +38,7 @@ output.value = comment.data;
 
 {{EmbedLiveSample("Reading_a_comment_using_data", "100%", 50)}}
 
-### Festlegen des Inhalts eines Textknotens mit data
+### Setzen des Inhalts eines Textknotens mit data
 
 ```html
 <span>Result: </span>Not set.
@@ -62,4 +63,4 @@ textNode.data = "This text has been set using 'textNode.data'.";
 
 ## Siehe auch
 
-- [`CharacterData.length`](/de/docs/Web/API/CharacterData/length), das die Länge der in dem [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthaltenen Daten zurückgibt.
+- [`CharacterData.length`](/de/docs/Web/API/CharacterData/length), der die Länge der in dem [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthaltenen Daten zurückgibt.

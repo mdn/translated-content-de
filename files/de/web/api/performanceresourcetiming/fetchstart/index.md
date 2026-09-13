@@ -3,32 +3,32 @@ title: "PerformanceResourceTiming: fetchStart-Eigenschaft"
 short-title: fetchStart
 slug: Web/API/PerformanceResourceTiming/fetchStart
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 153369fa094f0b58ce1aee3f3cc1a3d7ab540b91
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`fetchStart`** stellt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) dar, der unmittelbar bevor der Browser beginnt, die Ressource abzurufen, gesetzt wird.
+Die schreibgeschützte Eigenschaft **`fetchStart`** repräsentiert einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Ressource abzurufen.
 
-Wenn es HTTP-Weiterleitungen gibt, gibt die Eigenschaft die Zeit unmittelbar bevor der Benutzeragent beginnt, die endgültige Ressource in der Weiterleitung abzurufen, zurück.
+Wenn es keine HTTP-Weiterleitungen gibt oder deren Timing-Informationen nicht verfügbar gemacht werden, entspricht dieser Wert [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime). Andernfalls kann dieser Wert später als `startTime` liegen.
 
-Im Gegensatz zu vielen anderen `PerformanceResourceTiming`-Eigenschaften ist die `fetchStart`-Eigenschaft für Cross-Origin-Anfragen ohne das {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verfügbar.
+Im Gegensatz zu vielen anderen `PerformanceResourceTiming`-Eigenschaften ist die Eigenschaft `fetchStart` für Cross-Origin-Anfragen verfügbar, ohne dass der HTTP-Antwort-Header {{HTTPHeader("Timing-Allow-Origin")}} erforderlich ist.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der unmittelbar bevor der Browser beginnt, die Ressource abzurufen, gesetzt wird.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Ressource abzurufen.
 
 ## Beispiele
 
-### Messung der Abrufzeit (ohne Weiterleitungen)
+### Zeit zum Abrufen messen (ohne Weiterleitungen)
 
-Die Eigenschaften `fetchStart` und [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) können verwendet werden, um die Gesamtzeit zu messen, die zum Abrufen der endgültigen Ressource (ohne Weiterleitungen) benötigt wurde. Wenn Sie Weiterleitungen einbeziehen möchten, wird die Gesamtzeit zum Abrufen in der Eigenschaft [`duration`](/de/docs/Web/API/PerformanceEntry/duration) bereitgestellt.
+Die Eigenschaften `fetchStart` und [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) können verwendet werden, um die Gesamtzeit zu messen, die zum Abrufen der endgültigen Ressource benötigt wurde (ohne Weiterleitungen). Wenn Sie Weiterleitungen einschließen möchten, wird die Gesamtzeit zum Abrufen in der Eigenschaft [`duration`](/de/docs/Web/API/PerformanceEntry/duration) bereitgestellt.
 
 ```js
 const timeToFetch = entry.responseEnd - entry.fetchStart;
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Beobachters vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald diese in der Performance-Zeitachse des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -43,7 +43,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitachse des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");

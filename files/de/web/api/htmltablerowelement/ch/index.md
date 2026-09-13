@@ -3,17 +3,17 @@ title: "HTMLTableRowElement: ch-Eigenschaft"
 short-title: ch
 slug: Web/API/HTMLTableRowElement/ch
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die **`ch`**-Eigenschaft der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Schnittstelle tut nichts. Sie spiegelt das `char`-Attribut des {{HTMLElement("tr")}}-Elements wider.
+Die **`ch`**-Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces bewirkt nichts. Sie spiegelt das `char`-Attribut des {{HTMLElement("tr")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft war dazu gedacht, die Möglichkeit zu bieten, Tabellenzelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
+> Diese Eigenschaft wurde entworfen, um die Möglichkeit zu bieten, Tabellenzelleninhalte an einem spezifischen Zeichen auszurichten (typischerweise der Dezimalpunkt), aber sie wurde nie von Browsern implementiert.
 >
-> Um eine solche Ausrichtung zu erreichen, beobachten Sie die Unterstützung eines Zeichenfolgenwertes mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
+> Um eine solche Ausrichtung zu erreichen, sollten Sie auf die Unterstützung eines Zeichenfolgenwerts mit der {{cssxref("text-align")}}-CSS-Eigenschaft achten.
 
 ## Wert
 

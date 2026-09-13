@@ -3,12 +3,14 @@ title: "SVGLengthList: replaceItem()-Methode"
 short-title: replaceItem()
 slug: Web/API/SVGLengthList/replaceItem
 l10n:
-  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
+  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
 ---
 
 {{APIRef("SVG")}}
 
-Die **`replaceItem()`**-Methode des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interfaces ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Wenn das neue Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element bereits in dieser Liste enthalten ist, beachten Sie, dass der Index des zu ersetzenden Elements vor dem Entfernen des Elements liegt.
+Die **`replaceItem()`**-Methode des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interface ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Wenn sich das neue Element bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des zu ersetzenden Elements vor dem Entfernen des Elements bestimmt wird.
+
+Die Zuweisung an einen Index der Liste hat denselben Effekt wie der Aufruf dieser Methode, mit der Ausnahme, dass kein Rückgabewert vorhanden ist.
 
 ## Syntax
 
@@ -19,9 +21,9 @@ replaceItem(newItem, index)
 ### Parameter
 
 - `newItem`
-  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das zur Liste hinzugefügt werden soll.
+  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt werden soll.
 - `index`
-  - : Eine nicht-negative Ganzzahl, die den Index des zu löschenden Elements angibt.
+  - : Eine nicht negative Ganzzahl, die den Index des zu löschenden Elements angibt.
 
 ### Rückgabewert
 
@@ -36,7 +38,7 @@ Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt wurde.
 
 ## Beispiele
 
-Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
+Ein vollständiges Beispiel finden Sie unter [`SVGLengthList`](/de/docs/Web/API/SVGLengthList).
 
 ## Spezifikationen
 

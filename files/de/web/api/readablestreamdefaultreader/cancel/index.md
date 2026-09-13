@@ -1,19 +1,21 @@
 ---
-title: "ReadableStreamDefaultReader: cancel()-Methode"
+title: "ReadableStreamDefaultReader: cancel() Methode"
 short-title: cancel()
 slug: Web/API/ReadableStreamDefaultReader/cancel
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: b3cd597b58940518a7712487ce94efc0881cb549
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`**-Methode der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Der Aufruf dieser Methode signalisiert einem Verbraucher das Desinteresse am Stream.
+Die **`cancel()`** Methode der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Durch das Aufrufen dieser Methode signalisiert ein Verbraucher sein Desinteresse am Stream.
 
-`cancel()` wird verwendet, wenn Sie den Stream vollständig abgeschlossen haben und keine weiteren Daten mehr benötigen, auch wenn es noch wartende Chunks gibt, die gelesen werden müssen. Diese Daten gehen verloren, nachdem `cancel()` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Chunks trotzdem zu lesen und den Stream nicht vollständig zu beenden, würden Sie [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
+`cancel()` wird verwendet, wenn Sie mit dem Stream vollständig fertig sind und keine weiteren Daten daraus benötigen, selbst wenn es noch Warteschlangen gibt, die darauf warten, gelesen zu werden. Diese Daten gehen verloren, nachdem `cancel` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Daten trotzdem zu lesen und den Stream nicht vollständig loszuwerden, würden Sie [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
 
 > [!NOTE]
-> Wenn der Reader aktiv ist, verhält sich die `cancel()`-Methode genauso wie die des zugehörigen Streams ([`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel)).
+> Wenn der Leser aktiv ist, verhält sich die
+> `cancel()` Methode genauso wie die für den zugehörigen Stream
+> ([`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel)).
 
 ## Syntax
 
@@ -25,22 +27,27 @@ cancel(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein für Menschen lesbarer Grund für die Abbruche. Dieser Wert kann verwendet werden oder auch nicht.
+  - : Ein humanlesbarer Grund für die Stornierung. Dieser Wert wird möglicherweise verwendet oder nicht.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert erfüllt wird.
+Ein {{jsxref("Promise")}}, das sich mit dem im `reason`
+Parameter angegebenen Wert erfüllt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, oder der Stream hat keinen Eigentümer.
+  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, oder der Stream
+    hat keinen Besitzer.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter `ReadableStream` mithilfe eines [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde. (Dieser Code basiert auf unserem [einfachen Zufallsstream-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/)). Jeder Chunk wird nacheinander gelesen und in der Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde. An diesem Punkt verlassen wir die rekursive Funktion und geben den gesamten Stream in einem anderen Teil der Benutzeroberfläche aus.
+Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter
+`ReadableStream` mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde. (Dieser Code basiert auf unserem [einfachen Zufallsstrombeispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/)). Jeder Chunk wird nacheinander gelesen und in der Benutzeroberfläche ausgegeben, bis der
+Stream fertig gelesen ist. An diesem Punkt beenden wir die rekursive Funktion und geben den gesamten Stream an einem anderen Teil der Benutzeroberfläche aus.
 
-Wenn der Stream beendet ist (`if (done)`), führen wir `reader.cancel()` aus, um den Stream abzubrechen und zu signalisieren, dass wir ihn nicht mehr benötigen.
+Wenn der Stream fertig ist (`if (done)`), führen wir `reader.cancel()` aus,
+um den Stream abzubrechen, was signalisiert, dass wir ihn nicht mehr benötigen.
 
 ```js
 function fetchStream() {
@@ -85,5 +92,5 @@ function fetchStream() {
 
 ## Siehe auch
 
-- [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader)-Konstruktor
+- [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader) Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

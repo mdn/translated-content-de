@@ -1,21 +1,19 @@
 ---
-title: "`<strike>` HTML-Durchstreichungselement"
+title: "`<strike>` HTML Strikethrough-Element"
 short-title: <strike>
 slug: Web/HTML/Reference/Elements/strike
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}
-
-Das **`<strike>`** [HTML](/de/docs/Web/HTML) Element legt eine Durchstreichungslinie (horizontale Linie) über den Text.
+Das **`<strike>`** [HTML](/de/docs/Web/HTML)-Element platziert einen Durchstrich (horizontale Linie) über Text.
 
 > [!WARNING]
-> Dieses Element ist in HTML 4 und XHTML 1 veraltet und in der [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#strike) obsolet. Wenn es semantisch sinnvoll ist, d.h. wenn es _gelöschten_ Inhalt darstellt, verwenden Sie stattdessen {{HTMLElement("del")}}. In allen anderen Fällen verwenden Sie {{HTMLElement("s")}}.
+> Dieses Element ist in HTML 4 und XHTML 1 veraltet und wird im [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#strike) als überholt betrachtet. Wenn es semantisch angemessen ist, d.h. wenn es _gelöschte_ Inhalte darstellt, verwenden Sie stattdessen {{HTMLElement("del")}}. In allen anderen Fällen verwenden Sie {{HTMLElement("s")}}.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -28,7 +26,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 {{EmbedLiveSample("Example")}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -49,6 +47,6 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ## Siehe auch
 
-- Das {{HTMLElement("s")}} Element.
-- Das {{HTMLElement("del")}} Element sollte verwendet werden, wenn die Daten _gelöscht_ wurden.
-- Die CSS-Eigenschaft {{CSSxRef("text-decoration")}} kann verwendet werden, um Text mit einer Durchstreichung zu stylen.
+- Das {{HTMLElement("s")}}-Element.
+- Das {{HTMLElement("del")}}-Element sollte verwendet werden, wenn die Daten _gelöscht_ wurden.
+- Die CSS-Eigenschaft {{CSSxRef("text-decoration")}} kann verwendet werden, um Text mit einem Durchstrich zu formatieren.

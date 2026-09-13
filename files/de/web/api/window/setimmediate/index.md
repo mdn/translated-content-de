@@ -1,14 +1,14 @@
 ---
-title: "Window: setImmediate() Methode"
+title: "Window: Methode setImmediate()"
 short-title: setImmediate()
 slug: Web/API/Window/setImmediate
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: c7460aab1397829c109a88e3a58fed9b7ef9c0c5
 ---
 
-{{APIRef("HTML DOM")}} {{deprecated_header}}{{non-standard_header}}
+{{APIRef("HTML DOM")}} {{non-standard_header}}
 
-Diese Methode wird verwendet, um lang andauernde Operationen zu unterbrechen und eine Rückruffunktion direkt nach Abschluss anderer Operationen wie Ereignissen und Darstellungsaktualisierungen durch den Browser auszuführen.
+Diese Methode wird verwendet, um lang andauernde Operationen aufzuteilen und eine Callback-Funktion unmittelbar auszuführen, nachdem der Browser andere Operationen wie Ereignisse und Anzeigeaktualisierungen abgeschlossen hat.
 
 ## Syntax
 
@@ -33,21 +33,22 @@ Die ID des Immediate, die später mit [`window.clearImmediate`](/de/docs/Web/API
 
 ## Hinweise
 
-Die Methode [`clearImmediate()`](/de/docs/Web/API/Window/clearImmediate) kann verwendet werden, um die unmittelbaren Aktionen zu löschen, ähnlich wie [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) für [`setTimeout()`](/de/docs/Web/API/Window/setTimeout).
+Die Methode [`clearImmediate()`](/de/docs/Web/API/Window/clearImmediate) kann verwendet werden, um die Immediate-Aktionen zu löschen, genau wie [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) für [`setTimeout()`](/de/docs/Web/API/Window/setTimeout).
 
-Diese Methode kann anstelle der `setTimeout(fn, 0)` Methode verwendet werden, um [aufwendige Operationen](https://humanwhocodes.com/blog/2009/08/11/timed-array-processing-in-javascript/) auszuführen.
+Diese Methode kann anstelle der Methode `setTimeout(fn, 0)` verwendet werden, um [aufwendige Operationen](https://humanwhocodes.com/blog/2009/08/11/timed-array-processing-in-javascript/) auszuführen.
 
-Die Funktionalität kann auf verschiedene Weise emuliert werden:
+Die Funktionalität kann auf verschiedene Arten emuliert werden:
 
-- [`postMessage()`](/de/docs/Web/API/Window/postMessage) kann verwendet werden, um einen unmittelbaren, aber freigebenden Rückruf auszulösen.
-- [`MessageChannel`](/de/docs/Web/API/MessageChannel) kann zuverlässig innerhalb von Web Workern verwendet werden, während die Semantik von postMessage bedeutet, dass es dort nicht verwendet werden kann.
-- `setTimeout(fn, 0)` _kann_ potentiell verwendet werden, jedoch da es für Timer, die mehr als 5 Ebenen tief verschachtelt sind, auf 4ms beschränkt ist [laut HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#timers), eignet es sich nicht als geeignete Polyfill für die natürliche Unmittelbarkeit von `setImmediate`.
+- [`postMessage()`](/de/docs/Web/API/Window/postMessage) kann verwendet werden, um einen unmittelbaren, aber die Ausführung abgebenden Callback auszulösen.
+- [`MessageChannel`](/de/docs/Web/API/MessageChannel) kann zuverlässig innerhalb von Web Workers verwendet werden, während die Semantik von postMessage bedeutet, dass es dort nicht verwendet werden kann.
+- `setTimeout(fn, 0)` _kann_ möglicherweise verwendet werden. Da es jedoch für Timer, die mehr als 5 Ebenen tief verschachtelt sind, [gemäß der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#timers) auf 4 ms begrenzt wird, ist es kein geeignetes Polyfill für die natürliche Unmittelbarkeit von `setImmediate`.
 
-All diese Techniken sind in ein [robustes setImmediate Polyfill](https://github.com/YuzuJS/setImmediate) integriert.
+Alle diese Techniken sind in einem [robusten `setImmediate`-Polyfill](https://github.com/YuzuJS/setImmediate) enthalten.
 
 ## Spezifikationen
 
-Nicht Teil aktueller Spezifikationen. Die [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate) Spezifikation wird nicht mehr bearbeitet.
+Nicht Teil aktueller Spezifikationen.
+An der Spezifikation [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate) wird nicht mehr gearbeitet.
 
 ## Browser-Kompatibilität
 
@@ -56,6 +57,6 @@ Nicht Teil aktueller Spezifikationen. Die [Efficient Script Yielding](https://w3
 ## Siehe auch
 
 - [Polyfill von `setImmediate` in `core-js`](https://github.com/zloirock/core-js#setimmediate)
-- [Microsoft `setImmediate` API Demo](https://jphpsf.github.io/setImmediate-shim-demo/)
+- [Microsoft-`setImmediate`-API-Demo](https://jphpsf.github.io/setImmediate-shim-demo/)
 - [`Window.clearImmediate()`](/de/docs/Web/API/Window/clearImmediate)
 - [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)

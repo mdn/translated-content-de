@@ -1,14 +1,14 @@
 ---
-title: "Window: Methode cancelAnimationFrame()"
+title: "Window: cancelAnimationFrame() Methode"
 short-title: cancelAnimationFrame()
 slug: Web/API/Window/cancelAnimationFrame
 l10n:
-  sourceCommit: 9bf78e9898a1bf51a67e33f8e82276fca575979d
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die Methode **`window.cancelAnimationFrame()`** storniert eine Animationsrahmenanfrage, die zuvor durch einen Aufruf von [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) geplant wurde.
+Die **`window.cancelAnimationFrame()`** Methode storniert eine Animations-Frame-Anfrage, die zuvor durch einen Aufruf von [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) geplant wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ cancelAnimationFrame(requestID)
 ### Parameter
 
 - `requestID`
-  - : Der ID-Wert, der durch den Aufruf von [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) zurückgegeben wurde, der den Rückruf angefordert hat.
+  - : Der ID-Wert, der durch den Aufruf von [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) zurückgegeben wurde und die Callback-Anforderung angefordert hat.
 
 ### Rückgabewert
 

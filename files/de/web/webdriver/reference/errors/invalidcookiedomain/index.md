@@ -3,20 +3,20 @@ title: "`invalid cookie domain` Fehlercode"
 short-title: invalid cookie domain
 slug: Web/WebDriver/Reference/Errors/InvalidCookieDomain
 l10n:
-  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
+  sourceCommit: 336163f964fa8840c30e53571e284c74e9efecfa
 ---
 
-Der **invalid cookie domain** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn versucht wird, ein ungültiges {{Glossary("Cookie", "Cookie")}} für eine andere {{Glossary("Domain", "Domain")}} als die des aktuellen Dokuments zu setzen.
+Der **invalid cookie domain**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} als der des aktuellen Dokuments zu setzen.
 
-In WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontexts")}}'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
+Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontextes")}}'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
-Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
+Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wurde.
 
 ## Beispiel
 
 ### Andere Domains
 
-Wenn die aktuelle Domain `example.com` wäre, wäre es nicht möglich, ein [Cookie hinzuzufügen](/de/docs/Web/WebDriver/Reference/Commands/AddCookie) für die Domain `example.org`:
+Wenn die aktuelle Domain `example.com` wäre, wäre es nicht möglich, ein [Cookie hinzuzufügen](/de/docs/Web/WebDriver/Reference/Classic/Commands/AddCookie) für die Domain `example.org`:
 
 ```python
 from selenium import webdriver
@@ -41,7 +41,7 @@ InvalidCookieDomainException: https://example.org/
 
 ### Cookie-averse Dokumente
 
-Dieser Fehler kann auch auftreten, wenn Sie ein cookie-averses Dokument besuchen, wie zum Beispiel eine Datei auf Ihrer lokalen Festplatte:
+Dieser Fehler kann auch auftreten, wenn Sie ein cookie-averses Dokument besuchen, wie z.B. eine Datei auf Ihrer lokalen Festplatte:
 
 ```python
 from selenium import webdriver
@@ -66,8 +66,8 @@ InvalidCookieDomainException: Document is cookie-averse
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors)
 - Relevante WebDriver-Befehle:
-  - [Add Cookie](/de/docs/Web/WebDriver/Reference/Commands/AddCookie)
-  - [Delete Cookie](/de/docs/Web/WebDriver/Reference/Commands/DeleteCookie)
-  - [Delete All Cookies](/de/docs/Web/WebDriver/Reference/Commands/DeleteAllCookies)
-  - [Get All Cookies](/de/docs/Web/WebDriver/Reference/Commands/GetAllCookies)
-  - [Get Named Cookie](/de/docs/Web/WebDriver/Reference/Commands/GetNamedCookie)
+  - [Cookie hinzufügen](/de/docs/Web/WebDriver/Reference/Classic/Commands/AddCookie)
+  - [Cookie löschen](/de/docs/Web/WebDriver/Reference/Classic/Commands/DeleteCookie)
+  - [Alle Cookies löschen](/de/docs/Web/WebDriver/Reference/Classic/Commands/DeleteAllCookies)
+  - [Alle Cookies abrufen](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetAllCookies)
+  - [Benanntes Cookie abrufen](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetNamedCookie)

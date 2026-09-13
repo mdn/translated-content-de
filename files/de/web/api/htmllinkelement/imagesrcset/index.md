@@ -3,30 +3,30 @@ title: "HTMLLinkElement: imageSrcset-Eigenschaft"
 short-title: imageSrcset
 slug: Web/API/HTMLLinkElement/imageSrcset
 l10n:
-  sourceCommit: 41bfea46fcb69700e456c890ce07c816e14d834c
+  sourceCommit: db443a6062d0e858a62af2f9a3a7558335ffd2dd
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`imageSrcset`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der einen oder mehrere durch Kommas getrennte **Image-Candidate-Strings** identifiziert. Diese Eigenschaft spiegelt den Wert des [`link`](/de/docs/Web/HTML/Reference/Elements/link#imagesrcset)-Elements im [`imagesrcset`]-Attribut wider. Diese Eigenschaft kann den Wert des `imagesrcset`-Attributs erhalten oder setzen.
+Die **`imageSrcset`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der eine oder mehrere durch Kommas getrennte **Bildkandidaten-Strings** identifiziert. Diese Eigenschaft spiegelt den Wert des [`imagesrcset`](/de/docs/Web/HTML/Reference/Elements/link#imagesrcset)-Attributs des {{htmlelement("link")}}-Elements wider. Diese Eigenschaft kann den `imagesrcset`-Attributwert abrufen oder setzen.
 
-Jeder Image-Candidate-String enthält eine Bild-URL und einen optionalen Breiten- und/oder Pixeldichte-Deskriptor, der die Bedingungen angibt, unter denen dieses Kandidatenbild verwendet werden soll.
+Jeder Bildkandidaten-String enthält eine Bild-URL und einen optionalen Breiten- und/oder Pixeldichte-Deskriptor, der die Bedingungen angibt, unter denen das entsprechende Kandidatenbild verwendet werden soll.
 
 ```plain
 "images/team-photo.jpg, images/team-photo-retina.jpg 2x, images/team-photo-large.jpg 1400w"
 ```
 
-Für HTML-{{htmlelement("link")}}-Elemente mit [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) und [`as="image"`](/de/docs/Web/HTML/Reference/Elements/link#as) gesetzt, hat das `imagesrcset`-Attribut eine ähnliche Syntax und Semantik wie das `srcset`-Attribut des {{htmlelement("img")}}-Elements, welches angibt, die geeignete Ressource vorab zu laden, die durch ein `<img>`-Element mit entsprechenden Werten für seine `srcset`- und `sizes`-Attribute verwendet wird.
+Für HTML-{{htmlelement("link")}}-Elemente mit [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) und [`as="image"`](/de/docs/Web/HTML/Reference/Elements/link#as) hat das `imagesrcset`-Attribut eine ähnliche Syntax und Semantik wie das [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut des {{htmlelement("img")}}-Elements, das angibt, die entsprechende Ressource vorzuladen, die von einem `<img>`-Element mit entsprechenden Werten für seine `srcset`- und `sizes`-Attribute verwendet wird.
 
-Wenn die `imageSrcset`-Eigenschaft Breiten-Deskriptoren enthält, muss die [`imageSizes`](/de/docs/Web/API/HTMLLinkElement/imageSizes)-Eigenschaft nicht null sein, oder der `imageSrcset`-Wert wird ignoriert.
+Wenn die `imageSrcset`-Eigenschaft Breiten-Deskriptoren enthält, muss die [`imageSizes`](/de/docs/Web/API/HTMLLinkElement/imageSizes)-Eigenschaft nicht-null sein, sonst wird der `imageSrcset`-Wert ignoriert.
 
 ## Wert
 
-Ein String, der aus einer durch Kommas getrennten Liste von einem oder mehreren Image-Candidate-Strings besteht, oder der leere String `""`, wenn nicht angegeben.
+Ein String, der aus einer durch Kommas getrennten Liste von einem oder mehreren Bildkandidaten-Strings besteht, oder der leere String `""`, wenn nicht angegeben.
 
 ## Beispiele
 
-Angenommen, das folgende `<link>`-Element:
+Gegeben sei das folgende `<link>`-Element:
 
 ```html
 <link
@@ -56,7 +56,7 @@ function log(text) {
 }
 ```
 
-…können wir den Wert des `imagesrcset`-Attributs abrufen und aktualisieren, indem wir die `imageSrcset`-Eigenschaft verwenden:
+...können wir den Wert des `imagesrcset`-Attributs mit der `imageSrcset`-Eigenschaft abrufen und aktualisieren:
 
 ```js
 const link = document.querySelector("link");
@@ -81,5 +81,5 @@ log(`Updated: ${link.imageSrcset}`);
 
 - [`HTMLLinkElement.imageSizes`](/de/docs/Web/API/HTMLLinkElement/imageSizes)
 - [`HTMLImageElement.srcset`](/de/docs/Web/API/HTMLImageElement/srcset)
-- [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading#link_relpreload)
-- [Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images)
+- [Speculative loading](/de/docs/Web/Performance/Guides/Speculative_loading#link_relpreload)
+- [Responsive images](/de/docs/Web/HTML/Guides/Responsive_images)

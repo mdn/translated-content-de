@@ -1,22 +1,23 @@
 ---
-title: "RTCPeerConnection: negotiationneeded Ereignis"
+title: "RTCPeerConnection: negotiationneeded event"
 short-title: negotiationneeded
 slug: Web/API/RTCPeerConnection/negotiationneeded_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`negotiationneeded`** Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn eine Verhandlung der Verbindung über den Signalisierungskanal erforderlich ist. Dies tritt sowohl während der Ersteinrichtung der Verbindung als auch jederzeit auf, wenn eine Änderung der Kommunikationsumgebung eine Neukonfiguration der Verbindung erfordert.
+Ein **`negotiationneeded`**-Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn eine Aushandlung der Verbindung über den Signalisierungskanal erforderlich ist.
+Dies geschieht sowohl während der anfänglichen Einrichtung der Verbindung als auch immer dann, wenn eine Änderung der Kommunikationsumgebung eine Neukonfiguration der Verbindung erfordert.
 
-Das `negotiationneeded` Ereignis wird zuerst an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn Medien erstmals zur Verbindung hinzugefügt werden. Dies startet den Prozess der {{Glossary("ICE", "ICE")}} Verhandlung, indem Ihr Code angewiesen wird, ICE-Kandidaten über den Signalisierungsserver auszutauschen. Siehe [Signalisierungstransaktionsfluss](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#signaling_transaction_flow) für eine Beschreibung des Signalisierungsprozesses, der mit einem `negotiationneeded` Ereignis beginnt.
+Das `negotiationneeded`-Ereignis wird erstmals an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn Medien erstmals zur Verbindung hinzugefügt werden. Dadurch wird der Prozess der {{Glossary("ICE", "ICE")}}-Aushandlung gestartet, indem Ihr Code angewiesen wird, mit dem Austausch von ICE-Kandidaten über den Signalisierungsserver zu beginnen. Eine Beschreibung des Signalisierungsprozesses, der mit einem `negotiationneeded`-Ereignis beginnt, finden Sie unter [Ablauf der Signalisierungstransaktion](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#signaling_transaction_flow).
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("negotiationneeded", (event) => { })
@@ -30,7 +31,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um einen Ereignis-Handler für `negotiationneeded` zu erstellen. Seine Aufgabe ist es, ein {{Glossary("SDP", "SDP")}} Angebot zu erstellen und es über den Signalisierungskanal an den entfernten Teilnehmer zu senden.
+In diesem Beispiel verwenden wir [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um einen Event-Handler für `negotiationneeded` zu erstellen. Seine Aufgabe besteht darin, ein {{Glossary("SDP", "SDP")}}-Angebot zu erstellen und es über den Signalisierungskanal an den Remote-Peer zu senden.
 
 ```js
 pc.addEventListener("negotiationneeded", (ev) => {
@@ -48,9 +49,9 @@ pc.addEventListener("negotiationneeded", (ev) => {
 });
 ```
 
-Nachdem das Angebot erstellt wurde, wird das lokale Ende konfiguriert, indem [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird, dann wird eine Signalisierungsnachricht erstellt und über den Signalisierungsserver an den entfernten Teilnehmer gesendet, um dieses Angebot mit dem anderen Teilnehmer zu teilen. Der andere Teilnehmer sollte diese Nachricht erkennen und daraufhin eine eigene [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen, die entfernte Beschreibung mit [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) setzen und dann eine Antwort erstellen, die an den anbietenden Teilnehmer zurückgesendet wird.
+Nach dem Erstellen des Angebots wird das lokale Ende durch Aufrufen von [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) konfiguriert; anschließend wird eine Signalisierungsnachricht erstellt und über den Signalisierungsserver an den Remote-Peer gesendet, um dieses Angebot mit dem anderen Peer zu teilen. Der andere Peer sollte diese Nachricht erkennen und anschließend eine eigene [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen, die Remote-Beschreibung mit [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) festlegen und dann eine Antwort erstellen, die an den Peer gesendet wird, der das Angebot gemacht hat.
 
-Sie können auch einen Ereignis-Handler für das `negotiationneeded` Ereignis festlegen, indem Sie die Funktion des Ereignis-Handlers der Eigenschaft `onnegotiationneeded` zuweisen:
+Sie können auch einen Event-Handler für das `negotiationneeded`-Ereignis festlegen, indem Sie die Event-Handler-Funktion der Eigenschaft `onnegotiationneeded` zuweisen:
 
 ```js
 pc.onnegotiationneeded = (ev) => {
@@ -68,7 +69,7 @@ pc.onnegotiationneeded = (ev) => {
 };
 ```
 
-Für ein detaillierteres Beispiel siehe [Verhandlungsbeginn](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#starting_negotiation).
+Ein ausführlicheres Beispiel finden Sie unter [Aushandlung starten](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#starting_negotiation).
 
 ## Spezifikationen
 
@@ -84,4 +85,4 @@ Für ein detaillierteres Beispiel siehe [Verhandlungsbeginn](/de/docs/Web/API/We
 - [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
-- [Einführung in die WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
+- [Einführung in WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)

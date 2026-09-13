@@ -3,16 +3,16 @@ title: "`unknown method` Fehlercode"
 short-title: unbekannte Methode
 slug: Web/WebDriver/Reference/Errors/UnknownMethod
 l10n:
-  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
+  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
 ---
 
-Der **unbekannte Methode** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Treiber die für den Endpunkt verwendete [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods) nicht erkennt.
+Der Fehler **unbekannte Methode** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Treiber die verwendete [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods) für den Endpunkt nicht erkennt.
 
-WebDriver bietet eine weitgehend REST-ähnliche API, und nicht alle Endpunkte in dieser API haben `GET`-, `POST`- und `DELETE`-Methoden. Dieser Fehler tritt auf, wenn Sie versuchen, einen Endpunkt mit einer HTTP-Anfragemethode aufzurufen, die er nicht unterstützt.
+WebDriver stellt eine weitgehend REST-ähnliche API bereit und nicht alle Endpunkte in dieser API verfügen über `GET`-, `POST`- und `DELETE`-Methoden. Dieser Fehler tritt auf, wenn Sie versuchen, einen Endpunkt mit einer HTTP-Anfragemethode aufzurufen, die er nicht unterstützt.
 
 ## Beispiele
 
-Der New Session-Befehl bietet einen `POST`-Anfragen-Endpunkt, der es Ihnen ermöglicht, neue WebDriver-Sitzungen zu erstellen:
+Der New Session-Befehl bietet einen `POST`-Anfrageendpunkt, mit dem Sie neue WebDriver-Sitzungen erstellen können:
 
 ```bash
 % curl -d '{}' http://localhost:4444/session
@@ -26,7 +26,7 @@ Er implementiert auch die `DELETE`-Methode zum Beenden einer Sitzung:
 {}
 ```
 
-Er bietet jedoch beispielsweise keine `GET`-Methode an, und dies wird folglich einen unbekannten Methodenfehler zurückgeben:
+Es gibt jedoch beispielsweise keine `GET`-Methode, und dies führt folglich zu einem Fehler der unbekannten Methode:
 
 ```bash
 % curl http://localhost:4444/session/650f9df3-740e-314c-958d-307e41752fae

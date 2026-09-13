@@ -1,20 +1,18 @@
 ---
-title: "Event: timeStamp-Eigenschaft"
+title: "Ereignis: timeStamp-Eigenschaft"
 short-title: timeStamp
 slug: Web/API/Event/timeStamp
 l10n:
-  sourceCommit: 3b5a1c0dfd59257c0a51052a9efa7b0108f8ecca
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`timeStamp`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Zeit (in Millisekunden) zurückgibt, zu der das Ereignis erstellt wurde.
+Die schreibgeschützte **`timeStamp`**-Eigenschaft der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gibt die Zeit (in Millisekunden) zurück, zu der das Ereignis erstellt wurde.
 
 ## Wert
 
-Dieser Wert ist die Anzahl an Millisekunden, die vom Beginn des Zeitursprungs bis zur Erstellung des Ereignisses vergangen sind. Wenn das globale Objekt ein [`Window`](/de/docs/Web/API/Window) ist, entspricht der Zeitursprung dem Moment, in dem der Benutzer auf den Link geklickt hat oder das Skript, das das Laden des Dokuments initiiert hat. In einem Worker ist der Zeitursprung der Moment der Erstellung des Workers.
-
-Der Wert ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der auf 5 Mikrosekunden (0,005 ms) genau ist, wobei [die Präzision reduziert](#reduzierte_zeitpräzision) wird, um {{Glossary("Fingerprinting", "Fingerabdrücke")}} zu verhindern.
+Der Wert ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Anzahl der Millisekunden darstellt, die vom [Zeitursprung](/de/docs/Web/API/Performance/timeOrigin) des relevanten globalen Objekts bis zur Erstellung des Ereignisses vergangen sind. Die [Genauigkeit kann reduziert sein](#reduzierte_zeitgenauigkeit), um Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu verhindern.
 
 ## Beispiel
 
@@ -42,27 +40,33 @@ document.body.addEventListener("keypress", getTime);
 
 {{EmbedLiveSample("Example", "100%", 100)}}
 
-## Reduzierte Zeitpräzision
+## Reduzierte Zeitgenauigkeit
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerabdrücken")}} zu bieten, könnte die Präzision von `event.timeStamp` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2 ms festgelegt. Sie können auch `privacy.resistFingerprinting` aktivieren. In diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher Wert größer ist.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Genauigkeit von `event.timeStamp` je nach Browsereinstellungen reduziert sein.
 
-Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `event.timeStamp` immer ein Vielfaches von 2 sein oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
+Bruchteilig angezeigte Millisekunden bedeuten nicht zwangsläufig, dass die Zeitgenauigkeit nicht reduziert wurde.
+
+In Chrome beträgt das Rundungsintervall 0,1 ms oder 0,005 ms in kontextübergreifend isolierten Umgebungen. In Safari beträgt es 1 ms oder 0,02 ms in kontextübergreifend isolierten Umgebungen.
+
+In Firefox ist die Option `privacy.reduceTimerPrecision` standardmäßig aktiviert und verwendet ein Rundungsintervall von 1 ms oder 0,02 ms in kontextübergreifend isolierten Umgebungen. Wenn `privacy.resistFingerprinting` aktiviert ist, beträgt das Rundungsintervall 16,667 ms oder das Intervall, das durch `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` konfiguriert ist, je nachdem, welches größer ist.
+
+Zum Beispiel sind dies mögliche Werte in Firefox:
 
 ```js
-// reduced time precision (2ms) in Firefox 60
+// Reduced time precision (1 ms) in a non-isolated context
 event.timeStamp;
 // Might be:
 // 9934
-// 10362
-// 11670
+// 10363
+// 11671
 // …
 
-// reduced time precision with `privacy.resistFingerprinting` enabled
+// Reduced time precision with `privacy.resistFingerprinting` enabled
 event.timeStamp;
 // Might be:
-// 53500
-// 58900
-// 64400
+// 10000.2
+// 10016.867
+// 10033.534
 // …
 ```
 

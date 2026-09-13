@@ -1,20 +1,20 @@
 ---
-title: MathML Textcontainer
+title: MathML Textbehälter
 short-title: Text containers
 slug: Web/MathML/Tutorials/For_beginners/Text_containers
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: 3143a6094e7b87cf1a96b61f9551fb4d95049777
 ---
 
 {{PreviousMenuNext("Web/MathML/Tutorials/For_beginners/Getting_started", "Web/MathML/Tutorials/For_beginners/Fractions_and_roots", "Web/MathML/Tutorials/For_beginners")}}
 
-Da Sie nun ein besseres Verständnis von MathML haben, konzentrieren wir uns auf Textcontainer (Variablen, Zahlen, Operatoren, ...), die als Bausteine von MathML-Formeln verwendet werden.
+Nun, da Sie eine bessere Vorstellung von MathML haben, konzentrieren wir uns auf Textbehälter (Variablen, Zahlen, Operatoren, ...), die als Bausteine von MathML-Formeln dienen.
 
 ## Unicode-Zeichen für Mathematik
 
-Mathematische Formeln beinhalten viele Sonderzeichen, beispielsweise griechische Buchstaben (z. B. Δ), Frakturbuchstaben (z. B. 𝔄), durchgeschlagene Buchstaben (z. B. ℂ), binäre Operatoren (z. B. ≠), Pfeile (z. B. ⇒), Integralsymbole (z. B. ∮), Summationssymbole (z. B. ∑), logische Symbole (z. B. ∀), Klammern (z. B. ⌊) und viele mehr. Der Wikipedia-Artikel [Mathematical operators and symbols in Unicode](https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode) bietet einen guten Überblick über die verwendeten Zeichen.
+Mathematische Formeln beinhalten viele Sonderzeichen, zum Beispiel griechische Buchstaben (z. B. Δ), Frakturbuchstaben (z. B. 𝔄), doppelt durchgestrichene Buchstaben (z. B. ℂ), binäre Operatoren (z. B. ≠), Pfeile (z. B. ⇒), Integralzeichen (z. B. ∮), Summenzeichen (z. B. ∑), logische Symbole (z. B. ∀), Klammern (z. B. ⌊) und viele mehr. Der Wikipedia-Artikel [Mathematische Operatoren und Symbole in Unicode](https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode) bietet einen guten Überblick über die verwendeten Zeichen.
 
-Da die meisten dieser Zeichen nicht Teil des Standard-Unicode-Blocks Lateinisch Basic sind, wird empfohlen, die [Zeichenkodierung Ihres Dokuments](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#specifying_your_documents_character_encoding) anzugeben und es mit entsprechenden [Webschriften](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts) zu versehen. Hier ist eine grundlegende Vorlage zur Verwendung der UTF-8-Kodierung und der Schriftart [Latin Modern Math](/de/docs/Web/MathML/Guides/Fonts#fonts_with_a_math_table):
+Da die meisten dieser Zeichen nicht Teil des Basic Latin Unicode Blocks sind, wird empfohlen, die [Zeichenkodierung Ihres Dokuments](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#specifying_your_documents_character_encoding) anzugeben und es mit geeigneten [Webfonts](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts) zu versehen. Hier ist eine grundlegende Vorlage, um die UTF-8-Kodierung und die [Latin Modern Math](/de/docs/Web/MathML/Guides/Fonts#fonts_with_a_math_table) Schriftart zu verwenden:
 
 ```html
 <!doctype html>
@@ -38,20 +38,20 @@ p {
 }
 ```
 
-{{EmbedLiveSample('Unicode_characters_for_mathematics', 700, 100, "", "")}}
+{{ EmbedLiveSample('Unicode_characters_for_mathematics', 700, 100, "", "") }}
 
 ## Ein wenig Semantik
 
-Wir haben im Artikel [Erste Schritte mit MathML](/de/docs/Web/MathML/Tutorials/For_beginners/Getting_started) festgestellt, dass der Text in MathML-Formeln in speziellen Containerelementen wie `<mn>` oder `<mo>` eingeschlossen ist. Im Allgemeinen muss jeder Text in MathML-Formeln in solchen Containerelementen enthalten sein, die _Token_-Elemente genannt werden. Darüber hinaus bietet MathML mehrere Token-Elemente, um unterschiedliche Bedeutungen des Textinhalts zu unterscheiden:
+Wir bemerkten im Artikel [Erste Schritte mit MathML](/de/docs/Web/MathML/Tutorials/For_beginners/Getting_started), dass der Text in MathML-Formeln in speziellen Container-Elementen wie `<mn>` oder `<mo>` eingeschlossen ist. Allgemeiner gesagt, muss jeder Text in MathML-Formeln in solchen Container-Elementen, sogenannten _Token_-Elementen, enthalten sein. Darüber hinaus bietet MathML mehrere Token-Elemente, um verschiedene Bedeutungen des Textinhalts zu unterscheiden:
 
-- Das `<mi>`-Element repräsentiert einen "Bezeichner", der ein symbolischer Name oder beliebiger Text sein könnte. Beispiele: `<mi>x</mi>` (Variable), `<mi>cos</mi>` (Funktionsname) und `<mi>π</mi>` (symbolische Konstante).
-- Das `<mn>`-Element repräsentiert ein "numerisches Literal" oder andere Daten, die als numerisches Literal gerendert werden sollen. Beispiele: `<mn>2</mn>` (Ganzzahl), `<mn>0.123</mn>` (Dezimalzahl) oder `<mn>0xFFEF</mn>` (Hexadezimalwert).
-- Das `<mo>`-Element repräsentiert einen Operator oder irgendetwas, das als Operator gerendert werden soll. Beispielsweise `<mo>+</mo>` (binäre Operation), `<mo>≤</mo>` (binäre Relation), `<mo>∑</mo>` (Summationssymbol) oder `<mo>[</mo>` (Klammer).
-- Das `<mtext>`-Element wird verwendet, um beliebigen Text darzustellen. Beispielsweise kurze Wörter in Formeln wie `<mtext>if<mtext>` oder `<mtext>maps to</mtext>`.
+- Das `<mi>` Element, das einen "Bezeichner" darstellt, welcher ein symbolischer Name oder beliebiger Text sein könnte. Beispiele: `<mi>x</mi>` (Variable), `<mi>cos</mi>` (Funktionsname) und `<mi>π</mi>` (symbolische Konstante).
+- Das `<mn>` Element stellt eine "numerische Literal" oder andere Daten dar, die als numerische Literal gerendert werden sollten. Beispiele: `<mn>2</mn>` (Ganzzahl), `<mn>0.123</mn>` (Dezimalzahl) oder `<mn>0xFFEF</mn>` (hexadezimaler Wert).
+- Das `<mo>` Element stellt einen Operator oder irgendetwas dar, das als Operator gerendert werden sollte. Zum Beispiel `<mo>+</mo>` (binäre Operation), `<mo>≤</mo>` (binäre Relation), `<mo>∑</mo>` (Summenzeichen) oder `<mo>[</mo>` (Klammer).
+- Das `<mtext>` Element wird verwendet, um beliebigen Text darzustellen. Zum Beispiel kurze Wörter in Formeln wie `<mtext>wenn<mtext>` oder `<mtext>abbildet auf</mtext>`.
 
-### Ihr Turn: Token-Elemente erkennen
+### Sie sind dran: Erkennen von Token-Elementen
 
-Nachfolgend ein komplexeres Beispiel, das besagt, dass der Absolutwert einer reellen Zahl genau dann gleich dieser Zahl ist, wenn sie nicht negativ ist. Versuchen Sie, die verschiedenen Token-Elemente zu erkennen und zu identifizieren, wofür sie verwendet werden. Jedes Mal, wenn Sie auf den entsprechenden Text klicken, wird er hervorgehoben und eine Bestätigungsmeldung angezeigt.
+Unten steht ein komplexeres Beispiel, das besagt, dass der Absolutwert einer reellen Zahl gleich dieser Zahl ist, wenn und nur wenn sie nicht negativ ist. Wir möchten, dass Sie versuchen, die verschiedenen Token-Elemente zu erkennen und wofür diese verwendet werden. Jedes Mal, wenn Sie den entsprechenden Text anklicken, wird er hervorgehoben und eine Bestätigungsmeldung wird angezeigt.
 
 ```html hidden live-sample___recognize_token_elements
 <!doctype html>
@@ -122,9 +122,9 @@ document.getElementById("clearOutput").addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample('recognize_token_elements', 700, 400, "", "")}}
+{{ EmbedLiveSample('recognize_token_elements', 700, 400, "", "") }}
 
-Lesen Sie schließlich die MathML-Quelle, um zu überprüfen, ob diese Ihren Erwartungen entspricht:
+Lesen Sie schließlich den MathML-Quellcode, um zu prüfen, ob dieser Ihren Erwartungen entspricht:
 
 ```xml
 <math display="block">
@@ -147,11 +147,11 @@ Lesen Sie schließlich die MathML-Quelle, um zu überprüfen, ob diese Ihren Erw
 ```
 
 > [!NOTE]
-> Es ist manchmal schwierig, das passende Token-Element für einen gegebenen Textinhalt auszuwählen. In der Praxis sollte die Wahl des falschen Elements keine größeren Probleme verursachen, da alle Token-Elemente von den Browserimplementierungen im Allgemeinen gleich gerendert werden (für die visuelle Darstellung und für unterstützende Technologien). Dennoch verfügen die `<mi>`- und `<mo>`-Elemente über spezielle Unterscheidungsmerkmale, die bekannt sein sollten. Diese werden in den folgenden Abschnitten erklärt.
+> Es ist manchmal schwierig zu entscheiden, welches Token-Element für einen gegebenen Textinhalt verwendet werden soll. In der Praxis sollte die Wahl des falschen Elements keine größeren Probleme verursachen, da alle Token-Elemente von Browserimplementierungen in der Regel gleich gerendert werden (für die visuelle Anzeige und für unterstützende Technologien). Jedoch haben die `<mi>` und `<mo>` Elemente spezielle unterscheidende Merkmale, die einem bewusst sein sollten. Diese werden in den folgenden Abschnitten erklärt.
 
 ## Automatische Kursivierung von \<mi>
 
-Eine typografische Konvention in der Mathematik besteht darin, Variablen in Kursivschrift zu verwenden. Um dies zu unterstützen, können `<mi>`-Elemente mit einem einzigen Zeichen automatisch kursiv dargestellt werden. Dies gilt für alle Buchstaben aus dem lateinischen und griechischen Alphabet. Vergleichen Sie die Darstellung der beiden `<mi>`-Elemente in der folgenden Formel:
+Eine typografische Konvention in der Mathematik ist die Verwendung kursiver Buchstaben für Variablen. Um dies zu erleichtern, können `<mi>` Elemente mit einem einzelnen Zeichen automatisch kursiv dargestellt werden. Dies gilt für alle Buchstaben aus den lateinischen und griechischen Alphabeten. Vergleichen Sie die Darstellung der beiden `<mi>` Elemente in der folgenden Formel:
 
 ```html
 <math>
@@ -160,14 +160,14 @@ Eine typografische Konvention in der Mathematik besteht darin, Variablen in Kurs
 </math>
 ```
 
-{{EmbedLiveSample('Automatic italicization of <mi>', 700, 50)}}
+{{ EmbedLiveSample('Automatic italicization of <mi>', 700, 50) }}
 
 > [!NOTE]
-> [Diese Tabelle von MathML Core](https://w3c.github.io/mathml-core/#italic-mappings) bietet die vollständige Liste der Zeichen, die kursiv gesetzt werden, zusammen mit den entsprechenden kursiven Zeichen.
+> [Diese Tabelle von MathML Core](https://w3c.github.io/mathml-core/#italic-mappings) bietet die vollständige Liste der Zeichen, die kursiv dargestellt werden, zusammen mit den entsprechenden kursiven Zeichen.
 
 ## Rückgängigmachung der automatischen Kursivierung von \<mi>
 
-Um diese standardmäßige kursive Transformation rückgängig zu machen, können Sie ein `mathvariant="normal"`-Attribut am `<mi>`-Element anfügen. Vergleichen Sie die Darstellung der Großbuchstaben Gamma in der folgenden Formel:
+Um diese standardmäßige Kursivtransformation rückgängig zu machen, können Sie das Attribut `mathvariant="normal"` am `<mi>` Element anfügen. Vergleichen Sie die Darstellung der Großbuchstaben Gamma in der folgenden Formel:
 
 ```html
 <math>
@@ -176,14 +176,14 @@ Um diese standardmäßige kursive Transformation rückgängig zu machen, können
 </math>
 ```
 
-{{EmbedLiveSample('Reverting automatic italicization of <mi>', 700, 50)}}
+{{ EmbedLiveSample('Reverting automatic italicization of <mi>', 700, 50) }}
 
 > [!NOTE]
 > Obwohl Sie diese Transformation anwenden können, würden Sie normalerweise einfach die gewünschten [Mathematischen alphanumerischen Symbole](https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols) verwenden.
 
-## Operator-Eigenschaften von \<mo>
+## Operatoreneigenschaften von \<mo>
 
-MathML enthält ein [Operator-Wörterbuch](https://w3c.github.io/mathml-core/#operator-dictionary-human), das die Standardeigenschaften von `<mo>`-Elementen je nach Inhalt und Position innerhalb des Containers definiert (Präfix, Infix oder Postfix). Betrachten wir ein konkretes Beispiel:
+MathML enthält ein [Operator-Wörterbuch](https://w3c.github.io/mathml-core/#operator-dictionary-human), das die Standardeigenschaften von `<mo>` Elementen abhängig von ihrem Inhalt und der Position innerhalb seines Containers definiert (Präfix, Infix oder Postfix). Betrachten wir ein konkretes Beispiel:
 
 ```html
 <table>
@@ -220,15 +220,15 @@ MathML enthält ein [Operator-Wörterbuch](https://w3c.github.io/mathml-core/#op
 </table>
 ```
 
-Dieses Beispiel sollte ähnlich wie der folgende Screenshot gerendert werden. Beachten Sie den Abstand zwischen den `<mi>i</mi>`-Elementen und den davor stehenden `<mo>`: kein Abstand für das Präfix-Plus, etwas Abstand für das Infix-Plus und einen kleineren Abstand für das Präfix-Summationssymbol.
+Dieses Beispiel sollte ähnlich der untenstehenden Bildschirmaufnahme gerendert werden. Beachten Sie den Abstand zwischen den `<mi>i</mi>` Elementen und dem vorausgehenden `<mo>`: kein Abstand für das Präfixzeichen Plus, etwas Abstand für das Infixzeichen Plus und ein etwas kleinerer Abstand für das Präfix-Summationszeichen.
 
-![Screenshot der MathML-Formel mit unterschiedlichen Operatorabständen](operator-spacing.png)
+![Screenshot der MathML-Formel mit unterschiedlichem Operatorabstand](operator-spacing.png)
 
-Operatoren haben viele weitere Eigenschaften, die wir später ausführlicher behandeln werden. Denken Sie vorerst daran, einen `<mo>`-Container für Zeichen im Operator-Wörterbuch zu verwenden und Unterausdrücke mit `<mrow>`-Elementen richtig zu gruppieren, um MathML-Renderern zu helfen.
+Operatoren haben viele andere Eigenschaften, die wir später noch näher erläutern werden. Merken Sie sich für jetzt, einen `<mo>` Container für Zeichen im Operator-Wörterbuch zu verwenden und Unterausdrücke korrekt mit `<mrow>` Elementen zu gruppieren, um MathML-Renderern zu helfen.
 
-### Erkenne den Unterschied
+### Spotten Sie den Unterschied
 
-Da Sie nun mit den speziellen Merkmalen von `<mi>` und `<mo>` etwas vertraut sind, möchten wir, dass Sie das `<p>`-Element im [Beispiel oben auf der Seite](#unicode-zeichen_für_mathematik) mit etwas tatsächlichem MathML umschreiben. Vergleichen Sie die visuelle Darstellung in Ihrem Browser und erklären Sie die Unterschiede zur reinen Textversion.
+Nun, da Sie mit speziellen Merkmalen von `<mi>` und `<mo>` etwas vertraut sind, möchten wir, dass Sie das `<p>` Element im [Beispiel oben auf der Seite](#unicode-zeichen_für_mathematik) mit einigen tatsächlichen MathML-Elementen neu schreiben. Vergleichen Sie die visuelle Darstellung in Ihrem Browser und erklären Sie die Unterschiede zur nur-Text-Version.
 
 ```html
 <!doctype html>
@@ -302,14 +302,14 @@ document.getElementById("showSolution").addEventListener(
 );
 ```
 
-{{EmbedLiveSample('spot_the_difference', 700, 500, "", "")}}
+{{ EmbedLiveSample('spot_the_difference', 700, 500, "", "") }}
 
 > [!NOTE]
-> Ein offensichtlicher Unterschied ist, dass der Quellcode mit MathML viel ausführlicher wurde. Denken Sie daran, dass es in diesem Tutorial darum geht, die Sprache zu lernen, aber in der Praxis wird MathML-Inhalt generell nicht manuell geschrieben. Siehe die Seite [Erstellung von MathML](/de/docs/Web/MathML/Guides/Authoring) für weitere Informationen.
+> Ein offensichtlicher Unterschied ist, dass der Quellcode mit MathML viel ausführlicher wurde. Erinnern Sie sich daran, dass es in diesem Tutorial darum geht, die Sprache zu lernen, aber in der Praxis wird MathML-Inhalt im Allgemeinen nicht manuell geschrieben. Weitere Informationen finden Sie auf der Seite [MathML-Autorenschaft](/de/docs/Web/MathML/Guides/Authoring).
 
-### Erkennen von dehnbaren Operatoren
+### Erkennung dehnbarer Operatoren
 
-Das Operator-Wörterbuch definiert eine standardmäßige _Stretchy_-Eigenschaft sowie die entsprechende _Stretch-Achse_ für einige Operatoren. Zum Beispiel kann ein Operator standardmäßig vertikal gedehnt werden, um die maximale Höhe der nicht-dehnbaren Geschwister innerhalb seines `<mrow>`-Containers abzudecken. Durch das Ändern einer [früheren Übung](#your_turn_recognizing_token_elements) kann man Operatoren vertikal dehnen lassen. Können Sie sie finden?
+Das Operator-Wörterbuch definiert eine Standard-_dehnbare_ Eigenschaft sowie die entsprechende _Dehnachse_ für einige Operatoren. Beispielsweise kann ein Operator standardmäßig vertikal gedehnt werden, um die maximale Höhe nicht-dehnbarer Geschwister innerhalb seines `<mrow>` Containers abzudecken. Durch Anpassen einer [früheren Übung](#your_turn_recognizing_token_elements) können Operatoren vertikal gedehnt werden. Können Sie sie finden?
 
 ```html hidden
 <!doctype html>
@@ -405,9 +405,9 @@ document.getElementById("clearOutput").addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample('recognizing_stretchy_operators', 700, 400, "", "")}}
+{{ EmbedLiveSample('recognizing_stretchy_operators', 700, 400, "", "") }}
 
-Wie üblich sind Sie eingeladen, den Quellcode zu lesen, wenn Sie fertig sind:
+Wie immer sind Sie eingeladen, den Quellcode zu lesen, wenn Sie fertig sind:
 
 ```xml
 <math display="block">
@@ -445,17 +445,17 @@ Wie üblich sind Sie eingeladen, den Quellcode zu lesen, wenn Sie fertig sind:
 ```
 
 > [!WARNING]
-> Spezielle [Mathematik-Schriftarten](/de/docs/Web/MathML/Guides/Fonts) sind im Allgemeinen erforderlich, um diese Dehnung zu ermöglichen. Das vorherige Beispiel basiert auf [Webschriften](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts).
+> Spezielle [Mathematik-Schriftarten](/de/docs/Web/MathML/Guides/Fonts) sind im Allgemeinen erforderlich, um dieses Dehnen zu ermöglichen, das vorherige Beispiel verwendet [Webfonts](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts).
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir einige _Token_-Elemente kennengelernt, die als Textcontainer verwendet werden, sowie ihre unterschiedlichen Semantiken, nämlich `<mi>` (Bezeichner), `<mn>` (Zahlen), `<mo>` (Operatoren), `<mtext>` (generischer Text). Wir haben spezielle Unicode-Zeichen gesehen, die häufig in mathematischen Formeln vorkommen, und einen Überblick über einige beobachtbare Verhaltensweisen der `<mi>`- und `<mo>`-Elemente gegeben. Im nächsten Artikel werden wir sehen, wie man sich auf _Token_-Elemente verlässt, um viel komplexere Ausdrücke zu erstellen, wie [Brüche und Wurzeln](/de/docs/Web/MathML/Tutorials/For_beginners/Fractions_and_roots).
+In diesem Artikel haben wir einige _Token_ Elemente kennengelernt, die als Textbehälter dienen, sowie ihre unterschiedlichen Semantiken, nämlich `<mi>` (Identifier), `<mn>` (Zahlen), `<mo>` (Operatoren), `<mtext>` (generischer Text). Wir haben spezielle Unicode-Zeichen betrachtet, die häufig in mathematischen Formeln vorkommen und einen Überblick über einige beobachtbare Verhaltensweisen der `<mi>` und `<mo>` Elemente gegeben. Im nächsten Artikel werden wir sehen, wie man _Token_ Elemente verwendet, um viel komplexere Ausdrücke wie [Brüche und Wurzeln](/de/docs/Web/MathML/Tutorials/For_beginners/Fractions_and_roots) zu erstellen.
 
 ## Siehe auch
 
-- [Das `<mi>`-Element](/de/docs/Web/MathML/Reference/Element/mi)
-- [Das `<mn>`-Element](/de/docs/Web/MathML/Reference/Element/mn)
-- [Das `<mo>`-Element](/de/docs/Web/MathML/Reference/Element/mo)
-- [Das `<mtext>`-Element](/de/docs/Web/MathML/Reference/Element/mtext)
+- [Das `<mi>` Element](/de/docs/Web/MathML/Reference/Element/mi)
+- [Das `<mn>` Element](/de/docs/Web/MathML/Reference/Element/mn)
+- [Das `<mo>` Element](/de/docs/Web/MathML/Reference/Element/mo)
+- [Das `<mtext>` Element](/de/docs/Web/MathML/Reference/Element/mtext)
 
 {{PreviousMenuNext("Web/MathML/Tutorials/For_beginners/Getting_started", "Web/MathML/Tutorials/For_beginners/Fractions_and_roots", "Web/MathML/Tutorials/For_beginners")}}

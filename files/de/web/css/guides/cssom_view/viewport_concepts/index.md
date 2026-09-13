@@ -1,39 +1,39 @@
 ---
-title: Ansichten-Konzepte
+title: Viewport-Konzepte
 slug: Web/CSS/Guides/CSSOM_view/Viewport_concepts
 l10n:
-  sourceCommit: a7da8b5f8846bb412400c41e27525760df35f54e
+  sourceCommit: e1e7e2ac2cb1e40293c32c24bc0667905e9a7a04
 ---
 
-Dieser Artikel erklärt das Konzept der {{Glossary("viewport", "Ansicht")}} — was sie ist und ihre Auswirkungen in Bezug auf CSS, SVG und mobile Geräte. Dieser Artikel definiert die initiale Ansicht und die tatsächliche Ansicht und unterscheidet zwischen der {{Glossary("visual_viewport", "visuellen Ansicht")}} und der {{Glossary("layout_viewport", "Layout-Ansicht")}}.
+Dieser Artikel erklärt das Konzept des {{Glossary("viewport", "Viewports")}} — was er ist und seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte. Dieser Artikel definiert den initialen Viewport und den tatsächlichen Viewport und unterscheidet zwischen dem {{Glossary("visual_viewport", "visuellen Viewport")}} und dem {{Glossary("layout_viewport", "Layout-Viewport")}}.
 
-## Was ist eine Ansicht?
+## Was ist ein Viewport?
 
-Eine **Ansicht** ist eine Funktion des Benutzeragenten, die verwendet wird, um den anfänglichen umgebenden Block für kontinuierliche Medien zu erstellen.
+Ein **Viewport** ist eine Funktion des User Agents, die genutzt wird, um den initialen Block für kontinuierliche Medien festzulegen.
 
-Der generische Begriff _Ansicht_ bezieht sich im Allgemeinen auf den Bereich in Computergrafiken, der derzeit angesehen wird. In Bezug auf Webbrowser ist das im Allgemeinen dasselbe wie das Browserfenster, ausgenommen die Benutzeroberfläche, die Menüleiste usw. Das ist der Teil des Dokuments, den Sie sich ansehen.
+Der generische Begriff _Viewport_ bezieht sich im Allgemeinen auf den Bereich in der Computergrafik, der gerade angesehen wird. In Bezug auf Webbrowser entspricht das normalerweise dem Browserfenster, ausgenommen die Benutzeroberfläche, die Menüleiste usw. Das ist der Teil des Dokuments, den Sie gerade betrachten.
 
-Während ein Dokument geladen wird, durchläuft die Ansicht zwei Phasen:
+Während ein Dokument geladen wird, durchläuft der Viewport zwei Phasen:
 
-- **Initiale Ansicht**
-  - : Die _initiale Ansicht_ bezieht sich auf das Fenster oder den Ansichtsbereich des Benutzeragenten, bevor Benutzeragenten-Stile, HTML {{htmlelement("meta")}}-Tags oder CSS-Stile seine Größe überschrieben haben. Die initiale Ansichtsgröße basiert auf der Größe des Fensters oder des Ansichtsbereichs und nicht auf dem Inhalt. Die Größe der initialen Ansicht eines Vollbild-Benutzeragenten unterscheidet sich je nach Orientierung und Gerät, bleibt jedoch immer gleich für dasselbe Gerät in derselben Orientierung.
+- **Initialer Viewport**
+  - : Der _initiale Viewport_ bezieht sich auf das Fenster oder den Anzeigebereich des Benutzer-Agents, bevor Benutzer-Agent-Stile, HTML-{{htmlelement("meta")}}-Tags oder CSS-Stile seine Größe überschrieben haben. Die Größe des initialen Viewports basiert auf der Größe des Fensters oder Anzeigebereichs und nicht auf dem Inhalt. Die Größe des initialen Viewports eines Vollbild-Benutzer-Agents variiert zwischen Ausrichtungen und Geräten, bleibt jedoch bei demselben Gerät in derselben Ausrichtung immer gleich.
 
-- **Tatsächliche Ansicht**
-  - : Die _tatsächliche Ansicht_ ist die Ansicht, die Sie nach der Verarbeitung des [Ansicht-`<meta>`-Tags](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) erhalten. Inhalte, die für große Ansichten entworfen sind, können eine Vielzahl von Fehlern aufweisen, wenn sie in kleineren Ansichten betrachtet werden, einschließlich unbeabsichtigter Umbrüche, abgeschnittener Inhalte und falsch dimensionierter {{Glossary("scroll_container", "Scroll-Container")}}. Das Ansichts-Meta-Tag bietet Hinweise zur anfänglichen Größe der Ansicht. Die tatsächliche Ansicht ist die durch ihr [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)-Attribut definierte Größe. Wenn dieses Tag weggelassen wird, rendern einige mobile Browser Inhalte mit einer festen initialen umgebenden Blockbreite, normalerweise `980px`. Sie setzen die Breite der tatsächlichen Ansicht auf diesen Wert und verkleinern dann den Inhalt, um ihn anzupassen, wodurch die CSS-Pixel-Größe kleiner als ein tatsächliches Pixel wird.
+- **Tatsächlicher Viewport**
+  - : Der _tatsächliche Viewport_ ist der Viewport, den Sie nach der Verarbeitung des [Viewport-`<meta>`-Tags](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) erhalten. Inhalte, die für große Viewports entworfen wurden, können in kleineren Viewports verschiedene Fehler zeigen, einschließlich unbeabsichtigtem Zeilenumbruch, abgeschnittenem Inhalt und falsch dimensionierten {{Glossary("scroll_container", "Scrollcontainern")}}. Das Viewport-Meta-Tag gibt Hinweise auf die anfängliche Größe des Viewports. Der tatsächliche Viewport ist die durch sein [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content) Attribut definierte Größe. Wenn dieses Tag fehlt, rendern einige mobile Browser Inhalte mit einer festen Anfangsblockbreite, typischerweise `980px`. Sie setzen die Breite des tatsächlichen Viewports auf diesen Wert und skalieren den Inhalt dann, um ihn anzupassen, wodurch die CSS-Pixelgröße kleiner als ein tatsächlicher Pixel wird.
 
-Dokumente, wie dieser Artikel, können sehr lang sein. Ihre Ansicht ist alles, was derzeit sichtbar ist; insbesondere der Abschnitt "Was ist eine Ansicht" und vielleicht ein Teil des Navigationsmenüs. Die Größe der Ansicht hängt von der Größe des Bildschirms ab, davon, ob der Browser im Vollbildmodus ist oder nicht, und ob der Browser herangezoomt ist. Inhalte außerhalb der Ansicht, wie der Abschnitt _Siehe auch_ in diesem Dokument, sind wahrscheinlich nicht sichtbar, bis sie in den sichtbaren Bereich gescrollt werden.
+Dokumente wie dieser Artikel können sehr lang sein. Ihr Viewport ist alles, was derzeit sichtbar ist; insbesondere der Abschnitt „Was ist ein Viewport“ und vielleicht ein Teil des Navigationsmenüs. Die Größe des Viewports hängt von der Größe des Bildschirms ab, ob der Browser im Vollbildmodus ist oder nicht, und ob der Browser herein- oder herausgezoomt ist. Inhalte außerhalb des Viewports, wie der Abschnitt „Siehe auch“ in diesem Dokument, sind wahrscheinlich nicht sichtbar, bis sie in den sichtbaren Bereich gescrollt werden.
 
-- Auf größeren Monitoren, auf denen Anwendungen nicht unbedingt im Vollbildmodus laufen, entspricht die Ansicht der Größe des Browserfensters.
-- Auf den meisten mobilen Geräten und wenn der Browser im Vollbildmodus ist, ist die Ansicht der gesamte Bildschirm.
-- Im Vollbildmodus ist die Ansicht der Geräteschirm, das Fenster ist das Browserfenster, das so groß wie die Ansicht oder kleiner sein kann, und das Dokument ist die Website, die viel höher oder breiter als die Ansicht sein kann.
+- Auf größeren Monitoren, auf denen Anwendungen nicht unbedingt im Vollbildmodus sind, entspricht der Viewport der Größe des Browserfensters.
+- Auf den meisten mobilen Geräten und im Vollbildmodus des Browsers ist der Viewport der gesamte Bildschirm.
+- Im Vollbildmodus ist der Viewport der Geräteschirm, das Fenster ist das Browserfenster, das genauso groß wie der Viewport oder kleiner sein kann, und das Dokument ist die Website, die viel höher oder breiter als der Viewport sein kann.
 
-Für [paginierte Medien](/de/docs/Web/CSS/Guides/Paged_media) basiert der anfängliche umgebende Block auf dem Seitenbereich. Der Seitenbereich kann durch {{cssxref("@page")}}-Regeln festgelegt werden.
+Für [seitenbasierte Medien](/de/docs/Web/CSS/Guides/Paged_media) basiert der initiale Block auf dem Seitenbereich. Der Seitenbereich kann durch {{cssxref("@page")}}-Regeln festgelegt werden.
 
-Zusammengefasst ist die Ansicht im Wesentlichen der Teil des Dokuments, der derzeit sichtbar ist.
+Zusammengefasst, der Viewport ist im Grunde der Teil des Dokuments, der derzeit sichtbar ist.
 
-### Ansichtsgrößen sind veränderlich
+### Viewport-Größen sind veränderbar
 
-Die Breite der Ansicht entspricht nicht immer der Breite des Fensters. Wenn Sie die Breite oder Höhe des Fensters und des Dokuments in Chrome oder Firefox abfragen, erhalten Sie möglicherweise:
+Die Breite des Viewports ist nicht immer die Breite des Fensters. Wenn Sie die Breite oder Höhe des Fensters und Dokuments in Chrome oder Firefox abfragen, können Sie Folgendes erhalten:
 
 ```js
 document.documentElement.clientWidth; /* 1200 */
@@ -47,17 +47,17 @@ window.innerHeight; /* 800 */
 window.outerHeight; /* 900 */
 ```
 
-Es gibt mehrere DOM-Eigenschaften, die Ihnen helfen können, die Größe der Ansicht und andere ähnliche Längen abzufragen:
+Es gibt mehrere DOM-Eigenschaften, die Ihnen helfen können, die Größe des Viewports und andere ähnliche Längen abzufragen:
 
-- Die Dokumentelement-Länge [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth) ist die innere Breite eines Dokuments in [CSS-Pixeln](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport#screen_density), einschließlich Padding (aber nicht Ränder, Margen oder vertikale Scrollleisten, falls vorhanden). **Dies ist die Ansichtsbreite**.
-- Die [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) ist die Breite, in CSS-Pixeln, des Ansichtsbereichs des Browserfensters einschließlich, wenn gerendert, der vertikalen Scrollleiste.
-- Die [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) ist die Breite der Außenseite des Browserfensters, einschließlich des gesamten Fenster-Cromes.
+- Die `Element.clientWidth` des Dokumentelements ist die innere Breite eines Dokuments in [CSS-Pixel](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport#screen_density), einschließlich Polsterung (aber nicht der Ränder, Ränder oder vertikalen Bildlaufleisten, falls vorhanden). **Dies ist die Viewport-Breite**.
+- `Window.innerWidth` ist die Breite des Browserfensters in CSS-Pixel inklusive, falls gerendert, der vertikalen Bildlaufleiste.
+- `Window.outerWidth` ist die Breite der Außenseite des Browserfensters einschließlich aller Fensterlemente {{Glossary("chrome", "chrome")}}.
 
-In einem Experiment mit diesen, wurde festgestellt, dass `innerWidth` und `outerWidth` gleich sind, aber `outerHeight` war 100px höher als `innerHeight`. Dies liegt daran, dass `outerHeight` das Browser-Chrom enthält: Messungen wurden in einem Browser mit einer Adressleiste und einer Lesezeichenleiste aufgenommen, die insgesamt 100px hoch waren, aber kein Chrom auf der linken oder rechten Seite des Fensters.
+In einem Experiment mit diesen waren `innerWidth` und `outerWidth` gleich, aber `outerHeight` war 100px höher als `innerHeight`. Dies liegt daran, dass `outerHeight` das Browser-Chrome beinhaltet: Die Messungen wurden bei einem Browser mit einer Adressleiste und einer Lesezeichenleiste durchgeführt, die insgesamt 100px hoch waren, jedoch kein Chrome auf der linken oder rechten Seite des Fensters.
 
-Der Bereich innerhalb von `innerHeight` und `innerWidth` wird allgemein als die **{{Glossary("layout_viewport", "Layout-Ansicht")}}** angesehen. Das Browser-Chrom wird nicht als Teil der Ansichts-Konzeption betrachtet.
+Der Bereich innerhalb von `innerHeight` und `innerWidth` wird allgemein als **{{Glossary("layout_viewport", "Layout-Viewport")}}** betrachtet. Das Browser-Chrome wird nicht als Teil des Viewports betrachtet.
 
-Wenn hineingezoomt wird, berichten sowohl Firefox als auch Chrome über die neue {{Glossary("CSS_pixel", "CSS-Pixel")}}-Größe für `innerWidth` und `clientWidth`. Die zurückgegebenen Werte für `outerWidth` und `outerHeight` hängen vom Browser ab: Firefox gibt den neuen Wert in CSS-Pixeln zurück, aber Chrome gibt die Länge in der Standard-Pixelgröße zurück. Beim Hineinzoomen erhalten Sie möglicherweise:
+Beim Hineinzoomen geben sowohl Firefox als auch Chrome die neue {{Glossary("CSS_pixel", "CSS-Pixel")}}-Größe für `innerWidth` und `clientWidth` an. Die für `outerWidth` und `outerHeight` zurückgegebenen Werte hängen vom Browser ab: Firefox berichtet den neuen Wert in CSS-Pixel, aber Chrome gibt die Länge in der Standard-Pixelgröße zurück. Beim Hineinzoomen können Sie Folgendes erhalten:
 
 ```js
 document.documentElement.clientWidth; /* 800 */
@@ -71,7 +71,7 @@ window.innerHeight; /* 533 */
 window.outerHeight; /* 596 in Firefox, 900 in chrome */
 ```
 
-Die Ansicht war ursprünglich 1200 x 800 Pixel. Nach dem Hineinzoomen wurde die Ansicht 800 x 533 Pixel. Dies ist die _Layout-Ansicht_. Haftende Kopf- oder Fußzeilen mit den folgenden Stilen haften jeweils an der oberen und unteren Grenze der _Layout-Ansicht_.
+Der Viewport war ursprünglich 1200 x 800 Pixel. Nach dem Hineinzoomen wurde der Viewport 800 x 533 Pixel. Dies ist der _Layout-Viewport_. Sticky-Header oder -Footer mit den folgenden Stilen haften am oberen und unteren Rand des _Layout-Viewports_.
 
 ```css
 body > header {
@@ -84,29 +84,29 @@ body > footer {
 }
 ```
 
-Wir erhielten die Messung 800 x 533, als wir mit der Tastatur hineingezoomt haben. Die Kopf- und Fußzeilen blieben bündig an der oberen und unteren Grenze des Fensters haften. Aber was, wenn wir auf einem Tablet mit Pinch-Zoom gezoomt hätten? Was, wenn sich auf einem Telefon eine dynamische Tastatur öffnet?
+Wir erhielten die Messung 800 x 533, als wir mit der Tastatur hineingezoomt haben. Der Header und Footer blieben bündig am oberen und unteren Rand des Fensters. Aber was wäre, wenn wir auf einem Tablet gezoomt hätten? Was wäre, wenn auf einem Telefon eine dynamische Tastatur auftaucht?
 
-### Layout- und visuelle Ansichten
+### Layout- und visuelle Viewports
 
-Das Web enthält zwei Ansichten, die **Layout-Ansicht** und die **visuelle Ansicht**. Die visuelle Ansicht ist der Teil der Webseite, der derzeit im Browser sichtbar ist und sich ändern kann. Wenn der Benutzer die Seite mit einer Pinch-Geste zoomt, eine dynamische Tastatur öffnet oder eine zuvor verborgene Adressleiste sichtbar wird, schrumpft die visuelle Ansicht, aber die Layout-Ansicht bleibt unverändert.
+Das Web enthält zwei Viewports, den **Layout-Viewport** und den **visuellen Viewport**. Der visuelle Viewport ist der Teil der Webseite, der derzeit im Browser sichtbar ist und sich ändern kann. Wenn der Benutzer die Seite per Pinch-Zoom vergrößert, eine dynamische Tastatur öffnet oder eine zuvor verborgene Adressleiste sichtbar wird, schrumpft der visuelle Viewport, aber der Layout-Viewport bleibt unverändert.
 
-[Fixed](/de/docs/Web/CSS/Reference/Properties/position#fixed_positioning) haftende Kopf- oder Fußzeilen, wie oben erwähnt, haften an der oberen und unteren Grenze der _Layout-Ansicht_ und bleiben somit im Blick, wenn wir mit der Tastatur hineinzoomen. Wenn Sie mit Pinch-Gesten zoomen, ist die Layout-Ansicht möglicherweise nicht vollständig sichtbar. Wenn Sie aus der Mitte der Layout-Ansicht vergrößern, wird der Inhalt in alle vier Richtungen erweitert. Wenn Sie eine haftende Kopf- oder Fußzeile haben, bleiben sie weiterhin an der oberen oder unteren Grenze der Layout-Ansicht haften, können jedoch möglicherweise nicht oben und unten auf dem Bildschirm des Geräts sichtbar sein — das ist die visuelle Ansicht. Die visuelle Ansicht ist der derzeit sichtbare Teil der Layout-Ansicht. Wenn Sie nach unten scrollen, ändern Sie den Inhalt der visuellen Ansicht und bringen den unteren Teil der Layout-Ansicht ins Sichtfeld, wobei die haftende Fußzeile angezeigt wird, die dann am unteren Rand haften bleibt.
+[Feste](/de/docs/Web/CSS/Reference/Properties/position#fixed_positioning) Sticky-Header oder -Footer, wie oben besprochen, haften am oberen und unteren Rand des _Layout-Viewports_ und bleiben daher im Blick, wenn wir per Tastatur hineinzoomen. Wenn Sie per Pinch-Zoom vergrößern, ist möglicherweise nicht der gesamte Layout-Viewport sichtbar. Wenn Sie aus der Mitte des Layout-Viewports vergrößern, wird der Inhalt in alle vier Richtungen erweitert. Wenn Sie einen Sticky-Header oder -Footer haben, bleiben diese am oberen oder unteren Rand des Layout-Viewports haften, aber sie sind möglicherweise nicht oben und unten auf dem Bildschirm des Geräts sichtbar — das ist der visuelle Viewport. Der visuelle Viewport ist der derzeit sichtbare Teil des Layout-Viewports. Scrollen Sie nach unten, ändern Sie den Inhalt des visuellen Viewports und bringen Sie den unteren Teil des Layout-Viewports ins Sichtfeld, wodurch der Sticky-Footer angezeigt wird, der dann am unteren Rand kleben bleibt.
 
-Die visuelle Ansicht ist der visuelle Teil eines Bildschirms, der Tastaturen auf dem Bildschirm, Bereiche außerhalb des Pinch-Zoom-Bereichs oder andere Funktionen, die nicht mit den Dimensionen einer Seite skaliert werden, nicht einschließt. Die visuelle Ansicht hat dieselbe Größe wie die Layout-Ansicht oder ist kleiner.
+Der visuelle Viewport ist der sichtbare Teil eines Bildschirms ohne Bildschirmtastaturen, Bereiche außerhalb eines Zoom-Bereichs oder andere Funktionen, die nicht mit den Abmessungen einer Seite skalieren. Der visuelle Viewport ist gleich groß wie der Layout-Viewport oder kleiner.
 
-Für eine Seite, die Iframes, Objekte oder externe SVGs enthält, hat sowohl die umschließende Seite als auch jede enthaltene Datei ihr eigenes einzigartiges Fensterobjekt. Nur das oberste Fenster hat eine visuelle Ansicht, die sich von der Layout-Ansicht unterscheiden kann. Für eingebundene Dokumente sind die visuelle Ansicht und die Layout-Ansicht gleich.
+Für eine Seite, die iframes, Objekte oder externe SVGs enthält, haben sowohl die enthaltenden Seiten als auch jede enthaltene Datei ihr eigenes eindeutiges Fensterobjekt. Nur das oberste Fenster hat einen visuellen Viewport, der sich vom Layout-Viewport unterscheiden kann. Bei enthaltenen Dokumenten sind der visuelle Viewport und der Layout-Viewport gleich.
 
 ### CSS
 
-Die oben beschriebene Layout-Ansicht und visuelle Ansicht sind nicht die einzigen Ansichten, auf die Sie stoßen werden. Jedes Unteransicht, das vollständig oder teilweise innerhalb der Layout-Ansicht angezeigt wird, wird als visuelle Ansicht betrachtet.
+Der oben beschriebene Layout-Viewport und visuelle Viewport sind nicht die einzigen Viewports, denen Sie begegnen werden. Jeder Unter-Viewport, der vollständig oder teilweise im Layout-Viewport angezeigt wird, wird als visueller Viewport betrachtet.
 
-Wir denken im Allgemeinen, dass [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width) und [`height`](/de/docs/Web/CSS/Reference/At-rules/@media/height)-Medienabfragen relativ zur Breite und Höhe des Browserfensters sind. Sie beziehen sich tatsächlich auf die Ansicht, die das Fenster im Hauptdokument ist, aber die intrinsische Größe des Elternelements in einem verschachtelten Browsing-Kontext wie Objekte, Iframes und SVG. In CSS haben wir auch [Längeneinheiten basierend auf der Größe der Ansicht](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units). Eine `vh`-Einheit ist 1% der Höhe der Layout-Ansicht. Ebenso ist die `vw`-Einheit 1% der Breite der Layout-Ansicht.
+Wir denken allgemein, dass [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width)- und [`height`](/de/docs/Web/CSS/Reference/At-rules/@media/height)-Medienabfragen relativ zur Breite und Höhe des Browserfensters sind. Sie stehen tatsächlich im Verhältnis zum Viewport, der im Hauptdokument das Fenster ist, aber die intrinsische Größe des Elternelements in einem verschachtelten Browserkontext wie Objekte, iframes und SVG ist. In CSS haben wir auch [Längeneinheiten basierend auf der Viewport-Größe](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units). Eine `vh`-Einheit entspricht 1% der Höhe des Layout-Viewports. Ähnlich ist die `vw`-Einheit 1% der Breite des Layout-Viewports.
 
 #### `<iframe>`
 
-Innerhalb eines {{htmlelement("iframe")}} ist die visuelle Ansicht die Größe der inneren Breite und Höhe des Iframes, nicht des übergeordneten Dokuments. Sie können jede Höhe und Breite auf einem Iframe einstellen, aber das gesamte Dokument ist möglicherweise nicht sichtbar.
+Innerhalb eines {{htmlelement("iframe")}} ist der visuelle Viewport die Größe der inneren Breite und Höhe des iframes und nicht des übergeordneten Dokuments. Sie können jede Höhe und Breite auf einem iframe festlegen, aber das gesamte Dokument ist möglicherweise nicht sichtbar.
 
-Wenn Sie [Ansichtlängen-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units) in Ihrem CSS innerhalb des Iframe-Dokuments verwenden, ist `1vh` 1% der Höhe des Iframes und `1vw` 1% der Breite des Dokuments.
+Wenn Sie in Ihrem CSS im iframe-Dokument [Viewport-Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units) verwenden, ist `1vh` 1% der Höhe des iframes und `1vw` 1% der Breite des Dokuments.
 
 ```css
 iframe {
@@ -114,9 +114,9 @@ iframe {
 }
 ```
 
-Wenn der Iframe auf 50vw gesetzt ist, wird er 50% der Breite des `1200px` übergeordneten Dokuments in unserem obigen Beispiel ausmachen, d.h. `600px`, wobei `1vw` `6px` entspricht. Beim Herausscrollen verkleinert sich der Iframe auf `400px` und `1vw` wird `4px`.
+Wenn das iframe auf 50vw gesetzt ist, entspricht es 50% der Breite des `1200px`-Elterndokuments in unserem obigen Beispiel, also `600px`, wobei `1vw` `6px` ist. Beim Hineinzoomen schrumpft das iframe auf `400px` und `1vw` wird zu `4px`.
 
-Eine Breiten-basierte Medienabfrage innerhalb des Iframe-Dokuments ist relativ zur Ansicht des Iframes.
+Eine auf Breite basierende Medienabfrage innerhalb des iframe-Dokuments bezieht sich auf den Viewport des iframes.
 
 ```css
 @media screen and (width <= 500px) {
@@ -126,21 +126,21 @@ Eine Breiten-basierte Medienabfrage innerhalb des Iframe-Dokuments ist relativ z
 }
 ```
 
-Wenn das obige CSS im Iframe enthalten ist, werden die Absätze rot, wenn der Benutzer hineingezoomt hat, aber dieser Stil gilt nicht im nicht hineingezoomten Zustand.
+Wenn das obige CSS im iframe enthalten ist, werden die Absätze rot, wenn der Benutzer hineingezoomt hat, aber dieser Stil gilt nicht im nicht hineingezoomten Zustand.
 
 #### SVG
 
-In einem [SVG](/de/docs/Web/SVG) Dokument ist die Ansicht der sichtbare Bereich des SVG-Bildes. Sie können jede Höhe und Breite auf einem {{SVGElement("svg")}} einstellen, aber das gesamte Bild könnte möglicherweise nicht sichtbar sein. Der sichtbare Bereich wird als die Ansicht bezeichnet. Die Größe der Ansicht kann mit den Breiten- und Höhenattributen des `<svg>` Elements definiert werden.
+In einem [SVG](/de/docs/Web/SVG)-Dokument ist der Viewport der sichtbare Bereich des SVG-Bildes. Sie können eine beliebige Höhe und Breite auf einem {{SVGElement("svg")}} festlegen, aber das gesamte Bild ist möglicherweise nicht sichtbar. Der sichtbare Bereich wird als Viewport bezeichnet. Die Größe des Viewports kann mit den Attributen „width“ und „height“ des `<svg>`-Elements definiert werden.
 
 ```html
 <svg height="300" width="400"></svg>
 ```
 
-In diesem Beispiel hat die Ansicht ein {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 3:4 und ist standardmäßig 400 x 300 Einheiten groß, wobei eine Einheit im Allgemeinen einem CSS-Pixel entspricht.
+In diesem Beispiel hat der Viewport ein {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 3:4 und ist standardmäßig 400 mal 300 Einheiten, wobei eine Einheit normalerweise einem CSS-Pixel entspricht.
 
-SVG verfügt auch über ein internes [Koordinatensystem](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems), das über das [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox) Attribut definiert wird und nicht mit dieser Ansichts-Diskussion zusammenhängt.
+SVG hat auch ein internes [Koordinatensystem](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems), das über das [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox)-Attribut definiert wird, das in dieser Viewport-Diskussion nicht berücksichtigt wird.
 
-Wenn Sie eine SVG-Datei in Ihr HTML einfügen, ist die Ansicht des SVG der anfängliche umgebende Block oder die Breite und Höhe des SVG-Containers. Die Verwendung der {{CSSxRef("@media")}} Abfrage im CSS Ihres SVGs ist relativ zu diesem Container, nicht zum Browser.
+Wenn Sie eine SVG-Datei in Ihr HTML aufnehmen, ist der Viewport des SVG der initiale Block, oder die Breite und Höhe des SVG-Containers. Die Verwendung der {{CSSxRef("@media")}}-Abfrage in Ihrem SVG-CSS bezieht sich auf diesen Container und nicht auf den Browser.
 
 ```css
 @media screen and (400px <= width <= 500px) {
@@ -148,28 +148,28 @@ Wenn Sie eine SVG-Datei in Ihr HTML einfügen, ist die Ansicht des SVG der anfä
 }
 ```
 
-Im Allgemeinen, wenn Sie die obige Medienabfrage schreiben, werden die Stile angewendet, wenn die Ansicht, im Allgemeinen das Browserfenster, zwischen 400px und 500px liegt, einschließlich. Die Breite basierte Medienabfrage im SVG basiert auf dem Element, in dem sich das SVG befindet — dem {{htmlelement("img")}}, wenn die Quelle eine SVG-Datei ist, das SVG selbst, wenn das SVG direkt in das HTML eingefügt ist, oder dem übergeordneten Element, wenn das übergeordnete Element eine zugewiesene Breite hat und — nicht die Breite der Ansicht. Mit der oben genannten Medienabfrage in unserer SVG-Datei wird das CSS angewendet, wenn der SVG-Container zwischen 400px und 500px liegt.
+Im Allgemeinen, wenn Sie die obige Medienabfrage schreiben, werden die Stile angewendet, wenn der Viewport, also das Browserfenster, zwischen 400px und 500px, einschließlich, liegt. Die Breiten-Medienabfrage im SVG basiert auf dem Element, in dem das SVG enthalten ist — das {{htmlelement("img")}}, falls die Quelle eine SVG-Datei ist, das SVG selbst, wenn das SVG direkt in das HTML aufgenommen wird, oder das Elternelement, falls das Elternelement eine Breite zugewiesen hat — und nicht die Breite des Viewports. Mit der oben genannten Medienabfrage, die in unserer SVG-Datei enthalten ist, wird das CSS angewendet, wenn der SVG-Container zwischen 400px und 500px ist.
 
 ### JavaScript
 
-Die [`VisualViewport`](/de/docs/Web/API/VisualViewport#examples) Schnittstelle bietet einen Mechanismus zum Abfragen und Ändern der Eigenschaften der visuellen Ansicht.
+Das [`VisualViewport`](/de/docs/Web/API/VisualViewport#examples)-Interface bietet einen Mechanismus zum Abfragen und Ändern der Eigenschaften des visuellen Viewports.
 
-Die [`Viewport`](/de/docs/Web/API/Viewport) Schnittstelle bietet einen Mechanismus zum Abfragen und Ändern der Eigenschaften der visuellen Ansicht.
+Das [`Viewport`](/de/docs/Web/API/Viewport)-Interface bietet einen Mechanismus zum Abfragen und Ändern der Eigenschaften des visuellen Viewports.
 
-## Mobile Ansichten
+## Mobile Viewports
 
-Mobile Geräte gibt es in allen Formen und Größen, mit Bildschirmen unterschiedlicher {{Glossary("device_pixel", "Gerätepixel")}}-Verhältnisse. Die Ansicht des mobilen Browsers ist der Bereich des Fensters, in dem Webinhalte angezeigt werden können, was nicht unbedingt dieselbe Größe wie die gerenderte Seite hat. Mobile Browser rendern Seiten in einem virtuellen Fenster oder einer Ansicht, allgemein bei 980px, die normalerweise breiter als der Bildschirm ist, und verkleinern dann das gerenderte Ergebnis, sodass es auf einmal sichtbar ist. Benutzer können dann schwenken und zoomen, um verschiedene Bereiche der Seite zu sehen. Zum Beispiel, wenn ein mobiler Bildschirm eine Breite von 320px hat, könnte eine Website mit einer virtuellen Ansicht von 980px gerendert werden, und dann wird sie auf den 320px großen Bereich verkleinert, was je nach Design für viele, wenn nicht sogar alle, unleserlich ist. Um einem mobilen Browser zu sagen, dass er die Ansichtsbreite anstelle der Standardgröße von 980px als Breite des Bildschirms verwenden soll, können Entwickler ein Ansichts-Meta-Tag einschließen, wie das folgende:
+Mobile Geräte gibt es in allen Formen und Größen, mit Bildschirmen unterschiedlicher {{Glossary("device_pixel", "Gerätepixel")}}-Verhältnisse. Der Viewport des mobilen Browsers ist der Bereich des Fensters, in dem Webinhalte sichtbar sind, was nicht unbedingt der gleichen Größe wie die gerenderte Seite entspricht. Mobilbrowser rendern Seiten in einem virtuellen Fenster oder Viewport, normalerweise bei 980px, das normalerweise breiter als der Bildschirm ist, und verkleinern dann das gerenderte Ergebnis, damit es alles auf einmal sichtbar ist. Benutzer können dann schwenken und zoomen, um verschiedene Bereiche der Seite zu sehen. Wenn ein mobiler Bildschirm beispielsweise eine Breite von 320px hat, könnte eine Website mit einem virtuellen Viewport von 980px gerendert werden, und dann wird sie verkleinert, um in den 320px-Bereich zu passen, was abhängig von dem Design für viele, wenn nicht alle, unleserlich ist. Um einem mobilen Browser mitzuteilen, die Viewport-Breite anstelle der standardmäßigen 980px als Breite des Bildschirms zu verwenden, können Entwickler ein Viewport-Meta-Tag wie das folgende einfügen:
 
 ```html
 <meta name="viewport" content="width=device-width" />
 ```
 
-Die Eigenschaft `width` steuert die Größe der Ansicht. Sie sollte vorzugsweise auf `device-width` gesetzt werden, was die Bildschirmbreite in CSS-Pixeln bei einem Maßstab von 100% ist. Es gibt andere Eigenschaften, einschließlich `maximum-scale`, `minimum-scale` und `user-scalable`, die steuern, ob Benutzer die Seite hinein- oder herauszoomen können, aber die Standardwerte sind die besten für Zugänglichkeit und Benutzererfahrung, daher können diese weggelassen werden.
+Die `width`-Eigenschaft steuert die Größe des Viewports. Sie sollte vorzugsweise auf `device-width` gesetzt werden, was die Breite des Bildschirms in CSS-Pixeln bei einem Maßstab von 100% ist. Es gibt andere Eigenschaften, einschließlich `maximum-scale`, `minimum-scale` und `user-scalable`, die steuern, ob Benutzer die Seite herein- oder herauszoomen können, aber die Standardwerte sind die besten für Zugänglichkeit und Benutzererfahrung, daher können diese weggelassen werden.
 
 ## Siehe auch
 
 - [CSSOM-Ansicht](/de/docs/Web/CSS/Guides/CSSOM_view) Modul
-- [CSSOM-Ansicht API](/de/docs/Web/API/CSSOM_view_API)
+- [CSSOM-Ansicht-API](/de/docs/Web/API/CSSOM_view_API)
 - {{HTMLElement("meta")}}, speziell [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)
-- [CSS-Ansicht](/de/docs/Web/CSS/Guides/Viewport) Modul
+- [CSS-Viewport](/de/docs/Web/CSS/Guides/Viewport) Modul
 - [CSSOM-Ansicht](/de/docs/Web/CSS/Guides/CSSOM_view) Modul

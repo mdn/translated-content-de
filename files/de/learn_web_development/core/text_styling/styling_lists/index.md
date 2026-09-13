@@ -2,12 +2,12 @@
 title: Styling von Listen
 slug: Learn_web_development/Core/Text_styling/Styling_lists
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 1b7c3c1e03f14c3878e4d8518b0f1a89bedfdc9c
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Fundamentals", "Learn_web_development/Core/Text_styling/Styling_links", "Learn_web_development/Core/Text_styling")}}
 
-[Listen](/de/docs/Learn_web_development/Core/Structuring_content/Lists) verhalten sich größtenteils wie jeder andere Text, aber es gibt einige CSS-Eigenschaften, die speziell für Listen gelten und die Sie kennen sollten, sowie einige bewährte Praktiken, die es zu beachten gilt. Dieser Artikel erklärt alles.
+[Listen](/de/docs/Learn_web_development/Core/Structuring_content/Lists) verhalten sich größtenteils wie jeder andere Text, aber es gibt einige CSS-Eigenschaften, die spezifisch für Listen sind und die Sie kennen sollten, sowie einige bewährte Praktiken, die Sie berücksichtigen sollten. Dieser Artikel erklärt alles.
 
 <table>
   <tbody>
@@ -15,17 +15,17 @@ l10n:
       <th scope="row">Voraussetzungen:</th>
       <td>
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Inhalte mit HTML strukturieren</a
+          >Strukturieren von Inhalten mit HTML</a
         > und
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>.
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen der CSS-Gestaltung</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Abstand von Listenelementen, zum Beispiel mit `margin` oder `line-height`.</li>
-          <li>Verwendung von <code>list-style</code> Eigenschaften.</li>
+          <li>Abstände zwischen Listenelementen, zum Beispiel mit Margin oder Zeilenhöhe.</li>
+          <li>Verwendung von <code>list-style</code>-Eigenschaften.</li>
         </ul>
       </td>
     </tr>
@@ -34,11 +34,11 @@ l10n:
 
 ## Ein einfaches Listenbeispiel
 
-Zu Beginn wollen wir uns ein einfaches Listenbeispiel ansehen. Im ganzen Artikel betrachten wir ungeordnete, geordnete und Definitionslisten — alle haben ähnliche Styling-Funktionen sowie einige, die spezifisch für sie sind. Das ungestylte Beispiel ist auf [GitHub verfügbar](https://mdn.github.io/learning-area/css/styling-text/styling-lists/unstyled-list.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-text/styling-lists/unstyled-list.html) an.)
+Werfen wir einen Blick auf ein einfaches Listenbeispiel. In diesem Artikel betrachten wir ungeordnete, geordnete und Beschreibungslisten — alle haben Styling-Funktionen, die ähnlich sind, sowie einige, die spezifisch für sie sind.
 
 Das HTML für unser Listenbeispiel sieht folgendermaßen aus:
 
-```html
+```html live-sample___unstyled live-sample___initial-style live-sample___finished-style
 <h2>Shopping (unordered) list</h2>
 
 <p>
@@ -94,21 +94,23 @@ Das HTML für unser Listenbeispiel sieht folgendermaßen aus:
 </dl>
 ```
 
-Wenn Sie jetzt zum Live-Beispiel gehen und die Listenelemente mit [Browser-Entwicklungstools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) untersuchen, werden Ihnen einige Standard-Stylings auffallen:
+Ohne Styling wird es wie folgt dargestellt:
 
-- Die {{htmlelement("ul")}} und {{htmlelement("ol")}} Elemente haben einen oberen und unteren {{cssxref("margin")}} von `16px` (`1em`) und eine {{cssxref("padding-left")}} von `40px` (`2.5em`). Wenn das Richtung Attribut [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) auf Rechts-nach-Links (`rtl`) für `ul` und `ol` Elemente gesetzt ist, wird in diesem Fall {{cssxref("padding-right")}} wirksam und der Standardwert beträgt `40px` (`2.5em`).
-- Die Listenelemente ({{htmlelement("li")}}) haben keine festgelegten Standardabstände.
-- Das {{htmlelement("dl")}} Element hat einen oberen und unteren {{cssxref("margin")}} von `16px` (`1em`), aber kein festgelegtes Padding.
-- Die {{htmlelement("dd")}} Elemente haben eine {{cssxref("margin-left")}} von `40px` (`2.5em`).
-- Die {{htmlelement("p")}} Elemente, die wir zur Referenz aufgenommen haben, haben einen oberen und unteren {{cssxref("margin")}} von `16px` (`1em`) — derselbe wie bei den verschiedenen Listentypen.
+{{embedlivesample("unstyled", "100%", 400)}}
+
+Untersuchen Sie diese Listenelemente mit Ihren [Browser-Entwicklerwerkzeugen](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools); Sie werden einige Styling-Standards bemerken:
+
+- Die {{htmlelement("ul")}} und {{htmlelement("ol")}} Elemente haben eine obere und untere {{cssxref("margin")}} von `16px` (`1em`) und ein {{cssxref("padding-left")}} von `40px` (`2.5em`). Wenn das Direktionalitätsattribut [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) für `ul` und `ol`-Elemente auf von rechts nach links (`rtl`) gesetzt ist, kommt {{cssxref("padding-right")}} zum Einsatz und sein Standardwert ist `40px` (`2.5em`).
+- Die Listenelemente ({{htmlelement("li")}} Elemente) haben keine festgelegten Standards für Abstände.
+- Das {{htmlelement("dl")}} Element hat eine obere und untere {{cssxref("margin")}} von `16px` (`1em`), aber kein gesetztes Padding.
+- Die {{htmlelement("dd")}} Elemente haben ein {{cssxref("margin-left")}} von `40px` (`2.5em`).
+- Die {{htmlelement("p")}} Elemente, die wir zur Referenz enthalten haben, haben eine obere und untere {{cssxref("margin")}} von `16px` (`1em`) — das Gleiche wie die verschiedenen Listentypen.
 
 ## Umgang mit Listenabständen
 
-Beim Styling von Listen müssen Sie deren Stile anpassen, damit sie denselben vertikalen Abstand wie die umgebenden Elemente (wie Absätze und Bilder; manchmal als vertikaler Rhythmus bezeichnet) und denselben horizontalen Abstand wie zueinander beibehalten (Sie können das [fertige gestylte Beispiel](https://mdn.github.io/learning-area/css/styling-text/styling-lists/) auf GitHub sehen und [finden Sie auch den Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-text/styling-lists/index.html)).
+Beim Styling von Listen müssen Sie deren Stile so anpassen, dass sie den gleichen vertikalen Abstand wie die umgebenden Elemente (wie Absätze und Bilder, manchmal vertikaler Rhythmus genannt) und den gleichen horizontalen Abstand wie die anderen haben. Einige typische CSS-Styling- und Textabstände könnten wie folgt aussehen:
 
-Das für das Textstyling und die Abstände verwendete CSS ist wie folgt:
-
-```css
+```css live-sample___initial-style live-sample___list-style-type live-sample___list-style-position live-sample___custom-bullets live-sample___finished-style
 /* General styles */
 
 html {
@@ -144,24 +146,39 @@ dt {
 }
 ```
 
-- Die erste Regel setzt eine siteweite Schriftart und eine Basisschriftgröße von 10px. Diese werden von allem auf der Seite geerbt.
-- Die Regeln 2 und 3 setzen relative Schriftgrößen für die Überschriften, verschiedene Listentypen (die Kinder der Listenelemente erben diese) und Absätze. Dies bedeutet, dass jeder Absatz und jede Liste dieselbe Schriftgröße und denselben oberen und unteren Abstand haben, was hilft, den vertikalen Rhythmus konsistent zu halten.
-- Regel 4 setzt dieselbe {{cssxref("line-height")}} auf die Absätze und Listenelemente — somit haben die Absätze und jedes einzelne Listenelement denselben Abstand zwischen den Zeilen. Dies wird auch dazu beitragen, den vertikalen Rhythmus konsistent zu halten.
-- Die Regeln 5 und 6 gelten für die Definitionsliste. Wir setzen dieselbe `line-height` auf die Definitionsterme und -beschreibungen wie bei den Absätzen und Listenelementen. Wiederum ist Konsistenz gut! Wir machen auch die Begriffe fett, sodass sie visuell leichter hervorstechen.
+- Die erste Regel setzt eine seitenweite Schriftart und eine Basis-Schriftgröße von 10px. Diese werden von allem auf der Seite geerbt.
+- Regeln 2 und 3 setzen relative Schriftgrößen für die Überschriften, verschiedene Listentypen (die Kinder der Listenelemente erben diese) und Absätze. Das bedeutet, dass jeder Absatz und jede Liste die gleiche Schriftgröße und denselben oberen und unteren Abstand haben, was hilft, den vertikalen Rhythmus konsistent zu halten.
+- Regel 4 setzt die gleiche {{cssxref("line-height")}} auf die Absätze und Listenelemente — so haben die Absätze und jedes einzelne Listenelement denselben Abstand zwischen den Zeilen. Dies wird auch helfen, den vertikalen Rhythmus konsistent zu halten.
+- Regeln 5 und 6 gelten für die Beschreibungslisten. Wir setzen die gleiche `line-height` auf die Begriffe und Beschreibungen der Beschreibungslisten, wie wir es mit den Absätzen und Listenelementen getan haben. Wieder einmal ist Konsistenz gut! Wir machen die Beschreibungsbegriffe auch fett, damit sie visuell leichter hervorstechen.
+
+Angewendet auf unser zuvor gezeigtes HTML, rendert unser Code dann so:
+
+{{embedlivesample("initial-style", "100%", 400)}}
 
 ## Listen-spezifische Stile
 
-Nachdem wir nun allgemeine Abstands-Techniken für Listen betrachtet haben, schauen wir uns einige spezifische Eigenschaften für Listen an. Es gibt drei Eigenschaften, die Sie am Anfang kennen sollten, die auf {{htmlelement("ul")}} oder {{htmlelement("ol")}} Elementen gesetzt werden können:
+Nachdem wir nun allgemeine Abstands-Techniken für Listen betrachtet haben, lassen Sie uns einige listen-spezifische Eigenschaften erkunden. Es gibt drei Eigenschaften, die Sie anfangs kennen sollten und die auf {{htmlelement("ul")}} oder {{htmlelement("ol")}} Elemente angewendet werden können:
 
-- {{cssxref("list-style-type")}}: Setzt den Typ der Aufzählungszeichen für die Liste, zum Beispiel Quadrat- oder Kreiszeichen für eine ungeordnete Liste oder Zahlen, Buchstaben oder römische Ziffern für eine geordnete Liste.
-- {{cssxref("list-style-position")}}: Legt fest, ob die Aufzählungszeichen am Anfang jedes Elements innerhalb oder außerhalb der Listen erscheinen.
+- {{cssxref("list-style-type")}}: Setzt den Typ der Aufzählungszeichen für die Liste, zum Beispiel quadratische oder kreisförmige Aufzählungszeichen für eine ungeordnete Liste oder Zahlen, Buchstaben oder römische Ziffern für eine geordnete Liste.
+- {{cssxref("list-style-position")}}: Legt fest, ob die Aufzählungszeichen am Anfang jedes Elements innerhalb oder außerhalb der Listen angezeigt werden.
 - {{cssxref("list-style-image")}}: Ermöglicht die Verwendung eines benutzerdefinierten Bildes für das Aufzählungszeichen anstelle eines einfachen Quadrats oder Kreises.
 
-### Aufzählungszeichen-Stile
+### Aufzählungszeichenstile
 
-Wie oben erwähnt, erlaubt es die {{cssxref("list-style-type")}} Eigenschaft, festzulegen, welchen Typ von Aufzählungszeichen für die Punkte verwendet werden soll. In unserem Beispiel haben wir die geordnete Liste so eingestellt, dass sie mit römischen Ziffern in Großbuchstaben verwendet wird:
+Wie oben erwähnt, ermöglicht die {{cssxref("list-style-type")}} Eigenschaft die Festlegung, welchen Aufzählungstyp für die Aufzählungspunkte verwendet werden soll. In unserem Beispiel haben wir die geordnete Liste so eingestellt, dass sie Großbuchstaben als römische Ziffern verwendet mit:
 
-```css
+```html hidden live-sample___list-style-type live-sample___list-style-position
+<ol>
+  <li>Toast pita, leave to cool, then slice down the edge.</li>
+  <li>
+    Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+  </li>
+  <li>Wash and chop the salad.</li>
+  <li>Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
+```
+
+```css live-sample___list-style-type
 ol {
   list-style-type: upper-roman;
 }
@@ -169,40 +186,49 @@ ol {
 
 Dies ergibt folgendes Aussehen:
 
-![eine geordnete Liste mit den Aufzählungszeichen, die außerhalb des Listentextes erscheinen.](outer-bullets.png)
+{{embedlivesample("list-style-type", "100%", 120)}}
 
-Viele weitere Optionen finden Sie in der {{cssxref("list-style-type")}} Referenzseite.
+Sie finden viele weitere Optionen auf der Referenzseite von {{cssxref("list-style-type")}}.
 
-### Aufzählungszeichen-Position
+### Position der Aufzählungszeichen
 
-Die {{cssxref("list-style-position")}} Eigenschaft legt fest, ob die Aufzählungszeichen innerhalb der Listenelemente erscheinen oder außerhalb vor dem Beginn jedes Elements. Der Standardwert ist `outside`, was dazu führt, dass die Aufzählungszeichen außerhalb der Listenelemente sitzen, wie oben gezeigt.
+Die {{cssxref("list-style-position")}} Eigenschaft legt fest, ob die Aufzählungszeichen innerhalb der Listenelemente oder außerhalb von ihnen vor dem Anfang jedes Elements erscheinen. Der Standardwert ist `outside`, was dazu führt, dass die Aufzählungszeichen außerhalb der Listenelemente sitzen, wie oben zu sehen.
 
-Wenn Sie den Wert auf `inside` setzen, sitzen die Aufzählungszeichen innerhalb der Zeilen:
+Wenn Sie den Wert auf `inside` setzen, werden die Aufzählungszeichen innerhalb der Zeilen sitzen:
 
-```css
+```css live-sample___list-style-position live-sample___finished-style
 ol {
   list-style-type: upper-roman;
   list-style-position: inside;
 }
 ```
 
-![eine geordnete Liste mit den Aufzählungszeichen, die innerhalb des Listentextes erscheinen.](inner-bullets.png)
+{{embedlivesample("list-style-position", "100%", 120)}}
 
 ### Verwendung eines benutzerdefinierten Aufzählungsbildes
 
-Die {{cssxref("list-style-image")}} Eigenschaft erlaubt es Ihnen, ein benutzerdefiniertes Bild für Ihr Aufzählungszeichen zu verwenden. Die Syntax ist ziemlich einfach:
+Die {{cssxref("list-style-image")}} Eigenschaft ermöglicht Ihnen die Verwendung eines benutzerdefinierten Bildes für Ihr Aufzählungszeichen. Die Syntax sieht folgendermaßen aus:
 
 ```css
 ul {
-  list-style-image: url("star.svg");
+  list-style-image: url("https://mdn.github.io/shared-assets/images/examples/star-shape.png");
 }
 ```
 
-Diese Eigenschaft ist jedoch etwas begrenzt in Bezug auf die Steuerung der Position, Größe usw. der Aufzählungszeichen. Sie sind besser dran, die {{cssxref("background")}} Familie von Eigenschaften zu verwenden, die Sie in unserem vorherigen [Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) Artikel gelernt haben.
+Diese Eigenschaft ist jedoch etwas begrenzt in Bezug auf die Kontrolle der Position, Größe usw. der Aufzählungszeichen. Sie sind besser dran, die {{cssxref("background")}}-Familie der Eigenschaften zu verwenden, über die Sie in unserer vorherigen Lektion [Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) gelernt haben.
 
-In unserem fertigen Beispiel haben wir die ungeordnete Liste folgendermaßen gestylt (zusätzlich zu dem, was Sie oben bereits gesehen haben):
+In unserem fertigen Beispiel haben wir die ungeordnete Liste wie folgt gestylt:
 
-```css
+```html hidden live-sample___custom-bullets
+<ul>
+  <li>Hummus</li>
+  <li>Pita</li>
+  <li>Green salad</li>
+  <li>Halloumi</li>
+</ul>
+```
+
+```css live-sample___custom-bullets live-sample___finished-style
 ul {
   padding-left: 2rem;
   list-style-type: none;
@@ -210,30 +236,30 @@ ul {
 
 ul li {
   padding-left: 2rem;
-  background-image: url("star.svg");
+  background-image: url("https://mdn.github.io/shared-assets/images/examples/star-shape.png");
   background-position: 0 0;
   background-size: 1.6rem 1.6rem;
   background-repeat: no-repeat;
 }
 ```
 
-Wir haben Folgendes gemacht:
+Hier haben wir Folgendes gemacht:
 
-- Die {{cssxref("padding-left")}} des {{htmlelement("ul")}} von den standardmäßigen `40px` auf `20px` reduziert und dann den gleichen Betrag auf die Listenelemente gesetzt. Dadurch sind die Listenelemente insgesamt immer noch mit den geordneten Listenelementen und den Definitionslisten-Beschreibungen ausgerichtet, aber die Listenelemente haben etwas Innenabstand für die Hintergrundbilder, damit sie darin sitzen können. Würden wir dies nicht tun, würden sich die Hintergrundbilder mit dem Listen-Text überlappen, was unordentlich aussehen würde.
-- Die {{cssxref("list-style-type")}} auf `none` gesetzt, damit standardmäßig kein Aufzählungszeichen erscheint. Wir werden {{cssxref("background")}} Eigenschaften verwenden, um mit den Aufzählungszeichen umzugehen.
+- Das {{cssxref("padding-left")}} des {{htmlelement("ul")}} von dem Standardwert `40px` auf `20px` reduziert und dann den gleichen Betrag auf die Listenelemente gesetzt. Dies dient dazu, dass die Listenelemente insgesamt noch mit den geordneten Listenelementen und den Beschreibungslisten-Beschreibungen ausgerichtet sind, aber die Listenelemente etwas Padding haben, damit die Hintergrundbilder darin sitzen können. Wenn wir dies nicht tun würden, würden die Hintergrundbilder mit dem Listenelement-Text überlappen, was unordentlich aussehen würde.
+- Das {{cssxref("list-style-type")}} auf `none` gesetzt, sodass standardmäßig kein Aufzählungszeichen erscheint. Wir werden die {{cssxref("background")}}-Eigenschaften verwenden, um die Aufzählungszeichen zu handhaben.
 - Ein Aufzählungszeichen auf jedes ungeordnete Listenelement eingefügt. Die relevanten Eigenschaften sind wie folgt:
   - {{cssxref("background-image")}}: Dies referenziert den Pfad zur Bilddatei, die Sie als Aufzählungszeichen verwenden möchten.
-  - {{cssxref("background-position")}}: Dies definiert, wo im Hintergrund des ausgewählten Elements das Bild erscheinen wird — in diesem Fall sagen wir `0 0`, was bedeutet, dass das Aufzählungszeichen ganz oben links in jedem Listenelement erscheinen wird.
-  - {{cssxref("background-size")}}: Dies setzt die Größe des Hintergrundbildes. Wir möchten idealerweise, dass die Aufzählungszeichen dieselbe Größe wie die Listenelemente haben (oder sehr leicht kleiner oder größer). Wir verwenden eine Größe von `1.6rem` (`16px`), die sehr gut zu den `20px` Innenabstand passt, die wir vorgesehen haben, damit das Aufzählungszeichen hineinpasst — 16px plus 4px Abstand zwischen dem Aufzählungszeichen und dem Listentext funktioniert gut.
-  - {{cssxref("background-repeat")}}: Standardmäßig wiederholen sich Hintergrundbilder, bis sie den verfügbaren Hintergrundraum füllen. Wir möchten in jedem Fall nur eine Kopie des Bildes eingefügt haben, daher setzen wir dies auf einen Wert von `no-repeat`.
+  - {{cssxref("background-position")}}: Dies definiert, wo im Hintergrund des ausgewählten Elements das Bild erscheinen wird — in diesem Fall sagen wir `0 0`, was bedeutet, dass das Aufzählungszeichen oben links in jedem Listenelement erscheint.
+  - {{cssxref("background-size")}}: Dies setzt die Größe des Hintergrundbildes. Wir möchten, dass die Aufzählungszeichen idealerweise die gleiche Größe wie die Listenelemente (oder sehr leicht kleiner oder größer) haben. Wir verwenden eine Größe von `1.6rem` (`16px`), die sehr schön mit dem `20px` Padding harmoniert, das wir zugelassen haben, damit das Aufzählungszeichen darin sitzt — 16px plus 4px Abstand zwischen dem Aufzählungszeichen und dem Listenelement-Text funktioniert gut.
+  - {{cssxref("background-repeat")}}: Standardmäßig wiederholen sich Hintergrundbilder, bis sie den verfügbaren Hintergrundbereich ausfüllen. Wir möchten in jedem Fall nur eine Kopie des Bildes einfügen, daher setzen wir dies auf einen Wert von `no-repeat`.
 
-Dies ergibt das folgende Ergebnis:
+Dies ergibt folgendes Ergebnis:
 
-![eine ungeordnete Liste mit Aufzählungszeichen, die als kleine Sternbilder angezeigt werden](list_formatting.png)
+{{embedlivesample("custom-bullets", "100%", 120)}}
 
-### Kurzform `list-style`
+### list-style Kurzschreibweise
 
-Die oben genannten drei Eigenschaften können alle mit einer einzigen Kurzform-Eigenschaft, {{cssxref("list-style")}}, gesetzt werden. Zum Beispiel könnte das folgende CSS:
+Die drei oben genannten Eigenschaften können alle mit einer einzigen Kurzform-Eigenschaft, {{cssxref("list-style")}}, gesetzt werden. Zum Beispiel kann das folgende CSS:
 
 ```css
 ul {
@@ -243,7 +269,7 @@ ul {
 }
 ```
 
-ersetzt werden durch:
+durch dieses ersetzt werden:
 
 ```css
 ul {
@@ -251,17 +277,23 @@ ul {
 }
 ```
 
-Die Werte können in beliebiger Reihenfolge aufgelistet werden, und Sie können einen, zwei oder alle drei verwenden (die Standardwerte, die für die nicht eingeschlossenen Eigenschaften verwendet werden, sind `disc`, `none` und `outside`). Wenn sowohl ein `type` als auch ein `image` angegeben ist, wird der Typ als Fallback verwendet, wenn das Bild aus irgendeinem Grund nicht geladen werden kann.
+Die Werte können in beliebiger Reihenfolge aufgelistet werden, und Sie können einen, zwei oder alle drei verwenden (die Standardwerte, die für die nicht eingeschlossenen Eigenschaften verwendet werden, sind `disc`, `none` und `outside`). Wenn sowohl ein `type` als auch ein `image` angegeben sind, wird der Typ als Fallback verwendet, falls das Bild aus irgendeinem Grund nicht geladen werden kann.
+
+## Komplettes Beispiel
+
+In den letzten Abschnitten haben wir Ihnen die Auswirkungen einiger isolierter Listenmerkmale gezeigt. Wenn wir sie alle auf unsere anfängliche HTML-Auflistung anwenden, ergibt sich folgendes Ergebnis:
+
+{{embedlivesample("finished-style", "100%", 400)}}
 
 ## Steuerung der Listennummerierung
 
-Manchmal möchten Sie möglicherweise eine geordnete Liste anders zählen — z. B. ab einer anderen Zahl als 1 beginnen, rückwärts zählen oder in Schritten von mehr als 1 zählen. HTML und CSS haben einige Werkzeuge, um Ihnen hier zu helfen.
+Manchmal möchten Sie vielleicht anders zählen in einer geordneten Liste — zum Beispiel bei einer anderen Zahl als 1 anfangen, rückwärts zählen oder in Schritten von mehr als 1 zählen. HTML und CSS haben einige Werkzeuge, die Ihnen hier helfen können.
 
 ### start
 
-Das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start) Attribut erlaubt es Ihnen, die Listen-Numerierung ab einer anderen Zahl als 1 zu starten. Das folgende Beispiel:
+Das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start) Attribut ermöglicht es Ihnen, die Listennummerierung bei einer anderen Zahl als 1 zu beginnen. Das folgende Beispiel:
 
-```html
+```html live-sample___counting-control
 <ol start="4">
   <li>Toast pita, leave to cool, then slice down the edge.</li>
   <li>
@@ -272,15 +304,15 @@ Das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start) Attribut erlaubt es
 </ol>
 ```
 
-Gibt Ihnen diese Ausgabe:
+Ergibt diese Ausgabe:
 
-{{ EmbedLiveSample('start', '100%', 150) }}
+{{ EmbedLiveSample('counting-control', '100%', 150) }}
 
 ### reversed
 
-Das [`reversed`](/de/docs/Web/HTML/Reference/Elements/ol#reversed) Attribut wird die Listen-Numerierung herunter- anstatt hinaufzuzählen beginnen. Das folgende Beispiel:
+Das [`reversed`](/de/docs/Web/HTML/Reference/Elements/ol#reversed) Attribut lässt die Liste abwärts anstatt aufwärts zählen. Das folgende Beispiel:
 
-```html
+```html live-sample___counting-control-reversed
 <ol start="4" reversed>
   <li>Toast pita, leave to cool, then slice down the edge.</li>
   <li>
@@ -291,18 +323,18 @@ Das [`reversed`](/de/docs/Web/HTML/Reference/Elements/ol#reversed) Attribut wird
 </ol>
 ```
 
-Gibt Ihnen diese Ausgabe:
+Ergibt diese Ausgabe:
 
-{{ EmbedLiveSample('reversed', '100%', 150) }}
+{{ EmbedLiveSample('counting-control-reversed', '100%', 150) }}
 
 > [!NOTE]
-> Wenn es mehr Listenelemente in einer umgekehrten Liste gibt als der Wert des `start` Attributs, geht die Zählung weiter bis null und dann in negative Werte.
+> Wenn es mehr Listenelemente in einer umgekehrten Liste gibt als den Wert des `start` Attributs, wird die Zählung bis Null und dann in negative Werte weiterlaufen.
 
 ### value
 
-Das [`value`](/de/docs/Web/HTML/Reference/Elements/li#value) Attribut erlaubt es Ihnen, Ihre Listenelemente auf spezifische numerische Werte zu setzen. Das folgende Beispiel:
+Das [`value`](/de/docs/Web/HTML/Reference/Elements/li#value) Attribut ermöglicht es Ihnen, Ihre Listenelemente auf spezifische numerische Werte festzulegen. Das folgende Beispiel:
 
-```html
+```html counting-control-values
 <ol>
   <li value="2">Toast pita, leave to cool, then slice down the edge.</li>
   <li value="4">
@@ -313,24 +345,24 @@ Das [`value`](/de/docs/Web/HTML/Reference/Elements/li#value) Attribut erlaubt es
 </ol>
 ```
 
-Gibt Ihnen diese Ausgabe:
+Ergibt diese Ausgabe:
 
-{{ EmbedLiveSample('value', '100%', 150) }}
+{{ EmbedLiveSample('counting-control-values', '100%', 150) }}
 
 > [!NOTE]
-> Auch wenn Sie einen nicht-numerischen {{cssxref("list-style-type")}} verwenden, müssen Sie dennoch die entsprechenden numerischen Werte im `value` Attribut verwenden.
+> Selbst wenn Sie einen nicht-numerischen {{cssxref("list-style-type")}} verwenden, müssen Sie trotzdem die entsprechenden numerischen Werte im `value` Attribut verwenden.
 
-## Ein verschachteltes Listenbeispiel stylen
+## Ihr Turn: Eine verschachtelte Liste stylen
 
-Es ist Zeit, eine weitere Aufgabe zu erledigen. Dieses Mal möchten wir, dass Sie das oben Gelernte anwenden und versuchen, eine verschachtelte Liste zu stylen.
+Es ist Zeit für Sie, eine weitere Aufgabe zu erledigen. Dieses Mal möchten wir, dass Sie das, was Sie oben gelernt haben, anwenden und versuchen, eine verschachtelte Liste zu stylen.
 
 1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
 2. Stylen Sie die ungeordnete Liste mit quadratischen Aufzählungszeichen.
 3. Geben Sie den ungeordneten Listenelementen und den geordneten Listenelementen eine `line-height` von `1.5` ihrer `font-size`.
-4. Setzen Sie die geordnete Liste auf kleinere alphabetische Aufzählungszeichen.
-5. Fühlen Sie sich frei, so viel wie Sie möchten, mit dem Listenbeispiel zu experimentieren, indem Sie Aufzählungszeichen-Typen, Abstände oder was auch immer Sie verwenden möchten, einbringen.
+4. Setzen Sie die geordnete Liste so, dass sie kleine alphabetische Aufzählungszeichen hat.
+5. Fühlen Sie sich frei, mit dem Listenbeispiel so viel zu experimentieren, wie Sie möchten, indem Sie mit Aufzählungstypen, Abständen oder allem anderen, was Sie interessiert, experimentieren.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_ Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unterhalb der Beispielausgabe sehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Beispieldarstellung ansehen.
 
 ```html live-sample___styling_lists
 <ul>
@@ -357,7 +389,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_ Sc
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges CSS sollte so aussehen:
+Ihr fertiges CSS sollte ungefähr so aussehen:
 
 ```css
 ul {
@@ -377,6 +409,6 @@ ol {
 
 ## Zusammenfassung
 
-Listen sind relativ einfach zu stylen, sobald Sie einige grundlegende Prinzipien und spezifische Eigenschaften kennen. Im nächsten Artikel gehen wir weiter zu Techniken für das Styling von Links.
+Listen sind relativ einfach zu stylen, sobald Sie einige grundlegende Prinzipien und spezifische Eigenschaften kennen. Im nächsten Artikel werden wir uns mit Techniken zur Linkgestaltung befassen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Fundamentals", "Learn_web_development/Core/Text_styling/Styling_links", "Learn_web_development/Core/Text_styling")}}

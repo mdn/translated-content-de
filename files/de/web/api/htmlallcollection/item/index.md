@@ -3,7 +3,7 @@ title: "HTMLAllCollection: item()-Methode"
 short-title: item()
 slug: Web/API/HTMLAllCollection/item
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
 ---
 
 {{APIRef("HTML DOM")}}
@@ -19,11 +19,11 @@ item(nameOrIndex)
 ### Parameter
 
 - `nameOrIndex`
-  - : Wenn dieser Parameter eine ganze Zahl ist oder ein String, der in eine ganze Zahl umgewandelt werden kann, dann repräsentiert er die Position des zurückzugebenden [`Element`](/de/docs/Web/API/Element). Elemente erscheinen in einer `HTMLAllCollection` in der gleichen Reihenfolge, in der sie im Quelltext des Dokuments erscheinen. Wenn der Parameter ein String ist, der nicht in eine ganze Zahl umgewandelt werden kann, wird er als `name` oder `id` des zurückzugebenden Elements interpretiert.
+  - : Wenn dieser Parameter eine Ganzzahl ist oder ein String, der in eine Ganzzahl umgewandelt werden kann, dann repräsentiert er die Position des zurückzugebenden [`Element`](/de/docs/Web/API/Element). Elemente erscheinen in einer `HTMLAllCollection` in der gleichen Reihenfolge, in der sie im Dokumentenquelle erscheinen. Wenn der Parameter ein String ist, der nicht in eine Ganzzahl umgewandelt werden kann, wird er als `name` oder `id` des zurückzugebenden Elements interpretiert.
 
 ### Rückgabewert
 
-Wenn `nameOrIndex` einen Index darstellt, gibt `item()` das [`Element`](/de/docs/Web/API/Element) an dem angegebenen Index zurück, oder `null`, wenn `nameOrIndex` kleiner als null oder größer oder gleich der Länge-Eigenschaft ist. Wenn `nameOrIndex` einen Namen repräsentiert, gibt `item()` den gleichen Wert zurück wie [`namedItem()`](/de/docs/Web/API/HTMLAllCollection/namedItem).
+Wenn `nameOrIndex` einen Index darstellt, gibt `item()` das [`Element`](/de/docs/Web/API/Element) am angegebenen Index oder `null` zurück, wenn `nameOrIndex` kleiner als null oder größer oder gleich der length-Eigenschaft ist. Wenn `nameOrIndex` einen Namen darstellt, gibt `item()` denselben Wert zurück wie [`namedItem()`](/de/docs/Web/API/HTMLAllCollection/namedItem).
 
 ## Spezifikationen
 

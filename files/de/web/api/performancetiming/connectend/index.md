@@ -3,16 +3,17 @@ title: "PerformanceTiming: connectEnd-Eigenschaft"
 short-title: connectEnd
 slug: Web/API/PerformanceTiming/connectEnd
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Performance API")}}{{Deprecated_Header}}
+{{APIRef("Performance API")}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
-Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.connectEnd`** gibt einen `unsigned long long` zurück, der den Moment darstellt, in Millisekunden seit dem UNIX-Epoch, zu dem die Verbindung im Netzwerk geöffnet wird. Wenn die Transportschicht einen Fehler meldet und der Verbindungsaufbau erneut gestartet wird, wird die letzte Zeit des Verbindungsaufbaus angegeben. Wenn eine persistente Verbindung verwendet wird, entspricht der Wert dem von [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart). Eine Verbindung wird als geöffnet betrachtet, wenn alle sicheren Verbindungshandshakes oder SOCKS-Authentifizierungen abgeschlossen sind.
+Die veraltete
+**`PerformanceTiming.connectEnd`**
+schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche darstellt, in dem die Verbindung im Netzwerk geöffnet wird. Wenn die Transportschicht einen Fehler meldet und der Verbindungsaufbau erneut gestartet wird, wird die letzte Endzeit des Verbindungsaufbaus angegeben. Wenn eine persistente Verbindung verwendet wird, ist der Wert derselbe wie der von [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart). Eine Verbindung gilt als geöffnet, wenn alle sicheren Verbindungs-Handshakes oder SOCKS-Authentifizierungen abgeschlossen sind.
 
 ## Wert
 

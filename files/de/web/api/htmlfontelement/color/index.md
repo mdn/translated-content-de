@@ -3,28 +3,26 @@ title: "HTMLFontElement: color-Eigenschaft"
 short-title: color
 slug: Web/API/HTMLFontElement/color
 l10n:
-  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}
 
-Die veraltete
-**`HTMLFontElement.color`**
-Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Reference/Elements/font#color) HTML-Attribut widerspiegelt und entweder eine benannte Farbe oder eine Farbe im hexadezimalen #RRGGBB-Format enthält.
+Die veraltete **`HTMLFontElement.color`**-Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Reference/Elements/font#color) HTML-Attribut widerspiegelt und entweder eine benannte Farbe oder eine in hexadezimalem #RRGGBB-Format angegebene Farbe enthält.
 
-Das Format der Zeichenkette muss einem der folgenden HTML-Mikrosyntaxen folgen (siehe {{cssxref("&lt;color&gt;")}}):
+Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen (siehe {{cssxref("&lt;color&gt;")}}):
 
-| Mikrosyntax                  | Beschreibung                                     | Beispiele                 |
-| ---------------------------- | ------------------------------------------------ | ------------------------- |
-| Gültiger Farbname-String     | _nameOfColor (Groß-/Kleinschreibung irrelevant)_ | `Green`, `green`, `GREEN` |
-| Gültiger Hex-Farbname-String | _#RRGGBB_                                        | `#008000`                 |
-| RGB mit Dezimalwerten        | _rgb(x x x) (x im Bereich 0-255)_                | `rgb(0 128 0)`            |
+| Mikrosyntax              | Beschreibung                        | Beispiele                 |
+| ------------------------ | ----------------------------------- | ------------------------- |
+| Gültiger Farbname-String | _nameOfColor (nicht case-sensitiv)_ | `Green`, `green`, `GREEN` |
+| Gültiger Hex-Farb-String | _#RRGGBB_                           | `#008000`                 |
+| RGB mit Dezimalwerten    | _rgb(x x x) (x im Bereich 0-255)_   | `rgb(0 128 0)`            |
 
 ## Wert
 
 Ein String.
 
-Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in eine leere Zeichenkette (`""`) umgewandelt, sodass `elt.color = null` äquivalent zu `elt.color = ""` ist.
+Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.color = null` äquivalent zu `elt.color = ""` ist.
 
 ## Beispiele
 
@@ -45,4 +43,4 @@ f.color = "green";
 
 ## Siehe auch
 
-- Die [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement) Interface, zu dem es gehört.

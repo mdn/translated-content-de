@@ -2,84 +2,86 @@
 title: Request
 slug: Web/API/Request
 l10n:
-  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
+  sourceCommit: ad1fac9d8dd0c9ab8f560e98c5c923559617ba54
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`Request`**-Schnittstelle der [Fetch-API](/de/docs/Web/API/Fetch_API) repräsentiert eine Ressourcenanforderung.
+Die **`Request`**-Schnittstelle der [Fetch API](/de/docs/Web/API/Fetch_API) repräsentiert eine Ressourcenanfrage.
 
-Sie können ein neues `Request`-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor erstellen, jedoch ist es wahrscheinlicher, dass Sie ein `Request`-Objekt als Ergebnis einer anderen API-Operation erhalten, wie etwa einer Service-Worker-[`FetchEvent.request`](/de/docs/Web/API/FetchEvent/request).
+Sie können mit dem Konstruktor [`Request()`](/de/docs/Web/API/Request/Request) ein neues `Request`-Objekt erstellen, werden aber eher einem `Request`-Objekt begegnen, das als Ergebnis einer anderen API-Operation zurückgegeben wird, etwa [`FetchEvent.request`](/de/docs/Web/API/FetchEvent/request) eines Service Workers.
 
 ## Konstruktor
 
 - [`Request()`](/de/docs/Web/API/Request/Request)
   - : Erstellt ein neues `Request`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`Request.body`](/de/docs/Web/API/Request/body) {{ReadOnlyInline}}
-  - : Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) der Körperinhalte.
+  - : Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) mit dem Inhalt des Body.
 - [`Request.bodyUsed`](/de/docs/Web/API/Request/bodyUsed) {{ReadOnlyInline}}
-  - : Speichert `true` oder `false`, um anzuzeigen, ob der Körper in einer Anforderung bereits verwendet wurde oder nicht.
+  - : Speichert `true` oder `false`, um anzugeben, ob der Body bereits in einer Anfrage verwendet wurde.
 - [`Request.cache`](/de/docs/Web/API/Request/cache) {{ReadOnlyInline}}
-  - : Enthält den Cache-Modus der Anforderung (z.B. `default`, `reload`, `no-cache`).
+  - : Enthält den Cache-Modus der Anfrage (z. B. `default`, `reload`, `no-cache`).
 - [`Request.credentials`](/de/docs/Web/API/Request/credentials) {{ReadOnlyInline}}
-  - : Enthält einen Wert, der steuert, ob Anmeldeinformationen in die Anforderung aufgenommen werden sollen (z.B. `omit`, `same-origin`, `include`). Der Standardwert ist `same-origin`.
+  - : Enthält einen Wert, der steuert, ob Credentials in die Anfrage eingeschlossen werden sollen (z. B. `omit`, `same-origin`, `include`). Der Standardwert ist `same-origin`.
 - [`Request.destination`](/de/docs/Web/API/Request/destination) {{ReadOnlyInline}}
-  - : Ein String, der die Art des angeforderten Inhalts beschreibt.
+  - : Ein String, der den Typ des angeforderten Inhalts beschreibt.
 - [`Request.duplex`](/de/docs/Web/API/Request/duplex) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Der Duplex-Modus der Anforderung, der bestimmt, ob der Browser die gesamte Anfrage senden muss, bevor die Antwort verarbeitet wird.
+  - : Der Duplex-Modus der Anfrage, der bestimmt, ob der Browser die gesamte Anfrage senden muss, bevor er die Antwort verarbeitet.
 - [`Request.headers`](/de/docs/Web/API/Request/headers) {{ReadOnlyInline}}
-  - : Enthält das zugehörige [`Headers`](/de/docs/Web/API/Headers)-Objekt der Anforderung.
+  - : Enthält das zugehörige [`Headers`](/de/docs/Web/API/Headers)-Objekt der Anfrage.
 - [`Request.integrity`](/de/docs/Web/API/Request/integrity) {{ReadOnlyInline}}
-  - : Enthält den [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Wert der Anforderung (z.B. `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
+  - : Enthält den Wert für [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) der Anfrage (z. B. `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
 - [`Request.isHistoryNavigation`](/de/docs/Web/API/Request/isHistoryNavigation) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der anzeigt, ob die Anforderung eine Verlauf-Navigation ist.
+  - : Ein boolescher Wert, der angibt, ob die Anfrage eine Verlauf-Navigation ist.
 - [`Request.isReloadNavigation`](/de/docs/Web/API/Request/isReloadNavigation) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein boolescher Wert, der anzeigt, ob die Anforderung ein benutzerinitiiertes Neuladen ist.
+  - : Ein boolescher Wert, der angibt, ob die Anfrage ein vom Benutzer ausgelöstes Neuladen ist.
 - [`Request.keepalive`](/de/docs/Web/API/Request/keepalive) {{ReadOnlyInline}}
-  - : Enthält die `keepalive`-Einstellung der Anforderung (`true` oder `false`), was angibt, ob der Browser die zugehörige Anfrage am Leben hält, wenn die Seite, die sie initiiert hat, entladen wird, bevor die Anfrage abgeschlossen ist.
+  - : Enthält die `keepalive`-Einstellung der Anfrage (`true` oder `false`), die angibt, ob der Browser die zugehörige Anfrage aktiv hält, wenn die Seite, die sie initiiert hat, entladen wird, bevor die Anfrage abgeschlossen ist.
 - [`Request.method`](/de/docs/Web/API/Request/method) {{ReadOnlyInline}}
-  - : Enthält die Methode der Anforderung (`GET`, `POST`, etc.)
+  - : Enthält die Methode der Anfrage (`GET`, `POST` usw.).
 - [`Request.mode`](/de/docs/Web/API/Request/mode) {{ReadOnlyInline}}
-  - : Enthält den Modus der Anforderung (z.B. `cors`, `no-cors`, `same-origin`, `navigate`.)
+  - : Enthält den Modus der Anfrage (z. B. `cors`, `no-cors`, `same-origin`, `navigate`).
 - [`Request.redirect`](/de/docs/Web/API/Request/redirect) {{ReadOnlyInline}}
-  - : Enthält den Modus, wie Weiterleitungen behandelt werden. Es kann `follow`, `error`, oder `manual` sein.
+  - : Enthält den Modus für die Behandlung von Weiterleitungen. Er kann `follow`, `error` oder `manual` sein.
 - [`Request.referrer`](/de/docs/Web/API/Request/referrer) {{ReadOnlyInline}}
-  - : Enthält den Referrer der Anforderung (z.B. `client`).
+  - : Enthält den Referrer der Anfrage (z. B. `client`).
 - [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy) {{ReadOnlyInline}}
-  - : Enthält die Referrer-Richtlinie der Anforderung (z.B. `no-referrer`).
+  - : Enthält die Referrer-Policy der Anfrage (z. B. `no-referrer`).
 - [`Request.signal`](/de/docs/Web/API/Request/signal) {{ReadOnlyInline}}
-  - : Gibt das mit der Anforderung verbundene [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
+  - : Gibt das mit der Anfrage verknüpfte [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 - [`Request.targetAddressSpace`](/de/docs/Web/API/Request/targetAddressSpace) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt den Zieladressraum der Anforderung zurück, der angibt, ob es sich um eine Loopback-, lokale oder öffentliche Anfrage handelt.
+  - : Gibt den Zieladressraum der Anfrage zurück, der angibt, ob es sich um eine Loopback-, lokale oder öffentliche Anfrage handelt.
 - [`Request.url`](/de/docs/Web/API/Request/url) {{ReadOnlyInline}}
-  - : Enthält die URL der Anforderung.
+  - : Enthält die URL der Anfrage.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`Request.arrayBuffer()`](/de/docs/Web/API/Request/arrayBuffer)
-  - : Gibt ein Versprechen zurück, das mit einer {{jsxref("ArrayBuffer")}}-Darstellung des Anforderungskörpers aufgelöst wird.
+  - : Gibt ein Promise zurück, das mit einer {{jsxref("ArrayBuffer")}}-Darstellung des Anfrage-Body erfüllt wird.
 - [`Request.blob()`](/de/docs/Web/API/Request/blob)
-  - : Gibt ein Versprechen zurück, das mit einer [`Blob`](/de/docs/Web/API/Blob)-Darstellung des Anforderungskörpers aufgelöst wird.
+  - : Gibt ein Promise zurück, das mit einer [`Blob`](/de/docs/Web/API/Blob)-Darstellung des Anfrage-Body erfüllt wird.
 - [`Request.bytes()`](/de/docs/Web/API/Request/bytes)
-  - : Gibt ein Versprechen zurück, das mit einer {{jsxref("Uint8Array")}}-Darstellung des Anforderungskörpers aufgelöst wird.
+  - : Gibt ein Promise zurück, das mit einer {{jsxref("Uint8Array")}}-Darstellung des Anfrage-Body erfüllt wird.
 - [`Request.clone()`](/de/docs/Web/API/Request/clone)
   - : Erstellt eine Kopie des aktuellen `Request`-Objekts.
 - [`Request.formData()`](/de/docs/Web/API/Request/formData)
-  - : Gibt ein Versprechen zurück, das mit einer [`FormData`](/de/docs/Web/API/FormData)-Darstellung des Anforderungskörpers aufgelöst wird.
+  - : Gibt ein Promise zurück, das mit einer [`FormData`](/de/docs/Web/API/FormData)-Darstellung des Anfrage-Body erfüllt wird.
 - [`Request.json()`](/de/docs/Web/API/Request/json)
-  - : Gibt ein Versprechen zurück, das mit dem Ergebnis des Parsens des Anforderungskörpers als {{JSxRef("JSON")}} aufgelöst wird.
+  - : Gibt ein Promise zurück, das mit dem Ergebnis des Parsens des Anfrage-Body als {{JSxRef("JSON")}} erfüllt wird.
 - [`Request.text()`](/de/docs/Web/API/Request/text)
-  - : Gibt ein Versprechen zurück, das mit einer Textdarstellung des Anforderungskörpers aufgelöst wird.
+  - : Gibt ein Promise zurück, das mit einer Textdarstellung des Anfrage-Body erfüllt wird.
+- [`Request.textStream()`](/de/docs/Web/API/Request/textStream) {{experimental_inline}}
+  - : Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der verwendet werden kann, um den Inhalt des Anfrage-Body in UTF-8-Blöcken zu lesen.
 
 > [!NOTE]
-> Die Funktionen für den Anforderungskörper können nur einmal ausgeführt werden; nachfolgende Aufrufe werden mit TypeError abgelehnt, der zeigt, dass der Körperstream bereits verwendet wurde.
+> Die Funktionen für den Anfrage-Body können nur einmal ausgeführt werden; nachfolgende Aufrufe werden mit einem TypeError abgelehnt, der anzeigt, dass der Body-Stream bereits verwendet wurde.
 
 ## Beispiele
 
-Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem `Request()`-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und geben dann einige Eigenschaftswerte der Anfrage zurück:
+Im folgenden Snippet erstellen wir mit dem Konstruktor `Request()` eine neue Anfrage (für eine Bilddatei im selben Verzeichnis wie das Skript) und geben dann einige Eigenschaftswerte der Anfrage zurück:
 
 ```js
 const request = new Request("https://www.mozilla.org/favicon.ico");
@@ -89,7 +91,7 @@ const method = request.method;
 const credentials = request.credentials;
 ```
 
-Sie könnten diese Anfrage dann abrufen, indem Sie das `Request`-Objekt als Parameter in einen [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf übergeben, zum Beispiel:
+Sie könnten diese Anfrage dann abrufen, indem Sie das `Request`-Objekt als Parameter an einen Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, zum Beispiel:
 
 ```js
 fetch(request)
@@ -99,7 +101,7 @@ fetch(request)
   });
 ```
 
-Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem `Request()`-Konstruktor mit einigen Anfangsdaten und Körperinhalt für eine API-Anfrage, die eine Nutzlast im Körper benötigt:
+Im folgenden Snippet erstellen wir mit dem Konstruktor `Request()` eine neue Anfrage mit einigen Anfangsdaten und Body-Inhalten für eine API-Anfrage, die eine Body-Payload benötigt:
 
 ```js
 const request = new Request("https://example.com", {
@@ -114,9 +116,9 @@ const bodyUsed = request.bodyUsed;
 ```
 
 > [!NOTE]
-> Der Körper kann nur ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein [`FormData`](/de/docs/Web/API/FormData), ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams), ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder ein {{jsxref("String")}}-Objekt sowie ein einfacher String-Literal sein, sodass Sie zum Hinzufügen eines JSON-Objekts zur Nutzlast dieses Objekt als String darstellen müssen.
+> Der Body kann nur ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein [`FormData`](/de/docs/Web/API/FormData), ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams), ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder ein {{jsxref("String")}}-Objekt sowie ein String-Literal sein. Um ein JSON-Objekt zur Payload hinzuzufügen, müssen Sie dieses Objekt daher in einen String umwandeln.
 
-Sie könnten diese API-Anfrage dann abrufen, indem Sie das `Request`-Objekt als Parameter in einen [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf übergeben und die Antwort erhalten:
+Sie könnten diese API-Anfrage dann abrufen, indem Sie das `Request`-Objekt als Parameter an einen Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, und beispielsweise die Antwort erhalten:
 
 ```js
 fetch(request)
@@ -145,6 +147,6 @@ fetch(request)
 
 ## Siehe auch
 
-- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
+- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
+- [HTTP-Zugriffssteuerung (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

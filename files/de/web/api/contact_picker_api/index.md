@@ -2,7 +2,7 @@
 title: Contact Picker API
 slug: Web/API/Contact_Picker_API
 l10n:
-  sourceCommit: f84cdbda4f9c642f57083e013341f170774f0973
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("Contact Picker API")}}{{SeeCompatTable}}
@@ -10,38 +10,38 @@ l10n:
 Die Contact Picker API ermöglicht es Benutzern, Einträge aus ihrer Kontaktliste auszuwählen und begrenzte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
 
 > [!NOTE]
-> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht zugänglich via [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)).
+> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) zugänglich).
 
 ## Konzepte und Verwendung der Contact Picker API
 
-Der Zugriff auf Kontakte war lange eine Funktion, die in nativen Anwendungen verfügbar war. Die Contacts Picker API bringt diese Funktionalität in Webanwendungen.
+Der Zugriff auf Kontakte war lange Zeit eine Funktion, die in nativen Anwendungen verfügbar war. Die Contacts Picker API bringt diese Funktionalität in Webanwendungen.
 
-Anwendungsfälle umfassen das Auswählen von Kontakten zum Versenden von Nachrichten über eine E-Mail- oder Chat-Anwendung, das Auswählen einer Telefonnummer eines Kontakts zur Verwendung mit Voice over IP (VOIP) oder das Auffinden von Kontakten, die sich bereits einer sozialen Plattform angeschlossen haben. Benutzeragenten können auch eine konsistente Erfahrung mit anderen Anwendungen auf dem Gerät der Benutzer bieten.
+Anwendungsfälle umfassen das Auswählen von Kontakten, um sie über eine E-Mail- oder Chat-Anwendung zu benachrichtigen, die Auswahl der Telefonnummer eines Kontakts für die Nutzung mit Voice over IP (VOIP) oder das Entdecken von Kontakten, die bereits einer sozialen Plattform beigetreten sind. Benutzeragenten können auch ein konsistentes Erlebnis mit anderen Anwendungen auf dem Gerät eines Benutzers bieten.
 
-Beim Aufrufen der Methode [`select`](/de/docs/Web/API/ContactsManager/select) der [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Schnittstelle wird dem Benutzer ein Kontaktwähler präsentiert, über den er dann Kontaktinformationen zur weiteren Verwendung mit der Webanwendung auswählen kann. Eine Benutzerinteraktion ist erforderlich, bevor die Erlaubnis erteilt wird, den Kontaktwähler anzuzeigen, und der Zugriff auf Kontakte ist nicht persistent; der Benutzer muss den Zugriff jedes Mal gewähren, wenn die Anwendung eine Anfrage stellt.
+Beim Aufruf der Methode [`select`](/de/docs/Web/API/ContactsManager/select) der Schnittstelle [`ContactsManager`](/de/docs/Web/API/ContactsManager) wird dem Benutzer ein Kontakt-Picker präsentiert, wobei er dann Kontaktinformationen auswählen kann, die mit der Webanwendung geteilt werden. Eine Benutzerinteraktion ist erforderlich, bevor die Erlaubnis zum Anzeigen des Kontakt-Pickers erteilt wird, und der Zugriff auf Kontakte ist nicht persistent; der Benutzer muss jedes Mal, wenn die Anwendung eine Anfrage stellt, den Zugriff gewähren.
 
-Diese API ist nur in einem sicheren Top-Level-Browsing-Kontext verfügbar und berücksichtigt sehr sorgfältig die Empfindlichkeit und den Datenschutz von Kontaktdaten. Die Verantwortung liegt beim Benutzer, die zu teilenden Daten auszuwählen, und es werden nur spezifische Daten für ausgewählte Kontakte zugelassen, ohne Zugriff auf Daten anderer Kontakte.
+Diese API ist nur in einem sicheren Top-Level-Browsing-Kontext verfügbar und berücksichtigt sehr genau die Sensibilität und Privatsphäre von Kontaktdaten. Die Verantwortung liegt beim Benutzer, Daten zum Teilen auszuwählen, und es können nur bestimmte Daten für ausgewählte Kontakte freigegeben werden, ohne Zugriff auf Daten anderer Kontakte.
 
 ## Schnittstellen
 
 - [`ContactAddress`](/de/docs/Web/API/ContactAddress)
-  - : Stellt eine physische Adresse dar.
+  - : Repräsentiert eine physische Adresse.
 - [`ContactsManager`](/de/docs/Web/API/ContactsManager)
-  - : Bietet eine Möglichkeit für Benutzer, begrenzte Details von Kontakten mit einer Webanwendung zu teilen.
+  - : Bietet eine Möglichkeit, Benutzern auszuwählen und begrenzte Details von Kontakten mit einer Webanwendung zu teilen.
 - [`Navigator.contacts`](/de/docs/Web/API/Navigator/contacts)
-  - : Gibt eine Instanz des [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Objekts zurück, von dem aus alle anderen Funktionalitäten zugänglich sind.
+  - : Gibt eine Instanz des [`ContactsManager`](/de/docs/Web/API/ContactsManager) Objekts zurück, von der aus alle anderen Funktionen zugänglich sind.
 
 ## Beispiele
 
 ### Funktionsprüfung
 
-Der folgende Code prüft, ob die Contact Picker API unterstützt wird.
+Der folgende Code überprüft, ob die Contact Picker API unterstützt wird.
 
 ```js
 const supported = "contacts" in navigator;
 ```
 
-### Überprüfung der unterstützten Eigenschaften
+### Überprüfung von unterstützten Eigenschaften
 
 Die folgende asynchrone Funktion verwendet die Methode `getProperties()`, um unterstützte Eigenschaften zu überprüfen.
 
@@ -68,9 +68,9 @@ async function checkProperties() {
 
 ### Auswahl von Kontakten
 
-Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, und setzt ein Optionsobjekt, um die Auswahl mehrerer Kontakte zu ermöglichen.
+Im folgenden Beispiel wird ein Array von Eigenschaften festgelegt, die für jeden Kontakt abgerufen werden sollen, sowie ein Optionsobjekt, um die Auswahl mehrerer Kontakte zu ermöglichen.
 
-Eine asynchrone Funktion wird dann definiert, die die Methode `select()` verwendet, um dem Benutzer eine Kontaktwähleroberfläche zu präsentieren und die ausgewählten Ergebnisse zu bearbeiten.
+Eine asynchrone Funktion wird definiert, die die Methode `select()` verwendet, um dem Benutzer eine Kontakt-Picker-Schnittstelle zu präsentieren und die ausgewählten Ergebnisse zu verarbeiten.
 
 ```js
 const props = ["name", "email", "tel", "address", "icon"];
@@ -98,5 +98,5 @@ async function getContacts() {
 
 ## Siehe auch
 
-- [Ein Contact Picker für das Web](https://developer.chrome.com/docs/capabilities/web-apis/contact-picker)
-- [Contact Picker API Live-Demo](https://mdn.github.io/dom-examples/contact-picker/)
+- [Ein Kontakt-Picker für das Web](https://developer.chrome.com/docs/capabilities/web-apis/contact-picker)
+- [Live-Demo der Contact Picker API](https://mdn.github.io/dom-examples/contact-picker/)

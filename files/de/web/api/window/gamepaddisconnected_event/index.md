@@ -3,16 +3,16 @@ title: "Window: gamepaddisconnected-Ereignis"
 short-title: gamepaddisconnected
 slug: Web/API/Window/gamepaddisconnected_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("Gamepad API")}}
 
 Das `gamepaddisconnected`-Ereignis wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
 
-Das Ereignis wird nicht ausgelöst, wenn es durch die {{httpheader('Permissions-Policy/gamepad','gamepad')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) des Dokuments untersagt ist.
+Das Ereignis wird nicht ausgelöst, wenn es durch die {{httpheader('Permissions-Policy/gamepad','gamepad')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) des Dokuments nicht erlaubt ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und hat keine Bubbling-Eigenschaften.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ ongamepaddisconnected = (event) => { }
 
 ## Beispiele
 
-Um benachrichtigt zu werden, wenn ein Gamepad getrennt wird, können Sie einen Handler zum Fenster hinzufügen, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, wie folgt:
+Um informiert zu werden, wenn ein Gamepad getrennt wird, können Sie einen Handler mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zum Fenster hinzufügen, wie hier:
 
 ```js
 window.addEventListener("gamepaddisconnected", (event) => {
@@ -53,4 +53,4 @@ window.ongamepaddisconnected = (event) => {
 ## Siehe auch
 
 - [gamepadconnected](/de/docs/Web/API/Window/gamepadconnected_event)
-- [Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+- [Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

@@ -3,14 +3,14 @@ title: "HTMLImageElement: hspace-Eigenschaft"
 short-title: hspace
 slug: Web/API/HTMLImageElement/hspace
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die _veraltete_ **`hspace`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt an, wie viele Pixel Abstand links und rechts des {{HTMLElement("img")}}-Elements bei der Layout-Gestaltung der Seite freigelassen werden sollen. Sie spiegelt das [`hspace`](/de/docs/Web/HTML/Reference/Elements/img#hspace)-Inhaltsattribut des `<img>`-Elements wider.
+Die _veraltete_ **`hspace`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Anzahl der Pixel an, die auf der linken und rechten Seite des {{HTMLElement("img")}}-Elements leer gelassen werden sollen, wenn die Seite layoutet wird. Sie spiegelt das [`hspace`](/de/docs/Web/HTML/Reference/Elements/img#hspace)-Inhaltsattribut des `<img>`-Elements wider.
 
-Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("margin")}} oder deren Langform verwenden, um den Abstand um ein Bild herum festzulegen.
+Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("margin")}} oder deren ausführliche Eigenschaften verwenden, um den Randbereich um ein Bild festzulegen.
 
 ## Wert
 

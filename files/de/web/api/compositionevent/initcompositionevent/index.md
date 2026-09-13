@@ -3,15 +3,15 @@ title: "CompositionEvent: Methode initCompositionEvent()"
 short-title: initCompositionEvent()
 slug: Web/API/CompositionEvent/initCompositionEvent
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("UI Events")}}
+{{APIRef("UI Events")}}
 
-Die **`initCompositionEvent()`**-Methode des [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Interfaces initialisiert die Attribute eines `CompositionEvent`-Objektinstanz.
+Die **`initCompositionEvent()`**-Methode der [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Schnittstelle initialisiert die Attribute einer `CompositionEvent`-Objektinstanz.
 
 > [!NOTE]
-> Der korrekte Weg, um ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu erstellen, ist die Verwendung des Konstruktors [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent).
+> Die korrekte Methode zum Erstellen eines [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) ist die Verwendung des Konstruktors [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent).
 
 ## Syntax
 
@@ -22,13 +22,13 @@ initCompositionEvent(type, canBubble, cancelable, view, data, locale)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Zusammensetzungsereignisses darstellt; dies wird eines von `compositionstart`, `compositionupdate` oder `compositionend` sein.
+  - : Ein String, der den Typ des Kompositionsereignisses darstellt; dies wird eines von `compositionstart`, `compositionupdate` oder `compositionend` sein.
 - `canBubble`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis sprudeln kann oder nicht.
+  - : Ein Boolean-Wert, der angibt, ob das Ereignis eine Bubbling-Fähigkeit hat.
 - `cancelable`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann oder nicht.
+  - : Ein Boolean-Wert, der angibt, ob das Ereignis abgebrochen werden kann.
 - `view`
-  - : Das [`Window`](/de/docs/Web/API/Window)-Objekt, von dem das Ereignis erzeugt wurde.
+  - : Das [`Window`](/de/docs/Web/API/Window)-Objekt, von dem das Ereignis ausgelöst wurde.
 - `data`
   - : Ein String, der den Wert des `data`-Attributs darstellt.
 - `locale`

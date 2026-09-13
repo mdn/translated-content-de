@@ -1,24 +1,24 @@
 ---
-title: Hinzufügen von Kontext mit initialen und fortlaufenden Eingabeaufforderungen
-short-title: Kontext hinzufügen
+title: Hinzufügen von Kontext mit anfänglichen und laufenden Eingabeaufforderungen
+short-title: Hinzufügen von Kontext
 slug: Web/API/Prompt_API/Adding_context
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
 {{DefaultAPISidebar("Prompt API")}}
 
-In unserem grundlegenden [Leitfaden zur Prompt API](/de/docs/Web/API/Prompt_API/Using) haben wir alles behandelt, was Sie benötigen, um mit der [Prompt API](/de/docs/Web/API/Prompt_API) loszulegen. Dies deckt jedoch nur die Erstellung einer generischen KI-Eingabeaufforderungs-App ab. Um Ihrer App verschiedene Persönlichkeiten zu verleihen, sie auf unterschiedliche Weise reagieren zu lassen und vergangene Unterhaltungen zu behalten, müssen Sie zusätzlichen Kontext bereitstellen. Die Prompt API bietet mehrere Mechanismen, um dies zu ermöglichen, die in diesem Artikel behandelt werden.
+In unserem grundlegenden [Prompt-API-Leitfaden](/de/docs/Web/API/Prompt_API/Using) haben wir alles behandelt, was Sie benötigen, um mit der [Prompt API](/de/docs/Web/API/Prompt_API) zu beginnen. Dies deckt jedoch nur die Erstellung einer generischen AI-Prompt-App ab. Um Ihrer App verschiedene Persönlichkeiten zu geben, sie auf unterschiedliche Weise reagieren zu lassen und sich an vergangene Gespräche zu erinnern, müssen Sie zusätzlichen Kontext bereitstellen. Die Prompt API bietet verschiedene Mechanismen, um dies zu ermöglichen, die in diesem Artikel behandelt werden.
 
-## Syntax der Eingabeaufforderung
+## Eingabeaufforderungssyntax
 
-Wenn [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufgerufen wird, nimmt es ein `input`-Parameter entgegen, der die Eingaben enthält, auf die reagiert werden soll:
+Wenn [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufgerufen wird, nimmt es einen `input`-Parameter entgegen, der die Eingaben enthält, auf die reagiert werden soll:
 
 ```js
 const response = await session.prompt(inputElem.value);
 ```
 
-Der vorherige `prompt()`-Aufruf erhält nur einen einzelnen String als Parameter. Dies ist eine Kurzform, die in der gängigen Situation verfügbar ist, in der Sie dem Modell nur eine einzelne Benutzereingabe übergeben möchten. Sie können dies erweitern, um explizit die `Rolle` des `input`-Objekts anzugeben:
+Der vorherige `prompt()`-Aufruf erhält nur einen einzigen String als Parameter. Dies ist eine Kurzform, die für die häufige Situation verfügbar ist, in der Sie dem Modell nur eine einzelne Benutzereingabe übergeben möchten. Sie können dies erweitern, um die `role` des `input`-Objekts explizit anzugeben:
 
 ```js
 const response = await session.prompt([
@@ -32,13 +32,13 @@ const response = await session.prompt([
 Die drei verfügbaren `role`-Typen sind:
 
 - `user`
-  - : Eingaben, die vom `user` stammen und auf die die API reagieren soll.
+  - : Eingaben, die vom `user` kommen und auf die die API reagieren soll.
 - `assistant`
-  - : Eingaben, die aus der Perspektive des KI-Assistenten geschrieben sind, die hauptsächlich dazu dienen, Kontext/Geschichte bereitzustellen und weiter zu beeinflussen, wie das Modell reagiert. Diese werden häufig für das [Sichern von Sitzungen](/de/docs/Web/API/Prompt_API/Preserving_sessions) und [Few-Shot-Prompts](#few-shot-prompts) verwendet.
+  - : Eingaben, die aus der Sicht des KI-Assistenten geschrieben sind und hauptsächlich dazu dienen, Kontext/Verlauf bereitzustellen und die Art und Weise, wie das Modell reagiert, weiter zu gestalten. Diese werden häufig zur [Sitzungserhaltung](/de/docs/Web/API/Prompt_API/Preserving_sessions) und bei [wenigen Beispielaufforderungen](#wenige_beispielaufforderungen) verwendet.
 - `system`
-  - : Globale Eingaben aus dem Gesamtsystem, die dem Modell Anweisungen geben, wie es reagieren soll. Wenn eine `system`-Eingabe enthalten ist, muss sie zuerst in den bereitgestellten Eingaben stehen, sonst wird das zurückgegebene Versprechen mit einer Ausnahme abgelehnt. `system`-Eingaben werden normalerweise nur als [initiale Eingabeaufforderungen](#bereitstellung_initialer_eingabeaufforderungen_während_der_sitzungserstellung) eingeschlossen.
+  - : Globale Eingaben aus dem gesamten System, die dem Modell Anweisungen darüber geben, wie es reagieren soll. Wenn eine `system`-Eingabe enthalten ist, muss sie zuerst in den bereitgestellten Eingaben erscheinen, ansonsten wird das zurückgegebene Versprechen mit einer Ausnahme abgelehnt. `system`-Eingaben werden normalerweise nur als [anfängliche Eingabeaufforderungen](#bereitstellung_anfänglicher_eingabeaufforderungen_während_der_sitzungs-erstellung) eingeschlossen.
 
-### Mehrfache Eingaben
+### Mehrere Eingaben
 
 Sie können mehrere Eingaben im Array bereitstellen, zum Beispiel:
 
@@ -55,11 +55,11 @@ const response = await session.prompt([
 ]);
 ```
 
-Dies ist nützlich, weil Sie zusätzlichen Kontext bereitstellen können, um dem Modell zu helfen, eine Antwort zu formulieren, zusammen mit der eigentlichen Eingabe von der Seite, die möglicherweise nur ein Wort ist.
+Dies ist nützlich, weil Sie zusätzlichen Kontext bereitstellen können, um dem Modell zu helfen, eine Antwort zusammen mit der tatsächlichen Eingabe von der Seite, die möglicherweise nur ein Wort ist, zu erstellen.
 
-### Eingabetyp spezifizieren
+### Angabe des Eingabetyps
 
-Standardmäßig ist der `input`-Typ `text`. Um den `type` explizit anzugeben, können Sie die vorherige Form weiter erweitern, um das vollständige Langform-Äquivalent zu erstellen, das so aussieht:
+Standardmäßig ist der `input`-Typ `text`. Um den `type` explizit anzugeben, können Sie die vorherige Form weiter ausbauen, um das vollständige Langform-Äquivalent anzugeben, das wie folgt aussieht:
 
 ```js
 const response = await session.prompt([
@@ -75,7 +75,7 @@ const response = await session.prompt([
 ]);
 ```
 
-Diese Form ist nur erforderlich, wenn Sie dem Assistenten `image` und/oder `audio`-Eingaben bereitstellen (siehe [multimodale Eingabenaufforderungen](/de/docs/Web/API/Prompt_API/Multimodal)):
+Sie benötigen diese Form nicht, es sei denn, Sie geben dem Assistenten `image`- und/oder `audio`-Eingaben (siehe [multimodale Eingaben](/de/docs/Web/API/Prompt_API/Multimodal)):
 
 ```js
 const response = await session.prompt([
@@ -90,7 +90,7 @@ const response = await session.prompt([
 ]);
 ```
 
-Sie könnten jedoch das vorherige Beispiel der mehrfachen Benutzereingabe in dieser Form umschreiben, das beide Nachrichten in einem einzigen Eingabeobjekt enthält. Diese Version könnte leichter verständlich sein:
+Sie könnten jedoch das vorherige Beispiel mit mehreren Benutzereingaben in diese Form umschreiben, das beide Nachrichten in einem einzigen Eingabeobjekt enthält. Möglicherweise finden Sie diese Version einfacher zu verstehen:
 
 ```js
 const response = await session.prompt([
@@ -107,9 +107,9 @@ const response = await session.prompt([
 ]);
 ```
 
-## Bereitstellung initialer Eingabeaufforderungen während der Sitzungserstellung
+## Bereitstellung anfänglicher Eingabeaufforderungen während der Sitzungs-erstellung
 
-Die Methode [`create()`](/de/docs/Web/API/LanguageModel/create_static) kann eine Option [`initialPrompts`](/de/docs/Web/API/LanguageModel/create_static#initialprompts) annehmen, die ein Array von Eingabeaufforderungen enthält, genau wie das `inputs`-Array, das an `prompt()` und andere Methoden übergeben wird. Dadurch können Sie beim Erstellen der Sitzung einen initialen Satz von Eingabeaufforderungen in die Sitzung einbringen, sodass das Modell sofort über einen Kontext verfügt, mit dem es arbeiten kann.
+Die Methode [`create()`](/de/docs/Web/API/LanguageModel/create_static) kann eine Option [`initialPrompts`](/de/docs/Web/API/LanguageModel/create_static#initialprompts) aufnehmen, die ein Array von Eingabeaufforderungen enthält, ähnlich wie das `inputs`-Array, das an `prompt()` und andere Methoden übergeben wird. Dadurch können Sie eine anfängliche Reihe von Aufforderungen in die Sitzung übergeben, wenn sie erstellt wird, sodass das Modell sofort über einige Kontexte verfügt, mit denen es arbeiten kann.
 
 Zum Beispiel:
 
@@ -133,16 +133,16 @@ const session = await LanguageModel.create({
 });
 ```
 
-Neben der Angabe, welche Art von Persönlichkeit das Modell haben soll, ist `initialPrompts` auch nützlich, um nach einem erneuten Laden der Seite oder einem erneuten Besuch der App ein vorher gespeichertes Gespräch in die Sitzung zu laden. Siehe [Sitzungen über Reloads hinweg beibehalten](/de/docs/Web/API/Prompt_API/Preserving_sessions).
+Neben dem Modell mitzuteilen, welche Art von Persönlichkeit es haben soll, ist `initialPrompts` auch nützlich, um ein zuvor gespeichertes Gespräch nach einem Seiten-Reload oder einem späteren Besuch der App in die Sitzung zu laden. Siehe [Erhaltung von Sitzungen über Wiederladungen hinweg](/de/docs/Web/API/Prompt_API/Preserving_sessions).
 
 > [!NOTE]
-> Die am Anfang der [Syntax der Eingabeaufforderung](#syntax_der_eingabeaufforderung) besprochene Kurzform von Text-Strings kann in der `initialPrompts`-Option eines `create()`-Aufrufs nicht verwendet werden.
+> Die in [Eingabeaufforderungssyntax](#eingabeaufforderungssyntax) diskutierte Textzeichenfolgen-Kurzform kann nicht in der `initialPrompts`-Option eines `create()`-Aufrufs verwendet werden.
 
-## Few-Shot-Prompts
+## Wenige Beispielaufforderungen
 
-Ein Few-Shot-Prompt ist ein Satz von `user`-Rollen- und `assistant`-Rollen-Input-Paaren, die als Beispiel an die API übergeben werden, um sie zu trainieren, auf eine bestimmte Art von Eingabe zu reagieren, bevor sie gebeten wird, eine ähnliche Aufgabe zu erledigen.
+Eine wenige Beispielaufforderung ist eine Reihe von `user`-Rolle und `assistant`-Rolle Eingabepaaren, die als Beispiel an die API übergeben werden, um diese zu schulen, wie sie auf eine bestimmte Art von Eingabe reagieren soll, bevor sie aufgefordert wird, eine ähnliche Aufgabe zu erfüllen.
 
-Das folgende Beispiel zeigt, wie man ein Few-Shot-Prompt verwendet, um eine französische Übersetzung in einem bestimmten Format anzufordern, indem man Beispiel-Eingaben und -Ausgaben bereitstellt, um die erwartete Struktur zu demonstrieren.
+Das folgende Beispiel zeigt, wie man eine wenige Beispielaufforderung verwendet, um eine französische Übersetzung in einem bestimmten Format anzufordern, indem Beispiel-Eingaben und -Ausgaben bereitgestellt werden, um die erwartete Struktur zu demonstrieren.
 
 ```js
 const session = await LanguageModel.create({
@@ -175,13 +175,13 @@ const result = await session.prompt("Window");
 console.log(result); // "Window: Fenêtre"
 ```
 
-Sie könnten nur den initialen `system`-Prompt einschließen und das Beispiel würde immer noch funktionieren, aber es wäre weniger wahrscheinlich, dass die Antworten im gewünschten Format geliefert werden.
+Sie könnten nur die `system`-anfängliche Aufforderung einschließen, und das Beispiel würde immer noch funktionieren, aber es wäre weniger wahrscheinlich, dass es Antworten im gewünschten Format liefert.
 
-## Beispiel für initiale und multiple Eingaben
+## Beispiel für anfängliche und mehrere Eingaben
 
-Lassen Sie uns ein Beispiel betrachten, das initiale und multiple Eingaben für zusätzlichen Kontext verwendet. In diesem Beispiel wird der Benutzer aufgefordert, seinen Namen einzugeben, und die API liefert eine humorvolle Bewertung davon.
+Werfen wir einen Blick auf ein Beispiel, das anfängliche und mehrere Eingaben für zusätzlichen Kontext verwendet. In diesem Beispiel wird der Benutzer aufgefordert, seinen Namen einzugeben, und die API bietet eine skurrile Bewertung davon.
 
-Technisch gesehen ist dies dem [vollständigen Beispiel](/de/docs/Web/API/Prompt_API/Using#complete_example) aus dem vorherigen Leitfaden sehr ähnlich, die einzigen wirklichen Unterschiede sind, dass die Benutzereingabe über eine einzeilige Text-{{htmlelement("input")}} anstelle eines {{htmlelement("textarea")}} bereitgestellt wird und die Aufrufe von `create()` und `prompt()` unterschiedlich sind. Daher werden wir den gesamten Code nicht erneut durchgehen. Um den Code genauer zu untersuchen, sehen Sie sich die Beschreibungen im vorherigen Artikel an und drücken Sie die Schaltfläche "Play" in der angezeigten Live-Ausgabe, um den vollständigen Code im MDN Playground zu öffnen.
+Technisch gesehen ist dies dem [vollständigen Beispiel](/de/docs/Web/API/Prompt_API/Using#complete_example) aus dem vorherigen Leitfaden sehr ähnlich, wobei die einzigen wirklichen Unterschiede darin bestehen, dass die Benutzereingabe über eine einzeilige Text{{htmlelement("input")}} erfolgt, anstatt über eine {{htmlelement("textarea")}}, und die `create()`- und `prompt()`-Aufrufe sich unterscheiden. Daher werden wir den gesamten Code hier nicht noch einmal durchgehen. Um den Code genauer zu betrachten, sehen Sie sich die Beschreibungen des vorherigen Artikels an und drücken Sie die "Play"-Taste im gerenderten Live-Output, um den vollständigen Code im MDN Playground zu öffnen.
 
 ```html hidden live-sample___rate-my-name
 <h1>Prompt API rate my name!</h1>
@@ -344,30 +344,29 @@ async function getSession() {
         },
       ],
     });
-  } else {
-    return await LanguageModel.create({
-      expectedInputs: [{ type: "text", languages: ["en"] }],
-      expectedOutputs: [{ type: "text", languages: ["en"] }],
-      initialPrompts: [
-        {
-          role: "system",
-          content:
-            "In each case, respond with a short paragraph that pokes fun at the person's name in a sarcastic manner. Include a rating out of 10 at the end of the paragraph. The response should be cheeky, but not rude or offensive.",
-        },
-      ],
-      monitor(monitor) {
-        monitor.addEventListener("downloadprogress", (e) => {
-          promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
-        });
-      },
-    });
   }
+  return await LanguageModel.create({
+    expectedInputs: [{ type: "text", languages: ["en"] }],
+    expectedOutputs: [{ type: "text", languages: ["en"] }],
+    initialPrompts: [
+      {
+        role: "system",
+        content:
+          "In each case, respond with a short paragraph that pokes fun at the person's name in a sarcastic manner. Include a rating out of 10 at the end of the paragraph. The response should be cheeky, but not rude or offensive.",
+      },
+    ],
+    monitor(monitor) {
+      monitor.addEventListener("downloadprogress", (e) => {
+        promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
+      });
+    },
+  });
 }
 ```
 
 ### JavaScript
 
-Wenn die Methode [`create()`](/de/docs/Web/API/LanguageModel/create_static) aufgerufen wird, um die `LanguageModel`-Instanz der Sitzung zu erstellen, übergeben wir eine `initialPrompts`-Option, die ein `system`-Input enthält, um dem Modell genau mitzuteilen, wie wir möchten, dass es auf jede Benutzeraufforderung reagiert:
+Wenn die Methode [`create()`](/de/docs/Web/API/LanguageModel/create_static) aufgerufen wird, um die `LanguageModel`-Instanz der Sitzung zu erstellen, übergeben wir eine `initialPrompts`-Option, die eine `system`-Eingabe enthält, um dem Modell genau mitzuteilen, wie es auf jede Benutzereingabe reagieren soll:
 
 ```js
 return await LanguageModel.create({
@@ -383,7 +382,7 @@ return await LanguageModel.create({
 });
 ```
 
-Wenn wir [`prompt()`](/de/docs/Web/API/LanguageModel/prompt) auf unserem `session`-Objekt aufrufen, übergeben wir ihm zwei `user`-Eingabeobjekte. Das erste macht klar, was der Benutzer von der API verlangt, und das zweite stellt den vom Benutzer eingegebenen Namen im `<input>`-Element zur Bewertung durch die API bereit.
+Wenn wir `prompt()` auf unserem `session`-Objekt aufrufen, übergeben wir ihm zwei `user`-Eingabeobjekte. Das erste macht klar, was der Benutzer von der API verlangt, und das zweite liefert den Namen des Benutzers, der in das `<input>`-Element eingegeben wurde, zur Bewertung durch die API.
 
 ```js
 const response = await session.prompt(
@@ -407,11 +406,11 @@ const response = await session.prompt(
 
 {{EmbedLiveSample("rate-my-name", , "600px", , , , "language-model", "allow-forms")}}
 
-Versuchen Sie, einen Namen in das `<input>` einzugeben, und drücken Sie dann die Absenden-Taste, um das KI-Modell um eine humorvolle Bewertung des Namens zu bitten.
+Versuchen Sie, einen Namen in das `<input>` einzugeben, und drücken Sie dann die Schaltfläche zum Absenden, um das KI-Modell um eine skurrile Bewertung des Namens zu bitten.
 
 ## Hinzufügen von Antwortbeschränkungen
 
-Die Methoden `prompt()` und [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) akzeptieren beide eine [`responseConstraint`](/de/docs/Web/API/LanguageModel/prompt#responseconstraint)-Option, deren Wert ein [JSON-Schema](https://json-schema.org/) Objekt ist, das das genau erwartete Format für die Antworten des Assistenten definiert. Dies liefert kontrolliertere Ergebnisse, als die API einfach über einen `system`-Prompt anzuweisen, auf eine bestimmte Weise zu reagieren.
+Die Methoden `prompt()` und [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) akzeptieren beide eine [`responseConstraint`](/de/docs/Web/API/LanguageModel/prompt#responseconstraint) Option, die als Wert ein [JSON-Schema](https://json-schema.org/) Objekt hat, das das genaue Format angibt, das für die Antworten des Assistenten erwartet wird. Dies liefert kontrolliertere Ergebnisse, als nur die API zu bitten, auf eine bestimmte Weise auf eine `system`-Aufforderung zu reagieren.
 
 Ein sehr einfaches Schema könnte eine Antwort definieren, die einen einzelnen booleschen Wert enthalten soll:
 
@@ -421,7 +420,7 @@ const schema = {
 };
 ```
 
-Um dies zu verwenden, setzen Sie das Schema als Wert der `responseConstraint`-Option:
+Um dies zu verwenden, legen Sie das Schema als Wert der `responseConstraint`-Option fest:
 
 ```js
 const response = await session.prompt(
@@ -437,14 +436,14 @@ const response = await session.prompt(
 );
 ```
 
-In diesem Fall setzen wir den Inhalt der Eingabeaufforderung auf "Ist das eine Farbe:" gefolgt vom `value` des `<input>`-Elements. Infolgedessen wird die API überprüfen, ob die Eingabe des Benutzers eine Farbe ist oder nicht, und einen `true`- oder `false`-Wert zurückgeben.
+In diesem Fall setzen wir den Inhalt der Eingabeaufforderung auf "Ist dies eine Farbe:" gefolgt vom `value` des `<input>`-Elements. Infolgedessen wird die API bewerten, ob die Eingabe des Benutzers eine Farbe ist oder nicht, und einen Wert von `true` oder `false` zurückgeben.
 
-### Ein komplexeres Einschränkungsbeispiel
+### Ein komplexeres Beschränkungsbeispiel
 
-Schauen wir uns ein komplexeres Beispiel an, um Ihnen eine bessere Vorstellung davon zu geben, was mit Antwortbeschränkungen möglich ist. In diesem Fall gibt das Schema an, dass die Antwort der API als JSON geliefert werden soll, das enthält:
+Werfen wir einen Blick auf ein komplexeres Beispiel, um Ihnen eine bessere Vorstellung davon zu geben, was mit Antwortbeschränkungen möglich ist. In diesem Fall gibt das Schema an, dass die API-Antwort als JSON geliefert werden soll, das enthält:
 
-- Einen einzigen String, der eine zusammenfassende Beschreibung darstellt.
-- Ein Array von genau drei Strings, die drei unterstützende Aufzählungspunkte repräsentieren.
+- Einen einzelnen String, der eine Zusammenfassungsbeschreibung darstellt.
+- Ein Array von genau drei Strings, die drei unterstützende Aufzählungspunkte darstellen.
 
 ```js
 const schema = {
@@ -473,7 +472,7 @@ const schema = {
 };
 ```
 
-Dies wird in der `responseConstraint`-Option des `prompt()`-Aufrufs eingeschlossen, wie zuvor:
+Dies wird wie zuvor in der `responseConstraint`-Option des `prompt()`-Aufrufs eingeschlossen:
 
 ```js
 const response = await session.prompt(textarea.value, {
@@ -481,7 +480,7 @@ const response = await session.prompt(textarea.value, {
 });
 ```
 
-Da die Antwort als JSON-String angegeben ist, können wir die Antwort in ein Objekt parsen und dann die Eigenschaften des Objekts in unserer Antwort verwenden:
+Da die Antwort als JSON-String spezifiziert ist, können wir die Antwort in ein Objekt parsen und dann die Eigenschaften des Objekts in unserer Antwort verwenden:
 
 ```js
 const structuredOutput = JSON.parse(response);
@@ -619,17 +618,16 @@ async function getSession() {
       expectedInputs: [{ type: "text", languages: ["en"] }],
       expectedOutputs: [{ type: "text", languages: ["en"] }],
     });
-  } else {
-    return await LanguageModel.create({
-      expectedInputs: [{ type: "text", languages: ["en"] }],
-      expectedOutputs: [{ type: "text", languages: ["en"] }],
-      monitor(monitor) {
-        monitor.addEventListener("downloadprogress", (e) => {
-          promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
-        });
-      },
-    });
   }
+  return await LanguageModel.create({
+    expectedInputs: [{ type: "text", languages: ["en"] }],
+    expectedOutputs: [{ type: "text", languages: ["en"] }],
+    monitor(monitor) {
+      monitor.addEventListener("downloadprogress", (e) => {
+        promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
+      });
+    },
+  });
 }
 ```
 
@@ -637,13 +635,13 @@ async function getSession() {
 
 ## Zusätzliche Nachrichten zum Kontext hinzufügen
 
-Das Ermitteln einer Antwort auf eine Benutzerfrage oder -aussage kann lange dauern, insbesondere wenn die API große, komplexe Texteingaben oder multimodale Eingaben verarbeiten muss.
+Die Ableitung einer Antwort auf eine Benutzerfrage oder -aussage kann lange dauern, insbesondere wenn die API mit großen, komplexen Texteingaben oder multimodalen Eingaben umgehen muss.
 
-Um die wahrgenommene Wartezeit zwischen der Eingabeaufforderung des Benutzers und der Antwort zu reduzieren, kann es eine gute Idee sein, die API dazu zu bringen, die Anfrage so schnell wie möglich zu verarbeiten – indem nützlicher Kontext bereitgestellt wird, bevor der Benutzer seine tatsächliche Eingabe übermittelt – oder danach weiteren Kontext hinzuzufügen.
+Um die wahrgenommene Latenzzeit zwischen der Benutzeraufforderung und der Antwort zu verringern, kann es sinnvoll sein, die API so schnell wie möglich mit der Verarbeitung der Anfrage zu beginnen — indem nützlicher Kontext bereitgestellt wird, bevor der Benutzer seine tatsächliche Eingabe sendet — oder danach weiteren Kontext hinzuzufügen.
 
-Die Methode [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append) existiert, um solchen Kontext bereitzustellen – sie fügt der API weitere Eingaben zur Bearbeitung hinzu, ohne eine Modellantwort zu generieren.
+Die Methode [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append) dient dazu, solchen Kontext bereitzustellen — sie fügt zusätzliche Eingaben zur Verarbeitung durch die API hinzu, ohne eine Modellantwort zu erzeugen.
 
-Zum Beispiel liefern wir im folgenden Snippet einen Auszug aus einem ziemlich berühmten Buch. Wir verwenden `append()`, um den Auszug in die API-Sitzung einzuspeisen, und stellen dann eine Frage dazu mit einem `prompt()`-Aufruf. Der Browser kann mit der Verarbeitung des Auszugs beginnen, während er darauf wartet, dass die Frage gestellt wird.
+Zum Beispiel liefern wir im folgenden Ausschnitt einen Auszug aus einem ziemlich berühmten Buch. Wir verwenden `append()`, um den Auszug in die API-Sitzung einzuspeisen, und stellen dann eine Frage darüber mittels eines `prompt()`-Aufrufs. Der Browser kann mit der Verarbeitung des Auszugs beginnen, während er darauf wartet, dass die Frage gestellt wird.
 
 ```js
 const excerpt =
@@ -661,11 +659,11 @@ const response = await session.prompt([
 ]);
 ```
 
-### Ein Anhänge-Beispiel
+### Ein Anhängebeispiel
 
-Schauen wir uns eine echte Implementierung des zuvor erwähnten Auszugsbeispiels an. In diesem Fall können Sie einen Textabschnitt in ein Eingabefeld eingeben und eine Frage zu diesem Text in ein anderes. Wenn Sie es absenden, wird die API-Antwort die Frage speziell im Kontext des bereitgestellten Textabschnitts beantworten.
+Werfen wir einen Blick auf eine reale Implementierung des zuvor genannten Auszugsbeispiels. In diesem Fall können Sie einen Textabschnitt in ein Eingabefeld eingeben und eine Frage zu diesem Text in ein anderes. Wenn Sie dies absenden, wird die API-Antwort die Frage speziell im Kontext des bereitgestellten Textabschnitts beantworten.
 
-Es funktioniert ähnlich wie vorherige Beispiele, sodass wir nicht den gesamten Code gründlich durchgehen werden. Um den vollständigen Code zu studieren, drücken Sie die Schaltfläche "Play" in der angezeigten Live-Ausgabe, um den vollständigen Code im MDN Playground zu öffnen.
+Es funktioniert ähnlich wie die vorherigen Beispiele, daher werden wir nicht den gesamten Code erschöpfend durchgehen. Um den vollständigen Code zu studieren, drücken Sie die "Play"-Taste im gerenderten Live-Output, um den vollständigen Code im MDN Playground zu öffnen.
 
 ```html hidden live-sample___excerpt-question
 <h1>Prompt API excerpt question demo</h1>
@@ -793,23 +791,22 @@ async function getSession() {
       expectedInputs: [{ type: "text", languages: ["en"] }],
       expectedOutputs: [{ type: "text", languages: ["en"] }],
     });
-  } else {
-    return await LanguageModel.create({
-      expectedInputs: [{ type: "text", languages: ["en"] }],
-      expectedOutputs: [{ type: "text", languages: ["en"] }],
-      monitor(monitor) {
-        monitor.addEventListener("downloadprogress", (e) => {
-          promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
-        });
-      },
-    });
   }
+  return await LanguageModel.create({
+    expectedInputs: [{ type: "text", languages: ["en"] }],
+    expectedOutputs: [{ type: "text", languages: ["en"] }],
+    monitor(monitor) {
+      monitor.addEventListener("downloadprogress", (e) => {
+        promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
+      });
+    },
+  });
 }
 ```
 
 #### JavaScript
 
-In diesem Beispiel wird der Auszug in ein `<textarea>` eingegeben. Sobald das `change`-Ereignis des `<textarea>` ausgelöst wird (was bedeutet, dass der Benutzer etwas Text eingegeben hat und dann den Fokus woanders hin verschoben hat), führen wir die Funktion `appendExcerpt()` aus. Diese überprüft, ob das `<textarea>` Text enthält. Falls ja, wird der Text in die Sitzung über `append()` eingebracht, sodass die Verarbeitung beginnen kann. An dieser Stelle aktivieren wir auch die Absenden-Taste des Formulars (wir haben sie zuvor deaktiviert, damit keine Frage gesendet werden kann, ohne dass ein Auszug eingegeben wurde).
+In diesem Beispiel wird der Auszug in ein `<textarea>` eingegeben. Sobald das `change`-Ereignis des `<textarea>` ausgelöst wird (was bedeutet, dass der Benutzer etwas Text eingegeben hat und dann den Fokus woanders hin verlagert hat), führen wir die Funktion `appendExcerpt()` aus. Diese überprüft, ob das `<textarea>` Text enthält. Falls ja, wird der Text über `append()` an die Sitzung übergeben, sodass die Verarbeitung beginnen kann. An diesem Punkt aktivieren wir auch die Schaltfläche zum Absenden des Formulars (wir haben sie zuvor deaktiviert, damit keine Frage eingereicht werden kann, ohne dass ein Auszug eingegeben wurde).
 
 ```js
 textareaElem.addEventListener("change", appendExcerpt);
@@ -824,7 +821,7 @@ async function appendExcerpt() {
 }
 ```
 
-Die Frage wird in ein `<input>`-Element eingegeben. Sobald das `<form>`, das das Eingabefeld enthält, abgesendet wird (das `submit`-Ereignis ausgelöst wird), führen wir die Funktion `handleSubmission()` aus. Der bedeutendste Teil des Funktionskörpers ist der `prompt()`-Aufruf. Wir übergeben ihm zwei `user`-Eingaben – eine, die aussagt, dass die Frage zu dem bereitgestellten Text (zuvor über den `append()`-Aufruf übergeben) handelt, und eine, die die tatsächliche Frage enthält, die aus dem `value`-Attribut des `<input>`-Elements entnommen wird.
+Die Frage wird in ein Text `<input>` eingegeben. Sobald das `<form>`, das die Eingabe enthält, abgesendet wird (das `submit`-Ereignis wird ausgelöst), führen wir die Funktion `handleSubmission()` aus. Der bedeutendste Teil des Funktionskörpers ist der `prompt()`-Aufruf. Wir übergeben zwei `user`-Eingaben daran — eine, die besagt, dass die Frage sich auf den bereitgestellten Text bezieht (früher über den `append()`-Aufruf übergeben), und eine mit der tatsächlichen Frage, die aus dem `value` des `<input>`-Elements entnommen wird.
 
 ```js
 form.addEventListener("submit", handleSubmission);
@@ -858,4 +855,4 @@ async function handleSubmission(e) {
 
 {{EmbedLiveSample("excerpt-question", , "730px", , , , "language-model", "allow-forms")}}
 
-Versuchen Sie, einen Textabschnitt in das Textbereichselement einzugeben und eine Frage zu dem Abschnitt in das einzeilige Eingabeelement einzugeben, und senden Sie dann das Formular ab.
+Versuchen Sie, einen Textabschnitt in das Textfeld einzugeben und eine Frage zu diesem Abschnitt in das einzeilige Eingabefeld einzugeben, und senden Sie dann das Formular ab.

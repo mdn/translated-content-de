@@ -2,93 +2,93 @@
 title: Wie verwende ich GitHub Pages?
 slug: Learn_web_development/Howto/Tools_and_setup/Using_GitHub_pages
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: e3a2272d272f21ea38e5fff9bd6ccec2d0dfb1a8
 ---
 
-[GitHub](https://github.com/) ist eine "soziale Programmierung"-Plattform. Sie ermöglicht es Ihnen, Code-Repositories für die Speicherung im **Versionskontrollsystem** [Git](https://git-scm.com/) hochzuladen. Sie können dann an Codeprojekten zusammenarbeiten, und das System ist standardmäßig Open Source, was bedeutet, dass jeder auf der Welt Ihren GitHub-Code finden, nutzen, von ihm lernen und ihn verbessern kann. Das gilt auch für den Code anderer! Dieser Artikel bietet einen grundlegenden Leitfaden zum Veröffentlichen von Inhalten mit der GitHub gh-pages-Funktion.
+[GitHub](https://github.com/) ist eine „Social-Coding“-Website. Sie ermöglicht Ihnen, Code-Repositories zur Speicherung im **Versionskontrollsystem** [Git](https://git-scm.com/) hochzuladen. Anschließend können Sie an Code-Projekten zusammenarbeiten. Das System ist standardmäßig Open Source, was bedeutet, dass jede Person weltweit Ihren GitHub-Code finden, verwenden, daraus lernen und ihn verbessern kann. Das können Sie auch mit dem Code anderer Personen tun! Dieser Artikel bietet einen grundlegenden Leitfaden zum Veröffentlichen von Inhalten mit der gh-pages-Funktion von GitHub.
 
 ## Inhalte veröffentlichen
 
-GitHub ist eine sehr wichtige und nützliche Gemeinschaft, an der man sich beteiligen kann, und Git/GitHub ist ein sehr beliebtes [Versionskontrollsystem](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) – die meisten Technologieunternehmen verwenden es mittlerweile in ihrem Arbeitsablauf. GitHub bietet eine sehr nützliche Funktion namens [GitHub Pages](https://pages.github.com/), die es Ihnen ermöglicht, Website-Code live im Web zu veröffentlichen.
+GitHub ist eine sehr wichtige und nützliche Community, an der Sie sich beteiligen können, und Git/GitHub ist ein sehr beliebtes [Versionskontrollsystem](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) — die meisten Technologieunternehmen verwenden es inzwischen in ihren Arbeitsabläufen. GitHub bietet eine sehr nützliche Funktion namens [GitHub Pages](https://pages.github.com/), mit der Sie Website-Code live im Web veröffentlichen können.
 
 ### Grundlegende GitHub-Einrichtung
 
-1. Installieren Sie zunächst [Git](https://git-scm.com/downloads) auf Ihrem Rechner. Das ist die zugrundeliegende Versionskontrollsystem-Software, auf der GitHub basiert.
-2. Melden Sie sich als Nächstes für ein [GitHub-Konto](https://github.com/signup) an. Es ist einfach und unkompliziert.
-3. Sobald Sie sich angemeldet haben, loggen Sie sich mit Ihrem Benutzernamen und Passwort bei [github.com](https://github.com/) ein.
+1. Installieren Sie zunächst [Git](https://git-scm.com/downloads/) auf Ihrem Computer. Dies ist die zugrunde liegende Versionskontrollsoftware, auf der GitHub basiert.
+2. Registrieren Sie sich anschließend für [ein GitHub-Konto](https://github.com/signup). Das ist einfach und unkompliziert.
+3. Sobald Sie sich registriert haben, melden Sie sich mit Ihrem Benutzernamen und Passwort bei [github.com](https://github.com/) an.
 
-### Ihren Code für den Upload vorbereiten
+### Ihren Code für das Hochladen vorbereiten
 
-Sie können jeden beliebigen Code in einem GitHub-Repository speichern, aber um die GitHub Pages-Funktion voll auszunutzen, sollte Ihr Code als typische Website strukturiert sein, zum Beispiel mit dem primären Einstiegspunkt als HTML-Datei namens `index.html`.
+Sie können beliebigen Code in einem GitHub-Repository speichern. Um die Funktion GitHub Pages jedoch optimal zu nutzen, sollte Ihr Code wie eine typische Website strukturiert sein, wobei beispielsweise der primäre Einstiegspunkt eine HTML-Datei namens `index.html` ist.
 
-Das andere, was Sie tun müssen, bevor Sie weitermachen, ist, Ihr Codeverzeichnis als Git-Repository zu initialisieren. Dafür:
+Bevor Sie fortfahren, müssen Sie außerdem Ihr Code-Verzeichnis als Git-Repository initialisieren. Gehen Sie dazu wie folgt vor:
 
-1. Navigieren Sie mit der Befehlszeile in Ihr `test-site` Verzeichnis (oder wie auch immer Sie das Verzeichnis genannt haben, das Ihre Website enthält). Verwenden Sie dazu den `cd` Befehl (d.h. "**c**hange **d**irectory"). Hier ist ein Beispiel dafür, wie Sie es eingeben würden, wenn Sie Ihre Website in einem Verzeichnis namens `test-site` auf Ihrem Desktop abgelegt haben:
+1. Navigieren Sie in der Befehlszeile zu Ihrem `test-site`-Verzeichnis (oder wie auch immer Sie das Verzeichnis genannt haben, das Ihre Website enthält). Verwenden Sie hierfür den Befehl `cd` (d.h. „**c**hange **d**irectory“). So würden Sie ihn eingeben, wenn Sie Ihre Website auf Ihrem Desktop in einem Verzeichnis namens `test-site` abgelegt haben:
 
    ```bash
    cd Desktop/test-site
    ```
 
-2. Wenn die Befehlszeile sich in Ihrem Website-Verzeichnis befindet, geben Sie den folgenden Befehl ein, der das `git`-Tool anweist, das Verzeichnis in ein Git-Repository zu verwandeln:
+2. Wenn die Befehlszeile auf Ihr Website-Verzeichnis zeigt, geben Sie den folgenden Befehl ein. Dieser weist das Werkzeug `git` an, das Verzeichnis in ein Git-Repository umzuwandeln:
 
    ```bash
    git init
    ```
 
-#### Ein Exkurs zu Befehlszeilenschnittstellen
+#### Ein Hinweis zu Befehlszeilenschnittstellen
 
-Der beste Weg, Ihren Code auf GitHub hochzuladen, ist über die Befehlszeile – das ist ein Fenster, in dem Sie Befehle eingeben, um Dinge zu tun wie Dateien erstellen und Programme ausführen, anstatt innerhalb einer Benutzeroberfläche zu klicken. Es wird ungefähr so aussehen:
+Der beste Weg, Ihren Code auf GitHub hochzuladen, ist über die Befehlszeile — ein Fenster, in dem Sie Befehle eingeben, um beispielsweise Dateien zu erstellen und Programme auszuführen, anstatt in einer Benutzeroberfläche zu klicken. Es sieht ungefähr so aus:
 
-![Terminal/Kommandoprompt geöffnet. Kein Befehl wurde eingegeben.](command-line.png)
+![Geöffnetes Terminal/Eingabeaufforderung. Es wurde kein Befehl eingegeben.](command-line.png)
 
 > [!NOTE]
-> Sie könnten auch in Erwägung ziehen, eine [Git grafische Benutzeroberfläche](https://git-scm.com/downloads/guis) zu verwenden, um dieselbe Arbeit zu erledigen, wenn Sie sich mit der Befehlszeile unwohl fühlen.
+> Sie können auch eine [grafische Git-Benutzeroberfläche](https://git-scm.com/downloads/guis) verwenden, um dieselbe Arbeit zu erledigen, falls Sie sich mit der Befehlszeile unwohl fühlen.
 
-Jedes Betriebssystem kommt mit einem Befehlszeilentool:
+Jedes Betriebssystem verfügt über ein Befehlszeilenwerkzeug:
 
-- **Windows**: Der **Kommandozeilen Eingabeaufforderung** kann durch Drücken der Windows-Taste aufgerufen werden, indem Sie _Command Prompt_ eingeben und es aus der erscheinenden Liste auswählen. Beachten Sie, dass Windows seine eigenen Befehlskonventionen hat, die sich von Linux und macOS unterscheiden, daher können die Befehle unten auf Ihrem Computer variieren.
-- **macOS**: Das **Terminal** finden Sie unter _Programme > Dienstprogramme_.
-- **Linux**: Sie können normalerweise ein Terminal mit _Strg + Alt + T_ öffnen. Wenn das nicht funktioniert, suchen Sie nach **Terminal** in einer App-Leiste oder einem Menü.
+- **Windows**: Auf die **Eingabeaufforderung** können Sie zugreifen, indem Sie die Windows-Taste drücken, _Eingabeaufforderung_ eingeben und sie aus der angezeigten Liste auswählen. Beachten Sie, dass Windows eigene Befehlskonventionen hat, die sich von Linux und macOS unterscheiden. Daher können die folgenden Befehle auf Ihrem Computer abweichen.
+- **macOS**: **Terminal** finden Sie unter _Programme > Dienstprogramme_.
+- **Linux**: Normalerweise können Sie ein Terminal mit _Strg + Alt + T_ öffnen. Falls das nicht funktioniert, suchen Sie nach **Terminal** in einer App-Leiste oder einem Menü.
 
-Dies mag anfangs etwas beängstigend sein, aber keine Sorge — Sie werden schnell die Grundlagen beherrschen. Sie sagen dem Computer im Terminal, dass er etwas tun soll, indem Sie einen Befehl eingeben und die Eingabetaste drücken, wie oben gezeigt.
+Das mag zunächst etwas beängstigend wirken, aber keine Sorge — Sie werden die Grundlagen schnell verstehen. Sie weisen den Computer im Terminal an, etwas zu tun, indem Sie einen Befehl eingeben und die Eingabetaste drücken, wie oben dargestellt.
 
 ### Ein Repository für Ihren Code erstellen
 
-1. Als Nächstes müssen Sie ein neues Repository für Ihre Dateien erstellen. Klicken Sie oben rechts auf der GitHub-Startseite auf Plus (+) und wählen Sie _Neues Repository_.
-2. Auf dieser Seite geben Sie im Feld _Repository-Name_ einen Namen für Ihr Code-Repository ein, zum Beispiel _mein-repository_.
-3. Fügen Sie auch eine Beschreibung hinzu, um zu sagen, was Ihr Repository enthalten wird. Ihr Bildschirm sollte so aussehen:
-   ![Neue Repository-Seite im Browser geöffnet, Felder für Repository-Besitzer und -Name ausgefüllt, gleiches gilt für das optionale Beschreibungsfeld. Die Checkbox für öffentlich ist ausgewählt, die für privat nicht, ebenso wenig wie die Option, dieses Repository mit einem Readme zu initialisieren.](create-new-repo.png)
-4. Klicken Sie auf _Repository erstellen_; dies sollte Sie zur folgenden Seite bringen:
-   ![Die Repository-Seite ist im Browser geöffnet, unter der GitHub-Kopfzeile bestehend aus Suchleiste und Navigationslinks zu den Pull-Anfragen, Problemen und Gist des Repositorys. Neben den Navigationslinks eine Glockenbenachrichtigung und ein Link zu Ihrem Konto. Darunter der Name des Repository-Besitzers gefolgt von einem Schrägstrich mit dem Repository-Namen. Darunter eine horizontale Navigationsleiste mit verschiedenen Tabs, die sich auf Ihr Repository beziehen, der Code-Tab ist ausgewählt und zeigt eine Dokumentation, die erklärt, wie man ein Repository erstellt oder wie man über die Befehlszeile pusht.](github-repo.png)
+1. Als Nächstes müssen Sie ein neues Repository erstellen, in dem Ihre Dateien abgelegt werden. Klicken Sie oben rechts auf der GitHub-Startseite auf Plus (+) und wählen Sie anschließend _New Repository_ aus.
+2. Geben Sie auf dieser Seite im Feld _Repository name_ einen Namen für Ihr Code-Repository ein, zum Beispiel _my-repository_.
+3. Fügen Sie außerdem eine Beschreibung hinzu, die angibt, was Ihr Repository enthalten soll. Ihr Bildschirm sollte etwa so aussehen:
+   ![Seite zum Erstellen eines neuen Repositorys im Browser geöffnet; die Eingabefelder für Repository-Inhaber und Repository-Name sowie das optionale Beschreibungsfeld sind ausgefüllt. Das Kontrollkästchen für öffentlich ist ausgewählt, das für privat nicht; Gleiches gilt für die Option, dieses Repository mit einer README zu initialisieren.](create-new-repo.png)
+4. Klicken Sie auf _Create repository_. Dadurch sollten Sie auf die folgende Seite gelangen:
+   ![Die Repository-Seite ist im Browser geöffnet. Unter der GitHub-Kopfzeile mit Suchleiste und Navigationslinks zu Pull Requests, Issues und Gist des Repositorys befinden sich neben den Navigationslinks eine Benachrichtigungsglocke und ein Link zu Ihrem Konto. Darunter steht der Name des Repository-Inhabers, gefolgt von einem Schrägstrich und dem Namen des Repositorys. Unter einer horizontalen Navigationsleiste mit verschiedenen Tabs für Ihr Repository ist der Tab für den Code ausgewählt und zeigt eine Dokumentation dazu an, wie ein Repository erstellt oder über die Befehlszeile hochgeladen wird.](github-repo.png)
 
-### Ihre Dateien zu GitHub hochladen
+### Ihre Dateien auf GitHub hochladen
 
-1. Auf der aktuellen Seite interessiert Sie der Abschnitt _…oder ein bestehendes Repository von der Befehlszeile pushen_. Sie sollten zwei Zeilen Code in diesem Abschnitt sehen. Kopieren Sie die gesamte erste Zeile, fügen Sie sie in die Befehlszeile ein und drücken Sie Enter. Der Befehl sollte ungefähr so aussehen:
+1. Auf der aktuellen Seite interessiert Sie der Abschnitt _…or push an existing repository from the command line_. In diesem Abschnitt sollten zwei Codezeilen aufgeführt sein. Kopieren Sie die gesamte erste Zeile, fügen Sie sie in die Befehlszeile ein und drücken Sie die Eingabetaste. Der Befehl sollte ungefähr so aussehen:
 
    ```bash
    git remote add origin https://github.com/chrisdavidmills/my-repository.git
    ```
 
-2. Geben Sie als nächstes die folgenden zwei Befehle ein, und drücken Sie nach jedem Enter. Diese bereiten den Code für das Hochladen auf GitHub vor und bitten Git, diese Dateien zu verwalten.
+2. Geben Sie anschließend die folgenden zwei Befehle ein und drücken Sie nach jedem die Eingabetaste. Diese bereiten den Code für das Hochladen auf GitHub vor und weisen Git an, diese Dateien zu verwalten.
 
    ```bash
    git add --all
    git commit -m 'adding my files to my repository'
    ```
 
-3. Schließlich pushen Sie den Code zu GitHub, indem Sie auf der GitHub-Webseite, auf der Sie sich befinden, den zweiten der beiden Befehle eingeben, die wir im Abschnitt _…oder ein bestehendes Repository von der Befehlszeile pushen_ gesehen haben:
+3. Laden Sie schließlich den Code auf GitHub hoch, indem Sie auf der aktuellen GitHub-Webseite den zweiten der beiden Befehle aus dem Abschnitt _…or push an existing repository from the command line_ aufrufen und ihn in das Terminal eingeben:
 
    ```bash
    git push -u origin main
    ```
 
-4. Jetzt müssen Sie GitHub Pages für Ihr Repository aktivieren. Um dies zu tun, wählen Sie auf der Startseite Ihres Repositories _Einstellungen_, dann wählen Sie _Pages_ aus der Seitenleiste auf der linken Seite. Unter _Source_ wählen Sie den "main" Branch. Die Seite sollte sich aktualisieren.
-5. Gehen Sie erneut zum GitHub Pages-Abschnitt, und Sie sollten eine Zeile in der Form "Ihre Seite kann unter `https://xxxxxx` veröffentlicht werden" sehen.
-6. Wenn Sie auf diese URL klicken, sollten Sie zu einer Live-Version Ihres Beispiels gelangen, sofern die Startseite `index.html` genannt wird – sie geht standardmäßig zu diesem Einstiegspunkt. Wenn der Einstiegspunkt Ihrer Website anders genannt wird, z. B. `myPage.html`, müssen Sie zu `https://xxxxxx/myPage.html` gehen.
+4. Jetzt müssen Sie GitHub Pages für Ihr Repository aktivieren. Wählen Sie dazu auf der Startseite Ihres Repositorys _Settings_ und anschließend in der linken Seitenleiste _Pages_. Wählen Sie unter _Source_ den Branch „main“ aus. Die Seite sollte aktualisiert werden.
+5. Rufen Sie erneut den Abschnitt GitHub Pages auf. Dort sollte eine Zeile der Form „Your site is ready to be published at `https://xxxxxx`.“ angezeigt werden.
+6. Wenn Sie auf diese URL klicken, sollten Sie zu einer Live-Version Ihres Beispiels gelangen, sofern die Startseite `index.html` heißt — standardmäßig wird dieser Einstiegspunkt aufgerufen. Falls der Einstiegspunkt Ihrer Website anders heißt, beispielsweise `myPage.html`, müssen Sie `https://xxxxxx/myPage.html` aufrufen.
 
-### Weiterführende GitHub-Kenntnisse
+### Weiterführendes GitHub-Wissen
 
-Wenn Sie mehr Änderungen an Ihrer Testseite vornehmen und diese bei GitHub hochladen möchten, müssen Sie die Änderungen an Ihren Dateien genauso vornehmen wie zuvor. Dann müssen Sie die folgenden Befehle eingeben (nach jedem Enter drücken), um diese Änderungen zu GitHub zu pushen:
+Wenn Sie weitere Änderungen an Ihrer Test-Website vornehmen und diese auf GitHub hochladen möchten, müssen Sie die Änderung wie zuvor an Ihren Dateien vornehmen. Anschließend müssen Sie die folgenden Befehle eingeben und nach jedem die Eingabetaste drücken, um diese Änderungen auf GitHub hochzuladen:
 
 ```bash
 git add --all
@@ -96,6 +96,6 @@ git commit -m 'another commit'
 git push
 ```
 
-Sie können _another commit_ durch eine passende Nachricht ersetzen, die beschreibt, welche Änderung Sie gerade vorgenommen haben.
+Sie können _another commit_ durch eine passendere Nachricht ersetzen, die beschreibt, welche Änderung Sie gerade vorgenommen haben.
 
-Wir haben hier nur an der Oberfläche von Git gekratzt. Um mehr zu lernen, schauen Sie sich unsere [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control) Seite an.
+Wir haben Git nur oberflächlich behandelt. Weitere Informationen finden Sie auf unserer Seite [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control).

@@ -3,16 +3,16 @@ title: "HTMLDialogElement: requestClose() Methode"
 short-title: requestClose()
 slug: Web/API/HTMLDialogElement/requestClose
 l10n:
-  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`requestClose()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle fordert das Schließen des {{htmlelement("dialog")}}-Elements an. Ein optionaler String kann als Argument übergeben werden, das den [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des Dialogs aktualisiert.
+Die **`requestClose()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle fordert das Schließen des {{htmlelement("dialog")}} an. Ein optionaler String kann als Argument übergeben werden, um den [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des Dialogs zu aktualisieren.
 
-Diese Methode unterscheidet sich von [`close()`](/de/docs/Web/API/HTMLDialogElement/close), da sie ein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis auslöst, bevor das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
+Diese Methode unterscheidet sich von [`close()`](/de/docs/Web/API/HTMLDialogElement/close) dadurch, dass sie ein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis auslöst, bevor das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
 
-Diese Methode bietet das gleiche Verhalten wie der interne Schließen-Beobachter des Dialogs.
+Diese Methode zeigt das gleiche Verhalten wie der interne Schließwächter des Dialogs.
 
 ## Syntax
 
@@ -34,11 +34,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von `requestClose()`
 
-Das folgende Beispiel zeigt eine Schaltfläche, die beim Klicken einen {{htmlelement("dialog")}} mit der [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode öffnet. Von dort aus können Sie entweder auf die _Schließen_-Schaltfläche klicken, um die `requestClose()`-Methode aufzurufen und den Dialog zu schließen.
+Das folgende Beispiel zeigt einen Button, der, wenn er angeklickt wird, ein {{htmlelement("dialog")}} mithilfe der [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)-Methode öffnet. Von dort aus können Sie einen der beiden _Schließen_-Schaltflächen klicken, um die `requestClose()`-Methode aufzurufen und den Dialog zu schließen.
 
-Die _Schließen_-Schaltfläche schließt den Dialog ohne einen [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue), während die _Schließen mit Rückgabewert_-Schaltfläche den Dialog mit einem [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) schließt.
+Der _Schließen_-Button schließt den Dialog ohne [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue), während der Button _Schließen mit Rückgabewert_ den Dialog mit einem [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) schließt.
 
-Das Verhindern des Schließens des Dialogs wird mit einem Kontrollkästchen demonstriert.
+Das Verhindern des Schließens des Dialogs wird mit einer Checkbox demonstriert.
 
 #### HTML
 
@@ -104,7 +104,7 @@ closeWithValueButton.addEventListener("click", () => {
 // Prevent the dialog from closing by calling event.preventDefault()
 dialog.addEventListener("cancel", (event) => {
   if (preventCloseInput.checked) {
-    log("Dialog close cancelled");
+    log("Dialog close canceled");
     event.preventDefault();
   }
 });
@@ -129,5 +129,5 @@ dialog.addEventListener("close", () => {
 
 ## Siehe auch
 
-- HTML {{htmlelement("dialog")}} Element
+- HTML {{htmlelement("dialog")}}-Element
 - Das [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis

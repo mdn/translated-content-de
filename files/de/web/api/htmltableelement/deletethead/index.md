@@ -1,15 +1,14 @@
 ---
-title: "HTMLTableElement: deleteTHead()-Methode"
+title: "HTMLTableElement: deleteTHead() Methode"
 short-title: deleteTHead()
 slug: Web/API/HTMLTableElement/deleteTHead
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.deleteTHead()`** entfernt das
-{{HTMLElement("thead")}}-Element von einem gegebenen {{HtmlElement("table")}}.
+Die **`deleteTHead()`**-Methode des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Interfaces entfernt das erste {{HTMLElement("thead")}}-Elementkind von einem angegebenen {{HTMLElement("table")}}, falls vorhanden.
 
 ## Syntax
 
@@ -23,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um das Kopfzeilenelement einer Tabelle zu löschen.
+Dieses Beispiel verwendet JavaScript, um den Kopf einer Tabelle zu löschen.
 
 ### HTML
 
@@ -55,7 +54,7 @@ Dieses Beispiel verwendet JavaScript, um das Kopfzeilenelement einer Tabelle zu 
 ### JavaScript
 
 ```js
-let table = document.querySelector("table");
+const table = document.querySelector("table");
 table.deleteTHead();
 ```
 
@@ -70,3 +69,9 @@ table.deleteTHead();
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`HTMLTableElement.createTHead()`](/de/docs/Web/API/HTMLTableElement/createTHead)
+- [`HTMLTableElement.deleteCaption()`](/de/docs/Web/API/HTMLTableElement/deleteCaption)
+- [`HTMLTableElement.deleteTFoot()`](/de/docs/Web/API/HTMLTableElement/deleteTFoot)

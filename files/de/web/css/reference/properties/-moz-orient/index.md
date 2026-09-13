@@ -3,12 +3,12 @@ title: "`-moz-orient` CSS property"
 short-title: -moz-orient
 slug: Web/CSS/Reference/Properties/-moz-orient
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_header}}
 
-Die **`-moz-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung des Elements fest, auf das sie angewendet wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-moz-orient`** legt die Ausrichtung des Elements fest, auf das sie angewendet wird.
 
 ## Syntax
 
@@ -25,14 +25,16 @@ Die **`-moz-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung d
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `inline`
-  - : Das Element wird in derselben Richtung wie die Achse des Textes dargestellt: horizontal für horizontale Schreibmodi, vertikal für vertikale Schreibmodi.
+  - : Das Element wird in derselben Richtung wie die Achse des Textes gerendert: horizontal für horizontale Schreibrichtungen, vertikal für vertikale Schreibrichtungen.
 - `block`
-  - : Das Element wird orthogonal zur Achse des Textes dargestellt: vertikal für horizontale Schreibmodi, horizontal für vertikale Schreibmodi.
+  - : Das Element wird orthogonal zur Achse des Textes gerendert: vertikal für horizontale Schreibrichtungen, horizontal für vertikale Schreibrichtungen.
 - `horizontal`
-  - : Das Element wird horizontal dargestellt.
+  - : Das Element wird horizontal gerendert.
 - `vertical`
-  - : Das Element wird vertikal dargestellt.
+  - : Das Element wird vertikal gerendert.
 
 ## Formale Definition
 
@@ -70,7 +72,7 @@ Die **`-moz-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung d
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards. Obwohl [eingereicht](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) bei der W3C, mit positivem anfänglichen Feedback, ist diese Eigenschaft noch nicht Teil einer Spezifikation; derzeit handelt es sich um eine Mozilla-spezifische Erweiterung (das heißt, `-moz-orient`).
+Nicht Teil eines Standards. Obwohl diese Eigenschaft mit [positivem anfänglichem Feedback](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) beim W3C eingereicht wurde, ist sie noch nicht Teil einer Spezifikation; derzeit handelt es sich um eine Mozilla-spezifische Erweiterung (das heißt `-moz-orient`).
 
 ## Browser-Kompatibilität
 

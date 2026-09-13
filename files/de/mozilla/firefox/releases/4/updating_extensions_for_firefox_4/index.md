@@ -1,107 +1,107 @@
 ---
-title: Aktualisieren von Erweiterungen für Firefox 4
+title: Erweiterungen für Firefox 4 aktualisieren
 slug: Mozilla/Firefox/Releases/4/Updating_extensions_for_Firefox_4
 l10n:
-  sourceCommit: 2591a9b59de88401a2ef0fb7d0b8d0281e3f5376
+  sourceCommit: e3a2272d272f21ea38e5fff9bd6ccec2d0dfb1a8
 ---
 
-Dieser Artikel bietet Details zu Änderungen in Firefox 4, die bestehende Erweiterungen beeinflussen können.
+Dieser Artikel enthält Details zu Änderungen in Firefox 4, die sich auf bestehende Erweiterungen auswirken können.
 
 ## Änderungen an der Benutzeroberfläche
 
 ### Die Statusleiste
 
-Die Statusleiste wurde aus Firefox 4 entfernt und durch eine neue Add-on-Leiste ersetzt. Weitere Informationen finden Sie unter [Die Add-on-Leiste](/de/docs/Mozilla/Firefox/Releases/4/The_add-on_bar).
+Die Statusleiste wurde aus Firefox 4 entfernt und durch eine neue Add-on-Leiste ersetzt. Details finden Sie unter [Die Add-on-Leiste](/de/docs/Mozilla/Firefox/Releases/4/The_add-on_bar).
 
 ### Symbolleisten
 
-#### Erstellen von Symbolleisten
+#### Symbolleisten erstellen
 
-Wenn Ihr Add-on eine neue Symbolleiste mithilfe eines Overlays erstellt, wird Ihre Symbolleiste möglicherweise nicht angezeigt. Dies passiert, wenn Ihr `<toolbox>`-Element-Overlay ein Kind des `<window>`-Elements ist, anstatt ein direktes Kind des Overlay-Elements zu sein. Bewegen Sie das Toolbox-Element aus dem Window-Element heraus, um dieses Problem zu beheben.
+Wenn Ihr Add-on mithilfe eines Overlays eine neue Symbolleiste erstellt, wird Ihre Symbolleiste möglicherweise nicht angezeigt. Dies geschieht, wenn Ihr `<toolbox>`-Element-Overlay ein Kind des `<window>`-Elements statt ein direktes Kind des Overlay-Elements ist. Verschieben Sie die Toolbox aus dem Window-Element heraus, um dieses Problem zu beheben.
 
 ### Das Firefox-Anwendungsmenü
 
-Unter Windows ist die Menüleiste nun standardmäßig ausgeblendet. Stattdessen gibt es einen einzigen Button, der ein vereinfachtes Firefox-Anwendungsmenü öffnet. Dieses Menü enthält die am häufigsten verwendeten Menüfunktionen, was die Anwendung benutzerfreundlicher macht. Die Menüleiste kann weiterhin durch Drücken der Alt-Taste aufgerufen werden.
+Unter Windows ist die Menüleiste jetzt standardmäßig ausgeblendet. Stattdessen gibt es eine einzelne Schaltfläche, die ein vereinfachtes Firefox-Anwendungsmenü öffnet. Dieses Menü enthält die am häufigsten verwendeten Menüfunktionen, wodurch die Anwendung einfacher zu bedienen ist. Die Menüleiste kann weiterhin durch Drücken der Alt-Taste aufgerufen werden.
 
-Wenn Ihr Add-on nur über die Menüleiste auffindbar ist, sollten Sie auch das Anwendungsmenü überlagern. Es gibt keinen speziellen Platz für Erweiterungsmenüeinträge, daher sollten Sie sich das Menü ansehen und den richtigen Platz für Ihre spezielle Erweiterung auswählen.
+Wenn Ihr Add-on nur über die Menüleiste auffindbar ist, sollten Sie auch das Anwendungsmenü überlagern. Es gibt keinen spezifischen Ort für Menüeinträge von Erweiterungen. Sie sollten sich daher das Menü ansehen und den geeigneten Ort für Ihre jeweilige Erweiterung auswählen.
 
 ### Tabs
 
-Es wurden mehrere Änderungen am `<tabbrowser>`-Element vorgenommen, um App-Tabs und Panoramen zu unterstützen sowie die Tab-Leiste in eine Standard-Symbolleiste zu verwandeln. Andere Änderungen, die bestehende Erweiterungen beeinträchtigen könnten, umfassen:
+Am `<tabbrowser>`-Element wurden mehrere Änderungen vorgenommen, um App-Tabs und Panoramas zu unterstützen sowie die Tab-Leiste in eine Standard-Symbolleiste umzuwandeln. Weitere Änderungen, die bestehende Erweiterungen beeinträchtigen können, umfassen:
 
-- Die Ereignisse `TabClose`, `TabSelect` und `TabOpen` blubbern nicht mehr zum `<tabbrowser>`-Element (`gBrowser`) hoch. Event-Listener für diese Ereignisse sollten zum `gBrowser.tabContainer` hinzugefügt werden, anstatt direkt zu `gBrowser`.
-- Das Tab-Kontextmenü ist kein anonymes Kind des `<tabbrowser>` mehr. Es kann daher direkt mit [XUL-Overlays](https://web.archive.org/web/20160927025909/https://developer.mozilla.org/de/docs/Mozilla/Tech/XUL/Overlays) überlagert werden. Es kann auch direkter in JavaScript über `gBrowser.tabContextMenu` zugänglich gemacht werden. Weitere Details finden Sie in [diesem Blogeintrag](https://gavinsharp.com/blog/2010/03/31/accessingmodifying-the-firefox-tab-context-menu-from-extensions/).
+- Die Ereignisse `TabClose`, `TabSelect` und `TabOpen` propagieren nicht mehr zum `<tabbrowser>`-Element (`gBrowser`) hinauf. Event-Listener für diese Ereignisse sollten zu `gBrowser.tabContainer` statt direkt zu `gBrowser` hinzugefügt werden.
+- Das Tab-Kontextmenü ist nicht mehr ein anonymes Kind von `<tabbrowser>`. Es kann daher direkt mit [XUL-Overlays](https://web.archive.org/web/20160927025909/https://developer.mozilla.org/de/docs/Mozilla/Tech/XUL/Overlays) überlagert werden. Außerdem kann in JavaScript direkter über `gBrowser.tabContextMenu` darauf zugegriffen werden. Weitere Details finden Sie in [diesem Blogbeitrag](https://gavinsharp.com/blog/2010/03/31/accessingmodifying-the-firefox-tab-context-menu-from-extensions/).
 
 ## XPCOM-Änderungen
 
-Es wurden mehrere Änderungen vorgenommen, die Add-ons und Anwendungen betreffen, die XPCOM-Komponenten enthalten. Weitere Einzelheiten finden Sie unter [XPCOM-Änderungen in Gecko 2](https://web.archive.org/web/20210514105748/https://developer.mozilla.org/de/docs/Mozilla/Tech/XPCOM/Guide/Changes_in_Gecko_2.0).
+Es wurden mehrere Änderungen vorgenommen, die Add-ons und Anwendungen betreffen, welche XPCOM-Komponenten enthalten. Details finden Sie unter [XPCOM-Änderungen in Gecko 2](https://web.archive.org/web/20210514105748/https://developer.mozilla.org/de/docs/Mozilla/Tech/XPCOM/Guide/Changes_in_Gecko_2.0).
 
 ## Der Add-on-Manager
 
-Der überarbeitete Add-on-Manager wird als Tab statt in einem separaten Fenster implementiert. Zu den Änderungen, die aus Sicht des Benutzererlebnisses Auswirkungen auf Ihren Browser haben, gehört, dass das Icon Ihres Add-ons jetzt 64x64 Pixel groß sein kann anstelle von 32x32. Obwohl 32x32-Pixel-Icons weiterhin funktionieren, sieht Ihr Add-on offensichtlich besser aus, wenn es ein 64x64-Pixel-Icon bereitstellt. Glücklicherweise sind 64x64-Icons abwärtskompatibel und lassen sich gut verkleinern, sodass Sie einfach wechseln können, anstatt beide Größen zu benötigen.
+Der überarbeitete Add-on-Manager wird als Tab statt in einem separaten Fenster implementiert. Zu den Änderungen, die Ihren Browser aus Sicht der Benutzererfahrung betreffen, gehört, dass das Symbol Ihres Add-ons nun 64x64 Pixel statt 32x32 Pixel groß sein kann. Obwohl Symbole mit 32x32 Pixeln weiterhin funktionieren, wird Ihr Add-on offensichtlich besser aussehen, wenn es stattdessen ein Symbol mit 64x64 Pixeln bereitstellt. Glücklicherweise sind 64x64-Symbole abwärtskompatibel und lassen sich gut verkleinern, sodass Sie einfach wechseln können, anstatt beide Größen zu benötigen.
 
-Darüber hinaus wurde das Back-End des Add-on-Managers neu gestaltet. Das `nsIExtensionManager`-Interface ist verschwunden, ebenso wie der alte RDF-basierte Speicher, den es verwendete. Die Metadaten von Add-ons werden jetzt in einer SQLite-Datenbank gespeichert, und der Add-on-Manager ist jetzt ein [JavaScript-Code-Modul](https://web.archive.org/web/20210531090101/https://developer.mozilla.org/de/docs/Mozilla/JavaScript_code_modules) namens [AddonManager](https://firefox-source-docs.mozilla.org/toolkit/mozapps/extensions/addon-manager/AddonManager.html).
+Darüber hinaus wurde das Back-End des Add-on-Managers neu gestaltet. Die Schnittstelle `nsIExtensionManager` ist verschwunden, ebenso wie der alte RDF-basierte Speicher, den sie verwendete. Add-on-Metadaten werden jetzt in einer SQLite-Datenbank gespeichert, und der Add-on-Manager ist nun ein [JavaScript-Code-Modul](https://web.archive.org/web/20210531090101/https://developer.mozilla.org/de/docs/Mozilla/JavaScript_code_modules) namens [AddonManager](https://firefox-source-docs.mozilla.org/toolkit/mozapps/extensions/addon-manager/AddonManager.html).
 
-Ein wesentlicher Unterschied mit der neuen API ist, dass das Anfordern von Add-on-Metadaten jetzt asynchron statt synchron ist; dies gilt auch für Add-ons, die FUEL verwenden, daher müssen alle Add-ons, die Metadaten über Add-ons anfordern, aktualisiert werden.
+Ein wesentlicher Unterschied der neuen API besteht darin, dass die Anforderung von Add-on-Metadaten nun asynchron statt synchron erfolgt. Dies gilt auch für Add-ons, die FUEL verwenden. Daher müssen alle Add-ons aktualisiert werden, die Metadaten über Add-ons anfordern.
 
 ## Threading
 
-Es ist nicht mehr möglich, JavaScript-Objekte zwischen Threads zu übergeben. Dadurch wird der Thread-Manager für Add-on-Entwickler größtenteils unbrauchbar, und es gibt derzeit nicht viele Alternativen. Es ist möglich, dass in Zukunft der [`ChromeWorker`](https://web.archive.org/web/20210512121129/https://developer.mozilla.org/de/docs/Mozilla/Gecko/Chrome/API/ChromeWorker) verbessert wird, um diese Lücke zu füllen.
+Sie können JavaScript-Objekte nicht mehr zwischen Threads übergeben. Dadurch wird der Thread Manager für Add-on-Entwickler leider größtenteils nutzlos, und derzeit gibt es nicht viele Alternativen. Möglicherweise wird [`ChromeWorker`](https://web.archive.org/web/20210512121129/https://developer.mozilla.org/de/docs/Mozilla/Gecko/Chrome/API/ChromeWorker) künftig verbessert, um diese Lücke zu schließen.
 
 ## Netzwerkumleitungen
 
-Die API zur Handhabung von Netzwerkumleitungen wurde geändert, um asynchron zu sein; alle Add-ons, die sich in der Kategorie "net-channel-event-sinks" registrieren, müssen so aktualisiert werden, dass sie die neue API `asyncOnChannelRedirect` verwenden.
+Die API zur Behandlung von Netzwerkumleitungen wurde auf asynchron geändert. Alle Add-ons, die in der Kategorie „net-channel-event-sinks“ registriert sind, müssen aktualisiert werden, um die neue API `asyncOnChannelRedirect` zu verwenden.
 
-## XPI-Entpackung
+## XPI-Entpacken
 
-Firefox 4 [extrahiert keine XPIs mehr](https://bugzil.la/533038) beim Installieren von Erweiterungen. Es speichert die XPI-Datei im Benutzerprofil und liest dann die Chrome-Dateien und andere direkt aus der XPI. Ein Jar innerhalb der XPI funktioniert weiterhin, ist aber nicht mehr notwendig, was die Entwicklung oder den Build erleichtern kann. Dies wurde hauptsächlich aus Leistungsgründen auf langsamen Betriebssystemen durchgeführt und ermöglicht eine bessere Cache-Invalidierung, was auch Entwicklern hilft. Allerdings können noch nicht alle Arten von Dateien aus der XPI herausgelesen werden. Wenn Ihre Erweiterung eine solche Datei verwendet, müssen Sie [`<em:unpack>`](https://web.archive.org/web/20210421140209/https://developer.mozilla.org/de/docs/Archive/Add-ons/Install_Manifests#unpack) in Ihrer install.rdf angeben, damit Firefox Ihre XPI weiterhin extrahiert und Einzeldateien verwendet, andernfalls schlägt Ihre Erweiterung fehl, wenn sie versucht, auf diese Dateien zuzugreifen.
+Firefox 4 [extrahiert XPIs nicht mehr](https://bugzil.la/533038), wenn Erweiterungen installiert werden. Die XPI-Datei wird einfach im Benutzerprofil abgelegt; anschließend werden die Chrome-Dateien und andere Dateien direkt aus dem XPI gelesen. Ein JAR innerhalb des XPI funktioniert weiterhin, ist jedoch nicht mehr erforderlich, was Ihre Entwicklung oder Ihren Build vereinfachen kann. Dies wurde hauptsächlich aus Leistungsgründen auf langsamen Betriebssystemen umgesetzt und ermöglicht eine bessere Cache-Invalidierung, was ebenfalls Entwicklern hilft. Allerdings können noch nicht alle Dateitypen innerhalb des XPI gelesen werden. Wenn Ihre Erweiterung einen dieser Typen verwendet, müssen Sie in Ihrer install.rdf [`<em:unpack>`](https://web.archive.org/web/20210421140209/https://developer.mozilla.org/de/docs/Archive/Add-ons/Install_Manifests#unpack) angeben, damit Firefox Ihr XPI weiterhin extrahiert und einzelne Dateien verwendet. Andernfalls schlägt Ihre Erweiterung beim Versuch fehl, auf diese Dateien zuzugreifen.
 
-Wenn Ihre Erweiterung nur diese Dateitypen enthält, dann müssen Sie keine Änderungen vornehmen:
+Wenn Ihre Erweiterung nur diese Dateitypen enthält, müssen Sie keine Änderungen vornehmen:
 
 - `install.rdf`
 - `chrome.manifest`
 - `chrome` (einschließlich `content`, `locale`, `skin`)
-- Standardpräferenzen
-- XPCOM-Komponenten, die in JavaScript geschrieben sind
+- Standardvoreinstellungen
+- in JavaScript geschriebene XPCOM-Komponenten
 
-Wenn Ihre Erweiterung eine der folgenden enthält, müssen Sie `<em:unpack>` in die install.rdf aufnehmen:
+Wenn Ihre Erweiterung eines der Folgenden enthält, müssen Sie `<em:unpack>` in die install.rdf aufnehmen:
 
 - Binäre XPCOM-Komponenten
-- Geteilte Bibliotheken, die mit ctypes geladen werden
-- `searchplugins/` (sollen automatisch von Firefox geladen werden)
+- Mit ctypes geladene gemeinsam genutzte Bibliotheken
+- `searchplugins/` (die automatisch von Firefox geladen werden sollen)
 - `dictionaries/`
-- Fenster-Icons (könnte [behoben werden](https://bugzil.la/595462))
+- Fenstersymbole (wird möglicherweise [behoben](https://bugzil.la/595462))
 
-Wenn Ihr Erweiterungscode auf andere Dateien zugreift, die Sie in der XPI verpackt haben, dann müssen Sie entweder `<em:unpack>` in die install.rdf aufnehmen oder könnten eine Unterstützung für verpackte Installationen ermöglichen, indem Sie einige Änderungen an Ihrem Code vornehmen. Jeglicher Code, der getInstallLocation() und nsIFile verwendet, benötigt entweder em:unpack oder muss geändert werden. Sie können die Methode `Addon.getResourceURI()` verwenden, die ein `nsIURI` zurückgibt, das auf die angeforderte Datei zeigt. Wenn die Erweiterung entpackt ist, wird es eine `file://` URL sein. Wenn die Erweiterung verpackt ist, wird es eine `jar://` URL sein. Sie können Streams zu diesen URIs öffnen, indem Sie einen Kanal mit dem `nsIIOService` öffnen, was Ihnen ermöglicht, die Dateiinhalte ohne Entpacken zu laden.
+Wenn Ihr Erweiterungscode auf andere Dateien zugreift, die Sie im XPI paketiert haben, müssen Sie entweder `<em:unpack>` in die install.rdf aufnehmen oder Sie können möglicherweise die gepackte Installation unterstützen, indem Sie einige Änderungen an Ihrem Code vornehmen. Jeder Code, der `getInstallLocation()` und nsIFile verwendet hat, benötigt entweder em:unpack oder muss geändert werden. Sie können die Methode `Addon.getResourceURI()` verwenden; sie gibt eine `nsIURI` zurück, die auf die angeforderte Datei verweist. Wenn die Erweiterung entpackt ist, handelt es sich um eine `file://`-URI. Wenn die Erweiterung gepackt ist, handelt es sich um eine `jar://`-URI. Sie können Streams zu diesen URIs öffnen, indem Sie einen Channel mit `nsIIOService` öffnen. Dadurch können Sie die Dateiinhalte ohne Entpacken laden.
 
-## Child HWNDs wurden entfernt
+## Child-HWNDs wurden entfernt
 
-Dies sollte nur eine sehr kleine Anzahl von Entwicklern betreffen. In früheren Versionen von Firefox wurden Child-`HWND`s unter Windows zur internen Verwendung erstellt. Im Rahmen der Arbeiten zur Verbesserung der Grafikleistung werden diese nicht mehr erstellt.
+Dies sollte nur eine sehr kleine Anzahl von Entwicklern betreffen. In früheren Firefox-Versionen wurden unter Windows Child-`HWND`s für den internen Gebrauch erstellt. Im Zuge der Arbeiten zur Verbesserung der Grafikleistung werden diese nicht mehr erstellt.
 
-Leider haben einige wenige Erweiterungen Zugriff auf diese `HWND`s genommen und sie direkt manipuliert; diese Erweiterungen funktionieren in Firefox 4 nicht mehr. Wir haben einige Hacks eingebaut, um bestimmte Zeigegerätetreiber und unterstützende Technologie-Software (z. B. Screenreader) zu unterstützen. Wir haben jedoch beschlossen, keine weiteren Hacks hinzuzufügen, um Erweiterungen zu unterstützen, die dies nie hätten tun sollen.
+Leider haben einige Erweiterungen auf diese `HWND`s zugegriffen und sie direkt manipuliert; diese Erweiterungen funktionieren in Firefox 4 nicht mehr. Wir haben einige Hacks implementiert, um bestimmte Zeigegerätetreiber und Software für unterstützende Technologien zu unterstützen, beispielsweise Screenreader. Wir haben uns jedoch dagegen entschieden, noch mehr Hacks hinzuzufügen, um Erweiterungen zu unterstützen, die dies von Anfang an niemals hätten tun sollen.
 
-Wenn Sie eine Erweiterung pflegen, die native Komponenten verwendet, die auf nicht mehr vorhandene `HWND`s angewiesen sind, müssen Sie Ihre Erweiterung aktualisieren. Es gibt zwei Möglichkeiten, dies zu tun.
+Wenn Sie eine Erweiterung pflegen, die native Komponenten verwendet, welche auf nicht mehr vorhandenen `HWND`s basieren, müssen Sie Ihre Erweiterung aktualisieren. Dafür gibt es zwei Möglichkeiten.
 
-Die erste und bessere Lösung besteht darin, den Zugriff auf `HWND`s zu stoppen und stattdessen Web-Features oder XUL zur Implementierung Ihrer Erweiterung zu verwenden. Es gibt viele neue Funktionen in Firefox 4, die viele Dinge ermöglichen, die früher nativen Code erforderten, sodass Sie dies möglicherweise nicht mehr tun müssen.
+Die erste und bessere Lösung besteht darin, nicht mehr auf `HWND`s zuzugreifen und stattdessen Web-Features oder XUL zur Implementierung Ihrer Erweiterung zu verwenden. Firefox 4 bietet viele neue Features, die vieles ermöglichen, wofür früher nativer Code erforderlich war. Möglicherweise müssen Sie dies also nicht mehr tun.
 
-Wenn Sie feststellen, dass dies nicht funktioniert und Sie dennoch direkt auf `HWND`s zugreifen müssen, ist möglicherweise Ihre einzige Lösung, ein NPAPI-Plugin zu schreiben, das die Arbeit erledigt. Dies kann viel Arbeit erfordern, aber es sollte funktionieren. Natürlich hilft Ihnen das möglicherweise nicht, wenn die spezifischen `HWND`s, die Sie verwendeten, nicht mehr vorhanden sind.
+Wenn Sie feststellen, dass dies nicht funktioniert und Sie weiterhin direkt auf `HWND`s zugreifen müssen, besteht Ihre einzige Lösung möglicherweise darin, ein NPAPI-Plugin zu schreiben, das die Arbeit erledigt. Dies kann viel Arbeit sein, sollte aber funktionieren. Natürlich hilft dies möglicherweise nicht, wenn die spezifischen `HWND`s, die Sie verwendet haben, nicht mehr existieren.
 
-## Entwicklungs- und Testtipps
+## Tipps für Entwicklung und Tests
 
 ### Caching
 
-Da Firefox jetzt aggressiver Code und andere Ressourcen cached, sollten Sie sicherstellen, dass die Caches beim Start von Firefox 4 geleert werden. Andernfalls testen Sie möglicherweise veraltete Teile Ihres Add-ons. Um dies zu tun, starten Sie Firefox mit der Kommandozeilenoption `-purgecaches`.
+Da Firefox Code und andere Ressourcen nun aggressiver zwischenspeichert, sollten Sie beim Starten von Firefox 4 unbedingt die Caches leeren. Andernfalls testen Sie möglicherweise veraltete Teile Ihres Add-ons. Starten Sie Firefox dazu mit der Befehlszeilenoption `-purgecaches`.
 
-### Der Profil-Manager
+### Der Profile Manager
 
-Das alte Profil-Manager-Tool wird aus Firefox 4 entfernt, obwohl es noch nicht der Fall ist. Dieses Tool wurde seit langem nicht aktualisiert und es fehlen Funktionen. Außerdem verzögert seine Anwesenheit den Anwendungsstart.
+Das alte Werkzeug Profile Manager wird aus Firefox 4 entfernt werden, obwohl dies noch nicht geschehen ist. Dieses Werkzeug wurde lange Zeit nicht aktualisiert und es fehlen Funktionen. Darüber hinaus verlangsamt seine Anwesenheit den Start der Anwendung.
 
-Ein Ersatz für den Profil-Manager ist [verfügbar](https://ftp.mozilla.org/pub/utilities/profilemanager/). (Siehe auch [Firefox-Bug 539524](https://bugzil.la/539524)). Dieses neue Tool ist unabhängig vom Browser selbst und robuster als der alte Profil-Manager.
+Ein Ersatz für den Profile Manager ist [verfügbar](https://ftp.mozilla.org/pub/utilities/profilemanager/). (Siehe auch [Firefox-Bug 539524](https://bugzil.la/539524).) Dieses neue Werkzeug ist vom Browser selbst unabhängig und robuster als der alte Profile Manager.
 
-### Globale Installation von Erweiterungen
+### Erweiterungen global installieren
 
-Die Kommandozeilenoptionen `-install-global-extension` und `-install-global-theme` wurden entfernt. Die Behandlung der globalen Installation war schon immer kompliziert, und es werden derzeit Diskussionen darüber geführt, wie das Thema weiter angegangen werden soll. In der Zwischenzeit finden Sie unter [Erweiterungen installieren](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/) Informationen zu Möglichkeiten, Add-ons automatisch zu installieren.
+Die Befehlszeilenoptionen `-install-global-extension` und `-install-global-theme` wurden entfernt. Die Handhabung globaler Installationen war schon immer kompliziert, und es laufen Diskussionen darüber, wie dieses Thema künftig behandelt werden soll. Informationen zu Möglichkeiten, Add-ons automatisch zu installieren, finden Sie unter [Erweiterungen installieren](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/).
 
 ## Siehe auch
 
-- [Making Your Add-on Compatible with Firefox 4](https://blog.mozilla.org/addons/2010/11/11/making-add-on-compatible-firefox-4/) (Blogeintrag)
+- [Ihr Add-on mit Firefox 4 kompatibel machen](https://blog.mozilla.org/addons/2010/11/11/making-add-on-compatible-firefox-4/) (Blogbeitrag)

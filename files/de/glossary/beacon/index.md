@@ -2,12 +2,12 @@
 title: Beacon
 slug: Glossary/Beacon
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: d93983dfe60b65633f67fffe04676c241ff92960
 ---
 
-Ein Web-**Beacon** ist ein kleines Objekt, wie etwa ein 1-Pixel-GIF, das in Markup eingebettet ist und dazu verwendet wird, Informationen zurück an den Webserver oder an Drittserver zu kommunizieren. Beacons werden im Allgemeinen hinzugefügt, um Informationen über den Nutzer zu statistischen Zwecken bereitzustellen. Beacons sind häufig in Drittanbieter-Skripten enthalten, um Nutzerdaten, Leistungsmetriken und Fehlerberichte zu sammeln.
+Ein Web-**Beacon** ist ein kleines Objekt, beispielsweise ein 1-Pixel-GIF, das in Markup eingebettet wird und dazu dient, Informationen an den Webserver oder an Server von Drittanbietern zurückzusenden. Beacons werden im Allgemeinen eingesetzt, um zu statistischen Zwecken Informationen über den Benutzer bereitzustellen. Beacons sind häufig in Skripten von Drittanbietern enthalten, um Benutzerdaten, Leistungsmetriken und Fehlerberichte zu erfassen.
 
-Es gibt eine [W3C Draft Beacon-Spezifikation](https://w3c.github.io/beacon/), die den Beacon als Schnittstelle standardisieren soll, um HTTP-Daten asynchron vom User Agent an einen Webserver vor dem Laden der Seite ohne negative Auswirkungen auf die Leistung zu übertragen.
+Es gibt eine [W3C-Entwurfsspezifikation für Beacons](https://w3c.github.io/beacon/), um das Beacon als Schnittstelle für die asynchrone Übertragung von HTTP-Daten vom User Agent an einen Webserver vor dem Laden der Seite ohne negative Auswirkungen auf die Leistung zu standardisieren.
 
 ## Siehe auch
 

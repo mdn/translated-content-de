@@ -3,14 +3,14 @@ title: "ARIA: radio Rolle"
 short-title: radio
 slug: Web/Accessibility/ARIA/Reference/Roles/radio_role
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
-Die `radio` Rolle ist eine von einer Gruppe von auswählbaren Optionsfeldern in einer `radiogroup`, bei denen nicht mehr als ein Optionsfeld gleichzeitig aktiviert sein kann.
+Die `radio`-Rolle gehört zu einer Gruppe von auswählbaren Optionsfeldern in einer `radiogroup`, bei der nicht mehr als ein Optionsfeld gleichzeitig ausgewählt sein kann.
 
 ## Beschreibung
 
-Ein Optionsfeld ist ein auswählbares Eingabeelement, das in Verbindung mit anderen Optionsfeldern steht, von denen nur eines gleichzeitig aktiviert sein kann. Die Optionsfelder müssen in einer [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role) gruppiert werden, um anzugeben, welche Ergebnisse derselben Wert beeinflussen.
+Ein Optionsfeld ist eine auswählbare Eingabe, bei der in Verbindung mit anderen Optionsfeldern nur eines zur gleichen Zeit ausgewählt sein kann. Die Optionsfelder müssen zusammen in einem [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role) gruppiert werden, um anzuzeigen, welche von ihnen denselben Wert betreffen.
 
 ```html
 <div role="radiogroup" aria-labelledby="legend25" id="radiogroup25">
@@ -48,7 +48,7 @@ Ein Optionsfeld ist ein auswählbares Eingabeelement, das in Verbindung mit ande
 Das `role`-Attribut fügt nur Semantik hinzu; alle Funktionalitäten, die nativ mit dem [HTML-Optionsfeld](/de/docs/Web/HTML/Reference/Elements/input/radio) kommen, müssen mit JavaScript und dem HTML-Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) ergänzt werden.
 
 > [!NOTE]
-> Die erste Regel von ARIA ist, wenn ein natives HTML-Element oder Attribut die benötigten Semantiken und Verhaltensweisen bietet, verwenden Sie es, anstatt ein Element umzufunktionieren und ARIA hinzuzufügen. Verwenden Sie stattdessen das native [HTML `<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio) (mit einem zugehörigen {{HTMLElement('label')}}), das von Haus aus alle nötigen Funktionen bietet:
+> Die erste Regel von ARIA ist, dass wenn ein natives HTML-Element oder Attribut die benötigte Semantik und das benötigte Verhalten bietet, es verwendet werden sollte, statt ein Element umzufunktionieren und ARIA hinzuzufügen. Verwenden Sie stattdessen das native [HTML `<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio) (mit einem zugehörigen {{HTMLElement('label')}}), das nativ alle erforderlichen Funktionalitäten bereitstellt:
 
 ```html
 <fieldset>
@@ -68,35 +68,35 @@ Das `role`-Attribut fügt nur Semantik hinzu; alle Funktionalitäten, die nativ 
 </fieldset>
 ```
 
-Das native HTML-Optionsfeld-Steuerelement ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)) hat zwei Zustände ("aktiviert" oder "nicht aktiviert"). Ähnlich kann ein Element mit `role="radio"` zwei Zustände durch das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) Attribut anzeigen: `true` repräsentiert den aktivierten Zustand, und `false` repräsentiert den deaktivierten Zustand. Der `aria-checked` Wert "mixed" ist für ein Optionsfeld nicht gültig.
+Das native HTML-Optionsfeld-Steuerelement ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)) hat zwei Zustände („ausgewählt“ oder „nicht ausgewählt“). Ähnlich kann ein Element mit `role="radio"` zwei Zustände mittels des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attributs anzeigen: `true` für den ausgewählten Zustand und `false` für den nicht ausgewählten Zustand. Der `aria-checked`-Wert von „mixed“ ist für ein Optionsfeld nicht zulässig.
 
-Wenn ein Optionsfeld aktiviert ist, hat das Radio-Element `aria-checked` auf `true` gesetzt. Wenn es nicht aktiviert ist, ist `aria-checked` auf `false` gesetzt.
+Wenn ein Optionsfeld ausgewählt ist, ist das Radio-Element mit `aria-checked` auf `true` gesetzt. Wenn es nicht ausgewählt ist, ist es mit `aria-checked` auf `false` gesetzt.
 
-Jedes Optionsfeld-Element hat die Rolle `radio`. Die Radio-Rolle sollte immer zusammen mit anderen zugeordneten Radios in einer `radiogroup` verschachtelt sein. Wenn es nicht möglich ist, das Optionsfeld innerhalb einer Radio-Gruppe zu verschachteln, verwenden Sie die `id` des nicht gruppierten Radios in einer durch Leerzeichen getrennten Liste von Werten als Wert des [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) Attributs auf dem `radiogroup` Element, um die Beziehung der `radiogroup` zu ihren Radio-Mitgliedern zu kennzeichnen.
+Jedes Optionsfeld hat die Rolle `radio`. Die Radio-Rolle sollte immer mit anderen zugehörigen Radios in einer `radiogroup` geschachtelt sein. Falls es nicht möglich ist, das Optionsfeld innerhalb einer Radiogruppe zu verschachteln, verwenden Sie die `id` des nicht gruppierten Radios in einer durch Leerzeichen getrennten Liste von Werten als Wert des [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attributs für das `radiogroup`-Element, um die Beziehung der `radiogroup` zu ihren Radio-Mitgliedern anzuzeigen.
 
-Jedes Radio-Element ist durch seinen Inhalt beschriftet, hat ein sichtbares Label, das durch `aria-labelledby` referenziert wird, oder hat ein Label, das mit `aria-label` spezifiziert ist. Das enthaltene `radiogroup` Element sollte entweder ein sichtbares Label haben, das durch `aria-labelledby` referenziert wird, oder ein Label, das mit `aria-label` spezifiziert ist. Wenn Elemente vorhanden sind, die zusätzliche Informationen über die Radio-Gruppe oder jedes Optionsfeld bereitstellen, sollten diese Elemente vom `radiogroup` Element oder von den Radio-Elementen mit der [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) Eigenschaft referenziert werden.
+Jedes Radio-Element wird durch seinen Inhalt benannt, hat ein sichtbares Label, das durch `aria-labelledby` referenziert wird, oder hat ein Label, das mit `aria-label` angegeben ist. Das umgebende `radiogroup`-Element sollte entweder ein sichtbares Label haben, das durch `aria-labelledby` referenziert wird, oder ein Label, das mit `aria-label` angegeben ist. Wenn Elemente vorhanden sind, die zusätzliche Informationen über die Radiogruppe oder jedes Optionsfeld bereitstellen, sollten diese Elemente durch das `radiogroup`-Element oder die Radioelemente mit der [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Eigenschaft referenziert werden.
 
-Da `radio` ein interaktives Steuerelement ist, muss es fokussierbar und über die Tastatur zugänglich sein. Wenn die Rolle auf ein nicht-fokussierbares Element angewendet wird, verwenden Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) Attribut, um dies zu ändern. Die erwartete Tastenkombination zur Aktivierung eines Radios ist die <kbd>Space</kbd> Taste. Verwenden Sie JavaScript, um das `aria-checked` Attribut auf `true` zu setzen, wenn ein Radio aktiviert wird, während sichergestellt wird, dass alle anderen Radio-Rollen in der Gruppe auf `aria-checked="false"` gesetzt sind.
+Da `radio` ein interaktives Steuerelement ist, muss es fokussierbar und per Tastatur zugänglich sein. Wenn die Rolle auf ein nicht-fokussierbares Element angewendet wird, verwenden Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut, um dies zu ändern. Die erwartete Tastenkombination zur Aktivierung eines Radios ist die <kbd>Leerzeichen</kbd>-Taste. Verwenden Sie JavaScript, um das `aria-checked`-Attribut auf `true` zu setzen, wenn ein Radio ausgewählt wird, und sicherzustellen, dass alle anderen Radio-Rollen in der Gruppe auf `aria-checked="false"` gesetzt sind.
 
-Um programmatisch anzugeben, dass in einer Radio-Gruppe ein Optionsfeld ausgewählt werden muss, muss das [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required) Attribut mit einem Wert von `true` auf dem `radiogroup` Element angegeben werden. Es ist nicht vorgesehen, das `aria-required` Attribut auf individuellen ARIA-Optionsfeldern zu verwenden.
+Um programmgesteuert anzugeben, dass ein Optionsfeld aus einer Radiogruppe gewählt werden muss, muss das Attribut [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required) mit dem Wert `true` auf dem `radiogroup`-Element angegeben werden. Für einzelne ARIA-Optionsfelder wird nicht erwartet, dass das Attribut `aria-required` verwendet wird.
 
-### Alle Nachkommen sind präsentational
+### Alle Nachfahren sind präsentationell
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeits-API dargestellt sind, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente, die in einem `radio` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines `radio` Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugriffs-API dargestellt werden, nur Text enthalten können. Zugriffs-APIs haben keine Möglichkeit, semantische Elemente darzustellen, die in einem `radio` enthalten sind. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachfahr-Elemente eines `radio`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
-Beispielsweise betrachten Sie das folgende `radio` Element, das eine Überschrift enthält.
+Beispielsweise betrachten Sie das folgende `radio`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="radio"><h6>name of my radio</h6></div>
 ```
 
-Da Nachkommen von `radio` präsentational sind, ist der folgende Code äquivalent:
+Weil Nachfahren von `radio` präsentationell sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="radio"><h6 role="presentation">name of my radio</h6></div>
 ```
 
-Aus der Sicht des Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} entsprechen:
+Aus der Perspektive der Benutzer der unterstützenden Technologie existiert die Überschrift nicht, da die vorherigen Code-Schnipsel äquivalent zum Folgenden im {{Glossary("Accessibility_tree", "Barrierefreiheit-Baum")}} sind:
 
 ```html
 <div role="radio">name of my radio</div>
@@ -105,46 +105,46 @@ Aus der Sicht des Benutzers von unterstützender Technologie existiert die Über
 ### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role) Rolle
-  - : Die Optionsfelder sind in einem Element mit der Rolle `radiogroup` enthalten oder gehören zu diesem. Wenn sie nicht innerhalb einer `radiogroup` in der Markupstruktur verschachtelt werden können, enthält das `aria-owns` Attribut der `radiogroup` die `id` Werte der nicht verschachtelten Optionsfelder in der Gruppe.
+  - : Die Optionsfelder sind in einem Element mit der Rolle `radiogroup` enthalten oder von diesem besessen. Wenn es nicht möglich ist, innerhalb einer `radiogroup` im Markup zu verschachteln, enthält das `aria-owns`-Attribut der `radiogroup` die `id`-Werte der nicht-verschachtelten Optionsfelder in der Gruppe.
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)
-  - : Der Wert von `aria-checked` definiert den Zustand eines Radios. Bei Verwendung mit Radio-Elementen hat das Attribut einen von zwei möglichen Werten:
+  - : Der Wert von `aria-checked` definiert den Zustand eines Radios. Wenn es mit Radioelementen verwendet wird, hat das Attribut einen von zwei möglichen Werten:
     - `true`
-      - : Das Radio ist aktiviert.
+      - : Das Optionsfeld ist ausgewählt.
     - `false`
-      - : Das Radio ist nicht aktiviert.
+      - : Das Optionsfeld ist nicht ausgewählt.
 
 > [!NOTE]
-> Verwenden Sie das [`tabindex` Attribut](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), wenn `role="radio"` auf ein Element angewendet wird, das nicht nativ die Tastaturfokussierung akzeptiert. Zum Beispiel ein `<div>` oder `<span>`.
+> Verwenden Sie das [`tabindex`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), wenn das `role="radio"` auf einem Element verwendet wird, das nativ keine Tastaturfokussierung akzeptiert. Z.B. ein `<div>` oder `<span>`.
 
-### Tastaturinteraktionen
+### Tastatur-Interaktionen
 
 - <kbd>Tab</kbd> + <kbd>Shift</kbd>
-  - : Verschieben Sie den Fokus in und aus der Radio-Gruppe. Wenn der Fokus in eine Radio-Gruppe verschoben wird, und ein Optionsfeld bereits aktiviert ist, wird der Fokus auf das aktivierte Feld gesetzt. Falls keines der Optionsfelder aktiviert ist, wird der Fokus auf das erste Optionsfeld in der Gruppe gesetzt.
+  - : Bewegt den Fokus in die und aus der Radiogruppe. Wenn der Fokus in eine Radiogruppe bewegt wird und ein Optionsfeld bereits ausgewählt ist, wird der Fokus auf das ausgewählte Feld gesetzt. Wenn keines der Optionsfelder ausgewählt ist, wird der Fokus auf das erste Optionsfeld in der Gruppe gesetzt.
 
-- <kbd>Space</kbd>
-  - : Aktiviert das Optionsfeld, wenn es nicht bereits aktiviert ist. Deaktiviert ein zuvor aktiviertes Optionsfeld in der Radio-Gruppe.
+- <kbd>Leerzeichen</kbd>
+  - : Wählt das Optionsfeld aus, wenn es noch nicht ausgewählt ist. Hebt die Auswahl eines zuvor ausgewählten Optionsfeldes in der Radiogruppe auf.
 
-- <kbd>Rechte Pfeiltaste</kbd> und <kbd>Untere Pfeiltaste</kbd>
-  - : Verschieben Sie den Fokus auf und aktivieren Sie das nächste Optionsfeld in der Gruppe, während Sie das zuvor fokussierte Optionsfeld deaktivieren. Befindet sich der Fokus auf dem letzten Optionsfeld, wird der Fokus auf das erste Optionsfeld verschoben.
+- <kbd>Rechtspfeil</kbd> und <kbd>Abwärtspfeil</kbd>
+  - : Bewegt den Fokus zu und wählt das nächste Optionsfeld in der Gruppe aus, wobei das zuvor fokussierte Optionsfeld abgewählt wird. Wenn sich der Fokus auf dem letzten Optionsfeld befindet, bewegt sich der Fokus zum ersten Optionsfeld.
 
-- <kbd>Linke Pfeiltaste</kbd> und <kbd>Obere Pfeiltaste</kbd>
-  - : Verschieben Sie den Fokus auf und aktivieren Sie das vorherige Optionsfeld in der Gruppe, während Sie das zuvor fokussierte Optionsfeld deaktivieren. Befindet sich der Fokus auf dem ersten Optionsfeld, wird der Fokus auf das letzte Optionsfeld verschoben.
+- <kbd>Linkspfeil</kbd> und <kbd>Aufwärtspfeil</kbd>
+  - : Bewegt den Fokus zu und wählt das vorherige Optionsfeld in der Gruppe aus, wobei das zuvor fokussierte Optionsfeld abgewählt wird. Wenn sich der Fokus auf dem ersten Optionsfeld befindet, bewegt sich der Fokus zum letzten Optionsfeld.
 
-### Radios in einer Werkzeugleiste
+### Optionsfelder in einer Werkzeugleiste
 
-Da Pfeiltasten zur Navigation zwischen Elementen einer Werkzeugleiste verwendet werden und die <kbd>Tab</kbd>-Taste den Fokus in und aus einer Werkzeugleiste verschiebt, ist die Tastaturinteraktion der Radio-Gruppe unterschiedlich, wenn eine Radio-Gruppe innerhalb einer Werkzeugleiste verschachtelt ist. Siehe [`radiogroup` Tastaturinteraktionen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role#keyboard_interactions) für weitere Informationen.
+Da Pfeiltasten verwendet werden, um zwischen Elementen einer Werkzeugleiste zu navigieren, und die <kbd>Tab</kbd>-Taste den Fokus in und aus einer Werkzeugleiste bewegt, ist die Tastaturinteraktion der Radiogruppe, wenn sie in einer Werkzeugleiste verschachtelt ist, etwas anders als die einer Radiogruppe, die nicht in einer Werkzeugleiste ist. Siehe [`radiogroup` Tastaturinteraktionen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role#keyboard_interactions) für weitere Informationen.
 
 ## Erforderliches JavaScript
 
 - `onClick`
-  - : Bearbeiten Sie Mausklicks auf sowohl das Radio als auch das zugehörige Label, das den Zustand des Radios durch Ändern des Werts des `aria-checked` Attributs und das Aussehen des Radios ändern wird, sodass es für den sehenden Benutzer aktiviert oder nicht aktiviert erscheint.
+  - : Behandelt Mausklicks sowohl auf das Optionsfeld als auch auf das zugehörige Label, das den Zustand des Radios durch Ändern des Wertes des `aria-checked`-Attributs und das Erscheinungsbild des Radios, sodass es dem sehenden Benutzer als ausgewählt oder nicht ausgewählt erscheint, ändert.
 - `onKeyPress`
-  - : Behandeln Sie den Fall, in dem der Benutzer die <kbd>Space</kbd> Taste drückt, um den Zustand des Radios durch Ändern des Werts des `aria-checked` Attributs und das Aussehen des Radios ändern wird, sodass es für den sehenden Benutzer aktiviert oder nicht aktiviert erscheint.
+  - : Behandelt den Fall, bei dem der Benutzer die <kbd>Leerzeichen</kbd>-Taste drückt, um den Zustand des Radios durch Änderung des Wertes des `aria-checked`-Attributs und das Erscheinungsbild des Radios, sodass es dem sehenden Benutzer als ausgewählt oder nicht ausgewählt erscheint, ändert.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet ARIA, um sonst generische Elemente so zu modifizieren, dass sie als Optionsfelder angezeigt werden. CSS und JavaScript werden verwendet, um den aktivierten oder deaktivierten Zustand des Elements visuell und programmatisch zu ändern.
+Das folgende Beispiel verwendet ARIA, um ansonsten generische Elemente so zu modifizieren, dass sie als Optionsfelder angezeigt werden. CSS und JavaScript werden verwendet, um den ausgewählten oder nicht ausgewählten Zustand des Elements visuell und programmatisch zu modifizieren.
 
 ### HTML
 
@@ -195,7 +195,7 @@ Das folgende Beispiel verwendet ARIA, um sonst generische Elemente so zu modifiz
 
 ### JavaScript
 
-Es wird eine Menge JavaScript benötigt, um aus nicht-semantischem HTML Optionsfelder zu machen.
+Eine Menge JavaScript ist erforderlich, um aus nicht-semantischem HTML Optionsfelder zu machen.
 
 ```js
 // initialize all the radio role elements
@@ -260,7 +260,7 @@ function setChecked() {
 
 <!-- {{EmbedLiveSample("Examples", 230, 250)}} -->
 
-Kein JavaScript (oder sogar CSS) wäre notwendig gewesen, hätten wir ein semantisches HTML-Element mit dem Namen jedes Optionsfelds in einer Gruppe von Optionsfeldern verwendet, die dasselbe sind:
+Es würde kein JavaScript (oder sogar CSS) benötigt werden, wenn wir ein semantisches HTML-Element verwendet hätten, bei dem der Name jedes Optionsfeldes in einer Gruppe von Optionsfeldern derselbe ist:
 
 ```html
 <fieldset>
@@ -279,17 +279,17 @@ Kein JavaScript (oder sogar CSS) wäre notwendig gewesen, hätten wir ein semant
 </fieldset>
 ```
 
-## Best Practices
+## Beste Praktiken
 
-Die erste Regel von ARIA ist: Wenn ein natives HTML-Element oder Attribut die Semantiken und Verhaltensweisen bietet, die Sie benötigen, verwenden Sie es anstatt ein Element umzufunktionieren und eine ARIA-Rolle, -Eigenschaft oder -Attribut hinzuzufügen, um es zugänglich zu machen. Daher wird empfohlen, native [HTML-Optionsfeld](/de/docs/Web/HTML/Reference/Elements/input/radio) Formularelemente zu verwenden, anstatt die Funktionalität eines Radios mit JavaScript und ARIA nachzubilden.
+Die erste Regel von ARIA ist: Wenn ein nativer HTML-Element oder -Attribut die Semantik und das Verhalten bietet, das Sie benötigen, verwenden Sie es, anstatt ein Element umzufunktionieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen. Es wird daher empfohlen, native [HTML-Optionsfeld](/de/docs/Web/HTML/Reference/Elements/input/radio) Formular-Steuerelemente zu verwenden, anstatt die Funktionalität eines Optionsfeldes mit JavaScript und ARIA neu zu erstellen.
 
 ## Siehe auch
 
 - [HTML `<input type="radio">` Optionsfeld](/de/docs/Web/HTML/Reference/Elements/input/radio)
-- [HTML `tabindex` Attribut](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)
-- [ARIA: `radiogroup` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role)
-- [ARIA: `checkbox` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role)
-- [ARIA: `menuitem` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role)
-- [ARIA: `menuitemradio` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role)
-- [ARIA: `menuitemradio` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role)
-- [ARIA: `option` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
+- [HTML `tabindex`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)
+- [ARIA: `radiogroup`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role)
+- [ARIA: `checkbox`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role)
+- [ARIA: `menuitem`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role)
+- [ARIA: `menuitemradio`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role)
+- [ARIA: `menuitemradio`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role)
+- [ARIA: `option`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)

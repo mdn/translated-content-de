@@ -3,10 +3,12 @@ title: "`outline-width` CSS property"
 short-title: outline-width
 slug: Web/CSS/Reference/Properties/outline-width
 l10n:
-  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die [CSS](/de/docs/Web/CSS) **`outline-width`**-Eigenschaft legt die Dicke der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`outline-width`** legt die Dicke der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element herum außerhalb von {{cssxref("border")}} gezeichnet wird.
+
+Beim Definieren des Erscheinungsbilds einer Kontur ist es oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden.
 
 {{InteractiveExample("CSS Demo: outline-width")}}
 
@@ -43,8 +45,6 @@ outline-width: thick;
 }
 ```
 
-Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Kontur definiert wird.
-
 ## Syntax
 
 ```css
@@ -67,10 +67,10 @@ outline-width: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein einzelner `<line-width>`-Wert angegeben.
+Diese Eigenschaft wird als ein `<line-width>`-Wert angegeben.
 
 - {{cssxref("&lt;line-width&gt;")}}
-  - : Definiert die Breite der Kontur, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
+  - : Definiert die Breite der Kontur, entweder als explizite nicht negative {{cssxref("&lt;length&gt;")}} oder durch die Schlüsselwörter `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 

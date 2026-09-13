@@ -3,16 +3,16 @@ title: "Navigator: requestMediaKeySystemAccess() Methode"
 short-title: requestMediaKeySystemAccess()
 slug: Web/API/Navigator/requestMediaKeySystemAccess
 l10n:
-  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
+  sourceCommit: e1e7e2ac2cb1e40293c32c24bc0667905e9a7a04
 ---
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`requestMediaKeySystemAccess()`** Methode der [`Navigator`](/de/docs/Web/API/Navigator) Schnittstelle gibt ein {{jsxref('Promise')}} zurück, welches ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objekt liefert. Dieses kann verwendet werden, um auf ein bestimmtes Medien-Schlüsselsystem zuzugreifen, was wiederum benutzt werden kann, um Schlüssel zur Entschlüsselung eines Medienstreams zu erstellen.
+Die **`requestMediaKeySystemAccess()`** Methode des [`Navigator`](/de/docs/Web/API/Navigator) Interfaces gibt ein {{jsxref('Promise')}} zurück, das ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objekt liefert, das verwendet werden kann, um auf ein bestimmtes Medienschlüsselsystem zuzugreifen, welches wiederum verwendet werden kann, um Schlüssel zur Entschlüsselung eines Medienstroms zu erstellen.
 
-Diese Methode ist Teil der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API), die Unterstützung für verschlüsselte Medien und DRM-geschütztes Video ins Web bringt.
+Diese Methode ist Teil der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API), die Unterstützung für verschlüsselte Medien und DRM-geschützte Videos im Web bietet.
 
-Diese Methode kann sichtbare Effekte für den Nutzer haben, wie zum Beispiel das Erfragen von Erlaubnis um auf eine oder mehrere Systemressourcen zuzugreifen. Berücksichtigen Sie dies, wenn Sie entscheiden, wann `requestMediaKeySystemAccess()` aufgerufen werden soll; Sie möchten nicht, dass diese Anfragen zu unpassenden Zeiten stattfinden. Als allgemeine Regel sollte diese Funktion nur aufgerufen werden, wenn es Zeit ist, ein [`MediaKeys`](/de/docs/Web/API/MediaKeys) Objekt durch Aufruf der erzeugten [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objektmethode [`createMediaKeys()`](/de/docs/Web/API/MediaKeySystemAccess/createMediaKeys) zu erstellen und zu verwenden.
+Diese Methode kann sichtbare Effekte für den Benutzer haben, wie die Anfrage um Erlaubnis, auf eines oder mehrere Systemressourcen zuzugreifen. Berücksichtigen Sie dies bei der Entscheidung, wann `requestMediaKeySystemAccess()` aufgerufen werden soll; Sie möchten nicht, dass diese Anfragen zu ungünstigen Zeiten erfolgen. Als allgemeine Regel sollte diese Funktion nur aufgerufen werden, wenn es an der Zeit ist, ein [`MediaKeys`](/de/docs/Web/API/MediaKeys) Objekt zu erstellen und zu verwenden, indem die Methode [`createMediaKeys()`](/de/docs/Web/API/MediaKeySystemAccess/createMediaKeys) des zurückgegebenen [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objekts aufgerufen wird.
 
 ## Syntax
 
@@ -23,70 +23,86 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
 ### Parameter
 
 - `keySystem`
-  - : Ein String, der das Schlüsselsystem identifiziert. Zum Beispiel `com.example.some-system` oder `org.w3.clearkey`.
+  - : Ein String, der das Schlüsselsystem identifiziert.
+    Zum Beispiel `com.example.some-system` oder `org.w3.clearkey`.
 - `supportedConfigurations`
-  - : Ein nicht-leeres {{jsxref('Array')}} von Objekten, die dem Objekt entsprechen, das durch [`MediaKeySystemAccess.getConfiguration`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration) zurückgegeben wird. Das erste Element mit einer erfüllbaren Konfiguration wird verwendet.
+  - : Ein nicht-leeres {{jsxref('Array')}} von Objekten, das dem Objekt entspricht, das von [`MediaKeySystemAccess.getConfiguration`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration) zurückgegeben wird.
+    Das erste Element mit einer erfüllbaren Konfiguration wird verwendet.
 
     Jedes Objekt kann die folgenden Eigenschaften haben:
 
     > [!NOTE]
-    > Entweder `videoCapabilities` oder `audioCapabilities` können leer sein, jedoch nicht beide!
+    > Entweder `videoCapabilities` oder `audioCapabilities` können leer sein, aber nicht beide!
     - `label` {{optional_inline}}
-      - : Ein optionales Label für die Konfiguration, das standardmäßig auf `""` gesetzt ist. Dieses Label bleibt für Konfigurationen erhalten, die mit [`MediaKeySystemAccess.getConfiguration`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration) abgerufen werden.
+      - : Ein optionales Label für die Konfiguration, das standardmäßig `""` ist.
+        Dieses Label bleibt für Konfigurationen erhalten, die mit [`MediaKeySystemAccess.getConfiguration`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration) abgerufen werden.
     - `initDataTypes`
-      - : Ein Array von Strings, die die Datentypnamen für die unterstützten Initialisierungsdatenformate angeben (standardmäßig ein leeres Array).
-        Diese Namen sind wie `"cenc"`, `"keyids"` und `"webm"`, die im [Encrypted Media Extensions Initialization Data Format Registry](https://w3c.github.io/encrypted-media/format-registry/initdata/) definiert sind.
+      - : Ein Array von Strings, die die Datentypnamen der unterstützten Initialisierungsdatenformate angeben (standardmäßig ein leeres Array).
+        Diese Namen sind Namen wie `"cenc"`, `"keyids"` und `"webm"`, die im [Encrypted Media Extensions Initialization Data Format Registry](https://w3c.github.io/encrypted-media/format-registry/initdata/) definiert sind.
     - `audioCapabilities`
-      - : Ein Array von unterstützten Audiofähigkeiten. Wenn das Array leer ist, unterstützt der Inhaltstyp keine Audiofähigkeiten.
+      - : Ein Array von unterstützten Audiofähigkeiten.
+        Wenn das Array leer ist, unterstützt der Inhaltstyp keine Audiofähigkeiten.
 
         Jedes Objekt im Array hat die folgenden Eigenschaften:
         - `contentType`
-          - : Ein String, der den Medien-MIME-Typ der Medienressource angibt, wie `"audio/mp4;codecs=\"mp4a.40.2\"`. Beachten Sie, dass der leere String ungültig ist und dass, wenn die MIME-Typ-Definition Parameter beinhaltet, wie `codecs`, diese ebenfalls einbezogen werden müssen.
+          - : Ein String, der den Media MIME-Typ der Medienressource angibt, wie `"audio/mp4;codecs=\"mp4a.40.2\"`.
+            Beachten Sie, dass der leere String ungültig ist und dass, wenn die MIME-Typ-Definition Parameter enthält, wie `codecs`, diese ebenfalls enthalten sein müssen.
         - `encryptionScheme`
-          - : Das mit dem Inhaltstyp assoziierte Verschlüsselungsschema, wie `cenc`, `cbcs`, `cbcs-1-9`. Dieser Wert sollte von einer Anwendung gesetzt werden (er ist standardmäßig `null`, was darauf hinweist, dass jedes Verschlüsselungsschema verwendet werden kann).
+          - : Das der Inhaltstyp zugeordnete Verschlüsselungsschema, wie `cenc`, `cbcs`, `cbcs-1-9`.
+            Dieser Wert sollte von einer Anwendung gesetzt werden (er standardmäßig auf `null`, was bedeutet, dass jedes Verschlüsselungsschema verwendet werden kann).
         - `robustness`
-          - : Das Robustheitsniveau, das mit dem Inhaltstyp assoziiert ist. Der leere String zeigt an, dass jede Fähigkeit zur Entschlüsselung und Dekodierung des Inhaltstyps akzeptabel ist.
+          - : Das mit dem Inhaltstyp assoziierte Robustheitsniveau.
+            Der leere String zeigt an, dass jede Fähigkeit, den Inhaltstyp zu entschlüsseln und zu dekodieren, akzeptabel ist.
 
     - `videoCapabilities`
-      - : Ein Array von unterstützten Videofähigkeiten. Die Objekte im Array haben die gleiche Form wie die in `audioCapabilities`.
+      - : Ein Array von unterstützten Videofähigkeiten.
+        Die Objekte im Array haben die gleiche Form wie die in `audioCapabilities`.
 
     - `distinctiveIdentifier`
-      - : Ein String, der angibt, ob die Implementierung "unverwechselbare Identifikatoren" (oder unverwechselbare dauerhafte Identifikatoren) für Vorgänge verwenden darf, die mit einem aus dieser Konfiguration erstellten Objekt verbunden sind. Die erlaubten Werte sind:
+      - : Ein String, der angibt, ob die Implementierung "unterscheidungskräftige Kennungen" (oder unterscheidungskräftige permanente Kennungen) für irgendeine Operation verwenden darf, die mit einem aus dieser Konfiguration erstellten Objekt verbunden ist.
+        Die erlaubten Werte sind:
         - `required`
           - : Das zurückgegebene Objekt muss diese Funktion unterstützen.
         - `optional`
-          - : Das zurückgegebene Objekt kann diese Funktion unterstützen. Dies ist die Standardeinstellung.
+          - : Das zurückgegebene Objekt kann diese Funktion unterstützen.
+            Dies ist der Standardwert.
         - `not-allowed`
           - : Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
 
     - `persistentState`
-      - : Ein String, der angibt, ob das zurückgegebene Objekt in der Lage sein muss, Sitzungsdaten oder einen anderen Zustand zu speichern. Die Werte sind dieselben wie für `distinctiveIdentifier` und haben die gleiche Bedeutung: `required`, `optional` (Standard), `not-allowed`. Nur "temporäre" Sitzungen dürfen erstellt werden, wenn der dauerhafte Zustand nicht erlaubt ist.
+      - : Ein String, der angibt, ob das zurückgegebene Objekt in der Lage sein muss, Sitzungsdaten oder irgendeine andere Art von Zustand zu persistieren.
+        Die Werte sind dieselben wie bei `distinctiveIdentifier` und haben die gleiche Bedeutung: `required`, `optional` (Standard), `not-allowed`.
+        Es dürfen nur "temporäre" Sitzungen erstellt werden, wenn persistenter Zustand nicht erlaubt ist.
 
     - `sessionTypes`
-      - : Ein Array von Strings, das die Sitzungstypen angibt, die unterstützt werden müssen. Erlaubte Werte sind:
+      - : Ein Array von Strings, die die Sitzungstypen angeben, die unterstützt werden müssen.
+        Zulässige Werte sind:
         - `temporary`
-          - : Eine Sitzung, für die die Lizenz, die Schlüssel und Aufzeichnungen der oder Daten über die Sitzung nicht gespeichert werden. Die Anwendung muss eine solche Speicherung nicht verwalten. Implementierungen müssen diese Option unterstützen, und es ist die Standardeinstellung.
+          - : Eine Sitzung, bei der die Lizenz, der/die Schlüssel und Aufzeichnungen oder Daten, die sich auf die Sitzung beziehen, nicht gespeichert werden.
+            Die Anwendung muss eine solche Speicherung nicht verwalten.
+            Implementierungen müssen diese Option unterstützen, und sie ist der Standard.
         - `persistent-license`
-          - : Eine Sitzung, für die die Lizenz (und möglicherweise andere datenbezogene Informationen zur Sitzung) gespeichert werden. Ein Nachweis über die Lizenz und die damit verbundenen Schlüssel bleibt bestehen, auch wenn die Lizenz zerstört wird, was bestätigt, dass die Lizenz und die in ihr enthaltenen Schlüssel vom Client nicht mehr verwendbar sind.
+          - : Eine Sitzung, bei der die Lizenz (und möglicherweise andere Daten, die sich auf die Sitzung beziehen) gespeichert werden.
+            Ein Aufzeichnungsbeweis der Lizenz und zugehöriger Schlüssel bleibt bestehen, auch wenn die Lizenz zerstört wird, was eine Bescheinigung gibt, dass die Lizenz und die darin enthaltenen Schlüssel vom Client nicht mehr verwendbar sind.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das mit einem [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objekt erfüllt wird, das die durch `keySystem` und `supportedConfigurations` beschriebene Medien-Schlüsselsystemkonfiguration darstellt.
+Ein {{jsxref('Promise')}} wird bereitgestellt, das ein [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objekt repräsentiert, das die Medien-Schlüsselsystemkonfiguration darstellt, die durch `keySystem` und `supportedConfigurations` beschrieben wird.
 
 ### Ausnahmen
 
-Im Falle eines Fehlers wird das zurückgegebene {{jsxref('Promise')}} mit einer [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, deren Name angibt, welche Art von Fehler aufgetreten ist.
+Im Falle eines Fehlers wird das zurückgegebene {{jsxref('Promise')}} mit einem [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen, dessen Name anzeigt, welche Art von Fehler aufgetreten ist.
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Entweder wird das angegebene `keySystem` von der Plattform oder dem Browser nicht unterstützt, oder keine der durch `supportedConfigurations` angegebenen Konfigurationen kann erfüllt werden (wenn zum Beispiel keine der in `contentType` angegebenen `codecs` verfügbar sind).
+  - : Entweder wird das angegebene `keySystem` nicht von der Plattform oder dem Browser unterstützt, oder keine der Konfigurationen, die von `supportedConfigurations` angegeben werden, können erfüllt werden (wenn zum Beispiel keiner der in `contentType` angegebenen `codecs` verfügbar ist).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Verwendung dieser Funktion wurde durch [`Permissions-Policy: encrypted-media`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/encrypted-media) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch [`Permissions-Policy: encrypted-media`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/encrypted-media) blockiert.
 - {{jsxref("TypeError")}}
   - : Entweder ist `keySystem` ein leerer String oder das `supportedConfigurations` Array ist leer.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie `requestMediaKeySystemAccess()` verwenden könnten, indem ein Schlüsselsystem und eine Konfiguration spezifiziert werden.
+Das untenstehende Beispiel zeigt, wie Sie `requestMediaKeySystemAccess()` verwenden könnten, indem ein Schlüsselsystem und eine Konfiguration angegeben werden.
 
 ```js
 const clearKeyOptions = [

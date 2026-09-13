@@ -1,22 +1,22 @@
 ---
-title: "CSSPrimitiveValue: Methode setStringValue()"
+title: "CSSPrimitiveValue: setStringValue()-Methode"
 short-title: setStringValue()
 slug: Web/API/CSSPrimitiveValue/setStringValue
 l10n:
-  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("CSSOM")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("CSSOM")}}{{non-standard_header}}
 
-Die **`setStringValue()`**-Methode der [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Schnittstelle wird verwendet, um einen Zeichenfolgenwert festzulegen. Wenn die Eigenschaft, die mit diesem Wert verbunden ist, die angegebene Einheit oder den Zeichenfolgenwert nicht akzeptieren kann, bleibt der Wert unverändert und eine [`DOMException`](/de/docs/Web/API/DOMException) wird ausgelöst.
+Die **`setStringValue()`**-Methode des [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Interfaces wird verwendet, um einen String-Wert festzulegen. Wenn die Eigenschaft, die mit diesem Wert verbunden ist, die angegebene Einheit oder den String-Wert nicht akzeptieren kann, bleibt der Wert unverändert und ein [`DOMException`](/de/docs/Web/API/DOMException) wird ausgelöst.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren es nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben und die meisten Browser implementieren ihn nicht.
 >
 > Um Ihr Ziel zu erreichen, können Sie verwenden:
 >
-> - das untypisierte [CSS Object Model](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
-> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), weniger unterstützt und als experimentell angesehen.
+> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
+> - die moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), die weniger unterstützt wird und als experimentell gilt.
 
 ## Syntax
 
@@ -33,28 +33,28 @@ setStringValue(stringType, stringValue)
     | ------------ | --------------------------------------------------------- |
     | `CSS_ATTR`   | Der Wert ist eine {{cssxref("attr", "attr()")}}-Funktion. |
     | `CSS_IDENT`  | Der Wert ist ein Bezeichner.                              |
-    | `CSS_STRING` | Der Wert ist eine {{cssxref("&lt;string&gt;")}}.          |
+    | `CSS_STRING` | Der Wert ist ein {{cssxref("&lt;string&gt;")}}.           |
     | `CSS_URI`    | Der Wert ist ein {{cssxref("url_value", "&lt;url&gt;")}}. |
 
 - `stringValue`
-  - : Eine Zeichenfolge, die den neuen Zeichenfolgenwert darstellt.
+  - : Ein String, der den neuen String-Wert darstellt.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der CSS-Wert keinen Zeichenfolgenwert enthält oder der Zeichenfolgenwert nicht in die angegebene Einheit umgewandelt werden kann.
+  - : Wird ausgelöst, wenn der CSS-Wert keinen String-Wert enthält oder wenn der String-Wert nicht in die angegebene Einheit konvertiert werden kann.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Eigenschaft schreibgeschützt ist.
 
 ## Spezifikationen
 
-Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde jedoch seither aus allen Standardisierungsbemühungen gestrichen.
+Diese Funktion wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde aber seitdem nicht mehr in Standardisierungsbemühungen berücksichtigt.
 
-Es wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich nun auf dem Standardpfad befindet.
+Sie wurde durch eine moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun auf dem Standardweg befindet.
 
 ## Browser-Kompatibilität
 

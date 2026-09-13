@@ -3,21 +3,18 @@ title: "HTMLAnchorElement: target-Eigenschaft"
 short-title: target
 slug: Web/API/HTMLAnchorElement/target
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
+Die **`target`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
 
 Sie spiegelt das [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attribut des {{HTMLElement("a")}}-Elements wider.
 
 ## Wert
 
-Ein String, der das Ziel darstellt. Sein Wert kann sein:
-
-- Der Name eines {{HTMLElement("frame")}}.
-- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Reference/Elements/a#target): `_blank`, `_self`, `_parent` oder `_top`.
+Ein String, der das Ziel darstellt. Sein Wert kann eines der [Schlüsselwörter](/de/docs/Web/HTML/Reference/Elements/a#target) `_blank`, `_self`, `_parent` oder `_top` sein.
 
 ## Beispiel
 

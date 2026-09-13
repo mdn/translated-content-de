@@ -1,17 +1,17 @@
 ---
-title: Grundlagen zur Gestaltung eines Video-Players
+title: Grundlagen zur Gestaltung eines Videoplayers
 slug: Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics
 l10n:
-  sourceCommit: 7ed7b730bf88307cc6cf34b82bb1d735b9a1aa1f
+  sourceCommit: 6030ef1aadf967b80e2c79c3d3463cccc8ea0c95
 ---
 
-Im vorherigen [Artikel über einen plattformübergreifenden Video-Player](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player) haben wir beschrieben, wie man mithilfe der Media und Fullscreen APIs einen plattformübergreifenden HTML-Video-Player baut. Dieser Folgeartikel befasst sich damit, wie Sie diesen benutzerdefinierten Player gestalten können, einschließlich der Anpassung an verschiedene Bildschirmgrößen.
+Im vorherigen [Artikel über den plattformübergreifenden Videoplayer](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player) haben wir beschrieben, wie man einen plattformübergreifenden HTML-Videoplayer mit den Media- und Fullscreen-APIs erstellt. Dieser Folgeartikel befasst sich damit, wie dieser benutzerdefinierte Player gestaltet werden kann, einschließlich der Anpassung an verschiedene Bildschirmgrößen.
 
 ## HTML-Markup
 
-Es wurden einige Änderungen am HTML-Markup vorgenommen, das im vorherigen Artikel gezeigt wurde. Die benutzerdefinierten Videosteuerungen und das {{htmlelement("progress")}}-Element sind nun in {{htmlelement("div")}}-Elementen enthalten, anstatt sich in ungeordneten Listenelementen zu befinden.
+Es wurden einige Änderungen am HTML-Markup vorgenommen, das im vorherigen Artikel gezeigt wurde. Die benutzerdefinierten Videosteuerungen und das {{htmlelement("progress")}}-Element befinden sich jetzt innerhalb von {{htmlelement("div")}}-Elementen, anstatt in ungeordneten Listenelementen.
 
-Das Markup für die benutzerdefinierten Steuerungen sieht nun wie folgt aus:
+Das Markup für die benutzerdefinierten Steuerungen sieht nun folgendermaßen aus:
 
 ```html-nolint hidden live-sample___video-player-styled
 <figure id="videoContainer">
@@ -63,14 +63,14 @@ Das Markup für die benutzerdefinierten Steuerungen sieht nun wie folgt aus:
 </figure>
 ```
 
-Ein `data-state`-Attribut wird an verschiedenen Stellen zu Styling-Zwecken verwendet und diese werden mit JavaScript gesetzt. Spezifische Implementierungen werden an geeigneten Stellen unten erwähnt.
+Ein `data-state`-Attribut wird an verschiedenen Stellen zu Stylingzwecken verwendet und diese werden mit JavaScript gesetzt. Spezifische Implementierungen werden an geeigneten Stellen unten erwähnt.
 
-## Styling
+## Gestaltung
 
-Der resultierende Videoplayer-Stil, der hier verwendet wird, ist ziemlich einfach — dies ist beabsichtigt, da das Ziel darin besteht, zu zeigen, wie ein solcher Videoplayer gestaltet und anpassungsfähig gemacht werden kann.
+Der hier verwendete Videoplayer-Stil ist recht einfach — das ist beabsichtigt, da das Ziel ist, zu zeigen, wie ein solcher Videoplayer gestaltet und reaktionsfähig gemacht werden kann.
 
 > [!NOTE]
-> In einigen Fällen wird hier in den Codebeispielen auf einige grundlegende CSS-Elemente verzichtet, da deren Verwendung entweder offensichtlich ist oder nicht speziell für das Styling des Videoplayers relevant ist.
+> In einigen Fällen wird hier in den Codebeispielen auf einige grundlegende CSS verzichtet, da deren Nutzung entweder offensichtlich ist oder nicht spezifisch für die Gestaltung des Videoplayers relevant ist.
 
 ```css hidden live-sample___video-player-styled
 :root {
@@ -106,9 +106,9 @@ video {
 }
 ```
 
-### Grundlegendes Styling
+### Grundlegende Gestaltung
 
-Der Container der Videosteuerungen benötigt einige Stileinstellungen, damit er richtig eingerichtet ist:
+Der Container für die Videosteuerungen selbst benötigt ein wenig Styling, damit er korrekt eingerichtet ist:
 
 ```css live-sample___video-player-styled
 .controls {
@@ -121,7 +121,7 @@ Der Container der Videosteuerungen benötigt einige Stileinstellungen, damit er 
 }
 ```
 
-Die Position wird auf `relativ` gesetzt, was für die Anpassungsfähigkeit erforderlich ist (mehr dazu später).
+Die Position ist auf `relative` gesetzt, was für seine Reaktionsfähigkeit erforderlich ist (dazu später mehr).
 
 Wie bereits erwähnt, wird ein `data-state`-Attribut verwendet, um anzuzeigen, ob die Videosteuerungen sichtbar sind oder nicht, und es benötigt entsprechende CSS-Deklarationen:
 
@@ -131,11 +131,11 @@ Wie bereits erwähnt, wird ein `data-state`-Attribut verwendet, um anzuzeigen, o
 }
 ```
 
-### Buttons
+### Tasten
 
-Die erste wesentliche Styling-Aufgabe besteht darin, die Schaltflächen der Videosteuerung so zu gestalten, dass sie wie echte Schaltflächen aussehen und funktionieren.
+Die erste größere Stilaufgabe besteht darin, die Tasten der Videosteuerung so zu gestalten, dass sie tatsächlich wie echte Tasten aussehen und sich so verhalten.
 
-Jede Schaltfläche erhält einige grundlegende Stileinstellungen:
+Jede Taste hat einige grundlegende Stilmerkmale:
 
 ```css live-sample___video-player-styled
 .controls button {
@@ -155,9 +155,9 @@ Jede Schaltfläche erhält einige grundlegende Stileinstellungen:
 }
 ```
 
-Jede Schaltfläche wird auf eine Breite und Höhe von `2rem` gesetzt. Standardmäßig haben alle {{htmlelement("button")}}-Elemente einen Umrandung, daher wird diese entfernt. Da Hintergrundbilder verwendet werden, um geeignete Symbole anzuzeigen, wird die Hintergrundfarbe der Schaltfläche auf transparent, nicht wiederholend und das Element sollte das Bild vollständig enthalten, eingestellt. Außerdem gibt es einige Beschriftungstexte, die nicht auf dem Bildschirm sichtbar sein sollten, daher wird die Textfarbe auf transparent gesetzt.
+Jede Taste ist auf `2rem` in Breite und Höhe gesetzt. Standardmäßig haben alle {{htmlelement("button")}}-Elemente einen Rahmen, weshalb dieser entfernt wird. Da Hintergrundbilder verwendet werden, um die entsprechenden Symbole darzustellen, wird die Hintergrundfarbe der Taste auf transparent, nicht wiederholt und das Element soll das Bild vollständig enthalten. Darüber hinaus gibt es einen Text, der nicht auf dem Bildschirm sichtbar sein soll, daher wird die Textfarbe auf transparent gesetzt.
 
-Die `:hover`- und `:focus`-Zustände werden dann für jede Schaltfläche festgelegt, die die Deckkraft der Schaltfläche ändert:
+Die `:hover`- und `:focus`-Zustände werden dann für jede Taste festgelegt, die die Deckkraft der Taste verändern:
 
 ```css live-sample___video-player-styled
 .controls button:hover,
@@ -166,11 +166,11 @@ Die `:hover`- und `:focus`-Zustände werden dann für jede Schaltfläche festgel
 }
 ```
 
-Um geeignete Schaltflächenbilder zu erhalten, wurde ein Satz kostenloser, gängiger Kontrollsymbole aus dem Internet heruntergeladen. Jedes Bild wurde dann in einen Base64-codierten String konvertiert (mithilfe eines Online-[Base64-Bilderkodierers](https://www.base64-image.de/)), da die Bilder recht klein sind, sind die resultierenden codierten Strings recht kurz.
+Um passende Tastenbilder zu erhalten, wurde ein Satz kostenloser gängiger Kontrollsymbole aus dem Internet heruntergeladen. Jedes Bild wurde dann in einen base64-kodierten String umgewandelt (unter Verwendung eines Online-[base64-Bildencoders](https://www.base64-image.de/)), da die Bilder ziemlich klein sind, sind die resultierenden kodierten Strings recht kurz.
 
-Da einige Schaltflächen eine doppelte Funktion haben, z.B. Spielen/Pause und Stummschalten/Stummschaltung aufheben, haben diese Schaltflächen unterschiedliche Zustände, die gestylt werden müssen. Wie bereits erwähnt, wird eine `data-state`-Variable verwendet, um anzuzeigen, in welchem Zustand sich solche Schaltflächen derzeit befinden.
+Da einige Tasten eine Doppelfunktion haben, z. B. Wiedergabe/Pause und Stumm/Unstumm, haben diese Tasten unterschiedliche Zustände, die gestaltet werden müssen. Wie bereits erwähnt, wird eine `data-state`-Variable verwendet, um anzugeben, in welchem Zustand sich solche Tasten momentan befinden.
 
-Zum Beispiel hat die Wiedergabe/Pause-Schaltfläche folgende Hintergrundbilddefinitionen (die vollständigen Base64-Strings wurden aus Kürze ausgelassen):
+Zum Beispiel hat die Wiedergabe/Pause-Taste folgende Hintergrundbilddefinitionen (die vollständigen base64-Strings wurden aus Gründen der Kürze weggelassen):
 
 ```css
 .controls button[data-state="play"] {
@@ -212,11 +212,11 @@ Zum Beispiel hat die Wiedergabe/Pause-Schaltfläche folgende Hintergrundbilddefi
 }
 ```
 
-Wenn der `data-state` der Schaltfläche geändert wird, wird auch das entsprechende Bild geändert. Alle anderen Schaltflächen werden ähnlich behandelt.
+Wenn der `data-state` der Taste geändert wird, ändert sich auch das entsprechende Bild. Alle anderen Tasten werden auf ähnliche Weise behandelt.
 
-### Fortschrittsleiste
+### Fortschrittsbalken
 
-Das {{htmlelement("div")}}-Container des {{htmlelement("progress")}}-Elements hat sein {{cssxref("flex-grow")}} aktiviert, sodass es den verbleibenden Raum in den Steuerelementen ausfüllt. Es zeigt auch einen Zeiger-Cursor an, um zu zeigen, dass es interaktiv ist.
+Der {{htmlelement("div")}}-Container für das {{htmlelement("progress")}}-Element hat sein {{cssxref("flex-grow")}} aktiviert, sodass es den verbleibenden Platz in den Steuerungen ausfüllt. Außerdem zeigt es einen Zeiger-Cursor an, um anzuzeigen, dass es interaktiv ist.
 
 ```css live-sample___video-player-styled
 .controls .progress {
@@ -226,7 +226,7 @@ Das {{htmlelement("div")}}-Container des {{htmlelement("progress")}}-Elements ha
 }
 ```
 
-Das {{htmlelement("progress")}}-Element hat die folgenden grundlegenden Stileinstellungen:
+Das {{htmlelement("progress")}}-Element hat den folgenden grundlegenden Stil:
 
 ```css live-sample___video-player-styled
 .controls progress {
@@ -240,9 +240,9 @@ Das {{htmlelement("progress")}}-Element hat die folgenden grundlegenden Stileins
 }
 ```
 
-Ähnlich wie die {{htmlelement("button")}}-Elemente hat {{htmlelement("progress")}} von Haus aus eine Umrandung, die hier entfernt wird. Es wird aus ästhetischen Gründen auch eine leichte abgerundete Ecke gegeben.
+Wie die {{htmlelement("button")}}-Elemente hat auch {{htmlelement("progress")}} einen Standardrahmen, der hier entfernt wird. Es erhält zudem eine leicht abgerundete Ecke aus ästhetischen Gründen.
 
-Es gibt einige browserspezifische Eigenschaften, die festgelegt werden müssen, um sicherzustellen, dass Firefox und Chrome die erforderliche Farbe für die Fortschrittsleiste verwenden:
+Es gibt einige browserspezifische Eigenschaften, die gesetzt werden müssen, um sicherzustellen, dass Firefox und Chrome die erforderliche Farbe für den Fortschrittsbalken verwenden:
 
 ```css live-sample___video-player-styled
 .controls progress::-moz-progress-bar {
@@ -254,17 +254,17 @@ Es gibt einige browserspezifische Eigenschaften, die festgelegt werden müssen, 
 }
 ```
 
-Obwohl dieselben Eigenschaften auf denselben Wert gesetzt sind, müssen diese Regeln separat definiert werden, andernfalls könnte die gesamte Deklaration ungültig werden, wenn ein Selektor nicht erkannt wird.
+Obwohl dieselben Eigenschaften auf denselben Wert gesetzt sind, müssen diese Regeln separat definiert werden, oder die gesamte Deklaration kann gültig werden, wenn ein Selektor nicht erkannt wird.
 
-### Vollbild
+### Vollbildmodus
 
-Nun stylen wir die Bedienelemente für den Vollbildmodus. Da das `<figure>`-Element dasjenige ist, das in den Vollbildmodus versetzt wird, können wir es mit der {{cssxref(":fullscreen")}}-Pseudoklasse ansprechen. Wir unternehmen einige Schritte:
+Nun gestalten wir die Steuerungen für den Vollbildmodus. Da das `<figure>`-Element in den Vollbildmodus gesetzt wird, können wir es mit der {{cssxref(":fullscreen")}}-Pseudoklasse ansprechen. Wir machen Folgendes:
 
-- Lassen Sie die `figure` den gesamten Bildschirm mit `height: 100%` einnehmen
-- Lassen Sie die Steuerleistleiste unten haften, während das Video zentriert bleibt, mithilfe von Flexbox
-- Machen Sie den Container transparent, um die native Hintergrundfarbe zu zeigen
-- Verstecken Sie die `figcaption`
-- Stellen Sie die Hintergrundfarbe für die Steuerungsreihe wieder her, um sicherzustellen, dass unsere schwarzen Tasten sichtbar bleiben, wenn der Hintergrund schwarz ist.
+- Das `figure` nimmt den gesamten Bildschirm ein mit `height: 100%`
+- Die Steuerungsleiste bleibt am unteren Rand, während das Video zentriert bleibt, unter Verwendung von Flexbox
+- Der Container wird transparent gemacht, um die native Hintergrundfarbe zu zeigen
+- Die `figcaption` wird ausgeblendet
+- Die Hintergrundfarbe der Steuerzeile wird wiederhergestellt, um sicherzustellen, dass unsere schwarzen Tasten sichtbar bleiben, wenn der Hintergrund schwarz ist.
 
 ```css live-sample___video-player-styled
 figure:fullscreen {
@@ -289,9 +289,9 @@ figure:fullscreen .controls {
 
 ### Reaktionsfähiges Styling
 
-Da der Player nun sein grundlegendes Aussehen und Gefühl erhalten hat, sind einige weitere Stiländerungen — mit Media Queries — notwendig, um ihn anpassungsfähig zu machen.
+Nun, da der Player sein grundlegendes Aussehen und Verhalten erhalten hat, müssen einige weitere Styling-Änderungen unter Einbeziehung von Media Queries vorgenommen werden, um ihn reaktionsfähig zu machen.
 
-Wir möchten das Layout der Steuerungen anpassen, wenn es auf einem kleineren Bildschirm (680px/42.5em) angezeigt wird, also wird hier ein Breakpoint definiert. Wir passen die Größen- und Positions-Eigenschaften für die Schaltflächen und die Fortschrittsleiste an, damit sie anders angeordnet sind:
+Wir möchten das Layout der Steuerungen anpassen, wenn es auf einem kleineren Bildschirm (680px/42,5em) angezeigt wird, sodass hier ein Breakpoint definiert wird. Wir passen die Größen- und Positionseigenschaften für die Tasten und die Fortschrittsleiste an, damit sie anders angeordnet sind:
 
 ```css live-sample___video-player-styled
 @media screen and (width <= 42.5em) {
@@ -322,11 +322,11 @@ Wir möchten das Layout der Steuerungen anpassen, wenn es auf einem kleineren Bi
 }
 ```
 
-Der `.progress`-Container wird nun über `position:absolute` an die Spitze des Bediensatzes verschoben, sodass er und alle Tasten breiter sein müssen. Darüber hinaus müssen die Tasten unterhalb des Fortschritt-Containers verschoben werden, damit sie sichtbar sind.
+Der `.progress`-Container wird nun per `position:absolute` an den oberen Rand des Steuerungssatzes verschoben, sodass er und alle Tasten breiter sein müssen. Außerdem müssen die Tasten unter den Fortschrittscontainer verschoben werden, damit sie sichtbar sind.
 
 ## JavaScript
 
-Das war es wirklich für das unmittelbare Styling; die nächste Aufgabe besteht darin, eine Reihe von JavaScript-Änderungen vorzunehmen, um sicherzustellen, dass alles wie erwartet funktioniert, hauptsächlich, um die Logik der Tasten zu überarbeiten.
+Das war es eigentlich schon mit dem unmittelbaren Styling; die nächste Aufgabe besteht darin, eine Reihe von JavaScript-Änderungen vorzunehmen, um sicherzustellen, dass alles wie erwartet funktioniert, hauptsächlich um die Logik der Tasten neu zu gestalten.
 
 ```js hidden live-sample___video-player-styled
 const videoContainer = document.getElementById("videoContainer");
@@ -346,9 +346,9 @@ video.controls = false;
 videoControls.setAttribute("data-state", "visible");
 ```
 
-### Abspielen/Pause und Stummschaltung
+### Wiedergabe/Pause und Stumm
 
-Da die Tasten nun tatsächlich wie Tasten aussehen und Bilder haben, die anzeigen, was sie tun, müssen einige Änderungen vorgenommen werden, damit die "Doppelfunktion"-Tasten (wie die Wiedergabe/Pause-Taste) im richtigen "Zustand" sind und das richtige Bild anzeigen. Zu diesem Zweck wird eine neue Funktion namens `changeButtonState()` definiert, die eine Typvariable akzeptiert, die die Funktionalität der Taste angibt:
+Da die Tasten nun tatsächlich wie Tasten aussehen und Bilder haben, die anzeigen, was sie tun, müssen einige Änderungen vorgenommen werden, damit die "Doppelfunktion"-Tasten (wie die Wiedergabe/Pause-Taste) im korrekten "Zustand" sind und das richtige Bild anzeigen. Um dies zu erleichtern, wird eine neue Funktion namens `changeButtonState()` definiert, die eine Typvariable akzeptiert, die die Funktionalität der Taste angibt:
 
 ```js live-sample___video-player-styled
 function changeButtonState(type) {
@@ -366,7 +366,7 @@ function changeButtonState(type) {
 }
 ```
 
-Diese Funktion wird dann von den relevanten Event-Handlern aufgerufen:
+Diese Funktion wird dann von den relevanten Ereignis-Handlern aufgerufen:
 
 ```js live-sample___video-player-styled
 video.addEventListener("play", () => {
@@ -393,7 +393,7 @@ mute.addEventListener("click", (e) => {
 });
 ```
 
-Vielleicht haben Sie bemerkt, dass es neue Handler gibt, bei denen die `play`- und `pause`-Events auf das Video reagiert werden. Dafür gibt es einen Grund! Obwohl die Standard-Videosteuerung des Browsers deaktiviert wurde, machen viele Browser sie zugänglich, indem sie mit der rechten Maustaste auf das HTML-Video klicken. Das bedeutet, dass ein Benutzer das Video von diesen Steuerungen aus abspielen/anhalten könnte, wodurch die Tasten der benutzerdefinierten Steuerung nicht synchronisiert wären. Wenn ein Benutzer die Standardsteuerungen verwendet, werden die definierten Medien-API-Ereignisse — wie `play` und `pause` — ausgelöst, sodass dies genutzt werden kann, um sicherzustellen, dass die benutzerdefinierten Steuerungstasten synchronisiert bleiben. Unser Klick löst auch die `play`- und `pause`-Events aus, wenn die `play()`- und `pause()`-Methoden aufgerufen werden, sodass hier nichts geändert werden muss:
+Sie haben vielleicht bemerkt, dass es neue Handler gibt, bei denen auf die `play`- und `pause`-Ereignisse des Videos reagiert wird. Es gibt einen Grund dafür! Auch wenn das standardmäßige Videosteuerungssatz im Browser deaktiviert wurde, machen viele Browser sie über das Rechtsklicken auf das HTML-Video zugänglich. Das bedeutet, dass ein Benutzer das Video über diese Steuerungen abspielen/pausieren könnte, wodurch die Tasten des benutzerdefinierten Steuerungssatzes nicht mehr synchron wären. Wenn ein Benutzer die Standardsteuerungen verwendet, werden die definierten Media API-Ereignisse — wie `play` und `pause` — ausgelöst, was genutzt werden kann, um sicherzustellen, dass die benutzerdefinierten Steuerungstasten synchron bleiben. Unser Klick löst auch die `play`- und `pause`-Ereignisse beim Aufrufen der `play()`- und `pause()`-Methoden aus, sodass hier nichts geändert werden muss:
 
 ```js live-sample___video-player-styled
 playPause.addEventListener("click", (e) => {
@@ -438,7 +438,7 @@ volDec.addEventListener("click", (e) => {
 });
 ```
 
-Diese neue `checkVolume()`-Funktion tut dasselbe wie `alterVolume()`, aber sie setzt auch den Zustand der Stummschalttaste abhängig von der aktuellen Lautstärkeeinstellung des Videos. `checkVolume()` wird auch aufgerufen, wenn das `volumechange`-Event ausgelöst wird:
+Diese neue `checkVolume()`-Funktion tut das Gleiche wie `alterVolume()`, setzt aber auch den Zustand der Stummschalttaste in Abhängigkeit von der aktuellen Lautstärkeeinstellung des Videos. `checkVolume()` wird auch aufgerufen, wenn das `volumechange`-Ereignis ausgelöst wird:
 
 ```js live-sample___video-player-styled
 video.addEventListener("volumechange", () => {
@@ -448,7 +448,7 @@ video.addEventListener("volumechange", () => {
 
 ### Fortschritt und Vollbild
 
-Die [Fortschrittsleisten-](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player#progress) und [Vollbild-](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player#fullscreen) Implementierungen haben sich nicht geändert.
+Die [Fortschrittsbalken]- und [Vollbild]-Implementierungen haben sich nicht geändert.
 
 ```js hidden live-sample___video-player-styled
 progress.addEventListener("click", (e) => {

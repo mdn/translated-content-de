@@ -3,16 +3,16 @@ title: "Window: print() Methode"
 short-title: print()
 slug: Web/API/Window/print
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Öffnet das Druckdialogfeld, um das aktuelle Dokument zu drucken.
+Öffnet den Druckdialog, um das aktuelle Dokument zu drucken.
 
-Wenn das Dokument noch geladen wird, wenn diese Funktion aufgerufen wird, wird das Laden des Dokuments abgeschlossen, bevor das Druckdialogfeld geöffnet wird.
+Wenn das Dokument noch geladen wird, wenn diese Funktion aufgerufen wird, wird das Laden des Dokuments abgeschlossen, bevor der Druckdialog geöffnet wird.
 
-Diese Methode blockiert, solange das Druckdialogfeld geöffnet ist.
+Diese Methode blockiert, solange der Druckdialog geöffnet ist.
 
 ## Syntax
 

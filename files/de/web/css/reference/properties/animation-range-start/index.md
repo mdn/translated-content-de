@@ -3,10 +3,10 @@ title: "`animation-range-start` CSS property"
 short-title: animation-range-start
 slug: Web/CSS/Reference/Properties/animation-range-start
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
-Die **`animation-range-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Zeitpunkt auf der Zeitleiste fest, an dem eine Animation beginnen soll.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`animation-range-start`** legt den Punkt auf der Timeline fest, an dem eine Animation beginnen soll.
 
 ## Syntax
 
@@ -22,6 +22,11 @@ animation-range-start: contain;
 animation-range-start: cover 20%;
 animation-range-start: contain 100px;
 
+/* Multiple values */
+animation-range-start:
+  cover 20%,
+  contain 100px;
+
 /* Global values */
 animation-range-start: inherit;
 animation-range-start: initial;
@@ -32,22 +37,28 @@ animation-range-start: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als kommagetrennte Liste von Werten angegeben. Jeder Wert kann einer der folgenden sein:
+
 - `normal`
-  - : Repräsentiert den Beginn der Zeitleiste. Dies ist der Standardwert.
+  - : Repräsentiert den Beginn der Timeline. Dies ist der Standardwert.
 - {{cssxref("length-percentage")}}
-  - : Gibt einen Längen- oder Prozentwert an, gemessen vom Beginn der Zeitleiste.
+  - : Gibt einen Längen- oder Prozentwert an, der vom Beginn der Timeline gemessen wird.
 - {{cssxref("timeline-range-name")}}
-  - : Gibt einen benannten Zeitleistenbereich innerhalb der gesamten Zeitleiste an. Der Bereich beginnt bei `0%`.
+  - : Gibt einen benannten Timeline-Bereich innerhalb der gesamten Timeline an. Der Bereich beginnt bei `0%`.
 - `<timeline-range-name> <length-percentage>`
-  - : Gibt einen Längen- oder Prozentwert an, gemessen vom Beginn des angegebenen benannten Zeitleistenbereichs.
+  - : Gibt einen Längen- oder Prozentwert an, der vom Beginn des angegebenen benannten Timeline-Bereichs gemessen wird.
 
 ## Beschreibung
 
-Erlaubte Werte für die `animation-range-start`-Eigenschaft sind `normal`, ein {{cssxref("length-percentage")}}, ein `<timeline-range-name>`, oder ein `<timeline-range-name>` gefolgt von einem `<length-percentage>`. Wenn der {{cssxref("timeline-range-name")}}-Wert keinen `<length-percentage>` enthält, beträgt der Standardprozentsatz `0%`. Siehe {{cssxref("animation-range")}} für eine detaillierte Beschreibung der verfügbaren Werte. Sehen Sie sich auch den [View progress timeline visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an, der die Bedeutung der verschiedenen Werte in einem leicht verständlichen visuellen Format zeigt.
+Zulässige Werte für die Eigenschaft `animation-range-start` sind `normal`, ein {{cssxref("length-percentage")}}, ein `<timeline-range-name>` oder ein `<timeline-range-name>`, gefolgt von einem `<length-percentage>`. Wenn der Wert {{cssxref("timeline-range-name")}} kein `<length-percentage>` enthält, ist der Prozentwert standardmäßig `0%`.
 
-Das `animation-range-start` ist in der {{cssxref("animation")}} Shorthand als reiner Rücksetzungswert enthalten. Das bedeutet, dass durch die Verwendung der `animation` Shorthand jeder zuvor deklarierte `animation-range-start`-Wert gleicher oder geringerer Spezifität auf `normal` zurückgesetzt wird; die Shorthand kann nicht verwendet werden, um einen neuen `animation-range-start`-Wert festzulegen. Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) sollten Sie `animation-range-start` _nach_ jeder `animation` Shorthand deklarieren, um zu vermeiden, dass der Wert auf `normal` zurückgesetzt wird.
+Eine ausführliche Beschreibung der verfügbaren Werte finden Sie unter {{cssxref("animation-range")}}.
 
-Das `animation-range-start` kann zusammen mit der {{cssxref("animation-range-end")}}-Eigenschaft auch mittels der {{cssxref("animation-range")}} Shorthand festgelegt werden.
+Bei der Angabe mehrerer kommagetrennter Werte werden diese auf die Animationen in der Reihenfolge angewendet, in der die Werte von {{cssxref("animation-name")}} erscheinen. Siehe [Festlegen mehrerer Werte für Animationseigenschaften](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+
+`animation-range-start` ist als reiner Zurücksetzungswert in der Kurzform {{cssxref("animation")}} enthalten. Das bedeutet, dass die Verwendung der Kurzform `animation` jeden zuvor deklarierten `animation-range-start`-Wert gleicher oder niedrigerer Spezifität auf `normal` zurücksetzt; die Kurzform kann nicht verwendet werden, um einen neuen `animation-range-start`-Wert festzulegen. Beim Erstellen von [CSS-scrollgesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) sollten Sie `animation-range-start` _nach_ jeder Kurzformdeklaration von `animation` deklarieren, um zu vermeiden, dass der Wert auf `normal` zurückgesetzt wird.
+
+`animation-range-start` kann zusammen mit der Eigenschaft {{cssxref("animation-range-end")}} auch über die Kurzform {{cssxref("animation-range")}} festgelegt werden.
 
 ## Formale Definition
 
@@ -59,9 +70,9 @@ Das `animation-range-start` kann zusammen mit der {{cssxref("animation-range-end
 
 ## Beispiele
 
-### Erstellen einer Scroll-Fortschrittszeitleiste mit Range-Start
+### Erstellen einer Scroll-Fortschritts-Timeline mit Bereichsstart
 
-In diesem Beispiel wird das `animation-range-start` auf ein Element angewendet, das über eine Scroll-Fortschrittszeitleiste animiert wird. Dadurch beginnt die Animation schon lange bevor das Element den Viewport betritt.
+In diesem Beispiel wird `animation-range-start` auf ein Element angewendet, das über eine Scroll-Fortschritts-Timeline animiert wird. Dadurch beginnt die Animation deutlich bevor das Element in den Scrollport eintritt.
 
 #### HTML
 
@@ -86,7 +97,7 @@ In diesem Beispiel wird das `animation-range-start` auf ein Element angewendet, 
   </p>
 ```
 
-In der Mitte eines langen Textblocks haben wir ein Element eingefügt, das wir animieren werden. Wir haben viel Text hinzugefügt, um sicherzustellen, dass der Inhalt seinen Container überflutet; der zusätzliche Text ist hier zur Kürze versteckt.
+In der Mitte eines langen Textblocks haben wir ein Element eingefügt, das wir animieren werden. Wir haben viel Text hinzugefügt, um sicherzustellen, dass der Inhalt seinen Container überläuft; der zusätzliche Text wird hier der Kürze halber ausgeblendet.
 
 ```html
 <div class="animatedElement"></div>
@@ -108,9 +119,9 @@ In der Mitte eines langen Textblocks haben wir ein Element eingefügt, das wir a
 
 #### CSS
 
-Eine Scroll-Fortschrittszeitleiste wird definiert, indem eine {{cssxref("animation-timeline/scroll", "scroll()")}} Funktion als Wert der {{cssxref("animation-timeline")}} Eigenschaft gesetzt wird. Diese wird **nach** der {{cssxref("animation")}} Shorthand deklariert, um zu vermeiden, dass der Longhand-Wert zurückgesetzt wird.
+Eine Scroll-Fortschritts-Timeline wird definiert, indem eine {{cssxref("animation-timeline/scroll", "scroll()")}}-Funktion als Wert der Eigenschaft {{cssxref("animation-timeline")}} festgelegt wird. Diese wird **nach** der Kurzform {{cssxref("animation")}} deklariert, um zu vermeiden, dass der Wert der Langformeigenschaft zurückgesetzt wird.
 
-Wir haben auch `animation-range-start` gesetzt, um die Animation früher als erwartet beginnen zu lassen.
+Wir haben außerdem `animation-range-start` festgelegt, damit die Animation früher als erwartet beginnt.
 
 ```css
 .animatedElement {
@@ -137,7 +148,7 @@ Wir haben auch `animation-range-start` gesetzt, um die Animation früher als erw
 }
 ```
 
-Andere in diesem Beispiel angewandte Stile sind hier aus Kürze verborgen.
+Weitere in diesem Beispiel angewendete Stile wurden hier der Kürze halber ausgeblendet.
 
 ```css hidden
 .animatedElement {
@@ -180,7 +191,7 @@ p {
 
 #### Ergebnis
 
-Scrollen Sie, um das animierte Element zu sehen. Beachten Sie, wie das Element bereits skaliert und halbtransparent ist, wenn es den Viewport betritt. Dies liegt daran, dass das Element bereits animiert wurde, bevor es den Viewport betrat.
+Scrollen Sie, um das Element zu animieren. Beachten Sie, dass das Element bereits skaliert und halbtransparent ist, wenn es in den Viewport eintritt. Dies liegt daran, dass das Element bereits lange vor dem Eintritt in den Viewport mit der Animation begonnen hat.
 
 {{EmbedLiveSample("Creating a scroll progress timeline with range start", "100%", "480px")}}
 
@@ -198,8 +209,8 @@ Scrollen Sie, um das animierte Element zu sehen. Beachten Sie, wie das Element b
 - {{cssxref("animation-range")}}
 - {{cssxref("animation-range-end")}}
 - {{cssxref("view-timeline-inset")}}
-- [`Element.animate()`](/de/docs/Web/API/Element/animate) `rangeStart`-Eigenschaft
-- [Scroll-gesteuerte Animationszeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- [Verständnis von Zeitleistenbereichen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
-- [View progress timeline: Ranges and animation progress visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/)
+- [`Element.animate()`](/de/docs/Web/API/Element/animate)-Eigenschaft `rangeStart`
+- [Scrollgesteuerte Animations-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- [Verständnis von Timeline-Bereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
+- [CSS-scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)-Modul
+- [View progress timeline: Bereiche und Visualisierer für den Animationsfortschritt](https://scroll-driven-animations.style/tools/view-timeline/ranges/)

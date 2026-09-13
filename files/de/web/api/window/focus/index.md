@@ -1,14 +1,14 @@
 ---
-title: "Window: focus() Methode"
+title: "Window: focus()-Methode"
 short-title: focus()
 slug: Web/API/Window/focus
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Fordert an, dass das Fenster in den Vordergrund gebracht wird. Dies kann aufgrund von Benutzereinstellungen fehlschlagen und das Fenster ist nicht garantiert im Vordergrund, bevor diese Methode zurückkehrt.
+Fordert an, dass das Fenster in den Vordergrund gebracht wird. Dies kann aufgrund von Benutzereinstellungen fehlschlagen, und es wird nicht garantiert, dass das Fenster im Vordergrund ist, bevor diese Methode zurückkehrt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

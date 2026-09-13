@@ -1,12 +1,12 @@
 ---
-title: "`repeat()` CSS-Funktion"
+title: CSS-Funktion `repeat()`
 short-title: repeat()
 slug: Web/CSS/Reference/Values/repeat
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 870fe25a3e6ed1a44222c52dd8a992b731c1a383
 ---
 
-Die **`repeat()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) repräsentiert ein wiederholtes Fragment der [Trackliste](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts) oder der [Linienregel-Liste](/de/docs/Web/CSS/Guides/Gaps). Sie ermöglicht es, sich wiederholende Muster von Spalten, Zeilen und deren Abstandsdekorationen in einer kompakten Form zu schreiben.
+Die **`repeat()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) repräsentiert ein wiederholtes Fragment der [Track-Liste](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts) oder [Trennlinienliste](/de/docs/Web/CSS/Guides/Gaps). Sie ermöglicht es, wiederholte Muster aus Spalten, Zeilen und deren Lückenverzierungen in kompakter Form zu schreiben.
 
 {{InteractiveExample("CSS Demo: repeat()")}}
 
@@ -69,27 +69,27 @@ rule-color: repeat(2, orange, yellow), repeat(auto, green);
 }
 ```
 
-Diese Funktion kann mit den folgenden Funktionen verwendet werden:
+Diese Funktion kann mit den folgenden Features verwendet werden:
 
 CSS-Grid-Eigenschaften:
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
 
-CSS-Abstandseigenschaften:
+CSS-Lücken-Eigenschaften:
 
 - {{cssxref("column-rule-color")}}
 - {{cssxref("row-rule-color")}}
-- {{cssxref("rule-color")}} Kurzform
+- Kurzform {{cssxref("rule-color")}}
 - {{cssxref("column-rule-style")}}
 - {{cssxref("row-rule-style")}}
-- {{cssxref("rule-style")}} Kurzform
+- Kurzform {{cssxref("rule-style")}}
 - {{cssxref("column-rule-width")}}
 - {{cssxref("row-rule-width")}}
-- {{cssxref("rule-width")}} Kurzform
-- {{cssxref("column-rule")}} Kurzform
-- {{cssxref("row-rule")}} Kurzform
-- {{cssxref("rule")}} Kurzform
+- Kurzform {{cssxref("rule-width")}}
+- Kurzform {{cssxref("column-rule")}}
+- Kurzform {{cssxref("row-rule")}}
+- Kurzform {{cssxref("rule")}}
 
 ## Syntax
 
@@ -145,118 +145,118 @@ repeat(auto, var(--lineColor) var(--lineSize) solid)
 
 ### Werte
 
-Die `repeat()`-Funktion nimmt zwei Argumente an: Das erste Argument spezifiziert die [**Wiederholungsanzahl**](#wiederholungsanzahl), und das zweite spezifiziert die [**wiederholte Werteliste**](#wiederholte_werteliste) (die Liste der zu wiederholenden Werte).
+Die Funktion `repeat()` akzeptiert zwei Argumente: Das erste Argument gibt die [**Wiederholungsanzahl**](#werte_für_die_wiederholungsanzahl) an, und das zweite die [**Liste wiederholter Werte**](#liste_wiederholter_werte) (die Liste der zu wiederholenden Werte).
 
-#### Wiederholungsanzahl
+#### Werte für die Wiederholungsanzahl
 
 - {{cssxref("integer")}}
-  - : Eine positive Ganzzahl größer oder gleich `1`, die angibt, wie oft die Feature-Liste im zweiten Parameter wiederholt wird.
+  - : Eine positive ganze Zahl größer oder gleich `1`, die angibt, wie oft die Feature-Liste im zweiten Parameter wiederholt wird.
 
 - `auto-fill`
-  - : Gibt einen automatischen Wiederholer an, der wiederholt wird, um einen Raum zu füllen. Löst sich auf die größte Anzahl von Wiederholungen auf, die keinen Überlauf einer begrenzten (hat eine maximale Größe) Inhaltsbox verursachen. Andernfalls, wenn die Inhaltsbox eine Mindestgröße hat, die geringste Anzahl von Wiederholungen, die die Mindestgröße erfüllt. Wenn es weder eine Mindest- noch eine Maximalgröße gibt, löst es sich zu `1` auf. Wenn es mit Subgrid verwendet wird, muss der zweite Parameter eine Liste von Linienneamen sein.
+  - : Gibt einen automatischen Wiederholer an, der wiederholt wird, um einen Bereich zu füllen. Wird zur größten Anzahl von Wiederholungen aufgelöst, die keinen Überlauf einer eingeschränkten (eine maximale Größe aufweisenden) Content-Box verursacht. Andernfalls wird, wenn die Content-Box eine minimale Größe hat, zur kleinsten Anzahl von Wiederholungen aufgelöst, die die Mindestgröße erfüllt. Wenn es weder eine minimale noch eine maximale Größe gibt, wird zu `1` aufgelöst. Bei Verwendung mit subgrid muss der zweite Parameter eine Liste von Zeilennamen sein.
 
 - `auto-fit`
-  - : Verhält sich wie `auto-fill`, außer dass nach dem Platzieren der Grid-Elemente alle leeren, wiederholten Tracks zusammengeklappt werden.
+  - : Verhält sich wie `auto-fill`, mit der Ausnahme, dass nach der Platzierung von Grid-Elementen alle leeren wiederholten Tracks eingeklappt werden.
 
 - `auto`
-  - : Gibt einen automatischen Wiederholer an. Nachdem die Werte aus anderen Bestandteilen des Eigenschaftswerts angewendet wurden, werden die Werte aus dem zweiten Parameter so oft wiederholt, wie nötig, um fehlende Werte zu füllen.
+  - : Gibt einen automatischen Wiederholer an. Nachdem die Werte aus anderen Komponenten des Eigenschaftswerts angewendet wurden, werden die Werte des zweiten Parameters so oft wie nötig wiederholt und füllen alle fehlenden Werte aus.
 
-#### Wiederholte Werteliste
+#### Liste wiederholter Werte
 
-Eine Liste von einer der folgenden Tracklisten-Typen. Ob die Komponenten der Liste durch Kommas oder Leerzeichen getrennt werden, hängt davon ab, welcher Trennzeichen für den Eigenschaftswert-Liste-Typ erwartet wird.
+Eine Liste aus einem der folgenden Track-Listentypen. Ob die Komponenten der Liste durch Kommas oder Leerzeichen getrennt werden, hängt davon ab, welches Trennzeichen für diesen Eigenschaftswertlistentyp erwartet wird.
 
 - `<line-names>`
-  - : Um Linienneamen zu Subgrids hinzuzufügen, ist jedes `<line-names>` null oder mehr {{cssxref("&lt;custom-ident&gt;")}} Werte, durch Leerzeichen getrennt und in eckige Klammern gesetzt, wie zum Beispiel `[start header-start]`.
+  - : Um Zeilennamen zu subgrids hinzuzufügen, besteht jedes `<line-names>` aus null oder mehr durch Leerzeichen getrennten {{cssxref("&lt;custom-ident&gt;")}}-Werten, die in eckige Klammern eingeschlossen sind, beispielsweise `[start header-start]`.
 
 - `<track-size>`
-  - : Jede `<track-size>` ist eine positive {{cssxref("&lt;length-percentage&gt;")}}, eine {{cssxref("minmax()")}} Funktion, wobei der erste Parameter das Schlüsselwort `min-content`, `max-content` oder `auto` ist, oder eine positive `<length-percentage>`, oder eine {{cssxref("fit-content()")}} Funktion.
+  - : Jedes `<track-size>` ist ein positiver {{cssxref("&lt;length-percentage&gt;")}}, eine {{cssxref("minmax()")}}-Funktion, deren erster Parameter das Schlüsselwort `min-content`, `max-content` oder `auto` oder ein positiver `<length-percentage>` ist, oder eine {{cssxref("fit-content()")}}-Funktion.
 
 - `<fixed-size>`
-  - : Jede `<fixed-size>` ist entweder eine positive `<length-percentage>`, oder eine `minmax()` Funktion, deren erster Parameter eine positive `<length-percentage>` ist und deren zweiter Parameter eine nicht-negative Dimension mit der Einheit `fr` ist, die den Flex-Faktor der Spur oder das Schlüsselwort `min-content`, `max-content` oder `auto` angibt, oder eine `minmax()` Funktion, deren erster Parameter eine positive `<length-percentage>` oder das Schlüsselwort `min-content`, `max-content` oder `auto` ist und deren zweiter Parameter eine positive `<length-percentage>` ist.
+  - : Jedes `<fixed-size>` ist entweder ein positiver `<length-percentage>` oder eine `minmax()`-Funktion, deren erster Parameter ein positiver `<length-percentage>` und deren zweiter Parameter eine nicht negative Dimension mit der Einheit `fr` ist, die den Flex-Faktor des Tracks angibt, oder das Schlüsselwort `min-content`, `max-content` oder `auto`; oder eine `minmax()`-Funktion, deren erster Parameter ein positiver `<length-percentage>` oder das Schlüsselwort `min-content`, `max-content` oder `auto` und deren zweiter Parameter ein positiver `<length-percentage>` ist.
 
 - `<value>`
-  - : Zum Definieren von Abstandsregeln ist jeder `<value>` ein Wert, der von der Eigenschaft akzeptiert wird, in der das `repeat()` erscheint, wie ein {{cssxref("line-style")}}, {{cssxref("line-width")}}, {{cssxref("&lt;color&gt;")}}, oder alle drei als `<gap-rule>`.
+  - : Zum Definieren von Lückentrennlinien ist jedes `<value>` ein Wert, der von der Eigenschaft akzeptiert würde, in der `repeat()` erscheint, beispielsweise ein {{cssxref("line-style")}}, {{cssxref("line-width")}}, {{cssxref("&lt;color&gt;")}} oder alle drei als `<gap-rule>`.
 
 ## Beschreibung
 
-Die `repeat()`-Funktion repräsentiert ein wiederholtes Fragment innerhalb einer durch Kommas oder Leerzeichen getrennten Werteliste, das es ermöglicht, ein wiederkehrendes Muster in einer kompakteren Form zu schreiben, das eine bestimmte Anzahl von Malen oder automatisch wiederholt werden kann.
+Die Funktion `repeat()` repräsentiert ein wiederholtes Fragment innerhalb einer durch Kommas oder Leerzeichen getrennten Werteliste und ermöglicht es, ein wiederkehrendes Muster in kompakterer Form zu schreiben, das eine angegebene Anzahl von Malen oder automatisch wiederholt werden kann.
 
-Die generische Form der `repeat()`-Syntax lautet, ungefähr,
+Die allgemeine Form der `repeat()`-Syntax lautet ungefähr:
 
 ```css
 repeat( <repeat-count>, <values-list> )
 ```
 
-Das erste Argument, die **Wiederholungsanzahl**, gibt die Anzahl der Wiederholungen an. Es definiert, wie oft die Liste der im zweiten Parameter definierten Werte wiederholt werden sollte. Es wird entweder als Ganzzahlwert von `1` oder mehr oder als das Schlüsselwort `auto-fill`, `auto-fit` oder `auto` angegeben.
+Das erste Argument, die **Wiederholungsanzahl**, gibt die Anzahl der Wiederholungen an. Es definiert, wie oft die im zweiten Parameter definierte Werteliste wiederholt werden soll. Es wird entweder als ganzzahliger Wert von `1` oder mehr oder als Schlüsselwort `auto-fill`, `auto-fit` oder `auto` angegeben.
 
-Das zweite Argument ist eine durch Kommas oder Leerzeichen getrennte Liste von Werten, die für die Eigenschaft, in der das `repeat()` erscheint, gültig sind. Es spezifiziert den **wiederholten Wertetyp**, der im Allgemeinen die _Tracks_ oder _Regel-Features_ sind, die wiederholt werden sollen.
+Das zweite Argument ist eine durch Kommas oder Leerzeichen getrennte Liste von Werten, die für die Eigenschaft gültig sind, in der `repeat()` erscheint. Es gibt den **Typ des wiederholten Werts** an, bei dem es sich im Allgemeinen um die zu wiederholenden _Tracks_ oder _Trennlinien-Feature(s)_ handelt.
 
 - **Tracks**:
-  - : Gibt die Menge an Tracks an, die wiederholt werden. Im Wesentlichen besteht dies aus einem oder mehreren durch Leerzeichen getrennten Werten, wobei jeder Wert die Größe dieses Tracks repräsentiert. Jede Größe wird entweder mit einem [`<track-size>`](#track-size)-Wert oder einem [`<fixed-size>`](#fixed-size)-Wert angegeben. Sie können auch vor oder nach jedem Track einen oder mehrere [Liniennamen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) angeben, indem Sie [`<line-names>`](#line-names)-Werte vor und/oder nach der Trackgröße angeben.
-- **Regel-Feature**:
-  - : Gibt das Regel-Feature an, das wiederholt wird. Dies ist entweder eine kommagetrennte Liste von {{cssxref("&lt;color>")}}, {{cssxref("line-width")}}, oder {{cssxref("line-style")}} Werten, oder eine kommagetrennte Liste von Kurzdeklarationen, die die Farbe, Breite und den Stil der Linie setzen.
+  - : Gibt die Gruppe von Tracks an, die wiederholt werden. Grundsätzlich besteht diese aus einem oder mehreren durch Leerzeichen getrennten Werten, wobei jeder Wert die Größe dieses Tracks repräsentiert. Jede Größe wird entweder mit einem Wert vom Typ [`<track-size>`](#track-size) oder [`<fixed-size>`](#fixed-size) angegeben. Sie können außerdem vor oder nach jedem Track einen oder mehrere [Zeilennamen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) angeben, indem Sie [`<line-names>`](#line-names)-Werte vor und/oder nach der Track-Größe bereitstellen.
+- **Trennlinien-Feature**:
+  - : Gibt das Trennlinien-Feature an, das wiederholt wird. Dies ist entweder eine durch Kommas getrennte Liste von {{cssxref("&lt;color>")}}, {{cssxref("line-width")}} oder {{cssxref("line-style")}}-Werten oder eine durch Kommas getrennte Liste von Kurzformdeklarationen, die Farbe, Breite und Stil der Linie festlegen.
 
 ### Syntaxformen
 
-Die Syntax der `repeat()`-Funktion hat mehrere Formen:
+Die Syntax der Funktion `repeat()` hat mehrere Formen:
 
 - `<track-repeat>` = `repeat( <integer>, [ <line-names>? <track-size> ]+ <line-names>? )`
-  - : Der `<integer>` setzt die Wiederholungsanzahl.
+  - : Das `<integer>` legt die Wiederholungsanzahl fest.
 
-    Die `<track-size>`-Werte setzen die Trackgröße. Eine `<track-size>` ist entweder eine {{cssxref("&lt;length-percentage&gt;")}}, ein {{cssxref("&lt;flex&gt;")}} Wert (ein positiver `fr`-Einheitswert), oder das Schlüsselwort `min-content`, `max-content` oder `auto`, eine {{cssxref("fit-content()")}} Funktion mit einem `<length-percentage>`-Parameter, oder eine {{cssxref("minmax()")}} Funktion. Für `minmax()` Track-Werte ist das `min` entweder eine `<length-percentage>`, oder das `min-content`, `max-content` oder `auto`-Schlüsselwort, während das `max` eines dieser sein kann, oder ein `<flex>`-Wert.
+    Die `<track-size>`-Werte legen die Track-Größe fest. Ein `<track-size>` ist entweder ein {{cssxref("&lt;length-percentage&gt;")}}, ein {{cssxref("&lt;flex&gt;")}}-Wert (ein positiver `fr`-Einheitenwert), das Schlüsselwort `min-content`, `max-content` oder `auto`, eine {{cssxref("fit-content()")}}-Funktion mit einem `<length-percentage>`-Parameter oder eine {{cssxref("minmax()")}}-Funktion. Für `minmax()`-Track-Werte ist `min` entweder ein `<length-percentage>` oder das Schlüsselwort `min-content`, `max-content` oder `auto`, während `max` eines davon oder ein `<flex>`-Wert sein kann.
 
-    Jede `<track-size>` wird optional von `<line-names>` vorangestellt, die aus null oder mehr durch Leerzeichen getrennten {{cssxref("&lt;custom-ident&gt;")}} Werten bestehen, die in eckigen Klammern eingeschlossen sind.
+    Jedem `<track-size>` können optional `<line-names>` vorangestellt werden. Diese bestehen aus null oder mehr durch Leerzeichen getrennten {{cssxref("&lt;custom-ident&gt;")}}-Werten in eckigen Klammern.
 
-    Ein abschließendes `<line-names>` ist optional.
+    Abschließende `<line-names>` sind optional.
 
 - `<auto-repeat>` = `repeat( auto-fill | auto-fit, [ <line-names>? <fixed-size> ]+ <line-names>? )`
-  - : Das `auto-fill` oder `auto-fit` Schlüsselwort setzt die Wiederholungsanzahl
+  - : Das Schlüsselwort `auto-fill` oder `auto-fit` legt die Wiederholungsanzahl fest.
 
-    Die `<fixed-size>` setzt die Trackgröße. Eine `<fixed-size>` ist entweder ein `<length-percentage>`-Wert oder eine `minmax()`-Funktion, wobei entweder das `min` oder das `max` eine `<length-percentage>` ist und der andere Wert ebenfalls eine `<length-percentage>` ist oder auf das Schlüsselwort `min-content`, `max-content` oder `auto` gesetzt ist.
+    `<fixed-size>` legt die Track-Größe fest. Ein `<fixed-size>` ist entweder ein `<length-percentage>`-Wert oder eine `minmax()`-Funktion, bei der entweder `min` oder `max` ein `<length-percentage>` ist und der andere Wert ebenfalls ein `<length-percentage>` ist oder auf das Schlüsselwort `min-content`, `max-content` oder `auto` gesetzt ist.
 
-    Jede `<fixed-size>` wird optional von `<line-names>` vorangestellt.
+    Jedem `<fixed-size>` können optional `<line-names>` vorangestellt werden.
 
-    Das abschließende `<line-names>` ist optional.
+    Abschließende `<line-names>` sind optional.
 
 - `<fixed-repeat>` = `repeat( <integer>, [ <line-names>? <fixed-size> ]+ <line-names>? )`
-  - : Dasselbe wie `<auto-repeat>`, außer dass der `<integer>` die Wiederholungsanzahl setzt, sodass es kein automatisches Wiederholen gibt.
+  - : Wie `<auto-repeat>`, außer dass `<integer>` die Wiederholungsanzahl festlegt, sodass keine automatische Wiederholung erfolgt.
 
 - `<name-repeat>` = `repeat( [ <integer> | auto-fill ], <line-names>+)`
-  - : Die Ganzzahl oder das `auto-fill` Schlüsselwort setzt die Wiederholungsanzahl
+  - : Die ganze Zahl oder das Schlüsselwort `auto-fill` legt die Wiederholungsanzahl fest.
 
-    Die `<line-names>` sind ein oder mehrere durch Leerzeichen getrennte {{cssxref("&lt;custom-ident&gt;")}} Werte, die in eckige Klammern eingeschlossen sind.
+    `<line-names>` sind ein oder mehrere durch Leerzeichen getrennte {{cssxref("&lt;custom-ident&gt;")}}-Werte in eckigen Klammern.
 
-    Diese Linienneamen (anstelle von Trackgrößen) sind für [`subgrid`](/de/docs/Web/CSS/Guides/Grid_layout/Subgrid) relevant.
+    Diese Zeilennamen (statt Track-Größen) sind für [`subgrid`](/de/docs/Web/CSS/Guides/Grid_layout/Subgrid) relevant.
 
-- `<repeat-value-type>` = `repeat( <integer>, <value># )`
-  - : Der `<integer>` setzt die Wiederholungsanzahl.
+- `<repeat-value-type>` = `repeat( <integer> , <value># )`
+  - : Das `<integer>` legt die Wiederholungsanzahl fest.
 
-    Der `<value>` ist ein oder mehrere kommagetrennte gültige Werte für die Eigenschaft, auf der die `repeat()`-Funktion angewendet wird.
+    `<value>` sind ein oder mehrere durch Kommas getrennte gültige Werte für die Eigenschaft, auf die die Funktion `repeat()` angewendet wird.
 
-    Mehrere `repeat()`-Funktionen des `<repeat-value-type>` können innerhalb einer einzelnen Wertdeklaration verwendet werden.
+    Mehrere `repeat()`-Funktionen des Typs `<repeat-value-type>` können innerhalb einer einzigen Wertdeklaration verwendet werden.
 
 - `<auto-repeat-value-type>` = `repeat( auto , <value># )`
-  - : Das `auto` Schlüsselwort spezifiziert einen automatischen Wiederholer. Ein automatischer Wiederholer wird verwendet, um Werte für Lücken auszufüllen, die sonst keine Werte aus anderen Teilen der Liste erhalten würden.
+  - : Das Schlüsselwort `auto` gibt einen automatischen Wiederholer an. Ein automatischer Wiederholer wird verwendet, um Werte für Lücken auszufüllen, die andernfalls keine Werte aus anderen Teilen der Liste erhalten würden.
 
-    Der `<value>` ist ein oder mehrere kommagetrennte gültige Werte für die Eigenschaft, auf der die `repeat()`-Funktion angewendet wird.
+    `<value>` sind ein oder mehrere durch Kommas getrennte gültige Werte für die Eigenschaft, auf die die Funktion `repeat()` angewendet wird.
 
-    Höchstens eine `repeat()` in einer gegebenen Liste von Werten darf ein automatischer Wiederholer sein.
+    Höchstens ein `repeat()` in einer bestimmten Werteliste darf ein automatischer Wiederholer sein.
 
-### Auto-fit versus auto-fill
+### Auto-fit im Vergleich zu auto-fill
 
-Wenn der erste Parameter der `repeat()`-Funktion ein Schlüsselwort ist, entweder `auto-fill`, `auto-fit` oder `auto`, statt einer Ganzzahl, erzeugt er einen automatischen Wiederholer. Eine automatisch wiederholende `repeat()`-Funktion wiederholt die als zweiten Parameter angegebenen Werte so oft wie nötig.
+Wenn der erste Parameter der Funktion `repeat()` ein Schlüsselwort ist – entweder `auto-fill`, `auto-fit` oder `auto` – statt einer ganzen Zahl, wird ein automatischer Wiederholer erstellt. Eine sich automatisch wiederholende Funktion `repeat()` wiederholt die als zweiten Parameter angegebenen Werte so oft wie erforderlich.
 
-Bei `auto-fill`, wenn der Container eine bestimmte oder maximale Größe auf der relevanten Achse hat, ist die Anzahl der Wiederholungen die größtmögliche positive Ganzzahl, die keinen Überlauf des Inhalts in seinen Container verursacht. Jedes Track wird als seine maximale Track-Bemessungsfunktion behandelt (jede unabhängige Wert, die verwendet wird, um `grid-template-rows` oder `grid-template-columns` zu definieren), sofern das definiert ist. Andernfalls, wenn keine bestimmte oder maximale Größe definiert ist, ist die `repeat()`-Funktion eine minimale Track-Bemessungsfunktion. Wenn eine beliebige Anzahl von Wiederholungen einen Überlauf verursachen würde, ist die Wiederholung `1`. Andernfalls, wenn der Grid-Container eine bestimmte Mindestgröße auf der relevanten Achse hat, ist die Anzahl der Wiederholungen die kleinstmögliche positive Ganzzahl, die diese Mindestanforderung erfüllt. Andernfalls wiederholt die angegebene Trackliste sich nur einmal.
+Bei `auto-fill` ist die Anzahl der Wiederholungen die größtmögliche positive ganze Zahl, die nicht dazu führt, dass der Inhalt seinen Container überläuft, wenn der Container in der betreffenden Achse eine bestimmte oder maximale Größe hat. Dabei wird jeder Track als seine maximale Track-Größenfunktion behandelt (jeder unabhängige Wert, der zum Definieren von `grid-template-rows` oder `grid-template-columns` verwendet wird), falls diese bestimmt ist. Andernfalls ist die Funktion `repeat()` eine minimale Track-Größenfunktion, wenn keine bestimmte oder maximale Größe definiert ist. Wenn eine beliebige Anzahl von Wiederholungen einen Überlauf verursachen würde, ist die Wiederholung `1`. Andernfalls ist die Anzahl der Wiederholungen die kleinstmögliche positive ganze Zahl, die diese Mindestanforderung erfüllt, wenn der Grid-Container in der betreffenden Achse eine bestimmte Mindestgröße hat. Andernfalls wird die angegebene Track-Liste nur einmal wiederholt.
 
-Der `auto-fit` Wert verhält sich gleich wie `auto-fill`, außer dass nach dem Platzieren der Grid-Elemente alle leeren wiederholten Tracks zusammengeklappt werden. Ein leerer Track ist einer, in den keine Flussgrid-Elemente platziert werden oder darüber hinweg spannt. (Dies kann dazu führen, dass alle Tracks zusammengeklappt werden, wenn sie alle leer sind.)
+Der Wert `auto-fit` verhält sich genauso wie `auto-fill`, außer dass nach der Platzierung der Grid-Elemente alle leeren wiederholten Tracks eingeklappt werden. Ein leerer Track ist ein Track, in dem keine Grid-Elemente im normalen Fluss platziert sind oder über den sie sich erstrecken. (Dies kann dazu führen, dass alle Tracks eingeklappt werden, wenn sie alle leer sind.)
 
-Ein zusammengeklappter Track wird als eine einzelne feste Track-Bemessungsfunktion von `0px` behandelt, und die Rinnen auf beiden Seiten davon werden zusammengeklappt.
+Ein eingeklappter Track wird behandelt, als hätte er eine einzelne feste Track-Größenfunktion von `0px`, und die Rinnen auf beiden Seiten werden eingeklappt.
 
-Zum Zweck der Bestimmung der Anzahl von automatisch wiederholten Tracks gibt der Benutzeragent die Spurgröße auf einen benutzerspezifizierten Wert (z.B. `1px`) ab, um eine Division durch null zu vermeiden.
+Um die Anzahl automatisch wiederholter Tracks zu ermitteln, rundet der User-Agent die Track-Größe auf einen vom User-Agent festgelegten Wert ab (z. B. `1px`), um eine Division durch null zu vermeiden.
 
-### Nutzungsregeln und Ausnahmen
+### Verwendungsausnahmen und Regeln
 
-Es gibt einige Regeln und Einschränkungen bei der Verwendung von `repeat()`:
+Bei der Verwendung von `repeat()` gibt es einige Regeln und Einschränkungen:
 
 Ein Eigenschaftswert kann mehrere `repeat()`-Funktionen enthalten.
 
@@ -268,7 +268,7 @@ Ein Eigenschaftswert kann mehrere `repeat()`-Funktionen enthalten.
 }
 ```
 
-Ein Eigenschaftswert kann höchstens eine automatisch wiederholte `repeat()`-Funktion enthalten.
+Ein Eigenschaftswert kann höchstens eine automatisch wiederholende `repeat()`-Funktion enthalten.
 
 ```css example-bad
 .wrapper {
@@ -278,7 +278,7 @@ Ein Eigenschaftswert kann höchstens eine automatisch wiederholte `repeat()`-Fun
 }
 ```
 
-Wenn eine Eigenschaftsdeklaration `<auto-repeat>` verwendet, ist es nur erlaubt, `<fixed-repeat>` für alle zusätzlichen `repeat()`-Aufrufe zu verwenden. Automatische Wiederholungen (`auto-fill` oder `auto-fit`) können nicht mit vollständig intrinsischen oder flexiblen Größen kombiniert werden. Zum Beispiel ist dies ungültig, weil es die `<auto-repeat>`-Form mit der `<track-repeat>`-Form kombiniert:
+Wenn eine Eigenschaftsdeklaration `<auto-repeat>` verwendet, darf sie für zusätzliche `repeat()`-Aufrufe nur `<fixed-repeat>` verwenden. Automatische Wiederholungen (`auto-fill` oder `auto-fit`) können nicht mit vollständig intrinsischen oder flexiblen Größen kombiniert werden. Beispielsweise ist Folgendes ungültig, da es die Form `<auto-repeat>` mit der Form `<track-repeat>` kombiniert:
 
 ```css example-bad
 .wrapper {
@@ -312,7 +312,7 @@ Die `repeat()`-Notation kann nicht innerhalb einer anderen `repeat()`-Funktion v
 
 ## Beispiele
 
-### Angabe von Grid-Spalten mit repeat()
+### Grid-Spalten mit repeat() angeben
 
 #### HTML
 
@@ -367,7 +367,7 @@ Die `repeat()`-Notation kann nicht innerhalb einer anderen `repeat()`-Funktion v
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
-- [Linienbasierte Platzierung mit CSS-Raster](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
-- [Grid-Template-Bereiche: Raster-Definition-Kurzformen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas#grid_definition_shorthands)
-- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
-- [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps) Modul
+- [Linienbasierte Platzierung mit CSS grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- [Grid-Template-Bereiche: Kurzformen für Grid-Definitionen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas#grid_definition_shorthands)
+- Modul [CSS grid layout](/de/docs/Web/CSS/Guides/Grid_layout)
+- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)

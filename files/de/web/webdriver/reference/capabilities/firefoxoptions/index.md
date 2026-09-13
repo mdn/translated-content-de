@@ -2,30 +2,37 @@
 title: firefoxOptions
 slug: Web/WebDriver/Reference/Capabilities/firefoxOptions
 l10n:
-  sourceCommit: fb6aa6056407ba69d96da0fe140a1ae2320f0fb2
+  sourceCommit: e3a2272d272f21ea38e5fff9bd6ccec2d0dfb1a8
 ---
 
-Die Fähigkeit **`moz:firefoxOptions`** ist ein Namensraum-set spezifischer Fähigkeiten für [Firefox](https://www.firefox.com/en-US/). Sie wird verwendet, um das Verhalten von Firefox zu steuern und kann als Mitglied von [`alwaysMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#alwaysmatch) oder als Mitglied eines der [`firstMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#firstmatch)-Einträge verwendet werden.
+Die **`moz:firefoxOptions`-Capability** ist ein namensgebundener Satz von
+Capabilities, die spezifisch für [Firefox](https://www.firefox.com/en-US/) sind. Sie wird verwendet, um das
+Verhalten von Firefox zu steuern, und kann als Mitglied von
+[`alwaysMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#alwaysmatch) oder als Mitglied eines der
+[`firstMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#firstmatch)-Einträge verwendet werden.
 
-Sie wird verwendet, um Optionen zu definieren, die steuern, wie Firefox gestartet und ausgeführt wird.
+Sie wird verwendet, um Optionen zu definieren, die steuern, wie Firefox gestartet wird und ausgeführt wird.
 
 ## Wert
 
 `moz:firefoxOptions` ist ein JSON-Objekt, das eines der folgenden Felder enthalten kann:
 
-### `binary` (String)
+### `binary` (string)
 
-Absoluter Pfad zum benutzerdefinierten Firefox-Binary, das verwendet werden soll.
+Absoluter Pfad zur zu verwendenden benutzerdefinierten Firefox-Binärdatei.
 
-Unter macOS können Sie entweder den Pfad zum Anwendungsbundle angeben, d.h. `/Applications/Firefox.app`, oder den absoluten Pfad zur ausführbaren Binärdatei innerhalb dieses Bundles, zum Beispiel `/Applications/Firefox.app/Contents/MacOS/firefox-bin`.
+Unter macOS können Sie entweder den Pfad zum Anwendungs-Bundle, also `/Applications/Firefox.app`, oder den
+absoluten Pfad zur ausführbaren Binärdatei innerhalb dieses Bundles angeben, zum Beispiel
+`/Applications/Firefox.app/Contents/MacOS/firefox-bin`.
 
-geckodriver versucht, den Standard-Speicherort von Firefox auf dem aktuellen System zu ermitteln, wenn er nicht definiert ist. Die Standardspeicherorte von Firefox sind:
+Wenn keine Angabe erfolgt, versucht geckodriver, den Standardort von Firefox auf dem aktuellen System zu ermitteln. Die
+Standardorte von Firefox sind:
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="col">System</th>
-      <th scope="col">Standard-Speicherort</th>
+      <th scope="col">Standardort</th>
     </tr>
   </thead>
   <tbody>
@@ -37,7 +44,9 @@ geckodriver versucht, den Standard-Speicherort von Firefox auf dem aktuellen Sys
             <code>/Applications/Firefox.app/Contents/MacOS/firefox-bin</code>
           </li>
           <li>
-            <code>$HOME/Applications/Firefox.app/Contents/MacOS/firefox-bin</code>
+            <code
+              >$HOME/Applications/Firefox.app/Contents/MacOS/firefox-bin</code
+            >
           </li>
         </ol>
       </td>
@@ -46,8 +55,8 @@ geckodriver versucht, den Standard-Speicherort von Firefox auf dem aktuellen Sys
       <td>Linux<br />BSD</td>
       <td>
         <p>
-          Erstes <code>firefox</code>, das im Systempfad gefunden wird. Dies ist
-          äquivalent zur Ausgabe beim Ausführen von
+          Das erste im Systempfad gefundene <code>firefox</code>. Dies entspricht
+          der Ausgabe der Ausführung von
           <a
             href="https://manpages.debian.org/stretch/debianutils/which.1.en.html"
             >which(1)</a
@@ -56,7 +65,8 @@ geckodriver versucht, den Standard-Speicherort von Firefox auf dem aktuellen Sys
         <pre class="brush: plain">
 % which firefox
 /usr/bin/firefox
-</pre>
+</pre
+        >
       </td>
     </tr>
     <tr>
@@ -84,37 +94,49 @@ geckodriver versucht, den Standard-Speicherort von Firefox auf dem aktuellen Sys
 
 ### `args` (Array von Strings)
 
-Befehlszeilenargumente, die an das Firefox-Binary übergeben werden sollen. Diese müssen den führenden Bindestrich (`-`) enthalten, wenn erforderlich, z. B. `["-headless"]`.
+Befehlszeilenargumente, die an die Firefox-Binärdatei übergeben werden. Diese müssen gegebenenfalls den führenden Bindestrich (`-`) enthalten,
+z. B. `["-headless"]`.
 
-Um geckodriver ein vorhandenes [Profil](#profile_string) auf dem lokalen Dateisystem aufnehmen zu lassen, können Sie `["-profile", "/path/to/profile"]` übergeben. Wenn ein Profil jedoch auf eine Zielmaschine übertragen werden muss, wird empfohlen, den `profile`-Eintrag zu verwenden.
+Damit geckodriver ein vorhandenes [Profil](#profile_string) im lokalen Dateisystem verwendet, können Sie
+`["-profile", "/path/to/profile"]` übergeben. Wenn ein Profil jedoch auf einen Zielrechner übertragen werden muss, wird
+empfohlen, den Eintrag `profile` zu verwenden.
 
-### `profile` (String)
+### `profile` (string)
 
-Base64-codiertes ZIP eines Profilverzeichnisses, das für die Firefox-Instanz verwendet werden soll. Dies kann z. B. genutzt werden, um Erweiterungen oder benutzerdefinierte Zertifikate zu installieren, aber für das Festlegen benutzerdefinierter Einstellungen empfehlen wir die Verwendung des `prefs` ([Preferences Object](#prefs_preferences_object))-Eintrags.
+Base64-kodierte ZIP-Datei eines Profilverzeichnisses, das für die Firefox-Instanz verwendet werden soll. Dies kann beispielsweise verwendet werden, um
+Erweiterungen oder benutzerdefinierte Zertifikate zu installieren. Zum Festlegen benutzerdefinierter Einstellungen empfehlen wir jedoch stattdessen den Eintrag `prefs` ([Preferences-Objekt](#prefs_preferences_object)).
 
-Profile werden im temporären Ordner des Systems erstellt. Dies ist auch der Ort, an dem das encodierte Profil extrahiert wird, wenn `profile` bereitgestellt wird. Standardmäßig wird geckodriver an diesem Ort ein neues Profil erstellen.
+Profile werden im temporären Ordner des Systems erstellt. Dort wird auch das kodierte Profil extrahiert, wenn
+`profile` angegeben wird. Standardmäßig erstellt geckodriver an diesem Ort ein neues Profil.
 
-Das tatsächlich verwendete Profil in der WebDriver-Sitzung wird dem Benutzer in der `moz:profile`-Fähigkeit in der [Antwort auf die neue Sitzung](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession) zurückgegeben.
+Das effektive Profil, das von der WebDriver-Sitzung verwendet wird, wird dem Benutzer in der Capability `moz:profile`
+in der [Antwort auf eine neue Sitzung](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession) zurückgegeben.
 
-Um geckodriver ein vorhandenes Profil auf dem Dateisystem aufnehmen zu lassen, setzen Sie bitte das `args`-Feld auf `{"args": ["-profile", "/path/to/your/profile"]}`. Beachten Sie, dass, wenn Sie einen Remote-Client verwenden, der einen Server auf einem anderen System ansteuert, das Profil bereits auf dem Zielsystem vorhanden sein muss.
+Damit geckodriver ein vorhandenes Profil im Dateisystem verwendet, setzen Sie das Feld `args` auf
+`{"args": ["-profile", "/path/to/your/profile"]}`. Beachten Sie, dass das Profil bereits auf dem Zielsystem vorhanden sein muss, wenn Sie einen Remote-Client verwenden, der auf einen Server
+auf einem anderen System abzielt.
 
 ### `log` (Log-Objekt)
 
-Um die Protokollierungs-Ausführlichkeit von geckodriver und Firefox zu erhöhen, können Sie ein `log`-Objekt übergeben, das wie `{"log": {"level": "trace"}}` aussieht, um alle Trace-Ebene-Protokolle und höher einzuschließen.
+Um die Ausführlichkeit der Protokollierung von geckodriver und Firefox zu erhöhen, können Sie ein `log`-Objekt
+übergeben, das wie `{"log": {"level": "trace"}}` aussehen kann, um alle Protokolle der Trace-Ebene und höher einzubeziehen.
 
-Ein JSON-Objekt, das eines dieser Felder haben kann:
+Ein JSON-Objekt, das eines dieser Felder enthalten kann:
 
-#### `level` (String)
+#### `level` (string)
 
-Setzt die Ausführlichkeit der Protokollierung von geckodriver und Firefox fest. Verfügbare Ebenen sind `trace`, `debug`, `config`, `info`, `warn`, `error` und `fatal`. Wenn nicht definiert, ist der Standard `info`. Der Wert wird ohne Berücksichtigung der Groß- und Kleinschreibung behandelt.
+Legt die Ausführlichkeitsstufe von geckodriver und Firefox fest. Verfügbare Stufen sind `trace`, `debug`,
+`config`, `info`, `warn`, `error` und `fatal`. Wenn keine Angabe erfolgt,
+ist der Standardwert `info`. Der Wert wird ohne Berücksichtigung der Groß- und Kleinschreibung behandelt.
 
-### `prefs` (Präferenzen-Objekt)
+### `prefs` (Preferences-Objekt)
 
-Map von Präferenznamen zu Präferenzwert, der ein String, ein Boolean oder ein Integer sein kann.
+Zuordnung von Einstellungsname zu Einstellungswert, der ein String, ein Boolean oder eine Ganzzahl sein kann.
 
-Ein JSON-Objekt mit einem Eintrag pro zu setzender Präferenz. Die Präferenz wird in das [Profil](#profile_string) geschrieben, bevor Firefox gestartet wird. Eine vollständige Liste der verfügbaren Präferenzen ist aufrufbar durch Besuch von "about:config" in Ihrem Firefox-Browser. Einige davon sind in [dieser Quelle](https://searchfox.org/firefox-main/source/modules/libpref/init/all.js) dokumentiert.
+Ein JSON-Objekt mit einem Eintrag pro festzulegender Einstellung. Die Einstellung wird vor dem Start von Firefox in das [Profil](#profile_string) geschrieben. Eine vollständige Liste der verfügbaren Einstellungen erhalten Sie, indem Sie
+in Ihrem Firefox-Browser „about:config“ aufrufen. Einige davon sind in [dieser Quelldatei](https://searchfox.org/firefox-main/source/modules/libpref/init/all.js) dokumentiert.
 
-Ein Beispiel für ein Präferenzen-Objekt:
+Ein Beispiel für ein Einstellungsobjekt:
 
 ```json
 {
@@ -125,23 +147,32 @@ Ein Beispiel für ein Präferenzen-Objekt:
 
 ### Android
 
-Beginnend mit geckodriver 0.26.0 existieren zusätzliche Fähigkeiten, wenn Firefox oder eine Anwendung, die [GeckoView](https://wiki.mozilla.org/Mobile/GeckoView) einbettet, unter Android gesteuert werden soll:
+Ab geckodriver 0.26.0 gibt es zusätzliche Capabilities, wenn Firefox oder eine Anwendung, die [GeckoView](https://wiki.mozilla.org/Mobile/GeckoView) einbettet, unter Android gesteuert werden soll:
 
-#### `androidPackage` (String, erforderlich)
+#### `androidPackage` (string, erforderlich)
 
-Der Paketname von Firefox, z. B. `org.mozilla.firefox`, `org.mozilla.firefox_beta` oder `org.mozilla.fennec` je nach Release-Kanal oder der Paketname der Anwendung, die GeckoView einbettet, z. B. `org.mozilla.geckoview_example`.
+Der Paketname von Firefox, z. B. `org.mozilla.firefox`,
+`org.mozilla.firefox_beta` oder `org.mozilla.fennec`, abhängig vom Release-Kanal,
+oder der Paketname der Anwendung, die GeckoView einbettet, z. B. `org.mozilla.geckoview_example`.
 
-#### `androidActivity` (String, optional)
+#### `androidActivity` (string, optional)
 
-Der voll qualifizierte Klassenname der zu startenden Aktivität, z. B. `.GeckoViewActivity`. Wenn nicht angegeben, wird die Standardaktivität des Pakets verwendet.
+Der vollständig qualifizierte Klassenname der zu startenden Activity, z. B. `.GeckoViewActivity`. Wenn
+keine Angabe erfolgt, wird die Standard-Activity des Pakets verwendet.
 
-#### `androidDeviceSerial` (String, optional)
+#### `androidDeviceSerial` (string, optional)
 
-Die Seriennummer des Geräts, auf dem die Anwendung gestartet werden soll. Wenn nicht angegeben und mehrere Geräte angeschlossen sind, wird ein Fehler zurückgegeben.
+Die Seriennummer des Geräts, auf dem die Anwendung gestartet werden soll. Wenn keine Angabe erfolgt und mehrere Geräte
+angeschlossen sind, wird ein Fehler zurückgegeben.
 
 #### `androidIntentArguments` (Array von Strings, optional)
 
-Argumente, die zum Starten des Intents verwendet werden. Hinter den Kulissen verwendet geckodriver [Android am](https://developer.android.com/tools/adb#am), um die zu testende Android-Anwendung zu starten. Die angegebenen Intent-Argumente werden an den `am start`-Befehl angehängt. Siehe [Androids Spezifikation für Intent-Argumente](https://developer.android.com/tools/adb#IntentSpec) für Details. Dies ermöglicht die Kontrolle, wie die Anwendung gestartet wird, und es können optionale Extras zum Aktivieren und Deaktivieren von Funktionen hinzugefügt werden. Um beispielsweise eine Ansichtsaktion mit einer angegebenen URL vor dem Navigieren im Rahmen eines Tests zu starten, fügen Sie Folgendes hinzu:
+Argumente, mit denen der Intent gestartet wird. Intern verwendet geckodriver [Android am](https://developer.android.com/tools/adb#am), um die zu testende Android-Anwendung
+zu starten. Die angegebenen Intent-Argumente werden an den Befehl `am start` angehängt. Weitere
+Einzelheiten finden Sie in der Android-[Spezifikation für Intent-Argumente](https://developer.android.com/tools/adb#IntentSpec).
+Damit können Sie steuern, wie die Anwendung gestartet wird, und optionale Extras zum Aktivieren und
+Deaktivieren von Funktionen einbeziehen. Um beispielsweise vor der Navigation im Rahmen eines
+Tests mit der View-Aktion und einer angegebenen URL zu starten, fügen Sie Folgendes ein:
 
 ```json
 {
@@ -154,7 +185,7 @@ Argumente, die zum Starten des Intents verwendet werden. Hinter den Kulissen ver
 }
 ```
 
-Beispielsweise, um ein boolesches Extra zu spezifizieren, das mit [android.content.Intent.getBooleanExtra](<https://developer.android.com/reference/android/content/Intent#getBooleanExtra(java.lang.String,%20boolean)>) verarbeitet werden kann, fügen Sie Folgendes hinzu:
+Um beispielsweise ein Boolean-Extra anzugeben, das mit [android.content.Intent.getBooleanExtra](<https://developer.android.com/reference/android/content/Intent#getBooleanExtra(java.lang.String,%20boolean)>) verarbeitet werden kann, fügen Sie Folgendes ein:
 
 ```json
 {
@@ -164,9 +195,11 @@ Beispielsweise, um ein boolesches Extra zu spezifizieren, das mit [android.conte
 
 #### `env` (Env-Objekt)
 
-Map von Umgebungsvariablennamen zu Umgebungsvariablenwerten, die beide Strings sein müssen und die an den auf dem Android-Gerät laufenden Anwendungsprozess weitergeleitet werden.
+Zuordnung von Umgebungsvariablenname zu Umgebungsvariablenwert, die beide Strings sein müssen und an den auf dem Android-Gerät ausgeführten Anwendungsprozess weitergeleitet werden.
 
-Ein JSON-Objekt mit einem Eintrag pro zu setzender Umgebungsvariable. Auf dem Desktop wird der zu testende Firefox mit der gegebenen Variablen in seiner Umgebung gestartet. Auf Android wird die auf GeckoView basierende App die gegebene Variable dem `env`-Block in ihrer Konfigurations-YAML hinzufügen.
+Ein JSON-Objekt mit einem Eintrag pro festzulegender Umgebungsvariable. Auf Desktop-Systemen wird der zu testende Firefox mit
+der angegebenen Variable in seiner Umgebung gestartet. Unter Android wird bei der GeckoView-basierten App die angegebene Variable zum
+`env`-Block in ihrer Konfigurations-YAML hinzugefügt.
 
 Ein Beispiel für ein env-Objekt:
 
@@ -179,7 +212,9 @@ Ein Beispiel für ein env-Objekt:
 
 ## Beispiel
 
-Das folgende ist ein Beispiel für ein vollständiges [Fähigkeiten-Objekt](/de/docs/Web/WebDriver/Reference/Capabilities), das ein bestimmtes Firefox-Binary auswählt, um mit einem vorbereiteten [Profil](#profile_string) vom Dateisystem im [headless-Modus](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/) ausgeführt zu werden. Es erhöht auch die Anzahl der IPC-Prozesse durch eine Präferenz, schaltet Chrome-Fehler/Warnungen in der Konsole aus und aktiviert eine ausführlichere Protokollierung:
+Im Folgenden sehen Sie ein Beispiel für ein vollständiges [Capabilities-Objekt](/de/docs/Web/WebDriver/Reference/Capabilities), das
+eine bestimmte Firefox-Binärdatei auswählt, die mit einem vorbereiteten [Profil](#profile_string) aus dem Dateisystem im [Headless-Modus](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/) ausgeführt wird. Außerdem erhöht es die Anzahl der IPC-Prozesse
+über eine Einstellung, deaktiviert Chrome-Fehler/-Warnungen in der Konsole und aktiviert eine ausführlichere Protokollierung:
 
 ```json
 {
@@ -203,7 +238,9 @@ Das folgende ist ein Beispiel für ein vollständiges [Fähigkeiten-Objekt](/de/
 }
 ```
 
-Die `moz:firefoxOptions` müssen — wie oben gezeigt — innerhalb von [`alwaysMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#alwaysmatch) oder in einem der [`firstMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#firstmatch) [Fähigkeiten-Objekte](/de/docs/Web/WebDriver/Reference/Capabilities) platziert werden, wie hier zu sehen:
+Die `moz:firefoxOptions` muss – wie oben – innerhalb von
+[`alwaysMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#alwaysmatch) oder in einem der
+[`firstMatch`](/de/docs/Web/WebDriver/Reference/Capabilities#firstmatch)-[Capabilities-Objekte](/de/docs/Web/WebDriver/Reference/Capabilities) platziert werden, wie hier zu sehen:
 
 ```json
 {
@@ -215,7 +252,7 @@ Die `moz:firefoxOptions` müssen — wie oben gezeigt — innerhalb von [`always
 
 ### Android
 
-Dies führt die GeckoView-Beispielanwendung aus, wie sie auf dem ersten auf dem Hostsystem laufenden Android-Emulator installiert ist:
+Dies führt die GeckoView-Beispielanwendung aus, wie sie auf dem ersten Android-Emulator installiert ist, der auf dem Host-Rechner ausgeführt wird:
 
 ```json
 {
@@ -238,7 +275,8 @@ Dies führt die GeckoView-Beispielanwendung aus, wie sie auf dem ersten auf dem 
 
 ## Siehe auch
 
-- [Dokumentation von geckodriver zu unterstützten Firefox-Fähigkeiten](https://firefox-source-docs.mozilla.org/testing/geckodriver/Capabilities.html)
-- [Chrome-spezifische WebDriver-Fähigkeiten](https://developer.chrome.com/docs/chromedriver/capabilities) (`goog:chromeOptions)`)
-- [Liste der WebDriver-Fähigkeiten](/de/docs/Web/WebDriver/Reference/Capabilities)
-- [Neuer Sitzung](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession)-Befehl
+- [Dokumentation von geckodriver zu unterstützten Firefox-Capabilities](https://firefox-source-docs.mozilla.org/testing/geckodriver/Capabilities.html)
+- [Chrome-spezifische WebDriver-Capabilities](https://developer.chrome.com/docs/chromedriver/capabilities)
+  (`goog:chromeOptions`)
+- [Liste der WebDriver-Capabilities](/de/docs/Web/WebDriver/Reference/Capabilities)
+- Befehl [New Session](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession)

@@ -2,10 +2,10 @@
 title: regexp:test()
 slug: Web/XML/EXSLT/Reference/regexp/test
 l10n:
-  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
+  sourceCommit: 8b0250d2e2bd4676046dbb441da91f7cefc32507
 ---
 
-`regexp:test()` prüft, ob ein String einem bestimmten regulären Ausdruck entspricht.
+`regexp:test()` prüft, ob eine Zeichenkette einem angegebenen regulären Ausdruck entspricht.
 
 ## Syntax
 
@@ -16,22 +16,22 @@ regexp:test(testString, regExpString[, flagsString])
 ### Parameter
 
 - `testString`
-  - : Der zu prüfende String.
+  - : Die zu prüfende Zeichenkette.
 - `regExpString`
-  - : Der reguläre Ausdruck im JavaScript-Stil, der ausgewertet werden soll.
+  - : Der auszuwertende reguläre Ausdruck im JavaScript-Stil.
 - `flagsString` {{optional_inline}}
-  - : Ein optionaler String, der Zeichenflags enthält.
+  - : Eine optionale Zeichenkette, die Zeichen-Flags enthält.
 
-Die Zeichenflags sind:
+Die Zeichen-Flags sind:
 
 - `g`
-  - : Globaler Abgleich. Hat keine Auswirkung auf diese Funktion; ist für Konsistenz mit anderen regexp-Funktionen erlaubt.
+  - : Globale Übereinstimmung. Hat keine Auswirkung auf diese Funktion; es ist aus Gründen der Konsistenz mit anderen regexp-Funktionen zulässig.
 - `i`
-  - : Groß-/Kleinschreibungs-unabhängiger Abgleich. Wenn dieses Flag angegeben ist, erfolgt der Abgleich unabhängig von der Groß-/Kleinschreibung.
+  - : Groß-/Kleinschreibungsunabhängige Übereinstimmung. Wenn dieses Flag angegeben ist, wird die Übereinstimmung unabhängig von Groß- und Kleinschreibung durchgeführt.
 
 ### Rückgabewert
 
-`true`, wenn der angegebene reguläre Ausdruck mit dem Test-String übereinstimmt.
+`true`, wenn der angegebene regexp mit der zu prüfenden Zeichenkette übereinstimmt.
 
 ## Spezifikationen
 

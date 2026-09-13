@@ -2,20 +2,22 @@
 title: MitM
 slug: Glossary/MitM
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 972c6cc542e271e4c00def9465d7a0cc81011378
 ---
 
-Ein **Manipulator-in-the-Middle-Angriff** (MitM) fängt eine Kommunikation zwischen zwei Systemen ab. Ein Beispiel dafür ist ein kompromittierter WLAN-Router.
+Ein **Manipulator-in-der-Mitte-Angriff** (MitM) fängt eine Kommunikation zwischen zwei Systemen ab. Zum Beispiel kann ein WLAN-Router kompromittiert werden.
 
-Vergleichen Sie dies mit physischer Post: Wenn Sie einander Briefe schreiben, kann der Postbote jeden Brief, den Sie senden, abfangen. Er öffnet ihn, liest ihn, verändert ihn möglicherweise und verpackt den Brief anschließend neu, bevor er ihn an die Person sendet, für die der Brief ursprünglich bestimmt war. Der ursprüngliche Empfänger würde Ihnen dann einen Brief zurücksenden, und der Postbote würde erneut den Brief öffnen, lesen, möglicherweise modifizieren, neu verpacken und an Sie übergeben. Sie würden nicht wissen, dass es einen Manipulator in der Mitte Ihres Kommunikationskanals gibt – der Postbote ist für Sie und Ihren Empfänger unsichtbar.
+Im Vergleich zu physischer Post: Wenn Sie sich gegenseitig Briefe schreiben, kann der Postbote jeden Brief abfangen, den Sie versenden. Er öffnet ihn, liest ihn, modifiziert ihn eventuell und verpackt den Brief dann neu, bevor er ihn an den eigentlichen Empfänger sendet. Der ursprüngliche Empfänger sendet Ihnen dann wieder einen Brief, und der Postbote öffnet den Brief erneut, liest ihn, ändert ihn eventuell, verpackt ihn neu und gibt ihn Ihnen. Sie würden nicht wissen, dass es einen Manipulator in der Mitte Ihres Kommunikationskanals gibt – der Postbote bleibt für Sie und Ihren Empfänger unsichtbar.
 
-In der physischen Post wie auch bei der Online-Kommunikation sind MITM-Angriffe schwer zu verteidigen. Ein paar Tipps:
+Sowohl bei physischer Post als auch bei Online-Kommunikation sind MITM-Angriffe schwer zu verteidigen. Einige Tipps:
 
-- Ignorieren Sie keine Zertifikatwarnungen. Sie könnten sich mit einem Phishing-Server oder einem falschen Server verbinden.
+- Ignorieren Sie Zertifikatswarnungen nicht einfach. Sie könnten sich mit einem Phishing-Server oder einem gefälschten Server verbinden.
 - Sensible Seiten ohne HTTPS-Verschlüsselung in öffentlichen WLAN-Netzwerken sind nicht vertrauenswürdig.
-- Überprüfen Sie die HTTPS-Anzeige in Ihrer Adressleiste und stellen Sie sicher, dass die Verschlüsselung vorhanden ist, bevor Sie sich anmelden.
+- Überprüfen Sie auf HTTPS in Ihrer Adressleiste und stellen Sie sicher, dass die Verschlüsselung vorhanden ist, bevor Sie sich einloggen.
 
 ## Siehe auch
 
-- OWASP: [Manipulator-in-the-Middle-Angriff](https://owasp.org/www-community/attacks/Manipulator-in-the-middle_attack)
+- [Manipulator-in-der-Mitte (MITM)](/de/docs/Web/Security/Attacks/MITM)
+- [Angriffe](/de/docs/Web/Security/Attacks)
+- OWASP: [Manipulator-in-der-Mitte-Angriff](https://owasp.org/www-community/attacks/Manipulator-in-the-middle_attack)
 - Wikipedia: [Man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)

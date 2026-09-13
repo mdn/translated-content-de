@@ -1,22 +1,22 @@
 ---
-title: LastModified-Eigenschaft der Datei
+title: "Datei: lastModified Eigenschaft"
 short-title: lastModified
 slug: Web/API/File/lastModified
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`lastModified`** schreibgeschützte Eigenschaft der [`File`](/de/docs/Web/API/File)-Schnittstelle gibt das Datum der letzten Änderung der Datei als Anzahl von Millisekunden seit dem Unix-Epoch (1. Januar 1970 um Mitternacht) an. Dateien ohne bekanntes Änderungsdatum geben das aktuelle Datum zurück.
+Die schreibgeschützte **`lastModified`**-Eigenschaft der [`File`](/de/docs/Web/API/File)-Schnittstelle liefert das Datum der letzten Änderung der Datei als Anzahl an Millisekunden seit dem Unix-Epoch (1. Januar 1970 um Mitternacht). Dateien ohne bekanntes Änderungsdatum geben das aktuelle Datum zurück.
 
 ## Wert
 
-Eine Zahl, die die Anzahl der Millisekunden seit dem Unix-Epoch darstellt.
+Ein ganzzahliger Wert, der die Anzahl an Millisekunden seit dem Unix-Epoch darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel wird durch die von Ihnen ausgewählten Dateien iterieren und anzeigen, ob jede Datei innerhalb des letzten Jahres geändert wurde.
+Das folgende Beispiel durchläuft die von Ihnen ausgewählten Dateien und gibt an, ob jede Datei innerhalb des letzten Jahres geändert wurde.
 
 ### HTML
 
@@ -60,7 +60,9 @@ filePicker.addEventListener("change", (event) => {
 
 ### Dynamisch erstellte Dateien
 
-Wenn eine Datei dynamisch erstellt wird, kann die Zeit der letzten Änderung in der [`File()`](/de/docs/Web/API/File/File)-Konstruktorfunktion übergeben werden. Wenn sie fehlt, erbt `lastModified` die aktuelle Zeit von {{jsxref("Date.now()")}} im Moment der Erstellung des `File`-Objekts.
+Wenn eine Datei dynamisch erstellt wird, kann die letzte Änderungszeit in der [`File()`](/de/docs/Web/API/File/File)-Konstruktorfunktion angegeben werden. Wenn diese fehlt, wird `lastModified` normalerweise auf die aktuelle Zeit gesetzt, sobald das `File`-Objekt erstellt wird.
+
+In Firefox kann die neue Datei, wenn die Dateiteile eine von der Festplatte gelesene Datei enthalten, diese Änderungszeit erben.
 
 ```js
 const fileWithDate = new File([], "file.bin", {
@@ -74,27 +76,11 @@ console.log(fileWithoutDate.lastModified); // returns current time
 
 ## Reduzierte Zeitpräzision
 
-Zum Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} kann die Präzision von `someFile.lastModified` je nach Browsereinstellungen gerundet werden. In Firefox ist die Voreinstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2ms gesetzt. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Präzision 100ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Präzision von `lastModified` je nach Browsereinstellungen reduziert werden.
 
-Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `someFile.lastModified` immer ein Vielfaches von 2 oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) sein, wenn `privacy.resistFingerprinting` aktiviert ist.
+Wenn ein `lastModified`-Wert dem [`File()`](/de/docs/Web/API/File/File)-Konstruktor übergeben wird, wendet der Browser keine Timer-Rundung auf die übergebene Zeit an. Dies gilt auch für von der Festplatte gelesene Änderungszeiten, deren Präzision vom Dateisystem abhängt, einschließlich derjenigen, die in Firefox von Dateiteilen ererbt werden.
 
-```js
-// reduced time precision (2ms) in Firefox 60
-someFile.lastModified;
-// Might be:
-// 1519211809934
-// 1519211810362
-// 1519211811670
-// …
-
-// reduced time precision with `privacy.resistFingerprinting` enabled
-someFile.lastModified;
-// Might be:
-// 1519129853500
-// 1519129858900
-// 1519129864400
-// …
-```
+Wenn der Konstruktor die aktuelle Zeit als Standard-`lastModified` verwendet, ermittelt er die aktuelle Zeit auf die gleiche Weise wie {{jsxref("Date.now()")}}. Er übernimmt die Präzision dieser Uhrenablesung ohne zusätzliche Ungenauigkeit einzuführen.
 
 ## Spezifikationen
 

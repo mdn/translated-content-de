@@ -3,12 +3,12 @@ title: "HTMLAllCollection: namedItem() Methode"
 short-title: namedItem()
 slug: Web/API/HTMLAllCollection/namedItem
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
 ---
 
 {{APIRef("DOM")}}
 
-Die **`namedItem()`**-Methode der [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection)-Schnittstelle gibt das erste [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
+Die **`namedItem()`** Methode des [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) Interfaces gibt das erste [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ namedItem(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Wert des `id`- oder `name`-Attributs des gesuchten Elements darstellt.
+  - : Ein String, der den Wert des `id`- oder `name`-Attributs des Elements darstellt, das wir suchen.
 
 ### Rückgabewert
 

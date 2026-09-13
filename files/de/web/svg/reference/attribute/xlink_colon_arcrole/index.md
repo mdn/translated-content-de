@@ -2,16 +2,14 @@
 title: xlink:arcrole
 slug: Web/SVG/Reference/Attribute/xlink:arcrole
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
+Das **`xlink:arcrole`**-Attribut legt eine kontextuelle Rolle für das Element fest und entspricht dem Begriff der Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
 
-Das Attribut **`xlink:arcrole`** gibt eine kontextbezogene Rolle für das Element an und entspricht dem Begriff einer Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
+Diese kontextuelle Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontextes dieses besonderen Bogens betrachtet wird. Ein Beispiel: Eine Ressource könnte allgemein eine "Person" repräsentieren, aber im Kontext eines bestimmten Bogens könnte sie die Rolle "Mutter" haben und im Kontext eines anderen Bogens die Rolle "Tochter".
 
-Diese kontextbezogene Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontexts dieses bestimmten Bogens betrachtet wird. Beispielsweise könnte eine Ressource allgemein eine "Person" darstellen, aber im Kontext eines bestimmten Bogens die Rolle einer "Mutter" und im Kontext eines anderen Bogens die Rolle einer "Tochter" haben.
-
-Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
@@ -53,15 +51,11 @@ Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<iri>`
-  - : Dieser Wert gibt eine [IRI](/de/docs/Web/SVG/Guides/Content_type#iri)-Referenz an, die eine Ressource identifiziert, die die beabsichtigte Eigenschaft beschreibt.
+  - : Dieser Wert spezifiziert eine [IRI](/de/docs/Web/SVG/Guides/Content_type#iri)-Referenz, die eine Ressource identifiziert, welche die beabsichtigte Eigenschaft beschreibt.
 
 ## Spezifikationen
 
 {{Specifications}}
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Siehe auch
 

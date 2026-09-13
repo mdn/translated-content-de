@@ -3,10 +3,10 @@ title: "`accent-color` CSS property"
 short-title: accent-color
 slug: Web/CSS/Reference/Properties/accent-color
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 4d49c28381a2b736e205215b75388945e44a028c
 ---
 
-Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
+Die **`accent-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
 
 {{InteractiveExample("CSS Demo: accent-color")}}
 
@@ -74,23 +74,26 @@ accent-color: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als Schlüsselwort `auto` oder einem `<color>`-Wert angegeben:
+Diese Eigenschaft wird als das Schlüsselwort `auto` oder ein `<color>`-Wert angegeben:
 
 - `auto`
-  - : Repräsentiert eine vom Benutzeragenten gewählte Farbe, die der Akzentfarbe der Plattform entsprechen sollte, falls vorhanden.
+  - : Repräsentiert eine vom Benutzeragent gewählte Farbe, die, wenn vorhanden, der Akzentfarbe der Plattform entsprechen sollte.
 - {{cssxref("&lt;color&gt;")}}
   - : Gibt die Farbe an, die als Akzentfarbe verwendet werden soll.
 
 ## Beschreibung
 
-Browser, die `accent-color` unterstützen, wenden diese derzeit auf die folgenden HTML-Elemente an:
+Browser, die `accent-color` unterstützen, wenden es derzeit auf die folgenden HTML-Elemente an:
 
 - [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)
 - [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)
 - [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)
 - [`<progress>`](/de/docs/Web/HTML/Reference/Elements/progress)
 
-Jeder Benutzeragent hat eine Akzentfarbe mit Variationen, um Lesbarkeit und Kontrast zu gewährleisten. Diese Akzentfarbe wird nicht von jedem Benutzeroberflächen-Steuerelement oder in jedem Zustand des Steuerelements verwendet. Die `accent-color` wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die in den Zuständen, in denen es anwendbar ist, eine Akzentfarbe verwenden.
+Jeder Benutzeragent hat eine Akzentfarbe mit Variationen zur Sicherstellung der Lesbarkeit und des Kontrasts. Diese Akzentfarbe wird jedoch nicht von jedem Benutzeroberflächen-Steuerelement oder in jedem Zustand des Steuerelements verwendet. Die `accent-color` wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
+
+> [!NOTE]
+> Um das Risiko von {{Glossary("fingerprinting", "Fingerprinting")}} zu verringern, geben einige Browser einen festen Wert für `accent-color: auto` zurück, es sei denn, es wird unter bestimmten eingeschränkten Umständen verwendet. Weitere Details finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Formale Definition
 

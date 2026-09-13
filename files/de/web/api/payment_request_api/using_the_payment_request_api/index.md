@@ -1,30 +1,30 @@
 ---
-title: Verwenden der Payment Request API
+title: Verwendung der Payment Request API
 slug: Web/API/Payment_Request_API/Using_the_Payment_Request_API
 l10n:
-  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
 {{DefaultAPISidebar("Payment Request API")}}
 
-Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) bietet eine browserbasierte Methode, um Benutzer und ihre bevorzugten Zahlungssysteme und -plattformen mit Händlern zu verbinden, die sie für Waren und Dienstleistungen bezahlen möchten. Dieser Artikel ist ein Leitfaden zur Nutzung der [Payment Request API](/de/docs/Web/API/Payment_Request_API) mit Beispielen und empfohlenen Best Practices.
+Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) bietet eine browserbasierte Methode, um Benutzer und ihre bevorzugten Zahlungssysteme und -plattformen mit Händlern zu verbinden, bei denen sie für Waren und Dienstleistungen bezahlen möchten. Dieser Artikel ist ein Leitfaden zur Nutzung der [Payment Request API](/de/docs/Web/API/Payment_Request_API) mit Beispielen und empfohlenen Best Practices.
 
-## Die Grundlagen einer Zahlung
+## Die Grundlagen des Bezahlens
 
-Dieser Abschnitt beschreibt die Grundlagen der Nutzung der Payment Request API zur Durchführung einer Zahlung.
+Dieser Abschnitt beschreibt die Grundlagen der Verwendung der Payment Request API, um eine Zahlung durchzuführen.
 
 > [!NOTE]
-> Die Codebeispiele in diesem Abschnitt stammen von unserem [Feature-Demonstration zur Unterstützungserkennung](https://github.com/mdn/dom-examples/blob/main/payment-request/feature-detect-support.html).
+> Die Codebeispiele in diesem Abschnitt stammen aus unserem [Feature detect support demo](https://github.com/mdn/dom-examples/blob/main/payment-request/feature-detect-support.html).
 
 ### Erstellen eines neuen Zahlungsanforderungsobjekts
 
-Eine Zahlungsanforderung beginnt immer mit der Erstellung eines neuen [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts — unter Verwendung des [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktors. Dieser benötigt zwei obligatorische Parameter und einen optionalen Parameter:
+Eine Zahlungsanforderung beginnt immer mit der Erstellung eines neuen [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts — unter Verwendung des [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktors. Dieser nimmt zwei obligatorische Parameter und einen optionalen Parameter entgegen:
 
 - `methodData` — ein Objekt, das Informationen über den Zahlungsanbieter enthält, wie z.B. welche Zahlungsmethoden unterstützt werden, usw.
-- `details` — ein Objekt, das Informationen über die spezifische Zahlung enthält, wie z.B. den Gesamtbetrag der Zahlung, Steuern, Versandkosten usw.
+- `details` — ein Objekt, das Informationen zur spezifischen Zahlung enthält, wie z.B. den Gesamtbetrag, Steuern, Versandkosten usw.
 - `options` (optional) — ein Objekt, das zusätzliche Optionen im Zusammenhang mit der Zahlung enthält.
 
-So könnten Sie beispielsweise eine neue `PaymentRequest`-Instanz wie folgt erstellen:
+Zum Beispiel könnten Sie eine neue `PaymentRequest`-Instanz wie folgt erstellen:
 
 ```js
 const request = new PaymentRequest(
@@ -33,7 +33,7 @@ const request = new PaymentRequest(
 );
 ```
 
-Die im Konstruktor aufgerufenen Funktionen geben die erforderlichen Objektparameter zurück:
+Die innerhalb des Konstruktors aufgerufenen Funktionen geben die erforderlichen Objektparameter zurück:
 
 ```js
 function buildSupportedPaymentMethodData() {
@@ -61,7 +61,7 @@ function buildShoppingCartDetails() {
 
 ### Starten des Zahlungsprozesses
 
-Sobald das `PaymentRequest`-Objekt erstellt wurde, rufen Sie die Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) auf, um die Zahlungsanforderung zu initiieren. Dies gibt ein Versprechen zurück, das mit einem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt erfüllt wird, wenn die Zahlung erfolgreich ist:
+Sobald das `PaymentRequest`-Objekt erstellt wurde, rufen Sie die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode auf, um die Zahlungsanforderung zu starten. Dies gibt ein Promise zurück, das bei erfolgreicher Zahlung mit einem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt erfüllt wird:
 
 ```js
 request.show().then((paymentResponse) => {
@@ -74,13 +74,13 @@ request.show().then((paymentResponse) => {
 });
 ```
 
-Dieses Objekt bietet dem Entwickler Zugriff auf Details, die er nutzen kann, um die logischen Schritte abzuschließen, die nach Abschluss der Zahlung erforderlich sind, wie z.B. eine E-Mail-Adresse, um den Kunden zu kontaktieren, eine Versandadresse für den Versand der Waren usw. Im obigen Code sehen Sie, dass wir die Methode [`PaymentResponse.complete()`](/de/docs/Web/API/PaymentResponse/complete) aufgerufen haben, um zu signalisieren, dass die Interaktion beendet ist — Sie würden dies verwenden, um abschließende Schritte durchzuführen, wie das Aktualisieren der Benutzeroberfläche, um dem Benutzer mitzuteilen, dass die Transaktion abgeschlossen ist, usw.
+Dieses Objekt bietet dem Entwickler Zugriff auf Details, die zur Durchführung der logischen Schritte nach Abschluss der Zahlung verwendet werden können, wie z.B. eine E-Mail-Adresse zur Kontaktaufnahme mit dem Kunden, eine Versandadresse zum Versenden von Waren usw. Im obigen Code sehen Sie, dass wir die [`PaymentResponse.complete()`](/de/docs/Web/API/PaymentResponse/complete)-Methode aufgerufen haben, um anzuzeigen, dass die Interaktion abgeschlossen ist — Sie würden dies verwenden, um abschließende Schritte auszuführen, wie z.B. die Benutzeroberfläche zu aktualisieren, um den Benutzer darüber zu informieren, dass die Transaktion abgeschlossen ist, usw.
 
-### Andere nützliche Methoden der Zahlungsanforderung
+### Weitere nützliche Methoden der Zahlungsanforderung
 
-Es gibt einige andere nützliche Methoden der Zahlungsanforderung, die es wert sind, bekannt zu sein.
+Es gibt einige weitere nützliche Methoden der Zahlungsanforderung, die es wert sind, bekannt zu sein.
 
-[`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment) kann verwendet werden, um zu überprüfen, ob das `PaymentRequest`-Objekt in der Lage ist, eine Zahlung durchzuführen, bevor Sie den Zahlungsprozess starten. Es gibt ein Versprechen zurück, das mit einem Boolean erfüllt wird, der angibt, ob es möglich ist oder nicht, zum Beispiel:
+[`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment) kann verwendet werden, um zu überprüfen, ob das `PaymentRequest`-Objekt in der Lage ist, eine Zahlung zu leisten, bevor Sie den Zahlungsprozess starten. Es gibt ein Promise zurück, das mit einem Boolean erfüllt wird, der angibt, ob dies der Fall ist oder nicht, zum Beispiel:
 
 ```js
 // Dummy payment request to check whether payment can be made
@@ -107,11 +107,11 @@ new PaymentRequest(buildSupportedPaymentMethodData(), {
 
 [`PaymentRequest.abort()`](/de/docs/Web/API/PaymentRequest/abort) kann verwendet werden, um die Zahlungsanforderung bei Bedarf abzubrechen.
 
-## Verfügbarkeit der Payment Request API erkennen
+## Erkennen der Verfügbarkeit der Payment Request API
 
 Sie können die Unterstützung der Payment Request API effektiv erkennen, indem Sie prüfen, ob der Browser des Benutzers [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) unterstützt, d.h. `if (window.PaymentRequest)`.
 
-Im folgenden Codebeispiel führt eine Händlerseite diese Überprüfung durch, und wenn sie `true` zurückgibt, aktualisiert sie die Schaltfläche "Kasse", um `PaymentRequest` anstelle von veralteten Webformularen zu verwenden.
+Im folgenden Snippet führt eine Händlerseite diese Prüfung durch, und wenn sie `true` ergibt, wird der Checkout-Button aktualisiert, um `PaymentRequest` anstelle von älteren Webformularen zu verwenden.
 
 ```js
 const checkoutButton = document.getElementById("checkout-button");
@@ -127,7 +127,7 @@ if (window.PaymentRequest) {
         // Handle successful payment
       })
       .catch((error) => {
-        // Handle cancelled or failed payment. For example, redirect to
+        // Handle canceled or failed payment. For example, redirect to
         // the legacy web form checkout:
         window.location.href = "/legacy-web-form-checkout";
       });
@@ -144,17 +144,17 @@ if (window.PaymentRequest) {
 ```
 
 > [!NOTE]
-> Sehen Sie sich unser [Feature-Demonstration zur Unterstützungserkennung](https://mdn.github.io/dom-examples/payment-request/feature-detect-support.html) für den vollständigen Code an.
+> Siehe unser [Feature detect support demo](https://mdn.github.io/dom-examples/payment-request/feature-detect-support.html) für den vollständigen Code.
 
-## Überprüfen, ob Benutzer Zahlungen vornehmen können
+## Überprüfen, ob Benutzer Zahlungen leisten können
 
-Zu überprüfen, ob Benutzer Zahlungen vornehmen können, ist immer nützlich. Hier sind ein paar verwandte Techniken.
+Es ist immer nützlich zu überprüfen, ob Benutzer Zahlungen leisten können. Hier sind ein paar verwandte Techniken.
 
-### Anpassen der Zahlungsschaltfläche
+### Anpassen des Zahlungsbuttons
 
-Eine nützliche Technik ist, die Schaltfläche zur Zahlungsanforderung je nachdem zu gestalten, ob Benutzer Zahlungen vornehmen können.
+Eine nützliche Technik besteht darin, den Button zur Zahlungsanforderung anzupassen, je nachdem, ob Benutzer Zahlungen leisten können.
 
-Im folgenden Codebeispiel tun wir genau dies — je nachdem, ob der Benutzer eine schnelle Zahlung vornehmen kann oder zuerst Zahlungsdaten hinzufügen muss, ändert sich der Titel der Schaltfläche "Kasse" zwischen "Schnellabwicklung mit W3C" und "W3C-Kasse einrichten". In beiden Fällen ruft die Schaltfläche "Kasse" [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) auf.
+Im folgenden Snippet tun wir genau das — je nachdem, ob der Benutzer eine schnelle Zahlung leisten kann oder zuerst Zahlungsdaten hinzufügen muss, ändert sich der Titel des Checkout-Buttons zwischen "Fast Checkout with W3C" und "Setup W3C Checkout". In beiden Fällen ruft der Checkout-Button [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) auf.
 
 ```js
 const checkoutButton = document.getElementById("checkout-button");
@@ -181,11 +181,11 @@ if (window.PaymentRequest) {
 ```
 
 > [!NOTE]
-> Sehen Sie sich unsere [Anpassen der Zahlungsschaltfläche-Demo](https://mdn.github.io/dom-examples/payment-request/customize-button-can-make-payment.html) für den vollständigen Code an.
+> Siehe unser [Customizing the payment button demo](https://mdn.github.io/dom-examples/payment-request/customize-button-can-make-payment.html) für den vollständigen Code.
 
-### Überprüfen, bevor alle Preise bekannt sind
+### Überprüfung vor Bekanntwerden aller Preise
 
-Wenn der Checkout-Fluss wissen muss, ob [`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment) auch dann `true` zurückgibt, bevor alle Positionen und ihre Preise bekannt sind, können Sie `PaymentRequest` mit Dummy-Daten instanziieren und `.canMakePayment()` vorab abfragen. Wenn Sie `.canMakePayment()` mehrmals aufrufen, denken Sie daran, dass der erste Parameter des `PaymentRequest`-Konstruktors die gleichen Methodennamen und Daten enthalten sollte.
+Wenn der Checkout-Prozess wissen muss, ob [`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment) `true` zurückgeben wird, auch bevor alle Einzelposten und deren Preise bekannt sind, können Sie `PaymentRequest` mit Platzhaltern-Daten instanziieren und `.canMakePayment()` vorab abfragen. Wenn Sie `.canMakePayment()` mehrfach aufrufen, beachten Sie bitte, dass der erste Parameter des `PaymentRequest`-Konstruktors die gleichen Methodennamen und Daten enthalten sollte.
 
 ```js
 // The page has loaded. Should the page use PaymentRequest?
@@ -243,13 +243,13 @@ function onServerCheckoutDetailsRetrieved(checkoutObject) {
 ```
 
 > [!NOTE]
-> Sehen Sie sich unser [Überprüfen der Benutzerzahlungsmöglichkeiten, bevor Preise bekannt sind-Demo](https://mdn.github.io/dom-examples/payment-request/check-user-can-make-payment.html) für den vollständigen Code an.
+> Siehe unser [Checking user can make payments before prices are known demo](https://mdn.github.io/dom-examples/payment-request/check-user-can-make-payment.html) für den vollständigen Code.
 
 ## Empfehlen einer Zahlungs-App, wenn Benutzer keine Apps haben
 
-Wenn Sie sich auf dieser Handelsseite entscheiden, mit dem BobBucks-Demonstrationszahlungsanbieter zu zahlen, versucht es, `PaymentRequest.show()` aufzurufen, während die `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) abgefangen wird. Wenn diese Zahlungsmethode nicht unterstützt wird, wird zur Anmeldeseite für BobBucks umgeleitet.
+Wenn Sie auf dieser Händlerseite auswählen, mit dem BobBucks-Demo-Zahlungsanbieter zu bezahlen, versucht es, `PaymentRequest.show()` aufzurufen, während der `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) abgefangen wird. Wenn diese Zahlungsmethode nicht unterstützt wird, wird zur Anmeldeseite für BobBucks umgeleitet.
 
-Der Code sieht in etwa so aus:
+Der Code sieht ungefähr so aus:
 
 ```js
 checkoutButton.addEventListener("click", () => {
@@ -271,7 +271,7 @@ checkoutButton.addEventListener("click", () => {
       if (error.name === "NotSupportedError") {
         window.location.href = "https://bobbucks.dev/#download";
       } else {
-        // Other kinds of errors; cancelled or failed payment. For demo purposes:
+        // Other kinds of errors; canceled or failed payment. For demo purposes:
         introPanel.style.display = "none";
         legacyPanel.style.display = "block";
       }
@@ -280,11 +280,11 @@ checkoutButton.addEventListener("click", () => {
 ```
 
 > [!NOTE]
-> Sehen Sie sich unser [Empfehlen einer Zahlungs-App, wenn Benutzer keine Apps haben-Demo](https://mdn.github.io/dom-examples/payment-request/recommend-payment-app.html) für den vollständigen Code an.
+> Siehe unser [Recommending a payment app when user has no apps demo](https://mdn.github.io/dom-examples/payment-request/recommend-payment-app.html) für den vollständigen Code.
 
 ## Zusätzliche Benutzeroberfläche nach erfolgreichen Zahlungen anzeigen
 
-Wenn der Händler zusätzliche Informationen erfassen möchte, die nicht Teil der API sind (z.B. zusätzliche Lieferanweisungen), kann der Händler nach dem Checkout eine Seite mit zusätzlichen `<input type="text">` Feldern anzeigen.
+Wenn der Händler zusätzliche Informationen sammeln möchte, die nicht Teil der API sind (z. B. zusätzliche Lieferhinweise), kann der Händler eine Seite mit zusätzlichen `<input type="text">`-Feldern nach dem Checkout anzeigen.
 
 ```js
 request
@@ -306,13 +306,13 @@ request
 ```
 
 > [!NOTE]
-> Sehen Sie sich unsere [Zusätzliche Benutzeroberfläche nach erfolgreicher Zahlung-Demo](https://mdn.github.io/dom-examples/payment-request/show-additional-ui-after-payment.html) für den vollständigen Code an.
+> Siehe unser [Show additional user interface after successful payment demo](https://mdn.github.io/dom-examples/payment-request/show-additional-ui-after-payment.html) für den vollständigen Code.
 
 ## Vorautorisierung von Transaktionen
 
-Einige Anwendungsfälle (z.B. das Bezahlen von Kraftstoff an einer Tankstelle) erfordern die Vorautorisierung der Zahlung. Eine Möglichkeit, dies zu tun, ist über einen webbasierten Zahlungshandlers (siehe die [Web-based Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API)). Zum Zeitpunkt der Abfassung umfasst diese Spezifikation ein `canmakepayment`-Event, das ein webbasiertes Zahlungshandler nutzen könnte, um den Autorisierungsstatus zurückzugeben.
+Einige Anwendungsfälle (z. B. das Bezahlen von Kraftstoff an einer Tankstelle) beinhalten die Vorautorisierung der Zahlung. Eine Möglichkeit, dies zu tun, ist über einen webbasierten Zahlungshandler (siehe die [Web-based Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API)). Zum Zeitpunkt des Schreibens enthält diese Spezifikation ein `canmakepayment`-Ereignis, das ein webbasierter Zahlungshandler nutzen könnte, um den Autorisierungsstatus zurückzugeben.
 
-Der Händlrcode würde folgendermaßen aussehen:
+Der Händlercode würde so aussehen:
 
 ```js
 const paymentRequest = new PaymentRequest(
@@ -346,10 +346,10 @@ self.addEventListener("canmakepayment", (evt) => {
 });
 ```
 
-Dieser Zahlungshandler müsste im Service Worker im Bereich `https://example.com/preauth` laufen.
+Dieser Zahlungshandler müsste in einem Service Worker im Bereich `https://example.com/preauth` liegen.
 
 > [!NOTE]
-> Sehen Sie sich unsere [Vorautorisierung von Transaktionen-Demo](https://mdn.github.io/dom-examples/payment-request/pre-authorize-transaction.html) für den vollständigen Code an.
+> Siehe unser [Pre-authorizing transactions demo](https://mdn.github.io/dom-examples/payment-request/pre-authorize-transaction.html) für den vollständigen Code.
 
 ## Siehe auch
 

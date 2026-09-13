@@ -3,12 +3,12 @@ title: "CanvasRenderingContext2D: ellipse()-Methode"
 short-title: ellipse()
 slug: Web/API/CanvasRenderingContext2D/ellipse
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: cf880ca0ef5fd518f7fdc716220488647ac83eee
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.ellipse()`**-Methode der Canvas 2D API fügt dem aktuellen Unterpfad einen elliptischen Bogen hinzu.
+Die **`CanvasRenderingContext2D.ellipse()`**-Methode des Canvas 2D API fügt einen elliptischen Bogen zum aktuellen Unterpfad hinzu.
 
 ## Syntax
 
@@ -17,26 +17,26 @@ ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
 ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, counterclockwise)
 ```
 
-Die `ellipse()`-Methode erstellt einen elliptischen Bogen, der bei `(x, y)` zentriert ist und die Radien `radiusX` und `radiusY` hat. Der Pfad beginnt bei `startAngle` und endet bei `endAngle` und verläuft in der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
+Die `ellipse()`-Methode erstellt einen elliptischen Bogen, der bei `(x, y)` zentriert ist, mit den Radien `radiusX` und `radiusY`. Der Pfad beginnt bei `startAngle` und endet bei `endAngle` und verläuft in der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
 
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-(horizontale) Koordinate des Mittelpunkts der Ellipse.
+  - : Die x-Achse (horizontale) Koordinate des Zentrums der Ellipse.
 - `y`
-  - : Die y-Achsen-(vertikale) Koordinate des Mittelpunkts der Ellipse.
+  - : Die y-Achse (vertikale) Koordinate des Zentrums der Ellipse.
 - `radiusX`
-  - : Der Halbachsenradius der Ellipse. Muss nicht negativ sein.
+  - : Der Hauptachsenradius der Ellipse. Muss nicht-negativ sein.
 - `radiusY`
-  - : Der Nebenachsenradius der Ellipse. Muss nicht negativ sein.
+  - : Der Nebenachsenradius der Ellipse. Muss nicht-negativ sein.
 - `rotation`
-  - : Die Rotation der Ellipse, ausgedrückt in Bogenmaß.
+  - : Die Drehung der Ellipse, ausgedrückt in Bogenmaß.
 - `startAngle`
-  - : Der [ekzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse beginnt, im Uhrzeigersinn vom positiven x-Achsenausgangspunkt gemessen und ausgedrückt in Bogenmaß.
+  - : Der [exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse beginnt, im Uhrzeigersinn vom positiven x-Achse gemessen und in Bogenmaß ausgedrückt.
 - `endAngle`
-  - : Der [ekzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse endet, im Uhrzeigersinn vom positiven x-Achsenausgangspunkt gemessen und ausgedrückt in Bogenmaß.
+  - : Der [exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse endet, im Uhrzeigersinn vom positiven x-Achse gemessen und in Bogenmaß ausgedrückt.
 - `counterclockwise` {{optional_inline}}
-  - : Ein optionaler boolescher Wert, der, wenn `true`, die Ellipse gegen den Uhrzeigersinn zeichnet. Der Standardwert ist `false` (im Uhrzeigersinn).
+  - : Ein optionaler boolescher Wert, der, wenn er `true` ist, die Ellipse gegen den Uhrzeigersinn zeichnet. Der Standardwert ist `false` (im Uhrzeigersinn).
 
 ### Rückgabewert
 

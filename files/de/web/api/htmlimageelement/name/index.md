@@ -1,22 +1,22 @@
 ---
-title: "HTMLImageElement: name-Eigenschaft"
+title: "HTMLImageElement: name Eigenschaft"
 short-title: name
 slug: Web/API/HTMLImageElement/name
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die _veraltete_ **`name`**-Eigenschaft der [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle gibt einen Namen für das Element an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/img#name)-Inhaltsattribut des `<img>`-Elements wider. Sie wurde durch die [`id`](/de/docs/Web/API/Element/id)-Eigenschaft ersetzt, die auf allen Elementen verfügbar ist und wird nur aus Kompatibilitätsgründen beibehalten.
+Die _veraltete_ **`name`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces spezifiziert einen Namen für das Element. Sie spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/img#name)-Inhaltsattribut des `<img>`-Elements wider. Sie wurde durch die [`id`](/de/docs/Web/API/Element/id)-Eigenschaft ersetzt, die für alle Elemente verfügbar ist, und wird nur aus Kompatibilitätsgründen beibehalten.
 
 ## Wert
 
-Ein String, der einen Namen bereitstellt, mit dem das Bild referenziert werden kann.
+Ein String, der einen Namen bereitstellt, unter dem das Bild referenziert werden kann.
 
 ## Beispiele
 
-### Setzen des name-Attributs
+### Das name-Attribut setzen
 
 ```js
 const img = new Image();

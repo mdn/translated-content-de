@@ -1,29 +1,27 @@
 ---
-title: "`<big>` HTML größerer Textelement"
+title: "`<big>` HTML größeres Textelement"
 short-title: <big>
 slug: Web/HTML/Reference/Elements/big
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}
-
-Das veraltete **`<big>`** [HTML](/de/docs/Web/HTML)-Element rendert den eingeschlossenen Text in einer Schriftgröße, die um eine Stufe größer ist als der umgebende Text (zum Beispiel wird `medium` zu `large`). Die Größe ist auf die maximal zulässige Schriftgröße des Browsers begrenzt.
+Das **`<big>`** [HTML](/de/docs/Web/HTML) veraltete Element rendert den eingeschlossenen Text in einer Schriftgröße, die um eine Stufe größer ist als der umgebende Text (zum Beispiel wird `medium` zu `large`). Die Größe ist durch die maximal zulässige Schriftgröße des Browsers begrenzt.
 
 > [!WARNING]
 > Dieses Element wurde aus der Spezifikation entfernt und sollte nicht mehr verwendet werden. Verwenden Sie die CSS-Eigenschaft {{cssxref("font-size")}}, um die Schriftgröße anzupassen.
 
 ## Attribute
 
-Dieses Element hat, abgesehen von den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemeinsam sind, keine weiteren Attribute.
+Dieses Element hat keine anderen Attribute als die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemeinsam sind.
 
 ## Beispiele
 
-Hier sehen Sie Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, das zeigt, wie dieselben Ergebnisse mit moderner CSS-Syntax erreicht werden können.
+Hier sehen Sie Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, wie Sie die gleichen Ergebnisse mit moderner CSS-Syntax erzielen können.
 
 ### Verwendung von big
 
-Dieses Beispiel verwendet das veraltete `<big>`-Element, um die Größe einiger Texte zu erhöhen.
+Dieses Beispiel verwendet das veraltete `<big>` Element, um die Größe eines Textes zu erhöhen.
 
 #### HTML
 
@@ -65,9 +63,9 @@ Dieses Beispiel verwendet die CSS-Eigenschaft {{cssxref("font-size")}}, um die S
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle.
 
-<!-- ## Technical summary -->
+<!-- ## Technische Zusammenfassung -->
 
 ## Spezifikationen
 

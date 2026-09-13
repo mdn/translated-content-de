@@ -1,18 +1,18 @@
 ---
-title: "Window: languagechange Ereignis"
+title: "Window: languagechange-Ereignis"
 short-title: languagechange
 slug: Web/API/Window/languagechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`languagechange`** Ereignis wird im globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
+Das **`languagechange`**-Ereignis wird am globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("languagechange", (event) => { })
@@ -24,9 +24,9 @@ onlanguagechange = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Aliase für Event-Handler
+## Ereignishandler-Aliase
 
-Zusätzlich zum `Window`-Interface ist die Event-Handler-Eigenschaft `onlanguagechange` auch bei den folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onlanguagechange` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -34,7 +34,7 @@ Zusätzlich zum `Window`-Interface ist die Event-Handler-Eigenschaft `onlanguage
 
 ## Beispiele
 
-Sie können das `languagechange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `languagechange`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener("languagechange", () => {
@@ -42,7 +42,7 @@ window.addEventListener("languagechange", () => {
 });
 ```
 
-Oder verwenden Sie die `onlanguagechange` Event-Handler-Eigenschaft:
+Oder die `onlanguagechange`-Ereignishandler-Eigenschaft nutzen:
 
 ```js
 window.onlanguagechange = (event) => {

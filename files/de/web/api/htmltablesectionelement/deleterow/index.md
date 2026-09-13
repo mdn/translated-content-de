@@ -3,12 +3,12 @@ title: "HTMLTableSectionElement: deleteRow() Methode"
 short-title: deleteRow()
 slug: Web/API/HTMLTableSectionElement/deleteRow
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`deleteRow()`**-Methode der [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Schnittstelle entfernt eine spezifische Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("section")}}.
+Die **`deleteRow()`**-Methode der [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Schnittstelle entfernt eine bestimmte Zeile ({{HTMLElement("tr")}}) aus dem angegebenen Tabellensektionselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder {{HTMLElement("tbody")}}).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteRow(index)
 ### Parameter
 
 - `index`
-  - : `index` ist eine Ganzzahl, die die zu löschende Zeile darstellt. Der spezielle Index `-1` kann jedoch verwendet werden, um die allerletzte Zeile des Abschnitts zu entfernen.
+  - : Der Index der zu entfernenden Zeile in der [`rows`](/de/docs/Web/API/HTMLTableSectionElement/rows)-Sammlung. Wenn `index` `-1` ist, wird die letzte Zeile entfernt.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder ein negativer Wert ungleich `-1` ist.
+  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der Zeilen ist oder kleiner als `-1`.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle befindlichen Zeilen.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen im Tabellenkörperbereich; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der derzeit in der Tabelle vorhandenen Zeilen.
 
 ### HTML
 
@@ -124,4 +124,6 @@ removeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
+- [`HTMLTableRowElement.deleteCell()`](/de/docs/Web/API/HTMLTableRowElement/deleteCell)
 - [`HTMLTableElement.deleteRow()`](/de/docs/Web/API/HTMLTableElement/deleteRow)
+- [`HTMLTableSectionElement.insertRow()`](/de/docs/Web/API/HTMLTableSectionElement/insertRow)

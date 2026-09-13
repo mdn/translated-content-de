@@ -1,29 +1,29 @@
 ---
-title: JavaScript-Ressourcenverwaltung
+title: Ressourcenverwaltung in JavaScript
 slug: Web/JavaScript/Guide/Resource_management
 l10n:
-  sourceCommit: 29b752c82ab56376109a1d8b851075349b7054c4
+  sourceCommit: 4b111fc009d4844d407dd1b5c791c07b0fb326fc
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Iterators_and_generators", "Web/JavaScript/Guide/Internationalization")}}
 
-Dieser Leitfaden behandelt, wie man in JavaScript _Ressourcenverwaltung_ durchführt. Ressourcenverwaltung ist nicht genau dasselbe wie [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management), welches ein fortgeschritteneres Thema ist und normalerweise automatisch von JavaScript gehandhabt wird. Ressourcenverwaltung dreht sich um die Verwaltung von Ressourcen, die _nicht_ automatisch von JavaScript aufgeräumt werden. Manchmal ist es in Ordnung, einige ungenutzte Objekte im Speicher zu haben, da sie nicht in die Anwendungslogik eingreifen, aber Ressourcenlecks führen oft dazu, dass Dinge nicht funktionieren oder der Speicherverbrauch stark zunimmt. Daher ist dies keine optionale Optimierungsfunktion, sondern eine grundlegende Funktion zum Schreiben korrekter Programme!
+Dieser Leitfaden erläutert, wie _Ressourcenverwaltung_ in JavaScript durchgeführt wird. Ressourcenverwaltung ist nicht genau dasselbe wie [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management), die ein fortgeschritteneres Thema ist und üblicherweise automatisch von JavaScript gehandhabt wird. Bei der Ressourcenverwaltung geht es um die Verwaltung von Ressourcen, die _nicht_ automatisch von JavaScript bereinigt werden. Manchmal ist es in Ordnung, einige ungenutzte Objekte im Speicher zu haben, da sie die Anwendungslogik nicht beeinträchtigen, aber Ressourcenlecks führen oft dazu, dass Dinge nicht funktionieren oder sehr viel überschüssiger Speicher verwendet wird. Daher handelt es sich nicht um eine optionale Optimierungsfunktion, sondern um eine Kernfunktion zum Schreiben korrekter Programme!
 
 > [!NOTE]
-> Auch wenn Speicherverwaltung und Ressourcenverwaltung zwei getrennte Themen sind, können Sie manchmal als letzte Möglichkeit in das Speichermanagementsystem eingreifen, um Ressourcenverwaltung durchzuführen. Wenn Sie beispielsweise über ein JavaScript-Objekt verfügen, das einen Handle einer externen Ressource darstellt, können Sie ein {{jsxref("FinalizationRegistry")}} erstellen, um die Ressource zu bereinigen, wenn der Handle vom Garbage Collector entfernt wird, da es definitiv keine Möglichkeit gibt, auf die Ressource danach zuzugreifen. Es gibt jedoch keine Garantie, dass der Finalizer ausgeführt wird, daher ist es keine gute Idee, sich für kritische Ressourcen darauf zu verlassen.
+> Obwohl Speicherverwaltung und Ressourcenverwaltung zwei getrennte Themen sind, können Sie sich manchmal als letzten Ausweg in das Speicherverwaltungssystem einklinken, um Ressourcenverwaltung durchzuführen. Wenn Sie beispielsweise ein JavaScript-Objekt haben, das ein Handle für eine externe Ressource darstellt, können Sie eine {{jsxref("FinalizationRegistry")}} erstellen, um die Ressource zu bereinigen, wenn das Handle durch die Garbage Collection entfernt wird, da danach definitiv keine Möglichkeit mehr besteht, auf die Ressource zuzugreifen. Es gibt jedoch keine Garantie, dass der Finalizer ausgeführt wird; daher ist es keine gute Idee, sich bei kritischen Ressourcen darauf zu verlassen.
 
 ## Problem
 
-Betrachten wir zunächst einige Beispiele von Ressourcen, die verwaltet werden müssen:
+Sehen wir uns zunächst einige Beispiele für Ressourcen an, die verwaltet werden müssen:
 
-- **Datei-Handles**: Ein Datei-Handle wird verwendet, um Bytes in einer Datei zu lesen und zu schreiben. Wenn Sie damit fertig sind, müssen Sie [`fileHandle.close()`](https://nodejs.org/api/fs.html#filehandleclose) aufrufen, andernfalls bleibt die Datei offen, selbst wenn das JS-Objekt nicht mehr zugänglich ist. Wie in der verlinkten Node.js-Dokumentation erwähnt:
+- **Datei-Handles**: Ein Datei-Handle wird verwendet, um Bytes in einer Datei zu lesen und zu schreiben. Wenn Sie damit fertig sind, müssen Sie [`fileHandle.close()`](https://nodejs.org/api/fs.html#filehandleclose) aufrufen; andernfalls bleibt die Datei geöffnet, selbst wenn das JS-Objekt nicht mehr zugänglich ist. Wie die verlinkte Node.js-Dokumentation sagt:
 
-  > Wenn ein `<FileHandle>` nicht mittels der `fileHandle.close()`-Methode geschlossen wird, versucht es, den Dateideskriptor automatisch zu schließen und eine Prozesswarnung auszugeben, um Speicherlecks zu verhindern. Bitte verlassen Sie sich nicht auf dieses Verhalten, da es unzuverlässig sein kann und die Datei möglicherweise nicht geschlossen wird. Schließen Sie `<FileHandle>`s stattdessen immer explizit. Node.js kann dieses Verhalten in Zukunft ändern.
+  > Wenn ein `<FileHandle>` nicht mit der Methode `fileHandle.close()` geschlossen wird, wird versucht, den Dateideskriptor automatisch zu schließen und eine Prozesswarnung auszugeben, um Speicherlecks zu verhindern. Bitte verlassen Sie sich nicht auf dieses Verhalten, da es unzuverlässig sein kann und die Datei möglicherweise nicht geschlossen wird. Schließen Sie `<FileHandle>`s stattdessen immer ausdrücklich. Node.js kann dieses Verhalten in Zukunft ändern.
 
-- **Netzwerkverbindungen**: Einige Verbindungen, wie [`WebSocket`](/de/docs/Web/API/WebSocket) und [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), müssen geschlossen werden, wenn keine Nachrichten übertragen werden. Andernfalls bleibt die Verbindung offen, und Verbindungspools sind oft sehr begrenzt in ihrer Größe.
-- **Stream-Leser**: Wenn Sie [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) nicht aufrufen, wird der Stream gesperrt und erlaubt es einem anderen Leser nicht, ihn zu konsumieren.
+- **Netzwerkverbindungen**: Einige Verbindungen, etwa [`WebSocket`](/de/docs/Web/API/WebSocket) und [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), müssen geschlossen werden, wenn keine Nachrichten übertragen werden. Andernfalls bleibt die Verbindung geöffnet, und Verbindungspools sind häufig stark in ihrer Größe begrenzt.
+- **Stream-Reader**: Wenn Sie [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) nicht aufrufen, wird der Stream gesperrt und lässt nicht zu, dass ein anderer Reader ihn konsumiert.
 
-Hier ist ein konkretes Beispiel, das einen lesbaren Stream verwendet:
+Hier ist ein konkretes Beispiel mit einem lesbaren Stream:
 
 ```js
 const stream = new ReadableStream({
@@ -53,12 +53,12 @@ readUntil(stream, "b").then(() => {
 });
 ```
 
-Hier haben wir einen Stream, der drei Datenstücke ausgibt. Wir lesen vom Stream, bis wir den Buchstaben "b" finden. Wenn `readUntil` zurückkehrt, ist der Stream nur teilweise verbraucht, so dass wir in der Lage sein sollten, weiterhin mit einem anderen Leser daraus zu lesen. Wir haben jedoch vergessen, die Sperre freizugeben, sodass der Stream noch gesperrt ist und wir keinen weiteren Leser erstellen können, obwohl `reader` nicht mehr verfügbar ist.
+Hier haben wir einen Stream, der drei Daten-Chunks ausgibt. Wir lesen aus dem Stream, bis wir den Buchstaben „b“ finden. Wenn `readUntil` zurückkehrt, ist der Stream nur teilweise konsumiert; daher sollten wir mit einem anderen Reader weiter daraus lesen können. Wir haben jedoch vergessen, die Sperre freizugeben. Obwohl `reader` nicht mehr verfügbar ist, ist der Stream weiterhin gesperrt, und wir können keinen weiteren Reader erstellen.
 
-Die Lösung in diesem Fall ist einfach: Rufen Sie `reader.releaseLock()` am Ende von `readUntil` auf. Aber einige Probleme bleiben bestehen:
+Die Lösung ist in diesem Fall einfach: Rufen Sie am Ende von `readUntil` `reader.releaseLock()` auf. Es bleiben jedoch einige Probleme:
 
-- Inkonsistenz: Verschiedene Ressourcen haben verschiedene Möglichkeiten, sie freizugeben. Zum Beispiel haben wir `close()`, `releaseLock()`, `disconnect()` usw. Das Muster verallgemeinert sich nicht.
-- Fehlerbehandlung: Was passiert, wenn der Aufruf von `reader.read()` fehlschlägt? Dann würde `readUntil` enden und nie zum Aufruf von `reader.releaseLock()` gelangen. Wir können dies mit {{jsxref("Statements/try...catch", "try...finally")}} beheben:
+- Inkonsistenz: Verschiedene Ressourcen haben unterschiedliche Möglichkeiten, sie freizugeben. Beispielsweise gibt es `close()`, `releaseLock()`, `disconnect()` usw. Das Muster lässt sich nicht verallgemeinern.
+- Fehlerbehandlung: Was geschieht, wenn der Aufruf von `reader.read()` fehlschlägt? Dann würde `readUntil` beendet und käme nie zum Aufruf von `reader.releaseLock()`. Wir können dies mit {{jsxref("Statements/try...catch", "try...finally")}} beheben:
 
   ```js
   async function readUntil(stream, text) {
@@ -76,10 +76,10 @@ Die Lösung in diesem Fall ist einfach: Rufen Sie `reader.releaseLock()` am Ende
   }
   ```
 
-  Aber Sie müssen daran denken, dies jedes Mal zu tun, wenn Sie einige wichtige Ressourcen freigeben müssen.
+  Sie müssen jedoch daran denken, dies jedes Mal zu tun, wenn Sie eine wichtige Ressource freigeben müssen.
 
-- Scoping: Im obigen Beispiel ist `reader` bereits geschlossen, wenn wir die `try...finally`-Anweisung verlassen, aber es ist weiterhin in seinem Gültigkeitsbereich verfügbar. Das bedeutet, dass Sie es möglicherweise versehentlich verwenden, nachdem es geschlossen wurde.
-- Mehrere Ressourcen: Wenn wir zwei Leser auf verschiedenen Streams haben, müssen wir daran denken, beide freizugeben. Dies ist ein respektabler Versuch, dies zu tun:
+- Gültigkeitsbereich: Im obigen Beispiel ist `reader` bereits geschlossen, wenn wir die `try...finally`-Anweisung verlassen, bleibt aber in seinem Gültigkeitsbereich verfügbar. Das bedeutet, dass Sie ihn möglicherweise versehentlich verwenden, nachdem er geschlossen wurde.
+- Mehrere Ressourcen: Wenn wir zwei Reader für unterschiedliche Streams haben, müssen wir daran denken, beide freizugeben. Dies ist ein respektabler Versuch, das zu tun:
 
   ```js
   const reader1 = stream1.getReader();
@@ -92,7 +92,7 @@ Die Lösung in diesem Fall ist einfach: Rufen Sie `reader.releaseLock()` am Ende
   }
   ```
 
-  Dies führt jedoch zu weiteren Fehlerbehandlungsproblemen. Wenn `stream2.getReader()` eine Ausnahme auslöst, wird `reader1` nicht freigegeben; wenn `reader1.releaseLock()` einen Fehler auslöst, wird `reader2` nicht freigegeben. Dies bedeutet, dass wir tatsächlich jedes Ressourcenakquisitions-Freigabe-Paar in seiner eigenen `try...finally`-Anweisung einwickeln müssen:
+  Dies führt jedoch zu weiteren Problemen bei der Fehlerbehandlung. Wenn `stream2.getReader()` eine Exception auslöst, wird `reader1` nicht freigegeben; wenn `reader1.releaseLock()` einen Fehler auslöst, wird `reader2` nicht freigegeben. Das bedeutet, dass wir jedes Paar aus Ressourcenerwerb und -freigabe tatsächlich in ein eigenes `try...finally` einschließen müssen:
 
   ```js
   const reader1 = stream1.getReader();
@@ -108,11 +108,11 @@ Die Lösung in diesem Fall ist einfach: Rufen Sie `reader.releaseLock()` am Ende
   }
   ```
 
-Sie sehen, wie eine scheinbar harmlose Aufgabe des Aufrufs von `releaseLock` schnell zu verschachteltem Boilerplate-Code führen kann. Aus diesem Grund bietet JavaScript integrierte Sprachunterstützung für die Ressourcenverwaltung.
+Sie sehen, wie eine scheinbar harmlose Aufgabe wie der Aufruf von `releaseLock` schnell zu verschachteltem Boilerplate-Code führen kann. Deshalb stellt JavaScript integrierte Sprachunterstützung für die Ressourcenverwaltung bereit.
 
-## Die `using` und `await using` Deklarationen
+## Die Deklarationen `using` und `await using`
 
-Die Lösung, die wir haben, sind zwei spezielle Arten von Variablendeklarationen: {{jsxref("Statements/using", "using")}} und {{jsxref("Statements/await_using", "await using")}}. Sie sind `const` ähnlich, aber sie geben die Ressource automatisch frei, wenn die Variable außer Gültigkeitsbereich gerät, solange die Ressource _wegwerfbar_ ist. Anhand des gleichen Beispiels wie oben können wir es so umschreiben:
+Die verfügbare Lösung besteht aus zwei besonderen Arten von Variablendeklarationen: {{jsxref("Statements/using", "using")}} und {{jsxref("Statements/await_using", "await using")}}. Sie ähneln `const`, geben die Ressource jedoch automatisch frei, wenn die Variable ihren Gültigkeitsbereich verlässt, solange die Ressource _disposable_ ist. Mit demselben Beispiel wie oben können wir es wie folgt umschreiben:
 
 ```js
 {
@@ -126,13 +126,13 @@ Die Lösung, die wir haben, sind zwei spezielle Arten von Variablendeklarationen
 ```
 
 > [!NOTE]
-> Zum Zeitpunkt des Schreibens implementiert [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) nicht das Wegwerfprotokoll. Dies ist ein hypothetisches Beispiel.
+> Zum Zeitpunkt der Erstellung dieses Dokuments implementiert [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) nicht das Disposable-Protokoll. Dies ist ein hypothetisches Beispiel.
 
-Beachten Sie zuerst die zusätzlichen geschweiften Klammern um den Code. Dies erstellt einen neuen [Block Gültigkeitsbereich](/de/docs/Web/JavaScript/Reference/Statements/block) für die `using`-Deklarationen. Ressourcen, die mit `using` deklariert wurden, werden automatisch freigegeben, wenn sie außerhalb des Gültigkeitsbereichs von `using` gelangen, was in diesem Fall immer dann der Fall ist, wenn wir den Block verlassen, entweder weil alle Anweisungen ausgeführt wurden oder weil irgendwo ein Fehler oder `return`/`break`/`continue` vorliegt.
+Beachten Sie zunächst die zusätzlichen geschweiften Klammern um den Code. Dadurch wird ein neuer [Block-Gültigkeitsbereich](/de/docs/Web/JavaScript/Reference/Statements/block) für die `using`-Deklarationen erstellt. Mit `using` deklarierte Ressourcen werden automatisch freigegeben, wenn sie den Gültigkeitsbereich von `using` verlassen, was in diesem Fall immer geschieht, wenn wir den Block verlassen – entweder weil alle Anweisungen ausgeführt wurden oder weil irgendwo ein Fehler oder `return`/`break`/`continue` aufgetreten ist.
 
-Das bedeutet, `using` kann nur in einem Gültigkeitsbereich verwendet werden, der eine klare Lebensdauer hat – nämlich kann es nicht auf der obersten Ebene eines Skripts verwendet werden, da Variablen auf der obersten Ebene eines Skripts im Gültigkeitsbereich für alle zukünftigen Skripte auf der Seite sind, was praktisch bedeutet, dass die Ressource nie freigegeben werden kann, wenn die Seite nie geladen wird. Sie können es jedoch auf der obersten Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules) verwenden, da der Modulbereich endet, wenn das Modul die Ausführung beendet.
+Das bedeutet, dass `using` nur in einem Gültigkeitsbereich mit klarer Lebensdauer verwendet werden kann. Insbesondere kann es nicht auf der obersten Ebene eines Skripts verwendet werden, da Variablen auf der obersten Ebene eines Skripts für alle zukünftigen Skripte auf der Seite im Gültigkeitsbereich liegen. Praktisch bedeutet dies, dass die Ressource nie freigegeben werden kann, wenn die Seite nie entladen wird. Sie können es jedoch auf der obersten Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules) verwenden, weil der Modul-Gültigkeitsbereich endet, wenn das Modul seine Ausführung abschließt.
 
-Jetzt wissen wir, _wann_ `using` aufräumt. Aber _wie_ wird das gemacht? `using` erfordert, dass die Ressource das _wegwerfbare_ Protokoll implementiert. Ein Objekt ist wegwerfbar, wenn es die Methode [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/dispose) besitzt. Diese Methode wird ohne Argumente aufgerufen, um eine Bereinigung durchzuführen. Im Falle des Lesers kann die `[Symbol.dispose]`-Eigenschaft ein einfacher Alias oder Wrapper von `releaseLock` sein:
+Jetzt wissen wir, _wann_ `using` die Bereinigung durchführt. Aber _wie_ geschieht sie? `using` verlangt, dass die Ressource das _disposable_-Protokoll implementiert. Ein Objekt ist disposable, wenn es die Methode [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/dispose) besitzt. Diese Methode wird ohne Argumente aufgerufen, um die Bereinigung durchzuführen. Im Fall des Readers kann die Eigenschaft `[Symbol.dispose]` beispielsweise ein einfacher Alias oder Wrapper von `releaseLock` sein:
 
 ```js
 // For demonstration
@@ -150,11 +150,11 @@ class MyReader {
 MyReader.prototype[Symbol.dispose] = MyReader.prototype.releaseLock;
 ```
 
-Durch das Wegwerfprotokoll kann `using` alle Ressourcen auf konsistente Weise entsorgen, ohne zu verstehen, um welche Art von Ressource es sich handelt.
+Durch das Disposable-Protokoll kann `using` alle Ressourcen auf konsistente Weise entsorgen, ohne verstehen zu müssen, um welchen Ressourcentyp es sich handelt.
 
-Jeder Gültigkeitsbereich hat eine Liste von Ressourcen, die mit ihm verbunden sind, in der Reihenfolge, in der sie deklariert wurden. Wenn der Bereich verlassen wird, werden die Ressourcen in umgekehrter Reihenfolge entsorgt, indem ihre Methode `[Symbol.dispose]()` aufgerufen wird. Zum Beispiel wird im obigen Beispiel `reader1` vor `reader2` deklariert, also wird `reader2` zuerst, dann `reader1` entsorgt. Fehler, die beim Versuch, eine Ressource zu entsorgen, auftreten, verhindern nicht die Entsorgung anderer Ressourcen. Dies ist konsistent mit dem `try...finally`-Muster und respektiert mögliche Abhängigkeiten zwischen den Ressourcen.
+Jeder Gültigkeitsbereich hat eine Liste von Ressourcen, die ihm zugeordnet sind, in der Reihenfolge ihrer Deklaration. Wenn der Gültigkeitsbereich verlassen wird, werden die Ressourcen in umgekehrter Reihenfolge entsorgt, indem ihre Methode `[Symbol.dispose]()` aufgerufen wird. Im obigen Beispiel wird `reader1` beispielsweise vor `reader2` deklariert, daher wird zuerst `reader2` und anschließend `reader1` entsorgt. Fehler, die beim Versuch auftreten, eine Ressource zu entsorgen, verhindern nicht die Entsorgung anderer Ressourcen. Dies stimmt mit dem Muster `try...finally` überein und berücksichtigt mögliche Abhängigkeiten zwischen Ressourcen.
 
-`await using` ist sehr ähnlich zu `using`. Die Syntax sagt Ihnen, dass ein `await` irgendwo passiert – nicht wenn die Ressource deklariert wird, sondern tatsächlich, wenn sie entsorgt wird. `await using` erfordert, dass die Ressource _asynchron wegwerfbar_ ist, was bedeutet, dass sie eine Methode [`[Symbol.asyncDisposable]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose) hat. Diese Methode wird ohne Argumente aufgerufen und gibt ein Versprechen zurück, das aufgelöst wird, wenn die Bereinigung abgeschlossen ist. Dies ist nützlich, wenn die Bereinigung asynchron ist, wie `fileHandle.close()`, in welchem Fall das Ergebnis der Entsorgung nur asynchron bekannt sein kann.
+`await using` ist `using` sehr ähnlich. Die Syntax zeigt an, dass irgendwo ein `await` erfolgt – nicht bei der Deklaration der Ressource, sondern tatsächlich bei ihrer Entsorgung. `await using` verlangt, dass die Ressource _async disposable_ ist, was bedeutet, dass sie eine Methode [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose) besitzt. Diese Methode wird ohne Argumente aufgerufen und gibt ein Promise zurück, das aufgelöst wird, wenn die Bereinigung abgeschlossen ist. Dies ist nützlich, wenn die Bereinigung asynchron ist, etwa `fileHandle.close()`, wobei das Ergebnis der Entsorgung nur asynchron bekannt sein kann.
 
 ```js
 {
@@ -165,22 +165,22 @@ Jeder Gültigkeitsbereich hat eine Liste von Ressourcen, die mit ihm verbunden s
 }
 ```
 
-Da `await using` erfordert, ein `await` auszuführen, ist es nur in Kontexten zulässig, in denen `await` ist, was innerhalb von `async`-Funktionen und auf oberer Ebene von `await` in Modulen enthalten ist.
+Da `await using` ein `await` erfordert, ist es nur in Kontexten zulässig, in denen auch `await` zulässig ist, einschließlich innerhalb von `async`-Funktionen und bei Top-Level-`await` in Modulen.
 
-Ressourcen werden nacheinander und nicht gleichzeitig aufgeräumt: Der Rückgabewert der `[Symbol.asyncDispose]()`-Methode einer Ressource wird `awaitet`, bevor die nächste Ressource mit ihrer `[Symbol.asyncDispose]()`-Methode aufgerufen wird.
+Ressourcen werden sequenziell und nicht gleichzeitig bereinigt: Der Rückgabewert der Methode `[Symbol.asyncDispose]()` einer Ressource wird mittels `await` abgewartet, bevor die Methode `[Symbol.asyncDispose]()` der nächsten Ressource aufgerufen wird.
 
-Einige Dinge zu beachten:
+Einige Hinweise:
 
-- `using` und `await using` sind _Opt-in_. Wenn Sie Ihre Ressource mit `let`, `const` oder `var` deklarieren, erfolgt keine automatische Entsorgung, genau wie bei anderen nicht wegwerfbaren Werten.
-- `using` und `await using` erfordern, dass die Ressource wegwerfbar (oder asynchron wegwerfbar) ist. Wenn die Ressource die Methode `[Symbol.dispose]()` oder `[Symbol.asyncDispose]()` nicht hat, erhalten Sie einen `TypeError` in der Deklarationszeile. Die Ressource kann jedoch `null` oder `undefined` sein, sodass Sie Ressourcen bedingt erwerben können.
-- Wie `const` können `using` und `await using` Variablen nicht neu zugewiesen werden, obwohl die Eigenschaften der Objekte, die sie enthalten, geändert werden können. Die Methode `[Symbol.dispose]()`/`[Symbol.asyncDispose]()` wird jedoch bereits zum Zeitpunkt der Deklaration gespeichert, sodass eine Änderung der Methode nach der Deklaration die Bereinigung nicht beeinflusst.
-- Es gibt einige Fallstricke, wenn man Gültigkeitsbereiche mit der Lebensdauer von Ressourcen vermischt. Siehe [`using`](/de/docs/Web/JavaScript/Reference/Statements/using#examples) für einige Beispiele.
+- `using` und `await using` sind _Opt-in_. Wenn Sie Ihre Ressource mit `let`, `const` oder `var` deklarieren, erfolgt keine automatische Entsorgung, genau wie bei allen anderen nicht disposable Werten.
+- `using` und `await using` verlangen, dass die Ressource disposable beziehungsweise async disposable ist. Wenn die Ressource nicht die jeweilige Methode `[Symbol.dispose]()` oder `[Symbol.asyncDispose]()` besitzt, erhalten Sie in der Deklarationszeile einen `TypeError`. Die Ressource kann jedoch `null` oder `undefined` sein, wodurch Sie Ressourcen bedingt erwerben können.
+- Wie `const` können Variablen von `using` und `await using` nicht neu zugewiesen werden, obwohl die Eigenschaften der Objekte, die sie enthalten, geändert werden können. Die Methode `[Symbol.dispose]()`/`[Symbol.asyncDispose]()` wird jedoch bereits zum Zeitpunkt der Deklaration gespeichert, sodass eine Änderung der Methode nach der Deklaration die Bereinigung nicht beeinflusst.
+- Es gibt einige Fallstricke, wenn Gültigkeitsbereiche mit der Lebensdauer von Ressourcen gleichgesetzt werden. Einige Beispiele finden Sie unter [`using`](/de/docs/Web/JavaScript/Reference/Statements/using#examples).
 
-## Die `DisposableStack` und `AsyncDisposableStack` Objekte
+## Die Objekte `DisposableStack` und `AsyncDisposableStack`
 
-`using` und `await using` sind spezielle Syntaxen. Syntaxen sind bequem und verbergen viel der Komplexität, aber manchmal müssen Sie Dinge manuell erledigen.
+`using` und `await using` sind spezielle Syntaxformen. Syntaxformen sind praktisch und verbergen viel Komplexität, aber manchmal müssen Sie Dinge manuell erledigen.
 
-Ein häufiges Beispiel: Was, wenn Sie die Ressource nicht am Ende _dieses_ Gültigkeitsbereichs entsorgen möchten, sondern in einem _späteren_ Gültigkeitsbereich? Bedenken Sie dies:
+Ein häufiges Beispiel: Was ist, wenn Sie die Ressource nicht am Ende _dieses_ Gültigkeitsbereichs entsorgen möchten, sondern in einem _späteren_ Gültigkeitsbereich? Betrachten Sie Folgendes:
 
 ```js
 let reader;
@@ -191,7 +191,7 @@ if (someCondition) {
 }
 ```
 
-Wie gesagt, `using` ist wie `const`: es muss initialisiert werden und kann nicht neu zugewiesen werden, also könnten Sie versuchen, dies zu tun:
+Wie bereits erwähnt, ist `using` wie `const`: Es muss initialisiert werden und kann nicht neu zugewiesen werden. Daher könnten Sie Folgendes versuchen:
 
 ```js
 if (someCondition) {
@@ -201,7 +201,7 @@ if (someCondition) {
 }
 ```
 
-Dies bedeutet jedoch, dass alle Logik innerhalb des `if` oder `else` geschrieben werden muss, was zu vielen Duplikaten führt. Was wir tun möchten, ist die Ressource in einem Gültigkeitsbereich zu erwerben und zu registrieren, aber sie in einem anderen zu entsorgen. Wir können einen {{jsxref("DisposableStack")}} für diesen Zweck verwenden, der ein Objekt ist, das eine Sammlung von wegwerfbaren Ressourcen enthält und selbst wegwerfbar ist:
+Das bedeutet jedoch, dass die gesamte Logik innerhalb von `if` oder `else` geschrieben werden muss, was viel Duplizierung verursacht. Wir möchten die Ressource in einem Gültigkeitsbereich erwerben und registrieren, aber in einem anderen entsorgen. Dafür können wir einen {{jsxref("DisposableStack")}} verwenden, ein Objekt, das eine Sammlung von disposable Ressourcen enthält und selbst disposable ist:
 
 ```js
 {
@@ -217,7 +217,7 @@ Dies bedeutet jedoch, dass alle Logik innerhalb des `if` oder `else` geschrieben
 }
 ```
 
-Vielleicht haben Sie eine Ressource, die noch nicht das wegwerfbare Protokoll implementiert, sie wird also von `using` abgelehnt. In diesem Fall können Sie {{jsxref("DisposableStack/adopt", "adopt()")}} verwenden.
+Möglicherweise haben Sie eine Ressource, die das Disposable-Protokoll noch nicht implementiert und daher von `using` abgelehnt wird. In diesem Fall können Sie {{jsxref("DisposableStack/adopt", "adopt()")}} verwenden.
 
 ```js
 {
@@ -233,7 +233,7 @@ Vielleicht haben Sie eine Ressource, die noch nicht das wegwerfbare Protokoll im
 }
 ```
 
-Vielleicht haben Sie eine Entsorgungsaktion auszuführen, aber sie ist nicht an eine bestimmte Ressource "gebunden". Vielleicht möchten Sie nur eine Nachricht protokollieren, die sagt "Alle Datenbankverbindungen geschlossen", wenn mehrere Verbindungen gleichzeitig geöffnet sind. In diesem Fall können Sie {{jsxref("DisposableStack/defer", "defer()")}} verwenden.
+Möglicherweise müssen Sie eine Entsorgungsaktion durchführen, die nicht an eine bestimmte Ressource „gebunden“ ist. Vielleicht möchten Sie einfach eine Meldung wie „All database connections closed“ protokollieren, wenn mehrere Verbindungen gleichzeitig geöffnet sind. In diesem Fall können Sie {{jsxref("DisposableStack/defer", "defer()")}} verwenden.
 
 ```js
 {
@@ -247,7 +247,7 @@ Vielleicht haben Sie eine Entsorgungsaktion auszuführen, aber sie ist nicht an 
 }
 ```
 
-Vielleicht möchten Sie eine _bedingte_ Entsorgung durchführen – zum Beispiel nur beanspruchte Ressourcen entsorgen, wenn ein Fehler aufgetreten ist. In diesem Fall können Sie {{jsxref("DisposableStack/move", "move()")}} verwenden, um die Ressourcen zu erhalten, die ansonsten entsorgt würden.
+Möglicherweise möchten Sie eine _bedingte_ Entsorgung durchführen – beispielsweise beanspruchte Ressourcen nur dann entsorgen, wenn ein Fehler aufgetreten ist. In diesem Fall können Sie {{jsxref("DisposableStack/move", "move()")}} verwenden, um Ressourcen zu bewahren, die andernfalls entsorgt würden.
 
 ```js
 class MyResource {
@@ -270,13 +270,13 @@ class MyResource {
 }
 ```
 
-`AsyncDisposableStack` ist wie `DisposableStack`, aber zur Verwendung mit asynchron wegwerfbaren Ressourcen. Seine `use()`-Methode erwartet einen asynchronen Wegwerfer, seine `adopt()`-Methode erwartet eine asynchrone Bereinigungsfunktion und seine `dispose()`-Methode erwartet einen asynchronen Rückruf. Es stellt eine `[Symbol.asyncDispose]()`-Methode bereit. Sie können ihm weiterhin synchrone Ressourcen übergeben, wenn Sie eine Mischung aus synchronen und asynchronen haben.
+`AsyncDisposableStack` ist wie `DisposableStack`, jedoch zur Verwendung mit async disposable Ressourcen. Seine Methode `use()` erwartet eine async disposable Ressource, seine Methode `adopt()` erwartet eine asynchrone Bereinigungsfunktion und seine Methode `dispose()` erwartet einen asynchronen Callback. Es stellt eine Methode `[Symbol.asyncDispose]()` bereit. Sie können ihm weiterhin synchrone Ressourcen übergeben, falls Sie eine Mischung aus synchronen und asynchronen Ressourcen haben.
 
 Die Referenz für {{jsxref("DisposableStack")}} enthält weitere Beispiele und Details.
 
 ## Fehlerbehandlung
 
-Ein Hauptanwendungsfall der Ressourcenverwaltungsfunktion besteht darin, sicherzustellen, dass Ressourcen immer freigegeben werden, selbst wenn ein Fehler auftritt. Lassen Sie uns einige komplexe Fehlermanagementszenarien untersuchen.
+Ein wichtiger Anwendungsfall der Funktion zur Ressourcenverwaltung besteht darin, sicherzustellen, dass Ressourcen auch dann immer entsorgt werden, wenn ein Fehler auftritt. Untersuchen wir einige komplexe Szenarien der Fehlerbehandlung.
 
 Wir beginnen mit dem folgenden Code, der durch die Verwendung von `using` robust gegenüber Fehlern ist:
 
@@ -293,7 +293,7 @@ async function readUntil(stream, text) {
 }
 ```
 
-Angenommen, `chunk` stellt sich als `null` heraus. Dann wird `!chunk.done` einen `TypeError` auslösen, der dazu führt, dass die Funktion beendet wird. Bevor die Funktion beendet wird, wird `stream[Symbol.dispose]()` aufgerufen, was die Sperre auf den Stream freigibt.
+Angenommen, `chunk` ist `null`. Dann löst `!chunk.done` einen `TypeError` aus, wodurch die Funktion beendet wird. Bevor die Funktion endet, wird `stream[Symbol.dispose]()` aufgerufen, wodurch die Sperre für den Stream freigegeben wird.
 
 ```js
 const stream = new ReadableStream({
@@ -314,7 +314,7 @@ readUntil(stream, "b")
   });
 ```
 
-Somit verschluckt `using` keine Fehler: Alle auftretenden Fehler werden weiterhin geworfen, aber die Ressourcen werden direkt vorher geschlossen. Was passiert nun, wenn die Ressourcenbereinigung selbst auch einen Fehler auslöst? Lassen Sie uns ein konstruiertes Beispiel verwenden:
+`using` verschluckt also keine Fehler: Alle auftretenden Fehler werden weiterhin ausgelöst, aber die Ressourcen werden unmittelbar davor geschlossen. Was geschieht nun, wenn die Bereinigung der Ressource selbst ebenfalls einen Fehler auslöst? Verwenden wir ein konstruiertes Beispiel:
 
 ```js
 class MyReader {
@@ -335,9 +335,9 @@ try {
 }
 ```
 
-Im `doSomething()`-Aufruf werden zwei Fehler generiert: ein Fehler, der während `doSomething` ausgelöst wird, und ein Fehler, der während der Entsorgung von `reader` aufgrund des ersten Fehlers ausgelöst wird. Beide Fehler werden gemeinsam geworfen, so dass das, was Sie abgefangen haben, ein {{jsxref("SuppressedError")}} ist. Dies ist ein spezieller Fehler, der zwei Fehler umhüllt: Die Eigenschaft {{jsxref("SuppressedError/error", "error")}} enthält den späteren Fehler, und die Eigenschaft {{jsxref("SuppressedError/suppressed", "suppressed")}} enthält den früheren Fehler, der durch den späteren Fehler "unterdrückt" wird.
+Beim Aufruf von `doSomething()` werden zwei Fehler erzeugt: ein während `doSomething` ausgelöster Fehler und ein während der Entsorgung von `reader` aufgrund des ersten Fehlers ausgelöster Fehler. Beide Fehler werden zusammen ausgelöst; daher ist das, was Sie abfangen, ein {{jsxref("SuppressedError")}}. Dies ist ein spezieller Fehler, der zwei Fehler umschließt: Die Eigenschaft {{jsxref("SuppressedError/error", "error")}} enthält den späteren Fehler und die Eigenschaft {{jsxref("SuppressedError/suppressed", "suppressed")}} enthält den früheren Fehler, der durch den späteren Fehler „unterdrückt“ wird.
 
-Wenn wir mehr als eine Ressource haben und _beide_ von ihnen während der Entsorgung einen Fehler werfen (was äußerst selten sein sollte – es ist bereits selten, dass die Entsorgung fehlschlägt!), dann wird jeder frühere Fehler durch den späteren Fehler unterdrückt, wodurch eine Kette von unterdrückten Fehlern entsteht.
+Wenn wir mehr als eine Ressource haben und _beide_ während der Entsorgung einen Fehler auslösen – dies sollte äußerst selten sein, denn bereits das Fehlschlagen einer Entsorgung ist selten! –, wird jeder frühere Fehler durch den späteren Fehler unterdrückt, wodurch eine Kette unterdrückter Fehler entsteht.
 
 ```js
 class MyReader {
@@ -369,15 +369,15 @@ try {
 }
 ```
 
-- Der `reader` wird zuletzt freigegeben, sodass sein Fehler der neueste ist und alles andere unterdrückt: Er wird als `e.error` angezeigt.
-- Der `writer` wird zuerst freigegeben, sodass sein Fehler später als der ursprüngliche austretende Fehler ist, aber früher als der `reader`-Fehler: Er wird als `e.suppressed.error` angezeigt.
-- Der ursprüngliche Fehler über "Failed to read" ist der früheste Fehler, sodass er als `e.suppressed.suppressed` angezeigt wird.
+- Der `reader` wird zuletzt freigegeben. Sein Fehler ist daher der späteste und unterdrückt alles andere: Er erscheint als `e.error`.
+- Der `writer` wird zuerst freigegeben. Sein Fehler tritt später auf als der ursprüngliche Fehler beim Verlassen, aber früher als der Fehler von `reader`: Er erscheint als `e.suppressed.error`.
+- Der ursprüngliche Fehler über „Failed to read“ ist der früheste Fehler und erscheint daher als `e.suppressed.suppressed`.
 
 ## Beispiele
 
-### Automatisches Freigeben von Objekt-URLs
+### Objekt-URLs automatisch freigeben
 
-Im folgenden Beispiel erstellen wir eine [Objekt-URL](/de/docs/Web/URI/Reference/Schemes/blob) zu einem Blob (in einer realen Anwendung würde dieser Blob von irgendwoher abgerufen werden, z. B. eine Datei oder eine Fetch-Antwort), so dass wir den Blob als Datei herunterladen können. Um ein Ressourcenleck zu verhindern, müssen wir die Objekt-URL mit [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) freigeben, wenn sie nicht mehr benötigt wird (das heißt, wenn der Download erfolgreich gestartet wurde). Da die URL selbst nur eine Zeichenkette ist und daher nicht das wegwerfbare Protokoll implementiert, können wir `url` nicht direkt mit `using` deklarieren; daher erstellen wir einen `DisposableStack`, um als Entsorger für `url` zu dienen. Die Objekt-URL wird freigegeben, sobald `disposer` außer Gültigkeitsbereich gerät, was entweder der Fall ist, wenn `link.click()` beendet ist oder irgendwo ein Fehler auftritt.
+Im folgenden Beispiel erstellen wir eine [Objekt-URL](/de/docs/Web/URI/Reference/Schemes/blob) für ein Blob (in einer echten Anwendung würde dieses Blob von irgendwoher abgerufen werden, etwa aus einer Datei oder einer Fetch-Antwort), damit wir das Blob als Datei herunterladen können. Um ein Ressourcenleck zu verhindern, müssen wir die Objekt-URL mit [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) freigeben, wenn sie nicht mehr benötigt wird, also wenn der Download erfolgreich gestartet wurde. Da die URL selbst nur ein String ist und daher das Disposable-Protokoll nicht implementiert, können wir `url` nicht direkt mit `using` deklarieren. Stattdessen erstellen wir einen `DisposableStack`, der als Entsorger für `url` dient. Die Objekt-URL wird widerrufen, sobald `disposer` seinen Gültigkeitsbereich verlässt, also wenn entweder `link.click()` abgeschlossen wird oder irgendwo ein Fehler auftritt.
 
 ```js
 const downloadButton = document.getElementById("download-button");
@@ -397,9 +397,9 @@ downloadButton.addEventListener("click", () => {
 });
 ```
 
-### Automatisches Abbrechen laufender Anfragen
+### Laufende Anfragen automatisch abbrechen
 
-Im folgenden Beispiel verwenden wir [fetch](/de/docs/Web/API/Window/fetch), um eine Liste von Ressourcen mit Hilfe von {{jsxref("Promise.all()")}} gleichzeitig abzurufen. `Promise.all()` schlägt fehl und lehnt das resultierende Versprechen ab, sobald eine Anfrage fehlgeschlagen ist; jedoch laufen die anderen ausstehenden Anfragen weiter, obwohl ihre Ergebnisse für das Programm nicht zugänglich sind. Um zu verhindern, dass diese verbleibenden Anfragen unnötig Ressourcen verbrauchen, müssen wir automatisch laufende Anfragen abbrechen, wann immer `Promise.all()` abgeschlossen wird. Wir implementieren die Stornierung mit einem [`AbortController`](/de/docs/Web/API/AbortController) und übergeben dessen [`signal`](/de/docs/Web/API/AbortController/signal) jedem `fetch()`-Aufruf. Wenn `Promise.all()` erfüllt wird, gibt die Funktion normal zurück und der Controller bricht ab, was harmlos ist, da es keine ausstehende Anfrage zu stornieren gibt; wenn `Promise.all()` abgelehnt und die Funktion geworfen wird, bricht der Controller ab und storniert alle ausstehenden Anfragen.
+Im folgenden Beispiel [rufen wir ab](/de/docs/Web/API/Window/fetch) eine Liste von Ressourcen gleichzeitig mit {{jsxref("Promise.all()")}} ab. `Promise.all()` schlägt fehl und lehnt das resultierende Promise ab, sobald eine Anfrage fehlgeschlagen ist. Die anderen ausstehenden Anfragen werden jedoch weiterhin ausgeführt, obwohl ihre Ergebnisse für das Programm nicht zugänglich sind. Um zu vermeiden, dass diese verbleibenden Anfragen unnötig Ressourcen verbrauchen, müssen wir laufende Anfragen automatisch abbrechen, sobald `Promise.all()` abgeschlossen ist. Wir implementieren den Abbruch mit einem [`AbortController`](/de/docs/Web/API/AbortController) und übergeben dessen [`signal`](/de/docs/Web/API/AbortController/signal) an jeden `fetch()`-Aufruf. Wenn `Promise.all()` erfüllt wird, kehrt die Funktion normal zurück und der Controller bricht ab, was harmlos ist, da keine ausstehende Anfrage abgebrochen werden muss. Wenn `Promise.all()` abgelehnt wird und die Funktion einen Fehler auslöst, bricht der Controller ab und beendet alle ausstehenden Anfragen.
 
 ```js
 async function getAllData(urls) {
@@ -425,23 +425,23 @@ async function getAllData(urls) {
 }
 ```
 
-## Fallgruben
+## Fallstricke
 
-Die Ressourcenerstellungssyntax bietet viele starke Fehlerbehandlungsgarantien, die sicherstellen, dass die Ressourcen immer aufgeräumt werden, egal was passiert, aber es gibt einige Fallstricke, auf die Sie dennoch stoßen könnten:
+Die Syntax zur Ressourcenentsorgung bietet viele starke Fehlerbehandlungsgarantien, die sicherstellen, dass Ressourcen unabhängig davon, was passiert, immer bereinigt werden. Dennoch können einige Fallstricke auftreten:
 
-- Vergessen, `using` oder `await using` zu verwenden. Die Ressourcenverwaltungssyntax ist nur dazu da, Ihnen zu helfen, wenn Sie wissen, dass Sie sie benötigen, aber es gibt nichts, das Sie daran erinnert, wenn Sie vergessen, sie zu verwenden! Leider gibt es keinen guten Weg, um dies vorab zu verhindern, da es keine syntaktischen Hinweise darauf gibt, dass etwas eine wegwerfbare Ressource ist, und selbst bei wegwerfbaren Ressourcen möchten Sie sie möglicherweise ohne automatische Entsorgung deklarieren. Wahrscheinlich benötigen Sie einen Typrüfgerät in Kombination mit einem Linter, um diese Probleme zu erkennen, wie [typescript-eslint](https://typescript-eslint.io/) ([welches noch plant, an dieser Funktion zu arbeiten](https://github.com/typescript-eslint/typescript-eslint/issues/8255)).
-- Verwendung nach Freigabe. Im Allgemeinen stellt die `using`-Syntax sicher, dass eine Ressource freigegeben wird, wenn sie außer Gültigkeitsbereich gerät, aber es gibt viele Möglichkeiten, einen Wert über seine Bindungsvariable hinaus zu erhalten. JavaScript verfügt nicht über einen Besitzmechanismus wie Rust, sodass Sie ein Alias deklarieren können, der `using` nicht verwendet, oder die Ressource in einer [Schließung](/de/docs/Web/JavaScript/Guide/Closures) speichern usw. Der {{jsxref("Statements/using", "using")}}-Referenz enthält viele Beispiele für solche Fallstricke. Auch hier gibt es keinen guten Weg, um dies in einem komplizierten Kontrollfluss richtig zu erkennen, daher müssen Sie vorsichtig sein.
+- Vergessen, `using` oder `await using` zu verwenden. Die Syntax zur Ressourcenverwaltung hilft Ihnen nur, wenn Sie wissen, dass Sie sie benötigen, aber nichts weist Sie darauf hin, wenn Sie vergessen, sie zu verwenden! Leider gibt es keine gute Möglichkeit, dies im Voraus zu verhindern, da es keine syntaktischen Hinweise darauf gibt, dass etwas eine disposable Ressource ist, und Sie selbst bei disposable Ressourcen diese möglicherweise ohne automatische Entsorgung deklarieren möchten. Sie benötigen wahrscheinlich eine Typprüfung in Kombination mit einem Linter, um diese Probleme zu erkennen, etwa [typescript-eslint](https://typescript-eslint.io/) ([das weiterhin plant, an dieser Funktion zu arbeiten](https://github.com/typescript-eslint/typescript-eslint/issues/8255)).
+- Verwendung nach Freigabe. Im Allgemeinen stellt die Syntax `using` sicher, dass eine Ressource freigegeben wird, wenn sie ihren Gültigkeitsbereich verlässt. Es gibt jedoch viele Möglichkeiten, einen Wert über seine Bindungsvariable hinaus beizubehalten. JavaScript verfügt nicht über einen Ownership-Mechanismus wie Rust, daher können Sie einen Alias deklarieren, der `using` nicht verwendet, oder die Ressource in einer [Closure](/de/docs/Web/JavaScript/Guide/Closures) beibehalten usw. Die Referenz {{jsxref("Statements/using", "using")}} enthält viele Beispiele für solche Fallstricke. Auch hier gibt es keine gute Möglichkeit, dies in einem komplizierten Kontrollfluss zuverlässig zu erkennen; Sie müssen daher vorsichtig sein.
 
-Die Ressourcenverwaltungsfunktion ist kein Allheilmittel. Sie ist definitiv eine Verbesserung gegenüber dem manuellen Aufruf der Entsorgungsmethoden, aber sie ist nicht intelligent genug, um alle Ressourcenverwaltungsfehler zu verhindern. Sie müssen dennoch vorsichtig sein und die Semantik der von Ihnen verwendeten Ressourcen verstehen.
+Die Funktion zur Ressourcenverwaltung ist kein Allheilmittel. Sie ist definitiv eine Verbesserung gegenüber dem manuellen Aufruf der Entsorgungsmethoden, aber sie ist nicht intelligent genug, um alle Fehler bei der Ressourcenverwaltung zu verhindern. Sie müssen weiterhin vorsichtig sein und die Semantik der verwendeten Ressourcen verstehen.
 
 ## Fazit
 
-Hier sind die Schlüsselelemente des Ressourcenverwaltungssystems:
+Hier sind die wichtigsten Komponenten des Ressourcenverwaltungssystems:
 
-- {{jsxref("Statements/using", "using")}} und {{jsxref("Statements/await_using", "await using")}} Deklarationen zur automatischen Ressourcenentsorgung.
-- Die _wegwerfbare_ und _asynchron wegwerfbare_ Protokolle, die jeweils das {{jsxref("Symbol.dispose")}} und {{jsxref("Symbol.asyncDispose")}} verwenden, um von Ressourcen implementiert zu werden.
-- Die {{jsxref("DisposableStack")}} und {{jsxref("AsyncDisposableStack")}} Objekte für Fälle, in denen `using` und `await using` nicht geeignet sind.
+- Deklarationen {{jsxref("Statements/using", "using")}} und {{jsxref("Statements/await_using", "await using")}} zur automatischen Ressourcenentsorgung.
+- Die Protokolle _disposable_ und _async disposable_, die Ressourcen jeweils mit {{jsxref("Symbol.dispose")}} und {{jsxref("Symbol.asyncDispose")}} implementieren.
+- Die Objekte {{jsxref("DisposableStack")}} und {{jsxref("AsyncDisposableStack")}} für Fälle, in denen `using` und `await using` nicht geeignet sind.
 
-Mit der richtigen Nutzung dieser APIs können Sie Systeme erstellen, die mit externen Ressourcen interagieren und unter allen Fehlerbedingungen robust bleiben, ohne dass viel Boilerplate-Code erforderlich ist.
+Bei korrekter Verwendung dieser APIs können Sie Systeme erstellen, die mit externen Ressourcen interagieren und ohne viel Boilerplate-Code robust und widerstandsfähig gegenüber allen Fehlerbedingungen bleiben.
 
 {{PreviousNext("Web/JavaScript/Guide/Iterators_and_generators", "Web/JavaScript/Guide/Internationalization")}}

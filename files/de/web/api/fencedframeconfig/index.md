@@ -2,31 +2,31 @@
 title: FencedFrameConfig
 slug: Web/API/FencedFrameConfig
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
+{{APIRef("Fenced Frame API")}}
 
-Die **`FencedFrameConfig`**-Schnittstelle repräsentiert die Navigation eines {{htmlelement("fencedframe")}}, d.h. welches Inhalt darin angezeigt wird.
+Die **`FencedFrameConfig`**-Schnittstelle repräsentiert die Navigation eines {{htmlelement("fencedframe")}}, d.h. welche Inhalte darin angezeigt werden.
 
-`FencedFrameConfig`-Objekte können nicht manuell über JavaScript erstellt werden. Sie werden aus einer Quelle wie der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) zurückgegeben und als Wert von [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) gesetzt.
+`FencedFrameConfig`-Objekte können nicht manuell über JavaScript konstruiert werden. Sie werden von einer Quelle wie der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) zurückgegeben und als Wert von [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) gesetzt.
 
-Eine Instanz eines `FencedFrameConfig`-Objekts hat eine sichtbare Methode, wird jedoch auch auf interne Konfigurationsinformationen abgebildet, die undurchsichtige Eigenschaften enthalten, die von JavaScript nicht zugänglich sind. Dies umfasst Informationen wie die Quelle des geladenen Inhalts und Interessensgruppen für Werbezwecke. Es ist entscheidend dafür, wie Fenced Frames helfen, wichtige Anwendungsfälle zu implementieren und dabei die Privatsphäre der Nutzer zu respektieren.
+Eine `FencedFrameConfig`-Objektinstanz hat eine zugängliche Methode, aber sie verweist auch auf interne Konfigurationsinformationen mit undurchsichtigen Eigenschaften, die von JavaScript nicht zugänglich sind. Dazu gehören Informationen wie die Quelle des geladenen Inhalts und Interessengruppen für Werbezwecke. Es ist zentral dafür, wie fenced frames wesentliche Anwendungsfälle umsetzen, während die Privatsphäre der Nutzer respektiert wird.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- [`setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) {{experimental_inline}}
+- [`setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) {{deprecated_inline}}
   - : Überträgt Daten aus dem einbettenden Dokument in den `<fencedframe>`-Shared Storage.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Um festzulegen, welche Inhalte in einem `<fencedframe>` angezeigt werden, generiert eine verwendende API (wie zum Beispiel [Protected Audience](https://privacysandbox.google.com/private-advertising/protected-audience) oder [Shared Storage](https://privacysandbox.google.com/private-advertising/shared-storage)) ein `FencedFrameConfig`-Objekt, das dann als Wert für die `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
+Um festzulegen, welche Inhalte in einem `<fencedframe>` angezeigt werden, generiert eine nutzende API (wie [Protected Audience](https://privacysandbox.google.com/private-advertising/protected-audience) oder [Shared Storage](https://privacysandbox.google.com/private-advertising/shared-storage)) ein `FencedFrameConfig`-Objekt, das dann als Wert der `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
 
-Im folgenden Beispiel wird ein `FencedFrameConfig` aus einer Anzeigenauktion der Protected Audience API abgerufen, das dann verwendet wird, um die gewonnene Anzeige in einem `<fencedframe>` anzuzeigen:
+Im folgenden Beispiel wird ein `FencedFrameConfig` von einer Ad-Auktion der Protected Audience API abgerufen, das dann verwendet wird, um die gewonnene Anzeige in einem `<fencedframe>` anzuzeigen:
 
 ```js
 const frameConfig = await navigator.runAdAuction({
@@ -38,15 +38,16 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-> [!NOTE] > `resolveToConfig: true` muss in den `runAdAuction()`-Aufruf aufgenommen werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wird es nicht gesetzt, wird das resultierende {{jsxref("Promise")}} zu einer URN aufgelöst, die nur in einem {{htmlelement("iframe")}} verwendet werden kann.
+> [!NOTE]
+> `resolveToConfig: true` muss beim `runAdAuction()`-Aufruf übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn es nicht gesetzt ist, wird das resultierende {{jsxref("Promise")}} zu einem URN auflösen, der nur in einem {{htmlelement("iframe")}} verwendet werden kann.
 
-### Kontextuelle Daten über `setSharedStorageContext()` übergeben
+### Kontextbezogene Daten mittels `setSharedStorageContext()` übergeben
 
-Sie können die [Private Aggregation API](https://privacysandbox.google.com/private-advertising/private-aggregation) verwenden, um Berichte zu erstellen, die Ereignis-Ebene-Daten innerhalb von Fenced Frames mit kontextbezogenen Daten aus dem einbettenden Dokument kombinieren. `setSharedStorageContext()` kann verwendet werden, um kontextbezogene Daten vom Einbettungsdokument zu Shared-Storage-Arbeitsmodulen, die von der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) initiiert werden, zu übergeben.
+Sie können die [Private Aggregation API](https://privacysandbox.google.com/private-advertising/private-aggregation) verwenden, um Berichte zu erstellen, die Ereignis-Ebene-Daten innerhalb von fenced frames mit kontextbezogenen Daten aus dem einbettenden Dokument kombinieren. `setSharedStorageContext()` kann verwendet werden, um kontextbezogene Daten vom Einbettenden an die von der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) initiierte Shared Storage Worklets zu übergeben.
 
-Im folgenden Beispiel speichern wir sowohl Daten von der einbettenden Seite als auch vom Fenced Frame in [shared storage](https://privacysandbox.google.com/private-advertising/shared-storage).
+Im folgenden Beispiel speichern wir Daten sowohl von der einbettenden Seite als auch dem fenced frame in [shared storage](https://privacysandbox.google.com/private-advertising/shared-storage).
 
-Auf der einbettenden Seite setzen wir eine simulierte Ereignis-ID als Shared Storage-Kontext mit `setSharedStorageContext()`:
+Auf der einbettenden Seite setzen wir eine Beispiel-Ereignis-ID als Shared Storage-Kontext mit `setSharedStorageContext()`:
 
 ```js
 const frameConfig = await navigator.runAdAuction({ resolveToConfig: true });
@@ -58,7 +59,7 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-Im Fenced Frame fügen wir das Arbeitsmodul mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzu und senden dann die Ereignis-Ebene-Daten in das Shared-Storage-Arbeitsmodul mit [`window.sharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) (dies ist nicht mit den kontextbezogenen Daten des einbettenden Dokuments verbunden):
+Innerhalb des fenced frames fügen wir das Worklet-Modul mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzu und senden dann die Ereignis-Ebene-Daten in das Shared Storage-Worklet mittels [`window.sharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) (dies steht in keinem Zusammenhang mit den kontextbezogenen Daten des einbettenden Dokuments):
 
 ```js
 const frameData = {
@@ -74,7 +75,7 @@ await window.sharedStorage.run("send-report", {
 });
 ```
 
-Im `reporting-worklet.js`-Arbeitsmodul lesen wir die Ereignis-ID des einbettenden Dokuments aus `sharedStorage.context` und die Ereignis-Ebene-Daten des Frames aus dem Datenobjekt und berichten sie dann über [Private Aggregation](https://privacysandbox.google.com/private-advertising/private-aggregation):
+Im `reporting-worklet.js`-Worklet lesen wir die Ereignis-ID des einbettenden Dokuments aus `sharedStorage.context` und die Ereignis-Ebene-Daten des Frames aus dem Datenobjekt, und berichten sie dann durch [Private Aggregation](https://privacysandbox.google.com/private-advertising/private-aggregation):
 
 ```js
 class ReportingOperation {

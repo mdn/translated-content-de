@@ -3,19 +3,18 @@ title: "DataTransfer: items-Eigenschaft"
 short-title: items
 slug: Web/API/DataTransfer/items
 l10n:
-  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte `items`-Eigenschaft der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle ist eine
-[`Liste`](/de/docs/Web/API/DataTransferItemList) von [Datenübertragungs-Elementen](/de/docs/Web/API/DataTransferItem) in einem Ziehvorgang. Die Liste enthält ein Element für jedes Element im Vorgang und ist leer, wenn der Vorgang keine Elemente hatte.
+Die **`items`** schreibgeschützte Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces ist eine [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten in einem Drag-Vorgang. Die Liste enthält ein Element für jedes Element im Vorgang und ist leer, wenn der Vorgang keine Elemente hatte.
+
+Während eines Drag-Vorgangs kann diese Eigenschaft verwendet werden, um die Elemente aufzulisten und deren Arten und Typen in jedem Drag-Event-Handler zu inspizieren. Die Daten der Elemente können jedoch nur in den Handlern für die [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)- und [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisse gelesen werden, und die Liste kann nur im `dragstart`-Handler modifiziert werden. Siehe [Lesen des Drag-Datenspeichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store) und [Modifizieren des Drag-Datenspeichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store) für Details.
 
 ## Wert
 
-Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)
-Objekte enthält, die die Elemente darstellen, die in einem Ziehvorgang gezogen werden, wobei die Liste ein Element für jedes
-Objekt enthält, das gezogen wird. Wenn der Ziehvorgang keine Daten hatte, ist die Liste leer.
+Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte enthält, die die im Drag-Vorgang gezogenen Elemente darstellen, ein Listenelement für jedes gezogene Objekt. Wenn der Drag-Vorgang keine Daten hatte, ist die Liste leer.
 
 ## Beispiele
 
@@ -106,5 +105,5 @@ reset.addEventListener("click", () => document.location.reload());
 ## Siehe auch
 
 - [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Arbeiten mit dem Drag-Daten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

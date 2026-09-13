@@ -3,14 +3,14 @@ title: "Highlight: entries()-Methode"
 short-title: entries()
 slug: Web/API/Highlight/entries
 l10n:
-  sourceCommit: a2d0346638937e9c92c500dcb568803778e8354e
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`entries()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das ein Array von `[range, range]` für jedes [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekt im `Highlight`-Objekt in der Einfügereihenfolge enthält.
+Die **`entries()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das ein Array von `[range, range]` für jedes [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekt im `Highlight`-Objekt in Einfügereihenfolge enthält.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Set.entries()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.entries()")}}.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein neues Iterator-Objekt, das ein Array von `[range, range]` für jedes `Abstra
 
 ## Beispiele
 
-Das folgende Code-Snippet zeigt, wie man ein neues Highlight mit zwei Bereichen erstellt und dann die Bereiche mithilfe des Iterators, der von der `entries()`-Methode zurückgegeben wird, protokolliert:
+Der untenstehende Codeausschnitt zeigt, wie man ein neues Highlight mit zwei Bereichen erstellt und dann die Bereiche protokolliert, indem man den vom `entries()`-Methode zurückgegebenen Iterator verwendet:
 
 ```js
 const text = new Text("Time is an illusion. Lunchtime doubly so.");
@@ -51,7 +51,7 @@ console.log(iter.next().value); // [Range, Range]
 console.log(iter.next().value); // [Range, Range]
 ```
 
-Das folgende Codebeispiel zeigt, wie man die Bereiche in einem Highlight mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife durchläuft:
+Das folgende Codebeispiel zeigt, wie man über die Bereiche in einem Highlight iteriert, indem man eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwendet:
 
 ```js
 const text = new Text("Time is an illusion. Lunchtime doubly so.");
@@ -86,4 +86,4 @@ for (const [range] of highlight.entries()) {
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

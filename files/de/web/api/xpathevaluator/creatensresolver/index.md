@@ -1,14 +1,14 @@
 ---
-title: "XPathEvaluator: createNSResolver() Methode"
+title: "XPathEvaluator: createNSResolver()-Methode"
 short-title: createNSResolver()
 slug: Web/API/XPathEvaluator/createNSResolver
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{deprecated_header}}
+{{APIRef("DOM")}}
 
-Die Methode **`createNSResolver()`** des [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)-Interfaces wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Sie gibt nun den Input unverändert zurück und wird nur aus Kompatibilitätsgründen beibehalten.
+Die **`createNSResolver()`**-Methode der [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)-Schnittstelle wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Jetzt gibt sie den Eingang unverändert zurück und wird nur noch aus Kompatibilitätsgründen beibehalten.
 
 ## Syntax
 

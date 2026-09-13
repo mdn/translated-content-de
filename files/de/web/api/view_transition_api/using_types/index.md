@@ -1,32 +1,32 @@
 ---
-title: Verwendung von View-Transition-Typen
-short-title: Arten von View-Transitionen
+title: Verwenden von View-Transition-Typen
+short-title: View transition types
 slug: Web/API/View_Transition_API/Using_types
 l10n:
-  sourceCommit: 3114d1b72a4d46d314caa7f73f775a1f6f7407dc
+  sourceCommit: 870fe25a3e6ed1a44222c52dd8a992b731c1a383
 ---
 
 {{DefaultAPISidebar("View Transition API")}}
 
-View-Transition-Typen bieten eine Methode, mit der verschiedene **Arten** für aktive View-Transitionen spezifiziert werden können. CSS kann dann verwendet werden, um verschiedene Animationen auf DOM-Elemente anzuwenden, wenn deren Inhalt aktualisiert wird, abhängig von dem speziellen Transition-Typ. Zum Beispiel könnten Sie unterschiedliche Animationen auf ein {{htmlelement("img")}}-Element in einer Bildergalerie-App anwenden, wenn das angezeigte Bild geändert wird, je nachdem, ob Sie vorwärts oder rückwärts in der Sequenz navigieren, ein Bild löschen oder ein Bild in die Sequenz einfügen.
+View-Transition-Typen bieten einen Mechanismus, mit dem verschiedene **Typen** für aktive View Transitions angegeben werden können. CSS kann dann verwendet werden, um unterschiedliche Animationen auf DOM-Elemente anzuwenden, wenn deren Inhalt aktualisiert wird, abhängig vom angegebenen Transition-Typ. Beispielsweise möchten Sie möglicherweise unterschiedliche Animationen auf ein {{htmlelement("img")}}-Element in einer Bildergalerie-App anwenden, wenn sich das angezeigte Bild ändert – je nachdem, ob Sie in der Sequenz vorwärts oder rückwärts navigieren, ein Bild löschen oder ein Bild zur Sequenz hinzufügen.
 
-Dieser Artikel zeigt, wie man Typen zusammen mit Same-Document-View-Transitionen und Cross-Document-View-Transitionen verwendet.
+Dieser Artikel zeigt, wie Typen zusammen mit Same-Document-View-Transitions und Cross-Document-View-Transitions verwendet werden.
 
 ## Beispiele
 
-Wir zeigen, was Sie über View-Transition-Typen wissen müssen, indem wir den Code in den folgenden drei Beispielen durchgehen:
+Wir demonstrieren anhand des Codes in den folgenden drei Beispielen, was Sie über View-Transition-Typen wissen müssen:
 
-- [SPA Transition Types Gallery](https://mdn.github.io/dom-examples/view-transitions/spa-gallery-transition-types/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/spa-gallery-transition-types)): Eine SPA-Bildergalerie, die Transition-Typen verwendet, um verschiedene Übergangsanimationen anzuwenden, wenn zwischen den Bildern durch Verwendung der Vorher- und Nächster-Schaltflächen oder durch direktes Klicken auf ein Bild gewechselt wird.
-- [MPA Transition Types Example](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-transition-types/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/mpa-chapter-nav-transition-types)): Eine Story-App mit einem Kapitel auf jeder Seite. Zeigt, wie man View-Transition-Animationen über Seiten hinweg selektiv mit einem Transition-Typ anwenden kann.
-- [MPA Multiple Transition Types Example](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-multiple-transition-types/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/mpa-chapter-nav-multiple-transition-types)): Baut auf dem vorherigen Beispiel auf, indem gezeigt wird, wie man verschiedene View-Transition-Animationen selektiv über Seiten mit verschiedenen Transition-Typen anwenden kann. Der Transition-Typ wird während der Navigation dynamisch mit JavaScript bestimmt.
+- [SPA-Galerie mit Transition-Typen](https://mdn.github.io/dom-examples/view-transitions/spa-gallery-transition-types/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/spa-gallery-transition-types)): Eine SPA-Bildergalerie, die Transition-Typen verwendet, um unterschiedliche Transition-Animationen anzuwenden, wenn zwischen den Bildern über die Schaltfläche „Previous“, die Schaltfläche „Next“ oder durch direktes Klicken auf ein Bild gewechselt wird.
+- [MPA-Beispiel für Transition-Typen](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-transition-types/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/mpa-chapter-nav-transition-types)): Eine Story-App mit einem Kapitel auf jeder Seite. Zeigt, wie View-Transition-Animationen mit einem Transition-Typ selektiv über Seiten hinweg angewendet werden.
+- [MPA-Beispiel für mehrere Transition-Typen](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-multiple-transition-types/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/mpa-chapter-nav-multiple-transition-types)): Baut auf dem vorherigen Beispiel auf und zeigt, wie unterschiedliche View-Transition-Animationen mit verschiedenen Transition-Typen selektiv über Seiten hinweg angewendet werden. Der Transition-Typ wird während der Navigation dynamisch mit JavaScript bestimmt.
 
-Wir werden nicht erklären, wie der gesamte Code funktioniert, sondern nur die Teile, die für View-Transition-Typen relevant sind. Wir haben Kommentare im Code bereitgestellt, um zu erklären, was jeder Teil tut.
+Wir erklären nicht die Funktionsweise des gesamten Codes, sondern nur die für View-Transition-Typen relevanten Teile. Wir haben Kommentare im Code bereitgestellt, die erklären, was jeder Teil tut.
 
-## Verwendung von Typen mit SPA-View-Transitionen
+## Verwenden von Typen mit SPA-View-Transitions
 
-Um unterschiedliche Typen für SPA-View-Transitionen anzuwenden, übergeben wir die Typnamen an den Aufruf der Methode [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition), die die Transition startet. Die Methode kann ein Objekt als Parameter akzeptieren, das eine `update`-Callback-Funktion enthält, die die DOM-Aktualisierungen behandelt, die Sie animieren möchten, und ein `types`-Array, das Zeichenfolgen enthält, die die Typnamen repräsentieren.
+Um unterschiedliche Typen auf SPA-View-Transitions anzuwenden, übergeben wir die Typnamen an den Aufruf der Methode [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition), die die Transition startet. Die Methode kann als Parameter ein Objekt akzeptieren, das eine `update`-Callback-Funktion enthält, welche die DOM-Aktualisierungen verarbeitet, die Sie animieren möchten, sowie ein `types`-Array mit Zeichenketten, die die Typnamen darstellen.
 
-Betrachten wir ein Beispiel aus unserer [SPA Transition Types Gallery](https://mdn.github.io/dom-examples/view-transitions/spa-gallery-transition-types/):
+Schauen wir uns ein Beispiel aus unserer [SPA-Galerie mit Transition-Typen](https://mdn.github.io/dom-examples/view-transitions/spa-gallery-transition-types/) an:
 
 ```js
 document.startViewTransition({
@@ -40,18 +40,18 @@ document.startViewTransition({
 });
 ```
 
-Wenn die Schaltfläche "Vorher" gedrückt wird, wird dieser Code ausgeführt — die Callback-Funktion aktualisiert das angezeigte Bild, um das vorherige Bild in der Sequenz anzuzeigen (einschließlich der Aktualisierung seines `alt`-Texts, `data-id`, das die Sequenznummer darstellt, und der Beschriftung), und das `types`-Array gibt an, dass die View-Transition mit einem Typ von `backwards` ausgeführt werden soll.
+Wenn die Schaltfläche „Previous“ gedrückt wird, wird dieser Code ausgeführt – die Callback-Funktion aktualisiert das angezeigte Bild, sodass das vorherige Bild in der Sequenz angezeigt wird (einschließlich der Aktualisierung seines Alternativtexts, von `data-id`, das die Sequenznummer darstellt, sowie der Beschriftung), und das `types`-Array gibt an, dass die View Transition mit dem Typ `backwards` ausgeführt werden soll.
 
 > [!NOTE]
-> Die in dem `types`-Array der View-Transition gesetzten Typen können über die [`types`](/de/docs/Web/API/ViewTransition/types)-Eigenschaft des von der `startViewTransition()`-Methode zurückgegebenen [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekts abgerufen werden. Die `types`-Eigenschaft ist ein [`ViewTransitionTypeSet`](/de/docs/Web/API/ViewTransitionTypeSet). Dies ist ein [set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), was bedeutet, dass Sie die Typen, die auf eine View-Transition angewendet werden, dynamisch mithilfe von darauf vorhandenen Methoden wie `clear()`, `add()`, und `delete()` modifizieren können.
+> Die im `types`-Array für die View Transition festgelegten Typen können über die Eigenschaft [`types`](/de/docs/Web/API/ViewTransition/types) des Objekts [`ViewTransition`](/de/docs/Web/API/ViewTransition) aufgerufen werden, das von der Methode `startViewTransition()` zurückgegeben wird. Die Eigenschaft `types` ist ein [`ViewTransitionTypeSet`](/de/docs/Web/API/ViewTransitionTypeSet). Dabei handelt es sich um ein [Set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), was bedeutet, dass Sie die auf eine View Transition angewendeten Typen dynamisch mit den darauf verfügbaren Methoden wie `clear()`, `add()` und `delete()` ändern können.
 
-### Anpassen von benutzerdefinierten Animationen in CSS
+### Anwenden benutzerdefinierter Animationen in CSS
 
-Im CSS können wir die Stile für die aktive Transition mit den Pseudoklassen {{cssxref(":active-view-transition")}} und {{cssxref(":active-view-transition-type()")}} anpassen. Diese ermöglichen es jeweils, Selektoren zu erstellen, die übereinstimmen, wenn eine View-Transition aktiv ist, oder nur, wenn eine View-Transition mit einem bestimmten Typ aktiv ist.
+In CSS können wir die Stile für die aktive Transition mithilfe der Pseudoklassen {{cssxref(":active-view-transition")}} und {{cssxref(":active-view-transition-type()")}} anpassen. Diese ermöglichen es Ihnen jeweils, Selektoren zu erstellen, die übereinstimmen, wenn eine beliebige View Transition aktiv ist, oder nur dann, wenn eine View Transition mit einem bestimmten Typ aktiv ist.
 
-Zuallererst definieren wir eine Reihe von Stilen, die angewendet werden, wenn eine View-Transition aktiv ist, unabhängig von ihrem Typ, ausgewählt mit `:active-view-transition`. In diesem verschachtelten Block wenden wir einen {{cssxref("view-transition-name")}}-Wert von `none` auf das Dokument {{cssxref(":root")}} an, um die View-Transitions für den Großteil des Dokuments zu deaktivieren. Dann wenden wir `view-transition-name`-Werte von `image` und `caption` auf die {{htmlelement("img")}}- und {{htmlelement("figcaption")}}-Elemente an, sodass Änderungen an deren DOM-Zustand in separaten Snapshots erfasst werden und unabhängig animiert werden können.
+Zunächst definieren wir eine Reihe von Stilen, die angewendet werden, wenn eine View Transition aktiv ist, unabhängig von ihrem Typ, ausgewählt mit `:active-view-transition`. In diesem verschachtelten Block wenden wir einen {{cssxref("view-transition-name")}}-Wert von `none` auf das Dokument-{{cssxref(":root")}} an, um View Transitions für den größten Teil des Dokuments zu deaktivieren. Anschließend wenden wir `view-transition-name`-Werte von `image` beziehungsweise `caption` auf die Elemente {{htmlelement("img")}} und {{htmlelement("figcaption")}} an, sodass Änderungen ihres DOM-Zustands in separaten Snapshots erfasst werden und sie unabhängig animiert werden können.
 
-Schließlich verwenden wir die {{cssxref("::view-transition-old()")}}- und {{cssxref("::view-transition-new()")}}-Pseudoelemente, um spezifische Animationen auf das `caption` ausgehende und eingehende View anzuwenden. Wir möchten, dass diese Animationen auf das `<figcaption>` angewendet werden, unabhängig vom spezifizierten Typ.
+Schließlich verwenden wir die Pseudoelemente {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}}, um spezifische Animationen auf die ausgehende und eingehende Ansicht von `caption` anzuwenden. Diese Animationen sollen unabhängig vom angegebenen Typ auf `<figcaption>` angewendet werden.
 
 ```css
 html:active-view-transition {
@@ -75,7 +75,7 @@ html:active-view-transition {
 }
 ```
 
-Der nächste Schritt besteht darin, unterschiedliche Animationen auf die `image`-ausgehenden und eingehenden Views anzuwenden, abhängig davon, ob der `type` der aktiven View-Transition `forwards` (die "Nächster"-Schaltfläche wurde gedrückt), `backwards` (die "Vorher"-Schaltfläche wurde gedrückt) oder `upwards` (ein Miniaturbild wurde angeklickt) ist. Dies geschieht mit drei `:active-view-transition-type()` Regelblöcken, die jeweils unterschiedliche {{cssxref("animation-name")}}-Werte auf die `::view-transition-old()`- und `::view-transition-new()`-Pseudoelemente für jeden separaten Typ anwenden:
+Im nächsten Schritt werden unterschiedliche Animationen auf die ausgehenden und eingehenden Ansichten von `image` angewendet, abhängig davon, ob der `type` der aktiven View Transition `forwards` ist (die Schaltfläche „Next“ wurde gedrückt), `backwards` (die Schaltfläche „Previous“ wurde gedrückt) oder `upwards` (auf ein Vorschaubild wurde geklickt). Dies geschieht mithilfe von drei `:active-view-transition-type()`-Regelsätzen, die jeweils unterschiedliche {{cssxref("animation-name")}}-Werte auf die Pseudoelemente `::view-transition-old()` und `::view-transition-new()` für jeden einzelnen Typ anwenden:
 
 ```css
 html:active-view-transition-type(forwards) {
@@ -107,9 +107,9 @@ html:active-view-transition-type(upwards) {
 }
 ```
 
-Im Fall der `::view-transition-new(image)`-Animation für den `upwards`-Typ haben wir auch einen {{cssxref("animation-delay")}}-Wert von `0.6s` einbezogen, um das neue Inhaltselement erst dann von oben in den Bildschirm gleiten zu lassen, wenn das alte Inhaltselement ausgeblendet ist. Es sieht in diesem Fall seltsam aus, wenn sich die beiden überlappen.
+Im Fall der Animation `::view-transition-new(image)` für den Typ `upwards` haben wir außerdem einen {{cssxref("animation-delay")}}-Wert von `0.6s` hinzugefügt, um zu verhindern, dass der neue Inhalt vom oberen Bildschirmrand hereingleitet, bevor der alte Inhalt vollständig herausgeglitten ist. Wenn sich beide in diesem Fall überlappen, sieht es seltsam aus.
 
-Weiter unten im Stylesheet setzen wir die {{cssxref("animation-duration")}} aller Animationen in allen Gruppen auf `0.6s`, was erklärt, warum die zuvor gesetzte Verzögerung `0.6s` war:
+Weiter unten im Stylesheet setzen wir die {{cssxref("animation-duration")}} aller Animationen in allen Gruppen auf `0.6s`, was erklärt, warum der zuvor festgelegte Verzögerungswert `0.6s` betrug:
 
 ```css
 ::view-transition-group(*) {
@@ -118,13 +118,13 @@ Weiter unten im Stylesheet setzen wir die {{cssxref("animation-duration")}} alle
 ```
 
 > [!NOTE]
-> Aus Gründen der Kürze haben wir nicht den gesamten {{cssxref("@keyframes")}}-Definitioncode für die oben genannten Animationen gezeigt. Sie können diese im [Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/spa-gallery-transition-types) finden.
+> Der Kürze halber haben wir nicht den gesamten {{cssxref("@keyframes")}}-Definitionscode für die oben referenzierten Animationen gezeigt. Sie finden ihn im [Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/spa-gallery-transition-types).
 
-## Verwendung von Typen mit Cross-Document-View-Transitionen über `@view-transition`
+## Verwenden von Typen mit Cross-Document-View-Transitions über `@view-transition`
 
-Um unterschiedliche Typen auf Cross-Document-View-Transitionen anzuwenden, können Sie diese im [`types`](/de/docs/Web/CSS/Reference/At-rules/@view-transition#types)-Deskriptor der {{cssxref("@view-transition")}} At-Regel setzen, die einen oder mehrere durch Kommas getrennte Typen enthält.
+Um unterschiedliche Typen auf Cross-Document-View-Transitions anzuwenden, können Sie sie im Deskriptor [`types`](/de/docs/Web/CSS/Reference/At-rules/@view-transition#types) der At-Regel {{cssxref("@view-transition")}} festlegen, die einen oder mehrere durch Kommas getrennte Typen enthält.
 
-Zum Beispiel sieht die `@view-transition` At-Regel in unserem [MPA Transition Types Example](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-transition-types/) im gemeinsamen Stylesheet so aus:
+Beispielsweise sieht die At-Regel `@view-transition` im gemeinsamen Stylesheet unseres [MPA-Beispiels für Transition-Typen](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-transition-types/) folgendermaßen aus:
 
 ```css
 @view-transition {
@@ -133,7 +133,7 @@ Zum Beispiel sieht die `@view-transition` At-Regel in unserem [MPA Transition Ty
 }
 ```
 
-Im CSS können wir die auf die aktive View-Transition angewendeten Animationen basierend auf ihrem Typ in derselben Weise anpassen, wie wir es im SPA-Beispiel getan haben:
+In CSS können wir die auf die aktive View Transition angewendeten Animationen abhängig von ihrem Typ auf dieselbe Weise anpassen wie im SPA-Beispiel:
 
 ```css
 html:active-view-transition-type(slide) {
@@ -152,28 +152,28 @@ html:active-view-transition-type(slide) {
 }
 ```
 
-Hier wenden wir mehrere Stile an, wenn die aktive View-Transition einen `type` von `slide` hat, indem wir den `:active-view-transition-type(slide)` Selektor verwenden. Wir wenden einen `view-transition-name` von `none` auf das `:root`-Element an, um jede Snapshoterfassung zu stoppen, und überschreiben es dann mit einem auf das `<section>`-Element der Seite gesetzten `view-transition-name` von `chapter` — dies ist der einzige Teil der Dokumente, auf den wir eine View-Transition anwenden möchten.
+Hier wenden wir mehrere Stile an, wenn die aktive View Transition mithilfe des Selektors `:active-view-transition-type(slide)` den `type` `slide` hat. Wir wenden einen `view-transition-name` von `none` auf das Element `:root` an, um jegliche Snapshot-Erfassung zu verhindern, und überschreiben diesen anschließend durch einen `view-transition-name` von `chapter`, der auf dem `<section>`-Element der Seite festgelegt ist – dies ist der einzige Teil der Dokumente, auf den wir eine View Transition anwenden möchten.
 
-Als nächstes verwenden wir `::view-transition-old(chapter)` und `::view-transition-new(chapter)`, um benutzerdefinierte Animationen auf das `<section>` anzuwenden, während dessen Inhalt zwischen den Seiten übergeht.
+Anschließend verwenden wir `::view-transition-old(chapter)` und `::view-transition-new(chapter)`, um benutzerdefinierte Animationen auf `<section>` anzuwenden, während sein Inhalt zwischen Seiten wechselt.
 
-## Anwendung unterschiedlicher Cross-Document-Typen mit `pageswap` und `pagereveal` Ereignissen
+## Anwenden unterschiedlicher Cross-Document-Typen mit den Ereignissen `pageswap` und `pagereveal`
 
-Das oben Genannte funktioniert gut, aber es ist nicht ideal — wenn zu einer neuen Seite navigiert wird, verschwindet der alte Seiteninhalt immer nach links, und der neue Seiteninhalt erscheint immer von rechts. Diese Animation ist in Ordnung, wenn Sie zu einem späteren Kapitel wechseln, aber (zumindest für Benutzer von Links-nach-Rechts-Sprachen wie Englisch) fühlt es sich kontraintuitiv an, wenn Sie zu einem früheren Kapitel wechseln. Für Bewegungen von späteren zu früheren Kapiteln wäre es besser, die Animationsrichtung umzukehren.
+Das Obige funktioniert zwar, ist aber nicht ideal – wenn zu einer neuen Seite navigiert wird, verschwindet der Inhalt der alten Seite immer nach links und der Inhalt der neuen Seite erscheint immer von rechts. Diese Animation eignet sich gut, wenn Sie zu einem späteren Kapitel wechseln, fühlt sich jedoch (zumindest für Nutzende links-nach-rechts geschriebener Sprachen wie Englisch) beim Wechsel zu einem früheren Kapitel kontraintuitiv an. Bei Bewegungen von einem späteren zu einem früheren Kapitel wäre es besser, die Animationsrichtung umzukehren.
 
-Um unterschiedliche Typen auf die aktive View-Transition basierend auf verschiedenen Navigationstypen anzuwenden, müssen wir die [`types`](/de/docs/Web/API/ViewTransition/types)-Eigenschaft des entsprechenden `ViewTransition`-Objekts manipulieren. Dies ist verfügbar in:
+Um unterschiedliche Typen auf die aktive View Transition basierend auf verschiedenen Navigationstypen anzuwenden, müssen wir die Eigenschaft [`types`](/de/docs/Web/API/ViewTransition/types) des entsprechenden `ViewTransition`-Objekts bearbeiten. Diese ist verfügbar in der:
 
-- Der [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition)-Ereignisobjekteigenschaft des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisses im Fall der ausgehenden Seite.
-- Der [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition)-Ereignisobjekteigenschaft des [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignisses im Fall der eingehenden Seite.
+- Ereignisobjekteigenschaft [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) des Ereignisses [`pageswap`](/de/docs/Web/API/Window/pageswap_event) im Fall der ausgehenden Seite.
+- Ereignisobjekteigenschaft [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) des Ereignisses [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) im Fall der eingehenden Seite.
 
-Das [MPA Multiple Transition Types Example](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-multiple-transition-types/) demonstriert, wie diese Technik verwendet wird. Dies ist dem vorherigen Beispiel ähnlich, jedoch mit einigen bemerkenswerten Unterschieden, die wir unten erklären werden.
+Das [MPA-Beispiel für mehrere Transition-Typen](https://mdn.github.io/dom-examples/view-transitions/mpa-chapter-nav-multiple-transition-types/) zeigt, wie diese Technik verwendet wird. Es ähnelt dem vorherigen Beispiel, weist jedoch einige bemerkenswerte Unterschiede auf, die wir nachfolgend erläutern.
 
-### Bestimmung des Animationstyps über JavaScript
+### Bestimmen des Animationstyps mit JavaScript
 
-Betrachten wir die gemeinsame JavaScript-Datei. Zuerst definieren wir eine benutzerdefinierte Funktion, `determineTransitionType()`, die sich die URL der ausgehenden Seite und der eingehenden Seite ansieht und daraus bestimmt, ob der Navigationstyp `backwards` (zu einem früheren Kapitel) oder `forwards` (zu einem späteren Kapitel) ist.
+Schauen wir uns die gemeinsame JavaScript-Datei an. Zunächst definieren wir eine benutzerdefinierte Funktion, `determineTransitionType()`, die die URL der ausgehenden Seite und der eingehenden Seite betrachtet und daraus bestimmt, ob der Navigationstyp `backwards` (Wechsel zu einem früheren Kapitel) oder `forwards` (Wechsel zu einem späteren Kapitel) lautet.
 
-Die Kapitel-Seiten sind sequenziell benannt (`index.html`, dann `index2.html`, `index3.html`, usw.), daher vergleichen wir die in den Dateinamen enthaltenen Zahlen, um festzustellen, ob die Navigation `backwards` (die Ausgehende Seitennummer ist höher als die Eingehende Seitennummer) oder `forwards` (die Ausgehende Seitennummer ist niedriger als die Eingehende Seitennummer) ist.
+Die Kapitelseiten sind fortlaufend benannt (`index.html`, dann `index2.html`, `index3.html` usw.). Daher vergleichen wir die in den Dateinamen enthaltene Zahl, um festzustellen, ob die Navigation `backwards` ist (die Nummer der ausgehenden Seite ist höher als die Nummer der eingehenden Seite) oder vorwärts erfolgt (die Nummer der ausgehenden Seite ist niedriger als die Nummer der eingehenden Seite).
 
-Der Code, den Sie verwenden, um den Typ zu bestimmen, den Sie anwenden möchten, hängt von Ihrem Projekt ab. Sie finden ausführliche Kommentare, die erklären, wie der unten stehende Code funktioniert, in unserem [Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/mpa-chapter-nav-multiple-transition-types).
+Der Code, den Sie zur Bestimmung des anzuwendenden Typs verwenden, hängt von Ihrem Projekt ab. Ausführliche Kommentare, die erklären, wie der folgende Code funktioniert, finden Sie in unserem [Quellcode](https://github.com/mdn/dom-examples/tree/main/view-transitions/mpa-chapter-nav-multiple-transition-types).
 
 ```js
 const determineTransitionType = (oldNavigationEntry, newNavigationEntry) => {
@@ -204,7 +204,7 @@ const determineTransitionType = (oldNavigationEntry, newNavigationEntry) => {
 };
 ```
 
-Als nächstes verwenden wir einen [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis-Listener, um den Transition-Typ für die ausgehende Seite festzulegen. Innerhalb der Ereignis-Handler-Funktion holen wir die alten und neuen Navigationseinträge von der [`activation`](/de/docs/Web/API/PageSwapEvent/activation)-Eigenschaft des Ereignisobjekts, übergeben diese an die `determineTransitionType()`-Funktion, um den Typ zu bestimmen, und weisen dann den Typ der View-Transition mithilfe der `add()`-Methode der [`ViewTransition.types`](/de/docs/Web/API/ViewTransition/types)-Eigenschaft zu.
+Als Nächstes verwenden wir einen Event-Listener für [`pageswap`](/de/docs/Web/API/Window/pageswap_event), um den Transition-Typ für die ausgehende Seite festzulegen. Innerhalb der Event-Handler-Funktion rufen wir die alten und neuen Navigationseinträge aus der Eigenschaft [`activation`](/de/docs/Web/API/PageSwapEvent/activation) des Ereignisobjekts ab, übergeben diese an die Funktion `determineTransitionType()`, um den Typ zu bestimmen, und weisen dann den Typ mithilfe der Methode `add()` der Eigenschaft [`ViewTransition.types`](/de/docs/Web/API/ViewTransition/types) der View Transition zu.
 
 ```js
 window.addEventListener("pageswap", async (e) => {
@@ -218,7 +218,7 @@ window.addEventListener("pageswap", async (e) => {
 });
 ```
 
-Schließlich verwenden wir einen [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis-Listener, um den Transition-Typ für die eingehende Seite festzulegen. Innerhalb der Ereignis-Handler-Funktion holen wir die alten und neuen Navigationseinträge von der [`Navigation.activation`](/de/docs/Web/API/Navigation/activation)-Eigenschaft und übergeben diese an die `determineTransitionType()`-Funktion, um den Typ zu bestimmen. Wir weisen den Typ der View-Transition mithilfe der `add()`-Methode der [`ViewTransition.types`](/de/docs/Web/API/ViewTransition/types)-Eigenschaft zu, es sei denn, der Typ ist `undefined`, in welchem Fall wir diesen Schritt überspringen.
+Schließlich verwenden wir einen Event-Listener für [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event), um den Transition-Typ für die eingehende Seite festzulegen. Innerhalb der Event-Handler-Funktion rufen wir die alten und neuen Navigationseinträge aus der Eigenschaft [`Navigation.activation`](/de/docs/Web/API/Navigation/activation) ab und übergeben diese an die Funktion `determineTransitionType()`, um den Typ zu bestimmen. Wir weisen den Typ mithilfe der Methode `add()` der Eigenschaft [`ViewTransition.types`](/de/docs/Web/API/ViewTransition/types) der View Transition zu, es sei denn, der Typ ist `undefined`; in diesem Fall überspringen wir diesen Schritt.
 
 ```js
 window.addEventListener("pagereveal", async (e) => {
@@ -235,11 +235,11 @@ window.addEventListener("pagereveal", async (e) => {
 ```
 
 > [!NOTE]
-> Die `determineTransitionType()`-Funktion kann `undefined` zurückgeben, wenn weder die `backwards`- noch die `forwards`-Bedingungen wahr sind. Dies kann auftreten, wenn der Benutzer die Seite neu lädt, in welchem Fall die aktuelle Seite und die Zielseite die gleiche Seite sind, daher sind die Indexwerte gleich.
+> Die Funktion `determineTransitionType()` kann `undefined` zurückgeben, wenn weder die Bedingung `backwards` noch `forwards` wahr ist. Dies kann auftreten, wenn die Nutzenden die Seite neu laden. In diesem Fall sind die aktuelle Seite und die Zielseite dieselbe Seite, weshalb die Indexwerte gleich sind.
 
-### Anpassen von benutzerdefinierten Animationen in CSS
+### Anwenden benutzerdefinierter Animationen in CSS
 
-Jetzt, da wir einen geeigneten Typ auf die aktive View-Transition gesetzt haben, abhängig vom Navigationstyp, können wir unterschiedliche Animationen für jeden Typ in unserem CSS setzen, wie wir es in den vorherigen Beispielen gesehen haben:
+Nachdem wir nun abhängig vom Navigationstyp einen passenden Typ für die aktive View Transition festgelegt haben, können wir für jeden Typ in unserem CSS unterschiedliche Animationen festlegen, wie wir es in den vorherigen Beispielen gesehen haben:
 
 ```css
 html:active-view-transition {
@@ -270,7 +270,7 @@ html:active-view-transition-type(backwards) {
 }
 ```
 
-Beachten Sie auch, dass wir den `types`-Deskriptor aus der `@view-transition` At-Regel im gemeinsamen CSS entfernt haben. Wir benötigen den `navigation`-Deskriptor, um Cross-Document-View-Transitionen zu ermöglichen, aber wir behandeln Typen in unserem JavaScript, daher müssen wir sie hier nicht festlegen.
+Beachten Sie außerdem, dass wir den Deskriptor `types` aus der At-Regel `@view-transition` im gemeinsamen CSS entfernt haben. Wir benötigen den Deskriptor `navigation`, um Cross-Document-View-Transitions zu aktivieren, aber wir behandeln Typen in unserem JavaScript, daher müssen wir sie hier nicht festlegen.
 
 ```css
 @view-transition {
@@ -281,5 +281,5 @@ Beachten Sie auch, dass wir den `types`-Deskriptor aus der `@view-transition` At
 ## Siehe auch
 
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Umgang mit mehreren View-Transition-Stilen mit View-Transition-Typen (SPA)](https://developer.chrome.com/docs/web-platform/view-transitions/same-document#view-transition-types) auf developer.chrome.com (2024)
-- [View-Transition-Typen in Cross-Document-View-Transitionen](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document#view-transition-types) auf developer.chrome.com (2024)
+- [Mehrere View-Transition-Stile mit View-Transition-Typen verarbeiten (SPA)](https://developer.chrome.com/docs/web-platform/view-transitions/same-document#view-transition-types) auf developer.chrome.com (2024)
+- [View-Transition-Typen in Cross-Document-View-Transitions](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document#view-transition-types) auf developer.chrome.com (2024)

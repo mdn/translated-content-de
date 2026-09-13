@@ -3,10 +3,10 @@ title: "`text-overflow` CSS property"
 short-title: text-overflow
 slug: Web/CSS/Reference/Properties/text-overflow
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: a0ee03344e973471ea75e61dd194221b172d7d5e
 ---
 
-Die **`text-overflow`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie versteckter Überlauf-Inhalt den Nutzern signalisiert wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-overflow`** legt fest, wie Nutzerinnen und Nutzern ausgeblendete Überlaufinhalte angezeigt werden.
 
 {{InteractiveExample("CSS Demo: text-overflow")}}
 
@@ -71,26 +71,63 @@ text-overflow: unset;
 Diese Eigenschaft wird als ein oder zwei durch Leerzeichen getrennte Werte angegeben, darunter:
 
 - `clip`
-  - : Der Standard für diese Eigenschaft. Dieser Schlüsselwortwert wird den Text am Rand des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) abschneiden, daher kann die Trunkierung mitten in einem Zeichen erfolgen. Um am Übergang zwischen Zeichen abzuschneiden, können Sie `text-overflow` als leeren String angeben, falls dies in den angestrebten Browsern unterstützt wird: `text-overflow: '';`.
+  - : Der Standardwert für diese Eigenschaft. Dieser Schlüsselwortwert kürzt den Text an der Grenze des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction), daher kann die Kürzung in der Mitte eines Zeichens erfolgen. Um am Übergang zwischen Zeichen abzuschneiden, können Sie `text-overflow` als leere Zeichenfolge angeben, sofern dies in Ihren Zielbrowsern unterstützt wird: `text-overflow: '';`.
 - `ellipsis`
-  - : Dieser Schlüsselwortwert zeigt eine Ellipse (`'…'`, `U+2026 HORIZONTAL ELLIPSIS`) an, um abgeschnittenen Text darzustellen. Die Ellipse wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt, wodurch die Menge des angezeigten Textes verringert wird. Wenn nicht genug Platz vorhanden ist, um die Ellipse anzuzeigen, wird sie abgeschnitten.
+  - : Dieser Schlüsselwortwert zeigt eine Ellipse (`'…'`, `U+2026 HORIZONTALE ELLIPSE`) an, um abgeschnittenen Text darzustellen. Die Ellipse wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt und verringert die Menge des dargestellten Textes. Wenn nicht genügend Platz vorhanden ist, um die Ellipse anzuzeigen, wird sie abgeschnitten.
 - `<string>`
-  - : Der {{cssxref("&lt;string&gt;")}}, der verwendet wird, um abgeschnittenen Text darzustellen. Der String wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt und verkürzt die Größe des angezeigten Textes. Wenn nicht genug Platz vorhanden ist, um den String selbst anzuzeigen, wird er abgeschnitten.
+  - : Der {{cssxref("&lt;string&gt;")}}, der zur Darstellung von abgeschnittenem Text verwendet werden soll. Die Zeichenfolge wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt und verkürzt die Größe des dargestellten Textes. Wenn nicht genügend Platz vorhanden ist, um die Zeichenfolge selbst anzuzeigen, wird sie abgeschnitten.
 
 ## Beschreibung
 
-Die `text-overflow`-Eigenschaft legt fest, wie versteckter Überlauf-Inhalt den Nutzern signalisiert wird. Es kann abgeschnitten, eine Ellipse (`…`) angezeigt oder ein benutzerdefinierter String angezeigt werden.
+Die Eigenschaft `text-overflow` legt fest, wie Nutzerinnen und Nutzern ausgeblendete Überlaufinhalte angezeigt werden. Sie können abgeschnitten werden, eine Ellipse (`…`) oder eine benutzerdefinierte Zeichenfolge anzeigen.
 
-Die `text-overflow`-Eigenschaft erzwingt keinen Überlauf. Um Text dazu zu bringen, über seinen Container hinauszugehen, müssen Sie andere CSS-Eigenschaften festlegen: {{cssxref("overflow")}} und {{cssxref("white-space")}}. Zum Beispiel:
+Die Eigenschaft `text-overflow` erzwingt nicht, dass ein Überlauf auftritt. Damit Text aus seinem Container überläuft, müssen Sie andere CSS-Eigenschaften festlegen: {{cssxref("overflow")}} und {{cssxref("white-space")}}. Zum Beispiel:
 
 ```css
 overflow: hidden;
 white-space: nowrap;
 ```
 
-Die `text-overflow`-Eigenschaft betrifft nur Inhalte, die in ihrer _inline_ Fortschrittsrichtung einen Blockcontainer-Element überlaufen (nicht Text, der am unteren Rand eines Kastens überläuft, zum Beispiel).
+Die Eigenschaft `text-overflow` betrifft nur Inhalte, die ein Block-Container-Element in seiner _inline_-Verlaufsrichtung überlaufen (nicht beispielsweise Text, der am unteren Rand einer Box überläuft).
 
-Die `text-overflow`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben ist, gibt er das Überlaufverhalten für das Ende der Zeile an (das rechte Ende für links-nach-rechts Text, das linke Ende für rechts-nach-links Text). Wenn zwei Werte angegeben sind, gibt der erste das Überlaufverhalten für das linke Ende der Zeile an, und der zweite für das rechte Ende der Zeile. Die Eigenschaft akzeptiert entweder einen Schlüsselwortwert (`clip` oder `ellipsis`) oder einen `<string>`-Wert.
+Die Eigenschaft `text-overflow` kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben wird, legt er das Überlaufverhalten für das Zeilenende fest (das rechte Ende bei Text von links nach rechts, das linke Ende bei Text von rechts nach links). Wenn zwei Werte angegeben werden, legt der erste das Überlaufverhalten für das linke Ende der Zeile und der zweite das für das rechte Ende fest.
+
+### `ellipsis` verhält sich bei bearbeitbaren Elementen wie `clip`
+
+Wenn `text-overflow: ellipsis` auf bearbeitbare Elemente wie textuelle {{htmlelement("input")}}-, {{htmlelement("textarea")}}- und [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Elemente angewendet wird, behandeln Browser dies im Allgemeinen als `text-overflow: clip`, entweder ständig oder wenn das Element fokussiert ist. Das genaue Verhalten unterscheidet sich zwischen Browsern; siehe [Browser-Kompatibilität](#browser-kompatibilität).
+
+Dieses Verhalten stellt sicher, dass der Text durchlaufen und bearbeitet werden kann, auch wenn er überläuft. Wenn der überlaufende Text weiterhin von einer Ellipse verdeckt wäre, wäre er nicht sichtbar oder bearbeitbar.
+
+Sie können das Verhalten im folgenden Live-Beispiel sehen, auf das dieses CSS angewendet wurde:
+
+```css live-sample___ellipsis-as-clip
+p[contenteditable],
+input,
+textarea {
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```
+
+```html hidden live-sample___ellipsis-as-clip
+<p contenteditable="">
+  contenteditable paragraph. The text in here is overflowing.
+</p>
+
+<hr />
+
+<input type="text" value="Text input. The text in here is overflowing." />
+
+<hr />
+
+<textarea>Textarea. The text in here is overflowing.</textarea>
+```
+
+{{embedlivesample("ellipsis-as-clip", "100%", "200")}}
+
+Fokussieren Sie die verschiedenen Elemente und versuchen Sie, deren Textinhalt zu bearbeiten.
 
 ## Formale Definition
 
@@ -102,9 +139,9 @@ Die `text-overflow`-Eigenschaft kann mit einem oder zwei Werten angegeben werden
 
 ## Beispiele
 
-### Ein-Wert-Syntax
+### Syntax mit einem Wert
 
-Dieses Beispiel zeigt verschiedene Werte für `text-overflow`, die auf einen Absatz angewendet werden, für links-nach-rechts und rechts-nach-links Text.
+Dieses Beispiel zeigt verschiedene Werte für `text-overflow`, die auf einen Absatz für Text von links nach rechts und von rechts nach links angewendet werden.
 
 #### HTML
 
@@ -185,9 +222,10 @@ body {
 
 {{EmbedLiveSample('One-value_syntax', 600, 320)}}
 
-### Zwei-Wert-Syntax
+### Syntax mit zwei Werten
 
-Dieses Beispiel zeigt die Zwei-Wert-Syntax für `text-overflow`, bei der Sie unterschiedliches Überlaufverhalten für den Anfang und das Ende des Textes definieren können. Um den Effekt zu zeigen, müssen wir die Zeile scrollen, sodass der Anfang der Zeile ebenfalls verborgen ist.
+Dieses Beispiel zeigt die Syntax mit zwei Werten für `text-overflow`, bei der Sie unterschiedliches Überlaufverhalten für den Anfang und das Ende des Textes definieren können.
+Um den Effekt zu zeigen, müssen wir die Zeile scrollen, sodass auch der Anfang der Zeile ausgeblendet wird.
 
 #### HTML
 
@@ -259,7 +297,7 @@ for (const para of paras) {
 
 {{Specifications}}
 
-Eine frühere Version dieser Schnittstelle erreichte den Status _Candidate Recommendation_. Da einige nicht-aufgelistete-als-riskant Funktionen entfernt werden mussten, wurde die Spezifikation auf die Stufe _Working Draft_ zurückgestuft, was erklärt, warum Browser diese Eigenschaft ohne Präfix implementiert haben, jedoch nicht im CR-Zustand.
+Eine frühere Version dieser Schnittstelle erreichte den Status _Candidate Recommendation_. Da einige nicht als risikobehaftet aufgeführte Funktionen entfernt werden mussten, wurde die Spezifikation auf die Stufe _Working Draft_ zurückgestuft. Dies erklärt, warum Browser diese Eigenschaft ohne Präfix implementierten, obwohl sie sich nicht im CR-Status befand.
 
 ## Browser-Kompatibilität
 

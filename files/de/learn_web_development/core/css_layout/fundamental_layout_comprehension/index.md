@@ -3,18 +3,18 @@ title: "Herausforderung: Grundlegendes Layoutverständnis"
 short-title: "Herausforderung: Grundlegendes Layout"
 slug: Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: 4c58f4735f986a91bee1b77e336143630df727a2
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Test_your_skills/Grid", "Learn_web_development/Core/CSS_layout/Responsive_Design", "Learn_web_development/Core/CSS_layout")}}
 
-Diese Herausforderung wird Ihr Wissen über die Layout-Funktionen testen, die wir bisher im Modul behandelt haben, nämlich `flexbox`, `floats`, `grid` und `positioning`. Am Ende werden Sie ein Webseitenlayout mit all diesen grundlegenden Werkzeugen entwickelt haben.
+Diese Herausforderung wird Ihr Wissen über die bisher in diesem Modul behandelten Layoutfunktionen testen, nämlich Flexbox, Floats, Grid und Positionierung. Am Ende werden Sie ein Webseitenlayout mit all diesen grundlegenden Werkzeugen entwickelt haben.
 
 ## Ausgangspunkt
 
-Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebung lösen; idealerweise möchten Sie das Beispiel in einem vollständigen Browserfenster betrachten, um sicherzustellen, dass die Layout-Funktionen wie erwartet funktionieren.
+Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungsumgebung zu lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster ansehen, um sicherzustellen, dass die Layoutfunktionen wie erwartet funktionieren.
 
-1. Erstellen Sie einen neuen Ordner auf Ihrem Computer mit dem Namen `layout-challenge`.
+1. Erstellen Sie einen neuen Ordner auf Ihrem Computer namens `layout-challenge`.
 2. Erstellen Sie in diesem Ordner eine Datei namens `index.html` und fügen Sie den folgenden Inhalt ein:
 
    ```html
@@ -22,7 +22,7 @@ Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    <html lang="en-US">
      <head>
        <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-scale=1" />
+       <meta name="viewport" content="width=device-width" />
        <title>Layout Task</title>
        <link href="style.css" rel="stylesheet" type="text/css" />
      </head>
@@ -119,7 +119,7 @@ Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    </html>
    ```
 
-3. Erstellen Sie in dem Ordner eine Datei namens `style.css` und fügen Sie den folgenden Inhalt ein:
+3. Erstellen Sie in diesem Ordner eine Datei namens `style.css` und fügen Sie den folgenden Inhalt ein:
 
    ```css
    * {
@@ -179,44 +179,44 @@ Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    }
    ```
 
-4. Erstellen Sie in dem Ordner einen Unterordner namens `images` und speichern Sie die folgenden Bilddateien darin:
+4. Erstellen Sie in diesem Ordner einen Unterordner namens `images` und speichern Sie die folgenden Bilddateien darin:
    - [`square1.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square1.jpg)
    - [`square2.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square2.jpg)
    - [`square3.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square3.jpg)
    - [`square4.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square4.jpg)
    - [`square5.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square5.jpg)
    - [`square6.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square6.jpg)
-5. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um bereit zum Testen zu sein. Der Ausgangspunkt der Seite hat ein einfaches Styling, aber kein Layout und sollte ungefähr so aussehen:
+5. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um zu testen. Der Ausgangspunkt der Seite hat eine grundlegende Formatierung, aber kein Layout und sollte ungefähr so aussehen:
 
-   ![Ausgangspunkt der Layoutaufgabe. Die Elemente sind nicht ordentlich angeordnet. Es gibt einen Website-Titel, über einer schwarzen Navigationsleiste mit 5 linksbündigen Links, gefolgt vom Blogpost-Titel und dem Inhalt des Beitrags. Zwischen dem Blogtitel und dem Bloginhalt gibt es ein Foto, das linksbündig ist.](layout-task-start.png)
+   ![Startpunkt der Layout-Aufgabe. Die Elemente sind nicht ordentlich ausgelegt. Es gibt einen Website-Titel über einer schwarzen Navigationsleiste mit 5 linksbündigen Links, gefolgt vom Blogeintragstitel und dem Inhalt des Beitrags. Zwischen dem Blogtitel und dem Bloginhalt gibt es ein Foto, das links bündig steht.](layout-task-start.png)
 
-## Projekt-Briefing
+## Projektbeschreibung
 
-Ihnen wurden einige rohe HTML-, grundlegende CSS- und Bilder bereitgestellt – jetzt müssen Sie ein Layout für das Design erstellen.
+Ihnen wurden einige rohe HTML-, grundlegende CSS- und Bilder bereitgestellt - nun müssen Sie ein Layout für das Design erstellen.
 
 Die Aufgaben, die Sie erreichen müssen, sind:
 
-1. Zeigen Sie die Navigationselemente in einer Reihe an, mit einem gleichmäßigen Abstand zwischen den Elementen und einem geringeren Abstand an beiden Enden der Reihe.
-2. Gestalten Sie die Navigationsleiste so, dass sie sich normal mit dem Inhalt scrollt und dann am oberen Rand des Viewports anhaftet, wenn sie diesen erreicht.
-3. Veranlassen Sie das "Feature"-Bild innerhalb des Artikels, dass Text rechts und unten um das Bild herum fließt, mit einem geeigneten Abstand zwischen dem Bild und dem Text.
-4. Zeigen Sie die {{htmlelement("article")}}- und {{htmlelement("aside")}}-Elemente als zweispaltiges Layout an, wobei ersteres dreimal so breit ist wie letzteres. Die Spalten sollten eine flexible Größe haben, sodass, wenn das Browserfenster schmaler wird, die Spalten schmaler werden. Fügen Sie einen 20-Pixel-Abstand zwischen den beiden Spalten ein.
-5. Die Fotografien sollten als zweispaltiges `grid` mit gleich großen Spalten und einem Abstand von 5 Pixeln zwischen den Bildern angezeigt werden.
+1. Zeigen Sie die Navigationselemente in einer Reihe an, mit einem gleichmäßigen Abstand zwischen den Elementen und einem kleineren Abstand an den beiden Enden der Reihe.
+2. Gestalten Sie die Navigationsleiste so, dass sie beim normalen Scrollen mit dem Inhalt mitläuft, dann jedoch oben im Viewport fixiert wird, wenn sie diesen erreicht.
+3. Veranlassen Sie, dass das "Feature"-Bild im Artikel einen Text um sich herumwickelt, rechts und unten, mit einem angemessenen Abstand zwischen dem Bild und dem Text.
+4. Zeigen Sie die {{htmlelement("article")}} und {{htmlelement("aside")}} Elemente als Zwei-Spalten-Layout an, wobei das erstere dreimal so breit wie das letztere ist. Die Spalten sollten eine flexible Größe haben, sodass sie, wenn das Browserfenster schmaler wird, auch schmaler werden. Fügen Sie zwischen den beiden Spalten einen Abstand von 20 Pixeln ein.
+5. Die Fotografien sollten als Zwei-Spalten-Gitter mit gleich großen Spalten und einem Abstand von 5 Pixeln zwischen den Bildern angezeigt werden.
 
 ## Hinweise und Tipps
 
 - Sie müssen das HTML nicht bearbeiten, um diese Herausforderung abzuschließen.
-- Es gibt einige Möglichkeiten, einige der Aufgaben im Projekt-Briefing zu erreichen, und es gibt oft nicht den einen richtigen oder falschen Weg, Dinge zu tun. Probieren Sie einige verschiedene Ansätze aus und sehen Sie, was am besten funktioniert. Machen Sie sich Notizen, während Sie experimentieren.
+- Es gibt mehrere Möglichkeiten, einige der Aufgaben in der Projektbeschreibung zu erreichen, und oft gibt es keinen eindeutig richtigen oder falschen Weg, Dinge zu tun. Probieren Sie ein paar verschiedene Ansätze aus und sehen Sie, was am besten funktioniert. Machen Sie sich Notizen, während Sie experimentieren.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt ein Beispiel, wie das fertige Layout für das Design aussehen sollte:
+Das folgende Bildschirmfoto zeigt ein Beispiel dafür, wie das fertige Layout für das Design aussehen sollte:
 
-![Fertiges Layout-Aufgaben-Website. Die Elemente sind ordentlich angeordnet. Es gibt einen Website-Titel, über einer schwarzen Navigationsleiste mit 5 gleichmäßig verteilten Links. Unter der Navigationsleiste befinden sich zwei Abschnitte. Auf der linken Seite gibt es einen Blogbeitrag: Ein Blogbeitragstitel gefolgt vom Beitragstext. Der Bloginhalt fließt um ein Foto, das linksbündig ist. Auf der rechten Seite gibt es einen 'Fotografie'-Titel über einer Gruppe von Bildern, die in einem zweispaltigen Raster angeordnet sind.](layout-task-complete.png)
+![Fertiges Layout der Aufgabenwebsite. Die Elemente sind ordentlich ausgelegt. Es gibt einen Website-Titel über einer schwarzen Navigationsleiste mit 5 gleichmäßig verteilten Links. Unter der Navigationsleiste gibt es zwei Abschnitte. Links befindet sich ein Blogeintrag: Ein Blogeintragstitel gefolgt vom Inhalt des Beitrags. Der Bloginhalt wickelt sich um ein Foto, das links bündig steht. Auf der rechten Seite gibt es einen "Fotografie"-Titel über einer Gruppe von Bildern, die in einem zweispaltigen Raster angeordnet sind.](layout-task-complete.png)
 
 <details>
-<summary>Klicken Sie hier, um eine mögliche Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um eine mögliche Lösung zu zeigen</summary>
 
-Das fertige CSS sieht folgendermaßen aus:
+Das fertige CSS sieht so aus:
 
 ```css
 * {

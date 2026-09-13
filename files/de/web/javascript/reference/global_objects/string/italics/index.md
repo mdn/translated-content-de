@@ -3,15 +3,13 @@ title: String.prototype.italics()
 short-title: italics()
 slug: Web/JavaScript/Reference/Global_Objects/String/italics
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-Die **`italics()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in ein {{HTMLElement("i")}} Element (`<i>str</i>`) einbettet, wodurch dieser String kursiv angezeigt wird.
+Die **`italics()`** Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("i")}}-Element (`<i>str</i>`) einbettet, was dazu führt, dass dieser String kursiv dargestellt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model), wie beispielsweise [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -25,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<i>` Start-Tag beginnt, dann den Text `str`, und dann einen `</i>` End-Tag enthält.
+Ein String, der mit einem `<i>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</i>`-End-Tag endet.
 
 ## Beispiele
 
@@ -39,7 +37,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.italics();
 ```
 
-Dies wird folgendes HTML erzeugen:
+Dies erstellt das folgende HTML:
 
 ```html
 <i>Hello, world</i>

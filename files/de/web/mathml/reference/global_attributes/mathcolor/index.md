@@ -2,15 +2,13 @@
 title: mathcolor
 slug: Web/MathML/Reference/Global_attributes/mathcolor
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
-
-{{Deprecated_Header}}
 
 Das **`mathcolor`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [Farbe](/de/docs/Web/CSS/Reference/Properties/color) eines MathML-Elements fest.
 
 > [!NOTE]
-> Verwenden Sie CSS zum Stylen von MathML, wann immer möglich. Das `mathcolor`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen und wird von der CSS-Eigenschaft `color` überschrieben, falls diese gesetzt ist.
+> Verwenden Sie wann immer möglich CSS, um MathML zu stylen. Das `mathcolor`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht kennen, und es wird durch die CSS-Eigenschaft `color` überschrieben, falls diese gesetzt ist.
 
 ## Beispiel
 
@@ -76,19 +74,15 @@ body {
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Setzt die Farbe der textlichen und dekorativen Bestandteile des Elements,
-    einschließlich z.B. Bruchstriche oder Wurzelsymbole.
+  - : Setzt die Farbe der textuellen und dekorativen Teile des Elements, einschließlich z.B. Bruchstrichen oder Wurzelzeichen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurde ein begrenzteres Set von Werten unterstützt.
-  Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}
-  Werten.
+- In MathML 3 und früheren Versionen wurde eine begrenztere Menge an Werten unterstützt. Seit MathML Core stimmt die Syntax mit den CSS-{{cssxref("&lt;color&gt;")}}-Werten überein.
 
-- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die CSS nicht unterstützen.
-  Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die CSS nicht kennen. Seit MathML Core wird empfohlen, stattdessen äquivalentes CSS zu verwenden.
 
 ## Browser-Kompatibilität
 

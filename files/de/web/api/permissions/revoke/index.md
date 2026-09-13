@@ -3,17 +3,14 @@ title: "Berechtigungen: revoke()-Methode"
 short-title: revoke()
 slug: Web/API/Permissions/revoke
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Permissions API")}}{{AvailableInWorkers}}{{deprecated_header}}
+{{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`revoke()`**-Methode der [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle setzt eine aktuell festgelegte Berechtigung zurück auf ihren Standardzustand, der normalerweise `prompt` ist.
-Diese Methode wird auf dem globalen [`Permissions`](/de/docs/Web/API/Permissions)-Objekt [`navigator.permissions`](/de/docs/Web/API/Navigator/permissions) aufgerufen.
+Die **`revoke()`**-Methode des [`Permissions`](/de/docs/Web/API/Permissions)-Interfaces setzt eine derzeit gesetzte Berechtigung auf ihren Standardzustand zurück, der normalerweise `prompt` ist. Diese Methode wird auf dem globalen [`Permissions`](/de/docs/Web/API/Permissions)-Objekt [`navigator.permissions`](/de/docs/Web/API/Navigator/permissions) aufgerufen.
 
-Diese Methode wurde aus der Hauptspezifikation der Berechtigungen-API entfernt, da der Anwendungsfall unklar ist.
-Berechtigungen werden durch den Browser verwaltet und das aktuelle Berechtigungsmodell sieht nicht vor, dass der Website-Entwickler Berechtigungen ausdrücklich anfordern oder widerrufen kann. Browser haben diese API hinter Präferenzen eingeführt, aber es ist unwahrscheinlich, dass sie den Standardweg erreicht.
-Für weitere Informationen siehe die [ursprüngliche Diskussion über die Entfernung von `permissions.revoke()`](https://github.com/w3c/permissions/issues/46).
+Diese Methode wurde aus der Hauptspezifikation der Berechtigungen-API entfernt, da ihr Anwendungsfall unklar ist. Berechtigungen werden vom Browser verwaltet, und das aktuelle Berechtigungsmodell sieht nicht vor, dass der Site-Entwickler Berechtigungen imperativ anfordern oder widerrufen kann. Browser haben diese API hinter Präferenzen eingeführt, aber es ist unwahrscheinlich, dass sie den Standardprozess erreicht. Für mehr Kontext siehe die [ursprüngliche Diskussion zur Entfernung von `permissions.revoke()`](https://github.com/w3c/permissions/issues/46).
 
 ## Syntax
 
@@ -24,32 +21,28 @@ revoke(permissionDescriptor)
 ### Parameter
 
 - `permissionDescriptor`
-  - : Ein Objekt, das Optionen für die `revoke`-Operation festlegt.
-    Die verfügbaren Optionen für diesen Deskriptor hängen von der Berechtigungsart ab.
+  - : Ein Objekt, das Optionen für den `revoke`-Vorgang festlegt. Die verfügbaren Optionen für diesen Descriptor hängen vom Berechtigungstyp ab.
 
     Alle Berechtigungen haben einen Namen:
     - `name`
-      - : Ein String, der den Namen der API enthält, deren Berechtigungen Sie abfragen möchten.
-        Das zurückgegebene {{jsxref("Promise")}} wird mit einem {{jsxref("TypeError")}} ablehnen, wenn der Berechtigungsname vom Browser nicht unterstützt wird.
+      - : Ein String, der den Namen der API enthält, deren Berechtigungen Sie abfragen möchten. Das zurückgegebene {{jsxref("Promise")}} wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn der Berechtigungsname vom Browser nicht unterstützt wird.
 
-    Für die `push` Berechtigungen können Sie auch angeben:
+    Für die `push`-Berechtigungen kann auch angegeben werden:
     - `userVisibleOnly` {{optional_inline}}
-      - : (Nur Push, nicht unterstützt in Firefox — siehe den Abschnitt Browser-Unterstützung unten) Gibt an, ob Sie für jede Nachricht eine Benachrichtigung anzeigen oder stille Push-Benachrichtigungen senden möchten.
-        Der Standardwert ist `false`.
+      - : (Nur für Push, nicht in Firefox unterstützt — siehe den Abschnitt Browser-Kompatibilität unten) Gibt an, ob Sie für jede Nachricht eine Benachrichtigung anzeigen möchten oder stille Push-Benachrichtigungen senden können. Der Standardwert ist `false`.
 
-    Für die `midi` Berechtigung können Sie auch angeben:
+    Für die `midi`-Berechtigung kann auch angegeben werden:
     - `sysex` {{optional_inline}}
-      - : Gibt an, ob Sie System-Exklusivnachrichten benötigen und/oder empfangen.
-        Der Standardwert ist `false`.
+      - : Gibt an, ob Sie System-Exklusivnachrichten benötigen und/oder empfangen. Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das seinen Fulfillment-Handler mit einem [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Objekt aufruft, das das Ergebnis der Anfrage anzeigt.
+Ein {{jsxref("Promise")}}, das seinen Erfüllungshandler mit einem [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Objekt aufruft, das das Ergebnis der Anfrage anzeigt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Abruf der `PermissionDescriptor`-Informationen ist auf irgendeine Weise fehlgeschlagen, oder die Berechtigung existiert nicht oder wird momentan nicht unterstützt (z.B. `midi` oder `push` mit `userVisibleOnly`).
+  - : Das Abrufen der `PermissionDescriptor`-Informationen ist auf irgendeine Weise fehlgeschlagen, oder die Berechtigung existiert nicht oder wird derzeit nicht unterstützt (z.B. `midi`, oder `push` mit `userVisibleOnly`).
 
 ## Beispiele
 

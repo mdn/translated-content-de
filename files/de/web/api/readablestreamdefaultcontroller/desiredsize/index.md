@@ -3,20 +3,22 @@ title: "ReadableStreamDefaultController: desiredSize-Eigenschaft"
 short-title: desiredSize
 slug: Web/API/ReadableStreamDefaultController/desiredSize
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: c16a9b4df8d0fed2512cdee329afdff73d0ff891
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`desiredSize`**-Schreibgeschützte Eigenschaft der [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Schnittstelle gibt die gewünschte Größe zurück, die benötigt wird, um die interne Warteschlange des Streams zu füllen.
+Die schreibgeschützte **`desiredSize`**-Eigenschaft der [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Schnittstelle gibt die gewünschte Größe zurück, die erforderlich ist, um die interne Warteschlange des Streams zu füllen.
 
 ## Wert
 
-Ein Integer. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange überfüllt ist.
+Eine Zahl oder `null`.
+
+Die Zahl kann negativ sein, wenn die Warteschlange übervoll ist. Wenn eine benutzerdefinierte Warteschlangenstrategie verwendet wird, können ihre Chunk-Größen dazu führen, dass die Zahl eine gebrochene Komponente hat. Der Wert ist `null`, wenn der Stream fehlerhaft ist, und `0`, wenn er geschlossen ist.
 
 ## Beispiele
 
-Das [Lesbarer Stream mit einer zugrunde liegenden Push-Quelle und Unterstützung für Gegendruck](https://streams.spec.whatwg.org/#example-rs-push-backpressure)-Beispiel in der Spezifikation zeigt ein gutes Beispiel für die Verwendung von `desiredSize`, um manuell zu erkennen, wann der Stream voll ist und Gegendruck anzuwenden. Außerdem wird gezeigt, wie [`ReadableStreamDefaultController.error()`](/de/docs/Web/API/ReadableStreamDefaultController/error) verwendet wird, um manuell einen Stream-Fehler auszulösen, wenn ein anderer Teil des Systems, auf den er angewiesen ist, ausfällt.
+Das [Ein lesbarer Stream mit einer zugrunde liegenden Push-Quelle und Unterstützung für Rückstau](https://streams.spec.whatwg.org/#example-rs-push-backpressure)-Beispiel in der Spezifikation bietet ein gutes Beispiel für die Verwendung von `desiredSize`, um manuell zu erkennen, wann der Stream voll ist und Rückstau anzuwenden, sowie für die Verwendung von [`ReadableStreamDefaultController.error()`](/de/docs/Web/API/ReadableStreamDefaultController/error), um manuell einen Stream-Fehler auszulösen, falls ein anderer Teil des Systems, auf den er sich stützt, fehlschlägt.
 
 ## Spezifikationen
 

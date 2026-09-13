@@ -23,7 +23,7 @@
     "lint:yml": "prettier -c \"**/*.yml\"",
     "test": "node --test"
   },
-  "packageManager": "npm@11.9.0",
+  "packageManager": "npm@11.19.0",
   "engines": {
     "node": ">=24"
   },
@@ -38,8 +38,8 @@
     "fdir": "^6.5.0",
     "franc-min": "^6.2.0",
     "front-matter": "^4.0.2",
-    "html-to-text": "^10.0.0",
-    "markdown-it": "^14.3.0",
+    "html-to-text": "^10.0.1",
+    "markdown-it": "^15.0.1",
     "markdownlint-cli2": "0.23.2",
     "markdownlint-rule-search-replace": "1.2.0",
     "mdast-util-from-markdown": "^2.0.3",
@@ -49,6 +49,9 @@
     "yargs": "^18.1.0"
   },
   "devDependencies": {
-    "lefthook": "^2.1.10"
+    "lefthook": "^2.1.12"
+  },
+  "allowScripts": {
+    "lefthook": true
   }
 }

@@ -3,19 +3,19 @@ title: "CanvasRenderingContext2D: globalAlpha-Eigenschaft"
 short-title: globalAlpha
 slug: Web/API/CanvasRenderingContext2D/globalAlpha
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 6f1b699dd8891431bbfe0bc3bb803f929fa6032e
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.globalAlpha`**-Eigenschaft der Canvas 2D API gibt den Alpha-Wert (Transparenz) an, der auf Formen und Bilder angewendet wird, bevor sie auf die Leinwand gezeichnet werden.
+Die **`CanvasRenderingContext2D.globalAlpha`**-Eigenschaft der Canvas 2D-API gibt den Alpha- (Transparenz-)Wert an, der auf Formen und Bilder angewendet wird, bevor sie auf die Leinwand gezeichnet werden.
 
 > [!NOTE]
-> Siehe auch das Kapitel [Stile und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
+> Siehe auch das Kapitel [Styling und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Leitfaden](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Wert
 
-Eine Zahl zwischen `0.0` (vollständig transparent) und `1.0` (vollständig opak), einschließlich. Der Standardwert ist `1.0`. Werte außerhalb dieses Bereichs, einschließlich {{jsxref("Infinity")}} und {{jsxref("NaN")}}, werden nicht gesetzt, und `globalAlpha` behält seinen vorherigen Wert.
+Eine Zahl zwischen `0.0` (vollständig transparent) und `1.0` (vollständig undurchsichtig), einschließlich. Der Standardwert ist `1.0`. Werte außerhalb dieses Bereichs, einschließlich {{jsxref("Infinity")}} und {{jsxref("NaN")}}, werden nicht gesetzt, und `globalAlpha` behält seinen vorherigen Wert bei.
 
 ## Beispiele
 
@@ -48,18 +48,18 @@ ctx.fillRect(50, 50, 100, 100);
 
 {{ EmbedLiveSample('Drawing_translucent_shapes', 700, 180) }}
 
-### Überlagerung von transparenten Formen
+### Überlagern von transparenten Formen
 
-Dieses Beispiel veranschaulicht den Effekt der Überlagerung mehrerer transparenter Formen übereinander. Wir beginnen, indem wir einen soliden Hintergrund zeichnen, der aus vier unterschiedlich farbigen Quadraten besteht. Danach setzen wir die `globalAlpha`-Eigenschaft auf `0.2` (20% opak); dieses Alpha-Level gilt für alle unsere transparenten Formen. Danach verwenden wir eine `for`-Schleife, um eine Reihe von Kreisen mit zunehmenden Radien zu zeichnen.
+Dieses Beispiel veranschaulicht den Effekt, mehrere transparente Formen übereinander zu legen. Wir beginnen mit dem Zeichnen eines soliden Hintergrunds, der aus vier unterschiedlich gefärbten Quadraten besteht. Anschließend setzen wir die `globalAlpha`-Eigenschaft auf `0,2` (20% undurchsichtig); diese Alpha-Stufe gilt für alle unsere transparenten Formen. Danach verwenden wir eine `for`-Schleife, um eine Reihe von Kreisen mit zunehmendem Radius zu zeichnen.
 
-Mit jedem neuen Kreis wird die Opazität der darunter liegenden vorherigen Kreise effektiv erhöht. Würden wir die Anzahl der Schritte erhöhen (und somit mehr Kreise zeichnen), würde der Hintergrund schließlich vollständig aus der Mitte des Bildes verschwinden.
+Mit jedem neuen Kreis wird die Opazität der vorhergehenden Kreise darunter effektiv erhöht. Würden wir die Schrittanzahl erhöhen (und damit mehr Kreise zeichnen), würde der Hintergrund schließlich vollständig aus der Mitte des Bildes verschwinden.
 
 ```html hidden
-<canvas id="canvas" width="150" height="150"></canvas>
+<canvas id="my-canvas" width="150" height="150"></canvas>
 ```
 
 ```js
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("my-canvas");
 const ctx = canvas.getContext("2d");
 
 // Draw background
@@ -96,13 +96,13 @@ for (let i = 0; i < 7; i++) {
 
 ### Gecko-spezifische Hinweise
 
-- Ab Gecko 5.0 werfen ungültige Werte für `globalAlpha` keine `SYNTAX_ERR`-Ausnahme mehr; sie werden jetzt korrekt stillschweigend ignoriert.
+- Ab Gecko 5.0 werfen ungültige Werte für `globalAlpha` keine `SYNTAX_ERR`-Ausnahme mehr; diese werden nun korrekt stillschweigend ignoriert.
 
 ### WebKit/Blink-spezifische Hinweise
 
-- In von WebKit- und Blink-basierten Browsern wird zusätzlich zu dieser Eigenschaft eine nicht standardmäßige und veraltete Methode `ctx.setAlpha()` implementiert.
+- In WebKit- und Blink-basierten Browsern ist zusätzlich zu dieser Eigenschaft eine nicht standardisierte und veraltete Methode `ctx.setAlpha()` implementiert.
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.globalCompositeOperation`](/de/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation)

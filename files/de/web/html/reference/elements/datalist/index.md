@@ -1,12 +1,12 @@
 ---
-title: "`<datalist>` HTML-Datenlistenelement"
+title: "`<datalist>` HTML Datalist-Element"
 short-title: <datalist>
 slug: Web/HTML/Reference/Elements/datalist
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
 ---
 
-Das **`<datalist>`** [HTML](/de/docs/Web/HTML)-Element enthält eine Gruppe von {{HTMLElement("option")}}-Elementen, die die erlaubten oder empfohlenen Optionen darstellen, die innerhalb anderer Steuerelemente zur Auswahl stehen.
+Das **`<datalist>`**-Element [HTML](/de/docs/Web/HTML) enthält eine Gruppe von {{HTMLElement("option")}}-Elementen, die die zulässigen oder empfohlenen Optionen darstellen, aus denen bei anderen Steuerelementen ausgewählt werden kann.
 
 {{InteractiveExample("HTML Demo: &lt;datalist&gt;", "tabbed-standard")}}
 
@@ -30,30 +30,30 @@ label {
 }
 ```
 
-Um das `<datalist>`-Element an das Steuerelement zu binden, geben wir ihm ein eindeutiges Kennzeichen im [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut, und fügen dann das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut zum {{HTMLElement("input")}}-Element hinzu, wobei der gleiche Bezeichner als Wert verwendet wird. Nur bestimmte Typen von {{HTMLElement("input")}} unterstützen dieses Verhalten, und es kann auch von Browser zu Browser variieren.
+Um das `<datalist>`-Element an das Steuerelement zu binden, geben wir ihm im [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut eine eindeutige Kennung und fügen dann dem {{HTMLElement("input")}}-Element das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut mit derselben Kennung als Wert hinzu. Nur bestimmte Typen von {{HTMLElement("input")}} unterstützen dieses Verhalten, und es kann auch von Browser zu Browser variieren.
 
-Jedes `<option>`-Element sollte ein `value`-Attribut haben, das einen Vorschlag repräsentiert, der in das Eingabefeld eingegeben werden soll. Es kann auch ein `label`-Attribut haben oder, falls dieses fehlt, einen Textinhalt, der möglicherweise vom Browser anstelle von `value` (Firefox) oder zusätzlich zu `value` (Chrome und Safari, als zusätzlicher Text) angezeigt wird. Der genaue Inhalt des Dropdown-Menüs hängt vom Browser ab, aber wenn darauf geklickt wird, stammt der in das Steuerfeld eingegebene Inhalt immer aus dem `value`-Attribut.
+Jedes `<option>`-Element sollte ein `value`-Attribut haben, das einen Vorschlag darstellt, der in das Eingabefeld eingegeben werden soll. Es kann auch ein `label`-Attribut haben oder, falls nicht vorhanden, einen Textinhalt, der möglicherweise vom Browser anstelle von `value` (Firefox) oder zusätzlich zu `value` (Chrome und Safari, als ergänzender Text) angezeigt wird. Der genaue Inhalt des Dropdown-Menüs hängt vom Browser ab, aber beim Klicken wird der eingegebene Inhalt immer aus dem `value`-Attribut stammen.
 
 > [!NOTE]
-> `<datalist>` ist kein Ersatz für {{HTMLElement("select")}}. Ein `<datalist>` stellt keine eigene Eingabe dar; es ist eine Liste von vorgeschlagenen Werten für ein assoziiertes Steuerelement. Das Steuerelement kann immer noch jeden Wert akzeptieren, der die Validierung besteht, auch wenn er nicht in dieser Vorschlagsliste enthalten ist.
+> `<datalist>` ist kein Ersatz für {{HTMLElement("select")}}. Ein `<datalist>` stellt keine eigene Eingabe dar; es ist eine Liste empfohlener Werte für ein zugeordnetes Steuerelement. Das Steuerelement kann weiterhin jeden Wert akzeptieren, der die Validierung besteht, auch wenn er nicht in dieser Vorschlagsliste enthalten ist.
 
 ## Attribute
 
-Dieses Element hat keine anderen Attribute als die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemeinsam sind.
+Dieses Element hat keine anderen Attribute als die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemein sind.
 
 ## Barrierefreiheit
 
-Wenn Sie sich entscheiden, das `<datalist>`-Element zu verwenden, gibt es einige Barrierefreiheitsthemen, die Sie beachten sollten:
+Wenn Sie sich entscheiden, das `<datalist>`-Element zu verwenden, sollten Sie folgende Barrierefreiheitsprobleme berücksichtigen:
 
-- Die Schriftgröße der Optionen der Datenliste zoomt nicht, sondern bleibt immer gleich groß. Der Inhalt des Vorschlags wird nicht größer oder kleiner, wenn der Rest des Inhalts vergrößert oder verkleinert wird.
-- Da das Anvisieren der Optionsliste mit CSS sehr begrenzt bis nicht existent ist, kann das Rendering nicht für den Hochkontrastmodus gestaltet werden.
-- Einige Screenreader/Browser-Kombinationen, darunter NVDA und Firefox, geben den Inhalt des Vorschlagspopups nicht wieder.
+- Die Schriftgröße der Optionen der Dataliste zoomt nicht mit, sie bleibt immer gleich groß. Die Inhalte der automatischen Vorschläge wachsen oder schrumpfen nicht, wenn der Rest der Inhalte herein- oder herausgezoomt wird.
+- Da das Ansprechen der Optionsliste mit CSS sehr begrenzt bis nicht existent ist, kann die Darstellung nicht für Hochkontrastmodus gestaltet werden.
+- Einige Bildschirmleser-/Browser-Kombinationen, einschließlich NVDA und Firefox, kündigen den Inhalt des automatischen Vorschlag-Popups nicht an.
 
 ## Beispiele
 
 ### Textuelle Typen
 
-Empfohlene Werte in den Typen {{HTMLElement("input/text", "text")}}, {{HTMLElement("input/search", "search")}}, {{HTMLElement("input/url", "url")}}, {{HTMLElement("input/tel", "tel")}}, {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/number", "number")}} werden in einem Dropdown-Menü angezeigt, wenn der Benutzer auf das Steuerelement klickt oder doppelklickt. Normalerweise hat die rechte Seite eines Steuerelements auch einen Pfeil, der auf das Vorhandensein vordefinierter Werte hinweist.
+Empfohlene Werte in den Typen {{HTMLElement("input/text", "text")}}, {{HTMLElement("input/search", "search")}}, {{HTMLElement("input/url", "url")}}, {{HTMLElement("input/tel", "tel")}}, {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/number", "number")}} werden in einem Dropdown-Menü angezeigt, wenn der Benutzer auf das Steuerelement klickt oder doppelt klickt. Normalerweise wird auf der rechten Seite eines Steuerelements ein Pfeil angezeigt, der auf das Vorhandensein vordefinierter Werte hinweist.
 
 ```html
 <label for="myBrowser">Choose a browser from this list:</label>
@@ -69,12 +69,12 @@ Empfohlene Werte in den Typen {{HTMLElement("input/text", "text")}}, {{HTMLEleme
 
 {{EmbedLiveSample("Textual_types", 600, 40)}}
 
-### Datums- und Uhrzeittypen
+### Datum- und Uhrzeittypen
 
-Die Typen {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/time", "time")}} und {{HTMLElement("input/datetime-local", "datetime-local")}} können eine Schnittstelle anzeigen, die eine bequeme Auswahl von Datum und Uhrzeit ermöglicht. Vordefinierte Werte können dort angezeigt werden, sodass der Benutzer den Wert des Steuerelements schnell ausfüllen kann.
+Die Typen {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/time", "time")}} und {{HTMLElement("input/datetime-local", "datetime-local")}} können eine Benutzeroberfläche anzeigen, die eine bequeme Auswahl eines Datums und einer Uhrzeit ermöglicht. Vordefinierte Werte können dort angezeigt werden, sodass der Benutzer schnell den Steuerungswert ausfüllen kann.
 
 > [!NOTE]
-> Wenn diese Typen nicht unterstützt werden, wird stattdessen ein einfacher `text`-Typ gerendert, der ein Textfeld erstellt. Dieses Feld erkennt empfohlene Werte korrekt und zeigt sie dem Benutzer in einem Dropdown-Menü an.
+> Wenn diese Typen nicht unterstützt werden, wird stattdessen ein grundlegender `text`-Typ gerendert, der ein Textfeld erstellt. Dieses Feld erkennt die empfohlenen Werte korrekt und zeigt sie dem Benutzer in einem Dropdown-Menü an.
 
 ```html
 <input type="time" list="popularHours" />
@@ -89,7 +89,7 @@ Die Typen {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "
 
 ### Bereichstyp
 
-Wenn `value`-Attribute auf `<option>`-Elementen enthalten sind, die für eine Datalist bereitgestellt werden, die mit einem {{HTMLElement("input/range", "range")}}-Eingabetyp verknüpft ist, werden sie als eine Reihe von Markierungen angezeigt, die der Benutzer leicht auswählen kann.
+Wenn `value`-Attribute in `<option>`-Elementen enthalten sind, die für eine Datalist bereitgestellt werden, die mit einem {{HTMLElement("input/range", "range")}}-Eingabetyp verknüpft ist, werden sie als Serie von Markierungen angezeigt, die der Benutzer leicht auswählen kann.
 
 ```html
 <label for="tick">Tip amount:</label>
@@ -106,11 +106,11 @@ Wenn `value`-Attribute auf `<option>`-Elementen enthalten sind, die für eine Da
 {{EmbedLiveSample("Range_type", 600, 70)}}
 
 > [!NOTE]
-> Das `label`-Attribut soll Markierungen gemäß [HTML-Standard](<https://html.spec.whatwg.org/multipage/input.html#range-state-(type=range)>) bereitstellen. Die aktuelle Unterstützung in Browsern variiert jedoch; Labels werden möglicherweise nicht visuell oder als Tooltips angezeigt.
+> Das `label`-Attribut soll laut [HTML-Standard](<https://html.spec.whatwg.org/multipage/input.html#range-state-(type=range)>) Bezeichnungen für Markierungen bereitstellen. Die aktuelle Unterstützung durch Browser variiert jedoch; die Bezeichnungen werden möglicherweise nicht visuell oder als Tooltips angezeigt.
 
 ### Farbtyp
 
-Der {{HTMLElement("input/color", "color")}}-Typ kann vordefinierte Farben in einer vom Browser bereitgestellten Schnittstelle anzeigen.
+Der {{HTMLElement("input/color", "color")}}-Typ kann vordefinierte Farben in einer vom Browser bereitgestellten Oberfläche anzeigen.
 
 ```html
 <label for="colors">Pick a color (preferably a red tone):</label>
@@ -125,7 +125,7 @@ Der {{HTMLElement("input/color", "color")}}-Typ kann vordefinierte Farben in ein
 
 {{EmbedLiveSample("Color_type", 600, 70)}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -140,45 +140,45 @@ Der {{HTMLElement("input/color", "color")}}-Typ kann vordefinierte Farben in ein
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         Entweder
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >
         oder null oder mehr {{HTMLElement("option")}}-Elemente.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >
         akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role"
-          >listbox</a
+          >Listbox</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Keine <code>role</code> zulässig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -197,5 +197,5 @@ Der {{HTMLElement("input/color", "color")}}-Typ kann vordefinierte Farben in ein
 
 ## Siehe auch
 
-- Das {{HTMLElement("input")}}-Element und insbesondere dessen [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut;
+- Das {{HTMLElement("input")}}-Element, und speziell sein [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut;
 - Das {{HTMLElement("option")}}-Element.

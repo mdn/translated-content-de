@@ -3,10 +3,10 @@ title: BigInt() Konstruktor
 short-title: BigInt()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/BigInt
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 690498c3dbaebcf8b9a21220fbb23d192a30a225
 ---
 
-Die **`BigInt()`** Funktion gibt primitive Werte des Typs BigInt zurück.
+Die Funktion **`BigInt()`** gibt primitive Werte vom Typ BigInt zurück.
 
 ## Syntax
 
@@ -15,33 +15,33 @@ BigInt(value)
 ```
 
 > [!NOTE]
-> `BigInt()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, löst einen {{jsxref("TypeError")}} aus.
+> `BigInt()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `value`
-  - : Der Wert, der in einen BigInt-Wert umgewandelt werden soll. Es kann ein String, eine ganze Zahl, ein Boolean oder ein anderes `BigInt` sein.
+  - : Der Wert, der in einen BigInt-Wert umgewandelt werden soll. Es kann sich um einen String, eine Ganzzahl, einen Booleschen Wert oder einen anderen `BigInt` handeln.
 
 ### Rückgabewert
 
-Ein {{jsxref("BigInt")}}-Wert. Zahlenwerte müssen ganze Zahlen sein und werden in BigInts umgewandelt. Der Boolean-Wert `true` wird zu `1n`, und `false` wird zu `0n`. Strings werden geparst, als wären sie Quelltext für Ganzzahlliterale, was bedeutet, dass sie führende und nachfolgende Leerzeichen aufweisen können und mit `0b`, `0o` oder `0x` vorangestellt sein können.
+Ein {{jsxref("BigInt")}}-Wert. Zahlenwerte müssen Ganzzahlen sein und werden in BigInts konvertiert. Der Boolesche Wert `true` wird zu `1n`, und `false` wird zu `0n`. Strings werden so geparst, als wären sie Quelltext für ganzzahlige Literale, was bedeutet, dass sie führende und nachfolgende Leerzeichen haben können und mit `0b`, `0o` oder `0x` beginnen können.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn der Parameter eine nicht-ganzzahlige Zahl ist.
+  - : Wird ausgelöst, wenn der Parameter eine nicht ganzzahlige Zahl ist.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst in einem der folgenden Fälle:
-    - Der Parameter kann nicht in einen primitiven Wert umgewandelt werden.
-    - Nach der Umwandlung in einen primitiven Wert ist das Ergebnis {{jsxref("undefined")}}, {{jsxref("null")}}, {{jsxref("symbol")}}.
+  - : Wird in einem der folgenden Fälle ausgelöst:
+    - Der Parameter kann nicht in ein primitives Objekt umgewandelt werden.
+    - Nach der Umwandlung in ein primitives Objekt ist das Ergebnis {{jsxref("undefined")}}, {{jsxref("null")}}, oder {{jsxref("Symbol")}}.
 - {{jsxref("SyntaxError")}}
-  - : Ausgelöst, wenn der Parameter ein String ist, der nicht als `BigInt` geparst werden kann.
+  - : Wird ausgelöst, wenn der Parameter ein String ist, der nicht als `BigInt` geparst werden kann.
 
 ## Beispiele
 
-### Verwendung von BigInt(), um eine Zahl in ein BigInt umzuwandeln
+### Verwendung von BigInt() zur Umwandlung einer Zahl in einen BigInt
 
-`BigInt()` ist der einzige Fall, bei dem eine Zahl ohne Fehler in ein BigInt umgewandelt werden kann, da es sehr explizit ist. Es sind jedoch nur ganze Zahlen erlaubt.
+`BigInt()` ist der einzige Fall, in dem eine Zahl ohne Fehler in einen BigInt umgewandelt werden kann, da dies sehr explizit ist. Allerdings sind nur Ganzzahlen erlaubt.
 
 ```js
 BigInt(123); // 123n

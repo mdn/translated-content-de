@@ -2,12 +2,12 @@
 title: MediaRecorderErrorEvent
 slug: Web/API/MediaRecorderErrorEvent
 l10n:
-  sourceCommit: 8a48db345586ff90e3d5fd2fd59adac59981e9b0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("MediaStream Recording")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("MediaStream Recording")}}{{Non-standard_Header}}
 
-Die **`MediaRecorderErrorEvent`**-Schnittstelle repräsentiert Fehler, die von der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) zurückgegeben werden. Es handelt sich um ein [`Event`](/de/docs/Web/API/Event)-Objekt, das einen Verweis auf eine [`DOMException`](/de/docs/Web/API/DOMException) enthält, die den aufgetretenen Fehler beschreibt.
+Die **`MediaRecorderErrorEvent`**-Schnittstelle repräsentiert Fehler, die von der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) zurückgegeben werden. Sie ist ein [`Event`](/de/docs/Web/API/Event)-Objekt, das eine Referenz zu einer [`DOMException`](/de/docs/Web/API/DOMException) enthält, die den aufgetretenen Fehler beschreibt.
 
 {{InheritanceDiagram}}
 
@@ -16,16 +16,16 @@ Die **`MediaRecorderErrorEvent`**-Schnittstelle repräsentiert Fehler, die von d
 - [`MediaStreamRecorderEvent()`](/de/docs/Web/API/MediaRecorderErrorEvent/MediaRecorderErrorEvent) {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Erstellt und gibt ein neues `MediaRecorderErrorEvent`-Ereignisobjekt mit den angegebenen Parametern zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`error`](/de/docs/Web/API/MediaRecorderErrorEvent/error) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein [`DOMException`](/de/docs/Web/API/DOMException) mit Informationen über den aufgetretenen Fehler.
+  - : Eine [`DOMException`](/de/docs/Web/API/DOMException), die Informationen über den aufgetretenen Fehler enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Methoden von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 

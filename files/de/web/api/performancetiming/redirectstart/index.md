@@ -3,17 +3,18 @@ title: "PerformanceTiming: redirectStart-Eigenschaft"
 short-title: redirectStart
 slug: Web/API/PerformanceTiming/redirectStart
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
-{{APIRef("Performance API")}}{{Deprecated_Header}}
+{{APIRef("Performance API")}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
-Die veraltete,
-schreibgeschützte Eigenschaft **`PerformanceTiming.redirectStart`** gibt einen `unsigned long long` zurück, der den Zeitpunkt in Millisekunden seit der UNIX-Epoche angibt, zu dem die erste HTTP-Umleitung beginnt. Wenn es keine Umleitung gibt oder eine der Umleitungen nicht vom gleichen Ursprung stammt, wird der Wert `0` zurückgegeben.
+Die veraltete
+**`PerformanceTiming.redirectStart`**
+Nur-Lese-Eigenschaft gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit dem UNIX-Epoch darstellt, an dem die erste HTTP-Weiterleitung beginnt. Wenn es keine Weiterleitung gibt oder wenn eine der Weiterleitungen nicht vom gleichen Ursprung ist, ist der zurückgegebene Wert
+`0`.
 
 ## Wert
 

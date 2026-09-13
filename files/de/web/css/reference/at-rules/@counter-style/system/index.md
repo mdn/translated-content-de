@@ -1,14 +1,14 @@
 ---
-title: "`system` CSS at-rule descriptor"
+title: "`system` CSS at-rule Deskriptor"
 short-title: system
 slug: Web/CSS/Reference/At-rules/@counter-style/system
 l10n:
-  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
+  sourceCommit: 07758d01509695fe45ccc3f7687f6597dc3d9e2a
 ---
 
-Der **`system`** Deskriptor spezifiziert den Algorithmus, der zur Umwandlung des Zahlenwerts eines Zählers in eine Zeichenfolgedarstellung verwendet wird. Er wird in einem {{cssxref("@counter-style")}} verwendet, um das Verhalten des definierten Stils zu bestimmen.
+Der **`system`** Deskriptor spezifiziert den Algorithmus, der zur Umwandlung des ganzzahligen Wertes eines Zählers in eine Zeichenketten-Darstellung verwendet werden soll. Er wird in einem {{cssxref("@counter-style")}} genutzt, um das Verhalten des definierten Stils zu definieren.
 
-Wenn der im `system`-Deskriptor angegebene Algorithmus nicht in der Lage ist, die Darstellung für einen bestimmten Zählerwert zu konstruieren, wird die Darstellung dieses Werts mithilfe des bereitgestellten Fallback-Systems erzeugt.
+Falls der im `system` Deskriptor angegebene Algorithmus nicht in der Lage ist, die Darstellung für einen bestimmten Zählerwert zu konstruieren, wird die Darstellung dieses Wertes mit dem bereitgestellten Fallback-System konstruiert.
 
 ## Syntax
 
@@ -29,42 +29,42 @@ system: extends circled-letters;
 
 ## Werte
 
-Dies kann in einer von drei Formen vorliegen:
+Dies kann eine von drei Formen annehmen:
 
 - Einer der Schlüsselwortwerte `cyclic`, `numeric`, `alphabetic`, `symbolic`, `additive` oder `fixed`.
-- Der Schlüsselwortwert `fixed` zusammen mit einem Integer.
+- Der Schlüsselwortwert `fixed` zusammen mit einer ganzen Zahl.
 - Der Schlüsselwortwert `extends` zusammen mit einem [`<counter-style-name>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style#counter-style-name) Wert.
 
 Die Werte umfassen:
 
 - `cyclic`
-  - : Durchläuft die Liste der im [`symbols`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols) Deskriptor angegebenen Symbole. Sobald das Ende der Liste erreicht ist, beginnt der Zyklus von vorne. Dieser Wert ist sowohl für grundlegende Aufzählungsstile mit nur einem Symbol als auch für Stile mit mehreren Symbolen nützlich. Mindestens ein Symbol muss im `symbols`-Deskriptor angegeben sein, andernfalls ist der Zählerstil nicht gültig.
+  - : Durchläuft die Liste der Symbole, die im [`symbols`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols) Deskriptor angegeben sind. Sobald das Ende der Liste erreicht ist, beginnt der Zyklus wieder von vorne. Dieser Wert ist nützlich sowohl für grundlegende Aufzählungszeichen-Stile mit nur einem Symbol als auch für Stile mit mehreren Symbolen. Mindestens ein Symbol muss im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil ungültig.
 
 - `numeric`
-  - : Interpretiert die Zählersymbole als Ziffern in einem [Stellenwert-Zahlensystem](https://de.wikipedia.org/wiki/Stellenwertsystem). Das numerische System ähnelt dem `alphabetic` System, das oben beschrieben wurde. Der Hauptunterschied besteht darin, dass im `alphabetic` System das erste im `symbols` Deskriptor angegebene Zählersymbol als `1` interpretiert wird, das nächste als `2` und so weiter. Im numerischen System wird das erste Zählersymbol jedoch als `0` interpretiert, das nächste als `1`, dann `2` und so weiter.
+  - : Interpretiert die Zählersymbole als Ziffern in einem [Stellenwert-Nummerierungssystem](https://en.wikipedia.org/wiki/Positional_notation). Das numerische System ist dem `alphabetic` System ähnlich, das oben beschrieben wurde. Der Hauptunterschied besteht darin, dass im `alphabetic` System das erste Zählersymbol, das im `symbols` Deskriptor angegeben ist, als `1` interpretiert wird, das nächste als `2` usw. Im numerischen System wird das erste Zählersymbol jedoch als 0 interpretiert, das nächste als `1`, dann `2` usw.
 
-    Es müssen mindestens zwei Zählersymbole im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil nicht gültig.
+    Mindestens zwei Zählersymbole müssen im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil ungültig.
 
 - `alphabetic`
-  - : Interpretiert die angegebenen Symbole als Ziffern zu einem alphabetischen Zahlensystem. Wenn die Zeichen `"a"` bis `"z"` als Symbole in einem Zählerstil angegeben sind, dann werden mit dem `alphabetic` System die ersten 26 Zählerdarstellungen `"a"`, `"b"` bis `"z"` sein. Bis zu diesem Punkt verhält sich das System wie das `symbolic` System, das oben beschrieben wurde. Nach `"z"` wird es jedoch als `"aa"`, `"ab"`, `"ac"`... fortfahren.
+  - : Interpretiert die angegebenen Symbole als Ziffern in einem alphabetischen Nummerierungssystem. Wenn die Zeichen `"a"` bis `"z"` als Symbole in einem Zählerstil angegeben sind, dann wird das `alphabetic` System die ersten 26 Zählerdarstellungen als `"a"`, `"b"` bis `"z"` erzeugen. Bis zu diesem Punkt ist das Verhalten dasselbe wie beim `symbolic` System, das oben beschrieben wurde. Nach `"z"` wird es jedoch als `"aa"`, `"ab"`, `"ac"`... weitergehen.
 
-    Der `symbols` Deskriptor muss mindestens zwei Symbole enthalten, andernfalls ist der Zählerstil nicht gültig. Das erste im `symbols` Deskriptor bereitgestellte Zählersymbol wird als `1` interpretiert, das nächste als `2` und so weiter. Dieses System ist auch streng über positive Zählerwerte definiert.
+    Der `symbols` Deskriptor muss mindestens zwei Symbole enthalten, andernfalls ist der Zählerstil ungültig. Das erste Zählersymbol im `symbols` Deskriptor wird als `1` interpretiert, das nächste als `2` usw. Dieses System ist auch streng für positive Zählerwerte definiert.
 
 - `symbolic`
-  - : Durchläuft die im `symbols` Deskriptor angegebene Liste von Symbolen wiederholt, verdoppelt, verdreifacht und so weiter die Symbole bei jedem weiteren Durchlauf durch die Liste. Zum Beispiel, wenn zwei Symbole "◽" und "◾" im `symbols` Deskriptor angegeben sind, werden sie bei jedem weiteren Durchlauf zu "◽◽" und "◾◾", dann zu "◽◽◽" und "◾◾◾", und so weiter. Mindestens ein Symbol muss im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil nicht gültig. Dieses Zählsystem funktioniert nur für positive Zählerwerte.
+  - : Durchläuft die Symbole, die in der `symbols` Deskriptorliste angegeben sind, und verdoppelt, verdreifacht usw. die Symbole bei jedem weiteren Durchlauf durch die Liste. Wenn beispielsweise zwei Symbole "◽" und "◾" im `symbols` Deskriptor angegeben sind, werden sie bei jedem weiteren Durchlauf "◽◽" und "◾◾", dann "◽◽◽" und "◾◾◾" und so weiter in den folgenden Durchläufen. Mindestens ein Symbol muss im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil ungültig. Dieses Zählersystem funktioniert nur für positive Zählerwerte.
 
 - `additive`
-  - : Verwendet, um "Zeichenwert"-Zahlensysteme zu repräsentieren, wie römische Ziffern, die statt Ziffern in verschiedenen Positionen erneut zu verwenden, um unterschiedliche Werte zu erhalten, zusätzliche Ziffern für größere Werte definieren. Der Wert einer Zahl in einem solchen System kann ermittelt werden, indem die Ziffern in der Zahl addiert werden.
+  - : Wird verwendet, um Nummerierungssysteme des Typs "Sign-Value" darzustellen, wie z. B. römische Ziffern, die keine Ziffern in verschiedenen Positionen wiederverwenden, um unterschiedliche Werte zu erhalten, sondern zusätzliche Ziffern für größere Werte definieren. Der Wert einer Zahl in einem solchen System kann durch Addieren der Zahlen in der Zahl ermittelt werden.
 
-    Ein zusätzlicher Deskriptor namens `additive-symbols` muss mit mindestens einem _additiven Tuppel_ angegeben werden, andernfalls ist die Zählerstilregel nicht gültig. Ein additives Tuppel ist ähnlich wie ein zusammengesetztes Zählersymbol, das aus zwei Teilen besteht: einem normalen Zählersymbol und einem nicht-negativen ganzzahligen Gewicht. Die additiven Tuppel müssen in absteigender Reihenfolge ihrer Gewichte angegeben werden, sonst ist das System ungültig.
+    Ein zusätzlicher Deskriptor namens `additive-symbols` muss mit mindestens einem _additiven Tupel_ spezifiziert werden, andernfalls ist die Zählerstilregel nicht gültig. Ein additives Tupel ähnelt einem zusammengesetzten Zählersymbol, das aus zwei Teilen besteht: einem normalen Zählersymbol und einem nicht negativen Ganzzahlgewicht. Die additiven Tupel müssen in absteigender Reihenfolge ihrer Gewichte angegeben werden, sonst ist das System ungültig.
 
 - `fixed` oder `fixed <integer>`
-  - : Definiert eine endliche Menge von Symbolen, die einmal durch die im `symbols` Deskriptor angegebene Liste von Symbolen iteriert wird. Sobald die angegebenen Symbole durchlaufen worden sind, wird der Fallback-Zählerstil verwendet. Dieser Schlüsselwortwert ist in Fällen nützlich, in denen die Zählerstilwerte endlich sind. Mindestens ein Symbol muss im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil nicht gültig. Das Schlüsselwort `fixed` kann von einem optionalen {{cssxref("&lt;integer&gt;")}} Wert gefolgt werden. Falls angegeben, gibt der `<integer>` Wert das Element in der Liste an, das das erste Symbol aus der Liste der Symbole erhält. Wenn er weggelassen wird, lautet der Standardwert `1`, der dem ersten Element in der Liste das erste Symbol gibt.
+  - : Definiert eine endliche Menge von Symbolen und durchläuft einmal die Liste der Symbole, die im `symbols` Deskriptor angegeben sind. Sobald die angegebenen Symbole durchlaufen wurden, wird der Fallback-Zählerstil verwendet. Dieser Schlüsselwortwert ist in Fällen nützlich, in denen die Zählerstilwerte endlich sind. Mindestens ein Symbol muss im `symbols` Deskriptor angegeben sein, andernfalls ist der Zählerstil ungültig. Das `fixed` Schlüsselwort kann von einem optionalen {{cssxref("&lt;integer&gt;")}} Wert gefolgt werden. Wenn angegeben, gibt der `<integer>` Wert das Element in der Liste an, das das erste Symbol aus der Liste der Symbole erhält. Wenn es weggelassen wird, ist der Standardwert von `integer` `1`, wodurch das erste Element in der Liste das erste Symbol erhält.
 
 - `extends`
-  - : Erweitert den Algorithmus eines anderen von Browsern oder Autoren definierten Zählerstils, indem einige Aspekte des erweiterten Zählerstils geändert werden dürfen. Alle nicht spezifizierten Deskriptoren und ihre Werte werden vom angegebenen erweiterten Zählerstil geerbt. Wenn der mit `extends` angegebene Zählerstilname noch nicht definiert ist, wird standardmäßig der `decimal` Zählerstil erweitert.
+  - : Erweitert den Algorithmus eines anderen, durch den Browser oder vom Autor definierten Zählerstils, indem es die Änderung bestimmter Aspekte des erweiterten Zählerstils erlaubt. Alle nicht angegebenen Deskriptoren und ihre Werte werden von dem angegebenen erweiterten Zählerstil übernommen. Wenn der mit `extends` angegebene Zählerstilname noch nicht definiert ist, wird der `decimal` Zählerstil standardmäßig erweitert.
 
-    Er darf keinen `symbols` oder `additive-symbols` Deskriptor enthalten, andernfalls ist die Regel für den Zählerstil ungültig. Wenn eine oder mehrere Zählerstildefinitionen einen Zyklus mit ihren `extends` Werten bilden, behandelt der Browser alle beteiligten Zählerstile als Erweiterung des `decimal` Stils.
+    Es darf keinen `symbols` oder `additive-symbols` Deskriptor enthalten, andernfalls ist die Zählerstilregel ungültig. Wenn eine oder mehrere Zählerstildefinitionen mit ihren `extends` Werten einen Zyklus bilden, behandelt der Browser alle teilnehmenden Zählerstile, als ob sie von dem `decimal` Stil erweitert wurden.
 
 > [!NOTE]
 > Der [`symbols`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols) Deskriptor ist erforderlich, wenn der Wert `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist. Der [`additive-symbols`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/additive-symbols) Deskriptor ist erforderlich, wenn der `additive` Wert gesetzt ist.
@@ -81,7 +81,7 @@ Die Werte umfassen:
 
 ### Zyklischer Zähler
 
-Der `cyclic` Wert iteriert durch die Liste der Symbole und wiederholt die Liste nach Bedarf:
+Der `cyclic` Wert durchläuft die Liste der Symbole und wiederholt die Liste nach Bedarf:
 
 #### CSS
 
@@ -114,7 +114,7 @@ ul {
 
 ### Fester Zähler
 
-Der `fixed` Wert iteriert nur einmal durch die Liste der Symbole, wobei der Einzelzyklus bei der durch den `integer` Wert angegebenen Listenelementnummer beginnt:
+Der `fixed` Wert durchläuft die Liste der Symbole nur einmal und beginnt den einzelnen Zyklus bei der Listenposition, die durch den `integer` Wert angegeben ist:
 
 #### CSS
 
@@ -147,7 +147,7 @@ ul {
 
 ### Symbolischer Zähler
 
-Der `symbolic` Wert durchläuft die im `symbols` Deskriptor definierte Liste und verdoppelt und verdreifacht die Anzahl der Symbole für den zweiten und dritten Durchlauf durch die Liste:
+Der `symbolic` Wert schleift durch die im `symbols` Deskriptor definierte Liste und verdoppelt bzw. verdreifacht die Anzahl der Symbole für den zweiten und dritten Durchlauf durch die Liste:
 
 #### CSS
 
@@ -215,7 +215,7 @@ ul {
 
 ### Numerischer Zähler
 
-Das erste im `symbols` Deskriptor angegebene Symbol wird hier als `0` interpretiert.
+Das erste Symbol, das im `symbols` Deskriptor angegeben ist, wird hier als `0` interpretiert.
 
 #### CSS
 
@@ -250,7 +250,7 @@ ul {
 
 ### Numerischer Zähler mit numerischen Symbolen
 
-Wie im folgenden Beispiel gezeigt, werden bei der Angabe von Ziffern von `0` bis `9` als Symbole diese Zählerstile die Symbole genauso rendern wie der Dezimalsystem-Zählerstil.
+Wie im folgenden Beispiel gezeigt, wenn Ziffern von `0` bis `9` als Symbole angegeben werden, wird dieser Zählerstil Symbole wie der dezimale Zählerstil rendern.
 
 #### CSS
 
@@ -287,11 +287,11 @@ ul {
 
 ### Additiver Zähler
 
-Dieses Beispiel rendert eine Liste unter Verwendung von römischen Ziffern. Beachten Sie, dass ein `range` angegeben ist. Dies liegt daran, dass die Darstellung nur bis zum Zählerwert von `3999` korrekte römische Ziffern produziert. Jenseits des Bereichs basieren die restlichen Zählerdarstellungen auf dem Dezimalsystemstil, welcher der Fallback ist. Wenn Sie Zählerwerte als römische Ziffern darstellen müssen, könnten Sie entweder einen der vordefinierten Zählerstile `upper-roman` oder `lower-roman` verwenden, anstatt die Regel selbst zu rekonstruieren.
+Dieses Beispiel rendert eine Liste mit römischen Ziffern. Beachten Sie, dass ein `range` angegeben ist. Dies ist erforderlich, da die Darstellung korrekter römischer Ziffern nur bis zum Zählerwert von `3999` funktioniert. Sobald dieser Bereich überschritten wird, basieren die restlichen Zählerdarstellungen auf dem `decimal` Stil, der das Fallback ist. Falls Sie Zählerwerte als römische Ziffern darstellen möchten, könnten Sie entweder einen der vordefinierten Zählerstile, `upper-roman` oder `lower-roman`, verwenden, anstatt die Regel selbst zu erstellen.
 
 #### HTML
 
-Wir verwenden das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start) Attribut am {{HTMLElement("ol")}} Element, um zu demonstrieren, dass das Zählen nicht bei `1` beginnen muss. Zusätzlich verwenden wir das [`value`](/de/docs/Web/HTML/Reference/Elements/li#value) Attribut am fünften {{HTMLElement("li")}} Element, um zu zeigen, dass die von Ihnen mit `@counter-style` definierten Zähler sich genauso wie native Zähler verhalten.
+Wir verwenden das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start) Attribut am {{HTMLElement("ol")}} Element, um zu demonstrieren, dass das Zählen nicht bei `1` beginnen muss. Zusätzlich verwenden wir das [`value`](/de/docs/Web/HTML/Reference/Elements/li#value) Attribut am fünften {{HTMLElement("li")}} Element, um zu zeigen, dass die Zähler, die Sie mit `@counter-style` definieren, genauso wie native Zähler funktionieren.
 
 ```html
 <ol start="48">
@@ -338,7 +338,7 @@ ol {
 
 ### Erweiterung eines Zählers
 
-Dieses Beispiel verwendet den Algorithmus, Symbole und andere Eigenschaften von [`lower-alpha`](/de/docs/Web/CSS/Reference/Properties/list-style-type#lower-alpha), einem der mehreren nativen {{CSSXref("list-style-type")}} Zählwerten, erweitert ihn jedoch, indem das Punktzeichen (`'.'`) nach der Zähldarstellung entfernt und die Zeichen in Klammern gesetzt werden, wie `(a)` und `(b)`.
+Dieses Beispiel verwendet den Algorithmus, die Symbole und andere Eigenschaften von [`lower-alpha`](/de/docs/Web/CSS/Reference/Properties/list-style-type#lower-alpha), einem der mehreren nativen {{CSSXref("list-style-type")}} Zählerwerte, erweitert ihn jedoch, indem der Punkt (`'.'`) nach der Zählerdarstellung entfernt wird und die Zeichen in Klammern gesetzt werden, wie in `(a)` und `(b)`.
 
 #### HTML
 

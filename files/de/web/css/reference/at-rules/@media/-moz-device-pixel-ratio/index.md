@@ -3,32 +3,32 @@ title: "`-moz-device-pixel-ratio` CSS Media-Feature"
 short-title: -moz-device-pixel-ratio
 slug: Web/CSS/Reference/At-rules/@media/-moz-device-pixel-ratio
 l10n:
-  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Non-standard_header}} {{Deprecated_header}}
+{{Non-standard_header}}
 
-Die **`-moz-device-pixel-ratio`** Gecko-exklusive [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um Styles basierend auf der Anzahl von Geräte-Pixeln pro CSS-Pixel anzuwenden.
+Das **`-moz-device-pixel-ratio`** Gecko-exklusive [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um Stile basierend auf der Anzahl von Gerätepixeln pro CSS-Pixel anzuwenden.
 
 > [!WARNING]
-> Verwenden Sie dieses Feature nicht. Verwenden Sie stattdessen das [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) Feature mit der Einheit `dppx`.
+> Verwenden Sie dieses Feature nicht. Benutzen Sie stattdessen das [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) Feature mit der Einheit `dppx`.
 
 > [!NOTE]
-> Dieses Media-Feature wird auch von WebKit als `-webkit-device-pixel-ratio` implementiert. Die von Gecko implementierten Präfixe min und max heißen `min--moz-device-pixel-ratio` und `max--moz-device-pixel-ratio`; jedoch werden die gleichen Präfixe von WebKit als `-webkit-min-device-pixel-ratio` und `-webkit-max-device-pixel-ratio` benannt.
+> Dieses Media-Feature wird auch von WebKit als `-webkit-device-pixel-ratio` implementiert. Die von Gecko implementierten Präfixe für min und max heißen `min--moz-device-pixel-ratio` und `max--moz-device-pixel-ratio`; die gleichen Präfixe werden von WebKit jedoch als `-webkit-min-device-pixel-ratio` und `-webkit-max-device-pixel-ratio` bezeichnet.
 
 ## Syntax
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Geräte-Pixel pro CSS-Pixel.
+  - : Die Anzahl der Gerätepixel pro CSS-Pixel.
 
 **Media:** {{cssxref("@media")}}
-**Akzeptiert min/max Präfixe:** ja
+**Akzeptiert Min/Max-Präfixe:** ja
 
 ## Beispiele
 
 ### Grundlegendes Kompatibilitätsbeispiel
 
-`-moz-device-pixel-ratio` kann für die Kompatibilität mit Firefox-Versionen älter als 16 verwendet werden und zusammen mit `-webkit-device-pixel-ratio` für die Kompatibilität mit WebKit-basierten Browsern, die `dppx` nicht unterstützen.
+`-moz-device-pixel-ratio` kann für die Kompatibilität mit Firefox-Versionen älter als Version 16 und zusammen mit `-webkit-device-pixel-ratio` für die Kompatibilität mit WebKit-basierten Browsern verwendet werden, die `dppx` nicht unterstützen.
 
 Beispiel:
 
@@ -41,11 +41,11 @@ Beispiel:
 ```
 
 > [!NOTE]
-> In diesem [CSSWG-Artikel](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/) finden Sie gute Praktiken zur Kompatibilität mit `resolution` und `dppx`.
+> Lesen Sie diesen [CSSWG-Artikel](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/), um gute Praktiken bezüglich der Kompatibilität von `resolution` und `dppx` zu erfahren.
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

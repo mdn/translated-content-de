@@ -2,17 +2,17 @@
 title: SpeechGrammar
 slug: Web/API/SpeechGrammar
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Speech API")}}{{deprecated_header}}
+{{APIRef("Web Speech API")}}
 
-Das **`SpeechGrammar`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
+Das **`SpeechGrammar`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wörtermustern, die der Erkennungsdienst erkennen soll.
 
 Grammatik wird im [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert.
 
 > [!NOTE]
-> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen sind in der Spezifikation weiterhin vorhanden und werden von unterstützenden Browsern aus Gründen der Rückwärtskompatibilität erkannt, haben jedoch keine Auswirkungen auf Spracherkennungsdienste.
+> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen bleiben in der Spezifikation und werden von unterstützenden Browsern aus Gründen der Rückwärtskompatibilität weiterhin erkannt, haben jedoch keine Auswirkungen auf Spracherkennungsdienste.
 
 ## Konstruktor
 

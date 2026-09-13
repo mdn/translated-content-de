@@ -1,14 +1,15 @@
 ---
-title: "CSSMathValue: operator Eigenschaft"
+title: "CSSMathValue: operator-Eigenschaft"
 short-title: operator
 slug: Web/API/CSSMathValue/operator
 l10n:
-  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`operator`**-Eigenschaft der [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Schnittstelle gibt den Operator an, den der aktuelle Subtyp repräsentiert. Wenn zum Beispiel der aktuelle `CSSMathValue`-Subtyp `CSSMathSum` ist, wird diese Eigenschaft den String `"sum"` zurückgeben.
+Die **`operator`** Lese-only Eigenschaft der [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Schnittstelle gibt den Operator zurück, den der aktuelle Subtyp repräsentiert.
+Zum Beispiel, wenn der aktuelle `CSSMathValue` Subtyp `CSSMathSum` ist, gibt diese Eigenschaft den String `"sum"` zurück.
 
 ## Wert
 
@@ -28,34 +29,62 @@ Ein {{jsxref('String')}}.
 
 ### Grundlegende Verwendung
 
-Wir erstellen ein Element mit einer {{cssxref("width")}}, die mithilfe einer {{cssxref("calc()")}}-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` auszugeben.
+Dieses Beispiel zeigt, wie die `operator`-Eigenschaft die Operation identifiziert, die von einem {{cssxref("calc()")}}-Wert des `CSSMathValue`-Subtyps repräsentiert wird, einschließlich für einen geschachtelten Wert.
+
+#### HTML
 
 ```html
-<div>My width has a <code>calc()</code> function</div>
+<div id="demoBox">Text</div>
 ```
 
-Wir weisen eine `width` mit einer Berechnung zu
+```html hidden
+<pre id="log"></pre>
+```
+
+#### CSS
+
+`width` wird mit einer `calc()`-Subtraktion gesetzt, was als `CSSMathSum` dargestellt wird, dessen zweiter Term negiert ist.
 
 ```css
-div {
+#demoBox {
   width: calc(50% - 0.5vw);
 }
 ```
 
-Wir fügen das JavaScript hinzu
-
-```js
-const styleMap = document.querySelector("div").computedStyleMap();
-
-console.log(styleMap.get("width")); // CSSMathSum {values: CSSNumericArray, operator: "sum"}
-console.log(styleMap.get("width").values); // CSSNumericArray {0: CSSUnitValue, 1: CSSMathNegate, length: 2}
-console.log(styleMap.get("width").operator); // 'sum'
-console.log(styleMap.get("width").values[1].operator); // 'negate'
+```css hidden
+#log {
+  height: 80px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
 ```
 
-{{EmbedLiveSample("Basic usage", 120, 300)}}
+#### JavaScript
 
-`CSSMathValue.operator` gibt `sum` für die Gleichung und `negate` für den Operator des zweiten Werts zurück.
+```js hidden
+const logElement = document.querySelector("#log");
+function log(text) {
+  logElement.innerText += `${text}\n`;
+}
+```
+
+Wir lesen den `width`-Wert mit [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) und protokollieren dann seinen `operator` und den `operator` seines geschachtelten Wertes.
+
+```js
+const styleMap = document.querySelector("#demoBox").computedStyleMap();
+const width = styleMap.get("width");
+
+log(`operator: ${width.operator}`);
+log(`nested value operator: ${width.values[1].operator}`);
+```
+
+#### Ergebnis
+
+`width` wird durch ein `CSSMathSum`-Objekt dargestellt, dessen `operator` `"sum"` ist, weil `calc(50% - 0.5vw)` als Addition von `50%` und der Negation von `0.5vw` dargestellt wird.
+Der `operator` des zweiten geschachtelten Wertes ist `"negate"`, was die Negation widerspiegelt.
+
+{{EmbedLiveSample("Basic usage", 300, 170)}}
 
 ## Spezifikationen
 

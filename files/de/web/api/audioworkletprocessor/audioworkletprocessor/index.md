@@ -3,17 +3,15 @@ title: "AudioWorkletProcessor: AudioWorkletProcessor() Konstruktor"
 short-title: AudioWorkletProcessor()
 slug: Web/API/AudioWorkletProcessor/AudioWorkletProcessor
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`AudioWorkletProcessor()`**
-Konstruktor erstellt ein neues [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) Objekt, das einen zugrunde liegenden Audiobearbeitungsmechanismus eines
-[`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) darstellt.
+Der **`AudioWorkletProcessor()`** Konstruktor erstellt ein neues [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Objekt, das einen zugrunde liegenden Audiobearbeitungsmechanismus eines [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) repräsentiert.
 
 > [!NOTE]
-> Der `AudioWorkletProcessor` und Klassen, die von ihm erben, können nicht direkt von benutzerdefiniertem Code instanziiert werden. Stattdessen werden sie nur intern durch die Erstellung eines zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellt.
+> Der `AudioWorkletProcessor` und Klassen, die von ihm abgeleitet sind, können nicht direkt aus benutzerdefiniertem Code instanziiert werden. Stattdessen werden sie nur intern durch die Erstellung eines zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellt.
 
 ## Syntax
 
@@ -24,34 +22,31 @@ new AudioWorkletProcessor(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das als _options_ Parameter an den
-    [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode) Konstruktor übergeben und durch [den strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) geleitet wird. Verfügbare Eigenschaften sind wie folgt:
+  - : Ein Objekt, das als _options_-Parameter an den [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode)-Konstruktor übergeben wird und durch den [strukturierten Klonalgorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) gereicht wird. Verfügbare Eigenschaften sind wie folgt:
 
-    <!-- Die Spezifikation bezeichnet dieses Objekt als: AudioWorkletNodeOptions -->
+    <!-- Die Spezifikation bezieht sich auf dieses Objekt als: AudioWorkletNodeOptions -->
     - `numberOfInputs` {{optional_inline}}
-      - : Der Wert zur Initialisierung der [`numberOfInputs`](/de/docs/Web/API/AudioNode/numberOfInputs) Eigenschaft. Standardmäßig auf 1 gesetzt.
+      - : Der Wert zur Initialisierung der [`numberOfInputs`](/de/docs/Web/API/AudioNode/numberOfInputs)-Eigenschaft. Standard ist 1.
     - `numberOfOutputs` {{optional_inline}}
-      - : Der Wert zur Initialisierung der [`numberOfOutputs`](/de/docs/Web/API/AudioNode/numberOfOutputs) Eigenschaft. Standardmäßig auf 1 gesetzt.
+      - : Der Wert zur Initialisierung der [`numberOfOutputs`](/de/docs/Web/API/AudioNode/numberOfOutputs)-Eigenschaft. Standard ist 1.
     - `outputChannelCount` {{optional_inline}}
-      - : Ein **Array**, das die Anzahl der Kanäle für jeden Ausgang definiert. Zum Beispiel spezifiziert _outputChannelCount: \[n, m]_ die Anzahl der Kanäle im ersten Ausgang als _n_ und im zweiten Ausgang als _m_. Die Array-Länge muss mit `numberOfOutputs` übereinstimmen.
+      - : Ein **Array**, das die Anzahl der Kanäle für jeden Output definiert. Zum Beispiel spezifiziert _outputChannelCount: \[n, m]_ die Anzahl der Kanäle im ersten Output auf _n_ und den zweiten Output auf _m_. Die Array-Länge muss `numberOfOutputs` entsprechen.
     - `parameterData` {{optional_inline}}
-      - : Ein Objekt, das die Anfangswerte der benutzerdefinierten [`AudioParam`](/de/docs/Web/API/AudioParam) Objekte auf diesem Node enthält (in seiner [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters) Eigenschaft), wobei `key` der Name eines benutzerdefinierten Parameters und `value` dessen Anfangswert ist.
+      - : Ein Objekt, das die Anfangswerte der benutzerdefinierten [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekte auf diesem Knoten (in seiner [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft) enthält, wobei `key` der Name eines benutzerdefinierten Parameters ist und `value` sein Anfangswert.
     - `processorOptions` {{optional_inline}}
       - : Alle zusätzlichen Daten, die für die benutzerdefinierte Initialisierung des zugrunde liegenden [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) verwendet werden können.
 
-    Beachten Sie, dass es Standardwerte für die ersten beiden Eigenschaften gibt, sodass selbst wenn kein _options_ Objekt an den [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode) Konstruktor übergeben wird, das von dem Node an den `AudioWorkletProcessor` Konstruktor übergebene _options_ Objekt existiert und mindestens `numberOfInputs` und `numberOfOutputs` enthält.
+    Beachten Sie, dass es Standardwerte für die ersten beiden Eigenschaften gibt, sodass selbst wenn kein _options_-Objekt an den [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode)-Konstruktor übergeben wird, das vom Node an den `AudioWorkletProcessor`-Konstruktor übergebene _options_-Objekt existiert und mindestens `numberOfInputs` und `numberOfOutputs` enthält.
 
 ### Rückgabewert
 
-Die neu erstellte [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) Instanz.
+Das neu konstruierte [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Exemplar.
 
 ## Beispiele
 
-In diesem Beispiel übergeben wir benutzerdefinierte Optionen an den
-[`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode) Konstruktor und beobachten, wie ein [strukturierter Klon](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) davon an unseren `AudioWorkletProcessor` Konstruktor übergeben wird.
+In diesem Beispiel übergeben wir benutzerdefinierte Optionen an den [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode)-Konstruktor und beobachten, wie eine [strukturierte Klonung](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) von ihnen an unseren `AudioWorkletProcessor`-Konstruktor übergeben wird.
 
-Zuerst müssen wir einen benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) definieren und registrieren.
-Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
+Zuerst müssen wir einen benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) definieren und registrieren. Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
 
 ```js
 // test-processor.js
@@ -69,12 +64,9 @@ class TestProcessor extends AudioWorkletProcessor {
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Als nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von
-`AudioWorkletNode` und übergeben ihm den Namen des Prozessors und das _options_ Objekt.
+Als Nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von `AudioWorkletNode`, indem wir den Namen des Prozessors und das _options_-Objekt übergeben.
 
-Im _options_ Objekt übergeben wir `processorOptions` mit einer
-{{jsxref("Map")}} Instanz unter dem `someUsefulVariable` Schlüssel. Wir übergeben nicht
-`numberOfInputs` und beobachten, wie es seinen Standardwert erhält.
+Im _options_-Objekt übergeben wir `processorOptions` mit einer {{jsxref("Map")}}-Instanz unter dem Schlüssel `someUsefulVariable`. Wir übergeben nicht `numberOfInputs` und sehen, wie es seinen Standardwert erhält.
 
 ```js
 const audioContext = new AudioContext();

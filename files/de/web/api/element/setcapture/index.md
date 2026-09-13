@@ -3,16 +3,15 @@ title: "Element: setCapture() Methode"
 short-title: setCapture()
 slug: Web/API/Element/setCapture
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}{{non-standard_header}}{{ APIRef("DOM") }}
+{{non-standard_header}}{{ APIRef("DOM") }}
 
-Rufen Sie diese Methode während der Behandlung eines `mousedown`-Ereignisses auf, um alle Mausereignisse auf dieses Element umzuleiten, bis die Maustaste losgelassen wird oder [`document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) aufgerufen wird.
+Rufen Sie diese Methode während der Handhabung eines `mousedown`-Ereignisses auf, um alle Mausereignisse auf dieses Element umzuleiten, bis die Maustaste losgelassen oder [`document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) aufgerufen wird.
 
 > [!WARNING]
-> Diese Schnittstelle hatte nie viel Unterstützung in verschiedenen Browsern und Sie suchen wahrscheinlich nach [`element.setPointerCapture`](/de/docs/Web/API/Element/setPointerCapture),
-> aus der Pointer Events API.
+> Diese Schnittstelle hatte nie viel plattformübergreifende Unterstützung und Sie suchen wahrscheinlich stattdessen nach [`element.setPointerCapture`](/de/docs/Web/API/Element/setPointerCapture) aus der Pointer Events API.
 
 ## Syntax
 
@@ -23,15 +22,15 @@ setCapture(retargetToElement)
 ### Parameter
 
 - `retargetToElement`
-  - : Wenn `true`, werden alle Ereignisse direkt auf dieses Element gezielt; wenn `false`, können Ereignisse auch bei Nachkommen dieses Elements ausgelöst werden.
+  - : Wenn `true`, werden alle Ereignisse direkt an dieses Element gerichtet; wenn `false`, können Ereignisse auch bei Nachkommen dieses Elements ausgelöst werden.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie umherfahren, nachdem Sie auf ein Element geklickt haben und die Maustaste gedrückt halten.
+In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie nach dem Klicken und Halten auf ein Element mit der Maus herumfahren.
 
 ```html
 <p>This is an example of how to use mouse capture on elements in Gecko 2.0.</p>
@@ -73,15 +72,15 @@ if (btn.setCapture) {
 }
 ```
 
-[Live-Beispiele anzeigen](https://mdn.dev/archives/media/samples/domref/mousecapture.html)
+[Live-Beispiele ansehen](https://mdn.dev/archives/media/samples/domref/mousecapture.html)
 
-## Anmerkungen
+## Hinweise
 
-Das Element ist möglicherweise nicht vollständig nach oben oder unten gescrollt, abhängig vom Layout anderer Elemente.
+Das Element ist möglicherweise nicht vollständig bis nach oben oder unten gescrollt, abhängig vom Layout anderer Elemente.
 
 ## Spezifikationen
 
-Kein Bestandteil einer Spezifikation.
+Kein Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

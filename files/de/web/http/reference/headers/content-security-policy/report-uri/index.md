@@ -1,26 +1,24 @@
 ---
-title: "Content-Security-Policy: report-uri Direktive"
+title: "Content-Security-Policy: report-uri-Direktive"
 short-title: report-uri
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 8f567ac62deb241e61b525d36088d626fc6a8a84
 ---
 
-{{deprecated_header}}
-
 > [!WARNING]
-> Die {{CSP("report-to")}} Direktive soll `report-uri` ersetzen, und in Browsern, die `report-to` unterstützen, wird die `report-uri` Direktive ignoriert.
+> Die {{CSP("report-to")}}-Direktive soll `report-uri` ersetzen, und in Browsern, die `report-to` unterstützen, wird die `report-uri`-Direktive ignoriert.
 >
-> Bis `report-to` jedoch umfassend unterstützt wird, können Sie beide Header wie gezeigt angeben:
+> Solange `report-to` jedoch nicht umfassend unterstützt wird, können Sie beide Header wie gezeigt angeben:
 >
 > ```http
 > Content-Security-Policy: …; report-uri https://endpoint.example.com; report-to endpoint_name
 > ```
 
-Die veraltete HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`report-uri`** Direktive weist den User-Agent an, Versuche zur Verletzung der Content Security Policy zu melden.
-Diese Verletzungsberichte bestehen aus [JSON-Dokumenten](#syntax_des_verletzungsberichts), die über eine HTTP `POST`-Anfrage an die angegebene URI gesendet werden.
+Die veraltete HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive (CSP) **`report-uri`** weist den User-Agent an, Versuche zu melden, die Content Security Policy zu verletzen.
+Diese Verletzungsberichte bestehen aus [JSON-Dokumenten](#syntax-des-verletzungsberichts), die über eine HTTP-`POST`-Anfrage an die angegebene URI gesendet werden.
 
-Die Direktive hat an sich keine Wirkung, sondern erhält nur in Kombination mit anderen Direktiven Bedeutung.
+Die Direktive hat für sich allein keine Wirkung, sondern erhält ihre Bedeutung nur in Kombination mit anderen Direktiven.
 
 <table class="properties">
   <tbody>
@@ -29,12 +27,12 @@ Die Direktive hat an sich keine Wirkung, sondern erhält nur in Kombination mit 
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Reporting_directive", "Reporting-Direktive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>{{Glossary("Reporting_directive", "Meldedirektive")}}</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
-        Diese Direktive wird im {{HTMLElement("meta")}} Element nicht unterstützt.
+        Diese Direktive wird im {{HTMLElement("meta")}}-Element nicht unterstützt.
       </th>
     </tr>
   </tbody>
@@ -52,52 +50,52 @@ Content-Security-Policy: report-uri <uri> <uri>;
 
 ### Syntax des Verletzungsberichts
 
-Das JSON-Objekt des Berichts wird mit einer HTTP `POST`-Operation und einem {{HTTPHeader("Content-Type")}} von `application/csp-report` gesendet.
+Das JSON-Objekt des Berichts wird über eine HTTP-`POST`-Operation mit einem {{HTTPHeader("Content-Type")}} von `application/csp-report` gesendet.
 
 > [!NOTE]
-> Verletzungsberichte sollten als Angreifer-kontrollierte Daten betrachtet werden.
-> Der Inhalt sollte vor dem Speichern oder Darstellen ordnungsgemäß bereinigt werden.
-> Dies gilt insbesondere für die [script-sample](#script-sample)-Eigenschaft, falls sie bereitgestellt wird.
+> Verletzungsberichte sollten als vom Angreifer kontrollierte Daten betrachtet werden.
+> Der Inhalt sollte vor dem Speichern oder Rendern ordnungsgemäß bereinigt werden.
+> Dies gilt insbesondere für die Eigenschaft [script-sample](#script-sample), falls sie bereitgestellt wird.
 
-Das JSON-Objekt des Berichts hat eine einzelne Eigenschaft auf oberster Ebene, `"csp-report"`, die ein Objekt mit den folgenden Eigenschaften enthält:
+Das JSON-Objekt des Berichts hat eine einzelne Eigenschaft der obersten Ebene, `"csp-report"`, die ein Objekt mit den folgenden Eigenschaften enthält:
 
 - `blocked-uri`
-  - : Die URI der Ressource, die durch die Content Security Policy am Laden gehindert wurde.
-    Wenn die blockierte URI von einer anderen Herkunft als die `document-uri` stammt, wird die blockierte URI gekürzt, um nur das Schema, den Host und den Port zu enthalten.
+  - : Die URI der Ressource, deren Laden durch die Content Security Policy blockiert wurde.
+    Wenn die blockierte URI einen anderen Origin als `document-uri` hat, wird die blockierte URI so gekürzt, dass sie nur Schema, Host und Port enthält.
 - `disposition`
-  - : Entweder `"enforce"` oder `"report"` je nachdem, ob der {{HTTPHeader("Content-Security-Policy-Report-Only")}} Header oder der `Content-Security-Policy` Header verwendet wird.
+  - : Entweder `"enforce"` oder `"report"`, je nachdem, ob der Header {{HTTPHeader("Content-Security-Policy-Report-Only")}} oder der Header `Content-Security-Policy` verwendet wird.
 - `document-uri`
   - : Die URI des Dokuments, in dem die Verletzung aufgetreten ist.
 - `effective-directive`
   - : Die Direktive, deren Durchsetzung die Verletzung verursacht hat.
-    Einige Browser können unterschiedliche Werte bereitstellen, wie z.B. Chrome, das `style-src-elem`/`style-src-attr` bereitstellt, selbst wenn die durchgesetzte Direktive `style-src` war.
+    Einige Browser können andere Werte bereitstellen, etwa Chrome mit `style-src-elem`/`style-src-attr`, selbst wenn die durchgesetzte Direktive `style-src` war.
 - `original-policy`
-  - : Die ursprünglich von dem `Content-Security-Policy` HTTP-Header festgelegte Richtlinie.
+  - : Die ursprüngliche Richtlinie, wie sie durch den HTTP-Header `Content-Security-Policy` angegeben wurde.
 - `referrer` {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Der Referrer des Dokuments, in dem die Verletzung aufgetreten ist.
 - `script-sample`
-  - : Die ersten 40 Zeichen des eingebetteten Skripts, des Ereignis-Handlers oder des Stils, der die Verletzung verursacht hat.
-    Verletzungen, die von externen Dateien stammen, werden im Bericht nicht aufgenommen.
+  - : Die ersten 40 Zeichen des Inline-Skripts, Event-Handlers oder Stils, der die Verletzung verursacht hat.
+    Verletzungen, die aus externen Dateien stammen, werden nicht in den Bericht aufgenommen.
 
-    Dies ist nur anwendbar auf [`script-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) und [`style-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) Verletzungen, wenn die entsprechende `Content-Security-Policy` Direktive das [`'report-sample'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample) Schlüsselwort enthält.
+    Dies gilt nur für Verletzungen von [`script-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) und [`style-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src), wenn die entsprechende `Content-Security-Policy`-Direktive das Schlüsselwort [`'report-sample'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample) enthält.
 
 - `status-code`
-  - : Der HTTP-Statuscode der Ressource, auf der das globale Objekt erstellt wurde.
+  - : Der HTTP-Statuscode der Ressource, auf der das globale Objekt instanziiert wurde.
 - `violated-directive` {{deprecated_inline}}
-  - : Die Direktive, deren Durchsetzung die Verletzung verursacht hat. Die `violated-directive` ist ein historischer Name für das Feld `effective-directive` und enthält denselben Wert.
+  - : Die Direktive, deren Durchsetzung die Verletzung verursacht hat. `violated-directive` ist eine historische Bezeichnung für das Feld `effective-directive` und enthält denselben Wert.
 
 ## Beispiele
 
 ### CSP-Verletzungsbericht mit Content-Security-Policy
 
 Betrachten wir eine Seite unter `http://example.com/signup.html`.
-Sie verwendet die folgende Richtlinie, die alles außer Stylesheets, die von `cdn.example.com` geladen werden, verbietet.
+Sie verwendet die folgende Richtlinie, die alles außer Stylesheets verbietet, die von `cdn.example.com` geladen werden.
 
 ```http
 Content-Security-Policy: default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports
 ```
 
-Das HTML von `signup.html` sieht so aus:
+Das HTML von `signup.html` sieht wie folgt aus:
 
 ```html
 <!doctype html>
@@ -113,14 +111,14 @@ Das HTML von `signup.html` sieht so aus:
 </html>
 ```
 
-Sehen Sie den Fehler? Stylesheets dürfen nur von `cdn.example.com` geladen werden, dennoch versucht die Website, eines von ihrem eigenen Ursprung (`http://example.com`) zu laden.
-Ein Browser, der in der Lage ist, CSP durchzusetzen, würde den folgenden Verletzungsbericht als `POST`-Anfrage an `http://example.com/_/csp-reports` senden, wenn das Dokument besucht wird:
+Erkennen Sie den Fehler? Stylesheets dürfen nur von `cdn.example.com` geladen werden, die Website versucht jedoch, eines von ihrem eigenen Origin (`http://example.com`) zu laden.
+Ein Browser, der CSP durchsetzen kann, würde beim Aufruf des Dokuments den folgenden Verletzungsbericht als `POST`-Anfrage an `http://example.com/_/csp-reports` senden:
 
 ```json
 {
   "csp-report": {
     "blocked-uri": "http://example.com/css/style.css",
-    "disposition": "report",
+    "disposition": "enforce",
     "document-uri": "http://example.com/signup.html",
     "effective-directive": "style-src-elem",
     "original-policy": "default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports",
@@ -131,24 +129,24 @@ Ein Browser, der in der Lage ist, CSP durchzusetzen, würde den folgenden Verlet
 }
 ```
 
-Wie Sie sehen können, enthält der Bericht den vollständigen Pfad zur verletzenden Ressource in `blocked-uri`.
-Das ist nicht immer der Fall.
-Wenn `signup.html` beispielsweise versuchen würde, CSS von `http://anothercdn.example.com/stylesheet.css` zu laden, würde der Browser _nicht_ den vollständigen Pfad aufnehmen, sondern nur den Ursprung,
-(`http://anothercdn.example.com`) um zu verhindern, dass sensible Informationen über Ressourcen fremder Herkunft preisgegeben werden.
-Die CSP-Spezifikation [gibt eine Erklärung](https://w3c.github.io/webappsec-csp/#security-violation-reports) für dieses Verhalten.
+Wie Sie sehen können, enthält der Bericht in `blocked-uri` den vollständigen Pfad zur Ressource, die die Verletzung verursacht.
+Dies ist nicht immer der Fall.
+Wenn `signup.html` beispielsweise versuchen würde, CSS von `http://anothercdn.example.com/stylesheet.css` zu laden, würde der Browser den vollständigen Pfad _nicht_ aufnehmen, sondern nur den Origin
+(`http://anothercdn.example.com`), um das Offenlegen sensibler Informationen über Cross-Origin-Ressourcen zu verhindern.
+Die CSP-Spezifikation [liefert eine Erklärung](https://w3c.github.io/webappsec-csp/#security-violation-reports) für dieses Verhalten.
 
 ### CSP-Verletzungsbericht mit Content-Security-Policy-Report-Only
 
-Die `report-uri` Direktive kann auch mit dem {{httpheader("Content-Security-Policy-Report-Only")}} Antwortheader verwendet werden.
-Dieser Header ermöglicht dem Browser zu berichten, aber nicht bei Verstößen zu blockieren, wenn getestet wird.
+Die `report-uri`-Direktive kann auch mit dem Antwort-Header {{httpheader("Content-Security-Policy-Report-Only")}} verwendet werden.
+Dieser Header ermöglicht es dem Browser, Verletzungen beim Testen zu melden, aber nicht zu blockieren.
 
-Der HTTP-Header wäre nahezu identisch.
+Der HTTP-Header wäre weitgehend derselbe.
 
 ```http
 Content-Security-Policy-Report-Only: default-src 'none'; style-src cdn.example.com; report-to /_/csp-reports
 ```
 
-Der Bericht wäre derselbe, mit Ausnahme der Angabe `"report"` und natürlich der `"original-policy"`:
+Der Bericht wäre bis auf die Disposition `"report"` und natürlich die `"original-policy"` derselbe:
 
 ```json
 {
@@ -165,15 +163,15 @@ Der Bericht wäre derselbe, mit Ausnahme der Angabe `"report"` und natürlich de
 }
 ```
 
-### CSP-Verletzungsprotokollierung
+### Protokollierung von CSP-Verletzungen
 
-Angenommen ein Server sendet Antworten mit dem folgenden `Content-Security-Policy` Header:
+Angenommen, ein Server sendet Antworten mit dem folgenden `Content-Security-Policy`-Header:
 
 ```http
 Content-Security-Policy: default-src https:; report-uri /csp-violation-report-endpoint/
 ```
 
-`/csp-violation-report-endpoint/` könnte zum Beispiel ein PHP-Skript wie das folgende ausführen, dass das JSON, das die Verletzung beschreibt, protokolliert und, wenn die Verletzung die erste ist, die der Protokolldatei hinzugefügt wird, eine E-Mail an einen Administrator sendet:
+`/csp-violation-report-endpoint/` könnte beispielsweise ein PHP-Skript wie das folgende ausführen, das das JSON mit Details zur Verletzung protokolliert und, wenn die Verletzung die erste zum Protokolldatei hinzugefügte ist, eine E-Mail an einen Administrator sendet:
 
 ```php
 <?php

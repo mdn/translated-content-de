@@ -1,18 +1,18 @@
 ---
-title: "RTCTransportStats: Eigenschaft selectedCandidatePairChanges"
+title: "RTCTransportStats: selectedCandidatePairChanges-Eigenschaft"
 short-title: selectedCandidatePairChanges
 slug: Web/API/RTCTransportStats/selectedCandidatePairChanges
 l10n:
-  sourceCommit: 185acd0fe4bd6d0f4a5c6d79fa46b1b748d09ea1
+  sourceCommit: 22415524e883da3d4119d12260b37137ffc7165f
 ---
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`selectedCandidatePairChanges`** des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Dictionaries gibt die Gesamtanzahl der Änderungen des ausgewählten Kandidatenpaars dieses Transports an.
+Die **`selectedCandidatePairChanges`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs gibt die Gesamtanzahl der Male an, bei denen das ausgewählte Kandidatenpaar dieses Transports gewechselt hat.
 
 ## Wert
 
-Eine positive ganze Zahl, die anfangs null ist und sich erhöht, wann immer ein Kandidatenpaar ausgewählt oder verloren wird.
+Eine nicht negative Ganzzahl, die anfangs null ist und ansteigt, wann immer ein Kandidatenpaar ausgewählt oder verloren geht.
 
 ## Spezifikationen
 

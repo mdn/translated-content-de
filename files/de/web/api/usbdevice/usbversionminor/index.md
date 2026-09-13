@@ -3,17 +3,16 @@ title: "USBDevice: usbVersionMinor-Eigenschaft"
 short-title: usbVersionMinor
 slug: Web/API/USBDevice/usbVersionMinor
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: 03d7663c2965d67eca296f6a27aa8a651de7dfee
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`usbVersionMinor`**-Eigenschaft des
-[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist eine von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion deklarieren. Die anderen beiden Eigenschaften sind USBDevice.usbVersionMajor und USBDevice.usbVersionSubminor.
+Die **`usbVersionMinor`**-Eigenschaft des schreibgeschützten [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist eine von drei Eigenschaften, die die von dem Gerät unterstützte USB-Protokollversion angeben. Die anderen beiden Eigenschaften sind USBDevice.usbVersionMajor und USBDevice.usbVersionSubminor.
 
 ## Wert
 
-Die zweite von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion deklarieren.
+Die zweite von drei Eigenschaften, die die von dem Gerät unterstützte USB-Protokollversion angeben.
 
 ## Spezifikationen
 

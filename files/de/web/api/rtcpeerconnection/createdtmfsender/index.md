@@ -1,16 +1,16 @@
 ---
-title: "RTCPeerConnection: createDTMFSender()-Methode"
+title: "RTCPeerConnection: createDTMFSender() Methode"
 short-title: createDTMFSender()
 slug: Web/API/RTCPeerConnection/createDTMFSender
 l10n:
-  sourceCommit: ed6a48a8e1761919b88fd3691af248b702be72b4
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{Deprecated_Header}}{{non-standard_header}}
+{{APIRef("WebRTC")}}{{non-standard_header}}
 
-Die **`createDTMFSender()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces erstellt ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt, das mit dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) verknüpft ist. Dieses kann verwendet werden, um DTMF-Töne über die Verbindung zu senden.
+Die **`createDTMFSender()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle erstellt ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt, das mit dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) assoziiert ist, welches verwendet werden kann, um DTMF-Töne über die Verbindung zu senden.
 
-Diese Methode ist veraltet und sollte nicht verwendet werden. Verwenden Sie stattdessen die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft, um auf den DTMF-Sender zuzugreifen, der mit einem bestimmten Sender verknüpft ist.
+Diese Methode ist veraltet und sollte nicht verwendet werden. Stattdessen sollte die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft genutzt werden, um auf den DTMF-Sender zuzugreifen, der mit einem bestimmten Sender assoziiert ist.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ createDTMFSender(track)
 ### Parameter
 
 - `track`
-  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Track darstellt, der mit dem neuen DTMF-Sender verknüpft werden soll.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Track darstellt, der mit dem neuen DTMF-Sender assoziiert werden soll.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen neuen DTMF-Sender, der mit dem angegebenen Track verknüpft ist.
+Dieses Beispiel erstellt einen neuen DTMF-Sender, der mit dem angegebenen Track assoziiert ist.
 
 ```js
 navigator.getUserMedia({ audio: true }, (stream) => {
@@ -52,7 +52,7 @@ navigator.getUserMedia({ audio: true }, (stream) => {
 
 ## Spezifikationen
 
-Dieses Feature ist nicht standardisiert und Teil keiner Spezifikation.
+Dieses Merkmal ist nicht standardisiert und Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

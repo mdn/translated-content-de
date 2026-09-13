@@ -3,14 +3,14 @@ title: "HMDVRDevice: getEyeParameters()-Methode"
 short-title: getEyeParameters()
 slug: Web/API/HMDVRDevice/getEyeParameters
 l10n:
-  sourceCommit: ccbc5d4100e0a5de844e060b025883ef1611d7b8
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("WebVR API")}}{{Non-standard_header}}
+{{APIRef("WebVR API")}}{{Non-standard_header}}
 
-Die **`getEyeParameters()`**-Methode der [`HMDVRDevice`](/de/docs/Web/API/HMDVRDevice)-Schnittstelle gibt die aktuellen Parameter für das Auge zurück, das als Argument angegeben wird ("left" oder "right") — gespeichert in einem [`VREyeParameters`](/de/docs/Web/API/VREyeParameters)-Objekt.
+Die **`getEyeParameters()`**-Methode der [`HMDVRDevice`](/de/docs/Web/API/HMDVRDevice)-Schnittstelle gibt die aktuellen Parameter für das als Argument angegebene Auge ("left" oder "right") zurück — diese werden in einem [`VREyeParameters`](/de/docs/Web/API/VREyeParameters)-Objekt gespeichert.
 
-Dies beinhaltet Informationen über das Sichtfeld und mehr.
+Dies umfasst Informationen über das Sichtfeld und mehr.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ getEyeParameters(whichEye)
 ### Parameter
 
 - `whichEye`
-  - : Ein String, der das Auge darstellt, über das Sie Informationen erhalten möchten. Der Wert kann `left` oder `right` sein.
+  - : Ein String, der das Auge repräsentiert, über das Sie Informationen abrufen möchten. Der Wert kann `left` oder `right` sein.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Ein [`VREyeParameters`](/de/docs/Web/API/VREyeParameters)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem [threejs-vr-boilerplate](https://github.com/MozillaReality/vr-web-examples/tree/master/threejs-vr-boilerplate)-Code des Mozilla VR-Teams — genauer gesagt aus der [VREffect.js-Datei](https://github.com/MozillaReality/vr-web-examples/blob/master/threejs-vr-boilerplate/js/VREffect.js). Früh im Code wird die `getEyeParameters()`-Methode verwendet, um Informationen über jedes Auge zu erhalten, die dann später für Berechnungen beim Rendering genutzt werden.
+Das folgende Beispiel stammt aus dem Code des Mozilla VR Teams [threejs-vr-boilerplate](https://github.com/MozillaReality/vr-web-examples/tree/master/threejs-vr-boilerplate) — genauer gesagt aus der [VREffect.js-Datei](https://github.com/MozillaReality/vr-web-examples/blob/master/threejs-vr-boilerplate/js/VREffect.js). Früh im Code wird die `getEyeParameters()`-Methode verwendet, um Informationen über jedes Auge zu erhalten, die später für Berechnungen beim Rendering genutzt werden.
 
 ```js
 if (vrHMD.getEyeParameters !== undefined) {

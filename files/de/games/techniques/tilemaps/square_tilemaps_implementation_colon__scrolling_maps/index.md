@@ -1,34 +1,34 @@
 ---
-title: "Implementierung von quadratischen Tilemaps: Scrollende Karten"
+title: "Implementierung von quadratischen Kachelkarten: Scrollende Karten"
 slug: Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps
 l10n:
-  sourceCommit: 21addd31954b2629ab3e186dacdf7edca813dc7d
+  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
 ---
 
-Dieser Artikel behandelt die Implementierung von scrollenden quadratischen Tilemaps mithilfe der [Canvas API](/de/docs/Web/API/Canvas_API).
+Dieser Artikel behandelt die Implementierung von scrollenden Kachelkarten im Quadratformat mithilfe der [Canvas API](/de/docs/Web/API/Canvas_API).
 
 > [!NOTE]
-> Beim Schreiben dieses Artikels haben wir angenommen, dass die Leser Vorkenntnisse über die Grundlagen des Canvas haben, wie z.B. das Erhalten eines 2D-Canvas-Kontexts, das Laden von Bildern usw., was alles im [Canvas API Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) erklärt wird. Darüber hinaus basiert dieser Artikel auf den grundlegenden Informationen, die in unserem Einführungsartikel [Tilemaps](/de/docs/Games/Techniques/Tilemaps) enthalten sind. Dieser Artikel baut auch auf der [Implementierung statischer quadratischer Tilemaps](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps) auf — Sie sollten diesen ebenfalls lesen, falls Sie dies noch nicht getan haben.
+> Beim Verfassen dieses Artikels gingen wir davon aus, dass der Leser bereits über grundlegende Kenntnisse des Canvas, wie das Abrufen eines 2D-Canvas-Kontexts, das Laden von Bildern usw. verfügt, was alles im [Canvas-API-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) erklärt wird, sowie die grundlegenden Informationen in unserem Einführungsartikel über [Tilemaps](/de/docs/Games/Techniques/Tilemaps). Dieser Artikel baut auch auf der [Implementierung statischer quadratischer Kachelkarten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps) auf — diesen sollten Sie ebenfalls lesen, falls nicht bereits geschehen.
 
 ## Die Kamera
 
-Die Kamera ist ein Objekt, das Informationen darüber enthält, welcher Abschnitt der Spielwelt oder des Levels gerade angezeigt wird. Kameras können entweder frei beweglich sein und vom Spieler gesteuert werden (wie in Strategie-Spielen) oder einem Objekt folgen (wie dem Hauptcharakter in Plattformspielen).
+Die Kamera ist ein Objekt, das Informationen darüber enthält, welcher Abschnitt der Spielwelt oder des Levels derzeit angezeigt wird. Kameras können entweder frei formbar und vom Spieler gesteuert sein (wie in Strategiespielen) oder einem Objekt folgen (wie der Hauptfigur in Plattformspielen).
 
-Unabhängig vom Kameratyp benötigen wir immer Informationen über die aktuelle Position, die Größe des Ansichtsfensters usw. In der [bereitgestellten Demo](https://mozdevs.github.io/gamedev-js-tiles/square/scroll.html) zusammen mit diesem Artikel sind dies die Parameter, die die Kamera hat:
+Unabhängig vom Kameratyp benötigen wir immer Informationen über ihre aktuelle Position, die Größe des Ansichtsfensters usw. In dem [bereitgestellten Demo](https://mozdevs.github.io/gamedev-js-tiles/square/scroll.html) zusammen mit diesem Artikel, sind dies die Parameter, die die Kamera hat:
 
-- `x` und `y`: Die aktuelle Position der Kamera. In dieser Implementierung gehen wir davon aus, dass `(x,y)` auf die obere linke Ecke des sichtbaren Teils der Karte zeigt.
-- `width` und `height`: Die Größe des Ansichtsfensters der Kamera.
-- `maxX` und `maxY`: Die Grenze für die Position der Kamera — Die untere Grenze wird fast immer `(0,0)` sein, und in diesem Fall ist die obere Grenze gleich der Größe der Welt minus der Größe des Ansichtsfensters der Kamera.
+- `x` und `y`: Die aktuelle Position der Kamera. In dieser Implementierung nehmen wir an, dass `(x,y)` die obere linke Ecke des sichtbaren Abschnitts der Karte zeigt.
+- `width` und `height`: Die Größe des Kamera-Ansichtsfensters.
+- `maxX` und `maxY`: Das Limit für die Position der Kamera — Das untere Limit wird fast immer `(0,0)` sein, und in diesem Fall ist das obere Limit gleich der Größe der Welt minus der Größe des Kamera-Ansichtsfensters.
 
-## Rendering der Karte
+## Das Rendern der Karte
 
-Es gibt zwei wesentliche Unterschiede zwischen dem Rendering von scrollenden Karten und statischen Karten:
+Es gibt zwei wesentliche Unterschiede zwischen dem Rendern von scrollenden Karten und statischen Karten:
 
-- **Teilweise Kacheln können angezeigt werden**. In statischen Karten beginnt das Rendering normalerweise in der oberen linken Ecke einer Kachel, die sich in der oberen linken Ecke eines Ansichtsfensters befindet. Während des Renderings von scrollenden Tilemaps wird oft die erste Kachel abgeschnitten.
+- **Teilweise Kacheln könnten angezeigt werden**. In statischen Karten beginnt das Rendering normalerweise in der oberen linken Ecke einer Kachel, die sich in der oberen linken Ecke eines Ansichtsfensters befindet. Beim Rendern von scrollenden Kachelkarten wird die erste Kachel oft abgeschnitten.
 
-- **Nur ein Abschnitt der Karte wird gerendert**. Wenn die Karte größer ist als das Ansichtsfenster, können wir offensichtlich nur einen Teil davon gleichzeitig anzeigen, während nicht-scrollende Karten normalerweise vollständig gerendert werden.
+- **Nur ein Abschnitt der Karte wird gerendert**. Wenn die Karte größer als das Ansichtsfenster ist, können wir offensichtlich nur einen Teil davon gleichzeitig anzeigen, während nicht-scrollende Karten normalerweise vollständig gerendert werden.
 
-Um diese Probleme zu bewältigen, müssen wir den Rendering-Algorithmus leicht anpassen. Stellen Sie sich vor, die Kamera zeigt auf `(5,10)`. Das bedeutet, dass die erste Kachel `0x0` wäre. Im Democode wird der Startpunkt in `startCol` und `startRow` gespeichert. Es ist auch praktisch, die letzte zu rendernde Kachel vorab zu berechnen.
+Um diese Probleme zu bewältigen, müssen wir den Rendering-Algorithmus leicht modifizieren. Stellen wir uns vor, dass die Kamera auf `(5,10)` zeigt. Das bedeutet, dass die erste Kachel `0x0` wäre. Im Demo-Code wird der Startpunkt bei `startCol` und `startRow` gespeichert. Es ist praktisch, auch die letzte zu rendernde Kachel vorab zu berechnen.
 
 ```js
 const startCol = Math.floor(this.camera.x / map.tsize);
@@ -37,14 +37,14 @@ const startRow = Math.floor(this.camera.y / map.tsize);
 const endRow = startRow + this.camera.height / map.tsize;
 ```
 
-Sobald wir die erste Kachel haben, müssen wir berechnen, wie viel deren Rendering (und somit das Rendering der anderen Kacheln) verschoben wird. Da die Kamera auf `(5, 10)` zeigt, wissen wir, dass die erste Kachel um `(-5,-10)` Pixel verschoben werden sollte. In unserer Demo wird der Verschiebungsbetrag in den Variablen `offsetX` und `offsetY` gespeichert.
+Sobald wir die erste Kachel haben, müssen wir berechnen, um wie viel deren Rendering (und daher das Rendering der anderen Kacheln) verschoben wird. Da die Kamera auf `(5, 10)` zeigt, wissen wir, dass die erste Kachel um `(-5,-10)` Pixel verschoben werden sollte. In unserer Demo ist die Verschiebungsmenge in den Variablen `offsetX` und `offsetY` gespeichert.
 
 ```js
 const offsetX = -this.camera.x + startCol * map.tsize;
 const offsetY = -this.camera.y + startRow * map.tsize;
 ```
 
-Mit diesen Werten an Ort und Stelle ist die Schleife, die die Karte rendert, derjenigen, die für das Rendering statischer Tilemaps verwendet wird, ziemlich ähnlich. Der Hauptunterschied besteht darin, dass wir die Werte `offsetX` und `offsetY` zu den Zielkoordinaten `x` und `y` hinzufügen, und diese Werte werden gerundet, um Artefakte zu vermeiden, die entstehen würden, wenn die Kamera auf Positionen mit Gleitkommazahlen zeigt.
+Mit diesen Werten an Ort und Stelle ähnelt die Schleife, die die Karte rendert, stark der für das Rendern statischer Kachelkarten verwendeten. Der Hauptunterschied besteht darin, dass wir die Werte `offsetX` und `offsetY` zu den Ziel-`x`- und `y`-Koordinaten hinzufügen, und diese Werte werden gerundet, um Artefakte zu vermeiden, die sich ergeben würden, wenn die Kamera auf Positionen mit Float-Zahlen zeigt.
 
 ```js
 for (let c = startCol; c <= endCol; c++) {
@@ -72,8 +72,8 @@ for (let c = startCol; c <= endCol; c++) {
 
 ## Demo
 
-Unsere Demo zur Implementierung von scrollenden Tilemaps führt den obigen Code zusammen, um zu zeigen, wie eine Implementierung dieser Karte aussieht. Sie können sich eine [Live-Demo](https://mozdevs.github.io/gamedev-js-tiles/square/scroll.html) ansehen und [den Quellcode dazu](https://github.com/mozdevs/gamedev-js-tiles) betrachten.
+Unsere Demo der Implementierung von scrollenden Kachelkarten kombiniert den obigen Code, um zu zeigen, wie eine Implementierung dieser Karte aussieht. Sie können sich eine [Live-Demo ansehen](https://mozdevs.github.io/gamedev-js-tiles/square/scroll.html) und [den Quellcode dazu einsehen](https://github.com/mozdevs/gamedev-js-tiles).
 
-![Animiertes gif eines Abschnitts mit Gras-, Erdflächen und Bäumen, erstellt aus wiederholten Abschnitten einer Tilemap, das zeigt, wie Sie beim Scrollen unterschiedliche Bereiche sehen.](untitled.gif)
+![Animiertes GIF eines Abschnitts mit Gras, schmutzigen Bereichen und Bäumen, die aus wiederholten Abschnitten einer Kachelkarte bestehen, um zu zeigen, wie man verschiedene Abschnitte des Gebiets sieht, wenn man scrollt.](untitled.gif)
 
-Es gibt [eine weitere Demo](https://mozdevs.github.io/gamedev-js-tiles/square/logic-grid.html), die zeigt, wie man die Kamera einem Charakter folgen lässt.
+Es gibt [eine weitere verfügbare Demo](https://mozdevs.github.io/gamedev-js-tiles/square/logic-grid.html), die zeigt, wie man die Kamera einem Charakter folgen lässt.

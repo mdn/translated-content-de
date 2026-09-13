@@ -2,26 +2,26 @@
 title: PerformanceElementTiming
 slug: Web/API/PerformanceElementTiming
 l10n:
-  sourceCommit: 3d7c7d4e151ff1b578bef4eff10c201b761a9d7d
+  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Das **`PerformanceElementTiming`** Interface enthält Informationen zur Rendering-Zeit für Bild- und Textknotenelemente, die der Entwickler zur Beobachtung mit einem [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) Attribut versehen hat.
+Das **`PerformanceElementTiming`**-Interface enthält Render-Zeitinformationen für Bild- und Textknotenelemente, die der Entwickler mit einem [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut zur Beobachtung versehen hat.
 
 ## Beschreibung
 
-Das Ziel der Element Timing API ist es, Webentwicklern oder Analysetools die Möglichkeit zu geben, Rendering-Zeitstempel von kritischen Elementen auf einer Seite zu messen.
+Das Ziel der Element Timing API ist es, Webentwicklern oder Analysetools die Möglichkeit zu geben, die Rendering-Zeitstempel von kritischen Elementen auf einer Seite zu messen.
 
-Die API unterstützt Timing-Informationen für die folgenden Elemente:
+Die API unterstützt Zeitinformationen auf den folgenden Elementen:
 
-- {{htmlelement("img")}} Elemente,
-- {{SVGElement("image")}} Elemente innerhalb eines {{SVGElement("svg")}},
-- [poster](/de/docs/Web/HTML/Reference/Elements/video#poster) Bilder von {{htmlelement("video")}} Elementen,
-- Elemente, die eine inhaltliche {{cssxref("background-image")}} Eigenschaft mit einem URL-Wert für eine Ressource haben, die tatsächlich verfügbar ist, und
-- Gruppen von Textknoten, wie beispielsweise ein {{htmlelement("p")}}.
+- {{htmlelement("img")}}-Elemente,
+- {{SVGElement("image")}}-Elemente innerhalb eines {{SVGElement("svg")}},
+- [poster](/de/docs/Web/HTML/Reference/Elements/video#poster)-Bilder von {{htmlelement("video")}}-Elementen,
+- Elemente, die eine inhaltsvolle {{cssxref("background-image")}}-Eigenschaft mit einem URL-Wert für eine tatsächlich verfügbare Ressource haben, und
+- Gruppen von Textknoten, wie ein {{htmlelement("p")}}.
 
-Der Autor kennzeichnet ein Element zur Beobachtung, indem er das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) Attribut auf das Element setzt.
+Der Autor markiert ein Element zur Beobachtung, indem er das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut am Element hinzufügt.
 
 `PerformanceElementTiming` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
@@ -36,45 +36,45 @@ Dieses Interface definiert direkt die folgenden Eigenschaften:
 - [`PerformanceElementTiming.id`](/de/docs/Web/API/PerformanceElementTiming/id) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Ein String, der die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des Elements ist.
 - [`PerformanceElementTiming.identifier`](/de/docs/Web/API/PerformanceElementTiming/identifier) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der den Wert des [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/for) Attributs auf dem Element darstellt.
+  - : Ein String, der den Wert des [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/for)-Attributs am Element enthält.
 - [`PerformanceElementTiming.intersectionRect`](/de/docs/Web/API/PerformanceElementTiming/intersectionRect) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das das Rechteck des Elements innerhalb des Viewports ist.
+  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das das Rechteck des Elements im Ansichtsfenster ist.
 - [`PerformanceElementTiming.loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit der Ladezeit des Elements.
 - [`PerformanceElementTiming.naturalHeight`](/de/docs/Web/API/PerformanceElementTiming/naturalHeight) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein vorzeichenloser 32-Bit-Integer (unsigned long), der die intrinsische Höhe des Bildes ist, wenn dies auf ein Bild angewendet wird, 0 für Text.
+  - : Ein nicht-signierter 32-Bit-Integer (unsigned long), der die intrinsische Höhe des Bildes ist, wenn dies auf ein Bild angewendet wird, 0 für Text.
 - [`PerformanceElementTiming.naturalWidth`](/de/docs/Web/API/PerformanceElementTiming/naturalWidth) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein vorzeichenloser 32-Bit-Integer (unsigned long), der die intrinsische Breite des Bildes ist, wenn dies auf ein Bild angewendet wird, 0 für Text.
+  - : Ein nicht-signierter 32-Bit-Integer (unsigned long), der die intrinsische Breite des Bildes ist, wenn dies auf ein Bild angewendet wird, 0 für Text.
 - [`PerformanceElementTiming.paintTime`](/de/docs/Web/API/PerformanceElementTiming/paintTime) {{experimental_inline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, als die Rendering-Phase endete und die Mal-Phase begann.
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die Rendering-Phase endete und die Malphase begann.
 - [`PerformanceElementTiming.presentationTime`](/de/docs/Web/API/PerformanceElementTiming/presentationTime) {{experimental_inline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, als das Element tatsächlich auf dem Bildschirm gezeichnet wurde.
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann das Element tatsächlich auf dem Bildschirm gezeichnet wurde.
 - [`PerformanceElementTiming.renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit der Rendering-Zeit des Elements.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit der Renderzeit des Elements.
 - [`PerformanceElementTiming.url`](/de/docs/Web/API/PerformanceElementTiming/url) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der die ursprüngliche URL der Ressourcenanfrage für Bilder ist, 0 für Text.
+  - : Ein String, der die anfängliche URL der Ressourcenanforderung für Bilder ist, 0 für Text.
 
-Es erweitert auch die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften, qualifiziert und beschränkt sie wie beschrieben:
+Es erweitert auch die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem sie qualifiziert und eingeschränkt werden, wie beschrieben:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt immer `0` zurück, da `duration` auf dieses Interface nicht zutrifft.
+  - : Gibt immer `0` zurück, da `duration` auf dieses Interface nicht anwendbar ist.
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `"element"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt `"image-paint"` für Bilder und `"text-paint"` für Text zurück.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Wert von `renderTime` dieses Eintrags zurück, wenn er nicht `0` ist, andernfalls den Wert von `loadTime` dieses Eintrags.
+  - : Gibt den Wert von [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) dieses Eintrags zurück, wenn dieser nicht `0` ist, andernfalls den Wert von [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) dieses Eintrags.
 
 ## Instanz-Methoden
 
 - [`PerformanceElementTiming.toJSON()`](/de/docs/Web/API/PerformanceElementTiming/toJSON) {{Experimental_Inline}}
-  - : Gibt eine JSON-Darstellung des `PerformanceElementTiming` Objekts zurück.
+  - : Überschreibt die [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON)-Methode, um eine JSON-Darstellung des `PerformanceElementTiming`-Objekts zurückzugeben.
 
 ## Beispiele
 
-### Beobachtung der Rendering-Zeit von spezifischen Elementen
+### Beobachtung der Renderzeit spezifischer Elemente
 
-In diesem Beispiel werden zwei Elemente beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungseinträge des Typs `"element"` zu erhalten, und das `buffered` Flag wird verwendet, um auf Daten vor der Erstellung des Beobachters zuzugreifen.
+In diesem Beispiel werden zwei Elemente beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungsdatensätze des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Beobachters verfügbar sind.
 
 ```html
 <img src="image.jpg" elementtiming="big-image" />
@@ -90,13 +90,13 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "element", buffered: true });
 ```
 
-Zwei Einträge werden in die Konsole ausgegeben. Der erste enthält Details zum Bild, der zweite Details zum Textknoten.
+Zwei Einträge werden an die Konsole ausgegeben: Der erste enthält Details des Bildes, der zweite Details des Textknotens.
 
 ### Beobachtung separater Mal- und Präsentationszeiten
 
-Die Eigenschaften `paintTime` und `presentationTime` ermöglichen es Ihnen, spezifische Timing-Werte für den Beginn der Malphase und das Zeichnen des Elements auf dem Bildschirm abzurufen. Die `paintTime` ist weitgehend interoperabel, während die `presentationTime` von der Implementierung abhängt.
+Die `paintTime`- und `presentationTime`-Eigenschaften ermöglichen es Ihnen, spezifische Zeiten für den Beginn der Malphase und das Zeichnen des Elements auf dem Bildschirm abzurufen. Die `paintTime` ist weitgehend interoperabel, während die `presentationTime` implementierungsabhängig ist.
 
-Dieses Beispiel nutzt einen `PerformanceObserver`, um alle Leistungseinträge des Typs `"element"` zu beobachten (denken Sie daran, dass Elemente `elementtiming` Attribute haben müssen, um beobachtet zu werden). Wir überprüfen die Unterstützung für `paintTime` und `presentationTime` und rufen diese Werte ab, wenn sie verfügbar sind. In nicht unterstützenden Browsern ruft der Code die `renderTime` oder `loadTime` ab, je nach dem, was unterstützt wird.
+Dieses Beispiel verwendet einen `PerformanceObserver`, um alle Leistungsdatensätze des Typs `"element"` zu beobachten (denken Sie daran, dass zu beobachtende Elemente `elementtiming`-Attribute gesetzt haben müssen). Wir prüfen, ob `paintTime` und `presentationTime` unterstützt werden und rufen diese Werte ab, wenn sie verfügbar sind. In nicht unterstützenden Browsern ruft der Code die `renderTime` oder `loadTime` ab, abhängig davon, was unterstützt wird.
 
 ```js
 const observer = new PerformanceObserver((list) => {

@@ -1,14 +1,14 @@
 ---
-title: "FileSystemHandle: isSameEntry()-Methode"
+title: "FileSystemHandle: Methode isSameEntry()"
 short-title: isSameEntry()
 slug: Web/API/FileSystemHandle/isSameEntry
 l10n:
-  sourceCommit: a9edf113447f37911ccc0c26ac507ed1d1629606
+  sourceCommit: e1e7e2ac2cb1e40293c32c24bc0667905e9a7a04
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`isSameEntry()`**-Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle vergleicht zwei [`Handles`](/de/docs/Web/API/FileSystemHandle), um zu überprüfen, ob die zugehörigen Einträge (entweder eine Datei oder ein Verzeichnis) übereinstimmen.
+Die **`isSameEntry()`**-Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle vergleicht zwei [`Handles`](/de/docs/Web/API/FileSystemHandle), um festzustellen, ob die zugehörigen Einträge (entweder eine Datei oder ein Verzeichnis) übereinstimmen.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ isSameEntry(fileSystemHandle)
 ### Parameter
 
 - [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)
-  - : Das `FileSystemHandle`, das mit dem Handle, auf dem die Methode aufgerufen wird, abgeglichen werden soll.
+  - : Der `FileSystemHandle`, der mit dem Handle abgeglichen werden soll, auf dem die Methode aufgerufen wird.
 
 ### Rückgabewert
 
-Ein Promise, das mit einem {{jsxref('Boolean')}} erfüllt wird.
+Ein `Promise`, das mit einem {{jsxref('Boolean')}} erfüllt wird.
 
 ## Beispiele
 
-Die folgende Funktion vergleicht einen einzelnen Eintrag mit einem Array von Einträgen und gibt ein {{jsxref("Promise")}} zurück, das mit einem neuen Array erfüllt wird, bei dem alle übereinstimmenden Einträge entfernt sind.
+Die folgende Funktion vergleicht einen einzelnen Eintrag mit einem Array von Einträgen und gibt ein {{jsxref("Promise")}} zurück, das mit einem neuen Array erfüllt wird, aus dem alle übereinstimmenden Einträge entfernt sind.
 
 ```js
 async function removeMatches(fileEntry, entriesArr) {

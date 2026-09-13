@@ -3,10 +3,12 @@ title: "`margin-top` CSS property"
 short-title: margin-top
 slug: Web/CSS/Reference/Properties/margin-top
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`margin-top`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt den [Außenabstand (Margin)](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) am oberen Rand eines Elements fest. Ein positiver Wert entfernt das Element mehr von seinen Nachbarn, während ein negativer Wert es näher platziert.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`margin-top`** legt den [Außenrandbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) am oberen Rand eines Elements fest. Ein positiver Wert platziert ihn weiter von seinen Nachbarn entfernt, während ein negativer Wert ihn näher platziert.
+
+Diese Eigenschaft hat keine Auswirkung auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 {{InteractiveExample("CSS Demo: margin-top")}}
 
@@ -60,8 +62,6 @@ margin-top: 0;
 }
 ```
 
-Diese Eigenschaft hat keine Auswirkung auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente, wie zum Beispiel {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
-
 ## Syntax
 
 ```css
@@ -83,18 +83,18 @@ margin-top: revert-layer;
 margin-top: unset;
 ```
 
-Die `margin-top`-Eigenschaft kann mit dem Schlüsselwort `auto`, als `<length>` oder als `<percentage>` angegeben werden. Ihr Wert kann positiv, null oder negativ sein.
+Die Eigenschaft `margin-top` wird als Schlüsselwort `auto`, als `<length>` oder als `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert.
-    - Für _ankerpositionierte Elemente_ löst die Funktion {{cssxref("anchor-size()")}} auf einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ auf (siehe [Festlegen des Abstands eines Elements basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+  - : Die Größe des Außenrands als fester Wert.
+    - Für _ankerpositionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Element-Außenrands basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
+  - : Die Größe des Außenrands als Prozentsatz relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
-  - : Der Browser wählt einen geeigneten Wert. Siehe {{cssxref("margin")}}.
+  - : Der Browser wählt einen geeigneten zu verwendenden Wert aus. Siehe {{cssxref("margin")}}.
 
 ## Formale Definition
 
@@ -106,7 +106,7 @@ Die `margin-top`-Eigenschaft kann mit dem Schlüsselwort `auto`, als `<length>` 
 
 ## Beispiele
 
-### Setzen von positiven und negativen oberen Abständen
+### Festlegen positiver und negativer oberer Außenränder
 
 ```css
 .content {
@@ -133,8 +133,8 @@ Die `margin-top`-Eigenschaft kann mit dem Schlüsselwort `auto`, als `<length>` 
 
 ## Siehe auch
 
-- {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
-- {{cssxref("margin")}} Kurzform
-- {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}
-- {{cssxref("margin-block")}} und {{cssxref("margin-inline")}} Kurzformen
-- [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} und {{cssxref("margin-left")}}
+- Kurzform {{cssxref("margin")}}
+- {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}
+- Kurzformen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
+- Modul [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model)

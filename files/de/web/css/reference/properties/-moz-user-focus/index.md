@@ -3,14 +3,15 @@ title: "`-moz-user-focus` CSS property"
 short-title: -moz-user-focus
 slug: Web/CSS/Reference/Properties/-moz-user-focus
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
-{{deprecated_header}}{{non-standard_header}}
+{{non-standard_header}}
 
-Die **`-moz-user-focus`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um anzugeben, ob ein Element den Fokus erhalten kann.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-moz-user-focus`** wird verwendet, um anzugeben, ob ein Element den Fokus erhalten kann.
 
-Wenn Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren, was bedeutet, dass der Benutzer das Element nicht aktivieren kann und das Element in der Tabulatorreihenfolge übersprungen wird. Der Standardwert ist `none`, was das Fokussieren auf das Element deaktiviert und den Fokus auf anderen Elementen entfernt, wenn versucht wird, das Element auszuwählen.
+Indem Sie ihren Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren. Das bedeutet, dass Benutzende das Element nicht aktivieren können und das Element in der Tab-Reihenfolge übersprungen wird.
+Der Standardwert ist `none`, wodurch das Fokussieren des Elements deaktiviert und der Fokus von anderen Elementen entfernt wird, wenn versucht wird, das Element auszuwählen.
 
 ## Syntax
 
@@ -28,13 +29,15 @@ Wenn Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements 
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `ignore`
   - : Das Element akzeptiert keinen Tastaturfokus und wird in der Tab-Reihenfolge übersprungen.
 - `normal`
   - : Das Element kann Tastaturfokus akzeptieren.
 - `none`
   - : Das Element akzeptiert keinen Tastaturfokus.
-    Der Versuch, das Element auszuwählen, entfernt den Fokus von jedem anderen Element.
+    Beim Versuch, das Element auszuwählen, wird der Fokus von jedem anderen Element entfernt.
 
 ## Formale Definition
 
@@ -62,7 +65,7 @@ Wenn Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements 
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

@@ -1,14 +1,14 @@
 ---
-title: "CSSMathClamp: CSSMathClamp() Konstruktor"
+title: "CSSMathClamp: CSSMathClamp()-Konstruktor"
 short-title: CSSMathClamp()
 slug: Web/API/CSSMathClamp/CSSMathClamp
 l10n:
-  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSMathClamp()`**-Konstruktor erstellt ein neues [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekt, das eine CSS-Funktion {{CSSXref("clamp", "clamp()")}} darstellt.
+Der **`CSSMathClamp()`**-Konstruktor erstellt ein neues [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekt, das eine CSS-{{CSSXref("clamp", "clamp()")}}-Funktion darstellt.
 
 ## Syntax
 
@@ -19,23 +19,23 @@ new CSSMathClamp(lower, value, upper)
 ### Parameter
 
 - `lower`
-  - : Eine Zahl oder [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), die den Mindestwert darstellt.
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), das den minimalen Wert darstellt.
 - `value`
-  - : Eine Zahl oder [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), die den bevorzugten Wert darstellt.
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), das den bevorzugten Wert darstellt.
 - `upper`
-  - : Eine Zahl oder [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), die den Höchstwert darstellt.
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), das den maximalen Wert darstellt.
 
 ### Ausnahmen
 
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
   - : Wird ausgelöst, wenn die Parameter widersprüchliche Einheitstypen haben.
-    Zum Beispiel, wenn Parameter angegeben werden, die Längen- und Zeitgrenzen spezifizieren.
+    Zum Beispiel das Mischen eines Längenwertes mit einem Zeitwert.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt eine `CSSMathClamp`-Instanz aus drei Längen und liest dann deren `lower`-, `value`- und `upper`-Eigenschaften aus.
+Der folgende Code erstellt eine `CSSMathClamp`-Instanz aus drei Längen und liest dann die Eigenschaften `lower`, `value` und `upper` aus.
 
 ```js
 const clamp = new CSSMathClamp(CSS.px(10), CSS.percent(50), CSS.px(500));
@@ -48,8 +48,8 @@ console.log(clamp.upper); // CSSUnitValue {value: 500, unit: "px"}
 
 ### Umgang mit inkompatiblen Typen
 
-Der Konstruktor wirft einen `TypeError`, wenn die drei Argumente nicht zu einem kompatiblen Typ aufgelöst werden.
-Im folgenden Code kombinieren wir eine Länge mit einer Zeit und protokollieren den Fehler.
+Der Konstruktor löst einen `TypeError` aus, wenn die drei Argumente keinen kompatiblen Typ ergeben.
+Im folgenden Code wird eine Länge mit einer Zeit gemischt und der Fehler wird protokolliert.
 
 ```js
 try {

@@ -2,12 +2,12 @@
 title: webRequest.ResourceType
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
 ---
 
-Dieser Typ ist ein String, der den Kontext repräsentiert, in dem eine Ressource in einer Webanfrage abgerufen wurde.
+Dieser Typ ist ein String, der den Kontext repräsentiert, in dem eine Ressource bei einer Webanfrage abgerufen wurde.
 
-Er wird verwendet, um die Anfragen zu [filtern](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter), die Sie mit der webRequest-API abhören. Beispielsweise können Sie nur Anfragen für Bilder oder nur für Skripte abhören.
+Er wird verwendet, um die Anforderungen zu [filtern](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter), auf die Sie mit der webRequest API hören können. Zum Beispiel: Sie können nur auf Anfragen für Bilder oder nur für Skripte hören.
 
 ## Typ
 
@@ -16,51 +16,51 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
 - `beacon`
   - : Anfragen, die über die [Beacon API](/de/docs/Web/API/Beacon_API) gesendet werden.
 - `csp_report`
-  - : Anfragen, die an die {{CSP("report-uri")}} gesendet werden, die im {{HTTPHeader("Content-Security-Policy")}}-Header angegeben ist, wenn ein Versuch festgestellt wird, die Richtlinie zu verletzen.
+  - : Anfragen, die an die in der {{HTTPHeader("Content-Security-Policy")}} enthaltene {{CSP("report-uri")}} gesendet werden, wenn ein Verstoß gegen die Richtlinie festgestellt wird.
 - `font`
-  - : Webfonts, die für eine {{cssxref("@font-face")}} CSS-Regel geladen werden.
+  - : Web-Schriften, die für eine {{cssxref("@font-face")}} CSS-Regel geladen werden.
 - `image`
-  - : Ressourcen, die geladen werden, um als Bild dargestellt zu werden, außer `imageset` in Browsern, die diesen Typ unterstützen (siehe unten Browser-Kompatibilität).
+  - : Ressourcen, die als Bilder gerendert werden, mit Ausnahme von `imageset` auf Browsern, die diesen Typ unterstützen (siehe unten zur Browser-Kompatibilität).
 - `imageset`
-  - : Bilder, die von einem {{HTMLElement("picture")}}-Element geladen oder im [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut eines `<img>`-Elements angegeben werden.
+  - : Bilder, die von einem {{HTMLElement("picture")}}-Element geladen werden oder im [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut eines `<img>`-Elements angegeben sind.
 - `json`
   - : JSON-Module, die durch eine [import statement](/de/docs/Web/JavaScript/Reference/Statements/import) geladen werden.
 - `main_frame`
-  - : Hauptdokumente, die in einem Tab geladen werden.
+  - : Dokumente auf oberster Ebene, die in einem Tab geladen werden.
 - `media`
-  - : Ressourcen, die von einem {{HTMLElement("video")}}- oder {{HTMLElement("audio")}}-Element geladen werden.
+  - : Ressourcen, die von einem {{HTMLElement("video")}} oder {{HTMLElement("audio")}}-Element geladen werden.
 - `object`
-  - : Ressourcen, die von einem {{HTMLElement("object")}}- oder {{HTMLElement("embed")}}-Element geladen werden.
+  - : Ressourcen, die von einem {{HTMLElement("object")}} oder {{HTMLElement("embed")}}-Element geladen werden.
 
-    Browser, die keinen eigenen `object_subrequest`-Typ haben (siehe unten Browser-Kompatibilität), kennzeichnen auch nachfolgende Anfragen, die durch das Plugin gesendet werden, als `object`.
+    Browser, die keinen dedizierten `object_subrequest`-Typ haben (siehe unten zur Browser-Kompatibilität), bezeichnen auch nachfolgende Anfragen, die durch das Plugin gesendet werden, als `object`.
 
 - `object_subrequest`
   - : Anfragen, die von Plugins gesendet werden.
 - `ping`
-  - : Anfragen, die an die im [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping)-Attribut eines Hyperlinks angegebene URL gesendet werden, wenn der Hyperlink gefolgt wird.
+  - : Anfragen, die an die URL im [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping)-Attribut eines Hyperlinks gesendet werden, wenn der Hyperlink gefolgt wird.
 
-    Browser, die keinen eigenen `beacon`-Typ haben (siehe unten Browser-Kompatibilität), kennzeichnen auch Anfragen, die über die Beacon API gesendet werden, als `ping`.
+    Browser, die keinen dedizierten `beacon`-Typ haben (siehe unten zur Browser-Kompatibilität), bezeichnen auch Anfragen, die durch die Beacon API gesendet werden, als `ping`.
 
 - `script`
-  - : Code, der geladen wird, um von einem {{HTMLElement("script")}}-Element oder in einem [Worker](/de/docs/Web/API/Web_Workers_API) ausgeführt zu werden.
+  - : Code, der geladen wird, um von einem {{HTMLElement("script")}}-Element ausgeführt zu werden oder der in einem [Worker](/de/docs/Web/API/Web_Workers_API) läuft.
 - `speculative`
-  - : Bei einer spekulativen Verbindung hat der Browser festgestellt, dass möglicherweise bald eine Anfrage an eine URI kommt, sodass er sofort eine TCP- und/oder TLS-Verbindung aufbaut, um schneller bereit zu sein, wenn die Ressource tatsächlich angefordert wird. Beachten Sie, dass diese Art von Verbindung keine gültigen Tab-Informationen bereitstellt, sodass Anfragedetails wie `tabId`, `frameId`, `parentFrameId` usw. ungenau sind.
+  - : Bei einer spekulativen Verbindung hat der Browser festgestellt, dass bald eine Anfrage an eine URI kommen könnte, und beginnt daher sofort mit einem TCP- und/oder TLS-Handshake, um schneller bereit zu sein, wenn die Ressource tatsächlich angefordert wird. Beachten Sie, dass diese Art von Verbindung keine gültigen Tab-Informationen liefert, so dass Anfragedetails wie `tabId`, `frameId`, `parentFrameId` usw. ungenau sind.
 - `stylesheet`
   - : [CSS](/de/docs/Web/CSS)-Stylesheets, die geladen werden, um die Darstellung eines Dokuments zu beschreiben.
 - `sub_frame`
-  - : Dokumente, die in ein {{HTMLElement("iframe")}}- oder {{HTMLElement("frame")}}-Element geladen werden.
+  - : Dokumente, die in ein {{HTMLElement("iframe")}} oder {{HTMLElement("frame")}}-Element geladen werden.
 - `web_manifest`
-  - : [Web App Manifests](/de/docs/Web/Progressive_web_apps/Manifest), die für Websites geladen werden, die auf dem Startbildschirm installiert werden können.
+  - : [Web App Manifeste](/de/docs/Web/Progressive_web_apps/Manifest), die für Websites geladen werden, die auf dem Startbildschirm installiert werden können.
 - `websocket`
   - : Anfragen, die eine Verbindung zu einem Server über die [WebSocket API](/de/docs/Web/API/WebSockets_API) initiieren.
 - `xml_dtd`
   - : {{Glossary("Doctype", "DTDs")}}, die für ein XML-Dokument geladen werden.
 - `xmlhttprequest`
-  - : Anfragen, die von einem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt oder über die [Fetch API](/de/docs/Web/API/Fetch_API) gesendet werden.
+  - : Anfragen, die durch ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt oder über die [Fetch API](/de/docs/Web/API/Fetch_API) gesendet werden.
 - `xslt`
   - : [XSLT](/de/docs/Web/XML/XSLT)-Stylesheets, die für die Transformation eines XML-Dokuments geladen werden.
 - `other`
-  - : Ressourcen, die durch keinen anderen verfügbaren Typ abgedeckt werden.
+  - : Ressourcen, die von keinem anderen verfügbaren Typ abgedeckt werden.
 
 {{WebExtExamples}}
 
@@ -69,7 +69,7 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-ResourceType). Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-ResourceType)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

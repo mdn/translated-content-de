@@ -1,27 +1,30 @@
 ---
-title: "StylePropertyMap: set()-Methode"
+title: "StylePropertyMap: set() Methode"
 short-title: set()
 slug: Web/API/StylePropertyMap/set
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`set()`**-Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Interfaces ändert die CSS-Deklaration mithilfe der angegebenen Eigenschaft.
+Die **`set()`** Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap) Schnittstelle ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
 
 ## Syntax
 
 ```js-nolint
-set(property, value)
+set(property)
+set(property, value1)
+set(property, value1, value2)
+set(property, value1, value2, /* …, */ valueN)
 ```
 
 ### Parameter
 
 - `property`
-  - : Ein Bezeichner, der das stilistische Merkmal angibt (z. B. Schriftart, Breite, Hintergrundfarbe), das geändert werden soll.
-- `value`
-  - : Der Wert, den die angegebene Eigenschaft haben soll.
+  - : Ein Bezeichner, der das stilistische Merkmal (z. B. Schriftart, Breite, Hintergrundfarbe) angibt, das geändert werden soll.
+- `value1`, …, `valueN`
+  - : Der bzw. die Wert(e), den bzw. die die angegebene Eigenschaft haben soll.
 
 ### Rückgabewert
 
@@ -31,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel wird der angegebene Wert für die {{cssxref('padding-top')}}-Eigenschaft innerhalb des [style-Attributs](/de/docs/Web/HTML/Reference/Global_attributes/style) des Elements festgelegt.
+Dieses Beispiel setzt den angegebenen Wert für die {{cssxref('padding-top')}} Eigenschaft innerhalb des [style-Attributs](/de/docs/Web/HTML/Reference/Global_attributes/style) des Elements.
 
 ```js
 // get the button element

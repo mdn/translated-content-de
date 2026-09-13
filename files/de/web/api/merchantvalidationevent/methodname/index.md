@@ -3,21 +3,17 @@ title: "MerchantValidationEvent: methodName-Eigenschaft"
 short-title: methodName
 slug: Web/API/MerchantValidationEvent/methodName
 l10n:
-  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}{{non-standard_header}}
+{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{non-standard_header}}
 
 Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent)-Eigenschaft
-**`methodName`** ist ein schreibgeschützter Wert, der einen String zurückgibt,
-der den Zahlungsarten-Identifier angibt, der den Zahlungsdienstleister darstellt, der
-eine Händlerauthentifizierung erfordert.
+**`methodName`** ist ein schreibgeschützter Wert, der einen String zurückgibt, der den Zahlungsidentifikator angibt, welcher den Zahlungsabwickler darstellt, der eine Händlervalidierung erfordert.
 
 ## Wert
 
-Ein schreibgeschützter String, der den Zahlungsdienstleister eindeutig identifiziert,
-der eine Händlerauthentifizierung anfordert. Weitere Informationen über den Prozess finden Sie unter
-[Händlerauthentifizierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
+Ein schreibgeschützter String, der den Zahlungsabwickler eindeutig identifiziert, der die Händlervalidierung anfordert. Weitere Informationen zum Prozess finden Sie unter [Händlervalidierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
 
 ## Browser-Kompatibilität
 

@@ -1,14 +1,14 @@
 ---
-title: "FileReaderSync: readAsText()-Methode"
+title: "FileReaderSync: Methode readAsText()"
 short-title: readAsText()
 slug: Web/API/FileReaderSync/readAsText
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("File API")}} {{AvailableInWorkers("worker_except_service")}}
 
-Die **`readAsText()`**-Methode der [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle ermöglicht das synchrone Auslesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten in einen String. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da sie synchronen I/O ermöglicht, der potenziell blockieren könnte.
+Die **`readAsText()`**-Methode der [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle ermöglicht es Ihnen, [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte auf synchronisierte Weise in eine Zeichenkette zu lesen. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workers](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockieren könnte.
 
 ## Syntax
 
@@ -20,29 +20,29 @@ readAsText(blob, encoding)
 ### Parameter
 
 - `blob`
-  - : Die [`File`](/de/docs/Web/API/File) oder der [`Blob`](/de/docs/Web/API/Blob), die gelesen werden sollen.
+  - : Die [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob), die gelesen werden soll.
 - `encoding` {{optional_inline}}
-  - : Der optionale Parameter spezifiziert die zu verwendende Kodierung (z. B. `iso-8859-1` oder `UTF-8`). Wenn nicht vorhanden, wird die Methode einen Erkennungsalgorithmus anwenden.
+  - : Der optionale Parameter gibt die zu verwendende Kodierung an (z. B. `iso-8859-1` oder `UTF-8`). Bei Abwesenheit wird die Methode einen Erkennungsalgorithmus hierfür anwenden.
 
 ### Rückgabewert
 
-Ein String, der die Eingabedaten darstellt.
+Eine Zeichenkette, die die Eingabedaten darstellt.
 
 ### Ausnahmen
 
-Die folgende Ausnahmen können von dieser Methode ausgelöst werden:
+Die folgende Ausnahmen können durch diese Methode ausgelöst werden:
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die durch die DOM-[`File`](/de/docs/Web/API/File) oder den [`Blob`](/de/docs/Web/API/Blob) dargestellte Ressource nicht gefunden werden kann, z. B. weil sie gelöscht wurde.
+  - : Wird ausgelöst, wenn die Ressource, die durch die DOM-[`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) dargestellt wird, nicht gefunden werden kann, z. B. weil sie gelöscht wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine der folgenden problematischen Situationen erkannt wird:
-    - die Ressource wurde von einer dritten Partei verändert;
-    - es werden zu viele Lesevorgänge gleichzeitig durchgeführt;
-    - die durch die Ressource angegebene Datei ist unsicher für eine Verwendung im Web (z. B. handelt es sich um eine Systemdatei).
+    - die Ressource wurde von einem Dritten modifiziert;
+    - es werden zu viele Leseoperationen gleichzeitig durchgeführt;
+    - die Datei, auf die die Ressource verweist, ist unsicher für die Verwendung aus dem Web (wie zum Beispiel eine Systemdatei).
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems nicht gelesen werden kann, wie z. B. einer gleichzeitigen Sperre.
+  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems nicht gelesen werden kann, wie zum Beispiel ein gleichzeitiges Sperren.
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die von jedem Browser definierte Längenbegrenzung überschreitet.
+  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die von jedem Browser definierte Längengrenze überschreitet.
 
 ## Spezifikationen
 

@@ -1,16 +1,16 @@
 ---
-title: "HTMLSlotElement: assignedNodes()-Methode"
+title: "HTMLSlotElement: Methode assignedNodes()"
 short-title: assignedNodes()
 slug: Web/API/HTMLSlotElement/assignedNodes
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
 ---
 
 {{APIRef("Shadow DOM API")}}
 
-Die **`assignedNodes()`**-Methode des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Interfaces gibt eine Sequenz der Knoten zurück, die diesem Slot zugewiesen sind.
+Die Methode **`assignedNodes()`** des Interfaces [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement) gibt eine Sequenz der diesem Slot zugewiesenen Knoten zurück.
 
-Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz von sowohl den Knoten zurück, die diesem Slot zugewiesen sind, als auch von den Knoten, die jedem anderen Slot zugewiesen sind, der ein Nachkomme dieses Slots ist. Wenn keine zugewiesenen Knoten gefunden werden, gibt sie den Fallback-Inhalt des Slots zurück.
+Wenn die Option `flatten` auf `true` gesetzt ist, gibt sie eine Sequenz sowohl der diesem Slot zugewiesenen Knoten als auch der Knoten zurück, die anderen Slots zugewiesen sind, welche Nachfahren dieses Slots sind. Wenn keine zugewiesenen Knoten gefunden werden, gibt sie den Fallback-Inhalt des Slots zurück.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ assignedNodes(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das Optionen für die zurückzugebenden Knoten festlegt. Die verfügbaren Optionen sind:
     - `flatten`
-      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Knoten aller verfügbaren Kindes-`<slot>`-Elemente zurückgegeben werden sollen (`true`) oder nicht (`false`). Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die zugewiesenen Knoten verfügbarer untergeordneter `<slot>`-Elemente (`true`) zurückgegeben werden sollen oder nicht (`false`). Der Standardwert ist `false`.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Ein Array von Knoten.
 
 ## Beispiele
 
-Der folgende Ausschnitt ist von unserem [Slotchange-Beispiel](https://github.com/mdn/web-components-examples/tree/main/slotchange) entnommen ([Live-Demo ansehen](https://mdn.github.io/web-components-examples/slotchange/)).
+Das folgende Snippet stammt aus unserem [slotchange-Beispiel](https://github.com/mdn/web-components-examples/tree/main/slotchange) ([Live ansehen](https://mdn.github.io/web-components-examples/slotchange/)).
 
 ```js
 let slots = this.shadowRoot.querySelectorAll("slot");
@@ -44,9 +44,9 @@ slots[1].addEventListener("slotchange", (e) => {
 });
 ```
 
-Hier holen wir Referenzen zu allen Slots und fügen dann einen slotchange-Event-Listener zum zweiten Slot in der Vorlage hinzu – welcher derjenige ist, dessen Inhalt im Beispiel immer wieder geändert wird.
+Hier erfassen wir Referenzen auf alle Slots und fügen dann dem zweiten Slot im Template einen `slotchange`-Event-Listener hinzu — also demjenigen, dessen Inhalte im Beispiel fortlaufend geändert werden.
 
-Jedes Mal, wenn sich das Element im Slot ändert, protokollieren wir einen Bericht in die Konsole, der angibt, welcher Slot sich geändert hat und was der neue Knoten innerhalb des Slots ist.
+Jedes Mal, wenn sich das in den Slot eingefügte Element ändert, protokollieren wir einen Bericht in der Konsole, der angibt, welcher Slot sich geändert hat und welcher neue Knoten sich innerhalb des Slots befindet.
 
 ## Spezifikationen
 

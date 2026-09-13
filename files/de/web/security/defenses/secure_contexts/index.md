@@ -2,50 +2,98 @@
 title: Sichere Kontexte
 slug: Web/Security/Defenses/Secure_Contexts
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: d3979627c0ec54f76185c2daf8a1a7269b27537a
 ---
 
-Ein **sicherer Kontext** ist ein `Window` oder `Worker`, für den bestimmte Mindeststandards in Bezug auf Authentifizierung und Vertraulichkeit erfüllt sind. Viele Web-APIs und -Funktionen sind nur in einem sicheren Kontext zugänglich. Das Hauptziel sicherer Kontexte ist es, [MITM-Angreifer](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) daran zu hindern, auf leistungsstarke APIs zuzugreifen, die das Opfer eines Angriffs weiter gefährden könnten.
+Ein **sicherer Kontext** ist eine Umgebung wie ein `Window` oder `Worker`, die einen definierten Standard für Authentifizierung und Vertraulichkeit erfüllt. Viele Web-APIs und Funktionen sind nur in einem sicheren Kontext zugänglich.
+
+Die maßgebliche Definition eines sicheren Kontexts sowie die Begründung für die Beschränkung einiger Funktionen der Webplattform auf sichere Kontexte finden Sie in der Spezifikation [Secure Contexts](https://w3c.github.io/webappsec-secure-contexts/).
 
 ## Warum sollten einige Funktionen eingeschränkt werden?
 
-Einige APIs im Web sind sehr mächtig und ermöglichen einem Angreifer unter anderem Folgendes:
+Einige APIs im Web sind sehr leistungsfähig und ermöglichen es einem Angreifer unter anderem:
 
-- Verletzung der Privatsphäre eines Benutzers.
-- Niedrigstufiger Zugriff auf den Computer eines Benutzers.
-- Zugriff auf Daten wie Benutzeranmeldedaten.
+- In die Privatsphäre eines Benutzers einzudringen.
+- Zugriff auf niedriger Ebene auf den Computer eines Benutzers zu erhalten.
+- Zugriff auf Daten wie Benutzeranmeldedaten zu erhalten.
 
-## Wann wird ein Kontext als sicher angesehen?
+Wären diese APIs für Inhalte verfügbar, die nicht über eine sichere Verbindung bereitgestellt werden, könnte ein Angreifer als [Man-in-the-Middle (MITM)](/de/docs/Web/Security/Attacks/MITM) darauf zugreifen.
 
-Ein Kontext wird als sicher angesehen, wenn er bestimmte Mindeststandards in Bezug auf Authentifizierung und Vertraulichkeit erfüllt, die in der [Secure Contexts](https://w3c.github.io/webappsec-secure-contexts/)-Spezifikation definiert sind. Ein bestimmtes Dokument wird als sicherer Kontext betrachtet, wenn es das [aktive Dokument](https://html.spec.whatwg.org/multipage/browsers.html#active-document) eines [Top-Level-Browsing-Kontexts](https://html.spec.whatwg.org/multipage/browsers.html#top-level-browsing-context) ist (im Wesentlichen ein enthaltendes Fenster oder Tab), der ein sicherer Kontext ist.
+## Wann gilt ein Kontext als sicher?
 
-Zum Beispiel wird selbst ein über TLS geliefertes Dokument innerhalb eines {{HTMLElement("iframe")}} nicht als sicherer Kontext angesehen, wenn es einen Vorfahren hat, der nicht ebenfalls über TLS geliefert wurde.
+Als erste Näherung gilt:
 
-Es ist jedoch wichtig zu beachten, dass, wenn ein unsicherer Kontext ein neues Fenster erstellen lässt (mit oder ohne Angabe von [noopener](/de/docs/Web/API/Window/open)), die Tatsache, dass der Eröffner unsicher war, keinen Einfluss darauf hat, ob das neue Fenster als sicher angesehen wird. Das liegt daran, dass die Bestimmung, ob ein bestimmtes Dokument in einem sicheren Kontext ist, nur auf Grundlage der Betrachtung innerhalb des zugehörigen Top-Level-Browsing-Kontexts erfolgt — und nicht darauf, ob ein unsicherer Kontext zufällig zur Erstellung verwendet wurde.
+- Dokumente sind sichere Kontexte, wenn ihre Ressourcen über eine [HTTPS](/de/docs/Web/Security/Defenses/Transport_Layer_Security)-Verbindung bereitgestellt werden oder von einer Loopback-Adresse (lokalen Adresse) stammen. Dokumente in Frames müssen außerdem in ein Dokument eingebettet sein, das selbst ein sicherer Kontext ist.
 
-Ressourcen, die nicht lokal sind, müssen folgende Kriterien erfüllen, um als sicher zu gelten:
+- Workers sind sichere Kontexte, wenn sie von einem sicheren Kontext erstellt werden.
 
-- Sie müssen über `https://` URLs geliefert werden.
-- Die Sicherheitsmerkmale des Netzwerkkanals, der zur Bereitstellung der Ressource verwendet wird, dürfen nicht als veraltet angesehen werden.
+### Dokumente der obersten Ebene
 
-## Potenziell vertrauenswürdige Ursprünge
+Dokumente der obersten Ebene stellen einen sicheren Kontext bereit, wenn ihre URL eine [potenziell vertrauenswürdige URL](#potenziell_vertrauenswürdige_urls) ist.
 
-Ein **potenziell vertrauenswürdiger Ursprung** ist einer, dem der Browser im Allgemeinen vertrauen kann, Datensicherheit bereitzustellen, obwohl er streng genommen nicht die Kriterien eines sicheren Kontexts erfüllt.
+Zum Beispiel:
 
-Lokal bereitgestellte Ressourcen wie jene mit `http://127.0.0.1`, `http://localhost` und `http://*.localhost` URLs (zum Beispiel `http://dev.whatever.localhost/`) werden nicht über HTTPS bereitgestellt, können jedoch als sicher angesehen werden, da sie sich auf dem gleichen Gerät wie der Browser befinden. Sie sind daher potenziell vertrauenswürdig. Dies ist für Entwickler praktisch, die Anwendungen lokal testen.
+| URL                             | Sicher                       |
+| ------------------------------- | ---------------------------- |
+| `https://example.com`           | ✅ Sicher (`https`-URL)      |
+| `http://localhost`              | ✅ Sicher (`localhost`-URL)  |
+| `file:///path/to/resource.html` | ✅ Sicher (`file`-URL)       |
+| `https://example.com`           | ❌ Nicht sicher (`http`-URL) |
 
-Dasselbe gilt im Allgemeinen für `file://` URLs.
+### Dokumente in Frames
 
-Gesicherte [WebSocket](/de/docs/Web/API/WebSockets_API) (`"wss://"`) URLs werden ebenfalls als potenziell vertrauenswürdig betrachtet.
+Dokumente in einem {{htmlelement("iframe")}} stellen einen sicheren Kontext bereit, wenn sie von einer [potenziell vertrauenswürdigen URL](#potenziell_vertrauenswürdige_urls) bereitgestellt werden und selbst in einen sicheren Kontext eingebettet sind.
 
-Anbieter-spezifische URL-Schemata wie `app://` oder `chrome-extension://` werden nicht von allen Browsern als potenziell vertrauenswürdig angesehen, können jedoch von den Browsern, deren Anbieter sie stammen, als vertrauenswürdig betrachtet werden.
+Das bedeutet, dass das eingebettete Dokument _kein_ sicherer Kontext ist, wenn ein Dokument der obersten Ebene von `http://example.com` ein `<iframe>` einbettet, dessen Dokument `https://example.com` ist.
 
-> [!NOTE]
-> Firefox 84 und höher unterstützen `http://localhost` und `http://*.localhost` URLs als vertrauenswürdige Ursprünge (frühere Versionen taten dies nicht, da `localhost` nicht garantiert auf eine lokale/Loopback-Adresse abgebildet wurde).
+| iframe-URL            | URL des übergeordneten Dokuments | Sicherer Kontext |
+| --------------------- | -------------------------------- | ---------------- |
+| `https://example.com` | `https://example.com`            | ✅ Sicher        |
+| `http://example.com`  | `https://example.com`            | ❌ Nicht sicher  |
+| `https://example.com` | `http://example.com`             | ❌ Nicht sicher  |
 
-## Feature-Erkennung
+### Workers
 
-Seiten können die Feature-Erkennung nutzen, um zu überprüfen, ob sie in einem sicheren Kontext sind oder nicht, indem sie den booleschen Wert [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) oder [`WorkerGlobalScope.isSecureContext`](/de/docs/Web/API/WorkerGlobalScope/isSecureContext) verwenden, der im globalen Gültigkeitsbereich verfügbar ist.
+#### Dedicated Workers
+
+Dedicated Workers stellen einen sicheren Kontext bereit, wenn ihr Eigentümer ein sicherer Kontext ist.
+
+#### Shared Workers
+
+Shared Workers folgen denselben Regeln wie Dedicated Workers.
+
+Zusätzlich gilt:
+
+- Wenn ein Shared Worker ein sicherer Kontext ist, dürfen nur andere sichere Kontexte daran angehängt werden.
+- Wenn ein Shared Worker ein nicht sicherer Kontext ist, dürfen nur andere nicht sichere Kontexte daran angehängt werden.
+
+#### Service Workers und Worklets
+
+Nur sichere Kontexte dürfen Service Workers registrieren, daher sind Service Workers immer sichere Kontexte.
+
+## Potenziell vertrauenswürdige URLs
+
+Eine URL ist potenziell vertrauenswürdig, wenn eine der folgenden Bedingungen zutrifft:
+
+- Ihr Wert ist `about:blank` oder `about:srcdoc`.
+- Ihr Schema ist `data`.
+- Ihr {{Glossary("origin", "Origin")}} ist ein [potenziell vertrauenswürdiger Origin](#potenziell_vertrauenswürdige_origins).
+
+## Potenziell vertrauenswürdige Origins
+
+Ein Origin ist potenziell vertrauenswürdig, wenn er Folgendes aufweist:
+
+- Ein Schema von `https`, `wss` oder `file`.
+- Einen Host-Wert von `127.0.0.0/8` oder `::1/128`.
+- Einen Host-Wert von `localhost` oder `localhost.`.
+- Einen Host-Wert, der mit `.localhost` oder `.localhost.` endet.
+- Ein Schema, das der Browser als authentifiziert betrachtet.
+
+Dies soll im Wesentlichen Folgendes erfassen: Origins, die einen sicheren Transport über das Netzwerk verwenden, lokale Origins und Origins, die der Browser aus einem anderen Grund als authentifiziert betrachtet (beispielsweise jene, die von Browser-Erweiterungen verwendet werden).
+
+## Funktionserkennung
+
+Seiten können mithilfe der Eigenschaft [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) oder [`WorkerGlobalScope.isSecureContext`](/de/docs/Web/API/WorkerGlobalScope/isSecureContext) prüfen, ob sie sich in einem sicheren Kontext befinden.
 
 ```js
 if (window.isSecureContext) {
@@ -56,13 +104,8 @@ if (window.isSecureContext) {
 }
 ```
 
-## Spezifikationen
-
-{{Specifications}}
-
 ## Siehe auch
 
-- [Plattform-Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) — eine Liste der Funktionen, die nur in sicheren Kontexten verfügbar sind
+- [Auf sichere Kontexte beschränkte Plattformfunktionen](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) — eine Liste der Funktionen, die nur in sicheren Kontexten verfügbar sind
 - [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) und [`WorkerGlobalScope.isSecureContext`](/de/docs/Web/API/WorkerGlobalScope/isSecureContext)
-- <https://permission.site> — Eine Seite, die es Ihnen ermöglicht, zu überprüfen, welche API-Berechtigungsprüfungen Ihr Browser über HTTP und HTTPS durchführt
-- [Strict-Transport-Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security) HTTP-Header
+- <https://permission.site> — Eine Website, mit der Sie prüfen können, welche API-Berechtigungsprüfungen Ihr Browser über HTTP und HTTPS verwendet

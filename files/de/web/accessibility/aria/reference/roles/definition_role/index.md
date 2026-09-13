@@ -3,14 +3,16 @@ title: "ARIA: Rolle definition"
 short-title: definition
 slug: Web/Accessibility/ARIA/Reference/Roles/definition_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: ceb2902838a2752d55e05158584426dd342911c5
 ---
 
-Die ARIA-Rolle `definition` zeigt an, dass das Element eine Definition eines Begriffs oder Konzepts ist.
+Die ARIA-Rolle `definition` gibt an, dass das Element die Definition eines Begriffs oder Konzepts ist.
 
 ## Beschreibung
 
-Die ARIA-Rolle `definition` kann in ein Element eingefügt werden, das eine Definition eines Begriffs oder Konzepts darstellt, ähnlich dem nativen {{HTMLElement('dfn')}}-Element. Um die Definition mit dem `term` zu verknüpfen, das definiert wird, und um einen zugänglichen Namen bereitzustellen, verweisen Sie auf den definierten Begriff mit `role="term"`, unter Verwendung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby).
+Die ARIA-Rolle `definition` kann in ein Element aufgenommen werden, das die Definition eines Begriffs oder Konzepts ist. Kennzeichnen Sie den definierten Begriff mit `role="term"` oder dem nativen {{HTMLElement("dfn")}}-Element. Um den Begriff mit seiner Definition zu verknüpfen, setzen Sie [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) auf dem `term`-Element auf die `id` des `definition`-Elements.
+
+Elemente mit der Rolle `definition` dürfen keinen {{Glossary("accessible_name", "zugänglichen Namen")}} haben; die Eigenschaften [`aria-braillelabel`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-braillelabel), [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) und [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) sind nicht zulässig.
 
 ```html-nolint
 <p>
@@ -24,7 +26,7 @@ Die ARIA-Rolle `definition` kann in ein Element eingefügt werden, das eine Defi
 ```
 
 > [!NOTE]
-> Anstelle eines `<span>` mit den Rollen [`term`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role) und `definition`, verwenden Sie das {{HTMLElement('dfn')}}-Element. **Verwenden Sie immer das native Element, wenn es verfügbar ist.**
+> Verwenden Sie statt eines `<span>` mit den Rollen [`term`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role) und `definition` das {{HTMLElement('dfn')}}-Element. **Verwenden Sie immer ein natives Element, wenn verfügbar.**
 
 ```html
 <p>
@@ -40,7 +42,7 @@ Die ARIA-Rolle `definition` kann in ein Element eingefügt werden, das eine Defi
 
 ## Siehe auch
 
-- [Die `term`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role)
+- [Die Rolle `term`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role)
 - Das {{HTMLElement('dfn')}}-Element
 - Das {{HTMLElement('dd')}}-Element
 - Das {{HTMLElement('dl')}}-Element

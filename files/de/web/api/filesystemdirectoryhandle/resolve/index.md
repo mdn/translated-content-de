@@ -3,12 +3,12 @@ title: "FileSystemDirectoryHandle: resolve() Methode"
 short-title: resolve()
 slug: Web/API/FileSystemDirectoryHandle/resolve
 l10n:
-  sourceCommit: f10fbe2d2dc4857bf29ce955689a7ba7c1ffac8b
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`resolve()`** Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) Schnittstelle gibt ein {{jsxref('Array')}} der Verzeichnispfade vom übergeordneten Handle zum angegebenen Kind-Eintrag zurück, wobei der Name des Kind-Eintrags das letzte Element des Arrays ist.
+Die **`resolve()`** Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) Schnittstelle gibt ein {{jsxref('Array')}} von Verzeichnisnamen vom Eltern-Handle bis zum angegebenen Kind-Eintrag zurück, wobei der Name des Kind-Eintrags das letzte Array-Element ist.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ resolve(possibleDescendant)
 ### Parameter
 
 - `possibleDescendant`
-  - : Der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle), von dem der relative Pfad zurückgegeben werden soll.
+  - : Das [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle), von dem der relative Pfad zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von Strings aufgelöst wird, oder `null`, falls `possibleDescendant` kein Nachkomme dieses [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
+Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von Zeichenketten aufgelöst wird, oder `null`, wenn `possibleDescendant` kein Nachkomme dieses [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
 
 ### Ausnahmen
 
-Es werden keine Ausnahmen ausgelöst.
+Keine Ausnahmen werden ausgelöst.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ async function returnPathDirectories(directoryHandle) {
   // Get a file handle by showing a file picker:
   const [handle] = await self.showOpenFilePicker();
   if (!handle) {
-    // User cancelled, or otherwise failed to open a file.
+    // User canceled, or otherwise failed to open a file.
     return;
   }
 
@@ -68,4 +68,4 @@ async function returnPathDirectories(directoryHandle) {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

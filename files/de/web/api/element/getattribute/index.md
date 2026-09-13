@@ -1,33 +1,65 @@
 ---
-title: "Element: getAttribute()-Methode"
+title: "Element: die Methode getAttribute()"
 short-title: getAttribute()
 slug: Web/API/Element/getAttribute
 l10n:
-  sourceCommit: 3f10b3a23b7123d051dccb3a97c4258c540df9bd
+  sourceCommit: f22f67069495dc37e550e354913d4ca984f5a4b0
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getAttribute()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
+Die **`getAttribute()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den String-Wert des angegebenen Attributs des angegebenen Elements zurück. Sie gibt `null` zurück, wenn das Element kein Attribut mit dem angegebenen Namen hat.
 
-Falls das angegebene Attribut nicht existiert, wird der zurückgegebene Wert `null` sein.
-
-Wenn Sie die Eigenschaften eines [`Attr`](/de/docs/Web/API/Attr)-Nodes inspizieren müssen, können Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)-Methode verwenden.
+Wenn Sie die Eigenschaften des [`Attr`](/de/docs/Web/API/Attr)-Knotens untersuchen müssen, können Sie stattdessen die Methode [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) verwenden.
 
 ## Syntax
 
 ```js-nolint
-getAttribute(attributeName)
+getAttribute(attrName)
 ```
 
 ### Parameter
 
-- `attributeName`
-  - : Der Name des Attributs, dessen Wert Sie abrufen möchten.
+- `attrName`
+  - : Ein String, der den Namen des Attributs angibt. Wenn es auf einem HTML-Element in einem DOM aufgerufen wird, das als HTML-Dokument gekennzeichnet ist, wird der Name in Kleinbuchstaben normalisiert.
 
 ### Rückgabewert
 
-Ein String, der den Wert von `attributeName` enthält, falls das Attribut existiert, ansonsten `null`.
+Ein String, der den Wert des Attributs enthält, oder `null`, wenn das Element kein Attribut mit dem angegebenen Namen hat.
+
+## Verwendungshinweise
+
+### Dekodierte Zeichenreferenzen in Attributwerten
+
+HTML-{{Glossary("Character_reference", "Zeichenreferenzen")}} im Quell-Markup eines Attributs (zum Beispiel `&lt;`, `&amp;` oder `&#x3C;`) werden vom HTML-Parser dekodiert, wenn das Dokument geparst wird, sodass `getAttribute()` den dekodierten Wert und nicht den ursprünglichen Quellwert zurückgibt.
+
+Gegeben:
+
+```html
+<div id="example" data-payload="&lt;b&gt;hi&lt;/b&gt;"></div>
+```
+
+ruft `document.getElementById("example").getAttribute("data-payload")` den String `"<b>hi</b>"` zurück.
+
+Es ist unsicher, den Rückgabewert von `getAttribute()` als bereits-escape-HTML zu behandeln. Wenn Sie ein Attribut lesen, das unzuverlässige Daten enthält, und es dann [`innerHTML`](/de/docs/Web/API/Element/innerHTML) zuweisen oder als Markup in das Dokument einfügen, werden alle HTML-Referenzen zur Escape von Sonderzeichen bereits dekodiert, und das Ergebnis kann für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) ausgenutzt werden.
+
+Verwenden Sie [`textContent`](/de/docs/Web/API/Node/textContent) (oder eine andere text-sichere API) für unzuverlässige Daten anstelle von `innerHTML`.
+
+### Abrufen von Nonce-Werten
+
+Aus Sicherheitsgründen sind [CSP](/de/docs/Web/HTTP/Guides/CSP)-Nonces aus Nicht-Skript-Quellen, wie z.B. CSS-Selektoren und `.getAttribute("nonce")`-Aufrufen, verborgen.
+
+```js example-bad
+const nonce = script.getAttribute("nonce");
+// returns empty string
+```
+
+Anstelle des Abrufs der Nonce aus dem Inhaltsattribut verwenden Sie die
+[`nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft:
+
+```js
+const nonce = script.nonce;
+```
 
 ## Beispiele
 
@@ -45,43 +77,6 @@ const exampleAttr = div1.getAttribute("id");
 
 const lang = div1.getAttribute("lang");
 // null
-```
-
-## Beschreibung
-
-### Kleinbuchstaben
-
-Wenn `getAttribute()` auf ein HTML-Element in einem DOM, das als HTML-Dokument markiert ist, aufgerufen wird, werden die Argumente in Kleinbuchstaben umgewandelt, bevor fortgefahren wird.
-
-### Dekodierte Zeichenreferenzen in Attributwerten
-
-HTML {{Glossary("Character_reference", "Zeichenreferenzen")}} im Quellmarkup eines Attributs (zum Beispiel `&lt;`, `&amp;` oder `&#x3C;`) werden vom HTML-Parser dekodiert, wenn das Dokument geparst wird. Daher gibt `getAttribute()` den dekodierten Wert zurück, nicht den ursprünglichen Quelltext.
-
-Gegeben:
-
-```html
-<div id="example" data-payload="&lt;b&gt;hi&lt;/b&gt;"></div>
-```
-
-Der Aufruf von `document.getElementById("example").getAttribute("data-payload")` gibt den String `"<b>hi</b>"` zurück.
-
-Es ist unsicher, den Rückgabewert von `getAttribute()` als bereits escaptes HTML zu behandeln. Wenn Sie ein Attribut lesen, das nicht vertrauenswürdige Daten enthält und dieses dann [`innerHTML`](/de/docs/Web/API/Element/innerHTML) zuweisen oder als Markup ins Dokument einfügen, werden alle HTML-Referenzen, die verwendet wurden, um Sonderzeichen zu escapen, bereits dekodiert sein, und das Ergebnis kann für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) ausgenutzt werden.
-
-Verwenden Sie [`textContent`](/de/docs/Web/API/Node/textContent) (oder eine andere text-sichere API) für nicht vertrauenswürdige Daten anstelle von `innerHTML`.
-
-### Abrufen von nonce-Werten
-
-Aus Sicherheitsgründen sind [CSP](/de/docs/Web/HTTP/Guides/CSP)-Nonces von nicht-Skript-Quellen, wie CSS-Selektoren, und `.getAttribute("nonce")`-Aufrufen ausgeblendet.
-
-```js example-bad
-let nonce = script.getAttribute("nonce");
-// returns empty string
-```
-
-Anstatt das nonce aus dem Content-Attribut abzurufen, verwenden Sie die [`nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft:
-
-```js
-let nonce = script.nonce;
 ```
 
 ## Spezifikationen

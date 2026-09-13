@@ -2,17 +2,17 @@
 title: class
 slug: Web/SVG/Reference/Attribute/class
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 8d0c8728f49f2a0577ca17910f2149d6dd36b37e
 ---
 
-Weist einem Element einen Klassennamen oder eine Menge von Klassennamen zu. Sie können denselben Klassennamen oder -namen einer beliebigen Anzahl von Elementen zuweisen, jedoch müssen mehrere Klassennamen durch Leerzeichen getrennt sein.
+Weist einem Element einen Klassennamen oder eine Menge von Klassennamen zu. Sie können denselben Klassennamen oder dieselben Klassennamen einer beliebigen Anzahl von Elementen zuweisen. Mehrere Klassennamen müssen jedoch durch Leerzeichen getrennt werden.
 
-Der Klassenname eines Elements hat zwei Hauptfunktionen:
+Der Klassenname eines Elements erfüllt zwei wichtige Rollen:
 
-- Als Selektor in Stylesheets, wenn ein Autor einer Gruppe von Elementen Stilinformationen zuweist.
-- Zur allgemeinen Verwendung durch den Browser.
+- Als Selektor in einem Stylesheet, wenn ein Autor Stilinformationen einer Gruppe von Elementen zuweist.
+- Für die allgemeine Verwendung durch den Browser.
 
-Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
+Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu gestalten.
 
 ## Verwendungskontext
 
@@ -46,7 +46,6 @@ Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
       width="120"
       height="220"
       viewPort="0 0 120 120"
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg">
       <style>
         <![CDATA[
@@ -70,7 +69,7 @@ Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
 
 ## Elemente
 
-Die folgenden Elemente können das `class`-Attribut verwenden:
+Die folgenden Elemente können das Attribut `class` verwenden:
 
 - {{ SVGElement("a") }}
 - {{ SVGElement("circle") }}

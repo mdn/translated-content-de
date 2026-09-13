@@ -3,21 +3,21 @@ title: "ScriptProcessorNode: audioprocess-Ereignis"
 short-title: audioprocess
 slug: Web/API/ScriptProcessorNode/audioprocess_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Audio API")}}{{Deprecated_Header}}
+{{APIRef("Web Audio API")}}
 
 Das **`audioprocess`**-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Skriptprozessors zur Verarbeitung bereit ist.
 
 > [!NOTE]
 > Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
-Dieses Ereignis ist nicht stornierbar und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und ist nicht aufsteigend.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("audioprocess", (event) => { })
@@ -58,7 +58,7 @@ scriptNode.addEventListener("audioprocess", (audioProcessingEvent) => {
 });
 ```
 
-Sie könnten den Ereignishandler auch über die `onaudioprocess`-Eigenschaft einrichten:
+Sie könnten den Ereignis-Handler auch über die `onaudioprocess`-Eigenschaft einrichten:
 
 ```js
 scriptNode.onaudioprocess = (audioProcessingEvent) => {

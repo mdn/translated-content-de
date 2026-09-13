@@ -1,26 +1,32 @@
 ---
-title: "WebTransportDatagramsWritable: sendGroup-Eigenschaft"
+title: "WebTransportDatagramsWritable: sendGroup Eigenschaft"
 short-title: sendGroup
 slug: Web/API/WebTransportDatagramsWritable/sendGroup
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: c4ced66f871dd67ff683526ecc38e9eb7ebb5c9a
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`sendGroup`**-Eigenschaft des [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Interfaces erhält oder setzt die [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup), unter der diese `WebTransportDatagramsWritable` für die Zwecke der [`sendOrder`](/de/docs/Web/API/WebTransportDatagramsWritable/sendOrder)-Priorisierung gruppiert ist.
+Die **`sendGroup`**-Eigenschaft der [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Schnittstelle repräsentiert die [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup), zu der dieses `WebTransportDatagramsWritable` für die Zwecke der Priorisierung der [`sendOrder`](/de/docs/Web/API/WebTransportDatagramsWritable/sendOrder) gruppiert ist.
 
-Innerhalb einer Gruppe werden die an den Streams und Datagrams zum Senden eingereihten Bytes mit einer höheren `sendOrder` vor jeglichen Bytes von weniger priorisierten gesendet. Unterschiedliche Gruppen werden im Hinblick auf die Bandbreitenzuteilung als gleichwertig angesehen — obwohl die genaue Weise, wie die Bandbreite zwischen Gruppen aufgeteilt wird, durch die Implementierung definiert ist.
+Innerhalb einer Gruppe werden die für das Senden auf Streams und Datagrammen angezeigten Bytes mit einer höheren `sendOrder` vor allen Bytes aus solchen mit niedrigerer Priorität gesendet. Verschiedene Gruppen sollen gleich behandelt werden, um die Bandbreitenzuteilung zu gewährleisten – wobei die genaue Art und Weise, wie die Bandbreite zwischen den Gruppen aufgeteilt wird, von der Implementierung definiert wird.
 
 ## Wert
 
 Ein `WebTransportSendGroup`-Objekt oder `null`, um die Standard-Sendegruppe anzugeben.
+Der Standardwert ist `null`.
+
+### Ausnahmen
+
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine `WebTransportSendGroup` gesetzt wird, die mit einem anderen `WebTransport`-Objekt als diesem Stream verbunden ist.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Im folgenden Beispiel wird eine Sendegruppe mit der Methode [`WebTransport.createSendGroup()`](/de/docs/Web/API/WebTransport/createSendGroup) erstellt und dann mit einem `sendOrder`-Wert verwendet, um die Datagramme, die in den Stream geschrieben werden, relativ zu anderen Streams und Datagrammen, die Teil derselben Gruppe sind, zu priorisieren:
+Das folgende Beispiel erstellt eine Sendegruppe mit der Methode [`WebTransport.createSendGroup()`](/de/docs/Web/API/WebTransport/createSendGroup) und verwendet diese dann mit einem `sendOrder`-Wert, um die Datagramme, die in den Stream geschrieben werden, im Vergleich zu anderen Streams und Datagrammen, die Teil derselben Gruppe sind, zu priorisieren:
 
 ```js
 const sendGroup = transport.createSendGroup();
@@ -48,5 +54,5 @@ writer.write(data).catch(() => {});
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [Streams API](/de/docs/Web/API/Streams_API)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)

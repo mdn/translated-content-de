@@ -1,21 +1,21 @@
 ---
-title: "Dokument: writeln()-Methode"
+title: "Dokument: writeln() Methode"
 short-title: writeln()
 slug: Web/API/Document/writeln
 l10n:
-  sourceCommit: 5c513c8e3075989886ae5f3b00d92f2b2988085a
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ ApiRef("DOM") }}{{deprecated_header}}
+{{ ApiRef("DOM") }}
 
 > [!WARNING]
-> Diese Methode analysiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
-> Solche APIs sind bekannt als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können eine potenzielle Angriffsfläche für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe darstellen, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> Diese Methode analysiert ihre Eingabe als HTML und schreibt das Ergebnis in den DOM.
+> Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
-> Sie können dieses Risiko mindern, indem Sie immer `TrustedHTML`-Objekte anstelle von Zeichenfolgen übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
+> Sie können dieses Risiko mindern, indem Sie immer `TrustedHTML`-Objekte anstelle von Strings übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`writeln()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle schreibt Text in einem oder mehreren [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)- oder Zeichenfolgen-Parametern in einen durch [`document.open()`](/de/docs/Web/API/Document/open) geöffneten Dokumentenstrom, gefolgt von einem Zeilenumbruchszeichen.
+Die **`writeln()`** Methode der [`Document`](/de/docs/Web/API/Document) Schnittstelle schreibt Text in einem oder mehreren [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) oder String-Parametern in einen Dokument-Stream, der durch [`document.open()`](/de/docs/Web/API/Document/open) geöffnet wurde, gefolgt von einem Zeilenumbruch.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ writeln(markup, markup2, /* …, */ markupN)
 ### Parameter
 
 - `markup`, …, `markupN`
-  - : [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)- oder Zeichenfolgen-Objekte, die den Text enthalten, der in das Dokument geschrieben werden soll.
+  - : [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) oder String-Objekte, die den zu schreibenden Text in das Dokument enthalten.
 
 ### Rückgabewert
 
@@ -37,34 +37,34 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Methode wurde für ein XML-Dokument aufgerufen oder während der Parser derzeit einen benutzerdefinierten Elementkonstruktor ausführt.
+  - : Die Methode wurde auf einem XML-Dokument aufgerufen oder während der Parser einen benutzerdefinierten Elemente-Konstruktor ausführt.
 - `TypeError`
-  - : Eine Zeichenfolge wurde als einer der Parameter übergeben, wenn [vertrauenswürdige Typen erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und [keine Standardrichtlinie definiert wurde](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy#creating_a_default_policy) zum Erstellen von [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekten.
+  - : Ein String wird als einer der Parameter übergeben, wenn [vertrauenswürdige Typen durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und [keine Standardrichtlinie definiert wurde](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy#creating_a_default_policy), um [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte zu erstellen.
 
 ## Beschreibung
 
-Die Methode ist im Wesentlichen die gleiche wie [`document.write()`](/de/docs/Web/API/Document/write), fügt jedoch eine neue Zeile hinzu (Informationen im verlinkten Thema gelten auch für diese Methode).
-Diese neue Zeile wird nur sichtbar sein, wenn sie in ein Element eingefügt wird, in dem Zeilenumbrüche angezeigt werden.
+Die Methode ist im Wesentlichen die gleiche wie [`document.write()`](/de/docs/Web/API/Document/write), fügt aber einen Zeilenumbruch hinzu (Informationen im verlinkten Thema gelten auch für diese Methode).
+Dieser Zeilenumbruch ist nur sichtbar, wenn er in ein Element eingefügt wird, in dem Zeilenumbrüche angezeigt werden.
 Die zusätzlichen Informationen in [`document.write()`](/de/docs/Web/API/Document/write) gelten auch für diese Methode.
 
 ### Sicherheitsüberlegungen
 
-Die Methode ist eine mögliche Angriffsfläche für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, bei denen potenziell unsichere Zeichenfolgen, die von einem Benutzer bereitgestellt werden, ohne vorherige Bereinigung in das DOM injiziert werden.
-Obwohl die Methode möglicherweise {{HTMLElement("script")}}-Elemente von der Ausführung blockieren kann, wenn sie in einigen Browsern injiziert werden (siehe [Intervening against document.write()](https://developer.chrome.com/blog/removing-document-write/) für Chrome), ist sie anfällig für viele andere Möglichkeiten, HTML zu gestalten, um bösartiges JavaScript auszuführen.
+Die Methode ist ein potenzieller Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, bei denen potenziell unsichere Strings, die von einem Benutzer bereitgestellt werden, in den DOM eingefügt werden, ohne vorher bereinigt zu werden.
+Obwohl die Methode möglicherweise {{HTMLElement("script")}}-Elemente blockiert, wenn sie in einigen Browsern eingefügt werden (siehe [Intervening against document.write()](https://developer.chrome.com/blog/removing-document-write/) für Chrome), ist sie anfällig für viele andere Wege, auf denen Angreifer HTML erstellen können, um schädliches JavaScript auszuführen.
 
-Sie können diese Probleme mindern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Zeichenfolgen übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types), indem Sie die [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive verwenden.
-Dies gewährleistet, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliche Markup-Elemente (wie {{htmlelement("script")}}-Elemente und Event-Handler-Attribute) zu entfernen, bevor sie injiziert werden.
+Sie können diese Probleme mindern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Strings übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive.
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup (wie {{htmlelement("script")}}-Elemente und Event-Handler-Attribute) zu entfernen, bevor sie eingefügt wird.
 
 ## Beispiele
 
 ### Schreiben von TrustedHTML
 
-Dieses Beispiel verwendet die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API), um HTML-Zeichenfolgen zu bereinigen, bevor sie in ein Dokument geschrieben werden.
-Sie sollten immer vertrauenswürdige Typen verwenden, um unzuverlässige Zeichenfolgen an unsichere APIs zu übergeben.
+Dieses Beispiel verwendet die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API), um HTML-Strings zu bereinigen, bevor sie in ein Dokument geschrieben werden.
+Sie sollten immer vertrauenswürdige Typen verwenden, um nicht vertrauenswürdige Strings an unsichere APIs weiterzugeben.
 
-Das Beispiel zeigt zunächst einen Standardtext und einen Knopf an.
-Wenn der Knopf geklickt wird, wird das aktuelle Dokument geöffnet, einige Zeichenfolgen von HTML werden in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen umgewandelt und in das Dokument geschrieben, das dann geschlossen wird.
-Dadurch wird das Dokument im Beispielrahmen ersetzt, einschließlich des ursprünglichen HTML für den Knopf und des JavaScript, das die Aktualisierung vorgenommen hat!
+Das Beispiel zeigt zunächst einen Standardtext und einen Button.
+Wenn der Button geklickt wird, wird das aktuelle Dokument geöffnet, einige HTML-Strings werden in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanzen umgewandelt und ins Dokument geschrieben, und das Dokument wird dann geschlossen.
+Dies ersetzt das Dokument im Beispielrahmen, einschließlich des ursprünglichen HTMLs für den Button und des JavaScripts, das das Update vorgenommen hat!
 
 #### HTML
 
@@ -75,16 +75,16 @@ Dadurch wird das Dokument im Beispielrahmen ersetzt, einschließlich des ursprü
 
 #### JavaScript
 
-Zunächst verwenden wir die [`Window.trustedTypes`](/de/docs/Web/API/Window/trustedTypes)-Eigenschaft, um auf die globale [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) zuzugreifen, und verwenden deren [`createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy)-Methode, um eine Richtlinie namens `"docPolicy"` zu definieren.
+Zuerst verwenden wir die [`Window.trustedTypes`](/de/docs/Web/API/Window/trustedTypes) Eigenschaft, um auf die globale [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) zuzugreifen, und verwenden die Methode [`createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy), um eine Richtlinie namens `"docPolicy"` zu definieren.
 
-Die neue Richtlinie definiert eine Transformationsfunktion `createHTML()` zum Erstellen der [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte, die wir an die `writeln()`-Methode übergeben werden.
-Diese Methode kann mit der Eingabezeichenfolge alles machen, was sie möchte: die Trusted Types API erfordert nur, dass Sie die Eingabe durch eine Richtlinien-Transformationsfunktion leiten, nicht, dass die Transformationsfunktion etwas Bestimmtes tut.
+Die neue Richtlinie definiert eine Transformationsfunktion `createHTML()` zur Erstellung von [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekten, die wir an die `writeln()` Methode übergeben werden.
+Diese Methode kann mit dem Input-String machen, was sie möchte: Die Trusted Types API verlangt nur, dass Sie den Input durch eine Richtlinien-Transformationsfunktion leiten, nicht dass die Transformationsfunktion etwas Bestimmtes macht.
 
-Sie würden die Methode verwenden, um die Eingabe durch Entfernen potenziell unsicherer Merkmale wie {{htmlelement("script")}}-Tags oder Event-Handler-Attribute zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization).
-Bereinigung ist schwer richtig umzusetzen, daher wird dieser Prozess typischerweise mit einer renommierten Drittanbieter-Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify) durchgeführt.
+Sie würden die Methode verwenden, um den Input zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), indem potenziell unsichere Features wie {{htmlelement("script")}}-Tags oder Event-Handler-Attribute entfernt werden.
+Sanitisierung ist schwer richtig zu machen, daher wird dieser Prozess typischerweise mit einer anerkannten Drittanbieter-Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify) durchgeführt.
 
-Hier implementieren wir einen rudimentären "Sanitizer", der `<`-Symbole in skriptöffnenden und -schließenden Tags durch das `&lt;`-Zeichen ersetzt.
-Die eingefügten Zeichenfolgen in diesem Beispiel enthalten eigentlich keine schädlichen Elemente, daher ist dies rein zur Demonstration.
+Hier implementieren wir einen rudimentären "Sanitizer", der `<` Symbole in den öffnenden und schließenden Script-Tags mit dem `&lt;` Zeichen ersetzt.
+Die eingefügten Strings in diesem Beispiel enthalten tatsächlich keine schädlichen Elemente, das ist also rein zur Demonstration gedacht.
 
 ```js
 const policy = trustedTypes.createPolicy("docPolicy", {
@@ -96,8 +96,8 @@ const policy = trustedTypes.createPolicy("docPolicy", {
 });
 ```
 
-Wir können dann die [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML)-Methode auf der zurückgegebenen Richtlinie verwenden, um [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte aus unseren ursprünglichen Eingabezeichenfolgen zu erstellen.
-Diese werden dann der `writeln()`-Funktion übergeben, wenn der Benutzer den Knopf klickt.
+Wir können dann die Methode [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) auf der zurückgegebenen Richtlinie verwenden, um [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte aus unseren ursprünglichen Eingabestrings zu erstellen.
+Diese werden dann an die `writeln()` Funktion übergeben, wenn der Benutzer den Button klickt.
 
 ```js
 const replace = document.querySelector("#replace");
@@ -117,8 +117,8 @@ replace.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Klicken Sie auf den Knopf.
-Beachten Sie, dass nach jedem Aufruf von `writeln()` eine neue Zeile hinzugefügt wird, diese aber nur innerhalb des {{htmlelement("pre")}}-Elements sichtbar ist, da dessen Layout standardmäßig Leerzeichen beibehält.
+Klicken Sie auf den Button.
+Beachten Sie, dass nach jedem Aufruf von `writeln()` ein Zeilenumbruch hinzugefügt wird, dieser jedoch nur im {{htmlelement("pre")}} Element sichtbar ist, da dessen Layout standardmäßig Leerzeichen bewahrt.
 
 {{EmbedLiveSample("Writing TrustedHTML")}}
 

@@ -1,15 +1,15 @@
 ---
-title: "StorageAccessHandle: Methode getDirectory()"
+title: "StorageAccessHandle: getDirectory()-Methode"
 short-title: getDirectory()
 slug: Web/API/StorageAccessHandle/getDirectory
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory), um das Verständnis zur Nutzung zu erlangen.
+> Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory), um die Verwendung zu verstehen.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem unpartitionierten [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einem nicht partitionierten [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
@@ -36,7 +36,7 @@ Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirec
 
 ```js
 document.requestStorageAccess({ getDirectory: true }).then(
-  (handle) => {
+  async (handle) => {
     console.log("getDirectory access granted");
     await handle.getDirectory();
   },

@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Setzen einer Webseite für eine Community-Schule"
-short-title: "Herausforderung: Community-Schulwebseite"
+title: "Herausforderung: Satz einer Community-School-Homepage"
+short-title: "Herausforderung: Community-School-Homepage"
 slug: Learn_web_development/Core/Text_styling/Typesetting_a_homepage
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: 3064cbe8212ea919874fb21120a89657afccba25
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Web_fonts", "Learn_web_development/Core/CSS_layout", "Learn_web_development/Core/Text_styling")}}
 
-In dieser Herausforderung testen wir Ihr Verständnis der Textstilisierungstechniken, die wir in diesem Modul behandelt haben – indem Sie die Webseite einer Community-Schule setzen. Vielleicht haben Sie dabei sogar ein wenig Spaß.
+In dieser Herausforderung testen wir Ihr Verständnis der Techniken zur Textgestaltung, die wir in diesem Modul behandelt haben — indem Sie die Homepage einer Community School setzen. Vielleicht haben Sie dabei sogar etwas Spaß.
 
 ## Ausgangspunkt
 
-Sie lösen diese Herausforderung in Ihrer lokalen Entwicklungsumgebung; idealerweise möchten Sie das Beispiel in einem vollständigen Browserfenster betrachten, um sicherzustellen, dass Sie in die richtige Richtung gehen.
+Sie lösen diese Herausforderung in Ihrer lokalen Entwicklungsumgebung; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster anzeigen, um sicherzustellen, dass Sie auf dem richtigen Weg sind.
 
-1. Erstellen Sie einen neuen Ordner auf Ihrem Computer namens `typesetting-challenge`.
-2. Erstellen Sie innerhalb des Ordners eine Datei `index.html` und fügen Sie den folgenden Inhalt ein:
+1. Erstellen Sie auf Ihrem Computer einen neuen Ordner namens `typesetting-challenge`.
+2. Erstellen Sie im Ordner eine Datei `index.html` und fügen Sie den folgenden Inhalt ein:
 
    ```html
    <!doctype html>
@@ -67,7 +67,7 @@ Sie lösen diese Herausforderung in Ihrer lokalen Entwicklungsumgebung; idealerw
            <ul>
              <li>Emotional resilience</li>
              <li>Critical thinking</li>
-             <li>Judgement</li>
+             <li>Judgment</li>
              <li>Assertion</li>
              <li>Focus and resolve</li>
            </ul>
@@ -126,7 +126,7 @@ Sie lösen diese Herausforderung in Ihrer lokalen Entwicklungsumgebung; idealerw
    </html>
    ```
 
-3. Erstellen Sie innerhalb des Ordners eine Datei `style.css` und fügen Sie den folgenden Inhalt ein:
+3. Erstellen Sie im Ordner eine Datei `style.css` und fügen Sie den folgenden Inhalt ein:
 
    ```css
    /* General setup */
@@ -166,70 +166,70 @@ Sie lösen diese Herausforderung in Ihrer lokalen Entwicklungsumgebung; idealerw
    }
    ```
 
-4. Laden Sie das Icon [`external-link-52.png`](https://mdn.github.io/shared-assets/images/examples/external-link-52.png) herunter und speichern Sie es im Ordner auf derselben Ebene wie die Codierungsdateien.
+4. Laden Sie das Symbol [`external-link-52.png`](https://mdn.github.io/shared-assets/images/examples/external-link-52.png) herunter und speichern Sie es im Ordner auf derselben Ebene wie die Codedateien.
 
-5. Speichern Sie Ihre Dateien und laden Sie `index.html` in einen Browser, um zu testen.
+5. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um das Ergebnis zu testen.
 
 ## Projektbeschreibung
 
-Ihnen wurde einige HTML für die Startseite eines imaginären Community-Colleges zur Verfügung gestellt, sowie einige CSS, die den Inhalt in drei Spalten aufteilt und einige andere grundlegende Stile bereitstellt. Sie müssen Regeln am Ende der CSS-Datei hinzufügen, um die in den folgenden Abschnitten beschriebenen Herausforderungen zu lösen.
+Sie erhalten etwas HTML für die Homepage eines fiktiven Community College sowie etwas CSS, das den Inhalt in drei Spalten anordnet und einige weitere grundlegende Styles bereitstellt. Sie müssen am Ende der CSS-Datei Regeln hinzufügen, um die in den folgenden Abschnitten beschriebenen Herausforderungen zu lösen.
 
-### Schriftarten auf der Seite anwenden
+### Schriftarten auf die Seite anwenden
 
-1. Wählen Sie Schriftarten für Überschriften und Fließtext, die Sie auf der Seite anwenden möchten:
-   - Da es sich um ein College handelt, sollten die Schriftarten der Seite ein eher ernstes, vertrauenswürdiges Gefühl verleihen. Eine serifenbetonte, siteweite Schriftart für den allgemeinen Fließtext kombiniert mit einer schweren/schrägen Schriftart für die Überschriften wäre geeignet.
-   - Es liegt bei Ihnen, ob Sie einen Online-Schriftservice wie Google Fonts verwenden möchten, um auf die Schriftarten zuzugreifen, oder die Schriftdateien lokal in Ihr Projekt herunterladen. Was auch immer Sie wählen, stellen Sie sicher, dass die Schriftarten für Ihre Seite verfügbar sind. Wenn Sie sich für lokale Schriftdateien entscheiden, verwenden Sie einen geeigneten Service, um bulletproof `@font-face`-Code zu generieren.
-2. Wenden Sie Ihre Fließtext-Schriftart auf die gesamte Seite an und Ihre Überschriftenschrift auf Ihre Überschriften.
+1. Wählen Sie Überschriften- und Fließtextschriftarten aus, die Sie auf die Seite anwenden:
+   - Da es sich um ein College handelt, sollten die Schriftarten der Website ein recht seriöses, vertrauenswürdiges Erscheinungsbild verleihen. Eine Serifenschrift für den allgemeinen Fließtext der Website in Kombination mit einer kräftigen Slab-Schrift für die Überschriften wäre geeignet.
+   - Sie können selbst entscheiden, ob Sie einen Online-Schriftartendienst wie Google Fonts verwenden, um auf die Schriftarten zuzugreifen, oder Schriftartdateien lokal in Ihr Projekt herunterladen möchten. Unabhängig von Ihrer Wahl müssen Sie Ihre Schriftarten für Ihre Seite verfügbar machen. Wenn Sie lokale Schriftartdateien verwenden, nutzen Sie einen geeigneten Dienst, um dafür robusten `@font-face`-Code zu erzeugen.
+2. Wenden Sie Ihre Fließtextschriftart auf die gesamte Seite und Ihre Überschriftenschriftart auf Ihre Überschriften an.
 
-### Allgemeine Textstilisierung
+### Allgemeine Textgestaltung
 
-1. Geben Sie Ihren Überschriften und anderen Elementtypen geeignete Schriftgrößen, die mit einer passenden relativen Einheit definiert sind.
+1. Geben Sie Ihren Überschriften und anderen Elementtypen angemessene `font-size`-Werte, die mit einer geeigneten relativen Einheit definiert sind.
 2. Geben Sie Ihrem Fließtext eine geeignete `line-height`.
-3. Zentrieren Sie Ihre oberste Überschrift auf der Seite.
-4. Entfernen Sie den unteren Rand von Ihren Überschriften der zweiten Ebene.
-5. Geben Sie Ihren Überschriften und Fließtexten etwas `letter-spacing`, um sie nicht zu zusammengequetscht wirken zu lassen und den Buchstaben etwas Raum zum Atmen zu geben.
-6. Geben Sie dem ersten Absatz nach jeder Überschrift im `<section>` etwas Texteinzug, sagen wir `2rem`.
+3. Zentrieren Sie Ihre Überschrift der obersten Ebene auf der Seite.
+4. Entfernen Sie den unteren Abstand Ihrer Überschriften der zweiten Ebene.
+5. Geben Sie Ihren Überschriften und Ihrem Fließtext etwas `letter-spacing`, damit sie nicht zu gedrängt wirken und die Buchstaben etwas Raum haben.
+6. Geben Sie dem ersten Absatz nach jeder Überschrift im `<section>` einen kleinen Texteinzug, beispielsweise `2rem`.
 
-### Link-Stilierung
+### Linkgestaltung
 
-1. Geben Sie den Zustand des Links, besucht, Fokus und hover Farben, die zu den Farben der horizontalen Balken oben und unten auf der Seite passen.
-2. Stellen Sie sicher, dass Links standardmäßig unterstrichen sind, aber wenn Sie darüber fahren oder sie fokussiert sind, die Unterstreichung verschwindet.
-3. Entfernen Sie den Standardfokusrahmen von ALLEN Links auf der Seite.
-4. Stellen Sie sicher, dass _externe_ Links das externe Link-Icon rechts von ihnen eingefügt haben, in einer passenden Größe.
+1. Geben Sie den Zuständen Link, besucht, Fokus und Hover Farben, die zu der Farbe der horizontalen Balken am oberen und unteren Rand der Seite passen.
+2. Sorgen Sie dafür, dass Links standardmäßig unterstrichen sind, die Unterstreichung beim Überfahren oder Fokussieren jedoch verschwindet.
+3. Entfernen Sie den standardmäßigen Fokusrand von ALLEN Links auf der Seite.
+4. Sorgen Sie dafür, dass bei _externen_ Links das Symbol für externe Links rechts daneben in einer geeigneten Größe eingefügt wird.
 
-### Listenstilierung
+### Listengestaltung
 
-1. Stellen Sie sicher, dass der Abstand Ihrer Listen und Listenelemente zum gesamten Seitenstyling passt. Jede Liste sollte die gleiche `line-height` und obere und untere Margen wie die Absätze haben.
-2. Geben Sie Ihren Listenelementen passende Aufzählungsstile für das Design der Seite. Es liegt bei Ihnen, ob Sie ein benutzerdefiniertes Aufzählungsbild oder etwas anderes wählen.
+1. Stellen Sie sicher, dass die Abstände Ihrer Listen und Listenelemente gut zur Gestaltung der gesamten Seite passen. Jede Liste sollte dieselbe `line-height` sowie dieselben oberen und unteren Außenabstände wie die Absätze haben.
+2. Geben Sie Ihren Listenelementen für das Seitendesign geeignete Aufzählungszeichen-Stile. Es liegt bei Ihnen, ob Sie ein benutzerdefiniertes Aufzählungszeichenbild oder etwas anderes wählen.
 
-### Navigationsmenü-Stilierung
+### Gestaltung des Navigationsmenüs
 
-Gestalten Sie Ihr Navigationsmenü so, dass es zur Seite passt. Wir überlassen dies hauptsächlich Ihnen, hier sind jedoch einige Tipps/Vorschläge:
+Gestalten Sie Ihr Navigationsmenü so, dass es mit der Seite harmoniert. Wir überlassen dies weitgehend Ihnen, aber hier sind einige Tipps/Vorschläge:
 
-1. Lassen Sie die Links wie Buttons aussehen, die so breit sind wie die Spalte, in der sie sich befinden, und hoch genug, dass die Navigationselemente ausreichend Platz einnehmen.
-2. Wenden Sie dieselbe Schriftart auf Ihren Navigationslink-Text an, die Sie auf Ihre Überschriften angewendet haben.
-3. Stellen Sie sicher, dass das Zugriffsziel jedes Links erweitert wird, um die gesamte Fläche des übergeordneten Listenelements zu füllen.
+1. Lassen Sie die Links wie Schaltflächen aussehen, die so breit wie die Spalte sind, in der sie sich befinden, und hoch genug, damit die Navigationselemente einen angemessenen Bereich ausfüllen.
+2. Wenden Sie auf Ihren Navigationstext dieselbe Schriftart an, die Sie auf Ihre Überschriften angewendet haben.
+3. Stellen Sie sicher, dass der Trefferbereich jedes Links erweitert wird, um das gesamte übergeordnete Listenelement auszufüllen.
 4. Zentrieren Sie den Text innerhalb jedes Links.
-5. Wandeln Sie den Text in Großbuchstaben um (mithilfe von CSS, nicht durch Bearbeiten des HTMLs!)
+5. Schreiben Sie den Text in Großbuchstaben (mithilfe von CSS, nicht durch Bearbeiten des HTML!).
 
 ## Hinweise und Tipps
 
-- Sie müssen das HTML für diese Übung nicht bearbeiten, es sei denn, Sie müssen die Schriftarten auf der Seite anwenden.
+- Sie müssen das HTML für diese Übung nicht bearbeiten, außer wenn dies erforderlich ist, um die Schriftarten auf die Seite anzuwenden.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt, wie die Seite ursprünglich aussieht:
+Der folgende Screenshot zeigt, wie die Seite zu Beginn aussieht:
 
-![Ein Screenshot des Ausgangszustands der Seite. Die obere Überschrift lautet 'St Huxley's Community College' und die Fußzeile enthält einen Urheberrechtshinweis. Es gibt rote Linien, die den Header und die Fußzeile vom Inhalt trennen. Der Hauptinhalt hat drei Spalten, eine enthält Fließtext und zwei enthalten Listen mit Links. Der Text wird mit den Standardstilen des Browsers gerendert](example-start.png)
+![Ein Screenshot des Ausgangszustands der Seite. Die oberste Überschrift lautet „St Huxley's Community College“ und die Fußzeile enthält einen Urheberrechtsvermerk. Rote Linien trennen die Kopf- und Fußzeile vom Inhalt. Der Hauptinhalt besteht aus drei Spalten: eine enthält Fließtext, die beiden anderen enthalten Linklisten. Der Text wird mit den Standardstilen des Browsers dargestellt.](example-start.png)
 
-Der folgende Screenshot zeigt hingegen ein Beispiel dafür, wie das fertige Design aussehen könnte:
+Der folgende Screenshot zeigt dagegen ein Beispiel dafür, wie das fertige Design aussehen könnte:
 
-![Ein Screenshot des fertigen Herausforderungsdesigns. Die obere Überschrift lautet 'St Huxley's Community College'. Es gibt eine rote Linie, die den Header vom Inhalt trennt. Der Hauptinhalt hat drei Spalten, eine enthält Fließtext, eine enthält eine Liste mit Links, und eine vertikale Navigationsleiste in der dritten Spalte. Der Text wird mit passenden Stilen gerendert](example-finished.png)
+![Ein Screenshot des fertigen Herausforderungsdesigns. Die oberste Überschrift lautet „St Huxley's Community College“. Eine rote Linie trennt die Kopfzeile vom Inhalt. Der Hauptinhalt besteht aus drei Spalten: eine enthält Fließtext, eine eine Linkliste und die dritte eine vertikale Navigationsleiste. Der Text wird mit einigen geeigneten Styles dargestellt.](example-finished.png)
 
 <details>
 <summary>Klicken Sie hier, um eine mögliche Lösung anzuzeigen</summary>
 
-Unser fertiges CSS sieht so aus:
+Unser fertiges CSS sieht folgendermaßen aus:
 
 ```css
 /* Solution: Apply fonts to the page */

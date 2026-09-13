@@ -2,22 +2,22 @@
 title: SVGAnimateColorElement
 slug: Web/API/SVGAnimateColorElement
 l10n:
-  sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("SVG")}}{{deprecated_header}}
+{{APIRef("SVG")}}
 
-Die **`SVGAnimateColorElement`**-Schnittstelle entspricht dem `<animateColor>`-Element.
+Die **`SVGAnimateColorElement`** Schnittstelle entspricht dem `<animateColor>` Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 

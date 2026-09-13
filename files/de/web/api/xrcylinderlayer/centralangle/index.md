@@ -1,14 +1,14 @@
 ---
-title: "XRCylinderLayer: Eigenschaft centralAngle"
+title: "XRCylinderLayer: centralAngle-Eigenschaft"
 short-title: centralAngle
 slug: Web/API/XRCylinderLayer/centralAngle
 l10n:
-  sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`centralAngle`** Eigenschaft der [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer) Schnittstelle stellt den Winkel in Bogenmaß des sichtbaren Abschnitts des Zylinders dar.
+Die **`centralAngle`**-Eigenschaft des [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Interfaces repräsentiert den Winkel in Bogenmaß des sichtbaren Abschnitts des Zylinders.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Eine Zahl, die den Winkel in Bogenmaß des sichtbaren Abschnitts des Zylinders d
 
 ## Beispiele
 
-### Ermitteln des zentralen Winkels einer Ebene
+### Abrufen des zentralen Winkels einer Schicht
 
-Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinderebene und ermöglicht es, einen `centralAngle` anzugeben. Die Eigenschaft `XRCylinder.centralAngle` kann nach der Erstellung der Ebene verwendet werden, um den verwendeten zentralen Winkel zu ermitteln oder um ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinderschicht und ermöglicht es Ihnen, einen `centralAngle` anzugeben. Die Eigenschaft `XRCylinder.centralAngle` kann nach der Erstellung der Schicht verwendet werden, um den verwendeten zentralen Winkel zu erhalten oder ihn auf einen neuen Wert zu setzen.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({

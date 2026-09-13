@@ -1,31 +1,41 @@
 ---
-title: "& Nesting-Selektor"
+title: "&-Verschachtelungsselektor"
 slug: Web/CSS/Reference/Selectors/Nesting_selector
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 5249290f5d1191482d679f74ee0efdcc108ead9c
 ---
 
-Der CSS-**`&`-Nesting-Selektor** legt die Beziehung zwischen Eltern- und Kindregeln beim Verwenden von [CSS-Nesting](/de/docs/Web/CSS/Guides/Nesting) ausdrücklich fest. Er macht die verschachtelten Kindregel-Selektoren _relativ zum Elternelement_. Ohne den `&`-Nesting-Selektor wählt der Kindregel-Selektor Kindelemente aus. Die Kindregel-Selektoren haben die gleiche [Spezifität](/de/docs/Web/CSS/Guides/Nesting/Nesting_and_specificity) wie wenn sie innerhalb von {{cssxref(":is()")}} wären.
+Der CSS-**`&`-Verschachtelungsselektor** gibt bei der Verwendung von [CSS-Verschachtelung](/de/docs/Web/CSS/Guides/Nesting) explizit die Beziehung zwischen übergeordneten und untergeordneten Regeln an. Er macht die Selektoren der verschachtelten untergeordneten Regel _relativ zum übergeordneten Element_. Ohne den `&`-Verschachtelungsselektor wählt der Selektor der untergeordneten Regel untergeordnete Elemente aus. Die Selektoren der untergeordneten Regel haben dieselbe [Spezifität](/de/docs/Web/CSS/Guides/Nesting/Nesting_and_specificity) wie innerhalb von {{cssxref(":is()")}}.
 
 > [!NOTE]
-> _Kindregel_ bedeutet nicht _Kindelement-Selektor_. Eine Kindregel kann das Elternelement oder Kindelemente anvisieren, abhängig von der Verwendung des `&`-Nesting-Selektors.
+> _Untergeordnete Regel_ bedeutet nicht _Selektor für untergeordnete Elemente_. Eine untergeordnete Regel kann abhängig von der Verwendung des `&`-Verschachtelungsselektors das übergeordnete Element oder untergeordnete Elemente adressieren.
 
-Wenn er nicht in einer verschachtelten Stilregel verwendet wird, repräsentiert der `&`-Nesting-Selektor die [Scope-Wurzel](/de/docs/Web/CSS/Reference/Selectors/:scope).
+Wenn er nicht in einer verschachtelten Stilregel verwendet wird, stellt der `&`-Verschachtelungsselektor die [Scope-Wurzel](/de/docs/Web/CSS/Reference/Selectors/:scope) dar.
 
 ## Syntax
 
-```css
+```css-nolint
+/* Nested directly — adds whitespace (descendant) */
 parentRule {
-  /* parent rule style properties */
-  & childRule {
-    /* child rule style properties */
-  }
+  & childRule { }
+}
+
+/* Attached to parent — no whitespace (e.g., pseudo-class, compound selector) */
+parentRule {
+  &:pseudo-class { }
+}
+
+/* Reversed context — & placed after another selector */
+parentRule {
+  otherRule & { }
 }
 ```
 
-### `&`-Nesting-Selektor und Leerzeichen
+## Beschreibung
 
-Betrachten Sie den folgenden Code, bei dem das Nesting _ohne_ den `&`-Nesting-Selektor durchgeführt wird.
+### `&`-Verschachtelungsselektor und Leerraum
+
+Betrachten Sie den folgenden Code, bei dem die Verschachtelung _ohne_ den `&`-Verschachtelungsselektor erfolgt.
 
 ```css
 .parent-rule {
@@ -36,7 +46,7 @@ Betrachten Sie den folgenden Code, bei dem das Nesting _ohne_ den `&`-Nesting-Se
 }
 ```
 
-Wenn der Browser die verschachtelten Selektoren analysiert, fügt er automatisch Leerzeichen zwischen den Selektoren hinzu, um eine neue CSS-Selektorregel zu erstellen. Der folgende Code zeigt die äquivalenten nicht-verschachtelten Regeln:
+Wenn der Browser die verschachtelten Selektoren parst, fügt er automatisch Leerraum zwischen den Selektoren hinzu, um eine neue CSS-Selektorregel zu erstellen. Der folgende Code zeigt die entsprechenden nicht verschachtelten Regeln:
 
 ```css
 .parent-rule {
@@ -48,9 +58,9 @@ Wenn der Browser die verschachtelten Selektoren analysiert, fügt er automatisch
 }
 ```
 
-Wenn die verschachtelte Regel (ohne Leerzeichen) an die Elternregel angefügt werden muss, z.B. beim Verwenden einer {{cssxref('Pseudo-classes', 'Pseudoklasse')}} oder beim Erstellen von [komplexen Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector), muss der `&`-Nesting-Selektor direkt vorangestellt werden, um den gewünschten Effekt zu erzielen.
+Wenn die verschachtelte Regel ohne Leerraum an die übergeordnete Regel angefügt werden muss, etwa bei der Verwendung einer {{cssxref('Pseudo-classes', 'Pseudoklasse')}} oder beim Erstellen von [zusammengesetzten Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector), muss der `&`-Verschachtelungsselektor unmittelbar vorangestellt werden, um den gewünschten Effekt zu erzielen.
 
-Betrachten Sie ein Beispiel, bei dem wir ein Element gestalten möchten, indem wir Stile bereitstellen, die jederzeit angewendet werden sollen, und auch einige Stile verschachteln, die nur bei Hover angewendet werden sollen. Wenn der `&`-Nesting-Selektor nicht enthalten ist, wird ein Leerzeichen hinzugefügt und wir enden mit einem Regelset, das die verschachtelten Stile auf jeden _gehoberten Nachkommen des Elternregel-Selectors_ anwendet. Das ist jedoch nicht das, was wir wollen.
+Betrachten Sie ein Beispiel, bei dem wir ein Element formatieren möchten, indem Stile bereitgestellt werden, die jederzeit angewendet werden, und zusätzlich einige Stile verschachtelt werden, die nur beim Überfahren mit der Maus angewendet werden. Wenn der `&`-Verschachtelungsselektor nicht enthalten ist, wird Leerraum hinzugefügt, und wir erhalten ein Regelwerk, das die verschachtelten Stile auf jeden _überfahrenen Nachfahren des Selektors der übergeordneten Regel_ anwendet. Dies ist jedoch nicht das gewünschte Ergebnis.
 
 ```css
 .parent-rule {
@@ -70,7 +80,7 @@ Betrachten Sie ein Beispiel, bei dem wir ein Element gestalten möchten, indem w
 }
 ```
 
-Mit dem `&`-Nesting-Selektor ohne Leerzeichen werden die vom Elternregel-Selektor erfassten Elemente beim Hovern gestaltet.
+Wenn der `&`-Verschachtelungsselektor ohne Leerraum hinzugefügt wird, werden die von der übergeordneten Regel gefundenen Elemente beim Überfahren mit der Maus formatiert.
 
 ```css
 .parent-rule {
@@ -90,9 +100,9 @@ Mit dem `&`-Nesting-Selektor ohne Leerzeichen werden die vom Elternregel-Selekto
 }
 ```
 
-### Anhängen des `&`-Nesting-Selektors
+### Anhängen des `&`-Verschachtelungsselektors
 
-Der `&`-Nesting-Selektor kann auch angehängt werden, um den Kontext der Regeln umzukehren.
+Der `&`-Verschachtelungsselektor kann auch angehängt werden, um den Kontext der Regeln umzukehren.
 
 ```css
 .card {
@@ -113,7 +123,7 @@ Der `&`-Nesting-Selektor kann auch angehängt werden, um den Kontext der Regeln 
 }
 ```
 
-Der `&`-Nesting-Selektor kann mehrfach platziert werden:
+Der `&`-Verschachtelungsselektor kann mehrfach platziert werden:
 
 ```css
 .card {
@@ -136,9 +146,9 @@ Der `&`-Nesting-Selektor kann mehrfach platziert werden:
 
 ### Kann keine Pseudoelemente darstellen
 
-Der `&`-Selektor ist gleichwertig mit dem {{cssxref(":is()")}}-Selektor und hat die gleiche Einschränkung, dass er keine Pseudoelemente darstellen kann.
+Der `&`-Selektor entspricht dem {{cssxref(":is()")}}-Selektor und unterliegt derselben Einschränkung, dass er keine Pseudoelemente darstellen kann.
 
-Zum Beispiel wird mit der folgenden Stilregel kein generierter Inhalt rot gestylt, selbst wenn er in `<div class="important">` verschachtelt ist, weil `.important :is(.foo::before)` nichts erfassen kann.
+Beispielsweise wird mit der folgenden Stilregel kein generierter Inhalt rot formatiert, selbst wenn er in `<div class="important">` verschachtelt ist, da `.important :is(.foo::before)` nichts finden kann.
 
 ```css
 .foo::before {
@@ -150,7 +160,7 @@ Zum Beispiel wird mit der folgenden Stilregel kein generierter Inhalt rot gestyl
 }
 ```
 
-Diese Einschränkung gilt auch für [verschachtelte At-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules), deren Eigenschaften implizit in einem `&`-Selektor eingeschlossen sind. Zum Beispiel wird mit der folgenden Regel kein generierter Inhalt rot gestylt, auch nicht auf einem kleinen Bildschirm, weil die Eigenschaft `color: red` implizit in einem `&`-Selektor eingeschlossen ist, der in diesem Fall `:is(.foo::before)` ist.
+Diese Einschränkung gilt auch für [verschachtelte At-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules), deren Eigenschaften implizit in einen `&`-Selektor eingeschlossen werden. Mit der folgenden Regel wird beispielsweise kein generierter Inhalt rot formatiert, selbst auf einem kleinen Bildschirm, da die Eigenschaft `color: red` implizit in einen `&`-Selektor eingeschlossen wird, der in diesem Fall `:is(.foo::before)` ist.
 
 ```css
 .foo::before {
@@ -164,11 +174,11 @@ Diese Einschränkung gilt auch für [verschachtelte At-Regeln](/de/docs/Web/CSS/
 
 ## Beispiele
 
-Beide der folgenden Beispiele erzeugen das gleiche Ergebnis. Das erste verwendet normale CSS-Stile und das zweite verwendet den `&`-Nesting-Selektor.
+Die folgenden beiden Beispiele erzeugen dieselbe Ausgabe. Das erste verwendet normale CSS-Stile und das zweite den `&`-Verschachtelungsselektor.
 
 ### Verwendung normaler CSS-Stile
 
-Dieses Beispiel verwendet normale CSS-Stilregeln.
+Dieses Beispiel verwendet normales CSS-Styling.
 
 #### HTML
 
@@ -203,7 +213,7 @@ Dieses Beispiel verwendet normale CSS-Stilregeln.
 
 ### Verwendung von `&` in verschachtelten CSS-Stilen
 
-Dieses Beispiel verwendet verschachtelte CSS-Stilregeln.
+Dieses Beispiel verwendet verschachteltes CSS-Styling.
 
 #### HTML
 
@@ -234,9 +244,9 @@ Dieses Beispiel verwendet verschachtelte CSS-Stilregeln.
 
 {{EmbedLiveSample('Nested_CSS_styles','100%','65')}}
 
-### Verwendung von `&` außerhalb der verschachtelten Regel
+### Verwendung von `&` außerhalb einer verschachtelten Regel
 
-Wenn es nicht in einer verschachtelten Stilregel verwendet wird, repräsentiert der `&`-Nesting-Selektor die [Scope-Wurzel](/de/docs/Web/CSS/Reference/Selectors/:scope).
+Wenn `&` nicht in einer verschachtelten Stilregel verwendet wird, stellt es die [Scope-Wurzel](/de/docs/Web/CSS/Reference/Selectors/:scope) dar. In diesem Fall gelten alle Stile für das [Dokument](/de/docs/Web/API/Document).
 
 ```html
 <p>Hover over the output box to change document's background color.</p>
@@ -255,8 +265,6 @@ Wenn es nicht in einer verschachtelten Stilregel verwendet wird, repräsentiert 
 
 #### Ergebnis
 
-In diesem Fall gelten alle Stile für das [Dokument](/de/docs/Web/API/Document).
-
 {{EmbedLiveSample('Usage_outside_nested_rule','100%','65')}}
 
 ## Spezifikationen
@@ -269,6 +277,6 @@ In diesem Fall gelten alle Stile für das [Dokument](/de/docs/Web/API/Document).
 
 ## Siehe auch
 
-- [Verwendung von CSS-Nesting](/de/docs/Web/CSS/Guides/Nesting/Using)
-- [CSS-Nesting](/de/docs/Web/CSS/Guides/Nesting) Modul
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- [Verwendung von CSS-Verschachtelung](/de/docs/Web/CSS/Guides/Nesting/Using)
+- [CSS-Verschachtelung](/de/docs/Web/CSS/Guides/Nesting)-Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul

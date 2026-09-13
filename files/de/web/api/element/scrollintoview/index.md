@@ -3,12 +3,12 @@ title: "Element: scrollIntoView() Methode"
 short-title: scrollIntoView()
 slug: Web/API/Element/scrollIntoView
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: 59c6bfba7a60d20b06a7e9c3dc55eb8c8a020afe
 ---
 
 {{APIRef("DOM")}}
 
-Die **`scrollIntoView()`** Methode des [`Element`](/de/docs/Web/API/Element) Interface scrollt die Vorfahren-Container des Elements, sodass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
+Die **`scrollIntoView()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle scrollt die Vorfahren-Container des Elements, sodass das Element, auf das `scrollIntoView()` angewendet wird, für den Benutzer sichtbar ist.
 
 ## Syntax
 
@@ -22,50 +22,50 @@ scrollIntoView(options)
 
 - `alignToTop` {{optional_inline}}
   - : Ein boolescher Wert:
-    - Wenn `true`, wird die Oberkante des Elements an der Oberkante des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "start", inline: "nearest"}`. Dies ist der Standardwert.
-    - Wenn `false`, wird die Unterkante des Elements an der Unterkante des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "end", inline: "nearest"}`.
+    - Wenn `true`, wird der obere Rand des Elements mit dem oberen Rand des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "start", inline: "nearest"}`. Dies ist der Standardwert.
+    - Wenn `false`, wird der untere Rand des Elements mit dem unteren Rand des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Entspricht `scrollIntoViewOptions: {block: "end", inline: "nearest"}`.
 
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `behavior` {{optional_inline}}
-      - : Bestimmt, ob das Scrollen sofort erfolgt oder sich sanft animiert. Diese Option ist ein String, der einen der folgenden Werte haben muss:
-        - `smooth`: Das Scrollen animiert sanft.
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte haben muss:
+        - `smooth`: Das Scrollen wird sanft animiert.
         - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft auf dem Element bestimmt.
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der CSS-Eigenschaft {{cssxref("scroll-behavior")}} auf dem Element bestimmt.
 
-        Wenn weggelassen, wird `behavior` standardmäßig auf `auto` gesetzt.
+        Wenn weggelassen, hat `behavior` standardmäßig den Wert `auto`.
 
     - `block` {{optional_inline}}
-      - : Definiert die vertikale Ausrichtung des Elements innerhalb des scrollbaren Vorfahren-Containers. Der Wert kann einer der folgenden sein:
-        - `start`: Richtet die obere Kante des Elements an der oberen Kante des scrollbaren Containers aus, sodass das Element vertikal am Anfang des sichtbaren Bereichs erscheint.
-        - `center`: Richtet das Element vertikal in der Mitte des scrollbaren Containers aus, sodass es in der Mitte des sichtbaren Bereichs positioniert ist.
-        - `end`: Richtet die untere Kante des Elements an der unteren Kante des scrollbaren Containers aus, sodass das Element am Ende des sichtbaren Bereichs vertikal erscheint.
-        - `nearest`: Scrollt das Element zur nächstgelegenen Kante in vertikaler Richtung. Wenn das Element näher an der oberen Kante des scrollbaren Containers ist, wird es oben ausgerichtet; wenn es näher an der unteren Kante ist, wird es unten ausgerichtet. Dies minimiert die Scrollstrecke.
+      - : Definiert die vertikale Ausrichtung des Elements innerhalb des scrollbaren Vorfahren-Containers. Sein Wert kann einer der folgenden sein:
+        - `start`: Richtet den oberen Rand des Elements mit dem oberen Rand des scrollbaren Containers aus, sodass das Element vertikal am Anfang des sichtbaren Bereichs erscheint.
+        - `center`: Richtet das Element vertikal in der Mitte des scrollbaren Containers aus und positioniert es in der Mitte des sichtbaren Bereichs.
+        - `end`: Richtet den unteren Rand des Elements mit dem unteren Rand des scrollbaren Containers aus und platziert das Element vertikal am Ende des sichtbaren Bereichs.
+        - `nearest`: Scrollt so wenig wie möglich, um das Element sichtbar zu machen. Wenn das Element näher am oberen Rand des scrollbaren Containers ist, wird es nach oben ausgerichtet; wenn es näher am unteren Rand ist, wird es nach unten ausgerichtet. Wenn das Element bereits sichtbar ist, wird nicht gescrollt.
 
-        Der Standard ist `start`.
+        Der Standardwert ist `start`.
 
     - `container` {{optional_inline}}
-      - : Definiert den scrollbaren Vorfahren-Container. Der Wert kann einer der folgenden sein:
+      - : Definiert den scrollbaren Vorfahren-Container. Sein Wert kann einer der folgenden sein:
         - `all`: Alle scrollbaren Container sind betroffen (einschließlich des Viewports).
-        - `nearest`: Nur der nächstgelegene scrollbare Container ist von dem Scroll betroffen.
+        - `nearest`: Nur der nächste scrollbare Container wird durch das Scrollen betroffen.
 
-        Der Standard ist `all`.
+        Der Standardwert ist `all`.
 
     - `inline` {{optional_inline}}
-      - : Definiert die horizontale Ausrichtung des Elements innerhalb des scrollbaren Vorfahren-Containers. Der Wert kann einer der folgenden sein:
-        - `start`: Richtet die linke Kante des Elements an der linken Kante des scrollbaren Containers aus, sodass das Element horizontal am Anfang des sichtbaren Bereichs erscheint.
-        - `center`: Richtet das Element horizontal in der Mitte des scrollbaren Containers aus, sodass es in der Mitte des sichtbaren Bereichs positioniert ist.
-        - `end`: Richtet die rechte Kante des Elements an der rechten Kante des scrollbaren Containers aus, sodass das Element am Ende des sichtbaren Bereichs horizontal erscheint.
-        - `nearest`: Scrollt das Element zur nächstgelegenen Kante in der horizontalen Richtung. Wenn das Element näher an der linken Kante des scrollbaren Containers ist, wird es links ausgerichtet; wenn es näher an der rechten Kante ist, wird es rechts ausgerichtet. Dies minimiert die Scrollstrecke.
+      - : Definiert die horizontale Ausrichtung des Elements innerhalb des scrollbaren Vorfahren-Containers. Sein Wert kann einer der folgenden sein:
+        - `start`: Richtet den linken Rand des Elements mit dem linken Rand des scrollbaren Containers aus, sodass das Element horizontal am Anfang des sichtbaren Bereichs erscheint.
+        - `center`: Richtet das Element horizontal in der Mitte des scrollbaren Containers aus und positioniert es in der Mitte des sichtbaren Bereichs.
+        - `end`: Richtet den rechten Rand des Elements mit dem rechten Rand des scrollbaren Containers aus und platziert es horizontal am Ende des sichtbaren Bereichs.
+        - `nearest`: Scrollt so wenig wie möglich, um das Element sichtbar zu machen. Wenn das Element näher am linken Rand des scrollbaren Containers ist, wird es nach links ausgerichtet; wenn es näher am rechten Rand ist, wird es nach rechts ausgerichtet. Wenn das Element bereits sichtbar ist, wird nicht gescrollt.
 
-        Der Standard ist `nearest`.
+        Der Standardwert ist `nearest`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Objekt erfüllt wird, das die folgende Eigenschaft enthält:
+Ein {{jsxref("Promise")}}, das sich mit einem Objekt erfüllt, das die folgende Eigenschaft enthält:
 
 - `interrupted`
-  - : Ein boolescher Wert, der angibt, ob der Scrollvorgang unterbrochen wurde (`true`) oder nicht (`false`). Eine solche Unterbrechung tritt typischerweise auf, wenn ein programmatisches Scrollen stattfindet und ein weiteres programmatisches Scrollen auf dasselbe Element initiiert wird, bevor das erste beendet ist.
+  - : Ein boolescher Wert, der angibt, ob die Scroll-Operation unterbrochen wurde (`true`) oder nicht (`false`). Eine solche Unterbrechung tritt normalerweise auf, wenn ein programmgesteuertes Scrollen im Gange ist und ein anderes programmgesteuertes Scrollen auf demselben Element gestartet wird, bevor das erste beendet ist.
 
 ## Beispiele
 
@@ -80,9 +80,9 @@ element.scrollIntoView({ block: "end" });
 element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 ```
 
-### Steuerung der oberen/unteren Ausrichtung
+### Kontrolle der oberen/unteren Ausrichtung
 
-Standardmäßig wird das Element an der Ober- (oder Unter-) kante des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es einen festen Header auf der Seite gibt.
+Standardmäßig wird das Element an der oberen (oder unteren) Kante des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand festzulegen, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es einen festen Header auf der Seite gibt.
 
 #### HTML
 
@@ -143,13 +143,13 @@ goToTop.addEventListener("click", () => {
 
 {{EmbedLiveSample("scroll-with-padding", "700", "300")}}
 
-### Reagieren auf das Ende des Scrollvorgangs
+### Reagieren auf das Ende des Scrollens
 
-Unser [element methods demo](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) ([siehe Quellcode](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods)) zeigt, wie der Promise-Rückgabewert von `scrollIntoView()` verwendet werden kann, um auf das Ende eines Scrollvorgangs zu reagieren. Diese Technik ist hauptsächlich in Fällen nützlich, in denen das Scrollen sanft über die Zeit erfolgt (erreicht durch das Setzen der [`behavior`](#behavior) Option auf `smooth` oder durch Setzen der {{cssxref("scroll-behavior")}} Eigenschaft des scrollenden Elements auf `smooth`).
+Unser [Elementmethoden-Demo](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) ([siehe Quellcode](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods)) zeigt, wie der Versprechen-Rückgabewert von `scrollIntoView()` verwendet werden kann, um auf das Ende einer Scroll-Operation zu reagieren. Diese Technik ist meistens nützlich in Fällen, in denen das Scrollen über die Zeit hinweg sanft erfolgt (erreicht durch Setzen der [`behavior`](#behavior) Option auf `smooth` oder durch Setzen der {{cssxref("scroll-behavior")}} Eigenschaft des scrollenden Elements auf `smooth`).
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("section")}} Element mit mehreren Absätzen von Inhalt und ein {{htmlelement("div")}} Element-Werkzeugleiste mit {{htmlelement("button")}} Elementen, die verschiedene Scrollvorgänge auf dem `<section>` auslösen. Der letzte Absatz hat eine `id` von `end`.
+Unser HTML enthält ein {{htmlelement("section")}} Element, das mehrere Absätze Inhalt und ein {{htmlelement("div")}} Element-Toolbar mit {{htmlelement("button")}} Elementen enthält, die verschiedene Scroll-Operationen auf der `<section>` auslösen. Der letzte Absatz hat eine `id` von `end`.
 
 ```html
 <div>
@@ -168,7 +168,7 @@ Unser HTML enthält ein {{htmlelement("section")}} Element mit mehreren Absätze
 
 #### CSS
 
-Wir geben dem `<section>` Element eine feste {{cssxref("height")}} und einen {{cssxref("overflow-y")}} Wert von `scroll`, sodass es vertikal scrollt, und setzen seine {{cssxref("scroll-behavior")}} Eigenschaft auf `smooth`, sodass alle Scrollvorgänge sanft über die Zeit animiert werden, anstatt sofort.
+Wir geben dem `<section>` Element eine feste {{cssxref("height")}} und einen {{cssxref("overflow-y")}} Wert von `scroll`, sodass es vertikal scrollt, und setzen seine {{cssxref("scroll-behavior")}} Eigenschaft auf `smooth`, sodass alle Scroll-Operationen sanft über die Zeit hinweg animiert werden, anstatt sofort.
 
 ```css
 section {
@@ -181,7 +181,7 @@ section {
 }
 ```
 
-Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` Klasse auf ein Element angewendet wird, wird eine {{cssxref("animation")}} angewendet, sodass es sanft aus- oder eingeblendet wird. Wir definieren auch {{cssxref("@keyframes")}} Blöcke, um die erforderlichen {{cssxref("opacity")}} Änderungen für diese Animationen zu definieren.
+Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` Klasse auf ein Element angewendet wird, wird eine {{cssxref("animation")}} angewendet, sodass es sanft ausblendet oder einblendet. Wir definieren auch {{cssxref("@keyframes")}} Blöcke, um die erforderlichen {{cssxref("opacity")}} Änderungen für diese Animationen zu definieren.
 
 ```css
 .fade-out {
@@ -213,11 +213,11 @@ Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` K
 }
 ```
 
-Der Rest des CSS ist der Kürze halber nicht gezeigt.
+Der Rest des CSS wird zur Kürze nicht gezeigt.
 
 #### JavaScript
 
-Wir beginnen damit, Referenzen zum `<button>`, das die `scrollIntoView()` Operation ausführt, zur Werkzeugleiste `<div>` und zum Absatz mit einer `id` von `end` zu holen:
+Wir beginnen mit dem Erfassen von Referenzen der `<button>`, die die `scrollIntoView()` Operation ausführt, der Toolbar `<div>` und dem Absatz mit `id` `end`:
 
 ```js
 const scrollIntoViewBtn = document.querySelector(".scroll-into-view");
@@ -225,7 +225,7 @@ const toolbar = document.querySelector("div");
 const end = document.querySelector("#end");
 ```
 
-Dann definieren wir eine Funktion namens `isInterrupted()`, die dazu gedacht ist, als Reaktion auf das Beenden eines Scrollvorgangs ausgeführt zu werden und einen booleschen `interrupted` Wert als Parameter annimmt. Sie protokolliert eine Nachricht in die Konsole, die besagt, dass das Scrollen beendet ist und angibt, ob der Vorgang unterbrochen wurde (`interrupted` ist `true`) oder nicht. Außerdem wird, wenn `interrupted` `true` ist, ein `alert()` aufgerufen, um die Unterbrechung klar anzuzeigen.
+Als nächstes definieren wir eine Funktion namens `isInterrupted()`, die als Reaktion auf das Ende einer Scroll-Operation ausgeführt wird und einen booleschen `interrupted` Wert als Parameter nimmt. Sie protokolliert eine Nachricht in der Konsole, dass das Scrollen beendet ist und gibt an, ob die Operation unterbrochen wurde (`interrupted` ist `true`) oder nicht. Darüber hinaus, wenn `interrupted` `true` ist, wird ein `alert()` aufgerufen, um die Unterbrechung deutlich anzuzeigen.
 
 ```js
 function isInterrupted(interrupted) {
@@ -236,7 +236,7 @@ function isInterrupted(interrupted) {
 }
 ```
 
-Wenn die Schaltfläche geklickt wird, wenden wir sofort die `fade-out` Klasse auf die Werkzeugleiste an, sodass sie ausgeblendet wird. Dann führen wir `scrollIntoView()` auf dem End-Absatz aus, um das `<section>` so zu scrollen, dass der End-Absatz sichtbar wird, während wir auf die Auflösung seines Versprechens warten und das `result` in einer Konstante speichern. Sobald das Versprechen erfüllt ist, rufen wir `isInterrupted()` auf, um zu melden, dass der Scrollvorgang beendet ist und ob er unterbrochen wurde. Schließlich wenden wir die `fade-in` Klasse auf die Werkzeugleiste an, sodass sie wieder eingeblendet wird.
+Wenn die Schaltfläche geklickt wird, wenden wir sofort die `fade-out` Klasse auf die Toolbar an, wodurch sie ausblendet. Wir führen dann `scrollIntoView()` auf dem Endabsatz aus, um die `<section>` solange zu scrollen, bis der Endabsatz sichtbar ist, warten auf die Auflösung des Versprechens und speichern das `result` in einer Konstante. Wenn das Versprechen aufgelöst ist, rufen wir `isInterrupted()` auf, um zu berichten, dass die Scroll-Operation beendet ist und ob sie unterbrochen wurde. Schließlich wenden wir die `fade-in` Klasse auf die Toolbar an, wodurch sie wieder einblendet.
 
 ```js
 scrollIntoViewBtn.addEventListener("click", async () => {
@@ -247,19 +247,19 @@ scrollIntoViewBtn.addEventListener("click", async () => {
 });
 ```
 
-Der für `scrollIntoView()` nicht relevante Code wird der Kürze halber nicht gezeigt.
+Der für `scrollIntoView()` nicht relevante Code wird zur Kürze nicht gezeigt.
 
 #### Ergebnis
 
-Klicken Sie auf die Schaltflächen, um das Scrollverhalten zu sehen. Beachten Sie, wie die Werkzeugleiste ausblendet, wenn eine Schaltfläche gedrückt wird, und wieder einblendet, sobald das sanfte Scrollen beendet ist. Versuchen Sie auch, eine Schaltfläche zu drücken und dann schnell eine andere Schaltfläche, bevor der erste Scrollvorgang beendet ist. Beachten Sie, wie in diesen Fällen das Scrollen als unterbrochen gemeldet wird.
+Klicken Sie auf die Schaltflächen, um das Scrollverhalten zu sehen. Beachten Sie, wie die Toolbar ausblendet, wenn eine Schaltfläche gedrückt wird, und wieder einblendet, sobald das sanfte Scrollen beendet ist. Versuchen Sie auch, eine Schaltfläche zu drücken und dann schnell eine andere, bevor die erste Scroll-Operation beendet ist. Beachten Sie, dass in diesen Fällen das Scrollen als unterbrochen gemeldet wird.
 
 {{EmbedGHLiveSample("dom-examples/scroll-promises/element-methods/", "100%", 620)}}
 
-Sie können auch [das Demo in einem separaten Tab laden](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) und den [Quellcode anzeigen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods).
+Sie können auch [das Demo in einem separaten Tab laden](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) und den [Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods).
 
-#### Hinweis zur Funktionserkennung
+#### Anmerkung zur Funktionsdetektion
 
-Wenn Sie dieses Beispiel in einem Browser ausführen, der keine Promise-returning Scroll-Operationen unterstützt, sind die Scroll-Vorgänge trotzdem sanft, aber die Werkzeugleiste blendet sich nicht aus und dann wieder ein, sobald der Vorgang abgeschlossen ist. Die Funktionserkennung wird von einer Funktion namens `supportsScrollPromises()` behandelt, die einen Scrollvorgang durchführt und prüft, ob der Rückgabewert ein Promise ist:
+Wenn Sie dieses Beispiel in einem Browser ausführen, der keine Versprechen zurückgebenden Scroll-Operationen unterstützt, sind die Scroll-Operationen weiterhin sanft, aber die Toolbar blendet nicht aus und dann wieder ein, sobald die Operation beendet ist. Die Funktionsdetektion wird von einer Funktion namens `supportsScrollPromises()` behandelt, die eine Scroll-Operation ausführt und testet, ob ihr Rückgabewert ein Versprechen ist:
 
 ```js
 function supportsScrollPromises() {
@@ -268,7 +268,7 @@ function supportsScrollPromises() {
 }
 ```
 
-Sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/blob/main/scroll-promises/element-methods/index.js) an, um zu sehen, wie die Funktionserkennung verwendet wird.
+Schauen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/blob/main/scroll-promises/element-methods/index.js) an, um zu sehen, wie die Funktionsdetektion verwendet wird.
 
 ## Spezifikationen
 

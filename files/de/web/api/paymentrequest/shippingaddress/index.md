@@ -1,14 +1,14 @@
 ---
-title: "PaymentRequest: shippingAddress-Eigenschaft"
+title: "PaymentRequest: Eigenschaft shippingAddress"
 short-title: shippingAddress
 slug: Web/API/PaymentRequest/shippingAddress
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{securecontext_header}}{{APIRef("Payment Request API")}}{{Deprecated_header}}{{Non-standard_header}}
+{{securecontext_header}}{{APIRef("Payment Request API")}}{{Non-standard_header}}
 
-Die schreibgeschützte **`shippingAddress`**-Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt die vom Benutzer angegebene Lieferadresse zurück. Standardmäßig ist sie `null`.
+Die schreibgeschützte Eigenschaft **`shippingAddress`** der [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Schnittstelle gibt die vom Benutzer bereitgestellte Lieferadresse zurück. Standardmäßig ist sie `null`.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Objekt oder `null`.
 
 ## Beispiele
 
-In der Regel wird der Wert der `shippingAddress`-Eigenschaft vom Benutzeragenten ausgefüllt. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
+In der Regel wird der Wert der `shippingAddress`-Eigenschaft vom Benutzeragenten ausgefüllt. Dies kann ausgelöst werden, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
 
-Im folgenden Beispiel variieren die Versandkosten je nach geografischer Lage. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)-Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren und dabei `shippingAddress` zu verwenden, um die korrekten Versandkosten festzulegen.
+Im unten stehenden Beispiel variieren die Versandkosten je nach geografischer Lage. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)-Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die korrekten Versandkosten festzulegen.
 
 ```js
 // Initialization of PaymentRequest arguments are excerpted for the sake of

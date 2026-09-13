@@ -1,43 +1,43 @@
 ---
-title: Hinzufügen von Untertiteln und Beschriftungen zu HTML-Videos
+title: Hinzufügen von Untertiteln und Kaptionen zu HTML-Videos
 slug: Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 6030ef1aadf967b80e2c79c3d3463cccc8ea0c95
 ---
 
-In anderen Artikeln haben wir uns angesehen, wie man einen [plattformübergreifenden Videoplayer entwickelt](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player) unter Verwendung der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und [`Window.fullScreen`](/de/docs/Web/API/Window/fullScreen) APIs, und wie man den Player [stilisiert](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics). In diesem Artikel verwenden wir denselben Player und zeigen, wie man Beschriftungen und Untertitel hinzufügt, unter Verwendung des [WebVTT-Formats](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) und des {{ htmlelement("track") }} Elements.
+In anderen Artikeln haben wir uns angesehen, wie man einen [plattformübergreifenden Video-Player baut](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player) unter Verwendung der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und [`Window.fullScreen`](/de/docs/Web/API/Window/fullScreen) APIs, sowie wie man den [Player gestaltet](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics). Dieser Artikel übernimmt denselben Player und zeigt, wie man ihm Untertitel und Kaptionen hinzufügt, unter Verwendung des [WebVTT-Formats](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) und des {{ htmlelement("track") }} Elements.
 
-In diesem Artikel wird ein Ausschnitt aus dem [Sintel Open Movie](https://durian.blender.org/) verwendet, erstellt von der [Blender Foundation](https://www.blender.org/about/foundation/).
+In diesem Artikel nutzt unser Beispiel einen Auszug aus dem [Sintel-Open-Movie](https://durian.blender.org/), erstellt von der [Blender Foundation](https://www.blender.org/about/foundation/).
 
-## HTML und Videobeschriftungen
+## HTML und Videountertitel
 
-Bevor wir damit beginnen, wie man dem Videoplayer Beschriftungen hinzufügt, gibt es einige Dinge, die wir zuerst erwähnen werden und die Sie wissen sollten, bevor wir anfangen.
+Bevor wir darauf eingehen, wie Untertitel zum Video-Player hinzugefügt werden, gibt es ein paar Dinge, die wir zuerst erwähnen sollten und die Sie wissen sollten, bevor wir starten.
 
-### Beschriftungen versus Untertitel
+### Kaptionen versus Untertitel
 
-[Beschriftungen und Untertitel sind nicht dasselbe](https://screenfont.ca/learn/): Sie richten sich an verschiedene Zielgruppen und vermitteln unterschiedliche Informationen. Es wird empfohlen, sich über die Unterschiede zu informieren, wenn Sie sich nicht sicher sind, was diese sind. Sie werden jedoch technisch auf die gleiche Weise implementiert, daher gelten die Inhalte dieses Artikels für beide.
+[Kaptionen und Untertitel sind nicht dasselbe](https://screenfont.ca/learn/): Sie haben erheblich unterschiedliche Zielgruppen und vermitteln verschiedene Informationen. Es wird empfohlen, sich über die Unterschiede zu informieren, wenn Sie sich nicht sicher sind, was sie bedeuten. Sie werden jedoch technisch auf gleiche Weise implementiert, weshalb der Inhalt dieses Artikels auf beide zutrifft.
 
-In diesem Artikel beziehen wir uns auf die angezeigten Textspuren als Untertitel, da ihr Inhalt für hörende Menschen gedacht ist, die Schwierigkeiten haben, die Sprache des Films zu verstehen, und nicht für gehörlose oder schwerhörige Menschen.
+Für diesen Artikel werden wir uns auf die als Untertitel angezeigten Textspuren beziehen, da ihr Inhalt für hörende Personen gedacht ist, die Schwierigkeiten haben, die Sprache des Films zu verstehen, anstatt für gehörlose oder schwerhörige Personen.
 
-### Das `<track>`-Element
+### Das `<track>` Element
 
-HTML erlaubt es uns, Untertitel für ein Video mit dem {{ htmlelement("track") }} Element anzugeben. Die verschiedenen Attribute dieses Elements erlauben uns, Dinge wie den Typ des hinzugefügten Inhalts, die Sprache, in der er vorliegt, und natürlich eine Referenz zur Textdatei mit den tatsächlichen Untertiteldaten anzugeben.
+HTML ermöglicht es uns, Untertitel für ein Video mit dem {{ htmlelement("track") }} Element anzugeben. Die verschiedenen Attribute dieses Elements erlauben es uns, Dinge wie die Art des Inhalts, den wir hinzufügen, die Sprache und natürlich einen Verweis auf die Textdatei, die die eigentlichen Untertiteldaten enthält, zu spezifizieren.
 
 ### WebVTT
 
-Die Dateien, die die tatsächlichen Untertiteldaten enthalten, sind Textdateien, die einem vorgegebenen Format folgen, in diesem Fall das [Web Video Text Tracks](/de/docs/Web/API/WebVTT_API) (WebVTT)-Format.
+Die Dateien, die die eigentlichen Untertiteldaten enthalten, sind Textdateien, die einem vorgegebenen Format folgen, in diesem Fall dem [Web Video Text Tracks](/de/docs/Web/API/WebVTT_API) (WebVTT) Format.
 
-Videoanbieter (wie die [Blender Foundation](https://www.blender.org/about/foundation/)) liefern Beschriftungen und Untertitel in einem Textformat mit ihren Videos, meistens im SubRip Text (SRT)-Format. Diese können leicht mit einem Online-Konverter in WebVTT konvertiert werden.
+Videoproduzenten (wie die [Blender Foundation](https://www.blender.org/about/foundation/)) stellen Kaptionen und Untertitel in einem Textformat mit ihren Videos zur Verfügung, aber sie liegen normalerweise im SubRip Text (SRT) Format vor. Diese können leicht mit einem Online-Converter in WebVTT umgewandelt werden.
 
 ## Änderungen an HTML und CSS
 
-Dieser Abschnitt fasst die Änderungen am Code des vorherigen Artikels zusammen, um die Hinzufügung von Untertiteln zum Video zu erleichtern. Wenn Sie daran nicht interessiert sind und direkt zu JavaScript und wichtigen CSS-Elementen gehen möchten, springen Sie zum Abschnitt [Untertitel-Implementierung](#untertitel-implementierung).
+Dieser Abschnitt fasst die Änderungen zusammen, die am Code des vorherigen Artikels vorgenommen wurden, um das Hinzufügen von Untertiteln zum Video zu erleichtern. Wenn Sie daran nicht interessiert sind und direkt zum JavaScript und relevanterem CSS springen möchten, überspringen Sie zum Abschnitt [Untertitelimplementierung](#untertitelimplementierung).
 
-In diesem Beispiel verwenden wir ein anderes Video, [Sintel](https://durian.blender.org/), da es tatsächlich einige Sprache enthält und daher besser zur Veranschaulichung der Funktionsweise von Untertiteln geeignet ist!
+In diesem Beispiel verwenden wir ein anderes Video, [Sintel](https://durian.blender.org/), da es tatsächlich Sprachpassagen enthält und daher besser geeignet ist, um zu veranschaulichen, wie Untertitel funktionieren!
 
 ### HTML-Markup
 
-Wie oben erwähnt, müssen wir das neue HTML `<track>`-Element verwenden, um unsere Untertiteldateien zum HTML-Video hinzuzufügen. Wir haben unsere Untertitel tatsächlich in drei verschiedenen Sprachen - Englisch, Deutsch und Spanisch - daher werden wir alle drei relevanten VTT-Dateien referenzieren, indem wir `<track>`-Elemente innerhalb unseres HTML `<video>`-Elements hinzufügen:
+Wie oben erwähnt, müssen wir das neue HTML `<track>` Element verwenden, um unsere Untertiteldateien dem HTML-Video hinzuzufügen. Tatsächlich haben wir unsere Untertitel in drei verschiedenen Sprachen — Englisch, Deutsch und Spanisch — daher werden wir alle drei entsprechenden VTT-Dateien referenzieren, indem wir `<track>` Elemente innerhalb unseres HTML `<video>` Elements hinzufügen:
 
 ```html-nolint hidden live-sample___video-player-with-captions
 <figure id="videoContainer">
@@ -66,15 +66,15 @@ Wie oben erwähnt, müssen wir das neue HTML `<track>`-Element verwenden, um uns
 </video>
 ```
 
-Wie Sie sehen können, hat jedes `<track>`-Element die folgenden Attribute gesetzt:
+Wie Sie sehen können, hat jedes `<track>` Element die folgenden Attribute gesetzt:
 
-- `kind` ist auf `subtitles` gesetzt, was den Typ des Inhalts beschreibt, den die Dateien enthalten.
-- `label` hat einen Wert, der angibt, für welche Sprache dieses Untertitelset gedacht ist - zum Beispiel `English` oder `Deutsch` - diese Beschriftungen erscheinen in der Benutzeroberfläche, um dem Benutzer die einfache Auswahl der gewünschten Untertitelsprache zu ermöglichen.
-- `src` ist mit einer gültigen URL versehen, die auf die jeweilige WebVTT-Untertiteldatei verweist.
-- `srclang` gibt an, in welcher Sprache der Inhalt jeder Untertiteldatei geschrieben ist.
-- Das `default`-Attribut ist auf dem englischen `<track>`-Element gesetzt, was dem Browser anzeigt, dass dies die Standarddefinition für Untertitel ist, die verwendet werden soll, wenn Untertitel aktiviert sind und der Benutzer keine spezifische Auswahl getroffen hat.
+- `kind` hat den Wert `subtitles`, was die Art des Inhalts angibt, den die Dateien enthalten.
+- `label` hat einen Wert, der angibt, für welche Sprache dieses Untertitelset ist — zum Beispiel `English` oder `Deutsch` — diese Labels erscheinen in der Benutzeroberfläche, sodass der Benutzer leicht auswählen kann, welche Untertitelsprache er sehen möchte.
+- `src` wird eine gültige URL zugewiesen, die auf die relevante WebVTT-Untertiteldatei in jedem Fall verweist.
+- `srclang` gibt an, in welcher Sprache der Inhalt jeder Untertiteldatei ist.
+- Das `default` Attribut ist am englischen `<track>` Element gesetzt, was dem Browser anzeigt, dass dies die Standard-Untertiteldateidefinition ist, die verwendet werden soll, wenn Untertitel eingeschaltet sind und der Benutzer keine spezifische Auswahl getroffen hat.
 
-Zusätzlich zum Hinzufügen der `<track>`-Elemente haben wir auch einen neuen Button hinzugefügt, um das Untertitelmenü zu steuern, das wir erstellen werden. Infolgedessen sehen die Videosteuerungen jetzt wie folgt aus:
+Zusätzlich zu den `<track>` Elementen haben wir auch eine neue Schaltfläche hinzugefügt, um das Untertitelmenü zu steuern, das wir erstellen werden. Infolgedessen sehen die Videosteuerungen jetzt wie folgt aus:
 
 ```html live-sample___video-player-with-captions
 <div id="video-controls" class="controls" data-state="hidden">
@@ -262,9 +262,9 @@ figure:fullscreen .controls {
 }
 ```
 
-Es gibt fast keine Änderung am CSS im Vergleich zur vorherigen Version, außer an einer Stelle, an der wir `width: calc(100% / 6)` durch `width: calc(100% / 7)` ersetzen, um Platz für den neuen Button zu schaffen. Wir setzen auch `position: relative` auf die Figur, damit das Untertitelmenü relativ dazu positioniert werden kann.
+Es gibt fast keine Änderung im CSS von der vorherigen Version, außer einer Stelle, an der wir `width: calc(100% / 6)` mit `width: calc(100% / 7)` ersetzen, um die neue Schaltfläche zu berücksichtigen. Wir setzen auch `position: relative` auf die Figur, sodass das Untertitelmenü-Aufklappfenster relativ dazu positioniert werden kann.
 
-Für die Beschriftungsschaltfläche wird kein Bild verwendet, daher wird sie so gestylt:
+Für die Untertitel-Schaltfläche wird kein Bild verwendet, daher wird sie folgendermaßen gestaltet:
 
 ```css live-sample___video-player-with-captions
 .controls button[data-state="subtitles"] {
@@ -285,13 +285,13 @@ Für die Beschriftungsschaltfläche wird kein Bild verwendet, daher wird sie so 
 }
 ```
 
-Es gibt auch andere CSS-Änderungen, die spezifisch für einige zusätzliche JavaScript-Implementierungen sind, aber diese werden an der entsprechenden Stelle unten erwähnt.
+Es gibt auch andere CSS-Änderungen, die spezifisch für einige zusätzliche JavaScript-Implementierungen sind, aber diese werden unten an der entsprechenden Stelle erwähnt.
 
-## Untertitel-Implementierung
+## Untertitelimplementierung
 
-Vieles, was wir tun, um auf die Videountertitel zuzugreifen, dreht sich um JavaScript. Ähnlich wie bei den Videosteuerungen gibt es, wenn ein Browser HTML-Videountertitel unterstützt, einen Button innerhalb des nativen Steuerungssatzes, um darauf zuzugreifen. Da wir jedoch unsere eigenen Videosteuerungen definiert haben, ist dieser Button versteckt, und wir müssen unsere eigenen definieren.
+Vieles von dem, was wir tun, um auf die Videountertitel zuzugreifen, dreht sich um JavaScript. Ähnlich wie bei den Videosteuerungen, wenn ein Browser HTML-Videountertitel unterstützt, wird ein Button innerhalb des nativen Steuerungssatzes bereitgestellt, um auf sie zuzugreifen. Da wir jedoch unsere eigenen Videosteuerungen definiert haben, ist dieser Button verborgen, und wir müssen unseren eigenen definieren.
 
-Browser unterscheiden sich darin, was sie unterstützen, daher werden wir versuchen, eine einheitlichere Benutzeroberfläche für jeden Browser zu schaffen, wo immer möglich. Mehr zu Problemen mit der Browser-Kompatibilität weiter unten.
+Browser unterscheiden sich darin, was sie unterstützen, daher werden wir versuchen, jedem Browser, wo möglich, eine einheitlichere Benutzeroberfläche zu bieten. Mehr zu Browserkompatibilitätsproblemen kommt später.
 
 ```js hidden live-sample___video-player-with-captions
 const videoContainer = document.getElementById("videoContainer");
@@ -414,15 +414,15 @@ fullscreen.addEventListener("click", (e) => {
 });
 ```
 
-### Initiales Setup
+### Erste Einrichtung
 
-Wie bei allen anderen Schaltflächen müssen wir eine der ersten Dinge tun, und zwar einen Zugriff auf die Untertitel-Schaltfläche speichern:
+Wie bei allen anderen Schaltflächen müssen wir eine Referenz auf die Untertitel-Schaltfläche speichern:
 
 ```js live-sample___video-player-with-captions
 const subtitles = document.getElementById("subtitles");
 ```
 
-Wir schalten auch zunächst alle Untertitel aus, falls der Browser einige davon standardmäßig einschaltet:
+Wir schalten auch zunächst alle Untertitel aus, falls der Browser einige von ihnen standardmäßig einschaltet:
 
 ```js live-sample___video-player-with-captions
 for (const track of video.textTracks) {
@@ -430,17 +430,17 @@ for (const track of video.textTracks) {
 }
 ```
 
-Die Eigenschaft `video.textTracks` enthält ein Array aller Textspuren, die dem Video angehängt sind. Wir durchlaufen jede von ihnen und setzen ihren `mode` auf `hidden`.
+Die `video.textTracks` Eigenschaft enthält ein Array aller Textspuren, die dem Video angehängt sind. Wir durchlaufen jede einzelne und setzen ihren `mode` auf `hidden`.
 
-Hinweis: Die [WebVTT API](/de/docs/Web/API/WebVTT_API) gibt uns Zugriff auf alle Textspuren, die für ein HTML-Video mit dem `<track>`-Element definiert sind.
+Anmerkung: Die [WebVTT API](/de/docs/Web/API/WebVTT_API) gibt uns Zugriff auf alle Textspuren, die für ein HTML-Video unter Verwendung des `<track>` Elements definiert sind.
 
-### Erstellen eines Beschriftungsmenüs
+### Erstellen eines Kapitonenmenüs
 
-Unser Ziel ist es, die zuvor hinzugefügte `subtitles`-Schaltfläche zu nutzen, um ein Menü anzuzeigen, das es den Benutzern ermöglicht, auszuwählen, in welcher Sprache die Untertitel angezeigt werden sollen, oder sie vollständig auszuschalten.
+Unser Ziel ist es, die hinzugefügte `subtitles`-Schaltfläche zu verwenden, um ein Menü anzuzeigen, das es den Benutzern erlaubt, auszuwählen, in welcher Sprache sie die Untertitel angezeigt bekommen möchten, oder sie vollständig auszuschalten.
 
-Wir haben die Schaltfläche hinzugefügt, aber bevor wir sie funktionsfähig machen, müssen wir das damit verbundene Menü erstellen. Dieses Menü wird dynamisch erstellt, sodass Sprachen später hinzugefügt oder entfernt werden können, indem die `<track>`-Elemente im Markup des Videos bearbeitet werden.
+Wir haben die Schaltfläche hinzugefügt, aber bevor wir sie etwas tun lassen, müssen wir das Menü erstellen, das dazu gehört. Dieses Menü wird dynamisch erstellt, sodass Sprachen später hinzugefügt oder entfernt werden können, indem die `<track>` Elemente im Markup des Videos bearbeitet werden.
 
-Alles, was wir tun müssen, ist, die `textTracks` des Videos durchzugehen, ihre Eigenschaften auszulesen und das Menü entsprechend aufzubauen:
+Alles, was wir tun müssen, ist, die `textTracks` des Videos durchzugehen, deren Eigenschaften auszulesen und das Menü daraus aufzubauen:
 
 ```js live-sample___video-player-with-captions
 const subtitleMenuButtons = [];
@@ -463,9 +463,9 @@ if (video.textTracks) {
 }
 ```
 
-Dieser Code erstellt ein [`documentFragment`](/de/docs/Web/API/DocumentFragment), das verwendet wird, um eine ungeordnete Liste zu halten, die unser Untertitelmenü enthält. Zunächst wird eine Option hinzugefügt, um alle Untertitel auszuschalten, und dann werden Schaltflächen für jede Textspur hinzugefügt, wobei die Sprache und das Label von jedem ausgelesen werden.
+Dieser Code erstellt ein [`documentFragment`](/de/docs/Web/API/DocumentFragment), das verwendet wird, um eine ungeordnete Liste zu halten, die unser Untertitelmenü enthält. Zuerst wird eine Option hinzugefügt, die es dem Benutzer ermöglicht, alle Untertitel auszuschalten, und dann werden Schaltflächen für jede Textspur hinzugefügt, wobei die Sprache und das Label von jeder gelesen werden.
 
-Das Erstellen jedes Listenpunkts und der Schaltfläche erfolgt durch die `createMenuItem()` Funktion, die wie folgt definiert ist:
+Das Erstellen jedes Listenpunkts und jeder Schaltfläche erfolgt durch die `createMenuItem()` Funktion, die wie folgt definiert ist:
 
 ```js live-sample___video-player-with-captions
 function createMenuItem(id, lang, label) {
@@ -501,11 +501,11 @@ function createMenuItem(id, lang, label) {
 }
 ```
 
-Diese Funktion erstellt die erforderlichen {{ htmlelement("li") }} und {{ htmlelement("button") }} Elemente und gibt sie zurück, damit sie zur Untertitelliste hinzugefügt werden können. Sie richtet auch die erforderlichen Event-Listener auf der Schaltfläche ein, um die betreffende Untertitelgruppe ein- oder auszuschalten. Dies geschieht durch Setzen des `mode`-Attributs der erforderlichen Untertitel auf `showing` und der anderen auf `hidden`.
+Diese Funktion erstellt die erforderlichen {{ htmlelement("li") }} und {{ htmlelement("button") }} Elemente und gibt sie zurück, sodass sie zur Liste des Untertitelmenüs hinzugefügt werden können. Sie richtet auch die erforderlichen Ereignis-Listener auf der Schaltfläche ein, um das betreffende Untertitelset ein- oder auszuschalten. Dies wird erreicht, indem das `mode` Attribut des erforderlichen Untertitels auf `showing` gesetzt und das der anderen auf `hidden` gesetzt wird.
 
-Sobald das Menü erstellt ist, wird es dann am unteren Ende des videoContainer in den DOM eingefügt.
+Sobald das Menü erstellt ist, wird es am unteren Rand des videoContainer in den DOM eingefügt.
 
-Anfänglich ist das Menü standardmäßig verborgen, daher muss ein Event-Listener auf unsere Untertitelschaltfläche hinzugefügt werden, um es umzuschalten:
+Initial ist das Menü standardmäßig ausgeblendet, daher muss ein Ereignis-Listener zu unserer Untertitel-Schaltfläche hinzugefügt werden, um es umzuschalten:
 
 ```js live-sample___video-player-with-captions
 subtitles.addEventListener("click", (e) => {
@@ -516,7 +516,7 @@ subtitles.addEventListener("click", (e) => {
 });
 ```
 
-### CSS des Untertitelmenüs
+### CSS für das Untertitelmenü
 
 Wir haben auch einige grundlegende Stile für das neu erstellte Untertitelmenü hinzugefügt:
 
@@ -549,23 +549,23 @@ Wir haben auch einige grundlegende Stile für das neu erstellte Untertitelmenü 
 }
 ```
 
-## Styling der angezeigten Untertitel
+## Gestaltung der angezeigten Untertitel
 
-Eine der weniger bekannten und unterstützten Funktionen von WebVTT ist die Möglichkeit, die einzelnen Untertitel (sogenannte Textcues) [über CSS zu gestalten](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet).
+Eine der weniger bekannten und unterstützten Funktionen von WebVTT ist die Fähigkeit, die individuellen Untertitel (sogenannte Textmarkierungen) [über CSS](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) zu gestalten.
 
-Das `::cue` Pseudo-Element ist der Schlüssel, um einzelne Text-Track-Cues für das Styling zu bestimmen, da es auf jeden definierten Cue passt. Es gibt nur eine Handvoll CSS-Eigenschaften, die auf einen Textcue angewendet werden können:
+Das `::cue` Pseudoelement ist der Schlüssel, um individuelle Textspur-Cues zu gestalten, da es zu jedem definierten Cue passt. Es gibt nur eine Handvoll von CSS-Eigenschaften, die auf einen Text-Cue angewendet werden können:
 
 - {{ cssxref("color") }}
 - {{ cssxref("opacity") }}
 - {{ cssxref("visibility") }}
 - {{ cssxref("text-decoration") }}
 - {{ cssxref("text-shadow") }}
-- {{ cssxref("background") }} Kurzschreibweise
-- {{ cssxref("outline") }} Kurzschreibweise
-- {{ cssxref("font") }} Kurzschreibweise, einschließlich {{ cssxref("line-height") }}
+- {{ cssxref("background") }} Kurzform-Eigenschaften
+- {{ cssxref("outline") }} Kurzform-Eigenschaften
+- {{ cssxref("font") }} Kurzform-Eigenschaften, einschließlich {{ cssxref("line-height") }}
 - {{ cssxref("white-space") }}
 
-Beispielsweise können Sie die Textfarbe der Text-Track-Cues ändern, indem Sie Folgendes schreiben:
+Um zum Beispiel die Textfarbe der Textspur-Cues zu ändern, können Sie schreiben:
 
 ```css live-sample___video-player-with-captions
 ::cue {
@@ -573,7 +573,7 @@ Beispielsweise können Sie die Textfarbe der Text-Track-Cues ändern, indem Sie 
 }
 ```
 
-Wenn die WebVTT-Datei [voice spans](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format#voice_tag_vv) verwendet, die es ermöglichen, Cues als eine bestimmte "Stimme" zu definieren:
+Wenn die WebVTT-Datei [Sprachabschnitte](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format#voice_tag_vv) verwendet, die es ermöglichen, Cues als eine bestimmte "Stimme" zu definieren:
 
 ```plain
 0
@@ -581,7 +581,7 @@ Wenn die WebVTT-Datei [voice spans](/de/docs/Web/API/WebVTT_API/Web_Video_Text_T
 <v Test>[Test]</v>
 ```
 
-Dann kann diese bestimmte 'Stimme' wie folgt gestylt werden:
+Dann wird diese spezifische 'Stimme' folgendermaßen stilisierbar sein:
 
 ```css live-sample___video-player-with-captions
 ::cue(v[voice="Test"]) {

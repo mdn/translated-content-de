@@ -3,35 +3,35 @@ title: "ARIA: Rolle progressbar"
 short-title: progressbar
 slug: Web/Accessibility/ARIA/Reference/Roles/progressbar_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: 1474534461893381d54c502e655f334b5568e597
 ---
 
 Die Rolle `progressbar` definiert ein Element, das den Fortschrittsstatus für Aufgaben anzeigt, die lange dauern.
 
 ## Beschreibung
 
-Das `progressbar`-Bereichs-Widget zeigt an, dass eine Anfrage empfangen wurde und die Anwendung Fortschritte bei der Ausführung der angeforderten Aktion macht.
+Das Bereichs-Steuerelement `progressbar` zeigt an, dass eine Anfrage empfangen wurde und die Anwendung Fortschritte bei der Ausführung der angeforderten Aktion macht.
 
-Autoren **können** `aria-valuemin` und `aria-valuemax` setzen, um die minimalen und maximalen Fortschrittsanzeigerwerte anzugeben. Andernfalls folgen ihre impliziten Werte denselben Regeln wie die der HTML-Elemente [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range):
+Autoren **können** `aria-valuemin` und `aria-valuemax` setzen, um die minimalen und maximalen Werte des Fortschrittsanzeigers anzugeben. Andernfalls folgen ihre impliziten Werte denselben Regeln wie beim HTML [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range):
 
-- Wenn [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) fehlt oder keine Zahl ist, ist der Standardwert `0` (null).
-- Wenn [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) fehlt oder keine Zahl ist, ist der Standardwert `100`.
-- Die Eigenschaften `aria-valuemin` und `aria-valuemax` müssen nur für die Rolle `progressbar` gesetzt werden, wenn das Minimum der Fortschrittsleiste nicht `0` oder der Maximalwert nicht `100` ist.
-- Der schreibgeschützte [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) sollte bereitgestellt und aktualisiert werden, es sei denn, der Wert ist `indeterminate`, in diesem Fall sollte das Attribut nicht enthalten sein. Wenn gesetzt, stellen Sie sicher, dass der Wert von `aria-valuenow` zwischen den minimalen und maximalen Werten liegt.
+- Wenn [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) fehlt oder keine Zahl ist, wird der Standardwert `0` (null) verwendet.
+- Wenn [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) fehlt oder keine Zahl ist, wird der Standardwert `100` verwendet.
+- Die Eigenschaften `aria-valuemin` und `aria-valuemax` müssen nur für die Rolle `progressbar` gesetzt werden, wenn das Minimum der Fortschrittsanzeige nicht `0` oder der Maximalwert nicht `100` ist.
+- Der schreibgeschützte [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) sollte bereitgestellt und aktualisiert werden, es sei denn, der Wert ist `indeterminate`, in diesem Fall sollte das Attribut nicht enthalten sein. Wenn gesetzt, stellen Sie sicher, dass der Wert von `aria-valuenow` zwischen dem Minimal- und Maximalwert liegt.
 
-Wenn die Rolle `progressbar` auf ein HTML-{{HTMLElement('progress')}}-Element angewendet wird, kann der zugängliche Name von dem zugehörigen {{HTMLElement('label')}} stammen. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn ein sichtbares Label vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn kein sichtbares Label vorhanden ist.
+Wenn die Rolle `progressbar` auf ein HTML-Element {{HTMLElement('progress')}} angewendet wird, kann der zugängliche Name vom zugehörigen {{HTMLElement('label')}} kommen. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn ein sichtbares Label vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn kein sichtbares Label vorhanden ist.
 
-### Alle Nachfahren sind präsentational
+### Alle Nachkomme sind präsent
 
-Es gibt einige Typen von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugriffs-API dargestellt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente, die in einem `progressbar` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle nachfolgenden Elemente des `progressbar`-Elements an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzerschnittstellenkomponenten, die, wenn sie in einer Plattform-Zugriffs-API dargestellt werden, nur Text enthalten können. Zugriffs-APIs haben keine Möglichkeit, semantische Elemente innerhalb eines `progressbar` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle nachfolgenden Elemente eines `progressbar`-Elements an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
 
-Zum Beispiel, beachten Sie das folgende `progressbar`-Element, das eine Überschrift enthält.
+Zum Beispiel betrachten Sie folgendes `progressbar`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="progressbar"><h3>Title of my progressbar</h3></div>
 ```
 
-Da Nachfahren von `progressbar` präsentational sind, ist der folgende Code gleichwertig:
+Da Nachkommen von `progressbar` präsent sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="progressbar">
@@ -39,30 +39,30 @@ Da Nachfahren von `progressbar` präsentational sind, ist der folgende Code glei
 </div>
 ```
 
-Aus der Perspektive der Benutzer von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte im {{Glossary("Accessibility_tree", "Accessibility-Tree")}} dem folgenden entsprechen:
+Aus der Perspektive des Nutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte gleichwertig sind mit folgendem im {{Glossary("Accessibility_tree", "Zugriffsbaum")}}:
 
 ```html
 <div role="progressbar">Title of my progressbar</div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)
-  - : Nur vorhanden und erforderlich, wenn der Wert nicht unbestimmt ist. Setzen Sie einen Dezimalwert zwischen `0`, oder `aria-valuemin`, wenn vorhanden, und `aria-valuemax`, der den aktuellen Wert der Fortschrittsleiste angibt.
+  - : Nur vorhanden und erforderlich, wenn der Wert nicht unbestimmt ist. Setzen Sie einen Dezimalwert zwischen `0`, oder `aria-valuemin` wenn vorhanden, und `aria-valuemax` an, der den aktuellen Wert der Fortschrittsleiste angibt.
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)
-  - : Unterstützende Technologien präsentieren den Wert von `aria-valuenow` oft als Prozentsatz. Wenn dies nicht genau wäre, verwenden Sie diese Eigenschaft, um den Wert der Fortschrittsleiste verständlich zu machen.
+  - : Unterstützende Technologien präsentieren oft den Wert von `aria-valuenow` als Prozentsatz. Wenn dies nicht zutreffend ist, verwenden Sie diese Eigenschaft, um den Wert der Fortschrittsleiste verständlich zu machen.
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)
-  - : Auf einen dezimalen Wert gesetzt, der den minimalen Wert darstellt und kleiner als `aria-valuemax` ist. Wenn nicht vorhanden, ist der Standardwert `0`.
+  - : Setzen Sie einen Dezimalwert, der den minimalen Wert darstellt, welcher kleiner ist als `aria-valuemax`. Wenn nicht vorhanden, ist der Standardwert `0`.
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)
-  - : Auf einen dezimalen Wert gesetzt, der den maximalen Wert darstellt und größer als `aria-valuemin` ist. Wenn nicht vorhanden, ist der Standardwert `100`.
+  - : Setzen Sie einen Dezimalwert, der den maximalen Wert darstellt, welcher größer ist als `aria-valuemin`. Wenn nicht vorhanden, ist der Standardwert `100`.
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Definiert den Zeichenfolgenwert oder identifiziert das Element (oder die Elemente), die das Fortschrittsbalken-Element kennzeichnen und einen zugreifbaren Namen bereitstellen. Ein zugänglicher Name ist erforderlich.
+  - : Definiert den Zeichenfolgenwert oder identifiziert das Element (oder die Elemente), die das `progressbar`-Element benennen und einen zugänglichen Namen bereitstellen. Ein zugänglicher Name ist erforderlich.
 
-Es wird empfohlen, ein nativer {{HTMLElement("progress")}} oder [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Elemente statt der Rolle `progressbar` zu verwenden. Benutzeragenten stellen ein stilisiertes Widget für das {{HTMLElement("progress")}}-Element basierend auf dem aktuellen `value` bereit, wie es sich auf `0`, den Mindestwert, und den `max`-Wert bezieht. Wenn nicht-semantische Elemente verwendet werden, müssen alle Funktionen des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS neu erstellt werden.
+Es wird empfohlen, ein natives {{HTMLElement("progress")}}-Element oder ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element anstelle der Rolle `progressbar` zu verwenden. Benutzeragenten bieten ein stilisiertes Steuerelement für das {{HTMLElement("progress")}}-Element basierend auf dem aktuellen `value` im Verhältnis zu `0`, dem Minimalwert und dem `max`-Wert. Bei der Verwendung nicht-semantischer Elemente müssen alle Funktionen des nativen semantischen Elements mit ARIA-Attributen, JavaScript und CSS neu erstellt werden.
 
 ## Beispiele
 
-Im folgenden Beispiel verwendet die Fortschrittsleiste die Standardwerte 0 und 100 für `aria-valuemin` und `aria-valuemax`:
+Im folgenden Beispiel verwendet die Fortschrittsanzeige die Standardwerte 0 und 100 für `aria-valuemin` und `aria-valuemax`:
 
 ```html
 <div>
@@ -83,13 +83,13 @@ Mit semantischem HTML könnte dies so geschrieben werden:
 <progress id="loadinglabel" max="100" value="23"></progress>
 ```
 
-## Beste Praktiken
+## Best Practices
 
-Wenn die Fortschrittsleiste den Ladefortschritt eines bestimmten Bereichs einer Seite beschreibt, beziehen Sie das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) ein, um auf den Status der Fortschrittsleiste zu verweisen, und setzen Sie das Attribut [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy) auf `true` in dem Bereich, bis er das Laden abgeschlossen hat.
+Wenn die Fortschrittsleiste den Ladefortschritt eines bestimmten Bereichs einer Seite beschreibt, fügen Sie das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) hinzu, um auf den Status der Fortschrittsleiste zu verweisen, und setzen Sie das Attribut [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy) auf `true` in dem Bereich, bis das Laden abgeschlossen ist.
 
 ### Bevorzugen Sie HTML
 
-Es wird empfohlen, ein nativer {{HTMLElement("progress")}} oder [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Elemente statt der Rolle `progressbar` zu verwenden.
+Es wird empfohlen, ein natives {{HTMLElement("progress")}}-Element oder ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element anstelle der Rolle `progressbar` zu verwenden.
 
 ## Spezifikationen
 
@@ -97,8 +97,8 @@ Es wird empfohlen, ein nativer {{HTMLElement("progress")}} oder [`<input type="r
 
 ## Siehe auch
 
-- HTML-{{HTMLElement('progress')}}-Element
-- Weitere Bereichs-Widgets umfassen:
+- HTML-Element {{HTMLElement('progress')}}
+- Andere Bereichs-Steuerelemente umfassen:
   - [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
   - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
   - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (wenn fokussierbar)

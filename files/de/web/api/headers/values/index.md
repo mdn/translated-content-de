@@ -1,15 +1,14 @@
 ---
-title: "Headers: values() Methode"
+title: "Headers: values()-Methode"
 short-title: values()
 slug: Web/API/Headers/values
 l10n:
-  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.values()`** Methode gibt einen
-{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle Werte in diesem Objekt durchzugehen. Die Werte sind {{jsxref("String")}} Objekte.
+Die **`Headers.values()`**-Methode gibt einen {{jsxref("Iteration_protocols", 'Iterator')}} zurück, der es Ihnen ermöglicht, alle in diesem Objekt enthaltenen Werte durchzugehen. Die Werte sind {{jsxref("String")}}-Objekte.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück.
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: "`column-count` CSS property"
 short-title: column-count
 slug: Web/CSS/Reference/Properties/column-count
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
 ---
 
 Die **`column-count`** [CSS](/de/docs/Web/CSS)-Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
 
-Die {{cssxref("columns")}} Kurzschreibweise kann verwendet werden, um die Werte der Eigenschaften `column-count`, {{cssxref("column-height")}} und {{cssxref("column-width")}} in einer einzigen Deklaration festzulegen.
+Die {{cssxref("columns")}} Kurzschreibweise kann verwendet werden, um die Werte der Eigenschaften `column-count`, {{cssxref("column-height")}}, und {{cssxref("column-width")}} in einer einzigen Deklaration zu setzen.
 
 {{InteractiveExample("CSS Demo: column-count")}}
 
@@ -67,10 +67,12 @@ column-count: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste angegeben:
+
 - `auto`
   - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ist eine strikt positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements geflossen wird. Wenn auch {{cssxref("column-width")}} auf einen nicht-`auto` Wert gesetzt ist, gibt dies lediglich die maximal erlaubte Anzahl von Spalten an.
+  - : Ist eine streng positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements fließen soll. Ist die {{cssxref("column-width")}} ebenfalls auf einen anderen Wert als `auto` gesetzt, gibt sie lediglich die maximal zulässige Anzahl an Spalten an.
 
 ## Formale Definition
 
@@ -82,7 +84,7 @@ column-count: unset;
 
 ## Beispiele
 
-### Einen Absatz über drei Spalten verteilen
+### Einen Absatz auf drei Spalten aufteilen
 
 #### HTML
 
@@ -121,4 +123,4 @@ column-count: unset;
 - {{cssxref("columns")}} Kurzschreibweise
 - {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
 - [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
-- [Grundkonzepte von Mehrspaltig](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
+- [Grundkonzepte der Multicol](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)

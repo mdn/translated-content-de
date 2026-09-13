@@ -1,21 +1,21 @@
 ---
-title: "MediaQueryList: Methode removeListener()"
+title: "MediaQueryList: removeListener() Methode"
 short-title: removeListener()
 slug: Web/API/MediaQueryList/removeListener
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("CSSOM view API")}}{{Deprecated_Header}}
+{{APIRef("CSSOM view API")}}
 
-Die **`removeListener()`**-Methode der
-[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle entfernt einen Listener aus dem
+Die **`removeListener()`**-Methode des
+[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interfaces entfernt einen Listener von dem
 `MediaQueryListener`.
 
-In älteren Browsern hatte `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget)
-geerbt, daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
+In älteren Browsern hat `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt,
+daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
 Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es
-in den von Ihnen zu unterstützenden Browsern verfügbar ist.
+in den Browsern verfügbar ist, die Sie unterstützen müssen.
 
 ## Syntax
 
@@ -26,8 +26,7 @@ removeListener(func)
 ### Parameter
 
 - `func`
-  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion darstellt, die Sie
-    entfernen möchten.
+  - : Eine Funktion oder ein Funktionsverweis, der die zu entfernende Callback-Funktion darstellt.
 
 ### Rückgabewert
 
@@ -68,7 +67,7 @@ mediaQueryList.removeListener(screenTest);
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
-- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
+- [Media Queries im Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

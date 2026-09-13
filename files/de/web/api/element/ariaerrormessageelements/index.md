@@ -3,12 +3,12 @@ title: "Element: ariaErrorMessageElements-Eigenschaft"
 short-title: ariaErrorMessageElements
 slug: Web/API/Element/ariaErrorMessageElements
 l10n:
-  sourceCommit: 021ec74c882a8622cffbfb346cea128f00cd3bef
+  sourceCommit: 3b4a7a32fc2fe8cb6bd9a1e62f4ca52e002599ef
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaErrorMessageElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das das Element (oder die Elemente) enthält, die eine Fehlermeldung für das Element bereitstellen, auf das sie angewendet wird.
+Die **`ariaErrorMessageElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das das oder die Elemente enthält, die eine Fehlermeldung für das Element bereitstellen, auf das sie angewendet wird.
 
 Das Thema [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
@@ -18,26 +18,26 @@ Ein Array von Unterklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 Der innere Text dieser Elemente kann mit Leerzeichen verbunden werden, um die Fehlermeldung zu erhalten.
 
 Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt.
-Beim Schreiben wird das zugewiesene Array kopiert: Nachfolgende Änderungen am Array beeinträchtigen den Wert der Eigenschaft nicht.
+Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
 
 ## Beschreibung
 
 Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attributs, um die Fehlermeldung für ein Element festzulegen.
-Anders als `aria-errormessage` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
+Im Gegensatz zu `aria-errormessage` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete ID-Referenzwerte, die mit gültigen in-Scope-Elementen übereinstimmen.
-Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht.
-Weitere Informationen zu reflektierten Elementreferenzen und Bereichen finden Sie unter [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflektierte Attribute_ Leitfaden.
+Die Eigenschaft spiegelt das [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die mit gültigen In-Scope-Elementen übereinstimmen.
+Wenn die Eigenschaft gesetzt wird, wird das entsprechende Attribut geleert.
+Weitere Informationen über reflektierte Elementreferenzen und den Geltungsbereich finden Sie unter [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_-Leitfaden.
 
 ## Beispiele
 
 ### E-Mail-Eingabe mit Fehlermeldung
 
-Dieses Beispiel zeigt, wie wir `aria-errormessage` verwenden, um die Fehlermeldung für die Meldung der Eingabe einer ungültigen E-Mail-Adresse festzulegen, und demonstriert, wie wir die Nachricht mit `ariaErrorMessageElements` abrufen und festlegen können.
+Dieses Beispiel zeigt, wie wir `aria-errormessage` verwenden, um die Fehlermeldung für die Eingabe einer ungültigen E-Mail-Adresse festzulegen, und demonstriert, wie wir die Nachricht mit `ariaErrorMessageElements` abrufen und festlegen können.
 
 #### HTML
 
-Zuerst definieren wir eine HTML-E-Mail-Eingabe und setzen ihr `aria-errormessage`-Attribut, um auf ein Element mit der `id` `err1` zu verweisen.
+Zuerst definieren wir eine HTML-E-Mail-Eingabe und setzen das `aria-errormessage`-Attribut, um auf ein Element mit der `id` `err1` zu verweisen.
 Dann definieren wir ein `<span>`-Element, das diese ID hat und eine Fehlermeldung enthält.
 
 ```html
@@ -50,7 +50,7 @@ Dann definieren wir ein `<span>`-Element, das diese ID hat und eine Fehlermeldun
 
 #### CSS
 
-Wir erstellen einige Stile, um die Fehlermeldung standardmäßig auszublenden, sie jedoch sichtbar und als Fehler formatiert anzuzeigen, wenn `aria-invalid` auf dem Element gesetzt ist.
+Wir erstellen einige Stile, um die Fehlermeldung standardmäßig zu verbergen, sie jedoch sichtbar und als Fehler gestaltet zu machen, wenn `aria-invalid` auf dem Element gesetzt wird.
 
 ```css
 .errormessage {
@@ -68,8 +68,8 @@ Wir erstellen einige Stile, um die Fehlermeldung standardmäßig auszublenden, s
 
 #### JavaScript
 
-Wir überprüfen dann die Eingabe und setzen [`ariaInvalid`](/de/docs/Web/API/Element/ariaInvalid) auf `true` oder `false` basierend auf dem [`typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)-Einschränkungsverstoß.
-`ariaInvalid` wird wiederum im `aria-invalid`-Attribut widergespiegelt, das den Fehler bei Bedarf ausblendet und anzeigt.
+Dann überprüfen wir die Eingabe und setzen [`ariaInvalid`](/de/docs/Web/API/Element/ariaInvalid) auf `true` oder `false` basierend auf der [`typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)-Einschränkungsverletzung.
+`ariaInvalid` wird wiederum im `aria-invalid`-Attribut reflektiert, das den Fehler nach Bedarf ein- und ausblendet.
 
 ```js
 const email = document.querySelector("#email");
@@ -124,7 +124,8 @@ if ("ariaErrorMessageElements" in Element.prototype) {
 
 #### Ergebnis
 
-Während Sie eine E-Mail-Adresse eingeben, wird der Fehlertext angezeigt, bis die E-Mail-Adresse gültig ist. Beachten Sie, dass das Protokoll die von dem Attribut gelesene Fehlermeldungsreferenz, das Element von `ariaErrorMessageElements` und den inneren Text des Elements zeigt, welcher seine Fehlermeldung ist.
+Während Sie eine E-Mail-Adresse eingeben, wird der Fehlertext angezeigt, bis die E-Mail-Adresse gültig ist.
+Bitte beachten Sie, dass das Protokoll die Fehlermeldungsreferenz zeigt, die aus dem Attribut gelesen wurde, das Element aus `ariaErrorMessageElements` und den inneren Text des Elements, der seine Fehlermeldung ist.
 
 {{EmbedLiveSample("Email input with error message","100%","180px")}}
 
@@ -140,4 +141,4 @@ Während Sie eine E-Mail-Adresse eingeben, wird der Fehlertext angezeigt, bis di
 
 - [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut
 - [`ElementInternals.ariaErrorMessageElements`](/de/docs/Web/API/ElementInternals/ariaErrorMessageElements)
-- [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attributreflexion_ Leitfaden.
+- [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attribute reflection_-Leitfaden.

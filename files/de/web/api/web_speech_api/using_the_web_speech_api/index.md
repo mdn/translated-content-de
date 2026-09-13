@@ -2,36 +2,36 @@
 title: Verwendung der Web Speech API
 slug: Web/API/Web_Speech_API/Using_the_Web_Speech_API
 l10n:
-  sourceCommit: 6f9cf70a2fc871d273ddeeb73170c76b17f20b59
+  sourceCommit: 26fb7eaa7b398a35c2463fa15ab6ccfa46a9e06d
 ---
 
 {{DefaultAPISidebar("Web Speech API")}}
 
-Die Web Speech API bietet zwei verschiedene Funktionsbereiche – Spracherkennung und Sprachsynthese (auch bekannt als Text-to-Speech oder TTS) – die interessante Möglichkeiten für Barrierefreiheit und Steuerung eröffnen. Dieser Artikel bietet eine Einführung in beide Bereiche, zusammen mit Demos.
+Die Web Speech API bietet zwei unterschiedliche Funktionsbereiche — Spracherkennung und Sprachausgabe (auch bekannt als Text-to-Speech oder TTS) — die interessante Möglichkeiten für Barrierefreiheit und Steuerung eröffnen. Dieser Artikel bietet eine Einführung in beide Bereiche zusammen mit Demos.
 
 ## Spracherkennung
 
-Die Spracherkennung beinhaltet das Empfangen von Audio von einem Mikrofon des Geräts (oder von einer Audiospur), das dann von einem Spracherkennungsdienst überprüft wird. Wenn der Dienst ein Wort oder einen Satz erfolgreich erkennt, gibt er eine Textzeichenkette (oder eine Liste von Zeichenketten) zurück, die Sie verwenden können, um weitere Aktionen einzuleiten.
+Die Spracherkennung umfasst den Empfang von Audio von einem Mikrofon des Geräts (oder von einer Audiospur), welches dann von einem Spracherkennungsdienst überprüft wird. Wenn der Dienst ein Wort oder einen Satz erfolgreich erkennt, gibt er eine Textzeichenfolge (oder eine Liste von Zeichenfolgen) zurück, die Sie zur Initiierung weiterer Aktionen verwenden können.
 
-Die Web Speech API hat eine Hauptschnittstelle für die Steuerung – [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) – und mehrere verwandte Schnittstellen zur Darstellung der Ergebnisse.
+Die Web Speech API hat eine Hauptsteuerungsschnittstelle hierfür — [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) — und mehrere verwandte Schnittstellen zur Darstellung von Ergebnissen.
 
-In der Regel wird das auf dem Gerät des Benutzers verfügbare Spracherkennungssystem für die Spracherkennung verwendet. Die meisten modernen Betriebssysteme verfügen über ein Spracherkennungssystem zur Erteilung von Sprachbefehlen, wie **Diktat** auf macOS oder **Copilot** auf Windows.
+Im Allgemeinen wird das Spracherkennungssystem verwendet, das auf dem Gerät des Benutzers verfügbar ist. Die meisten modernen Betriebssysteme verfügen über ein Spracherkennungssystem zur Ausgabe von Sprachbefehlen, wie **Dictation** auf macOS oder **Copilot** auf Windows.
 
-Standardmäßig beinhaltet die Verwendung der Spracherkennung auf einer Webseite eine serverbasierte Erkennungsmaschine. Ihr Audio wird zu einem Webdienst zur Erkennungsverarbeitung gesendet, daher funktioniert es nicht offline.
+Standardmäßig umfasst die Nutzung der Spracherkennung auf einer Webseite eine serverbasierte Erkennungsengine. Ihr Audio wird an einen Webdienst zur Erkennungsverarbeitung gesendet, daher funktioniert es nicht offline.
 
-Um die Privatsphäre und Leistung zu verbessern, können Sie angeben, dass die Spracherkennung auf dem Gerät durchgeführt wird. Dies stellt sicher, dass weder das Audio noch die transkribierte Sprache zur Verarbeitung an einen Drittanbieterdienst gesendet werden. Wir behandeln die Funktionalität auf dem Gerät ausführlicher im Abschnitt [Spracherkennung auf dem Gerät](#spracherkennung_auf_dem_gerät).
+Um die Privatsphäre und Leistung zu verbessern, können Sie angeben, dass die Spracherkennung auf dem Gerät durchgeführt werden soll. Dies stellt sicher, dass weder das Audio noch die transkribierte Sprache zur Verarbeitung an einen Drittanbieterdienst gesendet werden. Wir behandeln die On-Device-Funktionalität ausführlicher im Abschnitt [On-Device Spracherkennung](#on-device_spracherkennung).
 
 ### Demo
 
-Um zu demonstrieren, wie man Spracherkennung verwendet, haben wir eine Beispiel-App namens [Speech Color Changer](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) erstellt. Nachdem Sie die Schaltfläche **Start recognition** gedrückt haben, sagen Sie ein HTML-Farbkeyword. Die Hintergrundfarbe der App ändert sich in diese Farbe.
+Um zu demonstrieren, wie man die Spracherkennung verwendet, haben wir eine Beispiel-App namens [Speech color changer](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) erstellt. Nachdem Sie die **Start recognition**-Schaltfläche gedrückt haben, sprechen Sie ein HTML-Farbschlüsselwort. Die Hintergrundfarbe der App ändert sich in diese Farbe.
 
-![Screenshot unserer Demo-App namens Speech Color Changer. Die App fordert den Benutzer auf, die Schaltfläche zu drücken und eine Farbe zu sagen. Sie ändert den Hintergrund der App in diese Farbe. In diesem Fall hat sie die Hintergrundfarbe auf pink geändert.](speech-color-changer.png)
+![Screenshot unserer Demo-App namens Speech Color Changer. Sie lädt den Benutzer ein, die Schaltfläche zu drücken und eine Farbe zu sagen. Sie ändert die Hintergrundfarbe der App in diese Farbe. In diesem Fall hat sie die Hintergrundfarbe in Pink geändert.](speech-color-changer.png)
 
-Um die Demo auszuführen, navigieren Sie zur [Live-Demo-URL](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) in einem [unterstützenden Browser](/de/docs/Web/API/SpeechRecognition#browser_compatibility).
+Um die Demo auszuführen, navigieren Sie zur [Live-Demo-URL](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) in einem [unterstützten Browser](/de/docs/Web/API/SpeechRecognition#browser_compatibility).
 
 ### HTML und CSS
 
-Das HTML und CSS für die App sind einfach. Es gibt einen Titel, einen Anweisungsabsatz ({{htmlelement("p")}}), ein Steuerungs-{{htmlelement("button")}} und einen Ausgabeabsatz, in dem wir Diagnosemeldungen anzeigen, einschließlich der Wörter, die unsere App erkannt hat.
+Das HTML und CSS für die App sind grundlegend. Es gibt einen Titel, einen Anleitungs-Paragraf ({{htmlelement("p")}}), eine Steuerung {{htmlelement("button")}} und einen Ausgabepunkt, an dem wir Diagnosemeldungen anzeigen, einschließlich der Wörter, die unsere App erkannt hat.
 
 ```html
 <h1>Speech color changer</h1>
@@ -43,15 +43,15 @@ Das HTML und CSS für die App sind einfach. Es gibt einen Titel, einen Anweisung
 <p class="output"><em>...diagnostic messages</em></p>
 ```
 
-Das CSS bietet ein grundlegendes responsives Styling, so dass es auf verschiedenen Geräten gut aussieht.
+Das CSS bietet eine einfache responsive Gestaltung, sodass es auf allen Geräten gut aussieht.
 
 ### JavaScript
 
-Schauen wir uns das JavaScript etwas genauer an.
+Schauen wir uns das JavaScript etwas detaillierter an.
 
 #### Präfixierte Eigenschaften
 
-Einige Browser unterstützen derzeit die Spracherkennung mit präfixierten Eigenschaften. Daher enthalten wir am Anfang unseres Codes diese Zeilen, um sowohl präfixierte als auch unpräfixierte Versionen zu erlauben:
+Einige Browser unterstützen derzeit die Spracherkennung mit präfixierten Eigenschaften. Daher schließen wir am Anfang unseres Codes diese Zeilen ein, um sowohl präfixierte Eigenschaften als auch unpräfixierte Versionen zuzulassen:
 
 ```js
 const SpeechRecognition =
@@ -62,7 +62,7 @@ const SpeechRecognitionEvent =
 
 #### Farbliste
 
-Der nächste Teil unseres Codes definiert einige Beispiel-Farben, die wir der Benutzeroberfläche anzeigen, um den Benutzern eine Vorstellung davon zu geben, was sie sagen sollen:
+Der nächste Teil unserer Code definiert ein paar Beispiel-Farben, die wir in die Benutzeroberfläche drucken, um den Benutzern eine Vorstellung davon zu geben, was sie sagen sollen:
 
 ```js
 const colors = [
@@ -79,20 +79,20 @@ const colors = [
 ];
 ```
 
-#### Erstellung einer Spracherkennung-Instanz
+#### Erstellen einer Spracherkennung-Instanz
 
-Als nächstes definieren wir eine Spracherkennung-Instanz, um die Erkennung in unserer App zu steuern. Dies tun wir mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktor.
+Als Nächstes definieren wir eine Spracherkennung-Instanz zur Steuerung der Erkennung in unserer App. Wir tun dies, indem wir den [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktor verwenden.
 
 ```js
 const recognition = new SpeechRecognition();
 ```
 
-Dann setzen wir einige Eigenschaften der Erkennungsinstanz:
+Danach setzen wir einige Eigenschaften der Erkennungsinstanz:
 
-- [`SpeechRecognition.continuous`](/de/docs/Web/API/SpeechRecognition/continuous): Bestimmt, ob die Ergebnisse kontinuierlich (`true`) oder nur einmal bei jedem Start einer Erkennung erfasst werden (`false`).
-- [`SpeechRecognition.lang`](/de/docs/Web/API/SpeechRecognition/lang): Setzt die Sprache der Erkennung. Dies explizit festzulegen, ist die empfohlene beste Praxis.
-- [`SpeechRecognition.interimResults`](/de/docs/Web/API/SpeechRecognition/interimResults): Definiert, ob das Spracherkennungssystem vorläufige Ergebnisse oder nur endgültige Ergebnisse zurückgeben soll. Für diese Demo sind endgültige Ergebnisse ausreichend.
-- [`SpeechRecognition.maxAlternatives`](/de/docs/Web/API/SpeechRecognition/maxAlternatives): Setzt die Anzahl alternativer potenzieller Treffer, die pro Ergebnis zurückgegeben werden sollen. Dies kann manchmal nützlich sein, beispielsweise wenn ein Ergebnis nicht völlig klar ist und Sie eine Liste von Alternativen anzeigen möchten, aus denen der Benutzer wählen kann. Aber für diese Demo ist es nicht erforderlich, also geben wir nur eine an (was sowieso der Standard ist).
+- [`SpeechRecognition.continuous`](/de/docs/Web/API/SpeechRecognition/continuous): Steuerung, ob Ergebnisse kontinuierlich (`true`) oder nur einmal jedes Mal, wenn eine Erkennung startet (`false`), erfasst werden.
+- [`SpeechRecognition.lang`](/de/docs/Web/API/SpeechRecognition/lang): Legt die Sprache der Erkennung fest. Dies ausdrücklich zu setzen, ist die empfohlene beste Praxis.
+- [`SpeechRecognition.interimResults`](/de/docs/Web/API/SpeechRecognition/interimResults): Definiert, ob das Spracherkennungssystem Zwischen- oder nur Endergebnisse zurückgeben soll. Für diese Demo sind Endergebnisse ausreichend.
+- [`SpeechRecognition.maxAlternatives`](/de/docs/Web/API/SpeechRecognition/maxAlternatives): Legt die Anzahl alternativer potenzieller Übereinstimmungen fest, die pro Ergebnis zurückgegeben werden sollen. Dies kann manchmal nützlich sein, z. B. wenn ein Ergebnis nicht ganz klar ist und Sie eine Liste von Alternativen anzeigen möchten, aus denen der Benutzer auswählen kann. Für diese Demo ist das jedoch nicht erforderlich, daher geben wir nur eine an (was ohnehin der Standard ist).
 
 ```js
 recognition.continuous = false;
@@ -101,9 +101,9 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 ```
 
-#### Start der Spracherkennung
+#### Starten der Spracherkennung
 
-Nachdem wir Referenzen zum Ausgabeabsatz, dem `<html>`-Element, dem Anweisungsabsatz und dem `<button>` erfasst haben, implementieren wir einen `onclick`-Handler. Wenn ein Benutzer die Schaltfläche drückt, startet der Spracherkennungsdienst, indem [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start) aufgerufen wird. Wir haben auch eine `forEach()`-Methode verwendet, um farbige Indikatoren auszugeben, die anzeigen, welche Farben Benutzer versuchen können zu sagen.
+Nachdem wir Referenzen zum Ausgabepunkt, zum `<html>`-Element, zum Anleitungs-Paragraf und zur `<button>`-Schaltfläche erhalten haben, implementieren wir einen `onclick`-Handler. Wenn ein Benutzer die Schaltfläche drückt, beginnt der Spracherkennungsdienst, indem er [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start) aufruft. Wir haben auch eine `forEach()`-Methode verwendet, um farbige Indikatoren auszugeben, die anzeigen, welche Farben Benutzer versuchen können zu sagen.
 
 ```js
 const diagnostic = document.querySelector(".output");
@@ -122,9 +122,9 @@ startBtn.onclick = () => {
 };
 ```
 
-#### Empfang und Verarbeitung von Ergebnissen
+#### Empfangen und Verarbeiten von Ergebnissen
 
-Sobald die Spracherkennung gestartet wurde, stehen mehrere Ereignis-Handler zur Verfügung, die verwendet werden können, um Ergebnisse und andere verwandte Informationen abzurufen (siehe [Ereignisse](/de/docs/Web/API/SpeechRecognition#events) für `SpeechRecognition`). Der am häufigsten verwendete ist das [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignis, das nach Erhalt eines erfolgreichen Ergebnisses ausgelöst wird:
+Sobald die Spracherkennung gestartet ist, stehen mehrere Ereignishandler zur Verfügung, mit denen Sie Ergebnisse und andere zugehörige Informationen abrufen können (siehe [Events](/de/docs/Web/API/SpeechRecognition#events) für `SpeechRecognition`). Das häufigste Ereignis ist das [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignis, das ausgelöst wird, nachdem ein erfolgreiches Ergebnis empfangen wurde:
 
 ```js
 recognition.onresult = (event) => {
@@ -135,13 +135,13 @@ recognition.onresult = (event) => {
 };
 ```
 
-Die zweite Zeile ist etwas komplex, daher erklären wir hier jeden Teil:
+Die zweite Zeile ist etwas kompliziert, daher erklären wir jeden Teil hier:
 
-- Die [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results)-Eigenschaft gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte enthält. Es hat einen Getter, sodass es wie ein Array zugegriffen werden kann – das erste `[0]` gibt das `SpeechRecognitionResult` an Position `0` zurück.
-- Jedes `SpeechRecognitionResult`-Objekt enthält wiederum [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte, die jeweils ein erkanntes Wort darstellen. Diese haben auch Getter, sodass sie wie Arrays zugegriffen werden können – das zweite `[0]` gibt die `SpeechRecognitionAlternative` an Position `0` zurück.
-- Die `transcript`-Eigenschaft der `SpeechRecognitionAlternative` gibt eine Zeichenkette zurück, die den erkannten Text enthält. Dieser Wert wird dann verwendet, um die Hintergrundfarbe in eine erkannte Farbe zu ändern und auch als Diagnosemeldung in der Benutzeroberfläche zu melden.
+- Die [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results)-Eigenschaft gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte enthält. Es hat einen Getter, sodass es wie ein Array zugegriffen werden kann — das erste `[0]` gibt das `SpeechRecognitionResult` an Position `0` zurück.
+- Jedes `SpeechRecognitionResult`-Objekt enthält wiederum [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte, die jeweils ein individuell erkennbares Wort darstellen. Diese haben auch Getter, sodass sie wie Arrays zugegriffen werden können — das zweite `[0]` gibt die `SpeechRecognitionAlternative` an Position `0` zurück.
+- Die `transcript`-Eigenschaft der `SpeechRecognitionAlternative` gibt eine Zeichenfolge mit dem erkannten Text zurück. Dieser Wert wird dann verwendet, um die Hintergrundfarbe in eine erkannte Farbe zu ändern und sie auch als Diagnosemeldung in der Benutzeroberfläche auszugeben.
 
-Wir verwenden auch das [`speechend`](/de/docs/Web/API/SpeechRecognition/speechend_event)-Ereignis, um den Spracherkennungsdienst zu stoppen (mit [`SpeechRecognition.stop()`](/de/docs/Web/API/SpeechRecognition/stop)), nachdem ein einzelnes Wort erkannt wurde:
+Wir verwenden auch das [`speechend`](/de/docs/Web/API/SpeechRecognition/speechend_event)-Ereignis, um den Spracherkennungsdienst (mit [`SpeechRecognition.stop()`](/de/docs/Web/API/SpeechRecognition/stop)) zu stoppen, nachdem ein einzelnes Wort erkannt wurde:
 
 ```js
 recognition.onspeechend = () => {
@@ -149,9 +149,9 @@ recognition.onspeechend = () => {
 };
 ```
 
-#### Umgang mit Fehlern und nicht erkannten Wörtern
+#### Umgang mit Fehlern und nicht erkannter Sprache
 
-Die letzten beiden Handler behandeln Fälle, in denen der gesprochene Begriff nicht erkannt wird oder ein Fehler bei der Erkennung auftritt. Das [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event)-Ereignis soll den ersten Fall behandeln, obwohl das Erkennungs-Engine in den meisten Fällen etwas zurückgibt, selbst wenn es unverständlich ist:
+Die letzten beiden Handler decken Fälle ab, in denen der gesprochene Begriff nicht erkannt wird oder ein Fehler bei der Erkennung auftritt. Das [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event)-Ereignis soll den ersten Fall behandeln, obwohl in den meisten Fällen die Erkennungsengine etwas zurückgeben wird, selbst wenn es unverständlich ist:
 
 ```js
 recognition.onnomatch = (event) => {
@@ -159,7 +159,7 @@ recognition.onnomatch = (event) => {
 };
 ```
 
-Das [`error`](/de/docs/Web/API/SpeechRecognition/error_event)-Ereignis behandelt Fälle, in denen ein tatsächlicher Fehler bei der Erkennung vorliegt – die [`SpeechRecognitionErrorEvent.error`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error)-Eigenschaft enthält den zurückgegebenen Fehler:
+Das [`error`](/de/docs/Web/API/SpeechRecognition/error_event)-Ereignis behandelt Fälle, in denen ein tatsächlicher Fehler bei der Erkennung auftritt — die [`SpeechRecognitionErrorEvent.error`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error)-Eigenschaft enthält den zurückgegebenen Fehler:
 
 ```js
 recognition.onerror = (event) => {
@@ -167,29 +167,29 @@ recognition.onerror = (event) => {
 };
 ```
 
-## Spracherkennung auf dem Gerät
+## On-Device Spracherkennung
 
-Die Spracherkennung wird normalerweise mit einem Online-Dienst durchgeführt. Das bedeutet, dass eine Audioaufnahme an einen Server zur Verarbeitung gesendet wird und die Ergebnisse dann an den Browser zurückgegeben werden. Dies hat einige Probleme:
+Die Spracherkennung wird normalerweise mit einem Online-Dienst durchgeführt. Dies bedeutet, dass eine Audioaufnahme zur Verarbeitung an einen Server gesendet wird und die Ergebnisse dann an den Browser zurückgegeben werden. Dies hat ein paar Probleme:
 
-- Privatsphäre: Viele Benutzer sind nicht damit einverstanden, dass ihre Sprache an einen Server gesendet wird.
-- Leistung: Das Senden von Daten an einen Server für jede Erkennung kann die Leistung in intensiveren Anwendungen verlangsamen und Ihre Apps funktionieren nicht offline.
+- Privatsphäre: Viele Benutzer fühlen sich unwohl damit, dass ihre Sprache an einen Server gesendet wird.
+- Leistung: Das Senden von Daten an einen Server für jede Erkennung kann die Leistung in aufwändigeren Anwendungen verlangsamen und Ihre Apps werden offline nicht funktionieren.
 
-Um diese Probleme zu mindern, lässt die Web Speech API Sie angeben, dass die Spracherkennung vom Browser auf dem Gerät gehandhabt werden soll. Dies erfordert einen einmaligen Sprachpaket-Download für jede Sprache, die Sie erkennen möchten; einmal installiert, wird die Funktionalität offline verfügbar sein.
+Um diese Probleme zu vermeiden, lässt die Web Speech API Sie angeben, dass die Spracherkennung auf dem Gerät durch den Browser durchgeführt werden soll. Dies erfordert einen einmaligen Download eines Sprachpakets für jede Sprache, die Sie erkennen möchten; sobald installiert, steht die Funktionalität offline zur Verfügung.
 
-Dieser Abschnitt erklärt, wie man die Spracherkennung auf dem Gerät verwendet.
+Dieser Abschnitt erklärt, wie Sie die On-Device-Spracherkennung verwenden.
 
 ### Demo
 
-Um die Spracherkennung auf dem Gerät zu demonstrieren, haben wir eine Beispiel-App namens [On-device Speech Color Changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) erstellt ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)).
+Um die On-Device-Spracherkennung zu demonstrieren, haben wir eine Beispiel-App namens [On-device speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)) erstellt.
 
-Diese Demo funktioniert sehr ähnlich zur bereits besprochenen Online-Variante der Speech Colour Changer Demo, mit den unten angegebenen Unterschieden.
+Diese Demo funktioniert sehr ähnlich wie die Online-Speech-Color-Changer-Demo, die zuvor besprochen wurde, wobei die Unterschiede unten aufgeführt sind.
 
 > [!NOTE]
-> In der ursprünglichen Speech Color Changer Demo haben wir zusätzliche Zeilen hinzugefügt, um Browser zu behandeln, die die Web Speech API nur mit anbieterpräfixierten Eigenschaften unterstützen (siehe den Abschnitt [Präfixierte Eigenschaften](#präfixierte_eigenschaften) für weitere Details). In der On-Device-Version der Demo ist kein Präfixierungs-Code erforderlich, da die Implementierungen, die diese Funktionalität unterstützen, dies ohne Präfixe tun.
+> In der ursprünglichen Speech-Color-Changer-Demo hatten wir zusätzliche Zeilen eingefügt, um Browser zu behandeln, die die Web Speech API nur mit vendor-präfixierten Eigenschaften unterstützen (siehe den Abschnitt [Präfixierte Eigenschaften](#präfixierte_eigenschaften) für mehr Details). In der On-Device-Version der Demo ist kein Präfix-bezogener Code erforderlich, da die Implementierungen, die diese Funktionalität unterstützen, dies ohne Präfixe tun.
 
-### Spezifizieren der On-Device-Erkennung
+### On-Device-Erkennung angeben
 
-Um anzugeben, dass Sie die Verarbeitung auf dem Gerät durch den Browser verwenden möchten, setzen Sie die [`SpeechRecognition.processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally)-Eigenschaft vor dem Starten einer Spracherkennung auf `true` (der Standardwert ist `false`):
+Um anzugeben, dass Sie die On-Device-Verarbeitung des Browsers verwenden möchten, setzen Sie die [`SpeechRecognition.processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally)-Eigenschaft auf `true`, bevor Sie irgendeine Spracherkennung starten (der Standardwert ist `false`):
 
 ```js
 recognition.processLocally = true;
@@ -197,14 +197,14 @@ recognition.processLocally = true;
 
 ### Verfügbarkeit prüfen und Sprachpakete installieren
 
-Damit die Spracherkennung auf dem Gerät funktioniert, muss der Browser über ein installiertes Sprachpaket für die Sprache verfügen, die Sie erkennen möchten. Wenn Sie die `start()`-Methode ausführen, nachdem Sie `processLocally = true` angegeben haben, das richtige Sprachpaket jedoch nicht installiert ist, schlägt der Funktionsaufruf mit einem [`language-not-supported`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error#language-not-supported)-Fehler fehl.
+Damit die On-Device-Spracherkennung funktioniert, muss der Browser ein Sprachpaket für die Sprache installiert haben, die Sie erkennen möchten. Wenn Sie die `start()`-Methode ausführen, nachdem Sie `processLocally = true` angegeben haben, aber das richtige Sprachpaket nicht installiert ist, schlägt der Funktionsaufruf mit einem [`language-not-supported`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error#language-not-supported)-Fehler fehl.
 
-Um sicherzustellen, dass das richtige Sprachpaket installiert wird, befolgen Sie diese zwei Schritte:
+Um das richtige Sprachpaket zu installieren, stellen Sie sicher, dass Sie diese zwei Schritte befolgen:
 
-1. Prüfen Sie, ob das Sprachpaket auf dem Gerät des Benutzers verfügbar ist: Dies wird mit der statischen Methode [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static) gehandhabt.
-2. Installieren Sie das Sprachpaket, wenn es nicht verfügbar ist: Dies wird mit der statischen Methode [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static) gehandhabt.
+1. Prüfen, ob das Sprachpaket auf dem Gerät des Benutzers verfügbar ist: Dies wird durch die statische Methode [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static) erledigt.
+2. Installieren Sie das Sprachpaket, wenn es nicht verfügbar ist: Dies wird durch die statische Methode [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static) gehandhabt.
 
-Diese Schritte werden im folgenden `click`-Ereignis-Handler auf dem Steuerungs-`<button>` der App gehandhabt:
+Diese Schritte werden im folgenden `click`-Ereignishandler auf der `<button>`-Steuerschaltfläche der App behandelt:
 
 ```js
 startBtn.addEventListener("click", () => {
@@ -234,34 +234,34 @@ startBtn.addEventListener("click", () => {
 });
 ```
 
-Die `available()`-Methode nimmt ein Optionsobjekt entgegen, das zwei Eigenschaften enthält:
+Die `available()`-Methode nimmt ein Optionsobjekt, das zwei Eigenschaften enthält:
 
-- Ein `langs`-Array, das die Sprachen enthält, für die die Verfügbarkeit geprüft werden soll.
-- Ein `processLocally`-Boolean, der angibt, ob die Verfügbarkeit der Sprache nur auf dem Gerät (`true`) _oder_ lokal oder über einen Server-basierten Erkennungsdienst (`false`, die Standardeinstellung) geprüft werden soll.
+- Ein `langs`-Array mit den Sprachen, für die die Verfügbarkeit geprüft werden soll.
+- Ein `processLocally`-Boolean, der angibt, ob die Verfügbarkeit der Sprache nur lokal auf dem Gerät (`true`) überprüft werden soll _oder_ entweder lokal oder über einen serverbasierenden Erkennungsdienst (`false`, der Standard).
 
-Wird diese Methode ausgeführt, gibt sie ein {{jsxref("Promise")}} zurück, das mit einem Wert aufgelöst wird, der die Verfügbarkeit der angegebenen Sprachen angibt. In unserer Demo testen wir für drei Bedingungen:
+Wird diese Methode ausgeführt, gibt sie ein {{jsxref("Promise")}} zurück, das mit einem aufgezählten Wert aufgelöst wird, der die Verfügbarkeit der angegebenen Sprachen anzeigt. In unserer Demo testen wir drei Bedingungen:
 
-- Wenn der zurückgegebene Wert `unavailable` ist, bedeutet das, dass kein geeignetes Sprachpaket zum Herunterladen verfügbar ist. Wir drucken auch eine entsprechende Nachricht an die Ausgabe.
-- Wenn der Wert `available` ist, bedeutet das, dass das Sprachpaket lokal verfügbar ist, sodass die Erkennung beginnen kann. In diesem Fall führen wir `start()` aus und loggen eine Nachricht in die Konsole, wenn die App bereit ist, Sprache zu empfangen.
-- Wenn der Wert etwas anderes ist (`downloadable` oder `downloading`), drucken wir eine Diagnosemeldung aus, um den Benutzer darüber zu informieren, dass ein Sprachpaket-Download beginnt, und führen dann die `install()`-Methode aus, um den Download zu handhaben.
+- Wenn der resultierende Wert `unavailable` ist, bedeutet dies, dass kein geeignetes Sprachpaket zum Download verfügbar ist. Wir geben auch eine entsprechende Nachricht an den Ausgabepunkt aus.
+- Wenn der resultierende Wert `available` ist, bedeutet dies, dass das Sprachpaket lokal verfügbar ist, daher kann die Erkennung beginnen. In diesem Fall führen wir `start()` aus und protokollieren eine Nachricht in die Konsole, wenn die App bereit ist, Sprache zu empfangen.
+- Wenn der Wert etwas anderes ist (`downloadable` oder `downloading`), geben wir eine Diagnosemeldung aus, um den Benutzer darüber zu informieren, dass ein Sprachpaket-Download beginnt, und führen dann die `install()`-Methode aus, um den Download zu handhaben.
 
-Die `install()`-Methode funktioniert ähnlich wie die `available()`-Methode, außer dass ihr Optionsobjekt nur das `langs`-Array enthält. Wird sie ausgeführt, startet sie das Herunterladen aller Sprachpakete für die in `langs` angegebenen Sprachen und gibt ein {{jsxref("Promise")}} zurück, das mit einem Boolean aufgelöst wird, der angibt, ob die angegebenen Sprachpakete erfolgreich heruntergeladen und installiert wurden (`true`) oder nicht (`false`).
+Die `install()`-Methode funktioniert ähnlich wie die `available()`-Methode, außer dass ihr Optionsobjekt nur das `langs`-Array nimmt. Wird sie ausgeführt, beginnt sie mit dem Herunterladen aller Sprachpakete für die im `langs` angegebenen Sprachen und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird mit einem Boolean, der angibt, ob die angegebenen Sprachpakete erfolgreich heruntergeladen und installiert wurden (`true`) oder nicht (`false`).
 
-Für diese Demo drucken wir eine Diagnosemeldung, die die Erfolgs- und Fehlermanagementfälle anzeigt. In einer vollständigeren App würden Sie wahrscheinlich die Steuerungen während des Download-Prozesses deaktivieren und sie wieder aktivieren, nachdem das Versprechen erfüllt ist.
+Für diese Demo geben wir eine Diagnosemeldung aus, um die Erfolg- und Fehlerschutzfälle anzuzeigen. In einer vollständigeren App würden Sie wahrscheinlich die Steuerelemente während des Download-Prozesses deaktivieren und sie wieder aktivieren, nachdem das Promise aufgelöst wurde.
 
 ### Integration der Berechtigungsrichtlinie
 
-Die Verwendung der Methoden `available()` und `install()` wird durch die {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}}-{{httpheader("Permissions-Policy")}} gesteuert. Speziell, wo eine definierte Richtlinie die Nutzung blockiert, wird jeder Versuch, diese Methoden aufzurufen, fehlschlagen.
+Die Verwendung der `available()`- und `install()`-Methoden wird durch die {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}} {{httpheader("Permissions-Policy")}} gesteuert. Insbesondere, wenn eine definierte Richtlinie die Nutzung blockiert, schlagen alle Versuche, diese Methoden aufzurufen, fehl.
 
-Der Standardwerteintragswert für `on-device-speech-recognition` ist `self`. Das bedeutet, dass Sie sich keine Sorgen um die Anpassung der Richtlinie machen müssen, es sei denn, Sie versuchen, diese Methoden in eingebetteten Cross-Origin-Dokumenten zu verwenden oder möchten deren Verwendung explizit deaktivieren.
+Der Standardzutrittslistenwert für `on-device-speech-recognition` ist `self`. Das bedeutet, Sie müssen sich keine Sorgen über die Anpassung der Richtlinie machen, es sei denn, Sie versuchen, diese Methoden in eingebetteten Cross-Origin-Dokumenten zu verwenden oder wollen deren Verwendung ausdrücklich verbieten.
 
-### Festlegen von Anforderungen an die Qualitätsstufe
+### Anforderungen an Qualitätsniveaus angeben
 
-Die Methoden `available()` und `install()` unterstützen die [`quality`](/de/docs/Web/API/SpeechRecognition/available_static#quality)-Option. Dies ermöglicht es Ihnen, die Unterstützung für verschiedene Komplexitätsstufen der Spracherkennung zu überprüfen – zum Beispiel ist die Verarbeitung kurzer Sprachbefehle viel einfacher als das Handhaben von Diktaten/Transkriptionen, und der erstere Anwendungsfall wird wahrscheinlich von mehr Hardware- und Sprachpaketkombinationen unterstützt als der letztere.
+Sowohl die `available()`- als auch die `install()`-Methoden unterstützen die [`quality`](/de/docs/Web/API/SpeechRecognition/available_static#quality)-Option. Dies ermöglicht es Ihnen, die Unterstützung für unterschiedliche Schwierigkeitslevel der Spracherkennung zu überprüfen — zum Beispiel ist das Verarbeiten von kurzen Sprachbefehlen viel einfacher als das Verarbeiten von Diktat/Transkription, und der erstgenannte Anwendungsfall wird wahrscheinlich von mehr Hardware- und Sprachpaketkombinationen unterstützt als der letztere.
 
-Zum Beispiel ist der folgende Code-Snippet eine Modifikation des Codes aus dem Beispiel [On-device Speech Color Changer](#demo_2), in dem wir die `available()`-Methode mit der auf `dictation` gesetzten `quality`-Option aufrufen, um zu überprüfen, ob die Spracherkennung auf dem Gerät diese Qualitätsstufe unterstützt. Wenn das zurückgegebene Ergebnis `unavailable` ist, setzen wir die Eigenschaft [`processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally) des `SpeechRecognition`-Objekts auf `false`, um die API zu zwingen, einen Cloud-Erkennungsdienst zu verwenden, und starten dann den Erkennungsdienst.
+Zum Beispiel ist der folgende Code-Schnipsel eine Modifikation des Codes aus dem [On-Device Speech Color Changer](#demo_2)-Beispiel in dem wir die `available()`-Methode mit der `quality`-Option auf `dictation` eingestellt aufrufen, um zu prüfen, ob die On-Device-Erkennung diese Qualitätsstufe unterstützt. Wenn das zurückgegebene Ergebnis `unavailable` ist, setzen wir die [`processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally)-Eigenschaft des `SpeechRecognition`-Objekts auf `false`, um die API zu zwingen, einen Cloud-Erkennungsdienst zu verwenden, und `start()` den Erkennungsdienst.
 
-Wenn das Ergebnis `available` ist, sind wir bereit, also rufen wir einfach `start()` auf, um die Erkennung auf dem Gerät zu starten. Wenn das Ergebnis ein anderer Wert ist, führen wir die `install()`-Methode mit der auf `dictation` gesetzten `quality`-Option aus, um die erforderlichen Sprachpakete zu installieren.
+Wenn das Ergebnis `available` ist, können wir loslegen, also rufen wir einfach `start()` auf, um die On-Device-Erkennung zu starten. Wenn das Ergebnis ein anderer Wert ist, führen wir die `install()`-Methode mit der `quality`-Option auf `dictation` ein, um die erforderlichen Sprachpakete zu installieren.
 
 ```js
 startBtn.addEventListener("click", () => {
@@ -296,20 +296,20 @@ startBtn.addEventListener("click", () => {
 });
 ```
 
-## Kontextuelle Verzerrung in der Spracherkennung
+## Kontextbezogene Gewichtung in der Spracherkennung
 
-Es wird Zeiten geben, in denen ein Spracherkennungsdienst es nicht schafft, ein bestimmtes Wort oder eine bestimmte Phrase korrekt zu erkennen. Dies passiert am häufigsten bei branchenspezifischen Begriffen (wie medizinischer oder wissenschaftlicher Terminologie), Eigennamen, ungewöhnlichen Phrasen oder Wörtern, die anderen Wörtern ähnlich klingen und deshalb möglicherweise falsch identifiziert werden.
+Es wird Momente geben, in denen ein Spracherkennungsdienst ein spezifisches Wort oder eine Phrase nicht korrekt erkennt. Dies passiert meist bei domänenspezifischen Begriffen (wie medizinisches oder wissenschaftliches Vokabular), Eigennamen, ungewöhnlichen Phrasen oder Wörtern, die ähnlich klingen wie andere Wörter und daher möglicherweise falsch erkannt werden.
 
-Zum Beispiel haben wir während der Tests festgestellt, dass unser [On-device Speech Color Changer](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) Schwierigkeiten hatte, die Farbe `azure` zu erkennen – ständig wurden Ergebnisse wie "as you" zurückgegeben. Andere Farben, die häufig falsch erkannt wurden, waren `khaki` ("car key"), `tan` und `thistle` ("this all").
+Zum Beispiel stellten wir während Tests fest, dass unser [On-device Speech Color Changer](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) Probleme hatte, die Farbe `azure` zu erkennen — er gab immer wieder Ergebnisse wie "as you" zurück. Andere Farben, die häufig falsch erkannt wurden, waren `khaki` ("car key"), `tan` und `thistle` ("this all").
 
-Um solche Probleme zu mildern, lässt die Web Speech API Sie dem Erkennungs-Engine Hinweise geben, um Phrasen hervorzuheben, die mit größerer Wahrscheinlichkeit gesprochen werden, und auf die die Engine verzerrt werden sollte. Dies macht es wahrscheinlicher, dass diese Wörter und Phrasen korrekt erkannt werden.
+Um solche Probleme zu mindern, lässt die Web Speech API Sie Hinweise an die Erkennungs-Engine geben, um Phrasen hervorzuheben, die mit höherer Wahrscheinlichkeit gesprochen werden. Das macht diese Wörter und Phrasen wahrscheinlicher korrekt erkannt.
 
-Sie können dies tun, indem Sie ein Array von [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekten als Wert der [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)-Eigenschaft setzen. Jedes `SpeechRecognitionPhrase`-Objekt enthält:
+Sie können dies tun, indem Sie ein Array von [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekten als Wert der [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)-Eigenschaft festlegen. Jedes `SpeechRecognitionPhrase`-Objekt enthält:
 
-- Eine `phrase`-Eigenschaft, die eine Zeichenkette enthält, die das zu verstärkende Wort oder die zu verstärkende Phrase enthält.
-- Eine `boost`-Eigenschaft, die eine Gleitkommazahl zwischen `0.0` und `10.0` (einschließlich) ist, die den Verstärkungsgrad angibt, den Sie auf dieses Wort oder diese Phrase anwenden möchten. Höhere Werte machen das Wort oder die Phrase wahrscheinlicher erkannt.
+- Eine `phrase`-Eigenschaft, die eine Zeichenfolge mit dem Wort oder der Phrase enthält, die Sie hervorheben möchten.
+- Eine `boost`-Eigenschaft, die eine Gleitkommazahl zwischen `0.0` und `10.0` (einschließlich) ist, die die Höhe des Boosts festlegt, den Sie auf das Wort oder die Phrase anwenden möchten. Höhere Werte machen das Wort oder die Phrase wahrscheinlicher korrekt erkannt.
 
-In unserer "On-device Speech Color Changer"-Demo handhaben wir dies, indem wir ein Array von Phrasen zur Verstärkung und deren Verstärkungswerte erstellen:
+In unserer "On-device Speech Color Changer"-Demo handhaben wir dies, indem wir ein Array von Phrasen erstellen, die hervorgehoben werden sollen, und ihre Boost-Werte:
 
 ```js
 const phraseData = [
@@ -319,7 +319,7 @@ const phraseData = [
 ];
 ```
 
-Diese müssen als ein `ObservableArray` von `SpeechRecognitionPhrase`-Objekten dargestellt werden. Wir handhaben dies, indem wir das ursprüngliche Array umbilden, um jedes Array-Element mit dem [`SpeechRecognitionPhrase()`](/de/docs/Web/API/SpeechRecognitionPhrase/SpeechRecognitionPhrase)-Konstruktor in ein `SpeechRecognitionPhrase`-Objekt zu konvertieren:
+Diese müssen als ein `ObservableArray` von `SpeechRecognitionPhrase`-Objekten dargestellt werden. Wir handhaben dies, indem wir das ursprüngliche Array mappen, um jedes Array-Element in ein `SpeechRecognitionPhrase`-Objekt zu konvertieren, indem wir den [`SpeechRecognitionPhrase()`](/de/docs/Web/API/SpeechRecognitionPhrase/SpeechRecognitionPhrase)-Konstruktor verwenden:
 
 ```js
 const phraseObjects = phraseData.map(
@@ -327,37 +327,37 @@ const phraseObjects = phraseData.map(
 );
 ```
 
-Nach dem Erstellen der `SpeechRecognition`-Instanz fügen wir unsere kontextuellen Verzerrungsphrasen hinzu, indem wir das `phraseObjects`-Array als Wert der `SpeechRecognition.phrases`-Eigenschaft setzen:
+Nach dem Erstellen der `SpeechRecognition`-Instanz fügen wir unsere kontextbezogenen Gewichtungsphrasen hinzu, indem wir das `phraseObjects`-Array als Wert der `SpeechRecognition.phrases`-Eigenschaft festlegen:
 
 ```js
 recognition.phrases = phraseObjects;
 ```
 
-Das Phrasen-Array kann wie ein normales JavaScript-Array modifiziert werden, zum Beispiel durch das dynamische Hinzufügen neuer Phrasen:
+Das Phrasen-Array kann genau wie ein normales JavaScript-Array modifiziert werden, zum Beispiel durch dynamisches Hinzufügen neuer Phrasen:
 
 ```js
 recognition.phrases.push(new SpeechRecognitionPhrase("thistle", 5.0));
 ```
 
-Mit diesem Code stellten wir fest, dass die problematischen Farb-Keywords genauer erkannt wurden als zuvor.
+Mit diesem Code fanden wir heraus, dass die problematischen Farbkeywords genauer erkannt wurden als zuvor.
 
-## Sprachsynthese
+## Sprachausgabe
 
-Die Sprachsynthese (auch bekannt als Text-to-Speech, oder TTS) beinhaltet die Synthese eines Textes, der in einer Anwendung enthalten ist, in Sprache und das Abspielen über die Lautsprecher oder den Audioausgang eines Geräts.
+Sprachausgabe (auch bekannt als Text-to-Speech oder TTS) umfasst das Synthesieren von in einer App enthaltenem Text zu Sprache und das Abspielen über den Lautsprecher oder Audioausgangsanschluss eines Geräts.
 
-Die Web Speech API hat eine Hauptsteuerungsschnittstelle dafür – [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) – sowie eine Reihe verwandter Schnittstellen zur Darstellung des zu synthetisierenden Texts (bekannt als Äußerungen), der Stimmen, die für die Äußerung verwendet werden sollen, etc. Auch hier haben die meisten Betriebssysteme eine Art Sprachsynthesesystem, das von der API für diese Aufgabe verwendet wird, soweit vorhanden.
+Die Web Speech API hat eine Hauptsteuerungsschnittstelle dafür — [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) — plus eine Reihe von eng verwandten Schnittstellen zum Darstellen des zu synthetisierenden Textes (bekannt als Äußerungen), Stimmen, die für die Äußerung verwendet werden sollen usw. Auch hier verfügen die meisten Betriebssysteme über ein Sprachausgabusystem, das von der API für diese Aufgabe verwendet wird, wie verfügbar.
 
 ### Demo
 
-Um zu demonstrieren, wie man die Sprachsynthese im Web verwendet, haben wir eine Beispiel-App namens [Speech Synthesizer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) erstellt. Sie verfügt über ein Eingabefeld zur Eingabe des zu synthetisierenden Texts. Sie können die Geschwindigkeit und die Tonhöhe anpassen und auch eine Stimme aus dem Dropdown-Menü auswählen, um den gesprochenen Text zu verwenden. Nachdem Sie Ihren Text eingegeben haben, drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd> oder klicken Sie auf die **Play**-Schaltfläche, um den Text laut vorlesen zu lassen.
+Um zu demonstrieren, wie man Web-Sprachausgabe verwendet, haben wir eine Beispiel-App namens [Speech Synthesizer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) erstellt. Sie hat ein Eingabefeld für den Text, der synthetisiert werden soll. Sie können die Geschwindigkeit und Tonhöhe anpassen und auch eine Stimme aus dem Dropdown-Menü auswählen, die für den gesprochenen Text verwendet werden soll. Nachdem Sie Ihren Text eingegeben haben, drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd> oder klicken Sie auf die **Play**-Schaltfläche, um den Text laut vorgelesen zu hören.
 
-![Benutzeroberfläche einer App namens Speak Easy Synthesis. Sie hat ein Eingabefeld, um Text zum Synthetisieren einzugeben, Slider-Steuerelemente, um die Geschwindigkeit und Tonhöhe der Sprache zu ändern, und ein Dropdown-Menü, um zwischen verschiedenen Stimmen zu wählen.](speak-easy-synthesis.png)
+![UI einer App namens Speak Easy Synthesis. Sie hat ein Eingabefeld, in das Text eingegeben werden kann, der synthetisiert werden soll, Schieberegler um die Geschwindigkeit und Höhe der Sprache zu ändern, und ein Dropdown-Menü zum Auswählen zwischen verschiedenen Stimmen.](speak-easy-synthesis.png)
 
-Um die Demo auszuführen, navigieren Sie zur [Live-Demo-URL](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/) in einem [unterstützenden Browser](/de/docs/Web/API/SpeechSynthesis#browser_compatibility).
+Um die Demo auszuführen, navigieren Sie zur [Live-Demo-URL](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/) in einem [unterstützten Browser](/de/docs/Web/API/SpeechSynthesis#browser_compatibility).
 
 ### HTML und CSS
 
-Das HTML und CSS für diese App sind ziemlich einfach. Es gibt einen Titel, einige Anweisungen zur Nutzung und ein Formular mit grundlegenden Steuerelementen. Das {{htmlelement("select")}}-Element ist anfangs leer; es wird über JavaScript mit {{htmlelement("option")}}s gefüllt (später behandelt).
+Die HTML und CSS für diese App sind ziemlich grundlegend. Es gibt einen Titel, einige Anwendungshinweise und ein Formular mit ein paar grundlegenden Steuerungen. Das {{htmlelement("select")}}-Element ist zunächst leer; es wird über JavaScript mit {{htmlelement("option")}}s gefüllt (später behandelt).
 
 ```html
 <h1>Speech synthesizer</h1>
@@ -387,11 +387,11 @@ Das HTML und CSS für diese App sind ziemlich einfach. Es gibt einen Titel, eini
 
 ### JavaScript
 
-Schauen wir uns das JavaScript an, das diese App antreibt.
+Untersuchen wir das JavaScript, das diese App antreibt.
 
 #### Variablen setzen
 
-Zunächst erfassen wir Referenzen auf alle an der Benutzeroberfläche beteiligten DOM-Elemente, aber interessanterweise erfassen wir eine Referenz auf [`Window.speechSynthesis`](/de/docs/Web/API/Window/speechSynthesis). Dies ist der Einstiegspunkt der API – es gibt eine Instanz von [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) zurück, der Steuerungsschnittstelle für die Sprachsynthese im Web.
+Zuerst erfassen wir Referenzen zu allen an der UI beteiligten DOM-Elementen, aber interessanterweise erfassen wir eine Referenz zu [`Window.speechSynthesis`](/de/docs/Web/API/Window/speechSynthesis). Dies ist der Einstiegspunkt der API — sie gibt eine Instanz von [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) zurück, der Steuerungsschnittstelle für Web-Sprachausgabe.
 
 ```js
 const synth = window.speechSynthesis;
@@ -408,11 +408,11 @@ const rateValue = document.querySelector(".rate-value");
 const voices = [];
 ```
 
-#### Füllen des Select-Elements
+#### Das Select-Element füllen
 
-Um das {{htmlelement("select")}}-Element mit den verfügbaren Sprachoptionen des Geräts zu füllen, haben wir eine `populateVoiceList()`-Funktion geschrieben. Zuerst rufen wir [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) auf, das eine Liste aller verfügbaren Stimmen zurückgibt, dargestellt durch [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte. Dann durchlaufen wir diese Liste – für jede Stimme erstellen wir ein {{htmlelement("option")}}-Element, setzen seinen Textinhalt, um den Namen der Stimme anzuzeigen (aus [`SpeechSynthesisVoice.name`](/de/docs/Web/API/SpeechSynthesisVoice/name) entnommen), die Sprache der Stimme (aus [`SpeechSynthesisVoice.lang`](/de/docs/Web/API/SpeechSynthesisVoice/lang) entnommen) und `-- DEFAULT`, wenn die Stimme die Standardsprache für die Synthese-Engine ist (überprüft, indem man prüft, ob [`SpeechSynthesisVoice.default`](/de/docs/Web/API/SpeechSynthesisVoice/default) `true` zurückgibt.)
+Um das {{htmlelement("select")}}-Element mit den verschiedenen Sprachoptionen zu füllen, die das Gerät verfügbar hat, haben wir eine `populateVoiceList()`-Funktion geschrieben. Zuerst rufen wir [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) auf, die eine Liste aller verfügbaren Stimmen zurückgibt, dargestellt durch [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte. Dann durchlaufen wir diese Liste — für jede Stimme erstellen wir ein {{htmlelement("option")}}-Element, setzen dessen Textinhalt, um den Namen der Stimme anzuzeigen (aus [`SpeechSynthesisVoice.name`](/de/docs/Web/API/SpeechSynthesisVoice/name) geholt), die Sprache der Stimme (aus [`SpeechSynthesisVoice.lang`](/de/docs/Web/API/SpeechSynthesisVoice/lang) geholt), und `-- DEFAULT`, wenn die Stimme die Standardstimme für die Ausgabemaschine ist (überprüft durch Abfragen, ob [`SpeechSynthesisVoice.default`](/de/docs/Web/API/SpeechSynthesisVoice/default) `true` zurückgibt.)
 
-Wir erstellen auch `data-`-Attribute für jede Option, die den Namen und die Sprache der zugehörigen Stimme enthalten, sodass wir sie später leicht erfassen können, und fügen die Optionen als Kinder des Select-Elements hinzu.
+Wir erstellen auch `data-`-Attribute für jede Option, die den Namen und die Sprache der zugehörigen Stimme enthalten, sodass wir sie später leicht greifen können, und hängen dann die Optionen als Kinder des Selects an.
 
 ```js
 function populateVoiceList() {
@@ -433,7 +433,7 @@ function populateVoiceList() {
 }
 ```
 
-Ältere Browser unterstützen das [`voiceschanged`](/de/docs/Web/API/SpeechSynthesis/voiceschanged_event)-Ereignis nicht und geben einfach eine Liste der Stimmen zurück, wenn [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) ausgeführt wird. Während bei anderen, wie Chrome, Sie warten müssen, bis das Ereignis ausgelöst wird, bevor die Liste gefüllt wird. Um beide Fälle zuzulassen, führen wir die Funktion wie unten gezeigt aus:
+Ältere Browser unterstützen das Ereignis [`voiceschanged`](/de/docs/Web/API/SpeechSynthesis/voiceschanged_event) nicht und geben einfach eine Liste von Stimmen zurück, wenn [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) aufgerufen wird. Während andere, wie Chrome, warten müssen, bis das Ereignis ausgelöst wird, bevor sie die Liste füllen. Um für beide Fälle zu sorgen, führen wir die Funktion wie unten gezeigt aus:
 
 ```js
 populateVoiceList();
@@ -442,13 +442,13 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
 }
 ```
 
-#### Sprechen des eingegebenen Texts
+#### Den eingegebenen Text sprechen
 
-Als nächstes erstellen wir einen Ereignishandler, um das Sprechen des in das Textfeld eingegebenen Texts zu starten. Wir verwenden einen [onsubmit](/de/docs/Web/API/HTMLFormElement/submit_event)-Handler auf dem Formular, damit die Aktion ausgeführt wird, wenn <kbd>Enter</kbd>/<kbd>Return</kbd> gedrückt wird. Zuerst erstellen wir eine neue [`SpeechSynthesisUtterance()`](/de/docs/Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance)-Instanz mit dessen Konstruktor. Dieser wird mit dem Wert des Texteingabefelds als Parameter übergeben.
+Als nächstes erstellen wir einen Ereignishandler, um mit dem Sprechen des in das Textfeld eingegebenen Textes zu beginnen. Wir verwenden einen [onsubmit](/de/docs/Web/API/HTMLFormElement/submit_event)-Handler auf dem Formular, damit die Aktion ausgeführt wird, wenn <kbd>Enter</kbd>/<kbd>Return</kbd> gedrückt wird. Wir erstellen zunächst eine neue Instanz von [`SpeechSynthesisUtterance()`](/de/docs/Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance) mit dessen Konstruktor — dies wird als Parameter der Wert des Texteingabefelds übergeben.
 
-Als nächstes müssen wir herausfinden, welche Stimme verwendet werden soll. Wir verwenden die `selectedOptions`-Eigenschaft von [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), um das derzeit ausgewählte {{htmlelement("option")}}-Element zurückzugeben. Dann verwenden wir das `data-name`-Attribut dieses Elements und finden das [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekt, dessen Name mit dem Wert dieses Attributs übereinstimmt. Wir setzen das übereinstimmende Sprachobjekt als Wert für die [`SpeechSynthesisUtterance.voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice)-Eigenschaft.
+Als Nächstes müssen wir herausfinden, welche Stimme verwendet werden soll. Wir verwenden die [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) `selectedOptions`-Eigenschaft, um das aktuell ausgewählte {{htmlelement("option")}}-Element zurückzugeben. Wir verwenden dann das `data-name`-Attribut dieses Elements, um das [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekt zu finden, dessen Name mit dem Wert dieses Attributs übereinstimmt. Wir setzen das passende Stimmobjekt als Wert der [`SpeechSynthesisUtterance.voice`](/de/docs/Web/API/SpeechSynthesisUtterance/voice)-Eigenschaft.
 
-Schließlich setzen wir die [`SpeechSynthesisUtterance.pitch`](/de/docs/Web/API/SpeechSynthesisUtterance/pitch) und [`SpeechSynthesisUtterance.rate`](/de/docs/Web/API/SpeechSynthesisUtterance/rate) auf die Werte der entsprechenden Formular-Elemente. Dann, mit allen notwendigen Vorbereitungen, starten wir die Äußerung, indem wir [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak) aufrufen und die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Instanz als Parameter übergeben.
+Schließlich setzen wir die [`SpeechSynthesisUtterance.pitch`](/de/docs/Web/API/SpeechSynthesisUtterance/pitch) und [`SpeechSynthesisUtterance.rate`](/de/docs/Web/API/SpeechSynthesisUtterance/rate) auf die Werte der entsprechenden Reichweite-Forma-Elemente. Dann, mit allem notwendigen Vorbereitungen getroffen, starten wir das Sprechen der Äußerung, indem wir [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak) aufrufen und die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Instanz als Parameter übergeben.
 
 ```js
 inputForm.onsubmit = (event) => {
@@ -475,13 +475,13 @@ inputForm.onsubmit = (event) => {
 };
 ```
 
-Im letzten Teil des Handlers fügen wir ein [`pause`](/de/docs/Web/API/SpeechSynthesisUtterance/pause_event)-Ereignis ein, um zu demonstrieren, wie [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) gut verwendet werden kann. Wenn [`SpeechSynthesis.pause()`](/de/docs/Web/API/SpeechSynthesis/pause) aufgerufen wird, wird eine Meldung zurückgegeben, die die Zahl und den Namen des Zeichens angibt, bei dem die Sprache pausiert wurde.
+Im letzten Teil des Handlers nehmen wir ein [`pause`](/de/docs/Web/API/SpeechSynthesisUtterance/pause_event)-Ereignis auf, um zu demonstrieren, wie [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) gut genutzt werden kann. Wenn [`SpeechSynthesis.pause()`](/de/docs/Web/API/SpeechSynthesis/pause) aufgerufen wird, gibt dies eine Nachricht zurück, die die Zeichen-Nummer und den Namen meldet, bei dem die Sprache pausiert wurde.
 
-Schließlich rufen wir [`blur()`](/de/docs/Web/API/HTMLElement/blur) auf dem eingetippten Text auf. Dies dient hauptsächlich dazu, die Tastatur auf Firefox OS auszublenden.
+Schließlich rufen wir [`blur()`](/de/docs/Web/API/HTMLElement/blur) auf dem Texteingabefeld auf. Dies dient hauptsächlich dazu, die Tastatur auf Firefox OS auszublenden.
 
-#### Aktualisieren der angezeigten Pitch- und Ratewerte
+#### Anzeige der aktualisierten Tonhöhe- und Geschwindigkeitswerte
 
-Der letzte Teil des Codes aktualisiert die in der Benutzeroberfläche angezeigten `pitch`-/`rate`-Werte, jedes Mal, wenn die Schiebereglerpositionen bewegt werden.
+Der letzte Teil des Codes aktualisiert die in der Benutzeroberfläche angezeigten `pitch`/`rate`-Werte, jedes Mal, wenn die Schiebereglerpositionen verändert werden.
 
 ```js
 pitch.onchange = () => {

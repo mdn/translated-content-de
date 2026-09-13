@@ -1,14 +1,14 @@
 ---
-title: "URLPattern: URLPattern() Konstruktor"
+title: "URLPattern: URLPattern()-Konstruktor"
 short-title: URLPattern()
 slug: Web/API/URLPattern/URLPattern
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: a23122d0e86fb376234614beb5b350b217068054
 ---
 
 {{APIRef("URLPattern API")}} {{AvailableInWorkers}}
 
-Der **`URLPattern()`** Konstruktor gibt ein neues [`URLPattern`](/de/docs/Web/API/URLPattern) Objekt zurück, das die URLs repräsentiert, die mit diesem Muster übereinstimmen werden.
+Der **`URLPattern()`**-Konstruktor gibt ein neues [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt zurück, das die URLs repräsentiert, die diesem Muster entsprechen.
 
 ## Syntax
 
@@ -23,88 +23,90 @@ new URLPattern(url, baseURL, options)
 ### Parameter
 
 - `input` {{Optional_Inline}}
-  - : Ein Objekt, das separate Eigenschaften zur Definition der [Muster](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) hat, die für jeden Teil einer URL verwendet werden.
+  - : Ein Objekt mit separaten Eigenschaften zum Definieren der [Muster](/de/docs/Web/API/URL_Pattern_API#pattern_syntax), die zum Abgleichen jedes Teils einer URL verwendet werden.
 
-    Die Objektglieder können beliebig (oder gar nicht) sein:
+    Die Objektmitglieder können beliebige (oder keine) der folgenden sein:
     - `protocol` {{Optional_Inline}}
-      - : Ein Muster, das ein URL-[Protokoll](/de/docs/Web/API/URL/protocol) wie `http`, `https` oder `"http{s}?"` (um sowohl https als auch http zu matchen) erfasst.
+      - : Ein Muster, das einem URL-[Protokoll](/de/docs/Web/API/URL/protocol) entspricht, beispielsweise `http`, `https` oder `"http{s}?"` (um sowohl https als auch http abzugleichen).
     - `username` {{Optional_Inline}}
-      - : Ein Muster, das einen URL-[Benutzernamen](/de/docs/Web/API/URL/username) erfasst.
+      - : Ein Muster, das einem URL-[Benutzernamen](/de/docs/Web/API/URL/username) entspricht.
     - `password` {{Optional_Inline}}
-      - : Ein Muster, das ein URL-[Passwort](/de/docs/Web/API/URL/password) erfasst.
+      - : Ein Muster, das einem URL-[Passwort](/de/docs/Web/API/URL/password) entspricht.
     - `hostname` {{Optional_Inline}}
-      - : Ein Muster, das einen URL-[Hostname](/de/docs/Web/API/URL/hostname) erfasst.
+      - : Ein Muster, das einem URL-[Hostnamen](/de/docs/Web/API/URL/hostname) entspricht.
     - `port` {{Optional_Inline}}
-      - : Ein Muster, das einen URL-[Port](/de/docs/Web/API/URL/port) erfasst.
+      - : Ein Muster, das einem URL-[Port](/de/docs/Web/API/URL/port) entspricht.
     - `pathname` {{Optional_Inline}}
-      - : Ein Muster, das einen URL-[Pfadnamen](/de/docs/Web/API/URL/pathname) erfasst.
+      - : Ein Muster, das einem URL-[Pfadnamen](/de/docs/Web/API/URL/pathname) entspricht.
     - `search` {{Optional_Inline}}
-      - : Ein Muster, das ein URL-[Suche](/de/docs/Web/API/URL/search) erfasst.
+      - : Ein Muster, das einer URL-[Suchzeichenfolge](/de/docs/Web/API/URL/search) entspricht.
     - `hash` {{Optional_Inline}}
-      - : Ein Muster, das ein URL-[Hash](/de/docs/Web/API/URL/hash) erfasst.
+      - : Ein Muster, das einem URL-[Hash](/de/docs/Web/API/URL/hash) entspricht.
     - `baseURL` {{Optional_Inline}}
-      - : Ein String, der eine absolute URL bereitstellt, von der [ungenauere Objekt-Eigenschaften geerbt werden können](#vererbung_von_einer_basis-url).
+      - : Eine Zeichenfolge, die eine absolute URL bereitstellt, von der [undefinierte, weniger spezifische Objekteigenschaften geerbt werden können](#vererbung_von_einer_baseurl).
 
 - `url` {{Optional_Inline}}
-  - : Ein String, der URL-Muster zur Übereinstimmung darstellt.
+  - : Eine Zeichenfolge, die abzugleichende URL-Muster repräsentiert.
 
-    Dies ist entweder als absolute oder relative URL formatiert, kann jedoch Markup enthalten, um [Übereinstimmungsmuster](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) und Escape-Sequenzen anzugeben.
-    Wenn es als relative URL formatiert ist, muss [`baseURL`](#baseurl_2) ebenfalls angegeben werden.
+    Diese ist als absolute oder relative URL formatiert, kann jedoch Markup zur Angabe von [Abgleichmustern](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) und Escape-Sequenzen enthalten.
+    Wenn sie als relative URL formatiert ist, muss auch [`baseURL`](#baseurl_2) angegeben werden.
 
 - `baseURL` {{Optional_Inline}}
-  - : Ein String, der eine absolute URL bereitstellt, von der [nicht festgelegte, weniger spezifische URL-Teile geerbt werden können](#vererbung_von_einer_basis-url).
-    Dies muss festgelegt werden, wenn `url` eine relative URL ist und darf nicht festgelegt werden, wenn `input` verwendet wird (`input.baseURL` kann verwendet werden, um vererbte Werte für ein `input` bereitzustellen, ist aber im Gegensatz zu dieser Eigenschaft nie erforderlich).
+  - : Eine Zeichenfolge, die eine absolute URL bereitstellt, von der [undefinierte, weniger spezifische URL-Teile geerbt werden können](#vererbung_von_einer_baseurl).
+    Dies muss festgelegt werden, wenn `url` eine relative URL ist, und darf nicht festgelegt werden, wenn `input` verwendet wird (`input.baseURL` kann verwendet werden, um geerbte Werte für ein `input` bereitzustellen, ist aber im Gegensatz zu dieser Eigenschaft niemals erforderlich).
 
 - `options` {{Optional_Inline}}
-  - : Ein Objekt, das Optionen zur Übereinstimmung des gegebenen Musters bereitstellt.
+  - : Ein Objekt, das Optionen für den Abgleich mit dem angegebenen Muster bereitstellt.
     Die zulässigen Objektmitglieder sind:
     - `ignoreCase` {{Optional_Inline}}
-      - : Ermöglicht die groß-/kleinschreibungsunabhängige Übereinstimmung, wenn auf `true` gesetzt.
-        Wenn weggelassen oder auf `false` gesetzt, erfolgt die Übereinstimmung unter Berücksichtigung der Groß-/Kleinschreibung.
+      - : Aktiviert die Groß-/Kleinschreibungs-unabhängige Suche, wenn der Wert auf `true` gesetzt ist.
+        Wenn die Eigenschaft weggelassen oder auf `false` gesetzt wird, berücksichtigt der Abgleich die Groß-/Kleinschreibung.
 
 > [!NOTE]
-> Alle URL-Teile in den `input`-Eigenschaften und die `url` sind optional.
-> Wenn sie in diesen Parametern nicht angegeben sind, können einige Werte aus der `baseURL` [geerbt](#vererbung_von_einer_basis-url) werden, abhängig davon, welche anderen URL-Teile definiert sind.
-> Ausgelassene Teile werden zu Wildcards (`*`) normalisiert.
+> Alle URL-Teile in den `input`-Eigenschaften und in `url` sind optional.
+> Wenn sie in diesen Parametern nicht angegeben sind, können einige Werte abhängig davon, welche anderen URL-Teile definiert sind, von `baseURL` [geerbt](#vererbung_von_einer_baseurl) werden.
+> Weggelassene Teile werden zu Platzhaltern (`*`) normalisiert.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Gibt eines der folgenden an:
-    - Das angegebene `input`, `url` oder `baseURL` ist nicht gültig oder syntaktisch korrekt.
-    - Die angegebene `url` ist relativ, aber es wird keine `baseURL` bereitgestellt, um eine vollständige absolute URL zu bilden.
-    - Eine `baseURL` ist angegeben, und input ist ein absolutes Muster oder ein strukturiertes Objekt.
+  - : Weist auf einen der folgenden Fälle hin:
+    - Das angegebene `input`, `url` oder `baseURL` ist nicht gültig oder syntaktisch nicht korrekt.
+    - Das angegebene `url` ist relativ, es wird jedoch kein `baseURL` bereitgestellt, um eine vollständige absolute URL zu bilden.
+    - Ein `baseURL` wird bereitgestellt und die Eingabe ist ein absolutes Muster oder ein strukturiertes Objekt.
 
 ## Beschreibung
 
-Der `URLPattern` Konstruktor kann entweder ein "input"-Objekt oder einen URL-String und optional eine `baseURL` annehmen.
-Beide Formen können auch ein Optionsobjekt als Argument enthalten, das zusätzliche Übereinstimmungsoptionen festlegt, wie etwa die Berücksichtigung der Groß-/Kleinschreibung.
+Der `URLPattern`-Konstruktor kann entweder ein „input“-Objekt oder eine URL-Zeichenfolge und eine optionale baseURL akzeptieren.
+Beide Formen können außerdem ein Optionsobjekt als Argument akzeptieren, das zusätzliche Abgleichoptionen wie etwa die Berücksichtigung der Groß-/Kleinschreibung festlegt.
 
 ```js
 new URLPattern(input);
 new URLPattern(url, baseURL);
 ```
 
-Das im ersten Konstruktionstyp verwendete Eingabeobjekt beschreibt die URLs, die durch die Angabe von Mustern für einzelne URL-Teile übereinstimmen sollen: `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` und `baseURL`.
-Wenn die `baseURL`-Eigenschaft angegeben wird, wird sie als URL analysiert und kann verwendet werden, um andere Eigenschaften zu ergänzen, die fehlen (siehe den folgenden Abschnitt [Inheritance from a base URL](#vererbung_von_einer_basis-url)).
-Eigenschaften, die ausgelassen oder nicht durch die `baseURL`-Eigenschaft ergänzt werden, standardisieren auf den Platzhalterstring (`*`), der gegen jeden entsprechenden Wert in einer URL übereinstimmt.
+Das beim ersten Konstruktortyp verwendete Eingabeobjekt beschreibt die URLs, die abgeglichen werden sollen, indem Muster für einzelne URL-Teile angegeben werden: `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` und `baseURL`.
+Wenn die Eigenschaft `baseURL` bereitgestellt wird, wird sie als URL geparst und kann verwendet werden, um andere fehlende Eigenschaften aufzufüllen (siehe den folgenden Abschnitt [Vererbung von einer Basis-URL](#vererbung_von_einer_baseurl)).
+Eigenschaften, die weggelassen oder nicht durch die Eigenschaft `baseURL` ausgefüllt werden, verwenden standardmäßig die Platzhalterzeichenfolge (`*`), die mit jedem entsprechenden Wert in einer URL übereinstimmt.
 
-Der zweite Konstruktionstyp nimmt einen URL-String, der Muster eingebettet in ihm enthalten kann. Der String kann eine absolute oder relative URL angeben — wenn das Muster relativ ist, muss `baseURL` als zweites Argument angegeben werden. Beachten Sie, dass es erforderlich sein kann, [einige Zeichen zu escapen](#escaping_spezieller_zeichen) im URL-String, wenn unklar ist, ob das Zeichen verschiedene URL-Komponenten trennt oder Teil eines Musters ist.
+Der zweite Konstruktortyp akzeptiert eine URL-Zeichenfolge, die darin eingebettete Muster enthalten kann.
+Die Zeichenfolge kann eine absolute oder relative URL angeben — wenn das Muster relativ ist, muss `baseURL` als zweites Argument bereitgestellt werden.
+Beachten Sie, dass es erforderlich sein kann, [einige Zeichen mit Escape-Zeichen zu versehen](#escape-zeichen_für_sonderzeichen), wenn in der URL-Zeichenfolge nicht eindeutig ist, ob das Zeichen verschiedene URL-Komponenten trennt oder Teil eines Musters ist.
 
-### Vererbung von einer Basis-URL
+### Vererbung von einer BaseURL
 
-URL-Teile, die spezifischer als der am wenigsten spezifische Teil in der `url` definiert sind, _können_ von `baseURL` (oder von `input.baseURL` für `input`) geerbt werden.
-Intuitiv bedeutet dies, dass, wenn der `pathname`-Teil im Eingabewert angegeben ist, die Teile zur linken Seite in einer URL von der Basis-URL (`protocol`, `hostname` und `port`) geerbt werden können, während die Teile zur rechten Seite (`search` und `hash`) nicht geerbt werden können.
-Der `username` und das `password` werden nie von der Basis-URL geerbt.
+URL-Teile, die spezifischer sind als der am wenigsten spezifische in `url` definierte Teil, _können_ von `baseURL` geerbt werden (oder von `input.baseURL` für `input`).
+Intuitiv bedeutet dies, dass, wenn der Teil `pathname` in der Eingabe angegeben ist, die links davon stehenden Teile einer URL von der Basis-URL geerbt werden können (`protocol`, `hostname` und `port`), während die rechts davon stehenden Teile nicht geerbt werden können (`search` und `hash`).
+`username` und `password` werden niemals von der Basis-URL geerbt.
 
-Für weitere Informationen siehe [Inheritance from a BaseURL](/de/docs/Web/API/URL_Pattern_API#inheritance_from_a_base_url) im API-Überblick.
+Weitere Informationen finden Sie unter [Vererbung von einer BaseURL](/de/docs/Web/API/URL_Pattern_API#inheritance_from_a_base_url) in der API-Übersicht.
 
-### Hostname in `url` oder `baseURL` beeinflusst den Standardport
+### Hostname in `url` oder `baseURL` beeinflusst den Standard-Port
 
-Im Gegensatz zu anderen URL-Teilen kann der Port implizit gesetzt werden, wenn Sie eine `url` oder Basis-URL (entweder im `baseURL`-Parameter oder im Objekt) angeben und keinen Port explizit angeben.
-In diesem Fall wird der Port auf den leeren String (`""`) gesetzt und entspricht dem Standardport (`443`).
+Anders als bei anderen URL-Teilen kann der Port implizit festgelegt werden, wenn Sie eine `url` oder Basis-URL angeben (entweder im Parameter `baseURL` oder im Objekt) und keinen Port explizit angeben.
+In diesem Fall wird der Port auf die leere Zeichenfolge (`""`) gesetzt und entspricht dem Standard-Port (`443`).
 
-Zum Beispiel setzen diese Muster alle den Port auf den leeren String (`""`):
+Beispielsweise setzen diese Muster alle das Port-Muster auf `""`:
 
 ```js
 new URLPattern("https://example.com");
@@ -116,35 +118,35 @@ new URLPattern({
 });
 ```
 
-Wenn Sie keinen Hostnamen in einer `url` oder `baseURL` angeben, wird der Port standardmäßig auf den Platzhalterstring (`*`) gesetzt:
+Wenn Sie den Hostnamen nicht in einer `url` oder `baseURL` angeben, verwendet der Port standardmäßig die Platzhalterzeichenfolge (`*`):
 
 ```js
 new URLPattern({ pathname: "/foo/*" }); // Port omitted, defaults to '*'
 ```
 
-#### Escaping spezieller Zeichen
+#### Escape-Zeichen für Sonderzeichen
 
-Die [Mustersyntax](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) enthält eine Reihe von Zeichen, die natürlich in URLs vorkommen können, wie z.B.:
+Die [Mustersyntax](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) enthält eine Reihe von Zeichen, die natürlicherweise in URLs vorkommen können, beispielsweise:
 
-- `?` gibt sowohl ein optionales Zeichen oder eine Gruppe in einem Muster an und der Suchteil einer URL.
-- `:` kennzeichnet den Beginn einer benannten Gruppe in einem Muster und einen Trenner für Benutzername und Passwort oder einen Hostnamen und einen Port.
+- `?` kennzeichnet sowohl ein optionales Zeichen oder eine optionale Gruppe in einem Muster als auch den Suchteil einer URL.
+- `:` kennzeichnet den Beginn einer benannten Gruppe in einem Muster und ein Trennzeichen für Benutzername und Passwort oder für Hostname und Port.
 
-Wenn Sie einen `URLPattern` mit dem [`url`](#url) Stringparameter konstruieren, werden diese speziellen Zeichen (bei jeglicher Unklarheit) als Teil der Mustersyntax angenommen.
-Wenn Sie die Zeichen verwenden, um Teile der URL darzustellen, müssen Sie sie escapen, indem sie ihnen `\\` voranstellen (oder das Problem vermeiden, indem Sie `URLPattern` mit der Objektsyntax konstruieren).
+Wenn Sie ein `URLPattern` mit dem Zeichenfolgenparameter [`url`](#url) erstellen, wird angenommen, dass diese Sonderzeichen Teil der Mustersyntax sind, falls eine Mehrdeutigkeit besteht.
+Wenn Sie die Zeichen zur Darstellung von Teilen der URL verwenden, müssen Sie ihnen Escape-Zeichen voranstellen, indem Sie den Zeichen `\\` voranstellen (oder das Problem vermeiden, indem Sie `URLPattern` mit der Objektsyntax erstellen).
 
-Zum Beispiel entkommt das folgende Muster dem `?`-Zeichen, was dieses Muster dazu bringt, einen search URL-Teil von "fred" zu erfassen:
+Beispielsweise versieht das folgende Muster das Zeichen `?` mit einem Escape-Zeichen, wodurch dieses Muster einem URL-Suchteil von „fred“ entspricht:
 
 ```js
 console.log(new URLPattern("https://example.com/*\\?fred"));
 ```
 
-Ebenso zeigt das unten stehende [Match the username and password](#den_benutzernamen_und_das_passwort_abgleichen) Beispiel einen Fall, in dem der `:` Trenner escaped werden muss.
+Ebenso zeigt das nachfolgende Beispiel [Benutzername und Passwort abgleichen](#benutzername_und_passwort_abgleichen) einen Fall, in dem das Trennzeichen `:` mit einem Escape-Zeichen versehen werden muss.
 
 ## Beispiele
 
 ### Standardmuster
 
-Dieser Code zeigt, dass URL-Teile, die in einer URL oder [von einer Basis-URL geerbt werden](#vererbung_von_einer_basis-url), nicht angegeben sind, standardmäßig den Platzhalterwert verwenden.
+Dieser Code zeigt, dass URL-Teile, die nicht in einer URL angegeben oder [von einer Basis-URL geerbt](#vererbung_von_einer_baseurl) werden, standardmäßig den Platzhalterwert verwenden.
 
 ```js
 console.log(new URLPattern());
@@ -164,7 +166,7 @@ console.log(new URLPattern({}));
 */
 ```
 
-### Ein pathname abgleichen
+### Einen Pfadnamen abgleichen
 
 ```js
 let pattern1 = new URLPattern("https://example.com/books/:id");
@@ -193,7 +195,7 @@ let pattern5 = new URLPattern({
 });
 ```
 
-### Das Protokoll und den Hostnamen abgleichen
+### Protokoll und Hostname abgleichen
 
 ```js
 let pattern = new URLPattern({
@@ -202,11 +204,11 @@ let pattern = new URLPattern({
 });
 ```
 
-### Den Benutzernamen und das Passwort abgleichen
+### Benutzername und Passwort abgleichen
 
-Dies setzt die Benutzername- und Passwort-URL-Teile mit dem Musterstring.
-Beachten Sie, wie der `:` Trenner escaped werden muss, wenn der Musterstring verwendet wird.
-Ohne dieses wäre das Benutzernamenmuster `myusername:mypassword`.
+Dies legt die URL-Teile für Benutzername und Passwort mithilfe der Musterzeichenfolge fest.
+Beachten Sie, dass das Trennzeichen `:` bei Verwendung der Musterzeichenfolge mit einem Escape-Zeichen versehen werden muss.
+Ohne dies wäre das Benutzernamenmuster `myusername:mypassword`.
 
 ```js
 const pattern = new URLPattern(
@@ -217,7 +219,7 @@ console.log(pattern.username); // "myusername"
 console.log(pattern.password); // "mypassword"
 ```
 
-Aus diesem Grund ist es oft natürlicher (und sicherer), die Objektsyntax zu verwenden.
+Aus diesem Grund ist es häufig natürlicher (und sicherer), die Objektsyntax zu verwenden.
 
 ### Alle möglichen strukturierten Teile abgleichen
 
@@ -234,7 +236,7 @@ let pattern = new URLPattern({
 });
 ```
 
-### Groß-/Kleinschreibung ignorierende Übereinstimmung
+### Abgleich ohne Berücksichtigung der Groß-/Kleinschreibung
 
 ```js
 // Case-sensitive matching by default
@@ -243,7 +245,7 @@ console.log(pattern.test("https://example.com/2022/feb/xc44rsz")); // true
 console.log(pattern.test("https://example.com/2022/Feb/xc44rsz")); // false
 ```
 
-Das Setzen der `ignoreCase`-Option auf `true` im Konstruktor schaltet alle Übereinstimmungsoperationen auf Groß-/Kleinschreibung ignorierend für das gegebene Muster:
+Wenn die Option `ignoreCase` im Konstruktor auf `true` gesetzt wird, werden alle Abgleichoperationen für das angegebene Muster ohne Berücksichtigung der Groß-/Kleinschreibung durchgeführt:
 
 ```js
 // Case-insensitive matching
@@ -256,9 +258,9 @@ console.log(pattern.test("https://example.com/2022/Feb/xc44rsz")); // true
 
 ### Vererbung von der Basis-URL
 
-Dies bietet ein reales Beispiel der Vererbung.
-Das `pathname` ist explizit angegeben. Die Werte, die weniger spezifisch als das pathname sind, wie das Protokoll und der Hostname, werden geerbt.
-Die spezifischeren Werte werden ignoriert und setzen auf ihre Standardwerte (wie `"*"` für die Suche und das Hash, und `""` für den Port).
+Dies bietet ein praxisnahes Beispiel für Vererbung.
+Der `pathname` wird explizit angegeben. Die Werte, die weniger spezifisch als der Pfadname sind, etwa das Protokoll und der Hostname, werden geerbt.
+Die spezifischeren Werte werden ignoriert und verwenden ihre Standardwerte (etwa `"*"` für Suche und Hash und `""` für den Port).
 
 ```js
 const pattern = new URLPattern({
@@ -287,5 +289,5 @@ console.log(pattern);
 
 ## Siehe auch
 
-- Ein Polyfill von `URLPattern` ist verfügbar
-  [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)
+- Ein Polyfill für `URLPattern` ist
+  [auf GitHub](https://github.com/kenchris/urlpattern-polyfill) verfügbar

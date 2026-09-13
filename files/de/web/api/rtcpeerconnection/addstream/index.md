@@ -3,14 +3,15 @@ title: "RTCPeerConnection: addStream()-Methode"
 short-title: addStream()
 slug: Web/API/RTCPeerConnection/addStream
 l10n:
-  sourceCommit: f33c6e8a7204272b90d8f005f3d8c743333d7dbf
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{Deprecated_Header}}{{non-standard_header}}
+{{APIRef("WebRTC")}}{{non-standard_header}}
 
-Die **`addStream()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle fügt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Audio- oder Videoquelle hinzu. Anstatt diese veraltete Methode zu verwenden, sollten Sie stattdessen für jede Spur, die Sie an den entfernten Peer senden möchten, [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) verwenden.
+Die **`addStream()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle fügt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Audio- oder Videoquelle hinzu.
+Anstatt diese veraltete Methode zu verwenden, sollten Sie stattdessen [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) einmal für jeden Track verwenden, den Sie an den Remote-Peer senden möchten.
 
-Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `closed` gesetzt ist, wird ein `InvalidStateError` ausgelöst. Ist der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `stable` gesetzt, wird das Ereignis [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um anzuzeigen, dass die {{Glossary("ICE", "ICE")}}-Aushandlung wiederholt werden muss, um den neuen Stream zu berücksichtigen.
+Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `closed` gesetzt ist, wird ein `InvalidStateError` ausgelöst. Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `stable` gesetzt ist, wird das Ereignis [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um anzuzeigen, dass die {{Glossary("ICE", "ICE")}}-Verhandlung wiederholt werden muss, um den neuen Stream zu berücksichtigen.
 
 ## Syntax
 
@@ -21,7 +22,7 @@ addStream(mediaStream)
 ### Parameter
 
 - `mediaStream`
-  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das den Stream angibt, der zur WebRTC-Peer-Verbindung hinzugefügt werden soll.
+  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das den Stream angibt, der zur WebRTC-Peerverbindung hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -29,7 +30,7 @@ Keiner.
 
 ## Beispiel
 
-Dieses einfache Beispiel fügt den Audio- und Videostream, der von der Kamera des Benutzers kommt, der Verbindung hinzu.
+Dieses einfache Beispiel fügt den Audio- und Videostream, der von der Kamera des Benutzers stammt, der Verbindung hinzu.
 
 ```js
 navigator.mediaDevices.getUserMedia({ video: true, audio: true }, (stream) => {
@@ -40,7 +41,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true }, (stream) => {
 
 ## Migration zu addTrack()
 
-[Soweit kompatibel](#browser-kompatibilität), sollten Sie Ihren Code so aktualisieren, dass stattdessen die [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-Methode verwendet wird:
+[Bei entsprechender Kompatibilität](#browser-kompatibilität) sollten Sie Ihren Code aktualisieren, um stattdessen die [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-Methode zu verwenden:
 
 ```js
 navigator.getUserMedia({ video: true, audio: true }, (stream) => {
@@ -51,9 +52,9 @@ navigator.getUserMedia({ video: true, audio: true }, (stream) => {
 });
 ```
 
-Die neuere [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-API vermeidet Verwirrung darüber, ob spätere Änderungen an der Zusammensetzung eines Streams eine Peer-Verbindung beeinflussen (was sie nicht tun).
+Die neuere [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-API vermeidet Verwirrung darüber, ob spätere Änderungen der Track-Zusammensetzung eines Streams eine Peer-Verbindung beeinflussen (sie tun es nicht).
 
-Die Ausnahme bildet Chrome, wo `addStream()` _die_ Peer-Verbindung auf spätere Stream-Änderungen empfindlich macht (obwohl solche Änderungen das [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis nicht auslösen). Wenn Sie sich auf das Chrome-Verhalten verlassen, beachten Sie, dass andere Browser dieses Verhalten nicht haben. Sie können webkompatiblen Code mit Feature-Erkennung schreiben:
+Eine Ausnahme bildet Chrome, bei dem `addStream()` _tatsächlich_ die Peer-Verbindung empfindlich gegenüber späteren Stream-Änderungen macht (obwohl solche Änderungen nicht das [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis auslösen). Wenn Sie auf dieses Verhalten von Chrome angewiesen sind, beachten Sie, dass andere Browser es nicht haben. Sie können webb-kompatiblen Code schreiben, indem Sie stattdessen Feature-Erkennung verwenden:
 
 ```js
 // Add a track to a stream and the peer connection said stream was added to:

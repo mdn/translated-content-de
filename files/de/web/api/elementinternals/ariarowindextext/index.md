@@ -2,15 +2,15 @@
 title: ElementInternals.ariaRowIndexText
 slug: Web/API/ElementInternals/ariaRowIndexText
 l10n:
-  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
+  sourceCommit: 868de6e278b0e5c635cea5ee4bb06d35fbc3e11b
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaRowIndexText`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext)-Attributs wider, das einen menschenlesbaren Text als Alternative zu aria-rowindex definiert.
+Die Eigenschaft **`ariaRowIndexText`** der Schnittstelle [`ElementInternals`](/de/docs/Web/API/ElementInternals) spiegelt den Wert des Attributs [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext) wider, das eine für Menschen lesbare Textalternative für aria-rowindex definiert.
 
 > [!NOTE]
-> Indem Sie `aria`-Attribute auf `ElementInternals` setzen, erlauben Sie es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können von autorenspezifischen Attributen überschrieben werden, aber gewährleisten, dass die Standardsemantiken erhalten bleiben sollten, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für mehr Informationen siehe das [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik für ein benutzerdefiniertes Element zu definieren. Diese kann durch vom Autor definierte Attribute überschrieben werden. Stellen Sie jedoch sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie gar nicht erst hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird der Wert von `ariaRowIndexText` auf "Heading row" gesetzt.
+In diesem Beispiel wird der Wert von `ariaRowIndexText` auf „Heading row“ gesetzt.
 
 ```js
 class CustomEl extends HTMLElement {
@@ -41,4 +41,4 @@ class CustomEl extends HTMLElement {
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)
+- [ARIA: table-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

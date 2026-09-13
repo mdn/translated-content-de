@@ -1,12 +1,12 @@
 ---
-title: "`<url>` CSS-Typ"
+title: CSS-Typ `<url>`
 short-title: <url>
 slug: Web/CSS/Reference/Values/url_value
 l10n:
-  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
+  sourceCommit: 91e08923c809ca8deded3e3294f49bbe1a4a00b3
 ---
 
-Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist ein Zeiger auf eine Ressource.
+Der CSS-[Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) **`<url>`** ist ein Verweis auf eine Ressource.
 
 ## Syntax
 
@@ -19,14 +19,14 @@ Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Va
 Der Wert kann eine absolute oder relative URL sein.
 
 - [`<url()>`](/de/docs/Web/CSS/Reference/Values/url_function)
-  - : Die `url()`-Funktion akzeptiert eine URL, die als Zeichenkette in Anführungszeichen oder als unverändertes URL-Token geschrieben werden kann.
+  - : Die Funktion `url()` akzeptiert eine URL, die als Zeichenkette in Anführungszeichen oder als nicht in Anführungszeichen gesetztes URL-Token geschrieben werden kann.
 
 > [!NOTE]
-> Das [CSS-Werte- und Einheitenmodul](/de/docs/Web/CSS/Guides/Values_and_units) führt auch die `src()`-Funktion als `<url>`-Wert ein. Derzeit unterstützt kein Browser diese Funktion.
+> Das [Modul CSS values and units](/de/docs/Web/CSS/Guides/Values_and_units) führt außerdem die Funktion `src()` als `<url>`-Wert ein. Derzeit unterstützt kein Browser diese Funktion.
 
 ## Beschreibung
 
-Der `<url>`-Datentyp, geschrieben mit der [`url()`](/de/docs/Web/CSS/Reference/Values/url_function)-Funktion, stellt einen `URL` dar, der ein Zeiger auf eine interne oder externe Ressource ist. Die Ressource kann ein Bild, ein Video, eine CSS-Datei, eine Schriftartdatei, ein SVG-Feature usw. sein. Die URL kann absolut oder relativ sein.
+Der mit der Funktion [`url()`](/de/docs/Web/CSS/Reference/Values/url_function) geschriebene Datentyp `<url>` stellt eine `URL` dar, die ein Verweis auf eine interne oder externe Ressource ist. Die Ressource kann ein Bild, ein Video, eine CSS-Datei, eine Schriftdatei, eine SVG-Funktion usw. sein. Die URL kann absolut oder relativ sein.
 
 ```css
 /* Relative URL */
@@ -35,7 +35,7 @@ url("assets/icon.svg")
 url("../assets/image.png")
 
 /* Absolute URL */
-url("http://example.com/fonts/myFont.ttf")
+url("http://example.com/fonts/myFont.woff2")
 url("https://example.com/images/background.jpg")
 
 /* Data URL */
@@ -45,15 +45,15 @@ url("data:image/png;base64,iVBORw0KGgoAAA...")
 
 ### Externe Ressourcen und CORS
 
-Die Fähigkeit, externe Ressourcen über den `<url>`-Wert zu importieren, ist implementierungsabhängig und oft aus Sicherheitsgründen eingeschränkt.
+Die Möglichkeit, externe Ressourcen über den Wert `<url>` zu importieren, ist implementierungsdefiniert und aus Sicherheitsgründen häufig eingeschränkt.
 
-Abhängig von der CSS-Eigenschaft, auf die eine `<url>` verweist, können externe Ressourcen den Einschränkungen von [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) unterliegen.
+Abhängig von der CSS-Eigenschaft, auf die ein `<url>` angewendet wird, das auf externe Ressourcen verweist, kann die Ressource Einschränkungen durch [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) unterliegen.
 
-Einige CSS-Eigenschaften, einschließlich {{cssxref("mask-image")}}, {{cssxref("filter")}}, sowie {{cssxref("clip-path")}} und einige andere beim Verweisen auf {{SVGElement("svg")}}-Bildelemente können eine erfolgreiche CORS-Validierung erfordern, wenn sie dazu führen, dass externe Ressourcen über die CORS-Methode abgerufen werden. Wenn die CORS-Validierung fehlschlägt, kann die Ressource blockiert und daher nicht für die Darstellung verwendet werden.
+Einige CSS-Eigenschaften, einschließlich {{cssxref("mask-image")}}, {{cssxref("filter")}} sowie {{cssxref("clip-path")}} und einige andere, wenn sie auf {{SVGElement("svg")}}-Bildelemente verweisen, können eine erfolgreiche CORS-Validierung erfordern, wenn sie dazu führen, dass externe, ursprungsübergreifende Ressourcen im CORS-Modus abgerufen werden. Wenn die CORS-Validierung fehlschlägt, kann die Ressource blockiert werden und daher nicht zum Rendern verwendet werden.
 
-Beachten Sie, dass der `<url>`-Wertetyp selbst keine CORS-Validierung erzwingt, sondern einzelne CSS-Eigenschaften dies tun.
+Beachten Sie, dass der Werttyp `<url>` selbst keine CORS-Validierung erzwingt, einzelne CSS-Eigenschaften jedoch schon.
 
-Beim direkten Öffnen einer HTML-Datei mit `file://` können Ressourcen fehlschlagen, da CORS-Regeln lokal angewendet werden. Moderne Browser behandeln `file://` als origin und bedeutet, dass ressourcenübergreifende Dateien blockiert werden können. In diesem Fall kann ein [HTTP-Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) gehostet werden, um CORS-Fehler zu vermeiden. Das Sicherheitsverhalten von `file://`-URLs variiert auch je nach Browser und den Dateiberechtigungen des Betriebssystems.
+Beim direkten Öffnen einer HTML-Datei mit `file://` können Ressourcen fehlschlagen, da CORS-Regeln lokal gelten. Moderne Browser behandeln `file://` als eindeutigen Ursprung, wodurch dateiübergreifende Ressourcen blockiert werden können. In diesem Fall kann ein [HTTP-Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) gehostet werden, um CORS-Fehler zu vermeiden. Das Sicherheitsverhalten von `file://`-URLs variiert außerdem je nach Browser und Dateiberechtigungen des Betriebssystems.
 
 ## Beispiele
 

@@ -1,14 +1,14 @@
 ---
-title: "HTMLObjectElement: validity-Eigenschaft"
+title: "HTMLObjectElement: Gültigkeitseigenschaft"
 short-title: validity
 slug: Web/API/HTMLObjectElement/validity
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`validity`** schreibgeschützte Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände dieses Elements darstellt. Obwohl {{HTMLElement("object")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) sind, kann der Gültigkeitszustand dennoch ungültig sein, wenn eine benutzerdefinierte Gültigkeitsnachricht festgelegt wurde.
+Die **`validity`** schreibgeschützte Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände darstellt, in denen sich dieses Element befindet. Obwohl {{HTMLElement("object")}}-Elemente niemals Kandidaten für [Rahmenvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) sind, kann der Gültigkeitsstatus dennoch ungültig sein, wenn eine benutzerdefinierte Fehlermeldung festgelegt wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, dass ein `<object>` in einem ungültigen Zustand ist, wenn ein [`customError`](/de/docs/Web/API/ValidityState/customError) gesetzt wurde; in diesem Zustand gibt [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity) `true` zurück, während die `validity`-Eigenschaft des `validityState` `false` ist.
+Das folgende Beispiel zeigt, dass ein `<object>` sich in einem ungültigen Zustand befindet, wenn ein [`customError`](/de/docs/Web/API/ValidityState/customError) gesetzt ist; in diesem Zustand gibt [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity) `true` zurück, während die `validityState`-Eigenschaft `valid` auf `false` ist.
 
 ```js
 const objectElem = document.getElementById("myObjectElm");
@@ -41,4 +41,4 @@ console.log(objectElem.checkValidity()); // true
 - {{HTMLElement("object")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- [Leitfaden: Rahmenvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)

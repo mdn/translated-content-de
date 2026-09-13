@@ -3,10 +3,10 @@ title: TypedArray.prototype.findLastIndex()
 short-title: findLastIndex()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/findLastIndex
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9f46f08d20b21498293cbf6b84f508103272ec6f
 ---
 
-Die **`findLastIndex()`** Methode von {{jsxref("TypedArray")}} Instanzen iteriert das typisierte Array in umgekehrter Reihenfolge und gibt den Index des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.findLastIndex()")}}.
+Die Methode **`findLastIndex()`** von {{jsxref("TypedArray")}}-Instanzen durchläuft das typisierte Array in umgekehrter Reihenfolge und gibt den Index des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.findLastIndex()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.findLastIndex()")}}
 
@@ -31,28 +31,28 @@ findLastIndex(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "Wahrheitswert")}} zurückgeben, um anzugeben, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "Falschheitswert")}} andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuell im typisierten Array verarbeitete Element.
+      - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
-      - : Der Index des aktuell im typisierten Array verarbeiteten Elements.
+      - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
       - : Das typisierte Array, auf dem `findLastIndex()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet werden soll. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Der Index des letzten (höchst-indizierten) Elements im typisierten Array, das den Test besteht.
-Andernfalls `-1`, wenn kein übereinstimmendes Element gefunden wird.
+Der Index des letzten (höchsten) Elements im typisierten Array, das den Test besteht.
+Andernfalls `-1`, wenn kein passendes Element gefunden wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.findLastIndex()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.findLastIndex()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf instanziierten typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Den Index der letzten Primzahl in einem typisierten Array finden
+### Finden Sie den Index der letzten Primzahl in einem typisierten Array
 
 Das folgende Beispiel gibt den Index des letzten Elements im typisierten Array zurück, das eine Primzahl ist, oder `-1`, wenn es keine Primzahl gibt.
 
@@ -81,7 +81,7 @@ console.log(uint8.findLastIndex(isPrime));
 ```
 
 > [!NOTE]
-> Die `isPrime()`-Implementierung dient nur zur Demonstration. Für eine reale Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
+> Die Implementierung von `isPrime()` dient nur zur Demonstration. Für eine reale Anwendung sollten Sie einen stark {{Glossary("Memoization", "memoisierten")}} Algorithmus wie das [Sieb des Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
 
 ## Spezifikationen
 
@@ -94,7 +94,7 @@ console.log(uint8.findLastIndex(isPrime));
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.findLastIndex` in `core-js`](https://github.com/zloirock/core-js#array-find-from-last)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}

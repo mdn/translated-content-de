@@ -1,22 +1,24 @@
 ---
-title: "KeyboardEvent: shiftKey-Eigenschaft"
+title: "KeyboardEvent: shiftKey Eigenschaft"
 short-title: shiftKey
 slug: Web/API/KeyboardEvent/shiftKey
 l10n:
-  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
+  sourceCommit: 358daf81ac9cf3db999cc8af7aed81ef4ff0c3f6
 ---
 
 {{APIRef("UI Events")}}
 
 Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein
-boolean-Wert, der angibt, ob die <kbd>shift</kbd>-Taste gedrückt wurde
-(`true`) oder nicht (`false`), als das Ereignis auftrat.
+boolescher Wert, der angibt, ob die <kbd>Shift</kbd>-Taste gedrückt
+(`true`) oder nicht gedrückt (`false`) war, als das Ereignis auftrat.
 
-Das Drücken der Shift-Taste kann auch das [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Beispielsweise erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
+Das Drücken der Shift-Taste kann auch die [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Beispielsweise erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
+
+Wenn die <kbd>Shift</kbd>-Taste selbst gedrückt oder losgelassen wird, ist diese Eigenschaft `true` für ihr [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis und `false` für ihr [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis, da beide Ereignisse _nach_ der Zustandsänderung ausgelöst werden.
 
 ## Wert
 
-Ein boolean-Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 

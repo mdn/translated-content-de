@@ -3,15 +3,15 @@ title: "Element: ariaReadOnly-Eigenschaft"
 short-title: ariaReadOnly
 slug: Web/API/Element/ariaReadOnly
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ce12c10364f35c64184dec44be85537b7e10d91f
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaReadOnly`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)-Attributs wider, welches anzeigt, dass das Element nicht bearbeitbar, aber anderweitig bedienbar ist.
+Die **`ariaReadOnly`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)-Attributs wider, welches angibt, dass das Element nicht bearbeitbar ist, aber ansonsten bedienbar.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML {{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik besitzen und keine ARIA-Attribute erfordern.
+> Verwenden Sie nach Möglichkeit ein HTML {{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese über eingebaute Semantik verfügen und keine ARIA-Attribute benötigen.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-readonly`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was darauf hinweist, dass diese Eingabe derzeit nur lesbar ist. Mit `ariaReadOnly` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-readonly`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass diese Eingabe derzeit nur gelesen werden kann. Mit `ariaReadOnly` aktualisieren wir den Wert auf "false".
 
 ```html
 <div id="txtboxMultilineLabel">Enter the tags for the article</div>
@@ -54,4 +54,4 @@ console.log(el.ariaReadOnly); // "false"
 
 ## Siehe auch
 
-- [ARIA: textbox role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)
+- [ARIA: textbox-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)

@@ -3,10 +3,10 @@ title: RegExp.prototype.multiline
 short-title: multiline
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/multiline
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 8f53af45fae665627a95ac50e177b15d0228b920
 ---
 
-Die **`multiline`** Zugriffseigenschaft von {{jsxref("RegExp")}} Instanzen gibt an, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`multiline`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt an, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.multiline", "taller")}}
 
@@ -29,9 +29,12 @@ console.log(regex2.test("rugby\nfootball"));
 
 ## Beschreibung
 
-`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag zeigt an, dass ein mehrzeiliger Eingabestring als mehrere Zeilen behandelt werden soll. Zum Beispiel ändern sich bei Verwendung von `m` die Zeichen `^` und `$` von einer Übereinstimmung nur am Anfang oder Ende des gesamten Strings zu einer Übereinstimmung am Anfang oder Ende jeder Zeile innerhalb des Strings.
+`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag gibt an, dass eine mehrzeilige Eingabezeichenkette als mehrere Zeilen behandelt werden soll. Zum Beispiel ändern sich bei Verwendung von `m` `^` und `$` von der Übereinstimmung nur am Anfang oder Ende der gesamten Zeichenkette zur Übereinstimmung am Anfang oder Ende jeder Zeile innerhalb der Zeichenkette.
 
-Der Set-Zugriffsberechtiger von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+> [!NOTE]
+> Um den Anfang und das Ende der gesamten Zeichenkette im `m`-Modus zu erfassen, verwenden Sie die [Puffergrenzen-Assertionen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion) `\A`, `\z` und `\Z`.
+
+Der Set-Accessor von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

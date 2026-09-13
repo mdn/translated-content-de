@@ -3,12 +3,12 @@ title: "`animation-name` CSS property"
 short-title: animation-name
 slug: Web/CSS/Reference/Properties/animation-name
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
-Die **`animation-name`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Namen eines oder mehrerer {{cssxref("@keyframes")}}-Regeln an, die die Animation beschreiben, die auf ein Element angewendet werden soll. Mehrere `@keyframes`-Regeln werden als kommaseparierte Liste von Namen angegeben. Wenn der angegebene Name keiner `@keyframes`-Regel entspricht, werden keine Eigenschaften animiert.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`animation-name`** gibt die Namen von einer oder mehreren {{cssxref("@keyframes")}}-At-Regeln an, die die auf ein Element anzuwendende Animation beschreiben. Mehrere `@keyframes`-At-Regeln werden als durch Kommas getrennte Liste von Namen angegeben. Wenn der angegebene Name mit keiner `@keyframes`-At-Regel übereinstimmt, werden keine Eigenschaften animiert.
 
-Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
+Oft ist es praktisch, die Kurzform-Eigenschaft {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
 {{InteractiveExample("CSS Demo: animation-name")}}
 
@@ -101,15 +101,17 @@ animation-name: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben:
+
 - `none`
-  - : Ein spezielles Schlüsselwort, das keine Keyframes bezeichnet. Es kann verwendet werden, um eine Animation zu deaktivieren, ohne die Reihenfolge der anderen Bezeichner zu ändern, oder um Animationen zu deaktivieren, die aus der Kaskade stammen.
+  - : Ein spezielles Schlüsselwort, das keine Keyframes bezeichnet. Es kann verwendet werden, um eine Animation zu deaktivieren, ohne die Reihenfolge der anderen Bezeichner zu ändern, oder um aus der Kaskade stammende Animationen zu deaktivieren.
 - {{cssxref("&lt;custom-ident&gt;")}}
-  - : Ein nicht zitierter Name, der die Animation identifiziert. Dieser Bezeichner besteht aus einer Kombination von groß- und kleinschreibungsempfindlichen Buchstaben `a` bis `z`, Zahlen `0` bis `9`, Unterstrichen (`_`) und/oder Bindestrichen (`-`). Das erste Nicht-Bindestrich-Zeichen muss ein Buchstabe sein. Außerdem sind zwei Bindestriche am Anfang des Bezeichners verboten. Der Bezeichner kann außerdem nicht `none`, `unset`, `initial` oder `inherit` sein.
+  - : Ein Name ohne Anführungszeichen, der die Animation identifiziert. Dieser Bezeichner besteht aus einer Kombination von Groß- und Kleinschreibung unterscheidenden Buchstaben `a` bis `z`, Zahlen `0` bis `9`, Unterstrichen (`_`) und/oder Bindestrichen (`-`). Das erste Zeichen, das kein Bindestrich ist, muss ein Buchstabe sein. Außerdem sind zwei Bindestriche am Anfang des Bezeichners verboten. Darüber hinaus darf der Bezeichner nicht `none`, `unset`, `initial` oder `inherit` sein.
 - {{cssxref("&lt;string&gt;")}}
-  - : Eine Serie von Zeichen, die denselben Regeln wie benutzerdefinierte Bezeichner folgt, wie oben beschrieben, außer dass sie entweder von doppelten (") oder einfachen (') Anführungszeichen umgeben sind. Wenn ein zitierter String sowohl für den `animation-name` als auch für den entsprechenden {{cssxref("@keyframes")}}-Regelnamen verwendet wird, sind `none`, globale Schlüsselwörter und Namen, die mit einem Unterstrich oder doppelten Bindestrichen beginnen, gültig, jedoch nicht empfohlen.
+  - : Eine Zeichenfolge, die denselben Regeln wie benutzerdefinierte Bezeichner folgt, wie oben beschrieben, mit Ausnahme, dass sie von doppelten (") oder einfachen (') Anführungszeichen umgeben ist. Wenn sowohl für `animation-name` als auch für den Namen der entsprechenden {{cssxref("@keyframes")}}-At-Regel eine Zeichenfolge in Anführungszeichen verwendet wird, sind `none`, globale Schlüsselwörter und Namen, die mit einem Unterstrich oder zwei Bindestrichen beginnen, gültig, jedoch nicht empfohlen.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die `animation-name`s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*`-Eigenschaft angeben, werden sie in der Reihenfolge auf die Animationen angewendet, in der die `animation-name`s erscheinen. Informationen zu Situationen, in denen die Anzahl der Animationen und der Werte der `animation-*`-Eigenschaft nicht übereinstimmt, finden Sie unter [Mehrere Werte für Animationseigenschaften festlegen](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
 
 ## Formale Definition
 
@@ -123,7 +125,7 @@ animation-name: unset;
 
 ### Eine Animation benennen
 
-Diese Animation hat einen `animation-name` von `rotate`.
+Diese Animation hat den `animation-name` `rotate`.
 
 #### HTML
 
@@ -158,11 +160,11 @@ Diese Animation hat einen `animation-name` von `rotate`.
 
 #### Ergebnis
 
-Fahren Sie mit der Maus über das Rechteck, um die Animation zu starten.
+Bewegen Sie den Mauszeiger über das Rechteck, um die Animation zu starten.
 
 {{EmbedLiveSample("Naming an animation","100%","250")}}
 
-Siehe [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) für Beispiele.
+Beispiele finden Sie unter [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using).
 
 ## Spezifikationen
 
@@ -174,6 +176,6 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) für Beispiele
 
 ## Siehe auch
 
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
-- JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
-- Andere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
+- JavaScript-API [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
+- Weitere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

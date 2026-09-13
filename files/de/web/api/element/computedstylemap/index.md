@@ -1,14 +1,14 @@
 ---
-title: "Element: computedStyleMap() Methode"
+title: "Element: Methode computedStyleMap()"
 short-title: computedStyleMap()
 slug: Web/API/Element/computedStyleMap
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 81a384e18b61c1d1b23d7f58f1fbd8ec3af45558
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`computedStyleMap()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle gibt eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) Schnittstelle zurück, die eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet, der eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
+Die Methode **`computedStyleMap()`** des Interfaces [`Element`](/de/docs/Web/API/Element) gibt ein Interface [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) zurück, das eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bereitstellt und eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) ist.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) Objekt.
+Ein [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Objekt.
 
-Im Gegensatz zu [`Window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) enthält der Rückgabewert [berechnete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), nicht [aufgelöste Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value).
-Für die meisten Eigenschaften sind sie gleich, außer bei einigen layoutbezogenen Eigenschaften, bei denen der aufgelöste Wert der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) anstelle des berechneten Wertes ist.
-Sehen Sie sich das [Vergleichsbeispiel mit `getComputedStyle()`](#comparison_with_getcomputedstyle) an, um Details zu erfahren.
+Anders als [`Window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) enthält der Rückgabewert [berechnete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), nicht [aufgelöste Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value).
+Für die meisten Eigenschaften sind diese gleich, mit Ausnahme einiger layoutbezogener Eigenschaften, bei denen der aufgelöste Wert statt des berechneten Werts der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) ist.
+Weitere Details finden Sie im Beispiel [Vergleich mit `getComputedStyle()`](#comparison_with_getcomputedstyle).
 
 ## Beispiele
 
-### Standard-Stile erhalten
+### Standardstile abrufen
 
-Wir beginnen mit einfachem HTML: einem Absatz mit einem Link und einer Definitionsliste, zu der wir alle CSS-Eigenschafts-/Wert-Paare hinzufügen.
+Wir beginnen mit einfachem HTML: einem Absatz mit einem Link und einer Definitionsliste, zu der wir alle CSS-Eigenschafts-/Wert-Paare hinzufügen werden.
 
 ```html
 <p>
@@ -41,7 +41,7 @@ Wir beginnen mit einfachem HTML: einem Absatz mit einem Link und einer Definitio
 <dl id="regurgitation"></dl>
 ```
 
-Wir fügen ein wenig CSS hinzu
+Wir fügen ein wenig CSS hinzu.
 
 ```css
 a {
@@ -50,7 +50,7 @@ a {
 }
 ```
 
-Wir fügen JavaScript hinzu, um unseren Link zu erfassen und eine Definitionsliste aller CSS-Eigenschaftswerte mithilfe von `computedStyleMap()` zurückzugeben.
+Wir fügen JavaScript hinzu, um unseren Link abzurufen und mithilfe von `computedStyleMap()` eine Definitionsliste aller CSS-Eigenschaftswerte zurückzugeben.
 
 ```js
 // get the element
@@ -76,24 +76,24 @@ for (const [prop, val] of allComputedStyles) {
 }
 ```
 
-In [Browsern, die `computedStyleMap()` unterstützen](#browser-kompatibilität), sehen Sie eine Liste aller CSS-Eigenschaften und Werte.
+In [Browsern, die `computedStyleMap()` unterstützen](#browser-kompatibilität), sehen Sie eine Liste aller CSS-Eigenschaften und -Werte.
 In anderen Browsern sehen Sie nur einen Link.
 
 {{EmbedLiveSample("getting_default_styles", 300, 300)}}
 
-Haben Sie bemerkt, wie viele Standard-CSS-Eigenschaften ein Link hat? Aktualisieren Sie `document.querySelector("a")` zu `document.querySelector("p")` und Sie werden einen Unterschied in den standardmäßig berechneten Werten für `margin-top` und `margin-bottom` bemerken.
+Ist Ihnen aufgefallen, wie viele Standard-CSS-Eigenschaften ein Link hat? Ändern Sie `document.querySelector("a")` zu `document.querySelector("p")`, und Sie werden einen Unterschied bei den standardmäßigen berechneten Werten für `margin-top` und `margin-bottom` feststellen.
 
 ### Vergleich mit getComputedStyle()
 
 [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt [aufgelöste Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value) zurück, während `computedStyleMap()` [berechnete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) zurückgibt.
-Diese sind normalerweise gleich, aber für einige Eigenschaften ist der aufgelöste Wert der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) anstelle des berechneten Wertes.
-Zum Beispiel werden Prozentwerte für Breiten nach dem Layout zu Pixelwerten aufgelöst, sodass die verwendeten Werte in Pixeln sind, während die berechneten Werte weiterhin in Prozent sind.
+Diese sind normalerweise gleich, aber bei einigen Eigenschaften ist der aufgelöste Wert statt des berechneten Werts der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value).
+Beispielsweise werden Prozentwerte für Breiten _nach dem Layout_ in Pixelwerte aufgelöst; daher werden die verwendeten Werte in Pixeln angegeben, während die berechneten Werte weiterhin in Prozent angegeben werden.
 
-Beachten Sie, dass wir die beiden APIs so präsentieren, dass sie ähnlicher erscheinen als sie sind. `computedStyleMap()` enthält [CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API) Objekte, während `getComputedStyle()` Zeichenfolgen enthält.
-Ersteres präsentiert die gleichen Informationen auf eine strukturiertere und besser verarbeitbare Weise.
+Beachten Sie, dass die Art, wie wir dies darstellen, die beiden APIs ähnlicher erscheinen lässt, als sie tatsächlich sind. `computedStyleMap()` enthält Objekte von [CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API), während `getComputedStyle()` Zeichenketten enthält.
+Ersteres stellt dieselben Informationen strukturierter und besser verarbeitbar dar.
 
-In diesem Beispiel ist die `width`-Eigenschaft als Prozentsatz angegeben, daher wird der berechnete Wert als Prozentsatz ausgegeben, aber der aufgelöste Wert in Pixeln.
-Die `height` ist immer in Pixeln. Die `background-color` ist eine benannte Farbe, aber sie wird in einen RGB-Wert berechnet.
+In diesem Beispiel wird die Eigenschaft `width` als Prozentwert angegeben, daher wird der berechnete Wert als Prozentwert angegeben, der aufgelöste Wert jedoch in Pixeln.
+Die `height` wird immer in Pixeln angegeben. `background-color` ist eine benannte Farbe, wird aber zu einem RGB-Wert berechnet.
 
 ```html
 <div class="container">

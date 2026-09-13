@@ -3,14 +3,14 @@ title: "Window: outerHeight-Eigenschaft"
 short-title: outerHeight
 slug: Web/API/Window/outerHeight
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte Eigenschaft **`Window.outerHeight`** gibt die Höhe in Pixeln des gesamten Browserfensters zurück, einschließlich aller Seitenleisten, des Fensterrahmens und der Fensterränder/-griffe.
+Die schreibgeschützte Eigenschaft **`Window.outerHeight`** gibt die Höhe des gesamten Browserfensters in Pixeln zurück, einschließlich einer Seitenleiste, Fensterelementen und Fensterränder/-griffe zum Anpassen der Größe.
 
-## Anmerkungen
+## Hinweise
 
 Um die Größe eines Fensters zu ändern, siehe [`window.resizeBy()`](/de/docs/Web/API/Window/resizeBy) und [`window.resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 

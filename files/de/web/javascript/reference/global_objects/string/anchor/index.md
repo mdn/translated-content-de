@@ -3,17 +3,15 @@ title: String.prototype.anchor()
 short-title: anchor()
 slug: Web/JavaScript/Reference/Global_Objects/String/anchor
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-Die **`anchor()`**-Methode von {{jsxref("String")}}-Werten erzeugt einen String, der in einem {{HTMLElement("a")}}-Element mit einem Namen eingebettet ist (`<a name="...">str</a>`).
+Die **`anchor()`**-Methode von {{jsxref("String")}}-Werten erzeugt einen String, der diesen String in ein {{HTMLElement("a")}}-Element mit einem `name` einschließt (`<a name="...">str</a>`).
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und werden nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 >
-> Die HTML-Spezifikation erlaubt dem {{HTMLElement("a")}}-Element nicht mehr, ein `name`-Attribut zu besitzen, sodass diese Methode nicht einmal gültiges Markup erstellt.
+> Die HTML-Spezifikation erlaubt dem {{HTMLElement("a")}}-Element nicht mehr, ein `name`-Attribut zu haben, daher erzeugt diese Methode nicht einmal gültiges Markup.
 
 ## Syntax
 
@@ -28,13 +26,13 @@ anchor(name)
 
 ### Rückgabewert
 
-Ein String, der mit einem `<a name="name">` Start-Tag beginnt (doppelte Anführungszeichen in `name` werden durch `&quot;` ersetzt), dann den Text `str` und dann ein `</a>` End-Tag enthält.
+Ein String, der mit einem `<a name="name">` Start-Tag beginnt (doppelte Anführungszeichen in `name` werden durch `&quot;` ersetzt), dann der Text `str` und dann ein `</a>` End-Tag.
 
 ## Beispiele
 
 ### Verwendung von anchor()
 
-Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";

@@ -1,20 +1,22 @@
 ---
-title: "SVGTransformList: replaceItem() Methode"
+title: "SVGTransformList: Methode replaceItem()"
 short-title: replaceItem()
 slug: Web/API/SVGTransformList/replaceItem
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
 ---
 
 {{APIRef("SVG")}}
 
-Die `replaceItem()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
+Die Methode `replaceItem()` der Schnittstelle [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
 
-Das eingefügte Element ist das Element selbst und nicht eine Kopie.
+Das eingefügte Element ist das Element selbst und keine Kopie.
 
-- Wenn `newItem` bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+- Wenn sich `newItem` bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
 
-- Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der `index` des zu ersetzenden Elements vor der Entfernung des Elements liegt.
+- Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass der `index` des zu ersetzenden Elements vor dem Entfernen des Elements bestimmt wird.
+
+Die Zuweisung zu einem Index der Liste hat dieselbe Wirkung wie der Aufruf dieser Methode, mit der Ausnahme, dass kein Rückgabewert vorhanden ist.
 
 ## Syntax
 
@@ -38,10 +40,10 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das eingefügte Elem
 Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+  - : Wird ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Indexzahl größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) ist.
+  - : Wird ausgelöst, wenn die Indexnummer größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) ist.
 
 ## Beispiele
 

@@ -1,12 +1,12 @@
 ---
-title: "Range: compareNode()-Methode"
+title: "Range: compareNode() Methode"
 short-title: compareNode()
 slug: Web/API/Range/compareNode
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_Header}}
+{{APIRef("DOM")}}{{Non-standard_Header}}
 
 Die **`compareNode()`**-Methode des [`Range`](/de/docs/Web/API/Range)-Interfaces gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
 
@@ -19,20 +19,20 @@ compareNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen werden soll.
 
 ### Rückgabewert
 
 Eine Konstante, die die Position des [`Node`](/de/docs/Web/API/Node) angibt. Die möglichen Werte sind:
 
 - `NODE_BEFORE` (`0`)
-  - : Knoten beginnt vor dem Range.
+  - : Node beginnt vor dem Range
 - `NODE_AFTER` (`1`)
-  - : Knoten endet nach dem Range.
+  - : Node endet nach dem Range
 - `NODE_BEFORE_AND_AFTER` (`2`)
-  - : Knoten beginnt vor und endet nach dem Range.
+  - : Node beginnt vor und endet nach dem Range
 - `NODE_INSIDE` (`3`)
-  - : Knoten beginnt nach und endet vor dem Range, d.h. der Knoten ist vollständig durch den Range ausgewählt.
+  - : Node beginnt nach und endet vor dem Range, d.h. der Node ist vollständig vom Range ausgewählt.
 
 ## Beispiele
 
@@ -42,7 +42,7 @@ range.selectNode(document.getElementsByTagName("div").item(0));
 returnValue = range.compareNode(document.getElementsByTagName("p").item(0));
 ```
 
-## Anmerkungen
+## Hinweise
 
 Diese Methode ist nicht standardisiert. Die folgende Funktion kann als Ersatz verwendet werden:
 
@@ -69,7 +69,7 @@ function rangeCompareNode(range, node) {
 
 ## Spezifikationen
 
-Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
+Diese Methode ist nicht standardisiert und daher nicht Teil irgendeiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -77,4 +77,4 @@ Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [Das DOM-Interface-Verzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interface-Index](/de/docs/Web/API/Document_Object_Model)

@@ -3,14 +3,12 @@ title: "`<center>` HTML zentriertes Textelement"
 short-title: <center>
 slug: Web/HTML/Reference/Elements/center
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}
+Das **`<center>`** [HTML](/de/docs/Web/HTML)-Element ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, das seine Block-Level- oder Inline-Inhalte horizontal innerhalb des umgebenden Elements zentriert darstellt. Das Container-Element ist normalerweise, muss aber nicht zwingend das {{HTMLElement("body")}}-Element sein.
 
-Das **`<center>`**-[HTML](/de/docs/Web/HTML)-Element ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, das seine Block-Level- oder Inline-Inhalte horizontal innerhalb seines umgebenden Elements zentriert darstellt. Der Container ist in der Regel, muss aber nicht unbedingt, das {{HTMLElement("body")}} sein.
-
-Dieses Tag wurde in HTML 4 (und XHTML 1) zugunsten der [CSS](/de/docs/Web/CSS) {{Cssxref("text-align")}}-Eigenschaft veraltet, die auf das {{HTMLElement("div")}}-Element oder auf ein einzelnes {{HTMLElement("p")}} angewendet werden kann. Zum Zentrieren von Blöcken verwenden Sie andere CSS-Eigenschaften wie {{Cssxref("margin-left")}} und {{Cssxref("margin-right")}} und setzen Sie diese auf `auto` (oder setzen Sie {{Cssxref("margin")}} auf `0 auto`).
+Dieses Tag wurde in HTML 4 (und XHTML 1) zugunsten der [CSS](/de/docs/Web/CSS) {{Cssxref("text-align")}}-Eigenschaft als veraltet eingestuft, welche auf das {{HTMLElement("div")}}-Element oder auf ein einzelnes {{HTMLElement("p")}} angewendet werden kann. Zum Zentrieren von Blöcken verwenden Sie andere CSS-Eigenschaften wie {{Cssxref("margin-left")}} und {{Cssxref("margin-right")}} und setzen Sie diese auf `auto` (oder setzen Sie {{Cssxref("margin")}} auf `0 auto`).
 
 ## DOM-Schnittstelle
 
@@ -68,7 +66,9 @@ Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-S
 {{EmbedLiveSample("Example 3 (CSS alternative)")}}
 
 > [!NOTE]
-> Das Anwenden von {{cssxref("text-align", "text-align: center")}} auf ein {{HTMLElement("div")}}- oder {{HTMLElement("p")}}-Element zentriert die _Inhalte_ dieser Elemente, während ihre Gesamtabmessungen unverändert bleiben.
+> Das Anwenden von {{cssxref("text-align", "text-align: center")}} auf ein {{HTMLElement("div")}}- oder {{HTMLElement("p")}}-Element zentriert den _Inhalt_ dieser Elemente, während die Gesamtabmessungen unverändert bleiben.
+
+<!-- ## Technische Zusammenfassung -->
 
 ## Spezifikationen
 

@@ -1,14 +1,14 @@
 ---
-title: "PaymentAddress: toJSON() Methode"
+title: "PaymentAddress: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PaymentAddress/toJSON
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
-Die **`toJSON()`** Methode des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress) Interfaces ist ein standardmäßiger Serializer, der eine JSON-Darstellung der Eigenschaften des PaymentAddress-Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Schnittstelle ist ein standardmäßiger Serializer, der eine JSON-Darstellung der Eigenschaften des PaymentAddress-Objekts zurückgibt.
 
 ## Syntax
 

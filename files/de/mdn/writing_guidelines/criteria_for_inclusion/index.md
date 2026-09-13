@@ -3,143 +3,143 @@ title: Kriterien für die Aufnahme in MDN Web Docs
 short-title: Kriterien für die Aufnahme
 slug: MDN/Writing_guidelines/Criteria_for_inclusion
 l10n:
-  sourceCommit: 0e7eafea05cd771c86e77947639f3396e7a59b2b
+  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
 ---
 
-Dieser Artikel beschreibt detailliert die Kriterien für Inhalte, die in MDN Web Docs aufgenommen werden sollen, den Bewerbungsprozess für die Aufnahme neuer Dokumentationen sowie die Erwartungen und Richtlinien für eine Partei, die sich bewirbt.
+Dieser Artikel beschreibt detailliert die Kriterien für die Aufnahme von Inhalten in MDN Web Docs, den Prozess zur Aufnahme neuer Dokumentation sowie Erwartungen und Richtlinien für eine antragstellende Partei.
 
-Dies richtet sich an größere Projekte. Um eine neue Seite oder einen Artikel vorzuschlagen, lesen Sie bitte den Abschnitt [Vorschlagen von Inhalten](/de/docs/MDN/Writing_guidelines/What_we_write#suggesting_content) auf der Seite "Was wir schreiben".
+Dies richtet sich an größere Projekte. Um eine neue Seite oder einen neuen Artikel vorzuschlagen, lesen Sie bitte den Abschnitt [Inhalte vorschlagen](/de/docs/MDN/Writing_guidelines/What_we_write#suggesting_content) auf der Seite „Was wir schreiben“.
 
-## Web-Standards-Technologien
+## Webstandards-Technologien
 
-Der Auftrag von MDN Web Docs besteht darin, Web-Standards-Technologien zu dokumentieren, die in einer Spezifikation veröffentlicht sind, die von einem zuverlässigen Standardisierungsgremium stammt und in mindestens einem stabilen Browser unterstützt wird. Diese Kriterien signalisieren ein ausreichendes Interesse, Stabilität und die "Absicht zur Implementierung" von der Webindustrie im Allgemeinen. Daher glauben wir, dass diese Technologien sicher genug sind, damit wir unsere Zeit und Mühe darauf verwenden, sie zu dokumentieren. Andernfalls könnte eine Web-Technologie oder ein Feature möglicherweise aufgrund von mangelndem Interesse abgesagt werden oder so instabil sein, dass es sich erheblich ändern könnte, was unnötigerweise viele Umschreibungen erfordern würde (die wir nach Möglichkeit zu vermeiden versuchen).
+Der Aufgabenbereich von MDN Web Docs besteht darin, Webstandards-Technologien zu dokumentieren, die in einer von einer zuverlässigen Standardisierungsorganisation veröffentlichten Spezifikation enthalten sind und von mindestens einem stabilen Browser unterstützt werden. Diese Kriterien zeigen ausreichend Interesse, Stabilität und eine „Implementierungsabsicht“ der Webbranche insgesamt. Daher halten wir diese Technologien für eine sichere Investition unserer Zeit und Mühe in ihre Dokumentation. Früher als zu diesem Zeitpunkt könnte eine Webtechnologie oder Funktion aufgrund mangelnden Interesses eingestellt werden oder so instabil sein, dass sie sich erheblich ändern könnte, was unnötigerweise viel Überarbeitung erfordern würde (was wir nach Möglichkeit vermeiden möchten).
 
-## Nicht-Web-Standards-Technologien
+## Technologien, die keine Webstandards sind
 
-Nicht-Web-Standards-Technologien sind Technologien, die unseren oben zusammengefassten Kriterien nicht folgen. Normalerweise würden wir sie nicht für die Dokumentation bei MDN Web Docs in Betracht ziehen.
+Technologien, die keine Webstandards sind, erfüllen die oben zusammengefassten Kriterien nicht. Normalerweise würden wir sie nicht für eine Dokumentation in MDN Web Docs in Betracht ziehen.
 
-Unsere Mission lautet _"Entwicklern die Informationen bereitzustellen, die sie benötigen, um Projekte im offenen Web einfach zu erstellen"_. Dies deutet darauf hin, dass wir darüber nachdenken sollten, Technologien zu dokumentieren, die für Webentwickler nützlich sind, auch wenn sie keine offenen Webstandards sind, sich nicht auf dem Standardisierungspfad befinden usw.
+Unser Leitbild lautet _„Entwicklerinnen und Entwicklern die Informationen bereitzustellen, die sie benötigen, um einfach Projekte im offenen Web zu erstellen“_. Dies legt nahe, dass wir die Dokumentation von Technologien in Betracht ziehen sollten, die für Webentwickler nützlich sind, selbst wenn es sich nicht um offene Webstandards handelt, sie sich nicht auf dem Standardisierungspfad befinden usw.
 
-Wenn Sie in Betracht ziehen, eine Nicht-Web-Standard-Technologie zur Aufnahme in MDN Web Docs vorzuschlagen, sollten Sie sicherstellen, dass sie den untenstehenden Kriterien entspricht.
+Wenn Sie eine Technologie, die kein Webstandard ist, für die Aufnahme in MDN Web Docs in Betracht ziehen möchten, sollten Sie sicherstellen, dass sie die folgenden Kriterien erfüllt.
 
 ## Kriterien für die Aufnahme in MDN Web Docs
 
-Technologien sollten die hier beschriebenen Kriterien erfüllen, um in Betracht gezogen zu werden, auf MDN Web Docs dokumentiert zu werden.
+Technologien sollten die hier beschriebenen Kriterien erfüllen, um für eine Dokumentation in MDN Web Docs in Betracht gezogen zu werden.
 
-### Offen sein und nicht proprietär
+### Offen und nicht proprietär sein
 
-Bei MDN Web Docs unterstützen wir offene Technologien. Wir unterstützen keine geschlossenen Technologie-Ökosysteme, die von einem einzigen Unternehmen kontrolliert werden, die nicht für Beiträge von interessierten Parteien offen sind und nicht über mehrere Plattformen und Systeme interoperabel sind. Wir glauben, dass Technologien für alle besser funktionieren, wenn sie offen entwickelt werden.
+Bei MDN Web Docs unterstützen wir offene Technologien. Wir unterstützen keine geschlossenen Technologieökosysteme, die von einer einzelnen Organisation kontrolliert werden, die nicht für Beiträge jeder interessierten Partei offen sind und die nicht über mehrere Plattformen und Systeme hinweg interoperabel sind. Wir sind der Ansicht, dass Technologie für alle besser funktioniert, wenn sie offen entwickelt wird.
 
-### Web-offen sein und mit Web-Technologien in Zusammenhang stehen
+### Im Web verfügbar sein und mit Webtechnologien verbunden sein
 
-Unser zentraler Auftrag sind Web-Standards-Technologien; es macht keinen Sinn, mit der Dokumentation von Technologien zu beginnen, die nicht mit dem Web in Zusammenhang stehen oder kein Interesse für Webentwickler haben.
+Unser zentraler Aufgabenbereich sind Webstandards-Technologien; es gibt keinen Grund, mit der Dokumentation von Technologien zu beginnen, die keinen Bezug zum Web haben oder für Webentwickler von Interesse sind.
 
-### Interesse und Annahme zeigen
+### Anzeichen für Interesse und Akzeptanz zeigen
 
-Wir wollen unsere Zeit nicht damit verbringen, eine Technologie zu dokumentieren, die kein Signal von Interesse und Annahme von der Industrie zeigt. Es kann sein, dass es einfach zu früh ist, die Technologie zu dokumentieren, und wir könnten in Betracht ziehen, sie in Zukunft auf MDN Web Docs zu dokumentieren.
+Wir möchten unsere Zeit nicht mit der Dokumentation einer Technologie verbringen, für die es aus der Branche keine Anzeichen für Interesse und Akzeptanz gibt. Möglicherweise ist es einfach noch zu früh, mit der Dokumentation der Technologie zu beginnen, und wir könnten ihre Dokumentation in MDN Web Docs künftig in Betracht ziehen.
 
-### Keine Anzeichen von Veralterung oder Ablösung zeigen
+### Keine Anzeichen dafür zeigen, veraltet oder ersetzt zu werden
 
-In Zusammenhang mit dem obigen Punkt wollen wir auch nicht unsere Zeit damit verbringen, eine Technologie zu dokumentieren, die sich in einem späten Stadium ihres Lebenszyklus befindet und bereits Anzeichen von rückläufigem Interesse zeigt.
+Im Zusammenhang mit dem obigen Punkt möchten wir auch keine Zeit mit der Dokumentation einer Technologie verbringen, die sich spät in ihrem Lebenszyklus befindet und bereits Anzeichen für nachlassendes Interesse zeigt.
 
-### Keine etablierte Dokumentationsressource woanders haben
+### Keine etablierte Dokumentationsressource an anderer Stelle haben
 
-Es gibt viele Bibliotheken und Frameworks, die existieren, welche keine Webstandards sind, aber auf Webtechnologien basieren und in der Webindustrie sehr beliebt sind. Wir dokumentieren keine davon, da sie im Allgemeinen alle bereits etablierte Dokumentationsressourcen haben. Mit der offiziellen Ressource eines populären Frameworks zu konkurrieren wäre unklug — das wäre eine Zeitverschwendung und würde wahrscheinlich Entwickler, die die Technologie erlernen wollen, verwirren.
+Es gibt viele Bibliotheken und Frameworks, die keine Webstandards sind, aber auf Webtechnologien aufbauen und in der Webbranche sehr beliebt sind. Wir dokumentieren keines davon, da sie im Allgemeinen bereits über etablierte Dokumentationsressourcen verfügen. Es wäre unklug, mit der offiziellen Ressource eines beliebten Frameworks zu konkurrieren — dies wäre Zeitverschwendung und würde wahrscheinlich Entwickler verwirren, die versuchen, die Technologie zu erlernen.
 
-### Eine Gemeinschaft haben, die bereit ist, die Dokumentation zu schreiben und zu pflegen
+### Eine Community haben, die bereit ist, die Dokumentation zu schreiben und zu pflegen
 
-Das Team von MDN Web Docs konzentriert sich darauf, die offene Webplattform zu dokumentieren. Wenn Sie möchten, dass eine Technologie in diesem Bereich für die Dokumentation bei MDN Web Docs in Betracht gezogen wird, brauchen Sie eine Gemeinschaft, die bereit ist, die Dokumentation zu schreiben und sie nach der Fertigstellung zu pflegen. Unser Team stellt in solchen Fällen gerne Leitlinien zur Verfügung, einschließlich Bearbeitungen und Feedback, aber wir haben keine Ressourcen für mehr als das.
+Das Team von MDN Web Docs konzentriert sich auf die Dokumentation der offenen Webplattform. Wenn Sie möchten, dass eine Technologie in diesem Bereich für eine Dokumentation in MDN Web Docs in Betracht gezogen wird, benötigen Sie eine Community, die bereit ist, die Dokumentation zu schreiben und sie nach der Fertigstellung zu pflegen. Unser Team unterstützt in solchen Fällen gerne mit Leitlinien, Bearbeitungen und Feedback, verfügt jedoch nicht über Ressourcen für mehr als das.
 
 > [!NOTE]
-> Die Arbeit bei MDN Web Docs wird auf GitHub und "im Open" durchgeführt. Ihr Team sollte mit Git & GitHub vertraut sein und sich wohlfühlen, in Open Source zu arbeiten.
+> Die Arbeit an MDN Web Docs erfolgt auf GitHub und „offen“. Ihr Team sollte mit git und GitHub vertraut sein und sich mit der Arbeit im Open-Source-Bereich wohlfühlen.
 
 ## Prozess zur Auswahl der neuen Technologie
 
-Wenn eine Technologie wie ein guter Kandidat dafür aussieht, bei MDN Web Docs dokumentiert zu werden, können Sie eine Diskussion in den [GitHub-Community-Diskussionen](/de/docs/MDN/Community/Communication_channels#github_discussions) starten, um die Aufnahme dieser Technologie vorzuschlagen und zu diskutieren. Dieser Abschnitt beschreibt, was der Vorschlag beinhalten sollte.
+Wenn eine Technologie ein guter Kandidat für eine Dokumentation in MDN Web Docs zu sein scheint, können Sie eine Diskussion in den [GitHub-Community-Diskussionen](/de/docs/MDN/Community/Communication_channels#github_discussions) starten, um die Aufnahme dieser Technologie vorzuschlagen und zu diskutieren. Dieser Abschnitt beschreibt, was der Vorschlag enthalten sollte.
 
 ### Einreichen des Vorschlags
 
-Technologien werden für die Aufnahme in MDN Web Docs von Fall zu Fall betrachtet. Für eine Berücksichtigung müssen Sie einen Vorschlag einreichen, der mit "Proposal for documenting a new technology on MDN Web Docs" betitelt ist. Wir benötigen die folgenden Informationen von Ihnen im Vorschlag:
+Technologien werden von Fall zu Fall für die Aufnahme in MDN Web Docs geprüft. Zur Prüfung müssen Sie einen Vorschlag mit dem Titel „Proposal for documenting a new technology on MDN Web Docs“ einreichen. Wir benötigen folgende Informationen von Ihnen im Vorschlag:
 
-- Die Technologie, ihr Hauptzweck/Anwendungsfälle und die Zielgruppe der Entwickler.
-- Welche Art von Branchen- oder Community-Buzz gibt es um die Technologie?
-  - Nutzen viele Webentwickler sie? Wie sieht die Annahme in der Industrie aus?
-  - Wollen oder brauchen viele Webentwickler diese Informationen?
-  - Wie groß ist die Zielgruppe für diese Informationen? Unterstützende Statistiken wären hilfreich, wenn Sie welche haben.
-- Wie steht die Technologie in Zusammenhang mit Kern-Webtechnologien und Webbrowsern? Nützliche Details sind:
-  - Verwendet sie HTML und CSS, gibt aber allgemein nicht an das Web aus?
+- Die Technologie, ihr Kernzweck bzw. ihre Anwendungsfälle und die Zielgruppe von Entwicklern.
+- Welche Resonanz in Branche oder Community gibt es rund um die Technologie?
+  - Verwenden viele Webentwickler sie? Wie sieht die Akzeptanz in der Branche aus?
+  - Möchten oder benötigen viele Webentwickler diese Informationen?
+  - Wie groß ist die Zielgruppe für diese Informationen? Unterstützende Statistiken wären hilfreich, falls Sie darüber verfügen.
+- Wie steht die Technologie mit zentralen Webtechnologien und Webbrowsern in Beziehung? Nützliche Details sind:
+  - Verwendet sie HTML und CSS, gibt jedoch im Allgemeinen nicht ins Web aus?
   - Wird sie in Webbrowsern über ein Polyfill unterstützt?
 - Welche Dokumentation oder Ressourcen sind bereits verfügbar, die die Technologie abdecken?
 - Wie viel Dokumentation müsste zu MDN Web Docs hinzugefügt werden?
-  - Listen Sie die erwartete Anzahl von Leitfäden, Tutorials, Referenzseiten für Elemente/Methoden/Attribute auf usw.
-  - Bieten Sie ein grobes Inhaltsverzeichnis.
-  - Erwähnen Sie die Art von "fortgeschrittenen" Merkmalen, die Sie für diese Ressource erwarten, über die grundlegenden Dokumentationsseiten hinaus. Erwarten Sie die Einbindung von eingebetteten Videos, interaktiven Codebeispielen usw.?
-- Wer wird die Dokumentation schreiben? Wer sind sie und warum sind sie für die Aufgabe geeignet?
+  - Listen Sie die erwartete Anzahl von Leitfäden, Tutorials, Referenzseiten für Elemente/Methoden/Attribute usw. auf.
+  - Stellen Sie ein Inhaltsverzeichnis auf hoher Ebene bereit.
+  - Erwähnen Sie die Art von „erweiterten“ Funktionen, die Sie Ihrer Meinung nach für diese Ressource benötigen könnten, über die grundlegenden Dokumentationsseiten hinaus. Erwarten Sie eingebettete Videos, interaktive Codebeispiele usw.?
+- Wer wird die Dokumentation schreiben? Wer sind diese Personen und warum sind sie für diese Aufgabe geeignet?
 - Wie wird die Dokumentation gepflegt?
 
-Sie müssen uns in diesem Stadium nicht hunderte von Seiten mit Details bereitstellen (tatsächlich würden wir es bevorzugen, wenn Sie das nicht tun). Ein paar Absätze zu jedem der oben genannten Punkte reichen mehr als aus.
+Sie müssen uns zu diesem Zeitpunkt keine Hunderte von Seiten mit Details bereitstellen (tatsächlich wäre es uns lieber, wenn Sie das nicht täten). Ein paar Absätze zu jedem der oben genannten Punkte sind mehr als ausreichend.
 
 > [!NOTE]
-> MDN Web Docs ist hauptsächlich eine englische Seite (en-US). Die Hauptsprache Ihres Projekts sollte US-Englisch sein.
+> MDN Web Docs ist in erster Linie eine englischsprachige Website (en-US). Die primäre Sprache für Ihr Projekt sollte US-Englisch sein.
 
 ### Auf eine Antwort warten
 
-Wir werden die Technologie und die von Ihnen im Vorschlag eingereichten Informationen prüfen und mit einer der folgenden Antworten antworten:
+Wir werden die Technologie und die von Ihnen im Vorschlag eingereichten Informationen prüfen und mit einer der folgenden Antworten reagieren:
 
-- **Nein**: Wir denken, dass dies nicht die Kriterien erfüllt, um bei MDN Web Docs dokumentiert zu werden.
-- **Vielleicht**: Wir sind uns nicht sicher, ob es sich für die Dokumentation bei MDN Web Docs eignet und möchten einige weitere Fragen stellen.
-- **Ja**: Wir denken, dass es angemessen ist, es bei MDN Web Docs aufzunehmen.
+- **Nein**: Wir denken nicht, dass dies die Kriterien für eine Dokumentation in MDN Web Docs erfüllt.
+- **Vielleicht**: Wir sind nicht sicher, ob sie für eine Dokumentation in MDN Web Docs geeignet ist, und möchten einige weitere Fragen stellen.
+- **Ja**: Wir halten es für angemessen, sie in MDN Web Docs aufzunehmen.
 
-Wenn die Technologie ein guter Kandidat ist, wird das Team Ihnen helfen, mit der Dokumentation zu beginnen.
+Wenn die Technologie ein guter Kandidat ist, unterstützt das Team Sie beim Einstieg in die Dokumentation.
 
-## Projektleitlinien für die Dokumentation der neuen Technologie
+## Projektrichtlinien für die Dokumentation der neuen Technologie
 
-Wenn Ihre gewählte Technologie zur Dokumentation bei MDN Web Docs akzeptiert wird, ist der nächste Schritt, loszulegen.
+Wenn Ihre ausgewählte Technologie für eine Dokumentation in MDN Web Docs akzeptiert wird, besteht der nächste Schritt darin, zu beginnen.
 
-Um sicherzustellen, dass Ihr Projekt zur Dokumentation der neuen Technologie bei MDN Web Docs erfolgreich ist, benötigen wir Folgendes:
+Um sicherzustellen, dass Ihr Projekt zur Dokumentation der neuen Technologie in MDN Web Docs erfolgreich ist, benötigen wir von Ihnen Folgendes:
 
 - Ein engagiertes Team
 - Einen Projektplan und eine Roadmap
-- Leitlinien und Standards für das Schreiben
+- Schreibrichtlinien und Standards
 - Eine intuitive Dokumentationsstruktur
 - Einen Wartungsplan
 
 ### Engagiertes Team
 
-Stellen Sie sicher, dass Sie ein engagiertes Team haben, das sowohl die anfängliche Dokumentation verfasst als auch sie in der Zukunft mit den erforderlichen Aktualisierungen pflegt.
+Stellen Sie sicher, dass Sie über ein engagiertes Team verfügen, das sowohl die ursprüngliche Dokumentation schreibt als auch sie künftig mit den erforderlichen Aktualisierungen pflegt.
 
-Denken Sie darüber nach, wie viel Arbeit anfällt und wie viele Personen Sie dafür benötigen könnten.
+Überlegen Sie, wie viel Arbeit anfällt und wie viele Personen Sie dafür benötigen könnten.
 
-- Wenn es sich um ein großes Projekt handelt, könnten Sie von mehreren Autoren profitieren, einem technischen Prüfer, der die technische Genauigkeit überprüft, einem Lektor, der die Sprache reinigt, jemandem, der Codebeispiele schreibt usw.
-- Bei einem kleineren Projekt könnten ein oder zwei Personen mehrere Rollen übernehmen. Wie immer Sie das Team aufbauen möchten, ist in Ordnung, solange es für Sie funktioniert.
+- Bei einem großen Projekt profitieren Sie möglicherweise von mehreren Autoren, einer technischen Überprüfung zur Kontrolle der technischen Korrektheit, einem Lektorat zur sprachlichen Überarbeitung, einer Person zum Schreiben von Codebeispielen usw.
+- Bei einem kleineren Projekt können ein oder zwei Personen mehrere Rollen übernehmen. Wie Sie das Team aufbauen möchten, ist Ihnen überlassen, solange es für Sie funktioniert.
 
-Ein Mitglied des MDN Web Docs-Teams wird Ihrem Projekt zugewiesen, um Anleitungen im Hinblick auf MDN Web Docs bereitzustellen.
+Ein Mitglied des MDN-Web-Docs-Teams wird Ihrem Projekt zugewiesen, um Leitlinien zur MDN-Web-Docs-Seite der Arbeit bereitzustellen.
 
-Sie sollten ein oder zwei Teamleiter ernennen, die mit dem MDN Web Docs-Teammitglied in Kontakt treten können.
+Sie sollten eine oder zwei Personen als Teamleitung benennen, die mit dem Mitglied des MDN-Web-Docs-Teams zusammenarbeiten können.
 
-Der MDN Web Docs-Vertreter wird helfen, die erforderlichen Berechtigungen für alle Teammitglieder zu erhalten, um in der [MDN-Organisation auf GitHub](https://github.com/mdn) zu arbeiten.
+Die Vertretung von MDN Web Docs hilft dabei, allen Mitgliedern Ihres Teams die erforderlichen Berechtigungen für die Arbeit in der [MDN-Organisation auf GitHub](https://github.com/mdn) zu verschaffen.
 
 ### Projektplan und Roadmap
 
-Erstellen Sie einen Plan für das Projekt — Aufgaben, geschätzte Fertigstellungstermine und Meilensteine, die Sie verfolgen möchten, um sicherzustellen, dass Sie stetige Fortschritte machen.
+Erstellen Sie einen Plan für das Projekt — Aufgaben, geschätzte Fertigstellungstermine und Meilensteine, die Sie verfolgen möchten, um sicherzustellen, dass Sie stetig Fortschritte machen.
 
-Wenn das Projekt groß ist, sollten Sie in Betracht ziehen, eines Ihrer Teammitglieder als Projektmanager zu ernennen. Sie sollten auch in Erwägung ziehen, einen Teilprojektplan für eine erste Veröffentlichung zu schreiben, der das Mindestmaß an Dokumentation umfasst, das nützlich ist zu veröffentlichen (ein _Minimum Viable Product_); Sie können später weitere Ergänzungen vornehmen.
+Wenn das Projekt groß ist, sollten Sie in Erwägung ziehen, eines Ihrer Teammitglieder als Projektleitung einzusetzen. Sie sollten auch erwägen, einen Teilprojektplan für eine erste Veröffentlichung zu erstellen, die die kleinste sinnvolle Menge an veröffentlichungswürdiger Dokumentation umfasst (ein _Minimum Viable Product_); weitere Ergänzungen können später folgen.
 
-Wenn das Dokumentationsprojekt klein ist, müssten Sie dennoch ein Protokoll darüber führen, was getan wurde und was nicht, in welchem Stadium sich jeder Teil der Dokumentation befindet (z.B. nicht begonnen, in Bearbeitung, Entwurf geschrieben, geprüft, fertig), und wer an was arbeitet.
+Wenn das Dokumentationsprojekt klein ist, müssen Sie dennoch festhalten, was erledigt wurde und was nicht, in welcher Phase sich jeder Teil der Dokumentation befindet (z. B. nicht begonnen, in Bearbeitung, Entwurf geschrieben, überprüft, erledigt) und wer woran arbeitet.
 
-### Leitlinien und Standards für das Schreiben
+### Schreibrichtlinien und Standards
 
-Diese [Leitlinien](/de/docs/MDN/Writing_guidelines) geben an, wie wir erwarten, dass Dokumente für MDN Web Docs geschrieben werden.
+Diese [Richtlinien](/de/docs/MDN/Writing_guidelines) beschreiben, wie wir erwarten, dass Dokumente für MDN Web Docs geschrieben werden.
 
-Wenn Sie zusätzliche Leitlinien für die Dokumente haben, die Sie schreiben, erwarten wir, dass diese Anleitung hinzugefügt und auf dem neuesten Stand gehalten wird.
+Wenn Sie zusätzliche Richtlinien für die von Ihnen verfassten Dokumente haben, erwarten wir, dass dieser Leitfaden ergänzt und aktuell gehalten wird.
 
-Was die Standards betrifft, erwarten wir, dass Sie ein angemessenes Maß an Schreibqualität für Ihre Dokumentation beibehalten, damit sie auf MDN Web Docs bleibt. Ihr MDN Web Docs-Vertreter wird mit Ihnen zusammenarbeiten, um Ihnen klar zu machen, was erwartet wird.
+Hinsichtlich der Standards wird von Ihnen erwartet, ein angemessenes Maß an Schreibqualität aufrechtzuerhalten, damit Ihre Dokumentation in MDN Web Docs verbleiben kann. Ihre Vertretung von MDN Web Docs wird mit Ihnen zusammenarbeiten, um Ihnen klarzumachen, was erwartet wird.
 
 ### Intuitive Dokumentationsstruktur
 
-Wenn Sie den Prozess der Vorschlagseinreichung durchlaufen haben, sollten Sie bereits eine grobe Übersicht darüber haben, was Sie für diese Technologie schreiben werden. An diesem Punkt sollten Sie das in einen Plan für die Seitenstruktur verfeinern: Überlegen Sie, wie die Dokumenthierarchie aussehen wird und wo alles passt und miteinander verlinkt ist.
+Wenn Sie den Prozess zur Einreichung des Vorschlags durchlaufen haben, sollten Sie bereits eine grobe Gliederung dessen haben, was Sie für diese Technologie schreiben werden. An diesem Punkt sollten Sie diese zu einem Plan der Website-Struktur verfeinern: Überlegen Sie, wie die Dokumenthierarchie aussehen wird und wo alles eingeordnet, verknüpft und miteinander verbunden wird.
 
-Jedes Projekt ist anders, aber wir empfehlen den folgenden Verzeichnisbaum:
+Jedes Projekt ist anders, aber wir empfehlen die folgende Verzeichnisstruktur:
 
 ```plain
 ├── Guides
@@ -158,24 +158,24 @@ Jedes Projekt ist anders, aber wir empfehlen den folgenden Verzeichnisbaum:
     └── index.md
 ```
 
-Jeder Seitentyp, den Sie in Ihrem Projekt verwenden werden, sollte eine Seitenschablone haben, von der andere die Struktur kopieren können. Sie sollten sich frühzeitig darauf festlegen.
+Jeder Seitentyp, den Sie in Ihrem Projekt verwenden werden, sollte über eine Seitenvorlage verfügen, aus der andere die Struktur übernehmen können. Sie sollten diese frühzeitig festlegen.
 
-Bitte sehen Sie sich unseren Abschnitt zu [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) an. Wenn Ergänzungen erforderlich sind, setzen Sie sich bitte mit Ihrem MDN Web Docs-Vertreter in Verbindung.
+Lesen Sie bitte unseren Abschnitt zu [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types). Wenn Ergänzungen erforderlich sind, stimmen Sie sich bitte mit Ihrer Vertretung von MDN Web Docs ab.
 
 ### Wartungsplan
 
-Die Dokumentation für diese Technologie muss gepflegt werden, um auf MDN Web Docs zu bleiben:
+Die Dokumentation für diese Technologie muss gepflegt werden, um in MDN Web Docs zu verbleiben:
 
-- Der Inhalt und die Dateien für MDN Web Docs werden auf GitHub gespeichert. Wenn andere Änderungen an der Dokumentation für Ihre Technologie vornehmen, muss ein Mitglied Ihres Teams diese Änderungen überprüfen, um sicherzustellen, dass der Inhalt weiterhin gut ist. Sie können die offenen Pull Requests (PRs) über GitHubs Benachrichtigungsfunktion verfolgen.
-- Wenn sich an der Technologie Änderungen ergeben, die eine Aktualisierung der Dokumentation erfordern, muss Ihr Team entsprechende Aktualisierungen vornehmen und die gleichen Standards wie die ursprüngliche Dokumentation beibehalten.
+- Die Inhalte und Dateien für MDN Web Docs werden auf GitHub gespeichert. Wenn andere Änderungen an der Dokumentation Ihrer Technologie vornehmen, muss ein Mitglied Ihres Teams diese Änderungen überprüfen, um sicherzustellen, dass die Inhalte weiterhin gut sind. Sie können die offenen Pull Requests (PRs) über die Benachrichtigungsfunktion von GitHub verfolgen.
+- Wenn Änderungen an der Technologie erfolgen, die Aktualisierungen der Dokumentation erfordern, muss Ihr Team diese entsprechend vornehmen und dabei dieselben Standards wie für die ursprüngliche Dokumentation einhalten.
 
-Wenn innerhalb eines Zeitraums von sechs Monaten keine positiven Änderungen beobachtet werden und die Dokumentation in einem der folgenden Zustände erscheint:
+Wenn über einen Zeitraum von sechs Monaten keine positiven Veränderungen zu beobachten sind und die Dokumentation einen der folgenden Zustände aufweist:
 
 - Veraltet oder ungepflegt
-- Ins Stocken geraten, ohne abgeschlossen zu werden
-- Niedrige Qualität
-- Veraltet werden
+- Nicht fertiggestellt und ins Stocken geraten
+- Geringe Qualität
+- Zunehmend obsolet
 
-Dann wird die Dokumentation für diese Technologie als tot betrachtet. Nach einer Diskussion zwischen Ihrem Team und dem MDN Web Docs-Teamvertreter wird die Dokumentation entfernt.
+Dann wird die Dokumentation für diese Technologie als nicht mehr aktiv betrachtet. Nach einer Diskussion zwischen Ihrem Team und der Vertretung des MDN-Web-Docs-Teams wird die Dokumentation entfernt.
 
-Wir hoffen, dass Sie verstehen, dass wir in solchen Angelegenheiten strikt sein müssen — wir können nicht zulassen, dass die Seite mit schlechter Qualität, unvollständiger oder veralteter Dokumentation gefüllt wird.
+Wir hoffen, Sie verstehen, dass wir bei solchen Themen streng sein müssen — wir können nicht zulassen, dass die Website mit Dokumentation schlechter Qualität, unvollständiger oder obsoleter Dokumentation gefüllt wird.

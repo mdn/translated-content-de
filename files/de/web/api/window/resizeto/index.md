@@ -1,12 +1,12 @@
 ---
-title: "Window: resizeTo()-Methode"
+title: "Window: resizeTo() Methode"
 short-title: resizeTo()
 slug: Web/API/Window/resizeTo
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
 Die **`Window.resizeTo()`**-Methode ändert die Größe des Fensters dynamisch.
 
@@ -19,9 +19,9 @@ resizeTo(width, height)
 ### Parameter
 
 - `width`
-  - : Ein ganzzahliger Wert, der die neue [`outerWidth`](/de/docs/Web/API/Window/outerWidth) in Pixeln darstellt (einschließlich Scrollbalken, Titelleisten etc.).
+  - : Ein ganzzahliger Wert, der die neue [`outerWidth`](/de/docs/Web/API/Window/outerWidth) in Pixeln darstellt (einschließlich Scrollleisten, Titelbalken usw.).
 - `height`
-  - : Ein ganzzahliger Wert, der die neue [`outerHeight`](/de/docs/Web/API/Window/outerHeight) in Pixeln darstellt (einschließlich Scrollbalken, Titelleisten etc.).
+  - : Ein ganzzahliger Wert, der die neue [`outerHeight`](/de/docs/Web/API/Window/outerHeight) in Pixeln darstellt (einschließlich Scrollleisten, Titelbalken usw.).
 
 ### Rückgabewert
 
@@ -45,11 +45,11 @@ function quarter() {
 
 {{Compat}}
 
-Hinweis: Es ist nicht möglich, die Größe eines Fensters oder Tabs zu ändern, das nicht durch **`window.open()`** erstellt wurde. Es ist auch nicht möglich, die Größe zu ändern, wenn das Fenster mehrere Tabs enthält.
+Hinweis: Es ist nicht möglich, ein Fenster oder Tab zu ändern, das nicht durch **`window.open()`** erstellt wurde. Es ist auch nicht möglich, die Größe zu ändern, wenn das Fenster mehrere Tabs hat.
 
 > [!NOTE]
-> Diese Funktion könnte das Fenster nicht synchron verkleinern.
-> In einigen Umgebungen (wie Mobilgeräten) könnte das Fenster überhaupt nicht verkleinert werden. Sie können auf das [`resize`](/de/docs/Web/API/Window/resize_event)-Ereignis hören, um zu sehen, ob/wann das Fenster verkleinert wurde.
+> Diese Funktion könnte das Fenster nicht synchron neu dimensionieren.
+> In manchen Umgebungen (wie Mobilgeräten) könnte das Fenster überhaupt nicht neu dimensioniert werden. Sie können das [`resize`](/de/docs/Web/API/Window/resize_event) Ereignis beobachten, um festzustellen, ob/wann das Fenster neu dimensioniert wurde.
 
 ## Siehe auch
 

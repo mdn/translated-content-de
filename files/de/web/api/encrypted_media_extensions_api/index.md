@@ -2,47 +2,47 @@
 title: Encrypted Media Extensions API
 slug: Web/API/Encrypted_Media_Extensions_API
 l10n:
-  sourceCommit: 7b565c5f4610bea19c844f35532853624d87cde3
+  sourceCommit: e1e7e2ac2cb1e40293c32c24bc0667905e9a7a04
 ---
 
 {{DefaultAPISidebar("Encrypted Media Extensions")}} {{securecontext_header}}
 
-Die **Encrypted Media Extensions API** bietet Schnittstellen zur Steuerung der Wiedergabe von Inhalten, die einem digitalen Verwaltungssystem mit Einschränkungen unterliegen.
+Die **Encrypted Media Extensions API** stellt Schnittstellen zur Steuerung der Wiedergabe von Inhalten bereit, die einem digitalen Verwaltungsschema für Nutzungseinschränkungen unterliegen.
 
 Der Zugriff auf diese API erfolgt über [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess).
 
 ## Schnittstellen
 
 - [`MediaEncryptedEvent`](/de/docs/Web/API/MediaEncryptedEvent)
-  - : Repräsentiert ein spezielles [`encrypted`](/de/docs/Web/API/HTMLMediaElement/encrypted_event) Ereignis, das ausgelöst wird, wenn ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) auf Initialisierungsdaten trifft.
+  - : Repräsentiert ein bestimmtes [`encrypted`](/de/docs/Web/API/HTMLMediaElement/encrypted_event)-Ereignis, das ausgelöst wird, wenn ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) einige Initialisierungsdaten erkennt.
 - [`MediaKeyMessageEvent`](/de/docs/Web/API/MediaKeyMessageEvent)
-  - : Enthält den Inhalt und die zugehörigen Daten, wenn das Inhaltentschlüsselungsmodul (CDM) eine Nachricht für die Sitzung generiert.
+  - : Enthält den Inhalt und die zugehörigen Daten, wenn das Content Decryption Module (CDM) eine Nachricht für die Sitzung generiert.
 - [`MediaKeys`](/de/docs/Web/API/MediaKeys)
-  - : Repräsentiert eine Gruppe von Schlüsseln, die ein verbundenes [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
+  - : Repräsentiert einen Satz von Schlüsseln, die ein zugehöriges [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
 - [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)
-  - : Stellt einen Kontext für den Nachrichtenaustausch mit einem Inhaltentschlüsselungsmodul (CDM) dar.
+  - : Repräsentiert einen Kontext für den Nachrichtenaustausch mit einem Content Decryption Module (CDM).
 - [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)
-  - : Eine schreibgeschützte Zuordnung der Medienschlüssel-Status nach Schlüssel-IDs.
+  - : Eine schreibgeschützte Zuordnung von Mediaschlüssel-Status nach Schlüssel-IDs.
 - [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)
-  - : Bietet Zugriff auf ein Schlüsselsystem zur Entschlüsselung und/oder einen Inhaltschutzanbieter.
+  - : Bietet Zugang zu einem Schlüsselsystem zur Entschlüsselung und/oder einem Inhaltschutzanbieter.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen für andere Schnittstellen
 
-Die Encrypted Media Extensions API erweitert die folgenden APIs und fügt die aufgeführten Funktionen hinzu.
+Die Encrypted Media Extensions API erweitert die folgenden APIs und fügt die aufgelisteten Funktionen hinzu.
 
 #### HTMLMediaElement
 
 - [`HTMLMediaElement.mediaKeys`](/de/docs/Web/API/HTMLMediaElement/mediaKeys) {{readonlyinline}}
-  - : Bietet ein [`MediaKeys`](/de/docs/Web/API/MediaKeys) Objekt, das die Gruppe von Schlüsseln darstellt, die das Element zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
+  - : Stellt ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt bereit, das den Satz von Schlüsseln repräsentiert, die das Element zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
 - [`HTMLMediaElement.setMediaKeys()`](/de/docs/Web/API/HTMLMediaElement/setMediaKeys)
   - : Legt die [`MediaKeys`](/de/docs/Web/API/MediaKeys) fest, die zur Entschlüsselung von Medien während der Wiedergabe verwendet werden.
-- [`encrypted` event](/de/docs/Web/API/HTMLMediaElement/encrypted_event)
-  - : Ereignis, das auf einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ausgelöst wird, wenn Initialisierungsdaten in den Medien gefunden werden, was darauf hinweist, dass diese verschlüsselt sind.
+- [`encrypted`-Ereignis](/de/docs/Web/API/HTMLMediaElement/encrypted_event)
+  - : Ereignis, das bei einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ausgelöst wird, wenn Initialisierungsdaten in den Medien erkannt werden, was darauf hinweist, dass sie verschlüsselt sind.
 
 #### Navigator
 
 - [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess)
-  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess) Objekt führt, das verwendet werden kann, um auf ein bestimmtes Medienschlüsselsystem zuzugreifen, das wiederum zur Erstellung von Schlüsseln zur Entschlüsselung eines Medienstroms verwendet werden kann.
+  - : Gibt ein {{jsxref('Promise')}} zurück, das sich zu einem [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Objekt erfüllt, das verwendet werden kann, um auf ein bestimmtes Mediaschlüsselsystem zuzugreifen, mit dem wiederum Schlüssel zur Entschlüsselung eines Medienstreams erstellt werden können.
 
 ## Spezifikationen
 

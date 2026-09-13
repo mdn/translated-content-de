@@ -1,14 +1,14 @@
 ---
-title: "WebTransport: reliability-Eigenschaft"
+title: "WebTransport: Eigenschaft reliability"
 short-title: reliability
 slug: Web/API/WebTransport/reliability
 l10n:
-  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
+  sourceCommit: e1e7e2ac2cb1e40293c32c24bc0667905e9a7a04
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`reliability`**-Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt an, ob die Verbindung nur zuverlässige Übertragungen unterstützt oder ob sie auch unzuverlässige Übertragungen (wie UDP) unterstützt.
+Die schreibgeschützte Eigenschaft **`reliability`** des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt an, ob die Verbindung nur zuverlässige Transporte unterstützt oder ob sie auch unzuverlässige Transporte (wie UDP) unterstützt.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein String mit einem der folgenden Werte:
   - : Die Verbindung wurde noch nicht hergestellt.
     Die Zuverlässigkeit ist noch nicht bekannt.
 - `reliable-only`
-  - : Die Verbindung unterstützt nur zuverlässige Übertragungen.
+  - : Die Verbindung unterstützt nur zuverlässige Transporte.
 - `supports-unreliable`
-  - : Die Verbindung unterstützt sowohl unzuverlässige als auch zuverlässige Übertragungen.
+  - : Die Verbindung unterstützt sowohl unzuverlässige als auch zuverlässige Transporte.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ async function initTransport(url) {
   // Initialize transport connection
   const transport = new WebTransport(url);
 
-  // Once ready fulfils the connection can be used
+  // Once ready fulfills the connection can be used
   // Prior to this the reliability is "pending"
   await transport.ready;
 

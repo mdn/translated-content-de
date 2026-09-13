@@ -1,16 +1,16 @@
 ---
-title: "Performance: measure() Methode"
+title: "Performance: measure()-Methode"
 short-title: measure()
 slug: Web/API/Performance/measure
 l10n:
-  sourceCommit: 5143045a1106f2e415985dec50f11d3cf5d1d4f9
+  sourceCommit: 03d7663c2965d67eca296f6a27aa8a651de7dfee
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`measure()`** Methode erstellt ein benanntes [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure) Objekt, das eine Zeitmessung zwischen zwei Marken in der Leistungstimeline des Browsers darstellt.
+Die **`measure()`**-Methode erstellt ein benanntes [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt, das eine Zeitmessung zwischen zwei Marken in der Leistungszeitleiste des Browsers darstellt.
 
-Beim Messen zwischen zwei Marken gibt es jeweils eine _Startmarke_ und eine _Endmarke_. Der benannte Zeitstempel wird als _Messung_ bezeichnet.
+Beim Messen zwischen zwei Marken gibt es eine _Startmarke_ und eine _Endmarke_. Der benannte Zeitstempel wird als _Measure_ bezeichnet.
 
 ## Syntax
 
@@ -22,106 +22,107 @@ measure(measureName, measureOptions)
 measure(measureName, measureOptions, endMark)
 ```
 
-Wenn nur `measureName` angegeben ist, wird der Startzeitstempel auf null gesetzt und der Endzeitstempel (der zur Berechnung der Dauer verwendet wird) ist der Wert, der von [`Performance.now()`](/de/docs/Web/API/Performance/now) zurückgegeben würde.
+Wenn nur `measureName` angegeben ist, wird der Start-Zeitstempel auf null gesetzt, und der End-Zeitstempel (der zur Berechnung der Dauer verwendet wird) ist der Wert, der von [`Performance.now()`](/de/docs/Web/API/Performance/now) zurückgegeben würde.
 
-Sie können Zeichenfolgen verwenden, um [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) Objekte als Start- und Endmarken zu identifizieren.
+Sie können Zeichenfolgen verwenden, um [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte als Start- und Endmarken zu identifizieren.
 
-Um nur eine `endMark` bereitzustellen, müssen Sie ein leeres `measureOptions` Objekt bereitstellen: `performance.measure("myMeasure", {}, "myEndMarker")`.
+Um nur eine `endMark` bereitzustellen, müssen Sie ein leeres `measureOptions`-Objekt verwenden:
+`performance.measure("myMeasure", {}, "myEndMarker")`.
 
 ### Parameter
 
 - `measureName`
-  - : Eine Zeichenfolge, die den Namen der Messung darstellt.
+  - : Ein String, der den Namen des Measure darstellt.
 
 - `measureOptions` {{optional_inline}}
   - : Ein Objekt, das Messoptionen enthalten kann.
     - `detail` {{optional_inline}}
-      - : Beliebige Metadaten, die in die Messung einbezogen werden sollen. Standardmäßig `null`. Muss [strukturklon-bar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Beliebige Metadaten, die im Measure enthalten sein sollen. Standardmäßig `null`. Muss [strukturiert klonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
         - `devtools`
-          - : Einige Browser verwenden ein strukturiertes `devtools` Objekt innerhalb des `detail` Objekts als Teil einer Extensibility API, die diese in benutzerdefinierten Spuren in Leistungstraces anzeigt. Siehe die [Chrome's Extensibility API-Dokumentation](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_the_user_timings_api) für weitere Informationen.
+          - : Einige Browser verwenden ein strukturiertes `devtools`-Objekt innerhalb des `detail`-Objekts als Teil einer Erweiterungs-API, die diese in benutzerdefinierte Spuren in Leistungs-Traces einbindet. Weitere Informationen finden Sie in der [Chrome's Extensibility API Dokumentation](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_the_user_timings_api).
             - `dataType` {{experimental_inline}}
-              - : Zeichenfolge mit dem Wert `track-entry` (zum Definieren einer neuen Spur) oder `marker` (zum Definieren eines Eintrags in einer Spur).
+              - : String mit einem Wert von `track-entry` (zum Definieren einer neuen Spur) oder `marker` (zum Definieren eines Eintrags in einer Spur).
             - `color` {{optional_inline}} {{experimental_inline}}
-              - : Standardmäßig `"primary"`. Muss eines der folgenden Werte sein: `"primary"`, `"primary-light"`, `"primary-dark"`, `"secondary"`, `"secondary-light"`, `"secondary-dark"`, `"tertiary"`, `"tertiary-light"`, `"tertiary-dark"`, `"error"`.
+              - : Standardmäßig `"primary"`. Muss einer der folgenden Werte sein: `"primary"`, `"primary-light"`, `"primary-dark"`, `"secondary"`, `"secondary-light"`, `"secondary-dark"`, `"tertiary"`, `"tertiary-light"`, `"tertiary-dark"`, `"error"`.
             - `track` {{optional_inline}} {{experimental_inline}}
-              - : Zeichenfolge des Namens der benutzerdefinierten Spur (erforderlich für `track-entry`).
+              - : String des Namens der benutzerdefinierten Spur (erforderlich für `track-entry`).
             - `trackGroup` {{optional_inline}} {{experimental_inline}}
-              - : Zeichenfolge des Namens der Gruppierung innerhalb einer benutzerdefinierten Spur (erforderlich für `track-entry`).
+              - : String des Namens der Gruppierung innerhalb einer benutzerdefinierten Spur (erforderlich für `track-entry`).
             - `properties` {{optional_inline}} {{experimental_inline}}
-              - : Array von Schlüssel-Wert-Paaren. Werte können jeden JSON-kompatiblen Typ haben.
+              - : Array aus Schlüssel-Wert-Paaren. Werte können jeder JSON-kompatible Typ sein.
             - `tooltipText` {{optional_inline}} {{experimental_inline}}
-              - : Kurze Beschreibung für Tooltip.
+              - : Kurze Beschreibung für das Tooltip.
 
     - `start` {{optional_inline}}
-      - : Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) der als Startzeit verwendet werden soll, oder eine Zeichenfolge, die eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, die als Startzeit verwendet werden soll.
+      - : Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)), der als Startzeit verwendet werden soll, oder ein String, der den Namen einer [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) angibt, die als Startzeit verwendet werden soll.
 
-        Wenn dies eine Zeichenfolge ist, die eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, dann ist diese in derselben Weise definiert wie `startMark`.
+        Wenn dies ein String ist, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, dann ist er auf die gleiche Weise wie `startMark` definiert.
 
     - `duration` {{optional_inline}}
-      - : Dauer (in Millisekunden) zwischen den Start- und Endmarkenzeiten. Wenn nicht angegeben, wird standardmäßig [`performance.now()`](/de/docs/Web/API/Performance/now) verwendet; die Zeit, die seit der Erstellung des Kontexts verstrichen ist. Wenn angegeben, müssen Sie entweder `start` oder `end` angeben, jedoch nicht beide.
+      - : Dauer (in Millisekunden) zwischen den Start- und Endmarkenzeiten. Wenn weggelassen, ist dies standardmäßig [`performance.now()`](/de/docs/Web/API/Performance/now); die Zeit, die seit der Erstellung des Kontexts verstrichen ist. Wenn angegeben, müssen Sie entweder `start` oder `end` angeben, aber nicht beide.
 
     - `end` {{optional_inline}}
-      - : Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) der als Endzeit verwendet werden soll, oder eine Zeichenfolge, die eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, die als Endzeit verwendet werden soll.
+      - : Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)), der als Endzeit verwendet werden soll, oder ein String, der den Namen einer [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) angibt, die als Endzeit verwendet werden soll.
 
-        Wenn dies eine Zeichenfolge ist, die eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, dann ist diese in derselben Weise definiert wie `endMark`.
+        Wenn dies ein String ist, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, dann ist er auf die gleiche Weise wie `endMark` definiert.
 
 - `startMark` {{optional_inline}}
-  - : Eine Zeichenfolge, die eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) in der Leistungstimeline benennt. Die [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) Eigenschaft dieser Marke wird zur Berechnung der Messung verwendet.
+  - : Ein String, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) in der Leistungszeitleiste benennt. Die [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime)-Eigenschaft dieser Marke wird zur Berechnung des Measure verwendet.
 
 - `endMark` {{optional_inline}}
-  - : Eine Zeichenfolge, die eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) in der Leistungstimeline benennt. Die [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) Eigenschaft dieser Marke wird zur Berechnung der Messung verwendet.
-    Wenn Sie dieses Argument übergeben möchten, müssen Sie entweder `startMark` oder ein leeres `measureOptions` Objekt übergeben.
+  - : Ein String, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) in der Leistungszeitleiste benennt. Die [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime)-Eigenschaft dieser Marke wird zur Berechnung des Measure verwendet.
+    Wenn Sie dieses Argument übergeben möchten, müssen Sie entweder `startMark` oder ein leeres `measureOptions`-Objekt übergeben.
 
 ### Rückgabewert
 
-Der erstellte [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure) Eintrag.
+Der [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Eintrag, der erstellt wurde.
 
-Die zurückgegebene _Messung_ wird folgende Eigenschaftswerte haben:
+Das zurückgegebene _Measure_ wird die folgenden Eigenschaftswerte haben:
 
-- [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) - auf `"measure"` gesetzt.
-- [`name`](/de/docs/Web/API/PerformanceEntry/name) - auf das `name` Argument gesetzt.
-- [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) - gesetzt auf:
-  - einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), falls in `measureOptions.start` angegeben.
-  - den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) einer Startmarke, falls in `measureOptions.start` oder `startMark` angegeben.
-  - einen Zeitstempel, der aus `measureOptions.end` und `measureOptions.duration` berechnet wurde (falls `measureOptions.start` nicht angegeben wurde).
-  - 0, falls er nicht angegeben ist und nicht aus anderen Werten bestimmt werden kann.
+- [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) - wird auf `"measure"` gesetzt.
+- [`name`](/de/docs/Web/API/PerformanceEntry/name) - wird auf das `name`-Argument gesetzt.
+- [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) - wird gesetzt auf:
+  - einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), wenn in `measureOptions.start` angegeben.
+  - den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) einer Startmarke, wenn in `measureOptions.start` oder `startMark` angegeben.
+  - einen Zeitstempel berechnet aus `measureOptions.end` und `measureOptions.duration` (wenn `measureOptions.start` nicht angegeben wurde).
+  - 0, wenn es nicht angegeben ist und nicht aus anderen Werten ermittelt werden kann.
 
-- [`duration`](/de/docs/Web/API/PerformanceEntry/duration) - auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) gesetzt, der die Dauer der Messung ist, die durch Subtrahieren des `startTime` vom Endzeitstempel berechnet wird.
+- [`duration`](/de/docs/Web/API/PerformanceEntry/duration) - wird auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) gesetzt, der die Dauer des Measure ist, berechnet durch Subtraktion der `startTime` vom End-Zeitstempel.
 
-  Der Endzeitstempel ist einer der folgenden:
-  - ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), falls in `measureOptions.end` angegeben.
-  - der [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) einer Endmarke, falls eine in `measureOptions.end` oder `endMark` angegeben ist.
-  - ein Zeitstempel, der aus `measureOptions.start` und `measureOptions.duration` berechnet wurde (falls `measureOptions.end` nicht angegeben wurde).
-  - der Wert, der von [`Performance.now()`](/de/docs/Web/API/Performance/now) zurückgegeben wird, falls keine Endmarke angegeben ist oder aus anderen Werten bestimmt werden kann.
+  Der End-Zeitstempel ist einer der folgenden:
+  - ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), wenn in `measureOptions.end` angegeben.
+  - der [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) einer Endmarke, wenn eine in `measureOptions.end` oder `endMark` angegeben ist.
+  - ein Zeitstempel berechnet aus `measureOptions.start` und `measureOptions.duration` (wenn `measureOptions.end` nicht angegeben wurde).
+  - der von [`Performance.now()`](/de/docs/Web/API/Performance/now) zurückgegebene Wert, wenn keine Endmarke angegeben ist oder aus anderen Werten ermittelt werden kann.
 
-- [`detail`](/de/docs/Web/API/PerformanceMeasure) - auf den in `measureOptions` übergebenen Wert gesetzt.
+- [`detail`](/de/docs/Web/API/PerformanceMeasure) - wird auf den Wert gesetzt, der in `measureOptions` übergeben wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Dies kann in jedem Fall ausgelöst werden, in dem der Start, das Ende oder die Dauer mehrdeutig sein könnten:
+  - : Dies kann in jedem Fall ausgelöst werden, in dem der Start, das Ende oder die Dauer möglicherweise mehrdeutig sind:
     - Sowohl `endMark` als auch `measureOptions` sind angegeben.
-    - `measureOptions` ist mit `duration` angegeben, aber ohne Angabe entweder von `start` oder `end`.
-    - `measureOptions` ist angegeben mit allen `start`, `end` und `duration`.
+    - `measureOptions` ist mit `duration` angegeben, ohne `start` oder `end` anzugeben.
+    - `measureOptions` ist mit allen `start`, `end` und `duration` angegeben.
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die benannte Marke existiert nicht.
-    - Eine Endmarke ist mit entweder `endMark` oder `measureOptions.end` angegeben, aber es gibt keine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) im Leistungsbuffer mit dem übereinstimmenden Namen.
-    - Eine Endmarke ist mit entweder `endMark` oder `measureOptions.end` angegeben, aber sie kann nicht konvertiert werden, um mit einem schreibgeschützten Attribut in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle übereinzustimmen.
-    - Eine Startmarke ist mit entweder `startMark` oder `measureOptions.start` angegeben, aber es gibt keine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) im Leistungsbuffer mit dem übereinstimmenden Namen.
-    - Eine Startmarke ist mit entweder `startMark` oder `measureOptions.start` angegeben, aber sie kann nicht konvertiert werden, um mit einem schreibgeschützten Attribut in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle übereinzustimmen.
+    - Eine Endmarke wird entweder mit `endMark` oder `measureOptions.end` angegeben, aber es gibt keine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) im Leistungsbuffer mit dem übereinstimmenden Namen.
+    - Eine Endmarke wird entweder mit `endMark` oder `measureOptions.end` angegeben, aber sie kann nicht in eine Übereinstimmung mit einem schreibgeschützten Attribut in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle umgewandelt werden.
+    - Eine Startmarke wird entweder mit `startMark` oder `measureOptions.start` angegeben, aber es gibt keine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) im Leistungsbuffer mit dem übereinstimmenden Namen.
+    - Eine Startmarke wird entweder mit `startMark` oder `measureOptions.start` angegeben, aber sie kann nicht in eine Übereinstimmung mit einem schreibgeschützten Attribut in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle umgewandelt werden.
 
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der `measureOptions.detail` Wert ist nicht-`null` und kann nicht unter Verwendung des HTML "StructuredSerialize" Algorithmus serialisiert werden.
+  - : Der `measureOptions.detail`-Wert ist nicht-`null` und kann nicht mit dem HTML-Algorithmus "StructuredSerialize" serialisiert werden.
 
 - {{jsxref("RangeError")}}
-  - : Der `measureOptions.detail` Wert ist nicht-`null` und es kann während der Serialisierung unter Verwendung des HTML "StructuredSerialize" Algorithmus kein Speicher zugewiesen werden.
+  - : Der `measureOptions.detail`-Wert ist nicht-`null` und der Speicher kann während der Serialisierung mit dem HTML-Algorithmus "StructuredSerialize" nicht zugeteilt werden.
 
 ## Beispiele
 
 ### Messen der Dauer zwischen benannten Markern
 
-Angenommen, Sie haben zwei eigene Marker `"login-started"` und `"login-finished"`, können Sie eine Messung namens `"login-duration"` erstellen, wie im folgenden Beispiel gezeigt. Das zurückgegebene [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure) Objekt stellt dann eine `duration` Eigenschaft bereit, die Ihnen die verstrichene Zeit zwischen den beiden Markern anzeigt.
+Angenommen, Sie haben zwei eigene Marker, `"login-started"` und `"login-finished"`, können Sie eine Messung mit dem Namen `"login-duration"` erstellen, wie im folgenden Beispiel gezeigt. Das zurückgegebene [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt stellt dann eine `duration`-Eigenschaft bereit, die Ihnen die vergangene Zeit zwischen den beiden Markern angibt.
 
 ```js
 const loginMeasure = performance.measure(
@@ -134,7 +135,7 @@ console.log(loginMeasure.duration);
 
 ### Messen der Dauer mit benutzerdefinierten Start- und Endzeiten
 
-Um fortschrittlichere Messungen durchzuführen, können Sie einen `measureOptions` Parameter übergeben. Zum Beispiel können Sie die [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp) Eigenschaft eines [`click` Events](/de/docs/Web/API/Element/click_event) als Startzeit verwenden.
+Um fortgeschrittenere Messungen durchzuführen, können Sie einen `measureOptions`-Parameter übergeben. Beispielsweise können Sie die [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft eines [`click`-Events](/de/docs/Web/API/Element/click_event) als Startzeit verwenden.
 
 ```js
 performance.measure("login-click", {
@@ -143,9 +144,9 @@ performance.measure("login-click", {
 });
 ```
 
-### Bereitstellen zusätzlicher Messdetails
+### Zusätzliche Messdetails bereitstellen
 
-Sie können die `details` Eigenschaft verwenden, um zusätzliche Informationen beliebigen Typs bereitzustellen. Vielleicht möchten Sie zum Beispiel festhalten, welches HTML-Element angeklickt wurde.
+Sie können die `details`-Eigenschaft verwenden, um zusätzliche Informationen jeglicher Art bereitzustellen. Vielleicht möchten Sie aufzeichnen, welches HTML-Element angeklickt wurde.
 
 ```js
 performance.measure("login-click", {
@@ -157,7 +158,7 @@ performance.measure("login-click", {
 
 ### DevTools Extensibility API
 
-Für Browser, die die [Extensibility API](https://developer.chrome.com/docs/devtools/performance/extension) unterstützen, können Sie den `detail` Parameter verwenden, um mehr Details in einem `devtools` Objekt bereitzustellen, das in Leistungsprofilen angezeigt wird:
+Für Browser, die die [Extensibility API](https://developer.chrome.com/docs/devtools/performance/extension) unterstützen, können Sie den `detail`-Parameter verwenden, um weitere Details in einem `devtools`-Objekt bereitzustellen, das zur Anzeige in Leistungsprofilen verwendet wird:
 
 ```js
 const imageProcessingTimeStart = performance.now();

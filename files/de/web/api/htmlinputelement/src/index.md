@@ -3,14 +3,14 @@ title: "HTMLInputElement: src-Eigenschaft"
 short-title: src
 slug: Web/API/HTMLInputElement/src
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 61986210fa785119daed1c121491fef615ec2bc8
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`src`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle legt die Quelle eines Bildes fest, das als grafische Schaltfläche für das Absenden angezeigt werden soll. Sie spiegelt das [`src`](/de/docs/Web/HTML/Reference/Elements/input#src)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`src`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt die Quelle eines Bildes an, das als grafische Senden-Schaltfläche angezeigt werden soll. Sie spiegelt das [`src`](/de/docs/Web/HTML/Reference/Elements/input#src)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `src`-Eigenschaft ist nur für den [`image`](/de/docs/Web/HTML/Reference/Elements/input/image)-Typ gültig.
+Die `src`-Eigenschaft ist nur für den Typ [`image`](/de/docs/Web/HTML/Reference/Elements/input/image) gültig.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein String.
 
 ```js
 const inputElement = document.getElementById("imageButton");
-console.log(input.src);
+console.log(inputElement.src);
 ```
 
 ## Spezifikationen

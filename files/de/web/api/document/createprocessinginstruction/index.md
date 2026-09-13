@@ -1,16 +1,14 @@
 ---
-title: "Dokument: createProcessingInstruction() Methode"
+title: "Dokument: Methode createProcessingInstruction()"
 short-title: createProcessingInstruction()
 slug: Web/API/Document/createProcessingInstruction
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: b449f4c0a3d1a9cf33ac0c49c685cbf000cc829e
 ---
 
 {{APIRef("DOM")}}
 
-`createProcessingInstruction()` erzeugt ein neues [Verarbeitungsanweisungs](/de/docs/Web/API/ProcessingInstruction)-Knoten und gibt es zurück.
-
-Der neue Knoten wird normalerweise in ein XML-Dokument eingefügt, um damit etwas zu erreichen, wie zum Beispiel mit [`node.insertBefore`](/de/docs/Web/API/Node/insertBefore).
+Die **`createProcessingInstruction()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle erstellt ein neues [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Objekt und gibt es zurück.
 
 ## Syntax
 
@@ -20,25 +18,33 @@ createProcessingInstruction(target, data)
 
 ### Parameter
 
-- `piNode`
-  - : Der resultierende [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten.
 - `target`
   - : Ein String, der den ersten Teil der Verarbeitungsanweisung enthält (d.h. `<?target … ?>`)
 - `data`
-  - : Ein String, der alle Informationen enthält, die die Verarbeitungsanweisung transportieren soll, nach dem Ziel. Die Daten liegen bei Ihnen, aber sie können nicht `?>` enthalten, da das die Verarbeitungsanweisung schließt.
+  - : Ein String, der alle Informationen enthält, die die Verarbeitungsanweisung nach dem Target tragen sollte. Die Daten können jedes Zeichenmuster enthalten, außer dass sie nicht `?>` enthalten dürfen, da dies die Verarbeitungsanweisung schließt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+- Ein [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eines der folgenden zutrifft:
-    - Der [`target`](#target)-Wert ist kein gültiger [XML-Name](https://www.w3.org/TR/xml/#dt-name); beispielsweise beginnt er mit einer Zahl, einem Bindestrich oder Punkt oder enthält andere Zeichen als alphanumerische Zeichen, Unterstriche, Bindestriche oder Punkte.
-    - Die _abschließende Verarbeitungsanweisungssequenz_ (`?>`) ist Teil des [`data`](#data)-Wertes.
+    - Der [`target`](#target)-Wert ist kein gültiger [XML-Name](https://www.w3.org/TR/xml/#dt-name); zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder einem Punkt beginnt oder Zeichen enthält, die keine alphanumerischen Zeichen, Unterstriche, Bindestriche oder Punkte sind.
+    - Die _abschließende Verarbeitungsanweisungssequenz_ (`?>`) ist als Teil des [`data`](#data)-Wertes enthalten.
+
+## Beschreibung
+
+Die Methode `createProcessingInstruction()` erstellt eine neue Verarbeitungsanweisung. Der neue Knoten wird üblicherweise in ein Dokument eingefügt, um eine Aufgabe damit zu erledigen, mit einer Methode wie [`node.insertBefore`](/de/docs/Web/API/Node/insertBefore).
+
+Ursprünglich wurden `ProcessingInstruction`-Knoten nur in XML-Dokumenten unterstützt, nicht in HTML-Dokumenten. In nicht unterstützenden Browsern wird eine Verarbeitungsanweisung als Kommentar interpretiert und im DOM-Baum als [`Comment`](/de/docs/Web/API/Comment)-Objekt dargestellt.
 
 ## Beispiele
+
+### Grundlegende Nutzung
+
+Dieses Beispiel erstellt eine `<xml-stylesheet>`-Verarbeitungsanweisung und fügt sie oben in ein Beispiel-XML-Dokument ein.
 
 ```js
 const doc = new DOMParser().parseFromString("<foo />", "application/xml");

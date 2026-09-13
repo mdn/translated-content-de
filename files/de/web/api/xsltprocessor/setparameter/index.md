@@ -1,14 +1,14 @@
 ---
-title: "XSLTProcessor: setParameter()-Methode"
+title: "XSLTProcessor: setParameter() Methode"
 short-title: setParameter()
 slug: Web/API/XSLTProcessor/setParameter
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
 {{APIRef("DOM")}}
 
-Die `setParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im im Prozessor importierten Stylesheet.
+Die `setParameter()` Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Schnittstelle setzt den Wert eines Parameters (`<xsl:param>`) im Stylesheet, das in den Prozessor importiert wurde.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ setParameter(namespaceURI, localName, value)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
+  - : Der Namensraum, der mit dem Parameternamen verbunden ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird genauso behandelt wie der leere String (`""`).
 - `localName`
-  - : Der Name des Parameters im zugehörigen Namespace.
+  - : Der Name des Parameters im zugehörigen Namensraum.
 - `value`
   - : Der Wert des Parameters.
     > [!NOTE]
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von setParameter()
 
-Dieses Beispiel zeigt, wie man Parameter von JavaScript an ein XSLT-Stylesheet mit `setParameter()` übergibt, um eine dynamische Modifikation der Transformationsausgabe basierend auf diesen Parametern zu ermöglichen.
+Dieses Beispiel zeigt, wie man Parameter von JavaScript an ein XSLT-Stylesheet übergibt, indem `setParameter()` verwendet wird, was eine dynamische Anpassung der Transformationsausgabe basierend auf diesen Parametern ermöglicht.
 
 #### HTML
 

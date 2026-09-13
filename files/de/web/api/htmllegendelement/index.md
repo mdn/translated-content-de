@@ -2,27 +2,27 @@
 title: HTMLLegendElement
 slug: Web/API/HTMLLegendElement
 l10n:
-  sourceCommit: 31adb079729df4b96305b4ffa396bd4216042124
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLLegendElement`**-Schnittstelle ermöglicht den Zugriff auf Eigenschaften der {{HTMLElement("legend")}}-Elemente. Sie erbt Eigenschaften und Methoden von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+Das **`HTMLLegendElement`** ist eine Schnittstelle, die Ihnen den Zugriff auf Eigenschaften der {{HTMLElement("legend")}}-Elemente ermöglicht. Es erbt Eigenschaften und Methoden von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem übergeordneten [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLLegendElement.align`](/de/docs/Web/API/HTMLLegendElement/align) {{deprecated_inline}}
-  - : Ein String, der die Ausrichtung relativ zum Formularsatz darstellt.
+  - : Ein String, der die Ausrichtung relativ zur Formulargruppe darstellt.
 - [`HTMLLegendElement.form`](/de/docs/Web/API/HTMLLegendElement/form) {{ReadOnlyInline}}
-  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular repräsentiert, zu dem diese Legende gehört. Wenn die Legende ein `fieldset`-Element als Elternteil hat, dann gibt dieses Attribut denselben Wert zurück wie das **form**-Attribut des übergeordneten `fieldset`-Elements. Andernfalls wird `null` zurückgegeben.
+  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular darstellt, zu dem diese Legende gehört. Wenn die Legende ein Fieldset-Element als übergeordnetes Element hat, gibt dieses Attribut denselben Wert zurück wie das **form**-Attribut des übergeordneten Fieldset-Elements. Andernfalls gibt es `null` zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem übergeordneten [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

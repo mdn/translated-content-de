@@ -1,14 +1,14 @@
 ---
-title: "FileSystemEntry: getMetadata() Methode"
+title: "FileSystemEntry: getMetadata()-Methode"
 short-title: getMetadata()
 slug: Web/API/FileSystemEntry/getMetadata
 l10n:
-  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("File and Directory Entries API")}}{{Non-standard_Header}}
 
-Die Methode **`getMetadata()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces erhält ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über den Dateisystemeintrag, wie das Änderungsdatum und die Größe.
+Die Methode **`getMetadata()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces erhält ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über den Dateisystemeintrag, wie z.B. dessen Änderungsdatum und -zeit sowie dessen Größe.
 
 ## Syntax
 
@@ -20,10 +20,9 @@ getMetadata(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Funktion, die aufgerufen wird, wenn der Kopiervorgang erfolgreich abgeschlossen ist.
-    Sie empfängt einen einzelnen Eingabeparameter: ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über die Datei.
+  - : Eine Funktion, die aufgerufen wird, wenn die Kopieroperation erfolgreich abgeschlossen ist. Sie erhält einen einzelnen Eingabeparameter: ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über die Datei.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Callback, der ausgeführt wird, wenn ein Fehler bei der Abfrage der Metadaten auftritt. Es gibt einen einzigen Parameter: ein [`DOMException`](/de/docs/Web/API/DOMException), das beschreibt, was schiefgelaufen ist.
+  - : Ein optionaler Rückruf, der ausgeführt wird, falls beim Nachschlagen der Metadaten ein Fehler auftritt. Es gibt einen einzigen Parameter: ein [`DOMException`](/de/docs/Web/API/DOMException), der beschreibt, was schief gegangen ist.
 
 ### Rückgabewert
 
@@ -34,11 +33,11 @@ Keiner ({{jsxref("undefined")}}).
 - `DOMException.NOT_FOUND_ERR`
   - : Der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) bezieht sich auf ein Element, das nicht existiert.
 - `DOMException.SECURITY_ERR`
-  - : Sicherheitsbeschränkungen verbieten das Abrufen der angeforderten Metadaten.
+  - : Sicherheitsbeschränkungen verhindern das Abrufen der angeforderten Metadaten.
 
 ## Beispiele
 
-Dieses Beispiel überprüft die Größe einer Protokolldatei in einem temporären Ordner und verschiebt sie in ein anderes Verzeichnis, wenn sie mehr als ein Megabyte überschreitet.
+Dieses Beispiel überprüft die Größe einer Logdatei in einem temporären Ordner und verschiebt sie in ein anderes Verzeichnis, wenn sie mehr als ein Megabyte überschreitet.
 
 ```js
 workingDirectory.getFile(

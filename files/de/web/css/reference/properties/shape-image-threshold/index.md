@@ -3,10 +3,12 @@ title: "`shape-image-threshold` CSS property"
 short-title: shape-image-threshold
 slug: Web/CSS/Reference/Properties/shape-image-threshold
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Alpha-Kanal-Schwellenwert fest, der zur Extraktion der Form mittels eines Bildes als Wert für {{cssxref("shape-outside")}} verwendet wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`shape-image-threshold`** legt den Schwellenwert des Alphakanals fest, der verwendet wird, um die Form zu extrahieren, wenn ein Bild als Wert für {{cssxref("shape-outside")}} verwendet wird.
+
+Alle Pixel, deren Alphakomponentenwert größer als der Schwellenwert ist, werden zum Zweck der Bestimmung ihrer Begrenzungen als Teil der Form betrachtet. Beispielsweise bedeutet ein Wert von `0.5`, dass die Form alle Pixel umschließt, die zu mehr als 50 % deckend sind.
 
 {{InteractiveExample("CSS Demo: shape-image-threshold")}}
 
@@ -76,8 +78,6 @@ shape-image-threshold: 0.6;
 }
 ```
 
-Alle Pixel, deren Alpha-Komponente den Schwellenwert überschreitet, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Ein Wert von `0.5` bedeutet beispielsweise, dass die Form alle Pixel umfasst, die mehr als 50 % undurchsichtig sind.
-
 ## Syntax
 
 ```css
@@ -95,7 +95,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Legt den Schwellenwert fest, der zur Extraktion einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alpha-Wert größer als der Schwellenwert ist. Werte außerhalb des Bereichs 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
+  - : Legt den Schwellenwert fest, der zum Extrahieren einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alphawert größer als der Schwellenwert ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig deckend) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -107,9 +107,9 @@ shape-image-threshold: unset;
 
 ## Beispiele
 
-### Text an einem Verlauf ausrichten
+### Text an einem Farbverlauf ausrichten
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Verlauf als Hintergrundbild. Der Verlauf wird als CSS-Form mittels `shape-outside` etabliert, sodass Pixel innerhalb des Verlaufs, die mindestens 20 % undurchsichtig sind (d.h. Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
+Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Hintergrundbild aus einem Farbverlauf. Der Farbverlauf wird mithilfe von `shape-outside` als CSS-Form festgelegt, sodass Pixel innerhalb des Farbverlaufs, die mindestens 20 % deckend sind (also Pixel mit einer Alphakomponente größer als 0.2), als Teil der Form betrachtet werden.
 
 #### HTML
 
@@ -143,9 +143,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Verlauf al
 }
 ```
 
-Die Form wird hier durch {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei festgelegt. Der gleiche Verlauf wird auch als das Bild verwendet, aus dem die Form zur Festlegung des Umbruchbereichs abgeleitet wird, mittels der {{cssxref("shape-outside")}}-Eigenschaft.
+Die Form wird hier mithilfe von {{cssxref("background-image")}} mit einem linearen Farbverlauf statt mit einer Bilddatei festgelegt. Derselbe Farbverlauf wird auch als Bild verwendet, aus dem die Form abgeleitet wird, um mithilfe der Eigenschaft {{cssxref("shape-outside")}} den Float-Bereich festzulegen.
 
-Der 20 %-Opacity-Schwellenwert, um Verlaufs-Pixel als Teil der Form zu behandeln, wird dann durch `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
+Der Schwellenwert von 20 % Deckkraft, ab dem Farbverlaufspixel als Teil der Form behandelt werden, wird dann mit `shape-image-threshold` und einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 

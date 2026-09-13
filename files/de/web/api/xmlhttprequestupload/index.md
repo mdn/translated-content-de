@@ -2,32 +2,32 @@
 title: XMLHttpRequestUpload
 slug: Web/API/XMLHttpRequestUpload
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequestUpload`**-Schnittstelle repräsentiert den Upload-Prozess für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _intransparentes_ Objekt, das den darunterliegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch den Aufruf von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) erhalten werden.
+Das **`XMLHttpRequestUpload`** Interface repräsentiert den Upload-Prozess für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _undurchsichtiges_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufruf von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) erhalten werden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften, sondern erbt die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface hat keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden, sondern erbt die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface hat keine spezifischen Methoden, erbt jedoch die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_Diese Schnittstelle hat keine spezifischen Ereignisse, aber erbt die Ereignisse von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget)._
+_Dieses Interface hat keine spezifischen Ereignisse, erbt jedoch die Ereignisse von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget)._
 
 ## Beispiele
 
 ### Hochladen einer Datei mit einem Timeout
 
-Damit können Sie eine Datei zu einem Server hochladen; während des Uploads wird eine Fortschrittsanzeige angezeigt sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Ein Abbrechen-Button ermöglicht es, einen Upload zu stoppen.
+Hiermit können Sie eine Datei auf einen Server hochladen; es wird eine Fortschrittsanzeige angezeigt, während der Upload erfolgt, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Ein Abbrechen-Button ermöglicht es Ihnen, einen Upload zu stoppen.
 
 #### HTML
 

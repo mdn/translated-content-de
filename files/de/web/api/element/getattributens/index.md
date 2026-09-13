@@ -1,41 +1,37 @@
 ---
-title: "Element: getAttributeNS() Methode"
+title: "Element: getAttributeNS()-Methode"
 short-title: getAttributeNS()
 slug: Web/API/Element/getAttributeNS
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: f22f67069495dc37e550e354913d4ca984f5a4b0
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getAttributeNS()`** Methode des [`Element`](/de/docs/Web/API/Element)
-Interfaces gibt den String-Wert des Attributs mit dem angegebenen Namensraum und Namen zurück. Wenn das benannte Attribut nicht existiert, wird entweder `null` oder `""` (der leere String) zurückgegeben; siehe [Hinweise](#hinweise) für Details.
+Die **`getAttributeNS()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt den Zeichenfolgenwert des angegebenen Namespaced-Attributs des angegebenen Elements zurück. Sie gibt `null` zurück, wenn das Element kein Attribut mit dem angegebenen Namen im Namespace hat.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht explizit als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und Sie das angeforderte Attribut nicht als Teil eines bestimmten Namespaces angeben müssen, verwenden Sie stattdessen die [`getAttribute()`](/de/docs/Web/API/Element/getAttribute)-Methode.
 
 ## Syntax
 
 ```js-nolint
-getAttributeNS(namespace, name)
+getAttributeNS(namespace, localName)
 ```
 
 ### Parameter
 
 - `namespace`
-  - : Der Namensraum, in dem nach dem angegebenen Attribut gesucht werden soll.
-- `name`
-  - : Der Name des zu suchenden Attributs.
+  - : Ein String, der den Namespace des Attributs angibt, oder `null` für keinen expliziten Namespace.
+- `localName`
+  - : Ein String, der den Namen des Attributs angibt.
 
 ### Rückgabewert
 
-Der String-Wert des angegebenen Attributs. Wenn das Attribut nicht existiert, ist das Ergebnis `null`.
-
-> [!NOTE]
-> Frühere Versionen der DOM-Spezifikation beschrieben diese Methode als eine leere Zeichenkette für nicht existierende Attribute zurückzugeben, aber es wurde typischerweise nicht so implementiert, da null sinnvoller ist. Die DOM4-Spezifikation sagt jetzt, dass diese Methode null für nicht existierende Attribute zurückgeben sollte.
+Eine Zeichenfolge, die den Wert des Attributs enthält, oder `null`, wenn das Element kein Attribut mit dem angegebenen Namen hat.
 
 ## Beispiele
 
-Das folgende SVG-Dokument liest den Wert des `foo` Attributs in einem benutzerdefinierten Namensraum.
+Das folgende SVG-Dokument liest den Wert des `foo`-Attributs in einem benutzerdefinierten Namespace.
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +49,7 @@ Das folgende SVG-Dokument liest den Wert des `foo` Attributs in einem benutzerde
 </svg>
 ```
 
-In einem HTML-Dokument muss auf das Attribut mit `test:foo` zugegriffen werden, da Namensräume nicht unterstützt werden.
+In einem HTML-Dokument muss auf das Attribut mit `test:foo` zugegriffen werden, da Namespaces nicht unterstützt werden.
 
 ```html
 <svg
@@ -78,13 +74,6 @@ const ns = "http://www.example.com/2014/test";
 const circle = document.getElementById("target");
 console.log(`Attribute value: ${circle.getAttribute("test:foo")}`);
 ```
-
-## Hinweise
-
-`getAttributeNS()` unterscheidet sich von [`getAttribute()`](/de/docs/Web/API/Element/getAttribute)
-darin, dass Sie das angeforderte Attribut weiter als Teil eines bestimmten Namensraums angeben können, wie im obigen Beispiel, wo das Attribut Teil des fiktiven "test" Namensraums ist.
-
-Vor der DOM4-Spezifikation war diese Methode so spezifiziert, dass sie eine leere Zeichenkette anstelle von null für nicht existierende Attribute zurückgab. Die meisten Browser gaben jedoch stattdessen null zurück. Ab DOM4 sagt die Spezifikation nun, dass null zurückgegeben werden soll. Einige ältere Browser geben jedoch eine leere Zeichenkette zurück. Aus diesem Grund sollten Sie [`hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS) verwenden, um die Existenz eines Attributs zu überprüfen, bevor Sie `getAttributeNS()` aufrufen, wenn es möglich ist, dass das angeforderte Attribut auf dem angegebenen Element nicht existiert.
 
 ## Spezifikationen
 

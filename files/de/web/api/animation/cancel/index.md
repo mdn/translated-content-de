@@ -3,15 +3,15 @@ title: "Animation: cancel() Methode"
 short-title: cancel()
 slug: Web/API/Animation/cancel
 l10n:
-  sourceCommit: ee20ce74eefdb7612f16c575667ad6a3b17b7d9e
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die **`cancel()`** Methode des [Web Animations API](/de/docs/Web/API/Web_Animations_API) der [`Animation`](/de/docs/Web/API/Animation) Schnittstelle entfernt alle durch diese Animation verursachten [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)s und bricht deren Wiedergabe ab.
+Die **`cancel()`** Methode des [Web Animations API](/de/docs/Web/API/Web_Animations_API) der Schnittstelle [`Animation`](/de/docs/Web/API/Animation) löscht alle durch diese Animation verursachten [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)s und bricht die Wiedergabe ab.
 
 > [!NOTE]
-> Wenn eine Animation abgebrochen wird, werden ihr [`startTime`](/de/docs/Web/API/Animation/startTime) und [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf `null` gesetzt.
+> Wenn eine Animation abgebrochen wird, werden [`startTime`](/de/docs/Web/API/Animation/startTime) und [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf `null` gesetzt.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode wirft keine Ausnahmen direkt; jedoch, wenn der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch anders als `"idle"` ist, wird das [aktuelle abgeschlossene Versprechen](/de/docs/Web/API/Animation/finished) mit einem [`DOMException`](/de/docs/Web/API/DOMException) namens `AbortError` abgelehnt.
+Diese Methode wirft direkt keine Ausnahmen; jedoch, wenn der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch nicht `"idle"` ist, wird das [aktuelle fertige Versprechen](/de/docs/Web/API/Animation/finished) mit einem [`DOMException`](/de/docs/Web/API/DOMException) namens `AbortError` abgelehnt.
 
 ## Spezifikationen
 

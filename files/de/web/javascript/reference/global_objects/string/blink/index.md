@@ -3,15 +3,13 @@ title: String.prototype.blink()
 short-title: blink()
 slug: Web/JavaScript/Reference/Global_Objects/String/blink
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-Die **`blink()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem `<blink>`-Element einbettet (`<blink>str</blink>`), was in alten Browsern dazu führte, dass ein String blinkte.
+Die **`blink()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem `<blink>`-Element einbettet (`<blink>str</blink>`), was in alten Browsern dazu führte, dass der Text blinkte.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `blink()` wurde das `<blink>`-Element selbst aus modernen Browsern entfernt, und blinkender Text wird von mehreren Zugänglichkeitsstandards abgelehnt. Vermeiden Sie die Verwendung des Elements auf jegliche Art.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `blink()` wurde das `<blink>`-Element selbst aus modernen Browsern entfernt, und blinkender Text wird von mehreren Zugänglichkeitsstandards abgelehnt. Vermeiden Sie die Verwendung dieses Elements in jeglicher Form.
 
 ## Syntax
 
@@ -25,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<blink>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</blink>`-End-Tag endet.
+Ein String, der mit einem `<blink>`-Start-Tag beginnt, gefolgt von dem Text `str`, und dann einem `</blink>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von blink()
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Dokumentkörper damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -39,16 +37,16 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.blink();
 ```
 
-Dies wird das folgende HTML erstellen:
+Dies erzeugt das folgende HTML:
 
 ```html
 <blink>Hello, world</blink>
 ```
 
 > [!WARNING]
-> Dieses Markup ist ungültig, da `blink` kein gültiges Element mehr ist.
+> Diese Markierung ist ungültig, da `blink` kein gültiges Element mehr ist.
 
-Sie sollten blinkende Elemente generell vermeiden.
+Sie sollten blinkende Elemente gänzlich vermeiden.
 
 ## Spezifikationen
 

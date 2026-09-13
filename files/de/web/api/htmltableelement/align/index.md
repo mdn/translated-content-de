@@ -3,17 +3,16 @@ title: "HTMLTableElement: align-Eigenschaft"
 short-title: align
 slug: Web/API/HTMLTableElement/align
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.align`**-Eigenschaft steht für die
-Ausrichtung der Tabelle.
+Die **`HTMLTableElement.align`**-Eigenschaft repräsentiert die Ausrichtung der Tabelle.
 
 ## Wert
 
-Einer der folgenden Zeichenkettenwerte:
+Einer der folgenden Zeichenfolgenwerte:
 
 - `left`
 - `center`

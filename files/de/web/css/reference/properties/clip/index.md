@@ -3,15 +3,13 @@ title: "`clip` CSS property"
 short-title: clip
 slug: Web/CSS/Reference/Properties/clip
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
 ---
 
-{{Deprecated_Header}}
-
 > [!WARNING]
-> Autoren wird empfohlen, stattdessen die Eigenschaft {{cssxref("clip-path")}} zu verwenden.
+> Autoren wird empfohlen, stattdessen die {{cssxref("clip-path")}}-Eigenschaft zu verwenden.
 
-Die **`clip`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen sichtbaren Bereich eines Elements. Die `clip`-Eigenschaft gilt nur für absolut positionierte Elemente, das heißt, Elemente mit {{cssxref("position","position:absolute")}} oder {{cssxref("position","position:fixed")}}.
+Die **`clip`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen sichtbaren Abschnitt eines Elements. Die `clip`-Eigenschaft gilt nur für absolut positionierte Elemente — das heißt, Elemente mit {{cssxref("position","position:absolute")}} oder {{cssxref("position","position:fixed")}}.
 
 ## Syntax
 
@@ -32,16 +30,18 @@ clip: unset;
 
 ### Werte
 
-- `rect()`
-  - : Ein Rechteck, definiert durch eine `rect()`-Funktion der Form `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` sind Abstände vom _inneren oberen Rand des Rahmens_ der Box, während `<right>` und `<left>` Abstände vom _inneren linken Rand des Rahmens_ der Box sind – also vom Umfang des Innenraums der Box.
+Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste angegeben:
 
-    Die Werte `<top>`, `<right>`, `<bottom>`, und `<left>` können entweder eine {{cssxref("&lt;length&gt;")}} oder `auto` sein. Wenn der Wert einer Seite `auto` ist, wird das Element an der _inneren Rahmenkante_ dieser Seite abgeschnitten.
+- `rect()`
+  - : Ein Rechteck, das mit einer `rect()`-Funktion der Form `rect(<top>, <right>, <bottom>, <left>)` definiert wird. Die `<top>`- und `<bottom>`-Werte sind Versätze vom _inneren oberen Rand_ des Rahmens, während `<right>` und `<left>` Versätze vom _inneren linken Rand_ des Rahmens sind — das bedeutet, die Ausdehnung des Innenabstandsrahmens.
+
+    Die `<top>`, `<right>`, `<bottom>` und `<left>` Werte können entweder eine {{cssxref("&lt;length&gt;")}} oder `auto` sein. Wenn ein Wert einer Seite `auto` ist, wird das Element bis zur _inneren Rahmenkante_ dieser Seite geschnitten.
 
 > [!NOTE]
-> Die in der veralteten `clip`-Eigenschaft verwendete `rect()`-{{cssxref("shape")}}-Funktion unterscheidet sich von der CSS-{{cssxref("basic-shape/rect","rect()")}}-Funktion, die verwendet wird, um eine CSS-{{cssxref("basic-shape")}} zu definieren.
+> Die `rect()` {{cssxref("shape")}}-Funktion, die in der veralteten `clip`-Eigenschaft verwendet wird, unterscheidet sich von der CSS {{cssxref("basic-shape/rect","rect()")}}-Funktion, die zur Definition einer CSS {{cssxref("basic-shape")}} verwendet wird.
 
 - `auto`
-  - : Das Element wird nicht abgeschnitten (Standard). Dies ist anders als `rect(auto, auto, auto, auto)`, welches das Element an den inneren Rahmenkanten abschneidet.
+  - : Das Element wird nicht geschnitten (Standard). Dies unterscheidet sich von `rect(auto, auto, auto, auto)`, das bis zu den inneren Rahmenkanten des Elements schneidet.
 
 ## Formale Definition
 

@@ -3,16 +3,17 @@ title: "RTCError: sentAlert-Eigenschaft"
 short-title: sentAlert
 slug: Web/API/RTCError/sentAlert
 l10n:
-  sourceCommit: e7f93b8ebd8b26bd6fae71f7b0b6214a671a4ef9
+  sourceCommit: 581220b4299dd4c44544f7c200440129067a9d9d
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`sentAlert`** des [`RTCError`](/de/docs/Web/API/RTCError)-Interfaces gibt die {{Glossary("DTLS", "DTLS")}}-Alarmnummer an, die an den entfernten Peer gesendet wurde, falls der Fehler einen ausgehenden DTLS-Fehler darstellt.
+Die schreibgeschützte **`sentAlert`**-Eigenschaft des [`RTCError`](/de/docs/Web/API/RTCError)-Interfaces gibt die {{Glossary("DTLS", "DTLS")}}-Alarmnummer an, die an das Remote-Peer gesendet wurde, falls der Fehler einen ausgehenden DTLS-Fehler darstellt.
 
 ## Wert
 
-Ein positiver ganzzahliger Wert, der die DTLS-Alarmnummer angibt, die dem DTLS-Fehler entspricht, der an den entfernten Peer gesendet wurde, wie es durch dieses `RTCError`-Objekt dargestellt wird. Diese Eigenschaft ist `null`, wenn [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) nicht `dtls-failure` lautet.
+Ein positiver Ganzzahlwert, der die DTLS-Alarmnummer angibt, die dem DTLS-Fehler entspricht, der an das Remote-Peer gesendet wurde, wie durch dieses `RTCError`-Objekt dargestellt.
+Diese Eigenschaft ist `null`, wenn [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) nicht `dtls-failure` ist.
 
 ## Spezifikationen
 

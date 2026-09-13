@@ -2,23 +2,23 @@
 title: SharedStorageSelectURLOperation
 slug: Web/API/SharedStorageSelectURLOperation
 l10n:
-  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}
 
-Die **`SharedStorageSelectURLOperation`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert eine [URL-Auswahl-Ausgabeschranke](/de/docs/Web/API/Shared_Storage_API#url_selection)-Operation.
+Die **`SharedStorageSelectURLOperation`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert einen [URL-Auswahlausgangs-Gate](/de/docs/Web/API/Shared_Storage_API#url_selection)-Vorgang.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`run()`](/de/docs/Web/API/SharedStorageSelectURLOperation/run) {{Deprecated_Inline}}
-  - : Definiert die Struktur, welcher die `run()`-Methode, die innerhalb einer URL-Auswahl-Ausgabeschranke-Operation definiert ist, entsprechen sollte.
+  - : Definiert die Struktur, der die innerhalb eines URL-Auswahlausgangs-Gate-Vorgangs definierte `run()`-Methode entsprechen sollte.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Klasse namens `SelectURLOperation` in einem Worklet definiert und mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) unter dem Namen `ab-testing` registriert. `SharedStorageSelectURLOperation` definiert die Struktur, der diese Klasse entsprechen muss, und legt im Wesentlichen die Parameter fest, die für die `run()`-Methode erforderlich sind. Abgesehen von dieser Anforderung kann die Funktionalität der Klasse flexibel definiert werden.
+In diesem Beispiel wird eine Klasse namens `SelectURLOperation` in einem Worklet definiert und mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) unter dem Namen `ab-testing` registriert. `SharedStorageSelectURLOperation` definiert die Struktur, der diese Klasse entsprechen muss, im Wesentlichen die Parameter, die für die `run()`-Methode erforderlich sind. Abgesehen von dieser Anforderung kann die Funktionalität der Klasse flexibel definiert werden.
 
 ```js
 // ab-testing-worklet.js
@@ -37,9 +37,9 @@ register("ab-testing", SelectURLOperation);
 ```
 
 > [!NOTE]
-> Es ist möglich, mehrere Operationen im selben Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
+> Es ist möglich, mehrere Vorgänge im selben Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
 
-Im Haupt-Browsing-Kontext wird die `ab-testing`-Operation mit der Methode [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) aufgerufen:
+Im Hauptbrowsing-Kontext wird die `ab-testing`-Operation mit der [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)-Methode aufgerufen:
 
 ```js
 // Randomly assigns a user to a group 0 or 1
@@ -75,7 +75,7 @@ async function injectContent() {
 injectContent();
 ```
 
-Weitere Details zu diesem Beispiel und Links zu anderen Beispielen finden Sie auf der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite.
+Für mehr Details zu diesem Beispiel und Links zu weiteren Beispielen siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Übersichtsseite.
 
 ## Spezifikationen
 

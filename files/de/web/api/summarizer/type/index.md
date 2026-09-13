@@ -3,23 +3,23 @@ title: "Summarizer: type-Eigenschaft"
 short-title: type
 slug: Web/API/Summarizer/type
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: db443a6062d0e858a62af2f9a3a7558335ffd2dd
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle gibt den Typ der Zusammenfassung zurück, die vom `Summarizer` erzeugt wird.
+Die schreibgeschützte **`type`**-Eigenschaft des [`Summarizer`](/de/docs/Web/API/Summarizer)-Interfaces gibt den Typ der Zusammenfassung zurück, die vom `Summarizer` generiert wird.
 
 ## Wert
 
-Ein enumerierter Wert, der die Form angibt, in der die Zusammenfassung erzeugt wird; mögliche Werte sind:
+Ein aufgezählter Wert, der die Form angibt, in der die Zusammenfassung erstellt wird; mögliche Werte sind:
 
 - `headline`
-  - : Eine einzeln formulierte Überschrift eines Artikels, die den Hauptgedanken des eingegebenen Textes erfasst.
+  - : Eine einzelne Satz-Artikelüberschrift, die den Hauptpunkt des Eingangstextes erfasst.
 - `key-points`
-  - : Eine Aufzählungsliste, die die wichtigsten im eingegebenen Text präsentierten Punkte angibt.
+  - : Eine Liste mit Aufzählungspunkten, die die wichtigsten Punkte des Eingangstextes angibt.
 - `teaser`
-  - : Ein "Teaser"-Absatz, der die interessantesten oder faszinierendsten Punkte des eingegebenen Textes zusammenfasst, um den Leser zu animieren, mehr zu lesen.
+  - : Ein "Teaser"-Absatz, der die interessantesten oder faszinierendsten Punkte des Eingangstextes zusammenfasst, um den Leser dazu zu verleiten, mehr zu lesen.
 - `tldr`
   - : Eine kurze, prägnante Übersicht, konzipiert als Zusammenfassung für einen beschäftigten Leser.
 

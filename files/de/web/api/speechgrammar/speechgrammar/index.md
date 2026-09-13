@@ -3,13 +3,13 @@ title: "SpeechGrammar: SpeechGrammar() Konstruktor"
 short-title: SpeechGrammar()
 slug: Web/API/SpeechGrammar/SpeechGrammar
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Speech API")}}{{Non-standard_Header}}{{deprecated_header}}
+{{APIRef("Web Speech API")}}{{Non-standard_Header}}
 
 Der **`SpeechGrammar()`** Konstruktor der
-[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Schnittstelle erstellt eine neue Instanz eines `SpeechGrammar`-Objekts.
+[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Schnittstelle erstellt eine neue Instanz eines `SpeechGrammar` Objekts.
 
 ## Syntax
 

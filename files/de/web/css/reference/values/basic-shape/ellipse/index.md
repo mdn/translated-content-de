@@ -3,10 +3,10 @@ title: "`ellipse()` CSS-Funktion"
 short-title: ellipse()
 slug: Web/CSS/Reference/Values/basic-shape/ellipse
 l10n:
-  sourceCommit: 1e7ba7f0645705dcd46dd7392f09284129cf87bf
+  sourceCommit: 30e0adab23668217555b7ed37df7e6e61b002bf3
 ---
 
-Die **`ellipse()`** [CSS](/de/docs/Web/CSS)-Funktion ist eine der {{cssxref("basic-shape")}} [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types).
+Die **`ellipse()`** [CSS](/de/docs/Web/CSS) Funktion ist einer der {{cssxref("basic-shape")}} [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types).
 
 {{InteractiveExample("CSS Demo: ellipse()")}}
 
@@ -64,23 +64,23 @@ shape-outside: ellipse(closest-side farthest-side at 30%);
 border-shape: ellipse(50% 40%);
 ```
 
-Eine Ellipse ist im Wesentlichen ein zusammengedrückter Kreis und daher funktioniert `ellipse()` sehr ähnlich wie {{cssxref("basic-shape/circle","circle()")}}, außer dass wir zwei Radien x und y festlegen müssen.
+Eine Ellipse ist im Wesentlichen ein verzerrter Kreis, und daher funktioniert `ellipse()` sehr ähnlich wie {{cssxref("basic-shape/circle","circle()")}}, außer dass wir zwei Radien x und y angeben müssen.
 
 ### Werte
 
 - `<shape-radius>`
-  - : Zwei Radien, x und y, in dieser Reihenfolge. Diese können eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder einer der folgenden Schlüsselwortwerte sein:
+  - : Zwei Radien, x und y, in dieser Reihenfolge. Diese können eine {{cssxref("Länge")}}, ein {{cssxref("Prozentsatz")}} oder einer der folgenden Schlüsselwortwerte sein:
     - `closest-side`
-      - : Der Radius ist die Länge vom Zentrum der Ellipse zur nächstgelegenen Seite des Referenzrahmens in der gegebenen Radiusrichtung, sodass die Ellipsenbegrenzung diese Seite gerade berührt.
+      - : Der Radius ist die Länge vom Zentrum der Ellipse zur nächsten Seite des Referenzrahmens in der gegebenen Richtungsrichtung, sodass die Grenze der Ellipse diese Seite gerade berührt.
     - `farthest-side`
-      - : Der Radius ist die Länge vom Zentrum der Ellipse zur am weitesten entfernten Seite des Referenzrahmens in der gegebenen Radiusrichtung, sodass die Ellipsenbegrenzung diese Seite gerade berührt.
+      - : Der Radius ist die Länge vom Zentrum der Ellipse zur entferntesten Seite des Referenzrahmens in der gegebenen Richtungsrichtung, sodass die Grenze der Ellipse diese Seite gerade berührt.
     - `closest-corner`
-      - : Der Radius ist die Länge vom Zentrum der Ellipse zur nächstgelegenen Ecke des Referenzrahmens in der gegebenen Radiusrichtung.
+      - : Der Radius ist die Länge vom Zentrum der Ellipse zur nächsten Ecke des Referenzrahmens in der gegebenen Richtungsrichtung.
     - `farthest-corner`
-      - : Der Radius ist die Länge vom Zentrum der Ellipse zur am weitesten entfernten Ecke des Referenzrahmens in der gegebenen Radiusrichtung.
+      - : Der Radius ist die Länge vom Zentrum der Ellipse zur entferntesten Ecke des Referenzrahmens in der gegebenen Richtungsrichtung.
 
 - `<position>`
-  - : Bewegt das Zentrum der Ellipse. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder ein Wert wie `left` sein. Der `<position>`-Wert wird standardmäßig auf die Mitte gesetzt, wenn er weggelassen wird.
+  - : Verschiebt das Zentrum der Ellipse. Kann eine {{cssxref("Länge")}}, ein {{cssxref("Prozentsatz")}} oder ein Wert wie `left` sein. Der `<position>` Wert ist standardmäßig zentriert, wenn er weggelassen wird.
 
 ## Formale Syntax
 
@@ -88,10 +88,10 @@ Eine Ellipse ist im Wesentlichen ein zusammengedrückter Kreis und daher funktio
 
 ## Beispiele
 
-### Einfaches Beispiel für ellipse()
+### Einfaches `ellipse()` Beispiel
 
-Dieses Beispiel zeigt eine Ellipse, die links schwebt und einen horizontalen Radius von 40%, einen vertikalen Radius von 50% und eine linke Position hat. Das bedeutet, dass das Zentrum der Ellipse am linken Rand des Rahmens liegt und uns eine halbe Ellipse gibt, um unseren Text herum zu wickeln.
-Klicken Sie auf "Play" in den Code-Blöcken, um diese Werte zu ändern und zu sehen, wie sich die Ellipse verändert:
+Dieses Beispiel zeigt eine Ellipse, die links ausgerichtet ist und einen horizontalen Radius von 40%, einen vertikalen Radius von 50% und eine linke Position hat. Dies bedeutet, dass das Zentrum der Ellipse an der linken Kante des Rahmens liegt und uns eine halbe Ellipsenform gibt, um unseren Text darum herum zu platzieren.
+Klicken Sie im Codeblock auf "Play", um diese Werte zu ändern und zu sehen, wie sich die Ellipse verändert:
 
 ```html live-sample___ellipse
 <div class="box">
@@ -127,7 +127,7 @@ body {
 
 ### Verwendung von closest-side / farthest-side Werten
 
-Die Schlüsselwortwerte von `closest-side` und `farthest-side` sind nützlich, um schnell eine Ellipse basierend auf der Größe des schwebenden Element-Referenzrahmens zu erstellen.
+Die Schlüsselwortwerte `closest-side` und `farthest-side` sind nützlich, um schnell eine Ellipse basierend auf der Größe des umflossenen Element-Referenzrahmens zu erstellen.
 
 ```html live-sample___ellipse-keywords
 <div class="box">
@@ -163,15 +163,15 @@ body {
 
 ### Interaktives Beispiel für Radius-Schlüsselwörter
 
-Dieses Beispiel ermöglicht es Ihnen, die Auswirkung der Verschiebung des Mittelpunkts der Ellipse zu testen, wenn Sie jedes der vier `<shape-radius>`-Schlüsselwörter verwenden — unabhängig für den x-Radius und den y-Radius gewählt.
+Dieses Beispiel ermöglicht es Ihnen, die Wirkung der Verschiebung des Mittelpunktes der Ellipse zu testen, wenn jedes der vier `<shape-radius>` Schlüsselwörter – unabhängig für den x-Radius und den y-Radius ausgewählt – verwendet wird.
 
-Da `closest-corner` und `farthest-corner` eine neuere Ergänzung zu `ellipse()` sind, testet das Skript jede Funktion mit [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static), bevor es aktiviert wird.
-Jedes Schlüsselwort, das Ihr Browser noch nicht unterstützt, ist in beiden Dropdowns deaktiviert (und als "nicht unterstützt" gekennzeichnet).
+Da `closest-corner` und `farthest-corner` neuere Ergänzungen zu `ellipse()` sind, testet das Skript jedes Schlüsselwort mit [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static), bevor es aktiviert wird.
+Jedes Schlüsselwort, das Ihr Browser noch nicht unterstützt, wird in beiden Dropdowns deaktiviert (und als "nicht unterstützt" gekennzeichnet).
 
 #### HTML
 
-Das HTML definiert zunächst Steuerelemente zum Auswählen der x-Radius- und y-Radius-Schlüsselwörter und zum Festlegen der Position, an der die Ellipse angezeigt werden soll, gefolgt von einem {{htmlelement("pre")}}-Element zur Anzeige des {{cssxref("clip-path")}}, das die Steuerelemente auswählen.
-Danach wird ein `#support-note`-Element bereitgestellt, um anzuzeigen, wenn bestimmte Radius-Schlüsselwörter nicht unterstützt werden.
+Das HTML definiert zunächst Steuerelemente zum Auswählen der x-Radius- und y-Radius-Schlüsselwörter und zum Festlegen der Position, an der die Ellipse angezeigt werden soll, gefolgt von einem {{htmlelement("pre")}} Element zur Anzeige des {{cssxref("clip-path")}}, das die Steuerungswerte auswählen.
+Danach wird ein `#support-note` Element bereitgestellt, um anzuzeigen, wann bestimmte Radius-Schlüsselwörter nicht unterstützt werden.
 
 ```html live-sample___ellipse-keywords-interactive
 <div class="controls">
@@ -212,9 +212,9 @@ Danach wird ein `#support-note`-Element bereitgestellt, um anzuzeigen, wenn best
 <p id="support-note"></p>
 ```
 
-Das HTML definiert dann mehrere {{htmlelement("div")}}-Elemente, die verwendet werden, um die Ellipse, den Referenzrahmen und die Mittelpunktsmarkierung zu rendern.
-Die wichtigsten Elemente sind der Referenzrahmen (`#refbox`) und das `.fill`-Element, das er enthält und das den Verlauf definiert, der gezeichnet wird (wie im folgenden CSS-Abschnitt besprochen).
-Ein `clipPath` wird mit JavaScript auf den Referenzrahmen gesetzt, um diesen Verlauf in eine elliptische Form zu schneiden.
+Das HTML definiert dann mehrere {{htmlelement("div")}} Elemente, die zur Darstellung der Ellipse, des Referenzrahmens und des Mittelpunktmarkers verwendet werden.
+Die wichtigsten Elemente sind der Referenzrahmen (`#refbox`) und das `.fill` Element, das es enthält, die den gezeichneten Verlauf definieren (wie im folgenden CSS-Abschnitt erläutert).
+Ein `clipPath` wird im JavaScript-Code auf den Referenzrahmen gesetzt, um diesen Verlauf an eine elliptische Form zu beschneiden.
 
 ```html live-sample___ellipse-keywords-interactive
 <div class="canvas">
@@ -226,14 +226,14 @@ Ein `clipPath` wird mit JavaScript auf den Referenzrahmen gesetzt, um diesen Ver
 </div>
 ```
 
-Beachten Sie, dass die `.outline` und `.center-marker` bereitgestellt werden, um es einfacher zu machen, den Referenzrahmen und das Zentrum der Clipping-Ellipse zu sehen, die sonst unsichtbar wären.
-Das `.outline`-Element muss nach `#refbox` im Markup platziert werden: da es selbst nicht geclippt wird, bedeutet das Malen nach dem Referenzrahmen, dass sein gestrichelter Rand immer oben auf dem `.fill`-Verlauf rendert, selbst wenn der Clipping-Ellipse über den Referenzrahmen hinausgeht.
+Beachten Sie, dass `.outline` und `.center-marker` bereitgestellt werden, um den Referenzrahmen und das Zentrum der Schnittellipse besser sichtbar zu machen, die sonst unsichtbar wären.
+Das `.outline` Element muss im Markup nach `#refbox` platziert werden: da es selbst nicht beschnitten wird, bedeutet das Zeichnen nach dem Referenzrahmen, dass seine gepunktete Grenze immer oben auf dem `.fill` Verlauf rendert, selbst wenn die Schnittellipse über den Referenzrahmen hinausgeht.
 
 #### CSS
 
-Das CSS für das Canvas, den Referenzrahmen und die Füllelemente wird unten gezeigt.
-Beachten Sie, dass die `.fill` einen Verlauf definiert, der den Referenzrahmen überläuft und den größten Teil der Leinwand füllt.
-Dies ist der Verlauf, den wir mit der `ellipse()`-Funktion schneiden werden (wir tun dies, indem wir den CSS-Clip-Pfad dynamisch in unserem JavaScript-Code setzen).
+Das CSS für die Leinwand-, Referenzrahmen- und Füllelelemente wird unten gezeigt.
+Beachten Sie, dass `.fill` einen Verlauf definiert, der über den Referenzrahmen hinausläuft und den größten Teil der Leinwand ausfüllt.
+Dies ist der Verlauf, den wir mit der `ellipse()` Funktion zuschneiden werden (wir tun dies, indem wir den CSS-Clippfad dynamisch in unserem JavaScript-Code einstellen).
 
 ```css live-sample___ellipse-keywords-interactive
 .canvas {
@@ -241,7 +241,7 @@ Dies ist der Verlauf, den wir mit der `ellipse()`-Funktion schneiden werden (wir
   width: 640px;
   height: 480px;
   overflow: hidden;
-  border: 1px solid #888;
+  border: 1px solid #888888;
 }
 
 .refbox {
@@ -260,7 +260,7 @@ Dies ist der Verlauf, den wir mit der `ellipse()`-Funktion schneiden werden (wir
 }
 ```
 
-Das CSS für die Steuerelemente und andere Elemente wird nicht gezeigt, da es nicht notwendig ist, um die `ellipse()`-Methode zu verstehen.
+Das CSS für die Steuerungen und andere Elemente wird nicht gezeigt, da es nicht notwendig ist, um die `ellipse()` Methode zu verstehen.
 Interessierte Leser können es im Beispielspielplatz einsehen.
 
 ```css live-sample___ellipse-keywords-interactive hidden
@@ -323,7 +323,7 @@ body {
 
 #### JavaScript
 
-Zuerst erhalten wir Verweise auf jedes der Elemente, die im Beispiel verwendet werden.
+Zuerst erhalten wir Verweise auf jedes der im Beispiel verwendeten Elemente.
 
 ```js live-sample___ellipse-keywords-interactive
 const selectX = document.getElementById("radius-x-keyword");
@@ -336,8 +336,8 @@ const marker = document.getElementById("center-marker");
 const supportNote = document.getElementById("support-note");
 ```
 
-Dann definieren wir eine `checkSupport()`-Funktion, um zu testen, ob jedes Radius-Schlüsselwort unterstützt wird und um die zugehörigen Optionen in beiden Dropdowns zu aktivieren/deaktivieren.
-Dazu wird die [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static)-Methode verwendet, um die Unterstützung der Schlüsselwörter zu überprüfen.
+Dann definieren wir eine `checkSupport()` Funktion, um zu testen, ob jedes Radius-Schlüsselwort unterstützt wird, und die zugehörigen Optionen in beiden Dropdowns zu aktivieren/deaktivieren.
+Dies verwendet die Methode [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static), um die Unterstützung des Schlüsselworts zu überprüfen.
 
 ```js live-sample___ellipse-keywords-interactive
 function checkSupport() {
@@ -370,8 +370,8 @@ function checkSupport() {
 }
 ```
 
-Als Nächstes definieren wir eine `update()`-Funktion, die immer dann aufgerufen wird, wenn die Eingabesteuerelemente geändert werden.
-Diese setzt den Clip-Pfad auf dem Referenzrahmen basierend auf den ausgewählten x-Radius- und y-Radius-Schlüsselwörtern und der Position und bewegt die Mittelpunktsmarkierung entsprechend.
+Als nächstes definieren wir eine `update()` Funktion, die immer dann aufgerufen wird, wenn die Eingabesteuerungen geändert werden.
+Diese setzt den Clippfad auf dem Referenzrahmen basierend auf den ausgewählten x-Radius- und y-Radius-Schlüsselwörtern und der Position und bewegt den Mittelpunktmarker entsprechend.
 
 ```js live-sample___ellipse-keywords-interactive
 function update() {
@@ -400,9 +400,9 @@ update();
 
 #### Ergebnis
 
-Ändern Sie die Position des Mittelpunkts und das Schlüsselwort für jeden Radius, um deren relative Effekte zu sehen.
-Beachten Sie, dass der Referenzrahmen zusammen mit den ausgewählten x-Radius- und y-Radius-Schlüsselwörtern und der Position verwendet wird, um die Clipping-Ellipse zu berechnen.
-Diese Ellipse kann den Referenzrahmen überschreiten (zum Beispiel mit `closest-corner` oder `farthest-corner`); der `.fill`-Verlauf ist absichtlich größer als der Referenzrahmen dimensioniert, sodass er immer die geclippten Ellipse vollständig abdeckt, egal, wie weit sie sich erstreckt.
+Ändern Sie die Position des Zentrums und das Schlüsselwort für jeden Radius, um ihre relativen Effekte zu sehen.
+Beachten Sie, dass der Referenzrahmen zusammen mit den ausgewählten x-Radius- und y-Radius-Schlüsselwörtern sowie der Position verwendet wird, um die Schnittellipse zu berechnen.
+Diese Ellipse kann sich über den Referenzrahmen hinaus erstrecken (zum Beispiel mit `closest-corner` oder `farthest-corner`); der `.fill` Verlauf ist absichtlich größer als der Referenzrahmen dimensioniert, damit er die zugeschnittene Ellipse immer vollständig abdeckt, egal wie weit sie sich erstreckt.
 
 {{EmbedLiveSample("ellipse-keywords-interactive", "", "680px")}}
 

@@ -3,10 +3,10 @@ title: "HTMLTableElement: cellPadding-Eigenschaft"
 short-title: cellPadding
 slug: Web/API/HTMLTableElement/cellPadding
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}} {{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
 Die **`HTMLTableElement.cellPadding`**-Eigenschaft repräsentiert den Abstand um die einzelnen Zellen der Tabelle.
 
@@ -14,7 +14,7 @@ Die **`HTMLTableElement.cellPadding`**-Eigenschaft repräsentiert den Abstand um
 
 Ein String, der Pixel (z.B. `"10"`) oder einen Prozentwert (z.B. `"10%"`) darstellt.
 
-Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, so dass `elt.cellPadding = null` gleichbedeutend ist mit `elt.cellPadding = ""`.
+Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.cellPadding = null` gleichbedeutend mit `elt.cellPadding = ""` ist.
 
 ## Beispiele
 

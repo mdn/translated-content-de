@@ -1,12 +1,14 @@
 ---
-title: "trunc_sat_f32x4_u: Wasm SIMD Konvertierungsanweisung"
+title: "trunc_sat_f32x4_u: Wasm-SIMD-Konvertierungsinstruktion"
 short-title: trunc_sat_f32x4_u
 slug: WebAssembly/Reference/SIMD/conversion/trunc_sat_f32x4_u
 l10n:
-  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
+  sourceCommit: 100cf25d92d3953f3c70ecaa2af637d5e42179d8
 ---
 
-Die **`trunc_sat_f32x4_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) führt eine [saturierende](https://en.wikipedia.org/wiki/Saturation_arithmetic) Konvertierung der Bahnen einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `f32x4`-Wertinterpretation in eine ungesättigte `i32x4`-Wertinterpretation durch und begrenzt die Ausgabe auf den durch den Wertetyp erlaubten Bereich.
+Die **`trunc_sat_f32x4_u`**-[SIMD-Konvertierungsinstruktion](/de/docs/WebAssembly/Reference/SIMD/conversion) führt eine [sättigende](https://en.wikipedia.org/wiki/Saturation_arithmetic) Konvertierung der Lanes einer `f32x4`-Wertinterpretation von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) in eine vorzeichenlose `i32x4`-Wertinterpretation durch, wobei die Ausgabe auf den durch den Werttyp zulässigen Bereich begrenzt wird.
+
+Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte begrenzt werden, die durch die Wertinterpretation zulässig sind. Zulässige Ausgabewerte reichen von `0` bis `4,294,967,295` (der vollständige Bereich einer vorzeichenlosen 32-Bit-Ganzzahl). {{jsxref("NaN")}}-Werte werden in `0` konvertiert.
 
 {{InteractiveExample("Wat Demo: trunc_sat_f32x4_u", "tabbed-taller")}}
 
@@ -28,8 +30,6 @@ Die **`trunc_sat_f32x4_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte begrenzt sind, die durch die Wertinterpretation erlaubt sind. Erlaubte Ausgabewerte reichen von `0` bis `4.294.967.295` (der volle Bereich eines ungesättigten 32-Bit-Ganzzahlwerts). {{jsxref("NaN")}}-Werte werden in `0` umgewandelt.
-
 ## Syntax
 
 ```plain
@@ -37,10 +37,10 @@ value_type.trunc_sat_f32x4_u
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen unterstützen `trunc_sat_f32x4_u`:
+  - : Der Werttyp, auf dem die Instruktion ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen unterstützen `trunc_sat_f32x4_u`:
     - `i32x4`
 - `trunc_sat_f32x4_u`
-  - : Die `trunc_sat_f32x4_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die Instruktion `trunc_sat_f32x4_u`. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -49,13 +49,13 @@ value_type.trunc_sat_f32x4_u
 ```
 
 - `input`
-  - : Die Eingabe `v128` `f32x4`-Wertinterpretation.
+  - : Die Eingabe-`v128`-`f32x4`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i32x4`-Wertinterpretation.
+  - : Die Ausgabe-`v128`-`i32x4`-Wertinterpretation.
 
-### Binärcodierung
+### Binärkodierung
 
-| Anweisung                 | Binärformat    | Beispieltext => binär                         |
+| Instruktion               | Binärformat    | Beispieltext => Binärdarstellung              |
 | ------------------------- | -------------- | --------------------------------------------- |
 | `i32x4.trunc_sat_f32x4_u` | `0xfd 249:u32` | `i32x4.trunc_sat_f32x4_u` => `0xfd 0xf9 0x01` |
 

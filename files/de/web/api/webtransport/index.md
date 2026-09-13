@@ -2,55 +2,62 @@
 title: WebTransport
 slug: Web/API/WebTransport
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: ad1fac9d8dd0c9ab8f560e98c5c923559617ba54
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Das **`WebTransport`**-Interface der [WebTransport API](/de/docs/Web/API/WebTransport_API) bietet Funktionen, die es einem User Agent ermöglichen, eine Verbindung zu einem HTTP/3-Server herzustellen, zuverlässigen und unzuverlässigen Transport in eine oder beide Richtungen einzuleiten und die Verbindung zu schließen, sobald sie nicht mehr benötigt wird.
+Die **`WebTransport`**-Schnittstelle der [WebTransport API](/de/docs/Web/API/WebTransport_API) bietet Funktionen, mit denen ein User-Agent eine Verbindung zu einem HTTP/3-Server herstellen, zuverlässige und unzuverlässige Übertragungen in eine oder beide Richtungen initiieren und die Verbindung schließen kann, sobald sie nicht mehr benötigt wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`WebTransport()`](/de/docs/Web/API/WebTransport/WebTransport)
-  - : Erstellt eine neue Instanz des `WebTransport`-Objekts.
+  - : Erstellt eine neue `WebTransport`-Objektinstanz.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`closed`](/de/docs/Web/API/WebTransport/closed) {{ReadOnlyInline}}
-  - : Gibt ein Versprechen zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Transport geschlossen wird.
 - [`datagrams`](/de/docs/Web/API/WebTransport/datagrams) {{ReadOnlyInline}}
-  - : Gibt eine Instanz von [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) zurück, die verwendet werden kann, um Datagramme zu senden und zu empfangen.
+  - : Gibt eine Instanz von [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) zurück, die zum Senden und Empfangen von Datagrammen verwendet werden kann.
 - [`congestionControl`](/de/docs/Web/API/WebTransport/congestionControl) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der die Anwendungsvorliebe für entweder hohen Durchsatz oder niedrige Latenz beim Senden von Daten anzeigt.
+  - : Gibt einen String zurück, der die Anwendungspräferenz für entweder hohen Durchsatz oder geringe Latenz beim Senden von Daten angibt.
+- [`draining`](/de/docs/Web/API/WebTransport/draining) {{ReadOnlyInline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn die Transportsitzung mit dem Leeren beginnt.
 - [`incomingBidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingBidirectionalStreams) {{ReadOnlyInline}}
-  - : Repräsentiert einen oder mehrere vom Server geöffnete bidirektionale Streams. Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekten zurück. Jeder kann verwendet werden, um Daten vom Server zu lesen und Daten zurückzuschreiben.
+  - : Repräsentiert einen oder mehrere vom Server geöffnete bidirektionale Streams. Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekten zurück. Jeder davon kann verwendet werden, um Daten vom Server zu lesen und Daten an ihn zurückzuschreiben.
 - [`incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) {{ReadOnlyInline}}
-  - : Repräsentiert einen oder mehrere vom Server geöffnete unidirektionale Streams. Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Jeder kann verwendet werden, um Daten vom Server zu lesen.
+  - : Repräsentiert einen oder mehrere vom Server geöffnete unidirektionale Streams. Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Jeder davon kann verwendet werden, um Daten vom Server zu lesen.
+- [`protocol`](/de/docs/Web/API/WebTransport/protocol) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der das vom Server ausgewählte anwendungsspezifische Protokoll repräsentiert, oder `""`, wenn keines ausgewählt wurde.
+    Client-Präferenzen für das Protokoll werden in der Konstruktoroption [`protocols`](/de/docs/Web/API/WebTransport/WebTransport#protocols) an den Konstruktor übergeben.
 - [`ready`](/de/docs/Web/API/WebTransport/ready) {{ReadOnlyInline}}
-  - : Gibt ein Versprechen zurück, das aufgelöst wird, wenn der Transport bereit zur Nutzung ist.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Transport einsatzbereit ist.
 - [`reliability`](/de/docs/Web/API/WebTransport/reliability) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der anzeigt, ob die Verbindung nur zuverlässige Transporte unterstützt oder auch unzuverlässige Transporte (wie UDP).
+  - : Gibt einen String zurück, der angibt, ob die Verbindung nur zuverlässige Übertragungen unterstützt oder ob sie auch unzuverlässige Übertragungen (wie UDP) unterstützt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`close()`](/de/docs/Web/API/WebTransport/close)
   - : Schließt eine laufende WebTransport-Sitzung.
 - [`createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream)
-  - : Öffnet asynchron einen bidirektionalen Stream ([`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)), der verwendet werden kann, um Daten von und zum Server zu lesen und zu schreiben.
-- [`createSendGroup()`](/de/docs/Web/API/WebTransport/createSendGroup) {{experimental_inline}}
-  - : Gibt eine [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup) zurück, die verwendet werden kann, um Streams und Datagramme zu gruppieren, sodass ihre relative Sendepriorität als Satz gesteuert werden kann.
+  - : Öffnet asynchron einen bidirektionalen Stream ([`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)), der zum Lesen vom und Schreiben auf den Server verwendet werden kann.
+- [`createSendGroup()`](/de/docs/Web/API/WebTransport/createSendGroup)
+  - : Gibt eine [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup) zurück, die verwendet werden kann, um Streams und Datagramme zu gruppieren, sodass ihre relative Sendepriorität als Gruppe gesteuert werden kann.
 - [`createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream)
-  - : Öffnet asynchron einen unidirektionalen Stream ([`WritableStream`](/de/docs/Web/API/WritableStream)), der verwendet werden kann, um an den Server zu schreiben.
+  - : Öffnet asynchron einen unidirektionalen Stream ([`WritableStream`](/de/docs/Web/API/WritableStream)), der zum Schreiben auf den Server verwendet werden kann.
+- [`exportKeyingMaterial()`](/de/docs/Web/API/WebTransport/exportKeyingMaterial) {{experimental_inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit Schlüsselmaterial erfüllt wird, das von der der Verbindung zugrunde liegenden TLS-Sitzung abgeleitet ist.
 - [`getStats()`](/de/docs/Web/API/WebTransport/getStats)
-  - : Gibt asynchron ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, das HTTP/3-Verbindungsstatistiken enthält.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, das HTTP/3-Verbindungsstatistiken enthält.
 
 ## Beispiele
 
-Der unten stehende Beispielcode zeigt, wie Sie durch Übergeben der URL eines HTTP/3-Servers an den [`WebTransport()`](/de/docs/Web/API/WebTransport/WebTransport)-Konstruktor eine Verbindung herstellen können.
+Der folgende Beispielcode zeigt, wie Sie eine Verbindung zu einem HTTP/3-Server herstellen, indem Sie dessen URL an den Konstruktor [`WebTransport()`](/de/docs/Web/API/WebTransport/WebTransport) übergeben.
 Beachten Sie, dass das Schema HTTPS sein muss und die Portnummer explizit angegeben werden muss.
-Sobald das [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready)-Versprechen erfüllt wird, können Sie die Verbindung nutzen.
+Sobald das Promise [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready) erfüllt wird, können Sie die Verbindung verwenden.
 
 ```js
 async function initTransport(url) {
@@ -63,10 +70,11 @@ async function initTransport(url) {
 }
 ```
 
-Sie können auf das Schließen der Verbindung reagieren, indem Sie auf das Erfüllen des [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed)-Versprechens warten. Fehler, die während `WebTransport`-Operationen auftreten, sind vom Typ [`WebTransportError`](/de/docs/Web/API/WebTransportError) und enthalten zusätzliche Daten über den üblichen [`DOMException`](/de/docs/Web/API/DOMException)-Satz hinaus.
+Sie können auf das Schließen der Verbindung reagieren, indem Sie darauf warten, dass das Promise [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed) erfüllt wird.
+Von `WebTransport`-Operationen zurückgegebene Fehler haben den Typ [`WebTransportError`](/de/docs/Web/API/WebTransportError) und enthalten zusätzliche Daten zusätzlich zum standardmäßigen Satz von [`DOMException`](/de/docs/Web/API/DOMException).
 
-Die unten stehende `closeTransport()`-Methode zeigt eine mögliche Implementierung.
-In einem `try...catch`-Block wird `await` verwendet, um auf das Erfüllen oder Ablehnen des `closed`-Versprechens zu warten und dann zu berichten, ob die Verbindung absichtlich oder aufgrund eines Fehlers geschlossen wurde.
+Die nachfolgende Methode `closeTransport()` zeigt eine mögliche Implementierung.
+Innerhalb eines `try...catch`-Blocks verwendet sie `await`, um darauf zu warten, dass das Promise `closed` erfüllt oder abgelehnt wird, und meldet anschließend, ob die Verbindung absichtlich oder aufgrund eines Fehlers geschlossen wurde.
 
 ```js
 async function closeTransport(transport) {
@@ -80,7 +88,7 @@ async function closeTransport(transport) {
 }
 ```
 
-Wir könnten die oben aufgeführten asynchronen Funktionen in ihrer eigenen asynchronen Funktion aufrufen, wie unten gezeigt.
+Wir könnten die obigen asynchronen Funktionen in ihrer eigenen asynchronen Funktion aufrufen, wie unten gezeigt.
 
 ```js
 // Use the transport
@@ -98,7 +106,7 @@ const url = "https://example.com:4999/wt";
 useTransport(url);
 ```
 
-Für weiteren Beispielcode siehe die einzelnen Eigenschafts- und Methodenseiten.
+Weiteren Beispielcode finden Sie auf den Seiten der einzelnen Eigenschaften und Methoden.
 
 ## Spezifikationen
 
@@ -110,7 +118,7 @@ Für weiteren Beispielcode siehe die einzelnen Eigenschafts- und Methodenseiten.
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

@@ -1,15 +1,15 @@
 ---
-title: "NodeList: entries() Methode"
+title: "NodeList: entries()-Methode"
 short-title: entries()
 slug: Web/API/NodeList/entries
 l10n:
-  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.entries()`** Methode gibt einen
-{{jsxref("Iteration_protocols", 'iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare in diesem Objekt zu durchlaufen. Die Werte sind [`Node`](/de/docs/Web/API/Node) Objekte.
+Die **`NodeList.entries()`**-Methode gibt einen
+{{jsxref("Iteration_protocols", 'Iterator')}} zurück, der es Ihnen ermöglicht, alle Schlüssel/Wert-Paare in diesem Objekt durchzugehen. Die Werte sind [`Node`](/de/docs/Web/API/Node)-Objekte.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols", "iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück.
 
 ## Beispiel
 

@@ -1,22 +1,22 @@
 ---
-title: "VTTCue: text Eigenschaft"
+title: "VTTCue: text-Eigenschaft"
 short-title: text
 slug: Web/API/VTTCue/text
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`text`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle repräsentiert den Textinhalt der Cue.
+Die **`text`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert den Textinhalt des Cues.
 
 ## Wert
 
-Ein String, der den Rohtext der Cue enthält.
+Ein String, der den Rohtext des Cues enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine neue [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `size` auf den String `"new cue value"` gesetzt. Der Wert wird anschließend in die Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `text` auf den String `"new cue value"` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");
