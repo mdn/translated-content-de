@@ -1,49 +1,49 @@
 ---
-title: Übersicht über Kacheln und Kachelkarten
+title: Überblick über Tiles und Tilemaps
 slug: Games/Techniques/Tilemaps
 l10n:
-  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
+  sourceCommit: 964ab8ae30c5ce0a343cc6d0f28c1b94389bae89
 ---
 
-Kachelkarten sind eine sehr beliebte Technik in der 2D-Spielentwicklung, bei der die Spielwelt oder das Level aus kleinen, regelmäßig geformten Bildern, den **Kacheln**, aufgebaut wird. Dies führt zu Leistungs- und Speichergewinnen – große Bilddateien, die gesamte Levelkarten enthalten, sind nicht nötig, da sie aus kleinen Bildern oder Bildfragmenten mehrfach konstruiert werden. Diese Artikelreihe behandelt die Grundlagen der Erstellung von Kachelkarten mit [JavaScript](/de/docs/Web/JavaScript) und [Canvas](/de/docs/Web/API/Canvas_API) (obwohl dieselben hochrangigen Techniken in jeder Programmiersprache verwendet werden könnten).
+Tilemaps sind eine sehr beliebte Technik in der 2D-Spieleentwicklung. Dabei wird die Spielwelt oder Levelkarte aus kleinen, regelmäßig geformten Bildern aufgebaut, die **Tiles** genannt werden. Dies führt zu Vorteilen bei Performance und Speichernutzung — große Bilddateien, die vollständige Levelkarten enthalten, werden nicht benötigt, da diese mehrfach aus kleinen Bildern oder Bildfragmenten zusammengesetzt werden. Diese Artikelreihe behandelt die Grundlagen der Erstellung von Tilemaps mit [JavaScript](/de/docs/Web/JavaScript) und [Canvas](/de/docs/Web/API/Canvas_API) (obwohl dieselben übergeordneten Techniken in jeder Programmiersprache verwendet werden könnten).
 
-Neben den Leistungsgewinnen können Kachelkarten auch auf ein logisches Raster abgebildet werden, das auf andere Weise innerhalb der Spielmechanik genutzt werden kann (zum Beispiel zur Erstellung eines Pfadfindungsgraphen oder zur Handhabung von Kollisionen) oder um einen Leveleditor zu erstellen.
+Neben den Performance-Vorteilen können Tilemaps auch einem logischen Raster zugeordnet werden, das auf andere Weise innerhalb der Spiellogik verwendet werden kann (beispielsweise zum Erstellen eines Wegfindungsgraphen oder zur Behandlung von Kollisionen) oder um einen Level-Editor zu erstellen.
 
-Einige bekannte Spiele, die diese Technik nutzen, sind _Super Mario Bros_, _Pacman_, _Zelda: Link's Awakening_, _Starcraft_ und _Sim City 2000_. Denken Sie an jedes Spiel, das regelmäßig wiederkehrende Quadrate im Hintergrund verwendet, und Sie werden wahrscheinlich feststellen, dass es Kachelkarten verwendet.
+Einige beliebte Spiele, die diese Technik verwenden, sind _Super Mario Bros_, _Pacman_, _Zelda: Link's Awakening_, _Starcraft_ und _Sim City 2000_. Denken Sie an ein beliebiges Spiel, das regelmäßig wiederkehrende Hintergrundquadrate verwendet, und Sie werden wahrscheinlich feststellen, dass es Tilemaps nutzt.
 
-## Das Kachel-Atlas
+## Der Tile-Atlas
 
-Der effizienteste Weg, die Kachelbilder zu speichern, ist in einem Atlas oder Spritesheet. Dies ist ein einzelnes Bild, das alle benötigten Kacheln gruppiert. Wenn es an der Zeit ist, eine Kachel zu zeichnen, wird nur ein kleiner Abschnitt dieses größeren Bildes auf der Spiel-Canvas gerendert. Die untenstehenden Bilder zeigen einen Kachel-Atlas mit 8 x 4 Kacheln:
+Die effizienteste Möglichkeit, Tile-Bilder zu speichern, ist in einem Atlas oder Spritesheet. Dabei werden alle benötigten Tiles in einer einzigen Bilddatei zusammengefasst. Wenn ein Tile gezeichnet werden soll, wird nur ein kleiner Abschnitt dieses größeren Bildes auf dem Spiel-Canvas gerendert. Das folgende Bild zeigt einen Tile-Atlas mit 8 x 4 Tiles:
 
-![Kachel-Atlas Bild](tile_atlas.png)
+![Bild eines Tile-Atlas](tile_atlas.png)
 
-Die Verwendung eines Atlas hat auch den Vorteil, dass jeder Kachel auf natürliche Weise ein **Index** zugewiesen wird. Dieser Index eignet sich ideal als Kachelbezeichner, wenn das Kachelkart-Objekt erstellt wird.
+Die Verwendung eines Atlas bietet außerdem den Vorteil, dass jedem Tile auf natürliche Weise ein **Index** zugewiesen wird. Dieser Index eignet sich hervorragend als Tile-Identifier beim Erstellen des Tilemap-Objekts.
 
-## Die Kachelkarten-Datenstruktur
+## Die Datenstruktur einer Tilemap
 
-Es ist üblich, alle Informationen, die zur Handhabung von Kachelkarten benötigt werden, in derselben Datenstruktur oder im selben Objekt zu gruppieren. Diese Datenobjekte ([Beispiel eines Kartenobjekts](https://github.com/mozdevs/gamedev-js-tiles/blob/gh-pages/square/no-scroll.js#L1-L18)) sollten beinhalten:
+Üblicherweise werden alle Informationen, die für die Verarbeitung von Tilemaps erforderlich sind, in derselben Datenstruktur oder demselben Objekt gruppiert. Diese Datenobjekte ([Beispiel für ein Map-Objekt](https://github.com/mozdevs/gamedev-js-tiles/blob/gh-pages/square/no-scroll.js#L1-L18)) sollten Folgendes enthalten:
 
-- **Kachelgröße**: Die Größe jeder Kachel in Pixeln quer / Pixel abwärts.
-- **Bildatlas**: Der zu verwendende Bildatlas (einer oder mehrere).
-- **Kartendimensionen**: Die Dimensionen der Karte, entweder in Kacheln quer / Kacheln abwärts oder in Pixeln quer / Pixel abwärts.
-- **Visuelles Raster**: Enthält Indizes, die anzeigen, welcher Kacheltyp an welcher Position im Raster platziert werden soll.
-- **Logisches Raster**: Dies kann ein Kollisionsraster, ein Pfadfindungsraster usw. sein, abhängig von der Art des Spiels.
+- **Tile-Größe**: Die Größe jedes Tiles in Pixeln horizontal / Pixeln vertikal.
+- **Bildatlas**: Der verwendete Bildatlas (einer oder mehrere).
+- **Map-Abmessungen**: Die Abmessungen der Map, entweder in Tiles horizontal / Tiles vertikal oder in Pixeln horizontal / Pixeln vertikal.
+- **Visuelles Raster**: Enthält Indizes, die angeben, welcher Tile-Typ an jeder Position im Raster platziert werden soll.
+- **Logisches Raster**: Dies kann je nach Spieltyp ein Kollisionsraster, ein Wegfindungsraster usw. sein.
 
 > [!NOTE]
-> Für das visuelle Raster wird ein spezieller Wert (in der Regel eine negative Zahl, `0` oder `null`) benötigt, um leere Kacheln darzustellen.
+> Für das visuelle Raster wird ein spezieller Wert (üblicherweise eine negative Zahl, `0` oder `null`) benötigt, um leere Tiles darzustellen.
 
-## Quadratische Kacheln
+## Quadratische Tiles
 
-Quadratbasierte Kachelkarten sind die einfachste Implementierung. Ein generischerer Fall wären rechteckig basierte Kachelkarten – statt quadratisch – aber diese sind weit weniger verbreitet. Quadratische Kacheln ermöglichen zwei **Perspektiven**:
+Tilemaps auf Basis quadratischer Tiles sind die einfachste Implementierung. Ein allgemeinerer Fall wären Tilemaps auf Basis rechteckiger statt quadratischer Tiles — diese sind jedoch deutlich seltener. Quadratische Tiles ermöglichen zwei **Perspektiven**:
 
-- Draufsicht (wie viele RPGs oder Strategiespiele wie _Warcraft 2_ oder _Final Fantasy_'s Weltansicht).
-- Seitenansicht (wie bei Plattformspielen wie _Super Mario Bros_.).
+- Draufsicht (wie bei vielen RPGs oder Strategiespielen wie _Warcraft 2_ oder der Weltansicht von _Final Fantasy_.)
+- Seitenansicht (wie bei Plattformspielen wie _Super Mario Bros_.)
 
-### Statische Kachelkarten
+### Statische Tilemaps
 
-Eine Kachelkarte kann entweder in den sichtbaren Bildschirmbereich passen oder größer sein. Im ersten Fall ist die Kachelkarte **statisch** – sie muss nicht gescrollt werden, um vollständig angezeigt zu werden. Dieser Fall ist sehr häufig in Arcade-Spielen wie _Pacman_, _Arkanoid_ oder _Sokoban_.
+Eine Tilemap kann entweder in den sichtbaren Bildschirmbereich passen oder größer sein. Im ersten Fall ist die Tilemap **statisch** — sie muss nicht gescrollt werden, um vollständig angezeigt zu werden. Dieser Fall ist bei Arcade-Spielen wie _Pacman_, _Arkanoid_ oder _Sokoban_ sehr häufig.
 
-Das Rendering von statischen Kachelkarten ist einfach und kann mit einer verschachtelten Schleife durchgeführt werden, die über Spalten und Zeilen iteriert. Ein hochrangiger Algorithmus könnte so aussehen:
+Das Rendern statischer Tilemaps ist einfach und kann mit einer verschachtelten Schleife erfolgen, die über Spalten und Zeilen iteriert. Ein Algorithmus auf hoher Ebene könnte folgendermaßen aussehen:
 
 ```js
 for (let column = 0; column < map.columns; column++) {
@@ -56,17 +56,17 @@ for (let column = 0; column < map.columns; column++) {
 }
 ```
 
-Sie können mehr darüber lesen und eine Beispielimplementierung sehen unter [Quadratische Kachelkarten-Implementierung: Statische Karten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps).
+Weitere Informationen dazu sowie eine Beispielimplementierung finden Sie unter [Implementierung quadratischer Tilemaps: Statische Maps](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps).
 
-### Scrollbare Kachelkarten
+### Scrollende Tilemaps
 
-**Scrollende** Kachelkarten zeigen jeweils nur einen kleinen Teil der Welt. Sie können einem Charakter folgen – wie in Plattformspielen oder RPGs – oder dem Spieler erlauben, die Kamera zu steuern – wie in Strategie- oder Simulationsspielen.
+**Scrollende** Tilemaps zeigen jeweils nur einen kleinen Teil der Welt. Sie können einer Figur folgen — wie bei Plattformspielen oder RPGs — oder dem Spieler die Steuerung der Kamera ermöglichen — wie bei Strategie- oder Simulationsspielen.
 
 #### Positionierung und Kamera
 
-In allen scrollenden Spielen benötigen wir eine Übersetzung zwischen **Weltkoordinaten** (der Position, an der sich Sprites oder andere Elemente im Level oder in der Spielwelt befinden) und **Bildschirmkoordinaten** (der tatsächlichen Position, an der diese Elemente auf dem Bildschirm gerendert werden). Die Weltkoordinaten können je nach Spiel in Bezug auf die Kachelposition (Reihe und Spalte der Karte) oder in Pixeln über die Karte ausgedrückt werden. Um Weltkoordinaten in Bildschirmkoordinaten umwandeln zu können, benötigen wir die Koordinaten der Kamera, da sie bestimmen, welcher Abschnitt der Welt angezeigt wird.
+In allen scrollenden Spielen benötigen wir eine Umrechnung zwischen **Weltkoordinaten** (der Position, an der sich Sprites oder andere Elemente im Level oder in der Spielwelt befinden) und **Bildschirmkoordinaten** (der tatsächlichen Position, an der diese Elemente auf dem Bildschirm gerendert werden). Die Weltkoordinaten können je nach Spiel als Tile-Position (Zeile und Spalte der Map) oder als Pixel innerhalb der Map ausgedrückt werden. Um Weltkoordinaten in Bildschirmkoordinaten umwandeln zu können, benötigen wir die Koordinaten der Kamera, da diese bestimmen, welcher Abschnitt der Welt angezeigt wird.
 
-Hier sind Beispiele, wie man von Weltkoordinaten zu Bildschirmkoordinaten und zurück übersetzt:
+Hier sind Beispiele dafür, wie Weltkoordinaten in Bildschirmkoordinaten und wieder zurück übersetzt werden:
 
 ```js
 // these functions assume that the camera points to the top left corner
@@ -82,50 +82,50 @@ function screenToWorld(x, y) {
 
 #### Rendering
 
-Eine triviale Methode zum Rendern besteht einfach darin, über alle Kacheln zu iterieren (wie bei statischen Kachelkarten) und sie zu zeichnen, wobei die Kamerakoordinaten subtrahiert werden (wie im Beispiel `worldToScreen()` oben gezeigt) und die Teile, die außerhalb des Sichtfensters liegen, dort versteckt bleiben. Alle Kacheln zu zeichnen, die nicht gesehen werden können, ist jedoch verschwenderisch und kann die Leistung beeinträchtigen. **Idealerweise sollten nur die sichtbaren Kacheln gerendert werden** – siehe den Abschnitt [Leistung](#leistung) für weitere Ideen zur Verbesserung der Renderleistung.
+Eine triviale Rendering-Methode würde einfach über alle Tiles iterieren (wie bei statischen Tilemaps) und sie zeichnen, wobei die Kamerakoordinaten abgezogen werden (wie im oben gezeigten Beispiel `worldToScreen()`) und die Teile außerhalb des Sichtfensters dort verborgen bleiben. Das Zeichnen aller nicht sichtbaren Tiles ist jedoch verschwenderisch und kann die Performance beeinträchtigen. Idealerweise sollten **nur sichtbare Tiles gerendert werden** — weitere Ideen zur Verbesserung der Rendering-Performance finden Sie im Abschnitt [Performance](#performance).
 
-Sie können mehr darüber lesen, wie man scrollende Kachelkarten implementiert, und einige Beispielimplementierungen sehen unter [Quadratische Kachelkarten-Implementierung: Scrollende Karten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps).
+Weitere Informationen zur Implementierung scrollender Tilemaps sowie einige Beispielimplementierungen finden Sie unter [Implementierung quadratischer Tilemaps: Scrollende Maps](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps).
 
 ### Ebenen
 
-Das visuelle Raster besteht oft aus mehreren Ebenen. Dies ermöglicht uns eine reichhaltigere Spielwelt mit weniger Kacheln, da dasselbe Bild mit unterschiedlichen Hintergründen verwendet werden kann. Beispielsweise könnte ein Fels, der über mehreren Geländetypen erscheinen könnte (wie Gras, Sand oder Ziegel), in einer eigenen separaten Kachel enthalten sein, die dann auf einer neuen Ebene gerendert wird, anstatt mehrere Felskacheln mit verschiedenen Hintergrundgeländen.
+Das visuelle Raster besteht häufig aus mehreren Ebenen. Dadurch können wir mit weniger Tiles eine reichhaltigere Spielwelt erstellen, da dasselbe Bild mit verschiedenen Hintergründen verwendet werden kann. Beispielsweise könnte ein Felsen auf mehreren Geländetypen erscheinen (etwa Gras, Sand oder Ziegel). Statt mehrere Felsen-Tiles mit jeweils unterschiedlichem Hintergrundgelände zu verwenden, kann er auf einem eigenen separaten Tile enthalten sein, das anschließend auf einer neuen Ebene gerendert wird.
 
-Wenn Charaktere oder andere Spiel-Sprites in der Mitte des Ebenenstapels gezeichnet werden, ermöglicht das interessante Effekte wie Charaktere, die hinter Bäumen oder Gebäuden laufen.
+Wenn Figuren oder andere Spiel-Sprites in der Mitte des Ebenenstapels gezeichnet werden, ermöglicht dies interessante Effekte, etwa dass Figuren hinter Bäumen oder Gebäuden laufen.
 
-Der folgende Screenshot zeigt ein Beispiel für beide Punkte: einen Charakter, der _hinter_ einer Kachel erscheint (der Ritter, der hinter der Spitze eines Baumes erscheint) und eine Kachel (der Busch), der über verschiedenen Geländetypen gerendert wird.
+Der folgende Screenshot zeigt ein Beispiel für beide Aspekte: Eine Figur erscheint _hinter_ einem Tile (der Ritter hinter dem oberen Teil eines Baums), und ein Tile (der Busch) wird über verschiedenen Geländetypen gerendert.
 
-![Ein Raster von geschichteten Hintergrundgeländen. Eine Busch-Kachel wird oben gerendert, über einem großen Grasgelände, und erneut über ein geschichtetes rechteckiges Gelände mit braunem Sand am unteren Rand. Eine Baum-Kachel wird über dem Grasgelände unten links und erneut unten rechts gerendert. Eine Ritter-Kachel erscheint hinter der Baum-Kachel, die unten links gerendert wird.](screen_shot_2015-10-06_at_15.56.05.png)
+![Ein Raster geschichteter Hintergrundgelände. Ein Busch-Tile wird oben über einem großen Grasgelände und erneut über einem geschichteten rechteckigen Gelände mit braunem Sand am unteren Rand gerendert. Ein Baum-Tile wird unten links über dem Grasgelände und erneut unten rechts gerendert. Ein Ritter-Tile erscheint hinter dem Baum-Tile, das unten links gerendert wird.](screen_shot_2015-10-06_at_15.56.05.png)
 
 ### Das logische Raster
 
-Da Kachelkarten ein tatsächliches Raster von visuellen Kacheln sind, ist es üblich, eine Abbildung zwischen diesem visuellen Raster und einem logischen Raster zu erstellen. Der häufigste Fall ist, dieses logische Raster zur Handhabung von Kollisionen zu verwenden, aber auch andere Verwendungen sind möglich: Charakter-Spawnpunkte, Erkennung, ob einige Elemente auf die richtige Weise zusammen platziert sind, um eine bestimmte Aktion auszulösen (wie in _Tetris_ oder _Bejeweled_), Pfadfindungsalgorithmen usw.
+Da Tilemaps tatsächliche Raster visueller Tiles sind, ist es üblich, eine Zuordnung zwischen diesem visuellen Raster und einem logischen Raster zu erstellen. Der häufigste Anwendungsfall ist die Behandlung von Kollisionen mithilfe dieses logischen Rasters. Es sind jedoch auch andere Verwendungen möglich: Spawn-Punkte für Figuren, die Erkennung, ob bestimmte Elemente auf die richtige Weise zusammen platziert sind, um eine bestimmte Aktion auszulösen (wie bei _Tetris_ oder _Bejeweled_), Wegfindungsalgorithmen usw.
 
 > [!NOTE]
-> Sie können sich unser Demo ansehen, das zeigt, [wie man ein logisches Raster zur Handhabung von Kollisionen verwendet](https://mozdevs.github.io/gamedev-js-tiles/square/logic-grid.html).
+> Sehen Sie sich unsere Demo an, die zeigt, [wie ein logisches Raster zur Behandlung von Kollisionen verwendet wird](https://mozdevs.github.io/gamedev-js-tiles/square/logic-grid.html).
 
-## Isometrische Kachelkarten
+## Isometrische Tilemaps
 
-Isometrische Kachelkarten erzeugen die Illusion einer 3D-Umgebung und sind extrem populär in 2D-Simulations-, Strategie- oder RPG-Spielen. Einige dieser Spiele sind _SimCity 2000_, _Pharaoh_ oder _Final Fantasy Tactics_. Das untenstehende Bild zeigt ein Beispiel für einen Atlas für einen isometrischen Kachelsatz.
+Isometrische Tilemaps erzeugen die Illusion einer 3D-Umgebung und sind in 2D-Simulations-, Strategie- oder RPG-Spielen äußerst beliebt. Zu diesen Spielen gehören _SimCity 2000_, _Pharaoh_ oder _Final Fantasy Tactics_. Das folgende Bild zeigt ein Beispiel für einen Atlas eines isometrischen Tilesets.
 
-![Eine 3x4 Karte von verschiedenfarbigen Kacheln in isometrischer Projektion](iso_tiles.png)
+![Eine 3x4-Map aus verschiedenfarbigen Tiles in isometrischer Projektion](iso_tiles.png)
 
-## Leistung
+## Performance
 
-Das Zeichnen von scrollenden Kachelkarten kann die Leistung beeinträchtigen. In der Regel müssen einige Techniken implementiert werden, damit das Scrollen reibungslos erfolgt. Der erste Ansatz, wie oben erwähnt, besteht darin, **nur Kacheln zu zeichnen, die sichtbar sein werden**. Aber manchmal reicht das nicht aus.
+Das Zeichnen scrollender Tilemaps kann die Performance beeinträchtigen. In der Regel müssen einige Techniken implementiert werden, damit das Scrollen flüssig erfolgen kann. Der erste Ansatz besteht, wie oben erläutert, darin, **nur Tiles zu zeichnen, die sichtbar sein werden**. Manchmal reicht dies jedoch nicht aus.
 
-Eine einfache Technik besteht darin, die Karte in einem eigenen Canvas vorab zu rendern (bei Verwendung der Canvas API) oder auf einer Textur (bei Verwendung von WebGL), sodass die Kacheln nicht jedes Bild neu gezeichnet werden müssen und das Rendering in nur einer Blit-Operation erfolgen kann. Wenn die Karte jedoch groß ist, löst das Problem nicht wirklich – und einige Systeme haben keine sehr großzügige Grenze, wie groß eine Textur sein kann.
+Eine einfache Technik besteht darin, die Map auf einem eigenen Canvas vorab zu rendern (bei Verwendung der Canvas API) oder auf einer Textur (bei Verwendung von WebGL), sodass Tiles nicht in jedem Frame neu gezeichnet werden müssen und das Rendering in nur einer Blitting-Operation erfolgen kann. Wenn die Map groß ist, löst dies das Problem natürlich nicht wirklich — und manche Systeme haben kein besonders großzügiges Limit dafür, wie groß eine Textur sein kann.
 
-Eine Möglichkeit besteht darin, [den sichtbaren Abschnitt außerhalb des Canvas zu zeichnen](https://mozdevs.github.io/gamedev-js-tiles/performance/offcanvas.html) (anstatt die gesamte Karte). Das bedeutet, dass solange kein Scrollen erfolgt, die Karte nicht gerendert werden muss.
+Eine Möglichkeit besteht darin, [den sichtbaren Abschnitt außerhalb des Canvas zu zeichnen](https://mozdevs.github.io/gamedev-js-tiles/performance/offcanvas.html) (anstatt der gesamten Map). Das bedeutet, dass die Map nicht gerendert werden muss, solange kein Scrollen stattfindet.
 
-Ein Nachteil dieses Ansatzes besteht darin, dass, wenn es ein Scrollen gibt, diese Technik nicht sehr effizient ist. Ein besserer Weg wäre, ein Canvas zu erstellen, das 2x2 Kacheln größer ist als der sichtbare Bereich, sodass es eine "Blutlinie" von einer Kachel um die Ränder gibt. Das bedeutet, dass die Karte nur auf dem Canvas neu gezeichnet werden muss, wenn das Scrollen um eine vollständige Kachel vorangeschritten ist – anstatt jedes Bild – während des Scrollens.
+Ein Nachteil dieses Ansatzes ist, dass diese Technik bei _vorhandenem_ Scrollen nicht besonders effizient ist. Eine bessere Methode wäre, einen Canvas zu erstellen, der um 2x2 Tiles größer als der sichtbare Bereich ist, sodass an den Rändern jeweils ein Tile als „Überstand“ vorhanden ist. Das bedeutet, dass die Map während des Scrollens nur dann auf dem Canvas neu gezeichnet werden muss, wenn das Scrollen um ein vollständiges Tile vorangeschritten ist — statt in jedem Frame.
 
-In schnellen Spielen könnte das immer noch nicht ausreichen. Eine alternative Methode wäre, die Kachelkarte in große Abschnitte zu unterteilen (wie eine vollständige Karte, die in 10 x 10 Kachelabschnitte aufgeteilt ist), jeden Abschnitt außerhalb des Canvas vorab zu rendern und dann jeden gerenderten Abschnitt als "große Kachel" in Kombination mit einem der oben diskutierten Algorithmen zu behandeln.
+Bei schnellen Spielen reicht dies möglicherweise noch immer nicht aus. Eine alternative Methode wäre, die Tilemap in große Abschnitte aufzuteilen (etwa eine vollständige Map in 10 x 10 große Tile-Blöcke), jeden Abschnitt außerhalb des Canvas vorab zu rendern und anschließend jeden gerenderten Abschnitt in Kombination mit einem der oben beschriebenen Algorithmen als „großes Tile“ zu behandeln.
 
 ## Siehe auch
 
-- Verwandte Artikel auf dem MDN:
-  - [Implementierung statischer quadratischer Kachelkarten mit der Canvas API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps)
-  - [Implementierung scrollender quadratischer Kachelkarten mit der Canvas API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps)
+- Verwandte Artikel auf MDN:
+  - [Implementierung statischer quadratischer Tilemaps mit Canvas API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps)
+  - [Implementierung scrollender quadratischer Tilemaps mit Canvas API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps)
 
 - Externe Ressourcen:
   - [Demos und Quellcode](https://mozdevs.github.io/gamedev-js-tiles/)

@@ -1,15 +1,15 @@
 ---
-title: Temporal.ZonedDateTime()
+title: Konstruktor Temporal.ZonedDateTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/ZonedDateTime
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
 ---
 
 {{SeeCompatTable}}
 
-Der **`Temporal.ZonedDateTime()`** Konstruktor erstellt {{jsxref("Temporal.ZonedDateTime")}} Objekte.
+Der Konstruktor **`Temporal.ZonedDateTime()`** erstellt {{jsxref("Temporal.ZonedDateTime")}}-Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie direkt die zugrunde liegenden Daten angeben. Wie bei allen anderen `Temporal` Klassen sollten Sie `Temporal.ZonedDateTime` Objekte normalerweise mit der {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} statischen Methode konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Mit diesem Konstruktor können Sie Instanzen erstellen, indem Sie die zugrunde liegenden Daten direkt angeben. Wie bei allen anderen `Temporal`-Klassen sollten Sie `Temporal.ZonedDateTime`-Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} erstellen, die verschiedene Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ new Temporal.ZonedDateTime(epochNanoseconds, timeZone, calendar)
 ```
 
 > [!NOTE]
-> `Temporal.ZonedDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `Temporal.ZonedDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, sie ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `epochNanoseconds`
-  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} Eigenschaft entspricht.
+  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das der Eigenschaft {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} entspricht.
 - `timeZone`
-  - : Eine Zeichenkette, die der {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}} Eigenschaft entspricht. Anders als bei allen anderen `Temporal` APIs muss es sich dabei um einen gültigen Zeitzonen-Identifier (entweder benannt oder offset) handeln, und es kann keine `Temporal.ZonedDateTime` Instanz oder ein Datum-Uhrzeit-String sein.
+  - : Eine Zeichenkette, die der Eigenschaft {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}} entspricht. Anders als bei allen anderen `Temporal`-APIs muss sie unverändert ein gültiger Zeitzonenbezeichner sein (entweder benannt oder als Offset) und kann weder eine `Temporal.ZonedDateTime`-Instanz noch eine Datum-Uhrzeit-Zeichenkette sein.
 - `calendar` {{optional_inline}}
-  - : Eine Zeichenkette, die der {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalenderarten. Standardmäßig `"iso8601"`.
+  - : Eine Zeichenkette, die der Eigenschaft {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}} entspricht. Eine Liste häufig unterstützter Kalendertypen finden Sie unter [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types). Der Standardwert ist `"iso8601"`.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime` Objekt, das den spezifischen Moment repräsentiert, der durch die Parameter angegeben wird.
+Ein neues `Temporal.ZonedDateTime`-Objekt, das den durch die Parameter angegebenen spezifischen Zeitpunkt repräsentiert.
 
 ### Ausnahmen
 
@@ -40,9 +40,9 @@ Ein neues `Temporal.ZonedDateTime` Objekt, das den spezifischen Moment repräsen
   - : Wird ausgelöst, wenn `timeZone` oder `calendar` keine Zeichenkette ist.
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `epochNanoseconds` liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
-    - `timeZone` ist kein gültiger Zeitzonen-Identifier.
-    - `calendar` ist kein gültiger Kalender-Identifier.
+    - `epochNanoseconds` liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage beziehungsweise etwa ±273.972,6 Jahre von der Unix-Epoche beträgt.
+    - `timeZone` ist kein gültiger Zeitzonenbezeichner.
+    - `calendar` ist kein gültiger Kalenderbezeichner.
 
 ## Beispiele
 

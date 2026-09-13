@@ -1,13 +1,13 @@
 ---
-title: Temporal.PlainTime()
+title: Temporal.PlainTime()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/PlainTime
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
 ---
 
-Der **`Temporal.PlainTime()`** Konstruktor erstellt {{jsxref("Temporal.PlainTime")}} Objekte.
+Der Konstruktor **`Temporal.PlainTime()`** erstellt {{jsxref("Temporal.PlainTime")}}-Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen durch direkte Angabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal` Klassen, sollten Sie `Temporal.PlainTime` Objekte normalerweise mit der {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} statischen Methode erstellen, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Mit diesem Konstruktor können Sie Instanzen erstellen, indem Sie die zugrunde liegenden Daten direkt angeben. Wie bei allen anderen `Temporal`-Klassen sollten Sie `Temporal.PlainTime`-Objekte üblicherweise mit der statischen Methode {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} erstellen, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -27,21 +27,21 @@ new Temporal.PlainTime(hour, minute, second, millisecond, microsecond, nanosecon
 ### Parameter
 
 - `hour` {{optional_inline}}
-  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Stundenkomponente darstellt.
+  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Stundenkomponente darstellt.
 - `minute` {{optional_inline}}
-  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Minutenkomponente darstellt.
+  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Minutenkomponente darstellt.
 - `second` {{optional_inline}}
-  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Sekundenkomponente darstellt.
+  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Sekundenkomponente darstellt.
 - `millisecond` {{optional_inline}}
-  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Millisekundenkomponente darstellt.
+  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Millisekundenkomponente darstellt.
 - `microsecond` {{optional_inline}}
-  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Mikrosekundenkomponente darstellt.
+  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Mikrosekundenkomponente darstellt.
 - `nanosecond` {{optional_inline}}
-  - : Eine Zahl, die auf eine Ganzzahl gekürzt wird und die Nanosekundenkomponente darstellt.
+  - : Eine Zahl, auf eine ganze Zahl gekürzt, die die Nanosekundenkomponente darstellt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainTime` Objekt, das die durch die Parameter spezifizierte Zeit darstellt.
+Ein neues `Temporal.PlainTime`-Objekt, das die durch die Parameter angegebene Zeit darstellt.
 
 ### Ausnahmen
 

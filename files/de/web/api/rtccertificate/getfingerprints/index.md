@@ -1,16 +1,16 @@
 ---
-title: "RTCCertificate: getFingerprints() Methode"
+title: "RTCCertificate: Methode getFingerprints()"
 short-title: getFingerprints()
 slug: Web/API/RTCCertificate/getFingerprints
 l10n:
-  sourceCommit: db443a6062d0e858a62af2f9a3a7558335ffd2dd
+  sourceCommit: 6f5921b2634db4bd565e5e0cd38eafdadb4bb383
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getFingerprints()`**-Methode des **[`RTCCertificate`](/de/docs/Web/API/RTCCertificate)** Interfaces wird verwendet, um ein Array von Zertifikat-Fingerabdrücken zu erhalten.
+Die Methode **`getFingerprints()`** der Schnittstelle **[`RTCCertificate`](/de/docs/Web/API/RTCCertificate)** wird verwendet, um ein Array von Zertifikat-Fingerprints abzurufen.
 
-Dies kann im Anwendungscode verwendet werden, um Zertifikat-Fingerabdrücke zu erhalten, bei denen es sich um {{Glossary("hash_function", "Hashes")}} der Zertifikate handelt, die mit den verschiedenen vom Browser unterstützten Algorithmen erstellt wurden.
+Dies kann in Code auf Anwendungsebene verwendet werden, um Zertifikat-Fingerprints abzurufen. Dabei handelt es sich um {{Glossary("hash_function", "Hashes")}} des Zertifikats, die mithilfe der verschiedenen vom Browser unterstützten Algorithmen erstellt werden.
 
 ## Syntax
 
@@ -24,43 +24,43 @@ Keine.
 
 ### Rückgabewert
 
-Ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von Fingerabdruck-Werten.
-Jeder Fingerabdruck wird durch ein Objekt mit folgenden Eigenschaften dargestellt:
+Ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von Fingerprint-Werten.
+Jeder Fingerprint wird durch ein Objekt mit den folgenden Eigenschaften dargestellt:
 
 - `algorithm`
-  - : Ein String, der den Algorithmus der Hash-Funktion angibt, der verwendet wurde, um den Fingerabdruck in `value` zu erstellen.
-    Erlaubte Werte umfassen: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`.<!-- from [RFC4572] Section 5. -->
+  - : Ein String, der den Hash-Funktionsalgorithmus angibt, der verwendet wurde, um den Fingerprint in `value` zu erstellen.
+    Zulässige Werte sind unter anderem: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`.<!-- aus [RFC4572], Abschnitt 5. -->
 - `value`
-  - : Ein String, der den Zertifikat-Fingerabdruck in Kleinbuchstaben-Hexadezimalwert darstellt, wie er mit der `algorithm`-Hash-Funktion berechnet wurde.
-    Das Format ist genauer definiert in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/info/rfc4572/#section-5).
+  - : Ein String, der den Zertifikat-Fingerprint als hexadezimalen String in Kleinbuchstaben enthält, berechnet mit der Hash-Funktion `algorithm`.
+    Das Format ist in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/info/rfc4572/#section-5) genauer definiert.
 
 ## Beschreibung
 
-Die [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Instanzen, die für eine bestimmte [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet werden, können mit der statischen Methode [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) erstellt oder aus einem Speicher in einer [IndexedDB](/de/docs/Web/API/IndexedDB_API) abgerufen und im Konstruktor festgelegt werden.
-Wenn im Konstruktor keine Zertifikate übergeben werden, werden sie automatisch erstellt, in diesem Fall können die verwendeten Zertifikate mit [`RTCPeerConnection.getConfiguration()`](/de/docs/Web/API/RTCPeerConnection/getConfiguration) abgerufen werden.
+Die für eine bestimmte [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendeten [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Instanzen können mithilfe der statischen Methode [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) erstellt oder aus einem [IndexedDB](/de/docs/Web/API/IndexedDB_API)-Speicher abgerufen und im Konstruktor festgelegt werden.
+Wenn im Konstruktor keine Zertifikate übergeben werden, werden sie automatisch erstellt. In diesem Fall können die verwendeten Zertifikate mit [`RTCPeerConnection.getConfiguration()`](/de/docs/Web/API/RTCPeerConnection/getConfiguration) abgerufen werden.
 
-Browser werden automatisch Zertifikate und Fingerabdrücke, die mit jeder [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, während der SDP-Angebotsphase austauschen, und diese werden als Teil des DTLS-Handshake verwendet, um zu überprüfen, dass der Remote-Teilnehmer mit dem Zertifikat/Endpunkt übereinstimmt, das im SDP gesendet wurde.
-Dies bietet eine grundlegende Validierung dafür, dass die WebRTC-Kommunikation mit dem Remote-Teilnehmer aufgebaut wird, der das Angebot initiiert hat, bietet jedoch beispielsweise keine Validierung der Identität der kommunizierenden Benutzer.
+Browser tauschen während der SDP-Angebotsphase automatisch die mit jeder [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verknüpften Zertifikate und Fingerprints aus. Diese werden als Teil des DTLS-Handshakes verwendet, um zu überprüfen, ob die Gegenstelle mit dem im SDP gesendeten Zertifikat/Endpunkt übereinstimmt.
+Dies stellt eine Validierung auf niedriger Ebene bereit, dass die WebRTC-Kommunikation mit der Gegenstelle aufgebaut wird, die das Angebot initiiert hat, bietet jedoch beispielsweise keine Validierung der Identität der kommunizierenden Benutzer.
 
-In einigen Fällen kann es nützlich sein, dass die Anwendungsebene Zertifikat-Fingerabdrücke außerhalb des Bandes teilt:
+In einigen Fällen kann es für die Anwendungsebene nützlich sein, Zertifikat-Fingerprints außerhalb des üblichen Kommunikationswegs auszutauschen:
 
-- Wenn eine Vertrauensbeziehung zwischen zwei Web-Browsern hergestellt wurde, kann sie beibehalten werden, indem die Zertifikate gespeichert und in einer späteren Sitzung (bis zu einem Jahr später) wiederverwendet werden.
-  Die vertrauenswürdigen Zertifikate werden durch ihre Fingerabdrücke identifiziert.
-- Peers, die einen bestimmten Benutzer identifizieren möchten, können Fingerabdrücke senden und den zugehörigen Benutzer "außerhalb des Bandes" (d.h. außerhalb des vom Browser vermittelten WebRTC-Kommunikationsflusses) validieren.
-  Die Anwendung kann den Fingerabdruck verwenden, um spätere Sitzungen mit dem spezifischen Benutzer zu identifizieren.
-- In einigen Konferenzserver- ("Middlebox") Implementierungen muss der Server die Fingerabdrücke kennen, bevor ein Angebot/Antwort erfolgt.
+- Wenn zwischen zwei Webbrowsern eine Vertrauensbeziehung hergestellt wurde, kann sie durch das Speichern der Zertifikate und deren Wiederverwendung in einer späteren Sitzung persistiert werden (bis zu einem Jahr später).
+  Die vertrauenswürdigen Zertifikate werden anhand ihrer Fingerprints identifiziert.
+- Peers, die einen bestimmten Benutzer identifizieren möchten, können Fingerprints senden und den zugehörigen Benutzer „out of band“ validieren (d.h. außerhalb des vom Browser vermittelten WebRTC-Kommunikationsflusses).
+  Die Anwendung kann den Fingerprint verwenden, um spätere Sitzungen mit dem jeweiligen Benutzer zu identifizieren.
+- In einigen Implementierungen von Konferenzservern („Middleboxes“) muss der Server möglicherweise die Fingerprints kennen, bevor ein Angebot/eine Antwort verarbeitet wird.
 
-Peers können verschiedene Sets von Algorithmen unterstützen.
-Wenn Zertifikate verglichen werden, sollten alle Fingerabdruckwerte für das von den Peers unterstützte Algorithmusset übereinstimmen.
+Peers können unterschiedliche Mengen an Algorithmen unterstützen.
+Beim Vergleichen von Zertifikaten sollten alle Fingerprint-Werte für die von Peers unterstützte Menge von Algorithmen übereinstimmen.
 
 ## Beispiele
 
-### Zertifikat-Fingerabdrücke abrufen
+### Abrufen von Zertifikat-Fingerprints
 
-Dieses Beispiel zeigt, wie Sie Zertifikat-Fingerabdrücke vom lokalen Peer erhalten und mit Fingerabdrücken vom Remote-Peer vergleichen können.
+Dieses Beispiel zeigt, wie Sie Zertifikat-Fingerprints vom lokalen Peer abrufen und mit Fingerprints vom Remote-Peer vergleichen können.
 
-Zuerst erstellen wir eine Verbindung und erhalten Zertifikate und deren Fingerabdrücke.
-Wir erhalten die Fingerabdrücke vom Remote-Peer über "einen Mechanismus außerhalb des Bandes".
+Zuerst erstellen wir eine Verbindung und rufen Zertifikate sowie deren Fingerprints ab.
+Die Fingerprints vom Remote-Peer erhalten wir über „einen Out-of-Band-Mechanismus“.
 
 ```js
 // Get the certificate fingerprints from the local peer.
@@ -81,10 +81,10 @@ if (certificates && certificates.length > 0) {
 const fingerprintsFromServer = [/* … */];
 ```
 
-Es gibt zahlreiche Möglichkeiten, die Fingerabdruck-Arrays für ein bestimmtes Zertifikat zu vergleichen.
-Hier konvertieren wir die Arrays in Dictionary-Objekte, wobei der Algorithmusname die Eigenschaft ist, und vergleichen sie dann.
-Dies funktioniert, weil für jeden Algorithmus nur ein Fingerabdruckwert existieren kann.
-(Es gibt viele andere Möglichkeiten, die beiden Arrays zu sortieren und zu vergleichen).
+Es gibt zahlreiche Möglichkeiten, die Fingerprint-Arrays für ein bestimmtes Zertifikat zu vergleichen.
+Hier konvertieren wir die Arrays in Wörterbuchobjekte, bei denen der Algorithmusname die Eigenschaft ist, und vergleichen sie anschließend.
+Dies funktioniert, weil für jeden Algorithmus nur ein Fingerprint-Wert vorhanden sein kann.
+(Es gibt viele weitere Möglichkeiten, die beiden Arrays zu sortieren und zu vergleichen.)
 
 ```js
 let clientFingerprintDict = Object.fromEntries(
