@@ -3,10 +3,10 @@ title: "`scroll-snap-align` CSS property"
 short-title: scroll-snap-align
 slug: Web/CSS/Reference/Properties/scroll-snap-align
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 6354422058e438a2599e4eab71eaec8eb40850fa
 ---
 
-Die `scroll-snap-align`-Eigenschaft legt die Snap-Position des Kastens als Ausrichtung seines {{Glossary("Scroll_snap#snap_area", "Snap-Bereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungs-Subjekt")}}) innerhalb des Snap-Ports seines Snap-Containers (als {{Glossary("alignment_container", "Ausrichtungs-Container")}}) fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`scroll-snap-align`** legt die Einrastposition der Box als Ausrichtung ihres {{Glossary("Scroll_snap#snap_area", "Einrastbereichs")}} fest.
 
 {{InteractiveExample("CSS Demo: scroll-snap-align")}}
 
@@ -96,16 +96,22 @@ scroll-snap-align: unset;
 
 ### Werte
 
-Für die `scroll-snap-align`-Eigenschaft können ein oder zwei Werte angegeben werden. Wenn ein Wert gesetzt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte gesetzt sind, steuert der erste Wert die Block-Achse und der zweite Wert die Inline-Achse.
+Diese Eigenschaft wird als einer oder zwei der folgenden Schlüsselwortwerte angegeben, die durch Leerzeichen getrennt sind:
 
 - `none`
-  - : Der Kasten definiert keine Snap-Position auf dieser Achse.
+  - : Die Box definiert keine Einrastposition in dieser Achse.
 - `start`
-  - : Die Anfangsausrichtung des Scroll-Snap-Bereichs dieses Kastens, innerhalb des Snap-Ports des Scroll-Containers, ist eine Snap-Position auf dieser Achse.
+  - : Die Startausrichtung des Scroll-{{Glossary("Scroll_snap#snap_area", "Einrastbereichs")}} dieser Box innerhalb des {{Glossary("Scroll_snap#snapport", "Snapports")}} des Scroll-Containers ist eine Einrastposition in dieser Achse.
 - `end`
-  - : Die Endausrichtung des Scroll-Snap-Bereichs dieses Kastens, innerhalb des Snap-Ports des Scroll-Containers, ist eine Snap-Position auf dieser Achse.
+  - : Die Endausrichtung des Scroll-Einrastbereichs dieser Box innerhalb des Snapports des Scroll-Containers ist eine Einrastposition in dieser Achse.
 - `center`
-  - : Die Zentrumausrichtung des Scroll-Snap-Bereichs dieses Kastens, innerhalb des Snap-Ports des Scroll-Containers, ist eine Snap-Position auf dieser Achse.
+  - : Die zentrierte Ausrichtung des Scroll-Einrastbereichs dieser Box innerhalb des Snapports des Scroll-Containers ist eine Einrastposition in dieser Achse.
+
+## Beschreibung
+
+Die Eigenschaft `scroll-snap-align` legt die Einrastposition der Box als Ausrichtung ihres {{Glossary("Scroll_snap#snap_area", "Einrastbereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}) innerhalb des Snapports ihres Snap-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
+
+Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert festgelegt wird, wird er auf beide Block- und Inline-Achsen angewendet. Wenn zwei Werte festgelegt werden, steuert der erste Wert die Blockachse und der zweite Wert die Inline-Achse.
 
 ## Formale Definition
 
@@ -127,5 +133,5 @@ Für die `scroll-snap-align`-Eigenschaft können ein oder zwei Werte angegeben w
 
 - {{cssxref("scroll-snap-stop")}}
 - {{cssxref("scroll-initial-target")}}
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- Modul [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

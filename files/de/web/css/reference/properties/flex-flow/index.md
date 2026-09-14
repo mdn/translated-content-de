@@ -1,12 +1,12 @@
 ---
-title: "`flex-flow` CSS-Eigenschaft"
+title: CSS-Eigenschaft `flex-flow`
 short-title: flex-flow
 slug: Web/CSS/Reference/Properties/flex-flow
 l10n:
-  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
+  sourceCommit: 6354422058e438a2599e4eab71eaec8eb40850fa
 ---
 
-Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt sowohl die Richtung eines Flex-Containers als auch sein Umbruchverhalten fest.
+Die [CSS](/de/docs/Web/CSS)-[Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`flex-flow`** legt die Richtung eines Flex-Containers sowie sein Umbruchverhalten fest.
 
 {{InteractiveExample("CSS Demo: flex-flow")}}
 
@@ -64,9 +64,9 @@ flex-flow: column balance wrap;
 }
 ```
 
-## Bestandteile
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("flex-direction")}}
 - {{cssxref("flex-wrap")}}
@@ -103,13 +103,18 @@ flex-flow: unset;
 
 ### Werte
 
-Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu den Werten.
+Diese Eigenschaft wird als durch Leerzeichen getrennte Liste von Schlüsselwörtern der folgenden Typen angegeben:
+
+- {{cssxref("flex-direction")}}
+  - : Ein Schlüsselwort, das die Hauptachse und Richtung festlegt, in der Flex-Elemente im Flex-Container platziert werden.
+- {{cssxref("flex-wrap")}}
+  - : Ein oder zwei Schlüsselwörter, die festlegen, ob Flex-Elemente in mehrere Zeilen umbrochen werden können, und, falls Umbruch erlaubt ist, die Richtung bestimmen, in der die Zeilen gestapelt werden, sowie, ob sie ausgeglichen werden.
 
 ## Beschreibung
 
-Die `flex-flow` Kurzschreibweise bestimmt die Eigenschaften {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}}, definiert die Richtung eines Flex-Containers und dessen Umbruchverhalten. Sie kann auch festlegen, dass Flex-Elemente ausgeglichen verteilt werden, wenn Umbrüche erlaubt sind.
+Die Kurzform-Eigenschaft `flex-flow` legt die Eigenschaften {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} fest und definiert damit die Richtung eines Flex-Containers und sein Umbruchverhalten. Sie kann außerdem festlegen, dass Flex-Elemente ausgeglichen werden, wenn ein Umbruch erlaubt ist.
 
-Zum Beispiel setzt `column-reverse wrap` die Hauptachse in die Blockrichtung mit einem umgekehrten Hauptstart und Hauptende, wobei Flex-Elemente Umbrüche erlauben und bei Bedarf neue Zeilen erstellen.
+Beispielsweise legt `column-reverse wrap` die Hauptachse auf die Blockrichtung mit umgekehrtem Hauptanfang und Hauptende fest, wobei Flex-Elemente umbrochen werden dürfen und bei Bedarf neue Zeilen erstellt werden.
 
 ```css
 .container {
@@ -117,7 +122,7 @@ Zum Beispiel setzt `column-reverse wrap` die Hauptachse in die Blockrichtung mit
 }
 ```
 
-Um die Flex-Elemente gleichmäßig über jede Flex-Zeile zu verteilen, können Sie das `flex-wrap` Schlagwort [`balance`](/de/docs/Web/CSS/Reference/Properties/flex-wrap#balance) zusätzlich zu `wrap` einschließen:
+Um die Flex-Elemente gleichmäßig über jede Flex-Zeile zu verteilen, können Sie zusätzlich zu `wrap` das Schlüsselwort [`balance`](/de/docs/Web/CSS/Reference/Properties/flex-wrap#balance) für `flex-wrap` einschließen:
 
 ```css
 .container {
@@ -137,7 +142,7 @@ Um die Flex-Elemente gleichmäßig über jede Flex-Zeile zu verteilen, können S
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel demonstriert die Verwendung der `flex-flow` Kurzschreibweise auf einem Flex-Container, sodass die Elemente rückwärts über mehrere Zeilen angeordnet werden.
+Dieses Beispiel demonstriert die Verwendung der Kurzform `flex-flow` für einen Flex-Container, sodass die Elemente in umgekehrter Reihenfolge über mehrere Zeilen angeordnet werden.
 
 #### HTML
 
@@ -174,7 +179,7 @@ Wir fügen eine Liste von Wörtern in alphabetischer Reihenfolge ein:
 
 #### CSS
 
-Wir setzen den {{HTMLElement("ul")}} als Flex-Container mit der {{cssxref("display")}}-Eigenschaft, definieren eine {{cssxref("width")}}, fügen ein {{cssxref("gap")}} hinzu, damit etwas Platz zwischen den Flex-Elementen und Flex-Zeilen ist, und setzen dann den `flex-flow`, um die Elemente in umgekehrter Reihenfolge zu umbrechen. Zusätzliche CSS wurde der Kürze halber ausgeblendet.
+Wir legen {{HTMLElement("ul")}} mit der Eigenschaft {{cssxref("display")}} als Flex-Container fest, definieren eine {{cssxref("width")}}, fügen ein {{cssxref("gap")}} hinzu, damit zwischen Flex-Elementen und Flex-Zeilen etwas Platz ist, und setzen dann `flex-flow`, um die Elemente in umgekehrter Reihenfolge umzubrechen. Zusätzliche CSS-Regeln wurden der Kürze halber ausgeblendet.
 
 ```css
 ul {
@@ -217,5 +222,5 @@ li:nth-of-type(even) {
 
 ## Siehe auch
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Flex-Elemente anordnen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)

@@ -3,12 +3,15 @@ title: "FormData: Methode entries()"
 short-title: entries()
 slug: Web/API/FormData/entries
 l10n:
-  sourceCommit: bd15d43260b7e72b1066c04d9d9f3b79129c619c
+  sourceCommit: b264328c7abee284014e09d5bfe1bab88898b27a
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`FormData.entries()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Schlüssel/Wert-Paare im [`FormData`](/de/docs/Web/API/FormData) iteriert. Der Schlüssel jedes Paares ist ein String, und der Wert ist entweder ein String oder ein [`Blob`](/de/docs/Web/API/Blob).
+Die Methode **`FormData.entries()`** gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der alle Schlüssel/Wert-Paare durchläuft, die in [`FormData`](/de/docs/Web/API/FormData) enthalten sind. Der Schlüssel jedes Paars ist ein String, und der Wert ist entweder ein String oder ein [`Blob`](/de/docs/Web/API/Blob).
+
+> [!NOTE]
+> Anders als Einträge von [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) sind `FormData`-Einträge nicht unbedingt pro Schlüssel eindeutig. Ein Formular kann mehrere Elemente mit demselben Namen enthalten, sodass derselbe Schlüssel beim Iterieren in mehr als einem Paar erscheinen kann. Nach dem ersten Eintrag kann sich der Wert vom Rückgabewert von [`get()`](/de/docs/Web/API/FormData/get) unterscheiden, das den ersten dem Schlüssel zugeordneten Wert zurückgibt.
 
 ## Syntax
 
@@ -22,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Schlüssel/Wert-Paare von [`FormData`](/de/docs/Web/API/FormData).
+Ein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Schlüssel/Wert-Paare von [`FormData`](/de/docs/Web/API/FormData).
 
 ## Beispiele
 

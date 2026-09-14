@@ -3,12 +3,10 @@ title: "`column-count` CSS property"
 short-title: column-count
 slug: Web/CSS/Reference/Properties/column-count
 l10n:
-  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
+  sourceCommit: d1cf7346516383565b51a125c064ae3d5d893526
 ---
 
-Die **`column-count`** [CSS](/de/docs/Web/CSS)-Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
-
-Die {{cssxref("columns")}} Kurzschreibweise kann verwendet werden, um die Werte der Eigenschaften `column-count`, {{cssxref("column-height")}}, und {{cssxref("column-width")}} in einer einzigen Deklaration zu setzen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-count`** teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
 
 {{InteractiveExample("CSS Demo: column-count")}}
 
@@ -67,12 +65,18 @@ column-count: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste angegeben:
+Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste angegeben:
 
 - `auto`
-  - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
+  - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, beispielsweise {{cssxref("column-width")}}.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ist eine streng positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements fließen soll. Ist die {{cssxref("column-width")}} ebenfalls auf einen anderen Wert als `auto` gesetzt, gibt sie lediglich die maximal zulässige Anzahl an Spalten an.
+  - : Eine strikt positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements fließen soll. Wenn {{cssxref("column-width")}} ebenfalls auf einen Wert ungleich `auto` gesetzt ist, gibt sie lediglich die maximal zulässige Anzahl von Spalten an.
+
+## Beschreibung
+
+Das Setzen von `column-count` auf einen Wert größer als `1` erstellt ein mehrspaltiges Layout. Der Inhalt des Elements wird gleichmäßig auf die angegebene Anzahl von Spalten verteilt.
+
+Die Eigenschaft `column-count` kann zusammen mit den Eigenschaften {{cssxref("column-height")}} und {{cssxref("column-width")}} auch mithilfe der Kurzschreibweise {{cssxref("columns")}} gesetzt werden.
 
 ## Formale Definition
 
@@ -120,7 +124,7 @@ Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste angegeben:
 
 - {{cssxref("column-height")}}
 - {{cssxref("column-width")}}
-- {{cssxref("columns")}} Kurzschreibweise
-- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
-- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
-- [Grundkonzepte der Multicol](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
+- Kurzschreibweise {{cssxref("columns")}}
+- Kurzschreibweise {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}}
+- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Layout lernen)
+- [Grundlegende Konzepte von Multicol](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)

@@ -3,7 +3,7 @@ title: Promise.reject()
 short-title: reject()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/reject
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: a6a2daec3965d85ef6dfc06cfd3507c1b2f886e2
 ---
 
 Die statische Methode **`Promise.reject()`** gibt ein `Promise`-Objekt zurück, das mit einem angegebenen Grund abgelehnt wird.
@@ -40,15 +40,15 @@ Ein {{jsxref("Promise")}}, das mit dem angegebenen Grund abgelehnt wird.
 
 ## Beschreibung
 
-Die statische Funktion `Promise.reject` gibt ein `Promise` zurück, das abgelehnt wird. Für Debugging-Zwecke und selektives Fehlerfangen ist es nützlich, `reason` als `instanceof` {{jsxref("Error")}} zu gestalten.
+Die statische Funktion `Promise.reject` gibt ein abgelehntes `Promise` zurück. Für Debugging-Zwecke und selektives Abfangen von Fehlern ist es hilfreich, `reason` zu einem `instanceof` {{jsxref("Error")}} zu machen.
 
-`Promise.reject()` ist generisch und unterstützt Subclassing, was bedeutet, dass es auf Unterklassen von `Promise` aufgerufen werden kann, und das Ergebnis wird ein Promise des Unterklasstyps sein. Dazu muss der Konstruktor der Unterklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — indem sie eine einzelne `executor`-Funktion akzeptiert, die mit den `resolve` und `reject` Rückrufen als Parameter aufgerufen werden kann. `Promise.reject()` ist im Wesentlichen eine Kurzform für `new Promise((resolve, reject) => reject(reason))`.
+`Promise.reject()` ist generisch und unterstützt Vererbung, was bedeutet, dass sie auf Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Promise des Unterklassentyps ist. Dazu muss der Konstruktor der Unterklasse dieselbe Signatur wie der Konstruktor [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) implementieren — er muss eine einzelne `executor`-Funktion akzeptieren, die mit den Callbacks `resolve` und `reject` als Parametern aufgerufen werden kann. `Promise.reject()` ist im Wesentlichen eine Kurzform für `new Promise((resolve, reject) => reject(reason))`.
 
-Im Gegensatz zu {{jsxref("Promise.resolve()")}} verpackt `Promise.reject()` den `reason` immer in einem neuen `Promise`-Objekt, selbst wenn `reason` bereits ein `Promise` ist.
+Anders als {{jsxref("Promise.resolve()")}} verpackt `Promise.reject()` `reason` immer in ein neues `Promise`-Objekt, selbst wenn `reason` bereits ein `Promise` ist.
 
 ## Beispiele
 
-### Verwendung der statischen Methode Promise.reject()
+### Verwenden der statischen Methode Promise.reject()
 
 ```js
 Promise.reject(new Error("fail")).then(
@@ -61,9 +61,9 @@ Promise.reject(new Error("fail")).then(
 );
 ```
 
-### Dem Ablehnen mit einem Promise
+### Ablehnen mit einem Promise
 
-Im Gegensatz zu {{jsxref("Promise.resolve")}} verwendet die `Promise.reject` Methode keine bestehenden `Promise`-Instanzen erneut. Sie gibt immer eine neue `Promise`-Instanz zurück, die `reason` umschließt.
+Anders als {{jsxref("Promise.resolve")}} verwendet die Methode `Promise.reject` vorhandene `Promise`-Instanzen nicht wieder. Sie gibt immer eine neue `Promise`-Instanz zurück, die `reason` verpackt.
 
 ```js
 const p = Promise.resolve(1);
@@ -74,9 +74,9 @@ rejected.catch((v) => {
 });
 ```
 
-### Aufruf von reject() bei einem Konstruktor, der kein Promise ist
+### Aufrufen von reject() auf einem Nicht-Promise-Konstruktor
 
-`Promise.reject()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der dieselbe Signatur wie der `Promise()`-Konstruktor implementiert. Zum Beispiel können wir sie auf einem Konstruktor aufrufen, der `console.log` als `reject` übergibt:
+`Promise.reject()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der dieselbe Signatur wie der Konstruktor `Promise()` implementiert. Beispielsweise können wir sie auf einem Konstruktor aufrufen, der ihr `console.log` als `reject` übergibt:
 
 ```js
 class NotPromise {
@@ -88,9 +88,12 @@ class NotPromise {
       (reason) => console.log("Rejected", reason),
     );
   }
+
+  static reject = Promise.reject;
 }
 
-Promise.reject.call(NotPromise, "foo"); // Logs "Rejected foo"
+const p = NotPromise.reject("foo"); // Logs "Rejected foo"
+// p is a NotPromise instance
 ```
 
 ## Spezifikationen

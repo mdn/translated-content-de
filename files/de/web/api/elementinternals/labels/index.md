@@ -3,32 +3,87 @@ title: "ElementInternals: labels-Eigenschaft"
 short-title: labels
 slug: Web/API/ElementInternals/labels
 l10n:
-  sourceCommit: ce10da0e9d23d241b175d8d68bf93507734b7c48
+  sourceCommit: 77eb96507310354613ca545f7f3bfbfcf4ecdec3
 ---
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte **`labels`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt die mit dem Element verknüpften Labels zurück.
+Die schreibgeschützte Eigenschaft **`labels`** des Interfaces [`ElementInternals`](/de/docs/Web/API/ElementInternals) gibt die dem Element zugeordneten Labels zurück.
 
 ## Wert
 
-Ein [`NodeList`](/de/docs/Web/API/NodeList), das alle mit diesem Element verknüpften `label`-Elemente enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die alle diesem Element zugeordneten Label-Elemente enthält.
+
+### Ausnahmen
+
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn für das Element die Eigenschaft `formAssociated` nicht auf `true` gesetzt ist.
+
+## Bedenken hinsichtlich der Barrierefreiheit
+
+Ein {{HTMLElement("label")}}, das mit einem formularzugeordneten benutzerdefinierten Element verknüpft ist, wird unterstützenden Technologien auf dieselbe Weise bereitgestellt wie ein Label für ein integriertes Formular-Steuerelement.
+In Chrome und Firefox stellt es den zugänglichen Namen für das Element bereit.
+
+Damit ein Screenreader diesen Namen erreichen kann, muss das Element außerdem fokussierbar sein.
+Ein benutzerdefiniertes Element ist standardmäßig nicht fokussierbar.
+Es benötigt ein [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut oder eine mit [`delegatesFocus: true`](/de/docs/Web/API/ShadowRoot/delegatesFocus) erstellte Shadow Root mit einem darin enthaltenen fokussierbaren Element.
+
+Safari stellt das Label auf diese Weise nicht bereit.
+VoiceOver liest ein mit einem formularzugeordneten benutzerdefinierten Element verknüpftes `<label>` nicht vor ([WebKit-Fehler 259124](https://bugs.webkit.org/show_bug.cgi?id=259124)).
+Ein Element, das sich ausschließlich auf die Label-Zuordnung stützt, hat daher in Safari keinen zugänglichen Namen.
+
+Um dem Element in jedem Browser einen zugänglichen Namen zu geben, setzen Sie [`ariaLabel`](/de/docs/Web/API/ElementInternals/ariaLabel) auf den Internals des Elements und ordnen Sie außerdem das Label zu:
+
+```js
+class CustomCheckbox extends HTMLElement {
+  static formAssociated = true;
+
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.role = "checkbox";
+    this.internals_.ariaLabel = "Join newsletter";
+  }
+}
+```
+
+> [!NOTE]
+> Das Setzen von `ariaLabel` auf den Internals definiert eine _Standard_-Semantik für das Element.
+> Ein auf dem Element selbst gesetztes `aria-label`-Attribut hat Vorrang davor, sodass ein Seitenautor den Namen überschreiben kann, ohne dass die Komponente ihren eigenen Fallback verliert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit einem {{HTMLElement("label")}}-Element, das mit ihr verknüpft ist. Das Drucken des Wertes von `labels` auf die Konsole gibt ein [`NodeList`](/de/docs/Web/API/NodeList) mit einem Eintrag zurück, der dieses Label repräsentiert.
+Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit einem damit verknüpften {{HTMLElement("label")}}-Element.
+Das Ausgeben des Werts von `labels` in der Konsole gibt eine [`NodeList`](/de/docs/Web/API/NodeList) mit einem Eintrag zurück, der dieses Label repräsentiert.
 
 ```html
 <form id="myForm">
-  <custom-checkbox id="custom-checkbox"></custom-checkbox>
+  <custom-checkbox id="custom-checkbox" tabindex="0"></custom-checkbox>
   <label for="custom-checkbox">Join newsletter</label>
 </form>
 ```
 
 ```js
-let element = document.getElementById("custom-checkbox");
-console.log(element.internals_.label);
+class CustomCheckbox extends HTMLElement {
+  static formAssociated = true;
+
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+  }
+
+  // …
+}
+
+window.customElements.define("custom-checkbox", CustomCheckbox);
+
+const element = document.getElementById("custom-checkbox");
+console.log(element.internals_.labels); // NodeList [ label ]
 ```
+
+> [!NOTE]
+> Ein Label wird erst in `labels` aufgenommen, nachdem es geparst wurde.
+> Das Lesen von `labels` aus [`connectedCallback()`](/de/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) gibt eine leere `NodeList` zurück, wenn das zugeordnete `<label>` im Quelltext nach dem Element steht, da der Parser es noch nicht erreicht hat.
 
 ## Spezifikationen
 
@@ -37,3 +92,9 @@ console.log(element.internals_.label);
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`ElementInternals.ariaLabel`](/de/docs/Web/API/ElementInternals/ariaLabel)
+- [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals)
+- [`ElementInternals.form`](/de/docs/Web/API/ElementInternals/form)

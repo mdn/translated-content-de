@@ -3,12 +3,12 @@ title: "`-webkit-tap-highlight-color` CSS property"
 short-title: -webkit-tap-highlight-color
 slug: Web/CSS/Reference/Properties/-webkit-tap-highlight-color
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 6354422058e438a2599e4eab71eaec8eb40850fa
 ---
 
 {{Non-standard_header}}
 
-**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Highlights setzt, das über einem Link erscheint, während er angetippt wird. Die Hervorhebung zeigt dem Nutzer an, dass sein Tipp erfolgreich erkannt wird und zeigt, welches Element er antippt.
+**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe der Hervorhebung festlegt, die über einem Link erscheint, während dieser angetippt wird. Die Hervorhebung zeigt dem Benutzer an, dass sein Tippen erfolgreich erkannt wird, und gibt an, auf welches Element er tippt.
 
 ## Syntax
 
@@ -26,7 +26,10 @@ l10n:
 
 ### Werte
 
-Ein {{Cssxref("&lt;color&gt;")}}.
+Diese Eigenschaft wird mit dem folgenden Wert angegeben:
+
+- {{Cssxref("&lt;color&gt;")}}
+  - : Definiert die Farbe der Hervorhebung.
 
 ## Formale Definition
 
@@ -38,7 +41,7 @@ Ein {{Cssxref("&lt;color&gt;")}}.
 
 ## Spezifikationen
 
-Teil keines Standards. Apple bietet [eine Beschreibung im Safari Web Content Guide](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
+Nicht Teil eines Standards. Apple bietet [eine Beschreibung im Safari Web Content Guide](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
 
 ## Browser-Kompatibilität
 
@@ -46,7 +49,7 @@ Teil keines Standards. Apple bietet [eine Beschreibung im Safari Web Content Gui
 
 ## Siehe auch
 
-- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- [WebKit-CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
 - Verwandte CSS-Pseudoklassen:
   - {{cssxref(":hover")}}
   - {{cssxref(":active")}}
