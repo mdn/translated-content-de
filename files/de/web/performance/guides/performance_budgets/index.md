@@ -17,9 +17,9 @@ Diese Ziele können sein:
 - Mengenbasiert (z. B. Anzahl der JS-Dateien/Gesamtgröße der Bilder).
 - Regelbasiert (z. B. PageSpeed-Index, Lighthouse-Score).
 
-Ihr vorrangiges Ziel ist es, Regressionen zu verhindern, sie können jedoch Einblicke zur Prognose von Trends bieten (d. h. Im September wurden in einer Woche 50 % des Budgets verbraucht).
+Ihr vorrangiges Ziel ist es, Regressionen zu verhindern, sie können jedoch Einblicke zur Prognose von Trends bieten (d.h. Im September wurden in einer Woche 50 % des Budgets verbraucht).
 
-Zusätzlich kann es Entwicklungsbedarf aufdecken (d. h. Eine große Bibliothek mit kleineren Alternativen wird häufig ausgewählt, um ein häufiges Problem zu lösen).
+Zusätzlich kann es Entwicklungsbedarf aufdecken (d.h. Eine große Bibliothek mit kleineren Alternativen wird häufig ausgewählt, um ein häufiges Problem zu lösen).
 
 ## Wie definiere ich ein Performance-Budget?
 
@@ -36,7 +36,7 @@ Der erste Schritt besteht darin, die Geräte und Verbindungsgeschwindigkeiten zu
 
 Eine Standardgrundlage zur Verringerung der Absprungrate besteht darin, [Time to Interactive unter 5 Sekunden bei 3G/4G und unter 2 Sekunden bei nachfolgenden Ladevorgängen zu erreichen](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/). Abhängig von den spezifischen Zielen und Inhalten Ihrer Website können Sie sich jedoch für andere Metriken entscheiden.
 
-Bei einer textlastigen Website wie einem Blog oder einer Nachrichtenseite könnte die Metrik {{Glossary("First_contentful_paint", "First Contentful Paint")}} das Benutzerverhalten genauer widerspiegeln. (d. h. Wie schnell Benutzer mit dem Lesen beginnen können), wodurch dateispezifische Budgets (z. B. Schriftgröße) und deren Optimierungen bestimmt werden. (z. B. Verwendung von [font-display](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-display), um die [wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) zu verbessern).
+Bei einer textlastigen Website wie einem Blog oder einer Nachrichtenseite könnte die Metrik {{Glossary("First_contentful_paint", "First Contentful Paint")}} das Benutzerverhalten genauer widerspiegeln. (d.h. Wie schnell Benutzer mit dem Lesen beginnen können), wodurch dateispezifische Budgets (z. B. Schriftgröße) und deren Optimierungen bestimmt werden. (z. B. Verwendung von [font-display](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-display), um die [wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) zu verbessern).
 
 Der letztendliche Wert eines Performance-Budgets besteht darin, die Auswirkungen der Performance mit Geschäfts- oder Produktzielen zu korrelieren. Beim Definieren von Metriken sollten Sie sich auf die [Benutzererfahrung](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) konzentrieren, die nicht nur die Absprung- oder Conversion-Rate bestimmt, sondern auch die Wahrscheinlichkeit, dass dieser Benutzer zurückkehrt.
 
@@ -57,7 +57,7 @@ Der [Lighthouse Bot](https://github.com/GoogleChromeLabs/lighthousebot) lässt s
 
 Je früher Sie eine potenzielle Ergänzung identifizieren können, die das Budget erhöht, desto besser können Sie den aktuellen Zustand Ihrer Website analysieren und Optimierungen oder unnötigen Code ermitteln.
 
-Sie sollten jedoch mehrere Budgets haben und dynamisch sein. Sie sollen Ihre fortlaufenden Ziele widerspiegeln, aber Risiken und Experimente zulassen. Beispielsweise können Sie eine Funktion einführen, die die gesamte Ladezeit erhöht, aber versucht, die Benutzerinteraktion zu steigern. (d. h. Wie lange ein Benutzer auf einer Seite oder Website bleibt).
+Sie sollten jedoch mehrere Budgets haben und dynamisch sein. Sie sollen Ihre fortlaufenden Ziele widerspiegeln, aber Risiken und Experimente zulassen. Beispielsweise können Sie eine Funktion einführen, die die gesamte Ladezeit erhöht, aber versucht, die Benutzerinteraktion zu steigern. (d.h. Wie lange ein Benutzer auf einer Seite oder Website bleibt).
 
 Ein Performance-Budget hilft Ihnen, optimales Verhalten für Ihre aktuellen Benutzer zu schützen, während Sie gleichzeitig neue Märkte erschließen und individuelle Erlebnisse bereitstellen können.
 
