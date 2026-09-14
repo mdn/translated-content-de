@@ -1,26 +1,26 @@
 ---
-title: Firefox 157 Versionshinweise für Entwickler (Nightly)
-short-title: Firefox 157 (Nightly)
+title: Firefox 157 – Versionshinweise für Entwickler (Beta)
+short-title: Firefox 157 (Beta)
 slug: Mozilla/Firefox/Releases/157
 l10n:
-  sourceCommit: d38616f73d7bfbd6c6f698390657da14a92bbb2f
+  sourceCommit: 79f0b295d759e9bb6e3c49197434a1d34c449731
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 157, die Entwickler betreffen.
-Firefox 157 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [29. September 2026](https://whattrainisitnow.com/release/?version=157) veröffentlicht.
+Dieser Artikel enthält Informationen zu den Änderungen in Firefox 157, die Entwickler betreffen.
+Firefox 157 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [29. September 2026](https://whattrainisitnow.com/release/?version=157) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version befinden sich noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Hinweise schreiben -->
+<!-- Autoren: Bitte heben Sie die Kommentierung aller Überschriften auf, für die Sie Hinweise verfassen -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwickler-Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
 <!-- #### Entfernungen -->
 
@@ -38,7 +38,7 @@ Firefox 157 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- ### JavaScript -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
 <!-- #### Entfernungen -->
 
@@ -76,8 +76,8 @@ Firefox 157 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Webfeatures
 
-Diese Funktionen sind in Firefox 157 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Features werden mit Firefox 157 ausgeliefert, sind jedoch standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).

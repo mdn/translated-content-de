@@ -1,18 +1,18 @@
 ---
-title: "Dokument: customElementRegistry Eigenschaft"
+title: "Dokument: customElementRegistry-Eigenschaft"
 short-title: customElementRegistry
 slug: Web/API/Document/customElementRegistry
 l10n:
-  sourceCommit: 9c4d4cb78a55340b46855e47aba76729a59e11ce
+  sourceCommit: 57ea7eecce9dee3bd3a874ce184a48cf993c0699
 ---
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte Eigenschaft **`customElementRegistry`** der [`Document`](/de/docs/Web/API/Document) Schnittstelle gibt das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück, das mit diesem Dokument verbunden ist, oder `null`, wenn keines festgelegt wurde.
+Die schreibgeschützte Eigenschaft **`customElementRegistry`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt das diesem Dokument zugeordnete [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück oder `null`, wenn keines festgelegt wurde.
 
-Für Dokumente, die mit einem [`Window`](/de/docs/Web/API/Window) verbunden sind (wie das Hauptdokument einer Seite), ist dies das globale `CustomElementRegistry`, das auch über die [`window.customElements`](/de/docs/Web/API/Window/customElements)-Eigenschaft zugänglich ist. Programmgesteuert erstellte Dokumente (zum Beispiel über [`DOMImplementation.createHTMLDocument()`](/de/docs/Web/API/DOMImplementation/createHTMLDocument)) haben standardmäßig ein `null`-Custom-Element-Registry.
+Für Dokumente, die einem [`Window`](/de/docs/Web/API/Window) zugeordnet sind (etwa das Hauptdokument einer Seite), ist dies die globale `CustomElementRegistry`, die auch über die Eigenschaft [`window.customElements`](/de/docs/Web/API/Window/customElements) zugänglich ist. Programmgesteuert erstellte Dokumente (beispielsweise über [`DOMImplementation.createHTMLDocument()`](/de/docs/Web/API/DOMImplementation/createHTMLDocument)) besitzen standardmäßig eine `null`-Custom-Element-Registry.
 
-Diese Eigenschaft ist auch auf [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten über denselben Eigenschaften-Namen [`customElementRegistry`](/de/docs/Web/API/ShadowRoot/customElementRegistry) verfügbar.
+Diese Eigenschaft ist über denselben Eigenschaftsnamen [`customElementRegistry`](/de/docs/Web/API/ShadowRoot/customElementRegistry) auch für [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekte verfügbar.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Ein [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt ode
 
 ### Zugriff auf die Custom-Element-Registry eines Dokuments
 
-Dieses Beispiel zeigt, dass die `customElementRegistry` des Hauptdokuments dieselbe globale Registry ist, die über [`window.customElements`](/de/docs/Web/API/Window/customElements) verfügbar ist, während programmgesteuert erstellte Dokumente über [`DOMImplementation.createHTMLDocument()`](/de/docs/Web/API/DOMImplementation/createHTMLDocument) standardmäßig eine `null`-Registry haben.
+Dieses Beispiel zeigt, dass die `customElementRegistry` des Hauptdokuments dieselbe globale Registry ist, die über [`window.customElements`](/de/docs/Web/API/Window/customElements) verfügbar ist, während programmgesteuert über [`DOMImplementation.createHTMLDocument()`](/de/docs/Web/API/DOMImplementation/createHTMLDocument) erstellte Dokumente standardmäßig eine `null`-Registry besitzen.
 
 ```js
 // The main document's registry is the global one:
@@ -47,4 +47,4 @@ console.log(newDoc.customElementRegistry); // null
 - [`Element.customElementRegistry`](/de/docs/Web/API/Element/customElementRegistry)
 - [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)
 - [`window.customElements`](/de/docs/Web/API/Window/customElements)
-- [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)
+- [Bereichsbezogene Custom-Element-Registries](/de/docs/Web/API/Web_components/Using_custom_elements#scoped_custom_element_registries) in [Verwendung benutzerdefinierter Elemente](/de/docs/Web/API/Web_components/Using_custom_elements)

@@ -3,14 +3,14 @@ title: "Element: customElementRegistry-Eigenschaft"
 short-title: customElementRegistry
 slug: Web/API/Element/customElementRegistry
 l10n:
-  sourceCommit: 9c4d4cb78a55340b46855e47aba76729a59e11ce
+  sourceCommit: 57ea7eecce9dee3bd3a874ce184a48cf993c0699
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`customElementRegistry`**-Schreibgeschützte Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück, das mit diesem Element verknüpft ist, oder `null`, wenn keines festgelegt wurde.
+Die schreibgeschützte Eigenschaft **`customElementRegistry`** des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt das diesem Element zugeordnete [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück oder `null`, wenn keines festgelegt wurde.
 
-Ein `customElementRegistry` eines Elements wird beim Erstellen des Elements festgelegt (zum Beispiel über [`Document.createElement()`](/de/docs/Web/API/Document/createElement) mit der `customElementRegistry`-Option, oder wenn es in einem Kontext geparst wird, der ein scoped registry hat). Einmal auf ein `CustomElementRegistry`-Objekt gesetzt, kann es nicht mehr geändert werden. Das Registry bestimmt, welche [benutzerdefinierten Element-](/de/docs/Web/API/Web_components/Using_custom_elements) Definitionen verwendet werden, wenn das Element [aktualisiert](/de/docs/Web/API/CustomElementRegistry/upgrade) wird.
+Die `customElementRegistry` eines Elements wird festgelegt, wenn das Element erstellt wird (beispielsweise über [`Document.createElement()`](/de/docs/Web/API/Document/createElement) mit der Option `customElementRegistry` oder wenn es in einem Kontext mit einer bereichsbezogenen Registry geparst wird). Sobald sie auf ein `CustomElementRegistry`-Objekt festgelegt wurde, kann sie nicht mehr geändert werden. Die Registry bestimmt, welche Definitionen von [benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements) verwendet werden, wenn das Element [aktualisiert](/de/docs/Web/API/CustomElementRegistry/upgrade) wird.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt ode
 
 ## Beispiele
 
-### Zugriff auf das `customElementRegistry` eines Elements
+### Zugriff auf die Custom-Element-Registry eines Elements
 
-Dieses Beispiel erstellt ein scoped registry, verbindet es mit einem Shadow-Root und liest dann die `customElementRegistry`-Eigenschaft von einem Element im Shadow-Baum, um zu bestätigen, dass es mit dem scoped registry übereinstimmt.
+Dieses Beispiel erstellt eine bereichsbezogene Registry, fügt sie an eine Shadow-Root an und liest dann die Eigenschaft `customElementRegistry` von einem Element innerhalb des Shadow Tree aus, um zu bestätigen, dass sie mit der bereichsbezogenen Registry übereinstimmt.
 
 ```js
 const myRegistry = new CustomElementRegistry();
@@ -58,4 +58,4 @@ console.log(el.customElementRegistry === myRegistry); // true
 - [`Document.customElementRegistry`](/de/docs/Web/API/Document/customElementRegistry)
 - [`ShadowRoot.customElementRegistry`](/de/docs/Web/API/ShadowRoot/customElementRegistry)
 - [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)
-- [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)
+- [Bereichsbezogene Custom-Element-Registries](/de/docs/Web/API/Web_components/Using_custom_elements#scoped_custom_element_registries) in [Benutzerdefinierte Elemente verwenden](/de/docs/Web/API/Web_components/Using_custom_elements)
