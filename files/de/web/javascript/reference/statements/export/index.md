@@ -2,12 +2,12 @@
 title: export
 slug: Web/JavaScript/Reference/Statements/export
 l10n:
-  sourceCommit: 31bad7cd99cccf47f6332b81bbff4371e2bc551f
+  sourceCommit: f693fdeb65be430fdf3b7fc5cdf44a10a13f2bbf
 ---
 
-Die **`export`**-Deklaration wird verwendet, um Werte aus einem JavaScript-Modul zu exportieren. Exportierte Werte können dann mit der {{jsxref("Statements/import", "import")}}-Deklaration oder dem [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import) in andere Programme importiert werden. Der Wert einer importierten Bindung kann sich in dem Modul ändern, das sie exportiert — wenn ein Modul den Wert einer von ihm exportierten Bindung aktualisiert, wird die Aktualisierung in ihrem importierten Wert sichtbar.
+Die **`export`**-Deklaration wird verwendet, um Werte aus einem JavaScript-Modul zu exportieren. Exportierte Werte können anschließend mit der {{jsxref("Statements/import", "import")}}-Deklaration oder dem [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import) in andere Programme importiert werden. Der Wert einer importierten Bindung kann sich in dem Modul ändern, das sie exportiert — wenn ein Modul den Wert einer von ihm exportierten Bindung aktualisiert, wird die Aktualisierung in ihrem importierten Wert sichtbar.
 
-Um die `export`-Deklaration in einer Quelldatei verwenden zu können, muss die Datei von der Laufzeitumgebung als [Modul](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. In HTML geschieht dies durch Hinzufügen von `type="module"` zum {{HTMLElement("script")}}-Tag oder dadurch, dass sie von einem anderen Modul importiert wird. Module werden automatisch im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
+Um die `export`-Deklaration in einer Quelldatei verwenden zu können, muss die Datei von der Laufzeitumgebung als [Modul](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. In HTML geschieht dies durch das Hinzufügen von `type="module"` zum {{HTMLElement("script")}}-Tag oder durch den Import durch ein anderes Modul. Module werden automatisch im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
 
 ## Syntax
 
@@ -103,13 +103,13 @@ export default class { /* … */ }
 > [!NOTE]
 > Namen für Exportdeklarationen müssen voneinander verschieden sein. Exporte mit doppelten Namen oder die Verwendung von mehr als einem `default`-Export führen zu einem {{jsxref("SyntaxError")}} und verhindern, dass das Modul ausgewertet wird.
 
-Die Syntax `export default` erlaubt jeden Ausdruck.
+Die Syntax `export default` erlaubt jeden beliebigen Ausdruck.
 
 ```js
 export default 1 + 1;
 ```
 
-Als Sonderfall werden Funktionen und Klassen als _Deklarationen_ und nicht als Ausdrücke exportiert; diese Deklarationen können anonym sein. Das bedeutet, dass Funktionen hochgezogen werden.
+Als Sonderfall werden Funktionen und Klassen als _Deklarationen_ und nicht als Ausdrücke exportiert; diese Deklarationen können anonym sein. Das bedeutet, dass Funktionen gehisst werden.
 
 ```js
 // Works because `foo` is a function declaration,
@@ -127,7 +127,7 @@ export default function () {
 }
 ```
 
-Benannte Exporte sind nützlich, wenn Sie mehrere Werte exportieren müssen. Beim Importieren dieses Moduls müssen benannte Exporte mit genau demselben Namen referenziert werden (optional mit `as` umbenannt), aber der Standardexport kann unter einem beliebigen Namen importiert werden. Zum Beispiel:
+Benannte Exporte sind nützlich, wenn Sie mehrere Werte exportieren müssen. Beim Importieren dieses Moduls müssen benannte Exporte mit genau demselben Namen referenziert werden (wobei sie optional mit `as` umbenannt werden können), aber der Standardexport kann unter jedem beliebigen Namen importiert werden. Beispiel:
 
 ```js
 // file test.js
@@ -148,7 +148,7 @@ Sie können benannte Exporte auch umbenennen, um Namenskonflikte zu vermeiden:
 export { myFunction as function1, myVariable as variable };
 ```
 
-Sie können einen Namen mithilfe eines String-Literals in etwas umbenennen, das kein gültiger Bezeichner ist. Zum Beispiel:
+Sie können einen Namen mithilfe eines String-Literals in etwas umbenennen, das kein gültiger Bezeichner ist. Beispiel:
 
 ```js
 export { myFunction as "my-function" };
@@ -156,7 +156,7 @@ export { myFunction as "my-function" };
 
 ### Re-Exportieren / Aggregieren
 
-Ein Modul kann auch von anderen Modulen exportierte Werte „weiterleiten“, ohne dass zwei separate Import-/Export-Anweisungen geschrieben werden müssen. Dies ist häufig nützlich, wenn ein einzelnes Modul erstellt wird, das verschiedene Exporte aus verschiedenen Modulen zusammenfasst (üblicherweise als „Barrel-Modul“ bezeichnet).
+Ein Modul kann auch Werte, die aus anderen Modulen exportiert wurden, „weiterleiten“, ohne dass zwei separate Import-/Export-Anweisungen geschrieben werden müssen. Dies ist häufig nützlich, wenn ein einzelnes Modul erstellt wird, das verschiedene Exporte aus verschiedenen Modulen zusammenfasst (üblicherweise als „Barrel-Modul“ bezeichnet).
 
 Dies kann mit der Syntax „export from“ erreicht werden:
 
@@ -164,7 +164,7 @@ Dies kann mit der Syntax „export from“ erreicht werden:
 export { default as function1, function2 } from "bar.js";
 ```
 
-Dies ist vergleichbar mit einer Kombination aus Import und Export, außer dass `function1` und `function2` nicht innerhalb des aktuellen Moduls verfügbar werden:
+Dies ist mit einer Kombination aus Import und Export vergleichbar, außer dass `function1` und `function2` im aktuellen Modul nicht verfügbar werden:
 
 ```js
 import { default as function1, function2 } from "bar.js";
@@ -172,7 +172,7 @@ import { default as function1, function2 } from "bar.js";
 export { function1, function2 };
 ```
 
-Die meisten Syntaxformen von „import from“ haben Gegenstücke in „export from“.
+Die meisten Syntaxformen von „import from“ haben Entsprechungen als „export from“.
 
 ```js
 export { x } from "mod";
@@ -180,7 +180,7 @@ export { x as v } from "mod";
 export * as ns from "mod";
 ```
 
-Es gibt auch `export * from "mod"`, obwohl es kein `import * from "mod"` gibt. Dies re-exportiert alle **benannten** Exporte aus `mod` als benannte Exporte des aktuellen Moduls, aber der Standardexport von `mod` wird nicht re-exportiert. Wenn es zwei Wildcard-Exportanweisungen gibt, die implizit denselben Namen re-exportieren, wird keiner von beiden re-exportiert.
+Es gibt auch `export * from "mod"`, obwohl es kein `import * from "mod"` gibt. Dadurch werden alle **benannten** Exporte aus `mod` als benannte Exporte des aktuellen Moduls re-exportiert, der Standardexport von `mod` wird jedoch nicht re-exportiert. Wenn zwei Wildcard-Exportanweisungen implizit denselben Namen re-exportieren, wird keiner von beiden re-exportiert.
 
 ```js
 // -- mod1.js --
@@ -213,31 +213,34 @@ export DefaultExport from "bar.js"; // Invalid
 ```
 
 > [!NOTE]
-> Aufgrund des Fehlens dieser Syntax hat [`import source`](/de/docs/Web/JavaScript/Reference/Statements/import/source) ebenfalls kein Gegenstück zum Re-Exportieren.
+> Aufgrund des Fehlens dieser Syntax hat [`import source`](/de/docs/Web/JavaScript/Reference/Statements/import/source) ebenfalls keine Entsprechung zum Re-Exportieren.
 
-Die korrekte Vorgehensweise besteht darin, den Export umzubenennen:
+Die korrekte Vorgehensweise ist, den Export umzubenennen:
 
 ```js
 export { default as DefaultExport } from "bar.js";
 ```
 
-Die Syntax „export from“ erlaubt das Weglassen des `as`-Tokens, wodurch der Standardexport weiterhin als Standardexport re-exportiert wird.
+Die Syntax „export from“ erlaubt das Weglassen des Tokens `as`, wodurch der Standardexport weiterhin als Standardexport re-exportiert wird.
 
 ```js
 export { default, function2 } from "bar.js";
 ```
 
-`export from` unterstützt alle Funktionen, die auch `import` unterstützt — zum Beispiel [Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with):
+`export from` unterstützt alle Funktionen, die auch `import` unterstützt — beispielsweise [Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with):
 
 ```js
 export { default } from "./data.json" with { type: "json" };
 ```
 
+> [!NOTE]
+> Die Deklaration [`import defer * as ns`](/de/docs/Web/JavaScript/Reference/Statements/import/defer) hat keine Entsprechung zum Re-Exportieren, obwohl `import * as ns` eine solche hat. Verzögerte Re-Exporte werden in einem [separaten Vorschlag](https://github.com/tc39/proposal-deferred-reexports) entwickelt, da sie auch das Laden ungenutzter Module vermeiden können, was zusätzliche Tree-Shaking-Semantik erfordert. Sie können stattdessen [in zwei separaten Anweisungen importieren und exportieren](/de/docs/Web/JavaScript/Reference/Statements/import/defer#exporting_a_deferred_namespace), wodurch das Modul jedoch sofort geladen wird.
+
 ## Beispiele
 
 ### Benannte Exporte verwenden
 
-In einem Modul `my-module.js` könnten wir den folgenden Code einfügen:
+In einem Modul `my-module.js` könnten wir folgenden Code einfügen:
 
 ```js
 // module "my-module.js"
@@ -275,14 +278,14 @@ console.log(cube(3)); // 27
 console.log(foo); // 4.555806215962888
 ```
 
-Folgendes ist wichtig zu beachten:
+Folgendes sollte unbedingt beachtet werden:
 
-- Sie müssen dieses Skript mit einem {{HTMLElement("script")}}-Element des Typs `type="module"` in Ihr HTML einbinden, damit es als Modul erkannt und entsprechend verarbeitet wird.
-- Sie können JS-Module nicht über eine `file://`-URL ausführen — Sie erhalten [CORS](/de/docs/Web/HTTP/Guides/CORS)-Fehler. Sie müssen es über einen HTTP-Server ausführen.
+- Sie müssen dieses Skript in Ihrem HTML mit einem {{HTMLElement("script")}}-Element vom Typ `type="module"` einbinden, damit es als Modul erkannt und entsprechend behandelt wird.
+- Sie können JS-Module nicht über eine `file://`-URL ausführen — Sie erhalten [CORS](/de/docs/Web/HTTP/Guides/CORS)-Fehler. Sie müssen sie über einen HTTP-Server ausführen.
 
 ### Den Standardexport verwenden
 
-Wenn wir einen einzelnen Wert exportieren möchten, der ein gesamtes Modul repräsentiert, könnten wir einen Standardexport verwenden:
+Wenn wir einen einzelnen Wert exportieren möchten, der ein ganzes Modul repräsentiert, könnten wir einen Standardexport verwenden:
 
 ```js
 // module "cube.js"
@@ -292,7 +295,7 @@ export default function cube(x) {
 }
 ```
 
-Dann ist es in einem anderen Skript unkompliziert, den Standardexport zu importieren:
+Dann ist es in einem anderen Skript einfach, den Standardexport zu importieren:
 
 ```js
 import cube from "./cube.js";
@@ -306,7 +309,7 @@ Betrachten wir ein Beispiel mit der folgenden Hierarchie:
 
 - `childModule1.js`: exportiert `myFunction` und `myVariable`
 - `childModule2.js`: exportiert `MyClass`
-- `parentModule.js`: fungiert als Aggregator (und tut sonst nichts)
+- `parentModule.js`: fungiert als Aggregator (und macht nichts anderes)
 - Modul der obersten Ebene: verwendet die Exporte von `parentModule.js`
 
 So würde dies mit Codeausschnitten aussehen:
@@ -357,6 +360,6 @@ import { myFunction, myVariable, MyClass } from "parentModule.js";
 ## Siehe auch
 
 - {{jsxref("Statements/import", "import")}}
-- Leitfaden zu [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules)
-- [ES6 in Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) auf hacks.mozilla.org (2015)
-- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) auf hacks.mozilla.org (2018)
+- [Leitfaden zu JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules)
+- [ES6 im Detail: Module](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) auf hacks.mozilla.org (2015)
+- [ES-Module: Ein tiefer Einblick als Comic](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) auf hacks.mozilla.org (2018)

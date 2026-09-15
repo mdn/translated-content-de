@@ -3,22 +3,22 @@ title: "XRVisibilityMaskChangeEvent: indices-Eigenschaft"
 short-title: indices
 slug: Web/API/XRVisibilityMaskChangeEvent/indices
 l10n:
-  sourceCommit: 8330e7c1afd31d53ae12c3271e96d681bba9e223
+  sourceCommit: 6a5c66fd39deaf266d332f7e04a885751d1d691c
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`indices`** schreibgeschützte Eigenschaft des [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent)-Interfaces gibt die Indexposition jedes Koordinatenpaares (nicht des einzelnen Array-Index) innerhalb des [`vertices`](/de/docs/Web/API/XRVisibilityMaskChangeEvent/vertices)-Arrays an, die die Dreiecke definieren, die verwendet werden, um den derzeit sichtbaren Teil der im [`XRView`](/de/docs/Web/API/XRView) angezeigten Szene zu zeichnen. Wenn dieses Array leer ist, wird der gesamte Bereich des `XRView` gezeichnet.
+Die schreibgeschützte Eigenschaft **`indices`** des Interfaces [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent) gibt die Indexposition jedes Koordinatenpaars (nicht den einzelnen Array-Index) innerhalb des Arrays [`vertices`](/de/docs/Web/API/XRVisibilityMaskChangeEvent/vertices) an, das die Dreiecke definiert, die zum Zeichnen des aktuell sichtbaren Teils der im [`XRView`](/de/docs/Web/API/XRView) angezeigten Szene verwendet werden. Wenn dieses Array leer ist, wird der gesamte Bereich des `XRView` gezeichnet.
 
-Die Anzahl der enthaltenen Werte sollte daher ein Vielfaches von drei sein. Siehe [`vertices`](/de/docs/Web/API/XRVisibilityMaskChangeEvent/vertices) für eine ausführlichere Erklärung.
+Die Anzahl der enthaltenen Werte sollte daher ein Vielfaches von drei sein. Weitere Erläuterungen finden Sie unter [`vertices`](/de/docs/Web/API/XRVisibilityMaskChangeEvent/vertices).
 
 ## Wert
 
-Ein [`Uint32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array).
+Ein {{jsxref("Uint32Array")}}.
 
 ## Beispiele
 
-Siehe die Hauptseite von [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent) für ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite zu [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent).
 
 ## Spezifikationen
 

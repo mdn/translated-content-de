@@ -2,14 +2,14 @@
 title: Ausdrücke und Operatoren
 slug: Web/JavaScript/Reference/Operators
 l10n:
-  sourceCommit: 31bad7cd99cccf47f6332b81bbff4371e2bc551f
+  sourceCommit: f693fdeb65be430fdf3b7fc5cdf44a10a13f2bbf
 ---
 
-In diesem Kapitel werden alle JavaScript-Sprachoperatoren, -ausdrücke und -schlüsselwörter dokumentiert.
+Dieses Kapitel dokumentiert alle JavaScript-Sprachoperatoren, -ausdrücke und -Schlüsselwörter.
 
 ## Ausdrücke und Operatoren nach Kategorie
 
-Eine alphabetische Auflistung finden Sie in der Seitenleiste auf der linken Seite.
+Eine alphabetische Auflistung finden Sie in der Seitenleiste links.
 
 ### Primäre Ausdrücke
 
@@ -18,11 +18,11 @@ Grundlegende Schlüsselwörter und allgemeine Ausdrücke in JavaScript. Diese Au
 - {{jsxref("this")}}
   - : Das Schlüsselwort `this` verweist auf eine spezielle Eigenschaft eines Ausführungskontexts.
 - [Literale](/de/docs/Web/JavaScript/Reference/Lexical_grammar#literals)
-  - : Grundlegende `null`-, boolesche, Zahlen- und String-Literale.
+  - : Grundlegende `null`-, Boolean-, Zahlen- und String-Literale.
 - {{jsxref("Array", "[]")}}
-  - : Syntax für Array-Initialisierung/-Literale.
+  - : Array-Initialisierer-/Literal-Syntax.
 - {{jsxref("Operators/Object_initializer", "{}")}}
-  - : Syntax für Objekt-Initialisierung/-Literale.
+  - : Objekt-Initialisierer-/Literal-Syntax.
 - {{jsxref("Operators/function", "function")}}
   - : Das Schlüsselwort `function` definiert einen Funktionsausdruck.
 - {{jsxref("Operators/class", "class")}}
@@ -34,9 +34,9 @@ Grundlegende Schlüsselwörter und allgemeine Ausdrücke in JavaScript. Diese Au
 - {{jsxref("Operators/async_function*", "async function*")}}
   - : Die Schlüsselwörter `async function*` definieren einen asynchronen Generatorfunktionsausdruck.
 - {{jsxref("RegExp", "/ab+c/i")}}
-  - : Syntax für Reguläre-Ausdrücke-Literale.
+  - : Syntax für reguläre Ausdrucksliterale.
 - {{jsxref("Template_literals", "`string`")}}
-  - : Syntax für Template-Literale.
+  - : Template-Literal-Syntax.
 - {{jsxref("Operators/Grouping", "( )")}}
   - : Gruppierungsoperator.
 
@@ -44,35 +44,37 @@ Grundlegende Schlüsselwörter und allgemeine Ausdrücke in JavaScript. Diese Au
 
 Linke Werte sind das Ziel einer Zuweisung.
 
-- {{jsxref("Operators/Property_accessors", "Eigenschaftszugreifer", "", 1)}}
+- {{jsxref("Operators/Property_accessors", "Property accessors", "", 1)}}
   - : Member-Operatoren ermöglichen den Zugriff auf eine Eigenschaft oder Methode eines Objekts (`object.property` und `object["property"]`).
 - {{jsxref("Operators/Optional_chaining", "?.")}}
-  - : Der optionale Verkettungsoperator gibt `undefined` zurück, anstatt einen Fehler zu verursachen, wenn eine Referenz {{Glossary("Nullish", "nullish")}} ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)) ist.
+  - : Der optionale Verkettungsoperator gibt `undefined` zurück, statt einen Fehler zu verursachen, wenn eine Referenz {{Glossary("Nullish", "nullish")}} ist ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)).
 - {{jsxref("new")}}
   - : Der Operator `new` erstellt eine Instanz eines Konstruktors.
 - {{jsxref("Operators/new.target", "new.target")}}
   - : In Konstruktoren verweist `new.target` auf den Konstruktor, der durch {{jsxref("new")}} aufgerufen wurde.
 - {{jsxref("Operators/import.meta", "import.meta")}}
-  - : Ein Objekt, das kontextspezifische Metadaten für ein JavaScript-Modul bereitstellt.
+  - : Ein Objekt, das kontextspezifische Metadaten für ein JavaScript-Modul verfügbar macht.
 - {{jsxref("Operators/super", "super")}}
   - : Das Schlüsselwort `super` ruft den übergeordneten Konstruktor auf oder ermöglicht den Zugriff auf Eigenschaften des übergeordneten Objekts.
 - {{jsxref("Operators/import", "import()")}}
   - : Die Syntax `import()` ermöglicht das asynchrone und dynamische Laden eines Moduls in eine potenziell nicht modulare Umgebung.
+- {{jsxref("Operators/import/defer", "import.defer()")}}
+  - : Die Syntax `import.defer()` lädt ein Modul dynamisch und verschiebt die synchrone Auswertung, bis auf die Eigenschaften des zurückgegebenen Namespace zugegriffen wird.
 - {{jsxref("Operators/import/source", "import.source()")}}
-  - : Die Syntax `import.source()` führt zu einem Objekt, das den kompilierten Quellcode des Moduls darstellt, ohne dessen Abhängigkeiten zu laden, es zu verknüpfen oder auszuwerten.
+  - : Die Syntax `import.source()` führt zu einem Objekt, das den kompilierten Quellcode des Moduls darstellt, ohne dessen Abhängigkeiten zu laden, es zu verknüpfen oder es auszuwerten.
 
-### Inkrementierung und Dekrementierung
+### Inkrement und Dekrement
 
-Postfix-/Präfix-Inkrementierungs- und Postfix-/Präfix-Dekrementierungsoperatoren.
+Postfix-/Präfix-Inkrement- und Postfix-/Präfix-Dekrementoperatoren.
 
 - {{jsxref("Operators/Increment", "A++")}}
-  - : Postfix-Inkrementierungsoperator.
+  - : Postfix-Inkrementoperator.
 - {{jsxref("Operators/Decrement", "A--")}}
-  - : Postfix-Dekrementierungsoperator.
+  - : Postfix-Dekrementoperator.
 - {{jsxref("Operators/Increment", "++A")}}
-  - : Präfix-Inkrementierungsoperator.
+  - : Präfix-Inkrementoperator.
 - {{jsxref("Operators/Decrement", "--A")}}
-  - : Präfix-Dekrementierungsoperator.
+  - : Präfix-Dekrementoperator.
 
 ### Unäre Operatoren
 
@@ -81,11 +83,11 @@ Eine unäre Operation ist eine Operation mit nur einem Operanden.
 - {{jsxref("delete")}}
   - : Der Operator `delete` löscht eine Eigenschaft aus einem Objekt.
 - {{jsxref("Operators/void", "void")}}
-  - : Der Operator `void` wertet einen Ausdruck aus und verwirft seinen Rückgabewert.
+  - : Der Operator `void` wertet einen Ausdruck aus und verwirft dessen Rückgabewert.
 - {{jsxref("Operators/typeof", "typeof")}}
   - : Der Operator `typeof` bestimmt den Typ eines gegebenen Objekts.
 - {{jsxref("Operators/Unary_plus", "+")}}
-  - : Der unäre Plus-Operator konvertiert seinen Operanden in den Typ Number.
+  - : Der unäre Plusoperator konvertiert seinen Operanden in den Typ Number.
 - {{jsxref("Operators/Unary_negation", "-")}}
   - : Der unäre Negationsoperator konvertiert seinen Operanden in den Typ Number und negiert ihn anschließend.
 - {{jsxref("Operators/Bitwise_NOT", "~")}}
@@ -97,7 +99,7 @@ Eine unäre Operation ist eine Operation mit nur einem Operanden.
 
 ### Arithmetische Operatoren
 
-Arithmetische Operatoren verwenden numerische Werte (entweder Literale oder Variablen) als ihre Operanden und geben einen einzelnen numerischen Wert zurück.
+Arithmetische Operatoren nehmen numerische Werte (entweder Literale oder Variablen) als ihre Operanden und geben einen einzelnen numerischen Wert zurück.
 
 - {{jsxref("Operators/Exponentiation", "**")}}
   - : Potenzierungsoperator.
@@ -114,27 +116,27 @@ Arithmetische Operatoren verwenden numerische Werte (entweder Literale oder Vari
 
 ### Vergleichsoperatoren
 
-Ein Vergleichsoperator vergleicht seine Operanden und gibt einen booleschen Wert zurück, der darauf basiert, ob der Vergleich wahr ist.
+Ein Vergleichsoperator vergleicht seine Operanden und gibt abhängig davon, ob der Vergleich wahr ist, einen Boolean-Wert zurück.
 
 - {{jsxref("Operators/Less_than", "&lt;")}} (Kleiner als)
   - : Kleiner-als-Operator.
 - {{jsxref("Operators/Greater_than", "&gt;")}} (Größer als)
   - : Größer-als-Operator.
 - {{jsxref("Operators/Less_than_or_equal", "&lt;=")}}
-  - : Kleiner-oder-gleich-Operator.
+  - : Kleiner-gleich-Operator.
 - {{jsxref("Operators/Greater_than_or_equal", "&gt;=")}}
-  - : Größer-oder-gleich-Operator.
+  - : Größer-gleich-Operator.
 - {{jsxref("instanceof")}}
   - : Der Operator `instanceof` bestimmt, ob ein Objekt eine Instanz eines anderen Objekts ist.
 - {{jsxref("Operators/in", "in")}}
   - : Der Operator `in` bestimmt, ob ein Objekt eine bestimmte Eigenschaft hat.
 
 > [!NOTE]
-> `=>` ist [kein Operator](#what_are_operators), sondern die Notation für [Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+> `=>` ist [kein Operator](#what_are_operators), sondern die Notation für [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ### Gleichheitsoperatoren
 
-Das Ergebnis der Auswertung eines Gleichheitsoperators ist immer vom Typ boolean und hängt davon ab, ob der Vergleich wahr ist.
+Das Ergebnis der Auswertung eines Gleichheitsoperators hat immer den Typ Boolean, abhängig davon, ob der Vergleich wahr ist.
 
 - {{jsxref("Operators/Equality", "==")}}
   - : Gleichheitsoperator.
@@ -145,7 +147,7 @@ Das Ergebnis der Auswertung eines Gleichheitsoperators ist immer vom Typ boolean
 - {{jsxref("Operators/Strict_inequality", "!==")}}
   - : Strikter Ungleichheitsoperator.
 
-### Bitweise Verschiebungsoperatoren
+### Bitweise Schiebeoperatoren
 
 Operationen zum Verschieben aller Bits des Operanden.
 
@@ -158,7 +160,7 @@ Operationen zum Verschieben aller Bits des Operanden.
 
 ### Binäre bitweise Operatoren
 
-Bitweise Operatoren behandeln ihre Operanden als einen Satz aus 32 Bits (Nullen und Einsen) und geben standardmäßige numerische JavaScript-Werte zurück.
+Bitweise Operatoren behandeln ihre Operanden als Satz von 32 Bits (Nullen und Einsen) und geben standardmäßige numerische JavaScript-Werte zurück.
 
 - {{jsxref("Operators/Bitwise_AND", "&amp;")}}
   - : Bitweises AND.
@@ -169,7 +171,7 @@ Bitweise Operatoren behandeln ihre Operanden als einen Satz aus 32 Bits (Nullen 
 
 ### Binäre logische Operatoren
 
-Logische Operatoren implementieren boolesche (logische) Werte und weisen [Kurzschlussverhalten](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting) auf.
+Logische Operatoren implementieren Boolean-Werte (logische Werte) und weisen ein [Kurzschlussverhalten](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting) auf.
 
 - {{jsxref("Operators/Logical_AND", "&amp;&amp;")}}
   - : Logisches AND.
@@ -178,10 +180,10 @@ Logische Operatoren implementieren boolesche (logische) Werte und weisen [Kurzsc
 - {{jsxref("Operators/Nullish_coalescing", "??")}}
   - : Nullish-Coalescing-Operator.
 
-### Bedingter (ternärer) Operator
+### Bedingungsoperator (ternär)
 
 - {{jsxref("Operators/Conditional_operator", "(condition ? ifTrue : ifFalse)")}}
-  - : Der bedingte Operator gibt basierend auf dem logischen Wert der Bedingung einen von zwei Werten zurück.
+  - : Der Bedingungsoperator gibt abhängig vom logischen Wert der Bedingung einen von zwei Werten zurück.
 
 ### Zuweisungsoperatoren
 
@@ -220,7 +222,7 @@ Ein Zuweisungsoperator weist seinem linken Operanden basierend auf dem Wert sein
 - {{jsxref("Operators/Nullish_coalescing_assignment", "??=")}}
   - : Nullish-Coalescing-Zuweisung.
 - [`[a, b] = arr`, `{ a, b } = obj`](/de/docs/Web/JavaScript/Reference/Operators/Destructuring)
-  - : Destrukturierung ermöglicht es Ihnen, die Eigenschaften eines Arrays oder Objekts mithilfe einer Syntax, die Array- oder Objektliteralen ähnelt, Variablen zuzuweisen.
+  - : Destructuring ermöglicht es Ihnen, die Eigenschaften eines Arrays oder Objekts mithilfe einer Syntax, die Array- oder Objektliteralen ähnelt, Variablen zuzuweisen.
 
 ### Yield-Operatoren
 
@@ -241,21 +243,21 @@ Ein Zuweisungsoperator weist seinem linken Operanden basierend auf dem Wert sein
 
 ## Was sind Operatoren?
 
-Wie im Abschnitt [Was sind Anweisungen, Deklarationen und Ausdrücke?](/de/docs/Web/JavaScript/Reference/Statements#what_are_statements_declarations_and_expressions) erklärt wird, ist ein Ausdruck ein grundlegender Baustein, der zu einem Wert ausgewertet wird. Anweisungen, Deklarationen und Ausdrücke können jeweils spezifische Positionen definieren, an denen Ausdrücke akzeptiert werden. Wenn ein Ausdruck Positionen für weitere verschachtelte Ausdrücke enthält, werden die Teile, die keine Positionen sind, als Operatoren bezeichnet.
+Wie im Abschnitt [Was sind Anweisungen, Deklarationen und Ausdrücke?](/de/docs/Web/JavaScript/Reference/Statements#what_are_statements_declarations_and_expressions) erläutert wird, ist ein Ausdruck ein grundlegender Baustein, der zu einem Wert ausgewertet wird. Anweisungen, Deklarationen und Ausdrücke können jeweils bestimmte Stellen definieren, an denen Ausdrücke akzeptiert werden. Wenn ein Ausdruck Stellen für weitere verschachtelte Ausdrücke enthält, werden die Teile, die keine solchen Stellen sind, als Operatoren bezeichnet.
 
-Beispielsweise lautet die Syntax für einen [Additionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/Addition) `expression + expression` (wenn Sie die Spezifikation lesen, werden die Operanden _AdditiveExpression_ und _MultiplicativeExpression_ genannt, die beide Teilmengen von _Expression_ sind; dies ist jedoch der Mechanismus der Spezifikation zur Definition von [Präzedenz und Assoziativität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) und für unsere Zwecke nicht relevant). Abgesehen von den beiden Ausdruckspositionen ist die eingeführte Codeeinheit nur `+`: der _Additionsoperator_. Ebenso lautet die Syntax für einen [yield]-Ausdruck(/de/docs/Web/JavaScript/Reference/Operators/yield) `yield expression`, daher wird `yield` als Operator bezeichnet. Mit anderen Worten entspricht jeder Operator einem Ausdruck.
+Beispielsweise lautet die Syntax für einen [Additions](/de/docs/Web/JavaScript/Reference/Operators/Addition)-Ausdruck `expression + expression` (wenn Sie die Spezifikation lesen, werden die Operanden _AdditiveExpression_ und _MultiplicativeExpression_ genannt, die beide Teilmengen von _Expression_ sind; dies ist jedoch der Mechanismus der Spezifikation zur Definition von [Präzedenz und Assoziativität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) und für unsere Zwecke nicht relevant). Abgesehen von den beiden Ausdrucksstellen ist die eingeführte Codeeinheit lediglich `+`: der _Additionsoperator_. Ebenso lautet die Syntax für einen [yield](/de/docs/Web/JavaScript/Reference/Operators/yield)-Ausdruck `yield expression`, daher wird `yield` als Operator bezeichnet. Mit anderen Worten: Jeder Operator entspricht einem Ausdruck.
 
-MDN betrachtet gemäß der obigen Definition auch Ausdrücke ohne Positionen wie [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als Operatoren, obwohl wir sie fast immer lediglich als „Syntax“ oder „Ausdruck“ bezeichnen.
+MDN betrachtet gemäß der obigen Definition auch Ausdrücke ohne Stellen wie [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als Operatoren, obwohl wir sie fast immer einfach als „Syntax“ oder „Ausdruck“ bezeichnen.
 
-Ein Ausdruck muss keine feste Anzahl von Positionen annehmen. Beispielsweise kann der Array-Literalausdruck `[expression, expression, expression]` eine beliebige Anzahl von Ausdruckspositionen annehmen. Der Teil `[,,]` könnte als „Operator“ bezeichnet werden. MDN vermeidet diese Verwendung, aber Sie können ihr in funktionalen Programmiersprachen wie [Haskell](https://www.haskell.org/onlinereport/haskell2010/haskellch3.html) begegnen.
+Ein Ausdruck muss keine feste Anzahl von Stellen annehmen. Beispielsweise kann der Array-Literal-Ausdruck `[expression, expression, expression]` eine beliebige Anzahl von Ausdrucksstellen annehmen. Der Teil `[,,]` könnte als „Operator“ bezeichnet werden. MDN vermeidet diese Verwendung, aber Sie könnten ihr in funktionalen Programmiersprachen wie [Haskell](https://www.haskell.org/onlinereport/haskell2010/haskellch3.html) begegnen.
 
-Die Definition von Operatoren wird bei bestimmten anderen Codeeinheiten unschärfer: Was ist, wenn ein Ausdruck eine Position enthält, die kein Ausdruck ist, oder eine mit einem Ausdruck kombinierte Codeeinheit keinen Ausdruck ergibt? Bezeichnen wir diese Codeeinheit weiterhin als Operator?
+Die Definition von Operatoren wird bei bestimmten anderen Codeeinheiten unschärfer: Was ist, wenn ein Ausdruck eine Stelle enthält, die kein Ausdruck ist, oder wenn eine mit einem Ausdruck kombinierte Codeeinheit keinen Ausdruck ergibt? Bezeichnen wir diese Codeeinheit dann noch als Operator?
 
 - Im Ausdruck für [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) `foo?.bar` ist `foo` ein Ausdruck, aber `bar` muss ein Bezeichner sein und wird nicht zu einem Wert ausgewertet. Betrachten wir `?.` weiterhin als Operator?
-- Im Ausdruck für eine [Arrow-Funktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) `arg => body` könnte `body` ein Ausdruck sein (obwohl es auch ein Blockrumpf sein kann), und `arg` ist lediglich eine Argumentliste. Betrachten wir `=>` weiterhin als Operator?
-- In der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) `...foo` ist `foo` ein Ausdruck, aber das Ganze ist kein Ausdruck, weil es nicht zu einem Wert ausgewertet wird – es ist nur in bestimmten anderen Ausdrücken wie Funktionsaufrufen, Array-Literalen und Objektliteralen sinnvoll. Betrachten wir `...` weiterhin als Operator?
+- Im Ausdruck für [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) `arg => body` kann `body` ein Ausdruck sein (obwohl es auch ein Blockrumpf sein kann), und `arg` ist lediglich eine Argumentliste. Betrachten wir `=>` weiterhin als Operator?
+- In der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) `...foo` ist `foo` ein Ausdruck, aber das Ganze ist kein Ausdruck, da es nicht zu einem Wert ausgewertet wird – es ergibt nur in bestimmten anderen Ausdrücken wie Funktionsaufrufen, Array-Literalen und Objektliteralen Sinn. Betrachten wir `...` weiterhin als Operator?
 
-Der Begriff „Operator“ ist in JavaScript nicht präzise definiert, daher gibt MDN keine endgültige Antwort. Unser Ansatz besteht darin, all diese Konstrukte unter „Operatoren“ zu gruppieren, jedoch zu vermeiden, sie formell als Operatoren zu bezeichnen. Viele nützliche Konzepte zu Operatoren, wie etwa die [Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence), gelten unabhängig von ihrer genauen Natur weiterhin für sie.
+Der Begriff „Operator“ ist in JavaScript nicht präzise definiert, daher gibt MDN keine endgültige Antwort. Unser Ansatz besteht darin, all diese Konstrukte unter „Operatoren“ zusammenzufassen, aber zu vermeiden, sie formell als Operatoren zu bezeichnen. Viele nützliche Konzepte zu Operatoren, etwa die [Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence), gelten unabhängig von ihrer genauen Natur weiterhin für sie.
 
 ## Spezifikationen
 
