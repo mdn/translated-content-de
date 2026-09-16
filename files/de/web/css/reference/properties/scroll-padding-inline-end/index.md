@@ -3,12 +3,12 @@ title: "`scroll-padding-inline-end` CSS property"
 short-title: scroll-padding-inline-end
 slug: Web/CSS/Reference/Properties/scroll-padding-inline-end
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension des _optimalen Sichtbereichs_ des Scrollbereichs: der Bereich, der als Zielregion für das Platzieren von Elementen im Sichtbereich des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollbereichs auszuschließen, die von anderem Inhalt (wie fix positionierten Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Kanten des Scrollbereichs einzufügen.
+Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielbereich verwendet wird, um Dinge in die Ansicht des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (z. B. Toolbars oder Seitenleisten mit fester Positionierung), oder mehr Abstand zwischen einem angesteuerten Element und den Kanten des Scrollports zu schaffen.
 
-{{InteractiveExample("CSS-Demo: scroll-padding-inline-end")}}
+{{InteractiveExample("CSS Demo: scroll-padding-inline-end")}}
 
 ```css interactive-example-choice
 scroll-padding-inline-end: 0;
@@ -76,7 +76,7 @@ scroll-padding-inline-end: 2em;
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 scroll-padding-inline-end: auto;
 
 /* <length> values */
@@ -95,9 +95,9 @@ scroll-padding-inline-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der Inline-Endkante des Scrollbereichs, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der Inline-Endkante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein nicht-null Wert angemessener ist.
+  - : Der Versatz wird durch den User Agent bestimmt. Im Allgemeinen ist dies 0px, aber ein User Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -117,5 +117,5 @@ scroll-padding-inline-end: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
+- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

@@ -3,12 +3,12 @@ title: "`margin-right` CSS property"
 short-title: margin-right
 slug: Web/CSS/Reference/Properties/margin-right
 l10n:
-  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
 Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`margin-right`** legt den [Randbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) auf der rechten Seite eines Elements fest. Ein positiver Wert platziert ihn weiter von seinen Nachbarn entfernt, während ein negativer Wert ihn näher platziert.
 
-Die vertikalen Ränder zweier angrenzender Boxen können zusammenfallen. Dies wird als [_margin collapsing_](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) bezeichnet.
+Die vertikalen Ränder zweier benachbarter Boxen können zusammenfallen. Dies wird als [_margin collapsing_](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) bezeichnet.
 
 {{InteractiveExample("CSS Demo: margin-right")}}
 
@@ -70,7 +70,7 @@ margin-right: 5%; /* relative to the nearest block container's width */
 margin-right: anchor-size(self-block);
 margin-right: calc(anchor-size(--my-anchor height, 20px) / 4);
 
-/* Keyword values */
+/* Keyword value */
 margin-right: auto;
 
 /* Global values */
@@ -87,10 +87,10 @@ Die Eigenschaft `margin-right` wird als Schlüsselwort `auto`, als `<length>` od
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Rands als fester Wert.
-    - Für _anchor-positioned elements_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _anchor element_ aufgelöst (siehe [Elementrand basierend auf der Anchor-Größe festlegen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+    - Für _anchor-positioned elements_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugeordneten _anchor element_ aufgelöst (siehe [Festlegen des Elementrands anhand der Anchor-Größe](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Rands als Prozentsatz relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
+  - : Die Größe des Rands als Prozentsatz relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Containing Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
   - : Der rechte Rand erhält einen Anteil des ungenutzten horizontalen Platzes, der hauptsächlich durch den verwendeten Layout-Modus bestimmt wird. Wenn die Werte von `margin-left` und `margin-right` beide `auto` sind, wird der berechnete Platz gleichmäßig verteilt. Diese Tabelle fasst die verschiedenen Fälle zusammen:
 
@@ -126,7 +126,7 @@ Die Eigenschaft `margin-right` wird als Schlüsselwort `auto`, als `<length>` od
           <td>
             <code>0</code>, außer wenn sowohl <code>margin-left</code> als auch
             <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall
-            wird er auf den Wert gesetzt, der das Element innerhalb seines übergeordneten Elements zentriert.
+            wird er auf den Wert gesetzt, der das Element innerhalb seines Elternelements zentriert.
           </td>
           <td>Block-Layout-Modus</td>
         </tr>
@@ -139,7 +139,7 @@ Die Eigenschaft `margin-right` wird als Schlüsselwort `auto`, als `<length>` od
           <th><code>left</code> oder <code>right</code></th>
           <th><code>static</code> oder <code>relative</code></th>
           <td><code>0</code></td>
-          <td>Block-Layout-Modus (schwebendes Element)</td>
+          <td>Block-Layout-Modus (gleitendes Element)</td>
         </tr>
         <tr>
           <th>
@@ -167,7 +167,7 @@ Die Eigenschaft `margin-right` wird als Schlüsselwort `auto`, als `<length>` od
             <code>0</code>, außer wenn sowohl <code>margin-left</code> als auch
             <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall
             wird er auf den Wert gesetzt, der den Randbereich innerhalb der verfügbaren
-            <code>width</code> zentriert, falls diese festgelegt ist.
+            <code>width</code> zentriert, sofern diese festgelegt ist.
           </td>
           <td>Layout-Modus für absolut positionierte Elemente</td>
         </tr>
@@ -195,7 +195,7 @@ Die Eigenschaft `margin-right` wird als Schlüsselwort `auto`, als `<length>` od
 
 ## Beispiele
 
-### Rechten Rand mithilfe von Pixeln und Prozentangaben festlegen
+### Festlegen des rechten Rands mit Pixeln und Prozentwerten
 
 ```css
 .content {
@@ -220,7 +220,7 @@ Die Eigenschaft `margin-right` wird als Schlüsselwort `auto`, als `<length>` od
 ## Siehe auch
 
 - {{cssxref("margin-top")}}, {{cssxref("margin-bottom")}} und {{cssxref("margin-left")}}
-- Kurzform von {{cssxref("margin")}}
+- Kurzform {{cssxref("margin")}}
 - {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}
-- Kurzformen von {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
+- Kurzformen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
 - [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model)-Modul

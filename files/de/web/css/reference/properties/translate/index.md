@@ -3,10 +3,10 @@ title: "`translate` CSS property"
 short-title: translate
 slug: Web/CSS/Reference/Properties/translate
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die **`translate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Translationstransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies entspricht eher der üblichen Verwendung in Benutzeroberflächen und erspart es, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die im `transform`-Wert angegeben werden müssen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`translate`** ermöglicht es Ihnen, Verschiebungstransformationen einzeln und unabhängig von der Eigenschaft {{CSSxRef("transform")}} festzulegen. Dies entspricht besser der typischen Verwendung von Benutzeroberflächen und erspart es, sich die genaue Reihenfolge der Transformationsfunktionen merken zu müssen, die im Wert von `transform` angegeben werden soll.
 
 {{InteractiveExample("CSS Demo: translate")}}
 
@@ -103,7 +103,7 @@ translate: 20px 4rem 150px;
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 translate: none;
 
 /* Single values */
@@ -127,14 +127,14 @@ translate: unset;
 
 ### Werte
 
-- Ein einzelner {{cssxref("&lt;length-percentage&gt;")}}-Wert
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das eine Translation entlang der X-Achse spezifiziert. Entspricht einer `translate()`-Funktion (2D-Translation) mit einem einzigen angegebenen Wert.
+- Einzelner {{cssxref("&lt;length-percentage&gt;")}}-Wert
+  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Verschiebung entlang der X-Achse angibt. Entspricht einer `translate()`-Funktion (2D-Verschiebung) mit einem einzelnen angegebenen Wert.
 - Zwei {{cssxref("&lt;length-percentage&gt;")}}-Werte
-  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Translationswerte (jeweils) einer 2D-Translation angeben. Entspricht einer `translate()`-Funktion (2D-Translation) mit zwei angegebenen Werten.
+  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Verschiebungswerte der X- bzw. Y-Achse einer 2D-Verschiebung angeben. Entspricht einer `translate()`-Funktion (2D-Verschiebung) mit zwei angegebenen Werten.
 - Drei Werte
-  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}}-Wert, die die X-, Y- und Z-Achsen-Translationswerte (jeweils) einer 3D-Translation angeben. Entspricht einer `translate3d()`-Funktion (3D-Translation).
+  - : Zwei {{cssxref("&lt;length-percentage&gt;")}}- und ein einzelner {{cssxref("&lt;length&gt;")}}-Wert, die die Verschiebungswerte der X-, Y- bzw. Z-Achse einer 3D-Verschiebung angeben. Entspricht einer `translate3d()`-Funktion (3D-Verschiebung).
 - `none`
-  - : Gibt an, dass keine Translation angewendet werden soll.
+  - : Gibt an, dass keine Verschiebung angewendet werden soll.
 
 ## Formale Definition
 
@@ -146,11 +146,11 @@ translate: unset;
 
 ## Beispiele
 
-### Translating ein Element beim Hover
+### Verschieben eines Elements beim Darüberfahren mit der Maus
 
-Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu bewegen.
-Das erste Feld wird entlang der X-Achse verschoben und das zweite Feld wird entlang der X- und Y-Achsen verschoben.
-Das dritte Feld wird entlang der X-, Y- und Z-Achsen verschoben und hat durch die Hinzufügung von {{cssxref('perspective')}} zum Elternelement das Aussehen, sich auf den Betrachter zuzubewegen.
+Dieses Beispiel zeigt, wie die Eigenschaft `translate` verwendet wird, um ein Element entlang dreier Achsen zu verschieben.
+Das erste Feld wird entlang der X-Achse verschoben und das zweite Feld entlang der X- und Y-Achse.
+Das dritte Feld wird entlang der X-, Y- und Z-Achse verschoben und wirkt aufgrund des Hinzufügens von {{cssxref('perspective')}} zum übergeordneten Element so, als würde es sich auf den Betrachter zubewegen.
 
 #### HTML
 

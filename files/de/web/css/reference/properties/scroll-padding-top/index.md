@@ -3,10 +3,10 @@ title: "`scroll-padding-top` CSS property"
 short-title: scroll-padding-top
 slug: Web/CSS/Reference/Properties/scroll-padding-top
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die **`scroll-padding-top`**-Eigenschaft definiert Versätze für die Oberseite des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion dient, um Dinge in das Sichtfeld des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft **`scroll-padding-top`** definiert Versätze für den oberen Bereich der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Dinge im Sichtbereich der Benutzerin oder des Benutzers zu platzieren. Dadurch kann die Autorin oder der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte verdeckt sind (etwa Toolbars oder Sidebars mit fester Positionierung), oder mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollports schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-top")}}
 
@@ -73,7 +73,7 @@ scroll-padding-top: 2em;
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 scroll-padding-top: auto;
 
 /* <length> values */
@@ -92,9 +92,9 @@ scroll-padding-top: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein innerer Versatz von der oberen Kante des Scrollports, als gültige Längeneinheit oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der oberen Kante des Scrollports als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent ist in der Lage, etwas anderes zu tun, wenn ein von null abweichender Wert angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -114,5 +114,5 @@ scroll-padding-top: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
+- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

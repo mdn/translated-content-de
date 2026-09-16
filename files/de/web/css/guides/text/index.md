@@ -1,12 +1,12 @@
 ---
-title: CSS text
+title: CSS-Text
 short-title: Text
 slug: Web/CSS/Guides/Text
 l10n:
-  sourceCommit: 93b85a5bc2b4589d93185263fd2c14381c36f821
+  sourceCommit: 8e307de115d41e9214fcacbd7fe89532756816b4
 ---
 
-Das **CSS text** Modul definiert, wie Textmanipulationen durchgeführt werden, wie Zeilenumbrüche, Ausrichtung und Justierung, Handhabung von Leerzeichen und Texttransformation.
+Das Modul **CSS-Text** definiert, wie Textmanipulationen durchgeführt werden, etwa Zeilenumbrüche, Blocksatz und Ausrichtung, die Behandlung von Leerraum sowie Texttransformationen.
 
 ## Referenz
 
@@ -18,10 +18,11 @@ Das **CSS text** Modul definiert, wie Textmanipulationen durchgeführt werden, w
 - {{cssxref("hyphens")}}
 - {{cssxref("letter-spacing")}}
 - {{cssxref("line-break")}}
-- {{cssxref("overflow-wrap")}} (und das Alias `word-wrap`)
+- {{cssxref("overflow-wrap")}} (und der Alias `word-wrap`)
 - {{cssxref("tab-size")}}
 - {{cssxref("text-align")}}
 - {{cssxref("text-align-last")}}
+- {{cssxref("text-fit")}}
 - {{cssxref("text-indent")}}
 - {{cssxref("text-justify")}}
 - {{cssxref("text-autospace")}}
@@ -35,14 +36,14 @@ Das **CSS text** Modul definiert, wie Textmanipulationen durchgeführt werden, w
 - {{cssxref("word-break")}}
 - {{cssxref("word-spacing")}}
 
-Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-lines`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-group-align`, `text-spacing`, `white-space-trim`, `word-space-transform`, `wrap-after`, `wrap-before` und `wrap-inside`, die derzeit von keinem Browser unterstützt werden.
+Die Spezifikation definiert außerdem die Eigenschaften `hyphenate-limit-last`, `hyphenate-limit-lines`, `hyphenate-limit-zone`, `line-padding`, `text-align-all`, `text-group-align`, `text-spacing`, `white-space-trim`, `word-space-transform`, `wrap-after`, `wrap-before` und `wrap-inside`, die bislang von keinem Browser unterstützt werden.
 
 ## Leitfäden
 
-- [Umbruch und Zeilenumbruch von Text](/de/docs/Web/CSS/Guides/Text/Wrapping_breaking_text)
-  - : Ein Leitfaden zu den verschiedenen Möglichkeiten, wie überlaufender Text in CSS verwaltet werden kann.
-- [Handhabung von Leerzeichen](/de/docs/Web/CSS/Guides/Text/Whitespace)
-  - : Ein Leitfaden, der die verschiedenen CSS-Eigenschaften einführt, die die Darstellung von Leerzeichen im DOM steuern, und die Fallstricke und deren Umgehungen untersucht.
+- [Text umbrechen und Zeilenumbrüche einfügen](/de/docs/Web/CSS/Guides/Text/Wrapping_breaking_text)
+  - : Ein Leitfaden zu den verschiedenen Möglichkeiten, wie überlaufender Text in CSS behandelt werden kann.
+- [Leerraum behandeln](/de/docs/Web/CSS/Guides/Text/Whitespace)
+  - : Ein Leitfaden, der die verschiedenen CSS-Eigenschaften vorstellt, welche die Darstellung von Leerraum im DOM steuern, und Fallstricke sowie deren Abhilfen erläutert.
 
 ## Verwandte Konzepte
 
@@ -76,8 +77,8 @@ Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyph
 
 ## Siehe auch
 
-- [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
-- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS-Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul
-- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
-- [CSS-Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) Modul
+- Modul [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes)
+- Modul [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)
+- Modul [CSS-Schriftarten](/de/docs/Web/CSS/Guides/Fonts)
+- Modul [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout)
+- Modul [CSS-Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration)

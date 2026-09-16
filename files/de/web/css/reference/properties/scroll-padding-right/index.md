@@ -3,10 +3,10 @@ title: "`scroll-padding-right` CSS property"
 short-title: scroll-padding-right
 slug: Web/CSS/Reference/Properties/scroll-padding-right
 l10n:
-  sourceCommit: ab63f9fa055a0d5b1b4eeac21e9a1e98c4f62c82
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die Eigenschaft `scroll-padding-right` definiert Offsets für den rechten Rand des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Inhalte für den Benutzer sichtbar zu machen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderen Inhalten (wie Toolbars oder Sidebars mit fester Positionierung) verdeckt werden, oder mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-right` definiert Versätze für die rechte Seite des _optimalen Sichtbereichs_ des Scrollports: den Bereich, der als Zielbereich verwendet wird, um Dinge im Sichtbereich der Benutzerin oder des Benutzers zu platzieren. Dies ermöglicht es Autorinnen und Autoren, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (z. B. Symbolleisten oder Seitenleisten mit fester Positionierung), oder mehr Abstand zwischen einem Zielelement und den Kanten des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-right")}}
 
@@ -76,7 +76,7 @@ scroll-padding-right: 2em;
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 scroll-padding-right: auto;
 
 /* <length> values */
@@ -95,9 +95,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichtetes Offset vom rechten Rand des Scrollports, als gültige Länge oder Prozentangabe.
+  - : Ein nach innen gerichteter Versatz von der rechten Kante des Scrollports als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Das Offset wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Im Allgemeinen beträgt dieser `0px`, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -117,5 +117,5 @@ scroll-padding-right: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

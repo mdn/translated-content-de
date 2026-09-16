@@ -3,10 +3,10 @@ title: "`scroll-padding-left` CSS property"
 short-title: scroll-padding-left
 slug: Web/CSS/Reference/Properties/scroll-padding-left
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge im Blickfeld des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie z.B. fixiert positionierte Werkzeugleisten oder Seitenleisten), oder um mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Sichtbereichs_ des Scrollports: den Bereich, der als Zielbereich verwendet wird, um Inhalte für Benutzer sichtbar zu platzieren. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte verdeckt sind (z. B. Toolbars oder Seitenleisten mit fester Positionierung), oder mehr Abstand zwischen einem angesteuerten Element und den Rändern des Scrollports schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-left")}}
 
@@ -76,7 +76,7 @@ scroll-padding-left: 2em;
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 scroll-padding-left: auto;
 
 /* <length> values */
@@ -95,9 +95,9 @@ scroll-padding-left: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der linken Kante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom linken Rand des Scrollports als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom User Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User Agent kann etwas anderes erkennen und tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Im Allgemeinen ist dies 0px, aber ein User-Agent kann erkennen und etwas anderes festlegen, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -117,5 +117,5 @@ scroll-padding-left: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

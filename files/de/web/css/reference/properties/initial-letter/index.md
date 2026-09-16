@@ -3,15 +3,15 @@ title: "`initial-letter` CSS property"
 short-title: initial-letter
 slug: Web/CSS/Reference/Properties/initial-letter
 l10n:
-  sourceCommit: a5531a7b1fa30ab1de952ffff619a9830eb1c1a9
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die **`initial-letter`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe und das Einsinken für herabgesetzte, erhöhte und versenkte Initialbuchstaben fest. Diese Eigenschaft gilt für {{cssxref("::first-letter")}} Pseudo-Elemente und Inline-Level Erste-Kind-Elemente von Block-Containern.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`initial-letter`** legt die Größe und das Einsinken von fallengelassenen, angehobenen und abgesenkten Initialbuchstaben fest. Diese Eigenschaft gilt für {{cssxref("::first-letter")}}-Pseudoelemente und erste Kinder auf Inline-Ebene von Block-Containern.
 
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 initial-letter: normal;
 
 /* One value */
@@ -32,14 +32,14 @@ initial-letter: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als `normal` oder eine `<number>`, optional gefolgt von einem `<integer>`, angegeben:
+Diese Eigenschaft wird als `normal` oder als `<number>`, optional gefolgt von einem `<integer>`, angegeben:
 
 - `normal`
-  - : Kein besonderer Initialbuchstaben-Effekt. Text verhält sich normal.
+  - : Kein spezieller Initialbuchstaben-Effekt. Text verhält sich normal.
 - `<number>`
-  - : Definiert die Größe des Initialbuchstabens in Bezug darauf, wie viele Zeilen er einnimmt. Negative Werte sind nicht erlaubt.
+  - : Definiert die Größe des Initialbuchstabens anhand der Anzahl der Zeilen, die er einnimmt. Negative Werte sind nicht erlaubt.
 - `<integer>`
-  - : Definiert die Anzahl der Zeilen, die der Initialbuchstabe versinken sollte, wenn seine Größe angegeben ist. Die Werte müssen größer als Null sein. Wenn weggelassen, dupliziert es den Größenwert, abgerundet auf die nächste positive ganze Zahl.
+  - : Definiert die Anzahl der Zeilen, um die der Initialbuchstabe einsinken soll, wenn seine Größe angegeben ist. Werte müssen größer als null sein. Wenn der Wert ausgelassen wird, entspricht er dem Größenwert, abgerundet auf die nächstgelegene positive ganze Zahl.
 
 ## Formale Definition
 
@@ -51,7 +51,7 @@ Diese Eigenschaft wird als `normal` oder eine `<number>`, optional gefolgt von e
 
 ## Beispiele
 
-### Initialbuchstabengröße festlegen
+### Größe des Initialbuchstabens festlegen
 
 #### HTML
 
@@ -88,9 +88,9 @@ p {
 
 {{EmbedLiveSample('Setting_initial_letter_size', 250, 180)}}
 
-### Einsinkwert festlegen
+### Den Einsinkwert festlegen
 
-In diesem Beispiel sind alle Initialbuchstaben gleich groß, jedoch mit unterschiedlichen Einsinkwerten.
+In diesem Beispiel haben alle Initialbuchstaben dieselbe Größe, jedoch unterschiedliche Einsinkwerte.
 
 #### HTML
 
@@ -145,4 +145,4 @@ p {
 
 - {{cssxref("::first-letter")}}
 - {{cssxref(":first-child")}}
-- [Drop Caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/) über Oddbird (2017)
+- [Initialbuchstaben in CSS](https://www.oddbird.net/2017/01/03/initial-letter/) über Oddbird (2017)

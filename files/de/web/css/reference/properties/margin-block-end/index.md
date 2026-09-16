@@ -3,10 +3,10 @@ title: "`margin-block-end` CSS property"
 short-title: margin-block-end
 slug: Web/CSS/Reference/Properties/margin-block-end
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die **`margin-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockendrand eines Elements, der je nach Schreibweise, Richtung und Textausrichtung des Elements einer physischen Randseite zugeordnet wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`margin-block-end`** definiert den logischen Außenabstand am Blockende eines Elements. Dieser wird je nach Schreibmodus, Schreibrichtung und Textausrichtung des Elements einem physischen Außenabstand zugeordnet.
 
 {{InteractiveExample("CSS Demo: margin-block-end")}}
 
@@ -75,7 +75,7 @@ margin-block-end: 5%; /* relative to the nearest block container's width */
 margin-block-end: anchor-size(inline);
 margin-block-end: calc(anchor-size(--my-anchor block, 20px) / 4);
 
-/* Keyword values */
+/* Keyword value */
 margin-block-end: auto;
 
 /* Global values */
@@ -86,13 +86,13 @@ margin-block-end: revert-layer;
 margin-block-end: unset;
 ```
 
-Sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Sie entspricht je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten der Eigenschaft {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}}.
 
-Sie steht im Zusammenhang mit {{cssxref("margin-block-start")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}, die die anderen Ränder des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("margin-block-start")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, die die anderen Außenabstände des Elements definieren.
 
 ### Werte
 
-Die `margin-block-end`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("margin-top")}}-Eigenschaft.
+Die Eigenschaft `margin-block-end` akzeptiert dieselben Werte wie die Eigenschaft {{cssxref("margin-top")}}.
 
 ## Formale Definition
 
@@ -104,7 +104,7 @@ Die `margin-block-end`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref
 
 ## Beispiele
 
-### Blockendrand festlegen
+### Außenabstand am Blockende festlegen
 
 #### HTML
 
@@ -144,6 +144,6 @@ div {
 
 ## Siehe auch
 
-- [CSS logisch Eigenschafen und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die abgebildeten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
+- [Logische CSS-Eigenschaften und -Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

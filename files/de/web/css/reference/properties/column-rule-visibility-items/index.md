@@ -3,12 +3,12 @@ title: "`column-rule-visibility-items` CSS property"
 short-title: column-rule-visibility-items
 slug: Web/CSS/Reference/Properties/column-rule-visibility-items
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
 {{SeeCompatTable}}
 
-Die **`column-rule-visibility-items`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, ob ein Spaltenregelabschnitt in Lücken neben leeren Bereichen gezeichnet wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-visibility-items`** legt fest, ob ein column-rule-Segment in Lücken gezeichnet wird, die an leere Bereiche angrenzen.
 
 {{InteractiveExample("CSS Demo: column-rule-visibility-items")}}
 
@@ -57,7 +57,7 @@ cite {
 ## Syntax
 
 ```css
-/* Keywords */
+/* Keyword values */
 column-rule-visibility-items: all;
 column-rule-visibility-items: around;
 column-rule-visibility-items: between;
@@ -73,25 +73,25 @@ column-rule-visibility-items: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 - `all`
-  - : Die Spaltenregel sollte in allen Lückensegmenten gezeichnet werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
+  - : Die Spaltenlinie sollte in allen Lückensegmenten gezeichnet werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
 
 - `around`
-  - : Die Spaltenregel sollte in einem Lückensegment gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist.
+  - : Die Spaltenlinie sollte in einem Lückensegment gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist.
 
 - `between`
-  - : Die Spaltenregel sollte in einem Lückensegment gezeichnet werden, wenn beide angrenzenden Bereiche von Elementen belegt sind.
+  - : Die Spaltenlinie sollte in einem Lückensegment gezeichnet werden, wenn beide angrenzenden Bereiche von Elementen belegt sind.
 
 - `normal`
-  - : Bei Gittern verhält es sich wie `all`. Im Mehrspalten-Layout verhält es sich wie `between`. Dies ist der Standardwert.
+  - : Bei Grid-Containern verhält sich dieser Wert wie `all`. Im Mehrspaltenlayout verhält er sich wie `between`. Dies ist der Standardwert.
 
 ## Beschreibung
 
-Die Eigenschaft `column-rule-visibility-items` definiert, ob ein Spaltenregelabschnitt in Spaltenlücken neben leeren Bereichen in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout) und [Raster](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte gezeichnet wird.
+Die Eigenschaft `column-rule-visibility-items` legt fest, ob ein column-rule-Segment in Spaltenlücken gezeichnet wird, die an leere Bereiche in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout)- und [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containern mit mehr als einer Spalte angrenzen.
 
-Die Eigenschaften `column-rule-visibility-items` und {{cssxref("row-rule-visibility-items")}} können beide mit der Kurzform {{cssxref("rule-visibility-items")}} festgelegt werden.
+Die Eigenschaften `column-rule-visibility-items` und {{cssxref("row-rule-visibility-items")}} können beide mithilfe der Kurzform {{cssxref("rule-visibility-items")}} festgelegt werden.
 
 ## Formale Definition
 
@@ -103,9 +103,9 @@ Die Eigenschaften `column-rule-visibility-items` und {{cssxref("row-rule-visibil
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-In diesem Beispiel definieren wir, dass eine Spaltenregel zwischen zwei Rasterbereichen gezeichnet wird, wenn mindestens ein angrenzender Rasterbereich ein Rasterelement enthält.
+In diesem Beispiel legen wir fest, dass eine Spaltenlinie zwischen zwei Grid-Bereichen gezeichnet wird, wenn mindestens einer der angrenzenden Grid-Bereiche ein Grid-Element enthält.
 
 #### HTML
 
@@ -124,9 +124,9 @@ Wir fügen eine Liste dynamischer Sportduos ein:
 
 #### CSS
 
-Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Rastercontainer, erstellen 4 Spalten und 4 Zeilen, indem wir sowohl die {{cssxref("grid-template-columns")}} als auch die {{cssxref("grid-template-rows")}} Eigenschaften auf `repeat(4, 1fr)` setzen, und verschieben das letzte Element in den unteren rechten Rasterbereich, indem wir die Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} verwenden. Wir fügen einen {{cssxref("gap")}} von `20px` hinzu, um genügend Platz zwischen den Spalten für unsere `5px` gestrichelte Regel zu schaffen.
+Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container, erstellen durch Festlegen der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} auf `repeat(4, 1fr)` 4 Spalten und 4 Zeilen und verschieben das letzte Element mithilfe der Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} in den Grid-Bereich unten rechts. Wir fügen ein {{cssxref("gap")}} von `20px` hinzu, um zwischen den Spalten genügend Platz für unsere gestrichelte Linie mit `5px` zu schaffen.
 
-Schließlich setzen wir `column-rule-visibility-items` auf `between`, so dass eine Spaltenregel nur dann in einer Spaltenlücke gezeichnet wird, wenn beide angrenzenden Rasterbereiche ein Rasterelement enthalten.
+Schließlich setzen wir `column-rule-visibility-items` auf `between`, sodass eine Spaltenlinie nur dann in einer Spaltenlücke gezeichnet wird, wenn beide angrenzenden Grid-Bereiche ein Grid-Element enthalten.
 
 ```css
 ol {
@@ -175,8 +175,8 @@ li {
 
 ## Siehe auch
 
-- {{cssxref("rule-visibility-items")}} Kurzform
+- Kurzform {{cssxref("rule-visibility-items")}}
 - {{cssxref("row-rule-visibility-items")}}
-- {{cssxref("column-rule")}} Kurzform
-- {{cssxref("rule")}} Kurzform
-- [CSS Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul
+- Kurzform {{cssxref("column-rule")}}
+- Kurzform {{cssxref("rule")}}
+- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)

@@ -3,27 +3,27 @@ title: "`scrollbar-color` CSS property"
 short-title: scrollbar-color
 slug: Web/CSS/Reference/Properties/scrollbar-color
 l10n:
-  sourceCommit: 2e2dfb27a085911dd64aa4798d4a1071660c2397
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die **`scrollbar-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Scrollbar-Spur und des Daumens fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`scrollbar-color`** legt die Farbe der Scrollleisten-Spur und des Scrollleisten-Reglers fest.
 
-Die **Spur** bezieht sich auf den Hintergrund der Scrollbar, der im Allgemeinen unabhängig von der Scrollposition fixiert ist.
+Die **Spur** bezieht sich auf den Hintergrund der Scrollleiste, der im Allgemeinen unabhängig von der Scrollposition fest bleibt.
 
-Der **Daumen** bezieht sich auf den beweglichen Teil der Scrollbar, der normalerweise über der Spur schwebt.
+Der **Regler** bezieht sich auf den beweglichen Teil der Scrollleiste, der normalerweise über der Spur schwebt.
 
-Wenn der Wert von `scrollbar-color` auf dem Wurzelelement des Dokuments gesetzt wird, werden die Werte auf die Viewport-Scrollleisten angewendet.
+Wenn der Wert von `scrollbar-color` auf dem Wurzelelement des Dokuments gesetzt wird, werden die Werte auf die Scrollleisten des Viewports angewendet.
 
 > [!NOTE]
-> Browser ignorieren die nicht standardmäßige {{cssxref("::-webkit-scrollbar")}} Familie von Pseudoelementen auf jedem Element, dessen _berechneter_ `scrollbar-color` Wert etwas anderes als `auto` ist.
-> Da `scrollbar-color` vererbt wird, betrifft dies auch Elemente, die es nicht selbst setzen, sondern einen nicht-`auto` Wert von einem Vorfahren erben.
-> Wenn auf ein solches Element `scrollbar-color: auto` gesetzt wird, wird dessen `::-webkit-scrollbar-*` Stil wiederhergestellt, falls er zuvor durch eine `scrollbar-color` Einstellung auf einem Vorfahren entfernt wurde.
-> Siehe [Hinzufügen eines Fallbacks für Scrollbar-Stile](/de/docs/Web/CSS/Reference/Selectors/::-webkit-scrollbar#adding_a_fallback_for_scrollbar_styles).
+> Browser ignorieren die nicht standardisierte Familie von Pseudoelementen {{cssxref("::-webkit-scrollbar")}} auf jedem Element, dessen _berechneter_ `scrollbar-color`-Wert etwas anderes als `auto` ist.
+> Da `scrollbar-color` vererbt wird, betrifft dies auch Elemente, die es nicht selbst festlegen, aber einen von einem Vorgängerelement geerbten Wert ungleich `auto` haben.
+> Das Setzen von `scrollbar-color: auto` auf einem solchen Element stellt dessen `::-webkit-scrollbar-*`-Styling wieder her, falls es zuvor durch eine `scrollbar-color`-Einstellung auf einem Vorgängerelement entfernt wurde.
+> Siehe [Hinzufügen eines Fallbacks für Scrollleisten-Stile](/de/docs/Web/CSS/Reference/Selectors/::-webkit-scrollbar#adding_a_fallback_for_scrollbar_styles).
 
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 scrollbar-color: auto;
 
 /* <color> values */
@@ -41,22 +41,22 @@ scrollbar-color: unset;
 ### Werte
 
 - `<scrollbar-color>`
-  - : Definiert die Farbe der Scrollbar.
+  - : Definiert die Farbe der Scrollleiste.
 
     <table class="standard-table">
       <tbody>
         <tr>
           <td><code>auto</code></td>
           <td>
-            Standard-Plattform-Rendering für den Spurteil der Scrollleiste, in
-            Ermangelung anderer verwandter Scrollleisten-Farbeigenschaften.
+            Standarddarstellung der Plattform für den Spurteil der Scrollleiste,
+            sofern keine anderen zugehörigen Eigenschaften für die Scrollleistenfarbe vorhanden sind.
           </td>
         </tr>
         <tr>
           <td><code>&#x3C;color> &#x3C;color></code></td>
           <td>
-            Wendet die erste Farbe auf den Scrollbar-Daumen an, die zweite auf die
-            Scrollbar-Spur.
+            Wendet die erste Farbe auf den Scrollleisten-Regler und die zweite auf die
+            Scrollleisten-Spur an.
           </td>
         </tr>
       </tbody>
@@ -67,7 +67,7 @@ scrollbar-color: unset;
 
 ## Barrierefreiheit
 
-Beim Verwenden der `scrollbar-color` Eigenschaft mit spezifischen Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben genügend Kontrast zueinander haben. Für Schlüsselwortwerte sollten UAs sicherstellen, dass die von ihnen verwendeten Farben genügend Kontrast bieten. Siehe [Techniken für WCAG 2.0: G183: Verwendung eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
+Bei der Verwendung der Eigenschaft `scrollbar-color` mit bestimmten Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben ausreichend Kontrast zueinander aufweisen. Bei Schlüsselwortwerten sollten UAs sicherstellen, dass die von ihnen verwendeten Farben ausreichend Kontrast aufweisen. Siehe [Techniken für WCAG 2.0: G183: Verwendung eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
 
 ## Formale Definition
 
@@ -79,7 +79,7 @@ Beim Verwenden der `scrollbar-color` Eigenschaft mit spezifischen Farbwerten sol
 
 ## Beispiele
 
-### Färbung von Überlauf-Scrollleisten
+### Färben von Überlauf-Scrollleisten
 
 #### CSS
 
@@ -118,8 +118,8 @@ Beim Verwenden der `scrollbar-color` Eigenschaft mit spezifischen Farbwerten sol
 
 ## Siehe auch
 
-- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS Scrollleisten-Styling](/de/docs/Web/CSS/Guides/Scrollbars_styling) Modul
+- Modul [CSS overflow](/de/docs/Web/CSS/Guides/Overflow)
+- Modul [CSS scrollbars styling](/de/docs/Web/CSS/Guides/Scrollbars_styling)
 - {{CSSxRef("overflow")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("scrollbar-width")}}

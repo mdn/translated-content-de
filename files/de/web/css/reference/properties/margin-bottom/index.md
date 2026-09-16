@@ -3,10 +3,10 @@ title: "`margin-bottom` CSS property"
 short-title: margin-bottom
 slug: Web/CSS/Reference/Properties/margin-bottom
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die **`margin-bottom`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den [Außenabstand](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) am unteren Rand eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`margin-bottom`** legt den [Außenabstandsbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) am unteren Rand eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
 
 {{InteractiveExample("CSS Demo: margin-bottom")}}
 
@@ -60,9 +60,9 @@ margin-bottom: 0;
 }
 ```
 
-![Der Effekt der CSS-Eigenschaft margin-bottom auf die Elementbox](margin-bottom.svg)
+![Die Auswirkung der CSS-Eigenschaft margin-bottom auf die Elementbox](margin-bottom.svg)
 
-Diese Eigenschaft hat keinen Effekt auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente, wie z. B. {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+Diese Eigenschaft hat keine Auswirkung auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ## Syntax
 
@@ -74,7 +74,7 @@ margin-bottom: 5%; /* relative to the nearest block container's width */
 margin-bottom: anchor-size(width);
 margin-bottom: calc(anchor-size(--my-anchor self-block, 20px) / 3);
 
-/* Keyword values */
+/* Keyword value */
 margin-bottom: auto;
 
 /* Global values */
@@ -85,18 +85,18 @@ margin-bottom: revert-layer;
 margin-bottom: unset;
 ```
 
-Die `margin-bottom`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<length>`, oder als `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
+Die Eigenschaft `margin-bottom` wird als Schlüsselwort `auto`, als `<length>` oder als `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert.
-    - Für _anker-positionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Elementabstands basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+  - : Die Größe des Außenabstands als fester Wert.
+    - Bei _ankerpositionierten Elementen_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Element-Außenabstands basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
+  - : Die Größe des Außenabstands als Prozentsatz relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
-  - : Der Browser wählt einen geeigneten Wert aus. Siehe {{cssxref("margin")}}.
+  - : Der Browser wählt einen geeigneten zu verwendenden Wert aus. Siehe {{cssxref("margin")}}.
 
 ## Formale Definition
 
@@ -108,7 +108,7 @@ Die `margin-bottom`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<lengt
 
 ## Beispiele
 
-### Positive und negative untere Abstände festlegen
+### Positive und negative untere Außenabstände festlegen
 
 #### HTML
 
@@ -122,7 +122,7 @@ Die `margin-bottom`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<lengt
 
 #### CSS
 
-CSS für Divs zum Festlegen von margin-bottom und height
+CSS für divs zum Festlegen von `margin-bottom` und Höhe
 
 ```css
 .box0 {
@@ -140,7 +140,7 @@ CSS für Divs zum Festlegen von margin-bottom und height
 }
 ```
 
-Einige Definitionen für Container und Divs, damit die Auswirkungen der Abstände klarer gesehen werden können
+Einige Definitionen für den Container und divs, damit die Auswirkungen der Außenabstände deutlicher sichtbar werden
 
 ```css
 .container {
@@ -168,8 +168,8 @@ div {
 
 ## Siehe auch
 
-- {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, und {{cssxref("margin-left")}}
-- {{cssxref("margin")}} Kurzschreibweise
-- {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}
-- {{cssxref("margin-block")}} und {{cssxref("margin-inline")}} Kurzschreibweisen
-- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- {{cssxref("margin-top")}}, {{cssxref("margin-right")}} und {{cssxref("margin-left")}}
+- Kurzschreibweise {{cssxref("margin")}}
+- {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}
+- Kurzschreibweisen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
+- Modul [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model)

@@ -3,10 +3,10 @@ title: CSS-Eigenschaft `scroll-padding`
 short-title: scroll-padding
 slug: Web/CSS/Reference/Properties/scroll-padding
 l10n:
-  sourceCommit: ab710051a7a7cd8d74123b659a57483c3e8a5948
+  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
 ---
 
-Die [CSS](/de/docs/Web/CSS)-[Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`scroll-padding`** legt den Scroll-Padding auf allen Seiten eines Elements gleichzeitig fest. Sie gibt Versätze an, die den optimalen Sichtbereich eines Scrollports innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} definieren.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`scroll-padding`** legt das Scroll-Padding auf allen Seiten eines Elements gleichzeitig fest. Sie gibt Versätze an, die den optimalen Sichtbereich eines Scrollports innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} definieren.
 
 {{InteractiveExample("CSS Demo: scroll-padding")}}
 
@@ -72,7 +72,7 @@ scroll-padding: 20%;
 
 ## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -82,7 +82,7 @@ Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Keyword values */
+/* Keyword value */
 scroll-padding: auto;
 
 /* <length> values */
@@ -101,17 +101,17 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein nach innen gerichteter Versatz von der entsprechenden Kante des Scrollports, als gültiges {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein nach innen gerichteter Versatz von der entsprechenden Kante des Scrollports als gültiger {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Der Versatz wird durch den User-Agent bestimmt. Im Allgemeinen ist dies `0px`, aber der User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Im Allgemeinen wird dies `0px` sein, aber der User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Beschreibung
 
-Die Eigenschaft `scroll-padding` ist eine Shorthand, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in dieser Reihenfolge festlegt und damit jeweils den oberen, rechten, unteren und linken Scroll-Padding eines Scroll-Containers setzt.
+Die Eigenschaft `scroll-padding` ist eine Kurzschreibweise, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in dieser Reihenfolge festlegt und damit jeweils das obere, rechte, untere und linke Scroll-Padding eines Scroll-Containers setzt.
 
-Die Eigenschaft `scroll-padding` ist beim Erstellen von Scroll-Snap-Containern nützlich und ermöglicht das Definieren von Versätzen für den _optimalen Sichtbereich_ des Scrollports: den Bereich, der als Zielbereich verwendet wird, um Elemente für Benutzerinnen und Benutzer sichtbar zu platzieren. Dadurch können Sie Einzüge im Scrollport erstellen, um Platz für Objekte zu schaffen, die den Inhalt verdecken könnten, etwa Toolbars oder Sidebars mit fester Positionierung, oder um mehr Abstand zwischen einem anvisierten Element und den Kanten des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding` ist nützlich beim Erstellen von Scroll-Snap-Containern und ermöglicht das Definieren von Versätzen für den _optimalen Sichtbereich_ des Scrollports: den Bereich, der als Zielbereich verwendet wird, um Elemente im Sichtbereich der Benutzerin oder des Benutzers zu platzieren. Dadurch können Sie Einzüge im Scrollport erstellen, um Platz für Objekte zu schaffen, die den Inhalt verdecken könnten, etwa Toolbars oder Sidebars mit fester Positionierung, oder um mehr Abstand zwischen einem zielgerichteten Element und den Kanten des Scrollports zu schaffen.
 
-Obwohl diese Eigenschaft im Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) definiert ist, gilt sie für alle Scroll-Container, unabhängig vom Wert der Eigenschaft {{cssxref("scroll-snap-type")}}.
+Obwohl sie im Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) definiert ist, gilt diese Eigenschaft für alle Scroll-Container, unabhängig vom Wert der Eigenschaft {{cssxref("scroll-snap-type")}}.
 
 ## Formale Definition
 
@@ -123,9 +123,9 @@ Obwohl diese Eigenschaft im Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scro
 
 ## Beispiele
 
-### Verhindern, dass Inhalt von einem festen Header verdeckt wird
+### Verhindern, dass Inhalte durch einen festen Header verdeckt werden
 
-Ein häufiger Anwendungsfall für `scroll-padding` besteht darin, zu verhindern, dass scrollender Inhalt von einem Header mit fester Positionierung verdeckt wird. Dieses Beispiel zeigt, wie `scroll-padding` hierfür verwendet wird.
+Ein häufiger Anwendungsfall für `scroll-padding` besteht darin, zu verhindern, dass scrollende Inhalte durch einen Header mit fester Position verdeckt werden. Dieses Beispiel zeigt, wie Sie `scroll-padding` zu diesem Zweck verwenden.
 
 #### HTML
 
@@ -181,7 +181,7 @@ h2 {
 }
 ```
 
-Der Header ist oben im Viewport fixiert und `60px` hoch. Wir setzen `scroll-padding` auf dem Wurzelelement, um beim Scrollen zu einem Abschnitt `60px` am oberen Rand des Viewports zu reservieren, ohne Versatz an den anderen Seiten.
+Der Header ist am oberen Rand des Viewports fixiert und `60px` hoch. Wir setzen `scroll-padding` auf dem Wurzelelement, um beim Scrollen zu einem Abschnitt am oberen Rand des Viewports `60px` zu reservieren, ohne Versatz auf den anderen Seiten.
 
 ```css
 html {
@@ -199,7 +199,7 @@ header {
 }
 ```
 
-Wir fügen dem Hauptinhalt Padding hinzu, damit der erste Abschnitt beim initialen Laden unterhalb des Headers beginnt.
+Wir fügen dem Hauptinhalt Padding hinzu, damit der erste Abschnitt beim anfänglichen Laden unterhalb des Headers beginnt.
 
 ```css
 main {
@@ -209,7 +209,7 @@ main {
 
 #### Ergebnis
 
-Klicken Sie auf die Links im Header, um zwischen den Abschnitten zu springen. Jeder Abschnitt erscheint unterhalb des Headers, sodass seine Überschrift sichtbar bleibt. Öffnen Sie dieses Beispiel im Playground, entfernen Sie die Zeile `scroll-padding` und klicken Sie erneut auf die Links, um zu sehen, wie der Header die Überschriften verdeckt.
+Klicken Sie auf die Links im Header, um zwischen den Abschnitten zu springen. Jeder Abschnitt erscheint unterhalb des Headers, sodass seine Überschrift sichtbar bleibt. Öffnen Sie dieses Beispiel im Playground, entfernen Sie die Zeile mit `scroll-padding` und klicken Sie erneut auf die Links, um zu sehen, wie der Header die Überschriften verdeckt.
 
 {{EmbedLiveSample("Preventing content from being hidden by a fixed header", "100%", 300)}}
 
