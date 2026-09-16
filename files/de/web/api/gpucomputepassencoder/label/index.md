@@ -3,22 +3,23 @@ title: "GPUComputePassEncoder: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUComputePassEncoder/label
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: fd69b5246378644ee2949180c83856fad474886b
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft (nur lesbar) der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der Schnittstelle
+[`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) ist ein String, der eine Beschriftung bereitstellt, mit der das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen identifiziert werden kann.
 
-Dieses Label kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt angegeben wird, das an den ursprünglichen Aufruf von [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) übergeben wird, oder es kann direkt am `GPUComputePassEncoder`-Objekt gesetzt und abgerufen werden.
+Diese kann festgelegt werden, indem im Deskriptorobjekt, das an den ursprünglichen Aufruf von [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) übergeben wird, eine `label`-Eigenschaft angegeben wird. Alternativ können Sie sie direkt auf dem `GPUComputePassEncoder`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn vorher kein Labelwert gesetzt wurde, wird beim Abrufen der `label`-Eigenschaft ein leerer String zurückgegeben.
+Ein String. Wenn zuvor kein Beschriftungswert festgelegt wurde, gibt das Abrufen der Beschriftung einen leeren String zurück.
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUComputePassEncoder.label`:
+Festlegen und Abrufen einer Beschriftung über `GPUComputePassEncoder.label`:
 
 ```js
 const commandEncoder = device.createCommandEncoder();
@@ -28,7 +29,7 @@ passEncoder.label = "my_compute_pass_encoder";
 console.log(passEncoder.label); // "my_compute_pass_encoder"
 ```
 
-Setzen eines Labels über den ursprünglichen Aufruf von [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass), und anschließendes Abrufen über `GPUComputePassEncoder.label`:
+Festlegen einer Beschriftung über den ursprünglichen Aufruf von [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) und anschließendes Abrufen über `GPUComputePassEncoder.label`:
 
 ```js
 const commandEncoder = device.createCommandEncoder();

@@ -3,17 +3,16 @@ title: "GPUDevice: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUDevice/label
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: fd69b5246378644ee2949180c83856fad474886b
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des
-[`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces ist eine schreibgeschützte Zeichenfolge, die ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, z. B. in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces ist ein String, der eine Bezeichnung bereitstellt, die zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Wert
 
-Eine Zeichenfolge. Wenn kein Labelwert zuvor gesetzt wurde, gibt das Abrufen des Labels eine leere Zeichenfolge zurück.
+Ein String. Wenn zuvor kein Wert für die Bezeichnung festgelegt wurde, gibt das Abrufen der Bezeichnung einen leeren String zurück.
 
 ## Beispiele
 

@@ -3,22 +3,23 @@ title: "GPURenderBundle: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPURenderBundle/label
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: fd69b5246378644ee2949180c83856fad474886b
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)-Interfaces ist eine schreibgeschützte Zeichenkette, die zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der Schnittstelle
+[`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) ist ein String, der eine Bezeichnung bereitstellt, die zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Diese kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt angegeben wird, das im ursprünglichen Aufruf von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) übergeben wird. Alternativ können Sie es direkt am `GPURenderBundle`-Objekt abrufen und festlegen.
+Diese kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt angegeben wird, das an den ursprünglichen Aufruf von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) übergeben wird, oder Sie können sie direkt auf dem `GPURenderBundle`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Eine Zeichenkette. Wenn zuvor kein Label-Wert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenkette zurück.
+Ein String. Wenn zuvor kein Bezeichnungswert festgelegt wurde, gibt das Abrufen der Bezeichnung einen leeren String zurück.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPURenderBundle.label`:
+Festlegen und Abrufen einer Bezeichnung über `GPURenderBundle.label`:
 
 ```js
 const renderBundle = renderBundleEncoder.finish();
@@ -27,7 +28,7 @@ renderBundle.label = "my_render_bundle";
 console.log(renderBundle.label); // "my_render_bundle"
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) und anschließendem Abrufen über `GPURenderBundle.label`:
+Festlegen einer Bezeichnung über den ursprünglichen Aufruf von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) und anschließendes Abrufen über `GPURenderBundle.label`:
 
 ```js
 const renderBundle = renderBundleEncoder.finish({

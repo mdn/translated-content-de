@@ -1,12 +1,12 @@
 ---
-title: Von Objekten zu iframes — allgemeine Einbettungstechnologien
+title: Von object zu iframe — allgemeine Einbettungstechnologien
 short-title: Embedding technologies
 slug: Learn_web_development/Core/Structuring_content/General_embedding_technologies
 l10n:
-  sourceCommit: f08b3d623c43e0256072013372ba393b5bd1a5a0
+  sourceCommit: 456c370394c0cd8869feb60c4e9926f35422beaf
 ---
 
-Entwickler denken oft darüber nach, Medien wie Bilder, Videos und Audiodateien in Webseiten einzubetten. In diesem Artikel machen wir einen etwas anderen Schritt und betrachten einige Elemente, die es Ihnen ermöglichen, eine Vielzahl von Inhaltstypen in Ihre Webseiten einzubetten: die {{htmlelement("iframe")}}, {{htmlelement("embed")}} und {{htmlelement("object")}} Elemente. `<iframe>`s dienen zum Einbetten anderer Webseiten, während die anderen beiden es ermöglichen, externe Ressourcen wie PDF-Dateien einzubetten.
+Entwickler denken häufig daran, Medien wie Bilder, Videos und Audio in Webseiten einzubetten. In diesem Artikel gehen wir einen kleinen Schritt zur Seite und betrachten einige Elemente, mit denen Sie unterschiedlichste Inhaltstypen in Ihre Webseiten einbetten können: die Elemente {{htmlelement("iframe")}}, {{htmlelement("embed")}} und {{htmlelement("object")}}. Mit diesen Elementen können Sie externe Ressourcen wie andere Webseiten und PDF-Dateien einbetten.
 
 <table>
   <tbody>
@@ -20,57 +20,58 @@ Entwickler denken oft darüber nach, Medien wie Bilder, Videos und Audiodateien 
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files"
           >Umgang mit Dateien</a
-        >, Vertrautheit mit den <a href="/de/docs/Learn_web_development/Core/Structuring_content"
+        >, Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >HTML-Grundlagen</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man Elemente in Webseiten einbettet, indem man
-        {{htmlelement("object")}}, {{htmlelement("embed")}}, und
-        {{htmlelement("iframe")}} verwendet, wie PDF-Dokumente und andere Webseiten.
+        Lernen, wie Sie Elemente mithilfe von
+        {{htmlelement("object")}}, {{htmlelement("embed")}} und
+        {{htmlelement("iframe")}} in Webseiten einbetten, etwa PDF-Dokumente
+        und andere Webseiten.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Eine kurze Geschichte des Einbettens
+## Eine kurze Geschichte der Einbettung
 
-Vor langer Zeit im Web war es populär, **Frames** zu verwenden, um Websites zu erstellen — kleine Teile einer Website, die in einzelnen HTML-Seiten gespeichert waren. Diese wurden in ein Meisterdokument eingefügt, das als **Frameset** bezeichnet wurde und es Ihnen ermöglichte, den Bereich auf dem Bildschirm zu spezifizieren, den jeder Frame ausfüllte, ähnlich wie beim Festlegen der Größe von Spalten und Reihen einer Tabelle. Diese galten in den späten 90er Jahren als das Nonplusultra, und es gab Hinweise darauf, dass das Aufteilen einer Webseite in kleinere Teile die Download-Geschwindigkeit verbesserte — was besonders bemerkbar war, da die Netzwerkverbindungen damals so langsam waren. Allerdings hatten sie viele Probleme, die alle Vorteile überwogen, als die Netzwerkgeschwindigkeiten schneller wurden, weshalb man sie heute nicht mehr benutzt.
+Vor langer Zeit im Web war es beliebt, **Frames** zum Erstellen von Websites zu verwenden — kleine Teile einer Website, die in einzelnen HTML-Seiten gespeichert waren. Diese wurden in ein Hauptdokument eingebettet, das als **Frameset** bezeichnet wurde und mit dem Sie den Bereich auf dem Bildschirm festlegen konnten, den jeder Frame ausfüllte, ähnlich wie beim Festlegen der Größe von Spalten und Zeilen einer Tabelle. Mitte bis Ende der 90er Jahre galten sie als besonders cool, und es gab Hinweise darauf, dass die Aufteilung einer Webseite in kleinere Abschnitte wie diese bessere Downloadgeschwindigkeiten ermöglichte — besonders deutlich, da Netzwerkverbindungen damals so langsam waren. Sie hatten jedoch viele Probleme, die alle Vorteile bei weitem überwogen, als die Netzwerkgeschwindigkeiten schneller wurden; daher werden sie heute nicht mehr verwendet.
 
-Etwas später (Ende der 90er, Anfang der 2000er) wurden Plugin-Technologien sehr populär, wie {{Glossary("Java", "Java-Applets")}} und {{Glossary("Adobe_Flash", "Flash")}} — diese erlaubten Webentwicklern, reichhaltige Inhalte wie Videos und Animationen in Webseiten einzubetten, die HTML allein nicht bieten konnte. Das Einbetten dieser Technologien wurde durch Elemente wie {{htmlelement("object")}} und das weniger gebräuchliche {{htmlelement("embed")}} erreicht, und sie waren damals sehr nützlich. Sie sind inzwischen aus der Mode gekommen aufgrund vieler Probleme, einschließlich Barrierefreiheit, Sicherheit, Dateigröße und mehr. Heutzutage haben große Browser die Unterstützung für Plugins wie Flash eingestellt.
+Etwas später (Ende der 90er, Anfang der 2000er) wurden Plugin-Technologien wie {{Glossary("Java", "Java Applets")}} und {{Glossary("Adobe_Flash", "Flash")}} sehr beliebt — sie ermöglichten Webentwicklern, umfangreiche Inhalte wie Videos und Animationen in Webseiten einzubetten, die allein mit HTML nicht verfügbar waren. Das Einbetten dieser Technologien erfolgte über Elemente wie {{htmlelement("object")}} und das weniger verwendete {{htmlelement("embed")}}, und sie waren damals sehr nützlich. Seitdem sind sie aufgrund vieler Probleme, darunter Barrierefreiheit, Sicherheit und Dateigröße, aus der Mode gekommen. Heutzutage haben die großen Browser die Unterstützung für Plugins wie Flash eingestellt.
 
-Schließlich erschien das {{htmlelement("iframe")}} Element (zusammen mit anderen Methoden zur Einbettung von Inhalten, wie {{htmlelement("canvas")}}, {{htmlelement("video")}}, etc.). Dieses bietet eine Möglichkeit, ein gesamtes Webdokument innerhalb eines anderen einzubetten, als wäre es ein {{htmlelement("img")}} oder ein ähnliches Element, und wird heute regelmäßig verwendet.
+Schließlich erschien das Element {{htmlelement("iframe")}} (zusammen mit anderen Methoden zum Einbetten von Inhalten, etwa {{htmlelement("canvas")}}, {{htmlelement("video")}} usw.). Es ermöglicht, ein vollständiges Webdokument in ein anderes einzubetten, als wäre es ein {{htmlelement("img")}} oder ein ähnliches Element, und wird heute regelmäßig verwendet.
 
-Mit dieser Geschichtsstunde abgehakt, lassen Sie uns weitermachen und sehen, wie man einige dieser Techniken verwendet.
+Nachdem die Geschichtsstunde nun beendet ist, gehen wir weiter und sehen uns an, wie einige davon verwendet werden.
 
-## Spielen mit klassischen Einbettungsanwendungen
+## Mit klassischen Einbettungsverwendungen experimentieren
 
-In diesem Artikel werden wir direkt in eine Übung einsteigen, um Ihnen sofort eine Vorstellung davon zu geben, wofür Einbettungstechnologien nützlich sind. Die Online-Welt ist sehr vertraut mit [YouTube](https://www.youtube.com/), aber viele Menschen wissen nicht über einige der integrierten Sharing-Funktionen Bescheid.
+In diesem Artikel beginnen wir direkt mit einer Übung, um Ihnen sofort eine Vorstellung davon zu geben, wofür Einbettungstechnologien nützlich sind. Die Online-Welt kennt [YouTube](https://www.youtube.com/) sehr gut, aber viele Menschen wissen nichts über einige der dort verfügbaren Freigabemöglichkeiten.
 
-1. Öffnen Sie zuerst den [MDN Playground](/en-US/play).
-2. Schauen wir uns nun an, wie YouTube es uns erlaubt, ein Video in jede beliebige Seite einzubetten, die wir mögen, mithilfe eines {{htmlelement("iframe")}}.
-   1. Gehen Sie zu YouTube und finden Sie ein Video, das Ihnen gefällt.
-   2. Unter dem Video finden Sie einen _Teilen_-Button — wählen Sie diesen aus, um die Sharing-Optionen anzuzeigen.
-   3. Wählen Sie den _Einbetten_-Button, und Sie erhalten einige `<iframe>`-Codes — kopieren Sie diese.
-   4. Fügen Sie es in den _HTML_-Bereich im Playground ein und sehen Sie sich das Ergebnis in der Ausgabe an.
-3. Für Bonuspunkte können Sie auch versuchen, eine [Google Map](https://www.google.com/maps/) in den Playground einzubetten:
-   1. Gehen Sie zu Google Maps und finden Sie eine Karte, die Ihnen gefällt.
-   2. Klicken Sie auf das "Hamburger-Menü" (drei horizontale Linien) oben links in der Benutzeroberfläche.
+1. Öffnen Sie zunächst den [MDN Playground](/en-US/play).
+2. Sehen wir uns nun an, wie YouTube uns ermöglicht, mit einem {{htmlelement("iframe")}} ein Video in jede beliebige Seite einzubetten.
+   1. Gehen Sie zu YouTube und suchen Sie ein Video aus, das Ihnen gefällt.
+   2. Unter dem Video finden Sie eine Schaltfläche _Teilen_ — wählen Sie diese aus, um die Freigabeoptionen anzuzeigen.
+   3. Wählen Sie die Schaltfläche _Einbetten_. Sie erhalten dann etwas `<iframe>`-Code — kopieren Sie ihn.
+   4. Fügen Sie ihn im Bereich _HTML_ des Playground ein und sehen Sie sich das Ergebnis in der Ausgabe an.
+3. Als Zusatzaufgabe können Sie auch versuchen, eine [Google Map](https://www.google.com/maps/) im Playground einzubetten:
+   1. Gehen Sie zu Google Maps und suchen Sie eine Karte aus, die Ihnen gefällt.
+   2. Klicken Sie oben links in der Benutzeroberfläche auf das „Hamburger-Menü“ (drei horizontale Linien).
    3. Wählen Sie die Option _Karte teilen oder einbetten_.
-   4. Wählen Sie die Option _Karte einbetten_, die Ihnen einen `<iframe>`-Code gibt – kopieren Sie diesen.
-   5. Fügen Sie ihn in den _HTML_-Bereich im Playground ein und sehen Sie sich das Ergebnis in der Ausgabe an.
+   4. Wählen Sie die Option _Karte einbetten_. Sie erhalten dann etwas `<iframe>`-Code — kopieren Sie ihn.
+   5. Fügen Sie ihn im Bereich _HTML_ des Playground ein und sehen Sie sich das Ergebnis in der Ausgabe an.
 
-Wenn Sie einen Fehler machen, können Sie ihn jederzeit mit dem _Reset_-Button im Playground zurücksetzen.
+Wenn Sie einen Fehler machen, können Sie den Playground jederzeit über die Schaltfläche _Zurücksetzen_ zurücksetzen.
 
-## iframes im Detail
+## Webseiten mithilfe von iframes einbetten
 
-Das war einfach und hat Spaß gemacht, oder? {{htmlelement("iframe")}}-Elemente sind dafür vorgesehen, andere Web-Dokumente in das aktuelle Dokument einzubetten. Das ist großartig, um Drittanbieterinhalte in Ihre Website zu integrieren, über die Sie möglicherweise keine direkte Kontrolle haben und deren eigene Version Sie nicht implementieren möchten — wie Videos von Online-Videoanbietern, Kommentarsysteme wie [Disqus](https://disqus.com/), Karten von Online-Kartenanbietern, Werbebanner usw. Sogar die Live-Editierbaren Beispiele, die Sie in diesem Kurs verwendet haben, sind mit `<iframe>`s implementiert.
+Das war einfach und unterhaltsam, oder? Elemente vom Typ {{htmlelement("iframe")}} dienen dazu, andere Webdokumente in das aktuelle Dokument einzubetten. Das eignet sich hervorragend, um Inhalte von Drittanbietern in Ihre Website einzubinden, über die Sie möglicherweise keine direkte Kontrolle haben und für die Sie keine eigene Version implementieren möchten — etwa Videos von Online-Videoanbietern, Kommentarsysteme wie [Disqus](https://disqus.com/), Karten von Online-Kartenanbietern, Werbebanner usw. Selbst die live bearbeitbaren Beispiele, die Sie in diesem Kurs verwendet haben, werden mit `<iframe>`s umgesetzt.
 
-Bevor Sie sich in die Nutzung von `<iframe>`-Elementen stürzen, gibt es einige Sicherheitsbedenken, die beachtet werden sollten.
-Angenommen, Sie möchten das MDN-Lexikon auf einer Ihrer Webseiten mithilfe des {{htmlelement("iframe")}}-Elements einbinden. In diesem Fall könnten Sie versuchen, etwas wie das folgende Codebeispiel zu verwenden.
-Wenn Sie den folgenden Code in eine Ihrer Seiten einfügen würden, wären Sie wahrscheinlich überrascht, eine Fehlermeldung anstelle der Lexikonseite zu sehen:
+Bevor wir uns mit der Verwendung von `<iframe>`-Elementen befassen, sollten Sie einige Sicherheitsbedenken kennen.
+Angenommen, Sie möchten das MDN-Glossar mit dem Element {{htmlelement("iframe")}} in eine Ihrer Webseiten einfügen. Dann könnten Sie etwas wie das nächste Codebeispiel versuchen.
+Wenn Sie den folgenden Code zu einer Ihrer Seiten hinzufügen würden, könnten Sie überrascht sein, statt der Glossarseite eine Fehlermeldung zu sehen:
 
 ```html
 <iframe
@@ -88,91 +89,87 @@ iframe {
 }
 ```
 
-Wenn Sie sich die Konsole Ihres Browsers ansehen, sehen Sie eine Fehlermeldung wie die folgende:
+Wenn Sie einen Blick in die Konsole Ihres Browsers werfen, sehen Sie eine Fehlermeldung wie die folgende:
 
 ```plain
 Refused to display 'https://developer.mozilla.org/' in a frame because it set 'X-Frame-Options' to 'deny'.
 ```
 
-Der [Sicherheits-Abschnitt](#sicherheitsbedenken) unten geht näher auf die Gründe ein, warum diese Fehlermeldung angezeigt wird, aber zuerst werfen wir einen Blick darauf, was unser Code macht.
+Der Abschnitt [Sicherheitsbedenken](#sicherheitsbedenken) unten erläutert ausführlicher, warum Sie diesen Fehler sehen. Zunächst sehen wir uns jedoch an, was unser Code bewirkt.
 
-Das Beispiel enthält die wesentlichen Grundlagen, die zum Verwenden eines `<iframe>` erforderlich sind:
+Das Beispiel enthält die wesentlichen Grundlagen, die für die Verwendung eines `<iframe>` erforderlich sind:
 
 - [`border: none`](/de/docs/Web/CSS/Reference/Properties/border)
-  - : Wenn verwendet, wird das `<iframe>` ohne umgebenden Rahmen angezeigt. Andernfalls zeigen Browser standardmäßig das `<iframe>` mit einem umgebenden Rahmen an (was im Allgemeinen unerwünscht ist).
+  - : Bei Verwendung wird das `<iframe>` ohne umgebenden Rahmen angezeigt. Andernfalls zeigen Browser `<iframe>`s standardmäßig mit einem umgebenden Rahmen an, was im Allgemeinen unerwünscht ist.
 - [`allowfullscreen`](/de/docs/Web/HTML/Reference/Elements/iframe#allowfullscreen)
-  - : Wenn gesetzt, kann das `<iframe>` mithilfe der [Fullscreen API](/de/docs/Web/API/Fullscreen_API) in den Vollbildmodus versetzt werden (etwas außerhalb des Umfangs dieses Artikels).
+  - : Wenn gesetzt, kann das `<iframe>` mithilfe der [Fullscreen API](/de/docs/Web/API/Fullscreen_API) im Vollbildmodus angezeigt werden. Dies geht etwas über den Umfang dieses Artikels hinaus.
 - [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src)
   - : Dieses Attribut enthält, wie bei {{htmlelement("video")}}/{{htmlelement("img")}}, einen Pfad, der auf die URL des einzubettenden Dokuments verweist.
 - [`width`](/de/docs/Web/HTML/Reference/Elements/iframe#width) und [`height`](/de/docs/Web/HTML/Reference/Elements/iframe#height)
-  - : Diese Attribute spezifizieren die Breite und Höhe, die Sie für das iframe möchten.
+  - : Diese Attribute geben die gewünschte Breite und Höhe des iframe an.
 - [`sandbox`](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox)
-  - : Dieses Attribut, das in etwas moderneren Browsern funktioniert als der Rest der `<iframe>`-Funktionen (z. B. IE 10 und höher), fordert erhöhte Sicherheitseinstellungen an; hierzu später mehr im nächsten Abschnitt.
+  - : Dieses Attribut, das in etwas moderneren Browsern als die übrigen `<iframe>`-Funktionen funktioniert (z. B. IE 10 und höher), fordert erhöhte Sicherheitseinstellungen an; im nächsten Abschnitt erfahren Sie mehr darüber.
 
 > [!NOTE]
-> Um die Geschwindigkeit zu verbessern, ist es eine gute Idee, das `src`-Attribut des iframes mit JavaScript zu setzen, nachdem der Hauptinhalt fertig geladen ist. Dies macht Ihre Seite schneller verwendbar und verringert Ihre offizielle Ladezeit der Seite (ein wichtiges {{Glossary("SEO", "SEO")}}-Maß).
+> Um die Geschwindigkeit zu verbessern, empfiehlt es sich, das `src`-Attribut des iframe nach dem Laden des Hauptinhalts mit JavaScript zu setzen. Dadurch wird Ihre Seite früher nutzbar und die offizielle Ladezeit Ihrer Seite verringert, was eine wichtige {{Glossary("SEO", "SEO")}}-Metrik ist.
 
 ### Sicherheitsbedenken
 
-Oben haben wir Sicherheitsbedenken erwähnt — gehen wir nun etwas detaillierter darauf ein. Wir erwarten nicht, dass Sie all diesen Inhalt beim ersten Mal perfekt verstehen; wir möchten Sie lediglich auf dieses Problem aufmerksam machen und eine Referenz bereitstellen, auf die Sie zurückkommen können, wenn Sie erfahrener werden und anfangen, `<iframe>`s in Ihren Experimenten und Arbeiten in Betracht zu ziehen. Außerdem besteht kein Grund, sich zu fürchten und keine `<iframe>`s zu verwenden — Sie müssen nur vorsichtig sein. Lesen Sie weiter …
+Oben haben wir Sicherheitsbedenken erwähnt — gehen wir nun etwas ausführlicher darauf ein. Wir erwarten nicht, dass Sie all diese Inhalte beim ersten Mal vollständig verstehen; wir möchten Sie lediglich auf dieses Thema aufmerksam machen und Ihnen eine Referenz bieten, zu der Sie zurückkehren können, wenn Sie mehr Erfahrung sammeln und die Verwendung von `<iframe>`s in Ihren Experimenten und Ihrer Arbeit in Betracht ziehen. Außerdem gibt es keinen Grund, Angst zu haben und `<iframe>`s nicht zu verwenden — Sie müssen nur vorsichtig sein. Lesen Sie weiter …
 
-Browserhersteller und Webentwickler haben auf die harte Tour gelernt, dass iframes ein häufiges Ziel (offizieller Begriff: **Angriffsvektor**) für schlechte Menschen im Web sind (oft **Hacker** genannt, oder genauer **Cracker**), die versuchen, Ihre Webseite böswillig zu ändern oder Personen dazu zu bringen, etwas zu tun, das sie nicht tun wollen, wie Benutzername und Passwort preiszugeben. Aufgrund dessen haben Spezifikationsingenieure und Browserentwickler verschiedene Sicherheitsmechanismen entwickelt, um `<iframe>`s sicherer zu machen, und es gibt auch bewährte Verfahren, die beachtet werden müssen — einige davon werden wir im Folgenden behandeln.
-
-> [!NOTE]
-> [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) ist eine Art von Angriff auf iframes, bei dem Hacker ein unsichtbares iframe in Ihr Dokument einfügen (oder Ihr Dokument in ihre eigene böswillige Webseite einbetten) und es verwenden, um die Interaktion der Benutzer zu erfassen. Dies ist eine gängige Methode, um Benutzer zu täuschen oder sensible Daten zu stehlen.
-
-Ein schnelles Beispiel zunächst — versuchen Sie, das vorherige Beispiel, das wir oben gezeigt haben, in Ihrem Browser zu laden — Sie können es [live auf GitHub finden](https://mdn.github.io/learning-area/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) (sehen Sie sich [den Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) ebenfalls an). Anstelle der erwarteten Seite sehen Sie wahrscheinlich eine Art Nachricht mit dem Effekt "Ich kann diese Seite nicht öffnen", und wenn Sie sich die _Konsole_ in den [Browser-Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) ansehen, erhalten Sie eine Nachricht, die Ihnen sagt, warum. In Firefox wird Ihnen etwas wie _Das Laden von "https\://developer.mozilla.org/de/docs/Glossary" in einem Frame wird durch die "X-Frame-Options"-Anweisung, die auf "DENY" gesetzt ist, verweigert._
-
-Dies ist, weil die Entwickler, die MDN gebaut haben, eine Einstellung auf dem Server, der die Webseiten bereitstellt, hinzugefügt haben, die das Einbetten innerhalb von `<iframe>`s untersagt (siehe [Konfigurieren von CSP-Richtlinien](#konfigurieren_von_csp-richtlinien), unten). Das macht Sinn — eine vollständige MDN-Seite macht wirklich keinen Sinn in andere Seiten eingebettet zu werden, es sei denn, Sie möchten etwas wie das Einbetten auf Ihrer Seite tun und sie als Ihre eigenen beanspruchen — oder versuchen, Daten über [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) zu stehlen, was beides wirklich schlechte Dinge sind. Auch, wenn jeder damit anfangen würde, all die zusätzlichen Bandbreitenkosten würden Mozilla viel Geld kosten.
-
-#### Nur einbetten, wenn nötig
-
-Manchmal macht es Sinn, Drittinhalte einzubetten — wie YouTube-Videos und Karten — aber Sie können sich viele Kopfschmerzen ersparen, wenn Sie nur dann Drittinhalte einbetten, wenn es absolut notwendig ist. Eine gute Regel für Websicherheit ist _"Man kann nie zu vorsichtig sein. Wenn Sie es gemacht haben, überprüfen Sie es trotzdem doppelt. Wenn es jemand anderes gemacht hat, gehen Sie davon aus, dass es gefährlich ist, bis das Gegenteil bewiesen ist."_
-
-Neben der Sicherheit sollten Sie auch auf Fragen des geistigen Eigentums achten. Die meisten Inhalte sind urheberrechtlich geschützt, offline und online, auch Inhalte, die Sie vielleicht nicht erwarten (zum Beispiel die meisten Bilder auf [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page)). Zeigen Sie niemals Inhalte auf Ihrer Webseite an, wenn Sie sie nicht besitzen oder die Eigentümer Ihnen keine schriftliche, eindeutige Erlaubnis erteilt haben. Die Strafen für Urheberrechtsverletzungen sind schwerwiegend. Wieder einmal gilt: Man kann nie zu vorsichtig sein.
-
-Wenn die Inhalte lizenziert sind, müssen Sie die Lizenzbedingungen einhalten. Der Inhalt auf MDN ist beispielsweise [lizenziert unter CC-BY-SA](/de/docs/MDN/Writing_guidelines/Attrib_copyright_license#documentation). Das bedeutet, Sie müssen [uns ordnungsgemäß creditieren](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution), wenn Sie unsere Inhalte zitieren, auch wenn Sie wesentliche Änderungen daran vornehmen.
-
-#### Verwenden Sie HTTPS
-
-{{Glossary("HTTPS", "HTTPS")}} ist die verschlüsselte Version von {{Glossary("HTTP", "HTTP")}}. Sie sollten Ihre Webseiten wann immer möglich mit HTTPS ausliefern:
-
-1. HTTPS reduziert die Wahrscheinlichkeit, dass entfernte Inhalte während der Übertragung manipuliert wurden.
-2. HTTPS verhindert, dass eingebettete Inhalte auf Inhalte in Ihrem übergeordneten Dokument zugreifen können und umgekehrt.
-
-Das Aktivieren von HTTPS für Ihre Seite erfordert die Installation eines speziellen Sicherheitszertifikats. Viele Hostinganbieter bieten HTTPS-fähiges Hosting an, ohne dass Sie selbst ein Zertifikat einrichten müssen. Wenn Sie jedoch den https-Support für Ihre Site selbst einrichten müssen, bietet [Let's Encrypt](https://letsencrypt.org/) Tools und Anleitungen für das automatische Erstellen und Installieren des erforderlichen Zertifikats — mit integrierter Unterstützung für die am weitesten verbreiteten Web-Server, einschließlich des Apache-Webservers, Nginx und andere. Das Let's Encrypt-Tooling ist so konzipiert, dass der Prozess so einfach wie möglich ist, es gibt also keinen wirklich guten Grund, es zu vermeiden oder andere zur Verfügung stehende Mittel nicht zu nutzen, um Ihre Site mit HTTPS zu sichern.
+Browserhersteller und Webentwickler haben auf die harte Tour gelernt, dass iframes ein häufiges Ziel — der offizielle Begriff lautet **Angriffsvektor** — für böswillige Personen im Web sind, oft als **Hacker** oder genauer als **Cracker** bezeichnet. Sie können damit Ihre Webseite böswillig verändern oder Menschen dazu verleiten, etwas zu tun, das sie nicht möchten, etwa sensible Informationen wie Benutzernamen und Passwörter preiszugeben. Deshalb haben Spezifikationsingenieure und Browserentwickler verschiedene Sicherheitsmechanismen entwickelt, um `<iframe>`s sicherer zu machen, und es gibt außerdem bewährte Vorgehensweisen, die Sie beachten sollten — einige davon behandeln wir im Folgenden.
 
 > [!NOTE]
-> [GitHub Pages](/de/docs/Learn_web_development/Howto/Tools_and_setup/Using_GitHub_pages) ermöglichen die Auslieferung von Inhalten standardmäßig über HTTPS.
-> Wenn Sie einen anderen Hostinganbieter verwenden, sollten Sie herausfinden, welche Unterstützung er für die Bereitstellung von Inhalten mit HTTPS bietet.
+> [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) ist eine häufige Art von iframe-Angriff, bei dem Hacker ein unsichtbares iframe in Ihr Dokument einbetten — oder Ihr Dokument in ihre eigene bösartige Website einbetten — und es verwenden, um Benutzerinteraktionen zu erfassen. Dies ist eine gängige Methode, Benutzer in die Irre zu führen oder sensible Daten zu stehlen.
 
-#### Verwenden Sie immer das `sandbox`-Attribut
+Zunächst jedoch ein kurzes Beispiel: Versuchen Sie, das oben gezeigte vorherige Beispiel in Ihren Browser zu laden — Sie können [es live auf GitHub finden](https://mdn.github.io/learning-area/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) und auch [den Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html). Statt der erwarteten Seite werden Sie wahrscheinlich eine Meldung wie „Ich kann diese Seite nicht öffnen“ sehen. Wenn Sie sich die _Konsole_ in den [Browser-Entwicklerwerkzeugen](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) ansehen, wird eine Meldung angezeigt, die Ihnen erklärt, warum. In Firefox erhalten Sie etwa eine Meldung wie _Das Laden von „https\://developer.mozilla.org/de/docs/Glossary“ in einem Frame wird durch die auf „DENY“ gesetzte Direktive „X-Frame-Options“ verweigert_. Dies liegt daran, dass die Entwickler von MDN auf dem Server, der die Webseiten bereitstellt, eine Einstellung vorgenommen haben, die verhindert, dass die Seiten in `<iframe>`s eingebettet werden können. Siehe unten [CSP-Direktiven konfigurieren](#csp-direktiven_konfigurieren). Das ist sinnvoll — eine vollständige MDN-Seite ergibt wenig Sinn, wenn sie in andere Seiten eingebettet wird, es sei denn, Sie möchten sie auf Ihrer Website einbetten und als Ihre eigene ausgeben oder versuchen, über [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) Daten zu stehlen. Beides sind sehr schlechte Dinge. Außerdem würde die zusätzliche Bandbreite Mozilla viel Geld kosten, wenn alle damit beginnen würden.
 
-Sie sollten Angreifern so wenig Macht wie möglich geben, um schlechte Dinge auf Ihrer Website zu tun, deshalb sollten Sie eingebetteten Inhalten _nur die Berechtigungen geben, die notwendig sind, um ihre Aufgabe zu erfüllen_. Natürlich gilt dies auch für Ihre eigenen Inhalte. Ein Container für Code, in dem er angemessen verwendet werden kann — oder zum Testen — aber dem Rest des Codes (entweder versehentlich oder böswillig) keinen Schaden zufügen kann, wird als [Sandbox](<https://en.wikipedia.org/wiki/Sandbox_(computer_security)>) bezeichnet.
+#### Nur einbetten, wenn es notwendig ist
 
-Inhalts, das nicht in einer Sandbox ausgeführt wird, kann möglicherweise JavaScript ausführen, Formulare absenden, Pop-up-Fenster auslösen usw. Standardmäßig sollten Sie alle verfügbaren Einschränkungen durch das `sandbox`-Attribut ohne Parameter verwenden, wie in unserem vorherigen Beispiel gezeigt.
+Manchmal ist es sinnvoll, Inhalte von Drittanbietern einzubetten — etwa YouTube-Videos und Karten. Sie können sich jedoch viel Ärger ersparen, wenn Sie Drittanbieterinhalte nur dann einbetten, wenn es unbedingt erforderlich ist. Eine gute Regel für die Websicherheit lautet: _„Man kann nie zu vorsichtig sein. Wenn Sie es erstellt haben, überprüfen Sie es trotzdem noch einmal. Wenn jemand anderes es erstellt hat, gehen Sie davon aus, dass es gefährlich ist, bis das Gegenteil bewiesen ist.“_
 
-Falls unbedingt erforderlich, können Sie die Berechtigungen einzeln wieder hinzufügen (innerhalb des Werts des `sandbox=""`-Attributs) — siehe den [`sandbox`](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox) Referenzeintrag für alle verfügbaren Optionen. Ein wichtiger Hinweis ist, dass Sie _niemals_ sowohl `allow-scripts` als auch `allow-same-origin` zu Ihrem `sandbox`-Attribut hinzufügen sollten — in diesem Fall könnten die eingebetteten Inhalte die {{Glossary("Same-origin_policy", "Same-Origin-Richtlinie")}} umgehen, die das Ausführen von Skripten auf Websites verhindert, und JavaScript verwenden, um das Sandboxing komplett zu deaktivieren.
+Neben der Sicherheit sollten Sie sich auch über Fragen des geistigen Eigentums bewusst sein. Die meisten Inhalte sind urheberrechtlich geschützt, offline wie online, selbst Inhalte, bei denen Sie es möglicherweise nicht erwarten würden — beispielsweise die meisten Bilder auf [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page). Zeigen Sie niemals Inhalte auf Ihrer Webseite an, sofern sie Ihnen nicht gehören oder die Eigentümer Ihnen nicht schriftlich und eindeutig die Erlaubnis dazu erteilt haben. Die Strafen für Urheberrechtsverletzungen sind schwerwiegend. Auch hier gilt: Man kann nie zu vorsichtig sein.
+
+Wenn der Inhalt lizenziert ist, müssen Sie die Lizenzbedingungen einhalten. Beispielsweise sind die Inhalte auf MDN [unter CC-BY-SA lizenziert](/de/docs/MDN/Writing_guidelines/Attrib_copyright_license#documentation). Das bedeutet, dass Sie [uns ordnungsgemäß nennen müssen](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution), wenn Sie unsere Inhalte zitieren, selbst wenn Sie wesentliche Änderungen vornehmen.
+
+#### HTTPS verwenden
+
+{{Glossary("HTTPS", "HTTPS")}} ist die verschlüsselte Version von {{Glossary("HTTP", "HTTP")}}. Sie sollten Ihre Websites nach Möglichkeit über HTTPS bereitstellen:
+
+1. HTTPS verringert die Wahrscheinlichkeit, dass externe Inhalte während der Übertragung manipuliert wurden.
+2. HTTPS verhindert, dass eingebettete Inhalte auf Inhalte in Ihrem übergeordneten Dokument zugreifen können — und umgekehrt.
+
+Um HTTPS für Ihre Website zu aktivieren, muss ein spezielles Sicherheitszertifikat installiert werden. Viele Hosting-Anbieter bieten HTTPS-aktiviertes Hosting an, ohne dass Sie selbst etwas einrichten müssen, um ein Zertifikat bereitzustellen. Wenn Sie die HTTPS-Unterstützung für Ihre Website jedoch selbst einrichten müssen, stellt [Let's Encrypt](https://letsencrypt.org/) Werkzeuge und Anweisungen bereit, mit denen Sie das erforderliche Zertifikat automatisch erstellen und installieren können — mit integrierter Unterstützung für die am häufigsten verwendeten Webserver, darunter der Apache-Webserver, Nginx und andere. Die Werkzeuge von Let's Encrypt sind darauf ausgelegt, den Prozess so einfach wie möglich zu machen. Daher gibt es wirklich keinen guten Grund, darauf oder auf andere verfügbare Methoden zur HTTPS-Aktivierung Ihrer Website zu verzichten.
 
 > [!NOTE]
-> Sandboxing bietet keinen Schutz, wenn Angreifer Menschen dazu verleiten können, bösartige Inhalte direkt (außerhalb eines `iframe`) zu besuchen. Wenn es wahrscheinlich ist, dass bestimmte Inhalte bösartig sein könnten (z. B. von Benutzern generierte Inhalte), dann sollten Sie diese von einer anderen {{Glossary("domain", "Domain")}} als Ihrer Hauptseite bereitstellen.
+> [GitHub Pages](/de/docs/Learn_web_development/Howto/Tools_and_setup/Using_GitHub_pages) ermöglichen standardmäßig die Bereitstellung von Inhalten über HTTPS.
+> Wenn Sie einen anderen Hosting-Anbieter verwenden, sollten Sie prüfen, welche Unterstützung dieser für die Bereitstellung von Inhalten über HTTPS bietet.
 
-#### Konfigurieren von CSP-Richtlinien
+#### Verwenden Sie immer das Attribut `sandbox`
 
-{{Glossary("CSP", "CSP")}} steht für **[Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)** und bietet [eine Reihe von HTTP-Headern](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) (Metadaten, die zusammen mit Ihren Webseiten bereitgestellt werden, wenn sie von einem Webserver bereitgestellt werden), die darauf ausgelegt sind, die Sicherheit Ihres HTML-Dokuments zu verbessern. Wenn es darum geht, `<iframe>`s sicherer zu machen, können Sie _[Ihren Server konfigurieren, um einen geeigneten "X-Frame-Options"-Header zu senden.](/de/docs/Web/HTTP/Reference/Headers/X-Frame-Options)_ Dies kann verhindern, dass andere Websites Ihre Inhalte in ihren Webseiten einbetten (was [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) und eine Reihe anderer Angriffe ermöglichen würde), was genau das ist, was die MDN-Entwickler getan haben, wie wir zuvor gesehen haben.
+Sie möchten Angreifern möglichst wenig Möglichkeiten geben, auf Ihrer Website Schaden anzurichten. Daher sollten Sie eingebetteten Inhalten _nur die Berechtigungen geben, die sie zur Erfüllung ihrer Aufgabe benötigen_. Dies gilt natürlich auch für Ihre eigenen Inhalte. Ein Container für Code, in dem er angemessen verwendet oder getestet werden kann, aber dem Rest der Codebasis keinen Schaden zufügen kann — weder versehentlich noch böswillig — wird als [Sandbox](<https://en.wikipedia.org/wiki/Sandbox_(computer_security)>) bezeichnet.
+
+Inhalte, die nicht in einer Sandbox ausgeführt werden, können möglicherweise JavaScript ausführen, Formulare absenden, Popup-Fenster auslösen usw. Standardmäßig sollten Sie alle verfügbaren Einschränkungen festlegen, indem Sie das Attribut `sandbox` ohne Parameter verwenden, wie in unserem vorherigen Beispiel gezeigt.
+
+Falls unbedingt erforderlich, können Sie Berechtigungen einzeln wieder hinzufügen, innerhalb des Attributwerts `sandbox=""`. Alle verfügbaren Optionen finden Sie im Referenzeintrag [`sandbox`](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox). Ein wichtiger Hinweis: Sie sollten Ihrem Attribut `sandbox` _niemals_ sowohl `allow-scripts` als auch `allow-same-origin` hinzufügen, wenn der eingebettete Inhalt denselben Ursprung wie die einbettende Seite hat. In diesem Fall könnte der eingebettete Inhalt JavaScript verwenden, um das Attribut zu entfernen und sich selbst neu zu laden, wodurch die Sandbox vollständig deaktiviert würde.
 
 > [!NOTE]
-> Sie können Frederik Brauns Beitrag [On the X-Frame-Options Security Header](https://blog.mozilla.org/security/2013/12/12/on-the-x-frame-options-security-header/) für weitere Hintergrundinformationen zu diesem Thema lesen. Offensichtlich ist es außerhalb des Rahmens für eine vollständige Erklärung in diesem Artikel.
+> Sandboxing bietet keinen Schutz, wenn Angreifer Personen dazu bringen können, bösartige Inhalte direkt — außerhalb eines `iframe` — zu besuchen. Wenn die Möglichkeit besteht, dass bestimmte Inhalte bösartig sein könnten, etwa nutzergenerierte Inhalte, stellen Sie diese bitte von einer anderen {{Glossary("domain", "Domain")}} als Ihrer Hauptwebsite bereit.
 
-## Die \<embed> und `<object>` Elemente
+#### CSP-Direktiven konfigurieren
 
-Die {{htmlelement("embed")}} und {{htmlelement("object")}} Elemente haben eine andere Funktion als {{htmlelement("iframe")}} — diese Elemente sind allgemeine Einbettungstools zum Einbetten externer Inhalte, wie PDFs.
+{{Glossary("CSP", "CSP")}} steht für **[Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)** und bietet [eine Reihe von HTTP-Headern](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) — Metadaten, die zusammen mit Ihren Webseiten gesendet werden, wenn sie von einem Webserver bereitgestellt werden —, die die Sicherheit Ihres HTML-Dokuments verbessern sollen. Um `<iframe>`s abzusichern, können Sie _[Ihren Server so konfigurieren, dass er einen geeigneten `X-Frame-Options`-Header sendet.](/de/docs/Web/HTTP/Reference/Headers/X-Frame-Options)_ Dies kann verhindern, dass andere Websites Ihre Inhalte in ihre Webseiten einbetten, was [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) und eine Vielzahl weiterer Angriffe ermöglichen würde. Genau das haben die MDN-Entwickler getan, wie wir zuvor gesehen haben.
 
-Allerdings werden Sie diese Elemente vermutlich nicht sehr oft verwenden. Wenn Sie PDFs anzeigen müssen, ist es in der Regel besser, einen Link zu ihnen zu setzen, anstatt sie in die Seite einzubetten.
+> [!NOTE]
+> Weitere Hintergrundinformationen zu diesem Thema finden Sie in Frederik Brauns Beitrag [On the X-Frame-Options Security Header](https://blog.mozilla.org/security/2013/12/12/on-the-x-frame-options-security-header/). Eine vollständige Erklärung würde in diesem Artikel natürlich deutlich über den Umfang hinausgehen.
 
-Historisch gesehen wurden diese Elemente auch zum Einbetten von Inhalten verwendet, die von Browser-Plugins](/de/docs/Glossary/Plugin) wie {{Glossary("Adobe_Flash", "Adobe Flash")}} gehandhabt werden, aber diese Technologie ist jetzt veraltet und wird von modernen Browsern nicht mehr unterstützt.
+## Die Elemente \<embed> und \<object>
 
-Wenn Sie sich in der Situation befinden, Plugin-Inhalte einbetten zu müssen, benötigen Sie mindestens diese Art von Informationen:
+Genau wie {{htmlelement("iframe")}} können auch die Elemente {{htmlelement("embed")}} und {{htmlelement("object")}} externe Inhalte einbetten. Abhängig vom eingebetteten Inhalt kann dies eine schlankere Option sein, da der Browser keinen vollständigen Browsing-Kontext für den eingebetteten Inhalt erstellen muss.
+
+Historisch wurden diese Elemente auch zum Einbetten von Inhalten verwendet, die von Browser-{{Glossary("Plugin", "Plugins")}} wie {{Glossary("Adobe_Flash", "Adobe Flash")}} verarbeitet wurden. Diese Technologie ist jedoch inzwischen veraltet und wird von modernen Browsern nicht unterstützt. Heute können fast alle ihre Anwendungsfälle durch `<iframe>` abgedeckt werden, das mehr Sicherheitsfunktionen bietet.
+
+Wenn Sie externe Inhalte mit diesen Elementen einbetten müssen, benötigen Sie mindestens folgende Informationen:
 
 <table class="standard-table no-markdown">
   <thead>
@@ -190,7 +187,7 @@ Wenn Sie sich in der Situation befinden, Plugin-Inhalte einbetten zu müssen, be
     </tr>
     <tr>
       <td>
-        <em>Genaue </em>{{Glossary("MIME_type", "Medientyp")}}
+        <em>Exakter </em>{{Glossary("MIME_type", "Medientyp")}}
         des eingebetteten Inhalts
       </td>
       <td><a href="/de/docs/Web/HTML/Reference/Elements/embed#type"><code>type</code></a></td>
@@ -198,7 +195,7 @@ Wenn Sie sich in der Situation befinden, Plugin-Inhalte einbetten zu müssen, be
     </tr>
     <tr>
       <td>
-        Höhe und Breite (in CSS-Pixeln) des vom Plugin kontrollierten Kastens
+        Höhe und Breite des Kastens für den eingebetteten Inhalt (in CSS-Pixeln)
       </td>
       <td>
          <a href="/de/docs/Web/HTML/Reference/Elements/embed#height"><code>height</code></a><br /><a href="/de/docs/Web/HTML/Reference/Elements/embed#width"><code>width</code></a>
@@ -208,31 +205,45 @@ Wenn Sie sich in der Situation befinden, Plugin-Inhalte einbetten zu müssen, be
       </td>
     </tr>
     <tr>
-      <td>Unabhängiger HTML-Inhalt als Rückfalloption für eine nicht verfügbare Ressource</td>
+      <td>Unabhängiger HTML-Inhalt als Fallback für eine nicht verfügbare Ressource</td>
       <td>Nicht unterstützt (<code>&#x3C;noembed></code> ist veraltet)</td>
       <td>
-        Zwischen dem öffnenden und schließenden
-        <code>&#x3C;object></code> enthalten
+        Innerhalb der öffnenden und schließenden
+        <code>&#x3C;object></code>-Tags enthalten
       </td>
     </tr>
   </tbody>
 </table>
 
-Schauen wir uns ein `<object>`-Beispiel an, das ein PDF in eine Seite einbettet (siehe das [Live-Beispiel](https://mdn.github.io/learning-area/html/multimedia-and-embedding/other-embedding-technologies/object-pdf.html) und den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/other-embedding-technologies/object-pdf.html)):
+## PDFs einbetten
+
+Im Web verfügen die meisten Medien bereits über dedizierte Elemente: {{HTMLElement("audio")}}, {{HTMLElement("img")}}, {{HTMLElement("video")}}, {{SVGElement("svg")}} usw. Neben Webseiten besteht der wichtigste weitere Anwendungsfall der Elemente `<iframe>`, `<object>` und `<embed>` darin, PDF-Dokumente einzubetten.
+
+Alle heutigen Browser stellen nativ PDF-Renderer bereit. Diese Renderer führen ausführbare Inhalte bereits in einer Sandbox aus, weshalb das Einbetten von PDFs standardmäßig im Allgemeinen sicher ist. Wenn Sie `<iframe>` verwenden, müssen Sie das Attribut `sandbox` nicht bereitstellen; tatsächlich kann das Hinzufügen von `sandbox` verhindern, dass der PDF-Viewer funktioniert.
+
+Wenn Ihre Seite eine PDF-Vorschau benötigt, wählen Sie ein Element anhand der benötigten Funktionen:
+
+- Das Element {{htmlelement("iframe")}} sollte die erste Wahl sein: Es bietet Steuerelemente wie [`loading="lazy"`](/de/docs/Web/HTML/Reference/Elements/iframe#loading) und [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/iframe#referrerpolicy).
+- Verwenden Sie {{htmlelement("object")}} nur, wenn die Ressource möglicherweise nicht gerendert werden kann und Fallback-Inhalte benötigt werden.
+- Das Element {{htmlelement("embed")}} bietet für eine PDF-Vorschau keinen Vorteil.
+
+Da der PDF-Viewer des Browsers bereits seine eigene Sandbox bereitstellt, ist kein Sandboxing für das Element erforderlich. Tatsächlich kann das Hinzufügen von `sandbox` verhindern, dass der PDF-Viewer funktioniert. Wenn Sie [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verwenden, werden die `<iframe>`-Quellen über {{CSP("frame-src")}} und die `<object>`- sowie `<embed>`-Quellen über {{CSP("object-src")}} gesteuert. Wie auf der Referenzseite zu `object-src` angegeben, sollten Sie im Allgemeinen `object-src 'none'` beibehalten; in diesem Fall ist `<iframe>` die einzige praktikable Option.
+
+Sehen wir uns ein `<object>`-Beispiel an, das ein PDF in eine Seite einbettet:
 
 ```html
 <object data="my-pdf.pdf" type="application/pdf" width="800" height="1200">
   <p>
-    You don't have a PDF plugin, but you can
-    <a href="my-pdf.pdf">download the PDF file. </a>
+    The PDF preview is unavailable.
+    <a href="my-pdf.pdf">Open the PDF file.</a>
   </p>
 </object>
 ```
 
-PDFs waren ein notwendiger Zwischenschritt zwischen Papier und Digital, stellen jedoch viele [Barrierefreiheitsprobleme](https://webaim.org/techniques/acrobat/acrobat) dar und können auf kleinen Bildschirmen schwer zu lesen sein. Sie sind immer noch in manchen Kreisen beliebt, es ist jedoch viel besser, zu ihnen zu verlinken, damit sie heruntergeladen oder auf einer separaten Seite gelesen werden können, anstatt sie in eine Webseite einzubetten.
+PDFs waren ein notwendiger Zwischenschritt zwischen Papier und Digitalem, stellen jedoch viele [Herausforderungen für die Barrierefreiheit](https://webaim.org/techniques/acrobat/acrobat) dar und können auf kleinen Bildschirmen schwer lesbar sein. In einigen Bereichen sind sie weiterhin beliebt, aber es ist deutlich besser, auf sie zu verlinken, damit sie heruntergeladen oder auf einer separaten Seite gelesen werden können, anstatt sie in eine Webseite einzubetten.
 
 ## Zusammenfassung
 
-Das Thema des Einbettens anderer Inhalte in Webdokumente kann schnell sehr komplex werden. In diesem Artikel haben wir versucht, es auf einfache, vertraute Weise zu präsentieren, die sofort relevant erscheint, während wir dennoch auf einige der fortgeschritteneren Funktionen der beteiligten Technologien anspielen. Zunächst werden Sie das Einbetten wahrscheinlich nicht viel mehr verwenden als Inhalte von Drittanbietern wie Karten und Videos auf Ihren Seiten einzubetten. Wenn Sie jedoch erfahrener werden, werden Sie wahrscheinlich weitere Anwendungen dafür finden.
+Das Thema des Einbettens anderer Inhalte in Webdokumente kann schnell sehr komplex werden. In diesem Artikel haben wir daher versucht, es auf einfache und vertraute Weise einzuführen, die sofort relevant erscheint, und gleichzeitig einige der fortgeschritteneren Funktionen der beteiligten Technologien anzudeuten. Zu Beginn werden Sie Einbettungen wahrscheinlich kaum für mehr als das Einbinden von Drittanbieterinhalten wie Karten und Videos auf Ihren Seiten verwenden. Mit zunehmender Erfahrung werden Sie jedoch wahrscheinlich weitere Verwendungsmöglichkeiten dafür finden.
 
-Es gibt viele andere Technologien, die das Einbetten externer Inhalte beinhalten, zusätzlich zu den hier besprochenen. Wir haben einige in früheren Artikeln gesehen, wie etwa {{htmlelement("video")}}, {{htmlelement("audio")}}, und {{htmlelement("img")}}, aber es gibt noch andere zu entdecken, wie etwa {{htmlelement("canvas")}} für JavaScript-generierte 2D- und 3D-Grafiken und {{SVGElement("svg")}} für die Einbettung von Vektorgrafiken.
+Neben den hier besprochenen gibt es viele weitere Technologien zum Einbetten externer Inhalte. Einige haben wir in früheren Artikeln gesehen, etwa {{htmlelement("video")}}, {{htmlelement("audio")}} und {{htmlelement("img")}}; andere können Sie noch entdecken, etwa {{htmlelement("canvas")}} für mit JavaScript generierte 2D- und 3D-Grafiken sowie {{SVGElement("svg")}} zum Einbetten von Vektorgrafiken.

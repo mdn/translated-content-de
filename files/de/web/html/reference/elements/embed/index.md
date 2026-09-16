@@ -3,10 +3,10 @@ title: "`<embed>` HTML-Element zum Einbetten externer Inhalte"
 short-title: <embed>
 slug: Web/HTML/Reference/Elements/embed
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 456c370394c0cd8869feb60c4e9926f35422beaf
 ---
 
-Das **`<embed>`**-[HTML](/de/docs/Web/HTML) Element bettet externe Inhalte an der angegebenen Stelle im Dokument ein. Diese Inhalte werden von einer externen Anwendung oder einer anderen Quelle interaktiver Inhalte, wie einem Browser-Plug-in, bereitgestellt.
+Das [HTML](/de/docs/Web/HTML)-Element **`<embed>`** bettet externe Inhalte an der angegebenen Stelle im Dokument ein. Diese Inhalte werden vom Browser oder einer externen Anwendung verarbeitet.
 
 {{InteractiveExample("HTML Demo: &lt;embed&gt;", "tabbed-standard")}}
 
@@ -18,25 +18,24 @@ Das **`<embed>`**-[HTML](/de/docs/Web/HTML) Element bettet externe Inhalte an de
   height="200" />
 ```
 
-> [!NOTE]
-> Dieses Thema dokumentiert nur das Element, das als Teil des [HTML Living Standard](https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-embed-element) definiert ist. Es befasst sich nicht mit früheren, nicht standardisierten Implementierungen des Elements.
-
-Beachten Sie, dass die meisten modernen Browser die Unterstützung für Browser-Plug-ins eingestellt und entfernt haben. Daher ist es im Allgemeinen nicht ratsam, auf `<embed>` zu setzen, wenn Ihre Website auf dem durchschnittlichen Benutzer-Browser funktionsfähig sein soll.
-
 ## Attribute
 
-Die Attribute dieses Elements schließen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `height`
-  - : Die angezeigte Höhe der Ressource in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). Dies muss ein absoluter Wert sein; Prozentsätze sind _nicht_ erlaubt.
+  - : Die angezeigte Höhe der Ressource in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). Dies muss ein absoluter Wert sein; Prozentangaben sind _nicht_ zulässig.
 - `src`
   - : Die URL der eingebetteten Ressource.
 - `type`
-  - : Der {{Glossary("MIME_type", "MIME-Typ")}}, der verwendet wird, um das Plug-in auszuwählen, das instanziiert werden soll.
+  - : Der {{Glossary("MIME_type", "MIME-Typ")}} der eingebetteten Ressource.
 - `width`
-  - : Die angezeigte Breite der Ressource, in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). Dies muss ein absoluter Wert sein; Prozentsätze sind _nicht_ erlaubt.
+  - : Die angezeigte Breite der Ressource in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px). Dies muss ein absoluter Wert sein; Prozentangaben sind _nicht_ zulässig.
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
+
+Moderne Browser unterstützen keine Browser-Plug-ins wie Flash mehr, aber `<embed>` kann weiterhin Inhalte anzeigen, die vom Browser selbst verarbeitet werden, beispielsweise PDFs in einem integrierten PDF-Viewer.
+
+Für PDF-Vorschauen sollten Sie {{HTMLElement("object")}} oder {{HTMLElement("iframe")}} in Betracht ziehen. Im Gegensatz zu `<object>` kann `<embed>` keine Fallback-Inhalte enthalten. Im Gegensatz zu `<iframe>` verfügt es über keine Attribute zur Steuerung des Ladens.
 
 Sie können die Eigenschaft {{cssxref("object-position")}} verwenden, um die Positionierung des eingebetteten Objekts innerhalb des Rahmens des Elements anzupassen.
 
@@ -45,7 +44,7 @@ Sie können die Eigenschaft {{cssxref("object-position")}} verwenden, um die Pos
 
 ## Barrierefreiheit
 
-Verwenden Sie das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) bei einem `embed`-Element, um dessen Inhalt zu kennzeichnen, sodass Personen, die mit unterstützender Technologie wie einem Screenreader navigieren, verstehen können, was es enthält. Der Wert des Titels sollte den eingebetteten Inhalt kurz beschreiben. Ohne einen Titel könnten sie möglicherweise nicht feststellen, was im eingebetteten Inhalt enthalten ist. Dieser Kontextwechsel kann verwirrend und zeitaufwändig sein, insbesondere wenn das `embed`-Element interaktive Inhalte wie Video oder Audio enthält.
+Verwenden Sie das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) für ein `embed`-Element, um dessen Inhalt zu beschriften, damit Personen, die mit assistiven Technologien wie einem Screenreader navigieren, verstehen können, was es enthält. Der Wert des Titels sollte den eingebetteten Inhalt prägnant beschreiben. Ohne einen Titel können sie möglicherweise nicht feststellen, worum es sich bei den eingebetteten Inhalten handelt. Dieser Kontextwechsel kann verwirrend und zeitaufwendig sein, insbesondere wenn das `embed`-Element interaktive Inhalte wie Video oder Audio enthält.
 
 ## Beispiele
 
@@ -70,26 +69,26 @@ Verwenden Sie das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attribut
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >formulierende Inhalte</a
-        >, eingebettete Inhalte, interaktive Inhalte,
+          >Phrasing-Inhalt</a
+        >, eingebetteter Inhalt, interaktiver Inhalt,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >greifbare Inhalte</a
+          >wahrnehmbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
-      <td>Keine; es ist ein {{Glossary("void_element", "void element")}}.</td>
+      <th scope="row">Zulässiger Inhalt</th>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>Jedes Element, das eingebettete Inhalte akzeptiert.</td>
     </tr>
     <tr>
@@ -101,7 +100,7 @@ Verwenden Sie das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attribut
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role"><code>application</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role"><code>document</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role"><code>img</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>,
@@ -125,5 +124,5 @@ Verwenden Sie das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attribut
 
 ## Siehe auch
 
-- Andere Elemente, die zum Einbetten von Inhalten verschiedener Art verwendet werden, sind {{HTMLElement("audio")}}, {{HTMLElement("canvas")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{MathMLElement("math")}}, {{HTMLElement("object")}}, {{SVGElement("svg")}} und {{HTMLElement("video")}}.
-- Positionierung und Größenbestimmung des eingebetteten Inhalts innerhalb seines Rahmens: {{cssxref("object-position")}} und {{cssxref("object-fit")}}
+- Weitere Elemente zum Einbetten von Inhalten verschiedener Typen sind {{HTMLElement("audio")}}, {{HTMLElement("canvas")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{MathMLElement("math")}}, {{HTMLElement("object")}}, {{SVGElement("svg")}} und {{HTMLElement("video")}}.
+- Positionierung und Größenanpassung des eingebetteten Inhalts innerhalb seines Rahmens: {{cssxref("object-position")}} und {{cssxref("object-fit")}}
