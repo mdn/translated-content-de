@@ -1,21 +1,21 @@
 ---
-title: Cross-site Scripting (XSS)
+title: Cross-Site Scripting (XSS)
 slug: Glossary/Cross-site_scripting
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
 ---
 
-Ein **Cross-site Scripting** (XSS) Angriff ist ein Angriff, bei dem ein Angreifer in der Lage ist, eine Zielseite dazu zu bringen, bösartigen Code auszuführen, als ob er Teil der Website wäre. Der Code kann dann alles tun, was auch der eigene Code der Seite tun kann. Beispielsweise könnte der Angreifer:
+Ein Angriff durch **Cross-Site Scripting** (XSS) liegt vor, wenn ein Angreifer eine Zielwebsite dazu bringen kann, bösartigen Code so auszuführen, als wäre er Teil der Website. Der Code kann dann alles tun, was der eigene Code der Website tun kann. Beispielsweise könnte der Angreifer:
 
-- Auf den gesamten Inhalt der geladenen Seiten der Website und jeglichen Inhalt im lokalen Speicher zugreifen und diesen ändern
-- HTTP-Anfragen mit den Anmeldedaten des Benutzers stellen, um den Benutzer zu imitieren oder auf sensible Daten zuzugreifen
+- Auf den gesamten Inhalt der geladenen Seiten der Website sowie auf Inhalte im lokalen Speicher zugreifen und diese ändern
+- HTTP-Anfragen mit den Anmeldedaten des Benutzers stellen, wodurch er den Benutzer imitieren oder auf sensible Daten zugreifen kann
 
-Alle XSS-Angriffe hängen davon ab, dass eine Website zwei Dinge tut:
+Alle XSS-Angriffe setzen voraus, dass eine Website zwei Dinge tut:
 
-1. Eingaben akzeptiert, die von einem Angreifer manipuliert worden sein könnten
-2. Diese Eingaben in eine Seite einfügt, ohne sie zu bereinigen: das heißt, ohne sicherzustellen, dass sie nicht als JavaScript ausführbar sind
+1. Eingaben akzeptieren, die von einem Angreifer erstellt worden sein könnten
+2. Diese Eingaben ohne Bereinigung in eine Seite einfügen: also ohne sicherzustellen, dass sie nicht als JavaScript ausführbar sind
 
 ## Siehe auch
 
-- [Cross-site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)
-- [Cross-site Scripting auf OWASP](https://owasp.org/www-community/attacks/xss/)
+- [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)
+- [Cross-Site Scripting bei OWASP](https://community.owasp.org/attacks/xss/)

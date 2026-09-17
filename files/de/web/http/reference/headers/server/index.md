@@ -3,26 +3,26 @@ title: Server header
 short-title: Server
 slug: Web/HTTP/Reference/Headers/Server
 l10n:
-  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
+  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
 ---
 
-Der HTTP-**`Server`**-{{Glossary("response_header", "Antwortheader")}} beschreibt die Software, die vom Ursprungsserver verwendet wurde, um die Anfrage zu bearbeiten und eine Antwort zu generieren.
+Der HTTP-**`Server`**-{{Glossary("response_header", "Response-Header")}} beschreibt die Software, die vom Origin-Server verwendet wurde, der die Anfrage verarbeitet und eine Antwort erzeugt hat.
 
-Der Vorteil, den Servertyp und die Version über diesen Header zu veröffentlichen, besteht darin, dass dies bei der Analyse hilft und dabei, wie weit verbreitet spezifische Interoperabilitätsprobleme sind.
-Historisch gesehen haben Clients die Serverversionsinformationen verwendet, um bekannte Einschränkungen zu vermeiden, wie z. B. inkonsistente Unterstützung für [Range Requests](/de/docs/Web/HTTP/Guides/Range_requests) in bestimmten Softwareversionen.
+Die Angabe von Servertyp und -version über diesen Header unterstützt Analysen und hilft dabei, festzustellen, wie weitverbreitet bestimmte Interoperabilitätsprobleme sind.
+Historisch gesehen haben Clients die Informationen zur Serverversion verwendet, um bekannte Einschränkungen zu vermeiden, beispielsweise inkonsistente Unterstützung für [Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests) in bestimmten Softwareversionen.
 
 > [!WARNING]
-> Die Anwesenheit dieses Headers in Antworten, insbesondere wenn er detaillierte Implementierungsdetails über die Serversoftware enthält, kann es erleichtern, bekannte Schwachstellen zu erkennen.
+> Das Vorhandensein dieses Headers in Antworten, insbesondere wenn er detaillierte Implementierungsinformationen über die Serversoftware enthält, kann bekannte Sicherheitslücken leichter erkennbar machen.
 
-Zu viel Detail im `Server`-Header wird aus Antwortverzögerungs- und aus den oben genannten Sicherheitsgründen nicht empfohlen.
-Es ist umstritten, ob die Verschleierung der Informationen in diesem Header wirklich einen großen Nutzen bringt, da die Erkennung der Serversoftware auch auf andere Weise möglich ist.
-Generell ist ein robusterer Ansatz zur Serversicherheit, sicherzustellen, dass die Software regelmäßig aktualisiert oder gegen bekannte Schwachstellen gepatcht wird.
+Zu viele Details im `Server`-Header sind aufgrund der Antwortlatenz und des oben genannten Sicherheitsaspekts nicht empfehlenswert.
+Es ist fraglich, ob das Verschleiern der Informationen in diesem Header einen großen Nutzen bietet, da die Identifizierung von Serversoftware über andere Methoden möglich ist.
+Im Allgemeinen besteht ein robusterer Ansatz für die Serversicherheit darin, sicherzustellen, dass Software regelmäßig aktualisiert oder gegen bekannte Sicherheitslücken gepatcht wird.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -36,8 +36,8 @@ Server: <product>
 ## Direktiven
 
 - `<product>`
-  - : Ein Name der Software oder des Produkts, das die Anfrage bearbeitet hat.
-    Normalerweise in einem Format ähnlich dem {{HTTPHeader('User-Agent')}}.
+  - : Ein Name der Software oder des Produkts, die beziehungsweise das die Anfrage verarbeitet hat.
+    Üblicherweise in einem ähnlichen Format wie {{HTTPHeader('User-Agent')}}.
 
 ## Beispiele
 
@@ -57,4 +57,4 @@ Server: Apache/2.4.1 (Unix)
 
 - {{HTTPHeader("Allow")}}
 - [HTTP Observatory](/en-US/observatory)
-- [Verhindern der Informationsoffenlegung über HTTP-Header](https://owasp.org/www-project-secure-headers/index.html#prevent-information-disclosure-via-http-headers) - OWASP Secure Headers Project
+- [Verhinderung der Offenlegung von Informationen über HTTP-Header](https://owasp.github.io/www-project-secure-headers/best-practices/#prevent-information-disclosure-via-http-headers) – OWASP Secure Headers Project

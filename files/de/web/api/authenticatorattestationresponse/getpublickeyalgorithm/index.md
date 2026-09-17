@@ -1,16 +1,16 @@
 ---
-title: "AuthenticatorAttestationResponse: getPublicKeyAlgorithm()-Methode"
+title: "AuthenticatorAttestationResponse: Methode getPublicKeyAlgorithm()"
 short-title: getPublicKeyAlgorithm()
 slug: Web/API/AuthenticatorAttestationResponse/getPublicKeyAlgorithm
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: a4c63d2855b2f557e7d1ee821dee65011d569a41
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`getPublicKeyAlgorithm()`**-Methode des [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Interfaces gibt eine Zahl zurück, die einem [COSE-Algorithmus-Identifier](https://www.iana.org/assignments/cose/cose.xhtml#algorithms) entspricht und den kryptografischen Algorithmus darstellt, der für das neue Anmelde-Token verwendet wird.
+Die Methode **`getPublicKeyAlgorithm()`** der Schnittstelle [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) gibt eine Zahl zurück, die einem [COSE-Algorithmus-Identifier](https://www.iana.org/assignments/cose#algorithms) entspricht und den für die neue Anmeldeinformation verwendeten kryptografischen Algorithmus darstellt.
 
-Dies ist eine Komfortfunktion, die den einfachen Zugriff auf den Algorithmustyp ermöglicht. Diese Information muss gespeichert werden, um zukünftige Authentifizierungsvorgänge (z. B. unter Verwendung von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)) überprüfen zu können.
+Dies ist eine Convenience-Funktion, die erstellt wurde, um einen einfachen Zugriff auf den Algorithmustyp zu ermöglichen. Diese Informationen müssen gespeichert werden, um zukünftige Authentifizierungsvorgänge zu verifizieren (d.h. unter Verwendung von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)).
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die einem [COSE-Algorithmus-Identifier](https://www.iana.org/assignments/cose/cose.xhtml#algorithms) entspricht und den kryptografischen Algorithmus darstellt, der für das neue Anmelde-Token verwendet wird.
+Eine Zahl, die einem [COSE-Algorithmus-Identifier](https://www.iana.org/assignments/cose#algorithms) entspricht und den für die neue Anmeldeinformation verwendeten kryptografischen Algorithmus darstellt.
 
 ## Beispiele
 
-Siehe [Erstellen eines öffentlichen Schlüssel-Anmelde-Token](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential) für ein detailliertes Beispiel.
+Siehe [Erstellen einer Public-Key-Anmeldeinformation](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential) für ein ausführliches Beispiel.
 
 ## Spezifikationen
 

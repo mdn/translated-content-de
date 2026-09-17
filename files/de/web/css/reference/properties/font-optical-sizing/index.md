@@ -3,10 +3,10 @@ title: "`font-optical-sizing` CSS property"
 short-title: font-optical-sizing
 slug: Web/CSS/Reference/Properties/font-optical-sizing
 l10n:
-  sourceCommit: 91e08923c809ca8deded3e3294f49bbe1a4a00b3
+  sourceCommit: 03e93e0948768ea78474e77a53795698ebca5836
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`font-optical-sizing`** legt fest, ob die Textdarstellung für die Anzeige bei unterschiedlichen Größen optimiert wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`font-optical-sizing`** legt fest, ob die Textdarstellung für die Anzeige in verschiedenen Größen optimiert wird.
 
 {{InteractiveExample("CSS Demo: font-optical-sizing")}}
 
@@ -79,9 +79,9 @@ Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 ## Beschreibung
 
-Die optische Größenanpassung ist standardmäßig für Schriftarten aktiviert, die eine Variationsachse für die optische Größe haben. Die Variationsachse für die optische Größe wird in {{cssxref("font-variation-settings")}} durch `opsz` dargestellt.
+Die optische Größenanpassung ist standardmäßig für Schriftarten aktiviert, die eine Achse für optische Größenvariationen besitzen. Die Achse für optische Größenvariationen wird in {{cssxref("font-variation-settings")}} durch `opsz` dargestellt.
 
-Wenn die optische Größenanpassung verwendet wird, werden kleine Textgrößen häufig mit stärkeren Strichen und größeren Serifen dargestellt, während größere Texte häufig feiner mit stärkerem Kontrast zwischen dickeren und dünneren Strichen dargestellt werden.
+Bei Verwendung der optischen Größenanpassung werden kleine Textgrößen häufig mit dickeren Strichen und größeren Serifen dargestellt, während größere Texte häufig feiner mit stärkerem Kontrast zwischen dickeren und dünneren Strichen dargestellt werden.
 
 ## Formale Definition
 
@@ -124,7 +124,7 @@ p {
 ```
 
 > [!NOTE]
-> Die oben referenzierte Schriftart – die optische Größenanpassung enthält und frei lizenziert ist – eignet sich gut zum Testen. Sie können sie [auf GitHub herunterladen](https://github.com/googlefonts/amstelvar/releases).
+> Die oben referenzierte Schriftart — die eine optische Größenanpassung umfasst und frei lizenziert ist — eignet sich gut zum Testen. Sie können sie [auf GitHub herunterladen](https://github.com/googlefonts/amstelvar-beta/releases).
 
 ## Spezifikationen
 

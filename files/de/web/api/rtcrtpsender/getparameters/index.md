@@ -1,14 +1,14 @@
 ---
-title: "RTCRtpSender: getParameters() Methode"
+title: "RTCRtpSender: Methode getParameters()"
 short-title: getParameters()
 slug: Web/API/RTCRtpSender/getParameters
 l10n:
-  sourceCommit: 2f53eb3a5787b7270be54265fb5e6c5db97869d2
+  sourceCommit: a4c63d2855b2f557e7d1ee821dee65011d569a41
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getParameters()`** Methode des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) Schnittstelle gibt ein Objekt zurück, das die aktuelle Konfiguration dafür beschreibt, wie die [`track`](/de/docs/Web/API/RTCRtpSender/track) des Senders kodiert und an einen entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) übertragen wird.
+Die Methode **`getParameters()`** des Interfaces [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gibt ein Objekt zurück, das die aktuelle Konfiguration dafür beschreibt, wie der [`track`](/de/docs/Web/API/RTCRtpSender/track) des Senders codiert und an einen entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) übertragen wird.
 
 ## Syntax
 
@@ -22,126 +22,126 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das die aktuelle Konfiguration des Senders anzeigt. <!-- RTCRtpSendParameters, derived from RTCRtpParameters -->
+Ein Objekt, das die aktuelle Konfiguration des Senders angibt. <!-- RTCRtpSendParameters, derived from RTCRtpParameters -->
 
 <!-- spec defines following in RTCRtpSendParameters -->
 
 - `encodings`
-  - : Ein Array von Objekten, von denen jedes die Parameter und Einstellungen für einen einzelnen Codec spezifiziert, der zur Kodierung des Medieninhalts der Spur verwendet werden könnte.
-    Zu den Eigenschaften der Objekte gehören:
+  - : Ein Array von Objekten, die jeweils die Parameter und Einstellungen für einen einzelnen Codec angeben, der zum Codieren der Medien des Tracks verwendet werden könnte.
+    Die Eigenschaften der Objekte umfassen:
     - `active`
-      - : `true` (der Standard) wenn die Kodierung gesendet wird, `false` wenn sie nicht gesendet oder verwendet wird.
+      - : `true` (der Standardwert), wenn die Codierung gesendet wird, andernfalls `false`, wenn sie nicht gesendet oder verwendet wird.
 
     - `codec` {{optional_inline}}
-      - : Wählt den [Mediacodec](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) aus, der für diesen Kodierungs-RTP-Stream verwendet wird.
-        Wenn nicht festgelegt, kann der Benutzeragent jeden für das Senden ausgehandelten Codec auswählen.
+      - : Wählt den [Medien-Codec](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) aus, der für den RTP-Stream dieser Codierung verwendet wird.
+        Wenn nicht gesetzt, kann der User-Agent jeden für das Senden ausgehandelten Codec auswählen.
         <!-- RTCRtpCodec -->
         - `channels` {{optional_inline}}
-          - : Eine positive ganze Zahl, die die Anzahl der vom Codec unterstützten Kanäle angibt.
-            Zum Beispiel gibt bei Audiocodecs ein Wert von 1 monauralen Klang an, während 2 Stereo bedeutet.
+          - : Eine positive Ganzzahl, die die Anzahl der vom Codec unterstützten Kanäle angibt.
+            Bei Audio-Codecs gibt beispielsweise ein Wert von 1 monauralen Klang an, während 2 Stereo angibt.
 
         - `clockRate`
-          - : Eine positive ganze Zahl, die die Abtastrate des Codecs in Hertz (Hz) angibt.
-            Die Abtastrate ist die Geschwindigkeit, mit der der RTP-Zeitstempel des Codecs fortschreitet.
-            Die meisten Codecs haben spezifische Werte oder Wertebereiche, die sie zulassen.
-            Die IANA führt eine [Liste der Codecs und ihrer Parameter](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Abtastraten.
+          - : Eine positive Ganzzahl, die die Clock-Rate des Codecs in Hertz (Hz) angibt.
+            Die Clock-Rate ist die Rate, mit der der RTP-Zeitstempel des Codecs fortschreitet.
+            Die meisten Codecs haben bestimmte Werte oder Wertebereiche, die sie zulassen.
+            Die IANA führt eine [Liste der Codecs und ihrer Parameter](https://www.iana.org/assignments/rtp-parameters#rtp-parameters-1), einschließlich ihrer Clock-Rates.
 
         - `mimeType`
-          - : Ein String, der den MIME-Medientyp und Subtyp des Codecs angibt, der als String in der Form `"type/subtype"` spezifiziert ist.
-            Die MIME-Typ-Strings, die von RTP verwendet werden, unterscheiden sich von denen, die anderswo verwendet werden.
-            Die IANA führt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2).
-            Siehe auch [Codecs verwendet von WebRTC](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) für Details zu potenziellen Codecs, die hier referenziert werden könnten.
+          - : Ein String, der den MIME-Medientyp und -Subtyp des Codecs angibt, als String der Form `"type/subtype"`.
+            Die von RTP verwendeten MIME-Typ-Strings unterscheiden sich von denen, die andernorts verwendet werden.
+            Die IANA führt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters#rtp-parameters-2).
+            Siehe auch [Von WebRTC verwendete Codecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) für Details zu möglichen Codecs, auf die hier verwiesen werden könnte.
 
         - `sdpFmtpLine` {{optional_inline}}
-          - : Ein String, der die formatspezifischen Parameter angibt, die von der lokalen Beschreibung bereitgestellt werden.
+          - : Ein String mit den formatspezifischen Parametern, die von der lokalen Beschreibung bereitgestellt werden.
 
     - `dtx` {{Deprecated_Inline}} {{Non-standard_Inline}}
-      - : Wird nur für ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verwendet, dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist. Diese Eigenschaft gibt an, ob die unterbrochene Übertragung verwendet wird (eine Funktion, bei der ein Telefon ausgeschaltet oder das Mikrofon automatisch stummgeschaltet wird, wenn keine Sprachaktivität vorliegt).
+      - : Diese Eigenschaft wird nur für einen [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verwendet, dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist, und gibt an, ob diskontinuierliche Übertragung verwendet wird oder nicht (eine Funktion, bei der ein Telefon ausgeschaltet oder das Mikrofon bei fehlender Sprachaktivität automatisch stummgeschaltet wird).
         Der Wert ist entweder `enabled` oder `disabled`.
 
     - `maxBitrate`
-      - : Eine positive ganze Zahl, die die maximale Anzahl von Bits pro Sekunde angibt, die der Benutzeragent Spuren, die mit dieser Kodierung kodiert werden, zugewähren darf.
-        Andere Parameter können die Bitrate weiter einschränken, wie der Wert von `maxFramerate` oder die für den Transport oder das physische Netzwerk verfügbare Bandbreite.
+      - : Eine positive Ganzzahl, die die maximale Anzahl von Bits pro Sekunde angibt, die der User-Agent Tracks zugestehen darf, die mit dieser Codierung codiert werden.
+        Andere Parameter können die Bitrate weiter einschränken, beispielsweise der Wert von `maxFramerate` oder die für den Transport oder das physische Netzwerk verfügbare Bandbreite.
 
-        Der Wert wird mithilfe des standardmäßigen Transportunabhängigen Anwendungspezifischen Maximums (TIAS) Bandbreite berechnet, wie definiert in {{RFC(3890, "", "6.2.2")}}; dies ist die maximale benötigte Bandbreite, ohne die Protokollüberköpfe von IP, TCP oder UDP und so weiter zu berücksichtigen.
+        Der Wert wird mithilfe der Standardbandbreite Transport Independent Application Specific Maximum (TIAS) berechnet, wie in {{RFC(3890, "", "6.2.2")}} definiert; dies ist die maximal benötigte Bandbreite ohne Berücksichtigung von Protokoll-Overhead durch IP, TCP oder UDP usw.
 
-        Beachten Sie, dass die Bitrate auf verschiedene Arten erreicht werden kann, abhängig von den Medien und der Kodierung.
-        Zum Beispiel könnte für Video eine niedrige Bitrate erreicht werden, indem Frames ausgelassen werden (eine Bitrate von null könnte erlauben, nur einen Frame zu senden), während für Audio die Spur möglicherweise aufhören muss zu spielen, wenn die Bitrate zu niedrig ist, um gesendet zu werden.
+        Beachten Sie, dass die Bitrate je nach Medium und Codierung auf verschiedene Weisen erreicht werden kann.
+        Bei Video kann beispielsweise eine niedrige Bitrate durch das Verwerfen von Frames erreicht werden (eine Bitrate von null könnte das Senden von nur einem Frame erlauben), während bei Audio die Wiedergabe des Tracks möglicherweise beendet werden muss, wenn die Bitrate für dessen Übertragung zu niedrig ist.
 
     - `maxFramerate`
-      - : Ein Wert, der die maximale Anzahl von Frames pro Sekunde angibt, die für diese Kodierung erlaubt sind.
+      - : Ein Wert, der die maximale Anzahl von Frames pro Sekunde angibt, die für diese Codierung zulässig ist.
     - `priority`
-      - : Ein String, der die Priorität des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) angibt, die möglicherweise bestimmt, wie der Benutzeragent die Bandbreite zwischen Sendern aufteilt.
-        Erlaubte Werte sind `very-low`, `low` (Standard), `medium`, `high`.
+      - : Ein String, der die Priorität des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) angibt und bestimmen kann, wie der User-Agent die Bandbreite zwischen Sendern zuweist.
+        Zulässige Werte sind `very-low`, `low` (Standard), `medium`, `high`.
     - `rid`
-      - : Ein String, der, falls gesetzt, eine _RTP Stream ID_ (_RID_) angibt, die unter Verwendung der RID-Header-Erweiterung gesendet werden soll.
+      - : Ein String, der, falls gesetzt, eine _RTP stream ID_ (_RID_) angibt, die mittels der RID-Header-Erweiterung gesendet werden soll.
         Dieser Parameter kann nicht mit [`setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters) geändert werden.
-        Sein Wert kann nur festgelegt werden, wenn der Transceiver zuerst erstellt wird.
+        Sein Wert kann nur gesetzt werden, wenn der Transceiver erstmals erstellt wird.
     - `scaleResolutionDownBy`
-      - : Wird nur für Sender verwendet, deren Spur's [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `video` ist, dies ist ein Gleitkommawert, der einen Faktor angibt, um den das Video während der Kodierung verkleinert werden soll.
-        Der Standardwert, 1.0, bedeutet, dass das Video in seiner Originalgröße kodiert wird.
-        Ein Wert von 2.0 verkleinert die Video-Frames um den Faktor 2 in jeder Dimension, was zu einem Video führt, das 1/4 der ursprünglichen Größe hat.
-        Der Wert darf nicht kleiner als 1.0 sein (der Versuch, das Video auf eine größere Größe zu skalieren, führt zu einem {{jsxref("RangeError")}}).
+      - : Wird nur für Sender verwendet, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des Tracks `video` ist. Dies ist ein Gleitkommawert, der einen Faktor angibt, um den das Video während der Codierung herunterskaliert wird.
+        Der Standardwert 1.0 bedeutet, dass das Video in seiner ursprünglichen Größe codiert wird.
+        Ein Wert von 2.0 skaliert die Videoframes in jeder Dimension um den Faktor 2 herunter, wodurch ein Video entsteht, das 1/4 der Größe des Originals hat.
+        Der Wert darf nicht kleiner als 1.0 sein (der Versuch, das Video auf eine größere Größe zu skalieren, löst einen {{jsxref("RangeError")}} aus).
 
 - `transactionId`
   - : Ein String, der eine eindeutige ID enthält.
-    Dieser Wert wird verwendet, um sicherzustellen, dass [`setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters) nur aufgerufen werden kann, um die Parameter zu ändern, die durch einen bestimmten vorherigen Aufruf von `getParameters()` zurückgegeben wurden.
-    Dieser Parameter kann nicht vom Aufrufer geändert werden.
+    Dieser Wert wird verwendet, um sicherzustellen, dass [`setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters) nur aufgerufen werden kann, um die Parameter zu ändern, die von einem bestimmten vorherigen Aufruf von `getParameters()` zurückgegeben wurden.
+    Dieser Parameter kann vom Aufrufer nicht geändert werden.
     <!-- spec defines following in RTCRtpParameters -->
 - `codecs`
-  - : Ein Array von Objekten, das die [Mediacodecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) beschreibt, die der Sender als aktiviert festgelegt hat und die bereit sind, verwendet zu werden.
-    Dieser Parameter kann nicht geändert werden, sobald er initial festgelegt wurde.
+  - : Ein Array von Objekten, die die [Medien-Codecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) beschreiben, die der Sender als aktiviert festgelegt hat und zu verwenden bereit ist.
+    Dieser Parameter kann nach seiner anfänglichen Festlegung nicht geändert werden.
 
     Jedes Codec-Objekt im Array kann die folgenden Eigenschaften haben: <!-- RTCRtpCodecParameters -->
     - `channels` {{optional_inline}}
-      - : Eine positive ganze Zahl, die die Anzahl der vom Codec unterstützten Kanäle angibt.
-        Zum Beispiel gibt bei Audiocodecs ein Wert von 1 monauralen Klang an, während 2 Stereo bedeutet.
+      - : Eine positive Ganzzahl, die die Anzahl der vom Codec unterstützten Kanäle angibt.
+        Bei Audio-Codecs gibt beispielsweise ein Wert von 1 monauralen Klang an, während 2 Stereo angibt.
 
     - `clockRate`
-      - : Eine positive ganze Zahl, die die Abtastrate des Codecs in Hertz (Hz) angibt.
-        Die Abtastrate ist die Geschwindigkeit, mit der der RTP-Zeitstempel des Codecs fortschreitet.
-        Die meisten Codecs haben spezifische Werte oder Wertebereiche, die sie zulassen.
-        Die IANA führt eine [Liste der Codecs und ihrer Parameter](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Abtastraten.
+      - : Eine positive Ganzzahl, die die Clock-Rate des Codecs in Hertz (Hz) angibt.
+        Die Clock-Rate ist die Rate, mit der der RTP-Zeitstempel des Codecs fortschreitet.
+        Die meisten Codecs haben bestimmte Werte oder Wertebereiche, die sie zulassen.
+        Die IANA führt eine [Liste der Codecs und ihrer Parameter](https://www.iana.org/assignments/rtp-parameters#rtp-parameters-1), einschließlich ihrer Clock-Rates.
 
     - `mimeType`
-      - : Ein String, der den MIME-Medientyp und Subtyp des Codecs angibt, der als String in der Form `"type/subtype"` spezifiziert ist.
-        Die MIME-Typ-Strings, die von RTP verwendet werden, unterscheiden sich von denen, die anderswo verwendet werden.
-        Die IANA führt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2).
-        Siehe auch [Codecs verwendet von WebRTC](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) für Details zu potenziellen Codecs, die hier referenziert werden könnten.
+      - : Ein String, der den MIME-Medientyp und -Subtyp des Codecs angibt, als String der Form `"type/subtype"`.
+        Die von RTP verwendeten MIME-Typ-Strings unterscheiden sich von denen, die andernorts verwendet werden.
+        Die IANA führt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters#rtp-parameters-2).
+        Siehe auch [Von WebRTC verwendete Codecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) für Details zu möglichen Codecs, auf die hier verwiesen werden könnte.
 
     - `payloadType`
-      - : Der [RTP Nutzlasttyp](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), der zur Identifizierung dieses Codecs verwendet wird.
+      - : Der [RTP-Payload-Typ](https://www.iana.org/assignments/rtp-parameters#rtp-parameters-1), der zur Identifizierung dieses Codecs verwendet wird.
 
     - `sdpFmtpLine` {{optional_inline}}
-      - : Ein String, der die formatspezifischen Parameter angibt, die von der lokalen Beschreibung bereitgestellt werden.
+      - : Ein String mit den formatspezifischen Parametern, die von der lokalen Beschreibung bereitgestellt werden.
 
 - `headerExtensions`
-  - : Ein Array von Null oder mehr RTP-Header-Erweiterungen, von denen jede eine Erweiterung identifiziert, die vom Sender oder Empfänger unterstützt wird. Header-Erweiterungen werden in {{RFC(3550, "", "5.3.1")}} beschrieben.
-    Dieser Parameter kann nicht geändert werden, sobald er initial festgelegt wurde.
+  - : Ein Array aus null oder mehr RTP-Header-Erweiterungen, die jeweils eine vom Sender oder Empfänger unterstützte Erweiterung identifizieren. Header-Erweiterungen werden in {{RFC(3550, "", "5.3.1")}} beschrieben.
+    Dieser Parameter kann nach seiner anfänglichen Festlegung nicht geändert werden.
 - `rtcp`
-  - : Ein Objekt, das die Konfigurationsparameter bereitstellt, die für {{Glossary("RTCP", "RTCP")}} auf dem Sender verwendet werden.
+  - : Ein Objekt, das die Konfigurationsparameter für {{Glossary("RTCP", "RTCP")}} auf dem Sender bereitstellt.
     Dieser Parameter kann nicht geändert werden.
 
     Das Objekt kann die folgenden Eigenschaften haben: <!-- RTCRtcpParameters -->
     - `cname`
-      - : Ein schreibgeschützter String, der den kanonischen Namen (CNAME) angibt, der von RTCP verwendet wird (z. B. in SDES-Nachrichten).
+      - : Ein schreibgeschützter String mit dem von RTCP verwendeten kanonischen Namen (CNAME), beispielsweise in SDES-Nachrichten.
     - `reducedSize`
-      - : Ein schreibgeschütztes Boolean, das `True` ist, wenn reduziertes Größe-RTCP konfiguriert ist ({{rfc("5506")}}), und `False`, wenn zusammengesetztes RTCP spezifiziert ist ({{rfc("3550")}}).
+      - : Ein schreibgeschützter boolescher Wert, der `True` ist, wenn RTCP mit reduzierter Größe konfiguriert ist ({{rfc("5506")}}), und `False`, wenn zusammengesetztes RTCP angegeben ist ({{rfc("3550")}}).
 
 - `degradationPreference`
-  - : Gibt die bevorzugte Weise an, wie die WebRTC-Schicht die Leistung in Situationen mit eingeschränkter Bandbreite optimieren soll. Die möglichen Werte sind:
+  - : Gibt die bevorzugte Weise an, wie die WebRTC-Schicht die Leistungsoptimierung in Situationen mit begrenzter Bandbreite handhaben soll. Die möglichen Werte sind:
     - `balanced`
-      - : Der Standardwert. Der Browser wird die Verschlechterung von Framerate und Auflösung ausgleichen.
+      - : Der Standardwert. Der Browser gleicht die Verschlechterung von Framerate und Auflösung aus.
     - `maintain-framerate`
-      - : Der Browser wird die Auflösung herabsetzen, um die Framerate aufrechtzuerhalten.
+      - : Der Browser verringert die Auflösung, um die Framerate beizubehalten.
     - `maintain-resolution`
-      - : Der Browser wird die Framerate herabsetzen, um die Auflösung aufrechtzuerhalten.
+      - : Der Browser verringert die Framerate, um die Auflösung beizubehalten.
     - `maintain-framerate-and-resolution`
-      - : Der Browser wird Framerate und Auflösung unabhängig von der Videoqualität aufrechterhalten, was dazu führen kann, dass Frames vor der Kodierung verworfen werden, wenn nötig, um Netzwerk- und Ressourcen des Kodierers nicht zu überlasten. Diese Einstellung ist nützlich für Anwendungen, die ihren eigenen Mechanismus zur Optimierung der Video-Kodierungsqualität und -leistung implementieren und nicht möchten, dass der interne Mechanismus des Browsers dieses beeinträchtigt.
+      - : Der Browser behält Framerate und Auflösung unabhängig von der Videoqualität bei. Dies kann dazu führen, dass Frames bei Bedarf vor der Codierung verworfen werden, um Netzwerk- und Encoder-Ressourcen nicht übermäßig zu beanspruchen. Diese Einstellung ist für Anwendungen nützlich, die einen eigenen Mechanismus zur Optimierung von Video-Codierungsqualität und -Leistung implementieren und nicht möchten, dass der interne Mechanismus des Browsers damit interferiert.
 
 ## Beispiele
 
-Dieses Beispiel erhält die aktuelle Transaktions-ID des Senders; die Transaktions-ID identifiziert die aktuelle Menge der Parameter eindeutig, um sicherzustellen, dass Aufrufe an [`setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters) immer in der richtigen Reihenfolge behandelt werden, um zu vermeiden, dass Parameter versehentlich mit älteren Parametern überschrieben werden.
+Dieses Beispiel ruft die aktuelle Transaktions-ID des Senders ab; die Transaktions-ID identifiziert den aktuellen Parametersatz eindeutig, um sicherzustellen, dass Aufrufe von [`setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters) stets in der richtigen Reihenfolge verarbeitet werden und Parameter nicht versehentlich mit älteren Parametern überschrieben werden.
 
 ```js
 function getSenderTransactionID(sender) {
@@ -151,7 +151,7 @@ function getSenderTransactionID(sender) {
 }
 ```
 
-Auf dieselbe Weise erhält dieser Code den kanonischen Namen (CNAME), der für {{Glossary("RTCP", "RTCP")}} auf einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verwendet wird.
+Auf dieselbe Weise ruft dieser Code den kanonischen Namen (CNAME) ab, der für {{Glossary("RTCP", "RTCP")}} auf einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verwendet wird.
 
 ```js
 function getRtpCNAME(sender) {

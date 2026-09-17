@@ -1,29 +1,29 @@
 ---
-title: Denial of Service (DoS)
+title: Dienstverweigerung (DoS)
 slug: Glossary/Denial_of_Service
 l10n:
-  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
+  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
 ---
 
-**Denial of Service** (DoS) ist eine Kategorie von Netzwerkangriffen, die verfügbare {{Glossary("server", "Server")}}-Ressourcen konsumiert, in der Regel indem der Server mit Anfragen überflutet wird. Der Server wird dann langsam oder ist für legitime Benutzer nicht verfügbar.
+**Denial of Service** (DoS) ist eine Kategorie von Netzwerkangriffen, die verfügbare Ressourcen eines {{Glossary("server", "Servers")}} verbraucht, typischerweise indem der Server mit Anfragen überflutet wird. Der Server ist dann langsam oder für legitime Benutzer nicht verfügbar.
 
-Computer haben begrenzte Ressourcen, zum Beispiel Rechenleistung oder Speicher. Wenn diese erschöpft sind, kann das Programm einfrieren oder abstürzen, wodurch es nicht mehr verfügbar ist. Ein DoS-Angriff besteht aus verschiedenen Techniken, um diese Ressourcen zu erschöpfen und einen Server oder ein Netzwerk für legitime Benutzer unzugänglich zu machen oder zumindest den Server träge zu machen.
+Computer verfügen über begrenzte Ressourcen, beispielsweise Rechenleistung oder Speicher. Wenn diese erschöpft sind, kann das Programm einfrieren oder abstürzen und dadurch nicht verfügbar werden. Ein DoS-Angriff besteht aus verschiedenen Techniken, um diese Ressourcen zu erschöpfen und einen Server oder ein Netzwerk für legitime Benutzer nicht verfügbar zu machen oder zumindest die Leistung des Servers zu verlangsamen.
 
-Es gibt auch {{Glossary("Distributed_Denial_of_Service", "Distributed Denial of Service (DDoS)")}}-Angriffe, bei denen eine Vielzahl von Servern genutzt wird, um die Rechenkapazität eines angegriffenen Computers zu erschöpfen.
+Es gibt auch {{Glossary("Distributed_Denial_of_Service", "Distributed-Denial-of-Service-Angriffe (DDoS)")}}, bei denen eine Vielzahl von Servern eingesetzt wird, um die Rechenkapazität eines angegriffenen Computers zu erschöpfen.
 
 ## Arten von DoS-Angriffen
 
-DoS-Angriffe sind mehr eine Kategorie als eine spezielle Art von Angriff. Hier ist eine nicht erschöpfende Liste von DoS-Angriffstypen:
+DoS-Angriffe sind eher eine Kategorie als eine bestimmte Art von Angriff. Hier ist eine nicht vollständige Liste von Arten von DoS-Angriffen:
 
 - Bandbreitenangriff
-- Servicerequest-Überflutung
-- SYN-Überflutungsangriff
-- ICMP-Überflutungsangriff
+- Flutung mit Dienstanfragen
+- SYN-Flooding-Angriff
+- ICMP-Flood-Angriff
 - Peer-to-Peer-Angriff
 - permanenter DoS-Angriff
-- Applikationsebene-Überflutung
+- Flood-Angriff auf Anwendungsebene
 
 ## Siehe auch
 
-- [Denial-of-service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack) auf Wikipedia
-- [Denial of Service](https://owasp.org/www-community/attacks/Denial_of_Service) auf OWASP
+- [Denial-of-Service-Angriff](https://en.wikipedia.org/wiki/Denial-of-service_attack) auf Wikipedia
+- [Denial of Service](https://community.owasp.org/attacks/Denial_of_Service) bei OWASP

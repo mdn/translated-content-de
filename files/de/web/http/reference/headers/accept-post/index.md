@@ -3,18 +3,18 @@ title: Accept-Post header
 short-title: Accept-Post
 slug: Web/HTTP/Reference/Headers/Accept-Post
 l10n:
-  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
+  sourceCommit: a4c63d2855b2f557e7d1ee821dee65011d569a41
 ---
 
-Der HTTP **`Accept-Post`** {{Glossary("response_header", "Antwort-Header")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/Guides/MIME_types) vom Server in einer {{HTTPMethod("POST")}}-Anfrage akzeptiert werden.
-Zum Beispiel könnte ein Server, der eine `POST`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Post`-Header antworten, der einen oder mehrere unterstützte Medientypen referenziert.
+Der HTTP-**`Accept-Post`**-{{Glossary("response_header", "Antwort-Header")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/Guides/MIME_types) vom Server in einer {{HTTPMethod("POST")}}-Anfrage akzeptiert werden.
+Beispielsweise könnte ein Server, der eine `POST`-Anfrage mit einem nicht unterstützten Medientyp empfängt, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Post`-Header antworten, der auf einen oder mehrere unterstützte Medientypen verweist.
 
-Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen zu einer Ressource erscheinen, die die `POST`-Methode unterstützt.
-Ein `Accept-Post`-Header in einer Antwort auf eine beliebige Anfragemethode bedeutet implizit, dass ein `POST` auf die angeforderte Ressource erlaubt ist.
+Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `POST`-Methode unterstützt.
+Ein `Accept-Post`-Header in einer Antwort auf jede Anfragemethode bedeutet implizit, dass ein `POST` für die Zielressource der Anfrage erlaubt ist.
 
 > [!NOTE]
-> IANA pflegt [eine Liste offizieller Inhaltskodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
-> Die `bzip` und `bzip2` Kodierungen sind nicht standardisiert, können aber in einigen Fällen, insbesondere zur Unterstützung älterer Systeme, verwendet werden.
+> IANA führt [eine Liste offizieller Inhaltskodierungen](https://www.iana.org/assignments/http-parameters#content-coding).
+> Die Kodierungen `bzip` und `bzip2` sind nicht standardisiert, können aber in einigen Fällen verwendet werden, insbesondere zur Unterstützung älterer Systeme.
 
 <table class="properties">
   <tbody>
@@ -37,16 +37,16 @@ Accept-Post: <media-type>/<subtype>, <media-type>/<subtype>
 ```
 
 > [!NOTE]
-> Der `Accept-Post`-Header spezifiziert einen Medienspektrum in derselben Weise wie {{HTTPHeader("Accept")}}, hat jedoch keinen Präferenzbegriff mittels `q` ({{Glossary("quality_values", "Qualitätswerte")}}) Argumente.
+> Der `Accept-Post`-Header gibt einen Medienbereich auf dieselbe Weise wie {{HTTPHeader("Accept")}} an, außer dass er kein Konzept von Präferenzen über `q`-Argumente ({{Glossary("quality_values", "Qualitätswerte")}}) hat.
 > Dies liegt daran, dass `Accept-Post` ein Antwort-Header ist, während `Accept` ein Anfrage-Header ist.
 
 ## Direktiven
 
 - `<media-type>/<subtype>`
-  - : Ein einzelner, genauer [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types), wie `text/html`.
+  - : Ein einzelner, präziser [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types), wie `text/html`.
 - `<media-type>/*`
   - : Ein Medientyp ohne Subtyp.
-    Zum Beispiel entspricht `image/*` `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
+    Beispielsweise entspricht `image/*` den Typen `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
 - `*/*`
   - : Beliebiger Medientyp.
 
@@ -65,9 +65,9 @@ Accept-Post: */*
 ## Browser-Kompatibilität
 
 Die Browser-Kompatibilität ist für diesen Header nicht relevant.
-Der Header wird vom Server gesendet und die Spezifikation definiert kein Verhalten für den Client.
+Der Header wird vom Server gesendet, und die Spezifikation definiert kein Client-Verhalten.
 
 ## Siehe auch
 
 - {{HTTPHeader("Accept-Patch")}}
-- {{HTTPMethod("POST")}} Anfragemethode
+- {{HTTPMethod("POST")}}-Anfragemethode

@@ -1,93 +1,93 @@
 ---
-title: Über "Webentwicklung lernen"
+title: Über Learn Web Development
 slug: Learn_web_development/About
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 03e93e0948768ea78474e77a53795698ebca5836
 ---
 
-MDN "Webentwicklung lernen" hat das Ziel, die grundlegenden Fähigkeiten und Kenntnisse zu vermitteln, die ein Frontend-Webentwickler für Beschäftigungsfähigkeit und Beständigkeit in der heutigen Webbranche haben sollte. Es verkörpert die Werte, die wir glauben, dass das Web haben sollte – Zugänglichkeit, Nachhaltigkeit, Benutzerfreundlichkeit, Leistung und Gemeinschaft. Wir würden uns freuen, wenn Lehrer, Entwickler und Studenten diese Ressource nutzen und diese Werte in ihrer Arbeit, in ihrem Unterricht und in den Produkten, die sie entwickeln, vertreten.
+MDN Learn Web Development hat das Ziel, die grundlegenden Fähigkeiten und Kenntnisse zu vermitteln, die ein Front-End-Webentwickler für Beschäftigungsfähigkeit und langfristige Perspektiven in der heutigen Webbranche haben sollte. Es verkörpert die Werte, die das Web unserer Meinung nach haben sollte — Barrierefreiheit, Nachhaltigkeit, Benutzerfreundlichkeit, Performance und Gemeinschaft. Wir würden uns freuen, wenn Lehrende, Entwickler und Studierende diese Ressource nutzen und sich in ihrer Arbeit, ihrer Lehre und den von ihnen entwickelten Produkten für diese Werte einsetzen.
 
-Dieser Inhalt wurde von der MDN-Community erstellt und von Experten innerhalb Mozillas und der breiteren Web-Community überprüft und mit Feedback versehen. Danke für Ihr wertvolles Feedback; Sie wissen, wer Sie sind!
+Diese Inhalte wurden von der MDN-Community erstellt und von Experten innerhalb von Mozilla sowie in der breiteren Web-Community geprüft und kommentiert. Vielen Dank für Ihren wertvollen Beitrag; Sie wissen, wer Sie sind!
 
 ## Hintergrund und Motivation
 
-Wir haben ursprünglich [2016 den Abschnitt "Webentwicklung lernen" auf MDN gestartet](https://hacks.mozilla.org/2016/06/learning-to-code-for-the-web-the-mdn-learning-area-welcomes-you/), um MDN für Nicht-Experten zugänglicher zu machen und Anfängern in der Webentwicklung zu helfen, vom „Anfänger zum Komfortablen“ zu gelangen.
+Wir haben [den Bereich MDN Learn Web Development ursprünglich 2016 gestartet](https://hacks.mozilla.org/2016/06/learning-to-code-for-the-web-the-mdn-learning-area-welcomes-you/), um MDN für Nicht-Experten zugänglicher zu machen und Webentwickler am Anfang ihrer Laufbahn von „Anfänger zu sicher im Umgang“ zu begleiten.
 
-Der Inhalt war ziemlich erfolgreich, aber nach ein paar Jahren stellten wir fest, dass die Struktur unterdurchschnittlich war. Anfänger wollen wirklich einen soliden Weg, dem sie folgen können, um das nötige Wissen zu erlangen, anstatt herausfinden zu müssen, was sie lernen sollen und wann.
+Die Inhalte waren recht erfolgreich, aber einige Jahre später stellten wir fest, dass die Struktur unzureichend war. Anfänger wünschen sich einen soliden Lernpfad, dem sie folgen können, um die benötigten Kenntnisse zu erwerben, statt selbst herausfinden zu müssen, was sie wann lernen sollen.
 
-Darüber hinaus spricht Mozilla jeden Tag mit Branchenprofis und wir erhalten regelmäßig Feedback zu Wissenslücken bei neuen Mitarbeitern. Personalverantwortliche beobachten häufig:
+Darüber hinaus spricht Mozilla täglich mit Branchenexperten, und wir erhalten regelmäßig Feedback zu Wissenslücken bei Neueinstellungen. Personalverantwortliche beobachten häufig:
 
-- Zu großer Fokus auf die Nutzung von Frameworks, um Web-Apps schnell zu entwickeln, gepaart mit einem mangelnden Verständnis der zugrunde liegenden Technologien hinter diesen Frameworks. Dies führt zu einem Mangel an Problemlösungsfähigkeiten und zu einer geringeren langfristigen Beschäftigungsfähigkeit, da sich die Werkzeuge ändern.
-- Mangel an grundlegenden Best Practices wie Semantik, Barrierefreiheit und responsivem Design. Dies führt zu einem Mangel an Nutzerfokus, was zu Einschränkungen bei der Benutzerfreundlichkeit führt.
-- Wissenslücken darüber, wie Browser grundlegend funktionieren, wie sie Informationen bereitstellen und die Interaktivität, die Sie kostenlos erhalten. Dies führt zu übermäßig komplizierten und oft unzugänglichen Lösungen.
-- Eingeschränkte Problemlösungs-, Teamarbeit-, Recherche- und andere wichtige Soft Skills.
+- Einen zu starken Fokus auf die Nutzung von Frameworks, um schnell Web-Apps zu erstellen, verbunden mit einem mangelnden Verständnis der zugrunde liegenden Technologien hinter diesen Frameworks. Dies führt zu unzureichenden Problemlösungsfähigkeiten und geringerer langfristiger Beschäftigungsfähigkeit, wenn sich Werkzeuge ändern.
+- Einen Mangel an zentralen Best Practices wie Semantik, Barrierefreiheit und Responsive Design. Dies führt zu einer unzureichenden Nutzerorientierung und damit zu Einschränkungen der Benutzerfreundlichkeit.
+- Lücken im Wissen darüber, wie Browser grundsätzlich funktionieren, wie sie Informationen bereitstellen und welche Interaktivität kostenlos verfügbar ist. Dies führt dazu, dass Lösungen unnötig kompliziert und häufig nicht barrierefrei werden.
+- Eingeschränkte Fähigkeiten bei Problemlösung, Teamarbeit, Recherche und anderen wichtigen Soft Skills.
 
-Daher haben wir einen Lehrplan erstellt, um Menschen zu helfen, ein besseres Fähigkeiten-Set zu lernen, um sie beschäftigungsfähiger zu machen und ihnen zu ermöglichen, ein besseres, zugänglicheres und verantwortungsbewussteres Web von morgen zu bauen. Wir möchten, dass sie die bestmögliche Chance auf Erfolg haben. Wir haben [den MDN-Lehrplan Anfang 2024 gestartet](/en-US/blog/mdn-curriculum-launch/).
+Daher haben wir ein Curriculum erstellt, das Menschen dabei helfen soll, bessere Fähigkeiten zu erlernen, ihre Beschäftigungsfähigkeit zu verbessern und das bessere, barrierefreiere und verantwortungsvollere Web von morgen zu gestalten. Wir möchten ihnen die bestmögliche Erfolgschance geben. Wir haben [das MDN Curriculum Anfang 2024 gestartet](/en-US/blog/mdn-curriculum-launch/).
 
-Leider erhielten wir schnell Feedback, dass Benutzer es verwirrend fanden, zwei Lernressourcen auf MDN zu haben, mit dem Lehrplan/Lernpfad an einem Ort und dem Lerninhalt an einem anderen Ort. Infolgedessen haben wir den Lehrplan im Dezember 2024 in den Lernbereich integriert](/de/docs/Learn_web_development/Changelog#december_2024).
+Allerdings erhielten wir schnell die Rückmeldung, dass Nutzer es verwirrend fanden, zwei Lernressourcen auf MDN zu haben, wobei sich das Curriculum bzw. der Lernpfad an einer Stelle und die Lerninhalte an einer anderen befanden. Daher haben wir [das Curriculum im Dezember 2024 in den Lernbereich integriert](/de/docs/Learn_web_development/Changelog#december_2024).
 
 ## Zielgruppe
 
-### Studenten
+### Studierende
 
-Dieser Lehrplan ist nützlich für mehrere Studentengruppen:
+Dieses Curriculum ist für mehrere Gruppen von Studierenden nützlich:
 
-- Studenten, die in der Branche einen Job finden möchten, was möglicherweise das Erreichen einer verwandten Qualifikation oder Zertifizierung beinhaltet. Der Lehrplan fungiert als Leitfaden für das, was sie studieren sollten.
-- Bestehende Webentwickler, die ihre Fähigkeiten "aufrüsten" möchten, um sicherzustellen, dass ihre Fähigkeiten aktuell sind, und Lücken in ihrem Wissen zu identifizieren, die sie weiter vertiefen sollten.
-- Nicht-Frontend-Webentwickler, die bereits Entwicklungserfahrung in anderen Bereichen haben (zum Beispiel Backend-Webentwickler oder plattformspezifische Entwickler), die sich in die Frontend-Webentwicklung begeben möchten und einen Leitfaden zu den Themen suchen, die sie lernen sollten.
+- Studierende, die eine Stelle in der Branche erhalten möchten, was den Erwerb einer entsprechenden Qualifikation oder Zertifizierung umfassen kann. Das Curriculum dient als Leitfaden dafür, was sie lernen sollten.
+- Bestehende Webentwickler, die ihre Fähigkeiten weiterentwickeln möchten, sicherstellen wollen, dass ihre Fähigkeiten aktuell sind, und Wissenslücken identifizieren möchten, über die sie mehr lernen sollten.
+- Webentwickler, die nicht im Front-End-Bereich tätig sind und bereits Entwicklungserfahrung in anderen Bereichen haben (zum Beispiel Back-End-Webentwickler oder plattformspezifische Entwickler), die in die Front-End-Webentwicklung einsteigen möchten und einen Leitfaden zu den Themen suchen, die sie lernen sollten.
 
-### Lehrkräfte
+### Lehrende
 
-Lehrkräfte können diesen Inhalt als Leitfaden nutzen, wenn sie Programme, Einheiten und Bewertungsspezifikationen für einen webbezogenen Universitätsabschluss, Collegekurs, Programmierkurs oder ähnliche erstellen. Das Einhalten der Lernziele in unseren Artikeln wird dazu beitragen sicherzustellen, dass Kurse aktuelle Techniken und Best Practices lehren und schlechte Praktiken und veraltete Informationen vermeiden.
+Lehrende können diesen Inhalt als Leitfaden verwenden, wenn sie Programme, Einheiten und Bewertungsvorgaben für einen webbasierten Universitätsabschluss, einen Hochschulkurs, einen Kurs einer Programmierschule oder Ähnliches erstellen. Die Ausrichtung an den Lernergebnissen in unseren Artikeln hilft sicherzustellen, dass Kurse aktuelle Techniken und Best Practices vermitteln und schlechte Praktiken sowie veraltete Informationen vermeiden.
 
-Um mehr zu erfahren, konsultieren Sie unsere Seite [Ressourcen für Lehrende](/de/docs/Learn_web_development/Educators).
+Weitere Informationen finden Sie auf unserer Seite [Ressourcen für Lehrende](/de/docs/Learn_web_development/Educators).
 
 > [!NOTE]
-> Der vollständige MDN-Lehrplan "Webentwicklung lernen" steht als praktisches PDF zur Verfügung, um es mit Ihren Studenten und Kollegen zu teilen. [Curriculum herunterladen](https://github.com/mdn/curriculum/releases/latest/download/MDN-Curriculum.pdf).
+> Das vollständige MDN Learn Web Development Curriculum ist als praktisches PDF verfügbar, das Sie mit Ihren Studierenden und Kollegen teilen können. [Curriculum herunterladen](https://github.com/mdn/curriculum/releases/latest/download/MDN-Curriculum.pdf).
 
 ## Umfang
 
-Der Begriff _Frontend-Entwickler_ kann mehrdeutig sein; er kann für verschiedene Menschen unterschiedliche Bedeutungen haben, und Personen, die im Frontend-Bereich arbeiten, können dazu erwartet werden, eine Vielzahl von Aufgaben zu erledigen.
+Der Begriff _Front-End-Entwickler_ kann mehrdeutig sein; er kann für verschiedene Personen unterschiedliche Bedeutungen haben, und von Personen, die im Front End arbeiten, kann erwartet werden, dass sie eine große Vielfalt unterschiedlicher Aufgaben übernehmen.
 
 ### Was abgedeckt wird
 
-Diese Reihe von Artikeln versucht nicht, jedes Thema, das ein Webentwickler möglicherweise im Detail wissen sollte, zu lehren. Der Lehrplan deckt Folgendes ab:
+Diese Artikelreihe versucht nicht, jedes Thema zu vermitteln, das ein Webentwickler möglicherweise umfassend kennen sollte. Das Curriculum deckt Folgendes ab:
 
-- Kerntechnische Fähigkeiten wie semantisches HTML, CSS und JavaScript-Grundlagen.
-- Best Practices wie Barrierefreiheit, responsives Design und UI-Design-Theorie.
+- Grundlegende technische Fähigkeiten wie semantisches HTML sowie Grundlagen von CSS und JavaScript.
+- Best Practices wie Barrierefreiheit, Responsive Design und Theorie des UI-Designs.
 - Wichtige Werkzeuge wie Frameworks und Versionskontrolle.
-- Soft Skills, um die Denkweise und Einstellung zu fördern, die erforderlich ist, um einen Job zu sichern.
-- Umweltwissen wie Computer- und Dateisysteme, im Web surfen, Grundlagen der Befehlszeile und Code-Editoren.
-- Mehrere „Erweiterungen“, die wir als nützliches zusätzliches Wissen zum Erlernen betrachten, während Entwickler ihr Wissen erweitern und sich spezialisieren. Dazu gehören:
-  - CSS-Transforms und Animation
-  - Häufige Kategorien von Web-APIs (zum Beispiel Medien, Grafik und clientseitige Speicherung)
+- Soft Skills zur Förderung der Denkweise und Haltung, die erforderlich sind, um eine Stelle zu erhalten.
+- Kenntnisse über die Umgebung wie Computer- und Dateisysteme, das Surfen im Web, Grundlagen der Kommandozeile und Code-Editoren.
+- Mehrere „Erweiterungen“, die unserer Meinung nach nützliche zusätzliche Fähigkeiten darstellen, die Entwickler beim Ausbau ihrer Kenntnisse und der Entwicklung von Spezialisierungen erlernen sollten. Dazu gehören:
+  - CSS-Transformationen und Animationen
+  - Häufige Kategorien von Web API (zum Beispiel Medien, Grafik und clientseitige Speicherung)
   - Grundlagen der serverseitigen Webentwicklung
-  - Leistung
+  - Performance
   - Sicherheit und Datenschutz
-  - Testing
+  - Testen
 
-### Detaillierungsgrad
+### Detailgrad
 
-Die vorgestellten Themen werden in unterschiedlichen Detailgraden behandelt.
+Die vorgestellten Themen werden unterschiedlich detailliert behandelt.
 
-- Einige werden ausführlich behandelt, zum Beispiel HTML- und CSS-Grundlagen. Es ist wichtig, diese klar zu verstehen, bevor ein Student zu weit in seiner Lernreise voranschreitet.
-- Einige werden eher oberflächlich behandelt, zum Beispiel Versionskontrolle oder Testing. Es ist wichtig, zu verstehen, was diese Themen sind, und mit einigen Grundlagen zu beginnen, aber diese Arten von Fähigkeiten können weitervertieft werden, während Sie Ihre Karriere fortsetzen.
+- Einige werden ausführlich behandelt, zum Beispiel die Grundlagen von HTML und CSS. Es ist wichtig, diese gut zu verstehen, bevor ein Studierender auf seiner Lernreise zu weit fortschreitet.
+- Einige werden oberflächlicher behandelt, zum Beispiel Versionskontrolle oder Testen. Es ist wichtig zu verstehen, was diese Themen sind, und mit einigen Grundlagen zu beginnen, aber solche Fähigkeiten können im weiteren Verlauf der Karriere ausgebaut werden.
 
 ### Was nicht abgedeckt wird
 
-Es gibt auch mehrere Bereiche, die wir in diesem Lehrplan ausdrücklich nicht abdecken, nämlich:
+Es gibt außerdem mehrere Bereiche, die wir in diesem Curriculum ausdrücklich nicht behandeln:
 
-- Erschöpfende Abdeckung von Backend-Sprachen/Plattformen. Wir bieten eine kurze Einführung in [Node.js (Express)](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) und [Python (Django)](/de/docs/Learn_web_development/Extensions/Server-side/Django), da es für jeden Webentwickler nützlich ist zu verstehen, wie HTTP und serverseitige Technologien funktionieren. Allerdings bieten wir keine erschöpfende Abdeckung über mehrere Plattformen hinweg; das wäre außerhalb des Umfangs für MDN.
-- Tiefgründige Abdeckung traditioneller relationaler Datenbanken (zum Beispiel [MySQL](https://dev.mysql.com/doc/) oder [Postgres](https://www.postgresql.org/)) und anderer serverseitiger Datenspeicher (zum Beispiel Cloud-Datenbanken wie [MongoDB](https://www.mongodb.com/) oder [Firestore](https://cloud.google.com/products/firestore)). Wir bieten eine kurze Einführung in solche Technologien in unseren Modulen zur [Programmierung serverseitiger Websites](/de/docs/Learn_web_development/Extensions/Server-side).
-- Tiefgehende DevOps-Themen wie Cloud-Plattformen für Bereitstellung und Automatisierung (zum Beispiel [Amazon AWS](https://aws.amazon.com/), [Google Cloud Platform](https://console.cloud.google.com/) und [Microsoft Azure](https://azure.microsoft.com/)) und Containerisierungstools (zum Beispiel [Kubernetes](https://kubernetes.io/) und [Docker](https://www.docker.com/)). Wir berühren leicht einige Tools, die als im DevOps-Bereich angesehen werden – wie GitHub und automatisierte Testwerkzeuge – aber diese haben deutliche Überschneidungen im Bereich des Frontend-Entwicklers.
-- Grafikdesign über die grundlegenden Kenntnisse hinaus, die in [Design für Entwickler](/de/docs/Learn_web_development/Core/Design_for_developers) umrissen sind.
+- Vollständige Abdeckung von Back-End-Sprachen/-Plattformen. Wir bieten zwar eine kurze Einführung in [Node.js (Express)](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) und [Python (Django)](/de/docs/Learn_web_development/Extensions/Server-side/Django), da es für jeden Webentwickler nützlich ist, zu verstehen, wie HTTP und serverseitige Technologien funktionieren. Wir bieten jedoch keine umfassende Abdeckung mehrerer Plattformen; das würde den Rahmen von MDN sprengen.
+- Detaillierte Abdeckung traditioneller relationaler Datenbanken (zum Beispiel [MySQL](https://dev.mysql.com/doc/) oder [Postgres](https://www.postgresql.org/)) und anderer serverseitiger Datenspeicher (zum Beispiel Cloud-Datenbanken wie [MongoDB](https://www.mongodb.com/) oder [Firestore](https://cloud.google.com/products/firestore)). In unseren Modulen zur [serverseitigen Website-Programmierung](/de/docs/Learn_web_development/Extensions/Server-side) bieten wir eine kurze Einführung in solche Technologien.
+- Vertiefende DevOps-Themen wie Cloud-Plattformen für Bereitstellung und Automatisierung (zum Beispiel [Amazon AWS](https://aws.amazon.com/), [Google Cloud Platform](https://console.cloud.google.com/) und [Microsoft Azure](https://azure.microsoft.com/)) sowie Containerisierungswerkzeuge (zum Beispiel [Kubernetes](https://kubernetes.io/) und [Docker](https://www.docker.com/)). Wir behandeln einige Werkzeuge, die dem DevOps-Bereich zugerechnet werden — etwa GitHub und automatisierte Testwerkzeuge — nur am Rande, doch diese überschneiden sich deutlich mit dem Bereich von Front-End-Entwicklern.
+- Grafikdesign über die in [Design für Entwickler](/de/docs/Learn_web_development/Core/Design_for_developers) beschriebenen Grundkenntnisse hinaus.
 - Fähigkeiten im Zusammenhang mit Rollen wie Produkt- und Programmmanagement (zum Beispiel Organisation, Recherche und Planung).
 
-## Zuschreibung
+## Quellenangabe
 
-Diese Ressource ist kostenlos für jeden zu nutzen. Wenn Sie sie nützlich finden, bitten wir Sie, folgendes in Betracht zu ziehen:
+Diese Ressource kann von allen kostenlos verwendet werden. Wenn Sie sie nützlich finden, bitten wir Sie, Folgendes in Betracht zu ziehen:
 
-- Verlinken Sie darauf. Zum Beispiel könnte ein Lehrender das Folgende in sein öffentliches Programm aufnehmen:
+- Verlinken Sie darauf. Beispielsweise könnte ein Lehrender Folgendes in seine öffentlichen Programminformationen aufnehmen:
 
   ```html
   <p>
@@ -98,37 +98,37 @@ Diese Ressource ist kostenlos für jeden zu nutzen. Wenn Sie sie nützlich finde
   </p>
   ```
 
-- Erzählen Sie anderen davon! Wir würden uns freuen, wenn so viele Studenten und Lehrende wie möglich beginnen, dieses Material zu nutzen und es als Standard für Basiswissen in der Webentwicklung anzusehen.
+- Erzählen Sie anderen davon! Wir würden uns freuen, wenn möglichst viele Studierende und Lehrende dieses Material nutzen und sich daran als Standard für grundlegende Kenntnisse von Webentwicklern orientieren.
 
 > [!NOTE]
-> Lehrkräfte sollten dieses Material als Leitfaden nutzen, aber seine Verwendung impliziert keine Billigung durch Mozilla.
+> Lehrende sollten dieses Material als Leitfaden verwenden, seine Nutzung bedeutet jedoch keine Unterstützung durch Mozilla.
 
 ## Aktualisierungsprozess
 
-Die Webentwicklungsindustrie ändert sich ständig und schnell. Um unsere Empfehlungen aktuell zu halten, werden wir unser Material regelmäßig überprüfen, unser [Änderungsprotokoll](/de/docs/Learn_web_development/Changelog) aktualisieren und jedes Jahr eine Ankündigung machen, indem wir die Entwickler bekannter konformer Kurse kontaktieren, um sie darüber zu informieren, dass sich der Kurs geändert hat, und sie ermutigen, ihre Kurse gegebenenfalls zu überprüfen/aktualisieren.
+Die Webentwicklungsbranche verändert sich ständig und schnell. Um unsere Empfehlungen aktuell zu halten, werden wir unser Material regelmäßig überprüfen, unser [Änderungsprotokoll](/de/docs/Learn_web_development/Changelog) aktualisieren und jedes Jahr eine Ankündigung veröffentlichen. Dabei kontaktieren wir die Ersteller bekannter konformer Kurse, um sie darüber zu informieren, dass sich das Curriculum geändert hat, und sie dazu anzuregen, ihre Kurse gegebenenfalls zu überprüfen und zu aktualisieren.
 
-Wir beabsichtigen, dies im 2. Quartal jedes Jahres zu tun, um Lehrenden Zeit zu geben, im zweiten und dritten Quartal Änderungen umzusetzen, bevor das folgende akademische Jahr beginnt.
+Wir beabsichtigen, dies jedes Jahr im zweiten Quartal zu tun, damit Lehrende im zweiten und dritten Quartal Zeit haben, Änderungen vor Beginn des folgenden akademischen Jahres umzusetzen.
 
 ## Häufig gestellte Fragen
 
 ### Fragen zur Partnerschaft mit Scrimba
 
-#### Wie weiß MDN, dass Scrimbas Kurse qualitativ hochwertig sind und den Best Practices folgen?
+#### Woher weiß MDN, dass die Kurse von Scrimba hochwertig sind und Best Practices folgen?
 
-Scrimba hatte bereits einen großartigen Ruf, bevor wir mit ihnen über eine Partnerschaft sprachen. Wir haben jedoch nicht nur auf das Wort der Community vertraut. Wir haben eine umfassende Überprüfung von Scrimbas [Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j:details?via=mdn) (FDCP) durchgeführt und ihnen Feedback zu möglichen Verbesserungen gegeben, mit einem Fokus auf die Erhöhung der Abdeckung von Best Practices und Konformität zu unseren [Kernmodulen](/de/docs/Learn_web_development/Core). Scrimba hat unser gesamtes Feedback umgesetzt, und der FDCP ist jetzt noch besser als zuvor. Da er nun unserem Lehrplankern entspricht, sind wir zuversichtlich, dass er den MDN-Standards entspricht.
+Scrimba hatte bereits einen ausgezeichneten Ruf, bevor wir mit ihnen über eine Partnerschaft sprachen. Wir haben uns jedoch nicht nur auf das Urteil der Community verlassen. Wir haben Scrimbas [Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) (FDCP) umfassend überprüft und ihnen Feedback zu möglichen Verbesserungen gegeben. Dabei lag der Fokus auf einer stärkeren Abdeckung von Best Practices und der Übereinstimmung mit unseren [Kernmodulen](/de/docs/Learn_web_development/Core). Scrimba hat unser gesamtes Feedback umgesetzt, und der FDCP ist noch besser als zuvor. Da er nun unserem Curriculum Core entspricht, sind wir zuversichtlich, dass er mit den MDN-Standards übereinstimmt.
 
-#### Teilt MDN Benutzerdaten mit Scrimba?
+#### Teilt MDN Nutzerdaten mit Scrimba?
 
-Wir priorisieren den Datenschutz und die Transparenz der Benutzer. Die einzige Information, die MDN mit Scrimba teilt, ist die Benutzer-navigation zu Scrimba von MDN, und dies geschieht durch die eigenen Aktionen des Nutzers beim Folgen eines Links, der als extern gekennzeichnet ist.
+Wir priorisieren Datenschutz und Transparenz. Die einzigen Informationen, die MDN mit Scrimba teilt, betreffen die Navigation von Nutzern von MDN zu Scrimba. Dies geschieht durch ihre eigenen Handlungen, indem sie einem als extern gekennzeichneten Link folgen.
 
-In Fällen, in denen wir Scrimba-Inhalte auf MDN einbetten, sieht Scrimba keine Benutzerdaten, bis ein Benutzer sich dafür entscheidet, mit Scrimba-Inhalten zu interagieren.
+In Fällen, in denen wir Scrimba-Inhalte auf MDN einbetten, sieht Scrimba keine Nutzerdaten, bis ein Nutzer sich entscheidet, mit den Inhalten von Scrimba zu interagieren.
 
-#### Scrimbas Inhalte sind nicht kostenlos. Steht das nicht im Widerspruch zu MDNs Philosophie der Bereitstellung kostenloser Inhalte?
+#### Die Inhalte von Scrimba sind nicht kostenlos. Steht das nicht im Widerspruch zur Philosophie von MDN, kostenlose Inhalte anzubieten?
 
-Einige Scrimba-Inhalte erfordern ein bezahltes Abonnement, aber sie bieten auch mehrere vollständige Kurse an, die nach der Registrierung kostenlos zugänglich sind.
+Viele Inhalte von Scrimba erfordern ein kostenpflichtiges Abonnement, aber sie bieten auch mehrere vollständige Kurse an, auf die Sie nach der Registrierung kostenlos zugreifen können.
 
-Es ist auch erwähnenswert, dass Scrimbas Kurse nicht notwendig sind, um MDN Webentwicklung lernen zu nutzen – sie sind eine Verbesserung für diejenigen, die für einen strukturierten Kurs bezahlen möchten, der unseren Lehrplankern abdeckt. Sie können dennoch alle unsere Lernziele kostenlos erreichen, indem Sie unsere Artikel durcharbeiten.
+Es ist außerdem wichtig zu betonen, dass die Kurse von Scrimba nicht erforderlich sind, um MDN Learn Web Development zu nutzen — sie sind eine Ergänzung für Personen, die für einen strukturierten Kurs bezahlen möchten, der den Kern unseres Curriculums abdeckt. Sie können weiterhin alle unsere Lernergebnisse kostenlos erlernen, indem Sie unsere Artikel durcharbeiten.
 
 #### Wird nach Abschluss von Scrimbas Frontend Developer Career Path eine Zertifizierung vergeben?
 
-Ja, sobald Sie alle Themen des Frontend Developer Career Path abgeschlossen haben, können Sie auf ein Abschlusszertifikat zugreifen, um es potenziellen Arbeitgebern zu zeigen oder in Ihr Portfolio aufzunehmen. Siehe [Wo finde ich mein Abschlusszertifikat?](https://forum.scrimba.com/t/where-can-i-find-my-completion-certificate/43?via=mdn) für weitere Informationen.
+Ja, sobald Sie alle Themen im Frontend Developer Career Path abgeschlossen haben, können Sie auf ein Abschlusszertifikat zugreifen, das Sie mit potenziellen Arbeitgebern teilen oder in Ihr Portfolio aufnehmen können. Weitere Informationen finden Sie unter [Where can I find my completion certificate?](https://forum.scrimba.com/t/where-can-i-find-my-completion-certificate/43?via=mdn).

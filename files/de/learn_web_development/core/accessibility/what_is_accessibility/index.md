@@ -2,28 +2,28 @@
 title: Was ist Barrierefreiheit?
 slug: Learn_web_development/Core/Accessibility/What_is_accessibility
 l10n:
-  sourceCommit: 8a6ebefa23ff414c256ee69d08fc20bd5ebe540b
+  sourceCommit: 03e93e0948768ea78474e77a53795698ebca5836
 ---
 
 {{NextMenu("Learn_web_development/Core/Accessibility/Tooling", "Learn_web_development/Core/Accessibility")}}
 
-Dieser Artikel startet das Modul mit einem guten Überblick darüber, was Barrierefreiheit ist — dieser Überblick umfasst die Gruppen von Menschen, die wir berücksichtigen müssen und warum, welche Tools verschiedene Menschen verwenden, um mit dem Web zu interagieren, und wie wir Barrierefreiheit in unseren Webentwicklungs-Workflow integrieren können.
+Dieser Artikel beginnt das Modul mit einem guten Überblick darüber, was Barrierefreiheit ist. Er behandelt, welche Personengruppen wir berücksichtigen müssen und warum, welche Werkzeuge verschiedene Menschen verwenden, um mit dem Web zu interagieren, und wie wir Barrierefreiheit zu einem Teil unseres Webentwicklungs-Workflows machen können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>.</td>
+      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>.</td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
         <ul>
-          <li>Der Nutzen der Barrierefreiheit — erhöhter Zugang zu digitalen Diensten für Menschen mit besonderen Bedürfnissen, verbesserte Benutzerfreundlichkeit für alle, besseres SEO und eine größere Zielgruppe.</li>
-          <li>Bewusstsein für die rechtlichen Anforderungen an die Barrierefreiheit.</li>
-          <li>Dass Barrierefreiheit von Anfang an in ein Projekt einbezogen werden sollte und nicht erst am Ende hinzugefügt werden darf.</li>
+          <li>Der Zweck von Barrierefreiheit — verbesserter Zugang zu digitalen Diensten für Menschen mit zusätzlichen Bedürfnissen, bessere Benutzerfreundlichkeit für alle, bessere SEO und eine größere Zielgruppe.</li>
+          <li>Bewusstsein für die rechtlichen Anforderungen an Barrierefreiheit.</li>
+          <li>Dass Barrierefreiheit von Beginn eines Projekts an berücksichtigt und nicht erst am Ende hinzugefügt werden sollte.</li>
           <li>Vertrautheit mit den Konformitätskriterien der Web Content Accessibility Guidelines (WCAG).</li>
-          <li>Bewusstsein für die Barrierefreiheits-APIs und deren Zweck.</li>
+          <li>Bewusstsein für Accessibility APIs und ihren Zweck.</li>
         </ul>
       </td>
     </tr>
@@ -32,129 +32,129 @@ Dieser Artikel startet das Modul mit einem guten Überblick darüber, was Barrie
 
 ## Was ist also Barrierefreiheit?
 
-Barrierefreiheit ist die Praxis, Ihre Websites so benutzbar wie möglich für so viele Menschen wie möglich zu gestalten. Traditionell denken wir dabei an Menschen mit Behinderungen, aber die Praxis, Websites barrierefrei zu machen, kommt auch anderen Gruppen zugute, wie beispielsweise Nutzern von Mobilgeräten oder solchen mit langsamen Netzwerkverbindungen.
+Barrierefreiheit ist die Praxis, Ihre Websites für möglichst viele Menschen nutzbar zu machen. Traditionell denken wir dabei an Menschen mit Behinderungen, aber die Praxis, Websites barrierefrei zu gestalten, kommt auch anderen Gruppen zugute, etwa Personen, die Mobilgeräte verwenden oder über langsame Netzwerkverbindungen verfügen.
 
-Man könnte Barrierefreiheit auch als die Gleichbehandlung aller betrachten, unabhängig von ihren Fähigkeiten oder Umständen, und ihnen gleiche Chancen geben. Genauso wie es falsch ist, jemanden wegen einer Behinderung, wie z.B. durch eine Gehhilfe, von einem Gebäude auszuschließen (moderne öffentliche Gebäude verfügen im Allgemeinen über Rampen oder Aufzüge), ist es auch nicht richtig, jemanden von einer Website auszuschließen, weil sie eine Sehbehinderung haben. Wir sind alle unterschiedlich, aber wir sind alle Menschen und haben deshalb dieselben Menschenrechte.
+Sie können Barrierefreiheit auch als die Gleichbehandlung aller Menschen und die Gewährung gleicher Chancen verstehen, unabhängig von ihren Fähigkeiten oder Umständen. So wie es falsch ist, jemanden von einem physischen Gebäude auszuschließen, weil diese Person einen Rollstuhl benutzt (moderne öffentliche Gebäude verfügen in der Regel über Rollstuhlrampen oder Aufzüge), ist es auch nicht richtig, jemanden von einer Website auszuschließen, weil diese Person eine Sehbeeinträchtigung hat. Wir sind alle verschieden, aber wir sind alle Menschen und haben daher dieselben Menschenrechte.
 
-Barrierefreiheit ist das Richtige zu tun. Die Bereitstellung barrierefreier Sites ist in einigen Ländern gesetzlich vorgeschrieben, was bedeutende Märkte erschließen kann, die andernfalls nicht in der Lage wären, Ihre Dienste zu nutzen oder Ihre Produkte zu kaufen.
+Barrierefreiheit ist das Richtige. In einigen Ländern ist das Bereitstellen barrierefreier Websites gesetzlich vorgeschrieben. Dadurch können sich bedeutende Märkte erschließen, die Ihre Dienste sonst nicht nutzen oder Ihre Produkte nicht kaufen könnten.
 
-Der Bau barrierefreier Websites kommt allen zugute:
+Der Aufbau barrierefreier Websites kommt allen zugute:
 
-- Semantisches HTML, das die Barrierefreiheit verbessert, verbessert auch SEO, was Ihre Website besser auffindbar macht.
-- Die Sorge um Barrierefreiheit demonstriert ethisches und moralisches Verhalten, das Ihr öffentliches Ansehen verbessert.
-- Andere bewährte Verfahren, die die Barrierefreiheit verbessern, machen Ihre Website auch für andere Gruppen benutzbarer, wie z.B. Benutzer von Mobiltelefonen oder solche mit niedriger Netzwerkgeschwindigkeit. Tatsächlich können alle von vielen solchen Verbesserungen profitieren.
-- Haben wir erwähnt, dass es in manchen Ländern auch gesetzlich vorgeschrieben ist?
+- Semantisches HTML, das die Barrierefreiheit verbessert, verbessert auch die SEO und macht Ihre Website leichter auffindbar.
+- Die Berücksichtigung von Barrierefreiheit zeigt gute ethische und moralische Grundsätze und verbessert Ihr öffentliches Image.
+- Andere bewährte Praktiken, die die Barrierefreiheit verbessern, machen Ihre Website auch für andere Gruppen nutzbarer, etwa für Mobiltelefonnutzende oder Personen mit niedriger Netzwerkgeschwindigkeit. Tatsächlich können alle von vielen solchen Verbesserungen profitieren.
+- Haben wir erwähnt, dass dies an manchen Orten auch gesetzlich vorgeschrieben ist?
 
 ## Welche Arten von Behinderungen betrachten wir?
 
-Menschen mit Behinderungen sind genauso vielfältig wie Menschen ohne Behinderungen, ebenso wie ihre Behinderungen. Die Hauptlektion hierbei ist, über Ihren eigenen Computer hinauszudenken und darüber, wie Sie das Web nutzen, und zu lernen, wie andere es nutzen — _Sie sind nicht Ihre Benutzer_. Die Haupttypen von Behinderungen, die man beachten sollte, werden unten erläutert, zusammen mit den speziellen Tools, die sie zum Zugriff auf Webinhalte verwenden (bekannt als **assistive technologies**, oder **ATs**).
+Menschen mit Behinderungen sind genauso vielfältig wie Menschen ohne Behinderungen, und das gilt auch für ihre Behinderungen. Die wichtigste Lektion dabei ist, über Ihren eigenen Computer und Ihre eigene Nutzung des Webs hinauszudenken und zu lernen, wie andere es nutzen — _Sie sind nicht Ihre Nutzenden_. Die wichtigsten zu berücksichtigenden Arten von Behinderungen werden im Folgenden erläutert, zusammen mit möglichen speziellen Werkzeugen, die zum Zugriff auf Webinhalte verwendet werden (bekannt als **assistive Technologien** oder **ATs**).
 
 > [!NOTE]
-> Das Faktenblatt der Weltgesundheitsorganisation zu [Behinderung und Gesundheit](https://www.who.int/en/news-room/fact-sheets/detail/disability-and-health) besagt, dass "Über eine Milliarde Menschen, etwa 15% der Weltbevölkerung, eine Form von Behinderung haben" und "Zwischen 110 Millionen und 190 Millionen Erwachsene haben erhebliche Schwierigkeiten bei der Funktionsfähigkeit."
+> Das Faktenblatt [Disability and health](https://www.who.int/en/news-room/fact-sheets/detail/disability-and-health) der Weltgesundheitsorganisation besagt, dass „über eine Milliarde Menschen, etwa 15 % der Weltbevölkerung, eine Form von Behinderung haben“ und dass „zwischen 110 Millionen und 190 Millionen Erwachsene erhebliche Schwierigkeiten bei der Funktionsfähigkeit haben“.
 
-### Menschen mit Sehbehinderungen
+### Menschen mit Sehbeeinträchtigungen
 
-Zu den Menschen mit Sehbehinderungen zählen Blinde, Menschen mit schwacher Sehkraft und Farbenblindheit. Viele Menschen mit Sehbehinderungen verwenden Bildschirmlupen, die entweder physische Lupen oder Software-Zoom-Funktionen sind. Die meisten Browser und Betriebssysteme verfügen heutzutage über Zoom-Fähigkeiten. Einige Benutzer werden auf Bildschirmlesegeräte angewiesen sein, Software, die digitalen Text vorliest. Einige Beispiele für Bildschirmlesegeräte sind:
+Zu Menschen mit Sehbeeinträchtigungen gehören blinde Menschen, Menschen mit eingeschränktem Sehvermögen und Menschen mit Farbenblindheit. Viele Menschen mit Sehbeeinträchtigungen verwenden Bildschirmvergrößerungen, die entweder physische Lupen oder Software-Zoomfunktionen sind. Die meisten Browser und Betriebssysteme verfügen heutzutage über Zoomfunktionen. Einige Nutzende verlassen sich auf Screenreader, also Software, die digitalen Text laut vorliest. Beispiele für Screenreader sind:
 
-- Kostenpflichtige kommerzielle Produkte, wie [JAWS](https://vispero.com/jaws-screen-reader-software/) (Windows) und [Dolphin Screen Reader](https://yourdolphin.com/ScreenReader) (Windows).
-- Kostenlose Produkte wie [NVDA](https://www.nvaccess.org/) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (Chrome) und [Orca](https://help.gnome.org/orca/introduction.html) (Linux - standardmäßig auf mehreren Distributionen installiert).
-- In das Betriebssystem integrierte Software wie [VoiceOver](https://www.apple.com/accessibility/features/?vision) (macOS, iPadOS, iOS), [Narrator](https://support.microsoft.com/en-US/accessibility/windows/narrator/complete-guide-to-narrator) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (auf ChromeOS) und [TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback) (Android).
+- Kostenpflichtige kommerzielle Produkte wie [JAWS](https://vispero.com/jaws-screen-reader-software/) (Windows) und [Dolphin Screen Reader](https://yourdolphin.com/ScreenReader) (Windows).
+- Kostenlose Produkte wie [NVDA](https://www.nvaccess.org/) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (Chrome) und [Orca](https://help.gnome.org/orca/introduction.html) (Linux – auf mehreren Distributionen standardmäßig installiert).
+- In das Betriebssystem integrierte Software wie [VoiceOver](https://www.apple.com/accessibility/features/?vision) (macOS, iPadOS, iOS), [Narrator](https://support.microsoft.com/en-us/accessibility/windows/narrator/complete-guide-to-narrator) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (unter ChromeOS) und [TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback) (Android).
 
-Es ist eine gute Idee, sich mit Bildschirmlesegeräten vertraut zu machen; Sie sollten auch ein solches Gerät einrichten und damit experimentieren, um eine Vorstellung davon zu bekommen, wie es funktioniert. Weitere Details zur Verwendung finden Sie in unseren [Bildschirmleser-Tutorials](/de/docs/Learn_web_development/Core/Accessibility/Tooling#screen_readers). Das folgende Video bietet ebenfalls ein kurzes Beispiel dafür, wie die Erfahrung aussieht.
+Es ist sinnvoll, sich mit Screenreadern vertraut zu machen. Sie sollten auch einen Screenreader einrichten und damit experimentieren, um eine Vorstellung von seiner Funktionsweise zu bekommen. Weitere Details zur Verwendung finden Sie in unseren [Screenreader-Tutorials](/de/docs/Learn_web_development/Core/Accessibility/Tooling#screen_readers). Das folgende Video bietet ebenfalls ein kurzes Beispiel dafür, wie sich die Nutzung anfühlt.
 
 {{EmbedYouTube("IK97XMibEws")}}
 
-Laut Statistiken der Weltgesundheitsorganisation werden "weltweit 285 Millionen Menschen als sehbehindert eingeschätzt: 39 Millionen sind blind und 246 Millionen haben eine Sehschwäche." (siehe [Sehbehinderung und Blindheit](https://www.who.int/en/news-room/fact-sheets/detail/blindness-and-visual-impairment)). Das ist eine große und bedeutende Nutzergruppe, die man nicht ignorieren sollte, weil Ihre Website nicht richtig kodiert ist — fast so groß wie die Bevölkerung der Vereinigten Staaten von Amerika.
+Laut Statistiken schätzt die Weltgesundheitsorganisation, dass „weltweit schätzungsweise 285 Millionen Menschen sehbeeinträchtigt sind: 39 Millionen sind blind und 246 Millionen haben ein eingeschränktes Sehvermögen“ (siehe [Visual impairment and blindness](https://www.who.int/en/news-room/fact-sheets/detail/blindness-and-visual-impairment)). Das ist eine große und bedeutende Nutzergruppe, die Sie allein deshalb ausschließen würden, weil Ihre Website nicht korrekt programmiert ist — fast so groß wie die Bevölkerung der Vereinigten Staaten von Amerika.
 
-### Personen mit Hörbehinderungen
+### Menschen mit Hörbeeinträchtigungen
 
-[Taube und schwerhörige (DHH)](https://www.nad.org/resources/american-sign-language/community-and-culture-frequently-asked-questions/) Personen haben unterschiedliche Grade des Hörverlusts, die von leicht bis schwerwiegend reichen. Obwohl einige von ihnen AT verwenden (siehe [Hilfsgeräte für Menschen mit Hör-, Sprach-, Sprech- oder Sprachstörungen](https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders)), sind sie nicht weit verbreitet.
+[Taube und schwerhörige (DHH)](https://www.nad.org/resources/american-sign-language/community-and-culture-frequently-asked-questions/) Menschen haben unterschiedlich starke Hörverluste, von leicht bis hochgradig. Zwar verwenden einige assistive Technologien (siehe [Assistive Devices for People with Hearing, Voice, Speech, or Language Disorders](https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders)), diese sind jedoch nicht weit verbreitet.
 
-Um Zugang zu gewähren, müssen textuelle Alternativen bereitgestellt werden. Videos sollten manuell untertitelt und Transkripte für Audiomaterial bereitgestellt werden. Aufgrund der hohen Raten von [Sprachentzug](https://epicspecialeducationstaffing.com/language-deprivation/#:~:text=Language%20deprivation%20is%20the%20term,therefore%20not%20exposed%20to%20language.) in DHH-Populationen sollte [Textvereinfachung berücksichtigt werden](https://circlcenter.org/collaborative-research-automatic-text-simplification-and-reading-assistance-to-support-self-directed-learning-by-deaf-and-hard-of-hearing-computing-workers/).
+Um Zugang zu ermöglichen, müssen textliche Alternativen bereitgestellt werden. Videos sollten manuell untertitelt werden, und für Audioinhalte sollten Transkripte verfügbar sein. Darüber hinaus sollte aufgrund des hohen Ausmaßes an [Sprachdeprivation](https://stoneharborstaffing.com/blog/language-deprivation#:~:text=Language%20deprivation%20is%20the%20term,therefore%20not%20exposed%20to%20language.) in DHH-Populationen eine [Vereinfachung von Texten erwogen werden](https://circlcenter.org/collaborative-research-automatic-text-simplification-and-reading-assistance-to-support-self-directed-learning-by-deaf-and-hard-of-hearing-computing-workers/).
 
-Taube und schwerhörige Menschen sind ebenfalls eine bedeutende Nutzerbasis — "466 Millionen Menschen weltweit haben bebildernde Hörstörungen", sagt das Faktenblatt der Weltgesundheitsorganisation [Taubheit und Hörverlust](https://www.who.int/en/news-room/fact-sheets/detail/deafness-and-hearing-loss).
+Taube und schwerhörige Menschen stellen ebenfalls eine bedeutende Nutzerbasis dar — laut dem Faktenblatt [Deafness and hearing loss](https://www.who.int/en/news-room/fact-sheets/detail/deafness-and-hearing-loss) der Weltgesundheitsorganisation „haben weltweit 466 Millionen Menschen einen beeinträchtigenden Hörverlust“.
 
-### Menschen mit Mobilitätsbehinderungen
+### Menschen mit Mobilitätseinschränkungen
 
-Diese Personen haben Behinderungen im Zusammenhang mit Bewegung, die rein physische Probleme (wie Verlust eines Gliedes oder Lähmung) oder neurologische/genetische Störungen umfassen können, die zu Schwäche oder Kontrollverlust in den Gliedmaßen führen. Einige Menschen könnten Schwierigkeiten haben, die genauen Handbewegungen auszuführen, die für die Verwendung einer Maus erforderlich sind, während andere möglicherweise schwerer betroffen sind und möglicherweise erheblich gelähmt sind, sodass sie einen [Kopfzeiger](https://www.performancehealth.com/adjustable-headpointer) verwenden müssen, um mit Computern zu interagieren.
+Diese Menschen haben Behinderungen, die die Bewegung betreffen. Dabei kann es sich um rein körperliche Probleme handeln (etwa den Verlust einer Gliedmaße oder Lähmungen) oder um neurologische/genetische Erkrankungen, die zu Schwäche oder Kontrollverlust in Gliedmaßen führen. Einige Menschen haben möglicherweise Schwierigkeiten, die für die Verwendung einer Maus erforderlichen präzisen Handbewegungen auszuführen, während andere stärker beeinträchtigt sein können, möglicherweise so stark gelähmt, dass sie einen [Kopfzeiger](https://www.performancehealth.com/adjustable-headpointer) benötigen, um mit Computern zu interagieren.
 
-Diese Art von Behinderung kann auch eine Folge von Alter sein, anstatt eines spezifischen Traumas oder Zustands, und könnte auch aus Hardwarebeschränkungen resultieren — einige Benutzer haben möglicherweise keine Maus.
+Diese Art von Behinderung kann auch eine Folge des Alters sein und nicht einer bestimmten Verletzung oder Erkrankung. Sie kann außerdem aus Hardwarebeschränkungen resultieren — einige Nutzende haben möglicherweise keine Maus.
 
-Dies betrifft in der Regel die Webentwicklung dahingehend, dass Bedienelemente über die Tastatur zugänglich sein müssen — wir werden die Tastaturzugänglichkeit in späteren Artikeln im Modul diskutieren, aber es ist eine gute Idee, einige Websites nur mit der Tastatur auszuprobieren, um zu sehen, wie Sie vorankommen. Können Sie beispielsweise die Tab-Taste verwenden, um zwischen den verschiedenen Steuerelementen eines Webformulars zu wechseln? Weitere Details zu Tastatursteuerelementen finden Sie in unserem Abschnitt [Verwenden Sie semantische UI-Steuerelemente, wo möglich](/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible).
+Die Auswirkungen auf die Webentwicklungsarbeit bestehen üblicherweise darin, dass Bedienelemente über die Tastatur zugänglich sein müssen. Wir werden die Tastaturzugänglichkeit in späteren Artikeln dieses Moduls behandeln, aber es ist sinnvoll, einige Websites nur mit der Tastatur auszuprobieren, um zu sehen, wie gut Sie zurechtkommen. Können Sie beispielsweise mit der Tab-Taste zwischen den verschiedenen Bedienelementen eines Webformulars wechseln? Weitere Details zu Tastaturbedienelementen finden Sie in unserem Abschnitt [Use semantic UI controls where possible](/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible).
 
-In Bezug auf Statistiken haben eine signifikante Anzahl von Menschen Mobilitätsbehinderungen. Die US-Zentren für Krankheitskontrolle und Prävention [Behinderung und Funktionieren (nicht-institutionalisierte Erwachsene 18 Jahre und älter)](https://www.cdc.gov/nchs/fastats/disability.htm) berichten über die USA "Prozent der Erwachsenen mit körperlicher Funktionsstörung: 16,1%".
+Auch statistisch gesehen haben viele Menschen Mobilitätseinschränkungen. Die US Centers for Disease Control and Prevention berichten in [Disability and Functioning (Non-institutionalized Adults 18 Years and Over)](https://www.cdc.gov/nchs/fastats/disability.htm) für die USA: „Anteil der Erwachsenen mit Schwierigkeiten bei mindestens einer körperlichen Funktion: 16,1 %“.
 
 ### Menschen mit kognitiven Beeinträchtigungen
 
-Kognitive Beeinträchtigungen beziehen sich auf eine breite Palette von Behinderungen, von Personen mit intellektuellen Behinderungen, die die am meisten eingeschränkten Fähigkeiten haben, bis hin zu uns allen, wenn wir altern und Schwierigkeiten haben, zu denken und sich zu erinnern. Die Bandbreite umfasst Menschen mit psychischen Erkrankungen wie [Depression](https://www.nimh.nih.gov/health/topics/depression) und [Schizophrenie](https://www.nimh.nih.gov/health/topics/schizophrenia). Sie umfasst auch Menschen mit Lernbehinderungen wie [Dyslexie](https://www.nichd.nih.gov/health/topics/learningdisabilities) und [Aufmerksamkeitsdefizit-Hyperaktivitätsstörung](https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd). Wichtig ist, dass es trotz der großen Vielfalt an klinischen Definitionen kognitiver Beeinträchtigungen einen gemeinsamen Satz funktionaler Probleme gibt, denen Menschen mit diesen Beeinträchtigungen begegnen. Dazu gehören Schwierigkeiten beim Verstehen von Inhalten, das Erinnern, wie man Aufgaben erledigt, und Verwirrung, die durch inkonsistente Webseitenlayouts verursacht wird.
+Kognitive Beeinträchtigung bezeichnet ein breites Spektrum von Behinderungen: von Menschen mit intellektuellen Behinderungen und den stärksten Einschränkungen bis zu uns allen, wenn wir älter werden und Schwierigkeiten beim Denken und Erinnern haben. Das Spektrum umfasst Menschen mit psychischen Erkrankungen wie [Depressionen](https://www.nimh.nih.gov/health/topics/depression) und [Schizophrenie](https://www.nimh.nih.gov/health/topics/schizophrenia). Es umfasst auch Menschen mit Lernbehinderungen wie [Legasthenie](https://www.nichd.nih.gov/health/topics/learningdisabilities) und [Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung](https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd). Wichtig ist: Obwohl die klinischen Definitionen kognitiver Beeinträchtigungen sehr vielfältig sind, erleben betroffene Menschen eine gemeinsame Reihe funktionaler Probleme. Dazu gehören Schwierigkeiten beim Verstehen von Inhalten, beim Erinnern daran, wie Aufgaben erledigt werden, sowie Verwirrung durch uneinheitliche Webseitenlayouts.
 
-Eine gute Grundlage der Barrierefreiheit für Menschen mit kognitiven Beeinträchtigungen umfasst:
+Eine gute Grundlage für Barrierefreiheit für Menschen mit kognitiven Beeinträchtigungen umfasst:
 
-- Bereitstellung von Inhalten auf mehr als eine Weise, z.B. durch Text-zu-Sprache oder Video.
-- Leicht verständliche Inhalte, wie Texte, die den Standards für einfache Sprache entsprechen.
-- Konzentration auf wichtige Inhalte.
-- Minimierung von Ablenkungen wie unnötigen Inhalten oder Werbung.
-- Konsistente Webseitenlayout und Navigation.
-- Vertraute Elemente, wie unterstrichene Links blau, wenn nicht besucht, und violett, wenn besucht.
-- Aufteilung von Prozessen in logische, essentielle Schritte mit Fortschrittsanzeigern.
-- Website-Authentifizierung so einfach wie möglich, ohne die Sicherheit zu kompromittieren.
-- Formulare einfach zu vervollständigen, wie z.B. mit klaren Fehlernachrichten und einfacher Fehlerbehebung.
+- Die Bereitstellung von Inhalten auf mehr als eine Weise, etwa durch Text-zu-Sprache oder Video.
+- Leicht verständliche Inhalte, etwa Texte, die nach Standards für einfache Sprache verfasst sind.
+- Die Fokussierung der Aufmerksamkeit auf wichtige Inhalte.
+- Die Minimierung von Ablenkungen wie unnötigen Inhalten oder Werbung.
+- Einheitliches Webseitenlayout und einheitliche Navigation.
+- Vertraute Elemente, etwa unterstrichene Links, die blau sind, wenn sie noch nicht besucht wurden, und violett, wenn sie besucht wurden.
+- Die Unterteilung von Prozessen in logische, wesentliche Schritte mit Fortschrittsanzeigen.
+- Eine möglichst einfache Website-Authentifizierung, ohne die Sicherheit zu beeinträchtigen.
+- Das einfache Ausfüllen von Formularen, etwa durch klare Fehlermeldungen und eine einfache Fehlerbehebung.
 
 ### Hinweise
 
-- Das Design mit [kognitiver Barrierefreiheit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility) wird zu guten Designpraktiken führen. Sie werden allen zugutekommen.
+- Das Gestalten unter Berücksichtigung der [kognitiven Barrierefreiheit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility) führt zu guten Gestaltungspraktiken. Davon profitieren alle.
 - Viele Menschen mit kognitiven Beeinträchtigungen haben auch körperliche Behinderungen. Websites müssen den [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) des W3C entsprechen, einschließlich der [Richtlinien zur kognitiven Barrierefreiheit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility#wcag_guidelines).
-- Die W3C-[Taskforce zur Zugänglichkeit für kognitive und Lernbehinderungen](https://www.w3.org/WAI/GL/task-forces/coga/) erstellt Richtlinien zur Web-Barrierefreiheit für Menschen mit kognitiven Beeinträchtigungen.
-- WebAIM hat eine [Cognitive-Seite](https://webaim.org/articles/cognitive/) mit relevanten Informationen und Ressourcen.
-- Die US-Zentren für Krankheitskontrolle schätzen, dass ab 2018 1 von 4 US-Bürgern eine Behinderung hat und davon [kognitive Beeinträchtigungen am häufigsten bei jungen Menschen auftreten](https://archive.cdc.gov/www_cdc_gov/media/releases/2018/p0816-disability.html).
-- In den USA wurden einige intellektuelle Behinderungen in der Vergangenheit als "geistige Behinderung" bezeichnet. Viele betrachten diesen Begriff mittlerweile als abwertend, daher sollte seine Verwendung vermieden werden.
-- Im Vereinigten Königreich werden einige intellektuelle Behinderungen als "Lernbehinderungen" oder "Lernschwierigkeiten" bezeichnet.
+- Die [Cognitive and Learning Disabilities Accessibility Task Force](https://www.w3.org/WAI/GL/task-forces/coga/) des W3C erstellt Web-Barrierefreiheitsrichtlinien für Menschen mit kognitiven Beeinträchtigungen.
+- WebAIM bietet eine [Cognitive-Seite](https://webaim.org/articles/cognitive/) mit relevanten Informationen und Ressourcen.
+- Die United States Centers for Disease Control schätzen, dass im Jahr 2018 einer von vier US-Bürgern eine Behinderung hatte und dass [kognitive Beeinträchtigungen bei jungen Menschen am häufigsten vorkommen](https://archive.cdc.gov/www_cdc_gov/media/releases/2018/p0816-disability.html).
+- In den USA wurden einige intellektuelle Behinderungen historisch als „mental retardation“ bezeichnet. Viele betrachten diesen Begriff heute als abwertend, weshalb seine Verwendung vermieden werden sollte.
+- Im Vereinigten Königreich werden einige intellektuelle Behinderungen als „learning disabilities“ oder „learning difficulties“ bezeichnet.
 
-## Umsetzung von Barrierefreiheit in Ihr Projekt
+## Barrierefreiheit in Ihr Projekt integrieren
 
-Ein verbreiteter Mythos zur Barrierefreiheit ist, dass die Barrierefreiheit eine teure "zusätzliche" Implementierung in einem Projekt ist. Dieser Mythos kann tatsächlich _wahr_ sein, wenn entweder:
+Ein verbreiteter Mythos zur Barrierefreiheit ist, dass sie ein kostspieliges „zusätzliches Extra“ ist, das in einem Projekt umgesetzt werden muss. Dieser Mythos _kann_ tatsächlich zutreffen, wenn entweder:
 
-- Sie versuchen, "nachträglich" Barrierefreiheit auf eine bestehende Website anzuwenden, die erhebliche Barrierefreiheitprobleme hat.
-- Sie erst spät im Projektverlauf beginnen, Barrierefreiheit zu berücksichtigen, und damit verbundene Probleme aufdecken.
+- Sie versuchen, eine bestehende Website mit erheblichen Barrierefreiheitsproblemen nachträglich barrierefrei zu machen.
+- Sie erst in den späten Phasen eines Projekts begonnen haben, Barrierefreiheit zu berücksichtigen, und damit zusammenhängende Probleme aufdecken.
 
-Wenn Sie jedoch die Barrierefreiheit von Anfang an in Ihr Projekt einbeziehen, sollten die Kosten für die Barrierefreiheit der meisten Inhalte relativ gering sein.
+Wenn Sie Barrierefreiheit jedoch von Beginn eines Projekts an berücksichtigen, sollten die Kosten für die barrierefreie Gestaltung der meisten Inhalte recht gering sein.
 
-Wenn Sie Ihr Projekt planen, berücksichtigen Sie die Barrierefreiheitstests in Ihrem Testregime, genau wie Tests für jedes andere wichtige Zielpublikum (z.B. Ziel-Desktop- oder Mobilbrowser). Testen Sie früh und häufig, idealerweise durch automatisierte Tests, um programmatisch erkennbar fehlende Funktionen (wie fehlenden Bildalternativtext oder schlechten Linktext — siehe [Verwenden Sie sinnvolle Textbeschriftungen](/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels)) zu identifizieren und einige Tests mit behinderten Benutzergruppen durchzuführen, um zu sehen, wie gut komplexere Website-Funktionen für sie funktionieren. Zum Beispiel:
+Berücksichtigen Sie bei der Projektplanung Tests zur Barrierefreiheit in Ihrem Testregime, genau wie Tests für jedes andere wichtige Zielgruppensegment, beispielsweise Desktop- oder Mobilbrowser. Testen Sie früh und häufig. Idealerweise führen Sie automatisierte Tests aus, um programmatisch erkennbare fehlende Funktionen aufzudecken (etwa fehlenden [Alternativtext](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) für Bilder oder schlechten Linktext — siehe [Use meaningful text labels](/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels)), und testen Sie mit Gruppen von Nutzenden mit Behinderungen, um zu sehen, wie gut komplexere Website-Funktionen für sie funktionieren. Zum Beispiel:
 
-- Ist mein Datumswähler-Widget für Benutzer von Bildschirmlesegeräten nutzbar?
-- Wenn sich Inhalte dynamisch aktualisieren, wissen sehbehinderte Menschen davon?
-- Sind meine UI-Schaltflächen für sowohl Tastatur- als auch Touch-Interface-Benutzer zugänglich?
+- Ist mein Date-Picker-Widget für Menschen nutzbar, die Screenreader verwenden?
+- Wenn Inhalte dynamisch aktualisiert werden, wissen sehbeeinträchtigte Menschen davon?
+- Sind meine UI-Schaltflächen sowohl für Nutzende von Tastaturen als auch von Touch-Oberflächen zugänglich?
 
-Sie können und sollten sich mögliche Problemgebiete in Ihren Inhalten merken, die Arbeit benötigen, um sie barrierefrei zu machen, sicherstellen, dass sie gründlich getestet werden, und Lösungen/Alternativen in Betracht ziehen. Textinhalt (wie Sie im nächsten Artikel sehen werden) ist einfach, aber wie steht es mit Ihren Multimedia-Inhalten und Ihren aufregenden 3D-Grafiken? Sie sollten Ihr Projektbudget betrachten und überlegen, welche Lösungen Sie haben, um solche Inhalte barrierefrei zu machen. Die Transkription all Ihrer Multimedia-Inhalte ist eine Option, die, obwohl teuer, möglich ist.
+Sie können und sollten sich potenzielle Problembereiche in Ihren Inhalten notieren, die Arbeit erfordern, um barrierefrei zu werden. Stellen Sie sicher, dass sie gründlich getestet werden, und überlegen Sie sich Lösungen oder Alternativen. Textinhalte sind, wie Sie im nächsten Artikel sehen werden, einfach — aber was ist mit Ihren Multimedia-Inhalten und Ihren aufwendigen 3D-Grafiken? Sie sollten Ihr Projektbudget prüfen und überlegen, welche Lösungen Ihnen zur Verfügung stehen, um solche Inhalte barrierefrei zu machen. Eine mögliche, wenn auch kostspielige Option besteht darin, alle Ihre Multimedia-Inhalte transkribieren zu lassen.
 
-Seien Sie auch realistisch. "100% Barrierefreiheit" ist ein unerreichbares Ideal — Sie werden immer auf einen gewissen Randfall stoßen, bei dem ein bestimmter Benutzer bestimmte Inhalte schwer verwenden kann — aber Sie sollten so viel wie möglich tun. Wenn Sie planen, eine aufregende 3D-Tortengrafik mit WebGL einzubinden, möchten Sie möglicherweise eine Datentabelle als barrierefreie alternative Darstellung der Daten einfügen. Oder, Sie könnten einfach die Tabelle einfügen und die 3D-Tortengrafik weglassen — die Tabelle ist für alle zugänglich, schneller zu kodieren, weniger CPU-intensiv und einfacher zu warten.
+Seien Sie außerdem realistisch. „100 % Barrierefreiheit“ ist ein unerreichbares Ideal — Sie werden immer auf Sonderfälle stoßen, in denen bestimmte Nutzende bestimmte Inhalte nur schwer verwenden können. Sie sollten jedoch so viel wie möglich tun. Wenn Sie planen, eine aufwendige 3D-Kreisdiagrammgrafik mit WebGL einzubinden, sollten Sie möglicherweise eine Datentabelle als barrierefreie Alternativdarstellung der Daten bereitstellen. Oder Sie möchten vielleicht einfach nur die Tabelle einbinden und das 3D-Kreisdiagramm weglassen — die Tabelle ist für alle zugänglich, schneller zu programmieren, weniger CPU-intensiv und leichter zu warten.
 
-Andererseits, wenn Sie an einer Galerie-Website arbeiten, die interessante 3D-Kunst zeigt, wäre es unvernünftig zu erwarten, dass jedes Kunstwerk perfekt für sehbehinderte Menschen zugänglich ist, da es ein rein visuelles Medium ist.
+Wenn Sie dagegen an einer Galerie-Website arbeiten, die interessante 3D-Kunst zeigt, wäre es unangemessen zu erwarten, dass jedes Kunstwerk für sehbeeinträchtigte Menschen perfekt zugänglich ist, da es sich um ein vollständig visuelles Medium handelt.
 
-Um zu zeigen, dass Ihnen Barrierefreiheit wichtig ist und Sie darüber nachgedacht haben, veröffentlichen Sie eine Erklärung zur Barrierefreiheit auf Ihrer Website, die beschreibt, was Ihre Politik in Bezug auf Barrierefreiheit ist und welche Schritte Sie unternommen haben, um die Site barrierefrei zu machen. Wenn jemand Sie darauf hinweist, dass Ihre Website ein Barrierefreiheitsproblem hat, beginnen Sie einen Dialog mit ihm, zeigen Sie Einfühlungsvermögen und ergreifen Sie angemessene Maßnahmen, um das Problem zu beheben.
+Um zu zeigen, dass Sie Barrierefreiheit wichtig nehmen und darüber nachgedacht haben, veröffentlichen Sie auf Ihrer Website eine Erklärung zur Barrierefreiheit. Darin sollten Sie Ihre Richtlinien zur Barrierefreiheit und die Schritte erläutern, die Sie unternommen haben, um die Website barrierefrei zu gestalten. Falls Ihnen jemand mitteilt, dass Ihre Website ein Barrierefreiheitsproblem hat, beginnen Sie einen Dialog mit dieser Person, zeigen Sie Empathie und unternehmen Sie angemessene Schritte, um das Problem zu beheben.
 
-Zusammenfassend:
+Zusammengefasst:
 
-- Berücksichtigen Sie Barrierefreiheit von Beginn eines Projekts an und testen Sie früh und häufig. Genau wie bei jedem anderen Fehler wird eine Barrierefreiheitproblem teurer, je später es entdeckt wird.
-- Denken Sie daran, dass viele bewährte Praktiken der Barrierefreiheit allen zugutekommen, nicht nur Benutzern mit Behinderungen. Zum Beispiel ist schlankes semantisches Markup nicht nur gut für Bildschirmleseprogramme, sondern auch schnell zu laden und performant. Dies kommt allen zugute, insbesondere Nutzern mobiler Geräte und/oder langsamer Verbindungen.
-- Veröffentlichen Sie eine Erklärung zur Barrierefreiheit auf Ihrer Website und engagieren Sie sich mit Menschen, die Probleme haben.
+- Berücksichtigen Sie Barrierefreiheit von Beginn eines Projekts an und testen Sie früh und häufig. Wie jeder andere Fehler wird auch ein Barrierefreiheitsproblem umso teurer zu beheben, je später es entdeckt wird.
+- Denken Sie daran, dass viele bewährte Praktiken für Barrierefreiheit allen zugutekommen, nicht nur Nutzenden mit Behinderungen. Schlankes semantisches Markup ist beispielsweise nicht nur gut für Screenreader, sondern lädt auch schnell und bietet eine gute Performance. Davon profitieren alle, insbesondere Personen mit Mobilgeräten und/oder langsamen Verbindungen.
+- Veröffentlichen Sie auf Ihrer Website eine Erklärung zur Barrierefreiheit und treten Sie mit Personen in Kontakt, die Probleme haben.
 
-## Barrierefreiheitsrichtlinien und das Gesetz
+## Richtlinien zur Barrierefreiheit und das Gesetz
 
-Es gibt zahlreiche Checklisten und Richtlinien, auf denen Barrierefreiheitstests basieren können, was auf den ersten Blick überwältigend erscheinen mag. Unser Ratschlag ist, sich mit den grundlegenden Bereichen vertraut zu machen, in denen Sie darauf achten müssen, sowie die übergeordneten Strukturen der für Sie am relevantesten Richtlinien zu verstehen.
+Es gibt zahlreiche Checklisten und Richtliniensammlungen, auf denen Barrierefreiheitstests basieren können. Das kann auf den ersten Blick überwältigend wirken. Unser Rat ist, sich mit den grundlegenden Bereichen vertraut zu machen, in denen Sie sorgfältig vorgehen müssen, und die übergeordneten Strukturen der für Sie relevantesten Richtlinien zu verstehen.
 
-- Zunächst hat das W3C ein großes und sehr detailliertes Dokument veröffentlicht, das sehr präzise, technologieunabhängige Kriterien für die Einhaltung der Barrierefreiheit enthält. Diese heißen die [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) (WCAG), und sie sind keineswegs eine kurze Lektüre. Die Kriterien sind in vier Hauptkategorien unterteilt, die spezifizieren, wie Implementierungen wahrnehmbar, bedienbar, verständlich und robust gestaltet werden können. Der beste Ort, um eine leichte Einführung zu erhalten und zu lernen, ist [WCAG auf einen Blick](https://www.w3.org/WAI/standards-guidelines/wcag/glance/). Es ist nicht notwendig, alle WCAG-Kriterien zu lernen - seien Sie sich der Hauptbereiche bewusst, und verwenden Sie eine Vielzahl von Techniken und Tools, um Bereiche hervorzuheben, die nicht den WCAG-Kriterien entsprechen (siehe unten für mehr).
-- Ihr Land könnte auch spezifische Gesetze haben, die regeln, dass Websites, die ihrer Bevölkerung dienen, barrierefrei sein müssen - zum Beispiel [EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf) in der EU, [Section 508 of the Rehabilitation Act](https://www.section508.gov/training/) in den USA, [Barrierefreie Informationstechnik-Verordnung](https://www.aktion-mensch.de/inklusion/barrierefreiheit/barrierefreie-website) in Deutschland, die [Accessibility Regulations 2018](https://www.legislation.gov.uk/uksi/2018/952/introduction/made) in Großbritannien, [Accessibilità](https://www.agid.gov.it/it/ambiti-intervento/accessibilita-usabilita) in Italien, das [Disability Discrimination Act](https://humanrights.gov.au/resource-hub/by-resource-type/guidelines-and-standards/guides-and-standards-disability-rights/guidelines-equal-access-digital-goods-and-services) in Australien, usw. Das W3C führt eine Liste von [Web Accessibility Laws & Policies](https://www.w3.org/WAI/policies/) nach Ländern.
+- Zunächst hat das W3C ein umfangreiches und sehr detailliertes Dokument veröffentlicht, das präzise, technologieunabhängige Kriterien für die Konformität mit Barrierefreiheit enthält. Diese werden als [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) (WCAG) bezeichnet, und sie sind keineswegs kurz. Die Kriterien sind in vier Hauptkategorien unterteilt, die festlegen, wie Implementierungen wahrnehmbar, bedienbar, verständlich und robust gestaltet werden können. Der beste Ort für eine kurze Einführung und den Einstieg ist [WCAG at a Glance](https://www.w3.org/WAI/standards-guidelines/wcag/glance/). Sie müssen nicht alle WCAG-Kriterien lernen — seien Sie sich der wichtigsten Problembereiche bewusst und verwenden Sie verschiedene Techniken und Werkzeuge, um Bereiche hervorzuheben, die den WCAG-Kriterien nicht entsprechen (siehe unten für weitere Informationen).
+- Ihr Land kann außerdem spezielle Gesetze haben, die vorschreiben, dass Websites für die jeweilige Bevölkerung barrierefrei sein müssen — beispielsweise [EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf) in der EU, [Section 508 of the Rehabilitation Act](https://www.section508.gov/training/) in den USA, die [Verordnung zur Schaffung barrierefreier Informationstechnik](https://www.aktion-mensch.de/inklusion/barrierefreiheit/barrierefreie-website) in Deutschland, die [Accessibility Regulations 2018](https://www.legislation.gov.uk/uksi/2018/952/introduction/made) im Vereinigten Königreich, [Accessibilità](https://www.agid.gov.it/it/ambiti-intervento/accessibilita-usabilita) in Italien, der [Disability Discrimination Act](https://humanrights.gov.au/resource-hub/by-resource-type/guidelines-and-standards/guides-and-standards-disability-rights/guidelines-equal-access-digital-goods-and-services) in Australien usw. Das W3C führt eine nach Ländern geordnete Liste der [Web Accessibility Laws & Policies](https://www.w3.org/WAI/policies/).
 
-Also während die WCAG eine Reihe von Richtlinien ist, wird Ihr Land wahrscheinlich Gesetze haben, die die Barrierefreiheit des Webs regeln, zumindest aber die Barrierefreiheit von öffentlich zugänglichen Dienstleistungen (die Websites, Fernsehen, physische Räume usw. beinhalten können). Es ist eine gute Idee, herauszufinden, welche Gesetze für Sie gelten. Wenn Sie keine Anstrengung unternehmen, um zu überprüfen, ob Ihre Inhalte barrierefrei sind, könnten Sie rechtlich haftbar sein, wenn Personen sich beschweren.
+Während die WCAG also eine Reihe von Richtlinien sind, gibt es in Ihrem Land wahrscheinlich Gesetze zur Web-Barrierefreiheit oder zumindest zur Barrierefreiheit öffentlicher Dienste, zu denen Websites, Fernsehen, physische Räume usw. gehören können. Es ist sinnvoll, herauszufinden, welche Gesetze für Sie gelten. Wenn Sie keinerlei Anstrengungen unternehmen, um die Barrierefreiheit Ihrer Inhalte zu überprüfen, können Sie rechtlich haftbar sein, wenn Menschen Beschwerden einreichen.
 
-Das klingt ernst, aber eigentlich müssen Sie Barrierefreiheit einfach nur als Hauptpriorität in Ihren Webentwicklungspraktiken berücksichtigen, wie oben beschrieben. Im Zweifelsfall holen Sie sich Rat von einem qualifizierten Anwalt. Wir werden nicht mehr Ratschläge als das geben, weil wir keine Anwälte sind.
+Das klingt ernst, aber tatsächlich müssen Sie Barrierefreiheit nur zur Hauptpriorität Ihrer Webentwicklungspraktiken machen, wie oben beschrieben. Holen Sie im Zweifelsfall Rat bei einem qualifizierten Rechtsanwalt ein. Wir geben hierzu keine weitergehenden Ratschläge, da wir keine Rechtsanwälte sind.
 
-## Barrierefreiheits-APIs
+## Accessibility APIs
 
-Webbrowser verwenden spezielle **Barrierefreiheits-APIs** (bereitgestellt durch das zugrunde liegende Betriebssystem), die Informationen bereitstellen, die für Hilfstechnologien (ATs) nützlich sind — ATs tendieren hauptsächlich dazu, semantische Informationen zu verwenden, sodass diese Informationen keine Stilinformatieonen oder JavaScript enthalten. Diese Informationen sind in einem Informationsbaum strukturiert, der als **Barrierefreiheitbaum** bezeichnet wird.
+Webbrowser verwenden spezielle **Accessibility APIs** (die vom zugrunde liegenden Betriebssystem bereitgestellt werden), welche Informationen bereitstellen, die für assistive Technologien (ATs) nützlich sind. ATs verwenden meist semantische Informationen; diese Informationen enthalten daher keine Dinge wie Styling-Informationen oder JavaScript. Diese Informationen sind in einer Informationsbaumstruktur organisiert, die **Accessibility Tree** genannt wird.
 
-Verschiedene Betriebssysteme haben unterschiedliche Barrierefreiheits-APIs verfügbar:
+Verschiedene Betriebssysteme stellen unterschiedliche Accessibility APIs bereit:
 
 - Windows: MSAA/IAccessible, UIAExpress, IAccessible2
 - macOS: NSAccessibility
@@ -162,11 +162,11 @@ Verschiedene Betriebssysteme haben unterschiedliche Barrierefreiheits-APIs verf�
 - Android: Accessibility framework
 - iOS: UIAccessibility
 
-Wo die native semantische Informationen, die von den HTML-Elementen in Ihren Web-Apps bereitgestellt werden, versagen, können Sie sie mit Funktionen aus der [WAI-ARIA-Spezifikation](https://w3c.github.io/aria/) ergänzen, die semantische Informationen zum Barrierefreiheitbaum hinzufügen, um die Barrierefreiheit zu verbessern. Sie können viel mehr über WAI-ARIA in unserem Artikel [WAI-ARIA Grundlagen](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) erfahren.
+Wenn die von den HTML-Elementen in Ihren Web-Apps bereitgestellten nativen semantischen Informationen nicht ausreichen, können Sie sie mit Funktionen aus der [WAI-ARIA-Spezifikation](https://w3c.github.io/aria/) ergänzen. Diese fügen dem Accessibility Tree semantische Informationen hinzu, um die Barrierefreiheit zu verbessern. In unserem Artikel [WAI-ARIA basics](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) können Sie viel mehr über WAI-ARIA erfahren.
 
 ## Zusammenfassung
 
-Dieser Artikel sollte Ihnen einen nützlichen Überblick über Barrierefreiheit gegeben haben, Ihnen gezeigt haben, warum sie wichtig ist, und wie Sie sie in Ihren Workflow integrieren können. Sie sollten jetzt auch den Wunsch verspüren, mehr über die Umsetzungsdetails zu erfahren, die Websites barrierefrei machen können, und welche Tools dabei helfen können. Wir werden im nächsten Artikel auf Barrierefreiheitstools eingehen.
+Dieser Artikel sollte Ihnen einen nützlichen Überblick über Barrierefreiheit gegeben, gezeigt haben, warum sie wichtig ist, und erläutert haben, wie Sie sie in Ihren Workflow integrieren können. Sie sollten nun auch den Wunsch haben, mehr über die Implementierungsdetails zu erfahren, die Websites barrierefrei machen können, und darüber, welche Werkzeuge helfen können. Im nächsten Artikel befassen wir uns mit Werkzeugen für Barrierefreiheit.
 
 ## Siehe auch
 
@@ -176,6 +176,6 @@ Dieser Artikel sollte Ihnen einen nützlichen Überblick über Barrierefreiheit 
   - [Verständlich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable)
   - [Robust](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust)
 
-- [Google Chrome hat eine automatische Untertitel-Erweiterung veröffentlicht](https://blog.google/products-and-platforms/products/chrome/live-caption-chrome/)
+- [Google Chrome veröffentlichte eine Erweiterung für automatische Untertitel](https://blog.google/products-and-platforms/products/chrome/live-caption-chrome/)
 
 {{NextMenu("Learn_web_development/Core/Accessibility/Tooling", "Learn_web_development/Core/Accessibility")}}

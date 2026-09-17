@@ -3,20 +3,20 @@ title: "`@charset` CSS at-rule"
 short-title: "@charset"
 slug: Web/CSS/Reference/At-rules/@charset
 l10n:
-  sourceCommit: e328268bb418551ab451881845881b5837c9da83
+  sourceCommit: a4c63d2855b2f557e7d1ee821dee65011d569a41
 ---
 
-Die **`@charset`**-Regel in [CSS](/de/docs/Web/CSS) spezifiziert die Zeichenkodierung, die im Stylesheet verwendet wird. Diese Syntax ist nützlich, wenn nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen in einigen CSS-Eigenschaften, wie {{cssxref("content")}}, verwendet werden. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules). Es ist eine spezifische Byte-Sequenz, die nur ganz am Anfang eines Stylesheets platziert werden kann. Keine anderen Zeichen, außer dem Unicode-Byte-Order-Mark, sind davor erlaubt. Sie folgt auch nicht den normalen CSS-Syntaxregeln, wie der Verwendung von Anführungszeichen oder Leerzeichen.
+Die **`@charset`**-[CSS](/de/docs/Web/CSS)-Regel gibt die in einem Stylesheet verwendete Zeichenkodierung an. Diese Syntax ist nützlich, wenn in einigen CSS-Eigenschaften Nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen verwendet werden, etwa in {{ cssxref("content") }}. Obwohl das erste Zeichen in `@charset` das Symbol `@` ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules). Es ist eine spezifische Bytefolge, die nur ganz am Anfang eines Stylesheets platziert werden kann. Davor sind keine anderen Zeichen erlaubt, mit Ausnahme der Unicode-Byte-Reihenfolge-Markierung. Außerdem folgt sie nicht den normalen CSS-Syntaxregeln, etwa hinsichtlich der Verwendung von Anführungszeichen oder Leerraum.
 
-Wenn ein `@charset` nicht als Kodierungserklärung erkannt wird, wird es als normale At-Regel geparst. Das [CSS-Syntaxmodul](/de/docs/Web/CSS/Guides/Syntax) stuft dieses Fallback-Verhalten als veraltet ein und definiert es als eine nicht erkannte Legacy-Regel, die fallengelassen werden sollte, wenn ein Stylesheet auf Grammatikfehler geprüft wird.
+Wenn ein `@charset` nicht als Zeichensatzdeklaration erkannt wird, wird es als normale At-Regel geparst. Das Modul [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) veraltet dieses Fallback-Verhalten und definiert es als nicht erkannte Legacy-Regel, die verworfen wird, wenn ein Stylesheet grammatikalisch geprüft wird.
 
-Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu definieren, versucht der Browser die folgenden Methoden in der angegebenen Reihenfolge (und hört auf, sobald eine einen Treffer liefert):
+Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu definieren, versucht der Browser die folgenden Methoden in der angegebenen Reihenfolge (und stoppt, sobald eine ein Ergebnis liefert):
 
-1. Der Wert des [Unicode Byte-Order](https://en.wikipedia.org/wiki/Byte_order_mark)-Zeichens, das am Anfang der Datei platziert ist.
-2. Der Wert, der durch das `charset`-Attribut des `Content-Type:` HTTP-Headers oder das Äquivalent im Protokoll, das zum Bereitstellen des Stylesheets verwendet wird, angegeben wird.
-3. Die `@charset` CSS-Deklaration.
-4. Verwendung der im verweisenden Dokument definierten Zeichenkodierung: das `charset`-Attribut des {{HTMLElement("link")}}-Elements. Diese Methode ist veraltet und sollte nicht verwendet werden.
-5. Annahme, dass das Dokument UTF-8 ist.
+1. Den Wert des am Anfang der Datei platzierten [Unicode-Byte-Reihenfolge](https://en.wikipedia.org/wiki/Byte_order_mark)-Zeichens.
+2. Den Wert, der durch das `charset`-Attribut des HTTP-Headers `Content-Type:` oder das Äquivalent im Protokoll angegeben wird, das zur Bereitstellung des Stylesheets verwendet wird.
+3. Die CSS-Deklaration `@charset`.
+4. Die im verweisenden Dokument definierte Zeichenkodierung verwenden: das `charset`-Attribut des {{ HTMLElement("link") }}-Elements. Diese Methode ist veraltet und sollte nicht verwendet werden.
+5. Annehmen, dass das Dokument UTF-8 verwendet.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu def
 ### Parameter
 
 - _charset_
-  - : Ein {{cssxref("&lt;string&gt;")}}, das die zu verwendende Zeichenkodierung angibt. Es muss der Name einer web-sicheren Zeichenkodierung sein, die im [IANA-Registry](https://www.iana.org/assignments/character-sets/character-sets.xhtml) definiert ist, und muss in doppelte Anführungszeichen gesetzt werden, genau einem Leerzeichen (U+0020) folgen und sofort mit einem Semikolon beendet werden. Wenn mehrere Namen mit einer Kodierung verbunden sind, darf nur derjenige, der mit _preferred_ markiert ist, verwendet werden.
+  - : Ein {{cssxref("&lt;string&gt;")}}, der die zu verwendende Zeichenkodierung angibt. Es muss der Name einer webtauglichen Zeichenkodierung sein, die in der [IANA-Registry](https://www.iana.org/assignments/character-sets) definiert ist, und er muss in doppelte Anführungszeichen eingeschlossen sein, auf genau ein Leerzeichenzeichen (U+0020) folgen und unmittelbar mit einem Semikolon abgeschlossen werden. Wenn einer Kodierung mehrere Namen zugeordnet sind, darf nur der als _preferred_ gekennzeichnete verwendet werden.
 
 ## Formale Syntax
 
-Beachten Sie, dass die `@charset`-Regel nicht durch Syntax, sondern durch eine spezifische Byte-Sequenz der folgenden Form geparst wird:
+Beachten Sie, dass die Regel `@charset` nicht über die Syntax, sondern über eine spezifische Bytefolge der folgenden Form geparst wird:
 
 ```plain
 @charset "<charset>";
@@ -40,7 +40,7 @@ Beachten Sie, dass die `@charset`-Regel nicht durch Syntax, sondern durch eine s
 
 ## Beispiele
 
-### Gültige und ungültige Charset-Deklarationen
+### Gültige und ungültige Zeichensatzdeklarationen
 
 ```css-nolint example-good
 @charset "UTF-8"; /* Set the encoding of the style sheet to Unicode UTF-8 */
@@ -63,5 +63,5 @@ Beachten Sie, dass die `@charset`-Regel nicht durch Syntax, sondern durch eine s
 
 ## Siehe auch
 
-- {{Glossary("Character_set", "Zeichensatz")}} Glossareintrag
-- {{Glossary("Unicode", "Unicode")}} Glossareintrag
+- Glossareintrag {{Glossary("Character_set", "Zeichensatz")}}
+- Glossareintrag {{Glossary("Unicode", "Unicode")}}

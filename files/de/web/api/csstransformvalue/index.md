@@ -2,15 +2,15 @@
 title: CSSTransformValue
 slug: Web/API/CSSTransformValue
 l10n:
-  sourceCommit: b9426971d8a2176ad015a0fd01df59ec79760898
+  sourceCommit: 865686a652cb8dc4e9522e23399896e6373bfc19
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSTransformValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) stellt `transform-list`-Werte dar, wie sie von der CSS-Eigenschaft {{cssxref("transform")}} verwendet werden.
-Es ist ein iterierbares Objekt aus [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)-Objekten, wobei jedes eine einzelne {{cssxref("transform-function")}} darstellt.
+Die **`CSSTransformValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) stellt `transform-list`-Werte dar, wie sie von der CSS-Eigenschaft {{cssxref("transform")}} verwendet werden.
+Sie ist ein Iterierbares aus [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)-Objekten, von denen jedes eine einzelne {{cssxref("transform-function")}} darstellt.
 
-Auf die Elemente kann per Index zugegriffen und sie können per Index gesetzt werden (`transformValue[0]`). Als iterierbares Objekt kann es zudem mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife oder der Spread-Syntax verwendet werden.
+Auf die Elemente kann per Index (`transformValue[0]`) zugegriffen werden, und sie können per Index gesetzt werden. Als Iterierbares kann es mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife oder der Spread-Syntax verwendet werden.
 
 {{InheritanceDiagram}}
 
@@ -28,7 +28,7 @@ Auf die Elemente kann per Index zugegriffen und sie können per Index gesetzt we
 
 ## Instanzmethoden
 
-_Erbt außerdem Methoden von seinem übergeordneten Interface [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
+_Erbt außerdem Methoden von seiner übergeordneten Schnittstelle [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
 - [`CSSTransformValue.toMatrix()`](/de/docs/Web/API/CSSTransformValue/toMatrix)
   - : Gibt ein neues [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt zurück.
@@ -43,17 +43,17 @@ _Erbt außerdem Methoden von seinem übergeordneten Interface [`CSSStyleValue`](
 
 ## Beschreibung
 
-Jedes Element in einem `CSSTransformValue` ist ein von [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) abgeleitetes Objekt, beispielsweise ein [`CSSScale`](/de/docs/Web/API/CSSScale) oder [`CSSTranslate`](/de/docs/Web/API/CSSTranslate), das ein einzelnes {{cssxref("transform-function", "transform function")}}-Objekt darstellt.
+Jedes Element in einem `CSSTransformValue` ist ein von [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) abgeleitetes Objekt, etwa [`CSSScale`](/de/docs/Web/API/CSSScale) oder [`CSSTranslate`](/de/docs/Web/API/CSSTranslate), das ein einzelnes Objekt einer [Transformationsfunktion](/de/docs/Web/CSS/Reference/Values/transform-function) darstellt.
 
-Der Konstruktor [`CSSTransformValue()`](/de/docs/Web/API/CSSTransformValue/CSSTransformValue) löst einen {{jsxref("TypeError")}} aus, wenn er ein leeres Array erhält – ein `CSSTransformValue` enthält immer mindestens eine Komponente.
+Der Konstruktor [`CSSTransformValue()`](/de/docs/Web/API/CSSTransformValue/CSSTransformValue) löst einen {{jsxref("TypeError")}} aus, wenn ihm ein leeres Array übergeben wird — ein `CSSTransformValue` enthält immer mindestens eine Komponente.
 
-[`CSSTransformValue.is2D`](/de/docs/Web/API/CSSTransformValue/is2D) ist nur dann `true`, wenn das eigene `is2D` jeder Komponente `true` ist; wenn eine Komponente eine 3D-Transformation ist, wird der gesamte `CSSTransformValue` als 3D behandelt.
+[`CSSTransformValue.is2D`](/de/docs/Web/API/CSSTransformValue/is2D) ist nur dann `true`, wenn das jeweilige `is2D` jeder Komponente `true` ist; falls eine Komponente eine 3D-Transformation ist, wird der gesamte `CSSTransformValue` als 3D behandelt.
 
 ## Beispiele
 
 ### Erstellen, Lesen und Aktualisieren eines `CSSTransformValue`
 
-Dieses Beispiel erstellt ein `CSSTransformValue`, liest dann dessen Elemente über `length`, indexierten Zugriff und Iteration und ersetzt schließlich eines der Elemente durch Zuweisung an seinen Index.
+Dieses Beispiel erstellt einen `CSSTransformValue`, liest dann seine Elemente über `length`, indizierten Zugriff und Iteration und ersetzt schließlich eines der Elemente durch Zuweisung an dessen Index.
 
 ```js
 const transform = new CSSTransformValue([
@@ -74,11 +74,11 @@ transform[1] = new CSSScale(4, 5);
 console.log(transform[1].toString()); // "scale(4, 5)"
 ```
 
-### Eine Transformation aus einer berechneten Style-Map lesen
+### Lesen einer Transformation aus einer berechneten Style-Map
 
 Eine `CSSTransformValue`-Instanz wird zurückgegeben, wenn Sie den Wert der Eigenschaft {{cssxref("transform")}} aus einem [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) lesen.
 Dieses Beispiel liest das berechnete `transform` einer Schaltfläche, die mit `transform: scale(0.95)` formatiert ist.
-Weitere Details zu diesem Beispiel finden Sie im Abschnitt [`CSSTransformValue` mit `CSSScale`](/de/docs/Web/API/CSS_Typed_OM_API/Guide#csstransformvalue_with_cssscale) des CSS Typed OM-Leitfadens.
+Weitere Details zu diesem Beispiel finden Sie im Abschnitt [`CSSTransformValue` mit `CSSScale`](/de/docs/Web/API/CSS_Typed_OM_API/Guide#csstransformvalue_with_cssscale) des CSS-Typed-OM-Leitfadens.
 
 ```html
 <button id="btn">Styled button</button>

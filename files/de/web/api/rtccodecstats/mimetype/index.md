@@ -3,18 +3,18 @@ title: "RTCCodecStats: mimeType-Eigenschaft"
 short-title: mimeType
 slug: Web/API/RTCCodecStats/mimeType
 l10n:
-  sourceCommit: 5f5d8299c2889f9e93d2aa7bd572eb883ee91f62
+  sourceCommit: a4c63d2855b2f557e7d1ee821dee65011d569a41
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`mimeType`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} und Subtyp des Codecs enthält.
+Die **`mimeType`**-Eigenschaft des Wörterbuchs [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} und -Subtyp des Codecs enthält.
 
-Dieser hat die Form `"type/subtype"`, wie zum Beispiel "video/VP8" oder "audio/opus", wie im [IANA-Register der gültigen MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2) definiert.
+Dies hat die Form `"type/subtype"`, etwa „video/VP8“ oder „audio/opus“, wie im [IANA-Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters#rtp-parameters-2) definiert.
 
 ## Werte
 
-Ein String, der den MIME-Typ/Subtyp des Codecs angibt.
+Ein String, der den MIME-Typ/-Subtyp des Codecs angibt.
 
 ## Spezifikationen
 
@@ -26,5 +26,5 @@ Ein String, der den MIME-Typ/Subtyp des Codecs angibt.
 
 ## Siehe auch
 
-- `codecs.mimeType`-Option im Parameter, der an [`RTCRtpTransceiver.setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences#mimetype) und [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters#mimetype) übergeben wird.
+- Die Option `codecs.mimeType` im Parameter, der an [`RTCRtpTransceiver.setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences#mimetype) und [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters#mimetype) übergeben wird.
 - `codecs.mimeType` im Objekt, das von [`RTCRtpSender.getParameters()`](/de/docs/Web/API/RTCRtpSender/getParameters#mimetype) und [`RTCRtpReceiver.getParameters()`](/de/docs/Web/API/RTCRtpReceiver/getParameters#mimetype) zurückgegeben wird.

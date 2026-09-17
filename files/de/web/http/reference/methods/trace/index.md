@@ -3,14 +3,17 @@ title: TRACE request method
 short-title: TRACE
 slug: Web/HTTP/Reference/Methods/TRACE
 l10n:
-  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
+  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
 ---
 
-Die **`TRACE`** HTTP-Methode führt einen Meldungsrückschlaufe-Test entlang des Pfads zur Zielressource durch.
+Die HTTP-Methode **`TRACE`** führt entlang des Pfads zur Zielressource einen Message-Loopback-Test durch.
 
-Der endgültige Empfänger der Anfrage sollte die empfangene Nachricht (ohne Felder, die sensible Daten enthalten könnten) als Nachrichtenkörper einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurückspiegeln. Der endgültige Empfänger ist entweder der Ursprungsserver oder der erste Server, der einen {{HTTPHeader("Max-Forwards")}} Wert von `0` in der Anfrage erhält.
+Der endgültige Empfänger der Anfrage sollte die empfangene Nachricht (mit Ausnahme aller Felder, die möglicherweise sensible Daten enthalten) als Nachrichtentext einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurückspiegeln.
+Der endgültige Empfänger ist entweder der Origin-Server oder der erste Server, der in der Anfrage einen {{HTTPHeader("Max-Forwards")}}-Wert von `0` empfängt.
 
-Der Client darf im Rahmen der Anfrage keine {{Glossary("HTTP_Content", "Inhalte")}} senden oder Header erzeugen, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten. Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverbesitzer haben die Verwendung der `TRACE`-Methode aus Sicherheitsgründen historisch untersagt. In solchen Fällen wird ein {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) gesendet.
+Der Client darf in der Anfrage keinen {{Glossary("HTTP_Content", "Inhalt")}} senden und keine Header erzeugen, die möglicherweise sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten.
+Nicht alle Server implementieren die Methode `TRACE`, und einige Serverbetreiber haben die Verwendung der Methode `TRACE` in der Vergangenheit aufgrund von Sicherheitsbedenken untersagt.
+In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}}-[Clientfehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) gesendet.
 
 <table class="properties">
   <tbody>
@@ -48,11 +51,11 @@ TRACE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den Informationen im {{HTTPHeader("Host")}}-Header kombiniert wird.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage in Kombination mit den Informationen, die im Header {{HTTPHeader("Host")}} bereitgestellt werden.
+    Bei Anfragen an einen Origin-Server ist dies ein absoluter Pfad (z. B. `/path/to/file.html`), bei Anfragen an Proxys eine absolute URL (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
   - : Eine optionale Abfragekomponente, der ein Fragezeichen `?` vorangestellt ist.
-    Wird oft verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übermitteln.
+    Wird häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übertragen.
 
 ## Beispiele
 
@@ -73,7 +76,7 @@ User-Agent: curl/8.7.1
 Accept: */*
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort mit den Anforderungsheadern im Antwortkörper wird an den Client zurückgesandt:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort, deren Antwort-Body die Anfrage-Header enthält, wird an den Client zurückgesendet:
 
 ```http
 HTTP/1.1 200 OK
@@ -94,11 +97,11 @@ Accept: */*
 
 ## Browser-Kompatibilität
 
-Der Browser verwendet die `TRACE`-Methode nicht für benutzerinitiierte Aktionen, daher gilt "Browser-Kompatibilität" hier nicht.
+Der Browser verwendet die Methode `TRACE` nicht für von Benutzern initiierte Aktionen, daher ist „Browser-Kompatibilität“ nicht anwendbar.
 
 ## Siehe auch
 
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
-- [Cross-Site Tracing (XST)](https://owasp.org/www-community/attacks/Cross_Site_Tracing)
+- [Cross-Site Tracing (XST)](https://community.owasp.org/attacks/Cross_Site_Tracing)

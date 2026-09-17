@@ -1,127 +1,127 @@
 ---
-title: Webentwicklungstutorials
+title: Tutorials zur Webentwicklung
 short-title: Tutorials
 slug: MDN/Tutorials
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 03e93e0948768ea78474e77a53795698ebca5836
 ---
 
-Die Links auf dieser Seite führen zu verschiedenen Tutorials und Lernmaterialien.
-Ganz gleich, ob Sie Anfänger, fortgeschrittener Anfänger oder Experte in der Webentwicklung sind, hier finden Sie hilfreiche Informationen.
+Die Links auf dieser Seite führen zu einer Vielzahl von Tutorials und Lernmaterialien.
+Ob Sie Anfänger, Fortgeschrittener oder Experte in der Webentwicklung sind, finden Sie hier etwas Hilfreiches.
 
-Diese Tutorials wurden von vorausschauenden Unternehmen und Webentwicklern erstellt, die offene Standards und gute Praktiken befürworten. Sie erlauben oder bieten Übersetzungen durch eine offene Inhaltslizenz wie Creative Commons an.
+Diese Tutorials werden von zukunftsorientierten Unternehmen und Webentwicklern erstellt, die offene Standards und bewährte Praktiken nutzen und Übersetzungen über eine offene Inhaltslizenz wie Creative Commons zulassen oder bereitstellen.
 
 ## Für absolute Anfänger
 
 - [Erste Schritte mit dem Web](/de/docs/Learn_web_development/Getting_started/Your_first_website)
-  - : _Erste Schritte mit dem Web_ ist eine prägnante Reihe, die Sie in die Praktiken der Webentwicklung einführt.
-    Sie richten die Werkzeuge ein, die Sie benötigen, um eine grundlegende Webseite zu erstellen und Ihren eigenen Code zu veröffentlichen.
+  - : _Erste Schritte mit dem Web_ ist eine kompakte Reihe, die Sie in die Praxis der Webentwicklung einführt.
+    Sie richten die Werkzeuge ein, die Sie benötigen, um eine einfache Webseite zu erstellen und Ihren eigenen Code zu veröffentlichen.
 
 ## HTML-Tutorials
 
 ### Einführung in HTML
 
 - [Inhalte mit HTML strukturieren](/de/docs/Learn_web_development/Core/Structuring_content)
-  - : Unser Einführungskurs in HTML vermittelt HTML von Grund auf — es sind keine Vorkenntnisse erforderlich.
-    Er bereitet das Terrain, indem Sie sich an wichtige Konzepte und die Syntax gewöhnen, HTML auf Text anwenden, Hyperlinks erstellen und HTML verwenden, um eine Webseite zu strukturieren.
+  - : Unser einführendes HTML-Lernmodul vermittelt HTML von Grund auf — Vorkenntnisse sind nicht erforderlich.
+    Es schafft die Grundlagen, indem es Sie mit wichtigen Konzepten und der Syntax vertraut macht, die Anwendung von HTML auf Text behandelt, zeigt, wie Hyperlinks erstellt werden, und erklärt, wie HTML zur Strukturierung einer Webseite verwendet wird.
 - [HTML für Anfänger](https://www.theblogstarter.com/html-for-beginners/)
-  - : Ein HTML-Leitfaden für Anfänger, der Erklärungen zu gängigen Tags, einschließlich HTML-Tags, bietet.
-    Er beinhaltet auch eine Schritt-für-Schritt-Anleitung zur Erstellung einer grundlegenden Webseite mit Codebeispielen.
+  - : Ein HTML-Leitfaden für Anfänger mit Erklärungen gängiger Tags, einschließlich HTML-Tags.
+    Enthält außerdem eine Schritt-für-Schritt-Anleitung zum Erstellen einer einfachen Webseite mit Codebeispielen.
 - [HTML-Herausforderungen](https://en.wikiversity.org/wiki/Web_Design/HTML_Challenges)
-  - : Verwenden Sie diese Herausforderungen, um Ihre HTML-Fähigkeiten zu schärfen (zum Beispiel: "Soll ich ein `<h2>`-Element oder ein `<strong>`-Element verwenden?"), mit Fokus auf sinnvolles Markup.
+  - : Nutzen Sie diese Herausforderungen, um Ihre HTML-Fähigkeiten zu verbessern (zum Beispiel: „Soll ich ein `<h2>`-Element oder ein `<strong>`-Element verwenden?“), mit Schwerpunkt auf aussagekräftigem Markup.
 
 ### Fortgeschrittene HTML-Themen
 
 - [Webformulare](/de/docs/Learn_web_development/Extensions/Forms)
-  - : Formulare sind ein sehr wichtiger Bestandteil des Webs — sie bieten viel von der Funktionalität, die Sie für die Interaktion mit Websites benötigen, wie z.B. Registrierungen und Anmeldungen, Feedback senden, Produkte kaufen und mehr. Dieses Modul hilft Ihnen beim Einstieg in die Erstellung der clientseitigen Teile von Formularen.
-- [Tipps zur Erstellung schnell ladender HTML-Seiten](/de/docs/Web/HTML/How_to/Author_fast-loading_HTML_pages)
-  - : Optimieren Sie Webseiten, um eine reaktionsschnellere Seite für Besucher zu bieten und die Belastung für Ihren Webserver und Ihre Internetverbindung zu reduzieren.
+  - : Formulare sind ein sehr wichtiger Teil des Webs — sie bieten einen Großteil der Funktionalität, die Sie für die Interaktion mit Websites benötigen, etwa für Registrierung und Anmeldung, das Senden von Feedback, den Kauf von Produkten und vieles mehr. Dieses Modul hilft Ihnen beim Einstieg in die Erstellung der clientseitigen Teile von Formularen.
+- [Tipps zum Verfassen schnell ladender HTML-Seiten](/de/docs/Web/HTML/How_to/Author_fast-loading_HTML_pages)
+  - : Optimieren Sie Webseiten, um Besuchern eine reaktionsschnellere Website zu bieten und die Belastung Ihres Webservers und Ihrer Internetverbindung zu reduzieren.
 
 ## CSS-Tutorials
 
 ### Einführung in CSS
 
 - [CSS-Grundlagen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content)
-  - : CSS (Cascading Style Sheets) ist der Code, den Sie verwenden, um Ihre Webseite zu gestalten. _CSS-Grundlagen_ führt Sie durch das, was Sie benötigen, um loszulegen. Wir beantworten Fragen wie: Wie mache ich meinen Text schwarz oder rot? Wie lasse ich meinen Inhalt an einem bestimmten Ort auf dem Bildschirm erscheinen? Wie dekoriere ich meine Webseite mit Hintergrundbildern und -farben?
-- [CSS-Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
-  - : CSS (Cascading Style Sheets) wird verwendet, um Webseiten zu gestalten und zu layouten — zum Beispiel, um die Schriftart, Farbe, Größe und den Abstand Ihres Inhalts zu ändern, ihn in mehrere Spalten zu teilen oder Animationen und andere dekorative Merkmale hinzuzufügen. Dieses Modul bietet einen sanften Einstieg auf Ihrem Weg zur CSS-Meisterschaft mit den Grundlagen, wie es funktioniert, wie die Syntax aussieht und wie Sie es verwenden können, um HTML zu stylen.
+  - : CSS (Cascading Style Sheets) ist der Code, mit dem Sie Ihre Webseite gestalten. _CSS-Grundlagen_ führt Sie durch alles, was Sie für den Einstieg benötigen. Wir beantworten Fragen wie: Wie mache ich meinen Text schwarz oder rot? Wie lasse ich meine Inhalte an einer bestimmten Stelle auf dem Bildschirm erscheinen? Wie gestalte ich meine Webseite mit Hintergrundbildern und Farben?
+- [Grundlagen der CSS-Gestaltung](/de/docs/Learn_web_development/Core/Styling_basics)
+  - : CSS (Cascading Style Sheets) wird verwendet, um Webseiten zu gestalten und anzuordnen — zum Beispiel, um Schriftart, Farbe, Größe und Abstand Ihrer Inhalte zu ändern, sie in mehrere Spalten aufzuteilen oder Animationen und andere dekorative Funktionen hinzuzufügen. Dieses Modul bietet einen sanften Einstieg auf Ihrem Weg zur CSS-Meisterschaft mit den Grundlagen der Funktionsweise, dem Aussehen der Syntax und der Verwendung von CSS zur Gestaltung von HTML.
 - [Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
-  - : Zielgerichtet HTML-Elemente, einschließlich Zustandselementen, mit CSS ansteuern.
+  - : Wählen Sie mit CSS HTML-Elemente aus, auch anhand ihres Elementzustands.
 - [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
-  - : Verstehen des Browser-Algorithmus, um zu bestimmen, welche CSS-Deklarationen auf ein Element angewendet werden, wenn es konkurrierende Deklarationen gibt, mit einem [Spezifitäts-Quiz](https://estelle.github.io/CSS/selectors/exercises/specificity.html).
-- [Konflikte handhaben](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
-  - : Der Cascade, die Spezifität und die Vererbung steuern die Anwendung von CSS auf HTML und wie Konflikte zwischen Stil-Deklarationen gelöst werden.
-- [CSS-Textstyling](/de/docs/Learn_web_development/Core/Text_styling)
-  - : Hier befassen wir uns mit den Grundlagen des Textstylings, einschließlich Schriftart, Fettdruck und Kursivschrift, Linien- und Buchstabensetzung und Schlagschatten sowie anderer Textmerkmale. Wir schließen das Modul ab, indem wir uns ansehen, wie benutzerdefinierte Schriften auf Ihre Seite angewendet werden, sowie das Styling von Listen und Links.
+  - : Verstehen Sie den Browser-Algorithmus, der bestimmt, welche CSS-Deklarationen auf ein Element angewendet werden, wenn konkurrierende Deklarationen vorhanden sind, einschließlich eines [Spezifitätsquiz](https://estelle.github.io/CSS/selectors/exercises/specificity.html).
+- [Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+  - : Die Kaskade, Spezifität und Vererbung steuern, wie CSS auf HTML angewendet wird und wie Konflikte zwischen Style-Deklarationen aufgelöst werden.
+- [CSS-Textgestaltung](/de/docs/Learn_web_development/Core/Text_styling)
+  - : Hier betrachten wir die Grundlagen der Textgestaltung, einschließlich der Einstellung von Schriftart, Fettdruck und Kursivschrift, Zeilen- und Buchstabenabstand sowie Schlagschatten und anderer Textfunktionen. Das Modul schließen wir mit der Anwendung benutzerdefinierter Schriftarten auf Ihre Seite sowie der Gestaltung von Listen und Links ab.
 - [Häufige CSS-Probleme lösen](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/CSS_FAQ)
   - : Häufige Fragen und Antworten für Anfänger.
 
-### Mittlere CSS-Themen
+### CSS-Themen für Fortgeschrittene
 
 - [CSS-Layout](/de/docs/Learn_web_development/Core/CSS_layout)
-  - : Zu diesem Zeitpunkt haben wir bereits CSS-Grundlagen behandelt, wie man Text stylisiert und wie man die Boxen, in denen Ihr Inhalt enthalten ist, stylt und manipuliert. Jetzt ist es an der Zeit, sich anzusehen, wie Sie Ihre Boxen im Verhältnis zum Viewport und zueinander richtig platzieren. Wir haben die notwendigen Voraussetzungen abgedeckt, um nun tief in das CSS-Layout einzutauchen und uns verschiedene Anzeigeeinstellungen, traditionelle Layout-Methoden mit Float und Positionierung sowie neue Layout-Tools wie Flexbox anzusehen.
+  - : An diesem Punkt haben wir bereits die CSS-Grundlagen behandelt, wie Text gestaltet wird und wie die Boxen gestaltet und manipuliert werden, in denen sich Ihre Inhalte befinden. Jetzt ist es an der Zeit, zu betrachten, wie Sie Ihre Boxen an der richtigen Position in Bezug auf den Viewport und zueinander platzieren. Wir haben die notwendigen Voraussetzungen behandelt und können nun tief in CSS-Layout eintauchen, verschiedene display-Einstellungen, traditionelle Layout-Methoden mit float und Positionierung sowie moderne Layout-Werkzeuge wie flexbox betrachten.
 - [CSS-Referenz](/de/docs/Web/CSS/Reference)
   - : Vollständige Referenz zu CSS mit Details zur Unterstützung durch Firefox und andere Browser.
-- [Flüssige Raster](https://alistapart.com/article/fluidgrids/)
-  - : Erstellen Sie Layouts, die sich fließend mit dem Browserfenster anpassen und dennoch ein typografisches Raster verwenden.
+- [Fließende Raster](https://alistapart.com/article/fluidgrids/)
+  - : Entwerfen Sie Layouts, deren Größe sich flexibel mit dem Browserfenster ändert, und verwenden Sie dabei weiterhin ein typografisches Raster.
 - [CSS-Herausforderungen](https://en.wikiversity.org/wiki/Web_Design/CSS_challenges)
-  - : Fordern Sie Ihre CSS-Fähigkeiten heraus und finden Sie heraus, wo Sie mehr Übung benötigen.
+  - : Trainieren Sie Ihre CSS-Fähigkeiten und finden Sie heraus, wo Sie mehr Übung benötigen.
 
 ### Fortgeschrittene CSS-Themen
 
-- [Verwenden von CSS-Transformierungen](/de/docs/Web/CSS/Guides/Transforms/Using)
-  - : Rotation, Verzerrung, Skalierung und Translation mit CSS anwenden.
+- [CSS-Transformationen verwenden](/de/docs/Web/CSS/Guides/Transforms/Using)
+  - : Wenden Sie Drehung, Scherung, Skalierung und Verschiebung mit CSS an.
 - [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions/Using)
-  - : CSS-Übergänge bieten eine Möglichkeit, Änderungen an CSS-Eigenschaften zu animieren, anstatt die Änderungen sofort wirksam werden zu lassen.
+  - : CSS-Übergänge bieten eine Möglichkeit, Änderungen an CSS-Eigenschaften zu animieren, statt die Änderungen sofort wirksam werden zu lassen.
 - [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial)
-  - : Lernen Sie, wie Sie Grafiken zeichnen, indem Sie das `canvas`-Element mit Scripting verwenden.
+  - : Erfahren Sie, wie Sie mit Skripten unter Verwendung des canvas-Elements Grafiken zeichnen.
 
 ## JavaScript-Tutorials
 
 ### Einführung in JavaScript
 
-- [Dynamisches Scripting mit JavaScript](/de/docs/Learn_web_development/Core/Scripting)
-  - : In diesem Modul setzen wir unsere Abdeckung aller grundlegenden JavaScript-Funktionen fort, indem wir uns auf häufig vorkommende Arten von Codeblöcken wie bedingte Anweisungen, Schleifen, Funktionen und Ereignisse konzentrieren. Sie haben diese Dinge bereits im Kurs gesehen, aber nur beiläufig — hier besprechen wir alles explizit.
+- [Dynamische Skripterstellung mit JavaScript](/de/docs/Learn_web_development/Core/Scripting)
+  - : In diesem Modul setzen wir unsere Behandlung aller wichtigen grundlegenden Funktionen von JavaScript fort und richten unsere Aufmerksamkeit auf häufig vorkommende Arten von Codeblöcken wie bedingte Anweisungen, Schleifen, Funktionen und Ereignisse. Sie haben diese Dinge im Kurs bereits gesehen, aber nur am Rande — hier behandeln wir sie alle ausdrücklich.
 - [Erste Schritte mit JavaScript](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)
   - : Was ist JavaScript und wie kann es Ihnen helfen?
 - [Codecademy](https://www.codecademy.com/)
-  - : Codecademy ist eine einfache Möglichkeit, die Programmierung in JavaScript zu lernen. Es ist interaktiv und Sie können es mit Ihren Freunden machen.
+  - : Codecademy ist eine einfache Möglichkeit, das Programmieren mit JavaScript zu lernen. Es ist interaktiv, und Sie können es gemeinsam mit Ihren Freunden nutzen.
 - [freeCodeCamp](https://www.freecodecamp.org/)
-  - : freeCodeCamp lehrt eine Vielzahl von Sprachen und Frameworks für die Webentwicklung. Es hat auch ein [Forum](https://forum.freecodecamp.org/), einen [Internetradio-Sender](https://coderadio.freecodecamp.org/) und einen [Blog](https://www.freecodecamp.org/news).
+  - : freeCodeCamp vermittelt verschiedene Sprachen und Frameworks für die Webentwicklung. Es bietet außerdem ein [Forum](https://forum.freecodecamp.org/), einen [Internetradiosender](https://coderadio.freecodecamp.org/) und einen [Blog](https://www.freecodecamp.org/news).
 
-### Mittlere JavaScript-Themen
+### JavaScript-Themen für Fortgeschrittene
 
 - [Einführung in JavaScript-Objekte](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects)
-  - : In JavaScript sind die meisten Dinge Objekte, von grundlegenden JavaScript-Funktionen wie Strings und Arrays bis hin zu den auf JavaScript aufgebauten Browser-APIs. Sie können sogar Ihre eigenen Objekte erstellen, um verwandte Funktionen und Variablen in effizienten Paketen zu kapseln. Das objektorientierte Wesen von JavaScript ist wichtig zu verstehen, wenn Sie Ihr Wissen über die Sprache vertiefen und effizienteren Code schreiben möchten. Daher haben wir dieses Modul bereitgestellt, um Ihnen zu helfen. Hier lehren wir Objekttheorie und -syntax im Detail, zeigen, wie Sie Ihre eigenen Objekte erstellen, und erklären, was JSON-Daten sind und wie Sie mit ihnen arbeiten.
+  - : In JavaScript sind die meisten Dinge Objekte, von zentralen JavaScript-Funktionen wie Strings und Arrays bis hin zu den auf JavaScript aufbauenden Browser-APIs. Sie können sogar eigene Objekte erstellen, um zusammengehörige Funktionen und Variablen in effizienten Paketen zu kapseln. Die objektorientierte Natur von JavaScript ist wichtig zu verstehen, wenn Sie Ihr Wissen über die Sprache vertiefen und effizienteren Code schreiben möchten; deshalb stellen wir dieses Modul bereit. Hier vermitteln wir Objekt-Theorie und -Syntax ausführlich, betrachten die Erstellung eigener Objekte und erklären, was JSON-Daten sind und wie Sie mit ihnen arbeiten.
 - [Clientseitige Web-APIs](/de/docs/Learn_web_development/Extensions/Client-side_APIs)
-  - : Beim Schreiben von clientseitigem JavaScript für Websites oder Anwendungen kommen Sie nicht weit, bevor Sie anfangen, APIs zu verwenden — Schnittstellen zur Manipulation verschiedener Aspekte des Browsers und Betriebssystems, auf dem die Website ausgeführt wird, oder sogar Daten von anderen Websites oder Diensten. In diesem Modul werden wir erkunden, was APIs sind, und wie man einige der am häufigsten verwendeten APIs nutzt, denen Sie oft in Ihrer Entwicklungsarbeit begegnen.
+  - : Wenn Sie clientseitiges JavaScript für Websites oder Anwendungen schreiben, werden Sie schon bald APIs verwenden — Schnittstellen zur Manipulation verschiedener Aspekte des Browsers und Betriebssystems, auf dem die Website läuft, oder sogar von Daten anderer Websites oder Dienste. In diesem Modul untersuchen wir, was APIs sind und wie Sie einige der gängigsten APIs verwenden, denen Sie in Ihrer Entwicklungsarbeit häufig begegnen werden.
 - [Eloquent JavaScript](https://eloquentjavascript.net/)
-  - : Ein umfassender Leitfaden zu mittleren und fortgeschrittenen JavaScript-Methoden.
+  - : Ein umfassender Leitfaden zu JavaScript-Methoden für Fortgeschrittene und Experten.
 - [Speaking JavaScript](https://exploringjs.com/es5/)
-  - : Für Programmierer, die JavaScript schnell und richtig lernen möchten, und für JavaScript-Programmierer, die ihre Fähigkeiten vertiefen und/oder spezifische Themen nachschlagen möchten.
-- [Essential JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
-  - : Eine Einführung in wesentliche JavaScript-Designmuster.
-- [JavaScript.info - Das moderne JavaScript-Tutorial](https://javascript.info/)
-  - : Teil 1: Die Sprache. Teil 2: Arbeit mit Browsern.
+  - : Für Programmierer, die JavaScript schnell und richtig lernen möchten, sowie für JavaScript-Programmierer, die ihre Fähigkeiten vertiefen und/oder bestimmte Themen nachschlagen möchten.
+- [Essential JavaScript Design Patterns](https://patterns.addy.ie/)
+  - : Eine Einführung in wesentliche JavaScript-Entwurfsmuster.
+- [JavaScript.info – Das moderne JavaScript-Tutorial](https://javascript.info/)
+  - : Teil 1: Die Sprache. Teil 2: Arbeiten mit Browsern.
 
-### Fortgeschrittene JavaScript-Themen
+### Erweiterte JavaScript-Themen
 
 - [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide)
-  - : Ein umfassender, regelmäßig aktualisierter Leitfaden zu JavaScript für alle Lernstufen von Anfängern bis Fortgeschrittene.
+  - : Ein umfassender, regelmäßig aktualisierter Leitfaden zu JavaScript für alle Lernstufen, von Anfängern bis zu Fortgeschrittenen.
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
   - : Eine Buchreihe, die tief in die Kernmechanismen der JavaScript-Sprache eintaucht.
 - [JavaScript Garden](https://github.com/BonsaiDen/JavaScript-Garden)
-  - : Dokumentation der eigenartigsten Teile von JavaScript.
+  - : Dokumentation der ungewöhnlichsten Teile von JavaScript.
 - [Exploring ES6](https://exploringjs.com/es6/)
-  - : Zuverlässige und tiefgehende Informationen zu ECMAScript 2015.
+  - : Zuverlässige und ausführliche Informationen über ECMAScript 2015.
 - [JavaScript Patterns](https://github.com/chuanxshi/javascript-patterns)
-  - : Eine Sammlung von JavaScript-Mustern und Anti-Mustern, die Funktionsmuster, jQuery-Muster, jQuery-Plugin-Muster, Designmuster, allgemeine Muster, Literal- und Konstruktormuster, Objekterstellungsmuster, Code-Wiederverwendungsmuster und DOM umfasst.
+  - : Eine Sammlung von JavaScript-Mustern und Anti-Mustern, die Funktionsmuster, jQuery-Muster, jQuery-Plugin-Muster, Entwurfsmuster, allgemeine Muster, Literal- und Konstruktor-Muster, Muster zur Objekterstellung, Muster zur Code-Wiederverwendung und DOM abdeckt.
 - [Wie Browser funktionieren](https://web.dev/articles/howbrowserswork)
-  - : Ein detaillierter Forschungsartikel, der verschiedene moderne Browser, deren Engines, Seitenrendering usw. beschreibt.
+  - : Ein ausführlicher Forschungsartikel, der verschiedene moderne Browser, ihre Engines, das Rendern von Seiten usw. beschreibt.
 - [JavaScript-Videos](https://github.com/bolshchikov/js-must-watch)
-  - : Eine Sammlung von JavaScript-Videos, die Sie sich ansehen sollten.
+  - : Eine Sammlung von JavaScript-Videos zum Ansehen.
 
-### Erweiterungsentwicklung
+### Entwicklung von Erweiterungen
 
 - [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions)
-  - : WebExtensions ist ein plattformübergreifendes System zur Entwicklung von Browser-Add-ons. Das System ist weitgehend kompatibel mit der von Google Chrome und Opera unterstützten [Erweiterungs-API](https://developer.chrome.com/docs/extensions/reference/). Erweiterungen, die für diese Browser geschrieben wurden, funktionieren in den meisten Fällen auch in Firefox oder [Microsoft Edge](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) mit [nur wenigen Änderungen](https://extensionworkshop.com/documentation/develop/porting-a-google-chrome-extension/). Die API ist auch vollständig kompatibel mit [multiprocess Firefox](https://wiki.mozilla.org/Firefox/multiprocess).
+  - : WebExtensions ist ein browserübergreifendes System zur Entwicklung von Browser-Add-ons. Das System ist weitgehend kompatibel mit der von Google Chrome und Opera unterstützten [Extension-API](https://developer.chrome.com/docs/extensions/reference/). Für diese Browser geschriebene Erweiterungen werden in den meisten Fällen mit [nur wenigen Änderungen](https://extensionworkshop.com/documentation/develop/porting-a-google-chrome-extension/) in Firefox oder [Microsoft Edge](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) ausgeführt. Die API ist außerdem vollständig kompatibel mit [Multiprocess Firefox](https://wiki.mozilla.org/Firefox/multiprocess).
