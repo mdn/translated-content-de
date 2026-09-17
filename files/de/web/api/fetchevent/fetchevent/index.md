@@ -1,14 +1,14 @@
 ---
-title: "FetchEvent: FetchEvent() Konstruktor"
+title: "FetchEvent: FetchEvent() constructor"
 short-title: FetchEvent()
 slug: Web/API/FetchEvent/FetchEvent
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: b19a19b1f3563c8f24fe7146c21cec2abdf68c9a
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Der **`FetchEvent()`**-Konstruktor erstellt ein neues [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Objekt.
+Der Konstruktor **`FetchEvent()`** erstellt ein neues [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Objekt.
 
 ## Syntax
 
@@ -20,21 +20,23 @@ new FetchEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist case-sensitiv und Browser setzen es immer auf `fetch`.
+    Er berücksichtigt Groß- und Kleinschreibung, und Browser setzen ihn immer auf `fetch`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `request`
-      - : Das [`Request`](/de/docs/Web/API/Request)-Objekt, das den Ereignishandler ausgelöst hätte.
+      - : Das [`Request`](/de/docs/Web/API/Request)-Objekt, das den Event-Handler ausgelöst hätte.
     - `preloadResponse`
       - : Ein {{jsxref("Promise")}}, das eine zuvor geladene Antwort an den Client zurückgibt.
     - `clientId` {{optional_inline}}
-      - : Der [`Client`](/de/docs/Web/API/Client), den der aktuelle Service Worker steuert. Standardmäßig `""`.
+      - : Der [`Client`](/de/docs/Web/API/Client), den der aktuelle Service Worker steuert. Der Standardwert ist `""`.
     - `isReload` {{deprecated_inline}} {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die Seite neu geladen wurde, als das Ereignis ausgelöst wurde. `true` wenn ja, und `false` wenn nicht. Normalerweise ist das Drücken der Aktualisierungsschaltfläche in einem Browser ein Neuladen, während das Klicken auf einen Link und das Drücken der Zurück-Schaltfläche kein Neuladen ist. Wenn nicht vorhanden, ist der Standardwert `false`.
-    - `replacesClientId` {{optional_inline}}
-      - : Ein String, der den Client identifiziert, der durch `resultingClientId` ersetzt wird. Standardmäßig `""`.
+      - : Ein boolescher Wert, der angibt, ob die Seite beim Auslösen des Ereignisses neu geladen wurde oder nicht.
+        `true`, falls ja, und `false`, falls nicht.
+        Typischerweise ist das Drücken der Aktualisierungsschaltfläche in einem Browser ein Neuladen, während das Anklicken eines
+        Links und das Drücken der Zurück-Schaltfläche dies nicht ist. Falls nicht vorhanden, ist der Standardwert
+        `false`.
     - `resultingClientId` {{optional_inline}}
-      - : Ein String, der die neue `clientId` enthält, wenn sich der Client aufgrund des Seitenladevorgangs ändert. Standardmäßig `""`.
+      - : Ein String, der die neue `clientId` enthält, wenn sich der Client infolge des Ladens der Seite ändert. Der Standardwert ist `""`
     - `handled`
       - : Ein _ausstehendes_ Promise, das erfüllt wird, sobald das Ereignis verarbeitet wurde.
 

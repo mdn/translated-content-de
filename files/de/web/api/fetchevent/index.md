@@ -2,51 +2,50 @@
 title: FetchEvent
 slug: Web/API/FetchEvent
 l10n:
-  sourceCommit: c640274a19227cd5790912ea76841732baa6731f
+  sourceCommit: b19a19b1f3563c8f24fe7146c21cec2abdf68c9a
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Dies ist der Ereignistyp für `fetch`-Ereignisse, die im [Service Worker Global Scope](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgelöst werden. Es enthält Informationen über den Abruf, einschließlich der Anfrage und wie der Empfänger die Antwort behandeln wird. Es stellt die Methode [`event.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) bereit, die es uns ermöglicht, eine Antwort auf diesen Abruf bereitzustellen.
+Dies ist der Ereignistyp für `fetch`-Ereignisse, die im [globalen Scope des Service Workers](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgelöst werden. Er enthält Informationen über den Fetch, einschließlich der Anfrage und wie der Empfänger die Antwort behandeln wird. Er stellt die Methode [`event.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) bereit, mit der wir eine Antwort auf diesen Fetch bereitstellen können.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`FetchEvent()`](/de/docs/Web/API/FetchEvent/FetchEvent)
-  - : Erstellt ein neues `FetchEvent`-Objekt. Dieser Konstruktor wird typischerweise nicht verwendet. Der Browser erstellt diese Objekte und stellt sie `fetch`-Ereignisrückrufen zur Verfügung.
+  - : Erstellt ein neues `FetchEvent`-Objekt. Dieser Konstruktor wird normalerweise nicht verwendet. Der Browser erstellt diese Objekte und stellt sie den Callbacks von `fetch`-Ereignissen bereit.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Eigenschaften von seinem Vorgänger, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`FetchEvent.clientId`](/de/docs/Web/API/FetchEvent/clientId) {{ReadOnlyInline}}
-  - : Die [`id`](/de/docs/Web/API/Client/id) des gleichnamigen [`client`](/de/docs/Web/API/Client), der den Abruf initiiert hat.
+  - : Die [`id`](/de/docs/Web/API/Client/id) des gleichnamigen Ursprungs angehörenden [`client`](/de/docs/Web/API/Client), der den Fetch initiiert hat.
 - [`FetchEvent.handled`](/de/docs/Web/API/FetchEvent/handled) {{ReadOnlyInline}}
-  - : Ein Versprechen, das anhängig ist, während das Ereignis nicht behandelt wurde, und erfüllt wird, sobald es behandelt wurde.
+  - : Ein Promise, das ausstehend ist, solange das Ereignis nicht verarbeitet wurde, und erfüllt wird, sobald es verarbeitet wurde.
 - [`FetchEvent.isReload`](/de/docs/Web/API/FetchEvent/isReload) {{ReadOnlyInline}} {{Deprecated_inline}} {{Non-standard_inline}}
-  - : Gibt `true` zurück, wenn das Ereignis vom Benutzer ausgelöst wurde, der versucht hat, die Seite neu zu laden, andernfalls `false`.
+  - : Gibt `true` zurück, wenn das Ereignis durch den Versuch des Benutzers ausgelöst wurde, die Seite neu zu laden, andernfalls `false`.
 - [`FetchEvent.preloadResponse`](/de/docs/Web/API/FetchEvent/preloadResponse) {{ReadOnlyInline}}
-  - : Ein {{jsxref("Promise")}} für eine [`Response`](/de/docs/Web/API/Response), oder `undefined`, wenn dieser Abruf keine Navigation ist oder [Navigation Preload](/de/docs/Web/API/NavigationPreloadManager) nicht aktiviert ist.
-- [`FetchEvent.replacesClientId`](/de/docs/Web/API/FetchEvent/replacesClientId) {{ReadOnlyInline}}
-  - : Die [`id`](/de/docs/Web/API/Client/id) des [`client`](/de/docs/Web/API/Client), der während einer Seitennavigation ersetzt wird.
+  - : Ein {{jsxref("Promise")}} für eine [`Response`](/de/docs/Web/API/Response) oder `undefined`, wenn dieser Fetch keine Navigation ist oder [Navigation Preload](/de/docs/Web/API/NavigationPreloadManager) nicht aktiviert ist.
 - [`FetchEvent.resultingClientId`](/de/docs/Web/API/FetchEvent/resultingClientId) {{ReadOnlyInline}}
   - : Die [`id`](/de/docs/Web/API/Client/id) des [`client`](/de/docs/Web/API/Client), der den vorherigen Client während einer Seitennavigation ersetzt.
 - [`FetchEvent.request`](/de/docs/Web/API/FetchEvent/request) {{ReadOnlyInline}}
   - : Die [`Request`](/de/docs/Web/API/Request), die der Browser ausführen möchte.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
+_Erbt Methoden von seinem übergeordneten Element, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 - [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith)
-  - : Verhindert die Standard-Abrufverarbeitung des Browsers und stellt (ein Versprechen für) eine eigene Antwort bereit.
+  - : Verhindert die standardmäßige Fetch-Verarbeitung des Browsers und stellt selbst eine Antwort (oder ein Promise für eine Antwort) bereit.
 - [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)
-  - : Verlängert die Lebensdauer des Ereignisses. Wird verwendet, um den Browser über Aufgaben zu informieren, die über die Rückgabe einer Antwort hinausgehen, wie Streaming und Caching.
+  - : Verlängert die Lebensdauer des Ereignisses. Wird verwendet, um den Browser über Aufgaben zu informieren, die über die Rückgabe einer Antwort hinausgehen, etwa Streaming und Caching.
 
 ## Beispiele
 
-Dieses `fetch`-Ereignis verwendet den Standard des Browsers für Nicht-GET-Anfragen. Bei GET-Anfragen versucht es, einen Cache-Treffer zurückzugeben und weicht auf das Netzwerk aus. Wenn es einen Treffer im Cache findet, aktualisiert es den Cache asynchron für das nächste Mal.
+Dieses Fetch-Ereignis verwendet für Nicht-GET-Anfragen den Browser-Standard.
+Bei GET-Anfragen wird versucht, eine Übereinstimmung im Cache zurückzugeben; andernfalls wird auf das Netzwerk zurückgegriffen. Wenn eine Übereinstimmung im Cache gefunden wird, wird der Cache asynchron für das nächste Mal aktualisiert.
 
 ```js
 self.addEventListener("fetch", (event) => {

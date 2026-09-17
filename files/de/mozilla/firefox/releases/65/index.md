@@ -1,51 +1,51 @@
 ---
-title: Firefox 65 Versionshinweise für Entwickler
+title: Firefox-65-Release-Notes für Entwickler
 short-title: Firefox 65
 slug: Mozilla/Firefox/Releases/65
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b19a19b1f3563c8f24fe7146c21cec2abdf68c9a
 ---
 
-Dieser Artikel bietet Informationen zu den Änderungen in Firefox 65, die Entwickler betreffen. Firefox 65 wurde am 29. Januar 2019 veröffentlicht.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 65, die Entwickler betreffen. Firefox 65 wurde am 29. Januar 2019 veröffentlicht.
 
 ## Änderungen für Webentwickler
 
-### Entwicklertools
+### Entwicklerwerkzeuge
 
 - Der [Flexbox-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_flexbox_layouts/index.html) ist jetzt standardmäßig aktiviert.
-- Im [JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html) wurde Unterstützung für XHR-Breakpoints hinzugefügt ([Firefox-Bug 821610](https://bugzil.la/821610)).
-- Klicken Sie mit der rechten Maustaste auf ein Element im Barrierefreiheitsbaum des Barrierefreiheits-Betrachters, um es im [JSON-Format auszugeben](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#print-accessibility-tree-to-json) an den JSON-Viewer.
-- Die Anzeige des [Farbkontrasts](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#color-contrast) im Barrierefreiheits-Picker wurde aktualisiert, sodass bei einem komplexen Hintergrund (z. B. ein Farbverlauf oder ein komplexes Bild) ein Bereich von Farbkontrastwerten angezeigt wird.
-- Der Header-Tab im [Netzwerkmonitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) zeigt nun die Referrer-Policy für die ausgewählte Anfrage an ([Firefox-Bug 1496742](https://bugzil.la/1496742)).
-- Bei der Anzeige von Stack-Traces (z. B. in Konsolenprotokollen oder dem JavaScript-Debugger) werden Aufrufe von Framework-Methoden standardmäßig identifiziert und eingeklappt, um es einfacher zu machen, seinen eigenen Code zu finden.
-- Ähnlich wie in nativen Terminals können Sie jetzt die Rückwärtssuche verwenden, um Einträge in Ihrem JavaScript-Konsolenverlauf zu finden (`F9` unter Windows/Linux oder `Ctrl` + `R` auf macOS, dann tippen Sie einen Suchbegriff ein, gefolgt von `Ctrl` + `R`/`Ctrl` + `S`, um durch die Ergebnisse zu schalten).
-- Das `$0`-Kurzzeichen der JavaScript-Konsole (verweist auf das derzeit untersuchte Element auf der Seite) hat nun die Autovervollständigung verfügbar, sodass Sie beispielsweise `$0.te` eingeben können, um Autovervollständigungsvorschläge für Eigenschaften wie `$0.textContent` zu erhalten.
-- Die Bearbeitungen, die Sie in der Regel-Ansicht des Inspektors vornehmen, werden jetzt im Änderungen-Panel aufgelistet ([Firefox-Bug 1503920](https://bugzil.la/1503920)).
+- Dem [JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html) wurde Unterstützung für XHR-Breakpoints hinzugefügt ([Firefox-Bug 821610](https://bugzil.la/821610)).
+- Klicken Sie im Barrierefreiheitsbaum der Barrierefreiheitsansicht mit der rechten Maustaste auf ein Element, um es als [JSON](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#print-accessibility-tree-to-json) im JSON-Viewer auszugeben.
+- Die Anzeige des [Farbkontrasts](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#color-contrast) der Barrierefreiheitsauswahl wurde aktualisiert: Wenn der Hintergrund eines Textes komplex ist (z. B. ein Farbverlauf oder ein komplexes Bild), wird nun ein Bereich von Farbkontrastwerten angezeigt.
+- Der Tab „Headers“ des [Netzwerkmonitors](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) zeigt jetzt die Referrer Policy für die ausgewählte Anfrage an ([Firefox-Bug 1496742](https://bugzil.la/1496742)).
+- Bei der Anzeige von Stack-Traces (z. B. in Konsolenprotokollen oder im JavaScript-Debugger) werden Aufrufe von Framework-Methoden erkannt und standardmäßig eingeklappt, wodurch sich Ihr Code leichter finden lässt.
+- Wie in nativen Terminals können Sie jetzt die umgekehrte Suche verwenden, um Einträge in Ihrem JavaScript-Konsolenverlauf zu finden (`F9` unter Windows/Linux oder `Ctrl` + `R` unter macOS, dann einen Suchbegriff eingeben, gefolgt von `Ctrl` + `R`/`Ctrl` + `S`, um zwischen Ergebnissen zu wechseln).
+- Die `$0`-Verknüpfung der JavaScript-Konsole (verweist auf das aktuell auf der Seite untersuchte Element) verfügt jetzt über Autovervollständigung. Sie können beispielsweise `$0.te` eingeben, um Autovervollständigungsvorschläge für Eigenschaften wie `$0.textContent` zu erhalten.
+- Die Änderungen, die Sie in der Rules-Ansicht des Inspektors vornehmen, werden jetzt im Changes-Panel aufgeführt ([Firefox-Bug 1503920](https://bugzil.la/1503920)).
 
 ### HTML
 
-- Ereignisse werden nun auf deaktivierten HTML-Elementen ausgelöst, d.h. {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}} Elementen mit gesetzten `disabled`-Attributen ([Firefox-Bug 329509](https://bugzil.la/329509)).
-- Das Entfernen des `src`-Attributs eines {{htmlelement("iframe")}}-Elements führt nun dazu, dass `about:blank` geladen wird, wodurch eine Gleichwertigkeit mit Chrome und Safari hergestellt wird ([Firefox-Bug 1507842](https://bugzil.la/1507842)). Vorher hatte das Entfernen von `src` keinen Einfluss auf den `iframe`-Inhalt.
-- Wir haben Unterstützung für das [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/script#referrerpolicy)-Attribut für {{htmlelement("script")}}-Elemente hinzugefügt ([Firefox-Bug 1460920](https://bugzil.la/1460920)).
+- Ereignisse werden jetzt auf deaktivierten HTML-Elementen ausgelöst, d.h. auf {{htmlelement("button")}}-, {{htmlelement("fieldset")}}-, {{htmlelement("input")}}-, {{htmlelement("select")}}- und {{htmlelement("textarea")}}-Elementen, bei denen das Attribut `disabled` gesetzt ist ([Firefox-Bug 329509](https://bugzil.la/329509)).
+- Das Entfernen des Attributs `src` eines {{htmlelement("iframe")}}-Elements führt jetzt dazu, dass `about:blank` darin geladen wird, wodurch das Verhalten mit Chrome und Safari übereinstimmt ([Firefox-Bug 1507842](https://bugzil.la/1507842)). Zuvor hatte das Entfernen von `src` keine Auswirkung auf den Inhalt des `iframe`.
+- Unterstützung für das Attribut [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/script#referrerpolicy) auf {{htmlelement("script")}}-Elementen wurde hinzugefügt ([Firefox-Bug 1460920](https://bugzil.la/1460920)).
 
 ### CSS
 
-- Der `crisp-edges`-Wert der {{cssxref("image-rendering")}}-Eigenschaft ist jetzt unpräfixiert ([Firefox-Bug 1496617](https://bugzil.la/1496617)).
-- Ein {{cssxref("scrollbar-color")}}-Wert von `auto` wird jetzt zu `auto` aufgelöst, anstatt zwei Farben ([Firefox-Bug 1501418](https://bugzil.la/1501418)).
-- Die `break-*`-Eigenschaften wurden implementiert, und die veralteten `page-break-*`-Eigenschaften wurden ihnen zugewiesen ([Firefox-Bug 775618](https://bugzil.la/775618)):
+- Der Wert `crisp-edges` der Eigenschaft {{cssxref("image-rendering")}} wurde nun von seinem Präfix befreit ([Firefox-Bug 1496617](https://bugzil.la/1496617)).
+- Ein {{cssxref("scrollbar-color")}}-Wert von `auto` wird jetzt zu `auto` aufgelöst und nicht mehr zu zwei Farben ([Firefox-Bug 1501418](https://bugzil.la/1501418)).
+- Die `break-*`-Eigenschaften wurden implementiert und die veralteten `page-break-*`-Eigenschaften als Aliase darauf gesetzt ([Firefox-Bug 775618](https://bugzil.la/775618)):
   - {{cssxref("break-before")}} ist jetzt ein Alias für {{cssxref("page-break-before")}}.
   - {{cssxref("break-after")}} ist jetzt ein Alias für {{cssxref("page-break-after")}}.
   - {{cssxref("break-inside")}} ist jetzt ein Alias für {{cssxref("page-break-inside")}}.
 
-- Der `anywhere`-Wert der {{cssxref("overflow-wrap")}}-Eigenschaft wurde implementiert ([Firefox-Bug 1505786](https://bugzil.la/1505786)).
-- Die neuen Schrittpositions-Keywords `jump-start`, `jump-end`, `jump-none` und `jump-both` — verwendbar innerhalb der [`steps()` Timing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function/steps) — wurden implementiert ([Firefox-Bug 1496619](https://bugzil.la/1496619)). Dies fällt auch mit der Entfernung der `frames()`-Timing-Funktion zusammen, die der vorherige Weg war, diese Funktionalität zu implementieren, jetzt veraltet.
-- Einige neue {{cssxref("appearance", "-webkit-appearance")}}-Werte wurden hinzugefügt, um die Kompatibilität mit anderen Browsern zu gewährleisten. Insbesondere:
-  - `meter`, das jetzt als Standardwert für {{htmlelement("meter")}}-Elemente in UA-Stylesheets verwendet wird. Der bestehende Wert `meterbar` ist jetzt ein Alias für `meter` ([Firefox-Bug 1501483](https://bugzil.la/1501483)).
-  - `progress-bar`, das jetzt als Standardwert für {{htmlelement("progress")}}-Elemente in UA-Stylesheets verwendet wird. Der bestehende Wert `progressbar` ist jetzt ein Alias für `progress-bar` ([Firefox-Bug 1501506](https://bugzil.la/1501506)).
-  - `textarea`, das jetzt als Standardwert für {{htmlelement("textarea")}}-Elemente in UA-Stylesheets verwendet wird. Der bestehende Wert `textfield-multiline` ist jetzt ein Alias für `textarea` ([Firefox-Bug 1507905](https://bugzil.la/1507905)).
+- Der Wert `anywhere` der Eigenschaft {{cssxref("overflow-wrap")}} wurde implementiert ([Firefox-Bug 1505786](https://bugzil.la/1505786)).
+- Die neuen Schlüsselwörter für Schrittpositionen `jump-start`, `jump-end`, `jump-none` und `jump-both` — verwendbar innerhalb der [`steps()`-Timing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function/steps) — wurden implementiert ([Firefox-Bug 1496619](https://bugzil.la/1496619)). Dies geht auch mit der Entfernung der `frames()`-Timing-Funktion einher, die zuvor zur Implementierung solcher Funktionen verwendet wurde und nun veraltet ist.
+- Einige neue Werte für {{cssxref("appearance", "-webkit-appearance")}} wurden zur Kompatibilität mit anderen Browsern hinzugefügt. Insbesondere:
+  - `meter`, das jetzt als Standardwert für {{htmlelement("meter")}}-Elemente in UA-Stylesheets verwendet wird. Der vorhandene Wert `meterbar` ist jetzt ein Alias für `meter` ([Firefox-Bug 1501483](https://bugzil.la/1501483)).
+  - `progress-bar`, das jetzt als Standardwert für {{htmlelement("progress")}}-Elemente in UA-Stylesheets verwendet wird. Der vorhandene Wert `progressbar` ist jetzt ein Alias für `progress-bar` ([Firefox-Bug 1501506](https://bugzil.la/1501506)).
+  - `textarea`, das jetzt als Standardwert für {{htmlelement("textarea")}}-Elemente in UA-Stylesheets verwendet wird. Der vorhandene Wert `textfield-multiline` ist jetzt ein Alias für `textarea` ([Firefox-Bug 1507905](https://bugzil.la/1507905)).
 
-- Das Verhalten von {{cssxref("user-select")}} wurde geändert, um es mehr an andere Browser anzupassen ([Firefox-Bug 1506547](https://bugzil.la/1506547)). Genauer gesagt:
-  - `user-select: all` auf einem Element überschreibt nicht mehr andere `user-select`-Werte, die auf Kinder dieses Elements gesetzt sind. Zum Beispiel im folgenden Snippet:
+- Das Verhalten von {{cssxref("user-select")}} wurde geändert, um es stärker an andere Browser anzugleichen ([Firefox-Bug 1506547](https://bugzil.la/1506547)). Im Einzelnen:
+  - `user-select: all`, das auf einem Element gesetzt ist, überschreibt nicht länger andere Werte von `user-select`, die auf Kindelementen dieses Elements gesetzt sind. Beispielsweise im folgenden Ausschnitt:
 
     ```html
     <div style="-webkit-user-select: all">
@@ -54,18 +54,18 @@ Dieser Artikel bietet Informationen zu den Änderungen in Firefox 65, die Entwic
     </div>
     ```
 
-    Das `<div>` mit `none` darauf ist jetzt nicht auswählbar. Früher wäre dieser Wert durch den auf das übergeordnete Element gesetzten `all`-Wert überschrieben worden.
+    Das `<div>` mit dem gesetzten Wert `none` ist jetzt nicht auswählbar. Zuvor wäre dieser Wert durch den auf dem übergeordneten Element gesetzten Wert `all` überschrieben worden.
 
   - Nicht-`contenteditable`-Elemente, die innerhalb von `contenteditable`-Elementen verschachtelt sind, sind jetzt auswählbar.
-  - `user-select` verhält sich jetzt konsistent innerhalb und außerhalb von Shadow DOM.
-  - Der proprietäre `-moz-text`-Wert wurde entfernt.
+  - `user-select` verhält sich jetzt innerhalb und außerhalb von Shadow DOM konsistent.
+  - Der proprietäre Wert `-moz-text` wurde entfernt.
 
-- CSS-Umgebungsvariablen (die {{cssxref("env", "env()")}}-Funktion) wurden implementiert ([Firefox-Bug 1462233](https://bugzil.la/1462233)).
+- CSS-Umgebungsvariablen (die Funktion {{cssxref("env", "env()")}}) wurden implementiert ([Firefox-Bug 1462233](https://bugzil.la/1462233)).
 
 #### Entfernungen
 
-- Die Einstellung `layout.css.shape-outside.enabled` wurde entfernt; {{cssxref("shape-outside")}}, {{cssxref("shape-margin")}}, und {{cssxref("shape-image-threshold")}} können in `about:config` nicht mehr deaktiviert werden ([Firefox-Bug 1504387](https://bugzil.la/1504387)).
-- Mehrere nur in Firefox vorhandene Werte der {{cssxref("user-select")}}-Eigenschaft wurden entfernt — `-moz-all`, `-moz-text`, `tri-state`, `element`, `elements`, und `toggle`. Siehe [Firefox-Bug 1492958](https://bugzil.la/1492958) und [Firefox-Bug 1506547](https://bugzil.la/1506547).
+- Die Einstellung `layout.css.shape-outside.enabled` wurde entfernt; {{cssxref("shape-outside")}}, {{cssxref("shape-margin")}} und {{cssxref("shape-image-threshold")}} können nicht länger in `about:config` deaktiviert werden ([Firefox-Bug 1504387](https://bugzil.la/1504387)).
+- Mehrere Firefox-exklusive Werte der Eigenschaft {{cssxref("user-select")}} wurden entfernt — `-moz-all`, `-moz-text`, `tri-state`, `element`, `elements` und `toggle`. Siehe [Firefox-Bug 1492958](https://bugzil.la/1492958) und [Firefox-Bug 1506547](https://bugzil.la/1506547).
 - Wie oben erwähnt, wurde die `frames()`-Timing-Funktion entfernt ([Firefox-Bug 1496619](https://bugzil.la/1496619)).
 
 ### SVG
@@ -75,8 +75,8 @@ _Keine Änderungen._
 ### JavaScript
 
 - {{jsxref("Intl/RelativeTimeFormat", "Intl.RelativeTimeFormat")}} wird jetzt unterstützt ([Firefox-Bug 1504334](https://bugzil.la/1504334)).
-- Strings haben jetzt eine maximale {{jsxref("String/length","length","", 1)}} von `2**30 - 2` (\~1GB) anstatt `2**28 - 1` (\~256MB) ([Firefox-Bug 1509542](https://bugzil.la/1509542)).
-- Die {{jsxref("globalThis")}}-Eigenschaft, die immer auf das globale Top-Level-Objekt verweist, wurde implementiert ([Firefox-Bug 1317422](https://bugzil.la/1317422)).
+- Strings haben jetzt eine maximale {{jsxref("String/length","length","", 1)}} von `2**30 - 2` (\~1 GB) statt `2**28 - 1` (\~256 MB) ([Firefox-Bug 1509542](https://bugzil.la/1509542)).
+- Die Eigenschaft {{jsxref("globalThis")}}, die immer auf das globale Objekt der obersten Ebene verweist, wurde implementiert ([Firefox-Bug 1317422](https://bugzil.la/1317422)).
 
 ### APIs
 
@@ -87,48 +87,48 @@ _Keine Änderungen._
 
 #### DOM
 
-- [`Performance.toJSON()`](/de/docs/Web/API/Performance/toJSON) wurde auf [Web Workers](/de/docs/Web/API/Web_Workers_API) zugänglich gemacht ([Firefox-Bug 1504958](https://bugzil.la/1504958)).
-- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Anfragen werfen jetzt einen `NetworkError`, wenn der angeforderte Inhaltstyp ein `Blob` ist und die Anfragemethode nicht `GET` ist ([Firefox-Bug 1502599](https://bugzil.la/1502599)).
-- Die `-moz-`-präfixierten Versionen vieler der [Fullscreen-API](/de/docs/Web/API/Fullscreen_API)-Funktionen wurden veraltet und zeigen jetzt Deprecation-Warnungen in der JavaScript-Konsole an, wenn sie aufgerufen werden ([Firefox-Bug 1504946](https://bugzil.la/1504946)).
+- [`Performance.toJSON()`](/de/docs/Web/API/Performance/toJSON) wurde für [Web Workers](/de/docs/Web/API/Web_Workers_API) verfügbar gemacht ([Firefox-Bug 1504958](https://bugzil.la/1504958)).
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Anfragen lösen jetzt einen `NetworkError` aus, wenn der angeforderte Inhaltstyp ein `Blob` ist und die Anfragemethode nicht `GET` lautet ([Firefox-Bug 1502599](https://bugzil.la/1502599)).
+- Die mit `-moz-` präfixierten Versionen vieler Funktionen der [Fullscreen API](/de/docs/Web/API/Fullscreen_API) wurden als veraltet markiert und zeigen jetzt bei ihrer Verwendung Warnungen über Veraltung in der JavaScript-Konsole an ([Firefox-Bug 1504946](https://bugzil.la/1504946)).
 - [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) und [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap) unterstützen jetzt SVG-Bilder ([`SVGImageElement`](/de/docs/Web/API/SVGImageElement)) als Bildquelle ([Firefox-Bug 1500768](https://bugzil.la/1500768)).
 
 #### DOM-Ereignisse
 
-- Künftig ist nur noch ein [`Window.open()`](/de/docs/Web/API/Window/open)-Aufruf pro Ereignis erlaubt ([Firefox-Bug 675574](https://bugzil.la/675574)).
-- Die [`keyup`](/de/docs/Web/API/Element/keyup_event) und [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse werden jetzt während der IME-Zusammensetzung ausgelöst, um die Browser-Kompatibilität für CJKT-Nutzer zu verbessern ([Firefox-Bug 354358](https://bugzil.la/354358).
+- Künftig ist nur ein Aufruf von [`Window.open()`](/de/docs/Web/API/Window/open) pro Ereignis zulässig ([Firefox-Bug 675574](https://bugzil.la/675574)).
+- Die Ereignisse [`keyup`](/de/docs/Web/API/Element/keyup_event) und [`keydown`](/de/docs/Web/API/Element/keydown_event) werden jetzt während der IME-Komposition ausgelöst, um die Browser-Kompatibilität für CJKT-Benutzer zu verbessern ([Firefox-Bug 354358](https://bugzil.la/354358).
 
 #### Web Workers
 
-- Das Event-Objekt von [`SharedWorkerGlobalScope.connect`](/de/docs/Web/API/SharedWorkerGlobalScope/connect_event) ist eine Instanz von [`MessageEvent`](/de/docs/Web/API/MessageEvent) — seine `data`-Eigenschaft ist jetzt ein leerer String-Wert anstelle von `null` ([Firefox-Bug 1508824](https://bugzil.la/1508824)).
+- Das Ereignisobjekt von [`SharedWorkerGlobalScope.connect`](/de/docs/Web/API/SharedWorkerGlobalScope/connect_event) ist eine Instanz von [`MessageEvent`](/de/docs/Web/API/MessageEvent) — seine Eigenschaft `data` ist jetzt ein leerer String statt `null` ([Firefox-Bug 1508824](https://bugzil.la/1508824)).
 
-#### Fetch und Service Worker
+#### Fetch und Service Workers
 
-- Die [`Response.redirect()`](/de/docs/Web/API/Response/redirect_static)-Methode wirft jetzt korrekt einen `TypeError`, wenn eine ungültige URL als erster Parameter angegeben wird ([Firefox-Bug 1503276](https://bugzil.la/1503276)).
-- Die Methoden [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) und [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (wenn von einem Service Worker verwendet) akzeptieren jetzt alle Dateien mit einem gültigen [JavaScript-MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) ([Firefox-Bug 1354577](https://bugzil.la/1354577)).
-- Die Eigenschaften [`FetchEvent.replacesClientId`](/de/docs/Web/API/FetchEvent/replacesClientId) und [`FetchEvent.resultingClientId`](/de/docs/Web/API/FetchEvent/resultingClientId) werden jetzt unterstützt ([Firefox-Bug 1264177](https://bugzil.la/1264177)).
+- Die Methode [`Response.redirect()`](/de/docs/Web/API/Response/redirect_static) löst jetzt korrekt einen `TypeError` aus, wenn als erster Parameter eine ungültige URL angegeben wird ([Firefox-Bug 1503276](https://bugzil.la/1503276)).
+- Die Methoden [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) und [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (bei Verwendung durch einen Service Worker) akzeptieren jetzt alle Dateien mit einem gültigen [JavaScript-MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) ([Firefox-Bug 1354577](https://bugzil.la/1354577)).
+- Die Eigenschaften `FetchEvent.replacesClientId` und [`FetchEvent.resultingClientId`](/de/docs/Web/API/FetchEvent/resultingClientId) werden jetzt unterstützt ([Firefox-Bug 1264177](https://bugzil.la/1264177)).
 - Die Handler-Eigenschaften [`ServiceWorkerGlobalScope.onmessageerror`](/de/docs/Web/API/ServiceWorkerGlobalScope/messageerror_event) und [`ServiceWorkerContainer.onmessageerror`](/de/docs/Web/API/ServiceWorkerContainer/messageerror_event) wurden implementiert ([Firefox-Bug 1399446](https://bugzil.la/1399446)).
-- Der {{httpheader("Origin")}}-Header wird nicht mehr bei Fetch-Anfragen mit einer Methode von {{HTTPMethod("HEAD")}} oder {{HTTPMethod("GET")}} gesetzt ([Firefox-Bug 1508661](https://bugzil.la/1508661)).
+- Der Header {{httpheader("Origin")}} wird nicht länger bei Fetch-Anfragen mit der Methode {{HTTPMethod("HEAD")}} oder {{HTTPMethod("GET")}} gesetzt ([Firefox-Bug 1508661](https://bugzil.la/1508661)).
 
 #### Medien, Web Audio und WebRTC
 
-- Der [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Dictionary wurde entsprechend den neuesten Spezifikationsänderungen aktualisiert ([Firefox-Bug 1324788](https://bugzil.la/1324788), [Firefox-Bug 1489040](https://bugzil.la/1489040); RTCIceCandidateStats wurde auf den neuesten Stand der Spezifikation gebracht, um detailliertere Informationen darüber zu erhalten, was genau geändert wurde).
-- Die `pause`- und `resume`-Ereignisse des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) (und die entsprechenden Event-Handler-Eigenschaften) waren zuvor nicht implementiert, obwohl die Kompatibilitätstabellen behaupteten, sie seien es gewesen. Sie wurden jetzt implementiert ([Firefox-Bug 1458538](https://bugzil.la/1458538), [Firefox-Bug 1514016](https://bugzil.la/1514016)).
+- Das Wörterbuch [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) von [WebRTC](/de/docs/Web/API/WebRTC_API) wurde gemäß den neuesten Spezifikationsänderungen aktualisiert ([Firefox-Bug 1324788](https://bugzil.la/1324788), [Firefox-Bug 1489040](https://bugzil.la/1489040); weitere Details zu den genauen Änderungen finden Sie in der Aktualisierung von RTCIceCandidateStats auf die neueste Spezifikation).
+- Die `pause`- und `resume`-Ereignisse von [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) (sowie die entsprechenden Ereignishandler-Eigenschaften) waren zuvor nicht implementiert, obwohl die Kompatibilitätstabellen angaben, dass dies der Fall sei. Sie wurden nun implementiert ([Firefox-Bug 1458538](https://bugzil.la/1458538), [Firefox-Bug 1514016](https://bugzil.la/1514016)).
 
 #### Canvas und WebGL
 
-- Die [WebGL](/de/docs/Web/API/WebGL_API)-[`EXT_texture_compression_bptc`](/de/docs/Web/API/EXT_texture_compression_bptc) und [`EXT_texture_compression_rgtc`](/de/docs/Web/API/EXT_texture_compression_rgtc)-Texturkompressionserweiterungen wurden für WebGL1- und WebGL2-Kontexte zugänglich gemacht ([Firefox-Bug 1507263](https://bugzil.la/1507263)).
+- Die Texturkomprimierungserweiterungen [`EXT_texture_compression_bptc`](/de/docs/Web/API/EXT_texture_compression_bptc) und [`EXT_texture_compression_rgtc`](/de/docs/Web/API/EXT_texture_compression_rgtc) von [WebGL](/de/docs/Web/API/WebGL_API) wurden für WebGL1- und WebGL2-Kontexte verfügbar gemacht ([Firefox-Bug 1507263](https://bugzil.la/1507263)).
 
 #### Entfernungen
 
-- [Mutation Events](/de/docs/Web/API/MutationEvent) wurden in Schattenbäumen deaktiviert ([Firefox-Bug 1489858](https://bugzil.la/1489858)).
-- Die nicht standardmäßige [`MediaStream`](/de/docs/Web/API/MediaStream)-Eigenschaft `currentTime` wurde entfernt ([Firefox-Bug 1502927](https://bugzil.la/1502927)).
-- Die Einstellungen `dom.webcomponents.shadowdom.enabled` und `dom.webcomponents.customelements.enabled` wurden entfernt — Schatten-DOM und benutzerdefinierte Elemente können in `about:config` nicht mehr deaktiviert werden ([Firefox-Bug 1503019](https://bugzil.la/1503019)).
-- Das nicht standardmäßige DOM-`text`-Ereignis — ausgelöst, um die Browser-Editor-Oberfläche über IME-Zusammensetzungs-Stringdaten und den Auswahlbereich zu informieren — wurde entfernt ([Firefox-Bug 1288640](https://bugzil.la/1288640)).
-- Das [`keypress`](/de/docs/Web/API/Element/keypress_event)-Ereignis wird für [nicht druckbare Tasten](/de/docs/Web/API/KeyboardEvent/keyCode#non-printable_keys_function_keys) ([Firefox-Bug 968056](https://bugzil.la/968056)) nicht mehr ausgelöst, außer für die `Eingabetaste` und die Tastenkombinationen `Shift` + `Eingabetaste` sowie `Ctrl` + `Eingabetaste` (diese wurden aus Gründen der plattformübergreifenden Kompatibilität beibehalten).
+- [Mutation Events](/de/docs/Web/API/MutationEvent) wurden in Shadow Trees deaktiviert ([Firefox-Bug 1489858](https://bugzil.la/1489858)).
+- Die nicht standardisierte Eigenschaft `currentTime` von [`MediaStream`](/de/docs/Web/API/MediaStream) wurde entfernt ([Firefox-Bug 1502927](https://bugzil.la/1502927)).
+- Die Einstellungen `dom.webcomponents.shadowdom.enabled` und `dom.webcomponents.customelements.enabled` wurden entfernt — Shadow DOM und Custom Elements können nicht länger in `about:config` deaktiviert werden ([Firefox-Bug 1503019](https://bugzil.la/1503019)).
+- Das nicht standardisierte DOM-Ereignis `text` — ausgelöst, um die Editor-Benutzeroberfläche des Browsers über IME-Kompositions-Stringdaten und den Auswahlbereich zu informieren — wurde entfernt ([Firefox-Bug 1288640](https://bugzil.la/1288640)).
+- Das Ereignis [`keypress`](/de/docs/Web/API/Element/keypress_event) wird nicht länger für [nicht druckbare Tasten](/de/docs/Web/API/KeyboardEvent/keyCode#non-printable_keys_function_keys) ausgelöst ([Firefox-Bug 968056](https://bugzil.la/968056)), mit Ausnahme der Taste `Enter` sowie der Tastenkombinationen `Shift` + `Enter` und `Ctrl` + `Enter` (diese wurden aus Gründen der Browser-Kompatibilität beibehalten).
 
 ### Sicherheit
 
-- Zusätzliche CORS-Einschränkungen werden jetzt für zulässige Anfrage-Header durchgesetzt ([Firefox-Bug 1483815](https://bugzil.la/1483815), siehe auch [whatwg fetch issue 382: CORS-safelisted request headers should be restricted according to RFC 7231](https://github.com/whatwg/fetch/issues/382) für weitere Details).
+- Zusätzliche CORS-Beschränkungen für zulässige Anfrage-Header werden jetzt durchgesetzt ([Firefox-Bug 1483815](https://bugzil.la/1483815); weitere Details finden Sie auch unter [whatwg fetch issue 382: CORS-safelisted request headers should be restricted according to RFC 7231](https://github.com/whatwg/fetch/issues/382)).
 
 ### Netzwerk
 
@@ -138,27 +138,27 @@ _Keine Änderungen._
 
 _Keine Änderungen._
 
-### WebDriver-Übereinstimmung (Marionette)
+### WebDriver-Konformität (Marionette)
 
 #### API-Änderungen
 
-- `WebDriver:ElementSendKeys` behandelt `<input type=file>` entspannter bezüglich der Interaktivitätsprüfungen und erlaubt es diesen Elementen, verborgen zu sein, ohne mehr einen `not interactable`-Fehler zu verursachen. Wenn eine strikte Interaktivitätsprüfung gewünscht ist, kann die Fähigkeit `strictFileInteractability` verwendet werden ([Firefox-Bug 1502864](https://bugzil.la/1502864)).
+- `WebDriver:ElementSendKeys` behandelt `<input type=file>` bei Interaktionsprüfungen jetzt weniger restriktiv und erlaubt, dass diese Elemente ausgeblendet sind, ohne einen Fehler `not interactable` auszulösen. Wenn eine strikte Interaktionsprüfung erforderlich ist, kann die Capability `strictFileInteractability` verwendet werden ([Firefox-Bug 1502864](https://bugzil.la/1502864)).
 
-#### Bugfixes
+#### Fehlerbehebungen
 
-- Die Fenster-Manipulationsbefehle `WebDriver:FullscreenWindow`, `WebDriver:MinimizeWindow`, `WebDriver:MaximizeWindow` und `WebDriver:SetWindowRect` wurden stabiler gemacht ([Firefox-Bug 1492499](https://bugzil.la/1492499)). Dies bedeutet, dass sie unter besonderen Bedingungen nicht mehr zu einem endlosen Hängen führen, sondern stattdessen nach 5 Sekunden auslaufen, wenn der angeforderte Fensterzustand nicht erreicht werden kann ([Firefox-Bug 1521527](https://bugzil.la/1521527)).
-- `WebDriver:ElementClick` berechnet jetzt korrekt den Mittelpunkt des Elements, auf das geklickt werden soll, was Interaktionen mit Dimensionen von 1x1 Pixel ermöglicht ([Firefox-Bug 1499360](https://bugzil.la/1499360)).
+- Die Befehle zur Fenstermanipulation `WebDriver:FullscreenWindow`, `WebDriver:MinimizeWindow`, `WebDriver:MaximizeWindow` und `WebDriver:SetWindowRect` wurden stabiler gemacht ([Firefox-Bug 1492499](https://bugzil.la/1492499)). Das bedeutet, dass sie unter besonderen Bedingungen nicht mehr zu einem unendlichen Hängen führen, sondern nach 5 Sekunden ein Timeout auslösen, wenn der angeforderte Fensterstatus nicht erreicht werden kann ([Firefox-Bug 1521527](https://bugzil.la/1521527)).
+- `WebDriver:ElementClick` berechnet jetzt korrekt den Mittelpunkt des anzuklickenden Elements, wodurch Interaktionen mit Abmessungen von 1x1 Pixel möglich sind ([Firefox-Bug 1499360](https://bugzil.la/1499360)).
 
 #### Sonstiges
 
-- Für `unexpected alert open`-Fehler werden informativere Meldungen bereitgestellt ([Firefox-Bug 1502268](https://bugzil.la/1502268)).
+- Für Fehler `unexpected alert open` werden informativere Meldungen bereitgestellt ([Firefox-Bug 1502268](https://bugzil.la/1502268)).
 
 ### Sonstiges
 
 - Unterstützung für {{Glossary("WebP", "WebP")}}-Bilder wurde hinzugefügt ([Firefox-Bug 1294490](https://bugzil.la/1294490)).
-  - Zusätzlich wurde der WebP-MIME-Typ (`image/webp`) in der Standard-HTTP-Anfrage-{{httpheader("Accept")}}-Header für HTML-Dateien hinzugefügt, um die plattformübergreifende Kompatibilität in bestimmten Situationen zu erleichtern ([Firefox-Bug 1507691](https://bugzil.la/1507691)).
+  - Zusätzlich wurde der WebP-MIME-Typ (`image/webp`) in bestimmten Situationen zur Erleichterung der Browser-Kompatibilität zum Standard-HTTP-Anfrage-Header {{httpheader("Accept")}} für HTML-Dateien hinzugefügt ([Firefox-Bug 1507691](https://bugzil.la/1507691)).
 
-- Der AV1-Codec wird jetzt standardmäßig unter Windows unterstützt ([Firefox-Bug 1452146](https://bugzil.la/1452146)).
+- Der AV1-Codec wird jetzt unter Windows standardmäßig unterstützt ([Firefox-Bug 1452146](https://bugzil.la/1452146)).
 
 ## Änderungen für Add-on-Entwickler
 
@@ -166,12 +166,12 @@ _Keine Änderungen._
 
 #### Tabs
 
-- Die {{WebExtAPIRef("tabs", "tabs API", "", "1")}} wurde um Tab-Nachfolger erweitert — ein Tab kann einen Nachfolger zugewiesen bekommen, der die ID des Tabs ist, der aktiv wird, sobald er geschlossen wird ([Firefox-Bug 1500479](https://bugzil.la/1500479), siehe auch [diesen Blogbeitrag](https://qiita.com/piroor/items/ea7e727735631c45a366) für weitere Informationen). Insbesondere:
-  - Der {{WebExtAPIRef("tabs.Tab")}}-Typ hat jetzt eine `successorId`-Eigenschaft, die verwendet werden kann, um die ID des Tab-Nachfolgers zu speichern oder abzurufen.
-  - Der Rückruf des Ereignis-Listeners {{WebExtAPIRef("tabs.onActivated")}} hat einen neuen verfügbaren Parameter, `previousTabId`, der die ID des zuvor aktivierten Tabs enthält, wenn er noch geöffnet ist.
-  - Das `updateProperties`-Objekt der Funktion {{WebExtAPIRef("tabs.update()")}} hat eine neue optionale Eigenschaft `successorTabId`, die verwendet werden kann, um es zu aktualisieren.
+- Die {{WebExtAPIRef("tabs", "tabs API", "", "1")}} wurde erweitert, um Tab-Nachfolger zu unterstützen — einem Tab kann ein Nachfolger zugewiesen werden, also die ID des Tabs, der aktiv sein wird, nachdem er geschlossen wurde ([Firefox-Bug 1500479](https://bugzil.la/1500479); weitere Informationen finden Sie auch in [diesem Blogbeitrag](https://qiita.com/piroor/items/ea7e727735631c45a366)). Insbesondere:
+  - Der Typ {{WebExtAPIRef("tabs.Tab")}} verfügt jetzt über eine Eigenschaft `successorId`, mit der die ID des Tab-Nachfolgers gespeichert bzw. abgerufen werden kann.
+  - Der Callback des Event-Listeners {{WebExtAPIRef("tabs.onActivated")}} verfügt über einen neuen Parameter, `previousTabId`, der die ID des zuvor aktivierten Tabs enthält, falls dieser noch geöffnet ist.
+  - Das Objekt `updateProperties` der Funktion {{WebExtAPIRef("tabs.update()")}} verfügt jetzt über eine neue optionale Eigenschaft `successorTabId`, die zum Aktualisieren verwendet werden kann.
   - `successorTabId` wird auch von Funktionen wie {{WebExtAPIRef("tabs.get()")}} und {{WebExtAPIRef("tabs.query()")}} zurückgegeben.
-  - Die neue Funktion `tabs.moveInSuccession()` ermöglicht die Manipulation von Tab-Nachfolgern in Massen.
+  - Die neue Funktion `tabs.moveInSuccession()` ermöglicht die Massenbearbeitung von Tab-Nachfolgern.
 
 ### Manifest-Änderungen
 
@@ -179,8 +179,8 @@ _Keine Änderungen._
 
 ### Sonstiges
 
-- Die Eigenschaften `headerURL`/`theme_frame` für [WebExtension-Themen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) werden jetzt auf Firefox für Android unterstützt ([Firefox-Bug 1429488](https://bugzil.la/1429488)).
+- Die Eigenschaften `headerURL`/`theme_frame` für [WebExtension-Themes](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) werden jetzt in Firefox für Android unterstützt ([Firefox-Bug 1429488](https://bugzil.la/1429488)).
 
 ## Siehe auch
 
-- Hacks-Release-Post: [Firefox 65: WebP support, Flexbox Inspector, new tooling & platform updates](https://hacks.mozilla.org/2019/01/firefox-65-webp-flexbox-inspector-new-tooling/)
+- Hacks-Veröffentlichungsbeitrag: [Firefox 65: WebP support, Flexbox Inspector, new tooling & platform updates](https://hacks.mozilla.org/2019/01/firefox-65-webp-flexbox-inspector-new-tooling/)

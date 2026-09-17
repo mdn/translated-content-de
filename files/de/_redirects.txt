@@ -8725,6 +8725,7 @@
 /de/docs/Web/API/FetchEvent.respondWith(any_value)	/de/docs/Web/API/FetchEvent/respondWith
 /de/docs/Web/API/FetchEvent/client	/de/docs/Web/API/FetchEvent/clientId
 /de/docs/Web/API/FetchEvent/navigationPreload	/de/docs/Web/API/FetchEvent/preloadResponse
+/de/docs/Web/API/FetchEvent/replacesClientId	/de/docs/Web/API/FetchEvent
 /de/docs/Web/API/FetchEvent_clone	/de/docs/Web/API/FetchEvent
 /de/docs/Web/API/FetchSignal	/de/docs/Web/API/AbortSignal
 /de/docs/Web/API/FetchSignal/aborted	/de/docs/Web/API/AbortSignal/aborted
