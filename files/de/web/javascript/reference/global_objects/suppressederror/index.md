@@ -2,84 +2,85 @@
 title: SuppressedError
 slug: Web/JavaScript/Reference/Global_Objects/SuppressedError
 l10n:
-  sourceCommit: 1d2e1875bdfdd2fb8d0806535220bbd56d3a091d
+  sourceCommit: 733c9dda98c76fa0a67e2136a355219eca821bb9
 ---
 
-Das **`SuppressedError`** Objekt repräsentiert einen Fehler, der beim Handhaben eines anderen Fehlers entsteht. Es wird während der Ressourcenfreigabe mit {{jsxref("Statements/using", "using")}} oder {{jsxref("Statements/await_using", "await using")}} erzeugt.
+Das **`SuppressedError`**-Objekt stellt einen Fehler dar, der beim Behandeln eines anderen Fehlers erzeugt wird. Es wird bei der Ressourcenfreigabe mit {{jsxref("Statements/using", "using")}} oder {{jsxref("Statements/await_using", "await using")}} erzeugt.
 
-Im Vergleich zu {{jsxref("AggregateError")}} steht `SuppressedError` für einen Fehler, der beim Umgang mit einem anderen Fehler auftritt, während `AggregateError` eine Liste von nicht zusammenhängenden Fehlern darstellt. Es ist jedoch möglich, dass ein `SuppressedError` eine Kette von unterdrückten Fehlern enthält (`e.suppressed.suppressed.suppressed...`). Es unterscheidet sich auch semantisch von {{jsxref("Error/cause", "cause")}}, da der Fehler nicht durch einen anderen Fehler _verursacht_ wird, sondern _auftritt, wenn_ ein anderer Fehler gehandhabt wird.
+Im Vergleich zu {{jsxref("AggregateError")}} stellt `SuppressedError` einen Fehler dar, der während der Behandlung eines anderen Fehlers aufgetreten ist, während `AggregateError` eine Liste nicht zusammenhängender Fehler darstellt. Es ist jedoch möglich, dass ein `SuppressedError` eine Kette unterdrückter Fehler enthält (`e.suppressed.suppressed.suppressed...`). Außerdem unterscheidet es sich semantisch von {{jsxref("Error/cause", "cause")}}, da der Fehler nicht _durch_ einen anderen Fehler verursacht wird, sondern _bei der_ Behandlung eines anderen Fehlers auftritt.
 
 `SuppressedError` ist eine Unterklasse von {{jsxref("Error")}}.
 
 ## Konstruktor
 
 - {{jsxref("SuppressedError/SuppressedError", "SuppressedError()")}}
-  - : Erstellt ein neues `SuppressedError` Objekt.
+  - : Erstellt ein neues `SuppressedError`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt außerdem Instanzeigenschaften von seinem übergeordneten {{jsxref("Error")}}_.
 
-Diese Eigenschaften sind auf `SuppressedError.prototype` definiert und werden von allen `SuppressedError` Instanzen geteilt.
+Diese Eigenschaften sind auf `SuppressedError.prototype` definiert und werden von allen `SuppressedError`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "SuppressedError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `SuppressedError` Instanzen ist der Anfangswert der {{jsxref("SuppressedError/SuppressedError", "SuppressedError")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `SuppressedError`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("SuppressedError/SuppressedError", "SuppressedError")}}.
 - {{jsxref("Error/name", "SuppressedError.prototype.name")}}
-  - : Repräsentiert den Namen des Fehlertyps. Für `SuppressedError.prototype.name` ist der Anfangswert `"SuppressedError"`.
+  - : Stellt den Namen für den Fehlertyp dar. Für `SuppressedError.prototype.name` ist der Anfangswert `"SuppressedError"`.
 
 > [!NOTE]
-> `SuppressedError` hat niemals die {{jsxref("Error/cause", "cause")}} Eigenschaft, weil die Semantik von `cause` sich mit `suppressed` überschneidet.
+> `SuppressedError` hat niemals die Eigenschaft {{jsxref("Error/cause", "cause")}}, da sich die Semantik von `cause` mit `suppressed` überschneidet.
 
-Diese Eigenschaften sind eigene Eigenschaften jeder `SuppressedError` Instanz.
+Diese Eigenschaften sind eigene Eigenschaften jeder `SuppressedError`-Instanz.
 
 - {{jsxref("SuppressedError/error", "error")}}
   - : Eine Referenz auf den Fehler, der zur Unterdrückung führt.
 - {{jsxref("SuppressedError/suppressed", "suppressed")}}
   - : Eine Referenz auf den Fehler, der durch `error` unterdrückt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt Instanzmethoden von seinem übergeordneten {{jsxref("Error")}}_.
 
 ## Beispiele
 
-### Auffangen eines SuppressedError
+### Abfangen eines SuppressedError
 
-Ein `SuppressedError` wird ausgelöst, wenn ein Fehler während der [Ressourcenfreigabe](/de/docs/Web/JavaScript/Guide/Resource_management) auftritt. Das Auslösen eines Fehlers verursacht eine Bereichsbereinigung, und jeder Putzer während der Bereinigung kann seinen eigenen Fehler werfen. All diese Fehler werden in eine Kette von `SuppressedError` Instanzen gesammelt, wobei der ursprüngliche Fehler als `suppressed` Eigenschaft und der neue Fehler, der vom nächsten Putzer geworfen wird, als `error` Eigenschaft dargestellt wird.
+Ein `SuppressedError` wird ausgelöst, wenn während der [Ressourcenfreigabe](/de/docs/Web/JavaScript/Guide/Resource_management) ein Fehler auftritt. Das Auslösen eines Fehlers führt zur Bereinigung des Gültigkeitsbereichs, und jeder Disposer während der Bereinigung kann einen eigenen Fehler auslösen. All diese Fehler werden in einer Kette von `SuppressedError`-Instanzen gesammelt, wobei der ursprüngliche Fehler die Eigenschaft `suppressed` und der vom nächsten Disposer ausgelöste neue Fehler die Eigenschaft `error` erhält.
 
 ```js
 try {
   using resource1 = {
     [Symbol.dispose]() {
-      throw new Error("Error while disposing resource1");
+      throw new Error("resource1 disposal failed");
     },
   };
   using resource2 = {
     [Symbol.dispose]() {
-      throw new Error("Error while disposing resource2");
+      throw new Error("resource2 disposal failed");
     },
   };
-  throw new Error("Original error");
+  throw new TypeError("Original error");
 } catch (e) {
   console.log(e instanceof SuppressedError); // true
   console.log(e.message); // "An error was suppressed during disposal"
   console.log(e.name); // "SuppressedError"
-  console.log(e.error); // Error: Error while disposing resource1
+  console.log(e.error); // Error: resource1 disposal failed
   console.log(e.suppressed); // SuppressedError: An error was suppressed during disposal
-  console.log(e.suppressed.error); // Error: Error while disposing resource2
-  console.log(e.suppressed.suppressed); // Error: Original error
+  console.log(e.suppressed.error); // Error: resource2 disposal failed
+  console.log(e.suppressed.suppressed); // TypeError: Original error
 }
 ```
 
-Die Kette sieht so aus:
+Die Kette sieht folgendermaßen aus:
 
 ```plain
-       SuppressedError --suppressed--> SuppressedError --suppressed--> Original error
-              |                               |
-            error                           error
-              v                               v
-Error while disposing resource1   Error while disposing resource2
-    (Disposal happens later)        (Disposal happens earlier)
+     SuppressedError --suppressed--> SuppressedError --suppressed--> TypeError
+            |                               |
+          error                           error
+            |                               |
+            v                               v
+resource1 disposal failed       resource2 disposal failed
+ (Disposal happens later)       (Disposal happens earlier)
 ```
 
 ### Erstellen eines SuppressedError

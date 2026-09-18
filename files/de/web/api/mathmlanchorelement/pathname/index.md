@@ -3,12 +3,12 @@ title: "MathMLAnchorElement: pathname-Eigenschaft"
 short-title: pathname
 slug: Web/API/MathMLAnchorElement/pathname
 l10n:
-  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{APIRef("MathML")}}
+{{APIRef("MathML")}}{{SeeCompatTable}}
 
-Die **`pathname`**-Eigenschaft des [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Interfaces ist ein String, der einen anfänglichen `'/'` gefolgt vom Pfad der URL enthält, ohne Query-String oder Fragment (bzw. einen leeren String, wenn kein Pfad vorhanden ist).
+Die **`pathname`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist ein String, der ein anfängliches `'/'` gefolgt vom Pfad der URL enthält, ohne Query-String oder Fragment (oder den leeren String, falls kein Pfad vorhanden ist).
 
 Weitere Informationen finden Sie unter [`URL.pathname`](/de/docs/Web/API/URL/pathname).
 
@@ -28,7 +28,7 @@ Bei folgendem MathML:
 </math>
 ```
 
-können Sie den `pathname` des Ankers wie folgt abrufen:
+können Sie den `pathname` des Ankers folgendermaßen abrufen:
 
 ```js
 const mathAnchor = document.getElementById("myAnchor");

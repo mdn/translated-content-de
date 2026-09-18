@@ -3,14 +3,14 @@ title: Promise.allSettledKeyed()
 short-title: allSettledKeyed()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/allSettledKeyed
 l10n:
-  sourceCommit: e968a7ec62b56317305367951febc8a19002a12d
+  sourceCommit: 9fac65196ac2b9a26afabbcb7f14fd58621916ae
 ---
 
 {{SeeCompatTable}}
 
-Die statische Methode **`Promise.allSettledKeyed()`** ähnelt {{jsxref("Promise.allSettled()")}}, verwendet jedoch Objekte anstelle von Arrays/Iterables als Eingabe/Ausgabe. Sie nimmt ein Objekt entgegen, bei dem jeder eigene Schlüssel einem Promise zugeordnet ist, und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises der Eingabe abgeschlossen sind, und zwar mit einem Objekt, dessen gleiche Schlüssel Objekten zugeordnet sind, die das Ergebnis des entsprechenden Promise beschreiben.
+Die statische Methode **`Promise.allSettledKeyed()`** ähnelt {{jsxref("Promise.allSettled()")}}, verwendet jedoch Objekte statt Arrays/Iterables als Ein- und Ausgabe. Sie akzeptiert ein Objekt, bei dem jeder eigene Schlüssel mit einem Promise verknüpft ist, und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises der Eingabe abgeschlossen sind, mit einem Objekt, dessen gleiche Schlüssel Objekten zugeordnet sind, die das Ergebnis des entsprechenden Promise beschreiben.
 
-Im Vergleich zu {{jsxref("Promise.allSettled()")}} ermöglicht `Promise.allSettledKeyed()`, Ergebnisse semantisch aussagekräftigen Schlüsseln zuzuordnen, statt einer beliebigen Array-Reihenfolge, die schwer zu pflegen sein kann.
+Im Vergleich zu {{jsxref("Promise.allSettled()")}} ermöglicht `Promise.allSettledKeyed()`, Ergebnisse semantisch aussagekräftigen Schlüsseln zuzuordnen, statt einer beliebigen Array-Reihenfolge, die schwer zu verwalten sein kann.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Promise.allSettledKeyed(object)
 ### Parameter
 
 - `object`
-  - : Ein Objekt. Alle seine [eigenen aufzählbaren Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties), unabhängig davon, ob der Schlüssel ein String oder ein Symbol ist, sollten {{jsxref("Promise")}}-Werte haben. Diese Werte werden [abgewartet](/de/docs/Web/JavaScript/Reference/Operators/await), sodass auch andere [Thenables](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) aufgelöst werden, während Nicht-Thenables unverändert zurückgegeben werden.
+  - : Ein Objekt. Alle seine [eigenen aufzählbaren Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties), unabhängig davon, ob der Schlüssel ein String oder ein Symbol ist, sollten {{jsxref("Promise")}}-Werte haben. Diese Werte werden [abgewartet](/de/docs/Web/JavaScript/Reference/Operators/await), daher werden auch andere [Thenables](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) aufgelöst, während Nicht-Thenables unverändert zurückgegeben werden.
 
 ### Rückgabewert
 
@@ -40,20 +40,20 @@ Ein {{jsxref("Promise")}}, das:
 
 ## Beschreibung
 
-Die Methode `Promise.allSettledKeyed()` ist eine der Methoden für [Promise-Nebenläufigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie führt dieselbe Art von Aufgabe wie {{jsxref("Promise.allSettled()")}} aus. `Promise.allSettledKeyed()` wird bevorzugt, wenn Sie nicht bereits über ein Array von Promises verfügen und/oder die Ergebnisse sofort destrukturieren; weitere Informationen finden Sie unter {{jsxref("Promise.allKeyed()")}}.
+Die Methode `Promise.allSettledKeyed()` ist eine der Methoden für [Promise-Nebenläufigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie führt dieselbe Art von Aufgabe wie {{jsxref("Promise.allSettled()")}} aus. `Promise.allSettledKeyed()` wird bevorzugt, wenn Sie nicht bereits ein Array von Promises haben und/oder die Ergebnisse unmittelbar destrukturieren; weitere Informationen finden Sie unter {{jsxref("Promise.allKeyed()")}}.
 
 ## Beispiele
 
-### Verwendung von Promise.allSettledKeyed()
+### Promise.allSettledKeyed() verwenden
 
-Die Methode `Promise.allSettledKeyed()` nimmt ein Objekt entgegen und verarbeitet alle seine eigenen aufzählbaren Eigenschaften.
+Die Methode `Promise.allSettledKeyed()` akzeptiert ein Objekt und verarbeitet alle seine eigenen aufzählbaren Eigenschaften.
 
 ```js
 function delayed(value, timeout) {
   return new Promise((res) => setTimeout(() => res(value), timeout));
 }
 
-const sym = Symbol();
+const sym = Symbol("example");
 
 const promises = {
   a: delayed("a", 500),

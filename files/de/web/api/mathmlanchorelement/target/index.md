@@ -3,12 +3,12 @@ title: "MathMLAnchorElement: target-Eigenschaft"
 short-title: target
 slug: Web/API/MathMLAnchorElement/target
 l10n:
-  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{APIRef("MathML")}}
+{{APIRef("MathML")}}{{SeeCompatTable}}
 
-Die **`target`**-Eigenschaft der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist ein String, der angibt, wo die verknüpfte Ressource angezeigt werden soll.
+Die **`target`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
 
 Sie spiegelt das `target`-Attribut des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements wider.
 

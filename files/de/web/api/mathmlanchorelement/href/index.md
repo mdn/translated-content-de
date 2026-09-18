@@ -3,26 +3,26 @@ title: "MathMLAnchorElement: href-Eigenschaft"
 short-title: href
 slug: Web/API/MathMLAnchorElement/href
 l10n:
-  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{APIRef("MathML")}}
+{{APIRef("MathML")}}{{SeeCompatTable}}
 
-Die **`href`**-Eigenschaft der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist ein {{Glossary("stringifier", "Stringifier")}}, der die absolute URL zurückgibt, die dem `href`-Attribut des Elements [`<a>`](/de/docs/Web/MathML/Reference/Element/a) entspricht (oder eine leere Zeichenfolge, wenn `href` nicht gesetzt ist). Das Setzen dieser Eigenschaft aktualisiert das `href`-Attribut des Elements auf den bereitgestellten Wert.
+Die **`href`**-Eigenschaft der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist ein {{Glossary("stringifier", "Stringifier")}}, der die absolute URL zurückgibt, die dem `href`-Attribut des Elements [`<a>`](/de/docs/Web/MathML/Reference/Element/a) entspricht (oder einen leeren String, wenn `href` nicht gesetzt ist). Das Setzen dieser Eigenschaft aktualisiert das `href`-Attribut des Elements auf den angegebenen Wert.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
-- Wenn das `href`-Attribut fehlt, ist der Wert eine leere Zeichenfolge (`""`).
-- Wenn das `href`-Attribut vorhanden ist, aber keine gültige relative oder absolute URL enthält, entspricht der Wert unverändert dem Wert des Attributs.
-- Wenn das `href`-Attribut vorhanden ist und eine gültige relative oder absolute URL enthält, ist der Wert die absolute URL, aufgelöst relativ zur Basis-URL des Dokuments. Die leere Zeichenfolge (`""`) wird als gültige relative URL betrachtet und zur Basis-URL des Dokuments aufgelöst.
+- Wenn das `href`-Attribut nicht vorhanden ist, ist der Wert ein leerer String (`""`).
+- Wenn das `href`-Attribut vorhanden ist, aber keine gültige relative oder absolute URL darstellt, entspricht der Wert unverändert dem Wert des Attributs.
+- Wenn das `href`-Attribut vorhanden ist und eine gültige relative oder absolute URL darstellt, ist der Wert die absolute URL, aufgelöst relativ zur Basis-URL des Dokuments. Der leere String (`""`) wird als gültige relative URL betrachtet und zur Basis-URL des Dokuments aufgelöst.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Ausgehend von diesem MathML:
+Gegeben sei dieses MathML:
 
 ```html
 <math>
@@ -30,7 +30,7 @@ Ausgehend von diesem MathML:
 </math>
 ```
 
-können Sie das `href` des Ankers wie folgt abrufen:
+Sie können das `href` des Ankers wie folgt abrufen:
 
 ```js
 const mathAnchor = document.getElementById("myAnchor");

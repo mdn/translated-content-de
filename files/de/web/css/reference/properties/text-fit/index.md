@@ -3,10 +3,12 @@ title: "`text-fit` CSS property"
 short-title: text-fit
 slug: Web/CSS/Reference/Properties/text-fit
 l10n:
-  sourceCommit: 03e93e0948768ea78474e77a53795698ebca5836
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-Die **`text-fit`**-[CSS](/de/docs/Web/CSS)-Eigenschaft kann verwendet werden, um die gerenderte Schriftgröße von Textknoten (und anderen Inline-Inhalten) zu skalieren, sodass sie exakt in die Inline-Dimension ihrer enthaltenden Boxen passen, optional begrenzt durch einen maximalen oder minimalen **Skalierungsfaktor**.
+{{SeeCompatTable}}
+
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-fit`** kann verwendet werden, um die gerenderte Schriftgröße von Textknoten (und anderen Inline-Inhalten) zu skalieren, sodass sie genau in die Inline-Dimension ihrer enthaltenden Boxen passen, optional begrenzt durch einen maximalen oder minimalen **Skalierungsfaktor**.
 
 ## Syntax
 
@@ -35,41 +37,41 @@ text-fit: unset;
 
 ### Werte
 
-Als eines der Schlüsselwörter `none`, `grow` oder `shrink` angegeben, optional gefolgt von einem der Schlüsselwörter `consistent`, `per-line` oder `per-line-all` sowie einem optionalen {{cssxref("percentage")}}-Wert, durch Leerzeichen getrennt. Die Komponenten müssen in dieser Reihenfolge angegeben werden.
+Wird als eines der Schlüsselwörter `none`, `grow` oder `shrink` angegeben, optional gefolgt von einem der Schlüsselwörter `consistent`, `per-line` oder `per-line-all` sowie einem optionalen {{cssxref("percentage")}}-Wert, durch Leerzeichen getrennt. Die Komponenten müssen in dieser Reihenfolge angegeben werden.
 
 - `none`
   - : Der Standardwert. Es wird keine Textskalierung angewendet.
 - `grow`
-  - : Die gerenderte Schriftgröße des Textknotens wird vergrößert, bis er exakt in die Inline-Dimension seiner enthaltenden Box passt.
+  - : Die gerenderte Schriftgröße des Textknotens wird vergrößert, bis sie genau in die Inline-Dimension seiner enthaltenden Box passt.
 - `shrink`
-  - : Die gerenderte Schriftgröße des Textknotens wird verkleinert, bis er exakt in die Inline-Dimension seiner enthaltenden Box passt.
+  - : Die gerenderte Schriftgröße des Textknotens wird verkleinert, bis sie genau in die Inline-Dimension seiner enthaltenden Box passt.
 - `consistent`
   - : Alle Zeilen des Textknotens werden mit demselben Skalierungsfaktor skaliert. Dieses Schlüsselwort hat keine Wirkung, wenn `none` als erstes Schlüsselwort angegeben ist. Wenn kein zweites Schlüsselwort angegeben ist, wird `consistent` angenommen.
 - `per-line`
-  - : Alle Zeilen des Textknotens werden mit ihrem eigenen Skalierungsfaktor skaliert. Auf die letzte Zeile des Textknotens und alle Zeilen, die mit einem erzwungenen Umbruch enden (zum Beispiel aufgrund eines {{htmlelement("br")}}-Elements), wird keine Textskalierung angewendet. Dieses Schlüsselwort hat keine Wirkung, wenn `none` als erstes Schlüsselwort angegeben ist.
+  - : Alle Zeilen des Textknotens werden mit ihrem jeweils eigenen Skalierungsfaktor skaliert. Auf die letzte Zeile des Textknotens sowie auf Zeilen, die mit einem erzwungenen Umbruch enden (zum Beispiel aufgrund eines {{htmlelement("br")}}-Elements), wird keine Textskalierung angewendet. Dieses Schlüsselwort hat keine Wirkung, wenn `none` als erstes Schlüsselwort angegeben ist.
 - `per-line-all`
-  - : Alle Zeilen des Textknotens werden mit ihrem eigenen Skalierungsfaktor skaliert, einschließlich der letzten Zeile und Zeilen, die mit einem erzwungenen Umbruch enden. Dieses Schlüsselwort hat keine Wirkung, wenn `none` als erstes Schlüsselwort angegeben ist.
+  - : Alle Zeilen des Textknotens werden mit ihrem jeweils eigenen Skalierungsfaktor skaliert, einschließlich der letzten Zeile und Zeilen, die mit einem erzwungenen Umbruch enden. Dieses Schlüsselwort hat keine Wirkung, wenn `none` als erstes Schlüsselwort angegeben ist.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Gibt den maximalen (wenn `grow` angegeben ist) oder minimalen (wenn `shrink` angegeben ist) Skalierungsfaktor an. Dieser muss `100%` oder größer sein, wenn `grow` angegeben ist, oder zwischen einschließlich `0%` und `100%` liegen, wenn `shrink` angegeben ist. Andernfalls hat der Prozentwert keine Wirkung.
+  - : Gibt den maximalen (wenn `grow` angegeben ist) oder minimalen (wenn `shrink` angegeben ist) Skalierungsfaktor an. Dieser muss `100%` oder größer sein, wenn `grow` angegeben ist, beziehungsweise zwischen `0%` und einschließlich `100%` liegen, wenn `shrink` angegeben ist. Andernfalls hat der Prozentwert keine Wirkung.
 
 ## Beschreibung
 
-Eine häufige Herausforderung beim Webdesign besteht darin, Überschriften und andere Textmerkmale sauber in ihre enthaltenden Boxen einzupassen, unabhängig von Layout oder Viewport-Größe. Der typischste Anwendungsfall besteht darin, eine horizontale Textüberschrift perfekt an die Breite ihrer enthaltenden Box anzupassen. Historisch wurden komplexe {{cssxref("font-size")}}-Berechnungen und JavaScript-Workarounds verwendet, um dies zu erreichen.
+Eine häufige Herausforderung beim Webdesign besteht darin, Überschriften und andere Textelemente unabhängig von Layout oder Viewport-Größe ordentlich in ihre enthaltenden Boxen einzupassen. Der typischste Anwendungsfall besteht darin, eine horizontale Textüberschrift perfekt an die Breite ihrer enthaltenden Box anzupassen. Um dies zu erreichen, wurden früher komplexe {{cssxref("font-size")}}-Berechnungen und JavaScript-Workarounds verwendet.
 
-Die Eigenschaft `text-fit` bietet eine praktische reine CSS-Lösung, indem sie die gerenderte Schriftgröße des Textes um einen bestimmten Skalierungsfaktor anpasst, damit sie in den verfügbaren Platz passt, anstatt ihn auszurichten, wie es der Wert `justify` der Eigenschaft {{cssxref("text-align")}} tut.
+Die Eigenschaft `text-fit` bietet eine praktische reine CSS-Lösung: Sie passt die gerenderte Schriftgröße des Textes mit einem bestimmten Skalierungsfaktor an den verfügbaren Platz an, statt ihn auszurichten, wie es der Wert `justify` der Eigenschaft {{cssxref("text-align")}} tut.
 
-Die Grundform von `text-fit` verwendet ein einzelnes Schlüsselwort:
+Die grundlegende Form von `text-fit` verwendet ein einzelnes Schlüsselwort:
 
-- Sie können `grow` angeben, um die Schriftgröße zu vergrößern, sodass der Text exakt in seine enthaltende Box passt. Dies eignet sich gut für den zuvor beschriebenen Anwendungsfall.
-- Sie können `shrink` angeben, um die Schriftgröße zu verkleinern, sodass der Text exakt in seine enthaltende Box passt. Dies eignet sich gut für Fälle, in denen Sie eine Textzeile haben, die länger als ihre enthaltende Box ist, möglicherweise aufgrund eines sehr langen Wortes, und Sie sie verkleinern möchten, um Überlauf zu vermeiden.
+- Sie können `grow` angeben, um die Schriftgröße zu vergrößern, sodass der Text genau in seine enthaltende Box passt. Dies eignet sich gut für den zuvor beschriebenen Anwendungsfall.
+- Sie können `shrink` angeben, um die Schriftgröße zu verkleinern, sodass der Text genau in seine enthaltende Box passt. Dies eignet sich gut für Fälle, in denen Sie eine Textzeile haben, die länger als ihre enthaltende Box ist, möglicherweise aufgrund eines sehr langen Wortes, und Sie sie verkleinern möchten, um Überlauf zu vermeiden.
 
-Insbesondere die Teile eines Textknotens, die von dieser Skalierung betroffen sind (die **skalierbaren Teile**), sind der Text selbst, ausgenommen nachfolgende Leerzeichen, sowie Abstände, deren Inline-Größe proportional zur `font-size` des Textes ist, beispielsweise prozentbasiertes {{cssxref("letter-spacing")}} und {{cssxref("word-spacing")}} sowie {{cssxref("text-autospace")}}. Andere Teile, einschließlich Inline-{{cssxref("border")}}, {{cssxref("margin")}} und {{cssxref("padding")}}, werden nicht skaliert.
+Insbesondere die von dieser Skalierung betroffenen Teile eines Textknotens (die **skalierbaren Teile**) sind der Text selbst ohne nachfolgende Leerzeichen sowie Abstände, deren Inline-Größe proportional zur `font-size` des Textes ist, beispielsweise prozentbasierte {{cssxref("letter-spacing")}} und {{cssxref("word-spacing")}} sowie {{cssxref("text-autospace")}}. Andere Teile, einschließlich Inline-{{cssxref("border")}}, {{cssxref("margin")}} und {{cssxref("padding")}}, werden nicht skaliert.
 
-Die Eigenschaft `text-fit` beeinflusst nicht die intrinsische Größe eines Containers. Das bedeutet, dass der Textinhalt in Fällen, in denen die Größe des Containers durch seinen Inhalt bestimmt wird, nicht wachsen kann, beispielsweise bei Verwendung des Schlüsselworts {{cssxref("fit-content")}}. Das Setzen von `text-fit` ändert auch nicht die berechnete `font-size` eines Elements: Die Größenanpassung wird nach dem endgültigen Rendern angewendet.
+Die Eigenschaft `text-fit` beeinflusst nicht die intrinsische Größe eines Containers. Das bedeutet, dass Textinhalte in Fällen, in denen der Container anhand seines Inhalts dimensioniert wird, beispielsweise mit dem Schlüsselwort {{cssxref("fit-content")}}, nicht wachsen können. Das Setzen von `text-fit` ändert auch nicht die berechnete `font-size` eines Elements: Die Größenanpassung wird nach dem endgültigen Rendering angewendet.
 
 ### Wie wird der Skalierungsfaktor berechnet?
 
-Der Skalierungsfaktor ist das Verhältnis, um das die skalierbaren Teile einer Textzeile skaliert werden müssen, damit ihr Inline-Inhalt exakt in ihre enthaltende Box passt. Der Skalierungsfaktor für jede Zeile eines Textknotens wird mit einer Formel nach folgendem Muster berechnet (die genaue Methode zur Bestimmung des Skalierungsfaktors kann sich zwischen Implementierungen unterscheiden):
+Der Skalierungsfaktor ist das Verhältnis, um das die skalierbaren Teile einer Textzeile skaliert werden müssen, damit ihr Inline-Inhalt genau in ihre enthaltende Box passt. Der Skalierungsfaktor für jede Zeile eines Textknotens wird anhand einer Formel wie der folgenden berechnet (die genaue Methode zur Bestimmung des Skalierungsfaktors kann sich zwischen Implementierungen unterscheiden):
 
 ```plain
 (A + B) / A
@@ -78,11 +80,11 @@ Der Skalierungsfaktor ist das Verhältnis, um das die skalierbaren Teile einer T
 Dabei gilt:
 
 - `A` ist die gesamte Inline-Größe der skalierbaren Teile der Textzeile.
-- `B` ist der verbleibende Platz innerhalb der Textzeile, einschließlich etwaiger nachfolgender Leerzeichen, der negativ sein kann, wenn der Text überläuft.
+- `B` ist der verbleibende Platz innerhalb der Textzeile, einschließlich etwaiger nachfolgender Leerzeichen; dieser kann negativ sein, wenn der Text überläuft.
 
 Der Skalierungsfaktor für eine Textzeile ohne skalierbare Teile ist `1`.
 
-### Begrenzungen für Skalierungsfaktoren angeben
+### Grenzen für Skalierungsfaktoren angeben
 
 Um zu begrenzen, wie stark der Text wachsen kann, können Sie nach dem Schlüsselwort `grow` oder `shrink` einen `<percentage>`-Wert angeben.
 
@@ -92,32 +94,32 @@ Wenn `grow` angegeben ist, muss der Prozentwert `100%` oder größer sein und fu
 text-fit: grow 300%;
 ```
 
-Jeder Text, auf den dies angewendet wird, wächst so, dass er in seine enthaltende Box passt, wird jedoch nicht auf eine Größe skaliert, die größer als 300 % seiner ursprünglichen `font-size` ist.
+Auf jeden Text, auf den dies angewendet wird, wird eine Vergrößerung vorgenommen, damit er in seine enthaltende Box passt. Er wird jedoch nicht auf eine Größe skaliert, die größer als 300 % seiner ursprünglichen `font-size` ist.
 
-Wenn `shrink` angegeben ist, muss der Prozentwert zwischen einschließlich `0%` und `100%` liegen und fungiert als minimaler Skalierungsfaktor. Beispiel:
+Wenn `shrink` angegeben ist, muss der Prozentwert zwischen `0%` und einschließlich `100%` liegen und fungiert als minimaler Skalierungsfaktor. Beispiel:
 
 ```css
 text-fit: shrink 50%;
 ```
 
-Jeder Text, auf den dies angewendet wird, wird verkleinert, sodass er in seine enthaltende Box passt, jedoch nicht auf eine Größe, die kleiner als 50 % seiner ursprünglichen `font-size` ist.
+Auf jeden Text, auf den dies angewendet wird, wird eine Verkleinerung vorgenommen, damit er in seine enthaltende Box passt. Er wird jedoch nicht auf eine Größe skaliert, die kleiner als 50 % seiner ursprünglichen `font-size` ist.
 
 > [!NOTE]
-> In vielen Situationen führt das Verhalten beim Wortumbruch dazu, dass `text-fit: shrink` keine Wirkung hat — die Wörter werden auf neue Zeilen umgebrochen, statt verkleinert zu werden. In diesen Fällen müssen Sie das Umbruchverhalten mit etwas wie einem {{cssxref("white-space")}}-Wert von `nowrap` unterbinden, damit es funktioniert. Sehen Sie dies in unserem [grundlegenden Beispiel](#basic_text-fit_usage) in Aktion.
+> In vielen Situationen führt das Verhalten beim Wortumbruch dazu, dass `text-fit: shrink` keine Wirkung hat — die Wörter werden in neue Zeilen umgebrochen, statt verkleinert zu werden. In diesen Fällen müssen Sie das Umbruchverhalten beispielsweise mit einem {{cssxref("white-space")}}-Wert von `nowrap` verhindern, damit es funktioniert. Sehen Sie dies in unserem [grundlegenden Beispiel](#basic_text-fit_usage) in Aktion.
 
 ### Angeben, wie der Skalierungsfaktor auf mehrere Textzeilen angewendet wird
 
-Standardmäßig werden bei einem Textknoten mit mehreren Zeilen alle Zeilen mit demselben Skalierungsfaktor skaliert. Jede Zeile erhält separat einen berechneten Skalierungsfaktor, und anschließend wird der kleinste Skalierungsfaktor auf alle Zeilen angewendet. Dies ist in der Regel das gewünschte Verhalten, um sicherzustellen, dass jede Zeile um denselben Anteil vergrößert oder verkleinert wird.
+Standardmäßig skaliert ein Textknoten mit mehreren Zeilen alle Zeilen mit demselben Skalierungsfaktor. Für jede Zeile wird ihr Skalierungsfaktor separat berechnet, und anschließend wird der kleinste Skalierungsfaktor auf alle Zeilen angewendet. Dies ist normalerweise das gewünschte Verhalten, um sicherzustellen, dass jede Zeile im selben Verhältnis wächst oder schrumpft.
 
-Wenn Sie dieses Verhalten anpassen möchten, können Sie nach dem ersten Schlüsselwort und vor dem Prozentwert, sofern angegeben, einen zweiten Wert angeben. Dieser Wert kann als das Standardschlüsselwort `consistent` angegeben werden, das das zuvor beschriebene Verhalten beibehält. Sie können jedoch auch `per-line` oder `per-line-all` angeben. Beide bewirken, dass die Zeilen des Textknotens mit eigenen Skalierungsfaktoren skaliert werden. Der Unterschied besteht darin, dass bei `per-line` auf die letzte Zeile des Textknotens und alle Zeilen, die mit einem erzwungenen Umbruch enden (zum Beispiel aufgrund eines `<br>`-Elements), keine Textskalierung angewendet wird, während bei `per-line-all` auch auf diese Zeilen eine Skalierung angewendet wird.
+Wenn Sie dieses Verhalten anpassen möchten, können Sie nach dem ersten Schlüsselwort und vor dem Prozentwert, falls angegeben, einen zweiten Wert festlegen. Dieser Wert kann als Standardschlüsselwort `consistent` angegeben werden, wodurch das zuvor beschriebene Verhalten beibehalten wird. Sie können jedoch auch `per-line` oder `per-line-all` angeben. Beide bewirken, dass die Zeilen des Textknotens mit ihren eigenen Skalierungsfaktoren skaliert werden. Der Unterschied besteht darin, dass bei `per-line` auf die letzte Zeile des Textknotens sowie auf Zeilen mit einem erzwungenen Umbruch (beispielsweise aufgrund eines `<br>`-Elements) keine Textskalierung angewendet wird, während bei `per-line-all` auch diese Zeilen skaliert werden.
 
-Beispielsweise vergrößert diese Deklaration alle Zeilen eines Textknotens mit ihrem eigenen Skalierungsfaktor, damit sie in die enthaltende Box passen.
+Beispielsweise vergrößert diese Deklaration alle Zeilen eines Textknotens mit ihrem jeweils eigenen Skalierungsfaktor, damit sie in die enthaltende Box passen.
 
 ```css
 text-fit: grow per-line-all;
 ```
 
-Diese Deklaration hingegen verkleinert alle Zeilen eines Textknotens mit ihrem eigenen Skalierungsfaktor, damit sie in die enthaltende Box passen, jedoch nicht die letzte Zeile oder Zeilen mit erzwungenen Umbrüchen und nicht unter `50%` der ursprünglichen `font-size`.
+Diese Deklaration hingegen verkleinert alle Zeilen eines Textknotens mit ihrem jeweils eigenen Skalierungsfaktor, damit sie in die enthaltende Box passen, jedoch nicht die letzte Zeile oder Zeilen mit erzwungenen Umbrüchen und nicht unter `50%` der ursprünglichen `font-size`.
 
 ```css
 text-fit: shrink per-line 50%;
@@ -125,13 +127,13 @@ text-fit: shrink per-line 50%;
 
 ## Barrierefreiheit
 
-Bei der Verwendung von `text-fit` müssen Designs bei unterschiedlichen Viewport-Größen sorgfältig getestet werden, um sicherzustellen, dass die gerenderte Schriftgröße nicht zu klein (oder zu groß) wird. Dies kann dazu führen, dass Inhalte unleserlich werden, insbesondere für Menschen mit Sehbehinderungen oder bei eingeschränktem Sehvermögen.
+Bei der Verwendung von `text-fit` müssen Designs bei unterschiedlichen Viewport-Größen sorgfältig getestet werden, um sicherzustellen, dass die gerenderte Schriftgröße nicht zu klein (oder zu groß) wird. Dies kann dazu führen, dass Inhalte unlesbar werden, insbesondere für Personen mit Sehbeeinträchtigungen oder eingeschränktem Sehvermögen.
 
-Textinhalte sollten in jedem Fall ohne Verlust von Inhalt oder Funktionalität skalierbar sein; siehe [WCAG-Erfolgskriterium 1.4.4 „Textgröße ändern“](https://w3c.github.io/wcag/guidelines/22/#resize-text).
+Textinhalte sollten in jedem Fall ohne Verlust von Inhalt oder Funktionalität in der Größe veränderbar sein; siehe [WCAG-Erfolgskriterium 1.4.4 Textgröße ändern](https://w3c.github.io/wcag/guidelines/22/#resize-text).
 
-Verwandte Leitlinien:
+Zugehörige Leitlinien:
 
-- [MDN: WCAG verstehen, Leitlinie 1.4: Nutzern das Sehen und Hören von Inhalten erleichtern, einschließlich der Trennung von Vordergrund und Hintergrund](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [MDN: WCAG verstehen, Leitlinie 1.4: Erleichtern Sie Nutzern das Sehen und Hören von Inhalten, einschließlich der Trennung von Vordergrund und Hintergrund](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 
 ## Formale Definition
 
@@ -145,7 +147,7 @@ Verwandte Leitlinien:
 
 ### Grundlegende Verwendung von `text-fit`
 
-Dieses Beispiel demonstriert die grundlegende Verwendung von `text-fit`, um Textknoten zu vergrößern und zu verkleinern, damit sie in ihre Container passen.
+Dieses Beispiel zeigt die grundlegende Verwendung von `text-fit`, um Textknoten passend zu ihren Containern zu vergrößern und zu verkleinern.
 
 #### HTML
 
@@ -192,7 +194,7 @@ setMaxWidth();
 setWidth();
 ```
 
-Wir fügen außerdem ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element ein, um die Anpassung der Inhaltsbreite zu ermöglichen und eine sich ändernde Viewport-Breite zu simulieren. Die Bereichseingabe sowie das JavaScript, das sie steuert, wurden der Kürze halber ausgeblendet.
+Außerdem fügen wir ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element hinzu, mit dem die Inhaltsbreite angepasst werden kann, um eine sich ändernde Viewport-Breite nachzuahmen. Die Bereichseingabe sowie das JavaScript, das sie steuert, wurden der Kürze halber ausgeblendet.
 
 #### CSS
 
@@ -224,7 +226,7 @@ div {
 }
 ```
 
-Wir geben dem `<h1>` einen `text-fit`-Wert von `grow`, sodass es wächst, um den verfügbaren Inline-Platz seines Containers auszufüllen. Dem längeren `<h2>` geben wir einen {{cssxref("white-space")}}-Wert von `nowrap`, sodass es normalerweise vollständig auf einer einzelnen Zeile bleibt und seinen Container überläuft, statt umgebrochen zu werden, wenn es den Rand des Containers erreicht. Anschließend setzen wir darauf `text-fit: shrink`, sodass es sich verkleinert, um in den verfügbaren Inline-Platz seines Containers zu passen, statt überzulaufen.
+Wir geben dem `<h1>` einen `text-fit`-Wert von `grow`, sodass es wächst, um den verfügbaren Inline-Platz seines Containers auszufüllen. Dem längeren `<h2>` geben wir einen {{cssxref("white-space")}}-Wert von `nowrap`, sodass es normalerweise in einer einzelnen Zeile bleibt und seinen Container überläuft, statt umgebrochen zu werden, wenn es den Containerrand erreicht. Anschließend setzen wir `text-fit: shrink` darauf, sodass es sich, statt überzulaufen, verkleinert, um in den verfügbaren Inline-Platz seines Containers zu passen.
 
 ```css live-sample___basic-text-fit
 h1 {
@@ -241,13 +243,13 @@ h2 {
 
 {{EmbedLiveSample("basic-text-fit","100%","320")}}
 
-Passen Sie den Schieberegler an und beachten Sie, wie das `<h1>` automatisch wächst, sodass es stets den verfügbaren Platz innerhalb seines übergeordneten `<div>` ausfüllt. Beachten Sie auch, wie das `<h2>` bei schmaleren Breiten schrumpft, sodass es stets den verfügbaren Platz innerhalb des `<div>` ausfüllt; bei größeren Breiten, bei denen es in das `<div>` passt, behält es seine natürliche Breite bei.
+Passen Sie den Schieberegler an und beachten Sie, wie das `<h1>` automatisch wächst, sodass es stets den verfügbaren Platz innerhalb seines übergeordneten `<div>` ausfüllt. Beachten Sie auch, wie das `<h2>` bei geringeren Breiten schrumpft, sodass es stets den verfügbaren Platz innerhalb des `<div>` ausfüllt; bei größeren Breiten, bei denen es in das `<div>` passt, behält es seine natürliche Breite bei.
 
-Ohne `text-fit` würde das `<h1>` den verfügbaren Platz nicht ausfüllen, und das `<h2>` würde ihn bei schmaleren Breiten überlaufen.
+Ohne `text-fit` würde das `<h1>` den verfügbaren Platz nicht ausfüllen, und das `<h2>` würde bei geringeren Breiten überlaufen.
 
-### Prozentuale Begrenzungen für Skalierungsfaktoren festlegen
+### Prozentuale Grenzen für Skalierungsfaktoren festlegen
 
-Dieses Beispiel ist dem vorherigen sehr ähnlich, mit dem Unterschied, dass wir in diesem Fall mithilfe von `<percentage>`-Werten begrenzen, wie stark unsere Überschriften wachsen oder schrumpfen können.
+Dieses Beispiel ist dem vorherigen sehr ähnlich, mit dem Unterschied, dass wir hier mit `<percentage>`-Werten begrenzen, wie stark unsere Überschriften wachsen oder schrumpfen können.
 
 HTML und JavaScript sind mit dem vorherigen Beispiel identisch.
 
@@ -261,7 +263,7 @@ h1 {
 }
 ```
 
-Wir geben dem `<h2>` einen {{cssxref("white-space")}}-Wert von `nowrap`, sodass es vollständig auf einer einzelnen Zeile bleibt und seinen Container überläuft, statt umgebrochen zu werden, wenn es den Rand des Containers berührt. Anschließend setzen wir darauf `text-fit: shrink 80%`, sodass es sich verkleinert, um in den verfügbaren Inline-Platz seines Containers zu passen, bis auf `80%` seiner natürlichen `font-size`.
+Wir geben dem `<h2>` einen {{cssxref("white-space")}}-Wert von `nowrap`, sodass es in einer einzelnen Zeile bleibt und seinen Container überläuft, statt umgebrochen zu werden, wenn es den Containerrand berührt. Anschließend setzen wir `text-fit: shrink 80%` darauf, sodass es sich, statt überzulaufen, verkleinert, um in den verfügbaren Inline-Platz seines Containers zu passen, bis auf `80%` seiner natürlichen `font-size`.
 
 ```css live-sample___text-fit-percentages
 h2 {
@@ -270,7 +272,7 @@ h2 {
 }
 ```
 
-Ein Problem, das sich an diesem Punkt zeigt, besteht darin, dass das `<h2>` seinen Container zu überlaufen beginnt, wenn die `width` des `<div>` kleiner als etwa `400px` wird. Um dies zu vermeiden, möchten wir den Text ab diesem Punkt normal auf neue Zeilen umbrechen lassen. Um das Problem zu lösen, geben wir dem enthaltenden `<div>` zunächst einen {{cssxref("container-type")}} von `inline-size`, damit wir [Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) verwenden können, um CSS abhängig von seiner Breite selektiv anzuwenden.
+Ein Problem besteht nun darin, dass das `<h2>` beginnt, seinen Container zu überlaufen, wenn die `width` des `<div>` kleiner als ungefähr `400px` wird. Um dies zu vermeiden, möchten wir den Text ab diesem Punkt normal in neue Zeilen umbrechen lassen. Zur Lösung des Problems geben wir dem enthaltenden `<div>` zunächst einen {{cssxref("container-type")}} von `inline-size`, sodass wir [Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) verwenden können, um abhängig von seiner Breite selektiv CSS anzuwenden.
 
 ```css hidden live-sample___text-fit-percentages
 div {
@@ -298,11 +300,11 @@ Anschließend verwenden wir eine Container-Abfrage, um den `white-space`-Wert de
 
 {{EmbedLiveSample("text-fit-percentages","100%","320")}}
 
-Passen Sie den Schieberegler an. Beachten Sie, wie das `<h1>` automatisch wächst, sodass es stets den verfügbaren Platz innerhalb seines übergeordneten `<div>` ausfüllt, jedoch nur bis zu einer bestimmten Breite. Beachten Sie, wie das `<h2>` bei schmaleren Breiten schrumpft, sodass es stets den verfügbaren Platz innerhalb des `<div>` ausfüllt. Wenn das `<div>` schmaler als `400px` wird, greift die Container-Abfrage und wir setzen `white-space: wrap`, wodurch das `<h2>` beginnt, auf mehrere Zeilen umzubrechen.
+Passen Sie den Schieberegler an. Beachten Sie, wie das `<h1>` automatisch wächst, sodass es stets den verfügbaren Platz innerhalb seines übergeordneten `<div>` ausfüllt, jedoch nur bis zu einer bestimmten Breite. Beachten Sie, wie das `<h2>` bei geringeren Breiten schrumpft, sodass es stets den verfügbaren Platz innerhalb des `<div>` ausfüllt. Wenn das `<div>` schmaler als `400px` wird, greift die Container-Abfrage und wir setzen `white-space: wrap`, was bedeutet, dass das `<h2>` in mehrere Zeilen umbricht.
 
-### Demonstration der Schlüsselwörter für mehrzeiliges Skalierungsverhalten
+### Schlüsselwörter für das Verhalten bei mehrzeiliger Skalierung demonstrieren
 
-Dieses Beispiel demonstriert den Unterschied in der Wirkung zwischen dem Setzen der Schlüsselwörter `consistent`, `per-line` und `per-line-all` in den `text-fit`-Eigenschaftswerten verschiedener Absätze.
+Dieses Beispiel zeigt den Unterschied zwischen den Auswirkungen der Schlüsselwörter `consistent`, `per-line` und `per-line-all` in den `text-fit`-Eigenschaftswerten verschiedener Absätze.
 
 #### HTML
 
@@ -331,7 +333,7 @@ Das HTML und JavaScript für den Schieberegler zur Breitenanpassung sind ebenfal
 
 #### CSS
 
-Wir geben jedem Absatz einen `text-fit`-Wert, bei dem das erste Schlüsselwort auf `grow` gesetzt ist; das zweite Schlüsselwort ist jeweils auf einen anderen Wert gesetzt — `consistent`, `per-line` beziehungsweise `per-line-all`.
+Wir geben jedem Absatz einen `text-fit`-Wert, dessen erstes Schlüsselwort auf `grow` gesetzt ist; das zweite Schlüsselwort hat jeweils einen anderen Wert — `consistent`, `per-line` beziehungsweise `per-line-all`.
 
 ```css live-sample___multi-line-keywords
 #consistent {
@@ -382,10 +384,10 @@ p::before {
 
 {{EmbedLiveSample("multi-line-keywords","100%","650")}}
 
-Passen Sie den Schieberegler entlang der Skala nach oben und unten an und beachten Sie sorgfältig das Verhalten jedes Absatzes. Sie sollten Folgendes feststellen:
+Bewegen Sie den Schieberegler auf und ab und achten Sie genau auf das Verhalten jedes Absatzes. Sie sollten Folgendes feststellen:
 
 - Die Textzeilen des `consistent`-Absatzes haben durchgehend stets dieselbe `font-size`.
-- Die Textzeilen des `per-line`-Absatzes unterscheiden sich etwas in ihrer `font-size`, was bei schmaleren Breiten deutlicher wird. Die `font-size` der letzten Zeile wird nicht skaliert.
+- Die Textzeilen des `per-line`-Absatzes unterscheiden sich etwas in ihrer `font-size`, was bei geringeren Breiten deutlicher wird. Die `font-size` der letzten Zeile wird nicht skaliert.
 - Die Textzeilen des `per-line-all`-Absatzes unterscheiden sich etwas in ihrer `font-size`, einschließlich der letzten Zeile. Dies ist bei Breiten, bei denen nur ein oder zwei Wörter in die letzte Zeile umgebrochen werden, sehr deutlich.
 
 ```css hidden live-sample___basic-text-fit live-sample___text-fit-percentages live-sample___multi-line-keywords

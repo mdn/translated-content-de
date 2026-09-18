@@ -3,14 +3,14 @@ title: "MathMLAnchorElement: port-Eigenschaft"
 short-title: port
 slug: Web/API/MathMLAnchorElement/port
 l10n:
-  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{APIRef("MathML")}}
+{{APIRef("MathML")}}{{SeeCompatTable}}
 
 Die **`port`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist ein String, der die Portnummer des `href`-Attributs des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements enthält. Wenn der Port der Standardport für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:` sowie `21` für `ftp:`), enthält diese Eigenschaft einen leeren String, `""`.
 
-Diese Eigenschaft kann gesetzt werden, um den Port der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/MathMLAnchorElement/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Wirkung. Ungültige Portnummern werden außerdem stillschweigend ignoriert.
+Diese Eigenschaft kann festgelegt werden, um den Port der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/MathMLAnchorElement/host) hat oder ihr Schema `file:` ist, hat das Festlegen dieser Eigenschaft keine Wirkung. Ungültige Portnummern werden ebenfalls stillschweigend ignoriert.
 
 Weitere Informationen finden Sie unter [`URL.port`](/de/docs/Web/API/URL/port).
 
@@ -30,7 +30,7 @@ Bei folgendem MathML:
 </math>
 ```
 
-können Sie den `port` des Ankers wie folgt abrufen:
+können Sie den `port` des Anchors wie folgt abrufen:
 
 ```js
 const mathAnchor = document.getElementById("myAnchor");

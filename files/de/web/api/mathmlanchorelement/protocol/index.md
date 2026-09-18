@@ -3,14 +3,14 @@ title: "MathMLAnchorElement: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/MathMLAnchorElement/protocol
 l10n:
-  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{APIRef("MathML")}}
+{{APIRef("MathML")}}{{SeeCompatTable}}
 
-Die **`protocol`**-Eigenschaft der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist ein String, der das Protokoll oder Schema des `href`-Attributs des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements einschließlich des abschließenden `":"` enthält.
+Die **`protocol`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist ein String, der das Protokoll oder Schema des `href`-Attributs des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements enthält, einschließlich des abschließenden `":"`.
 
-Diese Eigenschaft kann festgelegt werden, um das Protokoll der URL zu ändern. Wenn der bereitgestellte String kein `":"` enthält, wird eines angehängt. Das bereitgestellte Schema muss mit dem Rest der URL kompatibel sein, um als gültig zu gelten.
+Diese Eigenschaft kann gesetzt werden, um das Protokoll der URL zu ändern. An den bereitgestellten String wird ein `":"` angehängt, falls keines angegeben wurde. Das bereitgestellte Schema muss mit dem Rest der URL kompatibel sein, um als gültig zu gelten.
 
 Weitere Informationen finden Sie unter [`URL.protocol`](/de/docs/Web/API/URL/protocol).
 

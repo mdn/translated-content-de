@@ -3,12 +3,12 @@ title: CSS-Funktion `param()`
 short-title: param()
 slug: Web/CSS/Reference/Values/param
 l10n:
-  sourceCommit: d571e753a6e1aa3f37c775f0308690bc738cdbe6
+  sourceCommit: 216676f18e04a1adcc31fa22b5878b39338671cd
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`param()`** wird verwendet, um Link-Parameter festzulegen. Dies kann mit der CSS-Funktion {{cssxref("link-parameters")}}, in der Fragment-URL einer externen Ressource oder im [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier) der CSS-Funktion `url()` erfolgen.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`param()`** wird verwendet, um Link-Parameter festzulegen. Dies kann mithilfe der CSS-Funktion {{cssxref("link-parameters")}}, in der Fragment-URL einer externen Ressource oder im [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier) der CSS-Funktion `url()` erfolgen.
 
 ## Syntax
 
@@ -28,15 +28,15 @@ param(--color3, green);
   - : Ein `<dashed-ident>` ist eine benutzerdefinierte Variable, die als Bezeichner in der CSS-Funktion {{cssxref("env")}} verwendet wird, um den Wert zu aktualisieren.
 
 - `<declaration_value>` {{optional_inline}}
-  - : Ein `<declaration_value>` ist der Wert des zu aktualisierenden Attributs. Wenn `<declaration-value>` weggelassen wird, stellt es einen leeren Wert dar.
+  - : Ein `<declaration_value>` ist der Wert des zu aktualisierenden Attributs. Wenn `<declaration-value>` ausgelassen wird, stellt es einen leeren Wert dar.
 
-## Formale Definition
+## Formale Syntax
 
-{{CSSInfo}}
+{{CSSSyntax}}
 
 ## Beispiele
 
-Alle folgenden Beispiele verwenden dieselbe SVG-Datei, deren Attribute mit der CSS-Funktion {{cssxref("env")}} festgelegt sind.
+Alle folgenden Beispiele verwenden dieselbe SVG-Datei, deren Attribute mit der CSS-Funktion {{cssxref("env")}} festgelegt werden.
 
 ```svg
 <!-- example of the code in the external SVG file -->
@@ -51,7 +51,7 @@ Alle folgenden Beispiele verwenden dieselbe SVG-Datei, deren Attribute mit der C
 </svg>
 ```
 
-### Verwendung der Eigenschaft `link-parameters`
+### Verwenden der Eigenschaft `link-parameters`
 
 In diesem Beispiel werden die SVG-Attribute mit der CSS-Eigenschaft {{cssxref("link-parameters")}} und der Funktion `param()` aktualisiert.
 
@@ -120,7 +120,7 @@ In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die Funktion `pa
 />
 ```
 
-### Verwendung von `param()` mit der Eigenschaft `background-image`
+### Verwenden von `param()` mit der Eigenschaft `background-image`
 
 In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die Funktion `param()` an den Datentyp {{cssxref("url","url()")}} der CSS-Eigenschaft {{cssxref("background-image")}} übergeben wird.
 

@@ -1,13 +1,11 @@
 ---
-title: Temporal.Instant()-Konstruktor
+title: Konstruktor Temporal.Instant()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/Instant
 l10n:
-  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{SeeCompatTable}}
-
-Der **`Temporal.Instant()`**-Konstruktor erstellt {{jsxref("Temporal.Instant")}}-Objekte.
+Der Konstruktor **`Temporal.Instant()`** erstellt {{jsxref("Temporal.Instant")}}-Objekte.
 
 Dieser Konstruktor entspricht exakt dem Aufruf von {{jsxref("Temporal/Instant/fromEpochNanoseconds", "Temporal.Instant.fromEpochNanoseconds()")}}.
 
@@ -18,7 +16,7 @@ new Temporal.Instant(epochNanoseconds)
 ```
 
 > [!NOTE]
-> `Temporal.Instant()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, sie ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `Temporal.Instant()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -27,7 +25,7 @@ new Temporal.Instant(epochNanoseconds)
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant`-Objekt, das den durch `epochNanoseconds` angegebenen Zeitpunkt darstellt.
+Ein neues `Temporal.Instant`-Objekt, das den durch `epochNanoseconds` angegebenen Zeitpunkt repräsentiert.
 
 ### Ausnahmen
 

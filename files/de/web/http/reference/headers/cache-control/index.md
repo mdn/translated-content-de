@@ -3,27 +3,27 @@ title: Cache-Control header
 short-title: Cache-Control
 slug: Web/HTTP/Reference/Headers/Cache-Control
 l10n:
-  sourceCommit: 50da788b972b99730b4aeb8fec8fde3bde10975d
+  sourceCommit: d15e4dc0a813a9accd0e36b818bdadc8ac3ab413
 ---
 
-Der HTTP **`Cache-Control`**-Header enthält _Direktiven_ (Anweisungen) sowohl in Anfragen als auch in Antworten, die das [Caching](/de/docs/Web/HTTP/Guides/Caching) in Browsern und gemeinsamen Caches (z. B. Proxies, CDNs) steuern.
+Der HTTP-Header **`Cache-Control`** enthält in Anfragen und Antworten _Direktiven_ (Anweisungen), die das [Caching](/de/docs/Web/HTTP/Guides/Caching) in Browsern und gemeinsam genutzten Caches (z. B. Proxys, CDNs) steuern.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Request_header", "Anfrage-Header")}},
         {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted-Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwort-Header")}}
       </th>
       <td>Ja</td>
     </tr>
@@ -36,79 +36,80 @@ Der HTTP **`Cache-Control`**-Header enthält _Direktiven_ (Anweisungen) sowohl i
 Cache-Control: <directive>, <directive>, ...
 ```
 
-Cache-Direktiven befolgen diese Regeln:
+Cache-Direktiven folgen diesen Regeln:
 
-- Caching-Direktiven sind nicht groß-/kleinschreibungssensitiv. Es wird jedoch Kleinschreibung empfohlen, da einige Implementierungen keine Direktiven in Großbuchstaben erkennen.
-- Mehrere Direktiven sind erlaubt und müssen durch Kommas getrennt werden (z. B. `Cache-control: max-age=180, public`).
-- Einige Direktiven haben ein optionales Argument. Wenn ein Argument angegeben ist, wird es durch ein Gleichheitszeichen (`=`) vom Namen der Direktive getrennt. Typischerweise sind Argumente für die Direktiven ganze Zahlen und werden daher nicht mit Anführungszeichen umschlossen (z. B. `Cache-control: max-age=12`).
+- Caching-Direktiven unterscheiden nicht zwischen Groß- und Kleinschreibung. Dennoch wird Kleinschreibung empfohlen, da einige Implementierungen Direktiven in Großschreibung nicht erkennen.
+- Mehrere Direktiven sind zulässig und müssen durch Kommas getrennt werden (z. B. `Cache-control: max-age=180, public`).
+- Einige Direktiven haben ein optionales Argument. Wenn ein Argument angegeben wird, wird es durch ein Gleichheitszeichen (`=`) vom Namen der Direktive getrennt. Üblicherweise sind Argumente für Direktiven Ganzzahlen und werden daher nicht in Anführungszeichen gesetzt (z. B. `Cache-control: max-age=12`).
 
 ### Cache-Direktiven
 
-Die folgende Tabelle listet die Standard-`Cache-Control`-Direktiven auf:
+Die folgende Tabelle führt die Standarddirektiven von `Cache-Control` auf:
 
-| Anfrage                             | Antwort                                             |
-| ----------------------------------- | --------------------------------------------------- |
-| [`max-age`](#max-age)               | [`max-age`](#max-age)                               |
-| [`max-stale`](#max-stale)           | -                                                   |
-| [`min-fresh`](#min-fresh)           | -                                                   |
-| -                                   | [`s-maxage`](#s-maxage)                             |
-| [`no-cache`](#no-cache)             | [`no-cache`](#no-cache)                             |
-| [`no-store`](#no-store)             | [`no-store`](#no-store)                             |
-| [`no-transform`](#no-transform)     | [`no-transform`](#no-transform)                     |
-| [`only-if-cached`](#only-if-cached) | -                                                   |
-| -                                   | [`must-revalidate`](#must-revalidate)               |
-| -                                   | [`proxy-revalidate`](#proxy-revalidate)             |
-| -                                   | [`must-understand`](#must-understand)               |
-| -                                   | [`private`](#private)                               |
-| -                                   | [`public`](#public)                                 |
-| -                                   | [`immutable`](#immutable)                           |
-| -                                   | [`stale-while-revalidate`](#stale-while-revalidate) |
-| [`stale-if-error`](#stale-if-error) | [`stale-if-error`](#stale-if-error)                 |
+| Anfrage                               | Antwort                                             |
+| ------------------------------------- | --------------------------------------------------- |
+| [`max-age`](#max-age_2)               | [`max-age`](#max-age)                               |
+| [`max-stale`](#max-stale)             | -                                                   |
+| [`min-fresh`](#min-fresh)             | -                                                   |
+| -                                     | [`s-maxage`](#s-maxage)                             |
+| [`no-cache`](#no-cache_2)             | [`no-cache`](#no-cache)                             |
+| [`no-store`](#no-store_2)             | [`no-store`](#no-store)                             |
+| [`no-transform`](#no-transform_2)     | [`no-transform`](#no-transform)                     |
+| [`only-if-cached`](#only-if-cached)   | -                                                   |
+| -                                     | [`must-revalidate`](#must-revalidate)               |
+| -                                     | [`proxy-revalidate`](#proxy-revalidate)             |
+| -                                     | [`must-understand`](#must-understand)               |
+| -                                     | [`private`](#private)                               |
+| -                                     | [`public`](#public)                                 |
+| -                                     | [`immutable`](#immutable)                           |
+| -                                     | [`stale-while-revalidate`](#stale-while-revalidate) |
+| [`stale-if-error`](#stale-if-error_2) | [`stale-if-error`](#stale-if-error)                 |
 
-Hinweis: Überprüfen Sie die [Kompatibilitätstabelle](#browser-kompatibilität) für deren Unterstützung; Benutzeragenten, die sie nicht erkennen, sollten sie ignorieren.
+Hinweis: Informationen zur Unterstützung finden Sie in der [Kompatibilitätstabelle](#browser-kompatibilität); User-Agents, die diese Direktiven nicht erkennen, sollten sie ignorieren.
 
-## Vokabular
+## Begriffe
 
 Dieser Abschnitt definiert die in diesem Dokument verwendeten Begriffe, von denen einige aus der Spezifikation stammen.
 
-- (HTTP) Cache
-  - : Implementierung, die Anfragen und Antworten speichert, um sie bei nachfolgenden Anfragen erneut zu verwenden. Es kann sich entweder um einen gemeinsamen Cache oder einen privaten Cache handeln.
-- Gemeinsamer Cache
-  - : Cache, der zwischen dem Ursprungsserver und den Clients existiert (z. B. Proxy, CDN). Er speichert eine einzelne Antwort und verwendet sie erneut bei mehreren Benutzern – daher sollten Entwickler vermeiden, personalisierte Inhalte im gemeinsamen Cache zu speichern.
+- (HTTP-)Cache
+  - : Eine Implementierung, die Anfragen und Antworten zur Wiederverwendung bei nachfolgenden Anfragen speichert. Sie kann entweder ein gemeinsam genutzter Cache oder ein privater Cache sein.
+- Gemeinsam genutzter Cache
+  - : Ein Cache, der sich zwischen dem Origin-Server und Clients befindet (z. B. Proxy, CDN). Er speichert eine einzelne Antwort und verwendet sie für mehrere Benutzer wieder — Entwickler sollten daher vermeiden, personalisierte Inhalte im gemeinsam genutzten Cache zu speichern.
 - Privater Cache
-  - : Cache, der sich im Client befindet. Er wird auch als _lokaler Cache_ oder _Browser-Cache_ bezeichnet. Er kann personalisierte Inhalte für einen einzelnen Benutzer speichern und erneut verwenden.
+  - : Ein Cache, der beim Client vorhanden ist. Er wird auch _lokaler Cache_ oder _Browser-Cache_ genannt. Er kann personalisierte Inhalte für einen einzelnen Benutzer speichern und wiederverwenden.
 - Antwort speichern
-  - : Eine Antwort in Caches speichern, wenn die Antwort zwischenspeicherbar ist. Die zwischengespeicherte Antwort wird jedoch nicht immer unverändert wiederverwendet. (In der Regel bedeutet "cache", eine Antwort zu speichern.)
+  - : Eine Antwort in Caches speichern, wenn die Antwort cachebar ist. Die zwischengespeicherte Antwort wird jedoch nicht immer unverändert wiederverwendet. (Üblicherweise bedeutet „Cache“, eine Antwort zu speichern.)
 - Antwort wiederverwenden
   - : Zwischengespeicherte Antworten für nachfolgende Anfragen wiederverwenden.
-- Antwort erneut validieren
-  - : Den Ursprungsserver fragen, ob die gespeicherte Antwort noch [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Normalerweise erfolgt die erneute Validierung über eine bedingte Anfrage.
-- Frische Antwort
-  - : Gibt an, dass die Antwort [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Dies bedeutet normalerweise, dass die Antwort für nachfolgende Anfragen wiederverwendet werden kann, abhängig von den Anforderungs-Direktiven.
+- Antwort revalidieren
+  - : Den Origin-Server fragen, ob die gespeicherte Antwort noch [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Üblicherweise erfolgt die Revalidierung über eine bedingte Anfrage.
+- Aktuelle Antwort
+  - : Zeigt an, dass die Antwort [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Dies bedeutet üblicherweise, dass die Antwort abhängig von den Anfrage-Direktiven für nachfolgende Anfragen wiederverwendet werden kann.
 - Veraltete Antwort
-  - : Gibt an, dass die Antwort eine [veraltete Antwort](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Dies bedeutet normalerweise, dass die Antwort nicht unverändert wiederverwendet werden kann. Der Cache muss veraltete Antworten nicht sofort entfernen, da die erneute Validierung die Antwort wieder in eine [frische](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort ändern könnte.
+  - : Zeigt an, dass die Antwort eine [veraltete Antwort](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Dies bedeutet üblicherweise, dass die Antwort nicht unverändert wiederverwendet werden kann. Cache-Speicher müssen veraltete Antworten nicht sofort entfernen, da eine Revalidierung den Zustand der Antwort wieder von veraltet zu [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ändern könnte.
 - Alter
-  - : Die Zeit, seit eine Antwort generiert wurde. Es ist ein Kriterium dafür, ob eine Antwort [frisch oder veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
+  - : Die Zeit seit der Erstellung einer Antwort. Sie ist ein Kriterium dafür, ob eine Antwort [aktuell oder veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
 
 ## Direktiven
 
-Dieser Abschnitt listet Direktiven auf, die das Caching beeinflussen – sowohl Antwort- als auch Anforderungs-Direktiven.
+Dieser Abschnitt führt Direktiven auf, die das Caching beeinflussen — sowohl Antwort-Direktiven als auch Anfrage-Direktiven.
 
 ### Antwort-Direktiven
 
 #### `max-age`
 
-Die `max-age=N`-Antwort-Direktive gibt an, dass die Antwort _N_ Sekunden nach der Generierung der Antwort [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) bleibt.
+Die Antwort-Direktive `max-age=N` gibt an, dass die Antwort bis _N_ Sekunden nach ihrer Erstellung [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) bleibt.
 
 ```http
 Cache-Control: max-age=604800
 ```
 
-Gibt an, dass Caches diese Antwort speichern und für nachfolgende Anfragen wiederverwenden können, solange sie [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
+Gibt an, dass Caches diese Antwort speichern und für nachfolgende Anfragen wiederverwenden können, solange sie [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
 
-Beachten Sie, dass `max-age` nicht die vergangene Zeit seit dem Empfang der Antwort ist; es handelt sich um die vergangene Zeit seit der Generierung der Antwort auf dem Ursprungsserver. Wenn der andere Cache – im Netzwerkpfad, den die Antwort nimmt – die Antwort 100 Sekunden speichert (angezeigt durch das `Age`-Antwort-Header-Feld), würde der Browser-Cache 100 Sekunden von seiner [Frischelebensdauer](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) abziehen.
+Beachten Sie, dass `max-age` nicht die seit Empfang der Antwort vergangene Zeit bezeichnet; sie bezeichnet die seit der Erstellung der Antwort auf dem Origin-Server vergangene Zeit.
+Wenn der oder die anderen Caches — auf dem Netzwerkpfad, den die Antwort genommen hat — die Antwort also 100 Sekunden lang speichern (angegeben durch das Antwort-Header-Feld `Age`), zieht der Browser-Cache 100 Sekunden von ihrer [Aktualitätsdauer](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ab.
 
-Wenn der `max-age`-Wert negativ ist (zum Beispiel `-1`) oder keine ganze Zahl ist (zum Beispiel `3599.99`), ist das Cache-Verhalten nicht spezifiziert. Caches sollten den Wert behandeln, als ob er `0` wäre (dies ist im Abschnitt zur [Berechnung der Frischelebensdauer](https://httpwg.org/specs/rfc9111.html#calculating.freshness.lifetime) der HTTP-Spezifikation angegeben).
+Wenn der Wert von `max-age` negativ ist (z. B. `-1`) oder keine Ganzzahl ist (z. B. `3599.99`), ist das Caching-Verhalten nicht spezifiziert. Caches wird empfohlen, den Wert so zu behandeln, als wäre er `0` (dies wird im Abschnitt [Calculating Freshness Lifetime](https://httpwg.org/specs/rfc9111.html#calculating.freshness.lifetime) der HTTP-Spezifikation erwähnt).
 
 ```http
 Cache-Control: max-age=604800
@@ -117,7 +118,8 @@ Age: 100
 
 #### `s-maxage`
 
-Die `s-maxage`-Antwort-Direktive gibt an, wie lange die Antwort in einem gemeinsamen Cache [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) bleibt. Die `s-maxage`-Direktive wird von privaten Caches ignoriert und überschreibt den durch die `max-age`-Direktive oder den `Expires`-Header angegebenen Wert für gemeinsame Caches, sofern vorhanden.
+Die Antwort-Direktive `s-maxage` gibt an, wie lange die Antwort in einem gemeinsam genutzten Cache [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) bleibt.
+Die Direktive `s-maxage` wird von privaten Caches ignoriert und überschreibt für gemeinsam genutzte Caches den durch die Direktive `max-age` oder den Header `Expires` angegebenen Wert, sofern diese vorhanden sind.
 
 ```http
 Cache-Control: s-maxage=604800
@@ -125,47 +127,47 @@ Cache-Control: s-maxage=604800
 
 #### `no-cache`
 
-Die `no-cache`-Antwort-Direktive gibt an, dass die Antwort in Caches gespeichert werden kann, aber die Antwort muss mit dem Ursprungsserver vor jeder Wiederverwendung validiert werden, selbst wenn der Cache vom Ursprungsserver getrennt ist.
+Die Antwort-Direktive `no-cache` gibt an, dass die Antwort in Caches gespeichert werden kann, aber vor jeder Wiederverwendung mit dem Origin-Server validiert werden muss, selbst wenn der Cache vom Origin-Server getrennt ist.
 
 ```http
 Cache-Control: no-cache
 ```
 
-Wenn Sie möchten, dass Caches immer auf Inhaltsaktualisierungen prüfen, während gespeicherte Inhalte wiederverwendet werden, ist `no-cache` die zu verwendende Direktive. Sie tut dies, indem sie Caches dazu zwingt, jede Anfrage mit dem Ursprungsserver zu validieren.
+Wenn Caches beim Wiederverwenden gespeicherter Inhalte stets auf Inhaltsaktualisierungen prüfen sollen, ist `no-cache` die zu verwendende Direktive. Sie erreicht dies, indem sie Caches verpflichtet, jede Anfrage mit dem Origin-Server zu revalidieren.
 
-Beachten Sie, dass `no-cache` nicht "nicht zwischenspeichern" bedeutet. `no-cache` erlaubt Caches, eine Antwort zu speichern, erfordert jedoch, dass sie vor der Wiederverwendung validiert wird. Wenn der gemeinte "nicht zwischenspeichern"-Sinn tatsächlich "nicht speichern" ist, dann ist `no-store` die zu verwendende Direktive.
+Beachten Sie, dass `no-cache` nicht „nicht cachen“ bedeutet. `no-cache` erlaubt Caches, eine Antwort zu speichern, verlangt jedoch ihre Revalidierung vor der Wiederverwendung. Wenn mit „nicht cachen“ eigentlich „nicht speichern“ gemeint ist, verwenden Sie die Direktive `no-store`.
 
 > [!NOTE]
-> Die `no-cache`-Direktive garantiert keine Validierung für Verlaufsnavigationen – wie z. B. solche, die über die <kbd>Zurück</kbd>-Taste durchgeführt werden.
-> Wenn der vor/zurück-Cache ({{Glossary("bfcache", "bfcache")}}) verwendet wird, stellt der Browser einen Snapshot der Seite wieder her, ohne zu validieren.
-> Selbst wenn der bfcache nicht verwendet wird, kann der Browser die zwischengespeicherte Antwort ohne Validierung bereitstellen.
-> Dies ist [von der Spezifikation erlaubt](https://httpwg.org/specs/rfc7234.html#history.lists), da Verlaufsnavigationen in der Regel als Wiederherstellen eines Snapshots einer historischen Sitzung und nicht als neue Anfrage für eine zuvor besuchte Seite behandelt werden.
+> Die Direktive `no-cache` garantiert keine Revalidierung bei Navigationen im Verlauf — etwa bei Verwendung der Schaltfläche <kbd>Zurück</kbd>.
+> Wenn der Back/Forward Cache ({{Glossary("bfcache", "bfcache")}}) verwendet wird, stellt der Browser einen Snapshot der Seite ohne Revalidierung wieder her.
+> Auch wenn bfcache nicht verwendet wird, kann der Browser die zwischengespeicherte Antwort dennoch ohne Revalidierung bereitstellen.
+> Dies ist [durch die Spezifikation erlaubt](https://httpwg.org/specs/rfc7234.html#history.lists), da Navigationen im Verlauf üblicherweise als Wiederherstellung eines Snapshots einer historischen Sitzung und nicht als neue Anfrage für eine zuvor besuchte Seite behandelt werden.
 
 #### `must-revalidate`
 
-Die `must-revalidate`-Antwort-Direktive gibt an, dass die Antwort in Caches gespeichert und wiederverwendet werden kann, solange sie [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Wenn die Antwort [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wird, muss sie vor der Wiederverwendung mit dem Ursprungsserver validiert werden.
+Die Antwort-Direktive `must-revalidate` gibt an, dass die Antwort in Caches gespeichert werden und wiederverwendet werden kann, solange sie [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist. Wenn die Antwort [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wird, muss sie vor der Wiederverwendung mit dem Origin-Server validiert werden.
 
-Typischerweise wird `must-revalidate` zusammen mit `max-age` verwendet.
+Üblicherweise wird `must-revalidate` zusammen mit `max-age` verwendet.
 
 ```http
 Cache-Control: max-age=604800, must-revalidate
 ```
 
-HTTP erlaubt Caches, [veraltete Antworten](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wiederzuverwenden, wenn sie vom Ursprungsserver getrennt sind. `must-revalidate` verhindert dies - entweder wird die gespeicherte Antwort mit dem Ursprungsserver validiert oder eine 504 (Gateway Timeout) Antwort wird generiert.
+HTTP erlaubt Caches, [veraltete Antworten](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wiederzuverwenden, wenn sie vom Origin-Server getrennt sind. `must-revalidate` verhindert dies — entweder wird die gespeicherte Antwort mit dem Origin-Server revalidiert, oder es wird eine 504-Antwort (Gateway Timeout) erzeugt.
 
 > [!NOTE]
-> Die `must-revalidate`-Direktive garantiert keine Validierung für Verlaufsnavigationen – wie z. B. solche, die über die <kbd>Zurück</kbd>-Taste durchgeführt werden.
-> Wenn der vor/zurück-Cache ({{Glossary("bfcache", "bfcache")}}) verwendet wird, stellt der Browser einen Snapshot der Seite wieder her, ohne zu validieren.
-> Selbst wenn der bfcache nicht verwendet wird, kann der Browser die zwischengespeicherte Antwort ohne Validierung bereitstellen.
-> Dies ist [von der Spezifikation erlaubt](https://httpwg.org/specs/rfc7234.html#history.lists), da Verlaufsnavigationen in der Regel als Wiederherstellen eines Snapshots einer historischen Sitzung und nicht als neue Anfrage für eine zuvor besuchte Seite behandelt werden.
+> Die Direktive `must-revalidate` garantiert keine Revalidierung bei Navigationen im Verlauf — etwa bei Verwendung der Schaltfläche <kbd>Zurück</kbd>.
+> Wenn der Back/Forward Cache ({{Glossary("bfcache", "bfcache")}}) verwendet wird, stellt der Browser einen Snapshot der Seite ohne Revalidierung wieder her.
+> Auch wenn bfcache nicht verwendet wird, kann der Browser die zwischengespeicherte Antwort dennoch ohne Revalidierung bereitstellen.
+> Dies ist [durch die Spezifikation erlaubt](https://httpwg.org/specs/rfc7234.html#history.lists), da Navigationen im Verlauf üblicherweise als Wiederherstellung eines Snapshots einer historischen Sitzung und nicht als neue Anfrage für eine zuvor besuchte Seite behandelt werden.
 
 #### `proxy-revalidate`
 
-Die `proxy-revalidate`-Antwort-Direktive entspricht `must-revalidate`, bezieht sich jedoch speziell nur auf gemeinsame Caches.
+Die Antwort-Direktive `proxy-revalidate` entspricht `must-revalidate`, jedoch ausschließlich für gemeinsam genutzte Caches.
 
 #### `no-store`
 
-Die `no-store`-Antwort-Direktive gibt an, dass keine Art von Cache (privat oder gemeinsam) diese Antwort speichern sollte.
+Die Antwort-Direktive `no-store` gibt an, dass Caches jeder Art, ob privat oder gemeinsam genutzt, diese Antwort nicht speichern sollen.
 
 ```http
 Cache-Control: no-store
@@ -173,117 +175,119 @@ Cache-Control: no-store
 
 #### `private`
 
-Die `private`-Antwort-Direktive gibt an, dass die Antwort nur in einem privaten Cache (z. B. lokale Caches in Browsern) gespeichert werden kann.
+Die Antwort-Direktive `private` gibt an, dass die Antwort nur in einem privaten Cache gespeichert werden kann (z. B. lokalen Caches in Browsern).
 
 ```http
 Cache-Control: private
 ```
 
-Sie sollten die `private`-Direktive für benutzerpersonalisierte Inhalte hinzufügen, insbesondere für Antworten nach dem Einloggen und für Sitzungen, die über Cookies verwaltet werden.
+Sie sollten die Direktive `private` für benutzerpersonalisierte Inhalte hinzufügen, insbesondere für nach einer Anmeldung empfangene Antworten und für über Cookies verwaltete Sitzungen.
 
-Wenn Sie vergessen, `private` zu einer Antwort mit personalisierten Inhalten hinzuzufügen, kann diese Antwort in einem gemeinsamen Cache gespeichert und für mehrere Benutzer wiederverwendet werden, was zu einem Leck von persönlichen Informationen führen kann.
+Wenn Sie vergessen, einer Antwort mit personalisierten Inhalten `private` hinzuzufügen, kann diese Antwort in einem gemeinsam genutzten Cache gespeichert und für mehrere Benutzer wiederverwendet werden, wodurch personenbezogene Informationen offengelegt werden können.
 
 #### `public`
 
-Die `public`-Antwort-Direktive gibt an, dass die Antwort in einem gemeinsamen Cache gespeichert werden kann. Antworten für Anfragen mit `Authorization`-Header-Feldern dürfen nicht in einem gemeinsamen Cache gespeichert werden; jedoch wird die `public`-Direktive dazu führen, dass solche Antworten in einem gemeinsamen Cache gespeichert werden.
+Die Antwort-Direktive `public` gibt an, dass die Antwort in einem gemeinsam genutzten Cache gespeichert werden kann. Antworten auf Anfragen mit Header-Feldern `Authorization` dürfen nicht in einem gemeinsam genutzten Cache gespeichert werden; die Direktive `public` bewirkt jedoch, dass solche Antworten in einem gemeinsam genutzten Cache gespeichert werden.
 
 ```http
 Cache-Control: public
 ```
 
-Im Allgemeinen, wenn Seiten unter Basis-Auth oder Digest-Auth stehen, sendet der Browser Anfragen mit dem `Authorization`-Header. Das bedeutet, dass die Antwort für eingeschränkte Benutzer (die Konten haben) zugriffsgesteuert ist und grundsätzlich nicht für gemeinsame Caches geeignet ist, selbst wenn sie `max-age` hat.
+Im Allgemeinen sendet der Browser bei Seiten unter Basic Auth oder Digest Auth Anfragen mit dem Header `Authorization`. Dies bedeutet, dass die Antwort für eingeschränkte Benutzer mit Konten zugriffsgesteuert ist und grundsätzlich nicht in gemeinsam genutzten Caches gespeichert werden kann, selbst wenn sie `max-age` enthält.
 
-Sie können die `public`-Direktive verwenden, um diese Einschränkung aufzuheben.
+Sie können die Direktive `public` verwenden, um diese Einschränkung aufzuheben.
 
 ```http
 Cache-Control: public, max-age=604800
 ```
 
-Beachten Sie, dass `s-maxage` oder `must-revalidate` diese Einschränkung auch aufheben.
+Beachten Sie, dass auch `s-maxage` oder `must-revalidate` diese Einschränkung aufheben.
 
-Wenn eine Anfrage keinen `Authorization`-Header hat oder Sie bereits `s-maxage` oder `must-revalidate` in der Antwort verwenden, müssen Sie `public` nicht verwenden.
+Wenn eine Anfrage keinen Header `Authorization` hat oder Sie in der Antwort bereits `s-maxage` oder `must-revalidate` verwenden, müssen Sie `public` nicht verwenden.
 
 #### `must-understand`
 
-Die `must-understand`-Antwort-Direktive gibt an, dass ein Cache die Antwort nur speichern sollte, wenn er die Anforderungen für das Caching basierend auf dem Statuscode versteht.
+Die Antwort-Direktive `must-understand` gibt an, dass ein Cache die Antwort nur speichern soll, wenn er die Anforderungen für das Caching anhand des Statuscodes versteht.
 
-`must-understand` sollte mit `no-store` für Fallback-Verhalten gekoppelt werden.
+`must-understand` sollte für ein Fallback-Verhalten mit `no-store` kombiniert werden.
 
 ```http
 Cache-Control: must-understand, no-store
 ```
 
-Wenn ein Cache `must-understand` nicht unterstützt, wird es ignoriert. Falls `no-store` ebenfalls vorhanden ist, wird die Antwort nicht gespeichert.
+Wenn ein Cache `must-understand` nicht unterstützt, wird die Direktive ignoriert. Wenn auch `no-store` vorhanden ist, wird die Antwort nicht gespeichert.
 
-Wenn ein Cache `must-understand` unterstützt, speichert es die Antwort mit einem Verständnis der Cache-Anforderungen basierend auf ihrem Statuscode.
+Wenn ein Cache `must-understand` unterstützt, speichert er die Antwort unter Berücksichtigung der Cache-Anforderungen anhand ihres Statuscodes.
 
 #### `no-transform`
 
-Einige Zwischenstellen transformieren Inhalte aus verschiedenen Gründen. Zum Beispiel konvertieren einige Bilder, um die Übertragungsgröße zu reduzieren. In einigen Fällen ist dies für den Inhaltsanbieter unerwünscht.
+Einige Intermediäre transformieren Inhalte aus verschiedenen Gründen. Beispielsweise konvertieren manche Bilder, um die Übertragungsgröße zu verringern. In einigen Fällen ist dies für den Inhaltsanbieter unerwünscht.
 
-`no-transform` gibt an, dass keine Zwischenstelle (unabhängig davon, ob sie einen Cache implementiert) den Antwortinhalt transformieren sollte.
+`no-transform` gibt an, dass kein Intermediär die Inhalte der Antwort transformieren soll, unabhängig davon, ob er einen Cache implementiert.
 
 #### `immutable`
 
-Die `immutable`-Antwort-Direktive gibt an, dass die Antwort nicht aktualisiert wird, solange sie [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
+Die Antwort-Direktive `immutable` gibt an, dass die Antwort nicht aktualisiert wird, solange sie [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
 
 ```http
 Cache-Control: public, max-age=604800, immutable
 ```
 
-Eine moderne Best Practice für statische Ressourcen besteht darin, Versionen/Hashes in ihre URLs aufzunehmen und die Ressourcen niemals zu ändern – sondern wenn nötig, die Ressourcen mit neueren Versionen zu _aktualisieren_, die neue Versionsnummern/Hashes haben, sodass ihre URLs unterschiedlich sind. Dies wird als **Cache-Busting**-Muster bezeichnet.
+Eine moderne bewährte Praxis für statische Ressourcen besteht darin, Versionsnummern oder Hashes in ihre URLs aufzunehmen und die Ressourcen niemals zu verändern — stattdessen werden die Ressourcen bei Bedarf mit neueren Versionen aktualisiert, die neue Versionsnummern oder Hashes haben, sodass ihre URLs unterschiedlich sind. Dies wird als Muster des **Cache-Busting** bezeichnet.
 
 ```html
 <script src="https://example.com/react.0.0.0.js"></script>
 ```
 
-Wenn ein Benutzer den Browser neu lädt, sendet der Browser bedingte Anfragen zur Validierung an den Ursprungsserver. Es ist jedoch nicht notwendig, diese Art von statischen Ressourcen erneut zu validieren, selbst wenn ein Benutzer den Browser neu lädt, da sie nie modifiziert werden. `immutable` teilt einem Cache mit, dass die Antwort unveränderlich ist, solange sie [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, und vermeidet unnötige bedingte Anfragen an den Server.
+Wenn ein Benutzer den Browser neu lädt, sendet der Browser bedingte Anfragen zur Validierung an den Origin-Server. Für diese Art statischer Ressourcen ist jedoch selbst beim Neuladen des Browsers keine Revalidierung erforderlich, da sie niemals geändert werden.
+`immutable` teilt einem Cache mit, dass die Antwort unveränderlich ist, solange sie [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, und vermeidet diese Art unnötiger bedingter Anfragen an den Server.
 
-Wenn Sie ein Cache-Busting-Muster für Ressourcen verwenden und diese auf ein langes `max-age` anwenden, können Sie auch `immutable` hinzufügen, um eine erneute Validierung zu vermeiden.
+Wenn Sie ein Cache-Busting-Muster für Ressourcen verwenden und darauf ein langes `max-age` anwenden, können Sie auch `immutable` hinzufügen, um Revalidierungen zu vermeiden.
 
 #### `stale-while-revalidate`
 
-Die `stale-while-revalidate`-Antwort-Direktive gibt an, dass der Cache eine veraltete Antwort wiederverwenden kann, während er sie im Hintergrund mit einem Cache validiert.
+Die Antwort-Direktive `stale-while-revalidate` gibt an, dass der Cache eine veraltete Antwort wiederverwenden darf, während er sie revalidiert.
 
 ```http
 Cache-Control: max-age=604800, stale-while-revalidate=86400
 ```
 
-Im obigen Beispiel ist die Antwort für 7 Tage (604800s) [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age). Nach 7 Tagen wird sie [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), aber der Cache darf sie für alle Anfragen, die am folgenden Tag (86400s) gestellt werden, wiederverwenden, vorausgesetzt, dass sie im Hintergrund validiert wird.
+Im obigen Beispiel ist die Antwort 7 Tage lang (604800 s) [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age).
+Nach 7 Tagen wird sie [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), aber der Cache darf sie für alle Anfragen wiederverwenden, die am folgenden Tag (86400 s) erfolgen, sofern er die Antwort im Hintergrund revalidiert.
 
-Eine erneute Validierung macht den Cache wieder [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), sodass es für die Clients so aussieht, als wäre er während dieser Zeit immer [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), was effektiv den Latenzverlust der erneuten Validierung vor ihnen versteckt.
+Die Revalidierung macht den Cache wieder [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), sodass es für Clients so erscheint, als wäre er während dieses Zeitraums immer [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) gewesen — dadurch wird die Latenzeinbuße durch die Revalidierung effektiv verborgen.
 
-Wenn während dieser Zeit keine Anfragen gestellt werden, wird der Cache [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) und die nächste Anfrage wird normal validieren.
+Wenn während dieses Zeitraums keine Anfrage erfolgt, wird der Cache [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), und die nächste Anfrage revalidiert normal.
 
 #### `stale-if-error`
 
-Die `stale-if-error`-Antwort-Direktive gibt an, dass der Cache eine [veraltete Antwort](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wiederverwenden kann, wenn ein Upstream-Server einen Fehler generiert oder wenn der Fehler lokal generiert wird. Hierbei wird ein Fehler als jede Antwort mit einem Statuscode von 500, 502, 503 oder 504 betrachtet.
+Die Antwort-Direktive `stale-if-error` gibt an, dass der Cache eine [veraltete Antwort](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wiederverwenden kann, wenn ein Upstream-Server einen Fehler erzeugt oder der Fehler lokal erzeugt wird. Hier gilt jede Antwort mit dem Statuscode 500, 502, 503 oder 504 als Fehler.
 
 ```http
 Cache-Control: max-age=604800, stale-if-error=86400
 ```
 
-Im obigen Beispiel ist die Antwort für 7 Tage (604800s) [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age). Danach wird sie [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), kann jedoch für einen zusätzlichen Tag (86400s) verwendet werden, wenn ein Fehler auftritt.
+Im obigen Beispiel ist die Antwort 7 Tage lang (604800 s) [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age). Danach wird sie [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age), kann bei Auftreten eines Fehlers jedoch weitere 1 Tag (86400 s) verwendet werden.
 
-Nachdem die `stale-if-error`-Periode abläuft, erhält der Client jeden generierten Fehler.
+Nach Ablauf des Zeitraums für `stale-if-error` erhält der Client jeden erzeugten Fehler.
 
-### Anforderungs-Direktiven
+### Anfrage-Direktiven
 
 #### `no-cache`
 
-Die `no-cache`-Anforderungs-Direktive fordert Caches auf, die Antwort mit dem Ursprungsserver vor der Wiederverwendung zu validieren.
+Die Anfrage-Direktive `no-cache` fordert Caches auf, die Antwort vor der Wiederverwendung mit dem Origin-Server zu validieren.
 
 ```http
 Cache-Control: no-cache
 ```
 
-`no-cache` erlaubt es Clients, die aktuellste Antwort anzufordern, selbst wenn der Cache eine [frische](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort hat.
+`no-cache` erlaubt Clients, die aktuellste Antwort anzufordern, selbst wenn der Cache eine [aktuelle](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort besitzt.
 
-Browser fügen Anfragen in der Regel `no-cache` hinzu, wenn Benutzer eine Seite **erneut laden**.
+Browser fügen Anfragen üblicherweise `no-cache` hinzu, wenn Benutzer eine Seite **zwangsweise neu laden**.
 
 #### `no-store`
 
-Die `no-store`-Anforderungs-Direktive erlaubt es einem Client, Caches aufzufordern, die Anfrage und die entsprechende Antwort nicht zu speichern – selbst wenn die Ursprungsserver-Antwort zwischenspeicherbar wäre.
+Die Anfrage-Direktive `no-store` erlaubt einem Client, anzufordern, dass Caches die Anfrage und die entsprechende Antwort nicht speichern — selbst wenn die Antwort des Origin-Servers gespeichert werden könnte.
 
 ```http
 Cache-Control: no-store
@@ -291,88 +295,89 @@ Cache-Control: no-store
 
 #### `max-age`
 
-Die `max-age=N`-Anforderungs-Direktive gibt an, dass der Client eine zwischengespeicherte Antwort akzeptiert, die innerhalb von _N_ Sekunden auf dem Ursprungsserver generiert wurde, wobei _N_ eine nicht-negative ganze Zahl sein kann (einschließlich `0`).
+Die Anfrage-Direktive `max-age=N` gibt an, dass der Client eine gespeicherte Antwort zulässt, die innerhalb von _N_ Sekunden auf dem Origin-Server erstellt wurde — wobei _N_ eine beliebige nicht negative Ganzzahl einschließlich `0` sein kann.
 
 ```http
 Cache-Control: max-age=10800
 ```
 
-Im obigen Fall, wenn die Antwort mit `Cache-Control: max-age=10800` vor mehr als 3 Stunden (berechnet durch `max-age` und den `Age`-Header) generiert wurde, könnte der Cache diese Antwort nicht wiederverwenden.
+Im obigen Fall könnte der Cache diese Antwort nicht wiederverwenden, wenn die Antwort mit `Cache-Control: max-age=10800` vor mehr als 3 Stunden erstellt wurde, berechnet aus `max-age` und dem Header `Age`.
 
-Viele Browser verwenden diese Direktive für das **Erneutladen**, wie unten erklärt.
+Viele Browser verwenden diese Direktive beim **Neuladen**, wie unten erläutert.
 
 ```http
 Cache-Control: max-age=0
 ```
 
-`max-age=0` ist ein Workaround für `no-cache`, da viele alte (HTTP/1.0) Cache-Implementierungen `no-cache` nicht unterstützen. Kürzlich verwenden Browser immer noch `max-age=0` in "Erneutladen" – zur Abwärtskompatibilität – und verwenden alternativ `no-cache`, um ein "Erzwingen des Neuladens" zu verursachen.
+`max-age=0` ist ein Workaround für `no-cache`, da viele alte Cache-Implementierungen (HTTP/1.0) `no-cache` nicht unterstützen. Browser verwenden `max-age=0` weiterhin beim „Neuladen“ aus Gründen der Abwärtskompatibilität und alternativ `no-cache`, um ein „zwangsweises Neuladen“ auszulösen.
 
-Wenn der `max-age`-Wert negativ ist (zum Beispiel `-1`) oder keine ganze Zahl ist (zum Beispiel `3599.99`), ist das Cache-Verhalten nicht spezifiziert. Caches sollten den Wert behandeln, als ob er `0` wäre.
+Wenn der Wert von `max-age` negativ ist (z. B. `-1`) oder keine Ganzzahl ist (z. B. `3599.99`), ist das Caching-Verhalten nicht spezifiziert. Caches wird empfohlen, den Wert so zu behandeln, als wäre er `0`.
 
 > [!NOTE]
-> Die `max-age`-Direktive garantiert keine Validierung für Verlaufsnavigationen – wie z. B. solche, die über die <kbd>Zurück</kbd>-Taste durchgeführt werden.
-> Wenn der vor/zurück-Cache ({{Glossary("bfcache", "bfcache")}}) verwendet wird, stellt der Browser einen Snapshot der Seite wieder her, ohne zu validieren.
-> Selbst wenn der bfcache nicht verwendet wird, kann der Browser die zwischengespeicherte Antwort ohne Validierung bereitstellen.
-> Dies ist [von der Spezifikation erlaubt](https://httpwg.org/specs/rfc7234.html#history.lists), da Verlaufsnavigationen in der Regel als Wiederherstellen eines Snapshots einer historischen Sitzung und nicht als neue Anfrage für eine zuvor besuchte Seite behandelt werden.
+> Die Direktive `max-age` garantiert keine Revalidierung bei Navigationen im Verlauf — etwa bei Verwendung der Schaltfläche <kbd>Zurück</kbd>.
+> Wenn der Back/Forward Cache ({{Glossary("bfcache", "bfcache")}}) verwendet wird, stellt der Browser einen Snapshot der Seite ohne Revalidierung wieder her.
+> Auch wenn bfcache nicht verwendet wird, kann der Browser die zwischengespeicherte Antwort dennoch ohne Revalidierung bereitstellen.
+> Dies ist [durch die Spezifikation erlaubt](https://httpwg.org/specs/rfc7234.html#history.lists), da Navigationen im Verlauf üblicherweise als Wiederherstellung eines Snapshots einer historischen Sitzung und nicht als neue Anfrage für eine zuvor besuchte Seite behandelt werden.
 
 #### `max-stale`
 
-Die `max-stale=N`-Anforderungs-Direktive gibt an, dass der Client eine zwischengespeicherte Antwort akzeptiert, die innerhalb von _N_ Sekunden [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
-Wenn kein _N_-Wert angegeben ist, akzeptiert der Client eine veraltete Antwort jeden Alters.
+Die Anfrage-Direktive `max-stale=N` gibt an, dass der Client eine gespeicherte Antwort zulässt, die innerhalb von _N_ Sekunden [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
+Wenn kein Wert für _N_ angegeben wird, akzeptiert der Client eine veraltete Antwort jedes Alters.
 
 ```http
 Cache-Control: max-stale=3600
 ```
 
-Zum Beispiel zeigt eine Anfrage mit dem obigen Header an, dass der Browser eine veraltete Antwort aus dem Cache akzeptiert, die innerhalb der letzten Stunde abgelaufen ist.
+Beispielsweise gibt eine Anfrage mit dem obigen Header an, dass der Browser eine veraltete Antwort aus dem Cache akzeptiert, die innerhalb der letzten Stunde abgelaufen ist.
 
-Clients können diesen Header verwenden, wenn der Ursprungsserver ausgefallen oder zu langsam ist, und können zwischengespeicherte Antworten aus Caches akzeptieren, auch wenn sie etwas alt sind.
+Clients können diesen Header verwenden, wenn der Origin-Server nicht verfügbar oder zu langsam ist und sie zwischengespeicherte Antworten aus Caches akzeptieren können, auch wenn diese etwas alt sind.
 
-Beachten Sie, dass die Hauptbrowser keine Anfragen mit `max-stale` unterstützen.
+Beachten Sie, dass die wichtigsten Browser Anfragen mit `max-stale` nicht unterstützen.
 
 #### `min-fresh`
 
-Die `min-fresh=N`-Anforderungs-Direktive gibt an, dass der Client eine zwischengespeicherte Antwort akzeptiert, die für mindestens _N_ Sekunden [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
+Die Anfrage-Direktive `min-fresh=N` gibt an, dass der Client eine gespeicherte Antwort zulässt, die noch mindestens _N_ Sekunden [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist.
 
 ```http
 Cache-Control: min-fresh=600
 ```
 
-Im obigen Fall, wenn die Antwort mit `Cache-Control: max-age=3600` vor 51 Minuten in Caches gespeichert wurde, könnte der Cache diese Antwort nicht wiederverwenden.
+Im obigen Fall könnte der Cache diese Antwort nicht wiederverwenden, wenn die Antwort mit `Cache-Control: max-age=3600` vor 51 Minuten in Caches gespeichert wurde.
 
-Clients können diesen Header verwenden, wenn der Benutzer verlangt, dass die Antwort nicht nur [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, sondern auch für einen bestimmten Zeitraum nicht aktualisiert wird.
+Clients können diesen Header verwenden, wenn der Benutzer verlangt, dass die Antwort nicht nur [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, sondern auch für einen bestimmten Zeitraum nicht aktualisiert wird.
 
-Beachten Sie, dass die Hauptbrowser keine Anfragen mit `min-fresh` unterstützen.
+Beachten Sie, dass die wichtigsten Browser Anfragen mit `min-fresh` nicht unterstützen.
 
 #### `no-transform`
 
-Hat dieselbe Bedeutung wie `no-transform` für eine Antwort, jedoch für eine Anfrage.
+Hat dieselbe Bedeutung wie `no-transform` für eine Antwort, jedoch stattdessen für eine Anfrage.
 
 #### `only-if-cached`
 
-Der Client gibt an, dass eine bereits zwischengespeicherte Antwort zurückgegeben werden sollte. Wenn ein Cache eine zwischengespeicherte Antwort hat, auch eine veraltete, wird sie zurückgegeben. Wenn keine zwischengespeicherte Antwort verfügbar ist, wird eine [504 Gateway Timeout](/de/docs/Web/HTTP/Reference/Status/504)-Antwort zurückgegeben.
+Der Client gibt an, dass eine bereits zwischengespeicherte Antwort zurückgegeben werden soll. Wenn ein Cache eine gespeicherte Antwort hat, auch eine veraltete, wird sie zurückgegeben. Wenn keine zwischengespeicherte Antwort verfügbar ist, wird eine Antwort [504 Gateway Timeout](/de/docs/Web/HTTP/Reference/Status/504) zurückgegeben.
 
 #### `stale-if-error`
 
-Die `stale-if-error`-Anforderungs-Direktive gibt an, dass der Browser bei einem Fehler von einem Zwischenserver für einen bestimmten Ursprung daran interessiert ist, veraltete Inhalte zu erhalten. Dies wird von keinem Browser unterstützt (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Die Anfrage-Direktive `stale-if-error` gibt an, dass der Browser bei einem Fehler eines beliebigen zwischengeschalteten Servers für einen bestimmten Origin an veralteten Inhalten interessiert ist.
+Dies wird von keinem Browser unterstützt (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
 
 ## Anwendungsfälle
 
-### Verhindern des Speicherns
+### Speichern verhindern
 
-Wenn Sie nicht möchten, dass eine Antwort in Caches gespeichert wird, verwenden Sie die `no-store`-Direktive.
+Wenn Sie nicht möchten, dass eine Antwort in Caches gespeichert wird, verwenden Sie die Direktive `no-store`.
 
 ```http
 Cache-Control: no-store
 ```
 
-Beachten Sie, dass `no-cache` bedeutet "es kann gespeichert werden, aber nicht ohne Validierung wiederverwenden" — also ist es nicht dafür da, das Speichern einer Antwort zu verhindern.
+Beachten Sie, dass `no-cache` „sie kann gespeichert, aber vor der Wiederverwendung nicht ohne Validierung verwendet werden“ bedeutet — es dient also nicht dazu, das Speichern einer Antwort zu verhindern.
 
 ```http example-bad
 Cache-Control: no-cache
 ```
 
-Theoretisch sollte bei Direktivenkonflikten die restriktivste Direktive beachtet werden. Das folgende Beispiel ist also im Grunde bedeutungslos, da `private`, `no-cache`, `max-age=0` und `must-revalidate` im Konflikt mit `no-store` stehen.
+Theoretisch sollte bei widersprüchlichen Direktiven die restriktivste Direktive berücksichtigt werden. Das folgende Beispiel ist daher im Grunde bedeutungslos, da `private`, `no-cache`, `max-age=0` und `must-revalidate` mit `no-store` im Widerspruch stehen.
 
 ```http example-bad
 # conflicted
@@ -382,9 +387,9 @@ Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
 Cache-Control: no-store
 ```
 
-### Caching von statischen Assets mit "Cache-Busting"
+### Statische Assets mit „Cache-Busting“ cachen
 
-Wenn Sie statische Assets mit Versions-/Hashing-Mechanismen erstellen, ist es eine gute Möglichkeit, caching zu verwalten, indem Sie eine Version oder einen Hash zum Dateinamen oder zur Abfragezeichenfolge hinzufügen.
+Wenn Sie statische Assets mit Versions- oder Hashing-Mechanismen erstellen, ist das Hinzufügen einer Version oder eines Hashs zum Dateinamen oder Query-String eine gute Methode zur Verwaltung des Cachings.
 
 Zum Beispiel:
 
@@ -394,9 +399,9 @@ Zum Beispiel:
 <img src="/assets/hero.png" width="900" height="400" />
 ```
 
-Die React-Bibliotheksversion wird sich ändern, wenn Sie die Bibliothek aktualisieren, und auch `hero.png` wird sich ändern, wenn Sie das Bild bearbeiten. Daher sind diese schwer in einem Cache mit `max-age` zu speichern.
+Die Version der React-Bibliothek ändert sich, wenn Sie die Bibliothek aktualisieren, und `hero.png` ändert sich ebenfalls, wenn Sie das Bild bearbeiten. Daher lassen sich diese nicht gut mit `max-age` in einem Cache speichern.
 
-In einem solchen Fall könnten Sie die Cache-Bedürfnisse durch die Verwendung einer spezifischen, nummerierten Version der Bibliothek ansprechen und den Hash des Bildes in seine URL aufnehmen.
+In einem solchen Fall können Sie die Caching-Anforderungen erfüllen, indem Sie eine bestimmte nummerierte Version der Bibliothek verwenden und den Hash des Bildes in dessen URL aufnehmen.
 
 ```html
 <!-- index.html -->
@@ -404,52 +409,52 @@ In einem solchen Fall könnten Sie die Cache-Bedürfnisse durch die Verwendung e
 <img src="/assets/hero.png?hash=deadbeef" width="900" height="400" />
 ```
 
-Sie können einen langen `max-age`-Wert und `immutable` hinzufügen, da der Inhalt sich nie ändern wird.
+Sie können einen langen Wert für `max-age` und `immutable` hinzufügen, weil sich der Inhalt niemals ändert.
 
 ```http
 # /assets/*
 Cache-Control: max-age=31536000, immutable
 ```
 
-Wenn Sie die Bibliothek aktualisieren oder das Bild bearbeiten, sollte der neue Inhalt eine neue URL haben, und Caches werden nicht wiederverwendet. Das wird als "Cache-Busting"-Muster bezeichnet.
+Wenn Sie die Bibliothek aktualisieren oder das Bild bearbeiten, sollte der neue Inhalt eine neue URL erhalten und Caches werden nicht wiederverwendet. Dies wird als „Cache-Busting“-Muster bezeichnet.
 
-Verwenden Sie ein `no-cache`, um sicherzustellen, dass die HTML-Antwort selbst nicht zwischengespeichert wird. `no-cache` könnte eine erneute Validierung verursachen, und der Client wird korrekt eine neue Version der HTML-Antwort und statische Assets erhalten.
+Verwenden Sie `no-cache`, um sicherzustellen, dass die HTML-Antwort selbst nicht aus dem Cache wiederverwendet wird. `no-cache` kann eine Revalidierung verursachen, und der Client erhält korrekt eine neue Version der HTML-Antwort und der statischen Assets.
 
 ```http
 # /index.html
 Cache-Control: no-cache
 ```
 
-Hinweis: Wenn `index.html` unter Basic Authentication oder Digest Authentication verwaltet wird, werden Dateien unter `/assets` nicht im gemeinsamen Cache gespeichert. Wenn Dateien unter `/assets/` für die Speicherung in einem gemeinsamen Cache geeignet sind, benötigen Sie auch eine der folgenden Direktiven: `public`, `s-maxage` oder `must-revalidate`.
+Hinweis: Wenn `index.html` durch Basic Authentication oder Digest Authentication geschützt ist, werden Dateien unter `/assets` nicht im gemeinsam genutzten Cache gespeichert. Wenn Dateien unter `/assets/` für die Speicherung in einem gemeinsam genutzten Cache geeignet sind, benötigen Sie außerdem eine der Direktiven `public`, `s-maxage` oder `must-revalidate`.
 
-### Immer aktuelle Inhalte
+### Stets aktuelle Inhalte
 
-Für Inhalte, die dynamisch generiert werden oder statisch sind, aber häufig aktualisiert werden, möchten Sie, dass ein Benutzer immer die aktuellste Version erhält.
+Für dynamisch generierte Inhalte oder statische Inhalte, die häufig aktualisiert werden, möchten Sie, dass ein Benutzer stets die aktuellste Version erhält.
 
-Wenn Sie keinen `Cache-Control`-Header hinzufügen, weil die Antwort nicht zwischengespeichert werden soll, könnte dies zu einem unerwarteten Ergebnis führen. Cache-Speicher dürfen es heuristisch zwischenspeichern – also wenn Sie Anforderungen an das Caching haben, sollten Sie sie immer explizit im `Cache-Control`-Header angeben.
+Wenn Sie keinen Header `Cache-Control` hinzufügen, weil die Antwort nicht gecacht werden soll, kann dies zu einem unerwarteten Ergebnis führen. Cache-Speicher dürfen sie heuristisch cachen — wenn Sie also Anforderungen an das Caching haben, sollten Sie diese immer explizit im Header `Cache-Control` angeben.
 
-Das Hinzufügen von `no-cache` zur Antwort verursacht eine erneute Validierung beim Server, sodass Sie jedes Mal eine [frische](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort bereitstellen können – oder wenn der Client bereits eine neue hat, einfach `304 Not Modified` antworten.
+Das Hinzufügen von `no-cache` zur Antwort führt zu einer Revalidierung beim Server, sodass Sie jedes Mal eine [aktuelle](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort bereitstellen können — oder, wenn der Client bereits eine neue Antwort hat, einfach mit `304 Not Modified` antworten können.
 
 ```http
 Cache-Control: no-cache
 ```
 
-Die meisten HTTP/1.0-Caches unterstützen `no-cache`-Direktiven nicht, daher wurde historisch `max-age=0` als Workaround verwendet. Aber nur `max-age=0` könnte bewirken, dass eine [veraltete Antwort](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wiederverwendet wird, wenn Caches vom Ursprungsserver getrennt sind. `must-revalidate` behebt das. Deshalb ist das folgende Beispiel gleichbedeutend mit `no-cache`.
+Die meisten HTTP/1.0-Caches unterstützen keine `no-cache`-Direktiven, daher wurde in der Vergangenheit `max-age=0` als Workaround verwendet. Nur `max-age=0` kann jedoch dazu führen, dass eine [veraltete Antwort](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) wiederverwendet wird, wenn Caches vom Origin-Server getrennt sind. `must-revalidate` löst dieses Problem. Deshalb entspricht das folgende Beispiel `no-cache`.
 
 ```http
 Cache-Control: max-age=0, must-revalidate
 ```
 
-Aber jetzt können Sie einfach `no-cache` verwenden.
+Mittlerweile können Sie jedoch einfach stattdessen `no-cache` verwenden.
 
-### Löschen eines bereits gespeicherten Caches
+### Einen bereits gespeicherten Cache leeren
 
-Es gibt keine Cache-Direktiven zum Löschen bereits gespeicherter Antworten aus Caches auf _Zwischen_Servern.
+Es gibt keine Cache-Direktiven, um bereits gespeicherte Antworten aus Caches auf _zwischengeschalteten_ Servern zu löschen.
 
-Stellen Sie sich vor, dass Clients/Caches eine [frische](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort für einen Pfad speichern, ohne dass eine Anforderungsrunde beim Server erfolgt. Es gibt nichts, was ein Server für diesen Pfad tun könnte.
+Stellen Sie sich vor, dass Clients oder Caches eine [aktuelle](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) Antwort für einen Pfad speichern, ohne dass eine Anfrage zum Server gesendet wird. Ein Server kann für diesen Pfad nichts tun.
 
-[`Clear-Site-Data: cache`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache) kann verwendet werden, um jede gespeicherte Antwort für eine Website im Browser-Cache zu löschen; Verwenden Sie dies daher mit Vorsicht.
-Beachten Sie, dass dies keine Auswirkungen auf gemeinsame oder Zwischen-Caches hat.
+[`Clear-Site-Data: cache`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache) kann verwendet werden, um jede gespeicherte Antwort für eine Website im Browser-Cache zu löschen; verwenden Sie dies daher mit Vorsicht.
+Beachten Sie, dass dies keine gemeinsam genutzten oder zwischengeschalteten Caches betrifft.
 
 ## Spezifikationen
 
@@ -463,8 +468,8 @@ Beachten Sie, dass dies keine Auswirkungen auf gemeinsame oder Zwischen-Caches h
 
 - [HTTP-Caching](/de/docs/Web/HTTP/Guides/Caching)
 - [Caching-Tutorial für Webautoren und Webmaster](https://mnot.net/cache_docs/)
-- [Caching Best Practices & max-age Gotchas](https://jakearchibald.com/2016/caching-best-practices/)
-- [Cache-Control für Zivilisten](https://csswizardry.com/2019/03/cache-control-for-civilians/)
+- [Bewährte Praktiken für Caching und Fallstricke bei max-age](https://jakearchibald.com/2016/caching-best-practices/)
+- [Cache-Control für Laien](https://csswizardry.com/2019/03/cache-control-for-civilians/)
 - [RFC 9111 – HTTP-Caching](https://httpwg.org/specs/rfc9111.html)
-- [RFC 5861 – HTTP Cache-Control Extensions for Stale Content](https://httpwg.org/specs/rfc5861.html)
-- [RFC 8246 – HTTP-Immutable-Responses](https://httpwg.org/specs/rfc8246.html)
+- [RFC 5861 – HTTP-Cache-Control-Erweiterungen für veraltete Inhalte](https://httpwg.org/specs/rfc5861.html)
+- [RFC 8246 – Unveränderliche HTTP-Antworten](https://httpwg.org/specs/rfc8246.html)

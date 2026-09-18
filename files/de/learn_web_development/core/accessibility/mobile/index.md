@@ -1,187 +1,187 @@
 ---
-title: Mobile Accessibility
+title: Barrierefreiheit auf Mobilgeräten
 slug: Learn_web_development/Core/Accessibility/Mobile
 l10n:
-  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
+  sourceCommit: 9fac65196ac2b9a26afabbcb7f14fd58621916ae
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Accessibility/Multimedia", "Learn_web_development/Core/Accessibility/Accessibility_troubleshooting", "Learn_web_development/Core/Accessibility")}}
+{{PreviousMenuNext("Learn_web_development/Core/Accessibility/Multimedia","Learn_web_development/Core/Accessibility/Accessibility_troubleshooting", "Learn_web_development/Core/Accessibility")}}
 
-Da der Zugriff auf das Internet über mobile Geräte heutzutage so beliebt ist und bekannte Plattformen wie iOS und Android über umfassende Barrierefreiheitswerkzeuge verfügen, ist es wichtig, die Zugänglichkeit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel behandelt mobile spezifische Überlegungen zur Barrierefreiheit.
+Da der Webzugriff auf Mobilgeräten so beliebt ist und bekannte Plattformen wie iOS und Android vollwertige Barrierefreiheitswerkzeuge bieten, ist es wichtig, die Barrierefreiheit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel behandelt mobilgerätespezifische Aspekte der Barrierefreiheit.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, und den Barrierefreiheit Best Practices, wie sie in den vorherigen Lektionen dieses Moduls vermittelt wurden.</a></td>
+      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und den in den vorherigen Lektionen des Moduls vermittelten Best Practices für Barrierefreiheit.</a>.</td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
         <ul>
-          <li>Vertrautheit mit Screenreadern auf iOS und Android.</li>
-          <li>Verständnis für Barrierefreiheitsprobleme bei einigen Arten von Ereignissen.</li>
-          <li>Spezifische Techniken für benutzerfreundlichere Eingabemechanismen auf mobilen Geräten.</li>
-          <li>Wissen, dass mobile Browser spezifische Benutzerfreundlichkeitsvorteile für bestimmte <code>&lt;input&gt;</code>-Typen wie <code>number</code> oder <code>tel</code> bieten.</li>
+          <li>Vertrautheit mit Screenreadern unter iOS und Android.</li>
+          <li>Vertrautheit mit den Barrierefreiheitsproblemen bestimmter Ereignistypen.</li>
+          <li>Spezifische Techniken für besser nutzbare Mechanismen zur Benutzereingabe auf Mobilgeräten.</li>
+          <li>Wissen, dass mobile Browser für bestimmte <code>&lt;input&gt;</code>-Typen wie <code>number</code> oder <code>tel</code> spezifische Nutzungsvorteile bieten.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Barrierefreiheit auf mobilen Geräten
+## Barrierefreiheit auf Mobilgeräten
 
-Der Stand der Barrierefreiheit — und die Unterstützung von Webstandards im Allgemeinen — ist auf modernen mobilen Geräten gut. Die Zeiten, in denen mobile Geräte völlig andere Webtechnologien als Desktop-Browser verwendeten und Entwickler dazu zwangen, Browser-Erkennung zu nutzen und ihnen völlig separate Webseiten zu servieren, sind längst vorbei (obwohl immer noch einige Unternehmen die Nutzung von mobilen Geräten erkennen und ihnen eine separate mobile Domain anbieten).
+Der Stand der Barrierefreiheit — und der Unterstützung von Webstandards im Allgemeinen — ist auf modernen Mobilgeräten gut. Die Zeiten, in denen Mobilgeräte völlig andere Webtechnologien als Desktop-Browser verwendeten und Entwickler dazu zwangen, Browser Sniffing einzusetzen und vollständig getrennte Websites bereitzustellen, sind lange vorbei (obwohl einige Unternehmen die Nutzung von Mobilgeräten weiterhin erkennen und dafür eine separate mobile Domain bereitstellen).
 
-Heutzutage können mobile Geräte in der Regel voll funktionsfähige Websites verarbeiten, und die Hauptplattformen haben sogar integrierte Screenreader, die es sehbehinderten Nutzern ermöglichen, sie erfolgreich zu nutzen. Moderne mobile Browser unterstützen in der Regel auch gut [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics).
+Heutzutage können Mobilgeräte in der Regel voll ausgestattete Websites verarbeiten, und die wichtigsten Plattformen verfügen sogar über integrierte Screenreader, damit sehbehinderte Benutzer sie erfolgreich verwenden können. Moderne mobile Browser bieten in der Regel auch gute Unterstützung für [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics).
 
-Um eine Website auf mobilen Geräten zugänglich und benutzbar zu machen, müssen Sie lediglich allgemeine gute Webdesign- und Barrierefreiheit Best Practices befolgen.
+Um eine Website auf Mobilgeräten barrierefrei und nutzbar zu machen, müssen Sie lediglich allgemeine Best Practices für gutes Webdesign und Barrierefreiheit befolgen.
 
-Es gibt einige Ausnahmen, die auf mobilen Geräten besondere Aufmerksamkeit erfordern; die wichtigsten davon sind:
+Es gibt einige Ausnahmen, die für Mobilgeräte besondere Beachtung erfordern. Die wichtigsten sind:
 
-- Steuerungsmechanismen — Stellen Sie sicher, dass Schnittstellensteuerungen wie Schaltflächen auf mobilen Geräten (d.h. hauptsächlich Touchscreen) sowie auf Desktops/Laptops (hauptsächlich Maus/Tastatur) zugänglich sind.
-- Benutzereingaben — Machen Sie die Anforderungen an Benutzereingaben auf mobilen Geräten so schmerzlos wie möglich (z.B. in Formularen, halten Sie das Tippen auf ein Minimum).
-- Responsives Design — Stellen Sie sicher, dass Layouts auf mobilen Geräten funktionieren, Bilddownloadgrößen beibehalten werden und an die Bereitstellung von Bildern für hochauflösende Bildschirme gedacht wird.
+- Steuerungsmechanismen — Stellen Sie sicher, dass Bedienelemente der Benutzeroberfläche wie Buttons auf Mobilgeräten (d.h. hauptsächlich über Touchscreens) ebenso zugänglich sind wie auf Desktops/Laptops (hauptsächlich mit Maus/Tastatur).
+- Benutzereingabe — Gestalten Sie Anforderungen an Benutzereingaben auf Mobilgeräten so unkompliziert wie möglich (z. B. indem Sie in Formularen den Tipppaufwand minimieren).
+- Responsives Design — Stellen Sie sicher, dass Layouts auf Mobilgeräten funktionieren, halten Sie die Downloadgrößen von Bildern gering und berücksichtigen Sie die Bereitstellung von Bildern für hochauflösende Bildschirme.
 
-## Zusammenfassung des Screenreader-Testens auf Android und iOS
+## Zusammenfassung der Screenreader-Tests unter Android und iOS
 
-Die gängigsten mobilen Plattformen verfügen über voll funktionsfähige Screenreader. Diese funktionieren ähnlich wie Desktop-Screenreader, mit dem Unterschied, dass sie hauptsächlich durch Berührungsgesten statt durch Tastenkombinationen bedient werden.
+Die gängigsten mobilen Plattformen verfügen über voll funktionsfähige Screenreader. Diese funktionieren ähnlich wie Desktop-Screenreader, werden jedoch größtenteils mit Touch-Gesten statt Tastenkombinationen bedient.
 
-Betrachten wir die beiden wichtigsten: TalkBack auf Android und VoiceOver auf iOS.
+Sehen wir uns die beiden wichtigsten an: TalkBack unter Android und VoiceOver unter iOS.
 
 ### Android TalkBack
 
-Der TalkBack Screenreader ist im Android-Betriebssystem integriert.
+Der TalkBack-Screenreader ist in das Android-Betriebssystem integriert.
 
-Um ihn zu aktivieren, finden Sie heraus, welches Telefonmodell und welche Android-Version Sie haben, und suchen Sie dann, wo sich das TalkBack-Menü befindet. Es unterscheidet sich häufig stark zwischen Android-Versionen und sogar zwischen verschiedenen Telefonmodellen. Einige Telefonhersteller (z.B. Samsung) haben TalkBack in neueren Telefonen nicht einmal mehr eingebaut und stattdessen auf ihren eigenen Screenreader gesetzt.
+Um ihn zu aktivieren, ermitteln Sie Ihr Telefonmodell und Ihre Android-Version und suchen Sie dann nach der Position des TalkBack-Menüs. Diese unterscheidet sich häufig erheblich zwischen Android-Versionen und sogar zwischen verschiedenen Telefonmodellen. Einige Telefonhersteller (z. B. Samsung) bieten TalkBack auf neueren Telefonen nicht einmal an und haben sich stattdessen für einen eigenen Screenreader entschieden.
 
-Wenn Sie das TalkBack-Menü gefunden haben, drücken Sie den Schiebeschalter, um TalkBack zu aktivieren. Befolgen Sie alle zusätzlichen Bildschirmanweisungen, die Ihnen präsentiert werden.
+Wenn Sie das TalkBack-Menü gefunden haben, drücken Sie den Schiebeschalter, um TalkBack zu aktivieren. Folgen Sie allen weiteren angezeigten Anweisungen auf dem Bildschirm.
 
-Wenn TalkBack aktiviert ist, sind die grundlegenden Steuerungen Ihres Android-Geräts etwas anders. Zum Beispiel:
+Wenn TalkBack aktiviert ist, unterscheiden sich die grundlegenden Bedienelemente Ihres Android-Geräts etwas. Zum Beispiel:
 
-1. Durch einmaliges Tippen auf eine App wird sie ausgewählt, und das Gerät wird vorlesen, was die App ist.
-2. Durch Wischen nach links und rechts wechseln Sie zwischen Apps oder Schaltflächen/Steuerungen, wenn Sie sich in einer Steuerleiste befinden. Das Gerät liest jede Option vor.
-3. Durch Doppeltippen wird die App geöffnet/die Option ausgewählt.
-4. Sie können auch "durch Berührung erkunden" — halten Sie Ihren Finger auf dem Bildschirm und ziehen Sie ihn herum, und Ihr Gerät liest die verschiedenen Apps/Elemente vor, über die Sie fahren.
+1. Einmaliges Tippen auf eine App wählt sie aus, und das Gerät liest vor, um welche App es sich handelt.
+2. Wischen nach links und rechts wechselt zwischen Apps oder Buttons/Steuerelementen, wenn Sie sich in einer Steuerleiste befinden. Das Gerät liest jede Option vor.
+3. Doppeltippen an einer beliebigen Stelle öffnet die App bzw. wählt die Option aus.
+4. Sie können auch per Berührung erkunden — halten Sie Ihren Finger auf den Bildschirm gedrückt und ziehen Sie ihn darüber; Ihr Gerät liest die verschiedenen Apps/Elemente vor, über die Sie sich bewegen.
 
-Wenn Sie TalkBack ausschalten möchten:
+So deaktivieren Sie TalkBack:
 
-1. Navigieren Sie zurück zum TalkBack-Menübildschirm (verwenden Sie die derzeit aktivierten verschiedenen Gesten).
-2. Navigieren Sie zum Schiebeschalter und aktivieren Sie ihn, um ihn auszuschalten.
+1. Navigieren Sie zurück zum TalkBack-Menübildschirm (mithilfe der aktuell aktivierten Gesten).
+2. Navigieren Sie zum Schiebeschalter und aktivieren Sie ihn, um TalkBack auszuschalten.
 
 > [!NOTE]
-> Sie können jederzeit zu Ihrem Startbildschirm gelangen, indem Sie in einer flüssigen Bewegung nach oben und links wischen. Wenn Sie mehr als einen Startbildschirm haben, können Sie zwischen ihnen wechseln, indem Sie mit zwei Fingern nach links und rechts wischen.
+> Sie können jederzeit zum Startbildschirm gelangen, indem Sie in einer fließenden Bewegung nach oben und links wischen. Wenn Sie mehr als einen Startbildschirm haben, können Sie zwischen ihnen wechseln, indem Sie mit zwei Fingern nach links und rechts wischen.
 
-Eine vollständigere Liste der TalkBack-Gesten finden Sie unter [TalkBack-Gesten verwenden](https://support.google.com/accessibility/android/answer/6151827).
+Eine vollständigere Liste der TalkBack-Gesten finden Sie unter [Use TalkBack gestures](https://support.google.com/accessibility/android/answer/6151827).
 
-#### Telefon entsperren
+#### Das Telefon entsperren
 
 Wenn TalkBack aktiviert ist, unterscheidet sich das Entsperren des Telefons etwas.
 
-Sie können mit zwei Fingern von unten auf dem Sperrbildschirm nach oben wischen. Wenn Sie einen Passcode oder ein Muster zum Entsperren Ihres Geräts festgelegt haben, werden Sie zum entsprechenden Eingabebildschirm weitergeleitet, um diesen einzugeben.
+Sie können mit zwei Fingern vom unteren Rand des Sperrbildschirms nach oben wischen. Wenn Sie einen Passcode oder ein Muster zum Entsperren Ihres Geräts eingerichtet haben, gelangen Sie anschließend zum entsprechenden Eingabebildschirm.
 
-Sie können auch durch Berührung erkunden, um die _Entsperren_-Taste unten in der Mitte des Bildschirms zu finden, und dann doppeltippen.
+Sie können auch per Berührung erkunden, um den Button _Unlock_ unten in der Mitte des Bildschirms zu finden, und dann doppeltippen.
 
 #### Globale und lokale Menüs
 
-TalkBack ermöglicht Ihnen den Zugriff auf globale und lokale Kontextmenüs, unabhängig davon, wo Sie sich auf dem Gerät befinden. Ersteres bietet globale Optionen im Zusammenhang mit dem gesamten Gerät, während letzteres Optionen bietet, die sich nur auf die aktuelle App/den aktuellen Bildschirm beziehen, in dem Sie sich befinden.
+TalkBack ermöglicht Ihnen den Zugriff auf globale und lokale Kontextmenüs, unabhängig davon, wohin Sie auf dem Gerät navigiert haben. Erstere bieten globale Optionen für das Gerät als Ganzes, während letztere nur Optionen für die aktuelle App bzw. den aktuellen Bildschirm bieten.
 
-Um zu diesen Menüs zu gelangen:
+So gelangen Sie zu diesen Menüs:
 
-1. Greifen Sie auf das globale Menü zu, indem Sie schnell nach unten und dann rechts wischen.
-2. Greifen Sie auf das lokale Menü zu, indem Sie schnell nach oben und dann rechts wischen.
+1. Rufen Sie das globale Menü auf, indem Sie schnell nach unten und dann nach rechts wischen.
+2. Rufen Sie das lokale Menü auf, indem Sie schnell nach oben und dann nach rechts wischen.
 3. Wischen Sie nach links und rechts, um zwischen den verschiedenen Optionen zu wechseln.
-4. Sobald Sie die gewünschte Option ausgewählt haben, doppelklicken Sie, um diese Option auszuwählen.
+4. Wenn Sie die gewünschte Option ausgewählt haben, doppeltippen Sie, um diese Option auszuwählen.
 
-Details zu allen verfügbaren Optionen im globalen und lokalen Kontextmenü finden Sie unter [Globale und lokale Kontextmenüs verwenden](https://support.google.com/accessibility/android/answer/6007066).
+Einzelheiten zu allen Optionen in den globalen und lokalen Kontextmenüs finden Sie unter [Use global and local context menus](https://support.google.com/accessibility/android/answer/6007066).
 
-#### Surfen auf Webseiten
+#### Webseiten durchsuchen
 
-Sie können das lokale Kontextmenü in einem Webbrowser verwenden, um Optionen zu finden, mit denen Sie Webseiten nur über die Überschriften, Formularsteuerelemente oder Links navigieren oder zeilenweise navigieren können, usw.
+Sie können das lokale Kontextmenü in einem Webbrowser verwenden, um Optionen zu finden, mit denen Sie Webseiten nur anhand von Überschriften, Formularsteuerelementen oder Links navigieren oder zeilenweise navigieren können usw.
 
-Beispielsweise bei eingeschaltetem TalkBack:
+Zum Beispiel bei aktiviertem TalkBack:
 
 1. Öffnen Sie Ihren Webbrowser.
 2. Aktivieren Sie die URL-Leiste.
-3. Geben Sie eine Webseite ein, die eine Reihe von Überschriften enthält, wie z.B. die Startseite von bbc.co.uk. Um den Text der URL einzugeben:
-   - Wählen Sie die URL-Leiste durch Wischen nach links/rechts, bis Sie dazu gelangen, und doppelklicken Sie.
-   - Halten Sie Ihren Finger auf der virtuellen Tastatur, bis Sie das gewünschte Zeichen erhalten, und lassen Sie dann Ihren Finger los, um es zu tippen. Wiederholen Sie dies für jedes Zeichen.
-   - Wenn Sie fertig sind, finden Sie die Eingabetaste und drücken Sie sie.
+3. Rufen Sie eine Webseite mit vielen Überschriften auf, etwa die Startseite von bbc.co.uk. So geben Sie den Text der URL ein:
+   - Wählen Sie die URL-Leiste aus, indem Sie nach links/rechts wischen, bis Sie sie erreichen, und dann doppeltippen.
+   - Halten Sie Ihren Finger auf der virtuellen Tastatur gedrückt, bis Sie das gewünschte Zeichen erreichen, und heben Sie dann den Finger an, um es einzugeben. Wiederholen Sie dies für jedes Zeichen.
+   - Wenn Sie fertig sind, suchen Sie die Enter-Taste und drücken Sie sie.
 
 4. Wischen Sie nach links und rechts, um zwischen verschiedenen Elementen auf der Seite zu wechseln.
-5. Wischen Sie nach oben und rechts in einer flüssigen Bewegung, um das lokale Inhaltsmenü zu öffnen.
-6. Wischen Sie nach rechts, bis Sie die Option "Überschriften und Landmarken" finden.
-7. Doppeltippen Sie, um es auszuwählen. Jetzt können Sie nach links und rechts wischen, um zwischen Überschriften und ARIA-Landmarken zu wechseln.
-8. Um zum Standardmodus zurückzukehren, öffnen Sie das lokale Kontextmenü erneut, indem Sie nach oben und rechts wischen, wählen Sie "Standard" und doppeltippen Sie, um zu aktivieren.
+5. Wischen Sie in einer fließenden Bewegung nach oben und rechts, um das lokale Inhaltsmenü aufzurufen.
+6. Wischen Sie nach rechts, bis Sie die Option „Headings and Landmarks“ finden.
+7. Doppeltippen Sie, um sie auszuwählen. Nun können Sie nach links und rechts wischen, um zwischen Überschriften und ARIA-Landmarks zu wechseln.
+8. Um zum Standardmodus zurückzukehren, rufen Sie das lokale Kontextmenü erneut durch Wischen nach oben und rechts auf, wählen Sie „Default“ und doppeltippen Sie dann zum Aktivieren.
 
 > [!NOTE]
-> Siehe [Erste Schritte auf Android mit TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en&ref_topic=3529932) für umfassendere Dokumentation.
+> Ausführlichere Dokumentation finden Sie unter [Get started on Android with TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en&ref_topic=3529932).
 
 ### iOS VoiceOver
 
-Eine mobile Version von VoiceOver ist im iOS-Betriebssystem integriert.
+Eine mobile Version von VoiceOver ist in das iOS-Betriebssystem integriert.
 
-Um sie zu aktivieren, gehen Sie zur App _Einstellungen_ und wählen Sie _Bedienungshilfen > VoiceOver_. Drücken Sie den _VoiceOver_-Schieber, um sie zu aktivieren (Sie sehen auch mehrere andere Optionen, die mit VoiceOver zusammenhängen, auf dieser Seite).
+Um sie zu aktivieren, öffnen Sie Ihre _Settings_-App und wählen Sie _Accessibility > VoiceOver_. Drücken Sie den Schieberegler _VoiceOver_, um ihn zu aktivieren (auf dieser Seite sehen Sie außerdem mehrere weitere Optionen zu VoiceOver).
 
 > [!NOTE]
-> Einige ältere iOS-Geräte haben das VoiceOver-Menü in _Einstellungen_ > _Allgemein_ > _Bedienungshilfen_ > _VoiceOver_.
+> Bei einigen älteren iOS-Geräten befindet sich das VoiceOver-Menü unter _Settings app_ > _General_ > _Accessibility_ > _VoiceOver_.
 
-Einmal aktiviert, sind die grundlegenden Steuerungsgesten von iOS mit VoiceOver etwas anders:
+Sobald VoiceOver aktiviert ist, unterscheiden sich die grundlegenden Steuerungsgesten von iOS etwas:
 
-1. Einmaliges Tippen lässt das Element, auf das Sie tippen, auswählen; Ihr Gerät wird das Element, auf das Sie getippt haben, vorlesen.
-2. Sie können auch die Elemente auf dem Bildschirm navigieren, indem Sie nach links und rechts wischen, um zwischen ihnen zu wechseln, oder indem Sie Ihren Finger um den Bildschirm schieben, um zwischen verschiedenen Elementen zu wechseln (wenn Sie das gewünschte Element gefunden haben, können Sie Ihren Finger wegnehmen, um es auszuwählen).
-3. Um das ausgewählte Element zu aktivieren (z.B. eine ausgewählte App zu öffnen), doppeltippen Sie irgendwo auf dem Bildschirm.
+1. Ein einzelnes Tippen bewirkt, dass das angetippte Element ausgewählt wird; Ihr Gerät spricht das angetippte Element vor.
+2. Sie können auch zwischen den Elementen auf dem Bildschirm navigieren, indem Sie nach links und rechts wischen, oder indem Sie Ihren Finger über den Bildschirm bewegen, um zwischen verschiedenen Elementen zu wechseln (wenn Sie das gewünschte Element gefunden haben, können Sie Ihren Finger anheben, um es auszuwählen).
+3. Um das ausgewählte Element zu aktivieren (z. B. eine ausgewählte App zu öffnen), doppeltippen Sie an einer beliebigen Stelle auf dem Bildschirm.
 4. Wischen Sie mit drei Fingern, um durch eine Seite zu scrollen.
-5. Tippen Sie mit zwei Fingern, um eine kontextbezogene Aktion auszuführen — z.B. ein Foto in der Kamera-App aufzunehmen.
+5. Tippen Sie mit zwei Fingern, um eine kontextrelevante Aktion auszuführen — beispielsweise ein Foto aufzunehmen, während Sie sich in der Kamera-App befinden.
 
-Um es wieder auszuschalten, navigieren Sie zurück zu _Einstellungen > Allgemein > Bedienungshilfen > VoiceOver_ unter Verwendung der oben angegebenen Gesten und schalten Sie den _VoiceOver_-Schieber wieder aus.
+Um VoiceOver wieder auszuschalten, navigieren Sie mithilfe der oben genannten Gesten zurück zu _Settings > General > Accessibility > VoiceOver_ und schalten den Schieberegler _VoiceOver_ wieder aus.
 
 #### Telefon entsperren
 
-Um das Telefon zu entsperren, müssen Sie die Home-Taste drücken (oder wischen) wie gewohnt. Wenn Sie einen Passcode festgelegt haben, können Sie jede Nummer wählen, indem Sie wischen/schieben (wie oben beschrieben) und dann doppeltippen, um die jeweilige Nummer einzugeben, wenn Sie die richtige gefunden haben.
+Um das Telefon zu entsperren, müssen Sie wie gewohnt die Home-Taste drücken (oder wischen). Wenn Sie einen Passcode eingerichtet haben, können Sie jede Zahl durch Wischen/Bewegen auswählen (wie oben erläutert) und dann doppeltippen, um jede Zahl einzugeben, sobald Sie die richtige gefunden haben.
 
 #### Den Rotor verwenden
 
-Wenn VoiceOver aktiviert ist, steht Ihnen ein Navigationswerkzeug namens Rotor zur Verfügung, mit dem Sie schnell aus einer Vielzahl von nützlichen Optionen wählen können. Um es zu verwenden:
+Wenn VoiceOver aktiviert ist, steht Ihnen eine Navigationsfunktion namens Rotor zur Verfügung, mit der Sie schnell aus mehreren häufig nützlichen Optionen wählen können. So verwenden Sie sie:
 
-1. Drehen Sie zwei Finger über den Bildschirm, als würden Sie einen Knopf drehen. Jede Option wird vorgelesen, während Sie weiter drehen. Sie können vor- und zurückdrehen, um die Optionen zu durchlaufen.
-2. Sobald Sie die gewünschte Option gefunden haben:
-   - Lassen Sie Ihre Finger los, um sie auszuwählen.
-   - Wenn es sich um eine Option handelt, bei der Sie den Wert ändern können (z.B. Volume oder Sprachgeschwindigkeit), können Sie nach oben oder unten wischen, um den Wert des ausgewählten Elements zu erhöhen oder zu verringern.
+1. Drehen Sie zwei Finger auf dem Bildschirm, als würden Sie an einem Einstellrad drehen. Jede Option wird laut vorgelesen, während Sie weiterdrehen. Sie können vor- und zurückdrehen, um durch die Optionen zu wechseln.
+2. Wenn Sie die gewünschte Option gefunden haben:
+   - Heben Sie Ihre Finger an, um sie auszuwählen.
+   - Wenn es sich um eine Option handelt, deren Wert Sie verändern können (etwa Volume oder Speaking Rate), können Sie nach oben oder unten wischen, um den Wert des ausgewählten Elements zu erhöhen oder zu verringern.
 
-Die im Rotor verfügbaren Optionen sind kontextabhängig — sie werden je nach verwendeter App oder Ansicht unterschiedlich sein (siehe unten für ein Beispiel).
+Die unter dem Rotor verfügbaren Optionen sind kontextsensitiv — sie unterscheiden sich je nach App oder Ansicht, in der Sie sich befinden (siehe unten für ein Beispiel).
 
-#### Surfen auf Webseiten
+#### Webseiten durchsuchen
 
-Versuchen wir es mit dem Websuchen mit VoiceOver:
+Probieren wir das Surfen im Web mit VoiceOver aus:
 
 1. Öffnen Sie Ihren Webbrowser.
 2. Aktivieren Sie die URL-Leiste.
-3. Geben Sie eine Webseite ein, die eine Reihe von Überschriften enthält, wie z.B. die Startseite von bbc.co.uk. Um den Text der URL einzugeben:
-   - Wählen Sie die URL-Leiste durch Wischen nach links/rechts, bis Sie dazu gelangen, und dann doppeltippen.
-   - Für jedes Zeichen, halten Sie Ihren Finger auf der virtuellen Tastatur, bis Sie das Zeichen erhalten, das Sie möchten, und lassen Sie dann Ihren Finger los, um es auszuwählen. Doppeltippen Sie, um es zu tippen.
-   - Wenn Sie fertig sind, finden Sie die Eingabetaste und drücken Sie sie.
+3. Rufen Sie eine Webseite mit vielen Überschriften auf, etwa die Startseite von bbc.co.uk. So geben Sie den Text der URL ein:
+   - Wählen Sie die URL-Leiste aus, indem Sie nach links/rechts wischen, bis Sie sie erreichen, und dann doppeltippen.
+   - Halten Sie für jedes Zeichen Ihren Finger auf der virtuellen Tastatur gedrückt, bis Sie das gewünschte Zeichen erreichen, und heben Sie dann Ihren Finger an, um es auszuwählen. Doppeltippen Sie, um es einzugeben.
+   - Wenn Sie fertig sind, suchen Sie die Enter-Taste und drücken Sie sie.
 
-4. Wischen Sie nach links und rechts, um zwischen Elementen auf der Seite zu wechseln. Sie können ein Element durch Doppeltippen auswählen (z.B. einem Link folgen).
-5. Standardmäßig wird die ausgewählte Rotoroption die Sprachgeschwindigkeit sein; Sie können aktuell nach oben und unten wischen, um die Sprachgeschwindigkeit zu erhöhen oder zu verringern.
-6. Drehen Sie jetzt zwei Finger über den Bildschirm wie bei einem Drehknopf, um den Rotor anzuzeigen und zwischen seinen Optionen zu wechseln. Hier sind einige Beispiele für die verfügbaren Optionen:
-   - _Sprachgeschwindigkeit_: Sprachgeschwindigkeit ändern.
-   - _Container_: Zwischen verschiedenen semantischen Containern auf der Seite wechseln.
-   - _Überschriften_: Zwischen den Überschriften auf der Seite wechseln.
-   - _Links_: Zwischen den Links auf der Seite wechseln.
-   - _Formular-Steuerelemente_: Zwischen Formularsteuerelementen auf der Seite wechseln.
-   - _Sprache_: Zwischen verschiedenen Übersetzungen wechseln, falls verfügbar.
+4. Wischen Sie nach links und rechts, um zwischen Elementen auf der Seite zu wechseln. Sie können auf ein Element doppeltippen, um es auszuwählen (z. B. einem Link zu folgen).
+5. Standardmäßig ist die ausgewählte Rotor-Option Speaking Rate; Sie können derzeit nach oben und unten wischen, um die Sprechgeschwindigkeit zu erhöhen oder zu verringern.
+6. Drehen Sie nun zwei Finger wie an einem Einstellrad über den Bildschirm, um den Rotor anzuzeigen und zwischen dessen Optionen zu wechseln. Hier sind einige Beispiele für verfügbare Optionen:
+   - _Speaking Rate_: Ändern Sie die Sprechgeschwindigkeit.
+   - _Containers_: Wechseln Sie zwischen verschiedenen semantischen Containern auf der Seite.
+   - _Headings_: Wechseln Sie zwischen Überschriften auf der Seite.
+   - _Links_: Wechseln Sie zwischen Links auf der Seite.
+   - _Form Controls_: Wechseln Sie zwischen Formularsteuerelementen auf der Seite.
+   - _Language_: Wechseln Sie zwischen verschiedenen Übersetzungen, falls diese verfügbar sind.
 
-7. Wählen Sie _Überschriften_. Jetzt können Sie nach oben und unten wischen, um zwischen den Überschriften auf der Seite zu wechseln.
+7. Wählen Sie _Headings_. Nun können Sie nach oben und unten wischen, um zwischen Überschriften auf der Seite zu wechseln.
 
 > [!NOTE]
-> Für eine umfassendere Referenz, die die verfügbaren VoiceOver-Gesten abdeckt, und weitere Hinweise zum Testen der Barrierefreiheit auf iOS, siehe [Apples VoiceOver-Dokumentation](https://developer.apple.com/documentation/accessibility/voiceover/).
+> Eine vollständigere Referenz zu den verfügbaren VoiceOver-Gesten und weitere Hinweise zu Barrierefreiheitstests unter iOS finden Sie in der [VoiceOver-Dokumentation von Apple](https://developer.apple.com/documentation/accessibility/voiceover/).
 
 ## Steuerungsmechanismen
 
-In unserem Artikel zu Barrierefreiheit in CSS und JavaScript haben wir das Konzept von ereignisbasierenden Steuermechanismen analysiert, die spezifisch für eine bestimmte Art von Steuerungsmechanismen sind (siehe [Mouse-spezifische Ereignisse](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#mouse-specific_events)). Zur Wiederholung, diese verursachen Barrierefreiheitsprobleme, da andere Steuermechanismen die zugehörige Funktionalität nicht aktivieren können.
+In unserem Artikel über CSS- und JavaScript-Barrierefreiheit haben wir die Idee von Ereignissen betrachtet, die für einen bestimmten Steuerungsmechanismus spezifisch sind (siehe [Mouse-specific events](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#mouse-specific_events)). Zur Wiederholung: Diese verursachen Probleme bei der Barrierefreiheit, weil andere Steuerungsmechanismen die zugehörige Funktionalität nicht aktivieren können.
 
-Ein Beispiel: Das [click](/de/docs/Web/API/Element/click_event)-Ereignis ist in Bezug auf Barrierefreiheit gut – ein zugehöriger Ereignis-Handler kann durch Klicken auf das Element, auf dem sich der Handler befindet, durch Tabben zu ihm und Drücken von Enter/Return oder durch Antippen auf einem Touchscreen-Gerät aktiviert werden. Probieren Sie das folgende einfache Schaltflächenbeispiel aus, um zu sehen, was wir meinen:
+Als Beispiel ist das Ereignis [click](/de/docs/Web/API/Element/click_event) hinsichtlich der Barrierefreiheit gut — ein zugehöriger Event-Handler kann aufgerufen werden, indem Sie auf das Element klicken, für das der Handler festgelegt ist, zu ihm tabben und Enter/Return drücken oder es auf einem Touchscreen-Gerät antippen. Probieren Sie das folgende grundlegende Button-Beispiel aus, um zu sehen, was gemeint ist:
 
 ```html hidden live-sample___basic-button
 <button>Press me!</button>
@@ -222,9 +222,9 @@ btn.addEventListener("click", () => {
 
 {{embedlivesample("basic-button", "100%", "100")}}
 
-Mauseigene Ereignisse, wie [mousedown](/de/docs/Web/API/Element/mousedown_event) und [mouseup](/de/docs/Web/API/Element/mouseup_event), schaffen jedoch Probleme, weil ihre Ereignis-Handler mit nicht-mausabhängigen Steuerungen nicht ausgelöst werden können.
+Mausspezifische Ereignisse wie [mousedown](/de/docs/Web/API/Element/mousedown_event) und [mouseup](/de/docs/Web/API/Element/mouseup_event) verursachen jedoch Probleme — ihre Event-Handler können nicht über andere als Maussteuerungen aufgerufen werden.
 
-Das nächste Beispiel setzt Code wie den folgenden ein, um es Ihnen zu ermöglichen, ein Feld mit der Maus über den Bildschirm zu ziehen:
+Das nächste Beispiel verwendet Code wie den folgenden, um Ihnen zu ermöglichen, mit Ihrer Maus eine Box über den Bildschirm zu ziehen:
 
 ```js
 div.addEventListener("mousedown", () => {
@@ -282,7 +282,7 @@ let initialMouseX = null;
 
 let initialMouseY = null;
 
-var initialBoxX, initialBoxY, rAF;
+let initialBoxX, initialBoxY, rAF;
 
 div.addEventListener("mousedown", () => {
   initialBoxX = div.offsetLeft;
@@ -302,10 +302,10 @@ function movePanel() {
 
     let offsetX = initialBoxX + mouseMoveX;
     let offsetY = initialBoxY + mouseMoveY;
-    console.log(offsetX + " " + offsetY);
+    console.log(`${offsetX} ${offsetY}`);
 
-    div.style.left = offsetX + "px";
-    div.style.top = offsetY + "px";
+    div.style.left = `${offsetX}px`;
+    div.style.top = `${offsetY}px`;
   }
 
   rAF = requestAnimationFrame(movePanel);
@@ -323,7 +323,7 @@ function stopMove() {
 
 {{embedlivesample("mouse-drag", "100%", "400")}}
 
-Wenn Sie jedoch versuchen, es mit dem Finger auf einem Touchscreen-Gerät zu ziehen, funktioniert es nicht. Um andere Steuerungsformen zu aktivieren, müssen Sie andere, jedoch gleichwertige Ereignisse verwenden — zum Beispiel funktionieren Touch-Ereignisse auf Touchscreen-Geräten:
+Wenn Sie jedoch versuchen, sie mit Ihrem Finger auf einem Touchscreen-Gerät zu ziehen, funktioniert dies nicht. Um andere Steuerungsformen zu ermöglichen, müssen Sie andere, aber gleichwertige Ereignisse verwenden — beispielsweise funktionieren Touch-Ereignisse auf Touchscreen-Geräten:
 
 ```js
 div.addEventListener("touchstart", (e) => {
@@ -391,8 +391,8 @@ function movePanel() {
     let offsetX = initialBoxX + posMoveX;
     let offsetY = initialBoxY + posMoveY;
 
-    div.style.left = offsetX + "px";
-    div.style.top = offsetY + "px";
+    div.style.left = `${offsetX}px`;
+    div.style.top = `${offsetY}px`;
   }
 
   rAF = requestAnimationFrame(movePanel);
@@ -406,53 +406,53 @@ function stopMove() {
 }
 ```
 
-Die aktualisierte Version wird mit sowohl Maus- als auch Touch-Ziehen funktionieren:
+Die aktualisierte Version funktioniert sowohl mit Maus- als auch mit Touch-Ziehen:
 
 {{embedlivesample("multi-drag", "100%", "400")}}
 
 > [!NOTE]
-> Sie können auch voll funktionsfähige Beispiele ansehen, die zeigen, wie verschiedene Steuermechanismen implementiert werden können, unter [Implementing game control mechanisms](/de/docs/Games/Techniques/Control_mechanisms).
+> Voll funktionsfähige Beispiele zur Implementierung verschiedener Steuerungsmechanismen finden Sie auch unter [Implementing game control mechanisms](/de/docs/Games/Techniques/Control_mechanisms).
 
 ## Responsives Design
 
-[Responsive Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) ist die Praxis, Ihre Layouts und andere Eigenschaften Ihrer Apps dynamisch ändern zu lassen, abhängig von Faktoren wie Bildschirmgröße und Auflösung, damit sie für Benutzer verschiedener Gerätetypen nutzbar und zugänglich sind.
+[Responsives Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) ist die Praxis, Layouts und andere Funktionen Ihrer Apps abhängig von Faktoren wie Bildschirmgröße und -auflösung dynamisch zu verändern, damit sie für Benutzer verschiedener Gerätetypen nutzbar und zugänglich sind.
 
-Insbesondere die häufigsten Probleme, die auf mobilen Geräten angegangen werden müssen, sind:
+Insbesondere müssen für Mobilgeräte die folgenden häufigen Probleme gelöst werden:
 
-- Eignung der Layouts für mobile Geräte. Ein mehrspaltiges Layout wird zum Beispiel auf einem schmalen Bildschirm nicht so gut funktionieren, und die Textgröße muss möglicherweise erhöht werden, damit sie lesbar ist. Solche Probleme können gelöst werden, indem ein responsives Layout mit Technologien wie [Media Queries](/de/docs/Web/CSS/Guides/Media_queries), [Viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport), und [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) erstellt wird.
-- Bewahrung der Bildgrößen. Im Allgemeinen benötigen Geräte mit kleinem Bildschirm keine so großen Bilder wie ihre Desktop-Pendants, und sie sind eher auf langsamen Netzwerkverbindungen. Daher ist es sinnvoll, kleinere Bilder für Geräte mit schmalem Bildschirm bereitzustellen. Sie können dies mit [Techniken für responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images) handhaben.
-- Berücksichtigung hoher Auflösungen. Viele mobile Geräte haben hochauflösende Bildschirme und benötigen daher höher aufgelöste Bilder, damit das Display weiterhin scharf und klar aussieht. Auch hier können Sie Bilder entsprechend mit responsiven Bildtechniken bereitstellen. Darüber hinaus können viele Bildanforderungen mit dem SVG-Vektorformat erfüllt werden, das heute gut über die Browser hinweg unterstützt wird. SVG hat eine kleine Dateigrößer und bleibt unabhängig von der Darstellungsgröße scharf (siehe [Einbindung von Vektorgrafiken in HTML](/de/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics_in_HTML) für weitere Details).
+- Eignung von Layouts für Mobilgeräte. Ein mehrspaltiges Layout funktioniert beispielsweise auf einem schmalen Bildschirm nicht so gut, und die Textgröße muss möglicherweise erhöht werden, damit sie lesbar ist. Solche Probleme können durch die Erstellung eines responsiven Layouts mithilfe von Technologien wie [Media Queries](/de/docs/Web/CSS/Guides/Media_queries), [viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) und [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) gelöst werden.
+- Geringe Downloadgrößen von Bildern. Im Allgemeinen benötigen Geräte mit kleinen Bildschirmen keine so großen Bilder wie ihre Desktop-Gegenstücke, und sie verwenden mit höherer Wahrscheinlichkeit langsame Netzwerkverbindungen. Daher ist es sinnvoll, Geräten mit schmalen Bildschirmen je nach Bedarf kleinere Bilder bereitzustellen. Dies können Sie mit [Techniken für responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images) umsetzen.
+- Berücksichtigung hoher Auflösungen. Viele Mobilgeräte haben hochauflösende Bildschirme und benötigen daher Bilder mit höherer Auflösung, damit die Darstellung weiterhin klar und scharf bleibt. Auch hier können Sie je nach Bedarf Bilder mithilfe responsiver Bildtechniken bereitstellen. Darüber hinaus lassen sich viele Bildanforderungen mit dem Format für SVG-Vektorgrafiken erfüllen, das heute browserübergreifend gut unterstützt wird. SVG hat eine geringe Dateigröße und bleibt unabhängig von der angezeigten Größe scharf (weitere Details finden Sie unter [Including vector graphics in HTML](/de/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics_in_HTML)).
 
 > [!NOTE]
-> Wir werden hier keine vollständige Diskussion der responsiven Designtechniken bieten, da sie an anderen Stellen auf MDN erörtert werden (siehe die obigen Links).
+> Wir werden hier keine vollständige Diskussion responsiver Designtechniken anbieten, da diese an anderen Stellen auf MDN behandelt werden (siehe die obigen Links).
 
-### Spezifische mobile Überlegungen
+### Spezifische Überlegungen für Mobilgeräte
 
-Es gibt weitere wichtige Punkte, die bei der barrierefreien Gestaltung von Websites auf mobilen Geräten zu berücksichtigen sind. Wir haben hier einige aufgelistet, aber wir werden mehr hinzufügen, wenn wir auf sie kommen.
+Bei der Verbesserung der Barrierefreiheit von Websites auf Mobilgeräten gibt es weitere wichtige Punkte zu beachten. Wir haben hier einige aufgelistet, werden aber weitere hinzufügen, sobald sie uns einfallen.
 
 #### Zoom nicht deaktivieren
 
-Mit [Viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) ist es möglich, den Zoom zu deaktivieren. Stellen Sie bei der Größenänderung immer sicher, dass sie aktiviert ist, und setzen Sie die Breite im {{htmlelement("head")}}-Element auf die Breite des Geräts:
+Mithilfe von [viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) ist es möglich, den Zoom zu deaktivieren. Stellen Sie stets sicher, dass die Größenänderung aktiviert ist, und setzen Sie die Breite im {{htmlelement("head")}} auf die Breite des Geräts:
 
 ```html
 <meta name="viewport" content="width=device-width; user-scalable=yes" />
 ```
 
-Sie sollten niemals `user-scalable=no` wenn möglich setzen — viele Menschen sind darauf angewiesen, zu zoomen, um den Inhalt Ihrer Website sehen zu können, daher ist das Entfernen dieser Funktionalität wirklich keine gute Idee. Es gibt bestimmte Situationen, in denen das Zoomen das UI-Layout beschädigen könnte; in solchen Fällen, wenn Sie das Gefühl haben, dass Sie das Zoomen deaktivieren müssen, sollten Sie eine andere Art von Äquivalent anbieten, z.B. eine Steuerung zur Erhöhung der Textgröße auf eine Weise, die Ihre Benutzeroberfläche nicht stört.
+Sie sollten `user-scalable=no` nach Möglichkeit niemals festlegen — viele Menschen sind auf Zoom angewiesen, um die Inhalte Ihrer Website sehen zu können. Daher ist es eine sehr schlechte Idee, diese Funktionalität zu entfernen. Es gibt bestimmte Situationen, in denen das Zoomen die Benutzeroberfläche beeinträchtigen könnte. Wenn Sie in solchen Fällen der Meinung sind, den Zoom deaktivieren zu müssen, sollten Sie eine andere gleichwertige Möglichkeit bereitstellen, etwa ein Steuerelement zum Erhöhen der Textgröße, das Ihre Benutzeroberfläche nicht beeinträchtigt.
 
 #### Menüs zugänglich halten
 
-Da der Bildschirm auf mobilen Geräten so viel schmaler ist, ist es sehr häufig, Media Queries und andere Technologien zu verwenden, um das Navigationsmenü auf ein kleines Symbol am oberen Rand des Displays schrumpfen zu lassen — das bei Bedarf gedrückt werden kann, um das Menü anzuzeigen — wenn die Site auf mobilen Geräten angesehen wird. Dies wird allgemein durch ein "drei horizontale Linien"-Symbol dargestellt und das Designmuster wird folglich als "Hamburger-Menü" bezeichnet.
+Da der Bildschirm auf Mobilgeräten wesentlich schmaler ist, werden häufig Media Queries und andere Technologien verwendet, um das Navigationsmenü beim Anzeigen der Website auf Mobilgeräten auf ein kleines Symbol am oberen Rand des Bildschirms zu reduzieren. Dieses kann gedrückt werden, um das Menü nur bei Bedarf anzuzeigen. Dies wird üblicherweise durch ein Symbol mit „drei horizontalen Linien“ dargestellt, weshalb das Designmuster als „Hamburger-Menü“ bekannt ist.
 
-Beim Implementieren eines solchen Menüs müssen Sie sicherstellen, dass das Steuerungselement zum Anzeigen geeignet für die Steuermöglichkeiten (normalerweise Touch für mobile Geräte) zugänglich ist, wie im oben erwähnten Abschnitt [Steuerungsmechanismen](#steuerungsmechanismen) oben, und dass der Rest der Seite während des Zugangs zum Menü aus dem Weg geräumt oder irgendwie ausgeblendet wird, um Verwirrung beim Navigieren zu vermeiden.
+Bei der Implementierung eines solchen Menüs müssen Sie sicherstellen, dass das Steuerelement zum Anzeigen des Menüs durch geeignete Steuerungsmechanismen zugänglich ist (normalerweise Touch auf Mobilgeräten), wie oben unter [Steuerungsmechanismen](#steuerungsmechanismen) erläutert. Außerdem muss der Rest der Seite verschoben oder auf andere Weise ausgeblendet werden, während auf das Menü zugegriffen wird, um Verwirrung bei der Navigation darin zu vermeiden.
 
-Klicken Sie hier für ein [gutes Beispiel für ein Hamburger-Menü](https://fritz-weisshart.de/meg_men/).
+Klicken Sie hier für ein [gutes Beispiel eines Hamburger-Menüs](https://fritz-weisshart.de/meg_men/).
 
-## Benutzereingaben
+## Benutzereingabe
 
-Auf mobilen Geräten ist die Eingabe von Daten tendenziell ärgerlicher für die Benutzer als das entsprechende Erlebnis auf Desktop-Computern. Es ist bequemer, Text auf einer Desktop- oder Laptop-Tastatur als auf einer Touchscreen-Virtuellen Tastatur oder einer winzigen mobilen physischen Tastatur in Formulareingaben zu tippen.
+Auf Mobilgeräten ist die Dateneingabe für Benutzer in der Regel lästiger als die entsprechende Erfahrung auf Desktop-Computern. Es ist bequemer, Text über eine Desktop- oder Laptop-Tastatur in Formulareingaben einzugeben als über eine virtuelle Touchscreen-Tastatur oder eine kleine physische mobile Tastatur.
 
-Daher lohnt es sich, die Menge an benötigtem Tippen zu minimieren. Als Beispiel, anstatt die Benutzer dazu zu bringen, jedes Mal ihre Berufsbezeichnung über eine reguläre Texteingabe einzugeben, könnten Sie einen {{htmlelement("select")}}-Menü mit den häufigsten Optionen anbieten (was auch bei der Konsistenz der Dateneingabe hilft) und eine "Andere"-Option, die ein Texteingabefeld für außergewöhnliche Einträge anzeigt. Sie können ein einfaches Beispiel dieser Idee in Aktion im folgenden Beispiel sehen:
+Aus diesem Grund lohnt es sich, die benötigte Eingabemenge möglichst gering zu halten. Anstatt Benutzer beispielsweise jedes Mal ihre Berufsbezeichnung über eine gewöhnliche Texteingabe ausfüllen zu lassen, könnten Sie stattdessen ein {{htmlelement("select")}}-Menü mit den häufigsten Optionen anbieten (was auch zur Konsistenz bei der Dateneingabe beiträgt) und eine Option „Other“ bereitstellen, die ein Textfeld zur Eingabe von Ausnahmen anzeigt. Ein einfaches Beispiel für diese Idee in Aktion sehen Sie im folgenden Beispiel:
 
 ```html hidden live-sample___select-text-combo
 <form>
@@ -500,24 +500,24 @@ select.onchange = function () {
 
 {{embedlivesample("select-text-combo", "100%", "80")}}
 
-Es lohnt sich auch, die Verwendung von HTML-Formulareingabetypen auf mobilen Plattformen in Betracht zu ziehen, da sie gut damit umgehen — sowohl Android als auch iOS.
+Es lohnt sich auch, die Verwendung von HTML-Formulareingabetypen auf mobilen Plattformen in Betracht zu ziehen, da sowohl Android als auch iOS sie gut verarbeiten.
 
 Zum Beispiel:
 
-- Typen `number`, `tel` und `email` zeigen geeignete virtuelle Tastaturen zur Eingabe von Zahlen/Telefonnummern.
-- Typen `time` und `date` zeigen geeignete Auswahlmöglichkeiten zur Auswahl von Zeiten und Daten.
+- Die Typen `number`, `tel` und `email` zeigen geeignete virtuelle Tastaturen zur Eingabe von Zahlen/Telefonnummern an.
+- Die Typen `time` und `date` zeigen geeignete Auswahlwerkzeuge zur Auswahl von Uhrzeiten und Daten an.
 
-Um diese auszuprobieren, sehen Sie sich die Live-Beispiele bei [Die HTML5-Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) an.
+Um dies auszuprobieren, sehen Sie sich die Live-Beispiele unter [The HTML5 input types](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) an.
 
-Wenn Sie eine andere Lösung für Desktops bereitstellen möchten, könnten Sie Ihrem mobilen Gerät auch ein anderes Markup mit Feature-Erkennung bereitstellen. Schauen Sie sich unseren [Artikel zur Merkmals-Erkennung](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection) für weitere Informationen an.
+Wenn Sie für Desktops eine andere Lösung bereitstellen möchten, können Sie Ihren Mobilgeräten mittels Feature Detection jederzeit unterschiedliches Markup bereitstellen. Weitere Informationen finden Sie in unserem [Artikel über Feature Detection](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection).
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir Ihnen Details zu häufigen mobil-spezifischen Barrierefreiheitsproblemen und wie man sie überwindet bereitgestellt. Wir haben Sie auch durch die Nutzung der gängigsten Screenreader geführt, um Ihnen bei der Barrierefreiheitsprüfung zu helfen.
+In diesem Artikel haben wir Ihnen einige Details zu häufigen mobilgerätespezifischen Barrierefreiheitsproblemen und deren Überwindung vermittelt. Außerdem haben wir Sie durch die Verwendung der gängigsten Screenreader geführt, um Sie bei Barrierefreiheitstests zu unterstützen.
 
 ## Siehe auch
 
-- [Richtlinien für die mobile Webentwicklung](https://www.smashingmagazine.com/2012/07/guidelines-for-mobile-web-development/) — Eine Sammlung von Artikeln in _Smashing Magazine_, die verschiedene Techniken für das mobile Webdesign abdecken.
-- [Machen Sie Ihre Seite auf Touch-Geräten funktionsfähig](https://www.creativebloq.com/javascript/make-your-site-work-touch-devices-51411644) — Nützlicher Artikel über die Nutzung von Touch-Ereignissen, um Interaktionen auf mobilen Geräten zu ermöglichen.
+- [Guidelines For Mobile Web Development](https://www.smashingmagazine.com/2012/07/guidelines-for-mobile-web-development/) — Eine Liste von Artikeln im _Smashing Magazine_, die verschiedene Techniken für mobiles Webdesign behandeln.
+- [Make your site work on touch devices](https://www.creativebloq.com/javascript/make-your-site-work-touch-devices-51411644) — Nützlicher Artikel über die Verwendung von Touch-Ereignissen, damit Interaktionen auf Mobilgeräten funktionieren.
 
-{{PreviousMenuNext("Learn_web_development/Core/Accessibility/Multimedia", "Learn_web_development/Core/Accessibility/Accessibility_troubleshooting", "Learn_web_development/Core/Accessibility")}}
+{{PreviousMenuNext("Learn_web_development/Core/Accessibility/Multimedia","Learn_web_development/Core/Accessibility/Accessibility_troubleshooting", "Learn_web_development/Core/Accessibility")}}

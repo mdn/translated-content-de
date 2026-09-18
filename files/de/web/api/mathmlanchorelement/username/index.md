@@ -1,18 +1,18 @@
 ---
-title: "MathMLAnchorElement: Eigenschaft username"
+title: "MathMLAnchorElement: username-Eigenschaft"
 short-title: username
 slug: Web/API/MathMLAnchorElement/username
 l10n:
-  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-{{APIRef("MathML")}}
+{{APIRef("MathML")}}{{SeeCompatTable}}
 
-Die Eigenschaft **`username`** der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist ein String, der die Benutzernamenkomponente des `href`-Attributs des Elements [`<a>`](/de/docs/Web/MathML/Reference/Element/a) enthält. Wenn die URL keinen Benutzernamen hat, enthält diese Eigenschaft einen leeren String, `""`.
+Die **`username`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist ein String, der die Benutzername-Komponente des `href`-Attributs des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements enthält. Wenn die URL keinen Benutzernamen hat, enthält diese Eigenschaft einen leeren String, `""`.
 
-Diese Eigenschaft kann festgelegt werden, um den Benutzernamen der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/MathMLAnchorElement/host) hat oder ihr Schema `file:` ist, hat das Festlegen dieser Eigenschaft keine Auswirkung.
+Diese Eigenschaft kann gesetzt werden, um den Benutzernamen der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/MathMLAnchorElement/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Auswirkung.
 
-Der Benutzername wird beim Festlegen {{Glossary("Percent-encoding", "prozentkodiert")}}, beim Auslesen jedoch nicht prozentdekodiert.
+Der Benutzername wird beim Setzen {{Glossary("Percent-encoding", "prozentkodiert")}}, beim Lesen jedoch nicht prozentdekodiert.
 
 Weitere Informationen finden Sie unter [`URL.username`](/de/docs/Web/API/URL/username).
 
@@ -24,7 +24,7 @@ Ein String.
 
 ### Grundlegende Verwendung
 
-Ausgehend von diesem MathML:
+Bei folgendem MathML:
 
 ```html
 <math>

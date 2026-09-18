@@ -2,10 +2,12 @@
 title: import defer
 slug: Web/JavaScript/Reference/Statements/import/defer
 l10n:
-  sourceCommit: f693fdeb65be430fdf3b7fc5cdf44a10a13f2bbf
+  sourceCommit: 76c2e04d720aa8260ba7d75788ed96776aac35c6
 ---
 
-Die **`import defer`**-Deklaration verhält sich wie reguläre [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Deklarationen, mit der Ausnahme, dass sie zu einem [verzögerten Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Statements/import/defer#deferred_module_namespace_object) führt. Das Modul und seine Abhängigkeiten werden im Voraus abgerufen und verknüpft, ihre synchrone Auswertung wird jedoch aufgeschoben, bis auf die Eigenschaften des Namespace zugegriffen wird. Module, die [top-level `await`](#top-level_await) verwenden, werden eager ausgewertet.
+{{SeeCompatTable}}
+
+Die **`import defer`**-Deklaration verhält sich wie reguläre [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Deklarationen, führt jedoch zu einem [verzögerten Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Statements/import/defer#deferred_module_namespace_object). Das Modul und seine Abhängigkeiten werden vorab abgerufen und gelinkt, ihre synchrone Auswertung wird jedoch verzögert, bis auf Eigenschaften des Namespace zugegriffen wird. Module, die [top-level `await`](#top-level_await) verwenden, werden eager ausgewertet.
 
 ## Syntax
 
@@ -16,7 +18,7 @@ import defer * as name from "module-name";
 - `name`
   - : Name, der auf das verzögerte Modul-Namespace-Objekt verweist. Muss ein gültiger JavaScript-Identifier sein.
 - `module-name`
-  - : Das Modul, aus dem importiert werden soll. Wird auf dieselbe Weise behandelt wie `[`module-name`](/de/docs/Web/JavaScript/Reference/Statements/import#module-name)` in regulären `import`-Deklarationen.
+  - : Das Modul, aus dem importiert werden soll. Wird auf dieselbe Weise behandelt wie `module-name` in regulären [`import`](/de/docs/Web/JavaScript/Reference/Statements/import#module-name)-Deklarationen.
 
 [Import-Attribute](/de/docs/Web/JavaScript/Reference/Statements/import/with) werden ebenfalls unterstützt, indem nach dem Modulspezifizierer eine `with`-Klausel verwendet wird.
 
@@ -24,11 +26,11 @@ import defer * as name from "module-name";
 
 ## Beschreibung
 
-Standardmäßig führt die `import`-Deklaration viele Aufgaben gleichzeitig aus: den Modulspezifizierer auflösen, den Quellcode des Moduls abrufen, parsen (wobei möglicherweise transitive Abhängigkeiten entdeckt werden), verknüpfen und auswerten. Diese Form der eager Auswertung ist nicht immer wünschenswert: Sie kann zu einem langsameren Start führen, die Umgebung für ihre Auswertung ist möglicherweise nicht vollständig vorbereitet, oder das Modul muss möglicherweise überhaupt nicht ausgewertet werden.
+Standardmäßig führt die `import`-Deklaration viele Aufgaben gleichzeitig aus: das Auflösen des Modulspezifizierers, das Abrufen des Modulquellcodes, das Parsen (wobei möglicherweise transitive Abhängigkeiten entdeckt werden), das Linken und die Auswertung. Diese Form der eager Auswertung ist nicht immer erwünscht: Sie kann zu einem langsameren Start führen, die Umgebung für ihre Auswertung ist möglicherweise noch nicht vollständig vorbereitet, oder das Modul muss möglicherweise gar nicht ausgewertet werden.
 
-Der _Modifikator der Importphase_ ermöglicht es, den Modulimportprozess in einer bestimmten Phase anzuhalten. Durch Hinzufügen von `defer` nach `import` wird der Quellcode verknüpft, bleibt jedoch unausgewertet, sofern er synchron ausgewertet werden kann (d.h. kein top-level `await` verwendet). Der Zugriff auf einen Export über den verzögerten Namespace wertet das Modul und alle Abhängigkeiten, die zuvor ausgewertet werden müssen, synchron aus. Der Zugriff gibt den Wert des Exports zurück, nachdem die Auswertung abgeschlossen ist. Dadurch wird der Code auf oberster Ebene des Moduls ausgeführt, nicht nur der Code, der zum Initialisieren des angeforderten Exports erforderlich ist. Transitive Abhängigkeiten, die mit ihren eigenen `import defer`-Deklarationen importiert werden, können verzögert bleiben.
+Der _Importphasen-Modifizierer_ ermöglicht es, den Modulimportprozess in einer bestimmten Phase anzuhalten. Durch Hinzufügen von `defer` nach `import` wird der Quellcode gelinkt, bleibt jedoch unausgewertet, sofern er synchron ausgewertet werden kann (d.h. kein top-level `await` verwendet). Der Zugriff auf einen Export über den verzögerten Namespace wertet das Modul und alle Abhängigkeiten, die zuvor ausgewertet werden müssen, synchron aus. Der Zugriff gibt den Wert des Exports zurück, nachdem die Auswertung abgeschlossen ist. Dadurch wird der Top-Level-Code des Moduls ausgeführt, nicht nur der Code, der zum Initialisieren des angeforderten Exports benötigt wird. Transitive Abhängigkeiten, die mit eigenen `import defer`-Deklarationen importiert wurden, können weiterhin verzögert bleiben.
 
-Indem sichergestellt wird, dass der angehaltene Teilgraph synchron ausgewertet werden kann, lässt sich `import defer` mit nahezu keinen Codeänderungen an den Stellen einsetzen, die das Modul verwenden:
+Indem sichergestellt wird, dass der angehaltene Teilgraph synchron ausgewertet werden kann, kann `import defer` mit nahezu keinen Codeänderungen an den Stellen verwendet werden, die das Modul nutzen:
 
 ```js
 // Before:
@@ -55,17 +57,17 @@ function compileFile(path) {
 ```
 
 > [!WARNING]
-> Das Verzögern eines Imports verändert, wann seine Seiteneffekte auftreten. Verzögern Sie keine Module, deren Seiteneffekte benötigt werden, bevor der Rest Ihres Codes ausgeführt wird, etwa Module, die Polyfills installieren.
+> Das Verzögern eines Imports verändert, wann seine Seiteneffekte auftreten. Verzögern Sie keine Module, deren Seiteneffekte erforderlich sind, bevor der Rest Ihres Codes ausgeführt wird, beispielsweise Module, die Polyfills installieren.
 
-Anders als bei [`import source`](/de/docs/Web/JavaScript/Reference/Statements/import/source) wird ein verzögertes Modul weiterhin im Voraus verknüpft. Die Verknüpfung im Voraus ermöglicht es dem Modullader, Abhängigkeiten aufzulösen und fehlende Abhängigkeiten oder ungültige Imports zu erkennen, bevor das Modul verwendet wird. Wenn das Modul nicht verknüpft wird, werden möglicherweise nicht benötigte Abhängigkeiten nicht geladen, und Sie können steuern, wie es instanziiert wird.
+Anders als [`import source`](/de/docs/Web/JavaScript/Reference/Statements/import/source) wird ein verzögertes Modul weiterhin vorab gelinkt. Das vorzeitige Linken ermöglicht dem Modullader, Abhängigkeiten aufzulösen und fehlende Abhängigkeiten oder ungültige Imports zu erkennen, bevor das Modul verwendet wird. Wenn das Modul ungelinkt bleibt, werden Abhängigkeiten, die Sie möglicherweise nicht benötigen, nicht geladen, und Sie können steuern, wie es instanziiert wird.
 
-Anders als bei [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) wird das verzögerte Modul weiterhin im Voraus abgerufen, geparst und verknüpft, wodurch unnötiges [Async-Coloring](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/) vermieden wird (eine gesamte Kette von Funktionsaufrufen wird gezwungen, asynchron zu werden). `import defer` bietet außerdem die meisten Vorteile einer statischen Deklaration, etwa eine bessere statische Analyse.
+Anders als [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) wird das verzögerte Modul weiterhin vorab abgerufen, geparst und gelinkt, wodurch unnötiges [Async Coloring](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/) vermieden wird (die gesamte Kette von Funktionsaufrufen wird gezwungen, asynchron zu werden). `import defer` bietet außerdem die meisten Vorteile einer statischen Deklaration, beispielsweise eine bessere statische Analyse.
 
-Beachten Sie, dass nur die Syntax für den „Namespace-Import“ unterstützt wird. Sie können nicht etwa `import defer { property } from "./my-module.js"` verwenden, da die Ausführung durch den Eigenschaftszugriff auf das Namespace-Objekt ausgelöst wird.
+Beachten Sie, dass nur die Syntax für Namespace-Imports unterstützt wird. Sie können beispielsweise nicht `import defer { property } from "./my-module.js"` verwenden, da die Ausführung durch den Eigenschaftszugriff auf das Namespace-Objekt ausgelöst wird.
 
 ### Caching-Semantik
 
-Der Modifikator gilt für einen Import, nicht für das Modul selbst. Wenn ein anderer Teil der Anwendung dasselbe Modul ohne `defer` importiert, wird das Modul wie üblich ausgewertet. Beide Formen teilen denselben Modulstatus, und der Code des Moduls wird höchstens einmal ausgeführt. Das Ändern der Importphase erstellt kein separates Modul im Cache:
+Der Modifizierer wird auf einen Import angewendet, nicht auf das Modul selbst. Wenn ein anderer Teil der Anwendung dasselbe Modul ohne `defer` importiert, wird das Modul wie üblich ausgewertet. Beide Formen teilen sich denselben Modulzustand, und der Code des Moduls wird höchstens einmal ausgeführt. Das Ändern der Importphase erzeugt kein separates Modul im Cache:
 
 ```js
 import defer * as ts from "typescript";
@@ -87,63 +89,63 @@ import * as mod from "./module.js";
 import text from "./module.js" with { type: "text" };
 ```
 
-Die beiden Imports werden als aus unterschiedlichen Modulen stammend betrachtet, die zufällig denselben String-Spezifizierer teilen (im Web werden sie mit unterschiedlichen HTTP-Headern angefordert). Die unterstützten Attribute und ihre Auswirkungen auf das Laden und die Modulidentität werden durch den Host definiert.
+Die beiden Imports gelten als Imports aus unterschiedlichen Modulen, die zufällig denselben String-Spezifizierer teilen (im Web werden sie mit unterschiedlichen HTTP-Headern angefordert). Die unterstützten Attribute und ihre Auswirkungen auf das Laden und die Modulidentität werden durch den Host definiert.
 
 ### Verzögertes Modul-Namespace-Objekt
 
-Ein verzögertes Modul-Namespace-Objekt verhält sich weitgehend wie ein reguläres [Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Operators/import#module_namespace_object): Es hat einen `null`-Prototyp, ist nicht erweiterbar und versiegelt und stellt schreibgeschützte Live-Bindings für die Exports des Moduls bereit. Seine String-Schlüssel sind aufzählbar und in lexikografischer Reihenfolge sortiert. Der Standardexport ist als Eigenschaft mit dem Namen `default` verfügbar.
+Ein verzögertes Modul-Namespace-Objekt verhält sich weitgehend wie ein reguläres [Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Operators/import#module_namespace_object): Es hat einen `null`-Prototyp, ist nicht erweiterbar und versiegelt und stellt schreibgeschützte Live-Bindings für die Exports des Moduls bereit. Seine String-Schlüssel sind aufzählbar und lexikografisch sortiert. Der Standardexport ist als Eigenschaft mit dem Namen `default` verfügbar.
 
 Es gibt drei Unterschiede zu einem regulären Namespace:
 
 - Operationen, die Exports untersuchen, können die Auswertung auslösen und Auswertungsfehler werfen, wie unten beschrieben.
 - Seine [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist `"Deferred Module"` statt `"Module"`. Dies bleibt auch nach der Auswertung so.
-- Er stellt keinen Export namens `then` bereit, auch nicht nach der Auswertung. Das Lesen von `namespace.then` gibt immer `undefined` zurück. Dadurch wird verhindert, dass die Promise-Auflösung den Namespace als [Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) behandelt und die Auswertung auslöst. Um auf einen solchen Export zuzugreifen, verwenden Sie einen regulären Import oder führen Sie ein Zwischenmodul ein, das `then` unter einem anderen Namen reexportiert.
+- Er stellt keinen Export mit dem Namen `then` bereit, auch nicht nach der Auswertung. Das Lesen von `namespace.then` gibt immer `undefined` zurück. Dadurch wird verhindert, dass die Promise-Auflösung den Namespace als [Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) behandelt und die Auswertung auslöst. Um auf einen solchen Export zuzugreifen, verwenden Sie einen regulären Import oder führen Sie ein Zwischenmodul ein, das `then` unter einem anderen Namen reexportiert.
 
-Der verzögerte und der reguläre Namespace für dasselbe Modul sind unterschiedliche Objekte, auch nach der Auswertung. Wiederholte verzögerte Imports desselben Moduls, ob statisch oder dynamisch, teilen dasselbe verzögerte Namespace-Objekt.
+Die verzögerten und regulären Namespaces für dasselbe Modul sind unterschiedliche Objekte, auch nach der Auswertung. Wiederholte verzögerte Imports desselben Moduls, ob statisch oder dynamisch, teilen dasselbe verzögerte Namespace-Objekt.
 
-Um das Verhalten „Modulauswertung beim Zugriff auf Schlüssel auslösen“ zu implementieren, ist der verzögerte Modul-Namespace im Wesentlichen ein {{jsxref("Proxy")}}, der die folgenden Aktionen abfängt, um die Modulauswertung auszulösen:
+Um das Verhalten „Auslösen der Modulauswertung beim Zugriff auf Schlüssel“ zu implementieren, ist der verzögerte Modul-Namespace im Wesentlichen ein {{jsxref("Proxy")}}, der die folgenden Aktionen abfängt, um die Modulauswertung auszulösen:
 
-- [`defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty) für jeden String-Schlüssel außer `then`: zum Beispiel `Object.defineProperty(namespace, "value", {})`.
+- [`defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty) für jeden String-Schlüssel außer `then`: beispielsweise `Object.defineProperty(namespace, "value", {})`.
 
   > [!NOTE]
-  > Da das Modul-Namespace-Objekt nicht erweiterbar und versiegelt ist, können Sie keinen Eigenschaftsdeskriptor sinnvoll hinzufügen oder ändern, einschließlich seines Werts. Dennoch wird die Auswertung ausgelöst, auch wenn die Operation fehlschlägt.
+  > Da das Modul-Namespace-Objekt nicht erweiterbar und versiegelt ist, können Sie keine Eigenschaftsbeschreibung, einschließlich ihres Werts, sinnvoll hinzufügen oder ändern. Dennoch wird die Auswertung ausgelöst, selbst wenn die Operation fehlschlägt.
   >
   > Der Proxy fängt [`set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set) nicht ab. Das Setzen von Eigenschaften wie `namespace.value = 1;` schlägt immer fehl.
 
-- [`deleteProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty) für jeden String-Schlüssel außer `then`: zum Beispiel `delete namespace.value`.
+- [`deleteProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty) für jeden String-Schlüssel außer `then`: beispielsweise `delete namespace.value`.
 
   > [!NOTE]
-  > Sie können keine Eigenschaft, die der Namespace besitzt, tatsächlich löschen. Dennoch wird die Auswertung ausgelöst, auch wenn die Operation fehlschlägt.
+  > Sie können keine Eigenschaft, die der Namespace besitzt, tatsächlich löschen. Dennoch wird die Auswertung ausgelöst, selbst wenn die Operation fehlschlägt.
 
-- [`get()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get) und [`getOwnPropertyDescriptor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/getOwnPropertyDescriptor) für jeden String-Schlüssel außer `then`: zum Beispiel `namespace.value`, `namespace["missing"]`, `const { default: value } = namespace`, `Object.getOwnPropertyDescriptor(namespace, "value")`.
+- [`get()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get) und [`getOwnPropertyDescriptor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/getOwnPropertyDescriptor) für jeden String-Schlüssel außer `then`: beispielsweise `namespace.value`, `namespace["missing"]`, `const { default: value } = namespace`, `Object.getOwnPropertyDescriptor(namespace, "value")`.
 
   > [!NOTE]
-  > Das Destructuring eines Exports auf oberster Ebene hebt daher die Verzögerung dieses Moduls auf.
+  > Das Destrukturieren eines Exports auf oberster Ebene hebt daher die Verzögerung dieses Moduls auf.
 
-- [`has()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/has) für jeden String-Schlüssel außer `then`: zum Beispiel `"value" in namespace`, `Object.hasOwn(namespace, "missing")`.
-- [`ownKeys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys): zum Beispiel `Object.keys(namespace)`, `Object.getOwnPropertySymbols(namespace)`, `for (const key in namespace) {}`. Selbst das Aufzählen ausschließlich von Symbol-Schlüsseln löst die Auswertung aus.
+- [`has()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/has) für jeden String-Schlüssel außer `then`: beispielsweise `"value" in namespace`, `Object.hasOwn(namespace, "missing")`.
+- [`ownKeys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys): beispielsweise `Object.keys(namespace)`, `Object.getOwnPropertySymbols(namespace)`, `for (const key in namespace) {}`. Selbst das Aufzählen ausschließlich von Symbol-Schlüsseln löst die Auswertung aus.
 
-Das bloße Verweisen auf den Namespace, Zuweisen an eine andere Variable, Vergleichen seiner Identität oder Übergeben an eine Funktion löst keine Auswertung aus. Auch das Lesen von `then` oder einer symbolschlüsselbasierten Eigenschaft wie `namespace[Symbol.toStringTag]` löst keine Auswertung aus. Der Aufruf von {{jsxref("Object.getPrototypeOf()")}} oder {{jsxref("Object.isExtensible()")}} löst ebenfalls keine Auswertung aus. {{jsxref("Object.isSealed()")}} und {{jsxref("Object.isFrozen()")}} zählen jedoch Schlüssel auf und lösen daher die Auswertung aus.
+Das bloße Referenzieren des Namespace, Zuweisen an eine andere Variable, Vergleichen seiner Identität oder Übergeben an eine Funktion löst keine Auswertung aus. Ebenso wenig das Lesen von `then` oder einer Eigenschaft mit Symbol-Schlüssel wie `namespace[Symbol.toStringTag]`. Der Aufruf von {{jsxref("Object.getPrototypeOf()")}} oder {{jsxref("Object.isExtensible()")}} löst ebenfalls keine Auswertung aus. {{jsxref("Object.isSealed()")}} und {{jsxref("Object.isFrozen()")}} zählen jedoch Schlüssel auf und lösen daher die Auswertung aus.
 
 ### Top-level await
 
-Das Lesen einer Namespace-Eigenschaft ist synchron und kann daher nicht auf eine asynchrone Modulauswertung warten. Module, die [top-level `await`](/de/docs/Web/JavaScript/Guide/Modules#top_level_await) enthalten, werden zusammen mit den Abhängigkeiten, die für ihre Auswertung erforderlich sind, eager ausgewertet. Dies umfasst auch Module, die über weitere verzögerte Imports erreicht werden. Das importierende Modul wartet auf diese asynchrone Auswertung, bevor sein eigener Body ausgeführt wird.
+Das Lesen einer Namespace-Eigenschaft erfolgt synchron und kann daher nicht auf eine asynchrone Modulauswertung warten. Module, die [top-level `await`](/de/docs/Web/JavaScript/Guide/Modules#top_level_await) enthalten, werden zusammen mit den Abhängigkeiten, die zu ihrer Auswertung erforderlich sind, eager ausgewertet. Dies schließt Module ein, die über weitere verzögerte Imports erreicht werden. Das importierende Modul wartet auf diese asynchrone Auswertung, bevor sein eigener Body ausgeführt wird.
 
-Wenn das direkt importierte Modul top-level `await` enthält, wird seine Auswertung nicht verzögert. Wenn nur einige seiner Abhängigkeiten top-level `await` enthalten, werden diese Abhängigkeiten eager ausgewertet, die synchronen Teile des Graphen, die für ihre Auswertung nicht erforderlich sind, können jedoch verzögert bleiben. Siehe [Verzögern eines Moduls mit einer asynchronen Abhängigkeit](#verzögern_eines_moduls_mit_einer_asynchronen_abhängigkeit).
+Wenn das direkt importierte Modul top-level `await` enthält, wird seine Auswertung nicht verzögert. Wenn nur einige seiner Abhängigkeiten top-level `await` enthalten, werden diese Abhängigkeiten eager ausgewertet, aber die synchronen Teile des Graphen, die für ihre Auswertung nicht erforderlich sind, können verzögert bleiben. Siehe [Verzögern eines Moduls mit einer asynchronen Abhängigkeit](#verzögern_eines_moduls_mit_einer_asynchronen_abhängigkeit).
 
 ### Fehler
 
-Fehler beim Laden, Parsen und Verknüpfen werden nicht verzögert. Beispielsweise verhindern ein fehlendes Modul, ein Syntaxfehler in einer Abhängigkeit oder ein nicht aufgelöster benannter Import die Ausführung des importierenden Moduls, selbst wenn auf den verzögerten Namespace nie zugegriffen wird. Fehler aus eager ausgewerteten asynchronen Abhängigkeiten verhindern ebenfalls die Ausführung des importierenden Moduls.
+Fehler beim Laden, Parsen und Linken werden nicht verzögert. Beispielsweise verhindert ein fehlendes Modul, ein Syntaxfehler in einer Abhängigkeit oder ein nicht aufgelöster benannter Import die Ausführung des importierenden Moduls, auch wenn nie auf den verzögerten Namespace zugegriffen wird. Fehler aus eager ausgewerteten asynchronen Abhängigkeiten verhindern ebenfalls die Ausführung des importierenden Moduls.
 
-Fehler, die während der verzögerten Auswertung geworfen werden, werden von der Operation, die die Auswertung auslöst, synchron geworfen. Sie können sie mit [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) um diese Operation herum abfangen. Der Fehler wird gecacht: Nachfolgende Operationen, die die Auswertung auslösen, werfen denselben Fehler, statt den Code des Moduls erneut auszuführen. Dies gilt auch, wenn ein anderer Import zuvor dazu geführt hat, dass die Auswertung des Moduls fehlgeschlagen ist.
+Während der verzögerten Auswertung geworfene Fehler werden von der Operation, die die Auswertung auslöst, synchron geworfen. Sie können sie mit [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) um diese Operation herum abfangen. Der Fehler wird zwischengespeichert: Nachfolgende Operationen, die die Auswertung auslösen, werfen denselben Fehler, anstatt den Code des Moduls erneut auszuführen. Dies gilt auch, wenn ein anderer Import zuvor dazu geführt hat, dass die Auswertung des Moduls fehlgeschlagen ist.
 
 Eine Operation, die die Auswertung auslöst, wirft einen {{jsxref("TypeError")}}, wenn das Modul oder seine Abhängigkeiten nicht für eine synchrone Auswertung bereit sind. Dies kann bei [zyklischen Imports](/de/docs/Web/JavaScript/Guide/Modules#cyclic_imports) passieren, wenn ein Zugriff ein Modul erfordern würde, das noch ausgewertet wird. Eine `import defer`-Deklaration macht nicht jede zyklische Abhängigkeit während der Initialisierung sicher zugreifbar. Ein Bereitschaftsfehler selbst markiert das angeforderte Modul nicht als fehlgeschlagen ausgewertet: Ein späterer Zugriff kann erfolgreich sein, sobald seine Abhängigkeiten bereit sind.
 
 ## Beispiele
 
-### Auswerten eines Moduls bei der ersten Verwendung
+### Auswertung eines Moduls bei der ersten Verwendung
 
-Das folgende Modul initialisiert eine Lookup-Tabelle, wenn sein Code auf oberster Ebene ausgeführt wird:
+Das folgende Modul initialisiert eine Lookup-Tabelle, wenn sein Top-Level-Code ausgeführt wird:
 
 ```js
 // -- squares.js --
@@ -222,7 +224,7 @@ Report module evaluated
 1,000
 ```
 
-`config.js` wird vor `main.js` ausgewertet, da es top-level `await` enthält. Weder `format.js` noch `report.js` müssen ausgeführt werden, um `config.js` auszuwerten, daher wird ihre Auswertung verzögert, bis auf `report.createReport` zugegriffen wird.
+`config.js` wird vor `main.js` ausgewertet, weil es top-level `await` enthält. Weder `format.js` noch `report.js` müssen ausgeführt werden, um `config.js` auszuwerten, daher wird ihre Auswertung verzögert, bis auf `report.createReport` zugegriffen wird.
 
 ### Abfangen von Auswertungsfehlern
 
@@ -245,11 +247,11 @@ for (let attempt = 0; attempt < 2; attempt++) {
 }
 ```
 
-Auch wenn `value` initialisiert wurde, bevor die Ausnahme geworfen wurde, führt der Zugriff darauf über den verzögerten Namespace zum Werfen des gecachten Auswertungsfehlers.
+Auch wenn `value` initialisiert wurde, bevor die Ausnahme geworfen wurde, führt der Zugriff darauf über den verzögerten Namespace zum Werfen des zwischengespeicherten Auswertungsfehlers.
 
 ### Exportieren eines verzögerten Namespace
 
-Es gibt keine `export defer`-Syntax (siehe [`export`](/de/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating) für weitere Informationen). Sie können einen verzögerten Namespace importieren und dann seine Bindung exportieren, ohne die Auswertung auszulösen:
+Es gibt keine `export defer`-Syntax (weitere Informationen finden Sie unter [`export`](/de/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating)). Sie können einen verzögerten Namespace importieren und anschließend seine Bindung exportieren, ohne die Auswertung auszulösen:
 
 ```js
 // -- features.js --
