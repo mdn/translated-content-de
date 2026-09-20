@@ -1,70 +1,72 @@
 ---
-title: Firefox 157 – Versionshinweise für Entwickler (Beta)
+title: Versionshinweise zu Firefox 157 für Entwickler (Beta)
 short-title: Firefox 157 (Beta)
 slug: Mozilla/Firefox/Releases/157
 l10n:
-  sourceCommit: 79f0b295d759e9bb6e3c49197434a1d34c449731
+  sourceCommit: c504268d235d82b3408e35d5ab6544af60719974
 ---
 
 Dieser Artikel enthält Informationen zu den Änderungen in Firefox 157, die Entwickler betreffen.
 Firefox 157 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [29. September 2026](https://whattrainisitnow.com/release/?version=157) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version befinden sich noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version befinden sich noch in Bearbeitung.
 
-<!-- Autoren: Bitte heben Sie die Kommentierung aller Überschriften auf, für die Sie Hinweise verfassen -->
+<!-- Authors: Please uncomment any headings you are writing notes for -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Developer Tools -->
 
 <!-- ### HTML -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### CSS -->
+### CSS
 
-<!-- #### Entfernungen -->
+- Die Funktion [`at-rule()`](/de/docs/Web/CSS/Reference/At-rules/@supports#at-rule) in der At-Regel {{cssxref("@supports")}} ermöglicht es Ihnen zu prüfen, ob der Browser eine bestimmte CSS-At-Regel unterstützt, zum Beispiel @supports at-rule(@scope). Sie funktioniert auch in der Funktion [`supports()`](/de/docs/Web/CSS/Reference/At-rules/@import#supports-condition) der CSS-At-Regel {{cssxref("@import")}}. ([Firefox-Bug 2060755](https://bugzil.la/2060755)).
+
+<!-- #### Removals -->
 
 <!-- ### JavaScript -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### Sicherheit -->
+<!-- ### Security -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### APIs -->
 
 <!-- #### DOM -->
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, and Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemein -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -72,12 +74,12 @@ Firefox 157 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-<!-- ### Entfernungen -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
-## Experimentelle Webfeatures
+## Experimentelle Webfunktionen
 
-Diese Features werden mit Firefox 157 ausgeliefert, sind jedoch standardmäßig deaktiviert.
+Diese Funktionen werden in Firefox 157 ausgeliefert, sind jedoch standardmäßig deaktiviert.
 Um mit ihnen zu experimentieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

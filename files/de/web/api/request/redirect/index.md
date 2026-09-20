@@ -1,14 +1,14 @@
 ---
-title: "Anfrage: redirect-Eigenschaft"
+title: "Request: redirect-Eigenschaft"
 short-title: redirect
 slug: Web/API/Request/redirect
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 6e2806da0f8202df37c0ca641eab4d53a3797950
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`redirect`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Modus, wie Weiterleitungen behandelt werden.
+Die schreibgeschützte Eigenschaft **`redirect`** des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält den Modus dafür, wie Weiterleitungen behandelt werden.
 
 ## Wert
 
@@ -18,11 +18,11 @@ Ein `RequestRedirect`-Enum-Wert, der einer der folgenden Strings sein kann:
 - `error`
 - `manual`
 
-Wenn beim Erstellen der Anfrage nicht angegeben, erhält sie den Standardwert `follow`.
+Wenn beim Erstellen der Anfrage kein Wert angegeben wird, verwendet sie den Standardwert `follow`.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript), dann speichern wir den `redirect`-Wert der Anfrage in einer Variablen:
+Im folgenden Snippet erstellen wir mit dem Konstruktor [`Request()`](/de/docs/Web/API/Request/Request) eine neue Anfrage (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann den Wert von `redirect` der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");
@@ -39,6 +39,6 @@ const myCred = myRequest.redirect;
 
 ## Siehe auch
 
-- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
+- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
+- [HTTP-Zugriffssteuerung (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)
