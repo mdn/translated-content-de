@@ -3,19 +3,19 @@ title: No-Vary-Search header
 short-title: No-Vary-Search
 slug: Web/HTTP/Reference/Headers/No-Vary-Search
 l10n:
-  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
+  sourceCommit: d260e0bf3f2ba3091e71ba1a7d0427c7d396e6ac
 ---
 
-Der HTTP-**`No-Vary-Search`**-{{Glossary("response_header", "Antwort-Header")}} gibt eine Reihe von Regeln an, die definieren, wie die Abfrageparameter einer URL die Cache-Übereinstimmung beeinflussen.
-Diese Regeln bestimmen, ob dieselbe URL mit unterschiedlichen URL-Parametern als separate Browsereintrags-Caches gespeichert werden soll.
+Der HTTP-**`No-Vary-Search`**-{{Glossary("response_header", "Response-Header")}} gibt eine Reihe von Regeln an, die definieren, wie sich die Abfrageparameter einer URL auf den Cache-Abgleich auswirken.
+Diese Regeln legen fest, ob dieselbe URL mit unterschiedlichen URL-Parametern als separate Browser-Cache-Einträge gespeichert werden soll.
 
-Dies ermöglicht es dem Browser, bestehende Ressourcen wiederzuverwenden, selbst wenn die URL-Parameter nicht übereinstimmen, um das erneute Abrufen der Ressource zu vermeiden, wenn derselbe Inhalt zurückgegeben wird.
+Dadurch kann der Browser vorhandene Ressourcen trotz nicht übereinstimmender URL-Parameter wiederverwenden, um den Aufwand zu vermeiden, die Ressource erneut abzurufen, wenn derselbe Inhalt zurückgegeben wird.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -27,103 +27,111 @@ No-Vary-Search: key-order
 No-Vary-Search: params
 No-Vary-Search: params=("param1" "param2")
 No-Vary-Search: params, except=("param1" "param2")
-No-Vary-Search: key-order, params, except=("param1")
+No-Vary-Search: key-order, params, except=("param1" "param2")
 ```
 
 ## Direktiven
 
 - `key-order` {{optional_inline}}
-  - : Gibt an, dass URLs nicht als separate Einträge gecached werden, wenn _die Reihenfolge_ der Parameter das einzige Unterscheidungsmerkmal ist.
-    Die Anwesenheit anderer Parameter _wird_ dazu führen, dass URLs separat gecached werden.
+  - : Gibt an, dass der Browser keinen separaten Cache-Eintrag für eine Response erstellen soll, wenn die Reihenfolge, in der Parameter in der URL erscheinen, der einzige Unterschied ist.
 - `params` {{optional_inline}}
-  - : Entweder ein boolescher Wert oder eine Liste von Zeichenfolgen:
-    - Als ein boolescher Wert (`params`) zeigt er an, dass sich URLs, die sich nur durch ihre Parameter unterscheiden, nicht als separate Einträge gecached werden.
-    - Eine innere Liste von durch Leerzeichen getrennten Zeichenfolgen (`params=("param1" "param2")`).
-      Gibt an, dass sich URLs, die sich nur durch die aufgeführten Parameter unterscheiden, nicht als separate Einträge gecached werden.
-      Die Anwesenheit anderer Parameter _wird_ dazu führen, dass sie separat gecached werden.
+  - : Entweder ein boolescher Wert oder eine Liste von Strings:
+    - Als boolescher Wert (`params`) gibt es an, dass der Browser keine separaten Cache-Einträge für Responses erstellen soll, die sich nur durch das Vorhandensein, die Reihenfolge oder den Wert eines beliebigen Parameters unterscheiden.
+    - Als innere Liste von durch Leerzeichen getrennten Strings (`params=("param1" "param2")`) gibt es an, dass der Browser keine separaten Cache-Einträge für Responses erstellen soll, die sich nur durch das Vorhandensein, die Reihenfolge oder den Wert der aufgeführten Parameter unterscheiden.
+      Andere Parameter können weiterhin dazu führen, dass die Response separat im Cache gespeichert wird.
 - `except` {{optional_inline}}
-  - : Eine innere Liste von durch Leerzeichen getrennten Zeichenfolgen (`except=("param1" "param2")`).
-    Gibt an, dass sich URLs, die sich nur durch die aufgeführten Parameter unterscheiden, _als_ separate Einträge gecached werden.
-    Eine boolesche `params`-Direktive muss enthalten sein, damit sie wirksam wird (`params, except=("param1" "param2")`).
-    Die Anwesenheit von anderen Parametern, die nicht in der `except=`-Liste enthalten sind, _wird_ nicht dazu führen, dass URLs als separate Einträge gecached werden.
+  - : Eine innere Liste von durch Leerzeichen getrennten Strings (`except=("param1" "param2")`), die die Parameter angibt, für die ein anderer Wert den Browser dazu veranlassen soll, einen separaten Cache-Eintrag zu erstellen.
+    Damit sie wirksam wird, muss eine boolesche `params`-Direktive enthalten sein (`params, except=("param1" "param2")`).
+    Das Vorhandensein anderer Parameter, die nicht in der Liste `except=` enthalten sind, sollte den Browser nicht dazu veranlassen, einen separaten Cache-Eintrag zu erstellen.
 
 ## Beschreibung
 
+Standardmäßig wird eine für eine URL gespeicherte Response nur für eine Anfrage an genau dieselbe URL wiederverwendet.
+Jeder Unterschied im Query-String macht daraus eine andere URL: ein anderer Parameterwert, ein zusätzlicher Parameter oder sogar dieselben Parameter in einer anderen Reihenfolge.
+
+Dies ist oft strenger als nötig.
+Query-Parameter werden häufig für Dinge verwendet, die die vom Server gesendete Response nicht verändern, etwa Analyse-Tags und Werte, auf die nur clientseitiges JavaScript reagiert.
+Eine Seite kann ihren Query-String auch in einer uneinheitlichen Parameterreihenfolge erstellen.
+Der Browser kann nicht wissen, was relevant ist, daher ruft er Daten aus dem Netzwerk ab und speichert das Ergebnis im Cache, sobald er einen Query-String sieht, den er zuvor noch nicht angefordert hat.
+
+`No-Vary-Search` bietet dem Server eine Möglichkeit, dem Browser mitzuteilen, ob die Parameterreihenfolge wichtig ist und welche Parameter sich gegebenenfalls auf die zurückgegebene Response auswirken.
+Wo die Regeln dies erlauben, kann der Browser dann eine gespeicherte Response für eine URL bereitstellen, die er zuvor nicht abgerufen hat.
+
 ### Beziehung zur Speculation Rules API
 
-Die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) unterstützt die Verwendung des `No-Vary-Search`-Headers, um eine bestehende vorgeladene oder vorgerenderte Seite für unterschiedliche URL-Parameter wiederzuverwenden — wenn sie im `No-Vary-Search`-Header enthalten sind.
+Die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) unterstützt die Verwendung des `No-Vary-Search`-Headers, um eine vorhandene vorab abgerufene oder vorab gerenderte Seite für unterschiedliche URL-Parameter wiederzuverwenden — sofern diese im `No-Vary-Search`-Header enthalten sind.
 
 > [!WARNING]
-> Besondere Vorsicht ist geboten, wenn Sie Prerendering mit `No-Vary-Search` verwenden, da die Seite möglicherweise initial mit unterschiedlichen URL-Parametern vorgerendert wird. `No-Vary-Search` wird für URL-Parameter verwendet, die dasselbe Material vom Server bereitstellen, jedoch vom Client aus verschiedenen Gründen verwendet werden (Client-seitiges Rendering, UTM-Parameter für Analysezwecke, etc.). Da das anfängliche Prerendering möglicherweise für unterschiedliche URL-Parameter erfolgt, sollte jeglicher Code, der abhängig davon ist, nur nach der Prerender-Aktivierung ausgeführt werden.
+> Bei der Verwendung von Prerender mit `No-Vary-Search` ist zusätzliche Vorsicht geboten, da die Seite zunächst mit unterschiedlichen URL-Parametern vorab gerendert werden kann. `No-Vary-Search` wird für URL-Parameter verwendet, die dieselbe Ressource vom Server bereitstellen, aber vom Client aus verschiedenen Gründen verwendet werden (clientseitiges Rendering, UTM-Parameter für Analysedaten usw.). Da das anfängliche Prerendering für unterschiedliche URL-Parameter erfolgen kann, sollte jeglicher Code, der von ihnen abhängt, erst nach der Prerender-Aktivierung ausgeführt werden.
 
-Die Speculation Rules API kann auch ein `expects_no_vary_search`-Feld enthalten, das dem Browser anzeigt, welchen `No-Vary-Search`-Wert (falls vorhanden) für Dokumente erwartet wird, die Prefetch/Prerender-Anfragen über die Spekulationsregeln erhalten. Der Browser kann dies nutzen, um im Voraus zu bestimmen, ob es sinnvoller ist, auf das Beenden eines bestehenden Prefetch/Prerenders zu warten oder eine neue Abrufanforderung zu starten, wenn die Spekulationsregel übereinstimmt. Sehen Sie sich das ["expects_no_vary_search"-Beispiel](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#expects_no_vary_search_example) für eine Erklärung an, wie dies verwendet werden kann.
+Die Speculation Rules API kann auch ein Feld `expects_no_vary_search` enthalten, das dem Browser angibt, welchen `No-Vary-Search`-Wert er gegebenenfalls für Dokumente erwarten soll, für die er über die Speculation Rules Prefetch-/Prerender-Anfragen erhält. Der Browser kann dies verwenden, um im Voraus zu bestimmen, ob es sinnvoller ist, auf den Abschluss eines vorhandenen Prefetch-/Prerender-Vorgangs zu warten oder eine neue Abrufanfrage zu starten, wenn die Speculation Rule zutrifft. Eine Erklärung dazu, wie dies verwendet werden kann, finden Sie im [Beispiel „expects_no_vary_search“](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#expects_no_vary_search_example).
 
 ## Beispiele
 
-### Ermöglichen, dass Antworten von URLs mit unterschiedlich geordneten Parametern zum selben Cache-Eintrag passen
+### Responses von URLs mit unterschiedlich angeordneten Parametern dem gleichen Cache-Eintrag zuordnen
 
-Wenn Sie beispielsweise eine Suchseite haben, die ihre Suchkriterien in URL-Parametern speichert, und Sie nicht garantieren können, dass die Parameter bei jedem Mal in derselben Reihenfolge zur URL hinzugefügt werden, können Sie Antworten von URLs, die bis auf die Reihenfolge der Parameter identisch sind, mit demselben Cache-Eintrag übereinstimmen lassen, indem Sie `key-order` verwenden:
+Wenn Sie beispielsweise eine Suchseite haben, die ihre Suchkriterien in URL-Parametern speichert, und Sie nicht garantieren können, dass die Parameter jedes Mal in derselben Reihenfolge zur URL hinzugefügt werden, können Sie Responses von URLs, die bis auf die Reihenfolge der Parameter identisch sind, mithilfe von `key-order` demselben Cache-Eintrag zuordnen:
 
 ```http
 No-Vary-Search: key-order
 ```
 
-Wenn dieser Header zu den zugehörigen Antworten hinzugefügt wird, würden die folgenden URLs als äquivalent bei der Suche des Caches behandelt werden:
+Wenn dieser Header zu den zugehörigen Responses hinzugefügt wird, würden die folgenden URLs bei der Cache-Suche als gleichwertig behandelt:
 
 ```plain
 https://search.example.com?a=1&b=2&c=3
 https://search.example.com?b=2&a=1&c=3
 ```
 
-Das Vorhandensein unterschiedlicher URL-Parameter jedoch führt dazu, dass diese URLs separat gecached werden. Zum Beispiel:
+Das Vorhandensein unterschiedlicher URL-Parameter führt jedoch dazu, dass diese URLs separat im Cache gespeichert werden. Zum Beispiel:
 
 ```plain
 https://search.example.com?a=1&b=2&c=3
 https://search.example.com?b=2&a=1&c=3&d=4
 ```
 
-Die folgenden Beispiele zeigen, wie man steuert, welche Parameter im Kontext der Cache-Übereinstimmung ignoriert werden.
+Die folgenden Beispiele veranschaulichen, wie gesteuert werden kann, welche Parameter im Kontext des Cache-Abgleichs ignoriert werden.
 
-### Ermöglichen, dass Antworten von URLs mit unterschiedlichen Parametern zum selben Cache-Eintrag passen
+### Responses von URLs mit einem anderen Parameter dem gleichen Cache-Eintrag zuordnen
 
-Betrachten wir einen Fall, in dem eine Benutzerverzeichnisseite `/users` bereits gecached wurde. Ein `id`-Parameter könnte verwendet werden, um Informationen zu einem bestimmten Benutzer aufzurufen, z.B. `/users?id=345`. Ob diese URL für Cache-Abgleichszwecke als identisch betrachtet werden sollte, hängt vom Verhalten der Anwendung ab:
+Betrachten Sie einen Fall, in dem eine Landingpage für ein Benutzerverzeichnis, `/users`, bereits im Cache gespeichert wurde. Ein `id`-Parameter könnte verwendet werden, um Informationen zu einem bestimmten Benutzer anzuzeigen, beispielsweise `/users?id=345`. Ob diese URL für Zwecke des Cache-Abgleichs als identisch betrachtet werden sollte, hängt vom Verhalten der Anwendung ab:
 
-- Wenn dieser Parameter die Wirkung hat, eine völlig neue Seite mit den Informationen zum angegebenen Benutzer zu laden, sollte die Antwort von dieser URL separat gecached werden.
-- Wenn dieser Parameter die Wirkung hat, den angegebenen Benutzer auf derselben Seite hervorzuheben und möglicherweise ein herausziehbares Panel anzuzeigen, das deren Daten zeigt, wäre es besser, wenn der Browser die gecachte Antwort für `/users` verwendet. Dies könnte zu Leistungsverbesserungen beim Laden der Benutzerseiten führen.
+- Wenn dieser Parameter dazu führt, dass eine völlig neue Seite mit den Informationen für den angegebenen Benutzer geladen wird, sollte die Response dieser URL separat im Cache gespeichert werden.
+- Wenn dieser Parameter dazu führt, dass der angegebene Benutzer auf derselben Seite hervorgehoben und möglicherweise ein ausklappbares Panel mit dessen Daten angezeigt wird, wäre es besser, wenn der Browser die gecachte Response für `/users` verwendet. Dies könnte die Ladeleistung der Benutzerseiten verbessern.
 
-Wenn Ihre Anwendung sich wie im zweiten oben beschriebenen Beispiel verhält, könnten Sie bewirken, dass sowohl `/users` als auch `/users?id=345` für Cache-Zwecke als identisch behandelt werden, indem Sie einen `No-Vary-Search`-Header wie folgt verwenden:
+Wenn sich Ihre Anwendung wie im oben beschriebenen zweiten Beispiel verhält, können Sie bewirken, dass sowohl `/users` als auch `/users?id=345` für Caching-Zwecke als identisch behandelt werden, und zwar mit einem `No-Vary-Search`-Header wie diesem:
 
 ```http
 No-Vary-Search: params=("id")
 ```
 
 > [!NOTE]
-> Wenn ein Parameter mit `params` vom Cache-Schlüssel ausgeschlossen wird, wird er, wenn er in der URL enthalten ist, für Cache-Übereinstimmungszwecke ignoriert, unabhängig davon, wo er in der Parameterliste erscheint.
+> Wenn ein Parameter mit `params` vom Cache-Schlüssel ausgeschlossen wird, wird er bei seiner Aufnahme in die URL für Zwecke des Cache-Abgleichs ignoriert, unabhängig davon, an welcher Stelle er in der Parameterliste erscheint.
 
-### Ermöglichen, dass Antworten von URLs mit mehreren unterschiedlichen Parametern zum selben Cache-Eintrag passen
+### Responses von URLs mit mehreren unterschiedlichen Parametern dem gleichen Cache-Eintrag zuordnen
 
-Angenommen, Sie hatten auch URL-Parameter, die die Liste der Benutzer auf der Seite in aufsteigender oder absteigender alphabetischer Reihenfolge sortierten und die Sprache für die Anzeige der UI-Strings angaben, beispielsweise `/users?id=345&order=asc&lang=fr`.
+Angenommen, Sie hätten außerdem URL-Parameter, die die Benutzerliste auf der Seite in auf- oder absteigender alphabetischer Reihenfolge sortieren und die Sprache angeben, in der die UI-Strings angezeigt werden sollen, beispielsweise `/users?id=345&order=asc&lang=fr`.
 
-Sie könnten den Browser dazu bringen, all dies bei der Berücksichtigung der Cache-Übereinstimmung zu ignorieren:
+Sie können den Browser dazu veranlassen, all diese beim Cache-Abgleich zu ignorieren:
 
 ```http
 No-Vary-Search: params=("id" "order" "lang")
 ```
 
 > [!NOTE]
-> Als ein [strukturiertes Feld](https://www.rfc-editor.org/info/rfc8941/) sollten die Parameter durch Leerzeichen getrennte, in Anführungszeichen gesetzte Zeichenfolgen sein — wie oben gezeigt — und nicht durch Kommas getrennt, was Entwicklern möglicherweise vertrauter ist.
+> Als [strukturiertes Feld](https://www.rfc-editor.org/info/rfc8941/) sollten die Parameter durch Leerzeichen getrennte Strings in Anführungszeichen sein — wie oben gezeigt — und nicht durch Kommas getrennt, wie Entwickler es möglicherweise eher gewohnt sind.
 
-Wenn Sie möchten, dass der Browser all diese _und_ alle anderen, die möglicherweise vorhanden sind, bei der Cache-Übereinstimmung ignoriert, könnten Sie die boolesche Form von `params` verwenden:
+Wenn Sie möchten, dass der Browser beim Cache-Abgleich all diese _und_ alle anderen möglicherweise vorhandenen Parameter ignoriert, können Sie die boolesche Form von `params` verwenden:
 
 ```http
 No-Vary-Search: params
 ```
 
-### Spezifizieren von Parametern, die _Cache-Übereinstimmungsausfälle verursachen_
+### Parameter angeben, die _doch_ zu fehlenden Cache-Treffern führen
 
-Angenommen, die App verhielt sich anders, mit `/users`, die auf die Hauptseite des Benutzerverzeichnisses verweist, und `/users?id=345`, die auf eine völlig separate Detailseite für einen bestimmten Benutzer verweist. In diesem Fall möchten Sie, dass der Browser alle oben genannten Parameter für Cache-Übereinstimmungszwecke ignoriert, _außer_ für `id`, dessen Anwesenheit dazu führen würde, dass der Browser den `/users` Cache-Eintrag nicht übereinstimmen lässt und `/users?id=345` vom Server anfordert.
+Angenommen, die Anwendung verhielte sich anders: `/users` verweist auf die Landingpage des Hauptbenutzerverzeichnisses und `/users?id=345` auf eine vollständig separate Detailseite für einen bestimmten Benutzer. In diesem Fall möchten Sie, dass der Browser für Zwecke des Cache-Abgleichs alle oben genannten Parameter ignoriert, _außer_ `id`; dessen Vorhandensein würde dazu führen, dass der Browser nicht mit dem Cache-Eintrag für `/users` übereinstimmt und `/users?id=345` vom Server anfordert.
 
-Dies kann wie folgt erreicht werden:
+Dies lässt sich folgendermaßen erreichen:
 
 ```http
 No-Vary-Search: params, except=("id")
@@ -139,4 +147,4 @@ No-Vary-Search: params, except=("id")
 
 ## Siehe auch
 
-- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und den {{HTTPHeader("Vary")}}-Header
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und der {{HTTPHeader("Vary")}}-Header
