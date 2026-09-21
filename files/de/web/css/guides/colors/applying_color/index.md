@@ -1,94 +1,94 @@
 ---
 title: Anwenden von Farbe auf HTML-Elemente mit CSS
-short-title: Anwenden von Farbe
+short-title: Farbe anwenden
 slug: Web/CSS/Guides/Colors/Applying_color
 l10n:
-  sourceCommit: a516a9818e8cef06c626d436ee1d73fc6d87ec51
+  sourceCommit: 13d38933aaeea619fe441656e9d8e1bec263331b
 ---
 
-Mit [CSS](/de/docs/Web/CSS) gibt es viele Möglichkeiten, Ihren [HTML](/de/docs/Web/HTML) [Elementen](/de/docs/Web/HTML/Reference/Elements) Farbe hinzuzufügen, um das gewünschte Aussehen zu erzielen. Dieser Leitfaden ist ein Einführungskurs, wie CSS verwendet werden kann, um Farben auf HTML-Elemente anzuwenden. Dieser Leitfaden umfasst [Listen der CSS-Eigenschaften, die in ihren Werten Farbe festlegen](#eigenschaften,_die_farbe_haben_können) und wie Farben sowohl [in Stylesheets](#farben_als_werte_in_stylesheets_angeben) als auch [auf andere Weise](#andere_möglichkeiten,_farbe_zu_verwenden) verwendet werden können.
+Mit [CSS](/de/docs/Web/CSS) gibt es viele Möglichkeiten, Ihren [HTML](/de/docs/Web/HTML)-[Elementen](/de/docs/Web/HTML/Reference/Elements) Farbe hinzuzufügen, um das gewünschte Aussehen zu erzeugen. Dieser Leitfaden ist eine Einführung dazu, wie CSS zum Anwenden von Farben auf HTML-Elemente verwendet werden kann. Dieser Leitfaden enthält [Listen der CSS-Eigenschaften, die in ihren Werten Farbe festlegen](#eigenschaften,_die_farbe_enthalten_können), sowie Informationen dazu, wie Farben sowohl [in Stylesheets](#farben_als_werte_in_stylesheets_angeben) als auch [auf andere Weise](#andere_möglichkeiten_zur_verwendung_von_farbe) verwendet werden.
 
 > [!NOTE]
-> Es ist wichtig, [Farben weise zu verwenden](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely). Wählen Sie immer geeignete Farben aus und stellen Sie sicher, dass der Kontrast zwischen Text und Hintergrund ausreichend ist, um die Lesbarkeit zu gewährleisten, und berücksichtigen Sie stets die Bedürfnisse von Menschen mit unterschiedlichen visuellen Fähigkeiten.
+> Es ist wichtig, [Farben sinnvoll einzusetzen](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely). Wählen Sie stets geeignete Farben aus und stellen Sie sicher, dass der Kontrast zwischen Text und Hintergrund ausreichend ist, um die Lesbarkeit zu gewährleisten. Berücksichtigen Sie außerdem stets die Bedürfnisse von Personen mit unterschiedlichen Sehfähigkeiten.
 
-Um mehr über CSS-Farben als Datentyp zu erfahren, sehen Sie sich die Referenz zum [CSS `<color>` Datentyp](/de/docs/Web/CSS/Reference/Values/color_value) und den [CSS-Farbwerte-Leitfaden](/de/docs/Web/CSS/Guides/Colors/Color_values) an.
+Weitere Informationen zu CSS-Farben als Datentyp finden Sie in der Referenz zum [CSS-Datentyp `<color>`](/de/docs/Web/CSS/Reference/Values/color_value) und im [Leitfaden zu CSS-Farbwerten](/de/docs/Web/CSS/Guides/Colors/Color_values).
 
-## Eigenschaften, die Farbe haben können
+## Eigenschaften, die Farbe enthalten können
 
-Auf Elementebene kann allem in HTML Farbe zugewiesen werden. Lassen Sie uns die verschiedenen auf der Seite gerenderten Elemente betrachten — wie Text, Rahmen usw. Wir werden Listen der CSS-Eigenschaften bereitstellen, die Farbe auf jedes Element anwenden.
+Auf Elementebene kann auf alles in HTML Farbe angewendet werden. Sehen wir uns die verschiedenen auf der Seite dargestellten Elemente an — beispielsweise Text, Rahmen usw. Wir stellen Listen der CSS-Eigenschaften bereit, die auf jedes davon Farbe anwenden.
 
-Auf fundamentaler Ebene definiert die {{cssxref("color")}}-Eigenschaft die Vordergrundfarbe des Inhalts eines HTML-Elements und die {{cssxref("background-color")}}-Eigenschaft definiert die Hintergrundfarbe des Elements. Diese können auf nahezu jedes Element angewendet werden.
+Auf einer grundlegenden Ebene definiert die Eigenschaft {{cssxref("color")}} die Vordergrundfarbe des Inhalts eines HTML-Elements, und die Eigenschaft {{cssxref("background-color")}} definiert die Hintergrundfarbe des Elements. Diese können auf nahezu jedes Element angewendet werden.
 
 ### Text
 
-Wann immer ein Element gerendert wird, werden diese Eigenschaften verwendet, um die Farbe des Textes, seines Hintergrunds und jeglicher Dekorationen des Textes zu bestimmen.
+Wenn ein Element dargestellt wird, bestimmen diese Eigenschaften die Farbe des Textes, seines Hintergrunds und jeglicher Textdekorationen.
 
 - {{cssxref("color")}}
-  - : Die Farbe, die beim Zeichnen des Textes und jeglicher [Textdekorationen](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#font_style_font_weight_text_transform_and_text_decoration) (wie das Hinzufügen von Unter- oder Überstrichen, Durchstreichungslinien usw.) verwendet wird.
+  - : Die Farbe, die beim Zeichnen des Textes und jeglicher [Textdekorationen](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#font_style_font_weight_text_transform_and_text_decoration) verwendet wird, etwa beim Hinzufügen von Unter- oder Überstreichungen, Durchstreichungen usw.
 
 - {{cssxref("background-color")}}
   - : Die Hintergrundfarbe des Textes.
 
 - {{cssxref("text-shadow")}}
-  - : Konfiguriert einen Schatteneffekt, der auf den Text angewendet wird. Zu den Optionen für den Schatten gehört die Grundfarbe des Schattens (die dann basierend auf den anderen Parametern verschwommen und mit dem Hintergrund gemischt wird). Weitere Informationen finden Sie unter [Textschlagschatten](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#text_drop_shadows).
+  - : Konfiguriert einen Schatteneffekt, der auf Text angewendet wird. Zu den Optionen für den Schatten gehört dessen Grundfarbe, die anschließend anhand der anderen Parameter weichgezeichnet und mit dem Hintergrund vermischt wird. Weitere Informationen finden Sie unter [Schlagschatten für Text](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#text_drop_shadows).
 
 - {{cssxref("text-decoration-color")}}
-  - : Die Standardfarbe für Textdekorationen (wie Unterstreichungen, Durchstreichungen usw.) ist [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword). Dieses Schlüsselwort repräsentiert den aktuellen Wert der `color`-Eigenschaft. Dennoch können Sie diesen Wert überschreiben und mit der `text-decoration-color`-Eigenschaft eine andere Farbe festlegen.
+  - : Die Farbe der standardmäßigen Textdekorationen, etwa Unterstreichungen, Durchstreichungen usw., ist [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword). Dieses Schlüsselwort stellt den aktuellen Wert der Eigenschaft `color` dar. Sie können diesen Wert jedoch überschreiben und mit der Eigenschaft `text-decoration-color` eine andere Farbe dafür verwenden.
 
 - {{cssxref("text-emphasis-color")}}
-  - : Die Farbe zur Darstellung von Hervorhebungssymbolen neben jedem Zeichen im Text. Dies wird hauptsächlich beim Zeichnen von Text für ostasiatische Sprachen verwendet.
+  - : Die Farbe, die beim Darstellen von Hervorhebungssymbolen neben jedem Zeichen im Text verwendet wird. Dies wird hauptsächlich beim Zeichnen von Text für ostasiatische Sprachen verwendet.
 
 - {{cssxref("caret-color")}}
-  - : Die Farbe, die bei der Darstellung der {{Glossary("caret", "Einfügemarke")}} (manchmal auch als Textcursor bezeichnet) innerhalb des Elements verwendet wird. Dies ist nur in bearbeitbaren Elementen nützlich, wie {{HTMLElement("input")}} und {{HTMLElement("textarea")}} oder in Elementen, deren HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt ist.
+  - : Die Farbe, die beim Zeichnen der {{Glossary("caret", "Einfügemarke")}} verwendet wird, die manchmal als Texteingabecursor bezeichnet wird. Dies ist nur bei bearbeitbaren Elementen nützlich, beispielsweise {{HTMLElement("input")}} und {{HTMLElement("textarea")}}, oder bei Elementen, deren HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt ist.
 
 ### Boxen
 
-Jedes Element ist eine Box mit irgendeiner Art von Inhalt und hat einen Hintergrund und einen Rahmen zusätzlich zu den Inhalten, die die Box haben könnte.
+Jedes Element ist eine Box mit einer Art von Inhalt und verfügt neben dem möglichen Inhalt der Box über einen Hintergrund und einen Rahmen.
 
 - [Rahmen](#borders_2)
-  - : Siehe den Abschnitt [Rahmen](#borders_2) für eine Liste der CSS-Eigenschaften, die Sie verwenden können, um die Farben der Ränder einer Box festzulegen.
+  - : Eine Liste der CSS-Eigenschaften, mit denen Sie die Farben der Rahmen einer Box festlegen können, finden Sie im Abschnitt [Rahmen](#borders_2).
 
 - {{cssxref("background-color")}}
-  - : Die Hintergrundfarbe, die in Bereichen des Elements verwendet werden soll, die keinen Vordergrundinhalt haben.
+  - : Die Hintergrundfarbe, die in Bereichen des Elements ohne Vordergrundinhalt verwendet wird.
 
 - {{cssxref("box-shadow")}}
-  - : Konfiguriert Schatteneffekte an der Innenseite und herabfallende Schatten auf der Box. Zu den Optionen für jeden Schatten gehört die Grundfarbe des Schattens (die dann basierend auf den anderen Parametern verschwommen und mit dem Hintergrund gemischt wird).
+  - : Konfiguriert Innenschatten- und Schlagschatteneffekte für die Box. Zu den Optionen für jeden Schatten gehört dessen Grundfarbe, die anschließend anhand der anderen Parameter weichgezeichnet und mit einem Hintergrund vermischt wird.
 
 - {{cssxref("column-rule-color")}}
-  - : Die Farbe, die beim Zeichnen der Linie verwendet wird, die Textspalten trennt, wenn [CSS Multi-Column Layout](/de/docs/Web/CSS/Guides/Multicol_layout) verwendet wird.
+  - : Die Farbe, die beim Zeichnen der Linie verwendet wird, welche Textspalten bei Verwendung des [CSS-Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout) trennt.
 
 - {{cssxref("outline-color")}}
-  - : Die Farbe, die beim Zeichnen eines Umrisses um die Außenseite des Elements verwendet wird. Dieser Umriss unterscheidet sich vom Rahmen dadurch, dass ihm im Dokument kein Platz zugewiesen wird. Umrisse nehmen nicht an dem [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) teil und überlappen andere Inhalte. Umrisse werden im Allgemeinen als Fokusindikatoren verwendet, die anzeigen, welches Element derzeit den Fokus hat und Tastatureingaben erhalten wird.
+  - : Die Farbe, die beim Zeichnen einer Umrandung außerhalb des Elements verwendet wird. Diese Umrandung unterscheidet sich vom Rahmen dadurch, dass im Dokument kein Platz für sie reserviert wird. Umrandungen nehmen nicht am [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) teil und überlappen anderen Inhalt. Umrandungen werden im Allgemeinen als Fokusanzeigen verwendet und geben an, welches Element aktuell den Fokus hat und Tastatureingabeereignisse empfängt.
 
 ### Rahmen
 
-Jedes Element kann einen Rahmen haben, der darum gezeichnet wird. Ein grundlegender Elementrahmen ist eine Linie, die um die Kanten des Inhalts des Elements gezeichnet wird. Um mehr über die Beziehung zwischen Elementen und ihren Rahmen zu erfahren, siehe [Das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model). Mehr darüber, wie man Rahmenstile anwendet, erfahren Sie in dem Artikel [Rahmen mit CSS gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders).
+Jedes Element kann mit einem Rahmen versehen werden. Ein einfacher Elementrahmen ist eine Linie, die um die Kanten des Elementinhalts gezeichnet wird. Informationen zur Beziehung zwischen Elementen und ihren Rahmen finden Sie unter [Das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model). Weitere Informationen zum Anwenden von Stilen auf Rahmen finden Sie im Artikel [Gestalten von Rahmen mit CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders).
 
-Sie können die {{cssxref("border")}} Kurzschreibweise verwenden, die es Ihnen ermöglicht, alles über den Rahmen auf einmal zu konfigurieren (einschließlich nicht-farbbezogener Merkmale von Rahmen, wie seine [Breite](/de/docs/Web/CSS/Reference/Properties/border-width), [Stil](/de/docs/Web/CSS/Reference/Properties/border-style) (solid, gestrichelt, usw.) und so weiter.
+Sie können die Kurzform-Eigenschaft {{cssxref("border")}} verwenden, mit der Sie alles zum Rahmen auf einmal konfigurieren können, einschließlich nicht farbbezogener Eigenschaften des Rahmens, etwa seiner [Breite](/de/docs/Web/CSS/Reference/Properties/border-width), seines [Stils](/de/docs/Web/CSS/Reference/Properties/border-style) (durchgezogen, gestrichelt usw.) und weiterer Eigenschaften.
 
-- {{cssxref("border-color")}} Kurzschreibweise
-  - : Gibt eine einzige Farbe an, die für jede Seite des Rahmen des Elements verwendet wird.
+- Kurzform {{cssxref("border-color")}}
+  - : Gibt eine einzelne Farbe an, die für jede Seite des Elementrahmens verwendet wird.
 
-- {{cssxref("border-left-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-top-color")}}, und {{cssxref("border-bottom-color")}}
-  - : Ermöglicht es, die Farbe der entsprechenden Seite des Rahmen des Elements festzulegen.
+- {{cssxref("border-left-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}}
+  - : Ermöglichen es Ihnen, die Farbe der entsprechenden Seite des Elementrahmens festzulegen.
 
 - {{cssxref("border-block-start-color")}} und {{cssxref("border-block-end-color")}}
-  - : Damit können Sie die Farbe festlegen, die verwendet wird, um die Rahmen zu zeichnen, die dem Anfang und Ende des Blocks am nächsten sind, den der Rahmen umgibt. In einem von links nach rechts Schreibrichtungsmodus (wie im Englischen) ist der Startblockrahmen die obere Kante und das Ende des Blocks die untere. Dies unterscheidet sich von den inline Start- und Endrahmen, die die linke und rechte Kante sind (entsprechend dem, wo jede Textzeile in der Box beginnt und endet).
+  - : Damit können Sie die Farbe festlegen, die zum Zeichnen der Rahmen verwendet wird, welche dem Anfang und Ende des Blocks, den der Rahmen umgibt, am nächsten liegen. In einem Schreibrichtungssystem von links nach rechts, wie es beispielsweise für Englisch verwendet wird, ist der Blockanfangsrahmen die obere Kante und das Blockende die untere Kante. Dies unterscheidet sich von Inline-Anfang und -Ende, die die linke und rechte Kante sind und den Stellen entsprechen, an denen jede Textzeile in der Box beginnt und endet.
 
 - {{cssxref("border-inline-start-color")}} und {{cssxref("border-inline-end-color")}}
-  - : Diese ermöglichen es Ihnen, die Kanten des Rahmens zu färben, die dem Anfang und Ende der Textzeilen in der Box am nächsten liegen. Welche Seite dies ist, hängt von den Eigenschaften {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} ab, die typischerweise (aber nicht immer) verwendet werden, um die Textausrichtung basierend auf der angezeigten Sprache anzupassen. Wenn zum Beispiel der Text der Box von rechts nach links gerendert wird, wird die `border-inline-start-color` auf die rechte Seite des Rahmens angewendet.
+  - : Damit können Sie die Kanten des Rahmens einfärben, die dem Anfang und Ende der Textzeilen in der Box am nächsten liegen. Welche Seite dies ist, hängt von den Eigenschaften {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} ab, die üblicherweise, jedoch nicht immer, verwendet werden, um die Textrichtung entsprechend der dargestellten Sprache anzupassen. Wenn beispielsweise der Text der Box von rechts nach links dargestellt wird, wird `border-inline-start-color` auf die rechte Seite des Rahmens angewendet.
 
 ## Farben als Werte in Stylesheets angeben
 
-Nachdem Sie nun wissen, welche [CSS-Eigenschaften es Ihnen ermöglichen, Farbe auf Elemente anzuwenden](#eigenschaften,_die_farbe_haben_können), können Sie beginnen, Farben auf Ihre Webseiten hinzuzufügen. Lassen Sie uns einige Beispiele für die Verwendung von Farbe in einem {{Glossary("style_sheet", "Stylesheet")}} betrachten. In diesem Beispiel verwenden wir mehrere zuvor erwähnte Eigenschaften, wobei das Konzept des Anwendens von Farben in CSS dasselbe ist, unabhängig von der Eigenschaft.
+Da Sie nun wissen, welche [CSS-Eigenschaften Ihnen das Anwenden von Farbe auf Elemente ermöglichen](#eigenschaften,_die_farbe_enthalten_können), können Sie beginnen, Ihren Websites Farben hinzuzufügen. Sehen wir uns einige Beispiele für die Verwendung von Farbe in einem {{Glossary("style_sheet", "Stylesheet")}} an. In diesem Beispiel verwenden wir mehrere zuvor erwähnte Eigenschaften, wobei das Konzept zum Anwenden von Farben in CSS unabhängig von der Eigenschaft gleich ist.
 
-Schauen wir uns zuerst das Ergebnis an, bevor wir uns dem erforderlichen Code widmen:
+Sehen wir uns zunächst das Ergebnis an, bevor wir den Code betrachten, den wir dafür benötigen:
 
 {{EmbedLiveSample("Specifying colors as values in stylesheets", 650, 150)}}
 
 ### HTML
 
-Das HTML, das für das obige Beispiel verantwortlich ist, wird hier gezeigt:
+Das HTML, das für die Erstellung des obigen Beispiels verantwortlich ist, wird hier gezeigt:
 
 ```html
 <div class="wrapper">
@@ -101,14 +101,14 @@ Das HTML, das für das obige Beispiel verantwortlich ist, wird hier gezeigt:
 </div>
 ```
 
-Hier haben wir einen Wrapper {{HTMLElement("div")}}, der zwei untergeordnete `<div>`s enthält, von denen jedes ein einziges untergeordnetes Paragraphen-Element ({{HTMLElement("p")}}) enthält. Jedes Inhalts-`<div>` erhält einen anderen Look und Feel.
+Hier haben wir ein umschließendes {{HTMLElement("div")}}, das zwei untergeordnete `<div>`s enthält, die jeweils einen einzelnen untergeordneten Absatz ({{HTMLElement("p")}}) enthalten. Jedes Inhalts-`<div>` erhält ein anderes Erscheinungsbild.
 
 ### CSS
 
-Lassen Sie uns die CSS betrachten, die das obige Ergebnis schrittweise erstellt.
+Sehen wir uns das CSS, das das obige Ergebnis erzeugt, Schritt für Schritt an.
 
 > [!NOTE]
-> Wir verwenden in diesem Beispiel mehrere [unterschiedliche CSS-Farbwerttypen](/de/docs/Web/CSS/Guides/Colors/Color_values), um deren Verwendung zu demonstrieren. Dies wird für den Produktivcode nicht empfohlen. Beim Schreiben von CSS sollten Sie den intuitivsten Werttyp für Sie und Ihr Team verwenden.
+> In diesem Beispiel verwenden wir mehrere [verschiedene CSS-Farbwerttypen](/de/docs/Web/CSS/Guides/Colors/Color_values), um deren Verwendung zu demonstrieren. Dies wird für Produktionscode nicht empfohlen. Verwenden Sie beim Schreiben von CSS den für Sie und Ihr Team intuitivsten Werttyp.
 
 ```css
 .wrapper {
@@ -129,11 +129,11 @@ div {
 }
 ```
 
-Die `.wrapper`-Klasse wird verwendet, um Stile dem {{HTMLElement("div")}} zuzuweisen, der alle unsere anderen Inhalte umschließt. Dies legt die Höhe des Containers mithilfe von {{cssxref("height")}} fest und ermöglicht es, dass die Breite dieses Block-Level-Elements standardmäßig 100 % seiner Eltern beträgt. Das Setzen von {{cssxref("display")}} auf `flex` und das Hinzufügen eines `10px` {{cssxref("gap")}} erzeugt einen Flexcontainer, um die Kinder nebeneinander mit einem Abstand zwischen allen Kindern des Containers anzuordnen. Wir verwenden {{cssxref("flex")}}, um den Flex-Kindern zu erlauben, den Container zu füllen; es beeinflusst nicht den Flexcontainer selbst.
+Die Klasse `.wrapper` wird verwendet, um dem {{HTMLElement("div")}}, das unseren gesamten anderen Inhalt umschließt, Stile zuzuweisen. Sie legt die Höhe des Containers mit {{cssxref("height")}} fest, wodurch die Breite dieses Block-Level-Elements standardmäßig 100 % seines Elternelements beträgt. Das Setzen von {{cssxref("display")}} auf `flex` und das Hinzufügen eines {{cssxref("gap")}} von `10px` erstellt einen Flex-Container, um die Kindelemente nebeneinander mit einem Abstand zwischen allen Kindelementen des Containers anzuordnen. Wir verwenden {{cssxref("flex")}}, damit die Flex-Kindelemente wachsen und den Container ausfüllen können; dies beeinflusst nicht den Flex-Container selbst.
 
-Interessanter für unsere Diskussion hier ist die Verwendung der {{cssxref("border")}}-Eigenschaft, um einen Rand um den äußeren Rand des Elements zu etablieren. Dieser Rand ist eine solide Linie, 6 Pixel breit, in der [benannten Farbe](/de/docs/Web/CSS/Reference/Values/named-color) `mediumturquoise`.
+Für unsere Diskussion hier interessanter ist die Verwendung der Eigenschaft {{cssxref("border")}}, um einen Rahmen um die Außenkante des Elements festzulegen. Dieser Rahmen ist eine durchgezogene, 6 Pixel breite Linie in der [benannten Farbe](/de/docs/Web/CSS/Reference/Values/named-color) `mediumturquoise`.
 
-Innerhalb unseres Wrappers haben wir eine linke Box und eine rechte Box.
+Innerhalb unseres Wrappers haben wir eine linke und eine rechte Box.
 
 ```css
 .boxLeft {
@@ -142,11 +142,11 @@ Innerhalb unseres Wrappers haben wir eine linke Box und eine rechte Box.
 }
 ```
 
-Die `.boxLeft`-Klasse, die verwendet wird, um die Box auf der linken Seite zu gestalten, legt die Farbe des Hintergrunds und des Umrisses fest:
+Die Klasse `.boxLeft`, die zum Gestalten der linken Box verwendet wird, legt die Farbe des Hintergrunds und der Umrandung fest:
 
-- Die Hintergrundfarbe der Box wird durch Ändern des Werts der CSS-{{cssxref("background-color")}}-Eigenschaft auf `rgb(245 130 130)` festgelegt, unter Verwendung der {{CSSXref("color_value/rgb", "rgb()")}} Funktionsnotation.
-- Ein Umriss wird für die Box definiert. Im Gegensatz zu dem häufiger verwendeten {{cssxref("border")}} beeinflusst {{cssxref("outline")}} das Layout überhaupt nicht; es wird über allem gezeichnet, was sich außerhalb der Box des Elements befinden mag, anstatt Platz zu beanspruchen, wie es `border` tut. Dieser Umriss ist eine solide, dunkelrote Linie, die zwei Pixel dick ist. Beachten Sie die Verwendung des `darkred` Schlüsselworts beim Angeben der Farbe.
-- Beachten Sie, dass wir die Textfarbe nicht explizit festlegen. Das bedeutet, dass der Wert der {{cssxref("color")}}-Eigenschaft vom nächstgelegenen enthaltenen Element, das sie definiert, übernommen wird. Standardmäßig ist das schwarz.
+- Die Hintergrundfarbe der Box wird durch Ändern des Werts der CSS-Eigenschaft {{cssxref("background-color")}} auf `rgb(245 130 130)` festgelegt, wobei die funktionale Notation {{CSSXref("color_value/rgb", "rgb()")}} verwendet wird.
+- Für die Box wird eine Umrandung definiert. Im Gegensatz zu dem häufiger verwendeten {{cssxref("border")}} beeinflusst {{cssxref("outline")}} das Layout überhaupt nicht; es wird über alles gezeichnet, was sich außerhalb der Box des Elements befinden kann, anstatt wie `border` Platz dafür zu schaffen. Diese Umrandung ist eine durchgezogene, dunkelrote Linie mit einer Stärke von zwei Pixeln. Beachten Sie die Verwendung des Schlüsselworts `darkred` bei der Angabe der Farbe.
+- Beachten Sie, dass wir die Textfarbe nicht explizit festlegen. Das bedeutet, dass der Wert von {{cssxref("color")}} vom nächstgelegenen enthaltenden Element geerbt wird, das ihn definiert. Standardmäßig ist dies Schwarz.
 
 ```css
 .boxRight {
@@ -162,36 +162,36 @@ Die `.boxLeft`-Klasse, die verwendet wird, um die Box auf der linken Seite zu ge
 ```
 
 > [!NOTE]
-> Wir haben die `text-decoration-*`-Stile separat beigefügt, weil Safari {{cssxref("text-decoration")}} nicht als Kurzschreibweise unterstützt.
+> Wir haben die Stile `text-decoration-*` getrennt aufgenommen, weil Safari {{cssxref("text-decoration")}} nicht als Kurzform-Eigenschaft unterstützt.
 
-Zuletzt setzt die `.boxRight`-Klasse mehrere Stile auf die Box, die rechts gezeichnet wird. Die folgenden Farben werden dann (unter Verwendung von fünf verschiedenen Arten der Deklaration von [Farbwerten](/de/docs/Web/CSS/Guides/Colors/Color_values)) festgelegt:
+Schließlich legt die Klasse `.boxRight` mehrere Stile für die rechts dargestellte Box fest. Anschließend werden die folgenden Farben festgelegt, wobei fünf verschiedene Arten zur Deklaration von [Farbwerten](/de/docs/Web/CSS/Guides/Colors/Color_values) verwendet werden:
 
-- Die `background-color` wird unter Verwendung der {{CSSXref("color_value/hwb", "hwb()")}} Funktionsnotation eingestellt — `hwb(270deg 63% 13%)`. Dies ist eine mittlere violette Farbe.
-- Der `outline` der Box wird verwendet, um anzugeben, dass die Box von einer vier Pixel dicken gestrichelten Linie umgeben sein sollte, deren Farbe ein etwas tieferes Violett ist, unter Verwendung des sechsstelligen {{cssxref("hex-color")}} `#6e1478`.
-- Die Vordergrundfarbe (Text) wird durch das Setzen der {{cssxref("color")}}-Eigenschaft unter Verwendung der {{CSSXref("color_value/hsl", "hsl()")}} Funktionsnotation festgelegt — `hsl(0deg 95% 95%)`. Dies ist eine sehr hellrosa Farbe.
-- Wir fügen eine grüne gewellte Linie unter dem Text hinzu, {{cssxref("text-decoration")}} mit dem Kürzel, zusammen mit der Langhandschrift für die Browser-Kompatibilität. Wir verwenden den 3-stelligen {{cssxref("hex-color")}} `#8f8`, was dem `#88ff88` entspricht.
-- Schließlich wird dem Text ein kleiner Schatten mit {{cssxref("text-shadow")}} hinzugefügt. Sein `color`-Parameter wird auf `black`, ein {{cssxref("named-color")}}-Wert, eingestellt.
+- `background-color` wird mit der funktionalen Notation {{CSSXref("color_value/hwb", "hwb()")}} auf `hwb(270deg 63% 13%)` gesetzt. Dies ist ein mittlerer Lilaton.
+- `outline` der Box wird verwendet, um anzugeben, dass die Box von einer vier Pixel dicken gestrichelten Linie umgeben sein soll, deren Farbe ein etwas dunkleres Violett ist, das mit dem sechsstelligen {{cssxref("hex-color")}} `#6e1478` angegeben wird.
+- Die Vordergrundfarbe (Textfarbe) wird durch Setzen der Eigenschaft {{cssxref("color")}} mithilfe der funktionalen Notation {{CSSXref("color_value/hsl", "hsl()")}} auf `hsl(0deg 95% 95%)` angegeben. Dies ist ein sehr heller Rosaton.
+- Mit der Kurzform {{cssxref("text-decoration")}} fügen wir eine grüne gewellte Linie unter dem Text hinzu, zusammen mit der Langform-Komponente für Browser-Kompatibilität. Wir verwenden den dreistelligen {{cssxref("hex-color")}} `#8f8`, der dem Wert `#88ff88` entspricht.
+- Schließlich wird dem Text mit {{cssxref("text-shadow")}} ein wenig Schatten hinzugefügt. Dessen Parameter `color` wird auf `black` gesetzt, einen {{cssxref("named-color")}}-Wert.
 
-Wir haben fünf verschiedene Farbsyntaxen verwendet, um zu demonstrieren, was möglich ist. In der realen Welt werden Sie und Ihr Team vorzugsweise eine bevorzugte Farbschreibweise wählen, bei der jeder, der an einer Codebasis arbeitet, dieselbe Farbsyntax verwendet.
+Wir haben fünf verschiedene Farbsyntaxen verwendet, um zu demonstrieren, was möglich ist. In der Praxis werden Sie und Ihr Team vorzugsweise eine bevorzugte Farbnotation wählen, sodass alle Personen, die an einer Codebasis arbeiten, dieselbe Farbsyntax verwenden.
 
-## Andere Möglichkeiten, Farbe zu verwenden
+## Andere Möglichkeiten zur Verwendung von Farbe
 
-CSS ist nicht die einzige Webtechnologie, die Farbe unterstützt. Andere Beispiele sind:
+CSS ist nicht die einzige Webtechnologie, die Farbe unterstützt. Weitere Beispiele sind:
 
-- Die HTML [Canvas API](/de/docs/Web/API/Canvas_API)
-  - : Ermöglicht das Zeichnen von 2D-Bitmap-Grafiken in einem {{HTMLElement("canvas")}}-Element. Sehen Sie sich unser [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) an, um mehr zu erfahren.
+- Die HTML-[Canvas API](/de/docs/Web/API/Canvas_API)
+  - : Ermöglicht es Ihnen, 2D-Bitmapgrafiken in einem {{HTMLElement("canvas")}}-Element zu zeichnen. Weitere Informationen finden Sie in unserem [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 - [SVG](/de/docs/Web/SVG) (Scalable Vector Graphics)
-  - : Ermöglicht die Erstellung von Bildern mithilfe von Befehlen, die bestimmte Formen, Muster und Linien zeichnen. SVG-Befehle sind als XML formatiert und können direkt in eine Webseite eingebettet oder mithilfe des {{HTMLElement("img")}}-Elements in die Seite eingefügt werden, wie jedes andere Bild auch.
+  - : Ermöglicht es Ihnen, Bilder mithilfe von Befehlen zu erstellen, die bestimmte Formen, Muster und Linien zeichnen. SVG-Befehle werden als XML formatiert und können direkt in eine Webseite eingebettet oder wie jeder andere Bildtyp mit dem Element {{HTMLElement("img")}} auf der Seite platziert werden.
 - [WebGL](/de/docs/Web/API/WebGL_API)
-  - : Die Web Graphics Library ist eine auf OpenGL ES basierende API zum Zeichnen von hochleistungsfähigen 2D- und 3D-Grafiken im Web. Um mehr zu erfahren, sehen Sie sich unser [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) an. Siehe auch [WebGPU](/de/docs/Web/API/WebGPU_API), die Nachfolge-API von WebGL für moderne GPUs.
+  - : Die Web Graphics Library ist eine auf OpenGL ES basierende API zum Zeichnen leistungsfähiger 2D- und 3D-Grafiken im Web. Weitere Informationen finden Sie in unserem [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial). Siehe auch [WebGPU](/de/docs/Web/API/WebGPU_API), einen Nachfolger von WebGL für moderne GPUs.
 
 > [!NOTE]
-> Einige mittlerweile veraltete HTML-Attribute akzeptierten Farben als Werte, wie `bgcolor` und `vlink`. Diese Attribute akzeptierten nur {{cssxref("named-color")}} und drei- oder sechsstellige {{cssxref("hex-color")}} Werte.
+> Einige inzwischen veraltete HTML-Attribute akzeptierten Farben als Werte, etwa `bgcolor` und `vlink`. Diese Attribute akzeptierten nur {{cssxref("named-color")}}- sowie drei- oder sechsstellige {{cssxref("hex-color")}}-Werte.
 
 ## Siehe auch
 
-- {{cssxref("&lt;color&gt;")}} Datentyp
-- [CSS-Farbwerte](/de/docs/Web/CSS/Guides/Colors/Color_values) Leitfaden
-- [Farben weise verwenden](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely)
+- Datentyp {{cssxref("&lt;color&gt;")}}
+- [Leitfaden zu CSS-Farbwerten](/de/docs/Web/CSS/Guides/Colors/Color_values)
+- [Farben sinnvoll einsetzen](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely)
 - [CSS-Farbmodul](/de/docs/Web/CSS/Guides/Colors)
 - [Grafiken zeichnen](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics)
