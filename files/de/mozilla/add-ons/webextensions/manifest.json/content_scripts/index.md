@@ -2,7 +2,7 @@
 title: content_scripts
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts
 l10n:
-  sourceCommit: ff9896b8f5e8a16696ca8ef50d8a9baa0ae8b1f8
+  sourceCommit: 2e0b9415ed31484a4830e214eff9e06e408c7261
 ---
 
 <table class="fullwidth-table standard-table">
@@ -12,11 +12,11 @@ l10n:
       <td><code>Array</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifestversion</th>
+      <th scope="row">Manifest-Version</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -39,11 +39,11 @@ Weist den Browser an, [Content Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/C
 
 Dieser Schlüssel ist ein Array. Jedes Element ist ein Objekt, das:
 
-- **muss** eine Eigenschaft mit dem Namen **`matches`** enthalten, die die URL-Muster spezifiziert, die für das Laden der Skripte übereinstimmen müssen;
-- **kann** Eigenschaften mit den Namen **`js`** und **`css`** enthalten, die Skripte und Stylesheets listen, die in übereinstimmende Seiten geladen werden sollen; und
-- **kann** eine Anzahl anderer Eigenschaften enthalten, die Aspekte steuern, wie und wann Content Scripts geladen werden.
+- **muss** eine Eigenschaft namens **`matches`** enthalten, die die URL-Muster angibt, die erfüllt sein müssen, damit die Skripte geladen werden;
+- **kann** Eigenschaften namens **`js`** und **`css`** enthalten, die Skripte und Stylesheets auflisten, die in übereinstimmende Seiten geladen werden sollen; und
+- **kann** eine Reihe weiterer Eigenschaften enthalten, die Aspekte davon steuern, wie und wann Content Scripts geladen werden.
 
-Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
+Diese Tabelle führt alle Eigenschaften auf, die Sie einschließen können.
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -56,7 +56,7 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
   <tbody>
     <tr>
       <td>
-        <a id="all_frames"><code>all_frames</code></a>
+        <a id="all_frames" href="#all_frames"><code>all_frames</code></a>
       </td>
       <td><code>Boolean</code></td>
       <td>
@@ -64,120 +64,143 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
           <dt><code>true</code></dt>
           <dd>
             <p>
-              Integrieren Sie die in
-              <code><a href="#js">js</a></code> und
-              <code><a href="#css">css</a></code> angegebenen Skripte in alle Frames, die die angegebenen URL-Anforderungen erfüllen, auch wenn der Frame nicht der oberste Frame in einem Tab ist. Dies wird nicht in Child-Frames integriert, bei denen nur der Parent die URL-Anforderungen erfüllt und der Child-Frame die URL-Anforderungen nicht erfüllt. Die URL-Anforderungen werden für jeden Frame unabhängig überprüft.
+              Fügt die in <code><a href="#js">js</a></code> und
+              <code><a href="#css">css</a></code> angegebenen Skripte in alle
+              Frames ein, die den angegebenen URL-Anforderungen entsprechen,
+              auch wenn der Frame nicht der oberste Frame in einem Tab ist. Dies
+              fügt sie nicht in untergeordnete Frames ein, bei denen nur ihr
+              übergeordneter Frame den URL-Anforderungen entspricht und der
+              untergeordnete Frame den URL-Anforderungen nicht entspricht. Die
+              URL-Anforderungen werden für jeden Frame unabhängig geprüft.
             </p>
             <div class="notecard note">
               <p>
-                <strong>Hinweis:</strong> Dies gilt auch für Tracker oder Anzeigen, die iframes verwenden, was bedeutet, dass die Aktivierung dazu führen könnte, dass Ihr Content Script auf einigen Seiten dutzende Male aufgerufen wird.
+                <strong>Hinweis:</strong> Dies gilt auch für jeden Tracker oder
+                jede Werbung, die iframes verwendet. Das Aktivieren dieser
+                Option kann daher dazu führen, dass Ihr Content Script auf
+                einigen Seiten Dutzende Male aufgerufen wird.
               </p>
             </div>
           </dd>
           <dt><code>false</code></dt>
           <dd>
-            Integrieren Sie nur in Frames, die die URL-Anforderungen erfüllen und der oberste Frame in einem Tab sind.
+            Fügt sie nur in Frames ein, die den URL-Anforderungen entsprechen
+            und der oberste Frame in einem Tab sind.
           </dd>
         </dl>
-        <p>Standardmäßig ist <code>false</code>.</p>
+        <p>Der Standardwert ist <code>false</code>.</p>
       </td>
     </tr>
     <tr>
       <td>
-        <a id="css"><code>css</code></a>
+        <a id="css" href="#css"><code>css</code></a>
       </td>
       <td><code>Array</code></td>
       <td>
         <p>
-          Ein Array von Pfaden, relativ zu <code>manifest.json</code>, die CSS-Dateien referenzieren, die in übereinstimmende Seiten integriert werden sollen. Informationen über die Reihenfolge, in der Dateien integriert werden, finden Sie unter <a href="#load_order">Lade-Reihenfolge</a>.
+          Ein Array von Pfaden relativ zu <code>manifest.json</code>, die auf
+          CSS-Dateien verweisen, die in übereinstimmende Seiten eingefügt werden
+          sollen. Informationen über die Reihenfolge, in der Dateien eingefügt
+          werden, finden Sie unter <a href="#load_order">Ladereihenfolge</a>.
+        </p>
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Firefox löst URLs in integrierten CSS-Dateien relativ zur CSS-Datei selbst auf, anstatt zur Seite, in die sie integriert ist.
+            <strong>Hinweis:</strong> Firefox löst URLs in eingefügten
+            CSS-Dateien relativ zur CSS-Datei selbst auf und nicht relativ zu
+            der Seite, in die sie eingefügt wird.
           </p>
         </div>
       </td>
     </tr>
     <tr>
       <td>
-        <a id="css_origin"><code>css_origin</code></a>
+        <a id="css_origin" href="#css_origin"><code>css_origin</code></a>
         <br />{{optional_inline}}
       </td>
       <td><code>String</code></td>
       <td>
         <p>
-          Der Stilursprung für die CSS-Integration:
+          Der Stilursprung für die CSS-Injektion:
           <ul>
-            <li><code>"user"</code>, um es als Benutzer-Stylesheet hinzuzufügen.</li>
-            <li><code>"author"</code>, um es als Autoren-Stylesheet hinzuzufügen.</li>
+            <li><code>"user"</code>, zum Hinzufügen als Benutzer-Stylesheet.</li>
+            <li><code>"author"</code>, zum Hinzufügen als Autoren-Stylesheet.</li>
           </ul>
-          Standardmäßig ist <code>"author"</code>.
+          Der Standardwert ist <code>"author"</code>.
         </p>
         <p>
-          Diese Eigenschaft ist in Firefox und Safari nicht case-sensitiv.
+          Bei dieser Eigenschaft wird in Firefox und Safari die Groß- und
+          Kleinschreibung nicht berücksichtigt.
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <a id="exclude_globs"><code>exclude_globs</code></a>
+        <a id="exclude_globs" href="#exclude_globs"><code>exclude_globs</code></a>
       </td>
       <td><code>Array</code></td>
       <td>
-        Ein Array von Zeichenfolgen, die Platzhalter enthalten. Siehe unten
+        Ein Array von Strings mit Wildcards. Siehe unten
         <a href="#matching_url_patterns">Übereinstimmende URL-Muster</a>.
       </td>
     </tr>
     <tr>
       <td>
-        <a id="exclude_matches"><code>exclude_matches</code></a>
+        <a id="exclude_matches" href="#exclude_matches"><code>exclude_matches</code></a>
       </td>
       <td><code>Array</code></td>
       <td>
         Ein Array von
         <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns"
           >Übereinstimmungsmustern</a
-        >. Siehe unten
-        <a href="#matching_url_patterns">Übereinstimmende URL-Muster</a>.
+        >. Siehe unten <a href="#matching_url_patterns">Übereinstimmende URL-Muster</a>.
       </td>
     </tr>
     <tr>
       <td>
-        <a id="include_globs"><code>include_globs</code></a>
+        <a id="include_globs" href="#include_globs"><code>include_globs</code></a>
       </td>
       <td><code>Array</code></td>
       <td>
-        Ein Array von Zeichenfolgen, die Platzhalter enthalten. Siehe unten
+        Ein Array von Strings mit Wildcards. Siehe unten
         <a href="#matching_url_patterns">Übereinstimmende URL-Muster</a>.
       </td>
     </tr>
     <tr>
       <td>
-        <a id="js"><code>js</code></a>
+        <a id="js" href="#js"><code>js</code></a>
       </td>
       <td><code>Array</code></td>
       <td>
         <p>
-          Ein Array von Pfaden, relativ zu <code>manifest.json</code>, die JavaScript-Dateien referenzieren, die in übereinstimmende Seiten integriert werden sollen. Informationen über die Reihenfolge, in der Dateien integriert werden, finden Sie unter <a href="#load_order">Lade-Reihenfolge</a>.
+          Ein Array von Pfaden relativ zu <code>manifest.json</code>, die auf
+          JavaScript-Dateien verweisen, die in übereinstimmende Seiten eingefügt
+          werden sollen. Informationen über die Reihenfolge, in der Dateien
+          eingefügt werden, finden Sie unter <a href="#load_order">Ladereihenfolge</a>.
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a id="match_about_blank">match_about_blank</a></code>
+        <code><a id="match_about_blank" href="#match_about_blank">match_about_blank</a></code>
       </td>
       <td><code>Boolean</code></td>
       <td>
         <p>
-          Fügen Sie die Content Scripts in Seiten ein, deren URL
-          <code>"about:blank"</code> oder <code>"about:srcdoc"</code> ist, wenn die URL der Seite, die diese Seite geöffnet oder erstellt hat,
-          <a href="#matching_url_patterns">den Mustern entspricht</a>, die im Rest des <code>content_scripts</code>-Schlüssels angegeben sind.
+          Fügt die Content Scripts in Seiten ein, deren URL
+          <code>"about:blank"</code> oder <code>"about:srcdoc"</code> ist, wenn
+          die URL der Seite, die diese Seite geöffnet oder erstellt hat,
+          den im übrigen Schlüssel <code>content_scripts</code> angegebenen
+          <a href="#matching_url_patterns">Mustern entspricht</a>.
         </p>
         <p>
-          Dies ist besonders nützlich, um Skripte in leeren iframes auszuführen, deren URL <code>"about:blank"</code> ist. Um dies zu tun, sollten Sie auch den <code>all_frames</code>-Schlüssel setzen.
+          Dies ist besonders nützlich, um Skripte in leeren iframes auszuführen,
+          deren URL <code>"about:blank"</code> ist. Dazu sollten Sie auch den
+          Schlüssel <code>all_frames</code> setzen.
         </p>
         <p>
-          Angenommen, Sie haben einen <code>content_scripts</code>-Schlüssel wie diesen:
+          Nehmen Sie beispielsweise an, Sie haben einen Schlüssel
+          <code>content_scripts</code> wie diesen:
         </p>
         <pre class="brush: json">
   "content_scripts": [
@@ -190,30 +213,36 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
   ]</pre
         >
         <p>
-          Wenn der Benutzer <code>https://example.org/</code> lädt und diese Seite ein leeres iframe einbettet, wird <code>"my-script.js"</code> in das iframe geladen.
+          Wenn der Benutzer <code>https://example.org/</code> lädt und diese
+          Seite ein leeres iframe einbettet, wird <code>"my-script.js"</code> in
+          das iframe geladen.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> <code>match_about_blank</code> wird in Firefox ab Version 52 unterstützt.
+            <strong>Hinweis:</strong> <code>match_about_blank</code> wird in
+            Firefox ab Version 52 unterstützt.
           </p>
           <p>
-            Beachten Sie, dass in Firefox Content Scripts nicht in leere iframes bei <code>"document_start"</code> injiziert werden, auch wenn Sie diesen Wert in <code><a href="#run_at">run_at</a></code> angeben.
+            Beachten Sie, dass Content Scripts in Firefox nicht bei
+            <code>"document_start"</code> in leere iframes eingefügt werden,
+            selbst wenn Sie diesen Wert in
+            <code><a href="#run_at">run_at</a></code> angeben.
           </p>
         </div>
       </td>
     </tr>
     <tr>
       <td>
-        <code><a id="match_origin_as_fallback">match_origin_as_fallback</a></code>
+        <code><a id="match_origin_as_fallback" href="#match_origin_as_fallback">match_origin_as_fallback</a></code>
       </td>
       <td><code>Boolean</code></td>
       <td>
-        Wenn <code>true</code>, wird Code in <code>about:</code>, <code>data:</code> und <code>blob:</code>-Seiten injiziert, wenn ihr Ursprung mit dem Muster in <code>matches</code> übereinstimmt, auch wenn der Dokumentenursprung undurchsichtig ist (aufgrund der Verwendung von CSP oder iframe-Sandbox). Übereinstimmungsmuster in <code>matches</code> müssen ein Wildcard-Pfad-Glob spezifizieren. Standardmäßig ist <code>false</code>.
+        Wenn <code>true</code>, wird Code in <code>about:</code>-, <code>data:</code>- und <code>blob:</code>-Seiten eingefügt, wenn ihr Ursprung dem Muster in <code>matches</code> entspricht, selbst wenn der Dokumentursprung undurchsichtig ist (aufgrund der Verwendung von CSP oder einer iframe-Sandbox). Übereinstimmungsmuster in <code>matches</code> müssen einen Wildcard-Pfad-Glob angeben. Der Standardwert ist <code>false</code>.
       </td>
     </tr>
     <tr>
       <td>
-        <a id="matches"><code>matches</code></a>
+        <a id="matches" href="#matches"><code>matches</code></a>
       </td>
       <td><code>Array</code></td>
       <td>
@@ -224,19 +253,22 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
           >. Siehe unten
           <a href="#matching_url_patterns">Übereinstimmende URL-Muster</a>.
         </p>
-        <p>Dies ist der einzige zwingende Schlüssel.</p>
+        <p>Dies ist der einzige erforderliche Schlüssel.</p>
       </td>
     </tr>
     <tr>
       <td>
-        <a id="run_at"><code>run_at</code></a>
+        <a id="run_at" href="#run_at"><code>run_at</code></a>
       </td>
       <td><code>String</code></td>
       <td>
         <p>
           Diese Option bestimmt, wann die in
           <code><a href="#css">css</a></code> und
-          <code><a href="#js">js</a></code> angegebenen Dateien injiziert werden. Sie können hier einen von drei Strings angeben, von denen jeder einen Status im Prozess des Ladens eines Dokuments identifiziert. Die Zustände entsprechen direkt
+          <code><a href="#js">js</a></code> angegebenen Dateien eingefügt
+          werden. Sie können hier einen von drei Strings angeben, die jeweils
+          einen Zustand im Ladeprozess eines Dokuments kennzeichnen. Die Zustände
+          entsprechen direkt
           [`Document.readyState`](/de/docs/Web/API/Document/readyState):
         </p>
         <dl>
@@ -246,22 +278,27 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
           </dd>
           <dt><code>"document_end"</code></dt>
           <dd>
-            Entspricht <code>interactive</code>. Das DOM ist fertig geladen, aber Ressourcen wie Skripte und Bilder können noch geladen werden.
+            Entspricht <code>interactive</code>. Das DOM wurde vollständig
+            geladen, aber Ressourcen wie Skripte und Bilder werden möglicherweise
+            noch geladen.
           </dd>
           <dt><code>"document_idle"</code></dt>
           <dd>
-            Entspricht <code>complete</code>. Das Dokument und alle seine Ressourcen sind geladen.
+            Entspricht <code>complete</code>. Das Dokument und alle seine
+            Ressourcen wurden vollständig geladen.
           </dd>
         </dl>
         <p>Der Standardwert ist <code>"document_idle"</code>.</p>
         <p>
-          In allen Fällen werden Dateien in <code><a href="#js">js</a></code> nach Dateien in <code><a href="#css">css</a></code> injiziert.
+          In allen Fällen werden Dateien in <code><a href="#js">js</a></code>
+          nach Dateien in <code><a href="#css">css</a></code
+          > eingefügt.
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <a id="world"><code>world</code></a>
+        <a id="world" href="#world"><code>world</code></a>
       </td>
       <td><code>String</code></td>
       <td>
@@ -271,18 +308,18 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
         <dl>
           <dt><code>"ISOLATED"</code></dt>
           <dd>
-            Die Standard-Ausführungsumgebung für <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts">Content Scripts</a>.
-            Diese Umgebung ist von dem Kontext der Seite isoliert: während sie dasselbe Dokument teilen, unterscheiden sich die globalen Umgebungen und verfügbaren APIs.
+            Die Standardausführungsumgebung für <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts">Content Scripts</a>.
+            Diese Umgebung ist vom Kontext der Seite isoliert: Obwohl sie dasselbe Dokument teilen, unterscheiden sich die globalen Bereiche und verfügbaren APIs.
           </dd>
           <dt><code>"MAIN"</code></dt>
           <dd>
             Die Ausführungsumgebung der Webseite.
-            Diese Umgebung wird mit der Webseite ohne Isolierung geteilt.
-            Skripte in dieser Umgebung haben keinen Zugriff auf die APIs, die nur für Content Scripts verfügbar sind.
+            Diese Umgebung wird ohne Isolierung mit der Webseite geteilt.
+            Skripte in dieser Umgebung haben keinen Zugriff auf APIs, die nur für Content Scripts verfügbar sind.
             <div class="notecard warning" id="sect1">
               <p>
-                <strong>Warnung:</strong> Aufgrund des Fehlens einer Isolierung kann die Webseite den ausgeführten Code erkennen und beeinflussen.
-                Verwenden Sie die <code>MAIN</code>-Welt nicht, es sei denn, es ist akzeptabel, dass Webseiten die Logik oder Daten lesen, darauf zugreifen oder ändern, die durch den ausgeführten Code fließen.
+                <strong>Warnung:</strong> Aufgrund der fehlenden Isolierung kann die Webseite den ausgeführten Code erkennen und beeinträchtigen.
+                Verwenden Sie die <code>MAIN</code>-Welt nicht, es sei denn, es ist akzeptabel, dass Webseiten die Logik oder Daten lesen, darauf zugreifen oder sie ändern können, die durch den ausgeführten Code fließen.
               </p>
             </div>
           </dd>
@@ -293,15 +330,15 @@ Diese Tabelle beschreibt alle Eigenschaften, die Sie einschließen können.
   </tbody>
 </table>
 
-## Lade-Reihenfolge
+## Ladereihenfolge
 
-Registrierte Objekte in `content_scripts` werden in übereinstimmende Webseiten zur Zeit eingesetzt, die durch `run_at` festgelegt wird (zuerst `document_start`, dann `document_end` und schließlich `document_idle`):
+Registrierte Objekte in `content_scripts` werden zum durch `run_at` angegebenen Zeitpunkt in übereinstimmende Webseiten eingefügt (zuerst `document_start`, dann `document_end` und schließlich `document_idle`):
 
-- In der Reihenfolge, die im `content_scripts`-Array für jedes Objekt angegeben ist, das einen passenden `run_at`-Wert hat, dann:
-  - CSS wird in der Reihenfolge angewendet, die im `css`-Array angegeben ist. Standardmäßig hat CSS aus dem `"author"`-Ursprung Vorrang, es sei denn, `css_origin` ist auf `"user"` gesetzt.
-  - JavaScript-Code wird in der Reihenfolge ausgeführt, die im `js`-Array angegeben ist.
+- In der in dem Array `content_scripts` angegebenen Reihenfolge, für jedes Objekt mit einem übereinstimmenden `run_at`-Wert, dann:
+  - CSS wird in der in seinem Array `css` angegebenen Reihenfolge angewendet. Standardmäßig erhält CSS vom Ursprung `"author"` Priorität, sofern `css_origin` nicht auf `"user"` gesetzt ist.
+  - JavaScript-Code wird in der in seinem Array `js` angegebenen Reihenfolge ausgeführt.
 
-Zum Beispiel, in dieser Schlüssel-Spezifikation:
+Zum Beispiel in dieser Schlüsselspezifikation:
 
 ```json
 "content_scripts": [
@@ -324,18 +361,18 @@ Zum Beispiel, in dieser Schlüssel-Spezifikation:
 ]
 ```
 
-Werden die Dateien folgendermaßen geladen, wenn eine mozilla.org-Domain geöffnet wird:
+Die Dateien werden beim Öffnen einer mozilla.org-Domain wie folgt geladen:
 
-- `"run-first.js"` - weil es auf `document_start` ausgeführt werden soll.
-- `"jquery.js"` - weil es im ersten Array angefordert wird, um auf `"document_idle"` ausgeführt zu werden.
-- `"my-content-script.js"` - weil es das zweite Element im ersten Array ist, das `"document_idle"` anfordert.
-- `"my-css.css"` - weil das CSS eines Objekts vor seinem JavaScript geladen wird.
-- `"another-content-script.js"` - weil es das erste Element in der `js`-Eigenschaft ist.
+- `"run-first.js"` – weil die Ausführung bei `"document_start"` angefordert wird.
+- `"jquery.js"` – weil es sich im ersten Array befindet, das die Ausführung bei `"document_idle"` anfordert.
+- `"my-content-script.js"` – weil es das zweite Element im ersten Array ist, das die Ausführung bei `"document_idle"` anfordert.
+- `"my-css.css"` – weil das CSS eines Objekts vor seinem JavaScript geladen wird.
+- `"another-content-script.js"` – weil es das erste Element in der Eigenschaft `js` ist.
 - `"yet-another-content-script.js"`
 
 ## Übereinstimmende URL-Muster
 
-Der Schlüssel `"content_scripts"` fügt Content Scripts an Dokumente basierend auf URL-Übereinstimmung an: Wenn die URL des Dokuments mit der Spezifikation im Schlüssel übereinstimmt, wird das Skript angeheftet. Es gibt vier Eigenschaften innerhalb von `"content_scripts"`, die Sie für diese Spezifikation verwenden können:
+Der Schlüssel `"content_scripts"` hängt Content Scripts anhand von URL-Übereinstimmungen an Dokumente an: Wenn die URL des Dokuments der Spezifikation im Schlüssel entspricht, wird das Skript angehängt. In `"content_scripts"` gibt es vier Eigenschaften, die Sie für diese Spezifikation verwenden können:
 
 - `matches`
   - : ein Array von [Übereinstimmungsmustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns)
@@ -346,31 +383,31 @@ Der Schlüssel `"content_scripts"` fügt Content Scripts an Dokumente basierend 
 - `exclude_globs`
   - : ein Array von [Globs](#globs)
 
-Um mit einer dieser Eigenschaften übereinzustimmen, muss eine URL mit mindestens einem der Elemente in ihrem Array übereinstimmen. Zum Beispiel, gegeben eine Eigenschaft wie:
+Damit eine dieser Eigenschaften übereinstimmt, muss eine URL mindestens einem der Elemente in ihrem Array entsprechen. Bei einer Eigenschaft wie der folgenden:
 
 ```json
 "matches": ["*://*.example.org/*", "*://*.example.com/*"]
 ```
 
-Sowohl `http://example.org/` als auch `http://example.com/` werden übereinstimmen.
+entsprechen sowohl `http://example.org/` als auch `http://example.com/` dem Muster.
 
-Da `matches` der einzige verpflichtende Schlüssel ist, werden die anderen drei Schlüssel verwendet, um die URLs, die übereinstimmen, weiter zu begrenzen. Um mit dem Schlüssel insgesamt übereinzustimmen, muss eine URL:
+Da `matches` der einzige erforderliche Schlüssel ist, werden die anderen drei Schlüssel verwendet, um die übereinstimmenden URLs weiter einzuschränken. Damit eine URL dem Schlüssel als Ganzem entspricht, muss sie:
 
-- mit der `matches`-Eigenschaft übereinstimmen
-- UND mit der `include_globs`-Eigenschaft übereinstimmen, falls vorhanden
-- UND NICHT mit der `exclude_matches`-Eigenschaft übereinstimmen, falls vorhanden
-- UND NICHT mit der `exclude_globs`-Eigenschaft übereinstimmen, falls vorhanden
+- der Eigenschaft `matches` entsprechen
+- UND der Eigenschaft `include_globs` entsprechen, sofern vorhanden
+- UND NICHT der Eigenschaft `exclude_matches` entsprechen, sofern vorhanden
+- UND NICHT der Eigenschaft `exclude_globs` entsprechen, sofern vorhanden
 
-### Globs
+### globs
 
-Ein _Glob_ ist einfach eine Zeichenfolge, die Platzhalter enthalten kann.
+Ein _Glob_ ist einfach ein String, der Wildcards enthalten kann.
 
-Es gibt zwei Arten von Platzhaltern, und Sie können sie im selben Glob kombinieren:
+Es gibt zwei Arten von Wildcards, die Sie im selben Glob kombinieren können:
 
-1. `*` steht für null oder mehr Zeichen
-2. `?` steht für genau ein Zeichen.
+1. `*` entspricht null oder mehr Zeichen.
+2. `?` entspricht genau einem Zeichen.
 
-Zum Beispiel: `"*na?i"` würde sowohl `"illuminati"` als auch `"annunaki"` entsprechen, aber nicht `"sagnarelli"`.
+Zum Beispiel würde `"*na?i"` mit `"illuminati"` und `"annunaki"` übereinstimmen, aber nicht mit `"sagnarelli"`.
 
 ## Beispiel
 
@@ -383,7 +420,7 @@ Zum Beispiel: `"*na?i"` würde sowohl `"illuminati"` als auch `"annunaki"` entsp
 ]
 ```
 
-Dies injiziert ein einzelnes Content Script `borderify.js` in alle Seiten unter `mozilla.org` oder einer seiner Subdomains, unabhängig davon, ob es über HTTP oder HTTPS bereitgestellt wird.
+Dies fügt ein einzelnes Content Script `borderify.js` in alle Seiten unter `mozilla.org` oder einer seiner Subdomains ein, unabhängig davon, ob sie über HTTP oder HTTPS bereitgestellt werden.
 
 ```json
   "content_scripts": [
@@ -395,9 +432,9 @@ Dies injiziert ein einzelnes Content Script `borderify.js` in alle Seiten unter 
   ]
 ```
 
-Dies injiziert zwei Content Scripts in alle Seiten unter `mozilla.org` oder einer seiner Subdomains, außer `developer.mozilla.org`, unabhängig davon, ob es über HTTP oder HTTPS bereitgestellt wird.
+Dies fügt zwei Content Scripts in alle Seiten unter `mozilla.org` oder einer seiner Subdomains ein, mit Ausnahme von `developer.mozilla.org`, unabhängig davon, ob sie über HTTP oder HTTPS bereitgestellt werden.
 
-Die Content Scripts sehen dieselbe Ansicht des DOMs und werden in der Reihenfolge injiziert, in der sie im Array erscheinen, sodass `borderify.js` globale Variablen sehen kann, die von `jquery.js` hinzugefügt wurden.
+Die Content Scripts sehen dieselbe Ansicht des DOM und werden in der Reihenfolge eingefügt, in der sie im Array erscheinen. Daher kann `borderify.js` globale Variablen sehen, die von `jquery.js` hinzugefügt wurden.
 
 ## Spezifikationen
 

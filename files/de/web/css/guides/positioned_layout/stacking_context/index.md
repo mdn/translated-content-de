@@ -1,33 +1,33 @@
 ---
-title: Stacking-Kontext
+title: Stapelkontext
 slug: Web/CSS/Guides/Positioned_layout/Stacking_context
 l10n:
-  sourceCommit: d1a90acef8a6fb1f75a3e4d937f78d7038d7bfc4
+  sourceCommit: 2e0b9415ed31484a4830e214eff9e06e408c7261
 ---
 
-Ein **Stacking-Kontext** ist eine dreidimensionale Konzeptualisierung von HTML-Elementen entlang einer imaginären z-Achse relativ zum Benutzer, der angenommen wird, dem Viewport oder der Webseite gegenüberzustehen. Der Stacking-Kontext bestimmt, wie Elemente entlang der z-Achse übereinander geschichtet werden (denken Sie daran als die "Tiefen"-Dimension auf Ihrem Bildschirm). Der Stacking-Kontext bestimmt die visuelle Reihenfolge, in der überlappende Inhalte gerendert werden.
+Ein **Stapelkontext** ist eine dreidimensionale Konzeptualisierung von HTML-Elementen entlang einer imaginären z-Achse relativ zur Benutzerin oder zum Benutzer, die bzw. der sich dem Viewport oder der Webseite zugewandt befindet. Der Stapelkontext bestimmt, wie Elemente entlang der z-Achse übereinander geschichtet werden (stellen Sie sich dies als die „Tiefen“-Dimension auf Ihrem Bildschirm vor). Der Stapelkontext bestimmt die visuelle Reihenfolge, in der überlappende Inhalte gerendert werden.
 
-Elemente innerhalb eines Stacking-Kontexts werden unabhängig von Elementen außerhalb dieses Stacking-Kontextes gestapelt, was sicherstellt, dass Elemente in einem Stacking-Kontext die Stapelreihenfolge von Elementen in einem anderen nicht stören. Jeder Stacking-Kontext ist völlig unabhängig von seinen Geschwistern: Nur nachfolgende Elemente werden berücksichtigt, wenn eine Stapelung verarbeitet wird.
+Elemente innerhalb eines Stapelkontexts werden unabhängig von Elementen außerhalb dieses Stapelkontexts gestapelt. Dadurch wird sichergestellt, dass Elemente in einem Stapelkontext die Stapelreihenfolge von Elementen in einem anderen nicht beeinflussen. Jeder Stapelkontext ist vollständig unabhängig von seinen Geschwisterelementen: Bei der Verarbeitung der Stapelung werden nur Nachfahrenelemente berücksichtigt.
 
-Jeder Stacking-Kontext ist in sich geschlossen. Nachdem die Inhalte eines Elements gestapelt wurden, wird das gesamte Element als eine einzige Einheit in der Stapelreihenfolge des übergeordneten Stacking-Kontexts betrachtet.
+Jeder Stapelkontext ist in sich geschlossen. Nachdem der Inhalt eines Elements gestapelt wurde, wird das gesamte Element als einzelne Einheit in der Stapelreihenfolge seines übergeordneten Stapelkontexts betrachtet.
 
-Innerhalb eines Stacking-Kontexts werden Kindelemente gemäß den `z-index`-Werten aller Geschwister gestapelt. Die Stacking-Kontexte dieser verschachtelten Elemente haben nur innerhalb dieses Elternteils Bedeutung. Stacking-Kontexte werden atomar als eine einzige Einheit im übergeordneten Stacking-Kontext behandelt. Stacking-Kontexte können in andere Stacking-Kontexte eingebettet sein und zusammen eine Hierarchie von Stacking-Kontexten bilden.
+Innerhalb eines Stapelkontexts werden Kindelemente entsprechend den `z-index`-Werten aller Geschwisterelemente gestapelt. Die Stapelkontexte dieser verschachtelten Elemente haben nur in diesem übergeordneten Kontext eine Bedeutung. Stapelkontexte werden im übergeordneten Stapelkontext atomar als einzelne Einheit behandelt. Stapelkontexte können in anderen Stapelkontexten enthalten sein und bilden zusammen eine Hierarchie von Stapelkontexten.
 
-Die Hierarchie der Stacking-Kontexte ist eine Teilmenge der Hierarchie der HTML-Elemente, da nur bestimmte Elemente Stacking-Kontexte erstellen. Elemente, die keinen eigenen Stacking-Kontext erstellen, werden vom übergeordneten Stacking-Kontext _assimilated_.
+Die Hierarchie der Stapelkontexte ist eine Teilmenge der Hierarchie von HTML-Elementen, da nur bestimmte Elemente Stapelkontexte erzeugen. Elemente, die keinen eigenen Stapelkontext erzeugen, werden vom übergeordneten Stapelkontext _assimiliert_.
 
-## Merkmale, die Stacking-Kontexte erstellen
+## Merkmale, die Stapelkontexte erzeugen
 
-Ein Stacking-Kontext wird überall im Dokument durch ein beliebiges Element in den folgenden Szenarien erstellt:
+Ein Stapelkontext wird an jeder Stelle im Dokument durch jedes Element in den folgenden Szenarien gebildet:
 
 - Wurzelelement des Dokuments (`<html>`).
-- Element mit einem {{cssxref("position")}}-Wert `absolute` oder `relative` und einem {{cssxref("z-index")}}-Wert, der nicht `auto` ist.
-- Element mit einem {{cssxref("position")}}-Wert `fixed` oder `sticky`.
-- Element mit einem {{cssxref("container-type")}}-Wert `size` oder `inline-size` gesetzt (siehe [Container Queries](/de/docs/Web/CSS/Guides/Containment/Container_queries)).
-- Element, das ein [Flex-Item](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) mit einem {{cssxref("z-index")}}-Wert ist, der nicht `auto` ist.
-- Element, das ein [Grid-Item](<>) mit einem {{cssxref("z-index")}}-Wert ist, der nicht `auto` ist.
+- Element mit einem {{cssxref("position")}}-Wert von `absolute` oder `relative` und einem {{cssxref("z-index")}}-Wert ungleich `auto`.
+- Element mit einem {{cssxref("position")}}-Wert von `fixed` oder `sticky`.
+- Element mit einem gesetzten {{cssxref("container-type")}}-Wert von `size` oder `inline-size` (siehe [Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)).
+- Element, das ein [Flex-Element](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) mit einem {{cssxref("z-index")}}-Wert ungleich `auto` ist.
+- Element, das ein {{Glossary("Grid_Item", "Grid-Element")}} mit einem {{cssxref("z-index")}}-Wert ungleich `auto` ist.
 - Element mit einem {{cssxref("opacity")}}-Wert kleiner als `1`.
-- Element mit einem {{cssxref("mix-blend-mode")}}-Wert, der nicht `normal` ist.
-- Element mit einer der folgenden Eigenschaften mit einem Wert, der nicht `none` ist:
+- Element mit einem {{cssxref("mix-blend-mode")}}-Wert ungleich `normal`.
+- Element mit einer der folgenden Eigenschaften und einem Wert ungleich `none`:
   - {{cssxref("transform")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
@@ -39,20 +39,20 @@ Ein Stacking-Kontext wird überall im Dokument durch ein beliebiges Element in d
   - {{cssxref("mask")}} / {{cssxref("mask-image")}} / {{cssxref("mask-border")}}
 
 - Element mit dem {{cssxref("isolation")}}-Wert `isolate`.
-- Element mit einem {{cssxref("will-change")}}-Wert, der eine Eigenschaft angibt, die einen Stacking-Kontext bei Nicht-Standard-Wert erstellen würde.
-- Element mit einem {{cssxref("contain")}}-Wert `layout` oder `paint` oder einem zusammengesetzten Wert, der einen dieser Werte umfasst (d.h. `contain: strict`, `contain: content`).
-- Element, das in die {{Glossary("Top_layer", "obere Schicht")}} und deren entsprechendes {{cssxref("::backdrop")}} platziert wurde. Beispiele umfassen [Fullscreen](/de/docs/Web/API/Fullscreen_API) und [Popover](/de/docs/Web/API/Popover_API) Elemente.
-- Element, bei dem stapelkontext-erzeugende Eigenschaften (wie `opacity`) mit {{cssxref("@keyframes")}} animiert wurden, mit {{cssxref("animation-fill-mode")}} auf [`forwards`](/de/docs/Web/CSS/Reference/Properties/animation-fill-mode#forwards) gesetzt.
+- Element mit einem {{cssxref("will-change")}}-Wert, der eine Eigenschaft angibt, die bei einem nicht initialen Wert einen Stapelkontext erzeugen würde.
+- Element mit einem {{cssxref("contain")}}-Wert von `layout` oder `paint` oder einem zusammengesetzten Wert, der einen dieser Werte enthält (d.h. `contain: strict`, `contain: content`).
+- Element, das in die {{Glossary("Top_layer", "oberste Ebene")}} eingefügt wurde, sowie sein zugehöriges {{cssxref("::backdrop")}}. Beispiele sind Elemente für [Vollbild](/de/docs/Web/API/Fullscreen_API) und [Popover](/de/docs/Web/API/Popover_API).
+- Element, dessen Stapelkontext erzeugende Eigenschaften (wie `opacity`) mithilfe von {{cssxref("@keyframes")}} animiert wurden und bei dem {{cssxref("animation-fill-mode")}} auf [`forwards`](/de/docs/Web/CSS/Reference/Properties/animation-fill-mode#forwards) gesetzt ist.
 
-## Verschachtelte Stacking-Kontexte
+## Verschachtelte Stapelkontexte
 
-Stacking-Kontexte können in andere Stacking-Kontexte eingebettet sein, und sie können zusammen eine Hierarchie von Stacking-Kontexten erstellen.
+Stapelkontexte können in anderen Stapelkontexten enthalten sein und zusammen eine Hierarchie von Stapelkontexten bilden.
 
-Das Wurzelelement eines Dokuments ist ein Stacking-Kontext, der in den meisten Fällen verschachtelte Stacking-Kontexte enthält, von denen viele zusätzliche Stacking-Kontexte enthalten. Innerhalb jedes Stacking-Kontextes werden Kindelemente gemäß den gleichen Regeln gestapelt, die in [Verwendung von `z-index`](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index) erklärt werden. Wichtig ist, dass die `z-index`-Werte seiner Kinder-Stapelungskontexte nur innerhalb des Eltern-Stapelungskontextes Bedeutung haben. Stacking-Kontexte werden atomar als eine einzige Einheit im Eltern-Stapelungskontext behandelt.
+Das Wurzelelement eines Dokuments ist ein Stapelkontext, der in den meisten Fällen verschachtelte Stapelkontexte enthält, von denen viele weitere Stapelkontexte enthalten. Innerhalb jedes Stapelkontexts werden Kindelemente gemäß denselben Regeln gestapelt, die unter [Verwenden von `z-index`](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index) erläutert werden. Wichtig ist, dass die `z-index`-Werte seiner untergeordneten Stapelkontexte nur innerhalb des Stapelkontexts ihres Elternelements Bedeutung haben. Stapelkontexte werden im übergeordneten Stapelkontext atomar als einzelne Einheit behandelt.
 
-Um die _Renderreihenfolge_ der gestapelten Elemente entlang der z-Achse herauszufinden, können sie sich jeden Indexwert als eine Art "Versionsnummer" vorstellen, wobei die Kindelemente nicht bedeutsame Versionsnummern unterhalb der übergeordneten Hauptversionsnummer repräsentieren.
+Um die _Render-Reihenfolge_ gestapelter Elemente entlang der z-Achse zu bestimmen, können Sie sich jeden Indexwert als eine Art „Versionsnummer“ vorstellen, wobei Kindelemente kleinere Versionsnummern unterhalb der Hauptversionsnummer ihres Elternelements darstellen.
 
-Um zu demonstrieren, wie die Stapelreihenfolge jedes Elements an der Stapelreihenfolge ihrer Vorfahren-Stapelungskontexte teilnimmt, betrachten wir eine Beispielseite mit sechs Container-Elementen. Es gibt drei Geschwister-{{htmlelement("article")}}-Elemente. Das letzte `<article>` enthält drei Geschwister-{{htmlelement("section")}}-Elemente, wobei das {{htmlelement("heading_elements", "&lt;h1&gt;")}} und das {{htmlelement("code")}} dieses dritten Artikels zwischen den ersten und zweiten Geschwister-<section>-Elementen erscheinen.
+Um zu veranschaulichen, wie die Stapelreihenfolge jedes Elements an der Stapelreihenfolge seiner Vorfahren-Stapelkontexte beteiligt ist, betrachten wir eine Beispielseite mit sechs Containerelementen. Es gibt drei gleichrangige {{htmlelement("article")}}-Elemente. Das letzte `<article>` enthält drei gleichrangige {{htmlelement("section")}}-Elemente, wobei {{htmlelement("heading_elements", "&lt;h1&gt;")}} und {{htmlelement("code")}} dieses dritten Artikels zwischen dem ersten und zweiten gleichrangigen `<section>`-Element erscheinen.
 
 ```html
 <article id="container1">
@@ -104,7 +104,7 @@ Um zu demonstrieren, wie die Stapelreihenfolge jedes Elements an der Stapelreihe
 </article>
 ```
 
-Jedes Container-Element hat eine {{cssxref("opacity")}} von weniger als `1` (was einen Stacking-Kontext erzeugt) und eine {{cssxref("position")}} von entweder `relative` oder `absolute` (was einen Stacking-Kontext erzeugt, wenn das Element auch einen `z-index`-Wert hat, der nicht `auto` ist).
+Jedes Containerelement hat eine {{cssxref("opacity")}} von weniger als `1` (wodurch ein Stapelkontext erzeugt wird) und eine {{cssxref("position")}} von entweder `relative` oder `absolute` (wodurch ein Stapelkontext erzeugt wird, wenn das Element außerdem einen `z-index`-Wert ungleich `auto` hat).
 
 ```css hidden
 * {
@@ -188,11 +188,11 @@ article {
 }
 ```
 
-Die CSS-Eigenschaften für Farben, Schriftarten, Ausrichtung und das [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) wurden der Kürze halber ausgeblendet.
+Die CSS-Eigenschaften für Farben, Schriftarten, Ausrichtung und [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) wurden der Kürze halber ausgeblendet.
 
 {{ EmbedLiveSample('Nested stacking contexts', '100%', '396') }}
 
-Die Hierarchie der Stacking-Kontexte im obigen Beispiel ist wie folgt:
+Die Hierarchie der Stapelkontexte im obigen Beispiel lautet wie folgt:
 
 ```plain no-lint
 Root
@@ -206,35 +206,35 @@ Root
   └── SECTION #6
 ```
 
-Die drei `<section>`-Elemente sind Kinder von ARTICLE #3. Daher wird das Stapeln der Abschnittselemente vollständig innerhalb von ARTICLE #3 gelöst. Sobald das Stapeln und Rendern innerhalb von ARTICLE #3 abgeschlossen ist, wird das gesamte ARTICLE #3-Element zur Stapelung im Wurzelelement hinsichtlich seiner Geschwister `<article>`-Elemente weitergereicht.
+Die drei `<section>`-Elemente sind Kindelemente von ARTICLE #3. Daher wird die Stapelung der Section-Elemente vollständig innerhalb von ARTICLE #3 aufgelöst. Sobald die Stapelung und das Rendern innerhalb von ARTICLE #3 abgeschlossen sind, wird das gesamte Element ARTICLE #3 zur Stapelung im Wurzelelement in Bezug auf seine gleichrangigen `<article>`-Elemente übergeben.
 
-Durch den Vergleich des `z-index` als "Versionsnummern" können wir sehen, wie ein Element mit einem `z-index` von `1` (SECTION #5) über einem Element mit einem `z-index` von `2` (ARTICLE #2) gestapelt ist und wie ein Element mit einem `z-index` von `6` (SECTION #4) unter einem Element mit einem `z-index` von `5` (ARTICLE #1) gestapelt ist.
-SECTION #4 wird unter ARTICLE #1 gerendert, weil der `z-index` von ARTICLE #1 (`5`) im Stacking-Kontext des Wurzelelements gültig ist, während der `z-index` von SECTION #4 (`6`) im Stacking-Kontext von ARTICLE #3 (`z-index: 4`) gültig ist. SECTION #4 wird also unter ARTICLE #1 gerendert, da SECTION #4 zu ARTICLE #3 gehört, das einen niedrigeren z-index-Wert hat (`4-6` ist kleiner als `5-0`).
+Wenn wir `z-index` als „Versionsnummern“ vergleichen, sehen wir, wie ein Element mit einem `z-index` von `1` (SECTION #5) über einem Element mit einem `z-index` von `2` (ARTICLE #2) gestapelt wird und wie ein Element mit einem `z-index` von `6` (SECTION #4) unter einem Element mit einem `z-index` von `5` (ARTICLE #1) gestapelt wird.
+SECTION #4 wird unter ARTICLE #1 gerendert, weil der z-index von ARTICLE #1 (`5`) innerhalb des Stapelkontexts des Wurzelelements gültig ist, während der z-index von SECTION #4 (`6`) innerhalb des Stapelkontexts von ARTICLE #3 (`z-index: 4`) gültig ist. SECTION #4 befindet sich also unter ARTICLE #1, weil SECTION #4 zu ARTICLE #3 gehört, das einen niedrigeren z-index-Wert hat (`4-6` ist kleiner als `5-0`).
 
-Aus dem gleichen Grund wird ARTICLE #2 (`z-index: 2`) unter SECTION #5 (`z-index`: 1) gerendert, weil SECTION #5 zu ARTICLE #3 (`z-index: 4`) gehört, das einen höheren z-index-Wert hat (`2-0` ist kleiner als `4-1`).
+Aus demselben Grund wird ARTICLE #2 (`z-index: 2`) unter SECTION #5 (`z-index`: 1) gerendert, weil SECTION #5 zu ARTICLE #3 (`z-index: 4`) gehört, das einen höheren z-index-Wert hat (`2-0` ist kleiner als `4-1`).
 
-Der `z-index` von ARTICLE #3 ist `4`, aber dieser Wert ist unabhängig von dem `z-index` der drei darin verschachtelten Abschnitte, weil sie zu einem anderen Stacking-Kontext gehören.
+Der z-index von ARTICLE #3 ist `4`, aber dieser Wert ist unabhängig vom `z-index` der drei darin verschachtelten Sections, da sie zu einem anderen Stapelkontext gehören.
 
-In unserem Beispiel (sortiert nach der endgültigen Renderreihenfolge):
+In unserem Beispiel (sortiert nach der endgültigen Render-Reihenfolge):
 
 - Root
-  - ARTICLE #2: (`z-index`: 2), was zu einer Renderreihenfolge von `2-0` führt
-  - ARTICLE #3: (`z-index`: 4), was zu einer Renderreihenfolge von `4-0` führt
-    - SECTION #5: (`z-index`: 1), gestapelt unter einem Element (`z-index`: 4), was zu einer Renderreihenfolge von `4-1` führt
-    - SECTION #6: (`z-index`: 3), gestapelt unter einem Element (`z-index`: 4), was zu einer Renderreihenfolge von `4-3` führt
-    - SECTION #4: (`z-index`: 6), gestapelt unter einem Element (`z-index`: 4), was zu einer Renderreihenfolge von `4-6` führt
+  - ARTICLE #2: (`z-index`: 2), was zu einer Render-Reihenfolge von `2-0` führt
+  - ARTICLE #3: (`z-index`: 4), was zu einer Render-Reihenfolge von `4-0` führt
+    - SECTION #5: (`z-index`: 1), unter einem Element (`z-index`: 4) gestapelt, was zu einer Render-Reihenfolge von `4-1` führt
+    - SECTION #6: (`z-index`: 3), unter einem Element (`z-index`: 4) gestapelt, was zu einer Render-Reihenfolge von `4-3` führt
+    - SECTION #4: (`z-index`: 6), unter einem Element (`z-index`: 4) gestapelt, was zu einer Render-Reihenfolge von `4-6` führt
 
-  - ARTICLE #1: (`z-index`: 5), was zu einer Renderreihenfolge von `5-0` führt
+  - ARTICLE #1: (`z-index`: 5), was zu einer Render-Reihenfolge von `5-0` führt
 
-## Zusätzliche Beispiele
+## Weitere Beispiele
 
-Zusätzliche Beispiele umfassen eine [2-stufige Hierarchie mit `z-index` auf der letzten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_1), eine [2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_2), und eine [3-stufige HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_3).
+Weitere Beispiele umfassen eine [Hierarchie mit zwei Ebenen und `z-index` auf der letzten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_1), eine [HTML-Hierarchie mit zwei Ebenen, `z-index` auf allen Ebenen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_2) und eine [HTML-Hierarchie mit drei Ebenen, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_3).
 
 ## Siehe auch
 
-- [Verstehen von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
-- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
-- [Stapeln schwebender Elemente](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
-- [Verwendung von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
-- {{Glossary("Top_layer", "Obere Schicht")}}
-- [Modul für positioniertes Layout in CSS](/de/docs/Web/CSS/Guides/Positioned_layout)
+- [z-index verstehen](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
+- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
+- [Stapelung von Float-Elementen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
+- [Verwenden von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
+- {{Glossary("Top_layer", "Oberste Ebene")}}
+- [CSS Positioned Layout](/de/docs/Web/CSS/Guides/Positioned_layout)-Modul

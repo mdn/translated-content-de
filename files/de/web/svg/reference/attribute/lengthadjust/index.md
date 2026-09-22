@@ -2,7 +2,7 @@
 title: lengthAdjust
 slug: Web/SVG/Reference/Attribute/lengthAdjust
 l10n:
-  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
+  sourceCommit: fde1db177713e51507e342f3d56794aaeaef5cef
 ---
 
 Das Attribut `lengthAdjust` steuert, wie der Text auf die durch das Attribut {{SVGAttr("textLength")}} definierte Länge gestreckt wird.
@@ -44,7 +44,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "150")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
