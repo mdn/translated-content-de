@@ -1,17 +1,17 @@
 ---
-title: Verwendung von Promises
+title: Promises verwenden
 slug: Web/JavaScript/Guide/Using_promises
 l10n:
-  sourceCommit: d8a5165fd3c3b35ea9d07a914459e8d468f62276
+  sourceCommit: 298079b550c76f20de6611c4ecdde4c30dc68b2b
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Using_classes", "Web/JavaScript/Guide/Typed_arrays")}}
 
-Ein {{jsxref("Promise")}} ist ein Objekt, das den endgültigen Abschluss oder das Scheitern einer asynchronen Operation darstellt. Da die meisten Menschen Konsumenten von bereits erstellten Promises sind, erklärt dieser Leitfaden zunächst die Verwendung zurückgegebener Promises, bevor er erklärt, wie man sie erstellt.
+Ein {{jsxref("Promise")}} ist ein Objekt, das den späteren Erfolg oder Misserfolg einer asynchronen Operation repräsentiert. Da die meisten Entwickler bereits erstellte Promises verwenden, erklärt dieser Leitfaden zunächst, wie Sie mit zurückgegebenen Promises arbeiten, und anschließend, wie Sie sie erstellen.
 
-Im Wesentlichen ist ein Promise ein zurückgegebenes Objekt, an das man Callbacks anhängt, anstatt Callbacks in eine Funktion zu übergeben. Stellen Sie sich eine Funktion `createAudioFileAsync()` vor, die asynchron eine Audiodatei erstellt, gegeben eine Konfigurationsdatensatz und zwei Callback-Funktionen: eine, die aufgerufen wird, wenn die Audiodatei erfolgreich erstellt wird, und eine andere, die aufgerufen wird, wenn ein Fehler auftritt.
+Im Wesentlichen ist ein Promise ein zurückgegebenes Objekt, an das Sie Callbacks anhängen, statt Callbacks an eine Funktion zu übergeben. Stellen Sie sich eine Funktion namens `createAudioFileAsync()` vor, die anhand eines Konfigurationsdatensatzes asynchron eine Audiodatei erzeugt und zwei Callback-Funktionen entgegennimmt: Eine wird aufgerufen, wenn die Datei erfolgreich erstellt wurde, die andere, wenn ein Fehler auftritt.
 
-Hier ist ein Code, der `createAudioFileAsync()` verwendet:
+So könnte Code aussehen, der `createAudioFileAsync()` verwendet:
 
 ```js
 function successCallback(result) {
@@ -25,17 +25,17 @@ function failureCallback(error) {
 createAudioFileAsync(audioSettings, successCallback, failureCallback);
 ```
 
-Wenn `createAudioFileAsync()` umgeschrieben wäre, um ein Promise zurückzugeben, würden Sie Ihre Callbacks daran anhängen:
+Würde `createAudioFileAsync()` so umgeschrieben, dass die Funktion ein Promise zurückgibt, würden Sie Ihre Callbacks stattdessen daran anhängen:
 
 ```js
 createAudioFileAsync(audioSettings).then(successCallback, failureCallback);
 ```
 
-Diese Konvention hat mehrere Vorteile. Wir werden jeden davon untersuchen.
+Diese Vorgehensweise hat mehrere Vorteile. Wir betrachten sie im Folgenden.
 
 ## Verkettung
 
-Ein häufiges Bedürfnis ist es, zwei oder mehr asynchrone Operationen hintereinander auszuführen, wobei jede nachfolgende Operation startet, wenn die vorherige erfolgreich ist, mit dem Ergebnis aus dem vorherigen Schritt. In der Vergangenheit führte die Durchführung mehrerer asynchroner Operationen hintereinander zum klassischen [Callback-Hell](https://medium.com/@raihan_tazdid/callback-hell-in-javascript-all-you-need-to-know-296f7f5d3c1):
+Häufig müssen zwei oder mehr asynchrone Operationen nacheinander ausgeführt werden. Dabei beginnt jede weitere Operation, sobald die vorherige erfolgreich abgeschlossen wurde, und verwendet deren Ergebnis. Früher führte die Ausführung mehrerer asynchroner Operationen hintereinander zur klassischen [Callback-Hölle](https://medium.com/@raihan_tazdid/callback-hell-in-javascript-all-you-need-to-know-296f7f5d3c1):
 
 ```js-nolint
 doSomething(function (result) {
@@ -47,36 +47,36 @@ doSomething(function (result) {
 }, failureCallback);
 ```
 
-Mit Promises erreichen wir dies, indem wir eine Promise-Kette erstellen. Das API-Design von Promises macht dies großartig, weil die Callbacks an das zurückgegebene Promise-Objekt angehängt werden, anstatt in eine Funktion übergeben zu werden.
+Mit Promises lösen wir das, indem wir eine Promise-Kette erstellen. Das API-Design von Promises eignet sich dafür besonders gut, weil Callbacks an das zurückgegebene Promise-Objekt angehängt und nicht an eine Funktion übergeben werden.
 
-Hier ist das Besondere: Die Funktion `then()` gibt ein **neues Promise** zurück, das sich vom ursprünglichen unterscheidet:
+Der entscheidende Punkt ist: Die Funktion `then()` gibt ein **neues Promise** zurück, das sich vom ursprünglichen unterscheidet:
 
 ```js
 const promise = doSomething();
 const promise2 = promise.then(successCallback, failureCallback);
 ```
 
-Dieses zweite Promise (`promise2`) repräsentiert den Abschluss nicht nur von `doSomething()`, sondern auch von dem an `successCallback` oder `failureCallback` übergebenen Callback — welche andere asynchrone Funktionen sein können, die ein Promise zurückgeben. Wenn dies der Fall ist, werden alle an `promise2` hinzugefügten Callbacks hinter das Promise in die Warteschlange eingereiht, das von entweder `successCallback` oder `failureCallback` zurückgegeben wird.
+Dieses zweite Promise (`promise2`) repräsentiert nicht nur den Abschluss von `doSomething()`, sondern auch den Abschluss des übergebenen `successCallback` oder `failureCallback`. Dabei kann es sich wiederum um asynchrone Funktionen handeln, die ein Promise zurückgeben. In diesem Fall werden alle an `promise2` angehängten Callbacks hinter dem Promise eingereiht, das `successCallback` oder `failureCallback` zurückgibt.
 
 > [!NOTE]
-> Wenn Sie ein funktionierendes Beispiel verwenden möchten, können Sie die folgende Vorlage verwenden, um eine Funktion zu erstellen, die ein Promise zurückgibt:
+> Wenn Sie ein funktionsfähiges Beispiel ausprobieren möchten, können Sie mit der folgenden Vorlage eine beliebige Funktion erstellen, die ein Promise zurückgibt:
 >
 > ```js
 > function doSomething() {
 >   return new Promise((resolve) => {
 >     setTimeout(() => {
->       // Andere Dinge, die vor dem Abschluss des Promises erledigt werden müssen
+>       // Other things to do before completion of the promise
 >       console.log("Did something");
->       // Der Erfüllungswert des Promises
+>       // The fulfillment value of the promise
 >       resolve("https://example.com/");
 >     }, 200);
 >   });
 > }
 > ```
 >
-> Die Implementierung wird im Abschnitt [Erstellen eines Promises um eine alte Callback-API](#erstellen_eines_promises_um_eine_alte_callback-api) unten besprochen.
+> Die Implementierung wird weiter unten im Abschnitt [Ein Promise um eine ältere Callback-API erstellen](#ein_promise_um_eine_ältere_callback-api_erstellen) erläutert.
 
-Mit diesem Muster können Sie längere Verarbeitungsreihen erstellen, bei denen jedes Promise den Abschluss eines asynchronen Schrittes in der Kette darstellt. Darüber hinaus sind die Argumente zu `then` optional, und `catch(failureCallback)` ist kurz für `then(null, failureCallback)` — wenn also Ihr Fehlerbehandlungscode für alle Schritte gleich ist, können Sie ihn am Ende der Kette anhängen:
+Mit diesem Muster können Sie längere Verarbeitungsketten erstellen, in denen jedes Promise den Abschluss eines asynchronen Schritts repräsentiert. Außerdem sind die Argumente von `then` optional, und `catch(failureCallback)` ist eine Kurzform von `then(null, failureCallback)`. Wenn Ihr Code zur Fehlerbehandlung für alle Schritte gleich ist, können Sie ihn daher am Ende der Kette anhängen:
 
 ```js
 doSomething()
@@ -92,7 +92,7 @@ doSomething()
   .catch(failureCallback);
 ```
 
-Sie könnten dies mit [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) ausgedrückt sehen:
+Dasselbe lässt sich auch mit [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) ausdrücken:
 
 ```js
 doSomething()
@@ -105,9 +105,9 @@ doSomething()
 ```
 
 > [!NOTE]
-> Pfeilfunktionsausdrücke können eine [implizite Rückgabe](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) haben; also ist `() => x` kurz für `() => { return x; }`.
+> Pfeilfunktionsausdrücke können einen [impliziten Rückgabewert](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) haben. Daher ist `() => x` eine Kurzform von `() => { return x; }`.
 
-`doSomethingElse` und `doThirdThing` können jeden Wert zurückgeben — wenn sie Promises zurückgeben, wird das Promise zuerst gewartet, bis es sich erfüllt, und der nächste Callback erhält den Erfüllungswert, nicht das Promise selbst. Es ist wichtig, immer Promises von `then`-Callbacks zurückzugeben, selbst wenn das Promise immer `undefined` auflöst. Wenn der vorherige Handler ein Promise gestartet hat, es aber nicht zurückgegeben hat, gibt es keine Möglichkeit, seine Behebung weiter zu verfolgen, und das Promise wird als "schwebend" angesehen.
+`doSomethingElse` und `doThirdThing` können beliebige Werte zurückgeben. Wenn sie Promises zurückgeben, wird zunächst gewartet, bis das jeweilige Promise erfüllt oder zurückgewiesen wurde. Der nächste Callback erhält dann den Erfüllungswert, nicht das Promise selbst. Es ist wichtig, Promises aus `then`-Callbacks immer zurückzugeben, auch wenn das Promise stets zu `undefined` aufgelöst wird. Wenn der vorherige Handler ein Promise gestartet, aber nicht zurückgegeben hat, lässt sich dessen Abschluss nicht mehr nachverfolgen. Ein solches Promise wird als „schwebend“ bezeichnet.
 
 ```js example-bad
 doSomething()
@@ -122,7 +122,7 @@ doSomething()
   });
 ```
 
-Indem wir das Ergebnis des `fetch`-Aufrufs (ein Promise) zurückgeben, können wir sowohl dessen Abschluss verfolgen als auch dessen Wert erhalten, wenn er abgeschlossen ist.
+Wenn wir das Ergebnis des `fetch`-Aufrufs zurückgeben – also ein Promise –, können wir sowohl dessen Abschluss nachverfolgen als auch den resultierenden Wert erhalten.
 
 ```js example-good
 doSomething()
@@ -135,7 +135,7 @@ doSomething()
   });
 ```
 
-Schwebende Promises könnten schlimmer sein, wenn Sie Rennbedingungen haben — wenn das Promise vom letzten Handler nicht zurückgegeben wird, wird der nächste `then`-Handler frühzeitig aufgerufen, und jeder Wert, den er liest, könnte unvollständig sein.
+Schwebende Promises können bei Race Conditions noch problematischer sein: Wird das Promise des letzten Handlers nicht zurückgegeben, wird der nächste `then`-Handler zu früh aufgerufen. Ein Wert, den er liest, ist dann möglicherweise noch unvollständig.
 
 ```js example-bad
 const listOfIngredients = [];
@@ -155,7 +155,7 @@ doSomething()
   });
 ```
 
-Daher, als Daumenregel, wann immer Ihre Operation auf ein Promise trifft, geben Sie es zurück und überlassen Sie seine Behandlung dem nächsten `then`-Handler.
+Als Faustregel gilt daher: Wenn Ihre Operation auf ein Promise stößt, geben Sie es zurück und überlassen Sie seine Verarbeitung dem nächsten `then`-Handler.
 
 ```js example-good
 const listOfIngredients = [];
@@ -175,7 +175,7 @@ doSomething()
   });
 ```
 
-Noch besser ist es, die geschachtelte Kette in eine einzige Kette zu glätten, was einfacher ist und die Fehlerbehandlung erleichtert. Die Details werden im Abschnitt [Schachtelung](#schachtelung) unten besprochen.
+Noch besser ist es, die verschachtelte Kette zu einer einzigen Kette abzuflachen. Das ist einfacher und erleichtert die Fehlerbehandlung. Einzelheiten finden Sie weiter unten im Abschnitt [Verschachtelung](#verschachtelung).
 
 ```js
 doSomething()
@@ -189,7 +189,7 @@ doSomething()
   });
 ```
 
-Die Verwendung von [`async`/`await`](/de/docs/Web/JavaScript/Reference/Statements/async_function) kann Ihnen helfen, Code zu schreiben, der intuitiver ist und synchronem Code ähnelt. Unten ist dasselbe Beispiel mit `async`/`await`:
+Mit [`async`/`await`](/de/docs/Web/JavaScript/Reference/Statements/async_function) können Sie Code schreiben, der intuitiver ist und synchronem Code ähnelt. Das folgende Beispiel zeigt denselben Ablauf mit `async`/`await`:
 
 ```js
 async function logIngredients() {
@@ -201,16 +201,16 @@ async function logIngredients() {
 }
 ```
 
-Beachten Sie, wie der Code genau wie synchroner Code aussieht, außer für die `await`-Schlüsselwörter vor Promises. Eines der wenigen Kompromisse ist, dass es leicht sein kann, das [`await`](/de/docs/Web/JavaScript/Reference/Statements/async_function)-Schlüsselwort zu vergessen, das nur behoben werden kann, wenn ein Typ-Mismatch auftritt (z. B. der Versuch, ein Promise als Wert zu verwenden).
+Beachten Sie, dass der Code bis auf die `await`-Schlüsselwörter vor den Promises genauso aussieht wie synchroner Code. Einer der wenigen Nachteile ist, dass Sie das Schlüsselwort [`await`](/de/docs/Web/JavaScript/Reference/Statements/async_function) leicht vergessen können. Das fällt unter Umständen erst bei einem Typkonflikt auf, etwa wenn Sie versuchen, ein Promise wie einen Wert zu verwenden.
 
-`async`/`await` baut auf Promises auf — zum Beispiel ist `doSomething()` dieselbe Funktion wie zuvor, sodass nur minimales Refactoring erforderlich ist, um von Promises zu `async`/`await` zu wechseln. Sie können mehr über die `async`/`await`-Syntax in den Referenzen zu [asynchronen Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) und [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) lesen.
+`async`/`await` baut auf Promises auf. Beispielsweise ist `doSomething()` dieselbe Funktion wie zuvor, sodass für den Wechsel von Promises zu `async`/`await` nur wenige Änderungen erforderlich sind. Weitere Informationen zur Syntax von `async`/`await` finden Sie in den Referenzen zu [asynchronen Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) und [`await`](/de/docs/Web/JavaScript/Reference/Operators/await).
 
 > [!NOTE]
-> `async`/`await` hat die gleichen Nebenläufigkeitssemantiken wie normale Promise-Ketten. `await` innerhalb einer asynchronen Funktion stoppt nicht das gesamte Programm, sondern nur die Teile, die von seinem Wert abhängen, sodass andere asynchrone Jobs noch ausgeführt werden können, während `await` aussteht.
+> `async`/`await` hat dieselbe Semantik hinsichtlich gleichzeitiger Ausführung wie normale Promise-Ketten. `await` innerhalb einer asynchronen Funktion hält nicht das gesamte Programm an, sondern nur die Teile, die vom erwarteten Wert abhängen. Während `await` auf ein Ergebnis wartet, können andere asynchrone Aufgaben weiterlaufen.
 
 ## Fehlerbehandlung
 
-Sie erinnern sich vielleicht, dass `failureCallback` dreimal in der Pyramide des Schreckens vorgekommen ist, verglichen mit nur einmal am Ende der Promise-Kette:
+Vielleicht erinnern Sie sich daran, dass `failureCallback` in der zuvor gezeigten verschachtelten Callback-Struktur dreimal vorkam, am Ende der Promise-Kette dagegen nur einmal:
 
 ```js
 doSomething()
@@ -220,7 +220,7 @@ doSomething()
   .catch(failureCallback);
 ```
 
-Wenn eine Ausnahme auftritt, sucht der Browser die Kette nach `.catch()`-Handlern oder `onRejected` ab. Dies ist stark nach dem Modell, wie synchroner Code funktioniert:
+Wenn eine Ausnahme auftritt, sucht der Browser entlang der Kette nach `.catch()`-Handlern oder `onRejected`. Das ist eng an die Funktionsweise von synchronem Code angelehnt:
 
 ```js
 try {
@@ -233,7 +233,7 @@ try {
 }
 ```
 
-Diese Symmetrie mit asynchronem Code gipfelt in der `async`/`await`-Syntax:
+Diese Parallele zu synchronem Code zeigt sich auch in der Syntax von `async`/`await`:
 
 ```js
 async function foo() {
@@ -248,13 +248,13 @@ async function foo() {
 }
 ```
 
-Promises lösen einen grundlegenden Fehler mit der Callback-Pyramide des Schreckens, indem sie alle Fehler abfangen, sogar geworfene Ausnahmen und Programmierfehler. Dies ist essentiell für die funktionale Komposition asynchroner Operationen. Alle Fehler werden jetzt von der [`catch()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)-Methode am Ende der Kette behandelt, und man sollte fast nie `try`/`catch` verwenden müssen, ohne `async`/`await` zu verwenden.
+Promises beheben einen grundlegenden Mangel tief verschachtelter Callbacks, indem sie alle Fehler erfassen – auch ausgelöste Ausnahmen und Programmierfehler. Das ist für die funktionale Komposition asynchroner Operationen unerlässlich. Alle Fehler werden nun von der Methode [`catch()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) am Ende der Kette behandelt. Ohne `async`/`await` sollten Sie `try`/`catch` daher fast nie benötigen.
 
-### Schachtelung
+### Verschachtelung
 
-In den obigen Beispielen mit `listOfIngredients` hat das erste einen in den Rückgabewert eines anderen `then()`-Handlers geschachtelten Promise-Strang, während das zweite eine völlig flache Kette verwendet. Einfache Promise-Ketten sollten flach gehalten werden, ohne Schachtelung, da Schachtelung das Ergebnis unvorsichtiger Komposition sein kann.
+In den obigen Beispielen mit `listOfIngredients` enthält das erste Beispiel eine Promise-Kette, die im Rückgabewert eines anderen `then()`-Handlers verschachtelt ist. Das zweite Beispiel verwendet dagegen eine vollständig flache Kette. Einfache Promise-Ketten sollten möglichst flach bleiben, denn Verschachtelung kann die Folge einer unachtsamen Komposition sein.
 
-Schachtelung ist eine Kontrollstruktur, um den Geltungsbereich von `catch`-Anweisungen zu begrenzen. Konkret fängt ein geschachteltes `catch` nur Fehler in seinem Geltungsbereich und darunter ab, nicht aber Fehler, die höher in der Kette außerhalb des geschachtelten Bereichs liegen. Wenn dies richtig verwendet wird, bietet es eine größere Präzision bei der Fehlerbehebung:
+Verschachtelung ist eine Kontrollstruktur, mit der sich der Geltungsbereich von `catch`-Anweisungen begrenzen lässt. Ein verschachteltes `catch` erfasst nur Fehler innerhalb seines Geltungsbereichs und darunter, nicht jedoch Fehler weiter oben in der Kette außerhalb dieses Bereichs. Richtig eingesetzt ermöglicht das eine gezieltere Fehlerbehandlung:
 
 ```js
 doSomethingCritical()
@@ -267,11 +267,11 @@ doSomethingCritical()
   .catch((e) => console.error(`Critical failure: ${e.message}`));
 ```
 
-Beachten Sie, dass die optionalen Schritte hier geschachtelt sind — die Schachtelung wird nicht durch die Einrückung, sondern durch die Platzierung der äußeren `(` und `)` Klammern um die Schritte herum verursacht.
+Beachten Sie, dass die optionalen Schritte hier verschachtelt sind. Die Verschachtelung ergibt sich nicht aus der Einrückung, sondern aus der Position der äußeren Klammern `(` und `)` um diese Schritte.
 
-Der innere Fehlerunterdrückung-`catch`-Handler fängt nur Fehler von `doSomethingOptional()` und `doSomethingExtraNice()` ab, danach wird der Code mit `moreCriticalStuff()` fortgesetzt. Wichtig ist, dass, wenn `doSomethingCritical()` fehlschlägt, sein Fehler nur vom finalen (äußeren) `catch` gefangen wird und nicht vom inneren `catch`-Handler unterdrückt wird.
+Der innere `catch`-Handler, der Fehler unterdrückt, erfasst nur Fehler aus `doSomethingOptional()` und `doSomethingExtraNice()`. Danach wird der Code mit `moreCriticalStuff()` fortgesetzt. Schlägt dagegen `doSomethingCritical()` fehl, wird der Fehler nur vom abschließenden (äußeren) `catch` erfasst und nicht vom inneren `catch`-Handler unterdrückt.
 
-In `async`/`await` sieht dieser Code so aus:
+Mit `async`/`await` sieht dieser Code so aus:
 
 ```js
 async function main() {
@@ -291,11 +291,11 @@ async function main() {
 ```
 
 > [!NOTE]
-> Wenn Sie keine ausgeklügelte Fehlerbehandlung haben, brauchen Sie sehr wahrscheinlich keine geschachtelten `then`-Handler. Verwenden Sie stattdessen eine flache Kette und setzen Sie die Fehlerbehandlungslogik am Ende.
+> Wenn Sie keine differenzierte Fehlerbehandlung benötigen, brauchen Sie sehr wahrscheinlich auch keine verschachtelten `then`-Handler. Verwenden Sie stattdessen eine flache Kette und platzieren Sie die Fehlerbehandlung an deren Ende.
 
-### Chaining nach einem Catch
+### Verkettung nach einem catch
 
-Es ist möglich, _nach_ einem Fehler, d.h. einem `catch` zu verketteten, was nützlich ist, um nach einem fehlgeschlagenen Vorgang in der Kette neue Aktionen durchzuführen. Lesen Sie das folgende Beispiel:
+Sie können die Kette auch _nach_ einem Fehler, also nach einem `catch`, fortsetzen. Das ist nützlich, wenn Sie weitere Aktionen ausführen möchten, obwohl eine vorherige Aktion in der Kette fehlgeschlagen ist. Betrachten Sie das folgende Beispiel:
 
 ```js
 doSomething()
@@ -312,7 +312,7 @@ doSomething()
   });
 ```
 
-Dies gibt den folgenden Text aus:
+Es gibt den folgenden Text aus:
 
 ```plain
 Do that
@@ -320,9 +320,9 @@ Do this, no matter what happened before
 ```
 
 > [!NOTE]
-> Der Text "Do this" wird nicht angezeigt, da der "Something failed"-Fehler eine Ablehnung verursacht hat.
+> Der Text „Do this“ wird nicht angezeigt, weil der Fehler „Something failed“ zur Zurückweisung geführt hat.
 
-In `async`/`await` sieht dieser Code so aus:
+Mit `async`/`await` sieht dieser Code so aus:
 
 ```js
 async function main() {
@@ -337,20 +337,20 @@ async function main() {
 }
 ```
 
-### Promise-Ablehnungsereignisse
+### Ereignisse bei der Zurückweisung von Promises
 
-Wenn ein Promise-Ablehnungsereignis von keinem Handler abgefangen wird, wird es bis zum oberen Ende des Aufrufstapels weitergegeben, und der Host muss es anzeigen. Im Web, wann immer ein Promise abgelehnt wird, wird eines von zwei Ereignissen an den globalen Bereich gesendet (in der Regel ist dies entweder das [`window`](/de/docs/Web/API/Window) oder, wenn es in einem Web Worker verwendet wird, das [`Worker`](/de/docs/Web/API/Worker) oder eine andere arbeitnehmerbasierte Schnittstelle). Die beiden Ereignisse sind:
+Wenn kein Handler die Zurückweisung eines Promise behandelt, wird sie bis an die Spitze des Aufrufstapels weitergegeben und muss von der Host-Umgebung sichtbar gemacht werden. Im Web wird bei jeder Zurückweisung eines Promise eines von zwei Ereignissen an den globalen Geltungsbereich gesendet. Im Allgemeinen ist das entweder [`window`](/de/docs/Web/API/Window) oder, bei Verwendung in einem Web Worker, [`Worker`](/de/docs/Web/API/Worker) beziehungsweise eine andere Worker-basierte Schnittstelle. Die beiden Ereignisse sind:
 
 - [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
-  - : Wird gesendet, wenn ein Promise abgelehnt wird, aber kein Ablehnungshandler verfügbar ist.
+  - : Wird gesendet, wenn ein Promise zurückgewiesen wird, aber kein Handler für die Zurückweisung vorhanden ist.
 - [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
-  - : Wird gesendet, wenn ein Handler an ein abgelehntes Promise angehängt wird, das bereits ein `unhandledrejection`-Ereignis verursacht hat.
+  - : Wird gesendet, wenn einem zurückgewiesenen Promise ein Handler hinzugefügt wird, nachdem es bereits ein `unhandledrejection`-Ereignis ausgelöst hat.
 
-In beiden Fällen hat das Ereignis (vom Typ [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)) als Mitglieder eine [`promise`](/de/docs/Web/API/PromiseRejectionEvent/promise)-Eigenschaft, die das abgelehnte Promise anzeigt, und eine [`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason)-Eigenschaft, die den Grund angibt, warum das Promise abgelehnt wurde.
+In beiden Fällen hat das Ereignis vom Typ [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) eine [`promise`](/de/docs/Web/API/PromiseRejectionEvent/promise)-Eigenschaft, die das zurückgewiesene Promise angibt, sowie eine [`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason)-Eigenschaft, die den Grund für die Zurückweisung enthält.
 
-Diese ermöglichen es, eine alternative Fehlerbehandlung für Promises anzubieten und helfen dabei, Probleme mit Ihrem Promise-Management zu debuggen. Diese Handler sind global pro Kontext, sodass alle Fehler an dieselben Ereignis-Handler gehen, unabhängig von der Quelle.
+Damit können Sie eine allgemeine Fehlerbehandlung für Promises bereitstellen und Probleme beim Umgang mit Promises leichter untersuchen. Diese Handler gelten global für den jeweiligen Kontext. Unabhängig von ihrer Herkunft gelangen daher alle entsprechenden Fehler zu denselben Ereignishandlern.
 
-In {{Glossary("Node.js", "Node.js")}} ist die Behandlung von Promise-Ablehnungen etwas anders. Sie erfassen unbehandelte Ablehnungen, indem Sie einen Handler für das Node.js-`unhandledRejection`-Ereignis hinzufügen (achten Sie auf die Groß- und Kleinschreibung des Namens), so:
+In {{Glossary("Node.js", "Node.js")}} funktioniert die Behandlung zurückgewiesener Promises etwas anders. Nicht behandelte Zurückweisungen erfassen Sie, indem Sie einen Handler für das Node.js-Ereignis `unhandledRejection` hinzufügen. Beachten Sie die andere Großschreibung im Namen:
 
 ```js
 process.on("unhandledRejection", (reason, promise) => {
@@ -358,15 +358,15 @@ process.on("unhandledRejection", (reason, promise) => {
 });
 ```
 
-Für Node.js, um zu verhindern, dass der Fehler in die Konsole geloggt wird (die Standardaktion, die sonst erfolgen würde), reicht es aus, diesen `process.on()`-Listener hinzuzufügen; es besteht keine Notwendigkeit für ein Äquivalent zur [`preventDefault()`](/de/docs/Web/API/Event/preventDefault)-Methode der Browserlaufzeit.
+Um in Node.js zu verhindern, dass der Fehler auf der Konsole protokolliert wird – was andernfalls standardmäßig geschieht –, genügt es, diesen `process.on()`-Listener hinzuzufügen. Ein Gegenstück zur Browser-Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) ist nicht erforderlich.
 
-Wenn Sie jedoch diesen `process.on`-Listener hinzufügen, aber keine Logik darin haben, um abgelehnte Promises zu behandeln, werden sie einfach ignoriert. Idealerweise sollten Sie daher Code innerhalb dieses Listeners hinzufügen, um jedes abgelehnte Promise zu untersuchen und sicherzustellen, dass es nicht durch einen tatsächlichen Programmierfehler verursacht wurde.
+Wenn Sie diesen `process.on`-Listener hinzufügen, darin aber keinen Code zur Behandlung zurückgewiesener Promises vorsehen, werden diese lediglich stillschweigend ignoriert. Idealerweise prüfen Sie deshalb im Listener jedes zurückgewiesene Promise und stellen sicher, dass die Zurückweisung nicht durch einen tatsächlichen Programmfehler verursacht wurde.
 
-## Zusammensetzung
+## Komposition
 
-Es gibt vier [Zusammensetzungstools](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency) für die gleichzeitige Ausführung von asynchronen Operationen: {{jsxref("Promise.all()")}}, {{jsxref("Promise.allSettled()")}}, {{jsxref("Promise.any()")}}, und {{jsxref("Promise.race()")}}.
+Es gibt vier [Werkzeuge zur Komposition](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency), mit denen sich asynchrone Operationen gleichzeitig ausführen lassen: {{jsxref("Promise.all()")}}, {{jsxref("Promise.allSettled()")}}, {{jsxref("Promise.any()")}} und {{jsxref("Promise.race()")}}.
 
-Wir können Operationen gleichzeitig starten und warten, bis sie alle beendet sind, wie folgt:
+So können wir Operationen gleichzeitig starten und warten, bis alle abgeschlossen sind:
 
 ```js
 Promise.all([func1(), func2(), func3()]).then(([result1, result2, result3]) => {
@@ -374,9 +374,9 @@ Promise.all([func1(), func2(), func3()]).then(([result1, result2, result3]) => {
 });
 ```
 
-Wenn eines der Promises im Array abgelehnt wird, lehnt `Promise.all()` sofort das zurückgegebene Promise ab. Die anderen Operationen laufen weiter, aber ihre Ergebnisse sind nicht über den Rückgabewert von `Promise.all()` verfügbar. Dies kann zu unerwartetem Verhalten führen. {{jsxref("Promise.allSettled()")}} ist ein weiteres Zusammensetzungstool, das sicherstellt, dass alle Operationen abgeschlossen sind, bevor es aufgelöst wird.
+Wird eines der Promises im Array zurückgewiesen, weist `Promise.all()` das zurückgegebene Promise sofort zurück. Die anderen Operationen laufen weiter, ihre Ergebnisse sind jedoch nicht über den Rückgabewert von `Promise.all()` verfügbar. Das kann zu unerwarteten Zuständen oder Verhaltensweisen führen. {{jsxref("Promise.allSettled()")}} ist ein weiteres Werkzeug zur Komposition, das sicherstellt, dass alle Operationen abgeschlossen sind, bevor das zurückgegebene Promise erfüllt wird.
 
-Diese Methoden führen alle Promises gleichzeitig aus — eine Folge von Promises wird gleichzeitig gestartet und wartet nicht aufeinander. Sequenzielle Zusammensetzung ist mit einigem cleveren JavaScript möglich:
+Bei all diesen Methoden laufen Promises gleichzeitig: Mehrere Promises werden zur selben Zeit gestartet und warten nicht aufeinander. Mit etwas geschickt eingesetztem JavaScript ist auch eine sequenzielle Komposition möglich:
 
 ```js
 [func1, func2, func3]
@@ -386,7 +386,7 @@ Diese Methoden führen alle Promises gleichzeitig aus — eine Folge von Promise
   });
 ```
 
-In diesem Beispiel reduzieren wir ein Array von asynchronen Funktionen zu einer Promise-Kette. Der obige Code entspricht:
+In diesem Beispiel verwenden wir [`reduce`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce), um aus einem Array asynchroner Funktionen eine Promise-Kette zu bilden. Der obige Code entspricht:
 
 ```js
 Promise.resolve()
@@ -398,7 +398,7 @@ Promise.resolve()
   });
 ```
 
-Dies kann zu einer wiederverwendbaren Compose-Funktion gemacht werden, die in der funktionalen Programmierung üblich ist:
+Daraus lässt sich eine wiederverwendbare Funktion zur Komposition erstellen, wie sie in der funktionalen Programmierung üblich ist:
 
 ```js
 const applyAsync = (acc, val) => acc.then(val);
@@ -408,14 +408,14 @@ const composeAsync =
     funcs.reduce(applyAsync, Promise.resolve(x));
 ```
 
-Die `composeAsync()`-Funktion akzeptiert beliebig viele Funktionen als Argumente und gibt eine neue Funktion zurück, die einen Anfangswert akzeptiert, der durch die Kompositionspipeline geleitet wird:
+Die Funktion `composeAsync()` nimmt eine beliebige Anzahl von Funktionen als Argumente entgegen und gibt eine neue Funktion zurück. Diese nimmt einen Anfangswert entgegen, der die Kompositionskette durchläuft:
 
 ```js
 const transformData = composeAsync(func1, func2, func3);
 const result3 = transformData(data);
 ```
 
-Sequentielle Zusammensetzung kann auch prägnanter mit async/await durchgeführt werden:
+Mit async/await lässt sich die sequenzielle Komposition auch kürzer ausdrücken:
 
 ```js
 let result;
@@ -425,25 +425,25 @@ for (const f of [func1, func2, func3]) {
 /* use last result (i.e. result3) */
 ```
 
-Bevor Sie jedoch Promises sequentiell zusammensetzen, überlegen Sie, ob es wirklich notwendig ist — es ist immer besser, Promises gleichzeitig auszuführen, sodass sie sich nicht unnötig blockieren, es sei denn, die Ausführung eines Promises hängt von dem Ergebnis eines anderen ab.
+Bevor Sie Promises jedoch sequenziell verknüpfen, prüfen Sie, ob das wirklich nötig ist. Sofern die Ausführung eines Promise nicht vom Ergebnis eines anderen abhängt, ist es stets besser, sie gleichzeitig auszuführen, damit sie sich nicht unnötig gegenseitig blockieren.
 
 ## Abbruch
 
-`Promise` selbst verfügt über kein erstklassiges Protokoll für den Abbruch, aber es ist möglich, die zugrunde liegende asynchrone Operation direkt abzubrechen, typischerweise mit [`AbortController`](/de/docs/Web/API/AbortController).
+`Promise` selbst bietet kein eigenständiges Protokoll zum Abbrechen. Möglicherweise können Sie jedoch die zugrunde liegende asynchrone Operation direkt abbrechen, üblicherweise mit [`AbortController`](/de/docs/Web/API/AbortController).
 
-## Erstellen eines Promises um eine alte Callback-API
+## Ein Promise um eine ältere Callback-API erstellen
 
-Ein {{jsxref("Promise")}} kann von Grund auf neu mit seinem [Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) erstellt werden. Dies sollte nur benötigt werden, um alte APIs zu umschließen.
+Sie können ein {{jsxref("Promise")}} mit seinem [Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) von Grund auf erstellen. Das sollte nur nötig sein, um ältere APIs einzubinden.
 
-In einer idealen Welt würden alle asynchronen Funktionen bereits Promises zurückgeben. Leider erwarten einige APIs immer noch, dass Erfolgs- und/oder Fehler-Callbacks auf die alte Weise übergeben werden. Das offensichtlichste Beispiel ist die [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-Funktion:
+Im Idealfall würden alle asynchronen Funktionen bereits Promises zurückgeben. Leider erwarten manche APIs noch immer, dass Callbacks für Erfolg und/oder Fehler auf die herkömmliche Weise übergeben werden. Das naheliegendste Beispiel ist die Funktion [`setTimeout()`](/de/docs/Web/API/Window/setTimeout):
 
 ```js
 setTimeout(() => saySomething("10 seconds passed"), 10 * 1000);
 ```
 
-Das Mischen von Rückrufen im alten Stil und Promises ist problematisch. Wenn `saySomething()` fehlschlägt oder einen Programmierfehler enthält, fängt nichts dies ab. Dies ist intrinsisch zum Design von `setTimeout()`.
+Herkömmliche Callbacks mit Promises zu mischen, ist problematisch. Wenn `saySomething()` fehlschlägt oder einen Programmierfehler enthält, wird dieser nicht abgefangen. Das liegt am Design von `setTimeout()`.
 
-Glücklicherweise können wir `setTimeout()` in ein Promise verpacken. Die beste Praxis besteht darin, die rückrufannehmenden Funktionen so niedrig wie möglich zu umschließen und sie dann nie wieder direkt aufzurufen:
+Glücklicherweise können wir `setTimeout()` in ein Promise einbinden. Bewährt hat sich, Funktionen, die Callbacks entgegennehmen, auf der niedrigstmöglichen Ebene einzubinden und sie anschließend nicht mehr direkt aufzurufen:
 
 ```js
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -453,15 +453,15 @@ wait(10 * 1000)
   .catch(failureCallback);
 ```
 
-Der Promise-Konstruktor akzeptiert eine Ausführungsfunktion, die es uns ermöglicht, ein Promise manuell aufzulösen oder abzulehnen. Da `setTimeout()` nicht wirklich fehlschlägt, haben wir `reject` in diesem Fall weggelassen. Weitere Informationen darüber, wie die Ausführungsfunktion funktioniert, finden Sie in der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Referenz.
+Der Promise-Konstruktor nimmt eine Executor-Funktion entgegen, mit der wir ein Promise selbst erfüllen oder zurückweisen können. Da `setTimeout()` im eigentlichen Sinne nicht fehlschlägt, haben wir `reject` in diesem Fall weggelassen. Weitere Informationen zur Funktionsweise der Executor-Funktion finden Sie in der Referenz zu [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise).
 
-## Timing
+## Zeitliche Abfolge
 
-Zum Schluss schauen wir uns noch die technischen Details an, wann die registrierten Callbacks aufgerufen werden.
+Zum Schluss betrachten wir genauer, wann die registrierten Callbacks aufgerufen werden.
 
 ### Garantien
 
-In der rückrufbasierten API hängt es vom API-Implementierer ab, wann und wie der Rückruf aufgerufen wird. Zum Beispiel könnte der Rückruf synchron oder asynchron aufgerufen werden:
+Bei einer Callback-basierten API hängt es von der Implementierung ab, wann und wie der Callback aufgerufen wird. Beispielsweise kann er synchron oder asynchron aufgerufen werden:
 
 ```js example-bad
 function doSomething(callback) {
@@ -473,7 +473,7 @@ function doSomething(callback) {
 }
 ```
 
-Das obige Design wird stark abgeraten, da es zum sogenannten "Zalgo-Zustand" führt. Im Kontext des Entwerfens asynchroner APIs bedeutet dies, dass ein Rückruf in einigen Fällen synchron, in anderen Fällen jedoch asynchron aufgerufen wird und so Ambiguitäten für den Anrufer entstehen. Weitere Hintergrundinformationen finden Sie im Artikel [Designing APIs for Asynchrony](https://blog.izs.me/2013/08/designing-apis-for-asynchrony/), wo der Begriff erstmals formell vorgestellt wurde. Dieses API-Design macht Nebeneffekte schwer analysierbar:
+Von diesem Design wird dringend abgeraten, weil es zum sogenannten „State of Zalgo“ führt. Beim Entwurf asynchroner APIs bedeutet das, dass ein Callback in manchen Fällen synchron und in anderen asynchron aufgerufen wird. Für den aufrufenden Code entsteht dadurch Unklarheit. Weitere Hintergründe finden Sie im Artikel [Designing APIs for Asynchrony](https://blog.izs.me/2013/08/designing-apis-for-asynchrony/), in dem der Begriff erstmals ausdrücklich vorgestellt wurde. Dieses API-Design erschwert die Analyse von Nebeneffekten:
 
 ```js
 let value = 1;
@@ -483,13 +483,13 @@ doSomething(() => {
 console.log(value); // 1 or 2?
 ```
 
-Auf der anderen Seite sind Promises eine Form der [umgekehrten Kontrolle](https://en.wikipedia.org/wiki/Inversion_of_control) — der API-Implementierer kontrolliert nicht, wann der Rückruf aufgerufen wird. Stattdessen wird die Verwaltung der Rückrufwarteschlange und die Entscheidung, wann die Rückrufe aufgerufen werden, an die Promise-Implementierung delegiert, und sowohl der API-Anwender als auch der API-Entwickler erhalten automatisch starke semantische Garantien, einschließlich:
+Promises sind dagegen eine Form der [Inversion of Control](https://en.wikipedia.org/wiki/Inversion_of_control): Die API-Implementierung bestimmt nicht, wann der Callback aufgerufen wird. Stattdessen übernimmt die Promise-Implementierung die Verwaltung der Callback-Warteschlange und entscheidet, wann die Callbacks aufgerufen werden. Dadurch erhalten sowohl diejenigen, die die API verwenden, als auch diejenigen, die sie entwickeln, automatisch verlässliche semantische Garantien, darunter:
 
-- Rückrufe, die mit [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) hinzugefügt werden, werden niemals vor dem [Abschluss des aktuellen Laufs](/de/docs/Web/JavaScript/Reference/Execution_model#run-to-completion) der JavaScript-Ereignisschleife aufgerufen.
-- Diese Rückrufe werden aufgerufen, auch wenn sie _nach_ dem Erfolg oder Misserfolg der asynchronen Operation, die das Promise darstellt, hinzugefügt wurden.
-- Mehrere Rückrufe können hinzugefügt werden, indem [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) mehrmals aufgerufen wird. Sie werden nacheinander in der Reihenfolge aufgerufen, in der sie eingefügt wurden.
+- Mit [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) hinzugefügte Callbacks werden niemals vor dem [Abschluss des aktuellen Durchlaufs](/de/docs/Web/JavaScript/Reference/Execution_model#run-to-completion) der JavaScript-Event-Loop aufgerufen.
+- Diese Callbacks werden auch dann aufgerufen, wenn sie _nach_ dem Erfolg oder Misserfolg der asynchronen Operation hinzugefügt wurden, die das Promise repräsentiert.
+- Durch mehrmaliges Aufrufen von [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) können mehrere Callbacks hinzugefügt werden. Sie werden nacheinander in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden.
 
-Um Überraschungen zu vermeiden, werden Funktionen, die an [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) übergeben werden, niemals synchron aufgerufen, auch nicht bei einem bereits gelösten Promise:
+Um Überraschungen zu vermeiden, werden an [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) übergebene Funktionen niemals synchron aufgerufen – auch nicht bei einem bereits erfüllten Promise:
 
 ```js
 Promise.resolve().then(() => console.log(2));
@@ -497,7 +497,7 @@ console.log(1);
 // Logs: 1, 2
 ```
 
-Anstatt sofort zu laufen, wird die übergebene Funktion in eine Microtask-Warteschlange gestellt, was bedeutet, dass sie später ausgeführt wird (nur nachdem die Funktion, die sie erstellt hat, beendet ist und wenn der JavaScript-Ausführungsstack leer ist), gerade bevor die Kontrolle an die Ereignisschleife zurückgegeben wird; d.h. ziemlich bald:
+Statt sofort ausgeführt zu werden, wird die übergebene Funktion in eine Microtask-Warteschlange eingereiht. Sie läuft also später: erst nachdem die Funktion, die sie erstellt hat, beendet wurde und der JavaScript-Ausführungsstapel leer ist, aber noch bevor die Steuerung an die Event-Loop zurückgegeben wird – also schon bald:
 
 ```js
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -509,9 +509,9 @@ Promise.resolve()
 console.log(1); // 1, 2, 3, 4
 ```
 
-### Aufgabenwarteschlangen vs. Microtasks
+### Task-Warteschlangen und Microtasks
 
-Promise-Callbacks werden als [Microtask](/de/docs/Web/API/HTML_DOM_API/Microtask_guide) behandelt, wohingegen [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-Callbacks als Aufgabenwarteschlangen behandelt werden.
+Promise-Callbacks werden als [Microtasks](/de/docs/Web/API/HTML_DOM_API/Microtask_guide) verarbeitet, während Callbacks von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) über die Task-Warteschlange verarbeitet werden.
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -537,20 +537,20 @@ Promise callback (.then)
 event-loop cycle: Promise (fulfilled) Promise {<fulfilled>}
 ```
 
-Weitere Details finden Sie unter [Aufgaben vs. Microtasks](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#tasks_vs._microtasks).
+Weitere Einzelheiten finden Sie unter [Tasks vs. microtasks](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#tasks_vs._microtasks).
 
-### Wenn Promises und Aufgaben kollidieren
+### Wenn Promises und Tasks zusammentreffen
 
-Wenn Sie auf Situationen stoßen, in denen Sie Promises und Aufgaben (wie Ereignisse oder Rückrufe) haben, die in unvorhersehbaren Reihenfolgen ausgelöst werden, ist es möglich, dass Sie von der Verwendung eines Microtasks profitieren könnten, um den Status zu überprüfen oder Ihre Promises auszugleichen, wenn Promises bedingt erstellt werden.
+Wenn Promises und Tasks – etwa Ereignisse oder Callbacks – in einer unvorhersehbaren Reihenfolge ausgeführt werden, kann es hilfreich sein, mit einem Microtask einen Zustand zu prüfen oder den Ablauf von Promises auszugleichen, die nur unter bestimmten Bedingungen erstellt werden.
 
-Wenn Sie glauben, dass Microtasks zur Lösung dieses Problems beitragen können, lesen Sie den [Microtask-Leitfaden](/de/docs/Web/API/HTML_DOM_API/Microtask_guide), um mehr darüber zu erfahren, wie Sie [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) verwenden, um eine Funktion als Microtask in die Warteschlange einzureihen.
+Wenn Microtasks bei der Lösung dieses Problems helfen könnten, lesen Sie den [Leitfaden zu Microtasks](/de/docs/Web/API/HTML_DOM_API/Microtask_guide). Dort erfahren Sie, wie Sie mit [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) eine Funktion als Microtask einreihen.
 
 ## Siehe auch
 
 - {{jsxref("Promise")}}
 - {{jsxref("Statements/async_function", "async function")}}
 - {{jsxref("Operators/await", "await")}}
-- [Promises/A+ specification](https://promisesaplus.com/)
+- [Promises/A+-Spezifikation](https://promisesaplus.com/)
 - [We have a problem with promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html) auf pouchdb.com (2015)
 
 {{PreviousNext("Web/JavaScript/Guide/Using_classes", "Web/JavaScript/Guide/Typed_arrays")}}

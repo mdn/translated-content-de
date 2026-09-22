@@ -2,45 +2,45 @@
 title: <script>
 slug: Web/SVG/Reference/Element/script
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 298079b550c76f20de6611c4ecdde4c30dc68b2b
 ---
 
-Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es Ihnen, Skripte zu einem SVG-Dokument hinzuzufügen.
+Mit dem **`<script>`**-Element von [SVG](/de/docs/Web/SVG) können Sie einem SVG-Dokument Skripte hinzufügen.
 
 > [!NOTE]
-> Während das `script`-Element von SVG dem HTML {{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie z.B. die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und es unterstützt bisher keine ECMAScript-Module (siehe unten für Browser-Kompatibilität).
+> Das `script`-Element von SVG entspricht zwar dem HTML-Element {{HTMLElement('script')}}, unterscheidet sich aber in einigen Punkten: Es verwendet beispielsweise das Attribut {{SVGAttr('href')}} statt [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und unterstützt bislang keine ECMAScript-Module. Weitere Informationen finden Sie unten unter Browser-Kompatibilität.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
 ## Attribute
 
 - `async` {{experimental_inline}}
-  - : Wenn das `async`-Attribut vorhanden ist, wird das externe Skript parallel zum Parsen abgerufen und ausgeführt, sobald es verfügbar ist. Entspricht dem [`async`](/de/docs/Web/HTML/Reference/Elements/script#async)-Attribut des HTML {{HTMLElement('script')}}-Elements.
+  - : Wenn das Attribut `async` vorhanden ist, wird das externe Skript parallel zum Parsen geladen und ausgeführt, sobald es verfügbar ist. Dies entspricht dem Attribut [`async`](/de/docs/Web/HTML/Reference/Elements/script#async) des HTML-Elements {{HTMLElement('script')}}.
     _Wertetyp_: **boolean**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Elements/script#crossorigin)
-  - : Dieses Attribut definiert [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin) wie für das HTML {{HTMLElement('script')}}-Element.
+  - : Dieses Attribut legt die [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin) fest, wie sie für das HTML-Element {{HTMLElement('script')}} definiert sind.
     _Wertetyp_: [**[ anonymous | use-credentials ]?**](/de/docs/Web/CSS/Reference/Values/string); _Standardwert_: `?`; _Animierbar_: **ja**
 - `defer` {{experimental_inline}}
-  - : Wenn das `defer`-Attribut vorhanden ist, wird das externe Skript nach dem Parsen des Dokuments, aber vor dem Auslösen von [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) ausgeführt. Entspricht dem [`defer`](/de/docs/Web/HTML/Reference/Elements/script#defer)-Attribut des HTML {{HTMLElement('script')}}-Elements.
+  - : Wenn das Attribut `defer` vorhanden ist, wird das externe Skript ausgeführt, nachdem das Dokument geparst wurde, aber bevor das Ereignis [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) ausgelöst wird. Dies entspricht dem Attribut [`defer`](/de/docs/Web/HTML/Reference/Elements/script#defer) des HTML-Elements {{HTMLElement('script')}}.
     _Wertetyp_: **boolean**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("fetchpriority")}} {{experimental_inline}} {{non-standard_inline}}
-  - : Gibt einen Hinweis auf die relative Priorität des Abrufs eines externen Skripts.
-    Erlaubte Werte:
+  - : Gibt einen Hinweis auf die relative Priorität beim Laden eines externen Skripts.
+    Zulässige Werte:
     - `high`
-      - : Ruft das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten ab.
+      - : Lädt das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten.
     - `low`
-      - : Ruft das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten ab.
+      - : Lädt das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten.
     - `auto`
-      - : Setzt keine Präferenz für die Abrufpriorität.
-        Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
+      - : Legt keine bevorzugte Ladepriorität fest.
+        Dieser Wert wird verwendet, wenn kein Wert oder ein ungültiger Wert angegeben ist.
         Dies ist der Standardwert.
 - {{SVGAttr("href")}}
   - : Die {{Glossary("URL", "URL")}} des zu ladenden Skripts.
     _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der zu verwendenden Skriptsprache.
+  - : Dieses Attribut legt den Typ der zu verwendenden Skriptsprache fest.
     _Wertetyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
   - : Die {{Glossary("URL", "URL")}} des zu ladenden Skripts.
@@ -48,7 +48,7 @@ Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es Ihnen, Skripte
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement)-Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement).
 
 ## Beispiel
 
@@ -99,5 +99,5 @@ Click the circle to change colors.
 
 ## Siehe auch
 
-- {{SVGAttr("fetchpriority")}}-Attribut
+- Attribut {{SVGAttr("fetchpriority")}}
 - [`script`-Element in HTML](/de/docs/Web/HTML/Reference/Elements/script)

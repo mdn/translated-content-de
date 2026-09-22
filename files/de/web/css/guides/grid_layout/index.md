@@ -3,16 +3,16 @@ title: CSS-Grid-Layout
 short-title: Grid layout
 slug: Web/CSS/Guides/Grid_layout
 l10n:
-  sourceCommit: b02c4fe0f8c485fa3fd0af10005310aaecef64ca
+  sourceCommit: 298079b550c76f20de6611c4ecdde4c30dc68b2b
 ---
 
-Das **CSS-Grid-Layout**-Modul eignet sich hervorragend, um eine Seite in Hauptbereiche zu unterteilen oder die Beziehung in Bezug auf Größe, Position und Überlagerung zwischen Teilen eines Steuerelements zu definieren, das aus HTML-Primitiven erstellt wurde.
+Das Modul **CSS-Grid-Layout** eignet sich besonders gut, um eine Seite in größere Bereiche aufzuteilen oder Größen-, Positions- und Überlagerungsbeziehungen zwischen den Teilen eines aus HTML-Grundelementen aufgebauten Bedienelements festzulegen.
 
-Wie Tabellen ermöglicht das Grid-Layout einem Autor, Elemente in Spalten und Reihen auszurichten. Allerdings sind mit CSS-Grid weitaus mehr Layouts entweder möglich oder einfacher als mit Tabellen. Zum Beispiel könnten sich die Kindelemente eines Grid-Containers so positionieren, dass sie sich tatsächlich überlappen und schichten, ähnlich wie CSS-positionierte Elemente.
+Wie Tabellen ermöglicht Grid-Layout, Elemente in Spalten und Zeilen auszurichten. Mit CSS Grid sind jedoch deutlich mehr Layouts möglich oder einfacher umzusetzen als mit Tabellen. Beispielsweise können sich die Kindelemente eines Grid-Containers so positionieren, dass sie sich überlappen und übereinanderliegen – ähnlich wie mit CSS positionierte Elemente.
 
 ## Grid-Layout in Aktion
 
-Das Beispiel zeigt ein dreispaltiges Raster mit neuen Zeilen, die bei mindestens 100 Pixeln und maximal automatisch erstellt werden. Elemente wurden mithilfe der linienbasierten Platzierung auf das Raster gesetzt.
+Das Beispiel zeigt ein Grid mit drei Spalten. Neue Zeilen werden mit einer Mindestgröße von 100 Pixeln erstellt; ihre maximale Größe wird automatisch bestimmt. Die Elemente wurden anhand von Grid-Linien platziert.
 
 ```html hidden
 <div class="wrapper">
@@ -74,7 +74,7 @@ Das Beispiel zeigt ein dreispaltiges Raster mit neuen Zeilen, die bei mindestens
 
 {{EmbedLiveSample("Grid_layout_in_action", "100%", "460")}}
 
-Diese Beispiellanimation verwendet {{cssxref("display")}}, {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("gap")}}, um das Raster zu erstellen, und {{cssxref("grid-column")}} und {{cssxref("grid-row")}}, um die Elemente im Raster zu positionieren. Um den verwendeten HTML- und CSS-Code anzusehen und zu bearbeiten, klicken Sie oben rechts im Beispiel auf 'Play'.
+Diese Beispielanimation verwendet {{cssxref("display")}}, {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("gap")}}, um das Grid zu erstellen, sowie {{cssxref("grid-column")}} und {{cssxref("grid-row")}}, um Elemente darin zu positionieren. Um den verwendeten HTML- und CSS-Code anzusehen und zu bearbeiten, klicken Sie oben rechts im Beispiel auf „Play“.
 
 ## Referenz
 
@@ -86,15 +86,15 @@ Diese Beispiellanimation verwendet {{cssxref("display")}}, {{cssxref("grid-templ
 - {{CSSxRef("grid-template-columns")}}
 - {{CSSxRef("grid-template-rows")}}
 - {{CSSxRef("grid-template-areas")}}
-- {{CSSxRef("grid-template")}} Kurzform
-- {{CSSxRef("grid")}} Kurzform
+- {{CSSxRef("grid-template")}} Kurzschreibweise
+- {{CSSxRef("grid")}} Kurzschreibweise
 - {{CSSxRef("grid-column-start")}}
 - {{CSSxRef("grid-column-end")}}
-- {{CSSxRef("grid-column")}} Kurzform
+- {{CSSxRef("grid-column")}} Kurzschreibweise
 - {{CSSxRef("grid-row-start")}}
 - {{CSSxRef("grid-row-end")}}
-- {{CSSxRef("grid-row")}} Kurzform
-- {{CSSxRef("grid-area")}} Kurzform
+- {{CSSxRef("grid-row")}} Kurzschreibweise
+- {{CSSxRef("grid-area")}} Kurzschreibweise
 
 ### Funktionen
 
@@ -104,9 +104,9 @@ Diese Beispiellanimation verwendet {{cssxref("display")}}, {{cssxref("grid-templ
 
 ### Datentypen und Werte
 
-- {{CSSxRef("&lt;flex&gt;")}} (`fr` Einheit)
+- {{CSSxRef("&lt;flex&gt;")}} (`fr`-Einheit)
 
-### Begriffe und Glossar-Definitionen
+### Begriffe und Glossardefinitionen
 
 - {{Glossary("Grid", "Grid")}}
 - {{Glossary("Grid_areas", "Grid-Bereiche")}}
@@ -115,59 +115,59 @@ Diese Beispiellanimation verwendet {{cssxref("display")}}, {{cssxref("grid-templ
 - {{Glossary("Grid_column", "Grid-Spalte")}}
 - {{Glossary("Grid_container", "Grid-Container")}}
 - {{Glossary("Grid_lines", "Grid-Linien")}}
-- {{Glossary("Grid_row", "Grid-Reihe")}}
-- {{Glossary("Grid_tracks", "Grid-Spuren")}}
-- {{Glossary("Gutters", "Rinnen")}}
+- {{Glossary("Grid_row", "Grid-Zeile")}}
+- {{Glossary("Grid_tracks", "Grid-Tracks")}}
+- {{Glossary("Gutters", "Zwischenräume")}}
 
 ## Leitfäden
 
-- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
-  - : Ein Überblick über die verschiedenen Funktionen, die im CSS-Grid-Layout-Modul bereitgestellt werden.
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
+  - : Ein Überblick über die verschiedenen Funktionen des CSS-Grid-Layout-Moduls.
 
-- [Beziehung des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods)
-  - : Wie das Grid-Layout mit anderen CSS-Funktionen wie Flexbox, absolut positionierten Elementen und `display: contents` zusammenhängt.
+- [Zusammenspiel von Grid-Layout und anderen Layoutmethoden](/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods)
+  - : Wie Grid-Layout mit anderen CSS-Funktionen zusammenwirkt, darunter Flexbox, absolut positionierte Elemente und `display: contents`.
 
 - [Grid-Layout mit linienbasierter Platzierung](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
-  - : Grid-Linien und wie man Elemente an diesen Linien positioniert, einschließlich der `grid-area`-Eigenschaften, negativer Linienzahlen, Mehrzellenbereiche und Erstellung von Grid-Rinnen.
+  - : Grid-Linien und die Positionierung von Elementen anhand dieser Linien, einschließlich der `grid-area`-Eigenschaften, negativer Liniennummern, des Überspannens mehrerer Zellen und der Erstellung von Grid-Zwischenräumen.
 
-- [Grid-Template-Bereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
+- [Grid-Vorlagenbereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
   - : Platzierung von Grid-Elementen mithilfe benannter Vorlagenbereiche.
 
 - [Grid-Layout mit benannten Grid-Linien](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines)
-  - : Kombination von Namen und Spurgrößen; Platzierung von Grid-Elementen durch Definition benannter Grid-Linien und Vorlagenbereiche.
+  - : Kombination von Namen und Track-Größen; Platzierung von Grid-Elementen durch die Definition benannter Grid-Linien und Vorlagenbereiche.
 
 - [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement)
-  - : Wie Grid-Elemente platziert werden, die keine Platziereigenschaften haben.
+  - : Wie Grid Elemente positioniert, für die keine Platzierungseigenschaften festgelegt wurden.
 
 - [Ausrichten von Elementen im CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment)
-  - : Ausrichten, Justieren und Zentrieren von Grid-Elementen entlang der beiden Achsen eines Grid-Layouts.
+  - : Ausrichten, Verteilen und Zentrieren von Grid-Elementen entlang der beiden Achsen eines Grid-Layouts.
 
-- [Grids, logische Werte und Schreibrichtungen](/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes)
-  - : Einblick in die Interaktion zwischen CSS-Grid-Layout, Box-Ausrichtung und Schreibrichtungen sowie CSS-logischen und -physikalischen Eigenschaften und Werte.
+- [Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes)
+  - : Das Zusammenspiel von CSS-Grid-Layout, Box-Ausrichtung und Schreibmodi sowie von logischen und physischen CSS-Eigenschaften und -Werten.
 
 - [Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/Guides/Grid_layout/Accessibility)
-  - : Ein Blick darauf, wie CSS-Grid-Layout die Barrierefreiheit sowohl unterstützen als auch beeinträchtigen kann.
+  - : Wie CSS-Grid-Layout die Barrierefreiheit sowohl verbessern als auch beeinträchtigen kann.
 
-- [Übliche Layouts mit Grids realisieren](/de/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts)
-  - : Einige verschiedene Layouts, die verschiedene Techniken demonstrieren, die Sie beim Design mit CSS-Grid-Layouts verwenden können, einschließlich der Verwendung von {{cssxref("grid-template-areas")}}, eines 12-spaltigen Flex-Rastersystems und einer Produktliste mit automatischer Platzierung.
+- [Häufige Layouts mit Grids umsetzen](/de/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts)
+  - : Verschiedene Layouts, die unterschiedliche Techniken für die Gestaltung mit CSS-Grid-Layouts demonstrieren, darunter die Verwendung von {{cssxref("grid-template-areas")}}, ein flexibles Grid-System mit zwölf Spalten und eine Produktliste mit automatischer Platzierung.
 
 - [Subgrid](/de/docs/Web/CSS/Guides/Grid_layout/Subgrid)
-  - : Was Subgrid mit Anwendungsfällen macht und Designmuster, die Subgrid löst.
+  - : Was Subgrid bewirkt und welche Anwendungsfälle und Gestaltungsmuster sich damit umsetzen lassen.
 
 - [Grid-Lanes-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes)
-  - : Details, was das Grid-Lanes-Layout ist und wie man es verwendet.
+  - : Was Grid-Lanes-Layout ist und wie Sie es verwenden.
 
 - [Box-Ausrichtung im CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
-  - : Wie die Box-Ausrichtung im Kontext des Grid-Layouts funktioniert.
+  - : Wie die Box-Ausrichtung im Kontext von Grid-Layout funktioniert.
 
 ## Verwandte Funktionen
 
-[CSS-Display](/de/docs/Web/CSS/Guides/Display) Modul
+Modul [CSS Display](/de/docs/Web/CSS/Guides/Display)
 
 - {{CSSxRef("display")}}
 - {{CSSxRef("order")}}
 
-[CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
+Modul [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment)
 
 - {{cssxref("align-content")}}
 - {{cssxref("align-items")}}
@@ -179,13 +179,13 @@ Diese Beispiellanimation verwendet {{cssxref("display")}}, {{cssxref("grid-templ
 - {{cssxref("place-items")}}
 - {{cssxref("place-self")}}
 
-[CSS-Rinnen (Gaps)](/de/docs/Web/CSS/Guides/Gaps) Modul
+Modul [CSS Gaps](/de/docs/Web/CSS/Guides/Gaps)
 
 - {{cssxref("column-gap")}}
 - {{cssxref("gap")}}
 - {{cssxref("row-gap")}}
 
-[CSS Box-Größe](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+Modul [CSS Box Sizing](/de/docs/Web/CSS/Guides/Box_sizing)
 
 - {{cssxref("aspect-ratio")}}
 - {{cssxref("box-sizing")}}
@@ -207,10 +207,10 @@ Diese Beispiellanimation verwendet {{cssxref("display")}}, {{cssxref("grid-templ
 
 ## Siehe auch
 
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
-- [CSS Display](/de/docs/Web/CSS/Guides/Display) Modul
-- [Grid by Example](https://gridbyexample.com/)
-- [CSS Grid Referenz](https://tympanus.net/codrops/css_reference/grid/) via Codrops
-- [Firefox DevTools: Grid Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html)
-- [CSS Grid Playground](https://mozilladevelopers.github.io/playground/css-grid/)
-- [CSS Grid Garden](https://cssgridgarden.com/) - Ein Spiel zum Erlernen von CSS-Grids
+- Modul [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)
+- Modul [CSS Display](/de/docs/Web/CSS/Guides/Display)
+- [Grid anhand von Beispielen](https://gridbyexample.com/)
+- [CSS-Grid-Referenz](https://tympanus.net/codrops/css_reference/grid/) von Codrops
+- [Firefox DevTools: Grid-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html)
+- [CSS-Grid-Playground](https://mozilladevelopers.github.io/playground/css-grid/)
+- [CSS Grid Garden](https://cssgridgarden.com/) – ein Spiel zum Erlernen von CSS Grid

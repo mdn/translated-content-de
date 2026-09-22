@@ -2,84 +2,84 @@
 title: console
 slug: Web/API/console
 l10n:
-  sourceCommit: f19387e11b429473d515019a0b8d9ba4e615f88f
+  sourceCommit: e61741cfd9f4758eb36694246364ad58e1e8dc56
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Das **`console`**-Objekt bietet Zugriff auf die Debugging-Konsole (z. B. die [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) in Firefox).
+Das **`console`**-Objekt ermöglicht den Zugriff auf die Debugging-Konsole (z. B. die [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) in Firefox).
 
-Implementierungen der Console-API können sich je nach Laufzeitumgebung unterscheiden. Insbesondere können einige `console`-Methoden in einigen Online-Editoren und Entwicklungsumgebungen (IDEs) unterschiedlich funktionieren oder überhaupt nicht verfügbar sein. Um das hier beschriebene Verhalten zu sehen, probieren Sie die Methoden in den Entwickler-Tools Ihres Browsers aus. Beachten Sie jedoch, dass selbst zwischen Browsern Unterschiede bestehen können.
+Implementierungen der Console API können sich je nach Laufzeitumgebung unterscheiden. Insbesondere funktionieren manche console-Methoden in einigen Online-Editoren und IDEs möglicherweise anders oder gar nicht. Um das in dieser Dokumentation beschriebene Verhalten zu sehen, probieren Sie die Methoden in den Entwicklertools Ihres Browsers aus. Allerdings gibt es auch dort Unterschiede zwischen Browsern.
 
-Das `console`-Objekt ist in jedem globalen Scope verfügbar. Zum Beispiel:
+Das `console`-Objekt ist in jedem globalen Gültigkeitsbereich verfügbar. Zum Beispiel:
 
 ```js
 console.log("Failed to open the specified link");
 ```
 
-## Methoden
+## Instanzmethoden
 
 - [`console.assert()`](/de/docs/Web/API/console/assert_static)
-  - : Gibt eine Fehlermeldung in der Konsole aus, falls das erste Argument `false` ist.
+  - : Gibt eine Fehlermeldung in der Konsole aus, wenn das erste Argument `false` ist.
 - [`console.clear()`](/de/docs/Web/API/console/clear_static)
-  - : Löscht die Konsole.
+  - : Leert die Konsole.
 - [`console.count()`](/de/docs/Web/API/console/count_static)
-  - : Gibt aus, wie oft eine Zeile mit einem bestimmten Label aufgerufen wurde.
+  - : Gibt aus, wie oft diese Zeile mit dem angegebenen Label aufgerufen wurde.
 - [`console.countReset()`](/de/docs/Web/API/console/countReset_static)
-  - : Setzt den Zähler mit dem angegebenen Label zurück.
+  - : Setzt den Wert des Zählers mit dem angegebenen Label zurück.
 - [`console.debug()`](/de/docs/Web/API/console/debug_static)
-  - : Gibt eine Nachricht mit dem Debug-Log-Level in der Konsole aus.
+  - : Gibt eine Nachricht mit dem Log-Level „Debug“ in der Konsole aus.
 - [`console.dir()`](/de/docs/Web/API/console/dir_static)
-  - : Zeigt eine interaktive Auflistung der Eigenschaften eines angegebenen JavaScript-Objekts an. Diese Anzeige ermöglicht die Verwendung von Aufklappdreiecken, um die Inhalte von untergeordneten Objekten zu überprüfen.
+  - : Zeigt eine interaktive Liste der Eigenschaften eines angegebenen JavaScript-Objekts an. Über Aufklappdreiecke können Sie den Inhalt untergeordneter Objekte untersuchen.
 - [`console.dirxml()`](/de/docs/Web/API/console/dirxml_static)
-  - : Zeigt, wenn möglich, eine XML/HTML-Element-Darstellung des angegebenen Objekts an, andernfalls wird die JavaScript-Objektansicht dargestellt.
+  - : Zeigt nach Möglichkeit eine XML-/HTML-Elementdarstellung des angegebenen Objekts an, andernfalls eine JavaScript-Objektansicht.
 - [`console.error()`](/de/docs/Web/API/console/error_static)
-  - : Gibt eine Nachricht mit dem Fehler-Log-Level in der Konsole aus.
+  - : Gibt eine Nachricht mit dem Log-Level „Fehler“ in der Konsole aus.
 - `console.exception()` {{Non-standard_inline}} {{deprecated_inline}}
   - : Ein Alias für `console.error()`.
 - [`console.group()`](/de/docs/Web/API/console/group_static)
-  - : Erstellt eine neue Inline-[Gruppe](#verwendung_von_gruppen_in_der_konsole) und rückt alle folgenden Ausgaben eine Ebene ein. Um eine Ebene zurückzukehren, rufen Sie `console.groupEnd()` auf.
+  - : Erstellt eine neue Inline-[Gruppe](#gruppen_in_der_konsole_verwenden) und rückt alle folgenden Ausgaben um eine weitere Ebene ein. Um eine Ebene zurückzugehen, rufen Sie `console.groupEnd()` auf.
 - [`console.groupCollapsed()`](/de/docs/Web/API/console/groupCollapsed_static)
-  - : Erstellt eine neue Inline-[Gruppe](#verwendung_von_gruppen_in_der_konsole), jedoch im eingeklappten Zustand, sodass ein Aufklapp-Button verwendet werden muss, um sie zu erweitern. Um eine Ebene zurückzukehren, rufen Sie `console.groupEnd()` auf.
+  - : Erstellt eine neue Inline-[Gruppe](#gruppen_in_der_konsole_verwenden) und rückt alle folgenden Ausgaben um eine weitere Ebene ein. Anders als bei `console.group()` ist die Inline-Gruppe zunächst eingeklappt und muss über eine Aufklappschaltfläche erweitert werden. Um eine Ebene zurückzugehen, rufen Sie `console.groupEnd()` auf.
 - [`console.groupEnd()`](/de/docs/Web/API/console/groupEnd_static)
-  - : Beendet die aktuelle Inline-[Gruppe](#verwendung_von_gruppen_in_der_konsole).
+  - : Verlässt die aktuelle Inline-[Gruppe](#gruppen_in_der_konsole_verwenden).
 - [`console.info()`](/de/docs/Web/API/console/info_static)
-  - : Gibt eine Nachricht mit dem Info-Log-Level in der Konsole aus.
+  - : Gibt eine Nachricht mit dem Log-Level „Info“ in der Konsole aus.
 - [`console.log()`](/de/docs/Web/API/console/log_static)
   - : Gibt eine Nachricht in der Konsole aus.
 - [`console.profile()`](/de/docs/Web/API/console/profile_static) {{Non-standard_inline}}
-  - : Startet den eingebauten Profiler des Browsers (z. B. das [Firefox Performance-Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)). Sie können optional einen Namen für das Profil angeben.
+  - : Startet den integrierten Profiler des Browsers (z. B. das [Firefox-Performance-Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)). Sie können optional einen Namen für das Profil angeben.
 - [`console.profileEnd()`](/de/docs/Web/API/console/profileEnd_static) {{Non-standard_inline}}
-  - : Beendet den Profiler. Sie können das resultierende Profil im Performance-Tool des Browsers sehen (z. B. im [Firefox Performance-Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)).
+  - : Stoppt den Profiler. Das resultierende Profil können Sie im Performance-Tool des Browsers ansehen (z. B. im [Firefox-Performance-Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)).
 - [`console.table()`](/de/docs/Web/API/console/table_static)
   - : Zeigt tabellarische Daten als Tabelle an.
 - [`console.time()`](/de/docs/Web/API/console/time_static)
-  - : Startet einen [Timer](#timer) mit einem Namen, der als Eingabeparameter angegeben wurde. Bis zu 10.000 Timer können auf einer Seite gleichzeitig laufen.
+  - : Startet einen [Timer](#timer) mit einem Namen, der als Eingabeparameter angegeben wird. Auf einer Seite können bis zu 10.000 Timer gleichzeitig laufen.
 - [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static)
-  - : Beendet den angegebenen [Timer](#timer) und gibt die vergangene Zeit in Millisekunden seit dem Start aus.
+  - : Stoppt den angegebenen [Timer](#timer) und gibt die seit seinem Start verstrichene Zeit in Millisekunden aus.
 - [`console.timeLog()`](/de/docs/Web/API/console/timeLog_static)
   - : Gibt den Wert des angegebenen [Timers](#timer) in der Konsole aus.
 - [`console.timeStamp()`](/de/docs/Web/API/console/timeStamp_static) {{Non-standard_inline}}
-  - : Fügt der Zeitleiste des Performance-Tools des Browsers ([Chrome](https://developer.chrome.com/docs/devtools/performance/reference) oder [Firefox](https://profiler.firefox.com/docs/#/./guide-ui-tour-timeline)) eine Markierung hinzu.
+  - : Fügt einer Performance-Aufzeichnung in Entwicklertools, die dies unterstützen, eine Markierung hinzu. Aufzeichnung und Anzeige hängen vom Browser und vom Profiling-Tool ab.
 - [`console.trace()`](/de/docs/Web/API/console/trace_static)
-  - : Gibt einen [Stack Trace](#stack_traces) aus.
+  - : Gibt einen [Stack-Trace](#stack-traces) aus.
 - [`console.warn()`](/de/docs/Web/API/console/warn_static)
-  - : Gibt eine Nachricht mit dem Warn-Log-Level in der Konsole aus.
+  - : Gibt eine Nachricht mit dem Log-Level „Warnung“ in der Konsole aus.
 
 ## Beispiele
 
-### Textausgabe in die Konsole
+### Text in der Konsole ausgeben
 
-Die am häufigsten verwendete Funktion der Konsole ist das Protokollieren von Text und anderen Daten. Es gibt verschiedene Kategorien von Ausgaben, die Sie mit den Methoden [`console.log()`](/de/docs/Web/API/console/log_static), [`console.info()`](/de/docs/Web/API/console/info_static), [`console.warn()`](/de/docs/Web/API/console/warn_static), [`console.error()`](/de/docs/Web/API/console/error_static) oder [`console.debug()`](/de/docs/Web/API/console/debug_static) erzeugen können. Jede dieser Methoden erzeugt unterschiedlich gestylten Text in der Konsole, und Sie können die Filterfunktionen Ihres Browsers verwenden, um nur die gewünschten Ausgaben zu sehen.
+Die am häufigsten genutzte Funktion der Konsole ist die Ausgabe von Text und anderen Daten. Mit den Methoden [`console.log()`](/de/docs/Web/API/console/log_static), [`console.info()`](/de/docs/Web/API/console/info_static), [`console.warn()`](/de/docs/Web/API/console/warn_static), [`console.error()`](/de/docs/Web/API/console/error_static) und [`console.debug()`](/de/docs/Web/API/console/debug_static) können Sie verschiedene Arten von Ausgaben erzeugen. Jede davon wird im Protokoll anders dargestellt. Mit den Filterfunktionen Ihres Browsers können Sie sich nur die Arten von Ausgaben anzeigen lassen, die Sie interessieren.
 
-Es gibt zwei Möglichkeiten, jede der Ausgabemethoden zu verwenden:
+Jede der Ausgabemethoden lässt sich auf zwei Arten verwenden:
 
-- Geben Sie eine variable Anzahl von Argumenten mit, deren String-Darstellungen zu einem String zusammengefügt und dann in der Konsole ausgegeben werden.
-- Geben Sie einen String an, der Null oder mehr Substitutionszeichenfolgen enthält, gefolgt von einer variablen Anzahl von Argumenten, um diese zu ersetzen.
+- Übergeben Sie eine variable Anzahl von Argumenten, deren Zeichenfolgendarstellungen zu einer Zeichenfolge verkettet und anschließend in der Konsole ausgegeben werden.
+- Übergeben Sie eine Zeichenfolge mit keiner oder mehreren Platzhalterzeichenfolgen, gefolgt von einer variablen Anzahl von Argumenten, durch die diese ersetzt werden.
 
-#### Ausgabe eines einzelnen Objekts
+#### Ein einzelnes Objekt ausgeben
 
-Die einfachste Methode, die Logging-Methoden zu verwenden, besteht darin, ein einzelnes Objekt auszugeben:
+Die einfachste Verwendung der Ausgabemethoden besteht darin, ein einzelnes Objekt auszugeben:
 
 ```js
 const someObject = { str: "Some text", id: 5 };
@@ -92,11 +92,11 @@ Die Ausgabe sieht ungefähr so aus:
 {str:"Some text", id:5}
 ```
 
-Der Browser zeigt so viele Informationen über das Objekt an, wie möglich und vorgesehen ist. Beispielsweise können private Zustände des Objekts ebenfalls angezeigt werden. Bestimmte Objekttypen, wie DOM-Elemente oder Funktionen, können in einer speziellen Darstellung angezeigt werden.
+Der Browser zeigt so viele Informationen über das Objekt an, wie er kann und möchte. Beispielsweise kann auch der private Zustand des Objekts angezeigt werden. Bestimmte Objekttypen, etwa DOM-Elemente oder Funktionen, können außerdem auf besondere Weise dargestellt werden.
 
-#### Objekte snapshotten
+#### Momentaufnahmen von Objekten
 
-Informationen über ein Objekt werden verzögert abgerufen. Das bedeutet, dass die Log-Nachricht den Inhalt eines Objekts erst zeigt, wenn es das erste Mal betrachtet wird, nicht, wann es protokolliert wurde. Zum Beispiel:
+Informationen über ein Objekt werden erst bei Bedarf abgerufen. Das bedeutet, dass die Protokollnachricht den Inhalt eines Objekts zu dem Zeitpunkt zeigt, zu dem sie erstmals angezeigt wird, und nicht zu dem Zeitpunkt, zu dem sie protokolliert wurde. Zum Beispiel:
 
 ```js
 const obj = {};
@@ -104,19 +104,19 @@ console.log(obj);
 obj.prop = 123;
 ```
 
-Dies gibt `{}` aus. Wenn Sie jedoch die Details des Objekts erweitern, sehen Sie `prop: 123`.
+Dies gibt `{}` aus. Wenn Sie jedoch die Objektdetails aufklappen, sehen Sie `prop: 123`.
 
-Wenn Sie Ihr Objekt ändern möchten und verhindern wollen, dass die protokollierten Informationen aktualisiert werden, können Sie das Objekt {{Glossary("Deep_copy", "tiefkopieren")}}, bevor Sie es protokollieren. Ein üblicher Ansatz besteht darin, {{jsxref("JSON.stringify()")}} und anschließend {{jsxref("JSON.parse()")}} zu verwenden:
+Wenn Sie Ihr Objekt verändern und verhindern möchten, dass die protokollierten Informationen aktualisiert werden, können Sie vor der Ausgabe eine {{Glossary("Deep_copy", "tiefe Kopie")}} des Objekts erstellen. Eine übliche Vorgehensweise besteht darin, es mit {{jsxref("JSON.stringify()")}} zu serialisieren und anschließend mit {{jsxref("JSON.parse()")}} wieder einzulesen:
 
 ```js
 console.log(JSON.parse(JSON.stringify(obj)));
 ```
 
-Es gibt andere Alternativen, die in Browsern funktionieren, wie beispielsweise [`structuredClone()`](/de/docs/Web/API/Window/structuredClone), die effektiver bei der Kopie unterschiedlicher Objekttypen sind.
+Es gibt weitere Alternativen, die in Browsern funktionieren, etwa [`structuredClone()`](/de/docs/Web/API/Window/structuredClone). Sie eignen sich besser zum Kopieren unterschiedlicher Objekttypen.
 
-#### Ausgabe mehrerer Objekte
+#### Mehrere Objekte ausgeben
 
-Sie können auch mehrere Objekte ausgeben, indem Sie sie beim Aufruf der Logging-Methode auflisten, wie hier:
+Sie können auch mehrere Objekte ausgeben, indem Sie sie beim Aufruf der Ausgabemethode nacheinander angeben:
 
 ```js
 const car = "Dodge Charger";
@@ -124,32 +124,32 @@ const someObject = { str: "Some text", id: 5 };
 console.info("My first car was a", car, ". The object is:", someObject);
 ```
 
-Die Ausgabe sieht wie folgt aus:
+Die Ausgabe sieht dann so aus:
 
 ```plain
 My first car was a Dodge Charger . The object is: {str:"Some text", id:5}
 ```
 
-#### Verwendung von String-Substitutionen
+#### Zeichenfolgen-Platzhalter verwenden
 
-Das erste Argument der Logging-Methoden kann ein String sein, der Null oder mehr Substitutionszeichenfolgen enthält. Jede Substitutionszeichenfolge wird durch den entsprechenden Argumentwert ersetzt.
+Der erste Parameter der Ausgabemethoden kann eine Zeichenfolge mit keiner oder mehreren Platzhalterzeichenfolgen sein. Jede Platzhalterzeichenfolge wird durch den Wert des entsprechenden Arguments ersetzt.
 
 - `%o`
-  - : Gibt ein JavaScript-Objekt im Stil der „optimal nützlichen Formatierung“ aus, z.B. DOM-Elemente werden möglicherweise genauso angezeigt, wie sie im Element-Inspektor erscheinen würden.
+  - : Gibt ein JavaScript-Objekt in einem „optimal nützlichen Format“ aus. Beispielsweise können DOM-Elemente so dargestellt werden, wie sie im Elementinspektor erscheinen.
 - `%O`
-  - : Gibt ein JavaScript-Objekt im Stil der „generischen JavaScript-Objektformatierung“ aus, meist in Form einer erweiterbaren Baumansicht. Dies ähnelt [`console.dir()`](/de/docs/Web/API/console/dir_static).
+  - : Gibt ein JavaScript-Objekt in einem „allgemeinen JavaScript-Objektformat“ aus, üblicherweise als aufklappbare Baumstruktur. Dies ähnelt [`console.dir()`](/de/docs/Web/API/console/dir_static).
 - `%d` oder `%i`
   - : Gibt eine Ganzzahl aus.
 - `%s`
   - : Gibt eine Zeichenfolge aus.
 - `%f`
-  - : Gibt einen Fließkommawert aus.
+  - : Gibt eine Gleitkommazahl aus.
 - `%c`
-  - : Wendet CSS-Stilregeln auf den gesamten nachfolgenden Text an. Siehe [Styling console output](#styling_der_konsolenausgabe).
+  - : Wendet CSS-Stilregeln auf den gesamten folgenden Text an. Siehe [Konsolenausgaben gestalten](#konsolenausgaben_gestalten).
 
-Einige Browser können zusätzliche Format-Spezifizierer implementieren. Beispielsweise unterstützen Safari und Firefox die C-ähnliche Präzisionsformatierung `%.<precision>f`. Zum Beispiel: `console.log("Foo %.2f", 1.1)` gibt die Zahl mit zwei Dezimalstellen aus: `Foo 1.10`, während `console.log("Foo %.2d", 1.1)` die Zahl als zweistellige Zahl mit führender Null ausgibt: `Foo 01`.
+Einige Browser unterstützen möglicherweise zusätzliche Formatangaben. Safari und Firefox unterstützen beispielsweise die Präzisionsformatierung im C-Stil `%.<precision>f`. So gibt `console.log("Foo %.2f", 1.1)` die Zahl mit zwei Nachkommastellen aus: `Foo 1.10`. Dagegen gibt `console.log("Foo %.2d", 1.1)` die Zahl zweistellig mit einer führenden 0 aus: `Foo 01`.
 
-Jeder dieser Spezifizierer zieht das nächste Argument nach dem Format-String aus der Parameterliste. Beispielsweise:
+Jeder dieser Platzhalter verwendet das nächste Argument nach der Formatzeichenfolge aus der Parameterliste. Zum Beispiel:
 
 ```js
 for (let i = 0; i < 5; i++) {
@@ -157,7 +157,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-Die Ausgabe sieht wie folgt aus:
+Die Ausgabe sieht so aus:
 
 ```plain
 Hello, Bob. You've called me 1 times.
@@ -167,9 +167,9 @@ Hello, Bob. You've called me 4 times.
 Hello, Bob. You've called me 5 times.
 ```
 
-#### Styling der Konsolenausgabe
+#### Konsolenausgaben gestalten
 
-Sie können die `%c`-Direktive verwenden, um einen CSS-Stil auf die Konsolenausgabe anzuwenden:
+Mit der Direktive `%c` können Sie einen CSS-Stil auf eine Konsolenausgabe anwenden:
 
 ```js
 console.log(
@@ -178,9 +178,9 @@ console.log(
 );
 ```
 
-Der Text vor der Direktive wird nicht beeinträchtigt, aber der Text nach der Direktive wird entsprechend den CSS-Deklarationen im Parameter gestylt.
+Der Text vor der Direktive bleibt unverändert. Der Text nach der Direktive wird anhand der CSS-Deklarationen im Parameter gestaltet.
 
-![Gestylter Text in der Firefox-Konsole](css-styling.png)
+![Gestalteter Text in der Firefox-Konsole](css-styling.png)
 
 Sie können `%c` mehrfach verwenden:
 
@@ -195,10 +195,10 @@ console.log(
 );
 ```
 
-Die folgenden Eigenschaften können zusammen mit der `%c`-Syntax verwendet werden (zumindest in Firefox — sie können in anderen Browsern unterschiedlich sein):
+Die folgenden Eigenschaften können mit der `%c`-Syntax verwendet werden (zumindest in Firefox – in anderen Browsern kann dies abweichen):
 
-- {{cssxref("background")}} und deren Langformen
-- {{cssxref("border")}} und deren Langformen
+- {{cssxref("background")}} und die zugehörigen Einzeleigenschaften
+- {{cssxref("border")}} und die zugehörigen Einzeleigenschaften
 - {{cssxref("border-radius")}}
 - {{cssxref("box-decoration-break")}}
 - {{cssxref("box-shadow")}}
@@ -206,27 +206,27 @@ Die folgenden Eigenschaften können zusammen mit der `%c`-Syntax verwendet werde
 - {{cssxref("color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("display")}}
-- {{cssxref("font")}} und dessen Langformen
+- {{cssxref("font")}} und die zugehörigen Einzeleigenschaften
 - {{cssxref("line-height")}}
 - {{cssxref("margin")}}
-- {{cssxref("outline")}} und deren Langformen
+- {{cssxref("outline")}} und die zugehörigen Einzeleigenschaften
 - {{cssxref("padding")}}
-- Text-bezogene Eigenschaften wie {{cssxref("text-transform")}}
+- `text-*`-Eigenschaften wie {{cssxref("text-transform")}}
 - {{cssxref("white-space")}}
 - {{cssxref("word-spacing")}} und {{cssxref("word-break")}}
 - {{cssxref("writing-mode")}}
 
 > [!NOTE]
-> Jede Konsolennachricht verhält sich standardmäßig wie ein Inline-Element. Wenn Sie möchten, dass Eigenschaften wie `padding`, `margin` usw. Auswirkungen haben, können Sie die Eigenschaft `display` auf `inline-block` setzen.
+> Jede Konsolennachricht verhält sich standardmäßig wie ein Inline-Element. Damit Eigenschaften wie `padding` und `margin` wirksam werden, können Sie die Eigenschaft `display` auf `display: inline-block` setzen.
 
 > [!NOTE]
-> Um sowohl helle als auch dunkle Farbschemata zu unterstützen, kann {{cssxref("color_value/light-dark")}} verwendet werden, um Farben anzugeben; zum Beispiel: `color: light-dark(#D00000, #FF4040);`
+> Um sowohl helle als auch dunkle Farbschemata zu unterstützen, können Sie bei Farbangaben {{cssxref("color_value/light-dark")}} verwenden, zum Beispiel: `color: light-dark(#D00000, #FF4040);`
 
-### Verwendung von Gruppen in der Konsole
+### Gruppen in der Konsole verwenden
 
-Mit verschachtelten Gruppen können Sie Ihre Ausgaben organisieren, indem Sie visuell zusammengehöriges Material kombinieren. Um einen neuen verschachtelten Block zu erstellen, rufen Sie `console.group()` auf. Die Methode `console.groupCollapsed()` ist ähnlich, erstellt jedoch den neuen Block eingeklappt, sodass ein Aufklapp-Button erforderlich ist, um ihn zu lesen.
+Mit verschachtelten Gruppen können Sie Ihre Ausgabe strukturieren, indem Sie zusammengehörige Inhalte visuell zusammenfassen. Um einen neuen verschachtelten Block zu erstellen, rufen Sie `console.group()` auf. Die Methode `console.groupCollapsed()` funktioniert ähnlich, erstellt den neuen Block aber eingeklappt. Zum Anzeigen seines Inhalts muss er über eine Aufklappschaltfläche geöffnet werden.
 
-Um die aktuelle Gruppe zu verlassen, rufen Sie `console.groupEnd()` auf. Zum Beispiel ergibt der folgende Code:
+Um die aktuelle Gruppe zu verlassen, rufen Sie `console.groupEnd()` auf. Zum Beispiel bei folgendem Code:
 
 ```js
 console.log("This is the outer level");
@@ -241,15 +241,15 @@ console.groupEnd();
 console.debug("Back to the outer level");
 ```
 
-Die Ausgabe sieht wie folgt aus:
+Die Ausgabe sieht so aus:
 
-![Demo verschachtelter Gruppen in der Firefox-Konsole](console_groups_demo.png)
+![Beispiel verschachtelter Gruppen in der Firefox-Konsole](console_groups_demo.png)
 
 ### Timer
 
-Sie können einen Timer starten, um die Dauer einer bestimmten Operation zu berechnen. Um einen Timer zu starten, rufen Sie die Methode `console.time()` auf und geben Sie ihr einen Namen als einzigen Parameter. Um den Timer zu stoppen und die verstrichene Zeit in Millisekunden zu erhalten, rufen Sie einfach die Methode `console.timeEnd()` auf, indem Sie erneut den Namen des Timers angeben. Bis zu 10.000 Timer können auf einer Seite gleichzeitig laufen.
+Mit einem Timer können Sie die Dauer eines bestimmten Vorgangs messen. Um einen Timer zu starten, rufen Sie die Methode `console.time()` auf und übergeben ihr als einzigen Parameter einen Namen. Um den Timer zu stoppen und die verstrichene Zeit in Millisekunden zu erhalten, rufen Sie `console.timeEnd()` auf und übergeben erneut den Namen des Timers. Auf einer Seite können bis zu 10.000 Timer gleichzeitig laufen.
 
-Zum Beispiel ergibt der folgende Code:
+Zum Beispiel bei folgendem Code:
 
 ```js
 console.time("answer time");
@@ -259,15 +259,15 @@ alert("Do a bunch of other stuff…");
 console.timeEnd("answer time");
 ```
 
-Eine Ausgabe, die die verstrichene Zeit protokolliert, während der Benutzer ein Alert-Fenster bestätigt:
+Dieser Code protokolliert, wie lange die Benutzerin oder der Benutzer zum Schließen des ersten Benachrichtigungsfensters benötigt, gibt die Zeit in der Konsole aus, wartet auf das Schließen des zweiten Benachrichtigungsfensters und gibt anschließend die Endzeit in der Konsole aus:
 
-![Zeitdokumentation in der Firefox-Konsole](console-timelog.png)
+![Zeitausgabe in der Firefox-Konsole](console-timelog.png)
 
-Beachten Sie, dass der Name des Timers sowohl beim Start als auch beim Stoppen angezeigt wird.
+Beachten Sie, dass der Name des Timers sowohl beim Starten als auch beim Stoppen angezeigt wird.
 
-### Stack Traces
+### Stack-Traces
 
-Das Konsolenobjekt unterstützt auch das Ausgeben eines Stack Traces; dieser zeigt Ihnen den Aufrufpfad, der zu dem Punkt geführt hat, an dem Sie [`console.trace()`](/de/docs/Web/API/console/trace_static) aufrufen. Gegebenen Code wie diesen:
+Das console-Objekt unterstützt auch die Ausgabe eines Stack-Traces. Dieser zeigt den Aufrufpfad bis zu der Stelle, an der Sie [`console.trace()`](/de/docs/Web/API/console/trace_static) aufrufen. Bei folgendem Code:
 
 ```js
 function foo() {
@@ -280,9 +280,9 @@ function foo() {
 foo();
 ```
 
-Das Ergebnis in der Konsole sieht so aus:
+Die Ausgabe in der Konsole sieht ungefähr so aus:
 
-![Stack Trace in der Firefox-Konsole](api-trace2.png)
+![Stack-Trace in der Firefox-Konsole](api-trace2.png)
 
 ## Spezifikationen
 
@@ -294,9 +294,9 @@ Das Ergebnis in der Konsole sieht so aus:
 
 ## Siehe auch
 
-- [Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/index.html)
-- [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) — wie die Web-Konsole in Firefox Konsolen-API-Aufrufe behandelt
-- [about:debugging](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html) — wie man Konsolenausgaben sieht, wenn das Debugging-Ziel ein mobiles Gerät ist
+- [Firefox-Entwicklertools](https://firefox-source-docs.mozilla.org/devtools-user/index.html)
+- [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) — wie die Web-Konsole in Firefox Aufrufe der Console API verarbeitet
+- [about:debugging](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html) — wie Sie Konsolenausgaben anzeigen, wenn das Debugging-Ziel ein Mobilgerät ist
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/console/api/)
 - [Microsoft Edge DevTools](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/)
 - [Safari Web Inspector](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Console/Console.html)

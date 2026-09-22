@@ -2,15 +2,14 @@
 title: WebAssembly.instantiateStreaming()
 slug: WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static
 l10n:
-  sourceCommit: 05becee987475e724aaee34fe93eafe15514b37a
+  sourceCommit: 1e333526315c95488d86013289a114f0f75f9f5f
 ---
 
-Die statische Methode **`WebAssembly.instantiateStreaming()`** kompiliert
-und instanziiert ein WebAssembly-Modul direkt aus einer gestreamten Quelle. Dies ist die effizienteste und optimierteste Methode, um Wasm-Code zu laden.
+Die statische Methode **`WebAssembly.instantiateStreaming()`** kompiliert und instanziiert ein WebAssembly-Modul direkt aus einer gestreamten Quelle. Dies ist die effizienteste und am besten optimierte Methode, Wasm-Code zu laden.
 
 > [!NOTE]
-> Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) haben, könnten die Kompilierung und Ausführung von WebAssembly-Modulen blockieren.
-> Für weitere Informationen zur Erlaubnis von WebAssembly-Kompilierung und -Ausführung, siehe die [script-src CSP](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src).
+> Webseiten mit einer strengen [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) können das Kompilieren und Ausführen von WebAssembly-Modulen blockieren.
+> Weitere Informationen dazu, wie Sie das Kompilieren und Ausführen von WebAssembly zulassen, finden Sie unter [script-src CSP](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src).
 
 ## Syntax
 
@@ -23,49 +22,36 @@ WebAssembly.instantiateStreaming(source, importObject, compileOptions)
 ### Parameter
 
 - `source`
-  - : Ein [`Response`](/de/docs/Web/API/Response)
-    Objekt oder ein Promise, das mit einem erfüllt wird und die zugrunde liegende Quelle eines Wasm-Moduls darstellt, das Sie streamen, kompilieren und instanziieren möchten.
+  - : Ein [`Response`](/de/docs/Web/API/Response)-Objekt oder ein Promise, das mit einem solchen Objekt erfüllt wird. Es stellt die Quelle eines Wasm-Moduls dar, das Sie streamen, kompilieren und instanziieren möchten.
 - `importObject` {{optional_inline}}
-  - : Ein Objekt, das die Werte enthält, die in die neu erstellte
-    `Instance` importiert werden sollen, wie Funktionen oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte.
-    Es muss eine passende Eigenschaft für jeden deklarierten Import des kompilierten Moduls vorhanden sein, ansonsten wird ein
-    [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError)
-    ausgelöst.
+  - : Ein Objekt mit den Werten, die in die neu erstellte `Instance` importiert werden sollen, beispielsweise Funktionen oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte.
+    Für jeden deklarierten Import des kompilierten Moduls muss eine passende Eigenschaft vorhanden sein, andernfalls wird ein [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) ausgelöst.
 - `compileOptions` {{optional_inline}}
-  - : Ein Objekt, das Kompilierungsoptionen enthält. Zu den Eigenschaften können gehören:
+  - : Ein Objekt mit Kompilierungsoptionen. Es kann folgende Eigenschaften enthalten:
     - `builtins` {{optional_inline}}
-      - : Ein Array von Strings, das die Nutzung von [JavaScript builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul aktiviert. Die Strings definieren die builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript-String-builtins aktiviert.
+      - : Ein Array von Strings, das die Verwendung von [JavaScript-Built-ins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Strings legen fest, welche Built-ins Sie aktivieren möchten. Derzeit ist nur der Wert `"js-string"` verfügbar, der JavaScript-String-Built-ins aktiviert.
     - `importedStringConstants` {{optional_inline}}
-      - : Ein String, der einen Namensraum für [importierte globale Konstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) spezifiziert. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale Konstanten im Wasm-Modul verwenden möchten.
+      - : Ein String, der einen Namensraum für [importierte globale String-Konstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) angibt. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale String-Konstanten im Wasm-Modul verwenden möchten.
 
 ### Rückgabewert
 
-Ein `Promise`, das sich zu einem `ResultObject` auflöst, welches zwei Felder enthält:
+Ein `Promise`, das mit einem `ResultObject` erfüllt wird, das zwei Felder enthält:
 
-- `module`: Ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt, das das
-  kompilierte WebAssembly-Modul darstellt. Dieses `Module` kann erneut instanziiert oder
-  über [postMessage()](/de/docs/Web/API/Worker/postMessage) geteilt werden.
-- `instance`: Ein [`WebAssembly.Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-Objekt, das alle
-  [exportierten WebAssembly-Funktionen](/de/docs/WebAssembly/Guides/Exported_functions) enthält.
+- `module`: Ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt, das das kompilierte WebAssembly-Modul repräsentiert. Dieses `Module` kann erneut instanziiert oder über [postMessage()](/de/docs/Web/API/Worker/postMessage) geteilt werden.
+- `instance`: Ein [`WebAssembly.Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-Objekt, das alle [exportierten WebAssembly-Funktionen](/de/docs/WebAssembly/Guides/Exported_functions) enthält.
 
 ### Ausnahmen
 
-- Wenn einer der Parameter nicht den korrekten Typ oder die richtige Struktur hat, wird ein
-  {{jsxref("TypeError")}} ausgelöst.
-- Wenn die Operation fehlschlägt, wird das Promise mit einem
-  [`WebAssembly.CompileError`](/de/docs/WebAssembly/Reference/JavaScript_interface/CompileError), [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) oder
-  [`WebAssembly.RuntimeError`](/de/docs/WebAssembly/Reference/JavaScript_interface/RuntimeError) abgelehnt, abhängig von der Ursache des Fehlers.
+- Wenn einer der Parameter nicht den richtigen Typ oder die richtige Struktur hat, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn die Antwort einen falschen MIME-Typ hat (statt `application/wasm`), wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn die Operation fehlschlägt, wird das Promise je nach Ursache des Fehlers mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/Reference/JavaScript_interface/CompileError), [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) oder [`WebAssembly.RuntimeError`](/de/docs/WebAssembly/Reference/JavaScript_interface/RuntimeError) abgelehnt.
 
 ## Beispiele
 
-### Streaming-Instanziierung
+### Instanziieren per Streaming
 
-Das folgende Beispiel (siehe unser [instantiate-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/instantiate-streaming.html)
-Demo auf GitHub, und [hier live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/instantiate-streaming.html))
-streamt direkt ein Wasm-Modul aus einer zugrunde liegenden Quelle, kompiliert und instanziiert es, wobei das Promise mit einem `ResultObject` erfüllt wird.
-Da die Funktion `instantiateStreaming()` ein Promise für ein [`Response`](/de/docs/Web/API/Response)
-Objekt akzeptiert, können Sie ihr direkt einen [`fetch()`](/de/docs/Web/API/Window/fetch)
-Aufruf übergeben, und dieser wird die Antwort in die Funktion übergeben, wenn es erfüllt wird.
+Das folgende Beispiel (siehe die [Demo „instantiate-streaming.html“](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/instantiate-streaming.html) auf GitHub; Sie können sie auch [live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/instantiate-streaming.html)) streamt ein Wasm-Modul direkt aus einer Quelle, kompiliert und instanziiert es anschließend. Das Promise wird dabei mit einem `ResultObject` erfüllt.
+Da die Funktion `instantiateStreaming()` ein Promise für ein [`Response`](/de/docs/Web/API/Response)-Objekt akzeptiert, können Sie ihr direkt einen Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben. Sobald das Promise erfüllt wird, wird die Antwort an die Funktion übergeben.
 
 ```js
 const importObject = {
@@ -77,16 +63,14 @@ WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
 );
 ```
 
-Das `ResultObject`'s Instance-Mitglied wird dann aufgerufen, und die enthaltene
-exportierte Funktion wird aufgerufen.
+Anschließend wird auf die `instance`-Eigenschaft des `ResultObject` zugegriffen und die darin enthaltene exportierte Funktion aufgerufen.
 
 > [!NOTE]
-> Damit dies funktioniert, sollten `.wasm`-Dateien vom Server
-> mit einem MIME-Typ `application/wasm` zurückgegeben werden.
+> Damit dies funktioniert, sollte der Server `.wasm`-Dateien mit dem MIME-Typ `application/wasm` zurückgeben.
 
-### JavaScript-builtins und globale String-Importe aktivieren
+### JavaScript-Built-ins und globale String-Importe aktivieren
 
-Dieses Beispiel aktiviert JavaScript-String-builtins und importierte globale String-Konstanten beim Kompilieren und Instanziieren des Wasm-Moduls mit `instantiateStreaming()`, bevor die exportierte `main()`-Funktion ausgeführt wird (die `"hello world!"` in die Konsole schreibt). [Hier live ansehen](https://mdn.github.io/webassembly-examples/js-builtin-examples/instantiate-streaming/).
+Dieses Beispiel aktiviert JavaScript-String-Built-ins und importierte globale String-Konstanten beim Kompilieren und Instanziieren des Wasm-Moduls mit `instantiateStreaming()`. Anschließend wird die exportierte Funktion `main()` ausgeführt, die `"hello world!"` in der Konsole ausgibt. [Sehen Sie sich das Beispiel live an](https://mdn.github.io/webassembly-examples/js-builtin-examples/instantiate-streaming/).
 
 ```js
 const importObject = {
@@ -118,6 +102,6 @@ WebAssembly.instantiateStreaming(
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersicht
-- [WebAssembly Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Überblick über WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
