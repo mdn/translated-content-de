@@ -3,50 +3,54 @@ title: HTTP-Anfragemethoden
 short-title: Request methods
 slug: Web/HTTP/Reference/Methods
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 346e46c6e10334bf60df2a0a4ef58ebea4c80a4e
 ---
 
-HTTP definiert eine Reihe von **Anfragemethoden**, um den Zweck der Anfrage anzugeben und was erwartet wird, wenn die Anfrage erfolgreich ist.
+HTTP definiert eine Reihe von **Anfragemethoden**, die den Zweck einer Anfrage und das erwartete Ergebnis bei erfolgreicher Verarbeitung angeben.
 Obwohl sie auch Substantive sein können, werden diese Anfragemethoden manchmal als _HTTP-Verben_ bezeichnet.
-Jede Anfragemethode hat ihre eigenen Semantiken, aber einige Eigenschaften werden über mehrere Methoden hinweg geteilt. Insbesondere können Anfragemethoden {{Glossary("Safe/HTTP", "sicher")}}, {{Glossary("idempotent", "idempotent")}} oder {{Glossary("cacheable", "cacheable")}} sein.
+Jede Anfragemethode hat ihre eigene Semantik, einige Eigenschaften gelten jedoch für mehrere Methoden: Anfragemethoden können {{Glossary("Safe/HTTP", "sicher")}}, {{Glossary("idempotent", "idempotent")}} oder {{Glossary("cacheable", "cachebar")}} sein.
 
 - {{HTTPMethod("GET")}}
-  - : Die `GET`-Methode fordert eine Darstellung der angegebenen Ressource an.
-    Anfragen, die `GET` verwenden, sollten nur Daten abrufen und keinen Anfrage-{{Glossary("HTTP_Content", "Inhalt")}} enthalten.
+  - : Die Methode `GET` fordert eine Repräsentation der angegebenen Ressource an.
+    Anfragen mit `GET` sollten nur Daten abrufen und keinen {{Glossary("HTTP_Content", "Anfrageinhalt")}} enthalten.
+- {{HTTPMethod("QUERY")}}
+  - : Die Methode `QUERY` startet eine serverseitige Abfrage. Sie fordert die Zielressource auf, den Anfrageinhalt auf sichere und idempotente Weise zu verarbeiten und das Ergebnis in der Antwort zurückzugeben.
+    Sie ähnelt `GET`, erlaubt aber Anfrageinhalte mit definierter Semantik.
 - {{HTTPMethod("HEAD")}}
-  - : Die `HEAD`-Methode verlangt eine Antwort, die mit einer `GET`-Anfrage identisch ist, jedoch ohne Antwortkörper.
+  - : Die Methode `HEAD` fordert eine Antwort an, die mit der auf eine `GET`-Anfrage identisch ist, jedoch keinen Antwortkörper enthält.
 - {{HTTPMethod("POST")}}
-  - : Die `POST`-Methode übermittelt eine Entität an die angegebene Ressource, was oft eine Zustandsänderung oder Nebeneffekte auf dem Server verursacht.
+  - : Die Methode `POST` übermittelt eine Entität an die angegebene Ressource, was häufig eine Zustandsänderung oder andere Nebeneffekte auf dem Server bewirkt.
 - {{HTTPMethod("PUT")}}
-  - : Die `PUT`-Methode ersetzt alle aktuellen Darstellungen der Zielressource durch den Anfrage-{{Glossary("HTTP_Content", "Inhalt")}}.
+  - : Die Methode `PUT` ersetzt alle aktuellen Repräsentationen der Zielressource durch den {{Glossary("HTTP_Content", "Anfrageinhalt")}}.
 - {{HTTPMethod("DELETE")}}
-  - : Die `DELETE`-Methode löscht die angegebene Ressource.
+  - : Die Methode `DELETE` löscht die angegebene Ressource.
 - {{HTTPMethod("CONNECT")}}
-  - : Die `CONNECT`-Methode etabliert einen Tunnel zum vom Zielressource identifizierten Server.
+  - : Die Methode `CONNECT` stellt einen Tunnel zum Server her, der durch die Zielressource identifiziert wird.
 - {{HTTPMethod("OPTIONS")}}
-  - : Die `OPTIONS`-Methode beschreibt die Kommunikationsoptionen für die Zielressource.
+  - : Die Methode `OPTIONS` beschreibt die Kommunikationsoptionen für die Zielressource.
 - {{HTTPMethod("TRACE")}}
-  - : Die `TRACE`-Methode führt einen Nachrichtenschleifen-Test entlang des Pfads zur Zielressource durch.
+  - : Die Methode `TRACE` führt einen Nachrichten-Loopback-Test entlang des Pfads zur Zielressource durch.
 - {{HTTPMethod("PATCH")}}
-  - : Die `PATCH`-Methode wendet partielle Modifikationen auf eine Ressource an.
+  - : Die Methode `PATCH` nimmt teilweise Änderungen an einer Ressource vor.
 
-## Sichere, idempotente und cacheable Anfragemethoden
+## Sichere, idempotente und cachebare Anfragemethoden
 
-Die folgende Tabelle listet HTTP-Anfragemethoden und deren Kategorisierung in Bezug auf Sicherheit, Cachefähigkeit und Idempotenz auf.
+Die folgende Tabelle führt HTTP-Anfragemethoden und ihre Einordnung hinsichtlich Sicherheit, Cachebarkeit und Idempotenz auf.
 
-| Methode                   | Sicher | Idempotent | Cachefähig |
-| ------------------------- | ------ | ---------- | ---------- |
-| {{HTTPMethod("GET")}}     | Ja     | Ja         | Ja         |
-| {{HTTPMethod("HEAD")}}    | Ja     | Ja         | Ja         |
-| {{HTTPMethod("OPTIONS")}} | Ja     | Ja         | Nein       |
-| {{HTTPMethod("TRACE")}}   | Ja     | Ja         | Nein       |
-| {{HTTPMethod("PUT")}}     | Nein   | Ja         | Nein       |
-| {{HTTPMethod("DELETE")}}  | Nein   | Ja         | Nein       |
-| {{HTTPMethod("POST")}}    | Nein   | Nein       | Bedingt\*  |
-| {{HTTPMethod("PATCH")}}   | Nein   | Nein       | Bedingt\*  |
-| {{HTTPMethod("CONNECT")}} | Nein   | Nein       | Nein       |
+| Methode                   | Sicher | Idempotent | Cachebar  |
+| ------------------------- | ------ | ---------- | --------- |
+| {{HTTPMethod("GET")}}     | Ja     | Ja         | Ja        |
+| {{HTTPMethod("QUERY")}}   | Ja     | Ja         | Ja        |
+| {{HTTPMethod("HEAD")}}    | Ja     | Ja         | Ja        |
+| {{HTTPMethod("OPTIONS")}} | Ja     | Ja         | Nein      |
+| {{HTTPMethod("TRACE")}}   | Ja     | Ja         | Nein      |
+| {{HTTPMethod("PUT")}}     | Nein   | Ja         | Nein      |
+| {{HTTPMethod("DELETE")}}  | Nein   | Ja         | Nein      |
+| {{HTTPMethod("POST")}}    | Nein   | Nein       | Bedingt\* |
+| {{HTTPMethod("PATCH")}}   | Nein   | Nein       | Bedingt\* |
+| {{HTTPMethod("CONNECT")}} | Nein   | Nein       | Nein      |
 
-\* `POST` und `PATCH` sind cachefähig, wenn Antworten explizit [Frische](/de/docs/Web/HTTP/Guides/Caching)-Informationen und einen passenden {{HTTPHeader("Content-Location")}}-Header enthalten.
+\* `POST` und `PATCH` sind cachebar, wenn die Antworten ausdrücklich [Informationen zur Aktualität](/de/docs/Web/HTTP/Guides/Caching) und einen passenden {{HTTPHeader("Content-Location")}}-Header enthalten.
 
 ## Spezifikationen
 

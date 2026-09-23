@@ -3,28 +3,28 @@ title: Video- und Audio-APIs
 short-title: Video und Audio
 slug: Learn_web_development/Extensions/Client-side_APIs/Video_and_audio_APIs
 l10n:
-  sourceCommit: 91e08923c809ca8deded3e3294f49bbe1a4a00b3
+  sourceCommit: 1402df2877308c09ea2aa1460f1c97c634bd7624
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Client-side_APIs/Introduction", "Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics", "Learn_web_development/Extensions/Client-side_APIs")}}
 
-HTML enthält Elemente zum Einbetten umfangreicher Medien in Dokumente — {{htmlelement("video")}} und {{htmlelement("audio")}} — die wiederum über eigene APIs zur Steuerung der Wiedergabe, zum Springen zu Positionen usw. verfügen. Dieser Artikel zeigt Ihnen, wie Sie häufige Aufgaben erledigen, beispielsweise das Erstellen benutzerdefinierter Wiedergabesteuerungen.
+HTML bietet Elemente zum Einbetten von Medien in Dokumente — {{htmlelement("video")}} und {{htmlelement("audio")}}. Diese verfügen über eigene APIs, mit denen sich unter anderem die Wiedergabe steuern und eine bestimmte Position im Medium ansteuern lässt. Dieser Artikel zeigt Ihnen, wie Sie häufige Aufgaben erledigen, beispielsweise eigene Wiedergabesteuerelemente erstellen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere mit <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">JavaScript-Grundlagen zu Objekten</a> und zentralen API-Themen wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere mit den <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Grundlagen zu JavaScript-Objekten</a> und zentralen APIs wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Ziel:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was Codecs sind und welche verschiedenen Video- und Audioformate es gibt.</li>
-          <li>Die wichtigsten Funktionen im Zusammenhang mit Audio und Video verstehen — Wiedergabe, Pause, Stopp, Vor- und Zurückspulen, Dauer und aktuelle Zeit.</li>
-          <li>Die <code>HTMLMediaElement</code>-API verwenden, um einen einfachen benutzerdefinierten Media-Player zu erstellen, für bessere Barrierefreiheit oder mehr Konsistenz zwischen Browsern.</li>
+          <li>Verstehen, was Codecs sind und welche Video- und Audioformate es gibt.</li>
+          <li>Wichtige Funktionen für Audio und Video verstehen: Wiedergabe, Pausieren, Stoppen, Vor- und Zurückspulen, Dauer und aktuelle Wiedergabeposition.</li>
+          <li>Die <code>HTMLMediaElement</code>-API verwenden, um einen einfachen eigenen Mediaplayer zu erstellen, der barrierefreier ist oder sich browserübergreifend einheitlicher verhält.</li>
         </ul>
       </td>
     </tr>
@@ -33,7 +33,7 @@ HTML enthält Elemente zum Einbetten umfangreicher Medien in Dokumente — {{htm
 
 ## HTML-Video und -Audio
 
-Mit den Elementen {{htmlelement("video")}} und {{htmlelement("audio")}} können wir Video und Audio in Webseiten einbetten. Wie wir in [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) gezeigt haben, sieht eine typische Implementierung so aus:
+Mit den Elementen {{htmlelement("video")}} und {{htmlelement("audio")}} können wir Video und Audio in Webseiten einbetten. Wie unter [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) gezeigt, sieht eine typische Implementierung so aus:
 
 ```html
 <video controls>
@@ -46,7 +46,7 @@ Mit den Elementen {{htmlelement("video")}} und {{htmlelement("audio")}} können 
 </video>
 ```
 
-Dadurch wird im Browser ein Video-Player wie folgt erstellt:
+Dadurch entsteht im Browser ein Videoplayer wie dieser:
 
 ```html hidden live-sample___multiple-formats
 <h1>Below is a video that will play in all modern browsers</h1>
@@ -63,7 +63,7 @@ Dadurch wird im Browser ein Video-Player wie folgt erstellt:
 
 {{EmbedLiveSample("multiple-formats", '100%', 380)}}
 
-Im oben verlinkten Artikel können Sie nachlesen, was alle HTML-Funktionen bewirken; für unsere Zwecke ist hier das interessanteste Attribut [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls), das den Standardsatz an Wiedergabesteuerungen aktiviert. Wenn Sie dieses nicht angeben, erhalten Sie keine Wiedergabesteuerungen:
+Was die einzelnen HTML-Funktionen bewirken, können Sie im oben verlinkten Artikel nachlesen. Für unsere Zwecke ist das Attribut [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls) am interessantesten: Es aktiviert die standardmäßigen Wiedergabesteuerelemente. Wenn Sie es nicht angeben, werden keine Wiedergabesteuerelemente angezeigt:
 
 ```html hidden live-sample___multiple-formats-no-controls
 <h1>Below is a video that will play in all modern browsers</h1>
@@ -80,15 +80,15 @@ Im oben verlinkten Artikel können Sie nachlesen, was alle HTML-Funktionen bewir
 
 {{EmbedLiveSample("multiple-formats-no-controls", '100%', 380)}}
 
-Für die Videowiedergabe ist dies nicht unmittelbar so nützlich, hat aber Vorteile. Ein großes Problem mit den nativen Browser-Steuerungen besteht darin, dass sie in jedem Browser unterschiedlich sind — nicht besonders gut für browserübergreifende Unterstützung! Ein weiteres großes Problem ist, dass die nativen Steuerungen in den meisten Browsern nicht besonders gut über die Tastatur zugänglich sind.
+Für die Videowiedergabe ist das zunächst weniger nützlich, bietet aber auch Vorteile. Ein großes Problem der nativen Browsersteuerelemente ist, dass sie in jedem Browser anders aussehen — nicht gerade ideal für eine browserübergreifend einheitliche Darstellung! Ein weiteres Problem ist, dass die nativen Steuerelemente in den meisten Browsern nur eingeschränkt per Tastatur bedienbar sind.
 
-Sie können beide Probleme lösen, indem Sie die nativen Steuerungen ausblenden (durch Entfernen des `controls`-Attributs) und eigene Steuerungen mit HTML, CSS und JavaScript programmieren. Im nächsten Abschnitt betrachten wir die grundlegenden Werkzeuge, die uns dafür zur Verfügung stehen.
+Beide Probleme können Sie lösen, indem Sie die nativen Steuerelemente ausblenden (also das Attribut `controls` entfernen) und mit HTML, CSS und JavaScript eigene programmieren. Im nächsten Abschnitt sehen wir uns die grundlegenden Werkzeuge dafür an.
 
 ## Die HTMLMediaElement-API
 
-Als Teil der HTML-Spezifikation bietet die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API Funktionen, mit denen Sie Video- und Audio-Player programmatisch steuern können — zum Beispiel [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play), [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause) usw. Diese Schnittstelle steht sowohl für {{htmlelement("audio")}}- als auch für {{htmlelement("video")}}-Elemente zur Verfügung, da die Funktionen, die Sie implementieren möchten, nahezu identisch sind. Lassen Sie uns ein Beispiel durchgehen und dabei schrittweise Funktionen hinzufügen.
+Die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API ist Teil der HTML-Spezifikation und bietet Funktionen, mit denen Sie Video- und Audioplayer programmatisch steuern können, etwa [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) und [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause). Diese Schnittstelle steht sowohl {{htmlelement("audio")}}- als auch {{htmlelement("video")}}-Elementen zur Verfügung, da die benötigten Funktionen nahezu identisch sind. Sehen wir uns ein Beispiel an, das wir schrittweise erweitern.
 
-Unser fertiges Beispiel wird etwa wie folgt aussehen (und funktionieren):
+Unser fertiges Beispiel wird ungefähr so aussehen und funktionieren:
 
 ```html hidden live-sample___custom-video-player
 <div class="player">
@@ -362,17 +362,17 @@ function setTime() {
 
 ### Erste Schritte
 
-Um mit diesem Beispiel zu beginnen, führen Sie folgende Schritte aus:
+Gehen Sie für dieses Beispiel wie folgt vor:
 
 1. Erstellen Sie auf Ihrer Festplatte ein neues Verzeichnis namens `custom-video-player`.
-2. Erstellen Sie darin eine neue Datei namens `index.html` und füllen Sie sie mit folgendem Inhalt:
+2. Erstellen Sie darin eine neue Datei namens `index.html` mit folgendem Inhalt:
 
    ```html
    <!doctype html>
    <html lang="en-gb">
      <head>
        <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width" />
+       <meta name="viewport" content="width=device-width, initial-scale=1" />
        <title>Video player example</title>
        <link rel="stylesheet" type="text/css" href="style.css" />
      </head>
@@ -411,7 +411,7 @@ Um mit diesem Beispiel zu beginnen, führen Sie folgende Schritte aus:
    </html>
    ```
 
-3. Erstellen Sie darin eine weitere neue Datei namens `style.css` und füllen Sie sie mit folgendem Inhalt:
+3. Erstellen Sie darin eine weitere Datei namens `style.css` mit folgendem Inhalt:
 
    ```css
    @font-face {
@@ -536,24 +536,24 @@ Um mit diesem Beispiel zu beginnen, führen Sie folgende Schritte aus:
    }
    ```
 
-4. Erstellen Sie im Verzeichnis eine weitere neue Datei namens `custom-player.js`. Lassen Sie sie vorerst leer.
+4. Erstellen Sie im Verzeichnis außerdem eine Datei namens `custom-player.js`. Lassen Sie sie vorerst leer.
 
-Wenn Sie das HTML an dieser Stelle laden, sollten Sie einen vollkommen normalen HTML-Video-Player mit den gerenderten nativen Steuerungen sehen.
+Wenn Sie jetzt die HTML-Datei laden, sollten Sie einen gewöhnlichen HTML-Videoplayer mit den nativen Steuerelementen sehen.
 
-#### Das HTML erkunden
+#### Das HTML untersuchen
 
-Öffnen Sie die HTML-Indexdatei. Sie sehen eine Reihe von Funktionen; das HTML wird vom Video-Player und seinen Steuerungen dominiert:
+Öffnen Sie die HTML-Datei `index.html`. Sie enthält mehrere Bestandteile; den größten Teil machen der Videoplayer und seine Steuerelemente aus:
 
-- Der gesamte Player ist in ein {{htmlelement("div")}}-Element eingeschlossen, sodass bei Bedarf alles als eine Einheit formatiert werden kann.
-- Das {{htmlelement("video")}}-Element enthält zwei {{htmlelement("source")}}-Elemente, damit abhängig vom Browser, der die Website betrachtet, unterschiedliche Formate geladen werden können.
-- Das HTML der Steuerungen ist vermutlich am interessantesten:
-  - Wir haben vier {{htmlelement("button")}}-Elemente — Wiedergabe/Pause, Stopp, Zurückspulen und Vorspulen.
-  - Jedes `<button>` verfügt über einen `class`-Namen, ein `data-icon`-Attribut, das festlegt, welches Symbol auf jeder Schaltfläche angezeigt werden soll (wie dies funktioniert, zeigen wir im folgenden Abschnitt), sowie ein `aria-label`-Attribut, das eine verständliche Beschreibung jeder Schaltfläche bereitstellt, da wir innerhalb der Tags keine für Menschen lesbare Beschriftung bereitstellen. Die Inhalte von `aria-label`-Attributen werden von Screenreadern vorgelesen, wenn deren Nutzende den Fokus auf die Elemente setzen, die sie enthalten.
-  - Außerdem gibt es ein Timer-{{htmlelement("div")}}, das die vergangene Zeit meldet, während das Video wiedergegeben wird. Der Vollständigkeit halber stellen wir zwei Anzeigemechanismen bereit — ein {{htmlelement("span")}}, das die vergangene Zeit in Minuten und Sekunden enthält, sowie ein zusätzliches `<div>`, das wir verwenden werden, um eine horizontale Anzeigeleiste zu erstellen, die mit fortschreitender Zeit länger wird.
+- Der gesamte Player ist von einem {{htmlelement("div")}}-Element umschlossen, sodass er bei Bedarf als Einheit gestaltet werden kann.
+- Das {{htmlelement("video")}}-Element enthält zwei {{htmlelement("source")}}-Elemente, damit je nach Browser unterschiedliche Formate geladen werden können.
+- Das HTML für die Steuerelemente ist besonders interessant:
+  - Es gibt vier {{htmlelement("button")}}-Elemente: für Wiedergabe/Pause, Stopp, Zurückspulen und Vorspulen.
+  - Jedes `<button>`-Element hat einen `class`-Namen, ein `data-icon`-Attribut, das das anzuzeigende Symbol festlegt (wie das funktioniert, zeigen wir im nächsten Abschnitt), sowie ein `aria-label`-Attribut. Letzteres liefert eine verständliche Beschreibung der Schaltfläche, da zwischen den Tags keine lesbare Beschriftung steht. Screenreader lesen den Inhalt von `aria-label`-Attributen vor, wenn ihre Nutzer die betreffenden Elemente fokussieren.
+  - Außerdem gibt es ein {{htmlelement("div")}}-Element für die Zeitanzeige. Es zeigt während der Wiedergabe die verstrichene Zeit an. Dafür verwenden wir zwei Darstellungen: ein {{htmlelement("span")}}-Element mit der verstrichenen Zeit in Minuten und Sekunden sowie ein zusätzliches `<div>`-Element für einen horizontalen Balken, der mit fortschreitender Wiedergabe länger wird.
 
-#### Das CSS erkunden
+#### Das CSS untersuchen
 
-Öffnen Sie nun die CSS-Datei und sehen Sie sich ihren Inhalt an. Das CSS für das Beispiel ist nicht zu kompliziert, aber wir heben hier die interessantesten Teile hervor. Beachten Sie zunächst die Formatierung von `.controls`:
+Öffnen Sie nun die CSS-Datei. Das CSS für dieses Beispiel ist nicht besonders kompliziert; wir heben hier die interessantesten Stellen hervor. Sehen Sie sich zunächst die Gestaltung von `.controls` an:
 
 ```css
 .controls {
@@ -577,11 +577,11 @@ Wenn Sie das HTML an dieser Stelle laden, sollten Sie einen vollkommen normalen 
 }
 ```
 
-- Wir beginnen mit der {{cssxref("visibility")}} der benutzerdefinierten Steuerungen auf `hidden`. Später in unserem JavaScript setzen wir die Steuerungen auf `visible` und entfernen das `controls`-Attribut aus dem `<video>`-Element. So können Nutzende das Video weiterhin mit den nativen Steuerungen verwenden, falls das JavaScript aus irgendeinem Grund nicht geladen wird.
-- Wir geben den Steuerungen standardmäßig eine {{cssxref("opacity")}} von `0.5`, damit sie beim Ansehen des Videos weniger ablenken. Erst wenn Sie mit der Maus über den Player fahren oder ihn fokussieren, erscheinen die Steuerungen mit voller Deckkraft.
-- Wir ordnen die Schaltflächen innerhalb der Steuerleiste mit Flexbox ({{cssxref("display")}}: flex) an, um die Dinge zu vereinfachen.
+- Die {{cssxref("visibility")}} der eigenen Steuerelemente ist anfangs auf `hidden` gesetzt. Später setzen wir sie mit JavaScript auf `visible` und entfernen das Attribut `controls` vom `<video>`-Element. Falls JavaScript nicht geladen wird, können Nutzer das Video dadurch weiterhin mit den nativen Steuerelementen bedienen.
+- Standardmäßig setzen wir die {{cssxref("opacity")}} der Steuerelemente auf `0.5`, damit sie beim Ansehen des Videos weniger ablenken. Erst wenn sich der Mauszeiger über dem Player befindet oder der Player fokussiert ist, erscheinen sie mit voller Deckkraft.
+- Die Schaltflächen innerhalb der Steuerleiste ordnen wir mithilfe von Flexbox ({{cssxref("display")}}: flex) an.
 
-Sehen wir uns als Nächstes unsere Schaltflächensymbole an:
+Sehen wir uns als Nächstes die Symbole auf den Schaltflächen an:
 
 ```css
 @font-face {
@@ -602,17 +602,17 @@ button::before {
 }
 ```
 
-Zunächst verwenden wir am Anfang des CSS einen {{cssxref("@font-face")}}-Block, um eine benutzerdefinierte Webschriftart zu importieren. Dies ist eine Symbolschriftart — alle Zeichen des Alphabets entsprechen gängigen Symbolen, die Sie möglicherweise in einer Anwendung verwenden möchten.
+Oben in der CSS-Datei verwenden wir zunächst einen {{cssxref("@font-face")}}-Block, um eine eigene Webschriftart einzubinden. Dabei handelt es sich um eine Symbolschriftart: Die Buchstaben des Alphabets stehen für gängige Symbole, die in einer Anwendung nützlich sein können.
 
-Als Nächstes verwenden wir generierten Inhalt, um auf jeder Schaltfläche ein Symbol anzuzeigen:
+Anschließend verwenden wir generierten Inhalt, um auf jeder Schaltfläche ein Symbol anzuzeigen:
 
-- Wir verwenden den Selektor {{cssxref("::before")}}, um den Inhalt vor jedem {{htmlelement("button")}}-Element anzuzeigen.
-- Wir verwenden die Eigenschaft {{cssxref("content")}}, um den in jedem Fall anzuzeigenden Inhalt auf den Inhalt des Attributs [`data-icon`](/de/docs/Web/HTML/How_to/Use_data_attributes) festzulegen. Im Fall unserer Wiedergabe-Schaltfläche enthält `data-icon` ein großes „P“.
-- Wir wenden die benutzerdefinierte Webschriftart mit {{cssxref("font-family")}} auf unsere Schaltflächen an. In dieser Schriftart ist „P“ tatsächlich ein „Wiedergabe“-Symbol, daher wird auf der Wiedergabe-Schaltfläche ein Wiedergabe-Symbol angezeigt.
+- Mit dem Selektor {{cssxref("::before")}} zeigen wir Inhalt vor jedem {{htmlelement("button")}}-Element an.
+- Mit der Eigenschaft {{cssxref("content")}} legen wir fest, dass der jeweils angezeigte Inhalt dem Wert des Attributs [`data-icon`](/de/docs/Web/HTML/How_to/Use_data_attributes) entspricht. Bei unserer Wiedergabeschaltfläche enthält `data-icon` ein großes „P“.
+- Mithilfe von {{cssxref("font-family")}} wenden wir die eigene Webschriftart auf die Schaltflächen an. In dieser Schriftart steht „P“ für ein Wiedergabesymbol, das somit auf der Wiedergabeschaltfläche erscheint.
 
-Symbolschriftarten sind aus vielen Gründen praktisch — sie verringern HTTP-Anfragen, weil Sie diese Symbole nicht als Bilddateien herunterladen müssen, bieten hervorragende Skalierbarkeit und ermöglichen es Ihnen, Texteigenschaften wie {{cssxref("color")}} und {{cssxref("text-shadow")}} zum Formatieren zu verwenden.
+Symbolschriftarten sind aus mehreren Gründen praktisch: Sie reduzieren die Zahl der HTTP-Anfragen, weil die Symbole nicht als Bilddateien heruntergeladen werden müssen, lassen sich gut skalieren und können mit Texteigenschaften wie {{cssxref("color")}} und {{cssxref("text-shadow")}} gestaltet werden.
 
-Zu guter Letzt sehen wir uns das CSS für den Timer an:
+Sehen wir uns zum Schluss das CSS für die Zeitanzeige an:
 
 ```css
 .timer {
@@ -642,14 +642,14 @@ Zu guter Letzt sehen wir uns das CSS für den Timer an:
 }
 ```
 
-- Wir setzen für das äußere `.timer`-Element `flex: 5`, sodass es den größten Teil der Breite der Steuerleiste einnimmt. Außerdem geben wir ihm {{cssxref("position", "position: relative")}}, damit wir Elemente darin bequem relativ zu seinen Begrenzungen und nicht zu den Begrenzungen des {{htmlelement("body")}}-Elements positionieren können.
-- Das innere `<div>` wird absolut positioniert, sodass es direkt über dem äußeren `<div>` liegt. Außerdem erhält es eine anfängliche Breite von 0, sodass Sie es überhaupt nicht sehen können. Während das Video wiedergegeben wird, wird seine Breite über JavaScript vergrößert, während die Zeit fortschreitet.
-- Auch das `<span>` wird absolut positioniert, sodass es nahe der linken Seite der Timer-Leiste liegt.
-- Außerdem geben wir unserem inneren `<div>` und `<span>` den richtigen {{cssxref("z-index")}}, sodass der Timer oben und das innere `<div>` darunter angezeigt wird. Auf diese Weise stellen wir sicher, dass alle Informationen sichtbar sind — ein Feld verdeckt kein anderes.
+- Das äußere `.timer`-Element erhält `flex: 5` und nimmt dadurch den größten Teil der Breite der Steuerleiste ein. Außerdem erhält es {{cssxref("position", "position: relative")}}, damit wir Elemente innerhalb davon bequem relativ zu seinen Grenzen statt zu denen des {{htmlelement("body")}}-Elements positionieren können.
+- Das innere `<div>`-Element ist absolut positioniert und liegt direkt über dem äußeren `<div>`-Element. Seine anfängliche Breite beträgt 0, sodass es nicht sichtbar ist. Während der Wiedergabe wird seine Breite per JavaScript vergrößert.
+- Das `<span>`-Element ist ebenfalls absolut positioniert, und zwar nahe der linken Seite der Zeitleiste.
+- Dem inneren `<div>`- und dem `<span>`-Element geben wir außerdem passende {{cssxref("z-index")}}-Werte. So erscheint die Zeitanzeige ganz oben und das innere `<div>`-Element darunter. Damit bleiben alle Informationen sichtbar, ohne dass ein Element ein anderes verdeckt.
 
-### Das JavaScript implementieren
+### JavaScript implementieren
 
-Wir haben bereits eine ziemlich vollständige HTML- und CSS-Schnittstelle; jetzt müssen wir nur noch alle Schaltflächen verbinden, damit die Steuerungen funktionieren.
+Die HTML- und CSS-Oberfläche ist bereits weitgehend fertig. Jetzt müssen wir die Schaltflächen mit Funktionen verknüpfen, damit die Steuerung funktioniert.
 
 1. Fügen Sie am Anfang der Datei `custom-player.js` folgenden Code ein:
 
@@ -667,31 +667,31 @@ Wir haben bereits eine ziemlich vollständige HTML- und CSS-Schnittstelle; jetzt
    const timerBar = document.querySelector(".timer div");
    ```
 
-   Hier erstellen wir Konstanten, die Referenzen auf alle Objekte enthalten, die wir bearbeiten möchten. Wir haben drei Gruppen:
+   Hier erstellen wir Konstanten, die Referenzen auf alle Objekte enthalten, die wir verändern möchten. Es gibt drei Gruppen:
    - Das `<video>`-Element und die Steuerleiste.
    - Die Schaltflächen für Wiedergabe/Pause, Stopp, Zurückspulen und Vorspulen.
-   - Das äußere Timer-Wrapper-`<div>`, die digitale Timer-Anzeige `<span>` und das innere `<div>`, das mit fortschreitender Zeit breiter wird.
+   - Das umschließende `<div>`-Element der Zeitanzeige, das `<span>`-Element für die digitale Zeitangabe und das innere `<div>`-Element, das mit fortschreitender Wiedergabe breiter wird.
 
-2. Fügen Sie anschließend am Ende Ihres Codes Folgendes ein:
+2. Fügen Sie als Nächstes am Ende Ihres Codes Folgendes ein:
 
    ```js
    media.removeAttribute("controls");
    controls.style.visibility = "visible";
    ```
 
-   Diese beiden Zeilen entfernen die Standard-Browser-Steuerungen aus dem Video und machen die benutzerdefinierten Steuerungen sichtbar.
+   Diese beiden Zeilen entfernen die standardmäßigen Browsersteuerelemente vom Video und machen die eigenen Steuerelemente sichtbar.
 
-#### Das Video wiedergeben und pausieren
+#### Video wiedergeben und pausieren
 
-Implementieren wir wahrscheinlich die wichtigste Steuerung — die Schaltfläche für Wiedergabe/Pause.
+Implementieren wir die vermutlich wichtigste Steuerung: die Schaltfläche für Wiedergabe und Pause.
 
-1. Fügen Sie zunächst Folgendes am Ende Ihres Codes hinzu, damit die Funktion `playPauseMedia()` aufgerufen wird, wenn auf die Wiedergabe-Schaltfläche geklickt wird:
+1. Fügen Sie zunächst am Ende Ihres Codes Folgendes hinzu, damit die Funktion `playPauseMedia()` beim Klicken auf die Wiedergabeschaltfläche aufgerufen wird:
 
    ```js
    play.addEventListener("click", playPauseMedia);
    ```
 
-2. Nun definieren wir `playPauseMedia()` — fügen Sie erneut am Ende Ihres Codes Folgendes hinzu:
+2. Definieren Sie nun `playPauseMedia()`, indem Sie ebenfalls am Ende Ihres Codes Folgendes hinzufügen:
 
    ```js
    function playPauseMedia() {
@@ -705,22 +705,22 @@ Implementieren wir wahrscheinlich die wichtigste Steuerung — die Schaltfläche
    }
    ```
 
-   Hier verwenden wir eine [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung, um zu prüfen, ob das Video pausiert ist. Die Eigenschaft [`HTMLMediaElement.paused`](/de/docs/Web/API/HTMLMediaElement/paused) gibt true zurück, wenn das Medium pausiert ist, also immer dann, wenn das Video nicht wiedergegeben wird, einschließlich wenn es nach dem ersten Laden bei einer Dauer von 0 eingestellt ist. Wenn es pausiert ist, setzen wir den Wert des `data-icon`-Attributs auf der Wiedergabe-Schaltfläche auf „u“, was ein „Pausiert“-Symbol ist, und rufen die Methode [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) auf, um das Medium wiederzugeben.
+   Hier prüfen wir mit einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung, ob das Video pausiert ist. Die Eigenschaft [`HTMLMediaElement.paused`](/de/docs/Web/API/HTMLMediaElement/paused) gibt `true` zurück, wenn das Medium nicht wiedergegeben wird — auch unmittelbar nach dem ersten Laden, wenn die Wiedergabeposition bei 0 liegt. Ist das Video pausiert, setzen wir den Wert des Attributs `data-icon` auf der Wiedergabeschaltfläche auf „u“, das Symbol für Pause, und rufen die Methode [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) auf, um die Wiedergabe zu starten.
 
-   Beim zweiten Klick wird die Schaltfläche wieder zurückgeschaltet — das „Wiedergabe“-Symbol wird erneut angezeigt und das Video wird mit [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause) pausiert.
+   Beim nächsten Klick wird die Schaltfläche zurückgeschaltet: Das Wiedergabesymbol erscheint wieder und das Video wird mit [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause) pausiert.
 
-#### Das Video anhalten
+#### Video stoppen
 
-1. Als Nächstes fügen wir Funktionen zum Anhalten des Videos hinzu. Fügen Sie die folgenden [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Zeilen unter der vorherigen hinzu:
+1. Als Nächstes ergänzen wir die Funktion zum Stoppen des Videos. Fügen Sie unter der zuvor hinzugefügten Zeile die folgenden [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Zeilen ein:
 
    ```js
    stop.addEventListener("click", stopMedia);
    media.addEventListener("ended", stopMedia);
    ```
 
-   Das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis ist offensichtlich — wir möchten das Video anhalten, indem wir unsere Funktion `stopMedia()` ausführen, wenn auf die Stopp-Schaltfläche geklickt wird. Wir möchten das Video jedoch auch anhalten, wenn seine Wiedergabe beendet ist — dies wird durch das Auslösen des Ereignisses [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event) gekennzeichnet, daher richten wir auch einen Listener ein, der die Funktion bei Auslösung dieses Ereignisses ausführt.
+   Das Ereignis [`click`](/de/docs/Web/API/Element/click_event) ist naheliegend: Wenn auf die Stoppschaltfläche geklickt wird, soll `stopMedia()` das Video stoppen. Das Video soll aber auch nach dem Ende der Wiedergabe gestoppt werden. Dies wird durch das Ereignis [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event) signalisiert. Deshalb richten wir auch dafür einen Listener ein, der die Funktion aufruft.
 
-2. Als Nächstes definieren wir `stopMedia()` — fügen Sie die folgende Funktion unter `playPauseMedia()` hinzu:
+2. Definieren Sie nun `stopMedia()`, indem Sie die folgende Funktion unter `playPauseMedia()` einfügen:
 
    ```js
    function stopMedia() {
@@ -730,22 +730,22 @@ Implementieren wir wahrscheinlich die wichtigste Steuerung — die Schaltfläche
    }
    ```
 
-   Die HTMLMediaElement-API verfügt über keine `stop()`-Methode — das Äquivalent besteht darin, das Video mit `pause()` anzuhalten und seine Eigenschaft [`currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) auf 0 zu setzen. Das Setzen von `currentTime` auf einen Wert (in Sekunden) springt sofort zu dieser Position im Medium.
+   Die HTMLMediaElement-API hat keine Methode `stop()`. Stattdessen wird das Video mit `pause()` pausiert und seine Eigenschaft [`currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) auf 0 gesetzt. Wenn `currentTime` ein Wert in Sekunden zugewiesen wird, springt das Medium sofort an diese Position.
 
-   Danach müssen Sie nur noch das angezeigte Symbol auf das „Wiedergabe“-Symbol setzen. Unabhängig davon, ob das Video pausiert war oder wiedergegeben wurde, als die Stopp-Schaltfläche gedrückt wurde, soll es anschließend zur Wiedergabe bereit sein.
+   Danach muss nur noch das Wiedergabesymbol angezeigt werden. Unabhängig davon, ob das Video beim Drücken der Stoppschaltfläche pausiert war oder wiedergegeben wurde, soll es anschließend zur Wiedergabe bereit sein.
 
-#### Vor- und zurückspringen
+#### Vor- und Zurückspulen
 
-Es gibt viele Möglichkeiten, Funktionen zum Zurückspulen und Vorspulen zu implementieren; hier zeigen wir Ihnen eine relativ komplexe Methode, die nicht fehlschlägt, wenn die verschiedenen Schaltflächen in einer unerwarteten Reihenfolge gedrückt werden.
+Vor- und Zurückspulen lässt sich auf verschiedene Arten implementieren. Hier zeigen wir einen vergleichsweise komplexen Ansatz, der auch dann funktioniert, wenn die verschiedenen Schaltflächen in einer unerwarteten Reihenfolge gedrückt werden.
 
-1. Fügen Sie zunächst die folgenden zwei [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Zeilen unter den vorherigen hinzu:
+1. Fügen Sie zunächst die folgenden beiden [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Zeilen unter den bisherigen ein:
 
    ```js
    rwd.addEventListener("click", mediaBackward);
    fwd.addEventListener("click", mediaForward);
    ```
 
-2. Nun zu den Ereignis-Handler-Funktionen — fügen Sie unter Ihren vorherigen Funktionen den folgenden Code hinzu, um `mediaBackward()` und `mediaForward()` zu definieren:
+2. Definieren Sie nun die Ereignisbehandlungsfunktionen `mediaBackward()` und `mediaForward()`, indem Sie den folgenden Code unter Ihren bisherigen Funktionen einfügen:
 
    ```js
    let intervalFwd;
@@ -782,15 +782,15 @@ Es gibt viele Möglichkeiten, Funktionen zum Zurückspulen und Vorspulen zu impl
    }
    ```
 
-   Sie werden feststellen, dass wir zuerst zwei Variablen initialisieren — `intervalFwd` und `intervalRwd` — später erfahren Sie, wofür sie gedacht sind.
+   Zunächst initialisieren wir zwei Variablen: `intervalFwd` und `intervalRwd`. Wofür sie gebraucht werden, sehen Sie gleich.
 
-   Gehen wir `mediaBackward()` durch (die Funktionalität von `mediaForward()` ist genau gleich, aber umgekehrt):
-   1. Wir entfernen alle Klassen und Intervalle, die für die Vorspul-Funktionalität gesetzt sind — dies tun wir, weil wir beim Drücken der Schaltfläche `rwd` nach dem Drücken der Schaltfläche `fwd` jede Vorspul-Funktionalität abbrechen und durch die Zurückspul-Funktionalität ersetzen möchten. Wenn wir versuchen würden, beides gleichzeitig auszuführen, würde der Player nicht funktionieren.
-   2. Wir verwenden eine `if`-Anweisung, um zu prüfen, ob die Klasse `active` auf der Schaltfläche `rwd` gesetzt wurde, was anzeigt, dass sie bereits gedrückt wurde. [`classList`](/de/docs/Web/API/Element/classList) ist eine äußerst praktische Eigenschaft, die für jedes Element vorhanden ist — sie enthält eine Liste aller auf dem Element gesetzten Klassen sowie Methoden zum Hinzufügen/Entfernen von Klassen usw. Wir verwenden die Methode `classList.contains()`, um zu prüfen, ob die Liste die Klasse `active` enthält. Dies gibt ein boolesches Ergebnis `true`/`false` zurück.
-   3. Wenn `active` auf der Schaltfläche `rwd` gesetzt wurde, entfernen wir sie mit `classList.remove()`, löschen das Intervall, das beim ersten Drücken der Schaltfläche gesetzt wurde (siehe unten für weitere Erklärungen), und verwenden [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play), um das Zurückspulen abzubrechen und die normale Wiedergabe des Videos zu starten.
-   4. Falls sie noch nicht gesetzt wurde, fügen wir der Schaltfläche `rwd` mit `classList.add()` die Klasse `active` hinzu, pausieren das Video mit [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause) und setzen dann die Variable `intervalRwd` auf einen Aufruf von [`setInterval()`](/de/docs/Web/API/Window/setInterval). Beim Aufruf erstellt `setInterval()` ein aktives Intervall, was bedeutet, dass die als erster Parameter angegebene Funktion alle x Millisekunden ausgeführt wird, wobei x der Wert des zweiten Parameters ist. Hier führen wir also die Funktion `windBackward()` alle 200 Millisekunden aus — wir verwenden diese Funktion, um das Video fortlaufend zurückzuspulen. Um ein laufendes [`setInterval()`](/de/docs/Web/API/Window/setInterval) zu stoppen, müssen Sie [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) aufrufen und ihm den identifizierenden Namen des zu löschenden Intervalls übergeben, der in diesem Fall der Variablenname `intervalRwd` ist (siehe den `clearInterval()`-Aufruf weiter oben in der Funktion).
+   Gehen wir `mediaBackward()` Schritt für Schritt durch. `mediaForward()` funktioniert genauso, nur in umgekehrter Richtung:
+   1. Wir entfernen alle Klassen und Intervalle, die für das Vorspulen gesetzt wurden. Wenn nach der Schaltfläche `fwd` die Schaltfläche `rwd` gedrückt wird, soll das Vorspulen beendet und durch Zurückspulen ersetzt werden. Würden beide Vorgänge gleichzeitig laufen, würde der Player nicht mehr richtig funktionieren.
+   2. Mit einer `if`-Anweisung prüfen wir, ob auf der Schaltfläche `rwd` die Klasse `active` gesetzt ist. Das zeigt an, dass die Schaltfläche bereits gedrückt wurde. Die Eigenschaft [`classList`](/de/docs/Web/API/Element/classList) ist für jedes Element verfügbar. Sie enthält eine Liste aller für das Element gesetzten Klassen sowie Methoden, um Klassen hinzuzufügen oder zu entfernen. Mit `classList.contains()` prüfen wir, ob die Liste die Klasse `active` enthält. Das Ergebnis ist der boolesche Wert `true` oder `false`.
+   3. Ist `active` auf der Schaltfläche `rwd` gesetzt, entfernen wir die Klasse mit `classList.remove()`, beenden das beim ersten Drücken der Schaltfläche gestartete Intervall (dazu gleich mehr) und rufen [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) auf, um das Zurückspulen abzubrechen und die normale Wiedergabe zu starten.
+   4. Ist die Klasse noch nicht gesetzt, fügen wir sie mit `classList.add()` zur Schaltfläche `rwd` hinzu, pausieren das Video mit [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause) und weisen der Variablen `intervalRwd` das Ergebnis eines Aufrufs von [`setInterval()`](/de/docs/Web/API/Window/setInterval) zu. `setInterval()` richtet ein aktives Intervall ein: Die als erster Parameter übergebene Funktion wird alle x Millisekunden ausgeführt, wobei x der Wert des zweiten Parameters ist. Hier rufen wir `windBackward()` alle 200 Millisekunden auf, um das Video fortlaufend zurückzuspulen. Um ein mit [`setInterval()`](/de/docs/Web/API/Window/setInterval) eingerichtetes Intervall zu beenden, rufen Sie [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) mit der Kennung des Intervalls auf. In diesem Fall ist sie in `intervalRwd` gespeichert (siehe den früheren `clearInterval()`-Aufruf in der Funktion).
 
-3. Schließlich müssen wir die Funktionen `windBackward()` und `windForward()` definieren, die in den `setInterval()`-Aufrufen ausgeführt werden. Fügen Sie unter Ihren beiden vorherigen Funktionen Folgendes hinzu:
+3. Schließlich müssen wir die in den `setInterval()`-Aufrufen verwendeten Funktionen `windBackward()` und `windForward()` definieren. Fügen Sie Folgendes unter den beiden bisherigen Funktionen ein:
 
    ```js
    function windBackward() {
@@ -814,21 +814,21 @@ Es gibt viele Möglichkeiten, Funktionen zum Zurückspulen und Vorspulen zu impl
    }
    ```
 
-   Wiederum gehen wir nur die erste dieser Funktionen durch, da sie nahezu identisch, aber entgegengesetzt zueinander funktionieren. In `windBackward()` führen wir Folgendes aus — bedenken Sie, dass diese Funktion bei aktivem Intervall alle 200 Millisekunden ausgeführt wird.
-   1. Wir beginnen mit einer `if`-Anweisung, die prüft, ob die aktuelle Zeit weniger als 3 Sekunden beträgt, d.h. ob ein weiteres Zurückspulen um drei Sekunden vor den Beginn des Videos zurückführen würde. Dies würde ein merkwürdiges Verhalten verursachen. Daher stoppen wir in diesem Fall die Videowiedergabe durch den Aufruf von `stopMedia()`, entfernen die Klasse `active` von der Zurückspul-Schaltfläche und löschen das Intervall `intervalRwd`, um die Zurückspul-Funktionalität zu beenden. Ohne diesen letzten Schritt würde das Video einfach endlos zurückgespult.
-   2. Wenn die aktuelle Zeit nicht innerhalb von 3 Sekunden vom Beginn des Videos liegt, ziehen wir drei Sekunden von der aktuellen Zeit ab, indem wir `media.currentTime -= 3` ausführen. Tatsächlich spulen wir das Video also alle 200 Millisekunden um 3 Sekunden zurück.
+   Auch hier gehen wir nur die erste Funktion durch, da beide fast identisch arbeiten — lediglich in entgegengesetzte Richtungen. `windBackward()` führt die folgenden Schritte aus. Denken Sie daran, dass die Funktion bei aktivem Intervall alle 200 Millisekunden aufgerufen wird.
+   1. Zunächst prüft eine `if`-Anweisung, ob die aktuelle Wiedergabeposition weniger als drei Sekunden vom Anfang entfernt ist. Ein Zurückspulen um weitere drei Sekunden würde dann über den Anfang des Videos hinausgehen und zu unerwartetem Verhalten führen. Deshalb stoppen wir in diesem Fall das Video mit `stopMedia()`, entfernen die Klasse `active` von der Zurückspulschaltfläche und beenden das Intervall `intervalRwd`. Ohne diesen letzten Schritt würde der Zurückspulvorgang weiterlaufen.
+   2. Ist die Wiedergabeposition mindestens drei Sekunden vom Anfang entfernt, ziehen wir mit `media.currentTime -= 3` drei Sekunden von ihr ab. Das Video wird dadurch alle 200 Millisekunden um drei Sekunden zurückgespult.
 
-#### Die vergangene Zeit aktualisieren
+#### Anzeige der verstrichenen Zeit aktualisieren
 
-Der allerletzte Teil unseres Media-Players, den wir implementieren müssen, sind die Anzeigen der vergangenen Zeit. Dazu führen wir eine Funktion aus, die die Zeitanzeigen jedes Mal aktualisiert, wenn das Ereignis [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event) auf dem `<video>`-Element ausgelöst wird. Die Häufigkeit, mit der dieses Ereignis ausgelöst wird, hängt von Ihrem Browser, der CPU-Leistung usw. ab ([siehe diesen Stack-Overflow-Beitrag](https://stackoverflow.com/questions/9678177/how-often-does-the-timeupdate-event-fire-for-an-html5-video)).
+Als Letztes implementieren wir die Anzeige der verstrichenen Zeit. Dazu aktualisieren wir die Zeitanzeigen jedes Mal, wenn auf dem `<video>`-Element das Ereignis [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event) ausgelöst wird. Wie häufig das geschieht, hängt unter anderem vom Browser und der CPU-Leistung ab ([siehe diesen Stack-Overflow-Beitrag](https://stackoverflow.com/questions/9678177/how-often-does-the-timeupdate-event-fire-for-an-html5-video)).
 
-1. Fügen Sie direkt unter den anderen die folgende `addEventListener()`-Zeile hinzu:
+1. Fügen Sie die folgende `addEventListener()`-Zeile direkt unter den anderen ein:
 
    ```js
    media.addEventListener("timeupdate", setTime);
    ```
 
-2. Nun definieren wir die Funktion `setTime()`. Fügen Sie am Ende Ihrer Datei Folgendes hinzu:
+2. Definieren Sie nun die Funktion `setTime()`. Fügen Sie dazu am Ende Ihrer Datei Folgendes ein:
 
    ```js
    function setTime() {
@@ -847,20 +847,20 @@ Der allerletzte Teil unseres Media-Players, den wir implementieren müssen, sind
    }
    ```
 
-Dies ist eine recht lange Funktion, daher gehen wir sie Schritt für Schritt durch:
+Die Funktion ist recht lang. Gehen wir sie Schritt für Schritt durch:
 
-1. Zunächst ermitteln wir die Anzahl der Minuten und Sekunden im Wert [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime).
-2. Dann initialisieren wir zwei weitere Variablen — `minuteValue` und `secondValue`. Wir verwenden {{jsxref("String/padStart", "padStart()")}}, damit jeder Wert 2 Zeichen lang ist, auch wenn der numerische Wert nur aus einer einzigen Ziffer besteht.
-3. Der tatsächlich anzuzeigende Zeitwert wird als `minuteValue` plus ein Doppelpunktzeichen plus `secondValue` festgelegt.
-4. Der Wert [`Node.textContent`](/de/docs/Web/API/Node/textContent) des Timers wird auf den Zeitwert gesetzt, sodass er in der Benutzeroberfläche angezeigt wird.
-5. Die Länge, auf die wir das innere `<div>` setzen sollten, wird ermittelt, indem zunächst die Breite des äußeren `<div>` berechnet wird (die Eigenschaft [`clientWidth`](/de/docs/Web/API/Element/clientWidth) eines Elements enthält dessen Länge) und diese dann mit [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) geteilt durch die gesamte [`HTMLMediaElement.duration`](/de/docs/Web/API/HTMLMediaElement/duration) des Mediums multipliziert wird.
-6. Wir setzen die Breite des inneren `<div>` auf die berechnete Leistenlänge plus „px“, sodass sie auf diese Anzahl von Pixeln gesetzt wird.
+1. Zunächst ermitteln wir aus dem Wert von [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) die Anzahl der Minuten und Sekunden.
+2. Dann initialisieren wir zwei weitere Variablen: `minuteValue` und `secondValue`. Mit {{jsxref("String/padStart", "padStart()")}} sorgen wir dafür, dass jeder Wert zwei Zeichen lang ist, auch wenn sein Zahlenwert nur einstellig ist.
+3. Der anzuzeigende Zeitwert setzt sich aus `minuteValue`, einem Doppelpunkt und `secondValue` zusammen.
+4. Wir setzen den Wert von [`Node.textContent`](/de/docs/Web/API/Node/textContent) für die Zeitanzeige auf diesen Zeitwert, damit er in der Benutzeroberfläche erscheint.
+5. Die benötigte Breite des inneren `<div>`-Elements berechnen wir anhand der Breite des äußeren `<div>`-Elements — die Eigenschaft [`clientWidth`](/de/docs/Web/API/Element/clientWidth) eines Elements enthält dessen Breite. Diese multiplizieren wir mit dem Verhältnis der aktuellen Wiedergabeposition [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) zur Gesamtdauer [`HTMLMediaElement.duration`](/de/docs/Web/API/HTMLMediaElement/duration) des Mediums.
+6. Die Breite des inneren `<div>`-Elements setzen wir auf die berechnete Balkenlänge plus „px“, also auf die entsprechende Anzahl von Pixeln.
 
 #### Wiedergabe und Pause korrigieren
 
-Es bleibt noch ein Problem zu beheben. Wenn die Schaltflächen für Wiedergabe/Pause oder Stopp gedrückt werden, während die Zurückspul- oder Vorspul-Funktionalität aktiv ist, funktionieren sie einfach nicht. Wie können wir es so beheben, dass sie die Funktionalität der Schaltflächen `rwd`/`fwd` abbrechen und das Video wie erwartet wiedergeben/anhalten? Dies lässt sich recht einfach beheben.
+Ein Problem bleibt: Wenn während des Vor- oder Zurückspulens die Schaltfläche für Wiedergabe/Pause oder Stopp gedrückt wird, funktioniert sie nicht. Wie können wir dafür sorgen, dass diese Schaltflächen die Funktion von `rwd` oder `fwd` beenden und das Video wie erwartet wiedergeben beziehungsweise stoppen? Das lässt sich leicht beheben.
 
-1. Fügen Sie zunächst die folgenden Zeilen innerhalb der Funktion `stopMedia()` hinzu — die Position ist beliebig:
+1. Fügen Sie zunächst die folgenden Zeilen an einer beliebigen Stelle innerhalb der Funktion `stopMedia()` ein:
 
    ```js
    rwd.classList.remove("active");
@@ -869,22 +869,22 @@ Es bleibt noch ein Problem zu beheben. Wenn die Schaltflächen für Wiedergabe/P
    clearInterval(intervalFwd);
    ```
 
-2. Fügen Sie nun dieselben Zeilen ganz am Anfang der Funktion `playPauseMedia()` erneut hinzu (direkt vor Beginn der `if`-Anweisung).
+2. Fügen Sie dieselben Zeilen außerdem ganz am Anfang der Funktion `playPauseMedia()` ein, unmittelbar vor der `if`-Anweisung.
 
-3. An dieser Stelle können Sie die entsprechenden Zeilen aus den Funktionen `windBackward()` und `windForward()` löschen, da diese Funktionalität stattdessen in der Funktion `stopMedia()` implementiert wurde.
+3. Anschließend können Sie die entsprechenden Zeilen aus `windBackward()` und `windForward()` entfernen, da diese Funktionalität nun stattdessen in `stopMedia()` implementiert ist.
 
 > [!NOTE]
-> Sie könnten die Effizienz des Codes auch weiter verbessern, indem Sie eine separate Funktion erstellen, welche diese Zeilen ausführt, und sie dann überall dort aufrufen, wo sie benötigt wird, anstatt die Zeilen mehrfach im Code zu wiederholen. Das überlassen wir jedoch Ihnen.
+> Sie könnten den Code weiter verbessern, indem Sie eine eigene Funktion für diese Zeilen erstellen und sie an den benötigten Stellen aufrufen, statt die Zeilen mehrfach zu wiederholen. Das überlassen wir Ihnen.
 
 ## Zusammenfassung
 
-Ich denke, wir haben Ihnen in diesem Artikel genug vermittelt. Die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API stellt eine Fülle von Funktionen zum Erstellen einfacher Video- und Audio-Player bereit, und das ist nur die Spitze des Eisbergs. Weitere komplexe und interessante Funktionen finden Sie im Abschnitt „Siehe auch“ weiter unten.
+Damit haben Sie die Grundlagen kennengelernt. Die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API bietet zahlreiche Funktionen zum Erstellen einfacher Video- und Audioplayer — und das ist nur die Spitze des Eisbergs. Im Abschnitt „Siehe auch“ finden Sie Links zu komplexeren und weiterführenden Funktionen.
 
-Hier sind einige Vorschläge, wie Sie das vorhandene Beispiel, das wir erstellt haben, erweitern könnten:
+Hier sind einige Vorschläge, wie Sie unser Beispiel erweitern können:
 
-1. Die Zeitanzeige funktioniert derzeit nicht korrekt, wenn das Video eine Stunde oder länger dauert (sie zeigt keine Stunden an, sondern nur Minuten und Sekunden). Können Sie herausfinden, wie Sie das Beispiel ändern können, damit es Stunden anzeigt?
-2. Da für `<audio>`-Elemente dieselbe [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Funktionalität verfügbar ist, könnten Sie diesen Player problemlos auch für ein `<audio>`-Element verwenden. Versuchen Sie es.
-3. Können Sie einen Weg finden, das innere `<div>`-Element des Timers in eine echte Suchleiste bzw. einen Scrollbalken umzuwandeln — d.h. wenn Sie auf eine Stelle in der Leiste klicken, springt die Videowiedergabe zu dieser relativen Position? Als Hinweis: Sie können die X- und Y-Werte der linken/rechten und oberen/unteren Seiten des Elements über die Methode [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) ermitteln, und Sie können die Koordinaten eines Mausklicks über das Ereignisobjekt des Klick-Ereignisses herausfinden, das auf dem [`Document`](/de/docs/Web/API/Document)-Objekt aufgerufen wird. Zum Beispiel:
+1. Die Zeitanzeige funktioniert derzeit nicht richtig, wenn das Video eine Stunde oder länger dauert: Sie zeigt nur Minuten und Sekunden an, keine Stunden. Können Sie das Beispiel so ändern, dass auch Stunden angezeigt werden?
+2. Da `<audio>`-Elementen dieselben Funktionen der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API zur Verfügung stehen, können Sie den Player leicht auch für ein `<audio>`-Element nutzbar machen. Probieren Sie es aus.
+3. Können Sie das innere `<div>`-Element der Zeitanzeige in eine interaktive Suchleiste umwandeln, sodass ein Klick auf eine Stelle des Balkens zu der entsprechenden Position im Video springt? Ein Hinweis: Mit der Methode [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) können Sie die Koordinaten der linken, rechten, oberen und unteren Kante eines Elements ermitteln. Die Koordinaten eines Mausklicks finden Sie im Ereignisobjekt des Klickereignisses, das Sie auf dem [`Document`](/de/docs/Web/API/Document)-Objekt abfangen können. Zum Beispiel:
 
    ```js
    document.onclick = function (e) {
@@ -895,10 +895,10 @@ Hier sind einige Vorschläge, wie Sie das vorhandene Beispiel, das wir erstellt 
 ## Siehe auch
 
 - [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)
-- [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) — einfacher Leitfaden zu HTML-`<video>` und `<audio>`.
-- [Bereitstellung von Audio und Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery) — detaillierter Leitfaden zur Bereitstellung von Medien im Browser mit vielen Tipps, Tricks und Links zu weiterführenden, fortgeschrittenen Tutorials.
-- [Bearbeitung von Audio und Video](/de/docs/Web/Media/Guides/Audio_and_video_manipulation) — detaillierter Leitfaden zur Bearbeitung von Audio und Video, z. B. mit der [Canvas API](/de/docs/Web/API/Canvas_API), der [Web Audio API](/de/docs/Web/API/Web_Audio_API) und mehr.
-- Referenzseiten für {{htmlelement("video")}} und {{htmlelement("audio")}}.
+- [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) — ein einfacher Leitfaden zu `<video>` und `<audio>` in HTML.
+- [Bereitstellung von Audio und Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery) — ein ausführlicher Leitfaden zur Bereitstellung von Medien im Browser mit vielen Tipps, Tricks und Links zu weiterführenden Tutorials.
+- [Bearbeitung von Audio und Video](/de/docs/Web/Media/Guides/Audio_and_video_manipulation) — ein ausführlicher Leitfaden zur Bearbeitung von Audio und Video, beispielsweise mit der [Canvas API](/de/docs/Web/API/Canvas_API), der [Web Audio API](/de/docs/Web/API/Web_Audio_API) und weiteren Werkzeugen.
+- Referenzseiten zu {{htmlelement("video")}} und {{htmlelement("audio")}}.
 - [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Guides/Formats)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Client-side_APIs/Introduction", "Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics", "Learn_web_development/Extensions/Client-side_APIs")}}
