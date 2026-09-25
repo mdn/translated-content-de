@@ -1,40 +1,40 @@
 ---
-title: Verwenden der Element Capture- und Region Capture-APIs
+title: Verwendung der Element Capture API und der Region Capture API
 slug: Web/API/Screen_Capture_API/Element_Region_Capture
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 3601fb859ad38e80a49d9c7d2d81a783781aac24
 ---
 
 {{DefaultAPISidebar("Screen Capture API")}}
 
-Dieser Leitfaden bietet einen Überblick über die typische Verwendung der Element Capture- und Region Capture-APIs, zeigt, wie man sie benutzt, und welches Problem sie lösen.
+Dieser Leitfaden zeigt anhand typischer Anwendungsfälle, wie Sie die Element Capture API und die Region Capture API verwenden und welche Probleme sie lösen.
 
 ## Hintergrund
 
-Standardmäßig erfasst die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API) einen gesamten Bildschirm, ein Fenster oder einen Tab. Die Element Capture- und Region Capture-APIs ermöglichen es Ihnen, den erfassten Stream auf einen bestimmten gerenderten DOM-Baum oder auf den Teil des Bildschirms zu beschränken, der durch den Begrenzungsrahmen eines bestimmten DOM-Baums definiert wird.
+Standardmäßig erfasst die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API) einen gesamten Bildschirm, ein Fenster oder einen Tab. Mit der Element Capture API können Sie den erfassten Stream auf einen bestimmten gerenderten DOM-Baum beschränken. Mit der Region Capture API können Sie ihn auf den Bildschirmbereich beschränken, den die Bounding Box eines bestimmten DOM-Baums definiert.
 
-Dies ist nützlich, wenn Sie nur einen begrenzten Bereich teilen möchten, um unnötige Bandbreite oder Bildschirmfläche zu reduzieren, die für das Anzeigen der Aufnahme erforderlich ist, oder aus Datenschutzgründen (z. B. möchten Sie möglicherweise anderen Teilnehmern nicht Ihre Nachrichtenbenachrichtigungen oder die benötigten Hintergrundinformationen für die Demo, die Sie teilen, zeigen).
+Das ist nützlich, wenn Sie nur einen begrenzten Bereich teilen möchten, um unnötige Bandbreite oder den für die Anzeige benötigten Platz zu sparen. Auch aus Datenschutzgründen kann das sinnvoll sein: Möglicherweise möchten Sie anderen Teilnehmenden weder Ihre Nachrichtenbenachrichtigungen noch Einstellungen im Hintergrund zeigen, die zum Ausführen der geteilten Demo erforderlich sind.
 
-Darüber hinaus kann beim Erfassen der Ausgabe Ihrer Webcam einer dieser unerwünschten "unendlichen Wurmloch-" oder "Spiegelhalle-"Effekte entstehen. Die Element Capture- und Region Capture-APIs können Ihnen auch helfen, diese Probleme zu vermeiden.
+Wenn Sie die Ausgabe Ihrer Webcam erfassen, kann außerdem ein unerwünschter „Endlostunnel“- oder „Spiegelkabinett“-Effekt entstehen. Auch solche Probleme können Sie mit der Element Capture API und der Region Capture API vermeiden.
 
-## Wann sollten Sie welche API verwenden?
+## Wann Sie welche API verwenden sollten
 
-Die Element Capture API erfasst das Element selbst (und seine Nachfahren), während die Region Capture API den Bereich des Browser-Tabs erfasst, der durch den Begrenzungsrahmen des Ziel-Elements definiert wird. Element Capture zeigt immer nur das erfasste Element, auch wenn andere DOM-Inhalte es überlappen. Region Capture kann dazu führen, dass überlappende Inhalte über den von Ihnen zu teilenden Inhalt angezeigt werden.
+Die Element Capture API erfasst das Element selbst und seine Nachfahren. Die Region Capture API erfasst dagegen den Bereich des Browser-Tabs, den die Bounding Box des Zielelements definiert. Bei Element Capture ist immer nur das erfasste Element zu sehen, selbst wenn andere DOM-Inhalte es überlagern. Bei Region Capture können hingegen überlagernde Inhalte vor den Inhalten erscheinen, die Sie eigentlich teilen wollten.
 
-Es gibt legitime Anwendungsfälle für beide:
+Für beide APIs gibt es sinnvolle Anwendungsfälle:
 
-- Wenn Sie die Aufnahme auf einen DOM-Baum beschränken müssen und alles außerhalb davon ausschließen, ist die Element Capture API eine bessere Wahl. Zum Beispiel möchten Sie keine privaten Inhalte wie eine Reihe von Nachrichtenbenachrichtigungen oder ein Rednernotizen-UI in der Aufnahme zeigen.
-- Wenn Sie jedoch wirklich einen Bereich des Browser-Tabs erfassen möchten, unabhängig davon, was darin angezeigt wird, dann ist die Region Capture API geeignet.
+- Wenn die Aufnahme auf einen DOM-Baum beschränkt bleiben und alles außerhalb davon ausgeschlossen werden soll, ist die Element Capture API die bessere Wahl. So verhindern Sie beispielsweise, dass private Inhalte wie Nachrichtenbenachrichtigungen oder eine Oberfläche mit Vortragsnotizen in der Aufnahme erscheinen.
+- Wenn Sie dagegen einen Bereich des Browser-Tabs erfassen möchten, unabhängig davon, was darin angezeigt wird, eignet sich die Region Capture API.
 
-Im nächsten Abschnitt beginnen wir mit einer grundlegenden Demo der Screen Capture API, um die Probleme zu veranschaulichen, die mit den Element Capture- und Region Capture-APIs gelöst werden sollen.
+Im nächsten Abschnitt beginnen wir mit einer einfachen Demo zur Screen Capture API. Sie veranschaulicht die Probleme, für deren Lösung die Element Capture API und die Region Capture API entwickelt wurden.
 
-## Screen Capture API-Demo
+## Demo zur Screen Capture API
 
-Diese Demo verwendet die Screen Capture API, um ein Fenster, einen Bildschirm oder einen Tab zu erfassen und den Stream über ein {{htmlelement("video")}}-Element auf derselben Seite zu übertragen. Sie können es live unter [Screen Capture API-Beispiel](https://mdn.github.io/dom-examples/screen-capture-api/basic-screen-capture/) sehen (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/basic-screen-capture)).
+Diese Demo verwendet die Screen Capture API, um ein Fenster, einen Bildschirm oder einen Tab zu erfassen und den Stream über ein {{htmlelement("video")}}-Element auf derselben Seite wiederzugeben. Sie können die [Beispielanwendung zur Screen Capture API](https://mdn.github.io/dom-examples/screen-capture-api/basic-screen-capture/) ausprobieren und sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/basic-screen-capture) ansehen.
 
 ### HTML
 
-Das HTML beginnt mit einer Hauptüberschrift und einem Einführungstext und enthält dann zwei {{htmlelement("button")}}-Elemente, um die Aufnahme zu starten und zu stoppen:
+Das HTML beginnt mit einer Hauptüberschrift und einem einleitenden Text. Danach folgen zwei {{htmlelement("button")}}-Elemente, mit denen Sie die Aufnahme starten und stoppen können:
 
 ```html
 <h1>Screen Capture API example</h1>
@@ -49,7 +49,7 @@ Das HTML beginnt mit einer Hauptüberschrift und einem Einführungstext und enth
 </p>
 ```
 
-Als Nächstes fügen wir den Haupt-Container der App hinzu, der das `<video>`-Element zum Übertragen der Aufnahme enthält, sowie einen Demo-Platzhalter {{htmlelement("div")}}:
+Anschließend folgt der Hauptcontainer der Anwendung. Er enthält das `<video>`-Element zur Wiedergabe der Aufnahme sowie ein {{htmlelement("div")}} als Platzhalter für die Demo:
 
 ```html
 <div id="main-app">
@@ -66,7 +66,7 @@ Als Nächstes fügen wir den Haupt-Container der App hinzu, der das `<video>`-El
 
 ### CSS
 
-Das CSS für diese Demo ist größtenteils unauffällig, aber die folgenden wenigen Regeln sind erwähnenswert. Wir haben den Rest des CSS aus Gründen der Kürze ausgeblendet.
+Das CSS dieser Demo ist größtenteils unspektakulär. Die folgenden Regeln sind jedoch eine Erklärung wert. Der Kürze halber ist das übrige CSS ausgeblendet.
 
 ```css hidden
 * {
@@ -93,7 +93,7 @@ video,
 }
 ```
 
-Wir setzen einen {{cssxref("display")}}-Wert von `flex` auf das `main-app` `<div>`, um das Video und den Demo-Platzhalter nebeneinander in zwei Spalten anzuordnen und setzen einen {{cssxref("gap")}} von `5%` dazwischen. Wir setzen auch eine {{cssxref("min-width")}} von `980px` auf den Container, wodurch die Demo-App im Wesentlichen auf ein Desktop-Layout beschränkt wird. Dies liegt daran, dass Element Capture- und Region Capture nur auf Desktop-Browsern unterstützt werden und außerhalb des Bildschirms befindliche Inhalte nicht erfasst werden.
+Für das `main-app`-`<div>` setzen wir {{cssxref("display")}} auf `flex`, um das Video und den Demo-Platzhalter in zwei Spalten nebeneinander anzuordnen. Dazwischen setzen wir mit {{cssxref("gap")}} einen Abstand von `5%`. Außerdem setzen wir für den Container {{cssxref("min-width")}} auf `980px`. Dadurch beschränken wir die Demo-Anwendung im Wesentlichen auf ein Desktop-Layout. Der Grund dafür ist, dass Element Capture und Region Capture nur in Desktop-Browsern unterstützt werden und Inhalte außerhalb des Bildschirms nicht erfasst werden.
 
 ```css
 #main-app {
@@ -103,7 +103,7 @@ Wir setzen einen {{cssxref("display")}}-Wert von `flex` auf das `main-app` `<div
 }
 ```
 
-Wir geben auch dem `<video>`-Element und dem `demo` `<div>` einen {{cssxref("flex")}}-Wert von `1`, sodass sie denselben horizontalen Raum einnehmen.
+Sowohl dem `<video>`-Element als auch dem `demo`-`<div>` geben wir außerdem für {{cssxref("flex")}} den Wert `1`, damit beide gleich viel horizontalen Platz einnehmen.
 
 ```css
 video,
@@ -112,7 +112,7 @@ video,
 }
 ```
 
-Schließlich geben wir dem `<video>`-Element eine {{cssxref("max-width")}} von `50%` und ein festes {{cssxref("aspect-ratio")}} von `4/3`. Dies dient dazu, das Video in einer konsistenten Größe zu halten und zu vermeiden, dass das Layout zu stark durcheinander gebracht wird, wenn die Bildschirmaufnahme beginnt zu übertragen. Wenn wir das nicht tun würden, würde das `<video>`-Element so breit wie der gesamte erfasste Bereich (Fenster oder Bildschirm) und würde das Layout beeinflussen. Es ist schließlich ein {{Glossary("replaced_elements", "ersetztes Element")}}, sodass seine {{Glossary("Intrinsic_Size", "intrinsische Größe")}} von der seines Inhalts abhängt.
+Schließlich setzen wir für das `<video>`-Element {{cssxref("max-width")}} auf `50%` und {{cssxref("aspect-ratio")}} fest auf `4/3`. So behält das Video eine gleichbleibende Größe und das Layout verändert sich nicht zu stark, wenn die Bildschirmaufnahme wiedergegeben wird. Ohne diese Regeln würde das `<video>`-Element auf die Breite des gesamten erfassten Bereichs – des Fensters oder Bildschirms – anwachsen und damit das Layout beeinflussen. Schließlich handelt es sich um ein {{Glossary("replaced_elements", "ersetztes Element")}}, dessen {{Glossary("Intrinsic_Size", "intrinsische Größe")}} von der Größe seines Inhalts abhängt.
 
 ```css
 video {
@@ -121,13 +121,13 @@ video {
 }
 ```
 
-Layoutverschiebungen können auch Probleme verursachen, wenn man die Region- und Element-Capture-APIs verwendet, weshalb dieser Code in allen drei Demos enthalten ist.
+Layoutverschiebungen können auch bei der Verwendung der Region Capture API und der Element Capture API Probleme verursachen. Daher ist dieser Code in allen drei Demos enthalten.
 
 ### JavaScript
 
-Das JavaScript für dieses Beispiel ist aus dem Beispiel [Streaming screen capture](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture#streaming_screen_capture) in unserem Leitfaden "Using the Screen Capture API" angepasst. Wir werden die vollständige Codeerklärung hier nicht wiederholen; wir erklären nur den relevantesten Aufnahmecode.
+Das JavaScript dieses Beispiels basiert auf dem Beispiel zur [Wiedergabe einer Bildschirmaufnahme](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture#streaming_screen_capture) aus unserem Leitfaden zur Verwendung der Screen Capture API. Wir erklären den Code hier nicht noch einmal vollständig, sondern konzentrieren uns auf den wichtigsten Code für die Aufnahme.
 
-Im Optionsobjekt, das in `getDisplayMedia()` übergeben wird, wenn wir es aufrufen, setzen wir [`preferCurrentTab: true`](/de/docs/Web/API/MediaDevices/getDisplayMedia#prefercurrenttab). Dieser Hinweis schlägt dem Browser vor, den aktuellen Tab des Nutzers als prominenteste Aufnahmequelle im Dialog anzubieten, der sie fragt, was geteilt werden soll. Chrome gibt beispielsweise nur diese Option, wenn `preferCurrentTab: true` gesetzt ist.
+Im Optionsobjekt, das wir beim Aufruf an `getDisplayMedia()` übergeben, setzen wir [`preferCurrentTab: true`](/de/docs/Web/API/MediaDevices/getDisplayMedia#prefercurrenttab). Dieser Hinweis empfiehlt dem Browser, den aktuellen Tab der nutzenden Person im Dialog zur Auswahl der Freigabequelle besonders prominent anzubieten. Chrome bietet diese Option beispielsweise nur an, wenn `preferCurrentTab: true` gesetzt ist.
 
 ```js
 const displayMediaOptions = {
@@ -138,9 +138,9 @@ const displayMediaOptions = {
 };
 ```
 
-Diese Option ist sehr nützlich, wenn Sie eine App mit einer eingebauten "Bildschirm teilen"-Option erstellen — Sie möchten nicht, dass Benutzer einen anderen Tab oder ein Fenster teilen dürfen.
+Diese Option ist sehr nützlich, wenn Sie eine Anwendung mit integrierter Bildschirmfreigabe entwickeln und verhindern möchten, dass Nutzende einen anderen Tab oder ein anderes Fenster teilen.
 
-Wenn die Schaltfläche "Start Capture" gedrückt wird, läuft die Funktion `startCapture()`, die [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) aufruft. Dies veranlasst den Browser, den Benutzer zu fragen, welches Element geteilt werden soll (Fenster, Tab, usw.). Sobald eine Wahl getroffen wurde, wird der resultierende [`MediaStream`](/de/docs/Web/API/MediaStream) auf den Wert der [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft des `<video>`-Elements gesetzt, um ihn zu übertragen:
+Wenn die Schaltfläche „Start Capture“ gedrückt wird, führt die Anwendung die Funktion `startCapture()` aus. Diese ruft [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) auf. Daraufhin fordert der Browser die nutzende Person auf, eine Freigabequelle auszuwählen, etwa ein Fenster oder einen Tab. Nach der Auswahl wird der resultierende [`MediaStream`](/de/docs/Web/API/MediaStream) der Eigenschaft [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) des `<video>`-Elements zugewiesen, um ihn wiederzugeben:
 
 ```js
 async function startCapture() {
@@ -155,25 +155,25 @@ async function startCapture() {
 
 ## Probleme mit der Screen Capture API
 
-Führen Sie die obige Demo in einem [unterstützenden Browser](/de/docs/Web/API/Screen_Capture_API#browser_compatibility) aus, klicken Sie auf "Start Capture" und wählen Sie denselben Tab aus, auf dem die Demo läuft. Sie werden den "Spiegelhalleneffekt" sehen, der bereits erwähnt wurde:
+Führen Sie die obige Demo in einem [unterstützten Browser](/de/docs/Web/API/Screen_Capture_API#browser_compatibility) aus, klicken Sie auf „Start Capture“ und wählen Sie denselben Tab aus, in dem die Demo läuft. Sie sehen dann den zuvor erwähnten „Spiegelkabinett“-Effekt:
 
-![Ein Browserfenster, das eine Videoaufnahme dieses Browserfensters enthält, zeigt daher unendliche Aufnahmen innerhalb von Aufnahmen, die kleiner und kleiner werden](hall-of-mirrors.png)
+![Ein Browserfenster mit einer Videoaufnahme desselben Browserfensters. Dadurch sind unendlich viele, immer kleiner werdende Aufnahmen innerhalb von Aufnahmen zu sehen.](hall-of-mirrors.png)
 
-Dies ist offensichtlich nicht ideal und würde in jeder Art von Konferenzanwendung mit einer eingebauten "Bildschirm teilen"-Option Probleme verursachen.
+Das ist offensichtlich nicht ideal und würde bei jeder Art von Konferenzanwendung mit integrierter Bildschirmfreigabe zu Problemen führen.
 
 ## Die Element Capture API
 
-Die Element Capture API beschränkt den erfassten Bereich auf einen angegebenen gerenderten DOM-Baum (ein ausgewähltes Element und seine Nachfahren). In diesem Abschnitt werden wir eine zweite Demo untersuchen, die identisch mit der oben vorgestellten ist, mit dem Unterschied, dass sie Element Capture zusätzlich zur grundlegenden Bildschirmaufnahme verwendet. Sehen Sie sich diese Demo live an unter [Element Capture API-Beispiel](https://mdn.github.io/dom-examples/screen-capture-api/element-capture/) (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/element-capture)).
+Die Element Capture API beschränkt den erfassten Bereich auf einen bestimmten gerenderten DOM-Baum, also ein ausgewähltes Element und seine Nachfahren. In diesem Abschnitt betrachten wir eine zweite Demo. Sie entspricht der vorherigen Demo, verwendet zusätzlich zur grundlegenden Bildschirmaufnahme aber Element Capture. Sie können das [Beispiel zur Element Capture API](https://mdn.github.io/dom-examples/screen-capture-api/element-capture/) ausprobieren und sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/element-capture) ansehen.
 
-Das HTML ist identisch mit dem vorherigen Beispiel und das CSS ist _fast_ identisch. Wir erklären jetzt die Unterschiede im JavaScript und später die Unterschiede im CSS im Abschnitt [Einschränkungen der Element Capture API](#einschränkungen_der_element_capture_api).
+Das HTML ist mit dem vorherigen Beispiel identisch, und das CSS ist _fast_ identisch. Zunächst erläutern wir die Unterschiede im JavaScript. Auf die Unterschiede im CSS gehen wir später im Abschnitt [Einschränkungen der Element Capture API](#einschränkungen_der_element_capture_api) ein.
 
-Um die Element Capture API zu verwenden, greifen wir zusätzlich auf ein DOM-Element zu, das wir später als **Einschränkungsziel** verwenden werden — der im Stream gezeigte Bildschirmbereich wird auf nur dieses gerenderte Element und seine Nachfahren beschränkt:
+Um die Element Capture API zu verwenden, speichern wir zusätzlich eine Referenz auf ein DOM-Element. Dieses verwenden wir später als **Ziel für die Einschränkung**: Der im Stream angezeigte Bildschirmbereich wird auf dieses gerenderte Element und seine Nachfahren beschränkt.
 
 ```js
 const demoElem = document.querySelector("#demo");
 ```
 
-Die anderen Code-Unterschiede befinden sich alle in der modifizierten `startCapture()`-Funktion:
+Alle weiteren Codeunterschiede befinden sich in der angepassten Funktion `startCapture()`:
 
 ```js
 async function startCapture() {
@@ -190,16 +190,16 @@ async function startCapture() {
 }
 ```
 
-1. Wir beginnen hier, indem wir wie zuvor den Medienstream mit `mediaDevices.getDisplayMedia()` erfassen.
-2. Dann isolieren wir die Videospur aus dem Stream mit [`MediaStream.getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks).
-3. Wir erstellen das erforderliche `restrictionTarget`-Objekt, um die Einschränkung auf die Videospur anzuwenden, indem wir [`RestrictionTarget.fromElement()`](/de/docs/Web/API/RestrictionTarget/fromElement_static) aufrufen und ihm die zuvor erfasste DOM-Element-Referenz übergeben.
-4. Wir wenden das Einschränkungsziel auf die Spur an, indem wir [`BrowserCaptureMediaStreamTrack.restrictTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/restrictTo) darauf aufrufen und ihm das `restrictionTarget`-Objekt übergeben.
-5. Nachdem alles oben Genannte erledigt ist, setzen wir dann den `srcObject`-Eigenschaftswert des `<video>`-Elements auf den Stream, um die Übertragung zu starten.
+1. Wie zuvor rufen wir zunächst mit `mediaDevices.getDisplayMedia()` den Medienstream ab.
+2. Anschließend holen wir mit [`MediaStream.getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks) den Videotrack aus dem Stream.
+3. Mit [`RestrictionTarget.fromElement()`](/de/docs/Web/API/RestrictionTarget/fromElement_static) erstellen wir das erforderliche `restrictionTarget`-Objekt. Dazu übergeben wir die zuvor gespeicherte Referenz auf das DOM-Element.
+4. Wir wenden das Ziel für die Einschränkung auf den Track an, indem wir [`BrowserCaptureMediaStreamTrack.restrictTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/restrictTo) darauf aufrufen und das `restrictionTarget`-Objekt übergeben.
+5. Nachdem diese Schritte abgeschlossen sind, weisen wir den Stream der Eigenschaft `srcObject` des `<video>`-Elements zu, um die Wiedergabe zu starten.
 
-Versuchen Sie nun, das [Element Capture API-Beispiel](https://mdn.github.io/dom-examples/screen-capture-api/element-capture/) in einem [unterstützenden Browser](/de/docs/Web/API/RestrictionTarget#browser_compatibility) auszuführen. Sie sollten sehen, dass nur der Demo-Platzhalter im Stream enthalten ist, wodurch das "Spiegelhallen"-Problem behoben wird.
+Probieren Sie nun das [Beispiel zur Element Capture API](https://mdn.github.io/dom-examples/screen-capture-api/element-capture/) in einem [unterstützten Browser](/de/docs/Web/API/RestrictionTarget#browser_compatibility) aus. Im Stream sollte nur der Demo-Platzhalter zu sehen sein. Damit ist das „Spiegelkabinett“-Problem behoben.
 
 > [!NOTE]
-> Sie können die Einschränkung stoppen, indem Sie `restrictTo()` erneut auf derselben Spur aufrufen und ihm ein Argument von `null` übergeben:
+> Sie können die Einschränkung aufheben, indem Sie `restrictTo()` auf demselben Track erneut aufrufen und dabei `null` als Argument übergeben:
 >
 > ```js
 > await track.restrictTo(null);
@@ -207,9 +207,9 @@ Versuchen Sie nun, das [Element Capture API-Beispiel](https://mdn.github.io/dom-
 
 ### Einschränkungen der Element Capture API
 
-Um sicherzustellen, dass das Element **für die Einschränkung geeignet** ist, d.h. es beim Auswählen als Einschränkungsziel erfasst wird, muss es einen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) bilden und in 3D-Raum abgeflacht sein.
+Damit ein Element **als Ziel für die Einschränkung geeignet** ist und erfasst wird, wenn Sie es als solches auswählen, muss es einen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) bilden und im dreidimensionalen Raum abgeflacht sein.
 
-Um mit diesen Einschränkungen umzugehen, haben wir die folgende zusätzliche CSS-Regel gesetzt, die das Demo-Container-Element anspricht:
+Um diese Voraussetzungen zu erfüllen, haben wir die folgende zusätzliche CSS-Regel für das Demo-Containerelement festgelegt:
 
 ```css
 #demo {
@@ -222,25 +222,25 @@ Um mit diesen Einschränkungen umzugehen, haben wir die folgende zusätzliche CS
 }
 ```
 
-Die {{cssxref("isolation")}}-Eigenschaft ist auf `isolate` gesetzt, um das Element einen Stapelkontext bilden zu lassen, und die {{cssxref("transform-style")}}-Eigenschaft ist auf `flat` gesetzt, um es abzuflachen. Außerdem übernimmt das Element aufgrund der von uns gesetzten Isolationseigenschaften die standardmäßige weiße Farbe der Seite nicht mehr. Daher setzen wir die {{cssxref("background-color")}} auf `weiß`, um zu verhindern, dass die Aufnahme transparent ist.
+Die Eigenschaft {{cssxref("isolation")}} wird auf `isolate` gesetzt, damit das Element einen Stapelkontext bildet. Die Eigenschaft {{cssxref("transform-style")}} wird auf `flat` gesetzt, um es abzuflachen. Aufgrund dieser Isolation übernimmt das Element außerdem nicht mehr die standardmäßige weiße Hintergrundfarbe der Seite. Deshalb setzen wir {{cssxref("background-color")}} auf `white`, damit die Aufnahme nicht transparent ist.
 
-Für die vollständige Liste der Einschränkungen der als Einschränkungsziele verwendbaren Elemente siehe die [`RestrictionTarget.fromElement()`](/de/docs/Web/API/RestrictionTarget/fromElement_static#element) Referenzseite.
+Eine vollständige Liste der Einschränkungen für Elemente, die als Ziele für die Einschränkung verwendet werden können, finden Sie auf der Referenzseite zu [`RestrictionTarget.fromElement()`](/de/docs/Web/API/RestrictionTarget/fromElement_static#element).
 
 ## Die Region Capture API
 
-Die Region Capture API hat eine sehr ähnliche Wirkung wie die Element Capture API, jedoch beschränkt sie nicht den erfassten Bereich auf einen bestimmten gerenderten DOM-Baum, sondern schneidet den Stream auf den Bereich des aktuellen Browser-Tabs zu, der durch den Begrenzungsrahmen des Ziel-Elements definiert wird. Schauen wir uns eine Demo an und untersuchen dann später die Unterschiede zwischen den beiden im Detail.
+Die Region Capture API hat eine sehr ähnliche Wirkung wie die Element Capture API. Sie beschränkt den erfassten Bereich jedoch nicht auf einen bestimmten gerenderten DOM-Baum, sondern schneidet den Stream auf den Bereich des aktuellen Browser-Tabs zu, den die Bounding Box des Zielelements definiert. Sehen wir uns zunächst eine Demo an. Danach betrachten wir die Unterschiede zwischen den beiden APIs genauer.
 
-In diesem Abschnitt werden wir eine dritte Demo untersuchen, die identisch mit den anderen ist, jedoch die Region Capture zusätzlich zur grundlegenden Bildschirmaufnahme verwendet. Sehen Sie sich diese Demo live an unter [Region Capture API-Beispiel](https://mdn.github.io/dom-examples/screen-capture-api/region-capture/) (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/region-capture)).
+In diesem Abschnitt betrachten wir eine dritte Demo. Sie entspricht den anderen Demos, verwendet zusätzlich zur grundlegenden Bildschirmaufnahme aber Region Capture. Sie können das [Beispiel zur Region Capture API](https://mdn.github.io/dom-examples/screen-capture-api/region-capture/) ausprobieren und sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/region-capture) ansehen.
 
-Das HTML und das CSS sind identisch mit den vorherigen Beispielen. Das JavaScript ist fast dasselbe wie das der Element Capture, mit einigen bemerkenswerten Unterschieden, die wir nun erklären.
+HTML und CSS sind mit den vorherigen Beispielen identisch. Das JavaScript entspricht weitgehend dem JavaScript für Element Capture. Es gibt jedoch einige wichtige Unterschiede, die wir nun erläutern.
 
-Um die Region Capture API zu verwenden, greifen wir zuerst auf ein DOM-Element zu, das wir später als **Beschnitteziel** verwenden werden — der im Stream gezeigte Bereich wird auf nur den Bereich reduziert, in dem dieses Element gerendert wird:
+Um die Region Capture API zu verwenden, speichern wir zunächst eine Referenz auf ein DOM-Element. Dieses verwenden wir später als **Ziel für den Zuschnitt**: Der im Stream angezeigte Bereich wird auf den Bereich zugeschnitten, in dem dieses Element gerendert wird.
 
 ```js
 const demoElem = document.querySelector("#demo");
 ```
 
-Untersuchen wir nun die `startCapture()`-Funktion der Region Capture-Demo:
+Sehen wir uns nun die Funktion `startCapture()` der Region-Capture-Demo an:
 
 ```js
 async function startCapture() {
@@ -257,15 +257,15 @@ async function startCapture() {
 }
 ```
 
-1. Wie zuvor beginnen wir, indem wir den Medienstream mit `mediaDevices.getDisplayMedia()` erfassen, und isolieren dann die Videospur aus dem Stream mit [`MediaStream.getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks).
-2. Wir erstellen das erforderliche `cropTarget`-Objekt, um den Beschnitt auf die Videospur anzuwenden, indem wir [`fromElement()`](/de/docs/Web/API/CropTarget/fromElement_static) aufrufen und ihm die zuvor erfasste DOM-Element-Referenz übergeben.
-3. Wir wenden das Beschnitteziel auf die Spur an, indem wir [`BrowserCaptureMediaStreamTrack.cropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) darauf aufrufen und ihm das `cropTarget`-Objekt übergeben.
-4. Nachdem alles oben Genannte erledigt ist, setzen wir dann den `srcObject`-Eigenschaftswert des `<video>`-Elements auf den Stream, um die Übertragung zu starten.
+1. Wie zuvor rufen wir zunächst mit `mediaDevices.getDisplayMedia()` den Medienstream ab und holen anschließend mit [`MediaStream.getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks) den Videotrack aus dem Stream.
+2. Mit [`fromElement()`](/de/docs/Web/API/CropTarget/fromElement_static) erstellen wir das für den Zuschnitt des Videotracks erforderliche `cropTarget`-Objekt. Dazu übergeben wir die zuvor gespeicherte Referenz auf das DOM-Element.
+3. Wir wenden das Ziel für den Zuschnitt auf den Track an, indem wir [`BrowserCaptureMediaStreamTrack.cropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) darauf aufrufen und das `cropTarget`-Objekt übergeben.
+4. Nachdem diese Schritte abgeschlossen sind, weisen wir den Stream der Eigenschaft `srcObject` des `<video>`-Elements zu, um die Wiedergabe zu starten.
 
-Versuchen Sie nun, das [Region Capture API-Beispiel](https://mdn.github.io/dom-examples/screen-capture-api/region-capture/) in einem [unterstützenden Browser](/de/docs/Web/API/CropTarget#browser_compatibility) auszuführen. Sie sollten sehen, dass nur der Demo-Platzhalter im Stream enthalten ist, was auch das "Spiegelhallen"-Problem behebt.
+Probieren Sie nun das [Beispiel zur Region Capture API](https://mdn.github.io/dom-examples/screen-capture-api/region-capture/) in einem [unterstützten Browser](/de/docs/Web/API/CropTarget#browser_compatibility) aus. Im Stream sollte nur der Demo-Platzhalter zu sehen sein. Auch dadurch wird das „Spiegelkabinett“-Problem behoben.
 
 > [!NOTE]
-> Sie können das Zuschneiden stoppen, indem Sie `cropTo()` erneut auf derselben Spur aufrufen und ihm ein Argument von `null` übergeben:
+> Sie können den Zuschnitt aufheben, indem Sie `cropTo()` auf demselben Track erneut aufrufen und dabei `null` als Argument übergeben:
 >
 > ```js
 > await track.cropTo(null);
@@ -273,7 +273,7 @@ Versuchen Sie nun, das [Region Capture API-Beispiel](https://mdn.github.io/dom-e
 
 ### Einschränkungen der Region Capture API
 
-Region Capture hat nicht dieselben Einschränkungen wie Element Capture — es schneidet den Stream auf eine bestimmte Größe zu, anstatt einen bestimmten gerenderten DOM-Baum zu übertragen, daher benötigt es diese Regel nicht:
+Für Region Capture gelten nicht dieselben umfangreichen Einschränkungen wie für Element Capture. Da hier der Stream auf eine bestimmte Größe zugeschnitten und kein bestimmter gerenderter DOM-Baum wiedergegeben wird, ist die folgende Regel nicht erforderlich:
 
 ```css
 #demo {
@@ -286,9 +286,85 @@ Region Capture hat nicht dieselben Einschränkungen wie Element Capture — es s
 }
 ```
 
-Es gibt jedoch weiterhin Einschränkungen bei den als Beschnitteziele verwendbaren Elementen. Für die vollständige Liste siehe die [`CropTarget.fromElement()`](/de/docs/Web/API/CropTarget/fromElement_static#element) Referenzseite.
+Dennoch gibt es Einschränkungen für Elemente, die als Ziele für den Zuschnitt verwendet werden können. Die vollständige Liste finden Sie auf der Referenzseite zu [`CropTarget.fromElement()`](/de/docs/Web/API/CropTarget/fromElement_static#element).
+
+## Einen Screenshot erstellen
+
+Um einen einzelnen Screenshot zu speichern, ohne ein Video anzuzeigen, verwenden Sie [`ImageCapture.grabFrame()`](/de/docs/Web/API/ImageCapture/grabFrame). Damit erhalten Sie direkt aus dem erfassten Track ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap). Sie können dieses Bitmap auf einen Canvas zeichnen und es mit [`HTMLCanvasElement.toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) als PNG kodieren.
+
+Die folgende Variante verwendet Element Capture, um einen Screenshot des `demo`-Elements zu erstellen, wenn die nutzende Person auf eine Schaltfläche klickt. Dafür müssen sowohl Element Capture als auch `ImageCapture.grabFrame()` unterstützt werden. Die Variante verwendet dasselbe `#demo`-CSS wie im Abschnitt [Einschränkungen der Element Capture API](#einschränkungen_der_element_capture_api).
+
+```html
+<button id="screenshot">Save screenshot</button>
+<a id="download" download="screenshot.png" hidden>Download screenshot</a>
+<div id="demo">
+  <h2>Some kind of demo</h2>
+  <p>This is the content to capture.</p>
+</div>
+```
+
+Der Click-Handler fordert die Berechtigung zur Bildschirmfreigabe an, beschränkt den Track auf das Zielelement und erfasst ein einzelnes Bild. Der `finally`-Block beendet die Freigabe und gibt das Bitmap frei, auch wenn ein Fehler auftritt.
+
+```js
+const screenshotElem = document.getElementById("screenshot");
+const downloadElem = document.getElementById("download");
+const demoElem = document.getElementById("demo");
+let screenshotURL;
+
+screenshotElem.addEventListener("click", async () => {
+  screenshotElem.disabled = true;
+  let stream;
+  let bitmap;
+
+  try {
+    stream = await navigator.mediaDevices.getDisplayMedia({
+      video: true,
+      audio: false,
+      preferCurrentTab: true,
+    });
+    const [track] = stream.getVideoTracks();
+    const restrictionTarget = await RestrictionTarget.fromElement(demoElem);
+    await track.restrictTo(restrictionTarget);
+    bitmap = await new ImageCapture(track).grabFrame();
+
+    const canvas = document.createElement("canvas");
+    canvas.width = bitmap.width;
+    canvas.height = bitmap.height;
+    canvas.getContext("2d").drawImage(bitmap, 0, 0);
+    const blob = await new Promise((resolve) => {
+      canvas.toBlob(resolve, "image/png");
+    });
+    if (!blob) {
+      throw new Error("Could not create the screenshot.");
+    }
+
+    if (screenshotURL) {
+      URL.revokeObjectURL(screenshotURL);
+    }
+    screenshotURL = URL.createObjectURL(blob);
+    downloadElem.href = screenshotURL;
+    downloadElem.hidden = false;
+    downloadElem.click();
+  } catch (err) {
+    console.error(err);
+  } finally {
+    stream?.getTracks().forEach((track) => track.stop());
+    bitmap?.close();
+    screenshotElem.disabled = false;
+  }
+});
+```
+
+Sie finden die Demo im [Beispiel für einen Screenshot mit Element Capture](https://mdn.github.io/dom-examples/screen-capture-api/element-screenshot/). Sie können sich auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/screen-capture-api/element-screenshot) ansehen. Klicken Sie auf **Save screenshot** und wählen Sie im Freigabedialog des Browsers den Tab aus, der das Beispiel enthält. Sobald das PNG bereitsteht, startet der Code den Download. Der Download-Link bleibt verfügbar, damit Sie das Bild erneut speichern können. Die zugehörige [Blob-URL](/de/docs/Web/URI/Reference/Schemes/blob) bleibt erhalten, bis sie durch einen weiteren Screenshot ersetzt wird.
+
+Wenn Sie stattdessen Region Capture verwenden möchten, ersetzen Sie die Aufrufe von `RestrictionTarget.fromElement()` und `restrictTo()` durch:
+
+```js
+const cropTarget = await CropTarget.fromElement(demoElem);
+await track.cropTo(cropTarget);
+```
 
 ## Siehe auch
 
-- [Eine Videostream aus jedem Element erfassen](https://developer.chrome.com/docs/web-platform/element-capture) auf developer.chrome.com (2025)
-- [Besseres Tab-Sharing mit Region Capture](https://developer.chrome.com/docs/web-platform/region-capture) auf developer.chrome.com (2023)
+- [Einen Videostream von einem beliebigen Element erfassen](https://developer.chrome.com/docs/web-platform/element-capture) auf developer.chrome.com (2025)
+- [Bessere Tab-Freigabe mit Region Capture](https://developer.chrome.com/docs/web-platform/region-capture) auf developer.chrome.com (2023)

@@ -3,14 +3,16 @@ title: Use-As-Dictionary header
 short-title: Use-As-Dictionary
 slug: Web/HTTP/Reference/Headers/Use-As-Dictionary
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 57d3803b2ba01a8ac6cf51e796d6871e4e411ff1
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP-Header **`Use-As-Dictionary`** listet die Übereinstimmungskriterien auf, nach denen das {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}}-Wörterbuch für zukünftige Anfragen verwendet werden kann.
+Der HTTP-Response-Header **`Use-As-Dictionary`** legt die Kriterien fest, unter denen ein Wörterbuch für {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} bei zukünftigen Anfragen verwendet werden kann.
 
-Weitere Informationen finden Sie im [Leitfaden für Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
+Der Browser verwendet das Wörterbuch nur, solange die Antwort, die diesen Header enthält, [frisch](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist oder `stale-while-revalidate` weiterhin erlaubt, eine veraltete Version dieser Antwort auszuliefern. Eine Antwort mit `no-cache` oder `no-store` wird niemals als Wörterbuch verwendet. Eine Antwort mit `must-revalidate` wird nur verwendet, bis ihr `max-age` abgelaufen ist. Weitere Informationen finden Sie unter [Aktualität von Wörterbüchern](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport#dictionary_freshness).
+
+Weitere Informationen finden Sie im [Leitfaden zu Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
 
 ## Syntax
 
@@ -27,23 +29,23 @@ Content-Encoding: match="<url-pattern>", match-dest=("<destination1>")
 ## Direktiven
 
 - `match`
-  - : Ein Zeichenfolgenwert, der ein [URL-Muster](/de/docs/Web/API/URL_Pattern_API) enthält: Nur Ressourcen, deren URLs mit diesem Muster übereinstimmen, dürfen diese Ressource als Wörterbuch verwenden. Reguläre Ausdrucksgruppierungen sind nicht erlaubt, daher muss [`URLPattern.hasRegExpGroups`](/de/docs/Web/API/URLPattern/hasRegExpGroups) `false` sein.
+  - : Ein String-Wert mit einem [URL-Muster](/de/docs/Web/API/URL_Pattern_API). Nur Ressourcen, deren URLs diesem Muster entsprechen, dürfen diese Ressource als Wörterbuch verwenden. Erfassungsgruppen in regulären Ausdrücken sind nicht zulässig; [`URLPattern.hasRegExpGroups`](/de/docs/Web/API/URLPattern/hasRegExpGroups) muss daher `false` sein.
 - `match-dest`
-  - : Eine durch Leerzeichen getrennte Liste von Zeichenfolgen, wobei jede Zeichenfolge in Anführungszeichen und der gesamte Wert in Klammern eingeschlossen ist, die eine Liste von [Fetch-Request-Zielen](/de/docs/Web/API/Request/destination) bereitstellen, die Anfragen entsprechen müssen, wenn sie dieses Wörterbuch verwenden sollen.
+  - : Eine durch Leerzeichen getrennte Liste von Strings, bei der jeder String in Anführungszeichen und der gesamte Wert in Klammern steht. Sie gibt die [Ziele von Fetch-Anfragen](/de/docs/Web/API/Request/destination) an, denen Anfragen entsprechen müssen, um dieses Wörterbuch verwenden zu können.
 - `id`
-  - : Ein Zeichenfolgenwert, der einen Server-Identifikator für das Wörterbuch angibt. Dieser ID-Wert wird dann im {{HTTPHeader("Dictionary-ID")}}-Request-Header hinzugefügt, wenn der Browser eine Ressource anfordert, die dieses Wörterbuch verwenden kann.
+  - : Ein String-Wert, der eine serverseitige Kennung für das Wörterbuch angibt. Dieser ID-Wert wird anschließend im Anfrage-Header {{HTTPHeader("Dictionary-ID")}} gesendet, wenn der Browser eine Ressource anfordert, die dieses Wörterbuch verwenden kann.
 - `type`
-  - : Ein Zeichenfolgenwert, der das Dateiformat des bereitgestellten Wörterbuchs beschreibt. Derzeit wird nur `raw` unterstützt (was der Standard ist), daher ist dies mehr für zukünftige Kompatibilität.
+  - : Ein String-Wert, der das Dateiformat des bereitgestellten Wörterbuchs beschreibt. Derzeit wird nur `raw` unterstützt (dies ist auch der Standardwert). Die Direktive dient daher vor allem der zukünftigen Kompatibilität.
 
 ## Beispiele
 
-### Pfadvorsilbe
+### Pfadpräfix
 
 ```http
 Use-As-Dictionary: match="/product/*"
 ```
 
-Dies besagt, dass das Wörterbuch nur für URLs verwendet werden soll, die mit `/product/` beginnen.
+Dies legt fest, dass das Wörterbuch nur für URLs verwendet werden darf, die mit `/product/` beginnen.
 
 ### Versionierte Verzeichnisse
 
@@ -51,7 +53,7 @@ Dies besagt, dass das Wörterbuch nur für URLs verwendet werden soll, die mit `
 Use-As-Dictionary: match="/app/*/main.js"
 ```
 
-Dieser verwendet einen Platzhalter, um mehrere Versionen einer Datei abzugleichen.
+Hier wird ein Platzhalter verwendet, um mehrere Versionen einer Datei abzudecken.
 
 ### Ziele
 
@@ -59,13 +61,13 @@ Dieser verwendet einen Platzhalter, um mehrere Versionen einer Datei abzugleiche
 Use-As-Dictionary: match="/product/*", match-dest=("document")
 ```
 
-Hier wird `match-dest` verwendet, um sicherzustellen, dass das Wörterbuch nur für `document`-Anfragen verwendet wird, sodass `<script src="/product/js/app.js">` Ressourcenanforderungen zum Beispiel nicht übereinstimmen würden.
+Hier stellt `match-dest` sicher, dass das Wörterbuch nur für `document`-Anfragen verwendet wird. Ressourcenanfragen wie `<script src="/product/js/app.js">` würden beispielsweise nicht übereinstimmen.
 
 ```http
 Use-As-Dictionary: match="/product/*", match-dest=("document" "frame")
 ```
 
-Dies würde es ermöglichen, dass das Wörterbuch sowohl mit obersten Dokumenten als auch mit iframes übereinstimmt.
+Damit könnte das Wörterbuch sowohl für Dokumente der obersten Ebene als auch für iframes verwendet werden.
 
 ### ID
 
@@ -73,7 +75,7 @@ Dies würde es ermöglichen, dass das Wörterbuch sowohl mit obersten Dokumenten
 Use-As-Dictionary: match="/product/*", id="dictionary-12345"
 ```
 
-Wenn `Use-As-Dictionary` eine `id`-Direktive enthält, wie in diesem Beispiel, wird der `id`-Wert im {{HTTPHeader("Dictionary-ID")}}-Request-Header für Ressourcen enthalten sein, die dieses Wörterbuch verwenden können. Die Ressourcenanforderung wird auch den SHA-256-Hash des Wörterbuchs, umgeben von Doppelpunkten, im {{HTTPHeader("Available-Dictionary")}}-Header enthalten:
+Wenn `Use-As-Dictionary` wie in diesem Beispiel eine `id`-Direktive enthält, wird der `id`-Wert bei Anfragen für Ressourcen, die dieses Wörterbuch verwenden können, im Anfrage-Header {{HTTPHeader("Dictionary-ID")}} gesendet. Die Ressourcenanfrage enthält außerdem im Header {{HTTPHeader("Available-Dictionary")}} den von Doppelpunkten umgebenen SHA-256-Hash des Wörterbuchs:
 
 ```http
 Accept-Encoding: gzip, br, zstd, dcb, dcz
@@ -81,7 +83,7 @@ Available-Dictionary: :pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=:
 Dictionary-ID: "dictionary-12345"
 ```
 
-Der Server muss den Hash aus dem `Available-Dictionary`-Header immer noch überprüfen — die `Dictionary-ID` ist zusätzliche Information für den Server zur Identifizierung des Wörterbuchs, ersetzt aber nicht die Notwendigkeit für den `Available-Dictionary`-Header.
+Der Server muss den Hash aus dem Header `Available-Dictionary` weiterhin prüfen. `Dictionary-ID` liefert dem Server zusätzliche Informationen zur Identifizierung des Wörterbuchs, ersetzt aber nicht den Header `Available-Dictionary`.
 
 ### Typ
 
@@ -89,7 +91,7 @@ Der Server muss den Hash aus dem `Available-Dictionary`-Header immer noch überp
 Use-As-Dictionary: match="/product/*", type="raw"
 ```
 
-Derzeit wird nur `raw` unterstützt (was der Standard ist), daher ist dies mehr für zukünftige Kompatibilität.
+Derzeit wird nur `raw` unterstützt (dies ist auch der Standardwert). Die Direktive dient daher vor allem der zukünftigen Kompatibilität.
 
 ## Spezifikationen
 
@@ -101,6 +103,6 @@ Derzeit wird nur `raw` unterstützt (was der Standard ist), daher ist dies mehr 
 
 ## Siehe auch
 
-- [Leitfaden für Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
+- [Leitfaden zu Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
 - {{HTTPHeader("Available-Dictionary")}}
 - {{HTTPHeader("Dictionary-ID")}}
