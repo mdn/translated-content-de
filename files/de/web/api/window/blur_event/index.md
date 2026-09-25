@@ -1,22 +1,22 @@
 ---
-title: "Fenster: Blur-Event"
+title: "Window: blur-Ereignis"
 short-title: blur
 slug: Web/API/Window/blur_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 6daf06123a4c7d8b8e2a038e339a05666b22695f
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`blur`**-Event wird ausgelöst, wenn ein Element den Fokus verloren hat.
+Das **`blur`**-Ereignis wird ausgelöst, wenn das Fenster den Fokus verliert, beispielsweise wenn der Benutzer den Fokus von der Seite auf die Adressleiste verschiebt. Zuvor kann der Fokus auf dem Viewport des Dokuments oder auf einem darin enthaltenen Element gelegen haben.
 
-Das Gegenteil von `blur` ist [`focus`](/de/docs/Web/API/Window/focus_event).
+Das Gegenstück zu `blur` ist [`focus`](/de/docs/Web/API/Window/focus_event).
 
-Dieses Ereignis kann nicht abgebrochen werden und "bubbelt" nicht.
+Dieses Ereignis kann nicht abgebrochen werden und durchläuft nicht die Bubbling-Phase.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("blur", (event) => { })
@@ -32,9 +32,9 @@ Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Beispiele
 
-### Live-Beispiel
+### Interaktives Beispiel
 
-Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um [`focus`](/de/docs/Web/API/Window/focus_event) und `blur`-Events zu überwachen.
+Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um [`focus`](/de/docs/Web/API/Window/focus_event)- und `blur`-Ereignisse zu überwachen.
 
 #### HTML
 
@@ -83,9 +83,7 @@ window.addEventListener("focus", play);
 
 {{Compat}}
 
-Der Wert von [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) variiert zwischen den Browsern, während dieses Ereignis verarbeitet wird ([Firefox-Bug 452307](https://bugzil.la/452307)): IE10 setzt es auf das Element, zu dem der Fokus wechseln wird, während Firefox und Chrome es oft auf den `body` des Dokuments setzen.
-
 ## Siehe auch
 
 - Verwandtes Ereignis: [`focus`](/de/docs/Web/API/Window/focus_event)
-- Dieses Ereignis auf `Element`-Zielen: [`blur`](/de/docs/Web/API/Element/blur_event) Ereignis
+- Dieses Ereignis für `Element`-Ziele: [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis

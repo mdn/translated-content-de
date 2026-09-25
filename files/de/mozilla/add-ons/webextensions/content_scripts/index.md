@@ -1,54 +1,54 @@
 ---
-title: Inhalts-Skripte
+title: Content Scripts
 slug: Mozilla/Add-ons/WebExtensions/Content_scripts
 l10n:
-  sourceCommit: f7b2fd667af5f310356b46ed4920acac1da82dbe
+  sourceCommit: 3dad2299b9d045afbcefc2fd5500ed7257ceedda
 ---
 
-Ein Inhalts-Skript ist ein Teil Ihrer Erweiterung, der im Kontext einer Webseite läuft. Es kann Seiteninhalte mithilfe der standardmäßigen [Web-APIs](/de/docs/Web/API) lesen und modifizieren. Das Verhalten eines Inhalts-Skripts ähnelt dem von Skripten, die Teil einer Webseite sind, wie z.B. solchen, die mit dem {{HTMLElement("script")}}-Element geladen werden. Inhalts-Skripte können jedoch nur auf Seiteninhalte zugreifen, wenn [Host-Berechtigungen für den Ursprung der Webseite erteilt wurden](#berechtigungen).
+Ein Content Script ist ein Teil Ihrer Erweiterung, der im Kontext einer Webseite ausgeführt wird. Es kann Seiteninhalte mithilfe der standardmäßigen [Web-APIs](/de/docs/Web/API) lesen und verändern. Content Scripts verhalten sich ähnlich wie Scripts, die Teil einer Website sind, etwa solche, die über das Element {{HTMLElement("script")}} geladen werden. Content Scripts können jedoch nur dann auf Seiteninhalte zugreifen, wenn [Host-Berechtigungen für die Herkunft der Webseite erteilt wurden](#berechtigungen).
 
-Inhalts-Skripte können auf [einen kleinen Teil der WebExtension-APIs](#webextension-apis) zugreifen, sie können jedoch [mit Hintergrundskripten kommunizieren](#kommunikation_mit_hintergrund-skripten) und dadurch indirekt auf die WebExtension-APIs zugreifen. [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) können auf alle [WebExtension JavaScript APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) zugreifen, aber nicht direkt auf die Inhalte von Webseiten.
+Content Scripts können auf [einen kleinen Teil der WebExtension-APIs](#webextension-apis) zugreifen. Über ein Nachrichtensystem können sie jedoch [mit Background Scripts kommunizieren](#mit_background_scripts_kommunizieren) und so indirekt auf die WebExtension-APIs zugreifen. [Background Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) können auf alle [WebExtension-JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) zugreifen, aber nicht direkt auf den Inhalt von Webseiten.
 
-## Laden von Inhalts-Skripten
+## Content Scripts laden
 
-Sie können ein Inhalts-Skript in eine Webseite laden:
+Sie können ein Content Script auf folgende Weise in eine Webseite laden:
 
-1. Zur Installationszeit, in Seiten, die den URL-Mustern entsprechen.
-   - Mit dem Schlüssel [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) in Ihrer `manifest.json` können Sie den Browser bitten, ein Inhalts-Skript zu laden, wann immer der Browser eine Seite lädt, deren URL [einem bestimmten Muster entspricht](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns).
-2. Zur Laufzeit, in Seiten, die den URL-Mustern entsprechen.
-   - Mit {{WebExtAPIRef("scripting.registerContentScripts()")}} oder (nur in Manifest V2 in Firefox) {{WebExtAPIRef("contentScripts")}}, können Sie den Browser bitten, ein Inhalts-Skript zu laden, wann immer der Browser eine Seite lädt, deren URL [einem bestimmten Muster entspricht](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). (Dies ähnelt der Methode 1, _außer_ dass Sie Inhalts-Skripte zur Laufzeit hinzufügen und entfernen können.)
-3. Zur Laufzeit, in bestimmte Tabs.
-   - Mit {{WebExtAPIRef("scripting.executeScript()")}} oder (nur in Manifest V2) {{WebExtAPIRef("tabs.executeScript()")}} können Sie ein Inhalts-Skript in einen bestimmten Tab laden, wann immer Sie möchten. (Zum Beispiel in Reaktion darauf, dass der Benutzer auf eine [Browseraktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) klickt.)
+1. Bei der Installation in Seiten, die bestimmten URL-Mustern entsprechen.
+   - Mit dem Schlüssel [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) in Ihrer `manifest.json` können Sie den Browser anweisen, ein Content Script zu laden, sobald er eine Seite lädt, deren URL [einem bestimmten Muster entspricht](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns).
+2. Zur Laufzeit in Seiten, die bestimmten URL-Mustern entsprechen.
+   - Mit {{WebExtAPIRef("scripting.registerContentScripts()")}} oder (nur mit Manifest V2 in Firefox) {{WebExtAPIRef("contentScripts")}} können Sie den Browser anweisen, ein Content Script zu laden, sobald er eine Seite lädt, deren URL [einem bestimmten Muster entspricht](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). (Dies ähnelt Methode 1, _allerdings_ können Sie Content Scripts zur Laufzeit hinzufügen und entfernen.)
+3. Zur Laufzeit in bestimmte Tabs.
+   - Mit {{WebExtAPIRef("scripting.executeScript()")}} oder (nur mit Manifest V2) {{WebExtAPIRef("tabs.executeScript()")}} können Sie jederzeit ein Content Script in einen bestimmten Tab laden. (Beispielsweise, wenn der Benutzer auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) klickt.)
 
-Es gibt nur einen globalen Scope _pro Frame, pro Erweiterung_. Dies bedeutet, dass Variablen aus einem Inhalts-Skript von jedem anderen Inhalts-Skript aus zugänglich sind, unabhängig davon, wie das Inhalts-Skript geladen wurde.
+Es gibt nur einen globalen Gültigkeitsbereich _pro Frame und pro Erweiterung_. Das bedeutet, dass jedes andere Content Script auf die Variablen eines Content Scripts zugreifen kann, unabhängig davon, wie dieses geladen wurde.
 
 > [!NOTE]
-> [Dynamische JS-Modulimporte](/de/docs/Web/JavaScript/Guide/Modules#dynamic_module_loading) funktionieren jetzt in Inhalts-Skripten. Für weitere Details siehe [Firefox-Fehler 1536094](https://bugzil.la/1536094).
-> Nur URLs mit dem _moz-extension_-Schema sind erlaubt, was Daten-URLs ausschließt ([Firefox-Fehler 1587336](https://bugzil.la/1587336)).
+> [Dynamische Importe von JS-Modulen](/de/docs/Web/JavaScript/Guide/Modules#dynamic_module_loading) funktionieren jetzt in Content Scripts. Weitere Informationen finden Sie unter [Firefox-Bug 1536094](https://bugzil.la/1536094).
+> Es sind nur URLs mit dem Schema _moz-extension_ zulässig; Daten-URLs sind ausgeschlossen ([Firefox-Bug 1587336](https://bugzil.la/1587336)).
 
 ### Persistenz
 
-Inhalts-Skripte, die mit {{WebExtAPIRef("scripting.executeScript()")}} oder (nur in Manifest V2) mit {{WebExtAPIRef("tabs.executeScript()")}} geladen werden, laufen auf Anfrage und bestehen nicht fort.
+Content Scripts, die mit {{WebExtAPIRef("scripting.executeScript()")}} oder (nur mit Manifest V2) {{WebExtAPIRef("tabs.executeScript()")}} geladen werden, werden auf Anforderung ausgeführt und bleiben nicht registriert.
 
-Inhalts-Skripte, die im `content_scripts`-Schlüssel der Manifestdatei definiert sind oder mit der {{WebExtAPIRef("scripting.registerContentScripts()")}} oder (nur in Manifest V2 in Firefox) {{WebExtAPIRef("contentScripts")}} API persistieren standardmäßig. Sie bleiben über Neustarts und Updates des Browsers sowie Neustarts der Erweiterung hinaus registriert.
+Content Scripts, die über den Schlüssel [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) in der Manifestdatei oder mit der API {{WebExtAPIRef("scripting.registerContentScripts()")}} oder (nur mit Manifest V2 in Firefox) {{WebExtAPIRef("contentScripts")}} definiert werden, sind standardmäßig persistent. Sie bleiben über Browser-Neustarts, Updates und Neustarts der Erweiterung hinweg registriert.
 
-Die {{WebExtAPIRef("scripting.registerContentScripts()")}} API erlaubt jedoch, das Skript als nicht persistent zu definieren. Dies kann nützlich sein, wenn Ihre Erweiterung (im Namen eines Benutzers) ein Inhalts-Skript nur in der aktuellen Browsersitzung aktivieren möchte.
+Mit der API {{WebExtAPIRef("scripting.registerContentScripts()")}} können Sie ein Script jedoch als nicht persistent definieren. Das kann beispielsweise nützlich sein, wenn Ihre Erweiterung im Auftrag eines Benutzers ein Content Script nur für die aktuelle Browsersitzung aktivieren soll.
 
-## Berechtigungen, Einschränkungen und Begrenzungen
+## Berechtigungen, Einschränkungen und Grenzen
 
 ### Berechtigungen
 
-Registrierte Inhalts-Skripte werden nur ausgeführt, wenn der Erweiterung [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Domain erteilt wurden.
+Registrierte Content Scripts werden nur ausgeführt, wenn der Erweiterung [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Domain erteilt wurden.
 
-Um Skripte programmatisch zu injizieren, benötigt die Erweiterung entweder die Berechtigung [`activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions). Die Berechtigung `scripting` ist erforderlich, um Methoden der {{WebExtAPIRef("scripting")}} API zu verwenden.
+Um Scripts programmgesteuert einzufügen, benötigt die Erweiterung entweder die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions). Für die Verwendung von Methoden der API {{WebExtAPIRef("scripting")}} ist die Berechtigung `scripting` erforderlich.
 
-Bei der Installation kann eine Erweiterung Host-Berechtigungen für Hosts in ihren `matches`-Listen des `content_scripts` Manifest-Schlüssels anfordern. Benutzer können sich nach der Installation der Erweiterung für oder gegen Host-Berechtigungen entscheiden.
+Bei der Installation kann eine Erweiterung Host-Berechtigungen für Hosts anfordern, die in den `matches`-Listen des Manifest-Schlüssels `content_scripts` stehen. Benutzer können Host-Berechtigungen nach der Installation der Erweiterung erteilen oder entziehen.
 
 ### Eingeschränkte Domains
 
-Sowohl [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) als auch die Berechtigung [`activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) haben Ausnahmen für einige Domains. Inhalts-Skripte sind daran gehindert, auf diesen Domains ausgeführt zu werden, um z.B. den Benutzer vor einer Eskalation der Privilegien durch eine Erweiterung auf speziellen Seiten zu schützen.
+Sowohl für [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) als auch für die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) gelten Ausnahmen für einige Domains. Die Ausführung von Content Scripts auf diesen Domains wird blockiert, beispielsweise um Benutzer davor zu schützen, dass eine Erweiterung über spezielle Seiten zusätzliche Berechtigungen erlangt.
 
-In Firefox schließt dies folgende Domains ein:
+In Firefox betrifft dies folgende Domains:
 
 - accounts-static.cdn.mozilla.net
 - accounts.firefox.com
@@ -63,37 +63,38 @@ In Firefox schließt dies folgende Domains ein:
 - support.mozilla.org
 - sync.services.mozilla.com
 
-Andere Browser haben ähnliche Einschränkungen für die Websites, von denen Erweiterungen installiert werden können. Beispielsweise ist der Zugriff auf chrome.google.com in Chrome eingeschränkt.
+Andere Browser schränken den Zugriff auf Websites, über die Erweiterungen installiert werden können, ähnlich ein. In Chrome ist beispielsweise der Zugriff auf chrome.google.com eingeschränkt.
 
 > [!NOTE]
-> Da diese Einschränkungen addons.mozilla.org einschließen, könnten Benutzer, die versuchen, Ihre Erweiterung unmittelbar nach der Installation zu verwenden, feststellen, dass sie nicht funktioniert. Um dies zu vermeiden, sollten Sie eine geeignete Warnung oder eine [Onboarding-Seite](https://extensionworkshop.com/documentation/develop/onboard-upboard-offboard-users/) hinzufügen, um Benutzer von `addons.mozilla.org` wegzuführen.
+> Da diese Einschränkungen `addons.mozilla.org` umfassen, stellen Benutzer möglicherweise fest, dass Ihre Erweiterung unmittelbar nach der Installation nicht funktioniert. Um dies zu vermeiden, sollten Sie einen geeigneten Hinweis oder eine [Einführungsseite](https://extensionworkshop.com/documentation/develop/onboard-upboard-offboard-users/) hinzufügen, die Benutzer von `addons.mozilla.org` wegführt.
 
-Der Satz der Domains kann weiter durch Unternehmensrichtlinien eingeschränkt werden: Firefox erkennt die `restricted_domains`-Richtlinie, wie bei [ExtensionSettings in mozilla/policy-templates](https://github.com/mozilla/policy-templates/blob/master/README.md#extensionsettings) dokumentiert, an. Chromes `runtime_blocked_hosts`-Richtlinie ist bei [Configure ExtensionSettings policy](https://support.google.com/chrome/a/answer/9867568) dokumentiert.
+Die Liste der Domains kann durch Unternehmensrichtlinien weiter eingeschränkt werden: Firefox unterstützt die Richtlinie `restricted_domains`, die unter [ExtensionSettings in mozilla/policy-templates](https://github.com/mozilla/policy-templates/blob/master/README.md#extensionsettings) dokumentiert ist. Die Chrome-Richtlinie `runtime_blocked_hosts` ist unter [ExtensionSettings-Richtlinie konfigurieren](https://support.google.com/chrome/a/answer/9867568) dokumentiert.
 
-### Begrenzungen
+### Grenzen
 
-Standardmäßig laufen Inhalts-Skripte nicht in `about:blank`, `about:srcdoc`, `data:` und `blob:` Seiten. Um ihre Ausführung zu ermöglichen, verwenden Sie die Option [`match_origin_as_fallback`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#match_origin_as_fallback) im `content_scripts` Manifest-Schlüssel oder die Option [`matchOriginAsFallback`](/de/docs/Mozilla/Add-ons/WebExtensions/API/scripting/RegisteredContentScript#matchoriginasfallback) in der `scripting` API.
+Standardmäßig werden Content Scripts nicht auf Seiten mit `about:blank`, `about:srcdoc`, `data:` oder `blob:` ausgeführt. Um ihre Ausführung dort zu ermöglichen, verwenden Sie die Option [`match_origin_as_fallback`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts#match_origin_as_fallback) im Manifest-Schlüssel `content_scripts` oder die Option [`matchOriginAsFallback`](/de/docs/Mozilla/Add-ons/WebExtensions/API/scripting/RegisteredContentScript#matchoriginasfallback) in der API `scripting`.
 
-Erweiterungen können keine Inhalts-Skripte in privilegierte Browser-UI-Seiten (wie `about:debugging`, `about:addons`, Lesemodus, Quelltextanzeige, oder PDF-Viewer) oder [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) injizieren.
+Erweiterungen können keine Content Scripts in privilegierte Seiten der Browseroberfläche (etwa `about:debugging`, `about:addons`, die Leseansicht, die Quelltextansicht oder den PDF-Viewer) oder in [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) einfügen.
 
-Wenn eine Erweiterung Code in einer Erweiterungsseite dynamisch ausführen möchte, kann sie ein Skript auf der Seite einfügen. Dieses Skript enthält den auszuführenden Code und registriert einen {{WebExtAPIRef("runtime.onMessage")}}-Listener, der eine Möglichkeit zur Ausführung des Codes implementiert. Die Erweiterung kann dann eine Nachricht an den Listener senden, um die Ausführung des Codes zu starten.
+Wenn eine Erweiterung Code dynamisch auf einer Erweiterungsseite ausführen möchte, kann sie ein Script in die Seite einbinden. Dieses Script enthält den auszuführenden Code und registriert einen Listener für {{WebExtAPIRef("runtime.onMessage")}}, der eine Möglichkeit zur Ausführung des Codes bereitstellt. Anschließend kann die Erweiterung eine Nachricht an den Listener senden, um die Ausführung auszulösen.
 
-## Inhalts-Skript-Umgebung
+## Umgebung von Content Scripts
 
 ### DOM-Zugriff
 
-Inhalts-Skripte können auf das DOM der Seite zugreifen und es modifizieren, genau wie normale Seiten-Skripte. Sie können auch alle Änderungen sehen, die von Seiten-Skripten am DOM vorgenommen wurden.
+Content Scripts können wie gewöhnliche Seiten-Scripts auf das DOM der Seite zugreifen und es verändern. Sie können auch Änderungen sehen, die Seiten-Scripts am DOM vorgenommen haben.
 
-Inhalts-Skripte erhalten jedoch eine "saubere" Sicht auf das DOM. Dies bedeutet:
+Content Scripts erhalten jedoch eine „saubere“ Sicht auf das DOM. Das bedeutet:
 
-- Inhalts-Skripte können keine JavaScript-Variablen sehen, die von Seiten-Skripten definiert wurden.
-- Wenn ein Seiten-Skript eine eingebaute DOM-Eigenschaft neu definiert, sieht das Inhalts-Skript die ursprüngliche Version der Eigenschaft, nicht die neu definierte Version.
+- Content Scripts können JavaScript-Variablen, die von Seiten-Scripts definiert wurden, nicht sehen.
+- Wenn ein Seiten-Script eine integrierte DOM-Eigenschaft neu definiert, sieht das Content Script die ursprüngliche Version der Eigenschaft und nicht die neu definierte Version.
 
-Wie unter ["Inhalts-Skript-Umgebung" bei Chrome-Inkompatibilitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#content_script_environment) erwähnt, verhält sich dies in verschiedenen Browsern unterschiedlich:
+Wie unter [„Content-Script-Umgebung“ bei den Chrome-Inkompatibilitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#content_script_environment) beschrieben, unterscheidet sich das Verhalten je nach Browser:
 
-- In Firefox wird dieses Verhalten [Xray Vision](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#xray_vision_in_firefox) genannt. Ein Inhalts-Skript kann auf JavaScript-Objekte aus seinem globalen Scope oder Xray-umwickelte Versionen von der Webseite stoßen. In regulären Webseiten ist {{jsxref("globalThis")}} identisch mit `window`, aber in Firefox-Inhalts-Skripten ist `globalThis` ein separates Objekt, das von `window` erbt. Dieser Unterschied macht in der Regel keinen praktischen Unterschied für die Verfügbarkeit globaler APIs. Die Ausnahme ist, wenn der globale Scope eine Definition einer Standard-API enthält, die die Definition in `window` verdeckt, wie etwa [`structuredClone` in Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#structuredclone).
+- In Firefox wird dieses Verhalten als [Xray Vision](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#xray_vision_in_firefox) bezeichnet.
+  Ein Content Script kann auf JavaScript-Objekte aus seinem globalen Gültigkeitsbereich oder auf Xray-umhüllte Versionen von der Webseite treffen. Auf gewöhnlichen Webseiten ist {{jsxref("globalThis")}} mit `window` identisch. In Content Scripts von Firefox ist `globalThis` dagegen ein eigenständiges Objekt, das von `window` erbt. Dieser Unterschied wirkt sich auf die Verfügbarkeit globaler APIs häufig nicht praktisch aus. Eine Ausnahme besteht, wenn der globale Gültigkeitsbereich eine Definition einer Standard-API enthält, die die Definition in `window` verdeckt, etwa [`structuredClone` in Content Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#structuredclone).
 
-- In Chrome wird dieses Verhalten durch eine [isolierte Welt](https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/renderer/bindings/core/v8/V8BindingDesign.md#world) durchgesetzt, die einen grundsätzlich anderen Ansatz verwendet.
+- In Chrome wird dieses Verhalten durch eine [isolierte Umgebung](https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/renderer/bindings/core/v8/V8BindingDesign.md#world) umgesetzt, die einen grundlegend anderen Ansatz verwendet.
 
 Betrachten Sie eine Webseite wie diese:
 
@@ -110,7 +111,7 @@ Betrachten Sie eine Webseite wie diese:
 </html>
 ```
 
-Das Skript `page-script.js` macht Folgendes:
+Das Script `page-script.js` führt Folgendes aus:
 
 ```js
 // page-script.js
@@ -130,7 +131,7 @@ window.confirm = () => {
 };
 ```
 
-Jetzt injiziert eine Erweiterung ein Inhalts-Skript in die Seite:
+Nun fügt eine Erweiterung ein Content Script in die Seite ein:
 
 ```js
 // content-script.js
@@ -146,13 +147,13 @@ console.log(window.foo); // undefined
 window.confirm("Are you sure?"); // calls the original window.confirm()
 ```
 
-Das Gleiche gilt umgekehrt; Seiten-Skripte können JavaScript-Eigenschaften, die von Inhalts-Skripten hinzugefügt wurden, nicht sehen.
+Umgekehrt gilt dasselbe: Seiten-Scripts können JavaScript-Eigenschaften, die von Content Scripts hinzugefügt wurden, nicht sehen.
 
-Dies bedeutet, dass Inhalts-Skripte darauf vertrauen können, dass sich DOM-Eigenschaften vorhersagbar verhalten, ohne sich darum sorgen zu müssen, dass ihre Variablen mit Variablen aus dem Seiten-Skript kollidieren.
+Content Scripts können sich daher darauf verlassen, dass sich DOM-Eigenschaften vorhersehbar verhalten, ohne befürchten zu müssen, dass ihre Variablen mit Variablen des Seiten-Scripts in Konflikt geraten.
 
-Eine praktische Konsequenz dieses Verhaltens ist, dass ein Inhalts-Skript keinen Zugang zu JavaScript-Bibliotheken hat, die von der Seite geladen wurden. Wenn die Seite zum Beispiel jQuery umfasst, kann das Inhalts-Skript es nicht sehen.
+Eine praktische Folge dieses Verhaltens ist, dass ein Content Script keinen Zugriff auf JavaScript-Bibliotheken hat, die von der Seite geladen wurden. Wenn die Seite beispielsweise jQuery einbindet, kann das Content Script nicht darauf zugreifen.
 
-Wenn ein Inhalts-Skript eine JavaScript-Bibliothek verwenden muss, sollte die Bibliothek selbst als Inhalts-Skript _zusammen mit_ dem Inhalts-Skript, das sie verwenden möchte, injiziert werden:
+Wenn ein Content Script eine JavaScript-Bibliothek benötigt, sollte die Bibliothek selbst _zusammen mit_ dem Content Script, das sie verwenden soll, als Content Script eingefügt werden:
 
 ```json
 "content_scripts": [
@@ -164,104 +165,105 @@ Wenn ein Inhalts-Skript eine JavaScript-Bibliothek verwenden muss, sollte die Bi
 ```
 
 > [!NOTE]
-> Firefox bietet [cloneInto()](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/cloneInto) und [exportFunction()](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction), um Inhalts-Skripten den Zugriff auf von Seiten-Skripten erstellte JavaScript-Objekte zu ermöglichen und ihre JavaScript-Objekte an Seiten-Skripte offenzulegen.
+> Firefox stellt [cloneInto()](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/cloneInto) und [exportFunction()](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) bereit. Damit können Content Scripts auf JavaScript-Objekte zugreifen, die von Seiten-Scripts erstellt wurden, und ihre eigenen JavaScript-Objekte für Seiten-Scripts verfügbar machen.
 >
-> Siehe [Objekte mit Seiten-Skripten teilen](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts) für weitere Details.
+> Weitere Informationen finden Sie unter [Objekte mit Seiten-Scripts teilen](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
 
 ### WebExtension-APIs
 
-Zusätzlich zu den standardmäßigen DOM-APIs können Inhalts-Skripte folgende WebExtension-APIs verwenden:
+Zusätzlich zu den standardmäßigen DOM-APIs können Content Scripts diese WebExtension-APIs verwenden:
 
-**Von [`extension`](/de/docs/Mozilla/Add-ons/WebExtensions/API/extension):**
+**Aus [`extension`](/de/docs/Mozilla/Add-ons/WebExtensions/API/extension):**
 
 - [`getURL()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/extension/getURL)
 - [`inIncognitoContext`](/de/docs/Mozilla/Add-ons/WebExtensions/API/extension/inIncognitoContext)
 
-**Von [`runtime`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime):**
+**Aus [`runtime`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime):**
 
 - [`connect()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/connect)
 - {{WebExtAPIRef("runtime.getDocumentId()","getDocumentId()")}}
 - {{WebExtAPIRef("runtime.getFrameId()","getFrameId()")}}
 - [`getManifest()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getManifest)
+- {{WebExtAPIRef("runtime.getVersion()","getVersion()")}}
 - [`getURL()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getURL)
 - [`onConnect`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect)
 - [`onMessage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage)
 - [`sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage)
 
-**Von [`i18n`](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n):**
+**Aus [`i18n`](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n):**
 
 - [`getMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getMessage)
 - [`getAcceptLanguages()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getAcceptLanguages)
 - [`getUILanguage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getUILanguage)
 - [`detectLanguage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/i18n/detectLanguage)
 
-**Von [`menus`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus):**
+**Aus [`menus`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus):**
 
 - [`getTargetElement`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement)
 
-**Alles von:**
+**Alles aus:**
 
 - [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage)
 
 ### XHR und Fetch
 
-Inhalts-Skripte können Anfragen mithilfe der normalen APIs [`window.XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und [`window.fetch()`](/de/docs/Web/API/Fetch_API) machen.
+Content Scripts können Anfragen über die gewöhnlichen APIs [`window.XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und [`window.fetch()`](/de/docs/Web/API/Fetch_API) senden.
 
 > [!NOTE]
-> In Firefox im Manifest V2 erfolgen Inhalts-Skript-Anfragen (zum Beispiel mithilfe von [`fetch()`](/de/docs/Web/API/Fetch_API/Using_Fetch)) im Kontext einer Erweiterung, sodass Sie eine absolute URL angeben müssen, um auf Seiteninhalte zu verweisen.
+> In Firefox mit Manifest V2 erfolgen Anfragen von Content Scripts (beispielsweise über [`fetch()`](/de/docs/Web/API/Fetch_API/Using_Fetch)) im Kontext einer Erweiterung. Deshalb müssen Sie eine absolute URL angeben, um auf Seiteninhalte zu verweisen.
 >
-> In Chrome und Firefox im Manifest V3 erfolgen diese Anfragen im Seitenkontext, sodass sie auf eine relative URL gerichtet sind. Zum Beispiel wird `/api` an `https://«current page URL»/api` gesendet.
+> In Chrome und Firefox mit Manifest V3 erfolgen diese Anfragen im Kontext der Seite. Sie werden daher an eine relative URL gesendet. Beispielsweise wird `/api` an `https://«current page URL»/api` gesendet.
 
-Inhalts-Skripte erhalten dieselben domänenübergreifenden Privilegien wie der Rest der Erweiterung: Wenn die Erweiterung also für eine Domäne den domänenübergreifenden Zugriff mithilfe des Schlüssels [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in `manifest.json` angefordert hat, erhalten ihre Inhalts-Skripte ebenfalls Zugriff auf diese Domäne.
-
-> [!NOTE]
-> Bei Verwendung des Manifest V3 können Inhalts-Skripte domänenübergreifende Anfragen ausführen, wenn der Zielserver mithilfe von [CORS](/de/docs/Web/HTTP/Guides/CORS) zustimmt; jedoch funktionieren Host-Berechtigungen in Inhalts-Skripten nicht, aber immer noch auf regulären Erweiterungsseiten.
-
-Dies wird erreicht, indem man privilegiertere XHR- und Fetch-Instanzen im Inhalts-Skript bereitstellt, was den Nebeneffekt hat, dass die Header [`Origin`](/de/docs/Web/HTTP/Reference/Headers/Origin) und [`Referer`](/de/docs/Web/HTTP/Reference/Headers/Referer) nicht gesetzt werden, wie es bei einer Anfrage von der Seite selbst der Fall wäre; dies ist oft vorzuziehen, um zu verhindern, dass die Anfrage ihre domänenübergreifende Natur offenbart.
+Content Scripts erhalten dieselben domainübergreifenden Zugriffsrechte wie der Rest der Erweiterung: Wenn die Erweiterung über den Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in `manifest.json` domainübergreifenden Zugriff für eine Domain angefordert hat, können auch ihre Content Scripts auf diese Domain zugreifen.
 
 > [!NOTE]
-> In Firefox im Manifest V2 können Erweiterungen, die Anfragen ausführen müssen, die sich so verhalten, als wären sie vom Inhalt selbst gesendet worden, `content.XMLHttpRequest` und `content.fetch()` stattdessen verwenden.
+> Bei Verwendung von Manifest V3 können Content Scripts Cross-Origin-Anfragen ausführen, wenn der Zielserver dies über [CORS](/de/docs/Web/HTTP/Guides/CORS) zulässt. Host-Berechtigungen gelten jedoch nicht für Content Scripts, wohl aber weiterhin für gewöhnliche Erweiterungsseiten.
+
+Dies wird dadurch erreicht, dass dem Content Script privilegiertere XHR- und Fetch-Instanzen zur Verfügung gestellt werden. Eine Nebenwirkung ist, dass die Header [`Origin`](/de/docs/Web/HTTP/Reference/Headers/Origin) und [`Referer`](/de/docs/Web/HTTP/Reference/Headers/Referer) nicht so gesetzt werden wie bei einer Anfrage von der Seite selbst. Das ist oft erwünscht, damit die Anfrage nicht als Cross-Origin-Anfrage erkennbar ist.
+
+> [!NOTE]
+> In Firefox mit Manifest V2 können Erweiterungen, die Anfragen senden müssen, die sich wie Anfragen des Seiteninhalts selbst verhalten, stattdessen `content.XMLHttpRequest` und `content.fetch()` verwenden.
 >
-> Für browserübergreifende Erweiterungen muss die Präsenz dieser Methoden durch Funktionen erkannt werden.
+> Bei browserübergreifenden Erweiterungen muss die Verfügbarkeit dieser Methoden geprüft werden.
 >
-> Dies ist im Manifest V3 nicht möglich, da `content.XMLHttpRequest` und `content.fetch()` nicht verfügbar sind.
+> Mit Manifest V3 ist dies nicht möglich, da `content.XMLHttpRequest` und `content.fetch()` nicht verfügbar sind.
 
 > [!NOTE]
-> In Chrome, beginnend mit Version 73, und in Firefox, beginnend mit Version 101 bei der Verwendung von Manifest V3, unterliegen Inhalts-Skript-Anfragen denselben [CORS](/de/docs/Web/HTTP/Guides/CORS)-Richtlinien wie die Seite, auf der sie ausgeführt werden. Nur Hintergrundskripte haben erweiterte domänenübergreifende Privilegien. Siehe [Änderungen bei domänenübergreifenden Anfragen in Chrome-Erweiterungs-Inhalts-Skripten](https://www.chromium.org/Home/chromium-security/extension-content-script-fetches/).
+> In Chrome ab Version 73 und in Firefox ab Version 101 mit Manifest V3 unterliegen Content Scripts derselben [CORS](/de/docs/Web/HTTP/Guides/CORS)-Richtlinie wie die Seite, auf der sie ausgeführt werden. Nur Backend-Scripts verfügen über erweiterte domainübergreifende Zugriffsrechte. Weitere Informationen finden Sie unter [Änderungen an Cross-Origin-Anfragen in Content Scripts von Chrome-Erweiterungen](https://www.chromium.org/Home/chromium-security/extension-content-script-fetches/).
 
 ### Sichere Kontexte
 
-Seiten, die über HTTPS oder aus einer anderen vertrauenswürdigen Quelle, wie `localhost`, geladen werden, bieten einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts). Einige Web-APIs wie [`crypto.subtle`](/de/docs/Web/API/Crypto/subtle) und [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation) sind nur in sicheren Kontexten verfügbar. Die eingeschränkten APIs legen Informationen oder Fähigkeiten offen, die auf einer Seite riskant wären, die ein Angreifer manipulieren könnte.
+Seiten, die über HTTPS oder aus einer anderen vertrauenswürdigen Quelle wie `localhost` geladen werden, stellen einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) bereit. Einige Web-APIs, beispielsweise [`crypto.subtle`](/de/docs/Web/API/Crypto/subtle) und [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation), sind nur in sicheren Kontexten verfügbar. Diese eingeschränkten APIs stellen Informationen oder Funktionen bereit, deren Verwendung auf einer Seite riskant wäre, die ein Angreifer manipulieren könnte.
 
-Inhalts-Skripte laufen im Kontext der Seite, in die sie injiziert werden. Daher gelten die Einschränkungen dieser APIs auch für Inhalts-Skripte: Ein Inhalts-Skript, das in einem unsicheren Kontext läuft, kann eine Web-API, die einen sicheren Kontext erfordert, nicht verwenden, auch wenn der Rest der Erweiterung möglicherweise noch Zugriff darauf hat.
+Content Scripts werden im Kontext der Seite ausgeführt, in die sie eingefügt werden. Deshalb gilt die Einschränkung für diese APIs auch für Content Scripts: Ein Content Script, das in einem unsicheren Kontext ausgeführt wird, kann keine Web-API verwenden, die einen sicheren Kontext erfordert, selbst wenn der Rest der Erweiterung weiterhin darauf zugreifen kann.
 
 > [!NOTE]
-> In Firefox kann die API [`PointerEvent.getCoalescedEvents()`](/de/docs/Web/API/PointerEvent/getCoalescedEvents), die an einen sicheren Kontext eingeschränkt ist, auch von Inhalts-Skripten in unsicheren Kontexten aufgerufen werden.
+> In Firefox kann die auf sichere Kontexte beschränkte API [`PointerEvent.getCoalescedEvents()`](/de/docs/Web/API/PointerEvent/getCoalescedEvents) aus Content Scripts in unsicheren Kontexten aufgerufen werden.
 
-## Kommunikation mit Hintergrund-Skripten
+## Mit Background Scripts kommunizieren
 
-Obwohl Inhalts-Skripte die meisten der WebExtension-APIs nicht direkt verwenden können, können sie über die Messaging-APIs mit den Hintergrund-Skripten der Erweiterung kommunizieren und damit indirekt auf dieselben APIs zugreifen, die die Hintergrund-Skripte verwenden können.
+Obwohl Content Scripts die meisten WebExtension-APIs nicht direkt verwenden können, können sie über die Messaging-APIs mit den Background Scripts der Erweiterung kommunizieren. Dadurch können sie indirekt auf dieselben APIs wie die Background Scripts zugreifen.
 
-Es gibt zwei grundlegende Muster für die Kommunikation zwischen den Hintergrund-Skripten und den Inhalts-Skripten:
+Für die Kommunikation zwischen Background Scripts und Content Scripts gibt es zwei grundlegende Muster:
 
-- Sie können **einmalige Nachrichten** senden (mit einer optionalen Antwort).
-- Sie können eine **langfristige Verbindung zwischen den beiden Seiten** einrichten und diese Verbindung verwenden, um Nachrichten auszutauschen.
+- Sie können **einzelne Nachrichten** senden (optional mit einer Antwort).
+- Sie können eine **länger bestehende Verbindung zwischen beiden Seiten** herstellen und darüber Nachrichten austauschen.
 
-### Einmalige Nachrichten
+### Einzelne Nachrichten
 
-Um einmalige Nachrichten mit einer optionalen Antwort zu senden, können Sie die folgenden APIs verwenden:
+Um einzelne Nachrichten zu senden und optional eine Antwort zu erhalten, können Sie die folgenden APIs verwenden:
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="row"></th>
-      <th scope="col">Im Inhalts-Skript</th>
-      <th scope="col">Im Hintergrund-Skript</th>
+      <th scope="col">Im Content Script</th>
+      <th scope="col">Im Background Script</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Eine Nachricht senden</th>
+      <th scope="row">Nachricht senden</th>
       <td>
         <code
           ><a
@@ -280,7 +282,7 @@ Um einmalige Nachrichten mit einer optionalen Antwort zu senden, können Sie die
       </td>
     </tr>
     <tr>
-      <th scope="row">Eine Nachricht empfangen</th>
+      <th scope="row">Nachricht empfangen</th>
       <td>
         <code
           ><a
@@ -301,9 +303,9 @@ Um einmalige Nachrichten mit einer optionalen Antwort zu senden, können Sie die
   </tbody>
 </table>
 
-Zum Beispiel hier ein Inhalts-Skript, das auf Klick-Ereignisse in der Webseite hört.
+Das folgende Content Script beispielsweise überwacht Klickereignisse auf der Webseite.
 
-Wenn der Klick auf einen Link erfolgte, sendet es eine Nachricht an die Hintergrund-Seite mit der Ziel-URL:
+Wenn auf einen Link geklickt wurde, sendet es eine Nachricht mit der Ziel-URL an das Background Script:
 
 ```js
 // content-script.js
@@ -318,7 +320,7 @@ function notifyExtension(e) {
 }
 ```
 
-Das Hintergrund-Skript hört auf diese Nachrichten und zeigt eine Benachrichtigung mit der [`notifications`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications) API an:
+Das Background Script überwacht diese Nachrichten und zeigt über die API [`notifications`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications) eine Benachrichtigung an:
 
 ```js
 // background-script.js
@@ -335,36 +337,36 @@ function notify(message) {
 }
 ```
 
-(Dieser Beispielcode wurde leicht aus dem [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Beispiel auf GitHub angepasst.)
+(Dieser Beispielcode wurde leicht an das Beispiel [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) auf GitHub angelehnt.)
 
-### Verbindungsbasierte Nachrichtenübermittlung
+### Verbindungsbasierter Nachrichtenaustausch
 
-Das Senden von einmaligen Nachrichten kann umständlich werden, wenn Sie viele Nachrichten zwischen einem Hintergrund-Skript und einem Inhalts-Skript austauschen. Ein alternatives Muster besteht darin, eine langfristige Verbindung zwischen den beiden Kontexten zu etablieren und diese Verbindung zu verwenden, um Nachrichten auszutauschen.
+Das Senden einzelner Nachrichten kann umständlich werden, wenn ein Background Script und ein Content Script viele Nachrichten austauschen. Als Alternative können Sie eine länger bestehende Verbindung zwischen den beiden Kontexten herstellen und darüber Nachrichten austauschen.
 
-Beide Seiten haben ein [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt, das sie verwenden können, um Nachrichten auszutauschen.
+Beide Seiten verfügen über ein [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt, mit dem sie Nachrichten austauschen können.
 
-Um die Verbindung zu erstellen:
+So stellen Sie die Verbindung her:
 
-- Eine Seite hört auf Verbindungsversuche mit [`runtime.onConnect`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect).
-- Die andere Seite ruft auf:
-  - [`tabs.connect()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/connect) (wenn Sie zu einem Inhalts-Skript verbinden)
-  - [`runtime.connect()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/connect) (wenn Sie zu einem Hintergrund-Skript verbinden)
+- Eine Seite überwacht Verbindungsversuche mit [`runtime.onConnect`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect).
+- Die andere Seite ruft eine der folgenden Methoden auf:
+  - [`tabs.connect()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/connect) (für eine Verbindung mit einem Content Script)
+  - [`runtime.connect()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/connect) (für eine Verbindung mit einem Background Script)
 
-Dies gibt ein [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt zurück.
+Der Aufruf gibt ein [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt zurück.
 
-- Der [`runtime.onConnect`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect)-Listener erhält sein eigenes [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt übergeben.
+- Der Listener für [`runtime.onConnect`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect) erhält ein eigenes [`runtime.Port`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port)-Objekt.
 
-Sobald jede Seite einen Port hat, können die beiden Seiten:
+Sobald beide Seiten über einen Port verfügen, können sie:
 
 - Nachrichten mit `runtime.Port.postMessage()` senden.
 - Nachrichten mit `runtime.Port.onMessage()` empfangen.
 
-Zum Beispiel lädt das folgende Inhalts-Skript:
+Das folgende Content Script führt beispielsweise unmittelbar nach dem Laden diese Schritte aus:
 
-- Verbindet sich mit dem Hintergrund-Skript.
-- Speichert den `Port` in einer Variablen `myPort`.
-- Hört auf Nachrichten auf `myPort` (und protokolliert sie).
-- Verwendet `myPort`, um Nachrichten an das Hintergrund-Skript zu senden, wenn der Benutzer das Dokument anklickt.
+- Es stellt eine Verbindung zum Background Script her.
+- Es speichert den `Port` in der Variablen `myPort`.
+- Es überwacht Nachrichten auf `myPort` (und protokolliert sie).
+- Es verwendet `myPort`, um Nachrichten an das Background Script zu senden, wenn der Benutzer auf das Dokument klickt.
 
 ```js
 // content-script.js
@@ -382,15 +384,15 @@ document.body.addEventListener("click", () => {
 });
 ```
 
-Das entsprechende Hintergrund-Skript:
+Das zugehörige Background Script:
 
-- Hört auf Verbindungsversuche vom Inhalts-Skript.
-- Beim Empfang eines Verbindungsversuchs:
-  - Speichert den Port in einer Variablen namens `portFromCS`.
-  - Sendet dem Inhalts-Skript eine Nachricht über den Port.
-  - Beginnt, Nachrichten zu hören, die auf dem Port empfangen werden, und protokolliert sie.
+- Überwacht Verbindungsversuche des Content Scripts.
+- Wenn es einen Verbindungsversuch empfängt:
+  - Speichert es den Port in einer Variablen namens `portFromCS`.
+  - Sendet es über den Port eine Nachricht an das Content Script.
+  - Beginnt es, über den Port empfangene Nachrichten zu überwachen, und protokolliert sie.
 
-- Sendet Nachrichten an das Inhalts-Skript, indem `portFromCS` verwendet wird, wenn der Benutzer auf die Browseraktion der Erweiterung klickt.
+- Sendet über `portFromCS` Nachrichten an das Content Script, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt.
 
 ```js
 // background-script.js
@@ -414,9 +416,9 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-#### Mehrere Inhalts-Skripte
+#### Mehrere Content Scripts
 
-Wenn Sie mehrere Inhalts-Skripte haben, die gleichzeitig kommunizieren, möchten Sie möglicherweise die Verbindungen zu ihnen in einem Array speichern.
+Wenn mehrere Content Scripts gleichzeitig kommunizieren, können Sie die Verbindungen zu ihnen in einem Array speichern.
 
 ```js
 // background-script.js
@@ -437,24 +439,24 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-### Wahl zwischen einmaligen Nachrichten und verbindungsbasierter Nachrichtenübermittlung
+### Zwischen einzelnen Nachrichten und verbindungsbasiertem Nachrichtenaustausch wählen
 
-Die Wahl zwischen einmaligen und verbindungsbasierten Nachrichten hängt davon ab, wie Ihre Erweiterung erwartet, Messaging zu verwenden.
+Ob Sie einzelne Nachrichten oder verbindungsbasierten Nachrichtenaustausch verwenden, hängt davon ab, wie Ihre Erweiterung Nachrichten austauschen soll.
 
-Die empfohlenen Best Practices sind:
+Folgende Vorgehensweisen werden empfohlen:
 
-- **Verwenden Sie einmalige Nachrichten, wenn…**
-  - Nur eine Antwort auf eine Nachricht erwartet wird.
-  - Eine kleine Anzahl von Skripten zuhört, um Nachrichten zu empfangen ({{WebExtAPIRef("runtime.onMessage")}} Aufrufe).
-- **Verwenden Sie verbindungsbasierte Nachrichtenübermittlung, wenn…**
-  - Skripte an Sitzungen teilnehmen, in denen mehrere Nachrichten ausgetauscht werden.
-  - Die Erweiterung über den Fortschritt von Aufgaben Bescheid wissen muss oder ob eine Aufgabe unterbrochen wird oder eine Aufgabe unterbrechen möchte, die mit Messaging initiiert wurde.
+- **Verwenden Sie einzelne Nachrichten, wenn …**
+  - auf eine Nachricht nur eine Antwort erwartet wird.
+  - nur wenige Scripts Nachrichten empfangen (Aufrufe von {{WebExtAPIRef("runtime.onMessage")}}).
+- **Verwenden Sie verbindungsbasierten Nachrichtenaustausch, wenn …**
+  - Scripts über eine Sitzung hinweg mehrere Nachrichten austauschen.
+  - die Erweiterung über den Fortschritt oder die Unterbrechung einer Aufgabe informiert werden muss oder eine über Nachrichten gestartete Aufgabe unterbrechen möchte.
 
-## Kommunikation mit der Webseite
+## Mit der Webseite kommunizieren
 
-Standardmäßig haben Inhalts-Skripte keinen Zugriff auf die von Seiten-Skripten erstellten Objekte. Sie können jedoch über die DOM-APIs [`window.postMessage`](/de/docs/Web/API/Window/postMessage) und [`window.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) mit Seiten-Skripten kommunizieren.
+Standardmäßig haben Content Scripts keinen Zugriff auf Objekte, die von Seiten-Scripts erstellt wurden. Sie können jedoch über die DOM-APIs [`window.postMessage`](/de/docs/Web/API/Window/postMessage) und [`window.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) mit Seiten-Scripts kommunizieren.
 
-Zum Beispiel:
+Beispiel:
 
 ```js
 // page-script.js
@@ -487,12 +489,12 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-Für ein vollständiges funktionierendes Beispiel besuchen Sie die [Demo-Seite auf GitHub](https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html) und folgen Sie den Anweisungen.
+Ein vollständiges, funktionsfähiges Beispiel finden Sie auf der [Demoseite auf GitHub](https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html). Folgen Sie dort den Anweisungen.
 
 > [!WARNING]
-> Seien Sie sehr vorsichtig, wenn Sie auf diese Weise mit nicht vertrauenswürdigen Webinhalten interagieren! Erweiterungen sind privilegierter Code, der mächtige Fähigkeiten haben kann, und feindliche Webseiten können sie leicht dazu verleiten, diese Fähigkeiten auszunutzen.
+> Seien Sie sehr vorsichtig, wenn Sie auf diese Weise mit nicht vertrauenswürdigen Webinhalten interagieren! Erweiterungen sind privilegierter Code und können über weitreichende Möglichkeiten verfügen. Bösartige Webseiten können sie leicht dazu verleiten, diese Möglichkeiten zu nutzen.
 >
-> Um ein triviales Beispiel zu geben, nehmen wir an, dass der Code des Inhalts-Skripts, das die Nachricht empfängt, Folgendes ausführt:
+> Ein einfaches Beispiel: Angenommen, der Code des Content Scripts, der die Nachricht empfängt, führt Folgendes aus:
 >
 > ```js example-bad
 > // content-script.js
@@ -507,21 +509,21 @@ Für ein vollständiges funktionierendes Beispiel besuchen Sie die [Demo-Seite a
 > });
 > ```
 >
-> Nun kann das Seiten-Skript mit allen Privilegien des Inhalts-Skripts beliebigen Code ausführen.
+> Das Seiten-Script kann nun beliebigen Code mit sämtlichen Berechtigungen des Content Scripts ausführen.
 
-## Verwendung von `eval()` in Inhalts-Skripten
+## `eval()` in Content Scripts verwenden
 
 > [!NOTE]
-> `eval()` nicht verfügbar in Manifest V3.
+> `eval()` ist in Manifest V3 nicht verfügbar.
 
 - In Chrome
-  - : {{jsxref("Global_Objects/eval", "eval")}} führt immer Code im Kontext des **Inhalts-Skripts** aus, nicht im Kontext der Seite.
+  - : {{jsxref("Global_Objects/eval", "eval")}} führt Code immer im Kontext des **Content Scripts** aus, nicht im Kontext der Seite.
 - In Firefox
-  - : Wenn Sie `eval()` aufrufen, wird Code im Kontext des **Inhalts-Skripts** ausgeführt.
+  - : Wenn Sie `eval()` aufrufen, wird Code im Kontext des **Content Scripts** ausgeführt.
 
     Wenn Sie `window.eval()` aufrufen, wird Code im Kontext der **Seite** ausgeführt.
 
-Beispielsweise betrachten Sie ein Inhalts-Skript wie dieses:
+Betrachten Sie beispielsweise dieses Content Script:
 
 ```js
 // content-script.js
@@ -540,9 +542,9 @@ window.postMessage(
 );
 ```
 
-Dieser Code erstellt einfach einige Variablen `x` und `y` mithilfe von `window.eval()` und `eval()`, protokolliert deren Werte und sendet dann eine Nachricht an die Seite.
+Dieser Code erstellt mit `window.eval()` und `eval()` die Variablen `x` und `y`, protokolliert ihre Werte und sendet anschließend eine Nachricht an die Seite.
 
-Beim Empfang der Nachricht protokolliert das Seiten-Skript dieselben Variablen:
+Beim Empfang der Nachricht protokolliert das Seiten-Script dieselben Variablen:
 
 ```js
 window.addEventListener("message", (event) => {
@@ -553,7 +555,7 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-In Chrome ergibt dies eine Ausgabe wie diese:
+In Chrome führt dies zu einer Ausgabe wie dieser:
 
 ```plain
 In content script, window.x: 1
@@ -562,7 +564,7 @@ In page script, window.x: undefined
 In page script, window.y: undefined
 ```
 
-In Firefox ergibt dies eine Ausgabe wie diese:
+In Firefox führt dies zu einer Ausgabe wie dieser:
 
 ```plain
 In content script, window.x: undefined
@@ -571,15 +573,15 @@ In page script, window.x: 1
 In page script, window.y: undefined
 ```
 
-Das Gleiche gilt für [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), [`setInterval()`](/de/docs/Web/API/Window/setInterval), und [`Function()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function).
+Dasselbe gilt für [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), [`setInterval()`](/de/docs/Web/API/Window/setInterval) und [`Function()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function).
 
 > [!WARNING]
 > Seien Sie sehr vorsichtig, wenn Sie Code im Kontext der Seite ausführen!
 >
-> Die Umgebung der Seite wird von potenziell bösartigen Webseiten kontrolliert, die Objekte, mit denen Sie interagieren, so redefinieren können, dass sie sich in unerwarteter Weise verhalten:
+> Die Umgebung der Seite wird von potenziell bösartigen Webseiten kontrolliert. Diese können Objekte, mit denen Sie interagieren, so neu definieren, dass sie sich unerwartet verhalten:
 >
 > ```js example-bad
-> // page.js redefiniert console.log
+> // page.js redefines console.log
 >
 > let original = console.log;
 >
@@ -589,7 +591,7 @@ Das Gleiche gilt für [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), [`se
 > ```
 >
 > ```js example-bad
-> // content-script.js ruft die redefinierte Version auf
+> // content-script.js calls the redefined version
 >
 > window.eval("console.log(false)");
 > ```

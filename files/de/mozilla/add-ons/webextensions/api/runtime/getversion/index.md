@@ -2,15 +2,15 @@
 title: runtime.getVersion()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getVersion
 l10n:
-  sourceCommit: 9a1a8665d37c3b75f9d9a545c4c2407296615a41
+  sourceCommit: 3dad2299b9d045afbcefc2fd5500ed7257ceedda
 ---
 
-Gibt die Versionsnummer der Erweiterung aus dem [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Schlüssel zurück.
+Gibt die Version der Erweiterung aus dem Manifest-Schlüssel [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) zurück.
 
 ## Syntax
 
 ```js-nolint
-let extensionVersion = await browser.runtime.getVersion()
+let extensionVersion = browser.runtime.getVersion()
 ```
 
 ### Parameter
@@ -19,14 +19,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein `string`, der die Versionsnummer der Erweiterung enthält, wie im Manifest angegeben.
+Ein `string`, der die im Manifest angegebene Version der Erweiterung enthält.
 
 > [!NOTE]
-> Die zurückgegebene Version kann sich von der Zeichenkette in der Datei unterscheiden, da der Browser sie parsen und serialisieren kann.
+> Die zurückgegebene Version kann von der Zeichenfolge in der Datei abweichen, da der Browser sie parsen und serialisieren kann.
 
 ## Beispiele
 
-Holen Sie sich die Versionszeichenkette der Erweiterung:
+Versionszeichenfolge der Erweiterung abrufen:
 
 ```js
 const version = browser.runtime.getVersion();
@@ -42,4 +42,4 @@ console.log(version);
 ## Siehe auch
 
 - Die Methode {{WebExtAPIRef("runtime.getManifest()")}}, die das gesamte Manifest als Objekt zurückgibt.
-- Manifest [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) Schlüssel
+- Der Manifest-Schlüssel [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)
