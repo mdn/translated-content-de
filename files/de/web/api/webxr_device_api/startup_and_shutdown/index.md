@@ -2,18 +2,18 @@
 title: Starten und Beenden einer WebXR-Sitzung
 slug: Web/API/WebXR_Device_API/Startup_and_shutdown
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
 {{DefaultAPISidebar("WebXR Device API")}}
 
-Wenn Sie bereits mit 3D-Grafiken im Allgemeinen und WebGL im Besonderen vertraut sind, ist der nächste mutige Schritt in Richtung Mixed Reality - die Idee, künstliche Szenarien oder Objekte zusätzlich zur oder anstelle der realen Welt zu präsentieren - nicht allzu kompliziert. Bevor Sie beginnen können, Ihr Szenario für erweiterte oder virtuelle Realität zu rendern, müssen Sie die WebXR-Sitzung erstellen und einrichten, und Sie sollten auch wissen, wie man sie richtig beendet. In diesem Artikel erfahren Sie, wie Sie dies tun können.
+Wenn Sie mit 3D-Grafik im Allgemeinen und WebGL im Besonderen bereits vertraut sind, ist der nächste Schritt zur Mixed Reality – also zur Darstellung künstlicher Umgebungen oder Objekte zusätzlich zur realen Welt oder an ihrer Stelle – nicht übermäßig kompliziert. Bevor Sie Ihr Augmented- oder Virtual-Reality-Szenario rendern können, müssen Sie eine WebXR-Sitzung erstellen und einrichten. Außerdem sollten Sie wissen, wie Sie sie ordnungsgemäß beenden. In diesem Artikel erfahren Sie, wie das geht.
 
-## Zugriff auf die WebXR API
+## Zugriff auf die WebXR-API
 
-Der Zugriff Ihrer App auf die WebXR API beginnt mit dem [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt. Dieses Objekt repräsentiert die gesamte WebXR-Gerätesuite, die Ihnen durch die auf der Benutzerhardware verfügbaren Hardware und Treiber zur Verfügung steht. Ein globales `XRSystem`-Objekt steht Ihrem Dokument über die [`Navigator`](/de/docs/Web/API/Navigator)-Eigenschaft [`xr`](/de/docs/Web/API/Navigator/xr) zur Verfügung, die das `XRSystem`-Objekt zurückgibt, wenn geeignete XR-Hardware basierend auf der verfügbaren Hardware und der Umgebung Ihres Dokuments verfügbar ist.
+Der Zugriff Ihrer Anwendung auf die WebXR-API beginnt mit dem [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt. Dieses Objekt repräsentiert die gesamte WebXR-Geräteausstattung, die Ihnen über die Hardware und Treiber des Geräts der nutzenden Person zur Verfügung steht. Über die [`Navigator`](/de/docs/Web/API/Navigator)-Eigenschaft [`xr`](/de/docs/Web/API/Navigator/xr) kann Ihr Dokument auf ein globales `XRSystem`-Objekt zugreifen. Die Eigenschaft gibt das `XRSystem`-Objekt zurück, wenn angesichts der verfügbaren Hardware und der Umgebung Ihres Dokuments geeignete XR-Hardware zur Nutzung bereitsteht.
 
-Der einfachste Code, der das `XRSystem`-Objekt abruft, sieht folgendermaßen aus:
+Der einfachste Code zum Abrufen des `XRSystem`-Objekts lautet daher:
 
 ```js
 const xr = navigator.xr;
@@ -23,50 +23,49 @@ Der Wert von `xr` ist `null` oder `undefined`, wenn WebXR nicht verfügbar ist.
 
 ### Verfügbarkeit von WebXR
 
-Als neue und sich noch in der Entwicklung befindliche API ist die Unterstützung von WebXR auf bestimmte Geräte und Browser beschränkt; und selbst auf diesen ist sie möglicherweise nicht standardmäßig aktiviert. Es können jedoch Optionen verfügbar sein, um mit WebXR zu experimentieren, auch wenn Sie kein kompatibles System haben.
+Da WebXR eine neue API ist, die sich noch in der Entwicklung befindet, wird sie nur von bestimmten Geräten und Browsern unterstützt. Selbst dort ist sie möglicherweise nicht standardmäßig aktiviert. Unter Umständen können Sie WebXR jedoch auch dann ausprobieren, wenn Sie kein kompatibles System haben.
 
 #### WebXR-Polyfill
 
-Das Team, das die WebXR-Spezifikation entwirft, hat ein [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill) veröffentlicht, das Sie verwenden können, um WebXR in Browsern zu simulieren, die keine Unterstützung für die WebXR-APIs haben. Wenn der Browser die ältere [WebVR API](/de/docs/Web/API/WebVR_API) unterstützt, wird diese verwendet. Andernfalls fällt das Polyfill auf eine Implementierung zurück, die Googles Cardboard VR API verwendet.
+Das Team, das die WebXR-Spezifikation entwickelt, hat einen [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill) veröffentlicht. Damit können Sie WebXR in Browsern simulieren, die die WebXR-APIs nicht unterstützen. Falls der Browser die ältere [WebVR-API](/de/docs/Web/API/WebVR_API) unterstützt, wird diese verwendet. Andernfalls greift der Polyfill auf eine Implementierung zurück, die Googles Cardboard-VR-API verwendet.
 
-Das Polyfill wird zusammen mit der Spezifikation gepflegt und wird laufend mit der Spezifikation aktualisiert. Zusätzlich wird es aktualisiert, um die Kompatibilität mit Browsern zu erhalten, wenn sich deren Unterstützung für WebXR und andere damit verbundene Technologien im Laufe der Zeit ändert.
+Der Polyfill wird parallel zur Spezifikation gepflegt und an deren aktuellen Stand angepasst. Außerdem wird er aktualisiert, um mit Browsern kompatibel zu bleiben, wenn sich deren Unterstützung für WebXR und andere für den Polyfill relevante Technologien im Laufe der Zeit ändert.
 
-Stellen Sie sicher, dass Sie die Readme-Datei sorgfältig lesen; das Polyfill gibt es in mehreren Versionen, je nachdem, welcher Grad an Kompatibilität mit neueren JavaScript-Features Ihre Zielbrowser bieten.
+Lesen Sie die Readme-Datei sorgfältig: Der Polyfill ist in mehreren Versionen verfügbar, je nachdem, in welchem Umfang Ihre Zielbrowser neuere JavaScript-Funktionen unterstützen.
 
 ##### Verwendung des Emulators
 
-Obwohl es etwas unhandlich im Vergleich zur Verwendung eines tatsächlichen Headsets ist, ermöglicht dies Experimente mit und die Entwicklung von WebXR-Code auf einem Desktop-Computer, wo WebXR normalerweise nicht verfügbar ist. Es ermöglicht auch einige grundlegende Tests, bevor Ihr Code auf einem echten Gerät ausgeführt wird. Beachten Sie jedoch, dass der Emulator noch nicht vollständig alle WebXR-APIs emuliert, sodass Sie möglicherweise auf unerwartete Probleme stoßen. Lesen Sie die Readme-Datei sorgfältig durch und machen Sie sich mit den Einschränkungen vertraut, bevor Sie beginnen.
+Auch wenn die Verwendung im Vergleich zu einem echten Headset etwas umständlich ist, können Sie damit WebXR-Code auf einem Desktop-Computer ausprobieren und entwickeln, auf dem WebXR normalerweise nicht verfügbar ist. Außerdem können Sie einige grundlegende Tests durchführen, bevor Sie Ihren Code auf einem echten Gerät ausführen. Beachten Sie jedoch, dass der Emulator noch nicht die gesamte WebXR-API vollständig emuliert. Dadurch können unerwartete Probleme auftreten. Lesen Sie auch hier die Readme-Datei sorgfältig und machen Sie sich mit den Einschränkungen vertraut, bevor Sie beginnen.
 
-**Wichtig:** Sie sollten _immer_ Ihren Code auf tatsächlicher AR- und/oder VR-Hardware testen, bevor Sie ein Produkt freigeben oder versenden! Emulierte, simulierte oder polyfüllte Umgebungen sind kein angemessener Ersatz für tatsächliche Tests auf physischen Geräten.
+**Wichtig:** Testen Sie Ihren Code _immer_ auf echter AR- und/oder VR-Hardware, bevor Sie ein Produkt veröffentlichen oder ausliefern! Emulierte, simulierte oder durch einen Polyfill bereitgestellte Umgebungen sind _kein_ angemessener Ersatz für Tests auf physischen Geräten.
 
-##### Herunterladen der Erweiterung
+##### Erweiterung beziehen
 
 Laden Sie den WebXR API Emulator für Ihren unterstützten Browser herunter:
 
-- [Google Chrome](https://chromewebstore.google.com/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje)
 - [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/webxr-api-emulator/)
 
 Der [Quellcode der Erweiterung](https://github.com/MozillaReality/WebXR-emulator-extension) ist ebenfalls auf GitHub verfügbar.
 
 ##### Probleme und Hinweise zum Emulator
 
-Obwohl dies nicht der Ort für einen vollständigen Artikel über die Erweiterung ist, gibt es einige spezifische Dinge, die erwähnenswert sind.
+Eine vollständige Beschreibung der Erweiterung würde den Rahmen dieses Artikels sprengen. Einige Punkte sind jedoch besonders erwähnenswert.
 
-Version 0.4.0 der Erweiterung wurde am 26. März 2020 angekündigt. Sie führte Unterstützung für erweiterte Realität (AR) durch das [WebXR AR Module](https://immersive-web.github.io/webxr-ar-module/) ein, das sich einem stabilen Zustand nähert. Dokumentation für AR wird in Kürze hier auf MDN verfügbar sein.
+Version 0.4.0 der Erweiterung wurde am 26. März 2020 angekündigt. Sie führte Unterstützung für Augmented Reality (AR) über das [WebXR AR Module](https://immersive-web.github.io/webxr-ar-module/) ein, dessen Spezifikation sich einem stabilen Stand nähert. Eine Dokumentation zu AR wird in Kürze hier auf MDN erscheinen.
 
-Weitere Verbesserungen umfassen die Aktualisierung des Emulators zur Umbenennung des `XR`-Interface in [`XRSystem`](/de/docs/Web/API/XRSystem), die Einführung von Unterstützung für Squeeze (Grip)-Eingabequellen und das Hinzufügen von Unterstützung für die [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft [`profiles`](/de/docs/Web/API/XRInputSource/profiles).
+Zu den weiteren Verbesserungen gehören die Umbenennung des `XR`-Interface in [`XRSystem`](/de/docs/Web/API/XRSystem), die Unterstützung von Squeeze-Eingabequellen (Griffbetätigung) und die Unterstützung der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft [`profiles`](/de/docs/Web/API/XRInputSource/profiles).
 
-### Kontextanforderungen
+### Anforderungen an die Umgebung
 
-Eine WebXR-kompatible Umgebung beginnt mit einem sicher geladenen Dokument. Ihr Dokument muss entweder von der lokalen Festplatte (zum Beispiel durch die Verwendung einer URL wie `http://localhost/…`) oder über {{Glossary("HTTPS", "HTTPS")}} beim Laden der Seite geladen worden sein. Der JavaScript-Code muss ebenfalls sicher geladen worden sein.
+Eine WebXR-kompatible Umgebung setzt ein sicher geladenes Dokument voraus. Ihr Dokument muss entweder lokal geladen worden sein (beispielsweise über eine URL wie `http://localhost/…`) oder beim Laden der Seite {{Glossary("HTTPS", "HTTPS")}} verwenden. Auch der JavaScript-Code muss sicher geladen worden sein.
 
-Wenn das Dokument nicht sicher geladen wurde, kommen Sie nicht weit. Die [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Eigenschaft existiert nicht einmal, wenn das Dokument nicht sicher geladen wurde. Dies kann auch der Fall sein, wenn keine kompatible XR-Hardware verfügbar ist. In jedem Fall müssen Sie auf das Fehlen einer `xr`-Eigenschaft vorbereitet sein und entweder den Fehler anmutig behandeln oder eine Art von Alternativlösung bereitstellen.
+Wenn das Dokument nicht sicher geladen wurde, kommen Sie nicht weit: Die Eigenschaft [`navigator.xr`](/de/docs/Web/API/Navigator/xr) ist dann gar nicht vorhanden. Das kann auch der Fall sein, wenn keine kompatible XR-Hardware verfügbar ist. In beiden Fällen müssen Sie darauf vorbereitet sein, dass die Eigenschaft `xr` fehlt, und entweder den Fehler angemessen behandeln oder eine Ausweichlösung anbieten.
 
-### Rückgriff auf das WebXR-Polyfill
+### Auf den WebXR-Polyfill zurückgreifen
 
-Eine Rückfalloption ist das [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill/), bereitgestellt von der [Immersive Web Working Group](https://www.w3.org/immersive-web/), die für den WebXR-Standardisierungsprozess verantwortlich ist. Das {{Glossary("polyfill", "Polyfill")}} bietet Unterstützung für WebXR in Browsern, die keine native WebXR-Unterstützung haben, und beseitigt Inkonsistenzen zwischen Implementierungen in den Browsern, die dies tun. Es kann daher manchmal auch nützlich sein, selbst wenn WebXR nativ verfügbar ist.
+Eine mögliche Ausweichlösung ist der [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill/) der [Immersive Web Working Group](https://www.w3.org/immersive-web/), die für die Standardisierung von WebXR zuständig ist. Der {{Glossary("polyfill", "Polyfill")}} stellt WebXR-Unterstützung für Browser ohne native WebXR-Unterstützung bereit und gleicht Unterschiede zwischen den Implementierungen in Browsern aus, die WebXR bereits unterstützen. Daher kann er manchmal auch dann nützlich sein, wenn WebXR nativ verfügbar ist.
 
-Hier definieren wir eine `getXR()`-Funktion, die das [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt zurückgibt, nachdem optional das Polyfill installiert wurde, vorausgesetzt, dass das Polyfill unter Verwendung eines vorherigen {{HTMLElement("script")}}-Tags enthalten oder geladen wurde.
+Hier definieren wir eine Funktion `getXR()`, die das [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt zurückgibt, nachdem sie bei Bedarf den Polyfill installiert hat. Dabei wird vorausgesetzt, dass der Polyfill zuvor mithilfe eines {{HTMLElement("script")}}-Tags eingebunden oder geladen wurde.
 
 ```js
 let webxrPolyfill = null;
@@ -100,21 +99,21 @@ const polyfilledXr = getXR("yes"); // Always returns an XRSystem from the polyfi
 const xr = getXR("if-needed"); // Use the polyfill only if navigator.xr missing
 ```
 
-Das zurückgegebene `XRSystem`-Objekt kann dann gemäß der hier auf MDN bereitgestellten Dokumentation verwendet werden. Die globale Variable `webxrPolyfill` wird nur verwendet, um eine Referenz auf das Polyfill zu behalten, um sicherzustellen, dass es verfügbar bleibt, bis Sie es nicht mehr benötigen. Das Setzen auf `null` signalisiert, dass das Polyfill von der Garbage Collection entfernt werden kann, wenn keine Objekte mehr darauf zugreifen.
+Das zurückgegebene `XRSystem`-Objekt können Sie anschließend wie hier auf MDN dokumentiert verwenden. Die globale Variable `webxrPolyfill` dient lediglich dazu, eine Referenz auf den Polyfill zu behalten. So bleibt er verfügbar, bis Sie ihn nicht mehr benötigen. Wenn Sie die Variable auf `null` setzen, kann der Polyfill durch die Garbage Collection entfernt werden, sobald keine von ihm abhängigen Objekte ihn mehr verwenden.
 
-Natürlich kann man dies je nach Bedarf vereinfachen; da Ihre App wahrscheinlich nicht oft zwischen der Verwendung des Polyfill hin- und herwechseln wird, können Sie dies auf den spezifischen Fall vereinfachen, den Sie benötigen.
+Natürlich können Sie dies je nach Bedarf vereinfachen: Da Ihre Anwendung wahrscheinlich nicht häufig zwischen der Verwendung und Nichtverwendung des Polyfills wechselt, können Sie den Code auf den für Sie relevanten Fall beschränken.
 
 ### Berechtigungen und Sicherheit
 
-Es gibt eine Reihe von Sicherheitsmaßnahmen rund um WebXR. Als erstes erfordert die Verwendung des `immersive-vr`-Modus, der die Sicht des Benutzers auf die Welt vollständig ersetzt, dass die `xr-spatial-tracking` [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) aktiviert ist. Darüber hinaus muss das Dokument sicher sein und derzeit den Fokus haben. Schließlich müssen Sie [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) von einem Benutzerereignishandler aus aufrufen, wie beispielsweise dem Handler für das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis.
+Für WebXR gelten verschiedene Sicherheitsmaßnahmen. Insbesondere erfordert die Verwendung des Modus `immersive-vr`, der die Sicht der nutzenden Person auf die Welt vollständig ersetzt, dass die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) `xr-spatial-tracking` eingerichtet ist. Darüber hinaus muss das Dokument sicher sein und aktuell den Fokus haben. Schließlich müssen Sie [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) aus einem Handler für ein Benutzerereignis aufrufen, beispielsweise aus dem Handler für das Ereignis [`click`](/de/docs/Web/API/Element/click_event).
 
-Für genauere Informationen zur Sicherung von WebXR-Aktivitäten und -Nutzung lesen Sie den Artikel [Permissions and security for WebXR](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security).
+Weitere Einzelheiten zur Absicherung und Verwendung von WebXR finden Sie im Artikel [Berechtigungen und Sicherheit für WebXR](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security).
 
-### Bestätigen, dass der benötigte Sitzungstyp verfügbar ist
+### Prüfen, ob der benötigte Sitzungstyp verfügbar ist
 
-Bevor Sie versuchen, eine neue WebXR-Sitzung zu erstellen, ist es oft ratsam zunächst zu prüfen, ob die Benutzerhardware und -software den Präsentationsmodus unterstützen, den Sie verwenden möchten. Dies kann auch verwendet werden, um zu bestimmen, ob eine immersive oder eine Inline-Präsentation verwendet werden soll.
+Bevor Sie eine neue WebXR-Sitzung erstellen, sollten Sie häufig zunächst prüfen, ob die Hardware und Software der nutzenden Person den gewünschten Darstellungsmodus unterstützen. So können Sie beispielsweise auch entscheiden, ob Sie eine immersive oder eine Inline-Darstellung verwenden.
 
-Um herauszufinden, ob ein bestimmter Modus unterstützt wird, rufen Sie die Methode [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) des [`XRSystem`](/de/docs/Web/API/XRSystem) auf. Dies gibt ein Promise zurück, das auf `true` aufgelöst wird, wenn der angegebene Sitzungstyp verfügbar ist, oder andernfalls auf `false`.
+Um festzustellen, ob ein bestimmter Modus unterstützt wird, rufen Sie die Methode [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) von [`XRSystem`](/de/docs/Web/API/XRSystem) auf. Sie gibt ein Promise zurück, das mit `true` erfüllt wird, wenn der angegebene Sitzungstyp verfügbar ist, andernfalls mit `false`.
 
 ```js
 const immersiveOK = await navigator.xr.isSessionSupported("immersive-vr");
@@ -126,9 +125,9 @@ if (immersiveOK) {
 }
 ```
 
-## Erstellen und Starten der Sitzung
+## Sitzung erstellen und starten
 
-Eine WebXR-Sitzung wird durch ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt dargestellt. Um eine `XRSession` zu erhalten, rufen Sie die Methode [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) Ihres [`XRSystem`](/de/docs/Web/API/XRSystem) auf. Diese gibt ein Promise zurück, das mit einer `XRSession` aufgelöst wird, falls es erfolgreich eine erstellen kann. Grundsätzlich sieht das so aus:
+Eine WebXR-Sitzung wird durch ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt repräsentiert. Um eine `XRSession` zu erhalten, rufen Sie die Methode [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) Ihres [`XRSystem`](/de/docs/Web/API/XRSystem) auf. Sie gibt ein Promise zurück, das mit einer `XRSession` erfüllt wird, wenn die Sitzung erfolgreich eingerichtet werden konnte. Grundsätzlich sieht das so aus:
 
 ```js
 xr.requestSession("immersive-vr").then((session) => {
@@ -137,16 +136,16 @@ xr.requestSession("immersive-vr").then((session) => {
 });
 ```
 
-Beachten Sie den Parameter, der in diesem Codeausschnitt an `requestSession()` übergeben wird: `immersive-vr`. Dieser String gibt den Typ der WebXR-Sitzung an, die Sie einrichten möchten - in diesem Fall eine vollständig immersive Virtual-Reality-Erfahrung. Es gibt drei Optionen:
+Beachten Sie den Parameter, der in diesem Codebeispiel an `requestSession()` übergeben wird: `immersive-vr`. Dieser String gibt den Typ der WebXR-Sitzung an, die Sie einrichten möchten – hier ein vollständig immersives Virtual-Reality-Erlebnis. Es gibt drei Möglichkeiten:
 
 - `immersive-vr`
-  - : Eine vollständig immersive Virtual-Reality-Sitzung unter Verwendung eines Headsets oder ähnlichen Geräts, das die Welt um den Benutzer vollständig durch die von Ihnen präsentierten Bilder ersetzt.
+  - : Eine vollständig immersive Virtual-Reality-Sitzung mit einem Headset oder einem ähnlichen Gerät, bei der die Umgebung der nutzenden Person vollständig durch die von Ihnen dargestellten Bilder ersetzt wird.
 - `immersive-ar`
-  - : Eine Augmented-Reality-Sitzung, in der Bilder zur realen Welt hinzugefügt werden, unter Verwendung eines Headsets oder einer ähnlichen Apparatur. _Diese Option wird noch nicht weitgehend unterstützt, da die AR-Spezifikation noch im Fluss ist._
+  - : Eine Augmented-Reality-Sitzung, bei der mithilfe eines Headsets oder eines ähnlichen Geräts Bilder zur realen Welt hinzugefügt werden. _Diese Option wird noch nicht allgemein unterstützt, da sich die AR-Spezifikation noch verändert._
 - `inline`
-  - : Eine On-Screen-Präsentation der XR-Bilder innerhalb des Kontextes des Dokumentfensters.
+  - : Eine Darstellung der XR-Bilder auf dem Bildschirm innerhalb des Dokumentfensters.
 
-Wenn die Sitzung aus irgendeinem Grund nicht erstellt werden konnte - wie zum Beispiel, dass die Feature-Policy ihre Verwendung nicht erlaubt oder der Benutzer die Erlaubnis zur Verwendung des Headsets verweigert - wird das Promise abgelehnt. Eine vollständigere Funktion, die eine WebXR-Sitzung startet und zurückgibt, könnte so aussehen:
+Falls die Sitzung aus irgendeinem Grund nicht erstellt werden kann – etwa weil eine Richtlinie ihre Verwendung untersagt oder die nutzende Person die Berechtigung zur Verwendung des Headsets verweigert –, wird das Promise zurückgewiesen. Eine vollständigere Funktion, die eine WebXR-Sitzung startet und zurückgibt, könnte daher so aussehen:
 
 ```js
 async function createImmersiveSession(xr) {
@@ -155,13 +154,13 @@ async function createImmersiveSession(xr) {
 }
 ```
 
-Diese Funktion gibt die neue [`XRSession`](/de/docs/Web/API/XRSession) zurück oder wirft eine Ausnahme, wenn beim Erstellen der Sitzung ein Fehler auftritt.
+Diese Funktion gibt die neue [`XRSession`](/de/docs/Web/API/XRSession) zurück oder löst eine Ausnahme aus, wenn beim Erstellen der Sitzung ein Fehler auftritt.
 
-### Anpassen der Sitzung
+### Sitzung anpassen
 
-Zusätzlich zum Anzeigemodus kann die Methode [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) ein optionales Objekt mit Initialisierungsparametern zur Anpassung der Sitzung enthalten. Derzeit ist der einzige konfigurierbare Aspekt der Sitzung, welcher der Referenzräume zur Darstellung des Koordinatensystems der Welt verwendet werden soll. Sie können entweder erforderliche oder optionale Referenzräume angeben, um eine mit den benötigten oder bevorzugten Referenzräumen kompatible Sitzung zu erhalten.
+Neben dem Darstellungsmodus kann die Methode [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) ein optionales Objekt mit Initialisierungsparametern entgegennehmen, um die Sitzung anzupassen. Derzeit lässt sich nur konfigurieren, welche Referenzräume zur Darstellung des Weltkoordinatensystems verwendet werden sollen. Sie können erforderliche oder optionale Referenzräume angeben, um eine Sitzung zu erhalten, die mit den von Ihnen benötigten oder bevorzugten Referenzräumen kompatibel ist.
 
-Zum Beispiel, wenn Sie einen `unbounded` Referenzraum benötigen, können Sie dies als ein erforderliches Feature angeben, um sicherzustellen, dass die Sitzung, die Sie erhalten, unbegrenzte Räume verwenden kann:
+Wenn Sie beispielsweise einen Referenzraum vom Typ `unbounded` benötigen, können Sie ihn als erforderliches Feature angeben. So stellen Sie sicher, dass die erhaltene Sitzung unbeschränkte Räume verwenden kann:
 
 ```js
 async function createImmersiveSession(xr) {
@@ -172,7 +171,7 @@ async function createImmersiveSession(xr) {
 }
 ```
 
-Andererseits, wenn Sie eine _inline_-Sitzung benötigen und einen `local` Referenzraum bevorzugen, können Sie dies tun:
+Wenn Sie dagegen eine _Inline_-Sitzung benötigen und einen Referenzraum vom Typ `local` bevorzugen, können Sie Folgendes tun:
 
 ```js
 async function createInlineSession(xr) {
@@ -183,26 +182,24 @@ async function createInlineSession(xr) {
 }
 ```
 
-Diese `createInlineSession()`-Funktion versucht, eine Inline-Sitzung zu erstellen, die mit dem `local` Referenzraum kompatibel ist. Wenn Sie bereit sind, Ihren Referenzraum zu erstellen, können Sie versuchen, einen lokalen Raum zu verwenden, und wenn dies fehlschlägt, auf einen `viewer` Referenzraum zurückgreifen, den alle Geräte unterstützen müssen.
+Die Funktion `createInlineSession()` versucht, eine Inline-Sitzung zu erstellen, die mit dem Referenzraum `local` kompatibel ist. Wenn Sie anschließend Ihren Referenzraum erstellen, können Sie zunächst einen lokalen Raum anfordern. Schlägt das fehl, können Sie auf einen Referenzraum vom Typ `viewer` zurückgreifen, den alle Geräte unterstützen müssen.
 
-### Vorbereiten der neuen Sitzung auf die Nutzung
+### Neue Sitzung für die Verwendung vorbereiten
 
-Sobald das von [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) zurückgegebene Promise erfolgreich aufgelöst ist, wissen Sie, dass Sie eine nutzbare WebXR-Sitzung in der Hand haben. Sie können dann mit der Vorbereitung der Sitzung für die Nutzung fortfahren und Ihre Animationen beginnen.
+Sobald das von [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) zurückgegebene Promise erfolgreich erfüllt wurde, steht Ihnen eine verwendbare WebXR-Sitzung zur Verfügung. Nun können Sie die Sitzung vorbereiten und mit Ihren Animationen beginnen.
 
-Die wichtigsten Dinge, die Sie tun müssen (oder möglicherweise müssen), um die Konfiguration Ihrer Sitzung abzuschließen, umfassen:
+Zu den wichtigsten Schritten, die Sie zum Abschluss der Sitzungskonfiguration ausführen müssen oder möglicherweise ausführen möchten, gehören:
 
-- Hinzufügen von Hand
-
-- ler für die Ereignisse, die Sie beobachten müssen. Dies umfasst höchstwahrscheinlich das [`end`](/de/docs/Web/API/XRSession/end_event) mindestens, damit Sie erkennen können, wann die Sitzung beendet ist.
-- Wenn Sie XR-Eingabesteuerungen verwenden, beobachten Sie das [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event)-Ereignis, um die Hinzufügung oder Entfernung von XR-Eingabesteuerungen zu erkennen, sowie die verschiedenen [Auswahl- und Greifaktionen](/de/docs/Web/API/WebXR_Device_API/Inputs#actions).
-- Sie möchten möglicherweise auf das [`XRSystem`](/de/docs/Web/API/XRSystem)-Ereignis [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event) achten, damit Sie benachrichtigt werden, wenn sich die Menge der verfügbaren immersiven Geräte ändert.
-- Abrufen eines WebGL-Kontextes für die Leinwand, auf die Sie Ihre Frames rendern möchten, indem Sie die Methode [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf dem Zielkontext des [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) aufrufen.
-- Einrichten Ihrer WebGL-Daten und -Modelle und Vorbereitung zum Rendern der Szene.
-- Setzen Sie den WebGL-Kontext als Quelle für das XR-System, indem Sie eine [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) erstellen und den Wert der Sitzung [`renderState`](/de/docs/Web/API/XRRenderState)-Eigenschaft [`baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) setzen.
-- Berechnungen für die anfängliche Position und Skalierung Ihrer Objekte nach Bedarf durchführen.
+- Fügen Sie Handler für die Ereignisse hinzu, die Sie überwachen müssen. Dazu gehört wahrscheinlich mindestens [`end`](/de/docs/Web/API/XRSession/end_event), damit Sie erkennen können, wann die Sitzung beendet ist.
+- Wenn Sie XR-Eingabecontroller verwenden, überwachen Sie das Ereignis [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event), um das Hinzufügen und Entfernen von XR-Eingabecontrollern zu erkennen, sowie die verschiedenen [Ereignisse für Select- und Squeeze-Aktionen](/de/docs/Web/API/WebXR_Device_API/Inputs#actions).
+- Möglicherweise möchten Sie das [`XRSystem`](/de/docs/Web/API/XRSystem)-Ereignis [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event) überwachen, um über Änderungen an den verfügbaren immersiven Geräten informiert zu werden.
+- Rufen Sie die Methode [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) von [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) auf dem Ziel-Canvas auf, um einen WebGL-Kontext für das Canvas zu erhalten, in das Sie Ihre Frames rendern möchten.
+- Richten Sie Ihre WebGL-Daten und -Modelle ein und bereiten Sie das Rendern der Szene vor.
+- Legen Sie den WebGL-Kontext als Quelle für das XR-System fest, indem Sie ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) erstellen und es als Wert der Eigenschaft [`baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) des [`renderState`](/de/docs/Web/API/XRRenderState) der Sitzung setzen.
+- Berechnen Sie bei Bedarf die anfängliche Position und Skalierung Ihrer Objekte.
 - Beginnen Sie den [Frame-Rendering-Zyklus](/de/docs/Web/API/WebXR_Device_API/Rendering).
 
-In seiner grundlegendsten Form könnte der Code für diese abschließende Einrichtung wie folgt aussehen:
+In einfacher Form könnte der Code für diese abschließende Einrichtung etwa so aussehen:
 
 ```js
 async function runSession(session) {
@@ -240,38 +237,38 @@ async function runSession(session) {
 }
 ```
 
-Für die Zwecke dieses Beispiels wird ein Objekt namens `worldData` erstellt, um Informationen über die Welt und die Render-Umgebung zu kapseln. Dies umfasst die [`XRSession`](/de/docs/Web/API/XRSession) selbst, alle Daten, die zum Rendern der Szene in WebGL verwendet werden, den Weltreferenzraum und die von [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) zurückgegebene ID.
+Für dieses Beispiel wird ein Objekt namens `worldData` erstellt, das Daten über die Welt und die Rendering-Umgebung zusammenfasst. Dazu gehören die [`XRSession`](/de/docs/Web/API/XRSession) selbst, alle zum Rendern der Szene in WebGL verwendeten Daten, der Weltreferenzraum und die von [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) zurückgegebene ID.
 
-Zuerst wird ein Handler für das [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignis eingerichtet. Dann wird die Rendering-Leinwand abgerufen und eine Referenz auf ihren WebGL-Kontext abgerufen, und zwar unter Angabe der Option `xrCompatible`, wenn [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) aufgerufen wird.
+Zunächst wird ein Handler für das Ereignis [`end`](/de/docs/Web/API/XRSession/end_event) eingerichtet. Anschließend wird das Rendering-Canvas abgerufen und eine Referenz auf seinen WebGL-Kontext ermittelt. Beim Aufruf von [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) wird dabei die Option `xrCompatible` angegeben.
 
-Als nächstes werden alle für den WebGL-Renderer benötigten Daten und Einrichtungsarbeiten durchgeführt, bevor WebGL so konfiguriert wird, dass es den Framebuffer des WebGL-Kontextes als seinen eigenen Framebuffer verwendet. Dies wird mit der Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) der [`XRSession`](/de/docs/Web/API/XRSession) durchgeführt, um den Renderstatus [`baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) auf eine neu erstellte [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) zu setzen, die den WebGL-Kontext kapselt.
+Danach werden die für den WebGL-Renderer erforderlichen Daten und Einstellungen vorbereitet. Anschließend wird WebGL so konfiguriert, dass der Framebuffer des WebGL-Kontexts für die XR-Darstellung verwendet wird. Dazu wird mit der Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) von [`XRSession`](/de/docs/Web/API/XRSession) die Eigenschaft [`baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) des Renderzustands auf ein neu erstelltes [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) gesetzt, das den WebGL-Kontext enthält.
 
-### Vorbereitung auf das Rendern der Szene
+### Rendern der Szene vorbereiten
 
-An diesem Punkt ist die `XRSession` selbst vollständig konfiguriert, sodass wir mit dem Rendern beginnen können. Zuerst benötigen wir einen Referenzraum, in dem die Koordinaten für die Welt angegeben werden. Wir können den anfänglichen Referenzraum für die Sitzung erhalten, indem wir die Methode [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) der `XRSession` aufrufen. Wir geben beim Aufruf von `requestReferenceSpace()` den Namen des gewünschten Referenzraumtyps an; in diesem Fall `unbounded`. Ebenso könnte `local` oder `viewer` angegeben werden, je nach Ihren Bedürfnissen.
+Zu diesem Zeitpunkt ist die `XRSession` selbst vollständig konfiguriert, sodass wir mit dem Rendern beginnen können. Zunächst benötigen wir einen Referenzraum, in dem die Koordinaten der Welt angegeben werden. Den anfänglichen Referenzraum für die Sitzung erhalten wir durch Aufruf der Methode [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) der `XRSession`. Beim Aufruf von `requestReferenceSpace()` geben wir den Namen des gewünschten Referenzraumtyps an – in diesem Fall `unbounded`. Je nach Bedarf könnten Sie ebenso `local` oder `viewer` angeben.
 
 > [!NOTE]
-> Um zu verstehen, wie Sie den richtigen Referenzraum für Ihre Bedürfnisse auswählen, sehen Sie sich [Auswahl des Referenzraumtyps](/de/docs/Web/API/WebXR_Device_API/Geometry#selecting_the_reference_space_type) an.
+> Wie Sie den passenden Referenzraum für Ihre Anforderungen auswählen, erfahren Sie unter [Den Typ des Referenzraums auswählen](/de/docs/Web/API/WebXR_Device_API/Geometry#selecting_the_reference_space_type).
 
-Der von `requestReferenceSpace()` zurückgegebene Referenzraum platziert den Ursprung (0, 0, 0) in der Mitte des Raumes. Dies ist großartig, wenn der Standpunkt Ihres Spielers genau in der Mitte der Welt beginnt. Aber höchstwahrscheinlich ist das überhaupt nicht der Fall. Wenn dies so ist, rufen Sie [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) am anfänglichen Referenzraum auf, um einen _neuen_ Referenzraum zu erstellen [der das Koordinatensystem verschiebt](/de/docs/Web/API/WebXR_Device_API/Geometry#establishing_the_reference_space), sodass (0, 0, 0) an der Position des Betrachters im Raum liegt und die Ausrichtung entsprechend der gewünschten Richtung verschoben wird. Der Eingabewert in `getOffsetReferenceSpace()` ist eine [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), die die Position und Orientierung des Spielers in den Standardweltkoordinaten kapselt.
+Der von `requestReferenceSpace()` zurückgegebene Referenzraum legt den Ursprung (0, 0, 0) in die Mitte des Raums. Das ist ideal, wenn der Blickpunkt der spielenden Person genau in der Mitte der Welt beginnt. Meistens ist das jedoch nicht der Fall. Dann rufen Sie [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) auf dem anfänglichen Referenzraum auf, um einen _neuen_ Referenzraum zu erstellen, [der das Koordinatensystem verschiebt](/de/docs/Web/API/WebXR_Device_API/Geometry#establishing_the_reference_space). Dadurch liegt (0, 0, 0) an der Position der betrachtenden Person, und auch die Ausrichtung wird so verschoben, dass sie in die gewünschte Richtung zeigt. Als Eingabewert für `getOffsetReferenceSpace()` dient ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die Position und Ausrichtung der spielenden Person in den Standard-Weltkoordinaten beschreibt.
 
-Mit dem neuen Referenzraum in der Hand und sicher in dem `worldData`-Objekt gespeichert, rufen wir die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) der Sitzung auf, um einen Rückruf zu planen, der ausgeführt wird, wenn es Zeit ist, den nächsten Animationsrahmen für die WebXR-Sitzung zu rendern. Der zurückgegebene Wert ist eine ID, die später verwendet werden kann, um die Anfrage bei Bedarf abzubrechen, sodass wir diesen ebenfalls in `worldData` speichern.
+Nachdem wir den neuen Referenzraum erhalten und im Objekt `worldData` gespeichert haben, rufen wir die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) der Sitzung auf. Damit planen wir einen Callback für den Zeitpunkt, an dem der nächste Animationsframe der WebXR-Sitzung gerendert werden soll. Der Rückgabewert ist eine ID, mit der wir die Anfrage später bei Bedarf abbrechen können. Daher speichern wir auch sie in `worldData`.
 
-Am Ende wird das `worldData`-Objekt an den Aufrufer zurückgegeben, damit der Hauptcode die Daten bei Bedarf später referenzieren kann. An diesem Punkt ist der Einrichtungsprozess abgeschlossen und wir haben die Renderphase unserer Anwendung betreten. Um mehr über das Rendern zu lernen, sehen Sie sich den Artikel [Rendering und der WebXR-Frame-Animationsrückruf](/de/docs/Web/API/WebXR_Device_API/Rendering) an.
+Zum Schluss wird das Objekt `worldData` an den aufrufenden Code zurückgegeben, damit der Hauptcode später auf die benötigten Daten zugreifen kann. Damit ist die Einrichtung abgeschlossen und die Anwendung befindet sich in der Rendering-Phase. Weitere Informationen finden Sie im Artikel [Rendering und der WebXR-Callback für Animationsframes](/de/docs/Web/API/WebXR_Device_API/Rendering).
 
-### Zu den betrieblichen Details
+### Hinweise zur praktischen Umsetzung
 
-Offensichtlich war dies nur ein Beispiel. Sie benötigen kein `worldData`-Objekt, um alles zu speichern; Sie können die Informationen, die Sie aufbewahren müssen, auf jede beliebige Weise speichern. Sie benötigen möglicherweise unterschiedliche Informationen oder haben spezifische Anforderungen, die dazu führen, dass Sie Dinge anders oder in einer anderen Reihenfolge tun.
+Dies war selbstverständlich nur ein Beispiel. Sie müssen nicht alles in einem `worldData`-Objekt speichern; Sie können die benötigten Informationen auf beliebige Weise verwalten. Möglicherweise benötigen Sie andere Informationen oder haben besondere Anforderungen, aufgrund derer Sie die Schritte anders oder in einer anderen Reihenfolge ausführen.
 
-Ebenso variiert die spezifische Methodik, die Sie zum Laden von Modellen und anderen Informationen sowie zum Einrichten Ihrer WebGL-Daten verwenden - Texturen, Vertex-Buffer, Shader und so weiter - erheblich, je nach Ihren Bedürfnissen, welchen Frameworks Sie verwenden oder dergleichen.
+Ebenso hängt die konkrete Vorgehensweise beim Laden von Modellen und anderen Informationen sowie beim Einrichten Ihrer WebGL-Daten – Texturen, Vertex-Buffer, Shader und so weiter – stark von Ihren Anforderungen und den gegebenenfalls verwendeten Frameworks ab.
 
-## Wichtige Sitzungswartungsereignisse
+## Wichtige Ereignisse für die Verwaltung der Sitzung
 
-Im Laufe Ihrer WebXR-Sitzung können Sie eine Reihe von Ereignissen erhalten, die auf Änderungen am Zustand der Sitzung hinweisen oder Sie über Dinge informieren, die Sie tun müssen, um die Sitzung ordnungsgemäß laufen zu lassen.
+Im Verlauf Ihrer WebXR-Sitzung können verschiedene Ereignisse auftreten, die Änderungen am Sitzungszustand anzeigen oder Sie auf Maßnahmen hinweisen, die für den ordnungsgemäßen Betrieb der Sitzung erforderlich sind.
 
-### Erkennen von Änderungen am Sichtbarkeitsstatus der Sitzung
+### Änderungen des Sichtbarkeitszustands der Sitzung erkennen
 
-Wenn sich der Sichtbarkeitsstatus der `XRSession` ändert - wie z.B. wenn die Sitzung ausgeblendet oder angezeigt wird oder wenn der Benutzer einen anderen Kontext fokussiert hat - erhält die Sitzung ein [`visibilitychange`](/de/docs/Web/API/XRSession/visibilitychange_event)-Ereignis.
+Wenn sich der Sichtbarkeitszustand der `XRSession` ändert – etwa weil die Sitzung ausgeblendet oder angezeigt wird oder die nutzende Person einen anderen Kontext fokussiert –, empfängt die Sitzung ein Ereignis vom Typ [`visibilitychange`](/de/docs/Web/API/XRSession/visibilitychange_event).
 
 ```js
 session.onvisibilitychange = (event) => {
@@ -290,34 +287,34 @@ session.onvisibilitychange = (event) => {
 };
 ```
 
-Dieses Beispiel ändert eine Variable `myFrameRate` in Abhängigkeit vom Sichtbarkeitsstatus, während er sich ändert. Es wird angenommen, dass der Renderer diesen Wert verwendet, um zu berechnen, wie oft neue Frames gerendert werden sollen, während die Animationsschleife fortschreitet, und somit weniger häufig gerendert wird, je „unscharf“ die Szene wird.
+Dieses Beispiel ändert eine Variable namens `myFrameRate` entsprechend dem jeweiligen Sichtbarkeitszustand. Vermutlich verwendet der Renderer diesen Wert, um während der Animationsschleife zu berechnen, wie häufig neue Frames gerendert werden sollen. Je stärker die Szene „aus dem Fokus“ gerät, desto seltener wird sie gerendert.
 
-### Erkennen von Aktualisierungen des Referenzraums
+### Zurücksetzungen von Referenzräumen erkennen
 
-Gelegentlich können während der Verfolgung der Position des Benutzers in der Welt Diskontinuitäten oder Sprünge im [nativen Ursprung](/de/docs/WebXR_Device_API/Geometry#on_the_origins_of_spaces) auftreten. Die häufigsten Szenarien, in denen dies geschieht, sind, wenn der Benutzer eine Neukalibrierung seines XR-Geräts anfordert oder wenn eine Unterbrechung oder ein Fehler im Empfang des Verfolgungsdatenflusses von der XR-Hardware auftritt. Diese Situationen lassen den nativen Ursprung abrupt um die Entfernung und den Richtungswinkel springen, die erforderlich sind, um den nativen Ursprung wieder in Übereinstimmung mit der Benutzerposition und der Blickrichtung zu bringen.
+Beim Verfolgen der Position der nutzenden Person in der Welt können gelegentlich Unstetigkeiten oder Sprünge im [nativen Ursprung](/de/docs/Web/API/WebXR_Device_API/Geometry#on_the_origins_of_spaces) auftreten. Am häufigsten geschieht dies, wenn die nutzende Person eine Neukalibrierung ihres XR-Geräts anfordert oder wenn die von der XR-Hardware empfangenen Tracking-Daten kurzzeitig gestört sind. In solchen Situationen springt der native Ursprung abrupt um die Entfernung und den Winkel, die nötig sind, um ihn wieder an der Position und Blickrichtung der nutzenden Person auszurichten.
 
-Wenn dies geschieht, wird ein [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event)-Ereignis an den [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) der Sitzung gesendet. Die [`transform`](/de/docs/Web/API/XRReferenceSpaceEvent/transform)-Eigenschaft des Ereignisses ist eine [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), die die notwendige Transformation zur Realignierung des nativen Ursprungs beschreibt.
+In diesem Fall wird ein Ereignis vom Typ [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event) an den [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) der Sitzung gesendet. Die Eigenschaft [`transform`](/de/docs/Web/API/XRReferenceSpaceEvent/transform) des Ereignisses enthält ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die zur Neuausrichtung des nativen Ursprungs erforderliche Transformation beschreibt.
 
 > [!NOTE]
-> Das `reset`-Ereignis wird am [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) ausgelöst, nicht an der [`XRSession`](/de/docs/Web/API/XRSession)!
+> Das Ereignis `reset` wird bei [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) ausgelöst, nicht bei [`XRSession`](/de/docs/Web/API/XRSession)!
 
-Ein weiterer häufiger Grund für `reset`-Ereignisse ist, wenn ein begrenzter Referenzraum (`bounded-floor`) seine Geometrie ändert, wie sie durch die Eigenschaft [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) des [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) spezifiziert wird.
+Eine weitere häufige Ursache für `reset`-Ereignisse ist eine Änderung der Geometrie eines begrenzten Referenzraums (`bounded-floor`), wie sie durch die Eigenschaft [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) von [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) beschrieben wird.
 
-Für häufigere Ursachen für Referenzraum-Resets und weitere Details und Beispielcode lesen Sie die Dokumentation für das [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event)-Ereignis.
+Weitere häufige Ursachen für die Zurücksetzung von Referenzräumen sowie zusätzliche Einzelheiten und Beispielcode finden Sie in der Dokumentation zum Ereignis [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event).
 
-### Erkennen von Änderungen an der verfügbaren Menge an WebXR-Eingabegeräten
+### Änderungen an den verfügbaren WebXR-Eingabegeräten erkennen
 
-WebXR führt eine Liste von Eingabegeräten, die spezifisch für das WebXR-System ist. Diese Geräte umfassen Dinge wie Handcontroller, bewegungssensitive Kameras, bewegungsempfindliche Handschuhe und andere Feedback-Geräte. Wenn der Benutzer ein WebXR-Controller-Gerät anschließt oder trennt, wird das [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event)-Ereignis an die `XRSession` gesendet. Dies ist eine Gelegenheit, um den Benutzer über die Verfügbarkeit des Geräts zu informieren, es auf Eingaben zu überwachen, Konfigurationsoptionen anzubieten oder was auch immer Sie damit tun müssen.
+WebXR verwaltet eine Liste von Eingabegeräten, die für das jeweilige WebXR-System spezifisch ist. Dazu gehören beispielsweise Handcontroller, Kameras zur Bewegungserfassung, bewegungssensitive Handschuhe und andere Geräte, die Eingaben oder Rückmeldungen ermöglichen. Wenn die nutzende Person einen WebXR-Controller verbindet oder trennt, wird das Ereignis [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event) an die `XRSession` gesendet. Sie können dann die nutzende Person über die Verfügbarkeit des Geräts informieren, dessen Eingaben überwachen, Konfigurationsoptionen anbieten oder andere erforderliche Schritte ausführen.
 
-## Beenden der WebXR-Sitzung
+## WebXR-Sitzung beenden
 
-Wenn die VR- oder AR-Sitzung des Benutzers zu Ende geht, endet die Sitzung. Das Herunterfahren einer [`XRSession`](/de/docs/Web/API/XRSession) kann entweder dadurch erfolgen, dass die Sitzung selbst entscheidet, dass es Zeit zum Beenden ist (zum Beispiel, wenn der Benutzer sein XR-Gerät ausschaltet), weil der Benutzer eine Schaltfläche zum Beenden der Sitzung gedrückt hat oder in einem anderen, für Ihre Anwendung geeigneten Fall.
+Wenn die VR- oder AR-Nutzung endet, endet auch die Sitzung. Eine [`XRSession`](/de/docs/Web/API/XRSession) kann aus verschiedenen Gründen beendet werden: etwa weil die Sitzung selbst ihre Beendigung veranlasst, wenn die nutzende Person ihr XR-Gerät ausschaltet, weil die nutzende Person auf eine Schaltfläche zum Beenden klickt oder aufgrund einer anderen für Ihre Anwendung relevanten Situation.
 
-Hier besprechen wir, wie man sowohl das Herunterfahren der WebXR-Sitzung anfordert als auch wie man erkennt, wann die Sitzung beendet ist, sei es durch Ihre Anforderung oder auf andere Weise.
+Im Folgenden wird erläutert, wie Sie das Beenden einer WebXR-Sitzung anfordern und erkennen, wann die Sitzung beendet wurde – unabhängig davon, ob dies auf Ihre Anforderung hin oder aus einem anderen Grund geschah.
 
-### Die Sitzung beenden
+### Sitzung beenden
 
-Um die WebXR-Sitzung sauber zu beenden, wenn Sie damit fertig sind, sollten Sie die Methode [`end()`](/de/docs/Web/API/XRSession/end) der Sitzung aufrufen. Diese gibt ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das Sie verwenden können, um zu erfahren, wann das Herunterfahren abgeschlossen ist.
+Um eine WebXR-Sitzung nach Gebrauch ordnungsgemäß zu beenden, rufen Sie ihre Methode [`end()`](/de/docs/Web/API/XRSession/end) auf. Sie gibt ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, anhand dessen Sie erkennen können, wann das Beenden abgeschlossen ist.
 
 ```js
 async function shutdownXR(session) {
@@ -329,13 +326,13 @@ async function shutdownXR(session) {
 }
 ```
 
-Wenn `shutdownXR()` zu seinem Aufrufer zurückkehrt, ist die WebXR-Sitzung vollständig und sicher heruntergefahren.
+Wenn `shutdownXR()` an den aufrufenden Code zurückkehrt, ist die WebXR-Sitzung vollständig und sicher beendet.
 
-Wenn Sie Arbeiten haben, die beim Beenden der Sitzung erledigt werden müssen, wie das Freigeben von Ressourcen und dergleichen, sollten Sie diese Arbeiten in Ihrem [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignishandler erledigen, anstatt in Ihrem Hauptcodekörper. So behandeln Sie die Bereinigung unabhängig davon, ob das Herunterfahren automatisch oder manuell ausgelöst wurde.
+Falls beim Ende der Sitzung Arbeiten erforderlich sind, etwa das Freigeben von Ressourcen, sollten Sie diese in Ihrem Handler für das Ereignis [`end`](/de/docs/Web/API/XRSession/end_event) ausführen und nicht im Hauptteil Ihres Codes. So erfolgt die Bereinigung unabhängig davon, ob das Beenden automatisch oder manuell ausgelöst wurde.
 
-### Erkennen, wann die Sitzung beendet ist
+### Erkennen, wann die Sitzung beendet wurde
 
-Wie bereits festgestellt, können Sie erkennen, wann die WebXR-Sitzung beendet ist - sei es, weil Sie die Methode [`end()`](/de/docs/Web/API/XRSession/end) aufgerufen haben, der Benutzer sein Headset ausgeschaltet hat oder ein nicht behebbarer Fehler im XR-System aufgetreten ist - indem Sie auf das [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignis achten, das an die [`XRSession`](/de/docs/Web/API/XRSession) gesendet wird.
+Wie bereits beschrieben, erkennen Sie das Ende einer WebXR-Sitzung daran, dass ein Ereignis vom Typ [`end`](/de/docs/Web/API/XRSession/end_event) an die [`XRSession`](/de/docs/Web/API/XRSession) gesendet wird. Das gilt unabhängig davon, ob Sie ihre Methode [`end()`](/de/docs/Web/API/XRSession/end) aufgerufen haben, die nutzende Person ihr Headset ausgeschaltet hat oder im XR-System ein nicht behebbarer Fehler aufgetreten ist.
 
 ```js
 session.onend = (event) => {
@@ -345,13 +342,13 @@ session.onend = (event) => {
 };
 ```
 
-Hier ruft, wenn die Sitzung beendet ist und das `end`-Ereignis empfangen wird, eine `freeResources()`-Funktion auf, um die zuvor zugewiesenen und/oder geladenen Ressourcen zur Behandlung der XR-Präsentation freizugeben. Indem `freeResources()` im `end`-Ereignishandler aufgerufen wird, wird es aufgerufen, sowohl wenn der Benutzer auf eine Schaltfläche klickt, die ein Herunterfahren auslöst, wie z.B. durch das Aufrufen der oben gezeigten Funktion `shutdownXR()`, _als auch_ wenn die Sitzung automatisch endet, sei es durch einen Fehler oder aus einem anderen Grund.
+In diesem Beispiel wird beim Empfang des Ereignisses `end` nach dem Ende der Sitzung die Funktion `freeResources()` aufgerufen. Sie gibt die Ressourcen frei, die zuvor für die XR-Darstellung zugewiesen und/oder geladen wurden. Da `freeResources()` im Handler für das Ereignis `end` aufgerufen wird, erfolgt dies sowohl dann, wenn die nutzende Person eine Schaltfläche anklickt, die beispielsweise die oben gezeigte Funktion `shutdownXR()` ausführt, _als auch_ dann, wenn die Sitzung aufgrund eines Fehlers oder aus einem anderen Grund automatisch endet.
 
 ## Siehe auch
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
 - [Grundlagen von WebXR](/de/docs/Web/API/WebXR_Device_API/Fundamentals)
-- [Räumliche Verfolgung in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
-- [Blickpunkte und Betrachter: Simulation von Kameras in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
-- [Verwendung begrenzter Referenzräume](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces)
+- [Räumliches Tracking in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
+- [Blickpunkte und Betrachtende: Kameras in WebXR simulieren](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [Begrenzte Referenzräume verwenden](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces)
 - [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)

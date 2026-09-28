@@ -1,70 +1,70 @@
 ---
-title: "Firefox 158: Versionshinweise für Entwickler (Nightly)"
-short-title: Firefox 158 (Nightly)
+title: Firefox 158 – Versionshinweise für Entwickler (Beta)
+short-title: Firefox 158 (Beta)
 slug: Mozilla/Firefox/Releases/158
 l10n:
-  sourceCommit: 6667e73bf698511ffd956b8a9eafc8ea7c6adb46
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
-Dieser Artikel informiert über Änderungen in Firefox 158, die Entwickler betreffen.
-Firefox 158 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und erscheint am [13. Oktober 2026](https://whattrainisitnow.com/release/?version=158).
+Dieser Artikel informiert über die Änderungen in Firefox 158, die Entwickler betreffen.
+Firefox 158 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [13. Oktober 2026](https://whattrainisitnow.com/release/?version=158).
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version werden noch bearbeitet.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, für die Sie Hinweise verfassen. -->
+<!-- Authors: Please uncomment any headings you are writing notes for -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Developer Tools -->
 
 <!-- ### HTML -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### CSS -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### JavaScript -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### Sicherheit -->
+<!-- ### Security -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### APIs -->
 
 <!-- #### DOM -->
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, and Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemeines -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -72,12 +72,12 @@ Firefox 158 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 ## Änderungen für Add-on-Entwickler
 
-- {{WebExtAPIRef("publicSuffix.isKnownSuffix()")}} löst jetzt bei Übergabe eines ungültigen Hostnamens einen Fehler aus, anstatt `false` zurückzugeben. ([Firefox-Bug 2066620](https://bugzil.la/2066620))
-- [`runtime.getVersion()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getVersion) wurde hinzugefügt. Die Methode gibt die Version der Erweiterung zurück, wie sie im Manifest angegeben ist. ([Firefox-Bug 1992418](https://bugzil.la/1992418))
+- {{WebExtAPIRef("publicSuffix.isKnownSuffix()")}} löst bei Übergabe eines ungültigen Hostnamens jetzt einen Fehler aus, statt `false` zurückzugeben. ([Firefox-Bug 2066620](https://bugzil.la/2066620))
+- [`runtime.getVersion()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getVersion) wurde hinzugefügt, um die im Manifest angegebene Version der Erweiterung zurückzugeben. ([Firefox-Bug 1992418](https://bugzil.la/1992418))
 
-<!-- ### Entfernungen -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
 ## Experimentelle Webfunktionen
 

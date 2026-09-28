@@ -1,45 +1,45 @@
 ---
-title: "ARIA: Rolle alert"
+title: "ARIA: alert-Rolle"
 short-title: alert
 slug: Web/Accessibility/ARIA/Reference/Roles/alert_role
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
-Die Rolle `alert` ist für wichtige und in der Regel zeitkritische Informationen vorgesehen. Das `alert` ist eine Art von [`status`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role), das als atomare Live-Region verarbeitet wird.
+Die `alert`-Rolle ist für wichtige und in der Regel zeitkritische Informationen vorgesehen. `alert` ist eine Art von [`status`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role), die als atomare Live-Region verarbeitet wird.
 
 ## Beschreibung
 
-Die Rolle `alert` wird verwendet, um eine wichtige und in der Regel zeitkritische Nachricht an den Benutzer zu kommunizieren. Wenn diese Rolle zu einem Element hinzugefügt wird, sendet der Browser ein zugängliches Alarmereignis an unterstützende Technologieprodukte, die den Benutzer dann benachrichtigen können.
+Die `alert`-Rolle wird verwendet, um Nutzern eine wichtige und meist zeitkritische Nachricht mitzuteilen. Wenn diese Rolle einem Element hinzugefügt wird, sendet der Browser ein barrierefrei zugängliches Alert-Ereignis an assistive Technologien, die daraufhin die Nutzer benachrichtigen können.
 
-Die Rolle alert sollte nur für Informationen verwendet werden, die die sofortige Aufmerksamkeit des Benutzers erfordern, zum Beispiel:
+Die `alert`-Rolle sollte nur für Informationen verwendet werden, die sofortige Aufmerksamkeit erfordern, zum Beispiel:
 
-- Ein ungültiger Wert wurde in ein Formularfeld eingegeben
-- Die Anmeldesitzung des Benutzers läuft bald ab
-- Die Verbindung zum Server ging verloren, sodass lokale Änderungen nicht gespeichert werden
+- In ein Formularfeld wurde ein ungültiger Wert eingegeben.
+- Die Anmeldesitzung läuft in Kürze ab.
+- Die Verbindung zum Server wurde unterbrochen, sodass lokale Änderungen nicht gespeichert werden.
 
-Die Rolle `alert` sollte nur für Textinhalte verwendet werden, nicht für interaktive Elemente wie Links oder Schaltflächen. Das Element mit der Rolle `alert` muss nicht den Fokus erhalten können, da Bildschirmlesegeräte (Sprach- oder Brailleausgabe) den aktualisierten Inhalt automatisch ankündigen, unabhängig davon, wo der Tastaturfokus liegt, wenn die Rolle hinzugefügt wird.
+Die `alert`-Rolle sollte nur für Textinhalte verwendet werden, nicht für interaktive Elemente wie Links oder Schaltflächen. Das Element mit der `alert`-Rolle muss keinen Fokus erhalten können: Screenreader (mit Sprach- oder Brailleausgabe) kündigen aktualisierte Inhalte automatisch an, unabhängig davon, wo sich der Tastaturfokus befindet, wenn die Rolle hinzugefügt wird.
 
-Die Rolle `alert` wird dem Knoten hinzugefügt, der eine Warnmeldung enthält, **nicht** dem Element, das die Warnung auslöst. Warnungen sind [aufdringliche Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions). Das Setzen von `role="alert"` ist gleichbedeutend mit dem Setzen von [`aria-live="assertive"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) und [`aria-atomic="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic). Da sie keinen Fokus erhalten, muss der Fokus nicht verwaltet werden und keine Benutzerinteraktion sollte erforderlich sein.
+Die `alert`-Rolle wird dem Knoten hinzugefügt, der die Alert-Nachricht enthält, **nicht** dem Element, das den Alert auslöst. Alerts sind [assertive Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions). `role="alert"` zu setzen, entspricht dem Setzen von [`aria-live="assertive"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) und [`aria-atomic="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic). Da Alerts keinen Fokus erhalten, muss der Fokus nicht verwaltet werden, und es sollte keine Nutzerinteraktion erforderlich sein.
 
 > [!WARNING]
-> Aufgrund seiner aufdringlichen Natur muss die Rolle `alert` sparsam und nur in Situationen verwendet werden, in denen die sofortige Aufmerksamkeit des Benutzers erforderlich ist.
+> Aufgrund ihres aufdringlichen Charakters darf die `alert`-Rolle nur sparsam und nur dann verwendet werden, wenn die sofortige Aufmerksamkeit der Nutzer erforderlich ist.
 
-Die Rolle [`alert`](https://w3c.github.io/aria/#alert) ist eine der fünf [Live-Region](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) Rollen. Dynamische Änderungen, die weniger dringend sind, sollten eine weniger aggressive Methode verwenden, wie zum Beispiel die Verwendung von `aria-live="polite"` oder die Verwendung einer anderen Live-Region Rolle wie [`status`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role). Wenn erwartet wird, dass der Benutzer die Warnung schließt, sollte stattdessen die Rolle [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) verwendet werden.
+Die [`alert`](https://w3c.github.io/aria/#alert)-Rolle ist eine von fünf Rollen für [Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions). Für weniger dringende dynamische Änderungen sollte eine weniger aufdringliche Methode verwendet werden, beispielsweise `aria-live="polite"` oder eine andere Rolle für Live-Regionen wie [`status`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role). Wenn Nutzer den Alert schließen können sollen, sollte stattdessen die Rolle [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) verwendet werden.
 
-Das Wichtigste, was Sie über die Rolle `alert` wissen sollten, ist, dass sie für Inhalte, die dynamisch angezeigt werden, gedacht ist, nicht für Inhalte, die beim Laden der Seite erscheinen. Sie ist perfekt für Situationen geeignet, in denen ein Benutzer ein Formular ausfüllt und JavaScript verwendet wird, um eine Fehlermeldung hinzuzufügen – die Warnung würde die Nachricht sofort vorlesen. Sie sollte nicht bei HTML verwendet werden, mit dem der Benutzer noch nicht interagiert hat. Zum Beispiel, wenn eine Seite geladen wird und mit mehreren sichtbaren Warnungen übersät ist, sollte die Rolle alert nicht verwendet werden, da die Nachrichten nicht dynamisch ausgelöst wurden.
+Das Wichtigste an der `alert`-Rolle ist, dass sie für dynamisch angezeigte Inhalte vorgesehen ist, nicht für Inhalte, die bereits beim Laden der Seite erscheinen. Sie eignet sich beispielsweise, wenn ein Nutzer ein Formular ausfüllt und JavaScript eine Fehlermeldung hinzufügt: Der Alert würde die Meldung sofort vorlesen. Sie sollte nicht für HTML verwendet werden, mit dem der Nutzer noch nicht interagiert hat. Wenn beispielsweise beim Laden einer Seite mehrere sichtbare Alerts an verschiedenen Stellen erscheinen, sollte die `alert`-Rolle nicht verwendet werden, da die Meldungen nicht dynamisch ausgelöst wurden.
 
-Wie bei allen anderen [Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) werden Warnungen nur angekündigt, wenn der Inhalt des Elements mit `role="alert"` _aktualisiert_ wird. Stellen Sie sicher, dass das Element mit der Rolle zunächst im Seitenmarkup vorhanden ist – dies „primt“ den Browser und den Bildschirmleser, das Element auf Änderungen zu überwachen. Danach werden alle Änderungen am Inhalt angekündigt. Versuchen Sie nicht, ein Element mit `role="alert"` dynamisch hinzuzufügen/zu erzeugen, das bereits mit der Warnmeldung, die Sie angekündigt haben möchten, gefüllt ist – dies führt in der Regel _nicht_ zu einer Ankündigung, da es keine Inhaltsänderung ist.
+Wie bei allen anderen [Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) werden Alerts nur angekündigt, wenn der Inhalt des Elements mit `role="alert"` _aktualisiert_ wird. Stellen Sie sicher, dass das Element mit dieser Rolle zunächst im Markup der Seite vorhanden ist. So werden Browser und Screenreader darauf vorbereitet, das Element auf Änderungen zu überwachen. Anschließende Änderungen am Inhalt werden angekündigt. Versuchen Sie nicht, ein Element mit `role="alert"` dynamisch hinzuzufügen oder zu erzeugen, wenn es bereits die anzukündigende Alert-Nachricht enthält. Das führt in der Regel _nicht_ zu einer Ankündigung, da keine Inhaltsänderung stattfindet.
 
-Da die Rolle `alert` alle geänderten Inhalte vorliest, sollte sie mit Vorsicht verwendet werden. Warnungen sind definitionsgemäß störend. Mehrere Warnungen gleichzeitig und unnötige Warnungen schaffen schlechte Benutzererfahrungen.
+Da die `alert`-Rolle jeden geänderten Inhalt vorliest, sollte sie mit Bedacht eingesetzt werden. Alerts sind per Definition unterbrechend. Mehrere gleichzeitige oder unnötige Alerts beeinträchtigen die Nutzererfahrung.
 
 ## Beispiele
 
-Die folgenden sind gängige Beispiele für Warnungen und wie man sie implementiert:
+Im Folgenden finden Sie häufige Beispiele für Alerts und ihre Umsetzung:
 
-### Beispiel 1: Sichtbarmachung von vorgefertigten Inhalten innerhalb eines Elements mit der Rolle alert
+### Beispiel 1: Vorhandene Inhalte in einem Element mit Alert-Rolle sichtbar machen
 
-Wenn der Inhalt _innerhalb_ des Elements mit `role="alert"` anfangs mit CSS versteckt ist, wird das Sichtbarmachen den Alarm auslösen. Dies bedeutet, dass ein vorhandenes Warncontainer-Element mehrfach „wiederverwendet“ werden kann.
+Wenn der Inhalt _innerhalb_ des Elements mit `role="alert"` zunächst per CSS ausgeblendet ist, löst das Sichtbarmachen den Alert aus. Ein vorhandenes Alert-Container-Element kann dadurch mehrfach „wiederverwendet“ werden.
 
 ```css
 .hidden {
@@ -60,9 +60,9 @@ document
   .firstChild.classList.remove("hidden");
 ```
 
-### Beispiel 2: Dynamisches Ändern des Inhalts innerhalb eines Elements mit der Rolle alert
+### Beispiel 2: Den Inhalt eines Elements mit Alert-Rolle dynamisch ändern
 
-Mit JavaScript können Sie den Inhalt _innerhalb_ des Elements mit `role="alert"` dynamisch ändern. Beachten Sie, dass wenn Sie denselben Alarm mehrmals auslösen müssen (d.h. der Inhalt, den Sie dynamisch einfügen, ist derselbe wie zuvor), dies im Allgemeinen nicht als Änderung angesehen wird und _nicht_ zu einer Ankündigung führt. Aus diesem Grund ist es in der Regel besser, den Inhalt des Warncontainers kurz zu „löschen“, bevor Sie die Warnmeldung einfügen.
+Mit JavaScript können Sie den Inhalt _innerhalb_ des Elements mit `role="alert"` dynamisch ändern. Beachten Sie: Wenn Sie denselben Alert mehrfach auslösen möchten, also dynamisch denselben Inhalt wie zuvor einfügen, wird dies in der Regel nicht als Änderung erkannt und führt _nicht_ zu einer Ankündigung. Deshalb ist es meist am besten, den Inhalt des Alert-Containers kurz zu „leeren“, bevor Sie die Alert-Nachricht einfügen.
 
 ```html
 <div id="alertContainer" role="alert"></div>
@@ -76,11 +76,11 @@ document.getElementById("alertContainer").textContent =
   `Your session will expire in ${expiration} minutes`;
 ```
 
-### Beispiel 3: Visuell versteckter Warncontainer für Bildschirmleser-Benachrichtigungen
+### Beispiel 3: Visuell verborgener Alert-Container für Screenreader-Benachrichtigungen
 
-Es ist möglich, den Warncontainer selbst visuell zu verstecken und ihn zu verwenden, um Aktualisierungen/Benachrichtigungen explizit für Bildschirmleser bereitzustellen. Dies kann nützlich sein, wenn wichtiger Inhalt auf der Seite aktualisiert wurde, aber die Änderung für einen Bildschirmleser-Benutzer nicht sofort ersichtlich wäre.
+Sie können den Alert-Container selbst visuell verbergen und damit gezielt Aktualisierungen oder Benachrichtigungen für Screenreader bereitstellen. Das ist hilfreich, wenn wichtige Inhalte auf der Seite aktualisiert wurden, die Änderung für Screenreader-Nutzer aber nicht unmittelbar erkennbar wäre.
 
-Stellen Sie jedoch sicher, dass der Container nicht mit `display:none` versteckt wird, da dies ihn auch vor unterstützenden Technologien verbirgt, was bedeutet, dass sie nicht über Änderungen benachrichtigt werden. Verwenden Sie stattdessen etwas wie die [.visually-hidden-Styles](https://www.a11yproject.com/posts/how-to-hide-content/).
+Stellen Sie jedoch sicher, dass der Container nicht mit `display:none` ausgeblendet wird. Dadurch wäre er auch für assistive Technologien verborgen, sodass diese nicht über Änderungen benachrichtigt würden. Verwenden Sie stattdessen beispielsweise die [`.visually-hidden`-Stile](https://www.a11yproject.com/posts/how-to-hide-content/).
 
 ```html
 <div id="hiddenAlertContainer" role="alert" class="visually-hidden"></div>
@@ -114,11 +114,10 @@ document.getElementById("hiddenAlertContainer").textContent =
 
 - [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)
 - [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic)
-- [ARIA: Rolle `log`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/log_role)
-- [ARIA: Rolle `marquee`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/marquee_role)
-- [ARIA: Rolle `status`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role)
-- [ARIA: Rolle `timer`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/timer_role)
-- [ARIA: Rolle `alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
+- [ARIA: `log`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/log_role)
+- [ARIA: `marquee`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/marquee_role)
+- [ARIA: `status`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role)
+- [ARIA: `timer`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/timer_role)
+- [ARIA: `alertdialog`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
 - [ARIA: Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)
-- [ARIA Alert Support - Vispero](https://vispero.com/resources/aria-alert-support/)
-- [ARIA Practices Alert Beispiel](https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/)
+- [ARIA-Practices-Beispiel für Alerts](https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/)

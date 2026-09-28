@@ -1,12 +1,12 @@
 ---
-title: "`<mark>` HTML-Markierungselement"
+title: "`<mark>`: HTML-Element zum Markieren von Text"
 short-title: <mark>
 slug: Web/HTML/Reference/Elements/mark
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
-Das **`<mark>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert Text, der **markiert** oder **hervorgehoben** ist, um auf die Relevanz des markierten Abschnitts im umgebenden Kontext hinzuweisen.
+Das **`<mark>`**-[HTML-Element](/de/docs/Web/HTML) stellt Text dar, der zu Referenz- oder Anmerkungszwecken **markiert** oder **hervorgehoben** wird, weil die betreffende Textstelle im umgebenden Kontext relevant ist.
 
 {{InteractiveExample("HTML Demo: &lt;mark&gt;", "tabbed-shorter")}}
 
@@ -34,22 +34,22 @@ mark {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Typische Anwendungsfälle für `<mark>` umfassen:
+Typische Anwendungsfälle für `<mark>` sind:
 
-- Wenn es in einem Zitat ({{HTMLElement("q")}}) oder Blockzitat ({{HTMLElement("blockquote")}}) verwendet wird, zeigt es in der Regel Text an, der von besonderem Interesse ist, aber im ursprünglichen Quellenmaterial nicht markiert ist, oder Material, das besondere Beachtung benötigt, auch wenn der ursprüngliche Autor es nicht für besonders wichtig hielt. Man kann es sich ähnlich wie einen Textmarker in einem Buch vorstellen, mit dem Passagen markiert werden, die von Interesse sind.
-- Ansonsten zeigt `<mark>` einen Abschnitt des Inhalts des Dokuments an, der wahrscheinlich für die aktuelle Aktivität des Benutzers relevant ist. Dies könnte beispielsweise verwendet werden, um die Wörter anzugeben, die mit einem Suchvorgang übereinstimmen.
-- Verwenden Sie `<mark>` nicht für Syntaxhervorhebung; verwenden Sie stattdessen das {{HTMLElement("span")}}-Element mit entsprechend angewendetem CSS.
+- Innerhalb eines Zitats ({{HTMLElement("q")}}) oder eines Blockzitats ({{HTMLElement("blockquote")}}) kennzeichnet es in der Regel Text, der von besonderem Interesse ist, aber im Original nicht markiert wurde, oder Text, der genauer betrachtet werden sollte, obwohl die ursprüngliche Autorin oder der ursprüngliche Autor ihn nicht für besonders wichtig hielt. Das ist vergleichbar damit, interessante Stellen in einem Buch mit einem Textmarker hervorzuheben.
+- Ansonsten kennzeichnet `<mark>` einen Teil des Dokumentinhalts, der für die aktuelle Tätigkeit der nutzenden Person wahrscheinlich relevant ist. So können beispielsweise Wörter markiert werden, die einer Suchanfrage entsprechen.
+- Verwenden Sie `<mark>` nicht zur Syntaxhervorhebung. Verwenden Sie stattdessen das Element {{HTMLElement("span")}} mit entsprechendem CSS.
 
 > [!NOTE]
-> Verwechseln Sie `<mark>` nicht mit dem {{HTMLElement("strong")}}-Element; `<mark>` dient zur Kennzeichnung von Inhalten mit einem gewissen Grad an _Relevanz_, während `<strong>` Textstellen von _Wichtigkeit_ kennzeichnet.
+> Verwechseln Sie `<mark>` nicht mit dem Element {{HTMLElement("strong")}}: `<mark>` kennzeichnet Inhalte mit einer gewissen _Relevanz_, während `<strong>` Textstellen von _Wichtigkeit_ kennzeichnet.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `mark`-Elements wird von den meisten Bildschirmlesegeräten in der Standardeinstellung nicht angekündigt. Es kann durch die Verwendung der CSS-{{cssxref("content")}}-Eigenschaft zusammen mit den Pseudo-Elementen {{cssxref("::before")}} und {{cssxref("::after")}} angekündigt werden.
+Die meisten Screenreader geben das Vorhandensein des Elements `mark` in ihrer Standardkonfiguration nicht bekannt. Mithilfe der CSS-Eigenschaft {{cssxref("content")}} und der Pseudoelemente {{cssxref("::before")}} und {{cssxref("::after")}} lässt sich eine entsprechende Ansage ergänzen.
 
 ```css
 mark::before,
@@ -72,16 +72,15 @@ mark::after {
 }
 ```
 
-Einige Personen, die Bildschirmlesegeräte nutzen, deaktivieren absichtlich die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Deshalb ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen ein fehlender Hinweis darauf, dass Inhalte hervorgehoben wurden, das Verständnis negativ beeinflussen würde.
+Manche Menschen, die Screenreader verwenden, deaktivieren bewusst die Ansage von Inhalten, die zu zusätzlichen Ausgaben führen. Setzen Sie diese Technik daher sparsam und nur dann ein, wenn die fehlende Information über eine Hervorhebung das Verständnis beeinträchtigen würde.
 
 - [Tweaking Text Level Styles, Reprised](https://adrianroselli.com/2025/04/tweaking-text-level-styles-reprised.html) von Adrian Roselli (2025)
-- [Kurzer Hinweis zur besseren Barrierefreiheit Ihrer Markierungen](https://vispero.com/resources/short-note-on-making-your-mark-more-accessible/) von Vispero (2017)
 
 ## Beispiele
 
-### Markierung eines interessanten Textes
+### Interessante Textstellen markieren
 
-In diesem ersten Beispiel wird ein `<mark>`-Element verwendet, um Text innerhalb eines Zitats zu markieren, das für den Benutzer von besonderem Interesse ist.
+In diesem ersten Beispiel wird ein `<mark>`-Element verwendet, um eine Textstelle innerhalb eines Zitats zu markieren, die für die nutzende Person von besonderem Interesse ist.
 
 ```html
 <blockquote>
@@ -97,9 +96,9 @@ In diesem ersten Beispiel wird ein `<mark>`-Element verwendet, um Text innerhalb
 
 {{EmbedLiveSample("Marking_text_of_interest", 650, 130)}}
 
-### Markierung kontextsensitiver Abschnitte
+### Kontextabhängige Textstellen kennzeichnen
 
-Dieses Beispiel zeigt die Verwendung von `<mark>`, um Suchergebnisse innerhalb eines Abschnitts zu markieren.
+Dieses Beispiel zeigt, wie `<mark>` verwendet wird, um Suchergebnisse innerhalb einer Textpassage zu markieren.
 
 ```html
 <p>
@@ -115,7 +114,7 @@ Dieses Beispiel zeigt die Verwendung von `<mark>`, um Suchergebnisse innerhalb e
 </p>
 ```
 
-Um die Verwendung von `<mark>` für Suchergebnisse von anderen möglichen Anwendungen zu unterscheiden, erhält jedes Übereinstimmungsergebnis die benutzerdefinierte Klasse `"match"`.
+Um die Verwendung von `<mark>` für Suchergebnisse von anderen Einsatzmöglichkeiten zu unterscheiden, weist dieses Beispiel jedem Treffer die benutzerdefinierte Klasse `"match"` zu.
 
 #### Ergebnis
 
@@ -136,29 +135,30 @@ Um die Verwendung von `<mark>` für Suchergebnisse von anderen möglichen Anwend
           >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Strukturierter Inhalt</a
-        >, erkennbarer Inhalt.
+          >formulierender Inhalt</a
+        >, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Strukturierter Inhalt</a
+          >Formulierender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Keines; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >strukturierten Inhalt</a
-        > akzeptiert.
+          >formulierenden Inhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -171,7 +171,7 @@ Um die Verwendung von `<mark>` für Suchergebnisse von anderen möglichen Anwend
     </tr>
     <tr>
       <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Alle</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

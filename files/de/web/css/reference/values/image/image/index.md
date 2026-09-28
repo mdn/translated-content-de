@@ -1,15 +1,15 @@
 ---
-title: "`image()` CSS-Funktion"
+title: CSS-Funktion `image()`
 short-title: image()
 slug: Web/CSS/Reference/Values/image/image
 l10n:
-  sourceCommit: 61f27416f7cfa79bd102042eeb3e44fe629d9c95
+  sourceCommit: b7e9f482c51817d3a885e26092f8219fd0d9d278
 ---
 
-Die **`image()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert ein {{cssxref("image")}} ähnlich der {{CSSxRef("url_function", "url()")}} Funktion, aber mit zusätzlichen Funktionen, einschließlich der Spezifikation der Richtung der Grafik, der Anzeige nur eines Teils des Bildes, der durch ein Medienfragment definiert wird, und der Angabe einer Volltonfarbe als Fallback, falls keines der angegebenen Bilder gerendert werden kann.
+Die **`image()`**-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) von [CSS](/de/docs/Web/CSS) definiert ein {{cssxref("image")}} ähnlich wie die Funktion {{CSSxRef("url_function", "url()")}}. Sie bietet jedoch zusätzliche Möglichkeiten: Sie können die Richtung des Bildes festlegen, mithilfe eines Medienfragments nur einen Ausschnitt des Bildes anzeigen und eine einfarbige Ersatzdarstellung angeben, falls keines der angegebenen Bilder gerendert werden kann.
 
 > [!NOTE]
-> Die CSS-`image()`-Funktion sollte nicht mit dem [<code>Image()</code>, dem <code>HTMLImageElement</code>-Konstruktor](/de/docs/Web/API/HTMLImageElement/Image) verwechselt werden.
+> Die CSS-Funktion `image()` ist nicht mit [<code>Image()</code>, dem Konstruktor von <code>HTMLImageElement</code>](/de/docs/Web/API/HTMLImageElement/Image), zu verwechseln.
 
 ## Syntax
 
@@ -35,27 +35,27 @@ image(rgb(0 0 255 / 0.5)), url("bg-image.png");
 ### Werte
 
 - `image-tags` {{optional_inline}}
-  - : Die Richtung der Grafik, entweder `ltr` für Links-nach-Rechts oder `rtl` für Rechts-nach-Links.
+  - : Die Richtung des Bildes: `ltr` für links nach rechts oder `rtl` für rechts nach links.
 - `image-src` {{Optional_Inline}}
-  - : Null oder mehr {{cssxref("url_value", "&lt;url&gt;")}}s oder {{CSSxRef("&lt;string&gt;")}}s, die die Bildquellen mit optionalen Bildfragment-Identifikatoren angeben.
+  - : Null oder mehr {{cssxref("url_value", "&lt;url&gt;")}}- oder {{CSSxRef("&lt;string&gt;")}}-Werte, die die Bildquellen angeben, optional mit Bildfragmentbezeichnern.
 - `color` {{optional_inline}}
-  - : Eine Farbe, die eine Volltonhintergrundfarbe angibt, die als Fallback verwendet wird, wenn keine `image-src` gefunden wird, unterstützt wird oder deklariert wurde.
+  - : Eine Farbe, die als einfarbiger Hintergrund verwendet wird, falls keine `image-src` gefunden wird, unterstützt wird oder angegeben ist.
 
-### Bidirektionale Bewusstheit
+### Berücksichtigung der Schreibrichtung
 
-Der erste optionale Parameter der `image()`-Notation ist die Richtung der Grafik. Wenn er enthalten ist und das Bild auf einem Element mit entgegengesetzter Richtung verwendet wird, wird die Grafik in horizontalen Schreibrichtungen horizontal gespiegelt. Wenn die Richtung weggelassen wird, wird die Grafik nicht gespiegelt, wenn die Sprachrichtung geändert wird.
+Der erste, optionale Parameter der `image()`-Notation gibt die Richtung des Bildes an. Ist er angegeben und wird das Bild auf einem Element mit entgegengesetzter Schreibrichtung verwendet, wird es bei horizontalen Schreibmodi horizontal gespiegelt. Wird die Richtung nicht angegeben, wird das Bild bei einer Änderung der Schreibrichtung nicht gespiegelt.
 
 ### Bildfragmente
 
-Ein wesentlicher Unterschied zwischen `url()` und `image()` ist die Möglichkeit, einen Medienfragment-Identifikator hinzuzufügen — einen Startpunkt entlang der x- und y-Achse, zusammen mit einer Breite und Höhe — auf die Bildquelle, um nur einen Abschnitt des Quelldokuments anzuzeigen. Der im Parameter definierte Teil des Bildes wird zu einem eigenständigen Bild. Die Syntax sieht folgendermaßen aus:
+Ein wesentlicher Unterschied zwischen `url()` und `image()` besteht darin, dass der Bildquelle ein Medienfragmentbezeichner hinzugefügt werden kann. Dieser legt einen Startpunkt auf der x- und y-Achse sowie eine Breite und Höhe fest, sodass nur ein Ausschnitt des Quellbildes angezeigt wird. Der im Parameter definierte Ausschnitt wird zu einem eigenständigen Bild. Die Syntax sieht so aus:
 
 ```css
 background-image: image("my-image.webp#xywh=0,20,40,60");
 ```
 
-Das Hintergrundbild des Elements wird der Teil des Bildes _myImage.webp_ sein, der bei der Koordinate 0px, 20px (oben links) beginnt und 40px breit und 60px hoch ist.
+Das Hintergrundbild des Elements ist der Ausschnitt aus _myImage.webp_, der bei den Koordinaten 0px, 20px beginnt – an seiner linken oberen Ecke – und 40px breit sowie 60px hoch ist.
 
-Die `#xywh=#,#,#,#` Medienfragment-Syntax nimmt vier durch Komma getrennte numerische Werte an. Die ersten beiden stellen die X- und Y-Koordinaten für den Anfangspunkt des zu erstellenden Kastens dar. Der dritte Wert ist die Breite des Kastens und der letzte Wert die Höhe. Standardmäßig sind dies Pixelwerte. Die [Definition der räumlichen Dimension in der Medienspezifikation](https://www.w3.org/TR/media-frags/#naming-space) gibt an, dass auch Prozentsätze unterstützt werden:
+Die Medienfragmentsyntax `#xywh=#,#,#,#` verwendet vier durch Kommas getrennte Zahlenwerte. Die ersten beiden geben die X- und Y-Koordinaten des Startpunkts des zu erstellenden Ausschnitts an. Der dritte Wert ist seine Breite, der letzte seine Höhe. Standardmäßig sind diese Werte Pixelangaben. Laut der [Definition räumlicher Dimensionen in der Medienfragment-Spezifikation](https://www.w3.org/TR/media-frags/#naming-space) sollen auch Prozentangaben unterstützt werden:
 
 ```plain
 xywh=160,120,320,240        /* results in a 320x240 image at x=160 and y=120 */
@@ -63,17 +63,17 @@ xywh=pixel:160,120,320,240  /* results in a 320x240 image at x=160 and y=120 */
 xywh=percent:25,25,50,50    /* results in a 50%x50% image at x=25% and y=25% */
 ```
 
-Die Bildfragmente können ebenfalls in der `url()`-Notation verwendet werden. Die Syntax des Medienfragments `#xywh=#,#,#,#` ist rückwärtskompatibel, da ein Medienfragment ignoriert wird, wenn es nicht verstanden wird, und den Quellaufruf nicht unterbricht, wenn es mit `url()` verwendet wird. Wenn der Browser die Medienfragment-Notation nicht versteht, ignoriert er das Fragment und zeigt das gesamte Bild an.
+Bildfragmente können auch in der `url()`-Notation verwendet werden. Die Medienfragmentsyntax `#xywh=#,#,#,#` ist „abwärtskompatibel“: Wird ein Medienfragment nicht verstanden, wird es ignoriert, ohne dass die Quellenangabe bei Verwendung mit `url()` ungültig wird. Versteht der Browser die Medienfragmentnotation nicht, ignoriert er das Fragment und zeigt das gesamte Bild an.
 
-Browser, die `image()` verstehen, verstehen auch die Fragment-Notation. Daher wird das Bild als ungültig betrachtet, wenn das Fragment innerhalb von `image()` nicht verstanden wird.
+Browser, die `image()` verstehen, verstehen auch die Fragmentnotation. Wird das Fragment innerhalb von `image()` nicht verstanden, gilt das Bild daher als ungültig.
 
-### Farb-Fallback
+### Ersatzfarbe
 
-Wenn in `image()` neben Ihren Bildquellen eine Farbe angegeben wird, dient sie als Fallback, wenn die Bilder ungültig sind und nicht angezeigt werden. In solchen Fällen wird die `image()`-Funktion so gerendert, als ob kein Bild enthalten wäre und ein Volltonbild erzeugt. Als Anwendungsfall kann eine dunkle Grafik als Hintergrund für einige weiße Texte verwendet werden. Eine dunkle Hintergrundfarbe kann erforderlich sein, damit der Vordereigentext lesbar ist, wenn das Bild nicht gerendert wird.
+Wird in `image()` neben den Bildquellen eine Farbe angegeben, dient sie als Ersatz, wenn die Bilder ungültig sind und nicht angezeigt werden. In diesem Fall rendert die Funktion `image()` ein einfarbiges Bild, als wäre kein Bild angegeben worden. Stellen Sie sich beispielsweise ein dunkles Bild als Hintergrund für weißen Text vor. Falls das Bild nicht gerendert wird, kann eine dunkle Hintergrundfarbe erforderlich sein, damit der Text lesbar bleibt.
 
-Das Weglassen von Bildquellen und das Einbeziehen einer Farbe ist gültig und erzeugt einen Farbmuster. Im Gegensatz zur Deklaration einer {{CSSxRef("background-color")}}, die unter oder hinter allen Hintergrundgrafiken platziert wird, kann dies verwendet werden, um (in der Regel halbtransparente) Farben über andere Grafiken zu legen.
+Es ist zulässig, die Bildquellen wegzulassen und nur eine Farbe anzugeben. Dadurch entsteht eine einfarbige Fläche. Anders als bei {{CSSxRef("background-color")}}, das unter beziehungsweise hinter allen Hintergrundbildern liegt, können so Farben – üblicherweise halbtransparent – über andere Bilder gelegt werden.
 
-Die Größe des Farbmusters kann mit der {{CSSxRef("background-size")}} Eigenschaft festgelegt werden. Dies unterscheidet sich von der `background-color`, die eine Farbe für das gesamte Element setzt. Sowohl die `image(color)`- als auch die `background-color`-Platzierungen werden von den Eigenschaften {{CSSxRef("background-clip")}} und {{CSSxRef("background-origin")}} beeinflusst.
+Die Größe der Farbfläche lässt sich mit der Eigenschaft {{CSSxRef("background-size")}} festlegen. Das unterscheidet sich von `background-color`, das die Farbe auf das gesamte Element anwendet. Die Platzierung sowohl von `image(color)` als auch von `background-color` wird durch die Eigenschaften {{CSSxRef("background-clip")}} und {{CSSxRef("background-origin")}} beeinflusst.
 
 ## Formale Syntax
 
@@ -81,16 +81,16 @@ Die Größe des Farbmusters kann mit der {{CSSxRef("background-size")}} Eigensch
 
 ## Barrierefreiheit
 
-Browser bieten keine speziellen Informationen zu Hintergrundgrafiken für assistive Technologien. Dies ist hauptsächlich für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigt und daher den Nutzern nichts vermittelt. Wenn die Grafik Informationen enthält, die für das Verständnis der allgemeinen Zweck der Seite entscheidend sind, ist es besser, sie semantisch im Dokument zu beschreiben.
+Browser stellen Hilfstechnologien keine besonderen Informationen über Hintergrundbilder bereit. Das ist vor allem für Screenreader wichtig: Sie kündigen ein Hintergrundbild nicht an und vermitteln ihren Nutzern daher keine darin enthaltenen Informationen. Enthält das Bild Informationen, die für das Verständnis des Gesamtzwecks der Seite entscheidend sind, sollten Sie diese stattdessen semantisch im Dokument beschreiben.
 
-- [MDN Verständnis der WCAG, Erläuterungen zu Richtlinie 1.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis der Erfolgskriterium 1.1.1 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN: WCAG verstehen – Erläuterungen zu Leitlinie 1.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Erfolgskriterium 1.1.1 verstehen | W3C: WCAG 2.0 verstehen](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
-Dieses Feature kann helfen, die Barrierefreiheit zu verbessern, indem eine Fallback-Farbe bereitgestellt wird, wenn ein Bild nicht geladen wird. Während dies durch das Hinzufügen einer Hintergrundfarbe zu jedem Hintergrundbild erreicht werden kann und sollte, ermöglicht die CSS-`image()`-Funktion das Hinzufügen, wobei nur Hintergrundfarben hinzugefügt werden, falls ein Bild nicht geladen wird, was bedeutet, dass Sie eine Fallback-Farbe hinzufügen können, falls eine transparente PNG/GIF/WebP nicht lädt.
+Diese Funktion kann die Barrierefreiheit verbessern, indem sie eine Ersatzfarbe bereitstellt, wenn ein Bild nicht geladen werden kann. Zwar kann und sollte dafür bei jedem Hintergrundbild auch eine Hintergrundfarbe angegeben werden, doch mit der CSS-Funktion `image()` lässt sich eine Ersatzfarbe festlegen, die nur dann erscheint, wenn das Bild nicht geladen wird. Das ist beispielsweise für transparente PNG-, GIF- oder WebP-Bilder nützlich.
 
 ## Beispiele
 
-### Richtungsabhängige Bilder
+### Bilder, die auf die Schreibrichtung reagieren
 
 ```html
 <ul>
@@ -105,11 +105,11 @@ ul {
 }
 ```
 
-In den Links-nach-Rechts-Listenelementen — die mit `dir="ltr"` auf dem Element selbst gesetzt oder die Richtung von einem Vorfahren oder Standardwert für die Seite übernehmen — wird die Grafik wie vorgesehen verwendet. Listenelemente mit `dir="rtl"`, die auf dem `<li>` gesetzt oder die Rechts-nach-Links-Richtung von einem Vorfahren übernehmen, z. B. auf Arabisch oder Hebräisch gesetzte Dokumente, werden das Aufzählungszeichen auf der rechten Seite anzeigen, horizontal gespiegelt, als ob `transform: scaleX(-1)` gesetzt wäre. Der Text wird ebenfalls Links-nach-Rechts angezeigt.
+Bei Listenelementen mit Schreibrichtung von links nach rechts wird das Bild unverändert verwendet. Das gilt für Elemente, bei denen `dir="ltr"` direkt gesetzt ist, sowie für solche, die diese Schreibrichtung von einem übergeordneten Element oder vom Standardwert der Seite übernehmen. Bei Listenelementen, bei denen `dir="rtl"` auf dem `<li>` gesetzt ist oder die die Schreibrichtung von rechts nach links von einem übergeordneten Element übernehmen – etwa in arabisch- oder hebräischsprachigen Dokumenten –, erscheint das Aufzählungszeichen rechts und wird horizontal gespiegelt, als wäre `transform: scaleX(-1)` gesetzt. Der Text wird ebenfalls von links nach rechts angezeigt.
 
 {{EmbedLiveSample("Directionally-sensitive_images", "100%", 200)}}
 
-### Anzeige eines Abschnitts des Hintergrundbildes
+### Einen Ausschnitt des Hintergrundbildes anzeigen
 
 ```html
 <div class="box">Hover over me. What cursor do you see?</div>
@@ -117,11 +117,11 @@ In den Links-nach-Rechts-Listenelementen — die mit `dir="ltr"` auf dem Element
 
 ```css
 .box:hover {
-  cursor: image("sprite.png#xywh=32,64,16,16");
+  cursor: image("sprite.png#xywh=32,64,16,16"), auto;
 }
 ```
 
-Wenn der Benutzer über das Feld fährt, wird der Cursor geändert, um den 16x16 px Abschnitt des Sprite-Bildes anzuzeigen, beginnend bei x=32 und y=64.
+Wenn die nutzende Person den Mauszeiger über das Feld bewegt, ändert sich der Cursor und zeigt den 16 × 16 px großen Ausschnitt des Sprite-Bildes, der bei x=32 und y=64 beginnt.
 
 {{EmbedLiveSample("Displaying_a_section_of_the_background_image", "100%", 100)}}
 
@@ -149,7 +149,7 @@ Wenn der Benutzer über das Feld fährt, wird der Cursor geändert, um den 16x16
 </div>
 ```
 
-Das oben Genannte wird eine halbtransparente schwarze Maske über das Firefox-Logo-Hintergrundbild legen. Hätten wir stattdessen die {{cssxref("background-color")}}-Eigenschaft verwendet, wäre die Farbe hinter dem Logobild erschienen anstelle darüber. Zusätzlich hätte der gesamte Container die gleiche Hintergrundfarbe. Da wir `image()` zusammen mit der {{CSSxRef("background-size")}}-Eigenschaft verwendet haben (und das Wiederholen des Bildes mit der {{CSSxRef("background-repeat")}}-Eigenschaft verhindert haben, wird der Farbmuster nur ein Viertel des Containers abdecken.
+Dadurch wird eine halbtransparente schwarze Maske über das Hintergrundbild mit dem Firefox-Logo gelegt. Hätten wir stattdessen die Eigenschaft {{cssxref("background-color")}} verwendet, würde die Farbe hinter dem Logo und nicht darüber erscheinen. Außerdem hätte der gesamte Container dieselbe Hintergrundfarbe. Da wir `image()` zusammen mit der Eigenschaft {{CSSxRef("background-size")}} verwenden und mit {{CSSxRef("background-repeat")}} verhindern, dass sich das Bild wiederholt, bedeckt die Farbfläche nur ein Viertel des Containers.
 
 {{EmbedLiveSample("Putting_color_on_top_of_a_background_image", "100%", 220)}}
 
@@ -159,7 +159,7 @@ Das oben Genannte wird eine halbtransparente schwarze Maske über das Firefox-Lo
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützen keine Browser dieses Feature.
+Derzeit unterstützt kein Browser diese Funktion.
 
 ## Siehe auch
 
@@ -170,4 +170,4 @@ Derzeit unterstützen keine Browser dieses Feature.
 - {{cssxref("gradient")}}
 - {{CSSxRef("image/image-set", "image-set()")}}
 - {{cssxref("cross-fade()")}}
-- [CSS-Bilder](/de/docs/Web/CSS/Guides/Images) Modul
+- Modul [CSS-Bilder](/de/docs/Web/CSS/Guides/Images)

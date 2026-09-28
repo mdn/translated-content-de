@@ -1,88 +1,88 @@
 ---
-title: Verstehen des WebAssembly-Textformats
+title: Das WebAssembly-Textformat verstehen
 slug: WebAssembly/Guides/Understanding_the_text_format
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
-Um WebAssembly lesbar und editierbar für Menschen zu machen, gibt es eine textuelle Darstellung des Wasm-Binärformats. Dies ist eine Zwischenform, die in Texteditoren, Entwicklerwerkzeugen in Browsern und ähnlichen Umgebungen angezeigt werden soll. Dieser Artikel erklärt, wie das Textformat hinsichtlich seiner Syntax funktioniert und wie es sich auf den zugrunde liegenden Bytecode bezieht, den es darstellt, sowie auf die Wrapper-Objekte, die WebAssembly in JavaScript repräsentieren.
+Damit Menschen WebAssembly lesen und bearbeiten können, gibt es eine textuelle Darstellung des binären Wasm-Formats. Sie ist eine Zwischenform, die für die Anzeige in Texteditoren, Browser-Entwicklertools und ähnlichen Umgebungen gedacht ist. Dieser Artikel erklärt die Syntax des Textformats und seinen Zusammenhang mit dem zugrunde liegenden Bytecode sowie den Wrapper-Objekten, die Wasm in JavaScript repräsentieren.
 
 > [!NOTE]
-> Dies ist möglicherweise übertrieben, wenn Sie ein Webentwickler sind, der ein Wasm-Modul in eine Seite laden und in Ihrem Code verwenden möchte (siehe [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)). Es ist nützlicher, wenn Sie beispielsweise Wasm-Module schreiben möchten, um die Leistung Ihrer JavaScript-Bibliothek zu optimieren oder Ihren eigenen WebAssembly-Compiler zu erstellen.
+> Wenn Sie als Webentwickler lediglich ein Wasm-Modul in eine Seite laden und in Ihrem Code verwenden möchten, benötigen Sie diese Details möglicherweise nicht (siehe [Die WebAssembly-JavaScript-API verwenden](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)). Sie sind eher hilfreich, wenn Sie beispielsweise Wasm-Module schreiben möchten, um die Leistung Ihrer JavaScript-Bibliothek zu optimieren, oder einen eigenen WebAssembly-Compiler entwickeln.
 
 ## S-Ausdrücke
 
-In beiden Formaten, dem binären und dem textuellen, ist die grundlegende Code-Einheit in WebAssembly ein Modul. Im Textformat wird ein Modul als ein großer S-Ausdruck dargestellt. S-Ausdrücke sind ein altes, einfaches Textformat zur Darstellung von Bäumen; wir können daher ein Modul als Baum von Knoten betrachten, die die Struktur des Moduls und seinen Code beschreiben. Im Gegensatz zum abstrakten Syntaxbaum einer Programmiersprache ist der Baum von WebAssembly jedoch ziemlich flach und besteht größtenteils aus Listen von Anweisungen.
+Sowohl im binären als auch im textuellen Format ist ein Modul die grundlegende Codeeinheit von WebAssembly. Im Textformat wird ein Modul als ein großer S-Ausdruck dargestellt. S-Ausdrücke sind ein altes, einfaches Textformat zur Darstellung von Bäumen. Ein Modul lässt sich daher als Baum von Knoten auffassen, die seine Struktur und seinen Code beschreiben. Anders als der abstrakte Syntaxbaum einer Programmiersprache ist der WebAssembly-Baum jedoch recht flach und besteht überwiegend aus Listen von Anweisungen.
 
-Zuerst sehen wir uns an, wie ein S-Ausdruck aussieht. Jeder Knoten im Baum ist in ein Paar von Klammern gesetzt — `( ... )`. Das erste Label innerhalb der Klammern gibt an, welchen Typ von Knoten es ist, und danach folgt eine durch Leerzeichen getrennte Liste von entweder Attributen oder Kindknoten. Das bedeutet, der WebAssembly-S-Ausdruck:
+Sehen wir uns zunächst an, wie ein S-Ausdruck aussieht. Jeder Knoten des Baums steht in einem Klammerpaar — `( ... )`. Die erste Bezeichnung innerhalb der Klammern gibt den Knotentyp an. Darauf folgt eine durch Leerzeichen getrennte Liste von Attributen oder untergeordneten Knoten. Der WebAssembly-S-Ausdruck
 
 ```wat
 (module (memory 1) (func))
 ```
 
-repräsentiert einen Baum mit dem Wurzelknoten "module" und zwei Kindknoten, einem "memory"-Knoten mit dem Attribut "1" und einem "func"-Knoten. Wir werden gleich sehen, was diese Knoten tatsächlich bedeuten.
+stellt also einen Baum mit dem Wurzelknoten „module“ und zwei untergeordneten Knoten dar: einem „memory“-Knoten mit dem Attribut „1“ und einem „func“-Knoten. Was diese Knoten bedeuten, sehen wir gleich.
 
 ### Das einfachste Modul
 
-Beginnen wir mit dem einfachsten, kürzesten möglichen Wasm-Modul.
+Beginnen wir mit dem kürzestmöglichen Wasm-Modul.
 
 ```wat
 (module)
 ```
 
-Dieses Modul ist leer, aber es ist immer noch ein gültiges Modul.
+Dieses Modul ist leer, aber dennoch gültig.
 
-Wenn wir unser Modul jetzt in Binärcode umwandeln (siehe [Konvertierung des WebAssembly-Textformats zu Wasm](/de/docs/WebAssembly/Guides/Text_format_to_Wasm)), sehen wir nur den 8-Byte-Modulheader, der im [Binärformat](https://webassembly.github.io/spec/core/binary/modules.html#binary-module) beschrieben wird:
+Wenn wir das Modul nun in das Binärformat umwandeln (siehe [WebAssembly-Textformat in Wasm umwandeln](/de/docs/WebAssembly/Guides/Text_format_to_Wasm)), sehen wir lediglich den 8 Byte großen Modul-Header, der im [Binärformat](https://webassembly.github.io/spec/core/binary/modules.html#binary-module) beschrieben ist:
 
 ```plain
 0000000: 0061 736d              ; WASM_BINARY_MAGIC
 0000004: 0100 0000              ; WASM_BINARY_VERSION
 ```
 
-### Hinzufügen von Funktionalität zu Ihrem Modul
+### Ihrem Modul Funktionalität hinzufügen
 
-Okay, das ist nicht sehr interessant, fügen wir diesem Modul etwas ausführbaren Code hinzu.
+Das ist noch nicht besonders interessant. Fügen wir dem Modul ausführbaren Code hinzu.
 
-Jeder Code in einem WebAssembly-Modul ist in Funktionen gruppiert, die folgende Pseudocode-Struktur haben:
+Der gesamte Code eines WebAssembly-Moduls ist in Funktionen gruppiert, die folgende Pseudocode-Struktur haben:
 
 ```wat
 ( func <signature> <locals> <body> )
 ```
 
-- Die **Signatur** gibt an, was die Funktion aufnimmt (Parameter) und zurückgibt (Rückgabewerte).
-- Die **Locals** sind wie Variablen in JavaScript, aber mit explizit deklarierten Typen.
-- Der **Körper** ist nur eine lineare Liste von niedrigen Anweisungen.
+- Die **Signatur** legt fest, welche Eingaben die Funktion annimmt (Parameter) und welche Ausgaben sie liefert (Rückgabewerte).
+- Die **lokalen Variablen** ähneln Variablen in JavaScript, ihre Typen werden jedoch ausdrücklich deklariert.
+- Der **Funktionskörper** ist eine lineare Liste von Low-Level-Anweisungen.
 
-Dies ist ähnlich wie Funktionen in anderen Sprachen, obwohl es etwas anders aussieht.
+Das ähnelt Funktionen in anderen Sprachen, auch wenn es etwas anders aussieht.
 
 ## Signaturen und Parameter
 
-Die Signatur ist eine Folge von Parameterdeklarationen nach Typ, gefolgt von einer Liste von Rückgabedeklarationen nach Typ. Es ist hier wichtig zu beachten, dass:
+Die Signatur besteht aus einer Folge von Parametertyp-Deklarationen und anschließenden Rückgabetyp-Deklarationen. Dabei ist Folgendes zu beachten:
 
-- Das Fehlen von `(result)` bedeutet, dass die Funktion nichts zurückgibt.
-- In der aktuellen Iteration kann es maximal 1 Rückgabetyp geben, aber [später wird dies gelockert](https://github.com/WebAssembly/spec/blob/main/proposals/multi-value/Overview.md) zu einer beliebigen Anzahl.
+- Fehlt ein `(result)`, gibt die Funktion nichts zurück.
+- In der hier beschriebenen Version kann es höchstens einen Rückgabetyp geben. [Künftig soll diese Beschränkung entfallen](https://github.com/WebAssembly/spec/blob/main/proposals/multi-value/Overview.md).
 
-Jeder Parameter hat einen explizit deklarierten Typ; Wasm [Zahlentypen](#zahlentypen), [Referenztypen](#referenztypen), [Vektortypen](#vektortypen).
+Der Typ jedes Parameters wird ausdrücklich deklariert. Wasm kennt [Zahlentypen](#zahlentypen), [Referenztypen](#referenztypen) und [Vektortypen](#vektortypen).
 Die Zahlentypen sind:
 
-- `i32`: 32-Bit Integer
-- `i64`: 64-Bit Integer
-- `f32`: 32-Bit Fließkommazahl
-- `f64`: 64-Bit Fließkommazahl
+- `i32`: 32-Bit-Ganzzahl
+- `i64`: 64-Bit-Ganzzahl
+- `f32`: 32-Bit-Gleitkommazahl
+- `f64`: 64-Bit-Gleitkommazahl
 
-Ein einzelner Parameter wird als `(param i32)` geschrieben und der Rückgabewert als `(result i32)`, daher würde eine binäre Funktion, die zwei 32-Bit Integer übernimmt und eine 64-Bit Fließkommazahl zurückgibt, wie folgt geschrieben werden:
+Ein einzelner Parameter wird als `(param i32)` und ein Rückgabetyp als `(result i32)` geschrieben. Eine binäre Funktion, die zwei 32-Bit-Ganzzahlen annimmt und eine 64-Bit-Gleitkommazahl zurückgibt, sähe also so aus:
 
 ```wat
 (func (param i32) (param i32) (result f64) ...)
 ```
 
-Nach der Signatur werden die Locals mit ihrem Typ aufgelistet, zum Beispiel `(local i32)`. Parameter sind im Wesentlichen nur Locals, die mit dem Wert des entsprechenden, vom Aufrufer übergebenen Arguments initialisiert werden.
+Nach der Signatur werden die lokalen Variablen mit ihrem Typ aufgeführt, beispielsweise `(local i32)`. Parameter sind im Grunde lokale Variablen, die mit dem Wert des entsprechenden Arguments initialisiert werden, das der Aufrufer übergibt.
 
-## Lesen und Setzen von Locals und Parametern
+## Lokale Variablen und Parameter lesen und setzen
 
-Locals/Parameter können vom Körper der Funktion mit den Anweisungen `local.get` und `local.set` gelesen und geschrieben werden.
+Der Funktionskörper kann lokale Variablen und Parameter mit den Anweisungen `local.get` und `local.set` lesen und setzen.
 
-Die `local.get`/`local.set` Befehle beziehen sich auf das Element, das geholt/gesetzt werden soll, durch seinen numerischen Index: Parameter werden zuerst in der Reihenfolge ihrer Deklaration angesprochen, gefolgt von den Locals in der Reihenfolge ihrer Deklaration. Beispielsweise gibt die folgende Funktion:
+Die Befehle `local.get` und `local.set` bezeichnen den betreffenden Eintrag über seinen numerischen Index: Zuerst kommen die Parameter in der Reihenfolge ihrer Deklaration, danach die lokalen Variablen in der Reihenfolge ihrer Deklaration. Gegeben sei folgende Funktion:
 
 ```wat
 (func (param i32) (param f32) (local f64)
@@ -92,25 +92,25 @@ Die `local.get`/`local.set` Befehle beziehen sich auf das Element, das geholt/ge
 )
 ```
 
-Die Anweisung `local.get 0` würde den i32-Parameter holen, `local.get 1` würde den f32-Parameter holen und `local.get 2` würde den f64-Local holen.
+Die Anweisung `local.get 0` würde den i32-Parameter lesen, `local.get 1` den f32-Parameter und `local.get 2` die lokale f64-Variable.
 
-Hier gibt es ein weiteres Problem – die Verwendung von numerischen Indizes zur Referenzierung von Elementen kann verwirrend und lästig sein. Um dies zu mindern, können Sie Parameter, Locals und die meisten anderen Elemente benennen, indem Sie der Typdeklaration einen mit einem Dollarzeichen (`$`) versehenen Namen hinzufügen.
+Numerische Indizes zur Bezeichnung von Einträgen können allerdings verwirrend und umständlich sein. Deshalb können Sie Parameter, lokale Variablen und die meisten anderen Einträge benennen, indem Sie unmittelbar vor der Typdeklaration einen Namen mit vorangestelltem Dollarzeichen (`$`) angeben.
 
-So könnten Sie unsere vorherige Signatur so umschreiben:
+Unsere vorherige Signatur ließe sich also so umschreiben:
 
 ```wat
 (func (param $p1 i32) (param $p2 f32) (local $loc f64) …)
 ```
 
-Und dann könnten Sie `local.get $p1` anstelle von `local.get 0` schreiben, usw. (Beachten Sie, dass wenn dieser Text in Binärcode umgewandelt wird, die Binärdatei nur die Integer enthalten wird.)
+Anschließend könnten Sie `local.get $p1` statt `local.get 0` schreiben und so weiter. (Bei der Umwandlung dieses Textes in das Binärformat enthält dieses allerdings nur die Ganzzahl.)
 
-## Stapelmaschinen
+## Stackmaschinen
 
-Bevor wir einen Funktionskörper schreiben, gibt es noch ein wichtiges Konzept zu besprechen: **Stapelmaschinen**. Obwohl der Browser es in etwas Effizienteres kompiliert, wird die Ausführung von Wasm im Begriff einer Stapelmaschine definiert, bei der die grundlegende Idee ist, dass jede Art von Anweisung eine bestimmte Anzahl von `i32`/`i64`/`f32`/`f64` Werten auf einen Stapel drückt und/oder von diesem holt.
+Bevor wir einen Funktionskörper schreiben, müssen wir noch ein wichtiges Konzept besprechen: **Stackmaschinen**. Obwohl der Browser Wasm in eine effizientere Form kompiliert, wird seine Ausführung anhand einer Stackmaschine definiert. Die Grundidee ist, dass jede Art von Anweisung eine bestimmte Anzahl von `i32`-, `i64`-, `f32`- oder `f64`-Werten auf einen Stack legt und/oder von ihm entfernt.
 
-Zum Beispiel wird `local.get` definiert, um den Wert des gelesenen Locals auf den Stapel zu schieben, und `i32.add` holt zwei `i32` Werte (es greift implizit auf die vorherigen zwei auf den Stapel geschobenen Werte zu), berechnet ihre Summe (modulo 2^32) und schiebt den resultierenden i32 Wert.
+Beispielsweise legt `local.get` den Wert der gelesenen lokalen Variable auf den Stack. `i32.add` entfernt zwei `i32`-Werte vom Stack (es verwendet implizit die beiden zuletzt darauf abgelegten Werte), berechnet ihre Summe (modulo 2^32) und legt den resultierenden i32-Wert auf den Stack.
 
-Wenn eine Funktion aufgerufen wird, beginnt sie mit einem leeren Stapel, der nach und nach gefüllt und geleert wird, während die Anweisungen des Körpers ausgeführt werden. So enthält zum Beispiel nach der Ausführung der folgenden Funktion:
+Beim Aufruf einer Funktion ist der Stack zunächst leer. Während die Anweisungen des Funktionskörpers ausgeführt werden, wird er nach und nach gefüllt und wieder geleert. Nach der Ausführung der folgenden Funktion beispielsweise:
 
 ```wat
 (func (param $p i32)
@@ -121,13 +121,13 @@ Wenn eine Funktion aufgerufen wird, beginnt sie mit einem leeren Stapel, der nac
 )
 ```
 
-der Stapel genau einen `i32` Wert – das Ergebnis des Ausdrucks (`$p + $p`), welches durch `i32.add` behandelt wird. Der Rückgabewert einer Funktion ist einfach der letzte Wert, der auf dem Stapel verbleibt.
+enthält der Stack genau einen `i32`-Wert: das Ergebnis des Ausdrucks (`$p + $p`), den `i32.add` verarbeitet. Der Rückgabewert einer Funktion ist einfach der letzte Wert, der auf dem Stack verbleibt.
 
-Die WebAssembly-Validierungsregeln stellen sicher, dass der Stapel genau übereinstimmt: Wenn Sie einen `(result f32)` erklären, dann muss der Stapel am Ende genau ein `f32` enthalten. Wenn es keinen Ergebnis-Typ gibt, muss der Stapel leer sein.
+Die Validierungsregeln von WebAssembly stellen sicher, dass der Stack genau zur Deklaration passt: Wenn Sie `(result f32)` deklarieren, muss der Stack am Ende genau einen `f32`-Wert enthalten. Ist kein Rückgabetyp angegeben, muss der Stack leer sein.
 
 ## Unser erster Funktionskörper
 
-Der Funktionskörper ist eine Liste von Anweisungen, die ausgeführt werden, wenn die Funktion aufgerufen wird. In Kombination mit dem, was wir bereits gelernt haben, können wir schließlich ein Modul definieren, das unsere eigene grundlegende Funktion enthält:
+Der Funktionskörper ist eine Liste von Anweisungen, die beim Aufruf der Funktion ausgeführt werden. Mit dem bisher Gelernten können wir nun endlich ein Modul mit einer eigenen einfachen Funktion definieren:
 
 ```wat
 (module
@@ -139,29 +139,29 @@ Der Funktionskörper ist eine Liste von Anweisungen, die ausgeführt werden, wen
 )
 ```
 
-Diese Funktion nimmt zwei Parameter auf, addiert sie und gibt das Ergebnis zurück.
+Diese Funktion nimmt zwei Parameter entgegen, addiert sie und gibt das Ergebnis zurück.
 
-Mehr Dinge können in Funktionskörper gesetzt werden, aber wir werden vorerst mit einer grundlegenden Funktion beginnen. Sie werden im Verlauf auf mehrere weitere Beispiele stoßen. Eine vollständige Liste der verfügbaren Opcodes finden Sie in der [webassembly.org Semantics reference](https://webassembly.github.io/spec/core/exec/index.html).
+Funktionskörper können noch weitere Dinge enthalten; vorerst beginnen wir jedoch mit einer einfachen Funktion. Im weiteren Verlauf werden Sie weitere Beispiele sehen. Eine vollständige Liste der verfügbaren Opcodes finden Sie in der [Semantik-Referenz von webassembly.org](https://webassembly.github.io/spec/core/exec/index.html).
 
 ### Die Funktion aufrufen
 
-Unsere Funktion wird allein nicht viel tun – jetzt müssen wir sie aufrufen. Wie machen wir das? Wie in einem ES-Modul müssen Wasm-Funktionen explizit durch eine `export`-Anweisung innerhalb des Moduls exportiert werden.
+Allein kann unsere Funktion noch nicht viel bewirken — wir müssen sie aufrufen. Wie geht das? Wie bei einem ES-Modul müssen Wasm-Funktionen durch eine `export`-Anweisung innerhalb des Moduls ausdrücklich exportiert werden.
 
-Wie Locals werden Funktionen standardmäßig durch einen Index identifiziert, aber aus Bequemlichkeitsgründen können sie benannt werden. Fangen wir damit an – zuerst fügen wir einen Namen, dem ein Dollarzeichen vorausgeht, direkt nach dem `func`-Schlüsselwort hinzu:
+Wie lokale Variablen werden Funktionen standardmäßig über einen Index identifiziert, können aber der Einfachheit halber benannt werden. Beginnen wir damit: Direkt nach dem Schlüsselwort `func` fügen wir einen Namen mit vorangestelltem Dollarzeichen hinzu:
 
 ```wat
 (func $add …)
 ```
 
-Nun müssen wir eine Exporterklärung hinzufügen – dies sieht folgendermaßen aus:
+Nun brauchen wir eine Exportdeklaration. Sie sieht so aus:
 
 ```wat
 (export "add" (func $add))
 ```
 
-Hier ist `add` der Name, unter dem die Funktion in JavaScript identifiziert wird, wohingegen `$add` auswählt, welche WebAssembly-Funktion innerhalb des Moduls exportiert wird.
+Hier ist `add` der Name, unter dem die Funktion in JavaScript verfügbar ist. `$add` bezeichnet dagegen die WebAssembly-Funktion innerhalb des Moduls, die exportiert wird.
 
-Unser endgültiges Modul sieht (vorerst) so aus:
+Unser fertiges Modul sieht damit vorerst so aus:
 
 ```wat
 (module
@@ -174,9 +174,9 @@ Unser endgültiges Modul sieht (vorerst) so aus:
 )
 ```
 
-Wenn Sie dem Beispiel folgen möchten, speichern Sie das obige Modul in einer Datei namens `add.wat` und konvertieren Sie es dann mit wabt in eine Binärdatei namens `add.wasm` (siehe [Konvertierung des WebAssembly-Textformats zu Wasm](/de/docs/WebAssembly/Guides/Text_format_to_Wasm) für Details).
+Wenn Sie das Beispiel nachvollziehen möchten, speichern Sie das obige Modul in einer Datei namens `add.wat` und wandeln Sie diese mit wabt in eine Binärdatei namens `add.wasm` um (Einzelheiten finden Sie unter [WebAssembly-Textformat in Wasm umwandeln](/de/docs/WebAssembly/Guides/Text_format_to_Wasm)).
 
-Als Nächstes instanziieren wir unser Binärdatei asynchron (siehe [Laden und Ausführen von WebAssembly-Code](/de/docs/WebAssembly/Guides/Loading_and_running)) und führen unsere `add`-Funktion in JavaScript aus (wir können jetzt `add()` in der [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Eigenschaft der Instanz finden):
+Als Nächstes instanziieren wir die Binärdatei asynchron (siehe [WebAssembly-Code laden und ausführen](/de/docs/WebAssembly/Guides/Loading_and_running)) und führen unsere Funktion `add` in JavaScript aus. `add()` ist nun über die Eigenschaft [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) der Instanz zugänglich:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("add.wasm")).then((obj) => {
@@ -185,15 +185,15 @@ WebAssembly.instantiateStreaming(fetch("add.wasm")).then((obj) => {
 ```
 
 > [!NOTE]
-> Sie finden dieses Beispiel in GitHub als [add.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/add.html) ([sehen Sie es sich auch live an](https://mdn.github.io/webassembly-examples/understanding-text-format/add.html)). Siehe auch [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) für weitere Details über die Instanziierfunktion.
+> Dieses Beispiel finden Sie auf GitHub als [add.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/add.html) ([auch live ansehen](https://mdn.github.io/webassembly-examples/understanding-text-format/add.html)). Weitere Informationen zur Instanziierungsfunktion finden Sie unter [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static).
 
-## Grundlagen erkunden
+## Grundlagen vertiefen
 
-Nachdem wir die Grundlagen behandelt haben, lassen Sie uns einige fortgeschrittenere Funktionen betrachten.
+Nachdem wir die Grundlagen behandelt haben, sehen wir uns einige fortgeschrittenere Funktionen an.
 
-### Aufrufen von Funktionen aus anderen Funktionen im selben Modul
+### Funktionen aus anderen Funktionen desselben Moduls aufrufen
 
-Die `call`-Anweisung ruft eine einzelne Funktion auf, die durch ihren Index oder Namen angegeben wird. Zum Beispiel enthält das folgende Modul zwei Funktionen – eine gibt den Wert `42` zurück, die andere gibt das Ergebnis des Aufrufs der ersten Funktion plus eins zurück:
+Die Anweisung `call` ruft eine einzelne Funktion anhand ihres Index oder Namens auf. Das folgende Modul enthält beispielsweise zwei Funktionen: Eine gibt den Wert `42` zurück, die andere das Ergebnis des Aufrufs der ersten Funktion plus eins:
 
 ```wat
 (module
@@ -209,17 +209,17 @@ Die `call`-Anweisung ruft eine einzelne Funktion auf, die durch ihren Index oder
 ```
 
 > [!NOTE]
-> `i32.const` definiert eine 32-Bit-Integer und schiebt sie auf den Stapel. Sie können das `i32` durch jeden der anderen verfügbaren Typen austauschen und den Wert des Constants nach Belieben ändern (hier haben wir den Wert auf `42` gesetzt).
+> `i32.const` definiert eine 32-Bit-Ganzzahl und legt sie auf den Stack. Sie können `i32` durch einen anderen verfügbaren Typ ersetzen und den Wert der Konstante nach Belieben ändern (hier haben wir ihn auf `42` gesetzt).
 
-In diesem Beispiel werden Sie einen `(export "getAnswerPlus1")`-Abschnitt bemerken, der direkt nach der `func`-Anweisung in der zweiten Funktion deklariert ist – dies ist eine abgekürzte Möglichkeit, zu erklären, dass wir diese Funktion exportieren möchten, und dabei den Namen zu definieren, unter dem wir sie exportieren möchten.
+In diesem Beispiel sehen Sie unmittelbar nach der `func`-Anweisung der zweiten Funktion einen Abschnitt `(export "getAnswerPlus1")`. Dies ist eine Kurzform, um die Funktion zu exportieren und gleichzeitig den Namen festzulegen, unter dem sie exportiert wird.
 
-Dies ist funktional äquivalent zu dem Einfügen einer separaten Funktionsanweisung außerhalb der Funktion, anderswo im Modul, in der selben Weise, wie wir es zuvor getan haben, z.B.:
+Funktional entspricht dies einer separaten Exportdeklaration außerhalb der Funktion an anderer Stelle im Modul, wie wir sie zuvor verwendet haben, beispielsweise:
 
 ```wat
 (export "getAnswerPlus1" (func $functionName))
 ```
 
-Der JavaScript-Code, um unser obiges Modul aufzurufen, sieht so aus:
+Der JavaScript-Code zum Aufruf unseres Moduls sieht so aus:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("call.wasm")).then((obj) => {
@@ -227,9 +227,9 @@ WebAssembly.instantiateStreaming(fetch("call.wasm")).then((obj) => {
 });
 ```
 
-### Importieren von Funktionen aus JavaScript
+### Funktionen aus JavaScript importieren
 
-Wir haben bereits gesehen, wie JavaScript WebAssembly-Funktionen aufruft, aber was ist mit dem Aufruf von JavaScript-Funktionen durch WebAssembly? WebAssembly hat kein eingebautes Wissen über JavaScript, aber es verfügt über eine allgemeine Möglichkeit, Funktionen zu importieren, die entweder JavaScript- oder Wasm-Funktionen akzeptieren können. Schauen wir uns ein Beispiel an:
+Wir haben bereits gesehen, wie JavaScript WebAssembly-Funktionen aufruft. Aber wie ruft WebAssembly JavaScript-Funktionen auf? WebAssembly hat keine integrierten Kenntnisse über JavaScript, bietet aber einen allgemeinen Mechanismus zum Importieren von Funktionen, der sowohl JavaScript- als auch Wasm-Funktionen unterstützt. Sehen wir uns ein Beispiel an:
 
 ```wat
 (module
@@ -241,15 +241,15 @@ Wir haben bereits gesehen, wie JavaScript WebAssembly-Funktionen aufruft, aber w
 )
 ```
 
-WebAssembly hat einen zweistufigen Namensraum, daher importiert die Importanweisung hier die `log`-Funktion aus dem `console`-Modul. Sie können auch sehen, dass die exportierte `logIt`-Funktion die importierte Funktion mithilfe der oben eingeführten `call`-Anweisung aufruft.
+WebAssembly verwendet einen zweistufigen Namensraum. Die Importanweisung importiert hier also die Funktion `log` aus dem Modul `console`. Außerdem sehen Sie, dass die exportierte Funktion `logIt` die importierte Funktion mithilfe der zuvor vorgestellten Anweisung `call` aufruft.
 
-Importierte Funktionen sind wie normale Funktionen: Sie haben eine Signatur, die von der WebAssembly-Validierung statisch geprüft wird, sie erhalten einen Index und können benannt und aufgerufen werden.
+Importierte Funktionen verhalten sich wie normale Funktionen: Sie haben eine Signatur, die bei der WebAssembly-Validierung statisch geprüft wird, erhalten einen Index und können benannt und aufgerufen werden.
 
-JavaScript-Funktionen haben keine Vorstellung von einer Signatur, daher kann jede JavaScript-Funktion übergeben werden, unabhängig von der deklarierten Signatur des Imports. Sobald ein Modul einen Import erklärt, muss der Aufrufer von [`WebAssembly.instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) ein Importobjekt übergeben, das die entsprechenden Eigenschaften hat.
+JavaScript-Funktionen haben kein Konzept einer Signatur. Daher kann jede JavaScript-Funktion übergeben werden, unabhängig von der deklarierten Signatur des Imports. Sobald ein Modul einen Import deklariert, muss der Aufrufer von [`WebAssembly.instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) ein Importobjekt mit den entsprechenden Eigenschaften übergeben.
 
-Der obige Import erfordert ein Objekt (nennen wir es `importObject`), sodass `importObject.console.log` eine JavaScript-Funktion ist.
+Der obige Import erfordert ein Objekt — nennen wir es `importObject` — bei dem `importObject.console.log` eine JavaScript-Funktion ist.
 
-Dies sähe wie folgt in JavaScript aus:
+In JavaScript sähe das so aus:
 
 ```js
 const importObject = {
@@ -268,13 +268,13 @@ WebAssembly.instantiateStreaming(fetch("logger.wasm"), importObject).then(
 ```
 
 > [!NOTE]
-> Sie finden dieses Beispiel auf GitHub als [logger.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/logger.html) ([sehen Sie es auch live](https://mdn.github.io/webassembly-examples/understanding-text-format/logger.html)).
+> Dieses Beispiel finden Sie auf GitHub als [logger.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/logger.html) ([auch live ansehen](https://mdn.github.io/webassembly-examples/understanding-text-format/logger.html)).
 
-### Deklarieren von Globalen in WebAssembly
+### Globale Variablen in WebAssembly deklarieren
 
-WebAssembly kann globale Variableninstanzen erstellen, die sowohl von JavaScript zugänglich als auch über eine oder mehrere [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Instanzen hinweg importier- bzw. exportierbar sind. Dies ist sehr nützlich, da es die dynamische Verknüpfung mehrerer Module ermöglicht.
+WebAssembly kann Instanzen globaler Variablen erstellen. Sie sind sowohl von JavaScript aus zugänglich als auch über eine oder mehrere [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Instanzen hinweg importier- und exportierbar. Das ist sehr nützlich, weil dadurch mehrere Module dynamisch verknüpft werden können.
 
-Im WebAssembly-Textformat sieht es ungefähr so aus (siehe [global.wat](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/global.wat) in unserem GitHub-Repository; siehe auch [global.html](https://mdn.github.io/webassembly-examples/js-api-examples/global.html) für ein Live-JavaScript-Beispiel):
+Im WebAssembly-Textformat sieht das etwa so aus (siehe [global.wat](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/global.wat) in unserem GitHub-Repository sowie [global.html](https://mdn.github.io/webassembly-examples/js-api-examples/global.html) für ein interaktives JavaScript-Beispiel):
 
 ```wat
 (module
@@ -288,9 +288,9 @@ Im WebAssembly-Textformat sieht es ungefähr so aus (siehe [global.wat](https://
 )
 ```
 
-Dies sieht ähnlich aus wie das, was wir zuvor gesehen haben, mit der Ausnahme, dass wir einen globalen Wert mit dem Schlüsselwort `global` angeben, und wir auch das Schlüsselwort `mut` zusammen mit dem Datentyp des Wertes angeben, wenn wir möchten, dass er veränderbar ist.
+Das ähnelt den bisherigen Beispielen. Allerdings geben wir einen globalen Wert mit dem Schlüsselwort `global` an. Soll der Wert veränderbar sein, geben wir zusätzlich zum Datentyp das Schlüsselwort `mut` an.
 
-Um einen äquivalenten Wert mit JavaScript zu erstellen, würden Sie den [`WebAssembly.Global()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global)-Konstruktor verwenden:
+Um einen entsprechenden Wert in JavaScript zu erstellen, verwenden Sie den Konstruktor [`WebAssembly.Global()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global):
 
 ```js
 const global = new WebAssembly.Global({ value: "i32", mutable: true }, 0);
@@ -298,37 +298,37 @@ const global = new WebAssembly.Global({ value: "i32", mutable: true }, 0);
 
 ### WebAssembly-Speicher
 
-Die obigen Beispiele zeigen, wie man mit Zahlen im Assemblercode arbeitet, sie auf den [Stapel](#stapelmaschinen) legt, Operationen auf ihnen durchführt und das Ergebnis dann durch einen Methodenaufruf in JavaScript protokolliert.
+Die bisherigen Beispiele zeigen, wie Zahlen in Assembly-Code verarbeitet werden: Sie werden auf den [Stack](#stackmaschinen) gelegt, für Berechnungen verwendet, und anschließend wird das Ergebnis durch den Aufruf einer JavaScript-Methode protokolliert.
 
-Zum Arbeiten mit Zeichenfolgen und anderen komplexeren Datentypen verwenden wir `memory`, das entweder in WebAssembly oder JavaScript erstellt und zwischen den Umgebungen geteilt werden kann (neuere Versionen von WebAssembly können auch [Referenztypen](#referenztypen) verwenden).
+Für Zeichenfolgen und andere komplexere Datentypen verwenden wir `memory`. Dieser Speicher kann sowohl in WebAssembly als auch in JavaScript erstellt und zwischen beiden Umgebungen geteilt werden. Neuere WebAssembly-Versionen können außerdem [Referenztypen](#referenztypen) verwenden.
 
-In WebAssembly ist `memory` nur ein großer zusammenhängender, veränderbarer Array von Rohbytes, das im Laufe der Zeit wachsen kann (siehe [lineare Speicher](https://webassembly.github.io/spec/core/intro/overview.html?highlight=linear+memory) in der Spezifikation). WebAssembly enthält [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) wie [`i32.load`](/de/docs/WebAssembly/Reference/Memory/load) und [`i32.store`](/de/docs/WebAssembly/Reference/Memory/store) zum Lesen und Schreiben von Bytes zwischen dem Stapel und einer beliebigen Position in einem Speicher.
+In WebAssembly ist `memory` ein großer, zusammenhängender und veränderbarer Bereich von Rohdaten-Bytes, der mit der Zeit wachsen kann (siehe [linear memory](https://webassembly.github.io/spec/core/intro/overview.html?highlight=linear+memory) in der Spezifikation). WebAssembly bietet [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) wie [`i32.load`](/de/docs/WebAssembly/Reference/Memory/load) und [`i32.store`](/de/docs/WebAssembly/Reference/Memory/store), um Bytes zwischen dem Stack und einer beliebigen Stelle im Speicher zu lesen und zu schreiben.
 
-Aus der Sicht von JavaScript ist es, als würde sich der gesamte Speicher in einem großen, erweiterbaren {{jsxref("ArrayBuffer")}} befinden.
-JavaScript kann WebAssembly-Linearspeicherinstanzen über die [`WebAssembly.Memory()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Schnittstelle erstellen und in eine Speicherinstanz exportieren oder auf eine innerhalb des WebAssembly-Codes erstellte und exportierte Speicherinstanz zugreifen. JavaScript-`Memory`-Instanzen haben einen [`buffer`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/buffer)-Getter, der einen `ArrayBuffer` zurückgibt, der auf den gesamten linearen Speicher zeigt.
+Aus JavaScript-Sicht verhält sich der Speicher so, als läge er in einem einzigen großen, vergrößerbaren {{jsxref("ArrayBuffer")}}.
+JavaScript kann über die Schnittstelle [`WebAssembly.Memory()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) Instanzen linearen WebAssembly-Speichers erstellen und sie an eine Speicherinstanz exportieren. Es kann auch auf eine Speicherinstanz zugreifen, die im WebAssembly-Code erstellt und exportiert wurde. JavaScript-`Memory`-Instanzen besitzen einen [`buffer`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/buffer)-Getter, der einen `ArrayBuffer` zurückgibt, der auf den gesamten linearen Speicher verweist.
 
-Speicherinstanzen können auch wachsen, z. B. über die [`Memory.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/grow)-Methode in JavaScript oder [`memory.grow`](/de/docs/WebAssembly/Reference/Memory/grow) im WebAssembly.
-Da `ArrayBuffer`-Objekte ihre Größe nicht ändern können, wird der aktuelle `ArrayBuffer` getrennt und ein neuer `ArrayBuffer` erstellt, um auf den neueren, größeren Speicher zu verweisen.
+Speicherinstanzen können außerdem wachsen, beispielsweise über die JavaScript-Methode [`Memory.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/grow) oder über [`memory.grow`](/de/docs/WebAssembly/Reference/Memory/grow) in WebAssembly.
+Da sich die Größe von `ArrayBuffer`-Objekten nicht ändern lässt, wird der bisherige `ArrayBuffer` abgekoppelt und ein neuer `ArrayBuffer` erstellt, der auf den größeren Speicher verweist.
 
-Beachten Sie, dass beim Erstellen des Speichers die anfängliche Größe definiert werden muss und Sie optional die maximale Größe angeben können, auf die der Speicher wachsen kann.
-WebAssembly wird versuchen, die maximale Größe (falls angegeben) zu reservieren, und wenn es dazu in der Lage ist, kann es den Puffer in Zukunft effizienter wachsen lassen. Selbst wenn es die maximale Größe jetzt nicht zuweisen kann, kann es später möglicherweise weiter wachsen.
-Die Methode schlägt nur dann fehl, wenn sie die _anfängliche_ Größe nicht zuweisen kann.
+Beim Erstellen des Speichers müssen Sie eine Anfangsgröße festlegen. Optional können Sie auch eine maximale Größe angeben, bis zu der der Speicher wachsen darf.
+WebAssembly versucht, die maximale Größe zu reservieren, sofern sie angegeben wurde. Gelingt dies, kann der Buffer später effizienter wachsen. Selbst wenn die maximale Größe zunächst nicht reserviert werden kann, ist ein späteres Wachstum möglicherweise dennoch möglich.
+Die Methode schlägt nur dann fehl, wenn sie die _Anfangsgröße_ nicht zuweisen kann.
 
 > [!NOTE]
-> Ursprünglich erlaubt WebAssembly nur einen Speicher pro Modulinstanz.
-> Sie können jetzt [mehrere Speicher](#mehrere_speicher) verwenden, wenn sie vom Browser unterstützt werden.
-> Code, der keine mehreren Speicher verwendet, muss nicht geändert werden!
+> Ursprünglich erlaubte WebAssembly nur einen Speicher pro Modulinstanz.
+> Wenn der Browser dies unterstützt, können Sie inzwischen [mehrere Speicher](#mehrere_speicher) verwenden.
+> Code, der nicht mehrere Speicher verwendet, muss nicht geändert werden!
 
-Um einen Teil dieses Verhaltens zu demonstrieren, schauen wir uns den Fall an, in dem wir mit einer Zeichenfolge in unserem WebAssembly-Code arbeiten möchten.
-Eine Zeichenfolge ist einfach eine Folge von Bytes irgendwo in diesem linearen Speicher.
-Angenommen, wir haben eine geeignete Zeichenfolge von Bytes in den WebAssembly-Speicher geschrieben, können wir diese Zeichenfolge an JavaScript übergeben, indem wir den Speicher, den Offset der Zeichenfolge innerhalb des Speichers und eine Angabe über deren Länge teilen.
+Um dieses Verhalten zu veranschaulichen, betrachten wir eine Zeichenfolge, die wir in unserem WebAssembly-Code verarbeiten möchten.
+Eine Zeichenfolge ist lediglich eine Folge von Bytes an einer Stelle im linearen Speicher.
+Angenommen, wir haben eine geeignete Bytefolge in den WebAssembly-Speicher geschrieben. Dann können wir die Zeichenfolge an JavaScript übergeben, indem wir den Speicher, den Offset der Zeichenfolge innerhalb des Speichers und ihre Länge bereitstellen.
 
-Zuerst erstellen wir etwas Speicher und teilen ihn zwischen dem WebAssembly und JavaScript.
-WebAssembly bietet uns hier viel Flexibilität: Wir können entweder ein [`Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekt in JavaScript erstellen und das WebAssembly-Modul den Speicher importieren lassen, oder wir können das WebAssembly-Modul den Speicher erstellen lassen und ihn dann an JavaScript exportieren.
+Zunächst erstellen wir einen Speicher und teilen ihn zwischen WebAssembly und JavaScript.
+WebAssembly bietet dabei viel Flexibilität: Wir können entweder ein [`Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekt in JavaScript erstellen und vom WebAssembly-Modul importieren lassen oder den Speicher im WebAssembly-Modul erstellen und nach JavaScript exportieren.
 
-Für dieses Beispiel erstellen wir den Speicher in JavaScript und importieren ihn dann in WebAssembly.
-Zuerst erstellen wir ein `Memory`-Objekt mit 1 Page und fügen es unserem `importObject` unter dem Schlüssel `js.mem` hinzu.
-Dann instanziieren wir unser WebAssembly-Modul, in diesem Fall "the_wasm_to_import.wasm", mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und übergeben das Importobjekt:
+Für dieses Beispiel erstellen wir den Speicher in JavaScript und importieren ihn anschließend in WebAssembly.
+Zuerst erstellen wir ein `Memory`-Objekt mit einer Seite und fügen es unserem `importObject` unter dem Schlüssel `js.mem` hinzu.
+Anschließend instanziieren wir unser WebAssembly-Modul, hier „the_wasm_to_import.wasm“, mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und übergeben das Importobjekt:
 
 ```js
 const memory = new WebAssembly.Memory({ initial: 1 });
@@ -345,26 +345,26 @@ WebAssembly.instantiateStreaming(
 });
 ```
 
-Innerhalb unserer WebAssembly-Datei importieren wir diesen Speicher. Im WebAssembly-Textformat wird die `import`-Anweisung folgendermaßen geschrieben:
+In unserer WebAssembly-Datei importieren wir diesen Speicher. Im WebAssembly-Textformat wird die `import`-Anweisung wie folgt geschrieben:
 
 ```wat
 (import "js" "mem" (memory 1))
 ```
 
-Der Speicher muss mit dem gleichen zweistufigen Schlüssel importiert werden, wie er im `importObject` angegeben ist (`js.mem`).
-Die `1` gibt an, dass der importierte Speicher mindestens 1 Seite Speicher haben muss (WebAssembly definiert zurzeit eine Seite als 64KB).
+Der Speicher muss mit demselben zweistufigen Schlüssel importiert werden, der im `importObject` angegeben ist (`js.mem`).
+Die `1` gibt an, dass der importierte Speicher mindestens eine Speicherseite umfassen muss (WebAssembly definiert eine Seite derzeit als 64 KB).
 
 > [!NOTE]
-> Da dies der erste in das WebAssembly-Modul importierte Speicher ist, hat es einen Speicherindex von `0`.
-> Sie könnten diesen speziellen Speicher durch den Index in [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) referenzieren, aber da `0` der Standardindex ist, müssen Sie das in Single-Memory-Anwendungen nicht tun.
+> Da dies der erste in das WebAssembly-Modul importierte Speicher ist, hat er den Speicherindex `0`.
+> Sie könnten diesen Speicher über seinen Index in [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) referenzieren. Da `0` jedoch der Standardindex ist, ist dies in Anwendungen mit nur einem Speicher nicht nötig.
 
-Jetzt, da wir eine geteilte Speicherinstanz haben, ist der nächste Schritt, eine Zeichenfolge von Daten darin zu schreiben.
-Wir übergeben dann Informationen darüber, wo sich die Zeichenfolge befindet und ihre Länge an JavaScript (wir könnten alternativ die Länge der Zeichenfolge in der Zeichenfolge selbst codieren, aber das Übergeben einer Länge ist für uns einfacher zu implementieren).
+Da wir nun eine gemeinsame Speicherinstanz haben, schreiben wir als Nächstes eine Zeichenfolge hinein.
+Anschließend übergeben wir JavaScript Informationen über die Position und Länge der Zeichenfolge. Alternativ könnten wir ihre Länge in der Zeichenfolge selbst kodieren, aber die Übergabe der Länge ist einfacher umzusetzen.
 
-Zuerst fügen wir eine Zeichenfolge von Daten in unseren Speicher ein, in diesem Fall "Hi".
-Da wir den gesamten linearen Speicher besitzen, können wir einfach die Zeichenfolgeninhalte in den globalen Speicher mit einem `data`-Abschnitt schreiben.
-Datenabschnitte erlauben das Schreiben einer Bytefolge an einen bestimmten Offset zur Instanziationszeit und sind ähnlich den `.data`-Abschnitten in nativen Ausführungsformaten.
-Hier schreiben wir die Daten in den Standardspeicher (den wir nicht angeben müssen) am Offset 0:
+Zuerst fügen wir unserem Speicher eine Zeichenfolge hinzu, in diesem Fall „Hi“.
+Da uns der gesamte lineare Speicher zur Verfügung steht, können wir den Inhalt der Zeichenfolge mit einem `data`-Abschnitt direkt in den globalen Speicher schreiben.
+Mit `data`-Abschnitten lässt sich beim Instanziieren eine Bytefolge an einem bestimmten Offset schreiben. Sie ähneln den `.data`-Abschnitten nativer ausführbarer Formate.
+Hier schreiben wir die Daten bei Offset 0 in den Standardspeicher, den wir nicht ausdrücklich angeben müssen:
 
 ```wat
 (module
@@ -376,18 +376,18 @@ Hier schreiben wir die Daten in den Standardspeicher (den wir nicht angeben müs
 ```
 
 > [!NOTE]
-> Die doppelte Semikolonsyntax (`;;`) oben wird verwendet, um Kommentare in WebAssembly-Dateien anzuzeigen.
-> In diesem Fall verwenden wir sie nur, um Platzhalter für anderen Code anzuzeigen.
+> Die Syntax mit doppeltem Semikolon (`;;`) kennzeichnet Kommentare in WebAssembly-Dateien.
+> Hier verwenden wir sie lediglich als Platzhalter für weiteren Code.
 
 Um diese Daten mit JavaScript zu teilen, definieren wir zwei Funktionen.
-Zuerst importieren wir eine Funktion aus JavaScript, die wir verwenden, um die Zeichenfolge in der Konsole zu protokollieren.
-Dies muss in das `importObject`, das zur Instanziierung des WebAssembly-Moduls verwendet wird, zu `console.log` abgebildet werden.
-Die Funktion wird im WebAssembly mit `$log` benannt und akzeptiert `i32` Parameter für den Zeichenfolgenoffset und die Länge im Speicher.
+Zuerst importieren wir eine Funktion aus JavaScript, mit der wir die Zeichenfolge in der Konsole ausgeben.
+Sie muss im `importObject`, das zur Instanziierung des WebAssembly-Moduls verwendet wird, `console.log` zugeordnet sein.
+Die Funktion heißt in WebAssembly `$log` und nimmt `i32`-Parameter für den Offset und die Länge der Zeichenfolge im Speicher entgegen.
 
-Die zweite WebAssembly-Funktion, `writeHi()`, ruft die importierte `$log`-Funktion mit dem Offset und der Länge der Zeichenfolge im Speicher (`0` und `2`) auf.
-Diese wird aus dem Modul exportiert, sodass sie von JavaScript aufgerufen werden kann.
+Die zweite WebAssembly-Funktion, `writeHi()`, ruft die importierte Funktion `$log` mit dem Offset und der Länge der Zeichenfolge im Speicher auf (`0` und `2`).
+Sie wird aus dem Modul exportiert, damit JavaScript sie aufrufen kann.
 
-Unser finales WebAssembly-Modul (im Textformat) sieht so aus.
+Unser vollständiges WebAssembly-Modul sieht im Textformat so aus:
 
 ```wat
 (module
@@ -402,8 +402,8 @@ Unser finales WebAssembly-Modul (im Textformat) sieht so aus.
 )
 ```
 
-Auf der JavaScript-Seite müssen wir die Protokollierungsfunktion definieren, sie an WebAssembly übergeben und dann die exportierte `writeHi()`-Methode aufrufen.
-Der vollständige Code wird unten gezeigt:
+Auf der JavaScript-Seite müssen wir die Funktion zur Konsolenausgabe definieren, sie an WebAssembly übergeben und anschließend die exportierte Methode `writeHi()` aufrufen.
+Der vollständige Code ist unten dargestellt:
 
 ```js
 const memory = new WebAssembly.Memory({ initial: 1 });
@@ -428,34 +428,34 @@ WebAssembly.instantiateStreaming(fetch("logger2.wasm"), importObject).then(
 );
 ```
 
-Beachten Sie, dass die Protokollierungsfunktion `consoleLogString()` über die Eigenschaft `console.log` an das `importObject` übergeben und vom WebAssembly-Modul importiert wird.
-Die Funktion erstellt eine Ansicht auf die Zeichenfolge im geteilten Speicher unter Verwendung eines `Uint8Array` bei dem übergebenen Offset und mit der gegebenen Länge.
-Die Bytes werden dann mit der [TextDecoder API](/de/docs/Web/API/TextDecoder) von UTF-8 in eine Zeichenfolge dekodiert (wir geben `utf8` hier an, aber viele andere Kodierungen werden unterstützt).
-Die Zeichenfolge wird dann mit `console.log()` in der Konsole protokolliert.
+Beachten Sie, dass die Funktion `consoleLogString()` dem `importObject` über die Eigenschaft `console.log` übergeben und vom WebAssembly-Modul importiert wird.
+Die Funktion erstellt mit einem `Uint8Array` eine Ansicht auf die Zeichenfolge im gemeinsamen Speicher, beginnend beim übergebenen Offset und mit der angegebenen Länge.
+Die Bytes werden anschließend mithilfe der [TextDecoder-API](/de/docs/Web/API/TextDecoder) aus UTF-8 zu einer Zeichenfolge dekodiert. Hier geben wir `utf8` an, es werden aber auch viele andere Kodierungen unterstützt.
+Anschließend wird die Zeichenfolge mit `console.log()` in der Konsole ausgegeben.
 
-Der letzte Schritt ist das Aufrufen der exportierten `writeHi()`-Funktion, was nach der Instanziierung des Objekts erfolgt.
-Wenn Sie den Code ausführen, zeigt die Konsole den Text "Hi" an.
+Zuletzt rufen wir die exportierte Funktion `writeHi()` auf, nachdem das Objekt instanziiert wurde.
+Wenn Sie den Code ausführen, erscheint in der Konsole der Text „Hi“.
 
 > [!NOTE]
-> Sie finden den vollständigen Quellcode auf GitHub als [logger2.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/logger2.html) ([sehen Sie es auch live](https://mdn.github.io/webassembly-examples/understanding-text-format/logger2.html)).
+> Den vollständigen Quellcode finden Sie auf GitHub als [logger2.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/logger2.html) ([auch live ansehen](https://mdn.github.io/webassembly-examples/understanding-text-format/logger2.html)).
 
 #### Mehrere Speicher
 
-Neuere Implementierungen ermöglichen es Ihnen, mehrere Speicherobjekte in Ihrem WebAssembly und JavaScript zu verwenden, auf eine Weise, die mit Code kompatibel ist, der für Implementierungen geschrieben wurde, die nur einen einzelnen Speicher unterstützen.
-Mehrere Speicher können nützlich sein, um Daten zu trennen, die unterschiedlich behandelt werden sollten als andere Anwendungsdaten, wie z.B. öffentliche vs. private Daten, Daten, die gespeichert werden müssen, und Daten, die zwischen Threads geteilt werden müssen.
-Es kann auch für sehr große Anwendungen nützlich sein, die über den 32-Bit-Adressraum von Wasm hinaus skalieren müssen, und für andere Zwecke.
+Neuere Implementierungen ermöglichen die Verwendung mehrerer Speicherobjekte in WebAssembly und JavaScript. Dies ist mit Code kompatibel, der für Implementierungen mit nur einem Speicher geschrieben wurde.
+Mehrere Speicher können hilfreich sein, um Daten zu trennen, die anders behandelt werden sollen als übrige Anwendungsdaten — beispielsweise öffentliche und private Daten, dauerhaft zu speichernde Daten oder Daten, die zwischen Threads geteilt werden müssen.
+Sie können auch für sehr große Anwendungen nützlich sein, die über den 32-Bit-Adressraum von Wasm hinauswachsen müssen, sowie für weitere Zwecke.
 
-Speicher, die dem WebAssembly-Code zur Verfügung gestellt werden, entweder direkt deklariert oder importiert, erhalten eine nullbasierte, sequentiell zugewiesene Speicherindexnummer. Alle [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory), wie [`load`](/de/docs/WebAssembly/Reference/Memory/load) oder [`store`](/de/docs/WebAssembly/Reference/Memory/store), können auf einen bestimmten Speicher über seinen Index verweisen, sodass Sie kontrollieren können, mit welchem Speicher Sie arbeiten.
+Speicher, die WebAssembly-Code zur Verfügung stehen — unabhängig davon, ob sie direkt deklariert oder importiert wurden — erhalten fortlaufend vergebene Speicherindizes, beginnend bei null. Alle [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory), etwa [`load`](/de/docs/WebAssembly/Reference/Memory/load) oder [`store`](/de/docs/WebAssembly/Reference/Memory/store), können einen bestimmten Speicher über seinen Index referenzieren. So können Sie steuern, mit welchem Speicher Sie arbeiten.
 
-Die Speicheranweisungen haben einen Standardindex von 0, dem Index des ersten Speichers, der zur WebAssembly-Instanz hinzugefügt wird.
-Daher muss Ihr Code, wenn Sie nur einen einzigen Speicher hinzufügen, den Index nicht angeben.
+Speicheranweisungen verwenden standardmäßig den Index 0, also den Index des ersten zur WebAssembly-Instanz hinzugefügten Speichers.
+Wenn Sie nur einen Speicher hinzufügen, muss Ihr Code folglich keinen Index angeben.
 
-Um dies detaillierter zu erklären, erweitern wir das vorherige Beispiel, um Zeichenfolgen in drei verschiedene Speicher zu schreiben und die Ergebnisse zu protokollieren.
-Der unten stehende Code zeigt, wie wir zuerst zwei Speicherinstanzen importieren, indem wir denselben Ansatz wie im vorherigen Beispiel verwenden.
-Um zu zeigen, wie Sie Speicher innerhalb des WebAssembly-Moduls erstellen können, haben wir eine dritte Speicherinstanz namens `$mem2` im Modul erstellt und _exportiert_.
+Um dies genauer zu erklären, erweitern wir das vorherige Beispiel: Wir schreiben Zeichenfolgen in drei verschiedene Speicher und geben die Ergebnisse aus.
+Der folgende Code zeigt, wie wir zunächst zwei Speicherinstanzen nach demselben Verfahren wie im vorherigen Beispiel importieren.
+Um zu zeigen, wie Sie Speicher innerhalb eines WebAssembly-Moduls erstellen können, erzeugen wir außerdem im Modul eine dritte Speicherinstanz namens `$mem2` und _exportieren_ sie.
 
 > [!NOTE]
-> Wenn Sie [wabt](https://github.com/WebAssembly/wabt) (z.B. `wat2wasm`) verwenden, um das Textformat in Wasm zu konvertieren, müssen Sie möglicherweise `--enable-multi-memory` übergeben, da die Unterstützung von Mehr Speicher immer noch optional ist.
+> Wenn Sie [wabt](https://github.com/WebAssembly/wabt) (z. B. `wat2wasm`) verwenden, um das Textformat in Wasm umzuwandeln, müssen Sie möglicherweise `--enable-multi-memory` übergeben, da die Unterstützung für mehrere Speicher noch optional ist.
 
 ```wat
 (module
@@ -472,9 +472,9 @@ Um zu zeigen, wie Sie Speicher innerhalb des WebAssembly-Moduls erstellen könne
 )
 ```
 
-Die drei Speicherinstanzen erhalten automatisch einen Speicherindex basierend auf ihrer Erstellungsreihenfolge.
-Der unten stehende Code zeigt, wie wir diesen Index (z.B. `(memory 1)`) in der `data`-Anweisung angeben können, um den Speicher auszuwählen, in den wir eine Zeichenfolge schreiben möchten (Sie können denselben Ansatz für alle anderen Speicheranweisungen verwenden, wie `load` und `grow`).
-Hier schreiben wir eine Zeichenfolge, die den Speicherart angibt.
+Den drei Speicherinstanzen wird anhand ihrer Erstellungsreihenfolge automatisch ein Speicherindex zugewiesen.
+Der folgende Code zeigt, wie wir diesen Index (z. B. `(memory 1)`) in der `data`-Anweisung angeben, um den Speicher auszuwählen, in den wir eine Zeichenfolge schreiben möchten. Dasselbe Verfahren können Sie für alle anderen Speicheranweisungen wie `load` und `grow` verwenden.
+Hier schreiben wir jeweils eine Zeichenfolge, die den betreffenden Speicher kennzeichnet.
 
 ```wat
   (data (memory 0) (i32.const 0) "Memory 0 data")
@@ -485,13 +485,13 @@ Hier schreiben wir eine Zeichenfolge, die den Speicherart angibt.
   (data (i32.const 13) " (Default)")
 ```
 
-Beachten Sie, dass das `(memory 0)` der Standard ist und daher optional.
-Um dies zu demonstrieren, schreiben wir den Text `" (Default)"` ohne Angabe des Speicherindexes, und dies sollte nach `"Memory 0 data"` hinzugefügt werden, wenn die Speichereinhalte protokolliert werden.
+Beachten Sie, dass `(memory 0)` der Standardwert und daher optional ist.
+Um dies zu zeigen, schreiben wir den Text `" (Default)"` ohne Angabe eines Speicherindex. Bei der Ausgabe des Speicherinhalts sollte er hinter `"Memory 0 data"` angehängt sein.
 
-Der WebAssembly-Protokollierungscode ist dem vorherigen Beispiel ähnlich, mit der Ausnahme, dass wir den Index des Speichers, der die Zeichenfolge enthält, zusammen mit dem Zeichenfolgenoffset und der Länge übergeben müssen.
-Wir protokollieren auch alle drei Speicherinstanzen.
+Der WebAssembly-Code für die Ausgabe ähnelt dem vorherigen Beispiel. Allerdings müssen wir zusätzlich zu Offset und Länge der Zeichenfolge auch den Index des Speichers übergeben, in dem sie liegt.
+Außerdem geben wir den Inhalt aller drei Speicherinstanzen aus.
 
-Das vollständige Modul wird unten angezeigt:
+Das vollständige Modul ist unten dargestellt:
 
 ```wat
 (module
@@ -540,8 +540,8 @@ Das vollständige Modul wird unten angezeigt:
 )
 ```
 
-Der JavaScript-Code ist ebenfalls dem vorherigen Beispiel sehr ähnlich, mit der Ausnahme, dass wir zwei Speicherinstanzen an das `importObject()` übergeben und der vom Modul exportierte Speicher nach seiner Instanziierung über die aufgelöste Promise (`obj.instance.exports`) zugegriffen wird.
-Der Code, um jede Zeichenfolge zu protokollieren, ist ebenfalls etwas komplizierter, weil wir den Speicherindex aus dem WebAssembly mit einem bestimmten `Memory`-Objekt abgleichen müssen.
+Auch der JavaScript-Code ähnelt dem vorherigen Beispiel. Allerdings erstellen wir zwei Speicherinstanzen und übergeben sie an `importObject()`. Auf den vom Modul exportierten Speicher greifen wir nach der Instanziierung über das erfüllte Promise zu (`obj.instance.exports`).
+Der Code zur Ausgabe der einzelnen Zeichenfolgen ist ebenfalls etwas aufwendiger, da wir die Speicherindexnummer aus WebAssembly einem bestimmten `Memory`-Objekt zuordnen müssen.
 
 ```js
 const memory0 = new WebAssembly.Memory({ initial: 1 });
@@ -582,7 +582,7 @@ WebAssembly.instantiateStreaming(fetch("multi-memory.wasm"), importObject).then(
 );
 ```
 
-Die Ausgabe des Beispiels sollte ähnlich dem unten stehenden Text sein, mit der Ausnahme, dass "Memory 1 data" möglicherweise einige nachfolgende "unerwünschte Zeichen" hat, weil der Textdecoder mehr Bytes als zur Kodierung der Zeichenfolge verwendet übergeben wird.
+Die Ausgabe des Beispiels sollte dem folgenden Text ähneln. Auf „Memory 1 data“ können allerdings einige zusätzliche, unleserliche Zeichen folgen, da dem Textdecoder mehr Bytes übergeben werden, als zur Kodierung der Zeichenfolge verwendet wurden.
 
 ```plain
 Memory 0 data (Default)
@@ -590,30 +590,30 @@ Memory 1 data
 Memory 2 data
 ```
 
-Sie finden den vollständigen Quellcode auf GitHub als [multi-memory.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/multi-memory.html) ([sehen Sie es auch live](https://mdn.github.io/webassembly-examples/understanding-text-format/multi-memory.html))
+Den vollständigen Quellcode finden Sie auf GitHub als [multi-memory.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/multi-memory.html) ([auch live ansehen](https://mdn.github.io/webassembly-examples/understanding-text-format/multi-memory.html)).
 
 > [!NOTE]
-> Siehe [`webassembly.multiMemory` auf der Startseite](/de/docs/WebAssembly#webassembly.multimemory) für Browser-Kompatibilitätsinformationen zu dieser Funktion.
+> Informationen zur Browser-Kompatibilität dieser Funktion finden Sie unter [`webassembly.multiMemory`](#webassembly.multiMemory).
 
 ### WebAssembly-Tabellen
 
-Um diese Tour durch das WebAssembly-Textformat zu beenden, werfen wir einen Blick auf den komplexesten und oft verwirrenden Teil von WebAssembly: **Tabellen**. Tabellen sind im Wesentlichen anpassbare Arrays von Referenzen, die von WebAssembly-Code durch den Index zugegriffen werden können.
+Zum Abschluss unseres Überblicks über das WebAssembly-Textformat betrachten wir den komplexesten und oft verwirrendsten Teil von WebAssembly: **Tabellen**. Tabellen sind im Wesentlichen Arrays von Referenzen, deren Größe verändert werden kann und auf die WebAssembly-Code über einen Index zugreifen kann.
 
-Um zu sehen, warum Tabellen benötigt werden, müssen wir beachten, dass die `call`-Anweisung, die wir zuvor gesehen haben (siehe [Aufrufen von Funktionen aus anderen Funktionen im selben Modul](#aufrufen_von_funktionen_aus_anderen_funktionen_im_selben_modul)), einen statischen Funktionsindex annimmt und daher nur eine Funktion aufrufen kann – aber was, wenn der Aufrufer ein Laufzeitwert ist?
+Um zu verstehen, warum Tabellen nötig sind, betrachten wir die zuvor vorgestellte Anweisung `call` (siehe [Funktionen aus anderen Funktionen desselben Moduls aufrufen](#funktionen_aus_anderen_funktionen_desselben_moduls_aufrufen)). Sie verwendet einen statischen Funktionsindex und kann daher immer nur eine bestimmte Funktion aufrufen. Was aber, wenn die aufzurufende Funktion erst zur Laufzeit feststeht?
 
-- In JavaScript sehen wir dies die ganze Zeit: Funktionen sind Erster-Klasse-Werte.
-- In C/C++ sehen wir dies mit Funktionszeigern.
-- In C++ sehen wir dies mit virtuellen Funktionen.
+- In JavaScript begegnet uns das ständig: Funktionen sind Werte erster Klasse.
+- In C/C++ gibt es dafür Funktionszeiger.
+- In C++ gibt es dafür virtuelle Funktionen.
 
-WebAssembly benötigte eine Art von Aufrufanweisung, um dies zu erreichen, also gaben wir ihr `call_indirect`, die einen dynamischen Funktionsoperand annimmt. Das Problem ist, dass die einzigen Typen, die wir für Operanden in WebAssembly angeben können (derzeit) `i32`/`i64`/`f32`/`f64` sind.
+WebAssembly benötigte eine entsprechende Art von Aufrufanweisung. Dafür gibt es `call_indirect`, das einen dynamischen Funktionsoperanden verwendet. Das Problem ist, dass Operanden in WebAssembly (derzeit) nur die Typen `i32`, `i64`, `f32` und `f64` haben können.
 
-WebAssembly könnte einen `anyfunc`-Typ hinzufügen ("jede" Typ, weil der Typ Funktionen jeder Signatur halten könnte), aber leider konnte dieser `anyfunc`-Typ aus Sicherheitsgründen nicht im linearen Speicher gespeichert werden. Linearspeicher legt die Rohinhalte gespeicherter Werte in Form von Bytes offen, daher könnte Wasm-Inhalt willkürlich rohe Funktionsadressen beobachten und zerstören, was im Web nicht erlaubt sein kann.
+WebAssembly hätte einen Typ `anyfunc` hinzufügen können („any“, weil der Typ Funktionen mit beliebiger Signatur enthalten könnte). Aus Sicherheitsgründen ließe sich dieser Typ jedoch nicht im linearen Speicher ablegen. Der lineare Speicher macht den Rohinhalt gespeicherter Werte als Bytes sichtbar. Wasm-Code könnte dadurch rohe Funktionsadressen beliebig auslesen und verändern, was im Web nicht zulässig ist.
 
-Die Lösung bestand darin, Funktionsreferenzen in einer Tabelle zu speichern und stattdessen Tabellenindizes zu übergeben, die nur i32-Werte sind. `call_indirect`'s Operand kann daher ein i32-Indexwert sein.
+Die Lösung bestand darin, Funktionsreferenzen in einer Tabelle zu speichern und stattdessen Tabellenindizes weiterzugeben. Diese sind einfache i32-Werte. Der Operand von `call_indirect` kann somit ein i32-Indexwert sein.
 
-#### Definieren einer Tabelle in Wasm
+#### Eine Tabelle in Wasm definieren
 
-Also, wie platzieren wir Wasm-Funktionen in unsere Tabelle? Genau wie `data` Abschnitte verwendet werden können, um Regionen des Linearspeichers mit Bytes zu initialisieren, können `elem` Abschnitte verwendet werden, um Regionen von Tabellen mit Funktionen zu initialisieren:
+Wie legen wir Wasm-Funktionen in unserer Tabelle ab? So wie `data`-Abschnitte Bereiche des linearen Speichers mit Bytes initialisieren können, lassen sich mit `elem`-Abschnitten Bereiche von Tabellen mit Funktionen initialisieren:
 
 ```wat
 (module
@@ -627,15 +627,15 @@ Also, wie platzieren wir Wasm-Funktionen in unsere Tabelle? Genau wie `data` Abs
 )
 ```
 
-- In `(table 2 funcref)`, ist die `2` die anfängliche Größe der Tabelle (was bedeutet, dass sie zwei Verweise speichert) und `funcref` erklärt, dass der Elementtyp dieser Verweise Funktionsverweis ist.
-- Die Funktion (`func`) Abschnitte sind wie jede anderen deklarierten Wasm-Funktionen. Dies sind die Funktionen, die wir in unserer Tabelle referenzieren werden (beispielshalber gibt jede einen konstanten Wert zurück). Beachten Sie, dass die Reihenfolge, in der die Abschnitte deklariert sind, hier keine Rolle spielt — Sie können Ihre Funktionen überall deklariert haben und dennoch in Ihrem `elem` Abschnitt darauf verweisen.
-- Der `elem` Abschnitt kann jeden Teil der Funktionen in einem Modul auflisten, in jeder Reihenfolge, dupliziert erlaubt. Dies ist eine Liste der Funktionen, auf die die Tabelle verweisen soll, in der Reihenfolge, in der sie referenziert werden sollen.
-- Der Wert `(i32.const 0)` innerhalb des `elem` Abschnitts ist ein Offset — dieser muss zu Beginn des Abschnitts deklariert werden und gibt an, bei welchem Index in der Tabelle Funktionsreferenzen begonnen werden zu populieren. Hier haben wir 0 und eine Größe von 2 angegeben (siehe oben), sodass wir zwei Verweise an den Indizes 0 und 1 ausfüllen können. Wenn wir unsere Referenzen bei Offset 1 zu schreiben beginnen möchten, müssten wir `(i32.const 1)` schreiben, und die Tabellengröße müsste 3 sein.
+- In `(table 2 funcref)` ist `2` die Anfangsgröße der Tabelle (sie kann also zwei Referenzen speichern). `funcref` legt fest, dass es sich bei den Elementen um Funktionsreferenzen handelt.
+- Die `func`-Abschnitte sind gewöhnliche deklarierte Wasm-Funktionen. Auf diese Funktionen verweisen wir in unserer Tabelle; für dieses Beispiel gibt jede einen konstanten Wert zurück. Die Reihenfolge, in der die Abschnitte deklariert werden, spielt dabei keine Rolle: Sie können die Funktionen an beliebiger Stelle deklarieren und dennoch im `elem`-Abschnitt auf sie verweisen.
+- Der `elem`-Abschnitt kann eine beliebige Teilmenge der Funktionen eines Moduls in beliebiger Reihenfolge aufführen, auch mehrfach. Die Liste gibt an, auf welche Funktionen die Tabelle in welcher Reihenfolge verweisen soll.
+- Der Wert `(i32.const 0)` innerhalb des `elem`-Abschnitts ist ein Offset. Er muss am Anfang des Abschnitts deklariert werden und gibt an, ab welchem Tabellenindex die Funktionsreferenzen eingetragen werden. Hier haben wir 0 angegeben und eine Tabellengröße von 2 festgelegt (siehe oben). Somit können wir zwei Referenzen an den Indizes 0 und 1 eintragen. Wenn wir erst bei Offset 1 beginnen wollten, müssten wir `(i32.const 1)` schreiben und die Tabelle müsste die Größe 3 haben.
 
 > [!NOTE]
-> Nicht initialisierte Elemente erhalten einen Standardwert zum Aufrufen.
+> Nicht initialisierte Elemente erhalten einen Standardwert, der beim Aufruf einen Fehler auslöst.
 
-In JavaScript würden die äquivalenten Aufrufe zur Erstellung einer solchen Tabelleninstanz etwas so aussehen:
+Die entsprechenden Aufrufe zum Erstellen einer solchen Tabelleninstanz sähen in JavaScript ungefähr so aus:
 
 ```js
 function module() {
@@ -652,9 +652,9 @@ function module() {
 }
 ```
 
-#### Verwenden der Tabelle
+#### Die Tabelle verwenden
 
-Wir gehen weiter, jetzt, da wir die Tabelle definiert haben, müssen wir sie irgendwie nutzen. Lassen Sie uns diesen Abschnitt Code verwenden, um dies zu tun:
+Nachdem wir die Tabelle definiert haben, müssen wir sie verwenden. Dazu dient der folgende Codeabschnitt:
 
 ```wat
 ...
@@ -665,28 +665,28 @@ Wir gehen weiter, jetzt, da wir die Tabelle definiert haben, müssen wir sie irg
 )
 ```
 
-- Der `(type $return_i32 (func (result i32)))` Block spezifiziert einen Typ, mit einem Referenznamen. Dieser Typ wird verwendet, wenn das Typtesten der Tabellenfunktionsverweisaufrufe später durchgeführt wird. Hier sagen wir, dass die Referenzen Funktionen sein müssen, die ein `i32` als Resultat zurückgeben.
-- Als Nächstes definieren wir eine Funktion, die mit dem Namen `callByIndex` exportiert wird. Diese nimmt ein `i32` als Parameter, dem der Argumentname `$i` gegeben wird.
-- Innerhalb der Funktion fügen wir einen Wert auf den Stapel — unabhängig von dem Wert, der als Parameter `$i` übergeben wird.
-- Schließlich verwenden wir `call_indirect`, um eine Funktion von der Tabelle aufzurufen — sie holt implizit den Wert von `$i` vom Stapel. Das Nettoergebnis davon ist, dass die Funktion `callByIndex` die `$i`'te Funktion von der Tabelle aufruft.
+- Der Block `(type $return_i32 (func (result i32)))` legt einen Typ mit einem Referenznamen fest. Dieser Typ wird später verwendet, um die Aufrufe der Funktionsreferenzen in der Tabelle zu prüfen. Hier legen wir fest, dass die Referenzen auf Funktionen verweisen müssen, die ein `i32` zurückgeben.
+- Anschließend definieren wir eine Funktion, die unter dem Namen `callByIndex` exportiert wird. Sie nimmt einen `i32`-Parameter mit dem Argumentnamen `$i` entgegen.
+- Innerhalb der Funktion legen wir einen Wert auf den Stack: den als Parameter `$i` übergebenen Wert.
+- Schließlich rufen wir mit `call_indirect` eine Funktion aus der Tabelle auf. Dabei wird der Wert von `$i` implizit vom Stack entfernt. Das Ergebnis ist, dass `callByIndex` die Funktion am Tabellenindex `$i` aufruft.
 
-Sie könnten auch den `call_indirect` Parameter explizit während des Befehlsaufrufs deklarieren, anstatt davor, wie folgt:
+Sie könnten den Parameter für `call_indirect` auch direkt beim Befehlsaufruf statt davor angeben:
 
 ```wat
 (call_indirect (type $return_i32) (local.get $i))
 ```
 
-In einer höherstufigen, ausdrucksstärkeren Sprache wie JavaScript könnten Sie sich vorstellen, dasselbe mit einem Array (oder wahrscheinlich eher einem Objekt) zu tun, das Funktionen enthält. Der Pseudocode würde so etwas wie `tbl[i]()` aussehen.
+In einer höheren, ausdrucksstärkeren Sprache wie JavaScript könnten Sie sich eine entsprechende Umsetzung mit einem Array (oder wahrscheinlicher einem Objekt) vorstellen, das Funktionen enthält. Der Pseudocode sähe etwa so aus: `tbl[i]()`.
 
-Zurück zum Typtesten: Da WebAssembly typtescharf ist und der `funcref` möglicherweise jede Funktionssignatur haben kann, müssen wir die vermutete Signatur des Angerufenen an der Rufstelle angeben. Daher fügen wir den `$return_i32` Typ hinzu, um anzugeben, dass eine Funktion, die ein `i32` zurückgibt, erwartet wird. Wenn der Angerufene keine übereinstimmende Signatur hat (z.B. wird stattdessen ein `f32` zurückgegeben), wird ein [`WebAssembly.RuntimeError`](/de/docs/WebAssembly/Reference/JavaScript_interface/RuntimeError) ausgelöst.
+Zurück zur Typprüfung: Da WebAssembly Typen prüft und `funcref` potenziell auf eine Funktion mit beliebiger Signatur verweisen kann, müssen wir an der Aufrufstelle die erwartete Signatur der aufzurufenden Funktion angeben. Dazu verwenden wir den Typ `$return_i32`, der festlegt, dass eine Funktion erwartet wird, die ein `i32` zurückgibt. Hat die aufgerufene Funktion keine passende Signatur (gibt sie beispielsweise stattdessen ein `f32` zurück), wird ein [`WebAssembly.RuntimeError`](/de/docs/WebAssembly/Reference/JavaScript_interface/RuntimeError) ausgelöst.
 
-Also, was verbindet den `call_indirect` mit der Tabelle, die wir aufrufen? Die Antwort ist, dass derzeit nur eine Tabelle pro Modulinstanz erlaubt ist, und das ist das, was `call_indirect` implizit aufruft. In Zukunft, wenn mehrere Tabellen erlaubt sind, müssten wir auch eine Tabellenidentifikation auf irgendeine Weise spezifizieren, ähnlich wie
+Wie wird `call_indirect` mit der Tabelle verknüpft, aus der die Funktion aufgerufen wird? Derzeit ist pro Modulinstanz nur eine Tabelle zulässig, und `call_indirect` greift implizit auf diese zu. Wenn künftig mehrere Tabellen zulässig sind, müssten wir zusätzlich eine Art Tabellenkennung angeben, etwa so:
 
 ```wat
 call_indirect $my_spicy_table (type $i32_to_void)
 ```
 
-Das vollständige Modul sieht so aus und kann in unserer [wasm-table.wat](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/wasm-table.wat) Beispiel-Datei gefunden werden:
+Das vollständige Modul sieht wie folgt aus. Sie finden es in unserer Beispieldatei [wasm-table.wat](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/wasm-table.wat):
 
 ```wat
 (module
@@ -706,7 +706,7 @@ Das vollständige Modul sieht so aus und kann in unserer [wasm-table.wat](https:
 )
 ```
 
-Wir laden es in eine Webseite mithilfe des folgenden JavaScripts:
+Mit dem folgenden JavaScript laden wir es in eine Webseite:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("wasm-table.wasm")).then((obj) => {
@@ -717,20 +717,20 @@ WebAssembly.instantiateStreaming(fetch("wasm-table.wasm")).then((obj) => {
 ```
 
 > [!NOTE]
-> Sie finden dieses Beispiel auf GitHub als [wasm-table.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/wasm-table.html) ([sehen Sie es auch live](https://mdn.github.io/webassembly-examples/understanding-text-format/wasm-table.html)).
+> Dieses Beispiel finden Sie auf GitHub als [wasm-table.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/wasm-table.html) ([auch live ansehen](https://mdn.github.io/webassembly-examples/understanding-text-format/wasm-table.html)).
 
 > [!NOTE]
-> Genau wie Speicher können auch Tabellen von JavaScript aus erstellt werden (siehe [`WebAssembly.Table()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table)) sowie von einem anderen Wasm-Modul importiert oder exportiert werden.
+> Wie Memory-Objekte können auch Tabellen in JavaScript erstellt (siehe [`WebAssembly.Table()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table)) sowie von einem anderen Wasm-Modul importiert oder dorthin exportiert werden.
 
-### Tabellenmutationen und dynamische Verknüpfung
+### Tabellen verändern und dynamisch verknüpfen
 
-Da JavaScript vollständigen Zugriff auf Funktionsreferenzen hat, kann das Tabellenobjekt von JavaScript aus mit den [`grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/grow), [`get()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/get) und [`set()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/set) Methoden mutiert werden. Und WebAssembly-Code kann selbst Tabellen mit Anweisungen manipulieren, die als Teil von [Referenztypen](#referenztypen) hinzugefügt wurden, wie `table.get` und `table.set`.
+Da JavaScript uneingeschränkten Zugriff auf Funktionsreferenzen hat, lässt sich das Table-Objekt aus JavaScript mit den Methoden [`grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/grow), [`get()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/get) und [`set()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/set) verändern. WebAssembly-Code kann Tabellen ebenfalls direkt bearbeiten, und zwar mit Anweisungen wie `table.get` und `table.set`, die im Rahmen der [Referenztypen](#referenztypen) hinzugefügt wurden.
 
-Da Tabellen veränderbar sind, können sie verwendet werden, um komplexe Lade- und Laufzeit-Dynamische Verknüpfungsschemata zu implementieren. Wenn ein Programm dynamisch verknüpft ist, teilen mehrere Instanzen denselben Speicher und dieselbe Tabelle. Dies ist ähnlich wie bei einer nativen Anwendung, bei der mehrere kompilierte `.dlls` denselben Adressraum eines einzelnen Prozesses teilen.
+Weil Tabellen veränderbar sind, lassen sich mit ihnen ausgefeilte Verfahren zur [dynamischen Verknüpfung](https://github.com/WebAssembly/tool-conventions/blob/main/DynamicLinking.md) beim Laden und zur Laufzeit umsetzen. Bei einem dynamisch verknüpften Programm nutzen mehrere Instanzen denselben Speicher und dieselbe Tabelle. Das ähnelt einer nativen Anwendung, bei der mehrere kompilierte `.dll`-Dateien den Adressraum eines Prozesses gemeinsam nutzen.
 
-Um dies in Aktion zu sehen, erstellen wir ein einzelnes Importobjekt, das ein Memory-Objekt und ein Tabellenobjekt enthält, und geben dieses einzelne Importobjekt an mehrere [`instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) Aufrufe weiter.
+Um das zu demonstrieren, erstellen wir ein einzelnes Importobjekt mit einem Memory- und einem Table-Objekt und übergeben dasselbe Importobjekt an mehrere [`instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static)-Aufrufe.
 
-Unsere `.wat` Beispiele sehen wie folgt aus:
+Unsere `.wat`-Beispiele sehen so aus:
 
 `shared0.wat`:
 
@@ -763,23 +763,23 @@ Unsere `.wat` Beispiele sehen wie folgt aus:
 )
 ```
 
-Diese funktionieren wie folgt:
+Sie funktionieren folgendermaßen:
 
 1. Die Funktion `shared0func` wird in `shared0.wat` definiert und in unserer importierten Tabelle gespeichert.
-2. Diese Funktion erstellt eine Konstante, die den Wert `0` enthält, und verwendet dann den Befehl `i32.load`, um den Wert zu laden, der im bereitgestellten Speicherindex gespeichert ist. Der bereitgestellte Index ist `0` – wiederum wird der vorherige Wert implizit vom Stapel entnommen. Also lädt und gibt `shared0func` den Wert zurück, der im Speicherindex `0` gespeichert ist.
-3. In `shared1.wat` exportieren wir eine Funktion namens `doIt` – diese Funktion erstellt zwei Konstanten mit den Werten `0` und `42`, ruft dann `i32.store` auf, um einen bereitgestellten Wert an einem bereitgestellten Index des importierten Speichers zu speichern. Wieder wird dieser Wert implizit vom Stapel entnommen, sodass das Ergebnis ist, dass der Wert `42` im Speicherindex `0` gespeichert wird.
-4. Im letzten Teil der Funktion erstellen wir eine Konstante mit dem Wert `0`, rufen dann die Funktion am Index 0 der Tabelle auf, die `shared0func` ist, die zuvor durch den `elem` Block in `shared0.wat` dort gespeichert wurde.
-5. Wenn aufgerufen, lädt `shared0func` das zuvor durch den Befehl `i32.store` in `shared1.wat` gespeicherte `42` in das Gedächtnis.
+2. Diese Funktion erstellt eine Konstante mit dem Wert `0` und verwendet anschließend den Befehl `i32.load`, um den Wert an der angegebenen Speicheradresse zu laden. Der angegebene Index ist `0`; auch hier wird der zuvor auf den Stack gelegte Wert implizit entfernt. `shared0func` lädt also den an Speicherindex `0` gespeicherten Wert und gibt ihn zurück.
+3. In `shared1.wat` exportieren wir eine Funktion namens `doIt`. Sie erstellt zwei Konstanten mit den Werten `0` und `42` und ruft dann `i32.store` auf, um einen Wert an einem angegebenen Index des importierten Speichers abzulegen. Die Werte werden dabei wiederum implizit vom Stack entfernt. Somit wird der Wert `42` an Speicherindex `0` gespeichert.
+4. Im letzten Teil der Funktion erstellen wir eine Konstante mit dem Wert `0` und rufen anschließend die Funktion an diesem Tabellenindex auf: `shared0func`, die zuvor durch den `elem`-Block in `shared0.wat` dort gespeichert wurde.
+5. Beim Aufruf lädt `shared0func` den Wert `42`, den wir mit dem Befehl `i32.store` in `shared1.wat` im Speicher abgelegt haben.
 
 > [!NOTE]
-> Die obigen Ausdrücke des Stapels werden wieder implizit entnommen, aber Sie könnten diese statt implizit innerhalb der Befehlsaufrufe explizit deklarieren, beispielsweise:
+> Die obigen Ausdrücke entfernen Werte wiederum implizit vom Stack. Sie könnten diese Werte stattdessen direkt innerhalb der Befehlsaufrufe angeben, beispielsweise:
 >
 > ```wat
 > (i32.store (i32.const 0) (i32.const 42))
 > (call_indirect (type $void_to_i32) (i32.const 0))
 > ```
 
-Nachdem die Umwandlung in ein WebAssembly-Binärformat (Wasm) erfolgt ist, verwenden wir dann `shared0.wasm` und `shared1.wasm` in JavaScript über den folgenden Code:
+Nach der Umwandlung in WebAssembly-Binärdateien (Wasm) verwenden wir `shared0.wasm` und `shared1.wasm` mit folgendem JavaScript-Code:
 
 ```js
 const importObj = {
@@ -797,67 +797,67 @@ Promise.all([
 });
 ```
 
-Jede der zu kompilierenden Module kann die gleichen Speicher- und Tabellenobjekte importieren und somit denselben linearen Speicher und dieselbe Tabellen-Adressraum "teilen".
+Beide kompilierten Module können dieselben Speicher- und Tabellenobjekte importieren und nutzen dadurch denselben linearen Speicher und denselben „Adressraum“ der Tabelle.
 
 > [!NOTE]
-> Sie finden dieses Beispiel auf GitHub als [shared-address-space.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/shared-address-space.html) ([sehen Sie es auch live](https://mdn.github.io/webassembly-examples/understanding-text-format/shared-address-space.html)).
+> Dieses Beispiel finden Sie auf GitHub als [shared-address-space.html](https://github.com/mdn/webassembly-examples/blob/main/understanding-text-format/shared-address-space.html) ([auch live ansehen](https://mdn.github.io/webassembly-examples/understanding-text-format/shared-address-space.html)).
 
-## Speichergesamtoperationen
+## Speicheroperationen für größere Datenbereiche
 
-Speichergesamtoperationen sind eine neuere Ergänzung zu der Sprache. Sieben neue eingebaute Operationen werden für die Gesamtoperationen bereitgestellt, wie Kopieren und Initialisieren, um WebAssembly zu ermöglichen, native Funktionen wie `memcpy` und `memmove` effizienter und performanter abzubilden.
+Operationen für größere Datenbereiche sind eine neuere Ergänzung der Sprache. Sieben neue integrierte Operationen ermöglichen beispielsweise das Kopieren und Initialisieren größerer Speicherbereiche. Dadurch kann WebAssembly native Funktionen wie `memcpy` und `memmove` effizienter abbilden.
 
 > [!NOTE]
-> Siehe [`webassembly.bulk-memory-operations` auf der Startseite](/de/docs/WebAssembly#webassembly.bulk-memory-operations) für Browser-Kompatibilitätsinformationen.
+> Informationen zur Browser-Kompatibilität finden Sie unter [`webassembly.bulk-memory-operations`](#webassembly.bulk-memory-operations).
 
 Die neuen Operationen sind:
 
-- `data.drop`: Verwirft die Daten in einem Datensegment.
-- `elem.drop`: Verwirft die Daten in einem Element-Segment.
-- `memory.copy`: Kopiert von einer Region des Linearspeichers zu einer anderen.
-- `memory.fill`: Füllt eine Region des Linearspeichers mit einem gegebenen Bytewert.
-- `memory.init`: Kopiert eine Region aus einem Datensegment.
-- `table.copy`: Kopiert von einer Region einer Tabelle zu einer anderen.
-- `table.init`: Kopiert eine Region aus einem Element-Segment.
+- `data.drop`: Die Daten in einem Datensegment verwerfen.
+- `elem.drop`: Die Daten in einem Elementsegment verwerfen.
+- `memory.copy`: Daten von einem Bereich des linearen Speichers in einen anderen kopieren.
+- `memory.fill`: Einen Bereich des linearen Speichers mit einem bestimmten Bytewert füllen.
+- `memory.init`: Einen Bereich aus einem Datensegment kopieren.
+- `table.copy`: Einträge von einem Bereich einer Tabelle in einen anderen kopieren.
+- `table.init`: Einen Bereich aus einem Elementsegment kopieren.
 
 > [!NOTE]
-> Sie können mehr Informationen im [Build-Memory-Operations und Conditional Segment Initialization](https://github.com/WebAssembly/bulk-memory-operations/blob/master/proposals/bulk-memory-operations/Overview.md) Vorschlag finden.
+> Weitere Informationen finden Sie im Vorschlag [Bulk Memory Operations and Conditional Segment Initialization](https://github.com/WebAssembly/bulk-memory-operations/blob/master/proposals/bulk-memory-operations/Overview.md).
 
 ## Typen
 
 ### Zahlentypen
 
-WebAssembly hat derzeit vier _Zahlentypen_:
+WebAssembly bietet derzeit vier _Zahlentypen_:
 
-- `i32`: 32-Bit Integer
-- `i64`: 64-Bit Integer
-- `f32`: 32-Bit Fließkommazahl
-- `f64`: 64-Bit Fließkommazahl
+- `i32`: 32-Bit-Ganzzahl
+- `i64`: 64-Bit-Ganzzahl
+- `f32`: 32-Bit-Gleitkommazahl
+- `f64`: 64-Bit-Gleitkommazahl
 
 ### Vektortypen
 
-- `v128`: 128-Bit Vektor von gepackten Ganzzahlen, Fließkommadaten oder einem einzelnen 128-Bit Typ.
+- `v128`: 128-Bit-Vektor mit gepackten Ganzzahl- oder Gleitkommadaten oder einem einzelnen 128-Bit-Wert.
 
 ### Referenztypen
 
-Der [Referenztypen-Vorschlag](https://github.com/WebAssembly/reference-types/blob/master/proposals/reference-types/Overview.md) bietet zwei Hauptmerkmale:
+Der [Vorschlag für Referenztypen](https://github.com/WebAssembly/reference-types/blob/master/proposals/reference-types/Overview.md) bietet zwei wesentliche Funktionen:
 
-- Ein neuer Typ, `externref`, der _jeden_ JavaScript-Wert, z. B. Zeichenfolgen, DOM-Referenzen, Objekte usw. halten kann. `externref` ist aus der Sicht von WebAssembly undurchsichtig — ein Wasm-Modul kann auf diese Werte nicht zugreifen und sie manipulieren und kann sie stattdessen nur empfangen und wieder herausgeben. Dies ist trotzdem sehr nützlich, um Wasm-Module JavaScript-Funktionen, DOM-APIs usw. aufrufen zu lassen und generell den Weg für eine einfachere Interoperabilität mit der Host-Umgebung zu ebnen. `externref` kann für Werttypen und Tabellenelemente verwendet werden.
-- Mehrere neue Anweisungen, die es Wasm-Modulen ermöglichen, [WebAssembly-Tabellen](#webassembly-tabellen) direkt zu manipulieren, anstatt dies über die JavaScript-API zu tun.
-
-> [!NOTE]
-> Die [wasm-bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) Dokumentation enthält nützliche Informationen darüber, wie man `externref` von Rust ausnutzen kann.
+- Einen neuen Typ namens `externref`, der _jeden_ JavaScript-Wert enthalten kann, beispielsweise Zeichenfolgen, DOM-Referenzen oder Objekte. Aus WebAssembly-Sicht ist `externref` undurchsichtig: Ein Wasm-Modul kann nicht auf diese Werte zugreifen oder sie bearbeiten, sondern sie lediglich entgegennehmen und wieder weitergeben. Das ist dennoch sehr nützlich, weil Wasm-Module so JavaScript-Funktionen, DOM-APIs und Ähnliches aufrufen können. Allgemein erleichtert es die Interoperabilität mit der Hostumgebung. `externref` kann für Werttypen und Tabellenelemente verwendet werden.
+- Mehrere neue Anweisungen, mit denen Wasm-Module [WebAssembly-Tabellen](#webassembly-tabellen) direkt bearbeiten können, statt dafür die JavaScript-API verwenden zu müssen.
 
 > [!NOTE]
-> Siehe [`webassembly.reference-types` auf der Startseite](/de/docs/WebAssembly#webassembly.reference-types) für Browser-Kompatibilitätsinformationen.
-
-## Multi-Value WebAssembly
-
-Eine weitere neuere Ergänzung zu der Sprache ist das WebAssembly-Mehrwert, was bedeutet, dass WebAssembly-Funktionen jetzt mehrere Werte zurückgeben können, und Befehlfolgen können mehrere Stapelwerte konsumieren und produzieren.
+> Die Dokumentation zu [wasm-bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) enthält hilfreiche Informationen dazu, wie Sie `externref` in Rust nutzen können.
 
 > [!NOTE]
-> Siehe [`webassembly.multi-value` auf der Startseite](/de/docs/WebAssembly#webassembly.multi-value) für Browser-Kompatibilitätsinformationen.
+> Informationen zur Browser-Kompatibilität finden Sie unter [`webassembly.reference-types`](#webassembly.reference-types).
 
-Zum Zeitpunkt des Schreibens (Juni 2020) befindet sich dies in einem frühen Stadium, und die einzigen Mehrwert-Anweisungen, die verfügbar sind, sind Aufrufe zu Funktionen, die sich selbst mehrere Werte zurückgeben. Zum Beispiel:
+## WebAssembly mit mehreren Rückgabewerten
+
+Eine weitere neuere Ergänzung der Sprache ist die Unterstützung mehrerer Werte. WebAssembly-Funktionen können nun mehrere Werte zurückgeben, und Anweisungsfolgen können mehrere Stackwerte verarbeiten und erzeugen.
+
+> [!NOTE]
+> Informationen zur Browser-Kompatibilität finden Sie unter [`webassembly.multi-value`](#webassembly.multi-value).
+
+Zum Zeitpunkt der Erstellung dieses Textes (Juni 2020) befand sich diese Funktion noch in einem frühen Stadium. Die einzigen verfügbaren Anweisungen für mehrere Werte waren Aufrufe von Funktionen, die selbst mehrere Werte zurückgeben. Beispielsweise:
 
 ```wat
 (module
@@ -872,22 +872,22 @@ Zum Zeitpunkt des Schreibens (Juni 2020) befindet sich dies in einem frühen Sta
 )
 ```
 
-Aber dies wird den Weg für nützlichere Befehlsarten und andere Dinge ebnen. Für eine nützliche Zusammenfassung der bisherigen Fortschritte und wie es funktioniert, siehe [Multi-Value All The Wasm!](https://hacks.mozilla.org/2019/11/multi-value-all-the-wasm/) von Nick Fitzgerald.
+Dies schafft jedoch die Grundlage für weitere nützliche Anweisungstypen und andere Möglichkeiten. Eine hilfreiche Darstellung des damaligen Entwicklungsstands und der Funktionsweise finden Sie in [Multi-Value All The Wasm!](https://hacks.mozilla.org/2019/11/multi-value-all-the-wasm/) von Nick Fitzgerald.
 
 ## WebAssembly-Threads
 
-WebAssembly-Threads ermöglichen es, WebAssembly-Speicherobjekte über mehrere WebAssembly-Instanzen hinweg zu teilen, die in separaten Webarbeitern laufen, auf die gleiche Weise wie [`SharedArrayBuffer`s](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) in JavaScript. Dies ermöglicht eine schnelle Kommunikation zwischen den Arbeitern und bedeutende Leistungssteigerungen in Webanwendungen.
+Mit WebAssembly-Threads können WebAssembly-Memory-Objekte zwischen mehreren WebAssembly-Instanzen geteilt werden, die in separaten Web Workers laufen — ähnlich wie [`SharedArrayBuffer`s](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) in JavaScript. Dies ermöglicht eine schnelle Kommunikation zwischen Workern und erhebliche Leistungssteigerungen in Webanwendungen.
 
-Der Threads-Vorschlag hat zwei Teile: geteilte Speicher und atomare Speicherzugriffe.
+Der Vorschlag für Threads besteht aus zwei Teilen: gemeinsam genutztem Speicher und atomaren Speicherzugriffen.
 
 > [!NOTE]
-> Siehe [`webassembly.threads-and-atomics` auf der Startseite](/de/docs/WebAssembly#webassembly.threads-and-atomics) für Browser-Kompatibilitätsinformationen.
+> Informationen zur Browser-Kompatibilität finden Sie unter [`webassembly.threads-and-atomics` auf der Startseite](#webassembly.threads-and-atomics).
 
-### Geteilte Speicher
+### Gemeinsam genutzter Speicher
 
-Wie oben beschrieben, können Sie geteilte WebAssembly-`Memory`-Objekte erstellen, die zwischen Window- und Worker-Kontexten mit [`postMessage()`](/de/docs/Web/API/Window/postMessage) übertragen werden können, auf die gleiche Weise wie ein [`SharedArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer).
+Wie oben beschrieben, können Sie gemeinsam genutzte WebAssembly-[`Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte erstellen. Diese können mithilfe von [`postMessage()`](/de/docs/Web/API/Window/postMessage) zwischen Window- und Worker-Kontexten übertragen werden, ähnlich wie ein [`SharedArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer).
 
-Auf der JavaScript-API-Seite hat das `WebAssembly.Memory()`-Konstruktor-Initialisierungsobjekt nun eine `shared`-Eigenschaft, die, wenn sie auf `true` gesetzt ist, einen geteilten Speicher erstellt:
+In der JavaScript-API besitzt das Initialisierungsobjekt des Konstruktors [`WebAssembly.Memory()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/Memory) nun eine Eigenschaft `shared`. Wird sie auf `true` gesetzt, entsteht ein gemeinsam genutzter Speicher:
 
 ```js
 const memory = new WebAssembly.Memory({
@@ -897,35 +897,39 @@ const memory = new WebAssembly.Memory({
 });
 ```
 
-Die `buffer`-Eigenschaft des Speichers wird jetzt einen `SharedArrayBuffer` anstelle des üblichen `ArrayBuffer` zurückgeben:
+Die Eigenschaft [`buffer`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/buffer) des Speichers gibt dann statt des üblichen `ArrayBuffer` einen `SharedArrayBuffer` zurück:
 
 ```js
 memory.buffer; // returns SharedArrayBuffer
 ```
 
-Im Textformat können Sie einen geteilten Speicher mit dem Schlüsselwort `shared` erstellen, wie folgt:
+Im Textformat können Sie mit dem Schlüsselwort `shared` einen gemeinsam genutzten Speicher erstellen:
 
 ```wat
 (memory 1 2 shared)
 ```
 
-Im Gegensatz zu ungeteilten Speichern müssen geteilte Speicher eine „maximale“ Größe angeben, sowohl im Javascript-API-Konstruktor als auch im Wasm-Textformat.
+Anders als bei nicht gemeinsam genutztem Speicher muss für gemeinsam genutzten Speicher eine maximale Größe angegeben werden — sowohl im Konstruktor der JavaScript-API als auch im Wasm-Textformat.
 
 > [!NOTE]
-> Sie finden viele weitere Details im [Threading-Vorschlag für WebAssembly](https://github.com/WebAssembly/threads/blob/main/proposals/threads/Overview.md).
+> Ausführlichere Informationen finden Sie im [Threading-Vorschlag für WebAssembly](https://github.com/WebAssembly/threads/blob/main/proposals/threads/Overview.md).
 
 ### Atomare Speicherzugriffe
 
-Mehrere neue Wasm-Anweisungen wurden hinzugefügt, die verwendet werden können, um höherstufige Funktionen wie Mutexe, Bedingungsvariablen usw. zu implementieren. Sie können [sie hier aufgelistet finden](https://github.com/WebAssembly/threads/blob/main/proposals/threads/Overview.md#atomic-memory-accesses).
+Es wurden mehrere neue Wasm-Anweisungen hinzugefügt, mit denen sich höherstufige Funktionen wie Mutexe und Bedingungsvariablen implementieren lassen. Eine [Liste dieser Anweisungen finden Sie hier](https://github.com/WebAssembly/threads/blob/main/proposals/threads/Overview.md#atomic-memory-accesses).
 
 > [!NOTE]
-> Die [Emscripten Pthreads-Support-Seite](https://emscripten.org/docs/porting/pthreads.html) zeigt, wie man diese neue Funktionalität von Emscripten ausnutzt.
+> Die Seite zur [Pthreads-Unterstützung in Emscripten](https://emscripten.org/docs/porting/pthreads.html) zeigt, wie Sie diese neue Funktionalität mit Emscripten nutzen können.
 
 ## Zusammenfassung
 
-Das beendet unsere hochlevelige Tour durch die Hauptkomponenten des WebAssembly-Textformats und wie sie in der WebAssembly-JS-API reflektiert werden.
+Damit endet unser Überblick über die wichtigsten Bestandteile des WebAssembly-Textformats und darüber, wie sie sich in der WebAssembly-JavaScript-API widerspiegeln.
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 
-- Das Hauptsächliche, das nicht enthalten ist, ist eine umfassende Liste aller Anweisungen, die in Funktionskörpern auftreten können. Sehen Sie die [WebAssembly Semantik](https://webassembly.github.io/spec/core/exec/index.html) für eine Behandlung jeder Anweisung.
-- Sehen Sie sich auch die [Grammatik des Textformats](https://github.com/WebAssembly/spec/blob/main/interpreter/README.md#s-expression-syntax) an, die vom Spezifikations-Interpreter implementiert wird.
+- Was in diesem Artikel fehlt, ist eine vollständige Liste aller Anweisungen, die in Funktionskörpern vorkommen können. Eine Erläuterung der einzelnen Anweisungen finden Sie in der [WebAssembly-Semantik](https://webassembly.github.io/spec/core/exec/index.html).
+- Siehe auch die [Grammatik des Textformats](https://github.com/WebAssembly/spec/blob/main/interpreter/README.md#s-expression-syntax), die vom Referenzinterpreter der Spezifikation implementiert wird.

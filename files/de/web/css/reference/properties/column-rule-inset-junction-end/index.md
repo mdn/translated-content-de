@@ -3,12 +3,12 @@ title: "`column-rule-inset-junction-end` CSS property"
 short-title: column-rule-inset-junction-end
 slug: Web/CSS/Reference/Properties/column-rule-inset-junction-end
 l10n:
-  sourceCommit: c297ca81510b69e602e8fef4732d558b7ed020b0
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
 {{SeeCompatTable}}
 
-Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-inset-junction-end`** können die unteren Endpunkte von Spaltentrennliniensegmenten versetzt werden, die [Kreuzungsendpunkte](#understanding_junction_end) sind – also Endpunkte an Lückenkreuzungen, an denen sich Trennliniensegmente schneiden.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-inset-junction-end`** können die unteren Endpunkte von column-rule-Segmenten versetzt werden, bei denen es sich um [junction endpoints](#junction_endpoints_verstehen) handelt. Das sind Endpunkte an Schnittstellen von Abständen, an denen sich rule-Segmente kreuzen.
 
 {{InteractiveExample("CSS Demo: rule")}}
 
@@ -92,42 +92,42 @@ column-rule-inset-junction-end: unset;
 
 ### Werte
 
-Diese Eigenschaft wird durch einen einzelnen Wert aus der folgenden Liste angegeben:
+Für diese Eigenschaft wird ein einzelner Wert aus der folgenden Liste angegeben:
 
 - `overlap-join`
-  - : Gibt an, dass sich das Segment an der Kreuzung über die Zeilentrennlinie hinaus erstrecken soll. Der Wert entspricht der Hälfte des {{cssxref("row-gap")}}-Werts zuzüglich der Hälfte des verwendeten {{cssxref("row-rule-width")}}-Werts.
+  - : Gibt an, dass sich das junction-Segment über die row-rule erstrecken soll. Der Wert entspricht der Hälfte von {{cssxref("row-gap")}} zuzüglich der Hälfte des verwendeten Werts von {{cssxref("row-rule-width")}}.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Kreuzungsendpunkt, dessen Bezugsgröße der `row-gap`-Wert ist.
+  - : Gibt die Größe des Versatzes an. Prozentwerte beziehen sich auf den junction endpoint, also den Wert von `row-gap`.
 
 ## Beschreibung
 
-Mit der Eigenschaft `column-rule-inset-junction-end` können [Segmentendpunkte an Kreuzungen](#understanding_junction_end) am unteren Ende von Spaltentrennliniensegmenten nach innen oder außen versetzt werden. Der Standardwert ist `0`. Positive Werte verkürzen das Segment, während negative Werte und [das Schlüsselwort `overlap-join`](#the_overlap-join_value) es verlängern.
+Mit der Eigenschaft `column-rule-inset-junction-end` können [junction segment endpoints](#junction_endpoints_verstehen) am unteren Ende von column-rule-Segmenten nach innen oder außen versetzt werden. Der Standardwert ist `0`. Positive Werte verkürzen das Segment, während negative Werte und [das Schlüsselwort `overlap-join`](#the_overlap-join_value) es verlängern.
 
-Spaltentrennlinien werden innerhalb einer Spaltenlücke als ein oder mehrere Segmente dargestellt. Solche Segmente liegen zwischen:
+Column rules werden innerhalb eines column-gap als eines oder mehrere Segmente dargestellt. Solche Segmente treten zwischen folgenden Elementen auf:
 
 - Benachbarten Spalten in CSS-Grid-Layouts.
 - Benachbarten Flex-Elementen oder Flex-Zeilen in Flex-Layouts, abhängig von `flex-direction`.
 - Benachbarten Spalten in mehrspaltigen Layouts.
 
-Ob eine Spaltentrennlinie mehrere Zeilen überspannt oder in mehrere Segmente unterteilt wird, legt die Eigenschaft {{cssxref("column-rule-break")}} fest. Innere Unterbrechungen zwischen Spaltentrennliniensegmenten entsprechen der Größe von {{cssxref("row-gap")}}. Ein Kreuzungsendpunkt liegt am unteren Ende eines Spaltensegments vor, wenn das Segment dort an einer Lückenkreuzung endet, an der weitere Spalten- oder Trennliniensegmente vorhanden sind.
+Ob eine column-rule mehrere Zeilen überspannt oder in mehrere Segmente unterteilt wird, legt die Eigenschaft {{cssxref("column-rule-break")}} fest. Innere Unterbrechungen zwischen column-rule-Segmenten haben die Größe von {{cssxref("row-gap")}}. Ein junction endpoint tritt am unteren Ende jedes column-Segments auf, dessen unteres Ende an einer Schnittstelle von Abständen liegt, an der weitere column- oder rule-Segmente vorhanden sind.
 
-Die Eigenschaft `column-rule-inset-junction-end` ist Bestandteil mehrerer [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
+Die Eigenschaft `column-rule-inset-junction-end` ist Bestandteil mehrerer [Kurzschreibweisen](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
 
-- Um die oberen und unteren Kreuzungsendpunkte von Spaltensegmenten nach innen zu versetzen, können `column-rule-inset-junction-end` und {{cssxref("column-rule-inset-junction-start")}} mit der Kurzschreibweise {{cssxref("column-rule-inset-junction")}} gesetzt werden.
+- Um die oberen und unteren junction endpoints von column-Segmenten nach innen zu versetzen, können `column-rule-inset-junction-end` und die Eigenschaft {{cssxref("column-rule-inset-junction-start")}} über die Kurzschreibweise {{cssxref("column-rule-inset-junction")}} festgelegt werden.
 
-- Um alle unteren Endpunkte von Spaltensegmenten nach innen zu versetzen, können `column-rule-inset-junction-end` und {{cssxref("column-rule-inset-cap-end")}} mit der Kurzschreibweise {{cssxref("column-rule-inset-end")}} gesetzt werden.
+- Um alle unteren Endpunkte von column-Segmenten nach innen zu versetzen, können `column-rule-inset-junction-end` und die Eigenschaft {{cssxref("column-rule-inset-cap-end")}} über die Kurzschreibweise {{cssxref("column-rule-inset-end")}} festgelegt werden.
 
-- Um die unteren Kreuzungsendpunkte von Spaltensegmenten und die rechten Kreuzungsendpunkte von Zeilensegmenten nach innen zu versetzen, können `column-rule-inset-junction-end` und {{cssxref("row-rule-inset-junction-end")}} mit der Kurzschreibweise {{cssxref("rule-inset-junction-end")}} gesetzt werden.
+- Um die unteren junction endpoints von column-Segmenten und die rechten junction endpoints von row-Segmenten nach innen zu versetzen, können `column-rule-inset-junction-end` und die Eigenschaft {{cssxref("row-rule-inset-junction-end")}} über die Kurzschreibweise {{cssxref("rule-inset-junction-end")}} festgelegt werden.
 
-Alle Segmentendpunkte, einschließlich der Entsprechungen dieser Eigenschaft für `-start`, `-cap` und `row-`, können mit der Kurzschreibweise {{cssxref("rule-inset")}} gesetzt werden.
+Alle Segmentendpunkte, einschließlich der `-start`-, `-cap`- und `row-`-Entsprechungen dieser Eigenschaft, können über die Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
 
-### Kreuzungsendpunkte verstehen
+### Junction endpoints verstehen
 
-Ein _Segmentendpunkt an einer Kreuzung_ ist ein Segmentendpunkt an einer inneren Lücke, der an einer Lückenkreuzung endet, an der weitere Trennlinien- oder Spaltensegmente vorhanden sind. Die Eigenschaft `column-rule-inset-junction-end` steuert den Versatz der unteren Kante von Spaltensegmenten an Kreuzungen. Dadurch lassen sich die Segmente verkürzen oder verlängern.
+Ein _junction segment endpoint_ ist ein Segmentendpunkt an einem inneren Abstand, der an einer Schnittstelle von Abständen endet, an der weitere rule- oder column-Segmente vorhanden sind. Die Eigenschaft `column-rule-inset-junction-end` steuert den Versatz der unteren Kante von column-junction-Segmenten, sodass diese verkürzt oder verlängert werden können.
 
-Längenwerte für `column-rule-inset-junction-end` versetzen Segmente um den angegebenen Wert nach innen. Negative Längenwerte bewirken einen Versatz nach außen und verlängern das untere Ende des Segments an der Kreuzung. Prozentwerte beziehen sich auf die Größe von {{cssxref("row-gap")}}. Bei `-50%` wird das untere Ende des Segments bis zur Mitte der darunterliegenden Zeilenlücke verlängert, unabhängig davon, wie breit diese ist.
+Längenwerte für `column-rule-inset-junction-end` versetzen Segmente um den angegebenen Wert nach innen. Negative Längenwerte bewirken einen Versatz nach außen und verlängern das untere Ende des junction-Segments. Prozentwerte beziehen sich auf die Größe von {{cssxref("row-gap")}}. Mit `-50%` wird das untere Ende des junction-Segments bis zur Mitte des darunterliegenden row-gap verlängert, unabhängig von dessen Breite.
 
-In der folgenden Demonstration enden die Spaltentrennliniensegmente in den oberen beiden Zeilen an Kreuzungsendpunkten. Bei `column-rule-inset-junction-end: 16px` werden die unteren Enden dieser Segmente um `16px` nach innen versetzt. Ändern Sie den `<length>`-Wert des Versatzes, um besser zu erkennen, welche Segmente an Kreuzungsendpunkten enden.
+In der folgenden Demonstration enden die column-rule-Segmente in den oberen beiden Zeilen an junction endpoints. Mit `column-rule-inset-junction-end: 16px` werden die unteren Enden dieser Segmente um `16px` nach innen versetzt. Ändern Sie den `<length>`-Wert des Versatzes, um besser zu erkennen, welche Segmente an junction segment endpoints enden.
 
 ```html hidden live-sample___junctions live-sample___percents
 <ul id="ul">
@@ -275,17 +275,17 @@ visibility.addEventListener("change", () => {
 
 {{EmbedLiveSample("junctions", "", "300")}}
 
-Wenn Sie den Wert auf `0px` setzen, schließen die Spaltentrennlinien bündig mit dem Zeilenende ab und grenzen an die Zeilenlücke. Dies ist die Standardeinstellung. Beachten Sie, dass sich bei einer Änderung des Eigenschaftswerts nur die unteren Enden der Segmente in der Mitte des Grids verändern. Die Segmente in der untersten Zeile ändern sich nicht: Ihre Endpunkte sind _Abschlussendpunkte_ und werden von `column-rule-inset-junction-end` nicht beeinflusst.
+Wenn Sie `0px` als Wert festlegen, schließen die Enden der column rules mit dem Ende der jeweiligen Zeile ab und grenzen an den row-gap. Dies ist der Standardwert. Beachten Sie, dass sich bei einer Änderung des Eigenschaftswerts nur die unteren Enden der Segmente in der Mitte des Grids ändern. Die Segmente in der unteren Zeile bleiben unverändert: Ihre Endpunkte sind _cap endpoints_ und werden von der Eigenschaft `column-rule-inset-junction-end` nicht beeinflusst.
 
-Wählen Sie `around` als Wert für `rule-visibility-items`. Bei diesem Wert werden Trennlinien in einem Lückensegment dargestellt, wenn ein Element mindestens einen der beiden angrenzenden Bereiche belegt. Die Spaltentrennliniensegmente im doppelten Linienstil, die bei `rule-visibility-items: around` erscheinen, enden an einer inneren Kreuzung, an der mindestens ein Zeilentrennliniensegment vorhanden ist. Ihre Endpunkte sind somit Kreuzungsendpunkte.
+Wählen Sie `around` als Wert für `rule-visibility-items`. Bei diesem Wert werden rules in einem Abstandssegment dargestellt, wenn mindestens einer der beiden angrenzenden Bereiche ein Element enthält. Die column-rule-Segmente mit doppeltem Linienstil, die bei `rule-visibility-items: around` erscheinen, enden an einer inneren Schnittstelle, an der mindestens ein row-rule-Segment vorhanden ist. Ihre Endpunkte sind daher junction segment endpoints.
 
-Wählen Sie `between` als Wert für `rule-visibility-items`. Damit werden Trennlinien in Lückensegmenten nur dargestellt, wenn Elemente beide angrenzenden Bereiche belegen. Die Spaltentrennliniensegmente im doppelten Linienstil enden nun an einer inneren Kreuzung, an der keine weiteren Trennliniensegmente vorhanden sind. Ihre Endpunkte sind daher _Abschlussendpunkte_ und werden von `column-rule-inset-junction-end` nicht beeinflusst.
+Wählen Sie `between` als Wert für `rule-visibility-items`. Damit werden rules in Abstandssegmenten nur dargestellt, wenn beide angrenzenden Bereiche Elemente enthalten. Die column-rule-Segmente mit doppeltem Linienstil enden nun an einer inneren Schnittstelle, an der keine weiteren rule-Segmente vorhanden sind. Ihre Endpunkte sind daher _cap segment endpoints_ und werden von der Eigenschaft `column-rule-inset-junction-end` nicht beeinflusst.
 
 ### Der Wert `overlap-join`
 
-Der Wert `overlap-join` verlängert die unteren Enden innerer Segmente so, dass sie bündig mit der unteren Kante der kreuzenden Zeilentrennlinie abschließen. Der Wert entspricht der Hälfte der Größe von {{cssxref("row-gap")}} – womit das Segment bis zur Mitte der Lücke reichen würde – zuzüglich der Hälfte der Breite der Zeilentrennlinie.
+Der Wert `overlap-join` verlängert das untere Ende innerer Segmente so, dass es mit der Unterkante der gekreuzten row-rule abschließt. Der Wert entspricht der Hälfte der Größe von {{cssxref("row-gap")}} (wodurch das Segment bis zur Mitte des Abstands reichen würde) zuzüglich der Hälfte der Breite der row-rule.
 
-Wenn `column-rule-inset-junction-end` auf das Schlüsselwort `overlap-join` gesetzt ist, reichen die unteren Enden der Segmente an Kreuzungen in die Zeilenlücke hinein, bis sie die untere Kante der dort dargestellten Zeilentrennlinie erreichen und sich mit ihr verbinden.
+Wenn `column-rule-inset-junction-end` auf das Schlüsselwort `overlap-join` gesetzt ist, reichen die unteren Enden der junction-Segmente in den row-gap hinein, bis sie auf die Unterkante der dort dargestellten row-rule treffen beziehungsweise sich mit ihr verbinden.
 
 Im folgenden interaktiven Beispiel ist `column-rule-inset-junction-end` auf `overlap-join` gesetzt:
 
@@ -378,7 +378,7 @@ ruleWidth.addEventListener("input", () => {
 
 {{EmbedLiveSample("the overlap-join value", "", "430")}}
 
-Ändern Sie die Größe von {{cssxref("row-rule-width")}} und {{cssxref("row-gap")}}. Beachten Sie, dass das untere Ende des Spaltensegments unabhängig von der Größe der Lücke oder der Breite der Zeilentrennlinie stets bis zur unteren Kante der in der Lücke dargestellten Zeilentrennlinie reicht.
+Ändern Sie die Größe von {{cssxref("row-rule-width")}} und {{cssxref("row-gap")}}. Beachten Sie, dass das untere Ende des column-Segments unabhängig von der Größe des Abstands oder der row-rule immer so weit verlängert wird, dass es mit der Unterkante der im Abstand dargestellten row-rule abschließt.
 
 ## Formale Definition
 
@@ -392,7 +392,7 @@ ruleWidth.addEventListener("input", () => {
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Sie mit `column-rule-inset-junction-end` die Endkanten von Segmenten an Kreuzungen in Flex-Containern nach innen versetzen.
+Dieses Beispiel zeigt, wie Sie mit `column-rule-inset-junction-end` die Endkante von junction-Segmenten in Flex-Containern nach innen versetzen.
 
 #### HTML
 
@@ -438,8 +438,7 @@ Dieses Beispiel zeigt, wie Sie mit `column-rule-inset-junction-end` die Endkante
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Mit {{cssxref("rule")}} definieren wir eine hellblaue Trennlinie für Zeilen- und Spaltenlücken und überschreiben anschließend mit {{cssxref("column-rule-color")}} die Farbe der Spaltentrennlinien mit einem dunkleren `blue`. Außerdem setzen wir die Eigenschaft {{cssxref("
-  rule-overlap")}} auf `column-over-row`, damit sich Spaltensegmente bei Überlappungen über den Zeilensegmenten befinden. Schließlich setzen wir `column-rule-inset-junction-end` auf `16px`.
+Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine hellblaue {{cssxref("rule")}} für die Zeilen- und Spaltenabstände und überschreiben anschließend {{cssxref("column-rule-color")}}, um die Spaltenabstände mit dem dunkleren `blue` zu gestalten. Außerdem setzen wir die Eigenschaft {{cssxref("rule-overlap")}} auf `column-over-row`, damit die column-Segmente über den row-Segmenten gezeichnet werden, wenn sie sich überlappen. Schließlich setzen wir `column-rule-inset-junction-end` auf `16px`.
 
 ```css
 .flexbox {
@@ -455,7 +454,7 @@ Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu
 }
 ```
 
-Für den Container `.column` setzen wir außerdem {{cssxref("flex-direction")}} auf `column`. Dadurch verläuft die Hauptachse des Flex-Containers vertikal, und die Elemente werden in Spalten statt in Zeilen angeordnet.
+Außerdem setzen wir {{cssxref("flex-direction")}} für den Container `.column` auf `column`. Dadurch verläuft die Hauptachse des Flex-Containers vertikal über die Seite, und die Elemente werden in Spalten statt in Zeilen angeordnet.
 
 ```css
 .column {
@@ -463,7 +462,7 @@ Für den Container `.column` setzen wir außerdem {{cssxref("flex-direction")}} 
 }
 ```
 
-Das übrige CSS ist der Kürze halber ausgeblendet.
+Der übrige CSS-Code ist der Kürze halber ausgeblendet.
 
 ```css hidden
 h1,
@@ -529,7 +528,7 @@ inset.addEventListener("input", () => {
 
 {{EmbedLiveSample("Basic usage", "", "330")}}
 
-Ändern Sie die Größe des Versatzes. Beachten Sie, dass die Spaltentrennlinie im rechten Beispiel aus einem einzigen Segment besteht, das von oben nach unten verläuft. Dieses Segment hat zwei Abschlussendpunkte und keine Kreuzungsendpunkte. Eine Änderung des Werts von `column-rule-inset-junction-end` wirkt sich daher nicht auf dieses Beispiel aus.
+Ändern Sie die Größe des Versatzes. Beachten Sie, dass die column-rule im rechten Beispiel aus einem einzigen Segment besteht, das von oben nach unten verläuft. Dieses Segment hat zwei cap endpoints und keine junction endpoints. Eine Änderung des Werts von `column-rule-inset-junction-end` wirkt sich daher nicht auf dieses Beispiel aus.
 
 ## Spezifikationen
 
@@ -551,4 +550,4 @@ inset.addEventListener("input", () => {
 - {{cssxref("rule-overlap")}}
 - {{cssxref("rule-visibility-items")}}
 - {{cssxref("rule")}}-Kurzschreibweise
-- Modul [CSS-Lücken](/de/docs/Web/CSS/Guides/Gaps)
+- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)

@@ -3,18 +3,18 @@ title: "`path-length` CSS property"
 short-title: path-length
 slug: Web/CSS/Reference/Properties/path-length
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: b7e9f482c51817d3a885e26092f8219fd0d9d278
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`path-length`** legt eine gesamte Pfadlänge in Benutzereinheiten fest. Alle Pfadberechnungen werden dann mithilfe des Verhältnisses `path-length` / _(berechneter Wert der Pfadlänge)_ skaliert — dies schließt Textpfade, Animationspfade und verschiedene Konturoperationen ein.
+Die [CSS-Eigenschaft](/de/docs/Web/CSS) **`path-length`** legt eine gesamte Pfadlänge in Benutzereinheiten fest. Alle Pfadberechnungen werden anschließend mit dem Verhältnis `path-length` / _(berechneter Wert der Pfadlänge)_ skaliert. Das gilt unter anderem für Textpfade, Animationspfade und verschiedene Operationen an Konturlinien.
 
-Die Eigenschaft `path-length` gilt nur für {{SVGElement("circle")}}-, {{SVGElement("ellipse")}}-, {{SVGElement("line")}}-, {{SVGElement("path")}}-, {{SVGElement("polygon")}}-, {{SVGElement("polyline")}}- und {{SVGElement("rect")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind.
+Die Eigenschaft `path-length` gilt nur für die Elemente {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}} und {{SVGElement("rect")}}, die in einem {{SVGElement("svg")}} verschachtelt sind.
 
 > [!NOTE]
-> Falls vorhanden, überschreibt die CSS-Eigenschaft `path-length` das Attribut {{SVGAttr("pathLength")}} eines SVG-Elements.
-> Diese Eigenschaft gilt nicht für SVG-, HTML- oder Pseudo-Elemente außer den oben aufgeführten.
+> Falls die CSS-Eigenschaft `path-length` angegeben ist, überschreibt sie das Attribut {{SVGAttr("pathLength")}} eines SVG-Elements.
+> Diese Eigenschaft gilt nicht für andere SVG- oder HTML-Elemente oder Pseudoelemente als die oben aufgeführten.
 
 ## Syntax
 
@@ -24,8 +24,8 @@ path-length: none;
 
 /* <length> values */
 path-length: 0;
-path-length: 70;
-path-length: 500;
+path-length: 70px;
+path-length: 500px;
 
 /* Global values */
 path-length: inherit;
@@ -38,10 +38,10 @@ path-length: unset;
 ### Werte
 
 - `none`
-  - : Es wird keine vom Autor festgelegte Pfadlänge angegeben, und für alle pfadbezogenen Berechnungen wird die vom User-Agent berechnete Pfadlänge verwendet.
+  - : Es ist keine vom Autor festgelegte Pfadlänge angegeben. Für alle pfadbezogenen Berechnungen wird die vom User Agent selbst berechnete Pfadlänge verwendet.
 
 - `<length>`
-  - : Ein nicht negativer einheitenloser Wert, der eine vom Autor definierte gesamte Pfadlänge in Benutzereinheiten darstellt.
+  - : Ein nicht negativer {{cssxref("&lt;length&gt;")}}-Wert, der eine vom Autor festgelegte gesamte Pfadlänge angibt.
 
 ## Formale Definition
 
@@ -55,11 +55,11 @@ path-length: unset;
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel definiert einen Pfad und zeigt, wie mithilfe der CSS-Eigenschaft `path-length` eine Pfadlänge darauf angewendet wird.
+Dieses Beispiel definiert einen Pfad und zeigt, wie Sie ihm mit der CSS-Eigenschaft `path-length` eine Pfadlänge zuweisen.
 
 #### SVG
 
-Unser SVG definiert ein einzelnes gekrümmtes {{SVGElement("path")}}-Element mit einer farbigen {{SVGAttr("stroke")}}. Es enthält ein Attribut {{SVGAttr("stroke-dasharray")}}, das ein regelmäßiges gestricheltes Muster für die Kontur definiert.
+Unser SVG definiert ein einzelnes gekrümmtes {{SVGElement("path")}}-Element mit einem farbigen {{SVGAttr("stroke")}}. Das Attribut {{SVGAttr("stroke-dasharray")}} legt ein regelmäßiges Strichmuster für die Konturlinie fest.
 
 ```html live-sample___basic-path-length live-sample___path-length-animation
 <svg viewBox="0 0 600 200">
@@ -74,27 +74,27 @@ Unser SVG definiert ein einzelnes gekrümmtes {{SVGElement("path")}}-Element mit
 
 #### CSS
 
-Wir setzen einen `path-length`-Wert auf dem `<path>`:
+Wir setzen für `<path>` einen `path-length`-Wert:
 
 ```css live-sample___basic-path-length
 path {
-  path-length: 500;
+  path-length: 500px;
 }
 ```
 
-#### Ergebnisse
+#### Ergebnis
 
 {{EmbedLiveSample("basic-path-length", "100%", "250")}}
 
-Das Festlegen eines großen `path-length`-Werts führt dazu, dass die Striche kleiner werden und häufiger auftreten.
+Ein großer `path-length`-Wert führt dazu, dass die Striche kleiner werden und häufiger auftreten.
 
-### Animieren von `path-length`
+### `path-length` animieren
 
-Ein wesentlicher Vorteil der Bereitstellung von `path-length` als CSS-Eigenschaft besteht darin, dass Sie darauf Standard-CSS-Funktionen wie [Animationen](/de/docs/Web/CSS/Guides/Animations) und [Übergänge](/de/docs/Web/CSS/Guides/Transitions) anwenden können. Dieses Beispiel baut auf dem vorherigen auf und zeigt, wie ein `path-length` mit einer CSS-Animation animiert wird.
+Ein wesentlicher Vorteil von `path-length` als CSS-Eigenschaft ist, dass Sie darauf CSS-Funktionen wie [Animationen](/de/docs/Web/CSS/Guides/Animations) und [Übergänge](/de/docs/Web/CSS/Guides/Transitions) anwenden können. Dieses Beispiel baut auf dem vorherigen auf und zeigt, wie Sie `path-length` mit einer CSS-Animation animieren.
 
 #### HTML und SVG
 
-Dieses Beispiel enthält denselben SVG-`<path>` wie das vorherige. Zusätzlich enthält es ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element, das verwendet werden kann, um den zur Laufzeit auf den `<path>` angewendeten Wert von `path-length` zu ändern. Außerdem fügen wir ein {{htmlelement("output")}}-Element hinzu, um den aktuellen Schiebereglerwert anzuzeigen.
+Dieses Beispiel enthält denselben SVG-`<path>` wie das vorherige. Zusätzlich enthält es ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)-Element, mit dem sich der auf `<path>` angewendete `path-length`-Wert zur Laufzeit ändern lässt. Ein {{htmlelement("output")}}-Element zeigt den aktuellen Wert des Schiebereglers an.
 
 ```html live-sample___path-length-animation
 <div>
@@ -106,11 +106,11 @@ Dieses Beispiel enthält denselben SVG-`<path>` wie das vorherige. Zusätzlich e
 
 #### CSS
 
-Auf dem Element {{cssxref(":root")}} definieren wir eine [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) namens `--path-length` und geben ihr einen Anfangswert von `200`. Anschließend setzen wir den `path-length`-Wert des `<path>`-Elements auf die Eigenschaft `--path-length` und legen darauf eine {{cssxref("animation")}} fest, die unendlich oft ausgeführt wird und zwischen Vorwärts- und Rückwärtsrichtung wechselt.
+Auf dem {{cssxref(":root")}}-Element definieren wir eine [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) namens `--path-length` und geben ihr den Anfangswert `200px`. Anschließend setzen wir den `path-length`-Wert des `<path>`-Elements auf die Eigenschaft `--path-length` und weisen ihm eine {{cssxref("animation")}} zu, die unendlich oft abläuft und dabei abwechselnd vorwärts und rückwärts ausgeführt wird.
 
 ```css live-sample___path-length-animation
 :root {
-  --path-length: 200;
+  --path-length: 200px;
 }
 
 path {
@@ -129,7 +129,7 @@ div {
 }
 ```
 
-Als Nächstes definieren wir den {{cssxref("@keyframes")}}-Block für die Animation — er animiert die Eigenschaft `path-length` zwischen dem Wert `--path-length` und dem mit `1.5` multiplizierten Wert `--path-length`.
+Als Nächstes definieren wir den {{cssxref("@keyframes")}}-Block für die Animation. Er animiert die Eigenschaft `path-length` zwischen dem Wert von `--path-length` und dem mit `1.5` multiplizierten Wert von `--path-length`.
 
 ```css live-sample___path-length-animation
 @keyframes path-length-anim {
@@ -145,7 +145,7 @@ Als Nächstes definieren wir den {{cssxref("@keyframes")}}-Block für die Animat
 
 #### JavaScript
 
-Wir beginnen unser Skript damit, Referenzen auf die Elemente `<input type="range">`, `<output>` und `:root` abzurufen.
+Zu Beginn unseres Skripts holen wir uns Referenzen auf die Elemente `<input type="range">`, `<output>` und `:root`.
 
 ```js live-sample___path-length-animation
 const slider = document.querySelector("input");
@@ -153,20 +153,20 @@ const output = document.querySelector("output");
 const rootElem = document.querySelector(":root");
 ```
 
-Als Nächstes fügen wir dem Bereichsschieberegler einen `input`-Event-Handler hinzu, sodass bei einer Änderung seines Werts das `textContent`-Attribut des `<output>`-Elements und der Wert der benutzerdefinierten Eigenschaft `--path-length` auf den neuen Wert des Schiebereglers gesetzt werden.
+Anschließend fügen wir dem Schieberegler einen `input`-Event-Handler hinzu. Wenn sich sein Wert ändert, werden sowohl `textContent` des `<output>`-Elements als auch der Wert der benutzerdefinierten Eigenschaft `--path-length` auf den neuen Wert des Schiebereglers gesetzt.
 
 ```js live-sample___path-length-animation
 slider.addEventListener("input", () => {
-  output.textContent = slider.value;
-  rootElem.style.setProperty("--path-length", slider.value);
+  output.textContent = `${slider.value}px`;
+  rootElem.style.setProperty("--path-length", `${slider.value}px`);
 });
 ```
 
-#### Ergebnisse
+#### Ergebnis
 
 {{EmbedLiveSample("path-length-animation", "100%", "250")}}
 
-Passen Sie den Schieberegler an und beachten Sie, dass größere Werte zu einer kleineren Strichgröße führen.
+Verstellen Sie den Schieberegler und achten Sie darauf, wie größere Werte zu kleineren Strichen führen.
 
 ## Spezifikationen
 

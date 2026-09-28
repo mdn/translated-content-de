@@ -1,13 +1,13 @@
 ---
-title: Workflows und Prozesse
+title: Arbeitsabläufe und Prozesse
 slug: Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes
 l10n:
-  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork", "Learn_web_development/Getting_started/Soft_skills/Finding_a_job", "Learn_web_development/Getting_started/Soft_skills")}}
 
-Ein wichtiger Aspekt technischer Projekte, den Anfänger oft übersehen, ist das Verständnis für das größere Ganze. Sie könnten sich ein einzelnes Tool oder eine Sprache aneignen, sind sich aber der gesamten Bibliotheken, Tools, Systeme und Rollen, die zusammenarbeiten, um eine komplette Webanwendung zu erstellen, nicht bewusst. Die folgenden Abschnitte behandeln verschiedene Aspekte des größeren Bildes auf einer hohen Ebene.
+Ein wichtiger Aspekt technischer Projekte, der Einsteigern oft entgeht, ist der Blick auf das Gesamtbild. Sie lernen vielleicht ein einzelnes Werkzeug oder eine Programmiersprache, wissen aber nicht, welche Bibliotheken, Werkzeuge, Systeme und beruflichen Rollen zusammenwirken, um eine vollständige Webanwendung bereitzustellen. Die folgenden Abschnitte geben einen Überblick über verschiedene Aspekte dieses Gesamtbilds.
 
 <table>
   <tbody>
@@ -18,29 +18,29 @@ Ein wichtiger Aspekt technischer Projekte, den Anfänger oft übersehen, ist das
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Typische Technologiekombinationen in Webprojekten.</li>
-          <li>Typische Jobrollen in einem Webentwicklungsteam.</li>
-          <li>Typische Phasen technischer Projekte und wo verschiedene Jobrollen beteiligt sind.</li>
-          <li>Gängige Arbeitsmanagementprozesse wie agil und Wasserfall.</li>
+          <li>Typische Kombinationen von Technologien in Webprojekten.</li>
+          <li>Typische berufliche Rollen in einem Webentwicklungsteam.</li>
+          <li>Typische Phasen technischer Projekte und die Beteiligung der verschiedenen Rollen.</li>
+          <li>Gängige Prozesse zur Arbeitsorganisation, etwa agile Methoden und das Wasserfallmodell.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Typische Technologiekombinationen
+## Typische Kombinationen von Technologien
 
-Beim Erstellen einer Website verwenden Sie eine Kombination verschiedener Technologien, die üblicherweise als **Tech-Stack** bezeichnet wird. Je größer und komplexer Websites werden, desto komplexer wird auch der Tech-Stack. Er mag einfach beginnen, wenn Sie ein Demo erstellen und nur Sie und einige Kollegen es sich ansehen werden. Ein scheinbar einfacher Tech-Stack einer Produktionswebsite könnte jedoch komplexer sein, als Sie zunächst denken, wenn man bedenkt, dass er Folgendes benötigt:
+Beim Erstellen einer Website verwenden Sie verschiedene Technologien in Kombination. Diese Kombination wird üblicherweise als **Tech-Stack** bezeichnet. Je größer und komplexer Websites werden, desto umfangreicher wird auch ihr Tech-Stack. Bei einer Demo, die nur Sie und einige Kolleginnen und Kollegen ansehen, kann er noch einfach sein. Der Tech-Stack einer scheinbar einfachen produktiven Website kann jedoch komplexer sein, als Sie zunächst denken. Schließlich muss die Website:
 
-- Schnelles Laden (dies ist der Zweck von [Performance](/de/docs/Learn_web_development/Extensions/Performance/why_web_performance)).
-- Eine große Anzahl von Benutzern gleichzeitig verarbeiten (es muss **skalieren**).
-- Gut gestaltet sein, damit Benutzer leicht auf die darin enthaltenen Informationen und Dienste zugreifen können.
-- Einfach für ein Team zu bearbeiten und zu warten sein.
+- Schnell laden – darum geht es bei der [Performance](/de/docs/Learn_web_development/Extensions/Performance/why_web_performance).
+- Viele Benutzer gleichzeitig bedienen können – sie muss **skalieren**.
+- Gut gestaltet sein, damit Benutzer leicht auf die enthaltenen Informationen und Dienste zugreifen können.
+- Für ein Team leicht zu bearbeiten und zu warten sein.
 
-Auf einer sehr hohen Ebene könnte ein Tech-Stack für Webanwendungen so aussehen:
+Auf einer sehr allgemeinen Ebene könnte der Tech-Stack einer Webanwendung etwa so aussehen:
 
 ```plain
 Front-end
@@ -57,134 +57,133 @@ Your own, built around a server product such as Apache, or a service like Netlif
 ```
 
 > [!NOTE]
-> Sie werden oft Akronyme sehen, die sich auf beliebte Tech-Stacks beziehen, wie [MEAN](https://www.mongodb.com/resources/languages/mean-stack) (MongoDB, Express, Angular, Node) oder [LAMP](<https://en.wikipedia.org/wiki/LAMP_(software_bundle)>) (Linux, Apache, MySQL, PHP oder Python).
+> Häufig werden Ihnen Akronyme für beliebte Tech-Stacks begegnen, etwa [MEAN](https://www.mongodb.com/resources/languages/mean-stack) (MongoDB, Express, Angular, Node) oder [LAMP](<https://en.wikipedia.org/wiki/LAMP_(software_bundle)>) (Linux, Apache, MySQL, PHP oder Python).
 
-Auf MDN konzentrieren wir uns hauptsächlich auf den Front-End-Bereich, doch selbst dieser kann in viele verschiedene Teile zerlegt werden. Nehmen Sie zum Beispiel das Front-End:
+Auf MDN befassen wir uns hauptsächlich mit dem Frontend. Doch auch dieses lässt sich in viele verschiedene Teile untergliedern. Betrachten wir zum Beispiel das Frontend:
 
-- Sie werden wahrscheinlich ein JavaScript-Framework (wie [React](/de/docs/Learn_web_development/Core/Frameworks_libraries/React_getting_started)) verwenden, um die Komponenten zu definieren, die zusammen die Benutzeroberfläche bilden.
-- Das Framework wird wahrscheinlich eine Art Templating-Sprache (wie [Mustache](https://mustache.github.io/)) verwenden, um die HTML-Struktur zu definieren, aber auch Funktionalität bieten, um variablen Inhalt dynamisch einzufügen.
-- Sie werden Informationen über CSS einbinden, um Ihren Inhalt auf eine Weise zu gestalten, die mit dem Framework kompatibel ist. Dies kann in reinem CSS, einem CSS-Framework (wie [Tailwind](https://tailwindcss.com/)) oder einem Präprozessor (wie [Sass](https://sass-lang.com/)) geschrieben sein.
-- Ein JavaScript-Projekt sollte Tests beinhalten, um sicherzustellen, dass neue Code-Ergänzungen seine Funktionalität nicht beeinträchtigen. Tests werden normalerweise unter Verwendung eines Test-Frameworks (wie [Jest](https://jestjs.io/)) implementiert.
-- Größere Websites werden ein Verpackungs-/Build-Tool (wie [Parcel](https://parceljs.org/)) verwenden, um die Leistung zu optimieren, indem Dateigrößen reduziert und ungenutzte Komponenten aus dem Produktionscode entfernt werden usw.
+- Wahrscheinlich verwenden Sie ein JavaScript-Framework (etwa [React](/de/docs/Learn_web_development/Core/Frameworks_libraries/React_getting_started)), um die Komponenten zu definieren, aus denen die Benutzeroberfläche entsteht.
+- Das Framework verwendet vermutlich eine Template-Sprache (etwa [Mustache](https://mustache.github.io/)), um die HTML-Struktur zu definieren und zugleich variable Inhalte dynamisch einzubinden.
+- Sie ergänzen CSS-Informationen, um Ihre Inhalte passend zum Framework zu gestalten. Dazu können Sie reines CSS, ein CSS-Framework (etwa [Tailwind](https://tailwindcss.com/)) oder einen Präprozessor (etwa [Sass](https://sass-lang.com/)) verwenden.
+- Ein JavaScript-Projekt sollte Tests enthalten, damit neue Code-Ergänzungen die Funktionalität nicht beeinträchtigen. Tests werden üblicherweise mit einem Test-Framework (etwa [Jest](https://jestjs.io/)) implementiert.
+- Größere Websites verwenden ein Paketierungs- oder Build-Tool (etwa [Parcel](https://parceljs.org/)), um die Performance zu verbessern: Es hält unter anderem Dateigrößen gering und entfernt ungenutzte Komponenten aus dem produktiven Code.
 - Und so weiter.
 
 > [!NOTE]
-> Sie werden oft hören, dass Websites und Anwendungen unter Verwendung spezifischer **Architektur-Muster** erstellt werden. Zum Beispiel ist [Model-View-Controller (MVC)](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) ein Muster, dem viele JavaScript-Frameworks folgen, während [Publisher-Subscriber (Pub/Sub)](https://dev.to/willvelida/the-publisher-subscriber-pattern-pubsub-messaging-10in) häufig von Messaging-Anwendungen verwendet wird. Es ist nicht besonders wichtig, dass Sie diese Muster im Detail verstehen, aber eine gewisse Vertrautheit kann nützlich sein, wenn Sie versuchen, ein neues Framework oder Tool zu verstehen.
+> Sie werden häufig hören, dass Websites und Anwendungen nach bestimmten **Architekturmustern** aufgebaut sind. Beispielsweise ist [Model-View-Controller (MVC)](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) ein Muster, dem viele JavaScript-Frameworks folgen. [Publish–Subscribe (Pub/Sub)](https://dev.to/willvelida/the-publisher-subscriber-pattern-pubsub-messaging-10in) wird dagegen häufig von Messaging-Anwendungen verwendet. Sie müssen diese Muster nicht im Detail verstehen. Ein wenig Vertrautheit damit kann aber helfen, wenn Sie ein neues Framework oder Werkzeug kennenlernen.
 
-Es wird auch Tools geben, die außerhalb des eigentlichen Tech-Stacks selbst involviert sind, um Ihnen zu helfen, es zu verwalten oder Ressourcen für die Website zu erstellen, wie:
+Neben dem eigentlichen Tech-Stack kommen auch Werkzeuge zum Einsatz, mit denen Sie ihn verwalten oder Materialien für die Website erstellen können, zum Beispiel:
 
-- Planungstools, um Ihnen zu helfen, was Sie während des gesamten Projekts auf einer hohen Ebene tun werden (wie [Miro](https://miro.com/)).
-- Versionskontrollsysteme (VCS). Sie werden wahrscheinlich ein auf [git](https://git-scm.com/) basierendes VCS verwenden, wie [GitHub](https://github.com/).
-- Grafik-/Schnittstellengestaltungspakete (wie [Figma](https://www.figma.com/) oder [Canva](https://www.canva.com/)).
-- Projektmanagement-Tools wie [Trello](https://trello.com/) oder [Asana](https://asana.com/).
+- Planungswerkzeuge, die Ihnen helfen, das Vorgehen im Projekt auf übergeordneter Ebene zu planen (etwa [Miro](https://miro.com/)).
+- Versionskontrollsysteme (VCS). Wahrscheinlich verwenden Sie ein auf [git](https://git-scm.com/) basierendes VCS, etwa [GitHub](https://github.com/).
+- Programme für Grafik- und Oberflächendesign (etwa [Figma](https://www.figma.com/) oder [Canva](https://www.canva.com/)).
+- Projektmanagement-Werkzeuge wie [Trello](https://trello.com/) oder [Asana](https://asana.com/).
 
-Okay, das ist also viel zu verarbeiten. Unser Rat lautet **nicht in Panik geraten!** Das Ziel dieses Artikels ist es nicht, Sie zu beunruhigen, indem wir Ihnen das Gefühl geben, dass Sie plötzlich 10-mal so viele Dinge zu lernen haben wie vorher. Die Idee ist einfach, Ihnen das größere Bild in Bezug auf Website-Projekte bewusst zu machen und Ihnen ein grundlegendes Verständnis einiger der Begriffe zu vermitteln, denen Sie begegnen könnten.
+Das sind viele Informationen auf einmal. Unser Rat lautet: **Keine Panik!** Dieser Artikel soll Sie nicht beunruhigen oder den Eindruck erwecken, Sie müssten plötzlich zehnmal so viel lernen wie zuvor. Er soll Ihnen lediglich das Gesamtbild von Website-Projekten näherbringen und Sie mit einigen Begriffen vertraut machen, denen Sie begegnen könnten.
 
-Letztendlich werden Sie einige Kenntnisse über mehrere der oben genannten Tools und Technologien entwickeln, aber Sie werden kein Experte in allen sein, und das müssen Sie auch nicht sein — dafür sind Teams da. Im Moment tun Sie absolut das Richtige, indem Sie die Kernkompetenzen wie HTML, CSS und JavaScript lernen. Weitere Tools und Spezialisierungen werden später in ihrer Karriere hinzukommen.
+Mit der Zeit werden Sie Kenntnisse über mehrere der genannten Werkzeuge und Technologien erwerben. Sie werden aber nicht in allen zum Experten werden – und müssen das auch nicht. Dafür gibt es Teams. Im Moment ist es genau richtig, dass Sie die Kernkompetenzen HTML, CSS und JavaScript lernen. Weitere Werkzeuge und Spezialisierungen kommen später in Ihrer beruflichen Laufbahn hinzu.
 
-## Jobrollen
+## Berufliche Rollen
 
-In einem Webentwicklungsteam gibt es viele verschiedene Jobrollen; es ist nützlich zu verstehen, was jede davon beinhaltet:
+In einem Webentwicklungsteam gibt es viele verschiedene berufliche Rollen. Es ist hilfreich zu verstehen, welche Aufgaben damit jeweils verbunden sind:
 
 - **Produktmanager**
-  - : Verantwortlich für die gesamte Website aus produktspezifischer Sicht — wie performt das Produkt auf dem Markt im Vergleich zu seinen Wettbewerbern? Was sind seine Stärken und Schwächen? Welche neuen Funktionen fordert das Zielpublikum, und welche haben die höchste Priorität? Was sind die wichtigsten Erfolgskriterien der Website, und wie haben die jüngsten neuen Funktionen dazu beigetragen, diese Kriterien zu erfüllen? Der Produktmanager sammelt Daten und schreibt Berichte, um dem Team zu helfen, die Effektivität ihrer Arbeit zu verstehen und künftige Arbeiten zu priorisieren.
+  - : Verantwortlich für die gesamte Website aus Produktsicht: Wie behauptet sich das Produkt auf dem Markt im Vergleich zur Konkurrenz? Wo liegen seine Stärken und Schwächen? Welche neuen Funktionen wünscht sich die Zielgruppe, und welche haben die höchste Priorität? Was sind die wichtigsten Erfolgskriterien der Website, und wie haben kürzlich eingeführte Funktionen dazu beigetragen, sie zu erfüllen? Der Produktmanager sammelt Daten und erstellt Berichte, damit das Team die Wirksamkeit seiner Arbeit einschätzen und künftige Arbeiten priorisieren kann.
 - **Projektmanager**
-  - : Verantwortlich für die Organisation der zu erledigenden Arbeiten des Teams. Der Projektmanager erstellt einen Projektplan mit priorisierten Aufgaben und Fälligkeitsdaten, weist Personal zur Durchführung der einzelnen Aufgaben zu, hält regelmäßige Check-in-Meetings ab, um zu überprüfen, ob Fortschrittsziele erreicht werden und Probleme zu erkennen, und passt den Plan bei Bedarf an.
-- **User Experience (UX) Designer**
-  - : Verantwortlich für das Verständnis der Bedürfnisse des Zielpublikums des Produkts und das Entwerfen des Workflow-/Erlebnisses des Produkts, damit diese Bedürfnisse am effektivsten erfüllt werden. Typische UX-Fragen lauten: "Wo sollten wir den Benutzer anleiten, wenn er auf unserer Startseite landet?" und "Wie können wir die Registrierung für ein Konto so einfach und intuitiv wie möglich gestalten?" Diese Arbeit ist oft mit Benutzerforschung und -tests verbunden, um das Zielpublikum besser zu verstehen, und mit der Erstellung von Drahtmodellen zur Kommunikation von Ideen. Der UX-Designer ist einer der Hauptkonsumenten der Berichte des Produktmanagers.
+  - : Verantwortlich für die Organisation der Arbeit, die das Team erledigen muss. Der Projektmanager erstellt einen Projektplan mit priorisierten Aufgaben und Fristen, teilt den Aufgaben Personen zu und hält regelmäßige Besprechungen ab. Dabei prüft er, ob die angestrebten Fortschritte erreicht werden, macht Probleme sichtbar und passt den Plan bei Bedarf an.
+- **User-Experience-Designer (UX-Designer)**
+  - : Verantwortlich dafür, die Bedürfnisse der Zielgruppe des Produkts zu verstehen und die Abläufe sowie die Benutzererfahrung so zu gestalten, dass diese Bedürfnisse möglichst gut erfüllt werden. Typische UX-Fragen sind: „Wohin sollten wir Benutzer zuerst führen, wenn sie auf unserer Startseite landen?“ und „Wie können wir die Registrierung eines Kontos so einfach und intuitiv wie möglich machen?“ Diese Arbeit geht häufig mit Nutzerforschung und Tests einher, um die Zielgruppe besser zu verstehen, sowie mit der Erstellung von Wireframes, um Ideen zu vermitteln. Der UX-Designer gehört zu den wichtigsten Empfängern der Berichte des Produktmanagers.
 - **Grafikdesigner**
-  - : Verantwortlich für visuelle Gestaltungsarbeiten im Website-Projekt. Grafikdesigner sind für eine Vielzahl von Disziplinen verantwortlich, wie Typografie, die Auswahl von Farbschemata, das Erstellen von Icons und anderen Grafik-Assets sowie das Erstellen von Website-Mockups basierend auf den Drahtmodellen des UX-Designers.
-- **Front-End-Entwickler**
-  - : Das ist (wahrscheinlich) das, was Sie anstreben, wenn Sie dies lesen! Front-End-Entwickler verwenden HTML, CSS und JavaScript, um den visuellen Teil der Website zu erstellen, mit dem Benutzer interagieren, und erwecken die Verhaltens- und visuellen Mockups zum Leben, die von den UX- und Grafikdesignern erstellt wurden.
-- **Back-End-Entwickler**
-  - : Verantwortlich für die nicht-visuellen Teile der Website. Sie schreiben Backend-Code, um interne Daten anzufordern, HTML-Seiten aus Vorlagen zu generieren und externe, von Benutzern übermittelte Daten zu verarbeiten. Sie sind auch für die Konfiguration des Webservers verantwortlich, die Webseite sicher zu halten usw.
+  - : Verantwortlich für die visuelle Gestaltung des Website-Projekts. Die Aufgaben umfassen verschiedene Bereiche, etwa Typografie, die Auswahl von Farbschemata, die Erstellung von Icons und anderen Grafiken sowie die Gestaltung von Website-Mockups auf Grundlage der Wireframes des UX-Designers.
+- **Frontend-Entwickler**
+  - : Das ist (wahrscheinlich) die Rolle, die Sie anstreben, wenn Sie diesen Artikel lesen! Frontend-Entwickler verwenden HTML, CSS und JavaScript, um den sichtbaren Teil der Website zu erstellen, mit dem Benutzer interagieren. So setzen sie die von UX- und Grafikdesignern erstellten Entwürfe für Verhalten und Aussehen um.
+- **Backend-Entwickler**
+  - : Verantwortlich für die nicht sichtbaren Teile der Website. Backend-Entwickler schreiben Code, um interne Daten abzurufen, HTML-Seiten aus Templates zu erzeugen und von Benutzern übermittelte Daten zu verarbeiten. Außerdem kümmern sie sich unter anderem um die Konfiguration des Webservers und die Sicherheit der Website.
 - **Full-Stack-Entwickler**
-  - : Behandelt sowohl Front-End- als auch Back-End-Entwicklungsaufgaben.
-- **Quality Assurance (QA) Engineer**
-  - : Verantwortlich für das Testen neuer Features, um sicherzustellen, dass sie ordnungsgemäß funktionieren, und das Melden von Fehlern, wobei sie mit den Entwicklern kommunizieren, um ihnen zu helfen, die notwendigen Korrekturen zu priorisieren.
-- **Content-Spezialist/technischer Schriftsteller**
-  - : Verantwortlich dafür, dass der Textinhalt der Website für das Zielpublikum so gut wie möglich funktioniert. Dies umfasst die Struktur der Informationen und deren Navigation, die Benutzeroberflächentextetiketten, Blogbeiträge, Marketingtexte und Produktdokumentationen.
+  - : Übernimmt sowohl Aufgaben der Frontend- als auch der Backend-Entwicklung.
+- **QA-Engineer (Qualitätssicherung)**
+  - : Verantwortlich dafür, neue Funktionen zu testen, ihre korrekte Funktionsweise zu prüfen und Fehler zu melden. QA-Engineers tauschen sich mit den Entwicklern aus, damit notwendige Korrekturen priorisiert werden können.
+- **Content-Spezialist/Technischer Redakteur**
+  - : Verantwortlich dafür, dass die Textinhalte der Website für die Zielgruppe möglichst gut funktionieren. Dazu gehören die Informationsstruktur und Navigation, Textbeschriftungen der Benutzeroberfläche, Blogbeiträge, Marketingtexte und die Produktdokumentation.
 
-### Weniger häufige Jobrollen
+### Weniger verbreitete berufliche Rollen
 
-Weitere weniger häufige Jobrollen umfassen:
+Weitere, weniger verbreitete Rollen sind:
 
-- **Benutzerforscher**
-  - : Größere Teams haben oft einen dedizierten Forscher, um Benutzerforschung und -tests durchzuführen.
-- **Suchmaschinenoptimierung (SEO) Spezialist**
-  - : Analysiert den Inhalt und die Struktur der Website und nimmt Änderungen vor, die dazu führen, dass die Website in relevanten Suchmaschinenergebnissen besser sichtbar wird. Siehe {{Glossary("SEO", "SEO")}} für weitere Informationen.
+- **Nutzerforscher**
+  - : Größere Teams haben häufig eine eigene Person für Nutzerforschung und Tests.
+- **Spezialist für Suchmaschinenoptimierung (SEO)**
+  - : Analysiert Inhalt und Struktur der Website und nimmt Änderungen vor, damit die Website in relevanten Suchergebnissen besser sichtbar wird. Weitere Informationen finden Sie unter {{Glossary("SEO", "SEO")}}.
 
-## Technische Projektphasen
+## Phasen technischer Projekte
 
-Ein typisches technisches Projekt könnte so ablaufen:
+Ein typisches technisches Projekt könnte folgendermaßen ablaufen:
 
-1. Der Produktmanager identifiziert eine neue Reihe von Benutzeranforderungen für die Website.
-2. Sie besprechen dies mit dem Team, und es wird entschieden, dass diese Anforderungen durch Hinzufügen einer neuen Funktion zur Website erfüllt werden können.
-3. Der Projektmanager bespricht mit dem Team, welche erforderlichen einzelnen Arbeitsaufgaben zur Erstellung der neuen Funktion benötigt werden, und erstellt einen [Arbeitsprozess zur Verwaltung dieser](#arbeitsmanagementprozesse).
-4. Der UX-Designer entwirft einen Workflow für die neue Funktion, der beschreibt, wie sie funktionieren sollte, und erstellt ein Drahtmodell, um eine Idee zu geben, wo sie auf der Seite passen könnte.
-5. Der Grafikdesigner entwirft ein Mockup, das zeigt, wie die Funktion auf der Website aussehen wird, zusammen mit den ausgewählten Schriftarten und der Farbpalette.
-6. Der Content-Spezialist schreibt den erforderlichen UI-Text für die Funktion und die Dokumentation, die zu ihrer Unterstützung erforderlich ist.
-7. Der Back-End-Entwickler erstellt die notwendigen Systeme, um die Daten, die die Funktion antreiben, sicher zu speichern und zu verarbeiten.
-8. Der Front-End-Entwickler erstellt die interaktive Funktion basierend auf den Mockups des Grafikdesigners und verbindet sie mit dem Backend, sodass sie die benötigten Daten abruft.
-9. Der QA-Engineer testet die neue Funktion gründlich und erstellt einen detaillierten Bericht über die festgestellten Probleme.
-10. Die Entwickler beheben die Fehler, die als ausreichend schwerwiegend erachtet werden, um die Veröffentlichung der Funktion zu blockieren.
-11. Sobald die (Blockier-)Fehler behoben sind und das Projekt genehmigt wurde, kann die Funktion live auf der Website geschaltet werden.
+1. Der Produktmanager identifiziert neue Anforderungen von Benutzern an die Website.
+2. Er bespricht sie mit dem Team. Gemeinsam wird entschieden, dass sich diese Anforderungen durch eine neue Funktion auf der Website erfüllen lassen.
+3. Der Projektmanager bespricht mit dem Team, welche einzelnen Arbeiten für die neue Funktion nötig sind, und erstellt einen [Prozess zu deren Organisation](#prozesse_zur_arbeitsorganisation).
+4. Der UX-Designer entwirft einen Ablauf, der beschreibt, wie die neue Funktion funktionieren soll, und erstellt ein Wireframe, das eine Vorstellung von ihrer möglichen Platzierung auf der Website vermittelt.
+5. Der Grafikdesigner erstellt ein Mockup, das zeigt, wie die Funktion auf der Website aussehen wird, und legt Schriftarten und Farbpalette fest.
+6. Der Content-Spezialist verfasst die für die Funktion benötigten Texte der Benutzeroberfläche sowie die zugehörige Dokumentation.
+7. Der Backend-Entwickler erstellt die erforderlichen Systeme, um die für die Funktion benötigten Daten sicher zu speichern und zu verarbeiten.
+8. Der Frontend-Entwickler erstellt die interaktive Funktion anhand der Mockups des Grafikdesigners und verbindet sie mit dem Backend, damit sie die benötigten Daten abrufen kann.
+9. Der QA-Engineer testet die neue Funktion gründlich und erstellt einen detaillierten Bericht über die gefundenen Probleme.
+10. Die Entwickler beheben die Fehler, die als so schwerwiegend eingestuft werden, dass sie die Veröffentlichung der Funktion verhindern.
+11. Sobald diese blockierenden Fehler behoben sind und das Projekt freigegeben wurde, kann die Funktion auf der Website veröffentlicht werden.
 
-Dies ist eine vereinfachte Sichtweise - andere Phasen werden um die eigentliche Implementierung der Funktion herum existieren, und die Phasen werden nicht unbedingt in der gezeigten Reihenfolge abgeschlossen, aber dies gibt Ihnen eine Vorstellung davon, was dabei beteiligt ist.
+Dies ist eine vereinfachte Darstellung: Rund um die Implementierung der Funktion gibt es weitere Phasen, und die genannten Phasen werden nicht unbedingt alle in dieser Reihenfolge abgeschlossen. Sie vermittelt Ihnen aber einen Eindruck davon, welche Arbeiten dazugehören.
 
-## Arbeitsmanagementprozesse
+## Prozesse zur Arbeitsorganisation
 
-Der Projektmanager wird einen Prozess verwenden, um das Website-Projekt zu verwalten, den Fortschritt an den verschiedenen Arbeitselementen zu überwachen, sicherzustellen, dass sie in der richtigen Reihenfolge und rechtzeitig erledigt werden usw. Die beiden Haupt-Prozesstypen sind:
+Der Projektmanager verwendet einen Prozess, um das Website-Projekt zu organisieren. Dabei überwacht er den Fortschritt der einzelnen Aufgaben und stellt unter anderem sicher, dass sie in der richtigen Reihenfolge und rechtzeitig erledigt werden. Die beiden wichtigsten Prozessarten sind:
 
-- **Wasserfall**
-  - : Bezieht sich auf das Führen eines Projekts in klaren, festen Phasen, in denen jede von der vorherigen abhängt und große Änderungen der Anforderungen nicht erwartet werden. Im Allgemeinen wird am Ende des Projekts ein einziges großes Ergebnis geliefert. Die Verwaltung des Teams neigt dazu, bürokratischer zu sein, mit weniger Autonomie.
-    - Wasserfallprojekte sind tendenziell besser am Anfang spezifiziert und weisen weniger Umfangserweiterung (Hinzufügen von Anforderungen während des Projekts) auf. Darüber hinaus sind größere, weniger häufige Produktveröffentlichungen leichter zu handhaben in Bezug auf Release-Planung, Marketing, Schulungsdurchführung und Dokumentation usw.
-    - Allerdings ist der Wasserfall weniger flexibel, und Änderungen erfolgen viel langsamer. Mehrere Monate auf einen Bugfix zu warten, kann frustrierend sein.
-- **Agil**
-  - : Bezieht sich auf das flexiblere Führen eines Projekts, bei dem mehrere Phasen gleichzeitig fortschreiten können und mehrere kleinere Ergebnisse bei verschiedenen Meilensteinen im Projektverlauf geliefert werden. Änderungen in den Anforderungen werden erwartet und können durch Ändern der Prioritäten nach Bedarf gehandhabt werden. Teams sind in der Regel autonomer.
-    - Agile Projekte sind flexibel und können sich leichter an Änderungen der Anforderungen anpassen. Es kann auch angenehm sein, häufigere Veröffentlichungen zu haben — Fehler werden schneller behoben, Innovation erfolgt häufiger, und es gibt immer etwas, worüber das Marketingteam sprechen kann. Agile Teams sprechen oft über kontinuierliche Verbesserung.
-    - Allerdings besteht ein höheres Risiko der Umfangserweiterung und Fristverschiebung, Projekte fühlen sich oft nie wirklich abgeschlossen, und es gibt mehr ein konstantes Tempo und Druck zu liefern.
+- **Wasserfallmodell**
+  - : Ein Projekt durchläuft klar definierte, feste Phasen. Jede Phase baut auf der vorherigen auf, und es werden nicht allzu viele Änderungen der Anforderungen erwartet. Üblicherweise wird am Ende des Projekts ein einziges großes Ergebnis geliefert. Die Teamführung ist tendenziell bürokratischer und lässt weniger Eigenständigkeit zu.
+    - Wasserfallprojekte sind zu Beginn meist genauer spezifiziert und weniger anfällig für eine schleichende Ausweitung des Projektumfangs durch zusätzliche Anforderungen. Außerdem lassen sich größere, seltenere Produktveröffentlichungen hinsichtlich Veröffentlichungsplanung, Marketing sowie der Bereitstellung von Schulungen und Dokumentation leichter handhaben.
+    - Allerdings ist das Wasserfallmodell tendenziell weniger flexibel, und Änderungen erfolgen deutlich langsamer. Mehrere Monate auf die Behebung eines Fehlers zu warten, kann frustrierend sein.
+- **Agile Methoden**
+  - : Ein Projekt wird flexibler durchgeführt. Mehrere Phasen können gleichzeitig voranschreiten, und im Verlauf des Projekts werden an verschiedenen Meilensteinen eher mehrere kleinere Ergebnisse geliefert. Änderungen der Anforderungen werden erwartet und können durch eine entsprechende Anpassung der Prioritäten berücksichtigt werden. Teams arbeiten in der Regel eigenständiger.
+    - Agile Projekte sind flexibel und können sich leichter an geänderte Anforderungen anpassen. Häufigere Veröffentlichungen können ebenfalls von Vorteil sein: Fehler werden schneller behoben, Innovationen finden öfter statt, und das Marketingteam hat immer etwas Neues zu berichten. Agile Teams sprechen häufig von kontinuierlicher Verbesserung.
+    - Allerdings steigt das Risiko, dass sich der Projektumfang schleichend ausweitet und Fristen überschritten werden. Projekte fühlen sich oft nie wirklich abgeschlossen an, und es herrscht ein gleichmäßiger Arbeitsrhythmus mit ständigem Druck, Ergebnisse zu liefern.
 
 > [!NOTE]
-> Webentwicklungsteams bevorzugen oft, mit einem agilen Prozess zu arbeiten, da die Softwareentwicklung von Natur aus anfällig für (manchmal schnelle) Änderungen der Anforderungen aufgrund neuer Fehler, Benutzerfeedback, Unternehmensstrategie usw. ist.
+> Webentwicklungsteams bevorzugen häufig einen agilen Prozess. Bei der Softwareentwicklung ändern sich Anforderungen naturgemäß mitunter schnell, etwa durch neue Fehler, Rückmeldungen von Benutzern oder Änderungen der Unternehmensstrategie.
 
 ### Scrum und Kanban
 
-Es gibt eine spezifische Art der agilen Methodik, die **Scrum** genannt wird und ein festgelegtes Regelwerk darüber hat, wie ein Projekt abläuft. Zum Beispiel:
+Eine bestimmte agile Methodik heißt **Scrum**. Sie umfasst feste Regeln dafür, wie ein Projekt durchgeführt wird. Zum Beispiel:
 
-- Die Person, die für das Scrum verantwortlich ist, wird Scrum Master genannt. Dies ist oft nur der Projektmanager mit einem anderen Titel.
-- Die zu erledigende Arbeit wird in Zyklen unterteilt, die **Sprints** genannt werden und typischerweise zwei Wochen lang dauern.
-- Vor jedem Sprint werden potenzielle neue Arbeitselemente besprochen, und wenn sie in den Sprint übernommen werden, werden sie in ein Backlog aufgenommen.
-- Arbeitselemente werden aus dem Backlog entnommen und durchlaufen verschiedene Phasen bis zur Fertigstellung, wie "in Bearbeitung" und "in Überprüfung".
-- Der Scrum Master hält kurze tägliche **Stand-up-Meetings** ab, in denen jeder über den Fortschritt spricht, den sie gemacht haben und welche Probleme sie möglicherweise haben, damit Probleme rechtzeitig erkannt werden.
-- Am Ende jedes Sprints hält der Scrum Master ein Retrospektive-Meeting ab, um zu überprüfen, was gut lief, was nicht so gut lief, und welche Lektionen vor dem nächsten Sprint gelernt werden können.
+- Die für Scrum verantwortliche Person heißt Scrum Master. Häufig ist das einfach der Projektmanager unter einer anderen Bezeichnung.
+- Die anstehende Arbeit wird in Zyklen unterteilt, sogenannte **Sprints**, die üblicherweise zwei Wochen dauern.
+- Vor jedem Sprint werden mögliche neue Aufgaben besprochen. Werden sie für den Sprint angenommen, kommen sie in ein Backlog.
+- Aufgaben werden aus dem Backlog entnommen und durchlaufen bis zu ihrem Abschluss verschiedene Phasen, etwa „in Bearbeitung“ und „in Prüfung“.
+- Der Scrum Master hält täglich kurze **Stand-up-Meetings** ab. Darin berichten alle über ihre Fortschritte und mögliche Schwierigkeiten, damit Probleme frühzeitig erkannt werden.
+- Am Ende jedes Sprints hält der Scrum Master ein retrospektives Meeting ab. Dabei bespricht das Team, was gut und was weniger gut lief und welche Erkenntnisse es für den nächsten Sprint mitnehmen kann.
 
-Eine andere Art der agilen Methodik wird **Kanban** genannt, die weniger Regeln als Scrum hat, keine Sprints verwendet und sich stärker auf die kontinuierlichen Verbesserungsaspekte von Agilität konzentriert. Kanban ist besonders nützlich zur Verwaltung kontinuierlicher Prozesse, die kein klar definiertes Ende haben, wie Kundensupport-Tickets.
+Eine weitere agile Methodik heißt **Kanban**. Sie hat weniger Regeln als Scrum, verwendet keine Sprints und konzentriert sich stärker auf den Aspekt der kontinuierlichen Verbesserung. Kanban eignet sich besonders für die Organisation fortlaufender Prozesse ohne klar definiertes Ende, etwa für die Bearbeitung von Kundensupport-Tickets.
 
 ### Kanban-Boards
 
-Tools wie [Trello](https://trello.com/) und [Asana](https://asana.com/) bieten Visualisierungen, die den Status verschiedener Arbeitselemente in einem Projekt anzeigen. Sie werden üblicherweise als **Kanban-Boards** bezeichnet, obwohl sie verwendet werden können, um verschiedene Prozesstypen zu verwalten, nicht nur Kanban. Kanban-Boards bestehen aus verschiedenen Spalten, die unterschiedliche Arbeitsstatus in einem Scrum-Projekt ("Backlog", "ToDo", "in Bearbeitung" usw.), verschiedene Arten von Arbeit ("Forschung", "Design", "Entwicklung" usw.) oder was auch immer sonst für Ihr Projekt nützlich ist, darstellen können.
+Werkzeuge wie [Trello](https://trello.com/) und [Asana](https://asana.com/) bieten visuelle Darstellungen des Status verschiedener Aufgaben in einem Projekt. Sie werden üblicherweise **Kanban-Boards** genannt, können aber auch zur Organisation anderer Prozessarten als Kanban verwendet werden. Kanban-Boards bestehen aus Spalten. Diese können verschiedene Aufgabenstatus in einem Scrum-Projekt („Backlog“, „zu erledigen“, „in Bearbeitung“ usw.), verschiedene Arten von Arbeit („Recherche“, „Design“, „Entwicklung“ usw.) oder andere für Ihr Projekt nützliche Kategorien darstellen.
 
-[GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) bieten eine weitere gute Werkzeugoption und sind kostenlos zu verwenden — Sie müssen sich nur für ein GitHub-Konto anmelden.
+[GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) ist eine weitere gute Werkzeugoption und kostenlos nutzbar. Sie müssen lediglich ein GitHub-Konto anlegen.
 
-## Übung mit Projektworkflows
+## Projektabläufe praktisch üben
 
-Sie sollten sich über die oben genannten Prozesse informieren und üben, einige Ihrer Arbeits- oder persönlichen Projekte mithilfe eines Kanban-Boards zu verfolgen. Machen Sie sich keine Sorgen, dass Sie eine komplexe Scrum-Methodik verwenden; einfaches Kanban ist vorerst ausreichend. Selbst wenn Sie etwas allein tun, kann es großartig sein, den Workflow zu üben:
+Lesen Sie mehr über die oben beschriebenen Prozesse und üben Sie, einige Ihrer beruflichen oder privaten Projekte mit einem Kanban-Board zu verfolgen. Sie müssen dafür keine komplexe Scrum-Methodik verwenden; einfaches Kanban reicht vorerst aus. Selbst wenn Sie allein arbeiten, kann es hilfreich sein, den folgenden Ablauf zu üben:
 
 1. Aufgaben erstellen.
-2. Entscheiden, wie groß sie sind oder wie lange sie dauern werden.
+2. Einschätzen, wie umfangreich sie sind oder wie lange sie dauern werden.
 3. Aufgaben priorisieren.
-4. Sie in eine Reihenfolge mit Fälligkeitsdaten bringen.
-5. Beginnen, an verschiedenen Aufgaben zu arbeiten.
-6. Ihren Status ("in Bearbeitung", "blockiert", "fertig" usw.) je nach Fortschritt ändern.
+4. Sie in eine Reihenfolge bringen und mit Fristen versehen.
+5. Mit der Bearbeitung verschiedener Aufgaben beginnen.
+6. Ihren Status entsprechend dem Arbeitsfortschritt festlegen („in Bearbeitung“, „blockiert“, „erledigt“ usw.).
 
-Verfolgen Sie den Fortschritt eines kompletten Projekts von Anfang bis Ende — probieren Sie es mit Ihrer eigenen Website oder einem Nebenprojekt einer Art. Versuchen Sie auch, [zu einem Open-Source-Projekt beizutragen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#participate_in_open_source); viele von ihnen verwenden einen Prozess zur Nachverfolgung ihrer Arbeit ähnlich dem, den wir oben beschrieben haben.
+Verfolgen Sie den Fortschritt eines vollständigen Projekts von Anfang bis Ende – versuchen Sie es mit Ihrer eigenen Website oder einem anderen Nebenprojekt. Probieren Sie außerdem aus, zu einem oder zwei [Open-Source-Projekten beizutragen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#participate_in_open_source). Viele davon verwenden einen ähnlichen Prozess zur Nachverfolgung ihrer Arbeit, wie wir ihn oben beschrieben haben.
 
 ## Siehe auch
 
-- [Was ist ein Tech-Stack und wie funktionieren sie?](https://www.mongodb.com/resources/basics/technology-stack), mongodb.com
-- [Struktur: Rollen und Prozesse von Website-Entwicklungsteams](https://www.truemark.dev/blog/web-development-team-structure-role-process/), truemark.dev (2017)
-- [Agil vs. Wasserfall](https://www.productplan.com/learn/agile-vs-waterfall), ProductPlan
+- [Was ist ein Tech-Stack und wie funktioniert er?](https://www.mongodb.com/resources/basics/technology-stack), mongodb.com
+- [Agile Methoden im Vergleich zum Wasserfallmodell](https://www.productplan.com/learn/agile-vs-waterfall), ProductPlan
 - [Was ist Scrum?](https://www.scrum.org/learning-series/what-is-scrum/), scrum.org
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork", "Learn_web_development/Getting_started/Soft_skills/Finding_a_job", "Learn_web_development/Getting_started/Soft_skills")}}

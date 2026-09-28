@@ -2,46 +2,46 @@
 title: Mozilla
 slug: Mozilla
 l10n:
-  sourceCommit: 7dcd1a300afce3509445dae18888997c30a0bdaf
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
-Die unten stehenden Artikel enthalten Inhalte über das Herunterladen und Erstellen von Mozilla-Code. Darüber hinaus finden Sie hilfreiche Artikel darüber, wie der Code funktioniert, wie man Add-ons für Mozilla-Anwendungen erstellt und ähnliches.
+Die folgenden Artikel enthalten Informationen zum Herunterladen und Erstellen von Mozilla-Code. Außerdem finden Sie hilfreiche Artikel darüber, wie der Code funktioniert und wie Sie Add-ons für Mozilla-Anwendungen entwickeln können.
 
 {{SubpagesWithSummaries}}
 
 ## Mehr von Mozilla
 
-Die Produkte von Mozilla sind darauf ausgelegt, diejenigen zu unterstützen, die das Web besser machen möchten – sicherer, schneller und zugänglicher für alle.
+Die Produkte von Mozilla unterstützen Menschen, die das Web besser machen – sicherer, schneller und für alle zugänglicher.
 
 ### Mozilla VPN
 
-Surfen, streamen und erledigen Sie Ihre Arbeit auf Servern in über 30 Ländern für eine sichere Internetverbindung mit einer neuen Perspektive.
+Surfen, streamen und arbeiten Sie über Server in mehr als 30 Ländern – für eine sichere Internetverbindung mit einer neuen Perspektive.
 
-[**Mozilla VPN erhalten**](https://www.mozilla.org/en-US/products/vpn/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
+[**Mozilla VPN nutzen**](https://www.mozilla.org/en-US/products/vpn/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
 
 ### Thunderbird
 
-Greifen Sie auf all Ihre E-Mails, Kalender und Kontakte in einer schnellen App zu. Filtern und organisieren Sie sie so, wie Sie es möchten.
+Greifen Sie in einer einzigen schnellen App auf alle Ihre E-Mails, Kalender und Kontakte zu. Filtern und organisieren Sie sie ganz nach Ihren Wünschen.
 
-[**Thunderbird herunterladen**](https://www.thunderbird.net/download/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
+[**Thunderbird herunterladen**](https://www.thunderbird.net/en-US/download/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
 
-## Mozilla Neue Produkte
+## Neue Produkte von Mozilla
 
-Wir entwickeln Lösungen, die den Menschen in den Mittelpunkt stellen. Schließen Sie sich uns an, um neue Produkte zu testen und die nächste Generation von Technologie mitzugestalten.
+Wir entwickeln Lösungen, bei denen Menschen an erster Stelle stehen. Testen Sie mit uns neue Produkte und gestalten Sie die nächste Generation der Technologie mit.
 
 ### Solo
 
-Solo erstellt sofort eine schöne Webseite, damit Sie Ihr Geschäft ausbauen können. Verbinden und hosten Sie Ihre eigene Domain kostenlos.
+Solo erstellt im Handumdrehen eine ansprechende Website, damit Sie Ihr Unternehmen voranbringen können. Verbinden und hosten Sie Ihre eigene Domain kostenlos.
 
 [**Solo ausprobieren**](https://soloist.ai/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
 
 ### 0din
 
-0din ist eine GenAI-Bug-Bounty-Plattform, die sich darauf spezialisiert hat, Schwachstellen in KI-Systemen zu identifizieren und zu beheben.
+0din ist eine GenAI-Bug-Bounty-Plattform, die sich dem Erkennen und Beheben von Schwachstellen in KI-Systemen widmet.
 
-[**0din beitreten**](https://0din.ai/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
+[**Bei 0din mitmachen**](https://0din.ai/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)
 
 ## Mozilla.ai
 
-[Mozilla.ai](https://www.mozilla.ai/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products) entwickelt die Infrastruktur und Produkte, um intelligente Systeme zu bauen, die mit Ihren Zielen übereinstimmen. Wir glauben, dass die nächste Generation von KI-Lösungen vertrauenswürdig, transparent und kontrollierbar sein sollte.
+[Mozilla.ai](https://www.mozilla.ai/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products) entwickelt die Infrastruktur und Produkte für intelligente Systeme, die auf Ihre Ziele abgestimmt sind. Wir sind überzeugt, dass die nächste Generation von KI-Lösungen vertrauenswürdig, transparent und kontrollierbar sein sollte.
 [**Mehr erfahren**](https://www.mozilla.ai/?utm_source=developer.mozilla.org&utm_medium=referral&utm_campaign=mdn-mozilla-products)

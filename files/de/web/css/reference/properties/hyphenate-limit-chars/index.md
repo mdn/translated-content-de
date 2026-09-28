@@ -3,12 +3,10 @@ title: "`hyphenate-limit-chars` CSS property"
 short-title: hyphenate-limit-chars
 slug: Web/CSS/Reference/Properties/hyphenate-limit-chars
 l10n:
-  sourceCommit: a5531a7b1fa30ab1de952ffff619a9830eb1c1a9
+  sourceCommit: 367f942b096f97d4c3063e31a0dc5002736db81b
 ---
 
-Die **`hyphenate-limit-chars`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Mindestwortlänge fest, um die Silbentrennung von Wörtern zu erlauben, sowie die Mindestanzahl von Zeichen vor und nach dem Trennstrich.
-
-Diese Eigenschaft bietet eine feingliedrige Kontrolle über die Silbentrennung im Text. Diese Kontrolle ermöglicht es Ihnen, unpassende Trennungen zu vermeiden und eine geeignete Silbentrennung für verschiedene Sprachen festzulegen, was wiederum zu einer besseren Typografie führt.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`hyphenate-limit-chars`** legt fest, wie lang ein Wort mindestens sein muss, damit es getrennt werden darf, und wie viele Zeichen mindestens vor und nach dem Trennstrich stehen müssen.
 
 ## Syntax
 
@@ -38,22 +36,32 @@ hyphenate-limit-chars: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein bis drei numerische Werte oder `auto` festgelegt:
+Für diese Eigenschaft können ein bis drei Werte aus der folgenden Liste angegeben werden:
 
-- `<number> <number> <number>`
-  - : Der erste Wert ist die Mindestwortlänge, bevor Wörter getrennt werden sollten. Der zweite Wert ist die Mindestanzahl von Zeichen vor dem Trennstrich. Der dritte Wert ist die Mindestanzahl von Zeichen nach dem Trennstrich.
-- `<number> <number>`
-  - : Der erste Wert ist die Mindestwortlänge, bevor Wörter getrennt werden sollten. Der zweite Wert ist die Mindestanzahl von Zeichen vor dem Trennstrich. Die Mindestanzahl von Zeichen nach dem Trennstrich wird gleich dem zweiten Wert gesetzt.
-- `<number>`
-  - : Der Wert ist die Mindestwortlänge, bevor Wörter getrennt werden sollten. Die Mindestanzahl von Zeichen vor und nach dem Trennstrich wird auf `auto` gesetzt.
+- {{cssxref("integer")}}
+  - : Gibt entweder die Mindestlänge eines Wortes für die Silbentrennung, die Mindestanzahl von Zeichen vor dem Trennstrich oder die Mindestanzahl von Zeichen nach dem Trennstrich an.
 
-Wenn für einen der Werte `auto` festgelegt ist, wählt der Benutzeragent einen geeigneten Wert für das aktuelle Layout. Sofern der Benutzeragent keinen besseren Wert berechnen kann, werden die folgenden Standardwerte verwendet:
+- `auto`
 
-- Mindestwortlänge, um die Silbentrennung zu erlauben: 5
+  - : Legt fest, dass der User Agent geeignete Werte für das aktuelle Layout auswählt. Dies ist der Standardwert.
+
+## Beschreibung
+
+Die Eigenschaft `hyphenate-limit-chars` ermöglicht eine präzise Steuerung der Silbentrennung in Texten. So können Sie ungünstige Trennungen vermeiden und die Silbentrennung an verschiedene Sprachen anpassen, was zu einer besseren Typografie beiträgt.
+
+Die Eigenschaft akzeptiert einen bis drei Werte, jeweils ein `<integer>` oder das Schlüsselwort `auto`. Sie geben in dieser Reihenfolge die Mindestlänge eines Wortes für die Silbentrennung, die Mindestanzahl von Zeichen vor dem Trennstrich und die Mindestanzahl von Zeichen nach dem Trennstrich an:
+
+- Wenn ein `<integer>` angegeben wird, legt er die Mindestanzahl von Zeichen fest, die ein Wort haben muss, damit es getrennt werden kann. Die Mindestanzahl von Zeichen vor und nach dem Trennstrich wird auf `auto` gesetzt.
+- Wenn zwei Werte angegeben werden, legt der erste die Mindestlänge des Wortes fest und der zweite die Mindestanzahl von Zeichen sowohl vor als auch nach dem Trennstrich. Für den nicht angegebenen dritten Wert gilt der zweite Wert.
+- Wenn drei Werte angegeben werden, legen sie jeweils die Mindestlänge des Wortes, die Mindestanzahl von Zeichen vor dem Trennstrich und die Mindestanzahl von Zeichen nach dem Trennstrich fest.
+
+Bei `auto` wählt der User Agent einen geeigneten Wert für das aktuelle Layout. Sofern der User Agent keinen besseren Wert berechnen kann, werden die folgenden Standardwerte verwendet:
+
+- Mindestlänge eines Wortes für die Silbentrennung: 5
 - Mindestanzahl von Zeichen vor dem Trennstrich: 2
 - Mindestanzahl von Zeichen nach dem Trennstrich: 2
 
-Beachten Sie, dass ein Wort, das zu kurz ist, um die gegebenen Beschränkungen zu erfüllen, nicht getrennt wird. Zum Beispiel werden in einem Fall wie `hyphenate-limit-chars: auto 3 4` Wörter kürzer als 7 Zeichen niemals getrennt, da es unmöglich ist, 3 Zeichen vor dem Trennstrich und 4 Zeichen danach zu haben.
+Beachten Sie, dass ein Wort nicht getrennt wird, wenn es zu kurz ist, um die angegebenen Bedingungen zu erfüllen. Beim Wert `hyphenate-limit-chars: auto 3 4` werden beispielsweise Wörter mit weniger als 7 Zeichen nie getrennt, da nicht zugleich 3 Zeichen vor und 4 Zeichen nach dem Trennstrich stehen können.
 
 ## Formale Definition
 
@@ -65,9 +73,9 @@ Beachten Sie, dass ein Wort, das zu kurz ist, um die gegebenen Beschränkungen z
 
 ## Beispiele
 
-### Festlegen von Silbentrennungsgrenzen
+### Grenzen für die Silbentrennung festlegen
 
-In diesem Beispiel haben wir vier Boxen, die denselben Text enthalten. Zum Vergleich zeigt die erste Box die vom Browser standardmäßig angewandte Silbentrennung. Die nächsten drei Boxen demonstrieren das Ergebnis der Einschränkung des Standardverhaltens des Browsers mit unterschiedlichen `hyphenate-limit-chars`-Werten.
+In diesem Beispiel enthalten vier Textfelder denselben Text. Zum Vergleich zeigt das erste Textfeld die vom Browser standardmäßig angewendete Silbentrennung. Die nächsten drei Textfelder zeigen, wie sich unterschiedliche Werte für `hyphenate-limit-chars` auf das Standardverhalten des Browsers auswirken.
 
 #### HTML
 
@@ -113,19 +121,19 @@ p {
 
 {{EmbedLiveSample("Setting hyphenation limits", "", 200)}}
 
-In der ersten Box legen wir `hyphenate-limit-chars` nicht fest und ermöglichen es dem Browser, seinen Standardalgorithmus anzuwenden. Standardmäßig verwendet der Browser die Werte `5 2 2`, es sei denn, er kann bessere Werte finden.
+Im ersten Textfeld legen wir `hyphenate-limit-chars` nicht fest, sodass der Browser seinen Standardalgorithmus anwendet. Standardmäßig verwendet der Browser die Werte `5 2 2`, sofern er keine besseren Werte ermitteln kann.
 
-In der zweiten Box verhindern wir, dass der Browser Wörter trennt, es sei denn, sie sind mindestens 14 Zeichen lang, indem wir `hyphenate-limit-chars: 14` setzen. Dadurch wird "juxtaposition" in der zweiten Box nicht getrennt, da es nur 13 Zeichen lang ist.
+Im zweiten Textfeld verhindern wir durch `hyphenate-limit-chars: 14`, dass der Browser Wörter mit weniger als 14 Zeichen trennt. Deshalb wird „juxtaposition“ im zweiten Textfeld nicht getrennt, da das Wort nur 13 Zeichen hat.
 
 <!-- cSpell:ignore acknowled gement acknowl edgement ment -->
 
-In der dritten Box beschränken wir den Browser darauf, mindestens 9 Zeichen vor dem Trennstrich einzuschließen, indem wir `hyphenate-limit-chars: 5 9 2` setzen. Das Ergebnis ist, dass "acknowledgement" nun als "acknowledge-ment" getrennt wird, anstatt der Standardversion "acknowl-edgement", wie in der ersten Box gezeigt.
+Im dritten Textfeld legen wir mit `hyphenate-limit-chars: 5 9 2` fest, dass mindestens 9 Zeichen vor dem Trennstrich stehen müssen. Dadurch wird „acknowledgement“ als „acknowledge-ment“ statt wie im ersten Textfeld standardmäßig als „acknowl-edgement“ getrennt.
 
-Beachten Sie, dass der Browser nicht genau 9 Zeichen vor dem Trennstrich enthalten muss: Solange die in `hyphenate-limit-chars` angegebenen Beschränkungen erfüllt sind, kann der Browser das Wort an der von ihm als am besten erachteten Stelle trennen. In diesem Fall wählt er beispielsweise "acknowledge-ment" anstatt des weniger lesbaren "acknowled-gement".
+Beachten Sie, dass der Browser nicht genau 9 Zeichen vor dem Trennstrich setzen muss: Solange die mit `hyphenate-limit-chars` festgelegten Bedingungen erfüllt sind, kann der Browser das Wort an der Stelle trennen, die er für am besten geeignet hält. In diesem Fall wählt er beispielsweise „acknowledge-ment“ statt des schlechter lesbaren „acknowled-gement“.
 
 <!-- cSpell:ignore juxtaposi tion -->
 
-In der vierten Box zwingen wir den Browser, mindestens 7 Zeichen nach dem Trennstrich einzuschließen, indem wir `hyphenate-limit-chars: 5 2 7` setzen. Das Ergebnis ist, dass "juxtaposition" als "juxta-position" getrennt wird, anstatt der Standardversion "juxtaposi-tion".
+Im vierten Textfeld legen wir mit `hyphenate-limit-chars: 5 2 7` fest, dass mindestens 7 Zeichen nach dem Trennstrich stehen müssen. Dadurch wird „juxtaposition“ als „juxta-position“ statt standardmäßig als „juxtaposi-tion“ getrennt.
 
 ## Spezifikationen
 
@@ -138,4 +146,4 @@ In der vierten Box zwingen wir den Browser, mindestens 7 Zeichen nach dem Trenns
 ## Siehe auch
 
 - {{cssxref("hyphens")}}
-- [CSS Textmodul](/de/docs/Web/CSS/Guides/Text)
+- [CSS-Text-Modul](/de/docs/Web/CSS/Guides/Text)

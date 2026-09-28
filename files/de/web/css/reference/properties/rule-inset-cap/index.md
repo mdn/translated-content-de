@@ -3,12 +3,12 @@ title: "`rule-inset-cap` CSS property"
 short-title: rule-inset-cap
 slug: Web/CSS/Reference/Properties/rule-inset-cap
 l10n:
-  sourceCommit: 16bd5315b5fa374b4fa37e3c8907614c987f4275
+  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
 ---
 
 {{SeeCompatTable}}
 
-Mit der [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`rule-inset-cap`** können die [Cap-Endpunkte](#understanding_cap_end) von Spalten- und Zeilenliniensegmenten um denselben Wert versetzt werden.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`rule-inset-cap`** kann verwendet werden, um die [Cap-Endpunkte](/de/docs/Web/CSS/Reference/Properties/column-rule-inset-cap#understanding_cap_endpoints) von Spalten- und Zeilenregel-Segmenten um denselben Wert zu versetzen.
 
 {{InteractiveExample("CSS Demo: rule")}}
 
@@ -132,17 +132,17 @@ Für diese Eigenschaft werden ein oder zwei Werte aus der folgenden Liste angege
 - `overlap-join`
   - : Entspricht `0`.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe des Einzugs an. Prozentwerte entsprechen für Caps am Rand des Containers `0`. Bei inneren Zwischenräumen beziehen sich Prozentwerte für Caps von Spaltensegmenten auf die Höhe des angrenzenden `row-gap` und für Caps von Zeilensegmenten auf die Breite des angrenzenden `column-gap`.
+  - : Gibt die Größe des Einzugs an. Prozentwerte entsprechen bei Caps am Rand des Containers `0`. Bei inneren Zwischenräumen beziehen sich Prozentwerte für Caps von Spaltensegmenten auf die Höhe des angrenzenden `row-gap` und für Caps von Zeilensegmenten auf die Breite des angrenzenden `column-gap`.
 
 ## Beschreibung
 
-Mit der Kurzschreibweise `rule-inset-cap` können die Eigenschaften {{cssxref("row-rule-inset-cap")}} und {{cssxref("column-rule-inset-cap")}} in einer einzigen Deklaration auf dieselben Werte gesetzt werden. Dadurch werden die Cap-Endpunkte von Zeilen- und Spaltensegmenten um die angegebenen Werte eingerückt.
+Mit der Kurzschreibweise `rule-inset-cap` können die Eigenschaften {{cssxref("row-rule-inset-cap")}} und {{cssxref("column-rule-inset-cap")}} in einer einzigen Deklaration auf dieselben Werte gesetzt werden. Dadurch werden die Endpunkte von Zeilen- und Spalten-Cap-Segmenten um die angegebenen Werte eingerückt.
 
-Wenn Sie einen Wert angeben, wird dieser sowohl für die Start- als auch für die End-Endpunkte der Cap-Segmente verwendet. Wenn Sie zwei Werte angeben, wird der erste Wert für die Start-Endpunkte der Zeilen- und Spalten-Cap-Segmente und der zweite Wert für deren End-Endpunkte verwendet.
+Wenn Sie einen Wert angeben, werden sowohl die Anfangs- als auch die Endpunkte der Cap-Segmente auf diesen Wert gesetzt. Wenn Sie zwei Werte angeben, wird der erste Wert für die Anfangspunkte der Zeilen- und Spalten-Cap-Segmente und der zweite Wert für deren Endpunkte verwendet.
 
-Der Standardwert ist `0`, was bei Cap-Endpunkten `overlap-join` entspricht. Positive Werte verkürzen das Segment, negative Werte verlängern es.
+Der Standardwert ist `0`, was bei Cap-Endpunkten `overlap-join` entspricht. Positive Werte verkürzen die Segmente, während negative Werte sie verlängern.
 
-Die Eigenschaft `rule-inset-cap` kann zusammen mit {{cssxref("rule-inset-junction")}} über die Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
+Die Eigenschaft `rule-inset-cap` kann zusammen mit der Eigenschaft {{cssxref("rule-inset-junction")}} über die Kurzschreibweise {{cssxref("rule-inset")}} gesetzt werden.
 
 ## Formale Definition
 
@@ -202,7 +202,7 @@ Dieses Beispiel zeigt, wie Sie mit `rule-inset-cap` die Endpunkte von Cap-Segmen
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine hellblaue {{cssxref("rule")}} für die Zeilen- und Spaltenzwischenräume und überschreiben anschließend {{cssxref("column-rule-color")}}, um die vertikalen Zwischenräume mit einem dunkleren `blue` zu gestalten. Schließlich setzen wir `rule-inset-cap` auf `16px`.
+Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren mit {{cssxref("rule")}} hellblaue Regeln für die Zeilen- und Spaltenzwischenräume und überschreiben anschließend {{cssxref("column-rule-color")}}, um die vertikalen Zwischenräume in einem dunkleren `blue` zu gestalten. Zum Schluss setzen wir `rule-inset-cap` auf `16px`.
 
 ```css
 .flexbox {
@@ -217,7 +217,7 @@ Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu
 }
 ```
 
-Außerdem setzen wir {{cssxref("flex-direction")}} für den Container `.column`, damit dessen Elemente in Spalten statt in Zeilen angeordnet werden. Der Kürze halber sind die übrigen CSS-Stile und der Code, der das Formular interaktiv macht, ausgeblendet.
+Außerdem setzen wir {{cssxref("flex-direction")}} für den Container `.column`, damit seine Elemente in Spalten statt in Zeilen angeordnet werden. Die übrigen CSS-Stile und der Code, der das Formular interaktiv macht, wurden der Kürze halber ausgeblendet.
 
 ```css
 .column {
@@ -313,7 +313,7 @@ inset.addEventListener("input", () => {
 </p>
 ```
 
-Unser HTML enthält eine ungeordnete Liste ({{htmlelement("ul")}}) mit neun Listenelementen ({{htmlelement("li")}}):
+Unser HTML enthält eine ungeordnete Liste ({{htmlelement("ul")}}) mit neun Listeneinträgen ({{htmlelement("li")}}):
 
 ```html
 <ul>
@@ -329,11 +329,11 @@ Unser HTML enthält eine ungeordnete Liste ({{htmlelement("ul")}}) mit neun List
 </ul>
 ```
 
-Die Benutzeroberfläche zur Auswahl verschiedener Werte und das JavaScript für die Interaktivität sind der Kürze halber ausgeblendet.
+Die Benutzeroberfläche zur Auswahl verschiedener Werte und das JavaScript für die Interaktivität wurden der Kürze halber ausgeblendet.
 
 #### CSS
 
-Wir erstellen einen Grid-Container, indem wir {{cssxref("display")}} auf grid setzen, mit {{cssxref("grid-template-columns")}} vier Spalten erstellen und einen {{cssxref("gap")}} von `30px` hinzufügen. Mit den Eigenschaften {{cssxref("row-rule")}} und {{cssxref("column-rule")}} definieren wir die Linien. Anschließend verwenden wir `rule-inset-cap`, um die Start-Endpunkte der Cap-Segmente um `40px` einzurücken und die End-Endpunkte mit `-40px` nach außen zu versetzen.
+Wir erstellen einen Grid-Container, indem wir {{cssxref("display")}} auf `grid` setzen, mit {{cssxref("grid-template-columns")}} vier Spalten erstellen und einen {{cssxref("gap")}} von `30px` hinzufügen. Mit den Eigenschaften {{cssxref("row-rule")}} und {{cssxref("column-rule")}} definieren wir die Regeln. Anschließend verwenden wir die Eigenschaft `rule-inset-cap`, um die Anfangspunkte der Cap-Segmente um `40px` einzurücken und ihre Endpunkte mit `-40px` nach außen zu versetzen.
 
 Außerdem legen wir fest, dass sich das sechste Grid-Element über zwei Spalten erstreckt.
 
@@ -429,17 +429,17 @@ colSize.addEventListener("input", () => {
 
 {{EmbedLiveSample("Setting two value", "", "500")}}
 
-Ändern Sie die Einzugswerte für die Start- und End-Endpunkte der Cap-Segmente.
+Ändern Sie die Einzugswerte für die Anfangs- und Endpunkte der Cap-Segmente.
 
 ### Innere Cap-Segmente
 
-Dieses Beispiel zeigt, wie Sie mit `rule-inset-cap` die Endpunkte von Cap-Segmenten in einem Grid-Container einrücken und wie die Eigenschaft {{cssxref("rule-visibility-items")}} innere Endpunkte zu Cap-Endpunkten machen kann.
+Dieses Beispiel zeigt, wie Sie mit `rule-inset-cap` die Endpunkte von Cap-Segmenten in einem Grid-Container einrücken und wie die Eigenschaft {{cssxref("rule-visibility-items")}} innere Endpunkte zu Endpunkten von Cap-Segmenten machen kann.
 
 #### HTML
 
-Als Container für mehrere Listenelemente ({{htmlelement("li")}}) verwenden wir eine ungeordnete Liste ({{htmlelement("ul")}}).
+Wir verwenden eine ungeordnete Liste ({{htmlelement("ul")}}) als Container für mehrere Listeneinträge ({{htmlelement("li")}}).
 
-Außerdem fügen wir ein {{htmlelement("select")}}-Element mit jeweils einem {{htmlelement("option")}}-Element für jedes `rule-visibility-items`-Schlüsselwort sowie ein {{htmlelement("input")}}-Element vom Typ {{HTMLElement("input/range", "range")}} hinzu.
+Außerdem fügen wir ein {{htmlelement("select")}}-Element mit je einem {{htmlelement("option")}}-Element für jedes Schlüsselwort von `rule-visibility-items` sowie ein {{htmlelement("input")}}-Element vom Typ {{HTMLElement("input/range", "range")}} hinzu.
 
 ```html live-sample___caps
 <ul id="ul">
@@ -485,9 +485,9 @@ Außerdem fügen wir ein {{htmlelement("select")}}-Element mit jeweils einem {{h
 
 #### CSS
 
-Wir erstellen einen Grid-Container, indem wir {{cssxref("display")}} auf grid setzen, mit {{cssxref("grid-template-columns")}} sechs Spalten erstellen und einen {{cssxref("gap")}} von `20px` hinzufügen. Mit der Eigenschaft {{cssxref("rule")}} definieren wir die Linien und überschreiben die Farbe der Zeilenlinien mit {{cssxref("row-rule-color")}}. Wir setzen {{cssxref("rule-break")}} so, dass die Linien an jeder Kreuzung unterbrochen werden und jedes Liniensegment eigenständig ist. {{cssxref("rule-visibility-items")}} setzen wir ausdrücklich auf den Standardwert `normal`. Anschließend verwenden wir `rule-inset-cap`, um alle Cap-Endpunkte um `16px` einzurücken.
+Wir erstellen einen Grid-Container, indem wir {{cssxref("display")}} auf `grid` setzen, mit {{cssxref("grid-template-columns")}} sechs Spalten erstellen und einen {{cssxref("gap")}} von `20px` hinzufügen. Mit der Eigenschaft {{cssxref("rule")}} definieren wir die Regeln und überschreiben die Farbe der Zeilenregeln mit der Eigenschaft {{cssxref("row-rule-color")}}. Wir setzen die Eigenschaft {{cssxref("rule-break")}} so, dass die Regeln an jeder Kreuzung unterbrochen werden und jedes Regelsegment für sich steht. {{cssxref("rule-visibility-items")}} setzen wir ausdrücklich auf den Standardwert `normal`. Anschließend verwenden wir die Eigenschaft `rule-inset-cap`, um alle Endpunkte der Cap-Segmente um `16px` einzurücken.
 
-Außerdem lassen wir das siebte Listenelement mithilfe der Eigenschaft {{cssxref("grid-column-end")}} über zwei Spalten reichen.
+Außerdem legen wir mit der Eigenschaft {{cssxref("grid-column-end")}} fest, dass sich der siebte Listeneintrag über zwei Spalten erstreckt.
 
 ```css
 ul {
@@ -507,7 +507,7 @@ li:nth-of-type(7) {
 }
 ```
 
-Der Kürze halber sind die übrigen CSS-Stile und der Code, der das Formular interaktiv macht, ausgeblendet.
+Die übrigen CSS-Stile und der Code, der das Formular interaktiv macht, wurden der Kürze halber ausgeblendet.
 
 ```css hidden
 ul {
@@ -581,7 +581,7 @@ visibility.addEventListener("change", () => {
 
 {{EmbedLiveSample("Inner cap segments", "", "400")}}
 
-Wählen Sie im Dropdown-Menü `between` aus, damit Liniensegmente nur dann gezeichnet werden, wenn beide angrenzenden Grid-Bereiche ein Grid-Element enthalten. Dadurch entstehen innere Cap-Segmente. Ändern Sie nun den Einzug, um zu erkennen, welche Segmentendpunkte Cap-Endpunkte sind.
+Wählen Sie `between` aus der Dropdown-Liste aus, damit Regelsegmente nur dort gezeichnet werden, wo beide angrenzenden Grid-Bereiche ein Grid-Element enthalten. Dadurch entstehen innere Cap-Segmente. Ändern Sie nun den Einzugswert, um sichtbar zu machen, welche Segmentendpunkte Cap-Endpunkte sind.
 
 ## Spezifikationen
 
@@ -593,14 +593,14 @@ Wählen Sie im Dropdown-Menü `between` aus, damit Liniensegmente nur dann gezei
 
 ## Siehe auch
 
-- {{cssxref("column-rule-inset-cap")}}-Kurzschreibweise
-- {{cssxref("row-rule-inset-cap")}}-Kurzschreibweise
-- {{cssxref("column-rule-inset")}}-Kurzschreibweise
-- {{cssxref("row-rule-inset")}}-Kurzschreibweise
-- {{cssxref("rule-inset-start")}}-Kurzschreibweise
-- {{cssxref("rule-inset")}}-Kurzschreibweise
-- {{cssxref("rule-break")}}-Kurzschreibweise\
+- Kurzschreibweise {{cssxref("column-rule-inset-cap")}}
+- Kurzschreibweise {{cssxref("row-rule-inset-cap")}}
+- Kurzschreibweise {{cssxref("column-rule-inset")}}
+- Kurzschreibweise {{cssxref("row-rule-inset")}}
+- Kurzschreibweise {{cssxref("rule-inset-start")}}
+- Kurzschreibweise {{cssxref("rule-inset")}}
+- Kurzschreibweise {{cssxref("rule-break")}}\
 - {{cssxref("rule-overlap")}}
 - {{cssxref("rule-visibility-items")}}
-- {{cssxref("rule")}}-Kurzschreibweise
+- Kurzschreibweise {{cssxref("rule")}}
 - Modul [CSS-Zwischenräume](/de/docs/Web/CSS/Guides/Gaps)

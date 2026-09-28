@@ -3,12 +3,12 @@ title: "`row-rule-inset-cap` CSS property"
 short-title: row-rule-inset-cap
 slug: Web/CSS/Reference/Properties/row-rule-inset-cap
 l10n:
-  sourceCommit: 2c2390b77141b960cac32c1843dac4d907e9c6c2
+  sourceCommit: b7e9f482c51817d3a885e26092f8219fd0d9d278
 ---
 
 {{SeeCompatTable}}
 
-Die [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`row-rule-inset-cap`** ist eine [CSS](/de/docs/Web/CSS)-Eigenschaft, mit der sich die [Cap-Endpunkte](#cap-endpunkte_verstehen) von Zeilentrennliniensegmenten am linken und rechten Rand des Containers sowie Endpunkte, an denen die Segmente keine anderen Spalten- oder Zeilensegmente schneiden, versetzen lassen.
+Die [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`row-rule-inset-cap`** ist eine [CSS](/de/docs/Web/CSS)-Eigenschaft. Mit ihr lassen sich die [Cap-Endpunkte](#cap-endpunkte_verstehen) von Zeilenliniensegmenten am linken und rechten Rand des Containers sowie Endpunkte versetzen, an denen die Segmente keine anderen Spalten- oder Zeilensegmente schneiden.
 
 {{InteractiveExample("CSS Demo: rule")}}
 
@@ -128,43 +128,43 @@ Für diese Eigenschaft werden ein oder zwei Werte aus der folgenden Liste angege
 - `overlap-join`
   - : Wird zu `0` aufgelöst.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe des Einzugs an. [Prozentwerte](#prozentwerte_verstehen) beziehen sich auf die Breite des kreuzenden Abstands: an Endpunkten von Segmenten an Abstandskreuzungen ist dies die Breite von `column-gap`, an Endpunkten am Containerrand `0`.
+  - : Gibt die Größe des Versatzes an. [Prozentwerte](#prozentwerte_verstehen) beziehen sich auf die Breite der kreuzenden Lücke: An Lückenkreuzungen ist dies die Breite von `column-gap`, an Endpunkten am Containerrand ist sie `0`.
 
 ## Beschreibung
 
-Mit der Kurzschreibweise `row-rule-inset-cap` können die Eigenschaften {{cssxref("row-rule-inset-cap-start")}} und {{cssxref("row-rule-inset-cap-end")}} festgelegt werden. So lassen sich die linke und rechte Seite von [Cap-Segmentendpunkten](#cap-endpunkte_verstehen) mit einer einzigen Deklaration nach innen oder außen versetzen.
+Mit der Kurzschreibweise `row-rule-inset-cap` können Sie die Eigenschaften {{cssxref("row-rule-inset-cap-start")}} und {{cssxref("row-rule-inset-cap-end")}} in einer einzigen Deklaration festlegen. Damit verschieben Sie sowohl die linken als auch die rechten Ränder von [Cap-Segmentendpunkten](#cap-endpunkte_verstehen) nach innen oder außen.
 
-Wird ein Wert angegeben, werden beide Eigenschaften auf diesen Wert gesetzt. Werden zwei Werte angegeben, erhält `-start` den ersten und `-end` den zweiten Wert. Der Standardwert ist `0`, was bei Cap-Endpunkten `overlap-join` entspricht. Positive Werte verkleinern das Segment, indem sie seine Endpunkte nach innen versetzen; negative Werte vergrößern es, indem sie die Endpunkte nach außen versetzen.
+Wird ein Wert angegeben, erhalten beide Eigenschaften diesen Wert. Bei zwei Werten erhält `-start` den ersten und `-end` den zweiten Wert. Der Standardwert ist `0`, was bei Cap-Endpunkten `overlap-join` entspricht. Positive Werte verkürzen das Segment, indem sie seine Endpunkte nach innen versetzen; negative Werte verlängern es, indem sie die Endpunkte nach außen versetzen.
 
-Zeilentrennlinien werden innerhalb eines Zeilenabstands als ein oder mehrere Segmente dargestellt. Solche Segmente treten auf zwischen:
+Zeilenlinien werden innerhalb einer Zeilenlücke als ein oder mehrere Segmente gezeichnet. Solche Segmente treten auf zwischen:
 
-- benachbarten Zeilen in CSS-Grid-Layouts.
-- benachbarten Flex-Elementen oder Flex-Zeilen in Flex-Layouts, abhängig von `flex-direction`.
-- benachbarten Zeilen in mehrspaltigen Layouts, die vorhanden sein können, wenn {{cssxref("column-height")}} auf eine {{cssxref("&lt;length>")}} gesetzt ist.
+- Benachbarten Zeilen in CSS-Grid-Layouts.
+- Benachbarten Flex-Elementen oder Flex-Zeilen in Flex-Layouts, abhängig von `flex-direction`.
+- Benachbarten Zeilen in mehrspaltigen Layouts, die vorhanden sein können, wenn {{cssxref("column-height")}} auf eine {{cssxref("&lt;length>")}} gesetzt ist.
 
-Ob sich eine Zeilentrennlinie über mehrere Spalten erstreckt oder in mehrere Segmente unterteilt wird, legt die Eigenschaft {{cssxref("row-rule-break")}} fest. Unterbrechungen zwischen Zeilentrennliniensegmenten im Inneren entsprechen in der Regel der Größe von {{cssxref("column-gap")}}.
+Ob eine Zeilenlinie mehrere Spalten überspannt oder in mehrere Segmente unterteilt wird, legt die Eigenschaft {{cssxref("row-rule-break")}} fest. Unterbrechungen zwischen inneren Zeilenliniensegmenten haben im Allgemeinen die Breite von {{cssxref("column-gap")}}.
 
-Längenwerte für `row-rule-inset-cap` versetzen Segmente um den angegebenen Wert nach innen. Negative Längenwerte versetzen sie nach außen, wodurch das Segment breiter wird und Cap-Segmente am linken und rechten Rand des Containers über dessen Rand hinausragen.
+Längenwerte für `row-rule-inset-cap` versetzen Segmentendpunkte um den angegebenen Wert nach innen. Negative Längenwerte versetzen sie nach außen: Das Segment wird breiter, und Cap-Segmente am linken und rechten Containerrand ragen über diesen hinaus.
 
-[Prozentwerte](#prozentwerte_verstehen) beziehen sich bei inneren Segmenten auf die Größe von {{cssxref("column-gap")}}. Mit `-50%` reicht das Segment bis zur Mitte des Abstands, mit `-100%` über den gesamten Abstand. Bei Cap-Segmenten am Containerrand beziehen sich Prozentwerte auf `0` und haben daher keine Auswirkung auf deren Endpunkte.
+[Prozentwerte](#prozentwerte_verstehen) beziehen sich bei inneren Segmenten auf die Größe von {{cssxref("column-gap")}}. Mit `-50%` reicht das Segment bis zur Mitte der Lücke, mit `-100%` über die gesamte Lücke. Bei Cap-Segmenten am Containerrand beziehen sich Prozentwerte auf `0` und haben daher keine Auswirkung auf die dortigen Cap-Segmentendpunkte.
 
 Die Eigenschaft `row-rule-inset-cap` ist Bestandteil mehrerer [Kurzschreibweisen](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
 
-- Um die linke und rechte Seite aller Zeilensegmente nach innen zu versetzen, können `row-rule-inset-cap` und {{cssxref("row-rule-inset-junction")}} mit der Kurzschreibweise {{cssxref("row-rule-inset")}} festgelegt werden.
+- Um die linke und rechte Seite aller Zeilensegmente nach innen zu versetzen, können Sie `row-rule-inset-cap` zusammen mit {{cssxref("row-rule-inset-junction")}} über die Kurzschreibweise {{cssxref("row-rule-inset")}} festlegen.
 
-- Um die Cap-Endpunkte von Zeilen- und Spaltensegmenten nach innen zu versetzen, können `row-rule-inset-cap` und {{cssxref("column-rule-inset-cap")}} mit der Kurzschreibweise {{cssxref("rule-inset-cap")}} festgelegt werden.
+- Um die Endpunkte von Cap-Segmenten sowohl für Zeilen als auch für Spalten nach innen zu versetzen, können Sie `row-rule-inset-cap` zusammen mit {{cssxref("column-rule-inset-cap")}} über die Kurzschreibweise {{cssxref("rule-inset-cap")}} festlegen.
 
-Alle Segmentendpunkte, einschließlich der entsprechenden `-junction`- und `column-`-Eigenschaften, können mit der Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
+Alle Segmentendpunkte, einschließlich der entsprechenden Endpunkte für `-junction` und `column-`, können über die Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
 
 ### Cap-Endpunkte verstehen
 
-Ein _Cap-Segmentendpunkt_ ist jeder Segmentendpunkt, der kein Kreuzungs-Segmentendpunkt ist. Dazu gehören Endpunkte an den Inhaltsrändern des Containers sowie Endpunkte an einer Abstandskreuzung, an der keine weiteren Spalten- oder Zeilensegmente vorhanden sind.
+Ein _Cap-Segmentendpunkt_ ist jeder Segmentendpunkt, der kein Kreuzungs-Segmentendpunkt ist. Dazu gehören Endpunkte an den Inhaltsrändern des Containers sowie Endpunkte an einer Lückenkreuzung, an der keine weiteren Spalten- oder Zeilensegmente vorhanden sind.
 
-Mit der Eigenschaft `row-rule-inset-cap` lassen sich der Anfang und das Ende von Zeilentrennlinien am Containerrand sowie der Anfang und das Ende innerer Zeilensegmente, an denen keine weiteren Segmente vorhanden sind, nach außen oder innen versetzen.
+Mit `row-rule-inset-cap` können Sie den Anfang und das Ende von Zeilenlinien am Containerrand sowie von inneren Zeilensegmenten, an denen keine weiteren Segmente vorhanden sind, nach innen oder außen versetzen.
 
-Cap-Segmente werden von den {{cssxref("rule-visibility-items")}}-Eigenschaften beeinflusst. Diese legen fest, ob Zeilen- und Spaltentrennliniensegmente in Abständen neben leeren Bereichen dargestellt werden. Wird der Wert von `auto` auf `between` oder `around` geändert, können zusätzliche innere Cap-Segmente entstehen.
+Cap-Segmente werden von den Eigenschaften {{cssxref("rule-visibility-items")}} beeinflusst. Diese legen fest, ob Zeilen- und Spaltenliniensegmente in Lücken neben leeren Bereichen gezeichnet werden. Wenn Sie den Wert von `auto` auf `between` oder `around` ändern, können zusätzliche innere Cap-Segmente entstehen.
 
-Im folgenden Beispiel enden die Zeilen am linken und rechten Containerrand mit Cap-Endpunkten. Bei `row-rule-inset-cap: -32px` werden diese Endpunkte um `32px` nach außen versetzt. Ändern Sie den `<length>`-Wert des Einzugs, um besser zu erkennen, welche Segmente an Cap-Segmentendpunkten beginnen oder enden.
+In der folgenden Demonstration enden die Zeilen in Cap-Endpunkten am linken und rechten Containerrand. Bei `row-rule-inset-cap: -32px` werden diese Endpunkte um `32px` nach außen versetzt. Ändern Sie den `<length>`-Wert, um besser zu erkennen, welche Segmente mit Cap-Segmentendpunkten beginnen oder enden.
 
 ```html hidden live-sample___caps live-sample___percents
 <ul id="ul">
@@ -235,7 +235,6 @@ Im folgenden Beispiel enden die Zeilen am linken und rechten Containerrand mit C
 ```css hidden live-sample___caps live-sample___percents
 ul {
   display: grid;
-  margin: 0 20px;
   grid-template-columns: repeat(6, auto);
   list-style-type: none;
   gap: 20px;
@@ -333,23 +332,23 @@ visibility.addEventListener("change", () => {
 
 {{EmbedLiveSample("caps", "", "380")}}
 
-Mit `0px` schließen die Enden der Zeilentrennlinien bündig mit dem linken und rechten Containerrand ab. Dies ist die Standardeinstellung.
+Mit `0px` schließen die Enden der Zeilenlinien bündig mit dem linken und rechten Containerrand ab. Dies ist die Standardeinstellung.
 
-Wählen Sie `between` als Wert für `rule-visibility-items`. Bei diesem Wert werden Trennlinien nur in Abstandssegmenten dargestellt, wenn beide angrenzenden Bereiche Elemente enthalten. Am Anfangsrand des Containers befinden sich weiterhin Cap-Endpunkte von Zeilentrennlinien, am Endrand jedoch nicht mehr. Die dritte Zeilentrennlinie, die als Doppellinie dargestellt wird, hat zwei zusätzliche Cap-Endpunkte: das Ende des Segments zwischen `11` und `15` sowie den Anfang des Segments zwischen `12` und `16`. Da diese Endpunkte auf keine anderen Trennliniensegmente treffen, werden sie von der Eigenschaft `row-rule-inset-cap-start` beeinflusst.
+Wählen Sie `between` als Wert für `rule-visibility-items`. Bei diesem Wert werden Linien in Lückensegmenten nur gezeichnet, wenn beide angrenzenden Bereiche von Elementen belegt sind. Am Anfangsrand des Containers gibt es weiterhin Cap-Endpunkte von Zeilenlinien, am Endrand jedoch keine mehr. Die dritte Zeilenlinie, die als Doppellinie dargestellt wird, hat zwei zusätzliche Cap-Endpunkte: die Endseite des Segments zwischen `11` und `15` sowie die Anfangsseite des Segments zwischen `12` und `16`. Diese treffen auf keine anderen Liniensegmente; daher werden sie von der Eigenschaft `row-rule-inset-cap-start` beeinflusst.
 
-Der Wert `around` für `rule-visibility-items`, bei dem Trennlinien in einem Abstandssegment dargestellt werden, sobald einer der angrenzenden Bereiche ein Element enthält, erzeugt in diesem Fall keine zusätzlichen Cap-Segmentendpunkte. Alle inneren Segmentendpunkte enden an Kreuzungen mit Spaltensegmenten und sind daher Kreuzungs- statt Cap-Segmentendpunkte. Kreuzungs-Endpunkte können mit der Kurzschreibweise {{cssxref("row-rule-inset-junction")}} nach innen versetzt werden.
+Der Wert `around` der Eigenschaft `rule-visibility-items`, bei dem Linien in einem Lückensegment gezeichnet werden, solange mindestens ein angrenzender Bereich von einem Element belegt ist, hat in diesem Fall keine zusätzlichen Cap-Segmentendpunkte erzeugt. Alle inneren Segmentendpunkte liegen an Kreuzungen mit Spaltensegmenten. Dadurch entstehen Kreuzungs- statt Cap-Segmentendpunkte. Kreuzungsendpunkte können mit der Kurzschreibweise {{cssxref("row-rule-inset-junction")}} nach innen versetzt werden.
 
 ### Prozentwerte verstehen
 
-Auf welche Länge sich ein Prozentwert bezieht, hängt von der Position des Endpunkts ab. Bei inneren Endpunkten beziehen sich Prozentwerte auf die Breite des Abstands am Cap-Endpunkt: Falls dieser an einen Trennlinienabstand grenzt, ist dies {{cssxref("column-gap")}} zuzüglich etwaiger durch {{cssxref("justify-content")}} hinzugefügter Abstände. Am Containerrand beträgt der Bezugswert `0`. Beispielsweise wird `row-rule-inset-cap: 50%` an einem inneren Cap-Endpunkt zu der Hälfte der Größe der Abstandskreuzung aufgelöst (der Hälfte des Werts von `column-gap`), an den Containerrändern dagegen zu `0`.
+Worauf sich ein Prozentwert bezieht, hängt von der Position des Endpunkts ab. Bei inneren Endpunkten beziehen sich Prozentwerte auf die Breite der Lücke am Cap-Endpunkt: Wenn der Endpunkt an eine Linienlücke grenzt, ist dies die Breite von {{cssxref("column-gap")}} zuzüglich etwaiger zusätzlicher Abstände durch Einstellungen von {{cssxref("justify-content")}}. Am Containerrand beträgt die Bezugsgröße `0`. Beispielsweise wird `row-rule-inset-cap: 50%` an einem inneren Cap-Endpunkt zur Hälfte der Breite der Lückenkreuzung aufgelöst (also zur Hälfte des Werts von `column-gap`) und an den Containerrändern zu `0`.
 
 Dieses Beispiel ist nicht defekt. Wenn `rule-visibility-items` auf `normal` gesetzt ist, grenzt jeder Cap-Endpunkt einer Zeile an den linken oder rechten Containerrand. Jeder angegebene Prozentwert bezieht sich daher auf `0`.
 
 {{EmbedLiveSample("percents", "", "380")}}
 
-Wählen Sie `around` als Wert für `rule-visibility-items`. Die ersten drei Zeilen beginnen und die erste und letzte Zeile enden am Containerrand. Prozentwerte für diese Cap-Segmentendpunkte werden zu `0` aufgelöst. Alle anderen Segmente enden an inneren Abständen, an denen Spaltentrennliniensegmente vorhanden sind. Diese Endpunkte der Zeilensegmente sind daher keine Cap-Segmentendpunkte.
+Wählen Sie `around` als Wert für `rule-visibility-items`. Die ersten drei Zeilen beginnen am Containerrand; die erste und die letzte Zeile enden dort ebenfalls. Prozentwerte für diese Cap-Segmentendpunkte von Zeilen werden zu `0` aufgelöst. Alle anderen Segmente enden an inneren Lücken, an denen Spaltenliniensegmente vorhanden sind. Ihre Endpunkte sind daher keine Cap-Segmentendpunkte.
 
-Wählen Sie `between` als Wert für `rule-visibility-items`. Wie im vorherigen Beispiel entstehen dadurch zwei innere Cap-Segmentendpunkte: Die rechte Seite des Segments zwischen den Elementen `11` und `15` und die linke Seite des Segments zwischen den Elementen `12` und `16` treffen auf keine anderen Trennliniensegmente. Für diese beiden Cap-Endpunkte bezieht sich der prozentuale Versatz auf die Breite von {{cssxref("column-gap")}}, die hier `20px` beträgt.
+Wählen Sie `between` als Wert für `rule-visibility-items`. Wie in der vorherigen Demonstration entstehen dadurch zwei innere Cap-Segmentendpunkte: Die rechte Seite des Segments zwischen den Elementen `11` und `15` sowie die linke Seite des Segments zwischen den Elementen `12` und `16` treffen ebenfalls auf keine anderen Liniensegmente. Bei diesen beiden Cap-Endpunkten bezieht sich der prozentuale Versatz auf die Breite von {{cssxref("column-gap")}}, die hier `20px` beträgt.
 
 ## Formale Definition
 
@@ -363,7 +362,7 @@ Wählen Sie `between` als Wert für `rule-visibility-items`. Wie im vorherigen B
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie `row-rule-inset-cap` verwendet wird, um die Cap-Segmentendpunkte von Zeilentrennlinien in Flex-Containern nach innen zu versetzen.
+Dieses Beispiel zeigt, wie Sie mit `row-rule-inset-cap` die Cap-Segmentendpunkte von Zeilenlinien in Flex-Containern nach innen versetzen.
 
 #### HTML
 
@@ -409,7 +408,7 @@ Dieses Beispiel zeigt, wie `row-rule-inset-cap` verwendet wird, um die Cap-Segme
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine `lightblue` {{cssxref("rule")}}, um sowohl Spalten- als auch Zeilenabstände mit Trennlinien zu versehen. Anschließend überschreiben wir mit {{cssxref("row-rule-color")}} die Farbe der Zeilentrennlinien durch ein dunkleres `blue`. Zum Schluss setzen wir `row-rule-inset-cap` auf `16px`.
+Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine `lightblue`-{{cssxref("rule")}}, um sowohl Spalten- als auch Zeilenlücken zu gestalten, und überschreiben anschließend {{cssxref("row-rule-color")}}, sodass die Zeilenlücken mit einem dunkleren `blue` gestaltet werden. Zum Schluss setzen wir `row-rule-inset-cap` auf `16px`.
 
 ```css
 .flexbox {
@@ -424,7 +423,7 @@ Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu
 }
 ```
 
-Außerdem setzen wir {{cssxref("flex-direction")}} für den Container `.column`, um die Hauptachse des Flex-Containers zu ändern und die Elemente in Spalten statt in Zeilen anzuordnen.
+Außerdem legen wir {{cssxref("flex-direction")}} für den Container `.column` fest. Dadurch ändern wir die Hauptachse des Flex-Containers, sodass die Elemente in Spalten statt in Zeilen angeordnet werden.
 
 ```css
 .column {
@@ -497,7 +496,7 @@ inset.addEventListener("input", () => {
 
 {{EmbedLiveSample("Basic usage", "", "330")}}
 
-Ändern Sie die Größe des Einzugs. Beachten Sie, dass die Zeilensegmente nur an ihren Cap-Endpunkten länger oder kürzer werden – links, rechts oder auf beiden Seiten. Dies sind die Endpunkte, die keine anderen Zeilen- oder Spaltensegmente schneiden.
+Ändern Sie die Größe des Versatzes. Beachten Sie, dass die Zeilensegmente nur an ihren Cap-Enden länger oder kürzer werden – an der linken Seite, an der rechten Seite oder an beiden. Das sind die Enden, die keine anderen Zeilen- oder Spaltensegmente schneiden.
 
 ## Spezifikationen
 
