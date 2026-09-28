@@ -1,31 +1,30 @@
 ---
-title: "MediaTrackConstraints: logicalSurface-Eigenschaft"
+title: "MediaTrackConstraints: Eigenschaft logicalSurface"
 short-title: logicalSurface
 slug: Web/API/MediaTrackConstraints/logicalSurface
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`logicalSurface`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das die angeforderten oder zwingenden Einschränkungen beschreibt, die dem Wert der [`logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface) beschränkbaren Eigenschaft auferlegt werden.
+Die Eigenschaft **`logicalSurface`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), der die gewünschten oder verbindlichen Einschränkungen für den Wert der einschränkbaren Eigenschaft [`logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface) beschreibt.
 
-Dies wird verwendet, um anzugeben, ob [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) dem Benutzer die Auswahl von Anzeigeflächen ermöglichen soll, die nicht unbedingt vollständig auf dem Bildschirm sichtbar sind, wie zum Beispiel verdeckte Fenster oder der gesamte Inhalt von Fenstern, die groß genug sind, um das Scrollen zu erfordern, um ihren gesamten Inhalt zu sehen.
+Damit wird festgelegt, ob [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) den Benutzern erlauben soll, Anzeigeflächen auszuwählen, die nicht unbedingt vollständig auf dem Bildschirm sichtbar sind. Dazu gehören verdeckte Fenster oder der gesamte Inhalt von Fenstern, die so groß sind, dass man scrollen muss, um ihren gesamten Inhalt zu sehen.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.logicalSurface`](/de/docs/Web/API/MediaTrackSupportedConstraints/logicalSurface) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht erforderlich, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`logicalSurface`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#logicalsurface) überprüfen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist dies jedoch nicht nötig, da Browser unbekannte Einschränkungen ignorieren.
 
 ## Wert
 
-Ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), das `true` ist, wenn logische Flächen unter den für den Benutzer verfügbaren Auswahlmöglichkeiten erlaubt sein sollen.
+Ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der `true` ist, wenn logische Anzeigeflächen zu den Auswahlmöglichkeiten für die Benutzer gehören sollen.
 
-Siehe [wie Einschränkungen definiert sind](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#how_constraints_are_defined).
+Siehe [wie Einschränkungen definiert werden](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#how_constraints_are_defined).
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
-Sie können die vom User-Agent ausgewählte Einstellung überprüfen, nachdem das Anzeigemedium durch [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) erstellt wurde, indem Sie [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) auf dem Video-`MediaStreamTrack` des Anzeigemediums aufrufen und dann den Wert des zurückgegebenen [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekts
-[`logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface) überprüfen.
+Nachdem das Anzeigemedium durch [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) erstellt wurde, können Sie die vom User Agent gewählte Einstellung überprüfen: Rufen Sie dazu [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) für den Video-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) des Anzeigemediums auf und prüfen Sie dann den Wert der Eigenschaft [`logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface) des zurückgegebenen [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekts.
 
-Wenn Ihr App beispielsweise wissen muss, ob die ausgewählte Anzeigefläche eine logische ist:
+Wenn Ihre Anwendung beispielsweise wissen muss, ob die ausgewählte Anzeigefläche eine logische Anzeigefläche ist:
 
 ```js
 let isLogicalSurface = displayStream
@@ -33,7 +32,7 @@ let isLogicalSurface = displayStream
   .getSettings().logicalSurface;
 ```
 
-Ist `isLogicalSurface` nach diesem Code `true`, wenn die im Stream enthaltene Anzeigefläche eine logische Oberfläche ist, also eine, die möglicherweise nicht vollständig auf dem Bildschirm ist oder sogar vollständig außerhalb des Bildschirms liegt.
+Nach Ausführung dieses Codes ist `isLogicalSurface` gleich `true`, wenn die im Stream enthaltene Anzeigefläche eine logische Anzeigefläche ist. Das bedeutet, dass sie möglicherweise nicht vollständig oder sogar überhaupt nicht auf dem Bildschirm sichtbar ist.
 
 ## Spezifikationen
 
@@ -50,4 +49,3 @@ Ist `isLogicalSurface` nach diesem Code `true`, wenn die im Stream enthaltene An
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)

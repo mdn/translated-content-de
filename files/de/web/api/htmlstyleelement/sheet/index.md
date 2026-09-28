@@ -1,21 +1,18 @@
 ---
-title: "HTMLStyleElement: sheet-Eigenschaft"
+title: "HTMLStyleElement: Eigenschaft sheet"
 short-title: sheet
 slug: Web/API/HTMLStyleElement/sheet
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: e1250f3487ad2d64e06cca58660ddc95b9a2d65c
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`sheet`**-Eigenschaft der [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement)-Schnittstelle
-enthält das Stylesheet, das mit diesem Element verknüpft ist.
-
-Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet) ist immer mit einem [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) verknüpft, es sei denn, sein `type`-Attribut ist nicht `text/css`.
+Die schreibgeschützte Eigenschaft **`sheet`** der Schnittstelle [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) enthält das Stylesheet, das diesem Element zugeordnet ist.
 
 ## Wert
 
-Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, wenn keines mit dem Element verknüpft ist.
+Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt oder `null`, wenn dem Element kein Stylesheet zugeordnet ist.
 
 ## Beispiele
 
@@ -29,7 +26,7 @@ Angenommen, der `<head>` enthält Folgendes:
 </style>
 ```
 
-Die `sheet`-Eigenschaft des zugehörigen `HTMLStyleElement`-Objekts gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, das es beschreibt.
+Die Eigenschaft `sheet` des zugehörigen `HTMLStyleElement`-Objekts gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt zurück, das das Stylesheet beschreibt.
 
 ```js
 const style = document.getElementById("inline-style");

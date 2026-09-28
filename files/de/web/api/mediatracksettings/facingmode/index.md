@@ -3,37 +3,37 @@ title: "MediaTrackSettings: facingMode-Eigenschaft"
 short-title: facingMode
 slug: Web/API/MediaTrackSettings/facingMode
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`facingMode`**-Eigenschafts des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) Wörterbuchs ist eine Zeichenkette, die die Richtung angibt, in die die Kamera, die die Videospur produziert, dargestellt durch die [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) aktuell zeigt. Dies ermöglicht es Ihnen zu bestimmen, welcher Wert ausgewählt wurde, um Ihre angegebenen Einschränkungen für den Wert dieser Eigenschaft zu erfüllen, wie in der [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) Eigenschaft beschrieben, die Sie beim Aufrufen von entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) bereitgestellt haben.
+Die Eigenschaft **`facingMode`** des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Dictionarys ist ein String, der angibt, in welche Richtung die Kamera derzeit ausgerichtet ist, die den durch den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) repräsentierten Videotrack erzeugt. So können Sie feststellen, welcher Wert ausgewählt wurde, um die von Ihnen festgelegten Vorgaben für diese Eigenschaft zu erfüllen. Diese Vorgaben werden durch die Eigenschaft [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) beschrieben, die Sie beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben haben.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.facingMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/facingMode) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser unbekannte Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob diese Vorgabe unterstützt wird, indem Sie den Wert von [`facingMode`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#facingmode) überprüfen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Normalerweise ist dies jedoch nicht erforderlich, da Browser ihnen unbekannte Vorgaben ignorieren.
 
-Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden Spuren, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft niemals enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, ist diese Eigenschaft bei Tracks, die einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet sind, niemals enthalten.
 
 ## Wert
 
-Eine Zeichenkette, deren Wert einer der Werte in [`VideoFacingModeEnum`](#videofacingmodeenum) ist.
+Ein String, dessen Wert einer der unter [`VideoFacingModeEnum`](#videofacingmodeenum) aufgeführten Strings ist.
 
 ### VideoFacingModeEnum
 
-Die folgenden Zeichenketten sind erlaubte Werte für den Facing-Modus. Diese können separate Kameras darstellen oder Richtungen, in die eine verstellbare Kamera gerichtet werden kann.
+Die folgenden Strings sind zulässige Werte für die Ausrichtung. Sie können unterschiedliche Kameras bezeichnen oder Richtungen, in die eine verstellbare Kamera ausgerichtet werden kann.
 
 - `"user"`
-  - : Die Videoquelle ist dem Benutzer zugewandt; dies umfasst zum Beispiel die Frontkamera eines Smartphones.
+  - : Die Videoquelle ist auf die nutzende Person gerichtet. Dazu gehört beispielsweise die Frontkamera eines Smartphones.
 - `"environment"`
-  - : Die Videoquelle ist vom Benutzer weggerichtet und zeigt ihre Umgebung. Dies ist die Rückkamera eines Smartphones.
+  - : Die Videoquelle ist von der nutzenden Person weg auf deren Umgebung gerichtet. Bei einem Smartphone ist dies die Rückkamera.
 - `"left"`
-  - : Die Videoquelle ist dem Benutzer zugewandt, jedoch zu ihrer linken Seite, wie eine Kamera, die auf den Benutzer gerichtet ist, jedoch über ihre linke Schulter.
+  - : Die Videoquelle ist auf die nutzende Person gerichtet, befindet sich aber links von ihr, beispielsweise eine Kamera, die über ihre linke Schulter hinweg auf sie gerichtet ist.
 - `"right"`
-  - : Die Videoquelle ist dem Benutzer zugewandt, jedoch zu ihrer rechten Seite, wie eine Kamera, die auf den Benutzer gerichtet ist, jedoch über ihre rechte Schulter.
+  - : Die Videoquelle ist auf die nutzende Person gerichtet, befindet sich aber rechts von ihr, beispielsweise eine Kamera, die über ihre rechte Schulter hinweg auf sie gerichtet ist.
 
 ## Beispiele
 
-Siehe das [Beispiel zum Constraint-Übungswerkzeug](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel zum [Testen von Vorgaben](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -46,6 +46,6 @@ Siehe das [Beispiel zum Constraint-Übungswerkzeug](/de/docs/Web/API/Media_Captu
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Fähigkeiten, Vorgaben und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode)
 - [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

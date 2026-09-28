@@ -3,26 +3,26 @@ title: "MediaTrackSettings: echoCancellation-Eigenschaft"
 short-title: echoCancellation
 slug: Web/API/MediaTrackSettings/echoCancellation
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`echoCancellation`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist ein Boolescher Wert, der angibt, ob Echo-Unterdrückung auf einer Audiospur aktiviert ist. Dies lässt Sie feststellen, welcher Wert ausgewählt wurde, um Ihre angegebenen Einschränkungen für den Wert dieser Eigenschaft zu erfüllen, wie im [`MediaTrackConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation) beschriebenen Parameter, den Sie bei Aufrufen von entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben haben.
+Die **`echoCancellation`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Dictionary ist ein boolescher Wert, der angibt, ob die Echounterdrückung für einen Audiotrack aktiviert ist. Damit können Sie feststellen, welcher Wert ausgewählt wurde, um die von Ihnen festgelegten Constraints für diese Eigenschaft zu erfüllen. Diese Constraints geben Sie über die Eigenschaft [`MediaTrackConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation) an, wenn Sie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufrufen.
 
-Echo-Unterdrückung ist eine Funktion, die versucht, Echo-Effekte in einer bidirektionalen Audioverbindung zu verhindern, indem sie versucht, das Übersprechen zwischen dem Ausgabegerät des Benutzers und dem Eingabegerät zu reduzieren oder zu eliminieren. Beispielsweise könnte sie einen Filter anwenden, der das auf den Lautsprechern erzeugte Geräusch negiert, damit es nicht in die vom Mikrofon erzeugte Eingabespur aufgenommen wird.
+Die Echounterdrückung versucht, Echos bei einer bidirektionalen Audioverbindung zu verhindern, indem sie Übersprechen zwischen dem Ausgabegerät und dem Eingabegerät der Benutzerin oder des Benutzers reduziert oder beseitigt. Beispielsweise kann ein Filter dafür sorgen, dass der von den Lautsprechern ausgegebene Ton nicht in den vom Mikrofon erzeugten Eingabetrack gelangt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Typischerweise ist dies jedoch unnötig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob dieses Constraint unterstützt wird, indem Sie den Wert von [`echoCancellation`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#echocancellation) auswerten, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Normalerweise ist das jedoch nicht nötig, da Browser unbekannte Constraints ignorieren.
 
-Da {{Glossary("RTP", "RTP")}} diese Information nicht einschließt, werden Spuren, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft niemals enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, weisen Tracks, die einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet sind, diese Eigenschaft niemals auf.
 
 ## Wert
 
-Ein Boolescher Wert, der `true` ist, wenn die Spur Echo-Unterdrückungsfunktionen aktiviert hat, oder `false`, wenn die Echo-Unterdrückung deaktiviert ist.
+Ein boolescher Wert, der `true` ist, wenn die Echounterdrückung für den Track aktiviert ist, oder `false`, wenn sie deaktiviert ist.
 
 ## Beispiele
 
-Siehe das [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
+Siehe das Beispiel zum [Ausprobieren von Constraints](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -35,6 +35,6 @@ Siehe das [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Capabilities, Constraints und Settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation)
 - [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

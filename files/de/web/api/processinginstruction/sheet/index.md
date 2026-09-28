@@ -3,15 +3,14 @@ title: "ProcessingInstruction: sheet-Eigenschaft"
 short-title: sheet
 slug: Web/API/ProcessingInstruction/sheet
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: e1250f3487ad2d64e06cca58660ddc95b9a2d65c
 ---
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte **`sheet`**-Eigenschaft der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Schnittstelle
-enthält das Stylesheet, das der `ProcessingInstruction` zugeordnet ist.
+Die schreibgeschützte Eigenschaft **`sheet`** der Schnittstelle [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) enthält das Stylesheet, das der `ProcessingInstruction` zugeordnet ist.
 
-Die `xml-stylesheet`-Verarbeitungsanweisung wird verwendet, um ein Stylesheet in einer XML-Datei zuzuordnen.
+Die `xml-stylesheet`-Verarbeitungsanweisung wird verwendet, um einer XML-Datei ein Stylesheet zuzuordnen.
 
 ## Wert
 
@@ -25,7 +24,7 @@ Das zugeordnete [`Stylesheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, 
 …
 ```
 
-Die `sheet`-Eigenschaft der Verarbeitungsanweisung gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, das `rule.css` beschreibt.
+Die Eigenschaft `sheet` der Verarbeitungsanweisung gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt zurück, das `rule.css` beschreibt.
 
 ## Spezifikationen
 

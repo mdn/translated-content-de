@@ -2,183 +2,208 @@
 title: MediaTrackConstraints
 slug: Web/API/MediaTrackConstraints
 l10n:
-  sourceCommit: a439453bab9f5508b5268a4062a42fc760a2f20b
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`MediaTrackConstraints`** Wörterbuch wird verwendet, um eine Reihe von Medienfähigkeiten und die Werte oder Wertebereiche zu beschreiben, die jeder annehmen kann.
+Das **`MediaTrackConstraints`**-Dictionary beschreibt eine Reihe von Medieneigenschaften und die Werte, die diese jeweils annehmen können.
 
-Ein Einschränkungs-Wörterbuch wird in die Methode [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Interfaces übergeben, um einem Skript die Festlegung eines Satzes von exakten (erforderlichen) Werten oder Bereichen und/oder bevorzugte Werte oder Wertebereiche für den Track zu ermöglichen.
+Ein Dictionary mit Constraints wird an die Methode [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) der Schnittstelle [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) übergeben. So kann ein Skript für den Track exakte (erforderliche) Werte oder Wertebereiche und/oder bevorzugte Werte oder Wertebereiche festlegen.
 
-Der zuletzt angeforderte Satz von benutzerdefinierten Einschränkungen kann durch Aufrufen von [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints) abgerufen werden.
+Die zuletzt angeforderten benutzerdefinierten Constraints können durch Aufruf von [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints) abgerufen werden.
 
-Objekte dieses Typs können auch übergeben werden an:
+Objekte dieses Typs können auch an folgende Methoden übergeben werden:
 
-- Die Methode [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Einschränkungen für einen von Hardware wie einer Kamera oder einem Mikrofon angeforderten Medienstream festzulegen.
+- [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Constraints für einen Medienstrom festzulegen, der von Hardware wie einer Kamera oder einem Mikrofon angefordert wird.
 
-- Die Methode [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia), um Einschränkungen für einen von der Bildschirm- oder Fensteraufnahme angeforderten Medienstream festzulegen.
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia), um Constraints für einen Medienstrom festzulegen, der durch die Erfassung eines Bildschirms oder Fensters angefordert wird.
 
-## Einschränkungen
+## Constraints
 
-Die folgenden Typen werden verwendet, um eine Einschränkung für eine Eigenschaft anzugeben. Sie ermöglichen es Ihnen, einen oder mehrere `exakte` Werte anzugeben, von denen einer der Parameterwert sein muss, oder ein Set von `idealen` Werten, die, wenn möglich, verwendet werden sollten. Sie können auch einen einzelnen Wert (oder ein Array von Werten) angeben, den der Benutzeragent so gut wie möglich zu erfüllen versucht, sobald alle strengeren Einschränkungen angewendet wurden.
+Die folgenden Typen werden verwendet, um einen Constraint für eine Eigenschaft festzulegen.
+Sie können einen oder mehrere `exact`-Werte angeben, von denen einer der Wert der Eigenschaft sein muss, oder eine Reihe von `ideal`-Werten, die nach Möglichkeit verwendet werden sollen.
+Sie können auch einen einzelnen Wert (oder ein Array von Werten) angeben. Der User Agent versucht dann, diesen so gut wie möglich zu erfüllen, nachdem alle strengeren Constraints berücksichtigt wurden.
 
-Um mehr über die Funktionsweise von Einschränkungen zu erfahren, siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
+Weitere Informationen zur Funktionsweise von Constraints finden Sie unter [Fähigkeiten, Constraints und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
 
 > [!NOTE]
-> `min` und `exakte` Werte sind in Einschränkungen, die in Anrufen von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) verwendet werden, nicht erlaubt — sie erzeugen einen `TypeError` — aber sie sind in Einschränkungen, die in Anrufen von [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) verwendet werden, erlaubt.
+> `min`- und `exact`-Werte sind in Constraints für Aufrufe von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) nicht zulässig – sie führen zu einem `TypeError`. In Constraints für Aufrufe von [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) sind sie dagegen zulässig.
 
 ### ConstrainBoolean
 
-Der `ConstrainBoolean` Einschränkungs-Typ wird verwendet, um eine Einschränkung für eine Eigenschaft anzugeben, deren Wert ein Boolescher Wert ist. Sein Wert kann entweder auf einen Booleschen Wert (`true` oder `false`) gesetzt werden oder auf ein Objekt, das die folgenden Eigenschaften enthält:
+Der Constraint-Typ `ConstrainBoolean` wird verwendet, um einen Constraint für eine Eigenschaft festzulegen, deren Wert ein boolescher Wert ist.
+Sein Wert kann entweder ein boolescher Wert (`true` oder `false`) oder ein Objekt mit den folgenden Eigenschaften sein:
 
 - `exact`
-  - : Ein Boolescher Wert, der der Wert der Eigenschaft sein muss. Wenn die Eigenschaft nicht auf diesen Wert gesetzt werden kann, schlägt das Matching fehl.
+  - : Ein boolescher Wert, den die Eigenschaft annehmen muss.
+    Wenn die Eigenschaft nicht auf diesen Wert gesetzt werden kann, schlägt der Abgleich fehl.
 - `ideal`
-  - : Ein Boolescher Wert, der einen idealen Wert für die Eigenschaft angibt. Wenn möglich, wird dieser Wert verwendet, aber wenn es nicht möglich ist, wird der Benutzeragent den am besten passenden Wert verwenden.
+  - : Ein boolescher Wert, der einen idealen Wert für die Eigenschaft angibt.
+    Wenn möglich, wird dieser Wert verwendet. Andernfalls verwendet der User Agent die bestmögliche Übereinstimmung.
 
 ### ConstrainBooleanOrDOMString
 
-Der `ConstrainBooleanOrDOMString` Einschränkungs-Typ wird verwendet, um eine Einschränkung für eine Eigenschaft anzugeben, deren Wert ein Boolescher Wert oder ein Zeichenfolgenwert ist. Er kann Werte annehmen, wie sie in den Abschnitten [`ConstrainBoolean`](#constrainboolean) und [`ConstrainDOMString`](#constraindomstring) angegeben sind.
+Der Constraint-Typ `ConstrainBooleanOrDOMString` wird verwendet, um einen Constraint für eine Eigenschaft festzulegen, deren Wert ein boolescher Wert oder ein String ist. Er kann Werte annehmen, wie sie in den Abschnitten [`ConstrainBoolean`](#constrainboolean) und [`ConstrainDOMString`](#constraindomstring) beschrieben sind.
 
 ### ConstrainDouble
 
-Der `ConstrainDouble` Einschränkungs-Typ wird verwendet, um eine Einschränkung für eine Eigenschaft anzugeben, deren Wert eine Gleitkommazahl mit doppelter Genauigkeit ist. Sein Wert kann entweder auf eine Zahl gesetzt werden oder auf ein Objekt, das die folgenden Eigenschaften enthält:
+Der Constraint-Typ `ConstrainDouble` wird verwendet, um einen Constraint für eine Eigenschaft festzulegen, deren Wert eine Gleitkommazahl mit doppelter Genauigkeit ist.
+Sein Wert kann entweder eine Zahl oder ein Objekt mit den folgenden Eigenschaften sein:
 
 - `max`
-  - : Eine Dezimalzahl, die den größten zulässigen Wert der Eigenschaft angibt, die sie beschreibt. Wenn der Wert nicht gleich oder kleiner als dieser Wert bleiben kann, schlägt das Matching fehl.
+  - : Eine Dezimalzahl, die den größten zulässigen Wert der beschriebenen Eigenschaft angibt.
+    Wenn der Wert nicht kleiner oder gleich diesem Wert bleiben kann, schlägt der Abgleich fehl.
 - `min`
-  - : Eine Dezimalzahl, die den kleinsten zulässigen Wert der Eigenschaft angibt, die sie beschreibt. Wenn der Wert nicht gleich oder größer als dieser Wert bleiben kann, schlägt das Matching fehl.
+  - : Eine Dezimalzahl, die den kleinsten zulässigen Wert der beschriebenen Eigenschaft angibt.
+    Wenn der Wert nicht größer oder gleich diesem Wert bleiben kann, schlägt der Abgleich fehl.
 - `exact`
-  - : Eine Dezimalzahl, die einen spezifischen, erforderlichen Wert angibt, den die Eigenschaft haben muss, um als akzeptabel zu gelten.
+  - : Eine Dezimalzahl, die einen bestimmten erforderlichen Wert angibt, den die Eigenschaft haben muss, um als zulässig zu gelten.
 - `ideal`
-  - : Eine Dezimalzahl, die einen idealen Wert für die Eigenschaft angibt. Wenn möglich, wird dieser Wert verwendet, aber wenn es nicht möglich ist, wird der Benutzeragent den am besten passenden Wert verwenden.
+  - : Eine Dezimalzahl, die einen idealen Wert für die Eigenschaft angibt.
+    Wenn möglich, wird dieser Wert verwendet. Andernfalls verwendet der User Agent die bestmögliche Übereinstimmung.
 
 ### ConstrainDOMString
 
-Der `ConstrainDOMString` Einschränkungs-Typ wird verwendet, um eine Einschränkung für eine Eigenschaft anzugeben, deren Wert eine Zeichenfolge ist. Sein Wert kann entweder auf eine Zeichenfolge, ein Array von Zeichenfolgen oder auf ein Objekt gesetzt werden, das die folgenden Eigenschaften enthält:
+Der Constraint-Typ `ConstrainDOMString` wird verwendet, um einen Constraint für eine Eigenschaft festzulegen, deren Wert ein String ist.
+Sein Wert kann entweder ein String, ein Array von Strings oder ein Objekt mit den folgenden Eigenschaften sein:
 
 - `exact`
-  - : Eine Zeichenfolge oder ein Array von Zeichenfolgen, von denen eine der Wert der Eigenschaft sein muss. Wenn die Eigenschaft nicht auf einen der aufgelisteten Werte gesetzt werden kann, schlägt das Matching fehl.
+  - : Ein String oder ein Array von Strings, von denen einer der Wert der Eigenschaft sein muss.
+    Wenn die Eigenschaft nicht auf einen der aufgeführten Werte gesetzt werden kann, schlägt der Abgleich fehl.
 - `ideal`
-  - : Eine Zeichenfolge oder ein Array von Zeichenfolgen, die ideale Werte für die Eigenschaft angeben. Wenn möglich, wird einer der aufgelisteten Werte verwendet, aber wenn es nicht möglich ist, wird der Benutzeragent den am besten passenden Wert verwenden.
+  - : Ein String oder ein Array von Strings, die ideale Werte für die Eigenschaft angeben.
+    Wenn möglich, wird einer der aufgeführten Werte verwendet. Andernfalls verwendet der User Agent die bestmögliche Übereinstimmung.
 
 ### ConstrainULong
 
-Der `ConstrainULong` Einschränkungs-Typ wird verwendet, um eine Einschränkung für eine Eigenschaft anzugeben, deren Wert eine ganze Zahl ist. Sein Wert kann entweder auf eine Zahl gesetzt werden oder auf ein Objekt, das die folgenden Eigenschaften enthält:
+Der Constraint-Typ `ConstrainULong` wird verwendet, um einen Constraint für eine Eigenschaft festzulegen, deren Wert eine Ganzzahl ist.
+Sein Wert kann entweder eine Zahl oder ein Objekt mit den folgenden Eigenschaften sein:
 
 - `max`
-  - : Eine Ganzzahl, die den größten zulässigen Wert der Eigenschaft angibt, die sie beschreibt. Wenn der Wert nicht gleich oder kleiner als dieser Wert bleiben kann, schlägt das Matching fehl.
+  - : Eine Ganzzahl, die den größten zulässigen Wert der beschriebenen Eigenschaft angibt.
+    Wenn der Wert nicht kleiner oder gleich diesem Wert bleiben kann, schlägt der Abgleich fehl.
 - `min`
-  - : Eine Ganzzahl, die den kleinsten zulässigen Wert der Eigenschaft angibt, die sie beschreibt. Wenn der Wert nicht gleich oder größer als dieser Wert bleiben kann, schlägt das Matching fehl.
+  - : Eine Ganzzahl, die den kleinsten zulässigen Wert der beschriebenen Eigenschaft angibt.
+    Wenn der Wert nicht größer oder gleich diesem Wert bleiben kann, schlägt der Abgleich fehl.
 - `exact`
-  - : Eine Ganzzahl, die einen spezifischen, erforderlichen Wert angibt, den die Eigenschaft haben muss, um als akzeptabel zu gelten.
+  - : Eine Ganzzahl, die einen bestimmten erforderlichen Wert angibt, den die Eigenschaft haben muss, um als zulässig zu gelten.
 - `ideal`
-  - : Eine Ganzzahl, die einen idealen Wert für die Eigenschaft angibt. Wenn möglich, wird dieser Wert verwendet, aber wenn es nicht möglich ist, wird der Benutzeragent den am besten passenden Wert verwenden.
+  - : Eine Ganzzahl, die einen idealen Wert für die Eigenschaft angibt.
+    Wenn möglich, wird dieser Wert verwendet. Andernfalls verwendet der User Agent die bestmögliche Übereinstimmung.
 
 ## Instanzeigenschaften
 
-Eine Kombination, aber nicht unbedingt alle der folgenden Eigenschaften werden auf dem Objekt existieren. Das kann daran liegen, dass ein bestimmter Browser die Eigenschaft nicht unterstützt oder weil sie nicht anwendbar ist. Zum Beispiel, weil {{Glossary("RTP", "RTP")}} einige dieser Werte während der Aushandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein mit einem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbundener Track bestimmte Werte nicht enthalten, wie z.B. [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId).
+Das Objekt enthält eine Kombination der folgenden Eigenschaften, aber nicht unbedingt alle.
+Das kann daran liegen, dass ein bestimmter Browser eine Eigenschaft nicht unterstützt oder dass sie nicht anwendbar ist.
+Da {{Glossary("RTP", "RTP")}} bei der Aushandlung einer WebRTC-Verbindung beispielsweise einige dieser Werte nicht bereitstellt, enthält ein Track, der einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet ist, bestimmte Werte wie [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId) nicht.
 
-### Instanzeigenschaften aller Medien-Tracks
+### Instanzeigenschaften aller Medientracks
 
 - [`deviceId`](/de/docs/Web/API/MediaTrackConstraints/deviceId)
-  - : Ein [`ConstrainDOMString`](#constraindomstring) Objekt, das eine Geräte-ID oder ein Array von Geräte-IDs angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDOMString`](#constraindomstring)-Objekt, das eine Geräte-ID oder ein Array von Geräte-IDs angibt, die zulässig und/oder erforderlich sind.
 - [`groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId)
-  - : Ein [`ConstrainDOMString`](#constraindomstring) Objekt, das eine Gruppen-ID oder ein Array von Gruppen-IDs angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDOMString`](#constraindomstring)-Objekt, das eine Gruppen-ID oder ein Array von Gruppen-IDs angibt, die zulässig und/oder erforderlich sind.
 
-### Instanzeigenschaften von Audio-Tracks
+### Instanzeigenschaften von Audiotracks
 
 - [`autoGainControl`](/de/docs/Web/API/MediaTrackConstraints/autoGainControl)
-  - : Ein [`ConstrainBoolean`](#constrainboolean) Objekt, das angibt, ob automatische Verstärkungsregelung bevorzugt und/oder erforderlich ist.
+  - : Ein [`ConstrainBoolean`](#constrainboolean)-Objekt, das angibt, ob eine automatische Verstärkungsregelung bevorzugt und/oder erforderlich ist.
 - [`channelCount`](/de/docs/Web/API/MediaTrackConstraints/channelCount)
-  - : Ein [`ConstrainULong`](#constrainulong), der die Kanalanzahl oder den Bereich von Kanalanzahlen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainULong`](#constrainulong), das die zulässige und/oder erforderliche Kanalanzahl oder den entsprechenden Bereich angibt.
 - [`echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation)
-  - : Ein [`ConstrainBooleanOrDOMString`](#constrainbooleanordomstring) Objekt, das angibt, ob Echodämpfung bevorzugt und/oder erforderlich ist und, falls unterstützt, welche Art.
+  - : Ein [`ConstrainBooleanOrDOMString`](#constrainbooleanordomstring)-Objekt, das angibt, ob eine Echounterdrückung bevorzugt und/oder erforderlich ist und, sofern unterstützt, welcher Typ verwendet werden soll.
 - [`latency`](/de/docs/Web/API/MediaTrackConstraints/latency)
-  - : Ein [`ConstrainDouble`](#constraindouble), der die Latenz oder den Bereich von Latenzen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDouble`](#constraindouble), das die zulässige und/oder erforderliche Latenz oder den entsprechenden Bereich angibt.
 - [`noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints/noiseSuppression)
-  - : Ein [`ConstrainBoolean`](#constrainboolean), der angibt, ob Geräuschunterdrückung bevorzugt und/oder erforderlich ist.
+  - : Ein [`ConstrainBoolean`](#constrainboolean), das angibt, ob eine Rauschunterdrückung bevorzugt und/oder erforderlich ist.
 - [`sampleRate`](/de/docs/Web/API/MediaTrackConstraints/sampleRate)
-  - : Ein [`ConstrainULong`](#constrainulong), der die Abtastrate oder den Bereich von Abtastraten angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainULong`](#constrainulong), das die zulässige und/oder erforderliche Abtastrate oder den entsprechenden Bereich angibt.
 - [`sampleSize`](/de/docs/Web/API/MediaTrackConstraints/sampleSize)
-  - : Ein [`ConstrainULong`](#constrainulong), der die Abtastgröße oder den Bereich von Abtastgrößen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainULong`](#constrainulong), das die zulässige und/oder erforderliche Abtastgröße oder den entsprechenden Bereich angibt.
 - [`volume`](/de/docs/Web/API/MediaTrackConstraints/volume) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein [`ConstrainDouble`](#constraindouble), der die Lautstärke oder den Bereich von Lautstärken angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDouble`](#constraindouble), das die zulässige und/oder erforderliche Lautstärke oder den entsprechenden Bereich angibt.
 
-### Instanzeigenschaften von Bild-Tracks
+### Instanzeigenschaften von Bildtracks
 
 - `whiteBalanceMode`
-  - : Ein {{jsxref("String")}}, welcher einer von `"none"`, `"manual"`, `"single-shot"` oder `"continuous"` ist.
+  - : Ein {{jsxref("String")}}, der `"none"`, `"manual"`, `"single-shot"` oder `"continuous"` angibt.
 - `exposureMode`
-  - : Ein {{jsxref("String")}}, welcher einer von `"none"`, `"manual"`, `"single-shot"` oder `"continuous"` ist.
+  - : Ein {{jsxref("String")}}, der `"none"`, `"manual"`, `"single-shot"` oder `"continuous"` angibt.
 - `focusMode`
-  - : Ein {{jsxref("String")}}, welcher einer von `"none"`, `"manual"`, `"single-shot"` oder `"continuous"` ist.
+  - : Ein {{jsxref("String")}}, der `"none"`, `"manual"`, `"single-shot"` oder `"continuous"` angibt.
 - `pointsOfInterest`
-  - : Die Pixelkoordinaten auf dem Sensor von einem oder mehreren Interessenspunkten. Dies ist entweder ein Objekt in der Form { x:_value_, y:_value_ } oder ein Array solcher Objekte, wobei _value_ ein Gleitkommadoppelpunkt ist.
+  - : Die Pixelkoordinaten eines oder mehrerer relevanter Punkte auf dem Sensor.
+    Der Wert ist entweder ein Objekt der Form { x:_value_, y:_value_ } oder ein Array solcher Objekte, wobei _value_ eine Ganzzahl mit doppelter Genauigkeit ist.
 - `exposureCompensation`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher die Anpassung der Blende um bis zu ±3 angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das eine Anpassung des Blendenwerts um bis zu ±3 angibt.
 - `colorTemperature`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher eine gewünschte Farbtemperatur in Kelvin-Graden angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das eine gewünschte Farbtemperatur in Kelvin angibt.
 - `iso`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher eine gewünschte ISO-Einstellung angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das eine gewünschte ISO-Einstellung angibt.
 - `brightness`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher eine gewünschte Helligkeitseinstellung angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das eine gewünschte Helligkeitseinstellung angibt.
 - `contrast`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher den Grad der Differenz zwischen hell und dunkel angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das den Grad des Unterschieds zwischen hell und dunkel angibt.
 - `saturation`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher den Grad der Farbintensität angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das den Grad der Farbintensität angibt.
 - `sharpness`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher die Intensität der Kanten angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das die Intensität der Kanten angibt.
 - `focusDistance`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher die Entfernung zu einem fokussierten Objekt angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das die Entfernung zu einem fokussierten Objekt angibt.
 - `zoom`
-  - : Ein [`ConstrainDouble`](#constraindouble) (ein Gleitkommadoppelpunkt), welcher die gewünschte Brennweite angibt.
+  - : Ein [`ConstrainDouble`](#constraindouble) (eine Ganzzahl mit doppelter Genauigkeit), das die gewünschte Brennweite angibt.
 - `torch`
-  - : Ein boolescher Wert, der definiert, ob das Fülllicht kontinuierlich verbunden ist, was bedeutet, dass es eingeschaltet bleibt, solange der Track aktiv ist.
+  - : Ein boolescher Wert, der angibt, ob das Aufhelllicht dauerhaft eingeschaltet ist, also so lange leuchtet, wie der Track aktiv ist.
 
-### Instanzeigenschaften von Video-Tracks
+### Instanzeigenschaften von Videotracks
 
 - [`aspectRatio`](/de/docs/Web/API/MediaTrackConstraints/aspectRatio)
-  - : Ein [`ConstrainDouble`](#constraindouble), welcher das Video-{{Glossary("aspect_ratio", "Seitenverhältnis")}} oder den Bereich von Seitenverhältnissen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDouble`](#constraindouble), das das zulässige und/oder erforderliche {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Videos oder den entsprechenden Bereich angibt.
 - [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode)
-  - : Ein [`ConstrainDOMString`](#constraindomstring) Objekt, welches eine Ausrichtung oder ein Array von Ausrichtungen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDOMString`](#constraindomstring)-Objekt, das eine Ausrichtung oder ein Array von Ausrichtungen angibt, die zulässig und/oder erforderlich sind.
 - [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)
-  - : Ein [`ConstrainDouble`](#constraindouble), welcher die Bildrate oder den Bereich von Bildraten angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDouble`](#constraindouble), das die zulässige und/oder erforderliche Bildrate oder den entsprechenden Bereich angibt.
 - [`height`](/de/docs/Web/API/MediaTrackConstraints/height)
-  - : Ein [`ConstrainULong`](#constrainulong), welcher die Video-Höhe oder den Bereich von Höhen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainULong`](#constrainulong), das die zulässige und/oder erforderliche Videohöhe oder den entsprechenden Bereich angibt.
 - [`width`](/de/docs/Web/API/MediaTrackConstraints/width)
-  - : Ein [`ConstrainULong`](#constrainulong), welcher die Video-Breite oder den Bereich von Breiten angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainULong`](#constrainulong), das die zulässige und/oder erforderliche Videobreite oder den entsprechenden Bereich angibt.
 - `resizeMode`
-  - : Ein [`ConstrainDOMString`](#constraindomstring) Objekt, welches einen Modus oder ein Array von Modi angibt, die der Benutzeragent verwenden kann, um die Auflösung und Bildrate eines Video-Tracks abzuleiten. Erlaubte Werte sind:
+  - : Ein [`ConstrainDOMString`](#constraindomstring)-Objekt, das einen Modus oder ein Array von Modi angibt, mit denen der User Agent die Auflösung und Bildrate eines Videotracks ableiten kann.
+    Zulässige Werte sind:
     - `crop-and-scale`
-      - : Der Benutzeragent kann das Zuschneiden und Herunterskalieren von Auflösung oder Bildrate auf dem Rohoutput von der Hardware/OS verwenden, um andere Einschränkungen zu erfüllen. Diese Einschränkung ermöglicht es Entwicklern, ein herunterskaliertes Video zu erhalten, selbst wenn das bestimmte Format, das von ihren Einschränkungen angegeben wird, nicht nativ von der Hardware unterstützt wird.
+      - : Der User Agent kann die Rohausgabe der Hardware oder des Betriebssystems zuschneiden und ihre Auflösung oder Bildrate verringern, um andere Constraints zu erfüllen.
+        Dieser Constraint ermöglicht es Entwicklern, ein herunterskaliertes Video zu erhalten, selbst wenn das durch ihre Constraints angegebene Format von der Hardware nicht nativ unterstützt wird.
     - `none`
-      - : Der Benutzeragent verwendet die von der zugrundeliegenden Hardware bereitgestellte Auflösung, wie z.B. eine Kamera oder ihr Treiber, oder das OS.
+      - : Der User Agent verwendet die Auflösung, die von der zugrunde liegenden Hardware, etwa einer Kamera oder deren Treiber, oder vom Betriebssystem bereitgestellt wird.
 
-    Wenn `resizeMode` nicht spezifiziert ist, wählt der Browser eine Auflösung basierend auf einem [Fitness-Distanz](https://w3c.github.io/mediacapture-main/#dfn-fitness-distance), das die angegebenen Einschränkungen und _beide_ der zugelassenen Werte berücksichtigt.
+    Wenn `resizeMode` nicht angegeben ist, wählt der Browser eine Auflösung anhand einer [Fitness-Distanz](https://w3c.github.io/mediacapture-main/#dfn-fitness-distance), die die angegebenen Constraints und _beide_ zulässigen Werte berücksichtigt.
 
-### Instanzeigenschaften von freigegebenen Bildschirm-Tracks
+### Instanzeigenschaften von Tracks für die Bildschirmfreigabe
 
-Diese Einschränkungen gelten für die `video` Eigenschaft des Objekts, das in [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) übergeben wird, um einen Stream für die Bildschirmfreigabe zu erhalten.
+Diese Constraints gelten für die Eigenschaft `video` des Objekts, das an [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) übergeben wird, um einen Medienstrom für die Bildschirmfreigabe zu erhalten.
 
 - [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)
-  - : Ein [`ConstrainDOMString`](#constraindomstring), welcher die Typen der Anzeigefläche angibt, die vom Benutzer ausgewählt werden dürfen. Dies kann eine einzelne der folgenden Zeichenfolgen sein oder eine Liste von ihnen, um mehrere Quellflächen zu erlauben:
+  - : Ein [`ConstrainDOMString`](#constraindomstring), das die Typen von Anzeigeflächen angibt, die der Benutzer auswählen kann.
+    Der Wert kann einer der folgenden Strings oder eine Liste davon sein, um mehrere Quellflächen zuzulassen:
     - `browser`
-      - : Der Stream enthält die Inhalte eines einzelnen vom Benutzer ausgewählten Browser-Tabs.
+      - : Der Medienstrom enthält den Inhalt eines einzelnen, vom Benutzer ausgewählten Browser-Tabs.
     - `monitor`
-      - : Der Videotrack des Streams enthält die gesamten Inhalte eines oder mehrerer Bildschirme des Benutzers.
+      - : Der Videotrack des Medienstroms enthält den vollständigen Inhalt eines oder mehrerer Bildschirme des Benutzers.
     - `window`
-      - : Der Stream enthält ein einzelnes Fenster, das vom Benutzer zur Freigabe ausgewählt wurde.
+      - : Der Medienstrom enthält ein einzelnes Fenster, das der Benutzer zur Freigabe ausgewählt hat.
 
 - [`logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface)
-  - : Ein [`ConstrainBoolean`](#constrainboolean) Wert, der einen einzelnen Booleschen Wert oder ein Set von ihnen enthalten kann, der angibt, ob die Auswahl von Quelloberflächen erlaubt ist, die nicht direkt mit Anzeigeflächen korrespondieren. Dazu können Backing-Puffer für Fenster gehören, die die Aufnahme von Fensterinhalten ermöglichen, die durch andere Fenster davor verdeckt sind, oder Puffer, die größere Dokumente enthalten, die durch Scrollen angezeigt werden müssen, um den gesamten Inhalt in ihren Fenstern zu sehen.
+  - : Ein [`ConstrainBoolean`](#constrainboolean)-Wert, der einen einzelnen booleschen Wert oder mehrere davon enthalten kann und angibt, ob der Benutzer Quellflächen auswählen darf, die nicht direkt sichtbaren Anzeigebereichen entsprechen.
+    Dazu können Hintergrundpuffer von Fenstern gehören, mit denen sich Fensterinhalte erfassen lassen, die von davorliegenden Fenstern verdeckt werden, oder Puffer mit größeren Dokumenten, durch die gescrollt werden muss, um ihren gesamten Inhalt im jeweiligen Fenster zu sehen.
 
 - [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback) {{Experimental_Inline}}
-  - : Ein [`ConstrainBoolean`](#constrainboolean) Wert, der die angeforderten oder zwingenden Einschränkungen beschreibt, die dem Wert der [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSettings/suppressLocalAudioPlayback) einschränkbaren Eigenschaft auferlegt werden. Diese Eigenschaft steuert, ob das in einem Tab abgespielte Audio bei der Aufnahme weiterhin über die lokalen Lautsprecher eines Benutzers abgespielt wird.
+  - : Ein [`ConstrainBoolean`](#constrainboolean)-Wert, der die gewünschten oder zwingenden Constraints für den Wert der konfigurierbaren Eigenschaft [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSettings/suppressLocalAudioPlayback) beschreibt.
+    Diese Eigenschaft steuert, ob Audio, das in einem Tab abgespielt wird, während der Erfassung des Tabs weiterhin über die lokalen Lautsprecher des Benutzers wiedergegeben wird.
 
 - [`restrictOwnAudio`](/de/docs/Web/API/MediaTrackConstraints/restrictOwnAudio) {{Experimental_Inline}}
-  - : Ein [`ConstrainBoolean`](#constrainboolean) Wert, der die angeforderten oder zwingenden Einschränkungen angibt, die dem Wert der [`restrictOwnAudio`](/de/docs/Web/API/MediaTrackSettings/restrictOwnAudio) einschränkbaren Eigenschaft auferlegt werden. Diese Eigenschaft steuert, ob das Systemsound-Audio, das vom aufnehmenden Tab stammt, aus der Bildschirmaufnahme herausgefiltert wird.
+  - : Ein [`ConstrainBoolean`](#constrainboolean)-Wert, der die gewünschten oder zwingenden Constraints für den Wert der konfigurierbaren Eigenschaft [`restrictOwnAudio`](/de/docs/Web/API/MediaTrackSettings/restrictOwnAudio) angibt.
+    Diese Eigenschaft steuert, ob das vom erfassten Tab stammende Systemaudio aus der Bildschirmaufnahme herausgefiltert wird.
 
 ## Spezifikationen
 
@@ -187,7 +212,7 @@ Diese Einschränkungen gelten für die `video` Eigenschaft des Objekts, das in [
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Fähigkeiten, Constraints und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
 - [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints)
@@ -195,5 +220,4 @@ Diese Einschränkungen gelten für die `video` Eigenschaft des Objekts, das in [
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings)

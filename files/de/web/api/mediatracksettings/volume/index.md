@@ -3,22 +3,22 @@ title: "MediaTrackSettings: volume-Eigenschaft"
 short-title: volume
 slug: Web/API/MediaTrackSettings/volume
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}{{Non-standard_Header}}
 
-Das **`volume`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist eine Gleitkommazahl mit doppelter Genauigkeit, die die Lautstärke der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, wie sie aktuell konfiguriert ist, als Wert von 0.0 (Stille) bis 1.0 (maximal unterstützte Lautstärke für das Gerät). Dies erlaubt es Ihnen zu bestimmen, welcher Wert gewählt wurde, um Ihre angegebenen Einschränkungen für den Wert dieser Eigenschaft einzuhalten, wie sie in der von Ihnen bereitgestellten [`MediaTrackConstraints.volume`](/de/docs/Web/API/MediaTrackConstraints/volume) Eigenschaft beschrieben sind, als Sie entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufgerufen haben.
+Die **`volume`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Dictionaries ist eine Gleitkommazahl mit doppelter Genauigkeit. Sie gibt die Lautstärke des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) in seiner aktuellen Konfiguration als Wert zwischen 0.0 (Stille) und 1.0 (maximal vom Gerät unterstützte Lautstärke) an. Damit können Sie feststellen, welcher Wert gewählt wurde, um die von Ihnen angegebenen Constraints für diese Eigenschaft einzuhalten. Diese Constraints haben Sie über die Eigenschaft [`MediaTrackConstraints.volume`](/de/docs/Web/API/MediaTrackConstraints/volume) beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) festgelegt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.volume`](/de/docs/Web/API/MediaTrackSupportedConstraints/volume) prüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle unbekannten Einschränkungen ignorieren werden.
+Bei Bedarf können Sie prüfen, ob dieses Constraint unterstützt wird, indem Sie den Wert von [`volume`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#volume) betrachten, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Normalerweise ist das jedoch nicht nötig, da Browser ihnen unbekannte Constraints ignorieren.
 
 ## Wert
 
-Eine Gleitkommazahl mit doppelter Genauigkeit, die die Lautstärke des Audiotracks von 0.0 bis 1.0 angibt, wie sie aktuell konfiguriert ist.
+Eine Gleitkommazahl mit doppelter Genauigkeit, die die Lautstärke des Audio-Tracks in seiner aktuellen Konfiguration als Wert zwischen 0.0 und 1.0 angibt.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel zum [Testen von Constraints](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Browser-Kompatibilität
 
@@ -27,6 +27,6 @@ Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Str
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Fähigkeiten, Constraints und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints.volume`](/de/docs/Web/API/MediaTrackConstraints/volume)
 - [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

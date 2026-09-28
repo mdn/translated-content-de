@@ -1,28 +1,28 @@
 ---
-title: "MediaTrackSettings: Latenz-Eigenschaft"
+title: "MediaTrackSettings: latency-Eigenschaft"
 short-title: latency
 slug: Web/API/MediaTrackSettings/latency
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`latency`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) Dictionarys ist eine Gleitkommazahl mit doppelter Genauigkeit, die die geschätzte Latenz (in Sekunden angegeben) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) in seiner aktuellen Konfiguration angibt. Dies ermöglicht es Ihnen, zu ermitteln, welcher Wert ausgewählt wurde, um die von Ihnen angegebenen Einschränkungen für den Wert dieser Eigenschaft zu erfüllen, wie in der [`MediaTrackConstraints.latency`](/de/docs/Web/API/MediaTrackConstraints/latency) Eigenschaft beschrieben, die Sie beim Aufruf entweder von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben haben.
+Die **`latency`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Dictionaries ist eine Gleitkommazahl mit doppelter Genauigkeit, die die geschätzte Latenz (in Sekunden) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) in seiner aktuellen Konfiguration angibt. Damit können Sie feststellen, welcher Wert gewählt wurde, um die von Ihnen für diese Eigenschaft festgelegten Constraints zu erfüllen. Diese Constraints werden durch die Eigenschaft [`MediaTrackConstraints.latency`](/de/docs/Web/API/MediaTrackConstraints/latency) beschrieben, die Sie beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben haben.
 
-Dies ist natürlich eine Annäherung, da die Latenz aus vielen Gründen variieren kann, einschließlich CPU-, Übertragungs- und Speicherüberkopf.
+Dieser Wert ist eine Schätzung, da die Latenz aus vielen Gründen schwanken kann, unter anderem durch zusätzlichen Aufwand bei der CPU-Verarbeitung, der Übertragung und der Speicherung.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.latency`](/de/docs/Web/API/MediaTrackSupportedConstraints/latency) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Dies ist jedoch normalerweise nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
+Bei Bedarf können Sie prüfen, ob dieses Constraint unterstützt wird, indem Sie den Wert von [`latency`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#latency) untersuchen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Normalerweise ist das jedoch nicht nötig, da Browser unbekannte Constraints ignorieren.
 
-Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft nie enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, weisen Tracks, die einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet sind, diese Eigenschaft niemals auf.
 
 ## Wert
 
-Eine Gleitkommazahl mit doppelter Genauigkeit, die die geschätzte Latenz, in Sekunden, des aktuell konfigurierten Audiotracks angibt.
+Eine Gleitkommazahl mit doppelter Genauigkeit, die die geschätzte Latenz des Audiotracks in seiner aktuellen Konfiguration in Sekunden angibt.
 
 ## Beispiele
 
-Siehe das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) Beispiel.
+Siehe das Beispiel zum [Ausprobieren von Constraints](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -35,6 +35,6 @@ Siehe das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_AP
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Capabilities, Constraints und Settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints.latency`](/de/docs/Web/API/MediaTrackConstraints/latency)
 - [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

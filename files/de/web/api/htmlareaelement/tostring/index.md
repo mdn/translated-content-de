@@ -1,14 +1,14 @@
 ---
-title: "HTMLAreaElement: toString()-Methode"
+title: "HTMLAreaElement: Methode toString()"
 short-title: toString()
 slug: Web/API/HTMLAreaElement/toString
 l10n:
-  sourceCommit: b829b2fae917b5b931011ddeb6a0d1b2d2b81c54
+  sourceCommit: 06a96ca44a86fef907996bb01ecf72cc0f1a36d0
 ---
 
 {{ApiRef("URL API")}}
 
-Die **`HTMLAreaElement.toString()`**-Methode ({{Glossary("stringifier", "Stringifier")}}) gibt einen String zurück, der die gesamte URL enthält. Es ist eine schreibgeschützte Version von [`HTMLAreaElement.href`](/de/docs/Web/API/HTMLAreaElement/href).
+Die {{Glossary("stringifier", "Stringifier-Methode")}} **`HTMLAreaElement.toString()`** gibt einen String zurück, der die vollständige URL enthält. Dies ist derselbe Wert wie [`HTMLAreaElement.href`](/de/docs/Web/API/HTMLAreaElement/href).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein String, der die vollständige URL des Elements enthält.
 
 ## Beispiele
 
-### Aufruf von toString bei einem Bereichselement
+### toString für ein area-Element aufrufen
 
 ```js
 // An <area id="myArea" href="/en-US/docs/HTMLAreaElement"> element is in the document
@@ -44,4 +44,4 @@ area.toString(); // returns 'https://developer.mozilla.org/en-US/docs/HTMLAreaEl
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die Schnittstelle [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement), zu der die Methode gehört.

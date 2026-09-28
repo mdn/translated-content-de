@@ -3,22 +3,22 @@ title: "MediaTrackConstraints: height-Eigenschaft"
 short-title: height
 slug: Web/API/MediaTrackConstraints/height
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`height`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der [`height`](/de/docs/Web/API/MediaTrackSettings/height)-Einschränkungs-Eigenschaft angewendet werden.
+Die Eigenschaft **`height`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), der die gewünschten oder zwingenden Einschränkungen für den Wert der einschränkbaren Eigenschaft [`height`](/de/docs/Web/API/MediaTrackSettings/height) beschreibt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.height`](/de/docs/Web/API/MediaTrackSupportedConstraints/height) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Dies ist jedoch normalerweise nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Falls erforderlich, können Sie prüfen, ob diese Einschränkung unterstützt wird. Überprüfen Sie dazu den Wert von [`height`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#height), den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht nötig, da Browser ihnen unbekannte Einschränkungen ignorieren.
 
 ## Wert
 
-Wenn dieser Wert eine Zahl ist, wird der User Agent versuchen, Medien zu erhalten, deren Höhe so nah wie möglich an dieser Zahl liegt, unter Berücksichtigung der Fähigkeiten der Hardware und der anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den User Agenten bei seinen Bemühungen leiten, eine genaue Übereinstimmung mit der erforderlichen Höhe zu erzielen (wenn `exact` angegeben ist oder sowohl `min` als auch `max` angegeben sind und denselben Wert haben) oder einen bestmöglichen Wert bereitzustellen.
+Wenn der Wert eine Zahl ist, versucht der User Agent, unter Berücksichtigung der Hardwarefähigkeiten und der anderen angegebenen Einschränkungen Medien mit einer Höhe zu erhalten, die dieser Zahl möglichst nahekommt. Andernfalls bestimmt der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), wie der User Agent versucht, die geforderte Höhe exakt einzuhalten (wenn `exact` angegeben ist oder sowohl `min` als auch `max` angegeben sind und denselben Wert haben) oder den bestmöglichen Wert zu erreichen.
 
 ## Beispiele
 
-Siehe das Beispiel im [Constraint-Übungsprogramm](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -34,5 +34,4 @@ Siehe das Beispiel im [Constraint-Übungsprogramm](/de/docs/Web/API/Media_Captur
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

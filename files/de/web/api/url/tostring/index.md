@@ -1,14 +1,14 @@
 ---
-title: "URL: toString()-Methode"
+title: "URL: Methode toString()"
 short-title: toString()
 slug: Web/API/URL/toString
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 06a96ca44a86fef907996bb01ecf72cc0f1a36d0
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`toString()`**-Methode der [`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt einen String zurück, der die gesamte URL enthält. Sie ist im Wesentlichen eine schreibgeschützte Version von [`URL.href`](/de/docs/Web/API/URL/href).
+Die Methode **`toString()`** der Schnittstelle [`URL`](/de/docs/Web/API/URL) gibt einen String zurück, der die vollständige URL enthält. Dieser entspricht dem Wert von [`URL.href`](/de/docs/Web/API/URL/href).
 
 ## Syntax
 
@@ -43,4 +43,4 @@ url.toString(); // should return the URL as a string
 
 ## Siehe auch
 
-- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.
+- Die Schnittstelle [`URL`](/de/docs/Web/API/URL), zu der diese Methode gehört.

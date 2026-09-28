@@ -1,14 +1,14 @@
 ---
-title: "HTMLAnchorElement: toString() Methode"
+title: "HTMLAnchorElement: Methode toString()"
 short-title: toString()
 slug: Web/API/HTMLAnchorElement/toString
 l10n:
-  sourceCommit: b829b2fae917b5b931011ddeb6a0d1b2d2b81c54
+  sourceCommit: 06a96ca44a86fef907996bb01ecf72cc0f1a36d0
 ---
 
 {{ApiRef("URL API")}}
 
-Die **`HTMLAnchorElement.toString()`** {{Glossary("stringifier", "Stringifier")}}-Methode gibt einen String zurück, der die gesamte URL enthält. Es ist eine schreibgeschützte Version von [`HTMLAnchorElement.href`](/de/docs/Web/API/HTMLAnchorElement/href).
+Die {{Glossary("stringifier", "Stringifier")}}-Methode **`HTMLAnchorElement.toString()`** gibt einen String zurück, der die vollständige URL enthält. Dieser entspricht dem Wert von [`HTMLAnchorElement.href`](/de/docs/Web/API/HTMLAnchorElement/href).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein String, der die vollständige URL des Elements enthält.
 
 ## Beispiele
 
-### Aufruf von toString bei einem Ankerelement
+### toString für ein Ankerelement aufrufen
 
 ```js
 // An <a id="myAnchor" href="/en-US/docs/HTMLAnchorElement"> element is in the document
@@ -44,4 +44,4 @@ anchor.toString(); // returns 'https://developer.mozilla.org/en-US/docs/HTMLAnch
 
 ## Siehe auch
 
-- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.
+- Das zugehörige Interface [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement).

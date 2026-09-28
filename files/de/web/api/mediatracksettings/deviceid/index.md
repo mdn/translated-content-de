@@ -3,31 +3,31 @@ title: "MediaTrackSettings: deviceId-Eigenschaft"
 short-title: deviceId
 slug: Web/API/MediaTrackSettings/deviceId
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`deviceId`**-Attribut des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist ein String, der die Quelle für den entsprechenden [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) für den Ursprung der Browsersitzung eindeutig identifiziert. Dies ermöglicht es Ihnen festzustellen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie in der [`MediaTrackConstraints.deviceId`](/de/docs/Web/API/MediaTrackConstraints/deviceId)-Eigenschaft beschrieben, die Sie beim Aufrufen von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) angegeben haben.
+Die Eigenschaft **`deviceId`** des Dictionaries [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) ist eine Zeichenfolge, die die Quelle des zugehörigen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) für den Origin der Browsersitzung eindeutig identifiziert. Damit können Sie feststellen, welcher Wert ausgewählt wurde, um die von Ihnen angegebenen Einschränkungen für diese Eigenschaft zu erfüllen. Diese Einschränkungen haben Sie über die Eigenschaft [`MediaTrackConstraints.deviceId`](/de/docs/Web/API/MediaTrackConstraints/deviceId) beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) angegeben.
 
-Falls erforderlich, können Sie überprüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.deviceId`](/de/docs/Web/API/MediaTrackSupportedConstraints/deviceId) prüfen, wie er von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird: Überprüfen Sie dazu den Wert von [`deviceId`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#deviceid), den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht erforderlich, da Browser unbekannte Einschränkungen ignorieren.
 
-Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden zu einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gehörende Tracks niemals diese Eigenschaft enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, ist diese Eigenschaft bei Tracks, die einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet sind, niemals vorhanden.
 
 ## Wert
 
-Ein String, dessen Wert ein ursprungs-eindeutiger Identifikator für die Quelle des Tracks ist. Diese ID ist über mehrere Browsersitzungen für den gleichen Ursprung gültig und wird garantiert für alle anderen Ursprünge unterschiedlich sein, sodass Sie sie bedenkenlos verwenden können, um zu verlangen, dass dieselbe Quelle für mehrere Sitzungen verwendet wird.
+Eine Zeichenfolge, deren Wert die Quelle des Tracks für einen Origin eindeutig identifiziert. Diese ID bleibt über mehrere Browsersitzungen desselben Origins hinweg gültig und ist für alle anderen Origins garantiert verschieden. Sie können sie daher beispielsweise verwenden, um in mehreren Sitzungen dieselbe Quelle anzufordern.
 
-Der tatsächliche Wert des Strings wird jedoch von der Quelle des Tracks bestimmt, und es gibt keine Garantie, welche Form er annehmen wird, obwohl die Spezifikation empfiehlt, dass es sich um einen GUID handelt.
+Der tatsächliche Wert der Zeichenfolge wird jedoch von der Quelle des Tracks bestimmt. Es gibt keine Garantie für sein Format, obwohl die Spezifikation eine GUID empfiehlt.
 
-Da es eine Eins-zu-Eins-Zuordnung von ID mit jeder Quelle gibt, werden alle Tracks mit derselben Quelle für jeden gegebenen Ursprung dieselbe ID teilen, sodass [`MediaStreamTrack.getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities) immer genau einen Wert für `deviceId` zurückgibt. Das macht die Geräte-ID nicht nützlich für Änderungen an Einschränkungen, wenn [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufgerufen wird.
+Da jeder Quelle genau eine ID zugeordnet ist, haben alle Tracks mit derselben Quelle für einen bestimmten Origin dieselbe ID. Deshalb gibt [`MediaStreamTrack.getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities) für `deviceId` immer genau einen Wert zurück. Die Geräte-ID ist somit nicht hilfreich, wenn Sie Einschränkungen durch einen Aufruf von [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) ändern möchten.
 
 > [!NOTE]
-> Eine Ausnahme von der Regel, dass Geräte-IDs über Browsersitzungen hinweg gleich sind: Der private Modus verwendet eine andere ID und ändert sie jede Browsersitzung.
+> Eine Ausnahme von der Regel, dass Geräte-IDs über Browsersitzungen hinweg gleich bleiben, ist der private Modus: Er verwendet eine andere ID, die sich mit jeder Browsersitzung ändert.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Sehen Sie sich das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
 
 ## Spezifikationen
 

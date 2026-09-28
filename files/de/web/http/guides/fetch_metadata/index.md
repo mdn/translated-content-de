@@ -2,18 +2,18 @@
 title: Fetch-Metadaten
 slug: Web/HTTP/Guides/Fetch_metadata
 l10n:
-  sourceCommit: f648561b1db8502f28a9d3664175c2000cbe9ea7
+  sourceCommit: 7e4e8954972d77196e4beedca4a3f8610da34dc9
 ---
 
-**Fetch-Metadaten** ist der Begriff für eine Gruppe von HTTP-Anforderungs-Headern, die dem Server Informationen über den Kontext geben, in dem die Anforderung gestellt wird.
+**Fetch-Metadaten** bezeichnet eine Gruppe von HTTP-Anfrage-Headern, die dem Server Informationen über den Kontext liefern, in dem eine Anfrage gestellt wird.
 
-Fetch-Metadaten erlauben dem Server unter anderem zu wissen:
+Unter anderem kann der Server anhand von Fetch-Metadaten erkennen:
 
-- Ob die Anforderung eine Navigation zwischen Dokumenten darstellt, eine Anforderung für eine Subressource ist oder explizit durch JavaScript, zum Beispiel mit der [`fetch()`](/de/docs/Web/API/Window/fetch) API, gemacht wurde.
+- Ob die Anfrage eine Navigation zwischen Dokumenten oder eine Anfrage nach einer Unterressource darstellt oder ausdrücklich aus JavaScript heraus gestellt wurde, beispielsweise über die [`fetch()`](/de/docs/Web/API/Window/fetch)-API.
 
-- Die Beziehung zwischen dem Anforderer der Ressource und der angeforderten Ressource: ob sie gleichen {{Glossary("origin", "Ursprungs")}}, gleiche {{Glossary("site", "Seite")}} sind oder von völlig unterschiedlichen Seiten stammen.
+- In welcher Beziehung der Anfragende zur angeforderten Ressource steht: ob beide denselben {{Glossary("origin", "Origin")}} oder dieselbe {{Glossary("site", "Site")}} haben oder zu völlig unterschiedlichen Sites gehören.
 
-Indem der Server die Informationen in diesen Headern verwendet, um spezifische Anforderungen zuzulassen oder abzulehnen, kann er eine Verteidigung gegen [_Cross-Origin-Angriffe_](#cross-origin-angriffe) implementieren, wie zum Beispiel [Cross-Site-Request-Forgery (CSRF)](/de/docs/Web/Security/Attacks/CSRF) und verschiedene [Cross-Site-Leaks](/de/docs/Web/Security/Attacks/XS-Leaks).
+Mithilfe der Informationen in diesen Headern kann ein Server bestimmte Anfragen zulassen oder ablehnen und so einen Schutz gegen [_Cross-Origin-Angriffe_](#cross-origin_angriffe) wie [Cross-Site-Request-Forgery (CSRF)](/de/docs/Web/Security/Attacks/CSRF) und verschiedene [Cross-Site-Leaks](/de/docs/Web/Security/Attacks/XS-Leaks) einrichten.
 
 ## Fetch-Metadaten-Header
 
@@ -24,119 +24,119 @@ Die [Fetch-Metadaten-Spezifikation](https://w3c.github.io/webappsec-fetch-metada
 - {{HTTPHeader("Sec-Fetch-User")}}
 - {{HTTPHeader("Sec-Fetch-Dest")}}
 
-Wie alle `Sec-`-Präfix-Header sind diese {{Glossary("forbidden_request_header", "verbotene Anforderungs-Header")}}, was bedeutet, dass sie nicht vom Frontend-Code der Website gesetzt oder modifiziert werden können.
+Wie alle Header mit dem Präfix `Sec-` gehören sie zu den {{Glossary("forbidden_request_header", "verbotenen Anfrage-Headern")}}. Das bedeutet, dass sie nicht durch den Frontend-Code einer Website gesetzt oder geändert werden können. Außerdem werden Fetch-Metadaten-Header nur bei Anfragen an [potenziell vertrauenswürdige URLs](/de/docs/Web/Security/Defenses/Secure_Contexts#potentially_trustworthy_urls) gesendet. Server auf nicht sicheren (`http://`) Origins erhalten diese Header daher nicht.
 
 ### Sec-Fetch-Dest
 
-Dieser Header gibt das _Ziel_ der Anforderung an. Dieses Attribut ist im Fetch API definiert, wo es als [`Request.destination`](/de/docs/Web/API/Request/destination)-Eigenschaft verfügbar ist.
+Dieser Header gibt das _Ziel_ der Anfrage an. Diese Eigenschaft ist in der Fetch API definiert und wird dort über die Eigenschaft [`Request.destination`](/de/docs/Web/API/Request/destination) bereitgestellt.
 
-Man könnte es ungefähr so betrachten, wie die zurückgegebene Ressource verwendet würde.
+Vereinfacht ausgedrückt beschreibt sie, wie die zurückgegebene Ressource verwendet werden soll.
 
-Für die meisten {{Glossary("replaced_elements", "ersetzten Elemente")}} nennt der Wert des Headers das Element, für das diese Ressource verwendet wird, wie zum Beispiel `iframe`, `object`, `audio` oder `video`. Ein Wert von `image` gibt an, dass die Ressource als Bild verwendet wird, das von einem ersetzten Element wie einem HTML {{htmlelement("img")}}-Element, einer CSS-{{cssxref("background-image")}}-Eigenschaft, einem SVG-{{svgelement("image")}} oder einem anderen Ort in der Webplattform, der Bilder aus Subressourcen verwendet, referenziert wird.
+Bei den meisten {{Glossary("replaced_elements", "ersetzten Elementen")}} benennt der Wert des Headers das Element, für das die Ressource verwendet wird, etwa `iframe`, `object`, `audio` oder `video`. Der Wert `image` bedeutet, dass die Ressource als Bild verwendet wird, auf das beispielsweise ein HTML-Element {{htmlelement("img")}}, die CSS-Eigenschaft {{cssxref("background-image")}}, ein SVG-Element {{svgelement("image")}} oder eine andere Stelle der Webplattform verweist, die als Unterressourcen geladene Bilder verwendet.
 
-Einige andere interessante Zielwerte sind:
+Weitere wichtige Zielwerte sind:
 
 - `document`
-  - : Die Anforderung ist für ein neues Dokument, das das Ziel einer Top-Level-Navigation ist (zum Beispiel, wenn der Benutzer auf einen Link auf der Seite klickt oder ein Formular absendet).
+  - : Die Anfrage gilt einem neuen Dokument, das Ziel einer Navigation auf oberster Ebene ist (beispielsweise wenn der Benutzer auf einen Link auf der Seite klickt oder ein Formular absendet).
 
 - `script`
-  - : Die Ressource wird als Skript verwendet, das von einem HTML-{{htmlelement("script")}}-Element geladen oder in einem Web Worker über einen Aufruf von [`importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) geladen wird.
+  - : Die Ressource wird als Skript verwendet, das über ein HTML-Element {{htmlelement("script")}} oder durch einen Aufruf von [`importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) in einem Web Worker geladen wird.
 
-    Spezifischere Werte werden verwendet, um andere Orte anzugeben, an denen die Ressource als Skript verwendet wird, wie Worklets (`audioworklet` und `paintworklet`) und Worker (`sharedworker`, `serviceworker` und `worker`).
+    Genauere Werte kennzeichnen andere Verwendungsorte für Skripte, etwa Worklets (`audioworklet` und `paintworklet`) und Worker (`sharedworker`, `serviceworker` und `worker`).
 
 - `empty`
-  - : Die Anforderung hat kein definiertes Ziel: Unter anderem möglichen Ursachen ist dies der Wert, wenn die Anforderung das Ergebnis eines [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufrufs ist.
+  - : Für die Anfrage ist kein Ziel definiert. Dieser Wert wird unter anderem verwendet, wenn die Anfrage aus einem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) hervorgeht.
 
-Für die vollständige Liste der möglichen Werte siehe die {{HTTPHeader("Sec-Fetch-Site", "Referenzseite", "", "nocode")}} für diesen Header.
+Die vollständige Liste möglicher Werte finden Sie auf der {{HTTPHeader("Sec-Fetch-Site", "reference page", "", "nocode")}} dieses Headers.
 
 ### Sec-Fetch-Mode
 
-Dieser Header gibt den _Modus_ der Anforderung an. Wie das _Ziel_ ist auch der Modus im [Fetch API](/de/docs/Web/API/Fetch_API) definiert, wo er als [`Request.mode`](/de/docs/Web/API/Request/mode)-Eigenschaft verfügbar ist.
+Dieser Header gibt den _Modus_ der Anfrage an. Wie das Ziel ist auch der Modus in der [Fetch API](/de/docs/Web/API/Fetch_API) definiert und wird dort über die Eigenschaft [`Request.mode`](/de/docs/Web/API/Request/mode) bereitgestellt.
 
 Die am häufigsten verwendeten Werte sind:
 
 - `navigate`
-  - : Die Anforderung stellt eine Navigation zwischen Dokumenten dar (zum Beispiel, wenn der Benutzer auf einen Link klickt).
+  - : Die Anfrage stellt eine Navigation zwischen Dokumenten dar (beispielsweise wenn der Benutzer auf einen Link klickt).
 
 - `no-cors`
-  - : Die Anforderung wurde im `no-cors` Modus erstellt.
+  - : Die Anfrage wurde im Modus `no-cors` gestellt.
 
-    Das bedeutet, dass es übergreifend ohne die entsprechenden [CORS](/de/docs/Web/HTTP/Guides/CORS)-Header des Servers erlaubt ist, mit der Einschränkung, dass die Antwort nicht von JavaScript im Client abgerufen werden kann (sie ist _undurchsichtig_).
+    Das bedeutet, dass sie auch dann über Origin-Grenzen hinweg zulässig ist, wenn der Server keine entsprechenden [CORS](/de/docs/Web/HTTP/Guides/CORS)-Header sendet. Allerdings kann JavaScript, das auf dem Client ausgeführt wird, nicht auf die Antwort zugreifen (sie ist _opak_).
 
-    Dies ist der Standardmodus für Seiten, die Subressourcen wie Bilder, Schriften, Skripte und Stylesheets laden, und erklärt, warum standardmäßig eine andere Seite Ihre Subressourcen verwenden darf, selbst wenn Sie CORS nicht so konfiguriert haben, dass es erlaubt ist.
+    Dies ist der Standardmodus für Seiten, die Unterressourcen wie Bilder, Schriftarten, Skripte und Stylesheets laden. Er erklärt, warum eine andere Site die Unterressourcen Ihrer Site standardmäßig verwenden darf, selbst wenn Sie CORS dafür nicht eingerichtet haben.
 
 - `cors`
-  - : Wenn die Anforderung Cross-Origin ist, muss der Server mit den entsprechenden [CORS](/de/docs/Web/HTTP/Guides/CORS)-Headern antworten, andernfalls wird die Anforderung fehlschlagen. Wenn der Server mit den entsprechenden CORS-Headern antwortet, werden der Antworttext und bestimmte Header dem Anforderer zur Verfügung gestellt.
+  - : Wenn die Anfrage von einem anderen Origin stammt, muss der Server mit den entsprechenden [CORS](/de/docs/Web/HTTP/Guides/CORS)-Headern antworten, andernfalls schlägt die Anfrage fehl. Sendet der Server die passenden CORS-Header, stehen der Antworttext und bestimmte Header dem Aufrufenden zur Verfügung.
 
-    Dies wird am häufigsten bei Cross-Origin-Anfragen gefunden, die über JavaScript mit dem [Fetch API](/de/docs/Web/API/Fetch_API) gestellt werden, wenn der Anforderer Zugriff auf die zurückgegebene Ressource benötigt (zum Beispiel ein Fetch-Aufruf, um einige JSON-Daten vom Server abzurufen).
+    Dieser Modus wird häufig für Cross-Origin-Anfragen verwendet, die mit der [Fetch API](/de/docs/Web/API/Fetch_API) aus JavaScript heraus gestellt werden, wenn der Anfragende auf die zurückgegebene Ressource zugreifen muss (beispielsweise bei einem Fetch-Aufruf, der JSON vom Server abruft).
 
 - `same-origin`
-  - : Die Anforderung ist nur erlaubt, wenn der Anforderer denselben Ursprung wie die angeforderte Ressource hat.
+  - : Die Anfrage ist nur zulässig, wenn der Anfragende und die angeforderte Ressource denselben Origin haben.
 
 ### Sec-Fetch-Site
 
-Dieser Header gibt das Verhältnis zwischen dem Ursprung der angeforderten Ressource und dem Ursprung des Anforderers der Ressource an.
+Dieser Header gibt die Beziehung zwischen dem Origin der angeforderten Ressource und dem Origin des Anfragenden an.
 
-Er gibt an, ob der Anforderer von:
+Er zeigt an, ob der Anfragende:
 
-- Dem gleichen {{Glossary("origin", "Ursprung")}} wie die angeforderte Ressource stammt.
-- Einem anderen Ursprung, aber der gleichen {{Glossary("site", "Seite")}}.
-- Einer anderen Seite kommt.
+- denselben {{Glossary("origin", "Origin")}} wie die angeforderte Ressource hat,
+- einen anderen Origin, aber dieselbe {{Glossary("site", "Site")}} hat oder
+- zu einer anderen Site gehört.
 
-Zum Beispiel, wenn ein Benutzer auf einen Link auf einer Seite bei `https://books.example.org/authors` klickt, fordert der Browser das im Linkziel angegebene Dokument an. Die folgende Tabelle zeigt die Werte des zugehörigen `Sec-Fetch-Site`-Headers für unterschiedliche Linkzielwerte:
+Wenn ein Benutzer beispielsweise auf einer Seite unter `https://books.example.org/authors` auf einen Link klickt, stellt der Browser eine Anfrage, um das im Linkziel angegebene Dokument abzurufen. Die folgende Tabelle zeigt die Werte des zugehörigen Headers `Sec-Fetch-Site` für verschiedene Linkziele:
 
-| Linkziel                           | `Sec-Fetch-Site` Wert |
-| ---------------------------------- | --------------------- |
-| `https://books.example.org/titles` | `same-origin`         |
-| `https://login.example.org/`       | `same-site`           |
-| `https://books.example.com/titles` | `cross-site`          |
+| Linkziel                           | Wert von `Sec-Fetch-Site` |
+| ---------------------------------- | ------------------------- |
+| `https://books.example.org/titles` | `same-origin`             |
+| `https://login.example.org/`       | `same-site`               |
+| `https://books.example.com/titles` | `cross-site`              |
 
-Ähnliche Zuordnungen gelten für andere HTTP-Anforderungen, wie zum Beispiel:
+Entsprechendes gilt für andere HTTP-Anfragen, etwa:
 
-- Formularabgaben über das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)-Attribut eines {{htmlelement("form")}}-Elements.
-- Anforderungen für Subressourcen wie Bilder, Schriften oder Skripte.
-- Anforderungen, die mit der [`fetch()`](/de/docs/Web/API/Window/fetch)-API erstellt wurden.
+- das Absenden von Formularen über das Attribut [`action`](/de/docs/Web/HTML/Reference/Elements/form#action) eines {{htmlelement("form")}}-Elements,
+- Anfragen nach Unterressourcen wie Bildern, Schriftarten oder Skripten,
+- Anfragen über die [`fetch()`](/de/docs/Web/API/Window/fetch)-API.
 
-Der `Sec-Fetch-Site`-Header kann auch den Wert `none` haben für Anforderungen, die keinen Site-Anforderer haben, einschließlich zum Beispiel Anforderungen, die gemacht werden, wenn der Benutzer eine URL in die Adressleiste des Browsers eingibt oder ein Lesezeichen anklickt. Die Spezifikation nennt diese [direkt vom Benutzer initiierte Anforderungen](https://w3c.github.io/webappsec-fetch-metadata/#directly-user-initiated).
+Der Header `Sec-Fetch-Site` kann auch den Wert `none` haben, wenn die Anfrage nicht von einer Site ausgeht. Dazu gehören beispielsweise Anfragen, die entstehen, wenn ein Benutzer eine URL in die Adressleiste des Browsers eingibt oder auf ein Lesezeichen klickt. Die Spezifikation bezeichnet diese als [direkt vom Benutzer ausgelöste Anfragen](https://w3c.github.io/webappsec-fetch-metadata/#directly-user-initiated).
 
 ### Sec-Fetch-User
 
-Dieser Header wird nur eingefügt, wenn die Anforderung durch eine Benutzeraktion (wie das Klicken auf einen Link) initiiert wurde, und hat, wenn enthalten, immer den Wert `?1`.
+Dieser Header wird nur gesendet, wenn die Anfrage durch eine Benutzeraktion ausgelöst wurde (etwa durch einen Klick auf einen Link). Wenn er gesendet wird, hat er immer den Wert `?1`.
 
 ## Cross-Origin-Angriffe
 
-Fetch-Metadaten sind besonders nützlich als Verteidigung gegen _Cross-Origin-Angriffe_. Diese Angriffe zielen typischerweise auf einen Benutzer ab, der ein Konto bei einer legitimen Seite hat und bei dieser Seite angemeldet ist. Der Angreifer erstellt eine Website, die eine _Cross-Origin-Anforderung_ an die legitime Seite erstellt, und dann trickst der Angreifer den Benutzer dazu, diese Anforderung auszuführen.
+Fetch-Metadaten sind besonders nützlich zur Abwehr von _Cross-Origin-Angriffen_. Solche Angriffe richten sich typischerweise gegen Benutzer, die ein Konto bei einer legitimen Site haben und dort angemeldet sind. Der Angreifer erstellt eine Website, die eine _Cross-Origin-Anfrage_ an die legitime Site stellt, und bringt den Benutzer dazu, diese Anfrage auszulösen.
 
 > [!NOTE]
-> Wir verwenden den Begriff _Cross-Origin_-Angriff in diesem Leitfaden, obwohl viele Angriffe konventionell _Cross-Site_-Angriffe genannt werden.
+> In diesem Leitfaden verwenden wir den Begriff _Cross-Origin-Angriff_, obwohl viele dieser Angriffe üblicherweise als _Cross-Site-Angriffe_ bezeichnet werden.
 >
-> Ein {{Glossary("origin", "Ursprung")}} ist ein restriktiveres Konzept als eine {{Glossary("site", "Seite")}}. Insbesondere umfasst eine Seite die Subdomains einer Domain, während ein Ursprung dies nicht tut: daher sind `https://example.org` und `https://login.example.org` die gleiche Seite, aber unterschiedliche Ursprünge.
+> Ein {{Glossary("origin", "Origin")}} ist ein enger gefasster Begriff als eine {{Glossary("site", "Site")}}. Insbesondere umfasst eine Site die Subdomains einer Domain, ein Origin dagegen nicht: `https://example.org` und `https://login.example.org` gehören also zur selben Site, haben aber unterschiedliche Origins.
 >
-> Das bedeutet, dass während alle Cross-Site-Angriffe Cross-Origin-Angriffe sind, einige Cross-Origin-Angriffe _keine_ Cross-Site-Angriffe sind. Beispielsweise, wenn ein Angreifer die Kontrolle über eine Subdomain einer Seite erlangt, dann kann er die Seite mit _Cross-Origin_, _Same-Site_-Anfragen angreifen. Um diese Angriffe einzuschließen, verwenden wir den restriktiveren Begriff.
+> Das bedeutet: Jeder Cross-Site-Angriff ist ein Cross-Origin-Angriff, aber nicht jeder Cross-Origin-Angriff ist ein Cross-Site-Angriff. Wenn ein Angreifer beispielsweise die Kontrolle über eine Subdomain einer Site erlangt, kann er die Site mit Anfragen angreifen, die _cross-origin_, aber _same-site_ sind. Um auch solche Angriffe einzuschließen, verwenden wir den enger gefassten Begriff.
 
-Zum Beispiel könnte die Seite des Angreifers ein {{htmlelement("form")}}-Element enthalten, das an die legitime Seite übermittelt. Für einige Cross-Origin-Angriffe ist überhaupt keine Benutzerinteraktion erforderlich: die Seite des Angreifers kann einfach eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anforderung an die legitime Seite beim Seitenaufruf ausführen, und dann muss der Benutzer nur die Seite des Angreifers öffnen, damit die Cross-Origin-Anforderung ausgeführt wird.
+Die Site des Angreifers könnte beispielsweise ein {{htmlelement("form")}}-Element enthalten, das Daten an die legitime Site sendet. Bei manchen Cross-Origin-Angriffen ist überhaupt keine Benutzerinteraktion erforderlich: Die Seite des Angreifers kann bereits beim Laden eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage an die legitime Site ausführen. Der Benutzer muss dann nur die Seite des Angreifers öffnen, damit die Cross-Origin-Anfrage ausgeführt wird.
 
-Da die Anforderung vom Browser des Benutzers stammt, wird sie alle Cookies enthalten, die von der legitimen Seite für den Benutzer gesetzt wurden, einschließlich Cookies, die die legitime Seite verwendet, um Benutzer zu identifizieren. Die Anforderung erhält daher die Berechtigungen für diesen Benutzer.
+Da die Anfrage aus dem Browser des Benutzers stammt, enthält sie alle Cookies, die die legitime Site für diesen Benutzer gesetzt hat – auch solche, mit denen sie Benutzer identifiziert. Die Anfrage erhält daher die Berechtigungen dieses Benutzers.
 
-Wir können zwei Arten von Cross-Origin-Angriffen unterscheiden:
+Es lassen sich zwei Arten von Cross-Origin-Angriffen unterscheiden:
 
-- [Cross-Site-Request-Forgery (CSRF)](/de/docs/Web/Security/Attacks/CSRF) Angriffe: bei diesen Angriffen führt die Cross-Origin-Anforderung eine relevante Aktion auf dem legitimen Server aus, mit Parametern, die vom Angreifer bereitgestellt werden. Zum Beispiel fordert die Anforderung den Server auf, Geld vom Konto des Zielbenutzers auf das Konto des Angreifers zu überweisen.
+- [Cross-Site-Request-Forgery (CSRF)](/de/docs/Web/Security/Attacks/CSRF): Bei diesen Angriffen löst die Cross-Origin-Anfrage auf dem legitimen Server eine folgenreiche Aktion aus. Dafür werden vom Angreifer vorgegebene Parameter verwendet. Beispielsweise fordert die Anfrage den Server auf, Geld vom Konto des betroffenen Benutzers auf das Konto des Angreifers zu überweisen.
 
-- [Cross-Site-Leaks](/de/docs/Web/Security/Attacks/XS-Leaks): bei diesen Angriffen nutzt der Angreifer die Anforderung, um Informationen über die Beziehung des Benutzers zur Zielseite zu erhalten, oft über Seitenkanäle wie [Fehlerereignisse](/de/docs/Web/Security/Attacks/XS-Leaks#leaking_page_existence_using_error_events).
+- [Cross-Site-Leaks](/de/docs/Web/Security/Attacks/XS-Leaks): Bei diesen Angriffen nutzt der Angreifer die Anfrage, um Informationen über die Beziehung des Benutzers zur Ziel-Site zu erhalten, häufig über Seitenkanäle wie [Fehlerereignisse](/de/docs/Web/Security/Attacks/XS-Leaks#leaking_page_existence_using_error_events).
 
-Die meisten Websites wollen einige Cross-Origin-Anforderungen ablehnen, während sie andere zulassen: zum Beispiel, wenn Sie alle Cross-Origin-Anforderungen ablehnen, kann niemand von einer anderen Seite zu Ihrer Seite navigieren!
+Die meisten Websites möchten einige Cross-Origin-Anfragen ablehnen, andere aber zulassen. Wenn Sie beispielsweise alle Cross-Origin-Anfragen ablehnen, kann niemand von einer anderen Site zu Ihrer Site navigieren!
 
-Durch die Verwendung von Fetch-Metadaten kann ein Server eine Richtlinie erstellen, um Cross-Origin-Anforderungen basierend auf den Details ihres Kontexts zuzulassen oder abzulehnen.
+Mithilfe von Fetch-Metadaten kann ein Server anhand des jeweiligen Anfragekontexts Regeln festlegen, nach denen Cross-Origin-Anfragen zugelassen oder abgelehnt werden.
 
-## Ressourcenisolationsrichtlinie
+## Richtlinie zur Ressourcenisolierung
 
-Ein häufiger Typ von Richtlinie wird als _Ressourcenisolationsrichtlinie_ bezeichnet. Wenn der Server eine Anforderung erhält, überprüft er die Fetch-Metadaten-Header der Anforderung, um nur Folgendes zuzulassen:
+Eine häufig verwendete Regelung ist die _Richtlinie zur Ressourcenisolierung_. Wenn der Server eine Anfrage erhält, prüft er deren Fetch-Metadaten-Header und lässt nur Folgendes zu:
 
-- Same-Origin-Anforderungen (und manchmal auch Same-Site-Anforderungen, wenn Sie Ihren Subdomains vertrauen).
-- Top-Level-Navigationsanforderungen von einem anderen Ursprung, damit Benutzer durch das Klicken auf Links auf anderen Seiten zu Ihrer Seite gelangen können.
-- Anforderungen zu bestimmten Endpunkten, die dazu gedacht sind, Cross-Origin zugegriffen zu werden, einschließlich aller, die [CORS](/de/docs/Web/HTTP/Guides/CORS) verwenden.
+- Anfragen vom selben Origin (und gegebenenfalls von derselben Site, wenn Sie Ihren Subdomains vertrauen).
+- Navigationsanfragen auf oberster Ebene von einem anderen Origin, damit Benutzer Ihre Site über Links auf anderen Sites erreichen können.
+- Anfragen an bestimmte Endpunkte, auf die über Origin-Grenzen hinweg zugegriffen werden soll, einschließlich solcher, die [CORS](/de/docs/Web/HTTP/Guides/CORS) verwenden.
 
-Zum Beispiel erlaubt der folgende [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) Code nur Same-Origin-Anforderungen, direkt benutzerinitiierte Anforderungen und Navigationen.
+Der folgende [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)-Code lässt beispielsweise nur Anfragen vom selben Origin, direkt vom Benutzer ausgelöste Anfragen und Navigationen zu.
 
 ```js
 function isAllowed(req) {
@@ -168,13 +168,13 @@ app.get("/admin", (req, res) => {
 });
 ```
 
-Beachten Sie, dass er auch den {{httpheader("Vary")}} Antwort-Header sendet. Dies stellt sicher, dass, wenn die Antwort zwischengespeichert wird, die zwischengespeicherte Antwort nur an Anforderungen mit den gleichen Werten für die von uns verwendeten Fetch-Metadaten-Header gegeben wird.
+Beachten Sie, dass der Code auch den Antwort-Header {{httpheader("Vary")}} sendet. Dadurch wird sichergestellt, dass eine zwischengespeicherte Antwort nur für Anfragen mit denselben Werten der hier verwendeten Fetch-Metadaten-Header ausgegeben wird.
 
-Die [Ressourcenisolationsrichtlinie](https://xsleaks.dev/docs/defenses/isolation-policies/resource-isolation/) Seite bietet mehr Beispielcode für eine Ressourcenisolationsrichtlinie.
+Die Seite [Resource Isolation Policy](https://xsleaks.dev/docs/defenses/isolation-policies/resource-isolation/) enthält weitere Codebeispiele für eine Richtlinie zur Ressourcenisolierung.
 
 ## Siehe auch
 
 - [CSRF](/de/docs/Web/Security/Attacks/CSRF)
 - [Cross-Site-Leaks](/de/docs/Web/Security/Attacks/XS-Leaks)
-- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch-Metadaten](https://web.dev/articles/fetch-metadata) (web.dev)
+- [Schützen Sie Ihre Ressourcen mit Fetch-Metadaten vor Webangriffen](https://web.dev/articles/fetch-metadata) (web.dev)
 - [Fetch-Metadaten](https://xsleaks.dev/docs/defenses/opt-in/fetch-metadata/) (XS-Leaks Wiki)

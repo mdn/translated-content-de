@@ -1,26 +1,26 @@
 ---
-title: "MediaTrackSettings: noiseSuppression-Eigenschaft"
+title: "MediaTrackSettings: Eigenschaft noiseSuppression"
 short-title: noiseSuppression
 slug: Web/API/MediaTrackSettings/noiseSuppression
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`noiseSuppression`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist ein Boolean-Wert, der angibt, ob die Rauschunterdrückungstechnologie bei einem Audiotrack aktiviert ist oder nicht. Damit können Sie feststellen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie im [`MediaTrackConstraints.noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints/noiseSuppression)-Eigenschaft beschrieben, die Sie beim Aufruf von entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) bereitgestellt haben.
+Die Eigenschaft **`noiseSuppression`** des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Dictionarys ist ein boolescher Wert, der angibt, ob die Rauschunterdrückung für eine Audiospur aktiviert ist. Damit können Sie feststellen, welcher Wert ausgewählt wurde, um die von Ihnen festgelegten Constraints für diese Eigenschaft zu erfüllen. Diese Constraints haben Sie über die Eigenschaft [`MediaTrackConstraints.noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints/noiseSuppression) angegeben, als Sie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufgerufen haben.
 
-Die Rauschunterdrückung filtert automatisch den Ton, um Hintergrundgeräusche, Brummen durch Geräte und Ähnliches aus dem Ton zu entfernen, bevor er an Ihren Code geliefert wird. Diese Funktion wird typischerweise bei Mikrofonen verwendet, obwohl es technisch möglich ist, dass sie auch von anderen Eingabequellen bereitgestellt werden könnte.
+Die Rauschunterdrückung filtert das Audiosignal automatisch, um Hintergrundgeräusche, durch Geräte verursachtes Brummen und Ähnliches zu entfernen, bevor das Signal an Ihren Code übergeben wird. Diese Funktion wird üblicherweise bei Mikrofonen eingesetzt, könnte technisch gesehen aber auch für andere Eingabequellen bereitgestellt werden.
 
-Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.noiseSuppression`](/de/docs/Web/API/MediaTrackSupportedConstraints/noiseSuppression) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht erforderlich, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob dieses Constraint unterstützt wird, indem Sie den Wert von [`noiseSuppression`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#noisesuppression) untersuchen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht nötig, da Browser ihnen unbekannte Constraints ignorieren.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn der Eingabetrack die Rauschunterdrückung aktiviert hat oder `false`, wenn AGC deaktiviert ist.
+Ein boolescher Wert, der `true` ist, wenn die Rauschunterdrückung für die Eingabespur aktiviert ist, oder `false`, wenn AGC deaktiviert ist.
 
 ## Beispiele
 
-Siehe das Beispiel des [Constraints-Testers](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel zum [Ausprobieren von Constraints](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -33,6 +33,5 @@ Siehe das Beispiel des [Constraints-Testers](/de/docs/Web/API/Media_Capture_and_
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Capabilities, Constraints und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints.noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints/noiseSuppression)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)

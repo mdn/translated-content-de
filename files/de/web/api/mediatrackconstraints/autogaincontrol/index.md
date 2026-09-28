@@ -1,26 +1,26 @@
 ---
-title: "MediaTrackConstraints: autoGainControl-Eigenschaft"
+title: "MediaTrackConstraints: Eigenschaft autoGainControl"
 short-title: autoGainControl
 slug: Web/API/MediaTrackConstraints/autoGainControl
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`autoGainControl`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), das die gewünschten oder zwingenden Einschränkungen beschreibt, die auf den Wert der [`autoGainControl`](/de/docs/Web/API/MediaTrackSettings/autoGainControl) einschränkbaren Eigenschaft angewendet werden.
+Die Eigenschaft **`autoGainControl`** des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionarys ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die gewünschten oder zwingend erforderlichen Einschränkungen für den Wert der einschränkbaren Eigenschaft [`autoGainControl`](/de/docs/Web/API/MediaTrackSettings/autoGainControl) beschreibt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.autoGainControl`](/de/docs/Web/API/MediaTrackSupportedConstraints/autoGainControl) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`autoGainControl`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#autogaincontrol) auswerten, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht nötig, da Browser unbekannte Einschränkungen ignorieren.
 
-Die automatische Verstärkungsregelung ist typischerweise eine Funktion, die von Mikrofonen bereitgestellt wird, obwohl sie auch von anderen Eingabequellen bereitgestellt werden kann.
+Die automatische Verstärkungsregelung ist typischerweise eine Funktion von Mikrofonen, kann aber auch von anderen Eingabequellen bereitgestellt werden.
 
 ## Wert
 
-Wenn dieser Wert ein einfaches `true` oder `false` ist, wird der Benutzeragent versuchen, Medien mit aktivierter oder deaktivierter automatischer Verstärkungsregelung gemäß der Angabe zu erhalten, wenn möglich, aber nicht fehlschlagen, wenn dies nicht möglich ist. Wenn stattdessen der Wert als Objekt mit einem `exact`-Feld angegeben wird, zeigt der Boolesche Wert dieses Feldes eine erforderliche Einstellung für das automatische Verstärkungsregelungs-Feature an; falls diese nicht erfüllt werden kann, wird die Anfrage zu einem Fehler führen.
+Wenn der Wert einfach `true` oder `false` ist, versucht der User Agent, Medien mit entsprechend aktivierter oder deaktivierter automatischer Verstärkungsregelung abzurufen, sofern dies möglich ist. Schlägt dies fehl, führt es jedoch nicht zu einem Fehler. Wird der Wert stattdessen als Objekt mit einem `exact`-Feld angegeben, legt dessen boolescher Wert eine zwingend erforderliche Einstellung für die automatische Verstärkungsregelung fest. Kann diese Anforderung nicht erfüllt werden, führt die Anfrage zu einem Fehler.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint-Übung](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -36,5 +36,4 @@ Siehe das Beispiel [Constraint-Übung](/de/docs/Web/API/Media_Capture_and_Stream
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

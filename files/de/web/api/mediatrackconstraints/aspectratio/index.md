@@ -1,27 +1,26 @@
 ---
-title: "MediaTrackConstraints: aspectRatio-Eigenschaft"
+title: "MediaTrackConstraints: Eigenschaft aspectRatio"
 short-title: aspectRatio
 slug: Web/API/MediaTrackConstraints/aspectRatio
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`aspectRatio`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der
-[`aspectRatio`](/de/docs/Web/API/MediaTrackSettings/aspectRatio) beschränkbaren Eigenschaft angewendet werden.
+Die Eigenschaft **`aspectRatio`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der die gewünschten oder zwingend erforderlichen Einschränkungen für den Wert der einschränkbaren Eigenschaft [`aspectRatio`](/de/docs/Web/API/MediaTrackSettings/aspectRatio) beschreibt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.aspectRatio`](/de/docs/Web/API/MediaTrackSupportedConstraints/aspectRatio) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren werden.
+Falls erforderlich, können Sie prüfen, ob diese Einschränkung unterstützt wird. Prüfen Sie dazu den Wert von [`aspectRatio`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#aspectratio), den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist dies jedoch nicht nötig, da Browser ihnen unbekannte Einschränkungen ignorieren.
 
 ## Wert
 
-Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der die akzeptablen oder erforderlichen Werte für das {{Glossary("aspect_ratio", "Bildseitenverhältnis")}} einer Videospur beschreibt. Der Wert wird als Breite geteilt durch Höhe berechnet und auf zehn Dezimalstellen gerundet. Zum Beispiel kann das Standard-Bildseitenverhältnis für hochauflösendes Video von 16:9 als 1920/1080 oder 1.7777777778 berechnet werden.
+Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der den zulässigen oder erforderlichen Wert beziehungsweise Werte für das {{Glossary("aspect_ratio", "Seitenverhältnis")}} einer Videospur beschreibt. Der Wert ergibt sich aus der Breite geteilt durch die Höhe und wird auf zehn Dezimalstellen gerundet. Das Standard-Seitenverhältnis 16:9 für hochauflösende Videos lässt sich beispielsweise als 1920/1080 oder 1,7777777778 berechnen.
 
-Wenn dieser Wert eine Zahl ist, wird der User-Agent versuchen, Medien zu erhalten, deren Bildseitenverhältnis so nah wie möglich an dieser Zahl liegt, abhängig von den Fähigkeiten der Hardware und den anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble) den User-Agent bei seinen Bemühungen leiten, eine genaue Übereinstimmung mit dem erforderlichen Bildseitenverhältnis zu bieten (wenn `exact` angegeben ist oder sowohl `min` als auch `max` bereitgestellt werden und den gleichen Wert haben) oder einen bestmöglichen Wert.
+Wenn dieser Wert eine Zahl ist, versucht der User Agent, Medien zu beziehen, deren Seitenverhältnis dieser Zahl möglichst nahekommt. Dabei berücksichtigt er die Möglichkeiten der Hardware und die anderen angegebenen Einschränkungen. Andernfalls bestimmt der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), ob der User Agent eine exakte Übereinstimmung mit dem erforderlichen Seitenverhältnis anstrebt (wenn `exact` angegeben ist oder `min` und `max` denselben Wert haben) oder den bestmöglichen Wert.
 
 ## Beispiele
 
-Siehe das Beispiel des [Constraint-Übungstools](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Sehen Sie sich das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
 
 ## Spezifikationen
 
@@ -37,5 +36,4 @@ Siehe das Beispiel des [Constraint-Übungstools](/de/docs/Web/API/Media_Capture_
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

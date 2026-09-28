@@ -2,38 +2,38 @@
 title: MediaDevices
 slug: Web/API/MediaDevices
 l10n:
-  sourceCommit: b2875dbaa70efb5850084b9802803b439db325f5
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Das **`MediaDevices`**-Interface der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) bietet Zugang zu verbundenen Medieneingabegeräten wie Kameras und Mikrofonen sowie zu Bildschirmfreigaben. Im Wesentlichen ermöglicht es den Zugriff auf jede Hardwarequelle für Mediendaten.
+Die **`MediaDevices`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) ermöglicht den Zugriff auf angeschlossene Medieneingabegeräte wie Kameras und Mikrofone sowie auf die Bildschirmfreigabe. Damit können Sie auf Hardwarequellen für Mediendaten zugreifen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Eigenschaften von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices)
-  - : Erhält ein Array mit Informationen über die auf dem System verfügbaren Medienein- und -ausgabegeräte.
+  - : Liefert ein Array mit Informationen über die auf dem System verfügbaren Medieneingabe- und -ausgabegeräte.
 - [`getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-  - : Gibt ein Objekt zurück, das den [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints) entspricht und angibt, welche einschränkbaren Eigenschaften auf dem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interface unterstützt werden. Siehe [Media Streams-API](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints), um mehr über Einschränkungen und deren Verwendung zu erfahren.
+  - : Gibt ein Objekt zurück, das angibt, welche einschränkbaren Eigenschaften von der Schnittstelle [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) unterstützt werden. Weitere Informationen zu Constraints und ihrer Verwendung finden Sie unter [Media Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
 - [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-  - : Fordert den Benutzer auf, ein Display oder einen Teil eines Displays (wie ein Fenster) auszuwählen, um es als [`MediaStream`](/de/docs/Web/API/MediaStream) für Freigabe- oder Aufnahmezwecke aufzunehmen. Gibt ein Versprechen zurück, das in einen `MediaStream` aufgelöst wird.
+  - : Fordert die nutzende Person auf, einen Bildschirm oder einen Teil davon (etwa ein Fenster) auszuwählen, um ihn als [`MediaStream`](/de/docs/Web/API/MediaStream) für die Freigabe oder Aufzeichnung zu erfassen. Gibt ein Promise zurück, das mit einem `MediaStream` erfüllt wird.
 - [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
-  - : Schaltet mit Erlaubnis des Benutzers über ein Eingabefenster eine Kamera und/oder ein Mikrofon auf dem System ein und stellt einen [`MediaStream`](/de/docs/Web/API/MediaStream) bereit, der eine Videospur und/oder eine Audiospur mit dem Eingang enthält.
+  - : Aktiviert nach einer Berechtigungsabfrage eine Kamera und/oder ein Mikrofon des Systems und stellt einen [`MediaStream`](/de/docs/Web/API/MediaStream) bereit, der einen Videotrack und/oder einen Audiotrack mit den Eingabedaten enthält.
 - [`selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) {{Experimental_Inline}}
-  - : Fordert den Benutzer auf, ein bestimmtes Audioausgabegerät auszuwählen.
+  - : Fordert die nutzende Person auf, ein bestimmtes Audioausgabegerät auszuwählen.
 
 ## Ereignisse
 
 - [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event)
-  - : Wird ausgelöst, wenn ein Medien-Eingabe- oder -Ausgabegerät an den, oder von dem Computer des Benutzers entfernt wird.
+  - : Wird ausgelöst, wenn ein Medieneingabe- oder -ausgabegerät an den Computer der nutzenden Person angeschlossen oder davon entfernt wird.
 
 ## Beispiel
 
@@ -81,9 +81,9 @@ navigator.mediaDevices
 
 ## Siehe auch
 
-- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API): Die API, zu der dieses Interface gehört.
+- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API): Die API, zu der diese Schnittstelle gehört.
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API): Die API, die die Methode [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) definiert.
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [`Navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices): Gibt eine Referenz auf ein `MediaDevices`-Objekt zurück, das zum Zugriff auf Geräte verwendet werden kann.
-- [CameraCaptureJS:](https://github.com/chrisjohndigital/CameraCaptureJS) HTML-Videokapazität und -wiedergabe mit `MediaDevices` und der MediaStream Recording API
-- [OpenLang](https://github.com/chrisjohndigital/OpenLang): HTML-Videosprachenlabor-Webanwendung mit `MediaDevices` und der MediaStream Recording API für Videoaufnahmen
+- [`Navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices): Gibt eine Referenz auf ein `MediaDevices`-Objekt zurück, über das auf Geräte zugegriffen werden kann.
+- [CameraCaptureJS:](https://github.com/chrisjohndigital/CameraCaptureJS) Erfassung und Wiedergabe von HTML-Videos mit `MediaDevices` und der MediaStream Recording API
+- [OpenLang](https://github.com/chrisjohndigital/OpenLang): Webanwendung für ein Sprachlabor mit HTML-Videos, die `MediaDevices` und die MediaStream Recording API zur Videoaufzeichnung verwendet

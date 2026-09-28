@@ -1,76 +1,76 @@
 ---
 title: Anleitung zum Schreiben einer API-Referenz
-short-title: Schreiben einer API-Referenz
+short-title: Eine API-Referenz schreiben
 slug: MDN/Writing_guidelines/Howto/Write_an_api_reference
 l10n:
-  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
+  sourceCommit: 7eefecdba3b25dde52437ebff7d60ed2dbbd82db
 ---
 
-Dieser Leitfaden führt Sie durch alles, was Sie wissen müssen, um eine API-Referenz auf MDN zu schreiben.
+Dieser Leitfaden vermittelt Ihnen alles, was Sie wissen müssen, um eine API-Referenz auf MDN zu schreiben.
 
 ## Vorbereitung
 
-Bevor Sie mit der Dokumentation einer API beginnen, gibt es einige Dinge, die Sie vorbereiten und planen sollten, bevor Sie tatsächlich mit dem Schreiben beginnen.
+Bevor Sie mit der Dokumentation einer API beginnen, sollten Sie einige Dinge vorbereiten und planen.
 
 ### Erforderliche Vorkenntnisse
 
-Es wird davon ausgegangen, dass Sie vor dem Lesen dieses Leitfadens über ausreichende Kenntnisse in folgenden Bereichen verfügen:
+Dieser Leitfaden setzt voraus, dass Sie über angemessene Kenntnisse in folgenden Bereichen verfügen:
 
-- Webtechnologien wie HTML, CSS und JavaScript. JavaScript ist am wichtigsten.
-- Lesen von Webtechnologie-Spezifikationen. Sie werden sich diese oft ansehen, während Sie APIs dokumentieren.
+- Webtechnologien wie HTML, CSS und JavaScript. JavaScript ist dabei am wichtigsten.
+- Lesen von Spezifikationen für Webtechnologien. Bei der Dokumentation von APIs werden Sie häufig darauf zurückgreifen.
 
-Alles andere kann unterwegs gelernt werden.
+Alles Weitere können Sie sich während der Arbeit aneignen.
 
-### Erforderliche Ressourcen
+### Benötigte Ressourcen
 
-Bevor Sie mit der Dokumentation einer API beginnen, sollten Sie Folgendes zur Verfügung haben:
+Bevor Sie mit der Dokumentation einer API beginnen, sollten Ihnen folgende Ressourcen zur Verfügung stehen:
 
 1. Die neueste Spezifikation:
-   Egal, ob es sich um eine W3C-Empfehlung oder einen frühen Entwurf handelt, Sie sollten sich auf den neuesten verfügbaren Entwurf der Spezifikation beziehen, die diese API abdeckt (oder Spezifikationen, die dies tun).
-   Um sie zu finden, können Sie normalerweise eine Websuche durchführen. Die neueste Version wird oft von allen Versionen der Spezifikation aus verlinkt, unter "aktueller Entwurf" oder Ähnlichem.
-2. Die neuesten modernen Webbrowser:
-   Diese sollten experimentelle/Alpha-Builds sein, wie [Firefox Nightly](https://www.firefox.com/en-US/channel/desktop/)/[Chrome Canary](https://www.google.com/intl/en/chrome/canary/), die mit größerer Wahrscheinlichkeit die Funktionen unterstützen, die Sie dokumentieren.
-   Dies ist besonders relevant, wenn Sie eine neu entstehende/geplante API dokumentieren.
-3. Demos/Blog-Beiträge/andere Informationen: Finden Sie so viele Informationen wie möglich.
-4. Nützliche technische Kontakte:
-   Es ist wirklich nützlich, einen freundlichen technischen Kontakt zu finden, um Fragen zur Spezifikation zu stellen, jemand, der in die Standardisierung der API oder deren Umsetzung in einem Browser involviert ist.
-   Gute Orte, um sie zu finden, sind:
-   - Ihr internes Firmenadressbuch, wenn Sie für ein entsprechendes Unternehmen arbeiten.
-   - Eine öffentliche Mailingliste, die an der Diskussion dieser API beteiligt ist, wie Mozillas [dev-platform](https://groups.google.com/a/mozilla.org/g/dev-platform/) oder eine W3C-Liste wie [public-webapps](https://lists.w3.org/Archives/Public/public-webapps/).
-   - Die Spezifikation selbst. Zum Beispiel listet die [Web Audio API-Spezifikation](https://webaudio.github.io/web-audio-api/) die Autoren und ihre Kontaktdaten oben auf.
+   Ob es sich um eine W3C-Empfehlung oder einen frühen Entwurf handelt: Ziehen Sie den neuesten verfügbaren Entwurf der Spezifikation oder Spezifikationen heran, die die API behandeln.
+   Meist lässt er sich über eine Websuche finden. Die neueste Fassung ist häufig in allen Fassungen der Spezifikation verlinkt und als „latest draft“ oder ähnlich gekennzeichnet.
+2. Die neuesten Versionen moderner Webbrowser:
+   Verwenden Sie experimentelle Versionen oder Alpha-Versionen wie [Firefox Nightly](https://www.firefox.com/en-US/channel/desktop/) oder [Chrome Canary](https://www.google.com/intl/en/chrome/canary/), die die zu dokumentierenden Funktionen eher unterstützen.
+   Das ist besonders wichtig, wenn Sie eine neue oder experimentelle API dokumentieren.
+3. Demos, Blogbeiträge und weitere Informationen: Sammeln Sie so viele Informationen wie möglich.
+4. Kontakte zu Fachleuten aus der Entwicklung:
+   Es ist sehr hilfreich, eine Ansprechperson zu haben, der Sie Fragen zur Spezifikation stellen können und die an der Standardisierung der API oder ihrer Implementierung in einem Browser beteiligt ist.
+   Geeignete Anlaufstellen sind:
+   - Das interne Adressbuch Ihres Unternehmens, falls Sie für ein entsprechendes Unternehmen arbeiten.
+   - Eine öffentliche Mailingliste, auf der die API diskutiert wird, etwa Mozillas [dev-platform](https://groups.google.com/a/mozilla.org/g/dev-platform/) oder eine W3C-Liste wie [public-webapps](https://lists.w3.org/Archives/Public/public-webapps/).
+   - Die Spezifikation selbst. Beispielsweise führt die [Spezifikation der Web Audio API](https://webaudio.github.io/web-audio-api/) am Anfang die Autorinnen und Autoren sowie deren Kontaktdaten auf.
 
-### Nehmen Sie sich Zeit zum Experimentieren mit der API
+### Nehmen Sie sich Zeit, die API auszuprobieren
 
-Sie werden im Verlauf der Dokumentation einer API häufig Demos erstellen, aber es ist nützlich, damit zu beginnen, sich mit der Funktionsweise der API vertraut zu machen — lernen Sie, was die Hauptschnittstellen/Eigenschaften/Methoden sind, was die primären Anwendungsfälle sind und wie man einfache Funktionalitäten damit schreibt.
+Im Laufe der Dokumentation einer API werden Sie wiederholt Demos erstellen. Es lohnt sich jedoch, sich zunächst mit der Funktionsweise der API vertraut zu machen: Finden Sie heraus, welche Interfaces, Properties und Methoden die wichtigsten sind, was die primären Anwendungsfälle sind und wie Sie einfache Funktionen damit umsetzen.
 
-Wenn sich eine API geändert hat, müssen Sie sorgfältig darauf achten, dass bestehende Demos, auf die Sie sich beziehen oder von denen Sie lernen, nicht veraltet sind. Überprüfen Sie die Hauptkonstrukte, die in der Demo verwendet werden, um zu sehen, ob sie mit der neuesten Spezifikation übereinstimmen. Sie funktionieren möglicherweise auch nicht in aktuellen Browsern, aber dies ist kein sehr zuverlässiger Test, da alte Funktionen oft weiterhin aus Kompatibilitätsgründen unterstützt werden.
+Wenn eine API geändert wurde, achten Sie darauf, dass vorhandene Demos, auf die Sie zurückgreifen oder von denen Sie lernen, nicht veraltet sind. Prüfen Sie, ob die in der Demo verwendeten zentralen Konstrukte der neuesten Spezifikation entsprechen. Dass eine Demo in aktuellen Browsern funktioniert, ist dafür kein besonders zuverlässiger Test: Alte Funktionen werden aus Gründen der Abwärtskompatibilität oft weiterhin unterstützt.
 
 > [!NOTE]
-> Wenn die Spezifikation kürzlich aktualisiert wurde und z. B. eine Methode nun anders definiert ist, aber die alte Methode immer noch in Browsern funktioniert, müssen Sie oft beide an derselben Stelle dokumentieren, damit die alten und neuen Methoden abgedeckt sind.
-> Wenn Sie Hilfe benötigen, beziehen Sie sich auf die gefundenen Demos oder fragen Sie einen technischen Kontakt.
+> Wenn eine Spezifikation kürzlich aktualisiert wurde und beispielsweise eine Methode nun anders definiert ist, die alte Methode aber in Browsern noch funktioniert, müssen Sie häufig beide Varianten an derselben Stelle dokumentieren.
+> Wenn Sie Hilfe benötigen, ziehen Sie gefundene Demos zurate oder fragen Sie eine Ansprechperson aus der Entwicklung.
 
-### Erstellen Sie die Liste der Dokumente, die Sie schreiben oder aktualisieren müssen
+### Erstellen Sie eine Liste der Dokumente, die Sie schreiben oder aktualisieren müssen
 
-Eine API-Referenz enthält in der Regel die folgenden Seiten.
-Sie finden weitere Details dazu, was jede Seite enthält, Beispiele und Vorlagen in unserem Artikel [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types).
-Bevor Sie beginnen, sollten Sie eine Liste aller Seiten erstellen, die Sie erstellen sollten.
+Eine API-Referenz enthält üblicherweise die folgenden Seiten.
+Weitere Informationen zu den Inhalten der einzelnen Seiten sowie Beispiele und Vorlagen finden Sie in unserem Artikel [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types).
+Bevor Sie beginnen, sollten Sie alle Seiten auflisten, die Sie erstellen müssen.
 
 1. Übersichtsseite
-2. Schnittstellenseiten
-3. Konstruktionsseiten
+2. Interface-Seiten
+3. Constructor-Seiten
 4. Methodenseiten
-5. Eigenschaftsseiten
-6. Ereignisseiten
-7. Konzept-/Leitfaden-Seiten
+5. Property-Seiten
+6. Event-Seiten
+7. Konzeptseiten und Leitfäden
 8. Beispiele
 
 > [!NOTE]
-> In diesem Artikel werden wir uns auf die [Web Audio API](/de/docs/Web/API/Web_Audio_API) beziehen, um Beispiele zu veranschaulichen.
+> In diesem Artikel verwenden wir die [Web Audio API](/de/docs/Web/API/Web_Audio_API) als Beispiel.
 
 #### Übersichtsseiten
 
-Eine einzelne API-Übersichtsseite wird verwendet, um die Rolle der API, ihre obersten Schnittstellen, damit verwandte Funktionen in anderen Schnittstellen und andere hochrangige Details zu beschreiben.
-Ihr Name und Slug sollte der Name der API plus "API" am Ende sein. Sie wird auf der obersten Ebene der API-Referenz als Kind von [https://developer.mozilla.org/de/docs/Web/API](/de/docs/Web/API) platziert.
+Eine einzelne API-Übersichtsseite beschreibt den Zweck der API, ihre wichtigsten Interfaces, zugehörige Funktionen in anderen Interfaces und weitere übergeordnete Aspekte.
+Ihr Name und ihr Slug sollten aus dem Namen der API mit dem angehängten Wort „API“ bestehen. Sie befindet sich auf der obersten Ebene der API-Referenz, als Unterseite von [https://developer.mozilla.org/de/docs/Web/API](/de/docs/Web/API).
 
 Beispiel:
 
@@ -78,11 +78,11 @@ Beispiel:
 - Slug: _Web_Audio_API_
 - URL: [https://developer.mozilla.org/de/docs/Web/API/Web_Audio_API](/de/docs/Web/API/Web_Audio_API)
 
-#### Schnittstellenseiten
+#### Interface-Seiten
 
-Jede Schnittstelle hat auch ihre eigene Seite, die den Zweck der Schnittstelle beschreibt, die Mitglieder (Konstruktoren, Methoden, Eigenschaften usw.) auflistet, die sie enthält, und zeigt, mit welchen Browsern sie kompatibel ist.
-Der Name und Slug einer Seite sollte der Name der Schnittstelle sein, genau wie in der Spezifikation geschrieben.
-Jede Seite wird auf der obersten Ebene der API-Referenz als Kind von [https://developer.mozilla.org/de/docs/Web/API](/de/docs/Web/API) platziert.
+Jedes Interface erhält eine eigene Seite. Diese beschreibt den Zweck des Interfaces, führt seine Bestandteile auf, etwa Constructors, Methoden und Properties, und zeigt, mit welchen Browsern es kompatibel ist.
+Name und Slug einer solchen Seite sollten genau dem Namen des Interfaces in der Spezifikation entsprechen.
+Jede Seite befindet sich auf der obersten Ebene der API-Referenz, als Unterseite von [https://developer.mozilla.org/de/docs/Web/API](/de/docs/Web/API).
 
 Beispiele:
 
@@ -97,19 +97,19 @@ Beispiele:
 - URL: [https://developer.mozilla.org/de/docs/Web/API/AudioNode](/de/docs/Web/API/AudioNode)
 
 > [!NOTE]
-> Wir dokumentieren jedes Mitglied, das in der Schnittstelle erscheint. Sie sollten die folgenden Regeln beachten:
+> Wir dokumentieren jeden Bestandteil eines Interfaces. Beachten Sie dabei die folgenden Regeln:
 
-- Wir dokumentieren Methoden, die auf dem Prototyp eines Objekts definiert sind, das diese Schnittstelle implementiert (Instanzmethoden), und Methoden, die auf der tatsächlichen Klasse selbst definiert sind (statische Methoden).
-  In den seltenen Fällen, in denen beide auf derselben Schnittstelle existieren, sollten Sie sie in getrennten Abschnitten auf der Seite auflisten (statische Methoden/Instanzmethoden).
-  Normalerweise existieren nur Instanzmethoden, in diesem Fall können Sie diese unter dem Titel "Methoden" einfügen.
-- Wir dokumentieren keine geerbten Eigenschaften und Methoden der Schnittstelle: Sie werden auf der jeweiligen Elternschnittstelle aufgelistet. Wir weisen jedoch auf ihre Existenz hin.
-- Wir dokumentieren Eigenschaften und Methoden, die in Mixins definiert sind. Bitte sehen Sie sich den [Beitrag-Leitfaden für Mixins](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#mixins) für weitere Details an.
-- Spezielle Methoden wie der Stringifier (`toString()`) und der Jsonifier (`toJSON()`) werden ebenfalls aufgelistet, falls sie existieren.
-- Benannte Konstruktoren (wie `Image()` für [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)) werden ebenfalls aufgeführt, falls relevant.
+- Wir dokumentieren Methoden, die auf dem Prototyp eines Objekts definiert sind, das dieses Interface implementiert (Instanzmethoden), sowie Methoden, die direkt auf der Klasse selbst definiert sind (statische Methoden).
+  Falls ausnahmsweise beide Arten im selben Interface vorkommen, sollten Sie sie auf der Seite in getrennten Abschnitten aufführen („Static methods“ und „Instance methods“).
+  Üblicherweise gibt es nur Instanzmethoden. In diesem Fall können Sie sie unter der Überschrift „Methods“ aufführen.
+- Wir dokumentieren keine geerbten Properties und Methoden des Interfaces: Sie werden beim jeweiligen übergeordneten Interface aufgeführt. Wir weisen jedoch auf ihre Existenz hin.
+- Wir dokumentieren Properties und Methoden, die in Mixins definiert sind. Weitere Informationen finden Sie im [Leitfaden zum Beitragen zu Mixins](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#mixins).
+- Besondere Methoden wie der Stringifier (`toString()`) und der JSONifier (`toJSON()`) werden ebenfalls aufgeführt, sofern sie existieren.
+- Benannte Constructors (wie `Image()` für [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)) werden gegebenenfalls ebenfalls aufgeführt.
 
-#### Konstruktionsseiten
+#### Constructor-Seiten
 
-Jede Schnittstelle hat null oder einen Konstruktor, der auf einer Unterseite der Schnittstellenseite dokumentiert ist. Sie beschreibt den Zweck des Konstruktors und zeigt, wie seine Syntax aussieht, Anwendungsbeispiele, Informationen zur Browser-Kompatibilität usw. Der Slug ist der Name des Konstruktors, der genau der gleiche wie der Name der Schnittstelle ist, und der Titel ist Schnittstellenname, Punkt, Konstruktionsname, dann Klammern am Ende.
+Jedes Interface hat keinen oder einen Constructor, der auf einer Unterseite der Interface-Seite dokumentiert wird. Sie beschreibt den Zweck des Constructors und zeigt unter anderem seine Syntax, Anwendungsbeispiele und Informationen zur Browser-Kompatibilität. Der Slug ist der Name des Constructors, der genau dem Namen des Interfaces entspricht. Der Titel besteht aus dem Interface-Namen, einem Punkt, dem Constructor-Namen und abschließenden Klammern.
 
 Beispiel:
 
@@ -117,9 +117,9 @@ Beispiel:
 - Slug: _AudioContext_
 - URL: [https://developer.mozilla.org/de/docs/Web/API/AudioContext/AudioContext](/de/docs/Web/API/AudioContext/AudioContext)
 
-#### Eigenschaftsseiten
+#### Property-Seiten
 
-Jede Schnittstelle hat null oder mehr Eigenschaften, die auf Unterseiten der Schnittstellenseite dokumentiert sind. Jede Seite beschreibt den Zweck der Eigenschaft und zeigt, wie ihre Syntax aussieht, Anwendungsbeispiele, Informationen zur Browser-Kompatibilität usw. Der Slug ist der Name der Eigenschaft, und der Titel ist Schnittstellenname, Punkt, dann Eigenschaftsname.
+Jedes Interface hat keine oder mehrere Properties, die auf Unterseiten der Interface-Seite dokumentiert werden. Jede Seite beschreibt den Zweck der Property und zeigt unter anderem ihre Syntax, Anwendungsbeispiele und Informationen zur Browser-Kompatibilität. Der Slug ist der Name der Property; der Titel besteht aus dem Interface-Namen, einem Punkt und dem Property-Namen.
 
 Beispiele:
 
@@ -131,7 +131,7 @@ Beispiele:
 
 #### Methodenseiten
 
-Jede Schnittstelle hat null oder mehr Methoden, die auf Unterseiten der Schnittstellenseite dokumentiert sind. Jede Seite beschreibt den Zweck der Methode und zeigt, wie ihre Syntax aussieht, Anwendungsbeispiele, Informationen zur Browser-Kompatibilität usw. Der Slug ist der Name der Methode, und der Titel ist Schnittstellenname, Punkt, Methodenname, dann Klammern.
+Jedes Interface hat keine oder mehrere Methoden, die auf Unterseiten der Interface-Seite dokumentiert werden. Jede Seite beschreibt den Zweck der Methode und zeigt unter anderem ihre Syntax, Anwendungsbeispiele und Informationen zur Browser-Kompatibilität. Der Slug ist der Name der Methode; der Titel besteht aus dem Interface-Namen, einem Punkt, dem Methodennamen und abschließenden Klammern.
 
 Beispiele:
 
@@ -145,11 +145,11 @@ Beispiele:
 - Slug: _createGain_
 - URL: [https://developer.mozilla.org/de/docs/Web/API/AudioContext/createGain](/de/docs/Web/API/BaseAudioContext/createGain)
 
-#### Ereignisseiten
+#### Event-Seiten
 
-Dokumentieren Sie Ereignisse als Unterseiten ihrer Ziel-Schnittstellen und verwenden Sie den Slug _eventname_\_event mit dem Titel als `Interface: eventName event`.
+Dokumentieren Sie Events als Unterseiten ihrer Ziel-Interfaces. Verwenden Sie den Slug _eventname_\_event und setzen Sie den Titel auf `Interface: eventName event`.
 
-Erstellen Sie keine Seiten für `on`-Ereignishandlereigenschaften. Erwähnen Sie beide Wege, um auf das Ereignis auf der `eventName_event`-Seite zuzugreifen.
+Erstellen Sie keine Seiten für `on`-Event-Handler-Properties. Erwähnen Sie auf der Seite `eventName_event` beide Möglichkeiten, auf das Event zuzugreifen.
 
 Beispiel:
 
@@ -157,13 +157,13 @@ Beispiel:
 - Slug: end_event
 - URL: [https://developer.mozilla.org/de/docs/Web/XRSession/end_event](/de/docs/Web/API/XRSession/end_event)
 
-#### Konzept-/Leitfaden-Seiten
+#### Konzeptseiten und Leitfäden
 
-Die meisten API-Referenzen haben mindestens einen Leitfaden und manchmal auch eine Konzeptseite, die dazu passt. Eine API-Referenz sollte mindestens einen Leitfaden enthalten, der "Using the _name-of-api_" genannt wird, und einen grundlegenden Leitfaden dazu bieten, wie die API verwendet wird. Komplexere APIs erfordern möglicherweise mehrere Anwendungsleitfäden, um zu erklären, wie verschiedene Aspekte der API verwendet werden.
+Die meisten API-Referenzen werden von mindestens einem Leitfaden und manchmal auch von einer Konzeptseite begleitet. Eine API-Referenz sollte zumindest einen Leitfaden mit dem Titel „Using the _name-of-api_“ enthalten, der eine grundlegende Einführung in die Verwendung der API bietet. Bei komplexeren APIs können mehrere Leitfäden erforderlich sein, um die Verwendung verschiedener Aspekte der API zu erklären.
 
-Falls erforderlich, können Sie auch einen Konzeptartikel namens "_name-of-api_ concepts" einfügen, der die Theorie hinter allen Konzepten erklärt, die mit der API in Verbindung stehen und die Entwickler verstehen sollten, um sie effektiv zu nutzen.
+Bei Bedarf können Sie auch einen Konzeptartikel mit dem Titel „_name-of-api_ concepts“ hinzufügen. Er erläutert die theoretischen Grundlagen der API, die Entwicklerinnen und Entwickler verstehen sollten, um sie effektiv einzusetzen.
 
-Diese Artikel sollten alle als Unterseiten der API-Übersichtseite erstellt werden. Zum Beispiel hat die Web Audio API vier Leitfäden und einen Konzeptartikel:
+Alle diese Artikel sollten als Unterseiten der API-Übersichtsseite erstellt werden. Die Web Audio API hat beispielsweise vier Leitfäden und einen Konzeptartikel:
 
 - [https://developer.mozilla.org/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 - [https://developer.mozilla.org/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
@@ -172,11 +172,11 @@ Diese Artikel sollten alle als Unterseiten der API-Übersichtseite erstellt werd
 
 #### Beispiele
 
-Sie sollten einige Beispiele erstellen, die zumindest die häufigsten Anwendungsfälle der API veranschaulichen. Sie können diese überall einfügen, wo es angemessen ist, obwohl der empfohlene Ort das [MDN GitHub Repo](https://github.com/mdn/) ist.
+Erstellen Sie einige Beispiele, die zumindest die häufigsten Anwendungsfälle der API demonstrieren. Sie können sie an einem beliebigen geeigneten Ort ablegen; empfohlen wird jedoch das [MDN-GitHub-Repository](https://github.com/mdn/).
 
-#### Alle auflisten
+#### Alle Seiten auflisten
 
-Eine Liste aller dieser Unterseiten zu erstellen, ist eine gute Möglichkeit, sie zu verfolgen. Zum Beispiel:
+Eine Liste all dieser Unterseiten hilft Ihnen, den Überblick zu behalten. Zum Beispiel:
 
 - Web_Audio_API
 - AudioContext
@@ -197,142 +197,142 @@ Eine Liste aller dieser Unterseiten zu erstellen, ist eine gute Möglichkeit, si
   - …
 
 - AudioParam
-- Ereignisse (Liste aktualisieren)
+- Events (Liste aktualisieren)
   - start
   - end
   - …
 
-Jede Schnittstelle in der Liste hat eine separate Seite, die als Unterseite von `https://developer.mozilla.org/de/docs/Web/API` erstellt wird; zum Beispiel das Dokument für [`AudioContext`](/de/docs/Web/API/AudioContext) würde unter `https://developer.mozilla.org/de/docs/Web/API/AudioContext` liegen. Jede [Schnittstellenseite](#schnittstellenseiten) erklärt, was diese Schnittstelle tut, und bietet eine Liste der Methoden und Eigenschaften, die die Schnittstelle ausmachen. Dann wird jede Methode und Eigenschaft auf ihrer eigenen Seite dokumentiert, die als Unterseite der Schnittstelle, deren Mitglied sie ist, erstellt wird. Beispielsweise wird [`BaseAudioContext/currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) unter `https://developer.mozilla.org/de/docs/Web/API/AudioContext/currentTime` dokumentiert.
+Für jedes Interface in der Liste wird eine eigene Seite als Unterseite von `https://developer.mozilla.org/de/docs/Web/API` erstellt. Beispielsweise befindet sich das Dokument für [`AudioContext`](/de/docs/Web/API/AudioContext) unter `https://developer.mozilla.org/de/docs/Web/API/AudioContext`. Jede [Interface-Seite](#interface-seiten) erklärt die Funktion des Interfaces und listet seine Methoden und Properties auf. Anschließend wird jede Methode und jede Property auf einer eigenen Seite dokumentiert, die als Unterseite des zugehörigen Interfaces erstellt wird. Beispielsweise ist [`BaseAudioContext/currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) unter `https://developer.mozilla.org/de/docs/Web/API/AudioContext/currentTime` dokumentiert.
 
 ## Erstellen Sie die Seiten
 
-Erstellen Sie nun die benötigten Seiten nach den unten stehenden Strukturen. Unser [MDN-Inhalt README](https://github.com/mdn/content#adding-a-new-document) enthält Anweisungen zum Erstellen eines neuen Dokuments, und unser [Seitenarten-Leitfaden](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) enthält weitere Beispiele und Vorlagen, die nützlich sein könnten.
+Erstellen Sie nun die benötigten Seiten gemäß den nachfolgend beschriebenen Strukturen. Die [README-Datei des MDN-Content-Repositories](https://github.com/mdn/content#adding-a-new-document) enthält Anweisungen zum Erstellen eines neuen Dokuments. Unser Leitfaden zu [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) enthält weitere Beispiele und Seitenvorlagen, die hilfreich sein können.
 
-### Struktur einer Übersichtsseite
+### Aufbau einer Übersichtsseite
 
-API-Landingpages unterscheiden sich stark in der Länge, abhängig davon, wie groß die API ist, aber sie werden alle im Grunde die gleichen Merkmale haben. Siehe [https://developer.mozilla.org/de/docs/Web/API/Web_Audio_API](/de/docs/Web/API/Web_Audio_API) für ein Beispiel für eine große Landingpage.
+API-Übersichtsseiten können je nach Umfang der API sehr unterschiedlich lang sein, haben aber im Wesentlichen dieselben Bestandteile. Ein Beispiel für eine umfangreiche Übersichtsseite finden Sie unter [https://developer.mozilla.org/de/docs/Web/API/Web_Audio_API](/de/docs/Web/API/Web_Audio_API).
 
-Die Merkmale einer Landingpage sind unten aufgeführt:
+Die Bestandteile einer Übersichtsseite sind:
 
-1. **Beschreibung**: Der erste Absatz der Landingpage sollte eine kurze, prägnante Beschreibung des übergeordneten Zwecks der API bieten.
-2. **Abschnitt Konzepte und Nutzung**: Der nächste Abschnitt sollte "\[Name der API]-Konzepte und Nutzung" betitelt sein und einen Überblick über alle Hauptfunktionen bieten, die die API bereitstellt, welche Probleme sie löst und wie sie funktioniert — alles auf hoher Ebene. Dieser Abschnitt sollte ziemlich kurz sein und keinen Code oder spezifische Implementierungsdetails enthalten.
-3. **Liste der Schnittstellen**: Dieser Abschnitt sollte "\[Name der API]-Schnittstellen" betitelt sein und Links zu den Referenzseiten für jede Schnittstelle bieten, die die API bildet, zusammen mit einer kurzen Beschreibung, was jede von ihnen tut. Siehe den Abschnitt "Referenzierung anderer API-Funktionen mit dem \\{{domxref}}-Makro" für einen schnelleren Weg, neue Seiten zu erstellen.
-4. **Beispiele**: Dieser Abschnitt sollte einen oder zwei Anwendungsfälle für die API zeigen.
-5. **Spezifikationstabelle**: An dieser Stelle müssen Sie eine Spezifikationstabelle einfügen — siehe den Abschnitt "Erstellen einer Spezifikationsreferenztabelle" für weitere Details.
-6. **Browser-Kompatibilität**: Jetzt müssen Sie eine Tabelle zur Browser-Kompatibilität einfügen. Siehe [Kompatibilitäts-Tabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Details.
-7. **Siehe auch**: Der Abschnitt "Siehe auch" ist ein guter Ort, um weitere Links zu enthalten, die nützlich sein können, wenn Sie mehr über diese Technologie lernen, einschließlich MDN- (und externer) Tutorials, Beispiele, Bibliotheken usw.
+1. **Beschreibung**: Der erste Absatz sollte den übergeordneten Zweck der API kurz und prägnant beschreiben.
+2. **Abschnitt zu Konzepten und Verwendung**: Der nächste Abschnitt sollte den Titel „\[Name der API] concepts and usage“ tragen und auf übergeordneter Ebene erklären, welche wesentlichen Funktionen die API bereitstellt, welche Probleme sie löst und wie sie funktioniert. Dieser Abschnitt sollte recht kurz sein und weder Code noch konkrete Implementierungsdetails enthalten.
+3. **Liste der Interfaces**: Dieser Abschnitt sollte den Titel „\[Name der API] interfaces“ tragen und Links zu den Referenzseiten aller Interfaces der API sowie jeweils eine kurze Beschreibung ihrer Funktion enthalten. Im Abschnitt „Andere API-Funktionen mit dem Makro \\{{domxref}} referenzieren“ wird ein schnellerer Weg zum Erstellen neuer Seiten beschrieben.
+4. **Beispiele**: Dieser Abschnitt sollte ein oder zwei Anwendungsfälle der API zeigen.
+5. **Spezifikationstabelle**: Fügen Sie hier eine Spezifikationstabelle ein. Weitere Informationen finden Sie im Abschnitt „Eine Tabelle mit Spezifikationsverweisen erstellen“.
+6. **Browser-Kompatibilität**: Fügen Sie nun eine Tabelle zur Browser-Kompatibilität ein. Einzelheiten finden Sie unter [Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+7. **Siehe auch**: Der Abschnitt „Siehe auch“ eignet sich für weiterführende Links, die beim Erlernen dieser Technologie hilfreich sein können, darunter Tutorials von MDN und anderen Quellen, Beispiele und Bibliotheken.
 
-### Struktur einer Schnittstellenseite
+### Aufbau einer Interface-Seite
 
-Jetzt sollten Sie bereit sein, mit dem Schreiben Ihrer Schnittstellenseiten zu beginnen. Jede Schnittstellenreferenzseite sollte die folgende Struktur haben:
+Nun können Sie mit dem Schreiben Ihrer Interface-Seiten beginnen. Jede Interface-Referenzseite sollte wie folgt aufgebaut sein:
 
-1. **\\{{APIRef}}**: Fügen Sie das \\{{APIRef}}-Makro in der ersten Zeile jeder Schnittstellenseite ein, indem Sie den Namen der API als Argument angeben, also zum Beispiel \\{{APIRef("Web Audio API")}}. Dieses Makro dient dazu, ein Referenzmenü auf der linken Seite der Schnittstellenseite zu erstellen, einschließlich Eigenschaften und Methoden sowie anderer Schnelllinks, wie im [GroupData](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json)-Makro definiert (bitten Sie jemanden, Ihre API zu einem bestehenden GroupData-Eintrag hinzuzufügen oder einen neuen zu erstellen, wenn sie dort noch nicht aufgeführt ist). Das Menü wird etwa wie im folgenden Screenshot aussehen.
-   ![In diesem Screenshot wird ein vertikales Navigationsmenü für die OscillatorNode-Schnittstelle angezeigt, mit mehreren Unterlisten für Methoden und Eigenschaften, wie sie vom APIRef-Makro generiert werden](apiref-links.png)
-2. **Feature-Status**: Ein [Banner, das den Funktionsstatus angibt](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_page_banners) (wie veraltet, nicht standardisiert oder experimentell) wird bei Bedarf automatisch hinzugefügt. Dafür müssen Sie [den Status im Browser-Kompatibilitätsdaten-Repository aktualisieren](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
-3. **Beschreibung**: Der erste Absatz der Schnittstellenseite sollte eine kurze, prägnante Beschreibung des übergeordneten Zwecks der Schnittstelle bieten. Falls eine umfangreichere Beschreibung erforderlich ist, können Sie auch ein paar weitere Absätze hinzufügen. Wenn die Schnittstelle tatsächlich ein Wörterbuch ist, sollten Sie diesen Begriff anstelle von "Schnittstelle" verwenden.
-4. **Vererbungsdiagramm:** Verwenden Sie das [`\{{InheritanceDiagram}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/inheritance_diagram.rs)-Makro, um ein SVG-Vererbungsdiagramm für die Schnittstelle einzubetten.
-5. **Liste der Eigenschaften, Liste der Methoden**: Diese Abschnitte sollten "Eigenschaften" und "Methoden" betitelt sein und Links (unter Verwendung des \\{{domxref}}-Makros) zu einer Referenzseite für jede Eigenschaft/Methode dieser Schnittstelle bereitstellen, zusammen mit einer Beschreibung dessen, was jede von ihnen tut. Diese sollten unter Verwendung von [Beschreibung/Definitionslisten](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#definition_lists) formatiert werden. Jede Beschreibung sollte kurz und prägnant sein — möglichst ein Satz. Siehe den Abschnitt "Referenzierung anderer API-Funktionen mit dem \\{{domxref}}-Makro" für einen schnelleren Weg, Links zu anderen Seiten zu erstellen.
+1. **\\{{APIRef}}**: Fügen Sie das Makro \\{{APIRef}} in die erste Zeile jeder Interface-Seite ein und übergeben Sie den Namen der API als Argument, beispielsweise \\{{APIRef("Web Audio API")}}. Dieses Makro erzeugt links auf der Interface-Seite ein Referenzmenü mit Properties, Methoden und weiteren Schnelllinks, die im Makro [GroupData](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert sind. Bitten Sie jemanden, Ihre API zu einem vorhandenen GroupData-Eintrag hinzuzufügen oder einen neuen Eintrag anzulegen, falls sie dort noch nicht aufgeführt ist. Das Menü sieht ungefähr so aus wie im folgenden Screenshot.
+   ![Dieser Screenshot zeigt ein vertikales Navigationsmenü für das Interface OscillatorNode mit mehreren Unterlisten für Methoden und Properties, das vom Makro APIRef erzeugt wurde](apiref-links.png)
+2. **Funktionsstatus**: Ein [Banner mit dem Status der Funktion](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_page_banners), etwa „veraltet“, „nicht standardisiert“ oder „experimentell“, wird bei Bedarf automatisch hinzugefügt. Dazu müssen Sie [den Status im Repository für Browser-Kompatibilitätsdaten aktualisieren](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+3. **Beschreibung**: Der erste Absatz der Interface-Seite sollte den übergeordneten Zweck des Interfaces kurz und prägnant beschreiben. Falls weitere Erläuterungen nötig sind, können Sie ein paar zusätzliche Absätze hinzufügen. Wenn es sich bei dem Interface tatsächlich um ein Dictionary handelt, sollten Sie diesen Begriff anstelle von „Interface“ verwenden.
+4. **Vererbungsdiagramm:** Verwenden Sie das Makro [`\{{InheritanceDiagram}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/inheritance_diagram.rs), um ein SVG-Vererbungsdiagramm für das Interface einzubetten.
+5. **Liste der Properties und Methoden**: Diese Abschnitte sollten „Properties“ und „Methods“ heißen und für jede Property beziehungsweise Methode des Interfaces einen Link zur Referenzseite (mit dem Makro \\{{domxref}}) sowie eine Beschreibung ihrer Funktion enthalten. Verwenden Sie dafür [Beschreibungs- beziehungsweise Definitionslisten](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#definition_lists). Jede Beschreibung sollte kurz und prägnant sein – möglichst nur ein Satz. Im Abschnitt „Andere API-Funktionen mit dem Makro \\{{domxref}} referenzieren“ wird ein schnellerer Weg zum Erstellen von Links zu anderen Seiten beschrieben.
 
-   Am Anfang beider Abschnitte, vor Beginn der Liste der Eigenschaften/Methoden, geben Sie die Vererbung mit dem entsprechenden Satz an, in Kursivschrift:
-   - _Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
-   - _Diese Schnittstelle erbt auch Eigenschaften von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
-   - _Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
-   - _Diese Schnittstelle erbt auch Methoden von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
-
-   > [!NOTE]
-   > Lesezeichen, die schreibgeschützt sind, sollten das \\{{ReadOnlyInline}}-Makro enthalten, das ein kleines "Read only"-Badge erstellt, das in der gleichen Zeile wie ihre \\{{domxref}}-Links enthalten ist (nach der Verwendung der \\{{experimental_inline}}, \\{{non-standard_Inline}} und \\{{deprecated_inline}}-Makros, falls einige davon benötigt werden).
-
-6. **Beispiele**: Fügen Sie eine Codeauflistung hinzu, die die typische Verwendung einer Hauptfunktion der API zeigt. Anstatt den gesamten Code aufzulisten, sollten Sie einen interessanten Ausschnitt davon auflisten. Für eine vollständige Codeauflistung können Sie sich auf ein [GitHub](https://github.com/)-Repo beziehen, das das vollständige Beispiel enthält, und Sie könnten auch auf ein Live-Beispiel verlinken, das mit der [GitHub gh-pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)-Funktion erstellt wurde (sofern es nur clientseitigen Code verwendet). Wenn das Beispiel visuell ist, können Sie auch die MDN [Live Sample](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Funktion verwenden, um es im Page-Spielbar zu machen.
-7. **Spezifikationstabelle**: An dieser Stelle müssen Sie eine Spezifikationstabelle einfügen — siehe den Abschnitt "Erstellen einer Spezifikationsreferenztabelle" für weitere Details.
-8. **Browser-Kompatibilität**: Jetzt müssen Sie eine Tabelle zur Browser-Kompatibilität einfügen. Siehe [Kompatibilitäts-Tabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Details.
-9. **Polyfill**: Wenn angebracht, fügen Sie diesen Abschnitt ein und stellen Sie Code für ein Polyfill bereit, das es ermöglicht, die API auch in Browsern zu verwenden, die sie nicht implementieren. Wenn kein Polyfill existiert oder benötigt wird, lassen Sie diesen Abschnitt vollständig weg.
-10. **Siehe auch**: Der Abschnitt "Siehe auch" ist ein guter Ort, um weitere Links zu enthalten, die nützlich sein können, wenn Sie mehr über diese Technologie lernen, einschließlich MDN- (und externer) Tutorials, Beispiele, Bibliotheken usw. Wir verfolgen eine liberale Politik für das Verlinken auf externe Quellen, aber achten Sie darauf:
-    - Schließen Sie keine Seiten ein, die die gleichen Informationen wie eine andere Seite im MDN enthalten; verlinken Sie stattdessen auf diese Seite.
-    - Geben Sie keine Autorennamen an - wir sind eine dokumentationsneutrale Dokumentationsseite. Verlinken Sie auf das Dokument; der Autorname wird dort angezeigt.
-    - Achten Sie besonders auf Blogbeiträge: Sie neigen dazu, veraltet zu werden (alte Syntax, falsche Kompatibilitätsinformationen). Verlinken Sie auf sie nur, wenn sie einen klaren Mehrwert bieten, der in einem gepflegten Dokument nicht zu finden ist.
-    - Verwenden Sie keine Handlungsverben wie "Siehe … für mehr Informationen" oder "Klicken Sie auf…", Sie wissen nicht, ob Ihr Leser in der Lage ist, auf den Link zu sehen oder zu klicken (zum Beispiel in einer Papierversion des Dokuments).
-
-#### Schnittstellenseiten-Beispiele
-
-Die folgenden sind beispielhafte Beispiele für Schnittstellenseiten:
-
-- [`Request`](/de/docs/Web/API/Request) von der [Fetch API](/de/docs/Web/API/Fetch_API).
-- [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) von der [Web Speech API](/de/docs/Web/API/Web_Speech_API).
-
-### Struktur einer Eigenschaftsseite
-
-Erstellen Sie Ihre Eigenschaftsseiten als Unterseiten der Schnittstelle, auf der sie implementiert sind. Kopieren Sie die Struktur einer anderen Eigenschaftsseite, um die Grundlage für Ihre neue Seite zu bilden.
-
-Bearbeiten Sie den Eigenschaftsseitennamen, um dem `Interface.property_name`-Konventionsmuster zu folgen.
-
-Eigenschaftsseiten müssen die folgenden Abschnitte haben:
-
-1. **Titel**: Der Titel der Seite muss **InterfaceName.propertyName** sein. Der Schnittstellenname muss mit einem Großbuchstaben anfangen. Obwohl eine Schnittstelle in JavaScript auf dem Prototyp von Objekten implementiert wird, fügen wir `.prototype.` nicht wie im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) ein.
-2. **\\{{APIRef}}**: Fügen Sie das \\{{APIRef}}-Makro in der ersten Zeile jeder Eigenschaftsseite ein, indem Sie den Namen der API als Argument angeben, also zum Beispiel \\{{APIRef("Web Audio API")}}. Dieses Makro dient dazu, ein Referenzmenü auf der linken Seite der Schnittstellenseite zu erstellen, einschließlich Eigenschaften und Methoden sowie anderer Schnelllinks, wie im [GroupData](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json)-Makro definiert (bitten Sie jemanden, Ihre API zu einem bestehenden GroupData-Eintrag hinzuzufügen oder einen neuen zu erstellen, wenn sie dort noch nicht aufgeführt ist). Das Menü wird etwa wie im folgenden Screenshot aussehen.
-   ![In diesem Screenshot wird ein vertikales Navigationsmenü für die OscillatorNode-Schnittstelle angezeigt, mit mehreren Unterlisten für Methoden und Eigenschaften, wie sie vom APIRef-Makro generiert werden](apiref-links.png)
-3. **Feature-Status**: Ein [Banner, das den Funktionsstatus angibt](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_page_banners) (wie veraltet, nicht standardisiert oder experimentell) wird bei Bedarf automatisch hinzugefügt. Dafür müssen Sie [den Status im Browser-Kompatibilitätsdaten-Repository aktualisieren](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
-
-4. **Beschreibung**: Der erste Absatz der Eigenschaftsseite sollte eine kurze, prägnante Beschreibung des übergeordneten Zwecks der Eigenschaft bieten. Falls erforderlich, können Sie auch ein paar weitere Absätze hinzufügen. Offensichtliche zusätzliche Informationen, die aufgenommen werden können, sind der Standard-/anfangs-Wert und ob sie schreibgeschützt ist oder nicht. Der erste Satz sollte in der folgenden Struktur vorliegen:
-   - Für schreibgeschützte Eigenschaften
-     - : Die **`InterfaceName.property`** schreibgeschützte Eigenschaft gibt ein \\{{domxref("type")}} zurück, das…
-   - Für andere Eigenschaften
-     - : Die **`InterfaceName.property`** Eigenschaft ist ein \\{{domxref("type")}}, das…
+   Weisen Sie am Anfang beider Abschnitte, vor der jeweiligen Liste, mit einem passenden kursiv gesetzten Satz auf die Vererbung hin:
+   - _Dieses Interface implementiert keine eigenen Properties, erbt aber Properties von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
+   - _Dieses Interface erbt außerdem Properties von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
+   - _Dieses Interface implementiert keine eigenen Methoden, erbt aber Methoden von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
+   - _Dieses Interface erbt außerdem Methoden von \\{{domxref("XYZ")}} und \\{{domxref("XYZ2")}}._
 
    > [!NOTE]
-   > `InterfaceName.property` sollte in `<code>` stehen und sollte zusätzlich das erste Mal, dass es verwendet wird, in fetter Schrift (`<strong>`) dargestellt werden.
+   > Schreibgeschützte Properties sollten in derselben Zeile wie ihre \\{{domxref}}-Links das Makro \\{{ReadOnlyInline}} enthalten. Es erzeugt ein kleines „Read only“-Badge und sollte vor den Makros \\{{experimental_inline}}, \\{{non-standard_Inline}} und \\{{deprecated_inline}} stehen, falls diese benötigt werden.
 
-5. **Wert**: Der Abschnitt "Wert" enthält eine Beschreibung des Werts der Eigenschaft. Diese sollte den Datentyp der Eigenschaft enthalten und was sie darstellt. Ein Beispiel finden Sie bei [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars)
+6. **Beispiele**: Fügen Sie ein Codebeispiel ein, das die typische Verwendung einer wichtigen Funktion der API zeigt. Statt den GESAMTEN Code aufzuführen, sollten Sie einen interessanten Ausschnitt auswählen. Für den vollständigen Code können Sie auf ein [GitHub](https://github.com/)-Repository verweisen und gegebenenfalls eine mit [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) erstellte Live-Demo verlinken, sofern diese ausschließlich clientseitigen Code verwendet. Wenn das Beispiel visuell ist, können Sie auch die MDN-Funktion [Live Sample](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) verwenden, damit es direkt auf der Seite ausprobiert werden kann.
+7. **Spezifikationstabelle**: Fügen Sie hier eine Spezifikationstabelle ein. Weitere Informationen finden Sie im Abschnitt „Eine Tabelle mit Spezifikationsverweisen erstellen“.
+8. **Browser-Kompatibilität**: Fügen Sie nun eine Tabelle zur Browser-Kompatibilität ein. Einzelheiten finden Sie unter [Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+9. **Polyfill**: Falls sinnvoll, fügen Sie diesen Abschnitt mit Code für einen Polyfill hinzu, der die Verwendung der API auch in Browsern ermöglicht, die sie nicht implementieren. Falls kein Polyfill existiert oder benötigt wird, lassen Sie den Abschnitt vollständig weg.
+10. **Siehe auch**: Dieser Abschnitt eignet sich für weiterführende Links, die beim Erlernen der Technologie hilfreich sein können, darunter Tutorials von MDN und anderen Quellen, Beispiele und Bibliotheken. Bei Links zu externen Quellen sind wir großzügig, beachten Sie jedoch Folgendes:
+    - Verlinken Sie keine Seiten, die dieselben Informationen wie eine andere MDN-Seite enthalten; verlinken Sie stattdessen die MDN-Seite.
+    - Nennen Sie keine Namen von Autorinnen und Autoren – unsere Dokumentation stellt nicht die Verfassenden in den Vordergrund. Verlinken Sie das Dokument; die Namen werden dort angezeigt.
+    - Achten Sie besonders bei Blogbeiträgen darauf, ob sie veraltet sind, etwa wegen alter Syntax oder falscher Kompatibilitätsangaben. Verlinken Sie sie nur, wenn sie einen klaren Mehrwert bieten, der in einem gepflegten Dokument nicht zu finden ist.
+    - Verwenden Sie keine Handlungsaufforderungen wie „Weitere Informationen finden Sie unter …“ oder „Klicken Sie auf …“. Sie wissen nicht, ob Ihre Leserinnen und Leser den Link sehen oder anklicken können, beispielsweise in einer gedruckten Fassung des Dokuments.
 
-6. **Beispiele**: Fügen Sie eine Codeauflistung hinzu, die die typische Verwendung der betreffenden Eigenschaft zeigt. Sie sollten mit einem einfachen Beispiel beginnen, das zeigt, wie ein Objekt des Typs erstellt wird und wie auf die Eigenschaft zugegriffen wird. Komplexere Beispiele können nach einem solchen Beispiel hinzugefügt werden. In diesen zusätzlichen Beispielen sollte anstelle der gesamten Codeauflistung ein interessanter Ausschnitt angegeben werden. Für eine vollständige Codeauflistung können Sie sich auf ein [GitHub](https://github.com/)-Repo beziehen, das das vollständige Beispiel enthält, und Sie könnten auch auf ein Live-Beispiel verlinken, das mit der [GitHub gh-pages feature](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) erstellt wurde (sofern es nur clientseitigen Code verwendet). Wenn das Beispiel visuell ist, können Sie auch die MDN [Live Sample](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Funktion verwenden, um es live und spielbar zu machen.
-7. **Spezifikationstabelle**: An dieser Stelle müssen Sie eine Spezifikationstabelle einfügen — siehe den Abschnitt "Erstellen einer Spezifikationsreferenztabelle" für weitere Details.
-8. **Browser-Kompatibilität**: Jetzt müssen Sie eine Tabelle zur Browser-Kompatibilität einfügen. Siehe [Kompatibilitäts-Tabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Details.
-9. **Siehe auch**: Der Abschnitt "Siehe auch" ist ein guter Ort, um weitere Links zu enthalten, die nützlich sein können, wenn Sie diese Technologie verwenden: wie Methoden und Eigenschaften, die von einer Änderung dieser Eigenschaft betroffen sind oder Ereignisse, die in Bezug auf sie geworfen werden. Weitere Links, die nützlich sein können, wenn Sie mehr über diese Technologie lernen, einschließlich MDN (und externer) Tutorials, Beispiele, Bibliotheken, ... können hinzugefügt werden, obwohl es nützlich sein kann, in Betracht zu ziehen, sie stattdessen auf der Schnittstellenreferenzseite hinzuzufügen.
+#### Beispiele für Interface-Seiten
 
-#### Eigenschaftsseiten-Beispiele
+Die folgenden Interface-Seiten sind gute Beispiele:
 
-Die folgenden sind beispielhafte Beispiele für Eigenschaftsseiten:
+- [`Request`](/de/docs/Web/API/Request) aus der [Fetch API](/de/docs/Web/API/Fetch_API).
+- [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) aus der [Web Speech API](/de/docs/Web/API/Web_Speech_API).
 
-- [`Request.method`](/de/docs/Web/API/Request/method) von der [Fetch API](/de/docs/Web/API/Fetch_API).
-- [`SpeechSynthesis.speaking`](/de/docs/Web/API/SpeechSynthesis/speaking) von der [Web Speech API](/de/docs/Web/API/Web_Speech_API).
+### Aufbau einer Property-Seite
 
-### Struktur einer Methodenseite
+Erstellen Sie Property-Seiten als Unterseiten des Interfaces, auf dem die Properties implementiert sind. Verwenden Sie den Aufbau einer anderen Property-Seite als Grundlage für Ihre neue Seite.
 
-Erstellen Sie Ihre Methodenseiten als Unterseiten der Schnittstelle, auf der sie implementiert sind. Kopieren Sie die Struktur einer anderen Methodenseite, um die Grundlage für Ihre neue Seite zu bilden.
+Passen Sie den Namen der Property-Seite an die Konvention `Interface.property_name` an.
 
-Methodenseiten müssen die folgenden Abschnitte haben:
+Property-Seiten müssen die folgenden Abschnitte enthalten:
 
-1. **Titel**: Der Titel der Seite muss **InterfaceName.method()** sein (mit den zwei abschließenden Klammern), aber der Slug (das Ende der Seiten-URL) darf die Klammern nicht enthalten. Auch der Schnittstellenname muss mit einem Großbuchstaben anfangen. Obwohl eine Schnittstelle in JavaScript auf dem Prototyp von Objekten implementiert wird, fügen wir `.prototype.` im Titel nicht wie im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) ein.
-2. **\\{{APIRef}}**: Fügen Sie das \\{{APIRef}}-Makro in der ersten Zeile jeder Methodenseite ein, indem Sie den Namen der API als Argument angeben, also zum Beispiel \\{{APIRef("Web Audio API")}}. Dieses Makro dient dazu, ein Referenzmenü auf der linken Seite der Schnittstellenseite zu erstellen, einschließlich Eigenschaften und Methoden sowie anderer Schnelllinks, wie im [GroupData](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json)-Makro definiert (bitten Sie jemanden, Ihre API zu einem bestehenden GroupData-Eintrag hinzuzufügen oder einen neuen zu erstellen, wenn sie dort noch nicht aufgeführt ist). Das Menü wird etwa wie im folgenden Screenshot aussehen.
-   ![In diesem Screenshot wird ein vertikales Navigationsmenü für die OscillatorNode-Schnittstelle angezeigt, mit mehreren Unterlisten für Methoden und Eigenschaften, wie sie vom APIRef-Makro generiert werden](apiref-links.png)
-3. **Feature-Status**: Ein [Banner, das den Funktionsstatus angibt](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_page_banners) (wie veraltet, nicht standardisiert oder experimentell) wird bei Bedarf automatisch hinzugefügt. Dafür müssen Sie [den Status im Browser-Kompatibilitätsdaten-Repository aktualisieren](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+1. **Titel**: Der Seitentitel muss **InterfaceName.propertyName** lauten. Der Interface-Name muss mit einem Großbuchstaben beginnen. Obwohl ein Interface in JavaScript auf dem Prototyp von Objekten implementiert ist, nehmen wir `.prototype.` nicht in den Titel auf, anders als in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
+2. **\\{{APIRef}}**: Fügen Sie das Makro \\{{APIRef}} in die erste Zeile jeder Property-Seite ein und übergeben Sie den Namen der API als Argument, beispielsweise \\{{APIRef("Web Audio API")}}. Dieses Makro erzeugt links auf der Interface-Seite ein Referenzmenü mit Properties, Methoden und weiteren Schnelllinks, die im Makro [GroupData](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert sind. Bitten Sie jemanden, Ihre API zu einem vorhandenen GroupData-Eintrag hinzuzufügen oder einen neuen Eintrag anzulegen, falls sie dort noch nicht aufgeführt ist. Das Menü sieht ungefähr so aus wie im folgenden Screenshot.
+   ![Dieser Screenshot zeigt ein vertikales Navigationsmenü für das Interface OscillatorNode mit mehreren Unterlisten für Methoden und Properties, das vom Makro APIRef erzeugt wurde](apiref-links.png)
+3. **Funktionsstatus**: Ein [Banner mit dem Status der Funktion](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_page_banners), etwa „veraltet“, „nicht standardisiert“ oder „experimentell“, wird bei Bedarf automatisch hinzugefügt. Dazu müssen Sie [den Status im Repository für Browser-Kompatibilitätsdaten aktualisieren](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 
-4. **Beschreibung**: Der erste Absatz der Methodenseite sollte eine kurze, prägnante Beschreibung des übergeordneten Zwecks der Methode bieten. Falls erforderlich, können Sie auch ein paar weitere Absätze hinzufügen. Offensichtliche zusätzliche Informationen, die aufgenommen werden können, sind die Standardwerte der Parameter, jede Theorie, auf die die Methode basiert, und was die Parameterwerte bewirken.
-   - Der Anfang des ersten Satzes muss der folgenden Struktur folgen:
-     - : Die **`InterfaceName.method()`**-Methodenschnittstelle …
+4. **Beschreibung**: Der erste Absatz der Property-Seite sollte ihren übergeordneten Zweck kurz und prägnant beschreiben. Falls weitere Erläuterungen nötig sind, können Sie ein paar zusätzliche Absätze hinzufügen. Sinnvolle zusätzliche Angaben sind ihr Standard- beziehungsweise Anfangswert und ob sie schreibgeschützt ist. Der erste Satz muss wie folgt aufgebaut sein:
+   - Für schreibgeschützte Properties
+     - : Die schreibgeschützte Property **`InterfaceName.property`** gibt ein \\{{domxref("type")}} zurück, das …
+   - Für andere Properties
+     - : Die Property **`InterfaceName.property`** ist ein \\{{domxref("type")}}, das …
 
    > [!NOTE]
-   > `InterfaceName.method()` sollte in `<code>` stehen und sollte auch das erste Mal, dass es verwendet wird, in fetter Schrift (`<strong>`) dargestellt werden.
+   > `InterfaceName.property` sollte in `<code>` stehen und bei der ersten Erwähnung zusätzlich fett (`<strong>`) formatiert sein.
 
-5. **Syntax**: Der Syntaxabschnitt sollte ein 2–3 Zeilen Beispiel enthalten — normalerweise nur die Konstruktion der Schnittstelle, dann der Aufruf der Schnittstellenmethode.
-   - Die Syntax sollte die Form haben:
+5. **Wert**: Der Abschnitt „Value“ beschreibt den Wert der Property. Er sollte den Datentyp der Property und die Bedeutung des Werts nennen. Ein Beispiel finden Sie unter [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars).
+
+6. **Beispiele**: Fügen Sie ein Codebeispiel für die typische Verwendung der betreffenden Property ein. Beginnen Sie mit einem einfachen Beispiel, das zeigt, wie ein Objekt des entsprechenden Typs erstellt und auf die Property zugegriffen wird. Danach können Sie komplexere Beispiele ergänzen. Statt in diesen zusätzlichen Beispielen den GESAMTEN Code aufzuführen, sollten Sie einen interessanten Ausschnitt auswählen. Für den vollständigen Code können Sie auf ein [GitHub](https://github.com/)-Repository verweisen und gegebenenfalls eine mit [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) erstellte Live-Demo verlinken, sofern diese ausschließlich clientseitigen Code verwendet. Wenn das Beispiel visuell ist, können Sie auch die MDN-Funktion [Live Sample](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) verwenden, damit es direkt auf der Seite ausprobiert werden kann.
+7. **Spezifikationstabelle**: Fügen Sie hier eine Spezifikationstabelle ein. Weitere Informationen finden Sie im Abschnitt „Eine Tabelle mit Spezifikationsverweisen erstellen“.
+8. **Browser-Kompatibilität**: Fügen Sie nun eine Tabelle zur Browser-Kompatibilität ein. Einzelheiten finden Sie unter [Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+9. **Siehe auch**: Dieser Abschnitt eignet sich für weiterführende Links, die bei der Verwendung dieser Technologie hilfreich sein können, etwa zu Methoden und Properties, die von einer Änderung dieser Property betroffen sind, oder zu Events, die in diesem Zusammenhang ausgelöst werden. Sie können weitere Links hinzufügen, die beim Erlernen der Technologie helfen, darunter Tutorials von MDN und anderen Quellen, Beispiele und Bibliotheken. Überlegen Sie jedoch, ob diese Links besser auf der Interface-Referenzseite aufgehoben sind.
+
+#### Beispiele für Property-Seiten
+
+Die folgenden Property-Seiten sind gute Beispiele:
+
+- [`Request.method`](/de/docs/Web/API/Request/method) aus der [Fetch API](/de/docs/Web/API/Fetch_API).
+- [`SpeechSynthesis.speaking`](/de/docs/Web/API/SpeechSynthesis/speaking) aus der [Web Speech API](/de/docs/Web/API/Web_Speech_API).
+
+### Aufbau einer Methodenseite
+
+Erstellen Sie Methodenseiten als Unterseiten des Interfaces, auf dem die Methoden implementiert sind. Verwenden Sie den Aufbau einer anderen Methodenseite als Grundlage für Ihre neue Seite.
+
+Methodenseiten benötigen die folgenden Abschnitte:
+
+1. **Titel**: Der Seitentitel muss **InterfaceName.method()** lauten, einschließlich der abschließenden Klammern. Der Slug, also der letzte Teil der Seiten-URL, darf die Klammern hingegen nicht enthalten. Außerdem muss der Interface-Name mit einem Großbuchstaben beginnen. Obwohl ein Interface in JavaScript auf dem Prototyp von Objekten implementiert ist, nehmen wir `.prototype.` nicht in den Titel auf, anders als in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
+2. **\\{{APIRef}}**: Fügen Sie das Makro \\{{APIRef}} in die erste Zeile jeder Methodenseite ein und übergeben Sie den Namen der API als Argument, beispielsweise \\{{APIRef("Web Audio API")}}. Dieses Makro erzeugt links auf der Interface-Seite ein Referenzmenü mit Properties, Methoden und weiteren Schnelllinks, die im Makro [GroupData](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert sind. Bitten Sie jemanden, Ihre API zu einem vorhandenen GroupData-Eintrag hinzuzufügen oder einen neuen Eintrag anzulegen, falls sie dort noch nicht aufgeführt ist. Das Menü sieht ungefähr so aus wie im folgenden Screenshot.
+   ![Dieser Screenshot zeigt ein vertikales Navigationsmenü für das Interface OscillatorNode mit mehreren Unterlisten für Methoden und Properties, das vom Makro APIRef erzeugt wurde](apiref-links.png)
+3. **Funktionsstatus**: Ein [Banner mit dem Status der Funktion](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_page_banners), etwa „veraltet“, „nicht standardisiert“ oder „experimentell“, wird bei Bedarf automatisch hinzugefügt. Dazu müssen Sie [den Status im Repository für Browser-Kompatibilitätsdaten aktualisieren](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+
+4. **Beschreibung**: Der erste Absatz der Methodenseite sollte den übergeordneten Zweck der Methode kurz und prägnant beschreiben. Falls weitere Erläuterungen nötig sind, können Sie ein paar zusätzliche Absätze hinzufügen. Sinnvolle zusätzliche Angaben sind die Standardwerte ihrer Parameter, die theoretischen Grundlagen der Methode und die Bedeutung der Parameterwerte.
+   - Der erste Satz muss wie folgt beginnen:
+     - : Die Methode **`InterfaceName.method()`** des Interfaces …
+
+   > [!NOTE]
+   > `InterfaceName.method()` sollte in `<code>` stehen und bei der ersten Erwähnung zusätzlich fett (`<strong>`) formatiert sein.
+
+5. **Syntax**: Der Syntaxabschnitt sollte ein Beispiel mit zwei bis drei Zeilen enthalten – üblicherweise wird zunächst das Interface erstellt und dann seine Methode aufgerufen.
+   - Die Syntax sollte folgende Form haben:
      - : method(param1, param2, …)
 
-   Der Syntaxabschnitt sollte drei Unterabschnitte enthalten (siehe [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign) als Beispiel):
-   - "Parameter": Dies sollte eine Definitionsliste (oder eine unsortierte Liste) enthalten, die die verschiedenen Parameter der Methode benennt und beschreibt. Sie sollten das {{optional_inline}}-Makro neben dem Parameternamen verwenden, im Fall von optionalen Parametern. Wenn es keine Parameter gibt, sollte dieser Abschnitt weggelassen werden.
-   - "Rückgabewert": Dies sollte angeben, welchen Rückgabewert die Methode hat, sei es ein einfacher Wert wie ein double oder boolescher Wert, oder ein komplexerer Wert wie ein anderes Schnittstellenobjekt, in diesem Fall können Sie das \\{{domxref}}-Makro verwenden, um auf die MDN-API-Seite zu verlinken, die diese Schnittstelle behandelt (falls vorhanden). Eine Methode könnte nichts zurückgeben, in diesem Fall sollte der Rückgabewert als "\\{{jsxref('undefined')}}" geschrieben werden (was in der gerenderten Seite so aussieht: {{jsxref("undefined")}}).
-   - "Ausnahmen": Dies sollte die verschiedenen Ausnahmen auflisten, die beim Aufrufen der Methode ausgelöst werden können, und unter welchen Umständen sie auftreten. Wenn es keine Ausnahmen gibt, sollte dieser Abschnitt weggelassen werden.
+   Der Syntaxabschnitt sollte drei Unterabschnitte enthalten (ein Beispiel finden Sie unter [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign)):
+   - „Parameters“: Dieser Abschnitt sollte eine Definitionsliste oder ungeordnete Liste enthalten, die die verschiedenen Parameter der Methode benennt und beschreibt. Bei optionalen Parametern sollten Sie neben dem Parameternamen das Makro {{optional_inline}} einfügen. Wenn es keine Parameter gibt, entfällt dieser Abschnitt.
+   - „Return value“: Geben Sie hier an, welchen Wert die Methode zurückgibt. Das kann ein einfacher Wert wie eine Gleitkommazahl oder ein boolescher Wert sein oder ein komplexerer Wert wie ein anderes Interface-Objekt. In letzterem Fall können Sie mit dem Makro \\{{domxref}} auf die entsprechende MDN-API-Seite verlinken, sofern sie existiert. Eine Methode gibt möglicherweise nichts zurück. In diesem Fall sollte der Rückgabewert als „\\{{jsxref('undefined')}}“ angegeben werden (auf der gerenderten Seite sieht das so aus: {{jsxref("undefined")}}).
+   - „Exceptions“: Führen Sie hier die verschiedenen Exceptions auf, die beim Aufruf der Methode ausgelöst werden können, und erläutern Sie die jeweiligen Umstände. Wenn es keine Exceptions gibt, entfällt dieser Abschnitt.
 
-6. **Beispiele**: Fügen Sie eine Codeauflistung hinzu, die die typische Verwendung der betreffenden Methode zeigt. Anstatt den gesamten Code aufzulisten, sollten Sie einen interessanten Ausschnitt davon auflisten. Für eine vollständige Codeauflistung, sollten Sie sich auf ein [GitHub](https://github.com/)-Repo beziehen, das das vollständige Beispiel enthält und Sie könnten auch auf ein Live-Beispiel verlinken, das mit der [GitHub gh-pages feature](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) erstellt wurde (sofern es nur clientseitigen Code verwendet). Wenn das Beispiel visuell ist, können Sie auch die MDN [Live Sample](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Funktion verwenden, um es live und spielbar zu machen.
-7. **Spezifikationstabelle**: An dieser Stelle müssen Sie eine Spezifikationstabelle einfügen — siehe den Abschnitt "Erstellen einer Spezifikationsreferenztabelle" für weitere Details.
-8. **Browser-Kompatibilität**: Jetzt müssen Sie eine Tabelle zur Browser-Kompatibilität einfügen. Siehe [Kompatibilitäts-Tabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Details.
+6. **Beispiele**: Fügen Sie ein Codebeispiel für die typische Verwendung der betreffenden Methode ein. Statt den GESAMTEN Code aufzuführen, sollten Sie einen interessanten Ausschnitt auswählen. Für den vollständigen Code sollten Sie auf ein [GitHub](https://github.com/)-Repository verweisen und gegebenenfalls eine mit [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) erstellte Live-Demo verlinken, sofern diese ausschließlich clientseitigen Code verwendet. Wenn das Beispiel visuell ist, können Sie auch die MDN-Funktion [Live Sample](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) verwenden, damit es direkt auf der Seite ausprobiert werden kann.
+7. **Spezifikationstabelle**: Fügen Sie hier eine Spezifikationstabelle ein. Weitere Informationen finden Sie im Abschnitt „Eine Tabelle mit Spezifikationsverweisen erstellen“.
+8. **Browser-Kompatibilität**: Fügen Sie nun eine Tabelle zur Browser-Kompatibilität ein. Einzelheiten finden Sie unter [Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 
-#### Methodenseiten-Beispiele
+#### Beispiele für Methodenseiten
 
-Die folgenden sind beispielhafte Beispiele für Methodenseiten:
+Die folgenden Methodenseiten sind gute Beispiele:
 
-- [`Document.getAnimations`](/de/docs/Web/API/Document/getAnimations) von der [Web Animations API](/de/docs/Web/API/Web_Animations_API).
-- [`fetch()`](/de/docs/Web/API/Window/fetch) von der [Fetch API](/de/docs/Web/API/Fetch_API).
+- [`Document.getAnimations`](/de/docs/Web/API/Document/getAnimations) aus der [Web Animations API](/de/docs/Web/API/Web_Animations_API).
+- [`fetch()`](/de/docs/Web/API/Window/fetch) aus der [Fetch API](/de/docs/Web/API/Fetch_API).
 
 ## Seitenleisten
 
-Sobald Sie Ihre API-Referenzseiten erstellt haben, möchten Sie die richtigen Seitenleisten auf ihnen einfügen, um die Seiten miteinander zu verbinden. Unser [Leitfaden zu API-Referenzseitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) erklärt, wie das geht.
+Nachdem Sie Ihre API-Referenzseiten erstellt haben, sollten Sie die passenden Seitenleisten einfügen, um die Seiten miteinander zu verknüpfen. Unser Leitfaden zu [Seitenleisten für API-Referenzen](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) erklärt, wie das geht.

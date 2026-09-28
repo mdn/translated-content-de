@@ -1,31 +1,31 @@
 ---
-title: "MediaTrackConstraints: Latenzeigenschaft"
+title: "MediaTrackConstraints: Eigenschaft latency"
 short-title: latency
 slug: Web/API/MediaTrackConstraints/latency
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`latency`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das die angeforderten oder zwingenden Einschränkungen beschreibt, die auf den Wert der [`latency`](/de/docs/Web/API/MediaTrackSettings/latency)-einschränkbaren Eigenschaft angewendet werden.
+Die Eigenschaft **`latency`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der die gewünschten oder zwingenden Einschränkungen für den Wert der einschränkbaren Eigenschaft [`latency`](/de/docs/Web/API/MediaTrackSettings/latency) beschreibt.
 
-Wenn nötig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.latency`](/de/docs/Web/API/MediaTrackSupportedConstraints/latency) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird: Rufen Sie dazu [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) auf und prüfen Sie den zurückgegebenen Wert von [`latency`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#latency). In der Regel ist dies jedoch nicht nötig, da Browser ihnen unbekannte Einschränkungen ignorieren.
 
-Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden Tracks, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft nie enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, weisen Tracks, die einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet sind, diese Eigenschaft niemals auf.
 
 ## Wert
 
-Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der den akzeptablen oder erforderlichen Wert(e) für die Latenz eines Audio-Tracks beschreibt, wobei die Werte in Sekunden angegeben werden. In der Audiobearbeitung ist die Latenz die Zeit zwischen dem Beginn der Verarbeitung (wenn ein Geräusch in der realen Welt auftritt oder von einem Hardwaregerät erzeugt wird) und den Daten, die für den nächsten Schritt im Audioeingabe- oder -ausgabeprozess verfügbar gemacht werden. In den meisten Fällen ist eine niedrige Latenz aus Leistungs- und Benutzererfahrungsgründen wünschenswert, aber wenn der Energieverbrauch ein Anliegen ist oder Verzögerungen anderweitig akzeptabel sind, könnte eine höhere Latenz akzeptabel sein.
+Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der die zulässigen oder erforderlichen Werte für die Latenz eines Audio-Tracks beschreibt. Die Werte werden in Sekunden angegeben. Bei der Audioverarbeitung bezeichnet Latenz die Zeit zwischen dem Beginn der Verarbeitung – wenn ein Geräusch in der realen Welt auftritt oder von einem Hardwaregerät erzeugt wird – und dem Zeitpunkt, zu dem die Daten für den nächsten Schritt der Audioeingabe oder -ausgabe verfügbar sind. In den meisten Fällen ist eine geringe Latenz für die Leistung und die Benutzererfahrung wünschenswert. Wenn jedoch der Stromverbrauch eine Rolle spielt oder Verzögerungen aus anderen Gründen akzeptabel sind, kann auch eine höhere Latenz vertretbar sein.
 
-Wenn der Wert dieser Eigenschaft eine Zahl ist, wird der User-Agent versuchen, Medien zu beschaffen, deren Latenz möglichst nahe an dieser Zahl liegt, basierend auf den Fähigkeiten der Hardware und den anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble) den User-Agent bei seinen Bemühungen leiten, eine exakte Übereinstimmung mit der erforderlichen Latenz zu liefern (wenn `exact` angegeben ist oder sowohl `min` als auch `max` den gleichen Wert haben) oder zu einem bestmöglichen Wert.
+Wenn der Wert dieser Eigenschaft eine Zahl ist, versucht der User Agent, unter Berücksichtigung der Hardwarefähigkeiten und der anderen angegebenen Einschränkungen Medien mit einer Latenz bereitzustellen, die möglichst nahe an dieser Zahl liegt. Andernfalls bestimmt der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), ob der User Agent eine exakte Übereinstimmung mit der geforderten Latenz anstrebt (wenn `exact` angegeben ist oder `min` und `max` angegeben sind und denselben Wert haben) oder einen möglichst gut passenden Wert.
 
 > [!NOTE]
-> Latenz ist immer anfällig für einige Variationen aufgrund von Hardware-Nutzungsanforderungen, Netzwerkeinschränkungen usw., daher sollte selbst bei einer "exakten" Übereinstimmung mit einigen Abweichungen gerechnet werden.
+> Die Latenz unterliegt aufgrund der Hardwareauslastung, der Netzwerkbedingungen und anderer Faktoren stets gewissen Schwankungen. Selbst bei einer „exakten“ Übereinstimmung sollten Sie daher mit Abweichungen rechnen.
 
 ## Beispiele
 
-Sehen Sie sich das Beispiel [Constraint-Übungsprogramm](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
+Sehen Sie sich das Beispiel zum [Ausprobieren von Einschränkungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
 
 ## Spezifikationen
 
@@ -41,5 +41,4 @@ Sehen Sie sich das Beispiel [Constraint-Übungsprogramm](/de/docs/Web/API/Media_
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

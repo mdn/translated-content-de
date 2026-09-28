@@ -1,24 +1,24 @@
 ---
-title: "MediaTrackConstraints: suppressLocalAudioPlayback-Eigenschaft"
+title: "MediaTrackConstraints: Eigenschaft suppressLocalAudioPlayback"
 short-title: suppressLocalAudioPlayback
 slug: Web/API/MediaTrackConstraints/suppressLocalAudioPlayback
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}{{SeeCompatTable}}
 
-Die **`suppressLocalAudioPlayback`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die angeforderten oder obligatorischen Beschränkungen für den Wert der [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSettings/suppressLocalAudioPlayback)-Einschränkbaren Eigenschaft beschreibt. Diese Eigenschaft steuert, ob die Audioausgabe in einem Tab weiterhin über die lokalen Lautsprecher eines Nutzers wiedergegeben wird, wenn der Tab erfasst wird.
+Die Eigenschaft **`suppressLocalAudioPlayback`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die gewünschten oder zwingenden Constraints für den Wert der konfigurierbaren Eigenschaft [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSettings/suppressLocalAudioPlayback) beschreibt. Diese Eigenschaft steuert, ob der Ton eines Tabs weiterhin über die lokalen Lautsprecher wiedergegeben wird, während der Tab erfasst wird.
 
-Falls erforderlich, können Sie bestimmen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSupportedConstraints/suppressLocalAudioPlayback) prüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser unbekannte Einschränkungen ignorieren.
+Bei Bedarf können Sie prüfen, ob dieser Constraint unterstützt wird, indem Sie den Wert von [`suppressLocalAudioPlayback`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#suppresslocalaudioplayback) auswerten, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Normalerweise ist das jedoch nicht nötig, da Browser unbekannte Constraints ignorieren.
 
 ## Wert
 
 Ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean)-Wert.
 
-Wenn dieser Wert ein einfaches `true` oder `false` ist, wird der User-Agent versuchen, Medien mit aktivierter oder deaktivierter lokaler Audiowiedergabe wie angegeben zu erhalten, falls möglich. Er wird jedoch nicht fehlschlagen, wenn dies nicht realisierbar ist.
+Wenn dieser Wert einfach `true` oder `false` ist, versucht der User Agent, Medien mit entsprechend aktivierter oder deaktivierter lokaler Audiowiedergabe abzurufen, sofern dies möglich ist. Falls das nicht möglich ist, schlägt die Anfrage jedoch nicht fehl.
 
-Wenn der Wert als `ideal` angegeben ist, zeigt der boolesche Wert dieses Feldes eine ideale Einstellung für die Unterdrückung der lokalen Audiowiedergabe an; wenn dies nicht erfüllt werden kann, führt die Anfrage zu einem Fehler.
+Wenn der Wert als `ideal` angegeben wird, legt der boolesche Wert dieses Feldes die ideale Einstellung für die Unterdrückung der lokalen Audiowiedergabe fest. Kann diese Einstellung nicht erfüllt werden, führt die Anfrage zu einem Fehler.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ let isLocalAudioSuppressed = displayStream
   .getSettings().suppressLocalAudioPlayback;
 ```
 
-Das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) zeigt, wie man Mediensporeneinschränkungen verwendet.
+Das Beispiel [Constraint-Tester](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) zeigt, wie Constraints für Medientracks verwendet werden.
 
 ## Spezifikationen
 
@@ -41,8 +41,7 @@ Das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Capabilities, constraints und settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Funktionen, Constraints und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

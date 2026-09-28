@@ -2,111 +2,113 @@
 title: Screen Capture API
 slug: Web/API/Screen_Capture_API
 l10n:
-  sourceCommit: 9b3f226141b5a609e173fd40de31b342abddcf44
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{DefaultAPISidebar("Screen Capture API")}}
 
-Die Screen Capture API fügt der bestehenden Media Capture and Streams API Funktionen hinzu, um dem Benutzer die Auswahl eines Bildschirms oder eines Teils eines Bildschirms (wie z. B. ein Fenster) zu ermöglichen, um diesen als Medienstream aufzunehmen. Dieser Stream kann dann aufgezeichnet oder mit anderen über das Netzwerk geteilt werden.
+Die Screen Capture API erweitert die bestehende Media Capture and Streams API. Sie ermöglicht es Benutzern, einen Bildschirm oder einen Teil davon (etwa ein Fenster) auszuwählen und als Medienstream zu erfassen. Dieser Stream kann anschließend aufgezeichnet oder über das Netzwerk mit anderen geteilt werden.
 
-## Konzepte und Nutzung der Screen Capture API
+## Konzepte und Verwendung der Screen Capture API
 
-Die Screen Capture API ist relativ einfach zu verwenden. Ihre Hauptmethode ist [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia), die den Benutzer auffordert, einen Bildschirm oder einen Bildschirmbereich auszuwählen, um ihn in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream) aufzunehmen.
+Die Screen Capture API ist relativ einfach zu verwenden. Ihre wichtigste Methode ist [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia). Sie fordert den Benutzer auf, einen Bildschirm oder einen Teil davon auszuwählen, der als [`MediaStream`](/de/docs/Web/API/MediaStream) erfasst werden soll.
 
-Um mit der Aufnahme von Videos vom Bildschirm zu beginnen, rufen Sie `getDisplayMedia()` auf `navigator.mediaDevices` auf:
+Um die Videoerfassung des Bildschirms zu starten, rufen Sie `getDisplayMedia()` auf `navigator.mediaDevices` auf:
 
 ```js
 captureStream =
   await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
 ```
 
-Das von `getDisplayMedia()` zurückgegebene {{jsxref("Promise")}} wird mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst, der die aufgenommene Bildschirmoberfläche streamt.
+Das von `getDisplayMedia()` zurückgegebene {{jsxref("Promise")}} wird mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) erfüllt, der die erfasste Anzeigefläche streamt.
 
-Sehen Sie sich den Artikel [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture) für einen detaillierteren Einblick in die Verwendung der API zur Aufnahme von Bildschirm-Inhalten als Stream an.
+Eine ausführlichere Beschreibung, wie Sie mit der API Bildschirminhalte als Stream erfassen, finden Sie im Artikel [Die Screen Capture API verwenden](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture).
 
-### Screen Capture Erweiterungen
+### Erweiterungen für die Bildschirmerfassung
 
-Die Screen Capture API verfügt über zusätzliche Funktionen, die ihre Fähigkeiten erweitern:
+Die Screen Capture API bietet zusätzliche Funktionen, die ihre Möglichkeiten erweitern:
 
-#### Begrenzung des aufgenommenen Bildschirmbereichs im Stream
+#### Den im Stream erfassten Bildschirmbereich begrenzen
 
-- Die **Element Capture API** beschränkt den aufgenommenen Bereich auf ein bestimmtes gerendertes DOM-Element und dessen Nachkommen.
-- Die **Region Capture API** schneidet den aufgenommenen Bereich auf den Bildschirmbereich zu, in dem ein bestimmtes DOM-Element gerendert wird.
+- Die **Element Capture API** beschränkt den erfassten Bereich auf ein bestimmtes gerendertes DOM-Element und dessen Nachfahren.
+- Die **Region Capture API** schneidet den erfassten Bereich auf den Bildschirmbereich zu, in dem ein bestimmtes DOM-Element gerendert wird.
 
-Siehe [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) um mehr zu erfahren.
+Weitere Informationen finden Sie unter [Die Element Capture API und die Region Capture API verwenden](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture).
 
-#### Steuerung des aufgenommenen Bildschirmbereichs
+#### Den erfassten Bildschirmbereich steuern
 
-Die **Captured Surface Control API** ermöglicht es der Aufnahmeanwendung, eingeschränkte Kontrolle über die aufgenommene Bildschirmoberfläche bereitzustellen, zum Beispiel das Zoomen und Scrollen ihrer Inhalte.
+Die **Captured Surface Control API** ermöglicht es der erfassenden Anwendung, die erfasste Anzeigefläche in begrenztem Umfang zu steuern, beispielsweise deren Inhalt zu zoomen und zu scrollen.
 
-Siehe [Verwendung der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control) um mehr zu erfahren.
+Weitere Informationen finden Sie unter [Die Captured Surface Control API verwenden](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control).
 
 ## Schnittstellen
 
 - [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)
-  - : Repräsentiert eine einzelne Video-Spur; erweitert die [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Klasse mit Methoden zur Begrenzung des Teils eines Selbst-Aufnahmestreams (zum Beispiel des Bildschirms oder Fensters eines Benutzers), der aufgenommen wird.
+  - : Repräsentiert eine einzelne Videospur; erweitert die Klasse [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) um Methoden, mit denen sich der erfasste Teil eines Streams zur Selbsterfassung (beispielsweise des Bildschirms oder Fensters eines Benutzers) begrenzen lässt.
 - [`CaptureController`](/de/docs/Web/API/CaptureController)
-  - : Bietet Methoden, die verwendet werden können, um eine aufgenommene Bildschirmoberfläche (aufgenommen über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)) weiter zu manipulieren. Ein `CaptureController`-Objekt wird durch Übergeben an einen `getDisplayMedia()`-Aufruf als Wert der `controller`-Eigenschaft des Optionsobjekts mit einer aufgenommenen Bildschirmoberfläche verknüpft.
+  - : Stellt Methoden bereit, mit denen sich eine erfasste Anzeigefläche (erfasst über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)) weiter beeinflussen lässt. Ein `CaptureController`-Objekt wird einer erfassten Anzeigefläche zugeordnet, indem es bei einem Aufruf von `getDisplayMedia()` als Wert der Eigenschaft `controller` des Optionsobjekts übergeben wird.
 - [`CropTarget`](/de/docs/Web/API/CropTarget)
-  - : Bietet eine statische Methode, [`fromElement()`](/de/docs/Web/API/CropTarget/fromElement_static), die eine [`CropTarget`](/de/docs/Web/API/CropTarget)-Instanz zurückgibt, die verwendet werden kann, um eine aufgenommene Videospur auf den Bereich zuzuschneiden, in dem ein bestimmtes Element gerendert wird.
+  - : Stellt die statische Methode [`fromElement()`](/de/docs/Web/API/CropTarget/fromElement_static) bereit. Sie gibt eine [`CropTarget`](/de/docs/Web/API/CropTarget)-Instanz zurück, mit der eine erfasste Videospur auf den Bereich zugeschnitten werden kann, in dem ein bestimmtes Element gerendert wird.
 - [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)
-  - : Bietet eine statische Methode, [`fromElement()`](/de/docs/Web/API/RestrictionTarget/fromElement_static), die eine [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Instanz zurückgibt, die verwendet werden kann, um eine aufgenommene Videospur auf ein angegebenes DOM-Element zu beschränken.
+  - : Stellt die statische Methode [`fromElement()`](/de/docs/Web/API/RestrictionTarget/fromElement_static) bereit. Sie gibt eine [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Instanz zurück, mit der eine erfasste Videospur auf ein bestimmtes DOM-Element beschränkt werden kann.
 
 ## Ergänzungen zur MediaDevices-Schnittstelle
 
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-  - : Die `getDisplayMedia()`-Methode wird zur `MediaDevices`-Schnittstelle hinzugefügt. Ähnlich wie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt diese Methode ein Versprechen, das mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst wird, der den vom Benutzer ausgewählten Bildschirmbereich in einem Format enthält, das den angegebenen Optionen entspricht.
+  - : Die Methode `getDisplayMedia()` wird der Schnittstelle `MediaDevices` hinzugefügt. Ähnlich wie [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt diese Methode ein Promise, das mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) erfüllt wird. Dieser enthält den vom Benutzer ausgewählten Anzeigebereich in einem Format, das den angegebenen Optionen entspricht.
 
-## Ergänzungen zu bestehenden Wörterbüchern
+## Ergänzungen zu bestehenden Dictionaries
 
-Die Screen Capture API fügt den folgenden, von anderen Spezifikationen definierten, Wörterbüchern Eigenschaften hinzu.
+Die Screen Capture API ergänzt die folgenden, in anderen Spezifikationen definierten Dictionaries um Eigenschaften.
 
 ### MediaTrackConstraints
 
 - [`MediaTrackConstraints.displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)
-  - : Ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das angibt, welcher Typ von Bildschirmoberfläche aufgenommen werden soll. Der Wert ist einer von `browser`, `monitor` oder `window`.
+  - : Ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), der angibt, welcher Typ von Anzeigefläche erfasst werden soll. Der Wert ist entweder `browser`, `monitor` oder `window`.
 - [`MediaTrackConstraints.logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface)
-  - : Gibt an, ob das Video im Stream eine logische Bildschirmoberfläche darstellt (das heißt, eine, die möglicherweise nicht vollständig sichtbar ist oder sich vollständig außerhalb des Bildschirms befindet). Ein Wert von `true` bedeutet, dass eine logische Bildschirmoberfläche aufgenommen werden soll.
+  - : Gibt an, ob das Video im Stream eine logische Anzeigefläche darstellt (also eine Anzeigefläche, die möglicherweise nicht vollständig auf dem Bildschirm sichtbar ist oder sich vollständig außerhalb des sichtbaren Bildschirmbereichs befindet). Der Wert `true` gibt an, dass eine logische Anzeigefläche erfasst werden soll.
 - [`MediaTrackConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback)
-  - : Steuert, ob der Ton in einem Tabulator weiterhin über die lokalen Lautsprecher eines Benutzers abgespielt wird, wenn der Tabulator aufgenommen wird, oder ob er unterdrückt wird. Ein Wert von `true` bedeutet, dass er unterdrückt wird.
+  - : Steuert, ob die Audiowiedergabe eines Tabs bei dessen Erfassung weiterhin über die lokalen Lautsprecher des Benutzers erfolgt oder unterdrückt wird. Der Wert `true` gibt an, dass sie unterdrückt wird.
 
 ### MediaTrackSettings
 
 - [`MediaTrackSettings.cursor`](/de/docs/Web/API/MediaTrackSettings/cursor)
-  - : Ein String, der angibt, ob die gerade aufgenommene Bildschirmoberfläche den Mauszeiger einschließt und, falls ja, ob er nur sichtbar ist, während die Maus in Bewegung ist, oder ob er immer sichtbar ist. Der Wert ist einer von `always`, `motion` oder `never`.
+  - : Eine Zeichenfolge, die angibt, ob die derzeit erfasste Anzeigefläche den Mauszeiger enthält und, falls ja, ob dieser nur bei Bewegung der Maus oder immer sichtbar ist. Der Wert ist entweder `always`, `motion` oder `never`.
 - [`MediaTrackSettings.displaySurface`](/de/docs/Web/API/MediaTrackSettings/displaySurface)
-  - : Ein String, der angibt, welcher Typ von Bildschirmoberfläche derzeit aufgenommen wird. Der Wert ist einer von `browser`, `monitor` oder `window`.
+  - : Eine Zeichenfolge, die angibt, welcher Typ von Anzeigefläche derzeit erfasst wird. Der Wert ist entweder `browser`, `monitor` oder `window`.
 - [`MediaTrackSettings.logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface)
-  - : Ein boolescher Wert, der `true` ist, wenn das aufgenommene Video nicht direkt einer einzigen Bildschirmfläche entspricht.
+  - : Ein boolescher Wert, der `true` ist, wenn das erfasste Video nicht unmittelbar einem einzelnen sichtbaren Anzeigebereich auf dem Bildschirm entspricht.
 - [`MediaTrackSettings.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSettings/suppressLocalAudioPlayback)
-  - : Ein boolescher Wert, der `true` ist, wenn die aufgenommene Audioausgabe nicht über die lokalen Lautsprecher des Benutzers abgespielt wird.
+  - : Ein boolescher Wert, der `true` ist, wenn das erfasste Audio nicht über die lokalen Lautsprecher des Benutzers wiedergegeben wird.
 - [`MediaTrackSettings.screenPixelRatio`](/de/docs/Web/API/MediaTrackSettings/screenPixelRatio)
-  - : Eine Zahl, die das Verhältnis der physischen Größe eines Pixels auf der aufgenommenen Bildschirmoberfläche (angezeigt in ihrer physischen Auflösung) zur logischen Größe eines CSS-Pixels auf dem aufzeichnenden Bildschirm (angezeigt in ihrer logischen Auflösung) darstellt. Sie kann nicht als Einschränkung oder Fähigkeit verwendet werden.
+  - : Eine Zahl, die das Verhältnis zwischen der physischen Größe eines Pixels auf der erfassten Anzeigefläche (bei ihrer physischen Auflösung) und der logischen Größe eines CSS-Pixels auf dem erfassenden Bildschirm (bei seiner logischen Auflösung) darstellt. Sie kann weder als Constraint noch als Capability verwendet werden.
 
-### MediaTrackSupportedConstraints
+### MediaDevices.getSupportedConstraints()
 
-- [`MediaTrackSupportedConstraints.displaySurface`](/de/docs/Web/API/MediaTrackSupportedConstraints/displaySurface)
-  - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung die Einschränkung [`MediaTrackConstraints.displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface) unterstützt.
-- [`MediaTrackSupportedConstraints.logicalSurface`](/de/docs/Web/API/MediaTrackSupportedConstraints/logicalSurface)
-  - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung die Einschränkung [`MediaTrackConstraints.logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface) unterstützt.
-- [`MediaTrackSupportedConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackSupportedConstraints/suppressLocalAudioPlayback)
-  - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung die Einschränkung [`MediaTrackConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback) unterstützt.
+Das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebene Objekt enthält drei zusätzliche Eigenschaften.
 
-## Sicherheitsüberlegungen
+- `displaySurface`
+  - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung den Constraint [`MediaTrackConstraints.displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface) unterstützt.
+- `logicalSurface`
+  - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung den Constraint [`MediaTrackConstraints.logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface) unterstützt.
+- `suppressLocalAudioPlayback`
+  - : Ein boolescher Wert, der `true` ist, wenn die aktuelle Umgebung den Constraint [`MediaTrackConstraints.suppressLocalAudioPlayback`](/de/docs/Web/API/MediaTrackConstraints/suppressLocalAudioPlayback) unterstützt.
 
-Websites, die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) (entweder mit dem HTTP {{HTTPHeader("Permissions-Policy")}} Header oder dem {{HTMLElement("iframe")}} Attribut [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow)) unterstützen, können den Wunsch angeben, die Screen Capture API mit der Direktive {{HTTPHeader("Permissions-Policy/display-capture", "display-capture")}} zu verwenden:
+## Sicherheitsaspekte
+
+Websites, die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) unterstützen (entweder über den HTTP-Header {{HTTPHeader("Permissions-Policy")}} oder über das Attribut [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow) des Elements {{HTMLElement("iframe")}}), können mit der Direktive {{HTTPHeader("Permissions-Policy/display-capture", "display-capture")}} angeben, dass sie die Screen Capture API verwenden möchten:
 
 ```html
 <iframe allow="display-capture" src="/some-other-document.html">…</iframe>
 ```
 
-Eine Seite kann auch den Wunsch angeben, die [Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control) über die Direktive {{HTTPHeader("Permissions-Policy/captured-surface-control", "captured-surface-control")}} zu verwenden. Insbesondere werden die Methoden [`forwardWheel()`](/de/docs/Web/API/CaptureController/forwardWheel), [`increaseZoomLevel()`](/de/docs/Web/API/CaptureController/increaseZoomLevel), [`decreaseZoomLevel()`](/de/docs/Web/API/CaptureController/decreaseZoomLevel) und [`resetZoomLevel()`](/de/docs/Web/API/CaptureController/resetZoomLevel) von dieser Direktive kontrolliert.
+Eine Website kann über die Direktive {{HTTPHeader("Permissions-Policy/captured-surface-control", "captured-surface-control")}} auch angeben, dass sie die [Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control) verwenden möchte. Insbesondere werden die Methoden [`forwardWheel()`](/de/docs/Web/API/CaptureController/forwardWheel), [`increaseZoomLevel()`](/de/docs/Web/API/CaptureController/increaseZoomLevel), [`decreaseZoomLevel()`](/de/docs/Web/API/CaptureController/decreaseZoomLevel) und [`resetZoomLevel()`](/de/docs/Web/API/CaptureController/resetZoomLevel) durch diese Direktive gesteuert.
 
-Die Standardeinstellungen für beide Direktiven ist `self`, was bedeutet, dass alle Inhalte innerhalb desselben Ursprungs die Screen Capture verwenden können.
+Die Standard-Zulassungsliste für beide Direktiven ist `self`. Damit darf jeder Inhalt desselben Ursprungs die Screen Capture API verwenden.
 
-Diese Methoden werden als _leistungsstarke Funktionen_ betrachtet, was bedeutet, dass selbst wenn die Berechtigung über eine `Permissions-Policy` zugelassen wird, der Benutzer immer noch um Erlaubnis gebeten wird, sie zu verwenden. Die [Permissions API](/de/docs/Web/API/Permissions_API) kann verwendet werden, um die aggregierte Berechtigung (sowohl von der Website als auch vom Benutzer) zur Nutzung der aufgelisteten Funktionen abzufragen.
+Diese Methoden gelten als _leistungsfähige Funktionen_. Das bedeutet, dass der Benutzer auch dann um Erlaubnis für ihre Verwendung gebeten wird, wenn sie über eine `Permissions-Policy` zugelassen sind. Mit der [Permissions API](/de/docs/Web/API/Permissions_API) lässt sich die zusammengefasste Berechtigung (von der Website und vom Benutzer) zur Verwendung der genannten Funktionen abfragen.
 
-Darüber hinaus erfordert die Spezifikation, dass der Benutzer kürzlich mit der Seite interagiert hat, um diese Funktionen zu nutzen — dies bedeutet, dass eine {{Glossary("Transient_activation", "transiente Aktivierung")}} erforderlich ist. Weitere Details finden Sie auf den einzelnen Methoden-Seiten.
+Darüber hinaus verlangt die Spezifikation, dass der Benutzer kürzlich mit der Seite interagiert hat, um diese Funktionen zu verwenden – es ist also eine {{Glossary("Transient_activation", "vorübergehende Aktivierung")}} erforderlich. Weitere Einzelheiten finden Sie auf den Seiten der jeweiligen Methoden.
 
 ## Spezifikationen
 
@@ -118,7 +120,7 @@ Darüber hinaus erfordert die Spezifikation, dass der Benutzer kürzlich mit der
 
 ## Siehe auch
 
-- [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
-- [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
-- [Verwendung der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control)
+- [Die Screen Capture API verwenden](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
+- [Die Element Capture API und die Region Capture API verwenden](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
+- [Die Captured Surface Control API verwenden](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)

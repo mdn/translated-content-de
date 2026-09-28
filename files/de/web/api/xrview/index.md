@@ -2,56 +2,56 @@
 title: XRView
 slug: Web/API/XRView
 l10n:
-  sourceCommit: 15e12ff9faca3923ffb811d601ab589f4b2918e0
+  sourceCommit: 06a96ca44a86fef907996bb01ecf72cc0f1a36d0
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Das **`XRView`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) beschreibt eine einzelne Ansicht in die XR-Szene für einen bestimmten Frame und liefert Orientierungs- und Positionsinformationen für den Blickpunkt. Sie können es sich als eine Beschreibung eines spezifischen Auges oder einer Kamera vorstellen und wie diese die Welt sieht. Ein 3D-Frame beinhaltet zwei Ansichten, eine für jedes Auge, getrennt durch einen angemessenen Abstand, der dem Abstand zwischen den Augen des Betrachters näherungsweise entspricht. Dies ermöglicht es den beiden Ansichten, wenn sie isoliert in die entsprechenden Augen projiziert werden, eine 3D-Welt zu simulieren.
+Die Schnittstelle **`XRView`** der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) beschreibt eine einzelne Ansicht der XR-Szene für einen bestimmten Frame und stellt Informationen zur Ausrichtung und Position des Blickpunkts bereit. Sie können sie sich als Beschreibung eines bestimmten Auges oder einer Kamera und ihrer Sicht auf die Welt vorstellen. Ein 3D-Frame umfasst zwei Ansichten, eine für jedes Auge. Sie sind durch einen Abstand voneinander getrennt, der ungefähr dem Augenabstand der betrachtenden Person entspricht. Werden die beiden Ansichten jeweils dem entsprechenden Auge angezeigt, können sie so eine 3D-Welt simulieren.
 
 ## Instanzeigenschaften
 
 - [`eye`](/de/docs/Web/API/XRView/eye) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Welches der beiden Augen (`left`) oder (`right`) diese `XRView`-Perspektive darstellt. Dieser Wert wird verwendet, um sicherzustellen, dass jeder Inhalt, der vorab gerendert ist, für die Darstellung in einem bestimmten Auge korrekt verteilt oder positioniert wird. Der Wert kann auch `none` sein, wenn die `XRView` monokulare Daten präsentiert (wie z.B. ein 2D-Bild, eine Vollbildansicht von Text oder eine Nahansicht von etwas, das nicht in 3D erscheinen muss).
+  - : Gibt an, für welches der beiden Augen (`left` oder `right`) dieses `XRView` die Perspektive darstellt. Dieser Wert stellt sicher, dass Inhalte, die für die Anzeige auf einem bestimmten Auge vorgerendert wurden, korrekt zugewiesen oder positioniert werden. Der Wert kann auch `none` sein, wenn das `XRView` monokulare Daten darstellt, etwa ein 2D-Bild, eine Vollbildansicht von Text oder eine Nahaufnahme von etwas, das nicht dreidimensional erscheinen muss.
 - [`isFirstPersonObserver`](/de/docs/Web/API/XRView/isFirstPersonObserver) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob die `XRView` eine First-Person-Observer-Ansicht ist.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das `XRView` eine Beobachteransicht aus der Ich-Perspektive ist.
 - [`index`](/de/docs/Web/API/XRView/index) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Zahl zurück, die den Index der aktuellen `XRView` im [`XRViewerPose.views`](/de/docs/Web/API/XRViewerPose/views)-Array angibt.
+  - : Gibt eine Zahl zurück, die den Index des aktuellen `XRView` im Array [`XRViewerPose.views`](/de/docs/Web/API/XRViewerPose/views) angibt.
 - [`projectionMatrix`](/de/docs/Web/API/XRView/projectionMatrix) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die Projektionsmatrix, die die Szene so transformiert, dass sie korrekt erscheint, basierend auf dem durch `eye` angegebenen Blickpunkt. Diese Matrix sollte direkt verwendet werden, um Präsentationsverzerrungen zu vermeiden, die potenziell ernste Benutzerbeschwerden verursachen können.
+  - : Die Projektionsmatrix, die die Szene so transformiert, dass sie aus dem durch `eye` angegebenen Blickwinkel korrekt erscheint. Diese Matrix sollte direkt verwendet werden, um Darstellungsverzerrungen zu vermeiden, die bei Benutzern zu erheblichem Unwohlsein führen können.
 - [`recommendedViewportScale`](/de/docs/Web/API/XRView/recommendedViewportScale) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Der empfohlene Viewport-Skalenwert, den Sie für `requestViewportScale()` verwenden können, falls der User-Agent eine solche Empfehlung hat; andernfalls [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+  - : Der empfohlene Skalierungswert für den Viewport, den Sie für `requestViewportScale()` verwenden können, sofern der User Agent eine entsprechende Empfehlung hat; andernfalls [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 - [`transform`](/de/docs/Web/API/XRView/transform) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), der die aktuelle Position und Orientierung des Blickpunkts in Bezug auf den angegebenen [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) beschreibt, als [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) auf dem zu rendernden [`XRFrame`](/de/docs/Web/API/XRFrame) aufgerufen wurde.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das die aktuelle Position und Ausrichtung des Blickpunkts relativ zu dem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) beschreibt, das beim Aufruf von [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) auf dem gerenderten [`XRFrame`](/de/docs/Web/API/XRFrame) angegeben wurde.
 
 ## Instanzmethoden
 
-- [`requestViewportScale()`](/de/docs/Web/API/XRView/requestViewportScale) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Fordert, dass der User-Agent die angeforderte Viewport-Skala für diesen Viewport auf den angeforderten Wert setzen soll.
+- [`requestViewportScale()`](/de/docs/Web/API/XRView/requestViewportScale) {{Experimental_Inline}}
+  - : Fordert den User Agent auf, die Viewport-Skalierung für diesen Viewport auf den angeforderten Wert zu setzen.
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 ### Positionen und Anzahl der XRViews pro Frame
 
-Beim Rendern einer Szene wird die Menge der Ansichten, die zur Darstellung der Szene für den Betrachter als aktueller Frame verwendet werden, durch Aufrufen der Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) des [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekts erhalten, um die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zu erhalten, die (im Wesentlichen) die Position des Kopfes des Betrachters darstellt. Die [`views`](/de/docs/Web/API/XRViewerPose/views)-Eigenschaft dieses Objekts ist eine Liste aller `XRView`-Objekte, die die Blickpunkte darstellen, die verwendet werden können, um die Szene für die Präsentation dem Benutzer gegenüber zu konstruieren.
+Beim Rendern einer Szene erhalten Sie die Ansichten, die für den aktuellen Frame zur Darstellung der Szene verwendet werden, indem Sie die Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) des [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekts aufrufen. Sie liefert das [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), das im Wesentlichen die Position des Kopfes der betrachtenden Person repräsentiert. Die Eigenschaft [`views`](/de/docs/Web/API/XRViewerPose/views) dieses Objekts enthält eine Liste aller `XRView`-Objekte, deren Blickpunkte zur Erstellung der Szene für die Anzeige verwendet werden können.
 
-Es ist möglich, `XRView`-Objekte zu haben, die sich überlappende Bereiche darstellen sowie völlig verschiedene Bereiche; in einem Spiel könnten Sie Ansichten haben, die präsentiert werden können, um einen entfernten Ort mit einer Überwachungskamera oder einem anderen Gerät zu beobachten. Mit anderen Worten: Gehen Sie nicht davon aus, dass es genau zwei Ansichten für einen bestimmten Betrachter gibt; es kann so wenige wie eine geben (z.B. wenn die Szene im `inline`-Modus gerendert wird), und möglicherweise viele (besonders wenn das Sichtfeld sehr groß ist). Es könnte auch Ansichten geben, die Beobachter zeigen, die die Handlung verfolgen, oder andere Sichtpunkte, die nicht direkt mit dem Auge des Spielers verbunden sind.
+`XRView`-Objekte können sowohl überlappende als auch vollständig getrennte Bereiche darstellen. In einem Spiel könnte es beispielsweise Ansichten geben, über die sich ein entfernter Ort mithilfe einer Überwachungskamera oder eines anderen Geräts beobachten lässt. Gehen Sie daher nicht davon aus, dass es für eine betrachtende Person immer genau zwei Ansichten gibt. Es kann nur eine Ansicht geben, etwa wenn die Szene im Modus `inline` gerendert wird, oder möglicherweise viele Ansichten, insbesondere bei einem sehr großen Sichtfeld. Es kann auch Ansichten für Personen geben, die das Geschehen beobachten, oder andere Blickpunkte, die keinem Auge einer spielenden Person direkt zugeordnet sind.
 
-Darüber hinaus kann sich die Anzahl der Ansichten jederzeit ändern, abhängig von den aktuellen Bedürfnissen. Daher sollten Sie die Ansichtsliste jedes Mal verarbeiten, ohne Annahmen basierend auf vorherigen Frames zu treffen.
+Außerdem kann sich die Anzahl der Ansichten je nach aktuellen Anforderungen jederzeit ändern. Verarbeiten Sie die Liste der Ansichten daher bei jedem Frame neu, ohne Annahmen aus vorherigen Frames zu übernehmen.
 
-Alle Positionen und Orientierungen innerhalb der Ansichten für eine gegebene [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) sind im Referenzraum angegeben, der an [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) übergeben wurde; dies wird als **Viewer-Referenzraum** bezeichnet. Die [`transform`](/de/docs/Web/API/XRView/transform)-Eigenschaft beschreibt die Position und Orientierung des Auges oder der Kamera, die durch die `XRView` dargestellt wird, angegeben in diesem Referenzraum.
+Alle Positionen und Ausrichtungen innerhalb der Ansichten für ein bestimmtes [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) werden in dem Referenzraum angegeben, der an [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) übergeben wurde. Dieser wird als **Betrachterreferenzraum** bezeichnet. Die Eigenschaft [`transform`](/de/docs/Web/API/XRView/transform) beschreibt in diesem Referenzraum die Position und Ausrichtung des Auges oder der Kamera, die das `XRView` darstellt.
 
 ### Die Ziel-Rendering-Ebene
 
-Um einen Frame zu rendern, durchlaufen Sie die Ansichten des `XRViewerPose` und rendern jede von ihnen in den entsprechenden Viewport innerhalb der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) des Frames. Derzeit ist die Spezifikation (und daher alle aktuellen Implementierungen von WebXR) darauf ausgelegt, jede `XRView` in eine einzelne `XRWebGLLayer` zu rendern, die dann auf dem XR-Gerät dargestellt wird, wobei die Hälfte für das linke Auge und die Hälfte für das rechte Auge verwendet wird. Das [`XRViewport`](/de/docs/Web/API/XRViewport) für jede Ansicht wird verwendet, um das Rendering in der richtigen Hälfte der Ebene zu positionieren.
+Um einen Frame zu rendern, durchlaufen Sie die Ansichten des `XRViewerPose` und rendern jede davon in den entsprechenden Viewport innerhalb des [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) des Frames. Derzeit sind die Spezifikation und damit alle aktuellen WebXR-Implementierungen darauf ausgelegt, jedes `XRView` in ein einziges `XRWebGLLayer` zu rendern. Dieses wird anschließend auf dem XR-Gerät angezeigt, wobei eine Hälfte für das linke und die andere für das rechte Auge verwendet wird. Der [`XRViewport`](/de/docs/Web/API/XRViewport) der jeweiligen Ansicht dient dazu, das Rendering in der richtigen Hälfte der Ebene zu positionieren.
 
-Falls es in Zukunft möglich wird, dass jede Ansicht in eine andere Ebene gerendert wird, müssten Änderungen an der API vorgenommen werden, daher ist es vorerst sicher anzunehmen, dass alle Ansichten in dieselbe Ebene gerendert werden.
+Sollte es künftig möglich werden, jede Ansicht in eine andere Ebene zu rendern, wären Änderungen an der API erforderlich. Bis dahin können Sie davon ausgehen, dass alle Ansichten in dieselbe Ebene gerendert werden.
 
 ## Beispiele
 
-### Vorbereitung für das Rendern jeder Ansicht für eine Pose
+### Vorbereitung des Renderings aller Ansichten einer Pose
 
-Um alles zu zeichnen, was der Benutzer sieht, muss in jedem Frame die Liste der Ansichten durchlaufen werden, die von der [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objektliste [`views`](/de/docs/Web/API/XRViewerPose/views) zurückgegeben wird:
+Um alles darzustellen, was die benutzende Person sieht, müssen Sie für jeden Frame die Ansichten in der von der Eigenschaft [`views`](/de/docs/Web/API/XRViewerPose/views) des [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objekts zurückgegebenen Liste durchlaufen:
 
 ```js
 for (const view of pose.views) {
@@ -64,30 +64,30 @@ for (const view of pose.views) {
 }
 ```
 
-### Spezielle Ansichten-Transformationen
+### Spezielle Ansichtstransformationen
 
-Es gibt einige spezielle Transformationen, die auf die Ansicht angewendet werden, während eine Szene gerendert und beleuchtet wird.
+Beim Rendern und Beleuchten einer Szene werden einige spezielle Transformationen auf die Ansicht angewendet.
 
-#### Modell-View-Matrix
+#### Modellansichtsmatrix
 
-Die **Modell-View-Matrix** ist eine Matrix, die die Position eines Objekts relativ zu dem Raum definiert, in dem es sich befindet: Wenn `objectMatrix` eine auf das Objekt angewendete Transformation ist, um dessen grundlegende Position und Rotation bereitzustellen, dann kann die Modell-View-Matrix berechnet werden, indem die Matrix des Objekts mit der Inversen der Transformationsmatrix der Ansicht multipliziert wird, wie folgt:
+Die **Modellansichtsmatrix** definiert die Position eines Objekts relativ zu dem Raum, in dem es sich befindet. Wenn `objectMatrix` eine auf das Objekt angewendete Transformation ist, die seine Ausgangsposition und -drehung festlegt, lässt sich die Modellansichtsmatrix berechnen, indem die Matrix des Objekts mit der Inversen der Ansichtstransformationsmatrix multipliziert wird:
 
 ```js
 mat4.multiply(modelViewMatrix, view.transform.inverse.matrix, objectMatrix);
 ```
 
-#### Normal-Matrix
+#### Normalenmatrix
 
-Die **Normal-Matrix** der Modell-View-Matrix wird verwendet, wenn die Szene beleuchtet wird, um die Normalenvektoren jeder Oberfläche zu transformieren und sicherzustellen, dass das Licht in die richtige Richtung reflektiert wird, gegeben die Orientierung und Position der Oberfläche relativ zur Lichtquelle(n). Sie wird durch Invertieren und dann Transponieren der Modell-View-Matrix berechnet:
+Die **Normalenmatrix** der Modellansicht wird bei der Beleuchtung der Szene verwendet. Sie transformiert die Normalenvektoren der Oberflächen, damit das Licht entsprechend der Ausrichtung und Position der jeweiligen Oberfläche relativ zu den Lichtquellen in die richtige Richtung reflektiert wird. Sie wird berechnet, indem die Modellansichtsmatrix invertiert und anschließend transponiert wird:
 
 ```js
 mat4.invert(normalMatrix, modelViewMatrix);
 mat4.transpose(normalMatrix, normalMatrix);
 ```
 
-### Teleportieren eines Objekts
+### Ein Objekt teleportieren
 
-Um ein Objekt programmatisch zu bewegen und/oder zu drehen (oft als **teleportieren** bezeichnet), müssen Sie einen neuen Referenzraum für dieses Objekt erstellen, der eine Transformation anwendet, die die gewünschten Änderungen beinhaltet. Die Funktion `createTeleportTransform()` gibt die Transformation zurück, die benötigt wird, um ein Objekt, dessen aktuelle Situation durch den Referenzraum `refSpace` beschrieben ist, in eine neue Position und Orientierung zu bewegen und zu drehen, die unter Verwendung zuvor aufgezeichneter Maus- und Tastatureingabedaten berechnet wird, die Versetzungen für Gieren, Neigen und Position entlang aller drei Achsen generiert haben.
+Um ein Objekt programmgesteuert zu verschieben und/oder zu drehen (oft als **Teleportieren** bezeichnet), müssen Sie für dieses Objekt einen neuen Referenzraum erstellen, der eine Transformation mit den gewünschten Änderungen anwendet. Die Funktion `createTeleportTransform()` gibt die Transformation zurück, die erforderlich ist, um ein Objekt, dessen aktuelle Lage durch den Referenzraum `refSpace` beschrieben wird, an eine neue Position und in eine neue Ausrichtung zu bringen. Diese werden aus zuvor erfassten Maus- und Tastatureingaben berechnet, aus denen sich Verschiebungen für Gier- und Nickwinkel sowie für die Position entlang aller drei Achsen ergeben haben.
 
 ```js
 function applyMouseMovement(refSpace) {
@@ -136,17 +136,17 @@ function applyMouseMovement(refSpace) {
 }
 ```
 
-Dieser Code ist in vier Abschnitte unterteilt. Im ersten wird das Quaternion `inverseOrientation` berechnet. Dies stellt die Drehung des Objektes dar, gemäß den Werten von `mousePitch` (Drehung um die X-Achse des Objekts im Referenzraum) und `mouseYaw` (Drehung um die Y-Achse des Objekts).
+Dieser Code ist in vier Abschnitte unterteilt. Im ersten wird das Quaternion `inverseOrientation` berechnet. Es stellt die Drehung des Objekts anhand der Werte von `mousePitch` (Drehung um die X-Achse des Referenzraums des Objekts) und `mouseYaw` (Drehung um die Y-Achse des Objekts) dar.
 
-Der zweite Abschnitt berechnet den "oben"-Vektor für das Objekt. Dieser Vektor gibt die Richtung an, die in der Szene insgesamt "oben" ist, jedoch im Referenzraum des Objekts.
+Im zweiten Abschnitt wird der „Oben“-Vektor für das Objekt berechnet. Dieser Vektor gibt an, welche Richtung in der gesamten Szene „oben“ ist, ausgedrückt im Referenzraum des Objekts.
 
-Der dritte Abschnitt erstellt den neuen [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), wobei ein Punkt, der die Versetzungen entlang der drei Achsen bereitstellt, als erster Parameter und das Orientierungs-Quaternion als zweiter Parameter angegeben werden. Die [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix)-Eigenschaft des zurückgegebenen Objekts ist die tatsächliche Matrix, die Punkte vom Referenzraum der Szene in die neue Position des Objekts transformiert.
+Im dritten Abschnitt wird ein neues [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) erstellt. Als erster Parameter wird ein Punkt angegeben, der die Verschiebungen entlang der drei Achsen beschreibt, und als zweiter Parameter das Ausrichtungsquaternion. Die Eigenschaft [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) des zurückgegebenen Objekts ist die eigentliche Matrix, die Punkte aus dem Referenzraum der Szene an die neue Position des Objekts transformiert.
 
-Schließlich wird ein neuer Referenzraum erstellt, um die Beziehung zwischen den beiden Referenzräumen vollständig zu beschreiben. Dieser Referenzraum wird an den Aufrufer zurückgegeben.
+Abschließend wird ein neuer Referenzraum erstellt, der die Beziehung zwischen den beiden Referenzräumen vollständig beschreibt. Dieser Referenzraum wird an die aufrufende Stelle zurückgegeben.
 
-Um diese Funktion zu verwenden, übergeben wir den zurückgegebenen Referenzraum an [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) oder [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose), je nachdem, was benötigt wird. Die zurückgegebene [`XRPose`](/de/docs/Web/API/XRPose) wird dann verwendet, um die Szene für den aktuellen Frame zu rendern.
+Um diese Funktion zu verwenden, übergeben Sie den zurückgegebenen Referenzraum je nach Bedarf an [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) oder [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose). Das zurückgegebene [`XRPose`](/de/docs/Web/API/XRPose) wird anschließend verwendet, um die Szene für den aktuellen Frame zu rendern.
 
-Ein umfangreicheres und vollständigeres Beispiel finden Sie in unserem Artikel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion).
+Ein ausführlicheres und vollständiges Beispiel finden Sie in unserem Artikel [Bewegung, Ausrichtung und Fortbewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion).
 
 ## Spezifikationen
 

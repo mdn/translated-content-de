@@ -1,31 +1,31 @@
 ---
-title: "MediaTrackConstraints: restrictOwnAudio-Eigenschaft"
+title: "MediaTrackConstraints: Eigenschaft restrictOwnAudio"
 short-title: restrictOwnAudio
 slug: Web/API/MediaTrackConstraints/restrictOwnAudio
 l10n:
-  sourceCommit: a439453bab9f5508b5268a4062a42fc760a2f20b
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}{{SeeCompatTable}}
 
-Das [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuch enthält die **`restrictOwnAudio`**-Eigenschaft, einen [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die angeforderten oder obligatorischen Einschränkungen festlegt, die auf den Wert der [`restrictOwnAudio`](/de/docs/Web/API/MediaTrackSettings/restrictOwnAudio)-einschränkbaren Eigenschaft angewendet werden.
+Die Eigenschaft **`restrictOwnAudio`** des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionarys ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), das die angeforderten oder zwingend erforderlichen Einschränkungen für den Wert der einschränkbaren Eigenschaft [`restrictOwnAudio`](/de/docs/Web/API/MediaTrackSettings/restrictOwnAudio) angibt.
 
-Diese Eigenschaft steuert, ob das aus dem aufzeichnenden Tab stammende Systemaudio aus der Bildschirmaufnahme herausgefiltert wird, was in einigen Fällen zu saubereren Bildschirmaufzeichnungen führt. Wenn zum Beispiel die aufzeichnende Webseite selbst eingebettete Audios oder Videos wiedergibt, würde dieses Audio in die Aufnahme einbezogen. Da dies zu einem unerwünschten Echo führen oder die beabsichtigten Audioquellen aus anderen Tabs oder Anwendungen stören könnte, ist es wünschenswert, es aus der Aufnahme zu entfernen.
+Diese Eigenschaft steuert, ob Systemaudio, das vom aufzeichnenden Tab stammt, bei einer Bildschirmaufnahme herausgefiltert wird. Dadurch lassen sich in manchen Fällen sauberere Bildschirmaufzeichnungen erstellen. Wenn beispielsweise die aufzeichnende Webseite selbst eingebettete Audio- oder Videoinhalte wiedergibt, würde deren Ton in die Aufnahme einfließen. Da dies ein unerwünschtes Echo verursachen oder die gewünschten Audioquellen aus anderen Tabs oder Anwendungen stören könnte, ist es sinnvoll, diesen Ton aus der Aufnahme zu entfernen.
 
-Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.restrictOwnAudio`](/de/docs/Web/API/MediaTrackSupportedConstraints/restrictOwnAudio) überprüfen, wie er von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Dies ist jedoch selten erforderlich, da Browser normalerweise alle Einschränkungen ignorieren, die sie nicht erkennen.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`restrictOwnAudio`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#restrictownaudio) abfragen, den [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Dies ist jedoch selten erforderlich, da Browser Einschränkungen, die sie nicht erkennen, normalerweise ignorieren.
 
 ## Wert
 
 Ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean)-Wert.
 
-Ist der Wert `true`, wird der Benutzeragent versuchen, alle aus dem Tab stammenden Audios zu entfernen, der [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) aufgerufen hat, um die Bildschirmaufnahme zu starten. Wenn das Entfernen von Audio durch Verarbeitung fehlschlägt, kann der Benutzeragent alle Audios aus dem aufzeichnenden Tab ausschließen.
+Wenn der Wert `true` ist, versucht der User Agent, sämtliches Audio zu entfernen, das aus dem Tab stammt, der [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) aufgerufen hat, um die Bildschirmaufnahme zu starten. Falls sich das Audio nicht durch Verarbeitung entfernen lässt, kann der User Agent sämtliches Audio aus dem aufzeichnenden Tab ausschließen.
 
 > [!NOTE]
-> Wenn die erfasste Anzeigefläche kein Systemaudio enthält, hat diese Einstellung keine Wirkung.
+> Wenn die aufgenommene Anzeigefläche kein Systemaudio enthält, hat diese Einstellung keine Wirkung.
 
-Wird der Wert als `exact` angegeben, gibt der boolesche Wert dieses Feldes ein genaues Erfordernis für die `restrictOwnAudio`-Funktion an; wenn der Benutzeragent dieses Erfordernis nicht erfüllen kann, wird die Anfrage zu einem Fehler führen.
+Wenn der Wert als `exact` angegeben wird, legt der boolesche Wert dieses Feldes eine zwingend zu erfüllende Anforderung an die Funktion `restrictOwnAudio` fest. Kann der User Agent diese Anforderung nicht erfüllen, führt die Anfrage zu einem Fehler.
 
-Ist der Wert `false`, wird der Benutzeragent nicht versuchen, das aus dem aufzeichnenden Tab stammende Systemaudio einzuschränken.
+Wenn der Wert `false` ist, versucht der User Agent nicht, Systemaudio aus dem aufzeichnenden Tab einzuschränken.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ let isCapturingTabSystemAudioRestricted = displayStream
   .getSettings().restrictOwnAudio;
 ```
 
-Das [Beispiel für den Einschränkungsübenden](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) zeigt, wie man Medientrack-Einschränkungen verwendet.
+Das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) zeigt, wie Sie Einschränkungen für Medientracks verwenden.
 
 ## Spezifikationen
 
@@ -48,8 +48,7 @@ Das [Beispiel für den Einschränkungsübenden](/de/docs/Web/API/Media_Capture_a
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Funktionen, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

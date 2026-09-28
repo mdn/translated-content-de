@@ -3,22 +3,22 @@ title: "MediaTrackSettings: height-Eigenschaft"
 short-title: height
 slug: Web/API/MediaTrackSettings/height
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`height`**-Eigentum des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist eine ganze Zahl, die angibt, wie viele Pixel hoch der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit konfiguriert ist. Dies ermöglicht Ihnen zu bestimmen, welcher Wert ausgewählt wurde, um den von Ihnen angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie im [`MediaTrackConstraints.height`](/de/docs/Web/API/MediaTrackConstraints/height)-Eigenschaft beschrieben, die Sie bei einem Aufruf von entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) bereitgestellt haben.
+Die Eigenschaft **`height`** des Dictionaries [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) ist eine Ganzzahl, die angibt, auf wie viele Pixel Höhe [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit konfiguriert ist. Damit können Sie feststellen, welcher Wert gewählt wurde, um die von Ihnen festgelegten Constraints für diese Eigenschaft zu erfüllen. Diese haben Sie über die Eigenschaft [`MediaTrackConstraints.height`](/de/docs/Web/API/MediaTrackConstraints/height) beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.height`](/de/docs/Web/API/MediaTrackSupportedConstraints/height) überprüfen, wie er von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser jede Einschränkung ignorieren, die ihnen unbekannt ist.
+Bei Bedarf können Sie prüfen, ob dieses Constraint unterstützt wird. Sehen Sie dazu nach, welchen Wert [`height`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#height) bei einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht nötig, da Browser ihnen unbekannte Constraints ignorieren.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Höhe in Pixeln des Video-Streams angibt, wie er derzeit konfiguriert ist.
+Eine Ganzzahl, die die aktuell konfigurierte Höhe des Videotracks in Pixeln angibt.
 
 ## Beispiele
 
-Siehe das [Beispiel für einen Einschränkungs-Übungsprogramm](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Sehen Sie sich das Beispiel [Constraint-Tester](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
 
 ## Spezifikationen
 
@@ -31,6 +31,6 @@ Siehe das [Beispiel für einen Einschränkungs-Übungsprogramm](/de/docs/Web/API
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Fähigkeiten, Constraints und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints.height`](/de/docs/Web/API/MediaTrackConstraints/height)
 - [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

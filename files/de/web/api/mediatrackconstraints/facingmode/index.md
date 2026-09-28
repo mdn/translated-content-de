@@ -3,22 +3,22 @@ title: "MediaTrackConstraints: facingMode-Eigenschaft"
 short-title: facingMode
 slug: Web/API/MediaTrackConstraints/facingMode
 l10n:
-  sourceCommit: c9e9f9f4faf2e8a5985e5834d9424557341f33c9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`facingMode`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionaries ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das die gewünschten oder zwingenden Einschränkungen für den Wert der [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode)-Eigenschaft beschreibt.
+Die Eigenschaft **`facingMode`** des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionaries ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), der die gewünschten oder zwingenden Einschränkungen für den Wert der einschränkbaren Eigenschaft [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode) beschreibt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.facingMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/facingMode) prüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird. Überprüfen Sie dazu den Wert von [`facingMode`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#facingmode), den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist dies jedoch nicht erforderlich, da Browser ihnen unbekannte Einschränkungen ignorieren.
 
-Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, beinhalten Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, niemals diese Eigenschaft.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, weisen Tracks, die einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zugeordnet sind, diese Eigenschaft niemals auf.
 
 ## Wert
 
-Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das eine oder mehrere akzeptable, ideale und/oder exakte (verpflichtende) Ausrichtungen spezifiziert, die für eine Videospur akzeptabel sind.
+Ein auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring) basierendes Objekt, das einen oder mehrere zulässige, bevorzugte und/oder exakte (zwingend erforderliche) Werte für `facingMode` eines Videotracks angibt.
 
-Ein `exact`-Wert in diesem Fall gibt an, dass die angegebene Ausrichtung zwingend erforderlich ist; zum Beispiel:
+Ein `exact`-Wert bedeutet in diesem Fall, dass der angegebene Wert für `facingMode` zwingend erforderlich ist. Zum Beispiel:
 
 ```js
 const constraints = {
@@ -26,22 +26,22 @@ const constraints = {
 };
 ```
 
-Dies gibt an, dass nur eine nach vorne gerichtete Kamera akzeptabel ist; wenn es keine nach vorne gerichtete Kamera gibt oder der Benutzer die Erlaubnis zur Nutzung dieser Kamera verweigert, wird die Medienanforderung fehlschlagen.
+Dies bedeutet, dass nur eine zum Benutzer gerichtete Kamera zulässig ist. Ist keine solche Kamera vorhanden oder verweigert der Benutzer die Berechtigung zu ihrer Verwendung, schlägt die Medienanfrage fehl.
 
-Die folgenden Zeichenfolgen sind als Werte für die facing mode erlaubt. Diese können separate Kameras darstellen oder Richtungen, in die eine verstellbare Kamera gerichtet werden kann.
+Die folgenden Zeichenfolgen sind als Werte für `facingMode` zulässig. Sie können unterschiedliche Kameras oder Richtungen bezeichnen, in die eine verstellbare Kamera ausgerichtet werden kann.
 
 - `"user"`
-  - : Die Videoquelle ist dem Benutzer zugewandt; dies schließt zum Beispiel die Frontkamera eines Smartphones ein.
+  - : Die Videoquelle ist zum Benutzer gerichtet. Dazu gehört beispielsweise die Frontkamera eines Smartphones.
 - `"environment"`
-  - : Die Videoquelle ist vom Benutzer abgewandt und zeigt auf dessen Umgebung. Dies ist die Rückkamera eines Smartphones.
+  - : Die Videoquelle ist vom Benutzer weggerichtet und erfasst dessen Umgebung. Dies entspricht der Rückkamera eines Smartphones.
 - `"left"`
-  - : Die Videoquelle ist dem Benutzer zugewandt, aber auf seine linke Seite, wie eine Kamera, die auf den Benutzer, aber über seine linke Schulter gerichtet ist.
+  - : Die Videoquelle ist zum Benutzer gerichtet, befindet sich aber zu dessen Linken, beispielsweise eine Kamera, die über die linke Schulter des Benutzers hinweg auf ihn gerichtet ist.
 - `"right"`
-  - : Die Videoquelle ist dem Benutzer zugewandt, aber auf seine rechte Seite, wie eine Kamera, die auf den Benutzer, aber über seine rechte Schulter gerichtet ist.
+  - : Die Videoquelle ist zum Benutzer gerichtet, befindet sich aber zu dessen Rechten, beispielsweise eine Kamera, die über die rechte Schulter des Benutzers hinweg auf ihn gerichtet ist.
 
 ## Beispiele
 
-Siehe das Beispiel des [Constraint Übungswerkzeugs](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel zum [Testen von Einschränkungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -57,5 +57,4 @@ Siehe das Beispiel des [Constraint Übungswerkzeugs](/de/docs/Web/API/Media_Capt
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

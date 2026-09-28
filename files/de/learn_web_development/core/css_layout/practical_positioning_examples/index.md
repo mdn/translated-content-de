@@ -1,43 +1,43 @@
 ---
-title: Praktische Beispiel für Positionierung
+title: Praktische Beispiele für die Positionierung
 slug: Learn_web_development/Core/CSS_layout/Practical_positioning_examples
 l10n:
-  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
+  sourceCommit: 5658facd7100855113a75ce508ab8d825a4d97b0
 ---
 
-Dieser Artikel zeigt, wie man einige praxisnahe Beispiele erstellt, um zu veranschaulichen, welche Möglichkeiten Sie mit Positionierungs-Techniken haben.
+Dieser Artikel zeigt anhand einiger praxisnaher Beispiele, welche Möglichkeiten die Positionierung bietet.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML (siehe
+        HTML-Grundlagen (siehe
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturieren von Inhalten mit HTML</a
+          >Inhalte mit HTML strukturieren</a
         >) und eine Vorstellung davon, wie CSS funktioniert (siehe
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Grundlagen des Stylings</a>).
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen der CSS-Gestaltung</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Ein Gefühl für die praktischen Anwendungen der Positionierung zu bekommen</td>
+      <td>Ein Verständnis für die praktische Anwendung der Positionierung entwickeln</td>
     </tr>
   </tbody>
 </table>
 
-## Eine Registerkarten-Infobox
+## Ein Infofeld mit Tabs
 
-Das erste Beispiel, das wir uns ansehen werden, ist eine klassische Registerkarten-Infobox — ein sehr häufig verwendetes Feature, wenn Sie viele Informationen in einem kleinen Bereich unterbringen möchten. Dies beinhaltet informationsreiche Anwendungen wie Strategie-/Kriegsspiele, mobile Versionen von Webseiten, bei denen der Bildschirm schmal ist und der Platz begrenzt ist, sowie kompakte Informationsboxen, bei denen Sie viele Informationen verfügbar machen möchten, ohne dass sie die gesamte Benutzeroberfläche füllen. Unser einfaches Beispiel wird am Ende so aussehen:
+Unser erstes Beispiel ist ein klassisches Infofeld mit Tabs. Solche Elemente werden häufig verwendet, wenn viele Informationen auf wenig Raum untergebracht werden sollen: etwa in informationsreichen Anwendungen wie Strategie- oder Kriegsspielen, in mobilen Versionen von Websites mit begrenzter Bildschirmfläche oder in kompakten Infofeldern, die zahlreiche Informationen bereitstellen sollen, ohne die gesamte Benutzeroberfläche auszufüllen. Unser einfaches Beispiel wird am Ende so aussehen:
 
-![Registerkarte 1 ist ausgewählt. 'Registerkarte 2' und 'Registerkarte 3' sind die anderen beiden Registerkarten. Nur die Inhalte der ausgewählten Registerkarte sind sichtbar. Wenn eine Registerkarte ausgewählt ist, ändert sich die Textfarbe von schwarz zu weiß und die Hintergrundfarbe von orangerot zu sattelbraun.](tabbed-info-box.png)
+![Tab 1 ist ausgewählt. „Tab 2“ und „Tab 3“ sind die beiden anderen Tabs. Nur der Inhalt des ausgewählten Tabs ist sichtbar. Wird ein Tab ausgewählt, ändert sich seine Textfarbe von Schwarz zu Weiß und seine Hintergrundfarbe von Orangerot zu Sattelbraun.](tabbed-info-box.png)
 
 > [!NOTE]
-> Sie können das fertige Beispiel live auf [tabbed-info-box.html](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/tabbed-info-box.html) ([Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html)) sehen. Schauen Sie es sich an, um eine Vorstellung davon zu bekommen, was Sie in diesem Abschnitt des Artikels bauen werden.
+> Sie können das fertige Beispiel unter [tabbed-info-box.html](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/tabbed-info-box.html) live ansehen ([Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html)). Sehen Sie es sich an, um einen Eindruck davon zu bekommen, was Sie in diesem Abschnitt erstellen werden.
 
-Sie könnten denken: "Warum nicht einfach die separaten Registerkarten als separate Webseiten erstellen und die Registerkarten für separate Seiten anklickbar machen, um den Effekt zu erzeugen?" Dieser Code wäre einfacher, ja, aber dann wäre jede separate "Seitenansicht" tatsächlich eine neu geladene Webseite, was es schwieriger machen würde, Informationen über Ansichten hinweg zu speichern und dieses Feature in ein größeres UI-Design zu integrieren.
+Vielleicht fragen Sie sich: „Warum erstellt man nicht einfach für jeden Tab eine eigene Webseite und lässt die Tabs zu diesen Seiten navigieren?“ Der Code wäre zwar einfacher, aber jede Ansicht wäre dann eine neu geladene Webseite. Das würde es erschweren, Informationen zwischen den Ansichten zu erhalten und diese Funktion in eine größere Benutzeroberfläche zu integrieren.
 
-Zu Beginn sollten Sie eine lokale Kopie der Startdateien erstellen — [tabbed-info-box-start.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box-start.html) und [tabs-manual.js](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabs-manual.js). Speichern Sie diese an einem sinnvollen Ort auf Ihrem Computer und öffnen Sie `tabbed-info-box-start.html` in Ihrem Texteditor. Schauen wir uns den HTML-Inhalt im Body-Bereich an:
+Erstellen Sie zunächst lokale Kopien der Ausgangsdateien [tabbed-info-box-start.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box-start.html) und [tabs-manual.js](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabs-manual.js). Speichern Sie sie an einem geeigneten Ort auf Ihrem Computer und öffnen Sie `tabbed-info-box-start.html` in Ihrem Texteditor. Sehen wir uns das HTML innerhalb des Body an:
 
 ```html
 <section class="info-box">
@@ -108,13 +108,13 @@ Zu Beginn sollten Sie eine lokale Kopie der Startdateien erstellen — [tabbed-i
 </section>
 ```
 
-Hier haben wir ein {{htmlelement("section")}}-Element mit einer `class` von `info-box`, die zwei {{htmlelement("div")}}-Elemente enthält. Das erste div enthält drei Buttons, die zu den eigentlichen Registerkarten werden, auf die geklickt werden kann, um unsere Inhaltspaneele anzuzeigen. Das zweite div enthält drei {{htmlelement("article")}}-Elemente, die die Inhaltspaneele bilden, die den jeweiligen Registerkarten entsprechen. Jedes Paneel enthält etwas Beispielinhalt.
+Hier haben wir ein {{htmlelement("section")}}-Element mit der `class` `info-box`, das zwei {{htmlelement("div")}}-Elemente enthält. Das erste div enthält drei Buttons. Sie werden zu den anklickbaren Tabs, mit denen unsere Inhaltsbereiche angezeigt werden. Das zweite div enthält drei {{htmlelement("article")}}-Elemente, die die Inhaltsbereiche für die jeweiligen Tabs bilden. Jeder Bereich enthält Beispielinhalte.
 
-Der Gedanke hier ist, dass wir die Registerkarten so stylen, dass sie wie ein standardmäßiges horizontales Navigationsmenü aussehen und die Paneele mithilfe von absoluter Positionierung übereinander liegen. Wir geben Ihnen auch ein bisschen JavaScript, das Sie auf Ihrer Seite einfügen können, um das entsprechende Paneel anzuzeigen, wenn eine Registerkarte gedrückt wird, und die Registerkarte selbst zu stylen. Sie müssen den JavaScript-Code an dieser Stelle nicht verstehen, aber Sie sollten darüber nachdenken, so schnell wie möglich einige grundlegende [JavaScript](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)-Kenntnisse zu erwerben — je komplexer Ihre UI-Funktionen werden, desto wahrscheinlicher ist es, dass Sie etwas JavaScript benötigen, um Ihre gewünschte Funktionalität zu implementieren.
+Wir werden die Tabs wie ein gewöhnliches horizontales Navigationsmenü gestalten. Die Bereiche werden mithilfe absoluter Positionierung übereinander angeordnet. Außerdem erhalten Sie etwas JavaScript, das Sie in Ihre Seite einbinden können, damit beim Drücken eines Tabs der zugehörige Bereich angezeigt und der Tab entsprechend gestaltet wird. Sie müssen den JavaScript-Code zu diesem Zeitpunkt noch nicht verstehen. Es empfiehlt sich aber, sich bald mit den Grundlagen von [JavaScript](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity) zu beschäftigen: Je komplexer Ihre Benutzeroberfläche wird, desto wahrscheinlicher benötigen Sie JavaScript, um die gewünschten Funktionen umzusetzen.
 
 ### Allgemeine Einrichtung
 
-Um zu beginnen, fügen Sie das folgende zwischen Ihren öffnenden und schließenden {{HTMLElement("style")}}-Tags ein:
+Fügen Sie zunächst zwischen dem öffnenden und dem schließenden {{HTMLElement("style")}}-Tag Folgendes ein:
 
 ```css
 html {
@@ -130,9 +130,9 @@ body {
 }
 ```
 
-Dies ist nur eine allgemeine Einrichtung, um eine serifenlose Schriftart auf unserer Seite zu setzen, das `border-box`-{{cssxref("box-sizing")}}-Modell zu verwenden und den Standardabstand des {{htmlelement("body")}} zu entfernen.
+Damit legen wir eine serifenlose Schriftart für die Seite fest, verwenden das `border-box`-Modell für {{cssxref("box-sizing")}} und entfernen den standardmäßigen Außenabstand des {{htmlelement("body")}}-Elements.
 
-Fügen Sie als nächstes das Folgende direkt unter Ihrem vorherigen CSS hinzu:
+Fügen Sie direkt unter dem bisherigen CSS Folgendes hinzu:
 
 ```css
 .info-box {
@@ -142,11 +142,11 @@ Fügen Sie als nächstes das Folgende direkt unter Ihrem vorherigen CSS hinzu:
 }
 ```
 
-Dies setzt eine spezifische Breite und Höhe auf den Inhalt und zentriert ihn auf dem Bildschirm mit dem alten `margin: 1.25rem auto 0`. Bereits im Kurs haben wir davon abgeraten, eine feste Höhe auf Inhaltscontainer zu setzen, wenn es irgendwie möglich ist; in diesem Fall ist es jedoch in Ordnung, da wir festen Inhalt in unseren Registerkarten haben.
+Damit erhalten die Inhalte eine bestimmte Breite und Höhe und werden mit `margin: 1.25rem auto 0` auf dem Bildschirm zentriert. An früherer Stelle im Kurs haben wir davon abgeraten, Inhaltscontainern nach Möglichkeit eine feste Höhe zuzuweisen. Hier ist das in Ordnung, weil die Inhalte unserer Tabs feststehen.
 
-### Styling unserer Registerkarten
+### Die Tabs gestalten
 
-Nun möchten wir, dass die Registerkarten wie Registerkarten aussehen — im Grunde sind dies ein horizontales Navigationsmenü, aber anstatt beim Anklicken unterschiedliche Webseiten zu laden, wie wir es vorher im Kurs gesehen haben, bewirken sie, dass unterschiedliche Paneele auf derselben Seite angezeigt werden. Fügen Sie zuerst die folgende Regel am Ende Ihres CSS hinzu, um die `tablist` zu einem {{cssxref("flex")}}-Container zu machen und sie über die gesamte Breite von 100% zu spannen:
+Nun sollen die Tabs auch wie Tabs aussehen. Im Grunde bilden sie ein horizontales Navigationsmenü. Anders als bei den bisher im Kurs behandelten Menüs laden sie beim Anklicken aber keine anderen Webseiten, sondern zeigen unterschiedliche Bereiche auf derselben Seite an. Fügen Sie zuerst die folgende Regel am Ende Ihres CSS hinzu. Sie macht `tablist` zu einem {{cssxref("flex")}}-Container, der die gesamte verfügbare Breite einnimmt:
 
 ```css
 .info-box [role="tablist"] {
@@ -156,9 +156,9 @@ Nun möchten wir, dass die Registerkarten wie Registerkarten aussehen — im Gru
 ```
 
 > [!NOTE]
-> Wir verwenden Nachkommen-Selektoren mit `.info-box` am Anfang der Kette im gesamten Beispiel — das ist so, dass wir dieses Feature auf einer Seite mit bereits enthaltenen Inhalten hinzufügen können, ohne die Stile anderer Teile der Seite zu beeinträchtigen.
+> Wir verwenden in diesem Beispiel durchgehend Nachfahren-Selektoren, die mit `.info-box` beginnen. So können wir die Funktion in eine Seite mit bereits vorhandenen Inhalten einfügen, ohne befürchten zu müssen, dass sie die Gestaltung anderer Seitenbereiche beeinflusst.
 
-Als nächstes stylen wir die Buttons so, dass sie wie Registerkarten aussehen. Fügen Sie das folgende CSS hinzu:
+Als Nächstes gestalten wir die Buttons so, dass sie wie Tabs aussehen. Fügen Sie das folgende CSS hinzu:
 
 ```css
 .info-box [role="tab"] {
@@ -172,7 +172,7 @@ Als nächstes stylen wir die Buttons so, dass sie wie Registerkarten aussehen. F
 }
 ```
 
-Als nächstes setzen wir die `:focus`- und `:hover`-Zustände der Registerkarten so, dass sie anders aussehen, wenn sie fokussiert/gehovered werden und den Benutzern ein visuelles Feedback geben.
+Anschließend legen wir fest, dass die Tabs in den Zuständen `:focus` und `:hover` anders aussehen. So erhalten Nutzer eine visuelle Rückmeldung, wenn ein Tab fokussiert ist oder der Mauszeiger darüber schwebt.
 
 ```css
 .info-box [role="tab"]:focus span,
@@ -183,7 +183,7 @@ Als nächstes setzen wir die `:focus`- und `:hover`-Zustände der Registerkarten
 }
 ```
 
-Dann setzen wir eine Regel, die eine der Registerkarten hervorhebt, wenn die [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Eigenschaft auf `true` gesetzt ist. Wir werden dies mit JavaScript setzen, wenn eine Registerkarte angeklickt wird. Platzieren Sie das folgende CSS unter Ihren anderen Stilen:
+Dann fügen wir eine Regel hinzu, die einen Tab hervorhebt, wenn seine Eigenschaft [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `true` gesetzt ist. Diesen Wert setzen wir beim Anklicken eines Tabs mit JavaScript. Platzieren Sie das folgende CSS unter Ihren anderen Regeln:
 
 ```css
 .info-box [role="tab"][aria-selected="true"] {
@@ -192,11 +192,11 @@ Dann setzen wir eine Regel, die eine der Registerkarten hervorhebt, wenn die [`a
 }
 ```
 
-### Styling der Paneele
+### Die Bereiche gestalten
 
-Die nächste Aufgabe besteht darin, unsere Paneele zu stylen. Lassen Sie uns loslegen!
+Als Nächstes gestalten wir die Inhaltsbereiche. Legen wir los!
 
-Fügen Sie als erstes die folgende Regel hinzu, um den `.panels` {{htmlelement("div")}}-Container zu stylen. Hier setzen wir eine feste {{cssxref("height")}}, um sicherzustellen, dass die Paneele genau in die Infobox passen, setzen {{cssxref("position")}} auf `relative`, um das {{htmlelement("div")}} als Positionierungs-Kontext zu setzen, sodass Sie dann positionierte Kindelemente relativ dazu und nicht zum anfänglichen Ansichtsfenster platzieren können, und schließlich {{cssxref("clear")}} wir den Float, der im obigen CSS gesetzt wurde, damit er nicht die restliche Layout beeinflusst.
+Fügen Sie zuerst die folgende Regel für den {{htmlelement("div")}}-Container `.panels` hinzu. Wir geben ihm eine feste {{cssxref("height")}}, damit die Bereiche genau in das Infofeld passen. Mit {{cssxref("position")}} `relative` legen wir das {{htmlelement("div")}} als Positionierungskontext fest: Positionierte Kindelemente können dann relativ zu ihm statt relativ zum ursprünglichen Viewport platziert werden. Schließlich heben wir mit {{cssxref("clear")}} das im CSS oben festgelegte Float auf, damit es das übrige Layout nicht beeinflusst.
 
 ```css
 .info-box .panels {
@@ -206,7 +206,7 @@ Fügen Sie als erstes die folgende Regel hinzu, um den `.panels` {{htmlelement("
 }
 ```
 
-Zum Abschluss für diesen Abschnitt stylen wir die einzelnen {{htmlelement("article")}}-Elemente, die unsere Paneele ausmachen. Die erste Regel, die wir hinzufügen, positioniert die Paneele absolut {{cssxref("position")}} und lässt alle bündig zur {{cssxref("top")}} und {{cssxref("left")}} ihres {{htmlelement("div")}}-Containers liegen — dieser Teil ist entscheidend für dieses gesamte Layout-Feature, da er die Paneele übereinander sitzen lässt. Die Regel gibt den Paneelen auch die gleiche feste Höhe wie dem Container, fügt dem Inhalt etwas {{cssxref("padding")}} hinzu, eine Text{{cssxref("color")}}, und eine {{cssxref("background-color")}}.
+Nun gestalten wir die einzelnen {{htmlelement("article")}}-Elemente, aus denen die Bereiche bestehen. Die erste Regel setzt für die Bereiche eine absolute {{cssxref("position")}} und richtet sie bündig an der {{cssxref("top")}}- und {{cssxref("left")}}-Kante ihres {{htmlelement("div")}}-Containers aus. Das ist entscheidend für dieses Layout, denn dadurch liegen die Bereiche übereinander. Die Regel gibt ihnen außerdem dieselbe Höhe wie dem Container und fügt Innenabstand, eine Text-{{cssxref("color")}} und eine {{cssxref("background-color")}} hinzu.
 
 ```css
 .info-box [role="tabpanel"] {
@@ -220,7 +220,7 @@ Zum Abschluss für diesen Abschnitt stylen wir die einzelnen {{htmlelement("arti
 }
 ```
 
-Die zweite Regel, die wir hier hinzufügen, sorgt dafür, dass ein Paneel mit einer `is-hidden`-Klasse daran versteckt wird. Auch hier werden wir diese Klasse zu angemessener Zeit mit JavaScript hinzufügen/entfernen. Wenn eine Registerkarte ausgewählt ist, wird das entsprechende Paneel seine `is-hidden`-Klasse entfernt haben, und alle anderen Paneele werden die `is-hidden`-Klasse gesetzt haben, sodass jeweils nur ein Paneel sichtbar ist.
+Die zweite Regel blendet einen Bereich aus, wenn ihm die Klasse `is-hidden` zugewiesen ist. Auch diese Klasse fügen wir zum passenden Zeitpunkt mit JavaScript hinzu oder entfernen sie. Wird ein Tab ausgewählt, entfernen wir `is-hidden` vom zugehörigen Bereich und weisen die Klasse allen anderen Bereichen zu. So ist immer nur ein Bereich sichtbar.
 
 ```css
 .info-box [role="tabpanel"].is-hidden {
@@ -230,37 +230,37 @@ Die zweite Regel, die wir hier hinzufügen, sorgt dafür, dass ein Paneel mit ei
 
 ### JavaScript
 
-Der letzte Teil, der dieses Feature zum Funktionieren bringt, ist der JavaScript-Code. Die Datei `tabs-manual.js` wurde mit dem [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Tag eingebunden:
+Damit die Funktion vollständig arbeitet, fehlt noch der JavaScript-Code. Die Datei `tabs-manual.js` wird über das Tag [`<script>`](/de/docs/Web/HTML/Reference/Elements/script) eingebunden:
 
 ```html
 <script src="tabs-manual.js"></script>
 ```
 
-Dieser Code macht Folgendes:
+Der Code führt Folgendes aus:
 
-- Beim [Seitenladeereignis](/de/docs/Web/API/Window/load_event) initialisiert er die `TabsManual`-[Klasse](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Classes_in_JavaScript) für alle `tablist`-Elemente.
-- Wenn ein `TabsManual`-Objekt erstellt wird, werden im Konstruktor alle Referenzen zu Tabs und Paneelen in `tabs` und `tabpanels`-Variablen gesammelt, sodass wir später leicht Dinge mit ihnen machen können.
-- Der Konstruktor registriert auch [`click`](/de/docs/Web/API/Element/click_event) und [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignishandler auf allen Tabs. Die Ereignishandler enthalten Logik dazu, was passieren soll, wenn eine Registerkarte durch Klick oder Tastendruck ausgewählt wird.
-- Im `setSelectedTab(currentTab)`-Funktion passiert Folgendes:
-  - Ein `for`-Schleife wird verwendet, um durch alle Registerkarten zu zyklieren und sie durch Setzen der `aria-selected`-Eigenschaft auf `false` zu deselektieren und `is-hidden`-Klasse auf entsprechenden Paneelen zu setzen.
-  - Auf der ausgewählten Registerkarte (`currentTab`) wird `aria-selected` auf `true` gesetzt und `is-hidden`-Klasse vom entsprechenden Paneel entfernt.
+- Beim [Ladeereignis des Fensters](/de/docs/Web/API/Window/load_event) initialisiert er die [Klasse](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Classes_in_JavaScript) `TabsManual` für alle `tablist`-Elemente.
+- Beim Erstellen eines `TabsManual`-Objekts sammelt der Konstruktor alle Referenzen auf Tabs und Bereiche in den Variablen `tabs` und `tabpanels`. So können wir später leicht auf sie zugreifen.
+- Der Konstruktor registriert außerdem Event-Handler für [`click`](/de/docs/Web/API/Element/click_event) und [`keydown`](/de/docs/Web/API/Element/keydown_event) auf allen Tabs. Sie legen fest, was geschieht, wenn ein Tab durch einen Klick oder Tastendruck ausgewählt wird.
+- In der Funktion `setSelectedTab(currentTab)` geschieht Folgendes:
+  - Eine `for`-Schleife durchläuft alle Tabs und hebt ihre Auswahl auf. Dazu setzt sie die Eigenschaft `aria-selected` auf `false` und weist den zugehörigen Bereichen die Klasse `is-hidden` zu.
+  - Beim ausgewählten Tab (`currentTab`) wird `aria-selected` auf `true` gesetzt und die Klasse `is-hidden` vom zugehörigen Bereich entfernt.
 
-- Der Code hat auch Logik zur Unterstützung der Tastaturnavigation mit den Tasten `Left arrow`, `Right arrow`, `Home` und `End`.
+- Der Code unterstützt außerdem die Tastaturnavigation mit den Tasten `Left arrow`, `Right arrow`, `Home` und `End`.
 
-## Eine fixierte Position der Registerkarten-Infobox
+## Ein fest positioniertes Infofeld mit Tabs
 
-In unserem zweiten Beispiel nehmen wir unser erstes Beispiel — unsere Infobox — und fügen es in den Kontext einer vollständigen Webseite ein. Aber nicht nur das — wir geben ihr eine feststehende Position, sodass sie an derselben Position im Browserfenster bleibt. Wenn sich der Hauptinhalt scrollt, bleibt die Infobox an derselben Position auf dem Bildschirm. Unser fertiges Beispiel wird so aussehen:
+Im zweiten Beispiel fügen wir unser Infofeld in eine vollständige Webseite ein. Außerdem positionieren wir es fest, sodass es im Browserfenster an derselben Stelle bleibt. Wenn der Hauptinhalt gescrollt wird, behält das Infofeld seine Position auf dem Bildschirm bei. Das fertige Beispiel sieht so aus:
 
-![Die Infobox ist ein Container mit 3 Registerkarten, wobei die erste Registerkarte ausgewählt ist und nur die Inhalte der ersten Registerkarte angezeigt werden. Sie hat eine feste Position. Die Infobox ist in der oberen linken Ecke des Fensters mit einer Breite von 452 Pixeln positioniert. Ein Container mit gefälschtem Inhalt nimmt die übrige rechte Hälfte des Fensters ein; der Container mit dem gefälschten Inhalt ist höher als das Fenster und kann gescrollt werden. Wenn die Seite gescrollt wird, bewegt sich der Container auf der rechten Seite, während die Infobox an ihrer Position auf dem Bildschirm fixiert bleibt.](fixed-info-box.png)
+![Das Infofeld enthält drei Tabs. Der erste Tab ist ausgewählt, und nur sein Inhalt wird angezeigt. Das Infofeld ist fest positioniert. Es befindet sich in der oberen linken Ecke des Fensters und ist 452 Pixel breit. Ein Container mit Platzhalterinhalten nimmt den übrigen rechten Teil des Fensters ein. Er ist höher als das Fenster und kann gescrollt werden. Beim Scrollen bewegt sich der rechte Container, während das Infofeld an derselben Stelle auf dem Bildschirm bleibt.](fixed-info-box.png)
 
 > [!NOTE]
-> Sie können das fertige Beispiel live auf [fixed-info-box.html](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/fixed-info-box.html) ([Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/fixed-info-box.html)) sehen. Schauen Sie es sich an, um eine Vorstellung davon zu bekommen, was Sie in diesem Abschnitt des Artikels bauen werden.
+> Sie können das fertige Beispiel unter [fixed-info-box.html](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/fixed-info-box.html) live ansehen ([Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/fixed-info-box.html)). Sehen Sie es sich an, um einen Eindruck davon zu bekommen, was Sie in diesem Abschnitt erstellen werden.
 
-Als Ausgangspunkt können Sie Ihr fertiges Beispiel aus dem ersten Abschnitt des Artikels verwenden oder eine lokale Kopie von [tabbed-info-box.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html) aus unserem GitHub-Repo machen.
+Als Ausgangspunkt können Sie Ihr fertiges Beispiel aus dem ersten Abschnitt verwenden oder eine lokale Kopie von [tabbed-info-box.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html) aus unserem GitHub-Repository erstellen.
 
-### HTML-Ergänzungen
+### HTML ergänzen
 
-Zuerst benötigen wir einige zusätzliche HTML-Inhalte, um den Hauptinhalt der Webseite darzustellen. Fügen Sie das folgende {{htmlelement("section")}} direkt unter Ihrem öffnenden {{htmlelement("body")}}-Tag, kurz vor dem vorhandenen Abschnitt hinzu:
+Zunächst benötigen wir zusätzliches HTML für den Hauptinhalt der Webseite. Fügen Sie das folgende {{htmlelement("section")}}-Element direkt nach dem öffnenden {{htmlelement("body")}}-Tag und vor dem bereits vorhandenen Abschnitt ein:
 
 ```html
 <section class="fake-content">
@@ -293,27 +293,26 @@ Zuerst benötigen wir einige zusätzliche HTML-Inhalte, um den Hauptinhalt der W
 ```
 
 > [!NOTE]
-> Sie können nach Belieben den gefälschten Inhalt durch echten Inhalt ersetzen.
+> Sie können die Platzhalterinhalte nach Belieben durch echte Inhalte ersetzen.
 
-### Änderungen am bestehenden CSS
+### Das vorhandene CSS ändern
 
-Als Nächstes müssen wir einige kleine Änderungen am bestehenden CSS vornehmen, um die Infobox zu platzieren und zu positionieren. Ändern Sie Ihre `.info-box`-Regel, um `margin: 0 auto;` zu entfernen (wir möchten die Infobox nicht mehr zentrieren), fügen Sie {{cssxref("position", "position: fixed;")}} hinzu und heften Sie sie an die {{cssxref("top")}} des Browser-Viewports.
+Als Nächstes ändern wir das vorhandene CSS, um das Infofeld zu positionieren. Fügen Sie Ihrer `.info-box`-Regel {{cssxref("position", "position: fixed;")}} hinzu, damit das Infofeld am {{cssxref("top")}} des Browser-Viewports fixiert wird. Sobald das Infofeld fest positioniert ist, zentriert `margin: 0 auto;` es nicht mehr. Entfernen Sie diese Deklaration daher.
 
-Sie sollte nun so aussehen:
+Die Regel sollte nun so aussehen:
 
 ```css
 .info-box {
   width: 452px;
   height: 400px;
-  margin: 0 auto;
   position: fixed;
   top: 0;
 }
 ```
 
-### Styling des Hauptinhalts
+### Den Hauptinhalt gestalten
 
-Das Einzige, was für dieses Beispiel übrig bleibt, ist, dem Hauptinhalt etwas Styling zu geben. Fügen Sie die folgende Regel unter den Rest Ihres CSS hinzu:
+Zum Abschluss dieses Beispiels müssen wir nur noch den Hauptinhalt gestalten. Fügen Sie die folgende Regel unter Ihrem übrigen CSS hinzu:
 
 ```css
 .fake-content {
@@ -329,22 +328,22 @@ Das Einzige, was für dieses Beispiel übrig bleibt, ist, dem Hauptinhalt etwas 
 }
 ```
 
-Zunächst geben wir dem Inhalt die gleiche {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("padding")}} wie den Infobox-Paneelen. Dann geben wir ihm einen großen {{cssxref("margin-left")}}, um ihn nach rechts zu verschieben, wodurch Platz für die Infobox freigelassen wird, damit sie nicht mit anderen Elementen überlappt.
+Zunächst geben wir dem Inhalt dieselbe {{cssxref("background-color")}}, {{cssxref("color")}} und dasselbe {{cssxref("padding")}} wie den Bereichen des Infofelds. Anschließend verschieben wir ihn mit einem großen {{cssxref("margin-left")}} nach rechts. So schaffen wir Platz für das Infofeld und verhindern, dass es andere Inhalte überlagert.
 
-Dies markiert das Ende des zweiten Beispiels; wir hoffen, dass Sie das dritte ebenso interessant finden.
+Damit ist das zweite Beispiel abgeschlossen. Das dritte ist hoffentlich ebenso interessant für Sie.
 
-## Ein schiebbares verstecktes Paneel
+## Ein einblendbarer, verschiebbarer Bereich
 
-Das letzte Beispiel, das wir hier präsentieren, ist ein Paneel, das sich bei Betätigung eines Icons ein- und ausblenden lässt — wie bereits erwähnt, ist dies beliebt für Situationen wie mobile Layouts, bei denen der verfügbare Bildschirmplatz klein ist, sodass Sie nicht den größten Teil davon durch ein Menü oder Infopaneel belegen möchten, anstatt den nützlichen Inhalt anzuzeigen.
+Unser letztes Beispiel ist ein Bereich, der beim Drücken eines Symbols auf den Bildschirm geschoben oder wieder hinausgeschoben wird. Wie bereits erwähnt, ist das besonders bei mobilen Layouts nützlich: Dort ist der verfügbare Platz begrenzt, und ein Menü oder Infobereich soll nicht den Großteil des Bildschirms anstelle der eigentlichen Inhalte einnehmen.
 
-Unser fertiges Beispiel wird so aussehen:
+Das fertige Beispiel sieht so aus:
 
-![Ein leerer Bildschirm auf der linken 60% des Bildschirms mit einem 40% breiten Paneel, das rechts Informationen anzeigt. Ein '?' Icon befindet sich in der oberen rechten Ecke. Das Paneel gleitet auf und aus dem Bildschirm bei Betätigung dieses '?' Icons.](hidden-sliding-panel.png)
+![Die linken 60 % des Bildschirms sind leer. Rechts befindet sich ein 40 % breiter Bereich mit Informationen. In der oberen rechten Ecke ist ein Fragezeichen-Symbol zu sehen. Beim Drücken dieses Symbols wird der Bereich auf den Bildschirm geschoben oder wieder hinausgeschoben.](hidden-sliding-panel.png)
 
 > [!NOTE]
-> Sie können das fertige Beispiel live auf [hidden-info-panel.html](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/hidden-info-panel.html) ([Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/hidden-info-panel.html)) sehen. Schauen Sie es sich an, um eine Vorstellung davon zu bekommen, was Sie in diesem Abschnitt des Artikels bauen werden.
+> Sie können das fertige Beispiel unter [hidden-info-panel.html](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/hidden-info-panel.html) live ansehen ([Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/hidden-info-panel.html)). Sehen Sie es sich an, um einen Eindruck davon zu bekommen, was Sie in diesem Abschnitt erstellen werden.
 
-Als Ausgangspunkt machen Sie eine lokale Kopie von [hidden-info-panel-start.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/hidden-info-panel-start.html) aus unserem GitHub-Repo. Dies folgt nicht auf das vorherige Beispiel, daher ist eine neue Startdatei erforderlich. Lassen Sie uns einen Blick auf das HTML in der Datei werfen:
+Erstellen Sie als Ausgangspunkt eine lokale Kopie von [hidden-info-panel-start.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/hidden-info-panel-start.html) aus unserem GitHub-Repository. Dieses Beispiel baut nicht auf dem vorherigen auf, daher benötigen Sie eine neue Ausgangsdatei. Sehen wir uns das HTML in der Datei an:
 
 ```html-nolint
 <button
@@ -361,11 +360,11 @@ Als Ausgangspunkt machen Sie eine lokale Kopie von [hidden-info-panel-start.html
 </aside>
 ```
 
-Hier haben wir ein {{htmlelement("button")}}-Element mit einem speziellen Fragezeichenzeichen als Button-Text. Der Button wird gedrückt, um das [`aside`](/de/docs/Web/HTML/Reference/Elements/aside)-Infopaneel ein- und auszublenden. In den folgenden Abschnitten erklären wir, wie das alles funktioniert.
+Am Anfang steht ein {{htmlelement("button")}}-Element mit einem besonderen Fragezeichen als Button-Text. Mit dem Button wird der Infobereich [`aside`](/de/docs/Web/HTML/Reference/Elements/aside) ein- und ausgeblendet. In den folgenden Abschnitten erklären wir, wie das funktioniert.
 
-### Styling des Buttons
+### Den Button gestalten
 
-Beginnen wir mit dem Button — fügen Sie das folgende CSS zwischen Ihren {{htmlelement("style")}}-Tags ein:
+Kümmern wir uns zuerst um den Button. Fügen Sie zwischen Ihren {{htmlelement("style")}}-Tags das folgende CSS ein:
 
 ```css
 #menu-button {
@@ -381,17 +380,17 @@ Beginnen wir mit dem Button — fügen Sie das folgende CSS zwischen Ihren {{htm
 }
 ```
 
-Die erste Regel stylt den `<button>`; hier haben wir:
+Die erste Regel gestaltet den `<button>`. Dabei haben wir:
 
-- Eine große {{cssxref("font-size")}} gesetzt, um das Icon schön groß zu machen.
-- Den Rahmen entfernt und den Hintergrund transparent gemacht, sodass statt des Buttons nur das `?` Icon angezeigt wird.
-- {{cssxref("position")}} auf `absolute` gesetzt und {{cssxref("top")}} und {{cssxref("right")}} verwendet, um es schön in der oberen rechten Ecke zu platzieren.
-- Ein {{cssxref("z-index")}} von 1 darauf gesetzt — dies ist so, dass wenn das Infopaneel gestylt und angezeigt wird, es das Icon nicht verdeckt; stattdessen sitzt das Icon darauf, sodass es erneut gedrückt werden kann, um das Info-Paneel auszublenden.
-- Die {{cssxref("cursor")}}-Eigenschaft verwendet, um den Mauszeiger, wenn er über dem Icon schwebt, in eine Handzeiger (wie der, den Sie sehen, wenn Links überfahren werden) zu ändern, als visuellen Hinweis für die Benutzer, dass das Icon etwas Interessantes tut.
+- eine große {{cssxref("font-size")}} festgelegt, damit das Symbol gut sichtbar ist;
+- den Rahmen entfernt und den Hintergrund transparent gemacht, sodass nur das Symbol `?` statt der Schaltfläche zu sehen ist;
+- {{cssxref("position")}} auf `absolute` gesetzt und den Button mit {{cssxref("top")}} und {{cssxref("right")}} in der oberen rechten Ecke platziert;
+- ihm einen {{cssxref("z-index")}} von 1 gegeben. So verdeckt der eingeblendete Infobereich das Symbol nicht; es bleibt darüber liegen und kann erneut gedrückt werden, um den Bereich auszublenden;
+- mit der Eigenschaft {{cssxref("cursor")}} festgelegt, dass der Mauszeiger über dem Symbol als Hand erscheint – wie beim Zeigen auf einen Link. Das gibt Nutzern einen zusätzlichen visuellen Hinweis darauf, dass das Symbol eine Funktion hat.
 
-### Styling des Paneels
+### Den Bereich gestalten
 
-Nun ist es an der Zeit, das eigentliche schiebende Paneel selbst zu stylen. Fügen Sie die folgende Regel am Ende Ihres CSS ein:
+Nun gestalten wir den verschiebbaren Bereich selbst. Fügen Sie die folgende Regel am Ende Ihres CSS hinzu:
 
 ```css
 #info-panel {
@@ -410,17 +409,17 @@ Nun ist es an der Zeit, das eigentliche schiebende Paneel selbst zu stylen. Füg
 }
 ```
 
-Hier passiert eine Menge — lassen Sie uns das Stück für Stück besprechen:
+Hier geschieht einiges. Gehen wir es Schritt für Schritt durch:
 
-- Zuerst setzen wir einige einfache {{cssxref("background-color")}} und {{cssxref("color")}} auf dem Infopaneel.
-- Als nächstes setzen wir eine feste {{cssxref("width")}} auf das Paneel und machen seine {{cssxref("height")}} die gesamte Höhe des Browser-Viewports.
-- Wir fügen auch etwas {{cssxref("padding")}} horizontal dazu, um es ein bisschen aufzulockern.
-- Als Nächstes setzen wir {{cssxref("position", "position: fixed;")}} auf das Paneel, sodass es immer an derselben Stelle erscheint, selbst wenn die Seite Inhalte zum Scrollen hat. Wir kleben es an die {{cssxref("top")}} des Viewports und stellen es so ein, dass es standardmäßig außerhalb des Bildschirms nach rechts ist.
-- Schließlich setzen wir eine {{cssxref("transition")}} auf das Element. Transition ist ein interessantes Feature, das es ermöglicht, Veränderungen zwischen Zuständen sanft passieren zu lassen, statt einfach nur "an" oder "aus" abrupt zu wechseln. In diesem Fall beabsichtigen wir, dass das Paneel sanft auf dem Bildschirm erscheint, wenn das Kontrollkästchen aktiviert ist. (Oder anders ausgedrückt: Wenn das Fragezeichenicon angeklickt wird.)
+- Zuerst legen wir für das Infofeld eine einfache {{cssxref("background-color")}} und {{cssxref("color")}} fest.
+- Dann geben wir dem Bereich eine feste {{cssxref("width")}} und setzen seine {{cssxref("height")}} auf die volle Höhe des Browser-Viewports.
+- Mit horizontalem {{cssxref("padding")}} schaffen wir etwas Abstand zum Inhalt.
+- Anschließend setzen wir {{cssxref("position", "position: fixed;")}}, damit der Bereich immer an derselben Stelle erscheint, auch wenn die Seite gescrollt wird. Wir richten ihn am {{cssxref("top")}} des Viewports aus und platzieren ihn standardmäßig außerhalb des sichtbaren Bereichs auf der {{cssxref("right")}} Seite.
+- Schließlich legen wir eine {{cssxref("transition")}} für das Element fest. Eine Transition lässt Änderungen zwischen Zuständen fließend ablaufen, statt abrupt zwischen „an“ und „aus“ zu wechseln. Hier soll der Bereich sanft auf den Bildschirm gleiten, wenn die Checkbox aktiviert wird – beziehungsweise, anders ausgedrückt, wenn auf das Fragezeichen-Symbol geklickt wird.
 
-### Einstellung des Check-Zustands
+### Den aktiven Zustand festlegen
 
-Es gibt noch ein letztes Stück CSS hinzuzufügen — setzen Sie Folgendes unten in Ihr CSS:
+Zum Schluss fehlt noch eine CSS-Regel. Fügen Sie Folgendes am Ende Ihres CSS hinzu:
 
 ```css
 #info-panel.open {
@@ -428,9 +427,9 @@ Es gibt noch ein letztes Stück CSS hinzuzufügen — setzen Sie Folgendes unten
 }
 ```
 
-Die Regel besagt, dass wenn das Infopaneel die `.open`-Klasse gesetzt hat, wird die {{cssxref("right")}}-Eigenschaft des `<aside>` auf `0px` gesetzt, was dazu führt, dass das Paneel wieder auf dem Bildschirm erscheint (sanft dank der Transition). Durch das Entfernen der `.open`-Klasse wird das Paneel wieder ausgeblendet.
+Die Regel besagt: Wenn der Infobereich die Klasse `.open` hat, wird die Eigenschaft {{cssxref("right")}} des `<aside>` auf `0px` gesetzt. Dadurch erscheint der Bereich wieder auf dem Bildschirm – dank der Transition mit einer fließenden Bewegung. Wird die Klasse `.open` entfernt, verschwindet er wieder.
 
-Um die `.open`-Klasse am Infopaneel durch Klicken auf den Button hinzuzufügen/zu entfernen, benötigen wir etwas JavaScript. Fügen Sie den folgenden Code zwischen {{htmlelement("script")}}-Tags ein:
+Um die Klasse `.open` beim Klicken auf den Button zum Infobereich hinzuzufügen oder von ihm zu entfernen, benötigen wir etwas JavaScript. Fügen Sie den folgenden Code zwischen {{htmlelement("script")}}-Tags ein:
 
 ```js
 const button = document.querySelector("#menu-button");
@@ -442,10 +441,10 @@ button.addEventListener("click", () => {
 });
 ```
 
-Der Code fügt dem Button einen Click-Event-Handler hinzu. Der Click-Handler schaltet die `open`-Klasse am Infopaneel ein oder aus, wodurch das Paneel ein- oder aus dem Bild rutscht. Der Ereignishandler setzt auch die [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Eigenschaft am Button, um die Zugänglichkeit zu verbessern.
+Der Code fügt dem Button einen Event-Handler für Klicks hinzu. Dieser schaltet die Klasse `open` am Infobereich um, sodass der Bereich in den sichtbaren Bereich hinein- oder aus ihm herausgleitet. Außerdem setzt der Event-Handler die Eigenschaft [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) des Buttons, um die Barrierefreiheit zu verbessern.
 
-Da haben Sie es — der einfachste Weg, einen umschaltbaren Infopaneeleffekt zu erstellen.
+Damit kennen Sie eine einfache Möglichkeit, einen ein- und ausblendbaren Infobereich zu erstellen.
 
 ## Zusammenfassung
 
-Damit beenden wir unseren Blick auf die Positionierung — Sie sollten nun eine Vorstellung davon haben, wie die grundlegenden Mechanismen funktionieren, und verstehen, wie Sie diese beginnen können anzuwenden, um interessante UI-Funktionen zu erstellen. Machen Sie sich keine Sorgen, wenn Sie das nicht alles sofort verstanden haben — Positionierung ist ein ziemlich fortgeschrittenes Thema, und Sie können die Artikel jederzeit erneut durcharbeiten, um Ihr Verständnis zu vertiefen.
+Damit schließen wir unseren Blick auf die Positionierung ab. Sie sollten nun verstehen, wie ihre grundlegenden Mechanismen funktionieren und wie Sie damit interessante Funktionen für Benutzeroberflächen umsetzen können. Machen Sie sich keine Sorgen, wenn Sie nicht alles sofort verstanden haben: Positionierung ist ein recht fortgeschrittenes Thema. Sie können die Artikel jederzeit erneut durcharbeiten, um Ihr Verständnis zu vertiefen.

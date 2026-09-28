@@ -3,26 +3,26 @@ title: "MediaTrackConstraints: volume-Eigenschaft"
 short-title: volume
 slug: Web/API/MediaTrackConstraints/volume
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}{{Non-standard_Header}}
 
-Das **`volume`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das die gewünschten oder erforderlichen Einschränkungen beschreibt, die auf den Wert der [`volume`](/de/docs/Web/API/MediaTrackSettings/volume)-einschränkbaren Eigenschaft angewendet werden.
+Die **`volume`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionaries ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das die gewünschten oder zwingend erforderlichen Einschränkungen für den Wert der einschränkbaren Eigenschaft [`volume`](/de/docs/Web/API/MediaTrackSettings/volume) beschreibt.
 
-Falls erforderlich, können Sie ermitteln, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.volume`](/de/docs/Web/API/MediaTrackSupportedConstraints/volume) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht nötig, da Browser alle Einschränkungen ignorieren, mit denen sie nicht vertraut sind.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`volume`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#volume) untersuchen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht nötig, da Browser ihnen unbekannte Einschränkungen ignorieren.
 
 ## Wert
 
-Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das den akzeptablen oder erforderlichen Wert bzw. die Werte für die Lautstärke eines Audio-Tracks beschreibt, auf einer linearen Skala, bei der 0.0 Stille bedeutet und 1.0 die höchste unterstützte Lautstärke ist.
+Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das die zulässigen oder erforderlichen Werte für die Lautstärke einer Audiospur beschreibt. Die Lautstärke wird auf einer linearen Skala angegeben, auf der 0.0 Stille und 1.0 die höchste unterstützte Lautstärke bedeutet.
 
-Wenn dieser Wert eine Zahl ist, wird der Benutzeragent versuchen, Medien zu erhalten, deren Lautstärke so nah wie möglich an dieser Zahl liegt, unter Berücksichtigung der Hardwarefähigkeiten und der anderen spezifizierten Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble) den Benutzeragenten anleiten, seine Bestrebungen entweder an eine genaue Übereinstimmung mit der erforderlichen Lautstärke zu richten (wenn `exact` angegeben ist oder sowohl `min` als auch `max` bereitgestellt werden und denselben Wert haben) oder einen möglichst guten Wert zu bieten.
+Wenn dieser Wert eine Zahl ist, versucht der User Agent, unter Berücksichtigung der Hardwarefunktionen und der anderen angegebenen Einschränkungen Medien mit einer Lautstärke zu erhalten, die dieser Zahl möglichst nahekommt. Andernfalls bestimmt der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), ob der User Agent die erforderliche Lautstärke exakt erreichen muss (wenn `exact` angegeben ist oder `min` und `max` angegeben sind und denselben Wert haben) oder einen bestmöglichen Wert bereitstellen soll.
 
-Jeder Einschränkungssatz, der nur Werte außerhalb des Bereichs von 0.0 bis 1.0 zulässt, kann nicht erfüllt werden und führt zu einem Fehler.
+Eine Menge von Einschränkungen, die ausschließlich Werte außerhalb des Bereichs von 0.0 bis 1.0 zulässt, kann nicht erfüllt werden und führt zu einem Fehler.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Sehen Sie sich das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
 
 ## Browser-Kompatibilität
 
@@ -31,8 +31,7 @@ Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Str
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Funktionen, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

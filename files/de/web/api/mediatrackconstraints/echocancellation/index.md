@@ -3,39 +3,39 @@ title: "MediaTrackConstraints: echoCancellation-Eigenschaft"
 short-title: echoCancellation
 slug: Web/API/MediaTrackConstraints/echoCancellation
 l10n:
-  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
+  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuch enthält die **`echoCancellation`**-Eigenschaft, ein [`ConstrainBooleanOrDOMString`](/de/docs/Web/API/MediaTrackConstraints#constrainbooleanordomstring), das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der [`echoCancellation`](/de/docs/Web/API/MediaTrackSettings/echoCancellation)-beschränkbaren Eigenschaft gesetzt werden.
+Die Eigenschaft **`echoCancellation`** des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Dictionaries ist ein [`ConstrainBooleanOrDOMString`](/de/docs/Web/API/MediaTrackConstraints#constrainbooleanordomstring), der die gewünschten oder zwingenden Einschränkungen für den Wert der einschränkbaren Eigenschaft [`echoCancellation`](/de/docs/Web/API/MediaTrackSettings/echoCancellation) beschreibt.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation) überprüfen, der von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht erforderlich, da Browser unbekannte Einschränkungen ignorieren.
+Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`echoCancellation`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#echocancellation) prüfen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist dies jedoch nicht nötig, da Browser ihnen unbekannte Einschränkungen ignorieren.
 
 ## Wert
 
-Ein Boolean, ein String oder ein [`ConstrainBooleanOrDOMString`](/de/docs/Web/API/MediaTrackConstraints#constrainbooleanordomstring)-Objekt.
+Ein boolescher Wert, ein String oder ein [`ConstrainBooleanOrDOMString`](/de/docs/Web/API/MediaTrackConstraints#constrainbooleanordomstring)-Objekt.
 
-Wenn der Browser spezifische Echo-Kompensationstypen unterstützt, kann der Wert auf einen der folgenden Werte gesetzt werden:
+Wenn der Browser bestimmte Arten der Echounterdrückung unterstützt, kann der Wert auf eine der folgenden Optionen gesetzt werden:
 
 - `"all"` {{experimental_inline}}
-  - : Alle vom System des Nutzers generierten Audioinhalte, die vom Mikrofon des Nutzers erfasst werden, werden entfernt. Dies ist nützlich in Situationen, in denen Sie vermeiden möchten, datenschutzsensible Audioinhalte wie Bildschirmleser-Ausgaben und Systembenachrichtigungen zu erfassen.
+  - : Sämtliche vom System des Benutzers erzeugten Audiosignale, die vom Mikrofon des Benutzers erfasst werden, werden entfernt. Dies ist beispielsweise nützlich, wenn Sie vermeiden möchten, dass datenschutzsensible Audiosignale wie die Ausgabe eines Screenreaders oder Systembenachrichtigungen erfasst werden.
 - `"remote-only"` {{experimental_inline}}
-  - : Nur vom System des Nutzers generierte Audioinhalte, die vom Mikrofon des Nutzers aus entfernten Quellen (wie durch [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)s aus einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)) erfasst werden, werden entfernt. Dies ist nützlich, wenn Sie Echo aus der Kommunikation mit entfernten Teilnehmern entfernen, aber dennoch lokale Audioinhalte teilen möchten, z. B. im Fall eines Musikunterrichts, bei dem der Lehrer die Schüler zu einem Audio-Track mitspielen lassen möchte, aber dennoch klar mit ihnen kommunizieren will.
+  - : Nur die vom System des Benutzers erzeugten Audiosignale aus entfernten Quellen, die vom Mikrofon des Benutzers erfasst werden, werden entfernt. Diese Quellen werden durch [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)s repräsentiert, die aus einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) stammen. Dies ist nützlich, wenn Sie Echos bei der Kommunikation mit entfernten Teilnehmern unterdrücken, aber lokale Audiosignale weiterhin übertragen möchten – etwa bei einer Musikstunde, in der die Lehrkraft hören möchte, wie ihre Schüler zu einer Audiospur mitspielen, und sich trotzdem klar mit ihnen verständigen können soll.
 - `true`
-  - : Der Browser entscheidet, welche Audioinhalte von den Signalen, die vom Mikrofon aufgezeichnet werden, entfernt werden. Er muss versuchen, mindestens so viel wie `remote-only` zu entfernen und sollte versuchen, so viel wie `all` zu entfernen.
+  - : Der Browser entscheidet, welche Audiosignale aus den vom Mikrofon aufgenommenen Signalen entfernt werden. Er muss versuchen, mindestens so viele Audiosignale wie bei `remote-only` zu unterdrücken, und sollte versuchen, so viele wie bei `all` zu unterdrücken.
 - `false`
-  - : Es wird kein Audio entfernt; es findet keine Echo-Kompensation statt.
+  - : Es werden keine Audiosignale entfernt; es findet keine Echounterdrückung statt.
 
-Wenn der Browser keine spezifischen Echo-Kompensationstypen unterstützt, kann der Wert `true` oder `false` sein.
+Wenn der Browser keine bestimmten Arten der Echounterdrückung unterstützt, kann der Wert `true` oder `false` sein.
 
-Wenn einer der oben genannten Werte gesetzt ist, versucht der Benutzeragent, Medien mit aktivierter oder deaktivierter Echo-Kompensation soweit möglich gemäß den Spezifikationen zu beziehen, schlägt jedoch nicht fehl, wenn dies nicht möglich ist.
+Wird einer der oben genannten Werte festgelegt, versucht der User Agent, Medien wie angegeben mit aktivierter oder deaktivierter Echounterdrückung abzurufen, sofern dies möglich ist. Schlägt dies fehl, führt das jedoch nicht zu einem Fehler.
 
-Wenn der Wert als Objekt mit einem `exact`-Feld angegeben ist, gibt der Wert dieses Feldes eine obligatorische Einstellung für die Echo-Kompensation an; kann diese nicht erfüllt werden, führt dies zu einem Fehler.
+Wird der Wert als Objekt mit einem `exact`-Feld angegeben, legt der Wert dieses Felds eine zwingende Einstellung für die Echounterdrückung fest. Kann diese Anforderung nicht erfüllt werden, führt die Anfrage zu einem Fehler.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -51,5 +51,4 @@ Siehe das Beispiel [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Str
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
 - [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
-- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)
