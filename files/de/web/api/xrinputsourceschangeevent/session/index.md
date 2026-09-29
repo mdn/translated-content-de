@@ -3,18 +3,16 @@ title: "XRInputSourcesChangeEvent: session-Eigenschaft"
 short-title: session
 slug: Web/API/XRInputSourcesChangeEvent/session
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent)-Eigenschaft
-`session` gibt die
-[`XRSession`](/de/docs/Web/API/XRSession) an, auf die sich die Änderung des Eingabequellenlisten-Ereignisses bezieht.
+Die schreibgeschützte Eigenschaft **`session`** der Schnittstelle [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent) gibt die [`XRSession`](/de/docs/Web/API/XRSession) an, für die das Ereignis zur Änderung der Liste der Eingabequellen gilt.
 
 ## Wert
 
-Eine [`XRSession`](/de/docs/Web/API/XRSession), die die WebXR-Sitzung angibt, auf die sich die Änderung der Eingabequellenliste bezieht.
+Eine [`XRSession`](/de/docs/Web/API/XRSession), die die WebXR-Sitzung angibt, für die die Änderung der Liste der Eingabequellen gilt.
 
 ## Spezifikationen
 

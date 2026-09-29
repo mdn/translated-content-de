@@ -3,57 +3,51 @@ title: "RTCDTMFSender: toneBuffer-Eigenschaft"
 short-title: toneBuffer
 slug: Web/API/RTCDTMFSender/toneBuffer
 l10n:
-  sourceCommit: 7972ac25580ffbfb160e6d40013bbab3013d7cbe
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("WebRTC")}}
 
-Die `toneBuffer`-Eigenschaft der Schnittstelle [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gibt eine Zeichenfolge zurück,
-die eine Liste der {{Glossary("DTMF", "DTMF")}}-Töne enthält, die derzeit in der Warteschlange stehen, um an den
-Remote-Peer über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet zu werden. Um Töne in den Puffer einzufügen,
-rufen Sie [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf.
+Die schreibgeschützte Eigenschaft **`toneBuffer`** der Schnittstelle [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gibt einen String zurück, der die {{Glossary("DTMF", "DTMF")}}-Töne enthält, die derzeit für die Übertragung über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) an die Gegenstelle in der Warteschlange stehen. Um Töne in den Puffer einzufügen, rufen Sie [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf.
 
-Töne werden aus der Zeichenfolge entfernt, sobald sie gespielt werden, so dass nur die bevorstehenden Töne aufgelistet sind.
+Töne werden aus dem String entfernt, sobald sie abgespielt werden. Daher enthält er nur noch ausstehende Töne.
 
 ## Wert
 
-Eine Zeichenfolge, die die zu spielenden Töne auflistet. Wenn die Zeichenfolge leer ist,
-stehen keine Töne an.
+Ein String mit den abzuspielenden Tönen. Ist der String leer, stehen keine Töne aus.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein Zeichen kein DTMF-Tonzeichen (`0-9`, `A-D`, `#` oder `,`) ist.
+  - : Wird ausgelöst, wenn ein Zeichen kein DTMF-Tonzeichen ist (`0-9`, `A-D`, `#` oder `,`).
 
-### Format des Tonebuffers
+### Format des Tonpuffers
 
-Der Tonebuffer ist eine Zeichenfolge, die eine beliebige Kombination der vom DTMF-Standard erlaubten Zeichen enthalten kann.
+Der Tonpuffer ist ein String, der eine beliebige Kombination der nach dem DTMF-Standard zulässigen Zeichen enthalten kann.
 
 #### DTMF-Tonzeichen
 
-- Die Ziffern 0-9
-  - : Diese Zeichen repräsentieren die Ziffertasten auf einer Telefon-Tastatur.
-- Die Buchstaben A-D
-  - : Diese Zeichen repräsentieren die Tasten "A" bis "D", die Teil des DTMF-Standards sind, aber auf den meisten Telefonen nicht enthalten sind. Diese werden _nicht_ als Ziffern interpretiert. Kleinbuchstaben "a"-"d" werden automatisch in Großbuchstaben umgewandelt.
-- Das Rautezeichen ("#") und der Stern ("\*")
-  - : Diese entsprechen den ähnlich beschrifteten Tasten, die typischerweise in der unteren Reihe der Telefon-Tastatur zu finden sind.
-- Das Komma (",")
-  - : Dieses Zeichen veranlasst den Wählvorgang, zwei Sekunden Pause zu machen, bevor das nächste Zeichen im Puffer gesendet wird.
+- Die Ziffern 0–9
+  - : Diese Zeichen stehen für die Zifferntasten einer Telefontastatur.
+- Die Buchstaben A–D
+  - : Diese Zeichen stehen für die Tasten „A“ bis „D“, die Teil des DTMF-Standards sind, aber auf den meisten Telefonen fehlen. Sie werden _nicht_ als Ziffern interpretiert. Kleinbuchstaben von „a“ bis „d“ werden automatisch in Großbuchstaben umgewandelt.
+- Die Rautetaste („#“) und die Sterntaste („\*“)
+  - : Diese entsprechen den gleich gekennzeichneten Tasten, die sich üblicherweise in der untersten Reihe der Telefontastatur befinden.
+- Das Komma („,“)
+  - : Dieses Zeichen bewirkt, dass der Wählvorgang zwei Sekunden pausiert, bevor das nächste Zeichen im Puffer gesendet wird.
 
 > [!NOTE]
-> Alle anderen Zeichen werden nicht erkannt und führen dazu, dass
-> [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) einen
-> `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException) auslöst.
+> Alle anderen Zeichen werden nicht erkannt und führen dazu, dass [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) eine `InvalidCharacterError`-​​[`DOMException`](/de/docs/Web/API/DOMException) auslöst.
 
-#### Verwendung von Tonebuffer-Zeichenfolgen
+#### Tonpuffer-Strings verwenden
 
-Zum Beispiel, wenn Sie Code schreiben, um ein Voicemail-System durch Senden von DTMF-Codes zu steuern, könnten Sie eine Zeichenfolge wie `"*,1,5555"` verwenden. In diesem Beispiel würden wir `"*"` senden, um Zugriff auf das Voicemail-System anzufordern, dann nach einer Pause eine "1", um mit der Wiedergabe von Voicemail-Nachrichten zu beginnen, und dann nach einer Pause "5555" als PIN-Nummer wählen, um die Nachrichten zu öffnen.
+Wenn Sie beispielsweise Code schreiben, der ein Voicemail-System durch das Senden von DTMF-Codes steuert, könnten Sie einen String wie `"*,1,5555"` verwenden. In diesem Beispiel wird zunächst `"*"` gesendet, um Zugriff auf das Voicemail-System anzufordern. Nach einer Pause wird `"1"` gesendet, um die Wiedergabe der Sprachnachrichten zu starten. Nach einer weiteren Pause wird „5555“ als PIN gewählt, um die Nachrichten zu öffnen.
 
-Das Setzen des Tonebuffers auf eine leere Zeichenfolge (`""`) hebt alle anstehenden DTMF-Codes auf.
+Wenn Sie den Tonpuffer auf einen leeren String (`""`) setzen, werden alle noch ausstehenden DTMF-Codes verworfen.
 
 ## Beispiel
 
-tbd
+Noch zu ergänzen.
 
 ## Spezifikationen
 
@@ -65,8 +59,8 @@ tbd
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Verwendung von DTMF mit WebRTC](/de/docs/Web/API/WebRTC_API/Using_DTMF)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [DTMF mit WebRTC verwenden](/de/docs/Web/API/WebRTC_API/Using_DTMF)
 - [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
 - [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)

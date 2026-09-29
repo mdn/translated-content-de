@@ -2,14 +2,14 @@
 title: MediaStreamAudioDestinationNode
 slug: Web/API/MediaStreamAudioDestinationNode
 l10n:
-  sourceCommit: 1a91b0b63f0cbaca9125bd48d4e5bc8afed2a7a3
+  sourceCommit: 4ccd81240a6d531962fab92886631885a90bfa3c
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die `MediaStreamAudioDestinationNode`-Schnittstelle repräsentiert ein Audioziel, das aus einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`MediaStream`](/de/docs/Web/API/MediaStream) mit einem einzelnen `AudioMediaStreamTrack` besteht, der auf ähnliche Weise wie ein `MediaStream` verwendet werden kann, der von [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten wurde.
+Das Interface `MediaStreamAudioDestinationNode` repräsentiert ein Audioziel, das aus einem [WebRTC](/de/docs/Web/API/WebRTC_API)-[`MediaStream`](/de/docs/Web/API/MediaStream) mit einem einzelnen `AudioMediaStreamTrack` besteht. Dieser kann ähnlich wie ein über [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) bezogener `MediaStream` verwendet werden.
 
-Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der als Audioziel fungiert und mithilfe der Methode [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination) erstellt wird.
+Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der als Audioziel dient und mit der Methode [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination) erstellt wird.
 
 {{InheritanceDiagram}}
 
@@ -24,15 +24,15 @@ Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der als Audi
       <td><code>0</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Kanäle</th>
+      <th scope="row">Kanalanzahl</th>
       <td><code>2</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalzähler-Modus</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"explicit"</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalinterpretation</th>
+      <th scope="row">Interpretation der Kanalanzahl</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -41,22 +41,22 @@ Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der als Audi
 ## Konstruktor
 
 - [`MediaStreamAudioDestinationNode()`](/de/docs/Web/API/MediaStreamAudioDestinationNode/MediaStreamAudioDestinationNode)
-  - : Erstellt eine neue Instanz eines `MediaStreamAudioDestinationNode`-Objekts.
+  - : Erstellt eine neue Instanz des Objekts `MediaStreamAudioDestinationNode`.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt Eigenschaften von seinem übergeordneten [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
-- [`MediaStreamAudioDestinationNode.stream`](/de/docs/Web/API/MediaStreamAudioDestinationNode/stream)
-  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist und die gleiche Anzahl von Kanälen wie der Knoten aufweist. Diese Eigenschaft kann verwendet werden, um einen Stream aus dem Audiografen zu extrahieren und in eine andere Konstruktion einzuspeisen, wie z. B. einen [Media Recorder](/de/docs/Web/API/MediaStream_Recording_API).
+- [`MediaStreamAudioDestinationNode.stream`](/de/docs/Web/API/MediaStreamAudioDestinationNode/stream) {{ReadOnlyInline}}
+  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist und der dieselbe Anzahl an Kanälen wie der Node hat. Mit dieser Eigenschaft können Sie einen Stream aus dem Audiographen abrufen und ihn an eine andere Komponente übergeben, beispielsweise an einen [Media Recorder](/de/docs/Web/API/MediaStream_Recording_API).
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt Methoden von seinem übergeordneten [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
 ## Beispiel
 
-Siehe [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination#examples) für Beispielcode, der ein `MediaStreamAudioDestinationNode` erstellt und als Quelle für aufzuzeichnendes Audio verwendet.
+Beispielcode, der einen `MediaStreamAudioDestinationNode` erstellt und ihn als Quelle für aufzuzeichnendes Audio verwendet, finden Sie unter [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination#examples).
 
 ## Spezifikationen
 

@@ -1,33 +1,26 @@
 ---
-title: "IDBTransaction: error Eigenschaft"
+title: "IDBTransaction: error-Eigenschaft"
 short-title: error
 slug: Web/API/IDBTransaction/error
 l10n:
-  sourceCommit: ff1e97da7ade9fcb05fb3de064011d4f05debe82
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`IDBTransaction.error`** Eigenschaft des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Interfaces
-gibt den Fehlertyp zurück, wenn eine Transaktion erfolglos ist.
+Die schreibgeschützte Eigenschaft **`error`** der Schnittstelle [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) gibt bei einer fehlgeschlagenen Transaktion den Fehlertyp zurück.
 
 ## Wert
 
-Ein [`DOMException`](/de/docs/Web/API/DOMException), das den relevanten Fehler enthält, oder `null`, falls keiner vorhanden ist.
+Eine [`DOMException`](/de/docs/Web/API/DOMException), die den betreffenden Fehler enthält, oder `null`, wenn kein Fehler vorliegt.
 
-Es kann ein Verweis auf denselben Fehler wie das Anforderungsobjekt sein, das ihn ausgelöst hat, oder ein Transaktionsfehler
-(zum Beispiel `QuotaExceededError`).
+Dabei kann es sich um einen Verweis auf denselben Fehler handeln, den das Request-Objekt ausgelöst hat, oder um einen Fehler der Transaktion selbst (beispielsweise `QuotaExceededError`).
 
-Diese Eigenschaft ist `null`, wenn die Transaktion nicht abgeschlossen ist oder abgeschlossen und
-erfolgreich festgeschrieben wurde.
+Diese Eigenschaft ist `null`, wenn die Transaktion noch nicht abgeschlossen ist oder wenn sie abgeschlossen und erfolgreich festgeschrieben wurde.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen
-einem Objektspeicher einige Daten hinzu. Beachten Sie auch die Funktionen, die an die Transaktionsereignishandler angehängt sind, um das Ergebnis der Transaktionsöffnung im Falle eines Erfolgs oder
-Fehlschlags zu berichten. Beachten Sie den Block `transaction.onerror = (event) => { };`,
-der `transaction.error` verwendet, um zu helfen, zu berichten, was schiefgelaufen ist, wenn die
-Transaktion erfolglos war. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codeausschnitt öffnen wir eine Lese-/Schreibtransaktion für unsere Datenbank und fügen einem Object Store Daten hinzu. Beachten Sie auch die Funktionen, die den Event-Handlern der Transaktion zugewiesen sind. Sie melden, ob das Öffnen der Transaktion erfolgreich war oder fehlgeschlagen ist. Beachten Sie insbesondere den Block `transaction.onerror = (event) => { };`: Er verwendet `transaction.error`, um bei einer fehlgeschlagenen Transaktion den Fehler zu melden. Ein vollständiges, funktionsfähiges Beispiel finden Sie in unserer App [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
@@ -105,8 +98,8 @@ function addData() {
 
 - [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen von und Änderungen an Ihren Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Cursor verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

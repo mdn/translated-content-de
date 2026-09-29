@@ -2,57 +2,57 @@
 title: LayoutShift
 slug: Web/API/LayoutShift
 l10n:
-  sourceCommit: fcd4f39485d740615c32ccaef63471bc27095fb0
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Das `LayoutShift`-Interface der [Performance-API](/de/docs/Web/API/Performance_API) bietet Einblicke in die Layout-Stabilität von Webseiten basierend auf Bewegungen der Elemente auf der Seite.
+Die `LayoutShift`-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) liefert Informationen über die Layout-Stabilität von Webseiten anhand der Bewegungen von Elementen auf der Seite.
 
 ## Beschreibung
 
-Ein Layout-Shift tritt auf, wenn ein sichtbares Element im Ansichtsfenster seine Position zwischen zwei Frames ändert. Diese Elemente werden als **instabil** beschrieben, was auf eine mangelnde visuelle Stabilität hinweist.
+Eine Layout-Verschiebung tritt auf, wenn ein im Viewport sichtbares Element zwischen zwei Frames seine Position ändert. Solche Elemente gelten als **instabil**, da ihre visuelle Position nicht stabil bleibt.
 
-Die Layout-Instabilitäts-API bietet eine Möglichkeit zur Messung und Berichterstattung dieser Layout-Shifts. Alle Werkzeuge zur Fehlersuche bei Layout-Shifts, einschließlich der Entwicklertools des Browsers, nutzen diese API. Die API kann auch verwendet werden, um Layout-Shifts zu beobachten und zu debuggen, indem Informationen in die Konsole geloggt, die Daten an einen Server-Endpunkt gesendet oder in die Webseitenanalytik einbezogen werden.
+Die Layout Instability API bietet eine Möglichkeit, diese Layout-Verschiebungen zu messen und darüber zu berichten. Alle Werkzeuge zur Fehlersuche bei Layout-Verschiebungen, einschließlich der Entwicklertools des Browsers, verwenden diese API. Sie können die API auch verwenden, um Layout-Verschiebungen zu beobachten und zu untersuchen, indem Sie die Informationen in der Konsole protokollieren oder die Daten an einen Serverendpunkt beziehungsweise an ein Webanalyse-System senden.
 
-Leistungswerkzeuge können diese API verwenden, um einen {{Glossary("CLS", "CLS")}}-Wert zu berechnen.
+Performance-Tools können diese API verwenden, um einen {{Glossary("CLS", "CLS")}}-Wert zu berechnen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem sie sie wie folgt qualifiziert:
+Diese Schnittstelle erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), indem sie deren Rückgabewerte wie folgt festlegt:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt immer `0` zurück (das Konzept der Dauer gilt nicht für Layout-Shifts).
+  - : Gibt immer `0` zurück (das Konzept einer Dauer ist auf Layout-Verschiebungen nicht anwendbar).
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `"layout-shift"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `"layout-shift"` zurück.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit repräsentiert, zu der der Layout-Shift begann.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt angibt, zu dem die Layout-Verschiebung begann.
 
-Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
+Diese Schnittstelle unterstützt außerdem die folgenden Eigenschaften:
 
 - [`LayoutShift.value`](/de/docs/Web/API/LayoutShift/value) {{Experimental_Inline}}
-  - : Gibt den Layout-Shift-Wert zurück, berechnet als Wirkungsbruchteil (Bruchteil des verschobenen Ansichtsfensters) multipliziert mit dem Distanzbruchteil (verschobene Entfernung als Bruchteil des Ansichtsfensters).
+  - : Gibt den Wert der Layout-Verschiebung zurück. Er wird berechnet, indem der betroffene Anteil des Viewports mit der Verschiebungsdistanz als Anteil des Viewports multipliziert wird.
 - [`LayoutShift.hadRecentInput`](/de/docs/Web/API/LayoutShift/hadRecentInput) {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn [`lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) weniger als 500 Millisekunden in der Vergangenheit liegt.
+  - : Gibt `true` zurück, wenn [`lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) weniger als 500 Millisekunden zurückliegt.
 - [`LayoutShift.lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) {{Experimental_Inline}}
-  - : Gibt die Zeit der jüngsten ausschließenden Eingabe zurück (Benutzereingabe, die diesen Eintrag als Beitrag zum CLS-Wert ausschließt) oder `0`, wenn keine ausschließende Eingabe erfolgt ist.
+  - : Gibt den Zeitpunkt der letzten ausschließenden Nutzereingabe zurück (einer Nutzereingabe, durch die dieser Eintrag nicht zum CLS-Wert beiträgt), oder `0`, wenn keine solche Eingabe stattgefunden hat.
 - [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) {{Experimental_Inline}}
-  - : Gibt ein Array von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten mit Informationen zu den verschobenen Elementen zurück.
+  - : Gibt ein Array von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten mit Informationen über die verschobenen Elemente zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`LayoutShift.toJSON()`](/de/docs/Web/API/LayoutShift/toJSON) {{Experimental_Inline}}
-  - : Konvertiert die Eigenschaften in JSON.
+  - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `LayoutShift`-Objekt repräsentiert. Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiele
 
-### Logging von Layout-Shift-Werten
+### Werte von Layout-Verschiebungen protokollieren
 
-Das folgende Beispiel zeigt, wie Layout-Shifts erfasst und in die Konsole geloggt werden.
+Das folgende Beispiel zeigt, wie Sie Layout-Verschiebungen erfassen und in der Konsole protokollieren.
 
 ```js
 const observer = new PerformanceObserver((list) => {

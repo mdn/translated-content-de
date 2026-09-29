@@ -2,82 +2,82 @@
 title: LargestContentfulPaint
 slug: Web/API/LargestContentfulPaint
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Performance API")}}
 
-Das `LargestContentfulPaint`-Interface bietet Zeitinformationen über das größte Bild oder den größten Textblock, der vor einer Benutzereingabe auf einer Webseite dargestellt wird.
+Das Interface `LargestContentfulPaint` liefert Zeitinformationen zum Rendern des größten Bildes oder Textblocks auf einer Webseite vor der ersten Nutzereingabe.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Dieses Interface definiert direkt die folgenden Eigenschaften:
+Dieses Interface definiert unmittelbar die folgenden Eigenschaften:
 
 - [`LargestContentfulPaint.element`](/de/docs/Web/API/LargestContentfulPaint/element) {{ReadOnlyInline}}
-  - : Das Element, das derzeit das größte contentful paint ist.
+  - : Das Element, das derzeit den größten sichtbaren Inhalt darstellt.
 - [`LargestContentfulPaint.renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) {{ReadOnlyInline}}
-  - : Die Zeit, zu der das Element auf dem Bildschirm gerendert wurde. Dies kann ein abgeschwächter Wert sein, wenn das Element ein cross-origin Bild ist, das ohne den `Timing-Allow-Origin`-Header geladen wurde.
+  - : Der Zeitpunkt, zu dem das Element auf dem Bildschirm gerendert wurde. Der Wert kann weniger präzise sein, wenn es sich bei dem Element um ein Cross-Origin-Bild handelt, das ohne den Header `Timing-Allow-Origin` geladen wurde.
 - [`LargestContentfulPaint.loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) {{ReadOnlyInline}}
-  - : Die Zeit, zu der das Element geladen wurde.
+  - : Der Zeitpunkt, zu dem das Element geladen wurde.
 - [`LargestContentfulPaint.size`](/de/docs/Web/API/LargestContentfulPaint/size) {{ReadOnlyInline}}
-  - : Die intrinsische Größe des Elements, zurückgegeben als Fläche (Breite \* Höhe).
+  - : Die intrinsische Größe des Elements, angegeben als Fläche (Breite \* Höhe).
 - [`LargestContentfulPaint.id`](/de/docs/Web/API/LargestContentfulPaint/id) {{ReadOnlyInline}}
-  - : Die ID des Elements. Diese Eigenschaft gibt einen leeren String zurück, wenn keine ID vorhanden ist.
+  - : Die id des Elements. Diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn keine id vorhanden ist.
 - [`LargestContentfulPaint.paintTime`](/de/docs/Web/API/LargestContentfulPaint/paintTime)
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Rendering-Phase endete und die Paint-Phase begann.
+  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Rendering-Phase endete und die Paint-Phase begann.
 - [`LargestContentfulPaint.presentationTime`](/de/docs/Web/API/LargestContentfulPaint/presentationTime)
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die gemalten Pixel tatsächlich auf dem Bildschirm angezeigt wurden.
+  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die gezeichneten Pixel tatsächlich auf dem Bildschirm angezeigt wurden.
 - [`LargestContentfulPaint.url`](/de/docs/Web/API/LargestContentfulPaint/url) {{ReadOnlyInline}}
-  - : Wenn das Element ein Bild ist, die Anforderungs-URL des Bildes.
+  - : Falls das Element ein Bild ist, die Anfrage-URL des Bildes.
 
-Es erweitert auch die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften und qualifiziert und beschränkt diese wie beschrieben:
+Außerdem erweitert es die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) und konkretisiert beziehungsweise beschränkt sie wie beschrieben:
 
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Gibt `"largest-contentful-paint"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
-  - : Gibt immer einen leeren String zurück.
+  - : Gibt immer eine leere Zeichenfolge zurück.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
-  - : Gibt den Wert der [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) dieses Eintrags zurück.
+  - : Gibt den Wert von [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) für diesen Eintrag zurück.
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
   - : Gibt `0` zurück, da `duration` für dieses Interface nicht anwendbar ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`LargestContentfulPaint.toJSON()`](/de/docs/Web/API/LargestContentfulPaint/toJSON)
-  - : Überschreibt die [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON) Methode, um eine JSON-Darstellung des `LargestContentfulPaint`-Objekts zurückzugeben.
+  - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `LargestContentfulPaint`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beschreibung
 
-Der Schlüsselmoment, den diese API liefert, ist die Metrik des {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP). Sie liefert die Renderzeit des größten innerhalb des Viewports sichtbaren Bildes oder Textblocks, gemessen ab Beginn des Seitenladens. Die folgenden Elemente werden als {{Glossary("Contentful_paint", "contentful")}} betrachtet, wenn LCP ermittelt wird:
+Die wichtigste Kennzahl, die diese API bereitstellt, ist {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP). Sie gibt den Zeitpunkt an, zu dem das größte im Viewport sichtbare Bild oder der größte dort sichtbare Textblock gerendert wurde, gemessen ab dem Beginn des Seitenladens. Die folgenden Elemente gelten bei der Bestimmung des LCP als {{Glossary("Contentful_paint", "inhaltstragend")}}:
 
-- {{HTMLElement("img")}} Elemente.
-- [`<image>`](/de/docs/Web/SVG/Reference/Element/image) Elemente innerhalb eines SVG.
-- Die Posterbilder von {{HTMLElement("video")}} Elementen.
+- {{HTMLElement("img")}}-Elemente.
+- [`<image>`](/de/docs/Web/SVG/Reference/Element/image)-Elemente innerhalb einer SVG.
+- Die Vorschaubilder von {{HTMLElement("video")}}-Elementen.
 - Elemente mit einem {{cssxref("background-image")}}.
-- Gruppen von Textknoten, wie etwa {{HTMLElement("p")}}.
+- Gruppen von Textknoten, beispielsweise {{HTMLElement("p")}}.
 
-Um Renderzeiten anderer Elemente zu messen, verwenden Sie die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) API.
+Um die Rendering-Zeiten anderer Elemente zu messen, verwenden Sie die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API.
 
-Zusätzliche wichtige Paint-Momente werden von der [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming) API bereitgestellt:
+Weitere wichtige Zeitpunkte beim Rendern stellt die [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)-API bereit:
 
-- {{Glossary("First_Paint", "First Paint")}} (FP): Zeitpunkt, zu dem etwas gerendert wird. Beachten Sie, dass die Markierung des ersten Paint optional ist, nicht alle Benutzeragenten berichten darüber.
-- {{Glossary("First_Contentful_Paint", "First Contentful Paint")}} (FCP): Zeitpunkt, zu dem das erste Stück DOM-Text oder Bild-Inhalt gerendert wird.
+- {{Glossary("First_Paint", "First Paint")}} (FP): Der Zeitpunkt, zu dem erstmals etwas gerendert wird. Beachten Sie, dass die Erfassung von First Paint optional ist; nicht alle User Agents melden diesen Wert.
+- {{Glossary("First_Contentful_Paint", "First Contentful Paint")}} (FCP): Der Zeitpunkt, zu dem erstmals DOM-Text oder Bildinhalt gerendert wird.
 
 `LargestContentfulPaint` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
 {{InheritanceDiagram}}
 
-Um eine genaue Messung der Renderzeit für cross-origin Ressourcen zu erhalten, setzen Sie den {{httpheader("Timing-Allow-Origin")}} Header.
+Um die Rendering-Zeit von Cross-Origin-Ressourcen genau zu messen, setzen Sie den Header {{httpheader("Timing-Allow-Origin")}}.
 
-Siehe [Cross-origin image render time](/de/docs/Web/API/LargestContentfulPaint/renderTime#cross-origin_image_render_time) und [Use startTime over renderTime](/de/docs/Web/API/LargestContentfulPaint/renderTime#use_starttime_over_rendertime) für weitere Details.
+Weitere Informationen finden Sie unter [Rendering-Zeit von Cross-Origin-Bildern](/de/docs/Web/API/LargestContentfulPaint/renderTime#cross-origin_image_render_time) und [`startTime` anstelle von `renderTime` verwenden](/de/docs/Web/API/LargestContentfulPaint/renderTime#use_starttime_over_rendertime).
 
 ## Beispiele
 
-### Beobachten des größten contentful paint
+### Largest Contentful Paint beobachten
 
-Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) registriert, um das größte contentful paint während des Ladens der Seite zu erhalten. Das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
+Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) registriert, um Largest Contentful Paint während des Ladens der Seite zu erfassen. Das Flag `buffered` ermöglicht den Zugriff auf Daten, die vor der Erstellung des Observers erfasst wurden.
 
-Die LCP-API analysiert alle gefundenen Inhalte (einschließlich Inhalte, die aus dem DOM entfernt wurden). Wenn neue größere Inhalte gefunden werden, erstellt sie einen neuen Eintrag. Sie hört auf, nach größeren Inhalten zu suchen, wenn Scroll- oder Eingabeereignisse auftreten, da diese Ereignisse wahrscheinlich neue Inhalte auf der Website einführen. Daher ist das LCP der letzte vom Observer gemeldete Performance-Eintrag.
+Die LCP-API analysiert alle gefundenen Inhalte, auch solche, die aus dem DOM entfernt werden. Wenn sie einen neuen größten Inhalt findet, erstellt sie einen neuen Eintrag. Sobald Scroll- oder Eingabeereignisse auftreten, sucht sie nicht mehr nach größeren Inhalten, da diese Ereignisse wahrscheinlich neue Inhalte auf der Website sichtbar machen. Der LCP ist daher der letzte vom Observer gemeldete Performance-Eintrag.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -89,11 +89,11 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "largest-contentful-paint", buffered: true });
 ```
 
-### Beobachten separater Paint- und Präsentationszeiten
+### Zeitpunkte für Paint und Anzeige getrennt beobachten
 
-Die Eigenschaften `paintTime` und `presentationTime` ermöglichen es Ihnen, spezifische Zeiten für den Beginn der Paint-Phase und das Zeichnen der gemalten Pixel auf dem Bildschirm abzurufen. Die `paintTime` ist breit interoperabel, während die `presentationTime` implementierungsabhängig ist.
+Mit den Eigenschaften `paintTime` und `presentationTime` können Sie die Zeitpunkte abrufen, zu denen die Paint-Phase beginnt beziehungsweise die gezeichneten Pixel auf dem Bildschirm angezeigt werden. `paintTime` ist weitgehend browserübergreifend verfügbar, während `presentationTime` von der Implementierung abhängt.
 
-Dieses Beispiel baut auf dem vorherigen Observer-Beispiel auf und zeigt, wie Sie die Unterstützung für `paintTime` und `presentationTime` überprüfen und diese Werte abrufen, wenn sie verfügbar sind. In nicht unterstützenden Browsern ruft der Code die `renderTime` oder `loadTime` ab, je nachdem, was unterstützt wird.
+Dieses Beispiel baut auf dem vorherigen Observer-Beispiel auf. Es zeigt, wie Sie prüfen, ob `paintTime` und `presentationTime` unterstützt werden, und die Werte abrufen, falls sie verfügbar sind. In Browsern ohne entsprechende Unterstützung ruft der Code je nach Verfügbarkeit `renderTime` oder `loadTime` ab.
 
 ```js
 const observer = new PerformanceObserver((list) => {

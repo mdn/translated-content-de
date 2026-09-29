@@ -3,14 +3,14 @@ title: "Gamepad: buttons-Eigenschaft"
 short-title: buttons
 slug: Web/API/Gamepad/buttons
 l10n:
-  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Gamepad API")}}
 
-Die **`buttons`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad) Interface gibt ein Array von [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten zurück, die die auf dem Gerät vorhandenen Tasten darstellen.
+Die schreibgeschützte Eigenschaft **`buttons`** des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein Array von [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten zurück, die die Tasten des Geräts repräsentieren.
 
-Jeder Eintrag im Array ist `0`, wenn die Taste nicht gedrückt ist, und ungleich null (typischerweise `1.0`), wenn die Taste gedrückt ist.
+Jeder Eintrag im Array ist `0`, wenn die Taste nicht gedrückt ist, und ungleich null (üblicherweise `1.0`), wenn sie gedrückt ist.
 
 ## Wert
 
@@ -18,8 +18,7 @@ Ein Array von [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten.
 
 ## Beispiele
 
-Je nach Art der Taste müssen wir auf die Eigenschaften [`GamepadButton.value`](/de/docs/Web/API/GamepadButton/value) oder [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed) zugreifen. Dieses
-Beispiel unterstützt beides:
+Je nach Tastentyp müssen wir auf die Eigenschaften [`GamepadButton.value`](/de/docs/Web/API/GamepadButton/value) oder [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed) zugreifen. Dieses Beispiel unterstützt beide:
 
 ```js
 function gameLoop() {
@@ -52,4 +51,4 @@ function gameLoop() {
 
 ## Siehe auch
 
-[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

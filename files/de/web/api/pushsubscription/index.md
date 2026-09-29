@@ -2,55 +2,56 @@
 title: PushSubscription
 slug: Web/API/PushSubscription
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{ApiRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das `PushSubscription`-Interface der [Push API](/de/docs/Web/API/Push_API) stellt die URL-Endpunkt einer Abonnements sowie den öffentlichen Schlüssel und die Geheimnisse bereit, die zum Verschlüsseln von Push-Nachrichten an dieses Abonnement verwendet werden sollen. Diese Informationen müssen auf beliebige artenspezifische Weise an den Anwendungsserver übermittelt werden.
+Die `PushSubscription`-Schnittstelle der [Push API](/de/docs/Web/API/Push_API) stellt den Endpunkt einer Subscription sowie den öffentlichen Schlüssel und die Geheimnisse bereit, die zum Verschlüsseln von Push-Nachrichten für diese Subscription verwendet werden sollen.
+Diese Informationen müssen mit einer beliebigen anwendungsspezifischen Methode an den Anwendungsserver übermittelt werden.
 
-Das Interface bietet auch Informationen darüber, wann das Abonnement abläuft, und eine Methode, um das Abonnement zu kündigen.
+Die Schnittstelle stellt außerdem Informationen darüber bereit, wann die Subscription abläuft, sowie eine Methode zum Beenden der Subscription.
 
 ## Instanzeigenschaften
 
 - [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint) {{ReadOnlyInline}}
-  - : Ein String, der den mit dem Push-Abonnement assoziierten Endpunkt enthält.
+  - : Ein String mit dem Endpunkt, der der Push-Subscription zugeordnet ist.
 - [`PushSubscription.expirationTime`](/de/docs/Web/API/PushSubscription/expirationTime) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) der Gültigkeitsdauer des Abonnements im Zusammenhang mit dem Push-Abonnement, falls vorhanden, oder sonst null.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Ablaufzeitpunkt der Push-Subscription angibt, sofern einer vorhanden ist; andernfalls null.
 - [`PushSubscription.options`](/de/docs/Web/API/PushSubscription/options) {{ReadOnlyInline}}
-  - : Ein Objekt, das die zum Erstellen des Abonnements verwendeten Optionen enthält.
+  - : Ein Objekt mit den Optionen, die zum Erstellen der Subscription verwendet wurden.
 - [`PushSubscription.subscriptionId`](/de/docs/Web/API/PushSubscription/subscriptionId) {{deprecated_inline}} {{ReadOnlyInline}} {{non-standard_inline}}
-  - : Ein String, der die mit dem Push-Abonnement assoziierte Abonnement-ID enthält.
+  - : Ein String mit der Subscription-ID, die der Push-Subscription zugeordnet ist.
 
 ## Instanzmethoden
 
 - [`PushSubscription.getKey()`](/de/docs/Web/API/PushSubscription/getKey)
-  - : Gibt ein {{jsxref("ArrayBuffer")}} zurück, das den öffentlichen Schlüssel des Clients enthält, der dann an einen Server gesendet und zur Verschlüsselung von Push-Nachrichtendaten verwendet werden kann.
+  - : Gibt einen {{jsxref("ArrayBuffer")}} zurück, der den öffentlichen Schlüssel des Clients enthält. Dieser kann anschließend an einen Server gesendet und zum Verschlüsseln der Daten von Push-Nachrichten verwendet werden.
 - [`PushSubscription.toJSON()`](/de/docs/Web/API/PushSubscription/toJSON)
-  - : Standardserializer — gibt eine JSON-Darstellung der Abonnementseigenschaften zurück.
+  - : Gibt ein als JSON serialisierbares einfaches Objekt zurück, das das `PushSubscription`-Objekt darstellt. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 - [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe)
-  - : Startet den asynchronen Prozess des Abmeldens vom Push-Dienst und gibt ein {{jsxref("Promise")}} zurück, das sich in einen booleschen Wert auflöst, wenn das aktuelle Abonnement erfolgreich abgemeldet wurde.
+  - : Startet den asynchronen Vorgang zum Abmelden vom Push-Dienst und gibt ein {{jsxref("Promise")}} zurück, das bei erfolgreicher Aufhebung der aktuellen Subscription mit einem booleschen Wert erfüllt wird.
 
 ## Beschreibung
 
 Jeder Browser verwendet einen bestimmten Push-Dienst.
-Ein Service Worker kann [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) verwenden, um sich beim unterstützten Dienst anzumelden, und die zurückgegebene `PushSubscription` verwenden, um den Endpunkt zu entdecken, an den Push-Nachrichten gesendet werden sollen.
+Ein Service Worker kann mit [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) eine Subscription für den unterstützten Dienst erstellen und anhand der zurückgegebenen `PushSubscription` den Endpunkt ermitteln, an den Push-Nachrichten gesendet werden sollen.
 
-Das `PushSubscription` wird auch verwendet, um den öffentlichen Schlüssel und das Geheimnis zu erhalten, die der Anwendungsserver zum Verschlüsseln der Nachrichten verwenden muss, die er an den Push-Dienst sendet.
-Beachten Sie, dass die privaten Schlüssel, die zum Entschlüsseln von Push-Nachrichten verwendet werden, nicht vom Browser freigegeben werden und zum Entschlüsseln von Nachrichten verwendet werden, bevor sie an den Service Worker übergeben werden.
-Dies stellt sicher, dass Push-Nachrichten privat bleiben, während sie die Push-Server-Infrastruktur durchlaufen.
+Die `PushSubscription` wird auch verwendet, um den öffentlichen Schlüssel und das Geheimnis abzurufen, die der Anwendungsserver zum Verschlüsseln der Nachrichten verwenden muss, die er an den Push-Dienst sendet.
+Beachten Sie, dass der Browser die privaten Schlüssel zum Entschlüsseln von Push-Nachrichten nicht weitergibt. Die Nachrichten werden damit entschlüsselt, bevor sie an den Service Worker übergeben werden.
+Dadurch bleiben Push-Nachrichten bei der Übertragung durch die Push-Server-Infrastruktur vertraulich.
 
-Der Service Worker muss nichts über die Endpunkte oder die Verschlüsselung wissen, außer die relevanten Informationen an den Anwendungsserver weiterzugeben.
-Es kann jeder Mechanismus verwendet werden, um die Informationen mit dem Anwendungsserver zu teilen.
+Der Service Worker muss weder die Endpunkte noch die Verschlüsselung im Detail kennen; er muss lediglich die relevanten Informationen an den Anwendungsserver weitergeben.
+Für die Weitergabe der Informationen an den Anwendungsserver kann ein beliebiger Mechanismus verwendet werden.
 
 ## Beispiel
 
-### Codierungsinformationen an den Server senden
+### Verschlüsselungsinformationen an den Server senden
 
-Der [`p256dh`](/de/docs/Web/API/PushSubscription/getKey#p256dh)-öffentliche Schlüssel und das [`auth`](/de/docs/Web/API/PushSubscription/getKey#auth)-Geheimnis, das zur Verschlüsselung der Nachricht verwendet wird, werden dem Service Worker über sein Push-Abonnement bereitgestellt, indem die Methode [`PushSubscription.getKey()`](/de/docs/Web/API/PushSubscription/getKey) zusammen mit dem Zielendpunkt zum Senden von Push-Nachrichten in [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint) verwendet wird.
+Der öffentliche Schlüssel [`p256dh`](/de/docs/Web/API/PushSubscription/getKey#p256dh) und das Geheimnis [`auth`](/de/docs/Web/API/PushSubscription/getKey#auth), die zum Verschlüsseln der Nachricht verwendet werden, stehen dem Service Worker über seine Push-Subscription zur Verfügung. Sie werden mit der Methode [`PushSubscription.getKey()`](/de/docs/Web/API/PushSubscription/getKey) abgerufen; der Zielendpunkt zum Senden von Push-Nachrichten steht in [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint).
 Die für die Verschlüsselung zu verwendende Kodierung wird durch die statische Eigenschaft [`PushManager.supportedContentEncodings`](/de/docs/Web/API/PushManager/supportedContentEncodings_static) bereitgestellt.
 
-Dieses Beispiel zeigt, wie Sie die benötigten Informationen aus `PushSubscription` und `supportedContentEncodings` möglicherweise in ein JSON-Objekt einfügen, es mit [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) serialisieren und das Ergebnis an den Anwendungsserver senden.
+Dieses Beispiel zeigt, wie Sie die benötigten Informationen aus `PushSubscription` und `supportedContentEncodings` in ein JSON-Objekt einfügen, es mit [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) serialisieren und das Ergebnis an den Anwendungsserver senden können.
 
 ```js
 // Get a PushSubscription object

@@ -3,16 +3,16 @@ title: "FetchEvent: handled-Eigenschaft"
 short-title: handled
 slug: Web/API/FetchEvent/handled
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`handled`**-Eigenschaft des [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Interfaces gibt ein Promise zurück, das angibt, ob das Ereignis vom Fetch-Algorithmus behandelt wurde oder nicht. Diese Eigenschaft ermöglicht die Ausführung von Code, nachdem der Browser eine Antwort verarbeitet hat, und wird normalerweise zusammen mit der [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode verwendet.
+Die schreibgeschützte Eigenschaft **`handled`** der Schnittstelle [`FetchEvent`](/de/docs/Web/API/FetchEvent) gibt ein Promise zurück, das anzeigt, ob das Ereignis vom Fetch-Algorithmus verarbeitet wurde. Mit dieser Eigenschaft kann Code ausgeführt werden, nachdem der Browser eine Antwort verarbeitet hat. Sie wird üblicherweise zusammen mit der Methode [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) verwendet.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das anhängig ist, während das Ereignis noch nicht behandelt wurde, und erfüllt wird, sobald es behandelt wurde.
+Ein {{jsxref("Promise")}}, das ausstehend bleibt, solange das Ereignis nicht verarbeitet wurde, und erfüllt wird, sobald es verarbeitet wurde.
 
 ## Beispiele
 

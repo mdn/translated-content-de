@@ -2,36 +2,36 @@
 title: PerformanceEventTiming
 slug: Web/API/PerformanceEventTiming
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Performance API")}}
 
-Die `PerformanceEventTiming`-Schnittstelle der Event Timing API bietet Einblicke in die Latenz bestimmter Ereignistypen, die durch Benutzerinteraktionen ausgelöst werden.
+Das `PerformanceEventTiming`-Interface der Event Timing API liefert Informationen über die Latenz bestimmter Ereignistypen, die durch Benutzerinteraktionen ausgelöst werden.
 
 ## Beschreibung
 
-Diese API ermöglicht die Sichtbarkeit bei langsamen Ereignissen, indem sie Ereigniszeitstempel und Dauer für bestimmte Ereignistypen bereitstellt ([siehe unten](#exponierte_ereignisse)). Zum Beispiel können Sie die Zeit zwischen einer Benutzeraktion und dem Beginn ihres Ereignis-Handlers oder die Zeit, die ein Ereignis-Handler zum Ausführen benötigt, überwachen.
+Diese API macht langsame Ereignisse sichtbar, indem sie Zeitstempel und Dauer für bestimmte Ereignistypen bereitstellt ([siehe unten](#bereitgestellte_ereignisse)). So können Sie beispielsweise die Zeit zwischen einer Benutzeraktion und dem Beginn der Ausführung ihres Event-Handlers messen oder ermitteln, wie lange die Ausführung eines Event-Handlers dauert.
 
-Diese API ist besonders nützlich für die Messung der {{Glossary("Interaction_to_Next_Paint", "Interaktion bis zur nächsten Wiedergabe")}} (INP): der längsten Zeitspanne (abzüglich einiger Ausreißer) vom Punkt, an dem ein Benutzer mit Ihrer App interagiert, bis zu dem Punkt, an dem der Browser tatsächlich in der Lage war, auf diese Interaktion zu reagieren.
+Diese API ist besonders nützlich, um die {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint")}} (INP) zu messen: die längste Zeitspanne (abzüglich einiger Ausreißer) zwischen der Interaktion eines Benutzers mit Ihrer App und dem Zeitpunkt, an dem der Browser tatsächlich auf diese Interaktion reagieren konnte.
 
-Normalerweise arbeiten Sie mit `PerformanceEventTiming`-Objekten, indem Sie eine Instanz von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) erstellen und dann deren [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode aufrufen, wobei Sie `"event"` oder `"first-input"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType)-Option übergeben. Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die analysiert werden können. Siehe das [nachfolgende Beispiel](#abrufen_von_ereignis-timing-informationen) für mehr.
+Üblicherweise arbeiten Sie mit `PerformanceEventTiming`-Objekten, indem Sie eine [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Instanz erstellen und anschließend deren Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) aufrufen. Dabei übergeben Sie `"event"` oder `"first-input"` als Wert der Option [`type`](/de/docs/Web/API/PerformanceEntry/entryType). Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können. Weitere Informationen finden Sie im [Beispiel unten](#informationen_zum_event_timing_abrufen).
 
-Standardmäßig werden `PerformanceEventTiming`-Einträge angezeigt, wenn ihre `duration` 104ms oder mehr beträgt. Forschungsergebnisse legen nahe, dass Benutzereingaben, die nicht innerhalb von 100ms bearbeitet werden, als langsam gelten und 104ms sind das erste Vielfache von 8, das größer als 100ms ist (aus Sicherheitsgründen wird diese API auf das nächste Vielfache von 8ms gerundet).
-Sie können jedoch den [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) auf einen anderen Schwellenwert einstellen, indem Sie die `durationThreshold`-Option in der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode verwenden.
+Standardmäßig werden `PerformanceEventTiming`-Einträge bereitgestellt, wenn ihre `duration` mindestens 104 ms beträgt. Forschungsergebnisse deuten darauf hin, dass eine Benutzereingabe als langsam gilt, wenn sie nicht innerhalb von 100 ms verarbeitet wird. 104 ms ist das erste Vielfache von 8, das größer als 100 ms ist (aus Sicherheitsgründen rundet diese API auf das nächste Vielfache von 8 ms).
+Sie können für den [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) jedoch einen anderen Schwellenwert festlegen, indem Sie die Option `durationThreshold` in der Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) verwenden.
 
-Diese Schnittstelle erbt Methoden und Eigenschaften von ihrem übergeordneten Element, [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry):
+Dieses Interface erbt Methoden und Eigenschaften von seinem übergeordneten Interface [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry):
 
 {{InheritanceDiagram}}
 
-### Exponierte Ereignisse
+### Bereitgestellte Ereignisse
 
-Die folgenden Ereignistypen werden von der Event Timing API angezeigt:
+Die Event Timing API stellt die folgenden Ereignistypen bereit:
 
 <table>
   <tbody>
     <tr>
-      <th scope="row">Klickevents</th>
+      <th scope="row">Klickereignisse</th>
       <td>
         [`auxclick`](/de/docs/Web/API/Element/auxclick_event),
         [`click`](/de/docs/Web/API/Element/click_event),
@@ -48,7 +48,7 @@ Die folgenden Ereignistypen werden von der Event Timing API angezeigt:
       </td>
     </tr>
     <tr>
-      <th scope="row">Drag &amp; Drop-Ereignisse</th>
+      <th scope="row">Drag-and-Drop-Ereignisse</th>
       <td>
         [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event),
         [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event),
@@ -85,7 +85,7 @@ Die folgenden Ereignistypen werden von der Event Timing API angezeigt:
       </td>
     </tr>
     <tr>
-      <th scope="row">Zeigereignisse</th>
+      <th scope="row">Pointer-Ereignisse</th>
       <td>
         [`pointerover`](/de/docs/Web/API/Element/pointerover_event),
         [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event),
@@ -109,10 +109,10 @@ Die folgenden Ereignistypen werden von der Event Timing API angezeigt:
   </tbody>
 </table>
 
-Bitte beachten Sie, dass die folgenden Ereignisse nicht in der Liste enthalten sind, da es sich um kontinuierliche Ereignisse handelt und zu diesem Zeitpunkt keine aussagekräftigen Ereigniszählungen oder Leistungsmetriken erhalten werden können: [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event),
-[`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`rad`](/de/docs/Web/API/Element/wheel_event), [`drag`](/de/docs/Web/API/HTMLElement/drag_event).
+Die folgenden Ereignisse sind nicht in der Liste enthalten, da es sich um kontinuierliche Ereignisse handelt und sich für sie derzeit keine aussagekräftigen Ereigniszahlen oder Leistungsmetriken ermitteln lassen: [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event),
+[`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`wheel`](/de/docs/Web/API/Element/wheel_event), [`drag`](/de/docs/Web/API/HTMLElement/drag_event).
 
-Um eine Liste aller exponierten Ereignisse zu erhalten, können Sie auch Schlüssel in der [`performance.eventCounts`](/de/docs/Web/API/Performance/eventCounts) Karte nachschlagen:
+Um eine Liste aller bereitgestellten Ereignisse zu erhalten, können Sie auch die Schlüssel in der Map [`performance.eventCounts`](/de/docs/Web/API/Performance/eventCounts) nachschlagen:
 
 ```js
 const exposedEventsList = [...performance.eventCounts.keys()];
@@ -120,44 +120,44 @@ const exposedEventsList = [...performance.eventCounts.keys()];
 
 ## Konstruktor
 
-Diese Schnittstelle hat keinen eigenen Konstruktor. Siehe das [nachfolgende Beispiel](#abrufen_von_ereignis-timing-informationen), um zu erfahren, wie Sie normalerweise die Informationen erhalten, die die `PerformanceEventTiming`-Schnittstelle bereitstellt.
+Dieses Interface hat keinen eigenen Konstruktor. Wie Sie die Informationen, die das `PerformanceEventTiming`-Interface enthält, üblicherweise abrufen, zeigt das [Beispiel unten](#informationen_zum_event_timing_abrufen).
 
 ## Instanzeigenschaften
 
-Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften für Ereignis-Timing-Leistungseintragstypen, indem sie wie folgt qualifiziert werden:
+Dieses Interface erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) für Performance-Einträge des Typs Event Timing mit den jeweils beschriebenen Bedeutungen:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit von `startTime` bis zur nächsten Rendering-Wiedergabe darstellt (gerundet auf das nächste Vielfache von 8ms).
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeitspanne von `startTime` bis zur nächsten Darstellung auf dem Bildschirm angibt (auf die nächsten 8 ms gerundet).
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
-  - : Gibt `"event"` (für lange Ereignisse) oder `"first-input"` (für die erste Benutzerinteraktion) zurück.
+  - : Gibt `"event"` (für lang andauernde Ereignisse) oder `"first-input"` (für die erste Benutzerinteraktion) zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
-  - : Gibt den Typ des zugeordneten Ereignisses zurück.
+  - : Gibt den Typ des zugehörigen Ereignisses zurück.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die [`timestamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft des zugeordneten Ereignisses darstellt. Dies ist die Zeit, zu der das Ereignis erstellt wurde und kann als Proxy für die Zeit betrachtet werden, zu der die Benutzerinteraktion stattfand.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Eigenschaft [`timestamp`](/de/docs/Web/API/Event/timeStamp) des zugehörigen Ereignisses angibt. Dies ist der Zeitpunkt, zu dem das Ereignis erstellt wurde, und kann als Näherungswert für den Zeitpunkt der Benutzerinteraktion betrachtet werden.
 
-Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
+Dieses Interface unterstützt außerdem die folgenden Eigenschaften:
 
 - [`PerformanceEventTiming.cancelable`](/de/docs/Web/API/PerformanceEventTiming/cancelable) {{ReadOnlyInline}}
-  - : Gibt die [`cancelable`](/de/docs/Web/API/Event/cancelable)-Eigenschaft des zugeordneten Ereignisses zurück.
+  - : Gibt die Eigenschaft [`cancelable`](/de/docs/Web/API/Event/cancelable) des zugehörigen Ereignisses zurück.
 - [`PerformanceEventTiming.interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) {{ReadOnlyInline}}
-  - : Gibt die ID zurück, die die Benutzerinteraktion, welche das zugeordnete Ereignis ausgelöst hat, eindeutig identifiziert.
+  - : Gibt die ID zurück, die die Benutzerinteraktion, die das zugehörige Ereignis ausgelöst hat, eindeutig identifiziert.
 - [`PerformanceEventTiming.processingStart`](/de/docs/Web/API/PerformanceEventTiming/processingStart) {{ReadOnlyInline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit darstellt, zu der das Ereignisdispatch gestartet wurde. Um die Zeit zwischen einer Benutzeraktion und dem Zeitpunkt, an dem der Ereignis-Handler zu laufen beginnt, zu messen, berechnen Sie `processingStart-startTime`.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt angibt, zu dem die Weitergabe des Ereignisses begann. Um die Zeit zwischen einer Benutzeraktion und dem Beginn der Ausführung des Event-Handlers zu messen, berechnen Sie `processingStart-startTime`.
 - [`PerformanceEventTiming.processingEnd`](/de/docs/Web/API/PerformanceEventTiming/processingEnd) {{ReadOnlyInline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit darstellt, zu der das Ereignisdispatch beendet wurde. Um die Zeit zu messen, die der Ereignis-Handler zum Ausführen benötigte, berechnen Sie `processingEnd-processingStart`.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt angibt, zu dem die Weitergabe des Ereignisses endete. Um die Ausführungsdauer des Event-Handlers zu messen, berechnen Sie `processingEnd-processingStart`.
 - [`PerformanceEventTiming.target`](/de/docs/Web/API/PerformanceEventTiming/target) {{ReadOnlyInline}}
-  - : Gibt das letzte Ziel des zugeordneten Ereignisses zurück, falls es nicht entfernt wird.
+  - : Gibt das letzte Ziel des zugehörigen Ereignisses zurück, sofern es nicht entfernt wurde.
 
 ## Instanzmethoden
 
 - [`PerformanceEventTiming.toJSON()`](/de/docs/Web/API/PerformanceEventTiming/toJSON)
-  - : Überschreibt die [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON)-Methode, um eine JSON-Darstellung des `PerformanceEventTiming`-Objekts zurückzugeben.
+  - : Gibt ein als JSON serialisierbares einfaches Objekt zurück, das das `PerformanceEventTiming`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiele
 
-### Abrufen von Ereignis-Timing-Informationen
+### Informationen zum Event Timing abrufen
 
-Um Ereignis-Timing-Informationen zu erhalten, erstellen Sie eine Instanz von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) und rufen Sie dann seine [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode auf, wobei Sie `"event"` oder `"first-input"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType)-Option übergeben. Sie müssen auch `buffered` auf `true` setzen, um Zugriff auf Ereignisse zu erhalten, die der Benutzeragent beim Erstellen des Dokuments gepuffert hat. Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die analysiert werden können.
+Um Informationen zum Event Timing abzurufen, erstellen Sie eine [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Instanz und rufen anschließend deren Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) auf. Dabei übergeben Sie `"event"` oder `"first-input"` als Wert der Option [`type`](/de/docs/Web/API/PerformanceEntry/entryType). Außerdem müssen Sie `buffered` auf `true` setzen, um Zugriff auf Ereignisse zu erhalten, die der User Agent während der Erstellung des Dokuments zwischengespeichert hat. Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -181,7 +181,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "event", buffered: true });
 ```
 
-Sie können auch einen anderen [`durationThreshold`](/de/docs/Web/API/PerformanceObserver/observe#durationthreshold) einstellen. Der Standardwert ist 104ms und der minimale mögliche Dauer-Schwellenwert ist 16ms.
+Sie können auch einen anderen [`durationThreshold`](/de/docs/Web/API/PerformanceObserver/observe#durationthreshold) festlegen. Der Standardwert beträgt 104 ms; der niedrigste mögliche Schwellenwert für die Dauer beträgt 16 ms.
 
 ```js
 observer.observe({ type: "event", durationThreshold: 16, buffered: true });

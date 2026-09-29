@@ -2,175 +2,175 @@
 title: Passwörter
 slug: Web/Security/Authentication/Passwords
 l10n:
-  sourceCommit: 545c1267ae9642d850ef539956442c2bb4de280a
+  sourceCommit: dd70ed064388b0fac4338321f727c8840a508b64
 ---
 
-Die ursprüngliche Authentifizierungsmethode im Web und immer noch die gebräuchlichste, ist das Passwort.
+Die ursprüngliche und nach wie vor häufigste Authentifizierungsmethode im Web ist das Passwort.
 
-In diesem Leitfaden werden wir:
+In diesem Leitfaden:
 
-- Einen kurzen [Überblick](#überblick) über passwortbasierte Authentifizierung geben
-- Die [Hauptangriffe und entsprechenden Abwehrmaßnahmen](#angriffe_und_abwehrmaßnahmen) hervorheben, denen Sie begegnen werden
-- Einen detaillierteren Bericht über die drei Hauptabläufe: [Registrierung](#registrierung), [Anmeldung](#anmeldung) und [Passwort-Zurücksetzung](#passwort-zurücksetzung) geben, um zu zeigen, wie die Abwehrmaßnahmen integriert werden können.
+- geben wir einen kurzen [Überblick](#überblick) über die passwortbasierte Authentifizierung,
+- erläutern wir [die wichtigsten Angriffe und die entsprechenden Schutzmaßnahmen](#angriffe_und_schutzmaßnahmen),
+- beschreiben wir die drei wichtigsten Abläufe ausführlicher: [Registrierung](#registrierung), [Anmeldung](#anmeldung) und [Zurücksetzen des Passworts](#zurücksetzen_des_passworts). Dabei zeigen wir, wie sich die Schutzmaßnahmen integrieren lassen.
 
-Abschließend werden wir diskutieren, dass selbst bei besten Praktiken die [passwortbasierte Authentifizierung als relativ schwache Form der Authentifizierung angesehen werden sollte](#schwächen_der_passwortbasierten_authentifizierung) und, wenn möglich, durch andere Methoden ergänzt oder vollständig ersetzt werden sollte.
+Abschließend erläutern wir, warum [passwortbasierte Authentifizierung als vergleichsweise schwache Form der Authentifizierung gelten sollte](#schwächen_der_passwortbasierten_authentifizierung), selbst wenn bewährte Verfahren befolgt werden. Wenn möglich, sollte sie durch andere Methoden ergänzt oder vollständig ersetzt werden.
 
 ## Überblick
 
-Um passwortbasierte Authentifizierung bereitzustellen, implementiert eine Website zwei Hauptabläufe: _Registrierung_ und _Anmeldung_.
+Für die passwortbasierte Authentifizierung implementiert eine Website zwei wesentliche Abläufe: die _Registrierung_ und die _Anmeldung_.
 
-Wenn der Benutzer sich registriert:
+Bei der Registrierung:
 
-1. Der Benutzer gibt einen neuen Benutzernamen und ein Passwort ein, beispielsweise indem er sie in einem {{htmlelement("form")}}-Element auf der Website eingibt.
-2. Die Webseite sendet den Benutzernamen und das Passwort an einen Server, beispielsweise indem sie die Formulardaten in einer {{httpmethod("POST")}}-Anfrage übermittelt.
-3. Der Server erstellt einen neuen Eintrag für diesen Benutzer in seiner Datenbank. Der Schlüssel ist der Benutzername und das Passwort wird darunter gespeichert.
+1. Die Person gibt einen neuen Benutzernamen und ein Passwort an, beispielsweise in einem {{htmlelement("form")}}-Element auf der Website.
+2. Die Webseite sendet den Benutzernamen und das Passwort an einen Server, beispielsweise indem sie die Formulardaten mit einer {{httpmethod("POST")}}-Anfrage übermittelt.
+3. Der Server erstellt in seiner Datenbank einen neuen Datensatz für diese Person. Der Benutzername dient als Schlüssel; das Passwort wird unter diesem Schlüssel gespeichert.
 
 ![Registrierung mit einem Passwort.](password-basic-register.svg)
 
-Wenn der Benutzer sich anmeldet:
+Bei der Anmeldung:
 
-1. Der Benutzer gibt den Benutzernamen und das Passwort ein.
+1. Die Person gibt ihren Benutzernamen und ihr Passwort ein.
 2. Die Webseite sendet den Benutzernamen und das Passwort an den Server.
-3. Der Server ruft das gespeicherte Passwort des Benutzers ab und vergleicht das gespeicherte Passwort mit dem gerade empfangenen.
-4. Wenn die Passwörter übereinstimmen, wird der Benutzer angemeldet.
+3. Der Server ruft das gespeicherte Passwort für diese Person ab und vergleicht es mit dem gerade empfangenen Passwort.
+4. Stimmen die Passwörter überein, wird die Person angemeldet.
 
 ![Anmeldung mit einem Passwort.](password-basic-signin.svg)
 
-## Angriffe und Abwehrmaßnahmen
+## Angriffe und Schutzmaßnahmen
 
-Betrachtet man diesen Überblick, können wir einige der Methoden erkennen, wie ein Angreifer den Benutzer imitieren kann.
+Aus diesem Überblick ergeben sich mehrere Möglichkeiten, wie Angreifende sich als berechtigte Person ausgeben können.
 
-- **Raten**
-  - : Ein Angreifer könnte viele verschiedene mögliche Passwörter für einen Benutzer ausprobieren. Angreifer verwenden typischerweise Passworlisten, die viele der gebräuchlichsten Passwörter enthalten.
+- **Erraten von Passwörtern**
+  - : Angreifende können viele verschiedene Passwörter für eine Person ausprobieren. Dafür verwenden sie üblicherweise Passwortlisten, die viele der gängigsten Passwörter enthalten.
 
 - **Credential Stuffing**
-  - : Ein Angreifer könnte eine Sammlung von Benutzername/Passwort-Paaren aus einem vorangegangenen Datenvorfall auf einer anderen Website kaufen und dann auf der Zielwebsite ausprobieren, in der Hoffnung, dass ein Benutzer dasselbe Passwort für beide Websites verwendet hat.
+  - : Angreifende können eine Sammlung von Benutzernamen-Passwort-Paaren aus einem früheren Datenleck auf einer anderen Website erwerben und sie anschließend auf der Zielwebsite ausprobieren. Dabei hoffen sie, dass jemand auf beiden Websites dasselbe Passwort verwendet hat.
 
 - **Abfangen**
-  - : Ein Angreifer könnte den Benutzernamen und das Passwort abfangen, während sie vom Browser zum Server übertragen werden. Eine praktische Möglichkeit, dies zu tun, besteht darin, kostenlose Wi-Fi-Hotspots in Cafés oder Flughäfen einzurichten und darauf zu warten, dass Opfer sich verbinden und sich dann bei der Zielwebsite anmelden.
+  - : Angreifende können den Benutzernamen und das Passwort während der Übertragung vom Browser zum Server abfangen. Eine praktische Möglichkeit besteht darin, kostenlose WLAN-Hotspots in Cafés oder Flughäfen einzurichten und zu warten, bis sich Personen damit verbinden und anschließend auf der Zielwebsite anmelden.
 
-- **Datenbankkompromittierung**
-  - : Ein Angreifer könnte in den Server einbrechen und die Datenbank der gespeicherten Einträge abrufen.
+- **Kompromittierung der Datenbank**
+  - : Angreifende können in den Server eindringen und die Datenbank mit den gespeicherten Datensätzen abrufen.
 
 - **Phishing**
-  - : Ein Angreifer könnte den Benutzer dazu täuschen, ihm sein Passwort auszuhändigen. Zum Beispiel könnte ein Angreifer eine Seite erstellen, die genau wie die Anmeldeseite der Zielseite aussieht, und dem Zielbenutzer eine E-Mail mit einem Link zur gefälschten Seite senden, in der er gebeten wird, sich anzumelden, um den Bestellstatus zu überprüfen oder eine Nachricht zu erhalten.
+  - : Angreifende können eine Person dazu verleiten, ihnen ihr Passwort preiszugeben. Beispielsweise können sie eine Seite erstellen, die genauso aussieht wie die Anmeldeseite der Zielwebsite. Anschließend senden sie der Person eine E-Mail mit einem Link zur gefälschten Seite und fordern sie auf, sich anzumelden, um den Status einer Bestellung zu prüfen oder eine Nachricht zu erhalten.
 
-### Abwehrmaßnahmen
+### Schutzmaßnahmen
 
-- **Unterstützen von Passwortmanagern**
-  - : Ein Passwortmanager ist eine Anwendung, die es Benutzern ermöglicht, Passwörter zu speichern, damit sie sich diese nicht merken müssen. Passwortmanager können auch Passwörter in Anmeldeformulare automatisch ausfüllen und starke Passwörter für Benutzer generieren. Passwortmanager sind oft als Browsererweiterungen implementiert, und Browser bieten auch ihre eigenen integrierten Passwortmanager an.
+- **Passwortmanager unterstützen**
+  - : Ein Passwortmanager ist eine Anwendung, mit der Personen Passwörter speichern können, damit sie sich diese nicht merken müssen. Passwortmanager können Passwörter auch automatisch in Anmeldeformulare eintragen und starke Passwörter erzeugen. Sie werden häufig als Browser-Erweiterungen bereitgestellt; Browser verfügen außerdem über eigene integrierte Passwortmanager.
 
-    Passwortmanager helfen, die Bedrohung von [Raten](#guessing) und [Credential Stuffing](#credential_stuffing) Angriffen zu verringern, indem sie es Benutzern viel einfacher machen, starke Passwörter zu haben und die Wiederverwendung von Passwörtern zu reduzieren. Sie helfen auch bei der Bekämpfung von [Phishing](/de/docs/Web/Security/Attacks/Phishing#password_managers), da sie Anmeldedaten nicht in den "lookalike"-Webseiten automatisch ausfüllen, die in Phishing-Angriffen verwendet werden, und dies hilft dem Benutzer zu erkennen, dass die Seite nicht legitim ist.
+    Passwortmanager verringern das Risiko durch Angriffe mittels [Erraten von Passwörtern](#guessing) und [Credential Stuffing](#credential_stuffing). Sie erleichtern es, starke Passwörter zu verwenden, und reduzieren die Wiederverwendung von Passwörtern. Sie helfen auch gegen [Phishing](/de/docs/Web/Security/Attacks/Phishing#password_managers): Auf den bei Phishing-Angriffen verwendeten täuschend ähnlichen Webseiten tragen sie Anmeldedaten nicht automatisch ein. Das kann der betroffenen Person helfen zu erkennen, dass die Website nicht echt ist.
 
-    In unseren Richtlinien für die [Registrierung](#registrierung) und [Anmeldung](#anmeldung) erläutern wir, wie sichergestellt werden kann, dass Passwortmanager mit Ihrer Website arbeiten können.
+    In den Empfehlungen für die Abläufe zur [Registrierung](#registrierung) und [Anmeldung](#anmeldung) beschreiben wir, wie Sie sicherstellen können, dass Passwortmanager mit Ihrer Website funktionieren.
 
-- **Auswahl starker Passwörter**
-  - : Um gegen [Raten](#guessing) und [Credential Stuffing](#credential_stuffing) Angriffe zu verteidigen, können Sie, wenn der Benutzer ein neues Passwort während der [Registrierung](#registrierung) oder [Passwort-Zurücksetzung](#passwort-zurücksetzung) erstellt, prüfen, ob es schwach ist oder auf Listen kompromittierter Passwörter erscheint.
+- **Starke Passwörter wählen**
+  - : Zum Schutz vor Angriffen mittels [Erraten von Passwörtern](#guessing) und [Credential Stuffing](#credential_stuffing) können Sie prüfen, ob ein neues Passwort schwach ist oder auf Listen bekanntermaßen kompromittierter Passwörter steht. Diese Prüfung kann bei der [Registrierung](#registrierung) oder beim [Zurücksetzen des Passworts](#zurücksetzen_des_passworts) erfolgen.
 
-- **Sichere Passwortübertragung**
-  - : Um gegen [Abfangen](#interception) Angriffe zu verteidigen, müssen Passwörter immer über {{Glossary("HTTPS", "HTTPS")}} übertragen werden. Dies sollte allerdings keine spezifische Anforderung für die Passwortübertragung sein: alle Seiten Ihrer Website sollten immer über HTTPS übertragen werden, um [Manipulator in der Mitte (MITM)](/de/docs/Web/Security/Attacks/MITM) Angriffe zu mildern.
+- **Passwörter sicher übertragen**
+  - : Zum Schutz vor dem [Abfangen](#interception) müssen Passwörter immer über {{Glossary("HTTPS", "HTTPS")}} übertragen werden. Dies sollte jedoch keine Sonderregel nur für Passwörter sein: Alle Seiten Ihrer Website sollten stets über HTTPS übertragen werden, um [Manipulator-in-the-Middle-Angriffe (MITM)](/de/docs/Web/Security/Attacks/MITM) zu erschweren.
 
-- **Sichere Passwortspeicherung**
-  - : Um gegen [Datenbankkompromittierung](#database_compromise) zu verteidigen, muss der Server Passwörter in einer Form speichern, die es einem Angreifer unpraktisch macht, das ursprüngliche Passwort wiederherzustellen, selbst wenn er Zugang zur Datenbank des Servers erhält. In unseren Richtlinien für den [Registrierungsablauf](#registrierung) werden wir die Anforderungen dafür abdecken.
+- **Passwörter sicher speichern**
+  - : Zum Schutz vor einer [Kompromittierung der Datenbank](#database_compromise) muss der Server Passwörter so speichern, dass Angreifende das ursprüngliche Passwort praktisch nicht wiederherstellen können – selbst wenn sie Zugriff auf die Datenbank des Servers erhalten. Die Anforderungen dafür erläutern wir in den Empfehlungen zur [Registrierung](#registrierung).
 
-In den nächsten drei Abschnitten werden wir uns die Hauptabläufe eines passwortbasierten Authentifizierungssystems detaillierter ansehen:
+In den nächsten drei Abschnitten betrachten wir die wichtigsten Abläufe eines Systems zur passwortbasierten Authentifizierung genauer:
 
 - [Registrierung](#registrierung)
 - [Anmeldung](#anmeldung)
-- [Passwort-Zurücksetzung](#passwort-zurücksetzung)
+- [Zurücksetzen des Passworts](#zurücksetzen_des_passworts)
 
-In jedem Abschnitt werden wir Praktiken hervorheben, die helfen, die Bedrohung durch die aufgeführten Angriffe zu minimieren, aber, wie wir sehen werden, ist es unmöglich, sie vollständig zu eliminieren.
+In jedem Abschnitt stellen wir Verfahren vor, die das Risiko durch die genannten Angriffe verringern. Wie wir sehen werden, lässt es sich jedoch nicht vollständig beseitigen.
 
 ## Registrierung
 
-Bei der Registrierung gibt ein neuer Benutzer einen neuen Benutzernamen und ein Passwort an. Die Website wird sehr wahrscheinlich auch nach einer E-Mail-Adresse fragen und könnte sich entscheiden, die E-Mail-Adresse als Benutzernamen zu verwenden.
+Bei der Registrierung gibt eine neue Person einen Benutzernamen und ein Passwort an. Sehr wahrscheinlich fragt die Website auch nach einer E-Mail-Adresse und verwendet diese möglicherweise als Benutzernamen.
 
-Die Site sollte diese Informationen mit einem HTML-{{htmlelement("form")}} abfragen.
+Die Website sollte diese Angaben mit einem HTML-{{htmlelement("form")}} abfragen.
 
-### Formulardesign
+### Formulargestaltung
 
-Gut gestaltete Formulare helfen Benutzern, Passwörter effektiv zu verwenden, und helfen auch Passwortmanagern, sich in eine Website zu integrieren.
+Gut gestaltete Formulare erleichtern den Umgang mit Passwörtern und helfen Passwortmanagern bei der Integration in eine Website.
 
-Typischerweise wird ein Passwortmanager in einem Registrierungsformular:
+In einem Registrierungsformular erkennt ein Passwortmanager üblicherweise:
 
-- Erkennen, wenn ein Benutzer aufgefordert wird, ein neues Passwort zu erstellen, und anbieten, eines zu generieren. Dies hilft, sich gegen [Raten](#guessing) und [Credential Stuffing](#credential_stuffing) Angriffe zu schützen.
-- Erkennen, wenn ein Benutzer ein Registrierungsformular absendet und anbieten, den Benutzernamen und das Passwort in Verbindung mit der Site zu speichern.
+- dass eine Person ein neues Passwort erstellen soll, und bietet an, eines zu erzeugen. Das hilft beim Schutz vor Angriffen mittels [Erraten von Passwörtern](#guessing) und [Credential Stuffing](#credential_stuffing).
+- dass eine Person das Registrierungsformular absendet, und bietet an, den Benutzernamen und das Passwort für die Website zu speichern.
 
-Die Einhaltung der folgenden Praktiken hilft Passwortmanagern, Formulare zu erkennen, mit denen sie interagieren müssen, die darin enthaltenen Elemente zu identifizieren und die Zeitpunkte zu bestimmen, zu denen sie einbezogen werden müssen.
+Die folgenden Verfahren helfen Passwortmanagern dabei, die relevanten Formulare, ihre Elemente und die Zeitpunkte zu erkennen, zu denen sie aktiv werden sollen.
 
-- Das `<form>`-Element sollte ausschließlich für die Registrierung bestimmt sein.
-- Formulare sollten eine klare Angabe darüber machen, dass das Formular abgeschickt wurde. Das bedeutet entweder die Navigation zu einer anderen Seite bei der Übermittlung oder das Simulieren einer Navigation mit `History.pushState()` oder `History.replaceState()`.
-- Einzelne `<input>`-Elemente sollten den richtigen `type` verwenden:
+- Das `<form>`-Element sollte ausschließlich der Registrierung dienen.
+- Formulare sollten eindeutig erkennen lassen, dass sie abgesendet wurden. Dazu sollte nach dem Absenden entweder eine andere Seite aufgerufen oder eine Navigation mit `History.pushState()` oder `History.replaceState()` simuliert werden.
+- Einzelne `<input>`-Elemente sollten den passenden `type` verwenden:
   - `"text"` oder `"email"` für Benutzernamen
   - `"password"` für Passwörter.
-- Einzelne `<input>`-Elemente sollten das richtige `autocomplete` Attribut verwenden:
-  - `"username"` für Benutzernamen
-  - `"new-password"` für die Erstellung eines neuen Passworts, in Registrierungs- oder Passwort-Zurücksetzungsformularen
-  - `"current-password"` für die Eingabe eines bestehenden Passworts, in Anmelde- oder Passwort-Zurücksetzungsformularen
-- Formulare sollten versteckte Felder für Informationen verwenden, die der Benutzer nicht eingeben muss, die aber einem Passwortmanager einen Hinweis geben können. Zum Beispiel muss der Benutzer möglicherweise nicht den Benutzernamen in einem Passwortänderungsformular eingeben, aber der Benutzername kann einem Passwortmanager helfen zu wissen, welches Passwort eingegeben werden soll.
+- Einzelne `<input>`-Elemente sollten das passende `autocomplete`-Attribut verwenden:
+  - `"username"` für den Benutzernamen
+  - `"new-password"` zum Erstellen eines neuen Passworts in Formularen zur Registrierung oder zum Zurücksetzen des Passworts
+  - `"current-password"` zur Eingabe eines vorhandenen Passworts in Formularen zur Anmeldung oder zum Zurücksetzen des Passworts
+- Formulare sollten versteckte Felder für Informationen verwenden, die die Person nicht eingeben muss, die Passwortmanagern aber als Hinweis dienen können. Beispielsweise muss der Benutzername in einem Formular zum Ändern des Passworts möglicherweise nicht eingegeben werden. Er kann einem Passwortmanager jedoch dabei helfen, das richtige Passwort auszuwählen.
 
-Für weitere Informationen:
+Weitere Informationen finden Sie unter:
 
-- [Best Practices für Anmeldeformulare](https://web.dev/articles/sign-in-form-best-practices#new-password)
-- [Passwortmanager mit Ihrem Anmeldeformular arbeiten lassen](https://hidde.blog/making-password-managers-play-ball-with-your-login-form/)
-- [Erstellen hervorragender Passwortformulare](https://www.chromium.org/developers/design-documents/create-amazing-password-forms/)
+- [Bewährte Verfahren für Anmeldeformulare](https://web.dev/articles/sign-in-form-best-practices#new-password)
+- [Passwortmanager mit Ihrem Anmeldeformular kompatibel machen](https://hidde.blog/making-password-managers-play-ball-with-your-login-form/)
+- [Hervorragende Passwortformulare erstellen](https://www.chromium.org/developers/design-documents/create-amazing-password-forms/)
 
-Das Registrierungsformular fragt den Benutzer normalerweise, das Passwort zweimal einzugeben.
+Im Registrierungsformular wird die Person üblicherweise aufgefordert, das Passwort zweimal einzugeben.
 
-### Formularübermittlung
+### Absenden des Formulars
 
-Wenn der Benutzer das Formular absendet, sendet das Frontend der Website den Benutzernamen, beide Kopien des Passworts und die E-Mail-Adresse an den Server, unter Verwendung einer HTTP-{{httpmethod("POST")}}-Anfrage. Dies muss über {{Glossary("HTTPS", "HTTPS")}} erfolgen, um zu verhindern, dass Angreifer das Passwort während des Transits [abfangen](#interception).
+Wenn die Person das Formular absendet, sendet das Frontend der Website den Benutzernamen, beide Eingaben des Passworts und die E-Mail-Adresse mit einer HTTP-{{httpmethod("POST")}}-Anfrage an den Server. Dies muss über {{Glossary("HTTPS", "HTTPS")}} erfolgen, damit Angreifende das Passwort während der Übertragung nicht [abfangen](#interception) können.
 
-### Benutzername und Passwortvalidierung
+### Validierung von Benutzername und Passwort
 
-Wenn der Server die `POST`-Anfrage erhält, validiert er den Benutzernamen und das Passwort. Der Benutzername darf nicht mit einem vorhandenen Benutzernamen übereinstimmen, und die Kopien des Passworts müssen miteinander übereinstimmen.
+Wenn der Server die `POST`-Anfrage empfängt, validiert er den Benutzernamen und das Passwort. Der Benutzername darf noch nicht vergeben sein, und die beiden Passworteingaben müssen übereinstimmen.
 
-Das Risiko von [Rateangriffen](#guessing) kann reduziert werden, wenn Benutzer stärkere Passwörter auswählen, und die von den Websites gefolgten Richtlinien können dabei helfen.
+Das Risiko von Angriffen durch [Erraten von Passwörtern](#guessing) lässt sich verringern, wenn Personen stärkere Passwörter wählen. Die Vorgaben einer Website können sie dabei unterstützen.
 
-Wenn Benutzer neue Passwörter wählen, sollten Websites:
+Wenn Personen neue Passwörter wählen, sollten Websites:
 
-- Eine großzügige maximale Passwortlänge erlauben (mindestens 64 Zeichen).
-- Beliebige Unicode-Zeichen erlauben.
-- Keine spezifischen Zeichentypen einfordern (zum Beispiel keine Mischung aus Groß- und Kleinbuchstaben oder Satzzeichen verlangen). Solche Regeln können viele starke Passwortoptionen ausschließen (zum Beispiel Passphrasen), und Benutzer befolgen solche Regeln typischerweise auf stark vorhersehbare Weise.
+- eine großzügige maximale Passwortlänge zulassen (mindestens 64 Zeichen),
+- alle Unicode-Zeichen erlauben,
+- keine bestimmten Zeichentypen vorschreiben (beispielsweise keine Mischung aus Groß- und Kleinbuchstaben oder Satzzeichen verlangen). Solche Regeln können viele starke Passwörter ausschließen, etwa Passphrasen. Außerdem befolgen Personen solche Regeln meist auf sehr vorhersehbare Weise.
 
 Zusätzlich können Websites:
 
-- Das Risiko von [Rateangriffen](#guessing) verringern, indem sie Passwörter ablehnen, die auf gängigen Passworlisten gefunden werden.
-- Das Risiko von [Credential Stuffing](#credential_stuffing) Angriffen verringern, indem sie Passwörter ablehnen, die in Datenvorfällen enthalten sind. Zum Beispiel stellt die Website [Have I Been Pwned](https://haveibeenpwned.com) Listen von Passwörtern zur Verfügung, die in Datenverletzungen gefunden wurden, und macht sie über eine [API](https://haveibeenpwned.com/API/v3#PwnedPasswords) verfügbar.
+- das Risiko von Angriffen durch [Erraten von Passwörtern](#guessing) verringern, indem sie Passwörter ablehnen, die auf Listen häufig verwendeter Passwörter stehen.
+- das Risiko von [Credential Stuffing](#credential_stuffing) verringern, indem sie Passwörter ablehnen, die bei Datenlecks offengelegt wurden. Die Website [Have I Been Pwned](https://haveibeenpwned.com) stellt beispielsweise Listen solcher Passwörter bereit und macht sie über eine [API](https://haveibeenpwned.com/API/v3#PwnedPasswords) zugänglich.
 
-Dies ist jedoch weit davon entfernt, ein vollständiger Schutz gegen diese Angriffe zu sein: Datenverletzungen können zum Beispiel nicht öffentlich gemacht werden oder nach der Auswahl des Passworts auftreten.
+Beachten Sie jedoch, dass dies bei Weitem keinen vollständigen Schutz gegen diese Angriffe bietet: Datenlecks werden möglicherweise nicht öffentlich bekannt oder treten erst auf, nachdem das Passwort gewählt wurde.
 
-Websites sollten auch erwägen, ein Passwort-Stärke-Tool wie [zxcvbn](https://github.com/zxcvbn-ts/zxcvbn) zu verwenden: Beachten Sie, dass dieses bestimmte Tool Passwörter auch gegen die "Have I Been Pwned"-Daten prüft.
+Websites sollten außerdem den Einsatz eines Werkzeugs zur Bewertung der Passwortstärke wie [zxcvbn](https://github.com/zxcvbn-ts/zxcvbn) erwägen. Dieses Werkzeug prüft Passwörter auch anhand der Daten von Have I Been Pwned.
 
-Für weitere Informationen, siehe:
+Weitere Informationen finden Sie unter:
 
-- [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#implement-proper-password-strength-controls)
-- [NIST Digital Identity Guidelines: Authentication and Lifecycle Management](https://pages.nist.gov/800-63-3/sp800-63b.html)
-- [Passwörter entwickelt: Authentifizierungsrichtlinien für das moderne Zeitalter](https://www.troyhunt.com/passwords-evolved-authentication-guidance-for-the-modern-era/)
+- [OWASP-Cheat-Sheet zur Authentifizierung](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#implement-proper-password-strength-controls)
+- [NIST-Leitlinien für digitale Identitäten: Authentifizierung und Lebenszyklusverwaltung](https://pages.nist.gov/800-63-3/sp800-63b.html)
+- [Weiterentwickelte Passwörter: Empfehlungen zur Authentifizierung für die heutige Zeit](https://www.troyhunt.com/passwords-evolved-authentication-guidance-for-the-modern-era/)
 
-Auch der Client kann Daten validieren, bevor er sie an den Server sendet, aber dies ist nur eine Annehmlichkeit für Benutzer: der Server muss die Daten ebenfalls validieren.
+Auch der Client kann Daten validieren, bevor er sie an den Server sendet. Dies dient jedoch lediglich der Benutzerfreundlichkeit: Der Server muss die Daten ebenfalls validieren.
 
-### Speicherung von Passwörtern
+### Passwörter speichern
 
-Wenn Fehler auftreten, antwortet der Server mit einer Fehlermeldung. Andernfalls speichert der Server das Passwort als Eintrag in seiner Datenbank, der dem Benutzernamen zugeordnet ist.
+Wenn Fehler auftreten, antwortet der Server mit einer Fehlermeldung. Andernfalls speichert er das Passwort in seiner Datenbank in einem Datensatz, dessen Schlüssel der Benutzername ist.
 
-#### Hashen von Passwörtern
+#### Passwörter hashen
 
-Websites dürfen Passwörter nicht im {{Glossary("plaintext", "Klartext")}} speichern. Stattdessen wird das Passwort bei der Registrierung mit einem neuen Passwort (oder beim Ändern des Passworts) gehasht und der Hash gespeichert. Wenn der Benutzer sein Passwort bei der Anmeldung angibt, führt die Seite Folgendes aus:
+Websites dürfen Passwörter nicht als {{Glossary("plaintext", "Klartext")}} speichern. Stattdessen wird das Passwort gehasht, wenn sich eine Person mit einem neuen Passwort registriert oder ihr Passwort ändert. Gespeichert wird der Hash. Wenn die Person bei der Anmeldung ihr Passwort eingibt, führt die Website folgende Schritte aus:
 
-- Ruft den Hash aus der Datenbank ab
-- Hasht das vom Benutzer bereitgestellte Passwort
-- Vergleicht die Hashes.
+- Sie ruft den Hash aus der Datenbank ab.
+- Sie hasht das von der Person eingegebene Passwort.
+- Sie vergleicht die Hashes.
 
-Ein Hash ist eine _einwegfunktion_, das bedeutet, dass es nicht möglich ist, die ursprüngliche Eingabe zu einer Hashfunktion aus ihrem Ausgangswert abzuleiten.
+Eine Hashfunktion ist eine _Einwegfunktion_. Das bedeutet, dass sich aus ihrer Ausgabe die ursprüngliche Eingabe nicht ableiten lässt.
 
-Das bedeutet, dass wenn ein Angreifer Zugang zur Datenbank erhält, er typischerweise versuchen wird, Passwörter zu extrahieren, indem er Listen von gängigen Passwörtern hasht und die Ergebnisse mit den Einträgen in der Datenbank vergleicht. Aus diesem Grund sind die für die Passwortspeicherung gewählten Hashfunktionen absichtlich langsam und schwer zu optimieren.
+Wenn Angreifende Zugriff auf die Datenbank erhalten, versuchen sie deshalb üblicherweise, Passwörter zu ermitteln, indem sie Listen häufig verwendeter Passwörter hashen und die Ergebnisse mit den Datenbankeinträgen vergleichen. Aus diesem Grund sind Hashfunktionen für die Passwortspeicherung absichtlich langsam und schwer zu optimieren.
 
-Hashfunktionen, die für das Hashen von Passwörtern entwickelt wurden, ermöglichen es Ihnen typischerweise, die auf die Erstellung des Hashes verwendete Arbeit zu konfigurieren, sodass sie je nach den erwarteten Fähigkeiten des Angreifers langsamer oder schneller gemacht werden können.
+Bei Hashfunktionen, die speziell für Passwörter entwickelt wurden, lässt sich üblicherweise der Aufwand für die Berechnung des Hashs einstellen. So können sie abhängig von den erwarteten Möglichkeiten der Angreifenden langsamer oder schneller gemacht werden.
 
-#### Vorratsberechnete Hashtabellen
+#### Vorberechnete Hash-Tabellen
 
-Anstatt selbst Hashtabellen zu berechnen, können Angreifer das Passwort, das einem Hash entspricht, in eine vorkalkulierte Tabelle (auch bekannt als [Rainbow-Table](https://en.wikipedia.org/wiki/Rainbow_table)) nachschlagen, die mögliche Passwörter auf ihre Hashwerte abbildet:
+Statt Hashes selbst zu berechnen, können Angreifende das zu einem Hash gehörende Passwort in einer vorberechneten Tabelle nachschlagen. Eine solche Tabelle wird auch als [Rainbow Table](https://en.wikipedia.org/wiki/Rainbow_table) bezeichnet und ordnet möglichen Passwörtern ihre Hashes zu:
 
 | Passwort | Hash        |
 | -------- | ----------- |
@@ -178,87 +178,87 @@ Anstatt selbst Hashtabellen zu berechnen, können Angreifer das Passwort, das ei
 | abcdef   | BEF57EC7... |
 | letmein  | 1C8BFE8F... |
 
-Obwohl diese Tabellen sehr groß sein können, können solche Angriffe effektiv sein, weil Tabellenlookup eine schnelle Operation ist.
+Obwohl diese Tabellen sehr groß sein können, sind solche Angriffe mitunter wirksam, weil das Nachschlagen in einer Tabelle schnell ist.
 
-#### Salt und Pfeffer
+#### Salt und Pepper
 
-Um Angriffe zu vereiteln, die vorgefertigte Hashtabellen verwenden, muss _Salt_ zum Passwort hinzugefügt werden, bevor es gehasht wird. Salt ist ein zufälliger Wert, der für jedes Passwort einzigartig ist. Es muss nicht geheim sein: Salt wird zusammen mit dem gehashten Passwort gespeichert. Es verhindert jedoch, dass ein Angreifer vorkalkulierte Hashwerte verwendet, weil das Salt bedeutet, dass ein gegebenes Passwort zu einem anderen Wert gehasht wird.
+Um Angriffe mit vorberechneten Hash-Tabellen zu verhindern, muss dem Passwort vor dem Hashen ein _Salt_ hinzugefügt werden. Ein Salt ist ein Zufallswert, der für jedes Passwort einzigartig ist. Er muss nicht geheim sein und wird zusammen mit dem Passwort-Hash gespeichert. Er verhindert jedoch, dass Angreifende vorberechnete Hashwerte verwenden können: Durch den Salt ergibt dasselbe Passwort einen anderen Hashwert.
 
-Als zusätzliche Abwehrmaßnahme können Websites auch _Pepper_ zum Input der Hashfunktion hinzufügen. Im Gegensatz zu Salt ist Pepper:
+Als zusätzliche Schutzmaßnahme können Websites der Eingabe der Hashfunktion auch einen _Pepper_ hinzufügen. Im Gegensatz zum Salt ist der Pepper:
 
-- Nicht einzigartig: derselbe Wert wird für alle Passwörter in der Datenbank verwendet.
-- Ein Geheimnis: es darf nicht in der Datenbank selbst, sondern an einem separaten Ort wie einem Hardware-Sicherheitsmodul (HSM) gespeichert werden.
+- **Nicht einzigartig:** Für alle Passwörter in der Datenbank wird derselbe Wert verwendet.
+- **Geheim:** Er darf nicht in der Datenbank selbst gespeichert werden, sondern muss an einem anderen Ort liegen, beispielsweise in einem Hardware-Sicherheitsmodul (HSM).
 
-#### Hashing-Algorithmen
+#### Hash-Algorithmen
 
-Websites sollten standardisierte Algorithmen verwenden, um Passwörter zu hashen. Diese Algorithmen unterstützen alle oben beschriebenen Funktionen. Der [OWASP Leitfaden zur Passwortspeicherung](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) empfiehlt in der Reihenfolge der Präferenz:
+Websites sollten zum Hashen von Passwörtern standardisierte Algorithmen verwenden. Diese unterstützen alle oben beschriebenen Funktionen. Der [OWASP-Leitfaden zur Passwortspeicherung](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) empfiehlt in der folgenden Reihenfolge:
 
 1. [Argon2id](https://en.wikipedia.org/wiki/Argon2)
 2. [scrypt](https://en.wikipedia.org/wiki/Scrypt)
 3. [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)
 4. [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2)
 
-#### Verwendung von Web-Frameworks
+#### Web-Frameworks verwenden
 
-Funktionen für die Passwortspeicherung und -verifikation sind schwer sicher zu implementieren, daher sollten Sie Funktionen verwenden, die von einem renommierten Framework bereitgestellt werden, anstatt zu versuchen, Ihre eigenen zu implementieren. Zum Beispiel verwendet [Django](https://docs.djangoproject.com/en/5.0/topics/auth/passwords/) standardmäßig PBKDF2, ermöglicht Ihnen jedoch, einen anderen Algorithmus zu verwenden, wenn Sie möchten.
+Funktionen zum Speichern und Überprüfen von Passwörtern sicher zu implementieren, ist schwierig. Verwenden Sie deshalb die Funktionen eines bewährten Frameworks, statt eigene zu implementieren. [Django](https://docs.djangoproject.com/en/stable/topics/auth/passwords/) verwendet beispielsweise standardmäßig PBKDF2, ermöglicht aber auch die Verwendung eines anderen Algorithmus.
 
-### E-Mail-Bestätigung
+### E-Mail-Adresse verifizieren
 
-Wenn die Website plant, E-Mail im Passwort-Zurücksetzungsablauf zu verwenden, muss der Server auch überprüfen, ob die E-Mail-Adresse der sich anmeldenden Person gehört. Dazu generiert der Server typischerweise ein zufälliges Token und setzt es als Parameter zu einer Bestätigungs-URL:
+Wenn die Website E-Mails für das Zurücksetzen von Passwörtern verwenden möchte, muss der Server auch prüfen, ob die E-Mail-Adresse der Person gehört, die sich registriert. Dazu erzeugt der Server üblicherweise ein zufälliges Token und fügt es als Parameter in eine Verifizierungs-URL ein:
 
 ```plain
 https://example.org/verify?<random-token>
 ```
 
-Der Server sendet dann eine E-Mail an die vom Benutzer angegebene Adresse. Die E-Mail fordert den Benutzer auf, einen Link zur Bestätigungs-URL zu klicken. Die Seite kann dieses Token dann extrahieren und es verwenden, um den Benutzerdatensatz in der Datenbank zu finden. Es kann dann die E-Mail-Adresse als verifiziert markieren.
+Anschließend sendet der Server eine E-Mail an die angegebene Adresse. Darin wird die Person aufgefordert, auf einen Link zur Verifizierungs-URL zu klicken. Die aufgerufene Seite kann das Token aus der URL auslesen und damit den Datensatz der Person in der Datenbank finden. Danach kann sie die E-Mail-Adresse als verifiziert markieren.
 
 ## Anmeldung
 
-Um sich anzumelden, gibt der Benutzer seinen Benutzernamen und sein Passwort mit einem HTML-`<form>` ein, der nur für die Anmeldung verwendet wird.
+Zur Anmeldung gibt die Person ihren Benutzernamen und ihr Passwort in einem HTML-`<form>` ein, das ausschließlich der Anmeldung dient.
 
-Genau wie das Registrierungsformular sollte das Anmeldeformular darauf ausgelegt sein, mit Passwortmanagern zu arbeiten (und getestet werden, ob es mit ihnen funktioniert). Um dies zu ermöglichen, sollte das Formular den zuvor im Abschnitt [Formulardesign](#formulardesign) beschriebenen Praktiken folgen.
+Wie das Registrierungsformular sollte auch das Anmeldeformular für die Zusammenarbeit mit Passwortmanagern gestaltet und entsprechend getestet werden. Dazu sollte es die zuvor unter [Formulargestaltung](#formulargestaltung) beschriebenen Verfahren befolgen.
 
-Wenn der Benutzer das Formular absendet, sendet das Frontend der Website den Benutzernamen und das Passwort an den Server, unter Verwendung einer HTTP-`POST`-Anfrage. Auch hier muss dies über TLS erfolgen, um zu verhindern, dass Angreifer das Passwort während des Transits abfangen.
+Wenn die Person das Formular absendet, übermittelt das Frontend der Website den Benutzernamen und das Passwort mit einer HTTP-`POST`-Anfrage an den Server. Auch dies muss über TLS erfolgen, damit Angreifende das Passwort während der Übertragung nicht abfangen können.
 
-Wenn der Server die `POST`-Anfrage erhält, führt der Server Folgendes aus:
+Wenn der Server die `POST`-Anfrage empfängt, führt er folgende Schritte aus:
 
-- Ruft den Eintrag für den angegebenen Benutzernamen ab.
-- Wenn ein Eintrag vorhanden ist, vergleicht er das angegebene Passwort mit dem Wert im Eintrag.
+- Er ruft den Datensatz für den angegebenen Benutzernamen ab.
+- Falls ein Datensatz vorhanden ist, vergleicht er das angegebene Passwort mit dem Wert im Datensatz.
 
-Wenn der Vergleich erfolgreich ist, meldet der Server den Benutzer an und gibt Erfolg zurück.
+Ist der Vergleich erfolgreich, meldet der Server die Person an und gibt eine Erfolgsmeldung zurück.
 
-Wenn der Eintrag nicht gefunden wurde oder der Vergleich fehlschlägt, muss der Server dieselbe Fehlermeldung in beiden Fällen zurückgeben. Andernfalls können Angreifer feststellen, ob ein Konto existiert, und diese Informationen für weitere Angriffe verwenden.
+Wenn kein Datensatz gefunden wird oder der Vergleich fehlschlägt, muss der Server in beiden Fällen dieselbe Fehlermeldung zurückgeben. Andernfalls können Angreifende feststellen, ob ein Konto existiert, und diese Information für weitere Angriffe nutzen.
 
-## Passwort-Zurücksetzung
+## Zurücksetzen des Passworts
 
-Der Passwort-Zurücksetzungsablauf ermöglicht es einem Benutzer, das Passwort zurückzusetzen, wenn er es vergessen oder verloren hat. Dies hängt normalerweise davon ab, dass der Benutzer (und dann verifiziert) seine E-Mail-Adresse bei der Registrierung angegeben hat.
+Beim Zurücksetzen des Passworts kann eine Person ein neues Passwort festlegen, wenn sie das bisherige vergessen oder verloren hat. Voraussetzung ist üblicherweise, dass sie bei der Registrierung eine E-Mail-Adresse angegeben und anschließend verifiziert hat.
 
-Wenn der Benutzer darum bittet, das Passwort zurückzusetzen, fordert die Website den Benutzer auf, seine E-Mail-Adresse einzugeben. Die Website kann den Benutzer an diesem Punkt bitten, ein CAPTCHA zu lösen, um es einem böswilligen Dritten zu erschweren, einem legitimen Benutzer mehrere Passwort-Zurücksetzungsanforderungen zu senden.
+Wenn die Person das Zurücksetzen ihres Passworts anfordert, bittet die Website sie um ihre E-Mail-Adresse. Die Website kann sie an dieser Stelle auch auffordern, ein CAPTCHA zu lösen. So wird es böswilligen Dritten erschwert, eine berechtigte Person mit zahlreichen Anfragen zum Zurücksetzen des Passworts zu überhäufen.
 
-Das Backend der Website überprüft dann, ob es einen Eintrag für diese E-Mail-Adresse hat. _Ganz gleich, ob es einen Eintrag hat oder nicht_, gibt die Website dem Benutzer dieselbe Nachricht: dass sie eine E-Mail an die angegebene Adresse mit weiteren Anweisungen gesendet hat. Durch das Bereitstellen derselben Nachricht in beiden Fällen wird verhindert, dass ein Angreifer herausfindet, ob eine bestimmte E-Mail-Adresse mit einem Konto verknüpft ist: diese Informationen könnten für weitere Angriffe (wie gezielte [Phishing](/de/docs/Web/Security/Attacks/Phishing)- oder _Spearphishing_-Angriffe) verwendet werden.
+Anschließend prüft das Backend der Website, ob ein Datensatz für diese E-Mail-Adresse vorhanden ist. _Unabhängig davon, ob ein Datensatz existiert_, zeigt die Website dieselbe Nachricht an: Sie habe eine E-Mail mit weiteren Anweisungen an die angegebene Adresse gesendet. Dieselbe Nachricht in beiden Fällen verhindert, dass Angreifende herausfinden, ob eine bestimmte E-Mail-Adresse mit einem Konto verknüpft ist. Diese Information könnte für weitere Angriffe genutzt werden, beispielsweise für gezieltes [Phishing](/de/docs/Web/Security/Attacks/Phishing), auch _Spearphishing_ genannt.
 
-- Wenn die Website keinen Eintrag hat, sendet sie eine E-Mail an die Adresse und informiert den Adressaten darüber, dass jemand diese E-Mail in einem "Passwort zurücksetzen"-Formular eingegeben hat, die Website jedoch keinen Eintrag zu dieser E-Mail-Adresse hatte. Dies hilft einem legitimen Kontoinhaber, der mehrere E-Mail-Adressen hat und die falsche Adresse in das Passwort-Zurücksetzungsformular eingegeben hat.
+- Wenn die Website keinen Datensatz hat, sendet sie eine E-Mail an die Adresse. Darin teilt sie der empfangenden Person mit, dass jemand diese Adresse in ein Formular zum Zurücksetzen des Passworts eingegeben hat, für die Adresse jedoch kein Datensatz vorhanden ist. Dies hilft Personen, die ein Konto und mehrere E-Mail-Adressen haben, aber im Formular die falsche Adresse eingegeben haben.
 
-- Wenn die Website einen Eintrag für diese E-Mail hat, führt sie Folgendes aus:
-  - Generiert ein Zurücksetzungstoken, das eine Zufallszahl ist, und speichert das Token zusammen mit dem Eintrag. Dem Token wird ein Ablaufzeitstempel zugewiesen.
-  - Setzt den Tokenwert als URL-Parameter zur Zurücksetzungs-URL, wie: `https://example.org/reset?<reset-token>`.
-  - Sendet eine E-Mail an die vom Benutzer angegebene Adresse, die den Link enthält und den Benutzer bittet, ihn zu klicken.
+- Wenn die Website einen Datensatz für die E-Mail-Adresse hat, führt sie folgende Schritte aus:
+  - Sie erzeugt ein Reset-Token in Form einer Zufallszahl und speichert es beim Datensatz. Das Token erhält einen Ablaufzeitpunkt.
+  - Sie fügt den Token-Wert als URL-Parameter in die URL zum Zurücksetzen ein, beispielsweise: `https://example.org/reset?<reset-token>`.
+  - Sie sendet eine E-Mail mit dem Link an die angegebene Adresse und fordert die Person auf, darauf zu klicken.
 
-Wenn der Benutzer auf den Link klickt, extrahiert die Reset-Seite den URL-Parameter und sucht nach einem passenden gespeicherten Zurücksetzungstoken. Wenn ein Zurücksetzungstoken gefunden wird und nicht abgelaufen ist, erlaubt die Website dem Benutzer, ein neues Passwort einzugeben. Dieser Ablauf folgt ähnlichen Regeln wie das [Registrierungsformular](#registrierung), um sicherzustellen, dass das neue Passwort von einem Passwortmanager erkannt werden kann.
+Wenn die Person auf den Link klickt, liest die Seite zum Zurücksetzen den URL-Parameter aus und sucht nach einem passenden gespeicherten Reset-Token. Wird ein Token gefunden, das noch nicht abgelaufen ist, kann die Person ein neues Passwort eingeben. Für diesen Ablauf gelten ähnliche Regeln wie für das Formular zur [Registrierung](#registrierung), damit ein Passwortmanager das neue Passwort erkennen kann.
 
-Abschließend sendet die Website dem Benutzer eine Bestätigung, dass sein Passwort geändert wurde.
+Abschließend bestätigt die Website der Person per E-Mail, dass ihr Passwort geändert wurde.
 
-Für weitere Informationen, siehe:
+Weitere Informationen finden Sie unter:
 
-- [Alles, was Sie je über den Aufbau einer sicheren Passwort-Zurücksetzungsfunktion wissen wollten](https://www.troyhunt.com/everything-you-ever-wanted-to-know/)
-- [Passwort vergessen - Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
+- [Alles, was Sie schon immer über die Implementierung einer sicheren Funktion zum Zurücksetzen von Passwörtern wissen wollten](https://www.troyhunt.com/everything-you-ever-wanted-to-know/)
+- [OWASP-Cheat-Sheet für vergessene Passwörter](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
 
 ## Schwächen der passwortbasierten Authentifizierung
 
-Die oben beschriebenen Praktiken helfen, die Risiken eines passwortbasierten Authentifizierungssystems zu verringern, aber Passwörter bleiben eine von Natur aus anfällige Authentifizierungsmethode:
+Die oben beschriebenen Verfahren verringern die Risiken eines Systems zur passwortbasierten Authentifizierung. Passwörter bleiben jedoch eine grundsätzlich anfällige Authentifizierungsmethode:
 
-- Obwohl Passwortmanager und gute Passwortrichtlinien Benutzern helfen können, starke Passwörter zu wählen und Passwörter nicht wiederzuverwenden, können sie keines von beidem garantieren und lassen Benutzer anfällig für [Credential Stuffing](#credential_stuffing) und [Rateangriffe](#guessing) Angriffe.
+- Passwortmanager und gute Passwortvorgaben können Menschen zwar helfen, starke Passwörter zu wählen und Passwörter nicht wiederzuverwenden. Beides lässt sich jedoch nicht garantieren. Dadurch bleiben sie anfällig für Angriffe mittels [Credential Stuffing](#credential_stuffing) und [Erraten von Passwörtern](#guessing).
 
-- Selbst wenn Benutzer starke Passwörter haben und sie nicht wiederverwenden, bleiben sie dennoch anfällig für [Phishing](#phishing) Angriffe.
+- Selbst Personen, die starke Passwörter verwenden und diese nicht wiederverwenden, bleiben anfällig für [Phishing-Angriffe](#phishing).
 
-Um diese Schwächen anzugehen, ziehen Sie in Betracht, alternative Methoden zu verwenden, entweder anstelle von Passwörtern oder als {{Glossary("multi-factor_authentication", "zusätzliche Authentifizierungsfaktoren")}}. Zum Beispiel verwenden Websites manchmal Passwörter mit einem [Einmalpasswort](/de/docs/Web/Security/Authentication/OTP) als zweiten Faktor, und einige Websites unterstützen [Passkeys](/de/docs/Web/Security/Authentication/Passkeys), die gegen Phishing-Angriffe resistent sind.
+Um diese Schwächen zu beheben, sollten Sie alternative Methoden in Betracht ziehen – entweder anstelle von Passwörtern oder als {{Glossary("multi-factor_authentication", "zusätzliche Authentifizierungsfaktoren")}}. Manche Websites verwenden beispielsweise Passwörter zusammen mit einem [Einmalpasswort](/de/docs/Web/Security/Authentication/OTP) als zweitem Faktor. Andere unterstützen [Passkeys](/de/docs/Web/Security/Authentication/Passkeys), die gegen Phishing-Angriffe resistent sind.

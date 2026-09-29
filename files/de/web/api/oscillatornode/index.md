@@ -2,12 +2,12 @@
 title: OscillatorNode
 slug: Web/API/OscillatorNode
 l10n:
-  sourceCommit: 4c30947ed01579ef12a69bf042a889d3577da9ec
+  sourceCommit: 4ccd81240a6d531962fab92886631885a90bfa3c
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die **`OscillatorNode`**-Schnittstelle repräsentiert eine periodische Wellenform, wie z. B. eine Sinuswelle. Es handelt sich um ein [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)-Audioprozessmodul, das die Erzeugung einer bestimmten Frequenz einer gegebenen Welle verursacht – im Effekt ein konstanter Ton.
+Die **`OscillatorNode`**-Schnittstelle repräsentiert eine periodische Wellenform, beispielsweise eine Sinuswelle. Sie ist ein Audioverarbeitungsmodul vom Typ [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode), das eine Welle mit einer festgelegten Frequenz erzeugt – also einen konstanten Ton.
 
 {{InheritanceDiagram}}
 
@@ -22,12 +22,12 @@ Die **`OscillatorNode`**-Schnittstelle repräsentiert eine periodische Wellenfor
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalzählmodus</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>max</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanäle zählen</th>
-      <td><code>2</code> (nicht verwendet im Standardzählmodus)</td>
+      <th scope="row">Kanalanzahl</th>
+      <td><code>2</code> (wird im standardmäßigen Kanalanzahlmodus nicht verwendet)</td>
     </tr>
     <tr>
       <th scope="row">Kanalinterpretation</th>
@@ -39,39 +39,39 @@ Die **`OscillatorNode`**-Schnittstelle repräsentiert eine periodische Wellenfor
 ## Konstruktor
 
 - [`OscillatorNode()`](/de/docs/Web/API/OscillatorNode/OscillatorNode)
-  - : Erstellt eine neue Instanz eines `OscillatorNode`-Objekts und bietet optional ein Objekt an, das Standardwerte für die [Eigenschaften](#instanz-eigenschaften) des Knotens angibt. Alternativ können Sie die [`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator)-Fabrikmethode verwenden; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+  - : Erstellt eine neue Instanz eines `OscillatorNode`-Objekts. Optional kann ein Objekt mit Standardwerten für die [Eigenschaften](#instanzeigenschaften) des Knotens übergeben werden. Alternativ können Sie die Factory-Methode [`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator) verwenden; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
+_Erbt außerdem Eigenschaften von der übergeordneten Schnittstelle [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
 
-- [`OscillatorNode.frequency`](/de/docs/Web/API/OscillatorNode/frequency)
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Frequenz der Oszillation in Hertz repräsentiert (obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es repräsentiert, nicht). Der Standardwert ist 440 Hz (ein Standard-Mittlerer-A-Ton).
-- [`OscillatorNode.detune`](/de/docs/Web/API/OscillatorNode/detune)
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verstimmung der Oszillation in Cent repräsentiert (obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es repräsentiert, nicht). Der Standardwert ist 0.
+- [`OscillatorNode.frequency`](/de/docs/Web/API/OscillatorNode/frequency) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate)-[`AudioParam`](/de/docs/Web/API/AudioParam), der die Schwingungsfrequenz in Hertz angibt (der Wert des `AudioParam` kann geändert werden). Der Standardwert beträgt 440 Hz (der Kammerton A).
+- [`OscillatorNode.detune`](/de/docs/Web/API/OscillatorNode/detune) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate)-[`AudioParam`](/de/docs/Web/API/AudioParam), der die Verstimmung der Schwingung in Cent angibt (der Wert des `AudioParam` kann geändert werden). Der Standardwert ist 0.
 - [`OscillatorNode.type`](/de/docs/Web/API/OscillatorNode/type)
-  - : Ein String, der die Form der abzuspielenden Wellenform angibt; dies kann einer von mehreren Standardwerten oder `custom` sein, um eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) zu verwenden, um eine benutzerdefinierte Wellenform zu beschreiben. Verschiedene Wellen erzeugen unterschiedliche Töne. Standardwerte sind `"sine"`, `"square"`, `"sawtooth"`, `"triangle"` und `"custom"`. Der Standard ist `"sine"`.
+  - : Eine Zeichenfolge, die die Form der abzuspielenden Wellenform festlegt. Sie kann einen von mehreren Standardwerten annehmen oder `custom`, um mit einer [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) eine benutzerdefinierte Wellenform zu beschreiben. Unterschiedliche Wellenformen erzeugen unterschiedliche Klänge. Die Standardwerte sind `"sine"`, `"square"`, `"sawtooth"`, `"triangle"` und `"custom"`. Der Vorgabewert ist `"sine"`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Methoden von seinem Elternteil [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
+_Erbt außerdem Methoden von der übergeordneten Schnittstelle [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
 
 - [`OscillatorNode.setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave)
-  - : Setzt eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave), die eine periodische Wellenform beschreibt, die anstelle einer der Standardwellenformen verwendet werden soll; der Aufruf dieser Methode setzt den `type` auf `custom`.
+  - : Legt eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) fest, die eine periodische Wellenform beschreibt und anstelle einer der Standardwellenformen verwendet wird. Durch den Aufruf wird `type` auf `custom` gesetzt.
 - [`AudioScheduledSourceNode.start()`](/de/docs/Web/API/AudioScheduledSourceNode/start)
-  - : Gibt die genaue Zeit an, zu der der Ton abgespielt werden soll.
+  - : Legt den genauen Zeitpunkt fest, zu dem die Wiedergabe des Tons beginnt.
 - [`AudioScheduledSourceNode.stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)
-  - : Gibt die Zeit an, zu der der Ton gestoppt werden soll.
+  - : Legt den Zeitpunkt fest, zu dem die Wiedergabe des Tons endet.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seinem Elternteil [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
+_Erbt außerdem Ereignisse von der übergeordneten Schnittstelle [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
 
 ## Beispiele
 
 ### Verwendung eines OscillatorNode
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext) zur Erstellung eines Oszillatorknotens und zum Starten der Wiedergabe eines Tons darauf. Für ein Praxisbeispiel sehen Sie sich unser [Violent Theremin-Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für relevanten Code) an.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen Oszillatorknoten zu erstellen und mit ihm einen Ton abzuspielen. Ein Anwendungsbeispiel finden Sie in unserer [Violent-Theremin-Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für den relevanten Code).
 
 ```js
 // create web audio api context
@@ -86,9 +86,9 @@ oscillator.connect(audioCtx.destination);
 oscillator.start();
 ```
 
-### Verschiedene Oszillatorknotentypen
+### Verschiedene Typen von Oszillatorknoten
 
-Die vier eingebauten Oszillator-[Typen](/de/docs/Web/API/OscillatorNode/type) sind `sine`, `square`, `triangle` und `sawtooth`. Sie sind die Form der von einem Oszillator erzeugten Wellenform. Interessante Tatsache: Dies sind die Standardwerte für die meisten Synthesizer, weil sie Wellenformen sind, die elektronisch leicht zu erzeugen sind. Dieses Beispiel visualisiert die Wellenformen für die verschiedenen Typen bei unterschiedlichen Frequenzen.
+Die vier integrierten Oszillator-[Typen](/de/docs/Web/API/OscillatorNode/type) sind `sine`, `square`, `triangle` und `sawtooth`. Sie bezeichnen die Form der Wellenform, die ein Oszillator erzeugt. Wissenswert: Sie sind bei den meisten Synthesizern voreingestellt, weil sich diese Wellenformen elektronisch leicht erzeugen lassen. Dieses Beispiel veranschaulicht die Wellenformen der verschiedenen Typen bei unterschiedlichen Frequenzen.
 
 ```html
 <div class="controls">
@@ -133,7 +133,7 @@ Die vier eingebauten Oszillator-[Typen](/de/docs/Web/API/OscillatorNode/type) si
 }
 ```
 
-Der Code besteht aus zwei Teilen: Im ersten Teil richten wir das Sound-Setup ein.
+Der Code besteht aus zwei Teilen: Im ersten Teil richten wir die Audiofunktionen ein.
 
 ```js
 const typeSelect = document.getElementById("type-select");
@@ -184,7 +184,7 @@ playButton.addEventListener("click", () => {
 });
 ```
 
-Im zweiten Teil zeichnen wir die Wellenform auf eine Leinwand unter Verwendung des [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), den wir oben erstellt haben.
+Im zweiten Teil zeichnen wir die Wellenform mithilfe des oben erstellten [`AnalyserNode`](/de/docs/Web/API/AnalyserNode) auf ein Canvas.
 
 ```js
 const dpr = window.devicePixelRatio;

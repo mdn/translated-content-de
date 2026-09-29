@@ -2,31 +2,31 @@
 title: CSSNamespaceRule
 slug: Web/API/CSSNamespaceRule
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSNamespaceRule`**-Interface beschreibt ein Objekt, das eine einzelne CSS-{{ cssxref("@namespace") }}[At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) repräsentiert.
+Die Schnittstelle **`CSSNamespaceRule`** beschreibt ein Objekt, das eine einzelne CSS-[At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) vom Typ {{ cssxref("@namespace") }} repräsentiert.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Eigenschaften von der übergeordneten Schnittstelle [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- [`CSSNamespaceRule.namespaceURI`](/de/docs/Web/API/CSSNamespaceRule/namespaceURI)
-  - : Gibt einen String zurück, der den Text der URI des gegebenen Namespace enthält.
-- [`CSSNamespaceRule.prefix`](/de/docs/Web/API/CSSNamespaceRule/prefix)
-  - : Gibt einen String mit dem Namen des Präfixes zurück, das diesem Namespace zugeordnet ist. Wenn kein solches Präfix vorhanden ist, wird ein leerer String zurückgegeben.
+- [`CSSNamespaceRule.namespaceURI`](/de/docs/Web/API/CSSNamespaceRule/namespaceURI) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den URI des angegebenen Namensraums enthält.
+- [`CSSNamespaceRule.prefix`](/de/docs/Web/API/CSSNamespaceRule/prefix) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem Namen des Präfixes zurück, das diesem Namensraum zugeordnet ist. Wenn kein solches Präfix vorhanden ist, wird ein leerer String zurückgegeben.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Methoden von der übergeordneten Schnittstelle [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das Stylesheet enthält einen Namespace als einzige Regel. Daher wird die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) ein `CSSNamespaceRule` sein.
+Das Stylesheet enthält einen Namensraum als einzige Regel. Daher ist die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) eine `CSSNamespaceRule`.
 
 ```css
 @namespace url("http://www.w3.org/1999/xhtml");

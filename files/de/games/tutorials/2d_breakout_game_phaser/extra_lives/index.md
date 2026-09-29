@@ -2,16 +2,16 @@
 title: Zusätzliche Leben
 slug: Games/Tutorials/2D_breakout_game_Phaser/Extra_lives
 l10n:
-  sourceCommit: 1a0be468b9e7c88a09ea3438a81341c4f6a619a6
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
-{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Win_the_game", "Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win", "Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens")}}
 
-Dies ist der **13. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). In diesem Artikel implementieren wir ein Lebenssystem, sodass der Spieler weiterspielen kann, bis er drei Leben verloren hat, nicht nur eins, was das Spiel länger unterhaltsam macht.
+Dies ist der **9. Schritt** von 12 im [Tutorial zum Erstellen eines Breakout-Spiels mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). In diesem Artikel implementieren wir ein Lebenssystem, damit Spieler weiterspielen können, bis sie drei Leben verloren haben, statt nur eines. So bleibt das Spiel länger unterhaltsam.
 
 ## Neue Eigenschaften
 
-Fügen Sie die folgenden neuen Eigenschaften unterhalb der bestehenden in Ihrem Code hinzu:
+Fügen Sie die folgenden neuen Eigenschaften in Ihrem Code unterhalb der vorhandenen hinzu:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -23,11 +23,11 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Diese speichern jeweils die Anzahl der Leben, das Textetikett, das die Anzahl der verbleibenden Leben anzeigt, und ein Textetikett, das auf dem Bildschirm angezeigt wird, wenn der Spieler eines seiner Leben verliert.
+Sie speichern jeweils die Anzahl der Leben, die Textanzeige für die verbleibenden Leben und eine Textanzeige, die erscheint, wenn ein Leben verloren geht.
 
-## Definition der neuen Textetiketten
+## Die neuen Textanzeigen definieren
 
-Die Definition der Texte ähnelt dem, was wir bereits in der [Score](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/The_score) Lektion gemacht haben. Fügen Sie die folgenden Zeilen unterhalb der bestehenden `scoreText` Definition in Ihrer `create()` Methode hinzu:
+Die Definition der Textanzeigen ähnelt dem, was wir bereits in der Lektion [Punktestand erfassen und gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win) getan haben. Fügen Sie die folgenden Zeilen innerhalb Ihrer `create()`-Methode unterhalb der vorhandenen Definition von `scoreText` hinzu:
 
 ```js
 this.livesText = this.add.text(
@@ -47,19 +47,19 @@ this.lifeLostText.setOrigin(0.5, 0.5);
 this.lifeLostText.visible = false;
 ```
 
-Die Objekte `this.livesText` und `this.lifeLostText` ähneln sehr `this.scoreText`—sie definieren eine Position auf dem Bildschirm, den tatsächlichen anzuzeigenden Text und die Schriftstilierung. Ersteres ist an seiner oberen rechten Ecke verankert, um richtig mit dem Bildschirm auszurichten, und letzteres ist zentriert, beide mit `setOrigin`.
+Die Objekte `this.livesText` und `this.lifeLostText` ähneln `this.scoreText` stark: Sie legen eine Position auf dem Bildschirm, den anzuzeigenden Text und die Schriftformatierung fest. Ersteres wird an seiner oberen rechten Ecke verankert, damit es korrekt am Bildschirm ausgerichtet ist; Letzteres wird zentriert. Beide verwenden dafür `setOrigin`.
 
-Das `lifeLostText` wird nur gezeigt, wenn ein Leben verloren ist, daher ist seine Sichtbarkeit zunächst auf `false` gesetzt.
+`lifeLostText` wird nur angezeigt, wenn ein Leben verloren geht. Deshalb ist seine Sichtbarkeit anfangs auf `false` gesetzt.
 
-### Unsere Textstilierung DRY machen
+### Wiederholungen bei der Textformatierung vermeiden
 
-Wie Sie wahrscheinlich bemerkt haben, verwenden wir dieselbe Stilierung für alle drei Texte: `scoreText`, `livesText` und `lifeLostText`. Wenn wir irgendwann die Schriftgröße oder Farbe ändern wollen, müssten wir das an mehreren Orten tun. Um dies in Zukunft besser warten zu können, können wir eine separate Variable erstellen, die unsere Stilierung hält, nennen wir sie `textStyle` und platzieren sie vor den Textdefinitionen:
+Wie Sie wahrscheinlich bemerkt haben, verwenden wir für alle drei Texte dieselbe Formatierung: `scoreText`, `livesText` und `lifeLostText`. Wenn wir jemals die Schriftgröße oder Farbe ändern möchten, müssten wir das an mehreren Stellen tun. Um die spätere Pflege zu erleichtern, können wir eine eigene Variable für die Formatierung erstellen. Nennen wir sie `textStyle` und platzieren sie vor den Textdefinitionen:
 
 ```js
 const textStyle = { font: "18px Arial", fill: "#0095dd" };
 ```
 
-Wir können diese Variable jetzt verwenden, um unsere Textetiketten zu gestalten—aktualisieren Sie Ihren Code, sodass die mehreren Instanzen der Textstilierung durch die Variable ersetzt werden:
+Diese Variable können wir nun zur Formatierung unserer Textanzeigen verwenden. Aktualisieren Sie Ihren Code so, dass die mehrfach vorkommenden Formatierungsangaben durch die Variable ersetzt werden:
 
 ```js
 this.scoreText = this.add.text(5, 5, "Points: 0", textStyle);
@@ -81,11 +81,11 @@ this.lifeLostText.setOrigin(0.5, 0.5);
 this.lifeLostText.visible = false;
 ```
 
-Auf diese Weise werden Änderungen an der Schrift in einer Variablen an jedem Ort angewendet, an dem sie verwendet wird.
+So werden Änderungen an der Schrift in dieser einen Variable überall übernommen, wo sie verwendet wird.
 
-## Der Code zur Lebensverwaltung
+## Code zur Verwaltung der Leben
 
-Um Leben in unserem Spiel zu implementieren, ändern wir zuerst das Verhalten, wenn der Ball die Grenzen verlässt. Anstatt sofort neu zu starten:
+Um Leben in unserem Spiel zu implementieren, ändern wir zunächst das Verhalten, wenn der Ball den Spielbereich verlässt. Statt das Spiel sofort neu zu starten:
 
 ```js
 if (ballIsOutOfBounds) {
@@ -94,7 +94,7 @@ if (ballIsOutOfBounds) {
 }
 ```
 
-Wir rufen eine neue Methode namens `ballLeaveScreen()` auf; löschen Sie die vorherigen Zeilen (oben gezeigt) und ersetzen Sie sie durch die folgende Zeile:
+rufen wir eine neue Methode namens `ballLeaveScreen()` auf. Löschen Sie die bisherigen Zeilen (siehe oben) und ersetzen Sie sie durch die folgende Zeile:
 
 ```js
 if (ballIsOutOfBounds) {
@@ -102,7 +102,7 @@ if (ballIsOutOfBounds) {
 }
 ```
 
-Wir möchten die Anzahl der Leben jedes Mal verringern, wenn der Ball die Leinwand verlässt. Fügen Sie die Methode `ballLeaveScreen()` am Ende der `ExampleScene` Klasse hinzu:
+Die Anzahl der Leben soll jedes Mal sinken, wenn der Ball den Canvas verlässt. Fügen Sie die Definition der Methode `ballLeaveScreen()` am Ende der Klasse `ExampleScene` hinzu:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -129,17 +129,17 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Anstatt sofort den Warnhinweis auszugeben, wenn Sie ein Leben verlieren, subtrahieren wir zunächst ein Leben von der aktuellen Zahl und prüfen, ob es ein nonzeroer Wert ist. Wenn ja, dann hat der Spieler noch einige Leben übrig und kann weiterspielen—sie sehen die Meldung über das verlorene Leben, die Positionen von Ball und Paddle werden auf dem Bildschirm zurückgesetzt, und bei der nächsten Eingabe (Klick oder Berührung) wird die Nachricht ausgeblendet und der Ball beginnt sich wieder zu bewegen.
+Statt sofort eine Meldung anzuzeigen, wenn ein Leben verloren geht, ziehen wir zunächst ein Leben von der aktuellen Anzahl ab und prüfen, ob der Wert noch größer als null ist. Falls ja, hat der Spieler noch Leben übrig und kann weiterspielen: Die Meldung über das verlorene Leben wird angezeigt und die Positionen von Ball und Schläger werden auf dem Bildschirm zurückgesetzt. Bei der nächsten Eingabe (Klick oder Berührung) wird die Meldung ausgeblendet und der Ball bewegt sich wieder.
 
-Wenn die Anzahl der verfügbaren Leben Null erreicht, ist das Spiel vorbei und die Game-Over-Warnmeldung wird angezeigt.
+Wenn die Anzahl der verfügbaren Leben null erreicht, ist das Spiel vorbei und die Game-over-Meldung wird angezeigt.
 
 ## Ereignisse
 
-Sie haben wahrscheinlich den `once` Methodenaufruf im obigen Codeblock bemerkt und sich gefragt, was es ist. Die Methode `once()` ist ein Phaser-Ereignis-Listener, der auf das nächste Auftreten des angegebenen Ereignisses (in diesem Fall ein Pointer-Down-Ereignis) lauscht und sich dann selbst entfernt, nachdem es ausgelöst wurde. Das bedeutet, dass der Code in der Rückruffunktion nur einmal nach dem Aufruf von `once` ausgeführt wird, was genau das ist, was wir hier wollen—wir möchten die Meldung über das verlorene Leben ausblenden und die Ballbewegung nur einmal wieder starten, nachdem der Spieler den Bildschirm geklickt oder berührt hat.
+Vielleicht ist Ihnen im obigen Codeblock der Aufruf der Methode `once` aufgefallen und Sie fragen sich, was sie bewirkt. Die Methode `once()` ist ein Ereignis-Listener von Phaser. Sie wartet auf das nächste Auftreten des angegebenen Ereignisses (in diesem Fall ein Pointer-Down-Ereignis) und entfernt sich anschließend selbst. Dadurch wird der Code im Callback nach dem Aufruf von `once` nur einmal ausgeführt. Genau das möchten wir hier: Die Meldung über das verlorene Leben soll ausgeblendet und der Ball nur einmal wieder in Bewegung gesetzt werden, nachdem der Spieler auf den Bildschirm geklickt oder ihn berührt hat.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live laufend. Um seinen Quellcode anzusehen, klicken Sie auf die Schaltfläche "Play".
+So sollte Ihr Code bisher aussehen. Sie können ihn hier direkt ausführen. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -319,6 +319,6 @@ const game = new Phaser.Game(config);
 
 ## Nächste Schritte
 
-Leben machen das Spiel verzeihender—wenn Sie ein Leben verlieren, haben Sie immer noch zwei übrig und können weiterspielen. Lassen Sie uns nun das Aussehen und Gefühl des Spiels erweitern, indem wir [Animationen und Tweens](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens) hinzufügen.
+Die zusätzlichen Leben machen das Spiel nachsichtiger: Wenn Sie ein Leben verlieren, bleiben Ihnen noch zwei weitere und Sie können weiterspielen. Als Nächstes verbessern wir das Erscheinungsbild und Spielgefühl mit [Animationen und Tweens](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens).
 
-{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Win_the_game", "Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win", "Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens")}}

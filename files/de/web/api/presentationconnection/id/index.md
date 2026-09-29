@@ -3,12 +3,12 @@ title: "PresentationConnection: id-Eigenschaft"
 short-title: id
 slug: Web/API/PresentationConnection/id
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`id`**-Attribut gibt die [Präsentationskennung](https://www.w3.org/TR/presentation-api/#dfn-presentation-identifier) einer [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) an.
+Die schreibgeschützte Eigenschaft **`id`** der Schnittstelle [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) gibt den [Präsentationsbezeichner](https://www.w3.org/TR/presentation-api/#dfn-presentation-identifier) einer [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) an.
 
 ## Spezifikationen
 

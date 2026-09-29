@@ -2,22 +2,22 @@
 title: TaskAttributionTiming
 slug: Web/API/TaskAttributionTiming
 l10n:
-  sourceCommit: d414c502f3cc1c08d2fb043e98cda4a65621ff08
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die Schnittstelle **`TaskAttributionTiming`** liefert Informationen über die Arbeit, die an einer langen Aufgabe beteiligt ist, und den zugehörigen Rahmenkontext. Der Rahmenkontext, auch Container genannt, ist das `iframe`, `embed` oder `object`, das im Großen und Ganzen für eine lange Aufgabe verantwortlich gemacht wird.
+Die Schnittstelle **`TaskAttributionTiming`** liefert Informationen über die Arbeit, die mit einer lang andauernden Aufgabe verbunden ist, sowie über den zugehörigen Frame-Kontext. Der Frame-Kontext, auch Container genannt, ist das iframe-, embed- oder object-Element, das insgesamt mit der lang andauernden Aufgabe in Verbindung gebracht wird.
 
-Normalerweise arbeiten Sie mit `TaskAttributionTiming`-Objekten, wenn Sie [lange Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming) beobachten.
+Sie arbeiten üblicherweise mit `TaskAttributionTiming`-Objekten, wenn Sie [lang andauernde Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming) beobachten.
 
 `TaskAttributionTiming` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften für Ereignis-Timing-Leistungseinträge, indem sie wie folgt qualifiziert werden:
+Diese Schnittstelle erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) für Performance-Einträge zur Ereigniszeitmessung mit den folgenden Festlegungen:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `0` zurück, da `duration` für diese Schnittstelle nicht anwendbar ist.
@@ -28,10 +28,10 @@ Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/AP
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `0` zurück.
 
-Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
+Diese Schnittstelle unterstützt außerdem die folgenden Eigenschaften:
 
 - [`TaskAttributionTiming.containerType`](/de/docs/Web/API/TaskAttributionTiming/containerType) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Typ des Rahmencontainers zurück, einer von `iframe`, `embed` oder `object`.
+  - : Gibt den Typ des Frame-Containers zurück: `iframe`, `embed` oder `object`.
 - [`TaskAttributionTiming.containerSrc`](/de/docs/Web/API/TaskAttributionTiming/containerSrc) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt das `src`-Attribut des Containers zurück.
 - [`TaskAttributionTiming.containerId`](/de/docs/Web/API/TaskAttributionTiming/containerId) {{ReadOnlyInline}} {{Experimental_Inline}}
@@ -39,10 +39,10 @@ Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
 - [`TaskAttributionTiming.containerName`](/de/docs/Web/API/TaskAttributionTiming/containerName) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt das `name`-Attribut des Containers zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`TaskAttributionTiming.toJSON()`](/de/docs/Web/API/TaskAttributionTiming/toJSON) {{Experimental_Inline}}
-  - : Gibt eine JSON-Darstellung des `TaskAttributionTiming`-Objekts zurück.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `TaskAttributionTiming`-Objekt repräsentiert. Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
 
 ## Spezifikationen
 

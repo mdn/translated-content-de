@@ -2,26 +2,26 @@
 title: Eingabevalidierung
 slug: Web/Security/Defenses/Input_validation
 l10n:
-  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
+  sourceCommit: dd70ed064388b0fac4338321f727c8840a508b64
 ---
 
-Eingabevalidierung ist die Praxis, zu prüfen, ob jede Eingabe, die Ihre Website akzeptiert, den Erwartungen entspricht.
+Bei der Eingabevalidierung wird überprüft, ob Eingaben, die Ihre Website akzeptiert, den Erwartungen entsprechen.
 
-Damit eine Website nahezu jede Art von Interaktivität oder Anpassung bereitstellen kann, muss sie Eingaben akzeptieren, typischerweise von Benutzern über einen Webbrowser und manchmal auch von anderen Anwendungen.
+Damit eine Website Interaktivität oder Anpassungsmöglichkeiten bieten kann, muss sie in der Regel Eingaben entgegennehmen. Diese stammen meist von Benutzern über einen Webbrowser, manchmal aber auch von anderen Anwendungen.
 
-Benutzer geben Informationen typischerweise in {{htmlelement("input")}}-Elemente innerhalb eines {{htmlelement("form")}}-Elements im Frontend der Website ein, und die Daten werden typischerweise als Body einer {{httpmethod("POST")}}-Anfrage oder als URL-Parameter gesendet, die an eine {{httpmethod("GET")}}-Anfrage angehängt werden. Eingaben können jedoch auch auf andere Weise auf dem Server eintreffen, etwa über Cookie-Werte oder zusätzliche HTTP-Header.
+Benutzer geben Informationen üblicherweise in {{htmlelement("input")}}-Elemente innerhalb eines {{htmlelement("form")}}-Elements im Frontend der Website ein. Die Daten werden meist im Body einer {{httpmethod("POST")}}-Anfrage oder als URL-Parameter einer {{httpmethod("GET")}}-Anfrage an den Server gesendet. Eingaben können den Server jedoch auch auf anderem Weg erreichen, etwa als Cookie-Werte oder zusätzliche HTTP-Header.
 
-Wenn die vom Benutzer bereitgestellte Eingabe nicht die Form oder den Inhalt hat, die bzw. den die Website erwartet — wenn beispielsweise eine ungültige E-Mail-Adresse eingegeben wird — kann dies zu Fehlfunktionen der Website führen. Probleme dieser Art so früh wie möglich zu erkennen, verbessert die Benutzererfahrung.
+Wenn eine Benutzereingabe nicht die Form oder den Inhalt hat, die die Website erwartet – beispielsweise bei einer ungültigen E-Mail-Adresse –, kann dies zu Fehlfunktionen führen. Werden solche Probleme möglichst früh erkannt, verbessert das die Benutzererfahrung.
 
-Neben unbeabsichtigten Fehlern von Benutzern ermöglicht die Bereitstellung unerwarteter Eingaben jedoch auch böswilligen Akteuren, verschiedene Sicherheitsangriffe zu versuchen, einschließlich Cross-Site Scripting (XSS), SQL-Injection und Command-Injection. In diesen Situationen erstellt der Angreifer absichtlich eine Eingabe, die einen Angriff ermöglicht, und übergibt sie an die Anwendung. Der Angreifer kann das Frontend der Website möglicherweise vollständig umgehen und die bösartige Eingabe direkt in einer HTTP-Anfrage bereitstellen. Obwohl die Eingabevalidierung gewöhnlich keine vollständige Lösung für diese Sicherheitsbedrohungen ist, stellt sie eine wichtige erste Verteidigungslinie dar.
+Neben solchen unbeabsichtigten Fehlern können unerwartete Eingaben jedoch auch für Angriffe genutzt werden, darunter Cross-Site-Scripting (XSS), SQL-Injection und Command-Injection. Dabei erstellt ein Angreifer gezielt eine Eingabe, die einen Angriff ermöglicht, und übermittelt sie an die Anwendung. Er kann das Frontend der Website vollständig umgehen und die schädliche Eingabe direkt in einer HTTP-Anfrage übermitteln. Die Eingabevalidierung allein bietet gegen solche Sicherheitsbedrohungen meist keinen vollständigen Schutz, ist aber eine wichtige erste Verteidigungslinie.
 
-## Richtlinien zur Validierung
+## Richtlinien für die Validierung
 
-### Validierung als Allowlist implementieren
+### Validierung als Allowlist umsetzen
 
-Anwendungen können eine bestimmte Prüfung häufig implementieren, indem sie sie anhand der erlaubten Werte (einer „Allowlist“) oder anhand der verweigerten Werte (einer „Denylist“) festlegen.
+Anwendungen können eine Prüfung häufig entweder anhand zulässiger Werte (einer „Allowlist“) oder anhand unzulässiger Werte (einer „Denylist“) definieren.
 
-Angenommen, wir möchten prüfen, ob eine numerische Eingabe zwischen null und 10 liegt. Dies können wir als Allowlist implementieren, indem wir prüfen, ob die Eingabe diesem Bereich entspricht, und alles andere verweigern:
+Angenommen, wir möchten prüfen, ob eine numerische Eingabe zwischen null und 10 liegt. Mit einer Allowlist prüfen wir, ob die Eingabe in diesem Bereich liegt, und lehnen alle anderen Werte ab:
 
 ```js
 function checkRange(input) {
@@ -32,7 +32,7 @@ function checkRange(input) {
 }
 ```
 
-Alternativ können wir dies als Denylist implementieren, indem wir prüfen, ob die Eingabe außerhalb des Bereichs liegt, und alles andere erlauben:
+Alternativ können wir mit einer Denylist prüfen, ob die Eingabe außerhalb des Bereichs liegt, und alle anderen Werte zulassen:
 
 ```js
 function checkRange(input) {
@@ -43,96 +43,96 @@ function checkRange(input) {
 }
 ```
 
-Es ist normalerweise zuverlässiger, eine Prüfung als Allowlist zu implementieren, da dadurch Werte standardmäßig verweigert werden, die der Autor nicht berücksichtigt hat. Dies gilt insbesondere, wenn die ungültige Eingabe absichtlich von einem Angreifer erstellt wird: Für einen Angreifer ist es einfacher, eine Eingabe bereitzustellen, die der Prüfung entgeht und auf die standardmäßige Bedingung „erlauben“ zurückfällt.
+Eine Prüfung als Allowlist umzusetzen ist in der Regel zuverlässiger, weil dadurch auch Werte abgelehnt werden, die bei der Implementierung nicht berücksichtigt wurden. Das ist besonders wichtig, wenn ein Angreifer gezielt ungültige Eingaben erstellt: Es ist einfacher, eine Prüfung zu umgehen, wenn die Standardeinstellung darin besteht, Eingaben zuzulassen.
 
 ### Syntaktische und semantische Validierung
 
-Wir können zwischen zwei Arten der Eingabevalidierung unterscheiden:
+Es gibt zwei Arten der Eingabevalidierung:
 
-- _syntaktische Validierung_, die prüft, ob die Eingabe das richtige Format hat. Wenn die Anwendung beispielsweise eine Zahl erwartet, erhält sie eine Zahl.
-- _semantische Validierung_, die prüft, ob der Inhalt der Eingabe innerhalb der erwarteten Grenzen liegt. Beispielsweise eine Zahl, die innerhalb eines bestimmten Bereichs liegen soll, oder ein Zeichenfolgenwert, der genau einem Wert aus einer Menge von Werten entsprechen soll.
+- Bei der _syntaktischen Validierung_ wird geprüft, ob eine Eingabe das richtige Format hat. Wenn die Anwendung beispielsweise eine Zahl erwartet, wird geprüft, ob sie eine Zahl erhält.
+- Bei der _semantischen Validierung_ wird geprüft, ob der Inhalt einer Eingabe innerhalb der erwarteten Grenzen liegt. Beispielsweise muss eine Zahl in einem bestimmten Bereich liegen oder ein String-Wert genau einem Wert aus einer vorgegebenen Menge entsprechen.
 
-Anwendungen implementieren syntaktische Validierung typischerweise mithilfe der Typprüfungsfunktionen der gewählten Programmiersprache.
+Für die syntaktische Validierung verwenden Anwendungen üblicherweise die Möglichkeiten zur Typprüfung ihrer Programmiersprache.
 
-Zur Implementierung semantischer Validierung können sie verschiedene Methoden verwenden, einschließlich Bereichsprüfungen, des Abgleichs eines Werts mit einer Menge zulässiger Werte oder, bei komplexeren Fällen, regulärer Ausdrücke.
+Für die semantische Validierung können sie verschiedene Verfahren nutzen: Wertebereichsprüfungen, den Abgleich mit einer Menge zulässiger Werte oder, in komplexeren Fällen, reguläre Ausdrücke.
 
-Beachten Sie, dass reguläre Ausdrücke schwer korrekt zu erstellen sein können und einige Ausdrücke eine Anwendung anfällig für [Denial-of-Service-Angriffe](https://community.owasp.org/attacks/Regular_expression_Denial_of_Service_-_ReDoS) machen können. Deshalb ist es normalerweise besser, etablierte Validierungsbibliotheken von Drittanbietern zu verwenden. Eine beliebte Wahl ist [validator.js](https://github.com/validatorjs/validator.js).
+Reguläre Ausdrücke können allerdings schwierig korrekt zu formulieren sein. Manche Ausdrücke können eine Anwendung zudem anfällig für [Denial-of-Service-Angriffe](https://community.owasp.org/attacks/Regular_expression_Denial_of_Service_-_ReDoS) machen. Deshalb ist es in der Regel besser, bewährte Validierungsbibliotheken von Drittanbietern zu verwenden. Eine verbreitete Wahl ist [validator.js](https://github.com/validatorjs/validator.js).
 
 ### Zeitpunkt der Validierung
 
-Anwendungen sollten Eingaben so schnell wie möglich nach ihrer Eingabe validieren, damit der Benutzer unmittelbar Feedback zum Problem erhält und die Möglichkeit bekommt, es zu beheben. Dies bedeutet im Allgemeinen, dass Sie Eingaben auf der Client-Seite im Frontend-Code der Website validieren sollten.
+Anwendungen sollten Eingaben möglichst unmittelbar nach ihrer Eingabe validieren. So erhalten Benutzer sofort eine Rückmeldung über ein Problem und können es beheben. Im Allgemeinen bedeutet das, Eingaben auf der Client-Seite im Frontend-Code der Website zu validieren.
 
-Sie dürfen sich jedoch nicht auf die Frontend-Validierung verlassen, um Sicherheitsprobleme zu erkennen, da ein Angreifer den Frontend-Code manipulieren oder vollständig umgehen kann. Daher müssen Sie Eingaben auch auf dem Server validieren, bevor Sie sie verarbeiten.
+Verlassen Sie sich bei Sicherheitsfragen jedoch nicht auf die Validierung im Frontend: Ein Angreifer kann den Frontend-Code manipulieren oder vollständig umgehen. Deshalb müssen Sie Eingaben auch auf dem Server validieren, bevor sie verarbeitet werden.
 
-## Client-seitige Validierung
+## Clientseitige Validierung
 
-Das HTML-Element {{htmlelement("input")}} unterstützt eine Reihe von Attributen, mit denen Sie gültige Werte für die vom Benutzer bereitgestellte Eingabe definieren können. Dazu gehören:
+Das HTML-Element {{htmlelement("input")}} unterstützt mehrere Attribute, mit denen Sie zulässige Werte für Benutzereingaben festlegen können. Dazu gehören:
 
-- [`type`](/de/docs/Web/HTML/Reference/Elements/input#input_types), das den erwarteten Eingabetyp definiert und eine Validierung basierend auf diesem Typ auslöst. Wenn `type` beispielsweise [`email`](/de/docs/Web/HTML/Reference/Elements/input/email) ist, prüft der Browser automatisch, ob die Eingabe eine syntaktisch gültige E-Mail-Adresse ist.
+- [`type`](/de/docs/Web/HTML/Reference/Elements/input#input_types) legt den erwarteten Eingabetyp fest und löst eine entsprechende Validierung aus. Wenn `type` beispielsweise [`email`](/de/docs/Web/HTML/Reference/Elements/input/email) ist, prüft der Browser automatisch, ob die Eingabe syntaktisch eine gültige E-Mail-Adresse ist.
 
-- [`minLength`](/de/docs/Web/HTML/Reference/Attributes/minlength) und [`maxLength`](/de/docs/Web/HTML/Reference/Attributes/maxlength), die die minimale und maximale Länge definieren, die eine Texteingabe haben darf.
+- [`minLength`](/de/docs/Web/HTML/Reference/Attributes/minlength) und [`maxLength`](/de/docs/Web/HTML/Reference/Attributes/maxlength) legen die zulässige Mindest- und Höchstlänge einer Texteingabe fest.
 
-- [`min`](/de/docs/Web/HTML/Reference/Attributes/min) und [`max`](/de/docs/Web/HTML/Reference/Attributes/max), die die minimalen und maximalen Werte definieren, die ein numerischer Wert haben darf.
+- [`min`](/de/docs/Web/HTML/Reference/Attributes/min) und [`max`](/de/docs/Web/HTML/Reference/Attributes/max) legen die zulässigen Mindest- und Höchstwerte einer numerischen Eingabe fest.
 
-- [`step`](/de/docs/Web/HTML/Reference/Attributes/step), das die Schrittweite definiert, die ein numerischer Eingabewert haben muss.
+- [`step`](/de/docs/Web/HTML/Reference/Attributes/step) legt die Schrittweite fest, die ein numerischer Eingabewert einhalten muss.
 
-- [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern), das einen regulären Ausdruck definiert, dem eine Texteingabe entsprechen muss.
+- [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern) legt einen regulären Ausdruck fest, dem eine Texteingabe entsprechen muss.
 
-Sie können auch eine benutzerdefinierte Gültigkeitsprüfung in JavaScript definieren, indem Sie dem [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis des Elements einen Event-Handler hinzufügen. Innerhalb des Event-Handlers können Sie eine benutzerdefinierte Gültigkeitsprüfung durchführen und dann die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) des Elements aufrufen, um seine Gültigkeit festzulegen.
+Sie können auch eine eigene Gültigkeitsprüfung in JavaScript definieren, indem Sie dem [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis des Elements einen Event-Handler hinzufügen. Im Event-Handler können Sie die Eingabe prüfen und anschließend mit der Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) des Elements dessen Gültigkeit festlegen.
 
-Wenn die Eingabe die Validierung nicht besteht, übermittelt der Browser das Formular nicht, sondern zeigt dem Benutzer eine Fehlermeldung an.
+Wenn die Eingabe die Validierung nicht besteht, sendet der Browser das Formular nicht ab und zeigt dem Benutzer stattdessen eine Fehlermeldung an.
 
-Weitere Informationen finden Sie unter [Verwenden der HTML-Formularvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation).
+Weitere Informationen finden Sie unter [HTML-Formularvalidierung verwenden](/de/docs/Web/HTML/Guides/Constraint_validation).
 
 ## Serverseitige Validierung
 
-Auf der Serverseite sollten Anwendungen, wenn möglich, die Validierungsfunktionen verwenden, die von ihrem gewählten Framework bereitgestellt werden, etwa Djangos [validators](https://docs.djangoproject.com/en/6.0/ref/validators/).
+Auf der Serverseite sollten Anwendungen nach Möglichkeit die Validierungsfunktionen des verwendeten Frameworks nutzen, beispielsweise die [Validatoren](https://docs.djangoproject.com/en/stable/ref/validators/) von Django.
 
-Es ist besonders wichtig, auf Validierungsfehler zu achten, die nicht durch einen Benutzer verursacht worden sein können, der mit dem Frontend der Website interagiert: beispielsweise ein {{htmlelement("select")}}-Element, das eine Option enthält, die nicht im HTML des Formulars bereitgestellt wurde. Fehler dieser Art sind starke Hinweise darauf, dass ein Angreifer absichtlich ungültige Eingaben erstellt.
+Achten Sie besonders auf Validierungsfehler, die bei einer normalen Interaktion mit dem Frontend der Website nicht auftreten können. Ein Beispiel ist ein {{htmlelement("select")}}-Element, für das ein Wert übermittelt wird, der im HTML des Formulars nicht als Option vorhanden war. Solche Fehler sind deutliche Hinweise darauf, dass ein Angreifer gezielt ungültige Eingaben erstellt.
 
-Wenn Eingaben als JSON dargestellt werden, können Sie [JSON Schema](https://json-schema.org/) verwenden, um Gültigkeit zu definieren. Dazu gehören APIs, die mit [OpenAPI](https://swagger.io/) spezifiziert sind. Wenn Sie eine Datenbank verwenden, können Sie außerdem ein Datenbankschema definieren und Eingaben dagegen validieren.
+Wenn Eingaben als JSON dargestellt werden, können Sie ihre Gültigkeit mit [JSON Schema](https://json-schema.org/) definieren. Das gilt auch für APIs, die mit [OpenAPI](https://swagger.io/) spezifiziert sind. Wenn Sie eine Datenbank verwenden, können Sie außerdem ein Datenbankschema definieren und Eingaben dagegen validieren.
 
 ## Datei-Uploads
 
 Wenn Ihre Website Datei-Uploads erlaubt, müssen Sie verschiedene zusätzliche Bedrohungen berücksichtigen. Angreifer können:
 
-- Bösartige Dateien hochladen, die Fehler in der Software ausnutzen, welche sie verarbeitet.
-- Im Rahmen eines Denial-of-Service-Angriffs sehr große Dateien hochladen.
-- Unerwünschte oder illegale Inhalte hochladen.
-- Code zur Dateiverarbeitung dazu bringen, Ihre eigenen Dateien der Website zu überschreiben.
-- Dateien hochladen, die Exploits wie XSS enthalten, und andere Benutzer dazu verleiten, sie herunterzuladen und auszuführen.
+- Schädliche Dateien hochladen, die Fehler in der Software ausnutzen, mit der sie verarbeitet werden.
+- Sehr große Dateien als Teil eines Denial-of-Service-Angriffs hochladen.
+- Unerwünschte oder rechtswidrige Inhalte hochladen.
+- Die Dateiverarbeitung dazu bringen, Dateien Ihrer eigenen Website zu überschreiben.
+- Dateien mit Exploits wie XSS hochladen und andere Benutzer dazu verleiten, sie herunterzuladen und auszuführen.
 
-Die folgenden Best Practices werden üblicherweise verwendet, um diese Bedrohungen zu mindern:
+Die folgenden bewährten Maßnahmen werden häufig eingesetzt, um diese Bedrohungen zu verringern:
 
-- Erlauben Sie nur authentifizierten Benutzern, Dateien hochzuladen.
+- Erlauben Sie Datei-Uploads nur authentifizierten Benutzern.
 
-- Dateinamen sind ebenfalls Benutzereingaben und müssen daher validiert werden. Generieren Sie nach Möglichkeit eigene Namen für die Dateien, die Sie speichern. Wenn Sie die von Benutzern bereitgestellten Namen verwenden müssen, schränken Sie die Zeichen, die Benutzer auswählen dürfen, stark ein und validieren Sie die Namen dagegen.
+- Auch Dateinamen sind Benutzereingaben und müssen validiert werden. Erzeugen Sie nach Möglichkeit selbst Namen für Dateien, die Sie speichern. Müssen Sie die von Benutzern angegebenen Namen verwenden, schränken Sie die zulässigen Zeichen stark ein und prüfen Sie die Namen entsprechend.
 
-- Bestimmen Sie, welche Dateitypen Sie unterstützen müssen, und erlauben Sie nur diese Typen anhand der Dateierweiterung. Seien Sie besonders vorsichtig bei im Web ausführbaren Dateitypen wie HTML oder JavaScript. Da die Prüfung von Dateierweiterungen die Verarbeitung der von Benutzern bereitgestellten Dateinamen beinhaltet, sollten Sie Dateinamen zuerst validieren.
+- Legen Sie fest, welche Dateitypen Sie unterstützen müssen, und erlauben Sie anhand der Dateiendung nur diese Typen. Seien Sie bei Dateitypen, die vom Webserver ausgeführt werden können, wie HTML oder JavaScript, besonders vorsichtig. Da die Prüfung von Dateiendungen die Verarbeitung benutzerseitig angegebener Dateinamen voraussetzt, müssen Sie zuerst die Dateinamen validieren.
 
-- Beschränken Sie die Größe der Dateien, die hochgeladen werden können.
+- Begrenzen Sie die Größe hochladbarer Dateien.
 
-- Ermöglichen Sie Benutzern, unerwünschte oder illegale Inhalte zu melden, und verfügen Sie über einen Prozess zu deren Entfernung.
+- Ermöglichen Sie Benutzern, unerwünschte oder rechtswidrige Inhalte zu melden, und richten Sie ein Verfahren ein, um solche Inhalte zu entfernen.
 
-- Speichern Sie Dateien, wenn möglich, auf einem anderen Host. Wenn dies nicht möglich ist, speichern Sie Dateien außerhalb des Website-Root-Verzeichnisses. Dies verringert das Risiko, dass bösartige Uploads bei Angriffen wie XSS an andere Benutzer ausgeliefert werden könnten.
+- Speichern Sie Dateien nach Möglichkeit auf einem anderen Host. Falls das nicht möglich ist, speichern Sie sie außerhalb des Stammverzeichnisses der Website. Das verringert das Risiko, dass schädliche Uploads im Rahmen von Angriffen wie XSS an andere Benutzer ausgeliefert werden.
 
-Weitere Details finden Sie im [File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) von OWASP.
+Weitere Einzelheiten finden Sie im [File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) von OWASP.
 
 ## Eingabevalidierung und Sicherheit
 
-Eine Website dazu zu bringen, bösartige Eingaben zu akzeptieren, ist ein Angriffsvektor für eine Reihe von Angriffen, bei denen die Website den Inhalt unbeabsichtigt als Code oder als Befehl ausführt. Dazu gehören:
+Eine Website dazu zu bringen, schädliche Eingaben zu akzeptieren, ermöglicht verschiedene Angriffe, bei denen die Website den Inhalt unbeabsichtigt als Code oder Befehl ausführt. Dazu gehören:
 
-- Cross-Site-Scripting-Angriffe (XSS), bei denen der Browser bösartigen Code so ausführt, als wäre er Teil der Website.
+- Cross-Site-Scripting-Angriffe (XSS), bei denen der Browser schädlichen Code so ausführt, als wäre er Teil der Website.
 
-- SQL-Injection-Angriffe, bei denen der Server bösartige SQL-Abfragen auf seiner Datenbank ausführt.
+- SQL-Injection-Angriffe, bei denen der Server schädliche SQL-Abfragen für seine Datenbank ausführt.
 
-- Command-Injection-Angriffe, bei denen die Website bösartige Befehle auf dem Betriebssystem des Hosts ausführt.
+- Command-Injection-Angriffe, bei denen die Website schädliche Befehle auf dem Betriebssystem des Hosts ausführt.
 
-Die hier beschriebene allgemeine Eingabevalidierung ist eine hilfreiche erste Verteidigungslinie gegen solche Angriffe, aber sie ist _keine_ vollständige Verteidigung dagegen und nicht einmal die primäre Verteidigung. Denn es ist äußerst schwierig, sich gegen diese Angriffe zu schützen, ohne den spezifischen Kontext zu kennen, in dem die Eingabe verwendet wird.
+Die hier beschriebene allgemeine Eingabevalidierung ist eine nützliche erste Verteidigungslinie gegen solche Angriffe. Sie bietet aber _keinen_ vollständigen Schutz und ist auch nicht die wichtigste Schutzmaßnahme. Ohne Kenntnis des konkreten Kontexts, in dem eine Eingabe verwendet wird, ist es äußerst schwierig, diese Angriffe abzuwehren.
 
-Stattdessen sollten Anwendungen Schutzmaßnahmen verwenden, die auf diese Angriffe zugeschnitten sind:
+Stattdessen sollten Anwendungen Schutzmaßnahmen einsetzen, die auf die jeweiligen Angriffe zugeschnitten sind:
 
-- [Schutzmaßnahmen gegen Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS).
+- [Schutzmaßnahmen gegen Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS).
 
 - [Schutzmaßnahmen gegen SQL-Injection](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html).
 

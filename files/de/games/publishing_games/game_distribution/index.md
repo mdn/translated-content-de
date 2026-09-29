@@ -1,112 +1,112 @@
 ---
-title: Spielverteilung
+title: Spiele vertreiben
 slug: Games/Publishing_games/Game_distribution
 l10n:
-  sourceCommit: f4c14731a1a157fc8d8f7357ac4d74d14a7d7fb5
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
-Sie haben ein [Tutorial](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) oder [zwei](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) befolgt und ein HTML-Spiel erstellt – das ist großartig! Dieser Artikel beschreibt alles, was Sie wissen müssen, über die Möglichkeiten, wie Sie Ihr neu erstelltes Spiel in die Welt hinausbringen können. Dies umfasst das selbstständige Online-Hosting, das Einreichen bei offenen Marktplätzen und das Einreichen bei geschlossenen Plattformen wie Google Play oder dem iOS App Store.
+Sie haben ein [Tutorial](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript) oder auch [zwei](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) durchgearbeitet und ein HTML-Spiel erstellt – großartig! In diesem Artikel erfahren Sie, wie Sie Ihr neues Spiel veröffentlichen können: auf einem eigenen Server, auf offenen Marktplätzen oder in geschlossenen Stores wie Google Play und dem iOS App Store.
 
-## Vorteile von HTML gegenüber nativen Anwendungen
+## Vorteile von HTML gegenüber nativen Technologien
 
-Spiele mit HTML zu erstellen bietet Ihnen zusätzliche Vorteile, wie etwa:
+Die Entwicklung von Spielen mit HTML bietet zusätzliche Vorteile:
 
-### Mehrplattform-Freuden
+### Plattformübergreifende Möglichkeiten
 
-Die Technologie selbst ist mehrplattformfähig, sodass Sie den Code einmal schreiben und auf mehrere Geräte abzielen können. Dies kann von einfachen Smartphones oder Tablets über Laptops und Desktop-Computer bis hin zu Smart-TVs, Uhren oder sogar einem Kühlschrank reichen, sofern dieser einen modernen Browser verarbeiten kann.
+Die Technologie selbst ist plattformübergreifend. Sie können den Code also einmal schreiben und damit verschiedene Geräte erreichen: von einfachen Smartphones und Tablets über Laptops und Desktop-Computer bis hin zu Smart-TVs, Uhren oder sogar einem Kühlschrank, sofern darauf ein ausreichend moderner Browser läuft.
 
-Sie benötigen keine separaten Teams, die an demselben Titel arbeiten und dabei verschiedene Plattformen anvisieren; es gibt nur einen Code, um den Sie sich kümmern müssen. Sie können mehr Zeit und Geld in [Promotion](/de/docs/Games/Publishing_games/Game_promotion) und [Monetarisierung](/de/docs/Games/Publishing_games/Game_monetization) investieren.
+Sie benötigen keine getrennten Teams, die denselben Titel für unterschiedliche Plattformen entwickeln, sondern müssen nur eine Codebasis pflegen. So können Sie mehr Zeit und Geld in [Werbung](/de/docs/Games/Publishing_games/Game_promotion) und [Monetarisierung](/de/docs/Games/Publishing_games/Game_monetization) investieren.
 
 ### Sofortige Updates
 
-Sie müssen nicht mehrere Tage warten, um den Code Ihres Spiels zu aktualisieren. Wenn ein Benutzer einen Fehler findet, können Sie diesen schnell beheben, das System aktualisieren und das Spiel auf Ihrem Server aktualisieren, um den Spielern den aktualisierten Code fast sofort bereitzustellen.
+Sie müssen nicht mehrere Tage warten, bis der Code Ihres Spiels aktualisiert wird. Wenn jemand einen Fehler findet, können Sie ihn schnell beheben, das System aktualisieren und das Spiel auf Ihrem Server neu laden. So steht den Spielenden der aktualisierte Code nahezu sofort zur Verfügung.
 
-### Direkte Linkverteilung und sofortiges Spielen
+### Verbreitung per Direktlink und sofortiges Spielen
 
-Bei HTML-Spielen müssen Sie den Leuten nicht sagen, dass sie nach Ihrem Spiel in einem App-Store suchen sollen. Sie können ihnen einfach eine direkte URL senden, um auf das Spiel zuzugreifen, die sie dann anklicken können, um das Spiel sofort zu spielen, ohne dass sie Drittanbieter-Plugins verwenden oder ein großes Paket herunterladen und installieren müssen. Beachten Sie, dass das Herunterladen des Spiels je nach Größe des Spiels und Ihrer Netzwerkgeschwindigkeit dennoch etwas Zeit in Anspruch nehmen kann. Dennoch ist es viel einfacher, das Spiel zu bewerben, wenn Sie den Verkehr direkt dorthin lenken können, wohin Sie ihn haben möchten, ohne viele Hürden überwinden zu müssen, um es zu spielen.
+Bei HTML-Spielen müssen Sie niemanden auffordern, Ihr Spiel in einem App-Store zu suchen. Sie können einfach eine direkte URL verschicken. Wer darauf klickt, kann sofort spielen, ohne Plug-ins von Drittanbietern zu verwenden oder ein großes Paket herunterzuladen und zu installieren. Je nach Größe des Spiels und Geschwindigkeit der Netzwerkverbindung kann das Laden dennoch etwas dauern. In jedem Fall lässt sich ein Spiel leichter bewerben, wenn Sie Besucher direkt zum gewünschten Ziel führen können und ihnen vor dem Spielen keine weiteren Hürden im Weg stehen.
 
-## Desktop vs. Mobil
+## Desktop- und Mobilgeräte
 
-Der Großteil des Verkehrs, der für uns von Interesse ist – Menschen, die HTML-Spiele spielen –, kommt von mobilen Geräten, daher müssen Sie sich darauf konzentrieren, wenn Sie wirklich erfolgreich sein wollen. Mobile Geräte sind der Bereich, in dem HTML-Technologie wirklich glänzen und ihre Vorteile zeigen kann. Es gibt kein Flash, und HTML ist vollständig plattformunabhängig.
+Der weitaus größte Teil des für uns interessanten Datenverkehrs – Menschen, die HTML-Spiele spielen – kommt von Mobilgeräten. Wenn Sie erfolgreich sein möchten, sollten Sie sich daher auf diese Geräte konzentrieren. Dort kann die HTML-Technologie ihre Stärken besonders gut ausspielen: Flash gibt es nicht, und HTML ist vollständig plattformübergreifend.
 
-Der direkte Wettbewerb mit Desktop-Spielen ist sehr schwierig. Sie können Ihre HTML-Spiele in derselben Arena platzieren (siehe [Native Desktop](#native_desktop) weiter unten) und sollten dies auch tun, da es gut ist, die von Ihnen unterstützten Plattformen zu diversifizieren. Aber Sie müssen daran denken, dass Entwickler von Desktop-Spielen über jahrelange Erfahrung, großartige Tools und stabile Distributionskanäle verfügen. Viele HTML-Spiele richten sich an andere Marktsegmente als native Desktop-Spiele, z. B. einfache Zeitkiller-Spiele, die unterwegs gespielt werden können, anstatt riesige, immersive Erfahrungen. Solche Spiele sind oft so konzipiert, dass sie mit zwei oder sogar einem Finger gespielt werden können, sodass Sie das Gerät halten, das Spiel spielen und die zweite Hand für das verwenden können, was Sie gerade benötigen.
+Direkt mit Desktop-Spielen zu konkurrieren, ist sehr schwierig. Sie können und sollten Ihre HTML-Spiele auch auf Desktop-Plattformen anbieten (siehe weiter unten [Native Desktop-Anwendungen](#native_desktop-anwendungen)), denn es ist sinnvoll, mehrere Plattformen zu unterstützen. Bedenken Sie jedoch, dass Entwickler von Desktop-Spielen über jahrelange Erfahrung, hervorragende Werkzeuge und etablierte Vertriebswege verfügen. Viele HTML-Spiele richten sich an andere Marktsegmente als native Desktop-Spiele: etwa einfache Spiele für zwischendurch, die man unterwegs spielt, statt umfangreicher, immersiver Erlebnisse. Solche Spiele sind häufig so gestaltet, dass sie sich mit zwei oder sogar nur einem Finger bedienen lassen. So können Sie das Gerät halten und spielen, während die andere Hand frei bleibt.
 
-Das gesagt, können Desktop-Plattformen recht einfach zur Verteilung genutzt werden, da es Wrapper gibt, die Ihnen helfen können, native Builds Ihres Spiels vorzubereiten, siehe [Verpackung von Spielen](#verpackung_von_spielen). Es ist auch schön, Desktop-Steuerungen für Ihre Spiele bereitzustellen, selbst wenn Sie hauptsächlich auf mobile Geräte abzielen. Spieler genießen Ihre Spiele auf jeder verfügbaren Plattform, und der Desktop ist eine davon. Außerdem ist es in der Regel einfacher, das Spiel zuerst auf dem Desktop zu erstellen und zu testen und dann zum Debuggen auf Mobile überzugehen.
+Dank verfügbarer Wrapper lassen sich Spiele auch relativ einfach für Desktop-Plattformen vertreiben: Diese Werkzeuge helfen Ihnen, native Builds Ihres Spiels zu erstellen (siehe [Spiele paketieren](#spiele_paketieren)). Es ist außerdem sinnvoll, Desktop-Steuerungen anzubieten, selbst wenn Sie sich hauptsächlich an Mobilgeräte richten. Ihre Spiele werden auf allen verfügbaren Plattformen gespielt – auch auf Desktop-Computern. Zudem ist es meist einfacher, ein Spiel zunächst auf einem Desktop-Computer zu entwickeln und zu testen und anschließend Fehler auf Mobilgeräten zu beheben.
 
-## Veröffentlichung des Spiels
+## Das Spiel veröffentlichen
 
-Es gibt drei Hauptoptionen, wenn es darum geht, ein Spiel zu veröffentlichen:
+Für die Veröffentlichung eines Spiels gibt es drei wesentliche Möglichkeiten:
 
-- Selbst-Hosting
-- Verlage
+- Selbst hosten
+- Publisher
 - Stores
 
-Denken Sie daran, dass der Name Ihres Spiels einzigartig genug sein sollte, um später schnell [promotet](/de/docs/Games/Publishing_games/Game_promotion) zu werden, aber auch einprägsam genug, damit die Leute ihn nicht vergessen.
+Denken Sie daran, Ihrem Spiel einen Namen zu geben, der unverwechselbar genug ist, um es später leicht [bewerben](/de/docs/Games/Publishing_games/Game_promotion) zu können, und zugleich einprägsam genug, damit die Menschen ihn nicht vergessen.
 
-### Selbst-Hosting
+### Selbst hosten
 
-Wenn Sie ein Front-End-Entwickler sind, wissen Sie möglicherweise bereits, was zu tun ist. Ein HTML-Spiel ist nur eine weitere Website. Sie können es auf einen entfernten Server hochladen, einen einprägsamen Domainnamen wählen und es selbst hosten.
+Wenn Sie Front-End-Entwickler sind, wissen Sie möglicherweise bereits, was zu tun ist: Ein HTML-Spiel ist letztlich eine weitere Website. Sie können es auf einen entfernten Server hochladen, sich einen einprägsamen Domainnamen sichern und es selbst hosten.
 
-Wenn Sie mit der Spieleentwicklung Geld verdienen möchten, sollten Sie Ihren Quellcode irgendwie sichern, damit Leute ihn nicht einfach nehmen und als ihren eigenen verkaufen können. Sie können den Code zusammenführen und minifizieren, um ihn kleiner zu machen, und ihn verschmutzen, sodass es viel schwieriger ist, Ihr Spiel rückzuentwickeln. Eine weitere gute Maßnahme ist es, eine Online-Demo bereitzustellen, wenn Sie planen, es zu verpacken und es in einem geschlossenen Store wie iTunes oder Steam zu verkaufen.
+Wenn Sie mit der Spieleentwicklung Geld verdienen möchten, sollten Sie Ihren Quellcode auf die eine oder andere Weise davor schützen, dass andere ihn einfach übernehmen und als eigenen verkaufen. Sie können den Code zusammenfassen und minimieren, um ihn zu verkleinern, und ihn verschleiern, damit sich Ihr Spiel deutlich schwerer durch Reverse Engineering analysieren lässt. Eine weitere sinnvolle Maßnahme ist eine Online-Demo, wenn Sie planen, das Spiel zu paketieren und in einem geschlossenen Store wie iTunes oder Steam zu verkaufen.
 
-Wenn Sie an einem Nebenprojekt nur zum Spaß arbeiten, wird es denen zugutekommen, die aus dem, was Sie geschaffen haben, lernen möchten, wenn Sie den Quellcode offen lassen. Sie müssen sich nicht einmal Sorgen machen, einen Hosting-Anbieter zu finden, da es möglich ist, [Spiele auf GitHub Pages zu hosten](https://end3r.com/blog/host-your-html5-games-on-github-pages). Sie erhalten kostenloses Hosting, Versionskontrolle und mögliche Mitwirkende, wenn Ihr Projekt interessant genug ist.
+Wenn Sie hingegen nur zum Spaß an einem Nebenprojekt arbeiten, profitieren Menschen, die von Ihrer Arbeit lernen möchten, von offen zugänglichem Quellcode. Sie müssen sich nicht einmal um einen Hosting-Anbieter kümmern, denn Sie können [Spiele auf GitHub Pages hosten](https://end3r.com/blog/host-your-html5-games-on-github-pages). Dort erhalten Sie kostenloses Hosting und Versionsverwaltung – und möglicherweise Mitwirkende, wenn Ihr Projekt interessant genug ist.
 
-### Verlage und Portale
+### Publisher und Portale
 
-Wie der Name schon sagt, können Verleger die Veröffentlichung Ihres Spiels für Sie übernehmen. Ob Sie diesen Weg gehen sollten oder nicht, hängt von Ihrem Plan ab, wie Ihr Spiel verbreitet werden soll: Möchten Sie es überallhin senden oder möchten Sie seine Präsenz auf diejenigen beschränken, die eine [exklusive Lizenz](/de/docs/Games/Publishing_games/Game_monetization) erworben haben? Es liegt an Ihnen. Berücksichtigen Sie verschiedene Optionen, experimentieren Sie und ziehen Sie Schlussfolgerungen. Verlage werden im Detail im Artikel über die [Monetarisierung](/de/docs/Games/Publishing_games/Game_monetization) erklärt.
+Wie der Name vermuten lässt, können Publisher die Veröffentlichung Ihres Spiels für Sie übernehmen. Ob das der richtige Weg ist, hängt von Ihren Vertriebsplänen ab: Möchten Sie Ihr Spiel möglichst überall anbieten oder seine Verfügbarkeit auf Käufer einer [Exklusivlizenz](/de/docs/Games/Publishing_games/Game_monetization) beschränken? Die Entscheidung liegt bei Ihnen. Prüfen Sie verschiedene Möglichkeiten, experimentieren Sie und ziehen Sie daraus Ihre Schlüsse. Der Artikel zur [Monetarisierung](/de/docs/Games/Publishing_games/Game_monetization) erläutert Publisher ausführlicher.
 
-Es gibt auch unabhängige Portale, die interessante Spiele sammeln, wie [HTML5Games.com](https://html5games.com/), [GameArter.com](https://www.gamearter.com/), [MarketJS.com](https://www.marketjs.com/), [GameFlare](https://distribution.gameflare.com/), [GameDistribution.com](https://gamedistribution.com/), [GameSaturn.com](https://gamesaturn.com/), [Playmox.com](https://www.playmox.com/), [Poki](https://developers.poki.com/) oder [CrazyGames](https://developer.crazygames.com/), wo Sie Ihr Spiel einsenden können und es aufgrund des großen Verkehrs, den diese Seiten anziehen, eine natürliche Promotion erhält. Einige von ihnen nehmen Ihre Dateien und hosten sie auf ihrem Server, während andere nur auf Ihre Website verlinken oder Ihr Spiel auf ihrer Seite einbetten. Solche Belichtung kann [Promotion](/de/docs/Games/Publishing_games/Game_promotion) für Ihr Spiel bieten, oder wenn Sie Anzeigen neben Ihrem Spiel anzeigen (oder andere Geldmach-Optionen), kann es auch Monetarisierung bieten.
+Daneben gibt es unabhängige Portale, die interessante Spiele sammeln, etwa [HTML5Games.com](https://html5games.com/), [GameArter.com](https://www.gamearter.com/), [MarketJS.com](https://www.marketjs.com/), [GameFlare](https://distribution.gameflare.com/), [GameDistribution.com](https://gamedistribution.com/), [GameSaturn.com](https://gamesaturn.com/), [Playmox.com](https://www.playmox.com/), [Poki](https://developers.poki.com/) und [CrazyGames](https://developer.crazygames.com/). Wenn Sie dort Ihr Spiel einreichen, profitiert es durch die hohen Besucherzahlen dieser Websites von einer gewissen Bekanntheit. Einige Portale übernehmen Ihre Dateien und hosten sie auf ihren eigenen Servern; andere verlinken lediglich auf Ihre Website oder betten Ihr Spiel ein. Diese Sichtbarkeit kann Ihrem Spiel zu mehr [Aufmerksamkeit](/de/docs/Games/Publishing_games/Game_promotion) verhelfen. Wenn neben Ihrem Spiel Werbung angezeigt wird oder Sie andere Einnahmequellen nutzen, kann sie auch zur Monetarisierung beitragen.
 
-### Web- und native Stores
+### Web-Stores und native Stores
 
-Sie können Ihr Spiel auch direkt in verschiedenen Arten von Stores oder Marktplätzen hochladen und veröffentlichen. Um das zu tun, müssen Sie es vorbereiten und es in ein spezielles Build-Format für jedes App-Ökosystem verpacken, das Sie anvisieren möchten. Details zu den verfügbaren Marktplatztypen finden Sie unter [Marktplätze — Vertriebsplattformen](#marktplätze_—_vertriebsplattformen).
+Sie können Ihr Spiel auch direkt in verschiedenen Stores oder auf Marktplätzen hochladen und veröffentlichen. Dafür müssen Sie es für jedes App-Ökosystem, das Sie erreichen möchten, im jeweiligen Build-Format vorbereiten und paketieren. Unter [Marktplätze – Vertriebsplattformen](#marktplätze_–_vertriebsplattformen) erfahren Sie mehr über die verfügbaren Arten von Marktplätzen.
 
-## Marktplätze — Vertriebsplattformen
+## Marktplätze – Vertriebsplattformen
 
-Sehen wir uns an, welche Optionen in Bezug auf die verfügbaren Marktplätze/Stores für verschiedene Plattformen und Betriebssysteme bestehen.
+Sehen wir uns an, welche Marktplätze und Stores für die verschiedenen Plattformen und Betriebssysteme zur Verfügung stehen.
 
 > [!NOTE]
-> Dies sind die beliebtesten Vertriebsplattformen, aber das bedeutet nicht, dass dies die einzigen Optionen sind. Statt zu versuchen, Ihr Spiel zu den Tausenden anderen im iOS Store hinzuzufügen, können Sie auch versuchen, eine Nische zu finden und direkt an das Publikum zu werben, das an Ihren Spielen interessiert wäre. Ihre Kreativität ist hier entscheidend.
+> Dies sind die beliebtesten Vertriebsplattformen, aber keineswegs die einzigen Möglichkeiten. Statt Ihr Spiel beispielsweise zu den Tausenden anderen Spielen im iOS-Store hinzuzufügen, können Sie auch eine Nische suchen und gezielt die Menschen ansprechen, die sich für Ihre Spiele interessieren. Ihre Kreativität ist dabei entscheidend.
 
 ### Web-Stores
 
-Die besten Plattformen für HTML-Spiele sind Web-basierte Stores. Sie können Spiele für Web-Stores vorbereiten, indem Sie eine Manifestdatei und andere Daten, wie Ressourcen, in einem gezippten Paket hinzufügen. Es sind nur wenige Modifikationen des Spiels selbst erforderlich.
+Webbasierte Stores eignen sich am besten für HTML-Spiele. Zur Vorbereitung können Sie eine Manifestdatei und weitere Daten, etwa Ressourcen, in ein ZIP-Paket aufnehmen. Am Spiel selbst sind dafür nur wenige Änderungen nötig.
 
-- [Der Chrome Web Store](https://chromewebstore.google.com/) ist ebenfalls eine attraktive Option – wieder, eine Manifestdatei bereitstellen, das Spiel packen und das Online-Einreichungsformular ausfüllen ist fast alles, was erforderlich ist.
+- [Der Chrome Web Store](https://chromewebstore.google.com/) ist ebenfalls eine attraktive Möglichkeit. Im Wesentlichen benötigen Sie nur eine fertige Manifestdatei, müssen Ihr Spiel als ZIP-Datei verpacken und das Onlineformular zur Einreichung ausfüllen.
 
-### Native Mobile Stores
+### Native Stores für Mobilgeräte
 
-Wenn es um den mobilen Markt geht, gibt es den Apple App Store für iOS, Google Play für Android und all die anderen Wettbewerber. Native Stores sind bereits gefüllt mit etablierten Entwicklern, die großartige Spiele verkaufen, so dass Sie talentiert und glücklich sein müssen, um wahrgenommen zu werden.
+Auf dem Markt für Mobilgeräte gibt es den Apple App Store für iOS, Google Play für Android und zahlreiche weitere Wettbewerber. In nativen Stores bieten bereits etablierte Entwickler hervorragende Spiele an. Um dort wahrgenommen zu werden, brauchen Sie also Talent und Glück.
 
-- Der iOS App Store ist recht schwer zu betreten, da es strenge Anforderungen gibt, die Spiele erfüllen müssen, und Sie müssen eine Woche oder zwei warten, um angenommen zu werden. Außerdem ist es der führende Mobile-Store, mit Hunderttausenden von Apps, so dass es extrem schwer ist, aus der Menge hervorzustechen.
-- Die Anforderungen von Google Play sind weniger streng, weshalb der Store mit minderwertigen Spielen überflutet ist. Es ist dort immer noch ziemlich schwierig, wahrgenommen zu werden, da die Anzahl der täglich eingereichten Apps riesig ist. Hier Geld zu verdienen ist auch schwieriger – die meisten der kostenpflichtigen Spiele von iOS werden als kostenlose Spiele auf Android veröffentlicht, wobei die Monetarisierung aus In-App-Käufen (IAPs) oder Anzeigen stammt.
-- Andere Stores für native mobile Plattformen wie Windows Phone oder Blackberry bemühen sich, ein Stück vom Kuchen zu bekommen und liegen weit hinter der Konkurrenz zurück. Es kann gut sein, Ihr Spiel dort einzureichen, da es viel einfacher sein wird, bemerkt zu werden.
+- Die Aufnahme in den iOS App Store ist recht schwierig, weil Spiele strenge Anforderungen erfüllen müssen. Zudem kann es ein bis zwei Wochen dauern, bis Ihr Spiel zugelassen wird. Der Store ist außerdem der bedeutendste mobile Store und enthält Hunderttausende Apps. Entsprechend schwer ist es, aus der Masse hervorzustechen.
+- Die Anforderungen von Google Play sind weniger streng, weshalb dort auch viele Spiele von geringer Qualität angeboten werden. Dennoch ist es schwierig, Aufmerksamkeit zu erlangen, da täglich sehr viele Apps eingereicht werden. Auch Geld zu verdienen ist hier schwieriger: Viele Spiele, die unter iOS kostenpflichtig sind, werden unter Android kostenlos angeboten und über In-App-Käufe (IAPs) oder Werbung monetarisiert.
+- Andere Stores für native Mobilplattformen wie Windows Phone oder Blackberry bemühen sich um einen Anteil am Markt, liegen aber weit hinter der Konkurrenz zurück. Es kann sich lohnen, Ihr Spiel dort einzureichen, weil es deutlich leichter wahrgenommen wird.
 
-Wenn Sie nach weiteren Informationen zu den verschiedenen Arten von App-Stores suchen, können Sie den Artikel [Liste der mobilen Softwarevertriebsplattformen](https://en.wikipedia.org/wiki/List_of_mobile_software_distribution_platforms) auf Wikipedia nachschlagen.
+Weitere Informationen zu den verschiedenen Arten von App-Stores finden Sie im Wikipedia-Artikel [Liste der Vertriebsplattformen für mobile Software](https://en.wikipedia.org/wiki/List_of_mobile_software_distribution_platforms).
 
-### Native Desktop
+### Native Desktop-Anwendungen
 
-Um Ihr Publikum zu erweitern, können Sie das Desktop-Ökosystem mit Ihren HTML-Spielen ebenfalls füllen – denken Sie nur an all die populären AAA-Spiele, die den größten Marktanteil einnehmen, und überlegen Sie sorgfältig, ob dies zu Ihrer Strategie passt. Um die Desktop-Option richtig zu nutzen, sollten Sie alle drei Betriebssysteme unterstützen: Windows, macOS und Linux. Der größte Desktop-Store für Spiele ist definitiv [Steam](https://steamcommunity.com/) – Indie-Entwickler können über das [Steam Direct](https://partner.steamgames.com/steamdirect)-Programm auf Steam gelangen. Denken Sie daran, dass Sie sich um die plattformübergreifenden Probleme selbst kümmern müssen, indem Sie separate Versionen für verschiedene Plattformen hochladen.
+Sie können mit Ihren HTML-Spielen auch das Desktop-Ökosystem erschließen und so ein größeres Publikum erreichen. Bedenken Sie dabei, dass beliebte AAA-Spiele den Großteil des Marktes beherrschen, und prüfen Sie sorgfältig, ob dieser Schritt zu Ihrer Strategie passt. Wenn Sie Desktop-Plattformen angemessen unterstützen möchten, sollten Sie alle drei Betriebssysteme berücksichtigen: Windows, macOS und Linux. Der mit Abstand größte Desktop-Store für Spiele ist [Steam](https://steamcommunity.com/). Indie-Entwickler können ihre Spiele über das Programm [Steam Direct](https://partner.steamgames.com/steamdirect) dort veröffentlichen. Denken Sie daran, dass Sie plattformübergreifende Probleme selbst lösen und für die verschiedenen Plattformen jeweils eigene Versionen hochladen müssen.
 
-Nachdem Sie Steam abgedeckt haben, gibt es reichlich Aufsehen um Initiativen wie [Humble Bundle](https://www.humblebundle.com/), wo die beliebtesten Indie-Spiele einem breiteren Publikum vorgestellt werden. Es ist eher eine hervorragende Werbemöglichkeit als eine Möglichkeit, viel Geld zu verdienen, da die für die Spiele in einem Bundle gezahlten Preise normalerweise recht niedrig sind.
+Neben Steam sorgen auch Initiativen wie [Humble Bundle](https://www.humblebundle.com/) für Aufmerksamkeit. Dort werden beliebte Indie-Spiele einem größeren Publikum vorgestellt. Das ist allerdings eher eine hervorragende Werbemöglichkeit als eine Möglichkeit, viel Geld zu verdienen, denn die für Spiele in einem Bundle gezahlten Preise sind in der Regel recht niedrig.
 
-## Verpackung von Spielen
+## Spiele paketieren
 
-Das Web ist die erste und beste Wahl für HTML-Spiele, aber wenn Sie ein breiteres Publikum erreichen und Ihr Spiel in einem geschlossenen Ökosystem verteilen möchten, können Sie es dennoch tun, indem Sie es verpacken. Das Gute daran ist, dass Sie keine separaten Teams benötigen, die am selben Spiel für verschiedene Plattformen arbeiten – Sie können es einmal erstellen und tools verwenden, um das Spiel für native Stores zu verpacken. Die resultierenden Pakete sind in der Regel ziemlich zuverlässig, aber Sie sollten sie trotzdem testen und nach kleinen Problemen oder Fehlern Ausschau halten, um diese zu beheben.
+Das Web ist die erste und beste Wahl für HTML-Spiele. Wenn Sie jedoch ein größeres Publikum erreichen und Ihr Spiel in einem geschlossenen Ökosystem vertreiben möchten, können Sie es dafür paketieren. Der Vorteil: Sie benötigen nicht mehrere Teams, die dasselbe Spiel für unterschiedliche Plattformen entwickeln. Stattdessen entwickeln Sie es einmal und verwenden Werkzeuge, um es für native Stores zu paketieren. Die fertigen Pakete funktionieren normalerweise recht zuverlässig. Sie sollten sie dennoch testen und auf kleinere Probleme oder Fehler achten, die behoben werden müssen.
 
-### Verfügbare Tools
+### Verfügbare Werkzeuge
 
-Es gibt verschiedene Tools zur Auswahl, je nach Ihren Fähigkeiten, bevorzugten Frameworks oder Zielplattformen. Es geht darum, das beste Tool für Ihre spezielle Aufgabe auszuwählen.
+Je nach Ihren Kenntnissen, bevorzugten Frameworks und Zielplattformen stehen verschiedene Werkzeuge zur Auswahl. Entscheidend ist, das passende Werkzeug für Ihre Aufgabe zu finden.
 
-- [Ejecta](https://impactjs.com/ejecta) – ein speziell für das Verpacken von Spielen mit dem [ImpactJS](https://impactjs.com/) Framework für iOS entwickeltes Tool, vom Autor von ImpactJS entwickelt. Es bietet nahtlose Integration mit ImpactJS, unterstützt jedoch nur ein Framework und einen App-Store.
-- [NW.js](https://nwjs.io/) – früher bekannt als Node-WebKit, ist dies die erste Wahl, wenn es darum geht, ein Desktop-Spiel zu erstellen, das auf Windows, Mac und Linux funktioniert. Die Distributionen werden mit der WebKit-Engine verpackt, um Rendering auf jeder Plattform bereitzustellen.
+- [Ejecta](https://impactjs.com/ejecta) – ein Werkzeug, das speziell dafür entwickelt wurde, mit [dem ImpactJS-Framework](https://impactjs.com/) erstellte Spiele für iOS zu paketieren. Es stammt vom Entwickler von ImpactJS und lässt sich nahtlos damit verwenden, unterstützt aber nur dieses eine Framework und einen App-Store.
+- [NW.js](https://nwjs.io/) – früher als Node-WebKit bekannt. Es ist die erste Wahl, wenn Sie ein Desktop-Spiel erstellen möchten, das unter Windows, Mac und Linux läuft. Die Distributionen werden zusammen mit der WebKit-Engine paketiert, damit die Darstellung auf jeder Plattform funktioniert.
 
-Andere alternative Tools sind:
+Weitere Alternativen sind:
 
-- [Intel XDK](https://www.intel.com/content/www/us/en/developer/tools/overview.html) – eine spannende Alternative, ähnlich wie CocoonIO.
-- [Electron](https://www.electronjs.org/) – bekannt als Atom Shell – ist ein Open-Source- und plattformübergreifendes Tool von GitHub.
-- [Manifold.js](https://www.manifoldjs.com/) – dieses Tool vom Microsoft-Team kann native Distributionen von HTML-Spielen für iOS, Android und Windows erstellen.
+- [Intel XDK](https://www.intel.com/content/www/us/en/developer/tools/overview.html) – eine interessante Alternative, ähnlich wie CocoonIO.
+- [Electron](https://www.electronjs.org/) – auch als Atom Shell bekannt – ist ein quelloffenes, plattformübergreifendes Werkzeug von GitHub.
+- [Manifold.js](https://www.manifoldjs.com/) – mit diesem Werkzeug des Microsoft-Teams lassen sich native Distributionen von HTML-Spielen für iOS, Android und Windows erstellen.
 
 ## Zusammenfassung
 
-Verteilung ist der Weg, der Welt Zugang zu Ihrem Spiel zu verschaffen. Es gibt viele verfügbare Optionen und es gibt keine einzige richtige Antwort darauf, welche die beste ist. Wenn Sie das Spiel veröffentlicht haben, ist es an der Zeit, sich auf [Promotion](/de/docs/Games/Publishing_games/Game_promotion) zu konzentrieren – die Leute wissen zu lassen, dass Ihr Spiel existiert. Ohne Promotion würden sie nicht einmal die Möglichkeit haben, darüber zu erfahren und es zu spielen.
+Durch den Vertrieb machen Sie Ihr Spiel für die Welt zugänglich. Es gibt viele Möglichkeiten, aber keine allgemeingültige Antwort darauf, welche die beste ist. Sobald Sie Ihr Spiel veröffentlicht haben, sollten Sie sich auf die [Werbung](/de/docs/Games/Publishing_games/Game_promotion) konzentrieren und die Menschen darauf aufmerksam machen. Ohne Werbung erfahren sie womöglich nie von Ihrem Spiel und können es folglich auch nicht spielen.

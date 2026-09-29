@@ -2,28 +2,28 @@
 title: CompressionStream
 slug: Web/API/CompressionStream
 l10n:
-  sourceCommit: ae6626ec9a5729a51f202b77586f37958088ed77
+  sourceCommit: 4ccd81240a6d531962fab92886631885a90bfa3c
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Das **`CompressionStream`**-Interface der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) komprimiert einen Datenstrom. Es implementiert dasselbe Format wie ein [`TransformStream`](/de/docs/Web/API/TransformStream), sodass es in [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) und ähnlichen Methoden verwendet werden kann.
+Die **`CompressionStream`**-Schnittstelle der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) komprimiert einen Datenstrom. Sie hat dieselbe Struktur wie ein [`TransformStream`](/de/docs/Web/API/TransformStream) und kann daher mit [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) und ähnlichen Methoden verwendet werden.
 
 ## Konstruktor
 
 - [`CompressionStream()`](/de/docs/Web/API/CompressionStream/CompressionStream)
   - : Erstellt einen neuen `CompressionStream`.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`CompressionStream.readable`](/de/docs/Web/API/CompressionStream/readable)
-  - : Gibt die vom Objekt kontrollierte [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück.
-- [`CompressionStream.writable`](/de/docs/Web/API/CompressionStream/writable)
-  - : Gibt die vom Objekt kontrollierte [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück.
+- [`CompressionStream.readable`](/de/docs/Web/API/CompressionStream/readable) {{ReadOnlyInline}}
+  - : Gibt die von diesem Objekt gesteuerte [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück.
+- [`CompressionStream.writable`](/de/docs/Web/API/CompressionStream/writable) {{ReadOnlyInline}}
+  - : Gibt die von diesem Objekt gesteuerte [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Stream unter Verwendung von Gzip-Komprimierung komprimiert.
+In diesem Beispiel wird ein Datenstrom mit gzip komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(

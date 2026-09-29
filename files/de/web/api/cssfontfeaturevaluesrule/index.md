@@ -2,47 +2,51 @@
 title: CSSFontFeatureValuesRule
 slug: Web/API/CSSFontFeatureValuesRule
 l10n:
-  sourceCommit: 051d02b402b7f76c2078b12283aa18318c34c38b
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-feature-values")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules). Die Werte ihrer Instanzeigenschaften können mit der [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Schnittstelle zugegriffen werden.
+Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-feature-values")}}-[At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules). Auf die Werte ihrer Instanzeigenschaften kann über die [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Schnittstelle zugegriffen werden.
 
-`@font-feature-values` ermöglicht es Entwicklern, für einen bestimmten Schriftschnitt einen menschenlesbaren Namen mit einem numerischen Index zu verknüpfen, der ein bestimmtes [OpenType-Schriftmerkmal](/de/docs/Web/CSS/Guides/Fonts/OpenType_fonts) steuert. Für Merkmale, die alternative Glyphen auswählen (stilistisch, Styleset, Zeichenvariante, Swash, Ornament oder Annotation), kann die {{cssxref("font-variant-alternates")}}-Eigenschaft dann den menschenlesbaren Namen referenzieren, um das zugehörige Merkmal anzuwenden. Dies ist praktisch, da es ermöglicht, denselben Namen zu verwenden, um eine Reihe alternativer Glyphen über mehrere Schriften hinweg darzustellen.
+Mit `@font-feature-values` können Entwickler für eine bestimmte Schriftart einen für Menschen lesbaren Namen mit einem numerischen Index verknüpfen, der eine bestimmte [OpenType-Schriftfunktion](/de/docs/Web/CSS/Guides/Fonts/OpenType_fonts) steuert.
+Bei Funktionen, die alternative Glyphen auswählen (stylistic, styleset, character-variant, swash, ornament oder annotation), kann die Eigenschaft {{cssxref("font-variant-alternates")}} anschließend auf diesen Namen verweisen, um die zugehörige Funktion anzuwenden.
+Das ist praktisch, weil sich mit demselben Namen alternative Glyphen verschiedener Schriftarten ansprechen lassen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Eigenschaften von der übergeordneten Schnittstelle [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- [`CSSFontFeatureValuesRule.annotation`](/de/docs/Web/API/CSSFontFeatureValuesRule/annotation) {{experimental_inline}}
-  - : Eine benutzerdefinierte Wertedefinition und ein Wert, der eine alternative Annotation der Schrift anwendet.
-- [`CSSFontFeatureValuesRule.characterVariant`](/de/docs/Web/API/CSSFontFeatureValuesRule/characterVariant) {{experimental_inline}}
-  - : Eine benutzerdefinierte Wertedefinition und ein Wert, der stilistische Alternativen für Zeichen der Schrift anwendet.
+- [`CSSFontFeatureValuesRule.annotation`](/de/docs/Web/API/CSSFontFeatureValuesRule/annotation) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine benutzerdefinierte Wertdefinition und ein Wert, die eine alternative Annotation der Schriftart anwenden.
+- [`CSSFontFeatureValuesRule.characterVariant`](/de/docs/Web/API/CSSFontFeatureValuesRule/characterVariant) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine benutzerdefinierte Wertdefinition und ein Wert, die stilistische Alternativen für Zeichen der Schriftart anwenden.
 - [`CSSFontFeatureValuesRule.fontFamily`](/de/docs/Web/API/CSSFontFeatureValuesRule/fontFamily)
-  - : Eine Zeichenfolge, die die Schriftfamilie identifiziert, auf die diese Regel angewendet wird.
-- [`CSSFontFeatureValuesRule.ornaments`](/de/docs/Web/API/CSSFontFeatureValuesRule/ornaments) {{experimental_inline}}
-  - : Eine benutzerdefinierte Wertedefinition und ein Wert, der alternative Ornamente der Schrift anwendet.
-- [`CSSFontFeatureValuesRule.styleset`](/de/docs/Web/API/CSSFontFeatureValuesRule/styleset) {{experimental_inline}}
-  - : Eine benutzerdefinierte Wertedefinition und ein Wert, der alternative Style-Sets der Schrift anwendet.
-- [`CSSFontFeatureValuesRule.stylistic`](/de/docs/Web/API/CSSFontFeatureValuesRule/stylistic) {{experimental_inline}}
-  - : Eine benutzerdefinierte Wertedefinition und ein Wert, der alternative Glyphen der Schrift anwendet.
-- [`CSSFontFeatureValuesRule.swash`](/de/docs/Web/API/CSSFontFeatureValuesRule/swash) {{experimental_inline}}
-  - : Eine benutzerdefinierte Wertedefinition und ein Wert, der alternative Swashes der Schrift anwendet.
+  - : Eine Zeichenfolge, die die Schriftfamilie angibt, für die diese Regel gilt.
+- [`CSSFontFeatureValuesRule.ornaments`](/de/docs/Web/API/CSSFontFeatureValuesRule/ornaments) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine benutzerdefinierte Wertdefinition und ein Wert, die alternative Ornamente der Schriftart anwenden.
+- [`CSSFontFeatureValuesRule.styleset`](/de/docs/Web/API/CSSFontFeatureValuesRule/styleset) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine benutzerdefinierte Wertdefinition und ein Wert, die alternative Stilsätze der Schriftart anwenden.
+- [`CSSFontFeatureValuesRule.stylistic`](/de/docs/Web/API/CSSFontFeatureValuesRule/stylistic) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine benutzerdefinierte Wertdefinition und ein Wert, die alternative Glyphen der Schriftart anwenden.
+- [`CSSFontFeatureValuesRule.swash`](/de/docs/Web/API/CSSFontFeatureValuesRule/swash) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine benutzerdefinierte Wertdefinition und ein Wert, die alternative Schwungformen der Schriftart anwenden.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Methoden von der übergeordneten Schnittstelle [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-### Schriftfamilie lesen
+### Schriftfamilie auslesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}} für die Schriftfamilie _Font One_ und _Font Two_. In beiden Deklarationen definieren wir, dass der Name "nice-style" verwendet werden kann, um die Styleset-alternativen Glyphen für beide Schriften darzustellen, indem der Index für diese Alternative in jeder Schriftfamilie angegeben wird. Die alternativen Glyphen werden dann für jede `.nice-look`-Klasse angewendet, indem {{cssxref("font-variant-alternates")}} verwendet wird und der Name an die [`styleset()`](/de/docs/Web/CSS/Reference/Properties/font-variant-alternates#styleset)-Funktion übergeben wird.
+In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}-Regeln: eine für die Schriftfamilie _Font One_ und eine für _Font Two_.
+In beiden Deklarationen legen wir fest, dass der Name „nice-style“ die alternativen Glyphen eines Stilsatzes für beide Schriftarten repräsentiert. Dazu geben wir jeweils den Index dieser Alternative in der betreffenden Schriftfamilie an.
+Die alternativen Glyphen werden dann mithilfe von {{cssxref("font-variant-alternates")}} auf alle Elemente mit der Klasse `.nice-look` angewendet, indem der Name an die Funktion [`styleset()`](/de/docs/Web/CSS/Reference/Properties/font-variant-alternates#styleset) übergeben wird.
 
-Wir verwenden dann das CSSOM, um diese Deklaration als `CSSFontFeatureValuesRule`-Instanzen zu lesen und sie im Protokoll anzuzeigen.
+Anschließend lesen wir diese Deklarationen über das CSSOM als `CSSFontFeatureValuesRule`-Instanzen aus und geben sie im Log aus.
 
 #### CSS
 

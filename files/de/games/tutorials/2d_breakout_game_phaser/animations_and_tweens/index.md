@@ -1,21 +1,21 @@
 ---
-title: Animationen und Tweenings
+title: Animationen und Tweens
 slug: Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens
 l10n:
-  sourceCommit: 6eae35bc64a49865a469ca29bc40e6993b9cb8cc
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Extra_lives", "Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}
 
-Dies ist der **14. Schritt** von 16 im [Gamedev Phaser Tutorial](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Wir werden untersuchen, wie man Phaser-Animationen und Tweenings in unser Spiel implementiert, um das Spiel lebendiger und ansprechender zu gestalten. Dies führt zu einem besseren, unterhaltsameren Erlebnis.
+Dies ist der **10. von 12 Schritten** des [Tutorials zum Erstellen eines Breakout-Spiels mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Wir sehen uns an, wie Sie Animationen und Tweens mit Phaser in unserem Spiel umsetzen, damit es lebendiger und ansprechender wirkt. So macht das Spielen mehr Spaß.
 
 ## Animationen
 
-In Phaser beinhalten Animationen das Verwenden eines von extern bezogenen Spritesheets, um die Sprites nacheinander anzuzeigen. Als Beispiel werden wir den Ball wackeln lassen, wenn er etwas trifft.
+Bei Animationen in Phaser werden die Einzelbilder eines externen Spritesheets nacheinander angezeigt. Als Beispiel lassen wir den Ball wackeln, wenn er mit etwas zusammenstößt.
 
-Zuerst [laden Sie das Spritesheet herunter](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/wobble.png) und speichern es in Ihrem `/img`-Verzeichnis.
+[Laden Sie zunächst das Spritesheet herunter](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/wobble.png) und speichern Sie es in Ihrem Verzeichnis `/img`.
 
-Als nächstes laden wir das Spritesheet—fügen Sie die folgende Zeile am Ende Ihrer `preload()`-Methode ein:
+Laden Sie anschließend das Spritesheet, indem Sie die folgende Zeile am Ende Ihrer Methode `preload()` einfügen:
 
 ```js
 this.load.spritesheet("wobble", "img/wobble.png", {
@@ -24,11 +24,11 @@ this.load.spritesheet("wobble", "img/wobble.png", {
 });
 ```
 
-Anstatt ein einzelnes Bild des Balls zu laden, können wir das gesamte Spritesheet laden—eine Sammlung von verschiedenen Bildern. Wir zeigen die Sprites der Reihe nach an, um die Illusion einer Animation zu erzeugen. Der zusätzliche Parameter der `spritesheet()`-Methode bestimmt die Breite und Höhe jedes einzelnen Frames in der angegebenen Spritesheet-Datei und teilt dem Programm mit, wie es aufgeteilt werden soll, um die einzelnen Frames zu erhalten.
+Statt nur ein einzelnes Bild des Balls zu laden, können wir das gesamte Spritesheet laden – eine Sammlung verschiedener Bilder. Indem wir die Bilder nacheinander anzeigen, entsteht der Eindruck einer Animation. Der zusätzliche Parameter der Methode `spritesheet()` legt die Breite und Höhe jedes Einzelbilds in der Spritesheet-Datei fest. So weiß das Programm, wie es die Datei in Einzelbilder aufteilen muss.
 
-## Laden der Animation
+## Die Animation laden
 
-Als Nächstes gehen Sie in Ihre `create()`-Methode, finden den Codeblock, der das Ball-Sprite lädt und konfiguriert, und fügen Sie darunter den Aufruf zu `anims.create` ein, wie unten gezeigt:
+Suchen Sie nun in Ihrer Methode `create()` den Codeblock, der das Ball-Sprite lädt und konfiguriert, und fügen Sie darunter den folgenden Aufruf von `anims.create` ein:
 
 ```js
 this.ball = this.add.sprite(
@@ -46,15 +46,15 @@ this.ball.anims.create({
 });
 ```
 
-Um einem Objekt eine Animation hinzuzufügen, verwenden wir die Methode `anims.create()`, die den Parameter mit den folgenden Eigenschaften erhält:
+Um dem Objekt eine Animation hinzuzufügen, verwenden wir die Methode `anims.create()`. Sie erhält einen Parameter mit den folgenden Eigenschaften:
 
-- `key`: Der von uns gewählte Name für die Animation.
-- `frameRate`: Die Bildrate in fps. Da wir die Animation mit 24 fps laufen lassen und es 9 Frames gibt, wird die Animation knapp dreimal pro Sekunde angezeigt.
-- `frames`: Ein Array, das die Reihenfolge definiert, in der die Frames während der Animation angezeigt werden. Wenn Sie sich das Bild `wobble.png` erneut ansehen, sehen Sie, dass es drei Frames gibt. Phaser extrahiert diese und speichert Referenzen darauf in einem Array—Positionen 0, 1 und 2. Das obige Array besagt, dass wir Frame 0 anzeigen, dann 1, dann 0 usw.
+- `key`: Der Name, den wir für die Animation gewählt haben.
+- `frameRate`: Die Bildrate in Bildern pro Sekunde. Da die Animation mit 24 Bildern pro Sekunde läuft und aus 9 Bildern besteht, wird sie knapp dreimal pro Sekunde abgespielt.
+- `frames`: Ein Array, das festlegt, in welcher Reihenfolge die Bilder während der Animation angezeigt werden. Wenn Sie sich das Bild `wobble.png` noch einmal ansehen, erkennen Sie drei Einzelbilder. Phaser extrahiert sie und speichert Verweise darauf in einem Array – an den Positionen 0, 1 und 2. Das obige Array legt fest, dass zuerst Bild 0, dann Bild 1, dann wieder Bild 0 und so weiter angezeigt wird.
 
-## Anwenden der Animation, wenn der Ball das Paddle trifft
+## Die Animation abspielen, wenn der Ball den Schläger trifft
 
-Im `physics.collide()`-Methodenaufruf, der die Kollision zwischen dem Ball und dem Paddle behandelt (die erste Zeile in `update()`, siehe unten), können wir einen zusätzlichen Parameter hinzufügen, der eine Funktion angibt, die jedes Mal ausgeführt wird, wenn die Kollision auftritt, ähnlich wie bei der `hitBrick()`-Methode. Aktualisieren Sie die erste Zeile in `update()` wie unten gezeigt:
+Dem Aufruf der Methode `physics.collide()`, der die Kollision zwischen Ball und Schläger behandelt (die erste Zeile innerhalb von `update()`, siehe unten), können wir einen zusätzlichen Parameter übergeben. Dieser gibt eine Funktion an, die bei jeder Kollision ausgeführt wird – ähnlich wie die Methode `hitBrick()`. Ändern Sie die erste Zeile innerhalb von `update()` wie folgt:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -73,7 +73,7 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Dann können wir die Methode `hitPaddle()` erstellen (mit den Parametern `ball` und `paddle`), die die Wackelanimation abspielt, wenn sie aufgerufen wird. Fügen Sie die folgende Methode oberhalb der `hitBrick()`-Methode hinzu:
+Anschließend können wir die Methode `hitPaddle()` mit `ball` und `paddle` als Parametern erstellen. Bei ihrem Aufruf spielt sie die Wackelanimation ab. Fügen Sie die folgende Methode oberhalb von `hitBrick()` ein:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -85,13 +85,13 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Die Animation wird jedes Mal abgespielt, wenn der Ball das Paddle trifft. Sie können den Aufruf `anims.play()` auch in die `hitBrick()`-Methode einfügen, wenn Sie der Meinung sind, dass dies das Spiel besser aussehen lassen würde.
+Die Animation wird jedes Mal abgespielt, wenn der Ball den Schläger trifft. Sie können den Aufruf von `anims.play()` auch in die Methode `hitBrick()` einfügen, wenn das Spiel dadurch Ihrer Meinung nach besser aussieht.
 
-## Tweenings
+## Tweens
 
-Während Animationen externe Sprites nacheinander abspielen, animieren Tweenings Eigenschaften eines Objekts in der Spielwelt fließend, wie z. B. die Breite oder die Deckkraft.
+Während Animationen externe Sprites nacheinander anzeigen, animieren Tweens Eigenschaften eines Objekts in der Spielwelt fließend, beispielsweise seine Breite oder Deckkraft.
 
-Lassen Sie uns ein Tweening in unser Spiel einfügen, um die Steine sanft verschwinden zu lassen, wenn sie vom Ball getroffen werden. Gehen Sie zu Ihrer `hitBrick()`-Methode, finden Sie Ihre Zeile `brick.destroy();` und ersetzen Sie sie durch Folgendes:
+Fügen wir unserem Spiel einen Tween hinzu, damit die Steine fließend verschwinden, wenn der Ball sie trifft. Suchen Sie in Ihrer Methode `hitBrick()` die Zeile `brick.destroy();` und ersetzen Sie sie durch Folgendes:
 
 ```js
 const destroyTween = this.tweens.add({
@@ -110,16 +110,16 @@ const destroyTween = this.tweens.add({
 destroyTween.play();
 ```
 
-Lassen Sie uns dies durchgehen, damit Sie sehen, was hier passiert:
+Sehen wir uns Schritt für Schritt an, was hier geschieht:
 
-1. Wenn Sie ein neues Tweendefinieren, müssen Sie angeben, welche Eigenschaft des `targets` getweent werden soll—in unserem Fall werden die Steine beim Treffer durch den Ball nicht sofort versteckt, sondern wir lassen ihre Breite und Höhe auf Null skalieren, damit sie schön verschwinden. Dazu verwenden wir die Methode `tweens.add()`, wobei `brick` als `targets` und die `scaleX`- und `scaleY`-Eigenschaften im `props`-Objekt getweent werden.
-2. Andere Eigenschaften, die wir einstellen können, sind `ease`, die die zu verwendende Easing-Funktion definiert (in diesem Fall `Linear`), `repeat`, die festlegt, wie oft das Tweens wiederholt werden soll (0 bedeutet, es wird nicht wiederholt), und `duration`, die die Zeit in Millisekunden ist, die das Tweens braucht, um abgeschlossen zu werden.
-3. Wir fügen auch den optionalen `onComplete`-Eventhandler hinzu, der eine Funktion definiert, die ausgeführt wird, wenn das Tweens abgeschlossen ist.
-4. Das Letzte, was zu tun ist, ist das Tweens sofort mit der Methode `play()` zu starten.
+1. Beim Definieren eines neuen Tweens müssen Sie angeben, welche Eigenschaften von `targets` animiert werden sollen. In unserem Fall blenden wir die Steine nach einem Treffer nicht sofort aus, sondern skalieren ihre Breite und Höhe auf null, sodass sie fließend verschwinden. Dazu verwenden wir die Methode `tweens.add()`: Wir geben `brick` als `targets` und die zu animierenden Eigenschaften `scaleX` und `scaleY` im Objekt `props` an.
+2. Weitere Eigenschaften, die wir festlegen können, sind `ease` für die zu verwendende Easing-Funktion (hier `Linear`), `repeat` für die Anzahl der Wiederholungen (0 bedeutet, dass der Tween nicht wiederholt wird) und `duration` für die Dauer des Tweens in Millisekunden.
+3. Außerdem fügen wir den optionalen Event-Handler `onComplete` hinzu. Er definiert eine Funktion, die nach Abschluss des Tweens ausgeführt wird.
+4. Zum Schluss starten wir den Tween sofort mit der Methode `play()`.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live laufend. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche "Play".
+So sollte Ihr Spiel bisher aussehen; Sie können es hier direkt ausprobieren. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -329,6 +329,6 @@ const game = new Phaser.Game(config);
 
 ## Nächste Schritte
 
-Animationen und Tweenings sehen sehr gut aus, aber wir können unserem Spiel noch mehr hinzufügen—im nächsten Abschnitt sehen wir uns die Handhabung von [Button](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Buttons)-Eingaben an.
+Animationen und Tweens sehen gut aus, aber wir können unserem Spiel noch mehr hinzufügen: Im nächsten Abschnitt sehen wir uns an, wie sich Eingaben über [Buttons](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Buttons) verarbeiten lassen.
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Extra_lives", "Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}

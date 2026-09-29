@@ -2,37 +2,37 @@
 title: MediaDeviceInfo
 slug: Web/API/MediaDeviceInfo
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`MediaDeviceInfo`** Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) enthält Informationen, die ein einzelnes Medien-Ein- oder Ausgabegerät beschreiben.
+Die Schnittstelle **`MediaDeviceInfo`** der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) enthält Informationen über ein einzelnes Medieneingabe- oder -ausgabegerät.
 
-Die Liste der Geräte, die durch Aufruf von [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) erhalten wird, ist ein Array von `MediaDeviceInfo` Objekten, eines pro Mediengerät.
+Die durch Aufruf von [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) abgerufene Geräteliste ist ein Array von `MediaDeviceInfo`-Objekten – eines pro Mediengerät.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`MediaDeviceInfo.deviceId`](/de/docs/Web/API/MediaDeviceInfo/deviceId) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der ein Bezeichner für das dargestellte Gerät ist, der über Sitzungen hinweg gespeichert wird. Er ist von anderen Anwendungen nicht erratbar und eindeutig für den Ursprung der aufrufenden Anwendung. Er wird zurückgesetzt, wenn der Benutzer Cookies löscht (für das private Surfen wird ein anderer Bezeichner verwendet, der nicht über Sitzungen hinweg gespeichert wird).
+  - : Gibt einen String zurück, der das dargestellte Gerät sitzungsübergreifend identifiziert. Andere Anwendungen können diesen Bezeichner nicht erraten; er ist für den Ursprung der aufrufenden Anwendung eindeutig. Er wird zurückgesetzt, wenn Benutzer Cookies löschen. Beim privaten Surfen wird ein anderer Bezeichner verwendet, der nicht sitzungsübergreifend gespeichert wird.
 - [`MediaDeviceInfo.groupId`](/de/docs/Web/API/MediaDeviceInfo/groupId) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der ein Gruppen-Bezeichner ist. Zwei Geräte haben den gleichen Gruppen-Bezeichner, wenn sie zu demselben physischen Gerät gehören — zum Beispiel ein Monitor mit integrierter Kamera und Mikrofon.
+  - : Gibt einen String zurück, der die Gruppe identifiziert. Zwei Geräte haben dieselbe Gruppenkennung, wenn sie zum selben physischen Gerät gehören – beispielsweise zu einem Monitor mit integrierter Kamera und integriertem Mikrofon.
 - [`MediaDeviceInfo.kind`](/de/docs/Web/API/MediaDeviceInfo/kind) {{ReadOnlyInline}}
-  - : Gibt einen aufgezählten Wert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
+  - : Gibt einen Aufzählungswert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
 - [`MediaDeviceInfo.label`](/de/docs/Web/API/MediaDeviceInfo/label) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der dieses Gerät beschreibt (zum Beispiel "Externe USB-Webcam").
+  - : Gibt einen String zurück, der dieses Gerät beschreibt (beispielsweise „Externe USB-Webcam“).
 
 > [!NOTE]
-> Aus Sicherheitsgründen ist das `label`-Feld immer leer, es sei denn, ein aktiver Medienstream existiert _oder_ der Benutzer hat dauerhafte Berechtigungen für den Zugriff auf Mediengeräte erteilt. Die Menge der Gerätebezeichnungen könnte andernfalls als Teil eines {{Glossary("Fingerprinting", "Fingerprinting")}} Mechanismus verwendet werden, um einen Benutzer zu identifizieren.
+> Aus Sicherheitsgründen ist das Feld `label` immer leer, es sei denn, ein Medienstrom ist aktiv _oder_ Benutzer haben eine dauerhafte Berechtigung für den Zugriff auf Mediengeräte erteilt. Andernfalls könnten die Gerätebezeichnungen als Teil eines {{Glossary("Fingerprinting", "Fingerprinting")}}-Mechanismus verwendet werden, um Benutzer zu identifizieren.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`MediaDeviceInfo.toJSON()`](/de/docs/Web/API/MediaDeviceInfo/toJSON)
-  - : Gibt eine JSON-Repräsentation des `MediaDeviceInfo` Objekts zurück.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `MediaDeviceInfo`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiel
 
-Hier ist ein Beispiel, das [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) verwendet, um eine Liste von Geräten zu erhalten.
+Dieses Beispiel verwendet [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices), um eine Liste von Geräten abzurufen.
 
 ```js
 if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
@@ -52,7 +52,7 @@ if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
 }
 ```
 
-Dies könnte folgendes erzeugen:
+Das könnte Folgendes ausgeben:
 
 ```bash
 videoinput: id = csO9c0YpAf274OuCPUA53CNE0YHlIr2yXCi+SqfBZZ8=
@@ -60,7 +60,7 @@ audioinput: id = RKxXByjnabbADGQNNZqLVLdmXlS0YkETYCIbg+XxnvM=
 audioinput: id = r2/xw1xUPIyZunfV1lGrKOma5wTOvCkWfZ368XCndm0=
 ```
 
-oder wenn ein oder mehrere Medienströme aktiv sind, oder wenn dauerhafte Berechtigungen erteilt wurden:
+Oder, wenn mindestens ein Medienstrom aktiv ist oder dauerhafte Berechtigungen erteilt wurden:
 
 ```bash
 videoinput: FaceTime HD Camera (Built-in) id=csO9c0YpAf274OuCPUA53CNE0YHlIr2yXCi+SqfBZZ8=

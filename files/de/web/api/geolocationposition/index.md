@@ -2,28 +2,28 @@
 title: GeolocationPosition
 slug: Web/API/GeolocationPosition
 l10n:
-  sourceCommit: 4558d208395a5b1df4db44b0c8ef4e9a0f8adbbf
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`GeolocationPosition`**-Schnittstelle repräsentiert die Position des betreffenden Geräts zu einem bestimmten Zeitpunkt. Die Position, dargestellt durch ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekt, umfasst die 2D-Position des Geräts auf einem die Erde repräsentierenden Sphäroiden, aber auch seine Höhe und Geschwindigkeit.
+Das **`GeolocationPosition`**-Interface repräsentiert die Position des betreffenden Geräts zu einem bestimmten Zeitpunkt. Die durch ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekt dargestellte Position umfasst die zweidimensionale Position des Geräts auf einem die Erde repräsentierenden Sphäroid sowie seine Höhe und Geschwindigkeit.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Die `GeolocationPosition`-Schnittstelle erbt keine Eigenschaften._
+_Das `GeolocationPosition`-Interface erbt keine Eigenschaften._
 
 - [`GeolocationPosition.coords`](/de/docs/Web/API/GeolocationPosition/coords) {{ReadOnlyInline}}
   - : Gibt ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekt zurück, das den aktuellen Standort definiert.
 - [`GeolocationPosition.timestamp`](/de/docs/Web/API/GeolocationPosition/timestamp) {{ReadOnlyInline}}
-  - : Gibt einen Zeitstempel zurück, der als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden angegeben wird und die Zeit repräsentiert, zu der der Standort ermittelt wurde.
+  - : Gibt einen Zeitstempel als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden zurück, der den Zeitpunkt angibt, zu dem der Standort ermittelt wurde.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Die `GeolocationPosition`-Schnittstelle erbt keine Methoden._
+_Das `GeolocationPosition`-Interface erbt keine Methoden._
 
 - [`GeolocationPosition.toJSON()`](/de/docs/Web/API/GeolocationPosition/toJSON)
-  - : Gibt eine JSON-Darstellung des `GeolocationPosition`-Objekts zurück und ermöglicht die Serialisierung mit {{jsxref("JSON.stringify()")}}.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `GeolocationPosition`-Objekt repräsentiert. Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Spezifikationen
 

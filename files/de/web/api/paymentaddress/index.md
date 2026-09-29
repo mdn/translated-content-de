@@ -2,51 +2,51 @@
 title: PaymentAddress
 slug: Web/API/PaymentAddress
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
-Das **`PaymentAddress`**-Interface der [Payment Request API](/de/docs/Web/API/Payment_Request_API) wird verwendet, um Versand- oder Zahlungsadressinformationen zu speichern.
+Die **`PaymentAddress`**-Schnittstelle der [Payment Request API](/de/docs/Web/API/Payment_Request_API) dient zum Speichern von Versand- oder Zahlungsadressinformationen.
 
-Es kann nützlich sein, die Materialien des Universal Postal Union zur [Addressing S42 standard](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions#addressing-s42-standard) zu konsultieren, die Informationen über internationale Standards für Postadressen bereitstellen.
+Die Materialien zum [Addressing-S42-Standard](https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions#addressing-s42-standard) auf der Website des Weltpostvereins können hilfreich sein. Sie enthalten Informationen zu internationalen Standards für Postanschriften.
 
 ## Instanzeigenschaften
 
 - [`PaymentAddress.addressLine`](/de/docs/Web/API/PaymentAddress/addressLine) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein Array von Zeichenfolgen, das jede Zeile der Adresse bereitstellt, die nicht zu den anderen Eigenschaften gehört. Die genaue Größe und der Inhalt variieren je nach Land oder Ort und können z.B. einen Straßennamen, Hausnummer, Wohnungsnummer, ländliche Lieferroute, beschreibende Anweisungen oder Postfachnummer enthalten.
+  - : Ein Array von Strings mit den einzelnen Adresszeilen, die nicht durch andere Eigenschaften abgedeckt sind. Anzahl und Inhalt variieren je nach Land oder Ort. Sie können beispielsweise einen Straßennamen, eine Hausnummer, eine Wohnungsnummer, Angaben zu einer ländlichen Zustellroute, Zustellhinweise oder eine Postfachnummer enthalten.
 - [`PaymentAddress.country`](/de/docs/Web/API/PaymentAddress/country) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die das Land angibt, in dem sich die Adresse befindet, unter Verwendung des [ISO-3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Standards. Die Zeichenfolge wird immer in ihrer kanonischen Großbuchstabenform angegeben. Einige Beispiele für gültige `country`-Werte: `"US"`, `"GB"`, `"CN"`, oder `"JP"`.
+  - : Ein String, der das Land angibt, in dem sich die Adresse befindet, gemäß dem Standard [ISO 3166-1 Alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Der String wird immer in seiner kanonischen Form mit Großbuchstaben angegeben. Beispiele für gültige `country`-Werte sind `"US"`, `"GB"`, `"CN"` und `"JP"`.
 - [`PaymentAddress.city`](/de/docs/Web/API/PaymentAddress/city) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die den Stadt- oder Ortsteil der Adresse enthält.
+  - : Ein String mit dem Stadt- oder Ortsnamen der Adresse.
 - [`PaymentAddress.dependentLocality`](/de/docs/Web/API/PaymentAddress/dependentLocality) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die die abhängige Örtlichkeit oder Unterlokalität innerhalb einer Stadt angibt, zum Beispiel ein Stadtteil, Bezirk oder eine abhängige Örtlichkeit im Vereinigten Königreich.
+  - : Ein String, der einen untergeordneten Ort oder Ortsteil innerhalb einer Stadt angibt, beispielsweise ein Stadtviertel, einen Stadtbezirk, einen Distrikt oder eine sogenannte „dependent locality“ im Vereinigten Königreich.
 - [`PaymentAddress.organization`](/de/docs/Web/API/PaymentAddress/organization) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die den Namen der Organisation, Firma, des Unternehmens oder der Institution an der Zahlungsadresse angibt.
+  - : Ein String mit dem Namen der Organisation, Firma, des Unternehmens oder der Einrichtung an der Zahlungsadresse.
 - [`PaymentAddress.phone`](/de/docs/Web/API/PaymentAddress/phone) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die die Telefonnummer des Empfängers oder der Kontaktperson angibt.
+  - : Ein String mit der Telefonnummer der empfangenden Person oder der Kontaktperson.
 - [`PaymentAddress.postalCode`](/de/docs/Web/API/PaymentAddress/postalCode) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die einen von einer Gerichtsbarkeit zur Postrouting verwendeten Code angibt, beispielsweise den Postleitzahl-Code in den Vereinigten Staaten oder den PIN-Code in Indien.
+  - : Ein String mit einem Code, der in einem Zuständigkeitsgebiet zur Postzustellung verwendet wird, beispielsweise dem ZIP-Code in den Vereinigten Staaten oder dem PIN-Code in Indien.
 - [`PaymentAddress.recipient`](/de/docs/Web/API/PaymentAddress/recipient) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die den Namen des Empfängers, Käufers oder der Kontaktperson an der Zahlungsadresse angibt.
+  - : Ein String mit dem Namen der empfangenden, kaufenden oder an der Zahlungsadresse zuständigen Kontaktperson.
 - [`PaymentAddress.region`](/de/docs/Web/API/PaymentAddress/region) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die die oberste Verwaltungseinheit des Landes enthält, zum Beispiel einen Staat, eine Provinz, ein Oblast oder eine Präfektur.
+  - : Ein String mit der obersten Verwaltungseinheit des Landes, beispielsweise einem Bundesstaat, einer Provinz, einer Oblast oder einer Präfektur.
 - [`PaymentAddress.sortingCode`](/de/docs/Web/API/PaymentAddress/sortingCode) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine Zeichenfolge, die einen Postsortierungscode angibt, wie er in Frankreich verwendet wird.
+  - : Ein String mit einem Postsortiercode, wie er beispielsweise in Frankreich verwendet wird.
 
 > [!NOTE]
-> Eigenschaften, für die keine Werte angegeben wurden, enthalten leere Zeichenfolgen.
+> Eigenschaften, für die keine Werte angegeben wurden, enthalten leere Strings.
 
 ## Instanzmethoden
 
 - [`PaymentAddress.toJSON()`](/de/docs/Web/API/PaymentAddress/toJSON) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein Standard-Serializer, der eine JSON-Darstellung der Eigenschaften des `PaymentAddress`-Objekts zurückgibt.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PaymentAddress`-Objekt repräsentiert. Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor verwendet, um eine neue Zahlungsanforderung zu erstellen, die drei Objekte als Parameter entgegennimmt — eines, das Details zu den Zahlungsmethoden enthält, die für die Zahlung verwendet werden können, eines, das Details zur eigentlichen Bestellung enthält (wie gekaufte Artikel und Versandoptionen), und ein optionales Objekt mit weiteren Optionen.
+Im folgenden Beispiel wird der Konstruktor [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) verwendet, um eine neue Zahlungsanfrage zu erstellen. Er erhält drei Objekte als Parameter: eines mit Angaben zu den Zahlungsmethoden, die für die Zahlung verwendet werden können, eines mit Angaben zur eigentlichen Bestellung (etwa gekaufte Artikel und Versandoptionen) und ein optionales Objekt mit weiteren Optionen.
 
-Das erste dieser drei Objekte (`supportedInstruments` im folgenden Beispiel) enthält eine `data`-Eigenschaft, die der von der Zahlungsmethode definierten Struktur entsprechen muss.
+Das erste dieser drei Objekte (`supportedInstruments` im folgenden Beispiel) enthält eine `data`-Eigenschaft, deren Inhalt der von der Zahlungsmethode definierten Struktur entsprechen muss.
 
 ```js
 const supportedInstruments = [
@@ -90,7 +90,7 @@ async function doPaymentRequest() {
 doPaymentRequest();
 ```
 
-Sobald der Zahlungsfluss über [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) ausgelöst wurde und das Versprechen erfolgreich erfüllt wurde, wird das [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt, das aus dem erfüllten Versprechen (`instrumentResponse` oben) verfügbar ist, eine [`PaymentResponse.details`](/de/docs/Web/API/PaymentResponse/details)-Eigenschaft enthalten, die Antwortdetails enthält. Diese muss der von dem Zahlungsmethoden-Provider definierten Struktur entsprechen.
+Nachdem der Zahlungsvorgang mit [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) gestartet wurde und das Promise erfolgreich erfüllt ist, enthält das über das erfüllte Promise verfügbare [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt (`instrumentResponse` oben) eine [`PaymentResponse.details`](/de/docs/Web/API/PaymentResponse/details)-Eigenschaft mit Antwortdetails. Diese müssen der vom Anbieter der Zahlungsmethode definierten Struktur entsprechen.
 
 ## Browser-Kompatibilität
 

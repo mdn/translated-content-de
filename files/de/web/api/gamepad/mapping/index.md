@@ -3,13 +3,12 @@ title: "Gamepad: mapping-Eigenschaft"
 short-title: mapping
 slug: Web/API/Gamepad/mapping
 l10n:
-  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Gamepad API")}}
 
-Die **`Gamepad.mapping`**-Eigenschaft des
-[`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen String zurück, der angibt, ob der Browser die Steuerelemente auf dem Gerät auf ein bekanntes Layout umgemappt hat.
+Die schreibgeschützte Eigenschaft **`mapping`** der Schnittstelle [`Gamepad`](/de/docs/Web/API/Gamepad) gibt einen String zurück, der angibt, ob der Browser die Steuerelemente des Geräts einem bekannten Layout zugeordnet hat.
 
 Die derzeit unterstützten bekannten Layouts sind:
 

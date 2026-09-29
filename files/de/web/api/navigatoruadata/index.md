@@ -2,47 +2,47 @@
 title: NavigatorUAData
 slug: Web/API/NavigatorUAData
 l10n:
-  sourceCommit: 2dcdbed09ec5ca28a73d82e259601459c468508c
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`NavigatorUAData`**-Interface der [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API) liefert Informationen über den Browser und das Betriebssystem eines Nutzers.
+Die Schnittstelle **`NavigatorUAData`** der [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API) gibt Informationen über den Browser und das Betriebssystem eines Benutzers zurück.
 
-Eine Instanz dieses Objekts wird zurückgegeben durch Aufruf von [`Navigator.userAgentData`](/de/docs/Web/API/Navigator/userAgentData) oder [`WorkerNavigator.userAgentData`](/de/docs/Web/API/WorkerNavigator/userAgentData). Daher hat dieses Interface keinen Konstruktor.
+Eine Instanz dieses Objekts wird durch den Aufruf von [`Navigator.userAgentData`](/de/docs/Web/API/Navigator/userAgentData) oder [`WorkerNavigator.userAgentData`](/de/docs/Web/API/WorkerNavigator/userAgentData) zurückgegeben. Daher hat diese Schnittstelle keinen Konstruktor.
 
 > [!NOTE]
-> Die Begriffe _hohe Entropie_ und _niedrige Entropie_ beziehen sich auf die Menge an Informationen, die diese Werte über den Browser preisgeben. Die als Eigenschaften zurückgegebenen Werte gelten als [niedrige Entropie](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints), die unwahrscheinlich einen Nutzer identifizieren. Die Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) kann verwendet werden, um zusätzliche [hohe Entropie](/de/docs/Web/HTTP/Guides/Client_hints#high_entropy_hints) Werte anzufordern, die potenziell mehr identifizierende Informationen preisgeben könnten. Diese Werte werden daher über ein {{jsxref("Promise")}} abgerufen, wodurch dem Browser Zeit gegeben wird, um die Erlaubnis des Nutzers einzuholen oder andere Überprüfungen durchzuführen.
+> Die Begriffe _hohe Entropie_ und _niedrige Entropie_ beziehen sich darauf, wie viele Informationen diese Werte über den Browser preisgeben. Die als Eigenschaften zurückgegebenen Werte gelten als [Werte mit niedriger Entropie](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints), anhand derer sich ein Benutzer wahrscheinlich nicht identifizieren lässt. Mit [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) können zusätzliche [Werte mit hoher Entropie](/de/docs/Web/HTTP/Guides/Client_hints#high_entropy_hints) angefordert werden, die möglicherweise weitere identifizierende Informationen preisgeben. Diese Werte werden daher über eine {{jsxref("Promise")}} abgerufen. So hat der Browser Zeit, die Zustimmung des Benutzers einzuholen oder andere Prüfungen durchzuführen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt ein Array mit Markeninformationen zurück, das den Namen und die Version des Browsers enthält.
 - [`NavigatorUAData.mobile`](/de/docs/Web/API/NavigatorUAData/mobile) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn der User-Agent auf einem mobilen Gerät läuft.
+  - : Gibt `true` zurück, wenn der User-Agent auf einem mobilen Gerät ausgeführt wird.
 - [`NavigatorUAData.platform`](/de/docs/Web/API/NavigatorUAData/platform) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Plattformmarke zurück, auf der der User-Agent läuft.
+  - : Gibt die Marke der Plattform zurück, auf der der User-Agent ausgeführt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Wörterbuchobjekt aufgelöst wird, das Informationen mit niedriger Entropie und angeforderte Informationen mit hoher Entropie über den Browser enthält.
+  - : Gibt eine {{jsxref("Promise")}} zurück, die mit einem Dictionary-Objekt erfüllt wird. Dieses enthält Informationen mit niedriger Entropie sowie die angeforderten Informationen mit hoher Entropie über den Browser.
 - [`NavigatorUAData.toJSON()`](/de/docs/Web/API/NavigatorUAData/toJSON) {{Experimental_Inline}}
-  - : Ein _Serializer_, der eine JSON-Darstellung der _niedrigen Entropie_-Eigenschaften des `NavigatorUAData`-Objekts zurückgibt.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `NavigatorUAData`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiele
 
-### Abrufen der Marken
+### Die Browsermarken abrufen
 
-Das folgende Beispiel gibt den Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) in der Konsole aus.
+Das folgende Beispiel gibt den Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) auf der Konsole aus.
 
 ```js
 console.log(navigator.userAgentData.brands);
 ```
 
-### Rückgabe von Werten mit hoher Entropie
+### Werte mit hoher Entropie zurückgeben
 
-Im folgenden Beispiel werden eine Reihe von Hinweisen mithilfe der Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) angefordert. Wenn das Promise aufgelöst wird, werden diese Informationen in der Konsole ausgegeben.
+Im folgenden Beispiel werden mit der Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) mehrere Hints angefordert. Sobald die Promise erfüllt ist, werden diese Informationen auf der Konsole ausgegeben.
 
 ```js
 navigator.userAgentData
@@ -68,4 +68,4 @@ navigator.userAgentData
 
 ## Siehe auch
 
-- [Die Privatsphäre der Nutzer verbessern und die Entwicklererfahrung mit User-Agent Client Hints verbessern](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints)
+- [Verbesserung des Datenschutzes für Benutzer und der Entwicklungserfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints)

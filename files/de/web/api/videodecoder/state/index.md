@@ -3,23 +3,23 @@ title: "VideoDecoder: state-Eigenschaft"
 short-title: state
 slug: Web/API/VideoDecoder/state
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`state`**-Eigenschaft des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces gibt den aktuellen Zustand des zugrundeliegenden Codecs zurück.
+Die schreibgeschützte Eigenschaft **`state`** der Schnittstelle [`VideoDecoder`](/de/docs/Web/API/VideoDecoder) gibt den aktuellen Zustand des zugrunde liegenden Codecs zurück.
 
 ## Wert
 
-Ein String, der einen der folgenden Werte enthält:
+Ein String mit einem der folgenden Werte:
 
 - `"unconfigured"`
-  - : Der Codec ist nicht für das Dekodieren konfiguriert.
+  - : Der Codec ist nicht für die Decodierung konfiguriert.
 - `"configured"`
-  - : Der Codec hat eine gültige Konfiguration und ist einsatzbereit.
+  - : Der Codec verfügt über eine gültige Konfiguration und ist einsatzbereit.
 - `"closed"`
-  - : Der Codec ist nicht mehr nutzbar und die Systemressourcen wurden freigegeben.
+  - : Der Codec kann nicht mehr verwendet werden, und die Systemressourcen wurden freigegeben.
 
 ## Beispiele
 

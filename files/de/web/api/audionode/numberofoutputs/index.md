@@ -1,14 +1,14 @@
 ---
-title: "AudioNode: numberOfOutputs-Eigenschaft"
+title: "AudioNode: Eigenschaft numberOfOutputs"
 short-title: numberOfOutputs
 slug: Web/API/AudioNode/numberOfOutputs
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die `numberOfOutputs`-Eigenschaft des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interface gibt die Anzahl der Ausgänge an, die aus dem Knoten kommen. Zielknoten — wie [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) — haben einen Wert von 0 für dieses Attribut.
+Die schreibgeschützte Eigenschaft **`numberOfOutputs`** der Schnittstelle [`AudioNode`](/de/docs/Web/API/AudioNode) gibt die Anzahl der Ausgänge des Knotens zurück. Zielknoten – beispielsweise [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) – haben für dieses Attribut den Wert 0.
 
 ## Wert
 

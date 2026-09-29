@@ -1,18 +1,18 @@
 ---
-title: "StyleSheet: type-Eigenschaft"
+title: "StyleSheet: Eigenschaft type"
 short-title: type
 slug: Web/API/StyleSheet/type
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`type`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt die Stylesheet-Sprache für das gegebene Stylesheet an.
+Die schreibgeschützte Eigenschaft **`type`** der Schnittstelle [`StyleSheet`](/de/docs/Web/API/StyleSheet) gibt die Stylesheet-Sprache des jeweiligen Stylesheets an.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 

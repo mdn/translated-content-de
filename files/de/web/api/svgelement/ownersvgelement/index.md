@@ -3,12 +3,12 @@ title: "SVGElement: ownerSVGElement-Eigenschaft"
 short-title: ownerSVGElement
 slug: Web/API/SVGElement/ownerSVGElement
 l10n:
-  sourceCommit: 97dc5e941cca2f67ece5ff91d0c96674f210fef9
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("SVG")}}
 
-Die **`ownerSVGElement`**-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle spiegelt das nächstgelegene übergeordnete {{SVGElement("svg")}}-Element wider. `null`, wenn das gegebene Element das äußerste `<svg>`-Element ist.
+Die schreibgeschützte Eigenschaft **`ownerSVGElement`** der Schnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement) verweist auf das nächstgelegene übergeordnete {{SVGElement("svg")}}-Element. Wenn das betreffende Element das äußerste `<svg>`-Element ist, hat die Eigenschaft den Wert `null`.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement).
 
 ## Beispiele
 
-### Überprüfung des übergeordneten `<svg>`-Elements
+### Das zugehörige `<svg>`-Element prüfen
 
 ```html
 <svg id="outerSvg" xmlns="http://www.w3.org/2000/svg">

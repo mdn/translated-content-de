@@ -1,20 +1,20 @@
 ---
-title: "MediaSource: canConstructInDedicatedWorker statische Eigenschaft"
+title: "MediaSource: Statische Eigenschaft canConstructInDedicatedWorker"
 short-title: canConstructInDedicatedWorker
 slug: Web/API/MediaSource/canConstructInDedicatedWorker_static
 l10n:
-  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`canConstructInDedicatedWorker`** statische Eigenschaft der [`MediaSource`](/de/docs/Web/API/MediaSource) Schnittstelle gibt `true` zurück, wenn die Unterstützung von `MediaSource`-Workern implementiert ist, und bietet damit einen Mechanismus zur Erkennung von Features mit niedriger Latenz.
+Die schreibgeschützte statische Eigenschaft **`canConstructInDedicatedWorker`** der Schnittstelle [`MediaSource`](/de/docs/Web/API/MediaSource) gibt `true` zurück, wenn die Unterstützung für `MediaSource` in Workern implementiert ist. Sie ermöglicht damit eine Funktionserkennung mit geringer Latenz.
 
-Wenn dies nicht verfügbar wäre, wäre die Alternative ein Ansatz mit wesentlich höherer Latenz, wie der Versuch, ein `MediaSource`-Objekt von einem dedizierten Worker aus zu erstellen und das Ergebnis zurück an den Haupt-Thread zu übertragen.
+Ohne diese Eigenschaft müsste beispielsweise versucht werden, ein `MediaSource`-Objekt in einem Dedicated Worker zu erstellen und das Ergebnis an den Hauptthread zurückzugeben. Dieser Ansatz hätte eine deutlich höhere Latenz.
 
 ## Wert
 
-Ein Boolean. Gibt `true` zurück, wenn die Unterstützung von `MediaSource`-Workern implementiert ist, andernfalls `false`.
+Ein boolescher Wert. Gibt `true` zurück, wenn die Unterstützung für `MediaSource` in Workern implementiert ist, andernfalls `false`.
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ if (MediaSource.canConstructInDedicatedWorker) {
 
 ## Siehe auch
 
-- [MSE-in-Workers Demo von Matt Wolenetz](https://wolenetz.github.io/mse-in-workers-demo/mse-in-workers-demo.html)
+- [MSE-in-Workers-Demo von Matt Wolenetz](https://wolenetz.github.io/mse-in-workers-demo/mse-in-workers-demo.html)
 - [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API)
 - [`MediaSource`](/de/docs/Web/API/MediaSource)
 - [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)

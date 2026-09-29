@@ -2,35 +2,35 @@
 title: RTCSessionDescription
 slug: Web/API/RTCSessionDescription
 l10n:
-  sourceCommit: e1dc7af1b7a1743dc84e2584ecfce309a461c479
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCSessionDescription`**-Schnittstelle beschreibt ein Ende einer Verbindung – oder einer potenziellen Verbindung – und wie diese konfiguriert ist. Jede `RTCSessionDescription` besteht aus einem Beschreibungs-[`type`](/de/docs/Web/API/RTCSessionDescription/type)-Parameter, der angibt, welchen Teil des Angebots-/Antwortverhandlungsprozesses sie beschreibt, und aus dem {{Glossary("SDP", "SDP")}}-Descriptor der Sitzung.
+Die Schnittstelle **`RTCSessionDescription`** beschreibt eine Seite einer Verbindung – oder einer möglichen Verbindung – und ihre Konfiguration. Jede `RTCSessionDescription` besteht aus einem [`type`](/de/docs/Web/API/RTCSessionDescription/type), der angibt, welchen Teil des Offer/Answer-Aushandlungsprozesses sie beschreibt, und einem {{Glossary("SDP", "SDP")}}-Deskriptor der Sitzung.
 
-Der Prozess der Aushandlung einer Verbindung zwischen zwei Peers beinhaltet den Austausch von `RTCSessionDescription`-Objekten, wobei jede Beschreibung eine Kombination von Verbindungskonfigurationsoptionen vorschlägt, die der Absender der Beschreibung unterstützt. Sobald sich die beiden Peers auf eine Konfiguration der Verbindung geeinigt haben, ist die Verhandlung abgeschlossen.
+Bei der Aushandlung einer Verbindung zwischen zwei Peers werden `RTCSessionDescription`-Objekte ausgetauscht. Jede Beschreibung schlägt dabei eine Kombination von Konfigurationsoptionen für die Verbindung vor, die der Absender unterstützt. Sobald sich die beiden Peers auf eine Konfiguration für die Verbindung geeinigt haben, ist die Aushandlung abgeschlossen.
 
 ## Konstruktor
 
 - [`RTCSessionDescription()`](/de/docs/Web/API/RTCSessionDescription/RTCSessionDescription) {{deprecated_inline}}
-  - : Erstellt eine neue `RTCSessionDescription`, indem der `type` und `sdp` angegeben werden. Alle Methoden, die `RTCSessionDescription`-Objekte akzeptieren, akzeptieren auch Objekte mit denselben Eigenschaften, sodass Sie statt der Erstellung einer `RTCSessionDescription`-Instanz ein einfaches Objekt verwenden können.
+  - : Erstellt eine neue `RTCSessionDescription` durch Angabe von `type` und `sdp`. Alle Methoden, die `RTCSessionDescription`-Objekte akzeptieren, akzeptieren auch Objekte mit denselben Eigenschaften. Daher können Sie statt einer `RTCSessionDescription`-Instanz ein einfaches Objekt verwenden.
 
 ## Instanzeigenschaften
 
-_Die `RTCSessionDescription`-Schnittstelle erbt keine Eigenschaften._
+_Die Schnittstelle `RTCSessionDescription` erbt keine Eigenschaften._
 
 - [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type) {{ReadOnlyInline}}
-  - : Ein Enum, das den Typ der Sitzungsbeschreibung beschreibt.
+  - : Ein Enum, das den Typ der Sitzungsbeschreibung angibt.
 - [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) {{ReadOnlyInline}}
-  - : Ein String, der die {{Glossary("SDP", "SDP")}} beschreibt, die die Sitzung beschreibt.
+  - : Eine Zeichenfolge mit dem {{Glossary("SDP", "SDP")}}, das die Sitzung beschreibt.
 
 ## Instanzmethoden
 
-_Die `RTCSessionDescription`-Schnittstelle erbt keine Methoden._
+_Die Schnittstelle `RTCSessionDescription` erbt keine Methoden._
 
 - [`RTCSessionDescription.toJSON()`](/de/docs/Web/API/RTCSessionDescription/toJSON)
-  - : Gibt eine {{Glossary("JSON", "JSON")}}-Beschreibung des Objekts zurück. Die Werte beider Eigenschaften, [`type`](/de/docs/Web/API/RTCSessionDescription/type) und [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp), sind im generierten JSON enthalten.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `RTCSessionDescription`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiel
 

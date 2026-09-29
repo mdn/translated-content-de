@@ -2,65 +2,65 @@
 title: InteractionContentfulPaint
 slug: Web/API/InteractionContentfulPaint
 l10n:
-  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Das `InteractionContentfulPaint` Interface liefert Zeitinformationen über {{Glossary("Contentful_paint", "contentful paints")}}, die einer Interaktion zugeschrieben werden können.
+Das Interface `InteractionContentfulPaint` stellt Zeitinformationen zu {{Glossary("Contentful_paint", "Contentful Paints")}} bereit, die einer Interaktion zugeordnet werden können.
 
 ## Instanzeigenschaften
 
 Dieses Interface definiert direkt die folgenden Eigenschaften:
 
 - [`InteractionContentfulPaint.interactionId`](/de/docs/Web/API/InteractionContentfulPaint/interactionId) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die ID der Interaktion, die zum Rendern führte.
+  - : Die ID der Interaktion, die zum Paint geführt hat.
 - [`InteractionContentfulPaint.largestContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint/largestContentfulPaint) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt Details der größten [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) für die Interaktion zurück. Diese kann zwischen zwei `InteractionContentfulPaint`-Einträgen für die gleiche Interaktion gleich bleiben, wenn ein neuer contentful paint kleiner ist als der aktuelle größte contentful paint für diese Interaktion.
+  - : Gibt Details zum größten [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) der Interaktion zurück. Dieser Wert kann bei zwei `InteractionContentfulPaint`-Einträgen derselben Interaktion gleich bleiben, wenn ein neuer Contentful Paint kleiner ist als der bisher größte Contentful Paint dieser Interaktion.
 - [`InteractionContentfulPaint.paintTime`](/de/docs/Web/API/InteractionContentfulPaint/paintTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die erste Rendering-Phase endete und die Paint-Phase begann.
+  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die erste Rendering-Phase endete und die Paint-Phase begann.
 - [`InteractionContentfulPaint.presentationTime`](/de/docs/Web/API/InteractionContentfulPaint/presentationTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die ersten gemalten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
+  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die ersten gerenderten Pixel tatsächlich auf dem Bildschirm dargestellt wurden.
 
-Es erweitert auch die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften, qualifiziert und beschränkt sie wie beschrieben:
+Es erweitert außerdem die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) und präzisiert beziehungsweise beschränkt sie wie beschrieben:
 
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt `"interaction-contentful-paint"` zurück.
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt das Ergebnis von [`InteractionContentfulPaint.presentationTime`](/de/docs/Web/API/InteractionContentfulPaint/presentationTime) - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt immer einen leeren String zurück.
+  - : Gibt immer eine leere Zeichenfolge zurück.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) der Interaktion zurück, die zur Soft Navigation führte.
+  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) der Interaktion zurück, die zur Soft Navigation geführt hat.
 
 ## Instanzmethoden
 
 - [`InteractionContentfulPaint.toJSON()`](/de/docs/Web/API/InteractionContentfulPaint/toJSON) {{experimental_inline}}
-  - : Überschreibt die [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON) Methode, um eine JSON-Darstellung des `InteractionContentfulPaint` Objekts zurückzugeben.
+  - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `InteractionContentfulPaint`-Objekt repräsentiert. Wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
 
 ## Beschreibung
 
-Das `InteractionContentfulPaint` liefert einen Strom von Paint-Aktualisierungen, die einer Interaktion zugeschrieben werden können.
+`InteractionContentfulPaint` liefert einen Datenstrom von Paint-Aktualisierungen, die einer Interaktion zugeordnet werden können.
 
-Derzeit ist dies auf zunehmende Paint-Größen beschränkt, sodass es verwendet werden kann, um den {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}} für {{Glossary("Soft_Navigation", "Soft Navigations")}} zu messen. Die API wurde jedoch so konzipiert, dass alle für eine Interaktion relevanten Paints ausgegeben werden können.
+Derzeit ist dies auf Paints mit zunehmender Größe beschränkt. Damit lässt sich {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}} für {{Glossary("Soft_Navigation", "Soft Navigations")}} messen. Die API wurde jedoch so konzipiert, dass alle für eine Interaktion relevanten Paints ausgegeben werden können.
 
-`InteractionContentfulPaint` wird anstelle der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) API benötigt, da diese nur bei einem vollständigen Seitenladen ausgegeben wird und bei der Interaktion abgeschlossen ist (was ein notwendiger Anfang für eine Soft Navigation ist).
+`InteractionContentfulPaint` wird benötigt, statt die [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-API zu verwenden: Diese gibt Einträge nur pro vollständigem Seitenladen aus und wird bei einer Interaktion abgeschlossen. Eine Interaktion ist wiederum der notwendige Ausgangspunkt für eine Soft Navigation.
 
-### Verwendung von `navigationId` und `interactionId`
+### `navigationId` und `interactionId` verwenden
 
-Für {{Glossary("Soft_Navigation", "Soft Navigations")}} können Paints, die vor der Aktualisierung der URL stattfinden, für den {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}} der laufenden Soft Navigation in Betracht gezogen werden. Für den LCP-Fall sind [`PerformanceSoftNavigation.getLargestInteractionContentfulPaint()`](/de/docs/Web/API/PerformanceSoftNavigation/getLargestInteractionContentfulPaint) und [`InteractionContentfulPaint.interactionId`](/de/docs/Web/API/InteractionContentfulPaint/interactionId) effektiver, um alle relevanten Paints unabhängig von der `navigationId` zu berücksichtigen, wenn diese Metrik berechnet wird.
+Bei {{Glossary("Soft_Navigation", "Soft Navigations")}} können Paints, die vor der Aktualisierung der URL stattfinden, für den {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}} der laufenden Soft Navigation berücksichtigt werden. Bei der Berechnung dieser Metrik lassen sich mit [`PerformanceSoftNavigation.getLargestInteractionContentfulPaint()`](/de/docs/Web/API/PerformanceSoftNavigation/getLargestInteractionContentfulPaint) und [`InteractionContentfulPaint.interactionId`](/de/docs/Web/API/InteractionContentfulPaint/interactionId) alle relevanten Paints unabhängig von der `navigationId` besser berücksichtigen.
 
 ### Beziehung zu Event Timing und INP
 
-Die [Event Timing API](/de/docs/Web/API/PerformanceEventTiming) liefert Details über UIEvents — Planungs- und Verarbeitungsdauern sowie die Gesamtdauer bis zum nächsten Paint — verfolgt jedoch nicht direkt die Auswirkungen dieser Ereignisse oder künftige Paints, die diese Effekte verursachen könnten. Sie soll die Reaktionszeit messen, während der ein Nutzer kein Feedback erhält, was auf ein Minimum reduziert werden sollte und die Grundlage für Metriken wie {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint (INP)")}} bildet.
+Die [Event Timing API](/de/docs/Web/API/PerformanceEventTiming) liefert Details zu UIEvents – etwa zur Dauer ihrer Einplanung und Verarbeitung sowie zur Gesamtdauer bis zum nächsten Paint. Sie erfasst jedoch weder die Auswirkungen dieser Ereignisse direkt noch spätere Paints, die durch diese Auswirkungen entstehen können. Sie dient dazu, die Reaktionszeit zu messen, während der ein Benutzer keine Rückmeldung erhält. Diese Zeit sollte möglichst kurz sein und bildet die Grundlage für Metriken wie {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint (INP)")}}.
 
-`InteractionContentfulPaint` hat, obwohl ähnlich benannt wie Interaction to Next Paint, einen anderen Zweck. `InteractionContentfulPaint` schließt nicht-contentful Paints aus, die zwar für Event Timing und INP zählen, aber auch zusätzliche Paints über den ersten Paint hinaus messen. Es ermöglicht, die Effekte und Content-Aktualisierungen direkt zu messen, die einer Interaktion zugeschrieben werden können, was zu einem besseren Verständnis der damit verbundenen Leistungsimplikationen führt.
+Trotz der Namensähnlichkeit mit Interaction to Next Paint erfüllt `InteractionContentfulPaint` einen anderen Zweck. `InteractionContentfulPaint` schließt Paints aus, die keine Inhalte darstellen und die bei Event Timing und INP mitgezählt werden. Zugleich erfasst es weitere Paints über den ersten Paint hinaus. So lassen sich die Auswirkungen und Inhaltsaktualisierungen messen, die direkt auf eine Interaktion zurückzuführen sind, und die damit verbundenen Leistungsauswirkungen besser verstehen.
 
 ## Beispiele
 
-### Beobachtung von Interaktions-Contentful-Paints
+### Contentful Paints von Interaktionen beobachten
 
-Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) registriert, um die Soft Navigations zu erhalten. Das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers liegen.
+Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) registriert, um die Soft Navigations zu erfassen. Mit dem Flag `buffered` wird auf Daten zugegriffen, die vor der Erstellung des Observers erfasst wurden.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -71,11 +71,11 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "interaction-contentful-paints", buffered: true });
 ```
 
-### Beobachtung von Interaktions-Contentful-Paints spezifisch für eine Soft Navigation
+### Contentful Paints von Interaktionen für eine bestimmte Soft Navigation beobachten
 
-Einer der Hauptanwendungsfälle der `InteractionContentfulPaint` Schnittstelle ist die Messung aller contentful Paints im Zusammenhang mit einer [Soft Navigation](/de/docs/Web/API/PerformanceSoftNavigation), um den {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}} für diese Soft Navigation zu berechnen.
+Ein wichtiger Anwendungsfall des Interfaces `InteractionContentfulPaint` besteht darin, alle Contentful Paints zu messen, die mit einer [Soft Navigation](/de/docs/Web/API/PerformanceSoftNavigation) zusammenhängen, um den {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}} dieser Soft Navigation zu berechnen.
 
-Dazu wird empfohlen, die [`PerformanceSoftNavigation.interactionId`](/de/docs/Web/API/PerformanceSoftNavigation/interactionId) anstelle der [`PerformanceEntry.navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId) zu verwenden, da einige LCP-Kandidaten auftreten können, bevor die Soft Navigation definiert ist (bei Paints, bevor die URL aktualisiert wird) und daher die alte `navigationId` haben werden.
+Dafür wird empfohlen, [`PerformanceSoftNavigation.interactionId`](/de/docs/Web/API/PerformanceSoftNavigation/interactionId) statt [`PerformanceEntry.navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId) zu verwenden. Einige LCP-Kandidaten können auftreten, bevor die Soft Navigation definiert ist – bei Paints also vor der Aktualisierung der URL – und haben daher noch die alte `navigationId`.
 
 ```js
 let currentNavigationInteractionId = 1045; // hardcoded in this example
@@ -100,4 +100,4 @@ observer.observe({ type: "interaction-contentful-paints", buffered: true });
 
 ## Siehe auch
 
-- [Messung von Soft Navigations](https://developer.chrome.com/docs/web-platform/soft-navigations) auf developer.chrome.com (2026)
+- [Soft Navigations messen](https://developer.chrome.com/docs/web-platform/soft-navigations) auf developer.chrome.com (2026)

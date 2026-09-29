@@ -2,26 +2,26 @@
 title: VRStageParameters
 slug: Web/API/VRStageParameters
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 5351b03470685486d841a3340c6971351058194f
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Das **`VRStageParameters`**-Interface der [WebVR API](/de/docs/Web/API/WebVR_API) stellt die Werte dar, die den Bereich der Bühne für Geräte beschreiben, die Erfahrungen im Raummaßstab unterstützen.
+Das **`VRStageParameters`**-Interface der [WebVR API](/de/docs/Web/API/WebVR_API) stellt die Werte dar, die den verfügbaren Bewegungsbereich für Geräte beschreiben, die raumfüllende VR-Erlebnisse unterstützen.
 
 > [!NOTE]
-> Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Es wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Dieses Interface ist über die [`VRDisplay.stageParameters`](/de/docs/Web/API/VRDisplay/stageParameters)-Eigenschaft zugänglich.
+Auf dieses Interface kann über die Eigenschaft [`VRDisplay.stageParameters`](/de/docs/Web/API/VRDisplay/stageParameters) zugegriffen werden.
 
 ## Instanzeigenschaften
 
 - [`VRStageParameters.sittingToStandingTransform`](/de/docs/Web/API/VRStageParameters/sittingToStandingTransform) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Enthält eine Matrix, die die Ansichts-Matrizen im Sitzmodus von [`VRFrameData`](/de/docs/Web/API/VRFrameData) in den Stehmodus transformiert.
+  - : Enthält eine Matrix, die die Ansichtsmatrizen von [`VRFrameData`](/de/docs/Web/API/VRFrameData) vom Koordinatensystem für sitzende Personen in das Koordinatensystem für stehende Personen transformiert.
 - [`VRStageParameters.sizeX`](/de/docs/Web/API/VRStageParameters/sizeX) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : _Gibt die Breite_ der Spielfeldgrenzen in Metern zurück.
-- [`VRStageParameters.sizeY`](/de/docs/Web/API/VRStageParameters/sizeY) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : _Gibt die Tiefe_ der Spielfeldgrenzen in Metern zurück.
+  - : _Gibt die Breite_ des Spielbereichs in Metern zurück.
+- [`VRStageParameters.sizeZ`](/de/docs/Web/API/VRStageParameters/sizeZ) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
+  - : _Gibt die Tiefe_ des Spielbereichs in Metern zurück.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ navigator.getVRDisplays().then((displays) => {
     info.innerText = `
 Sitting to standing transform: ${stageParams.sittingToStandingTransform}
 Play area width (m): ${stageParams.sizeX}
-Play area depth (m): ${stageParams.sizeY}`;
+Play area depth (m): ${stageParams.sizeZ}`;
     info.insertBefore(
       document.createElement("strong"),
       info.firstChild,
@@ -52,9 +52,9 @@ Play area depth (m): ${stageParams.sizeY}`;
 
 ## Spezifikationen
 
-Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Es ist nicht mehr vorgesehen, es zu standardisieren.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Porting von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) Leitfaden für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie im Leitfaden [Meta's Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

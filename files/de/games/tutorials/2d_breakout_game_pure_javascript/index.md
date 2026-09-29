@@ -1,44 +1,39 @@
 ---
-title: 2D Breakout-Spiel mit reinem JavaScript
-slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript
+title: 2D-Breakout-Spiel mit reinem JavaScript
+slug: Games/Tutorials/2D_breakout_game_pure_JavaScript
 l10n:
-  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
-{{Next("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it")}}
+{{Next("Games/Tutorials/2D_breakout_game_pure_JavaScript/Initialize_the_canvas")}}
 
-In diesem Schritt-für-Schritt-Tutorial erstellen wir ein **MDN Breakout**-Spiel, das vollständig in reinem JavaScript geschrieben und auf einem HTML {{htmlelement("canvas")}} gerendert wird.
+In dieser Schritt-für-Schritt-Anleitung erstellen wir ein einfaches, für Mobilgeräte geeignetes **MDN Breakout**-Spiel. Dafür verwenden wir ausschließlich JavaScript, ohne externe Bibliotheken.
 
-Jeder Schritt bietet editierbare, interaktive Beispiele, mit denen Sie experimentieren können, um zu sehen, wie die Zwischenstufen aussehen sollten. Sie werden die Grundlagen der Verwendung des {{htmlelement("canvas")}}-Elements erlernen, um wesentliche Spielmechaniken wie das Rendern und Bewegen von Bildern, Kollisionsdetektion, Steuermechanismen sowie Gewinn- und Verlustzustände zu implementieren.
+Zu jedem Schritt gibt es bearbeitbare, interaktive Beispiele, die Sie ausprobieren können. So sehen Sie, wie die Zwischenstände aussehen sollten. Sie lernen die Grundlagen wichtiger Spielmechaniken kennen: die Arbeit mit dem Canvas, das Rendern und Bewegen von Bildern, die Kollisionserkennung, die Steuerung, Animationen und Tweens sowie Zustände für Sieg und Niederlage.
 
-Um das Beste aus dieser Artikelserie herauszuholen, sollten Sie bereits über grundlegende bis mittlere [JavaScript](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)-Kenntnisse verfügen. Nachdem Sie dieses Tutorial durchgearbeitet haben, sollten Sie in der Lage sein, Ihre eigenen Web-Spiele zu entwickeln.
+Um möglichst viel aus dieser Artikelreihe mitzunehmen, sollten Sie bereits über grundlegende bis mittlere [JavaScript-Kenntnisse](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity) verfügen. Nach Abschluss dieser Anleitung sollten Sie in der Lage sein, eigene einfache Webspiele zu entwickeln.
 
-![Spielbildschirm vom Spiel MDN Breakout, wo Sie Ihr Paddel verwenden können, um den Ball abzuprallen und das Ziegel-Feld zu zerstören, wobei der Punktestand und die Leben gehalten werden.](mdn-breakout-gameplay.png)
-
-## Lektiondetails
-
-Alle Lektionen — und die verschiedenen Versionen des [MDN Breakout-Spiels](https://breakout.enclavegames.com/lesson10.html), die wir gemeinsam erstellen — sind [auf GitHub verfügbar](https://github.com/end3r/Gamedev-Canvas-workshop):
-
-1. [Das Canvas erstellen und darauf zeichnen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it)
-2. [Ball bewegen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball)
-3. [Von den Wänden abprallen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls)
-4. [Paddel- und Tastatursteuerungen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls)
-5. [Spielende](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over)
-6. [Das Ziegel-Feld bauen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field)
-7. [Kollisionsdetektion](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection)
-8. [Punkte verfolgen und gewinnen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win)
-9. [Maussteuerungen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls)
-10. [Abschluss](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up)
-
-Mit reinem JavaScript zu beginnen ist der beste Weg, um sich ein solides Wissen über die Entwicklung von Webspielen anzueignen. Danach können Sie ein Framework Ihrer Wahl auswählen und es für Ihre Projekte verwenden. Frameworks sind lediglich Werkzeuge, die mit der JavaScript-Sprache erstellt wurden; auch wenn Sie also planen, mit ihnen zu arbeiten, ist es gut, zuerst etwas über die Sprache selbst zu lernen, um genau zu wissen, was im Hintergrund vor sich geht. Frameworks beschleunigen die Entwicklungszeit und helfen, langweilige Teile des Spiels zu übernehmen, aber wenn etwas nicht wie erwartet funktioniert, können Sie immer versuchen, das zu debuggen oder einfach Ihre eigenen Lösungen in reinem JavaScript zu schreiben.
+![Spielansicht von MDN Breakout, erstellt mit reinem JavaScript: Mit dem Schläger halten Sie den Ball im Spiel und zerstören die Steine. Punkte und Leben werden angezeigt.](mdn-breakout-javascript.png)
 
 > [!NOTE]
-> Diese Artikelserie kann als Material für praxisnahe Spielentwicklungs-Workshops verwendet werden. Sie können auch das [Gamedev Canvas Content Kit](https://github.com/end3r/Gamedev-Canvas-Content-Kit) basierend auf diesem Tutorial nutzen, wenn Sie einen Vortrag über Spielentwicklung im Allgemeinen halten möchten.
->
-> Wenn Sie daran interessiert sind, eine Spiele-Bibliothek zu verwenden, um mehr über die 2D-Webspielentwicklung zu lernen, sehen Sie sich das Gegenstück dieser Serie an, [2D Breakout-Spiel mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser).
+> Zu diesem Leitfaden gibt es einen begleitenden Leitfaden: [2D-Breakout-Spiel mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Beide folgen im Wesentlichen denselben Schritten und führen zu optisch identischen Ergebnissen.
+
+## Lektionen im Überblick
+
+1. [Canvas initialisieren](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Initialize_the_canvas)
+2. [Ball bewegen](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Move_the_ball)
+3. [Ball an den Wänden abprallen lassen](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Bounce_off_the_walls)
+4. [Spielerschläger und Steuerung](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Player_paddle_and_controls)
+5. [Spielende](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Game_over)
+6. [Steinfeld erstellen](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Build_the_brick_field)
+7. [Punkte zählen und gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Track_the_score_and_win)
+8. [Zusätzliche Leben](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Extra_lives)
+9. [Animationen und Tweens](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Animations_and_tweens)
+10. [Schaltflächen](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Buttons)
+11. [Spielablauf zufällig gestalten](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Randomizing_gameplay)
 
 ## Nächste Schritte
 
-Ok, lassen Sie uns anfangen! Gehen Sie zum ersten Kapitel [Das Canvas erstellen und darauf zeichnen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it).
+Legen wir los! Beginnen Sie mit dem ersten Teil der Reihe: [Canvas initialisieren](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Initialize_the_canvas).
 
-{{Next("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it")}}
+{{Next("Games/Tutorials/2D_breakout_game_pure_JavaScript/Initialize_the_canvas")}}

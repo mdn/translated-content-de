@@ -2,43 +2,43 @@
 title: SVGTransform
 slug: Web/API/SVGTransform
 l10n:
-  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGTransform`**-Schnittstelle spiegelt eine der Komponenten-Transformationen innerhalb einer [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) wider; ein `SVGTransform`-Objekt entspricht also einer einzelnen Komponente (z.B. `scale(…)` oder `matrix(…)`) innerhalb eines {{ SVGAttr("transform") }}-Attributs.
+Die **`SVGTransform`**-Schnittstelle repräsentiert eine der einzelnen Transformationen innerhalb einer [`SVGTransformList`](/de/docs/Web/API/SVGTransformList). Ein `SVGTransform`-Objekt entspricht somit einer einzelnen Komponente (z. B. `scale(…)` oder `matrix(…)`) innerhalb eines {{ SVGAttr("transform") }}-Attributs.
 
-Ein `SVGTransform`-Objekt kann als read-only bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, eine Ausnahme auslösen.
+Ein `SVGTransform`-Objekt kann als schreibgeschützt festgelegt werden. Versuche, das Objekt zu ändern, lösen dann eine Ausnahme aus.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`type`](/de/docs/Web/API/SVGTransform/type)
-  - : Der Typ des Wertes, wie durch eine der `SVG_TRANSFORM_*`-Konstanten, die in dieser Schnittstelle definiert sind, angegeben.
-- [`angle`](/de/docs/Web/API/SVGTransform/angle)
-  - : Der Winkel als Gleitkommawert. Ein praktisches Attribut für `SVG_TRANSFORM_ROTATE`, `SVG_TRANSFORM_SKEWX` und `SVG_TRANSFORM_SKEWY`. Für `SVG_TRANSFORM_MATRIX`, `SVG_TRANSFORM_TRANSLATE` und `SVG_TRANSFORM_SCALE` wird `angle` null sein.
-- [`matrix`](/de/docs/Web/API/SVGTransform/matrix)
-  - : Die Matrix als [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die diese Transformation darstellt. Das Matrix-Objekt ist aktiv, was bedeutet, dass Änderungen am `SVGTransform`-Objekt sofort im Matrix-Objekt widergespiegelt werden und umgekehrt. Falls das Matrix-Objekt direkt geändert wird (d.h. ohne Verwendung der Methoden der `SVGTransform`-Schnittstelle selbst), ändert sich der Typ des `SVGTransform` zu `SVG_TRANSFORM_MATRIX`.
+- [`type`](/de/docs/Web/API/SVGTransform/type) {{ReadOnlyInline}}
+  - : Der Typ des Werts, angegeben durch eine der auf dieser Schnittstelle definierten `SVG_TRANSFORM_*`-Konstanten.
+- [`angle`](/de/docs/Web/API/SVGTransform/angle) {{ReadOnlyInline}}
+  - : Der Winkel als Gleitkommawert. Eine Hilfseigenschaft für `SVG_TRANSFORM_ROTATE`, `SVG_TRANSFORM_SKEWX` und `SVG_TRANSFORM_SKEWY`. Bei `SVG_TRANSFORM_MATRIX`, `SVG_TRANSFORM_TRANSLATE` und `SVG_TRANSFORM_SCALE` ist `angle` gleich null.
+- [`matrix`](/de/docs/Web/API/SVGTransform/matrix) {{ReadOnlyInline}}
+  - : Die Matrix als [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die diese Transformation darstellt. Das Matrixobjekt ist live: Änderungen am `SVGTransform`-Objekt spiegeln sich unmittelbar im Matrixobjekt wider und umgekehrt. Wird das Matrixobjekt direkt geändert (d.h. ohne die Methoden der `SVGTransform`-Schnittstelle zu verwenden), ändert sich der Typ von `SVGTransform` zu `SVG_TRANSFORM_MATRIX`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`setMatrix()`](/de/docs/Web/API/SVGTransform/setMatrix)
-  - : Setzt den Umwandlungstyp auf `SVG_TRANSFORM_MATRIX`, wobei die Parameter-Matrix die neue Transformation definiert. Beachten Sie, dass die Werte aus dem Parameter `matrix` kopiert werden.
+  - : Setzt den Transformationstyp auf `SVG_TRANSFORM_MATRIX`. Der Parameter `matrix` definiert die neue Transformation. Beachten Sie, dass die Werte aus dem Parameter `matrix` kopiert werden.
 - [`setTranslate()`](/de/docs/Web/API/SVGTransform/setTranslate)
-  - : Setzt den Umwandlungstyp auf `SVG_TRANSFORM_TRANSLATE`, wobei die Parameter `tx` und `ty` die Übersetzungsbeträge definieren.
+  - : Setzt den Transformationstyp auf `SVG_TRANSFORM_TRANSLATE`. Die Parameter `tx` und `ty` definieren die Verschiebungsbeträge.
 - [`setScale()`](/de/docs/Web/API/SVGTransform/setScale)
-  - : Setzt den Umwandlungstyp auf `SVG_TRANSFORM_SCALE`, wobei die Parameter `sx` und `sy` die Skalierungsbeträge definieren.
+  - : Setzt den Transformationstyp auf `SVG_TRANSFORM_SCALE`. Die Parameter `sx` und `sy` definieren die Skalierungsfaktoren.
 - [`setRotate()`](/de/docs/Web/API/SVGTransform/setRotate)
-  - : Setzt den Umwandlungstyp auf `SVG_TRANSFORM_ROTATE`, wobei der Parameter `angle` den Rotationswinkel definiert und die Parameter `cx` und `cy` das optionale Zentrum der Rotation bestimmen.
+  - : Setzt den Transformationstyp auf `SVG_TRANSFORM_ROTATE`. Der Parameter `angle` definiert den Drehwinkel, und die Parameter `cx` und `cy` definieren das optionale Drehzentrum.
 - [`setSkewX()`](/de/docs/Web/API/SVGTransform/setSkewX)
-  - : Setzt den Umwandlungstyp auf `SVG_TRANSFORM_SKEWX`, wobei der Parameter `angle` die Menge der Scherung definiert.
+  - : Setzt den Transformationstyp auf `SVG_TRANSFORM_SKEWX`. Der Parameter `angle` definiert den Scherungswinkel.
 - [`setSkewY()`](/de/docs/Web/API/SVGTransform/setSkewY)
-  - : Setzt den Umwandlungstyp auf `SVG_TRANSFORM_SKEWY`, wobei der Parameter `angle` die Menge der Scherung definiert.
+  - : Setzt den Transformationstyp auf `SVG_TRANSFORM_SKEWY`. Der Parameter `angle` definiert den Scherungswinkel.
 
 ## Statische Eigenschaften
 
 - `SVG_TRANSFORM_UNKNOWN` (0)
-  - : Der Einheitentyp gehört nicht zu den vordefinierten Einheitentypen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+  - : Der Einheitentyp gehört nicht zu den vordefinierten Einheitentypen. Es ist unzulässig, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
 - `SVG_TRANSFORM_MATRIX` (1)
   - : Eine `matrix(…)`-Transformation.
 - `SVG_TRANSFORM_TRANSLATE` (2)

@@ -2,33 +2,33 @@
 title: CSSScopeRule
 slug: Web/API/CSSScopeRule
 l10n:
-  sourceCommit: aa1c6876fb3cea003dda92f02c9bac93fd3370b2
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSScopeRule`**-Schnittstelle des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS {{CSSxRef("@scope")}} at-rule.
+Die Schnittstelle **`CSSScopeRule`** des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS-{{CSSxRef("@scope")}}-At-Regel.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Eigenschaften von den übergeordneten Schnittstellen [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- [`end`](/de/docs/Web/API/CSSScopeRule/end)
-  - : Gibt einen String zurück, der den Wert der `@scope` At-Regel Scope-Grenze enthält.
-- [`start`](/de/docs/Web/API/CSSScopeRule/start)
-  - : Gibt einen String zurück, der den Wert der `@scope` At-Regel Scope-Wurzel enthält.
+- [`end`](/de/docs/Web/API/CSSScopeRule/end) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Wert der Geltungsbereichsgrenze der `@scope`-At-Regel enthält.
+- [`start`](/de/docs/Web/API/CSSScopeRule/start) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Wert der Geltungsbereichswurzel der `@scope`-At-Regel enthält.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Methoden von den übergeordneten Schnittstellen [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-### Zugriff auf @scope-Informationen in JavaScript
+### Auf Informationen zu @scope in JavaScript zugreifen
 
-Angenommen, das folgende ist das einzige Stylesheet, das an ein Dokument angehängt ist:
+Angenommen, das folgende Stylesheet ist das einzige, das einem Dokument zugeordnet ist:
 
 ```css
 @scope (.outer) to (.inner) {
@@ -38,7 +38,7 @@ Angenommen, das folgende ist das einzige Stylesheet, das an ein Dokument angehä
 }
 ```
 
-Das folgende JavaScript könnte verwendet werden, um auf Informationen über den enthaltenen `@scope` Block zuzugreifen:
+Mit dem folgenden JavaScript können Sie auf Informationen über den enthaltenen `@scope`-Block zugreifen:
 
 ```js
 const scopeBlock = document.styleSheets[0].cssRules[0];

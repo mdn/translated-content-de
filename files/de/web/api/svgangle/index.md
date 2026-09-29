@@ -2,52 +2,52 @@
 title: SVGAngle
 slug: Web/API/SVGAngle
 l10n:
-  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("SVG")}}
 
-Das `SVGAngle` Interface wird verwendet, um einen Wert zu repräsentieren, der entweder ein {{cssxref("&lt;angle&gt;")}} oder ein {{cssxref("&lt;number&gt;")}} Wert sein kann.
+Die Schnittstelle `SVGAngle` stellt einen Wert dar, der ein {{cssxref("&lt;angle&gt;")}}- oder {{cssxref("&lt;number&gt;")}}-Wert sein kann.
 
-Das `SVGAngle`, das von [`SVGAnimatedAngle.animVal`](/de/docs/Web/API/SVGAnimatedAngle/animVal) und [`SVGAnimatedAngle.baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal) zurückgegeben wird, ist schreibgeschützt, aber das `SVGAngle`, das von [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) zurückgegeben wird, ist beschreibbar. Wenn es als schreibgeschützt gekennzeichnet ist, führt der Versuch, das Objekt zu ändern, zu einer Ausnahme.
+Die von [`SVGAnimatedAngle.animVal`](/de/docs/Web/API/SVGAnimatedAngle/animVal) und [`SVGAnimatedAngle.baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal) zurückgegebenen `SVGAngle`-Objekte sind schreibgeschützt. Das von [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) zurückgegebene `SVGAngle`-Objekt ist dagegen beschreibbar. Versuche, ein schreibgeschütztes Objekt zu ändern, lösen eine Ausnahme aus.
 
-Ein `SVGAngle`-Objekt kann einem bestimmten Element zugeordnet sein. Das zugeordnete Element wird verwendet, um zu bestimmen, welches Inhaltsattribut des Elements aktualisiert werden soll, falls das Objekt ein Attribut widerspiegelt. Sofern nicht anders beschrieben, ist ein `SVGAngle`-Objekt keinem Element zugeordnet.
+Ein `SVGAngle`-Objekt kann einem bestimmten Element zugeordnet sein. Wenn das Objekt ein Attribut widerspiegelt, bestimmt das zugeordnete Element, welches Inhaltsattribut aktualisiert wird. Sofern nicht anders beschrieben, ist ein `SVGAngle`-Objekt keinem Element zugeordnet.
 
 Jedes `SVGAngle`-Objekt arbeitet in einem von zwei Modi:
 
-1. **_Den Basiswert reflektieren_** eines reflektierten animierbaren Attributs (wird über das [`baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal) Mitglied eines [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle) präsentiert),
-2. **_Getrennt sein_**, was auf `SVGAngle`-Objekte zutrifft, die mit [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) erstellt wurden.
+1. Es **_spiegelt den Basiswert_** eines widergespiegelten animierbaren Attributs wider, auf den über das Member [`baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal) eines [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle) zugegriffen wird.
+2. Es **_ist unabhängig_**, wie es bei `SVGAngle`-Objekten der Fall ist, die mit [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) erstellt wurden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`SVGAngle.unitType`](/de/docs/Web/API/SVGAngle/unitType)
-  - : Der Typ des Werts, wie er durch eine der `SVG_ANGLETYPE_*` Konstanten definiert ist, die in diesem Interface definiert sind.
+- [`SVGAngle.unitType`](/de/docs/Web/API/SVGAngle/unitType) {{ReadOnlyInline}}
+  - : Der Typ des Werts, angegeben durch eine der auf dieser Schnittstelle definierten `SVG_ANGLETYPE_*`-Konstanten.
 - [`SVGAngle.value`](/de/docs/Web/API/SVGAngle/value)
-  - : Der Wert als Gleitkommawert, in Benutzereinheiten. Das Setzen dieses Attributs bewirkt, dass `valueInSpecifiedUnits` und `valueAsString` automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+  - : Der Wert als Gleitkommazahl in Benutzereinheiten. Beim Setzen dieser Eigenschaft werden `valueInSpecifiedUnits` und `valueAsString` automatisch aktualisiert, um den neuen Wert widerzuspiegeln.
 - [`SVGAngle.valueInSpecifiedUnits`](/de/docs/Web/API/SVGAngle/valueInSpecifiedUnits)
-  - : Der Wert als Gleitkommawert, in den durch `unitType` ausgedrückten Einheiten. Das Setzen dieses Attributs bewirkt, dass `value` und `valueAsString` automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+  - : Der Wert als Gleitkommazahl in den durch `unitType` angegebenen Einheiten. Beim Setzen dieser Eigenschaft werden `value` und `valueAsString` automatisch aktualisiert, um den neuen Wert widerzuspiegeln.
 - [`SVGAngle.valueAsString`](/de/docs/Web/API/SVGAngle/valueAsString)
-  - : Der Wert als Zeichenfolgenwert, in den durch `unitType` ausgedrückten Einheiten. Das Setzen dieses Attributs bewirkt, dass `value`, `valueInSpecifiedUnits` und `unitType` automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+  - : Der Wert als Zeichenfolge in den durch `unitType` angegebenen Einheiten. Beim Setzen dieser Eigenschaft werden `value`, `valueInSpecifiedUnits` und `unitType` automatisch aktualisiert, um den neuen Wert widerzuspiegeln.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`SVGAngle.convertToSpecifiedUnits()`](/de/docs/Web/API/SVGAngle/convertToSpecifiedUnits)
-  - : Bewahrt denselben zugrunde liegenden gespeicherten Wert, setzt jedoch die gespeicherte Einheitenspezifikation auf den angegebenen `unitType` zurück. Objektattribute `unitType`, `valueInSpecifiedUnits` und `valueAsString` können als Ergebnis dieser Methode geändert werden.
+  - : Behält den zugrunde liegenden gespeicherten Wert bei, setzt aber die gespeicherte Einheitenkennung auf den angegebenen `unitType`. Dadurch können sich die Objekteigenschaften `unitType`, `valueInSpecifiedUnits` und `valueAsString` ändern.
 - [`SVGAngle.newValueSpecifiedUnits()`](/de/docs/Web/API/SVGAngle/newValueSpecifiedUnits)
-  - : Setzt den Wert als Zahl mit einem zugehörigen unitType zurück und ersetzt dadurch die Werte aller Attribute des Objekts.
+  - : Setzt den Wert als Zahl mit einem zugehörigen unitType neu und ersetzt dadurch die Werte aller Eigenschaften des Objekts.
 
 ## Statische Eigenschaften
 
 - `SVG_ANGLETYPE_UNKNOWN` (0)
   - : Ein unbekannter Werttyp.
 - `SVG_ANGLETYPE_UNSPECIFIED` (1)
-  - : Ein einheitenloses {{cssxref("&lt;number&gt;")}} das als Wert in Grad interpretiert wird.
+  - : Ein einheitenloser {{cssxref("&lt;number&gt;")}}-Wert, der als Wert in Grad interpretiert wird.
 - `SVG_ANGLETYPE_DEG` (2)
-  - : Ein {{cssxref("&lt;angle&gt;")}} mit einer `deg` Einheit.
+  - : Ein {{cssxref("&lt;angle&gt;")}}-Wert mit der Einheit `deg`.
 - `SVG_ANGLETYPE_RAD` (3)
-  - : Ein {{cssxref("&lt;angle&gt;")}} mit einer `rad` Einheit.
+  - : Ein {{cssxref("&lt;angle&gt;")}}-Wert mit der Einheit `rad`.
 - `SVG_ANGLETYPE_GRAD` (4)
-  - : Ein {{cssxref("&lt;angle&gt;")}} mit einer `grad` Einheit.
+  - : Ein {{cssxref("&lt;angle&gt;")}}-Wert mit der Einheit `grad`.
 
 ## Spezifikationen
 

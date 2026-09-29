@@ -1,14 +1,14 @@
 ---
-title: "SVGElement: viewportElement-Eigenschaft"
+title: "SVGElement: Eigenschaft viewportElement"
 short-title: viewportElement
 slug: Web/API/SVGElement/viewportElement
 l10n:
-  sourceCommit: 97dc5e941cca2f67ece5ff91d0c96674f210fef9
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("SVG")}}
 
-Die **`viewportElement`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces repräsentiert das `SVGElement`, welches den aktuellen Ansichtsbereich (Viewport) festgelegt hat. Oft ist dies das nächstgelegene Vorfahren-{{SVGElement("svg")}}-Element. `null`, wenn das gegebene Element das äußerste `<svg>`-Element ist.
+Die schreibgeschützte Eigenschaft **`viewportElement`** des Interfaces [`SVGElement`](/de/docs/Web/API/SVGElement) gibt das `SVGElement` zurück, das den aktuellen Viewport festgelegt hat. Dies ist häufig das nächstgelegene übergeordnete {{SVGElement("svg")}}-Element. Ist das betreffende Element das äußerste `<svg>`-Element, ist der Wert `null`.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 ## Beispiele
 
-### Abrufen des `viewportElement`
+### Das `viewportElement` abrufen
 
 ```html
 <svg id="outerSvg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -46,4 +46,4 @@ console.log(outerSvg.viewportElement); // Output: null
 
 ## Siehe auch
 
-- [`SVGElement.ownerSVGElement`](/de/docs/Web/API/SVGElement/ownerSVGElement): Ruft das nächstgelegene Vorfahren-`<svg>`-Element für das aktuelle SVG-Element ab.
+- [`SVGElement.ownerSVGElement`](/de/docs/Web/API/SVGElement/ownerSVGElement): Gibt das nächstgelegene übergeordnete `<svg>`-Element für das aktuelle SVG-Element zurück.

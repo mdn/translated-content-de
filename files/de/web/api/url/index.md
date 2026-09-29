@@ -2,71 +2,70 @@
 title: URL
 slug: Web/API/URL
 l10n:
-  sourceCommit: 88ec096ac35386218934a5c0f6d03c9dece5017f
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Das **`URL`**-Interface wird verwendet, um {{Glossary("URL", "URLs")}} zu parsen, zu konstruieren, zu normalisieren und zu kodieren. Es bietet Eigenschaften, die es Ihnen ermöglichen, die Komponenten einer URL einfach zu lesen und zu ändern.
+Die **`URL`**-Schnittstelle dient zum Parsen, Erstellen, Normalisieren und Kodieren von {{Glossary("URL", "URLs")}}. Sie stellt Eigenschaften bereit, mit denen Sie die Bestandteile einer URL einfach auslesen und ändern können.
 
-Normalerweise erstellen Sie ein neues `URL`-Objekt, indem Sie die URL als Zeichenkette beim Aufruf des Konstruktors angeben oder eine relative URL und eine Basis-URL bereitstellen. Sie können dann die analysierten Komponenten der URL einfach lesen oder Änderungen an der URL vornehmen.
+Normalerweise erstellen Sie ein neues `URL`-Objekt, indem Sie beim Aufruf des Konstruktors die URL als Zeichenfolge angeben. Alternativ können Sie eine relative URL und eine Basis-URL übergeben. Anschließend können Sie die geparsten Bestandteile der URL auslesen oder die URL ändern.
 
 ## Konstruktor
 
 - [`URL()`](/de/docs/Web/API/URL/URL)
-  - : Erstellt und gibt ein `URL`-Objekt aus einer URL-Zeichenkette und optionaler Basis-URL-Zeichenkette zurück.
-    Wirft eine Ausnahme, wenn die übergebenen Argumente keine gültige URL definieren.
+  - : Erstellt ein `URL`-Objekt aus einer URL-Zeichenfolge und einer optionalen Basis-URL-Zeichenfolge und gibt es zurück. Löst eine Ausnahme aus, wenn die übergebenen Argumente keine gültige URL definieren.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`hash`](/de/docs/Web/API/URL/hash)
-  - : Eine Zeichenkette, die ein `'#'` gefolgt vom Fragment-Bezeichner der URL enthält.
+  - : Eine Zeichenfolge, die ein `'#'` gefolgt vom Fragmentbezeichner der URL enthält.
 - [`host`](/de/docs/Web/API/URL/host)
-  - : Eine Zeichenkette, die die Domäne (das heißt den _hostname_) enthält, gefolgt von (wenn ein Port angegeben wurde) einem `':'` und dem _port_ der URL.
+  - : Eine Zeichenfolge, die die Domain (also den _Hostname_) und, falls ein Port angegeben wurde, ein `':'` gefolgt vom _Port_ der URL enthält.
 - [`hostname`](/de/docs/Web/API/URL/hostname)
-  - : Eine Zeichenkette, die die Domäne der URL enthält.
+  - : Eine Zeichenfolge, die die Domain der URL enthält.
 - [`href`](/de/docs/Web/API/URL/href)
-  - : Ein {{Glossary("stringifier", "stringifier")}}, der eine Zeichenkette, die die gesamte URL enthält, zurückgibt.
+  - : Ein {{Glossary("stringifier", "Stringifier")}}, der eine Zeichenfolge mit der vollständigen URL zurückgibt.
 - [`origin`](/de/docs/Web/API/URL/origin) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den Ursprung der URL enthält, das heißt ihr Schema, ihre Domäne und ihren Port.
+  - : Gibt eine Zeichenfolge zurück, die den Ursprung der URL enthält, also ihr Schema, ihre Domain und ihren Port.
 - [`password`](/de/docs/Web/API/URL/password)
-  - : Eine Zeichenkette, die das vor dem Domänennamen angegebene Passwort enthält.
+  - : Eine Zeichenfolge, die das vor dem Domainnamen angegebene Passwort enthält.
 - [`pathname`](/de/docs/Web/API/URL/pathname)
-  - : Eine Zeichenkette, die ein anfängliches `'/'` gefolgt vom Pfad der URL enthält, ohne die Abfragezeichenfolge oder das Fragment.
+  - : Eine Zeichenfolge, die einen führenden `'/'` gefolgt vom Pfad der URL enthält, ohne Query-String oder Fragment.
 - [`port`](/de/docs/Web/API/URL/port)
-  - : Eine Zeichenkette, die die Portnummer der URL enthält.
+  - : Eine Zeichenfolge, die die Portnummer der URL enthält.
 - [`protocol`](/de/docs/Web/API/URL/protocol)
-  - : Eine Zeichenkette, die das Protokollschema der URL enthält, einschließlich dem abschließenden `':'`.
+  - : Eine Zeichenfolge, die das Protokollschema der URL einschließlich des abschließenden `':'` enthält.
 - [`search`](/de/docs/Web/API/URL/search)
-  - : Eine Zeichenkette, die die Parameterzeichenfolge der URL anzeigt; wenn Parameter angegeben sind, enthält diese Zeichenkette alle von ihnen, beginnend mit dem führenden `?`-Zeichen.
+  - : Eine Zeichenfolge mit den URL-Parametern. Wenn Parameter vorhanden sind, enthält sie alle Parameter und beginnt mit dem führenden Zeichen `?`.
 - [`searchParams`](/de/docs/Web/API/URL/searchParams) {{ReadOnlyInline}}
-  - : Ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt, das verwendet werden kann, um auf die einzelnen Abfrageparameter in `search` zuzugreifen.
+  - : Ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt, mit dem Sie auf die einzelnen Query-Parameter in `search` zugreifen können.
 - [`username`](/de/docs/Web/API/URL/username)
-  - : Eine Zeichenkette, die den vor dem Domänennamen angegebenen Benutzernamen enthält.
+  - : Eine Zeichenfolge, die den vor dem Domainnamen angegebenen Benutzernamen enthält.
 
 ## Statische Methoden
 
 - [`canParse()`](/de/docs/Web/API/URL/canParse_static)
-  - : Gibt einen Booleschen Wert zurück, der angibt, ob eine aus einer URL-Zeichenkette und optionaler Basis-URL-Zeichenkette definierte URL parsbar und gültig ist.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob sich aus einer URL-Zeichenfolge und einer optionalen Basis-URL-Zeichenfolge eine gültige URL parsen lässt.
 - [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)
-  - : Gibt eine Zeichenkette zurück, die eine eindeutige Blob-URL enthält, das heißt eine URL mit `blob:` als Schema, gefolgt von einer undurchsichtigen Zeichenkette, die das Objekt im Browser eindeutig identifiziert.
+  - : Gibt eine Zeichenfolge mit einer eindeutigen Blob-URL zurück. Diese URL hat `blob:` als Schema, gefolgt von einer opaken Zeichenfolge, die das Objekt im Browser eindeutig identifiziert.
 - [`parse()`](/de/docs/Web/API/URL/parse_static)
-  - : Erstellt und gibt ein `URL`-Objekt aus einer URL-Zeichenkette und optionaler Basis-URL-Zeichenkette zurück oder gibt `null` zurück, wenn die übergebenen Parameter eine ungültige `URL` definieren.
+  - : Erstellt ein `URL`-Objekt aus einer URL-Zeichenfolge und einer optionalen Basis-URL-Zeichenfolge und gibt es zurück. Wenn die übergebenen Parameter eine ungültige `URL` definieren, wird `null` zurückgegeben.
 - [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)
   - : Widerruft eine zuvor mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellte Objekt-URL.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`toString()`](/de/docs/Web/API/URL/toString)
-  - : Gibt eine Zeichenkette zurück, die die gesamte URL enthält. Es ist ein Synonym für [`URL.href`](/de/docs/Web/API/URL/href), obwohl es nicht verwendet werden kann, um den Wert zu ändern.
+  - : Gibt eine Zeichenfolge mit der vollständigen URL zurück. Die Methode entspricht [`URL.href`](/de/docs/Web/API/URL/href), kann aber nicht zum Ändern des Werts verwendet werden.
 - [`toJSON()`](/de/docs/Web/API/URL/toJSON)
-  - : Gibt eine Zeichenkette zurück, die die gesamte URL enthält. Es gibt die gleiche Zeichenkette wie die `href`-Eigenschaft zurück.
+  - : Gibt eine Zeichenfolge zurück, die das `URL`-Objekt darstellt und denselben Wert wie [`URL.toString()`](/de/docs/Web/API/URL/toString) hat. Wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Der Konstruktor nimmt einen `url`-Parameter und einen optionalen `base`-Parameter, der als Basis verwendet wird, wenn der `url`-Parameter eine relative URL ist.
+Der Konstruktor erwartet einen `url`-Parameter und optional einen `base`-Parameter, der als Basis dient, wenn `url` eine relative URL ist.
 
-Beachten Sie, dass im folgenden Fall "dogs" das Dateinamen-Segment ist (weil es keinen abschließenden Schrägstrich hat) und dass die relative URL "cats" relativ zum _Verzeichnis_-Teil der Basis-URL interpretiert wird, die `http://www.example.com/animals/` ist. Weitere Informationen finden Sie unter [Relative Referenzen zu einer URL auflösen](/de/docs/Web/API/URL_API/Resolving_relative_references).
+Beachten Sie, dass „dogs“ im folgenden Beispiel das Dateinamensegment ist (da kein abschließender Schrägstrich vorhanden ist). Die relative URL „cats“ wird relativ zum _Verzeichnis_-Teil der Basis-URL interpretiert, also zu `http://www.example.com/animals/`. Weitere Informationen finden Sie unter [Relative Verweise auf eine URL auflösen](/de/docs/Web/API/URL_API/Resolving_relative_references).
 
 ```js
 const url = new URL("cats", "http://www.example.com/animals/dogs");
@@ -74,7 +73,8 @@ console.log(url.hostname); // "www.example.com"
 console.log(url.pathname); // "/animals/cats"
 ```
 
-Der Konstruktor wird eine Ausnahme auslösen, wenn die URL nicht in eine gültige URL geparst werden kann. Sie können entweder den obigen Code in einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block aufrufen oder die [`canParse()`](/de/docs/Web/API/URL/canParse_static) statische Methode verwenden, um zuerst zu überprüfen, ob die URL gültig ist:
+Der Konstruktor löst eine Ausnahme aus, wenn sich die URL nicht als gültige URL parsen lässt.
+Sie können den obigen Code entweder in einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block aufrufen oder zunächst mit der statischen Methode [`canParse()`](/de/docs/Web/API/URL/canParse_static) prüfen, ob die URL gültig ist:
 
 ```js
 if (URL.canParse("cats", "http://www.example.com/animals/dogs")) {
@@ -86,23 +86,23 @@ if (URL.canParse("cats", "http://www.example.com/animals/dogs")) {
 }
 ```
 
-URL-Eigenschaften können gesetzt werden, um die URL zu konstruieren:
+Sie können die Eigenschaften von `URL` setzen, um die URL zusammenzusetzen:
 
 ```js
 url.hash = "tabby";
 console.log(url.href); // "http://www.example.com/animals/cats#tabby"
 ```
 
-URLs werden gemäß den in {{RFC(3986)}} beschriebenen Regeln kodiert. Zum Beispiel:
+URLs werden nach den Regeln in {{RFC(3986)}} kodiert. Zum Beispiel:
 
 ```js
 url.pathname = "démonstration.html";
 console.log(url.href); // "http://www.example.com/d%C3%A9monstration.html"
 ```
 
-Das [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Interface kann verwendet werden, um die Abfragezeichenfolge der URL zu erstellen und zu manipulieren.
+Mit der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle können Sie den Query-String einer URL erstellen und bearbeiten.
 
-Um die Suchparameter von der aktuellen Fenster-URL abzurufen, können Sie Folgendes tun:
+So erhalten Sie die Query-Parameter aus der URL des aktuellen Fensters:
 
 ```js
 // https://some.site/?id=123
@@ -110,7 +110,7 @@ const parsedUrl = new URL(window.location.href);
 console.log(parsedUrl.searchParams.get("id")); // "123"
 ```
 
-Die [`toString()`](/de/docs/Web/API/URL/toString)-Methode von `URL` gibt einfach den Wert der [`href`](/de/docs/Web/API/URL/href)-Eigenschaft zurück, sodass der Konstruktor verwendet werden kann, um eine URL direkt zu normalisieren und zu kodieren.
+Die Methode [`toString()`](/de/docs/Web/API/URL/toString) von `URL` gibt lediglich den Wert der Eigenschaft [`href`](/de/docs/Web/API/URL/href) zurück. Daher können Sie den Konstruktor verwenden, um eine URL direkt zu normalisieren und zu kodieren.
 
 ```js
 const response = await fetch(
@@ -128,7 +128,7 @@ const response = await fetch(
 
 ## Siehe auch
 
-- [Polyfill von `URL` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
+- [Polyfill für `URL` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
 - [URL API](/de/docs/Web/API/URL_API)
 - [Was ist eine URL?](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL)
 - [`URLSearchParams`](/de/docs/Web/API/URLSearchParams).

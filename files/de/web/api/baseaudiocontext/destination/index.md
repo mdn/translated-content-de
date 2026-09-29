@@ -1,14 +1,14 @@
 ---
-title: "BaseAudioContext: destination Eigenschaft"
+title: "BaseAudioContext: Eigenschaft destination"
 short-title: destination
 slug: Web/API/BaseAudioContext/destination
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `destination`-Eigenschaft der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle gibt einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zurück, der das endgültige Ziel aller Audios im Kontext darstellt. Es stellt oft ein tatsächliches Audio-Wiedergabegerät wie die Lautsprecher Ihres Geräts dar.
+Die schreibgeschützte Eigenschaft **`destination`** der Schnittstelle [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) gibt einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zurück, der das endgültige Ziel aller Audiodaten im Kontext darstellt. Häufig ist dies ein tatsächliches Audiowiedergabegerät, beispielsweise die Lautsprecher Ihres Geräts.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Ein [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode).
 ## Beispiele
 
 > [!NOTE]
-> Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+> Ausführlichere Anwendungsbeispiele und Informationen finden Sie in unserer Demo [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic). Den relevanten Code finden Sie in [app.js, Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193).
 
 ```js
 const audioCtx = new AudioContext();

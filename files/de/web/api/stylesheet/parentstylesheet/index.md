@@ -1,15 +1,14 @@
 ---
-title: "StyleSheet: parentStyleSheet-Eigenschaft"
+title: "StyleSheet: Eigenschaft parentStyleSheet"
 short-title: parentStyleSheet
 slug: Web/API/StyleSheet/parentStyleSheet
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`parentStyleSheet`**-Eigenschaft der
-[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt das Stylesheet zurück, das das angegebene Stylesheet einbindet, sofern vorhanden.
+Die schreibgeschützte Eigenschaft **`parentStyleSheet`** der Schnittstelle [`StyleSheet`](/de/docs/Web/API/StyleSheet) gibt das Stylesheet zurück, das das betreffende Stylesheet einbindet, sofern eines vorhanden ist.
 
 ## Wert
 
@@ -22,9 +21,9 @@ Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt.
 const sheet = stylesheet.parentStyleSheet ?? stylesheet;
 ```
 
-## Anmerkungen
+## Hinweise
 
-Diese Eigenschaft gibt `null` zurück, wenn das aktuelle Stylesheet ein oberstes Stylesheet ist oder wenn die Einbindung von Stylesheets nicht unterstützt wird.
+Diese Eigenschaft gibt `null` zurück, wenn das aktuelle Stylesheet ein Stylesheet der obersten Ebene ist oder wenn die Einbindung von Stylesheets nicht unterstützt wird.
 
 ## Spezifikationen
 

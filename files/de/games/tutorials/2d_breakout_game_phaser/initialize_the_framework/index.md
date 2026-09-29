@@ -1,24 +1,24 @@
 ---
-title: Initialisieren des Frameworks
+title: Das Framework initialisieren
 slug: Games/Tutorials/2D_breakout_game_Phaser/Initialize_the_framework
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
-{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser", "Games/Tutorials/2D_breakout_game_Phaser/Scaling")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser", "Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball")}}
 
-Dies ist das erste von 16 Tutorials, um zu lernen, wie man [Gamedev Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) verwendet. Bevor wir mit dem Schreiben der Spielfunktionalität beginnen können, müssen wir eine grundlegende Struktur erstellen, um das Spiel darin zu rendern. Dies kann mithilfe von HTML erfolgen – das Phaser-Framework wird das erforderliche {{htmlelement("canvas")}}-Element generieren.
+Dies ist der **1. von 12 Schritten** des [Tutorials zum Erstellen eines Breakout-Spiels mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Bevor wir die Spielfunktionen programmieren, müssen wir eine grundlegende Struktur erstellen, um das Spiel darzustellen. Dazu initialisieren wir das Phaser-Framework in einem einfachen HTML-Dokument. Phaser erzeugt dann das benötigte {{htmlelement("canvas")}}-Element.
 
 ## Das HTML des Spiels
 
-Die Struktur des HTML-Dokuments ist recht einfach, da das Spiel vollständig auf dem {{htmlelement("canvas")}}-Element gerendert wird, das vom Framework generiert wird. Erstellen Sie mit Ihrem bevorzugten Texteditor ein neues HTML-Dokument, speichern Sie es als `index.html` an einem sinnvollen Ort und fügen Sie den folgenden Code ein:
+Das Spiel wird vollständig auf dem vom Framework erzeugten {{htmlelement("canvas")}}-Element dargestellt. Erstellen Sie mit einem Texteditor Ihrer Wahl ein neues HTML-Dokument, speichern Sie es an einem geeigneten Ort als `index.html` und fügen Sie den folgenden Code ein:
 
 ```html
 <!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
-    <title>Gamedev Phaser Workshop - lesson 01: Initialize the framework</title>
+    <title>Breakout game</title>
     <style>
       * {
         padding: 0;
@@ -32,7 +32,7 @@ Die Struktur des HTML-Dokuments ist recht einfach, da das Spiel vollständig auf
 </html>
 ```
 
-Erstellen Sie ein neues `js`-Verzeichnis an dem gleichen Ort wie Ihre `index.html`-Datei und erstellen Sie darin eine neue Datei namens `script.js`. Hier werden wir den JavaScript-Code schreiben, der das Spiel steuert. Anfangs sollte es Folgendes enthalten:
+Erstellen Sie anschließend am selben Ort wie die Datei `index.html` ein neues Verzeichnis namens `js` und darin eine Datei namens `script.js`. In diese Datei schreiben wir den JavaScript-Code, der das Spiel steuert. Zunächst sollte sie Folgendes enthalten:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -46,47 +46,56 @@ const config = {
   width: 480,
   height: 320,
   scene: ExampleScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  backgroundColor: "#eeeeee",
 };
 
 const game = new Phaser.Game(config);
 ```
 
-## Herunterladen des Phaser-Codes
+## Phaser-Code herunterladen
 
-Als Nächstes müssen wir den Phaser-Quellcode herunterladen und in unser HTML-Dokument einbinden. Dieses Tutorial verwendet Phaser v3 (v3.90.0 zum Zeitpunkt des Schreibens, obwohl neuere Minor-Versionen genauso funktionieren sollten).
+Als Nächstes müssen wir den Phaser-Quellcode herunterladen und in unser HTML-Dokument einbinden. Dieses Tutorial verwendet Phaser v3 (zum Zeitpunkt der Erstellung v3.90.0; neuere Minor-Versionen sollten genauso funktionieren).
 
-1. Gehen Sie zur [Phaser-Download-Seite](https://phaser.io/download/stable).
-2. Wählen Sie eine für Sie passende Option – wir empfehlen die _phaser.min.js_-Option, da sie den Quellcode kleiner hält und es unwahrscheinlich ist, dass Sie den Quellcode durchgehen werden.
-3. Speichern Sie den Phaser-Code im `js`-Verzeichnis. Wenn Sie einen anderen Dateinamen verwenden, stellen Sie sicher, dass Sie den `src`-Wert des ersten {{htmlelement("script")}}-Elements im HTML entsprechend aktualisieren.
+1. Rufen Sie die [Phaser-Downloadseite](https://phaser.io/download/stable) auf.
+2. Wählen Sie eine passende Option. Wir empfehlen _phaser.min.js_, da diese Datei kleiner ist und Sie den Quellcode wahrscheinlich ohnehin nicht durchsehen werden.
+3. Speichern Sie den Phaser-Code im Verzeichnis `js`. Wenn Sie einen anderen Dateinamen verwenden, passen Sie den `src`-Wert des ersten {{htmlelement("script")}}-Elements im HTML entsprechend an.
 
-## Durchgehen, was wir bisher haben
+## Was wir bisher erstellt haben
 
-Zu diesem Zeitpunkt haben wir ein `charset` definiert, einen {{htmlelement("title")}} und ein einfaches CSS im Header, um den Standardabstand `margin` und `padding` zurückzusetzen. Wir haben auch ein {{htmlelement("script")}}-Element, um den Phaser-Quellcode auf die Seite anzuwenden. Der Body enthält ein zweites {{htmlelement("script")}}-Element, in dem wir den JavaScript-Code schreiben werden, um das Spiel zu rendern und zu steuern.
+Im Head unseres Dokuments befinden sich ein `charset`, ein {{htmlelement("title")}}, etwas grundlegendes CSS zum Zurücksetzen der Standardwerte für `margin` und `padding` sowie zwei {{htmlelement("script")}}-Elemente. Das eine bindet den Phaser-Quellcode in die Seite ein; das andere verweist auf den JavaScript-Code, den wir schreiben werden, um das Spiel darzustellen und zu steuern.
 
-Das {{htmlelement("canvas")}}-Element wird automatisch vom Framework generiert. Wir initialisieren es, indem wir ein neues `Phaser.Game`-Objekt erstellen und es der `game`-Variable zuweisen. Die Parameter sind:
+Das {{htmlelement("canvas")}}-Element wird automatisch vom Framework erzeugt. Wir initialisieren es, indem wir ein neues `Phaser.Game`-Objekt erstellen und der Variablen `game` zuweisen. Die Parameter sind:
 
-- Die Render-Methode. Die verfügbaren Optionen sind `AUTO`, `CANVAS`, `WEBGL`, `HEADLESS`. Wir können entweder `CANVAS` oder `WEBGL` explizit setzen oder `AUTO` verwenden, damit Phaser entscheidet, welche Option verwendet wird. Es verwendet normalerweise WebGL, wenn es im Browser verfügbar ist, und fällt auf Canvas 2D zurück, wenn nicht. Die letzte Option, `HEADLESS`, wird für serverseitiges Rendern oder Testen verwendet, was für dieses Tutorial nicht relevant ist.
-- Die Breite und Höhe, um das {{htmlelement("canvas")}}-Element einzustellen.
-- Die Szene, die dem Spiel hinzugefügt werden soll. In diesem Fall erstellen wir eine neue Klasse namens `ExampleScene`, die `Phaser.Scene` erweitert. Diese Klasse implementiert die Methoden, die Phaser in verschiedenen Phasen des Spielzyklus aufruft. Wir werden diese Methoden später ausfüllen:
-  - `preload` kümmert sich um das Vorladen der Assets
-  - `create` wird einmal ausgeführt, wenn alles geladen und bereit ist
-  - `update` wird in jedem Frame ausgeführt.
+- Die Rendering-Methode. Verfügbar sind `AUTO`, `CANVAS`, `WEBGL` und `HEADLESS`. Wir können `CANVAS` oder `WEBGL` ausdrücklich festlegen oder mit `AUTO` Phaser die Wahl überlassen. Phaser verwendet normalerweise WebGL, wenn es im Browser verfügbar ist, und greift andernfalls auf Canvas 2D zurück. Die letzte Option, `HEADLESS`, wird für serverseitiges Rendering oder Tests verwendet und ist für dieses Tutorial nicht relevant.
+- Die Breite und Höhe des {{htmlelement("canvas")}}-Elements.
+- Die Scene, die dem Spiel hinzugefügt werden soll. Hier erstellen wir eine neue Klasse namens `ExampleScene`, die `Phaser.Scene` erweitert. Diese Klasse implementiert die Methoden, die Phaser in verschiedenen Phasen des Spiellebenszyklus aufruft. Diese Methoden werden wir später ausfüllen:
+  - `preload` übernimmt das Vorladen der Assets.
+  - `create` wird einmal ausgeführt, wenn alles geladen und bereit ist.
+  - `update` wird bei jedem Frame ausgeführt.
+- Die Skalierung des Spiel-Canvas. Hier skaliert `mode: Phaser.Scale.FIT` den Canvas so, dass er in den verfügbaren Platz passt, ohne das Seitenverhältnis zu verändern. Je nach Seitenverhältnis füllt er den Platz möglicherweise nicht vollständig aus. Die andere Eigenschaft, `autoCenter`, richtet das Canvas-Element horizontal und vertikal aus, sodass es unabhängig von seiner Größe immer auf dem Bildschirm zentriert ist.
+- Die Hintergrundfarbe: ein helles Grau statt des standardmäßigen Schwarz.
 
-## Ausführen der Anwendung
+## Anwendung ausführen
 
-Um die App auszuführen, können Sie die `index.html`-Datei nicht direkt öffnen, da wir später externe Assets laden werden, die durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) des Browsers blockiert werden.
+Sie können die Anwendung nicht ausführen, indem Sie die Datei `index.html` direkt öffnen. Später werden wir externe Assets laden, was durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) des Browsers blockiert würde.
 
-Um das Problem zu beheben, müssen Sie einen lokalen Webserver ausführen, um die HTML-Dateien und die Bilddateien bereitzustellen. [Wie das offizielle Dokument von Phaser vorschlägt](https://docs.phaser.io/phaser/getting-started/set-up-dev-environment#installing-a-web-server), haben wir viele Möglichkeiten, einen lokalen Webserver zu betreiben. Wir haben auch unsere eigenen [Tutorials zum Einrichten eines lokalen Servers](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) – verwenden Sie jede Option, die Sie bevorzugen. Wenn Sie beispielsweise den Python HTTP-Server verwenden möchten, öffnen Sie ein Terminal, navigieren Sie zu dem Verzeichnis, in dem sich Ihre `index.html`-Datei befindet, und führen Sie den folgenden Befehl aus:
+Um das Problem zu lösen, müssen Sie einen lokalen Webserver starten, der die HTML- und Bilddateien bereitstellt. [Wie die offizielle Phaser-Dokumentation erläutert](https://docs.phaser.io/phaser/getting-started/set-up-dev-environment#installing-a-web-server), gibt es dafür viele Möglichkeiten. Wir haben außerdem eigene [Tutorials zum Einrichten eines lokalen Servers](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server). Wählen Sie die Option, die Ihnen am besten passt. Wenn Sie beispielsweise den Python-HTTP-Server verwenden möchten, öffnen Sie ein Terminal, wechseln Sie in das Verzeichnis mit Ihrer Datei `index.html` und führen Sie den folgenden Befehl aus:
 
 ```bash
 python3 -m http.server
 ```
 
-Dies startet einen einfachen HTTP-Server auf Port 8000. Öffnen Sie dann Ihren Webbrowser und navigieren Sie zu `http://localhost:8000/index.html`.
+Dadurch wird ein einfacher HTTP-Server auf Port 8000 gestartet. Öffnen Sie dann Ihren Webbrowser und rufen Sie `http://localhost:8000/index.html` auf.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live in Aktion. Um den Quellcode anzusehen, klicken Sie auf die Schaltfläche "Play".
+So sollte Ihr bisheriger Stand aussehen, hier als Live-Beispiel. Klicken Sie auf die Schaltfläche „Play“, um den Quellcode anzuzeigen.
+
+Außer dem hellgrauen Canvas-Hintergrund ist hier noch nichts zu sehen.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -111,6 +120,11 @@ const config = {
   width: 480,
   height: 320,
   scene: ExampleScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  backgroundColor: "#eeeeee",
 };
 
 const game = new Phaser.Game(config);
@@ -120,6 +134,6 @@ const game = new Phaser.Game(config);
 
 ## Nächste Schritte
 
-Jetzt, da wir das grundlegende HTML eingerichtet und ein wenig über die Initialisierung von Phaser gelernt haben, fahren wir mit der zweiten Lektion fort und lernen etwas über [Skalierung](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Scaling).
+Nachdem wir das grundlegende HTML eingerichtet und etwas über die Initialisierung von Phaser gelernt haben, fahren wir mit der zweiten Lektion fort und sehen uns an, wie Sie [einen Ball darstellen und bewegen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball).
 
-{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser", "Games/Tutorials/2D_breakout_game_Phaser/Scaling")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser", "Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball")}}

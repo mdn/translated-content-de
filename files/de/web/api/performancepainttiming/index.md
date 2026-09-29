@@ -2,58 +2,58 @@
 title: PerformancePaintTiming
 slug: Web/API/PerformancePaintTiming
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("Performance API")}}
 
-Das **`PerformancePaintTiming`**-Interface bietet Zeitinformationen über "Paint" (auch "Render" genannt)-Operationen während des Aufbaus einer Webseite. "Paint" bezieht sich auf die Umwandlung des Render-Trees in On-Screen-Pixel.
+Die **`PerformancePaintTiming`**-Schnittstelle liefert Zeitinformationen zu „Paint“-Vorgängen (auch „Render“-Vorgänge genannt) beim Aufbau einer Webseite. „Paint“ bezeichnet die Umwandlung des Render-Baums in Bildschirmpixel.
 
-Diese API liefert zwei wesentliche Paint-Momente:
+Diese API liefert Informationen zu zwei wichtigen Paint-Zeitpunkten:
 
-- {{Glossary("First_Paint", "First Paint")}} (FP): Zeitpunkt, zu dem irgendetwas gerendert wird. Beachten Sie, dass das Markieren des First Paint optional ist und nicht alle User-Agents dies melden.
-- {{Glossary("First_Contentful_Paint", "First Contentful Paint")}} (FCP): Zeitpunkt, zu dem das erste {{Glossary("Contentful_paint", "contentful paint")}} — das erste Stück DOM-Text oder Bildinhalt gerendert wird.
+- {{Glossary("First_Paint", "First Paint")}} (FP): Der Zeitpunkt, zu dem erstmals etwas dargestellt wird. Die Erfassung dieses Zeitpunkts ist optional; nicht alle User Agents melden ihn.
+- {{Glossary("First_Contentful_Paint", "First Contentful Paint")}} (FCP): Der Zeitpunkt, zu dem erstmals {{Glossary("Contentful_paint", "inhaltstragender Inhalt")}} dargestellt wird – also der erste DOM-Text oder Bildinhalt.
 
-Ein dritter wesentlicher Paint-Moment wird von der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) API bereitgestellt:
+Einen dritten wichtigen Paint-Zeitpunkt liefert die [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-API:
 
-- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP): Zeitpunkt des Renderings des größten Bild- oder Textblocks, der im Viewport sichtbar ist, und aufgezeichnet ab dem Zeitpunkt, zu dem die Seite zu laden beginnt.
+- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP): Der Zeitpunkt, zu dem das größte im Viewport sichtbare Bild oder der größte Textblock dargestellt wird, gemessen ab dem Beginn des Seitenladens.
 
-Die von dieser API bereitgestellten Daten helfen Ihnen, die Wartezeit zu minimieren, die Benutzer in Kauf nehmen müssen, bevor sie den Inhalt der Website sehen können. Die Verkürzung der Zeit bis zu diesen Schlüssel-Paint-Momenten lässt Websites reaktionsschneller, leistungsfähiger und ansprechender für Ihre Benutzer erscheinen.
+Die Daten dieser API helfen Ihnen, die Wartezeit zu verkürzen, bis Nutzer erste Inhalte der Website sehen können. Kürzere Zeiten bis zu diesen wichtigen Paint-Zeitpunkten lassen Websites reaktionsschneller, leistungsfähiger und ansprechender wirken.
 
 Wie andere Performance-APIs erweitert diese API [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Dieses Interface definiert direkt die folgenden Eigenschaften:
+Diese Schnittstelle definiert direkt die folgenden Eigenschaften:
 
-- [`PerformancePaintTiming.paintTime`](/de/docs/Web/API/PerformancePaintTiming/paintTime)
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die Rendering-Phase endete und die Paint-Phase begann.
-- [`PerformancePaintTiming.presentationTime`](/de/docs/Web/API/PerformancePaintTiming/presentationTime)
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die gemalten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
+- [`PerformancePaintTiming.paintTime`](/de/docs/Web/API/PerformancePaintTiming/paintTime) {{ReadOnlyInline}}
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Rendering-Phase endete und die Paint-Phase begann.
+- [`PerformancePaintTiming.presentationTime`](/de/docs/Web/API/PerformancePaintTiming/presentationTime) {{ReadOnlyInline}}
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die erzeugten Pixel tatsächlich auf dem Bildschirm angezeigt wurden.
 
-Es erweitert auch die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem es sie nachfolgend beschreibt und einschränkt:
+Sie erweitert außerdem die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) und legt deren Werte wie beschrieben fest:
 
-- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType)
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Gibt `"paint"` zurück.
-- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name)
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
   - : Gibt entweder `"first-paint"` oder `"first-contentful-paint"` zurück.
-- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime)
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann das Paint erfolgt ist.
-- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration)
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem der Paint-Vorgang stattfand.
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
   - : Gibt 0 zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`PerformancePaintTiming.toJSON()`](/de/docs/Web/API/PerformancePaintTiming/toJSON)
-  - : Überschreibt die [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON)-Methode, um eine JSON-Repräsentation des `PerformancePaintTiming`-Objekts zurückzugeben.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformancePaintTiming`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiele
 
-### Grundlegende Paint-Timings erhalten
+### Grundlegende Paint-Zeiten abrufen
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `paint`-Performance-Einträge informiert, sobald sie in der Performance-Timeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `paint`-Performance-Einträge informiert, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden. Mit der Option `buffered` können Sie auch auf Einträge zugreifen, die vor der Erstellung des Observers erfasst wurden.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -69,7 +69,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "paint", buffered: true });
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `paint`-Performance-Einträge anzeigt, die in der Performance-Timeline des Browsers vorhanden sind, wenn diese Methode aufgerufen wird:
+Dieses Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType). Die Methode zeigt nur die `paint`-Performance-Einträge an, die zum Zeitpunkt ihres Aufrufs in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("paint");
@@ -80,11 +80,11 @@ entries.forEach((entry) => {
 });
 ```
 
-### Separate Paint- und Präsentationszeitpunkte erhalten
+### Getrennte Paint- und Anzeigezeiten abrufen
 
-Die Eigenschaften `paintTime` und `presentationTime` ermöglichen es Ihnen, spezifische Zeiten für den Beginn der Paint-Phase und das Zeichnen der gemalten Pixel auf dem Bildschirm abzurufen. Die `paintTime` ist weitgehend interoperabel, während die `presentationTime` von der Implementierung abhängt.
+Mit den Eigenschaften `paintTime` und `presentationTime` können Sie die Zeitpunkte abrufen, zu denen die Paint-Phase beginnt beziehungsweise die erzeugten Pixel auf dem Bildschirm angezeigt werden. `paintTime` wird browserübergreifend weitgehend unterstützt, während `presentationTime` von der Implementierung abhängt.
 
-Dieses Beispiel baut auf dem vorherigen [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType)-Beispiel auf und zeigt, wie Sie die Unterstützung für `paintTime` und `presentationTime` überprüfen und diese Werte abrufen können, wenn sie verfügbar sind. In nicht unterstützten Browsern ruft der Code die `loadTime` ab.
+Dieses Beispiel baut auf dem vorherigen Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) auf. Es zeigt, wie Sie die Unterstützung für `paintTime` und `presentationTime` prüfen und die Werte abrufen, sofern sie verfügbar sind. In Browsern, die diese Eigenschaften nicht unterstützen, ruft der Code `loadTime` ab.
 
 ```js
 const entries = performance.getEntriesByType("paint");

@@ -1,17 +1,17 @@
 ---
-title: Buttons
+title: Schaltflächen
 slug: Games/Tutorials/2D_breakout_game_Phaser/Buttons
 l10n:
-  sourceCommit: 6eae35bc64a49865a469ca29bc40e6993b9cb8cc
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens", "Games/Tutorials/2D_breakout_game_Phaser/Randomizing_gameplay")}}
 
-Dies ist der **15. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Anstatt das Spiel sofort zu starten, können wir diese Entscheidung dem Spieler überlassen, indem wir einen Start-Button hinzufügen, den er drücken kann. Lassen Sie uns untersuchen, wie das geht.
+Dies ist der **11. von 12 Schritten** im [Tutorial zum Erstellen eines Breakout-Spiels mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Anstatt das Spiel sofort zu starten, können wir die Entscheidung den Spielenden überlassen, indem wir eine Startschaltfläche hinzufügen. Sehen wir uns an, wie das geht.
 
 ## Neue Eigenschaften
 
-Wir benötigen eine Eigenschaft, um einen booleschen Wert zu speichern, der darstellt, ob das Spiel gerade gespielt wird oder nicht, und eine weitere, um unseren Button darzustellen. Fügen Sie diese Zeilen unter Ihren anderen Eigenschaftsdefinitionen hinzu:
+Wir benötigen eine Eigenschaft für einen booleschen Wert, der angibt, ob das Spiel gerade läuft, und eine weitere für die Schaltfläche. Fügen Sie diese Zeilen unter Ihren anderen Eigenschaftsdefinitionen hinzu:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -22,9 +22,9 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-## Laden des Button-Spritesheets
+## Das Spritesheet der Schaltfläche laden
 
-Wir können das Button-Spritesheet laden, genau wie wir die Wobble-Animation des Balls geladen haben. Fügen Sie Folgendes am Ende der `preload()`-Methode hinzu:
+Wir können das Spritesheet der Schaltfläche genauso laden wie die Wackelanimation des Balls. Fügen Sie Folgendes am Ende der Methode `preload()` hinzu:
 
 ```js
 this.load.spritesheet("button", "img/button.png", {
@@ -33,13 +33,13 @@ this.load.spritesheet("button", "img/button.png", {
 });
 ```
 
-Ein einzelner Button-Rahmen ist 120 Pixel breit und 40 Pixel hoch.
+Ein einzelner Frame der Schaltfläche ist 120 Pixel breit und 40 Pixel hoch.
 
-Sie müssen auch das [Button-Spritesheet herunterladen](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/button.png) und es in Ihrem `/img` Verzeichnis speichern.
+Sie müssen außerdem [das Spritesheet der Schaltfläche herunterladen](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/button.png) und in Ihrem Verzeichnis `/img` speichern.
 
-## Hinzufügen des Buttons zum Spiel
+## Die Schaltfläche zum Spiel hinzufügen
 
-Das Hinzufügen des neuen Buttons zum Spiel erfolgt durch die Verwendung der `add.sprite` Methode. Fügen Sie die folgenden Zeilen am Ende Ihrer `create()` Methode hinzu:
+Die neue Schaltfläche wird mit der Methode `add.sprite` zum Spiel hinzugefügt. Fügen Sie die folgenden Zeilen am Ende Ihrer Methode `create()` hinzu:
 
 ```js
 this.startButton = this.add.sprite(
@@ -50,9 +50,11 @@ this.startButton = this.add.sprite(
 );
 ```
 
-Zusätzlich zu den Parametern, die wir bei den anderen `add.sprite`-Aufrufen übergeben haben (wie beim Hinzufügen des Balls und des Paddels), geben wir diesmal auch die Rahmennummer an, die in diesem Fall `0` ist. Das bedeutet, dass der erste Rahmen des Spritesheets für das anfängliche Erscheinungsbild des Buttons verwendet wird.
+Zusätzlich zu den Parametern, die wir bei den anderen Aufrufen von `add.sprite` übergeben haben (etwa beim Hinzufügen von Ball und Schläger), übergeben wir diesmal auch die Frame-Nummer, in diesem Fall `0`. Dadurch wird der erste Frame des Spritesheets für das anfängliche Aussehen der Schaltfläche verwendet.
 
-Um den Button auf verschiedene Eingaben wie Mausklicks reagieren zu lassen, müssen wir die folgenden Zeilen direkt nach dem vorherigen `add.sprite`-Aufruf hinzufügen:
+## Eingaben über die Schaltfläche verarbeiten
+
+Damit die Schaltfläche auf verschiedene Eingaben wie Mausklicks reagiert, fügen Sie direkt nach dem vorherigen Aufruf von `add.sprite` die folgenden Zeilen hinzu:
 
 ```js
 this.startButton.setInteractive();
@@ -86,14 +88,16 @@ this.startButton.on(
 );
 ```
 
-Zuerst rufen wir `setInteractive` auf dem Button auf, um ihn auf Zeigerereignisse reagieren zu lassen. Dann fügen wir dem Button die vier Ereignislistener hinzu:
+Zunächst rufen wir `setInteractive` für die Schaltfläche auf, damit sie auf Pointer-Ereignisse reagiert. Anschließend fügen wir der Schaltfläche vier Event-Listener hinzu:
 
-- `pointerover`: Wenn sich der Zeiger über dem Button befindet, ändern wir den Button-Rahmen auf `1`, den zweiten Rahmen des Spritesheets.
-- `pointerdown`: Wenn der Button gedrückt wird, ändern wir den Button-Rahmen auf `2`, den dritten Rahmen des Spritesheets.
-- `pointerout`: Wenn der Zeiger den Button verlässt, ändern wir den Button-Rahmen zurück auf `0`, den ersten Rahmen des Spritesheets.
-- `pointerup`: Wenn der Button losgelassen wird, rufen wir die `startGame`-Methode auf, um das Spiel zu starten.
+- `pointerover` – Wenn sich der Pointer über der Schaltfläche befindet, wechseln wir zum Frame `1`, dem zweiten Frame des Spritesheets.
+- `pointerdown` – Wenn die Schaltfläche gedrückt wird, wechseln wir zum Frame `2`, dem dritten Frame des Spritesheets.
+- `pointerout` – Wenn der Pointer die Schaltfläche verlässt, wechseln wir zurück zum Frame `0`, dem ersten Frame des Spritesheets.
+- `pointerup` – Wenn die Schaltfläche losgelassen wird, rufen wir die Methode `startGame` auf, um das Spiel zu starten.
 
-Nun müssen wir die oben im Code erwähnte `startGame()` Methode definieren:
+## Das Spiel starten
+
+Jetzt müssen wir die oben referenzierte Methode `startGame()` definieren:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -106,13 +110,13 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Wenn der Button gedrückt wird, entfernen wir den Button, setzen die Anfangsgeschwindigkeit des Balls und setzen die `playing` Eigenschaft auf `true`.
+Wenn die Schaltfläche gedrückt wird, entfernen wir sie, legen die Anfangsgeschwindigkeit des Balls fest und setzen die Eigenschaft `playing` auf `true`.
 
-Abschließend für diesen Abschnitt, gehen Sie zurück in Ihre `create` Methode, finden Sie die Zeile `this.ball.body.setVelocity(150, -150);` und entfernen Sie sie. Der Ball soll sich erst bewegen, wenn der Button gedrückt wurde, nicht vorher!
+Kehren Sie zum Abschluss dieses Abschnitts zu Ihrer Methode `create` zurück, suchen Sie die Zeile `this.ball.body.setVelocity(150, -150);` und entfernen Sie sie. Der Ball soll sich erst bewegen, wenn die Schaltfläche gedrückt wurde!
 
-## Das Paddle unbeweglich halten, bevor das Spiel startet
+## Den Schläger vor Spielbeginn stillhalten
 
-Es funktioniert wie erwartet, aber wir können das Paddle noch bewegen, wenn das Spiel noch nicht gestartet wurde, was etwas albern aussieht. Um dies zu verhindern, können wir die `playing` Eigenschaft nutzen und das Paddle nur beweglich machen, wenn das Spiel gestartet wurde. Dafür passen Sie die `update()` Methode folgendermaßen an:
+Das funktioniert wie erwartet, aber wir können den Schläger auch dann noch bewegen, wenn das Spiel noch nicht begonnen hat. Das wirkt etwas seltsam. Um das zu verhindern, können wir die Eigenschaft `playing` nutzen und den Schläger nur dann beweglich machen, wenn das Spiel begonnen hat. Passen Sie dazu die Methode `update()` wie folgt an:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -128,11 +132,11 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Auf diese Weise ist das Paddle unbeweglich, nachdem alles geladen und vorbereitet wurde, aber bevor das eigentliche Spiel beginnt.
+So bleibt der Schläger unbeweglich, nachdem alles geladen und vorbereitet wurde, aber bevor das eigentliche Spiel beginnt.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live laufend. Um den Quellcode anzusehen, klicken Sie auf den "Play" Button.
+So sollte Ihr bisheriger Stand aussehen. Das Beispiel ist direkt ausführbar. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -157,6 +161,9 @@ class ExampleScene extends Phaser.Scene {
   lives = 3;
   livesText;
   lifeLostText;
+
+  playing = false;
+  startButton;
 
   preload() {
     this.load.setBaseURL(
@@ -386,10 +393,10 @@ const config = {
 const game = new Phaser.Game(config);
 ```
 
-{{EmbedLiveSample("vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
+{{EmbedLiveSample("compare your code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Das Letzte, was wir in dieser Artikelreihe tun werden, ist, das Gameplay noch interessanter zu machen, indem wir etwas [Randomisierung](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Randomizing_gameplay) in die Art und Weise einfügen, wie der Ball vom Paddle abprallt.
+Als Letztes werden wir in dieser Artikelserie das Spiel noch interessanter gestalten, indem wir etwas [Zufälligkeit](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Randomizing_gameplay) in die Art bringen, wie der Ball vom Schläger abprallt.
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Animations_and_tweens", "Games/Tutorials/2D_breakout_game_Phaser/Randomizing_gameplay")}}

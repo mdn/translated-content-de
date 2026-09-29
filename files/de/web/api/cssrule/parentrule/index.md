@@ -1,18 +1,18 @@
 ---
-title: "CSSRule: parentRule-Eigenschaft"
+title: "CSSRule: Eigenschaft parentRule"
 short-title: parentRule
 slug: Web/API/CSSRule/parentRule
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`parentRule`**-Eigenschaft des [`CSSRule`](/de/docs/Web/API/CSSRule)-Interfaces gibt die enthaltene Regel der aktuellen Regel zurück, falls vorhanden, oder andernfalls null.
+Die schreibgeschützte Eigenschaft **`parentRule`** der Schnittstelle [`CSSRule`](/de/docs/Web/API/CSSRule) gibt die umschließende Regel der aktuellen Regel zurück, falls eine solche existiert. Andernfalls gibt sie null zurück.
 
 ## Wert
 
-Ein [`CSSRule`](/de/docs/Web/API/CSSRule), welcher der Typ der enthaltenen Regeln ist. Wenn die aktuelle Regel in einer Media-Query enthalten ist, wird [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) zurückgegeben. Andernfalls wird null zurückgegeben.
+Eine [`CSSRule`](/de/docs/Web/API/CSSRule), deren Typ dem der umschließenden Regel entspricht. Befindet sich die aktuelle Regel innerhalb einer Media Query, wird eine [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) zurückgegeben. Andernfalls wird null zurückgegeben.
 
 ## Beispiele
 

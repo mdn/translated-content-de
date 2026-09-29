@@ -1,36 +1,36 @@
 ---
-title: "AudioBufferSourceNode: playbackRate-Eigenschaft"
+title: "AudioBufferSourceNode: Eigenschaft playbackRate"
 short-title: playbackRate
 slug: Web/API/AudioBufferSourceNode/playbackRate
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`playbackRate`**-Eigenschaft des [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Interfaces ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate)-[`AudioParam`](/de/docs/Web/API/AudioParam), das die Geschwindigkeit definiert, mit der das Audio wiedergegeben wird.
+Die schreibgeschützte Eigenschaft **`playbackRate`** der Schnittstelle [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate)-[`AudioParam`](/de/docs/Web/API/AudioParam), der die Geschwindigkeit festlegt, mit der das Audiomaterial wiedergegeben wird.
 
-Ein Wert von 1,0 zeigt an, dass es mit der gleichen Geschwindigkeit wie seine Abtastrate abgespielt werden soll. Werte unter 1,0 führen dazu, dass der Klang langsamer abgespielt wird, während Werte über 1,0 dazu führen, dass das Audio schneller als normal abgespielt wird. Der Standardwert ist `1.0`. Wenn ein anderer Wert gesetzt wird, resampelt der `AudioBufferSourceNode` das Audio, bevor es zum Ausgang gesendet wird.
+Ein Wert von 1.0 bedeutet, dass das Audiomaterial mit der Geschwindigkeit seiner Abtastrate wiedergegeben wird. Werte unter 1.0 bewirken eine langsamere Wiedergabe, während Werte über 1.0 zu einer schnelleren Wiedergabe als normal führen. Der Standardwert ist `1.0`. Wenn ein anderer Wert festgelegt wird, führt der `AudioBufferSourceNode` vor der Ausgabe ein Resampling des Audiomaterials durch.
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam), dessen [`value`](/de/docs/Web/API/AudioParam/value) ein Gleitkommawert ist, der die Wiedergabegeschwindigkeit des Audios als dezimaler Anteil der ursprünglichen Abtastrate angibt.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam), dessen [`value`](/de/docs/Web/API/AudioParam/value) eine Gleitkommazahl ist, die die Wiedergabegeschwindigkeit als Dezimalwert im Verhältnis zur ursprünglichen Abtastrate angibt.
 
-Betrachten Sie einen Soundpuffer, der Audio enthält, das mit 44,1 kHz (44.100 Samples pro Sekunde) abgetastet wurde. Sehen wir uns an, was einige Werte von `playbackRate` bewirken:
+Betrachten wir einen Audiopuffer mit Audiomaterial, das mit 44,1 kHz (44.100 Samples pro Sekunde) abgetastet wurde. Die folgenden Werte von `playbackRate` haben diese Auswirkungen:
 
-- Ein `playbackRate` von 1,0 spielt das Audio mit voller Geschwindigkeit ab, also 44.100 Hz.
-- Ein `playbackRate` von 0,5 spielt das Audio mit halber Geschwindigkeit ab, also 22.050 Hz.
-- Ein `playbackRate` von 2,0 verdoppelt die Wiedergabegeschwindigkeit des Audios auf 88.200 Hz.
+- Ein `playbackRate`-Wert von 1.0 gibt das Audiomaterial mit voller Geschwindigkeit wieder, also mit 44.100 Hz.
+- Ein `playbackRate`-Wert von 0.5 gibt das Audiomaterial mit halber Geschwindigkeit wieder, also mit 22.050 Hz.
+- Ein `playbackRate`-Wert von 2.0 verdoppelt die Wiedergabegeschwindigkeit des Audiomaterials auf 88.200 Hz.
 
 ## Beispiele
 
-### Festlegen von `playbackRate`
+### `playbackRate` festlegen
 
-In diesem Beispiel laden wir, wenn der Benutzer "Play" drückt, einen Audiotrack, decodieren ihn und platzieren ihn in einem [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode).
+Wenn der Benutzer in diesem Beispiel auf „Play“ klickt, laden wir eine Audiospur, dekodieren sie und übergeben sie an einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode).
 
-Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, sodass der Track in Schleife abgespielt wird, und spielt den Track ab.
+Anschließend setzt das Beispiel die Eigenschaft `loop` auf `true`, sodass die Audiospur in einer Schleife wiedergegeben wird, und startet die Wiedergabe.
 
-Der Benutzer kann die `playbackRate`-Eigenschaft mit einem [Bereichssteuerelement](/de/docs/Web/HTML/Reference/Elements/input/range) festlegen.
+Der Benutzer kann die Eigenschaft `playbackRate` über einen [Schieberegler](/de/docs/Web/HTML/Reference/Elements/input/range) festlegen.
 
 > [!NOTE]
 > Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer-source-node/playbackrate/) (oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/audio-buffer-source-node/playbackrate).)

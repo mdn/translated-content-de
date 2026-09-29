@@ -2,24 +2,24 @@
 title: SharedStorageWorkletGlobalScope
 slug: Web/API/SharedStorageWorkletGlobalScope
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 4ccd81240a6d531962fab92886631885a90bfa3c
 ---
 
 {{APIRef("Shared Storage API")}}{{non-standard_header}}
 
-Die **`SharedStorageWorkletGlobalScope`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den globalen Geltungsbereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls.
+Das **`SharedStorageWorkletGlobalScope`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den globalen Gültigkeitsbereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) {{deprecated_inline}} {{non-standard_inline}}
-  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts, das den gemeinsam genutzten Speicher für einen bestimmten Ursprung darstellt, wie er in einem Worklet-Kontext bereitgestellt wird.
+- [`sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) {{ReadOnlyInline}} {{deprecated_inline}} {{non-standard_inline}}
+  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts. Sie repräsentiert den gemeinsamen Speicher für eine bestimmte Origin, wie er in einem Worklet-Kontext verfügbar ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) {{deprecated_inline}} {{non-standard_inline}}
-  - : Registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die innerhalb des aktuellen Worklet-Moduls definiert ist.
+  - : Registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die im aktuellen Worklet-Modul definiert ist.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ class SelectURLOperation {
 register("ab-testing", SelectURLOperation);
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Übersichtsseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen.
+Auf der Übersichtsseite zur [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) finden Sie eine Erläuterung dieses Beispiels und Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

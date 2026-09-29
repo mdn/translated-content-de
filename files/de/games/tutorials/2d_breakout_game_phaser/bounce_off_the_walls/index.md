@@ -1,27 +1,27 @@
 ---
-title: Von den Wänden abstoßen
+title: Von den Wänden abprallen
 slug: Games/Tutorials/2D_breakout_game_Phaser/Bounce_off_the_walls
 l10n:
-  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Physics", "Games/Tutorials/2D_breakout_game_Phaser/Player_paddle_and_controls")}}
 
-Dies ist der **6. Schritt** von 16 des [Gamedev Phaser-Leitfadens](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Nachdem die Physik eingeführt wurde, können wir mit der Implementierung der Kollisionserkennung im Spiel beginnen. Zuerst betrachten wir die Wände.
+Dies ist der **4. Schritt** von 12 im [Tutorial zum Erstellen eines Breakout-Spiels mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Nachdem wir die Physik eingeführt haben, können wir nun die Kollisionserkennung ins Spiel einbauen. Zuerst befassen wir uns mit den Wänden.
 
-## Von den Weltgrenzen abprallen
+## Von den Grenzen der Spielwelt abprallen
 
-Der einfachste Weg, unser Ball von den Wänden abprallen zu lassen, besteht darin, dem Framework mitzuteilen, dass wir die Grenzen des {{htmlelement("canvas")}}-Elements als Wände behandeln möchten und der Ball nicht darüber hinaus bewegt werden darf. In Phaser kann dies einfach mit der Methode `setCollideWorldBounds()` erreicht werden. Fügen Sie diese Zeile direkt nach dem bestehenden Methodenaufruf `this.ball.body.setVelocity()` hinzu:
+Am einfachsten bringen wir den Ball dazu, von den Wänden abzuprallen, indem wir dem Framework mitteilen, dass es die Grenzen des {{htmlelement("canvas")}}-Elements als Wände behandeln und den Ball nicht darüber hinaus bewegen soll. In Phaser lässt sich das mit der Methode `setCollideWorldBounds()` erreichen. Fügen Sie diese Zeile direkt nach dem vorhandenen Aufruf der Methode `this.ball.body.setVelocity()` ein:
 
 ```js
 this.ball.body.setCollideWorldBounds(true, 1, 1);
 ```
 
-Das `true` weist Phaser an, die Kollisionserkennung mit den Weltgrenzen zu aktivieren, während die beiden `1`s der Rückstoßfaktor auf den x- und y-Achsen sind. Dies bedeutet, dass wenn der Ball eine Wand trifft, er mit der gleichen Geschwindigkeit zurückprallt, die er vor dem Treffer hatte. Versuchen Sie erneut, index.html zu laden — jetzt sollten Sie sehen, wie der Ball von allen Wänden abprallt und sich innerhalb des Canvas-Bereichs bewegt.
+Mit `true` wird die Kollisionserkennung an den Grenzen der Spielwelt aktiviert. Die beiden `1`-Werte geben den Abprallfaktor auf der x- beziehungsweise y-Achse an. Trifft der Ball auf eine Wand, prallt er mit derselben Geschwindigkeit zurück, die er vor dem Aufprall hatte. Laden Sie index.html erneut – jetzt sollten Sie sehen, wie der Ball von allen Wänden abprallt und sich innerhalb des Canvas-Bereichs bewegt.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live ausgeführt. Um den Quellcode zu sehen, klicken Sie auf die Schaltfläche "Play".
+So sollte Ihr bisheriger Code aussehen; das Beispiel ist direkt ausführbar. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -76,6 +76,6 @@ const game = new Phaser.Game(config);
 
 ## Nächste Schritte
 
-Das sieht jetzt mehr wie ein Spiel aus, aber wir können es auf keine Weise kontrollieren — es ist höchste Zeit, dass wir das [Spieler-Schläger und die Steuerung](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Player_paddle_and_controls) einführen.
+Allmählich sieht das Ganze wie ein Spiel aus, aber wir können es noch nicht steuern. Höchste Zeit, den [Spielerschläger und die Steuerung](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Player_paddle_and_controls) einzuführen.
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Physics", "Games/Tutorials/2D_breakout_game_Phaser/Player_paddle_and_controls")}}

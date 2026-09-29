@@ -2,40 +2,40 @@
 title: SVGStringList
 slug: Web/API/SVGStringList
 l10n:
-  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle **`SVGStringList`** definiert eine Liste von Zeichenketten.
+Das **`SVGStringList`**-Interface definiert eine Liste von Zeichenfolgen.
 
-Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden. Das bedeutet, dass Versuche, das Objekt zu ändern, dazu führen, dass eine Ausnahme ausgelöst wird.
+Ein `SVGStringList`-Objekt kann als schreibgeschützt festgelegt werden. Versuche, das Objekt zu ändern, lösen dann eine Ausnahme aus.
 
-Ein `SVGStringList`-Objekt ist indexierbar und kann wie ein Array mittels [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) aufgerufen werden. Das Lesen eines Index entspricht dem Aufruf von [`getItem()`](/de/docs/Web/API/SVGStringList/getItem). Das Zuweisen zu einem Index entspricht dem Aufruf von [`replaceItem()`](/de/docs/Web/API/SVGStringList/replaceItem), einschließlich der von dieser Methode ausgelösten Ausnahmen.
+Auf ein `SVGStringList`-Objekt kann über Indizes wie auf ein Array mit der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) zugegriffen werden. Das Lesen eines Index entspricht dem Aufruf von [`getItem()`](/de/docs/Web/API/SVGStringList/getItem). Die Zuweisung an einen Index entspricht dem Aufruf von [`replaceItem()`](/de/docs/Web/API/SVGStringList/replaceItem), einschließlich der dabei ausgelösten Ausnahmen.
 
 ## Instanzeigenschaften
 
-- [`length`](/de/docs/Web/API/SVGStringList/length)
-  - : Die Anzahl der Elemente in der Liste.
-- [`numberOfItems`](/de/docs/Web/API/SVGStringList/numberOfItems)
-  - : Die Anzahl der Elemente in der Liste.
+- [`length`](/de/docs/Web/API/SVGStringList/length) {{ReadOnlyInline}}
+  - : Die Anzahl der Einträge in der Liste.
+- [`numberOfItems`](/de/docs/Web/API/SVGStringList/numberOfItems) {{ReadOnlyInline}}
+  - : Die Anzahl der Einträge in der Liste.
 
 ## Instanzmethoden
 
 - [`appendItem()`](/de/docs/Web/API/SVGStringList/appendItem)
-  - : Fügt am Ende der Liste ein neues Element ein.
+  - : Fügt am Ende der Liste einen neuen Eintrag hinzu.
 - [`clear()`](/de/docs/Web/API/SVGStringList/clear)
-  - : Entfernt alle vorhandenen Elemente aus der Liste, sodass eine leere Liste entsteht.
+  - : Entfernt alle vorhandenen Einträge aus der Liste, sodass sie leer ist.
 - [`initialize()`](/de/docs/Web/API/SVGStringList/initialize)
-  - : Entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste erneut, sodass sie das einzelne durch den Parameter angegebene Element enthält.
+  - : Entfernt alle vorhandenen Einträge aus der Liste und initialisiert sie mit dem einzelnen Eintrag, der durch den Parameter angegeben wird.
 - [`getItem()`](/de/docs/Web/API/SVGStringList/getItem)
-  - : Gibt das angegebene Element aus der Liste zurück.
+  - : Gibt den angegebenen Eintrag aus der Liste zurück.
 - [`insertItemBefore()`](/de/docs/Web/API/SVGStringList/insertItemBefore)
-  - : Fügt ein neues Element an der angegebenen Position in die Liste ein.
+  - : Fügt an der angegebenen Position einen neuen Eintrag in die Liste ein.
 - [`removeItem()`](/de/docs/Web/API/SVGStringList/removeItem)
-  - : Entfernt ein vorhandenes Element aus der Liste.
+  - : Entfernt einen vorhandenen Eintrag aus der Liste.
 - [`replaceItem()`](/de/docs/Web/API/SVGStringList/replaceItem)
-  - : Ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
+  - : Ersetzt einen vorhandenen Eintrag in der Liste durch einen neuen Eintrag.
 
 ## Spezifikationen
 

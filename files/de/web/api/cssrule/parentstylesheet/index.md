@@ -1,15 +1,14 @@
 ---
-title: "CSSRule: Eigenschaft parentStyleSheet"
+title: "CSSRule: parentStyleSheet-Eigenschaft"
 short-title: parentStyleSheet
 slug: Web/API/CSSRule/parentStyleSheet
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`parentStyleSheet`**-Eigenschaft des
-[`CSSRule`](/de/docs/Web/API/CSSRule)-Interfaces gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, in dem die aktuelle Regel definiert ist.
+Die schreibgeschützte Eigenschaft **`parentStyleSheet`** der Schnittstelle [`CSSRule`](/de/docs/Web/API/CSSRule) gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, in dem die aktuelle Regel definiert ist.
 
 ## Wert
 

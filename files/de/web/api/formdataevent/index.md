@@ -2,14 +2,14 @@
 title: FormDataEvent
 slug: Web/API/FormDataEvent
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("DOM")}}
 
-Die **`FormDataEvent`**-Schnittstelle repräsentiert ein [`formdata`-Ereignis](/de/docs/Web/API/HTMLFormElement/formdata_event) – ein solches Ereignis wird auf einem [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt ausgelöst, nachdem die Eintragsliste, die die Formulardaten darstellt, erstellt wurde. Dies geschieht, wenn das Formular abgeschickt wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
+Das **`FormDataEvent`**-Interface repräsentiert ein [`formdata`-Ereignis](/de/docs/Web/API/HTMLFormElement/formdata_event). Ein solches Ereignis wird für ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt ausgelöst, nachdem die Eintragsliste mit den Formulardaten erstellt wurde. Dies geschieht beim Absenden des Formulars, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
 
-Dies ermöglicht es, ein [`FormData`](/de/docs/Web/API/FormData)-Objekt schnell als Antwort auf ein `formdata`-Ereignis zu erhalten, anstatt es selbst zusammenzustellen, wenn Sie Formulardaten über eine Methode wie [`fetch()`](/de/docs/Web/API/Window/fetch) übermitteln möchten (siehe [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)).
+So lässt sich als Reaktion auf ein `formdata`-Ereignis schnell ein [`FormData`](/de/docs/Web/API/FormData)-Objekt abrufen. Sie müssen es dann nicht selbst zusammenstellen, wenn Sie Formulardaten über eine Methode wie [`fetch()`](/de/docs/Web/API/Window/fetch) senden möchten (siehe [FormData-Objekte verwenden](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)).
 
 {{InheritanceDiagram}}
 
@@ -20,14 +20,14 @@ Dies ermöglicht es, ein [`FormData`](/de/docs/Web/API/FormData)-Objekt schnell 
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event)._
+_Erbt Eigenschaften vom übergeordneten Interface [`Event`](/de/docs/Web/API/Event)._
 
-- [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData)
-  - : Enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die im Formular enthaltenen Daten darstellt, als das Ereignis ausgelöst wurde.
+- [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData) {{ReadOnlyInline}}
+  - : Enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die beim Auslösen des Ereignisses im Formular enthaltenen Daten repräsentiert.
 
 ## Instanzmethoden
 
-_Erbt Methoden von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event)._
+_Erbt Methoden vom übergeordneten Interface [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
@@ -76,5 +76,5 @@ formElem.addEventListener("formdata", (e) => {
 
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
 - [`FormData`](/de/docs/Web/API/FormData)
-- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [FormData-Objekte verwenden](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

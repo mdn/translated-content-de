@@ -1,18 +1,18 @@
 ---
-title: "ServiceWorker: scriptURL-Eigenschaft"
+title: "ServiceWorker: Eigenschaft scriptURL"
 short-title: scriptURL
 slug: Web/API/ServiceWorker/scriptURL
 l10n:
-  sourceCommit: bc0237f139ee3a9db67a669ae1b6bf45ebba7f94
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Gibt die serialisierte Skript-URL des `ServiceWorker` zurück, die als Teil der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) definiert ist. Muss im gleichen Ursprung wie das Dokument sein, das den `ServiceWorker` registriert.
+Die schreibgeschützte Eigenschaft **`scriptURL`** der Schnittstelle [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gibt die serialisierte Skript-URL des `ServiceWorker` zurück, die im Rahmen von [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) festgelegt wurde. Die URL muss denselben Ursprung haben wie das Dokument, das den `ServiceWorker` registriert.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 

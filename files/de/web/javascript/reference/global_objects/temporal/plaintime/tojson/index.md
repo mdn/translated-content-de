@@ -3,10 +3,10 @@ title: Temporal.PlainTime.prototype.toJSON()
 short-title: toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/toJSON
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 13d5331637ae88b41af236e4b3d1b6c901d08f69
 ---
 
-Die **`toJSON()`** Methode von {{jsxref("Temporal.PlainTime")}} Instanzen gibt einen String zurück, der diese Zeit im gleichen [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/PlainTime/toString", "toString()")}}. Diese Methode wird implizit von {{jsxref("JSON.stringify()")}} aufgerufen.
+Die Methode **`toJSON()`** von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt einen String zurück, der diese Uhrzeit im selben [RFC-9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/PlainTime/toString", "toString()")}}. Sie ist dafür vorgesehen, implizit von {{jsxref("JSON.stringify()")}} aufgerufen zu werden.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die gegebene Zeit im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format) darstellt.
+Ein String, der die angegebene Uhrzeit im [RFC-9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format) darstellt.
 
 ## Beschreibung
 
-Die `toJSON()` Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.PlainTime` Objekt in einen String umgewandelt wird. Diese Methode ist im Allgemeinen dazu gedacht, `Temporal.PlainTime` Objekte während der {{Glossary("JSON", "JSON")}} Serialisierung sinnvoll zu serialisieren, was dann mit der Funktion {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} als Wiederherstellungsfunktion von {{jsxref("JSON.parse()")}} deserialisiert werden kann.
+Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.PlainTime`-Objekt in einen String umgewandelt wird. Die Methode dient dazu, `Temporal.PlainTime`-Objekte bei der {{Glossary("JSON", "JSON")}}-Serialisierung standardmäßig in einer nützlichen Form zu serialisieren. Anschließend können sie mit der Funktion {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} innerhalb des Revivers von {{jsxref("JSON.parse()")}} deserialisiert werden.
 
 ## Beispiele
 
-### Nutzung von toJSON()
+### toJSON() verwenden
 
 ```js
 const time = Temporal.PlainTime.from({ hour: 12, minute: 34, second: 56 });
@@ -38,7 +38,7 @@ const t2 = Temporal.PlainTime.from(timeStr);
 
 ### JSON-Serialisierung und -Parsing
 
-Dieses Beispiel zeigt, wie `Temporal.PlainTime` ohne zusätzlichen Aufwand als JSON serialisiert und wie es zurückgeparst werden kann.
+Dieses Beispiel zeigt, wie sich `Temporal.PlainTime` ohne zusätzlichen Aufwand als JSON serialisieren und anschließend wieder parsen lässt.
 
 ```js
 const time = Temporal.PlainTime.from({ hour: 12, minute: 34, second: 56 });

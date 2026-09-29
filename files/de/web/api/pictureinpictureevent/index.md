@@ -2,12 +2,12 @@
 title: PictureInPictureEvent
 slug: Web/API/PictureInPictureEvent
 l10n:
-  sourceCommit: bb4d21e3c6e71db4e0ba983a450d6ed628e82670
+  sourceCommit: 4ccd81240a6d531962fab92886631885a90bfa3c
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Vorgänge im Zusammenhang mit "Picture-in-Picture", einschließlich [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
+Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert Ereignisse im Zusammenhang mit Bild-in-Bild, darunter [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
 
 {{InheritanceDiagram}}
 
@@ -16,16 +16,16 @@ Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Vo
 - [`PictureInPictureEvent()`](/de/docs/Web/API/PictureInPictureEvent/PictureInPictureEvent)
   - : Erstellt ein `PictureInPictureEvent`-Ereignis mit den angegebenen Parametern.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
+_Diese Schnittstelle erbt außerdem Eigenschaften von ihrer übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event)._
 
-- [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)
+- [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow) {{ReadOnlyInline}}
   - : Gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, auf das sich das Ereignis bezieht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
+_Diese Schnittstelle erbt außerdem Methoden von ihrer übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 
@@ -37,4 +37,4 @@ _Diese Schnittstelle erbt auch Methoden von ihrem übergeordneten [`Event`](/de/
 
 ## Siehe auch
 
-- Die [`Event`](/de/docs/Web/API/Event) Basisschnittstelle
+- Die Basisschnittstelle [`Event`](/de/docs/Web/API/Event)

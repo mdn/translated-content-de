@@ -1,14 +1,14 @@
 ---
-title: "AudioNode: numberOfInputs-Eigenschaft"
+title: "AudioNode: Eigenschaft numberOfInputs"
 short-title: numberOfInputs
 slug: Web/API/AudioNode/numberOfInputs
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 118909727d715a42a27e3d368379bf959feca4af
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die `numberOfInputs`-Eigenschaft des [`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces gibt die Anzahl der Eingänge zurück, die den Knoten speisen. Quellknoten werden als Knoten definiert, die eine `numberOfInputs`-Eigenschaft mit einem Wert von 0 haben.
+Die schreibgeschützte Eigenschaft **`numberOfInputs`** der Schnittstelle [`AudioNode`](/de/docs/Web/API/AudioNode) gibt die Anzahl der Eingänge zurück, die den Knoten speisen. Quellknoten sind Knoten, deren Eigenschaft `numberOfInputs` den Wert 0 hat.
 
 ## Wert
 

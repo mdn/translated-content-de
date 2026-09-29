@@ -1,19 +1,19 @@
 ---
-title: Der Punktestand
-slug: Games/Tutorials/2D_breakout_game_Phaser/The_score
+title: Punktestand erfassen und gewinnen
+slug: Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win
 l10n:
-  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
-{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Collision_detection", "Games/Tutorials/2D_breakout_game_Phaser/Win_the_game")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Build_the_brick_field", "Games/Tutorials/2D_breakout_game_Phaser/Extra_lives")}}
 
-Dies ist der **11. Schritt** von 16 des [Gamedev Phaser-Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). In diesem Artikel fügen wir unserem Spiel ein Punktesystem hinzu. Ein Punktestand kann das Spiel interessanter machen—Sie können versuchen, Ihren eigenen Highscore oder den Ihres Freundes zu übertreffen.
+Dies ist der **8. Schritt** von 12 im [Tutorial zum Erstellen eines Breakout-Spiels mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). In diesem Artikel fügen wir unserem Spiel ein Punktesystem hinzu. Ein Punktestand kann das Spiel interessanter machen: Sie können versuchen, Ihren eigenen Rekord oder den eines Freundes zu übertreffen. Außerdem fügen wir eine Siegbedingung hinzu: Sie gewinnen, wenn Sie alle Steine zerstört haben.
 
-Wir werden eine separate Eigenschaft zur Speicherung des Punktestands verwenden und die `text()`-Methode von Phaser, um diesen auf dem Bildschirm anzuzeigen.
+Wir verwenden eine eigene Eigenschaft, um den Punktestand zu speichern, und die Methode `text()` von Phaser, um ihn auf dem Bildschirm anzuzeigen.
 
 ## Neue Eigenschaften
 
-Fügen Sie zwei neue Eigenschaften direkt nach den vorher definierten hinzu:
+Fügen Sie direkt nach den zuvor definierten Eigenschaften zwei neue Eigenschaften hinzu:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -24,9 +24,9 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-## Hinzufügen des Punktetextes zur Spielanzeige
+## Punktestand im Spiel anzeigen
 
-Fügen Sie nun diese Zeile am Ende der `create()`-Methode hinzu:
+Fügen Sie nun am Ende der Methode `create()` diese Zeile hinzu:
 
 ```js
 this.scoreText = this.add.text(5, 5, "Points: 0", {
@@ -35,17 +35,17 @@ this.scoreText = this.add.text(5, 5, "Points: 0", {
 });
 ```
 
-Die `text()`-Methode kann vier Parameter übernehmen:
+Die Methode `text()` kann vier Parameter entgegennehmen:
 
-- Die x- und y-Koordinaten, an denen der Text gezeichnet wird.
-- Der tatsächliche Text, der gerendert wird.
-- Der Schriftstil, mit dem der Text gerendert wird.
+- Die x- und y-Koordinaten, an denen der Text gezeichnet werden soll.
+- Den Text, der angezeigt werden soll.
+- Die Schriftgestaltung für den Text.
 
-Der letzte Parameter sieht sehr ähnlich aus wie CSS-Styling. In unserem Fall wird der Punktetext blau sein, mit einer Größe von 18 Pixeln und der Schriftart Arial.
+Der letzte Parameter ähnelt stark der CSS-Stildefinition. In unserem Fall ist der Punktestand blau, 18 Pixel groß und wird in der Schriftart Arial angezeigt.
 
-## Aktualisierung des Punktestands bei zerstörten Steinen
+## Punktestand beim Zerstören von Steinen aktualisieren
 
-Wir werden die Punktzahl jedes Mal erhöhen, wenn der Ball einen Stein trifft, und den `scoreText` aktualisieren, um den aktuellen Punktestand anzuzeigen. Dies kann mit der `setText()`-Methode durchgeführt werden—fügen Sie die zwei neuen Zeilen, die unten zu sehen sind, zur `hitBrick()`-Methode hinzu:
+Jedes Mal, wenn der Ball einen Stein trifft, erhöhen wir die Punktzahl und aktualisieren `scoreText`, damit der aktuelle Punktestand angezeigt wird. Dazu können wir die Methode `setText()` verwenden. Fügen Sie der Methode `hitBrick()` die beiden folgenden Zeilen hinzu:
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -58,11 +58,31 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Das war's fürs Erste—laden Sie Ihre `index.html` neu und prüfen Sie, ob der Punktestand bei jedem Steintreffer aktualisiert wird.
+Das war’s fürs Erste. Laden Sie Ihre `index.html` neu und prüfen Sie, ob sich der Punktestand bei jedem Treffer eines Steins aktualisiert.
+
+## Wie gewinnt man?
+
+Fügen Sie Ihrer Methode `update()` den folgenden Code hinzu:
+
+```js
+class ExampleScene extends Phaser.Scene {
+  // ...
+  update() {
+    // ...
+    if (this.bricks.countActive() === 0) {
+      alert("You won the game, congratulations!");
+      location.reload();
+    }
+  }
+  // ...
+}
+```
+
+Mit der Methode `countActive()` auf `this.bricks` zählen wir die Steine, die noch aktiv sind. Sind keine aktiven Steine mehr vorhanden, zeigen wir die Siegmeldung an. Sobald das Hinweisfenster geschlossen wird, startet das Spiel neu.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live ausgeführt. Um den Quellcode anzuzeigen, klicken Sie auf den "Play"-Button.
+So sollte Ihr bisheriger Code aussehen. Das Spiel können Sie hier direkt ausprobieren. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -136,6 +156,10 @@ class ExampleScene extends Phaser.Scene {
       // Game over logic
       location.reload();
     }
+    if (this.bricks.countActive() === 0) {
+      alert("You won the game, congratulations!");
+      location.reload();
+    }
   }
 
   initBricks() {
@@ -196,10 +220,10 @@ const config = {
 const game = new Phaser.Game(config);
 ```
 
-{{EmbedLiveSample("vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
+{{EmbedLiveSample("compare your code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Wir haben jetzt ein Punktesystem, aber was ist der Sinn des Spielens und der Punktesammlung, wenn man nicht gewinnen kann? Lassen Sie uns sehen, wie wir einen Siegzustand hinzufügen können, der es uns ermöglicht, [das Spiel zu gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Win_the_game).
+Sowohl das Verlieren als auch das Gewinnen sind nun implementiert. Damit ist die grundlegende Spiellogik fertig. Als Nächstes fügen wir noch etwas hinzu: Der Spieler erhält drei [Leben](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Extra_lives) statt nur eines.
 
-{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Collision_detection", "Games/Tutorials/2D_breakout_game_Phaser/Win_the_game")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Build_the_brick_field", "Games/Tutorials/2D_breakout_game_Phaser/Extra_lives")}}

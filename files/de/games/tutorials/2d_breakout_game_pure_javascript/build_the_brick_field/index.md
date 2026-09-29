@@ -1,257 +1,483 @@
 ---
-title: Baue das Spielfeld mit Ziegeln
-slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field
+title: Das Ziegelfeld erstellen
+slug: Games/Tutorials/2D_breakout_game_pure_JavaScript/Build_the_brick_field
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
-{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_breakout_game_pure_JavaScript/Track_the_score_and_win")}}
 
-Dies ist der **6. Schritt** von 10 im [Gamedev Canvas Tutorial](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie finden den Quellcode, wie er nach Abschluss dieser Lektion aussehen würde, unter [Gamedev-Canvas-workshop/lesson6.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson06.html).
+Dies ist der **6. von 11 Schritten** des [Tutorials zum Erstellen eines Breakout-Spiels mit reinem JavaScript](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript). Sehen wir uns an, wie Sie eine Gruppe von Ziegeln erstellen, sie mithilfe einer Schleife auf dem Bildschirm zeichnen und entfernen, wenn der Ball sie trifft. Das Ziegelfeld zu erstellen ist etwas komplizierter, als ein einzelnes Objekt auf dem Bildschirm hinzuzufügen.
 
-Nachdem wir die Spielmechaniken modifiziert haben, können wir nun verlieren — das ist großartig, da es bedeutet, dass sich das Spiel endlich mehr wie ein Spiel anfühlt. Es wird jedoch schnell langweilig, wenn alles, was Sie tun, darin besteht, den Ball von den Wänden und dem Schlagholz abprallen zu lassen. Was ein Breakout-Spiel wirklich braucht, sind einige Ziegelsteine, um sie mit dem Ball zu zerstören, und genau das werden wir jetzt erstellen!
+## Die Ziegel zeichnen
 
-## Einrichtung der Ziegel-Variablen
-
-Das übergeordnete Ziel dieser Lektion ist es, einige Codezeilen für die Ziegel zu rendern, mithilfe einer verschachtelten Schleife, die durch ein zweidimensionales Array arbeitet. Zuerst müssen wir jedoch einige Variablen einrichten, um Informationen über die Ziegel zu definieren, wie z.B. deren Breite und Höhe, Reihen und Spalten etc. Fügen Sie die folgenden Zeilen unterhalb der Variablen hinzu, die Sie zuvor in Ihrem Programm deklariert haben.
+Alle Ziegel verwenden dasselbe Bild. Daher können wir es einmal erstellen und dekodieren und anschließend für alle Ziegel verwenden. Fügen Sie `GameObject` eine statische `assets`-Map und ein `url`-Feld hinzu und ersetzen Sie den Konstruktor und die Methode `preload()`:
 
 ```js
-const brickRowCount = 3;
-const brickColumnCount = 5;
-const brickWidth = 75;
-const brickHeight = 20;
-const brickPadding = 10;
-const brickOffsetTop = 30;
-const brickOffsetLeft = 30;
-```
-
-Hier haben wir die Anzahl der Reihen und Spalten von Ziegeln definiert, deren Breite und Höhe, den Abstand zwischen den Ziegeln, damit sie sich nicht berühren, sowie einen oberen und linken Versatz, damit sie nicht direkt vom Rand des Canvas gezeichnet werden.
-
-Wir werden alle unsere Ziegel in einem zweidimensionalen Array halten. Es wird die Ziegelspalten (c) enthalten, die wiederum die Ziegelreihen (r) enthalten, die wiederum jedes ein Objekt enthalten, das die `x` und `y` Position enthält, um jeden Ziegel auf dem Bildschirm zu zeichnen. Fügen Sie das Folgende direkt unterhalb Ihrer Variablen hinzu:
-
-```js
-const bricks = [];
-for (let c = 0; c < brickColumnCount; c++) {
-  bricks[c] = [];
-  for (let r = 0; r < brickRowCount; r++) {
-    bricks[c][r] = { x: 0, y: 0 };
+class GameObject {
+  static assets = new Map();
+  url;
+  // …
+  constructor(url, ctx) {
+    this.url = url;
+    this.ctx = ctx;
   }
-}
-```
-
-Der obige Code wird durch die Reihen und Spalten schleifen und die neuen Ziegel erstellen. HINWEIS: Die Ziegelobjekte werden später auch für Zwecke der Kollisionsdetektion verwendet.
-
-## Ziegel-Zeichenlogik
-
-Nun lassen Sie uns eine Funktion erstellen, die alle Ziegel im Array durchläuft und sie auf dem Bildschirm zeichnet. Unser Code könnte so aussehen:
-
-```js
-function drawBricks() {
-  for (let c = 0; c < brickColumnCount; c++) {
-    for (let r = 0; r < brickRowCount; r++) {
-      bricks[c][r].x = 0;
-      bricks[c][r].y = 0;
-      ctx.beginPath();
-      ctx.rect(0, 0, brickWidth, brickHeight);
-      ctx.fillStyle = "#0095DD";
-      ctx.fill();
-      ctx.closePath();
+  async preload() {
+    if (!GameObject.assets.has(this.url)) {
+      const asset = new Image();
+      asset.src = this.url;
+      GameObject.assets.set(
+        this.url,
+        asset.decode().then(() => asset),
+      );
+    }
+    this.asset = await GameObject.assets.get(this.url);
+    if (this.size.w === undefined) {
+      this.size.w = this.asset.width;
+      this.size.h = this.asset.height;
     }
   }
+  // …
 }
 ```
 
-Erneut schleifen wir durch die Reihen und Spalten, um die `x` und `y` Position jedes Ziegels festzulegen, und wir malen auch einen Ziegel auf dem Canvas — Größe `brickWidth` x `brickHeight` — mit jeder Schleifeniteration. Das Problem ist, dass wir sie alle an einem Ort zeichnen, bei den Koordinaten `(0,0)`. Was wir tun müssen, ist einige Berechnungen einzuschließen, die die `x` und `y` Position jedes Ziegels für jede Schleifeniteration ermitteln:
+Der Cache ordnet jeder URL ein Promise zu, das mit dem dekodierten Bild erfüllt wird. Der erste `preload()`-Aufruf für eine URL erstellt das Bild und startet die Dekodierung. Spätere Aufrufe warten auf dasselbe Promise und erhalten dasselbe Bild. Jedes Objekt hat weiterhin seine eigene Position und Größe.
+
+Wie `Ball` und `Paddle` basiert auch `Brick` auf der Klasse `GameObject`. Ein Ziegel hat keine Standardposition und -größe; beides muss im Konstruktor ausdrücklich angegeben werden. Da die Ziegel feste Abmessungen haben, können wir die zusätzlichen Parameter `dWidth` und `dHeight` von [`ctx.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwenden. Damit wird das Bild automatisch skaliert, falls es noch nicht die gewünschten Abmessungen hat.
 
 ```js
-const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
-const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-```
-
-Jede `brickX` Position wird berechnet als `brickWidth` + `brickPadding`, multipliziert mit der Spaltennummer, `c`, plus dem `brickOffsetLeft`; die Logik für das `brickY` ist identisch, außer dass sie die Werte für die Zeilennummer, `r`, `brickHeight` und `brickOffsetTop` verwendet. Nun kann jeder einzelne Ziegel an seiner richtigen Stelle in Reihe und Spalte platziert werden, mit Abstand zwischen jedem Ziegel, und mit einem Versatz von den linken und oberen Canvas-Rändern gezeichnet werden.
-
-Die endgültige Version der `drawBricks()` Funktion, nachdem die `brickX` und `brickY` Werte als Koordinaten anstelle von `(0,0)` jedes Mal zugewiesen wurden, sieht so aus — fügen Sie dies in Ihren Code unterhalb der `drawPaddle()` Funktion hinzu:
-
-```js
-function drawBricks() {
-  for (let c = 0; c < brickColumnCount; c++) {
-    for (let r = 0; r < brickRowCount; r++) {
-      const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
-      const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-      bricks[c][r].x = brickX;
-      bricks[c][r].y = brickY;
-      ctx.beginPath();
-      ctx.rect(brickX, brickY, brickWidth, brickHeight);
-      ctx.fillStyle = "#0095DD";
-      ctx.fill();
-      ctx.closePath();
-    }
+class Brick extends GameObject {
+  constructor(url, ctx, x, y, w, h) {
+    super(url, ctx);
+    this.pos = { x, y };
+    this.size = { w, h };
+  }
+  draw() {
+    const { left, top } = this.hitbox;
+    this.ctx.drawImage(this.asset, left, top, this.size.w, this.size.h);
   }
 }
 ```
 
-## Tatsächliches Zeichnen der Ziegel
+Sie müssen außerdem [das Ziegelbild herunterladen](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/brick.png) und in Ihrem Verzeichnis `/img` speichern.
 
-Das Letzte, was in dieser Lektion zu tun ist, ist ein Aufruf von `drawBricks()` irgendwo in der `draw()` Funktion hinzuzufügen, vorzugsweise am Anfang, zwischen dem Löschen des Canvas und dem Zeichnen des Balls. Fügen Sie das Folgende direkt über dem `drawBall()` Aufruf hinzu:
+Wir fügen den gesamten Code zum Zeichnen der Ziegel in eine Funktion `initBricks` ein, damit er vom übrigen Code getrennt bleibt. Fügen Sie unter `colliders.push(paddle);` einen Aufruf von `initBricks` hinzu:
 
 ```js
-drawBricks();
+// …
+const paddle = new Paddle("img/paddle.png", ctx);
+colliders.push(paddle);
+const bricks = initBricks();
+// …
 ```
+
+Stellen Sie außerdem sicher, dass das Spiel wartet, bis die Ziegel vorgeladen sind, bevor es startet: Fügen Sie dazu `, ...bricks` zum Array in `Promise.all()` hinzu. Diese Aufrufe verwenden dasselbe zwischengespeicherte Dekodierungs-Promise, sodass das Ziegelbild nur einmal dekodiert wird.
+
+Nun zur Funktion selbst. Fügen Sie die Funktion `initBricks` am Ende der Datei `script.js` hinzu. Zunächst definieren wir das Objekt `bricksLayout`, das wir gleich benötigen:
+
+```js
+function initBricks() {
+  const bricksLayout = {
+    width: 50,
+    height: 20,
+    count: {
+      row: 3,
+      col: 7,
+    },
+    offset: {
+      top: 50,
+      left: 60,
+    },
+    padding: 10,
+  };
+  const bricks = [];
+  // continue adding here...
+  return bricks;
+}
+```
+
+`bricksLayout` enthält alle benötigten Informationen: die Breite und Höhe eines einzelnen Ziegels, die Anzahl der Ziegelreihen und -spalten auf dem Bildschirm, den Abstand vom oberen und linken Rand (also die Stelle auf dem Canvas, an der wir mit dem Zeichnen der Ziegel beginnen) sowie den Abstand zwischen den einzelnen Reihen und Spalten.
+
+Erstellen wir nun die Ziegel. Wir können die Reihen und Spalten mit Schleifen durchlaufen und bei jedem Durchlauf einen neuen Ziegel erstellen. Fügen Sie die folgende verschachtelte Schleife unter der vorherigen Codezeile hinzu:
+
+```js
+for (let c = 0; c < bricksLayout.count.col; c++) {
+  for (let r = 0; r < bricksLayout.count.row; r++) {
+    const brickX =
+      c * (bricksLayout.width + bricksLayout.padding) +
+      bricksLayout.offset.left;
+    const brickY =
+      r * (bricksLayout.height + bricksLayout.padding) +
+      bricksLayout.offset.top;
+
+    const newBrick = new Brick(
+      "img/brick.png",
+      ctx,
+      brickX,
+      brickY,
+      bricksLayout.width,
+      bricksLayout.height,
+    );
+    bricks.push(newBrick);
+  }
+}
+```
+
+Jede `brickX`-Position ergibt sich aus `bricksLayout.width` plus `bricksLayout.padding`, multipliziert mit der Spaltennummer `c`, zuzüglich `bricksLayout.offset.left`. Die Berechnung für `brickY` funktioniert genauso, verwendet aber die Reihennummer `r`, `bricksLayout.height` und `bricksLayout.offset.top`. So lässt sich jeder Ziegel an der richtigen Stelle platzieren, mit Abstand zu den anderen Ziegeln und zu den linken und oberen Rändern des Canvas.
+
+Zum Schluss zeichnen wir die Ziegel innerhalb der Funktion `update()` auf den Bildschirm. Fügen Sie Folgendes unter dem Aufruf von `paddle.draw()` hinzu:
+
+```js
+for (const brick of bricks) {
+  brick.draw();
+}
+```
+
+Wenn Sie `index.html` jetzt neu laden, sollten die Ziegel in gleichmäßigen Abständen auf dem Bildschirm erscheinen.
+
+## Kollisionserkennung zwischen Ziegel und Ball
+
+Die nächste Herausforderung ist die Kollisionserkennung zwischen dem Ball und den Ziegeln. Glücklicherweise haben wir bereits ein allgemeines Kollisionssystem implementiert und müssen nur noch die Ziegel daran anbinden.
+
+Registrieren Sie zunächst jeden Ziegel als Collider, direkt unter dem Aufruf von `initBricks()`:
+
+```js
+const bricks = initBricks();
+for (const brick of bricks) {
+  colliders.push(brick);
+}
+```
+
+Fügen Sie jedem Ziegel eine Methode `onCollide()` hinzu, die ihn aus den Sammlungen `bricks` und `colliders` entfernt:
+
+```js
+class Brick extends GameObject {
+  // …
+  onCollide() {
+    bricks.splice(bricks.indexOf(this), 1);
+    colliders.splice(colliders.indexOf(this), 1);
+  }
+}
+```
+
+Der Ziegel muss so schnell wie möglich entfernt werden, damit der Ball nicht an ihm abprallt.
+
+Das war’s! Laden Sie Ihren Code neu. Die neue Kollisionserkennung sollte nun wie gewünscht funktionieren.
 
 ## Vergleichen Sie Ihren Code
 
-An diesem Punkt ist das Spiel wieder etwas interessanter geworden:
+So sollte Ihr bisheriger Stand aussehen – Sie können ihn hier direkt ausprobieren. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
-<canvas id="myCanvas" width="480" height="320"></canvas>
-<button id="runButton">Start game</button>
+<canvas id="game-canvas" width="480" height="320"></canvas>
 ```
 
 ```css hidden
-canvas {
-  background: #eeeeee;
+* {
+  padding: 0;
+  margin: 0;
 }
-button {
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+canvas {
   display: block;
+  width: min(100vw, 150vh);
+  height: auto;
+  touch-action: none;
 }
 ```
 
 ```js hidden
-const canvas = document.getElementById("myCanvas");
+const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
-const ballRadius = 10;
+let lastTimestamp = null;
 
-let x = canvas.width / 2;
-let y = canvas.height - 30;
+const baseWallHitbox = {
+  left: -Infinity,
+  right: Infinity,
+  top: -Infinity,
+  bottom: Infinity,
+};
 
-let dx = 2;
-let dy = -2;
+const colliders = [
+  { hitbox: { ...baseWallHitbox, right: 0 } },
+  { hitbox: { ...baseWallHitbox, left: canvas.width } },
+  { hitbox: { ...baseWallHitbox, bottom: 0 } },
+];
 
-const paddleHeight = 10;
-const paddleWidth = 75;
-
-let paddleX = (canvas.width - paddleWidth) / 2;
-let rightPressed = false;
-let leftPressed = false;
-
-let interval = 0;
-
-const brickRowCount = 3;
-const brickColumnCount = 5;
-const brickWidth = 75;
-const brickHeight = 20;
-const brickPadding = 10;
-const brickOffsetTop = 30;
-const brickOffsetLeft = 30;
-
-let bricks = [];
-for (let c = 0; c < brickColumnCount; c++) {
-  bricks[c] = [];
-  for (let r = 0; r < brickRowCount; r++) {
-    bricks[c][r] = { x: 0, y: 0 };
+class GameObject {
+  static assets = new Map();
+  url;
+  asset;
+  ctx;
+  size = { w: undefined, h: undefined };
+  pos = { x: 0, y: 0 };
+  origin = { x: 0.5, y: 0.5 };
+  constructor(url, ctx) {
+    this.url = url;
+    this.ctx = ctx;
   }
-}
-
-document.addEventListener("keydown", keyDownHandler);
-document.addEventListener("keyup", keyUpHandler);
-
-function keyDownHandler(e) {
-  if (e.key === "Right" || e.key === "ArrowRight") {
-    rightPressed = true;
-  } else if (e.key === "Left" || e.key === "ArrowLeft") {
-    leftPressed = true;
+  async preload() {
+    if (!GameObject.assets.has(this.url)) {
+      const asset = new Image();
+      asset.src = this.url;
+      GameObject.assets.set(
+        this.url,
+        asset.decode().then(() => asset),
+      );
+    }
+    this.asset = await GameObject.assets.get(this.url);
+    if (this.size.w === undefined) {
+      this.size.w = this.asset.width;
+      this.size.h = this.asset.height;
+    }
   }
-}
-
-function keyUpHandler(e) {
-  if (e.key === "Right" || e.key === "ArrowRight") {
-    rightPressed = false;
-  } else if (e.key === "Left" || e.key === "ArrowLeft") {
-    leftPressed = false;
+  get hitbox() {
+    const left = this.pos.x - this.size.w * this.origin.x;
+    const top = this.pos.y - this.size.h * this.origin.y;
+    return {
+      left,
+      right: left + this.size.w,
+      top,
+      bottom: top + this.size.h,
+    };
   }
+  draw() {
+    const { left, top } = this.hitbox;
+    this.ctx.drawImage(this.asset, left, top);
+  }
+  onCollide() {}
 }
 
-function drawBall() {
-  ctx.beginPath();
-  ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-  ctx.fillStyle = "#0095DD";
-  ctx.fill();
-  ctx.closePath();
-}
-function drawPaddle() {
-  ctx.beginPath();
-  ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-  ctx.fillStyle = "#0095DD";
-  ctx.fill();
-  ctx.closePath();
-}
-function drawBricks() {
-  for (let c = 0; c < brickColumnCount; c++) {
-    for (let r = 0; r < brickRowCount; r++) {
-      let brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
-      let brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-      bricks[c][r].x = brickX;
-      bricks[c][r].y = brickY;
-      ctx.beginPath();
-      ctx.rect(brickX, brickY, brickWidth, brickHeight);
-      ctx.fillStyle = "#0095DD";
-      ctx.fill();
-      ctx.closePath();
+class Ball extends GameObject {
+  pos = { x: undefined, y: undefined };
+  vel = { x: 150, y: -150 };
+  move(dt) {
+    this.pos.x += this.vel.x * dt;
+    this.pos.y += this.vel.y * dt;
+  }
+  onCollide({ x, y }) {
+    if (x) {
+      this.vel.x = -this.vel.x;
+    }
+    if (y) {
+      this.vel.y = -this.vel.y;
     }
   }
 }
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBricks();
-  drawBall();
-  drawPaddle();
-
-  if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-    dx = -dx;
+class Paddle extends GameObject {
+  origin = { x: 0.5, y: 1 };
+  constructor(url, ctx) {
+    super(url, ctx);
+    this.pos = { x: ctx.canvas.width / 2, y: ctx.canvas.height - 5 };
   }
-  if (y + dy < ballRadius) {
-    dy = -dy;
-  } else if (y + dy > canvas.height - ballRadius) {
-    if (x > paddleX && x < paddleX + paddleWidth) {
-      if ((y -= paddleHeight)) {
-        dy = -dy;
-      }
-    } else {
-      alert("GAME OVER");
-      document.location.reload();
-      clearInterval(interval); // Needed for Chrome to end game
-    }
-  }
-
-  if (rightPressed && paddleX < canvas.width - paddleWidth) {
-    paddleX += 7;
-  } else if (leftPressed && paddleX > 0) {
-    paddleX -= 7;
-  }
-
-  x += dx;
-  y += dy;
 }
 
-function startGame() {
-  interval = setInterval(draw, 10);
+class Brick extends GameObject {
+  constructor(url, ctx, x, y, w, h) {
+    super(url, ctx);
+    this.pos = { x, y };
+    this.size = { w, h };
+  }
+  draw() {
+    const { left, top } = this.hitbox;
+    this.ctx.drawImage(this.asset, left, top, this.size.w, this.size.h);
+  }
+  onCollide() {
+    bricks.splice(bricks.indexOf(this), 1);
+    colliders.splice(colliders.indexOf(this), 1);
+  }
 }
 
-const runButton = document.getElementById("runButton");
-runButton.addEventListener("click", () => {
-  startGame();
-  runButton.disabled = true;
+const ball = new Ball(
+  "https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/ball.png",
+  ctx,
+);
+const paddle = new Paddle(
+  "https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/paddle.png",
+  ctx,
+);
+colliders.push(paddle);
+const bricks = initBricks();
+for (const brick of bricks) {
+  colliders.push(brick);
+}
+
+canvas.addEventListener("pointermove", (event) => {
+  if (paddle.size.w === undefined) {
+    return;
+  }
+  const bounds = canvas.getBoundingClientRect();
+  const x = ((event.clientX - bounds.left) * canvas.width) / bounds.width;
+  paddle.pos.x = Math.max(
+    paddle.size.w / 2,
+    Math.min(canvas.width - paddle.size.w / 2, x),
+  );
 });
+
+Promise.all([ball, paddle, ...bricks].map((obj) => obj.preload())).then(() => {
+  ball.pos.x = paddle.pos.x;
+  ball.pos.y = paddle.hitbox.top - ball.size.h / 2;
+  requestAnimationFrame(update);
+});
+
+function update(timestamp) {
+  const dt = lastTimestamp === null ? 0 : (timestamp - lastTimestamp) / 1000;
+  lastTimestamp = timestamp;
+  moveBall(dt);
+
+  ctx.fillStyle = "#eeeeee";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ball.draw();
+  paddle.draw();
+  for (const brick of bricks) {
+    brick.draw();
+  }
+
+  requestAnimationFrame(update);
+}
+
+function getCollision(moving, velocity, obstacle, dt) {
+  const width = moving.right - moving.left;
+  const height = moving.bottom - moving.top;
+  const movingPos = { x: moving.left, y: moving.top };
+  const left = obstacle.left - width;
+  const right = obstacle.right;
+  const top = obstacle.top - height;
+  const bottom = obstacle.bottom;
+  const hit = { time: dt, x: null, y: null };
+
+  function checkFace(axis, coordinate, min, max, direction) {
+    if (velocity[axis] * direction <= 0) {
+      return;
+    }
+    const time = (coordinate - movingPos[axis]) / velocity[axis];
+    if (time < 0 || time > hit.time) {
+      return;
+    }
+    const otherAxis = axis === "x" ? "y" : "x";
+    const otherPosition = movingPos[otherAxis] + velocity[otherAxis] * time;
+    if (otherPosition < min || otherPosition > max) {
+      return;
+    }
+    if (time < hit.time) {
+      hit.x = null;
+      hit.y = null;
+    }
+    hit.time = time;
+    hit[axis] = coordinate;
+  }
+
+  checkFace("x", left, top, bottom, 1);
+  checkFace("x", right, top, bottom, -1);
+  checkFace("y", top, left, right, 1);
+  checkFace("y", bottom, left, right, -1);
+
+  return hit.x === null && hit.y === null ? null : hit;
+}
+
+function moveBall(dt) {
+  while (dt > 0) {
+    // Avoid repeatedly triggering the getter
+    const ballHitbox = ball.hitbox;
+    let hitTime = dt;
+    let hitX = null;
+    let hitY = null;
+    let contacts = [];
+
+    for (const collider of colliders) {
+      const hit = getCollision(ballHitbox, ball.vel, collider.hitbox, hitTime);
+      if (hit === null) {
+        continue;
+      }
+      if (hit.time < hitTime) {
+        hitX = null;
+        hitY = null;
+        contacts = [];
+      }
+      hitTime = hit.time;
+      hitX = hit.x ?? hitX;
+      hitY = hit.y ?? hitY;
+      contacts.push({ collider, hit });
+    }
+
+    ball.move(hitTime);
+    dt -= hitTime;
+
+    const ballIsOutOfBounds = ball.hitbox.bottom > canvas.height;
+    if (ballIsOutOfBounds) {
+      // Game over logic
+      location.reload();
+      return;
+    }
+
+    if (contacts.length === 0) {
+      break;
+    }
+    // Snap the position to the point of contact to avoid floating point errors
+    if (hitX !== null) {
+      ball.pos.x = hitX + ball.size.w / 2;
+    }
+    if (hitY !== null) {
+      ball.pos.y = hitY + ball.size.h / 2;
+    }
+
+    ball.onCollide({ x: hitX !== null, y: hitY !== null });
+    for (const { collider, hit } of contacts) {
+      collider.onCollide?.({ x: hit.x !== null, y: hit.y !== null });
+    }
+  }
+}
+
+function initBricks() {
+  const bricksLayout = {
+    width: 50,
+    height: 20,
+    count: {
+      row: 3,
+      col: 7,
+    },
+    offset: {
+      top: 50,
+      left: 60,
+    },
+    padding: 10,
+  };
+  const bricks = [];
+  for (let c = 0; c < bricksLayout.count.col; c++) {
+    for (let r = 0; r < bricksLayout.count.row; r++) {
+      const brickX =
+        c * (bricksLayout.width + bricksLayout.padding) +
+        bricksLayout.offset.left;
+      const brickY =
+        r * (bricksLayout.height + bricksLayout.padding) +
+        bricksLayout.offset.top;
+
+      const newBrick = new Brick(
+        "https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/brick.png",
+        ctx,
+        brickX,
+        brickY,
+        bricksLayout.width,
+        bricksLayout.height,
+      );
+      bricks.push(newBrick);
+    }
+  }
+  return bricks;
+}
 ```
 
-{{embedlivesample("compare_your_code", 600, 360)}}
-
-> [!NOTE]
-> Versuchen Sie, die Anzahl der Ziegel in einer Reihe oder einer Spalte oder ihre Positionen zu ändern.
+{{EmbedLiveSample("compare your code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Jetzt haben wir also Ziegel! Aber der Ball interagiert überhaupt nicht mit ihnen — das werden wir ändern, während wir weitermachen zum siebten Kapitel: [Kollisionsdetektion](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection).
+Wir können die Ziegel treffen und entfernen – das ist bereits eine schöne Erweiterung des Spiels. Noch besser wäre es, den [Punktestand zu verfolgen und das Spiel zu gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win), sobald alle Ziegel zerstört sind.
 
-{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_breakout_game_pure_JavaScript/Track_the_score_and_win")}}

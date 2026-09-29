@@ -2,75 +2,75 @@
 title: PerformanceTiming
 slug: Web/API/PerformanceTiming
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
 ---
 
 {{APIRef("Performance API")}}
 
 > [!WARNING]
-> Diese Schnittstelle ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
+> Diese Schnittstelle ist in der [Spezifikation Navigation Timing Level 2](https://w3c.github.io/navigation-timing/#obsolete) als veraltet eingestuft. Verwenden Sie stattdessen die Schnittstelle [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming).
 
-Die **`PerformanceTiming`** Schnittstelle ist eine veraltete Schnittstelle, die aus Gründen der Abwärtskompatibilität beibehalten wird und Eigenschaften enthält, die Leistungszeitinformationen für verschiedene Ereignisse bieten, die beim Laden und bei der Nutzung der aktuellen Seite auftreten. Sie erhalten ein `PerformanceTiming`-Objekt, das Ihre Seite beschreibt, über die [`window.performance.timing`](/de/docs/Web/API/Performance/timing) Eigenschaft.
+Die Schnittstelle **`PerformanceTiming`** ist eine ältere Schnittstelle, die aus Gründen der Abwärtskompatibilität beibehalten wurde. Ihre Eigenschaften liefern Informationen zum zeitlichen Ablauf verschiedener Ereignisse beim Laden und Verwenden der aktuellen Seite. Über die Eigenschaft [`window.performance.timing`](/de/docs/Web/API/Performance/timing) erhalten Sie ein `PerformanceTiming`-Objekt, das Ihre Seite beschreibt.
 
 ## Instanzeigenschaften
 
-_Die `PerformanceTiming` Schnittstelle erbt keine Eigenschaften._
+_Die Schnittstelle `PerformanceTiming` erbt keine Eigenschaften._
 
-Diese Eigenschaften beschreiben jeweils den Zeitpunkt, zu dem ein bestimmter Punkt im Ladeprozess der Seite erreicht wurde. Einige der Zeitpunkte entsprechen DOM-Ereignissen; andere beschreiben den Zeitpunkt, zu dem interne Browseroperationen von Interesse stattgefunden haben.
+Jede dieser Eigenschaften gibt den Zeitpunkt an, zu dem ein bestimmter Punkt beim Laden der Seite erreicht wurde. Einige entsprechen DOM-Ereignissen; andere beschreiben den Zeitpunkt, zu dem relevante interne Browservorgänge stattfanden.
 
-Jeder Zeitpunkt wird als Zahl angegeben, die den Moment in Millisekunden seit der UNIX-Zeit darstellt.
+Jeder Zeitpunkt wird als Zahl angegeben, die die Millisekunden seit der UNIX-Epoche angibt.
 
-Diese Eigenschaften sind in der Reihenfolge aufgeführt, in der sie während des Navigationsprozesses auftreten.
+Die Eigenschaften sind in der Reihenfolge aufgeführt, in der sie während der Navigation auftreten.
 
 - [`PerformanceTiming.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Aufforderungsdialog zum Entladen im vorherigen Dokument im gleichen Browsing-Kontext beendet wurde. Wenn es kein vorheriges Dokument gibt, wird dieser Wert derselbe wie `PerformanceTiming.fetchStart` sein.
+  - : Wenn die Aufforderung zum Entladen des vorherigen Dokuments im selben Browsing-Kontext abgeschlossen ist. Gibt es kein vorheriges Dokument, entspricht dieser Wert `PerformanceTiming.fetchStart`.
 - [`PerformanceTiming.unloadEventStart`](/de/docs/Web/API/PerformanceTiming/unloadEventStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann das [`unload`](/de/docs/Web/API/Window/unload_event) Ereignis ausgelöst wurde, was den Zeitpunkt angibt, zu dem das vorherige Dokument im Fenster zu entladen begann. Wenn es kein vorheriges Dokument gibt oder wenn das vorherige Dokument oder eine der notwendigen Weiterleitungen nicht von demselben Ursprung stammt, wird der zurückgegebene Wert `0` sein.
+  - : Wenn das Ereignis [`unload`](/de/docs/Web/API/Window/unload_event) ausgelöst wurde. Dies bezeichnet den Zeitpunkt, zu dem das Entladen des vorherigen Dokuments im Fenster begann. Gibt es kein vorheriges Dokument oder hat das vorherige Dokument oder eine der erforderlichen Weiterleitungen nicht denselben Ursprung, wird `0` zurückgegeben.
 - [`PerformanceTiming.unloadEventEnd`](/de/docs/Web/API/PerformanceTiming/unloadEventEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der [`unload`](/de/docs/Web/API/Window/unload_event) Ereignis-Handler beendet ist. Wenn es kein vorheriges Dokument gibt oder wenn das vorherige Dokument oder eine der notwendigen Weiterleitungen nicht von demselben Ursprung stammt, wird der zurückgegebene Wert `0` sein.
+  - : Wenn der Event-Handler für [`unload`](/de/docs/Web/API/Window/unload_event) abgeschlossen ist. Gibt es kein vorheriges Dokument oder hat das vorherige Dokument oder eine der erforderlichen Weiterleitungen nicht denselben Ursprung, wird `0` zurückgegeben.
 - [`PerformanceTiming.redirectStart`](/de/docs/Web/API/PerformanceTiming/redirectStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die erste HTTP-Weiterleitung beginnt. Wenn es keine Weiterleitung gibt oder wenn eine der Weiterleitungen nicht von demselben Ursprung stammt, wird der zurückgegebene Wert `0` sein.
+  - : Wenn die erste HTTP-Weiterleitung beginnt. Gibt es keine Weiterleitung oder hat eine der Weiterleitungen nicht denselben Ursprung, wird `0` zurückgegeben.
 - [`PerformanceTiming.redirectEnd`](/de/docs/Web/API/PerformanceTiming/redirectEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die letzte HTTP-Weiterleitung abgeschlossen ist, also wann das letzte Byte der HTTP-Antwort empfangen wurde. Wenn es keine Weiterleitung gibt oder wenn eine der Weiterleitungen nicht von demselben Ursprung stammt, wird der zurückgegebene Wert `0` sein.
+  - : Wenn die letzte HTTP-Weiterleitung abgeschlossen ist, also das letzte Byte der HTTP-Antwort empfangen wurde. Gibt es keine Weiterleitung oder hat eine der Weiterleitungen nicht denselben Ursprung, wird `0` zurückgegeben.
 - [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Browser bereit ist, das Dokument mit einer HTTP-Anfrage abzurufen. Dieser Moment liegt _vor_ der Überprüfung eines Anwendungs-Caches.
+  - : Wenn der Browser bereit ist, das Dokument mit einer HTTP-Anfrage abzurufen. Dieser Zeitpunkt liegt _vor_ der Prüfung des Anwendungscaches.
 - [`PerformanceTiming.domainLookupStart`](/de/docs/Web/API/PerformanceTiming/domainLookupStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die Domainabfrage beginnt. Wenn eine persistente Verbindung verwendet wird oder die Informationen in einem Cache oder einer lokalen Quelle gespeichert sind, wird der Wert derselbe wie `PerformanceTiming.fetchStart` sein.
+  - : Wenn die DNS-Abfrage beginnt. Wird eine bestehende Verbindung verwendet oder sind die Informationen in einem Cache oder einer lokalen Ressource gespeichert, entspricht der Wert `PerformanceTiming.fetchStart`.
 - [`PerformanceTiming.domainLookupEnd`](/de/docs/Web/API/PerformanceTiming/domainLookupEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die Domainabfrage abgeschlossen ist. Wenn eine persistente Verbindung verwendet wird oder die Informationen in einem Cache oder einer lokalen Quelle gespeichert sind, wird der Wert derselbe wie `PerformanceTiming.fetchStart` sein.
+  - : Wenn die DNS-Abfrage abgeschlossen ist. Wird eine bestehende Verbindung verwendet oder sind die Informationen in einem Cache oder einer lokalen Ressource gespeichert, entspricht der Wert `PerformanceTiming.fetchStart`.
 - [`PerformanceTiming.connectStart`](/de/docs/Web/API/PerformanceTiming/connectStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die Anfrage, eine Verbindung zu öffnen, an das Netzwerk gesendet wird. Wenn die Transportschicht einen Fehler meldet und der Verbindungsaufbau erneut gestartet wird, wird die letzte Verbindungsaufbau-Startzeit angegeben. Wenn eine persistente Verbindung verwendet wird, wird der Wert derselbe wie `PerformanceTiming.fetchStart` sein.
+  - : Wenn die Anfrage zum Öffnen einer Verbindung an das Netzwerk gesendet wird. Meldet die Transportschicht einen Fehler und wird der Verbindungsaufbau erneut gestartet, wird der Startzeitpunkt des letzten Verbindungsaufbaus angegeben. Wird eine bestehende Verbindung verwendet, entspricht der Wert `PerformanceTiming.fetchStart`.
 - [`PerformanceTiming.connectEnd`](/de/docs/Web/API/PerformanceTiming/connectEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die Verbindung im Netzwerk geöffnet wird. Wenn die Transportschicht einen Fehler meldet und der Verbindungsaufbau erneut gestartet wird, wird die letzte Verbindungsaufbau-Endzeit angegeben. Wenn eine persistente Verbindung verwendet wird, wird der Wert derselbe wie `PerformanceTiming.fetchStart` sein. Eine Verbindung wird als geöffnet betrachtet, wenn alle sicheren Verbindungs-Handshakes oder SOCKS-Authentifizierungen abgeschlossen sind.
+  - : Wenn die Netzwerkverbindung geöffnet ist. Meldet die Transportschicht einen Fehler und wird der Verbindungsaufbau erneut gestartet, wird der Endzeitpunkt des letzten Verbindungsaufbaus angegeben. Wird eine bestehende Verbindung verwendet, entspricht der Wert `PerformanceTiming.fetchStart`. Eine Verbindung gilt als geöffnet, wenn alle Handshakes für sichere Verbindungen oder die SOCKS-Authentifizierung abgeschlossen sind.
 - [`PerformanceTiming.secureConnectionStart`](/de/docs/Web/API/PerformanceTiming/secureConnectionStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann die sichere Verbindungs-Handshakes beginnen. Wenn keine solche Verbindung angefordert wurde, wird `0` zurückgegeben.
+  - : Wenn der Handshake für eine sichere Verbindung beginnt. Wird keine solche Verbindung angefordert, wird `0` zurückgegeben.
 - [`PerformanceTiming.requestStart`](/de/docs/Web/API/PerformanceTiming/requestStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Browser die Anfrage zum Abrufen des tatsächlichen Dokuments, vom Server oder aus einem Cache gesendet hat. Wenn die Transportschicht nach dem Start der Anfrage fehlschlägt und die Verbindung erneut geöffnet wird, wird diese Eigenschaft auf die Zeit des neuen Antrags gesetzt.
+  - : Wenn der Browser die Anfrage zum Abrufen des eigentlichen Dokuments an den Server oder einen Cache gesendet hat. Tritt nach Beginn der Anfrage ein Fehler in der Transportschicht auf und wird die Verbindung erneut geöffnet, wird diese Eigenschaft auf den Zeitpunkt der neuen Anfrage gesetzt.
 - [`PerformanceTiming.responseStart`](/de/docs/Web/API/PerformanceTiming/responseStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Browser das erste Byte der Antwort vom Server, aus einem Cache oder aus einer lokalen Ressource empfangen hat.
+  - : Wenn der Browser das erste Byte der Antwort vom Server, aus einem Cache oder aus einer lokalen Ressource empfangen hat.
 - [`PerformanceTiming.responseEnd`](/de/docs/Web/API/PerformanceTiming/responseEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Browser das letzte Byte der Antwort empfangen hat oder wann die Verbindung geschlossen wurde, falls dies zuerst geschehen ist, vom Server, dem Cache oder aus einer lokalen Ressource.
+  - : Wenn der Browser das letzte Byte der Antwort vom Server, aus dem Cache oder aus einer lokalen Ressource empfangen hat oder, falls dies früher geschieht, wenn die Verbindung geschlossen wird.
 - [`PerformanceTiming.domLoading`](/de/docs/Web/API/PerformanceTiming/domLoading) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Parser seine Arbeit begonnen hat, das heißt, wenn der [`Document.readyState`](/de/docs/Web/API/Document/readyState) Zustand auf `'loading'` wechselt und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) Ereignis ausgelöst wird.
+  - : Wenn der Parser seine Arbeit begonnen hat, also wenn sich [`Document.readyState`](/de/docs/Web/API/Document/readyState) zu `'loading'` ändert und das entsprechende Ereignis [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) ausgelöst wird.
 - [`PerformanceTiming.domInteractive`](/de/docs/Web/API/PerformanceTiming/domInteractive) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Parser seine Arbeit am Hauptdokument beendet hat, das heißt, wenn der [`Document.readyState`](/de/docs/Web/API/Document/readyState) Zustand auf `'interactive'` wechselt und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) Ereignis ausgelöst wird.
+  - : Wenn der Parser seine Arbeit am Hauptdokument abgeschlossen hat, also wenn sich [`Document.readyState`](/de/docs/Web/API/Document/readyState) zu `'interactive'` ändert und das entsprechende Ereignis [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) ausgelöst wird.
 - [`PerformanceTiming.domContentLoadedEventStart`](/de/docs/Web/API/PerformanceTiming/domContentLoadedEventStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Kurz bevor der Parser das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis gesendet hat, das heißt, gleich nachdem alle Skripte, die direkt nach dem Parsen ausgeführt werden müssen, ausgeführt wurden.
+  - : Unmittelbar bevor der Parser das Ereignis [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) auslöst, also unmittelbar nachdem alle Skripte ausgeführt wurden, die direkt nach dem Parsen ausgeführt werden müssen.
 - [`PerformanceTiming.domContentLoadedEventEnd`](/de/docs/Web/API/PerformanceTiming/domContentLoadedEventEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Direkt nachdem alle Skripte, die so schnell wie möglich ausgeführt werden müssen, ob in Reihenfolge oder nicht, ausgeführt wurden.
+  - : Unmittelbar nachdem alle Skripte ausgeführt wurden, die so bald wie möglich ausgeführt werden müssen, unabhängig davon, ob dies in einer festgelegten Reihenfolge geschieht.
 - [`PerformanceTiming.domComplete`](/de/docs/Web/API/PerformanceTiming/domComplete) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der Parser seine Arbeit am Hauptdokument beendet hat, das heißt, wenn der [`Document.readyState`](/de/docs/Web/API/Document/readyState) Zustand auf `'complete'` wechselt und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) Ereignis ausgelöst wird.
+  - : Wenn der Parser seine Arbeit am Hauptdokument abgeschlossen hat, also wenn sich [`Document.readyState`](/de/docs/Web/API/Document/readyState) zu `'complete'` ändert und das entsprechende Ereignis [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) ausgelöst wird.
 - [`PerformanceTiming.loadEventStart`](/de/docs/Web/API/PerformanceTiming/loadEventStart) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann das [`load`](/de/docs/Web/API/Window/load_event) Ereignis für das aktuelle Dokument gesendet wurde. Wenn dieses Ereignis noch nicht gesendet wurde, wird `0` zurückgegeben.
+  - : Wenn das Ereignis [`load`](/de/docs/Web/API/Window/load_event) für das aktuelle Dokument ausgelöst wurde. Wurde dieses Ereignis noch nicht ausgelöst, wird `0` zurückgegeben.
 - [`PerformanceTiming.loadEventEnd`](/de/docs/Web/API/PerformanceTiming/loadEventEnd) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Wann der [`load`](/de/docs/Web/API/Window/load_event) Ereignis-Handler beendet wurde, also wann das Ladeereignis abgeschlossen ist. Wenn dieses Ereignis noch nicht gesendet oder noch nicht abgeschlossen ist, wird `0` zurückgegeben.
+  - : Wenn der Event-Handler für [`load`](/de/docs/Web/API/Window/load_event) abgeschlossen ist und damit das Ladeereignis vollständig verarbeitet wurde. Wurde dieses Ereignis noch nicht ausgelöst oder ist seine Verarbeitung noch nicht abgeschlossen, wird `0` zurückgegeben.
 
 ## Instanzmethoden
 
-_Die `PerformanceTiming`_ _Schnittstelle erbt keine Methoden._
+_Die Schnittstelle `PerformanceTiming` erbt keine Methoden._
 
 - [`PerformanceTiming.toJSON()`](/de/docs/Web/API/PerformanceTiming/toJSON) {{Deprecated_Inline}}
-  - : Gibt ein [JSON-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON) zurück, das dieses `PerformanceTiming`-Objekt darstellt.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformanceTiming`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Spezifikationen
 
@@ -82,5 +82,5 @@ _Die `PerformanceTiming`_ _Schnittstelle erbt keine Methoden._
 
 ## Siehe auch
 
-- Die [`Performance.timing`](/de/docs/Web/API/Performance/timing) Eigenschaft, die ein solches Objekt erstellt.
+- Die Eigenschaft [`Performance.timing`](/de/docs/Web/API/Performance/timing), die ein solches Objekt erstellt.
 - [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) (Teil von Navigation Timing Level 2), das diese API abgelöst hat.

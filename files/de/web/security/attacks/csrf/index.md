@@ -2,22 +2,22 @@
 title: Cross-Site Request Forgery (CSRF)
 slug: Web/Security/Attacks/CSRF
 l10n:
-  sourceCommit: 75016e5d37ecff3b11de4c2ef6665178f654797e
+  sourceCommit: dd70ed064388b0fac4338321f727c8840a508b64
 ---
 
-Bei einem Cross-Site Request Forgery (CSRF)-Angriff täuscht ein Angreifer den Benutzer oder den Browser dazu, eine HTTP-Anfrage an die Zielseite von einer bösartigen Seite aus zu stellen. Die Anfrage enthält die Anmeldedaten des Benutzers und veranlasst den Server, eine schädliche Aktion durchzuführen, da er glaubt, dass der Benutzer diese beabsichtigt hat.
+Bei einem Cross-Site-Request-Forgery-Angriff (CSRF) bringt ein Angreifer den Benutzer oder den Browser dazu, von einer bösartigen Website aus eine HTTP-Anfrage an die Zielwebsite zu senden. Die Anfrage enthält die Zugangsdaten des Benutzers und veranlasst den Server zu einer schädlichen Aktion, weil er annimmt, der Benutzer habe sie beabsichtigt.
 
-## Übersicht
+## Überblick
 
-Eine Website führt typischerweise spezielle Aktionen im Namen eines Benutzers aus – zum Beispiel das Kaufen eines Produkts oder das Vereinbaren eines Termins – indem sie eine HTTP-Anfrage vom Browser des Benutzers empfängt, oft mit Parametern, die die auszuführende Aktion detailliert beschreiben. Um sicherzustellen, dass die Anfrage wirklich vom betreffenden Benutzer stammt, erwartet der Server, dass die Anfrage {{Glossary("Credential", "Anmeldedaten")}} für den Benutzer enthält: zum Beispiel ein Cookie, das die Sitzungs-ID des Benutzers enthält.
+Eine Website führt besondere Aktionen im Namen eines Benutzers aus – etwa den Kauf eines Produkts oder die Vereinbarung eines Termins –, indem sie eine HTTP-Anfrage vom Browser des Benutzers empfängt. Häufig enthält die Anfrage Parameter, die die auszuführende Aktion beschreiben. Um sicherzustellen, dass die Anfrage tatsächlich vom betreffenden Benutzer stammt, erwartet der Server, dass sie dessen {{Glossary("Credential", "Zugangsdaten")}} enthält, beispielsweise ein Cookie mit der Sitzungs-ID des Benutzers.
 
-Im unten stehenden Beispiel hat sich der Benutzer zuvor in sein Bankkonto eingeloggt, und der Browser hat ein Sitzungs-Cookie für den Benutzer gespeichert. Die Seite enthält ein {{htmlelement("form")}}-Element, das es dem Benutzer ermöglicht, Geld an eine andere Person zu überweisen. Wenn der Benutzer das Formular abschickt, sendet der Browser eine {{httpmethod("POST")}}-Anfrage an den Server, einschließlich der Formulardaten. Wenn der Benutzer angemeldet ist, enthält die Anfrage das Cookie des Benutzers. Der Server validiert das Cookie und führt die spezielle Aktion aus – in diesem Fall die Geldüberweisung:
+Im folgenden Beispiel hat sich der Benutzer zuvor bei seiner Bank angemeldet, und der Browser hat ein Sitzungscookie für ihn gespeichert. Die Seite enthält ein {{htmlelement("form")}}-Element, mit dem der Benutzer Geld an eine andere Person überweisen kann. Wenn der Benutzer das Formular absendet, sendet der Browser eine {{httpmethod("POST")}}-Anfrage mit den Formulardaten an den Server. Ist der Benutzer angemeldet, enthält die Anfrage sein Cookie. Der Server prüft das Cookie und führt die Aktion aus – in diesem Fall die Überweisung:
 
-![Diagramm, das zeigt, wie ein Benutzer ein Browserformular einreicht, der Browser dann eine POST-Anfrage an den Server sendet und der Server die Anfrage validiert.](form-post.svg)
+![Diagramm: Ein Benutzer sendet ein Browserformular ab. Daraufhin sendet der Browser eine POST-Anfrage an den Server, der die Anfrage prüft.](form-post.svg)
 
-In diesem Leitfaden werden wir eine solche Anfrage, die eine spezielle Aktion ausführt, als _zustandsverändernde Anfrage_ bezeichnen.
+In diesem Leitfaden bezeichnen wir eine solche Anfrage, die eine besondere Aktion ausführt, als _zustandsändernde Anfrage_.
 
-Bei einem CSRF-Angriff erstellt der Angreifer eine Website mit einem Formular. Das [`action`-Attribut](/de/docs/Web/HTML/Reference/Elements/form#action) des Formulars ist auf die Website der Bank gesetzt, und das Formular enthält versteckte Eingabefelder, die die Felder der Bank nachahmen:
+Bei einem CSRF-Angriff erstellt der Angreifer eine Website mit einem Formular. Dessen [`action`-Attribut](/de/docs/Web/HTML/Reference/Elements/form#action) verweist auf die Website der Bank. Das Formular enthält versteckte Eingabefelder, die die Felder der Bank nachahmen:
 
 ```html
 <form action="https://my-bank.example.org/transfer" method="POST">
@@ -26,63 +26,63 @@ Bei einem CSRF-Angriff erstellt der Angreifer eine Website mit einem Formular. D
 </form>
 ```
 
-Die Seite enthält auch JavaScript, das das Formular beim Laden der Seite übermittelt:
+Die Seite enthält außerdem JavaScript, das das Formular beim Laden der Seite absendet:
 
 ```js
 const form = document.querySelector("form");
 form.submit();
 ```
 
-Wenn der Benutzer die Seite besucht, übermittelt der Browser das Formular an die Website der Bank. Da der Benutzer in seinem Bankkonto eingeloggt ist, kann die Anfrage das echte Cookie des Benutzers enthalten, sodass der Server der Bank die Anfrage erfolgreich validiert und die Gelder überträgt:
+Wenn der Benutzer die Seite besucht, sendet der Browser das Formular an die Website der Bank. Da der Benutzer bei seiner Bank angemeldet ist, kann die Anfrage sein echtes Cookie enthalten. Der Server der Bank prüft die Anfrage daher erfolgreich und überweist das Geld:
 
-![Diagramm, das einen CSRF-Angriff zeigt, bei dem eine Scheitelseite eine POST-Anfrage an die Website der Bank des Benutzers übermittelt.](csrf-form-post.svg)
+![Diagramm: Bei einem CSRF-Angriff sendet eine vorgetäuschte Seite eine POST-Anfrage an die Website der Bank des Benutzers.](csrf-form-post.svg)
 
-Es gibt weitere Möglichkeiten, wie der Angreifer eine Cross-Site Request Forgery ausführen könnte. Zum Beispiel, wenn die Website eine {{httpmethod("GET")}}-Anfrage zur Ausführung der Aktion verwendet, kann der Angreifer darauf verzichten, ein Formular zu verwenden, und den Benutzer zu einer Seite schicken, die ein Markup wie dieses enthält:
+Ein Angreifer kann eine Cross-Site-Request-Forgery auch auf andere Weise auslösen. Wenn die Website beispielsweise eine {{httpmethod("GET")}}-Anfrage verwendet, um die Aktion auszuführen, benötigt der Angreifer kein Formular. Er kann den Angriff ausführen, indem er dem Benutzer einen Link zu einer Seite mit folgendem Markup sendet:
 
 ```html
 <img
   src="https://my-bank.example.org/transfer?recipient=attacker&amount=1000" />
 ```
 
-Wenn der Benutzer die Seite lädt, versucht der Browser, die Bildressource abzurufen, die tatsächlich die Transaktionsanfrage ist.
+Wenn der Benutzer die Seite lädt, versucht der Browser, die Bildressource abzurufen. Tatsächlich handelt es sich dabei um die Transaktionsanfrage.
 
-Im Allgemeinen ist ein CSRF-Angriff möglich, wenn Ihre Website:
+Allgemein ist ein CSRF-Angriff möglich, wenn Ihre Website:
 
 - HTTP-Anfragen verwendet, um einen Zustand auf dem Server zu ändern.
-- Nur Cookies verwendet, um zu überprüfen, dass die Anfrage von einem authentifizierten Benutzer stammt.
-- Nur Parameter in der Anfrage verwendet, die ein Angreifer vorhersagen kann.
+- ausschließlich Cookies verwendet, um zu prüfen, ob die Anfrage von einem authentifizierten Benutzer stammt.
+- ausschließlich Anfrageparameter verwendet, die ein Angreifer vorhersagen kann.
 
-## Abwehrmaßnahmen gegen CSRF
+## Schutzmaßnahmen gegen CSRF
 
-In diesem Abschnitt werden wir drei alternative Abwehrmaßnahmen gegen CSRF skizzieren und eine vierte Praxis, die zur vertieften Verteidigung neben den anderen genutzt werden kann.
+In diesem Abschnitt stellen wir drei alternative Schutzmaßnahmen gegen CSRF sowie eine vierte Maßnahme vor, die jede der anderen durch zusätzliche Absicherung ergänzen kann.
 
-- Die erste primäre Abwehrmaßnahme besteht darin, [CSRF-Token zu verwenden](#csrf-token), die in die Seite eingebettet sind. Dies ist die häufigste Methode, wenn Sie zustandsverändernde Anfragen von Formular-Elementen aus stellen, wie in unserem obigen Beispiel.
+- Die erste primäre Schutzmaßnahme besteht darin, [_CSRF-Token_](#csrf-token) in die Seite einzubetten. Dies ist die gängigste Methode, wenn zustandsändernde Anfragen wie im obigen Beispiel über Formularelemente gesendet werden.
 
-- Die zweite Methode ist die Verwendung von [Fetch-Metadaten](#fetch-metadaten) HTTP-Headern, um zu überprüfen, ob die zustandsverändernde Anfrage übergreifend gestellt wird oder nicht.
+- Die zweite besteht darin, anhand von [_Fetch-Metadaten_](#fetch-metadaten) in HTTP-Headern zu prüfen, ob eine zustandsändernde Anfrage websiteübergreifend gesendet wird.
 
-- Die dritte Methode besteht darin sicherzustellen, dass zustandsverändernde Anfragen [keine einfachen Anfragen](#vermeidung_einfacher_anfragen) sind, sodass Cross-Origin-Anfragen standardmäßig blockiert werden. Diese Methode ist angemessen, wenn Sie zustandsverändernde Anfragen von JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch) aus stellen.
+- Die dritte besteht darin, sicherzustellen, dass zustandsändernde Anfragen [keine _einfachen Anfragen_](#einfache_anfragen_vermeiden) sind, sodass ursprungsübergreifende Anfragen standardmäßig blockiert werden. Diese Methode eignet sich, wenn Sie zustandsändernde Anfragen über JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch) senden.
 
-Zum Schluss werden wir [das `SameSite`-Cookie-Attribut](#defense_in_depth_samesite_cookies) diskutieren, das zur vertieften Verteidigung neben einer der vorherigen Methoden verwendet werden kann.
+Abschließend behandeln wir das [`SameSite`-Cookie-Attribut](#defense_in_depth_samesite_cookies), das jede der vorherigen Methoden durch zusätzliche Absicherung ergänzen kann.
 
 ### CSRF-Token
 
-Bei dieser Abwehrmaßnahme bettet der Server beim Bereitstellen einer Seite einen unvorhersehbaren Wert in die Seite ein, den CSRF-Token. Wenn die legitime Seite die zustandsverändernde Anfrage an den Server sendet, wird der CSRF-Token in die HTTP-Anfrage integriert. Der Server kann dann den Token-Wert überprüfen und führt die Anfrage nur aus, wenn sie übereinstimmt. Da ein Angreifer den Token-Wert nicht erraten kann, kann er keine erfolgreiche Fälschung durchführen. Selbst wenn der Angreifer einen Token entdeckt, nachdem er verwendet wurde, kann die Anfrage nicht erneut durchgespielt werden, wenn sich der Token jedes Mal ändert.
+Bei dieser Schutzmaßnahme bettet der Server beim Ausliefern einer Seite einen nicht vorhersagbaren Wert in sie ein: das CSRF-Token. Wenn die legitime Seite anschließend eine zustandsändernde Anfrage an den Server sendet, fügt sie das CSRF-Token in die HTTP-Anfrage ein. Der Server kann den Wert des Tokens prüfen und die Anfrage nur ausführen, wenn er übereinstimmt. Da ein Angreifer den Tokenwert nicht erraten kann, kann er keine erfolgreiche gefälschte Anfrage senden. Selbst wenn er ein Token nach dessen Verwendung erfährt, kann die Anfrage nicht erneut gesendet werden, sofern das Token jedes Mal geändert wird.
 
-Bei Formularübermittlungen wird der CSRF-Token normalerweise in ein verstecktes Formularfeld eingefügt, sodass er bei der Formularübermittlung automatisch an den Server zur Überprüfung zurückgesendet wird.
+Bei Formularübermittlungen wird das CSRF-Token üblicherweise in ein verstecktes Formularfeld eingefügt. So wird es beim Absenden des Formulars automatisch zur Prüfung an den Server zurückgesendet.
 
-Für eine JavaScript-API wie `fetch()` könnte der Token in ein Cookie gesetzt oder in die Seite eingebettet werden, und das JavaScript extrahiert den Wert und sendet ihn als zusätzlichen Header.
+Bei einer JavaScript-API wie `fetch()` kann das Token in einem Cookie oder in der Seite hinterlegt werden. JavaScript liest den Wert aus und sendet ihn als zusätzlichen Header.
 
-Moderne Web-Frameworks haben normalerweise eine eingebaute Unterstützung für CSRF-Token: zum Beispiel ermöglicht es [Django](https://www.djangoproject.com/), Formulare mit dem [`csrf_token`](https://docs.djangoproject.com/en/5.1/ref/csrf/) Tag zu schützen. Dies generiert zusätzlich ein verstecktes Formularfeld, das den Token enthält, den das Framework dann auf dem Server überprüft.
+Moderne Webframeworks unterstützen CSRF-Token in der Regel direkt. Mit [Django](https://www.djangoproject.com/) können Sie Formulare beispielsweise durch das Tag [`csrf_token`](https://docs.djangoproject.com/en/stable/ref/csrf/) schützen. Es erzeugt ein zusätzliches verstecktes Formularfeld mit dem Token, das das Framework anschließend auf dem Server prüft.
 
-Um von diesem Schutz zu profitieren, müssen Sie alle Bereiche Ihrer Website verstehen, in denen Sie zustandsverändernde HTTP-Anfragen stellen, und sicherstellen, dass Sie den Schutz Ihres gewählten Frameworks verwenden.
+Um diesen Schutz zu nutzen, müssen Sie wissen, an welchen Stellen Ihrer Website zustandsändernde HTTP-Anfragen verwendet werden, und sicherstellen, dass Sie dort die Schutzmaßnahme Ihres Frameworks einsetzen.
 
 ### Fetch-Metadaten
 
-Fetch-Metadaten sind eine Sammlung von HTTP-Request-Headern, die vom Browser hinzugefügt werden und zusätzliche Informationen über den Kontext einer HTTP-Anfrage liefern. Der Server kann diese Header verwenden, um zu entscheiden, ob er eine Anfrage zulassen oder ablehnen soll.
+Fetch-Metadaten sind eine Gruppe von HTTP-Anfrageheadern, die der Browser hinzufügt und die zusätzliche Informationen zum Kontext einer HTTP-Anfrage liefern. Anhand dieser Header kann der Server entscheiden, ob er eine Anfrage zulässt.
 
-Am relevantesten für CSRF ist der {{httpheader("Sec-Fetch-Site")}}-Header, der dem Server mitteilt, ob diese Anfrage gleichherkunft, gleichseite, übergreifend oder direkt vom Benutzer initiiert wurde. Der Server kann diese Informationen verwenden, um Cross-Origin-Anfragen zuzulassen oder als potenzielle CSRF-Angriffe zu blockieren.
+Für CSRF ist vor allem der Header {{httpheader("Sec-Fetch-Site")}} relevant. Er teilt dem Server mit, ob die Anfrage vom selben Ursprung, von derselben Website oder websiteübergreifend stammt oder direkt vom Benutzer ausgelöst wurde. Anhand dieser Information kann der Server ursprungsübergreifende Anfragen zulassen oder als mögliche CSRF-Angriffe blockieren.
 
-Zum Beispiel erlaubt dieser [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)-Code nur gleichseitige und gleichherkunft Anfragen:
+Der folgende [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)-Code lässt beispielsweise nur Anfragen von derselben Website und demselben Ursprung zu:
 
 ```js
 app.post("/transfer", (req, res) => {
@@ -97,19 +97,19 @@ app.post("/transfer", (req, res) => {
 });
 ```
 
-Siehe {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Request-Header")}} für die vollständige Liste der Fetch-Metadaten-Header und [Fetch-Metadaten](/de/docs/Web/HTTP/Guides/Fetch_metadata) für einen Leitfaden zur Nutzung dieser Funktion.
+Eine vollständige Liste der Fetch-Metadaten-Header finden Sie unter {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anfrageheader")}}. Der [Leitfaden zu Fetch-Metadaten](/de/docs/Web/HTTP/Guides/Fetch_metadata) erläutert die Verwendung dieser Funktion.
 
-### Vermeidung einfacher Anfragen
+### Einfache Anfragen vermeiden
 
-Web-Browser unterscheiden zwischen zwei Arten von HTTP-Anfragen: [_einfache_ Anfragen](/de/docs/Web/HTTP/Guides/CORS#simple_requests) und andere Anfragen.
+Webbrowser unterscheiden zwei Arten von HTTP-Anfragen: [_einfache_ Anfragen](/de/docs/Web/HTTP/Guides/CORS#simple_requests) und andere Anfragen.
 
-Einfache Anfragen, die sich aus der Einreichung eines `<form>`-Elements ergeben, können übergreifend gestellt werden, ohne blockiert zu werden. Da Formulare seit den frühen Tagen des Webs in der Lage sind, Cross-Origin-Anfragen zu stellen, ist es wichtig, dass sie aus Kompatibilitätsgründen weiterhin in der Lage sein sollten, Cross-Origin-Anfragen zu stellen. Aus diesem Grund müssen wir andere Strategien implementieren, um Formulare gegen CSRF zu schützen, wie z.B. die Verwendung eines CSRF-Tokens.
+Einfache Anfragen, wie sie beim Absenden eines `<form>`-Elements entstehen, können ursprungsübergreifend gesendet werden, ohne blockiert zu werden. Formulare konnten schon seit den Anfängen des Webs ursprungsübergreifende Anfragen senden. Aus Kompatibilitätsgründen ist es wichtig, dass dies weiterhin möglich ist. Deshalb benötigen wir andere Strategien, um Formulare vor CSRF zu schützen, etwa CSRF-Token.
 
-Andere Teile der Webplattform, insbesondere JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch), können jedoch andere Arten von Anfragen stellen (zum Beispiel Anfragen, die benutzerdefinierte Header setzen), und diese Anfragen sind standardmäßig nicht übergreifend zugelassen, sodass ein CSRF-Angriff nicht erfolgreich wäre.
+Andere Teile der Webplattform, insbesondere JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch), können jedoch andere Arten von Anfragen senden, beispielsweise Anfragen mit benutzerdefinierten Headern. Solche Anfragen sind ursprungsübergreifend standardmäßig nicht zulässig, sodass ein CSRF-Angriff damit nicht erfolgreich wäre.
 
-Eine Website, die `fetch()` oder `XMLHttpRequest` verwendet, kann sich gegen CSRF verteidigen, indem sie sicherstellt, dass die von ihr gestellten zustandsverändernden Anfragen niemals einfache Anfragen sind.
+Eine Website, die `fetch()` oder `XMLHttpRequest` verwendet, kann sich daher gegen CSRF schützen, indem sie sicherstellt, dass ihre zustandsändernden Anfragen niemals einfache Anfragen sind.
 
-Zum Beispiel verhindert das Setzen des {{httpheader("Content-Type")}} der Anfrage auf `"application/json"`, dass sie als einfache Anfrage behandelt wird:
+Wenn Sie beispielsweise den {{httpheader("Content-Type")}} der Anfrage auf `"application/json"` setzen, wird sie nicht als einfache Anfrage behandelt:
 
 ```js
 fetch("https://my-bank.example.org/transfer", {
@@ -121,7 +121,7 @@ fetch("https://my-bank.example.org/transfer", {
 });
 ```
 
-Ebenso verhindert das Setzen eines benutzerdefinierten Headers auf der Anfrage, dass sie als einfache Anfrage behandelt wird:
+Ebenso verhindert ein benutzerdefinierter Anfrageheader, dass die Anfrage als einfache Anfrage behandelt wird:
 
 ```js
 fetch("https://my-bank.example.org/transfer", {
@@ -133,57 +133,57 @@ fetch("https://my-bank.example.org/transfer", {
 });
 ```
 
-Der Header-Name kann beliebig sein, solange er nicht mit Standard-Headern kollidiert.
+Der Headername ist frei wählbar, solange er nicht mit Standardheadern kollidiert.
 
-Der Server kann dann die Existenz des Headers überprüfen: Wenn er vorhanden ist, weiß der Server, dass die Anfrage nicht als einfache Anfrage behandelt wurde.
+Der Server kann anschließend prüfen, ob der Header vorhanden ist. Ist dies der Fall, weiß der Server, dass die Anfrage nicht als einfache Anfrage behandelt wurde.
 
-#### Nicht-einfache Anfragen und CORS
+#### Nicht einfache Anfragen und CORS
 
-Wir haben gesagt, dass nicht-einfache Anfragen _standardmäßig_ nicht übergreifend gesendet werden. Der Haken ist, dass das [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)-Protokoll es einer Website ermöglicht, diese Einschränkung zu lockern.
+Wie bereits erwähnt, werden nicht einfache Anfragen _standardmäßig_ nicht ursprungsübergreifend gesendet. Allerdings kann eine Website diese Einschränkung mithilfe des Protokolls [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) lockern.
 
-Konkret ist Ihre Website anfällig für einen CSRF-Angriff von einem bestimmten Ursprung, wenn ihre Antwort auf eine zustandsverändernde Anfrage Folgendes enthält:
+Ihre Website ist insbesondere dann für einen CSRF-Angriff von einem bestimmten Ursprung aus anfällig, wenn ihre Antwort auf eine zustandsändernde Anfrage Folgendes enthält:
 
-- Den {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader, und der Header listet den Ursprung des Senders auf
-- Den {{httpheader("Access-Control-Allow-Credentials")}}-Antwortheader.
+- den Antwortheader {{httpheader("Access-Control-Allow-Origin")}}, der den Ursprung des Absenders aufführt.
+- den Antwortheader {{httpheader("Access-Control-Allow-Credentials")}}.
 
-### Vertiefte Verteidigung: SameSite-Cookies
+### Zusätzliche Absicherung: SameSite-Cookies
 
-Das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Cookie-Attribut bietet einen gewissen Schutz gegen CSRF-Angriffe. Es ist keine vollständige Verteidigung und wird am besten als Ergänzung zu einer der anderen Verteidigungen betrachtet, die eine gewisse vertiefte Verteidigung bieten.
+Das Cookie-Attribut [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) bietet einen gewissen Schutz vor CSRF-Angriffen. Es stellt allein jedoch keinen vollständigen Schutz dar und sollte als Ergänzung zu einer der anderen Schutzmaßnahmen betrachtet werden.
 
-Dieses Attribut steuert, wann ein Browser das Cookie in einer übergreifenden Anfrage einfügen darf. Es hat drei mögliche Werte: `None`, `Lax` und `Strict`.
+Dieses Attribut steuert, wann ein Browser das Cookie in eine websiteübergreifende Anfrage aufnehmen darf. Es kann die Werte `None`, `Lax` und `Strict` haben.
 
-Der `Strict`-Wert bietet den größten Schutz: Wenn dieses Attribut gesetzt ist, wird der Browser das Cookie nicht in eine übergreifende Anfrage einfügen. Dies schafft jedoch ein Usability-Problem: Wenn der Benutzer in Ihr System eingeloggt ist und einem Link zu Ihrer Seite von einer anderen Seite folgt, dann werden Ihre Cookies nicht einbezogen und der Benutzer wird nicht erkannt, wenn er Ihre Seite erreicht.
+Der Wert `Strict` bietet den stärksten Schutz: Ist er gesetzt, fügt der Browser das Cookie keiner websiteübergreifenden Anfrage hinzu. Dies beeinträchtigt jedoch die Benutzerfreundlichkeit: Wenn ein angemeldeter Benutzer einem Link von einer anderen Website zu Ihrer Website folgt, werden Ihre Cookies nicht mitgesendet. Der Benutzer wird beim Aufrufen Ihrer Website daher nicht erkannt.
 
-Der `Lax`-Wert lockert diese Einschränkung: Cookies werden in übergreifenden Anfragen einbezogen, wenn beide der folgenden Bedingungen zutreffen:
+Der Wert `Lax` lockert diese Einschränkung: Cookies werden bei websiteübergreifenden Anfragen mitgesendet, wenn beide folgenden Bedingungen erfüllt sind:
 
-- Die Anfrage war eine Navigation des Top-Level-Browsing-Kontextes.
-- Die Anfrage verwendete eine {{Glossary("Safe/HTTP", "sichere")}} Methode: notably, {{httpmethod("GET")}} ist sicher, aber {{httpmethod("POST")}} ist nicht.
+- Die Anfrage wurde durch eine Navigation des obersten Browsing-Kontexts ausgelöst.
+- Die Anfrage verwendete eine {{Glossary("Safe/HTTP", "sichere")}} Methode: Insbesondere ist {{httpmethod("GET")}} sicher, {{httpmethod("POST")}} dagegen nicht.
 
-Jedoch bietet `Lax` einen deutlich schwächeren Schutz als `Strict`:
+Allerdings bietet `Lax` einen deutlich schwächeren Schutz als `Strict`:
 
-- Ein Angreifer kann eine Top-Level-Navigation initiieren. Zum Beispiel zeigen wir am Anfang dieses Artikels einen CSRF-Angriff, bei dem der Angreifer ein Formular an das Ziel sendet: dies wird als Top-Level-Navigation betrachtet. Wenn das Formular mit `GET` eingereicht wird, dann würde die Anfrage immer noch Cookies mit `SameSite=Lax` enthalten.
-- Auch wenn der Server überprüft, dass die Anfrage nicht mit `GET` gesendet wurde, unterstützen einige Web-Frameworks eine "Methodenüberschreibung": das ermöglicht einem Angreifer, eine Anfrage mit `GET` zu senden, die dem Server jedoch erscheint, als ob sie mit `POST` gesendet wurde.
+- Ein Angreifer kann eine Navigation auf oberster Ebene auslösen. Zu Beginn dieses Artikels zeigen wir beispielsweise einen CSRF-Angriff, bei dem der Angreifer ein Formular an die Zielwebsite absendet. Das gilt als Navigation auf oberster Ebene. Würde das Formular mit `GET` abgesendet, enthielte die Anfrage auch Cookies mit `SameSite=Lax`.
+- Selbst wenn der Server prüft, dass die Anfrage nicht mit `GET` gesendet wurde, unterstützen einige Webframeworks „Method Override“. Dadurch kann ein Angreifer eine Anfrage mit `GET` senden, die für den Server so aussieht, als würde sie `POST` verwenden.
 
-Als allgemeiner Leitfaden sollten Sie dann versuchen, `Strict` für einige Cookies und `Lax` für andere zu verwenden:
+Als allgemeine Richtlinie sollten Sie daher für einige Cookies `Strict` und für andere `Lax` verwenden:
 
-- `Lax` für Cookies, die Sie verwenden, um zu entscheiden, ob einem eingeloggten Benutzer eine Seite gezeigt werden soll
-- `Strict` für Cookies, die Sie für zustandsverändernde Anfragen verwenden, die Sie nicht übergreifend zulassen möchten.
+- `Lax` für Cookies, anhand derer Sie entscheiden, ob einem angemeldeten Benutzer eine Seite angezeigt werden soll.
+- `Strict` für Cookies, die Sie für zustandsändernde Anfragen verwenden, die Sie nicht websiteübergreifend zulassen möchten.
 
-Ein weiteres Problem mit dem `SameSite`-Attribut ist, dass es Sie vor Anfragen von einer anderen {{Glossary("Site", "Website")}} und nicht von einem anderen {{Glossary("Origin", "Ursprung")}} schützt. Dies ist ein lockererer Schutz, weil (zum Beispiel) `https://foo.example.org` und `https://bar.example.org` als gleiche Website betrachtet werden, obwohl sie unterschiedliche Ursprünge sind. Im Wesentlichen müssen Sie, wenn Sie sich auf den gesameite Schutz verlassen, alle Subdomains Ihrer Seite vertrauen.
+Ein weiteres Problem des Attributs `SameSite` besteht darin, dass es vor Anfragen von einer anderen {{Glossary("Site", "Website")}} schützt, nicht aber vor Anfragen von einem anderen {{Glossary("Origin", "Ursprung")}}. Dieser Schutz ist weniger streng: Beispielsweise gelten `https://foo.example.org` und `https://bar.example.org` als dieselbe Website, obwohl sie unterschiedliche Ursprünge sind. Wenn Sie sich auf den Schutz für Anfragen von derselben Website verlassen, müssen Sie somit allen Subdomains Ihrer Website vertrauen.
 
-Siehe [Bypassing SameSite cookie restrictions](https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions) für weitere Details zu den Einschränkungen von `SameSite`.
+Weitere Einzelheiten zu den Grenzen von `SameSite` finden Sie unter [SameSite-Cookie-Einschränkungen umgehen](https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions).
 
-## Zusammenfassung der Abwehrmaßnahmen
+## Checkliste der Schutzmaßnahmen
 
-- Verstehen Sie, wo Sie auf Ihrer Website zustandsverändernde Anfragen implementieren, die Sitzungscookies verwenden, um zu überprüfen, welcher Benutzer die Anfrage gestellt hat.
-- Implementieren Sie mindestens eine der primären Abwehrmaßnahmen, die in diesem Dokument beschrieben werden:
-  - Wenn Sie `<form>`-Elemente verwenden, um diese Anfragen zu stellen, stellen Sie sicher, dass Sie ein Web-Framework mit Unterstützung für CSRF-Token verwenden, und verwenden Sie es.
-  - Wenn Sie JavaScript-APIs wie `fetch()` oder `XMLHttpRequest` verwenden, um zustandsverändernde Anfragen zu stellen, stellen Sie sicher, dass es sich nicht um einfache Anfragen handelt.
-  - Unabhängig davon, welchen Mechanismus Sie zur Übermittlung der Anfragen verwenden, sollten Sie Fetch-Metadaten in Betracht ziehen, um übergreifende Anfragen zu verbieten.
-- Vermeiden Sie es, die `GET`-Methode zu verwenden, um zustandsverändernde Anfragen zu stellen.
-- Setzen Sie das `SameSite`-Attribut für Sitzungscookies auf `Strict`, wenn möglich, oder auf `Lax`, wenn es notwendig ist.
+- Ermitteln Sie, an welchen Stellen Ihrer Website zustandsändernde Anfragen verwendet werden, bei denen Sitzungscookies dazu dienen, den anfragenden Benutzer zu identifizieren.
+- Implementieren Sie mindestens eine der in diesem Dokument beschriebenen primären Schutzmaßnahmen:
+  - Wenn Sie solche Anfragen mit `<form>`-Elementen senden, verwenden Sie ein Webframework, das CSRF-Token unterstützt, und nutzen Sie diese Unterstützung.
+  - Wenn Sie zustandsändernde Anfragen über JavaScript-APIs wie `fetch()` oder `XMLHttpRequest` senden, stellen Sie sicher, dass es sich nicht um einfache Anfragen handelt.
+  - Unabhängig davon, wie Sie die Anfragen senden, sollten Sie erwägen, websiteübergreifende Anfragen anhand von Fetch-Metadaten abzulehnen.
+- Verwenden Sie die Methode `GET` nicht für zustandsändernde Anfragen.
+- Setzen Sie das Attribut `SameSite` für Sitzungscookies nach Möglichkeit auf `Strict`, andernfalls auf `Lax`.
 
 ## Siehe auch
 
-- [Lokaler Netzwerkzugang](/de/docs/Web/Security/Defenses/Local_network_access)
-- [Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) auf [owasp.org](https://owasp.org/)
+- [Zugriff auf das lokale Netzwerk](/de/docs/Web/Security/Defenses/Local_network_access)
+- [Spickzettel zur Verhinderung von Cross-Site Request Forgery](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) auf [owasp.org](https://owasp.org/)

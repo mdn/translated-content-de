@@ -2,46 +2,46 @@
 title: SVGLengthList
 slug: Web/API/SVGLengthList
 l10n:
-  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
+  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
 ---
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle **`SVGLengthList`** definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
+Die **`SVGLengthList`**-Schnittstelle definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
 
-Ein `SVGLengthList`-Objekt kann als schreibgeschützt festgelegt werden. Das bedeutet, dass Versuche, das Objekt zu ändern, zum Auslösen einer Ausnahme führen.
+Ein `SVGLengthList`-Objekt kann als schreibgeschützt gekennzeichnet sein. Versuche, das Objekt zu ändern, lösen dann eine Ausnahme aus.
 
-Ein `SVGLengthList`-Objekt ist indexierbar und kann mithilfe der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) wie ein Array aufgerufen werden. Das Lesen eines Index entspricht dem Aufruf von [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem). Das Zuweisen zu einem Index entspricht dem Aufruf von [`replaceItem()`](/de/docs/Web/API/SVGLengthList/replaceItem), einschließlich der dadurch ausgelösten Ausnahmen.
+Ein `SVGLengthList`-Objekt kann über Indizes angesprochen werden. Sie können wie bei einem Array mit der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) darauf zugreifen. Das Lesen eines Elements über seinen Index entspricht einem Aufruf von [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem). Eine Zuweisung über einen Index entspricht einem Aufruf von [`replaceItem()`](/de/docs/Web/API/SVGLengthList/replaceItem), einschließlich der dabei ausgelösten Ausnahmen.
 
 ## Instanzeigenschaften
 
-- [`length`](/de/docs/Web/API/SVGLengthList/length)
-  - : Die Anzahl der Elemente in der Liste.
-- [`numberOfItems`](/de/docs/Web/API/SVGLengthList/numberOfItems)
-  - : Die Anzahl der Elemente in der Liste.
+- [`length`](/de/docs/Web/API/SVGLengthList/length) {{ReadOnlyInline}}
+  - : Die Anzahl der Einträge in der Liste.
+- [`numberOfItems`](/de/docs/Web/API/SVGLengthList/numberOfItems) {{ReadOnlyInline}}
+  - : Die Anzahl der Einträge in der Liste.
 
 ## Instanzmethoden
 
 - [`appendItem()`](/de/docs/Web/API/SVGLengthList/appendItem)
-  - : Fügt ein neues Element am Ende der Liste ein.
+  - : Fügt am Ende der Liste einen neuen Eintrag hinzu.
 - [`clear()`](/de/docs/Web/API/SVGLengthList/clear)
-  - : Entfernt alle vorhandenen Elemente aus der Liste, sodass eine leere Liste entsteht.
+  - : Entfernt alle vorhandenen Einträge aus der Liste, sodass sie leer ist.
 - [`initialize()`](/de/docs/Web/API/SVGLengthList/initialize)
-  - : Entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste erneut, sodass sie das einzelne durch den Parameter angegebene Element enthält.
+  - : Entfernt alle vorhandenen Einträge aus der Liste und initialisiert sie mit dem einzelnen Eintrag neu, der als Parameter angegeben wurde.
 - [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem)
-  - : Gibt das angegebene Element aus der Liste zurück.
+  - : Gibt den angegebenen Eintrag aus der Liste zurück.
 - [`insertItemBefore()`](/de/docs/Web/API/SVGLengthList/insertItemBefore)
-  - : Fügt ein neues Element an der angegebenen Position in die Liste ein.
+  - : Fügt an der angegebenen Position einen neuen Eintrag in die Liste ein.
 - [`removeItem()`](/de/docs/Web/API/SVGLengthList/removeItem)
-  - : Entfernt ein vorhandenes Element aus der Liste.
+  - : Entfernt einen vorhandenen Eintrag aus der Liste.
 - [`replaceItem()`](/de/docs/Web/API/SVGLengthList/replaceItem)
-  - : Ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
+  - : Ersetzt einen vorhandenen Eintrag in der Liste durch einen neuen Eintrag.
 
 ## Beispiele
 
-### Verwendung von SVGLengthList
+### SVGLengthList verwenden
 
-Ein `SVGLengthList`-Objekt kann aus einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden, das seinerseits aus vielen animierbaren Längenattributen wie [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x) abgerufen werden kann.
+Ein `SVGLengthList`-Objekt kann aus einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden. Dieses wiederum ist über viele animierbare Längenattribute zugänglich, beispielsweise über [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x).
 
 #### HTML
 

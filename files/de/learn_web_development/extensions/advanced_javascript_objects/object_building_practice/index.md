@@ -1,13 +1,13 @@
 ---
-title: Objektaufbauübung
+title: Übung zum Erstellen von Objekten
 slug: Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice
 l10n:
-  sourceCommit: 2b4a2ad5d9ba084a9eaa2f9204102655e7b575c4
+  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Advanced_JavaScript_objects/Test_your_skills/Object-oriented_JavaScript", "Learn_web_development/Extensions/Advanced_JavaScript_objects/Adding_bouncing_balls_features", "Learn_web_development/Extensions/Advanced_JavaScript_objects")}}
 
-In den vorherigen Artikeln haben wir alle wesentlichen Theorien und Syntaxdetails von JavaScript-Objekten betrachtet und Ihnen eine solide Basis geboten, von der aus Sie starten können. In diesem Artikel tauchen wir in eine praktische Übung ein, die Ihnen weitere Übung im Erstellen benutzerdefinierter JavaScript-Objekte bietet, mit einem lustigen und farbenfrohen Ergebnis.
+In den vorherigen Artikeln haben wir uns mit der grundlegenden Theorie und Syntax von JavaScript-Objekten beschäftigt. Damit haben Sie eine solide Ausgangsbasis. In diesem Artikel setzen wir das Gelernte praktisch um: Sie üben, eigene JavaScript-Objekte zu erstellen, und erhalten dabei ein unterhaltsames, farbenfrohes Ergebnis.
 
 <table>
   <tbody>
@@ -15,37 +15,37 @@ In den vorherigen Artikeln haben wir alle wesentlichen Theorien und Syntaxdetail
       <th scope="row">Voraussetzungen:</th>
       <td>
         Vertrautheit mit den Grundlagen von JavaScript
-        (insbesondere
-        <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Objektgrundlagen</a>) und objektorientierte JavaScript-Konzepte, die in den vorherigen Lektionen in diesem Modul behandelt wurden.
+        (insbesondere den
+        <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Grundlagen von Objekten</a>) und den Konzepten der objektorientierten Programmierung mit JavaScript, die in den vorherigen Lektionen dieses Moduls behandelt wurden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
-        Übung im Umgang mit Objekten und objektorientierten Techniken
-        in einem realen Kontext.
+        Den Einsatz von Objekten und objektorientierten Techniken
+        in einem praxisnahen Kontext üben.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Lassen Sie uns einige Bälle hüpfen
+## Lassen wir ein paar Bälle hüpfen
 
-In diesem Artikel schreiben wir ein klassisches "hüpfende Bälle"-Demo, um Ihnen zu zeigen, wie nützlich Objekte in JavaScript sein können. Unsere kleinen Bälle werden auf dem Bildschirm herumhüpfen und ihre Farbe ändern, wenn sie sich gegenseitig berühren. Das fertige Beispiel wird in etwa so aussehen:
+In diesem Artikel schreiben wir eine klassische Demo mit hüpfenden Bällen, die zeigt, wie nützlich Objekte in JavaScript sein können. Unsere kleinen Bälle hüpfen über den Bildschirm und ändern ihre Farbe, wenn sie einander berühren. Das fertige Beispiel sieht ungefähr so aus:
 
-![Screenshot einer Webseite mit dem Titel "Bouncing balls". 23 Bälle in verschiedenen Pastellfarben und Größen sind über einen schwarzen Bildschirm verteilt, mit langen Spuren hinter ihnen, die Bewegung anzeigen.](bouncing-balls.png)
+![Screenshot einer Webseite mit dem Titel „Bouncing balls“. Auf einem schwarzen Bildschirm sind 23 Bälle in verschiedenen Pastellfarben und Größen zu sehen. Lange Spuren hinter ihnen zeigen ihre Bewegung an.](bouncing-balls.png)
 
-Dieses Beispiel nutzt die [Canvas-API](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics) zum Zeichnen der Bälle auf dem Bildschirm und die [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-API, um die gesamte Anzeige zu animieren — Sie benötigen kein Vorwissen über diese APIs, und wir hoffen, dass Sie am Ende dieses Artikels Interesse daran haben, sie weiter zu erkunden. Auf dem Weg dorthin machen wir von einigen cleveren Objekten Gebrauch und zeigen Ihnen ein paar nette Techniken wie das Abprallen von Bällen von Wänden und das Überprüfen, ob sie sich gegenseitig getroffen haben (auch bekannt als _Kollisionsdetektion_).
+In diesem Beispiel verwenden wir die [Canvas API](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics), um die Bälle auf dem Bildschirm zu zeichnen, und die [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) API, um die gesamte Darstellung zu animieren. Sie benötigen keine Vorkenntnisse zu diesen APIs. Wir hoffen, dass Sie nach diesem Artikel Lust haben, sie näher zu erkunden. Unterwegs nutzen wir einige praktische Objekte und zeigen Ihnen Techniken, mit denen Bälle von Wänden abprallen und sich Berührungen zwischen Bällen erkennen lassen (auch als _Kollisionserkennung_ bezeichnet).
 
 ## Erste Schritte
 
-Zunächst erstellen Sie lokale Kopien unserer [`index.html`](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/index.html), [`style.css`](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/style.css) und [`main.js`](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main.js) Dateien. Diese enthalten jeweils Folgendes:
+Erstellen Sie zunächst lokale Kopien unserer Dateien [`index.html`](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/index.html), [`style.css`](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/style.css) und [`main.js`](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main.js). Sie enthalten jeweils Folgendes:
 
-1. Ein sehr einfaches HTML-Dokument mit einem {{HTMLElement("Heading_Elements", "h1")}}-Element, einem {{HTMLElement("canvas")}}-Element, um unsere Bälle zu zeichnen, und Elemente, um unser CSS und JavaScript auf unser HTML anzuwenden.
-2. Einige sehr einfache Styles, die hauptsächlich dazu dienen, das `<h1>` zu stylen und zu positionieren und jegliche Scrollbalken oder Ränder am Seitenrand zu entfernen (damit es schön und ordentlich aussieht).
-3. Ein wenig JavaScript, das das `<canvas>`-Element einrichtet und eine allgemeine Funktion bereitstellt, die wir verwenden werden.
+1. Ein einfaches HTML-Dokument mit einem {{HTMLElement("Heading_Elements", "h1")}}-Element, einem {{HTMLElement("canvas")}}-Element, auf das wir unsere Bälle zeichnen, sowie Elementen, die CSS und JavaScript in das HTML-Dokument einbinden.
+2. Einige einfache Styles, die hauptsächlich das `<h1>` gestalten und positionieren sowie Scrollleisten und Abstände am Seitenrand entfernen, damit die Seite ordentlich aussieht.
+3. JavaScript-Code, der das `<canvas>`-Element vorbereitet und eine allgemeine Funktion bereitstellt, die wir später verwenden.
 
-Der erste Teil des Skripts sieht folgendermaßen aus:
+Der erste Teil des Skripts sieht so aus:
 
 ```js
 const canvas = document.querySelector("canvas");
@@ -55,13 +55,13 @@ const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
 ```
 
-Dieses Skript erhält eine Referenz zum `<canvas>`-Element und ruft dann die Methode [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf diesem auf, um uns einen Kontext zu geben, auf dem wir mit dem Zeichnen beginnen können. Die resultierende Konstante (`ctx`) ist das Objekt, das den Zeichenbereich der Leinwand direkt repräsentiert und es uns ermöglicht, 2D-Formen darauf zu zeichnen.
+Dieses Skript ruft eine Referenz auf das `<canvas>`-Element ab und verwendet darauf die Methode [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext), um einen Kontext zu erhalten, in dem wir zeichnen können. Die resultierende Konstante (`ctx`) ist das Objekt, das den Zeichenbereich des Canvas direkt repräsentiert und uns ermöglicht, 2D-Formen darauf zu zeichnen.
 
-Als nächstes setzen wir Konstanten namens `width` und `height`, sowie die Breite und Höhe des Canvas-Elements (vertreten durch die Eigenschaften `canvas.width` und `canvas.height`) auf die Breite und Höhe des Browser-Viewports (der Bereich, in dem die Webseite erscheint — dies kann von den Eigenschaften [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight) erhalten werden).
+Anschließend setzen wir die Konstanten `width` und `height` sowie die Breite und Höhe des Canvas-Elements (repräsentiert durch die Eigenschaften `canvas.width` und `canvas.height`) auf die Breite und Höhe des Browser-Viewports. Das ist der Bereich, in dem die Webseite angezeigt wird. Seine Maße lassen sich über die Eigenschaften [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight) ermitteln.
 
-Beachten Sie, dass wir mehrere Zuweisungen miteinander verketten, um die Variablen schneller einzurichten — das ist völlig in Ordnung.
+Beachten Sie, dass wir mehrere Zuweisungen verketten, um die Werte schneller zu setzen. Das ist völlig in Ordnung.
 
-Dann haben wir zwei Hilfsfunktionen:
+Danach folgen zwei Hilfsfunktionen:
 
 ```js
 function random(min, max) {
@@ -73,11 +73,11 @@ function randomRGB() {
 }
 ```
 
-Die `random()` Funktion nimmt zwei Zahlen als Argumente und gibt eine Zufallszahl im Bereich dazwischen zurück. Die `randomRGB()` Funktion generiert eine zufällige Farbe, die als {{cssxref("color_value/rgb")}}-String dargestellt wird.
+Die Funktion `random()` nimmt zwei Zahlen als Argumente entgegen und gibt eine Zufallszahl im Bereich zwischen ihnen zurück. Die Funktion `randomRGB()` erzeugt eine zufällige Farbe als {{cssxref("color_value/rgb")}}-String.
 
-## Modellierung eines Balls in unserem Programm
+## Einen Ball in unserem Programm modellieren
 
-Unser Programm wird viele Bälle auf dem Bildschirm hüpfen lassen. Da sich diese Bälle alle auf die gleiche Weise verhalten, macht es Sinn, sie mit einem Objekt darzustellen. Beginnen wir damit, die folgende Klassendefinition am Ende unseres Codes hinzuzufügen.
+In unserem Programm hüpfen viele Bälle über den Bildschirm. Da sie sich alle gleich verhalten, ist es sinnvoll, sie durch Objekte darzustellen. Fügen Sie zunächst die folgende Klassendefinition am Ende Ihres Codes hinzu.
 
 ```js
 class Ball {
@@ -92,18 +92,18 @@ class Ball {
 }
 ```
 
-Diese Klasse enthält bisher nur einen Konstruktor, in dem wir die Eigenschaften jedes Balls initialisieren können, die er benötigt, um in unserem Programm zu funktionieren:
+Bisher enthält diese Klasse nur einen Konstruktor. Darin initialisieren wir die Eigenschaften, die jeder Ball für seine Funktion in unserem Programm benötigt:
 
-- `x` und `y` Koordinaten — die horizontalen und vertikalen Koordinaten, an denen der Ball auf dem Bildschirm startet. Diese können zwischen 0 (oben links) und der Breite und Höhe des Browser-Viewports (unten rechts) liegen.
-- horizontale und vertikale Geschwindigkeit (`velX` und `velY`) — jedem Ball wird eine horizontale und vertikale Geschwindigkeit zugewiesen; in realen Begriffen werden diese Werte regelmäßig zu den `x`/`y`-Koordinatenwerten hinzugefügt, wenn wir die Bälle animieren, um sie bei jedem Frame um diesen Betrag zu bewegen.
-- `color` — jeder Ball erhält eine Farbe.
-- `size` — jeder Ball erhält eine Größe — dies ist sein Radius in Pixeln.
+- `x`- und `y`-Koordinaten – die horizontalen und vertikalen Koordinaten, an denen der Ball auf dem Bildschirm startet. Sie können zwischen 0 (obere linke Ecke) und der Breite beziehungsweise Höhe des Browser-Viewports (untere rechte Ecke) liegen.
+- Horizontale und vertikale Geschwindigkeit (`velX` und `velY`) – jeder Ball erhält eine horizontale und eine vertikale Geschwindigkeit. Bei der Animation werden diese Werte regelmäßig zu den `x`- und `y`-Koordinaten addiert, sodass sich der Ball in jedem Frame entsprechend bewegt.
+- `color` – jeder Ball erhält eine Farbe.
+- `size` – jeder Ball erhält eine Größe. Sie entspricht seinem Radius in Pixeln.
 
-Dies behandelt die Eigenschaften, aber was ist mit den Methoden? Wir wollen, dass unsere Bälle tatsächlich etwas in unserem Programm tun.
+Damit sind die Eigenschaften abgedeckt. Aber was ist mit den Methoden? Schließlich sollen unsere Bälle im Programm auch etwas tun.
 
 ### Den Ball zeichnen
 
-Fügen Sie zuerst die folgende Methode `draw()` zur `Ball`-Klasse hinzu:
+Fügen Sie zunächst die folgende Methode `draw()` zur Klasse `Ball` hinzu:
 
 ```js
 class Ball {
@@ -117,28 +117,28 @@ class Ball {
 }
 ```
 
-Mit dieser Funktion können wir dem Ball sagen, dass er sich selbst auf dem Bildschirm zeichnen soll, indem wir eine Reihe von Mitgliedern des zuvor definierten 2D-Leinwand-Kontexts (`ctx`) aufrufen. Der Kontext ist wie das Papier, und jetzt wollen wir unserem Stift befehlen, etwas darauf zu zeichnen:
+Mit dieser Funktion können wir den Ball anweisen, sich selbst auf den Bildschirm zu zeichnen. Dazu rufen wir nacheinander mehrere Elemente des zuvor definierten 2D-Canvas-Kontexts (`ctx`) auf. Stellen Sie sich den Kontext wie Papier vor, auf das wir nun mit einem Stift zeichnen:
 
-- Zuerst verwenden wir [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath), um anzugeben, dass wir eine Form auf das Papier zeichnen möchten.
-- Als nächstes verwenden wir [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle), um zu definieren, welche Farbe wir für die Form haben möchten — wir setzen sie auf die `color`-Eigenschaft unseres Balls.
-- Danach verwenden wir die Methode [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc), um eine Bogenform auf das Papier zu zeichnen. Ihre Parameter sind:
-  - Die `x`- und `y`-Position des Mittelpunkts des Bogens — wir geben die `x`- und `y`-Eigenschaften des Balls an.
-  - Der Radius des Bogens — in diesem Fall die `size`-Eigenschaft des Balls.
-  - Die letzten beiden Parameter geben die Anfangs- und Endzahlen von Graden um den Kreis an, zwischen denen der Bogen gezeichnet wird. Hier geben wir 0 Grad und `2 * PI` an, was 360 Grad im Bogenmaß entspricht (ärgerlicherweise muss dies im Bogenmaß angegeben werden). Das gibt uns einen vollständigen Kreis. Hätten Sie nur `1 * PI` angegeben, würden Sie einen Halbkreis (180 Grad) erhalten.
+- Zuerst verwenden wir [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath), um anzugeben, dass wir eine Form zeichnen möchten.
+- Danach legen wir mit [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) die Farbe der Form fest. Wir setzen sie auf die Eigenschaft `color` unseres Balls.
+- Anschließend zeichnen wir mit der Methode [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc) einen Kreisbogen. Ihre Parameter sind:
+  - Die Position des Mittelpunkts auf der `x`- und `y`-Achse – hier geben wir die Eigenschaften `x` und `y` des Balls an.
+  - Der Radius des Kreisbogens – in diesem Fall die Eigenschaft `size` des Balls.
+  - Die letzten beiden Parameter geben den Anfangs- und Endwinkel des Kreisbogens an. Hier verwenden wir 0 und `2 * PI`; Letzteres entspricht 360 Grad im Bogenmaß (diese Angabe muss im Bogenmaß erfolgen). So entsteht ein vollständiger Kreis. Mit nur `1 * PI` würden Sie einen Halbkreis (180 Grad) erhalten.
 
-- Zuletzt verwenden wir die Methode [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill), die im Wesentlichen angibt: "Fertigstellen des Pfades, den wir mit `beginPath()` begonnen haben, und das Gebiet, das er einnimmt, mit der zuvor in `fillStyle` festgelegten Farbe füllen."
+- Zuletzt verwenden wir die Methode [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill). Sie besagt im Wesentlichen: „Beende den mit `beginPath()` begonnenen Pfad und fülle die von ihm eingeschlossene Fläche mit der zuvor über `fillStyle` festgelegten Farbe.“
 
 Sie können Ihr Objekt bereits testen.
 
-1. Speichern Sie den bisherigen Code und laden Sie die HTML-Datei in einem Browser.
-2. Öffnen Sie die JavaScript-Konsole des Browsers und aktualisieren Sie dann die Seite, damit die Canvas-Größe auf den kleineren sichtbaren Viewport geändert wird, der bleibt, wenn die Konsole geöffnet ist.
-3. Geben Sie Folgendes ein, um eine neue Ballinstanz zu erstellen:
+1. Speichern Sie den bisherigen Code und öffnen Sie die HTML-Datei in einem Browser.
+2. Öffnen Sie die JavaScript-Konsole des Browsers und laden Sie die Seite neu. Dadurch passt sich die Canvas-Größe an den kleineren sichtbaren Viewport an, der bei geöffneter Konsole verbleibt.
+3. Geben Sie Folgendes ein, um eine neue Ball-Instanz zu erstellen:
 
    ```js
    const testBall = new Ball(50, 100, 4, 4, "blue", 10);
    ```
 
-4. Versuchen Sie, seine Mitglieder aufzurufen:
+4. Rufen Sie ihre Elemente auf:
 
    ```js
    testBall.x;
@@ -147,11 +147,11 @@ Sie können Ihr Objekt bereits testen.
    testBall.draw();
    ```
 
-5. Wenn Sie die letzte Zeile eingeben, sollte sich der Ball irgendwo auf der Leinwand zeichnen.
+5. Wenn Sie die letzte Zeile eingeben, sollte sich der Ball irgendwo auf dem Canvas zeichnen.
 
-### Aktualisieren der Balldaten
+### Die Daten des Balls aktualisieren
 
-Wir können den Ball an Ort und Stelle zeichnen, aber um den Ball tatsächlich zu bewegen, benötigen wir eine Aktualisierungsfunktion irgendeiner Art. Fügen Sie den folgenden Code innerhalb der Klassendefinition für `Ball` hinzu:
+Wir können den Ball an seiner Position zeichnen. Damit er sich tatsächlich bewegt, benötigen wir jedoch eine Funktion zum Aktualisieren seiner Daten. Fügen Sie den folgenden Code in die Klassendefinition von `Ball` ein:
 
 ```js
 class Ball {
@@ -179,26 +179,26 @@ class Ball {
 }
 ```
 
-Die ersten vier Teile der Funktion prüfen, ob der Ball den Rand der Leinwand erreicht hat. Wenn er das hat, kehren wir die Polarität der entsprechenden Geschwindigkeit um, damit der Ball in die entgegengesetzte Richtung fährt. Wenn der Ball beispielsweise nach oben fährt (negative `velY`), wird die vertikale Geschwindigkeit geändert, sodass er stattdessen nach unten fährt (positive `velY`).
+Die ersten vier Teile der Funktion prüfen, ob der Ball den Rand des Canvas erreicht hat. Falls ja, kehren wir das Vorzeichen der entsprechenden Geschwindigkeit um, damit sich der Ball in die entgegengesetzte Richtung bewegt. Wenn sich der Ball beispielsweise nach oben bewegt hat (negatives `velY`), wird die vertikale Geschwindigkeit so geändert, dass er sich stattdessen nach unten bewegt (positives `velY`).
 
 In den vier Fällen prüfen wir:
 
-- ob die `x`-Koordinate größer ist als die Breite der Leinwand (der Ball geht über den rechten Rand hinaus).
-- ob die `x`-Koordinate kleiner als 0 ist (der Ball geht über den linken Rand hinaus).
-- ob die `y`-Koordinate größer ist als die Höhe der Leinwand (der Ball geht über den unteren Rand hinaus).
-- ob die `y`-Koordinate kleiner als 0 ist (der Ball geht über den oberen Rand hinaus).
+- ob die `x`-Koordinate größer als die Breite des Canvas ist (der Ball überschreitet den rechten Rand).
+- ob die `x`-Koordinate kleiner als 0 ist (der Ball überschreitet den linken Rand).
+- ob die `y`-Koordinate größer als die Höhe des Canvas ist (der Ball überschreitet den unteren Rand).
+- ob die `y`-Koordinate kleiner als 0 ist (der Ball überschreitet den oberen Rand).
 
-In jedem Fall beziehen wir die `size` des Balls in die Berechnung ein, da die `x`-/`y`-Koordinaten im Mittelpunkt des Balls sind, aber wir wollen, dass der Rand des Balls vom Umfang abprallt — wir wollen nicht, dass der Ball zur Hälfte vom Bildschirm verschwindet, bevor er zurückprallt.
+In jedem Fall beziehen wir `size` in die Berechnung ein, weil sich die `x`- und `y`-Koordinaten auf den Mittelpunkt des Balls beziehen. Wir möchten aber, dass der Rand des Balls vom Rand des Canvas abprallt – nicht erst, wenn sich der Ball bereits zur Hälfte außerhalb des Bildschirms befindet.
 
-Die letzten beiden Zeilen addieren den `velX`-Wert zur `x`-Koordinate und den `velY`-Wert zur `y`-Koordinate — der Ball wird in der Tat jedes Mal bewegt, wenn diese Methode aufgerufen wird.
+Die letzten beiden Zeilen addieren den Wert von `velX` zur `x`-Koordinate und den Wert von `velY` zur `y`-Koordinate. Dadurch bewegt sich der Ball bei jedem Aufruf der Methode.
 
-Das reicht für den Moment; lassen Sie uns mit etwas Animation weitermachen!
+Das genügt fürs Erste. Jetzt kommt die Animation!
 
 ## Den Ball animieren
 
-Jetzt machen wir es lustig. Wir werden nun beginnen, Bälle zur Leinwand hinzuzufügen und sie zu animieren.
+Nun wird es interessant: Wir fügen Bälle zum Canvas hinzu und animieren sie.
 
-Zuerst müssen wir einen Ort erstellen, um alle unsere Bälle zu speichern, und dann mit ihnen füllen. Das folgende wird diesen Job machen — fügen Sie es jetzt am Ende Ihres Codes hinzu:
+Zunächst benötigen wir einen Ort, an dem wir alle Bälle speichern, und müssen ihn mit Bällen füllen. Fügen Sie dazu Folgendes am Ende Ihres Codes hinzu:
 
 ```js
 const balls = [];
@@ -220,9 +220,9 @@ while (balls.length < 25) {
 }
 ```
 
-Die `while`-Schleife erstellt eine neue Instanz unseres `Ball()` mit zufälligen Werten, die mit unseren `random()` und `randomRGB()` Funktionen generiert werden, und `push()` es an das Ende unseres Bälle-Arrays, aber nur solange die Anzahl der Bälle im Array kleiner als 25 ist. Wenn wir also 25 Bälle im Array haben, werden keine weiteren Bälle hinzugefügt. Sie können versuchen, die Zahl in `balls.length < 25` zu variieren, um mehr oder weniger Bälle im Array zu erhalten. Je nachdem, wie viel Rechenleistung Ihr Computer/Browser hat, könnte das Festlegen von mehreren Tausend Bällen die Animation ziemlich verlangsamen!
+Die `while`-Schleife erstellt mithilfe zufälliger Werte aus unseren Funktionen `random()` und `randomRGB()` jeweils eine neue Instanz von `Ball()` und fügt sie mit `push()` am Ende unseres Ball-Arrays hinzu. Das geschieht nur, solange das Array weniger als 25 Bälle enthält. Sobald 25 Bälle vorhanden sind, werden keine weiteren hinzugefügt. Sie können die Zahl in `balls.length < 25` ändern, um mehr oder weniger Bälle zu erzeugen. Je nach Rechenleistung Ihres Computers oder Browsers können mehrere Tausend Bälle die Animation allerdings erheblich verlangsamen!
 
-Fügen Sie als nächstes Folgendes am Ende Ihres Codes hinzu:
+Fügen Sie anschließend Folgendes am Ende Ihres Codes hinzu:
 
 ```js
 function loop() {
@@ -238,25 +238,25 @@ function loop() {
 }
 ```
 
-Alle Programme, die Dinge animieren, beinhalten im Allgemeinen eine Animationsschleife, die dazu dient, die Informationen im Programm zu aktualisieren und dann die resultierende Ansicht bei jedem Frame der Animation zu rendern; dies ist die Grundlage für die meisten Spiele und andere derartige Programme. Unsere `loop()`-Funktion macht Folgendes:
+Programme, die etwas animieren, verwenden in der Regel eine Animationsschleife. Sie aktualisiert die Informationen im Programm und zeichnet dann für jeden Frame der Animation die daraus resultierende Ansicht. Darauf beruhen die meisten Spiele und ähnliche Programme. Unsere Funktion `loop()` erledigt Folgendes:
 
-- Legt die Füllfarbe der Leinwand auf halbtransparentes Schwarz fest und zeichnet dann ein Rechteck dieser Farbe über die gesamte Breite und Höhe der Leinwand mit `fillRect()` (die vier Parameter geben eine Startkoordinate sowie eine Breite und Höhe für das gezeichnete Rechteck an). Dies dient dazu, die Zeichnung des vorherigen Frames zu überdecken, bevor die nächste gezeichnet wird. Wenn Sie dies nicht tun, sehen Sie nur lange Schlangen, die sich über die Leinwand schlängeln, anstatt bewegende Bälle! Die Füllfarbe wird auf halbtransparentes `rgb(0 0 0 / 25%)` gesetzt, um die vorherigen paar Frames leicht durchscheinen zu lassen und die kleinen Spuren hinter den Bällen zu erzeugen, während sie sich bewegen. Wenn Sie 0.25 auf 1 ändern, sehen Sie sie überhaupt nicht mehr. Versuchen Sie, diese Zahl zu variieren, um den Effekt zu sehen.
-- Durchläuft alle Bälle im `balls`-Array und führt die `draw()`- und `update()`-Funktion jedes Balls aus, um jeden einzelnen auf dem Bildschirm zu zeichnen und dann die erforderlichen Aktualisierungen der Position und Geschwindigkeit für den nächsten Frame vorzunehmen.
-- Führt die Funktion erneut über die `requestAnimationFrame()`-Methode aus – wenn diese Methode wiederholt aufgerufen und derselbe Funktionsname übergeben wird, führt sie diese Funktion eine bestimmte Anzahl von Malen pro Sekunde aus, um eine flüssige Animation zu erstellen. Dies wird im Allgemeinen rekursiv durchgeführt — das bedeutet, dass die Funktion sich selbst bei jedem Aufruf aufruft, sodass sie immer wieder läuft.
+- Sie setzt die Füllfarbe des Canvas auf halbtransparentes Schwarz und zeichnet mit `fillRect()` ein Rechteck über die gesamte Breite und Höhe des Canvas. Die vier Parameter geben die Startkoordinaten sowie die Breite und Höhe des Rechtecks an. So wird die Zeichnung des vorherigen Frames überdeckt, bevor der nächste gezeichnet wird. Ohne diesen Schritt würden Sie statt sich bewegender Bälle nur lange, schlangenartige Spuren auf dem Canvas sehen! Die Füllfarbe ist mit `rgb(0 0 0 / 25%)` halbtransparent. Dadurch scheinen einige vorherige Frames leicht durch und erzeugen die kurzen Spuren hinter den bewegten Bällen. Wenn Sie 0,25 auf 1 ändern, sind die Spuren nicht mehr zu sehen. Probieren Sie verschiedene Werte aus, um die Wirkung zu beobachten.
+- Sie durchläuft alle Bälle im Array `balls` und ruft für jeden Ball `draw()` und `update()` auf. Dadurch wird er gezeichnet, und seine Position und Geschwindigkeit werden für den nächsten Frame aktualisiert.
+- Sie ruft die Funktion mithilfe der Methode `requestAnimationFrame()` erneut auf. Wird diese Methode wiederholt mit derselben Funktion aufgerufen, führt sie die Funktion mehrmals pro Sekunde aus und erzeugt so eine flüssige Animation. Das geschieht normalerweise rekursiv: Die Funktion veranlasst bei jeder Ausführung ihren nächsten Aufruf und läuft dadurch immer wieder.
 
-Fügen Sie schließlich die folgende Zeile am Ende Ihres Codes hinzu — wir müssen die Funktion einmal aufrufen, um die Animation zu starten.
+Fügen Sie schließlich die folgende Zeile am Ende Ihres Codes hinzu. Wir müssen die Funktion einmal aufrufen, um die Animation zu starten.
 
 ```js
 loop();
 ```
 
-Das war's für die Grundlagen — versuchen Sie, zu speichern und zu aktualisieren, um Ihre hüpfenden Bälle zu testen!
+Damit sind die Grundlagen geschafft. Speichern Sie die Dateien und laden Sie die Seite neu, um Ihre hüpfenden Bälle zu testen!
 
-## Hinzufügen von Kollisionsdetektion
+## Kollisionserkennung hinzufügen
 
-Jetzt für ein wenig Spaß, fügen wir unserer Programmkollisionsdetektion hinzu, sodass unsere Bälle wissen, wann sie einen anderen Ball getroffen haben.
+Jetzt fügen wir unserem Programm eine Kollisionserkennung hinzu, damit unsere Bälle feststellen können, wenn sie einen anderen Ball berühren.
 
-Fügen Sie zuerst die folgende Methodendefinition zu Ihrer `Ball`-Klasse hinzu.
+Fügen Sie zunächst die folgende Methodendefinition zur Klasse `Ball` hinzu.
 
 ```js
 class Ball {
@@ -277,14 +277,14 @@ class Ball {
 }
 ```
 
-Diese Methode ist ein wenig komplex, also machen Sie sich keine Sorgen, wenn Sie nicht genau verstehen, wie sie funktioniert. Eine Erklärung folgt:
+Diese Methode ist etwas komplex. Machen Sie sich also keine Sorgen, wenn Sie noch nicht genau verstehen, wie sie funktioniert. Hier ist eine Erklärung:
 
-- Für jeden Ball müssen wir jeden anderen Ball überprüfen, um zu sehen, ob er mit dem aktuellen Ball kollidiert ist. Dazu starten wir eine weitere `for...of`-Schleife, um alle Bälle im `balls[]`-Array zu durchlaufen.
-- Direkt innerhalb der Schleife verwenden wir eine `if`-Anweisung, um zu überprüfen, ob der aktuelle Ball, der durchlaufen wird, derselbe Ball ist wie der, den wir gerade überprüfen. Wir möchten nicht prüfen, ob ein Ball mit sich selbst kollidiert! Dazu überprüfen wir, ob der aktuelle Ball (d.h. der Ball, dessen collisionDetect-Methode aufgerufen wird) derselbe ist wie der Schleifenball (d.h. der Ball, auf den in der aktuellen Iteration der for-Schleife in der collisionDetect-Methode verwiesen wird). Wir verwenden dann `!`, um die Überprüfung zu negieren, sodass der Code innerhalb der `if`-Anweisung nur ausgeführt wird, wenn sie **nicht** gleich sind.
-- Dann verwenden wir einen gängigen Algorithmus, um die Kollision zweier Kreise zu überprüfen. Wir überprüfen im Wesentlichen, ob sich die Bereiche der beiden Kreise überlappen. Dies wird weiter erläutert in [2D-Kollisionsdetektion](/de/docs/Games/Techniques/2D_collision_detection).
-- Wenn eine Kollision erkannt wird, wird der Code innerhalb der inneren `if`-Anweisung ausgeführt. In diesem Fall setzen wir nur die `color`-Eigenschaft beider Kreise auf eine neue zufällige Farbe. Wir hätten etwas viel Komplexeres tun können, wie zum Beispiel die Bälle realistisch abprallen zu lassen, aber das wäre viel komplizierter zu implementieren gewesen. Für solche Physiksimulationen neigen Entwickler dazu, Spiele- oder Physikbibliotheken wie [PhysicsJS](https://wellcaffeinated.net/PhysicsJS/), [matter.js](https://brm.io/matter-js/), [Phaser](https://phaser.io/) usw. zu verwenden.
+- Für jeden Ball müssen wir prüfen, ob er mit einem der anderen Bälle kollidiert. Dazu verwenden wir eine weitere `for...of`-Schleife, die alle Bälle im Array `balls[]` durchläuft.
+- Gleich zu Beginn der Schleife prüfen wir mit einer `if`-Anweisung, ob der gerade durchlaufene Ball derselbe Ball ist wie der, für den wir die Kollisionen prüfen. Schließlich soll ein Ball nicht mit sich selbst kollidieren können! Dazu vergleichen wir den aktuellen Ball (also den Ball, dessen Methode collisionDetect aufgerufen wurde) mit dem Ball der Schleife (also dem Ball, auf den sich die aktuelle Iteration der Schleife in der Methode collisionDetect bezieht). Mit `!` kehren wir das Ergebnis der Prüfung um, sodass der Code in der `if`-Anweisung nur ausgeführt wird, wenn es sich **nicht** um denselben Ball handelt.
+- Anschließend verwenden wir einen gängigen Algorithmus zur Erkennung von Kollisionen zwischen zwei Kreisen. Im Wesentlichen prüfen wir, ob sich ihre Flächen überschneiden. Weitere Informationen dazu finden Sie unter [2D-Kollisionserkennung](/de/docs/Games/Techniques/2D_collision_detection).
+- Wenn eine Kollision erkannt wird, läuft der Code innerhalb der inneren `if`-Anweisung. Hier setzen wir lediglich die Eigenschaft `color` beider Kreise auf eine neue Zufallsfarbe. Wir könnten auch etwas wesentlich Komplexeres tun und die Bälle beispielsweise realistisch voneinander abprallen lassen. Das wäre jedoch deutlich aufwendiger zu implementieren. Für solche Physiksimulationen verwenden Entwickler häufig Spiele- oder Physikbibliotheken wie [PhysicsJS](https://wellcaffeinated.net/PhysicsJS/), [matter.js](https://brm.io/matter-js/) oder [Phaser](https://phaser.io/).
 
-Sie müssen diese Methode auch in jedem Frame der Animation aufrufen. Aktualisieren Sie Ihre `loop()`-Funktion, um `ball.collisionDetect()` nach `ball.update()` aufzurufen:
+Sie müssen diese Methode außerdem in jedem Frame der Animation aufrufen. Aktualisieren Sie Ihre Funktion `loop()`, sodass sie `ball.collisionDetect()` nach `ball.update()` aufruft:
 
 ```js
 function loop() {
@@ -301,24 +301,24 @@ function loop() {
 }
 ```
 
-Speichern und aktualisieren Sie die Demo erneut, und Sie werden sehen, wie Ihre Bälle die Farbe ändern, wenn sie kollidieren!
+Speichern Sie die Demo und laden Sie sie erneut. Jetzt ändern Ihre Bälle ihre Farbe, wenn sie miteinander kollidieren!
 
 > [!NOTE]
-> Wenn Sie Schwierigkeiten haben, dieses Beispiel zum Laufen zu bringen, versuchen Sie, Ihren JavaScript-Code mit unserer [fertigen Version](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main-finished.js) zu vergleichen (sehen Sie es sich auch [live in Aktion](https://mdn.github.io/learning-area/javascript/oojs/bouncing-balls/index-finished.html) an).
+> Falls Sie Schwierigkeiten haben, dieses Beispiel zum Laufen zu bringen, vergleichen Sie Ihren JavaScript-Code mit unserer [fertigen Version](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main-finished.js). Sie können sie auch [live ansehen](https://mdn.github.io/learning-area/javascript/oojs/bouncing-balls/index-finished.html).
 
 ## Zusammenfassung
 
-Wir hoffen, Sie hatten Spaß daran, Ihr eigenes Beispiel für zufällig hüpfende Bälle zu schreiben, unter Verwendung verschiedener Objekt- und objektorientierter Techniken aus dem gesamten Modul! Dies sollte Ihnen einige nützliche Übungen im Umgang mit Objekten gegeben haben und guten realen Kontext bieten.
+Wir hoffen, Sie hatten Spaß daran, mit den Objekt- und objektorientierten Techniken aus diesem Modul Ihr eigenes Beispiel mit zufällig hüpfenden Bällen zu schreiben! Dabei konnten Sie den Umgang mit Objekten in einem praxisnahen Kontext üben.
 
-Das war's für die Objektlektionen — das Einzige, was jetzt noch bleibt, ist, dass Sie Ihre Fähigkeiten in der Modul-Herausforderung testen.
+Das war die letzte Lektion zu Objekten. Nun können Sie Ihre Fähigkeiten noch in der Modulaufgabe testen.
 
 ## Siehe auch
 
-- [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) — ein Anfänger-Tutorial zu 2D-Canvas.
+- [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) – ein 2D-Canvas-Tutorial für Einsteiger.
 - [requestAnimationFrame()](/de/docs/Web/API/Window/requestAnimationFrame)
-- [2D-Kollisionsdetektion](/de/docs/Games/Techniques/2D_collision_detection)
-- [3D-Kollisionsdetektion](/de/docs/Games/Techniques/3D_collision_detection)
-- [2D-Breakout-Spiel nur mit JavaScript](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) — ein großartiges Anfänger-Tutorial, das zeigt, wie man ein 2D-Spiel erstellt.
-- [2D-Breakout-Spiel mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) — erklärt die Grundlagen des Erstellens eines 2D-Spiels mit einer JavaScript-Spielbibliothek.
+- [2D-Kollisionserkennung](/de/docs/Games/Techniques/2D_collision_detection)
+- [3D-Kollisionserkennung](/de/docs/Games/Techniques/3D_collision_detection)
+- [2D-Breakout-Spiel mit reinem JavaScript](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript) – ein ausführliches Tutorial für Einsteiger, das zeigt, wie Sie ein 2D-Spiel erstellen.
+- [2D-Breakout-Spiel mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) – erklärt die Grundlagen zum Erstellen eines 2D-Spiels mit einer JavaScript-Spielebibliothek.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Advanced_JavaScript_objects/Test_your_skills/Object-oriented_JavaScript", "Learn_web_development/Extensions/Advanced_JavaScript_objects/Adding_bouncing_balls_features", "Learn_web_development/Extensions/Advanced_JavaScript_objects")}}
