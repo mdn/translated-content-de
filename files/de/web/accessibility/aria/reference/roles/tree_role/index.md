@@ -1,232 +1,224 @@
 ---
-title: "ARIA: tree Rolle"
+title: "ARIA: tree-Rolle"
 short-title: tree
 slug: Web/Accessibility/ARIA/Reference/Roles/tree_role
 l10n:
-  sourceCommit: d1fd21c87a4917e56dab84fc0b1d321ebb22874e
+  sourceCommit: 9abb432251513c5fdcaf5aad0764126fc68413c4
 ---
 
-Ein `tree` ist ein Widget, das es dem Benutzer ermöglicht, ein oder mehrere Elemente aus einer hierarchisch organisierten Sammlung auszuwählen.
+Ein `tree` ist ein Widget, mit dem Benutzer ein oder mehrere Elemente aus einer hierarchisch organisierten Sammlung auswählen können.
 
 ## Beschreibung
 
-Ein `tree`-Widget ist eine hierarchische Liste mit Eltern- und Kindknoten, die erweitert und eingeklappt werden können. Jedes Element in der Hierarchie kann untergeordnete Baum-Elemente haben, die mit [`role="treeitem"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role) festgelegt sind. Baum-Elemente, die Kinder haben, können erweitert oder eingeklappt werden, um ihre Kinder zu zeigen oder zu verbergen.
+Ein `tree`-Widget ist eine hierarchische Liste mit über- und untergeordneten Knoten, die sich auf- und zuklappen lassen. Jedes Element der Hierarchie kann untergeordnete Tree-Elemente haben, die mit [`role="treeitem"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role) gekennzeichnet sind. Tree-Elemente mit untergeordneten Elementen können aufgeklappt werden, um diese anzuzeigen, und zugeklappt werden, um sie auszublenden.
 
-Ein Beispiel für einen `tree` ist eine Dateisystemauswahl-Benutzeroberfläche: eine Baumansicht, die Ordner und Dateien anzeigt. Ordner-Elemente können erweitert werden, um den Inhalt des Ordners anzuzeigen — der Dateien, Ordner oder beides sein kann — und eingeklappt werden, um den Inhalt zu verbergen.
+Ein Beispiel für einen `tree` ist eine Benutzeroberfläche zur Auswahl von Dateisystemelementen: eine Baumansicht, die Ordner und Dateien anzeigt. Ordnerelemente können aufgeklappt werden, um den Inhalt des Ordners anzuzeigen – Dateien, Ordner oder beides – und zugeklappt werden, um ihn auszublenden.
 
-ARIA-Baumansichten werden hauptsächlich mit den Pfeiltasten auf der Tastatur anstelle der <kbd>Tab</kbd>-Taste navigiert. Diese Form der Navigation ist für die meisten Browserinhalte nicht üblich, jedoch normal und erwartet für native Anwendungen. Aus diesem Grund sollten Sie vor der Erstellung einer Baumansicht alternative Optionen in Betracht ziehen, um die benötigte Funktionalität zu erreichen.
+Die Navigation in ARIA-Baumansichten erfolgt hauptsächlich mit den Pfeiltasten der Tastatur statt mit der <kbd>Tab</kbd>-Taste. Diese Art der Navigation ist für die meisten Browserinhalte unüblich, bei nativen Anwendungen jedoch normal und zu erwarten. Prüfen Sie daher vor dem Erstellen einer Baumansicht, ob sich die benötigte Funktionalität auf andere Weise umsetzen lässt.
 
 > [!WARNING]
-> Baumansichten verwenden eine Navigation, die eher nativen Anwendungen ähnelt als Webanwendungen. Aus diesem Grund sollten Sie alternative Optionen in Betracht ziehen, um die benötigte Funktionalität zu erreichen, bevor Sie eine Baumansicht erstellen.
+> Die Navigation in Baumansichten ähnelt eher der in nativen Anwendungen als der in Webanwendungen. Prüfen Sie daher vor dem Erstellen einer Baumansicht, ob sich die benötigte Funktionalität auf andere Weise umsetzen lässt.
 
-### Einzel- und Mehrfachauswahl-Bäume
+Weitere Informationen zur Auszeichnung einzelner Baumknoten finden Sie unter [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role).
 
-Bäume können "Einzelauswahl" sein, was bedeutet, dass Benutzer nur ein Element für eine Aktion auswählen können, oder "Mehrfachauswahl", bei der Benutzer mehr als ein Element für eine Aktion auswählen können. In Mehrfachauswahl-Bäumen ist `tree` mit [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable) auf "true" gesetzt. Andernfalls ist `aria-multiselectable` entweder auf "false" gesetzt oder der Standardwert von "false" wird impliziert. In beiden Fällen muss, um tastaturzugänglich zu sein, der Fokus für alle Baum-Nachfahren verwaltet werden.
+### Baumansichten mit Einfach- und Mehrfachauswahl
 
-In einigen Implementierungen eines Einzelauswahl-Baums hat das fokussierte Element auch einen ausgewählten Zustand; dies wird als "Auswahl folgt dem Fokus" bezeichnet. Wenn ein Einzelauswahl-Baum den Fokus erhält, wird, falls keine der Baum-Elemente vor dem Erhalt des Fokus ausgewählt wurden, der Fokus auf den ersten Knoten gesetzt. Wenn ein Baum-Element vor Erhalt des Fokus ausgewählt wurde, wird der Fokus auf das ausgewählte Baum-Element gesetzt. In Einzelauswahl-Bäumen ist [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) für die ausgewählten Baum-Elemente auf "true" gesetzt und auf keinem anderen Baum-Element im Baum vorhanden.
+Baumansichten können eine Einfachauswahl ermöglichen, bei der Benutzer nur ein Element für eine Aktion auswählen, oder eine Mehrfachauswahl, bei der sie mehrere Elemente für eine Aktion auswählen können. Bei Baumansichten mit Mehrfachauswahl ist [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable) für den `tree` auf `true` gesetzt. Andernfalls ist `aria-multiselectable` entweder auf `false` gesetzt oder der Standardwert `false` gilt implizit. In beiden Fällen muss der Fokus für alle Nachfahren der Baumansicht verwaltet werden, damit sie per Tastatur zugänglich sind.
 
-In Mehrfachauswahl-Bäumen haben alle ausgewählten Baum-Elemente `aria-selected="true"` gesetzt und alle Baumknoten, die auswählbar, aber nicht derzeit ausgewählt sind, haben `aria-selected="false"` gesetzt. Fügen Sie das `aria-selected`-Attribut nicht auf Baum-Elementen ein, die nicht auswählbar sind.
+Bei manchen Implementierungen einer Baumansicht mit Einfachauswahl ist das fokussierte Element zugleich ausgewählt. Dies wird als „Auswahl folgt dem Fokus“ bezeichnet. Wenn eine solche Baumansicht den Fokus erhält und zuvor keines ihrer Elemente ausgewählt war, wird der Fokus auf den ersten Knoten gesetzt. War zuvor ein Tree-Element ausgewählt, wird der Fokus auf dieses Element gesetzt.
 
-Wenn ein Mehrfachauswahl-Baum den Fokus erhält, wird der Fokus auf das erste Baum-Element gesetzt, wenn keine Baum-Elemente vor dem Empfang des Fokus ausgewählt wurden. Wenn ein oder mehrere Baum-Elemente vor dem Erhalt des Fokus ausgewählt wurden, wird der Fokus auf den ersten ausgewählten Knoten gesetzt.
+Wenn eine Baumansicht mit Mehrfachauswahl den Fokus erhält und zuvor keines ihrer Elemente ausgewählt war, wird der Fokus auf das erste Tree-Element gesetzt. Waren zuvor ein oder mehrere Tree-Elemente ausgewählt, wird der Fokus auf den ersten ausgewählten Knoten gesetzt.
 
-In Mehrfachauswahl-Bäumen ist der ausgewählte Zustand immer unabhängig vom Fokus. Zum Beispiel kann der Benutzer in einem typischen Dateisystem-Navigator den Fokus bewegen, um eine beliebige Anzahl von Dateien für eine Aktion wie Kopieren oder Verschieben auszuwählen. Das visuelle Design sollte klar machen, welche Elemente ausgewählt sind und welches Element den Fokus hat.
+Bei Baumansichten mit Mehrfachauswahl ist der Auswahlzustand stets unabhängig vom Fokus. In einer typischen Dateisystemnavigation können Benutzer beispielsweise den Fokus bewegen, um beliebig viele Dateien für eine Aktion wie Kopieren oder Verschieben auszuwählen. Die visuelle Gestaltung sollte deutlich machen, welche Elemente ausgewählt sind und welches Element den Fokus hat.
 
 ### Baumhierarchie
 
-In einer Baumansicht ist der `tree`-Knoten der Wurzelknoten; er kann untergeordnete, Enkel- und weitere Nachkommen `treeitem`-Knoten haben.
+In einer Baumansicht ist das `tree`-Element der Container für die Hierarchie der `treeitem`-Knoten. Jedes Element, das als Baumknoten dient, hat die Rolle `treeitem`. Tree-Elemente auf der obersten Ebene sind Wurzelknoten; sie können untergeordnete Knoten, Enkelknoten und weitere Nachfahren haben.
 
-Jedes Element, das als Baumknoten dient, hat die Rolle `treeitem`, außer für den Wurzel-Baumknoten, der die Rolle `tree` hat. Ein `tree` hat keinen übergeordneten `tree`-Knoten - es ist der Wurzelknoten. Wenn ein Knoten sowohl in einem Baum verschachtelt ist als auch untergeordnete Baum-Elemente hat, dann hat er die Rolle `treeitem` und das [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) Attribut; `aria-expanded="false"` ist gesetzt, wenn der Knoten in einem geschlossenen Zustand ist, `aria-expanded="true"` ist gesetzt, wenn der Knoten in einem offenen Zustand ist.
+### Position und Vorhandensein im DOM
 
-`treeitem`-Knoten können direkte Kinder des Wurzel-Baumknotens sein, innerhalb eines `treeitem`-Knotens verschachtelt sein oder optional in einem [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)-Element verschachtelt sein, das, wenn es in einem `tree` verschachtelt ist, eine erweiterbare Sammlung von `treeitem`-Elementen ist.
-
-Fügen Sie `aria-expanded` nicht an Endknoten ein — denen ohne Baum-Element-Kinder — da dies den Knoten gegenüber unterstützenden Technologien fälschlicherweise als Elternknoten beschreiben würde.
-
-### DOM-Platzierung und -Vorhandensein
-
-Alle `treeitems` sind in einem Element mit der Rolle `tree` enthalten oder gehören dazu. Wenn es `tree`-Elemente gibt, die im Markup keine direkten Nachfahren des `tree` sind, fügen Sie [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) auf dem besitzenden Baumcontainer ein, um Elemente einzuschließen, die keine DOM-Kinder des Containers sind. Diese nicht-kindlichen besessenen Elemente erscheinen in der Lesereihenfolge in der Reihenfolge, in der sie referenziert werden, und nach allen `tree-items`, die DOM-Kinder sind. Skripte, die den Fokus verwalten, müssen sicherstellen, dass die visuelle Fokusreihenfolge dieser assistiven Technologie-Lesereihenfolge entspricht.
-
-Wenn die vollständige Menge verfügbarer Knoten aufgrund dynamischen Ladens, während sich der Benutzer bewegt oder die Baumansicht scrollt, nicht im DOM vorhanden ist, hat jeder Knoten [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level), [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset) angegeben.
+Alle Tree-Elemente sind in einem Element mit der Rolle `tree` enthalten oder diesem zugeordnet. Wenn Wurzelknoten im DOM nicht im `tree` enthalten sind, verwenden Sie [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) am zugehörigen Tree-Container, um auf sie zu verweisen. Diese zugeordneten Elemente, die keine DOM-Nachfahren sind, erscheinen in der Lesereihenfolge nach den Tree-Elementen, die DOM-Nachfahren sind, und untereinander in der Reihenfolge ihrer Referenzierung. Skripte, die den Fokus verwalten, müssen sicherstellen, dass die visuelle Fokusreihenfolge mit dieser Lesereihenfolge für Hilfstechnologien übereinstimmt.
 
 ### Zugänglicher Name
 
-Der `tree` muss mit einem zugänglichen Namen versehen werden. Entweder referenzieren Sie ein sichtbares Label mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder geben Sie ein Label mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) an.
+Der `tree` muss einen zugänglichen Namen erhalten. Verweisen Sie entweder mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) auf eine sichtbare Beschriftung oder geben Sie mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) eine Beschriftung an.
 
-### Menüausrichtung
+### Ausrichtung der Baumansicht
 
-Elemente mit der Rolle `tree` haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)-Wert von vertikal. Wenn das Baum-Element horizontal ausgerichtet ist, fügen Sie `aria-orientation="horizontal"` hinzu.
+Elemente mit der Rolle `tree` haben implizit den Wert `vertical` für [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation). Wenn das Tree-Element horizontal ausgerichtet ist, geben Sie `aria-orientation="horizontal"` an.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`role="treeitem"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role)
-  - : Ein Element in einem Baum.
+  - : Ein Element in einer Baumansicht.
 - [`role="group"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)
-  - : Eine erweiterbare Sammlung von Baum-Elementen.
+  - : Eine aufklappbare Sammlung von Tree-Elementen.
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Identifiziert das Element (oder die Elemente), das den `tree` beschriftet und den erforderlichen zugänglichen Namen bereitstellt, wenn ein sichtbares Label vorhanden ist. Andernfalls verwenden Sie `aria-label`.
+  - : Kennzeichnet das Element oder die Elemente, die den `tree` beschriften und bei vorhandener sichtbarer Beschriftung den erforderlichen zugänglichen Namen bereitstellen. Verwenden Sie andernfalls `aria-label`.
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Definiert einen Zeichenfolgenwert, der den `tree` beschriftet, wenn kein sichtbares Label vorhanden ist.
+  - : Definiert eine Zeichenfolge, die den `tree` beschriftet, wenn keine sichtbare Beschriftung vorhanden ist.
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)
-  - : Gibt an, ob die Baum-Ausrichtung horizontal oder vertikal ist; Standard ist `vertical`, wenn es weggelassen wird.
+  - : Gibt an, ob die Baumansicht horizontal oder vertikal ausgerichtet ist; wird die Eigenschaft weggelassen, gilt standardmäßig `vertical`.
 - [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)
-  - : Wenn auf "true" gesetzt, zeigt an, dass der Benutzer mehr als ein Baum-Element aus den derzeit auswählbaren Nachfahren des Baums auswählen kann.
+  - : Gibt bei einem Wert von `true` an, dass Benutzer unter den aktuell auswählbaren Nachfahren der Baumansicht mehr als ein Tree-Element auswählen können.
 
 ### Tastaturinteraktionen
 
-Für einen vertikal ausgerichteten `tree`, was die Standardausrichtung ist:
+Für einen vertikal ausgerichteten `tree`, die Standardausrichtung, gelten folgende Tastaturinteraktionen:
 
 <table>
 <tr>
-<td><kbd>Rechter Pfeil</kbd></td>
+<td><kbd>Pfeil nach rechts</kbd></td>
 <td>
 <ul>
-<li>Wenn der Fokus auf einem geschlossenen Knoten liegt, öffnet sich der Knoten; der Fokus bewegt sich nicht.
-<li>Wenn der Fokus auf einem geöffneten Knoten liegt, bewegt sich der Fokus auf den ersten untergeordneten Knoten.
-<li>Wenn der Fokus auf einem Endknoten (einem Baum-Element ohne Kinder) liegt, passiert nichts.
+<li>Wenn sich der Fokus auf einem zugeklappten Knoten befindet, wird der Knoten aufgeklappt; der Fokus bleibt unverändert.
+<li>Wenn sich der Fokus auf einem aufgeklappten Knoten befindet, wird der Fokus auf den ersten untergeordneten Knoten verschoben.
+<li>Wenn sich der Fokus auf einem Endknoten befindet (einem Tree-Element ohne untergeordnete Elemente), geschieht nichts.
 </td>
 </tr>
 <tr>
-<td><kbd>Linker Pfeil</kbd></td>
+<td><kbd>Pfeil nach links</kbd></td>
 <td>
 <ul>
-<li>Wenn der Fokus auf einem geöffneten Knoten liegt, schließt sich der Knoten.
-<li>Wenn der Fokus auf einem untergeordneten Knoten liegt, der auch entweder ein Endknoten oder ein geschlossener Knoten ist, bewegt sich der Fokus auf seinen Elternknoten.
-<li>Wenn der Fokus auf einem geschlossenen Baum liegt, passiert nichts.
+<li>Wenn sich der Fokus auf einem aufgeklappten Knoten befindet, wird der Knoten zugeklappt.
+<li>Wenn sich der Fokus auf einem Wurzelknoten befindet, der zugleich ein Endknoten oder ein zugeklappter Knoten ist, geschieht nichts.
+<li>Wenn sich der Fokus auf einem untergeordneten Knoten befindet, der zugleich ein Endknoten oder ein zugeklappter Knoten ist, wird der Fokus auf dessen übergeordneten Knoten verschoben.
 </td>
 </tr>
 <tr>
-<td><kbd>Abwärtspfeil</kbd></td>
-<td> Bewegt den Fokus zum nächsten fokussierbaren Knoten, ohne einen Knoten zu öffnen oder zu schließen.
+<td><kbd>Pfeil nach unten</kbd></td>
+<td>Verschiebt den Fokus auf den nächsten fokussierbaren Knoten, ohne einen Knoten auf- oder zuzuklappen.
 </td>
 </tr>
 <tr>
-<td><kbd>Aufwärtspfeil</kbd></td>
-<td> Bewegt den Fokus zum vorherigen fokussierbaren Knoten, ohne einen Knoten zu öffnen oder zu schließen.
+<td><kbd>Pfeil nach oben</kbd></td>
+<td>Verschiebt den Fokus auf den vorherigen fokussierbaren Knoten, ohne einen Knoten auf- oder zuzuklappen.
 </td>
 </tr>
 <tr>
-<td><kbd>Home</kbd></td>
-<td> Bewegt den Fokus auf den ersten Knoten im Baum, ohne einen Knoten zu öffnen oder zu schließen.
+<td><kbd>Pos1</kbd></td>
+<td>Verschiebt den Fokus auf den ersten Knoten der Baumansicht, ohne einen Knoten auf- oder zuzuklappen.
 </td>
 </tr>
 <tr>
 <td><kbd>Ende</kbd></td>
-<td> Bewegt den Fokus auf den letzten Knoten im Baum, der fokussierbar ist, ohne den Knoten zu öffnen.
+<td>Verschiebt den Fokus auf den letzten fokussierbaren Knoten der Baumansicht, ohne einen Knoten aufzuklappen.
 </td>
 </tr>
 <tr>
-<td><kbd>Enter</kbd></td>
-<td>Führt die Standardaktion des derzeit fokussierten Knotens aus. Für Elternknoten öffnet oder schließt sie den Knoten. In Einzelauswahl-Bäumen, falls der Knoten keine Kinder hat, wählt die aktuelle Node aus, wenn sie nicht bereits ausgewählt ist (was die Standardaktion ist).
+<td><kbd>Eingabe</kbd></td>
+<td>Führt die Standardaktion des aktuell fokussierten Knotens aus. Bei übergeordneten Knoten kann das Auf- oder Zuklappen des Knotens eine mögliche Standardaktion sein. In Baumansichten mit Einfachauswahl, bei denen die Auswahl nicht dem Fokus folgt, besteht die Standardaktion normalerweise darin, den aktuellen Knoten auszuwählen, falls er noch nicht ausgewählt ist.
 </td>
 </tr>
 <tr>
-<td>Einen Buchstaben eingeben*</td>
+<td>Ein Zeichen eingeben*</td>
 <td>
 <ul>
-<li>Der Fokus bewegt sich auf den nächsten Knoten, dessen Name mit dem eingegebenen Buchstaben beginnt.
-<li>Wenn mehrere Buchstaben schnell hintereinander eingegeben werden, bewegt sich der Fokus auf den nächsten Knoten, dessen Name mit der Zeichenkette der eingegebenen Buchstaben beginnt.
+<li>Der Fokus wird auf den nächsten Knoten verschoben, dessen Name mit dem eingegebenen Zeichen beginnt.
+<li>Wenn mehrere Zeichen rasch hintereinander eingegeben werden, wird der Fokus auf den nächsten Knoten verschoben, dessen Name mit der eingegebenen Zeichenfolge beginnt.
 </td>
 </tr>
 <tr>
 <td>
 <kbd>*</kbd> (Optional)</td>
-<td> Erweitert alle Geschwister, die sich auf derselben Ebene wie der aktuelle Knoten befinden.
+<td>Klappt alle Knoten auf, die sich auf derselben Ebene wie der aktuelle Knoten befinden und denselben übergeordneten Knoten haben.
 </td>
 </tr>
 </table>
 
-\* Vorauswahl ist für alle Bäume empfohlen, insbesondere für Bäume mit mehr als 7 Wurzelknoten
+\* Die Navigation durch Eingabe von Zeichen wird für alle Baumansichten empfohlen, insbesondere für Baumansichten mit mehr als sieben Wurzelknoten.
 
-### Tastaturinteraktionen für Mehrfachauswahl
+### Tastaturinteraktionen bei Mehrfachauswahl
 
-Es gibt zwei Interaktionsmodelle für Mehrfachauswahlbäume: Während Sie verlangen können, dass Benutzer eine Modifikatortaste wie <kbd>Shift</kbd> oder <kbd>Strg</kbd> beim Navigieren durch die Liste gedrückt halten müssen, um den Auswahlzustand beizubehalten, wird das Modell empfohlen, das nicht erfordert, dass der Benutzer eine Modifikatortaste gedrückt hält.
+Für Baumansichten mit Mehrfachauswahl gibt es zwei Interaktionsmodelle: Sie können verlangen, dass Benutzer beim Navigieren durch die Liste eine Modifikatortaste wie <kbd>Umschalt</kbd> oder <kbd>Strg</kbd> gedrückt halten, damit bestehende Auswahlzustände erhalten bleiben. Empfohlen wird jedoch das Modell, bei dem keine Modifikatortaste gedrückt gehalten werden muss.
 
-#### Empfohlenes Mehrfachauswahlmodell
+#### Empfohlenes Modell für die Mehrfachauswahl
 
 <table>
 <tr>
 <td><kbd>Leertaste</kbd></td>
-<td> Schaltet den Auswahlzustand des fokussierten Knotens um.
+<td>Schaltet den Auswahlzustand des fokussierten Knotens um.
 </td>
 </tr>
 <tr>
-<td><kbd>Shift + Abwärtspfeil</kbd> (Optional)</td>
-<td> Bewegt den Fokus und schaltet den Auswahlzustand des nächsten Knotens um.
+<td><kbd>Umschalt + Pfeil nach unten</kbd> (Optional)</td>
+<td>Verschiebt den Fokus auf den nächsten Knoten und schaltet dessen Auswahlzustand um.
 </td>
 </tr>
 <tr>
-<td><kbd>Shift + Aufwärtspfeil</kbd> (Optional)</td>
-<td> Bewegt den Fokus und schaltet den Auswahlzustand des vorherigen Knotens um.
+<td><kbd>Umschalt + Pfeil nach oben</kbd> (Optional)</td>
+<td>Verschiebt den Fokus auf den vorherigen Knoten und schaltet dessen Auswahlzustand um.
 </td>
 </tr>
 <tr>
-<td><kbd>Shift + Leertaste</kbd> (Optional)</td>
-<td> Wählt zusammenhängende Knoten vom zuletzt ausgewählten Knoten bis zum aktuellen Knoten aus.
+<td><kbd>Umschalt + Leertaste</kbd> (Optional)</td>
+<td>Wählt alle aufeinanderfolgenden Knoten vom zuletzt ausgewählten bis zum aktuellen Knoten aus.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Shift + Start</kbd> (Optional)</td>
-<td> Wählt den Knoten mit Fokus und alle Knoten bis zum ersten Knoten aus. Optional kann der Fokus auch auf den ersten Knoten bewegt werden.
+<td><kbd>Strg + Umschalt + Pos1</kbd> (Optional)</td>
+<td>Wählt den fokussierten Knoten und alle Knoten bis zum ersten Knoten aus. Optional wird der Fokus auf den ersten Knoten verschoben.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Shift + Ende</kbd> (Optional)</td>
-<td> Wählt den Knoten mit Fokus und alle Knoten bis zum letzten Knoten aus. Optional kann der Fokus auch auf den letzten Knoten bewegt werden.
+<td><kbd>Strg + Umschalt + Ende</kbd> (Optional)</td>
+<td>Wählt den fokussierten Knoten und alle Knoten bis zum letzten Knoten aus. Optional wird der Fokus auf den letzten Knoten verschoben.
 </td>
 </tr>
 <tr>
 <td><kbd>Strg + A</kbd> (Optional)</td>
-<td> Wählt alle Knoten im Baum aus. Optional kann, wenn alle Knoten ausgewählt sind, auch alle Knoten abgewählt werden.</td>
+<td>Wählt alle Knoten der Baumansicht aus. Optional können auch alle Knoten abgewählt werden, wenn bereits alle ausgewählt sind.</td>
 </tr>
 </table>
 
-#### Alternatives Mehrfachauswahlmodell
+#### Alternatives Modell für die Mehrfachauswahl
 
-Das alternative Mehrfachauswahlmodell ist ein Modifikatortastenmodell, bei dem das Bewegen des Fokus ohne das Halten einer Modifikatortaste wie <kbd>Shift</kbd> oder <kbd>Strg</kbd> alle ausgewählten Knoten abwählt, außer für den fokussierten Knoten:
+Das alternative Modell für die Mehrfachauswahl verwendet Modifikatortasten: Wird der Fokus verschoben, ohne eine Modifikatortaste wie <kbd>Umschalt</kbd> oder <kbd>Strg</kbd> gedrückt zu halten, werden alle ausgewählten Knoten außer dem fokussierten Knoten abgewählt.
 
 <table>
 <tr>
-<td><kbd>Shift + Abwärtspfeil</kbd></td>
-<td> Bewegt den Fokus und schaltet den Auswahlzustand des nächsten Knotens um.
+<td><kbd>Umschalt + Pfeil nach unten</kbd></td>
+<td>Verschiebt den Fokus auf den nächsten Knoten und schaltet dessen Auswahlzustand um.
 </td>
 </tr>
 <tr>
-<td><kbd>Shift + Aufwärtspfeil</kbd></td>
-<td> Bewegt den Fokus und schaltet den Auswahlzustand des vorherigen Knotens um.
+<td><kbd>Umschalt + Pfeil nach oben</kbd></td>
+<td>Verschiebt den Fokus auf den vorherigen Knoten und schaltet dessen Auswahlzustand um.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Abwärtspfeil</kbd></td>
-<td> Bewegt den Fokus ohne den Auswahlzustand zu ändern, auf den nächsten Knoten.
+<td><kbd>Strg + Pfeil nach unten</kbd></td>
+<td>Verschiebt den Fokus auf den nächsten Knoten, ohne den Auswahlzustand zu ändern.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Aufwärtspfeil</kbd></td>
-<td> Bewegt den Fokus ohne den Auswahlzustand zu ändern, auf den vorherigen Knoten.
+<td><kbd>Strg + Pfeil nach oben</kbd></td>
+<td>Verschiebt den Fokus auf den vorherigen Knoten, ohne den Auswahlzustand zu ändern.
 </td>
 </tr>
 <tr>
 <td><kbd>Strg + Leertaste</kbd></td>
-<td> Schaltet den Auswahlzustand des fokussierten Knotens um.
+<td>Schaltet den Auswahlzustand des fokussierten Knotens um.
 </td>
 </tr>
 <tr>
-<td><kbd>Shift + Leertaste</kbd> (Optional)</td>
-<td> Wählt zusammenhängende Knoten vom zuletzt ausgewählten Knoten bis zum aktuellen Knoten aus.
+<td><kbd>Umschalt + Leertaste</kbd> (Optional)</td>
+<td>Wählt alle aufeinanderfolgenden Knoten vom zuletzt ausgewählten bis zum aktuellen Knoten aus.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Shift + Start</kbd> (Optional)</td>
-<td> Wählt den Knoten mit Fokus und alle Knoten bis zum ersten Knoten aus. Optional kann der Fokus auch auf den ersten Knoten bewegt werden.
+<td><kbd>Strg + Umschalt + Pos1</kbd> (Optional)</td>
+<td>Wählt den fokussierten Knoten und alle Knoten bis zum ersten Knoten aus. Optional wird der Fokus auf den ersten Knoten verschoben.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Shift + Ende</kbd> (Optional)</td>
-<td> Wählt den Knoten mit Fokus und alle Knoten bis zum letzten Knoten aus. Optional kann der Fokus auch auf den letzten Knoten bewegt werden.
+<td><kbd>Strg + Umschalt + Ende</kbd> (Optional)</td>
+<td>Wählt den fokussierten Knoten und alle Knoten bis zum letzten Knoten aus. Optional wird der Fokus auf den letzten Knoten verschoben.
 </td>
 </tr>
 <tr>
 <td><kbd>Strg + A</kbd> (Optional)</td>
-<td> Wählt alle Knoten im Baum aus. Optional kann, wenn alle Knoten ausgewählt sind, auch alle Knoten abgewählt werden.
+<td>Wählt alle Knoten der Baumansicht aus. Optional können auch alle Knoten abgewählt werden, wenn bereits alle ausgewählt sind.
 </td>
 </tr>
 </table>

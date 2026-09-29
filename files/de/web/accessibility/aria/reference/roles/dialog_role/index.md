@@ -3,10 +3,10 @@ title: "ARIA: dialog-Rolle"
 short-title: dialog
 slug: Web/Accessibility/ARIA/Reference/Roles/dialog_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: 705109e85b6c5a9142260c58a617ef295b3b1316
 ---
 
-Die `dialog`-Rolle wird verwendet, um einen HTML-basierten Anwendungsdialog oder ein Fenster zu markieren, das den Inhalt oder die Benutzeroberfläche vom Rest der Webanwendung oder Seite trennt. Dialoge werden im Allgemeinen über den Rest des Seiteninhalts mithilfe einer Überlagerung platziert. Dialoge können entweder nicht-modal (es ist immer noch möglich, mit Inhalten außerhalb des Dialogs zu interagieren) oder modal sein (nur mit dem Inhalt im Dialog kann interagiert werden).
+Die Rolle `dialog` wird verwendet, um einen HTML-basierten Anwendungsdialog oder ein Fenster zu kennzeichnen, das Inhalte oder Bedienelemente vom Rest der Webanwendung oder Seite trennt. Dialoge werden in der Regel mithilfe eines Overlays über dem übrigen Seiteninhalt angezeigt. Sie können entweder nicht modal sein (eine Interaktion mit Inhalten außerhalb des Dialogs ist weiterhin möglich) oder modal (nur mit den Inhalten im Dialog kann interagiert werden).
 
 ```html
 <div
@@ -23,20 +23,20 @@ Die `dialog`-Rolle wird verwendet, um einen HTML-basierten Anwendungsdialog oder
 
 ## Beschreibung
 
-Ein Dialog ist ein untergeordnetes Fenster des Primärfensters einer Webanwendung. Für HTML-Seiten ist das Primärfenster der Anwendung das gesamte Webdokument, d.h. das Body-Element.
+Ein Dialog ist ein dem Hauptfenster einer Webanwendung untergeordnetes Fenster. Bei HTML-Seiten ist das Hauptfenster der Anwendung das gesamte Webdokument, also das `body`-Element.
 
-Das Markieren eines Dialogelements mit der `dialog`-Rolle hilft unterstützenden Technologien, den Inhalt des Dialogs als gruppiert und vom Rest des Seiteninhalts getrennt zu identifizieren. Das Hinzufügen von `role="dialog"` allein ist jedoch nicht ausreichend, um einen Dialog zugänglich zu machen. Zusätzlich muss Folgendes beachtet werden:
+Wenn ein Dialogelement mit der Rolle `dialog` gekennzeichnet wird, können assistive Technologien seinen Inhalt als zusammengehörig und vom übrigen Seiteninhalt getrennt erkennen. `role="dialog"` allein reicht jedoch nicht aus, um einen Dialog barrierefrei zu machen. Zusätzlich sind folgende Punkte wichtig:
 
-- Der Dialog muss ordnungsgemäß beschriftet sein
-- Der Tastaturfokus muss korrekt verwaltet werden
+- Es wird dringend empfohlen, den Dialog mit einer Beschriftung zu versehen.
+- Der Tastaturfokus muss korrekt verwaltet werden.
 
-Die folgenden Abschnitte beschreiben, wie diese beiden Anforderungen erfüllt werden können.
+Die folgenden Abschnitte beschreiben diese beiden Aspekte der Barrierefreiheit von Dialogen.
 
 ### Beschriftung
 
-Auch wenn es nicht erforderlich ist, dass der Dialog selbst den Fokus erhalten kann, muss er dennoch beschriftet werden. Die dem Dialog gegebene Beschriftung liefert kontextuelle Informationen für die interaktiven Steuerelemente im Dialog. Mit anderen Worten, die Beschriftung des Dialogs fungiert als Gruppierungsetikett für die darin befindlichen Steuerelemente (ähnlich wie ein `<legend>`-Element ein Gruppierungsetikett für die Steuerelemente innerhalb eines `<fieldset>`-Elements bereitstellt).
+Auch wenn der Dialog selbst keinen Fokus erhalten können muss, wird dringend empfohlen, ihn mit einer Beschriftung zu versehen. Ein barrierefreier Name ist für die ARIA-Rolle `dialog` nicht vorgeschrieben. Die Beschriftung des Dialogs liefert Kontextinformationen für die interaktiven Steuerelemente darin. Anders ausgedrückt: Sie dient als Gruppenbeschriftung für diese Steuerelemente – ähnlich wie ein `<legend>`-Element die Steuerelemente innerhalb eines `<fieldset>`-Elements als Gruppe beschriftet.
 
-Wenn ein Dialog bereits über eine sichtbare Titelleiste verfügt, kann der darin enthaltene Text zur Beschriftung des Dialogs selbst verwendet werden. Der beste Weg, dies zu erreichen, ist die Verwendung des [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attributs auf dem `role="dialog"`-Element. Darüber hinaus, wenn der Dialog zusätzlichen beschreibenden Text neben dem Dialogtitel enthält, kann dieser Text mit dem Dialog unter Verwendung des [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attributs verknüpft werden. Dieser Ansatz wird im folgenden Code-Snippet gezeigt:
+Wenn der Dialog bereits eine sichtbare Titelleiste hat, kann deren Text als Beschriftung für den Dialog verwendet werden. Am besten wird dazu das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) am Element mit `role="dialog"` verwendet. Enthält der Dialog neben seinem Titel zusätzlichen beschreibenden Text, kann dieser über das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) mit dem Dialog verknüpft werden. Der folgende Codeausschnitt zeigt diesen Ansatz:
 
 ```html
 <div
@@ -52,42 +52,42 @@ Wenn ein Dialog bereits über eine sichtbare Titelleiste verfügt, kann der dari
 ```
 
 > [!NOTE]
-> Beachten Sie, dass der Titel und der Beschreibungstext eines Dialogs nicht fokussierbar sein müssen, damit sie von Bildschirmlesern im nicht-virtuellen Modus wahrgenommen werden können. Die Kombination der ARIA-Dialogrolle und der Beschriftungstechniken sollte den Bildschirmleser veranlassen, die Informationen des Dialogs anzukündigen, wenn der Fokus darauf verschoben wird.
+> Beachten Sie, dass Titel und Beschreibung eines Dialogs keinen Fokus erhalten können müssen, damit Screenreader sie im nicht virtuellen Modus erfassen können. Durch die Kombination der ARIA-Rolle `dialog` mit den Beschriftungstechniken sollte der Screenreader die Informationen zum Dialog vorlesen, wenn der Fokus in den Dialog verschoben wird.
 
 ### Erforderliche JavaScript-Funktionen
 
 #### Fokusverwaltung
 
-Ein Dialog hat bestimmte Anforderungen an die Verwaltung des Tastaturfokus:
+Für die Verwaltung des Tastaturfokus in einem Dialog gelten besondere Anforderungen:
 
-- Dialoge sollten immer mindestens ein fokussierbares Steuerelement haben. Bei vielen Dialogen gibt es einen Button wie "Schließen", "OK" oder "Abbrechen". Zusätzlich zu dem erforderlichen Steuerelement können Dialoge beliebig viele fokussierbare Elemente enthalten, sogar ganze Formulare oder andere Container-Widgets wie Tabs.
-- Wenn der Dialog auf dem Bildschirm erscheint, sollte der Tastaturfokus (dessen Steuerung vom Zweck des Dialogs abhängt) auf das standardmäßig fokussierbare Steuerelement im Dialog verschoben werden. Bei Dialogen, die nur eine grundlegende Nachricht anzeigen, könnte es ein "OK"-Button sein. Bei Dialogen, die ein Formular enthalten, könnte es das erste Feld im Formular sein.
-- Nachdem der Dialog geschlossen wurde, sollte der Tastaturfokus zurück an die Stelle verschoben werden, an der er war, bevor er in den Dialog verschoben wurde. Andernfalls kann der Fokus an den Anfang der Seite fallen.
-- Für die meisten Dialoge wird erwartet, dass die Tabulatorreihenfolge im Dialog _umwickelt_, was bedeutet, dass, wenn der Benutzer durch die fokussierbaren Elemente im Dialog tabbt, das erste fokussierbare Element fokussiert wird, nachdem das letzte erreicht wurde. Mit anderen Worten, die Tabulatorreihenfolge sollte innerhalb und vom Dialog eingeschlossen sein.
-- Wenn der Dialog verschoben oder in der Größe verändert werden kann, stellen Sie sicher, dass diese Aktionen sowohl von Tastatur- als auch von Mausbenutzern ausführbar sein müssen. Ebenso, wenn ein Dialog spezielle Funktionen wie Symbolleisten oder Kontextmenüs bereitstellt, müssen diese für Tastaturbenutzer erreichbar und bedienbar sein.
-- Dialoge können modal oder nicht-modal sein. Wenn ein _modaler_ Dialog auf dem Bildschirm erscheint, ist es nicht möglich, mit irgendwelchen Seiteninhalten außerhalb des Dialogs zu interagieren. Mit anderen Worten, die Hauptanwendungsschnittstelle oder der Seiteninhalt wird als vorübergehend deaktiviert betrachtet, solange der modale Dialog angezeigt wird. Bei _nicht-modalen_ Dialogen ist es immer noch möglich, mit Inhalten außerhalb des Dialogs zu interagieren, während der Dialog angezeigt wird. Beachten Sie, dass es für nicht-modale Dialoge eine globale Tastenkombination geben muss, die es ermöglicht, den Fokus zwischen den geöffneten Dialogen und der Hauptseite zu verschieben.
+- Dialoge sollten immer mindestens ein fokussierbares Steuerelement enthalten. In vielen Dialogen ist das eine Schaltfläche wie „Schließen“, „OK“ oder „Abbrechen“. Darüber hinaus können Dialoge beliebig viele fokussierbare Elemente enthalten, auch ganze Formulare oder andere Container-Widgets wie Tabs.
+- Wenn der Dialog auf dem Bildschirm erscheint, sollte der Tastaturfokus auf das standardmäßig vorgesehene fokussierbare Steuerelement im Dialog verschoben werden. Welches Steuerelement das ist, hängt vom Zweck des Dialogs ab. Bei Dialogen, die nur eine einfache Meldung anzeigen, kann es eine „OK“-Schaltfläche sein. Bei Dialogen mit einem Formular kann es das erste Feld des Formulars sein.
+- Nach dem Schließen des Dialogs sollte der Tastaturfokus dorthin zurückkehren, wo er sich vor dem Wechsel in den Dialog befand. Andernfalls kann der Fokus an den Anfang der Seite zurückfallen.
+- Bei den meisten Dialogen wird erwartet, dass die Tab-Reihenfolge im Dialog _umlaufend_ ist: Wenn Sie mit der Tab-Taste durch die fokussierbaren Elemente im Dialog navigieren, erhält nach dem letzten Element wieder das erste den Fokus. Die Tab-Reihenfolge sollte also auf den Dialog beschränkt bleiben.
+- Wenn sich der Dialog verschieben oder in der Größe ändern lässt, müssen diese Aktionen sowohl mit der Tastatur als auch mit der Maus möglich sein. Bietet ein Dialog besondere Funktionen wie Symbolleisten oder Kontextmenüs, müssen diese ebenfalls per Tastatur erreichbar und bedienbar sein.
+- Dialoge können modal oder nicht modal sein. Wenn ein _modaler_ Dialog angezeigt wird, ist keine Interaktion mit Seiteninhalten außerhalb des Dialogs möglich. Die Benutzeroberfläche der Hauptanwendung beziehungsweise der übrige Seiteninhalt gilt also als vorübergehend deaktiviert, solange der modale Dialog angezeigt wird. Bei _nicht modalen_ Dialogen ist die Interaktion mit Inhalten außerhalb des Dialogs weiterhin möglich. Für nicht modale Dialoge muss es ein globales Tastenkürzel geben, mit dem sich der Fokus zwischen geöffneten Dialogen und der Hauptseite verschieben lässt.
 
-### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Verwenden Sie dieses Attribut, um den Dialog zu beschriften. Oft wird der Wert des `aria-labelledby`-Attributs die ID des Elements sein, das den Dialog betitelt.
+  - : Verwenden Sie dieses Attribut, um den Dialog zu beschriften. Häufig ist der Wert des Attributs `aria-labelledby` die ID des Elements, das den Dialogtitel enthält.
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)
   - : Verwenden Sie dieses Attribut, um den Inhalt des Dialogs zu beschreiben.
 
-### Mögliche Auswirkungen auf Benutzeragenten und unterstützende Technologien
+### Mögliche Auswirkungen auf User Agents und assistive Technologien
 
-Wenn die `dialog`-Rolle verwendet wird, sollte der Benutzeragent Folgendes tun:
+Wenn die Rolle `dialog` verwendet wird, sollte der User Agent Folgendes tun:
 
-- Das Element als Dialog in der Zugänglichkeits-API des Betriebssystems freigeben.
+- Das Element in der Barrierefreiheits-API des Betriebssystems als Dialog bereitstellen.
 
-Wenn der Dialog korrekt beschriftet ist und der Fokus auf ein Element (oft ein interaktives Element wie ein Button) im Dialog verschoben wird, sollten Bildschirmleser die zugängliche Rolle, den Namen und optional die Beschreibung des Dialogs ankündigen, zusammen mit der Ankündigung des fokussierten Elements.
+Wenn der Dialog korrekt beschriftet ist und der Fokus auf ein Element innerhalb des Dialogs verschoben wird – häufig auf ein interaktives Element wie eine Schaltfläche –, sollten Screenreader die barrierefreie Rolle und den Namen des Dialogs sowie gegebenenfalls seine Beschreibung vorlesen. Außerdem sollten sie das fokussierte Element ankündigen.
 
 > [!NOTE]
-> Es kann unterschiedliche Meinungen darüber geben, wie unterstützende Technologien mit dieser Technik umgehen sollten, und die Reihenfolge der Ankündigungen kann je nach verwendeter unterstützender Technologie variieren. Die oben bereitgestellten Informationen sind eine dieser Meinungen und können sich ändern, wenn die Spezifikation definiert wird.
+> Die Ansichten darüber, wie assistive Technologien mit dieser Technik umgehen sollten, können auseinandergehen. Auch die Reihenfolge der Ankündigungen kann je nach verwendeter assistiver Technologie variieren. Die obigen Angaben stellen eine dieser Ansichten dar und können sich im Zuge der Festlegung der Spezifikation ändern.
 
 ## Beispiele
 
-### Ein Dialog, der ein Formular enthält
+### Ein Dialog mit einem Formular
 
 ```html
 <div
@@ -120,15 +120,15 @@ Wenn der Dialog korrekt beschriftet ist und der Fokus auf ein Element (oft ein i
 </div>
 ```
 
-#### Funktionierende Beispiele
+#### Funktionsfähige Beispiele
 
-- [jQuery-UI Dialog](https://jqueryui.com/dialog/)
+- [jQuery-UI-Dialog](https://jqueryui.com/dialog/)
 
 ### Hinweise
 
 > [!NOTE]
-> Während es möglich ist, Tastaturbenutzer daran zu hindern, den Fokus auf Elemente außerhalb des Dialogs zu verschieben, können Bildschirmleserbenutzer dennoch zu diesem Inhalt navigieren, indem sie den virtuellen Cursor ihres Bildschirmlesers verwenden.
-> Es ist wichtig, dass Entwickler sicherstellen, dass der Inhalt außerhalb des modalen Dialogs für alle Benutzer unzugänglich ist, solange der modale Dialog aktiv ist.
+> Auch wenn verhindert werden kann, dass Personen, die eine Tastatur verwenden, den Fokus auf Elemente außerhalb des Dialogs verschieben, können Personen, die einen Screenreader verwenden, möglicherweise weiterhin mit dessen virtuellem Cursor zu diesen Inhalten navigieren.
+> Entwickler sollten sicherstellen, dass Inhalte außerhalb eines modalen Dialogs für alle Benutzer unzugänglich sind, solange der Dialog aktiv ist.
 
 ## Spezifikationen
 
@@ -137,4 +137,4 @@ Wenn der Dialog korrekt beschriftet ist und der Fokus auf ein Element (oft ein i
 ## Siehe auch
 
 - [ARIA: alertdialog-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
-- {{HTMLElement('dialog', 'Das HTML <code>&lt;dialog&gt;</code>-Element')}}
+- {{HTMLElement('dialog', 'The HTML <code>&lt;dialog&gt;</code> element')}}

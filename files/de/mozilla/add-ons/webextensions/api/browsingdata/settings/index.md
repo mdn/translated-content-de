@@ -2,16 +2,16 @@
 title: browsingData.settings()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/settings
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 384aad08dfe00e5cb6b76b148019b1b4dc9d94ac
 ---
 
-Browser verfügen über eine integrierte Funktion "Verlauf löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Diese Funktion bietet eine Benutzeroberfläche, mit der der Benutzer auswählen kann, welche Art von Daten gelöscht werden sollen (z. B. Verlauf, Downloads, …) und wie weit in die Vergangenheit Daten entfernt werden sollen.
+Browser verfügen über eine integrierte Funktion zum Löschen des Verlaufs, mit der Benutzer verschiedene Arten von Browserdaten löschen können. Über eine Benutzeroberfläche können sie auswählen, welche Datenarten entfernt werden sollen (z. B. Verlauf, Downloads, …) und wie weit zurückliegende Daten gelöscht werden sollen.
 
-Diese Funktion gibt den aktuellen Wert dieser Einstellungen zurück.
+Diese Funktion gibt die aktuellen Werte dieser Einstellungen zurück.
 
-Beachten Sie, dass nicht alle Datentypen immer über die Benutzeroberfläche entfernbar sind und einige Benutzeroberflächenoptionen möglicherweise mehr als einem Datentyp zugeordnet sind.
+Beachten Sie, dass nicht alle Datenarten immer über die Benutzeroberfläche gelöscht werden können und manche Optionen der Benutzeroberfläche mehreren Datenarten zugeordnet sein können.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die Einstellungen enthält. Dieses Objekt hat drei Eigenschaften:
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die mit einem Objekt erfüllt wird, das Informationen zu den Einstellungen enthält. Dieses Objekt hat drei Eigenschaften:
 
 - `options`
-  - : {{WebExtAPIRef("browsingData.RemovalOptions")}}. Ein `RemovalOptions`-Objekt, das die derzeit ausgewählten Entfernungsmöglichkeiten beschreibt.
+  - : {{WebExtAPIRef("browsingData.RemovalOptions")}}. Ein `RemovalOptions`-Objekt, das die aktuell ausgewählten Optionen zum Entfernen beschreibt.
 - `dataToRemove`
-  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn dieser Typ zur Entfernung ausgewählt ist, und `false` ansonsten.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Enthält eine Eigenschaft für jede Datenart, die in der Benutzeroberfläche des Browsers ausgewählt oder abgewählt werden kann. Jede Eigenschaft hat den Wert `true`, wenn die betreffende Datenart zum Entfernen ausgewählt ist, andernfalls `false`.
 - `dataRemovalPermitted`
-  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede hat den Wert `true`, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und `false` ansonsten.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Enthält eine Eigenschaft für jede Datenart, die in der Benutzeroberfläche des Browsers ausgewählt oder abgewählt werden kann. Jede Eigenschaft hat den Wert `true`, wenn der Administrator des Geräts dem Benutzer das Entfernen dieser Datenart erlaubt hat, andernfalls `false`.
 
-Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn ein Fehler auftritt, wird die Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ browser.browsingData.settings().then(onGotSettings, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

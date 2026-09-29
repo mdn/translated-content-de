@@ -1,48 +1,48 @@
 ---
-title: "ARIA: alertdialog-Rolle"
+title: "ARIA: Rolle alertdialog"
 short-title: alertdialog
 slug: Web/Accessibility/ARIA/Reference/Roles/alertdialog_role
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 705109e85b6c5a9142260c58a617ef295b3b1316
 ---
 
-Die **alertdialog**-Rolle wird bei modalen Alert-Dialogen verwendet, die den Arbeitsablauf eines Benutzers unterbrechen, um eine wichtige Nachricht zu kommunizieren und eine Antwort zu verlangen.
+Die Rolle **alertdialog** wird für modale Warndialoge verwendet, die den Arbeitsablauf von Benutzerinnen und Benutzern unterbrechen, um eine wichtige Nachricht mitzuteilen und eine Antwort zu verlangen.
 
 ## Beschreibung
 
-Die `alertdialog`-Rolle wird verwendet, um Benutzer über dringende Informationen zu informieren, die sofortige Aufmerksamkeit erfordern. Das Hinzufügen von `role="alertdialog"` zu dem Element, das den Dialog enthält, hilft unterstützenden Technologien, den Inhalt als gruppiert zu identifizieren und vom Rest der Seiteninhalte zu trennen. Beispiele umfassen Fehlermeldungen, die eine Bestätigung erfordern, und andere Aufforderungen zur Aktionsbestätigung.
+Die Rolle `alertdialog` wird verwendet, um Benutzerinnen und Benutzer über dringende Informationen zu benachrichtigen, die ihre sofortige Aufmerksamkeit erfordern. Wenn das Element, das den Dialog enthält, mit `role="alertdialog"` versehen wird, können assistive Technologien den Inhalt als zusammengehörig und vom übrigen Seiteninhalt getrennt erkennen. Beispiele sind Fehlermeldungen, die eine Bestätigung erfordern, und andere Aufforderungen, eine Aktion zu bestätigen.
 
-Wie der Name schon sagt, ist `alertdialog` eine Kombination aus den Rollen [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) und [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role). `alertdialog` ist eine Art von `dialog` mit ähnlichen Anwendungsfällen wie `alert`, jedoch wenn eine Benutzerantwort erforderlich ist.
+Wie der Name nahelegt, verbindet `alertdialog` die Rollen [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) und [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role). `alertdialog` ist eine Art von `dialog` mit ähnlichen Anwendungsfällen wie `alert`, wird aber verwendet, wenn eine Antwort erforderlich ist.
 
 > [!NOTE]
-> Die `alertdialog`-Rolle sollte nur für Warnmeldungen verwendet werden, die interaktive Steuerelemente enthalten. Wenn ein Alert-Dialog nur statischen Inhalt enthält und überhaupt keine interaktiven Steuerelemente hat, verwenden Sie stattdessen [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role).
+> Die Rolle `alertdialog` sollte nur für Warnmeldungen mit zugehörigen interaktiven Steuerelementen verwendet werden. Wenn ein Warndialog ausschließlich statischen Inhalt und keinerlei interaktive Steuerelemente enthält, verwenden Sie stattdessen [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role).
 
-Da `alertdialog` eine Art von Dialog ist, gelten die Zustände, Eigenschaften und Tastaturfokusanforderungen der [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)-Rolle auch für die `alertdialog`-Rolle.
+Da `alertdialog` eine Art von Dialog ist, gelten auch für diese Rolle die Zustände, Eigenschaften und Anforderungen an den Tastaturfokus der Rolle [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role).
 
-Aufgrund seiner dringenden Natur und der Unterbrechung des Benutzerarbeitsflusses sollten Alert-Dialoge [modal](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal) sein.
+Da Warndialoge dringend sind und den Arbeitsablauf unterbrechen, sollten sie [modal](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal) sein.
 
-Der Alert-Dialog muss mindestens ein fokussierbares Steuerelement haben, wie z.B. Bestätigen, Schließen oder Abbrechen, und der Fokus muss auf dieses Steuerelement verschoben werden, wenn der Alert-Dialog erscheint. Alert-Dialoge können zusätzliche interaktive Steuerelemente wie Textfelder und Kontrollkästchen haben.
+Der Warndialog muss mindestens ein fokussierbares Steuerelement enthalten – beispielsweise „Bestätigen“, „Schließen“ oder „Abbrechen“. Wenn der Warndialog erscheint, muss der Fokus auf dieses Steuerelement gesetzt werden. Warndialoge können weitere interaktive Steuerelemente wie Textfelder und Kontrollkästchen enthalten.
 
-Die `alertdialog`-Rolle soll nicht als Ersatz für andere Dialoge verwendet werden, einschließlich nicht bestätigungsbedürftiger `alert`-Dialoge ([`Window.alert()`](/de/docs/Web/API/Window/alert)) und Eingabeaufforderungen ([`Window.prompt()`](/de/docs/Web/API/Window/prompt)).
+Die Rolle `alertdialog` darf nicht als Ersatz für andere Dialoge verwendet werden, darunter `alert`-Dialoge ohne erforderliche Bestätigung ([`Window.alert()`](/de/docs/Web/API/Window/alert)) und Eingabeaufforderungen ([`Window.prompt()`](/de/docs/Web/API/Window/prompt)).
 
-Das bloße Hinzufügen von `role="alertdialog"` reicht nicht aus, um einen Alert-Dialog barrierefrei zu gestalten. Folgendes muss ebenfalls getan werden:
+`role="alertdialog"` allein reicht nicht aus, um einen Warndialog barrierefrei zu machen. Wichtig sind außerdem:
 
-- Der Alert-Dialog muss korrekt beschriftet sein
-- Der Tastaturfokus muss korrekt verwaltet werden
+- Eine Beschriftung des Warndialogs wird dringend empfohlen.
+- Der Tastaturfokus muss korrekt verwaltet werden.
 
-Die `alertdialog` muss einen zugänglichen Namen haben, der mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) definiert wird. Der Text des Alert-Dialogs muss eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} mittels [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) besitzen.
+Ein barrierefreier Name für die Rolle `alertdialog` wird dringend empfohlen, auch wenn ARIA ihn nicht vorschreibt. Definieren Sie den barrierefreien Namen mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label). Der Text des Warndialogs muss mithilfe von [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) eine {{Glossary("accessible_description", "barrierefreie Beschreibung")}} erhalten.
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Verwenden Sie dieses Attribut, um den alertdialog zu kennzeichnen. Das `aria-labelledby`-Attribut ist im Allgemeinen die ID des Elements, das verwendet wird, um den alertdialog zu betiteln.
+  - : Verwenden Sie dieses Attribut, um den Warndialog zu beschriften. Der Wert von `aria-labelledby` ist in der Regel die ID des Elements, das den Titel des Warndialogs enthält.
 
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)
-  - : Verwenden Sie dieses Attribut, um die Beschreibung des Inhalts des Alert-Dialogs zu umfassen. Der Wert des `aria-describedby`-Attributs ist in der Regel die ID des Elements, das die Nachrichten des Alert-Dialogs enthält, und folgt normalerweise direkt nach dem Titel.
+  - : Verwenden Sie dieses Attribut, um die Beschreibung des Warndialoginhalts anzugeben. Der Wert von `aria-describedby` ist in der Regel die ID des Elements, das die Nachricht des Warndialogs enthält und üblicherweise direkt auf den Titel folgt.
 
 ## Beispiele
 
-### Beispiel 1: Ein grundlegender Alert-Dialog
+### Beispiel 1: Ein einfacher Warndialog
 
 ```html
 <div
@@ -57,7 +57,7 @@ Die `alertdialog` muss einen zugänglichen Namen haben, der mit [`aria-labelledb
 </div>
 ```
 
-Der obige Code zeigt, wie ein Alert-Dialog markiert wird, der nur eine Nachricht und einen OK-Button bietet.
+Der obige Codeausschnitt zeigt, wie ein Warndialog ausgezeichnet wird, der lediglich eine Nachricht und eine OK-Schaltfläche enthält.
 
 ### Beispiel 2: Bestätigungsdialog mit zwei Optionen
 
@@ -99,9 +99,9 @@ document.getElementById("confirm-btn").addEventListener("click", (event) => {
 
 ## Siehe auch
 
-- HTML {{HTMLElement("dialog")}}-Element
-- [Die `dialog`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
-- [Die `alert`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role)
-- [`aria-modal`-Attribut](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)
+- HTML-Element {{HTMLElement("dialog")}}
+- [Die Rolle `dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
+- [Die Rolle `alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role)
+- [Das Attribut `aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)
 - [`Window.alert()`](/de/docs/Web/API/Window/alert)
 - [`Window.prompt()`](/de/docs/Web/API/Window/prompt)

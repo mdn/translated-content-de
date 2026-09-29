@@ -2,21 +2,21 @@
 title: scripting.executeScript()
 slug: Mozilla/Add-ons/WebExtensions/API/scripting/executeScript
 l10n:
-  sourceCommit: 9791add3508e087982097f25fbd367c21bcb8305
+  sourceCommit: 0a0556fc248b29bb40b84a0635bdf72ee1885d60
 ---
 
-Fügt ein Skript in einen Zielkontext ein. Standardmäßig wird das Skript bei `document_idle` ausgeführt.
+Fügt ein Skript in einen Zielkontext ein. Das Skript wird standardmäßig bei `document_idle` ausgeführt.
 
 > [!NOTE]
-> Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Safari und Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
+> Diese Methode ist in Manifest V3 oder höher in Chrome und ab Firefox 101 verfügbar. In Safari und ab Firefox 102 ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API zu verwenden, müssen Sie die `"scripting"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und die Berechtigung für die URL des Ziels haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder durch Verwendung der [activeTab Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission). Beachten Sie, dass einige spezielle Seiten diese Berechtigung nicht zulassen, einschließlich Lesemodus, Quelltextansicht, PDF-Viewer und anderer integrierter Browser-UI-Seiten.
+Um diese API zu verwenden, benötigen Sie die [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) `"scripting"` und eine Berechtigung für die URL des Ziels – entweder ausdrücklich als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder über die [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission). Beachten Sie, dass einige spezielle Seiten diese Berechtigung nicht zulassen, darunter die Leseansicht, die Quelltextansicht, der PDF-Viewer und andere integrierte Seiten der Browseroberfläche.
 
-In Firefox und Safari kann ein teilweises Fehlen von Host-Berechtigungen zu einer erfolgreichen Ausführung führen (mit den teilweise vorhandenen Ergebnissen im aufgelösten Promise). In Chrome verhindert jede fehlende Berechtigung jede Ausführung (siehe [Issue 1325114](https://crbug.com/1325114)).
+In Firefox und Safari kann die Ausführung erfolgreich sein, auch wenn Host-Berechtigungen teilweise fehlen (die aufgelöste Promise enthält dann Teilergebnisse). In Chrome verhindert jede fehlende Berechtigung die Ausführung vollständig (siehe [Issue 1325114](https://crbug.com/1325114)).
 
-Die von Ihnen eingefügten Skripte werden als [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) bezeichnet.
+Die eingefügten Skripte werden [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) genannt.
 
-Erweiterungen können keine Inhalts-Skripte in [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) ausführen. Wenn eine Erweiterung Code in einer Erweiterungsseite dynamisch ausführen möchte, kann sie ein Skript in das Dokument einfügen. Dieses Skript enthält den auszuführenden Code und registriert einen {{WebExtAPIRef("runtime.onMessage")}}-Listener, der eine Möglichkeit zur Ausführung des Codes implementiert. Die Erweiterung kann dann eine Nachricht an den Listener senden, um die Ausführung des Codes auszulösen.
+Erweiterungen können keine Content-Skripte auf [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) ausführen. Wenn eine Erweiterung Code auf einer Erweiterungsseite dynamisch ausführen möchte, kann sie ein Skript in das Dokument einbinden. Dieses Skript enthält den auszuführenden Code und registriert einen {{WebExtAPIRef("runtime.onMessage")}}-Listener, der eine Möglichkeit zur Ausführung des Codes bereitstellt. Anschließend kann die Erweiterung eine Nachricht an den Listener senden, um die Ausführung des Codes auszulösen.
 
 ## Syntax
 
@@ -29,58 +29,60 @@ let results = await browser.scripting.executeScript(
 ### Parameter
 
 - `details`
-  - : Ein Objekt, das das einzufügende Skript beschreibt. Es enthält folgende Eigenschaften:
+  - : Ein Objekt, das das einzufügende Skript beschreibt. Es enthält die folgenden Eigenschaften:
     - `args` {{optional_inline}}
-      - : Ein Array von Argumenten, die in die Funktion eingebracht werden. Dies ist nur gültig, wenn der Parameter `func` angegeben ist. Die Argumente müssen JSON-serialisierbar sein.
+      - : Ein Array von Argumenten, die an die Funktion übergeben werden. Dies ist nur gültig, wenn der Parameter `func` angegeben ist. Die Argumente müssen JSON-serialisierbar sein.
     - `files` {{optional_inline}}
-      - : `array` von `string`. Ein Array von Pfaden der JS-Dateien, die eingefügt werden sollen, relativ zum Stammverzeichnis der Erweiterung. Genau einer von `files` und `func` muss angegeben sein.
+      - : `array` von `string`. Ein Array von Pfaden zu den einzufügenden JS-Dateien, relativ zum Stammverzeichnis der Erweiterung. Genau eines von `files` und `func` muss angegeben werden.
     - `func` {{optional_inline}}
-      - : `function`. Eine JavaScript-Funktion, die eingefügt werden soll. Diese Funktion wird serialisiert und dann zur Injektion deserialisiert. Das bedeutet, dass alle gebundenen Parameter und Ausführungskontexte verloren gehen. Genau einer von `files` und `func` muss angegeben sein.
+      - : `function`. Eine einzufügende JavaScript-Funktion. Diese Funktion wird für das Einfügen serialisiert und anschließend deserialisiert. Dadurch gehen gebundene Parameter und der Ausführungskontext verloren. Genau eines von `files` und `func` muss angegeben werden.
+
+        Die Funktion wird anhand ihres Quelltexts serialisiert, der ein gültiger Funktionsausdruck sein muss. Verwenden Sie eine Funktionsdeklaration, einen Funktionsausdruck oder eine Pfeilfunktion. Eine Funktion, die mit [Methodensyntax](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) definiert ist, beispielsweise `method() {}` in einem Objektliteral oder einer Klasse, lässt sich nicht zu einem gültigen Funktionsausdruck serialisieren und kann daher nicht ausgeführt werden. Firefox gibt einen `SyntaxError` in der Eigenschaft `error` des `InjectionResult` zurück, während Chrome den Fehler nur in der Konsole des Ziel-Tabs meldet.
     - `injectImmediately` {{optional_inline}}
-      - : `boolean`. Ob die Injektion in das Ziel so schnell wie möglich ausgelöst wird, jedoch nicht unbedingt vor dem Laden der Seite.
+      - : `boolean`. Gibt an, ob das Einfügen in das Ziel so früh wie möglich ausgelöst wird, jedoch nicht unbedingt vor dem Laden der Seite.
     - `target`
-      - : {{WebExtAPIRef("scripting.InjectionTarget")}}. Details, die das Ziel angeben, in das das Skript eingefügt werden soll.
+      - : {{WebExtAPIRef("scripting.InjectionTarget")}}. Angaben zum Ziel, in das das Skript eingefügt werden soll.
     - `world` {{optional_inline}}
-      - : {{WebExtAPIRef("scripting.ExecutionWorld")}}. Die Ausführungsumgebung, in der ein Skript ausgeführt werden soll.
+      - : {{WebExtAPIRef("scripting.ExecutionWorld")}}. Die Ausführungsumgebung für das Skript.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Array von `InjectionResult`-Objekten erfüllt wird, die das Ergebnis des eingefügten Skripts in jedem eingefügten Frame darstellen.
+Eine {{JSxRef("Promise")}}, die mit einem Array von `InjectionResult`-Objekten erfüllt wird. Diese Objekte stellen das Ergebnis des eingefügten Skripts in jedem Frame dar, in den es eingefügt wurde.
 
-Das Promise wird abgelehnt, wenn die Injektion fehlschlägt, z. B. wenn das Injektionsziel ungültig ist. Sobald die Skriptausführung gestartet wurde, ist ihr Ergebnis in dem Ergebnis enthalten, unabhängig davon, ob es erfolgreich (`result`) oder erfolglos (`error`) war.
+Die Promise wird zurückgewiesen, wenn das Einfügen fehlschlägt, etwa weil das Einfügeziel ungültig ist. Nachdem das Einfügen begonnen hat, wird die Promise auch dann erfüllt, wenn das Skript nicht geparst werden kann oder einen Fehler auslöst. In diesem Fall enthält das `InjectionResult` für den Frame den Fehler in seiner Eigenschaft `error` statt eines `result`. Um alle Fehler zu behandeln, fangen Sie die zurückgewiesene Promise ab und prüfen Sie die Eigenschaft `error` jedes Ergebnisses.
 
-Jedes `InjectionResult`-Objekt hat folgende Eigenschaften:
+Jedes `InjectionResult`-Objekt hat die folgenden Eigenschaften:
 
 - `documentId`
-  - : `string`. Das mit der Injektion verbundene Dokument. Weitere Informationen finden Sie im Artikel [Mit documentId arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId).
+  - : `string`. Das Dokument, das dem Einfügen zugeordnet ist. Weitere Informationen finden Sie im Artikel [Arbeiten mit documentId](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId).
 - `frameId`
-  - : `number`. Die mit der Injektion verbundene Frame-ID.
+  - : `number`. Die Frame-ID, die dem Einfügen zugeordnet ist.
 - `result` {{optional_inline}}
   - : `any`. Das Ergebnis der Skriptausführung.
 - `error` {{optional_inline}}
-  - : `any`. Falls ein Fehler auftritt, enthält es den Wert, den das Skript geworfen oder abgelehnt hat. Typischerweise ist dies ein Fehlerobjekt mit einer Nachrichten-Eigenschaft, aber es könnte jeder Wert sein (einschließlich primitiver Werte und undefiniert).
+  - : `any`. Wenn ein Fehler auftritt, enthält diese Eigenschaft den Wert, den das Skript ausgelöst oder mit dem es eine Promise zurückgewiesen hat. Üblicherweise ist dies ein Fehlerobjekt mit einer Eigenschaft `message`; es kann jedoch ein beliebiger Wert sein (einschließlich primitiver Werte und `undefined`).
 
-    Chrome unterstützt die `error`-Eigenschaft noch nicht (siehe [Issue 1271527: Propagate errors from scripting.executeScript to InjectionResult](https://crbug.com/1271527)). Alternativ können Laufzeitfehler durch Einwickeln des auszuführenden Codes in eine try-catch-Anweisung abgefangen werden. Nicht abgefangene Fehler werden auch in der Konsole des Ziel-Tabs gemeldet.
+    Chrome unterstützt die Eigenschaft `error` noch nicht (siehe [Issue 1271527: Fehler von scripting.executeScript an InjectionResult weitergeben](https://crbug.com/1271527)). Alternativ können Laufzeitfehler abgefangen werden, indem der auszuführende Code in eine try-catch-Anweisung eingeschlossen wird. Nicht abgefangene Fehler werden außerdem in der Konsole des Ziel-Tabs gemeldet.
 
-Das Ergebnis eines Skripts ist der Wert, der durch die letzte ausgewertete Anweisung erzeugt wird. Wenn die letzte Anweisung ein Promise erzeugt, ist das Ergebnis der gesetzte Wert dieses Promise. Dies ist ähnlich den Ergebnissen, die Sie sehen, wenn Sie das Skript in der [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) ausführen (ausgenommen jede `console.log()`-Ausgabe). Beispielweise sehen Sie bei einem Skript wie diesem:
+Das Ergebnis eines Skripts ist der Wert, den die zuletzt ausgewertete Anweisung erzeugt. Wenn die letzte Anweisung eine Promise erzeugt, ist das Ergebnis der Wert, mit dem diese Promise abgeschlossen wurde. Dies ähnelt den Ergebnissen, die Sie bei der Ausführung des Skripts in der [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) sehen (ohne Ausgaben von `console.log()`). Betrachten Sie beispielsweise ein Skript wie dieses:
 
 ```js
 let foo = "my result";
 foo;
 ```
 
-Hier enthält das Ergebnis-Array die Zeichenkette `"my result"` als Element.
+Hier enthält das Ergebnisarray den String `"my result"` als Element.
 
-Das Skriptergebnis muss in Firefox einen [strukturiert klonbaren](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Wert oder in Chrome einen [JSON-serialisierbaren](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description) Wert darstellen. Der Artikel [Chrome-Inkompatibilitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities) diskutiert diesen Unterschied detaillierter im Abschnitt [Datenduplizierungs-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm).
+Das Skriptergebnis muss in Firefox ein Wert sein, der durch [strukturiertes Klonen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) kopiert werden kann, oder in Chrome ein [JSON-serialisierbarer](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description) Wert. Der Artikel [Chrome-Inkompatibilitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities) erläutert diesen Unterschied ausführlicher im Abschnitt [Algorithmus zum Klonen von Daten](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm).
 
 ## Beispiele
 
-Dieses Beispiel führt ein einzeiliges Code-Snippet im aktiven Tab aus:
+Dieses Beispiel führt einen einzeiligen Codeausschnitt im aktiven Tab aus. Es fängt die Zurückweisung der Promise ab, die auftritt, wenn das Einfügen fehlschlägt, und prüft jedes Ergebnis auf einen Fehler bei der Skriptausführung:
 
 ```js
 browser.action.onClicked.addListener(async (tab) => {
   try {
-    await browser.scripting.executeScript({
+    const results = await browser.scripting.executeScript({
       target: {
         tabId: tab.id,
       },
@@ -88,13 +90,18 @@ browser.action.onClicked.addListener(async (tab) => {
         document.body.style.border = "5px solid green";
       },
     });
+    for (const { frameId, error } of results) {
+      if (error) {
+        console.error(`script failed in frame ${frameId}: ${error}`);
+      }
+    }
   } catch (err) {
     console.error(`failed to execute script: ${err}`);
   }
 });
 ```
 
-Dieses Beispiel führt ein Skript aus einer Datei aus (zusammen mit der Erweiterung gepackt) namens `"content-script.js"`. Das Skript wird im aktiven Tab ausgeführt. Das Skript wird in Unterrahmen und im Hauptdokument ausgeführt:
+Dieses Beispiel führt ein Skript aus einer mit der Erweiterung ausgelieferten Datei namens `"content-script.js"` aus. Das Skript wird im aktiven Tab ausgeführt, und zwar sowohl in Unterframes als auch im Hauptdokument:
 
 ```js
 browser.action.onClicked.addListener(async (tab) => {
@@ -119,4 +126,4 @@ browser.action.onClicked.addListener(async (tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-executeScript) API.
+> Diese API basiert auf der API [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-executeScript) von Chromium.
