@@ -3,10 +3,10 @@ title: "ARIA: Rolle gridcell"
 short-title: gridcell
 slug: Web/Accessibility/ARIA/Reference/Roles/gridcell_role
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 96758f3d8ce1e5fbd9d58053bdef103eec1de108
 ---
 
-Die `gridcell`-Rolle wird verwendet, um eine Zelle in einem [grid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) zu erstellen. Sie ist dafür gedacht, die Funktionalität des HTML-Elements {{HTMLElement('td')}} zur tabellenartigen Gruppierung von Informationen nachzuahmen.
+Die Rolle `gridcell` wird verwendet, um eine Zelle in einem [Grid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [Treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) zu erstellen. Sie soll die Funktionalität des HTML-Elements {{HTMLElement('td')}} bei der tabellenartigen Gruppierung von Informationen nachbilden.
 
 ```html
 <div role="gridcell">Potato</div>
@@ -14,7 +14,7 @@ Die `gridcell`-Rolle wird verwendet, um eine Zelle in einem [grid](/de/docs/Web/
 <div role="gridcell">Onion</div>
 ```
 
-Elemente, die `role="gridcell"` zugewiesen haben, müssen Kind eines Elements mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) sein.
+Elemente mit `role="gridcell"` müssen untergeordnete Elemente eines Elements mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) sein.
 
 ```html
 <div role="row">
@@ -25,7 +25,7 @@ Elemente, die `role="gridcell"` zugewiesen haben, müssen Kind eines Elements mi
 </div>
 ```
 
-Die erste Regel von ARIA besagt, dass, wenn ein natives HTML-Element oder Attribut die erforderliche Semantik und das Verhalten bietet, es verwendet werden sollte, anstatt ein Element umzufunktionieren und ARIA hinzuzufügen. Verwenden Sie stattdessen das HTML-Element {{HTMLElement('td')}}:
+Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder -Attribut die benötigte Semantik und das benötigte Verhalten bietet, verwenden Sie es, statt ein Element für einen anderen Zweck einzusetzen und ARIA hinzuzufügen. Verwenden Sie stattdessen das HTML-Element {{HTMLElement('td')}}:
 
 ```html
 <td>Potato</td>
@@ -35,13 +35,13 @@ Die erste Regel von ARIA besagt, dass, wenn ein natives HTML-Element oder Attrib
 
 ## Beschreibung
 
-### Gridcells mit dynamisch hinzugefügten, ausgeblendeten oder entfernten Zeilen und Spalten
+### gridcells mit dynamisch hinzugefügten, ausgeblendeten oder entfernten Zeilen und Spalten
 
-Jedes Element, dem `role="gridcell"` zugewiesen ist, sollte ARIA verwenden, um seine Position in der tabellenartigen Gruppierung zu beschreiben, vorausgesetzt, das Table, Grid oder Treegrid hat die Möglichkeit, Zeilen und/oder Spalten dynamisch hinzuzufügen, auszublenden oder zu entfernen.
+Wenn in einer Tabelle, einem Grid oder einem Treegrid Zeilen und/oder Spalten dynamisch hinzugefügt, ausgeblendet oder entfernt werden können, sollte jedes Element mit `role="gridcell"` seine Position innerhalb der tabellenartigen Gruppierung mithilfe von ARIA beschreiben.
 
-Verwenden Sie [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex), um die Reihenfolge einer `gridcell` in der Liste der Spalten zu beschreiben, und [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex), um die Reihenfolge einer `gridcell` in der Liste der Zeilen zu beschreiben. Verwenden Sie [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) und [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) auf dem übergeordneten Element mit [`role="grid"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), um die Gesamtzahl der Spalten oder Zeilen festzulegen.
+Verwenden Sie [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex), um die Position einer `gridcell` in der Spaltenliste zu beschreiben, und [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex), um ihre Position in der Zeilenliste zu beschreiben. Verwenden Sie [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) und [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) auf dem übergeordneten Element mit [`role="grid"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), um die Gesamtzahl der Spalten beziehungsweise Zeilen anzugeben.
 
-Dieses Beispiel demonstriert eine tabellenartige Gruppierung von Informationen, bei der die dritte und vierte Spalte entfernt wurden. [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) wird verwendet, um die Position der Zeilen zu beschreiben, und ermöglicht es einer Person, die unterstützende Technologien verwendet, zu erkennen, dass bestimmte Zeilen entfernt wurden:
+Der folgende Beispielcode zeigt eine tabellenartige Gruppierung von Informationen, aus der die dritte und vierte Spalte entfernt wurden. [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) beschreibt die Position der Zellen in den Spalten und ermöglicht es Personen, die Hilfstechnologien verwenden, zu erkennen, dass bestimmte Spalten entfernt wurden:
 
 ```html
 <div role="grid" aria-colcount="6">
@@ -65,17 +65,17 @@ Dieses Beispiel demonstriert eine tabellenartige Gruppierung von Informationen, 
 </div>
 ```
 
-### Beschreibung der Position von Gridcells, wenn die Gesamtstruktur unbekannt ist
+### Position von gridcells bei unbekannter Gesamtstruktur beschreiben
 
-In Situationen, in denen die tabellenartige Gruppierung von Inhalten keine Informationen über die Spalten und Zeilen liefert, müssen Gridcells ihre Position programmatisch mit [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) beschrieben haben. Die für `aria-describedby` bereitgestellten [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)s sollten den übergeordneten Elementen entsprechen, die als Zeilen und Spalten gedacht sind.
+Wenn die tabellenartige Gruppierung von Inhalten keine Informationen über die Spalten und Zeilen bereitstellt, muss die Position von gridcells mithilfe von [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) programmatisch beschrieben werden. Die für `aria-describedby` angegebenen Werte des Attributs [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) sollten auf übergeordnete Elemente verweisen, die als Zeilen und Spalten vorgesehen sind.
 
-Durch die Referenzierung der übergeordneten Elemente mit Rollen von [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role) oder [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role) über `aria-describedby` können unterstützende Technologien die Position und die Beziehung des `gridcell`-Elements zum Rest der tabellenartigen Gruppierung von Inhalten verstehen.
+Wenn über `aria-describedby` auf übergeordnete Elemente mit den Rollen [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role) oder [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role) verwiesen wird, können Hilfstechnologien die Position des `gridcell`-Elements und seine Beziehung zur übrigen tabellenartigen Gruppierung von Inhalten erkennen.
 
 ### Interaktive Grids und Treegrids
 
 #### Bearbeitbare Zellen
 
-Sowohl `<td>`-Elemente als auch Elemente mit der Rolle `gridcell` können bearbeitbar gemacht werden, um eine Funktionalität ähnlich der Bearbeitung einer Tabelle zu ermöglichen. Dies geschieht durch Anwenden des HTML-Attributs [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable).
+Sowohl `<td>`-Elemente als auch Elemente mit der Rolle `gridcell` können bearbeitbar gemacht werden. Damit lässt sich eine Funktionalität ähnlich der Bearbeitung einer Tabellenkalkulation nachbilden. Dazu wird das HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) verwendet.
 
 ```html
 <td contenteditable="true">Notes</td>
@@ -83,26 +83,26 @@ Sowohl `<td>`-Elemente als auch Elemente mit der Rolle `gridcell` können bearbe
 <div role="gridcell" contenteditable="true">Item cost</div>
 ```
 
-`contenteditable` macht das Element, auf das es angewendet wird, über die <kbd>Tab</kbd>-Taste fokussierbar. Wenn ein Gridcell bedingt in einen Zustand gebracht wird, in dem die Bearbeitung untersagt ist, sollte [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly) auf dem Gridcell-Element umgeschaltet werden.
+`contenteditable` bewirkt, dass das Element, auf das es angewendet wird, über die Taste <kbd>Tab</kbd> fokussierbar ist. Wenn eine gridcell unter bestimmten Bedingungen in einen Zustand versetzt wird, in dem die Bearbeitung nicht zulässig ist, ändern Sie den Wert von [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly) auf dem gridcell-Element entsprechend.
 
-#### Erweiterbare Zellen
+#### Aufklappbare Zellen
 
-In einem [treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) können Gridcells durch Umschalten des Attributs [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) erweiterbar gemacht werden. Beachten Sie, dass, wenn dieses Attribut bereitgestellt wird, es nur für die individuelle Gridcell gilt.
+In einem [Treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) können gridcells durch Ändern des Attributs [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) anzeigen, ob sie auf- oder zugeklappt sind. Beachten Sie, dass dieses Attribut, sofern es vorhanden ist, nur für die einzelne gridcell gilt und nicht für die umgebende Zeile. Der wichtigste Anwendungsfall sind Pivot-Tabellen, in denen gruppierte Daten hierarchisch dargestellt werden.
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - `grid`
-  - : Kommuniziert, dass ein übergeordnetes Element eine Tabelle oder tree-artige Gruppierung von Informationen ist.
+  - : Kennzeichnet ein übergeordnetes Element als tabellen- oder baumartige Gruppierung von Informationen.
 - `row`
-  - : Notwendig, um zu kommunizieren, dass das `gridcell` Teil einer Zeile einer tabellenartigen Gruppierung von Informationen ist.
+  - : Erforderlich, um anzugeben, dass die `gridcell` Teil einer Zeile in einer tabellenartigen Gruppierung von Informationen ist.
 - `columnheader`
   - : Gibt an, welches Element die zugehörige Spaltenüberschrift ist.
 - [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)
-  - : Identifiziert die Position eines Elements in Bezug auf die Spalten der restlichen tabellenartigen Gruppierung von Informationen.
+  - : Gibt die Position eines Elements innerhalb der Spalten der tabellenartigen Gruppierung von Informationen an.
 - `rowheader`
   - : Gibt an, welches Element die zugehörige Zeilenüberschrift ist.
 - [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex)
-  - : Identifiziert die Position eines Elements in Bezug auf die Zeilen der restlichen tabellenartigen Gruppierung von Informationen.
+  - : Gibt die Position eines Elements innerhalb der Zeilen der tabellenartigen Gruppierung von Informationen an.
 
 ### Beispiele
 
@@ -141,13 +141,13 @@ Das folgende Beispiel erstellt eine tabellenartige Gruppierung von Informationen
 </div>
 ```
 
-## Zugänglichkeitsbedenken
+## Barrierefreiheit
 
-Die Unterstützung für `gridcell` und bestimmte `gridcell`-bezogene ARIA-Rollen und -Eigenschaften ist bei unterstützenden Technologien schlecht. Wenn möglich, sollten [HTML-Tabellen-Markups](/de/docs/Web/HTML/Reference/Elements/table) stattdessen verwendet werden.
+`gridcell` sowie bestimmte zugehörige ARIA-Rollen und -Eigenschaften werden von Hilfstechnologien nur unzureichend unterstützt. Verwenden Sie nach Möglichkeit stattdessen [HTML-Tabellen-Markup](/de/docs/Web/HTML/Reference/Elements/table).
 
-## Best Practices
+## Bewährte Verfahren
 
-Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder Attribut die erforderliche Semantik und das Verhalten bietet, verwenden Sie es, anstatt ein Element umzufunktionieren und eine ARIA-Rolle, -Zustand oder -Eigenschaft hinzuzufügen, um es zugänglich zu machen. Daher wird empfohlen, [native HTML-Tabellen-Markups](/de/docs/Web/HTML/Reference/Elements/table) zu verwenden, anstatt die Form und Funktionalität einer Tabelle mit ARIA und JavaScript nachzubilden.
+Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder -Attribut die benötigte Semantik und das benötigte Verhalten bietet, verwenden Sie es, statt ein Element für einen anderen Zweck einzusetzen und eine ARIA-Rolle, einen ARIA-Zustand oder eine ARIA-Eigenschaft hinzuzufügen, um es barrierefrei zu machen. Daher empfiehlt es sich, [natives HTML-Tabellen-Markup](/de/docs/Web/HTML/Reference/Elements/table) zu verwenden, statt Form und Funktionalität einer Tabelle mit ARIA und JavaScript nachzubilden.
 
 ## Spezifikationen
 
@@ -156,9 +156,9 @@ Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder Attribut die
 ## Siehe auch
 
 - [Das Table-Element](/de/docs/Web/HTML/Reference/Elements/table)
-- [ARIA: Grid-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)
-- [Das Table-Zeilen-Element](/de/docs/Web/HTML/Reference/Elements/tr)
-- [ARIA: row-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
-- [ARIA: rowgroup-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role)
-- [Das Table-Header-Element](/de/docs/Web/HTML/Reference/Elements/th)
-- [Das Table-Datenzellen-Element](/de/docs/Web/HTML/Reference/Elements/td)
+- [ARIA: Rolle `grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)
+- [Das Table-row-Element](/de/docs/Web/HTML/Reference/Elements/tr)
+- [ARIA: Rolle `row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
+- [ARIA: Rolle `rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role)
+- [Das Table-header-Element](/de/docs/Web/HTML/Reference/Elements/th)
+- [Das Table-data-cell-Element](/de/docs/Web/HTML/Reference/Elements/td)

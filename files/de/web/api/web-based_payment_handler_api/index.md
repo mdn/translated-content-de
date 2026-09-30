@@ -2,20 +2,20 @@
 title: Web-based Payment Handler API
 slug: Web/API/Web-Based_Payment_Handler_API
 l10n:
-  sourceCommit: 73ca80b86a348f88f51fdb8f9441c114b76e94f1
+  sourceCommit: b60c5dad8cf10d8492f2aff491abb40bf1851b03
 ---
 
 {{DefaultAPISidebar("Web-Based Payment Handler API")}}{{securecontext_header}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die Web-basierte Payment Handler API bietet eine standardisierte Funktionalität für Webanwendungen zur direkten Abwicklung von Zahlungen, anstatt zu einer separaten Website zur Zahlungsabwicklung umgeleitet werden zu müssen.
+Die webbasierte Payment Handler API stellt standardisierte Funktionen bereit, mit denen Webanwendungen Zahlungen direkt abwickeln können, anstatt Benutzer zur Zahlungsabwicklung auf eine separate Website umzuleiten.
 
-Wenn eine Händler-Website die Zahlung über die [Payment Request API](/de/docs/Web/API/Payment_Request_API) initiiert, übernimmt die Web-basierte Payment Handler API die Entdeckung der anwendbaren Zahlungsanwendungen, präsentiert sie als Auswahlmöglichkeiten für den Benutzer, öffnet ein Payment-Handler-Fenster, sobald eine Wahl getroffen wurde, um dem Benutzer die Eingabe seiner Zahlungsdaten zu ermöglichen, und wickelt die Zahlungstransaktion mit der Zahlungsanwendung ab.
+Wenn eine Händlerwebsite über die [Payment Request API](/de/docs/Web/API/Payment_Request_API) eine Zahlung einleitet, ermittelt die webbasierte Payment Handler API geeignete Zahlungs-Apps, zeigt sie dem Benutzer zur Auswahl an und öffnet nach der Auswahl ein Fenster zur Eingabe der Zahlungsdaten. Anschließend wickelt sie die Transaktion mit der Zahlungs-App ab.
 
-Die Kommunikation mit Zahlungsanwendungen (Autorisierung, Übermittlung von Zahlungsdaten) erfolgt über Service Worker.
+Die Kommunikation mit Zahlungs-Apps, etwa zur Autorisierung und zur Übermittlung von Zahlungsinformationen, erfolgt über Service Worker.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Auf einer Händler-Website wird eine Zahlungsanfrage durch die Erstellung eines neuen [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts initiiert:
+Auf einer Händlerwebsite wird eine Zahlungsanfrage durch Erstellen eines neuen [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts eingeleitet:
 
 ```js
 const request = new PaymentRequest(
@@ -33,7 +33,7 @@ const request = new PaymentRequest(
 );
 ```
 
-Die `supportedMethods`-Eigenschaft gibt eine URL an, die die vom Händler unterstützte Zahlungsmethode repräsentiert. Um mehr als eine Zahlungsmethode zu verwenden, würden Sie sie in einem Array von Objekten angeben, wie folgt:
+Die Eigenschaft `supportedMethods` gibt eine URL an, die für die vom Händler unterstützte Zahlungsmethode steht. Wenn Sie mehrere Zahlungsmethoden verwenden möchten, geben Sie diese als Array von Objekten an:
 
 ```js
 const request = new PaymentRequest(
@@ -54,9 +54,9 @@ const request = new PaymentRequest(
 );
 ```
 
-### Zahlungsanwendungen verfügbar machen
+### Zahlungs-Apps verfügbar machen
 
-In unterstützenden Browsern beginnt der Prozess mit der Anforderung einer Zahlungsanwendungsmethodendatei von jeder URL. Ein Zahlungsanwendungsmethodenmanifest wird typischerweise als `payment-manifest.json` bezeichnet (der genaue Name kann beliebig sein) und sollte wie folgt strukturiert sein:
+In Browsern, die die API unterstützen, beginnt der Vorgang damit, dass von jeder URL eine Manifestdatei für die Zahlungsmethode angefordert wird. Ein solches Manifest heißt häufig `payment-manifest.json` (der genaue Name ist frei wählbar) und sollte etwa so aufgebaut sein:
 
 ```json
 {
@@ -65,19 +65,19 @@ In unterstützenden Browsern beginnt der Prozess mit der Anforderung einer Zahlu
 }
 ```
 
-Bei einer Zahlungsanwendungskennung wie `https://bobbucks.dev/pay` lädt der Browser:
+Bei einer Zahlungsmethodenkennung wie `https://bobbucks.dev/pay` geht der Browser wie folgt vor:
 
-1. Beginnt mit dem Laden von `https://bobbucks.dev/pay` und prüft seine HTTP-Header.
-   1. Wenn ein {{httpheader("Link")}}-Header mit `rel="payment-method-manifest"` gefunden wird, lädt er stattdessen das Zahlungsanwendungsmethodenmanifest an diesem Ort herunter (siehe [Route den Browser optional, um das Zahlungsanwendungsmethodenmanifest an einem anderen Ort zu finden](https://web.dev/articles/setting-up-a-payment-method#optionally_route_the_browser_to_find_the_payment_method_manifest_in_another_location) für Details).
-   2. Andernfalls wird der Antwortinhalt von `https://bobbucks.dev/pay` als Zahlungsanwendungsmethodenmanifest analysiert.
-2. Analysiert den heruntergeladenen Inhalt als JSON mit `default_applications` und `supported_origins`-Elementen.
+1. Er beginnt, `https://bobbucks.dev/pay` zu laden, und prüft die HTTP-Header.
+   1. Wenn ein {{httpheader("Link")}}-Header mit `rel="payment-method-manifest"` vorhanden ist, lädt er stattdessen das Manifest für die Zahlungsmethode vom dort angegebenen Speicherort herunter. Weitere Informationen finden Sie unter [Den Browser bei Bedarf zu einem anderen Speicherort des Zahlungsmethoden-Manifests leiten](https://web.dev/articles/setting-up-a-payment-method#optionally_route_the_browser_to_find_the_payment_method_manifest_in_another_location).
+   2. Andernfalls interpretiert er den Antworttext von `https://bobbucks.dev/pay` als Manifest für die Zahlungsmethode.
+2. Er parst den heruntergeladenen Inhalt als JSON mit den Einträgen `default_applications` und `supported_origins`.
 
-Diese Elemente haben die folgenden Zwecke:
+Diese Einträge haben folgende Aufgaben:
 
-- `default_applications` teilt dem Browser mit, wo er die Standard-Zahlungsanwendung finden kann, die die BobBucks-Zahlungsmethode verwenden kann, wenn noch keine installiert ist.
-- `supported_origins` teilt dem Browser mit, welche anderen Zahlungsanwendungen berechtigt sind, die BobBucks-Bezahlung bei Bedarf abzuwickeln. Wenn sie bereits auf dem Gerät installiert sind, werden sie dem Benutzer als alternative Zahlungsoptionen neben der Standardanwendung präsentiert.
+- `default_applications` teilt dem Browser mit, wo er die Standard-Zahlungs-App für die BobBucks-Zahlungsmethode findet, falls noch keine entsprechende App installiert ist.
+- `supported_origins` teilt dem Browser mit, welche anderen Zahlungs-Apps bei Bedarf eine BobBucks-Zahlung abwickeln dürfen. Sind diese bereits auf dem Gerät installiert, werden sie dem Benutzer neben der Standardanwendung als alternative Zahlungsoptionen angezeigt.
 
-Aus dem Zahlungsanwendungsmethodenmanifest erhält der Browser die URL der Web-App-Manifestdateien der Standard-Zahlungsanwendungen, die beliebig benannt sein können und etwa so aussehen:
+Aus dem Zahlungsmethoden-Manifest entnimmt der Browser die URLs der [Web-App-Manifestdateien](/de/docs/Web/Progressive_web_apps/Manifest) der Standard-Zahlungs-Apps. Die Dateien können beliebig benannt sein und etwa so aussehen:
 
 ```json
 {
@@ -121,19 +121,19 @@ Aus dem Zahlungsanwendungsmethodenmanifest erhält der Browser die URL der Web-A
 }
 ```
 
-Wenn die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode von der Händleranwendung als Antwort auf eine Benutzeraktion aufgerufen wird, verwendet der Browser die [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name)- und [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons)-Informationen, die in jedem Manifest gefunden wurden, um die Zahlungsanwendungen in der browserbasierten Payment Request-Benutzeroberfläche dem Benutzer zu präsentieren.
+Wenn die Händleranwendung als Reaktion auf eine Benutzeraktion die Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) aufruft, verwendet der Browser die Angaben zu [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name) und [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) aus den Manifesten, um dem Benutzer die Zahlungs-Apps in der vom Browser bereitgestellten Payment-Request-Oberfläche anzuzeigen.
 
-- Wenn es mehrere Zahlungsanwendungsoptionen gibt, wird dem Benutzer eine Liste von Optionen zur Auswahl präsentiert. Die Auswahl einer Zahlungsanwendung startet den Zahlungsablauf, der den Browser bei Bedarf veranlasst, die Web-App "Just-In-Time" (JIT) zu installieren, wobei der im [`serviceworker`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/serviceworker)-Element angegebene Service Worker registriert wird, damit er die Bezahlung abwickeln kann.
-- Wenn es nur eine Zahlungsanwendungsoption gibt, wird die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode den Zahlungsablauf mit dieser Zahlungsanwendung starten, sie bei Bedarf JIT installieren, wie oben beschrieben. Dies ist eine Optimierung, um dem Benutzer keine Liste zu präsentieren, die nur eine Zahlungsanwendungswahl enthält.
+- Stehen mehrere Zahlungs-Apps zur Verfügung, wird dem Benutzer eine Auswahlliste angezeigt. Mit der Auswahl einer App beginnt der Zahlungsvorgang. Falls erforderlich, installiert der Browser die Web-App dabei Just-in-Time (JIT) und registriert den im Eintrag [`serviceworker`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/serviceworker) angegebenen Service Worker, damit dieser die Zahlung abwickeln kann.
+- Steht nur eine Zahlungs-App zur Verfügung, startet [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) den Zahlungsvorgang direkt mit dieser App und installiert sie bei Bedarf wie oben beschrieben Just-in-Time. So wird vermieden, dem Benutzer eine Liste mit nur einer Auswahlmöglichkeit anzuzeigen.
 
 > [!NOTE]
-> Wenn [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) auf `true` im Zahlungsanwendungsmanifest gesetzt ist, wird der Browser die plattformspezifische Zahlungsanwendung, die in [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) angegeben ist, zur Abwicklung der Zahlung starten (wenn verfügbar), anstatt der Web-Zahlungsanwendung.
+> Wenn [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) im Manifest der Zahlungs-App auf `true` gesetzt ist, startet der Browser zur Zahlungsabwicklung die unter [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) angegebene plattformspezifische Zahlungs-App statt der webbasierten Zahlungs-App, sofern sie verfügbar ist.
 
-Siehe [Dienen eines Web-App-Manifests](https://web.dev/articles/setting-up-a-payment-method#step_3_serve_a_web_app_manifest) für weitere Details.
+Weitere Informationen finden Sie unter [Ein Web-App-Manifest bereitstellen](https://web.dev/articles/setting-up-a-payment-method#step_3_serve_a_web_app_manifest).
 
-### Überprüfen, ob die Zahlungsanwendung zahlungsbereit ist
+### Prüfen, ob die Zahlungs-App zahlungsbereit ist
 
-Die [`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment)-Methode der Payment Request API gibt `true` zurück, wenn eine Zahlungsanwendung auf dem Gerät des Kunden verfügbar ist, d.h. dass eine die Zahlungsmethode unterstützende Zahlungsanwendung entdeckt wurde und die plattformspezifische Zahlungsanwendung installiert ist oder die webbasierte Zahlungsanwendung bereit ist, registriert zu werden.
+Die Methode [`PaymentRequest.canMakePayment()`](/de/docs/Web/API/PaymentRequest/canMakePayment) der Payment Request API gibt `true` zurück, wenn auf dem Gerät des Kunden eine Zahlungs-App verfügbar ist. Das bedeutet, dass eine App gefunden wurde, die die Zahlungsmethode unterstützt, und dass entweder die plattformspezifische Zahlungs-App installiert ist oder die webbasierte Zahlungs-App registriert werden kann.
 
 ```js
 async function checkCanMakePayment() {
@@ -146,7 +146,7 @@ async function checkCanMakePayment() {
 }
 ```
 
-Die Web-basierte Payment Handler API fügt einen zusätzlichen Mechanismus hinzu zur Vorbereitung der Zahlungsabwicklung. Das [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event)-Ereignis wird im Service Worker einer Zahlungsanwendung ausgelöst, um zu überprüfen, ob sie bereit ist, eine Bezahlung zu bearbeiten. Es wird speziell ausgelöst, wenn die Händlerwebsite den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufruft. Der Service Worker kann dann die Methode [`CanMakePaymentEvent.respondWith()`](/de/docs/Web/API/CanMakePaymentEvent/respondWith) verwenden, um entsprechend zu antworten:
+Die webbasierte Payment Handler API bietet einen zusätzlichen Mechanismus zur Vorbereitung der Zahlungsabwicklung. Das Ereignis [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event) wird im Service Worker einer Zahlungs-App ausgelöst, um zu prüfen, ob sie zur Abwicklung einer Zahlung bereit ist. Konkret geschieht dies, wenn die Händlerwebsite den Konstruktor [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) aufruft. Der Service Worker kann dann mit der Methode [`CanMakePaymentEvent.respondWith()`](/de/docs/Web/API/CanMakePaymentEvent/respondWith) antworten:
 
 ```js
 self.addEventListener("canmakepayment", (e) => {
@@ -164,15 +164,15 @@ self.addEventListener("canmakepayment", (e) => {
 });
 ```
 
-Das von `respondWith()` zurückgegebene Promise löst sich mit einem booleschen Wert auf, um anzuzeigen, dass es bereit ist, eine Zahlungsanfrage zu bearbeiten (`true`) oder nicht (`false`).
+Das von `respondWith()` zurückgegebene Promise wird mit einem booleschen Wert erfüllt, der angibt, ob die App bereit ist, eine Zahlungsanfrage abzuwickeln (`true`), oder nicht (`false`).
 
-### Zahlungsabwicklung
+### Die Zahlung abwickeln
 
-Nachdem die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode aufgerufen wurde, wird ein [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)-Ereignis im Service Worker der Zahlungsanwendung ausgelöst. Auf dieses Ereignis wird innerhalb des Service Workers der Zahlungsanwendung gehört, um den nächsten Schritt im Zahlungsprozess zu starten.
+Nach dem Aufruf von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) wird im Service Worker der Zahlungs-App ein [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)-Ereignis ausgelöst. Der Service Worker der Zahlungs-App überwacht dieses Ereignis, um die nächste Phase des Zahlungsvorgangs einzuleiten.
 
 ```js
 let paymentRequestEvent;
-let resolver;
+const resolver = Promise.withResolvers();
 let client;
 
 // `self` is the global object in service worker
@@ -188,15 +188,15 @@ self.addEventListener("paymentrequest", async (e) => {
 });
 ```
 
-Wenn ein `paymentrequest`-Ereignis empfangen wird, kann die Zahlungsanwendung ein Payment-Handler-Fenster öffnen, indem sie [`PaymentRequestEvent.openWindow()`](/de/docs/Web/API/PaymentRequestEvent/openWindow) aufruft. Das Payment-Handler-Fenster wird den Kunden eine Schnittstelle der Zahlungsanwendung anbieten, in der sie die Zahlung authentifizieren, eine Versandadresse und Optionen wählen und die Zahlung autorisieren können.
+Wenn ein `paymentrequest`-Ereignis empfangen wird, kann die Zahlungs-App durch Aufruf von [`PaymentRequestEvent.openWindow()`](/de/docs/Web/API/PaymentRequestEvent/openWindow) ein Fenster zur Zahlungsabwicklung öffnen. Darin wird den Kunden eine Oberfläche der Zahlungs-App angezeigt, über die sie sich authentifizieren, eine Lieferadresse und Versandoptionen auswählen und die Zahlung autorisieren können.
 
-Wenn die Zahlung abgewickelt wurde, wird [`PaymentRequestEvent.respondWith()`](/de/docs/Web/API/PaymentRequestEvent/respondWith) verwendet, um das Zahlungsergebnis an die Händlerwebsite zurückzugeben.
+Nach der Abwicklung der Zahlung wird [`PaymentRequestEvent.respondWith()`](/de/docs/Web/API/PaymentRequestEvent/respondWith) verwendet, um das Zahlungsergebnis an die Händlerwebsite zurückzugeben.
 
-Siehe [Erhalte ein Zahlungsanfrage-Ereignis vom Händler](https://web.dev/articles/orchestrating-payment-transactions#receive-payment-request-event) für weitere Details zu diesem Schritt.
+Weitere Informationen zu dieser Phase finden Sie unter [Eine Zahlungsanfrage vom Händler empfangen](https://web.dev/articles/orchestrating-payment-transactions#receive-payment-request-event).
 
-### Verwaltung der Funktionalität von Zahlungsanwendungen
+### Funktionen der Zahlungs-App verwalten
 
-Sobald ein Service Worker einer Zahlungsanwendung registriert ist, können Sie die [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Instanz des Service Workers (zugänglich über [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/ServiceWorkerRegistration/paymentManager)) verwenden, um verschiedene Aspekte der Funktionalität der Zahlungsanwendung zu verwalten.
+Sobald der Service Worker einer Zahlungs-App registriert ist, können Sie über dessen [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Instanz (zugänglich über [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/ServiceWorkerRegistration/paymentManager)) verschiedene Funktionen der Zahlungs-App verwalten.
 
 Zum Beispiel:
 
@@ -214,26 +214,26 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 });
 ```
 
-- [`PaymentManager.userHint`](/de/docs/Web/API/PaymentManager/userHint) wird verwendet, um einen Hinweis für den Browser bereitzustellen, der zusammen mit dem Namen und Symbol der Zahlungsanwendung in der Web-basierte Payment Handler-Benutzeroberfläche angezeigt wird.
-- [`PaymentManager.enableDelegations()`](/de/docs/Web/API/PaymentManager/enableDelegations) wird verwendet, um die Verantwortung für die Bereitstellung verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungsanwendung zu delegieren, anstatt sie über den Browser zu sammeln (zum Beispiel über Autofill).
+- [`PaymentManager.userHint`](/de/docs/Web/API/PaymentManager/userHint) stellt einen Hinweis bereit, den der Browser in der Oberfläche des webbasierten Payment Handlers zusammen mit dem Namen und dem Symbol der Zahlungs-App anzeigen kann.
+- [`PaymentManager.enableDelegations()`](/de/docs/Web/API/PaymentManager/enableDelegations) überträgt der Zahlungs-App die Verantwortung, verschiedene Teile der benötigten Zahlungsinformationen bereitzustellen, anstatt sie vom Browser erfassen zu lassen, beispielsweise durch automatisches Ausfüllen.
 
 ## Schnittstellen
 
 - [`CanMakePaymentEvent`](/de/docs/Web/API/CanMakePaymentEvent)
-  - : Das Ereignisobjekt für das [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event)-Ereignis, das im Service Worker einer Zahlungsanwendung ausgelöst wird, wenn sie erfolgreich registriert wurde, um anzuzeigen, dass sie zahlungsbereit ist.
+  - : Das Ereignisobjekt für das Ereignis [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event). Es wird im Service Worker einer Zahlungs-App ausgelöst, nachdem dieser erfolgreich registriert wurde, um zu signalisieren, dass die App zur Abwicklung von Zahlungen bereit ist.
 - [`PaymentManager`](/de/docs/Web/API/PaymentManager)
-  - : Wird verwendet, um verschiedene Aspekte der Funktionalität von Zahlungsanwendungen zu verwalten. Zugriff über die [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/ServiceWorkerRegistration/paymentManager)-Eigenschaft.
+  - : Wird zur Verwaltung verschiedener Funktionen einer Zahlungs-App verwendet. Der Zugriff erfolgt über die Eigenschaft [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/ServiceWorkerRegistration/paymentManager).
 - [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent) {{Experimental_Inline}}
-  - : Das Ereignisobjekt für das [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)-Ereignis, das im Service Worker einer Zahlungsanwendung ausgelöst wird, wenn ein Zahlungsablauf auf der Händler-Website über die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode initiiert wurde.
+  - : Das Ereignisobjekt für das Ereignis [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event). Es wird im Service Worker einer Zahlungs-App ausgelöst, wenn auf der Händlerwebsite über die Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) ein Zahlungsvorgang eingeleitet wurde.
 
-## Erweiterungen zu anderen Schnittstellen
+## Erweiterungen anderer Schnittstellen
 
-- [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event) Ereignis
-  - : Wird im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) einer Zahlungsanwendung ausgelöst, wenn sie erfolgreich registriert wurde, um anzuzeigen, dass sie zahlungsbereit ist.
-- [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event) Ereignis
-  - : Wird im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) einer Zahlungsanwendung ausgelöst, wenn ein Zahlungsablauf auf der Händler-Website über die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode initiiert wurde.
+- Ereignis [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event)
+  - : Wird im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) einer Zahlungs-App ausgelöst, nachdem diese erfolgreich registriert wurde, um zu signalisieren, dass sie zur Abwicklung von Zahlungen bereit ist.
+- Ereignis [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)
+  - : Wird im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) einer Zahlungs-App ausgelöst, wenn auf der Händlerwebsite über die Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) ein Zahlungsvorgang eingeleitet wurde.
 - [`ServiceWorkerRegistration.paymentManager`](/de/docs/Web/API/ServiceWorkerRegistration/paymentManager)
-  - : Gibt eine [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Instanz einer Zahlungsanwendung zurück, die verwendet wird, um verschiedene Zahlungsanwendungsfunktionen zu verwalten.
+  - : Gibt die [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Instanz einer Zahlungs-App zurück, mit der verschiedene Funktionen der App verwaltet werden.
 
 ## Spezifikationen
 
@@ -245,9 +245,9 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 
 ## Siehe auch
 
-- [BobBucks Beispiel-Zahlungsanwendung](https://bobbucks.dev/)
-- [Übersicht über webbasierte Zahlungsanwendungen](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Leben einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
-- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- [BobBucks-Beispiel für eine Zahlungs-App](https://bobbucks.dev/)
+- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Eine Zahlungsmethode einrichten](https://web.dev/articles/setting-up-a-payment-method)
+- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Die Payment Request API verwenden](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

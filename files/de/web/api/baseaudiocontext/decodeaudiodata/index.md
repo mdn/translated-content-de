@@ -3,16 +3,16 @@ title: "BaseAudioContext: Methode decodeAudioData()"
 short-title: decodeAudioData()
 slug: Web/API/BaseAudioContext/decodeAudioData
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: b60c5dad8cf10d8492f2aff491abb40bf1851b03
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `decodeAudioData()`-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces wird verwendet, um Audiodateidaten, die in einem {{jsxref("ArrayBuffer")}} enthalten sind und von [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`FileReader`](/de/docs/Web/API/FileReader) geladen wurden, asynchron zu decodieren. Der decodierte [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) wird auf die Abtastrate des [`AudioContext`](/de/docs/Web/API/AudioContext) umgesampelt und dann an einen Callback oder ein Versprechen übergeben.
+Die Methode `decodeAudioData()` des Interfaces [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) wird verwendet, um Audiodateidaten asynchron zu dekodieren, die in einem {{jsxref("ArrayBuffer")}} enthalten sind und über [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`FileReader`](/de/docs/Web/API/FileReader) geladen wurden. Der dekodierte [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) wird auf die Abtastrate des [`AudioContext`](/de/docs/Web/API/AudioContext) umgerechnet und anschließend an einen Callback übergeben oder als Ergebnis eines Promise bereitgestellt.
 
-Dies ist die bevorzugte Methode, um eine Audioquelle für die Web Audio API aus einem Audiotrack zu erstellen. Diese Methode funktioniert nur mit vollständigen Dateidaten, nicht mit Fragmenten von Audiodateidaten.
+Dies ist die bevorzugte Methode, um aus einer Audiospur eine Audioquelle für die Web Audio API zu erstellen. Die Methode funktioniert nur mit vollständigen Audiodateidaten, nicht mit Fragmenten davon.
 
-Diese Funktion implementiert zwei alternative Möglichkeiten, um die Audiodaten oder Fehlermeldungen asynchron zurückzugeben: Sie gibt ein {{jsxref("Promise")}} zurück, das mit den Audiodaten erfüllt wird, und akzeptiert auch Callback-Argumente, um Erfolg oder Misserfolg zu behandeln. Die primäre Methode zur Verwendung dieser Funktion ist über den Promise-Rückgabewert, und die Callback-Parameter werden aus Kompatibilitätsgründen bereitgestellt.
+Diese Funktion bietet zwei Möglichkeiten, Audiodaten oder Fehlermeldungen asynchron zurückzugeben: Sie gibt ein {{jsxref("Promise")}} zurück, das mit den Audiodaten erfüllt wird, und akzeptiert außerdem Callback-Argumente für den Erfolgs- und Fehlerfall. Die bevorzugte Verwendung erfolgt über den Promise-Rückgabewert; die Callback-Parameter werden aus Gründen der Abwärtskompatibilität bereitgestellt.
 
 ## Syntax
 
@@ -28,26 +28,26 @@ decodeAudioData(arrayBuffer, successCallback, errorCallback)
 ### Parameter
 
 - `arrayBuffer`
-  - : Ein ArrayBuffer, der die zu decodierenden Audiodaten enthält, normalerweise abgerufen von [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`FileReader`](/de/docs/Web/API/FileReader).
+  - : Ein ArrayBuffer mit den zu dekodierenden Audiodaten, die üblicherweise über [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`FileReader`](/de/docs/Web/API/FileReader) geladen wurden.
 - `successCallback` {{optional_inline}}
-  - : Eine Callback-Funktion, die aufgerufen wird, wenn die Decodierung erfolgreich abgeschlossen ist. Das einzige Argument für diesen Callback ist ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die _decodedData_ (die decodierten PCM-Audiodaten) darstellt. Üblicherweise möchten Sie die decodierten Daten in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) einfügen, von dem sie abgespielt und nach Belieben bearbeitet werden können.
+  - : Eine Callback-Funktion, die aufgerufen wird, wenn die Dekodierung erfolgreich abgeschlossen ist. Ihr einziges Argument ist ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die _decodedData_ (die dekodierten PCM-Audiodaten) enthält. Üblicherweise werden die dekodierten Daten in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) eingefügt, über den sie nach Bedarf wiedergegeben und bearbeitet werden können.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Fehler-Callback, der aufgerufen wird, wenn ein Fehler bei der Decodierung der Audiodaten auftritt.
+  - : Ein optionaler Fehler-Callback, der aufgerufen wird, wenn bei der Dekodierung der Audiodaten ein Fehler auftritt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}-Objekt, das mit den _decodedData_ erfüllt wird. Wenn Sie die XHR-Syntax verwenden, ignorieren Sie diesen Rückgabewert und verwenden stattdessen eine Callback-Funktion.
+Ein {{jsxref("Promise") }}-Objekt, das mit _decodedData_ erfüllt wird. Wenn Sie die XHR-Syntax verwenden, ignorieren Sie diesen Rückgabewert und verwenden stattdessen eine Callback-Funktion.
 
 ## Beispiele
 
-In diesem Abschnitt behandeln wir zuerst die Syntax basierend auf Promises und dann die Callback-Syntax.
+In diesem Abschnitt wird zuerst die Promise-basierte Syntax und danach die Callback-Syntax behandelt.
 
 ### Promise-basierte Syntax
 
-In diesem Beispiel verwendet `loadAudio()` [`fetch()`](/de/docs/Web/API/Window/fetch), um eine Audiodatei abzurufen und sie in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu decodieren. Anschließend wird der `audioBuffer` im globalen `buffer`-Variable für die spätere Wiedergabe zwischengespeichert.
+In diesem Beispiel ruft `loadAudio()` mit [`fetch()`](/de/docs/Web/API/Window/fetch) eine Audiodatei ab und dekodiert sie in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer). Anschließend speichert die Funktion den `audioBuffer` für die spätere Wiedergabe in der globalen Variablen `buffer`.
 
 > [!NOTE]
-> Sie können das [vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/decode-audio-data/promise/) oder den [Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/decode-audio-data/promise).
+> Sie können [das vollständige Beispiel ausführen](https://mdn.github.io/webaudio-examples/decode-audio-data/promise/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/decode-audio-data/promise).
 
 ```js
 let audioCtx;
@@ -64,14 +64,22 @@ async function loadAudio() {
     console.error(`Unable to fetch the audio file. Error: ${err.message}`);
   }
 }
+
+play.addEventListener("click", async () => {
+  if (!audioCtx) {
+    audioCtx = new AudioContext();
+    await loadAudio();
+  }
+  // …
+});
 ```
 
 ### Callback-Syntax
 
-In diesem Beispiel verwendet `loadAudio()` [`fetch()`](/de/docs/Web/API/Window/fetch), um eine Audiodatei abzurufen und sie mit der rückrufbasierten Version von `decodeAudioData()` in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu decodieren. Im Callback wird der decodierte Buffer abgespielt.
+In diesem Beispiel ruft `loadAudio()` mit [`fetch()`](/de/docs/Web/API/Window/fetch) eine Audiodatei ab und dekodiert sie mithilfe der Callback-basierten Variante von `decodeAudioData()` in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer). Im Callback wird der dekodierte Buffer wiedergegeben.
 
 > [!NOTE]
-> Sie können das [vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/decode-audio-data/callback/) oder den [Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/decode-audio-data/callback).
+> Sie können [das vollständige Beispiel ausführen](https://mdn.github.io/webaudio-examples/decode-audio-data/callback/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/decode-audio-data/callback).
 
 ```js
 let audioCtx;
@@ -95,6 +103,15 @@ async function loadAudio() {
     console.error(`Unable to fetch the audio file. Error: ${err.message}`);
   }
 }
+
+play.addEventListener("click", async () => {
+  if (!audioCtx) {
+    audioCtx = new AudioContext();
+    await loadAudio();
+  } else {
+    playBuffer();
+  }
+});
 ```
 
 ## Spezifikationen

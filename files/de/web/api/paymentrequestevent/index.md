@@ -2,12 +2,12 @@
 title: PaymentRequestEvent
 slug: Web/API/PaymentRequestEvent
 l10n:
-  sourceCommit: 73ca80b86a348f88f51fdb8f9441c114b76e94f1
+  sourceCommit: b60c5dad8cf10d8492f2aff491abb40bf1851b03
 ---
 
 {{SeeCompatTable}}{{APIRef("Web-Based Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Das **`PaymentRequestEvent`**-Interface der [Web-basierten Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API) ist das Objekt, das an einen Payment-Handler übergeben wird, wenn eine [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) durchgeführt wird.
+Die Schnittstelle **`PaymentRequestEvent`** der [Web-based Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API) ist das Objekt, das an einen Zahlungs-Handler übergeben wird, wenn ein [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) gestellt wird.
 
 {{InheritanceDiagram}}
 
@@ -16,37 +16,37 @@ Das **`PaymentRequestEvent`**-Interface der [Web-basierten Payment Handler API](
 - [`PaymentRequestEvent()`](/de/docs/Web/API/PaymentRequestEvent/PaymentRequestEvent) {{Experimental_Inline}}
   - : Erstellt eine neue Instanz eines `PaymentRequestEvent`-Objekts.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`methodData`](/de/docs/Web/API/PaymentRequestEvent/methodData) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Array von Objekten zurück, das Bezahlmethoden-Identifikatoren für die akzeptierten Zahlungsmethoden der Website und alle zugehörigen spezifischen Zahlungsdaten enthält.
+  - : Gibt ein Array von Objekten zurück, das Kennungen für die von der Website akzeptierten Zahlungsmethoden sowie zugehörige zahlungsmethodenspezifische Daten enthält.
 - [`modifiers`](/de/docs/Web/API/PaymentRequestEvent/modifiers) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt ein Array von Objekten zurück, das Änderungen an den Zahlungsdetails enthält.
 - [`paymentRequestId`](/de/docs/Web/API/PaymentRequestEvent/paymentRequestId) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die ID des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts zurück.
 - [`paymentRequestOrigin`](/de/docs/Web/API/PaymentRequestEvent/paymentRequestOrigin) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Ursprung zurück, an dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
+  - : Gibt den Ursprung zurück, unter dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
 - [`topOrigin`](/de/docs/Web/API/PaymentRequestEvent/topOrigin) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den obersten Ursprung zurück, an dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
+  - : Gibt den obersten Ursprung zurück, unter dem das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
 - [`total`](/de/docs/Web/API/PaymentRequestEvent/total) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Gesamtbetrag zurück, der für die Zahlung angefordert wird.
+  - : Gibt den angeforderten Gesamtzahlungsbetrag zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`changePaymentMethod()`](/de/docs/Web/API/PaymentRequestEvent/changePaymentMethod) {{Experimental_Inline}}
-  - : Erhält einen aktualisierten Gesamtbetrag basierend auf den Zahlungsmethoden-Details.
+  - : Ruft anhand der Details zur Zahlungsmethode einen aktualisierten Gesamtbetrag ab.
 - [`openWindow()`](/de/docs/Web/API/PaymentRequestEvent/openWindow) {{Experimental_Inline}}
-  - : Öffnet die angegebene URL in einem neuen Fenster, wenn und nur wenn die gegebene URL im selben Ursprung wie die aufrufende Seite ist. Gibt ein {{jsxref("Promise")}} zurück, das mit einer Referenz zu einem [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird.
+  - : Öffnet die angegebene URL genau dann in einem neuen Fenster, wenn sie denselben Ursprung wie die aufrufende Seite hat. Die Methode gibt ein {{jsxref("Promise")}} zurück, das mit einer Referenz auf einen [`WindowClient`](/de/docs/Web/API/WindowClient) erfüllt wird.
 - [`respondWith()`](/de/docs/Web/API/PaymentRequestEvent/respondWith) {{Experimental_Inline}}
-  - : Verhindert die Standard-Ereignisbehandlung und ermöglicht es Ihnen, ein {{jsxref("Promise")}} für ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt selbst bereitzustellen.
+  - : Verhindert die standardmäßige Ereignisbehandlung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt bereitzustellen.
 
 ## Beispiele
 
-Wenn die [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)-Methode aufgerufen wird, wird auf dem Service Worker der Zahlungs-App ein [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)-Ereignis ausgelöst. Dieses Ereignis wird innerhalb des Service Workers der Zahlungs-App überwacht, um die nächste Phase des Zahlungsprozesses zu beginnen.
+Wenn die Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) aufgerufen wird, wird im Service Worker der Zahlungs-App ein [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event)-Ereignis ausgelöst. Der Service Worker der Zahlungs-App überwacht dieses Ereignis, um die nächste Phase des Zahlungsvorgangs einzuleiten.
 
 ```js
 let paymentRequestEvent;
-let resolver;
+const resolver = Promise.withResolvers();
 let client;
 
 // `self` is the global object in service worker
@@ -62,11 +62,11 @@ self.addEventListener("paymentrequest", async (e) => {
 });
 ```
 
-Wenn ein `paymentrequest`-Ereignis empfangen wird, kann die Zahlungs-App ein Zahlungs-Handler-Fenster öffnen, indem sie [`PaymentRequestEvent.openWindow()`](/de/docs/Web/API/PaymentRequestEvent/openWindow) aufruft. Das Zahlungs-Handler-Fenster zeigt den Kunden eine Benutzeroberfläche der Zahlungs-App an, in der sie sich authentifizieren, eine Lieferadresse und Optionen wählen und die Zahlung autorisieren können.
+Wenn ein `paymentrequest`-Ereignis empfangen wird, kann die Zahlungs-App durch Aufrufen von [`PaymentRequestEvent.openWindow()`](/de/docs/Web/API/PaymentRequestEvent/openWindow) ein Fenster für den Zahlungs-Handler öffnen. In diesem Fenster wird Kunden eine Benutzeroberfläche der Zahlungs-App angezeigt, über die sie sich authentifizieren, eine Versandadresse und Versandoptionen auswählen und die Zahlung autorisieren können.
 
-Wenn die Zahlung ausgeführt wurde, wird [`PaymentRequestEvent.respondWith()`](/de/docs/Web/API/PaymentRequestEvent/respondWith) verwendet, um das Zahlungsergebnis an die Händler-Website zurückzugeben.
+Nachdem die Zahlung abgewickelt wurde, wird [`PaymentRequestEvent.respondWith()`](/de/docs/Web/API/PaymentRequestEvent/respondWith) verwendet, um das Zahlungsergebnis an die Website des Händlers zurückzugeben.
 
-Sehen Sie [Einen Zahlungsanforderungs-Ereignis vom Händler empfangen](https://web.dev/articles/orchestrating-payment-transactions#receive-payment-request-event) für mehr Details zu dieser Phase.
+Weitere Informationen zu dieser Phase finden Sie unter [Empfangen eines Zahlungsanfrage-Ereignisses vom Händler](https://web.dev/articles/orchestrating-payment-transactions#receive-payment-request-event).
 
 ## Spezifikationen
 
@@ -78,8 +78,8 @@ Sehen Sie [Einen Zahlungsanforderungs-Ereignis vom Händler empfangen](https://w
 
 ## Siehe auch
 
-- [Überblick über Web-basierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
