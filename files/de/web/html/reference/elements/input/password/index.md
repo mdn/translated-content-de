@@ -3,12 +3,12 @@ title: '`<input type="password">` HTML-Attributwert'
 short-title: <input type="password">
 slug: Web/HTML/Reference/Elements/input/password
 l10n:
-  sourceCommit: 3944506d4afeeed774687cf3fd950878c6229bbc
+  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
 ---
 
-`<input>`-Elemente des Typs **`password`** bieten eine Möglichkeit für den Benutzer, ein Passwort sicher einzugeben.
+`<input>`-Elemente vom Typ **`password`** ermöglichen es Benutzern, ein Passwort geschützt einzugeben.
 
-Das Element wird als einzeiliger Klartext-Editor angezeigt, bei dem der Text verschleiert wird, sodass er nicht gelesen werden kann. In der Regel wird jedes Zeichen durch ein Symbol wie einem Sternchen ("\*") oder einem Punkt ("•") ersetzt. Dieses Zeichen variiert je nach {{Glossary("user_agent", "Benutzeragent")}} und Betriebssystem.
+Das Element wird als einzeiliges Eingabefeld dargestellt, in dem der Text unkenntlich gemacht wird, damit er nicht gelesen werden kann. Üblicherweise wird dazu jedes Zeichen durch ein Symbol wie ein Sternchen („\*“) oder einen Punkt („•“) ersetzt. Welches Zeichen verwendet wird, hängt vom {{Glossary("user_agent", "User Agent")}} und vom Betriebssystem ab.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;password&quot;&gt;", "tabbed-standard")}}
 
@@ -37,79 +37,80 @@ label {
 }
 ```
 
-Das genaue Verhalten des Eingabeprozesses kann von Browser zu Browser variieren. Einige Browser zeigen das eingegebene Zeichen für einen Moment an, bevor es verschleiert wird, während andere dem Benutzer ermöglichen, die Anzeige des Klartextes ein- und auszuschalten. Beide Ansätze helfen dem Benutzer, zu überprüfen, ob das beabsichtigte Passwort korrekt eingegeben wurde, was auf mobilen Geräten besonders schwierig sein kann.
-
-> [!NOTE]
-> Alle Formulare, die sensible Informationen wie Passwörter beinhalten (z. B. Login-Formulare), sollten über HTTPS bereitgestellt werden. Viele Browser implementieren inzwischen Mechanismen, um vor unsicheren Login-Formularen zu warnen.
-
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut enthält eine Zeichenfolge, deren Wert der aktuelle Inhalt des zur Eingabe des Passworts verwendeten Text-Editor-Steuerelements ist. Wenn der Benutzer noch nichts eingegeben hat, ist dieser Wert eine leere Zeichenfolge (`""`). Wenn die [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Eigenschaft angegeben ist, muss das Passwort-Eingabefeld einen anderen Wert als eine leere Zeichenfolge enthalten, um gültig zu sein.
+Das Attribut [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) enthält eine Zeichenfolge mit dem aktuellen Inhalt des Eingabefelds für das Passwort. Wenn der Benutzer noch nichts eingegeben hat, ist dieser Wert eine leere Zeichenfolge (`""`). Ist die Eigenschaft [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) angegeben, muss das Passwortfeld einen Wert enthalten, der keine leere Zeichenfolge ist, um gültig zu sein.
 
-Wenn das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut angegeben ist, wird der Inhalt eines `password`-Steuerelements nur dann als gültig angesehen, wenn der Wert die Validierung besteht; siehe [Validierung](#validierung) für weitere Informationen.
+Ist das Attribut [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) angegeben, gilt der Inhalt eines `password`-Eingabefelds nur dann als gültig, wenn sein Wert die Validierung besteht. Weitere Informationen finden Sie unter [Validierung](#validierung).
 
 > [!NOTE]
-> Die Zeilenumbruch (U+000A) und Wagenrücklauf (U+000D) Zeichen sind in einem `password`-Wert nicht erlaubt. Wenn der Wert eines Passwort-Steuerelements gesetzt wird, werden Zeilenumbruch- und Wagenrücklaufzeichen aus dem Wert entfernt.
+> Zeilenumbruchzeichen (U+000A) und Wagenrücklaufzeichen (U+000D) sind in einem `password`-Wert nicht zulässig. Beim Setzen des Werts eines Passwortfelds werden diese Zeichen aus dem Wert entfernt.
 
 ## Zusätzliche Attribute
 
-Neben den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ angewendet werden, unterstützen `password`-Feldeingaben die folgenden Attribute.
+Neben den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes) und den Attributen, die für alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ gelten, unterstützen Passwortfelder die folgenden Attribute.
 
 > [!NOTE]
-> Das [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect)-Globalattribut kann zu Password-Eingaben hinzugefügt werden, aber der gespeicherte Zustand ist immer `off`.
+> Das globale Attribut [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect) kann Passwortfeldern hinzugefügt werden; der gespeicherte Zustand ist jedoch immer `off`.
 
 ### maxlength
 
-Die maximale Zeichenfolgenlänge (gemessen in {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}}), die der Benutzer in das Passwortfeld eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben oder ein ungültiger Wert angegeben ist, hat das Passwortfeld keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
+Die maximale Länge der Zeichenfolge, gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}, die ein Benutzer in das Passwortfeld eingeben kann. Der Wert muss eine ganze Zahl ab 0 sein. Wenn `maxlength` nicht angegeben ist oder einen ungültigen Wert hat, hat das Passwortfeld keine maximale Länge. Der Wert muss außerdem größer oder gleich dem Wert von `minlength` sein.
 
-Die Eingabe wird die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes länger als `maxlength` {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}} ist. Die Constraint-Validierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe besteht die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht, wenn der eingegebene Text länger als `maxlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} ist. Die Constraint-Validierung wird nur angewendet, wenn der Benutzer den Wert ändert.
 
 ### minlength
 
-Die minimale Zeichenfolgenlänge (gemessen in {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}}), die der Benutzer in das Passwort-Eingabefeld eingeben kann. Dies muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem durch `maxlength` angegebenen Wert ist. Wenn kein `minlength` angegeben oder ein ungültiger Wert angegeben ist, hat das Passwort-Eingabefeld keine Mindestlänge.
+Die minimale Länge der Zeichenfolge, gemessen in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}}, die ein Benutzer in das Passwortfeld eingeben kann. Der Wert muss eine nicht negative ganze Zahl sein, die kleiner oder gleich dem durch `maxlength` festgelegten Wert ist. Wenn `minlength` nicht angegeben ist oder einen ungültigen Wert hat, hat das Passwortfeld keine minimale Länge.
 
-Die Eingabe wird die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes kürzer als `minlength` {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}} ist. Die Constraint-Validierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe besteht die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht, wenn der eingegebene Text kürzer als `minlength` {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} ist. Die Constraint-Validierung wird nur angewendet, wenn der Benutzer den Wert ändert.
 
 ### pattern
 
-Das `pattern`-Attribut ist, wenn angegeben, ein regulärer Ausdruck, der mit dem [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) der Eingabe übereinstimmen muss, damit der Wert die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) besteht. Es muss ein gültiger regulärer JavaScript-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Sequenz von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
+Das Attribut `pattern` ist, sofern angegeben, ein regulärer Ausdruck, mit dem [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) übereinstimmen muss, damit der Wert die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) besteht. Es muss ein gültiger regulärer JavaScript-Ausdruck sein, wie er vom Typ {{jsxref("RegExp")}} verwendet und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) beschrieben wird. Beim Kompilieren des regulären Ausdrucks wird das Flag `'u'` angegeben, sodass das Muster als Folge von Unicode-Codepunkten statt als {{Glossary("ASCII", "ASCII")}} behandelt wird. Der Mustertext darf nicht von Schrägstrichen umgeben sein.
 
-Wenn das angegebene Pattern nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
+Wenn kein Muster angegeben oder das angegebene Muster ungültig ist, wird kein regulärer Ausdruck angewendet und das Attribut vollständig ignoriert.
 
 > [!NOTE]
-> Verwenden Sie das [`title`](/de/docs/Web/HTML/Reference/Elements/input#title)-Attribut, um Text anzugeben, den die meisten Browser als Tooltip anzeigen, um zu erklären, welche Anforderungen erfüllt werden müssen, um das Muster zu erfüllen. Sie sollten auch andere erklärende Texte in der Nähe einfügen.
+> Verwenden Sie das Attribut [`title`](/de/docs/Web/HTML/Reference/Elements/input#title), um einen Text anzugeben, den die meisten Browser als Tooltip anzeigen und der die Anforderungen an das Muster erklärt. Fügen Sie außerdem einen erläuternden Text in der Nähe hinzu.
 
-Die Verwendung eines Musters wird für Passwort-Eingaben dringend empfohlen, um sicherzustellen, dass gültige Passwörter mit einer breiten Auswahl an Zeichenklassen von Ihren Benutzern ausgewählt und verwendet werden. Mit einem Muster können Sie Groß- und Kleinschreibungsregeln vorschreiben, die Verwendung einer bestimmten Anzahl von Ziffern und/oder Satzzeichen erfordern und vieles mehr. Siehe den Abschnitt [Validierung](#validierung) für Details und ein Beispiel.
+Die Verwendung eines Musters für Passwortfelder wird dringend empfohlen. So können Sie dazu beitragen, dass Ihre Benutzer gültige Passwörter mit einer breiten Auswahl an Zeichenklassen wählen und verwenden. Mit einem Muster können Sie Regeln für die Groß- und Kleinschreibung festlegen, eine bestimmte Anzahl von Ziffern und/oder Satzzeichen verlangen und weitere Anforderungen definieren. Einzelheiten und ein Beispiel finden Sie unter [Validierung](#validierung).
 
 ### placeholder
 
-Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen in das Feld eingegeben werden sollen. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
+Das Attribut `placeholder` ist eine Zeichenfolge, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information im Feld erwartet wird. Es sollte sich um ein Wort oder einen kurzen Ausdruck handeln, der die erwartete Datenart veranschaulicht, nicht um eine ausführliche Erklärung. Der Text darf _keine_ Wagenrücklauf- oder Zeilenumbruchzeichen enthalten.
 
-Wenn der Inhalt des Steuerelements eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, das `placeholder` jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidirektionalitätsalgorithmus-Formatierungszeichen verwenden, um die Richtung im `placeholder` zu überschreiben; siehe [Anleitung zur Verwendung von Unicode-Kontrollzeichen für bidi-Text](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt des Eingabefelds eine Schreibrichtung hat ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}), der Platzhalter aber in der entgegengesetzten Richtung dargestellt werden soll, können Sie Unicode-Formatierungszeichen für den bidirektionalen Algorithmus verwenden, um die Schreibrichtung innerhalb des Platzhalters zu überschreiben. Weitere Informationen finden Sie unter [Unicode-Steuerzeichen für bidirektionalen Text verwenden](https://www.w3.org/International/questions/qa-bidi-unicode-controls).
 
 > [!NOTE]
-> Vermeiden Sie nach Möglichkeit die Verwendung des `placeholder`-Attributs. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Reference/Elements/input#labels) für weitere Informationen.
+> Vermeiden Sie nach Möglichkeit das Attribut `placeholder`. Es ist semantisch weniger hilfreich als andere Möglichkeiten, Ihr Formular zu erläutern, und kann unerwartete technische Probleme mit Ihren Inhalten verursachen. Weitere Informationen finden Sie unter [Beschriftungen für `<input>`](/de/docs/Web/HTML/Reference/Elements/input#labels).
 
 ### readonly
 
-Ein Boolean-Attribut, das, wenn es vorhanden ist, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin von JavaScript-Code geändert werden, der direkt den Wert der [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement)-Eigenschaft setzt.
+Ein boolesches Attribut, das angibt, dass der Benutzer dieses Feld nicht bearbeiten kann. Sein `value` kann jedoch weiterhin durch JavaScript-Code geändert werden, der die Eigenschaft [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement) direkt setzt.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keinen Einfluss auf Eingaben mit ebenfalls angegebenem `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert enthalten muss, hat `required` bei Eingabefeldern, für die auch das Attribut `readonly` angegeben ist, keine Wirkung.
 
 ### size
 
-Das `size`-Attribut ist ein Zahlenwert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da die Zeichenbreiten variieren, kann dies möglicherweise nicht exakt sein und sollte nicht darauf verlassen werden; die resultierende Eingabe kann schmaler oder breiter als die angegebene Anzahl von Zeichen sein, je nach Zeichen und der verwendeten Schrift ({{cssxref("font")}}-Einstellungen).
+Das Attribut `size` ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss größer als null sein; der Standardwert ist 20. Da Zeichen unterschiedlich breit sind, ist die Breite nicht unbedingt exakt und sollte auch nicht als exakt vorausgesetzt werden. Je nach Zeichen und Schriftart (den verwendeten {{cssxref("font")}}-Einstellungen) kann das resultierende Eingabefeld schmaler oder breiter als die angegebene Anzahl von Zeichen sein.
 
-Dies setzt _kein_ Limit, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt nur an, wie viele ungefähr auf einmal sichtbar sein können. Um ein oberes Limit für die Eingabedatenlänge festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
+Dadurch wird _nicht_ begrenzt, wie viele Zeichen der Benutzer in das Feld eingeben kann. Das Attribut gibt nur ungefähr an, wie viele Zeichen gleichzeitig sichtbar sind. Verwenden Sie das Attribut [`maxlength`](#maxlength), um die Länge der Eingabedaten nach oben zu begrenzen.
 
-## Verwendung von Passwort-Eingaben
+## Passwortfelder verwenden
 
-Passwort-Eingabefelder funktionieren im Allgemeinen ähnlich wie andere Text-Eingabefelder; der Hauptunterschied besteht in der Verschleierung des Inhalts, um zu verhindern, dass Personen in der Nähe des Benutzers das Passwort lesen.
+Passwortfelder funktionieren im Allgemeinen wie andere Texteingabefelder. Der wesentliche Unterschied besteht darin, dass ihr Inhalt unkenntlich gemacht wird, damit Personen in der Nähe des Benutzers das Passwort nicht lesen können.
 
-### Ein einfaches Passwort-Eingabefeld
+Das genaue Verhalten bei der Eingabe kann sich von Browser zu Browser unterscheiden. Manche Browser zeigen ein eingegebenes Zeichen kurz an, bevor sie es verbergen. Andere ermöglichen es dem Benutzer, die Klartextanzeige ein- und auszuschalten. Beide Ansätze helfen Benutzern zu überprüfen, ob sie das beabsichtigte Passwort eingegeben haben – was insbesondere auf Mobilgeräten schwierig sein kann.
 
-Hier sehen wir das einfachste Passwort-Eingabefeld, mit einer Beschriftung, die unter Verwendung des {{HTMLElement("label")}}-Elements festgelegt wurde.
+> [!NOTE]
+> Formulare mit vertraulichen Informationen wie Passwörtern (etwa Anmeldeformulare) sollten über HTTPS bereitgestellt werden.
+> Viele Browser verfügen inzwischen über Mechanismen, die vor unsicheren Anmeldeformularen warnen.
+
+### Ein einfaches Passwortfeld
+
+Hier sehen Sie ein einfaches Passwortfeld mit einer Beschriftung, die über das Element {{HTMLElement("label")}} zugeordnet wird.
 
 ```html
 <label for="userPassword">Password: </label>
@@ -118,18 +119,18 @@ Hier sehen wir das einfachste Passwort-Eingabefeld, mit einer Beschriftung, die 
 
 {{EmbedLiveSample("A_basic_password_input", 600, 40)}}
 
-### Automatisches Ausfüllen erlauben
+### Autovervollständigung zulassen
 
-Um zu ermöglichen, dass der Passwort-Manager des Benutzers das Passwort automatisch eingibt, geben Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete)-Attribut an. Für Passwörter sollte dies in der Regel einer der folgenden sein:
+Geben Sie das Attribut [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete) an, damit der Passwortmanager des Benutzers das Passwort automatisch eintragen kann. Für Passwörter sollte es üblicherweise einen der folgenden Werte haben:
 
 - `on`
-  - : Erlauben Sie dem Browser oder einem Passwort-Manager, das Passwortfeld automatisch auszufüllen. Dies ist nicht so informativ wie die Verwendung von entweder `current-password` oder `new-password`.
+  - : Erlaubt dem Browser oder einem Passwortmanager, das Passwortfeld automatisch auszufüllen. Dieser Wert ist weniger aussagekräftig als `current-password` oder `new-password`.
 - `off`
-  - : Lassen Sie den Browser oder den Passwort-Manager das Passwortfeld nicht automatisch ausfüllen. Beachten Sie, dass einige Software diesen Wert ignoriert, da es in der Regel nachteilig für die Fähigkeit der Benutzer ist, sichere Passwortpraktiken beizubehalten.
+  - : Untersagt dem Browser oder Passwortmanager, das Passwortfeld automatisch auszufüllen. Beachten Sie, dass manche Programme diesen Wert ignorieren, da er es Benutzern in der Regel erschwert, sichere Passwortpraktiken einzuhalten.
 - `current-password`
-  - : Erlauben Sie dem Browser oder Passwort-Manager, das aktuelle Passwort für die Seite einzugeben. Dies bietet mehr Informationen als `on`, da es dem Browser oder dem Passwort-Manager ermöglicht, das derzeit bekannte Passwort für die Seite automatisch in das Feld einzugeben, aber keine neue vorzuschlagen.
+  - : Erlaubt dem Browser oder Passwortmanager, das aktuelle Passwort für die Website einzutragen. Dieser Wert liefert mehr Informationen als `on`: Der Browser oder Passwortmanager kann ein bereits bekanntes aktuelles Passwort für die Website in das Feld eintragen, soll aber kein neues vorschlagen.
 - `new-password`
-  - : Erlauben Sie dem Browser oder Passwort-Manager, ein neues Passwort für die Seite automatisch einzugeben. Dies wird in Formularen zur "Passwortänderung" und für "neue Benutzer" im Feld verwendet, dass den Benutzer nach einem neuen Passwort fragt. Das neue Passwort kann auf verschiedene Weise generiert werden, abhängig von dem verwendeten Passwort-Manager. Es kann ein neues vorgeschlagenes Passwort ausgefüllt werden, oder es wird möglicherweise dem Benutzer eine Oberfläche zur Erstellung eines neuen gezeigt.
+  - : Erlaubt dem Browser oder Passwortmanager, automatisch ein neues Passwort für die Website einzutragen. Dieser Wert wird in Formularen zum Ändern des Passworts oder zum Registrieren neuer Benutzer für das Feld verwendet, in dem ein neues Passwort eingegeben werden soll. Je nach verwendetem Passwortmanager kann das neue Passwort auf unterschiedliche Weise erzeugt werden. Er kann ein neues Passwort vorschlagen und eintragen oder dem Benutzer eine Oberfläche zum Erstellen eines Passworts anzeigen.
 
 ```html
 <label for="userPassword">Password:</label>
@@ -138,9 +139,9 @@ Um zu ermöglichen, dass der Passwort-Manager des Benutzers das Passwort automat
 
 {{EmbedLiveSample("Allowing_autocomplete", 600, 40)}}
 
-### Das Passwort als Pflichtfeld markieren
+### Das Passwort als Pflichtangabe festlegen
 
-Um dem Browser des Benutzers mitzuteilen, dass das Passwortfeld einen gültigen Wert haben muss, bevor das Formular übermittelt werden kann, geben Sie das Boolean-Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) an.
+Geben Sie das boolesche Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) an, um dem Browser des Benutzers mitzuteilen, dass das Passwortfeld einen gültigen Wert enthalten muss, bevor das Formular gesendet werden kann.
 
 ```html
 <label for="userPassword">Password: </label>
@@ -150,9 +151,9 @@ Um dem Browser des Benutzers mitzuteilen, dass das Passwortfeld einen gültigen 
 
 {{EmbedLiveSample("Making_the_password_mandatory", 600, 40)}}
 
-### Einen Eingabemodus angeben
+### Einen Eingabemodus festlegen
 
-Wenn Ihre empfohlenen (oder vorgeschriebenen) Passwort-Syntaxregeln von einer anderen Texteingabeschnittstelle als der Standardtastatur profitieren würden, können Sie das [`inputmode`](/de/docs/Web/HTML/Reference/Elements/input#inputmode)-Attribut verwenden, um eine spezifische anzufordern. Der offensichtlichste Anwendungsfall hierfür ist, wenn das Passwort numerisch sein muss (wie eine PIN). Mobile Geräte mit virtuellen Tastaturen können beispielsweise in Erwägung ziehen, auf ein numerisches Tastaturlayout anstelle einer vollständigen Tastatur umzuschalten, um das Eingeben des Passworts zu erleichtern. Wenn die PIN einmalig ist, setzen Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete)-Attribut entweder auf `off` oder `one-time-code`, um vorzuschlagen, dass es nicht gespeichert wird.
+Wenn sich Ihre empfohlenen oder vorgeschriebenen Syntaxregeln für Passwörter mit einer anderen Texteingabeoberfläche als der Standardtastatur leichter erfüllen lassen, können Sie mit dem Attribut [`inputmode`](/de/docs/Web/HTML/Reference/Elements/input#inputmode) eine bestimmte Oberfläche anfordern. Ein naheliegender Anwendungsfall ist ein Passwort, das nur aus Ziffern bestehen darf, beispielsweise eine PIN. Mobilgeräte mit virtuellen Tastaturen können dann etwa zu einem numerischen Tastenfeld statt einer vollständigen Tastatur wechseln, um die Eingabe zu erleichtern. Wenn die PIN nur einmal verwendet werden soll, setzen Sie das Attribut [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete) auf `off` oder `one-time-code`, um anzugeben, dass sie nicht gespeichert werden soll.
 
 ```html
 <label for="pin">PIN: </label>
@@ -161,9 +162,9 @@ Wenn Ihre empfohlenen (oder vorgeschriebenen) Passwort-Syntaxregeln von einer an
 
 {{EmbedLiveSample("Specifying_an_input_mode", 600, 40)}}
 
-### Längenanforderungen festlegen
+### Anforderungen an die Länge festlegen
 
-Wie üblich können Sie die Attribute [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength) und [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength) verwenden, um Mindest- und Höchstlängen für das Passwort festzulegen. Dieses Beispiel erweitert das vorherige, indem es festlegt, dass die PIN des Benutzers mindestens vier und höchstens acht Ziffern lang sein muss. Das [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)-Attribut wird verwendet, um sicherzustellen, dass das Passwort-Eingabesteuerelement acht Zeichen breit ist.
+Wie üblich können Sie mit den Attributen [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength) und [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength) die zulässige Mindest- und Höchstlänge des Passworts festlegen. Dieses Beispiel erweitert das vorherige und legt fest, dass die PIN des Benutzers aus mindestens vier und höchstens acht Ziffern bestehen muss. Mit dem Attribut [`size`](/de/docs/Web/HTML/Reference/Elements/input#size) wird festgelegt, dass das Passwortfeld acht Zeichen breit sein soll.
 
 ```html
 <label for="pin">PIN:</label>
@@ -180,7 +181,7 @@ Wie üblich können Sie die Attribute [`minlength`](/de/docs/Web/HTML/Reference/
 
 ### Text auswählen
 
-Wie bei anderen Texteingabesteuerelementen können Sie die Methode [`select()`](/de/docs/Web/API/HTMLInputElement/select) verwenden, um den gesamten Text im Passwortfeld auszuwählen.
+Wie bei anderen Texteingabefeldern können Sie mit der Methode [`select()`](/de/docs/Web/API/HTMLInputElement/select) den gesamten Text im Passwortfeld auswählen.
 
 #### HTML
 
@@ -202,13 +203,13 @@ document.getElementById("selectAll").onclick = () => {
 
 {{EmbedLiveSample("Selecting_text", 600, 40)}}
 
-Sie können auch [`selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart) und [`selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) verwenden, um zu erhalten (oder festzulegen), welcher Zeichenbereich im Steuerelement derzeit ausgewählt ist, und [`selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection), um zu erfahren, in welche Richtung die Auswahl erfolgte (oder erweitern wird, abhängig von Ihrer Plattform; sehen Sie sich die Dokumentation für eine Erklärung an). Angesichts der Tatsache, dass der Text verschleiert ist, ist der Nutzen dieser Funktionen jedoch etwas begrenzt.
+Mit [`selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart) und [`selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) können Sie außerdem ermitteln oder festlegen, welcher Zeichenbereich im Eingabefeld gerade ausgewählt ist. Mit [`selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection) können Sie feststellen, in welche Richtung die Auswahl erfolgte oder – abhängig von Ihrer Plattform – erweitert wird. Eine Erklärung finden Sie in der Dokumentation dieser Eigenschaft. Da der Text jedoch unkenntlich gemacht ist, ist der Nutzen dieser Eigenschaften etwas eingeschränkt.
 
 ## Validierung
 
-Wenn Ihre Anwendung Zeichensatzbeschränkungen oder andere Anforderungen für den tatsächlichen Inhalt des eingegebenen Passworts hat, können Sie das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut verwenden, um einen regulären Ausdruck zu erstellen, der automatisch sicherstellt, dass Ihre Passwörter diese Anforderungen erfüllen.
+Wenn Ihre Anwendung Einschränkungen für den Zeichensatz oder andere Anforderungen an den tatsächlichen Inhalt des eingegebenen Passworts hat, können Sie mit dem Attribut [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) einen regulären Ausdruck festlegen. Damit wird automatisch geprüft, ob die Passwörter diese Anforderungen erfüllen.
 
-In diesem Beispiel sind nur Werte gültig, die aus mindestens vier und höchstens acht hexadezimalen Ziffern bestehen.
+In diesem Beispiel sind nur Werte gültig, die aus mindestens vier und höchstens acht Hexadezimalziffern bestehen.
 
 ```html
 <label for="hexId">Hex ID: </label>
@@ -224,9 +225,9 @@ In diesem Beispiel sind nur Werte gültig, die aus mindestens vier und höchsten
 
 ## Beispiele
 
-### Antrag auf eine Sozialversicherungsnummer
+### Eine US-Sozialversicherungsnummer abfragen
 
-Dieses Beispiel akzeptiert nur Eingaben, die dem Format einer [gültigen US-Sozialversicherungsnummer](https://en.wikipedia.org/wiki/Social_Security_number#Structure) entsprechen. Diese Nummern, die für Steuer- und Identifikationszwecke in den USA verwendet werden, haben die Form "123-45-6789". Verschiedene Regeln existieren auch dafür, welche Werte in jeder Gruppe erlaubt sind.
+Dieses Beispiel akzeptiert nur Eingaben, die dem Format einer [gültigen US-amerikanischen Sozialversicherungsnummer](https://en.wikipedia.org/wiki/Social_Security_number#Structure) entsprechen. Diese Nummern werden in den USA für Steuer- und Identifikationszwecke verwendet und haben die Form „123-45-6789“. Darüber hinaus gelten verschiedene Regeln dafür, welche Werte in den einzelnen Gruppen zulässig sind.
 
 #### HTML
 
@@ -246,13 +247,13 @@ Dieses Beispiel akzeptiert nur Eingaben, die dem Format einer [gültigen US-Sozi
 <span id="current"></span>
 ```
 
-In diesem Beispiel wird ein [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) verwendet, um den eingegebenen Wert auf Zeichenfolgen zu beschränken, die legale Sozialversicherungsnummern darstellen. Natürlich garantiert diese Regexp keine gültige SSN (da wir keinen Zugriff auf die Datenbank der Sozialversicherungsverwaltung haben), aber es stellt sicher, dass die Nummer eine sein könnte; es vermeidet im Allgemeinen Werte, die nicht gültig sein können. Außerdem erlaubt es, dass die drei Gruppen von Ziffern durch ein Leerzeichen, einen Bindestrich ("-") oder nichts getrennt werden.
+Hier wird ein [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) verwendet, das den eingegebenen Wert auf Zeichenfolgen beschränkt, die zulässige Sozialversicherungsnummern darstellen können. Dieser reguläre Ausdruck garantiert natürlich nicht, dass eine SSN gültig ist, da kein Zugriff auf die Datenbank der Social Security Administration besteht. Er stellt aber sicher, dass die Nummer gültig sein könnte, und schließt im Allgemeinen Werte aus, die nicht gültig sein können. Außerdem erlaubt er, die drei Zifferngruppen durch ein Leerzeichen oder einen Bindestrich („-“) zu trennen oder sie ohne Trennzeichen einzugeben.
 
-Das [`inputmode`](/de/docs/Web/HTML/Reference/Elements/input#inputmode) ist auf `numeric` gesetzt, um Geräte mit virtuellen Tastaturen zu ermutigen, auf ein numerisches Tastaturlayout zur einfacheren Eingabe zu wechseln. Die [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)- und [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength)-Attribute sind auf 9 bzw. 12 gesetzt, um zu verlangen, dass der Wert mindestens neun und höchstens 12 Zeichen beträgt (der erste ohne Trennzeichen zwischen den Zifferngruppen und der zweite mit ihnen). Das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut wird verwendet, um anzuzeigen, dass dieses Steuerelement einen Wert haben muss. Schließlich wird [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete) auf `off` gesetzt, um zu verhindern, dass Passwort-Manager und Sitzungswiederherstellungsfunktionen versuchen, seinen Wert festzulegen, da dies überhaupt kein Passwort ist.
+[`inputmode`](/de/docs/Web/HTML/Reference/Elements/input#inputmode) ist auf `numeric` gesetzt, damit Geräte mit virtueller Tastatur für eine einfachere Eingabe zu einem numerischen Tastenfeld wechseln können. Die Attribute [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength) und [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength) sind auf 9 beziehungsweise 12 gesetzt. Damit muss der Wert mindestens neun und darf höchstens zwölf Zeichen lang sein – ohne Trennzeichen zwischen den Zifferngruppen im ersten Fall und mit Trennzeichen im zweiten. Das Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) gibt an, dass dieses Eingabefeld einen Wert enthalten muss. Schließlich ist [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete) auf `off` gesetzt, damit Passwortmanager und Funktionen zur Wiederherstellung von Sitzungen nicht versuchen, den Wert einzutragen: Schließlich handelt es sich nicht um ein Passwort.
 
 #### JavaScript
 
-Das JavaScript zeigt die eingegebene SSN auf dem Bildschirm an, damit Sie sie sehen können. Dies untergräbt den Zweck eines Passwortfeldes, aber es hilft, mit dem `pattern` zu experimentieren.
+Das JavaScript zeigt die eingegebene SSN auf dem Bildschirm an, damit Sie sie sehen können. Das widerspricht zwar dem Zweck eines Passwortfelds, erleichtert aber das Experimentieren mit `pattern`.
 
 ```js
 const ssn = document.getElementById("ssn");
@@ -274,7 +275,7 @@ ssn.oninput = (event) => {
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Eine Zeichenfolge, die ein Passwort darstellt, oder leer
+        Eine Zeichenfolge, die ein Passwort darstellt, oder eine leere Zeichenfolge
       </td>
     </tr>
     <tr>
@@ -285,7 +286,7 @@ ssn.oninput = (event) => {
       </td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td>
          <a href="/de/docs/Web/HTML/Reference/Elements/input#autocomplete"><code>autocomplete</code></a>,
          <a href="/de/docs/Web/HTML/Reference/Elements/input#inputmode"><code>inputmode</code></a>,
@@ -294,7 +295,7 @@ ssn.oninput = (event) => {
          <a href="/de/docs/Web/HTML/Reference/Elements/input#pattern"><code>pattern</code></a>,
          <a href="/de/docs/Web/HTML/Reference/Elements/input#placeholder"><code>placeholder</code></a>,
          <a href="/de/docs/Web/HTML/Reference/Elements/input#readonly"><code>readonly</code></a>,
-         <a href="/de/docs/Web/HTML/Reference/Elements/input#required"><code>required</code></a>, und
+         <a href="/de/docs/Web/HTML/Reference/Elements/input#required"><code>required</code></a> und
          <a href="/de/docs/Web/HTML/Reference/Elements/input#size"><code>size</code></a>
       </td>
     </tr>
@@ -302,7 +303,7 @@ ssn.oninput = (event) => {
       <td><strong>IDL-Attribute</strong></td>
       <td>
         <code>selectionStart</code>, <code>selectionEnd</code>,
-        <code>selectionDirection</code>, und <code>value</code>
+        <code>selectionDirection</code> und <code>value</code>
       </td>
     </tr>
     <tr>

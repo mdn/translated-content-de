@@ -1,12 +1,12 @@
 ---
-title: "`<hr>` HTML thematischer Bruch (horizontale Linie) Element"
+title: HTML-Element `<hr>` für einen thematischen Umbruch (horizontale Linie)
 short-title: <hr>
 slug: Web/HTML/Reference/Elements/hr
 l10n:
-  sourceCommit: 1fc07c825d3f214516420cf0e986853a66deb426
+  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
 ---
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Elementen: zum Beispiel einen Szenenwechsel in einer Geschichte oder einen Themenwechsel innerhalb eines Abschnitts.
+Das [HTML](/de/docs/Web/HTML)-Element **`<hr>`** stellt einen thematischen Umbruch zwischen Elementen dar, beispielsweise einen Szenenwechsel in einer Geschichte oder einen Themenwechsel innerhalb eines Abschnitts.
 
 {{InteractiveExample("HTML Demo: &lt;hr&gt;", "tabbed-shorter")}}
 
@@ -37,30 +37,32 @@ hr::after {
 }
 ```
 
-In der Vergangenheit wurde das `<hr>`-Element immer als horizontale Linie dargestellt. Während es in visuellen Browsern noch als horizontale Linie angezeigt werden kann, wird dieses Element jetzt in semantischen Begriffen und nicht in präsentationellen Begriffen definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies tun, indem Sie einer bestehenden Element mit CSS eine Linie hinzufügen.
-
-Die `border-*`-Eigenschaften (zum Beispiel {{cssxref("border-style")}} und {{cssxref("border-color")}}) ermöglichen es Ihnen, das Erscheinungsbild einer Linie erheblich anzupassen, egal ob Sie ein `<hr>`-Element oder eine auf einem anderen Element gezeichnete Linie anpassen.
-
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
+  - : Legt die Ausrichtung der Linie auf der Seite fest. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Farbe der Linie durch Farbnamen oder hexadezimale Werte.
+  - : Legt die Farbe der Linie durch einen Farbnamen oder einen Hexadezimalwert fest.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Linie so, dass sie keine Schattierung hat.
+  - : Legt fest, dass die Linie keine Schattierung hat.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Höhe der Linie in Pixeln.
+  - : Legt die Höhe der Linie in Pixeln fest.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
+  - : Legt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert fest.
 
-## Beispiel
+## Hinweise zur Verwendung
 
-### Thematischer Bruch zwischen Absätzen
+Historisch wurde das Element `<hr>` stets als horizontale Linie dargestellt. Auch wenn es in grafischen Browsern weiterhin als horizontale Linie angezeigt werden kann, ist dieses Element heute nach seiner Semantik und nicht nach seiner Darstellung definiert. Wenn Sie eine horizontale Linie zeichnen möchten, sollten Sie daher mit CSS einem vorhandenen Element einen Rahmen hinzufügen.
 
-Das folgende Beispiel fügt einen thematischen Bruch zwischen Elemente auf Absatzebene ein.
+Mit den `border-*`-Eigenschaften (beispielsweise {{cssxref("border-style")}} und {{cssxref("border-color")}}) können Sie das Erscheinungsbild einer Linie umfassend anpassen – unabhängig davon, ob Sie ein `<hr>`-Element oder einen Rahmen an einem anderen Element gestalten.
+
+## Beispiele
+
+### Thematischer Umbruch zwischen Absätzen
+
+Das folgende Beispiel fügt einen thematischen Umbruch zwischen Elementen auf Absatzebene ein.
 
 #### HTML
 
@@ -82,9 +84,9 @@ Das folgende Beispiel fügt einen thematischen Bruch zwischen Elemente auf Absat
 
 {{EmbedLiveSample("Thematic break between paragraphs")}}
 
-### Thematischer Bruch zwischen Listeneinträgen
+### Thematischer Umbruch zwischen Listeneinträgen
 
-Das `<hr>`-Tag kann innerhalb eines Listeneintrags platziert werden, um eine visuelle Trennung zu schaffen, und einen Separator zwischen Abschnitten einer Liste zu erstellen.
+Das `<hr>`-Tag kann innerhalb eines Listeneintrags platziert werden, um Abschnitte einer Liste optisch voneinander zu trennen.
 
 #### HTML
 
@@ -119,9 +121,9 @@ hr {
 
 {{EmbedLiveSample("Thematic break between list items")}}
 
-### Thematischer Bruch zwischen Auswahloptionen
+### Thematischer Umbruch zwischen Auswahloptionen
 
-Das `<hr>`-Element ist innerhalb eines `<select>`-Elements erlaubt, um einen visuellen Separator zwischen `<option>`-Elementen zu erstellen.
+Das Element `<hr>` ist innerhalb eines `<select>`-Elements zulässig und erzeugt dort eine optische Trennung zwischen `<option>`-Elementen.
 
 #### HTML
 
@@ -147,35 +149,39 @@ Das `<hr>`-Element ist innerhalb eines `<select>`-Elements erlaubt, um einen vis
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Flow content</a
+        >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zugelassener Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <th scope="row">Zulässiger Inhalt</th>
+      <td>Keiner; es handelt sich um ein {{Glossary("void_element", "Void-Element")}}.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Ein Start-Tag ist erforderlich; ein End-Tag darf nicht vorhanden sein.</td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert</li>
-          <li><a href="/de/docs/Web/HTML/Reference/Elements/select"><code>&lt;select></code></a>-Element</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">flow content</a> akzeptiert</li>
+          <li>Das Element <a href="/de/docs/Web/HTML/Reference/Elements/select"><code>&lt;select></code></a></li>
         </ul>
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role"><code>separator</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>
       </td>

@@ -1,14 +1,12 @@
 ---
-title: "`<optgroup>` HTML-Option-Group-Element"
+title: HTML-Element `<optgroup>` für Optionsgruppen
 short-title: <optgroup>
 slug: Web/HTML/Reference/Elements/optgroup
 l10n:
-  sourceCommit: 28f5f3b9b463fa842fa686ccc73c9e1d9b06282b
+  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
 ---
 
-Das **`<optgroup>`**-[HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
-
-In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das {{htmlelement("legend")}}-Element als Kind von `<optgroup>` erlaubt, um ein leicht zu zielendes und zu stilisierendes Label bereitzustellen. Dies ersetzt jeden Text, der im `label`-Attribut des `<optgroup>`-Elements festgelegt ist, und hat die gleiche Semantik.
+Das [HTML](/de/docs/Web/HTML)-Element **`<optgroup>`** gruppiert Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
 
 {{InteractiveExample("HTML Demo: &lt;optgroup&gt;", "tabbed-standard")}}
 
@@ -35,17 +33,20 @@ label {
 }
 ```
 
-> [!NOTE]
-> Optgroup-Elemente dürfen nicht geschachtelt werden.
-
 ## Attribute
 
-Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
+Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-  - : Wenn dieses Boolean-Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Browser blenden oft solche Steuerelemente aus, und sie erhalten keine Browsing-Ereignisse, wie Maus-Klicks oder Fokus-bezogene Ereignisse.
+  - : Wenn dieses boolesche Attribut gesetzt ist, kann keines der Elemente dieser Optionsgruppe ausgewählt werden. Browser stellen eine solche Gruppe häufig ausgegraut dar; sie empfängt dann keine Interaktionsereignisse wie Mausklicks oder Fokusereignisse.
 - `label`
-  - : Der Name der Optionsgruppe, den der Browser beim Kennzeichnen der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser zur Beschriftung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist erforderlich, wenn das Element verwendet wird.
+
+## Verwendungshinweise
+
+`<optgroup>`-Elemente dürfen nicht verschachtelt werden.
+
+In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das {{htmlelement("legend")}}-Element als Kindelement von `<optgroup>` zulässig. Es stellt eine Beschriftung bereit, die sich leicht gezielt auswählen und gestalten lässt. Diese ersetzt einen im `label`-Attribut des `<optgroup>`-Elements angegebenen Text und hat dieselbe Semantik.
 
 ## Beispiele
 
@@ -76,24 +77,26 @@ Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Gl
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
-      <td>Null oder mehr {{HTMLElement("option")}}-Elemente. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Select-Elementen</a> ist ein {{htmlelement("legend")}}-Element als Kind von <code>&lt;optgroup&gt;</code> erlaubt.</td>
+      <th scope="row">Zulässiger Inhalt</th>
+      <td>Null oder mehr {{HTMLElement("option")}}-Elemente. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren select-Elementen</a> ist ein {{htmlelement("legend")}}-Element als Kindelement von <code>&lt;optgroup&gt;</code> zulässig.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Weglassen von Tags</th>
       <td>
-        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element
-        unmittelbar von einem weiteren <code>&#x3C;optgroup></code>-Element gefolgt wird oder
-        wenn das Elternelement keinen weiteren Inhalt hat.
+        Das Start-Tag ist erforderlich. Das End-Tag ist optional, wenn auf dieses Element
+        unmittelbar ein weiteres <code>&#x3C;optgroup></code>-Element folgt oder
+        das Elternelement keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>Ein {{HTMLElement("select")}}-Element.</td>
     </tr>
     <tr>
@@ -101,8 +104,8 @@ Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Gl
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Keine <code>role</code> zulässig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -121,5 +124,5 @@ Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Gl
 
 ## Siehe auch
 
-- Andere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("option")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
-- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- Weitere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("option")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
+- [Anpassbare select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

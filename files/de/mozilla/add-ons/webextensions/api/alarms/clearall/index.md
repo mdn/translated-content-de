@@ -2,17 +2,15 @@
 title: alarms.clearAll()
 slug: Mozilla/Add-ons/WebExtensions/API/alarms/clearAll
 l10n:
-  sourceCommit: e37b064f509db94d52a080b8983e16713737f1b7
+  sourceCommit: ac295ae8d3435f587b5233a9fe46bb55d92c1a5d
 ---
 
-Hebt alle aktiven Alarme auf.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Bricht alle aktiven Alarme ab.
 
 ## Syntax
 
 ```js-nolint
-let clearAlarms = browser.alarms.clearAll()
+browser.alarms.clearAll()
 ```
 
 ### Parameter
@@ -21,20 +19,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem booleschen Wert erfüllt wird. Dieser ist `true`, wenn Alarme gelöscht wurden, andernfalls `false`.
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die mit `undefined` erfüllt wird.
 
 > [!NOTE]
-> Chrome gibt immer `true` zurück und Safari `undefined`. Der Rückgabetyp kann sich ändern und möglicherweise in Zukunft für alle Browser immer `undefined` zurückgeben. Es ist am besten, sich nicht auf den Rückgabetyp zu verlassen.
+> Vor Firefox 157 wurde die Promise mit einem booleschen Wert erfüllt: `true`, wenn Alarme gelöscht wurden, andernfalls `false`. Chrome erfüllt die Promise mit `true` und Safari mit `undefined`. Verlassen Sie sich nicht auf den Wert, mit dem die Promise erfüllt wird. Weitere Informationen finden Sie unter [w3c/webextensions#1055](https://github.com/w3c/webextensions/issues/1055).
 
 ## Beispiele
 
+Löschen Sie alle von der Erweiterung geplanten Alarme und protokollieren Sie anschließend, dass die Alarme gelöscht wurden:
+
 ```js
-function onClearedAll(wasCleared) {
-  console.log(wasCleared); // true/false
+async function clearAllAlarms() {
+  await browser.alarms.clearAll();
+  console.log("All alarms cleared");
 }
 
-let clearAlarms = browser.alarms.clearAll();
-clearAlarms.then(onClearedAll);
+clearAllAlarms();
 ```
 
 {{WebExtExamples}}
@@ -44,4 +44,4 @@ clearAlarms.then(onClearedAll);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API.
+> Diese API basiert auf Chromiums [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms)-API.

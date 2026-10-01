@@ -1,12 +1,15 @@
 ---
-title: "`style` HTML Globalattribut"
+title: Globales HTML-Attribut `style`
 short-title: style
 slug: Web/HTML/Reference/Global_attributes/style
 l10n:
-  sourceCommit: 9c70c6ff09189cad43d40e241fbd2fe67349c3c2
+  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
 ---
 
-Das **`style`**-[Globalattribut](/de/docs/Web/HTML/Reference/Global_attributes) enthält [CSS](/de/docs/Web/CSS)-Stildeklarationen, die auf das Element angewendet werden sollen. Beachten Sie, dass empfohlen wird, Stile in einer separaten Datei oder mehreren Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element dienen hauptsächlich dazu, eine schnelle Stilgestaltung zu ermöglichen, beispielsweise für Testzwecke.
+Das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) **`style`** enthält [CSS](/de/docs/Web/CSS)-Stildeklarationen, die auf das Element angewendet werden. Es wird empfohlen, Stile in einer oder mehreren separaten Dateien zu definieren. Dieses Attribut und das Element {{HTMLElement("style")}} dienen hauptsächlich dazu, Stile schnell festzulegen, beispielsweise zu Testzwecken.
+
+> [!NOTE]
+> Dieses Attribut darf nicht verwendet werden, um semantische Informationen zu vermitteln. Auch wenn alle Stile entfernt werden, sollte eine Seite semantisch korrekt bleiben. In der Regel sollte es nicht verwendet werden, um irrelevante Informationen auszublenden; verwenden Sie dazu das Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden).
 
 {{InteractiveExample("HTML Demo: style", "tabbed-shorter")}}
 
@@ -18,9 +21,6 @@ Das **`style`**-[Globalattribut](/de/docs/Web/HTML/Reference/Global_attributes) 
   </p>
 </div>
 ```
-
-> [!NOTE]
-> Dieses Attribut darf nicht verwendet werden, um semantische Informationen zu vermitteln. Selbst wenn alle Stile entfernt werden, sollte eine Seite semantisch korrekt bleiben. In der Regel sollte es nicht verwendet werden, um irrelevante Informationen zu verbergen; dies sollte mit dem [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attribut erfolgen.
 
 ## Spezifikationen
 

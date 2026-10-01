@@ -1,12 +1,12 @@
 ---
-title: "q15mulr_sat_s: Wasm SIMD arithmetische Anweisung"
+title: "q15mulr_sat_s: Arithmetische Wasm-SIMD-Instruktion"
 short-title: q15mulr_sat_s
 slug: WebAssembly/Reference/SIMD/arithmetic/q15mulr_sat_s
 l10n:
-  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
+  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
 ---
 
-Die **`q15mulr_sat_s`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine spurweise [saturierte](https://en.wikipedia.org/wiki/Saturation_arithmetic) rundenbasierte Multiplikation im Q15-Format auf zwei signierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8`-Wertinterpretationen durch — wobei die Ausgabe auf den Bereich begrenzt wird, der vom Werttyp erlaubt wird (eine einzelne `i16x8`-Wertinterpretation).
+Die **`q15mulr_sat_s`**-[SIMD-Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt für jedes Lane-Paar eine rundende [sättigende Multiplikation](https://en.wikipedia.org/wiki/Saturation_arithmetic) im Q15-Format auf zwei vorzeichenbehafteten `i16x8`-Interpretationen von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werten aus. Dabei wird die Ausgabe auf den vom Werttyp zulässigen Bereich begrenzt (eine einzelne `i16x8`-Wertinterpretation).
 
 {{InteractiveExample("Wat Demo: q15mulr_sat_s", "tabbed-taller")}}
 
@@ -29,23 +29,25 @@ Die **`q15mulr_sat_s`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Refe
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Die `q15mulr_sat_s`-Anweisung führt gleichzeitig eine Festkomma-Multiplikation auf 8 Paaren von Q15-kodierten 16-Bit-Signed-Integern mit Rundung und Sättigung aus. Solche Operationen sind häufig in der Audioverarbeitung und im maschinellen Lernen zu finden, zum Beispiel FIR/IIR-Audiofilter und neuronale Netzwerkinferenzen.
+## Beschreibung
 
-Q15 ist ein Festkomma-Zahlenformat, bei dem ein signierter 16-Bit-Integer eine reelle Zahl im Bereich von −1,0 bis 1,0 darstellt. Der Wert `32767` (`0x7FFF`) entspricht `1,0`, und `−32768` (`0x8000`) entspricht `−1,0`. Das Multiplizieren von zwei Q15-Zahlen ergibt ein Q30-Ergebnis, das als 32-Bit-Integer gespeichert wird. Um zu Q15 (16-Bit) zurückzukehren, schiebt man um 15 nach rechts.
+Die `q15mulr_sat_s`-Instruktion führt gleichzeitig eine Festkommamultiplikation für 8 Paare vorzeichenbehafteter, im Q15-Format codierter 16-Bit-Ganzzahlen aus, einschließlich Rundung und Sättigung. Solche Operationen sind beispielsweise bei der Audioverarbeitung und beim maschinellen Lernen üblich, etwa für FIR-/IIR-Audiofilter und die Inferenz neuronaler Netze.
 
-Konkret führt die `q15mulr_sat_s`-Anweisung für jeden der entsprechenden Spuren der beiden `16x8`-Eingabewerte folgende Schritte aus:
+Q15 ist ein Festkommaformat, bei dem eine vorzeichenbehaftete 16-Bit-Ganzzahl eine reelle Zahl im Bereich von −1,0 bis 1,0 darstellt. Der Wert `32767` (`0x7FFF`) entspricht `1.0`, und `−32768` (`0x8000`) entspricht `−1.0`. Die Multiplikation zweier Q15-Zahlen ergibt ein Q30-Ergebnis, das als 32-Bit-Ganzzahl gespeichert wird. Um wieder Q15 (16 Bit) zu erhalten, verschieben Sie das Ergebnis um 15 Bit nach rechts.
 
-1. Multipliziert die beiden Werte miteinander.
-2. Rundet das Produkt, indem `0x4000` (`2¹⁴`, oder `16384`) hinzugefügt wird, was auf die nächste ganze Zahl rundet, anstatt abzuschneiden.
-3. Verschiebt das Ergebnis um 15 nach rechts, um Q30 wieder in Q15 umzuwandeln.
-4. Falls erforderlich, sättigt das Ergebnis, um es auf den Bereich von −32768 bis 32767 zu begrenzen und ein Überlaufen zu vermeiden. Dies hält das Ergebnis innerhalb des zulässigen Bereichs für das Q15-Format.
+Für jedes Paar einander entsprechender Lanes der beiden `16x8`-Eingabewerte führt die `q15mulr_sat_s`-Instruktion folgende Schritte aus:
 
-Lassen Sie uns sehen, wie wir zu dem Ergebnis unseres Beispiels `-8192` gelangen, das der in Spur 7 gespeicherte Wert des Ausgangswertes ist.
+1. Sie multipliziert die beiden Werte.
+2. Sie rundet das Produkt, indem sie `0x4000` (`2¹⁴` oder `16384`) addiert. Dadurch wird zur nächstgelegenen Ganzzahl gerundet, statt Nachkommastellen abzuschneiden.
+3. Sie verschiebt das Ergebnis um 15 Bit nach rechts und wandelt damit Q30 wieder in Q15 um.
+4. Falls erforderlich, sättigt sie das Ergebnis, indem sie es auf den Bereich von −32768 bis 32767 begrenzt und so einen Überlauf mit Umschlag verhindert. Dadurch bleibt das Ergebnis innerhalb des für das Q15-Format zulässigen Bereichs.
 
-1. Spur 7 der beiden Eingabewerte enthält `-16384` und `16384`.
-2. Das Multiplizieren dieser Werte ergibt das Produkt `-268435456`.
-3. Das Hinzufügen des Rundungswertes (`16384`) ergibt das Ergebnis `-268419072`.
-4. Das Verschieben des Ergebnisses um 15 nach rechts liefert das Endergebnis `-8192`.
+Sehen wir uns an, wie der Wert `-8192` im Beispiel zustande kommt. Er wird in Lane 7 des Ausgabewerts gespeichert.
+
+1. Lane 7 der beiden Eingabewerte enthält `-16384` beziehungsweise `16384`.
+2. Die Multiplikation dieser Werte ergibt das Produkt `-268435456`.
+3. Die Addition des Rundungswerts (`16384`) ergibt `-268419072`.
+4. Die Verschiebung des Ergebnisses um 15 Bit nach rechts ergibt das Endergebnis `-8192`.
 
 ## Syntax
 
@@ -54,7 +56,7 @@ i16x8.q15mulr_sat_s
 ```
 
 - `i16x8.q15mulr_sat_s`
-  - : Die `i16x8.q15mulr_sat_s`-Anweisung.
+  - : Die `i16x8.q15mulr_sat_s`-Instruktion.
 
 ### Typ
 
@@ -69,9 +71,9 @@ i16x8.q15mulr_sat_s
 - `output`
   - : Der Ausgabewert.
 
-### Binärcodierung
+### Binäre Codierung
 
-| Anweisung             | Binärformat    | Beispieltext => Binär                     |
+| Instruktion           | Binärformat    | Beispieltext => Binärdarstellung          |
 | --------------------- | -------------- | ----------------------------------------- |
 | `i16x8.q15mulr_sat_s` | `0xfd 130:u32` | `i16x8.q15mulr_sat_s` => `0xfd 0x82 0x01` |
 

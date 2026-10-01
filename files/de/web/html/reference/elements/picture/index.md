@@ -1,14 +1,14 @@
 ---
-title: "`<picture>` HTML picture-Element"
+title: HTML-Bildelement `<picture>`
 short-title: <picture>
 slug: Web/HTML/Reference/Elements/picture
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
 ---
 
-Das **`<picture>`** [HTML](/de/docs/Web/HTML)-Element enthält null oder mehr {{HTMLElement("source")}}-Elemente und ein {{HTMLElement("img")}}-Element, um alternative Versionen eines Bildes für unterschiedliche Anzeige- bzw. Geräteszenarien anzubieten.
+Das **`<picture>`**-Element von [HTML](/de/docs/Web/HTML) enthält null oder mehr {{HTMLElement("source")}}-Elemente und ein {{HTMLElement("img")}}-Element, um alternative Versionen eines Bildes für unterschiedliche Anzeige- und Gerätesituationen anzubieten.
 
-Der Browser berücksichtigt jedes Kind-`<source>`-Element und wählt den am besten passenden aus. Wenn keine Übereinstimmungen gefunden werden oder der Browser das `<picture>`-Element nicht unterstützt, wird die URL des [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attributs des `<img>`-Elements ausgewählt. Das ausgewählte Bild wird dann in dem vom `<img>`-Element belegten Raum präsentiert.
+Der Browser prüft jedes untergeordnete `<source>`-Element und wählt die am besten passende Variante aus. Wird keine passende Variante gefunden oder unterstützt der Browser das `<picture>`-Element nicht, wird die URL aus dem [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attribut des `<img>`-Elements verwendet. Das ausgewählte Bild wird anschließend im Bereich des `<img>`-Elements angezeigt.
 
 {{InteractiveExample("HTML Demo: &lt;picture&gt;", "tabbed-standard")}}
 
@@ -23,45 +23,45 @@ Der Browser berücksichtigt jedes Kind-`<source>`-Element und wählt den am best
 </picture>
 ```
 
-Um zu entscheiden, welche URL geladen werden soll, untersucht der {{Glossary("user_agent", "User Agent")}} die [`srcset`](/de/docs/Web/HTML/Reference/Elements/source#srcset)-, [`media`](/de/docs/Web/HTML/Reference/Elements/source#media)- und [`type`](/de/docs/Web/HTML/Reference/Elements/source#type)-Attribute jeder `<source>`, um ein kompatibles Bild auszuwählen, das am besten zum aktuellen Layout und den Fähigkeiten des Anzeigegeräts passt.
+## Attribute
+
+Dieses Element unterstützt nur [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+
+## Verwendungshinweise
+
+Um zu entscheiden, welche URL geladen wird, prüft der {{Glossary("user_agent", "User Agent")}} die Attribute [`srcset`](/de/docs/Web/HTML/Reference/Elements/source#srcset), [`media`](/de/docs/Web/HTML/Reference/Elements/source#media) und [`type`](/de/docs/Web/HTML/Reference/Elements/source#type) jedes `<source>`-Elements. So wählt er ein kompatibles Bild aus, das möglichst gut zum aktuellen Layout und zu den Fähigkeiten des Anzeigegeräts passt.
 
 Das `<img>`-Element erfüllt zwei Zwecke:
 
-1. Es beschreibt die Größe und andere Attribute des Bildes und seiner Darstellung.
-2. Es bietet einen Rückfall, falls keines der angebotenen `<source>`-Elemente ein brauchbares Bild liefern kann.
+1. Es beschreibt die Größe und weitere Attribute des Bildes sowie seine Darstellung.
+2. Es dient als Ersatz, falls keines der angebotenen `<source>`-Elemente ein verwendbares Bild bereitstellen kann.
 
 Häufige Anwendungsfälle für `<picture>`:
 
-- **Art Direction.** Zuschneiden oder Ändern von Bildern für unterschiedliche `media`-Bedingungen (z. B. das Laden einer einfacheren Version eines Bildes, das zu viele Details enthält, auf kleineren Anzeigen).
-- **Anbieten alternativer Bildformate**, für Fälle, in denen bestimmte Formate nicht unterstützt werden.
+- **Art Direction:** Bilder für unterschiedliche `media`-Bedingungen zuschneiden oder verändern, beispielsweise um auf kleineren Displays eine einfachere Version eines detailreichen Bildes zu laden.
+- **Alternative Bildformate anbieten**, falls bestimmte Formate nicht unterstützt werden.
 
   > [!NOTE]
-  > Zum Beispiel haben neuere Formate wie [AVIF](/de/docs/Web/Media/Guides/Formats/Image_types#avif_image) oder [WEBP](/de/docs/Web/Media/Guides/Formats/Image_types#webp_image) viele Vorteile, sind aber möglicherweise nicht vom Browser unterstützt. Eine Liste unterstützter Bildformate finden Sie in: [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Guides/Formats/Image_types).
+  > Neuere Formate wie [AVIF](/de/docs/Web/Media/Guides/Formats/Image_types#avif_image) oder [WEBP](/de/docs/Web/Media/Guides/Formats/Image_types#webp_image) bieten beispielsweise viele Vorteile, werden aber möglicherweise nicht vom Browser unterstützt. Eine Liste unterstützter Bildformate finden Sie im [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Guides/Formats/Image_types).
 
-- **Bandbreite sparen und Zeiten zum Laden der Seite beschleunigen** durch das Laden des am besten geeigneten Bildes für das Anzeige des Betrachters.
+- **Bandbreite sparen und das Laden der Seite beschleunigen**, indem das für das Display der betrachtenden Person am besten geeignete Bild geladen wird.
 
-Wenn höhere Dichte-Versionen eines Bildes für hochauflösende (Retina-) Anzeigen bereitgestellt werden, verwenden Sie `srcset` auf dem `<img>`-Element anstelle. Dies ermöglicht es Browsern, niedrigere Dichte-Versionen im Datensparmodus zu wählen, und Sie müssen keine expliziten `media`-Bedingungen schreiben.
+Wenn Sie für High-DPI-Displays (Retina) Versionen eines Bildes mit höherer Pixeldichte bereitstellen möchten, verwenden Sie stattdessen [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) auf dem `<img>`-Element. So können Browser in Datensparmodi Versionen mit geringerer Pixeldichte auswählen, und Sie müssen keine ausdrücklichen `media`-Bedingungen angeben.
 
-## Attribute
-
-Dieses Element beinhaltet nur [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
-
-## Anwendungshinweise
-
-Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um die Positionierung des Bildes innerhalb des Rahmens des Elements anzupassen, und die {{cssxref("object-fit")}}-Eigenschaft, um zu steuern, wie das Bild innerhalb des Rahmens skaliert wird.
+Mit der Eigenschaft {{cssxref("object-position")}} können Sie die Position des Bildes innerhalb des Elementrahmens anpassen. Mit {{cssxref("object-fit")}} steuern Sie, wie die Größe des Bildes an den Rahmen angepasst wird.
 
 > [!NOTE]
-> Verwenden Sie diese Eigenschaften auf dem Kind-`<img>`-Element, **nicht** auf dem `<picture>`-Element.
+> Verwenden Sie diese Eigenschaften auf dem untergeordneten `<img>`-Element, **nicht** auf dem `<picture>`-Element.
 
 ## Beispiele
 
-Diese Beispiele zeigen, wie verschiedene Attribute des {{HTMLElement("source")}}-Elements die Auswahl des Bildes innerhalb von `<picture>` beeinflussen.
+Diese Beispiele zeigen, wie verschiedene Attribute des {{HTMLElement("source")}}-Elements die Bildauswahl innerhalb von `<picture>` beeinflussen.
 
 ### Das media-Attribut
 
-Das `media`-Attribut gibt eine Medienbedingung an (ähnlich einer Media-Query), die der User Agent für jedes {{HTMLElement("source")}}-Element auswertet.
+Das `media`-Attribut gibt eine Medienbedingung an (ähnlich einer Media Query), die der User Agent für jedes {{HTMLElement("source")}}-Element auswertet.
 
-Wenn die Medienbedingung des {{HTMLElement("source")}} auf `false` ausgewertet wird, überspringt der Browser sie und wertet das nächste Element innerhalb von `<picture>` aus.
+Ergibt die Medienbedingung eines {{HTMLElement("source")}}-Elements `false`, überspringt der Browser dieses Element und prüft das nächste Element innerhalb von `<picture>`.
 
 ```html
 <picture>
@@ -70,7 +70,7 @@ Wenn die Medienbedingung des {{HTMLElement("source")}} auf `false` ausgewertet w
 </picture>
 ```
 
-Sie können Bildressourcen für helle und dunkle Themen mit der {{cssxref("@media/prefers-color-scheme")}}-Medieneigenschaft austauschen:
+Mit dem Medienmerkmal {{cssxref("@media/prefers-color-scheme")}} können Sie unterschiedliche Bilddateien für helle und dunkle Designs verwenden:
 
 ```html
 <picture>
@@ -82,21 +82,21 @@ Sie können Bildressourcen für helle und dunkle Themen mit der {{cssxref("@medi
 
 ### Das srcset-Attribut
 
-Das [srcset](/de/docs/Web/HTML/Reference/Elements/source#srcset)-Attribut wird verwendet, um eine Liste möglicher Bilder basierend auf der Größe oder Pixeldichte des Displays anzubieten.
+Das Attribut [srcset](/de/docs/Web/HTML/Reference/Elements/source#srcset) bietet eine Liste möglicher Bilder an, aus denen je nach Größe oder Pixeldichte des Displays ausgewählt wird.
 
-Es besteht aus einer durch Kommas getrennten Liste von Bildbeschreibungen. Jede Bildbeschreibung besteht aus einer URL des Bildes und _entweder_:
+Es besteht aus einer durch Kommas getrennten Liste von Bildangaben. Jede Bildangabe enthält eine Bild-URL und _entweder_:
 
-- einem _Breitenbeschreiber_, gefolgt von einem `w` (wie `300w`);
+- einen _Breiten-Deskriptor_, gefolgt von `w` (beispielsweise `300w`);
   _ODER_
-- einem _Pixeldichtebeschreiber_, gefolgt von einem `x` (wie `2x`) für ein hochauflösendes Bild für hochauflösende Bildschirme.
+- einen _Pixeldichte-Deskriptor_, gefolgt von `x` (beispielsweise `2x`), um ein hochauflösendes Bild für High-DPI-Bildschirme bereitzustellen.
 
-Beachten Sie:
+Beachten Sie dabei:
 
-- Breiten- und Pixeldichtebeschreiber sollten nicht zusammen verwendet werden
-- Ein fehlender Pixeldichtebeschreiber impliziert 1x
-- Doppelte Beschreibungswerte sind nicht erlaubt (2x & 2x, 100w & 100w)
+- Breiten- und Pixeldichte-Deskriptoren sollten nicht gemeinsam verwendet werden.
+- Fehlt ein Pixeldichte-Deskriptor, wird 1x angenommen.
+- Doppelte Deskriptorwerte sind nicht zulässig (2x und 2x, 100w und 100w).
 
-Das folgende Beispiel illustriert die Verwendung des `srcset`-Attributs mit dem `<source>`-Element, um ein Bild mit hoher Dichte und normaler Auflösung zu spezifizieren:
+Das folgende Beispiel zeigt, wie das `srcset`-Attribut mit dem `<source>`-Element verwendet wird, um ein Bild mit hoher Pixeldichte und eines mit Standardauflösung anzugeben:
 
 ```html
 <picture>
@@ -105,7 +105,7 @@ Das folgende Beispiel illustriert die Verwendung des `srcset`-Attributs mit dem 
 </picture>
 ```
 
-Das `srcset`-Attribut kann auch auf dem `<img>`-Element verwendet werden, ohne dass das `<picture>`-Element notwendig ist. Das folgende Beispiel zeigt, wie das `srcset`-Attribut verwendet wird, um Bilder mit normaler Auflösung und hoher Dichte zu spezifizieren:
+Das `srcset`-Attribut kann auch auf dem `<img>`-Element verwendet werden, ohne dass ein `<picture>`-Element erforderlich ist. Das folgende Beispiel zeigt, wie Sie mit dem `srcset`-Attribut Bilder mit Standardauflösung beziehungsweise hoher Pixeldichte angeben:
 
 ```html
 <img
@@ -118,11 +118,11 @@ Das `srcset`-Attribut kann auch auf dem `<img>`-Element verwendet werden, ohne d
 
 ### Das sizes-Attribut
 
-Das [`sizes`](/de/docs/Web/HTML/Reference/Elements/source#sizes)-Attribut des `<source>`-Elements erlaubt Ihnen, ein Set von Medienbedingung-Längenpaaren zu spezifizieren und die Bildanzeigegröße für jede Bedingung anzugeben. Dadurch kann der Browser das am besten geeignete Bild aus dem `srcset`-Attribut auswählen, welches Bilder mit ihren {{Glossary("Intrinsic_Size", "intrinsischen")}} Breiten auflistet.
+Mit dem Attribut [`sizes`](/de/docs/Web/HTML/Reference/Elements/source#sizes) des `<source>`-Elements können Sie mehrere Paare aus Medienbedingung und Längenangabe festlegen und für jede Bedingung die Anzeigegröße des Bildes angeben. Dies hilft dem Browser, aus dem `srcset`-Attribut, das Bilder mit ihren {{Glossary("Intrinsic_Size", "intrinsischen")}} Breiten auflistet, das am besten geeignete Bild auszuwählen.
 
-Der Browser wertet die Medienbedingungen im sizes-Attribut aus, bevor er Bilder herunterlädt. Weitere Informationen finden Sie im sizes-Attribut der [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes)- und [`<source>`](/de/docs/Web/HTML/Reference/Elements/source#sizes)-Elemente.
+Der Browser wertet die Medienbedingungen im `sizes`-Attribut aus, bevor er Bilder herunterlädt. Weitere Informationen finden Sie in der Beschreibung des `sizes`-Attributs der Elemente [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes) und [`<source>`](/de/docs/Web/HTML/Reference/Elements/source#sizes).
 
-Zum Beispiel:
+Beispiel:
 
 ```html
 <picture>
@@ -134,19 +134,19 @@ Zum Beispiel:
 </picture>
 ```
 
-In diesem Beispiel:
+In diesem Beispiel gilt:
 
-- Wenn die Ansicht 600px breit oder weniger ist, beträgt die Slotgröße 400px; ansonsten 800px.
-- Der Browser multipliziert die Slotgröße mit dem Gerätpixverhältnis, um die ideale Bildbreite zu bestimmen, und wählt dann das am nächsten verfügbare Bild aus `srcset`.
+- Ist der Viewport höchstens 600px breit, beträgt die Anzeigegröße 400px; andernfalls beträgt sie 800px.
+- Der Browser multipliziert die Anzeigegröße mit dem Gerätepixelverhältnis, um die ideale Bildbreite zu ermitteln. Anschließend wählt er aus `srcset` das Bild mit der nächstliegenden Breite aus.
 
-Ohne sizes wird vom Browser die Standardgröße des Bildes verwendet, wie sie durch seine Abmessungen in Pixeln angegeben ist. Dies ist möglicherweise nicht die beste Lösung für alle Geräte, insbesondere wenn das Bild auf unterschiedlichen Bildschirmgrößen oder in unterschiedlichen Kontexten angezeigt wird.
+Ohne `sizes` verwendet der Browser die Standardgröße des Bildes, die sich aus seinen Abmessungen in Pixeln ergibt. Das ist möglicherweise nicht für alle Geräte optimal, insbesondere wenn das Bild auf unterschiedlich großen Bildschirmen oder in verschiedenen Kontexten angezeigt wird.
 
-Bitte beachten Sie, dass sizes nur dann Wirkung zeigt, wenn Breitenleistungsbeschreiber mit srcset anstelle von Pixelverhältniswerten bereitgestellt werden (200w anstelle von 2x zum Beispiel).
-Weitere Informationen zur Verwendung von `srcset` finden Sie in der [Anleitung für Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images).
+Beachten Sie, dass `sizes` nur dann wirksam ist, wenn `srcset` Breiten-Deskriptoren statt Pixeldichtewerten enthält (beispielsweise 200w statt 2x).
+Weitere Informationen zur Verwendung von `srcset` finden Sie in der Dokumentation zu [responsiven Bildern](/de/docs/Web/HTML/Guides/Responsive_images).
 
 ### Das type-Attribut
 
-Das `type`-Attribut gibt einen [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) für die Ressourcen-URL(s) im `srcset`-Attribut des {{HTMLElement("source")}}-Elements an. Wenn der User Agent den angegebenen Typ nicht unterstützt, wird das {{HTMLElement("source")}}-Element übersprungen.
+Das `type`-Attribut gibt einen [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) für die Ressourcen-URLs im `srcset`-Attribut des {{HTMLElement("source")}}-Elements an. Unterstützt der User Agent den angegebenen Typ nicht, wird das {{HTMLElement("source")}}-Element übersprungen.
 
 ```html
 <picture>
@@ -169,23 +169,23 @@ Das `type`-Attribut gibt einen [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) f
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >, Phrasing-Inhalt, eingebetteter Inhalt
+        >, Textinhalt, eingebetteter Inhalt
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         Null oder mehr {{HTMLElement("source")}}-Elemente, gefolgt von einem
-        {{HTMLElement("img")}}-Element, optional vermischt mit
-        script-unterstützenden Elementen.
+        {{HTMLElement("img")}}-Element; dazwischen sind optional
+        skriptunterstützende Elemente zulässig.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Keines; sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>Jedes Element, das eingebetteten Inhalt erlaubt.</td>
     </tr>
     <tr>
@@ -197,8 +197,8 @@ Das `type`-Attribut gibt einen [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) f
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Keine <code>role</code> zulässig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -221,4 +221,4 @@ Das `type`-Attribut gibt einen [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) f
 - {{HTMLElement("source")}}-Element
 - Positionierung und Größenanpassung des Bildes innerhalb seines Rahmens: {{cssxref("object-position")}} und {{cssxref("object-fit")}}
 - [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Guides/Formats/Image_types)
-- {{cssxref("@media/prefers-color-scheme")}}-Medieneigenschaft
+- Medienmerkmal {{cssxref("@media/prefers-color-scheme")}}
