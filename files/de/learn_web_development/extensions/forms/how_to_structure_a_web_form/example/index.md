@@ -2,10 +2,10 @@
 title: Beispiel
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: 3681b0af6ad675c0be657f6d74933f439099e76b
+  sourceCommit: bfead5c281d92a213f0191746fd98a6bdc4dc457
 ---
 
-Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
+Dies ist das Beispiel für ein einfaches Zahlungsformular im Artikel [Wie Sie ein HTML-Formular strukturieren](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 
 ## Ein Zahlungsformular
 
@@ -83,6 +83,12 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
     <p><button type="submit">Validate the payment</button></p>
   </section>
 </form>
+```
+
+```js hidden
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 ```
 
 ### CSS

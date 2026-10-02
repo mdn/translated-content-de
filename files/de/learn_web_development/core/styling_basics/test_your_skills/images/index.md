@@ -1,27 +1,27 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente"
-short-title: "Test: Bilder und Formulare"
+short-title: "Test: Bilder und Formularelemente"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Images
 l10n:
-  sourceCommit: a623d4459e2aa00d17dc0fd6b6bc44f56c589950
+  sourceCommit: bfead5c281d92a213f0191746fd98a6bdc4dc457
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
+Mit diesem Fähigkeitstest können Sie überprüfen, ob Sie verstehen, wie besondere Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
 
 > [!NOTE]
-> Um Hilfe zu bekommen, lesen Sie unseren Leitfaden zur [Nutzung von Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt mit uns aufnehmen.
+> Wenn Sie Hilfe benötigen, lesen Sie unseren Leitfaden zur Verwendung von [„Testen Sie Ihre Fähigkeiten“](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## Bilder und Formulare 1
+## Bilder und Formularelemente 1
 
-In dieser Aufgabe haben Sie ein Bild, das über den Kasten hinausragt. Wir möchten, dass Sie das Bild so verkleinern, dass es in den Kasten passt, ohne dass zusätzlicher Leerraum bleibt. Es macht uns nichts aus, wenn ein Teil des Bildes abgeschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
+In dieser Aufgabe ragt ein Bild über seine Box hinaus. Skalieren Sie das Bild so, dass es ohne zusätzlichen Leerraum in die Box passt. Es ist in Ordnung, wenn dabei ein Teil des Bildes abgeschnitten wird. Passen Sie dazu das CSS an.
 
-Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+Der Ausgangszustand sieht so aus:
 
 {{EmbedLiveSample("images-forms1-start", "", "260px")}}
 
-Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
+Dies ist der zugrunde liegende Code:
 
 ```html live-sample___images-forms1-start live-sample___images-forms1-finish
 <div class="box">
@@ -43,15 +43,14 @@ img {
 }
 ```
 
-Die aktualisierte Gestaltung sollte wie folgt aussehen:
+Nach der Anpassung sollte es so aussehen:
 
 {{EmbedLiveSample("images-forms1-finish", "", "260px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist in Ordnung, wenn einige Teile des Bildes abgeschnitten werden.
-Die Verwendung von `object-fit: cover` ist die beste Wahl, Sie müssen außerdem die Breite und Höhe auf `100%` setzen:
+Es ist in Ordnung, wenn Teile des Bildes abgeschnitten werden. Die beste Wahl ist `object-fit: cover`. Außerdem müssen Sie Breite und Höhe auf `100%` setzen:
 
 ```css live-sample___images-forms1-finish
 img {
@@ -63,31 +62,31 @@ img {
 
 </details>
 
-## Bilder und Formulare 2
+## Bilder und Formularelemente 2
 
-In dieser Aufgabe haben Sie ein einfaches Formular.
+In dieser Aufgabe haben Sie ein Suchfeld und einen Button.
 
-Um die Aufgabe abzuschließen:
+So lösen Sie die Aufgabe:
 
-1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` anzusprechen.
-2. Geben Sie dem Formularfeld und dem Button die gleiche Textgröße wie dem Rest des Formulars.
-3. Geben Sie dem Formularfeld und dem Button `10px` Abstand.
-4. Geben Sie dem Button einen Hintergrund von `rebeccapurple`, weißen Vordergrund, keine Umrandung und abgerundete Ecken von 5px.
+1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` auszuwählen.
+2. Legen Sie für das Formularfeld und den Button dieselbe Schriftgröße fest wie für den Rest des Containers.
+3. Geben Sie dem Formularfeld und dem Button ein Padding von `10px`.
+4. Geben Sie dem Button einen Hintergrund in `rebeccapurple`, weiße Schrift, keinen Rahmen und abgerundete Ecken mit einem Radius von 5 px.
 
-Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+Der Ausgangszustand sieht so aus:
 
 {{EmbedLiveSample("images-forms2-start", "", "80px")}}
 
-Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
+Dies ist der zugrunde liegende Code:
 
 ```html live-sample___images-forms2-start live-sample___images-forms2-finish
-<form action="" class="my-form" method="post">
+<div class="my-form">
   <div>
     <label for="fldSearch">Keywords</label>
     <input id="fldSearch" name="keywords" type="search" />
-    <input name="btnSubmit" type="submit" value="Search" />
+    <input name="btnSubmit" type="button" value="Search" />
   </div>
-</form>
+</div>
 ```
 
 ```css live-sample___images-forms2-start live-sample___images-forms2-finish
@@ -100,14 +99,14 @@ body {
 }
 ```
 
-Die aktualisierte Gestaltung sollte wie folgt aussehen:
+Nach der Anpassung sollte es so aussehen:
 
 {{EmbedLiveSample("images-forms2-finish", "", "80px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Hier ist eine beispielhafte Lösung für die Aufgabe:
+Hier ist eine Beispiellösung für die Aufgabe:
 
 ```css live-sample___images-forms2-finish
 .my-form {
@@ -120,7 +119,7 @@ Hier ist eine beispielhafte Lösung für die Aufgabe:
   font-size: inherit;
 }
 
-.my-form input[type="submit"] {
+.my-form input[type="button"] {
   padding: 10px;
   font-size: inherit;
   background-color: rebeccapurple;
@@ -132,52 +131,50 @@ Hier ist eine beispielhafte Lösung für die Aufgabe:
 
 </details>
 
-## Bilder und Formulare 3
+## Bilder und Formularelemente 3
 
-Die Lösung für diese Bewertung ist ziemlich flexibel, und Sie haben viel Spielraum, was Sie hier tun können. Daher bieten wir keine Beispielanzeige an.
+Die Lösung für diese Aufgabe ist recht offen gestaltet. Sie haben viel Spielraum bei der Umsetzung. Deshalb zeigen wir kein Beispiel für das fertige Ergebnis.
 
-Ihr CSS muss Folgendes beinhalten:
+Ihr CSS sollte Folgendes enthalten:
 
-1. Einen leichten "Reset", um Schriftarten, Abstände, Ränder und Größen zu Beginn konsistenter zu machen, wie in [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
-2. Eine schöne, konsistente Gestaltung für die Eingabefelder und den Button.
-3. Eine Layoutechnik, um die Eingabefelder und Labels ordentlich auszurichten.
+1. Ein einfaches „Reset“, das Schriftarten, Padding, Margins und Größenangaben von Anfang an vereinheitlicht, wie unter [Formularverhalten normalisieren](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
+2. Eine ansprechende, einheitliche Gestaltung der Eingabefelder und des Buttons.
+3. Eine Layout-Technik, mit der Eingabefelder und Labels sauber ausgerichtet werden.
 
-Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+Der Ausgangszustand sieht so aus:
 
 {{ EmbedLiveSample("forms-2", "100%", 250) }}
 
-Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
+Dies ist der zugrunde liegende Code:
 
 ```html hidden live-sample___forms-2
-<form>
-  <h2>Edit your preferences</h2>
-  <ul>
-    <li>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" />
-    </li>
-    <li>
-      <label for="website">Website:</label>
-      <input type="url" id="website" name="website" />
-    </li>
-    <li>
-      <label for="phone">Phone number:</label>
-      <input type="tel" id="phone" name="phone" />
-    </li>
-    <li>
-      <label for="food">Favorite food:</label>
-      <select name="food" id="food">
-        <option>Salad</option>
-        <option>Curry</option>
-        <option>Pizza</option>
-        <option>Fajitas</option>
-      </select>
-    </li>
-    <li>
-      <button>Update preferences</button>
-    </li>
-  </ul>
-</form>
+<h2>Edit your preferences</h2>
+<ul>
+  <li>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" />
+  </li>
+  <li>
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" />
+  </li>
+  <li>
+    <label for="phone">Phone number:</label>
+    <input type="tel" id="phone" name="phone" />
+  </li>
+  <li>
+    <label for="food">Favorite food:</label>
+    <select name="food" id="food">
+      <option>Salad</option>
+      <option>Curry</option>
+      <option>Pizza</option>
+      <option>Fajitas</option>
+    </select>
+  </li>
+  <li>
+    <button type="button">Update preferences</button>
+  </li>
+</ul>
 ```
 
 ```css live-sample___forms-2
@@ -203,12 +200,12 @@ body {
 /* Add your code here */
 ```
 
-Wir haben keinen fertigen Inhalt für diese Aufgabe bereitgestellt, da viele gültige Lösungen möglich sind.
+Für diese Aufgabe zeigen wir kein fertiges Ergebnis, da viele Lösungen möglich sind.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges CSS könnte so aussehen:
+Ihr fertiges CSS könnte beispielsweise so aussehen:
 
 ```css
 /* ... */

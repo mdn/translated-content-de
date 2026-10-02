@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Strukturierung eines Feedback-Formulars"
-short-title: "Herausforderung: Feedback-Formular"
+title: "Aufgabe: Ein Feedbackformular strukturieren"
+short-title: "Aufgabe: Feedbackformular"
 slug: Learn_web_development/Core/Structuring_content/Forms_challenge
 l10n:
-  sourceCommit: 8126a04c73f0c6821b2ac4e5571fa83320d3a65a
+  sourceCommit: bfead5c281d92a213f0191746fd98a6bdc4dc457
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons", "Learn_web_development/Core/Structuring_content/Debugging_HTML", "Learn_web_development/Core/Structuring_content")}}
 
-In dieser Herausforderung testen wir Ihre Fähigkeit, ein Formular zu erstellen und zu strukturieren sowie einige andere HTML-Funktionen hinzuzufügen.
+In dieser Aufgabe testen Sie, ob Sie ein Formular erstellen und strukturieren sowie weitere HTML-Funktionen hinzufügen können.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein grundlegendes Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des Codes, den Sie benötigen, wird auf dieser Seite bereitgestellt.
+Für diese Aufgabe erstellen Sie ein einfaches Website-Projekt – entweder in einem Ordner auf der Festplatte Ihres Computers oder in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes steht bereits auf dieser Seite.
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `forms-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte zur Erstellung eines neuen Projekts durch).
-2. Speichern Sie das folgende HTML-Verzeichnis in einer Datei in Ihrem Ordner mit dem Namen `index.html` (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
+1. Erstellen Sie an einer geeigneten Stelle auf Ihrem Computer einen neuen Ordner namens `forms-challenge` (oder öffnen Sie einen Online-Editor und erstellen Sie dort ein neues Projekt).
+2. Speichern Sie den folgenden HTML-Code in einer Datei namens `index.html` in diesem Ordner (oder fügen Sie ihn in den HTML-Bereich Ihres Online-Editors ein).
 
    ```html-nolint
    <!doctype html>
@@ -95,7 +95,7 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein grundlegendes Web
    </html>
    ```
 
-3. Speichern Sie das folgende CSS-Verzeichnis in einer Datei in Ihrem Ordner mit dem Namen `style.css` (oder fügen Sie es in das CSS-Feld Ihres Online-Editors ein).
+3. Speichern Sie den folgenden CSS-Code in einer Datei namens `style.css` in diesem Ordner (oder fügen Sie ihn in den CSS-Bereich Ihres Online-Editors ein).
 
    ```css live-sample___form-finished
    /* Basic font styles */
@@ -208,51 +208,51 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein grundlegendes Web
    }
    ```
 
-## Projektbeschreibung
+## Aufgabenstellung
 
-Wir möchten, dass Sie sich vorstellen, dass Sie gerade in einem Hotel namens "Das kleine Haus im Wald" übernachtet haben (nun, zumindest dachten Sie, es sei ein Hotel). Wir möchten, dass Sie uns helfen, ein fiktives Feedback-Formular für das Hotel zu erstellen. Neben der Markierung der erforderlichen Funktionen und der Strukturierung des Formulars gibt es einige zusätzliche HTML-Funktionen, die wir implementieren möchten.
+Stellen Sie sich vor, Sie hätten gerade im „little house in the woods“ übernachtet – einem Hotel, wie Sie zumindest dachten. Helfen Sie uns, ein fiktives Feedbackformular für dieses Hotel zu erstellen. Neben den erforderlichen Formularelementen und der Struktur des Formulars sollen Sie einige weitere HTML-Funktionen umsetzen.
 
-### Implementierung von Formularsteuerelementen
+### Formularelemente umsetzen
 
-1. Im Abschnitt "Einrichtungen" möchten wir, dass Sie die ersten beiden Zeilensätze in Gruppen von Optionsfeldern mit einer Beschriftung für jede Gruppe und einer Legende für die gesamte Gruppe umwandeln. Fügen Sie ein Attribut hinzu, um das erste Optionsfeld in jedem Fall standardmäßig auszuwählen.
-2. Im Abschnitt "Einrichtungen" wandeln Sie den dritten Zeilensatz in eine Gruppe von Kontrollkästchen um, mit einer Beschriftung für jede und einer Legende für die gesamte Gruppe.
-3. Im Abschnitt "Über Ihre Gastgeber" wandeln Sie beide Zeilensätze in ein Dropdown-Menü von Optionen um, mit einer Beschriftung zu jeder.
-4. Im Abschnitt "Weitere Rückmeldungen?" fügen Sie ein mehrzeiliges Textfeld hinzu und wandeln Sie die vorhandene Zeile in ihre beschreibende Beschriftung um.
-5. Im Abschnitt "Ihre Daten" fügen Sie eine geeignete Art von Texteingabe hinzu, um jeden der drei aufgelisteten Werte zu sammeln. Wandeln Sie die vorhandenen Zeilen in ihre Beschriftungen um.
-6. Wandeln Sie "Absenden" in eine Schaltfläche zum Absenden des Formulars um.
+1. Wandeln Sie im Abschnitt „Facilities“ die ersten beiden Zeilengruppen jeweils in eine Gruppe von Radio-Buttons um. Jeder Radio-Button soll ein beschreibendes Label erhalten, und jede Gruppe eine Legend. Fügen Sie ein Attribut hinzu, damit in jeder Gruppe der erste Radio-Button standardmäßig ausgewählt ist.
+2. Wandeln Sie im Abschnitt „Facilities“ die dritte Zeilengruppe in eine Gruppe von Checkboxen um. Jede Checkbox soll ein beschreibendes Label erhalten, und die Gruppe eine Legend.
+3. Wandeln Sie im Abschnitt „About your hosts“ beide Zeilengruppen jeweils in ein Dropdown-Menü mit Optionen um. Jedes Menü soll ein beschreibendes Label erhalten.
+4. Fügen Sie im Abschnitt „Any other feedback?“ ein mehrzeiliges Texteingabefeld hinzu und machen Sie die vorhandene Zeile zu dessen beschreibendem Label.
+5. Fügen Sie im Abschnitt „Your details“ für jeden der drei aufgeführten Werte ein geeignetes Texteingabefeld hinzu. Machen Sie die vorhandenen Zeilen zu den jeweiligen Labels.
+6. Machen Sie aus „Submit“ einen Button zum Absenden des Formulars.
 
-### Strukturierung des Formulars
+### Formular strukturieren
 
-1. Umschließen Sie das Formular in ein geeignetes Umschlagelement, um das Ganze als Formular zu kennzeichnen.
-2. Fügen Sie wiederholte Strukturelemente innerhalb des Formulars hinzu, um jeden Formularabschnitt zu umschließen. Geben Sie jedem Formularelement eine `class` namens `form-section`. Um es einfacher zu machen, ist jeder Formularbereich von zwei Sätzen doppelter Bindestriche (`--`) umgeben. Sie können die doppelten Bindestriche entfernen, wenn Sie Ihre Strukturelemente hinzugefügt haben.
-3. Sie werden zusätzliche Strukturelemente um einige der Steuerungs-/Beschriftungspaare herum einfügen müssen, um sie auf eigenen getrennten Zeilen anzuzeigen. Fügen Sie diese jetzt hinzu und geben Sie jedem die `class` von `separator`.
-4. Fügen Sie ein Zeilenumbruchelement zwischen das mehrzeilige Textfeld und seine Beschriftung ein, damit die beiden auf getrennten Zeilen stehen.
+1. Umschließen Sie den gesamten Formularinhalt mit einem geeigneten Element, das ihn als Formular kennzeichnet.
+2. Fügen Sie innerhalb des Formulars für jeden Formularabschnitt ein Strukturelement hinzu, das den jeweiligen Abschnitt umschließt. Geben Sie jedem dieser Elemente die `class` `form-section`. Zur Orientierung ist jeder Formularabschnitt von zwei Paaren doppelter Bindestriche (`--`) umgeben. Nachdem Sie die Strukturelemente hinzugefügt haben, können Sie die Bindestriche entfernen.
+3. Damit einige Paare aus Formularelement und Label jeweils in einer eigenen Zeile stehen, benötigen Sie zusätzliche Strukturelemente um diese Paare. Fügen Sie sie hinzu und geben Sie jedem die `class` `separator`.
+4. Fügen Sie zwischen dem mehrzeiligen Texteingabefeld und seinem Label ein Zeilenumbruchelement ein, damit beide in getrennten Zeilen stehen.
 
-### Zusätzliche HTML-Funktionen
+### Weitere HTML-Funktionen
 
-1. Es gibt mehrere Überschriften im Text, die mit geeigneten Elementen ausgezeichnet werden müssen:
-   1. Die Hauptüberschrift: "Wir wollen Ihr Feedback!".
-   2. Zweite Ebene Überschriften: "Einrichtungen", "Über Ihre Gastgeber", "Weitere Rückmeldungen?" und "Ihre Daten".
-2. Der einleitende Absatz unter der Hauptüberschrift muss angemessen ausgezeichnet werden.
-3. Verwandeln Sie im einleitenden Absatz den Text "Das kleine Haus im Wald" und "Preisauslosung" in Links. Wir haben noch keine Seiten, auf die sie verlinken können, also setzen Sie die Ziel-URL vorerst einfach als `#` für einen Platzhalter.
-4. Wir möchten, dass Sie unter dem einleitenden Absatz ein breites, flaches Bild als Dekoration platzieren. Der Bildpfad ist `https://mdn.github.io/shared-assets/images/examples/learn/woodland-strip.jpg`, und wir möchten, dass Sie den alternativen Text auf einen leeren Wert setzen, da es sich nur um eine Dekoration handelt.
-5. In Fortführung des vorherigen Punktes, als erweitertes Ziel, recherchieren Sie eine bessere Möglichkeit, das dekorative Bild auf der Seite einzubinden, und versuchen Sie, es umzusetzen (dies betrifft eine andere Technologie als HTML, die wir in diesem Modul noch nicht behandelt haben).
+1. Mehrere Überschriften im Text müssen mit geeigneten Elementen ausgezeichnet werden:
+   1. Die Überschrift der obersten Ebene: „We want your feedback!“.
+   2. Die Überschriften der zweiten Ebene: „Facilities“, „About your hosts“, „Any other feedback?“ und „Your details“.
+2. Der einleitende Absatz unter der Überschrift der obersten Ebene muss ebenfalls passend ausgezeichnet werden.
+3. Machen Sie im einleitenden Absatz außerdem die Texte „little house in the woods“ und „prize draw“ zu Links. Da es noch keine Seiten gibt, auf die Sie verlinken können, verwenden Sie vorerst `#` als Platzhalter für die Ziel-URL.
+4. Platzieren Sie unter dem einleitenden Absatz ein breites, flaches Bild als Dekoration. Der Bildpfad lautet `https://mdn.github.io/shared-assets/images/examples/learn/woodland-strip.jpg`. Da das Bild rein dekorativ ist, soll sein Alternativtext leer sein.
+5. Recherchieren Sie als Zusatzaufgabe eine bessere Möglichkeit, das dekorative Bild in die Seite einzubinden, und versuchen Sie, diese umzusetzen. Dazu benötigen Sie eine andere Technologie als HTML, die in diesem Modul noch nicht behandelt wurde.
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C HTML-Validator](https://validator.w3.org/), um unbeabsichtigte Fehler in Ihrem HTML zu finden und zu beheben.
-- Wenn Sie Schwierigkeiten haben und sich nicht vorstellen können, welche Elemente wo platziert werden sollen, zeichnen Sie ein einfaches Blockdiagramm des Seitenlayouts und notieren Sie die Elemente, von denen Sie glauben, dass sie jeden Block umgeben sollten. Das ist äußerst hilfreich.
+- Verwenden Sie den [W3C-HTML-Validator](https://validator.w3.org/), um unbeabsichtigte Fehler in Ihrem HTML zu finden und zu beheben.
+- Wenn Sie nicht weiterkommen und sich nicht vorstellen können, welche Elemente Sie wo einsetzen sollten, zeichnen Sie ein einfaches Blockdiagramm des Seitenlayouts. Notieren Sie darin, welche Elemente Ihrer Meinung nach die einzelnen Blöcke umschließen sollten. Das ist äußerst hilfreich.
 
 ## Beispiel
 
-Das folgende Live-Beispiel zeigt, wie das Formular nach der Markierung aussehen könnte. Wenn Sie nicht weiter wissen, wie Sie etwas erreichen können, sehen Sie sich die untenstehende Lösung an.
+Das folgende interaktive Beispiel zeigt, wie das Formular nach der Auszeichnung aussehen könnte. Falls Sie bei der Umsetzung nicht weiterkommen, sehen Sie sich die Lösung unten an.
 
 {{embedlivesample("form-finished", "100%", 500)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte folgendermaßen aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html-nolint live-sample___form-finished
 <!doctype html>
@@ -388,7 +388,15 @@ Ihr fertiges HTML sollte folgendermaßen aussehen:
 </html>
 ```
 
-Für das erweiterte Ziel könnte eine bessere Möglichkeit, dekorative Bilder auf einer Webseite hinzuzufügen, die Verwendung von [CSS-Hintergrundbildern](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders#background_images) sein. Löschen Sie das `<img>`-Element und verwenden Sie die CSS-{{cssxref("background")}} Eigenschaft, um das Bild stattdessen auf der Seite zu platzieren. Ein gutes Element, um das Hintergrundbild zu platzieren, wäre das `<form>`-Element, und Sie müssen dem Browser mitteilen, das Bild nicht zu wiederholen. Sie müssen auch einige {{cssxref("margin")}} und {{cssxref("padding")}} bereitstellen, um das Hintergrundbild so zu platzieren, dass es nicht den Text überlappt.
+```js hidden live-sample___form-finished
+document.querySelectorAll("form").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+});
+```
+
+Für die Zusatzaufgabe gibt es eine möglicherweise bessere Möglichkeit, dekorative Bilder in eine Webseite einzubinden: [CSS-Hintergrundbilder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders#background_images). Entfernen Sie das `<img>`-Element und verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background")}}, um das Bild auf der Seite zu platzieren. Das `<form>`-Element eignet sich gut als Träger des Hintergrundbilds. Sie müssen dem Browser außerdem mitteilen, dass er das Bild nicht wiederholen soll. Legen Sie mit {{cssxref("margin")}} und {{cssxref("padding")}} genügend Abstand fest, damit sich Bild und Text nicht überlagern.
 
 ```css
 form {

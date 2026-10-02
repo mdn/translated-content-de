@@ -2,24 +2,32 @@
 title: Scroll-Container
 slug: Glossary/Scroll_container
 l10n:
-  sourceCommit: dac1040b19dfd2cd2a09a4aab4f9ffd7dce65e89
+  sourceCommit: 1b3149a690cab7de2dfdfd24c273339a606982b0
 ---
 
-Ein **Scroll-Container** ist ein Elementkasten, in dem der Inhalt gescrollt werden kann, unabhängig davon, ob Scrollbalken vorhanden sind oder nicht. Ein User-Agent fügt einem Elementkasten Scrollbalken hinzu, um ihn zu einem Scroll-Container zu machen, wenn die CSS-Eigenschaft {{cssxref("overflow")}} auf `scroll` gesetzt ist oder wenn `overflow` auf `auto` gesetzt ist _und_ der Inhalt den Container überläuft.
+Ein **Scroll-Container** ist eine Elementbox, deren Inhalt gescrollt werden kann, unabhängig davon, ob Scrollleisten vorhanden sind. Eine Elementbox wird zum Scroll-Container, wenn ihre Eigenschaft {{cssxref("overflow")}} (oder {{cssxref("overflow-x")}} oder {{cssxref("overflow-y")}}) auf `scroll`, `auto` oder `hidden` gesetzt ist.
 
-Wenn der Inhalt eines Elementkastens seinen Begrenzungskasten überläuft, können Benutzer Scrollbalken verwenden, um durch den abgeschnittenen Inhalt zu scrollen, der sonst nicht sichtbar ist.
+Der jeweilige `overflow`-Wert eines Scroll-Containers bestimmt, wann Scrollleisten angezeigt werden:
 
-Ein Scroll-Container umfasst einen Sichtbereich und Scrollbalken.
+- `scroll`: Scrollleisten werden immer angezeigt, sofern die Plattform sie darstellt.
+- `auto`: Scrollleisten werden nur angezeigt, wenn der Inhalt über die Box hinausragt.
+- `hidden`: Es werden keine Scrollleisten angezeigt, und Benutzer können den Inhalt nicht direkt scrollen. Er kann jedoch weiterhin programmgesteuert gescrollt werden, beispielsweise mit [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo) oder indem ein darin enthaltenes Element den Fokus erhält.
 
-## Sichtbereich
+Ein Scroll-Container:
 
-Der Sichtbereich ist der sichtbare Teil eines Scroll-Containers und fällt mit dem Innenabstandskasten des Scroll-Containers zusammen. Die Scrollbalken werden verwendet, um Inhalte in den Sichtbereich hinein und hinaus zu bewegen, damit die Inhalte betrachtet werden können.
+- Erzeugt immer einen neuen Blockformatierungskontext. Dadurch umfasst er Floats, und seine Außenabstände fallen nicht mit den Außenabständen seiner Kindelemente zusammen.
+- Dient als Referenzbox für Nachfahren, deren {{cssxref("position")}} auf `sticky` gesetzt ist.
+- Hat als Flex- oder Grid-Element eine automatische Mindestgröße von 0 und kann daher kleiner als sein Inhalt werden.
+
+## Scrollport
+
+Ein Scroll-Container hat einen **Scrollport** – den sichtbaren Bereich des Scroll-Containers, der mit seiner Padding-Box übereinstimmt. Beim Scrollen wird Inhalt in den Scrollport hinein- und aus ihm herausbewegt.
 
 ## Siehe auch
 
-- [Lernen: Überfließender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
+- [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
 - {{Glossary("Scroll_snap", "Scroll-Snapping")}}, einschließlich {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}
-- [CSS-Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- Modul [CSS overflow](/de/docs/Web/CSS/Guides/Overflow)
+- Modul [CSS overscroll behavior](/de/docs/Web/CSS/Guides/Overscroll_behavior)
+- Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- Modul [CSS scroll-driven animations](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
