@@ -1,70 +1,72 @@
 ---
-title: Firefox 158 – Versionshinweise für Entwickler (Beta)
+title: "Firefox 158: Versionshinweise für Entwickler (Beta)"
 short-title: Firefox 158 (Beta)
 slug: Mozilla/Firefox/Releases/158
 l10n:
-  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
+  sourceCommit: 9e1bb040feef5f13af079e995b2f05eab8cd21b3
 ---
 
 Dieser Artikel informiert über die Änderungen in Firefox 158, die Entwickler betreffen.
 Firefox 158 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [13. Oktober 2026](https://whattrainisitnow.com/release/?version=158).
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version werden noch bearbeitet.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Authors: Please uncomment any headings you are writing notes for -->
+<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei den Überschriften, zu denen Sie Hinweise verfassen. -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Developer Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
-<!-- No notable changes. -->
+<!-- Keine nennenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### MathML -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### SVG -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### CSS -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### JavaScript -->
 
-<!-- No notable changes. -->
+<!-- Keine nennenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### HTTP -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
-<!-- ### Security -->
+<!-- ### Sicherheit -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
-<!-- ### APIs -->
+### APIs
+
+- [`WebTransport.getStats()`](/de/docs/Web/API/WebTransport/getStats) wird jetzt unterstützt und gibt Statistiken zur zugrunde liegenden Verbindung des Transports und zu dessen Datagrammen zurück. ([Firefox-Bug 2007202](https://bugzil.la/2007202)).
 
 <!-- #### DOM -->
 
-<!-- #### Media, WebRTC, and Web Audio -->
+<!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
-<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
-<!-- #### General -->
+<!-- #### Allgemeines -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -72,15 +74,15 @@ Firefox 158 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-- {{WebExtAPIRef("publicSuffix.isKnownSuffix()")}} löst bei Übergabe eines ungültigen Hostnamens jetzt einen Fehler aus, statt `false` zurückzugeben. ([Firefox-Bug 2066620](https://bugzil.la/2066620))
-- [`runtime.getVersion()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getVersion) wurde hinzugefügt, um die im Manifest angegebene Version der Erweiterung zurückzugeben. ([Firefox-Bug 1992418](https://bugzil.la/1992418))
+- {{WebExtAPIRef("publicSuffix.isKnownSuffix()")}} löst jetzt bei Übergabe eines ungültigen Hostnamens einen Fehler aus, statt `false` zurückzugeben. ([Firefox-Bug 2066620](https://bugzil.la/2066620))
+- [`runtime.getVersion()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getVersion) wurde hinzugefügt und gibt die im Manifest angegebene Version der Erweiterung zurück. ([Firefox-Bug 1992418](https://bugzil.la/1992418))
 
-<!-- ### Removals -->
+<!-- ### Entfernungen -->
 
-<!-- ### Other -->
+<!-- ### Sonstiges -->
 
 ## Experimentelle Webfunktionen
 
 Diese Funktionen sind in Firefox 158 enthalten, aber standardmäßig deaktiviert.
 Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Weitere Funktionen dieser Art finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
