@@ -1,36 +1,40 @@
 ---
-title: OES_texture_float Erweiterung
+title: OES_texture_float-Erweiterung
 short-title: OES_texture_float
 slug: Web/API/OES_texture_float
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 3df8fd2961a7eb4b7072c3b34c5d6300e421fe22
 ---
 
 {{APIRef("WebGL")}}
 
-Die **`OES_texture_float`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und erschließt Gleitkomma-Pixeltypen für Texturen.
+Die **`OES_texture_float`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt Gleitkomma-Pixeltypen für Texturen bereit.
 
-WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar.
+> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) sind Gleitkomma-Texturformate und der Texturdatentyp `gl.FLOAT` standardmäßig verfügbar (dabei müssen Sie ein internes Format mit festgelegter Größe wie `gl.RGBA32F` verwenden).
+>
+> In WebGL 2 benötigen Sie weiterhin Erweiterungen, damit eine Gleitkomma-Textur als Farbpuffer gerendert werden kann: Verwenden Sie die Erweiterung [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) für Gleitkomma-Farbpuffer oder [`EXT_color_buffer_half_float`](/de/docs/Web/API/EXT_color_buffer_half_float), wenn 16-Bit-Gleitkomma-Renderziele unterstützt werden, 32-Bit-Gleitkomma-Renderziele jedoch nicht.
 
 ## Erweiterte Methoden
 
 Diese Erweiterung erweitert [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D):
 
-- Der `type` Parameter akzeptiert nun `gl.FLOAT`.
-- Der `pixels` Parameter akzeptiert nun ein {{jsxref("Float32Array")}}.
+- Der Parameter `type` akzeptiert nun `gl.FLOAT`.
+- Der Parameter `pixels` akzeptiert nun ein {{jsxref("Float32Array")}}.
 
-## Einschränkung: Lineares Filtern
+## Einschränkung: Lineare Filterung
 
-Lineares Filtern bei Gleitkomma-Texturen ist mit dieser Erweiterung nicht erlaubt. Wenn Sie den Vergrößerungs- oder Verkleinerungsfilter in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf einen der Werte `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und Gleitkomma-Texturen verwenden, wird die Textur als unvollständig markiert.
+Diese Erweiterung erlaubt keine lineare Filterung von Gleitkomma-Texturen. Wenn Sie bei Verwendung von Gleitkomma-Texturen den Vergrößerungs- oder Verkleinerungsfilter mit der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen, wird die Textur als unvollständig markiert.
 
-Um lineares Filtern bei Gleitkomma-Texturen zu verwenden, aktivieren Sie zusätzlich zu dieser Erweiterung die [`OES_texture_float_linear`](/de/docs/Web/API/OES_texture_float_linear) Erweiterung.
+Um Gleitkomma-Texturen linear zu filtern, aktivieren Sie zusätzlich zu dieser Erweiterung die Erweiterung [`OES_texture_float_linear`](/de/docs/Web/API/OES_texture_float_linear).
 
 ## Gleitkomma-Farbpuffer
 
-Diese Erweiterung ermöglicht implizit die [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) Erweiterung (falls unterstützt), die das Rendering zu 32-Bit Gleitkomma-Farbpuffern erlaubt.
+In WebGL 1 aktiviert diese Erweiterung implizit die Erweiterung [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) (sofern unterstützt), die das Rendern in 32-Bit-Gleitkomma-Farbpuffer ermöglicht.
+
+Verwenden Sie in WebGL 2 stattdessen die Erweiterung [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) für Gleitkomma-Farbpuffer.
 
 ## Beispiele
 
