@@ -2,33 +2,33 @@
 title: storage.session
 slug: Mozilla/Add-ons/WebExtensions/API/storage/session
 l10n:
-  sourceCommit: 89d941878af42738cbd429acaa06789db7fa55f6
+  sourceCommit: 943001a6de1bb3afc43c26d372acbd4087b96c23
 ---
 
-Repräsentiert den `session`-Speicherbereich. Elemente im `session`-Speicher werden für die Dauer der Browsersitzung im Speicher abgelegt und nicht auf die Festplatte übertragen.
-Standardmäßig ist er für Inhalts-Skripte nicht zugänglich, dieses Verhalten kann jedoch durch {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}} geändert werden.
+Repräsentiert den `session`-Speicherbereich. Elemente im `session`-Speicher werden für die Dauer der Browser-Sitzung im Arbeitsspeicher gespeichert und nicht dauerhaft auf dem Datenträger abgelegt.
+Standardmäßig ist dieser Speicherbereich für Content-Skripte nicht zugänglich. Dieses Verhalten kann jedoch mit {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}} geändert werden.
 
-Die Datenmenge, die eine Erweiterung im Sitzungsspeicherbereich speichern kann, ist auf 10 MB begrenzt, es sei denn, in der [Browser-Kompatibilitätstabelle](#browser-kompatibilität) wird etwas anderes angegeben.
+Die Datenmenge, die eine Erweiterung im Sitzungsspeicherbereich speichern kann, ist auf 10 MB begrenzt, sofern in der [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität) nichts anderes angegeben ist.
 
-Wenn der Browser beendet wird, wird der gesamte Sitzungspeicher gelöscht. Wird die Erweiterung deinstalliert, wird der zugehörige Sitzungspeicher gelöscht.
+Wenn der Browser beendet wird, wird der gesamte Sitzungsspeicher gelöscht. Wenn die Erweiterung deaktiviert oder deinstalliert wird, wird der zugehörige Sitzungsspeicher gelöscht.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("storage.session.QUOTA_BYTES")}}
-  - : Die maximale Datenmenge (in Byte), die im Sitzungsspeicher gespeichert werden kann.
+  - : Die maximale Datenmenge (in Bytes), die im Sitzungsspeicher gespeichert werden kann.
 
 ## Methoden
 
-Das `session`-Objekt implementiert die Methoden, die auf dem Typ {{WebExtAPIRef("storage.StorageArea")}} definiert sind:
+Das `session`-Objekt implementiert die Methoden, die für den Typ {{WebExtAPIRef("storage.StorageArea")}} definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.get()", "storage.session.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.session.getBytesInUse()")}}
-  - : Liefert die Menge des Speicherplatzes (in Byte), die für ein oder mehrere Elemente im Speicherbereich genutzt wird.
+  - : Ermittelt, wie viel Speicherplatz (in Bytes) ein oder mehrere Elemente im Speicherbereich belegen.
 - {{WebExtAPIRef("storage.StorageArea.getKeys()", "storage.session.getKeys()")}}
   - : Ruft die Schlüssel aller Elemente im Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.set()", "storage.session.set()")}}
-  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn das Element bereits existiert, wird dessen Wert aktualisiert.
+  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn ein Element bereits vorhanden ist, wird sein Wert aktualisiert.
 - {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}}
   - : Legt die Zugriffsebene für den Speicherbereich fest.
 - {{WebExtAPIRef("storage.StorageArea.remove()", "storage.session.remove()")}}
@@ -38,7 +38,7 @@ Das `session`-Objekt implementiert die Methoden, die auf dem Typ {{WebExtAPIRef(
 
 ## Ereignisse
 
-Das `session`-Objekt implementiert die Ereignisse, die auf dem Typ {{WebExtAPIRef("storage.StorageArea")}} definiert sind:
+Das `session`-Objekt implementiert die Ereignisse, die für den Typ {{WebExtAPIRef("storage.StorageArea")}} definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.onChanged", "storage.session.onChanged")}}
   - : Wird ausgelöst, wenn sich ein oder mehrere Elemente im Speicherbereich ändern.
@@ -50,7 +50,7 @@ Das `session`-Objekt implementiert die Ereignisse, die auf dem Typ {{WebExtAPIRe
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-session) API. Diese Dokumentation leitet sich von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-session)-API von Chromium. Diese Dokumentation wurde aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

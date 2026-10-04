@@ -1,11 +1,11 @@
 ---
-title: declarativeNetRequest.isRegexSupported
+title: declarativeNetRequest.isRegexSupported()
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/isRegexSupported
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Überprüft, ob ein regulärer Ausdruck als [`declarativeNetRequest.RuleCondition.regexFilter`](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleCondition#regexfilter)-Regelbedingung unterstützt wird.
+Prüft, ob ein regulärer Ausdruck als Regelbedingung [`declarativeNetRequest.RuleCondition.regexFilter`](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleCondition#regexfilter) unterstützt wird.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ let count = await browser.declarativeNetRequest.isRegexSupported(
 ### Parameter
 
 - `regexOptions`
-  - : Ein Objekt, das den zu überprüfenden regulären Ausdruck enthält.
+  - : Ein Objekt, das den zu prüfenden regulären Ausdruck enthält.
     - `isCaseSensitive` {{optional_inline}}
-      - : `boolean` Gibt an, ob der angegebene reguläre Ausdruck groß-/kleinsensitiv ist. Standard ist `true`.
+      - : `boolean` Gibt an, ob beim angegebenen regulären Ausdruck zwischen Groß- und Kleinschreibung unterschieden wird. Der Standardwert ist `true`.
     - `regex`
-      - : `string` Der zu überprüfende reguläre Ausdruck.
+      - : `string` Der zu prüfende reguläre Ausdruck.
     - `requireCapturing` {{optional_inline}}
-      - : `boolean` Gibt an, ob der angegebene reguläre Ausdruck das Erfassen erfordert. Das Erfassen ist nur für Umleitungsregeln erforderlich, die eine regexSubstitution-Aktion angeben. Der Standardwert ist false.
+      - : `boolean` Gibt an, ob der angegebene reguläre Ausdruck Capturing erfordert. Capturing ist nur für Weiterleitungsregeln erforderlich, die eine regexSubstitution-Aktion angeben. Der Standardwert ist false.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches diese Eigenschaften enthält:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt mit folgenden Eigenschaften erfüllt wird:
 
 - `isSupported`
   - : `boolean` Gibt an, ob der reguläre Ausdruck unterstützt wird.
 - `reason` {{optional_inline}}
-  - : `string` Gibt den Grund an, warum der reguläre Ausdruck nicht unterstützt wird. Mögliche Werte sind `"syntaxError"` und `"memoryLimitExceeded"`. Wird nur bereitgestellt, wenn `isSupported` false ist.
+  - : `string` Gibt an, warum der reguläre Ausdruck nicht unterstützt wird. Mögliche Werte sind `"syntaxError"` und `"memoryLimitExceeded"`. Diese Eigenschaft ist nur vorhanden, wenn `isSupported` false ist.
 
 Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
@@ -44,3 +44,33 @@ Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung zurückg
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

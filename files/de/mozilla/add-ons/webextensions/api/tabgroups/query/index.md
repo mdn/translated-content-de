@@ -1,11 +1,11 @@
 ---
-title: tabGroups.query
+title: tabGroups.query()
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/query
 l10n:
-  sourceCommit: 0ddea08f7bbefccc38ae86977a2d138420cc8a67
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Gibt alle Tab-Gruppen zurück oder findet Gruppen mit bestimmten Eigenschaften.
+Gibt alle Tab-Gruppen zurück oder sucht nach Gruppen mit bestimmten Eigenschaften.
 
 ## Syntax
 
@@ -18,23 +18,23 @@ let group = await browser.tabGroups.query(
 ### Parameter
 
 - `queryInfo`
-  - : Ein Objekt, das Details zu den Eigenschaftswerten enthält, die in den zurückgegebenen Tab-Gruppen übereinstimmen sollen.
+  - : Ein Objekt mit Angaben zu den Eigenschaftswerten, die die zurückgegebenen Tab-Gruppen erfüllen müssen.
     - `collapsed` {{optional_inline}}
-      - : `boolean`. Ob die zurückgegebenen Tab-Gruppen in der Tableiste zusammengeklappt oder erweitert sind.
-        - In Firefox kann eine zusammengeklappte Gruppe den aktiven Tab enthalten. Der aktive Tab bleibt sichtbar und inaktive Tabs sind zusammengeklappt.
-        - In Chrome sind Gruppen vollständig zusammengeklappt. Wenn die Gruppe den aktiven Tab enthält, wenn sie zusammengeklappt ist, wird der aktive Tab auf den ersten Tab rechts von der Gruppe verschoben. Wenn es keinen Tab rechts von der Gruppe gibt, wird er auf den Tab direkt links von der Gruppe verschoben.
+      - : `boolean`. Gibt an, ob die zurückgegebenen Tab-Gruppen in der Tableiste eingeklappt oder ausgeklappt sind.
+        - In Firefox kann eine eingeklappte Gruppe den aktiven Tab enthalten. Der aktive Tab bleibt sichtbar, während inaktive Tabs eingeklappt werden.
+        - In Chrome werden Gruppen vollständig eingeklappt. Wenn die Gruppe beim Einklappen den aktiven Tab enthält, wird dieser zum ersten Tab rechts neben der Gruppe verschoben. Gibt es rechts neben der Gruppe keinen Tab, wird er zum unmittelbar links neben der Gruppe befindlichen Tab verschoben.
     - `color` {{optional_inline}}
       - : {{WebExtAPIRef("tabGroups.Color")}}. Der Name der Farbe, die die zurückgegebenen Tab-Gruppen verwenden.
     - `shared` {{optional_inline}}
-      - : `boolean`. Ob die zurückgegebenen Tab-Gruppen gemeinsam genutzt werden.
+      - : `boolean`. Gibt an, ob die zurückgegebenen Tab-Gruppen geteilt sind.
     - `title` {{optional_inline}}
       - : `string`. Der Name der zurückzugebenden Tab-Gruppen.
     - `windowId` {{optional_inline}}
-      - : `integer`. Die ID des Fensters, in dem sich die zurückgegebene Tab-Gruppe befindet.
+      - : `integer`. Die ID des Fensters, in dem sich die zurückgegebenen Tab-Gruppen befinden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekten erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekten erfüllt wird. Schlägt die Anfrage fehl, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 {{WebExtExamples("h2")}}
 

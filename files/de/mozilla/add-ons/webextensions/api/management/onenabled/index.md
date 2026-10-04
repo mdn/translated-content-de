@@ -1,13 +1,13 @@
 ---
-title: management.onEnabled()
+title: management.onEnabled
 slug: Mozilla/Add-ons/WebExtensions/API/management/onEnabled
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Der Event-Listener, der aufgerufen wird, wenn das `enabled`-Ereignis ausgelöst wird, was anzeigt, dass ein Add-on jetzt aktiviert ist.
+Der Event-Listener wird aufgerufen, wenn das `enabled`-Ereignis ausgelöst wird. Es zeigt an, dass ein Add-on nun aktiviert ist.
 
-Diese API erfordert die Berechtigung "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) „management“.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn dies der Fall ist, andernfalls `false`.
 
 ## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält dieses Argument:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `info`
       - : [`ExtensionInfo`](/de/docs/Mozilla/Add-ons/WebExtensions/API/management/ExtensionInfo): Informationen über das aktivierte Add-on.
 
 ## Beispiele
 
-Protokollieren Sie die Namen der Add-ons, wenn sie aktiviert werden:
+Die Namen von Add-ons protokollieren, wenn sie aktiviert werden:
 
 ```js
 browser.management.onEnabled.addListener((info) => {
@@ -52,7 +52,7 @@ browser.management.onEnabled.addListener((info) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onEnabled) API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onEnabled)-API von Chromium. Diese Dokumentation wurde aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

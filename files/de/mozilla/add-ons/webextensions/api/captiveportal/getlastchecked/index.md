@@ -1,11 +1,11 @@
 ---
-title: getLastChecked
+title: captivePortal.getLastChecked()
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/getLastChecked
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 2243f13a22ceac13547bee6da3400d332cbfbb71
 ---
 
-Gibt die Zeit seit der letzten abgeschlossenen Anfrage zurück.
+Gibt die Zeit zurück, die seit dem Abschluss der letzten Anfrage vergangen ist.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ let state = browser.captivePortal.getLastChecked()
 
 ### Rückgabewert
 
-Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Ganzzahl erfüllt wird, die die Zeit in Millisekunden darstellt.
+Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Ganzzahl erfüllt wird, die eine Zeit in Millisekunden angibt.
 
 {{WebExtExamples}}
 

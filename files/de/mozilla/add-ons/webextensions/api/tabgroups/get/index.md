@@ -1,11 +1,11 @@
 ---
-title: tabGroups.get
+title: tabGroups.get()
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/get
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Gibt Details zu einer Tab-Gruppe zurück.
+Gibt Details zu einer Tabgruppe zurück.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ let tabGroupDetails = await browser.tabGroups.get(
 ### Parameter
 
 - `groupId`
-  - : `integer`. Die ID der Tab-Gruppe, für die Details zurückgegeben werden sollen.
+  - : `integer`. Die ID der Tabgruppe, deren Details zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekt erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die mit einem {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekt erfüllt wird. Wenn die Anfrage fehlschlägt, wird die Promise mit einer Fehlermeldung zurückgewiesen.
 
 {{WebExtExamples("h2")}}
 

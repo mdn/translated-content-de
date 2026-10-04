@@ -1,18 +1,18 @@
 ---
-title: declarativeNetRequest.updateSessionRules
+title: declarativeNetRequest.updateSessionRules()
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateSessionRules
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Modifiziert die Menge der sitzungsbezogenen Regeln für die Erweiterung. Die Regeln mit den in `options.removeRuleIds` aufgeführten IDs werden zuerst entfernt und dann die in `options.addRules` angegebenen Regeln hinzugefügt. Beachten Sie, dass:
+Ändert die sitzungsbezogenen Regeln der Erweiterung. Zuerst werden die Regeln mit den in `options.removeRuleIds` aufgeführten IDs entfernt. Anschließend werden die in `options.addRules` angegebenen Regeln hinzugefügt. Beachten Sie Folgendes:
 
-- Dieses Update als atomare Operation erfolgt: Entweder werden alle angegebenen Regeln hinzugefügt und entfernt, oder es wird ein Fehler zurückgegeben.
-- Diese Regeln werden über Browser-Sitzungen hinweg nicht gespeichert.
+- Diese Aktualisierung erfolgt atomar: Entweder werden alle angegebenen Regeln hinzugefügt und entfernt, oder es wird ein Fehler zurückgegeben.
+- Diese Regeln bleiben nicht über Browsersitzungen hinweg erhalten.
 - Die Anzahl der sitzungsbezogenen Regeln, die hinzugefügt werden können, ist begrenzt:
-  - In Safari und bis Chrome 119, auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES", "MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}} für die kombinierte Gesamtzahl von dynamischen und sitzungsbezogenen Regeln.
-  - Bis Firefox 127, auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES", "MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}}.
-  - Ab Chrome 120 und Firefox 128, auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES", "MAX_NUMBER_OF_SESSION_RULES")}}.
+  - In Safari und bis einschließlich Chrome 119 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}} für die Gesamtzahl der dynamischen und sitzungsbezogenen Regeln.
+  - Bis einschließlich Firefox 127 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES","MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES")}}.
+  - Ab Chrome 120 und Firefox 128 auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES","MAX_NUMBER_OF_SESSION_RULES")}}.
 
 ## Syntax
 
@@ -25,15 +25,15 @@ let rulesetUpdated = browser.declarativeNetRequest.updateSessionRules(
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Details der hinzuzufügenden oder aus den dynamischen Regeln zu löschenden Regeln enthält.
+  - : Ein Objekt mit Angaben zu den Regeln, die den dynamischen Regeln hinzugefügt oder daraus gelöscht werden sollen.
     - `addRules` {{optional_inline}}
-      - : Ein Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}. Details der hinzuzufügenden Regeln.
+      - : Ein Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}. Angaben zu den hinzuzufügenden Regeln.
     - `removeRuleIds` {{optional_inline}}
       - : Ein Array von `number`. IDs der zu entfernenden Regeln. Ungültige IDs werden ignoriert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird die Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird die Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 

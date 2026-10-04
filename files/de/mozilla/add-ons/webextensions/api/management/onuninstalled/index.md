@@ -1,13 +1,13 @@
 ---
-title: management.onUninstalled()
+title: management.onUninstalled
 slug: Mozilla/Add-ons/WebExtensions/API/management/onUninstalled
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
 Wird ausgelöst, wenn ein Add-on deinstalliert wird.
 
-Diese API erfordert die Berechtigung "management" für die [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) „management“.
 
 ## Syntax
 
@@ -17,27 +17,27 @@ browser.management.onUninstalled.removeListener(listener)
 browser.management.onUninstalled.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Für Events stehen drei Funktionen zur Verfügung:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt diesem Event einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Beendet das Abhören dieses Events. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn gelauscht wird, andernfalls `false`.
+  - : Prüft, ob ein `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn er registriert ist, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Event eintritt. Der Funktion wird das folgende Argument übergeben:
     - `info`
       - : [`ExtensionInfo`](/de/docs/Mozilla/Add-ons/WebExtensions/API/management/ExtensionInfo): Informationen über das deinstallierte Add-on.
 
 ## Beispiele
 
-Protokolliert die Namen der Add-ons, wenn sie deinstalliert werden:
+Die Namen von Add-ons protokollieren, wenn sie deinstalliert werden:
 
 ```js
 browser.management.onUninstalled.addListener((info) => {
@@ -52,7 +52,7 @@ browser.management.onUninstalled.addListener((info) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onUninstalled) API. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#event-onUninstalled)-API von Chromium. Diese Dokumentation wurde aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

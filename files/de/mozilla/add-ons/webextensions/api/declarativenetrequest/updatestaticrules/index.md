@@ -1,13 +1,13 @@
 ---
-title: declarativeNetRequest.updateStaticRules
+title: declarativeNetRequest.updateStaticRules()
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateStaticRules
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Ändert den Aktivierungsstatus von Regeln in einem statischen Regelwerk. Die Anzahl der Regeln, die in einem Regelwerk deaktiviert werden können, ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
+Ändert den Aktivierungsstatus von Regeln in einem statischen Regelsatz. Die Anzahl der Regeln, die in einem Regelsatz deaktiviert werden können, ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
 
-Regeln können aktiviert und deaktiviert werden, während das Regelwerk, das sie enthält, deaktiviert ist. Änderungen werden wirksam, wenn das Regelwerk aktiviert wird.
+Regeln können aktiviert und deaktiviert werden, während der Regelsatz, zu dem sie gehören, deaktiviert ist. Die Änderungen werden wirksam, sobald der Regelsatz aktiviert wird.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ let staticRulesUpdated = browser.declarativeNetRequest.updateStaticRules(
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das ein statisches Regelwerk angibt und die Regeln, die in diesem Regelwerk aktiviert oder deaktiviert werden sollen.
+  - : Ein Objekt, das einen statischen Regelsatz und die darin zu aktivierenden oder zu deaktivierenden Regeln angibt.
     - `rulesetId` rulesetId
-      - : `string` Die ID des zu ändernden statischen Regelwerks.
+      - : `string` Die ID des zu ändernden statischen Regelsatzes.
     - `disableRuleIds` {{optional_inline}}
-      - : Ein Array von `number`. IDs der zu deaktivierenden Regeln. Ungültige IDs werden ignoriert.
+      - : Ein Array von `number`-Werten. IDs der zu deaktivierenden Regeln. Ungültige IDs werden ignoriert.
     - `enableRuleIds` {{optional_inline}}
-      - : Ein Array von `number`. IDs der zu aktivierenden Regeln. Ungültige IDs werden ignoriert.
+      - : Ein Array von `number`-Werten. IDs der zu aktivierenden Regeln. Ungültige IDs werden ignoriert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise ohne Argumente erfüllt. Schlägt die Anfrage fehl, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 {{WebExtExamples("h2")}}
 

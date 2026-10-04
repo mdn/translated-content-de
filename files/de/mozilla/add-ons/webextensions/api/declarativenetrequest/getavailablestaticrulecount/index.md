@@ -1,11 +1,11 @@
 ---
-title: declarativeNetRequest.getAvailableStaticRuleCount
+title: declarativeNetRequest.getAvailableStaticRuleCount()
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getAvailableStaticRuleCount
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
 ---
 
-Gibt die Anzahl der statischen Regeln zurück, die aktiviert werden können, bevor das globale Limit für statische Regeln erreicht wird. Weitere Informationen zu den Grenzwerten für statische Regelsätze und Regeln finden Sie unter [Grenzwerte für statische Regelsätze](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Gibt die Anzahl der statischen Regeln zurück, die noch aktiviert werden können, bevor das globale Limit für statische Regeln erreicht wird. Weitere Informationen zu den Limits für statische Regelsätze und Regeln finden Sie unter [Limits für statische Regelsätze](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
 ## Syntax
 
@@ -15,11 +15,11 @@ let count = await browser.declarativeNetRequest.getAvailableStaticRuleCount();
 
 ### Parameter
 
-Diese Funktion benötigt keine Parameter.
+Diese Funktion nimmt keine Parameter entgegen.
 
 ### Rückgabewert
 
-Ein mit einem [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) erfülltes Versprechen, das eine Zahl zurückgibt, die angibt, wie viele statische Regeln aktiviert werden können, bevor das globale Limit für statische Regeln erreicht ist. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Zahl erfüllt wird. Diese gibt an, wie viele statische Regeln noch aktiviert werden können, bevor das globale Limit für statische Regeln erreicht wird. Schlägt die Anfrage fehl, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
