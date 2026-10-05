@@ -1,45 +1,51 @@
 ---
-title: CSS-Typ `<timeline-range-name>`
+title: CSS-Datentyp `<timeline-range-name>`
 short-title: <timeline-range-name>
 slug: Web/CSS/Reference/Values/timeline-range-name
 l10n:
-  sourceCommit: 5f3da7dfeb0b6938fcae8a08fc08f9b8aea1ff65
+  sourceCommit: 4aba58b4ad2745a73054f60b6d649d8e29b7b44d
 ---
 
-Der {{Glossary("enumerated", "aufgezählte")}} Datentyp **`<timeline-range-name>`** ist ein CSS-Identifier, der einen der vordefinierten benannten Timeline-Bereiche innerhalb einer [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) darstellt.
+Der **`<timeline-range-name>`**-Datentyp ist ein {{Glossary("enumerated", "Aufzählungstyp")}} und bezeichnet einen CSS-Bezeichner, der einen der vordefinierten benannten Zeitachsenbereiche innerhalb einer [Ansichtsfortschritts-Zeitachse](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) repräsentiert.
 
-Die Schlüsselwortwerte von `<timeline-range-name>` werden in [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) sowie in den folgenden Longhand- und Shorthand-Eigenschaften verwendet:
+Die Schlüsselwortwerte von `<timeline-range-name>` werden in [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) sowie in den folgenden Lang- und Kurzschreibweise-Eigenschaften verwendet:
 
 - {{cssxref("animation-range-end")}}
 - {{cssxref("animation-range-start")}}
-- Shorthand {{cssxref("animation-range")}}
+- {{cssxref("animation-range")}} (Kurzschreibweise)
+- {{cssxref("timeline-trigger-activation-range-end")}}
+- {{cssxref("timeline-trigger-activation-range-start")}}
+- {{cssxref("timeline-trigger-activation-range")}} (Kurzschreibweise)
+- {{cssxref("timeline-trigger-active-range-end")}}
+- {{cssxref("timeline-trigger-active-range-start")}}
+- {{cssxref("timeline-trigger-active-range")}} (Kurzschreibweise)
 
 ## Syntax
 
 Gültige Werte für `<timeline-range-name>`:
 
 - `cover`
-  - : Stellt den vollständigen Bereich einer View-Progress-Timeline dar: vom Punkt, an dem die Start-Rahmenkante des Subjektelements erstmals in den Sichtbarkeitsbereich des View-Fortschritts des Scrollports eintritt (`0%` Fortschritt), bis zu dem Punkt, an dem die End-Rahmenkante ihn vollständig verlassen hat (`100%` Fortschritt). Dies ist der Standardbereich für [View-Progress-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines).
+  - : Repräsentiert den gesamten Bereich einer Ansichtsfortschritts-Zeitachse: vom Punkt, an dem die vordere Rahmenkante des Bezugselements erstmals in den Sichtbarkeitsbereich für den Ansichtsfortschritt des Scrollports eintritt (`0%` Fortschritt), bis zu dem Punkt, an dem die hintere Rahmenkante diesen vollständig verlassen hat (`100%` Fortschritt). Dies ist der Standardbereich für [Ansichtsfortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines).
 
 - `contain`
-  - : Stellt den Bereich einer View-Progress-Timeline dar, in dem das Subjektelement vollständig innerhalb des Sichtbarkeitsbereichs des View-Fortschritts im {{Glossary("Scroll_container#scrollport", "Scrollport")}} enthalten ist oder diesen vollständig enthält.
-    - Wenn das Subjektelement kleiner als der Scrollport ist, reicht der Bereich von dem Punkt, an dem das Subjektelement erstmals vollständig im Scrollport enthalten ist (`0%` Fortschritt), bis zu dem Punkt, an dem es nicht mehr vollständig im Scrollport enthalten ist (`100%` Fortschritt).
-    - Wenn das Subjektelement größer als der Scrollport ist, reicht der Bereich von dem Punkt, an dem das Subjektelement den Scrollport erstmals vollständig überdeckt (`0%` Fortschritt), bis zu dem Punkt, an dem es den Scrollport nicht mehr vollständig überdeckt (`100%` Fortschritt).
+  - : Repräsentiert den Bereich einer Ansichtsfortschritts-Zeitachse, in dem das Bezugselement vollständig im Sichtbarkeitsbereich für den Ansichtsfortschritt innerhalb des {{Glossary("Scroll_container#scrollport", "Scrollports")}} enthalten ist oder diesen vollständig umfasst.
+    - Ist das Bezugselement kleiner als der Scrollport, reicht der Bereich von dem Punkt, an dem das Bezugselement erstmals vollständig im Scrollport enthalten ist (`0%` Fortschritt), bis zu dem Punkt, an dem es nicht mehr vollständig darin enthalten ist (`100%` Fortschritt).
+    - Ist das Bezugselement größer als der Scrollport, reicht der Bereich von dem Punkt, an dem das Bezugselement den Scrollport erstmals vollständig bedeckt (`0%` Fortschritt), bis zu dem Punkt, an dem es ihn nicht mehr vollständig bedeckt (`100%` Fortschritt).
 
 - `entry`
-  - : Stellt den Bereich einer View-Progress-Timeline von dem Punkt dar, an dem das Subjektelement erstmals beginnt, in den Scrollport einzutreten, bis zu dem Punkt, an dem es vollständig in den Scrollport eingetreten ist. `0%` entspricht `0%` des Bereichs `cover`. `100%` entspricht `0%` des Bereichs `contain`.
+  - : Repräsentiert den Bereich einer Ansichtsfortschritts-Zeitachse von dem Punkt, an dem das Bezugselement beginnt, in den Scrollport einzutreten, bis zu dem Punkt, an dem es vollständig eingetreten ist. `0%` entspricht `0%` des `cover`-Bereichs. `100%` entspricht `0%` des `contain`-Bereichs.
 
 - `exit`
-  - : Stellt den Bereich einer View-Progress-Timeline von dem Punkt dar, an dem das Subjektelement erstmals beginnt, den Scrollport zu verlassen, bis zu dem Punkt, an dem es den Scrollport vollständig verlassen hat. `0%` entspricht `100%` des Bereichs `contain`. `100%` entspricht `100%` des Bereichs `cover`.
+  - : Repräsentiert den Bereich einer Ansichtsfortschritts-Zeitachse von dem Punkt, an dem das Bezugselement beginnt, den Scrollport zu verlassen, bis zu dem Punkt, an dem es ihn vollständig verlassen hat. `0%` entspricht `100%` des `contain`-Bereichs. `100%` entspricht `100%` des `cover`-Bereichs.
 
 - `entry-crossing`
-  - : Stellt den Bereich dar, während dessen die Hauptbox die End-Rahmenkante kreuzt. Der Anfang des Bereichs (`0%` Fortschritt) tritt ein, wenn die Start-Rahmenkante der Hauptbox des Elements mit der Endkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Das Ende des Bereichs (`100%`) ist der Punkt, an dem die End-Rahmenkante der Hauptbox des Elements mit der Endkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Die Größe des Bereichs entspricht der Größe der Hauptbox des Elements in Scrollrichtung.
+  - : Repräsentiert den Bereich, in dem die Hauptbox die hintere Rahmenkante überquert. Der Beginn des Bereichs (`0%` Fortschritt) liegt an dem Punkt, an dem die vordere Rahmenkante der Hauptbox des Elements mit der hinteren Kante seines Sichtbarkeitsbereichs für den Ansichtsfortschritt zusammenfällt. Das Ende des Bereichs (`100%`) liegt an dem Punkt, an dem die hintere Rahmenkante der Hauptbox des Elements mit der hinteren Kante dieses Sichtbarkeitsbereichs zusammenfällt. Die Länge des Bereichs entspricht der Größe der Hauptbox des Elements in Scrollrichtung.
 
 - `exit-crossing`
-  - : Stellt den Bereich dar, in dem die Hauptbox die Start-Rahmenkante kreuzt. Der Bereichsanfang (`0%` Fortschritt) tritt ein, wenn die Start-Rahmenkante der Hauptbox des Elements mit der Startkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Das Bereichsende (`100%` Fortschritt) ist der Punkt, an dem die End-Rahmenkante der Hauptbox des Elements mit der Startkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Die Größe des Bereichs entspricht der Größe der Hauptbox des Elements in Scrollrichtung.
+  - : Repräsentiert den Bereich, in dem die Hauptbox die vordere Rahmenkante überquert. Der Beginn des Bereichs (`0%` Fortschritt) liegt an dem Punkt, an dem die vordere Rahmenkante der Hauptbox des Elements mit der vorderen Kante seines Sichtbarkeitsbereichs für den Ansichtsfortschritt zusammenfällt. Das Ende des Bereichs (`100%` Fortschritt) liegt an dem Punkt, an dem die hintere Rahmenkante der Hauptbox des Elements mit der vorderen Kante dieses Sichtbarkeitsbereichs zusammenfällt. Die Länge des Bereichs entspricht der Größe der Hauptbox des Elements in Scrollrichtung.
 
 - `scroll`
-  - : Stellt den vollständigen Bereich des {{Glossary("scroll_container", "Scroll-Containers")}} dar, für den die View-Progress-Timeline definiert ist. Der Bereichsanfang (`0%` Fortschritt) und das Bereichsende (`100%` Fortschritt) befinden sich an den äußersten Start- und Endpositionen des Scroll-Containers, der der View-Progress-Timeline zugrunde liegt. Dies ist der Standardbereich für [Scroll-Progress-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
+  - : Repräsentiert den gesamten Bereich des {{Glossary("scroll_container", "Scroll-Containers")}}, für den die Ansichtsfortschritts-Zeitachse definiert ist. Der Beginn (`0%` Fortschritt) und das Ende (`100%` Fortschritt) des Bereichs liegen an der Anfangs- bzw. Endposition des Scroll-Containers, der der Ansichtsfortschritts-Zeitachse zugrunde liegt. Dies ist der Standardbereich für [Scrollfortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
 
 ## Formale Syntax
 
@@ -47,7 +53,7 @@ Gültige Werte für `<timeline-range-name>`:
 
 ## Beispiele
 
-Siehe den [Visualisierer für View-Timeline-Bereiche](https://scroll-driven-animations.style/tools/view-timeline/ranges/).
+Siehe die [Visualisierung der Bereiche einer Ansichts-Zeitachse](https://scroll-driven-animations.style/tools/view-timeline/ranges/).
 
 ## Spezifikationen
 
@@ -64,7 +70,8 @@ Siehe den [Visualisierer für View-Timeline-Bereiche](https://scroll-driven-anim
 - {{cssxref("scroll-timeline")}}
 - {{cssxref("view-timeline-inset")}}
 - {{cssxref("animation-timeline/scroll", "scroll()")}}, {{cssxref("animation-timeline/view", "view()")}}
-- [Benannte Timeline-Bereiche verstehen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
-- [Scroll-gesteuerte Animations-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- Modul [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
-- [Visualisierer für View-Timeline-Bereiche](https://scroll-driven-animations.style/tools/view-timeline/ranges/)
+- [Zeitachsenbereichsnamen verstehen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
+- [Zeitachsen für scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- Modul [Scrollgesteuerte CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- Modul [CSS-Animationstrigger](/de/docs/Web/CSS/Guides/Animation_triggers)
+- [Visualisierung der Bereiche einer Ansichts-Zeitachse](https://scroll-driven-animations.style/tools/view-timeline/ranges/)

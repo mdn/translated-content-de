@@ -3,18 +3,19 @@ title: CSS-Abstände
 short-title: Gaps
 slug: Web/CSS/Guides/Gaps
 l10n:
-  sourceCommit: 71fd49d60a856bd15c6fe2e8328147c9d3bcc67d
+  sourceCommit: 04dfe418f2942ae739d41592c22fafa3679fc03c
 ---
 
-Das Modul **CSS gaps** ermöglicht es Ihnen, Abstände („Gaps“) zwischen Elementen in [mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout) festzulegen. Das Modul [CSS multi-column layout](/de/docs/Web/CSS/Guides/Multicol_layout) definierte ursprünglich Abstände und Trennlinien, mit denen sich der Abstand zwischen Spalten in mehrspaltigen Containern steuern lässt. Das Modul CSS gaps erweitert diese sichtbaren Trennelemente, die als _Gap-Dekorationen_ bezeichnet werden, auf Grid und Flexbox.
+Mit dem Modul **CSS gaps** können Sie Abstände („Gaps“) zwischen Elementen in [mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout) festlegen. Das Modul [CSS multi-column layout](/de/docs/Web/CSS/Guides/Multicol_layout) definierte ursprünglich Abstände und Trennlinien, die den Abstand zwischen Spalten in mehrspaltigen Containern steuern. Dieses Modul erweitert die sichtbaren Trennlinien, die als _Gap-Dekorationen_ bezeichnet werden, auf Grid und Flexbox.
 
-Während {{cssxref("margin")}} und {{cssxref("padding")}} den sichtbaren Abstand um einzelne Boxen festlegen, ermöglichen die Eigenschaften dieses Moduls, den Abstand zwischen benachbarten Boxen innerhalb eines Layouts mit {{Glossary("gutters", "Zwischenräumen")}} und Gaps festzulegen. Das ist insbesondere dann nützlich, wenn sich der Abstand zwischen benachbarten Boxen vom Abstand zwischen der ersten beziehungsweise letzten Box und dem Rand des Containers unterscheiden soll. Sie können Trennlinien in jedem Gap oder nur in bestimmten Gaps anzeigen und dabei Breiten, Farben und Einzüge der Trennlinien festlegen, die sich vollständig animieren lassen.
+Während {{cssxref("margin")}} und {{cssxref("padding")}} den sichtbaren Abstand um einzelne Boxen festlegen, können Sie mit den Eigenschaften dieses Moduls den Abstand zwischen benachbarten Boxen innerhalb eines Layouts mit {{Glossary("gutters", "Zwischenräumen")}} und Gaps festlegen. Dabei kann sich der Abstand zwischen benachbarten Boxen vom Abstand zwischen der ersten beziehungsweise letzten Box und dem Rand des Containers unterscheiden. Sie können Trennlinien in jedem Gap oder nur in ausgewählten Gaps anzeigen und ihre Breite, Farbe und Einrückung vollständig animierbar festlegen.
 
-Gap-Dekorationen werden innerhalb eines Gaps als ein oder mehrere Segmente gezeichnet. Zwischen jeweils zwei benachbarten Elementen kann ein solches Segment liegen. Werden alle Segmente gezeichnet, erstrecken sich die Spalten- und Zeilentrennlinien über die gesamte Höhe beziehungsweise Breite des Containers. Die Eigenschaft {{cssxref("rule-visibility-items")}} legt fest, ob Segmente auch um Bereiche gezeichnet werden, die nicht von Elementen belegt sind. Die {{cssxref("rule-break")}}-Eigenschaften bestimmen, ob Linien unterbrochen werden, wenn sie einen Gap kreuzen. {{cssxref("rule-inset")}} legt fest, wo Segmente beginnen und enden, wenn die Linien unterbrochen werden. Werden sie nicht unterbrochen, bestimmt die Eigenschaft {{cssxref("rule-overlap")}}, in welcher Reihenfolge die Linien gezeichnet werden.
+Gap-Dekorationen werden innerhalb eines Gaps als ein oder mehrere Segmente gezeichnet, wobei zwischen jeweils zwei benachbarten Elementen ein Segment liegt.
+Wenn alle Segmente gezeichnet werden, erstrecken sich Spalten- und Zeilentrennlinien über die gesamte Höhe beziehungsweise Breite des Containers. Die Eigenschaft {{cssxref("rule-visibility-items")}} legt fest, ob Segmente auch in Bereichen gezeichnet werden, die nicht von Elementen belegt sind. Die {{cssxref("rule-break")}}-Eigenschaften bestimmen, ob Trennlinien an Kreuzungen mit einem Gap unterbrochen werden. {{cssxref("rule-inset")}} legt fest, wo Segmente beginnen und enden, wenn die Trennlinien unterbrochen werden. Werden sie nicht unterbrochen, bestimmt die Eigenschaft {{cssxref("rule-overlap")}}, in welcher Reihenfolge die Trennlinien gezeichnet werden.
 
-## Gaps in der Praxis
+## Gaps in Aktion
 
-In diesem Beispiel wird Amanda Gormans Gedicht _The Hill We Climb_ von der Amtseinführung 2021 in den USA über mehrere Spalten verteilt angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn JavaScript aktiviert ist, können Sie über die Steuerelemente die Eigenschaften {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} ändern. Außerdem können Sie die bevorzugte Anzahl der Spalten festlegen und bestimmen, ob sich der Titel und ein Zitat über alle Spalten erstrecken sollen.
+In diesem Beispiel wird Amanda Gormans Gedicht _The Hill We Climb_ von der Amtseinführung in den USA 2021 über mehrere Spalten verteilt angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn JavaScript aktiviert ist, können Sie über Bedienelemente die Eigenschaften {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} ändern. Außerdem können Sie die bevorzugte Spaltenanzahl festlegen und bestimmen, ob sich der Titel und ein Zitat über alle Spalten erstrecken sollen.
 
 ```html hidden live-sample___multicol
 <article>
@@ -451,14 +452,14 @@ Wenn die Spaltentrennlinie breiter als der Spaltenabstand ist, erscheint die dek
 
 ## Leitfäden
 
-- [Gaps definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
+- [CSS-Gaps definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
   - : Leitfaden zum Verständnis und zur Definition von Gaps in Grid-, Flexbox- und mehrspaltigen Layouts, einschließlich der Berechnung von Prozentwerten.
 - [Spalten gestalten](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
   - : Leitfaden zur Gestaltung von Spalten und zur Steuerung der Abstände zwischen ihnen.
 - [Inhaltsumbrüche in mehrspaltigen Layouts handhaben](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
-  - : Einführung in die Fragmentierungsspezifikation und die Steuerung der Stellen, an denen Spalteninhalte umbrochen werden.
+  - : Einführung in die Fragmentierungsspezifikation und die Steuerung von Umbrüchen im Spalteninhalt.
 - [Leitfäden zur Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment#guides)
-  - : Wie die [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) sowie bei [Block-, absolut positionierten und Tabellenlayouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
+  - : Wie die [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) bei [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) sowie bei [Block-, absolut positionierten und Tabellen-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
 
 ## Verwandte Konzepte
 

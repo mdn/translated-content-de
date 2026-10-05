@@ -3,12 +3,12 @@ title: "`row-rule-width` CSS property"
 short-title: row-rule-width
 slug: Web/CSS/Reference/Properties/row-rule-width
 l10n:
-  sourceCommit: a9dc3374034d357cbfea717fd5d641605359e3c7
+  sourceCommit: 04dfe418f2942ae739d41592c22fafa3679fc03c
 ---
 
 {{SeeCompatTable}}
 
-Die **`row-rule-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breiten der Linien, die zwischen den Zeilen in mehrzeiligen Raster-, Flex- und Multi-Col-Layouts gezeichnet werden.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-rule-width`** legt die Breite der Linien fest, die in mehrzeiligen Grid-, Flex- und mehrspaltigen Layouts zwischen den Zeilen gezeichnet werden.
 
 {{InteractiveExample("CSS Demo: row-rule-width")}}
 
@@ -82,32 +82,32 @@ row-rule-width: unset;
 
 ### Werte
 
-Die `row-rule-width`-Eigenschaft akzeptiert eine durch Kommas getrennte Liste von Werten, einschließlich:
+Die Eigenschaft `row-rule-width` akzeptiert eine durch Kommas getrennte Liste von Werten, darunter:
 
 - `<line-width>`
-  - : Ein {{cssxref("&lt;line-width&gt;")}}: Dies kann eines der Schlüsselwörter `thin`, `medium` oder `thick` sein oder ein positiver {{cssxref("length")}}-Wert, der die Breite der Linie darstellt. Der Standardwert ist `medium`.
+  - : Ein {{cssxref("&lt;line-width&gt;")}}-Wert: Dies kann eines der Schlüsselwörter `thin`, `medium` oder `thick` oder ein positiver {{cssxref("length")}}-Wert sein, der die Breite der Linie angibt. Der Standardwert ist `medium`.
 
 - `<repeat-line-width>`
-  - : Eine {{cssxref("repeat()")}}-Funktion, wobei das erste Argument eine {{cssxref("&lt;integer&gt;")}} von `1` oder mehr ist, und eines oder mehrere {{cssxref("&lt;line-width&gt;")}}-Werte als nachfolgende Argumente. Der ganzzahlige Wert definiert, wie oft die `<line-width>`-Werte wiederholt werden sollen.
+  - : Eine {{cssxref("repeat()")}}-Funktion mit einem {{cssxref("&lt;integer&gt;")}}-Wert von mindestens `1` als erstem Argument und einem oder mehreren {{cssxref("&lt;line-width&gt;")}}-Werten als weiteren Argumenten. Der Integer-Wert legt fest, wie oft die `<line-width>`-Werte wiederholt werden.
 
 - `<auto-repeat-line-width>`
-  - : Eine {{cssxref("repeat()")}}-Funktion, mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als nachfolgende Argumente. Die angegebenen `<line-width>`-Werte werden so oft wie nötig wiederholt, um Werte für alle Zeilenregeln zu füllen, die nicht von anderen Komponenten des Eigenschaftswertes explizit angegeben sind.
+  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Die angegebenen `<line-width>`-Werte werden so oft wiederholt, wie nötig ist, um Werte für alle Zeilentrennlinien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
 
 ## Beschreibung
 
-Die `row-rule-width`-Eigenschaft definiert die Breiten der Zeilenregel-Linien, die in den Zwischenräumen zwischen Zeilen in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Raster-](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Zeile gezeichnet werden.
+Die Eigenschaft `row-rule-width` legt die Breite von Zeilentrennlinien fest, die in den Abständen zwischen Zeilen von [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Zeile gezeichnet werden.
 
-Der Wert ist eine durch Kommas getrennte Liste von Komponenten, die `<line-width>`, `<repeat-line-width>` und `<auto-repeat-line-width>` Typen enthalten kann.
+Der Wert ist eine durch Kommas getrennte Liste von Bestandteilen der Typen `<line-width>`, `<repeat-line-width>` und `<auto-repeat-line-width>`.
 
-Die `row-rule-width` kann zusammen mit den Eigenschaften {{cssxref("row-rule-color")}} und {{cssxref("row-rule-style")}} über die Kurzform {{cssxref("row-rule")}} festgelegt werden. Die `row-rule-width` kann auch zusammen mit der {{cssxref("column-rule-width")}}-Eigenschaft über die Kurzform {{cssxref("rule-width")}} festgelegt werden.
+`row-rule-width` kann zusammen mit den Eigenschaften {{cssxref("row-rule-color")}} und {{cssxref("row-rule-style")}} über die Kurzschreibweise {{cssxref("row-rule")}} festgelegt werden. Zusammen mit der Eigenschaft {{cssxref("column-rule-width")}} kann `row-rule-width` auch über die Kurzschreibweise {{cssxref("rule-width")}} festgelegt werden.
 
-Wenn der Eigenschaftswert nur aus einem `<line-width>` besteht, werden alle Zeilenregeln diese Breite haben. Wenn wir das Folgende deklarieren, werden alle Zeilenregeln `3px` sein:
+Besteht der Eigenschaftswert nur aus einem `<line-width>`-Wert, haben alle Zeilentrennlinien diese Breite. Mit der folgenden Deklaration sind alle Zeilentrennlinien `3px` breit:
 
 ```css
 row-rule-width: 3px;
 ```
 
-Wenn mehr als ein `<line-width>` deklariert wird, werden sie auf die Zeilenregeln in der angegebenen Reihenfolge angewendet. Gibt es mehr Zeilenregeln als `<line-width>`-Werte, wird die Liste der Linienbreiten so lange wiederholt, bis jede Regel eine Breite hat. Wenn wir das Folgende deklarieren, wird jede ungerade Regel zum Beispiel `thin` sein, und jede gerade Regel wird `1em` sein.
+Werden mehrere `<line-width>`-Werte angegeben, werden sie in der angegebenen Reihenfolge auf die Zeilentrennlinien angewendet. Gibt es mehr Zeilentrennlinien als `<line-width>`-Werte, wird die Liste der Linienbreiten wiederholt, bis jeder Trennlinie eine Breite zugewiesen ist. Bei der folgenden Deklaration ist beispielsweise jede ungerade Trennlinie `thin` und jede gerade Trennlinie `1em` breit:
 
 ```css
 row-rule-width: thin, 1em;
@@ -115,16 +115,16 @@ row-rule-width: thin, 1em;
 
 ### Wiederholte Linienbreiten
 
-Die `repeat()`-Funktion, mit einer Ganzzahl von `1` oder mehr als erstem Argument, kann verwendet werden, um eine gültige Liste von CSS-{{cssxref("&lt;line-width&gt;")}} Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht es, dieselben Breiten mehrmals festzulegen, ohne die gleichen Werte mehrfach zu wiederholen. Die folgenden Deklarationen sind gleichwertig:
+Mit der Funktion `repeat()` und einem Integer-Wert von mindestens `1` als erstem Argument lässt sich eine gültige Liste von CSS-{{cssxref("&lt;line-width&gt;")}}-Werten, die als weitere Argumente übergeben werden, so oft wie angegeben wiederholen. Dadurch können dieselben Breiten mehrfach verwendet werden, ohne die Werte wiederholt ausschreiben zu müssen. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 row-rule-width: 1rem, thick, thin, thick, thin;
 row-rule-width: 1rem, repeat(2, thick, thin);
 ```
 
-Sie können beliebige `<line-width>`-Werte verwenden, einschließlich benutzerdefinierter Eigenschaften, die sich in einen `<line-width>` auflösen. Die Verwendung von `repeat()` kann Werte leichter schreibbar machen, insbesondere bei komplexen Längenberechnungen. Sie ermöglicht es, ein wiederkehrendes Muster mit einer einzigen Funktion zu schreiben, unabhängig von der Anzahl der Zeilen.
+Sie können beliebige `<line-width>`-Werte verwenden, einschließlich benutzerdefinierter Eigenschaften, deren Wert zu einem `<line-width>`-Wert aufgelöst wird. `repeat()` kann das Schreiben von Werten vereinfachen, insbesondere bei komplexen Längenberechnungen. Damit lässt sich ein wiederkehrendes Muster unabhängig von der Anzahl der Zeilen mit einer einzigen Funktion angeben.
 
-Wenn wir `--base: 1vh` und `--secondary: 1vw` festlegen, wird das Folgende ähnliche Ergebnisse wie die vorherige Deklaration liefern:
+Wenn wir `--base: 1vh` und `--secondary: 1vw` festlegen, liefert die folgende Deklaration ähnliche Ergebnisse wie die vorherige:
 
 ```css
 row-rule-width:
@@ -137,21 +137,21 @@ row-rule-width:
   thin;
 ```
 
-Dies erstellt eine Liste von sechs Breiten. Wenn die Anzahl der Breiten in der Breitenliste des `row-rule-width`-Wertes die Anzahl der Lücken zwischen den Zeilen übersteigt, werden die überschüssigen Breitenwerte ignoriert. Wenn der Container drei Zeilen hat, wird die Regel im ersten Abstand `1rem` breit sein, und die zweite wird durch die {{cssxref("min()")}}-Funktion bestimmt.
+Dadurch entsteht eine Liste mit sechs Breiten. Enthält die Breitenliste des `row-rule-width`-Werts mehr Einträge als es Abstände zwischen den Zeilen gibt, werden die überschüssigen Breitenwerte ignoriert. Hat der Container drei Zeilen, ist die Trennlinie im ersten Zwischenraum `1rem` breit; die Breite der zweiten wird durch die Funktion {{cssxref("min()")}} bestimmt.
 
-Wenn es mehr Abstände als Breiten gibt, wird die Liste der Breiten wiederholt. Wenn der Container 7, 13, 19 oder 25 Zeilen hat, wird diese Sequenz von Breiten einmal, zweimal, dreimal oder viermal wiederholt, wobei die letzte Regel `thin` ist.
+Gibt es mehr Zwischenräume als Breiten, wird die Breitenliste wiederholt. Hat der Container 7, 13, 19 beziehungsweise 25 Zeilen, wird diese Breitenfolge ein-, zwei-, drei- beziehungsweise viermal wiederholt. Die letzte Trennlinie ist dabei jeweils `thin`.
 
-### Automatisch wiederholende Linienbreiten
+### Automatisch wiederholte Linienbreiten
 
-Die `repeat()`-Funktion akzeptiert auch `auto` als erstes Argument anstelle einer positiven Ganzzahl. Mit `auto` als erstem Argument wird die Liste der `<line-width>`-Werte, die als nachfolgende Argumente übergeben werden, so oft wie nötig wiederholt, um Werte für jede Zeilenregel zu füllen, die nicht von anderen Komponenten des Eigenschaftswertes explizit angegeben wurden.
+Die Funktion `repeat()` akzeptiert als erstes Argument statt eines positiven Integer-Werts auch `auto`. In diesem Fall wird die als weitere Argumente übergebene Liste von `<line-width>`-Werten so oft wiederholt, wie nötig ist, um Werte für alle Zeilentrennlinien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
 
 ```css
 row-rule-width: thin, repeat(auto, medium), thin;
 ```
 
-In diesem Fall spielt es keine Rolle, ob der Container 3, 6, 11, 16 oder 21 Zeilen hat; die erste und letzte Zeile werden immer `thin` sein, und alle anderen Zeilenregeln werden `medium` sein. Wenn es nur 2 oder 3 Zeilen gibt, wird es keine mittleren Zeilenregeln geben.
+In diesem Fall spielt es keine Rolle, ob der Container 3, 6, 11, 16 oder 21 Zeilen hat: Die erste und die letzte Zeilentrennlinie sind immer `thin`, alle anderen Zeilentrennlinien `medium`. Bei nur 2 oder 3 Zeilen gibt es keine Zeilentrennlinien mit der Breite `medium`.
 
-Das Schlüsselwort `auto` innerhalb der `repeat()`-Funktion erstellt einen automatischen Wiederholer, der Werte für Zeilenregeln auffüllt, die sonst keine Werte aus anderen Teilen der Liste erhalten würden, um zu verhindern, dass die Liste durchlaufen wird. Höchstens kann nur ein `repeat(auto, <width>)` in einem `row-rule-width`-Wert vorhanden sein.
+Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine automatische Wiederholung, die Werte für Zeilentrennlinien bereitstellt, denen andernfalls kein Wert aus anderen Teilen der Liste zugewiesen würde. Dadurch wird verhindert, dass die Liste zyklisch wiederholt wird. Ein `row-rule-width`-Wert darf höchstens ein `repeat(auto, <width>)` enthalten.
 
 ## Formale Definition
 
@@ -165,7 +165,7 @@ Das Schlüsselwort `auto` innerhalb der `repeat()`-Funktion erstellt einen autom
 
 ### Einfaches Beispiel
 
-In diesem Beispiel definieren wir eine einzelne Breite für die Linien, die zwischen Flex-Elementen gezeichnet werden.
+In diesem Beispiel legen wir eine einheitliche Breite für die Linien zwischen Flex-Elementen fest.
 
 #### HTML
 
@@ -184,7 +184,7 @@ Wir fügen eine Liste dynamischer Sportduos ein:
 
 #### CSS
 
-Wir definieren die Liste als Flex-Container, erstellen Zeilen, indem wir die {{cssxref("flex-direction")}} auf `column` mit der Kurzform {{cssxref("flex-flow")}} einstellen. Wir fügen eine {{cssxref("gap")}} von `5px` hinzu, um genügend Platz zwischen den Zeilen zu schaffen, um unsere `3px` gestrichelte rote Regel zu platzieren:
+Wir definieren die Liste als Flex-Container und erzeugen Zeilen, indem wir {{cssxref("flex-direction")}} mithilfe der Kurzschreibweise {{cssxref("flex-flow")}} auf `column` setzen. Mit einem {{cssxref("gap")}} von `5px` schaffen wir zwischen den Zeilen genügend Platz für die rote, gestrichelte Trennlinie mit einer Breite von `3px`:
 
 ```css live-sample___basic live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -201,11 +201,11 @@ ul {
 
 {{EmbedLiveSample("Basic", "", "180")}}
 
-### Wiederholende Werte
+### Werte wiederholen
 
-Dieses Beispiel demonstriert, wie, wenn es in der Liste der Breiten weniger Werte als Zeilenregeln gibt, die Werte wiederholt werden.
+Dieses Beispiel zeigt, wie die Werte wiederholt werden, wenn die Breitenliste weniger Werte enthält, als Zeilentrennlinien vorhanden sind.
 
-Wir verwenden das gleiche HTML und CSS wie im vorherigen Beispiel, fügen jedoch drei durch Kommas getrennte Breiten als `row-rule-width`-Wert hinzu:
+Wir verwenden dasselbe HTML und CSS wie im vorherigen Beispiel und geben für `row-rule-width` drei durch Kommas getrennte Breiten an:
 
 ```css live-sample___repeat
 ul {
@@ -215,11 +215,11 @@ ul {
 
 {{EmbedLiveSample("Repeat", "", "180")}}
 
-### Verwendung der `repeat()`-Funktion
+### Die Funktion `repeat()` verwenden
 
-Dieses Beispiel demonstriert die Verwendung der `repeat()`-Funktion innerhalb des `row-rule-width`-Eigenschaftswerts und wie diese Funktion helfen kann, die Ausführlichkeit von Wertdeklarationen zu reduzieren.
+Dieses Beispiel zeigt, wie die Funktion `repeat()` innerhalb des Eigenschaftswerts von `row-rule-width` verwendet wird und wie sie Wertdeklarationen kürzer machen kann.
 
-Wir verwenden das gleiche HTML und CSS wie in den vorherigen Beispielen. Um zu demonstrieren, wie Werte ausführlich werden können und die Nützlichkeit der `repeat()`-Funktion, deklarieren wir zwei benutzerdefinierte Eigenschaften, die wir in `repeat()`-Funktionserklärungen verwenden. Die `repeat()`-Funktion setzt eine Liste von zwei `<line-width>`-Werten, die dreimal wiederholt werden.
+Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen. Um zu zeigen, wie lang Wertangaben werden können und welchen Nutzen die Funktion `repeat()` bietet, deklarieren wir zwei benutzerdefinierte Eigenschaften und verwenden sie in `repeat()`-Funktionsaufrufen. Die Funktion `repeat()` legt fest, dass eine Liste aus zwei `<line-width>`-Werten dreimal wiederholt wird.
 
 ```css live-sample___func live-sample___auto
 ul {
@@ -238,13 +238,13 @@ ul {
 
 {{EmbedLiveSample("func", "", "180")}}
 
-Der Flex-Container hat sechs Zeilen, also fünf Abstände. Die `repeat()`-Funktion wiederholt zwei Breitenwerte dreimal, wodurch eine Liste von acht Breitenwerten entsteht. Da es weniger Zeilenabstände als Gesamtbreiten gibt, werden die letzten drei Werte in der Liste verworfen.
+Der Flex-Container hat sechs Zeilen und damit fünf Zwischenräume. Die Funktion `repeat()` wiederholt zwei Breitenwerte dreimal und erzeugt so eine Liste mit acht Breitenwerten. Da es weniger Zwischenräume als Breitenwerte gibt, werden die letzten drei Werte der Liste verworfen.
 
-### Verwendung von `auto` innerhalb von `repeat()`
+### `auto` innerhalb von `repeat()` verwenden
 
-Dieses Beispiel demonstriert die Verwendung von `auto` anstelle einer Ganzzahl innerhalb der `repeat()`-Funktion.
+Dieses Beispiel zeigt, wie `auto` statt eines Integer-Werts innerhalb der Funktion `repeat()` verwendet wird.
 
-Mit `repeat(auto, <line-width>)` setzen wir alle Zeilenregeln auf `1px`, mit Ausnahme der ersten und letzten, die wir auf `5px` setzen.
+Mit `repeat(auto, <line-width>)` setzen wir alle Zeilentrennlinien auf `1px`, mit Ausnahme der ersten und der letzten, die wir auf `5px` setzen.
 
 ```css live-sample___auto
 ul {
@@ -281,7 +281,8 @@ ul {
 - {{cssxref("row-rule-color")}}
 - {{cssxref("row-rule-style")}}
 - {{cssxref("column-rule-width")}}
-- {{cssxref("row-rule")}} Kurzform
-- {{cssxref("rule-width")}} Kurzform
-- {{cssxref("rule")}} Kurzform
-- [CSS Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul
+- Kurzschreibweise {{cssxref("row-rule")}}
+- Kurzschreibweise {{cssxref("rule-width")}}
+- Kurzschreibweise {{cssxref("rule")}}
+- [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
+- Modul [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps)

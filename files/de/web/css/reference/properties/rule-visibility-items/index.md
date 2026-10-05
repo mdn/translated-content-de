@@ -3,16 +3,16 @@ title: "`rule-visibility-items` CSS property"
 short-title: rule-visibility-items
 slug: Web/CSS/Reference/Properties/rule-visibility-items
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: f1e792d66f656c235b3c91a905b58cc7f7f1cca0
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-[Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`rule-visibility-items`** definiert, ob Liniensegmente in Zeilen- und Spaltenlücken neben leeren Bereichen gezeichnet werden.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`rule-visibility-items`** legt fest, ob Trennliniensegmente in Zeilen- und Spaltenabständen neben leeren Bereichen gezeichnet werden.
 
 ## Zugehörige Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("column-rule-visibility-items")}}
 - {{cssxref("row-rule-visibility-items")}}
@@ -80,25 +80,25 @@ rule-visibility-items: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
 
 - `all`
-  - : Linien sollen in allen Lückensegmenten gezeichnet werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
+  - : Trennlinien werden in allen Abstandssegmenten gezeichnet, unabhängig davon, ob die angrenzenden Bereiche ein Element enthalten.
 
 - `around`
-  - : Eine Linie soll in einem Lückensegment gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche durch ein Element belegt ist.
+  - : Eine Trennlinie wird in einem Abstandssegment gezeichnet, wenn mindestens einer der beiden angrenzenden Bereiche ein Element enthält.
 
 - `between`
-  - : Eine Linie soll in einem Lückensegment nur gezeichnet werden, wenn beide angrenzenden Bereiche durch Elemente belegt sind.
+  - : Eine Trennlinie wird in einem Abstandssegment nur gezeichnet, wenn beide angrenzenden Bereiche Elemente enthalten.
 
 - `normal`
-  - : Bei Grid-Containern verhält sich dieser Wert genauso wie `all`. In mehrspaltigen Layouts verhält er sich genauso wie `between`. Dies ist der Standardwert.
+  - : Bei Grid-Containern entspricht das Verhalten `all`. In mehrspaltigen Layouts entspricht es `between`. Dies ist der Standardwert.
 
 ## Beschreibung
 
-Die Eigenschaft `rule-visibility-items` definiert, ob Liniensegmente in Lücken neben leeren Bereichen in den Lücken zwischen Zeilen und Spalten in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout)- und [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containern mit mehr als einer Zeile oder Spalte gezeichnet werden.
+Die Eigenschaft `rule-visibility-items` legt fest, ob Trennliniensegmente in Abständen neben leeren Bereichen zwischen Zeilen und Spalten in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Zeile oder Spalte gezeichnet werden.
 
-Der Wert ist ein einzelnes Schlüsselwort, das denselben Wert für die Eigenschaften {{cssxref("column-rule-visibility-items")}} und {{cssxref("row-rule-visibility-items")}} festlegt.
+Der Wert ist ein einzelnes Schlüsselwort, das für die Eigenschaften {{cssxref("column-rule-visibility-items")}} und {{cssxref("row-rule-visibility-items")}} denselben Wert festlegt.
 
 ## Formale Definition
 
@@ -110,9 +110,9 @@ Der Wert ist ein einzelnes Schlüsselwort, das denselben Wert für die Eigenscha
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-In diesem Beispiel definieren wir, dass eine Linie zwischen zwei Grid-Bereichen gezeichnet wird, wenn mindestens ein angrenzender Grid-Bereich ein Grid-Element enthält.
+In diesem Beispiel legen wir fest, dass zwischen zwei Grid-Bereichen eine Trennlinie gezeichnet wird, wenn mindestens einer der angrenzenden Grid-Bereiche ein Grid-Element enthält.
 
 #### HTML
 
@@ -131,9 +131,9 @@ Wir fügen eine Liste dynamischer Sportduos ein:
 
 #### CSS
 
-Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container, erstellen vier Spalten und vier Zeilen, indem wir sowohl die Eigenschaft {{cssxref("grid-template-columns")}} als auch {{cssxref("grid-template-rows")}} auf `repeat(4, 1fr)` setzen, und verschieben das letzte Element mithilfe der Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} in den Grid-Bereich unten rechts. Wir fügen einen {{cssxref("gap")}} von `20px` hinzu, um zwischen den Spalten genügend Platz für unsere `5px`-Linien bereitzustellen. Wir setzen die Spaltenlinien auf `dashed` und die Zeilenlinien auf `solid`.
+Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container und erstellen vier Spalten und vier Zeilen, indem wir sowohl {{cssxref("grid-template-columns")}} als auch {{cssxref("grid-template-rows")}} auf `repeat(4, 1fr)` setzen. Mit den Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} verschieben wir das letzte Element in den Grid-Bereich unten rechts. Wir legen einen {{cssxref("gap")}} von `20px` fest, damit zwischen den Spalten genügend Platz für die `5px` breiten Trennlinien bleibt. Die Spaltentrennlinien setzen wir auf `dashed`, die Zeilentrennlinien auf `solid`.
 
-Abschließend setzen wir `rule-visibility-items` auf `between`, sodass Zeilen- und Spaltenlinien nur gezeichnet werden, wenn beide an sie angrenzenden Grid-Bereiche ein Grid-Element enthalten.
+Schließlich setzen wir `rule-visibility-items` auf `between`, sodass Zeilen- und Spaltentrennlinien nur gezeichnet werden, wenn beide angrenzenden Grid-Bereiche ein Grid-Element enthalten.
 
 ```css
 ol {
@@ -172,7 +172,7 @@ li {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Basic", "", "230")}}
+{{EmbedLiveSample("Basic", "", "380")}}
 
 ## Spezifikationen
 
@@ -184,7 +184,7 @@ li {
 
 ## Siehe auch
 
-- {{cssxref("column-rule-visibility-items")}}-Kurzform
+- {{cssxref("column-rule-visibility-items")}}-Kurzschreibweise
 - {{cssxref("row-rule-visibility-items")}}
-- {{cssxref("rule")}}-Kurzform
-- [CSS-Lücken](/de/docs/Web/CSS/Guides/Gaps)-Modul
+- {{cssxref("rule")}}-Kurzschreibweise
+- Modul [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps)

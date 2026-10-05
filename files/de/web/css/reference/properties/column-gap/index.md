@@ -3,10 +3,10 @@ title: "`column-gap` CSS property"
 short-title: column-gap
 slug: Web/CSS/Reference/Properties/column-gap
 l10n:
-  sourceCommit: 82406a500abd9cd9c9469d9180e62cf9a37deb50
+  sourceCommit: 04dfe418f2942ae739d41592c22fafa3679fc03c
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-gap`** legt die Größe des Abstands ({{Glossary("Gutters", "gutter")}}) zwischen den Spalten eines Elements in Mehrspalten-, Flexbox- und Grid-Layouts fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-gap`** legt die Größe des Abstands ({{Glossary("Gutters", "Gutter")}}) zwischen den Spalten eines Elements in mehrspaltigen Layouts, Flexbox-Layouts und Grid-Layouts fest.
 
 {{InteractiveExample("CSS Demo: column-gap")}}
 
@@ -81,26 +81,26 @@ column-gap: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste angegeben:
+Diese Eigenschaft wird durch einen einzelnen Wert aus der folgenden Liste angegeben:
 
 - `normal`
-  - : Setzt für das Mehrspalten-Layout den Abstand auf `1em`; andernfalls auf `0`. Dies ist der Standardwert.
+  - : Setzt den Abstand in mehrspaltigen Layouts auf `1em`, andernfalls auf `0`. Dies ist der Standardwert.
 - {{cssxref("&lt;line-width&gt;")}}
-  - : Legt die Größe des Abstands mithilfe der Schlüsselwörter `thin`, `medium` oder `thick` oder eines positiven {{cssxref("length")}}-Werts fest.
+  - : Legt die Größe des Abstands mit den Schlüsselwörtern `thin`, `medium` oder `thick` oder mit einem positiven {{cssxref("length")}}-Wert fest.
 - {{CSSxRef("length-percentage")}}
-  - : Legt einen nicht negativen {{CSSxRef("&lt;length&gt;")}}- oder {{CSSxRef("&lt;percentage&gt;")}}-Wert fest. Prozentwerte beziehen sich auf die inline-size der Content-Box.
+  - : Legt einen nicht negativen {{CSSxRef("&lt;length&gt;")}}- oder {{CSSxRef("&lt;percentage&gt;")}}-Wert fest. Prozentangaben beziehen sich auf die Inline-Größe der Content-Box.
 
 ## Beschreibung
 
-Die Eigenschaft `column-gap` legt die Größe des Abstands zwischen den Spalten eines Elements fest. Die Eigenschaft gibt einen Abstand fester Länge zwischen Elementen in einem Container an und trennt Boxen auf der Inline-Achse des Containers. Negative Werte sind ungültig. Spaltenabstände in Multi-Col-Containern sind standardmäßig `1em` breit, während zwischen Grid-Spalten oder Flex-Elementen beziehungsweise -Zeilen kein Abstand hinzugefügt wird.
+Die Eigenschaft `column-gap` legt die Größe des Abstands zwischen den Spalten eines Elements fest. Sie definiert einen Abstand fester Länge zwischen Elementen in einem Container und trennt die Boxen entlang der Inline-Achse des Containers. Negative Werte sind ungültig. In mehrspaltigen Containern sind die Spaltenabstände standardmäßig `1em` breit. Zwischen Grid-Spalten sowie zwischen Flex-Elementen oder Flex-Zeilen wird dagegen standardmäßig kein Abstand eingefügt. Weitere Informationen zu Abständen je nach Layouttyp finden Sie unter [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps).
 
-Prozentwerte werden relativ zur Größe der [Content-Box](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) auf der Inline-Achse des Container-Elements berechnet, wenn diese Größe bestimmt ist, andernfalls relativ zu `0`. Eine Ausnahme bildet das Grid-Layout: Dabei werden zyklische Prozentgrößen zur Bestimmung von Beiträgen zur {{Glossary("intrinsic_size", "intrinsischen Größe")}} relativ zu null aufgelöst, bei der Anordnung der Inhalte jedoch relativ zur Content-Box des Elements.
+Prozentangaben werden relativ zur Größe der [Content-Box](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Containerelements entlang seiner Inline-Achse berechnet, sofern diese Größe feststeht; andernfalls werden sie relativ zu `0` berechnet. Eine Ausnahme bildet das Grid-Layout: Dort werden zyklische Prozentwerte bei der Bestimmung von Beiträgen zur {{Glossary("intrinsic_size", "intrinsischen Größe")}} zu null aufgelöst, beim Layout der Inhalte jedoch relativ zur Content-Box des Elements. Weitere Informationen finden Sie unter [Abstandswerte als Prozentangaben festlegen](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps#specifying_gap_values_as_percentages).
 
-Der Spaltenabstand kann einen sichtbaren Trenner als [Abstandsdekoration](/de/docs/Web/CSS/Guides/Gaps) enthalten. Um eine Linie zwischen den Spalten zu zeichnen, verwenden Sie die Kurzform {{cssxref("column-rule")}} oder {{cssxref("rule")}}. Die Linie erscheint in der Mitte des Abstands, hat jedoch keinen Einfluss auf die Größe des Abstands zwischen den Spalten.
+Der Spaltenabstand kann als [Abstandsdekoration](/de/docs/Web/CSS/Guides/Gaps) eine sichtbare Trennlinie enthalten. Um eine Linie zwischen den Spalten zu zeichnen, verwenden Sie {{cssxref("column-rule")}} oder die Kurzschreibweise {{cssxref("rule")}}. Die Linie erscheint in der Mitte des Abstands, beeinflusst aber nicht dessen Größe.
 
-Die Eigenschaft `column-gap` kann zusammen mit der Eigenschaft {{cssxref("row-gap")}} auch mithilfe der Kurzform {{cssxref("gap")}} gesetzt werden, die sowohl `row-gap` als auch `column-gap` in dieser Reihenfolge in einer Deklaration festlegt.
+Die Eigenschaft `column-gap` kann zusammen mit {{cssxref("row-gap")}} auch über die Kurzschreibweise {{cssxref("gap")}} festgelegt werden. Diese setzt `row-gap` und `column-gap` in einer einzigen Deklaration, und zwar in dieser Reihenfolge.
 
-Die Eigenschaft `column-gap` ersetzte die Eigenschaft `grid-column-gap`, die ursprünglich im [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) zum Erstellen von Abständen zwischen Grid-Spalten definiert wurde. `grid-column-gap` ist nun ein Alias für `column-gap`.
+Die Eigenschaft `column-gap` hat `grid-column-gap` ersetzt. Diese Eigenschaft wurde ursprünglich in [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) definiert, um Abstände zwischen Grid-Spalten zu erzeugen. `grid-column-gap` ist heute ein Alias für `column-gap`.
 
 ## Formale Definition
 
@@ -112,13 +112,13 @@ Die Eigenschaft `column-gap` ersetzte die Eigenschaft `grid-column-gap`, die urs
 
 ## Beispiele
 
-### Flex-Layout
+### Flexbox-Layout
 
-Dieses Beispiel demonstriert die Verwendung der Eigenschaft `column-gap`, um horizontalen Abstand zwischen benachbarten Flex-Elementen zu erzeugen.
+Dieses Beispiel zeigt, wie Sie mit `column-gap` horizontalen Abstand zwischen benachbarten Flex-Elementen erzeugen.
 
 #### HTML
 
-Wir fügen sechs Elemente in ein Container-Element ein:
+Wir fügen sechs Elemente in ein Containerelement ein:
 
 ```html
 <div class="flexbox">
@@ -133,9 +133,9 @@ Wir fügen sechs Elemente in ein Container-Element ein:
 
 #### CSS
 
-Wir setzen die Eigenschaft {{cssxref("display")}} auf `flex` und die Eigenschaft {{cssxref("flex-flow")}} auf `row wrap`, um einen Flex-Container mit Elementzeilen zu erstellen. Dadurch können die Elemente bei Bedarf in neue Zeilen umbrochen werden. Die Flex-Elemente erhalten jeweils eine Flex-Basis von entweder `200px` oder `300px`.
+Wir setzen die Eigenschaft {{cssxref("display")}} auf `flex` und {{cssxref("flex-flow")}} auf `row wrap`. So entsteht ein Flex-Container mit mehreren Zeilen, in die die Elemente bei Bedarf umgebrochen werden können. Die Flex-Elemente erhalten jeweils eine Flex-Basis von `200px` oder `300px`.
 
-Wir definieren mit der Eigenschaft {{cssxref("column-rule")}} eine Spaltenlinie. Der Wert von `column-gap` wird auf dem Flex-Container auf `20px` gesetzt, wodurch zwischen den benachbarten Flex-Elementen in jeder Zeile ein Abstand von `20px` entsteht. Die Spaltenlinie wird in der Mitte des Abstands gezeichnet.
+Mit der Eigenschaft {{cssxref("column-rule")}} definieren wir eine Spaltenlinie. `column-gap` wird für den Flex-Container auf `20px` gesetzt. Dadurch entsteht zwischen benachbarten Flex-Elementen in jeder Zeile ein Abstand von `20px`. Die Spaltenlinie wird in der Mitte dieses Abstands gezeichnet.
 
 ```css
 .flexbox {
@@ -161,15 +161,15 @@ div:nth-of-type(3n) {
 
 {{EmbedLiveSample("Flex_layout", "auto", "170")}}
 
-Um vertikalen Abstand zwischen Flex-Zeilen festzulegen, geben Sie für die Eigenschaft {{cssxref("row-gap")}} einen Wert ungleich null an. Optional können Sie sowohl `row-gap` als auch `column-gap` mithilfe der Kurzform `gap` festlegen.
+Um einen vertikalen Abstand zwischen Flex-Zeilen festzulegen, geben Sie für die Eigenschaft {{cssxref("row-gap")}} einen Wert größer als null an. Optional können Sie `row-gap` und `column-gap` gemeinsam mit der Kurzschreibweise `gap` festlegen.
 
 ### Grid-Layout
 
-Dieses Beispiel demonstriert die Verwendung der Eigenschaft `column-gap` mit einem `<percentage>`-Wert in einem Grid-Layout. Es zeigt außerdem, dass die Größe von `column-gap` nicht durch die Größe der Spaltenlinie beeinflusst wird.
+Dieses Beispiel zeigt die Verwendung von `column-gap` mit einem `<percentage>`-Wert in einem Grid-Layout. Es zeigt außerdem, dass die Größe von `column-gap` nicht von der Breite der Spaltenlinie beeinflusst wird.
 
 #### HTML
 
-Wir fügen sieben Elemente in ein Container-Element ein:
+Wir fügen sieben Elemente in ein Containerelement ein:
 
 ```html
 <div id="grid">
@@ -185,9 +185,9 @@ Wir fügen sieben Elemente in ein Container-Element ein:
 
 #### CSS
 
-Wir setzen {{cssxref("display")}} auf `grid`, {{cssxref("width")}} auf `400px` und {{cssxref("grid-template-columns")}} auf `repeat(3, 1fr)`, um einen `400px` breiten Grid-Container mit drei Spalten und so vielen Zeilen wie erforderlich zu erstellen. Jede Zeile ist `100px` hoch, wie durch die Eigenschaft {{cssxref("grid-auto-rows")}} definiert. Jedes ungerade Grid-Element hat eine Hintergrundfarbe von `lime`, und die geraden Grid-Elemente sind halbtransparent.
+Wir setzen {{cssxref("display")}} auf `grid`, {{cssxref("width")}} auf `400px` und {{cssxref("grid-template-columns")}} auf `repeat(3, 1fr)`. Dadurch entsteht ein 400px breiter Grid-Container mit drei Spalten und so vielen Zeilen wie nötig. Jede Zeile ist `100px` hoch, wie durch die Eigenschaft {{cssxref("grid-auto-rows")}} festgelegt. Jedes ungerade Grid-Element hat die Hintergrundfarbe `lime`; die geraden Grid-Elemente sind halbtransparent.
 
-Wir haben außerdem eine sehr breite, halbtransparente `column-rule` festgelegt, um zu zeigen, wie die Linie hinter dem Inhalt gezeichnet wird, ohne dass ihre Breite Einfluss auf die Größe des Abstands hat. `column-gap` ist auf `5%` gesetzt, wodurch ein `20px` breiter Abstand entsteht.
+Außerdem haben wir eine sehr breite, halbtransparente `column-rule` festgelegt. Damit zeigen wir, dass die Linie hinter dem Inhalt gezeichnet wird und ihre Breite keinen Einfluss auf die Größe des Abstands hat. `column-gap` ist auf `5%` gesetzt, wodurch ein `20px` breiter Abstand entsteht.
 
 ```css
 #grid {
@@ -229,9 +229,9 @@ Wir haben außerdem eine sehr breite, halbtransparente `column-rule` festgelegt,
 
 Die Spaltenlinie ist breiter als der Spaltenabstand und nur dort sichtbar, wo die darüber gezeichneten Elemente halbtransparent sind.
 
-### Mehrspalten-Layout
+### Mehrspaltiges Layout
 
-Dieses Beispiel demonstriert die Verwendung der Eigenschaft `column-gap` mit einem `<line-width>`-Schlüsselwortwert in einem Multi-Col-Layout.
+Dieses Beispiel zeigt die Verwendung von `column-gap` mit einem `<line-width>`-Schlüsselwort in einem mehrspaltigen Layout.
 
 #### HTML
 
@@ -284,6 +284,7 @@ Dieses Beispiel demonstriert die Verwendung der Eigenschaft `column-gap` mit ein
 - {{CSSxRef("gap")}}
 - {{CSSxRef("column-rule")}}
 - {{CSSxRef("rule")}}
-- [Grundlegende Konzepte des Grid-Layouts: Abstände](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
+- [CSS-Abstände definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
+- [Grundkonzepte des Grid-Layouts: Abstände](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
 - [Spalten gestalten](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
-- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)
+- Modul [CSS Gaps](/de/docs/Web/CSS/Guides/Gaps)
