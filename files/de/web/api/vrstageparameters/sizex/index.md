@@ -3,31 +3,31 @@ title: "VRStageParameters: sizeX-Eigenschaft"
 short-title: sizeX
 slug: Web/API/VRStageParameters/sizeX
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`sizeX`**-Eigenschaft des [`VRStageParameters`](/de/docs/Web/API/VRStageParameters)-Interfaces _gibt die Breite_ der Spielfeldgrenzen in Metern zurück.
+Die schreibgeschützte Eigenschaft **`sizeX`** der Schnittstelle [`VRStageParameters`](/de/docs/Web/API/VRStageParameters) _gibt die Breite_ der Grenzen des Spielbereichs in Metern zurück.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Die Grenzen sind als achsenparalleles Rechteck auf dem Boden definiert, um Sicherheitszwecke zu gewährleisten. Inhalte sollten den Benutzer nicht dazu zwingen, sich außerhalb dieser Grenzen zu bewegen; es ist jedoch möglich, dass der Benutzer die Grenzen ignoriert, was zu Positionswerten außerhalb dieses Rechtecks führt. Der Mittelpunkt des Rechtecks befindet sich bei (0,0,0) in stehenden Koordinaten.
+Die Grenzen sind aus Sicherheitsgründen als achsenparalleles Rechteck auf dem Boden definiert. Inhalte sollten nicht erfordern, dass sich Benutzer über diese Grenzen hinausbewegen. Benutzer können die Grenzen jedoch ignorieren, sodass Positionswerte außerhalb dieses Rechtecks entstehen. Der Mittelpunkt des Rechtecks liegt bei (0,0,0) in Koordinaten des stehenden Raums.
 
 ## Wert
 
-Ein Gleitkommawert, der die Breite in Metern darstellt.
+Eine Gleitkommazahl, die die Breite in Metern angibt.
 
 ## Beispiele
 
-Siehe [`VRStageParameters`](/de/docs/Web/API/VRStageParameters#examples) für Beispielcode.
+Beispielcode finden Sie unter [`VRStageParameters`](/de/docs/Web/API/VRStageParameters#examples).
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie dazu den [Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) von Meta.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie im Leitfaden [Meta's Porting from WebVR to WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

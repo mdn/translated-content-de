@@ -2,7 +2,7 @@
 title: VideoColorSpace
 slug: Web/API/VideoColorSpace
 l10n:
-  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
+  sourceCommit: d678295b8c67d19354bca1db406af1b6bc8cf1c6
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
@@ -17,22 +17,22 @@ Die **`VideoColorSpace`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/Web
 ## Instanzeigenschaften
 
 - [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) {{ReadOnlyInline}}
-  - : Eine Zeichenfolge, die die Primärfarben enthält, welche den Farbumfang ({{Glossary("gamut", "Gamut")}}) eines Videobeispiels beschreiben.
-- [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer)
-  - : Eine Zeichenfolge, die die Übertragungscharakteristik von Videobeispielen enthält.
-- [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix)
-  - : Eine Zeichenfolge, die die Matrixkoeffizienten enthält, welche die Beziehung zwischen den Werten der Beispielkomponenten und den Farbkoordinaten beschreiben.
-- [`VideoColorSpace.fullRange`](/de/docs/Web/API/VideoColorSpace/fullRange)
-  - : Ein {{jsxref("Boolean")}}-Wert. Wenn er `true` ist, werden Farbwerte des vollen Wertebereichs verwendet.
+  - : Eine Zeichenfolge mit den Primärfarben, die den Farbumfang ({{Glossary("gamut", "Gamut")}}) eines Video-Samples beschreiben.
+- [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge mit den Übertragungseigenschaften von Video-Samples.
+- [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge mit den Matrixkoeffizienten, die die Beziehung zwischen den Komponentenwerten eines Samples und den Farbkoordinaten beschreiben.
+- [`VideoColorSpace.fullRange`](/de/docs/Web/API/VideoColorSpace/fullRange) {{ReadOnlyInline}}
+  - : Ein {{jsxref("Boolean")}}-Wert. Ist er `true`, werden Farbwerte des vollen Wertebereichs verwendet.
 
 ## Instanzmethoden
 
 - [`VideoColorSpace.toJSON()`](/de/docs/Web/API/VideoColorSpace/toJSON)
-  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `VideoColorSpace`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
+  - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `VideoColorSpace`-Objekt repräsentiert. Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Das Objekt wird anschließend in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Anschließend wird das Objekt in der Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

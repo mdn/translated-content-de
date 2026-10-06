@@ -1,33 +1,33 @@
 ---
-title: "VREyeParameters: renderWidth-Eigenschaft"
+title: "VREyeParameters: Eigenschaft renderWidth"
 short-title: renderWidth
 slug: Web/API/VREyeParameters/renderWidth
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`renderWidth`** der Schnittstelle [`VREyeParameters`](/de/docs/Web/API/VREyeParameters) beschreibt die empfohlene Renderzielbreite des Ansichtsfensters für jedes Auge, angegeben in Pixeln.
+Die schreibgeschützte Eigenschaft **`renderWidth`** der Schnittstelle [`VREyeParameters`](/de/docs/Web/API/VREyeParameters) gibt die empfohlene Breite des Renderziels für den Viewport jedes Auges in Pixeln an.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Diese Eigenschaft ist bereits in Geräte-Pixeleinheiten, daher ist es nicht notwendig, mit dem [Window.devicePixelRatio](/de/docs/Web/API/Window/devicePixelRatio) zu multiplizieren, bevor es der [HTMLCanvasElement.width](/de/docs/Web/API/HTMLCanvasElement/width) zugewiesen wird.
+Der Wert ist bereits in Gerätepixeln angegeben. Daher müssen Sie ihn nicht mit [Window.devicePixelRatio](/de/docs/Web/API/Window/devicePixelRatio) multiplizieren, bevor Sie ihn für [HTMLCanvasElement.width.](/de/docs/Web/API/HTMLCanvasElement/width) festlegen.
 
 ## Wert
 
-Eine Zahl, die die Breite in Pixeln darstellt.
+Eine Zahl, die die Breite in Pixeln angibt.
 
 ## Beispiele
 
-Siehe [`VREyeParameters`](/de/docs/Web/API/VREyeParameters#examples) für Beispielcode.
+Beispielcode finden Sie unter [`VREyeParameters`](/de/docs/Web/API/VREyeParameters#examples).
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Es ist nicht mehr vorgesehen, sie zu standardisieren.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/), oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zur Portierung von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in Metas Leitfaden [Porting from WebVR to WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

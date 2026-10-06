@@ -2,25 +2,25 @@
 title: WebGLActiveInfo
 slug: Web/API/WebGLActiveInfo
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: d678295b8c67d19354bca1db406af1b6bc8cf1c6
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLActiveInfo**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert die Informationen, die durch Aufrufen der Methoden [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) und [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
+Die Schnittstelle **`WebGLActiveInfo`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt die Informationen dar, die von den Methoden [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) und [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`WebGLActiveInfo.name`](/de/docs/Web/API/WebGLActiveInfo/name)
-  - : Der schreibgeschützte Name der angeforderten Variablen.
-- [`WebGLActiveInfo.size`](/de/docs/Web/API/WebGLActiveInfo/size)
-  - : Die schreibgeschützte Größe der angeforderten Variablen.
-- [`WebGLActiveInfo.type`](/de/docs/Web/API/WebGLActiveInfo/type)
-  - : Der schreibgeschützte Typ der angeforderten Variablen.
+- [`WebGLActiveInfo.name`](/de/docs/Web/API/WebGLActiveInfo/name) {{ReadOnlyInline}}
+  - : Der Name der angeforderten Variablen.
+- [`WebGLActiveInfo.size`](/de/docs/Web/API/WebGLActiveInfo/size) {{ReadOnlyInline}}
+  - : Die Größe der angeforderten Variablen.
+- [`WebGLActiveInfo.type`](/de/docs/Web/API/WebGLActiveInfo/type) {{ReadOnlyInline}}
+  - : Der Typ der angeforderten Variablen.
 
 ## Beispiele
 
-Ein `WebGLActiveInfo`-Objekt wird zurückgegeben durch:
+Ein `WebGLActiveInfo`-Objekt wird zurückgegeben von:
 
 - [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib)
 - [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) oder

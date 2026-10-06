@@ -2,23 +2,23 @@
 title: SVGAnimatedRect
 slug: Web/API/SVGAnimatedRect
 l10n:
-  sourceCommit: fb611fd93bd56e48326c038060cc5fb00a552516
+  sourceCommit: d678295b8c67d19354bca1db406af1b6bc8cf1c6
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimatedRect`**-Schnittstelle repräsentiert ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Attribut, das animiert werden kann.
+Die Schnittstelle **`SVGAnimatedRect`** repräsentiert ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Attribut, das animiert werden kann.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`baseVal`](/de/docs/Web/API/SVGAnimatedRect/baseVal)
-  - : Der Basiswert des gegebenen Attributs vor der Anwendung von Animationen.
+- [`baseVal`](/de/docs/Web/API/SVGAnimatedRect/baseVal) {{ReadOnlyInline}}
+  - : Der Basiswert des angegebenen Attributs, bevor Animationen angewendet werden.
 - [`animVal`](/de/docs/Web/API/SVGAnimatedRect/animVal) {{ReadOnlyInline}}
-  - : Der aktuelle animierte Wert des gegebenen Attributs als schreibgeschützte [`SVGRect`](/de/docs/Web/API/SVGRect). Falls das gegebene Attribut derzeit nicht animiert wird, dann wird das [`SVGRect`](/de/docs/Web/API/SVGRect) den gleichen Inhalt wie `baseVal` haben. Das von `animVal` referenzierte Objekt wird immer von dem durch `baseVal` referenzierten Objekt verschieden sein, selbst wenn das Attribut nicht animiert ist.
+  - : Der aktuelle animierte Wert des angegebenen Attributs als schreibgeschütztes [`SVGRect`](/de/docs/Web/API/SVGRect). Wenn das angegebene Attribut derzeit nicht animiert wird, hat das [`SVGRect`](/de/docs/Web/API/SVGRect) denselben Inhalt wie `baseVal`. Das Objekt, auf das `animVal` verweist, unterscheidet sich immer von dem Objekt, auf das `baseVal` verweist, selbst wenn das Attribut nicht animiert wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Die `SVGAnimatedRect`-Schnittstelle bietet keine spezifischen Methoden._
+_Die Schnittstelle `SVGAnimatedRect` stellt keine spezifischen Methoden bereit._
 
 ## Spezifikationen
 

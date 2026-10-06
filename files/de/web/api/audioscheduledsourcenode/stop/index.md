@@ -1,19 +1,19 @@
 ---
-title: "AudioScheduledSourceNode: stop() Methode"
+title: "AudioScheduledSourceNode: Methode stop()"
 short-title: stop()
 slug: Web/API/AudioScheduledSourceNode/stop
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: f4cb3876c5912de1d27ef485b37481d5deb6dc6d
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `stop()`-Methode von [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) plant das Stoppen der Wiedergabe eines Klangs zu einer angegebenen Zeit. Wenn keine Zeit angegeben wird, stoppt der Klang sofort.
+Die Methode `stop()` von [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) legt fest, wann die Wiedergabe eines Tons endet. Wird kein Zeitpunkt angegeben, endet die Wiedergabe sofort.
 
-Jedes Mal, wenn Sie `stop()` auf demselben Knoten aufrufen, ersetzt die angegebene Zeit jede zuvor geplante Stoppzeit, die noch nicht eingetreten ist. Wenn der Knoten bereits gestoppt wurde, hat diese Methode keine Wirkung.
+Wenn Sie `stop()` erneut für denselben Node aufrufen, ersetzt der angegebene Zeitpunkt einen zuvor festgelegten Stoppzeitpunkt, sofern dieser noch nicht erreicht wurde. Wenn der Node bereits gestoppt wurde, hat die Methode keine Wirkung.
 
 > [!NOTE]
-> Wenn eine geplante Stoppzeit vor der geplanten Startzeit des Knotens auftritt, beginnt der Knoten nie zu spielen.
+> Liegt der geplante Stoppzeitpunkt vor dem geplanten Startzeitpunkt des Nodes, beginnt die Wiedergabe nie.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ stop(when)
 ### Parameter
 
 - `when` {{optional_inline}}
-  - : Die Zeit in Sekunden, zu der der Klang aufhören soll zu spielen. Dieser Wert wird im selben Zeitkoordinatensystem angegeben, das der [`AudioContext`](/de/docs/Web/API/AudioContext) für sein [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Attribut verwendet. Wenn Sie diesen Parameter weglassen, einen Wert von 0 angeben oder einen negativen Wert übergeben, wird die Wiedergabe des Klangs sofort gestoppt.
+  - : Der Zeitpunkt in Sekunden, zu dem die Wiedergabe des Tons enden soll. Dieser Wert wird im selben Zeitkoordinatensystem angegeben, das [`AudioContext`](/de/docs/Web/API/AudioContext) für sein Attribut [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) verwendet. Wenn Sie diesen Parameter weglassen oder den Wert 0 angeben, endet die Wiedergabe sofort.
 
 ### Rückgabewert
 
@@ -33,14 +33,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateNode` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Knoten nicht gestartet wurde, indem [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start) aufgerufen wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Node noch nicht durch einen Aufruf von [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start) gestartet wurde.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn der für `when` angegebene Wert negativ ist.
 
 ## Beispiele
 
-Dieses Beispiel zeigt das Starten eines Oszillatorknotens, der geplant ist, sofort zu beginnen, und nach einer Sekunde zu stoppen. Die Stoppzeit wird bestimmt, indem die aktuelle Zeit des Audiokontexts von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) genommen und 1 Sekunde hinzugefügt wird.
+Dieses Beispiel zeigt, wie ein Oszillator-Node gestartet wird, der sofort mit der Wiedergabe beginnt und nach einer Sekunde stoppt. Der Stoppzeitpunkt wird berechnet, indem zum aktuellen Zeitpunkt des Audio-Kontexts aus [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) eine Sekunde addiert wird.
 
 ```js
 context = new AudioContext();

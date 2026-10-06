@@ -1,43 +1,43 @@
 ---
-title: CSS-Animationen verwenden, die durch Scrollen ausgelöst werden
-short-title: Durch Scrollen ausgelöste Animationen
+title: CSS-Animationen mit Scroll-Auslösern verwenden
+short-title: Animationen mit Scroll-Auslösern
 slug: Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations
 l10n:
-  sourceCommit: 4aba58b4ad2745a73054f60b6d649d8e29b7b44d
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
-**Durch Scrollen ausgelöste CSS-Animationen** bieten einen deklarativen Mechanismus, um eine auf der [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) basierende [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) eines Elements zu starten, anzuhalten, zu stoppen oder umzukehren, wenn das Element selbst (oder ein anderes Element) durch Scrollen einen bestimmten Versatz innerhalb eines Scrollports erreicht.
+CSS-**Animationen mit Scroll-Auslösern** bieten einen deklarativen Mechanismus, um eine auf [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) basierende [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) eines Elements zu starten, anzuhalten, zu stoppen oder umzukehren, wenn Nutzende das Element (oder ein anderes Element) zu einem bestimmten Offset innerhalb eines Scrollports scrollen.
 
-Dieser Artikel beschreibt, wie Sie durch Scrollen ausgelöste CSS-Animationen erstellen.
+Dieser Artikel beschreibt, wie Sie CSS-Animationen mit Scroll-Auslösern erstellen.
 
-## Konzepte durch Scrollen ausgelöster Animationen
+## Grundkonzepte von Animationen mit Scroll-Auslösern
 
-Ein häufiges UI-Muster besteht darin, Animationen auf einer Webseite auszulösen, wenn zu einer bestimmten Stelle im Inhalt gescrollt wird. So lassen sich beispielsweise zusätzliche UI-Elemente einblenden oder die Aufmerksamkeit auf bestimmte Details lenken.
+Ein verbreitetes UI-Muster besteht darin, Animationen auf einer Webseite auszulösen, wenn Nutzende zu einer bestimmten Stelle im Inhalt scrollen – etwa um zusätzliche UI-Elemente einzublenden oder die Aufmerksamkeit auf bestimmte Details zu lenken.
 
-Mit durch Scrollen ausgelösten CSS-Animationen können Sie scrollbasierte Auslöser definieren, die gewöhnliche zeitbasierte [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) starten und stoppen. Sie können Auslösepositionen innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} festlegen. Erreicht ein nachverfolgtes Element diese Positionen innerhalb des Scrollports, ändern die Auslöser den Wiedergabestatus einer Animation, die auf dieses oder auf ein völlig anderes Element angewendet wird.
+Mit CSS-Animationen mit Scroll-Auslösern können Sie scrollbasierte Auslöser definieren, die reguläre zeitbasierte [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) starten und stoppen. Sie können Auslösepositionen innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} festlegen. Wenn ein beobachtetes Element diese Positionen innerhalb des Scrollports erreicht, ändern die Auslöser den Wiedergabestatus einer Animation, die auf dieses oder ein völlig anderes Element angewendet wird.
 
 > [!NOTE]
-> Durch Scrollen ausgelöste Animationen bieten eine Alternative zu JavaScript-Funktionen – etwa Frameworks oder der [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API) –, um Animationen beim Scrollen auszulösen. Durch Scrollen ausgelöste CSS-Animationen sind leistungsfähiger und möglicherweise einfacher zu implementieren.
+> Animationen mit Scroll-Auslösern sind eine Alternative zu JavaScript-Funktionen – etwa Frameworks oder der [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API) –, um Animationen beim Scrollen auszulösen. CSS-Animationen mit Scroll-Auslösern sind leistungsfähiger und möglicherweise einfacher zu implementieren.
 
-### Durch Scrollen ausgelöste und scrollgesteuerte Animationen im Vergleich
+### Animationen mit Scroll-Auslösern und scrollgesteuerte Animationen im Vergleich
 
-Durch Scrollen ausgelöste Animationen ähneln [scrollgesteuerten CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations), unterscheiden sich jedoch von ihnen:
+Animationen mit Scroll-Auslösern ähneln [scrollgesteuerten CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations), unterscheiden sich aber von ihnen:
 
-- Durch Scrollen ausgelöste Animationen sind gewöhnliche zeitbasierte Animationen, die abgespielt werden, sobald ein Auslöser aktiv wird. Sie berücksichtigen {{cssxref("animation-delay")}} bei jedem Start der Animation und schließen jeden Durchlauf stets innerhalb der durch {{cssxref("animation-duration")}} festgelegten Zeit ab – unabhängig davon, wie schnell gescrollt wird.
-- Bei scrollgesteuerten Animationen wird die normale zeitbasierte Animationstimeline durch eine scrollbasierte Timeline ersetzt. Dadurch läuft die Animation vorwärts oder rückwärts, wenn Sie zum Anfang beziehungsweise Ende des Inhalts scrollen; schnelleres Scrollen führt zu einer schnelleren Animation. Scrollgesteuerte Animationen ignorieren die Eigenschaften `animation-duration` und `animation-delay`.
+- Animationen mit Scroll-Auslösern sind reguläre zeitbasierte Animationen, die abgespielt werden, wenn ein Auslöser aktiv wird. Bei jedem Start der Animation berücksichtigen sie {{cssxref("animation-delay")}} und schließen jede Wiederholung stets innerhalb der durch {{cssxref("animation-duration")}} festgelegten Zeit ab – unabhängig davon, wie schnell Nutzende scrollen.
+- Bei scrollgesteuerten Animationen wird die normale zeitbasierte Animations-Timeline durch eine scrollbasierte Timeline ersetzt. Die Animation läuft daher vorwärts beziehungsweise rückwärts, wenn Sie zum Anfang beziehungsweise Ende des Inhalts scrollen; schnelleres Scrollen führt zu einer schnelleren Animation. Scrollgesteuerte Animationen ignorieren die Eigenschaften `animation-duration` und `animation-delay`.
 
-## Grundlagen durch Scrollen ausgelöster Animationen
+## Grundlagen von Animationen mit Scroll-Auslösern
 
-Sehen wir uns ein einfaches Beispiel an, das die Funktionsweise einer durch Scrollen ausgelösten Animation zeigt. Eine Bildunterschrift wird ein- und ausgeblendet, wenn das zugehörige Bild in den sichtbaren Bereich hinein- beziehungsweise aus ihm herausgescrollt wird. Dabei gilt:
+Sehen wir uns an einem einfachen Beispiel an, wie eine Animation mit Scroll-Auslöser funktioniert. Eine Bildunterschrift wird ein- und ausgeblendet, wenn das zugehörige Bild in den sichtbaren Bereich hinein- beziehungsweise aus ihm herausgescrollt wird. In diesem Fall gilt:
 
-- Für das Element {{htmlelement("figcaption")}} ist eine {{cssxref("@keyframes")}}-Animation festgelegt: ein Einblendeffekt. Diese Animation ist die _ausgelöste Animation_.
-- Als _Animationsaktionen_ legen wir fest, dass die Animation bei _Aktivierung_ des Auslösers vorwärts abgespielt wird und die Bildunterschrift einblendet. Bei _Deaktivierung_ wird sie rückwärts abgespielt und blendet die Bildunterschrift aus.
-- Die _Animationsauslöser_ werden auf dem Element `<img>` definiert. Die Aktivierung erfolgt, wenn `<img>` beginnt, in den Scrollport einzutreten; die Deaktivierung erfolgt, wenn `<img>` den Scrollport vollständig verlassen hat. Damit ist der gesamte Scrollport der _Timeline-Bereich_, `<img>` das _nachverfolgte Element_ und `<figcaption>` das animierte Element.
-- Auf dem Element {{htmlelement("img")}} legen wir eine [anonyme View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) als _Quelle des Auslösers_ fest, die mit der Funktion [`view()`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) erstellt wird.
+- Auf dem Element {{htmlelement("figcaption")}} ist eine {{cssxref("@keyframes")}}-Animation festgelegt: ein Einblendeffekt. Diese Animation ist die _ausgelöste Animation_.
+- Als _Animationsaktionen_ legen wir fest, dass die Animation vorwärts abgespielt wird, wenn der Auslöser _aktiviert_ wird, sodass die Bildunterschrift eingeblendet wird. Wenn der Auslöser _deaktiviert_ wird, wird sie rückwärts abgespielt, sodass die Bildunterschrift ausgeblendet wird.
+- Die _Animationsauslöser_ werden auf dem Element `<img>` definiert. Die Aktivierung erfolgt, sobald `<img>` beginnt, in den Scrollport einzutreten; die Deaktivierung erfolgt, wenn `<img>` den Scrollport vollständig verlassen hat. Damit bildet der gesamte Scrollport den _Timeline-Bereich_, `<img>` ist das _beobachtete Element_ und `<figcaption>` das animierte Element.
+- Auf dem Element {{htmlelement("img")}} legen wir eine [anonyme View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) als _Auslösequelle_ fest, die mit der Funktion [`view()`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) erstellt wird.
 
-Wenn der Inhalt nach oben oder unten gescrollt wird, beginnt die Animation der Bildunterschrift, sobald `<img>` im Scrollport erscheint. Verlässt `<img>` den Scrollport, läuft die Animation rückwärts. Dieses einfache Beispiel erzielt noch nicht den gewünschten Effekt, bietet aber einen guten Ausgangspunkt, den wir mit weiteren Funktionen verbessern können.
+Wenn der Inhalt nach oben oder unten gescrollt wird, beginnt die Animation der Bildunterschrift, sobald `<img>` im Scrollport erscheint. Sie läuft rückwärts, wenn `<img>` den Scrollport verlässt. Dieses einfache Beispiel erzeugt noch nicht den gewünschten Effekt, ist aber ein guter Ausgangspunkt, den wir mit weiteren Funktionen verbessern können.
 
-Das HTML enthält mehrere Absätze und dazwischen ein Element {{htmlelement("figure")}}, das `<img>` und `<figcaption>` enthält. Der Kürze halber zeigen wir nicht den vollständigen Quelltext.
+Der HTML-Code enthält mehrere Textabsätze mit einem {{htmlelement("figure")}}-Element dazwischen, das `<img>` und `<figcaption>` enthält. Der Kürze halber zeigen wir nicht den vollständigen Quellcode.
 
 ```html
 ...
@@ -133,7 +133,7 @@ Das HTML enthält mehrere Absätze und dazwischen ein Element {{htmlelement("fig
 </p>
 ```
 
-Zunächst definieren wir mit {{cssxref("@keyframes")}} die Animation `fade-in`, die wir auf `<figcaption>` anwenden.
+Zunächst definieren wir {{cssxref("@keyframes")}} für die Animation `fade-in`, die wir auf `<figcaption>` anwenden.
 
 ```css live-sample___basic-scroll-triggered live-sample___same-element-trigger live-sample___adjust-range live-sample___set-active-range live-sample___play-once
 @keyframes fade-in {
@@ -188,10 +188,10 @@ figcaption {
 
 Der erste Deklarationsblock wendet die Animation und einen Animationsauslöser zusammen mit den Animationsaktionen auf das Element {{htmlelement("figcaption")}} an:
 
-1. Mit der Kurzschreibweise {{cssxref("animation")}} wenden wir die Animation `fade-in` auf `<figcaption>` an. Ohne Auslöser würde `<figcaption>` dadurch unmittelbar beim Laden der Seite eingeblendet.
-2. Mit der Eigenschaft {{cssxref("animation-trigger")}} verzögern wir den Start der Animation, bis das Element {{htmlelement("img")}} in den sichtbaren Bereich gescrollt wird. Dazu geben wir an, welches Element die Auslöser bereitstellt und welche Aktionen sie ausführen. Der Wert von `animation-trigger` umfasst:
+1. Mit der Kurzschreibweise {{cssxref("animation")}} wenden wir die Animation `fade-in` auf `<figcaption>` an. Ohne Auslöser würde `<figcaption>` dadurch sofort beim Laden der Seite eingeblendet.
+2. Mit der Eigenschaft {{cssxref("animation-trigger")}} verzögern wir den Start der Animation, bis das Element {{htmlelement("img")}} in den sichtbaren Bereich gescrollt wird. Dazu geben wir an, welches Element die Auslöser bereitstellt und welche Aktionen diese ausführen. Der Wert von `animation-trigger` umfasst:
    - Einen {{cssxref("dashed-ident")}}, `--t`. Dieser Bezeichner ist auf dem auslösenden Element als Wert der Eigenschaft {{cssxref("timeline-trigger-name")}} festgelegt.
-   - Zwei Werte vom Typ {{cssxref("&lt;animation-action>")}}, die bestimmen, wie sich die Animation bei Aktivierung und Deaktivierung des Auslösers verhält (die [Animationsaktionen](#adjusting_the_animations_action)). Bei Aktivierung wird die Animation des Elements `<figcaption>` vorwärts abgespielt, bei Deaktivierung rückwärts.
+   - Zwei {{cssxref("&lt;animation-action>")}}-Werte, die festlegen, wie sich die Animation bei Aktivierung und Deaktivierung des Auslösers verhält (die [Animationsaktionen](#adjusting_the_animations_action)). Bei Aktivierung wird die Animation des Elements `<figcaption>` vorwärts abgespielt, bei Deaktivierung rückwärts.
 
 ```css live-sample___basic-scroll-triggered live-sample___adjust-range live-sample___set-active-range
 figcaption {
@@ -202,8 +202,8 @@ figcaption {
 
 Der zweite Deklarationsblock erstellt den Animationsauslöser:
 
-1. Mit der Eigenschaft `timeline-trigger-name` weisen wir den auf `<img>` erstellten Auslösern einen identifizierenden Namen zu. Es handelt sich um denselben gestrichelten Bezeichner, auf den der Wert von `animation-trigger` des Elements `<figcaption>` verweist.
-2. Mit der Eigenschaft {{cssxref("timeline-trigger-source")}} legen wir die Art des Animationsauslösers fest. Durch Angabe der Funktion [`view()`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) wird eine [anonyme View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) verwendet. Ihr standardmäßiger [Aktivierungsbereich](#den_aktivierungsbereich_des_auslösers_anpassen) entspricht dem [Timeline-Bereich](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_insets) `cover`.
+1. Mit der Eigenschaft `timeline-trigger-name` geben wir den auf dem Element `<img>` erstellten Auslösern einen Namen. Dies ist derselbe gestrichelte Bezeichner wie der Auslösername, auf den der Wert von `animation-trigger` des Elements `<figcaption>` verweist.
+2. Mit der Eigenschaft {{cssxref("timeline-trigger-source")}} legen wir den Typ des Animationsauslösers fest. Durch Angabe der Funktion [`view()`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function) ist unser Auslösertyp eine [anonyme View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function). Ihr standardmäßiger [Aktivierungsbereich](#den_aktivierungsbereich_des_auslösers_anpassen) entspricht dem [Timeline-Bereich](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_insets) `cover`.
 
 ```css live-sample___basic-scroll-triggered
 img {
@@ -212,23 +212,23 @@ img {
 }
 ```
 
-Standardmäßig verfolgt die von der Funktion `view()` erstellte [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) die Position des Elements `<img>` entlang der Blockachse des nächstgelegenen übergeordneten Scroll-Containers. Das verfolgte Element – hier `<img>` – wird als **Subjekt** oder **nachverfolgtes Element** bezeichnet.
+Standardmäßig verfolgt die von der Funktion `view()` erstellte [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) die Position des Elements `<img>` entlang der Blockachse des nächstgelegenen übergeordneten Scrollers. Das beobachtete Element – hier `<img>` – wird als **Subjekt** oder **beobachtetes Element** bezeichnet.
 
-Standardmäßig werden die Auslöser aktiviert beziehungsweise deaktiviert, wenn das nachverfolgte Element in Blockrichtung zum Anfang beziehungsweise Ende des Timeline-Bereichs gescrollt wird. Dadurch wird die Animation von `<figcaption>` vorwärts beziehungsweise rückwärts abgespielt. Die Aktivierung erfolgt, wenn das nachverfolgte Element in den [**Aktivierungsbereich**](/de/docs/Web/CSS/Reference/Properties/timeline-trigger-activation-range#description) eintritt; die Deaktivierung erfolgt, wenn es den [**aktiven Bereich**](/de/docs/Web/CSS/Reference/Properties/timeline-trigger-active-range#description) verlässt. Ist `timeline-trigger-source` auf `view()` gesetzt, entsprechen der standardmäßige Aktivierungsbereich und der aktive Bereich `cover`. Dieser Bereich beginnt, wenn die Anfangskante des nachverfolgten Elements in den Scrollport eintritt, und endet, wenn seine Endkante den Scrollport vollständig verlassen hat.
+Standardmäßig werden die Auslöser aktiviert beziehungsweise deaktiviert, wenn das beobachtete Element in Blockrichtung zum Anfang beziehungsweise Ende des Timeline-Bereichs gescrollt wird. Dadurch wird die Animation von `<figcaption>` vorwärts beziehungsweise rückwärts abgespielt. Die Aktivierung erfolgt, wenn das beobachtete Element in den [**Aktivierungsbereich**](/de/docs/Web/CSS/Reference/Properties/timeline-trigger-activation-range#description) eintritt; die Deaktivierung erfolgt, wenn es den [**aktiven Bereich**](/de/docs/Web/CSS/Reference/Properties/timeline-trigger-active-range#description) verlässt. Wenn `timeline-trigger-source` auf `view()` gesetzt ist, entsprechen der standardmäßige Aktivierungsbereich und der aktive Bereich `cover`: Sie reichen von dem Punkt, an dem die vordere Rahmenkante des beobachteten Elements beginnt, in den Scrollport einzutreten, bis zu dem Punkt, an dem seine hintere Rahmenkante den Scrollport vollständig verlassen hat.
 
-Das Beispiel wird so dargestellt:
+Das Beispiel wird wie folgt dargestellt:
 
 {{embedlivesample("basic-scroll-triggered", "100%", 500)}}
 
-Beachten Sie, dass die Bildunterschrift eingeblendet wird, sobald ein beliebiger Teil des Bildes im Scrollport sichtbar wird – unabhängig davon, ob es von unten oder oben hineingescrollt wird. Erst wenn das gesamte Bild den Scrollport verlassen hat, beginnt das Ausblenden. Daher ist der Ausblendeffekt nicht zu sehen. Wenn Sie das Bild wieder in den sichtbaren Bereich scrollen, wird die Bildunterschrift erneut eingeblendet.
+Beachten Sie, dass die Bildunterschrift eingeblendet wird, sobald irgendein Teil des Bildes im Scrollport sichtbar wird – unabhängig davon, ob Sie es von unten oder oben hineinscrollen. Sie wird erst wieder ausgeblendet, wenn sich das gesamte Bild aus dem Scrollport herausbewegt hat. Daher ist der Ausblendeffekt nicht zu sehen. Wenn Sie das Bild zurück in den sichtbaren Bereich scrollen, wird die Bildunterschrift erneut eingeblendet.
 
 ## Den Auslöser auf demselben Element erstellen
 
-Im vorherigen Beispiel wurde der Auslöser auf dem Element `<img>` definiert, während `<figcaption>` animiert wurde. Der Auslöser kann auch auf dem animierten Element selbst definiert werden. Ändern wir das vorherige Beispiel so, dass der Auslöser auf dem animierten Element {{htmlelement("figcaption")}} erstellt wird.
+Im vorherigen Beispiel wurde der Auslöser auf dem Element `<img>` definiert und `<figcaption>` animiert. Der Auslöser kann auch auf dem animierten Element selbst definiert werden. Ändern wir das vorherige Beispiel so, dass der Auslöser auf dem animierten Element {{htmlelement("figcaption")}} erstellt wird.
 
-Das HTML ist identisch mit dem vorherigen Beispiel. Im CSS ändert sich lediglich, auf welchem Element die Eigenschaften `timeline-trigger-*` festgelegt sind.
+Der HTML-Code ist mit dem vorherigen Beispiel identisch. Der CSS-Code unterscheidet sich nur darin, auf welchem Element die `timeline-trigger-*`-Eigenschaften festgelegt sind.
 
-Diesmal sind die Eigenschaften {{cssxref("animation")}}, {{cssxref("animation-trigger")}}, {{cssxref("timeline-trigger-name")}} und {{cssxref("timeline-trigger-source")}} alle auf dem Element `<figcaption>` festgelegt. Es wird animiert, wenn es im Scrollport erscheint. Im vorherigen Beispiel war `<figcaption>` das animierte und `<img>` das nachverfolgte Element. Jetzt übernimmt die Bildunterschrift beide Rollen.
+Diesmal sind die Eigenschaften {{cssxref("animation")}}, {{cssxref("animation-trigger")}}, {{cssxref("timeline-trigger-name")}} und {{cssxref("timeline-trigger-source")}} alle auf dem Element `<figcaption>` festgelegt: Es wird animiert, wenn es im Scrollport erscheint. Im vorherigen Beispiel war `<figcaption>` das animierte Element und `<img>` das beobachtete Element. Jetzt übernimmt die Bildunterschrift beide Rollen.
 
 ```css live-sample___same-element-trigger
 figcaption {
@@ -243,28 +243,28 @@ Die aktualisierte Darstellung sieht so aus:
 
 {{embedlivesample("same-element-trigger", "100%", 500)}}
 
-In diesem Fall wird `<figcaption>` eingeblendet, wenn es selbst – und nicht das Bild – erstmals in den Scrollport eintritt.
+In diesem Fall wird `<figcaption>` eingeblendet, wenn die Bildunterschrift selbst – und nicht das Bild – erstmals in den Scrollport eintritt.
 
 ## Den Aktivierungsbereich des Auslösers anpassen
 
-In den bisherigen Beispielen wird der Auslöser aktiviert (und `fade-in` gestartet), sobald eine Blockkante des nachverfolgten Elements an einer Seite in den Scrollport eintritt. Er wird deaktiviert (das Ausblenden beginnt: `fade-in` läuft rückwärts), wenn das Element den Scrollport an der gegenüberliegenden Seite vollständig verlassen hat. Deshalb ist das Ausblenden nie sichtbar. Der Grund dafür ist, dass bei Verwendung von `view()` als `timeline-trigger-source` sowohl der Aktivierungsbereich als auch der aktive Bereich standardmäßig `cover` entsprechen (siehe {{cssxref("timeline-range-name")}}).
+In den vorherigen Beispielen wird der Auslöser aktiviert (`fade-in` startet), sobald eine Blockkante des beobachteten Elements an einer Seite in den Scrollport eintritt. Er wird deaktiviert (das Ausblenden beginnt: `fade-in` wird rückwärts abgespielt), wenn das beobachtete Element den Scrollport an der gegenüberliegenden Seite vollständig verlassen hat. Dadurch ist das Ausblenden nie sichtbar. Der Grund ist, dass der standardmäßige Aktivierungsbereich und der aktive Bereich (siehe {{cssxref("timeline-range-name")}}) bei Verwendung von `view()` als `timeline-trigger-source` beide `cover` sind.
 
-Um das Ausblenden sichtbar zu machen, können wir Anfang und Ende des Aktivierungsbereichs mit {{cssxref("timeline-trigger-activation-range-start")}} beziehungsweise {{cssxref("timeline-trigger-activation-range-end")}} verschieben. Alternativ lassen sich beide Werte mit der Kurzschreibweise {{cssxref("timeline-trigger-activation-range")}} in einer einzigen Deklaration festlegen. Jede dieser Eigenschaften akzeptiert folgende Werte:
+Damit die Ausblendanimation sichtbar wird, können wir den Anfang und das Ende des Aktivierungsbereichs mit den Eigenschaften {{cssxref("timeline-trigger-activation-range-start")}} beziehungsweise {{cssxref("timeline-trigger-activation-range-end")}} verschieben. Alternativ können wir mit der Kurzschreibweise {{cssxref("timeline-trigger-activation-range")}} beide Werte in einer Deklaration festlegen. Jede dieser Eigenschaften akzeptiert folgende Werte:
 
 - Den Standardwert `normal`.
-- Einen Wert vom Typ {{cssxref("length-percentage")}}, der einen Punkt innerhalb des Standardbereichs angibt.
+- Einen {{cssxref("length-percentage")}}-Wert, der einen Punkt innerhalb des Standardbereichs angibt.
 - Ein {{cssxref("timeline-range-name")}}-Schlüsselwort, das einen benannten Bereich angibt.
-- Einen `timeline-range-name` und einen `<length-percentage>`-Wert, die zusammen einen Punkt innerhalb des benannten Bereichs angeben.
+- Einen `timeline-range-name` und einen `<length-percentage>`-Wert, die einen Punkt innerhalb des benannten Bereichs angeben.
 
-Prozentwerte beziehen sich auf die Länge von `<timeline-range-name>`. Für unsere [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) entspricht dieser standardmäßig `cover`. Hätten wir [`scroll()`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines) als {{cssxref("timeline-trigger-source")}} festgelegt, würde der standardmäßige `<timeline-range-name>` `scroll` entsprechen. Weitere Informationen zu den Werten von `<timeline-range-name>` finden Sie unter [Namen von Timeline-Bereichen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names).
+Prozentwerte beziehen sich auf die Länge von `<timeline-range-name>`, der für unsere [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) zu `cover` aufgelöst wird. Hätten wir [`scroll()`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines) als {{cssxref("timeline-trigger-source")}} festgelegt, würde der standardmäßige `<timeline-range-name>` zu `scroll` aufgelöst. Unter [Namen von Timeline-Bereichen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names) erfahren Sie mehr über die Werte von `<timeline-range-name>`.
 
-Im folgenden Beispiel wird der Auslöser bei `50%` des Bereichs `entry` aktiviert (wenn `50%` des nachverfolgten Elements über eine Blockkante des Scrollports eingetreten sind). Bei `0%` des Bereichs `exit` wird er deaktiviert (wenn `50%` des nachverfolgten Elements den Scrollport über die gegenüberliegende Blockkante verlassen haben).
+Im folgenden Beispiel wird der Auslöser bei `50%` des `entry`-Bereichs aktiviert (wenn `50%` des beobachteten Elements über eine der Blockkanten des Scrollports eingetreten sind) und bei `0%` des `exit`-Bereichs deaktiviert (wenn `50%` des beobachteten Elements die gegenüberliegende Blockkante des Scrollports verlassen haben).
 
 ```css
 timeline-trigger-activation-range: entry 50% exit 0%;
 ```
 
-Wenden wir dies auf unser erstes Beispiel an, damit Sie den Effekt sehen können. Unser Deklarationsblock für `img` wird wie folgt aktualisiert:
+Wenden wir dies auf unser erstes Beispiel an, damit Sie den Effekt sehen können. Der Deklarationsblock für `img` wird wie folgt geändert:
 
 ```css live-sample___adjust-range
 img {
@@ -278,17 +278,17 @@ Die aktualisierte Darstellung sieht so aus:
 
 {{embedlivesample("adjust-range", "100%", 500)}}
 
-Die Animation von `<figcaption>` ist nun etwas nützlicher: Die Bildunterschrift wird erst eingeblendet, wenn ein erheblicher Teil von `<img>` an der Endkante des Scrollports eingetreten ist. Das Ausblenden beginnt, sobald `<img>` anfängt, den Scrollport an dessen Anfangskante zu verlassen. Wenn Sie den Inhalt wieder nach unten scrollen, wird der Auslöser erneut aktiviert und das Einblenden erfolgt wieder an der Anfangskante des Scrollports. Die Deaktivierung erfolgt erneut an dessen Endkante.
+Die Animation von `<figcaption>` ist nun etwas nützlicher: Die Bildunterschrift wird erst eingeblendet, wenn ein erheblicher Teil von `<img>` an der Endkante des Scrollports eingetreten ist. Sie wird ausgeblendet, sobald `<img>` beginnt, den Scrollport an dessen Anfangskante zu verlassen. Wenn Sie den Inhalt wieder nach unten scrollen, wird der Auslöser erneut aktiviert und die Bildunterschrift an der Anfangskante des Scrollports wieder eingeblendet. An der Endkante des Scrollports erfolgt erneut die Deaktivierung.
 
 ## Einen benutzerdefinierten aktiven Bereich festlegen
 
-Der **aktive Bereich** ist der Bereich, in dem ein Auslöser nach seiner Aktivierung aktiv bleibt. Standardmäßig ist er mit dem Aktivierungsbereich identisch. In den bisherigen Beispielen war der Bereich für Aktivierung und Deaktivierung daher derselbe.
+Der **aktive Bereich** ist der Bereich, innerhalb dessen ein Auslöser nach seiner Aktivierung aktiv bleibt. Standardmäßig stimmt er mit dem Aktivierungsbereich überein. In den bisherigen Beispielen war der Bereich für Aktivierung und Deaktivierung daher derselbe.
 
-Mit den Eigenschaften {{cssxref("timeline-trigger-active-range-start")}} und {{cssxref("timeline-trigger-active-range-end")}} können Sie einen aktiven Bereich festlegen, der vom Aktivierungsbereich abweicht. Alternativ lassen sich beide Werte mit der Kurzschreibweise {{cssxref("timeline-trigger-active-range")}} in einer einzigen Deklaration festlegen.
+Mit den Eigenschaften {{cssxref("timeline-trigger-active-range-start")}} und {{cssxref("timeline-trigger-active-range-end")}} können Sie einen aktiven Bereich festlegen, der sich vom Aktivierungsbereich unterscheidet. Alternativ können Sie mit der Kurzschreibweise {{cssxref("timeline-trigger-active-range")}} beide Werte in einer Deklaration festlegen.
 
-Das kann sinnvoll sein, um einer Animation mehr Zeit zum Abschluss zu geben – beispielsweise, wenn der Animationsauslöser nur innerhalb eines kleinen Bereichs aktiviert werden, aber über einen größeren Bereich aktiv bleiben soll. Erst wenn das nachverfolgte Element den aktiven Bereich verlässt, wird der Auslöser inaktiv. Danach können Sie ihn erneut aktivieren, indem Sie das Element zurück in den Aktivierungsbereich bewegen.
+Dies kann sinnvoll sein, um einer Animation mehr Zeit zum Abschließen zu geben – etwa wenn der Animationsauslöser nur innerhalb eines kleinen Bereichs aktiviert werden, aber über einen größeren Bereich aktiv bleiben soll. Erst wenn sich das beobachtete Element aus dem aktiven Bereich herausbewegt, wird der Auslöser inaktiv. Anschließend können Sie ihn erneut aktivieren, indem Sie das Subjekt wieder in den Aktivierungsbereich bewegen.
 
-Erweitern wir unsere bisherigen Beispiele, um die Wirkung des aktiven Bereichs zu zeigen. Das HTML ist gleich geblieben, außer dass wir zwei identische `<figure>`-Elemente mit den Klassen `.one` und `.two` eingefügt haben. Sie werden mithilfe von [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) nebeneinander platziert und erscheinen beziehungsweise verschwinden daher gleichzeitig im sichtbaren Bereich. In beiden Fällen ist `<img>` das nachverfolgte Element für das animierte Geschwisterelement `<figcaption>`.
+Erweitern wir die vorherigen Beispiele, um die Wirkung des aktiven Bereichs zu zeigen. Der HTML-Code ist derselbe, mit einer Ausnahme: Wir haben zwei identische `<figure>`-Elemente mit den Klassen `.one` und `.two` eingefügt. Sie werden mithilfe von [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) nebeneinander angeordnet und erscheinen beziehungsweise verschwinden daher gleichzeitig. In beiden Fällen ist `<img>` das beobachtete Element für das jeweils benachbarte animierte `<figcaption>`.
 
 ```html
 <div class="figure-wrapper">
@@ -402,7 +402,7 @@ Erweitern wir unsere bisherigen Beispiele, um die Wirkung des aktiven Bereichs z
 </p>
 ```
 
-Wir wenden wie in den vorherigen Beispielen dieselbe `animation` auf beide `<figcaption>`-Elemente an. Ihre `animation-trigger`-Werte verweisen jedoch auf zwei unterschiedliche `timeline-trigger-name`-Werte.
+Wir wenden auf beide `<figcaption>`-Elemente dieselbe `animation` wie in den vorherigen Beispielen an. Ihre `animation-trigger`-Werte verweisen jedoch auf zwei unterschiedliche `timeline-trigger-name`-Werte.
 
 ```css live-sample___set-active-range
 figcaption {
@@ -418,11 +418,11 @@ figcaption {
 }
 ```
 
-Für beide `<img>`-Elemente legen wir denselben `timeline-trigger-source` und denselben `timeline-trigger-activation-range` fest. Der `timeline-trigger-name` jedes `<img>`-Elements entspricht einem der beiden unterschiedlichen gestrichelten Bezeichner im vorherigen Codeblock. Damit steuert der auf jedem `<img>` erstellte Auslöser die Animation des jeweils zugehörigen Geschwisterelements `<figcaption>`.
+Auf beiden `<img>`-Elementen legen wir dieselbe `timeline-trigger-source` und denselben `timeline-trigger-activation-range` fest. Der `timeline-trigger-name` jedes `<img>`-Elements entspricht einem der beiden unterschiedlichen gestrichelten Bezeichner aus dem vorherigen Codeblock. Dadurch steuert der auf jedem `<img>` erstellte Auslöser die Animation des jeweils benachbarten `<figcaption>`.
 
-Die Deklaration `timeline-trigger-activation-range: contain 40% contain 60%` bedeutet, dass der Auslöser aktiviert wird – und damit die Animation beginnt –, wenn das nachverfolgte Element einen schmalen Bereich erreicht: die mittleren `20%` des Scrollports. Verlässt das Element diesen schmalen Bereich, wird der Auslöser deaktiviert.
+Die Deklaration `timeline-trigger-activation-range: contain 40% contain 60%` bedeutet, dass der Auslöser aktiviert wird – und damit die Animation beginnt –, wenn das beobachtete Element einen schmalen Bereich erreicht: die mittleren `20%` des Scrollports. Er wird deaktiviert, wenn das Subjekt diesen schmalen Bereich verlässt.
 
-Standardmäßig ist der Aktivierungsbereich mit dem aktiven Bereich identisch. Für das zweite `<img>` legen wir jedoch zusätzlich einen `timeline-trigger-active-range` von `entry 50% exit 100%` fest. Dadurch wird das zweite `<figcaption>` nach dem Einblenden erst wieder ausgeblendet, wenn das zweite `<img>` bis `exit 100%` gescrollt wurde – also den Scrollport vollständig verlassen hat.
+Standardmäßig stimmt der Aktivierungsbereich mit dem aktiven Bereich überein. Für das zweite `<img>` legen wir jedoch zusätzlich einen `timeline-trigger-active-range` von `entry 50% exit 100%` fest. Das bedeutet: Nachdem die zweite Bildunterschrift `<figcaption>` eingeblendet wurde, wird sie erst wieder ausgeblendet, wenn das zweite `<img>` zu `exit 100%` gescrollt wurde – also den Scrollport vollständig verlassen hat.
 
 ```css live-sample___set-active-range
 img {
@@ -441,7 +441,7 @@ img {
 ```
 
 > [!NOTE]
-> Damit `timeline-trigger-active-range` eine Wirkung hat, muss der festgelegte Bereich größer sein als der `timeline-trigger-activation-range`.
+> Damit `timeline-trigger-active-range` eine Wirkung hat, muss sein Bereich größer sein als `timeline-trigger-activation-range`.
 
 ```css hidden live-sample___set-active-range
 .figure-wrapper {
@@ -455,17 +455,17 @@ figcaption {
 }
 ```
 
-Das Beispiel wird so dargestellt:
+Das Beispiel wird wie folgt dargestellt:
 
 {{embedlivesample("set-active-range", "100%", 500)}}
 
-Scrollen Sie die Bilder in den sichtbaren Bereich und bewegen Sie sie dann vorsichtig auf und ab. Beachten Sie, dass beide Bildunterschriften gleichzeitig eingeblendet werden, ungefähr bei einem Drittel der Höhe der eingebetteten Seite. Die erste Bildunterschrift wird etwas weiter oben ausgeblendet. Die zweite wird dagegen erst ausgeblendet, wenn sie den Scrollport vollständig verlassen hat. Das liegt daran, dass beide `<img>`-Auslöser denselben _Aktivierungsbereich_ haben, während für den zweiten ein wesentlich größerer _aktiver Bereich_ festgelegt ist.
+Scrollen Sie die Bilder in den sichtbaren Bereich und anschließend vorsichtig nach oben und unten. Beachten Sie, dass beide Bildunterschriften gleichzeitig eingeblendet werden, ungefähr auf einem Drittel der Höhe der eingebetteten Seite. Die erste Bildunterschrift wird etwas weiter oben ausgeblendet; die zweite hingegen erst, wenn sie vollständig aus dem Scrollport herausbewegt wurde. Das liegt daran, dass beide `<img>`-Auslöser denselben _Aktivierungsbereich_ haben, während für den zweiten ein wesentlich größerer _aktiver Bereich_ gilt.
 
 ## Die Kurzschreibweise timeline-trigger
 
-Bisher haben wir das CSS für unsere durch Scrollen ausgelösten Animationen mit einer Mischung aus Kurz- und Einzeleigenschaften geschrieben, um die einzelnen Eigenschaften und ihre Werte verständlich zu erklären. Das ist jedoch umständlich und ausführlich. Nachdem Sie die Konzepte kennengelernt haben, können wir mit der Kurzschreibweise {{cssxref("timeline-trigger")}} eine möglichst kurze gleichwertige Variante erstellen. Wahrscheinlich werden Sie diese Kurzschreibweise in künftigen Projekten bevorzugen.
+Bisher haben wir den CSS-Code für unsere Animation mit Scroll-Auslöser als Mischung aus Kurz- und Einzeleigenschaften geschrieben, um die einzelnen Eigenschaften und ihre Werte verständlich zu erklären. Das ist allerdings umständlich und ausführlich. Nachdem Sie die Konzepte kennengelernt haben, können wir mit der Kurzschreibweise {{cssxref("timeline-trigger")}} eine möglichst kurze, gleichwertige Variante erstellen. Wahrscheinlich werden Sie diese Kurzschreibweise in Ihren künftigen Projekten bevorzugen.
 
-Betrachten wir als Beispiel diese Deklarationen:
+Nehmen wir diese Deklarationen als Beispiel:
 
 ```css
 img {
@@ -484,15 +484,15 @@ img {
 }
 ```
 
-## Die Aktion einer Animation anpassen
+## Die Animationsaktion anpassen
 
-In allen bisherigen Beispielen dieses Leitfadens wurde die Animation `fade-in` ausgelöst, sodass die Bildunterschrift ein- und ausgeblendet wurde. Die Vorwärts- und Rückwärtswiedergabe wird durch die auf dem animierten Element festgelegte Deklaration `animation-trigger` gesteuert:
+In allen bisherigen Beispielen dieses Leitfadens wurde die Animation `fade-in` ausgelöst, sodass die Bildunterschrift ein- und ausgeblendet wird. Das Abspielen vorwärts und rückwärts wird durch die auf dem animierten Element festgelegte Deklaration `animation-trigger` gesteuert:
 
 ```css
 animation-trigger: --t play-forwards play-backwards;
 ```
 
-Die Werte `play-forwards` und `play-backwards` vom Typ {{cssxref("animation-action")}} legen fest, dass die Animation bei Aktivierung des Auslösers vorwärts und bei dessen Deaktivierung rückwärts abgespielt wird. Der erste Wert ist die Aktion bei Aktivierung, der zweite die Aktion bei Deaktivierung.
+Die {{cssxref("animation-action")}}-Werte `play-forwards` und `play-backwards` legen fest, dass die Animation bei Aktivierung des Auslösers vorwärts und bei seiner Deaktivierung rückwärts abgespielt wird. Der erste Wert ist die Aktion bei Aktivierung, der zweite die Aktion bei Deaktivierung.
 
 Wenn wir auf demselben Element die folgende `animation`-Deklaration festlegen:
 
@@ -500,20 +500,20 @@ Wenn wir auf demselben Element die folgende `animation`-Deklaration festlegen:
 animation: fade-in 1s ease-in both;
 ```
 
-läuft die Animation bei Aktivierung des Auslösers genau einmal und bei Deaktivierung genau einmal rückwärts. In unserer `animation`-Kurzschreibweise haben wir keinen {{cssxref("animation-iteration-count")}} angegeben. Daher wird der Standardwert `1` verwendet.
+Die Animation wird bei Aktivierung des Auslösers nur einmal abgespielt und bei Deaktivierung einmal rückwärts: In unserer `animation`-Kurzschreibweise haben wir keinen {{cssxref("animation-iteration-count")}} angegeben. Daher wird der Standardwert `1` verwendet.
 
-Weitere `animation-action`-Werte ermöglichen andere Effekte. Zum Beispiel:
+Mit weiteren `animation-action`-Werten lassen sich andere Effekte erzielen. Zum Beispiel:
 
 - `play-once` bewirkt, dass die Animation nur einmal abgespielt wird. Nach ihrem Abschluss wird sie bei späteren Aktivierungen oder Deaktivierungen nicht erneut abgespielt.
-- `play` bewirkt, dass die Animation in der Richtung abgespielt wird, in der sie zuvor lief. Dagegen beeinflussen `play-forwards` und `play-backwards` die [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation: Sie setzen sie auf ihren positiven Absolutwert beziehungsweise auf diesen Absolutwert multipliziert mit `-1`. Dadurch läuft die Animation vorwärts oder rückwärts. Der Wert von {{cssxref("animation-direction")}} bleibt davon unberührt.
-- `pause` hält die Animation an. Beispielsweise können Sie die Anzahl der Animationsdurchläufe auf `infinite` und den zugehörigen `animation-trigger` auf `--t play pause` setzen. So wird die Animation bei Aktivierung des Auslösers abgespielt und bei Deaktivierung angehalten.
-- `reset` wirkt wie `pause`, setzt aber zusätzlich den Animationsfortschritt auf `0` zurück.
+- `play` bewirkt, dass die Animation in der Richtung abgespielt wird, in der sie zuvor lief. Im Gegensatz dazu wirken sich `play-forwards` und `play-backwards` auf die [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation aus: Sie setzen sie auf ihren positiven Absolutwert beziehungsweise auf ihren mit `-1` multiplizierten positiven Absolutwert. Dadurch läuft die Animation vorwärts oder rückwärts. Der Wert von {{cssxref("animation-direction")}} bleibt davon unberührt.
+- `pause` hält die Animation an. Sie könnten beispielsweise die Anzahl der Animationswiederholungen auf `infinite` und den zugehörigen `animation-trigger` auf `--t play pause` setzen. Die Animation würde dann bei Aktivierung des Auslösers abgespielt und bei Deaktivierung angehalten.
+- `reset` hat dieselbe Wirkung wie `pause`, setzt aber zusätzlich den Animationsfortschritt auf `0` zurück.
 
-Einige dieser Werte sind für die gemeinsame Verwendung vorgesehen. `play-forwards play-backwards` eignet sich etwa, wenn die Animation je nach Endzustand in entgegengesetzter Richtung laufen soll: Ein UI-Element wird beim Erscheinen auf dem Bildschirm „hineinanimiert“ und beim Verlassen wieder „hinausanimiert“. `play pause` wird dagegen häufig verwendet, um ein Element beim Erscheinen zu animieren und die Animation anzuhalten, sobald es beginnt, den Bildschirm zu verlassen.
+Einige dieser Werte sind für die gemeinsame Verwendung vorgesehen. `play-forwards play-backwards` eignet sich beispielsweise, wenn Sie die Abspielrichtung für den visuellen Endzustand der Animation wechseln möchten: Ein UI-Element wird beim Erscheinen auf dem Bildschirm „hineinanimiert“ und beim Verlassen des Bildschirms wieder „hinausanimiert“. `play pause` wird dagegen häufig verwendet, um ein Element beim Erscheinen zu animieren und die Animation anzuhalten, sobald es beginnt, den Bildschirm zu verlassen.
 
-Sehen wir uns ein kurzes Beispiel an: Wir ändern unser erstes Beispiel so, dass `<figure>` nur einmal eingeblendet wird, sobald es vollständig in den Scrollport eingetreten ist. Danach wird es erst wieder animiert, wenn die Seite neu geladen wird.
+Sehen wir uns ein kurzes Beispiel an: Wir ändern unser erstes Beispiel so, dass `<figure>` nur einmal eingeblendet wird, sobald es vollständig in den Scrollport eingetreten ist. Bis zum Neuladen der Seite wird es weder ausgeblendet noch erneut animiert.
 
-Wir setzen die `animation-action` der Eigenschaft `animation-trigger` auf `play-once`, damit die Animation nur einmal abgespielt wird, wenn `<figure>` erstmals in den Aktivierungsbereich eintritt. Außerdem setzen wir `timeline-trigger-activation-range` auf `contain`, sodass die Animation erst abgespielt wird, wenn `<figure>` vollständig auf dem Bildschirm sichtbar ist. Da sie nur einmal läuft, soll sie nicht unbemerkt bleiben.
+Wir setzen die `animation-action` der Eigenschaft `animation-trigger` auf `play-once`, damit die Animation nur einmal abgespielt wird, wenn `<figure>` erstmals in den Aktivierungsbereich eintritt. Außerdem setzen wir `timeline-trigger-activation-range` auf `contain`, damit die Animation erst abgespielt wird, wenn `<figure>` vollständig auf dem Bildschirm zu sehen ist. Da sie nur einmal abgespielt wird, soll sie Ihnen nicht entgehen.
 
 ```css live-sample___play-once
 figure {
@@ -524,29 +524,29 @@ figure {
 }
 ```
 
-Das Beispiel wird so dargestellt:
+Das Beispiel wird wie folgt dargestellt:
 
 {{embedlivesample("play-once", "100%", 500)}}
 
-Wenn Sie `<figure>` zum ersten Mal in den sichtbaren Bereich scrollen, wird es eingeblendet. Danach bleibt es bei `100%` Deckkraft, unabhängig davon, wie oft Sie es im Scrollport auf und ab bewegen. Ein erneutes Einblenden ist nur möglich, wenn Sie die Seite aktualisieren (oder das `<iframe>` des eingebetteten Beispiels neu laden).
+Wenn Sie `<figure>` zum ersten Mal auf den Bildschirm scrollen, wird es eingeblendet. Danach bleibt es bei einer Deckkraft von `100%`, unabhängig davon, wie oft Sie es im Scrollport nach oben und unten scrollen. Nur durch Aktualisieren der Seite (oder erneutes Laden des `<iframe>` des eingebetteten Beispiels) können Sie es noch einmal einblenden.
 
-## Geltungsbereich von Auslösern
+## Gültigkeitsbereich von Auslösern
 
-Wenn mehrere Auslöser denselben `timeline-trigger-name` verwenden, werden sie aufgrund der Art, wie der [Browser Auslöser standardmäßig ermittelt](/de/docs/Web/CSS/Reference/Properties/trigger-scope#description), dem letzten Element in der HTML-Quellreihenfolge zugeordnet, das diesen `timeline-trigger-name`-Wert besitzt. Dieses Verhalten ist vermutlich nicht erwünscht.
+Wenn mehrere Auslöser denselben `timeline-trigger-name` verwenden, werden sie aufgrund der Art und Weise, wie [der Browser Auslöser standardmäßig bestimmt](/de/docs/Web/CSS/Reference/Properties/trigger-scope#description), dem letzten Element in der HTML-Quellreihenfolge zugeordnet, das diesen `timeline-trigger-name`-Wert hat. Das ist wahrscheinlich nicht das gewünschte Verhalten.
 
-Enthält ein Dokument beispielsweise mehrere wiederholte Komponenten mit jeweils einer durch Scrollen ausgelösten Animation, bei der das animierte und das nachverfolgte Element verschieden sind, werden die Animationen aller animierten Elemente durch den Auslöser der letzten Komponente gesteuert. Das können Sie verhindern, indem Sie in jeder Komponente einen anderen `timeline-trigger-name` verwenden oder den Geltungsbereich des Namens auf einen Teilbaum beschränken.
+Enthält ein Dokument beispielsweise mehrere wiederholte Komponenten, die jeweils eine Animation mit Scroll-Auslöser enthalten und bei denen das animierte Element und das beobachtete Element verschieden sind, werden die Animationen aller animierten Elemente vom Auslöser der letzten Komponente gesteuert. Das können Sie vermeiden, indem Sie in jeder Komponente einen anderen `timeline-trigger-name` verwenden oder den Gültigkeitsbereich des Namens auf einen Teilbaum beschränken.
 
-Die Eigenschaft {{cssxref("trigger-scope")}} begrenzt die Sichtbarkeit – den „Geltungsbereich“ – eines `timeline-trigger-name`-Werts auf einen bestimmten Teilbaum. Dadurch kann die Animation eines Elements nur durch einen Auslöser gestartet werden, der innerhalb desselben Teilbaums erstellt wurde. Einzelheiten zur Funktionsweise und ein [Beispiel zu `trigger-scope`](/de/docs/Web/CSS/Reference/Properties/trigger-scope#examples) finden Sie auf der Referenzseite zu `trigger-scope`.
+Die Eigenschaft {{cssxref("trigger-scope")}} beschränkt die Sichtbarkeit beziehungsweise den „Gültigkeitsbereich“ eines `timeline-trigger-name`-Werts auf einen bestimmten Teilbaum. Dadurch kann die Animation jedes animierten Elements nur durch einen Auslöser innerhalb desselben abgegrenzten Teilbaums gestartet werden. Einzelheiten zur Funktionsweise und ein [`trigger-scope`-Beispiel](/de/docs/Web/CSS/Reference/Properties/trigger-scope#examples) finden Sie auf der Referenzseite zu `trigger-scope`.
 
-## Mehrere durch Scrollen ausgelöste Animationen
+## Mehrere Animationen mit Scroll-Auslösern
 
-In den bisherigen Beispielen haben wir jeweils nur eine durch Scrollen ausgelöste Animation auf einem Element festgelegt. Alle in diesem Leitfaden behandelten Eigenschaften `animation-*` und `timeline-trigger-*` akzeptieren jedoch eine kommagetrennte Werteliste. Damit lassen sich mehrere Animationen durch mehrere Auslöser steuern. In diesem Abschnitt erstellen wir ein etwas komplexeres Beispiel mit mehreren durch Scrollen ausgelösten Animationen auf demselben Element.
+In den vorherigen Beispielen haben wir jeweils nur eine Animation mit Scroll-Auslöser auf einem Element festgelegt. Alle in diesem Leitfaden besprochenen `animation-*`- und `timeline-trigger-*`-Eigenschaften akzeptieren jedoch eine durch Kommas getrennte Werteliste. So können mehrere Animationen durch mehrere Auslöser gestartet werden. In diesem Abschnitt erstellen wir ein etwas komplexeres Beispiel mit mehreren Animationen mit Scroll-Auslösern auf demselben Element.
 
-Die Eigenschaft {{cssxref("animation-trigger")}} verhält sich beim Festlegen [mehrerer Werte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values) genauso wie die Kurzschreibweise {{cssxref("animation")}} und die anderen Animationseinzeleigenschaften. Sind mehrere `animation-name`-Werte, aber nur ein `animation-trigger`-Wert festgelegt, gilt dieser für alle Animationen. Sind zwei `animation-trigger`-Werte festgelegt, werden sie der Reihe nach wiederholt, bis jeder Animation ein `animation-trigger`-Wert zugeordnet ist. Entsprechendes gilt für weitere Werte.
+Die Eigenschaft {{cssxref("animation-trigger")}} funktioniert beim Festlegen [mehrerer Werte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values) genauso wie die Kurzschreibweise {{cssxref("animation")}} und die anderen Animationseigenschaften. Sind mehrere `animation-name`-Werte, aber nur ein `animation-trigger`-Wert festgelegt, gilt dieser für alle Animationen. Sind zwei `animation-trigger`-Werte festgelegt, werden sie den Animationen wiederholt der Reihe nach zugeordnet, bis jede Animation einen `animation-trigger`-Wert hat. Entsprechend verhält es sich bei weiteren Werten.
 
-In diesem Beispiel wird ein Element schrittweise animiert: Beim Scrollen der Seite werden durch neue Auslöser weitere Animationen aktiviert. Zunächst gleitet das Element vom rechten Bildschirmrand herein. Anschließend wird sein Inhalt sichtbar. Danach gleitet es auf dem Bildschirm nach unten und ändert seine Hintergrundfarbe.
+In diesem Beispiel wird ein Element schrittweise animiert: Beim Scrollen der Seite werden durch neu aktivierte Auslöser weitere Animationen angewendet. Zuerst gleitet das Element vom rechten Bildschirmrand herein, dann wird sein Inhalt sichtbar. Anschließend gleitet es auf dem Bildschirm nach unten und ändert seine Hintergrundfarbe.
 
-Das HTML ähnelt den vorherigen Beispielen. Zusätzlich enthält es am Anfang ein Element {{htmlelement("section")}} mit hervorgehobenem Inhalt sowie einige leere {{htmlelement("div")}}-Elemente zwischen den übrigen Inhalten. Auf diesen definieren wir Auslöser für die Animationen.
+Der HTML-Code ähnelt den vorherigen Beispielen. Zusätzlich haben wir oben ein {{htmlelement("section")}}-Element mit hervorgehobenem Inhalt eingefügt. Zwischen den Abschnitten des Hauptinhalts befinden sich außerdem leere {{htmlelement("div")}}-Elemente, auf denen wir Auslöser für die Animationen definieren.
 
 ```html
 <section>
@@ -669,9 +669,9 @@ Das HTML ähnelt den vorherigen Beispielen. Zusätzlich enthält es am Anfang ei
 </p>
 ```
 
-Anfangs befindet sich das hervorgehobene `<section>` außerhalb des sichtbaren Bildschirms. Unser CSS gestaltet zunächst das Element `<section>`: Wir setzen seine Eigenschaft {{cssxref("position")}} auf `fixed` und positionieren es nahe der linken oberen Ecke des Scrollports. Außerdem definieren wir die Ausgangsstile, von denen aus die Animationen beginnen und zu denen sie zurückkehren. Anschließend legen wir drei {{cssxref("animation")}}-Werte fest: Sie lassen `<section>` mit `slide-from-right` hereingleiten, machen dann mit `reveal` seinen Inhalt sichtbar und bewegen es schließlich mit `slide-down` auf dem Bildschirm nach unten, wobei sich die Hintergrundfarbe ändert. Für jede Animation legen wir zudem einen `animation-trigger` fest, damit unterschiedliche Auslöser sie aktivieren.
+Anfangs ist der hervorgehobene Inhalt in `<section>` außerhalb des Bildschirms verborgen. Unser CSS gestaltet zunächst das Element `<section>`: Wir setzen seine {{cssxref("position")}} auf `fixed` und positionieren es nahe der oberen linken Ecke des Scrollports. Außerdem definieren wir die Ausgangsstile, von denen aus animiert wird und zu denen die Animationen zurückkehren. Anschließend legen wir drei {{cssxref("animation")}}-Werte fest. Dadurch wird das Element `<section>` mit `slide-from-right` hereingeschoben, sein Inhalt mit `reveal` sichtbar gemacht und es mit `slide-down` auf dem Bildschirm nach unten bewegt, wobei sich seine Hintergrundfarbe ändert. Für jede Animation legen wir außerdem einen `animation-trigger` fest, damit unterschiedliche Auslöser sie aktivieren.
 
-Der Endzustand jeder Animation soll nach seinem Erreichen bestehen bleiben. Deshalb müssen wir geeignete {{cssxref("animation-fill-mode")}}-Werte für die Animationen und `<animation-action>`-Werte für die `animation-trigger`-Werte festlegen. Für die letzte Animation mussten wir `animation-fill-mode` auf `forwards` statt auf `both` setzen, da es keinen `from`-Keyframe gibt.
+Der Endzustand jeder Animation soll nach Erreichen bestehen bleiben. Deshalb müssen wir passende {{cssxref("animation-fill-mode")}}-Werte für die Animationen und `<animation-action>`-Werte für die `animation-trigger`-Werte festlegen. Bei der letzten Animation mussten wir `animation-fill-mode` auf `forwards` statt auf `both` setzen, da es keinen `from`-Keyframe gibt.
 
 ```css hidden live-sample___multiple-triggers
 body {
@@ -730,7 +730,7 @@ section {
 }
 ```
 
-Als Nächstes erstellen wir Auslöser auf den `<div>`-Elementen. Ihre {{cssxref("timeline-trigger-name")}}-Werte entsprechen den Bezeichnern in den `animation-trigger`-Werten des `<section>`-Elements. Dadurch wird beim Scrollen jedes Mal eine andere Animation aktiviert, wenn eines der nachverfolgten `<div>`-Elemente in den Scrollport eintritt. In diesem Fall sind die nachverfolgten Elemente unsichtbar: Sie enthalten keinen relevanten Inhalt und dienen ausschließlich als Auslöser.
+Als Nächstes erstellen wir Auslöser auf den `<div>`-Elementen. Ihre {{cssxref("timeline-trigger-name")}}-Werte entsprechen den Bezeichnern in den `animation-trigger`-Werten des `<section>`-Elements. Wenn Nutzende scrollen und eines der beobachteten `<div>`-Elemente in den Scrollport eintritt, wird dadurch jeweils eine andere Animation aktiviert. Unsere beobachteten Elemente sind in diesem Fall unsichtbar: Sie enthalten keine nützlichen Inhalte und dienen nur dazu, die Auslöser zu erstellen.
 
 ```css live-sample___multiple-triggers
 #one {
@@ -746,7 +746,7 @@ Als Nächstes erstellen wir Auslöser auf den `<div>`-Elementen. Ihre {{cssxref(
 }
 ```
 
-Abschließend definieren wir mit {{cssxref("@keyframes")}} die Animationen, auf die zuvor in der Eigenschaft `animation` des Elements `<section>` verwiesen wurde.
+Zum Schluss definieren wir die Animations-{{cssxref("@keyframes")}}, auf die wir zuvor in der `animation`-Eigenschaft des `<section>`-Elements verwiesen haben.
 
 ```css live-sample___multiple-triggers
 @keyframes slide-from-right {
@@ -796,16 +796,16 @@ Das Beispiel wird wie folgt dargestellt:
 
 {{embedlivesample("multiple-triggers", "100%", 500)}}
 
-Scrollen Sie vorsichtig durch das Beispiel und beobachten Sie, wie die einzelnen Animationen auf `<section>` angewendet werden, sobald das jeweilige `<div>` erreicht wird.
+Scrollen Sie vorsichtig durch das Beispiel. Beachten Sie, wie jede Animation auf `<section>` angewendet wird, sobald zum jeweiligen `<div>` gescrollt wird.
 
 ### Mehrere Auslöser für dieselbe Animation
 
-Wenn Sie für ein animiertes Element Auslöser auf mehreren verschiedenen Elementen definieren möchten, die alle dieselbe Animation auslösen, müssen Sie die benannte Animation auf dem animierten Element mehrfach angeben. Anschließend weisen Sie jeder Instanz dieser Animation einen anderen Auslöser zu. Weitere Informationen finden Sie unter [Mehrere Auslöser für dieselbe Animation](/de/docs/Web/CSS/Reference/Properties/animation-trigger#multiple_triggers_for_the_same_animation).
+Wenn Sie ein animiertes Element haben und auf mehreren verschiedenen Elementen Auslöser definieren möchten, die alle dieselbe Animation starten, müssen Sie dieselbe benannte Animation mehrfach auf dem animierten Element angeben und jeder Instanz dieser Animation einen anderen Auslöser zuweisen. Weitere Informationen finden Sie unter [Mehrere Auslöser für dieselbe Animation](/de/docs/Web/CSS/Reference/Properties/animation-trigger#multiple_triggers_for_the_same_animation).
 
 ## Siehe auch
 
-- Modul [Auslöser für CSS-Animationen](/de/docs/Web/CSS/Guides/Animation_triggers)
+- Modul [CSS-Animationsauslöser](/de/docs/Web/CSS/Guides/Animation_triggers)
 - Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
 - Modul [Scrollgesteuerte CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
 - [Die Web Animations API verwenden](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
-- [Durch Scrollen ausgelöste CSS-Animationen kommen!](https://developer.chrome.com/blog/scroll-triggered-animations) auf developer.chrome.com (2025)
+- [CSS-Animationen mit Scroll-Auslösern kommen!](https://developer.chrome.com/blog/scroll-triggered-animations) auf developer.chrome.com (2025)

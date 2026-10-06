@@ -1,20 +1,20 @@
 ---
-title: "VRDisplay: requestAnimationFrame() Methode"
+title: "VRDisplay: requestAnimationFrame()-Methode"
 short-title: requestAnimationFrame()
 slug: Web/API/VRDisplay/requestAnimationFrame
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die **`requestAnimationFrame()`** Methode des [`VRDisplay`](/de/docs/Web/API/VRDisplay) Interfaces ist eine spezielle Implementierung von [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame), die eine Rückruffunktion enthält, die jedes Mal aufgerufen wird, wenn ein neues Frame der `VRDisplay`-Präsentation gerendert wird:
+Die Methode **`requestAnimationFrame()`** der Schnittstelle [`VRDisplay`](/de/docs/Web/API/VRDisplay) ist eine spezielle Implementierung von [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame). Sie nimmt eine Callback-Funktion entgegen, die jedes Mal aufgerufen wird, wenn ein neuer Frame der `VRDisplay`-Präsentation gerendert wird:
 
 > [!NOTE]
-> Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-- Wenn das `VRDisplay` keine Szene präsentiert, ist dies funktional äquivalent zu [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame).
-- Wenn das `VRDisplay` präsentiert, wird der Rückruf in der nativen Bildwiederholrate aufgerufen.
+- Wenn `VRDisplay` keine Szene präsentiert, entspricht die Methode funktional [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame).
+- Wenn `VRDisplay` eine Szene präsentiert, wird der Callback mit der nativen Bildwiederholfrequenz aufgerufen.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ requestAnimationFrame(callback)
 ### Parameter
 
 - `callback`
-  - : Eine Rückruffunktion, die jedes Mal aufgerufen wird, wenn ein neues Frame der `VRDisplay`-Präsentation gerendert wird.
+  - : Eine Callback-Funktion, die jedes Mal aufgerufen wird, wenn ein neuer Frame der `VRDisplay`-Präsentation gerendert wird.
 
 ### Rückgabewert
 
-Ein langer Wert, der den Handle des `requestAnimationFrame()`-Aufrufs darstellt. Dieser kann dann an einen [`VRDisplay.cancelAnimationFrame()`](/de/docs/Web/API/VRDisplay/cancelAnimationFrame) Aufruf übergeben werden, um den Rückruf abzumelden.
+Ein Wert vom Typ long, der das Handle des `requestAnimationFrame()`-Aufrufs darstellt. Er kann anschließend an [`VRDisplay.cancelAnimationFrame()`](/de/docs/Web/API/VRDisplay/cancelAnimationFrame) übergeben werden, um den Callback abzumelden.
 
 ## Beispiele
 
@@ -106,13 +106,13 @@ function drawVRScene() {
 ```
 
 > [!NOTE]
-> Sie können diesen vollständigen Code unter [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) sehen.
+> Den vollständigen Code finden Sie unter [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js).
 
 ## Spezifikationen
 
-Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren werden. Lesen Sie [Metas Porting von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) Leitfaden für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen. Weitere Informationen finden Sie in [Metas Leitfaden zur Migration von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

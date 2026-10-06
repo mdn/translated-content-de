@@ -1,31 +1,31 @@
 ---
-title: "`browsingContext` Modul"
+title: Modul `browsingContext`
 short-title: browsingContext
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext
 l10n:
-  sourceCommit: e5999f9b30c19ca727cbf28ec254f2111f7d36c8
+  sourceCommit: 6cb739dac09c71c59f78190a43d13247835f878e
 ---
 
-Das **`browsingContext`** Modul enthält Befehle und Ereignisse zur Verwaltung von Kontexte.
+Das Modul **`browsingContext`** enthält Befehle und Ereignisse zur Verwaltung von Kontexten.
 
 ## Kontexte
 
-Ein Kontext ist ein navigierbares Element, das ein Dokument laden kann, wie z.B. ein Tab, ein `iframe` oder ein Popup.
-Jeder Kontext hat eine eindeutige Zeichenfolge als Bezeichner, genannt Kontext-ID, die verwendet wird, um ihn in Befehlen und Ereignissen zu referenzieren.
+Ein Kontext ist ein navigierbarer Bereich, der ein Dokument laden kann, beispielsweise ein Tab, ein iframe oder ein Popup.
+Jeder Kontext hat eine eindeutige Zeichenkennung, die als Kontext-ID bezeichnet wird und dazu dient, in Befehlen und Ereignissen auf ihn zu verweisen.
 
-Es gibt zwei Arten von Kontexte:
+Es gibt zwei Arten von Kontexten:
 
-- **Kontext auf oberster Ebene**
-  - : Diese Art von Kontext hat keinen übergeordneten Kontext und entspricht einem Browser-Tab oder einem eigenständigen Fenster.
-    Kontexte auf oberster Ebene gehören zu einem [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) und befinden sich in einem [Client-Fenster](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows).
-- **Kindkontext**
-  - : Diese Art von Kontext ist in einem Kontext auf oberster Ebene verschachtelt, wie z.B. ein {{HTMLElement("iframe")}}.
-    Kindkontexte werden als Kinder ihres Elternkontexts durch [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
+- **Kontext der obersten Ebene**
+  - : Dieser Kontexttyp hat keinen übergeordneten Kontext und entspricht einem Browser-Tab oder einem eigenständigen Fenster.
+    Kontexte der obersten Ebene gehören zu einem [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) und befinden sich in einem [Client-Fenster](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows).
+- **Untergeordneter Kontext**
+  - : Dieser Kontexttyp ist in einen Kontext der obersten Ebene eingebettet, beispielsweise als {{HTMLElement("iframe")}}.
+    [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) gibt untergeordnete Kontexte als Kinder ihres übergeordneten Kontexts zurück.
 
-Zum Beispiel, wenn Sie ein Browserfenster öffnen und zu `https://example.com` navigieren, wird ein Kontext auf oberster Ebene mit seiner eigenen Kontext-ID erstellt.
-Wenn diese Seite ein `<iframe>` enthält, das `https://other.com` lädt, wird ein Kindkontext erstellt, der unter dem Kontext auf oberster Ebene verschachtelt ist.
-Das Öffnen eines neuen Tabs erstellt einen zweiten Kontext auf oberster Ebene mit seiner eigenen Kontext-ID.
-Ein Aufruf von [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) würde beide Kontexte auf oberster Ebene zurückgeben, wobei der erste einen Kindkontext hat.
+Wenn Sie beispielsweise ein Browserfenster öffnen und zu `https://example.com` navigieren, entsteht ein Kontext der obersten Ebene mit einer eigenen Kontext-ID.
+Wenn diese Seite ein `<iframe>` enthält, das `https://other.com` lädt, entsteht ein untergeordneter Kontext innerhalb des Kontexts der obersten Ebene.
+Durch das Öffnen eines neuen Tabs entsteht ein zweiter Kontext der obersten Ebene mit einer eigenen Kontext-ID.
+Ein Aufruf von [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) würde beide Kontexte der obersten Ebene zurückgeben, wobei der erste einen untergeordneten Kontext enthält.
 
 ## Befehle
 
@@ -47,12 +47,16 @@ Ein Aufruf von [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi
 - [`browsingContext.contextCreated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextCreated)
 - [`browsingContext.contextDestroyed`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextDestroyed)
 - [`browsingContext.domContentLoaded`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/domContentLoaded)
+- [`browsingContext.downloadEnd`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/downloadEnd)
+- [`browsingContext.downloadWillBegin`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/downloadWillBegin)
 - [`browsingContext.fragmentNavigated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/fragmentNavigated)
 - [`browsingContext.historyUpdated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/historyUpdated)
 - [`browsingContext.load`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/load)
 - [`browsingContext.navigationCommitted`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/navigationCommitted)
 - [`browsingContext.navigationFailed`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/navigationFailed)
 - [`browsingContext.navigationStarted`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/navigationStarted)
+- [`browsingContext.userPromptClosed`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/userPromptClosed)
+- [`browsingContext.userPromptOpened`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/userPromptOpened)
 
 ## Spezifikationen
 

@@ -1,21 +1,21 @@
 ---
-title: "VRDisplay: isPresenting Eigenschaft"
+title: "VRDisplay: isPresenting-Eigenschaft"
 short-title: isPresenting
 slug: Web/API/VRDisplay/isPresenting
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die **`isPresenting`** schreibgeschützte Eigenschaft der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob die `VRDisplay` derzeit Inhalte durch sie präsentiert werden.
+Die schreibgeschützte Eigenschaft **`isPresenting`** der Schnittstelle [`VRDisplay`](/de/docs/Web/API/VRDisplay) gibt einen booleschen Wert zurück, der angibt, ob über das `VRDisplay` derzeit Inhalte dargestellt werden.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
 ## Wert
 
-Ein boolescher Wert; `true` bedeutet, dass das Display präsentiert; `false` bedeutet, dass es nicht präsentiert.
+Ein boolescher Wert: `true` bedeutet, dass das Display Inhalte darstellt; `false` bedeutet, dass es keine Inhalte darstellt.
 
 ## Beispiele
 
@@ -41,13 +41,13 @@ function onVRExitPresent() {
 ```
 
 > [!NOTE]
-> Code-Snippet entnommen aus [Googles VR Presentation Demo](https://github.com/toji/webvr.info/blob/master/samples/03-vr-presentation.html).
+> Der Codeausschnitt stammt aus [Googles Demo zur VR-Darstellung](https://github.com/toji/webvr.info/blob/master/samples/03-vr-presentation.html).
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie ist nicht mehr auf dem Weg, zum Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) zu setzen oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden "Porting von WebVR zu WebXR" von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in [Metas Leitfaden zur Migration von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

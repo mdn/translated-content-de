@@ -1,17 +1,17 @@
 ---
-title: "HTMLButtonElement: checkValidity() Methode"
+title: "HTMLButtonElement: Methode checkValidity()"
 short-title: checkValidity()
 slug: Web/API/HTMLButtonElement/checkValidity
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 77255c9651ee56d559b577c74cec1c3f4178d2bf
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`**-Methode der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) gibt einen booleschen Wert zurück, der anzeigt, ob das Element alle darauf angewendeten [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Guides/Constraint_validation) erfüllt. Wenn der Wert `false` ist, wird außerdem ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis auf dem Element ausgelöst. Da es kein Standardverhalten des Browsers für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Auswirkung. Es gibt immer `true` zurück, wenn der [`type`](/de/docs/Web/API/HTMLButtonElement/type) des {{HTMLElement("button")}}-Elements `"button"` oder `"reset"` ist, da solche Schaltflächen nie Kandidaten für [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) sind.
+Die Methode **`checkValidity()`** der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) gibt einen booleschen Wert zurück, der angibt, ob das Element die für es geltenden Regeln der [Constraint Validation](/de/docs/Web/HTML/Guides/Constraint_validation) erfüllt. Ist der Rückgabewert `false`, löst die Methode außerdem ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis auf dem Element aus. Da es für `checkValidity()` kein Standardverhalten des Browsers gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Auswirkung. Die Methode gibt immer `true` zurück, wenn das {{HTMLElement("button")}}-Element nicht für die [Constraint Validation](/de/docs/Web/HTML/Guides/Constraint_validation) infrage kommt (wenn sein [`willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) `false` ist).
 
 > [!NOTE]
-> Ein HTML-{{htmlelement("button")}}-Element des Typs `"submit"` mit einer nicht-null [`validationMessage`](/de/docs/Web/API/HTMLButtonElement/validationMessage) gilt als ungültig, wird mit der CSS-{{cssxref(":invalid")}}-Pseudoklasse übereinstimmen und `checkValidity()` wird `false` zurückgeben. Verwenden Sie die Methode [`HTMLButtonElement.setCustomValidity()`](/de/docs/Web/API/HTMLButtonElement/setCustomValidity), um die [`HTMLButtonElement.validationMessage`](/de/docs/Web/API/HTMLButtonElement/validationMessage) auf einen leeren String zu setzen, um den [`validity`](/de/docs/Web/API/HTMLButtonElement/validity)-Zustand auf gültig zu setzen.
+> Ein HTML-{{htmlelement("button")}}-Element vom Typ `"submit"` mit einer [`validationMessage`](/de/docs/Web/API/HTMLButtonElement/validationMessage), die nicht `null` ist, gilt als ungültig, entspricht der CSS-Pseudoklasse {{cssxref(":invalid")}} und führt dazu, dass `checkValidity()` `false` zurückgibt. Verwenden Sie die Methode [`HTMLButtonElement.setCustomValidity()`](/de/docs/Web/API/HTMLButtonElement/setCustomValidity), um die [`HTMLButtonElement.validationMessage`](/de/docs/Web/API/HTMLButtonElement/validationMessage) auf eine leere Zeichenfolge zu setzen und damit den Zustand [`validity`](/de/docs/Web/API/HTMLButtonElement/validity) auf gültig zu setzen.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Validitätsprobleme hat; andernfalls `false`.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist oder das Element nicht für die Constraint Validation infrage kommt; andernfalls `false`.
 
 ## Beispiele
 
@@ -49,6 +49,6 @@ console.log(element.checkValidity());
 - [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraint Validation](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}}

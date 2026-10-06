@@ -2,30 +2,30 @@
 title: VRDisplayCapabilities
 slug: Web/API/VRDisplayCapabilities
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Das **`VRDisplayCapabilities`**-Interface der [WebVR API](/de/docs/Web/API/WebVR_API) beschreibt die Fähigkeiten eines [`VRDisplay`](/de/docs/Web/API/VRDisplay) – seine Eigenschaften können verwendet werden, um Tests zur VR-Gerätefähigkeit durchzuführen, zum Beispiel ob es Positionsinformationen zurückgeben kann.
+Die **`VRDisplayCapabilities`**-Schnittstelle der [WebVR API](/de/docs/Web/API/WebVR_API) beschreibt die Fähigkeiten eines [`VRDisplay`](/de/docs/Web/API/VRDisplay). Anhand dieser Eigenschaften lässt sich beispielsweise prüfen, ob ein VR-Gerät Positionsinformationen zurückgeben kann.
 
 > [!NOTE]
-> Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Es wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Schnittstelle war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Dieses Interface ist über die [`VRDisplay.capabilities`](/de/docs/Web/API/VRDisplay/capabilities)-Eigenschaft zugänglich.
+Auf diese Schnittstelle kann über die Eigenschaft [`VRDisplay.capabilities`](/de/docs/Web/API/VRDisplay/capabilities) zugegriffen werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`VRDisplayCapabilities.canPresent`](/de/docs/Web/API/VRDisplayCapabilities/canPresent) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display in der Lage ist, Inhalte zu präsentieren (z. B. über ein HMD).
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display Inhalte darstellen kann (z. B. über ein Head-Mounted Display).
 - [`VRDisplayCapabilities.hasExternalDisplay`](/de/docs/Web/API/VRDisplayCapabilities/hasExternalDisplay) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display von der Primäranzeige des Geräts getrennt ist.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display vom primären Display des Geräts getrennt ist.
 - [`VRDisplayCapabilities.hasOrientation`](/de/docs/Web/API/VRDisplayCapabilities/hasOrientation) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display die Ausrichtung verfolgen und zurückgeben kann.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display Orientierungsinformationen erfassen und zurückgeben kann.
 - [`VRDisplayCapabilities.hasPosition`](/de/docs/Web/API/VRDisplayCapabilities/hasPosition) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display die Position verfolgen und zurückgeben kann.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das VR-Display Positionsinformationen erfassen und zurückgeben kann.
 - [`VRDisplayCapabilities.maxLayers`](/de/docs/Web/API/VRDisplayCapabilities/maxLayers) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt eine Zahl zurück, die die maximale Anzahl von [`VRLayerInit`](/de/docs/Web/API/VRLayerInit)s angibt, die das VR-Display gleichzeitig präsentieren kann (z. B. die maximale Länge des Arrays, das [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent) akzeptieren kann).
+  - : Gibt eine Zahl zurück, die angibt, wie viele [`VRLayerInit`](/de/docs/Web/API/VRLayerInit)-Objekte das VR-Display gleichzeitig darstellen kann (z. B. die maximale Länge des Arrays, das [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent) akzeptiert).
 
 ## Beispiele
 
@@ -56,9 +56,9 @@ Display max layers: ${cap.maxLayers}`;
 
 ## Spezifikationen
 
-Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Schnittstelle war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu stützen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden, um browserübergreifend funktionierende WebXR-Anwendungen zu entwickeln. Weitere Informationen finden Sie in [Metas Leitfaden zur Portierung von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

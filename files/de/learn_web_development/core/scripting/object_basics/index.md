@@ -3,28 +3,28 @@ title: Grundlagen von JavaScript-Objekten
 short-title: Objects
 slug: Learn_web_development/Core/Scripting/Object_basics
 l10n:
-  sourceCommit: ce12c10364f35c64184dec44be85537b7e10d91f
+  sourceCommit: c529f2672b3541cc28ea687ff9266f98b1734191
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Events","Learn_web_development/Core/Scripting/Test_your_skills/Object_basics", "Learn_web_development/Core/Scripting")}}
 
-In diesem Artikel werfen wir einen Blick auf die grundlegende JavaScript-Objektsyntax und wiederholen einige JavaScript-Funktionen, die wir im Laufe des Kurses bereits gesehen haben. Dies betont, dass viele der Funktionen, mit denen Sie bereits gearbeitet haben, Objekte sind.
+In diesem Artikel betrachten wir die grundlegende Syntax von JavaScript-Objekten. Außerdem greifen wir einige JavaScript-Funktionen auf, die Sie im Kurs bereits kennengelernt haben, und zeigen, dass viele davon Objekte sind.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, sowie Vertrautheit mit den JavaScript-Grundlagen, wie sie in den vorherigen Lektionen behandelt wurden.</td>
+      <td>Kenntnisse in <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a> sowie Vertrautheit mit den JavaScript-Grundlagen aus den vorherigen Lektionen.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen, dass in JavaScript die meisten Dinge Objekte sind und Sie wahrscheinlich bereits jedes Mal Objekte verwendet haben, wenn Sie mit JavaScript gearbeitet haben.</li>
-          <li>Grundsyntax: Objektliterale, Eigenschaften und Methoden, verschachtelte Objekte und Arrays in Objekten.</li>
-          <li>Verwendung von Konstruktoren zur Erstellung eines neuen Objekts.</li>
-          <li>Objektscope und <code>this</code>.</li>
-          <li>Zugriff auf Eigenschaften und Methoden – Klammer- und Punktnotation.</li>
+          <li>Verstehen, dass in JavaScript die meisten Dinge Objekte sind und Sie wahrscheinlich jedes Mal Objekte verwendet haben, wenn Sie mit JavaScript gearbeitet haben.</li>
+          <li>Grundlegende Syntax: Objektliterale, Eigenschaften und Methoden sowie verschachtelte Objekte und Arrays in Objekten.</li>
+          <li>Konstruktoren verwenden, um neue Objekte zu erstellen.</li>
+          <li>Gültigkeitsbereich von Objekten und <code>this</code>.</li>
+          <li>Auf Eigenschaften und Methoden zugreifen – mit Klammer- und Punktschreibweise.</li>
         <ul>
       </td>
     </tr>
@@ -33,19 +33,44 @@ In diesem Artikel werfen wir einen Blick auf die grundlegende JavaScript-Objekts
 
 ## Grundlagen von Objekten
 
-Ein Objekt ist eine Sammlung von zusammengehörigen Daten und/oder Funktionalitäten.
-Diese bestehen üblicherweise aus mehreren Variablen und Funktionen (die innerhalb von Objekten als Eigenschaften und Methoden bezeichnet werden).
-Lassen Sie uns ein Beispiel durchgehen, um zu verstehen, wie sie aussehen.
+Ein Objekt ist eine Sammlung zusammengehöriger Daten und/oder Funktionen. Es besteht üblicherweise aus mehreren Variablen und Funktionen, die innerhalb eines Objekts als Eigenschaften beziehungsweise Methoden bezeichnet werden. Sehen wir uns ein Beispiel an, um zu verstehen, wie das aussieht.
 
-Erstellen Sie zunächst eine lokale Kopie unserer [oojs.html](https://github.com/mdn/learning-area/blob/main/javascript/oojs/introduction/oojs.html) Datei. Diese enthält sehr wenig — ein {{HTMLElement("script")}}-Element, in das wir unseren Quellcode schreiben können. Wir werden dies als Grundlage verwenden, um die grundlegende Objektsyntax zu erkunden. Während Sie an diesem Beispiel arbeiten, sollten Sie Ihre [JavaScript-Konsole der Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#the_javascript_console) geöffnet und bereit haben, einige Befehle einzugeben.
+Erstellen Sie zunächst eine neue HTML-Datei auf Ihrem lokalen Dateisystem und fügen Sie den folgenden Code ein:
 
-Wie bei vielen Dingen in JavaScript beginnt das Erstellen eines Objekts oft mit der Definition und Initialisierung einer Variablen. Versuchen Sie, die folgende Zeile unterhalb des bereits in Ihrer Datei vorhandenen JavaScript-Codes einzugeben, dann speichern und aktualisieren Sie:
+```html
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>
+      This example requires you to enter commands in your browser's JavaScript
+      console (see
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools"
+        >What are browser developer tools</a
+      >
+      for more information).
+    </p>
+
+    <script></script>
+  </body>
+</html>
+```
+
+Die Datei enthält nur wenig: ein {{HTMLElement("script")}}-Element, in das wir unseren Quellcode schreiben können. Darauf aufbauend untersuchen wir die grundlegende Objektsyntax. Halten Sie während der Arbeit an diesem Beispiel die [JavaScript-Konsole Ihrer Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#the_javascript_console) geöffnet, damit Sie Befehle eingeben können.
+
+Wie so oft in JavaScript beginnt das Erstellen eines Objekts damit, eine Variable zu deklarieren und zu initialisieren. Geben Sie die folgende Zeile zwischen Ihren `<script></script>`-Tags ein, speichern Sie die Datei und laden Sie die Seite neu:
 
 ```js
 const person = {};
 ```
 
-Öffnen Sie nun die [JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#the_javascript_console) Ihres Browsers, geben Sie `person` ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>. Sie sollten ein Ergebnis ähnlich einer der folgenden Zeilen erhalten:
+Öffnen Sie nun die [JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#the_javascript_console) Ihres Browsers, geben Sie `person` ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>. Sie sollten ein Ergebnis erhalten, das einer der folgenden Zeilen ähnelt:
 
 ```plain
 [object Object]
@@ -53,7 +78,7 @@ Object { }
 { }
 ```
 
-Herzlichen Glückwunsch, Sie haben gerade Ihr erstes Objekt erstellt. Job erledigt! Doch dies ist ein leeres Objekt, also können wir nicht wirklich viel damit machen. Lassen Sie uns das JavaScript-Objekt in unserer Datei aktualisieren, damit es folgendermaßen aussieht:
+Glückwunsch, Sie haben gerade Ihr erstes Objekt erstellt! Damit wäre die Aufgabe erledigt. Allerdings ist das Objekt noch leer, sodass wir nicht viel damit anfangen können. Ändern wir das JavaScript-Objekt in unserer Datei wie folgt:
 
 ```js
 const person = {
@@ -68,7 +93,7 @@ const person = {
 };
 ```
 
-Nachdem Sie dies gespeichert und aktualisiert haben, versuchen Sie, einige der folgenden Dinge in die JavaScript-Konsole Ihrer Browser-Entwicklertools einzugeben:
+Speichern Sie die Datei, laden Sie die Seite neu und geben Sie einige der folgenden Ausdrücke in die JavaScript-Konsole Ihrer Browser-Entwicklertools ein:
 
 ```js
 person.name;
@@ -80,9 +105,9 @@ person.introduceSelf();
 // "Hi! I'm Bob."
 ```
 
-Sie haben nun Daten und Funktionalität in Ihrem Objekt und können jetzt auf diese mit einer schönen, einfachen Syntax zugreifen!
+Ihr Objekt enthält jetzt Daten und Funktionen, auf die Sie mit einer einfachen Syntax zugreifen können!
 
-Was geschieht hier? Nun, ein Objekt besteht aus mehreren Mitgliedern, die jeweils einen Namen (z.B. `name` und `age` oben) und einen Wert (z.B. `['Bob', 'Smith']` und `32`) haben. Jedes Name/Wert-Paar muss durch ein Komma getrennt werden, und der Name und der Wert werden jeweils durch einen Doppelpunkt getrennt. Die Syntax folgt immer diesem Muster:
+Was passiert hier? Ein Objekt besteht aus mehreren Mitgliedern. Jedes Mitglied hat einen Namen (oben beispielsweise `name` und `age`) und einen Wert (beispielsweise `['Bob', 'Smith']` und `32`). Die Namen-Wert-Paare werden durch Kommas getrennt, während zwischen dem Namen und dem Wert jeweils ein Doppelpunkt steht. Die Syntax folgt immer diesem Muster:
 
 ```js
 const objectName = {
@@ -92,9 +117,9 @@ const objectName = {
 };
 ```
 
-Der Wert eines Objektmitglieds kann so ziemlich alles sein — in unserem `person`-Objekt haben wir eine Zahl, ein Array und zwei Funktionen. Die ersten zwei Elemente sind Datenelemente und werden als die **Eigenschaften** des Objekts bezeichnet. Die letzten zwei Elemente sind Funktionen, die es dem Objekt ermöglichen, etwas mit diesen Daten zu tun, und werden als die **Methoden** des Objekts bezeichnet.
+Der Wert eines Objektmitglieds kann nahezu alles sein – unser `person`-Objekt enthält eine Zahl, ein Array und zwei Funktionen. Die ersten beiden Einträge sind Datenelemente und werden als **Eigenschaften** des Objekts bezeichnet. Die letzten beiden sind Funktionen, mit denen das Objekt etwas mit diesen Daten tun kann. Sie heißen **Methoden** des Objekts.
 
-Wenn die Mitglieder eines Objekts Funktionen sind, gibt es eine einfachere Syntax. Anstatt `bio: function ()` können wir `bio()` schreiben. So zum Beispiel:
+Wenn Objektmitglieder Funktionen sind, gibt es eine einfachere Syntax: Statt `bio: function ()` können wir `bio()` schreiben. Zum Beispiel so:
 
 ```js
 const person = {
@@ -109,15 +134,15 @@ const person = {
 };
 ```
 
-Von nun an werden wir diese kürzere Syntax verwenden.
+Von nun an verwenden wir diese kürzere Syntax.
 
-Ein solches Objekt wird als **Objektliteral** bezeichnet — wir haben die Inhalte des Objekts buchstäblich so ausgeschrieben, wie wir sie erstellt haben. Dies unterscheidet sich von Objekten, die von Klassen instanziiert werden, auf die wir später eingehen werden.
+Ein solches Objekt wird **Objektliteral** genannt – wir haben den Inhalt des Objekts bei seiner Erstellung direkt ausgeschrieben. Das unterscheidet sich von Objekten, die aus Klassen instanziiert werden. Diese behandeln wir später.
 
-Es ist sehr üblich, ein Objekt mit einem Objektliteral zu erstellen, wenn Sie eine Reihe von strukturierten, zusammenhängenden Datenelementen in irgendeiner Weise übertragen möchten, zum Beispiel beim Senden einer Anfrage an den Server, um sie in eine Datenbank zu speichern. Das Senden eines einzelnen Objekts ist viel effizienter, als mehrere Elemente einzeln zu senden, und es ist einfacher zu handhaben als ein Array, wenn Sie individuelle Elemente anhand von Namen identifizieren möchten.
+Objektliterale werden häufig verwendet, um mehrere strukturierte, zusammengehörige Datenelemente zu übertragen, etwa bei einer Anfrage an einen Server, der die Daten in einer Datenbank speichern soll. Ein einzelnes Objekt zu senden ist wesentlich effizienter, als mehrere Elemente einzeln zu senden. Außerdem lässt sich damit leichter arbeiten als mit einem Array, wenn Sie einzelne Elemente anhand ihres Namens identifizieren möchten.
 
-## Punktnotation
+## Punktschreibweise
 
-Oben haben Sie auf die Eigenschaften und Methoden des Objekts mittels **Punktnotation** zugegriffen. Der Objektname (`person`) dient als **Namespace** — er muss zuerst eingegeben werden, um auf alles innerhalb des Objekts zuzugreifen. Danach schreiben Sie einen Punkt und dann das Element, auf das Sie zugreifen möchten — dies kann der Name einer einfachen Eigenschaft, ein Element einer Arrays-Eigenschaft oder ein Aufruf zu einer der Methoden des Objekts sein, zum Beispiel:
+Oben haben Sie mit der **Punktschreibweise** auf die Eigenschaften und Methoden des Objekts zugegriffen. Der Objektname (`person`) dient dabei als **Namensraum**: Er muss zuerst angegeben werden, um auf etwas innerhalb des Objekts zuzugreifen. Danach folgen ein Punkt und das Element, auf das Sie zugreifen möchten. Das kann eine einfache Eigenschaft, ein Element einer Array-Eigenschaft oder ein Aufruf einer Objektmethode sein, zum Beispiel:
 
 ```js
 person.age;
@@ -126,7 +151,7 @@ person.bio();
 
 ### Objekte als Objekteigenschaften
 
-Eine Objekteigenschaft kann selbst ein Objekt sein. Versuchen Sie zum Beispiel, das `name`-Mitglied von
+Eine Objekteigenschaft kann selbst ein Objekt sein. Ändern Sie beispielsweise das Mitglied `name` von
 
 ```js
 const person = {
@@ -146,58 +171,50 @@ const person = {
 };
 ```
 
-zu ändern.
-
-Um auf diese Elemente zuzugreifen, müssen Sie einfach den zusätzlichen Schritt mit einem weiteren Punkt anfügen. Versuchen Sie dies in der JS-Konsole:
+Um auf diese Elemente zuzugreifen, hängen Sie mit einem weiteren Punkt einen zusätzlichen Schritt an. Probieren Sie Folgendes in der JS-Konsole aus:
 
 ```js
 person.name.first;
 person.name.last;
 ```
 
-Wenn Sie dies tun, müssen Sie auch Ihren Methodencode durchgehen und alle Instanzen von
+Wenn Sie diese Änderung vornehmen, müssen Sie auch in Ihrem Methodencode alle Vorkommen von
 
 ```js
 name[0];
 name[1];
 ```
 
-in
+durch
 
 ```js
 name.first;
 name.last;
 ```
 
-ändern.
+ersetzen. Andernfalls funktionieren Ihre Methoden nicht mehr.
 
-Andernfalls funktionieren Ihre Methoden nicht mehr.
+## Klammerschreibweise
 
-## Klammernotation
-
-Die Klammernotation bietet eine alternative Methode, um auf Objekteigenschaften zuzugreifen.
-Anstatt die [Punktnotation](#punktnotation) wie folgt zu verwenden:
+Die Klammerschreibweise ist eine alternative Möglichkeit, auf Objekteigenschaften zuzugreifen. Statt die [Punktschreibweise](#punktschreibweise) zu verwenden:
 
 ```js
 person.age;
 person.name.first;
 ```
 
-Können Sie stattdessen eckige Klammern verwenden:
+können Sie eckige Klammern verwenden:
 
 ```js
 person["age"];
 person["name"]["first"];
 ```
 
-Dies sieht der Art und Weise, wie Sie auf die Elemente in einem Array zugreifen, sehr ähnlich, und es ist im Grunde dasselbe — anstatt eine Indexnummer zu verwenden, um ein Element auszuwählen, verwenden Sie den Namen, der mit dem Wert jedes Mitglieds verknüpft ist.
-Kein Wunder, dass Objekte manchmal als **assoziative Arrays** bezeichnet werden — sie ordnen Zeichenfolgen Werten auf dieselbe Weise zu, wie Arrays Zahlen Werten zuordnen.
+Das ähnelt sehr dem Zugriff auf Elemente eines Arrays und funktioniert im Grunde genauso: Statt ein Element über eine Indexzahl auszuwählen, verwenden Sie den Namen, der dem Wert des jeweiligen Mitglieds zugeordnet ist. Daher werden Objekte manchmal auch **assoziative Arrays** genannt: Sie ordnen Zeichenfolgen Werte zu, so wie Arrays Zahlen Werte zuordnen.
 
-Die Punktnotation wird im Allgemeinen der Klammernotation vorgezogen, da sie knapper und einfacher zu lesen ist.
-Es gibt jedoch einige Fälle, in denen Sie eckige Klammern verwenden müssen.
-Zum Beispiel, wenn ein Objekteigenschaftsname in einer Variablen gehalten wird, dann können Sie die Punktnotation nicht verwenden, um auf den Wert zuzugreifen, aber Sie können auf den Wert mit der Klammernotation zugreifen.
+Im Allgemeinen wird die Punktschreibweise bevorzugt, weil sie kürzer und leichter lesbar ist. In manchen Fällen müssen Sie jedoch eckige Klammern verwenden. Wenn der Name einer Objekteigenschaft beispielsweise in einer Variablen gespeichert ist, können Sie nicht mit der Punktschreibweise auf ihren Wert zugreifen. Mit der Klammerschreibweise ist das möglich.
 
-Im folgenden Beispiel kann die Funktion `logProperty()` `person[propertyName]` verwenden, um den Wert der in `propertyName` genannten Eigenschaft abzurufen.
+Im folgenden Beispiel kann die Funktion `logProperty()` mit `person[propertyName]` den Wert der Eigenschaft abrufen, deren Name in `propertyName` steht.
 
 ```js
 const person = {
@@ -215,23 +232,23 @@ logProperty("age");
 // 32
 ```
 
-## Objektsmitglieder setzen
+## Objektmitglieder festlegen
 
-Bisher haben wir nur das Abrufen (oder **Abfragen**) von Objektsmitgliedern betrachtet — Sie können auch den Wert von Objektsmitgliedern **setzen** (aktualisieren), indem Sie das Mitglied deklarieren, das Sie setzen möchten (mithilfe der Punkt- oder Klammernotation), so:
+Bisher haben wir uns nur angesehen, wie Objektmitglieder abgerufen werden. Sie können ihre Werte aber auch **festlegen** beziehungsweise aktualisieren. Geben Sie dazu das Mitglied, das Sie ändern möchten, in Punkt- oder Klammerschreibweise an:
 
 ```js
 person.age = 45;
 person["name"]["last"] = "Cratchit";
 ```
 
-Versuchen Sie, die obigen Zeilen einzugeben, und rufen Sie dann die Mitglieder erneut ab, um zu sehen, wie sie sich geändert haben:
+Geben Sie die obigen Zeilen ein und rufen Sie die Mitglieder anschließend erneut ab, um zu sehen, wie sie sich verändert haben:
 
 ```js
 person.age;
 person["name"]["last"];
 ```
 
-Das Setzen von Mitgliedern hört nicht bei der Aktualisierung der Werte bestehender Eigenschaften und Methoden auf; Sie können auch völlig neue Mitglieder erstellen. Probieren Sie dies in der JS-Konsole aus:
+Sie können nicht nur die Werte vorhandener Eigenschaften und Methoden aktualisieren, sondern auch völlig neue Mitglieder erstellen. Probieren Sie Folgendes in der JS-Konsole aus:
 
 ```js
 person["eyes"] = "hazel";
@@ -240,7 +257,7 @@ person.farewell = function () {
 };
 ```
 
-Sie können nun Ihre neuen Mitglieder testen:
+Nun können Sie Ihre neuen Mitglieder testen:
 
 ```js
 person["eyes"];
@@ -248,20 +265,20 @@ person.farewell();
 // "Bye everybody!"
 ```
 
-Ein nützlicher Aspekt der Klammernotation ist, dass sie nicht nur zum dynamischen Setzen von Mitgliedswerten, sondern auch für die Mitgliedsnamen verwendet werden kann. Angenommen, wir möchten den Benutzern ermöglichen, benutzerdefinierte Wertetypen in ihren Personendaten zu speichern, indem sie den Mitgliedsnamen und den Wert in zwei Texteingaben eingeben. Wir könnten diese Werte wie folgt abrufen:
+Ein nützlicher Aspekt der Klammerschreibweise ist, dass sich damit nicht nur Werte, sondern auch die Namen von Mitgliedern dynamisch festlegen lassen. Angenommen, Benutzer sollen eigene Werte in ihren Personendaten speichern können, indem sie den Namen eines Mitglieds und seinen Wert in zwei Textfelder eingeben. Diese Werte könnten wir so abrufen:
 
 ```js
 const myDataName = nameInput.value;
 const myDataValue = nameValue.value;
 ```
 
-Wir könnten dann diesen neuen Mitgliedsnamen und -wert wie folgt zum `person`-Objekt hinzufügen:
+Anschließend könnten wir den neuen Mitgliedsnamen und Wert wie folgt zum Objekt `person` hinzufügen:
 
 ```js
 person[myDataName] = myDataValue;
 ```
 
-Um dies zu testen, versuchen Sie, die folgenden Zeilen in Ihren Code einzufügen, direkt unter der schließenden geschweiften Klammer des `person`-Objekts:
+Fügen Sie zum Testen die folgenden Zeilen unmittelbar nach der schließenden geschweiften Klammer des Objekts `person` in Ihren Code ein:
 
 ```js
 const myDataName = "height";
@@ -269,17 +286,17 @@ const myDataValue = "1.75m";
 person[myDataName] = myDataValue;
 ```
 
-Speichern und aktualisieren Sie, und geben Sie die folgenden Werte in Ihre Texteingabe ein:
+Speichern Sie die Datei, laden Sie die Seite neu und geben Sie Folgendes in Ihr Textfeld ein:
 
 ```js
 person.height;
 ```
 
-Das Hinzufügen einer Eigenschaft zu einem Objekt mithilfe der obigen Methode ist mit der Punktnotation nicht möglich, da diese nur einen literalen Mitgliedsnamen akzeptieren kann, nicht jedoch einen Variablenwert, der auf einen Namen zeigt.
+Mit der Punktschreibweise lässt sich eine Eigenschaft nicht auf die oben gezeigte Weise hinzufügen. Sie akzeptiert nur einen direkt angegebenen Mitgliedsnamen, nicht den Wert einer Variablen, die einen Namen enthält.
 
-## Was ist "this"?
+## Was ist „this“?
 
-Sie haben vielleicht etwas Seltsames in unseren Methoden bemerkt. Schauen Sie sich zum Beispiel diese an:
+Vielleicht ist Ihnen in unseren Methoden etwas Merkwürdiges aufgefallen. Betrachten Sie zum Beispiel diese Methode:
 
 ```js
 const person = {
@@ -290,9 +307,9 @@ const person = {
 };
 ```
 
-Sie fragen sich wahrscheinlich, was "this" ist. Das Schlüsselwort `this` bezieht sich normalerweise auf das aktuelle Objekt, in dem der Code ausgeführt wird. Im Kontext einer Objektmethode bezieht sich `this` auf das Objekt, auf dem die Methode aufgerufen wurde.
+Sie fragen sich vermutlich, was „this“ bedeutet. Das Schlüsselwort `this` bezieht sich normalerweise auf das aktuelle Objekt, in dem der Code ausgeführt wird. Im Kontext einer Objektmethode bezeichnet `this` das Objekt, auf dem die Methode aufgerufen wurde.
 
-Lassen Sie uns veranschaulichen, was wir meinen, mit einem vereinfachten Paar von Person-Objekten:
+Veranschaulichen wir das anhand zweier vereinfachter Personenobjekte:
 
 ```js
 const person1 = {
@@ -310,17 +327,17 @@ const person2 = {
 };
 ```
 
-In diesem Fall gibt `person1.introduceSelf()` aus "Hi! I'm Chris."; `person2.introduceSelf()` gibt "Hi! I'm Deepti." aus. Dies passiert, weil `this` sich beim Aufruf der Methode auf das Objekt bezieht, auf dem die Methode aufgerufen wurde, was es derselben Methodendefinition ermöglicht, für mehrere Objekte zu funktionieren.
+In diesem Fall gibt `person1.introduceSelf()` „Hi! I'm Chris.“ aus und `person2.introduceSelf()` gibt „Hi! I'm Deepti.“ aus. Das liegt daran, dass sich `this` beim Methodenaufruf auf das Objekt bezieht, auf dem die Methode aufgerufen wird. So kann dieselbe Methodendefinition für mehrere Objekte verwendet werden.
 
-Dies ist nicht besonders nützlich, wenn Sie Objektsliterale von Hand schreiben, da die Verwendung des Objektnamens (`person1` und `person2`) zum gleichen Ergebnis führt, aber es wird wesentlich, wenn wir beginnen, **Konstruktoren** zu verwenden, um mehr als ein Objekt aus einer einzigen Objektsdefinition zu erstellen, und das ist das Thema des nächsten Abschnitts.
+Wenn Sie Objektliterale von Hand schreiben, ist das noch nicht besonders nützlich: Die Verwendung des jeweiligen Objektnamens (`person1` oder `person2`) führt zum selben Ergebnis. Es wird jedoch unverzichtbar, wenn wir **Konstruktoren** verwenden, um aus einer einzigen Objektdefinition mehrere Objekte zu erstellen. Darum geht es im nächsten Abschnitt.
 
 ## Einführung in Konstruktoren
 
-Die Verwendung von Objektliteralen ist in Ordnung, wenn Sie nur ein Objekt erstellen müssen, aber wenn Sie mehr als eines erstellen müssen, wie im vorherigen Abschnitt, sind sie ernsthaft unzureichend. Wir müssen denselben Code für jedes Objekt schreiben, das wir erstellen, und wenn wir einige Eigenschaften des Objekts ändern möchten — wie das Hinzufügen einer `height`-Eigenschaft — dann müssen wir daran denken, jedes Objekt zu aktualisieren.
+Objektliterale eignen sich gut, wenn Sie nur ein Objekt erstellen müssen. Wenn Sie jedoch wie im vorherigen Abschnitt mehrere Objekte erstellen möchten, sind sie wenig geeignet. Für jedes Objekt müssten wir denselben Code erneut schreiben. Wenn wir dann eine Eigenschaft des Objekts ändern möchten – etwa eine Eigenschaft `height` hinzufügen –, müssten wir daran denken, jedes Objekt zu aktualisieren.
 
-Wir möchten eine Möglichkeit haben, die "Form" eines Objekts zu definieren — die Menge der Methoden und der Eigenschaften, die es haben kann — und dann so viele Objekte erstellen, wie wir möchten, nur indem wir die Werte für die Eigenschaften aktualisieren, die unterschiedlich sind.
+Stattdessen möchten wir die „Form“ eines Objekts definieren – also die Menge seiner möglichen Methoden und Eigenschaften – und dann beliebig viele Objekte erstellen, wobei wir nur die Werte der Eigenschaften anpassen, die sich unterscheiden.
 
-Die erste Version davon ist einfach eine Funktion:
+Ein erster Ansatz dafür ist eine einfache Funktion:
 
 ```js
 function createPerson(name) {
@@ -333,14 +350,14 @@ function createPerson(name) {
 }
 ```
 
-Diese Funktion erstellt und gibt jedes Mal, wenn wir sie aufrufen, ein neues Objekt zurück. Das Objekt wird zwei Mitglieder haben:
+Diese Funktion erstellt bei jedem Aufruf ein neues Objekt und gibt es zurück. Das Objekt hat zwei Mitglieder:
 
 - eine Eigenschaft `name`
 - eine Methode `introduceSelf()`.
 
-Beachten Sie, dass `createPerson()` einen Parameter `name` verwendet, um den Wert der Eigenschaft `name` festzulegen, aber der Wert der Methode `introduceSelf()` wird für alle Objekte gleich sein, die mit dieser Funktion erstellt wurden. Dies ist ein sehr häufiges Muster zur Erstellung von Objekten.
+Beachten Sie, dass `createPerson()` den Parameter `name` entgegennimmt, um den Wert der Eigenschaft `name` festzulegen. Die Methode `introduceSelf()` ist dagegen bei allen Objekten gleich, die mit dieser Funktion erstellt werden. Das ist ein sehr gängiges Muster zum Erstellen von Objekten.
 
-Jetzt können wir so viele Objekte erstellen, wie wir möchten, indem wir die Definition wiederverwenden:
+Nun können wir die Definition wiederverwenden und beliebig viele Objekte erstellen:
 
 ```js
 const salva = createPerson("Salva");
@@ -352,14 +369,14 @@ frankie.introduceSelf();
 // "Hi! I'm Frankie."
 ```
 
-Das funktioniert gut soweit, ist jedoch etwas umständlich: wir müssen ein leeres Objekt erstellen, es initialisieren und zurückgeben. Eine bessere Möglichkeit ist die Verwendung eines **Konstruktors**. Ein Konstruktor ist einfach eine Funktion, die mit dem Schlüsselwort {{jsxref("new")}} aufgerufen wird. Wenn Sie einen Konstruktor aufrufen, wird er:
+Das funktioniert, ist aber etwas umständlich: Wir müssen ein leeres Objekt erstellen, es initialisieren und zurückgeben. Eine bessere Möglichkeit ist ein **Konstruktor**. Ein Konstruktor ist eine Funktion, die mit dem Schlüsselwort {{jsxref("new")}} aufgerufen wird. Wenn Sie einen Konstruktor aufrufen, geschieht Folgendes:
 
-- ein neues Objekt erstellen
-- `this` an das neue Objekt binden, sodass Sie in Ihrem Konstruktorcode auf `this` verweisen können
-- den Code im Konstruktor ausführen
-- das neue Objekt zurückgeben.
+- Ein neues Objekt wird erstellt.
+- `this` wird an das neue Objekt gebunden, sodass Sie im Konstruktorcode über `this` darauf zugreifen können.
+- Der Code im Konstruktor wird ausgeführt.
+- Das neue Objekt wird zurückgegeben.
 
-Konstruktoren beginnen aus Konvention mit einem Großbuchstaben und sind nach dem Typ des Objekts benannt, das sie erstellen. Wir könnten unser Beispiel also wie folgt umschreiben:
+Konventionsgemäß beginnen Konstruktornamen mit einem Großbuchstaben und sind nach dem Objekttyp benannt, den sie erstellen. Wir könnten unser Beispiel also so umschreiben:
 
 ```js
 function Person(name) {
@@ -384,28 +401,28 @@ frankie.introduceSelf();
 
 ## Sie haben die ganze Zeit Objekte verwendet
 
-Während Sie diese Beispiele durchgegangen sind, haben Sie wahrscheinlich gedacht, dass Ihnen die Punktnotation, die Sie verwendet haben, sehr vertraut vorkommt. Das liegt daran, dass Sie sie während des gesamten Kurses verwendet haben! Jedes Mal, wenn wir ein Beispiel durchgearbeitet haben, das eine eingebaute Browser-API oder ein JavaScript-Objekt verwendet, haben wir Objekte verwendet, da solche Funktionen genau mit der Art von Objektstrukturen aufgebaut sind, die wir hier gesehen haben, wenngleich komplexere als in unseren eigenen einfachen benutzerdefinierten Beispielen.
+Während Sie diese Beispiele durchgearbeitet haben, kam Ihnen die Punktschreibweise wahrscheinlich bekannt vor. Das liegt daran, dass Sie sie im gesamten Kurs bereits verwendet haben! Immer wenn wir mit einem Beispiel gearbeitet haben, das eine integrierte Browser-API oder ein JavaScript-Objekt verwendet, haben wir Objekte verwendet. Solche Funktionen beruhen auf denselben Objektstrukturen, die wir hier betrachtet haben – auch wenn sie komplexer sind als unsere einfachen eigenen Beispiele.
 
-Wenn Sie also Zeichenkettenmethoden verwendet haben wie:
+Wenn Sie also String-Methoden wie diese verwendet haben:
 
 ```js
 myString.split(",");
 ```
 
-haben Sie eine Methode verwendet, die auf einem [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Objekt verfügbar ist. Jedes Mal, wenn Sie in Ihrem Code eine Zeichenkette erstellen, wird diese Zeichenkette automatisch als Instanz von `String` erstellt und hat daher mehrere allgemeine Methoden und Eigenschaften, die darauf verfügbar sind.
+haben Sie eine Methode eines [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Objekts verwendet. Jedes Mal, wenn Sie in Ihrem Code eine Zeichenfolge erstellen, wird sie automatisch als Instanz von `String` erstellt. Deshalb stehen ihr mehrere gemeinsame Methoden und Eigenschaften zur Verfügung.
 
-Als Sie das Document Object Model mit Zeilen wie dieser aufgerufen haben:
+Wenn Sie mit einer Zeile wie dieser auf das Document Object Model zugegriffen haben:
 
 ```js
 const myDiv = document.createElement("div");
 const myVideo = document.querySelector("video");
 ```
 
-haben Sie Methoden verwendet, die auf einem [`Document`](/de/docs/Web/API/Document)-Objekt verfügbar sind. Für jede geladene Webseite wird eine Instanz von `Document` erstellt, die `document` genannt wird und die vollständige Struktur der Seite, deren Inhalt sowie andere Funktionen wie die URL repräsentiert. Dies bedeutet wiederum, dass es mehrere allgemeine Methoden und Eigenschaften hat, die darauf verfügbar sind.
+haben Sie Methoden eines [`Document`](/de/docs/Web/API/Document)-Objekts verwendet. Für jede geladene Webseite wird eine Instanz von `Document` namens `document` erstellt. Sie repräsentiert die gesamte Struktur und den Inhalt der Seite sowie weitere Merkmale wie ihre URL. Auch ihr stehen daher mehrere gemeinsame Methoden und Eigenschaften zur Verfügung.
 
-Das Gleiche gilt für nahezu jedes andere eingebaute Objekt oder API, das Sie verwendet haben — [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array), [`Math`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math) und so weiter.
+Dasselbe gilt für nahezu alle anderen integrierten Objekte und APIs, die Sie verwendet haben – etwa [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array), [`Math`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math) und so weiter.
 
-Beachten Sie, dass eingebaute Objekte und APIs nicht immer automatisch Objektinstanzen erstellen. Zum Beispiel erfordert die [Benachrichtigungs-API](/de/docs/Web/API/Notifications_API) — die modernen Browsern ermöglicht, Systembenachrichtigungen auszulösen —, dass Sie für jede Benachrichtigung, die Sie auslösen möchten, eine neue Objektinstanz mit dem Konstruktor instanziieren. Versuchen Sie, die folgende Zeile in Ihre JavaScript-Konsole einzugeben:
+Beachten Sie, dass integrierte Objekte und APIs nicht immer automatisch Objektinstanzen erstellen. Bei der [Notifications API](/de/docs/Web/API/Notifications_API), mit der moderne Browser Systembenachrichtigungen ausgeben können, müssen Sie beispielsweise für jede Benachrichtigung mithilfe des Konstruktors eine neue Objektinstanz erzeugen. Geben Sie Folgendes in Ihre JavaScript-Konsole ein:
 
 ```js
 const myNotification = new Notification("Hello!");
@@ -413,8 +430,8 @@ const myNotification = new Notification("Hello!");
 
 ## Zusammenfassung
 
-Sie sollten jetzt eine gute Vorstellung davon haben, wie man mit Objekten in JavaScript arbeitet — einschließlich der Erstellung eigener einfacher Objekte. Sie sollten auch den Nutzen von Objekten als Strukturen zum Speichern zusammengehöriger Daten und Funktionalitäten schätzen — wenn Sie versuchen würden, alle Eigenschaften und Methoden unseres `person`-Objekts als separate Variablen und Funktionen zu verwalten, wäre es ineffizient und frustrierend, und wir würden das Risiko eingehen, mit anderen Variablen und Funktionen mit denselben Namen in Konflikt zu geraten. Objekte ermöglichen es uns, die Informationen sicher in ihrem eigenen Paket, außerhalb des Gefahrenbereichs, zu bewahren.
+Sie sollten nun eine gute Vorstellung davon haben, wie Sie in JavaScript mit Objekten arbeiten und eigene einfache Objekte erstellen. Objekte sind außerdem sehr nützlich, um zusammengehörige Daten und Funktionen zu bündeln. Würden Sie alle Eigenschaften und Methoden unseres Objekts `person` als separate Variablen und Funktionen verwalten, wäre das umständlich und ineffizient. Außerdem könnten Namenskonflikte mit anderen Variablen und Funktionen entstehen. Mit Objekten können wir diese Informationen sicher in einer eigenen Einheit zusammenhalten.
 
-Im nächsten Artikel werden wir Ihnen einige Tests geben, die Sie verwenden können, um zu überprüfen, wie gut Sie all diese Informationen verstanden und behalten haben.
+Im nächsten Artikel finden Sie einige Tests, mit denen Sie überprüfen können, wie gut Sie diese Inhalte verstanden und behalten haben.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Events","Learn_web_development/Core/Scripting/Test_your_skills/Object_basics", "Learn_web_development/Core/Scripting")}}

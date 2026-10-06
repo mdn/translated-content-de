@@ -1,14 +1,15 @@
 ---
-title: "AudioScheduledSourceNode: start()-Methode"
+title: "AudioScheduledSourceNode: Methode start()"
 short-title: start()
 slug: Web/API/AudioScheduledSourceNode/start
 l10n:
-  sourceCommit: 0a881eea07f0cec6ca4ed85a24af43b367a9f80d
+  sourceCommit: f4cb3876c5912de1d27ef485b37481d5deb6dc6d
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die `start()`-Methode auf einem [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) plant die Wiedergabe eines Sounds zu der angegebenen Zeit zu beginnen. Wenn keine Zeit angegeben ist, beginnt der Sound sofort mit der Wiedergabe.
+Die Methode `start()` von [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) legt fest, wann die Wiedergabe eines Tons beginnt.
+Wenn kein Zeitpunkt angegeben wird, beginnt die Wiedergabe sofort.
 
 ## Syntax
 
@@ -20,7 +21,7 @@ start(when)
 ### Parameter
 
 - `when` {{optional_inline}}
-  - : Die Zeit, in Sekunden, zu der der Sound beginnen soll zu spielen. Dieser Wert wird im gleichen Zeitkoordinatensystem angegeben, das auch der [`AudioContext`](/de/docs/Web/API/AudioContext) für sein [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Attribut verwendet. Ein Wert von 0 (oder das vollständige Weglassen des `when`-Parameters) führt dazu, dass der Sound sofort mit der Wiedergabe beginnt.
+  - : Der Zeitpunkt in Sekunden, zu dem die Wiedergabe des Tons beginnen soll. Dieser Wert verwendet dasselbe Zeitkoordinatensystem wie das Attribut [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) des [`AudioContext`](/de/docs/Web/API/AudioContext). Ein Wert von 0 (oder das vollständige Weglassen des Parameters `when`) bewirkt, dass die Wiedergabe sofort beginnt.
 
 ### Rückgabewert
 
@@ -28,14 +29,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateNode` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Node bereits gestartet wurde. Dieser Fehler tritt auch auf, wenn der Node aufgrund eines vorherigen Aufrufs von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) nicht mehr läuft.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Node bereits gestartet wurde. Dieser Fehler tritt auch dann auf, wenn der Node aufgrund eines vorherigen Aufrufs von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) nicht mehr läuft.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn der für `when` angegebene Wert negativ ist.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellt wird, der so geplant ist, dass er in 2 Sekunden zu spielen beginnt und 1 Sekunde danach aufhört zu spielen. Die Zeiten werden berechnet, indem die gewünschte Anzahl Sekunden zum aktuellen Zeitstempel des Kontextes hinzugefügt wird, der von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) zurückgegeben wird.
+Dieses Beispiel zeigt, wie ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellt wird, dessen Wiedergabe nach 2 Sekunden beginnt und 1 Sekunde später endet. Die Zeitpunkte werden berechnet, indem die gewünschte Anzahl an Sekunden zum aktuellen Zeitwert des Kontexts addiert wird, den [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) zurückgibt.
 
 ```js
 context = new AudioContext();

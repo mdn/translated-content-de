@@ -1,14 +1,16 @@
 ---
-title: "HTMLButtonElement: setCustomValidity() Methode"
+title: "HTMLButtonElement: Methode setCustomValidity()"
 short-title: setCustomValidity()
 slug: Web/API/HTMLButtonElement/setCustomValidity
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 77255c9651ee56d559b577c74cec1c3f4178d2bf
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces setzt die benutzerdefinierte Validierungsmeldung für das {{htmlelement("button")}}-Element. Verwenden Sie den leeren String, um anzugeben, dass das Element _keinen_ benutzerdefinierten Validierungsfehler hat.
+Die Methode **`setCustomValidity()`** der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) legt die benutzerdefinierte Validitätsmeldung für das Element {{htmlelement("button")}} fest. Verwenden Sie eine leere Zeichenfolge, um anzugeben, dass das Element _keinen_ benutzerdefinierten Validitätsfehler aufweist.
+
+Einige {{HTMLElement("button")}}-Elemente unterliegen nicht der Constraint Validation (siehe [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate)). Bei diesen Buttons bewirkt die Methode [`reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity) nicht, dass die benutzerdefinierte Fehlermeldung angezeigt wird. Sie setzt jedoch die Eigenschaft [`customError`](/de/docs/Web/API/ValidityState/customError) des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts des Elements auf `true` und die Eigenschaft [`valid`](/de/docs/Web/API/ValidityState/valid) auf `false`. Mit [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) können Sie prüfen, ob ein Button an der Constraint Validation teilnimmt.
 
 ## Syntax
 
@@ -19,7 +21,7 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validierungsfehler.
+  - : Die Zeichenfolge mit der Fehlermeldung. Eine leere Zeichenfolge entfernt alle benutzerdefinierten Validitätsfehler.
 
 ### Rückgabewert
 
@@ -54,5 +56,5 @@ if (errors) {
 - [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
 - [Formularvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation).
 - [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Leitfaden: Constraint Validation](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}}

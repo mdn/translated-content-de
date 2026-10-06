@@ -3,12 +3,12 @@ title: trigger-scope CSS property
 short-title: trigger-scope
 slug: Web/CSS/Reference/Properties/trigger-scope
 l10n:
-  sourceCommit: 4aba58b4ad2745a73054f60b6d649d8e29b7b44d
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{SeeCompatTable}}
 
-Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`trigger-scope`** lässt sich der Geltungsbereich eines Trigger-Namens für eine [scrollgesteuerte Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) auf einen Teilbaum des Dokuments beschränken.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`trigger-scope`** lässt sich der Geltungsbereich eines Trigger-Namens für eine [scrollgesteuerte Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) auf einen Teilbaum des Dokuments begrenzen.
 
 ## Syntax
 
@@ -33,34 +33,34 @@ trigger-scope: unset;
 
 ### Werte
 
-Angegeben als `none`, `all` oder als kommagetrennte Liste von {{cssxref("dashed-ident")}}-Werten:
+Der Wert ist `none`, `all` oder eine durch Kommas getrennte Liste von {{cssxref("dashed-ident")}}-Werten:
 
 - `none`
-  - : Legt fest, dass der Geltungsbereich von Triggern nicht eingeschränkt wird. Dies ist der Standardwert.
+  - : Legt fest, dass der Geltungsbereich von Triggern nicht begrenzt wird. Dies ist der Standardwert.
 - `all`
-  - : Beschränkt den Geltungsbereich so, dass _alle_ im Teilbaum festgelegten `timeline-trigger-name`-Werte nur animierten Elementen im selben Teilbaum zugeordnet werden können.
+  - : Begrenzt den Geltungsbereich so, dass _alle_ im Teilbaum festgelegten `timeline-trigger-name`-Werte nur mit animierten Elementen im selben Teilbaum verknüpft werden können.
 - {{cssxref("dashed-ident")}}
-  - : Ein Trigger-Name. Beschränkt den Geltungsbereich so, dass die angegebenen `timeline-trigger-name`-Werte, wenn sie im Teilbaum festgelegt werden, nur animierten Elementen im selben Teilbaum zugeordnet werden können.
+  - : Ein Trigger-Name. Begrenzt den Geltungsbereich so, dass die angegebenen `timeline-trigger-name`-Werte, wenn sie im Teilbaum festgelegt sind, nur mit animierten Elementen im selben Teilbaum verknüpft werden können.
 
 ## Beschreibung
 
-Mit der Eigenschaft `trigger-scope` lässt sich der Geltungsbereich von Triggern bei [scrollgesteuerten Animationen](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) auf bestimmte Teilbäume von Elementen beschränken.
+Die Eigenschaft `trigger-scope` dient dazu, den Geltungsbereich von Triggern bei [scrollgesteuerten Animationen](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) auf bestimmte Teilbäume von Elementen zu begrenzen.
 
-Trigger-Namen werden mit der Eigenschaft {{cssxref("timeline-trigger-name")}} definiert und sind standardmäßig global gültig. Wenn ein animiertes Element über seine Eigenschaft {{cssxref("animation-trigger")}} einem Trigger-Namen zugeordnet ist, bestimmt der Browser das zugehörige Trigger-Element wie folgt:
+Trigger-Namen, die mit der Eigenschaft {{cssxref("timeline-trigger-name")}} definiert werden, gelten standardmäßig global. Wenn ein animiertes Element über seine Eigenschaft {{cssxref("animation-trigger")}} mit einem Trigger-Namen verknüpft ist, bestimmt der Browser das zugehörige Trigger-Element wie folgt:
 
-1. Er durchsucht die Vorfahren des animierten Elements aufwärts, bis er ein Element findet, dessen `timeline-trigger-name` mit dem Namen übereinstimmt, auf den der Wert von `animation-trigger` verweist. Ist das animierte Element selbst der Trigger, wird es sofort gefunden.
-2. Findet er unter den Vorfahren keinen passenden Trigger, verwendet er das _letzte_ Element in der HTML-Quellreihenfolge mit diesem `timeline-trigger-name`-Wert.
-3. Findet er im DOM kein Element mit diesem `timeline-trigger-name`-Wert, wird das animierte Element nicht durch Scrollen ausgelöst. Da keine zugehörige Timeline vorhanden ist, findet die Animation nicht statt.
+1. Er durchsucht die Vorfahren des animierten Elements aufwärts, bis er einen Vorfahren findet, dessen `timeline-trigger-name` mit dem Namen übereinstimmt, auf den der Wert der Eigenschaft `animation-trigger` verweist. Ist das animierte Element selbst der Trigger, wird es sofort gefunden.
+2. Findet er unter den Vorfahren keinen passenden Trigger, verwendet er das _letzte_ Element in der HTML-Quelltextreihenfolge mit diesem `timeline-trigger-name`-Wert.
+3. Findet er im gesamten DOM kein Element mit diesem `timeline-trigger-name`-Wert, wird das animierte Element nicht durch Scrollen ausgelöst. Da keine Timeline zugeordnet ist, findet die Animation nicht statt.
 
-Wenn mehrere Elemente Trigger mit demselben Trigger-Namen definieren, wird nur das letzte Element im Dokumentbaum als Trigger für animierte Elemente verwendet, die in ihrer `animation-trigger`-Eigenschaft auf diesen Namen verweisen. Das ist wahrscheinlich nicht das gewünschte Verhalten.
+Wenn mehrere Elemente Trigger mit demselben Trigger-Namen definieren, wird nur das letzte Element im Dokumentbaum als Trigger für animierte Elemente verwendet, die in ihren `animation-trigger`-Eigenschaften auf diesen Namen verweisen. Dieses Verhalten ist wahrscheinlich nicht erwünscht.
 
-Die Eigenschaft `trigger-scope` kann dieses Problem lösen, indem sie den Geltungsbereich eines Trigger-Namens auf einen Teilbaum des Dokuments beschränkt. Dadurch ist der Trigger nur für Elemente innerhalb desselben Teilbaums sichtbar und hat keine Auswirkungen auf Elemente außerhalb. Wenn `trigger-scope` für ein Element festgelegt ist und dieses Element oder seine Nachfahren als Trigger definiert sind, werden animierte Elemente diesen Triggern nur zugeordnet, wenn sie sich im selben Teilbaum befinden.
+Die Eigenschaft `trigger-scope` löst dieses Problem, indem sie den Geltungsbereich eines Trigger-Namens auf einen Teilbaum des Dokuments begrenzt. Dadurch ist der Trigger nur für Elemente innerhalb desselben Teilbaums sichtbar und hat keine Auswirkungen auf Elemente außerhalb davon. Wenn `trigger-scope` für ein Element festgelegt ist und dieses Element oder seine Nachkommen als Trigger definiert sind, werden animierte Elemente nur dann mit diesen Triggern verknüpft, wenn sie sich im selben Teilbaum befinden.
 
 Welche Trigger-Namen in den Geltungsbereich fallen, hängt vom festgelegten `trigger-scope`-Wert ab:
 
 - `trigger-scope: all` bedeutet, dass alle Trigger-Namen in den Geltungsbereich fallen.
 - `trigger-scope: --my-trigger, --another-trigger` bedeutet, dass nur Trigger mit den Namen `--my-trigger` und/oder `--another-trigger` in den Geltungsbereich fallen.
-- `trigger-scope: none` bedeutet, dass für das Element keine Einschränkung des Trigger-Geltungsbereichs festgelegt ist.
+- `trigger-scope: none` bedeutet, dass für das Element keine Begrenzung des Trigger-Geltungsbereichs festgelegt ist.
 
 ## Formale Definition
 
@@ -74,13 +74,13 @@ Welche Trigger-Namen in den Geltungsbereich fallen, hängt vom festgelegten `tri
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie sich mit der Eigenschaft `trigger-scope` der Geltungsbereich eines `animation-trigger-name` beschränken lässt.
+Dieses Beispiel zeigt, wie sich mit der Eigenschaft `trigger-scope` der Geltungsbereich eines `animation-trigger-name` begrenzen lässt.
 
 #### HTML
 
 Wir verwenden drei {{htmlelement("section")}}-Elemente, die jeweils zwei {{htmlelement("div")}}-Elemente enthalten: ein `.animated`-Element und ein `.trigger`-Element.
 
-Der Großteil des HTML-Codes, einschließlich eines [Kontrollkästchens](/de/docs/Web/HTML/Reference/Elements/input/checkbox), mit dem sich die Eigenschaft `trigger-scope` aktivieren oder deaktivieren lässt, wurde der Kürze halber ausgeblendet.
+Der Großteil des HTML-Codes wurde der Kürze halber ausgeblendet. Dazu gehört auch eine [Checkbox](/de/docs/Web/HTML/Reference/Elements/input/checkbox), mit der sich die Eigenschaft `trigger-scope` aktivieren oder deaktivieren lässt.
 
 ```html
 <section id="one">
@@ -259,7 +259,7 @@ p {
 }
 
 section {
-  background: #eee;
+  background: #eeeeee;
   padding: 10px 20px;
   margin-top: 20px;
 }
@@ -281,9 +281,9 @@ label {
 }
 ```
 
-Die {{cssxref("position")}} der animierten Elemente wird auf `fixed` gesetzt. Dadurch werden sie nahe am oberen Rand des Scrollports positioniert und bleiben jederzeit sichtbar.
+Die Eigenschaft {{cssxref("position")}} der animierten Elemente wird auf `fixed` gesetzt. Dadurch werden sie nahe am oberen Rand des Scrollports positioniert und bleiben jederzeit sichtbar.
 
-Alle animierten Elemente haben denselben `animation-trigger`-Wert: Ihre Animationen werden durch einen Trigger mit dem `timeline-trigger-name` `--t` ausgelöst. Die Animationen werden abgespielt, wenn ihr Trigger aktiviert wird, und zurückgesetzt, wenn er deaktiviert wird.
+Alle animierten Elemente haben denselben `animation-trigger`-Wert: Ihre Animationen werden durch einen Trigger mit dem `timeline-trigger-name`-Wert `--t` ausgelöst. Die Animationen werden abgespielt, wenn ihr Trigger aktiviert wird, und zurückgesetzt, wenn er deaktiviert wird.
 
 ```css live-sample___trigger-scope
 .animated {
@@ -293,7 +293,7 @@ Alle animierten Elemente haben denselben `animation-trigger`-Wert: Ihre Animatio
 }
 ```
 
-Über die Kurzschreibweise {{cssxref("animation")}} erhält jedes `.animated`-Element einen anderen {{cssxref("animation-name")}}. Außerdem haben die Elemente jeweils einen anderen {{cssxref("left")}}-Wert, damit sie nicht übereinander positioniert werden.
+Über die Kurzschreibweise {{cssxref("animation")}} erhält jedes `.animated`-Element einen anderen {{cssxref("animation-name")}}. Außerdem haben die Elemente unterschiedliche {{cssxref("left")}}-Werte, damit sie nicht übereinander positioniert werden.
 
 ```css live-sample___trigger-scope
 #one .animated {
@@ -312,7 +312,7 @@ Alle animierten Elemente haben denselben `animation-trigger`-Wert: Ihre Animatio
 }
 ```
 
-Die `.trigger`-Elemente werden als Trigger für die `.animated`-Elemente festgelegt. Dazu erhalten sie einen {{cssxref("timeline-trigger-name")}}-Wert mit demselben Bezeichner `--t` sowie den {{cssxref("timeline-trigger-source")}}-Wert `view()`. Wir setzen {{cssxref("timeline-trigger-activation-range")}} auf `contain` und belassen {{cssxref("timeline-trigger-active-range")}} beim Standardwert, der hier demselben Wert entspricht. Dadurch erfolgen die Aktivierung und Deaktivierung, während der Trigger noch sichtbar ist. Außerdem legen wir einige einfache Stile fest, damit sich die Trigger vom übrigen Text abheben.
+Die `.trigger`-Elemente werden als Trigger für die `.animated`-Elemente festgelegt. Dazu erhalten sie einen {{cssxref("timeline-trigger-name")}}-Wert mit derselben Kennung `--t` sowie den {{cssxref("timeline-trigger-source")}}-Wert `view()`. Wir setzen {{cssxref("timeline-trigger-activation-range")}} auf `contain` und belassen für {{cssxref("timeline-trigger-active-range")}} den Standardwert, der ebenfalls `contain` ist. Dadurch erfolgen Aktivierung und Deaktivierung, während der Trigger noch sichtbar ist. Außerdem legen wir einige einfache Stile fest, um die Trigger vom übrigen Text abzuheben.
 
 ```css live-sample___trigger-scope
 .trigger {
@@ -327,7 +327,7 @@ Die `.trigger`-Elemente werden als Trigger für die `.animated`-Elemente festgel
 }
 ```
 
-Abschließend setzen wir `trigger-scope` für die {{htmlelement("section")}}-Elemente auf `all`. Dadurch wird die Wirkung jedes Triggers mit dem Namen `--t` auf das jeweilige Vorfahrenelement `<section>` beschränkt.
+Abschließend setzen wir `trigger-scope` für das {{htmlelement("section")}}-Element auf `all`. Dadurch wird die Wirkung jedes Triggers mit dem Namen `--t` auf seinen `<section>`-Vorfahren begrenzt.
 
 ```css live-sample___trigger-scope
 section {
@@ -358,9 +358,9 @@ section {
 
 {{embedlivesample("trigger-scope", "100%", 400)}}
 
-Scrollen Sie im Beispiel nach unten. Es wird jeweils nur ein Quadrat animiert. Der Grund dafür ist, dass jedes Quadrat nur dann animiert wird, wenn das Trigger-Element im selben Geltungsbereich (demselben `<section>`) im Scrollport sichtbar ist. Obwohl die drei Trigger denselben Trigger-Namen verwenden, wird die Animation jedes `.animated`-Elements von einem anderen Trigger ausgelöst.
+Scrollen Sie im Beispiel nach unten. Die Quadrate werden nacheinander animiert. Das liegt daran, dass jedes Quadrat nur dann animiert wird, wenn das Trigger-Element innerhalb desselben Geltungsbereichs (desselben `<section>`-Elements) im Scrollport sichtbar ist. Obwohl die drei Trigger denselben Trigger-Namen haben, wird die Animation jedes `.animated`-Elements durch einen anderen Trigger ausgelöst.
 
-Aktivieren Sie nun das Kontrollkästchen, um `trigger-scope: all` von den `<section>`-Elementen zu entfernen. Scrollen Sie erneut durch den Inhalt. Keines der Quadrate wird animiert, bis das dritte `.trigger`-Element im Scrollport sichtbar ist. Dann beginnen alle Quadrate gleichzeitig mit ihrer Animation. Da die Beschränkung des Geltungsbereichs entfernt wurde, wird die Animation jedes `.animated`-Elements durch das letzte Element mit `--t` als `timeline-trigger-name` aktiviert und deaktiviert.
+Aktivieren Sie nun die Checkbox, um `trigger-scope: all` von den `<section>`-Elementen zu entfernen. Scrollen Sie erneut durch den Inhalt. Keines der Quadrate wird animiert, bis das dritte `.trigger`-Element im Scrollport sichtbar ist. Dann beginnen alle Quadrate gleichzeitig mit der Animation. Da die Begrenzung des Geltungsbereichs entfernt wurde, wird die Animation jedes `.animated`-Elements durch das letzte Element aktiviert und deaktiviert, dessen `timeline-trigger-name` den Wert `--t` hat.
 
 ## Spezifikationen
 

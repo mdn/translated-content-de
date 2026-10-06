@@ -3,22 +3,22 @@ title: "VRDisplay: depthFar-Eigenschaft"
 short-title: depthFar
 slug: Web/API/VRDisplay/depthFar
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die **`depthFar`**-Eigenschaft des [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Interfaces erhält und setzt die z-Tiefe, die die Fernsicht-Ebene der [Augenansichtsfrustum](https://en.wikipedia.org/wiki/Viewing_frustum) definiert, d.h. die am weitesten sichtbare Grenze der Szene.
+Die **`depthFar`**-Eigenschaft der Schnittstelle [`VRDisplay`](/de/docs/Web/API/VRDisplay) ruft die z-Tiefe ab, die die hintere Begrenzung des [Sichtfrustums](https://en.wikipedia.org/wiki/Viewing_frustum) eines Auges definiert, oder legt sie fest. Diese Begrenzung ist der am weitesten entfernte sichtbare Bereich der Szene.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-In der Regel sollten Sie den Wert unverändert lassen, aber Sie könnten ihn reduzieren, wenn Sie versuchen, die Leistung auf langsameren Computern zu verbessern.
+Im Allgemeinen sollten Sie den Wert unverändert lassen. Wenn Sie jedoch die Leistung auf langsameren Computern verbessern möchten, können Sie ihn verringern.
 
 ## Wert
 
-Ein Double, das die z-Tiefe in Metern darstellt.
-Der anfängliche Wert ist `10000.0`.
+Eine Gleitkommazahl doppelter Genauigkeit, die die z-Tiefe in Metern angibt.
+Der Anfangswert ist `10000.0`.
 
 ## Beispiele
 
@@ -34,9 +34,9 @@ navigator.getVRDisplays().then((displays) => {
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Portierungsleitfaden von Meta von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in Metas [Leitfaden zur Migration von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

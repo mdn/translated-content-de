@@ -1,27 +1,27 @@
 ---
-title: Funktions-Rückgabewerte
+title: Rückgabewerte von Funktionen
 slug: Learn_web_development/Core/Scripting/Return_values
 l10n:
-  sourceCommit: b8c317e606fff19152e9431be45986c50846b0ac
+  sourceCommit: c529f2672b3541cc28ea687ff9266f98b1734191
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Build_your_own_function","Learn_web_development/Core/Scripting/Test_your_skills/Functions", "Learn_web_development/Core/Scripting")}}
 
-Es gibt ein letztes wichtiges Konzept über Funktionen, das wir besprechen müssen – Rückgabewerte. Einige Funktionen geben keinen signifikanten Wert zurück, andere jedoch schon. Es ist wichtig zu verstehen, was ihre Werte sind, wie man sie in Ihrem Code verwendet und wie man Funktionen nützliche Werte zurückgeben lässt. Wir werden all dies im Folgenden behandeln.
+Ein letztes grundlegendes Konzept zu Funktionen müssen wir noch besprechen: Rückgabewerte. Manche Funktionen geben keinen nennenswerten Wert zurück, andere dagegen schon. Es ist wichtig zu verstehen, welche Werte Funktionen zurückgeben, wie Sie diese in Ihrem Code verwenden und wie Sie Funktionen dazu bringen, nützliche Werte zurückzugeben. All das behandeln wir im Folgenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, Vertrautheit mit den Grundlagen von JavaScript-Funktionen, wie im vorherigen Kurs behandelt.</td>
+      <td>Kenntnisse in <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a> sowie Vertrautheit mit den Grundlagen von JavaScript-Funktionen, wie sie in der vorherigen Lektion behandelt wurden.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was Rückgabewerte sind.</li>
-          <li>Wie man die Rückgabewerte vorhandener Funktionen nutzt.</li>
-          <li>Rückgabewerte zu Ihren eigenen Funktionen hinzufügen.</li>
+          <li>Verstehen, was Rückgabewerte sind.</li>
+          <li>Rückgabewerte vorhandener Funktionen verwenden.</li>
+          <li>Eigene Funktionen um Rückgabewerte ergänzen.</li>
         </ul>
       </td>
     </tr>
@@ -30,9 +30,9 @@ Es gibt ein letztes wichtiges Konzept über Funktionen, das wir besprechen müss
 
 ## Was sind Rückgabewerte?
 
-**Rückgabewerte** sind genau das, was ihr Name sagt — die Werte, die eine Funktion zurückgibt, wenn sie abgeschlossen ist. Sie sind Rückgabewerten bereits mehrmals begegnet, auch wenn Sie möglicherweise nicht explizit darüber nachgedacht haben.
+**Rückgabewerte** sind genau das, wonach sie klingen: Werte, die eine Funktion zurückgibt, wenn sie ihre Ausführung beendet. Rückgabewerte sind Ihnen bereits mehrfach begegnet, auch wenn Sie vielleicht nicht ausdrücklich darüber nachgedacht haben.
 
-Kehren wir zu einem vertrauten Beispiel zurück (aus einem [vorherigen Artikel](/de/docs/Learn_web_development/Core/Scripting/Functions#built-in_browser_functions) in dieser Serie):
+Kehren wir zu einem bekannten Beispiel aus einem [früheren Artikel](/de/docs/Learn_web_development/Core/Scripting/Functions#built-in_browser_functions) dieser Reihe zurück:
 
 ```js
 const myText = "The weather is cold";
@@ -43,36 +43,22 @@ console.log(newString); // Should print "The weather is warm"
 // a new string with the replacement made
 ```
 
-Die Funktion [`replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) wird auf der Zeichenkette `myText` aufgerufen und erhält zwei Parameter übergeben:
+Die Funktion [`replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) wird für den String `myText` aufgerufen und erhält zwei Parameter:
 
-- Der zu findende Substring (`"cold"`).
-- Die Zeichenkette, durch die er ersetzt werden soll (`"warm"`).
+- Den zu suchenden Teilstring (`"cold"`).
+- Den String, durch den er ersetzt werden soll (`"warm"`).
 
-Wenn die Funktion abgeschlossen ist (das Ausführen beendet), gibt sie einen Wert zurück, der eine neue Zeichenkette mit dem vorgenommenen Ersatz darstellt. Im obigen Code wird das Ergebnis dieses Rückgabewerts in der Variablen `newString` gespeichert.
+Wenn die Funktion ihre Ausführung beendet, gibt sie einen Wert zurück: einen neuen String, in dem die Ersetzung vorgenommen wurde. Im obigen Code wird dieser Rückgabewert in der Variablen `newString` gespeichert.
 
-Wenn Sie sich auf der MDN-Referenzseite zur [`replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) Funktion den Abschnitt über den [Rückgabewert](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#return_value) ansehen, werden Sie feststellen, dass es sehr nützlich ist zu wissen und zu verstehen, welche Werte von Funktionen zurückgegeben werden. Daher versuchen wir, diese Informationen wo möglich einzuschließen.
+Auf der MDN-Referenzseite zur Funktion [`replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) finden Sie einen Abschnitt zum [Rückgabewert](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace#return_value). Es ist sehr hilfreich zu wissen und zu verstehen, welche Werte Funktionen zurückgeben. Deshalb versuchen wir, diese Information überall dort anzugeben, wo es möglich ist.
 
-Einige Funktionen geben keinen Wert zurück. (In diesen Fällen listen unsere Referenzseiten den Rückgabewert als [`void`](/de/docs/Web/JavaScript/Reference/Operators/void) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) auf.) Zum Beispiel wird in der Funktion [`displayMessage()`](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-stage-4.html#L50), die wir im vorherigen Artikel erstellt haben, kein spezifischer Wert zurückgegeben, wenn die Funktion aufgerufen wird. Sie lässt einfach irgendwo einen Kasten auf dem Bildschirm erscheinen — das war's!
+Manche Funktionen geben keinen Wert zurück. (In diesen Fällen geben unsere Referenzseiten als Rückgabewert [`void`](/de/docs/Web/JavaScript/Reference/Operators/void) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) an.) Die Funktion `displayMessage()`, die wir im [Beispiel des vorherigen Artikels](/de/docs/Learn_web_development/Core/Scripting/Build_your_own_function#final_result) erstellt haben, gibt beim Aufruf beispielsweise keinen bestimmten Wert zurück. Sie lässt lediglich irgendwo auf dem Bildschirm ein Feld erscheinen – das ist alles!
 
-Im Allgemeinen wird ein Rückgabewert dort verwendet, wo die Funktion einen Zwischenschritt in einer Art Berechnung darstellt. Sie möchten zu einem endgültigen Ergebnis gelangen, das einige Werte beinhaltet, die durch eine Funktion berechnet werden müssen. Nachdem die Funktion den Wert berechnet hat, kann sie das Ergebnis zurückgeben, sodass es in einer Variablen gespeichert werden kann und Sie diese Variable im nächsten Berechnungsschritt verwenden können.
+Im Allgemeinen wird ein Rückgabewert verwendet, wenn eine Funktion einen Zwischenschritt in einer Berechnung ausführt. Sie möchten ein Endergebnis erhalten, für das eine Funktion bestimmte Werte berechnen muss. Nachdem die Funktion einen Wert berechnet hat, kann sie das Ergebnis zurückgeben, damit es in einer Variablen gespeichert werden kann. Diese Variable können Sie dann im nächsten Schritt der Berechnung verwenden.
 
-## Wie man einen Wert zurückgibt
+## Einen Wert zurückgeben
 
-Um einen Wert von einer benutzerdefinierten Funktion zurückzugeben, müssen Sie das Schlüsselwort [`return`](/de/docs/Web/JavaScript/Reference/Statements/return) verwenden. Wir haben dies kürzlich in unserem [random-canvas-circles.html](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/loops/random-canvas-circles.html) Beispiel in Aktion gesehen. Unsere `draw()` Funktion zeichnet 100 zufällige Kreise irgendwo auf einem HTML {{htmlelement("canvas")}}:
-
-```js
-function draw() {
-  ctx.clearRect(0, 0, WIDTH, HEIGHT);
-  for (let i = 0; i < 100; i++) {
-    ctx.beginPath();
-    ctx.fillStyle = "rgb(255 0 0 / 50%)";
-    ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
-    ctx.fill();
-  }
-}
-```
-
-Innerhalb jeder Schleifeniteration werden drei Aufrufe der Funktion `random()` vorgenommen, um einen Zufallswert für den aktuellen Kreis _x-Koordinate_, _y-Koordinate_ und _Radius_ zu generieren. Die `random()` Funktion nimmt einen Parameter — eine ganze Zahl — und gibt eine zufällige ganze Zahl zwischen `0` und dieser Zahl zurück. Es sieht so aus:
+Um aus einer selbst erstellten Funktion einen Wert zurückzugeben, verwenden Sie das Schlüsselwort [`return`](/de/docs/Web/JavaScript/Reference/Statements/return). Sie haben es bereits mehrfach in Aktion gesehen. Kehren wir noch einmal zu unserem Beispiel mit [100 zufälligen Kreisen](/de/docs/Learn_web_development/Core/Scripting/Loops#looping_code_example) zurück: In jedem Schleifendurchlauf wird eine Funktion `random()` dreimal aufgerufen, um zufällige Werte für die _x-Koordinate_, die _y-Koordinate_ und den _Radius_ jedes Kreises zu erzeugen. Die Funktion `random()` nimmt einen Parameter entgegen – eine ganze Zahl – und gibt eine zufällige ganze Zahl zwischen `0` und dieser Zahl zurück. Sie sieht so aus:
 
 ```js
 function random(number) {
@@ -80,7 +66,7 @@ function random(number) {
 }
 ```
 
-Dies könnte wie folgt geschrieben werden:
+Man könnte sie auch wie folgt schreiben:
 
 ```js
 function random(number) {
@@ -89,31 +75,59 @@ function random(number) {
 }
 ```
 
-Aber die erste Version ist schneller zu schreiben und kompakter.
+Die erste Version ist jedoch schneller zu schreiben und kompakter.
 
-Wir geben das Ergebnis der Berechnung `Math.floor(Math.random() * number)` jedes Mal zurück, wenn die Funktion aufgerufen wird. Dieser Rückgabewert erscheint an dem Punkt, an dem die Funktion aufgerufen wurde, und der Code wird fortgesetzt.
+Bei jedem Aufruf der Funktion geben wir das Ergebnis der Berechnung `Math.floor(Math.random() * number)` zurück. Dieser Rückgabewert tritt an die Stelle des Funktionsaufrufs, und die Ausführung des Codes wird fortgesetzt.
 
-Wenn Sie Folgendes ausführen:
+Wenn Sie also Folgendes ausführen:
 
 ```js
 ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
 ```
 
-Wenn die drei `random()` Aufrufe die Werte `500`, `200` und `35` zurückgeben, würde die Zeile tatsächlich so ausgeführt werden, als wäre sie dies:
+und die drei Aufrufe von `random()` die Werte `500`, `200` und `35` zurückgeben, wird die Zeile tatsächlich so ausgeführt, als stünde dort:
 
 ```js
 ctx.arc(500, 200, 35, 0, 2 * Math.PI);
 ```
 
-Die Funktionsaufrufe auf der Zeile werden zuerst ausgeführt, und ihre Rückgabewerte werden anstelle der Funktionsaufrufe eingesetzt, bevor die Zeile selbst dann ausgeführt wird.
+Zuerst werden die Funktionsaufrufe in der Zeile ausgeführt und durch ihre Rückgabewerte ersetzt. Danach wird die Zeile selbst ausgeführt.
 
-## Implementieren von Funktions-Rückgabewerten
+## Rückgabewerte in Funktionen implementieren
 
-Lassen Sie uns versuchen, einige Funktionen zu schreiben, die Rückgabewerte enthalten.
+Versuchen wir nun, einige Funktionen mit Rückgabewerten zu schreiben. Das folgende Beispiel ermöglicht es Ihnen, eine Zahl in ein Textfeld einzugeben, und gibt das Quadrat, die dritte Potenz und die Fakultät dieser Zahl aus.
 
-1. Erstellen Sie eine lokale Kopie der [function-library.html](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-library.html) Datei von GitHub. Dies ist eine einfache HTML-Seite mit einem Text-{{htmlelement("input")}} Feld und einem Absatz. Es gibt auch ein {{htmlelement("script")}} Element, in dem wir eine Referenz auf beide HTML-Elemente in zwei Variablen gespeichert haben. Diese Seite ermöglicht es Ihnen, eine Zahl in das Textfeld einzugeben und darunter verschiedene damit zusammenhängende Zahlen anzuzeigen.
+1. Erstellen Sie eine neue HTML-Datei auf Ihrem lokalen Dateisystem und fügen Sie den folgenden Inhalt ein:
 
-2. Fügen Sie diesem `<script>`-Element unterhalb der beiden vorhandenen Zeilen einige nützliche Funktionen hinzu:
+   ```html
+   <!DOCTYPE html>
+   <html lang="en-US">
+     <head>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width" />
+       <title>Function library example</title>
+       <style>
+         input {
+           font-size: 2em;
+           margin: 10px 1px 0;
+         }
+       </style>
+     </head>
+     <body>
+       <input class="numberInput" type="text" />
+       <p></p>
+
+       <script>
+         const input = document.querySelector(".numberInput");
+         const para = document.querySelector("p");
+       </script>
+     </body>
+   </html>
+   ```
+
+   Dies ist eine einfache HTML-Seite mit einem {{htmlelement("input")}}-Textfeld und einem Absatz. Außerdem enthält sie ein {{htmlelement("script")}}-Element, in dem wir Referenzen auf die beiden HTML-Elemente in zwei Variablen gespeichert haben. Auf dieser Seite können Sie eine Zahl in das Textfeld eingeben und darunter verschiedene zugehörige Werte anzeigen lassen.
+
+2. Fügen Sie unter den beiden vorhandenen Zeilen einige Funktionen in dieses `<script>`-Element ein:
 
    ```js
    function squared(num) {
@@ -136,9 +150,9 @@ Lassen Sie uns versuchen, einige Funktionen zu schreiben, die Rückgabewerte ent
    }
    ```
 
-   Die `squared()` und `cubed()` Funktionen sind relativ intuitiv — sie geben das Quadrat bzw. den Kubus der übergebenen Zahl als Parameter zurück. Die `factorial()` Funktion gibt die [Fakultät](https://en.wikipedia.org/wiki/Factorial) der gegebenen Zahl zurück.
+   Die Funktionen `squared()` und `cubed()` sind recht selbsterklärend: Sie geben das Quadrat beziehungsweise die dritte Potenz der als Parameter übergebenen Zahl zurück. Die Funktion `factorial()` gibt die [Fakultät](https://en.wikipedia.org/wiki/Factorial) der übergebenen Zahl zurück.
 
-3. Fügen Sie eine Möglichkeit hinzu, Informationen über die in das Texteingabefeld eingegebene Zahl auszugeben, indem Sie den folgenden Ereignishandler unterhalb der vorhandenen Funktionen einfügen:
+3. Fügen Sie unter den vorhandenen Funktionen den folgenden Event-Handler hinzu, um Informationen über die im Textfeld eingegebene Zahl auszugeben:
 
    ```js
    input.addEventListener("change", () => {
@@ -153,35 +167,89 @@ Lassen Sie uns versuchen, einige Funktionen zu schreiben, die Rückgabewerte ent
    });
    ```
 
-4. Speichern Sie Ihren Code, laden Sie ihn in einem Browser und probieren Sie ihn aus.
+4. Speichern Sie Ihren Code, laden Sie die Seite in einem Browser und probieren Sie sie aus.
 
-Hier sind einige Erläuterungen zur `addEventListener()` Funktion in Schritt 3 oben:
+Hier einige Erläuterungen zur Funktion `addEventListener()` aus Schritt 3:
 
-- Durch Hinzufügen eines `change` Ereignislisteners wird diese Funktion immer dann ausgeführt, wenn das `change` Ereignis auf dem Texteingabefeld ausgelöst wird — also, wenn ein neuer Wert in die Texteingabe eingegeben und abgeschickt wird (geben Sie einen Wert ein, und entfernen Sie den Fokus von der Eingabe mit <kbd>Tab</kbd> oder <kbd>Return</kbd>). Wenn diese anonyme Funktion ausgeführt wird, wird der Wert in der `input` im Konstanten `num` gespeichert.
-- Die `if`-Anweisung druckt eine Fehlermeldung aus, wenn der eingegebene Wert keine Zahl ist. Die Bedingung prüft, ob der Ausdruck `isNaN(num)` `true` zurückgibt. Die [`isNaN()`](/de/docs/Web/JavaScript/Reference/Global_Objects/isNaN) Funktion testet, ob der `num` Wert keine Zahl ist — wenn ja, wird `true` zurückgegeben, wenn nicht, `false`.
-- Wenn die Bedingung `false` zurückgibt, ist der `num` Wert eine Zahl und die Funktion druckt einen Satz im Absatz-Element aus, der die Quadrat-, Kubik- und Fakultätswerte der Zahl angibt. Der Satz ruft die Funktionen `squared()`, `cubed()` und `factorial()` auf, um die erforderlichen Werte zu berechnen.
+- Durch das Hinzufügen eines Event-Listeners für `change` wird die Funktion immer dann ausgeführt, wenn das `change`-Ereignis für das Textfeld ausgelöst wird. Das geschieht, wenn ein neuer Wert in das `input`-Textfeld eingegeben und die Eingabe bestätigt wird: Geben Sie einen Wert ein und verlassen Sie das Eingabefeld anschließend mit <kbd>Tab</kbd> oder <kbd>Return</kbd>. Wenn diese anonyme Funktion ausgeführt wird, wird der Wert des `input`-Elements in der Konstante `num` gespeichert.
+- Die `if`-Anweisung gibt eine Fehlermeldung aus, wenn der eingegebene Wert keine Zahl ist. Die Bedingung prüft, ob der Ausdruck `isNaN(num)` den Wert `true` zurückgibt. Die Funktion [`isNaN()`](/de/docs/Web/JavaScript/Reference/Global_Objects/isNaN) prüft, ob der Wert von `num` keine Zahl ist. Ist das der Fall, gibt sie `true` zurück, andernfalls `false`.
+- Wenn die Bedingung `false` zurückgibt, ist der Wert von `num` eine Zahl. Die Funktion gibt dann im Absatz einen Satz aus, der das Quadrat, die dritte Potenz und die Fakultät der Zahl nennt. Dazu ruft sie die Funktionen `squared()`, `cubed()` und `factorial()` auf, um die benötigten Werte zu berechnen.
+
+### Endergebnis
+
+Wenn Sie fertig sind, sollte das Beispiel so aussehen:
+
+```html hidden live-sample___function-library
+<input class="numberInput" type="text" />
+<p></p>
+```
+
+```css hidden live-sample___function-library
+input {
+  font-size: 2em;
+  margin: 10px 1px 0;
+}
+```
+
+```js hidden live-sample___function-library
+const input = document.querySelector(".numberInput");
+const para = document.querySelector("p");
+
+function squared(num) {
+  return num * num;
+}
+
+function cubed(num) {
+  return num * num * num;
+}
+
+function factorial(num) {
+  let x = num;
+  while (x > 1) {
+    num *= x - 1;
+    x--;
+  }
+
+  return num;
+}
+
+input.addEventListener("change", () => {
+  const num = parseFloat(input.value);
+  if (isNaN(num)) {
+    para.textContent = "You need to enter a number!";
+  } else {
+    para.textContent = `${num} squared is ${squared(num)}. `;
+    para.textContent += `${num} cubed is ${cubed(num)}. `;
+    para.textContent += `${num} factorial is ${factorial(num)}. `;
+  }
+});
+```
+
+{{embedlivesample("function-library", "100%", 200)}}
+
+Geben Sie eine Zahl in das Textfeld ein und drücken Sie Return/Enter.
 
 > [!NOTE]
-> Wenn Sie Schwierigkeiten haben, das Beispiel zum Laufen zu bringen, überprüfen Sie Ihren Code mit der [fertigen Version auf GitHub](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-library-finished.html) ([sehen Sie es live laufen](https://mdn.github.io/learning-area/javascript/building-blocks/functions/function-library-finished.html)).
+> Falls Sie Schwierigkeiten haben, das Beispiel zum Laufen zu bringen, vergleichen Sie Ihren Code mit unserer fertigen Version. Klicken Sie im dargestellten Beispiel auf die Play-Schaltfläche, um den vollständigen Quellcode im MDN Playground zu sehen.
 
-### Fügen Sie einige eigene Funktionen hinzu!
+### Fügen Sie eigene Funktionen hinzu!
 
-An diesem Punkt möchten wir, dass Sie ein paar eigene Funktionen schreiben und sie zur Bibliothek hinzufügen. Wie wäre es mit der Quadrat- oder Kubikwurzel der Zahl? Oder dem Umfang eines Kreises mit gegebenem Radius?
+Nun sind Sie an der Reihe: Schreiben Sie einige eigene Funktionen und fügen Sie sie der Bibliothek hinzu. Wie wäre es mit der Quadrat- oder Kubikwurzel der Zahl? Oder mit dem Umfang eines Kreises mit einem bestimmten Radius?
 
-Einige zusätzliche Tipps zu Funktionen:
+Einige weitere Tipps zu Funktionen:
 
-- Sehen Sie sich ein weiteres Beispiel für das Schreiben von _Fehlerbehandlung_ in Funktionen an. Es ist im Allgemeinen eine gute Idee zu überprüfen, ob alle notwendigen Parameter validiert sind und dass alle optionalen Parameter einen Standardwert zugewiesen bekommen. Auf diese Weise wird Ihr Programm weniger wahrscheinlich Fehler werfen.
-- Denken Sie über die Idee nach, eine _Funktionsbibliothek_ zu erstellen. Wenn Sie weiter in Ihrer Programmierkarriere voranschreiten, werden Sie dieselben Arten von Dingen immer wieder tun. Es ist eine gute Idee, Ihre eigene Bibliothek mit Hilfsfunktionen zu erstellen, um solche Dinge zu erledigen. Sie können sie in neuen Code kopieren oder sogar einfach auf HTML-Seiten anwenden, wo immer Sie sie benötigen.
+- Sehen Sie sich ein weiteres Beispiel dafür an, wie Sie _Fehlerbehandlung_ in Funktionen einbauen. Im Allgemeinen ist es sinnvoll zu prüfen, ob alle erforderlichen Parameter gültig sind und ob für optionale Parameter Standardwerte vorgesehen sind. So verringern Sie die Wahrscheinlichkeit, dass Ihr Programm Fehler auslöst.
+- Denken Sie darüber nach, eine _Funktionsbibliothek_ zu erstellen. Im Laufe Ihrer Programmierlaufbahn werden Sie feststellen, dass Sie bestimmte Aufgaben immer wieder erledigen. Es lohnt sich, eine eigene Bibliothek mit Hilfsfunktionen für solche Aufgaben anzulegen. Sie können die Funktionen in neuen Code kopieren oder überall dort in HTML-Seiten einbinden, wo Sie sie benötigen.
 
 ## Zusammenfassung
 
-Damit haben wir es — Funktionen sind spaßig, sehr nützlich, und obwohl es viel über ihre Syntax und Funktionalität zu sagen gibt, sind sie relativ verständlich.
+Damit haben wir es geschafft: Funktionen machen Spaß und sind sehr nützlich. Obwohl es über ihre Syntax und Funktionsweise viel zu sagen gibt, sind sie recht gut zu verstehen.
 
-Im nächsten Artikel werden wir Ihnen einige Tests zur Verfügung stellen, die Sie verwenden können, um zu überprüfen, wie gut Sie alle Informationen, die wir Ihnen in den letzten Artikeln zu Funktionen gegeben haben, verstanden und in Erinnerung behalten haben.
+Im nächsten Artikel stellen wir Ihnen einige Tests vor, mit denen Sie überprüfen können, wie gut Sie die Informationen über Funktionen aus den letzten Artikeln verstanden und behalten haben.
 
 ## Siehe auch
 
-- [Funktionen im Detail](/de/docs/Web/JavaScript/Reference/Functions) — ein detaillierter Leitfaden, der fortgeschrittenere Informationen zu Funktionen behandelt.
-- [Callback-Funktionen in JavaScript](https://www.impressivewebs.com/callback-functions-javascript/) — ein übliches JavaScript-Muster ist es, eine Funktion in eine andere Funktion _als Argument_ zu übergeben. Sie wird dann innerhalb der ersten Funktion aufgerufen. Dies liegt etwas außerhalb des Umfangs dieses Kurses, sollte aber bald untersucht werden.
+- [Funktionen im Detail](/de/docs/Web/JavaScript/Reference/Functions) – ein ausführlicher Leitfaden mit weiterführenden Informationen zu Funktionen.
+- [Callback-Funktionen in JavaScript](https://www.impressivewebs.com/callback-functions-javascript/) – ein häufiges Muster in JavaScript besteht darin, eine Funktion _als Argument_ an eine andere Funktion zu übergeben. Sie wird dann innerhalb dieser anderen Funktion aufgerufen. Das geht etwas über den Rahmen dieses Kurses hinaus, ist aber ein Thema, mit dem Sie sich bald beschäftigen sollten.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Build_your_own_function","Learn_web_development/Core/Scripting/Test_your_skills/Functions", "Learn_web_development/Core/Scripting")}}

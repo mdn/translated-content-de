@@ -3,23 +3,23 @@ title: "Gamepad: displayId-Eigenschaft"
 short-title: displayId
 slug: Web/API/Gamepad/displayId
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die **`displayId`**-Eigenschaft der [`Gamepad`](/de/docs/Web/API/Gamepad)-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt die [`VRDisplay.displayId`](/de/docs/Web/API/VRDisplay/displayId) des zugehörigen [`VRDisplay`](/de/docs/Web/API/VRDisplay) zurück — das `VRDisplay`, das die angezeigte Szene steuert, in der das Gamepad verwendet wird.
+Die schreibgeschützte Eigenschaft **`displayId`** des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces _gibt die [`VRDisplay.displayId`](/de/docs/Web/API/VRDisplay/displayId) des zugehörigen [`VRDisplay`](/de/docs/Web/API/VRDisplay) zurück – also des `VRDisplay`, dessen angezeigte Szene das Gamepad steuert._
 
-Ein Gamepad wird als mit einem [`VRDisplay`](/de/docs/Web/API/VRDisplay) verbunden betrachtet, wenn es eine Pose berichtet, die sich im gleichen Raum wie die Pose des Displays befindet, siehe [`VRDisplay.getPose()`](/de/docs/Web/API/VRDisplay/getPose).
+Ein Gamepad gilt als einem [`VRDisplay`](/de/docs/Web/API/VRDisplay) zugeordnet, wenn es eine Pose meldet, die sich im selben Raum wie die Pose des Displays befindet. Siehe [`VRDisplay.getPose()`](/de/docs/Web/API/VRDisplay/getPose).
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/#gamepad-getvrdisplays-attribute). Sie wurde durch das [WebXR Gamepads Module](https://immersive-web.github.io/webxr-gamepads-module/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/#gamepad-getvrdisplays-attribute). Sie wurde durch das [WebXR Gamepads Module](https://immersive-web.github.io/webxr-gamepads-module/) abgelöst.
 >
-> Es gibt keinen direkten Ersatz für diese Eigenschaft. Das mit einer [`XRInputSource`](/de/docs/Web/API/XRInputSource) verbundene [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt kann über die [`XRInputSource.gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft abgerufen werden.
+> Für diese Eigenschaft gibt es keinen direkten Ersatz. Das einem [`XRInputSource`](/de/docs/Web/API/XRInputSource) zugeordnete [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt kann über die Eigenschaft [`XRInputSource.gamepad`](/de/docs/Web/API/XRInputSource/gamepad) abgerufen werden.
 
 ## Wert
 
-Eine Zahl, die die zugehörige [`VRDisplay.displayId`](/de/docs/Web/API/VRDisplay/displayId) darstellt. Wenn die Zahl 0 ist, ist das Gamepad nicht mit einem VR-Display verbunden.
+Eine Zahl, die die zugehörige [`VRDisplay.displayId`](/de/docs/Web/API/VRDisplay/displayId) angibt. Ist die Zahl 0, ist das Gamepad keinem VR-Display zugeordnet.
 
 ## Beispiele
 
@@ -37,9 +37,9 @@ window.addEventListener("gamepadconnected", (e) => {
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/#gamepad-getvrdisplays-attribute), die durch das [WebXR Gamepads Module](https://immersive-web.github.io/webxr-gamepads-module/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/#gamepad-getvrdisplays-attribute), die durch das [WebXR Gamepads Module](https://immersive-web.github.io/webxr-gamepads-module/) abgelöst wurde. Sie wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR nach WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in [Metas Leitfaden zur Migration von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

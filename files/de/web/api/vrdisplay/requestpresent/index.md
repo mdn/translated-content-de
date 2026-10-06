@@ -1,17 +1,17 @@
 ---
-title: "VRDisplay: requestPresent() Methode"
+title: "VRDisplay: Methode requestPresent()"
 short-title: requestPresent()
 slug: Web/API/VRDisplay/requestPresent
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die **`requestPresent()`**-Methode des [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Interfaces startet die Präsentation einer Szene durch das `VRDisplay`.
+Die Methode **`requestPresent()`** der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle startet die Darstellung einer Szene durch das `VRDisplay`.
 
 > [!NOTE]
-> Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ requestPresent(layers)
 ### Parameter
 
 - `layers`
-  - : Ein Array von [`VRLayerInit`](/de/docs/Web/API/VRLayerInit)-Objekten, die die Szene repräsentieren, die Sie präsentieren möchten. Derzeit kann dies mindestens 0 und maximal 1 betragen.
+  - : Ein Array von [`VRLayerInit`](/de/docs/Web/API/VRLayerInit)-Objekten, die die darzustellende Szene repräsentieren. Derzeit kann das Array mindestens 0 und höchstens 1 Element enthalten.
 
 ### Rückgabewert
 
-Ein Promise, das aufgelöst wird, sobald die Präsentation begonnen hat. Es gibt eine Reihe von Regeln bezüglich der Erfüllung oder Ablehnung des Promises:
+Ein Promise, das erfüllt wird, sobald die Darstellung begonnen hat. Für die Erfüllung oder Ablehnung des Promise gelten mehrere Regeln:
 
-- Wenn [`VRDisplayCapabilities.canPresent`](/de/docs/Web/API/VRDisplayCapabilities/canPresent) false ist oder wenn das VRLayer-Array mehr Schichten enthält als [`VRDisplayCapabilities.maxLayers`](/de/docs/Web/API/VRDisplayCapabilities/maxLayers), wird das Promise abgelehnt.
-- Wenn das [`VRDisplay`](/de/docs/Web/API/VRDisplay) bereits präsentiert, wenn `requestPresent()` aufgerufen wird, wird das `VRLayer`-Array, das präsentiert wird, aktualisiert.
-- Wenn ein Aufruf von `requestPresent()` abgelehnt wird, während das `VRDisplay` bereits präsentiert, wird es seine Präsentation beenden.
-- Wenn `requestPresent()` außerhalb einer Interaktionsgeste aufgerufen wird, wird das Promise abgelehnt, es sei denn, das `VRDisplay` hat bereits präsentiert. Diese Interaktionsgeste ist auch ausreichend, um Aufrufe von [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock) zuzulassen, bis die Präsentation beendet ist.
+- Wenn [`VRDisplayCapabilities.canPresent`](/de/docs/Web/API/VRDisplayCapabilities/canPresent) `false` ist oder das `VRLayer`-Array mehr Layers enthält, als [`VRDisplayCapabilities.maxLayers`](/de/docs/Web/API/VRDisplayCapabilities/maxLayers) zulässt, wird das Promise abgelehnt.
+- Wenn das [`VRDisplay`](/de/docs/Web/API/VRDisplay) beim Aufruf von `requestPresent()` bereits eine Szene darstellt, aktualisiert das `VRDisplay` das dargestellte `VRLayer`-Array.
+- Wenn ein Aufruf von `requestPresent()` abgelehnt wird, während das `VRDisplay` bereits eine Szene darstellt, beendet es die Darstellung.
+- Wenn `requestPresent()` außerhalb einer Interaktionsgeste aufgerufen wird, wird das Promise abgelehnt, sofern das `VRDisplay` nicht bereits eine Szene darstellt. Diese Interaktionsgeste reicht außerdem aus, um Aufrufe von [`requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock) zu ermöglichen, bis die Darstellung beendet ist.
 
 ## Beispiele
 
@@ -85,13 +85,13 @@ if (navigator.getVRDisplays) {
 ```
 
 > [!NOTE]
-> Sie können diesen kompletten Code bei [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) sehen.
+> Den vollständigen Code finden Sie unter [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js).
 
 ## Spezifikationen
 
-Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Es ist nicht mehr vorgesehen, sie zu standardisieren.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Applikationen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionsfähiger WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in [Metas Leitfaden zur Portierung von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

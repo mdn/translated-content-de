@@ -1,29 +1,29 @@
 ---
-title: Wiederholendes Code-Ausführen
+title: Code mit Schleifen wiederholen
 short-title: Loops
 slug: Learn_web_development/Core/Scripting/Loops
 l10n:
-  sourceCommit: ad310baff9ae8f5e4efd19c158125fe765287c16
+  sourceCommit: c529f2672b3541cc28ea687ff9266f98b1734191
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Conditionals","Learn_web_development/Core/Scripting/Test_your_skills/Loops", "Learn_web_development/Core/Scripting")}}
 
-Programmiersprachen sind sehr nützlich, um schnell wiederkehrende Aufgaben zu erledigen, von mehreren einfachen Berechnungen bis hin zu nahezu jeder anderen Situation, in der Sie viele ähnliche Aufgaben zu erledigen haben. Hier betrachten wir die Schleifenstrukturen in JavaScript, die solche Anforderungen bearbeiten.
+Programmiersprachen sind sehr nützlich, um sich wiederholende Aufgaben schnell zu erledigen – von mehreren einfachen Berechnungen bis hin zu nahezu jeder anderen Situation, in der viele ähnliche Arbeitsschritte anfallen. Hier sehen wir uns die Schleifenstrukturen an, die JavaScript dafür bietet.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, Vertrautheit mit den JavaScript-Grundlagen, wie sie in den vorhergehenden Lektionen behandelt wurden.</td>
+      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a> sowie Vertrautheit mit den JavaScript-Grundlagen aus den vorherigen Lektionen.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen des Zwecks von Schleifen — einer Code-Struktur, die es ermöglicht, etwas sehr Ähnliches viele Male auszuführen, ohne denselben Code für jede Iteration zu wiederholen.</li>
-          <li>Allgemeine Schleifentypen wie <code>for</code> und <code>while</code>.</li>
-          <li>Durchlaufen von Sammlungen mit Konstrukten wie <code>for...of</code> und <code>map()</code>.</li>
-          <li>Ausbrechen aus Schleifen und Fortfahren.</li>
+          <li>Den Zweck von Schleifen verstehen – einer Codestruktur, mit der Sie sehr ähnliche Vorgänge viele Male ausführen können, ohne denselben Code für jede Iteration zu wiederholen.</li>
+          <li>Allgemeine Schleifentypen wie <code>for</code> und <code>while</code> kennenlernen.</li>
+          <li>Mit Konstrukten wie <code>for...of</code> und <code>map()</code> über Sammlungen iterieren.</li>
+          <li>Schleifen vorzeitig verlassen und mit der nächsten Iteration fortfahren.</li>
         </ul>
       </td>
     </tr>
@@ -32,11 +32,11 @@ Programmiersprachen sind sehr nützlich, um schnell wiederkehrende Aufgaben zu e
 
 ## Warum sind Schleifen nützlich?
 
-Schleifen drehen sich darum, dasselbe immer wieder zu tun. Häufig wird der Code bei jeder Schleifenrunde geringfügig anders sein, oder derselbe Code wird ausgeführt, jedoch mit verschiedenen Variablen.
+Bei Schleifen geht es darum, dieselbe Sache immer wieder zu tun. Häufig unterscheidet sich der Code bei jedem Schleifendurchlauf ein wenig, oder derselbe Code wird mit unterschiedlichen Variablen ausgeführt.
 
-### Beispiel für wiederholendes Code-Ausführen
+### Beispiel für Code mit Schleife
 
-Angenommen, wir möchten 100 zufällige Kreise auf einem {{htmlelement("canvas")}}-Element zeichnen (drücken Sie den _Aktualisieren_-Button, um das Beispiel immer wieder auszuführen und verschiedene zufällige Mengen zu sehen):
+Angenommen, wir möchten 100 zufällig platzierte Kreise auf einem {{htmlelement("canvas")}}-Element zeichnen. Klicken Sie auf die Schaltfläche _Aktualisieren_, um das Beispiel erneut auszuführen und andere zufällige Anordnungen zu sehen:
 
 ```html hidden
 <button>Update</button> <canvas></canvas>
@@ -66,7 +66,7 @@ button {
 
 {{ EmbedLiveSample('Looping_code_example', '100%', 400) }}
 
-Hier ist der JavaScript-Code, der dieses Beispiel implementiert:
+Hier ist der JavaScript-Code, der dieses Beispiel umsetzt:
 
 ```js
 const btn = document.querySelector("button");
@@ -101,7 +101,7 @@ btn.addEventListener("click", draw);
 
 ### Mit und ohne Schleife
 
-Sie müssen den gesamten Code nicht jetzt schon verstehen, aber betrachten wir den Teil des Codes, der tatsächlich die 100 Kreise zeichnet:
+Sie müssen vorerst nicht den gesamten Code verstehen. Sehen wir uns aber den Teil an, der die 100 Kreise tatsächlich zeichnet:
 
 ```js
 for (let i = 0; i < 100; i++) {
@@ -118,11 +118,11 @@ for (let i = 0; i < 100; i++) {
 }
 ```
 
-Sie sollten die grundlegende Idee verstehen — wir verwenden eine Schleife, um 100 Iterationen dieses Codes auszuführen, von denen jede einen Kreis an einer zufälligen Position auf der Seite zeichnet. `random(x)`, zuvor im Code definiert, gibt eine ganze Zahl zwischen `0` und `x-1` zurück.
-Die Menge des benötigten Codes wäre dieselbe, egal ob wir 100, 1000 oder 10.000 Kreise zeichnen.
-Nur eine Zahl muss geändert werden.
+Das Grundprinzip sollte deutlich werden: Wir verwenden eine Schleife, um diesen Code 100-mal auszuführen. Bei jedem Durchlauf wird ein Kreis an einer zufälligen Position auf der Seite gezeichnet. `random(x)`, das weiter oben im Code definiert wurde, gibt eine ganze Zahl zwischen `0` und `x-1` zurück.
+Der benötigte Codeumfang wäre derselbe, unabhängig davon, ob wir 100, 1000 oder 10.000 Kreise zeichnen.
+Nur eine Zahl müsste geändert werden.
 
-Wenn wir hier keine Schleife verwenden würden, müssten wir den folgenden Code für jeden zu zeichnenden Kreis wiederholen:
+Ohne Schleife müssten wir den folgenden Code für jeden Kreis wiederholen, den wir zeichnen möchten:
 
 ```js
 ctx.beginPath();
@@ -137,18 +137,18 @@ ctx.arc(
 ctx.fill();
 ```
 
-Dies würde sehr langweilig und schwierig zu pflegen sein.
+Das wäre sehr mühsam und schwer zu warten.
 
-## Durchlaufen einer Sammlung
+## Über eine Sammlung iterieren
 
-Die meiste Zeit, wenn Sie eine Schleife verwenden, haben Sie eine Sammlung von Elementen und möchten mit jedem Element etwas machen.
+Meistens haben Sie beim Einsatz einer Schleife eine Sammlung von Elementen und möchten mit jedem Element etwas tun.
 
-Eine Art von Sammlung ist das {{jsxref("Array")}}, das wir im [Arrays](/de/docs/Learn_web_development/Core/Scripting/Arrays)-Kapitel dieses Kurses kennengelernt haben.
-Aber es gibt auch andere Sammlungen in JavaScript, einschließlich {{jsxref("Set")}} und {{jsxref("Map")}}.
+Ein Sammlungstyp ist das {{jsxref("Array")}}, das wir im Kapitel [Arrays](/de/docs/Learn_web_development/Core/Scripting/Arrays) dieses Kurses kennengelernt haben.
+In JavaScript gibt es aber auch andere Sammlungen, darunter {{jsxref("Set")}} und {{jsxref("Map")}}.
 
-### Die for...of Schleife
+### Die for...of-Schleife
 
-Das grundlegende Werkzeug zum Durchlaufen einer Sammlung ist die {{jsxref("Statements/for...of","for...of")}} Schleife:
+Das grundlegende Werkzeug, um über eine Sammlung zu iterieren, ist die {{jsxref("Statements/for...of","for...of")}}-Schleife:
 
 ```js
 const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
@@ -158,17 +158,17 @@ for (const cat of cats) {
 }
 ```
 
-In diesem Beispiel besagt `for (const cat of cats)`:
+In diesem Beispiel bedeutet `for (const cat of cats)`:
 
-1. Angenommen, es gibt die Sammlung `cats`, holen Sie das erste Element in der Sammlung.
-2. Weisen Sie es der Variablen `cat` zu und führen Sie dann den Code zwischen den geschweiften Klammern `{}` aus.
-3. Holen Sie das nächste Element und wiederholen Sie (2), bis Sie das Ende der Sammlung erreicht haben.
+1. Nehmen Sie aus der Sammlung `cats` das erste Element.
+2. Weisen Sie es der Variablen `cat` zu und führen Sie anschließend den Code zwischen den geschweiften Klammern `{}` aus.
+3. Nehmen Sie das nächste Element und wiederholen Sie Schritt 2, bis das Ende der Sammlung erreicht ist.
 
 ### map() und filter()
 
-JavaScript hat auch spezialisiertere Schleifen für Sammlungen, und wir erwähnen hier zwei davon.
+JavaScript bietet auch speziellere Möglichkeiten, Sammlungen zu durchlaufen. Zwei davon sehen wir uns hier an.
 
-Sie können `map()` verwenden, um etwas mit jedem Element in einer Sammlung zu tun und eine neue Sammlung zu erstellen, die die geänderten Elemente enthält:
+Mit `map()` können Sie jedes Element einer Sammlung verarbeiten und eine neue Sammlung mit den veränderten Elementen erstellen:
 
 ```js
 function toUpper(string) {
@@ -183,13 +183,13 @@ console.log(upperCats);
 // [ "LEOPARD", "SERVAL", "JAGUAR", "TIGER", "CARACAL", "LION" ]
 ```
 
-Hier übergeben wir eine Funktion in {{jsxref("Array.prototype.map()","cats.map()")}}, und `map()` ruft die Funktion einmal für jedes Element im Array auf und übergibt das Element. Anschließend fügt es den Rückgabewert von jedem Funktionsaufruf zu einem neuen Array hinzu und gibt schließlich das neue Array zurück. In diesem Fall wandelt die von uns bereitgestellte Funktion das Element in Großbuchstaben um, sodass das resultierende Array alle unsere Katzen in Großbuchstaben enthält:
+Hier übergeben wir eine Funktion an {{jsxref("Array.prototype.map()","cats.map()")}}. `map()` ruft die Funktion für jedes Element des Arrays einmal auf und übergibt ihr das jeweilige Element. Anschließend fügt es den Rückgabewert jedes Funktionsaufrufs einem neuen Array hinzu und gibt dieses schließlich zurück. In diesem Fall wandelt die übergebene Funktion das Element in Großbuchstaben um. Das Ergebnis ist also ein Array, in dem alle unsere Katzennamen in Großbuchstaben stehen:
 
 ```js-nolint
 [ "LEOPARD", "SERVAL", "JAGUAR", "TIGER", "CARACAL", "LION" ]
 ```
 
-Sie können {{jsxref("Array.prototype.filter()","filter()")}} verwenden, um jedes Element in einer Sammlung zu testen und eine neue Sammlung zu erstellen, die nur passende Elemente enthält:
+Mit {{jsxref("Array.prototype.filter()","filter()")}} können Sie jedes Element einer Sammlung prüfen und eine neue Sammlung erstellen, die nur passende Elemente enthält:
 
 ```js
 function lCat(cat) {
@@ -204,15 +204,15 @@ console.log(filtered);
 // [ "Leopard", "Lion" ]
 ```
 
-Dies sieht `map()` sehr ähnlich, außer dass die übergebene Funktion einen [boolean](/de/docs/Learn_web_development/Core/Scripting/Variables#booleans) zurückgibt: Wenn sie `true` zurückgibt, wird das Element im neuen Array enthalten.
-Unsere Funktion testet, ob das Element mit dem Buchstaben "L" beginnt, sodass das Ergebnis ein Array ist, das nur Katzen enthält, deren Namen mit "L" beginnen:
+Das ähnelt `map()`, aber die übergebene Funktion gibt einen [booleschen Wert](/de/docs/Learn_web_development/Core/Scripting/Variables#booleans) zurück: Gibt sie `true` zurück, wird das Element in das neue Array aufgenommen.
+Unsere Funktion prüft, ob das Element mit dem Buchstaben „L“ beginnt. Das Ergebnis ist daher ein Array, das nur Katzen enthält, deren Namen mit „L“ beginnen:
 
 ```js-nolint
 [ "Leopard", "Lion" ]
 ```
 
-Beachten Sie, dass `map()` und `filter()` oft mit _Funktionsausdrücken_ verwendet werden, die Sie in unserer [Funktionen](/de/docs/Learn_web_development/Core/Scripting/Functions)-Lektion kennenlernen werden.
-Mit Funktionsausdrücken könnten wir das obige Beispiel viel kompakter umschreiben:
+Beachten Sie, dass `map()` und `filter()` häufig mit _Funktionsausdrücken_ verwendet werden, die Sie in unserer Lektion zu [Funktionen](/de/docs/Learn_web_development/Core/Scripting/Functions) kennenlernen.
+Mit Funktionsausdrücken könnten wir das obige Beispiel wesentlich kompakter schreiben:
 
 ```js
 const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
@@ -222,11 +222,11 @@ console.log(filtered);
 // [ "Leopard", "Lion" ]
 ```
 
-## Die Standard for Schleife
+## Die normale for-Schleife
 
-In dem "Kreise zeichnen"-Beispiel oben, haben Sie keine Sammlung von Elementen, durch die Sie durchlaufen: Sie möchten wirklich nur denselben Code 100 Mal ausführen.
-In einem solchen Fall können Sie die {{jsxref("Statements/for","for")}} Schleife verwenden.
-Diese hat folgende Syntax:
+Im obigen Beispiel zum Zeichnen von Kreisen gibt es keine Sammlung von Elementen, über die Sie iterieren möchten: Sie möchten lediglich denselben Code 100-mal ausführen.
+In einem solchen Fall können Sie die {{jsxref("Statements/for","for")}}-Schleife verwenden.
+Sie hat folgende Syntax:
 
 ```js-nolint
 for (initializer; condition; final-expression) {
@@ -234,25 +234,25 @@ for (initializer; condition; final-expression) {
 }
 ```
 
-Hier haben Sie:
+Sie besteht aus:
 
-1. Das Schlüsselwort `for`, gefolgt von einigen Klammern.
-2. Innerhalb der Klammern befinden sich drei Elemente, die durch Semikolons getrennt sind:
-   1. Ein **Initialisierer** — dies ist normalerweise eine Variable, die auf eine Zahl gesetzt wird, die inkrementiert wird, um die Anzahl der ausgeführten Schleifen zu zählen.
-      Es wird auch manchmal als **Counter-Variable** bezeichnet.
-   2. Eine **Bedingung** — diese definiert, wann die Schleife aufhören soll zu laufen.
-      Dies ist im Allgemeinen ein Ausdruck mit einem Vergleichsoperator, ein Test, ob die Austrittsbedingung erfüllt ist.
-   3. Ein **Endausdruck** — dies wird immer ausgewertet (oder ausgeführt), jedes Mal, wenn die Schleife eine vollständige Iteration durchlaufen hat.
-      Es dient normalerweise dazu, die Zählervariable zu inkrementieren (oder in einigen Fällen zu dekrementieren), um sie näher an den Punkt zu bringen, an dem die Bedingung nicht mehr `true` ist.
+1. Dem Schlüsselwort `for`, gefolgt von runden Klammern.
+2. Drei Bestandteilen innerhalb der Klammern, die durch Semikolons getrennt sind:
+   1. Einem **Initialisierer** – normalerweise eine Variable, die auf eine Zahl gesetzt und anschließend erhöht wird, um die Anzahl der Schleifendurchläufe zu zählen.
+      Sie wird manchmal auch **Zählervariable** genannt.
+   2. Einer **Bedingung** – sie legt fest, wann die Schleife beendet werden soll.
+      Im Allgemeinen handelt es sich um einen Ausdruck mit einem Vergleichsoperator, der prüft, ob die Abbruchbedingung erfüllt ist.
+   3. Einem **abschließenden Ausdruck** – er wird nach jedem vollständigen Schleifendurchlauf ausgewertet beziehungsweise ausgeführt.
+      Üblicherweise erhöht er die Zählervariable (oder verringert sie in manchen Fällen), sodass der Punkt näher rückt, an dem die Bedingung nicht mehr `true` ist.
 
-3. Einige geschweifte Klammern, die einen Codeblock enthalten — dieser Code wird bei jeder Iteration der Schleife ausgeführt.
+3. Geschweiften Klammern, die einen Codeblock enthalten – dieser Code wird bei jedem Schleifendurchlauf ausgeführt.
 
 > [!NOTE]
-> [Nebenbemerkung: Schleifen](https://scrimba.com/learn-javascript-c0v/~02a?via=mdn) von Scrimba<sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine nützliche interaktive Aufschlüsselung der `for` Schleifensyntax.
+> [Exkurs: Schleifen](https://scrimba.com/learn-javascript-c0v/~02a?via=mdn) von Scrimba<sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine hilfreiche interaktive Erläuterung der Syntax von `for`-Schleifen.
 
-### Berechnung von Quadraten
+### Quadratzahlen berechnen
 
-Schauen wir uns ein reales Beispiel an, damit wir besser visualisieren können, was diese Elemente tun.
+Sehen wir uns ein konkretes Beispiel an, um die Funktionsweise besser nachzuvollziehen.
 
 ```html hidden
 <button id="calculate">Calculate</button>
@@ -278,30 +278,30 @@ calculateBtn.addEventListener("click", calculate);
 clearBtn.addEventListener("click", () => (results.textContent = ""));
 ```
 
-Dies ergibt die folgende Ausgabe:
+Das ergibt folgende Ausgabe:
 
 {{ EmbedLiveSample('Calculating squares', '100%', 250) }}
 
-Dieser Code berechnet Quadrate für die Zahlen von 1 bis 9 und gibt das Ergebnis aus. Der Kern des Codes ist die `for` Schleife, die die Berechnung durchführt.
+Dieser Code berechnet die Quadrate der Zahlen von 1 bis 9 und gibt die Ergebnisse aus. Das Kernstück ist die `for`-Schleife, die die Berechnung durchführt.
 
-Lassen Sie uns die Zeile `for (let i = 1; i < 10; i++)` in ihre drei Teile unterteilen:
+Zerlegen wir die Zeile `for (let i = 1; i < 10; i++)` in ihre drei Bestandteile:
 
-1. `let i = 1`: Die Zählervariable `i` beginnt bei `1`. Beachten Sie, dass wir `let` für den Zähler verwenden müssen, da wir ihn mit `i++` (was eine Zuweisung ist) bei jeder Schleifenrunde inkrementieren.
-2. `i < 10`: Schleifen Sie weiter, solange `i` kleiner als `10` ist.
-3. `i++`: Addieren Sie bei jeder Schleifenrunde eins zu `i`.
+1. `let i = 1`: Die Zählervariable `i` beginnt bei `1`. Beachten Sie, dass wir für die Zählervariable `let` verwenden müssen, weil wir ihren Wert bei jedem Schleifendurchlauf mit `i++` erhöhen und ihr damit einen neuen Wert zuweisen.
+2. `i < 10`: Die Schleife wird fortgesetzt, solange `i` kleiner als `10` ist.
+3. `i++`: Bei jedem Schleifendurchlauf wird `i` um eins erhöht.
 
-Innerhalb der Schleife berechnen wir das Quadrat des aktuellen Wertes von `i`, das heißt: `i * i`. Wir erstellen einen String, der die Berechnung und das Ergebnis darstellt, und fügen diesen String dem Ausgabetext hinzu. Wir fügen auch `\n` hinzu, damit der nächste String, den wir hinzufügen, mit einer neuen Zeile beginnt. Also:
+Innerhalb der Schleife berechnen wir das Quadrat des aktuellen Werts von `i`, also `i * i`. Wir erstellen einen String, der die Berechnung und ihr Ergebnis wiedergibt, und hängen ihn an den Ausgabetext an. Außerdem fügen wir `\n` hinzu, damit der nächste angehängte String in einer neuen Zeile beginnt. Das bedeutet:
 
-1. Während des ersten Durchlaufs ist `i = 1`, also fügen wir `1 x 1 = 1` hinzu.
-2. Während des zweiten Durchlaufs ist `i = 2`, also fügen wir `2 x 2 = 4` hinzu.
-3. Und so weiter…
-4. Wenn `i` gleich `10` wird, stoppen wir die Schleife und gehen direkt zum nächsten Code unterhalb der Schleife über und drucken die Nachricht `Finished!` auf einer neuen Zeile aus.
+1. Beim ersten Durchlauf ist `i = 1`, also fügen wir `1 x 1 = 1` hinzu.
+2. Beim zweiten Durchlauf ist `i = 2`, also fügen wir `2 x 2 = 4` hinzu.
+3. Und so weiter …
+4. Sobald `i` den Wert `10` erreicht, endet die Schleife. Danach wird der nächste Code unterhalb der Schleife ausgeführt und die Meldung `Finished!` in einer neuen Zeile ausgegeben.
 
-### Durchlaufen von Sammlungen mit einer for Schleife
+### Mit einer for-Schleife über Sammlungen iterieren
 
-Sie können eine `for` Schleife verwenden, um durch eine Sammlung zu iterieren, anstelle einer `for...of` Schleife.
+Statt einer `for...of`-Schleife können Sie auch eine `for`-Schleife verwenden, um über eine Sammlung zu iterieren.
 
-Betrachten wir erneut unser `for...of` Beispiel oben:
+Sehen wir uns noch einmal das obige `for...of`-Beispiel an:
 
 ```js
 const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
@@ -311,7 +311,7 @@ for (const cat of cats) {
 }
 ```
 
-Wir könnten diesen Code so umschreiben:
+Wir könnten den Code auch so schreiben:
 
 ```js
 const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
@@ -321,50 +321,54 @@ for (let i = 0; i < cats.length; i++) {
 }
 ```
 
-In dieser Schleife beginnen wir mit `i` bei `0` und stoppen, wenn `i` die Länge des Arrays erreicht.
-Dann verwenden wir in der Schleife `i`, um jedes Element im Array der Reihe nach zuzugreifen.
+In dieser Schleife beginnt `i` bei `0`. Die Schleife endet, wenn `i` die Länge des Arrays erreicht.
+Innerhalb der Schleife verwenden wir `i`, um nacheinander auf jedes Element des Arrays zuzugreifen.
 
-Das funktioniert einwandfrei, und in frühen Versionen von JavaScript existierte `for...of` noch nicht, daher war dies die Standardmethode, um durch ein Array zu iterieren.
-Es bietet jedoch mehr Chancen, Fehler in Ihren Code einzuführen. Zum Beispiel:
+Das funktioniert problemlos. In frühen JavaScript-Versionen gab es `for...of` noch nicht, daher war dies die übliche Art, über ein Array zu iterieren.
+Allerdings können dabei leichter Fehler im Code entstehen. Beispielsweise:
 
-- Sie könnten `i` bei `1` starten, und vergessen, dass der erste Array-Index null und nicht 1 ist.
-- Sie könnten bei `i <= cats.length` stoppen und vergessen, dass der letzte Array-Index bei `length - 1` ist.
+- Sie könnten `i` bei `1` beginnen lassen und dabei vergessen, dass der erste Array-Index null und nicht 1 ist.
+- Sie könnten erst bei `i <= cats.length` aufhören und dabei vergessen, dass der letzte Array-Index `length - 1` ist.
 
-Aus solchen Gründen ist es normalerweise besser, `for...of` zu verwenden, wenn Sie können.
+Aus solchen Gründen ist es normalerweise besser, `for...of` zu verwenden, wenn das möglich ist.
 
-Manchmal müssen Sie dennoch eine `for` Schleife verwenden, um durch ein Array zu iterieren.
-Zum Beispiel möchten wir im folgenden Code eine Nachricht protokollieren, die unsere Katzen auflistet:
+Manchmal benötigen Sie dennoch eine `for`-Schleife, um über ein Array zu iterieren.
+Im folgenden Code möchten wir zum Beispiel eine Nachricht mit einer Liste unserer Katzen in einem {{htmlelement("p")}}-Element ausgeben:
 
-```js
-const cats = ["Pete", "Biggles", "Jasmine"];
+```html hidden live-sample___for-of-loop-cats live-sample___for-loop-cats live-sample___while-loop-cats live-sample___do-while-loop-cats
+<p></p>
+```
 
-let myFavoriteCats = "My cats are called ";
+```js live-sample___for-of-loop-cats
+const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
+const pElem = document.querySelector("p");
+
+let myFavoriteCats = "My favorite big cats are ";
 
 for (const cat of cats) {
   myFavoriteCats += `${cat}, `;
 }
 
-console.log(myFavoriteCats); // "My cats are called Pete, Biggles, Jasmine, "
+pElem.textContent = myFavoriteCats;
 ```
 
-Der endgültige Ausgabesatz ist nicht sehr gut geformt:
+Der ausgegebene Satz ist nicht besonders gut formuliert:
+
+{{embedlivesample("for-of-loop-cats", "100%", "60")}}
+
+Wir möchten einen grammatikalisch korrekten Satz. Dazu müssen wir die letzte Katze anders behandeln:
 
 ```plain
-My cats are called Pete, Biggles, Jasmine,
+My favorite big cats are Leopard, Serval, Jaguar, Tiger, Caracal, and Lion.
 ```
 
-Wir würden es bevorzugen, die letzte Katze anders zu behandeln, wie folgt:
+Dafür müssen wir erkennen, wann der letzte Schleifendurchlauf erreicht ist. Mit einer `for`-Schleife können wir dazu den Wert von `i` prüfen:
 
-```plain
-My cats are called Pete, Biggles, and Jasmine.
-```
+```js live-sample___for-loop-cats
+const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
+const pElem = document.querySelector("p");
 
-Aber um dies zu tun, müssen wir wissen, wann wir uns in der letzten Schleifeniteration befinden, und um das zu tun, können wir eine `for` Schleife verwenden und den Wert von `i` prüfen:
-
-```js
-const cats = ["Pete", "Biggles", "Jasmine"];
-
-let myFavoriteCats = "My cats are called ";
+let myFavoriteCats = "My favorite big cats are ";
 
 for (let i = 0; i < cats.length; i++) {
   if (i === cats.length - 1) {
@@ -375,18 +379,22 @@ for (let i = 0; i < cats.length; i++) {
   }
 }
 
-console.log(myFavoriteCats); // "My cats are called Pete, Biggles, and Jasmine."
+pElem.textContent = myFavoriteCats;
 ```
 
-## Beenden von Schleifen mit break
+So erhalten wir die gewünschte Ausgabe:
 
-Wenn Sie eine Schleife beenden möchten, bevor alle Iterationen abgeschlossen sind, können Sie die [break](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung verwenden.
-Wir haben dies bereits im vorherigen Artikel kennengelernt, als wir uns [switch-Anweisungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals#switch_statements) angesehen haben — wenn ein Fall in einer switch-Anweisung erfüllt ist, der mit dem Eingabeausdruck übereinstimmt, beendet die `break`-Anweisung sofort die switch-Anweisung und führt mit dem Code danach fort.
+{{embedlivesample("for-loop-cats", "100%", "60")}}
 
-Es ist dasselbe mit Schleifen — eine `break`-Anweisung beendet die Schleife sofort und lässt den Browser zum nachfolgenden Code übergehen.
+## Schleifen mit break verlassen
 
-Angenommen, wir wollten ein Array von Kontakten und Telefonnummern durchsuchen und nur die Nummer zurückgeben, die wir finden wollten?
-Zuerst etwas einfaches HTML — ein textuelles {{htmlelement("input")}}, das es uns ermöglicht, einen Namen zur Suche einzugeben, ein {{htmlelement("button")}} Element zur Absendung einer Suche, und ein {{htmlelement("p")}} Element, um die Ergebnisse anzuzeigen:
+Wenn Sie eine Schleife verlassen möchten, bevor alle Durchläufe abgeschlossen sind, können Sie die [break](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung verwenden.
+Wir haben sie bereits im vorherigen Artikel bei den [switch-Anweisungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals#switch_statements) kennengelernt: Wird in einer switch-Anweisung ein Fall erreicht, der zum Eingabeausdruck passt, verlässt die `break`-Anweisung die switch-Anweisung sofort und setzt die Ausführung mit dem folgenden Code fort.
+
+Bei Schleifen ist es genauso: Eine `break`-Anweisung beendet die Schleife sofort, und der Browser führt den darauf folgenden Code aus.
+
+Angenommen, wir möchten in einem Array aus Kontakten und Telefonnummern nach einem Kontakt suchen und nur die gesuchte Nummer zurückgeben.
+Zunächst etwas einfaches HTML: ein Text-{{htmlelement("input")}} zur Eingabe des gesuchten Namens, ein {{htmlelement("button")}}-Element zum Starten der Suche und ein {{htmlelement("p")}}-Element zur Anzeige des Ergebnisses:
 
 ```html
 <label for="search">Search by contact name: </label>
@@ -430,26 +438,23 @@ btn.addEventListener("click", () => {
 
 {{ EmbedLiveSample('Exiting_loops_with_break', '100%', 100) }}
 
-1. Zunächst haben wir einige Variablendefinitionen — wir haben ein Array von Kontaktinformationen, wobei jedes Element eine Zeichenkette enthält, die einen Namen und eine Telefonnummer durch einen Doppelpunkt getrennt enthält.
-2. Als nächstes hängen wir einen Event-Listener an den Button (`btn`), sodass beim Drücken etwas Code ausgeführt wird, um die Suche durchzuführen und die Ergebnisse zurückzugeben.
-3. Wir speichern den im Texteingabefeld eingegebenen Wert in einer Variablen namens `searchName`, bevor wir dann das Texteingabefeld leeren und es erneut fokussieren, bereit für die nächste Suche.
-   Beachten Sie, dass wir auch die Methode [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) auf die Zeichenkette anwenden, sodass die Suchanfragen nicht casesensitive sind.
-4. Nun zum interessanten Teil, die `for...of` Schleife:
-   1. Innerhalb der Schleife teilen wir den aktuellen Kontakt am Doppelpunkt auf und speichern die resultierenden zwei Werte in einem Array namens `splitContact`.
-   2. Dann verwenden wir eine Bedingungsanweisung, um zu prüfen, ob `splitContact[0]` (der Kontaktname, wieder mit [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) klein geschrieben) gleich dem eingegebenen `searchName` ist.
-      Wenn dem so ist, tragen wir einen String in den Absatz ein, um zu berichten, welche Nummer der Kontakt hat, und verwenden `break`, um die Schleife zu beenden.
+1. Zuerst definieren wir einige Variablen. Wir haben ein Array mit Kontaktinformationen, dessen Elemente jeweils Strings mit einem Namen und einer Telefonnummer sind, die durch einen Doppelpunkt getrennt werden.
+2. Anschließend fügen wir der Schaltfläche (`btn`) einen Event-Listener hinzu. Wenn sie angeklickt wird, führt dieser Code aus, der die Suche durchführt und das Ergebnis zurückgibt.
+3. Wir speichern den Wert aus dem Texteingabefeld in einer Variablen namens `searchName`. Danach leeren wir das Feld und setzen den Fokus wieder darauf, damit es für die nächste Suche bereit ist.
+   Beachten Sie, dass wir außerdem die Methode [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) auf den String anwenden, damit bei der Suche die Groß- und Kleinschreibung keine Rolle spielt.
+4. Nun zum interessanten Teil, der `for...of`-Schleife:
+   1. Innerhalb der Schleife teilen wir zunächst den aktuellen Kontakteintrag am Doppelpunkt und speichern die beiden resultierenden Werte in einem Array namens `splitContact`.
+   2. Anschließend prüfen wir mit einer bedingten Anweisung, ob `splitContact[0]` (der Name des Kontakts, ebenfalls mit [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) in Kleinbuchstaben umgewandelt) mit dem eingegebenen `searchName` übereinstimmt.
+      Ist das der Fall, schreiben wir einen String mit der Telefonnummer des Kontakts in den Absatz und beenden die Schleife mit `break`.
 
-5. Nach der Schleife prüfen wir, ob wir einen Kontakt gesetzt haben, und wenn nicht, setzen wir den Absatztext auf "Kontakt nicht gefunden.".
+5. Nach der Schleife prüfen wir, ob ein Kontakt gefunden wurde. Falls nicht, setzen wir den Text des Absatzes auf „Contact not found.“.
 
-> [!NOTE]
-> Sie können den [vollständigen Quellcode auf GitHub](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/loops/contact-search.html) ebenfalls ansehen (siehe es auch [live laufen](https://mdn.github.io/learning-area/javascript/building-blocks/loops/contact-search.html)).
+## Durchläufe mit continue überspringen
 
-## Iterationen überspringen mit continue
+Die [continue](/de/docs/Web/JavaScript/Reference/Statements/continue)-Anweisung funktioniert ähnlich wie `break`. Statt die Schleife vollständig zu verlassen, springt sie jedoch zum nächsten Schleifendurchlauf.
+Sehen wir uns ein weiteres Beispiel an: Es nimmt eine Zahl entgegen und gibt nur diejenigen Zahlen zurück, die Quadrate ganzer Zahlen sind.
 
-Die [continue](/de/docs/Web/JavaScript/Reference/Statements/continue)-Anweisung funktioniert ähnlich wie `break`, aber anstatt die Schleife ganz zu durchbrechen, wird zur nächsten Iteration der Schleife gesprungen.
-Schauen wir uns ein weiteres Beispiel an, das eine Zahl als Eingabe nimmt und nur die Zahlen zurückgibt, die Quadrate von ganzen Zahlen (Ganzzahlen) sind.
-
-Das HTML ist im Grunde dasselbe wie das letzte Beispiel — eine einfache numerische Eingabe und ein Absatz zur Ausgabe.
+Das HTML entspricht im Wesentlichen dem letzten Beispiel: ein einfaches Zahlen-Eingabefeld und ein Absatz für die Ausgabe.
 
 ```html
 <label for="number">Enter number: </label>
@@ -459,7 +464,7 @@ Das HTML ist im Grunde dasselbe wie das letzte Beispiel — eine einfache numeri
 <p>Output:</p>
 ```
 
-Das JavaScript ist auch weitgehend dasselbe, obwohl die Schleife selbst etwas anders ist:
+Auch das JavaScript ist größtenteils gleich, die Schleife selbst unterscheidet sich jedoch etwas:
 
 ```js
 const para = document.querySelector("p");
@@ -485,19 +490,16 @@ Hier ist die Ausgabe:
 
 {{ EmbedLiveSample('Skipping_iterations_with_continue', '100%', 100) }}
 
-1. In diesem Fall sollte die Eingabe einer Zahl (`num`) entsprechen. Die `for`-Schleife erhält einen Zähler, der bei 1 startet (da wir uns hier nicht für 0 interessieren), eine Exit-Bedingung, die besagt, dass die Schleife stoppt, wenn der Zähler größer als die Eingabe `num` wird, und einen Iterator, der bei jeder Runde der Schleife 1 zum Zähler addiert.
-2. Innerhalb der Schleife ermitteln wir die Quadratwurzel jeder Zahl mit [`Math.sqrt(i)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt) und überprüfen dann, ob die Quadratwurzel eine ganze Zahl ist, indem wir testen, ob sie der gerundeten Quadratwurzel entspricht (dies macht [`Math.floor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) mit der übergebenen Zahl).
-3. Wenn die Quadratwurzel und die abgerundete Quadratwurzel nicht gleich sind (`!==`), bedeutet dies, dass die Quadratwurzel keine ganze Zahl ist, und wir sind nicht interessiert. In einem solchen Fall verwenden wir die `continue`-Anweisung, um zur nächsten Schleifeniteration zu springen, ohne die Zahl irgendwo zu protokollieren.
-4. Wenn die Quadratwurzel eine ganze Zahl ist, überspringen wir den `if`-Block ganz, sodass die `continue`-Anweisung nicht ausgeführt wird; stattdessen fügen wir den aktuellen `i`-Wert plus ein Leerzeichen am Ende des Absatzinhalts an.
-
-> [!NOTE]
-> Sie können den [vollständigen Quellcode auf GitHub](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/loops/integer-squares.html) ebenfalls ansehen (siehe es auch [live laufen](https://mdn.github.io/learning-area/javascript/building-blocks/loops/integer-squares.html)).
+1. Die Eingabe sollte in diesem Fall eine Zahl (`num`) sein. Die `for`-Schleife hat eine Zählervariable, die bei 1 beginnt (da uns 0 hier nicht interessiert), eine Abbruchbedingung, nach der die Schleife endet, sobald die Zählervariable größer als der Eingabewert `num` ist, und einen Ausdruck, der die Zählervariable bei jedem Durchlauf um 1 erhöht.
+2. Innerhalb der Schleife berechnen wir mit [`Math.sqrt(i)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt) die Quadratwurzel jeder Zahl. Anschließend prüfen wir, ob sie eine ganze Zahl ist. Dazu vergleichen wir sie mit ihrem auf die nächstkleinere ganze Zahl abgerundeten Wert (genau das macht [`Math.floor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) mit der übergebenen Zahl).
+3. Sind die Quadratwurzel und die abgerundete Quadratwurzel nicht gleich (`!==`), ist die Quadratwurzel keine ganze Zahl und für uns uninteressant. In diesem Fall springen wir mit `continue` zum nächsten Schleifendurchlauf, ohne die Zahl irgendwo zu erfassen.
+4. Ist die Quadratwurzel eine ganze Zahl, überspringen wir den `if`-Block vollständig. Die `continue`-Anweisung wird also nicht ausgeführt. Stattdessen hängen wir den aktuellen Wert von `i` und ein Leerzeichen an den Inhalt des Absatzes an.
 
 ## while und do...while
 
-`for` ist nicht der einzige allgemeine Schleifentyp, der in JavaScript verfügbar ist. Es gibt tatsächlich viele andere, und während Sie nicht alle jetzt verstehen müssen, ist es sinnvoll, sich den Aufbau einiger anderer anzusehen, damit Sie dieselben Funktionen erkennen können, die auf leicht abweichende Weise arbeiten.
+`for` ist nicht der einzige allgemeine Schleifentyp in JavaScript. Es gibt noch viele andere. Sie müssen sie jetzt nicht alle verstehen, aber es lohnt sich, die Struktur einiger weiterer Schleifen anzusehen. So können Sie dieselben Bestandteile in einer etwas anderen Form wiedererkennen.
 
-Zuerst werfen wir einen Blick auf die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while) Schleife. Die Syntax dieser Schleife sieht folgendermaßen aus:
+Sehen wir uns zuerst die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife an. Ihre Syntax sieht so aus:
 
 ```js-nolint
 initializer
@@ -508,19 +510,20 @@ while (condition) {
 }
 ```
 
-Dies funktioniert sehr ähnlich wie die `for` Schleife, mit dem Unterschied, dass die Initialiervariable vor der Schleife gesetzt wird und der Endausdruck im Schleifenblock nach dem auszuführenden Code enthalten ist, anstatt diese beiden Elemente innerhalb der Klammern einzuschließen.
-Die Bedingung ist innerhalb der Klammern enthalten, die dem Schlüsselwort `while` und nicht `for` vorangeht.
+Sie funktioniert sehr ähnlich wie die `for`-Schleife. Allerdings wird die Initialisierungsvariable vor der Schleife festgelegt, und der abschließende Ausdruck steht innerhalb der Schleife nach dem auszuführenden Code, statt dass diese beiden Bestandteile in den runden Klammern stehen.
+Die Bedingung steht in den runden Klammern. Davor steht das Schlüsselwort `while` anstelle von `for`.
 
-Die gleichen drei Elemente sind immer noch vorhanden, und sie werden in der gleichen Reihenfolge definiert wie in der for-Schleife.
-Dies liegt daran, dass eine Initialisierung definiert werden muss, bevor geprüft werden kann, ob die Bedingung wahr ist oder nicht.
-Der Endausdruck wird dann ausgeführt, nachdem der Code in der Schleife ausgeführt wurde (eine Iteration abgeschlossen ist), was nur passiert, wenn die Bedingung noch wahr ist.
+Dieselben drei Bestandteile sind weiterhin vorhanden und stehen in derselben Reihenfolge wie bei der for-Schleife.
+Der Grund dafür ist, dass ein Initialisierer definiert sein muss, bevor geprüft werden kann, ob die Bedingung wahr ist.
+Der abschließende Ausdruck wird ausgeführt, nachdem der Code innerhalb der Schleife ausgeführt wurde (also ein Durchlauf abgeschlossen ist). Das geschieht nur, wenn die Bedingung weiterhin wahr ist.
 
-Betrachten wir erneut unser Katzenlistenbeispiel, diesmal umgeschrieben, um eine while-Schleife zu verwenden:
+Sehen wir uns unser Beispiel mit der Katzenliste noch einmal an, diesmal mit einer while-Schleife:
 
-```js
-const cats = ["Pete", "Biggles", "Jasmine"];
+```js live-sample___while-loop-cats
+const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
+const pElem = document.querySelector("p");
 
-let myFavoriteCats = "My cats are called ";
+let myFavoriteCats = "My favorite big cats are ";
 
 let i = 0;
 
@@ -534,13 +537,14 @@ while (i < cats.length) {
   i++;
 }
 
-console.log(myFavoriteCats); // "My cats are called Pete, Biggles, and Jasmine."
+pElem.textContent = myFavoriteCats;
 ```
 
-> [!NOTE]
-> Dies funktioniert immer noch wie erwartet — sehen Sie selbst, wie es [live auf GitHub läuft](https://mdn.github.io/learning-area/javascript/building-blocks/loops/while.html) (siehe auch den [vollständigen Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/loops/while.html)).
+Es funktioniert weiterhin wie erwartet:
 
-Die [`do...while`](/de/docs/Web/JavaScript/Reference/Statements/do...while) Schleife ist sehr ähnlich, bietet aber eine Variation der while-Struktur:
+{{embedlivesample("while-loop-cats", "100%", "60")}}
+
+Die [`do...while`](/de/docs/Web/JavaScript/Reference/Statements/do...while)-Schleife ist sehr ähnlich, verwendet aber eine abgewandelte while-Struktur:
 
 ```js-nolint
 initializer
@@ -551,16 +555,17 @@ do {
 } while (condition)
 ```
 
-In diesem Fall kommt der Initialisierer wieder zuerst, bevor die Schleife beginnt. Das Schlüsselwort steht direkt vor den geschweiften Klammern, die den auszuführenden Code und den Endausdruck enthalten.
+Auch hier steht der Initialisierer zuerst, vor Beginn der Schleife. Das Schlüsselwort steht direkt vor den geschweiften Klammern, die den auszuführenden Code und den abschließenden Ausdruck enthalten.
 
-Der Hauptunterschied zwischen einer `do...while`-Schleife und einer `while`-Schleife besteht darin, dass _der Code innerhalb einer `do...while`-Schleife mindestens einmal ausgeführt wird_. Das liegt daran, dass die Bedingung nach dem Code innerhalb der Schleife kommt. Also wird dieser Code immer ausgeführt, dann geprüft, ob es erneut ausgeführt werden muss. In `while`- und `for`-Schleifen kommt die Prüfung zuerst, sodass der Code möglicherweise nie ausgeführt wird.
+Der wesentliche Unterschied zwischen einer `do...while`-Schleife und einer `while`-Schleife besteht darin, dass _der Code innerhalb einer `do...while`-Schleife immer mindestens einmal ausgeführt wird_. Das liegt daran, dass die Bedingung erst nach dem Code innerhalb der Schleife steht. Der Code wird also zunächst ausgeführt; erst danach wird geprüft, ob er erneut ausgeführt werden soll. Bei `while`- und `for`-Schleifen findet diese Prüfung zuerst statt, sodass der Code möglicherweise nie ausgeführt wird.
 
-Lassen Sie uns unser Katzenlistenbeispiel erneut umschreiben, um eine `do...while`-Schleife zu verwenden:
+Schreiben wir unser Beispiel mit der Katzenliste noch einmal um, diesmal mit einer `do...while`-Schleife:
 
-```js
-const cats = ["Pete", "Biggles", "Jasmine"];
+```js live-sample___do-while-loop-cats
+const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
+const pElem = document.querySelector("p");
 
-let myFavoriteCats = "My cats are called ";
+let myFavoriteCats = "My favorite big cats are ";
 
 let i = 0;
 
@@ -574,38 +579,39 @@ do {
   i++;
 } while (i < cats.length);
 
-console.log(myFavoriteCats); // "My cats are called Pete, Biggles, and Jasmine."
+pElem.textContent = myFavoriteCats;
 ```
 
-> [!NOTE]
-> Auch dies funktioniert wie erwartet — sehen Sie selbst, wie es [live auf GitHub läuft](https://mdn.github.io/learning-area/javascript/building-blocks/loops/do-while.html) (siehe auch den [vollständigen Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/loops/do-while.html)).
+Auch das funktioniert wie erwartet:
+
+{{embedlivesample("do-while-loop-cats", "100%", "60")}}
 
 > [!WARNING]
-> Bei jeder Art von Schleife müssen Sie sicherstellen, dass der Initialisierer inkrementiert oder je nach Fall dekrementiert wird, sodass die Bedingung schließlich falsch wird.
-> Andernfalls wird die Schleife endlos weiterlaufen, und entweder wird der Browser sie anhalten oder er stürzt ab. Dies nennt man eine **endlose Schleife**.
+> Bei jeder Art von Schleife müssen Sie sicherstellen, dass der Initialisierer erhöht oder – je nach Fall – verringert wird, damit die Bedingung irgendwann falsch wird.
+> Andernfalls läuft die Schleife endlos weiter, bis der Browser sie zwangsweise beendet oder abstürzt. Das nennt man eine **Endlosschleife**.
 
-## Implementieren eines Launch-Countdowns
+## Einen Countdown für einen Start umsetzen
 
-In dieser Übung möchten wir, dass Sie einen einfachen Countdown bis zur Zündung in die Ausgabebox ausgeben, von 10 bis zum Blastoff.
+In dieser Übung sollen Sie im Ausgabebereich einen einfachen Countdown für einen Start anzeigen, der von 10 bis zum Start herunterzählt.
 
-Um die Übung abzuschließen:
+So lösen Sie die Übung:
 
-1. Klicken Sie **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie Code hinzu, um von 10 auf 0 zu schleifen. Wir haben Ihnen mit einem Initialisierer geholfen — `let i = 10;`.
-3. Erstellen Sie für jede Iteration ein neues Paragraph-Element und fügen Sie es dem Ausgabebereich `<div>` hinzu, den wir mit `const output = document.querySelector('.output');` ausgewählt haben. Wir haben Ihnen drei Codezeilen innerhalb von Kommentaren gegeben, die irgendwo in der Schleife verwendet werden müssen:
-   1. `const para = document.createElement('p');` — erstellt ein neues Paragraph-Element.
-   2. `output.appendChild(para);` — fügt das Paragraph-Element dem Ausgabebereich `<div>` hinzu.
-   3. `para.textContent =` — macht den Text im Paragraph-Element gleich dem, was Sie auf der rechten Seite nach dem Gleichheitszeichen setzen.
-4. Schreiben Sie für die verschiedenen Iterationsnummern, die unten aufgeführt sind, Code, um den erforderlichen Text in den Paragraph einzufügen (Sie benötigen eine Bedingungsanweisung und mehrere `para.textContent =`-Zeilen):
-   1. Wenn die Zahl 10 ist, drucken Sie "Countdown 10" in das Paragraph-Element.
-   2. Wenn die Zahl 0 ist, drucken Sie "Blast off!" in das Paragraph-Element.
-   3. Bei jeder anderen Zahl drucken Sie nur die Zahl in das Paragraph-Element.
-5. Vergessen Sie nicht, einen Iterator einzuschließen! In diesem Beispiel zählen wir jedoch bei jeder Iteration herunter und nicht hoch, also möchten Sie **kein** `i++` — wie iterieren Sie abwärts?
+1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
+2. Fügen Sie Code hinzu, der von 10 bis 0 herunterzählt. Den Initialisierer `let i = 10;` haben wir bereits vorgegeben.
+3. Erstellen Sie bei jedem Schleifendurchlauf einen neuen Absatz und hängen Sie ihn an das Ausgabe-`<div>` an, das wir mit `const output = document.querySelector('.output');` ausgewählt haben. Wir haben drei Codezeilen in Kommentaren vorbereitet, die Sie innerhalb der Schleife verwenden sollen:
+   1. `const para = document.createElement('p');` – erstellt einen neuen Absatz.
+   2. `output.appendChild(para);` – hängt den Absatz an das Ausgabe-`<div>` an.
+   3. `para.textContent =` – setzt den Text im Absatz auf den Wert, den Sie rechts vom Gleichheitszeichen angeben.
+4. Schreiben Sie für die folgenden Werte der Zählervariable Code, der den jeweiligen Text in den Absatz einfügt. Sie benötigen dafür eine bedingte Anweisung und mehrere Zeilen mit `para.textContent =`:
+   1. Wenn die Zahl 10 ist, geben Sie „Countdown 10“ im Absatz aus.
+   2. Wenn die Zahl 0 ist, geben Sie „Blast off!“ im Absatz aus.
+   3. Bei jeder anderen Zahl geben Sie nur die Zahl im Absatz aus.
+5. Denken Sie an den Ausdruck, der die Zählervariable verändert! In diesem Beispiel zählen wir nach jedem Durchlauf herunter statt hoch. Sie möchten also **nicht** `i++` verwenden – wie zählen Sie abwärts?
 
 > [!NOTE]
-> Wenn Sie beginnen, die Schleife zu schreiben (zum Beispiel `(while(i>=0)`), kann es passieren, dass der Browser in einer Endlosschleife feststeckt, weil Sie die Endbedingung noch nicht eingegeben haben. Seien Sie also vorsichtig damit. Sie können Ihren Code in einem Kommentar beginnen, um dieses Problem zu beheben, und den Kommentar entfernen, nachdem Sie fertig sind.
+> Wenn Sie beginnen, die Schleife zu schreiben (beispielsweise `(while(i>=0)`), kann der Browser in einer Endlosschleife hängen bleiben, weil Sie den Ausdruck zum Verändern der Zählervariable noch nicht eingegeben haben. Seien Sie daher vorsichtig. Sie können den Code zunächst innerhalb eines Kommentars schreiben und den Kommentar entfernen, sobald Sie fertig sind.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Live-Ausgabe anzeigen.
+Falls Sie einen Fehler machen, können Sie Ihre Änderungen mit der Schaltfläche _Reset_ im MDN Playground zurücksetzen. Wenn Sie nicht weiterkommen, können Sie sich die Lösung unterhalb der Live-Ausgabe ansehen.
 
 ```html hidden live-sample___loops-1
 <div class="output"></div>
@@ -652,9 +658,9 @@ output.textContent = "";
 {{ EmbedLiveSample("loops-1", "100%", 200) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiger JavaScript-Code sollte ungefähr so aussehen:
 
 ```js
 const output = document.querySelector(".output");
@@ -680,27 +686,27 @@ while (i >= 0) {
 
 </details>
 
-## Das Ausfüllen einer Gästeliste
+## Eine Gästeliste ausfüllen
 
-In dieser Übung möchten wir, dass Sie eine Liste von Namen, die in einem Array gespeichert sind, in eine Gästeliste einfügen. Aber es ist nicht ganz so einfach — wir wollen Phil und Lola nicht hereinlassen, weil sie gierig und unhöflich sind und immer das ganze Essen aufessen! Wir haben zwei Listen, eine für Gäste, die zugelassen werden, und eine für Gäste, die abgelehnt werden.
+In dieser Übung sollen Sie eine Liste von Namen aus einem Array in eine Gästeliste übernehmen. Ganz so einfach ist es aber nicht: Phil und Lola möchten wir nicht hereinlassen, weil sie gierig und unhöflich sind und immer das ganze Essen aufessen! Wir haben zwei Listen: eine für Gäste, die eingelassen werden, und eine für Gäste, die abgewiesen werden.
 
-Um die Übung abzuschließen:
+So lösen Sie die Übung:
 
-1. Klicken Sie **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Schreiben Sie eine Schleife, die durch das `people` Array iterieren wird.
-3. Bei jedem Schleifendurchlauf überprüfen Sie mit einer Bedingungsanweisung, ob das aktuelle Array-Element gleich "Phil" oder "Lola" ist:
-   1. Wenn ja, hängen Sie das Array-Element an das Ende des `refused`-Paragraphelement-`textContent` an, gefolgt von einem Komma und einem Leerzeichen.
-   2. Wenn nicht, hängen Sie das Array-Element an das Ende des `admitted`-Paragraphelement-`textContent` an, gefolgt von einem Komma und einem Leerzeichen.
+1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
+2. Schreiben Sie eine Schleife, die über das Array `people` iteriert.
+3. Prüfen Sie bei jedem Schleifendurchlauf mit einer bedingten Anweisung, ob das aktuelle Array-Element „Phil“ oder „Lola“ ist:
+   1. Wenn ja, hängen Sie das Array-Element, gefolgt von einem Komma und einem Leerzeichen, an `textContent` des Absatzes `refused` an.
+   2. Wenn nein, hängen Sie das Array-Element, gefolgt von einem Komma und einem Leerzeichen, an `textContent` des Absatzes `admitted` an.
 
-Wir haben Ihnen bereits gegeben:
+Folgendes haben wir bereits vorgegeben:
 
-- `refused.textContent +=` — der Beginn einer Zeile, die etwas an das Ende von `refused.textContent` anhängt.
-- `admitted.textContent +=` — der Beginn einer Zeile, die etwas an das Ende von `admitted.textContent` hinzufügt.
+- `refused.textContent +=` – den Anfang einer Zeile, die etwas an `refused.textContent` anhängt.
+- `admitted.textContent +=` – den Anfang einer Zeile, die etwas an `admitted.textContent` anhängt.
 
-Zusätzliche Bonusfrage — nachdem Sie die obigen Aufgaben erfolgreich abgeschlossen haben, werden Ihnen zwei Namenslisten übrig bleiben, die durch Kommas getrennt sind, aber sie werden unsauber sein — es wird ein Komma am Ende jeder Liste stehen. Können Sie herausfinden, wie Sie Zeilen schreiben, die das letzte Komma in jedem Fall abschneiden und einen Punkt am Ende hinzufügen?
-Schauen Sie sich den Artikel [Nützliche String-Methoden](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods) an, um Hilfe zu erhalten.
+Zusatzaufgabe: Wenn Sie die obigen Aufgaben gelöst haben, bleiben zwei durch Kommas getrennte Namenslisten übrig. Sie sind allerdings noch nicht sauber formatiert, da beide mit einem Komma enden. Können Sie Codezeilen schreiben, die jeweils das letzte Komma entfernen und am Ende einen Punkt hinzufügen?
+Hilfe finden Sie im Artikel über [nützliche String-Methoden](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods).
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter der Live-Ausgabe anzeigen.
+Falls Sie einen Fehler machen, können Sie Ihre Änderungen mit der Schaltfläche _Reset_ im MDN Playground zurücksetzen. Wenn Sie nicht weiterkommen, können Sie sich die Lösung unterhalb der Live-Ausgabe ansehen.
 
 ```html hidden live-sample___loops-2
 <div class="output">
@@ -763,9 +769,9 @@ refused.textContent = "Refuse: ";
 {{ EmbedLiveSample("loops-2", "100%", 200) }}
 
 <details>
-<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiger JavaScript-Code sollte ungefähr so aussehen:
 
 ```js
 const people = [
@@ -802,13 +808,13 @@ admitted.textContent = `${admitted.textContent.slice(0, -2)}.`;
 
 ## Welchen Schleifentyp sollten Sie verwenden?
 
-Wenn Sie durch ein Array oder ein anderes Objekt iterieren, das dies unterstützt, und keinen Zugriff auf die Indexposition jedes Elements benötigen, dann ist `for...of` die beste Wahl. Es ist leichter zu lesen und es gibt weniger Möglichkeiten, Fehler zu machen.
+Wenn Sie über ein Array oder ein anderes Objekt iterieren, das `for...of` unterstützt, und die Indexposition der einzelnen Elemente nicht benötigen, ist `for...of` die beste Wahl. Der Code ist leichter zu lesen, und es gibt weniger Fehlermöglichkeiten.
 
-Für andere Verwendungen sind `for`, `while` und `do...while` Schleifen weitgehend austauschbar.
-Sie können alle verwendet werden, um dieselben Probleme zu lösen, und welche Sie verwenden, hängt weitgehend von Ihren persönlichen Vorlieben ab — diejenige, die Sie am leichtesten erinnern können oder am intuitivsten finden.
-Wir würden `for` empfehlen, zumindest anfangs, da es wahrscheinlich am einfachsten ist, sich alles zu merken — den Initialisierer, die Bedingung und den Endausdruck muss alles ordentlich in den Klammern enthalten sein, sodass es einfach ist, zu sehen, wo sie sind, und zu prüfen, ob Sie etwas vergessen haben.
+Für andere Anwendungsfälle sind `for`-, `while`- und `do...while`-Schleifen weitgehend austauschbar.
+Mit allen drei lassen sich dieselben Probleme lösen. Welche Sie verwenden, hängt hauptsächlich von Ihren persönlichen Vorlieben ab – also davon, welche Sie sich am leichtesten merken können oder am intuitivsten finden.
+Zumindest für den Anfang empfehlen wir `for`, da man sich dabei vermutlich am leichtesten alle Bestandteile merken kann: Initialisierer, Bedingung und abschließender Ausdruck stehen übersichtlich in den runden Klammern. So können Sie leicht erkennen, wo sie stehen, und prüfen, ob einer fehlt.
 
-Lassen Sie uns sie alle noch einmal ansehen.
+Sehen wir sie uns alle noch einmal an.
 
 Zuerst `for...of`:
 
@@ -837,7 +843,7 @@ while (condition) {
 }
 ```
 
-und schließlich `do...while`:
+Und schließlich `do...while`:
 
 ```js-nolint
 initializer
@@ -849,21 +855,21 @@ do {
 ```
 
 > [!NOTE]
-> Es gibt auch andere Schleifentypen/Funktionen, die in fortgeschrittenen/spezialisierten Situationen nützlich sind und über den Rahmen dieses Artikels hinausgehen. Wenn Sie mit Ihrem Schleifenlernen weitergehen möchten, lesen Sie unseren fortgeschrittenen [Schleifen und Iterations-Leitfaden](/de/docs/Web/JavaScript/Guide/Loops_and_iteration).
+> Es gibt weitere Schleifentypen und -funktionen, die in fortgeschrittenen oder speziellen Situationen nützlich sind, aber über den Rahmen dieses Artikels hinausgehen. Wenn Sie mehr über Schleifen erfahren möchten, lesen Sie unseren weiterführenden [Leitfaden zu Schleifen und Iteration](/de/docs/Web/JavaScript/Guide/Loops_and_iteration).
 
 ## Zusammenfassung
 
-Dieser Artikel hat Ihnen die grundlegenden Konzepte hinter den verschiedenen Optionen beim Schleifen von Code in JavaScript offenbart.
-Sie sollten nun klar verstehen, warum Schleifen ein gutes Mittel zur Bewältigung von sich wiederholendem Code sind und darauf brennen, sie in Ihren eigenen Beispielen zu verwenden!
+In diesem Artikel haben Sie die grundlegenden Konzepte und verschiedenen Möglichkeiten kennengelernt, Code in JavaScript mit Schleifen zu wiederholen.
+Sie sollten nun wissen, warum Schleifen ein gutes Mittel für sich wiederholenden Code sind, und bereit sein, sie in eigenen Beispielen einzusetzen!
 
-Im nächsten Artikel geben wir Ihnen einige Tests, mit denen Sie überprüfen können, wie gut Sie diese Informationen verstanden und behalten haben.
+Im nächsten Artikel finden Sie einige Tests, mit denen Sie überprüfen können, wie gut Sie diese Informationen verstanden und behalten haben.
 
 ## Siehe auch
 
 - [Schleifen und Iteration im Detail](/de/docs/Web/JavaScript/Guide/Loops_and_iteration)
-- [for...of Referenz](/de/docs/Web/JavaScript/Reference/Statements/for...of)
-- [for-Aussagenreferenz](/de/docs/Web/JavaScript/Reference/Statements/for)
-- [while](/de/docs/Web/JavaScript/Reference/Statements/while) und [do...while](/de/docs/Web/JavaScript/Reference/Statements/do...while) Referenzen
-- [break](/de/docs/Web/JavaScript/Reference/Statements/break) und [continue](/de/docs/Web/JavaScript/Reference/Statements/continue) Referenzen
+- [Referenz zu for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)
+- [Referenz zur for-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/for)
+- Referenzen zu [while](/de/docs/Web/JavaScript/Reference/Statements/while) und [do...while](/de/docs/Web/JavaScript/Reference/Statements/do...while)
+- Referenzen zu [break](/de/docs/Web/JavaScript/Reference/Statements/break) und [continue](/de/docs/Web/JavaScript/Reference/Statements/continue)
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Conditionals","Learn_web_development/Core/Scripting/Test_your_skills/Loops", "Learn_web_development/Core/Scripting")}}

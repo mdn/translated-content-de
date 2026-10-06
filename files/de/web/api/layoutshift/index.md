@@ -2,26 +2,26 @@
 title: LayoutShift
 slug: Web/API/LayoutShift
 l10n:
-  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
+  sourceCommit: d678295b8c67d19354bca1db406af1b6bc8cf1c6
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die `LayoutShift`-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) liefert Informationen über die Layout-Stabilität von Webseiten anhand der Bewegungen von Elementen auf der Seite.
+Die `LayoutShift`-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) gibt Aufschluss über die Layout-Stabilität von Webseiten anhand der Bewegungen von Elementen auf der Seite.
 
 ## Beschreibung
 
-Eine Layout-Verschiebung tritt auf, wenn ein im Viewport sichtbares Element zwischen zwei Frames seine Position ändert. Solche Elemente gelten als **instabil**, da ihre visuelle Position nicht stabil bleibt.
+Eine Layout-Verschiebung tritt auf, wenn ein im Viewport sichtbares Element zwischen zwei Frames seine Position ändert. Solche Elemente gelten als **instabil**, was auf eine mangelnde visuelle Stabilität hinweist.
 
-Die Layout Instability API bietet eine Möglichkeit, diese Layout-Verschiebungen zu messen und darüber zu berichten. Alle Werkzeuge zur Fehlersuche bei Layout-Verschiebungen, einschließlich der Entwicklertools des Browsers, verwenden diese API. Sie können die API auch verwenden, um Layout-Verschiebungen zu beobachten und zu untersuchen, indem Sie die Informationen in der Konsole protokollieren oder die Daten an einen Serverendpunkt beziehungsweise an ein Webanalyse-System senden.
+Die Layout Instability API ermöglicht es, diese Layout-Verschiebungen zu messen und zu erfassen. Alle Werkzeuge zur Fehlersuche bei Layout-Verschiebungen, einschließlich der Entwicklertools des Browsers, verwenden diese API. Sie können die API auch verwenden, um Layout-Verschiebungen zu beobachten und zu untersuchen, indem Sie Informationen in der Konsole protokollieren, Daten an einen Server-Endpunkt senden oder sie für die Webseitenanalyse nutzen.
 
-Performance-Tools können diese API verwenden, um einen {{Glossary("CLS", "CLS")}}-Wert zu berechnen.
+Performance-Werkzeuge können mit dieser API einen {{Glossary("CLS", "CLS")}}-Wert berechnen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-Diese Schnittstelle erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), indem sie deren Rückgabewerte wie folgt festlegt:
+Diese Schnittstelle erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), wobei für sie Folgendes gilt:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt immer `0` zurück (das Konzept einer Dauer ist auf Layout-Verschiebungen nicht anwendbar).
@@ -34,19 +34,19 @@ Diese Schnittstelle erweitert die folgenden Eigenschaften von [`PerformanceEntry
 
 Diese Schnittstelle unterstützt außerdem die folgenden Eigenschaften:
 
-- [`LayoutShift.value`](/de/docs/Web/API/LayoutShift/value) {{Experimental_Inline}}
-  - : Gibt den Wert der Layout-Verschiebung zurück. Er wird berechnet, indem der betroffene Anteil des Viewports mit der Verschiebungsdistanz als Anteil des Viewports multipliziert wird.
-- [`LayoutShift.hadRecentInput`](/de/docs/Web/API/LayoutShift/hadRecentInput) {{Experimental_Inline}}
+- [`LayoutShift.value`](/de/docs/Web/API/LayoutShift/value) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den Wert der Layout-Verschiebung zurück. Er berechnet sich aus dem Anteil des betroffenen Viewports (impact fraction) multipliziert mit der zurückgelegten Strecke als Anteil des Viewports (distance fraction).
+- [`LayoutShift.hadRecentInput`](/de/docs/Web/API/LayoutShift/hadRecentInput) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt `true` zurück, wenn [`lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) weniger als 500 Millisekunden zurückliegt.
-- [`LayoutShift.lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) {{Experimental_Inline}}
-  - : Gibt den Zeitpunkt der letzten ausschließenden Nutzereingabe zurück (einer Nutzereingabe, durch die dieser Eintrag nicht zum CLS-Wert beiträgt), oder `0`, wenn keine solche Eingabe stattgefunden hat.
-- [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) {{Experimental_Inline}}
+- [`LayoutShift.lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den Zeitpunkt der letzten ausschließenden Nutzereingabe zurück (einer Eingabe, aufgrund der dieser Eintrag nicht zum CLS-Wert beiträgt), oder `0`, wenn keine solche Eingabe stattgefunden hat.
+- [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt ein Array von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten mit Informationen über die verschobenen Elemente zurück.
 
 ## Instanzmethoden
 
 - [`LayoutShift.toJSON()`](/de/docs/Web/API/LayoutShift/toJSON) {{Experimental_Inline}}
-  - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `LayoutShift`-Objekt repräsentiert. Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `LayoutShift`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
 ## Beispiele
 

@@ -1,42 +1,42 @@
 ---
-title: Ereignis-Bubbling
+title: Event Bubbling
 slug: Learn_web_development/Core/Scripting/Event_bubbling
 l10n:
-  sourceCommit: a73e5b9e881645835a254c4b3d07c48230010d29
+  sourceCommit: c529f2672b3541cc28ea687ff9266f98b1734191
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Events","Learn_web_development/Core/Scripting/Test_your_skills/Events", "Learn_web_development/Core/Scripting")}}
 
-Wir haben gesehen, dass eine Webseite aus _Elementen_ besteht — Überschriften, Textabsätzen, Bildern, Schaltflächen usw. — und dass Sie Ereignisse, die an diesen Elementen auftreten, abhören können. Sie könnten beispielsweise einen Listener zu einer Schaltfläche hinzufügen und dieser wird ausgeführt, wenn der Benutzer die Schaltfläche anklickt.
+Wir haben gesehen, dass eine Webseite aus _Elementen_ besteht – Überschriften, Textabsätzen, Bildern, Buttons und so weiter – und dass Sie auf Ereignisse reagieren können, die bei diesen Elementen auftreten. Sie könnten beispielsweise einem Button einen Event Listener hinzufügen, der ausgeführt wird, wenn jemand auf den Button klickt.
 
-Wir haben auch gesehen, dass diese Elemente _ineinander geschachtelt_ sein können: Beispielsweise könnte ein {{htmlelement("button")}} in ein {{htmlelement("div")}}-Element eingefügt werden. In diesem Fall würden wir das `<div>`-Element als ein _übergeordnetes_ Element und die `<button>` als ein _untergeordnetes_ Element bezeichnen.
+Wir haben auch gesehen, dass diese Elemente ineinander _verschachtelt_ sein können: Beispielsweise könnte ein {{htmlelement("button")}} innerhalb eines {{htmlelement("div")}}-Elements stehen. In diesem Fall bezeichnen wir das `<div>`-Element als _Elternelement_ und das `<button>`-Element als _Kindelement_.
 
-In diesem Kapitel betrachten wir das **Ereignis-Bubbling** — das passiert, wenn Sie einen Event-Listener zu einem übergeordneten Element hinzufügen und der Benutzer auf das untergeordnete Element klickt.
+In diesem Kapitel sehen wir uns **Event Bubbling** an – also das, was passiert, wenn Sie einem Elternelement einen Event Listener hinzufügen und auf das Kindelement geklickt wird.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, sowie Vertrautheit mit den JavaScript-Grundlagen, die in den vorherigen Lektionen behandelt wurden.</td>
+      <td>Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a> sowie Vertrautheit mit den JavaScript-Grundlagen aus den vorherigen Lektionen.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Ereignisdelegation, erreicht durch Ereignis-Bubbling oder Ereignis-Capture.</li>
-          <li>Stoppen der Ereignisdelegation mit <code>stopPropagation()</code>.</li>
-          <li>Zugriff auf Ereignisziele aus dem Ereignisobjekt.</li>
+          <li>Event Delegation durch Event Bubbling oder Event Capturing.</li>
+          <li>Das Unterbinden der Ereignisweitergabe mit <code>stopPropagation()</code>.</li>
+          <li>Der Zugriff auf Ereignisziele über das Event-Objekt.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Einführung in das Ereignis-Bubbling
+## Einführung in Event Bubbling
 
-Lassen Sie uns das Ereignis-Bubbling anhand eines Beispiels einführen und definieren.
+Sehen wir uns Event Bubbling anhand eines Beispiels an.
 
-### Ein Listener auf ein übergeordnetes Element setzen
+### Einen Event Listener auf einem Elternelement registrieren
 
 Betrachten Sie eine Webseite wie diese:
 
@@ -47,7 +47,7 @@ Betrachten Sie eine Webseite wie diese:
 <pre id="output"></pre>
 ```
 
-Hier befindet sich die Schaltfläche innerhalb eines anderen Elements, eines {{HTMLElement("div")}}-Elements. Wir sagen, dass das `<div>`-Element hier das **übergeordnete Element** des enthaltenen Elements ist. Was passiert, wenn wir einen Click-Ereignishandler zum übergeordneten Element hinzufügen und dann die Schaltfläche anklicken?
+Hier befindet sich der Button innerhalb eines anderen Elements, eines {{HTMLElement("div")}}-Elements. Das `<div>`-Element ist das **Elternelement** des Elements, das es enthält. Was passiert, wenn wir dem Elternelement einen Click-Event-Handler hinzufügen und dann auf den Button klicken?
 
 ```js
 const output = document.querySelector("#output");
@@ -61,17 +61,17 @@ container.addEventListener("click", handleClick);
 
 {{ EmbedLiveSample('Setting a listener on a parent element', '100%', 200, "", "") }}
 
-Sie sehen, dass das übergeordnete Element ein Click-Ereignis auslöst, wenn der Benutzer die Schaltfläche anklickt:
+Sie sehen, dass beim Klick auf den Button ein Click-Event für das Elternelement ausgelöst wird:
 
 ```plain
 You clicked on a DIV element
 ```
 
-Das ergibt Sinn: Die Schaltfläche ist innerhalb des `<div>`, also klicken Sie beim Anklicken der Schaltfläche auch implizit auf das Element, in dem sie enthalten ist.
+Das ist nachvollziehbar: Der Button befindet sich innerhalb des `<div>`-Elements. Wenn Sie auf den Button klicken, klicken Sie damit indirekt auch auf das Element, in dem er sich befindet.
 
-### Bubbling-Beispiel
+### Beispiel für Bubbling
 
-Was passiert, wenn wir Ereignis-Listener sowohl zur Schaltfläche als auch zum übergeordneten Element hinzufügen?
+Was passiert, wenn wir _sowohl_ dem Button _als auch_ dem Elternelement Event Listener hinzufügen?
 
 ```html
 <body>
@@ -82,7 +82,7 @@ Was passiert, wenn wir Ereignis-Listener sowohl zur Schaltfläche als auch zum �
 </body>
 ```
 
-Lassen Sie uns versuchen, Click-Ereignishandler sowohl zur Schaltfläche, zu ihrem übergeordneten Element (dem `<div>`) als auch zum {{HTMLElement("body")}}-Element hinzuzufügen, das beide enthält:
+Fügen wir dem Button, seinem Elternelement (dem `<div>`) und dem {{HTMLElement("body")}}-Element, das beide enthält, Click-Event-Handler hinzu:
 
 ```js
 const output = document.querySelector("#output");
@@ -100,7 +100,7 @@ button.addEventListener("click", handleClick);
 
 {{ EmbedLiveSample('Bubbling example', '100%', 200, "", "") }}
 
-Sie werden sehen, dass alle drei Elemente ein Click-Ereignis auslösen, wenn der Benutzer die Schaltfläche anklickt:
+Sie sehen, dass beim Klick auf den Button für alle drei Elemente ein Click-Event ausgelöst wird:
 
 ```plain
 You clicked on a BUTTON element
@@ -108,23 +108,23 @@ You clicked on a DIV element
 You clicked on a BODY element
 ```
 
-In diesem Fall:
+In diesem Fall geschieht Folgendes:
 
-- wird zuerst der Klick auf die Schaltfläche ausgelöst.
-- gefolgt vom Klick auf das übergeordnete Element (das `<div>`-Element).
-- gefolgt vom Klick auf das übergeordnete Element des `<div>` (das `<body>`-Element).
+- Zuerst wird das Click-Event auf dem Button ausgelöst.
+- Danach folgt das Click-Event auf seinem Elternelement (dem `<div>`-Element).
+- Anschließend folgt das Click-Event auf dem Elternelement des `<div>`-Elements (dem `<body>`-Element).
 
-Wir beschreiben dies, indem wir sagen, dass das Ereignis vom innersten angeklickten Element **nach oben "bubbelt"**.
+Wir beschreiben das so: Das Ereignis **steigt** vom innersten Element, auf das geklickt wurde, **nach oben**.
 
-Dieses Verhalten kann nützlich sein, kann aber auch unerwartete Probleme verursachen. In den nächsten Abschnitten sehen wir ein Problem, das es verursacht, und finden die Lösung.
+Dieses Verhalten kann nützlich sein, aber auch unerwartete Probleme verursachen. In den nächsten Abschnitten sehen wir uns ein solches Problem und seine Lösung an.
 
-### Beispiel eines Videoplayers
+### Beispiel mit einem Videoplayer
 
-In diesem Beispiel enthält unsere Seite ein Video, das zunächst verborgen ist, und eine Schaltfläche mit der Beschriftung "Video anzeigen". Wir möchten folgende Interaktionen:
+In diesem Beispiel enthält unsere Seite ein Video, das zunächst verborgen ist, und einen Button mit der Beschriftung „Video anzeigen“. Wir möchten folgendes Verhalten erreichen:
 
-- Wenn der Benutzer auf die Schaltfläche "Video anzeigen" klickt, soll die Box mit dem Video angezeigt werden, das Video soll jedoch noch nicht abgespielt werden.
-- Wenn der Benutzer auf das Video klickt, soll das Video abgespielt werden.
-- Wenn der Benutzer irgendwo außerhalb des Videos in der Box klickt, soll die Box versteckt werden.
+- Wenn auf den Button „Video anzeigen“ geklickt wird, soll die Box mit dem Video angezeigt werden, ohne dass das Video bereits abgespielt wird.
+- Wenn auf das Video geklickt wird, soll die Wiedergabe beginnen.
+- Wenn innerhalb der Box außerhalb des Videos auf eine Stelle geklickt wird, soll die Box ausgeblendet werden.
 
 Das HTML sieht so aus:
 
@@ -145,10 +145,10 @@ Das HTML sieht so aus:
 Es enthält:
 
 - ein `<button>`-Element.
-- ein `<div>`-Element, das zunächst ein `class="hidden"`-Attribut hat.
-- ein `<video>`-Element, das im `<div>`-Element geschachtelt ist.
+- ein `<div>`-Element, das anfangs ein `class="hidden"`-Attribut hat.
+- ein `<video>`-Element, das innerhalb des `<div>`-Elements verschachtelt ist.
 
-Wir verwenden CSS, um Elemente mit gesetzter `"hidden"`-Klasse zu verbergen.
+Wir verwenden CSS, um Elemente mit der Klasse `"hidden"` auszublenden.
 
 ```css hidden
 div {
@@ -181,26 +181,26 @@ video.addEventListener("click", () => video.play());
 box.addEventListener("click", () => box.classList.add("hidden"));
 ```
 
-Dies fügt drei `'click'`-Ereignis-Listener hinzu:
+Damit werden drei `'click'`-Event-Listener hinzugefügt:
 
-- einen für die `<button>`, welcher das `<div>` zeigt, das das `<video>` enthält.
-- einen für das `<video>`, der das Video abspielt.
-- einen für das `<div>`, der das Video versteckt.
+- einer auf dem `<button>`, der das `<div>` mit dem `<video>` anzeigt.
+- einer auf dem `<video>`, der die Wiedergabe des Videos startet.
+- einer auf dem `<div>`, der das Video ausblendet.
 
 Sehen wir uns an, wie das funktioniert:
 
 {{ EmbedLiveSample('Video_player_example', '100%', 500) }}
 
-Sie sollten sehen, dass beim Klicken auf die Schaltfläche die Box und das darin enthaltene Video angezeigt werden. Aber wenn Sie dann auf das Video klicken, beginnt das Video zu spielen, aber die Box wird wieder versteckt!
+Wenn Sie auf den Button klicken, sollten die Box und das darin enthaltene Video angezeigt werden. Wenn Sie dann aber auf das Video klicken, beginnt zwar die Wiedergabe, doch die Box wird wieder ausgeblendet!
 
-Das Video befindet sich im `<div>` — es ist Teil davon — also führt das Klicken auf das Video _beide_ Ereignishandler aus, was zu diesem Verhalten führt.
+Das Video befindet sich innerhalb des `<div>`-Elements – es ist Teil davon. Deshalb werden beim Klick auf das Video _beide_ Event-Handler ausgeführt, was zu diesem Verhalten führt.
 
-### Behebung des Problems mit `stopPropagation()`
+### Das Problem mit `stopPropagation()` beheben
 
-Wie wir im letzten Abschnitt gesehen haben, kann Ereignis-Bubbling manchmal Probleme verursachen, aber es gibt einen Weg, es zu verhindern.
-Das [`Event`](/de/docs/Web/API/Event)-Objekt hat eine Funktion namens [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), die, wenn sie innerhalb eines Ereignishandlers aufgerufen wird, verhindert, dass das Ereignis zu anderen Elementen "bubbelt".
+Wie wir im letzten Abschnitt gesehen haben, kann Event Bubbling manchmal Probleme verursachen. Es gibt jedoch eine Möglichkeit, es zu verhindern.
+Das [`Event`](/de/docs/Web/API/Event)-Objekt stellt eine Funktion namens [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) bereit. Wird sie innerhalb eines Event-Handlers aufgerufen, verhindert sie, dass das Ereignis zu anderen Elementen aufsteigt.
 
-Wir können unser aktuelles Problem beheben, indem wir das JavaScript wie folgt ändern:
+Wir können unser Problem beheben, indem wir das JavaScript wie folgt ändern:
 
 ```js
 const btn = document.querySelector("button");
@@ -217,7 +217,7 @@ video.addEventListener("click", (event) => {
 box.addEventListener("click", () => box.classList.add("hidden"));
 ```
 
-Alles, was wir hier tun, ist, `stopPropagation()` auf dem Ereignisobjekt im Handler für das `<video>`-Element des `'click'`-Ereignisses aufzurufen. Dies wird verhindern, dass dieses Ereignis zur Box "bubbelt". Versuchen Sie nun, auf die Schaltfläche und dann auf das Video zu klicken:
+Hier rufen wir lediglich `stopPropagation()` auf dem Event-Objekt im Handler für das `'click'`-Event des `<video>`-Elements auf. Dadurch steigt dieses Ereignis nicht mehr zur Box auf. Klicken Sie jetzt auf den Button und anschließend auf das Video:
 
 {{EmbedLiveSample("Fixing the problem with stopPropagation()", '100%', 500)}}
 
@@ -254,13 +254,13 @@ div video {
 }
 ```
 
-## Ereignis-Capture
+## Event Capturing
 
-Eine alternative Form der Ereignisausbreitung ist das _Ereignis-Capture_. Dies ist wie das Ereignis-Bubbling, jedoch in umgekehrter Reihenfolge: Anstatt dass das Ereignis zuerst auf dem am wenigsten verschachtelten Element ausgelöst wird und dann auf successiv tiefer verschachtelten Elementen, wird das Ereignis zuerst auf dem _am wenigsten verschachtelten_ Element ausgelöst und geht dann bis zum Ziel weiter.
+Eine andere Form der Ereignisweitergabe ist _Event Capturing_. Es ähnelt Event Bubbling, aber die Reihenfolge ist umgekehrt: Statt zuerst auf dem innersten Zielelement und anschließend auf immer weniger tief verschachtelten Elementen wird das Ereignis zuerst auf dem _am wenigsten tief verschachtelten_ Element ausgelöst und dann auf immer tiefer verschachtelten Elementen, bis es das Zielelement erreicht.
 
-Das Ereignis-Capture ist standardmäßig deaktiviert. Um es zu aktivieren, müssen Sie die `capture`-Option in `addEventListener()` übergeben.
+Event Capturing ist standardmäßig deaktiviert. Um es zu aktivieren, müssen Sie die Option `capture` an `addEventListener()` übergeben.
 
-Dieses Beispiel ähnelt dem [Bubbling-Beispiel](#bubbling-beispiel), das wir zuvor gesehen haben, mit dem Unterschied, dass wir die `capture`-Option verwendet haben:
+Dieses Beispiel entspricht dem zuvor gezeigten [Bubbling-Beispiel](#beispiel_für_bubbling), verwendet jedoch die Option `capture`:
 
 ```html
 <body>
@@ -287,7 +287,7 @@ button.addEventListener("click", handleClick);
 
 {{ EmbedLiveSample('Event capture', '100%', 200, "", "") }}
 
-In diesem Fall ist die Reihenfolge der Nachrichten umgekehrt: Der `<body>`-Ereignishandler löst zuerst aus, gefolgt vom `<div>`-Ereignishandler und schließlich vom `<button>`-Ereignishandler:
+In diesem Fall ist die Reihenfolge der Meldungen umgekehrt: Zuerst wird der Event-Handler des `<body>`-Elements ausgeführt, dann der des `<div>`-Elements und schließlich der des `<button>`-Elements:
 
 ```plain
 You clicked on a BODY element
@@ -295,16 +295,15 @@ You clicked on a DIV element
 You clicked on a BUTTON element
 ```
 
-Warum sich mit Capture und Bubbling befassen? In den schlechten alten Zeiten, als Browser weitaus weniger kompatibel waren als heute, nutzte Netscape nur das Ereignis-Capture, und Internet Explorer nutzte nur das Ereignis-Bubbling. Als das W3C versuchte, das Verhalten zu standardisieren und einen Konsens zu erreichen, endeten sie mit diesem System, das beide einschließt, was die modernen Browser implementieren.
+Warum gibt es sowohl Capturing als auch Bubbling? Früher, als Browser noch deutlich weniger miteinander kompatibel waren, verwendete Netscape nur Event Capturing und Internet Explorer nur Event Bubbling. Als das W3C versuchte, das Verhalten zu standardisieren und einen Konsens zu finden, entstand schließlich dieses System, das beides umfasst und von modernen Browsern implementiert wird.
 
-Standardmäßig werden fast alle Ereignishandler in der Bubbling-Phase registriert, und das ergibt meistens mehr Sinn.
+Standardmäßig werden fast alle Event-Handler für die Bubbling-Phase registriert. Das ist in den meisten Fällen sinnvoller.
 
-## Ereignisdelegation
+## Event Delegation
 
-Im letzten Abschnitt haben wir ein Problem betrachtet, das durch Ereignis-Bubbling verursacht wurde und wie man es behebt. Ereignis-Bubbling ist jedoch nicht nur lästig, sondern kann auch sehr nützlich sein. Insbesondere ermöglicht es die **Ereignisdelegation**. Bei dieser Praxis möchten wir, dass ein Code ausgeführt wird, wenn der Benutzer mit einem von vielen untergeordneten Elementen interagiert. Wir setzen den Ereignis-Listener auf dem übergeordneten Element und lassen die Ereignisse, die auf ihnen auftreten, zu ihrem übergeordneten Element "bubblen", anstatt den Ereignis-Listener auf jedem untergeordneten Element einzeln setzen zu müssen.
+Im letzten Abschnitt haben wir ein durch Event Bubbling verursachtes Problem und seine Lösung betrachtet. Event Bubbling ist aber nicht nur lästig: Es kann auch sehr nützlich sein. Insbesondere ermöglicht es **Event Delegation**. Wenn Code ausgeführt werden soll, sobald mit einem beliebigen von vielen Kindelementen interagiert wird, registrieren wir den Event Listener auf deren Elternelement. Die Ereignisse auf den Kindelementen steigen dann zum Elternelement auf, sodass wir nicht für jedes Kindelement einzeln einen Event Listener registrieren müssen.
 
-Lassen Sie uns zu unserem [ersten Beispiel](/de/docs/Learn_web_development/Core/Scripting/Events#an_example_handling_a_click_event) zurückkehren,
-bei dem wir die Hintergrundfarbe der gesamten Seite geändert haben, wenn der Benutzer eine Schaltfläche angeklickt hat. Angenommen, die Seite ist stattdessen in 16 Kacheln unterteilt, und wir möchten jede Kachel auf eine zufällige Farbe setzen, wenn der Benutzer auf diese Kachel klickt.
+Kehren wir zu unserem [ersten Beispiel](/de/docs/Learn_web_development/Core/Scripting/Events#an_example_handling_a_click_event) zurück, in dem wir die Hintergrundfarbe der gesamten Seite geändert haben, wenn auf einen Button geklickt wurde. Nehmen wir stattdessen an, die Seite sei in 16 Kacheln unterteilt, und wir möchten jeder Kachel eine zufällige Farbe geben, wenn auf sie geklickt wird.
 
 Hier ist das HTML:
 
@@ -329,7 +328,7 @@ Hier ist das HTML:
 </div>
 ```
 
-Wir haben ein wenig CSS, um die Größe und Position der Kacheln zu setzen:
+Mit etwas CSS legen wir die Größe und Position der Kacheln fest:
 
 ```css
 #container {
@@ -339,7 +338,7 @@ Wir haben ein wenig CSS, um die Größe und Position der Kacheln zu setzen:
 }
 ```
 
-Nun, im JavaScript, könnten wir für jede Kachel einen Click-Ereignishandler hinzufügen. Aber eine viel einfachere und effizientere Option ist es, den Click-Ereignishandler auf das übergeordnete Element zu setzen und sich auf das Ereignis-Bubbling zu verlassen, um sicherzustellen, dass der Handler ausgeführt wird, wenn der Benutzer auf eine Kachel klickt:
+Nun könnten wir in JavaScript für jede Kachel einen Click-Event-Handler hinzufügen. Viel einfacher und effizienter ist es jedoch, den Click-Event-Handler auf dem Elternelement zu registrieren und Event Bubbling dafür zu nutzen, dass der Handler beim Klick auf eine Kachel ausgeführt wird:
 
 ```js
 function random(number) {
@@ -358,25 +357,22 @@ container.addEventListener("click", (event) => {
 });
 ```
 
-Die Ausgabe sieht wie folgt aus (versuchen Sie, darauf zu klicken):
+Das Ergebnis sieht so aus (probieren Sie aus, auf verschiedene Stellen zu klicken):
 
 {{ EmbedLiveSample('Event delegation', '100%', 430, "", "") }}
 
 > [!NOTE]
-> In diesem Beispiel verwenden wir `event.target`, um das Element zu erhalten, das das Ziel des Ereignisses war (das heißt, das innerste Element). Wenn wir auf das Element zugreifen wollten, das dieses Ereignis gehandhabt hat (in diesem Fall der Container), könnten wir `event.currentTarget` verwenden.
-
-> [!NOTE]
-> Siehe [useful-eventtarget.html](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/events/useful-eventtarget.html) für den vollständigen Quellcode; sehen Sie auch, wie es [live läuft](https://mdn.github.io/learning-area/javascript/building-blocks/events/useful-eventtarget.html).
+> In diesem Beispiel verwenden wir `event.target`, um das Element zu ermitteln, das Ziel des Ereignisses war (also das innerste Element). Wenn wir auf das Element zugreifen möchten, das dieses Ereignis verarbeitet hat (in diesem Fall den Container), können wir `event.currentTarget` verwenden.
 
 ## `target` und `currentTarget`
 
-Wenn Sie genau auf die Beispiele achten, die wir auf dieser Seite vorgestellt haben, werden Sie sehen, dass wir zwei verschiedene Eigenschaften des Ereignisobjekts verwenden, um auf das geklickte Element zuzugreifen. In [Ein Listener auf ein übergeordnetes Element setzen](#ein_listener_auf_ein_übergeordnetes_element_setzen) verwenden wir [`event.currentTarget`](/de/docs/Web/API/Event/currentTarget). Allerdings verwenden wir in [Ereignisdelegation](#ereignisdelegation) [`event.target`](/de/docs/Web/API/Event/target).
+Wenn Sie sich die Beispiele auf dieser Seite genauer ansehen, werden Sie feststellen, dass wir zwei verschiedene Eigenschaften des Event-Objekts verwenden, um auf das angeklickte Element zuzugreifen. In [Einen Event Listener auf einem Elternelement registrieren](#einen_event_listener_auf_einem_elternelement_registrieren) verwenden wir [`event.currentTarget`](/de/docs/Web/API/Event/currentTarget). Bei der [Event Delegation](#event_delegation) verwenden wir dagegen [`event.target`](/de/docs/Web/API/Event/target).
 
-Der Unterschied besteht darin, dass `target` auf das Element verweist, auf dem das Ereignis ursprünglich ausgelöst wurde, während `currentTarget` auf das Element verweist, an das dieser Ereignishandler gebunden ist.
+Der Unterschied besteht darin, dass `target` auf das Element verweist, auf dem das Ereignis ursprünglich ausgelöst wurde, während `currentTarget` auf das Element verweist, an dem dieser Event-Handler registriert ist.
 
-Während `target` während eines gesamten Bubbling-Prozesses gleich bleibt, wird `currentTarget` für Ereignishandler unterschiedlich sein, die an verschiedene Elemente in der Hierarchie gebunden sind.
+Während `target` beim Aufsteigen eines Ereignisses gleich bleibt, unterscheidet sich `currentTarget` bei Event-Handlern, die an verschiedenen Elementen der Hierarchie registriert sind.
 
-Wir können dies sehen, wenn wir das [Bubbling-Beispiel](#bubbling-beispiel) ein wenig anpassen. Wir verwenden dasselbe HTML wie zuvor:
+Das können wir sehen, wenn wir das obige [Bubbling-Beispiel](#beispiel_für_bubbling) leicht anpassen. Wir verwenden dasselbe HTML wie zuvor:
 
 ```html
 <body>
@@ -387,7 +383,7 @@ Wir können dies sehen, wenn wir das [Bubbling-Beispiel](#bubbling-beispiel) ein
 </body>
 ```
 
-Das JavaScript ist fast dasselbe, außer dass wir sowohl `target` als auch `currentTarget` protokollieren:
+Das JavaScript ist fast identisch, allerdings protokollieren wir sowohl `target` als auch `currentTarget`:
 
 ```js
 const output = document.querySelector("#output");
@@ -405,25 +401,25 @@ container.addEventListener("click", handleClick);
 button.addEventListener("click", handleClick);
 ```
 
-Beachten Sie, dass, wenn wir auf die Schaltfläche klicken, `target` jedes Mal das Schaltflächenelement ist, ob der Ereignishandler an die Schaltfläche selbst, an das `<div>` oder an das `<body>`-Element gebunden ist. `currentTarget` identifiziert jedoch das Element, dessen Ereignishandler wir derzeit ausführen:
+Beachten Sie: Wenn wir auf den Button klicken, ist `target` jedes Mal das Button-Element – unabhängig davon, ob der Event-Handler am Button selbst, am `<div>` oder am `<body>` registriert ist. `currentTarget` bezeichnet dagegen das Element, dessen Event-Handler gerade ausgeführt wird:
 
 {{embedlivesample("target and currentTarget")}}
 
-Die Eigenschaft `target` wird häufig in der Ereignisdelegation verwendet, wie in unserem [Beispiel der Ereignisdelegation](#ereignisdelegation) oben gesehen.
+Die Eigenschaft `target` wird häufig bei Event Delegation verwendet, wie in unserem obigen [Beispiel für Event Delegation](#event_delegation).
 
 ## Zusammenfassung
 
-Sie sollten jetzt alles über Webereignisse wissen, was Sie in diesem frühen Stadium wissen müssen. Wie erwähnt, sind Ereignisse nicht wirklich Teil der Kernsprache von JavaScript — sie sind in den Web-APIs von Browsern definiert.
+Sie sollten nun alles wissen, was Sie in dieser frühen Phase über Web-Events wissen müssen. Wie erwähnt, sind Events nicht Teil der JavaScript-Kernsprache – sie werden durch Web-APIs des Browsers definiert.
 
-Im nächsten Artikel geben wir Ihnen einige Tests, mit denen Sie überprüfen können, wie gut Sie alle Informationen, die wir Ihnen zu Ereignissen gegeben haben, verstanden und behalten haben.
+Im nächsten Artikel finden Sie einige Tests, mit denen Sie überprüfen können, wie gut Sie die Informationen über Events verstanden und behalten haben.
 
 ## Siehe auch
 
 - [domevents.dev](https://domevents.dev/)
-  - : Eine nützliche interaktive Spielplatz-App, die es ermöglicht, das Verhalten des DOM-Ereignissystems durch Exploration zu lernen.
-- [DOM-Ereignisse](/de/docs/Web/API/Document_Object_Model/Events)
-  - : Ein umfassender Leitfaden zum Verstehen und Handhaben von Ereignissen.
-- [Reihenfolge der Ereignisse](https://www.quirksmode.org/js/events_order.html)
-  - : Eine ausgezeichnet detaillierte Diskussion über Capture und Bubbling von Peter-Paul Koch.
+  - : Eine nützliche interaktive Anwendung, mit der Sie das Verhalten des DOM-Event-Systems erkunden und verstehen können.
+- [DOM-Events](/de/docs/Web/API/Document_Object_Model/Events)
+  - : Ein umfassender Leitfaden zum Verständnis und zur Verarbeitung von Events.
+- [Reihenfolge von Events](https://www.quirksmode.org/js/events_order.html)
+  - : Eine ausführliche Erläuterung von Capturing und Bubbling von Peter-Paul Koch.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Events","Learn_web_development/Core/Scripting/Test_your_skills/Events", "Learn_web_development/Core/Scripting")}}

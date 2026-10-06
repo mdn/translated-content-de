@@ -1,50 +1,50 @@
 ---
-title: Entscheidungen in Ihrem Code treffen — Bedingte Anweisungen
+title: Entscheidungen im Code treffen – bedingte Anweisungen
 short-title: Conditionals
 slug: Learn_web_development/Core/Scripting/Conditionals
 l10n:
-  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
+  sourceCommit: c529f2672b3541cc28ea687ff9266f98b1734191
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Silly_story_generator", "Learn_web_development/Core/Scripting/Test_your_skills/Conditionals", "Learn_web_development/Core/Scripting")}}
 
-In jeder Programmiersprache muss der Code Entscheidungen treffen und entsprechend handeln, je nach verschiedenen Eingaben. Zum Beispiel, in einem Spiel, wenn die Anzahl der Leben des Spielers 0 ist, dann ist das Spiel vorbei. In einer Wetter-App, wenn sie morgens betrachtet wird, zeigt ein Sonnenaufgang-Graphik; zeigt Sterne und einen Mond, wenn es Nacht ist. In diesem Artikel werden wir untersuchen, wie die sogenannten bedingten Anweisungen in JavaScript funktionieren.
+In jeder Programmiersprache muss Code abhängig von verschiedenen Eingaben Entscheidungen treffen und entsprechende Aktionen ausführen. Wenn in einem Spiel beispielsweise die Anzahl der Leben einer Spielfigur 0 beträgt, ist das Spiel vorbei. Eine Wetter-App könnte morgens eine Sonnenaufgangsgrafik anzeigen, nachts dagegen Sterne und einen Mond. In diesem Artikel untersuchen wir, wie sogenannte bedingte Anweisungen in JavaScript funktionieren.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, Vertrautheit mit den JavaScript-Grundlagen, wie sie in den vorherigen Lektionen behandelt wurden.</td>
+      <td>Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a> sowie Vertrautheit mit den JavaScript-Grundlagen aus den vorherigen Lektionen.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen, was eine bedingte Anweisung ist — eine Code-Struktur für das Ausführen verschiedener Codepfade abhängig von einem Testergebnis.</li>
+          <li>Verstehen, was eine bedingte Anweisung ist: eine Codestruktur, die abhängig vom Ergebnis einer Prüfung unterschiedliche Codepfade ausführt.</li>
           <li>Bedingungen mit <code>if</code>/<code>else</code>/<code>else if</code> umsetzen.</li>
-          <li>Verwenden von Vergleichsoperatoren, um Tests zu erstellen.</li>
-          <li>Umsetzen von UND-, ODER- und NICHT-Logik in Tests.</li>
-          <li>Switch-Anweisungen.</li>
-          <li>Ternäre Operatoren.</li>
+          <li>Vergleichsoperatoren verwenden, um Prüfungen zu erstellen.</li>
+          <li>UND-, ODER- und NICHT-Logik in Prüfungen einsetzen.</li>
+          <li>Switch-Anweisungen verwenden.</li>
+          <li>Den ternären Operator verwenden.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Sie können es unter einer Bedingung haben!
+## Alles unter einer Bedingung!
 
-Menschen (und andere Tiere) treffen ständig Entscheidungen, die ihr Leben beeinflussen, von kleinen ("soll ich einen Keks essen oder zwei?") bis zu großen ("soll ich in meinem Heimatland bleiben und auf der Farm meiner Familie arbeiten, oder sollte ich nach Amerika ziehen und Astrophysik studieren?").
+Menschen (und andere Tiere) treffen ständig Entscheidungen, die ihr Leben beeinflussen – von kleinen („Soll ich einen Keks essen oder zwei?“) bis hin zu großen („Soll ich in meinem Heimatland bleiben und auf dem Bauernhof meiner Familie arbeiten oder nach Amerika ziehen und Astrophysik studieren?“).
 
-Bedingte Anweisungen erlauben es uns, solche Entscheidungen in JavaScript darzustellen, von der Wahl, die getroffen werden muss (zum Beispiel, "ein Keks oder zwei"), bis hin zum resultierenden Ergebnis dieser Entscheidungen (vielleicht wäre das Ergebnis von "einen Keks essen" "immer noch hungrig", und das Ergebnis von "zwei Kekse essen" wäre "fühlte sich satt, aber Mama schimpfte mich dafür, dass ich alle Kekse aß".)
+Mit bedingten Anweisungen können wir solche Entscheidungen in JavaScript darstellen: von der Wahl, die getroffen werden muss (beispielsweise „ein Keks oder zwei“), bis zu ihren möglichen Folgen. Wer einen Keks isst, ist vielleicht „immer noch hungrig“; wer zwei isst, ist womöglich „satt, wird aber von seiner Mutter geschimpft, weil alle Kekse aufgegessen sind“.
 
-![Eine Cartoonfigur, die eine Keksdose hält, die mit 'Cookies' beschriftet ist. Ein Fragezeichen schwebt über dem Kopf der Figur. Es gibt zwei Sprechblasen. Die linke Sprechblase hat einen Keks. Die rechte Sprechblase hat zwei Kekse. Zusammen impliziert dies, dass die Figur versucht zu entscheiden, ob sie einen Keks oder zwei Kekse möchte.](cookie-choice-small.png)
+![Eine Zeichentrickfigur hält eine Keksdose mit der Aufschrift „Cookies“. Über ihrem Kopf steht ein Fragezeichen. In einer Sprechblase links ist ein Keks zu sehen, in einer Sprechblase rechts sind es zwei. Die Figur überlegt offenbar, ob sie einen oder zwei Kekse essen soll.](cookie-choice-small.png)
 
-## if...else Anweisungen
+## if...else-Anweisungen
 
-Schauen wir uns die mit Abstand gebräuchlichste Art von bedingter Anweisung an, die Sie in JavaScript verwenden werden — die bescheidene [`if...else`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/if...else).
+Sehen wir uns die mit Abstand häufigste Art bedingter Anweisungen in JavaScript an: die [`if...else`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/if...else).
 
-### Grundlegende if...else Syntax
+### Grundlegende if...else-Syntax
 
 Die grundlegende `if...else`-Syntax sieht so aus:
 
@@ -56,17 +56,17 @@ if (condition) {
 }
 ```
 
-Hier haben wir:
+Sie besteht aus:
 
-1. Das Schlüsselwort `if` gefolgt von Klammern.
-2. Eine Bedingung, die getestet wird, platziert in den Klammern (typischerweise "ist dieser Wert größer als dieser andere Wert?", oder "existiert dieser Wert?"). Die Bedingung nutzt die [Vergleichsoperatoren](/de/docs/Learn_web_development/Core/Scripting/Math#comparison_operators), die wir früher im Modul behandelt haben, und ergibt `true` oder `false`.
-3. Ein Satz geschweifter Klammern, in dem wir ein Stück Code haben — dieser kann beliebiger Code sein, den wir mögen, und er läuft nur, wenn die Bedingung `true` ergibt.
-4. Das Schlüsselwort `else`.
-5. Ein weiterer Satz geschweifter Klammern, in dem wir noch mehr Code haben — dieser kann beliebiger Code sein, den wir mögen, und er läuft nur, wenn die Bedingung nicht `true` ist — oder mit anderen Worten, wenn die Bedingung `false` ist.
+1. Dem Schlüsselwort `if`, gefolgt von runden Klammern.
+2. Einer Bedingung innerhalb der Klammern, die geprüft wird (typischerweise „Ist dieser Wert größer als jener?“ oder „Existiert dieser Wert?“). Die Bedingung verwendet die [Vergleichsoperatoren](/de/docs/Learn_web_development/Core/Scripting/Math#comparison_operators), die wir weiter oben in diesem Modul besprochen haben, und ergibt `true` oder `false`.
+3. Geschweiften Klammern, die Code umschließen. Das kann beliebiger Code sein; er wird nur ausgeführt, wenn die Bedingung `true` ergibt.
+4. Dem Schlüsselwort `else`.
+5. Weiteren geschweiften Klammern, die weiteren Code umschließen. Auch das kann beliebiger Code sein; er wird nur ausgeführt, wenn die Bedingung nicht `true` ist – mit anderen Worten, wenn sie `false` ist.
 
-Dieser Code ist recht menschenlesbar — er sagt "**wenn** die **Bedingung** `true` ergibt, führe Code A aus, **sonst** führe Code B aus"
+Dieser Code ist recht gut lesbar. Er besagt: „**Wenn** die **Bedingung** `true` ergibt, führe Code A aus, **andernfalls** Code B.“
 
-Sie sollten beachten, dass es nicht notwendig ist, das `else` und den zweiten Satz geschweifter Klammern einzuschließen — das folgende ist ebenfalls perfekt legaler Code:
+Beachten Sie, dass Sie `else` und den zweiten Block in geschweiften Klammern nicht angeben müssen. Auch Folgendes ist vollkommen gültiger Code:
 
 ```js
 if (condition) {
@@ -76,20 +76,20 @@ if (condition) {
 /* run some other code */
 ```
 
-Allerdings müssen Sie hier vorsichtig sein — in diesem Fall wird die zweite Codeblock nicht durch die bedingte Anweisung gesteuert, daher läuft er **immer**, unabhängig davon, ob die Bedingung `true` oder `false` ergibt. Das ist nicht unbedingt eine schlechte Sache, aber es könnte nicht das sein, was Sie wollen — oft möchten Sie entweder einen Codeblock ausführen _oder_ den anderen, nicht beide.
+Hier ist allerdings Vorsicht geboten: In diesem Fall wird der zweite Codeblock nicht von der bedingten Anweisung gesteuert. Er wird **immer** ausgeführt, unabhängig davon, ob die Bedingung `true` oder `false` ergibt. Das ist nicht unbedingt schlecht, aber möglicherweise nicht das, was Sie möchten. Oft soll _entweder_ der eine _oder_ der andere Codeblock ausgeführt werden, nicht beide.
 
-Als letzter Punkt, obwohl nicht empfohlen, könnten Sie manchmal `if...else`-Anweisungen sehen, die ohne die geschweiften Klammern geschrieben sind:
+Abschließend sei erwähnt, dass Sie gelegentlich `if...else`-Anweisungen ohne geschweifte Klammern sehen werden, auch wenn diese Schreibweise nicht empfohlen wird:
 
 ```js example-bad
 if (condition) doSomething();
 else doSomethingElse();
 ```
 
-Diese Syntax ist vollkommen gültig, aber es ist viel einfacher, den Code zu verstehen, wenn Sie die geschweiften Klammern verwenden, um die Codeblöcke zu begrenzen, und mehrere Zeilen und Einrückungen verwenden.
+Diese Syntax ist vollkommen gültig. Der Code ist jedoch wesentlich leichter zu verstehen, wenn Sie die Codeblöcke mit geschweiften Klammern abgrenzen und mehrere Zeilen mit Einrückungen verwenden.
 
-### Ein echtes Beispiel
+### Ein konkretes Beispiel
 
-Um diese Syntax besser zu verstehen, lassen Sie uns ein echtes Beispiel betrachten. Stellen Sie sich ein Kind vor, das von seiner Mutter oder seinem Vater um Hilfe bei einer Aufgabe gebeten wird. Der Elternteil könnte sagen: "Hey Liebling! Wenn du mir hilfst, indem du einkaufen gehst, gebe ich dir ein zusätzliches Taschengeld, damit du dir das Spielzeug leisten kannst, das du wolltest." In JavaScript könnten wir dies so darstellen:
+Um diese Syntax besser zu verstehen, betrachten wir ein konkretes Beispiel. Stellen Sie sich vor, ein Elternteil bittet sein Kind, bei einer Aufgabe im Haushalt zu helfen. Es könnte sagen: „Wenn du für mich einkaufen gehst, gebe ich dir zusätzliches Taschengeld, damit du dir das Spielzeug kaufen kannst, das du haben wolltest.“ In JavaScript könnten wir das so darstellen:
 
 ```js
 let shoppingDone = false;
@@ -102,16 +102,54 @@ if (shoppingDone === true) {
 }
 ```
 
-Dieser Code führt dazu, dass die Variable `shoppingDone` immer `false` ergibt, was für unser armes Kind eine Enttäuschung bedeutet. Es wäre an uns, einen Mechanismus bereitzustellen, damit der Elternteil die Variable `shoppingDone` auf `true` setzen kann, wenn das Kind einkaufen war.
+In der gezeigten Form bleibt die Variable `shoppingDone` in diesem Code immer `false` – eine Enttäuschung für das arme Kind. Wir müssen eine Möglichkeit schaffen, damit der Elternteil `shoppingDone` auf `true` setzen kann, wenn das Kind einkaufen war.
 
-> [!NOTE]
-> Sie können eine [vollständigere Version dieses Beispiels auf GitHub sehen](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/allowance-updater.html) (auch [live in Aktion sehen](https://mdn.github.io/learning-area/javascript/building-blocks/allowance-updater.html).)
+Zum Beispiel so:
+
+```html hidden live-sample___allowance-updater
+<label for="shopping-check">Has the shopping been done? </label>
+<input type="checkbox" id="shopping-check" />
+
+<p></p>
+```
+
+```js hidden live-sample___allowance-updater
+const checkBox = document.querySelector("input");
+const para = document.querySelector("p");
+let shoppingDone = false;
+
+checkBox.addEventListener("change", () => {
+  if (shoppingDone === false) {
+    shoppingDone = true;
+  } else {
+    shoppingDone = false;
+  }
+  updateAllowance();
+});
+
+function updateAllowance() {
+  let childsAllowance;
+  if (shoppingDone === true) {
+    childsAllowance = 10;
+  } else {
+    childsAllowance = 5;
+  }
+
+  para.textContent = `Child has earned \$${childsAllowance} this week.`;
+}
+
+updateAllowance();
+```
+
+{{embedlivesample("allowance-updater", "100%", "100")}}
+
+Um den vollständigen Quellcode des vorherigen Beispiels zu sehen, klicken Sie auf die Play-Schaltfläche. Dadurch wird das Beispiel im MDN Playground geöffnet.
 
 ### else if
 
-Das letzte Beispiel bot uns zwei Auswahlmöglichkeiten oder Ergebnisse — aber was, wenn wir mehr als zwei wollen?
+Das letzte Beispiel bot zwei Möglichkeiten oder Ergebnisse. Was aber, wenn wir mehr als zwei benötigen?
 
-Es gibt eine Möglichkeit, zusätzliche Auswahlmöglichkeiten/Ergebnisse an Ihr `if...else` anzuhängen — mit `else if`. Jede zusätzliche Wahl erfordert einen zusätzlichen Block zwischen `if () { }` und `else { }` — sehen Sie sich das folgende aufwendigere Beispiel an, das Teil einer einfachen Wettervorhersage-Anwendung sein könnte:
+Mit `else if` können Sie Ihrer `if...else`-Anweisung weitere Möglichkeiten und Ergebnisse hinzufügen. Für jede zusätzliche Möglichkeit ist ein weiterer Block zwischen `if () { }` und `else { }` nötig. Sehen Sie sich das folgende ausführlichere Beispiel an, das Teil einer einfachen Wettervorhersage-App sein könnte:
 
 ```html
 <label for="weather">Select the weather type today: </label>
@@ -155,23 +193,20 @@ function setWeather() {
 
 {{ EmbedLiveSample('else_if', '100%', 100, "", "") }}
 
-1. Hier haben wir ein HTML-{{htmlelement("select")}}-Element, das uns erlaubt, verschiedene Wetteroptionen zu treffen, und einen einfachen Absatz.
-2. Im JavaScript speichern wir eine Referenz sowohl auf das {{htmlelement("select")}}- als auch das {{htmlelement("p")}}-Element und fügen dem `<select>`-Element einen Ereignis-Listener hinzu, so dass bei einer Werteänderung die Funktion `setWeather()` ausgeführt wird.
-3. Wenn diese Funktion ausgeführt wird, setzen wir zunächst eine Variable namens `choice` auf den aktuellen Wert, der im `<select>`-Element ausgewählt ist. Dann verwenden wir eine bedingte Anweisung, um je nach Wert von `choice` unterschiedlichen Text im Absatz anzuzeigen. Beachten Sie, wie alle Bedingungen in `else if () { }`-Blöcken getestet werden, außer der ersten, die in einem `if () { }`-Block getestet wird.
-4. Die letzte Wahl im `else { }`-Block ist im Grunde eine "letzte Ausweg"-Option — der Code darin wird ausgeführt, wenn keine der Bedingungen `true` ist. In diesem Fall dient es dazu, den Text des Absatzes zu leeren, wenn nichts ausgewählt ist, zum Beispiel, wenn ein Benutzer beschließt, die anfängliche "--Machen Sie eine Wahl--" Platzhalteroption erneut auszuwählen.
+1. Hier gibt es ein HTML-Element {{htmlelement("select")}}, mit dem wir verschiedene Wetterlagen auswählen können, und einen einfachen Absatz.
+2. Im JavaScript speichern wir Referenzen auf die Elemente {{htmlelement("select")}} und {{htmlelement("p")}}. Außerdem fügen wir dem `<select>`-Element einen Event-Listener hinzu, damit die Funktion `setWeather()` ausgeführt wird, wenn sich sein Wert ändert.
+3. Wenn die Funktion ausgeführt wird, setzen wir zunächst die Variable `choice` auf den aktuell im `<select>`-Element ausgewählten Wert. Anschließend zeigen wir mithilfe einer bedingten Anweisung je nach Wert von `choice` unterschiedlichen Text im Absatz an. Beachten Sie, dass alle Bedingungen außer der ersten in `else if () { }`-Blöcken geprüft werden. Die erste wird in einem `if () { }`-Block geprüft.
+4. Die letzte Möglichkeit im `else { }`-Block ist gewissermaßen die Auffanglösung: Der darin enthaltene Code wird ausgeführt, wenn keine der Bedingungen `true` ergibt. Hier entfernt er den Text aus dem Absatz, wenn nichts ausgewählt ist – beispielsweise wenn jemand erneut die anfänglich angezeigte Platzhalteroption „--Make a choice--“ auswählt.
 
-> [!NOTE]
-> Sie können auch [dieses Beispiel auf GitHub finden](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/simple-else-if.html) ([sehen Sie es live in Aktion](https://mdn.github.io/learning-area/javascript/building-blocks/simple-else-if.html) dort ebenfalls.)
+### Ein Hinweis zu Vergleichsoperatoren
 
-### Eine Anmerkung zu Vergleichsoperatoren
+Mit Vergleichsoperatoren prüfen wir die Bedingungen in unseren bedingten Anweisungen. Wir haben sie bereits im Artikel [Grundlegende Mathematik in JavaScript – Zahlen und Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math#comparison_operators) kennengelernt. Zur Auswahl stehen:
 
-Vergleichsoperatoren werden verwendet, um die Bedingungen innerhalb unserer bedingten Anweisungen zu testen. Wir haben Vergleichsoperatoren erstmals in unserem Artikel [Grundlegende Mathematik in JavaScript — Zahlen und Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math#comparison_operators) behandelt. Unsere Optionen sind:
+- `===` und `!==` – prüfen, ob ein Wert mit einem anderen identisch beziehungsweise nicht identisch ist.
+- `<` und `>` – prüfen, ob ein Wert kleiner oder größer als ein anderer ist.
+- `<=` und `>=` – prüfen, ob ein Wert kleiner oder gleich beziehungsweise größer oder gleich einem anderen ist.
 
-- `===` und `!==` — testen, ob ein Wert identisch mit einem anderen ist oder nicht.
-- `<` und `>` — testen, ob ein Wert kleiner oder größer als ein anderer ist.
-- `<=` und `>=` — testen, ob ein Wert kleiner oder gleich bzw. größer oder gleich einem anderen ist.
-
-Wir wollten eine besondere Erwähnung für das Testen von booleschen (`true`/`false`) Werten machen und ein häufiges Muster, dem Sie immer wieder begegnen werden. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `NaN` oder ein leerer String (`''`) ist, ergibt tatsächlich `true`, wenn er als Bedingung getestet wird, daher können Sie einen Variablennamen für sich allein verwenden, um zu testen, ob er `true` ist oder sogar existiert (also nicht undefined ist). Zum Beispiel:
+Auf die Prüfung boolescher Werte (`true`/`false`) und ein häufig vorkommendes Muster möchten wir besonders hinweisen. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `NaN` oder eine leere Zeichenfolge (`''`) ist, ergibt bei einer Prüfung als Bedingung `true`. Deshalb können Sie einen Variablennamen allein verwenden, um zu prüfen, ob sein Wert `true` ist oder ob die Variable überhaupt einen definierten Wert hat (also nicht `undefined` ist). Zum Beispiel:
 
 ```js
 let cheese = "Cheddar";
@@ -183,7 +218,7 @@ if (cheese) {
 }
 ```
 
-Und, zum Beispiel auf unser vorheriges Beispiel zurückzukommen, wie das Kind eine Aufgabe für seine Eltern erledigt, könnte man es so schreiben:
+Zurück zu unserem Beispiel mit dem Kind, das einem Elternteil bei einer Aufgabe hilft: Sie könnten es auch so schreiben:
 
 ```js
 let shoppingDone = false;
@@ -197,9 +232,9 @@ if (shoppingDone) {
 }
 ```
 
-### Verschachtelte if...else
+### if...else verschachteln
 
-Es ist völlig in Ordnung, eine `if...else`-Anweisung in eine andere zu platzieren — sie zu verschachteln. Beispielsweise könnten wir unsere Wettervorhersage-Anwendung aktualisieren, um einen weiteren Satz von Auswahlmöglichkeiten anzuzeigen, je nachdem, wie die Temperatur ist:
+Sie können problemlos eine `if...else`-Anweisung in eine andere setzen, sie also verschachteln. Beispielsweise könnten wir unsere Wettervorhersage-App so erweitern, dass sie abhängig von der Temperatur weitere Möglichkeiten berücksichtigt:
 
 ```js
 if (choice === "sunny") {
@@ -211,16 +246,16 @@ if (choice === "sunny") {
 }
 ```
 
-Selbst wenn der gesamte Code zusammenarbeitet, funktioniert jede `if...else`-Anweisung vollkommen unabhängig von der anderen.
+Auch wenn der gesamte Code zusammenwirkt, arbeitet jede `if...else`-Anweisung völlig unabhängig von der anderen.
 
 ### Logische Operatoren: UND, ODER und NICHT
 
-Wenn Sie mehrere Bedingungen testen möchten, ohne verschachtelte `if...else`-Anweisungen zu schreiben, können [logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators) Ihnen helfen. Wenn sie in Bedingungen verwendet werden, tun die ersten beiden Folgendes:
+Wenn Sie mehrere Bedingungen prüfen möchten, ohne `if...else`-Anweisungen zu verschachteln, helfen Ihnen [logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators). Die ersten beiden bewirken in Bedingungen Folgendes:
 
-- `&&` — UND; ermöglicht es, zwei oder mehr Ausdrücke zu verketten, so dass jeder einzelne davon `true` ergeben muss, damit der gesamte Ausdruck `true` ergibt.
-- `||` — ODER; ermöglicht es, zwei oder mehr Ausdrücke zu verketten, so dass einer oder mehrere davon `true` ergeben müssen, damit der gesamte Ausdruck `true` ergibt.
+- `&&` – UND; verknüpft zwei oder mehr Ausdrücke. Damit der gesamte Ausdruck `true` ergibt, muss jeder einzelne Ausdruck `true` ergeben.
+- `||` – ODER; verknüpft zwei oder mehr Ausdrücke. Damit der gesamte Ausdruck `true` ergibt, muss mindestens einer der Ausdrücke `true` ergeben.
 
-Um Ihnen ein UND-Beispiel zu geben, kann das vorherige Beispiel-Snippet so umgeschrieben werden:
+Als Beispiel für UND können wir den vorherigen Codeausschnitt so umschreiben:
 
 ```js
 if (choice === "sunny" && temperature < 86) {
@@ -230,9 +265,9 @@ if (choice === "sunny" && temperature < 86) {
 }
 ```
 
-Zum Beispiel wird der erste Codeblock nur ausgeführt, wenn `choice === 'sunny'` _und_ `temperature < 86` `true` ergeben.
+Der erste Codeblock wird beispielsweise nur ausgeführt, wenn sowohl `choice === 'sunny'` _als auch_ `temperature < 86` `true` ergeben.
 
-Lassen Sie uns ein schnelles ODER-Beispiel anschauen:
+Sehen wir uns ein kurzes Beispiel für ODER an:
 
 ```js
 if (iceCreamVanOutside || houseStatus === "on fire") {
@@ -242,7 +277,7 @@ if (iceCreamVanOutside || houseStatus === "on fire") {
 }
 ```
 
-Der letzte Typ des logischen Operators, NICHT, ausgedrückt durch den `!`-Operator, kann verwendet werden, um einen Ausdruck zu negieren. Lassen Sie uns es mit ODER im obigen Beispiel kombinieren:
+Der dritte logische Operator, NICHT, wird mit `!` geschrieben und kann einen Ausdruck negieren. Kombinieren wir ihn mit ODER im obigen Beispiel:
 
 ```js
 if (!(iceCreamVanOutside || houseStatus === "on fire")) {
@@ -252,9 +287,9 @@ if (!(iceCreamVanOutside || houseStatus === "on fire")) {
 }
 ```
 
-In diesem Snippet, wenn der ODER-Ausdruck `true` ergibt, wird der NICHT-Operator ihn negieren, so dass der Gesamtausdruck `false` ergibt.
+Wenn die ODER-Verknüpfung in diesem Codeausschnitt `true` ergibt, kehrt der NICHT-Operator das Ergebnis um, sodass der gesamte Ausdruck `false` ergibt.
 
-Sie können so viele logische Ausdrücke kombinieren, wie Sie möchten, in welcher Struktur auch immer. Das folgende Beispiel führt den Code im Inneren nur aus, wenn beide ODER-Ausdrücke `true` ergeben, was bedeutet, dass der Gesamtausdruck UND `true` ergibt:
+Sie können beliebig viele logische Ausdrücke in jeder gewünschten Struktur miteinander kombinieren. Das folgende Beispiel führt den enthaltenen Code nur aus, wenn beide ODER-Verknüpfungen `true` ergeben und damit auch die gesamte UND-Verknüpfung `true` ergibt:
 
 ```js
 if ((x === 5 || y > 3 || z <= 10) && (loggedIn || userName === "Steve")) {
@@ -262,7 +297,7 @@ if ((x === 5 || y > 3 || z <= 10) && (loggedIn || userName === "Steve")) {
 }
 ```
 
-Ein häufiger Fehler bei der Verwendung des logischen ODER-Operators in bedingten Anweisungen besteht darin, zu versuchen, die Variable, deren Wert Sie überprüfen, einmal anzugeben und dann eine Liste von Werten zu geben, die sie sein könnte, um `true` zu ergeben, getrennt durch `||` (ODER) Operatoren. Zum Beispiel:
+Ein häufiger Fehler beim Einsatz des logischen ODER-Operators in bedingten Anweisungen besteht darin, die zu prüfende Variable nur einmal zu nennen und anschließend mögliche Werte, getrennt durch `||`, aufzulisten. Zum Beispiel:
 
 ```js example-bad
 if (x === 5 || 7 || 10 || 20) {
@@ -270,7 +305,7 @@ if (x === 5 || 7 || 10 || 20) {
 }
 ```
 
-In diesem Fall wird die Bedingung innerhalb von `if ()` immer zu `true` ausgewertet, da 7 (oder jeder andere nicht-null Wert) immer `true` ergibt. Diese Bedingung sagt tatsächlich: "wenn x gleich 5 ist, oder 7 wahr ist — was es immer ist". Dies ist logisch nicht das, was wir wollen! Um dies funktional zu machen, müssen Sie auf jeder Seite jedes ODER-Operators einen kompletten Test angeben:
+Hier ergibt die Bedingung in `if ()` immer `true`, da 7 (wie jeder andere Wert ungleich null) als Bedingung stets `true` ergibt. Tatsächlich besagt die Bedingung: „Wenn x gleich 5 ist oder 7 wahr ist“ – und Letzteres ist immer der Fall. Logisch gesehen ist das nicht das, was wir wollen! Damit es funktioniert, müssen Sie auf beiden Seiten jedes ODER-Operators eine vollständige Prüfung angeben:
 
 ```js
 if (x === 5 || x === 7 || x === 10 || x === 20) {
@@ -280,9 +315,9 @@ if (x === 5 || x === 7 || x === 10 || x === 20) {
 
 ## switch-Anweisungen
 
-`if...else`-Anweisungen erledigen die Aufgabe, bedingten Code zu aktivieren, gut, aber sie sind nicht ohne ihre Nachteile. Sie sind vor allem für Fälle geeignet, in denen Sie ein paar Auswahlmöglichkeiten haben und jede davon eine gewisse Menge an Code erfordert, das ausgeführt werden soll, und/oder die Bedingungen sind komplex (zum Beispiel mehrere logische Operatoren). Für Fälle, in denen Sie nur eine Variable auf einen bestimmten Wert setzen oder eine bestimmte Aussage abhängig von einer Bedingung ausgeben möchten, kann die Syntax etwas unhandlich sein, insbesondere wenn Sie eine große Anzahl von Auswahlmöglichkeiten haben.
+Mit `if...else`-Anweisungen lässt sich bedingter Code gut umsetzen, doch sie haben auch Nachteile. Sie eignen sich vor allem, wenn es nur wenige Möglichkeiten gibt, jede davon eine gewisse Menge Code erfordert und/oder die Bedingungen komplex sind (beispielsweise mehrere logische Operatoren enthalten). Wenn Sie hingegen abhängig von einer Bedingung lediglich einer Variablen einen bestimmten Wert zuweisen oder eine bestimmte Meldung ausgeben möchten, kann die Syntax etwas umständlich werden – besonders bei vielen Möglichkeiten.
 
-In einem solchen Fall sind [`switch`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/switch) Ihr Freund — sie nehmen einen einzigen Ausdruck/Wert als Eingabe und durchsuchen dann mehrere Auswahlmöglichkeiten, bis sie eine finden, die mit diesem Wert übereinstimmt, und führen dann den entsprechenden Code aus, der damit einhergeht. Hier ist etwas Pseudocode, um Ihnen eine Idee zu geben:
+In solchen Fällen sind [`switch`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/switch) hilfreich. Sie nehmen einen einzelnen Ausdruck oder Wert entgegen und durchsuchen mehrere Möglichkeiten, bis sie eine Übereinstimmung finden. Dann führen sie den zugehörigen Code aus. Der folgende Pseudocode veranschaulicht das:
 
 ```js
 switch (expression) {
@@ -302,22 +337,22 @@ switch (expression) {
 }
 ```
 
-Hier haben wir:
+Er besteht aus:
 
-1. Das Schlüsselwort `switch`, gefolgt von einem Satz von Klammern.
-2. Ein Ausdruck oder Wert innerhalb der Klammern.
-3. Das Schlüsselwort `case`, gefolgt von einer Wahl, die der Ausdruck/Wert sein könnte, gefolgt von einem Doppelpunkt.
-4. Ein Code, der ausgeführt wird, wenn die Wahl dem Ausdruck entspricht.
-5. Eine `break`-Anweisung, gefolgt von einem Semikolon. Wenn die vorherige Wahl dem Ausdruck/Wert entspricht, beendet der Browser die Ausführung des Codeblocks hier und geht zu jedem Code über, der unter der switch-Anweisung erscheint.
-6. So viele andere Fälle (Punkte 3–5) wie Sie möchten.
-7. Das Schlüsselwort `default`, gefolgt von genau demselben Code-Muster wie einer der Fälle (Punkte 3–5), außer dass `default` keine Wahl danach hat, und Sie die `break`-Anweisung nicht benötigen, da danach im Block sowieso nichts mehr existiert. Dies ist die Standardoption, die ausgeführt wird, wenn keine der Auswahlmöglichkeiten übereinstimmt.
+1. Dem Schlüsselwort `switch`, gefolgt von runden Klammern.
+2. Einem Ausdruck oder Wert innerhalb der Klammern.
+3. Dem Schlüsselwort `case`, gefolgt von einem möglichen Wert des Ausdrucks und einem Doppelpunkt.
+4. Code, der ausgeführt wird, wenn der mögliche Wert mit dem Ausdruck übereinstimmt.
+5. Einer `break`-Anweisung, gefolgt von einem Semikolon. Wenn der vorherige Wert mit dem Ausdruck übereinstimmt, beendet der Browser hier die Ausführung des Blocks und fährt mit dem Code unterhalb der switch-Anweisung fort.
+6. Beliebig vielen weiteren Fällen (Schritte 3–5).
+7. Dem Schlüsselwort `default`, gefolgt von demselben Codemuster wie bei den Fällen (Schritte 3–5). Nach `default` steht jedoch kein möglicher Wert. Auch eine `break`-Anweisung ist nicht nötig, da danach innerhalb des Blocks ohnehin nichts mehr ausgeführt wird. Diese Standardoption wird ausgeführt, wenn keiner der Fälle übereinstimmt.
 
 > [!NOTE]
-> Sie müssen den Abschnitt `default` nicht einfügen — Sie können ihn sicher weglassen, wenn keine Möglichkeit besteht, dass der Ausdruck einen unbekannten Wert ergeben könnte. Wenn es jedoch eine Möglichkeit dafür gibt, müssen Sie ihn einfügen, um unbekannte Fälle zu behandeln.
+> Sie müssen den `default`-Abschnitt nicht angeben. Wenn ausgeschlossen ist, dass der Ausdruck einen unbekannten Wert annimmt, können Sie ihn problemlos weglassen. Besteht diese Möglichkeit jedoch, sollten Sie ihn angeben, um unbekannte Fälle zu behandeln.
 
 ### Ein switch-Beispiel
 
-Lassen Sie uns ein echtes Beispiel betrachten — wir werden unsere Wettervorhersage-Anwendung umschreiben, um eine switch-Anweisung zu verwenden:
+Sehen wir uns ein konkretes Beispiel an: Wir schreiben unsere Wettervorhersage-App so um, dass sie stattdessen eine switch-Anweisung verwendet:
 
 ```html
 <label for="weather">Select the weather type today: </label>
@@ -366,18 +401,15 @@ function setWeather() {
 
 {{ EmbedLiveSample('A_switch_example', '100%', 100, "", "") }}
 
-> [!NOTE]
-> Sie können auch [dieses Beispiel auf GitHub finden](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/simple-switch.html) (sehen Sie es [live in Aktion](https://mdn.github.io/learning-area/javascript/building-blocks/simple-switch.html) dort ebenfalls).
-
 ## Ternärer Operator
 
-Es gibt noch eine abschließende Syntax, die wir Ihnen vorstellen möchten, bevor wir Sie dazu bringen, mit einigen Beispielen zu spielen. Der [ternäre oder bedingte Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) ist ein kleines Stück Syntax, das eine Bedingung testet und einen Wert/Ausdruck zurückgibt, wenn sie `true` ist, und einen anderen, wenn sie `false` ist — dies kann in einigen Situationen nützlich sein und kann viel weniger Code beanspruchen als ein `if...else`-Block, wenn Sie zwei Auswahlmöglichkeiten haben, die zwischen `true`/`false` getroffen werden. Der Pseudocode sieht so aus:
+Bevor Sie selbst einige Beispiele ausprobieren, möchten wir Ihnen noch ein letztes Syntaxelement vorstellen. Der [ternäre oder bedingte Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) prüft eine Bedingung und liefert einen Wert beziehungsweise Ausdruck zurück, wenn sie `true` ist, und einen anderen, wenn sie `false` ist. Das kann in manchen Situationen nützlich sein und deutlich weniger Code als ein `if...else`-Block erfordern, wenn zwischen zwei Möglichkeiten anhand einer `true`/`false`-Bedingung entschieden wird. Der Pseudocode sieht so aus:
 
 ```js-nolint
 condition ? run this code : run this code instead
 ```
 
-Lassen Sie uns also ein Beispiel betrachten:
+Sehen wir uns ein Beispiel an:
 
 ```js
 const greeting = isBirthday
@@ -385,11 +417,11 @@ const greeting = isBirthday
   : "Good morning Mrs. Smith.";
 ```
 
-Hier haben wir eine Variable namens `isBirthday` — wenn dies `true` ist, geben wir unserem Gast eine fröhliche Geburtstagsnachricht; wenn nicht, geben wir ihr die tägliche Standardbegrüßung.
+Hier haben wir eine Variable namens `isBirthday`. Ist sie `true`, erhält unser Gast eine Geburtstagsnachricht; andernfalls erhält sie die übliche Begrüßung.
 
-### Ternäroperator-Beispiel
+### Beispiel für den ternären Operator
 
-Der ternäre Operator ist nicht nur zum Festlegen von Variablenwerten; Sie können auch Funktionen oder Codezeilen ausführen — was Sie wollen. Das folgende Live-Beispiel zeigt einen einfachen Theme-Wähler, bei dem das Styling für die Website mithilfe eines ternären Operators angewendet wird.
+Der ternäre Operator dient nicht nur dazu, Variablenwerte festzulegen. Sie können damit auch Funktionen oder andere Codezeilen ausführen. Das folgende interaktive Beispiel zeigt eine einfache Designauswahl, bei der die Darstellung der Website mithilfe eines ternären Operators festgelegt wird.
 
 ```html
 <label for="theme">Select theme: </label>
@@ -420,34 +452,31 @@ select.addEventListener("change", () =>
 
 {{ EmbedLiveSample('Ternary_operator_example', '100%', 300, "", "") }}
 
-Hier haben wir ein {{htmlelement('select')}}-Element zur Auswahl eines Themas (schwarz oder weiß), plus ein einfaches {{htmlelement("Heading_Elements", "h1")}}, um einen Websitetitel anzuzeigen. Wir haben auch eine Funktion namens `update()`, die zwei Farben als Parameter (Eingaben) nimmt. Die Hintergrundfarbe der Website wird auf die erste bereitgestellte Farbe gesetzt, und die Textfarbe auf die zweite bereitgestellte Farbe.
+Hier gibt es ein {{htmlelement('select')}}-Element zur Auswahl eines Designs (schwarz oder weiß) sowie ein einfaches {{htmlelement("Heading_Elements", "h1")}}-Element zur Anzeige eines Website-Titels. Außerdem gibt es eine Funktion namens `update()`, die zwei Farben als Parameter (Eingaben) entgegennimmt. Die Hintergrundfarbe der Website wird auf die erste angegebene Farbe gesetzt, die Textfarbe auf die zweite.
 
-Schließlich haben wir einen [onchange](/de/docs/Web/API/HTMLElement/change_event) Ereignis-Listener, der dazu dient, eine Funktion mit einem ternären Operator auszuführen. Sie startet mit einer Testbedingung — `select.value === 'black'`. Wenn dies `true` ergibt, führen wir die Funktion `update()` mit Parametern von schwarz und weiß aus, was bedeutet, dass wir eine Hintergrundfarbe von schwarz und eine Textfarbe von weiß haben. Wenn sie `false` ergibt, führen wir die Funktion `update()` mit Parametern von weiß und schwarz aus, was bedeutet, dass die Seitenfarben invertiert sind.
+Schließlich gibt es einen [onchange](/de/docs/Web/API/HTMLElement/change_event)-Event-Listener, der eine Funktion mit einem ternären Operator ausführt. Dieser beginnt mit der Bedingung `select.value === 'black'`. Ergibt sie `true`, rufen wir `update()` mit Schwarz und Weiß als Parametern auf. Dadurch erhält die Website einen schwarzen Hintergrund und weißen Text. Ergibt sie `false`, rufen wir `update()` mit Weiß und Schwarz auf, sodass die Farben umgekehrt werden.
 
-> [!NOTE]
-> Sie können auch [dieses Beispiel auf GitHub finden](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/simple-ternary.html) (sehen Sie es live [in Aktion](https://mdn.github.io/learning-area/javascript/building-blocks/simple-ternary.html)).
+## Einen einfachen Kalender umsetzen
 
-## Ein einfacher Kalender implementieren
+In diesem Beispiel helfen Sie uns, eine einfache Kalenderanwendung fertigzustellen. Der vorhandene Code enthält:
 
-In diesem Beispiel sollen Sie uns dabei helfen, eine einfache Kalender-Anwendung zu vervollständigen. Im Code haben Sie:
+- Ein {{htmlelement("select")}}-Element, mit dem zwischen verschiedenen Monaten gewählt werden kann.
+- Einen `change`-Event-Handler, der erkennt, wenn sich der ausgewählte Wert im `<select>`-Menü ändert.
+- Eine Funktion namens `createCalendar()`, die den Kalender zeichnet und den richtigen Monat im Element {{htmlelement("Heading_Elements", "h1")}} anzeigt.
 
-- Ein {{htmlelement("select")}}-Element, das es dem Nutzer ermöglicht, zwischen verschiedenen Monaten zu wählen.
-- Einen `change`-Ereignis-Handler, um zu erkennen, wann der im `<select>`-Menü ausgewählte Wert geändert wird.
-- Eine Funktion namens `createCalendar()`, die den Kalender zeichnet und den richtigen Monat im {{htmlelement("Heading_Elements", "h1")}}-Element anzeigt.
+So vervollständigen Sie das Beispiel:
 
-Um das Beispiel zu vervollständigen:
-
-1. Klicken Sie **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Schreiben Sie eine bedingte Anweisung innerhalb der Funktion `createCalendar()`, direkt unter dem Kommentar `// ADD CONDITIONAL HERE`. Sie sollte:
-   1. Den ausgewählten Monat betrachten (gespeichert in der Variable `choice`. Dies wird der `<select>`-Elementwert nach der Wertänderung sein, also "Januar" zum Beispiel).
-   2. Die Variable `days` einem Wert gleichsetzen, der der Anzahl der Tage im ausgewählten Monat entspricht. Dazu müssen Sie die Anzahl der Tage in jedem Monat des Jahres nachschlagen. Sie können Schaltjahre für das Beispiel ignorieren.
+1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
+2. Schreiben Sie innerhalb der Funktion `createCalendar()` direkt unter dem Kommentar `// ADD CONDITIONAL HERE` eine bedingte Anweisung. Sie soll:
+   1. Den ausgewählten Monat betrachten, der in der Variablen `choice` gespeichert ist. Das ist nach einer Änderung der Wert des `<select>`-Elements, beispielsweise „January“.
+   2. Der Variablen `days` die Anzahl der Tage im ausgewählten Monat zuweisen. Dazu müssen Sie die Anzahl der Tage für jeden Monat des Jahres ermitteln. Schaltjahre können Sie für dieses Beispiel außer Acht lassen.
 
 Hinweise:
 
-- Es wird angeraten, logisches ODER zu verwenden, um mehrere Monate zu einer einzigen Bedingung zu gruppieren; viele von ihnen haben die gleiche Anzahl von Tagen.
-- Überlegen Sie sich, welche Anzahl von Tagen die häufigste ist, und verwenden Sie diese als Standardwert.
+- Verwenden Sie am besten logisches ODER, um mehrere Monate in einer einzigen Bedingung zusammenzufassen. Viele Monate haben gleich viele Tage.
+- Überlegen Sie, welche Anzahl an Tagen am häufigsten vorkommt, und verwenden Sie diese als Standardwert.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mithilfe der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Falls Sie einen Fehler machen, können Sie Ihre Änderungen mit der Schaltfläche _Reset_ im MDN Playground zurücksetzen. Wenn Sie nicht weiterkommen, finden Sie unter der interaktiven Ausgabe die Lösung.
 
 ```html hidden live-sample___conditionals-1
 <label for="month">Select month: </label>
@@ -545,7 +574,7 @@ createCalendar("January");
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte wie folgt aussehen:
+Ihr fertiger JavaScript-Code sollte so aussehen:
 
 ```js
 const select = document.querySelector("select");
@@ -586,19 +615,19 @@ createCalendar("January");
 
 </details>
 
-## Mehr Farboptionen hinzufügen
+## Weitere Farben zur Auswahl hinzufügen
 
-In diesem Beispiel sollen Sie das zuvor gesehene ternäre Operator-Beispiel nehmen und den ternären Operator in eine switch-Anweisung umwandeln, um uns zu ermöglichen, der Website mehr Auswahlmöglichkeiten hinzuzufügen. Schauen Sie sich das {{htmlelement("select")}} an — diesmal werden Sie sehen, dass es nicht zwei Theme-Optionen hat, sondern fünf.
+In diesem Beispiel wandeln Sie das frühere Beispiel mit dem ternären Operator in eine switch-Anweisung um, damit weitere Farben für die Website zur Auswahl stehen. Sehen Sie sich das {{htmlelement("select")}}-Element an: Diesmal bietet es nicht zwei, sondern fünf Designoptionen.
 
-Um das Beispiel zu vervollständigen:
+So vervollständigen Sie das Beispiel:
 
-1. Klicken Sie **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
-2. Fügen Sie eine switch-Anweisung direkt unter dem Kommentar `// ADD SWITCH STATEMENT` hinzu:
-   1. Sie sollte die Variable `choice` als ihre Eingabeausdruck akzeptieren.
-   2. Für jeden Fall sollte die Wahl einem der möglichen `<option>`-Werte entsprechen, die ausgewählt werden können, also `white`, `black`, `purple`, `yellow` oder `psychedelic`. Beachten Sie, dass die Optionswerte klein geschrieben sind, während die Options _Labels_, wie in der Live-Ausgabe angezeigt, großgeschrieben sind. Sie sollten die kleingeschriebenen Werte in Ihrem Code verwenden.
-   3. Für jeden Fall sollte die Funktion `update()` ausgeführt und zwei Farbwerte übergeben werden, die erste für die Hintergrundfarbe und die zweite für die Textfarbe. Denken Sie daran, dass Farbwerte Strings sind, also müssen sie in Anführungszeichen gesetzt werden.
+1. Klicken Sie im Codeblock unten auf **„Play“**, um das Beispiel im MDN Playground zu bearbeiten.
+2. Fügen Sie direkt unter dem Kommentar `// ADD SWITCH STATEMENT` eine switch-Anweisung hinzu:
+   1. Sie soll die Variable `choice` als Eingabeausdruck verwenden.
+   2. Jeder Fall soll einem der auswählbaren `<option>`-Werte entsprechen: `white`, `black`, `purple`, `yellow` oder `psychedelic`. Beachten Sie, dass die Werte kleingeschrieben sind, während die in der interaktiven Ausgabe angezeigten _Beschriftungen_ mit einem Großbuchstaben beginnen. Verwenden Sie in Ihrem Code die kleingeschriebenen Werte.
+   3. Für jeden Fall soll die Funktion `update()` mit zwei Farbwerten aufgerufen werden: dem ersten für die Hintergrundfarbe und dem zweiten für die Textfarbe. Denken Sie daran, dass Farbwerte Zeichenfolgen sind und deshalb in Anführungszeichen stehen müssen.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mithilfe der _Zurücksetzen_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unterhalb der Live-Ausgabe ansehen.
+Falls Sie einen Fehler machen, können Sie Ihre Änderungen mit der Schaltfläche _Reset_ im MDN Playground zurücksetzen. Wenn Sie nicht weiterkommen, finden Sie unter der interaktiven Ausgabe die Lösung.
 
 ```html hidden live-sample___conditionals-2
 <label for="theme">Select theme: </label>
@@ -657,7 +686,7 @@ function update(bgColor, textColor) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte wie folgt aussehen:
+Ihr fertiger JavaScript-Code sollte so aussehen:
 
 ```js
 const select = document.querySelector("select");
@@ -695,13 +724,13 @@ function update(bgColor, textColor) {
 
 ## Zusammenfassung
 
-Das ist alles, was Sie derzeit über bedingte Strukturen in JavaScript wissen müssen! Im nächsten Artikel werden wir Ihnen einige Tests geben, mit denen Sie überprüfen können, wie gut Sie diese Informationen verstanden und behalten haben.
+Das ist alles, was Sie im Moment über bedingte Strukturen in JavaScript wissen müssen! Im nächsten Artikel finden Sie einige Aufgaben, mit denen Sie prüfen können, wie gut Sie diese Informationen verstanden und behalten haben.
 
 ## Siehe auch
 
 - [Vergleichsoperatoren](/de/docs/Learn_web_development/Core/Scripting/Math#comparison_operators)
 - [Bedingte Anweisungen im Detail](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#conditional_statements)
-- [if...else-Referenz](/de/docs/Web/JavaScript/Reference/Statements/if...else)
-- [Bedingte (ternäre) Operator-Referenz](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator)
+- [Referenz zu if...else](/de/docs/Web/JavaScript/Reference/Statements/if...else)
+- [Referenz zum bedingten (ternären) Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator)
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Silly_story_generator", "Learn_web_development/Core/Scripting/Test_your_skills/Conditionals", "Learn_web_development/Core/Scripting")}}

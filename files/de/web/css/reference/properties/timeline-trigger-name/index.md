@@ -3,12 +3,12 @@ title: timeline-trigger-name CSS property
 short-title: timeline-trigger-name
 slug: Web/CSS/Reference/Properties/timeline-trigger-name
 l10n:
-  sourceCommit: 4aba58b4ad2745a73054f60b6d649d8e29b7b44d
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`timeline-trigger-name`** legt die Kennung oder Kennungen eines Auslösers für eine [scrollgesteuerte Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`timeline-trigger-name`** legt die Bezeichner eines Triggers für [scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) fest.
 
 ## Syntax
 
@@ -33,16 +33,16 @@ timeline-trigger-name: unset;
 
 ### Werte
 
-Der Wert besteht aus einem oder mehreren durch Kommas getrennten {{cssxref("dashed-ident")}}-Werten oder dem Schlüsselwort `none`.
+Ein oder mehrere durch Kommas getrennte {{cssxref("dashed-ident")}}-Werte oder das Schlüsselwort `none`.
 
 - `none`
-  - : Gibt an, dass das Element keine Auslöser für scrollgesteuerte Animationen definiert.
+  - : Gibt an, dass das Element keine Trigger für scrollgesteuerte Animationen definiert.
 - {{cssxref("dashed-ident")}}
-  - : Gibt den Namen des Timeline-Auslösers an.
+  - : Gibt den Namen des Timeline-Triggers an.
 
 ## Beschreibung
 
-Die Eigenschaft `timeline-trigger-name` legt einen oder mehrere Namen zur Kennzeichnung eines Auslösers für eine [scrollgesteuerte CSS-Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) fest. Diese Kennung wird im Wert der Eigenschaft {{cssxref("animation-trigger")}} verwendet.
+Die Eigenschaft `timeline-trigger-name` legt einen oder mehrere Namen fest, mit denen ein Trigger für eine [CSS-Animation, die durch Scrollen ausgelöst wird](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations), identifiziert wird. Diese Bezeichner werden im Wert der Eigenschaft {{cssxref("animation-trigger")}} verwendet.
 
 Zum Beispiel:
 
@@ -53,11 +53,11 @@ Zum Beispiel:
 }
 ```
 
-Ein Element mit diesen Deklarationen erstellt einen Auslöser mit dem Namen `--my-trigger`. Die Deklaration `timeline-trigger-source` ist erforderlich, um eine Timeline zu erstellen, die das Auslösen von Animationen steuert. In diesem Fall erstellt der Wert `view()` eine [anonyme View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function).
+Ein Element mit diesen Deklarationen erstellt einen Trigger namens `--my-trigger`. Die Deklaration `timeline-trigger-source` ist erforderlich, um eine Timeline zu erstellen, die das Auslösen von Animationen steuert. In diesem Fall erstellt der Wert `view()` eine [anonyme View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timeline_the_view_function).
 
-Die resultierende [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) verfolgt die Position des Elements `.trigger` entlang der Blockachse des nächstgelegenen scrollbaren Vorfahren. Der Auslöser wird aktiviert und deaktiviert, wenn das verfolgte Element an bestimmte Positionen innerhalb des Scrollports gescrollt wird.
+Die resultierende [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) verfolgt die Position des Elements `.trigger` entlang der Blockachse des nächstgelegenen scrollbaren Vorfahren. Der Trigger wird aktiviert und deaktiviert, wenn das verfolgte Element zu bestimmten Positionen innerhalb des Scrollports gescrollt wird.
 
-Bei jedem animierten Element, dessen Eigenschaft {{cssxref("animation-trigger")}} auf `--my-trigger` gesetzt ist, wird die Animation durch den Auslöser `--my-trigger` gesteuert:
+Bei jedem animierten Element, dessen Eigenschaft {{cssxref("animation-trigger")}} auf `--my-trigger` gesetzt ist, wird die Animation durch den Trigger `--my-trigger` gesteuert:
 
 ```css
 .animated {
@@ -66,9 +66,9 @@ Bei jedem animierten Element, dessen Eigenschaft {{cssxref("animation-trigger")}
 }
 ```
 
-Jeder `animation-trigger`-Wert enthält zwei oder drei Bestandteile: den `<dashed-ident>`-Wert, der den Auslöser kennzeichnet, und ein oder zwei {{cssxref("animation-action")}}-Schlüsselwörter. Diese legen fest, was bei der Aktivierung und gegebenenfalls bei der Deaktivierung des Auslösers geschehen soll. In diesem Fall wird die Animation bei der Aktivierung einmal abgespielt.
+Jeder `animation-trigger`-Wert besteht aus zwei oder drei Komponenten: dem `<dashed-ident>`, das den Trigger identifiziert, und einem oder zwei {{cssxref("animation-action")}}-Schlüsselwörtern. Diese legen fest, was bei der Aktivierung und optional bei der Deaktivierung des Triggers geschehen soll. In diesem Fall wird die Animation bei der Aktivierung einmal abgespielt.
 
-Das animierte Element kann einen eigenen Auslöser erstellen. Setzen Sie dazu seine Eigenschaften `timeline-trigger-name` und `animation-trigger` so, dass sie denselben `<dashed-ident>`-Wert enthalten:
+Das animierte Element kann seinen eigenen Trigger erstellen. Setzen Sie dazu die Eigenschaften `timeline-trigger-name` und `animation-trigger` so, dass sie denselben `<dashed-ident>`-Wert enthalten:
 
 ```css
 .animatedAndTrigger {
@@ -82,11 +82,11 @@ Das animierte Element kann einen eigenen Auslöser erstellen. Setzen Sie dazu se
 
 Die Eigenschaft `timeline-trigger-name` kann zusammen mit den Eigenschaften {{cssxref("timeline-trigger-source")}}, {{cssxref("timeline-trigger-activation-range")}} und {{cssxref("timeline-trigger-active-range")}} auch über die Kurzschreibweise {{cssxref("timeline-trigger")}} festgelegt werden.
 
-### Mehrere Auslösernamen
+### Mehrere Trigger-Namen
 
-Sie können im `timeline-trigger-name`-Wert desselben Auslösers mehrere durch Kommas getrennte `<dashed-ident>`-Werte angeben. Dadurch kann über mehrere Kennungen auf ihn verwiesen werden. Das kann nützlich sein, wenn Sie mehrere Komponenten in eine Seite einbinden, deren Animationen Sie auslösen möchten, deren vordefinierte `animation-trigger`-Werte Sie aber nicht ändern können.
+Sie können im Wert von `timeline-trigger-name` eines Triggers mehrere durch Kommas getrennte `<dashed-ident>`-Werte angeben. Dadurch kann der Trigger über mehrere Bezeichner referenziert werden. Das kann nützlich sein, wenn Sie mehrere Komponenten in eine Seite einfügen, deren Animationen Sie auslösen möchten, deren vordefinierte `animation-trigger`-Werte Sie aber nicht bearbeiten können.
 
-Mit mehreren `timeline-trigger-name`-Werten können Sie einen Auslöser für alle Animationen erstellen:
+Mit mehreren `timeline-trigger-name`-Werten können Sie einen Trigger für alle Animationen erstellen:
 
 ```css
 .trigger {
@@ -95,9 +95,9 @@ Mit mehreren `timeline-trigger-name`-Werten können Sie einen Auslöser für all
 }
 ```
 
-Wenn Sie denselben `<dashed-ident>`-Wert mehrfach in derselben `timeline-trigger-name`-Liste angeben, definiert nur das letzte Vorkommen einen Auslöser. Die vorherigen Vorkommen haben keine Wirkung.
+Wenn Sie dasselbe `<dashed-ident>` mehrfach in derselben `timeline-trigger-name`-Liste angeben, definiert nur das letzte Vorkommen einen Trigger. Die vorherigen Vorkommen haben keine Wirkung.
 
-Wenn mehrere Elemente Auslöser mit demselben Namen definieren, wird der Auslöser des letzten Elements in der Quellreihenfolge verwendet, sofern der Gültigkeitsbereich nicht eingeschränkt ist. Weitere Informationen finden Sie unter {{cssxref("trigger-scope")}}.
+Wenn mehrere Elemente Trigger mit demselben Namen definieren, wird der Trigger verwendet, den das letzte Element in der Quellreihenfolge definiert – sofern der Geltungsbereich nicht eingeschränkt ist. Weitere Informationen finden Sie unter {{cssxref("trigger-scope")}}.
 
 ## Formale Definition
 
@@ -111,11 +111,11 @@ Wenn mehrere Elemente Auslöser mit demselben Namen definieren, wird der Auslös
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Sie eine einfache scrollgesteuerte Animation erstellen. Mit der Eigenschaft `timeline-trigger-name` benennen wir einen Auslöser und verweisen in der Eigenschaft `animation-trigger` eines animierten Elements auf diesen Namen.
+Dieses Beispiel zeigt, wie Sie eine einfache scrollgesteuerte Animation erstellen. Mit der Eigenschaft `timeline-trigger-name` benennen wir einen Trigger und referenzieren diesen Namen in der Eigenschaft `animation-trigger` eines animierten Elements.
 
 #### HTML
 
-Unser Markup enthält zwei {{htmlelement("div")}}-Elemente: eines, das animiert wird, und eines, das einen Auslöser erstellt. Hinzu kommt Textinhalt, durch den die Seite scrollbar wird. Der Textinhalt ist der Kürze halber ausgeblendet.
+Unser Markup enthält zwei {{htmlelement("div")}}-Elemente: eines für die Animation und eines für den Trigger. Hinzu kommt Textinhalt, der die Seite scrollbar macht. Der Textinhalt wurde der Kürze halber ausgeblendet.
 
 ```html
 <div class="animated">I am animated</div>
@@ -191,7 +191,7 @@ Unser Markup enthält zwei {{htmlelement("div")}}-Elemente: eines, das animiert 
 
 #### CSS
 
-Die Eigenschaft {{cssxref("position")}} des animierten `<div>`-Elements wird auf `fixed` gesetzt. Dadurch wird es nahe der oberen linken Ecke des Scrollports positioniert, sodass wir erkennen können, wann seine Animation beginnt und pausiert.
+Die Eigenschaft {{cssxref("position")}} des animierten `<div>`-Elements wird auf `fixed` gesetzt. Dadurch befindet es sich nahe der oberen linken Ecke des Scrollports, sodass wir erkennen können, wann seine Animation beginnt und stoppt.
 
 ```css hidden live-sample___basic-example
 body {
@@ -238,7 +238,7 @@ Als Nächstes definieren wir die {{cssxref("@keyframes")}} für die Animation `r
 }
 ```
 
-Mit der Kurzschreibweise `animation` wenden wir die Animation `rotate` auf das Element `.animated` an. Ohne einen zugeordneten Auslöser würde das Element beim Laden der Seite mit der Animation beginnen. Durch die Eigenschaft `animation-trigger` wird daraus eine ausgelöste Animation. Ihr Wert verweist auf den `timeline-trigger-name` `--t` und enthält zwei `<animation-action>`-Werte — `play` und `pause`. Diese legen fest, dass die Animation bei der Aktivierung abgespielt und bei der Deaktivierung pausiert wird.
+Mit der Kurzschreibweise `animation` wenden wir die Animation `rotate` auf das Element `.animated` an. Ohne zugehörigen Trigger würde die Animation beim Laden der Seite beginnen. Durch die Eigenschaft `animation-trigger` wird sie zu einer ausgelösten Animation. Der Wert referenziert einen `timeline-trigger-name` namens `--t` und enthält zwei `<animation-action>`-Werte – `play` und `pause`. Sie legen fest, dass die Animation bei der Aktivierung abgespielt und bei der Deaktivierung pausiert wird.
 
 ```css live-sample___basic-example
 .animated {
@@ -247,10 +247,10 @@ Mit der Kurzschreibweise `animation` wenden wir die Animation `rotate` auf das E
 }
 ```
 
-Das Element `.trigger` erstellt den Auslöser für das Element `.animated` mithilfe der folgenden Eigenschaften:
+Das Element `.trigger` erstellt den Trigger für das Element `.animated` mithilfe der folgenden Eigenschaften:
 
-- Ein `timeline-trigger-name` mit dem Wert `--t`. Dieser entspricht der Kennung, auf die im `animation-trigger`-Wert des animierten Elements verwiesen wird, und verknüpft so die beiden Elemente.
-- Ein {{cssxref("timeline-trigger-source")}} mit dem Wert [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird der Timeline-Auslöser als View-Progress-Timeline festgelegt und der nächstgelegene scrollbare Vorfahr als Element, das die Timeline bereitstellt.
+- Ein `timeline-trigger-name` mit dem Wert `--t`. Dieser entspricht dem Bezeichner im `animation-trigger`-Wert des animierten Elements und verknüpft so die beiden Elemente.
+- Ein {{cssxref("timeline-trigger-source")}} mit dem Wert [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird eine View-Progress-Timeline als Timeline-Trigger festgelegt und der nächstgelegene scrollbare Vorfahr als Element, das die Timeline für den Trigger bereitstellt.
 
 ```css live-sample___basic-example
 .trigger {
@@ -263,11 +263,11 @@ Das Element `.trigger` erstellt den Auslöser für das Element `.animated` mithi
 
 {{EmbedLiveSample("basic-example", "100%", "240")}}
 
-Versuchen Sie, den Inhalt nach oben zu scrollen. Sobald ein Teil des verfolgten Elements `.trigger` im Scrollport erscheint, wird die Animation abgespielt. Sobald es den Scrollport an einer der beiden Seiten vollständig verlassen hat, pausiert die Animation.
+Versuchen Sie, den Inhalt nach oben zu scrollen. Sobald ein Teil des verfolgten Elements `.trigger` im Scrollport erscheint, wird die Animation abgespielt. Wenn das Element den Scrollport an einer der beiden Seiten vollständig verlassen hat, wird die Animation pausiert.
 
-### Das animierte Element selbst als Auslöser verwenden
+### Das animierte Element als Trigger verwenden
 
-Dieses Beispiel zeigt, wie ein animiertes Element seinen eigenen Auslöser erstellen kann.
+Dieses Beispiel zeigt, wie ein animiertes Element seinen eigenen Trigger erstellen kann.
 
 #### HTML
 
@@ -277,7 +277,7 @@ Diesmal enthält unser Markup nur ein {{htmlelement("div")}}-Element.
 <div>I create my own trigger</div>
 ```
 
-Der Textinhalt, durch den die Seite scrollbar wird, ist der Kürze halber ausgeblendet.
+Der Textinhalt, der die Seite scrollbar macht, wurde der Kürze halber ausgeblendet.
 
 ```html hidden live-sample___same-element
 <p>
@@ -341,7 +341,7 @@ Der Textinhalt, durch den die Seite scrollbar wird, ist der Kürze halber ausgeb
 
 #### CSS
 
-Wir definieren eine Keyframe-Animation namens `invert-colors`, die die Vordergrund- und Hintergrundfarben umkehrt:
+Wir definieren eine Keyframe-Animation namens `invert-colors`, die die Vorder- und Hintergrundfarben umkehrt:
 
 ```css hidden live-sample___same-element
 body {
@@ -372,13 +372,13 @@ div {
 }
 ```
 
-Wir setzen einen `animation-trigger`-Wert, der auf den `timeline-trigger-name` `--t` verweist. Außerdem geben wir zwei `<animation-action>`-Werte an — `play-forwards` und `play-backwards`. Damit wird die Animation bei der Aktivierung vorwärts und bei der Deaktivierung rückwärts abgespielt.
+Wir legen einen `animation-trigger`-Wert fest, der einen `timeline-trigger-name` namens `--t` referenziert. Außerdem geben wir zwei `<animation-action>`-Werte an – `play-forwards` und `play-backwards`. Diese bewirken, dass die Animation bei der Aktivierung vorwärts und bei der Deaktivierung rückwärts abgespielt wird.
 
 Anschließend legen wir für dasselbe `<div>` die folgenden Eigenschaften fest:
 
-- Ein `timeline-trigger-name` mit dem Wert `--t`. Damit wird festgelegt, dass das `<div>` den Auslöser für seine eigene Animation erstellt.
-- Ein `timeline-trigger-source` mit dem Wert [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird der Timeline-Auslöser als View-Progress-Timeline festgelegt und der nächstgelegene scrollbare Vorfahr als Element, das die Timeline bereitstellt.
-- Ein {{cssxref("timeline-trigger-activation-range")}} mit dem Wert [`contain`](/de/docs/Web/CSS/Reference/Values/timeline-range-name#contain). Damit wird der Auslöser aktiviert, wenn sich das verfolgte Element vollständig innerhalb des Scrollports befindet. Da {{cssxref("timeline-trigger-active-range")}} standardmäßig den Wert `auto` hat, entspricht der aktive Bereich dem Aktivierungsbereich. Der Auslöser wird daher deaktiviert, sobald sich das Element nicht mehr vollständig innerhalb des Scrollports befindet. Im Gegensatz dazu würden die Standardwerte [`cover`](/de/docs/Web/CSS/Reference/Values/timeline-range-name#cover) für den Aktivierungsbereich und den aktiven Bereich den Auslöser aktivieren, sobald ein Teil des Elements in den Scrollport eintritt, und ihn erst deaktivieren, wenn das Element den Scrollport vollständig verlassen hat. Die rückwärts abgespielte Animation würde dann stattfinden, wenn das Element nicht mehr sichtbar ist.
+- Ein `timeline-trigger-name` mit dem Wert `--t`. Dadurch erstellt das `<div>` den Trigger für seine eigene Animation.
+- Ein `timeline-trigger-source` mit dem Wert [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird eine View-Progress-Timeline als Timeline-Trigger festgelegt und der nächstgelegene scrollbare Vorfahr als Element, das die Timeline für den Trigger bereitstellt.
+- Ein {{cssxref("timeline-trigger-activation-range")}} mit dem Wert [`contain`](/de/docs/Web/CSS/Reference/Values/timeline-range-name#contain). Dadurch wird der Trigger aktiviert, wenn sich das verfolgte Element vollständig im Scrollport befindet. Da {{cssxref("timeline-trigger-active-range")}} standardmäßig `auto` ist, entspricht der aktive Bereich dem Aktivierungsbereich. Der Trigger wird daher deaktiviert, sobald sich das Element nicht mehr vollständig im Scrollport befindet. Im Gegensatz dazu bewirkt der Standardwert [`cover`](/de/docs/Web/CSS/Reference/Values/timeline-range-name#cover) für Aktivierungsbereich und aktiven Bereich, dass der Trigger aktiviert wird, sobald ein Teil des Elements in den Scrollport eintritt, und erst deaktiviert wird, wenn es den Scrollport vollständig verlassen hat. Die rückwärts laufende Animation würde dann stattfinden, während das Element nicht sichtbar ist.
 
 ```css live-sample___same-element
 div {
@@ -411,7 +411,7 @@ div {
 
 {{EmbedLiveSample("same-element", "100%", "240")}}
 
-Versuchen Sie, den Inhalt nach oben zu scrollen. Die Animation des verfolgten Elements wird abgespielt, sobald es vollständig in den Scrollport eingetreten ist, und pausiert, sobald es beginnt, den Scrollport zu verlassen.
+Versuchen Sie, den Inhalt nach oben zu scrollen. Die Animation des verfolgten Elements wird abgespielt, nachdem es vollständig in den Scrollport eingetreten ist, und pausiert, sobald es beginnt, den Scrollport zu verlassen.
 
 ## Spezifikationen
 
@@ -428,6 +428,6 @@ Versuchen Sie, den Inhalt nach oben zu scrollen. Die Animation des verfolgten El
 - Die Kurzschreibweise {{cssxref("timeline-trigger")}}
 - {{cssxref("trigger-scope")}}
 - Der Typ {{cssxref("animation-action")}}
-- [Scrollgesteuerte CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
-- Das Modul [CSS-Animationsauslöser](/de/docs/Web/CSS/Guides/Animation_triggers)
+- [CSS-Animationen verwenden, die durch Scrollen ausgelöst werden](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
+- Das Modul [CSS-Animationstrigger](/de/docs/Web/CSS/Guides/Animation_triggers)
 - Das Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)

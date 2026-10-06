@@ -2,105 +2,105 @@
 title: <animation-action>
 slug: Web/CSS/Reference/Values/animation-action
 l10n:
-  sourceCommit: 4aba58b4ad2745a73054f60b6d649d8e29b7b44d
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
-Der {{Glossary("enumerated", "Aufzählungsdatentyp")}} **`<animation-action>`** beschreibt Schlüsselwortwerte, die festlegen, wie sich eine Animation unter bestimmten Umständen verhält – beispielsweise, wie eine [ausgelöste Animation](/de/docs/Web/CSS/Guides/Animation_triggers) reagiert, wenn ihr Auslöser aktiviert oder deaktiviert wird.
+Der {{Glossary("enumerated", "Aufzählungsdatentyp")}} **`<animation-action>`** repräsentiert Schlüsselwortwerte, die festlegen, wie sich eine Animation unter bestimmten Umständen verhalten soll – beispielsweise, wie sich eine [ausgelöste Animation](/de/docs/Web/CSS/Guides/Animation_triggers) verhält, wenn ihr Auslöser aktiviert und deaktiviert wird.
 
-Die Schlüsselwortwerte von `<animation-action>` werden in der folgenden Eigenschaft verwendet:
+Die Schlüsselwortwerte von `<animation-action>` werden in den folgenden Eigenschaften verwendet:
 
 - {{cssxref("animation-trigger")}}
 
 ## Syntax
 
-Für den Aufzählungsdatentyp `<animation-action>` wird einer der folgenden Werte angegeben:
+Der Aufzählungstyp `<animation-action>` wird durch einen der folgenden Werte angegeben:
 
 - `none`
-  - : Für die Animation ist keine Aktion festgelegt.
+  - : Für die Animation wird keine Aktion festgelegt.
 - `play`
-  - : Die Animation wird abgespielt, fortgesetzt (falls sie pausiert ist) oder neu gestartet (falls sie bereits beendet ist) – jeweils in ihrer aktuellen Abspielrichtung.
+  - : Die Animation wird abgespielt, fortgesetzt (falls sie pausiert ist) oder neu gestartet (falls sie bereits beendet ist), und zwar in ihrer aktuellen Abspielrichtung.
 - `play-forwards`
-  - : Wie `play`, allerdings wird die [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation bei Bedarf angepasst (von negativ auf positiv gesetzt), damit die Animation vorwärts abgespielt wird.
+  - : Wie `play`, jedoch wird die [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation bei Bedarf angepasst (von einem negativen auf einen positiven Wert), damit die Animation vorwärts abgespielt wird.
 - `play-backwards`
-  - : Wie `play`, allerdings wird die `playbackRate` der Animation bei Bedarf angepasst (von positiv auf negativ gesetzt), damit die Animation rückwärts abgespielt wird.
+  - : Wie `play`, jedoch wird die `playbackRate` der Animation bei Bedarf angepasst (von einem positiven auf einen negativen Wert), damit die Animation rückwärts abgespielt wird.
 - `play-once`
-  - : Wie `play`, allerdings wird die Animation nicht erneut ausgelöst, nachdem sie alle Iterationen durchlaufen hat. Wie `play` setzt `play-once` eine pausierte Animation fort; anders als `play` spielt es eine beendete Animation nicht erneut ab.
+  - : Wie `play`, jedoch wird die Animation nicht erneut ausgelöst, nachdem sie alle ihre Wiederholungen durchlaufen hat. Wie `play` setzt `play-once` eine pausierte Animation fort; anders als `play` startet es eine beendete Animation nicht erneut.
 - `pause`
   - : Die Animation wird pausiert.
 - `replay`
-  - : Wie `play`, allerdings wird die Animation zuvor an den Anfang zurückgesetzt.
+  - : Wie `play`, jedoch wird die Animation an den Anfang zurückgesetzt.
 - `reset`
-  - : Wie `pause`, allerdings wird die Animation an den Anfang zurückgesetzt.
+  - : Wie `pause`, jedoch wird die Animation an den Anfang zurückgesetzt.
 
 ## Beschreibung
 
-Der Typ `<animation-action>` legt fest, wie sich eine Animation bei bestimmten Ereignissen verhält. Wenn Sie beispielsweise mit {{cssxref("animation-trigger")}} ein animiertes Element als ausgelöste Animation festlegen, kann der Wert einen oder zwei durch ein Leerzeichen getrennte `<animation-action>`-Werte enthalten. Der erste Wert bestimmt das Verhalten der Animation bei Aktivierung ihres Auslösers, der optionale zweite das Verhalten bei dessen Deaktivierung. Wenn Sie nur einen Wert angeben, ändert die Animation bei Deaktivierung des Auslösers ihr Verhalten nicht, sondern behält das Aktivierungsverhalten bei. Dies hat dieselbe Wirkung, als würden Sie `none` als zweiten Wert angeben.
+Der Typ `<animation-action>` legt fest, wie sich eine Animation verhält, wenn bestimmte Ereignisse eintreten. Wird beispielsweise für ein animiertes Element ein Wert für {{cssxref("animation-trigger")}} festgelegt, um die Animation als ausgelöste Animation zu definieren, kann der Wert einen oder zwei durch ein Leerzeichen getrennte `<animation-action>`-Werte enthalten. Der erste Wert legt das Verhalten der Animation bei Aktivierung ihres Auslösers fest, der optionale zweite Wert das Verhalten bei Deaktivierung. Wenn Sie nur einen Wert angeben, ändert die Animation ihr Verhalten bei Deaktivierung des Auslösers nicht; sie behält das Aktivierungsverhalten bei. Dies hat denselben Effekt, als würden Sie `none` als zweiten Wert festlegen.
 
 Einige häufige Muster sind:
 
-- `play-forwards play-backwards` wird häufig verwendet, wenn ein UI-Element beim Scrollen in den sichtbaren Bereich „eingeblendet“ und beim Verlassen dieses Bereichs wieder „ausgeblendet“ werden soll.
-- `play pause` wird häufig verwendet, um ein Element beim Scrollen in den sichtbaren Bereich zu animieren und die Animation zu pausieren, wenn es diesen Bereich verlässt.
+- `play-forwards play-backwards` wird häufig verwendet, wenn ein UI-Element beim Scrollen in den sichtbaren Bereich hinein animiert und beim Verlassen des sichtbaren Bereichs wieder heraus animiert werden soll.
+- `play pause` wird häufig verwendet, um ein Element beim Scrollen in den sichtbaren Bereich zu animieren und die Animation beim Verlassen des sichtbaren Bereichs zu pausieren.
 - `play-once` wird oft allein verwendet, wenn eine Animation beim Scrollen in den sichtbaren Bereich nur einmal abgespielt werden soll.
 
-Die acht `<animation-action>`-Werte ermöglichen unterschiedliche Animationsverhalten. Es ist wichtig zu verstehen, wie sie für sich genommen wirken und welche Effekte sich durch verschiedene Werte für Aktivierung und Deaktivierung des Auslösers ergeben.
+Die acht `<animation-action>`-Werte ermöglichen unterschiedliche Animationsverhalten. Es ist wichtig zu verstehen, wie sie einzeln wirken und welche Effekte durch unterschiedliche Werte für die Aktivierung und Deaktivierung eines Auslösers entstehen können.
 
 ### Keine Aktion festlegen
 
-Verwenden Sie `none`, um festzulegen, dass keine Aktion ausgeführt werden soll.
+Um festzulegen, dass keine Aktion erfolgen soll, verwenden Sie den Wert `none`.
 
-### Animation abspielen
+### Die Animation abspielen
 
-Die Schlüsselwortwerte `play`, `play-forwards`, `play-backwards` und `play-once` bewirken alle, dass die Animation abgespielt wird. Sie unterscheiden sich jedoch im genauen Verhalten.
+Die Schlüsselwortwerte `play`, `play-forwards`, `play-backwards` und `play-once` bewirken alle, dass die Animation abgespielt wird. Jeder Wert legt jedoch ein anderes Verhalten fest.
 
 #### `play`
 
-Mit `play` wird die Animation über alle durch die Eigenschaft {{cssxref("animation-iteration-count")}} festgelegten Iterationen abgespielt.
+Mit `play` wird die Animation über alle ihre Wiederholungen hinweg abgespielt, wie durch die Eigenschaft {{cssxref("animation-iteration-count")}} festgelegt.
 
-Wenn nur `play` angegeben ist, wird die Animation bei Aktivierung abgespielt. Da keine Aktion für die Deaktivierung angegeben ist, ändert sich ihr Verhalten bei Deaktivierung nicht.
+Wenn nur `play` festgelegt ist, wird die Animation bei Aktivierung abgespielt, aber nie deaktiviert, da keine Aktion für die Deaktivierung angegeben ist.
 
 ```css
 animation-trigger: --t play;
 ```
 
-Wird `play` mit `pause`, `replay` oder `reset` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung entsprechend pausiert, erneut abgespielt oder zurückgesetzt. Bei einer späteren Aktivierung wird die Animation wieder abgespielt.
+Wenn `play` mit `pause`, `replay` oder `reset` kombiniert wird, wird die Animation bei Aktivierung abgespielt. Bei Deaktivierung wird dann `pause`, `replay` beziehungsweise `reset` ausgeführt. Bei einer späteren Aktivierung wird die Animation erneut abgespielt.
 
 ```css
 animation-trigger: --t play reset;
 ```
 
-Wird `play` mit `play-backwards` kombiniert, wird die Animation bei Aktivierung abgespielt. Bei Deaktivierung läuft sie rückwärts durch alle Iterationen, die sie zuvor vorwärts durchlaufen hat:
+Wird `play` mit `play-backwards` kombiniert, wird die Animation bei Aktivierung abgespielt. Bei Deaktivierung durchläuft sie anschließend alle zuvor vorwärts abgespielten Wiederholungen rückwärts:
 
 ```css
 animation-trigger: --t play play-backwards;
 ```
 
-Die Kombination von `play` mit `play-once` ist zwar gültig, aber unnötig, da sie sich genauso verhält wie `play`. Ebenso ist die Kombination von `play` mit `play-forwards` unnötig: `play-forwards` spielt die Animation in derselben Richtung ab wie `play`, auch wenn {{cssxref("animation-direction")}} auf `reverse` oder `alternate` gesetzt ist.
+Die Kombination von `play` mit `play-once` ist zwar gültig, aber unnötig, da sie sich genauso wie `play` verhält. Ebenso ist die Kombination von `play` mit `play-forwards` unnötig, da `play-forwards` die Animation in derselben Richtung wie `play` abspielt, selbst wenn {{cssxref("animation-direction")}} auf `reverse` oder `alternate` gesetzt ist.
 
 #### `play-forwards` und `play-backwards`
 
-Mit `play-forwards` und `play-backwards` wird die Animation über alle Iterationen abgespielt, jedoch in Vorwärts- beziehungsweise Rückwärtsrichtung. Dazu wird die [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation angepasst; der Wert von {{cssxref("animation-direction")}} bleibt unverändert.
+Mit `play-forwards` und `play-backwards` wird die Animation über alle ihre Wiederholungen hinweg abgespielt, wobei die Abspielrichtung auf vorwärts beziehungsweise rückwärts geändert wird. Dies geschieht durch Anpassen der [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation; der Wert von {{cssxref("animation-direction")}} bleibt unverändert.
 
-Wird nur `play-forwards` als Aktivierungsaktion angegeben, hat dies dieselbe Wirkung wie die alleinige Angabe von `play`:
+Wenn nur `play-forwards` als Aktivierungsaktion angegeben wird, hat dies denselben Effekt wie die alleinige Angabe von `play`:
 
 ```css
 animation-trigger: --t play-forwards;
 ```
 
-Die Kombination von `play-forwards` mit `play-backwards` bewirkt, dass die Animation bei Aktivierung vorwärts abgespielt wird. Bei Deaktivierung läuft sie rückwärts durch alle Iterationen, die sie zuvor vorwärts durchlaufen hat. Bei späteren Aktivierungen beginnt sie erneut, vorwärts zu laufen.
+Die Kombination von `play-forwards` mit `play-backwards` bewirkt, dass die Animation bei Aktivierung vorwärts abgespielt wird. Bei Deaktivierung durchläuft sie anschließend alle zuvor vorwärts abgespielten Wiederholungen rückwärts. Bei späteren Aktivierungen beginnt die Animation erneut, vorwärts zu laufen.
 
 ```css
 animation-trigger: --t play-forwards play-backwards;
 ```
 
-Die Kombination von `play-forwards` mit `pause`, `replay` oder `reset` hat dieselbe Wirkung wie bei `play`: Die Animation wird bei Aktivierung abgespielt und bei Deaktivierung entsprechend pausiert, erneut abgespielt oder zurückgesetzt. Bei späteren Aktivierungen wird sie wieder abgespielt.
+Die Kombination von `play-forwards` mit `pause`, `replay` oder `reset` hat denselben Effekt wie bei `play`: Die Animation wird bei Aktivierung abgespielt. Bei Deaktivierung wird dann `pause`, `replay` beziehungsweise `reset` ausgeführt. Bei späteren Aktivierungen wird die Animation erneut abgespielt.
 
 ```css
 animation-trigger: --t play-forwards pause;
 ```
 
-Es ist nicht sinnvoll, `play-forwards` mit `play` oder `play-once` zu kombinieren, da alle diese Aktionen die Animation effektiv vorwärts abspielen. Dieselbe Aktion bei Aktivierung und Deaktivierung hat keinen erkennbaren Effekt.
+Es ist nicht sinnvoll, `play-forwards` mit `play` oder `play-once` zu kombinieren, da all diese Aktionen die Animation effektiv vorwärts abspielen. Dieselbe Aktion bei Deaktivierung wie bei Aktivierung auszuführen, hat keinen erkennbaren Effekt.
 
-Beachten Sie, dass `play-backwards` als Aktivierungsaktion keine Wirkung hat, wenn die Animation bereits am Anfang ihrer Iterationen steht. Im folgenden Beispiel wird die Animation nicht abgespielt, weil sie sich bereits am Anfang befindet:
+Beachten Sie, dass `play-backwards` als Aktivierungsaktion keine Wirkung hat, wenn die Animation bereits am Anfang ihrer Wiederholungen steht. Im folgenden Beispiel wird die Animation nicht abgespielt, weil sie sich bereits am Anfang befindet:
 
 ```css
 animation-trigger: --t play-backwards;
@@ -108,52 +108,52 @@ animation-trigger: --t play-backwards;
 
 #### `play-once`
 
-Mit `play-once` wird die Animation über alle Iterationen abgespielt, jedoch nur einmal. Wenn {{cssxref("animation-iteration-count")}} auf `infinite` gesetzt ist, unterscheidet sich die Wirkung von `play-once` kaum von der von `play` oder `play-forwards`. Bei einer endlichen Anzahl von Iterationen zeigt sich jedoch das folgende Verhalten.
+Mit `play-once` wird die Animation über alle ihre Wiederholungen hinweg abgespielt, jedoch nur einmal. Wenn {{cssxref("animation-iteration-count")}} auf `infinite` gesetzt ist, unterscheidet sich die Wirkung von `play-once` kaum von der von `play` oder `play-forwards`. Ist `animation-iteration-count` jedoch auf eine endliche Zahl gesetzt, können Sie das folgende Verhalten beobachten.
 
-Wird `play-once` mit `pause` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung pausiert. Sobald sie alle Iterationen durchlaufen hat, wird sie bei späteren Aktivierungen jedoch nicht erneut abgespielt.
+Wird `play-once` mit `pause` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung pausiert. Nachdem die Animation jedoch alle ihre Wiederholungen durchlaufen hat, wird sie bei späteren Aktivierungen nicht erneut abgespielt.
 
 ```css
 animation-trigger: --t play-once pause;
 ```
 
-Wird `play-once` mit `replay` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung erneut von Anfang an abgespielt. Bei keinem Durchlauf überschreitet sie ihre festgelegte Anzahl von Iterationen. Sie wird jedoch bei späteren Deaktivierungen erneut abgespielt, weil sie jedes Mal an den Anfang zurückgesetzt wird. Bei späteren Aktivierungen wird sie dagegen nicht erneut abgespielt.
+Wenn Sie `play-once` mit `replay` kombinieren, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung erneut von Anfang an abgespielt. Bei keinem Durchlauf überschreitet sie die festgelegte Anzahl an Wiederholungen. Da die Animation aber jedes Mal an den Anfang zurückgesetzt wird, wird sie bei späteren Deaktivierungen erneut abgespielt. Bei späteren Aktivierungen wird die Animation hingegen nicht erneut abgespielt.
 
 ```css
 animation-trigger: --t play-once replay;
 ```
 
-Wird `play-once` mit `reset` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung an den Anfang zurückgesetzt. Bei einer späteren Aktivierung wird sie erneut abgespielt.
+Wird `play-once` mit `reset` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung an den Anfang zurückgesetzt. Bei einer späteren Aktivierung wird die Animation erneut abgespielt.
 
 ```css
 animation-trigger: --t play-once reset;
 ```
 
-Wird `play-once` mit `play-backwards` kombiniert, wird die Animation bei Aktivierung abgespielt und bei Deaktivierung rückwärts durch alle Iterationen abgespielt. Bei späteren Aktivierungen wird sie nicht erneut abgespielt, bei späteren Deaktivierungen jedoch erneut rückwärts.
+Wird `play-once` mit `play-backwards` kombiniert, wird die Animation bei Aktivierung abgespielt und durchläuft bei Deaktivierung alle Wiederholungen rückwärts. Bei einer späteren Aktivierung wird die Animation nicht erneut abgespielt, bei späteren Deaktivierungen jedoch erneut rückwärts.
 
 ```css
 animation-trigger: --t play-once play-backwards;
 ```
 
-### Animation pausieren
+### Die Animation pausieren
 
-Der Wert `pause` pausiert die Animation bei Aktivierung oder Deaktivierung an der Stelle, die sie während der Wiedergabe erreicht hat. Die Kombination mit anderen Werten wurde bereits erläutert. Ein bisher nicht genanntes Beispiel ist `pause` als Aktivierungsaktion:
+Der Wert `pause` pausiert die Animation bei Aktivierung beziehungsweise Deaktivierung an der Stelle, die sie beim Abspielen erreicht hat. Die Verwendung in Kombination mit anderen Werten wurde bereits besprochen. Ein noch nicht erwähntes Beispiel ist `pause` als Aktivierungsaktion:
 
 ```css
 animation-trigger: --t pause play;
 ```
 
-Dies hat einen interessanten Effekt: Bei Aktivierung wird die Animation nicht abgespielt, bei einer späteren Deaktivierung dagegen schon. Das ist nützlich, wenn die Animation erst abgespielt werden soll, wenn das betreffende Element den Scrollport verlässt.
+Dies hat einen interessanten Effekt: Bei Aktivierung wird nichts abgespielt, bei einer anschließenden Deaktivierung dagegen schon. Das ist nützlich, wenn eine Animation nur abgespielt werden soll, wenn das betreffende Element den Scrollport verlässt.
 
-Die Kombination von `pause` mit `reset` ist nicht sinnvoll, da beide die Animation effektiv pausieren. `reset` setzt sie zusätzlich an den Anfang zurück. Wurde die Animation noch nicht abgespielt, hat `reset` keinen erkennbaren Effekt.
+Es ist nicht sinnvoll, `pause` mit `reset` zu kombinieren, da beide Werte die Animation effektiv pausieren. `reset` setzt sie zusätzlich an den Anfang zurück. Wenn die Animation noch nicht abgespielt wurde, hat `reset` keinen erkennbaren Effekt.
 
-### Animation zurücksetzen
+### Die Animation zurücksetzen
 
 Die Werte `replay` und `reset` ähneln `pause`, allerdings gilt:
 
-- `reset` pausiert die Animation und setzt sie an den Anfang zurück.
-- `replay` setzt die Animation an den Anfang zurück und startet sie dann erneut.
+- `reset` pausiert die Animation und setzt sie zusätzlich an den Anfang zurück.
+- `replay` setzt die Animation an den Anfang zurück und startet sie anschließend erneut.
 
-Die Kombination dieser Werte mit anderen Werten wurde bereits erläutert. Ein Fall wurde jedoch noch nicht behandelt: ihre Verwendung als Aktivierungsaktion.
+Die Verwendung dieser Werte in Kombination mit anderen Werten wurde bereits besprochen. Ein Fall wurde jedoch noch nicht erwähnt: ihre Verwendung als Aktivierungsaktion.
 
 Zum Beispiel:
 
@@ -161,7 +161,7 @@ Zum Beispiel:
 animation-trigger: --t replay pause;
 ```
 
-Dies hat einen interessanten Effekt: Bei Aktivierung wird die Animation abgespielt (wie bei einer Aktion vom Typ `play`), bei Deaktivierung pausiert sie. Bei einer späteren Aktivierung beginnt sie jedoch unabhängig vom vorherigen Abspielzustand erneut am Anfang. Das ist nützlich, wenn eine Animation beim Eintritt des betreffenden Elements in den Scrollport abgespielt, beim Verlassen pausiert und bei jedem erneuten Eintritt von Anfang an abgespielt werden soll.
+Dies hat einen interessanten Effekt: Die Animation wird bei Aktivierung abgespielt (wie bei einer Aktion wie `play`) und bei Deaktivierung pausiert. Bei einer späteren Aktivierung wird sie jedoch unabhängig vom vorherigen Abspielzustand erneut von Anfang an abgespielt. Das ist nützlich, wenn eine Animation abgespielt werden soll, sobald das betreffende Element in den Scrollport gelangt, pausieren soll, wenn es den Scrollport verlässt, und bei jedem späteren Eintritt wieder von Anfang an abgespielt werden soll.
 
 Ein weiteres interessantes Beispiel:
 
@@ -169,11 +169,11 @@ Ein weiteres interessantes Beispiel:
 animation-trigger: --t reset play;
 ```
 
-Hier wird die Animation bei Aktivierung nicht abgespielt, bei Deaktivierung dagegen schon. Bei einer späteren Aktivierung wird sie unabhängig vom vorherigen Abspielzustand auf den Fortschritt `0` zurückgesetzt. Das ist nützlich, wenn eine Animation beim Verlassen des Scrollports abgespielt und bei jedem erneuten Eintritt an den Anfang zurückgesetzt werden soll.
+Dies hat einen interessanten Effekt: Die Animation wird bei Aktivierung nicht abgespielt, bei Deaktivierung jedoch schon. Bei einer späteren Aktivierung wird sie unabhängig vom vorherigen Abspielzustand auf den Fortschritt `0` zurückgesetzt. Das ist nützlich, wenn eine Animation abgespielt werden soll, sobald das betreffende Element den Scrollport verlässt, und bei jedem späteren Eintritt wieder an den Anfang zurückgesetzt werden soll.
 
-### Entsprechungen in der Web Animations API
+### Entsprechung in der Web Animations API
 
-Das durch die verschiedenen `<animation-action>`-Schlüsselwörter festgelegte Verhalten entspricht dem Aufruf verschiedener Methoden der [Web Animations API](/de/docs/Web/API/Web_Animations_API) für die jeweilige Animation:
+Das durch die verschiedenen `<animation-action>`-Schlüsselwörter festgelegte Verhalten entspricht dem Aufruf verschiedener Methoden der [Web Animations API](/de/docs/Web/API/Web_Animations_API) für die betreffende Animation:
 
 - `play`
   - : Entspricht dem Aufruf von [`Animation.play()`](/de/docs/Web/API/Animation/play) für die Animation.
@@ -198,11 +198,11 @@ Das durch die verschiedenen `<animation-action>`-Schlüsselwörter festgelegte V
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Sie eine einfache durch Scrollen ausgelöste Animation erstellen, die bei Aktivierung des Auslösers vorwärts und bei Deaktivierung rückwärts abgespielt wird.
+Dieses Beispiel zeigt, wie Sie eine einfache scrollgesteuerte Animation erstellen, die bei Aktivierung des Auslösers vorwärts und bei Deaktivierung rückwärts abgespielt wird.
 
 #### HTML
 
-Das Markup enthält zwei {{htmlelement("div")}}-Elemente: eines für die Animation und eines als Auslöser. Hinzu kommt Textinhalt, damit die Seite gescrollt werden kann. Der Textinhalt ist der Kürze halber ausgeblendet.
+Unser Markup enthält zwei {{htmlelement("div")}}-Elemente – eines für die Animation und eines als Auslöser – sowie Textinhalt, der das Scrollen der Seite ermöglicht. Der Kürze halber ist der Textinhalt ausgeblendet.
 
 ```html
 <div class="animated">I am animated</div>
@@ -278,7 +278,7 @@ Das Markup enthält zwei {{htmlelement("div")}}-Elemente: eines für die Animati
 
 #### CSS
 
-Wir geben dem `.animated`-Element für {{cssxref("position")}} den Wert `fixed` und positionieren es nahe der oberen linken Ecke des Scrollports. So können wir erkennen, wann seine Animation beginnt und endet.
+Wir geben dem Element `.animated` einen {{cssxref("position")}}-Wert von `fixed` und positionieren es nahe der oberen linken Ecke des Scrollports. So können wir sehen, wann seine Animation beginnt und endet.
 
 ```css hidden live-sample___basic-example
 body {
@@ -311,7 +311,7 @@ div {
 }
 ```
 
-Als Nächstes definieren wir mit {{cssxref("@keyframes")}} die `rotate`-Animation:
+Als Nächstes definieren wir die {{cssxref("@keyframes")}} für eine `rotate`-Animation:
 
 ```css live-sample___basic-example live-sample___different-effects
 @keyframes rotate {
@@ -325,7 +325,7 @@ Als Nächstes definieren wir mit {{cssxref("@keyframes")}} die `rotate`-Animatio
 }
 ```
 
-Auf das `.animated`-Element wird die `rotate`-Animation angewendet. Anschließend weisen wir ihm einen `animation-trigger`-Wert zu, der über den `timeline-trigger-name` `--t` auf einen Auslöser verweist und die beiden `<animation-action>`-Werte `play-forwards` und `play-backwards` enthält. Diese legen fest, dass die Animation bei Aktivierung vorwärts und bei Deaktivierung rückwärts abgespielt wird.
+Auf das Element `.animated` wird die `rotate`-Animation angewendet. Anschließend geben wir ihm einen `animation-trigger`-Wert, der auf den `timeline-trigger-name` `--t` verweist und die beiden `<animation-action>`-Werte `play-forwards` und `play-backwards` enthält. Diese legen fest, dass die Animation bei Aktivierung vorwärts und bei Deaktivierung rückwärts abgespielt wird.
 
 ```css live-sample___basic-example
 .animated {
@@ -334,10 +334,10 @@ Auf das `.animated`-Element wird die `rotate`-Animation angewendet. Anschließen
 }
 ```
 
-Das `.trigger`-Element erzeugt mit dem `timeline-trigger`-Wert `--t view()` den Auslöser für das animierte `<div>`. Dieser Wert enthält den Bezeichner, auf den der Wert der `animation-trigger`-Eigenschaft des animierten `<div>` verweist (den `timeline-trigger-name`), und verknüpft so die beiden Elemente. Außerdem enthält er:
+Das Element `.trigger` erstellt mit einem `timeline-trigger`-Wert von `--t view()` den Auslöser für das animierte `<div>`. Dieser Wert enthält den Bezeichner, auf den im `animation-trigger`-Eigenschaftswert des animierten `<div>` verwiesen wird (den `timeline-trigger-name`), und verknüpft so die beiden Elemente. Er enthält außerdem:
 
-- Einen `timeline-trigger-source`-Wert von [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird der Timeline-Auslöser als View-Progress-Timeline festgelegt; das nächstgelegene scrollbare Vorfahrenelement dient als Grundlage für diese Timeline.
-- Einen {{cssxref("timeline-trigger-activation-range")}}-Wert von [`contain`](/de/docs/Web/CSS/Reference/Values/timeline-range-name#contain). Dadurch wird der Auslöser aktiviert, wenn sich das `.trigger`-Element vollständig im Scrollport befindet. Da {{cssxref("timeline-trigger-active-range")}} standardmäßig `auto` ist, entspricht sein Wert dem Aktivierungsbereich. Der Auslöser wird daher deaktiviert, sobald sich das Element nicht mehr vollständig im Scrollport befindet.
+- Einen `timeline-trigger-source`-Wert von [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird der Timeline-Auslöser als View-Progress-Timeline festgelegt und das Element, das den Timeline-Auslöser bereitstellt, als nächstgelegenes scrollendes Vorfahrenelement.
+- Einen {{cssxref("timeline-trigger-activation-range")}}-Wert von [`contain`](/de/docs/Web/CSS/Reference/Values/timeline-range-name#contain). Das bedeutet, dass der Auslöser aktiviert wird, wenn sich das Element `.trigger` vollständig im Scrollport befindet. Da {{cssxref("timeline-trigger-active-range")}} standardmäßig den Wert `auto` hat, entspricht sein Wert dem Aktivierungsbereich. Der Auslöser wird daher deaktiviert, sobald sich das Element nicht mehr vollständig im Scrollport befindet.
 
 ```css live-sample___basic-example
 .trigger {
@@ -349,15 +349,15 @@ Das `.trigger`-Element erzeugt mit dem `timeline-trigger`-Wert `--t view()` den 
 
 {{EmbedLiveSample("basic-example", "100%", "240")}}
 
-Scrollen Sie den Inhalt nach oben. Sobald das beobachtete `<div>` vollständig im Scrollport erscheint, wird die Animation abgespielt. Wenn es beginnt, den Scrollport an einer der beiden Kanten zu verlassen, wird die Animation rückwärts abgespielt.
+Versuchen Sie, den Inhalt nach oben zu scrollen. Sobald das beobachtete `<div>` vollständig im Scrollport erscheint, wird die Animation abgespielt. Wenn es beginnt, den Scrollport an einer der beiden Seiten zu verlassen, wird die Animation rückwärts abgespielt.
 
-### Vergleich der `<animation-action>`-Werte
+### Die `<animation-action>`-Werte vergleichen
 
-Dieses Beispiel vergleicht die verschiedenen `<animation-action>`-Werte. Indem Sie dieselbe Rotationsanimation auf identische, nebeneinander angeordnete Elemente anwenden und die `animation-trigger`-Werte variieren, können Sie die Auswirkungen der verschiedenen Aktionen vergleichen.
+Dieses Beispiel vergleicht die verschiedenen `<animation-action>`-Werte. Indem Sie dieselbe Rotationsanimation auf identische, nebeneinander angeordnete Elemente anwenden und die `animation-trigger`-Werte variieren, können Sie die Wirkungen der verschiedenen Aktionen vergleichen.
 
 #### HTML
 
-Wir verwenden ein {{htmlelement("section")}}-Element mit fünf {{htmlelement("div")}}-Elementen, die jeweils eine Zahl enthalten. Zusätzlich gibt es Textinhalt, damit die Seite gescrollt werden kann. Er ist der Kürze halber ausgeblendet.
+Wir verwenden ein {{htmlelement("section")}}-Element, das fünf {{htmlelement("div")}}-Elemente enthält, in denen jeweils eine Zahl steht. Außerdem fügen wir Textinhalt hinzu, damit die Seite gescrollt werden kann. Der Kürze halber ist dieser Text ausgeblendet.
 
 ```html
 <section>
@@ -437,7 +437,7 @@ Wir verwenden ein {{htmlelement("section")}}-Element mit fünf {{htmlelement("di
 
 #### CSS
 
-Wir wenden auf jedes `<div>`-Element dieselbe {{cssxref("animation")}} an: Die `rotate`-Animation wird unbegrenzt wiederholt, wobei jede Iteration zwei Sekunden dauert. Außerdem gestalten wir jedes `<div>` als farbigen Kreis mit einem Durchmesser von `50px`.
+Wir wenden dieselbe {{cssxref("animation")}} auf jedes `<div>`-Element an: Die `rotate`-Animation wird unendlich oft abgespielt, wobei jede Wiederholung zwei Sekunden dauert. Außerdem gestalten wir jedes `<div>` als farbigen Kreis mit einem Durchmesser von `50px`.
 
 ```css hidden live-sample___different-effects
 body {
@@ -469,7 +469,7 @@ div {
 }
 ```
 
-Als Nächstes legen wir fest, dass das `<section>`-Element mit dem `timeline-trigger`-Wert `--t view() contain 20% contain 80%` einen Animationsauslöser erzeugt. Dabei setzen wir {{cssxref("timeline-trigger-activation-range")}} und den Standardwert von {{cssxref("timeline-trigger-active-range")}} auf `contain 20% contain 80%`. Das bedeutet, dass der Auslöser aktiviert wird, wenn das `<section>`-Element ungefähr `20%` des Weges durch den Scrollport nach oben gescrollt wurde, und deaktiviert wird, wenn es ungefähr `80%` dieses Weges zurückgelegt hat. So lassen sich die Auswirkungen von `<animation-action>` deutlicher erkennen, als wenn der Aktivierungsbereich den gesamten Scrollport umfassen würde.
+Als Nächstes legen wir fest, dass das `<section>`-Element einen Animationsauslöser mit dem `timeline-trigger`-Wert `--t view() contain 20% contain 80%` erstellt. Daran ist nichts Ungewöhnliches, außer dass wir einen Wert für {{cssxref("timeline-trigger-activation-range")}} festgelegt haben und {{cssxref("timeline-trigger-active-range")}} standardmäßig den Wert `contain 20% contain 80%` übernimmt. Das bedeutet, dass der Auslöser aktiviert wird, wenn das `<section>`-Element etwa `20%` des Weges nach oben durch den Scrollport zurückgelegt hat, und deaktiviert wird, wenn es etwa `80%` dieses Weges zurückgelegt hat. So lassen sich die Effekte von `<animation-action>` deutlicher erkennen, als wenn der Aktivierungsbereich den gesamten Scrollport abdecken würde.
 
 ```css live-sample___different-effects
 section {
@@ -477,7 +477,7 @@ section {
 }
 ```
 
-Anschließend legen wir für jedes `<div>`-Element einen anderen Wert der Eigenschaft {{cssxref("animation-trigger")}} fest. Alle verweisen auf den `timeline-trigger-name` des `<section>`-Elements, verwenden jedoch unterschiedliche Kombinationen von `<animation-action>`-Werten. Das letzte `<div>` erhält zusätzlich einen neuen Wert für die Eigenschaft `animation`, der den zuvor festgelegten überschreibt. Er entspricht dem ursprünglichen `animation`-Wert, allerdings ist die Anzahl der Iterationen auf `1` statt auf `infinite` gesetzt. Die Wirkung von `play-once` lässt sich leichter demonstrieren, wenn `animation-iteration-count` nicht `infinite` ist; andernfalls würde die Animation unabhängig davon unbegrenzt laufen.
+Anschließend legen wir für jedes `<div>`-Element einen anderen Wert für die Eigenschaft {{cssxref("animation-trigger")}} fest. Alle verweisen auf den `timeline-trigger-name` des `<section>`-Elements, verwenden aber jeweils andere `<animation-action>`-Werte. Für das letzte `<div>` legen wir zusätzlich einen neuen Wert für die Eigenschaft `animation` fest, der den zuvor festgelegten Wert überschreibt. Er entspricht dem ursprünglichen `animation`-Wert, mit dem Unterschied, dass die Anzahl der Wiederholungen auf `1` statt auf `infinite` gesetzt ist. Die Wirkung von `play-once` lässt sich leichter zeigen, wenn `animation-iteration-count` nicht `infinite` ist (andernfalls würde die Animation unabhängig davon endlos laufen).
 
 ```css live-sample___different-effects
 .one {
@@ -521,15 +521,15 @@ Anschließend legen wir für jedes `<div>`-Element einen anderen Wert der Eigens
 
 {{EmbedLiveSample("different-effects", "100%", "240")}}
 
-Scrollen Sie nach unten, bis die `<section>`- und `<div>`-Elemente in den Scrollport eintreten. Bewegen Sie sie über den Anfang und das Ende des Aktivierungsbereichs des Auslösers und konzentrieren Sie sich dabei jeweils auf ein anderes `<div>`, um die Auswirkungen der verschiedenen `<animation-action>`-Kombinationen zu sehen.
+Scrollen Sie nach unten, bis die `<section>`- und `<div>`-Elemente in den Scrollport gelangen. Bewegen Sie sie durch den Anfang und das Ende des Aktivierungsbereichs des Auslösers und konzentrieren Sie sich dabei jedes Mal auf ein anderes `<div>`, um die Effekte der jeweiligen `<animation-action>`-Werte zu sehen.
 
-Die Auswirkungen sind:
+Die Effekte sind:
 
-1. Für das erste `<div>` (ganz links) ist `play-forwards play-backwards` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich eintritt, wird die Animation vorwärts abgespielt. Wenn es den Aktivierungsbereich verlässt (am oberen oder unteren Rand des Scrollports), beginnt sie rückwärts zu laufen.
-2. Für das zweite `<div>` ist nur ein `<animation-action>`-Wert festgelegt: `play`. Wenn das beobachtete Element in den Aktivierungsbereich eintritt, beginnt die Animation. Da keine Deaktivierungsaktion ihr Verhalten ändert, läuft sie jedoch unbegrenzt weiter, bis die Seite neu geladen wird.
-3. Für das dritte `<div>` ist `play replay` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich eintritt, beginnt die Animation vorwärts zu laufen. Wenn es den Bereich verlässt, wird die Animation auf den Fortschritt `0` zurückgesetzt und erneut abgespielt.
-4. Für das vierte `<div>` ist `pause play` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich eintritt, bleibt die Animation pausiert. Sobald es den Bereich verlässt, beginnt die Animation. Danach pausiert sie, solange sich das beobachtete Element innerhalb des Aktivierungsbereichs befindet, und läuft, wenn es sich außerhalb befindet.
-5. Für das fünfte `<div>` (ganz rechts, mit einer Iterationsanzahl von `1`) ist `play-once reset` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich eintritt, wird die Animation einmal abgespielt. Verlässt es den Bereich, wird sie auf den Fortschritt `0` zurückgesetzt und pausiert. Danach wird die Animation bei jedem Eintritt des beobachteten Elements in den Aktivierungsbereich einmal abgespielt und beim Verlassen zurückgesetzt.
+1. Für das erste `<div>` (ganz links) ist `play-forwards play-backwards` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich gelangt, wird die Animation vorwärts abgespielt. Wenn es den Aktivierungsbereich verlässt (am oberen oder unteren Rand des Scrollports), beginnt die Animation rückwärts zu laufen.
+2. Für das zweite `<div>` ist nur ein `<animation-action>`-Wert festgelegt: `play`. Wenn das beobachtete Element in den Aktivierungsbereich gelangt, beginnt die Animation. Da keine Deaktivierungsaktion festgelegt ist, die ihr Verhalten ändert, läuft sie jedoch weiter, bis die Seite neu geladen wird.
+3. Für das dritte `<div>` ist `play replay` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich gelangt, beginnt die Animation vorwärts zu laufen. Wenn es den Aktivierungsbereich verlässt, wird die Animation auf den Fortschritt `0` zurückgesetzt und anschließend erneut abgespielt.
+4. Für das vierte `<div>` ist `pause play` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich gelangt, wird die Animation aufgrund des pausierten Zustands weiterhin nicht abgespielt. Sobald es den Aktivierungsbereich verlässt, beginnt die Animation jedoch zu laufen. Von da an pausiert sie, wenn sich das beobachtete Element innerhalb des Aktivierungsbereichs befindet, und läuft, wenn es sich außerhalb befindet.
+5. Für das fünfte `<div>` (ganz rechts, mit einer Wiederholungsanzahl von `1`) ist `play-once reset` festgelegt. Wenn das beobachtete Element in den Aktivierungsbereich gelangt, wird die Animation einmal abgespielt. Wenn es den Aktivierungsbereich verlässt, wird die Animation auf den Fortschritt `0` zurückgesetzt und pausiert. Von da an wird die Animation bei jedem Eintritt des beobachteten Elements in den Aktivierungsbereich einmal abgespielt und beim Verlassen zurückgesetzt.
 
 ## Spezifikationen
 
@@ -542,9 +542,9 @@ Die Auswirkungen sind:
 ## Siehe auch
 
 - {{cssxref("animation-trigger")}}
-- {{cssxref("timeline-trigger")}}-Kurzschreibweise
+- Die Shorthand-Eigenschaft {{cssxref("timeline-trigger")}}
 - {{cssxref("timeline-trigger-name")}}, {{cssxref("timeline-trigger-source")}}, {{cssxref("timeline-trigger-activation-range")}} und {{cssxref("timeline-trigger-active-range")}}
 - {{cssxref("trigger-scope")}}
-- [CSS-Animationen verwenden, die durch Scrollen ausgelöst werden](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
+- [CSS-Animationen mit Scroll-Auslösern verwenden](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
 - Modul [CSS-Animationsauslöser](/de/docs/Web/CSS/Guides/Animation_triggers)
 - Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)

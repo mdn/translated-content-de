@@ -2,35 +2,35 @@
 title: VREyeParameters
 slug: Web/API/VREyeParameters
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
 {{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Das **`VREyeParameters`** Interface der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert alle Informationen, die benötigt werden, um eine Szene für ein bestimmtes Auge korrekt darzustellen, einschließlich der Informationen zum Sichtfeld.
+Die Schnittstelle **`VREyeParameters`** der [WebVR API](/de/docs/Web/API/WebVR_API) enthält alle Informationen, die zum korrekten Rendern einer Szene für ein bestimmtes Auge erforderlich sind, einschließlich Angaben zum Sichtfeld.
 
 > [!NOTE]
-> Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Es wurde von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
+> Diese Schnittstelle war Teil der früheren [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Dieses Interface ist über die Methode [`VRDisplay.getEyeParameters()`](/de/docs/Web/API/VRDisplay/getEyeParameters) zugänglich.
+Auf diese Schnittstelle können Sie über die Methode [`VRDisplay.getEyeParameters()`](/de/docs/Web/API/VRDisplay/getEyeParameters) zugreifen.
 
 > [!WARNING]
-> Die Werte in diesem Interface sollten nicht verwendet werden, um View- oder Projektionsmatrizen zu berechnen. Um die größtmögliche Hardware-Kompatibilität zu gewährleisten, sollte man die Matrizen verwenden, die von [`VRFrameData`](/de/docs/Web/API/VRFrameData) bereitgestellt werden.
+> Die Werte dieser Schnittstelle sollten nicht zur Berechnung von Ansichts- oder Projektionsmatrizen verwendet werden. Um eine möglichst breite Hardware-Kompatibilität zu gewährleisten, verwenden Sie die von [`VRFrameData`](/de/docs/Web/API/VRFrameData) bereitgestellten Matrizen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`VREyeParameters.offset`](/de/docs/Web/API/VREyeParameters/offset) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Repräsentiert den Versatz vom Mittelpunkt zwischen den Augen des Benutzers zum Mittelpunkt des Auges, gemessen in Metern.
+  - : Gibt den Abstand zwischen dem Mittelpunkt zwischen den Augen der nutzenden Person und dem Mittelpunkt des jeweiligen Auges in Metern an.
 - [`VREyeParameters.fieldOfView`](/de/docs/Web/API/VREyeParameters/fieldOfView) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Beschreibt das aktuelle Sichtfeld für das Auge, das sich ändern kann, wenn der Benutzer seinen Augenabstand (IPD) anpasst.
+  - : Beschreibt das aktuelle Sichtfeld des Auges, das sich ändern kann, wenn die nutzende Person ihren Augenabstand (IPD) anpasst.
 - [`VREyeParameters.maximumFieldOfView`](/de/docs/Web/API/VREyeParameters/maximumFieldOfView) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Beschreibt das maximal unterstützte Sichtfeld für das aktuelle Auge.
+  - : Beschreibt das maximal unterstützte Sichtfeld des jeweiligen Auges.
 - [`VREyeParameters.minimumFieldOfView`](/de/docs/Web/API/VREyeParameters/minimumFieldOfView) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Beschreibt das minimal unterstützte Sichtfeld für das aktuelle Auge.
+  - : Beschreibt das minimal unterstützte Sichtfeld des jeweiligen Auges.
 - [`VREyeParameters.renderWidth`](/de/docs/Web/API/VREyeParameters/renderWidth) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Beschreibt die empfohlene Breite des Render-Zieles für jede Augenansicht, in Pixeln.
+  - : Gibt die empfohlene Breite des Renderziels für den Viewport des jeweiligen Auges in Pixeln an.
 - [`VREyeParameters.renderHeight`](/de/docs/Web/API/VREyeParameters/renderHeight) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Beschreibt die empfohlene Höhe des Render-Zieles für jede Augenansicht, in Pixeln.
+  - : Gibt die empfohlene Höhe des Renderziels für den Viewport des jeweiligen Auges in Pixeln an.
 
 ## Beispiele
 
@@ -61,9 +61,9 @@ navigator.getVRDisplays().then((displays) => {
 
 ## Spezifikationen
 
-Dieses Interface war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Schnittstelle war Teil der früheren [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Es ist nicht mehr vorgesehen, sie zu standardisieren.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Porting from WebVR to WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für mehr Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in Metas Leitfaden [Porting from WebVR to WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

@@ -1,34 +1,34 @@
 ---
-title: Installierbare PWAs gestalten
+title: PWAs installierbar machen
 slug: Web/Progressive_web_apps/Guides/Making_PWAs_installable
 l10n:
-  sourceCommit: fec9a9fcfaeef3ed674f60ddda7a46f18208b347
+  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
 ---
 
-Eines der charakteristischen Merkmale einer PWA ist, dass sie vom Browser zur Installation auf dem Gerät vorgeschlagen werden kann. Einmal installiert, erscheint eine PWA den Nutzern wie eine plattformabhängige App, ein permanentes Feature ihres Geräts, das sie direkt vom Betriebssystem aus starten können, genau wie jede andere App.
+Eine der kennzeichnenden Eigenschaften einer PWA ist, dass der Browser Nutzern ihre Installation auf dem Gerät anbieten kann. Nach der Installation erscheint eine PWA als plattformspezifische App: Sie ist dauerhaft auf dem Gerät verfügbar und kann wie jede andere App direkt über das Betriebssystem gestartet werden.
 
-Wir können dies wie folgt zusammenfassen:
+Zusammengefasst bedeutet das:
 
-- Unterstützende Browser schlagen dem Nutzer die Installation der PWA auf dem Gerät vor.
-- Die PWA kann wie eine plattformabhängige App installiert werden und kann den Installationsprozess anpassen.
-- Nach der Installation erhält die PWA ein App-Icon auf dem Gerät, neben plattformabhängigen Apps.
-- Einmal installiert, kann die PWA als eigenständige App gestartet werden, anstatt als Website in einem Browser.
+- Unterstützende Browser bieten Nutzern an, die PWA auf ihrem Gerät zu installieren.
+- Die PWA kann wie eine plattformspezifische App installiert werden und den Installationsprozess anpassen.
+- Nach der Installation erhält die PWA ein App-Symbol auf dem Gerät, neben den plattformspezifischen Apps.
+- Nach der Installation kann die PWA als eigenständige App statt als Website in einem Browser gestartet werden.
 
-Wir werden jeden dieser Aspekte in diesem Leitfaden besprechen. Zunächst jedoch werden wir die Anforderungen diskutieren, die eine Web-App erfüllen muss, damit sie für die Installation beworben werden kann.
+In diesem Leitfaden behandeln wir jede dieser Funktionen. Zunächst betrachten wir jedoch die Voraussetzungen, die eine Web-App erfüllen muss, damit ihre Installation angeboten wird.
 
 ## Installierbarkeit
 
-Damit eine Web-App von einem unterstützenden Browser zur Installation beworben wird, muss sie einige technische Anforderungen erfüllen. Wir können diese als die Mindestanforderungen betrachten, damit eine Web-App eine PWA ist.
+Damit ein unterstützender Browser die Installation einer Web-App anbieten kann, muss sie einige technische Voraussetzungen erfüllen. Diese können als Mindestanforderungen an eine Web-App gelten, damit sie eine PWA ist.
 
 > [!NOTE]
-> Obwohl es keine Voraussetzung für eine installierbare PWA ist, verwenden viele PWAs [Service Worker](/de/docs/Web/API/Service_Worker_API), um eine Offline-Erfahrung zu bieten.
-> Weitere Informationen finden Sie im [CycleTracker: Service Worker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers) Tutorial.
+> [Service Workers](/de/docs/Web/API/Service_Worker_API) sind keine Voraussetzung für die Installierbarkeit einer PWA. Viele PWAs verwenden sie jedoch, um eine Offline-Nutzung zu ermöglichen.
+> Weitere Informationen finden Sie im Tutorial [CycleTracker: Service Workers](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers).
 
 ### Das Web-App-Manifest
 
-Ein Web-App-Manifest ist eine JSON-Datei, die dem Browser mitteilt, wie die PWA auf dem Gerät dargestellt und verhalten werden soll. Damit eine Web-App eine PWA ist, muss sie installierbar sein, und damit sie installierbar ist, muss sie ein Manifest enthalten.
+Ein Web-App-Manifest ist eine JSON-Datei, die dem Browser mitteilt, wie die PWA auf dem Gerät aussehen und sich verhalten soll. Damit eine Web-App eine PWA ist, muss sie installierbar sein. Dazu muss sie ein Manifest enthalten.
 
-Das Manifest wird mit einem {{HTMLElement("link")}}-Element im HTML der App eingebunden:
+Das Manifest wird mit einem {{HTMLElement("link")}}-Element in den HTML-Code der App eingebunden:
 
 ```html
 <!doctype html>
@@ -41,9 +41,9 @@ Das Manifest wird mit einem {{HTMLElement("link")}}-Element im HTML der App eing
 </html>
 ```
 
-Wenn die PWA mehr als eine Seite hat, muss jede Seite das Manifest auf diese Weise referenzieren.
+Wenn die PWA mehr als eine Seite hat, muss jede Seite auf diese Weise auf das Manifest verweisen.
 
-Das Manifest enthält ein einziges JSON-Objekt mit einer Sammlung von Mitgliedern, von denen jedes einen Aspekt des Erscheinungsbildes oder Verhaltens der PWA definiert. Hier ist ein eher minimales Manifest, das nur zwei Mitglieder enthält: `"name"` und `"icons"`.
+Das Manifest enthält ein einzelnes JSON-Objekt mit mehreren Eigenschaften, die jeweils einen Aspekt des Erscheinungsbilds oder Verhaltens der PWA festlegen. Hier ist ein minimales Manifest mit nur zwei Eigenschaften: `"name"` und `"icons"`.
 
 ```json
 {
@@ -58,103 +58,103 @@ Das Manifest enthält ein einziges JSON-Objekt mit einer Sammlung von Mitglieder
 }
 ```
 
-#### Erforderliche Manifestmitglieder
+#### Erforderliche Manifest-Eigenschaften
 
-Chromium-basierte Browser, einschließlich Google Chrome, Samsung Internet und Microsoft Edge, erfordern, dass das Manifest folgende Mitglieder enthält:
+Chromium-basierte Browser, darunter Google Chrome, Samsung Internet und Microsoft Edge, verlangen, dass das Manifest die folgenden Eigenschaften enthält:
 
 - [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name) oder [`short_name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/short_name)
-- [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) müssen ein 192px- und ein 512px-Icon enthalten
+- [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) muss ein Symbol mit 192 px und eines mit 512 px enthalten
 - [`start_url`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/start_url)
 - [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display) und/oder [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override)
-- [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) muss `false` sein oder nicht vorhanden sein
+- [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) muss `false` sein oder fehlen
 
-Eine vollständige Beschreibung jedes Mitglieds finden Sie in der Referenzdokumentation des [Web-App-Manifests](/de/docs/Web/Progressive_web_apps/Manifest).
+Eine vollständige Beschreibung aller Eigenschaften finden Sie in der Referenzdokumentation zum [Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Manifest).
 
-### Erforderliche Verwendung von HTTPS, localhost oder loopback
+### HTTPS, localhost oder Loopback sind erforderlich
 
-Damit eine PWA installierbar ist, muss sie über das `https`-Protokoll oder aus einer lokalen Entwicklungsumgebung mit `localhost` oder `127.0.0.1` bereitgestellt werden — mit oder ohne Portnummer.
+Damit eine PWA installierbar ist, muss sie über das `https`-Protokoll oder aus einer lokalen Entwicklungsumgebung über `localhost` oder `127.0.0.1` bereitgestellt werden – mit oder ohne Portnummer.
 
-Dies ist eine strengere Anforderung als [sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts), die Ressourcen, die über `file://`-URLs geladen werden, als sicher betrachten.
+Dies ist eine strengere Anforderung als die für einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts), bei dem auch Ressourcen als sicher gelten, die über `file://`-URLs geladen werden.
 
-## Installation aus einem App Store
+## Installation aus einem App-Store
 
-Nutzer erwarten, Apps im App Store ihrer Plattform zu finden, wie dem Google Play Store oder dem Apple App Store.
+Nutzer erwarten, Apps im App-Store ihrer Plattform zu finden, etwa im Google Play Store oder im Apple App Store.
 
-Wenn Ihre App die Voraussetzungen für die Installierbarkeit erfüllt, können Sie sie paketieren und über App Stores vertreiben. Der Prozess ist spezifisch für jeden App Store:
+Wenn Ihre App die Voraussetzungen für die Installierbarkeit erfüllt, können Sie sie paketieren und über App-Stores vertreiben. Das Verfahren unterscheidet sich je nach App-Store:
 
-- [Anleitung zum Veröffentlichen einer PWA im Google Play Store](https://chromeos.dev/en/publish/pwa-in-play)
-- [Anleitung zum Veröffentlichen einer PWA im Microsoft Store](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/microsoft-store)
-- [Anleitung zum Veröffentlichen einer PWA im Meta Quest Store](https://developers.meta.com/horizon/resources/publish-submit/)
+- [Anleitung zur Veröffentlichung einer PWA im Google Play Store](https://chromeos.dev/en/publish/pwa-in-play)
+- [Anleitung zur Veröffentlichung einer PWA im Microsoft Store](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/microsoft-store)
+- [Anleitung zur Veröffentlichung einer PWA im Meta Quest Store](https://developers.meta.com/vr/resources/publish-submit/)
 
-Der [PWABuilder](https://docs.pwabuilder.com/#/builder/quick-start) ist ein Werkzeug, das den Prozess des Verpackens und Veröffentlichens einer PWA für verschiedene App Stores vereinfacht. Er unterstützt den Google Play Store, Microsoft Store, Meta Quest Store und iOS App Store.
+[PWABuilder](https://docs.pwabuilder.com/#/builder/quick-start) ist ein Tool, das das Paketieren und Veröffentlichen einer PWA für verschiedene App-Stores vereinfacht. Es unterstützt den Google Play Store, den Microsoft Store, den Meta Quest Store und den iOS App Store.
 
-Wenn Sie Ihre App dem App Store hinzugefügt haben, können Nutzer sie von dort aus installieren, genau wie eine plattformabhängige App.
+Wenn Sie Ihre App einem App-Store hinzugefügt haben, können Nutzer sie dort wie eine plattformspezifische App installieren.
 
-## Installation aus dem Web
+## Installation über das Web
 
-Wenn ein unterstützender Browser feststellt, dass eine Web-App die zuvor beschriebenen Installierbarkeitskriterien erfüllt, wird die App dem Nutzer zur Installation vorgeschlagen. Dem Nutzer wird die Möglichkeit geboten, die App zu installieren. Dies bedeutet, dass Sie Ihre PWA als Website vertreiben können, wodurch sie über die Websuche auffindbar ist, und sie auch in App Stores vertreiben können, sodass Nutzer sie dort finden können.
+Wenn ein unterstützender Browser feststellt, dass eine Web-App die zuvor beschriebenen Kriterien für die Installierbarkeit erfüllt, bietet er Nutzern an, sie zu installieren. So können Sie Ihre PWA als Website bereitstellen, damit sie über die Websuche gefunden werden kann, und sie zugleich über App-Stores vertreiben.
 
-Dies ist ein großartiges Beispiel dafür, wie PWAs Ihnen das Beste aus beiden Welten bieten können. Es ist auch ein gutes Beispiel dafür, wie progressive Enhancement mit PWAs funktioniert: Wenn ein Nutzer Ihre PWA im Web findet und einen Browser verwendet, der sie nicht installieren kann, kann er sie wie eine normale Website nutzen.
+Das zeigt, wie PWAs die Vorteile beider Wege verbinden können. Es ist auch ein gutes Beispiel dafür, wie progressive Verbesserung bei PWAs funktioniert: Wenn Nutzer Ihre PWA im Web mit einem Browser aufrufen, der sie nicht installieren kann, können sie sie wie eine gewöhnliche Website verwenden.
 
-Die Benutzeroberfläche zum Installieren einer PWA aus dem Web variiert von einem Browser zum anderen und von einer Plattform zur anderen. Beispielsweise könnte ein Browser ein "Installieren"-Symbol in der URL-Leiste anzeigen, wenn der Nutzer die Seite aufruft:
+Die Benutzeroberfläche für die Installation einer PWA aus dem Web unterscheidet sich je nach Browser und Plattform. Beispielsweise kann ein Browser ein „Installieren“-Symbol in der Adressleiste anzeigen, wenn Nutzer die Seite aufrufen:
 
-![Chrome URL-Leiste, zeigt das PWA-Installationssymbol](pwa-install.png)
+![Chrome-Adressleiste mit Symbol zur Installation einer PWA](pwa-install.png)
 
-Wenn der Nutzer das Symbol auswählt, zeigt der Browser eine Eingabeaufforderung an, die fragt, ob sie die PWA installieren möchten, und wenn sie zustimmen, wird die PWA installiert.
+Wenn Nutzer das Symbol auswählen, zeigt der Browser eine Aufforderung an, die PWA zu installieren. Stimmen sie zu, wird die PWA installiert.
 
-Die Eingabeaufforderung zeigt den Namen und das Symbol der PWA an, die aus den Manifestmitgliedern [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name) und [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) entnommen werden.
+Die Aufforderung zeigt den Namen und das Symbol der PWA an. Diese stammen aus den Manifest-Eigenschaften [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name) und [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons).
 
 ### Browser-Unterstützung
 
-Die Unterstützung für die Promotion der PWA-Installation vom Web aus variiert je nach Browser und Plattform.
+Ob Browser die Installation einer PWA aus dem Web anbieten, hängt vom Browser und von der Plattform ab.
 
-Auf dem Desktop:
+Auf Desktop-Geräten:
 
-- Chromium-Browser unterstützen die Installation von PWAs, die eine Manifestdatei auf allen unterstützten Desktop-Betriebssystemen haben.
-- Safari unterstützt "Zum Dock hinzufügen" (_Datei_ > _Zum Dock hinzufügen..._) auf macOS Sonoma (Safari 17) und später für jede Web-App mit oder ohne Manifestdatei.
-- Firefox unterstützt die Installation von PWAs mit einer Manifestdatei nicht.
+- Chromium-Browser unterstützen die Installation von PWAs mit einer Manifestdatei auf allen unterstützten Desktop-Betriebssystemen.
+- Safari unterstützt auf macOS Sonoma (Safari 17) und neuer „Zum Dock hinzufügen“ (_Ablage_ > _Zum Dock hinzufügen …_) für jede Web-App, unabhängig davon, ob sie eine Manifestdatei hat.
+- Firefox unterstützt die Installation von PWAs mithilfe einer Manifestdatei nicht.
 
-Auf mobilen Geräten:
+Auf Mobilgeräten:
 
-- Auf Android sind die einzigen Browser, die [PWAs als WebAPKs installieren](https://web.dev/learn/pwa/installation#webapks): Chrome auf Geräten mit Google Mobile Services (GMS) und Samsung Internet auf Samsung-Geräten.
-  Dies gibt ihnen einen echten Eintrag im App-Starter und -Switcher sowie in den Systemeinstellungen.
-  Firefox, Edge, Opera und andere Browser einschließlich Chrome auf Geräten ohne GMS, fügen stattdessen ein browsergebadgte Home-Screen-Verknüpfung hinzu, die die Seite im Browser öffnet.
-- Auf iOS 16.3 und früher können PWAs nur mit Safari installiert werden.
-- Auf iOS 16.4 und später können PWAs aus dem Share-Menü in Safari, Chrome, Edge, Firefox und Orion installiert werden.
+- Unter Android installieren nur die folgenden Browser [PWAs als WebAPKs](https://web.dev/learn/pwa/installation#webapks): Chrome auf Geräten mit Google Mobile Services (GMS) und Samsung Internet auf Samsung-Geräten.
+  Dadurch erhalten die Apps einen eigenen Eintrag im App-Launcher, in der App-Übersicht und in den Systemeinstellungen.
+  Firefox, Edge, Opera und andere Browser – einschließlich Chrome auf Geräten ohne GMS – fügen stattdessen eine mit dem Browser-Symbol gekennzeichnete Verknüpfung zum Startbildschirm hinzu, die die Website im Browser öffnet.
+- Unter iOS 16.3 und älter können PWAs nur mit Safari installiert werden.
+- Unter iOS 16.4 und neuer können PWAs über das Teilen-Menü in Safari, Chrome, Edge, Firefox und Orion installiert werden.
 
 ### Websites als Apps installieren
 
-Chrome für Desktop und Android, Safari für Desktop und Edge für Desktop unterstützen auch das Installieren jeder Website als App, unabhängig davon, ob sie eine Manifestdatei hat oder nicht, und ohne Berücksichtigung der Installierbarkeitskriterien für die Manifestdatei.
-Der Vorteil der Verwendung einer Manifestdatei besteht darin, dass der Browser die Website aktiv für die Installation bewirbt, wenn sie besucht wird, und Entwickler das Installationsverhalten anpassen können.
+Chrome für Desktop und Android, Safari für Desktop und Edge für Desktop ermöglichen es Nutzern außerdem, jede Website als App zu installieren – unabhängig davon, ob sie eine Manifestdatei hat oder die Kriterien für die Installierbarkeit erfüllt.
+Der Vorteil einer Manifestdatei besteht darin, dass der Browser beim Besuch der Website aktiv ihre Installation anbietet und Entwickler das Installationsverhalten anpassen können.
 
-### Auslösen der Installationsaufforderung
+### Die Installationsaufforderung auslösen
 
-Eine PWA kann ihre eigene In-Page-Benutzeroberfläche bereitstellen, um dem Nutzer das Öffnen der Installationsaufforderung zu ermöglichen, anstatt sich auf die standardmäßige vom Browser bereitgestellte Benutzeroberfläche zu verlassen. Dadurch kann eine PWA Kontext und einen Grund für die Nutzer bereitstellen, die PWA zu installieren, und kann helfen, den Installationsablauf für Nutzer leichter auffindbar zu machen.
+Eine PWA kann innerhalb der Seite eine eigene Benutzeroberfläche bereitstellen, über die Nutzer die Installationsaufforderung öffnen können, statt sich auf die standardmäßige Benutzeroberfläche des Browsers zu verlassen. So kann die PWA erklären, warum sich eine Installation lohnt, und die Installationsmöglichkeit leichter auffindbar machen.
 
-Diese Technik beruht auf dem [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event)-Ereignis, das auf dem globalen [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst wird, sobald der Browser festgestellt hat, dass die PWA installierbar ist. Dieses Ereignis hat eine [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)-Methode, die die Installationsaufforderung anzeigt. Eine PWA kann also:
+Diese Technik beruht auf dem Ereignis [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event), das auf dem globalen [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst wird, sobald der Browser festgestellt hat, dass die PWA installierbar ist. Das Ereignis verfügt über eine Methode [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt), mit der die Installationsaufforderung angezeigt wird. Eine PWA kann daher:
 
-- ihren eigenen "Installieren"-Button hinzufügen
-- auf das `beforeinstallprompt`-Ereignis hören
-- das Standardverhalten des Ereignisses durch Aufrufen von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen
-- im Ereignis-Handler für ihren eigenen "Installieren"-Button [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt) aufrufen.
+- eine eigene Schaltfläche „Installieren“ hinzufügen
+- auf das Ereignis `beforeinstallprompt` warten
+- das Standardverhalten des Ereignisses durch Aufrufen von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) verhindern
+- im Event-Handler ihrer eigenen Schaltfläche „Installieren“ [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt) aufrufen
 
-Dies wird auf iOS nicht unterstützt.
+Dies wird unter iOS nicht unterstützt.
 
-### Anpassung der Installationsaufforderung
+### Die Installationsaufforderung anpassen
 
-Standardmäßig enthält die Installationsaufforderung den Namen und das Symbol der PWA. Wenn Sie Werte für die Manifestmitglieder [`description`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/description) und [`screenshots`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/screenshots) angeben, werden diese Werte nur unter Android in der Installationsaufforderung angezeigt, was den Nutzern zusätzliche Kontextinformationen und Motivation zur Installation der PWA bietet.
+Standardmäßig enthält die Installationsaufforderung den Namen und das Symbol der PWA. Wenn Sie Werte für die Manifest-Eigenschaften [`description`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/description) und [`screenshots`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/screenshots) angeben, werden diese Werte – ausschließlich unter Android – ebenfalls in der Installationsaufforderung angezeigt. Das gibt Nutzern zusätzlichen Kontext und einen weiteren Grund, die PWA zu installieren.
 
-Das untenstehende Bild zeigt, wie die Installationsaufforderung für das [PWAmp-Demo](https://github.com/MicrosoftEdge/Demos/tree/main/pwamp) auf Google Chrome unter Android aussieht:
+Der folgende Screenshot zeigt die Installationsaufforderung für die [PWAmp-Demo](https://github.com/MicrosoftEdge/Demos/tree/main/pwamp) in Google Chrome unter Android:
 
-![Installationsaufforderung für PWAmp auf Android](pwamp-install-prompt-android.png)
+![Installationsaufforderung für PWAmp unter Android](pwamp-install-prompt-android.png)
 
-## Starten der App
+## Die App starten
 
-Sobald die PWA installiert ist, wird ihr Symbol auf dem Gerät neben allen anderen installierten Apps des Nutzers angezeigt, und ein Klick auf das Symbol startet die App.
+Nach der Installation erscheint das Symbol der PWA neben den anderen installierten Apps auf dem Gerät. Durch Auswählen des Symbols wird die App gestartet.
 
-Sie können das [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Manifestmitglied verwenden, um den _Anzeigemodus_ zu steuern: also wie die PWA beim Starten dargestellt wird. Insbesondere:
+Mit der Manifest-Eigenschaft [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display) können Sie den _Anzeigemodus_ festlegen, also bestimmen, wie die PWA beim Start erscheint. Insbesondere gilt:
 
-- `"standalone"` zeigt an, dass die PWA wie eine plattformabhängige Anwendung aussehen und sich anfühlen soll, ohne Browser-Benutzeroberflächenelemente
-- `"browser"` gibt an, dass die PWA als neuer Browser-Tab oder -Fenster geöffnet werden soll, genau wie eine normale Website.
+- `"standalone"` bedeutet, dass die PWA wie eine plattformspezifische Anwendung aussehen und sich so verhalten soll, ohne Benutzeroberflächenelemente des Browsers.
+- `"browser"` bedeutet, dass die PWA wie eine gewöhnliche Website in einem neuen Browser-Tab oder -Fenster geöffnet werden soll.
 
-Wenn der Browser einen bestimmten Anzeigemodus nicht unterstützt, fällt `display` gemäß einer vordefinierten Reihenfolge auf einen unterstützten Anzeigemodus zurück. Das [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) ermöglicht es Ihnen, die Rückfallreihenfolge neu zu definieren.
+Wenn der Browser einen bestimmten Anzeigemodus nicht unterstützt, greift `display` gemäß einer vordefinierten Reihenfolge auf einen unterstützten Anzeigemodus zurück. Mit [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) können Sie diese Reihenfolge neu festlegen.
