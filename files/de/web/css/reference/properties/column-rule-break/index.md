@@ -3,14 +3,14 @@ title: "`column-rule-break` CSS property"
 short-title: column-rule-break
 slug: Web/CSS/Reference/Properties/column-rule-break
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: 5fd3b03e9ad1ee4e8bc64d4f6888570690a7fbc8
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-break`** legt das Verhalten zum Unterteilen von Spaltenlinien in Segmente fest, wo immer Spaltenlinien Zeilenlücken kreuzen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-break`** legt fest, ob Spaltenlinien dort in Segmente unterteilt werden, wo sie Zeilenabstände kreuzen.
 
-{{InteractiveExample("CSS Demo: rule")}}
+{{InteractiveExample("CSS Demo: column-rule-break")}}
 
 ```css interactive-example-choice
 column-rule-break: none;
@@ -89,32 +89,32 @@ column-rule-break: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einzelnes Schlüsselwort aus der folgenden Liste angegeben:
+Für diese Eigenschaft wird eines der folgenden Schlüsselwörter angegeben:
 
 - `none`
-  - : Es gibt keine Unterbrechungen in Spaltenlinien, wenn sie Zeilenlücken kreuzen; stattdessen wird eine durchgehende Spaltenlinie über die gesamte Höhe des Containers, von Kante zu Kante, gezeichnet.
+  - : Spaltenlinien werden nicht unterbrochen, wenn sie Zeilenabstände kreuzen. Stattdessen wird über die gesamte Höhe des Containers, von einem Rand zum anderen, eine durchgehende Spaltenlinie gezeichnet.
 - `normal`
-  - : In Grid- und Flex-Containern verhält sich dies wie `none`. In Multi-Col-Layouts verhält es sich wie `intersection`. Dies ist der Standardwert.
+  - : Verhält sich in Grid- und Flex-Containern wie `none`, in mehrspaltigen Layouts wie `intersection`. Dies ist der Standardwert.
 - `intersection`
-  - : Spaltenlinien werden immer unterbrochen, wenn sie Zeilenlücken kreuzen, wobei Spaltenliniensegmente an Container- und Lückenkanten beginnen und enden.
+  - : Spaltenlinien werden immer unterbrochen, wenn sie Zeilenabstände kreuzen. Die Segmente beginnen und enden an den Rändern des Containers beziehungsweise der Abstände.
 
 ## Beschreibung
 
-Die Eigenschaft `column-rule-break` legt fest, ob Spaltenlinien in Segmente unterteilt werden, wenn sie Zeilenlücken kreuzen.
+Die Eigenschaft `column-rule-break` legt fest, ob Spaltenlinien beim Kreuzen von Zeilenabständen in Segmente unterteilt werden.
 
-Spaltenlinien werden innerhalb einer Spaltenlücke als ein oder mehrere Segmente gezeichnet. Segmente befinden sich zwischen benachbarten Grid-Items in getrennten Spalten, zwischen Flex-Items oder Flex-Zeilen in Flex-Layouts abhängig von `flex-direction` oder zwischen Spalten in Multi-Col-Layouts.
+Spaltenlinien werden innerhalb eines Spaltenabstands als ein oder mehrere Segmente gezeichnet. Diese Segmente liegen zwischen benachbarten Grid-Elementen in verschiedenen Spalten, je nach `flex-direction` zwischen Flex-Elementen oder Flex-Zeilen in Flex-Layouts oder zwischen Spalten in mehrspaltigen Layouts.
 
-Die Eigenschaft `column-rule-break` bestimmt nur, ob die Unterbrechung erfolgt. Standardmäßig entspricht die Unterbrechung zwischen Spaltenliniensegmenten der Höhe der Zeilenlücke, da jedes Segment an der Kante der Lücke (oder der Kante des Containers) beginnt und endet. Wenn die Zeilenlücke `0` beträgt, ist diese Unterbrechung möglicherweise nicht sichtbar. Die Endpositionen können mit den Eigenschaften {{cssxref("column-rule-inset")}} gesteuert werden.
+Die Eigenschaft `column-rule-break` bestimmt lediglich, ob eine Unterbrechung erfolgt. Standardmäßig entspricht die Unterbrechung zwischen Spaltenliniensegmenten der Höhe des Zeilenabstands, da jedes Segment am Rand des Abstands oder des Containers beginnt und endet. Beträgt der Zeilenabstand `0`, ist diese Unterbrechung möglicherweise nicht sichtbar. Die Endpositionen lassen sich mit den {{cssxref("column-rule-inset")}}-Eigenschaften steuern.
 
-Wenn `column-rule-break` auf `none` gesetzt ist, gibt es keine Unterbrechungen. In diesem Fall ist die Spaltenlinie durchgehend, und alle Werte von `column-rule-inset` wirken sich nur auf die linke und rechte Kante der Spaltenlinie an der Kante des Containers aus. Wenn Unterbrechungen vorhanden sind, wirken sich die Eigenschaften `column-rule-inset` auf den Anfang und das Ende jedes Spaltenliniensegments aus.
+Ist `column-rule-break` auf `none` gesetzt, gibt es keine Unterbrechungen. In diesem Fall ist die Spaltenlinie durchgehend, und `column-rule-inset`-Werte wirken sich nur auf ihre beiden Enden am Containerrand aus. Bei Unterbrechungen beeinflussen die `column-rule-inset`-Eigenschaften dagegen den Anfang und das Ende jedes Spaltenliniensegments.
 
-Die Eigenschaft `column-rule-break` kann zusammen mit der Eigenschaft {{cssxref("row-rule-break")}} über die Kurzform {{cssxref("rule-break")}} gesetzt werden.
+Die Eigenschaft `column-rule-break` kann zusammen mit der Eigenschaft {{cssxref("row-rule-break")}} über die Kurzschreibweise {{cssxref("rule-break")}} festgelegt werden.
 
-Ob eine Spaltenlinie standardmäßig aus einem einzigen durchgehenden Segment oder aus Segmenten besteht, die beim Kreuzen von Zeilenlücken unterbrochen werden, hängt vom Containertyp ab.
+Ob eine Spaltenlinie standardmäßig aus einem einzigen durchgehenden Segment oder aus Segmenten besteht, die an Zeilenabständen unterbrochen werden, hängt vom Containertyp ab.
 
 ### Grid-Container
 
-In Grid-Containern verlaufen Spaltenliniensegmente standardmäßig durch Kreuzungen mit Zeilenlücken hindurch, entsprechend `column-rule-break: none`. Durch Setzen von `column-rule-break: intersection` werden die Segmente gezwungen, an jeder Zeilenlücke unterbrochen zu werden, die sie andernfalls kreuzen würden.
+In Grid-Containern verlaufen Spaltenliniensegmente standardmäßig durch Kreuzungen mit Zeilenabständen hindurch. Dies entspricht `column-rule-break: none`. Mit `column-rule-break: intersection` werden die Segmente an jedem Zeilenabstand unterbrochen, den sie andernfalls kreuzen würden.
 
 ```html hidden
 <h1>Default rule breaks in grid</h1>
@@ -169,11 +169,11 @@ h2 {
 
 {{EmbedLiveSample("grid containers", "", "240")}}
 
-Standardmäßig gibt es keine Unterbrechungen von Spaltenlinien. Aktivieren Sie das Kontrollkästchen, um `column-rule-break` auf `intersection` zu setzen, wodurch die ansonsten durchgehenden Linien an jeder „Kreuz“-Kreuzung unterbrochen werden. Standardmäßig entspricht die Unterbrechung zwischen Segmenten der Höhe von {{cssxref("row-gap")}}, die in diesem Fall auf `20px` gesetzt wurde.
+Standardmäßig werden Spaltenlinien nicht unterbrochen. Aktivieren Sie das Kontrollkästchen, um `column-rule-break` auf `intersection` zu setzen. Dadurch werden die ansonsten durchgehenden Linien an jeder Kreuzung unterbrochen. Die Unterbrechung zwischen den Segmenten entspricht standardmäßig der Höhe von {{cssxref("row-gap")}}, die hier auf `20px` festgelegt wurde.
 
 ### Flex-Container
 
-In Flexbox hängt es von `flex-direction` ab, ob die Spaltenlinien standardmäßig an jeder Zeilenlücke unterbrochen werden. In horizontalen Schreibrichtungen wird die Spaltenlinie bei `row` oder `row-reverse` an jeder Zeilenlücke unterbrochen, entsprechend `column-rule-break: intersection`. Wenn `flex-direction` auf `column` oder `column-reverse` gesetzt ist, ist die Spaltenlinie standardmäßig durchgehend, entsprechend `column-rule-break: none`.
+In Flexbox hängt es von `flex-direction` ab, ob Spaltenlinien standardmäßig an jedem Zeilenabstand unterbrochen werden. Bei horizontalen Schreibrichtungen werden die Spaltenlinien bei `row` oder `row-reverse` an jedem Zeilenabstand unterbrochen. Dies entspricht `column-rule-break: intersection`. Bei `column` oder `column-reverse` sind sie standardmäßig durchgehend. Dies entspricht `column-rule-break: none`.
 
 ```html hidden
 <h1>Default rule breaks in flexbox</h1>
@@ -259,11 +259,11 @@ section {
 
 {{EmbedLiveSample("Flex containers", "", "300")}}
 
-In horizontalen Schreibrichtungen wirkt sich das Setzen von `column-rule-break` auf `intersection` nur auf die Spaltenlinien in den Szenarien `column` und `column-reverse` aus.
+Bei horizontalen Schreibrichtungen wirkt sich `column-rule-break: intersection` nur in den Fällen `column` und `column-reverse` auf die Spaltenlinien aus.
 
-### Multi-Col-Container
+### Mehrspaltige Container
 
-In Multi-Col-Containern verhält sich der Standardwert `normal` genauso wie `intersection`. Während die Zeilendekorationen standardmäßig durchgehend sind, werden Spaltenlinien an jeder Kreuzung unterbrochen. Spaltenlinien werden an jeder Zeilenlücke in Segmente unterteilt, wobei jedes Segment an der Kante der Lücke beginnt und endet. Diese Start- und Endpositionen können mit den Eigenschaften `column-rule-inset` geändert werden.
+In mehrspaltigen Containern verhält sich der Standardwert `normal` wie `intersection`. Während Zeilenlinien standardmäßig durchgehend sind, werden Spaltenlinien an jeder Kreuzung unterbrochen. An jedem Zeilenabstand werden sie in Segmente unterteilt, die jeweils am Rand des Abstands beginnen und enden. Diese Anfangs- und Endpositionen können mit den `column-rule-inset`-Eigenschaften geändert werden.
 
 ```html hidden
 <h1>Default rule breaks in multi-col</h1>
@@ -348,7 +348,7 @@ label {
 
 {{EmbedLiveSample("multi-col containers", "", "540")}}
 
-Wenn Sie `none` auswählen, wird die Spaltenlinie nicht länger in Segmente unterteilt; stattdessen verläuft sie vom oberen Rand des Containers bis zum unteren Rand. Die Eigenschaften `column-rule-inset` können verwendet werden, um die Enden der Spaltenlückendekorationen zu versetzen.
+Wenn Sie `none` auswählen, wird die Spaltenlinie nicht mehr in Segmente unterteilt. Stattdessen verläuft sie vom oberen bis zum unteren Rand des Containers. Mit den `column-rule-inset`-Eigenschaften lassen sich die Enden der Linien innerhalb der Spaltenabstände verschieben.
 
 ## Formale Definition
 
@@ -362,11 +362,11 @@ Wenn Sie `none` auswählen, wird die Spaltenlinie nicht länger in Segmente unte
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel verwenden wir die Eigenschaft `column-rule-break`, um jedes Liniensegment in einem Grid-Container zu unterbrechen, sodass Spaltenliniensegmente zwischen Zeilenlücken erstellt werden. Das Ändern der Eigenschaft `row-gap` verändert die Größe der Segmente.
+In diesem Beispiel verwenden wir die Eigenschaft `column-rule-break`, um die Spaltenlinien in einem Grid-Container an den Zeilenabständen zu unterbrechen. Durch Ändern der Eigenschaft `row-gap` ändern Sie die Länge der Segmente.
 
 #### HTML
 
-Wir erstellen eine Liste mit 50 Elementen und einen Schieberegler, um die Breite der Zeilenlücke auszuwählen. Der Großteil des HTML ist der Kürze halber ausgeblendet.
+Wir erstellen eine Liste mit 50 Elementen und einen Schieberegler, mit dem sich die Breite des Zeilenabstands auswählen lässt. Der Großteil des HTML-Codes ist der Kürze halber ausgeblendet.
 
 ```html
 <ul>
@@ -441,7 +441,7 @@ Wir erstellen eine Liste mit 50 Elementen und einen Schieberegler, um die Breite
 
 #### CSS
 
-Wir definieren die unsortierte Liste als 8-Spalten-Container, erstellen mit der Eigenschaft {{cssxref("grid-template-columns")}} Zeilen und Spalten und setzen {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen. Wir fügen eine {{cssxref("gap")}} von `20px` ein, um genug Platz zwischen den Zeilen und Spalten für unsere durchgehenden Zeilen- und Spaltenlinien von `20px` zu schaffen. Wir verwenden die Eigenschaft {{cssxref("rule-overlap")}}, um die Spaltendekoration über allen Zeilendekorationen zu zeichnen. Abschließend legen wir fest, dass die Spaltenlinien an jeder Kreuzung unterbrochen werden.
+Wir definieren die ungeordnete Liste als Container mit acht Spalten. Mit der Eigenschaft {{cssxref("grid-template-columns")}} erstellen wir Zeilen und Spalten und setzen {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen. Mit {{cssxref("gap")}} von `20px` schaffen wir zwischen den Zeilen und Spalten genügend Platz für die jeweils `20px` breiten, durchgezogenen Zeilen- und Spaltenlinien. Mit der Eigenschaft {{cssxref("rule-overlap")}} legen wir fest, dass die Spaltenlinien über den Zeilenlinien gezeichnet werden. Schließlich legen wir fest, dass die Spaltenlinien an jeder Kreuzung unterbrochen werden.
 
 ```css live-sample___basic
 ul {
@@ -486,7 +486,7 @@ gap.addEventListener("input", () => {
 
 {{EmbedLiveSample("Basic", "", "600")}}
 
-Vergrößern Sie die Zeilenlücken und beachten Sie, wie die Unterbrechungen zwischen Spaltensegmenten wachsen. Verringern Sie die Breite der Zeilenlücke auf `0px` und beachten Sie, wie die Spaltendekoration durchgehend erscheint. Sie ist es nicht! Die Lücke von `0px` zwischen den Segmenten ist möglicherweise nicht sichtbar, aber die Segmente beginnen und enden weiterhin an der Lücke. Daher werden weiterhin alle mit Eigenschaften `column-rule-inset` festgelegten Versätze angewendet.
+Vergrößern Sie die Zeilenabstände und beobachten Sie, wie die Unterbrechungen zwischen den Spaltenliniensegmenten größer werden. Verringern Sie den Zeilenabstand auf `0px`: Die Spaltenlinie erscheint nun durchgehend, ist es aber nicht. Der Abstand von `0px` zwischen den Segmenten ist möglicherweise nicht sichtbar. Die Segmente beginnen und enden jedoch weiterhin am Zeilenabstand, sodass mit den `column-rule-inset`-Eigenschaften festgelegte Verschiebungen weiterhin angewendet werden.
 
 ## Spezifikationen
 
@@ -499,9 +499,9 @@ Vergrößern Sie die Zeilenlücken und beachten Sie, wie die Unterbrechungen zwi
 ## Siehe auch
 
 - {{cssxref("row-rule-break")}}
-- Kurzform {{cssxref("rule-break")}}
-- Kurzform {{cssxref("rule-inset")}}
+- Kurzschreibweise {{cssxref("rule-break")}}
+- Kurzschreibweise {{cssxref("rule-inset")}}
 - {{cssxref("rule-overlap")}}
 - {{cssxref("rule-visibility-items")}}
-- Kurzform {{cssxref("rule")}}
-- Modul [CSS-Lücken](/de/docs/Web/CSS/Guides/Gaps)
+- Kurzschreibweise {{cssxref("rule")}}
+- Modul [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps)

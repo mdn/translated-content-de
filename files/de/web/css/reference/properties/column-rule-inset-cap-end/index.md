@@ -3,14 +3,14 @@ title: "`column-rule-inset-cap-end` CSS property"
 short-title: column-rule-inset-cap-end
 slug: Web/CSS/Reference/Properties/column-rule-inset-cap-end
 l10n:
-  sourceCommit: 2c2390b77141b960cac32c1843dac4d907e9c6c2
+  sourceCommit: 5fd3b03e9ad1ee4e8bc64d4f6888570690a7fbc8
 ---
 
 {{SeeCompatTable}}
 
-Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-inset-cap-end`** lässt sich die Unterkante von [Cap-Endpunkten](#cap-endpunkte_verstehen) von Spaltentrennliniensegmenten am Endrand des Containers sowie von Cap-Endpunkten, an denen sich keine Trennliniensegmente schneiden, versetzen.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-inset-cap-end`** können die unteren Enden von Spaltenliniensegmenten an [Abschlussendpunkten](#abschlussendpunkte_verstehen) versetzt werden – sowohl am Endrand des Containers als auch dort, wo keine anderen Liniensegmente aufeinandertreffen.
 
-{{InteractiveExample("CSS Demo: rule")}}
+{{InteractiveExample("CSS Demo: column-rule-inset-cap-end")}}
 
 ```css interactive-example-choice
 column-rule-inset-cap-end: -20px;
@@ -113,50 +113,50 @@ column-rule-inset-cap-end: unset;
 
 ### Werte
 
-Für diese Eigenschaft wird ein einzelner Wert aus der folgenden Liste angegeben:
+Diese Eigenschaft wird durch einen einzelnen Wert aus der folgenden Liste angegeben:
 
 - `overlap-join`
-  - : Ergibt `0`.
+  - : Entspricht `0`.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Cap-Endpunkt, dessen Bezugsgröße entweder die Breite von `row-gap` oder `0` ist.
+  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Abschlussendpunkt: entweder auf die Breite des `row-gap` oder auf `0`.
 
 ## Beschreibung
 
-Mit der Eigenschaft `column-rule-inset-cap-end` lässt sich der Endrand von [Cap-Segmentendpunkten](#cap-endpunkte_verstehen) einrücken. Der Standardwert ist `0`; dies entspricht `overlap-join`. Positive Werte verkürzen das Segment, negative Werte verlängern es.
+Mit der Eigenschaft `column-rule-inset-cap-end` lässt sich der Endrand von [Abschlussendpunkten von Segmenten](#abschlussendpunkte_verstehen) einziehen. Der Standardwert ist `0` und entspricht damit `overlap-join`. Positive Werte verkürzen das Segment, negative Werte verlängern es.
 
-Spaltentrennlinien werden innerhalb einer Spaltenlücke als ein oder mehrere Segmente gezeichnet. Segmente liegen zwischen:
+Spaltenlinien werden innerhalb eines Spaltenabstands als ein oder mehrere Segmente gezeichnet. Solche Segmente liegen zwischen:
 
 - Benachbarten Spalten in CSS-Grid-Layouts.
 - Flex-Elementen oder Flex-Zeilen in Flex-Layouts, abhängig von `flex-direction`.
 - Spalten in mehrspaltigen Layouts.
 
-Ob eine Spaltentrennlinie mehrere Zeilen überspannt oder in mehrere Segmente aufgeteilt wird, bestimmt die Eigenschaft {{cssxref("column-rule-break")}}. Innere Unterbrechungen zwischen Spaltentrennliniensegmenten haben dabei die Größe von {{cssxref("row-gap")}}.
+Ob sich eine Spaltenlinie über mehrere Zeilen erstreckt oder in mehrere Segmente aufgeteilt wird, legt die Eigenschaft {{cssxref("column-rule-break")}} fest. Innere Unterbrechungen zwischen Spaltenliniensegmenten haben die Größe des {{cssxref("row-gap")}}.
 
-`column-rule-inset-cap-end`-Werte mit Längeneinheiten rücken Segmente um den angegebenen Wert ein – sowohl an inneren als auch an Endrand-Cap-Segmenten. Negative Längenwerte bewirken einen Versatz nach außen, sodass Endrand-Cap-Segmente über den Endrand des Containers hinausragen.
+`column-rule-inset-cap-end`-Werte mit einer Längeneinheit ziehen Segmente um den angegebenen Wert ein – sowohl an inneren Abschlusssegmenten als auch an solchen am Endrand. Negative Längenwerte verlängern die Segmente nach außen; Abschlusssegmente am Endrand reichen dann über den Endrand des Containers hinaus.
 
-[Prozentwerte](#prozentwerte_verstehen) beziehen sich bei inneren Segmenten auf die Größe von {{cssxref("row-gap")}}. Bei Endrand-Cap-Segmenten beziehen sich Prozentwerte auf `0`. Daher bewirken Prozentwerte niemals, dass Cap-Segmentendpunkte am Endrand des Containers über diesen hinausragen.
+[Prozentwerte](#prozentwerte_verstehen) beziehen sich bei inneren Segmenten auf die Größe des {{cssxref("row-gap")}}. Bei Abschlusssegmenten am Endrand beziehen sie sich auf `0`. Prozentwerte führen daher nie dazu, dass Abschlussendpunkte am Endrand des Containers über den Container hinausragen.
 
-Die Eigenschaft `column-rule-inset-cap-end` ist Bestandteil mehrerer [Kurzschreibweisen](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
+Die Eigenschaft `column-rule-inset-cap-end` ist eine Teileigenschaft mehrerer [Kurzschreibweisen](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
 
-- Um die Cap-Endpunkte am Anfang und Ende einzurücken, können `column-rule-inset-cap-end` und die Eigenschaft {{cssxref("column-rule-inset-cap-start")}} mit der Kurzschreibweise {{cssxref("column-rule-inset-cap")}} festgelegt werden.
+- Um die Abschlüsse am Anfang und Ende einzuziehen, können `column-rule-inset-cap-end` und {{cssxref("column-rule-inset-cap-start")}} mit der Kurzschreibweise {{cssxref("column-rule-inset-cap")}} festgelegt werden.
 
-- Um die Enden aller Spaltensegmente einzurücken, können `column-rule-inset-cap-end` und die Eigenschaft {{cssxref("column-rule-inset-junction-end")}} mit der Kurzschreibweise {{cssxref("column-rule-inset-end")}} festgelegt werden.
+- Um die Enden aller Spaltensegmente einzuziehen, können `column-rule-inset-cap-end` und {{cssxref("column-rule-inset-junction-end")}} mit der Kurzschreibweise {{cssxref("column-rule-inset-end")}} festgelegt werden.
 
-- Um alle Cap- und Verbindungsendpunkte von Zeilen und Spalten einzurücken, können `column-rule-inset-end` und die Eigenschaft {{cssxref("row-rule-inset-end")}} mit der Kurzschreibweise {{cssxref("rule-inset-end")}} festgelegt werden.
+- Um alle Abschluss- und Verbindungsendpunkte von Zeilen- und Spaltenlinien einzuziehen, können `column-rule-inset-end` und {{cssxref("row-rule-inset-end")}} mit der Kurzschreibweise {{cssxref("rule-inset-end")}} festgelegt werden.
 
-Alle Segmentendpunkte, einschließlich der `-start`-, `-junction`- und `row-`-Entsprechungen dieser Eigenschaft, können mit der Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
+Alle Segmentendpunkte, einschließlich der Entsprechungen dieser Eigenschaft für `-start`, `-junction` und `row-`, können mit der Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
 
-### Cap-Endpunkte verstehen
+### Abschlussendpunkte verstehen
 
-Ein _Cap-Segmentendpunkt_ ist jeder Segmentendpunkt, der kein Verbindungssegmentendpunkt ist. Dazu gehören Endpunkte an den Inhaltsrändern des Containers ebenso wie Endpunkte an einer Lückenkreuzung, an der keine weiteren Trennlinien- oder Spaltensegmente vorhanden sind.
+Ein _Abschlussendpunkt eines Segments_ ist jeder Segmentendpunkt, der kein Verbindungsendpunkt ist. Dazu gehören Endpunkte an den Inhaltsrändern des Containers sowie Endpunkte an einer Kreuzung von Abständen, an der keine weiteren Linien- oder Spaltensegmente vorhanden sind.
 
-Die Eigenschaft `column-rule-inset-cap-end` steuert den Einzug der Unterkante von Spalten-Cap-Segmentendpunkten. Dadurch lassen sich die Segmente verkürzen oder verlängern.
+Die Eigenschaft `column-rule-inset-cap-end` steuert den Einzug am unteren Rand von Abschlussendpunkten der Spaltenliniensegmente. Dadurch lassen sich die Segmente verkürzen oder verlängern.
 
-Spalten-Cap-Segmentendpunkte werden nicht durch den Wert der Eigenschaft `column-rule-break` beeinflusst, da diese nur Unterbrechungen an Verbindungssegmenten steuert. Sie werden jedoch durch die Eigenschaften {{cssxref("rule-visibility-items")}} beeinflusst. Diese bestimmen, ob Spalten- und Zeilentrennliniensegmente in Lücken neben leeren Bereichen gezeichnet werden.
+Abschlussendpunkte von Spaltenliniensegmenten werden nicht durch die Werte der Eigenschaft `column-rule-break` beeinflusst, da diese nur Unterbrechungen an Verbindungsendpunkten steuert. Sie werden jedoch durch die Eigenschaften {{cssxref("rule-visibility-items")}} beeinflusst. Diese bestimmen, ob Spalten- und Zeilenliniensegmente in Abständen neben leeren Bereichen gezeichnet werden.
 
-Spalten-Cap-Segmentendpunkte gibt es nur am Endrand des Containers und an inneren Lücken, an denen keine weiteren Spalten- oder Zeilentrennliniensegmente vorhanden sind. Ob Segmente gezeichnet werden – oder gezeichnet würden, wenn `rule` auf einen sichtbaren Wert gesetzt wäre –, beeinflusst daher, welche Spaltensegmente End-Cap-Segmente sind.
+Abschlussendpunkte von Spaltenliniensegmenten gibt es nur am Endrand des Containers und an inneren Abständen, an denen keine anderen Spalten- oder Zeilenliniensegmente vorhanden sind. Ob Segmente gezeichnet werden – oder gezeichnet würden, wenn `rule` auf einen sichtbaren Wert gesetzt wäre –, beeinflusst daher, welche Spaltensegmente Abschlusssegmente sind.
 
-In der folgenden Demonstration enden die Unterkanten der Spaltentrennliniensegmente in Cap-Endpunkten. Wenn `column-rule-inset-cap-end: 16px` festgelegt ist, werden alle Spaltensegmente um `16px` eingerückt. Ändern Sie den Einzugswert vom Typ `<length>`, um besser zu erkennen, welche Segmente in Cap-Segmentendpunkten enden.
+In der folgenden Demonstration enden die Spaltenliniensegmente unten an Abschlussendpunkten. Mit `column-rule-inset-cap-end: 16px` werden alle Spaltensegmente um `16px` eingezogen. Ändern Sie den `<length>`-Wert für den Einzug, um besser zu erkennen, welche Segmente an Abschlussendpunkten enden.
 
 ```html hidden live-sample___caps live-sample___percents
 <ul id="ul">
@@ -305,25 +305,25 @@ visibility.addEventListener("change", () => {
 
 {{EmbedLiveSample("caps", "", "300")}}
 
-Ändern Sie den Einzug. Bei `0px` schließen die Enden der Spaltentrennlinien mit dem Endrand des Containers ab. Dies ist die Standardeinstellung. Bei `-32px` werden die Segmente um `32px` nach außen versetzt, sodass die Linien `32px` über den Endrand des Containers hinaus gezeichnet werden. Da Spaltentrennlinien das Box-Modell nicht beeinflussen, wirken sich diese Linien weder auf das Layout des Containers noch auf den übrigen Inhalt aus.
+Ändern Sie den Einzug. Bei `0px` sind die Enden der Spaltenlinien am Endrand des Containers ausgerichtet. Dies ist die Standardeinstellung. Mit `-32px` werden die Segmente um `32px` nach außen verlängert, sodass die Linien `32px` über den Endrand des Containers hinaus gezeichnet werden. Da Spaltenlinien das Boxmodell nicht beeinflussen, wirken sich diese Linien weder auf das Layout des Containers noch auf den übrigen Inhalt aus.
 
-Wählen Sie `around` als Wert für `rule-visibility-items`. Bei diesem Wert werden Trennlinien in einem Lückensegment gezeichnet, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist. Die doppelt gezeichneten Spaltentrennlinien, die bei `rule-visibility-items: around` erscheinen, enden nicht in einem Cap-Endpunkt. Die letzten beiden Spaltentrennlinien enden an inneren Lücken, an denen Zeilentrennliniensegmente vorhanden sind. Daher sind diese Spaltensegmente keine Cap-Segmentendpunkte, und die Eigenschaft `column-rule-inset-cap-end` wirkt sich nicht auf ihre Segmentendpunkte aus.
+Wählen Sie `around` als Wert für `rule-visibility-items`. Bei diesem Wert werden Linien in einem Abstandssegment gezeichnet, wenn mindestens einer der beiden angrenzenden Bereiche ein Element enthält. Die Spaltenlinien mit doppeltem Linienstil, die bei `rule-visibility-items: around` erscheinen, enden nicht an einem Abschlussendpunkt. Die letzten beiden Spaltenlinien enden an inneren Abständen, an denen Zeilenliniensegmente vorhanden sind. Ihre Endpunkte sind daher keine Abschlussendpunkte und werden nicht von `column-rule-inset-cap-end` beeinflusst.
 
-Wählen Sie `between` als Wert für `rule-visibility-items`. Bei diesem Wert werden Trennlinien in Lückensegmenten nur gezeichnet, wenn beide angrenzenden Bereiche von einem Element belegt sind. Die letzte Zeilentrennlinie in der Lücke der zweiten Zeile endet an der dritten Spaltenlücke. Die dritte Spaltentrennlinie endet an einer inneren Lücke, an der ein Zeilentrennliniensegment vorhanden ist. Daher ist dieses Spaltensegment kein Cap-Segmentendpunkt und wird von der Eigenschaft `column-rule-inset-cap-end` nicht beeinflusst. Die letzten beiden Spaltentrennlinien enden dagegen an inneren Lücken, an denen keine weiteren Trennliniensegmente vorhanden sind. Diese Spaltensegmente haben somit Cap-Segmentendpunkte und werden von der Eigenschaft `column-rule-inset-cap-end` beeinflusst.
+Wählen Sie `between` als Wert für `rule-visibility-items`. Bei diesem Wert werden Linien nur dann in Abstandssegmenten gezeichnet, wenn beide angrenzenden Bereiche ein Element enthalten. Die letzte Zeilenlinie im zweiten Zeilenabstand endet am dritten Spaltenabstand. Die dritte Spaltenlinie endet an einem inneren Abstand, an dem ein Zeilenliniensegment vorhanden ist. Ihr Endpunkt ist daher kein Abschlussendpunkt und wird nicht von `column-rule-inset-cap-end` beeinflusst. Die letzten beiden Spaltenlinien enden hingegen an inneren Abständen ohne weitere Liniensegmente. Ihre Endpunkte sind Abschlussendpunkte und werden daher von `column-rule-inset-cap-end` beeinflusst.
 
 ### Prozentwerte verstehen
 
-Die Bezugsgröße eines Prozentwerts hängt von der Position des Endpunkts ab. Bei inneren Endpunkten beziehen sich Prozentwerte auf die Breite der Lücke am Cap-Endpunkt, also auf {{cssxref("row-gap")}}, wenn der Endpunkt an eine Trennlinienlücke grenzt. Am unteren Rand des Containers beträgt die Bezugsgröße `0`.
+Auf welche Länge sich ein Prozentwert bezieht, hängt von der Lage des Endpunkts ab. Bei inneren Endpunkten beziehen sich Prozentwerte auf die Breite des Abstands am Abschlussendpunkt: auf den {{cssxref("row-gap")}}, wenn der Endpunkt an einen Linienabstand grenzt, und auf `0` am unteren Rand des Containers.
 
-In dieser Demonstration sind diese Endpunkte durch eingerückte, dunkle und helle Linien gekennzeichnet. Liegt der Cap-Segmentendpunkt am Rand des Containers, bezieht sich der Prozentwert auf `0` und wird daher immer zu `0` berechnet. Deshalb wirkt sich nur der Wert `between` aus.
+In dieser Demonstration sind die betreffenden Endpunkte durch den eingerückten Linienstil in dunkler und heller Farbe gekennzeichnet. Liegt ein Abschlussendpunkt am Rand des Containers, bezieht sich der Prozentwert auf `0` und ergibt somit immer `0`. Deshalb hat nur der Wert `between` eine Auswirkung.
 
 {{EmbedLiveSample("percents", "", "300")}}
 
-Wählen Sie `around` als Wert für `rule-visibility-items`. Die ersten drei Spalten enden am Rand des Containers. Daher ergibt jeder Prozentwert `0`. Die letzten beiden Spaltentrennlinien enden an inneren Lücken, an denen Zeilentrennliniensegmente vorhanden sind. Diese Spaltensegmente haben daher keine Cap-Segmentendpunkte.
+Wählen Sie `around` als Wert für `rule-visibility-items`. Die ersten drei Spalten enden am Containerrand, sodass jeder Prozentwert `0` ergibt. Die letzten beiden Spaltenlinien enden an inneren Abständen mit Zeilenliniensegmenten. Ihre Endpunkte sind daher keine Abschlussendpunkte.
 
-Wählen Sie `between` als Wert für `rule-visibility-items`. Die ersten beiden Spalten enden am Rand des Containers und haben daher einen Einzug von `0`. Die dritte Spaltentrennlinie endet an einer inneren Lücke, an der ein Zeilentrennliniensegment vorhanden ist. Dieses Spaltensegment hat daher keinen Cap-Segmentendpunkt. Die letzten beiden Spaltentrennlinien enden an inneren Lücken, an denen keine weiteren Trennliniensegmente vorhanden sind. Der prozentuale Versatz bezieht sich daher auf die Breite von {{cssxref("row-gap")}}, die in diesem Fall `20px` beträgt.
+Wählen Sie `between` als Wert für `rule-visibility-items`. Die ersten beiden Spalten enden am Containerrand und haben daher einen Einzug von `0`. Die dritte Spaltenlinie endet an einem inneren Abstand mit einem Zeilenliniensegment. Ihr Endpunkt ist somit kein Abschlussendpunkt. Die letzten beiden Spaltenlinien enden an inneren Abständen ohne weitere Liniensegmente. Der prozentuale Versatz bezieht sich hier daher auf die Breite des {{cssxref("row-gap")}}, die in diesem Fall `20px` beträgt.
 
-Bei `100%` werden die Enden der letzten beiden Spaltentrennliniensegmente um `20px` eingerückt. Bei `-200%` werden diese Segmente um `40px` nach außen versetzt: Die Linien werden durch die `20px` breite Lücke gezeichnet und ragen weitere `20px` in die letzte Zeile mit Elementen hinein. Negative Prozentwerte, die zu einer Länge führen, die größer ist als die kombinierte Höhe der letzten Zeile und der Zeilenlücke, bewirken, dass die letzten beiden Spaltentrennlinien über den Endrand des Containers hinausragen.
+Mit `100%` werden die Enden der letzten beiden Spaltenliniensegmente um `20px` eingezogen. Mit `-200%` werden diese Segmente um `40px` nach außen verlängert: Die Linien verlaufen durch den `20px` breiten Abstand und ragen weitere `20px` in die letzte Elementzeile hinein. Negative Prozentwerte, die eine Länge ergeben, die größer ist als die Höhe der letzten Zeile und des Zeilenabstands zusammen, lassen die letzten beiden Spaltenlinien über den Endrand des Containers hinausragen.
 
 ## Formale Definition
 
@@ -337,9 +337,11 @@ Bei `100%` werden die Enden der letzten beiden Spaltentrennliniensegmente um `20
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Sie mit `column-rule-inset-cap-end` den Endrand von Cap-Segmenten in Flex-Containern einrücken.
+Dieses Beispiel zeigt, wie `column-rule-inset-cap-end` festgelegt wird, um den Endrand von Abschlusssegmenten in Flex-Containern einzuziehen.
 
 #### HTML
+
+Das Markup enthält zwei {{htmlelement("div")}}-Elemente mit jeweils sieben Kindelementen. Der einzige Unterschied zwischen den beiden Containern besteht darin, dass der zweite zusätzlich die Klasse `column` hat.
 
 ```html
 <h1>Insetting cap column rule endpoints</h1>
@@ -383,7 +385,7 @@ Dieses Beispiel zeigt, wie Sie mit `column-rule-inset-cap-end` den Endrand von C
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine hellblaue {{cssxref("rule")}}, um sowohl Zeilen- als auch Spaltenlücken zu kennzeichnen. Anschließend überschreiben wir {{cssxref("column-rule-color")}}, sodass die Markierungen der Spaltenlücken das dunklere `blue` erhalten. Zuletzt setzen wir `column-rule-inset-cap-end` auf `16px`.
+Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Mit {{cssxref("rule")}} definieren wir hellblaue Linien für Zeilen- und Spaltenabstände. Anschließend überschreiben wir {{cssxref("column-rule-color")}}, um die Linien in den Spaltenabständen in einem dunkleren `blue` darzustellen. Schließlich setzen wir `column-rule-inset-cap-end` auf `16px`.
 
 ```css
 .flexbox {
@@ -398,7 +400,7 @@ Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu
 }
 ```
 
-Außerdem setzen wir {{cssxref("flex-direction")}} für den `.column`-Container, um die Hauptachse des Flex-Containers zu ändern und die Elemente in Spalten statt in Zeilen anzuordnen.
+Für den Container `.column` legen wir außerdem {{cssxref("flex-direction")}} fest. Dadurch ändern wir die Hauptachse des Flex-Containers, sodass die Elemente in Spalten statt in Zeilen angeordnet werden.
 
 ```css
 .column {
@@ -406,7 +408,7 @@ Außerdem setzen wir {{cssxref("flex-direction")}} für den `.column`-Container,
 }
 ```
 
-Das übrige CSS ist der Kürze halber ausgeblendet.
+Der übrige CSS-Code ist der Kürze halber ausgeblendet.
 
 ```css hidden
 body {

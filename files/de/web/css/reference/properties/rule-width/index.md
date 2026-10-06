@@ -3,12 +3,12 @@ title: "`rule-width` CSS property"
 short-title: rule-width
 slug: Web/CSS/Reference/Properties/rule-width
 l10n:
-  sourceCommit: 04dfe418f2942ae739d41592c22fafa3679fc03c
+  sourceCommit: 5fd3b03e9ad1ee4e8bc64d4f6888570690a7fbc8
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`rule-width`** legt die Breite von Linien fest, die in den Zwischenräumen mehrzeiliger Grid-, Flex- und Mehrspalten-Layouts gezeichnet werden. Dabei erhalten die Linien zwischen Spalten und Zeilen dieselbe Breite.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`rule-width`** definiert die Breite von Linien in den Zwischenräumen mehrzeiliger Grid-, Flex- und Mehrspaltenlayouts. Dabei erhalten die Linien zwischen Spalten und Zeilen dieselbe Breite.
 
 {{InteractiveExample("CSS Demo: rule-width")}}
 
@@ -117,26 +117,26 @@ Die Eigenschaft `rule-width` akzeptiert eine durch Kommas getrennte Liste von We
   - : Ein {{cssxref("line-width")}}-Wert: Dies kann eines der Schlüsselwörter `thin`, `medium` oder `thick` oder ein positiver {{cssxref("length")}}-Wert sein, der die Breite der Linie angibt. Der Standardwert ist `medium`.
 
 - `<repeat-line-width>`
-  - : Eine {{cssxref("repeat()")}}-Funktion mit einem {{cssxref("&lt;integer&gt;")}}-Wert von mindestens `1` als erstem Argument und einem oder mehreren {{cssxref("&lt;line-width&gt;")}}-Werten als weiteren Argumenten. Der ganzzahlige Wert legt fest, wie oft die `<line-width>`-Werte wiederholt werden.
+  - : Eine {{cssxref("repeat()")}}-Funktion mit einem {{cssxref("&lt;integer&gt;")}}-Wert von `1` oder mehr als erstem Argument und einem oder mehreren {{cssxref("&lt;line-width&gt;")}}-Werten als weiteren Argumenten. Die Ganzzahl legt fest, wie oft die `<line-width>`-Werte wiederholt werden.
 
 - `<auto-repeat-line-width>`
-  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Die angegebenen `<line-width>`-Werte werden so oft wiederholt, wie nötig ist, um Werte für alle Linien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
+  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Die angegebenen `<line-width>`-Werte werden so oft wiederholt, wie es nötig ist, um Werte für alle Linien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
 
 ## Beschreibung
 
-Die Kurzschreibweise `rule-width` legt die Breite der Linien fest, die in den Zwischenräumen zwischen Spalten und Zeilen von [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Zeile oder Spalte gezeichnet werden.
+Die Kurzschreibweise `rule-width` definiert die Breite von Linien, die in den Zwischenräumen zwischen Spalten und Zeilen von [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Zeile oder Spalte gezeichnet werden.
 
 Der Wert ist eine durch Kommas getrennte Liste von Bestandteilen, die Werte der Typen `<line-width>`, `<repeat-line-width>` und `<auto-repeat-line-width>` enthalten kann.
 
 Die Eigenschaft `rule-width` kann zusammen mit den Eigenschaften {{cssxref("rule-color")}} und {{cssxref("rule-style")}} über die Kurzschreibweise {{cssxref("rule")}} festgelegt werden.
 
-Besteht der Eigenschaftswert nur aus einem `<line-width>`-Wert, erhalten alle Linien zwischen Zeilen und Spalten diese Breite. Bei der folgenden Deklaration sind alle Linien `3px` breit:
+Besteht der Eigenschaftswert nur aus einem `<line-width>`-Wert, erhalten alle Linien zwischen Zeilen und Spalten diese Breite. Mit der folgenden Deklaration sind alle Linien `3px` breit:
 
 ```css
 rule-width: 3px;
 ```
 
-Werden mehrere `<line-width>`-Werte angegeben, werden sie in der angegebenen Reihenfolge auf die Linien angewendet. Gibt es mehr Linien als `<line-width>`-Werte, wird die Liste der Linienbreiten wiederholt, bis jeder Linie eine Breite zugewiesen ist. Bei der folgenden Deklaration ist beispielsweise jede ungerade horizontale und vertikale Linie `thin` und jede gerade Linie `1em` breit.
+Wenn mehrere `<line-width>`-Werte angegeben werden, werden sie in der angegebenen Reihenfolge auf die Linien angewendet. Gibt es mehr Linien als `<line-width>`-Werte, wird die Liste der Linienbreiten wiederholt, bis jede Linie eine Breite hat. Mit der folgenden Deklaration ist beispielsweise jede ungerade horizontale und vertikale Linie `thin` und jede gerade Linie `1em` breit.
 
 ```css
 rule-width: thin, 1em;
@@ -144,26 +144,26 @@ rule-width: thin, 1em;
 
 ### Wiederholte Linienbreiten
 
-Mit der Funktion `repeat()` und einer Ganzzahl von mindestens `1` als erstem Argument kann eine gültige Liste von CSS-{{cssxref("&lt;line-width&gt;")}}-Werten, die als weitere Argumente übergeben wird, die angegebene Anzahl von Malen wiederholt werden. So lassen sich dieselben Breiten mehrfach verwenden, ohne die Werte erneut anzugeben. Die folgenden Deklarationen sind gleichwertig:
+Mit der Funktion `repeat()` und einer Ganzzahl von mindestens `1` als erstem Argument können Sie eine als weitere Argumente übergebene Liste gültiger CSS-{{cssxref("&lt;line-width&gt;")}}-Werte die angegebene Anzahl von Malen wiederholen. So lassen sich dieselben Breiten mehrfach verwenden, ohne die Werte erneut aufzuführen. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 rule-width: 1rem, thick, thin, thick, thin, thick, thin;
 rule-width: 1rem, repeat(3, thick, thin);
 ```
 
-Sie können beliebige `<line-width>`-Werte verwenden, einschließlich benutzerdefinierter Eigenschaften, die zu einem `<line-width>`-Wert aufgelöst werden. `repeat()` kann das Schreiben von Werten erleichtern, insbesondere bei komplexen Längenberechnungen. Damit lässt sich ein wiederkehrendes Muster unabhängig von der Anzahl der Spalten oder Zeilen mit einer einzigen Funktion angeben.
+Sie können beliebige `<line-width>`-Werte verwenden, einschließlich benutzerdefinierter Eigenschaften, die zu einem `<line-width>`-Wert aufgelöst werden. `repeat()` kann die Angabe von Werten vereinfachen, insbesondere bei komplexen Längenberechnungen. Damit lässt sich ein wiederkehrendes Muster unabhängig von der Anzahl der Spalten oder Zeilen mit einer einzigen Funktion ausdrücken.
 
 ### Automatisch wiederholte Linienbreiten
 
-Die Funktion `repeat()` akzeptiert als erstes Argument auch `auto` anstelle einer positiven Ganzzahl. Bei `auto` als erstem Argument wird die als weitere Argumente übergebene Liste von `<line-width>`-Werten so oft wiederholt, wie nötig ist, um Werte für alle Linien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
+Die Funktion `repeat()` akzeptiert als erstes Argument auch `auto` anstelle einer positiven Ganzzahl. Bei `auto` werden die als weitere Argumente übergebenen `<line-width>`-Werte so oft wiederholt, wie es nötig ist, um Werte für alle Linien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
 
 ```css
 rule-width: thin, repeat(auto, medium), thin;
 ```
 
-In diesem Fall sind die ersten und letzten Linien zwischen Spalten und Zeilen stets `thin`, alle übrigen Linien dagegen `medium`. Bei nur zwei oder drei Spalten und Zeilen gibt es keine Linien mittlerer Breite.
+In diesem Fall sind die jeweils erste und letzte Linie zwischen Spalten und Zeilen immer `thin` und alle übrigen Linien `medium`. Bei nur zwei oder drei Spalten und Zeilen gibt es keine Linien mit der Breite `medium`.
 
-Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine automatische Wiederholung, die Werte für Linien zwischen Spalten und Zeilen ergänzt, die andernfalls keine Werte aus anderen Teilen der Liste erhalten würden. Dadurch wird verhindert, dass die Liste erneut von vorn durchlaufen wird. Ein `rule-width`-Wert darf höchstens ein `repeat(auto, <width>)` enthalten.
+Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine automatische Wiederholung. Sie weist Spalten- und Zeilenlinien Werte zu, die andernfalls durch keinen anderen Teil der Liste einen Wert erhalten würden, und verhindert so, dass die Liste erneut von vorn durchlaufen wird. Ein `rule-width`-Wert darf höchstens ein `repeat(auto, <width>)` enthalten.
 
 ## Formale Definition
 
@@ -175,13 +175,13 @@ Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine automat
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-In diesem Beispiel legen wir eine einheitliche Breite für die Linien zwischen den Spalten und Zeilen von Elementen in einem Grid-Container fest.
+In diesem Beispiel legen wir eine einheitliche Breite für die Linien zwischen den Spalten und Zeilen eines Grid-Containers fest.
 
 #### HTML
 
-Wir erstellen eine Liste mit 75 Elementen. Der Großteil des HTML-Codes ist der Kürze halber ausgeblendet.
+Wir erstellen eine Liste mit 75 Elementen. Der größte Teil des HTML-Codes ist der Kürze halber ausgeblendet.
 
 ```html
 <ul>
@@ -275,7 +275,7 @@ Wir erstellen eine Liste mit 75 Elementen. Der Großteil des HTML-Codes ist der 
 
 #### CSS
 
-Wir definieren die ungeordnete Liste als Grid-Container mit zehn Spalten. Mit einem {{cssxref("gap")}} von `5px` schaffen wir zwischen den Elementen genügend Platz für die rote gestrichelte Linie mit einer Breite von `3px`:
+Wir definieren die ungeordnete Liste als Grid-Container mit 10 Spalten. Ein {{cssxref("gap")}} von `5px` schafft zwischen den Elementen genügend Platz für die rote, gestrichelte Linie mit einer Breite von `3px`:
 
 ```css live-sample___basic live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -313,7 +313,9 @@ li {
 
 ### Werte wiederholen
 
-Dieses Beispiel zeigt, wie Werte wiederholt werden, wenn die Liste weniger Breitenwerte enthält, als es Linien zwischen Spalten oder Zeilen gibt.
+Dieses Beispiel zeigt, wie die Werte wiederholt werden, wenn die Liste weniger Breitenwerte enthält, als es Linien zwischen Spalten oder Zeilen gibt.
+
+#### CSS
 
 Wir verwenden dasselbe HTML und CSS wie im vorherigen Beispiel und geben für `rule-width` drei durch Kommas getrennte Breiten an.
 
@@ -323,13 +325,17 @@ ul {
 }
 ```
 
+#### Ergebnis
+
 {{EmbedLiveSample("Repeat", "", "440")}}
 
-Da der Grid-Container acht Zeilen und zehn Spalten hat, gibt es in den beiden Richtungen sieben beziehungsweise neun Zwischenräume. Die Folge der drei `<line-width>`-Werte wird daher in beiden Richtungen wiederholt.
+Da der Grid-Container 8 Zeilen und 10 Spalten hat, gibt es in den beiden Richtungen sieben beziehungsweise neun Zwischenräume. Daher wird die Folge der drei `<line-width>`-Werte in beiden Richtungen wiederholt.
 
-### Verwendung der Funktion `repeat()`
+### Die Funktion `repeat()` verwenden
 
-Dieses Beispiel zeigt die Verwendung der Funktion `repeat()` im Wert der Eigenschaft `rule-width` und wie sie Wertdeklarationen kürzer machen kann.
+Dieses Beispiel zeigt, wie Sie die Funktion `repeat()` im Wert der Eigenschaft `rule-width` verwenden und damit kürzere Wertangaben schreiben können.
+
+#### CSS
 
 Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen. Zusätzlich deklarieren wir zwei benutzerdefinierte Eigenschaften, die wir in einer `repeat()`-Funktion innerhalb des `rule-width`-Werts verwenden. Die Funktion `repeat()` legt fest, dass eine Liste aus zwei `<line-width>`-Werten dreimal wiederholt wird.
 
@@ -348,13 +354,17 @@ ul {
 }
 ```
 
+#### Ergebnis
+
 {{EmbedLiveSample("func", "", "440")}}
 
 Die Funktion `repeat()` wiederholt zwei Breitenwerte viermal und erzeugt so eine Liste mit zehn Breitenwerten. Da es weniger Zwischenräume zwischen Spalten und Zeilen als Breitenwerte gibt, werden die letzten Werte der Liste verworfen.
 
-### Verwendung von `auto` innerhalb von `repeat()`
+### `auto` innerhalb von `repeat()` verwenden
 
-Dieses Beispiel zeigt, wie `auto` anstelle einer Ganzzahl innerhalb der Funktion `repeat()` verwendet wird.
+Dieses Beispiel zeigt, wie Sie innerhalb der Funktion `repeat()` `auto` anstelle einer Ganzzahl verwenden.
+
+#### CSS
 
 Mit `repeat(auto, <line-width>)` setzen wir alle Linien zwischen Spalten und Zeilen auf `1px`, mit Ausnahme der jeweils ersten und letzten Linie, die wir auf `5px` setzen.
 
@@ -363,6 +373,8 @@ ul {
   rule-width: 5px, repeat(auto, 1px), 5px;
 }
 ```
+
+#### Ergebnis
 
 {{EmbedLiveSample("auto", "", "440")}}
 
