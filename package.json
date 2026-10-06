@@ -49,7 +49,7 @@
     "yargs": "^18.2.0"
   },
   "devDependencies": {
-    "lefthook": "^2.1.14"
+    "lefthook": "^2.1.16"
   },
   "allowScripts": {
     "lefthook": true
