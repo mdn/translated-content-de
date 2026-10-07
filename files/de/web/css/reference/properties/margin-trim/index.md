@@ -3,12 +3,10 @@ title: "`margin-trim` CSS property"
 short-title: margin-trim
 slug: Web/CSS/Reference/Properties/margin-trim
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: bf7ff749b987d530e9a6c07f23ac66f94d968e57
 ---
 
-{{SeeCompatTable}}
-
-Die Eigenschaft `margin-trim` ermöglicht es dem Container, die Ränder seiner Kinder dort zu kürzen, wo sie an die Ränder des Containers angrenzen.
+Mit der Eigenschaft `margin-trim` kann ein Container die Margins seiner Kindelemente dort auf null reduzieren, wo sie an seine Ränder angrenzen.
 
 ## Syntax
 
@@ -31,28 +29,28 @@ margin-trim: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
+Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
 
 - `none`
-  - : Ränder werden vom Container nicht gekürzt.
+  - : Der Container reduziert die Margins nicht.
 
 - `block`
-  - : Ränder der Block-Kinder, die an die Ränder des Containers angrenzen, werden auf null gekürzt, ohne die dem Container zugeordneten Ränder zu beeinflussen.
+  - : Die Margins von Block-Kindelementen werden dort, wo sie an die Ränder des Containers angrenzen, auf null reduziert. Die Margins des Containers bleiben davon unberührt.
 
 - `block-start`
-  - : Rand des ersten Block-Kindes mit dem Container-Rand wird auf null gekürzt.
+  - : Der Margin des ersten Block-Kindelements am Rand des Containers wird auf null reduziert.
 
 - `block-end`
-  - : Rand des letzten Block-Kindes mit dem Container-Rand wird auf null gekürzt.
+  - : Der Margin des letzten Block-Kindelements am Rand des Containers wird auf null reduziert.
 
 - `inline`
-  - : Ränder der Inline-Kinder, die an die Ränder des Containers angrenzen, werden auf null gekürzt, ohne den Raum am Anfang und Ende der Zeile zu beeinflussen.
+  - : Die Margins von Inline-Kindelementen werden dort, wo sie an die Ränder des Containers angrenzen, auf null reduziert. Der Abstand am Anfang und Ende der Zeile bleibt davon unberührt.
 
 - `inline-start`
-  - : Rand zwischen dem Container-Rand und dem ersten Inline-Kind wird auf null gekürzt.
+  - : Der Margin zwischen dem Rand des Containers und dem ersten Inline-Kindelement wird auf null reduziert.
 
 - `inline-end`
-  - : Rand zwischen dem Container-Rand und dem letzten Inline-Kind wird auf null gekürzt.
+  - : Der Margin zwischen dem Rand des Containers und dem letzten Inline-Kindelement wird auf null reduziert.
 
 ## Formale Definition
 
@@ -66,9 +64,9 @@ Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
 
 ### Grundlegende Verwendung
 
-Sobald die Unterstützung für diese Eigenschaft implementiert ist, wird sie wahrscheinlich wie folgt funktionieren:
+Sobald diese Eigenschaft unterstützt wird, funktioniert sie voraussichtlich folgendermaßen:
 
-Wenn Sie einen Container mit einigen Inline-Kindern haben und einen Rand zwischen jedem Kind setzen möchten, ohne den Abstand am Ende der Zeile zu stören, könnten Sie etwas wie das Folgende tun:
+Angenommen, Sie haben einen Container mit mehreren Inline-Kindelementen und möchten zwischen den Kindelementen jeweils einen Margin einfügen, ohne den Abstand am Ende der Zeile zu verändern. Dazu könnten Sie Folgendes verwenden:
 
 ```css
 article {
@@ -88,7 +86,7 @@ article > span {
 }
 ```
 
-Das Problem hier ist, dass Sie am Ende der Zeile 20px zu viel Abstand haben, also könnten Sie dies tun, um es zu beheben:
+Das Problem dabei ist, dass am rechten Ende der Zeile ein zusätzlicher Abstand von 20px entsteht. Um dies zu beheben, könnten Sie Folgendes tun:
 
 ```css
 span:last-child {
@@ -97,7 +95,7 @@ span:last-child {
 }
 ```
 
-Es ist ärgerlich, eine weitere Regel schreiben zu müssen, um dies zu erreichen, und es ist auch nicht sehr flexibel. Stattdessen könnte `margin-trim` es beheben:
+Dafür eine weitere Regel schreiben zu müssen, ist umständlich und zudem wenig flexibel. Stattdessen könnte `margin-trim` das Problem lösen:
 
 ```css
 article {
@@ -106,7 +104,7 @@ article {
 }
 ```
 
-Ebenso, um den linken Rand mit dem Container-Rand zu entfernen:
+Entsprechend können Sie den linken Margin am Rand des Containers entfernen:
 
 ```css
 article {

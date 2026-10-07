@@ -3,15 +3,15 @@ title: "`@media` CSS at-rule"
 short-title: "@media"
 slug: Web/CSS/Reference/At-rules/@media
 l10n:
-  sourceCommit: 3869bc5647462538141417d68fc14362c7929ce9
+  sourceCommit: d78544a841b0e266a6efc169c044573f5e0b4e7d
 ---
 
-Die **`@media`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) kann verwendet werden, um einen Teil eines Stylesheets basierend auf dem Ergebnis einer oder mehrerer [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) anzuwenden. Damit spezifizieren Sie eine Media Query und einen Block von CSS, der auf das Dokument angewendet wird, wenn und nur wenn die Media Query auf das Gerät zutrifft, auf dem der Inhalt verwendet wird.
+Mit der **`@media`**-[CSS](/de/docs/Web/CSS)-[At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) können Sie Teile eines Stylesheets abhängig vom Ergebnis einer oder mehrerer [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) anwenden. Dazu geben Sie eine Media Query und einen CSS-Block an. Der Block wird nur dann auf das Dokument angewendet, wenn die Media Query auf das Gerät zutrifft, auf dem der Inhalt verwendet wird.
 
 > [!NOTE]
-> In JavaScript können die mit `@media` erstellten Regeln über die [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) CSS-Objektmodell-Schnittstelle abgerufen werden.
+> In JavaScript können Sie über die CSS-Objektmodell-Schnittstelle [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) auf Regeln zugreifen, die mit `@media` erstellt wurden.
 
-{{InteractiveExample("CSS-Demo: @media", "tabbed-standard")}}
+{{InteractiveExample("CSS Demo: @media", "tabbed-standard")}}
 
 ```css interactive-example
 abbr {
@@ -62,182 +62,182 @@ abbr {
 }
 ```
 
-Die `@media`-Regel kann auf oberster Ebene Ihres Codes oder verschachtelt in einer anderen bedingten Gruppenregel platziert werden.
+Die `@media`-At-Regel kann auf der obersten Ebene Ihres Codes oder verschachtelt innerhalb einer anderen bedingten Gruppen-At-Regel stehen.
 
-Für eine Diskussion der Syntax der Media Queries, siehe bitte [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using#syntax).
+Eine Erläuterung der Syntax von Media Queries finden Sie unter [Media Queries verwenden](/de/docs/Web/CSS/Guides/Media_queries/Using#syntax).
 
 ## Beschreibung
 
-Die `<media-query-list>` einer Media Query umfasst [`<media-type>`s](#medientypen), [`<media-feature>s`](#medienfunktionen) und [logische Operatoren](#logische_operatoren).
+Die `<media-query-list>` einer Media Query umfasst [Media Types (`<media-type>`)](#media_types), [Media Features (`<media-feature>`)](#media_features) und [logische Operatoren](#logische_operatoren).
 
-### Medientypen
+### Media Types
 
 Ein _`<media-type>`_ beschreibt die allgemeine Kategorie eines Geräts.
-Außer bei Verwendung des logischen Operators `only` ist der Medientyp optional und der Typ `all` wird impliziert.
+Sofern Sie nicht den logischen Operator `only` verwenden, ist der Media Type optional; ohne Angabe wird `all` angenommen.
 
 - `all`
   - : Geeignet für alle Geräte.
 - `print`
-  - : Vorgesehen für paginierte Materialien und Dokumente, die im Druckvorschau-Modus auf einem Bildschirm angezeigt werden. (Bitte prüfen Sie [Seitenmedien](/de/docs/Web/CSS/Guides/Paged_media) für Informationen zu Formatierungsproblemen, die spezifisch für diese Formate sind.)
+  - : Für seitenweise ausgegebene Inhalte und Dokumente, die auf einem Bildschirm im Druckvorschaumodus angezeigt werden. (Informationen zu Formatierungsfragen, die für diese Ausgabeformen spezifisch sind, finden Sie unter [Seitenbasierte Medien](/de/docs/Web/CSS/Guides/Paged_media).)
 - `screen`
-  - : Vorrangig für Bildschirme vorgesehen.
+  - : Hauptsächlich für Bildschirme vorgesehen.
 
 > [!NOTE]
-> CSS2.1 und [Media Queries 3](https://drafts.csswg.org/mediaqueries-3/#background) definierten mehrere zusätzliche Medientypen (`tty`, `tv`, `projection`, `handheld`, `braille`, `embossed`, und `aural`), die aber in [Media Queries 4](https://drafts.csswg.org/mediaqueries/#media-types) veraltet sind und nicht mehr verwendet werden sollten.
+> CSS2.1 und [Media Queries 3](https://drafts.csswg.org/mediaqueries-3/#background) definierten mehrere zusätzliche Media Types (`tty`, `tv`, `projection`, `handheld`, `braille`, `embossed` und `aural`). Diese wurden jedoch in [Media Queries 4](https://drafts.csswg.org/mediaqueries/#media-types) als veraltet eingestuft und sollten nicht verwendet werden.
 
-### Medienfunktionen
+### Media Features
 
-Eine _`<media feature>`_ beschreibt spezifische Eigenschaften des {{Glossary("user_agent", "User Agents")}}, des Ausgabegeräts oder der Umgebung.
-Media Feature-Ausdrücke prüfen auf ihre Anwesenheit, ihren Wert oder Wertebereiche und sind völlig optional. Jeder Media Feature-Ausdruck muss von Klammern umgeben sein.
+Ein _`<media feature>`_ beschreibt bestimmte Eigenschaften des {{Glossary("user_agent", "User Agents")}}, des Ausgabegeräts oder der Umgebung.
+Media-Feature-Ausdrücke prüfen, ob eine Eigenschaft vorhanden ist oder einen bestimmten Wert beziehungsweise Wertebereich hat. Ihre Verwendung ist optional. Jeder Media-Feature-Ausdruck muss in Klammern stehen.
 
 - {{cssxref("@media/any-hover", "any-hover")}}
-  - : Ermöglicht jedes verfügbare Eingabegerät dem Benutzer, über Elemente zu schweben?
+  - : Ermöglicht irgendein verfügbares Eingabegerät, den Mauszeiger über Elemente zu bewegen?
 - {{cssxref("@media/any-pointer", "any-pointer")}}
-  - : Ist ein verfügbares Eingabegerät ein Zeigegerät, und wenn ja, wie genau ist es?
+  - : Ist irgendein verfügbares Eingabegerät ein Zeigegerät, und wenn ja, wie genau ist es?
 - {{cssxref("@media/aspect-ratio", "aspect-ratio")}}
-  - : Breiten-Höhen-{{Glossary("aspect_ratio", "Seitenverhältnis")}} des Ansichtsbereichs.
+  - : Das {{Glossary("aspect_ratio", "Seitenverhältnis")}} zwischen Breite und Höhe des Viewports.
 - {{cssxref("@media/color", "color")}}
-  - : Anzahl der Bits pro Farbkomponente des Ausgabegeräts, oder null, wenn das Gerät nicht in Farbe ist.
+  - : Die Anzahl der Bits pro Farbkomponente des Ausgabegeräts oder null, wenn das Gerät keine Farben darstellen kann.
 - {{cssxref("@media/color-gamut", "color-gamut")}}
-  - : Ungefährer Farbraum, der vom User Agent und dem Ausgabegerät unterstützt wird.
+  - : Der ungefähre Farbbereich, den der User Agent und das Ausgabegerät unterstützen.
 - {{cssxref("@media/color-index", "color-index")}}
-  - : Anzahl der Einträge in der Farbauswahltabelle des Ausgabegeräts, oder null, wenn das Gerät keine solche Tabelle nutzt.
+  - : Die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts oder null, wenn das Gerät keine solche Tabelle verwendet.
 - {{cssxref("@media/device-aspect-ratio", "device-aspect-ratio")}}
-  - : Breiten-Höhen-Seitenverhältnis des Ausgabegeräts. Veraltet in Media Queries Stufe 4.
+  - : Das Seitenverhältnis zwischen Breite und Höhe des Ausgabegeräts. In Media Queries Level 4 als veraltet eingestuft.
 - {{cssxref("@media/device-height", "device-height")}}
-  - : Höhe der Wiedergabeoberfläche des Ausgabegeräts. Veraltet in Media Queries Stufe 4.
+  - : Die Höhe der Darstellungsfläche des Ausgabegeräts. In Media Queries Level 4 als veraltet eingestuft.
 - {{cssxref("@media/device-posture", "device-posture")}}
-  - : Erkennt die aktuelle Haltung des Geräts, d.h. ob der Ansichtsbereich in einem flachen oder gefalteten Zustand ist. Definiert in der [Device Posture API](/de/docs/Web/API/Device_Posture_API).
+  - : Erkennt die aktuelle Haltung des Geräts, also ob sich der Viewport in einem flachen oder gefalteten Zustand befindet. Definiert in der [Device Posture API](/de/docs/Web/API/Device_Posture_API).
 - {{cssxref("@media/device-width", "device-width")}}
-  - : Breite der Wiedergabeoberfläche des Ausgabegeräts. Veraltet in Media Queries Stufe 4.
+  - : Die Breite der Darstellungsfläche des Ausgabegeräts. In Media Queries Level 4 als veraltet eingestuft.
 - {{cssxref("@media/display-mode", "display-mode")}}
-  - : Der Modus, in dem eine Anwendung angezeigt wird: beispielsweise [Vollbild](/de/docs/Web/CSS/Reference/At-rules/@media/display-mode#fullscreen) oder [Bild-im-Bild](/de/docs/Web/CSS/Reference/At-rules/@media/display-mode#picture-in-picture) Modus.
-    Hinzugefügt in Media Queries Stufe 5.
+  - : Der Modus, in dem eine Anwendung angezeigt wird, beispielsweise im [Vollbildmodus](/de/docs/Web/CSS/Reference/At-rules/@media/display-mode#fullscreen) oder im [Bild-in-Bild-Modus](/de/docs/Web/CSS/Reference/At-rules/@media/display-mode#picture-in-picture).
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/dynamic-range", "dynamic-range")}}
-  - : Kombination von Helligkeit, Kontrastverhältnis und Farbtiefe, die vom User Agent und dem Ausgabegerät unterstützt werden. Hinzugefügt in Media Queries Stufe 5.
+  - : Die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe, die der User Agent und das Ausgabegerät unterstützen. In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/forced-colors", "forced-colors")}}
-  - : Erkennen, ob der User Agent die Farbpalette einschränkt.
-    Hinzugefügt in Media Queries Stufe 5.
+  - : Erkennt, ob der User Agent die Farbpalette einschränkt.
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/grid", "grid")}}
-  - : Verwendet das Gerät einen Raster- oder Bitmap-Bildschirm?
+  - : Verwendet das Gerät einen Raster- oder einen Bitmap-Bildschirm?
 - {{cssxref("@media/height", "height")}}
-  - : Höhe des Ansichtsbereichs.
+  - : Die Höhe des Viewports.
 - {{cssxref("@media/horizontal-viewport-segments", "horizontal-viewport-segments")}}
-  - : Erkennt, ob das Gerät eine bestimmte Anzahl horizontal angeordneter Ansichtsbereichsegmente hat.
+  - : Erkennt, ob das Gerät eine bestimmte Anzahl horizontal angeordneter Viewport-Segmente hat.
 - {{cssxref("@media/hover", "hover")}}
-  - : Ermöglicht der primäre Eingabemechanismus dem Benutzer, über Elemente zu schweben?
+  - : Ermöglicht das primäre Eingabegerät, den Mauszeiger über Elemente zu bewegen?
 - {{cssxref("@media/inverted-colors", "inverted-colors")}}
   - : Invertiert der User Agent oder das zugrunde liegende Betriebssystem Farben?
-    Hinzugefügt in Media Queries Stufe 5.
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/monochrome", "monochrome")}}
-  - : Bits pro Pixel in der monochromen Frame-Buffer des Ausgabegeräts, oder null, wenn das Gerät nicht monochrom ist.
+  - : Die Anzahl der Bits pro Pixel im monochromen Framebuffer des Ausgabegeräts oder null, wenn das Gerät nicht monochrom ist.
 - {{cssxref("@media/orientation", "orientation")}}
-  - : Ausrichtung des Ansichtsbereichs.
+  - : Die Ausrichtung des Viewports.
 - {{cssxref("@media/overflow-block", "overflow-block")}}
-  - : Wie behandelt das Ausgabegerät Inhalte, die im Block-Achsenverlauf den Ansichtsbereich überfluten?
+  - : Wie behandelt das Ausgabegerät Inhalte, die entlang der Blockachse über den Viewport hinausragen?
 - {{cssxref("@media/overflow-inline", "overflow-inline")}}
-  - : Kann der Inhalt, der im Inline-Achsenverlauf den Ansichtsbereich überflutet, gescrollt werden?
+  - : Können Inhalte gescrollt werden, die entlang der Inline-Achse über den Viewport hinausragen?
 - {{cssxref("@media/pointer", "pointer")}}
-  - : Ist der primäre Eingabemechanismus ein Zeigegerät, und wenn ja, wie genau ist es?
+  - : Ist das primäre Eingabegerät ein Zeigegerät, und wenn ja, wie genau ist es?
 - {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}
-  - : Erkennen, ob der Benutzer ein helles oder dunkles Farbschema bevorzugt.
-    Hinzugefügt in Media Queries Stufe 5.
+  - : Erkennt, ob der Benutzer ein helles oder dunkles Farbschema bevorzugt.
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/prefers-contrast", "prefers-contrast")}}
-  - : Erkennt, ob der Benutzer das System gebeten hat, den Kontrast zwischen benachbarten Farben zu erhöhen oder zu verringern.
-    Hinzugefügt in Media Queries Stufe 5.
+  - : Erkennt, ob der Benutzer eine Erhöhung oder Verringerung des Kontrasts zwischen benachbarten Farben angefordert hat.
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/prefers-reduced-data", "prefers-reduced-data")}}
-  - : Erkennt, ob der Benutzer Webinhalte angefordert hat, die weniger Internetverkehr verbrauchen.
+  - : Erkennt, ob der Benutzer Webinhalte angefordert hat, die weniger Datenverkehr verursachen.
 - {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}}
   - : Der Benutzer bevorzugt weniger Bewegung auf der Seite.
-    Hinzugefügt in Media Queries Stufe 5.
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}}
-  - : Erkennt, ob ein Benutzer auf seinem Gerät eine Einstellung aktiviert hat, um die transparenten oder transluzenten Schichteffekte zu reduzieren, die auf dem Gerät verwendet werden.
+  - : Erkennt, ob ein Benutzer auf seinem Gerät eine Einstellung aktiviert hat, die transparente oder durchscheinende Ebeneneffekte reduziert.
 - {{cssxref("@media/resolution", "resolution")}}
-  - : Pixeldichte des Ausgabegeräts.
+  - : Die Pixeldichte des Ausgabegeräts.
 - {{cssxref("@media/scan", "scan")}}
-  - : Ob die Ausgabe progressiv oder interlaced ist.
+  - : Ob die Bildausgabe progressiv oder im Zeilensprungverfahren erfolgt.
 - {{cssxref("@media/scripting", "scripting")}}
-  - : Erkennt, ob Scripting (d.h. JavaScript) verfügbar ist.
-    Hinzugefügt in Media Queries Stufe 5.
+  - : Erkennt, ob Skripting (z. B. JavaScript) verfügbar ist.
+    In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/shape", "shape")}}
-  - : Erkennt die Form des Geräts, um rechteckige und runde Displays zu unterscheiden.
+  - : Erkennt die Form des Geräts, um zwischen rechteckigen und runden Displays zu unterscheiden.
 - {{cssxref("@media/update", "update")}}
   - : Wie häufig das Ausgabegerät das Erscheinungsbild von Inhalten ändern kann.
 - {{cssxref("@media/vertical-viewport-segments", "vertical-viewport-segments")}}
-  - : Erkennt, ob das Gerät eine bestimmte Anzahl vertikal angelegter Ansichtsbereichsegmente hat. Hinzugefügt in Media Queries Stufe 5.
+  - : Erkennt, ob das Gerät eine bestimmte Anzahl vertikal angeordneter Viewport-Segmente hat. In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/video-dynamic-range", "video-dynamic-range")}}
-  - : Kombination von Helligkeit, Kontrastverhältnis und Farbtiefe, die von der Video-Ebene des User Agents und des Ausgabegeräts unterstützt werden. Hinzugefügt in Media Queries Stufe 5.
+  - : Die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe, die die Videoebene des User Agents und das Ausgabegerät unterstützen. In Media Queries Level 5 hinzugefügt.
 - {{cssxref("@media/width", "width")}}
-  - : Breite des Ansichtsbereichs einschließlich der Breite des Scrollbalkens.
+  - : Die Breite des Viewports einschließlich der Breite der Bildlaufleiste.
 - {{cssxref("@media/-moz-device-pixel-ratio", "-moz-device-pixel-ratio")}}
-  - : Die Anzahl der Gerätepixel pro CSS-Pixel. Verwenden Sie stattdessen die [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) Funktion mit der `dppx`-Einheit.
+  - : Die Anzahl der Gerätepixel pro CSS-Pixel. Verwenden Sie stattdessen das Feature [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) mit der Einheit `dppx`.
 - {{cssxref("@media/-webkit-animation", "-webkit-animation")}}
-  - : Der Browser unterstützt `-webkit`-präfixierte CSS {{cssxref("animation")}}. Verwenden Sie stattdessen die [`@supports (animation)`](/de/docs/Web/CSS/Reference/At-rules/@supports) Feature-Anfrage.
+  - : Der Browser unterstützt CSS {{cssxref("animation")}} mit dem Präfix `-webkit`. Verwenden Sie stattdessen die Feature Query [`@supports (animation)`](/de/docs/Web/CSS/Reference/At-rules/@supports).
 - {{cssxref("@media/-webkit-device-pixel-ratio", "-webkit-device-pixel-ratio")}}
-  - : Die Anzahl der Gerätepixel pro CSS-Pixel. Verwenden Sie stattdessen die [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) Funktion mit der `dppx`-Einheit.
+  - : Die Anzahl der Gerätepixel pro CSS-Pixel. Verwenden Sie stattdessen das Feature [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) mit der Einheit `dppx`.
 - {{cssxref("@media/-webkit-transform-2d", "-webkit-transform-2d")}}
-  - : Der Browser unterstützt `-webkit`-präfixierte 2D-CSS {{cssxref("transform")}}. Verwenden Sie stattdessen die [`@supports (transform)`](/de/docs/Web/CSS/Reference/At-rules/@supports) Feature-Anfrage.
+  - : Der Browser unterstützt 2D-CSS-{{cssxref("transform")}} mit dem Präfix `-webkit`. Verwenden Sie stattdessen die Feature Query [`@supports (transform)`](/de/docs/Web/CSS/Reference/At-rules/@supports).
 - {{cssxref("@media/-webkit-transform-3d", "-webkit-transform-3d")}}
-  - : Der Browser unterstützt `-webkit`-präfixierte 3D-CSS {{cssxref("transform")}}. Verwenden Sie stattdessen die [`@supports (transform)`](/de/docs/Web/CSS/Reference/At-rules/@supports) Feature-Anfrage.
+  - : Der Browser unterstützt 3D-CSS-{{cssxref("transform")}} mit dem Präfix `-webkit`. Verwenden Sie stattdessen die Feature Query [`@supports (transform)`](/de/docs/Web/CSS/Reference/At-rules/@supports).
 - {{cssxref("@media/-webkit-transition", "-webkit-transition")}}
-  - : Der Browser unterstützt `-webkit`-präfixierte CSS {{cssxref("transition")}}. Verwenden Sie stattdessen die [`@supports (transition)`](/de/docs/Web/CSS/Reference/At-rules/@supports) Feature-Anfrage.
+  - : Der Browser unterstützt CSS {{cssxref("transition")}} mit dem Präfix `-webkit`. Verwenden Sie stattdessen die Feature Query [`@supports (transition)`](/de/docs/Web/CSS/Reference/At-rules/@supports).
 
 ### Logische Operatoren
 
-Die _logischen Operatoren_ `not`, `and`, `only` und `or` können verwendet werden, um eine komplexe Media Query zu komponieren.
-Sie können auch mehrere Media-Queries zu einer einzelnen Regel kombinieren, indem Sie sie durch Kommas trennen.
+Mit den _logischen Operatoren_ `not`, `and`, `only` und `or` können Sie komplexe Media Queries zusammensetzen.
+Sie können auch mehrere Media Queries zu einer einzigen Regel kombinieren, indem Sie sie durch Kommas trennen.
 
 - `and`
-  - : Wird verwendet, um mehrere Medienfunktionen in einer einzigen Media Query zu kombinieren, wobei jede verknüpfte Funktion `true` zurückgeben muss, damit die Abfrage `true` ist.
-    Es wird auch verwendet, um Medienfunktionen mit Medientypen zu verknüpfen.
+  - : Kombiniert mehrere Media Features zu einer einzigen Media Query. Damit die Query `true` ergibt, muss jedes verknüpfte Feature `true` ergeben.
+    Der Operator wird auch verwendet, um Media Features mit Media Types zu verknüpfen.
 - `not`
-  - : Wird verwendet, um eine Media Query zu negieren, und gibt `true` zurück, wenn die Abfrage sonst `false` wäre.
-    Wird in einer durch Kommas getrennten Liste von Abfragen verwendet, negiert es nur die spezifische Abfrage, auf die es angewendet wird.
+  - : Negiert eine Media Query und gibt `true` zurück, wenn die Query andernfalls `false` ergeben würde.
+    In einer durch Kommas getrennten Liste von Queries negiert der Operator nur die jeweilige Query, auf die er angewendet wird.
 
     > [!NOTE]
-    > In Stufe 3 kann das `not`-Schlüsselwort nicht verwendet werden, um einen einzelnen Medienfunktionsausdruck zu negieren, sondern nur eine ganze Media Query.
+    > In Level 3 kann das Schlüsselwort `not` nur eine vollständige Media Query negieren, nicht einen einzelnen Media-Feature-Ausdruck.
 
 - `only`
-  - : Wendet einen Stil nur an, wenn eine ganze Abfrage übereinstimmt.
-    Es ist nützlich, um zu verhindern, dass ältere Browser ausgewählte Styles anwenden.
-    Wenn `only` nicht verwendet wird, würde ein älterer Browser die Abfrage `screen and (width <= 500px)` als `screen` interpretieren und den Rest der Abfrage ignorieren, und seine Styles auf alle Bildschirme anwenden.
-    Wenn Sie den `only`-Operator verwenden, müssen Sie _auch_ einen Medientyp angeben.
+  - : Wendet einen Stil nur an, wenn eine vollständige Query zutrifft.
+    Dies ist nützlich, um zu verhindern, dass ältere Browser bestimmte Stile anwenden.
+    Ohne `only` würden ältere Browser die Query `screen and (width <= 500px)` als `screen` interpretieren, den Rest der Query ignorieren und ihre Stile auf allen Bildschirmen anwenden.
+    Wenn Sie den Operator `only` verwenden, _müssen Sie auch_ einen Media Type angeben.
 - `,` (Komma)
-  - : Kommas werden verwendet, um mehrere Media Queries in einer einzigen Regel zu kombinieren.
-    Jede Abfrage in einer durch Kommas getrennten Liste wird separat von den anderen behandelt.
-    Wenn also irgendeine der Abfragen in einer Liste `true` ist, gibt die gesamte Media-Aussage `true` zurück.
-    Anders gesagt, Listen verhalten sich wie ein logischer `or`-Operator.
+  - : Kommas kombinieren mehrere Media Queries zu einer einzigen Regel.
+    Jede Query in einer durch Kommas getrennten Liste wird unabhängig von den anderen behandelt.
+    Wenn also eine der Queries in einer Liste `true` ergibt, ergibt die gesamte Media-Anweisung `true`.
+    Anders ausgedrückt verhalten sich Listen wie der logische Operator `or`.
 - `or`
-  - : Entspricht dem `,`-Operator. Hinzugefügt in Media Queries Stufe 4.
+  - : Entspricht dem Operator `,`. In Media Queries Level 4 hinzugefügt.
 
-### Client-Hinweise des User Agents
+### User-Agent-Client-Hints
 
-Einige Media Queries haben entsprechende [Client-Hinweise des User Agents](/de/docs/Web/HTTP/Guides/Client_hints).
-Dies sind HTTP-Header, die Inhalte anfordern, die für die jeweilige Medienanforderung voroptimiert sind.
-Sie beinhalten {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}} und {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}.
+Für einige Media Queries gibt es entsprechende [User-Agent-Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints).
+Dabei handelt es sich um HTTP-Header, mit denen Inhalte angefordert werden, die für die jeweiligen Medienanforderungen voroptimiert sind.
+Dazu gehören {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}} und {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}.
 
 ## Formale Syntax
 
 {{csssyntax}}
 
-## Zugänglichkeit
+## Barrierefreiheit
 
-Um Menschen, die die Textgröße einer Website anpassen, bestmöglich entgegenzukommen, verwenden Sie [`em`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types), wenn Sie eine {{cssxref("&lt;length&gt;")}} für Ihre [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) benötigen.
+Um Menschen, die die Textgröße einer Website anpassen, bestmöglich zu berücksichtigen, verwenden Sie [`em`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) als Einheit, wenn Sie einen {{cssxref("&lt;length&gt;")}}-Wert für Ihre [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) benötigen.
 
-Sowohl [`em`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) als auch [`px`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) sind gültige Einheiten, aber [`em`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) funktioniert besser, wenn der Benutzer die Textgröße des Browsers ändert.
+Sowohl [`em`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) als auch [`px`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) sind gültige Einheiten. [`em`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) eignet sich jedoch besser, wenn der Benutzer die Textgröße im Browser ändert.
 
-Berücksichtigen Sie auch Media Queries oder [HTTP-Client-Hinweise des User Agents](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), um die Benutzererfahrung zu verbessern.
-Beispielsweise kann die Media Query [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) oder der entsprechende HTTP-Header {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}} verwendet werden, um die Menge an Animationen oder Bewegungen basierend auf den Vorlieben des Benutzers zu minimieren.
+Ziehen Sie außerdem Media Queries oder [HTTP-User-Agent-Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints) in Betracht, um die Benutzererfahrung zu verbessern.
+Beispielsweise können Sie die Media Query [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) oder den entsprechenden HTTP-Header {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}} verwenden, um Animationen oder Bewegungen entsprechend den Benutzereinstellungen zu reduzieren.
 
 ## Sicherheit
 
-Da Media Queries Einblick in die Fähigkeiten und damit auch in die Eigenschaften und das Design des Geräts, mit dem der Benutzer arbeitet, geben, besteht die Möglichkeit, dass sie missbraucht werden könnten, um einen sogenannten {{Glossary("Fingerprinting", "\"Fingerprint\"")}} zu konstruieren, der das Gerät identifiziert oder es zumindest bis zu einem gewissen Detailgrad kategorisiert, was für Benutzer unerwünscht sein könnte.
+Media Queries geben Aufschluss über die Fähigkeiten und damit auch über die Eigenschaften und Bauweise des Geräts, das der Benutzer verwendet. Daher besteht die Möglichkeit, sie zur Erstellung eines {{Glossary("Fingerprinting", "„Fingerabdrucks“")}} zu missbrauchen, der das Gerät identifiziert oder es zumindest so detailliert kategorisiert, wie es für Benutzer unerwünscht sein könnte.
 
-Aufgrund dieses Potenzials könnte ein Browser optieren, die zurückgegebenen Werte auf irgendeine Weise zu verzerren, um zu verhindern, dass sie zur präzisen Identifizierung eines Computers verwendet werden. Ein Browser könnte auch zusätzliche Maßnahmen in diesem Bereich anbieten; zum Beispiel, wenn die Einstellung "Resist Fingerprinting" von Firefox aktiviert ist, melden viele Media Queries Standardwerte anstelle von Werten, die den aktuellen Gerätezustand repräsentieren.
+Wegen dieses Risikos kann ein Browser die zurückgegebenen Werte verändern, damit sie nicht zur genauen Identifizierung eines Computers verwendet werden können. Ein Browser kann auch zusätzliche Schutzmaßnahmen anbieten. Wenn beispielsweise in Firefox die Einstellung „Resist Fingerprinting“ aktiviert ist, liefern viele Media Queries Standardwerte statt Werten, die den tatsächlichen Zustand des Geräts wiedergeben.
 
 ## Beispiele
 
-### Testen auf Druck- und Bildschirm-Medientypen
+### Prüfung auf die Media Types `print` und `screen`
 
 ```css
 @media print {
@@ -259,7 +259,7 @@ Aufgrund dieses Potenzials könnte ein Browser optieren, die zurückgegebenen We
 }
 ```
 
-Die Bereichssyntax ermöglicht weniger ausführliche Media Queries, wenn Sie auf ein Merkmal testen, das einen Wertebereich akzeptiert, wie in den nachstehenden Beispielen gezeigt:
+Mit der Bereichssyntax lassen sich Media Queries für Features, die einen Wertebereich zulassen, kürzer formulieren, wie die folgenden Beispiele zeigen:
 
 ```css
 @media (height > 600px) {
@@ -275,7 +275,7 @@ Die Bereichssyntax ermöglicht weniger ausführliche Media Queries, wenn Sie auf
 }
 ```
 
-Für weitere Beispiele siehe bitte [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using).
+Weitere Beispiele finden Sie unter [Media Queries verwenden](/de/docs/Web/CSS/Guides/Media_queries/Using).
 
 ## Spezifikationen
 
@@ -287,9 +287,9 @@ Für weitere Beispiele siehe bitte [Verwendung von Media Queries](/de/docs/Web/C
 
 ## Siehe auch
 
-- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
-- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
-- [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) Schnittstelle
-- CSS {{cssxref("@custom-media")}} Regel
-- [Erweiterte Mozilla-Medienfunktionen](/de/docs/Web/CSS/Reference/Mozilla_extensions#media_features)
-- [Erweiterte WebKit-Medienfunktionen](/de/docs/Web/CSS/Reference/Webkit_extensions#media_features)
+- Das Modul [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries)
+- [Media Queries verwenden](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- Die Schnittstelle [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)
+- Die CSS-At-Regel {{cssxref("@custom-media")}}
+- [Erweiterte Mozilla Media Features](/de/docs/Web/CSS/Reference/Mozilla_extensions#media_features)
+- [Erweiterte WebKit Media Features](/de/docs/Web/CSS/Reference/Webkit_extensions#media_features)

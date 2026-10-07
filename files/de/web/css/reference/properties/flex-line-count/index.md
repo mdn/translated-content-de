@@ -3,12 +3,12 @@ title: "`flex-line-count` CSS property"
 short-title: flex-line-count
 slug: Web/CSS/Reference/Properties/flex-line-count
 l10n:
-  sourceCommit: e5cd1cab36e2fdcf5dfe28e10b0a7cb235354e62
+  sourceCommit: d78544a841b0e266a6efc169c044573f5e0b4e7d
 ---
 
 {{SeeCompatTable}}
 
-Die **`flex-line-count`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindestanzahl von Flex-Zeilen fest, über die Flex-Elemente im Falle eines Flex-Containers mit der {{cssxref("flex-wrap")}} oder {{cssxref("flex-flow")}} Eigenschaft, die das Schlüsselwort `balance` enthält, verteilt werden sollen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`flex-line-count`** legt die Mindestanzahl an Flex-Zeilen fest, auf die Flex-Elemente gleichmäßig verteilt werden, wenn die Eigenschaft {{cssxref("flex-wrap")}} oder {{cssxref("flex-flow")}} eines Flex-Containers das Schlüsselwort `balance` enthält.
 
 {{InteractiveExample("CSS Demo: flex-line-count")}}
 
@@ -71,20 +71,20 @@ flex-line-count: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als folgender Wert angegeben:
+Für diese Eigenschaft wird der folgende Wert angegeben:
 
 - {{cssxref("integer")}}
-  - : Eine positive Ganzzahl, die die Mindestanzahl von Flex-Zeilen festlegt, über die ausgewogene, umgebrochene Flex-Elemente verteilt werden. Der Standardwert ist `1`.
+  - : Eine positive Ganzzahl, die die Mindestanzahl an Flex-Zeilen festlegt, auf die umgebrochene Flex-Elemente gleichmäßig verteilt werden. Der Standardwert ist `1`.
 
 ## Beschreibung
 
-Die Eigenschaft `flex-line-count` legt die Mindestanzahl von Flex-Zeilen fest, über die Flex-Elemente in umgebrochenen, ausgewogenen Flex-Containern verteilt werden sollen – mit anderen Worten, Flex-Containern, die eine {{cssxref("flex-wrap")}} oder {{cssxref("flex-flow")}} Eigenschaft mit dem Schlüsselwort `balance` enthalten, zusätzlich zu den Schlüsselwörtern `wrap` oder `wrap-reverse`.
+Die Eigenschaft `flex-line-count` legt die Mindestanzahl an Flex-Zeilen fest, auf die Flex-Elemente in umgebrochenen, gleichmäßig verteilten Flex-Containern verteilt werden. Das sind Flex-Container, deren Eigenschaft {{cssxref("flex-wrap")}} oder {{cssxref("flex-flow")}} neben dem Schlüsselwort `wrap` oder `wrap-reverse` auch das Schlüsselwort `balance` enthält.
 
-Ein wichtiger Anwendungsfall für `flex-line-count` ist das Erstellen eines ausgewogenen Satzes von zwei (oder mehr) Spalten, unabhängig von der Anzahl der Elemente in einer Liste. In solchen Fällen funktioniert das Festlegen einer expliziten {{cssxref("height")}} oder {{cssxref("max-height")}} nicht, da Sie nicht wissen, wie viel Inhalt vorhanden sein wird, und möglicherweise weniger oder mehr Spalten als gewünscht haben. Siehe [Erstellung von ausgewogenen Spalten](#erstellung_ausgewogener_spalten) für ein Beispiel zur Implementierung.
+Ein wichtiger Anwendungsfall für `flex-line-count` ist das Erstellen von zwei (oder mehr) gleichmäßig gefüllten Spalten, unabhängig von der Anzahl der Elemente in einer Liste. Eine feste {{cssxref("height")}} oder {{cssxref("max-height")}} eignet sich dafür nicht: Da die Menge des Inhalts unbekannt ist, können am Ende mehr oder weniger Spalten als gewünscht entstehen. Ein Implementierungsbeispiel finden Sie unter [Gleichmäßig gefüllte Spalten erstellen](#gleichmäßig_gefüllte_spalten_erstellen).
 
-Wenn `balance` nicht gesetzt ist oder Flex-Elemente nicht so eingestellt sind, dass sie auf mehrere Flex-Zeilen umgebrochen werden, hat die Eigenschaft `flex-line-count` keine Wirkung.
+Wenn `balance` nicht festgelegt ist oder die Flex-Elemente nicht auf mehrere Flex-Zeilen umgebrochen werden, hat die Eigenschaft `flex-line-count` keine Wirkung.
 
-Wenn der Wert von `flex-line-count` gleich der Anzahl der Flex-Elemente oder größer ist, wird es ein Flex-Element pro Flex-Zeile geben.
+Wenn der Wert von `flex-line-count` mindestens der Anzahl der Flex-Elemente entspricht, steht in jeder Flex-Zeile ein Flex-Element.
 
 ## Formale Definition
 
@@ -96,13 +96,13 @@ Wenn der Wert von `flex-line-count` gleich der Anzahl der Flex-Elemente oder gr�
 
 ## Beispiele
 
-### Effekt verschiedener `flex-line-count` Werte
+### Auswirkungen verschiedener `flex-line-count`-Werte
 
-Dieses Beispiel zeigt die Auswirkungen verschiedener Werte von `flex-line-count` auf vier Kästchen.
+Dieses Beispiel zeigt, wie sich verschiedene Werte von `flex-line-count` auf vier Boxen auswirken.
 
 #### HTML
 
-Wir fügen vier Container-{{htmlelement("div")}}s ein, jedes mit einer `class` von `box` und zehn untergeordneten `<div>`s; jeder Container-`<div>` hat einen unterschiedlichen `id`-Wert.
+Wir verwenden vier {{htmlelement("div")}}-Container, jeweils mit einer `class` von `box` und zehn untergeordneten `<div>`-Elementen. Jeder Container hat einen anderen `id`-Wert.
 
 ```html
 <div class="box" id="box-no-balance">
@@ -187,26 +187,7 @@ Wir fügen vier Container-{{htmlelement("div")}}s ein, jedes mit einer `class` v
 
 #### CSS
 
-```css hidden live-sample___flex-line-count
-* {
-  box-sizing: border-box;
-}
-
-.box {
-  width: 100%;
-  border: 2px dotted gray;
-  margin-bottom: 20px;
-  gap: 10px;
-}
-
-.box > * {
-  border: 2px solid rgb(96 139 168);
-  border-radius: 5px;
-  background-color: lightgray;
-}
-```
-
-Wir wenden `display: flex` auf alle Boxen an, um sie zu Flex-Containern zu machen, und geben ihnen dann einen `flex-wrap` Wert von `wrap balance`, damit alle ihre Flex-Kinder auf mehrere, ausgewogene Zeilen umgebrochen werden.
+Wir wenden `display: flex` auf alle Boxen an, um sie zu Flex-Containern zu machen. Anschließend geben wir ihnen den `flex-wrap`-Wert `wrap balance`, damit ihre untergeordneten Flex-Elemente auf mehrere, gleichmäßig gefüllte Zeilen umgebrochen werden.
 
 ```css live-sample___flex-line-count
 .box {
@@ -215,7 +196,7 @@ Wir wenden `display: flex` auf alle Boxen an, um sie zu Flex-Containern zu mache
 }
 ```
 
-Wir setzen auch einen {{cssxref("flex")}} Wert von `1 1 150px` auf die Flex-Kinder, damit sie eine Basisbreite von `150px` haben und jeden überschüssigen Raum gleichmäßig über die Elemente in jeder Flex-Zeile verteilen.
+Für die untergeordneten Flex-Elemente legen wir außerdem einen {{cssxref("flex")}}-Wert von `1 1 150px` fest. Dadurch haben sie eine Basisbreite von `150px`, und überschüssiger Platz wird gleichmäßig auf die Elemente der jeweiligen Flex-Zeile verteilt.
 
 ```css live-sample___flex-line-count
 .box > * {
@@ -223,7 +204,7 @@ Wir setzen auch einen {{cssxref("flex")}} Wert von `1 1 150px` auf die Flex-Kind
 }
 ```
 
-Für den `#box-no-balance` Flex-Container entfernen wir das Balancieren, wobei wir die Zeilenanzahl aufheben, indem wir den ursprünglichen `flex-wrap: wrap balance` Wert mit `wrap` überschreiben. Wir wenden unterschiedliche `flex-line-count` Werte auf jeden Flex-Container an und inkrementieren sie, sodass ihre Kinder über eine zunehmend größere Anzahl von Flex-Zeilen verteilt werden.
+Beim Flex-Container `#box-no-balance` heben wir die gleichmäßige Verteilung und damit auch die Wirkung der festgelegten Zeilenanzahl auf, indem wir den ursprünglichen Wert `flex-wrap: wrap balance` mit `wrap` überschreiben. Den übrigen Flex-Containern weisen wir schrittweise höhere `flex-line-count`-Werte zu, sodass ihre untergeordneten Elemente auf eine zunehmend größere Anzahl von Flex-Zeilen verteilt werden.
 
 ```css live-sample___flex-line-count
 #box-no-balance {
@@ -244,7 +225,7 @@ Für den `#box-no-balance` Flex-Container entfernen wir das Balancieren, wobei w
 }
 ```
 
-Wir haben den Rest des CSS der Übersichtlichkeit halber verborgen.
+Der übrige CSS-Code ist der Kürze halber ausgeblendet.
 
 #### Ergebnisse
 
@@ -252,16 +233,16 @@ Wir haben den Rest des CSS der Übersichtlichkeit halber verborgen.
 
 Beachten Sie Folgendes:
 
-- Da der erste Flex-Container das Schlüsselwort `balance` nicht in seinem `flex-wrap` Wert gesetzt hat, erhalten seine Kinder keine ausgeglichene Verteilung und sein `flex-line-count` Wert wird ignoriert.
-- Die `flex-line-count: 3` Deklaration des zweiten Flex-Containers beeinflusst das Layout der Flex-Kinder nicht; da die Flex-Elemente standardmäßig über vier Flex-Zeilen verteilt werden, hat jeder Wert von `4` oder weniger keine Auswirkung.
+- Da der `flex-wrap`-Wert des ersten Flex-Containers das Schlüsselwort `balance` nicht enthält, werden seine untergeordneten Elemente nicht gleichmäßig verteilt und sein `flex-line-count`-Wert wird ignoriert.
+- Die Deklaration `flex-line-count: 3` des zweiten Flex-Containers wirkt sich nicht auf das Layout seiner untergeordneten Flex-Elemente aus. Da die Flex-Elemente standardmäßig auf vier Flex-Zeilen verteilt werden, hat ein Wert von `4` oder weniger keine Wirkung.
 
-### Erstellung ausgewogener Spalten
+### Gleichmäßig gefüllte Spalten erstellen
 
-Dieses Beispiel veranschaulicht, wie `flex-line-count` verwendet werden kann, um einen ausgewogenen Satz von zwei Spalten zu erstellen.
+Dieses Beispiel zeigt, wie Sie mit `flex-line-count` zwei gleichmäßig gefüllte Spalten erstellen können.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("ol")}} Element ein, das zehn {{htmlelement("li")}} Elemente enthält.
+Wir verwenden ein {{htmlelement("ol")}}-Element mit zehn {{htmlelement("li")}}-Elementen.
 
 ```html
 <ol>
@@ -325,9 +306,9 @@ Wir fügen ein {{htmlelement("ol")}} Element ein, das zehn {{htmlelement("li")}}
 
 #### CSS
 
-Wir setzen die {{cssxref("display")}} des Listelements auf `flex`. Wir setzen einen {{cssxref("flex-direction")}} Wert von `column` und einen {{cssxref("flex-wrap")}} Wert von `balance` mit der {{cssxref("flex-flow")}} Kurzschreibweise, damit die Flex-Zeilen in Spalten angeordnet sind und beim Umbruch ausbalanciert werden. Der {{cssxref("gap")}} Wert `10px 40px` gibt einen Abstand von `10px` zwischen Flex-Elementen innerhalb jeder Spalte und `40px` zwischen Flex-Zeilen an.
+Wir setzen {{cssxref("display")}} für die Liste auf `flex`. Mithilfe der Kurzschreibweise {{cssxref("flex-flow")}} legen wir für {{cssxref("flex-direction")}} den Wert `column` und für {{cssxref("flex-wrap")}} den Wert `balance` fest, sodass die Flex-Zeilen als Spalten angeordnet und beim Umbrechen gleichmäßig gefüllt werden. Der {{cssxref("gap")}}-Wert `10px 40px` legt einen Abstand von `10px` zwischen den Flex-Elementen innerhalb jeder Spalte und von `40px` zwischen den Flex-Zeilen fest.
 
-Schließlich setzen wir einen `flex-line-count` Wert von `2`, was bedeutet, dass, obwohl keine feste Höhe für die Liste festgelegt ist, ihr Inhalt immer über zwei ausgewogene Spalten umgebrochen wird, unabhängig davon, wie viel Inhalt enthalten ist.
+Abschließend setzen wir `flex-line-count` auf `2`. So wird der Inhalt immer auf zwei gleichmäßig gefüllte Spalten umgebrochen, obwohl für die Liste keine feste Höhe festgelegt ist – unabhängig davon, wie viel Inhalt sie enthält.
 
 ```css live-sample___balanced-columns
 ol {
@@ -361,7 +342,7 @@ body {
 }
 ```
 
-Wir haben den Rest des CSS der Übersichtlichkeit halber verborgen.
+Der übrige CSS-Code ist der Kürze halber ausgeblendet.
 
 #### Ergebnisse
 
@@ -378,7 +359,7 @@ Wir haben den Rest des CSS der Übersichtlichkeit halber verborgen.
 ## Siehe auch
 
 - {{CSSXRef("flex-wrap")}}
-- {{CSSXRef("flex-flow")}} Kurzform
-- [Grundkonzepte des Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Beherrschen des Umbruchs von Flex-Elementen > Ausgewogener Umbruch](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items#balanced_wrapping)
-- [CSS Flexibles Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- {{CSSXRef("flex-flow")}}-Kurzschreibweise
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Umbrechen von Flex-Elementen beherrschen > Gleichmäßiger Umbruch](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items#balanced_wrapping)
+- Modul [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)

@@ -3,10 +3,10 @@ title: "`will-change` CSS property"
 short-title: will-change
 slug: Web/CSS/Reference/Properties/will-change
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: d78544a841b0e266a6efc169c044573f5e0b4e7d
 ---
 
-Die **`will-change`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht die Optimierung von Animationen, indem sie dem Browser einen Hinweis darauf gibt, wie sich ein Element voraussichtlich ändern wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`will-change`** ermöglicht es, Animationen zu optimieren, indem sie dem Browser einen Hinweis darauf gibt, wie sich ein Element voraussichtlich ändern wird.
 
 ## Syntax
 
@@ -33,48 +33,48 @@ will-change: unset;
 
 ### Werte
 
-Der Wert ist entweder `auto` oder einer oder mehrere durch Kommas getrennte `<animatable-feature>`-Werte:
+Der Wert ist entweder `auto` oder besteht aus einem oder mehreren durch Kommas getrennten `<animatable-feature>`-Werten:
 
 - `auto`
-  - : Gibt an, dass der Browser alle Heuristiken und Optimierungen anwendet, die er normalerweise ausführt. Dies ist der Standardwert.
+  - : Gibt an, dass der Browser seine üblichen Heuristiken und Optimierungen anwendet. Dies ist der Standardwert.
 
 - `<animatable-feature>`
-  - : Repräsentiert eines der folgenden:
+  - : Steht für einen der folgenden Werte:
     - `scroll-position`
-      - : Gibt an, dass sich die Scrollposition des Elements in naher Zukunft ändern wird, was dem Browser ermöglicht, die Darstellung von überlaufendem Inhalt zu optimieren.
+      - : Gibt an, dass sich die Scrollposition des Elements voraussichtlich in naher Zukunft ändert. Dadurch kann der Browser die Darstellung von überlaufendem Inhalt optimieren.
 
     - `contents`
-      - : Gibt an, dass sich die Inhalte des Elements, einschließlich aller Elemente in seinem Unterbaum, in naher Zukunft ändern werden, was dem Browser ermöglicht, das Element weniger aggressiv zu cachen.
+      - : Gibt an, dass sich der Inhalt des Elements einschließlich aller Elemente in seinem Teilbaum voraussichtlich in naher Zukunft ändert. Dadurch kann der Browser das Element weniger aggressiv zwischenspeichern.
 
     - {{cssxref("custom-ident", "&lt;custom-ident&gt;")}}
-      - : Gibt den Namen einer CSS-Eigenschaft als {{cssxref("ident")}} an, deren Wert animiert oder anderweitig voraussichtlich geändert wird. Wenn das angegebene `<ident>` eine Eigenschaftenshorthand darstellt, werden alle seine Langformkomponenten angewendet. Der Wert kann nicht `will-change`, `none`, `all`, `auto`, `scroll-position` oder `contents` sein.
+      - : Gibt als {{cssxref("ident")}} den Namen einer CSS-Eigenschaft an, deren Wert animiert wird oder sich voraussichtlich in naher Zukunft anderweitig ändert. Wenn das angegebene `<ident>` eine Kurzschreibweise für eine Eigenschaft bezeichnet, gilt dies für alle zugehörigen Einzeleigenschaften. Der Wert darf nicht `will-change`, `none`, `all`, `auto`, `scroll-position` oder `contents` sein.
 
 ## Beschreibung
 
-Die `will-change`-Eigenschaft gibt dem Browser einen Hinweis darauf, welche Eigenschaften voraussichtlich animiert oder anderweitig geändert werden. Dies ermöglicht es Browsern, die notwendigen Rendering-Optimierungen vorzunehmen, um flüssigere Änderungen zu ermöglichen und {{Glossary("jank", "Ruckler")}} zu vermeiden.
+Die Eigenschaft `will-change` gibt dem Browser einen Hinweis darauf, welche Eigenschaften voraussichtlich animiert oder anderweitig geändert werden. So kann der Browser die nötigen Optimierungen bei der Darstellung vornehmen, um Änderungen flüssiger darzustellen und {{Glossary("jank", "Ruckeln")}} zu vermeiden.
 
-Die `will-change`-Eigenschaft zielt darauf ab, die Rendering-Leistung zu verbessern. Diese Eigenschaft kann die Leistung für Elemente verbessern, die häufig neu gezeichnet werden oder Eigenschaften wie {{cssxref("box-shadow")}} und {{cssxref("clip-path")}} verwenden, um komplexe visuelle Effekte zu erzeugen.
+Die Eigenschaft `will-change` soll die Darstellungsleistung verbessern. Sie kann die Leistung von Elementen verbessern, die häufig neu gezeichnet oder deren Layout häufig neu berechnet wird. Das gilt auch für Elemente, die Eigenschaften wie {{cssxref("box-shadow")}} und {{cssxref("clip-path")}} für komplexe visuelle Effekte verwenden.
 
-Durch das Anwenden der Eigenschaft auf ein Element wird der Wert auf den gesamten Unterbaum des Elements angewendet, was bedeutet, dass sich alle Nachkommen ändern können. Aus diesem Grund kann das Anwenden eines nicht-`auto`-Wertes auf einen großen Abschnitt, wie zum Beispiel das {{htmlelement("body")}}, tatsächlich schlecht für die Leistung einer Seite sein. Begrenzen Sie stattdessen die Verwendung dieser Eigenschaft auf tief verschachtelte Elemente, die so wenig Dokument wie möglich enthalten.
+Wird die Eigenschaft auf ein Element angewendet, gilt ihr Wert für den gesamten Teilbaum des Elements. Damit wird angegeben, dass sich jedes seiner Nachfahrenelemente ändern kann. Ein anderer Wert als `auto` auf einem großen Bereich wie dem {{htmlelement("body")}} kann sich deshalb sogar negativ auf die Leistung einer Seite auswirken. Beschränken Sie die Verwendung dieser Eigenschaft stattdessen auf tief verschachtelte Elemente, die einen möglichst kleinen Teil des Dokuments enthalten.
 
 > [!WARNING]
-> Verwenden Sie die `will-change`-Eigenschaft als letztes Mittel, um mit bestehenden Leistungsproblemen umzugehen. Nutzen Sie sie nicht, um Leistungsprobleme im Voraus zu antizipieren.
+> Verwenden Sie die Eigenschaft `will-change` nur als letztes Mittel, um bestehende Leistungsprobleme zu beheben. Verwenden Sie sie nicht vorsorglich für mögliche Leistungsprobleme.
 
-Die richtige Verwendung dieser Eigenschaft kann etwas knifflig sein. Beachten Sie die folgenden Richtlinien:
+Die richtige Verwendung dieser Eigenschaft kann etwas schwierig sein. Beachten Sie die folgenden Richtlinien:
 
-- **Wenden Sie `will-change` nicht auf zu viele Elemente an**: Der Browser versucht bereits so gut er kann, alles zu optimieren. Einige der stärkeren Optimierungen, die wahrscheinlich mit `will-change` verbunden sind, verbrauchen viele Ressourcen einer Maschine. Eine übermäßige Verwendung der Eigenschaft kann dazu führen, dass die Seite langsamer wird, anstatt ihre Leistung zu verbessern.
-- **Verwenden Sie sie sparsam**: Das normale Verhalten des Browsers für Optimierungen besteht darin, die Optimierungen so schnell wie möglich zu entfernen und in den Normalzustand zurückzukehren. Das direkte Hinzufügen von `will-change` zu einem Stylesheet impliziert, dass die Ziel-Elemente immer kurz davor stehen, sich zu ändern, und der Browser die Optimierungen viel länger als sonst beibehalten wird. Es ist daher eine gute Praxis, `will-change` mit Skriptcode ein- und auszuschalten, bevor und nachdem sich die Änderung vollzieht.
-- **Verwenden Sie `will-change` nicht, um vorzeitige Optimierungen durchzuführen**: Wenn Ihre Seite gut funktioniert, fügen Sie den Elementen nicht die `will-change`-Eigenschaft hinzu, nur um ein wenig mehr Geschwindigkeit herauszuholen. `will-change` soll als letztes Mittel verwendet werden, um mit bestehenden Leistungsproblemen umzugehen. Es sollte nicht verwendet werden, um Leistungsprobleme vorwegzunehmen. Eine übermäßige Nutzung von `will-change` wird zu übermäßigem Speicherverbrauch führen und komplexere Rendering-Vorgänge verursachen, da der Browser versucht, sich auf die mögliche Änderung vorzubereiten. Dies wird zu schlechterer Leistung führen.
-- **Geben Sie ihm genügend Zeit, um zu wirken**: Diese Eigenschaft ermöglicht es Ihnen, dem Browser über Eigenschaften zu signalisieren, die sich wahrscheinlich ändern werden, sodass der Browser im Voraus Optimierungen anwenden kann, bevor sich die Eigenschaft ändert. Aus diesem Grund sollten Sie dem Browser etwas Zeit geben, die Optimierungen vorzunehmen. Sagen Sie leicht im Voraus voraus, dass sich etwas ändern wird, und setzen Sie dann `will-change`.
-- **Seien Sie sich bewusst, dass `will-change` die visuelle Erscheinung von Elementen beeinflussen kann**: Wenn es mit Eigenschaftswerten verwendet wird, die einen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) erstellen (z. B. `will-change: opacity`), wird der Stacking-Kontext im Voraus erstellt.
+- **Wenden Sie `will-change` nicht auf zu viele Elemente an**: Der Browser versucht bereits, so viel wie möglich zu optimieren. Einige der umfangreicheren Optimierungen, die mit `will-change` verbunden sein können, beanspruchen viele Systemressourcen. Wird die Eigenschaft übermäßig verwendet, kann die Seite langsamer werden, statt an Leistung zu gewinnen.
+- **Verwenden Sie die Eigenschaft sparsam**: Normalerweise entfernt der Browser Optimierungen, sobald sie nicht mehr benötigt werden, und kehrt zum Normalzustand zurück. Wenn Sie `will-change` jedoch direkt in einem Stylesheet festlegen, bedeutet dies, dass sich die betreffenden Elemente jederzeit ändern können. Der Browser behält die Optimierungen dann wesentlich länger bei, als er es sonst tun würde. Es empfiehlt sich daher, `will-change` mithilfe von Skriptcode vor und nach der Änderung ein- und auszuschalten.
+- **Wenden Sie `will-change` nicht zur vorsorglichen Optimierung auf Elemente an**: Wenn Ihre Seite bereits eine gute Leistung bietet, fügen Sie Elementen die Eigenschaft `will-change` nicht bloß hinzu, um noch etwas mehr Geschwindigkeit herauszuholen. `will-change` ist als letztes Mittel zur Behebung bestehender Leistungsprobleme gedacht, nicht zur Vorbeugung möglicher Probleme. Eine übermäßige Verwendung von `will-change` erhöht den Speicherverbrauch und macht die Darstellung aufwendiger, weil sich der Browser auf mögliche Änderungen vorbereitet. Das verschlechtert die Leistung.
+- **Geben Sie dem Browser genügend Zeit für die Optimierung**: Mit dieser Eigenschaft können Sie dem Browser signalisieren, welche Eigenschaften sich wahrscheinlich ändern werden. So kann er Optimierungen vornehmen, bevor die Änderung eintritt. Geben Sie dem Browser deshalb etwas Zeit dafür: Erkennen Sie eine bevorstehende Änderung möglichst frühzeitig und setzen Sie dann `will-change`.
+- **Beachten Sie, dass `will-change` das visuelle Erscheinungsbild von Elementen beeinflussen kann**: Bei Verwendung mit Eigenschaftswerten, die einen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) erzeugen (z. B. `will-change: opacity`), wird der Stapelkontext bereits im Voraus erstellt.
 
 ### Animationen
 
-Wenn Sie `will-change` anwenden, um Animationen zu verbessern, fügen Sie die Eigenschaft hinzu, bevor die Animation beginnt, nicht innerhalb der {{cssxref("@keyframes")}}-Animationsdefinitionen. Animierte Eigenschaften werden so behandelt, als ob sie bereits in `will-change` enthalten sind, daher gibt es keinen Grund, sie dort hinzuzufügen.
+Wenn Sie `will-change` zur Verbesserung von Animationen einsetzen, fügen Sie die Eigenschaft vor Beginn der Animation hinzu und nicht innerhalb der Animationsdefinitionen von {{cssxref("@keyframes")}}. Animierte Eigenschaften werden ohnehin so behandelt, als wären sie bereits in `will-change` enthalten. Daher müssen Sie sie dort nicht hinzufügen.
 
-### Über Stylesheet
+### Über ein Stylesheet
 
-Es kann angemessen sein, `will-change` in Ihr Stylesheet für eine Anwendung aufzunehmen, die bei Tastendrücken Seitenwechsel wie ein Album oder eine Präsentation mit großen und komplexen Seiten durchführt. Dies ermöglicht es dem Browser, die Transition im Voraus vorzubereiten und sofortige Übergänge zwischen den Seiten zu ermöglichen, sobald die Taste gedrückt wird. Gehen Sie jedoch vorsichtig mit der `will-change`-Eigenschaft direkt in Stylesheets um. Sie kann dazu führen, dass der Browser die Optimierung viel länger im Speicher hält, als sie benötigt wird.
+Für eine Anwendung, bei der sich große, komplexe Seiten per Tastendruck umblättern lassen – etwa ein Album oder eine Folienpräsentation –, kann es sinnvoll sein, `will-change` in das Stylesheet aufzunehmen. So kann der Browser den Übergang im Voraus vorbereiten und die Seiten unmittelbar nach dem Tastendruck schnell wechseln. Seien Sie jedoch vorsichtig, wenn Sie `will-change` direkt in Stylesheets verwenden: Der Browser könnte die Optimierung wesentlich länger als nötig im Speicher behalten.
 
 ```css
 .slide {
@@ -94,11 +94,11 @@ Es kann angemessen sein, `will-change` in Ihr Stylesheet für eine Anwendung auf
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel demonstriert die grundlegende Anwendung der `will-change`-Eigenschaft in CSS.
+Dieses Beispiel zeigt die grundlegende Anwendung der Eigenschaft `will-change` in CSS.
 
 #### CSS
 
-Wir verwenden CSS, um die `will-change`-Eigenschaft auf das `#element` anzuwenden und dem Browser einen Hinweis zu geben, dass sich die Werte der Eigenschaften {{cssxref("transform")}} und {{cssxref("opacity")}} in naher Zukunft ändern oder animiert werden.
+Wir wenden die Eigenschaft `will-change` per CSS auf `#element` an. Damit geben wir dem Browser den Hinweis, dass die Werte der Eigenschaften {{cssxref("transform")}} und {{cssxref("opacity")}} in naher Zukunft animiert werden oder sich anderweitig ändern.
 
 ```css
 #element {
@@ -106,13 +106,13 @@ Wir verwenden CSS, um die `will-change`-Eigenschaft auf das `#element` anzuwende
 }
 ```
 
-### Über Skript
+### Über ein Skript
 
-Dieses Beispiel zeigt, wie die `will-change`-Eigenschaft bei Bedarf angewendet und die Optimierungen nach getaner Arbeit mit JavaScript entfernt werden, was im Allgemeinen die Methode ist, wie `will-change` angewendet werden sollte.
+Dieses Beispiel zeigt, wie Sie die Eigenschaft `will-change` bei Bedarf anwenden und die Optimierungen anschließend mit JavaScript wieder entfernen. Im Allgemeinen sollte `will-change` auf diese Weise verwendet werden.
 
 #### JavaScript
 
-Wir verwenden JavaScript, um die `will-change`-Eigenschaft auf `#element` hinzuzufügen, wenn das Element durch das [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)-Ereignis überfahren wird. Das Setzen von `will-change` auf `transform, opacity` teilt dem Browser mit, dass er für Änderungen an den Eigenschaften {{cssxref("transform")}} und {{cssxref("opacity")}} optimieren soll. Wenn das [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis eintritt, setzt unser Skript den Wert auf `auto`.
+Wir verwenden JavaScript, um `#element` die Eigenschaft `will-change` hinzuzufügen, wenn der Mauszeiger über das Element bewegt wird. Dazu verwenden wir das Ereignis [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event). Wenn `will-change` auf `transform, opacity` gesetzt wird, optimiert der Browser die Darstellung für Änderungen an den Eigenschaften {{cssxref("transform")}} und {{cssxref("opacity")}}. Sobald das Ereignis [`animationend`](/de/docs/Web/API/Element/animationend_event) eintritt, setzt unser Skript den Wert auf `auto`.
 
 ```js
 const el = document.getElementById("element");
@@ -140,6 +140,6 @@ function removeHint() {
 ## Siehe auch
 
 - {{cssxref("transform")}}
-- Einzelne Transform-Eigenschaften: {{cssxref("translate")}}, {{cssxref("scale")}}, {{cssxref("rotate")}}
+- Einzelne Transformations-Eigenschaften: {{cssxref("translate")}}, {{cssxref("scale")}}, {{cssxref("rotate")}}
 - {{cssxref("animation")}}
-- [CSS will change](/de/docs/Web/CSS/Guides/Will_change) Modul
+- Modul [CSS will change](/de/docs/Web/CSS/Guides/Will_change)

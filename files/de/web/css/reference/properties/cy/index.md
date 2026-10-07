@@ -3,13 +3,13 @@ title: "`cy` CSS property"
 short-title: cy
 slug: Web/CSS/Reference/Properties/cy
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: d78544a841b0e266a6efc169c044573f5e0b4e7d
 ---
 
-Die **`cy`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Mittelpunkt auf der y-Achse für SVG-{{SVGElement("circle")}} oder {{SVGElement("ellipse")}}-Elemente. Falls vorhanden, überschreibt sie das {{SVGAttr("cy")}}-Attribut des Elements.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`cy`** definiert den Mittelpunkt auf der y-Achse eines SVG-Elements {{SVGElement("circle")}} oder {{SVGElement("ellipse")}}. Ist sie vorhanden, überschreibt sie das Attribut {{SVGAttr("cy")}} des Elements.
 
 > [!NOTE]
-> Während das SVG-{{SVGElement("radialGradient")}}-Element das {{SVGAttr("cy")}}-Attribut unterstützt, gilt die `cy`-Eigenschaft nur für {{SVGElement("circle")}}- und {{SVGElement("ellipse")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Dieses Attribut gilt weder für `<radialGradient>` noch für andere SVG-Elemente und auch nicht für HTML-Elemente oder Pseudo-Elemente.
+> Das SVG-Element {{SVGElement("radialGradient")}} unterstützt zwar das Attribut {{SVGAttr("cy")}}, die Eigenschaft `cy` gilt jedoch nur für {{SVGElement("circle")}}- und {{SVGElement("ellipse")}}-Elemente innerhalb eines {{SVGElement("svg")}}-Elements. Sie gilt weder für `<radialGradient>` oder andere SVG-Elemente noch für HTML-Elemente oder Pseudoelemente.
 
 ## Syntax
 
@@ -28,27 +28,27 @@ cy: unset;
 
 ### Werte
 
-Die {{cssxref("length")}}- und {{cssxref("percentage")}}-Werte geben die vertikale Mitte des Kreises oder der Ellipse an.
+Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} geben die vertikale Position des Mittelpunkts des Kreises oder der Ellipse an.
 
 - {{cssxref("length")}}
-  - : Als absolute oder relative Länge kann sie in jeder vom CSS-{{cssxref("&lt;length&gt;")}}-Datentyp erlaubten Einheit angegeben werden. Negative Werte sind ungültig.
+  - : Als absolute oder relative Länge kann der Wert in jeder Einheit angegeben werden, die der CSS-Datentyp {{cssxref("&lt;length&gt;")}} zulässt. Negative Werte sind ungültig.
 
 - {{cssxref("percentage")}}
-  - : Prozentsätze beziehen sich auf die Höhe des aktuellen SVG-Anzeigefensters.
+  - : Prozentwerte beziehen sich auf die Höhe des aktuellen SVG-Viewports.
 
-## Formelle Definition
+## Formale Definition
 
 {{CSSInfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Festlegen der y-Achsen-Koordinate eines Kreises und einer Ellipse
+### Die y-Koordinate eines Kreises und einer Ellipse festlegen
 
-In diesem Beispiel haben wir zwei identische `<circle>`- und zwei identische `<ellipse>`-Elemente in einem SVG; ihre `cy`-Attributswerte sind `50` bzw. `150`.
+In diesem Beispiel enthält ein SVG zwei identische `<circle>`-Elemente und zwei identische `<ellipse>`-Elemente. Die Werte ihrer `cy`-Attribute sind `50` beziehungsweise `150`.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@ In diesem Beispiel haben wir zwei identische `<circle>`- und zwei identische `<e
 </svg>
 ```
 
-Mit CSS stylen wir nur den ersten Kreis und die erste Ellipse, sodass ihre Zwillingsformen die Standardstile verwenden (wobei {{cssxref("fill")}} standardmäßig schwarz ist). Wir verwenden die `cy`-Eigenschaft, um den Wert des SVG-{{SVGAttr("cy")}}-Attributs zu überschreiben, und geben ihm ebenfalls eine `fill`- und {{cssxref("stroke")}}, um die ersten Formen in jedem Paar von ihren Zwillingen zu unterscheiden. Der Browser rendert SVG-Bilder standardmäßig `300px` breit und `150px` hoch.
+Mit CSS gestalten wir nur den ersten Kreis und die erste Ellipse. Die jeweils zweite Form behält die Standarddarstellung bei ({{cssxref("fill")}} ist dabei standardmäßig schwarz). Mit der Eigenschaft `cy` überschreiben wir den Wert des SVG-Attributs {{SVGAttr("cy")}}. Außerdem legen wir `fill` und {{cssxref("stroke")}} fest, um die erste Form jedes Paares von der zweiten zu unterscheiden. Browser stellen SVG-Bilder standardmäßig mit einer Breite von `300px` und einer Höhe von `150px` dar.
 
 ```css
 svg {
@@ -78,13 +78,13 @@ ellipse:first-of-type {
 }
 ```
 
-{{EmbedLiveSample("Festlegen der y-Achsen-Koordinate eines Kreises und einer Ellipse", "300", "180")}}
+{{EmbedLiveSample("Defining the y-axis coordinate of a circle and ellipse", "300", "180")}}
 
-Der gestylte Kreis hat seinen Mittelpunkt `30px` vom oberen Rand des SVG-Anzeigefensters entfernt, und die gestylte Ellipse ist `100px` von diesem Rand entfernt, wie in den CSS-`cy`-Eigenschaftswerten definiert. Die ungestylten Formen haben beide ihren Mittelpunkt `50px` vom oberen Rand des SVG-Anzeigefensters entfernt, wie in ihren SVG-`cy`-Attributswerten angegeben.
+Der Mittelpunkt des gestalteten Kreises liegt `30px` vom oberen Rand des SVG-Viewports entfernt, der Mittelpunkt der gestalteten Ellipse `100px`. Diese Positionen sind durch die Werte der CSS-Eigenschaft `cy` festgelegt. Die Mittelpunkte der nicht gestalteten Formen liegen gemäß ihren SVG-Attributen `cy` beide `50px` vom oberen Rand des SVG-Viewports entfernt.
 
-### y-Achsen-Koordinaten als Prozentwerte
+### y-Koordinaten als Prozentwerte
 
-In diesem Beispiel verwenden wir dasselbe Markup wie im vorherigen Beispiel. Der einzige Unterschied ist der CSS-`cy`-Eigenschaftswert; in diesem Fall verwenden wir Prozentwerte von `30%` und `50%`.
+In diesem Beispiel verwenden wir dasselbe Markup wie im vorherigen Beispiel. Der einzige Unterschied sind die Werte der CSS-Eigenschaft `cy`: Hier verwenden wir die Prozentwerte `30%` und `50%`.
 
 ```html hidden
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -112,9 +112,9 @@ ellipse:first-of-type {
 }
 ```
 
-{{EmbedLiveSample("y-Achsen-Koordinaten als Prozentwerte", "300", "180")}}
+{{EmbedLiveSample("y-axis coordinates as percentage values", "300", "180")}}
 
-In diesem Fall betragen die y-Achsen-Koordinaten des Mittelpunkts des Kreises und der Ellipse `30%` bzw. `50%` der Höhe des aktuellen SVG-Anzeigefensters. Da die Höhe des Bildes standardmäßig `150px` beträgt, bedeutet dies, dass die `cy`-Werte äquivalent zu `45px` und `120px` sind.
+Die y-Koordinaten der Mittelpunkte von Kreis und Ellipse liegen hier bei `30%` beziehungsweise `50%` der Höhe des aktuellen SVG-Viewports. Da die Bildhöhe standardmäßig `150px` beträgt, entsprechen die `cy`-Werte `45px` beziehungsweise `75px`.
 
 ## Spezifikationen
 
@@ -126,11 +126,11 @@ In diesem Fall betragen die y-Achsen-Koordinaten des Mittelpunkts des Kreises un
 
 ## Siehe auch
 
-- SVG-{{SVGAttr("cy")}}-Attribut
+- SVG-Attribut {{SVGAttr("cy")}}
 - Geometrieeigenschaften: `cy`, {{cssxref("cx")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}
-- {{cssxref("border-radius")}}-Kurzform-Eigenschaft
+- Kurzschreibweise {{cssxref("border-radius")}}
 - {{cssxref("gradient/radial-gradient", "radial-gradient")}}
-- {{cssxref("basic-shape")}}-Datentyp
+- Datentyp {{cssxref("basic-shape")}}

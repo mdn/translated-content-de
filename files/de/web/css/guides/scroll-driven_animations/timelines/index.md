@@ -1,47 +1,47 @@
 ---
-title: Scroll-gesteuerte Animationen
+title: Animationszeitleisten beim Scrollen
 slug: Web/CSS/Guides/Scroll-driven_animations/Timelines
 l10n:
-  sourceCommit: f94b7a0b06a0e32df81ec8197720d306fe50a4a0
+  sourceCommit: d78544a841b0e266a6efc169c044573f5e0b4e7d
 ---
 
-Ein häufiges UI-Muster beinhaltet Elemente, die sich animieren, während der Benutzer vertikal oder horizontal über eine Seite scrollt. Diese _scroll-gesteuerten Animationen_ treten als direkte Reaktion auf das Scrollen der Seite oder einen überlaufenden Scroll-Container innerhalb einer Seite auf.
+Ein häufiges UI-Muster sind Elemente, die animiert werden, während Benutzer vertikal oder horizontal durch eine Seite scrollen. Diese _scrollgesteuerten Animationen_ reagieren unmittelbar auf das Scrollen der Seite oder eines überlaufenden Scroll-Containers innerhalb der Seite.
 
-Die im Modul [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definierten Eigenschaften erweitern [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), indem sie ermöglichen, die Werte von animierenden Eigenschaften zu definieren, die in {{cssxref("@keyframes")}}-Animationen als Reaktion auf Benutzereingriffe verwendet werden.
+Die im Modul [CSS-Animationen beim Scrollen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definierten Eigenschaften erweitern [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations): Sie ermöglichen es, die in {{cssxref("@keyframes")}}-Animationen definierten Eigenschaftswerte als Reaktion auf Benutzerinteraktionen zu animieren.
 
-Dieser Leitfaden bietet einen Überblick über die Verwendung von CSS zur Erstellung von scroll-gesteuerten Animations-Timelines und Animationen.
+Dieser Leitfaden gibt einen Überblick darüber, wie Sie mit CSS Animationszeitleisten und Animationen erstellen, die durch Scrollen gesteuert werden.
 
-## Was sind scroll-gesteuerte Animationen?
+## Was ist eine scrollgesteuerte Animation?
 
-Das Modul [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definiert Eigenschaften, die es ermöglichen, [CSS-Keyframe-Animationen](/de/docs/Web/CSS/Guides/Animations/Using#defining_an_animation_sequence_using_keyframes) mit dem Scrollen zu verknüpfen.
+Das Modul [CSS-Animationen beim Scrollen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definiert Eigenschaften, mit denen sich [CSS-Keyframe-Animationen](/de/docs/Web/CSS/Guides/Animations/Using#defining_an_animation_sequence_using_keyframes) an das Scrollen koppeln lassen.
 
-### Fortschritt der Timeline
+### Verlauf der Zeitleiste
 
-Animationen können so eingestellt werden, dass sie entlang einer _scroll-basierten Timeline_ voranschreiten, anstatt entlang der standardmäßigen zeitbasierten Dokumenten-Timeline, ohne dass JavaScript erforderlich ist. Mit CSS können wir [definieren, welche Animations-Timeline](#animationstimelines) verwendet werden soll, einschließlich des Animierens von Elementen durch das Scrollen eines scrollbaren Elements, anstatt durch den Zeitverlauf.
+Animationen können statt auf der standardmäßigen zeitbasierten Dokumentzeitleiste auf einer _scrollbasierten Zeitleiste_ ablaufen – ohne JavaScript. Mit CSS können Sie [festlegen, welche Animationszeitleiste](#animationszeitleisten) verwendet wird. So lassen sich Elemente durch das Scrollen eines scrollbaren Elements animieren, statt durch den Zeitverlauf.
 
-### Leistungsverbesserungen
+### Leistungsvorteile
 
-CSS scroll-gesteuerte Animationen sind performant. JavaScript scroll-gesteuerte Animationen erfordern [`scroll`](/de/docs/Web/API/Document/scroll_event)-Ereignis-Listener und [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Objekte im {{Glossary("main_thread", "Haupt-Thread")}}, um Elemente über den {{Glossary("Scroll_container#scrollport", "Scrollport")}} hinweg zu verfolgen. Jedes Mal, wenn Sie sich auf den Haupt-Thread verlassen, um Effekte mit JavaScript zu rendern, besteht die Gefahr, den Haupt-Thread zu blockieren, was zu einer unansprechbaren Seite und einer schlechten Benutzererfahrung oder {{Glossary("jank", "Rucklern")}} führen kann.
+Scrollgesteuerte CSS-Animationen sind leistungsfähig. Für scrollgesteuerte Animationen mit JavaScript sind [`scroll`](/de/docs/Web/API/Document/scroll_event)-Event-Listener und [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Objekte auf dem {{Glossary("main_thread", "Hauptthread")}} erforderlich, um Elemente innerhalb des {{Glossary("Scroll_container#scrollport", "Scrollports")}} zu verfolgen. Wenn Sie Effekte mit JavaScript auf dem Hauptthread rendern, besteht die Gefahr, dass der Hauptthread blockiert wird. Das kann dazu führen, dass die Seite nicht mehr reagiert und die Benutzererfahrung leidet, oder dass {{Glossary("jank", "Ruckeln")}} auftritt.
 
 ## Grundlagen
 
-Scroll-gesteuerte Animationen bauen auf [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) auf. Bevor Sie scroll-gesteuerte Animationen erstellen, müssen Sie ein Verständnis von CSS-{{cssxref("@keyframes")}}-Animationen haben. Weitere Informationen finden Sie im [Leitfaden zur Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using).
+Scrollgesteuerte Animationen bauen auf [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) auf. Bevor Sie scrollgesteuerte Animationen erstellen, sollten Sie CSS-{{cssxref("@keyframes")}}-Animationen verstehen. Weitere Informationen finden Sie im [Leitfaden zur Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using).
 
-In CSS werden Animationen erstellt, indem Keyframe-Animationen unter Verwendung der {{cssxref("animation-name")}}-Eigenschaft (oder der {{cssxref("animation")}}-Kurzform) einem Element zugeordnet werden. Standardmäßig laufen Animationen auf der standardmäßigen Dokumenten-Timeline, wobei sie sich von der `from`-Keyframe zur `to`-Keyframe bewegen, während die Zeit vergeht, und die Animation so lange andauert, wie es durch den Wert der {{cssxref("animation-duration")}}-Eigenschaft definiert ist. Wenn sie auf der standardmäßigen Dokumenten-Timeline laufen, werden Animationen bis zum Ende abgespielt, es sei denn, sie werden daran gehindert, zum Beispiel durch das Setzen des {{cssxref("animation-play-state")}} auf `paused` oder durch Entfernen des `animation-name` vom Element.
+In CSS werden Animationen erstellt, indem Sie einem Element mithilfe der Eigenschaft {{cssxref("animation-name")}} (oder der Kurzschreibweise {{cssxref("animation")}}) eine Keyframe-Animation zuweisen. Standardmäßig laufen Animationen auf der Dokumentzeitleiste ab: Mit fortschreitender Zeit durchlaufen sie die Keyframes von `from` bis `to`. Die Dauer wird durch den Wert der Eigenschaft {{cssxref("animation-duration")}} bestimmt. Animationen auf der standardmäßigen Dokumentzeitleiste laufen bis zum Ende, sofern sie nicht daran gehindert werden – beispielsweise indem {{cssxref("animation-play-state")}} auf `paused` gesetzt oder `animation-name` vom Element entfernt wird.
 
-Scroll-gesteuerte Animationen sind CSS-Animationen, die nicht auf der standardmäßigen [DocumentTimeline](/de/docs/Web/API/DocumentTimeline) laufen. Stattdessen laufen sie auf einer Scroll-Fortschritts- oder Ansichts-Fortschrittstimeline, die durch das Scrollen des Inhalts eines Elements gesteuert wird. Es gibt eine direkte Verbindung zwischen der Scrollbewegung des Benutzers und dem Fortschritt der Animation entlang der `@keyframe`-Keyframes. Während der Benutzer nach oben, unten, links oder rechts scrollt, bewegt sich die Animation vorwärts oder rückwärts durch den Fortschritt der Keyframes. Wenn das Scrollen pausiert wird, pausiert die Animation, als ob `animation-play-state` auf `pause` gesetzt wäre.
+Scrollgesteuerte Animationen sind CSS-Animationen, die nicht auf der standardmäßigen [DocumentTimeline](/de/docs/Web/API/DocumentTimeline) ablaufen. Stattdessen verwenden sie eine Scrollfortschritts- oder Ansichtsfortschrittszeitleiste, die durch das Scrollen des Inhalts eines Elements gesteuert wird. Zwischen der Scrollbewegung des Benutzers und dem Fortschritt der Animation durch die `@keyframe`-Keyframes besteht eine direkte Verbindung. Wenn der Benutzer nach oben, unten, links oder rechts scrollt, bewegt sich die Animation vorwärts oder rückwärts durch die Keyframes. Wird das Scrollen angehalten, hält auch die Animation an – als wäre `animation-play-state` auf `pause` gesetzt.
 
-## Animationstimelines
+## Animationszeitleisten
 
-Die {{cssxref("animation-timeline")}}-Eigenschaft, definiert im Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), wird verwendet, um die für die Animation verwendete Timeline festzulegen.
+Mit der im Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) definierten Eigenschaft {{cssxref("animation-timeline")}} legen Sie die Zeitleiste fest, die für eine Animation verwendet wird.
 
-Das Modul [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definiert Funktionen, um die `animation-timeline` als Scroll-Fortschritts- oder Ansichts-Fortschrittstimeline festzulegen. Sie können explizit [ein Element als Timeline-Controller benennen](#benannte_scroll-fortschrittstimelines), indem Sie die Eigenschaften `scroll-timeline-*` und `view-timeline-*` verwenden, und dann diesen Namen als `animation-timeline` eines untergeordneten Elements festlegen. Sie können auch _anonyme Scroll-Fortschrittstimelines_ und _anonyme Ansichts-Fortschrittstimelines_ mit den Funktionen [`scroll()`](#scroll-fortschrittstimelines) und [`view()`](#ansichts-fortschrittstimelines) definieren.
+Das Modul [CSS-Animationen beim Scrollen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definiert Funktionen, mit denen sich `animation-timeline` auf eine Scrollfortschritts- oder Ansichtsfortschrittszeitleiste setzen lässt. Sie können ein Element mithilfe der Eigenschaften `scroll-timeline-*` und `view-timeline-*` ausdrücklich [als Steuerungselement einer benannten Zeitleiste festlegen](#benannte_scrollfortschrittszeitleisten) und diesen Namen anschließend als `animation-timeline` eines untergeordneten Elements verwenden. Mit den Funktionen [`scroll()`](#scrollfortschrittszeitleisten) und [`view()`](#ansichtsfortschrittszeitleisten) können Sie außerdem _anonyme Scrollfortschrittszeitleisten_ und _anonyme Ansichtsfortschrittszeitleisten_ definieren.
 
-Alternativ kann die `animation-timeline`-Eigenschaft verwendet werden, um explizit anzugeben, dass [die standardmäßige Dokumenten-Timeline verwendet werden soll](#regular_css_animations_default_document_timeline) oder dass [die Animation keine Timeline haben soll](#removing_an_animations_timeline) und daher überhaupt nicht auftreten sollte.
+Alternativ können Sie mit `animation-timeline` ausdrücklich festlegen, dass die [standardmäßige Dokumentzeitleiste verwendet wird](#regular_css_animations_default_document_timeline) oder dass die [Animation keine Zeitleiste hat](#removing_an_animations_timeline) und daher gar nicht stattfindet.
 
-### Reguläre CSS-Animationen: Standardmäßige Dokumenten-Timeline
+### Reguläre CSS-Animationen: standardmäßige Dokumentzeitleiste
 
-Das explizite Setzen der `animation-timeline` auf `auto` oder das Weglassen der Eigenschaft und das Zulassen, dass sie auf `auto` standardmäßig gesetzt wird, setzt die Timeline auf die standardmäßige Dokumenten-Timeline. Wenn diese standardmäßiger Wert gesetzt ist, wird der Fortschritt der Animation durch die {{cssxref("animation-duration")}}, die {{cssxref("animation-delay")}} und die verstrichene Zeit seit der Zuordnung der Animation zu dem Element über die Eigenschaft `animation-name` bestimmt. Die zeitbasierte Dokumenten-Timeline ist die Timeline, die traditionell mit CSS-Animationen assoziiert ist.
+Wenn Sie `animation-timeline` ausdrücklich auf `auto` setzen oder die Eigenschaft weglassen und damit den Standardwert `auto` verwenden, wird die standardmäßige Dokumentzeitleiste genutzt. Bei diesem Wert hängt der Animationsfortschritt von {{cssxref("animation-duration")}}, {{cssxref("animation-delay")}} und der Zeit ab, die vergangen ist, seit die Animation dem Element über `animation-name` zugewiesen wurde. Diese zeitbasierte Dokumentzeitleiste wird traditionell für CSS-Animationen verwendet.
 
 ```css live-sample___regular
 :checked ~ .container > .item {
@@ -52,7 +52,7 @@ Das explizite Setzen der `animation-timeline` auf `auto` oder das Weglassen der 
 }
 ```
 
-Wir erstellen eine Rotations-Keyframe-Animation namens `action`:
+Wir erstellen eine Keyframe-Animation namens `action`, die eine Drehung ausführt:
 
 ```css live-sample___regular live-sample___named_scroll live-sample___anon_scroll
 @keyframes action {
@@ -95,26 +95,26 @@ span {
 }
 ```
 
-Wenn das Kontrollkästchen aktiviert ist, wird die `action`-Animation auf das Element angewendet. Wenn es deaktiviert ist, wird die Animation nicht auf das `<div>` angewendet.
+Wenn das Kontrollkästchen aktiviert ist, wird die Animation `action` auf das Element angewendet. Ist es deaktiviert, wird das `<div>` nicht animiert.
 
 {{EmbedLiveSample("regular", "100%", "150")}}
 
-Versuchen Sie, das Kontrollkästchen zu aktivieren. Während der halben Sekunde Animationsverzögerung passiert nichts. Dann springt das Box-Element, sobald die Animation startet, in eine 45-Grad-Drehung, und es dauert 3 Sekunden, um zusätzliche 720 Grad oder zwei weitere vollständige Umdrehungen zu drehen. Nach insgesamt dreieinhalb Sekunden endet die Animation, und das `<div>` kehrt in seinen ursprünglichen, nicht rotierten Zustand zurück.
+Aktivieren Sie das Kontrollkästchen. Während der Animationsverzögerung von einer halben Sekunde geschieht nichts. Sobald die Animation beginnt, springt die Box zu einer Drehung um 45 Grad. Anschließend dreht sie sich innerhalb von 3 Sekunden um weitere 720 Grad, also um zwei vollständige Umdrehungen. Nach insgesamt dreieinhalb Sekunden endet die Animation und das `<div>` kehrt in seinen nicht gedrehten Ausgangszustand zurück.
 
 > [!NOTE]
-> Die `animation-timeline` wird durch die {{cssxref("animation")}}-Kurzform-Eigenschaft auf den Standardwert `auto` zurückgesetzt, kann jedoch nicht mit der Kurzform gesetzt werden. Daher sollten Sie bei der Erstellung scroll-gesteuerter Animationen die `animation-timeline` immer nach allen `animation`-Kurzformdeklarationen deklarieren, um den gewünschten Effekt zu erzielen.
+> Die Kurzschreibweise {{cssxref("animation")}} setzt `animation-timeline` auf den Standardwert `auto` zurück. Die Zeitleiste selbst kann jedoch nicht über die Kurzschreibweise festgelegt werden. Deklarieren Sie `animation-timeline` bei scrollgesteuerten Animationen deshalb immer nach etwaigen `animation`-Deklarationen, damit der gewünschte Effekt eintritt.
 
-## Scroll-Fortschrittstimelines
+## Scrollfortschrittszeitleisten
 
-Bei einer _Scroll-Fortschrittstimeline_ schreitet die Timeline basierend auf dem Scrollen des scrollbaren Elements (_Scroller_) von oben nach unten (oder von links nach rechts) und zurück wieder voran. Standardmäßig wird die Position im Scrollbereich in einen prozentualen Fortschritt umgewandelt – `0%` am Anfang und `100%` am Ende. <!--Dieser [Animationsbereich kann über die {{cssxref("animation-range")}}-Eigenschaften gesteuert werden](#controlling_the_animation_range).-->
+Bei einer _Scrollfortschrittszeitleiste_ richtet sich der Fortschritt der Zeitleiste danach, wie weit das scrollbare Element (_Scroller_) von oben nach unten (oder von links nach rechts) und wieder zurück gescrollt wird. Standardmäßig wird die Position im Scrollbereich in einen prozentualen Fortschritt umgerechnet: `0%` am Anfang und `100%` am Ende. <!--This [animation range can be controlled](#controlling_the_animation_range) via the {{cssxref("animation-range")}} properties.-->
 
-Um eine Scroll-Fortschrittstimeline zu erstellen, muss der `animation-timeline`-Wert den Scroller referenzieren, der benannt oder anonym sein kann.
+Um eine Scrollfortschrittszeitleiste zu erstellen, muss der Wert von `animation-timeline` auf den Scroller verweisen. Dieser kann benannt oder anonym sein.
 
-### Benannte Scroll-Fortschrittstimelines
+### Benannte Scrollfortschrittszeitleisten
 
-Eine _benannte Scroll-Fortschrittstimeline_ ist eine, bei der der Scroller explizit mithilfe der {{cssxref("scroll-timeline-name")}}-Eigenschaft (oder der {{cssxref("scroll-timeline")}}-Kurzform) benannt wird. Der Name ist ein {{cssxref("dashed-ident")}}. Der Scroller wird mit dem zu animierenden Element verknüpft, indem sein `scroll-timeline-name` als Wert der `animation-timeline`-Eigenschaft dieses Elements angegeben wird.
+Bei einer _benannten Scrollfortschrittszeitleiste_ wird der Scroller mithilfe der Eigenschaft {{cssxref("scroll-timeline-name")}} (oder der Kurzschreibweise {{cssxref("scroll-timeline")}}) ausdrücklich benannt. Der Name ist ein {{cssxref("dashed-ident")}}. Die Verbindung zwischen dem Scroller und dem zu animierenden Element wird hergestellt, indem dessen `scroll-timeline-name` als Wert der Eigenschaft `animation-timeline` des zu animierenden Elements angegeben wird.
 
-Unser HTML enthält drei Elemente: das `item`, das wir animieren werden; seinen `container`, den wir scrollen werden; und den Scroller. Der `container` muss groß genug sein, um seinen `scroller`-Elternelement zu überlaufen: Wenn es kein Scrollen gibt, wird es keine Scroll-Timeline geben.
+Unser HTML enthält drei Elemente: `item`, das wir animieren, `container`, dessen Inhalt gescrollt wird, und den Scroller. `container` muss so groß sein, dass es über sein übergeordnetes Element `scroller` hinausragt: Ohne Scrollen gibt es keine Scrollzeitleiste.
 
 ```html live-sample___named_scroll live-sample___anon_scroll
 <main class="scroller">
@@ -124,7 +124,7 @@ Unser HTML enthält drei Elemente: das `item`, das wir animieren werden; seinen 
 </main>
 ```
 
-Wir stellen einige grundlegende Stile bereit. Die wichtigen umfassen das Setzen einer Höhe auf den Container, die größer ist als der Scroller, und das Festlegen des Überlaufs zum Scrollen:
+Wir legen einige grundlegende Stile fest. Entscheidend ist, dass der Container höher als der Scroller ist und `overflow` so gesetzt wird, dass Scrollen möglich ist:
 
 ```css live-sample___named_scroll live-sample___anon_scroll
 .scroller {
@@ -137,7 +137,7 @@ Wir stellen einige grundlegende Stile bereit. Die wichtigen umfassen das Setzen 
 }
 ```
 
-Das Setzen einer `animation-timeline` auf das animierte Element, die mit dem `scroll-timeline-name` eines Elternelements übereinstimmt, ist das, was die benannte Scroll-Fortschrittstimeline erstellt. Wir müssen auch eine Animation einschließen, indem wir den Wert der `animation-name`-Komponente der {{cssxref("animation")}}-Kurzform auf den {{cssxref("custom-ident")}}-Namen unserer Keyframe-Animation setzen:
+Eine benannte Scrollfortschrittszeitleiste entsteht, wenn `animation-timeline` beim animierten Element auf den `scroll-timeline-name` eines seiner Vorfahren gesetzt wird. Außerdem benötigen wir eine Animation. Dazu setzen wir die Komponente `animation-name` der Kurzschreibweise {{cssxref("animation")}} auf den {{cssxref("custom-ident")}}-Namen unserer Keyframe-Animation:
 
 ```css live-sample___named_scroll
 .scroller {
@@ -169,23 +169,23 @@ span {
 }
 ```
 
-In diesem Fall haben wir kein Kontrollkästchen, da der Fortschritt der `action`-Animation durch das Scrollen des überfüllenden Scrollers gesteuert wird, der, anders als Zeit, nicht abläuft.
+Hier benötigen wir kein Kontrollkästchen: Der Fortschritt der Animation `action` wird durch das Scrollen des überlaufenden Scrollers gesteuert. Anders als Zeit läuft dessen Scrollbereich nicht ab.
 
 {{EmbedLiveSample("named_scroll", "100%", "150")}}
 
-Bevor das Scrollen erfolgt, befindet sich die Position des Containers am oberen Rand des Scrollers, und die Animation befindet sich beim 0%-Keyframe. Versuchen Sie, nach unten zu scrollen. Während Sie scrollen, schreitet die Animation durch die Timeline voran und dreht sich um zusätzliche 720 Grad. Wenn Sie nicht mehr scrollen können, befindet sich der Fortschritt der Animation beim 100%- oder `to`-Keyframe. Das animierte Element kehrt nicht in seine Standardrotation zurück, es sei denn, der Scroller wird wieder nach oben gescrollt.
+Bevor Sie scrollen, befindet sich der Container am oberen Rand des Scrollers und die Animation steht beim Keyframe `0%`. Scrollen Sie nach unten. Dabei schreitet die Animation entlang der Zeitleiste fort und das Element dreht sich um weitere 720 Grad. Wenn Sie nicht mehr weiter scrollen können, hat die Animation das Keyframe `100%` beziehungsweise `to` erreicht. Das animierte Element kehrt erst zu seiner ursprünglichen Drehung zurück, wenn Sie den Scroller wieder ganz nach oben scrollen.
 
 #### Animationsdauer
 
-Sie haben vielleicht bemerkt, dass die {{cssxref("animation-duration")}}-Komponente der `animation`-Kurzform auf `1ms` gesetzt wurde. Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) beeinflusst das Angeben eines `animation-duration`-Werts nicht die Dauer der Animation und sollte nicht erforderlich sein. Allerdings können Dauern nicht-lineare Ansichts-Fortschrittstimeline beeinflussen, und Firefox erfordert eine nicht-null `animation-duration`, um eine Animation auf ein Element anzuwenden. Aus diesen Gründen ist es gängige Praxis, `animation-duration` auf `1ms` zu setzen.
+Vielleicht ist Ihnen aufgefallen, dass die Komponente {{cssxref("animation-duration")}} der Kurzschreibweise `animation` auf `1ms` gesetzt wurde. Beim Erstellen von [scrollgesteuerten CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) beeinflusst ein Wert für `animation-duration` die Dauer der Animation nicht und sollte daher eigentlich nicht nötig sein. Allerdings können Dauerangaben nichtlineare Ansichtsfortschrittszeitleisten beeinflussen. Zudem benötigt Firefox eine `animation-duration` ungleich null, um eine Animation auf ein Element anzuwenden. Deshalb ist es üblich, `animation-duration` auf `1ms` zu setzen.
 
-Das Setzen von `animation-duration: 1ms` stellt sicher, dass die Animation in Firefox funktioniert, der Animationseffekt in allen Browsern konsistent ist und die Animation verborgen ist, wenn ein Browser keine Ansichts-Fortschrittstimeline unterstützt. Wenn der Browser Keyframe-Animationen unterstützt, wird die Animation für den Benutzer nicht sichtbar sein. Die Animation findet jedoch trotzdem statt und Animationsevents werden ausgelöst.
+Mit `animation-duration: 1ms` stellen Sie sicher, dass die Animation in Firefox funktioniert, der Animationseffekt in allen Browsern einheitlich ist und die Animation verborgen bleibt, wenn ein Browser Ansichtsfortschrittszeitleisten nicht unterstützt. Wenn der Browser Keyframe-Animationen unterstützt, ist die Animation für Benutzer nicht sichtbar. Sie findet dennoch statt und Animationsereignisse werden ausgelöst.
 
-### Anonyme Scroll-Fortschrittstimelines
+### Anonyme Scrollfortschrittszeitleisten
 
-Sie müssen Ihre Scroll-Fortschrittstimeline nicht benennen. Stattdessen können Sie einer Animation eine _anonyme Scroll-Fortschrittstimeline_ zuweisen. In diesem Fall wird die `animation-timeline` des zu animierenden Elements auf eine {{cssxref("animation-timeline/scroll", "scroll()")}}-Funktion gesetzt. Die Funktion wählt den Scroller aus, der die Scroll-Fortschrittstimeline bereitstellt, und die Scroll-Achse, die basierend auf den optionalen Argumenten verwendet werden soll, die Sie an die Funktion übergeben. Ein Parameter ist ein [`<scroller>`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/scroll#scroller)-Schlüsselwort, das die Beziehung des Scroller-Elements zum aktuellen Element definiert (`nearest`, `root` oder `self`). Der andere ist der Scrollbalken `<axis>`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/scroll#axis) Wert (`block`, `inline`, `y` oder `x`).
+Sie müssen Ihre Scrollfortschrittszeitleiste nicht benennen. Stattdessen können Sie der Animation eine _anonyme Scrollfortschrittszeitleiste_ zuweisen. Dazu setzen Sie `animation-timeline` beim zu animierenden Element auf eine {{cssxref("animation-timeline/scroll", "scroll()")}}-Funktion. Anhand der optionalen Argumente wählt die Funktion den Scroller aus, der die Scrollfortschrittszeitleiste bereitstellt, sowie die zu verwendende Scrollachse. Ein Parameter ist ein [`<scroller>`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/scroll#scroller)-Schlüsselwort, das die Beziehung des Scrollers zum aktuellen Element beschreibt (`nearest`, `root` oder `self`). Der andere ist ein Wert für die Bildlaufleistenachse [`<axis>`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/scroll#axis) (`block`, `inline`, `y` oder `x`).
 
-Dieses Beispiel verwendet denselben CSS wie das vorherige Beispiel, außer dass die `animation-timeline` auf eine `scroll()`-Funktion gesetzt wird. Wir überschreiben auch die Größe des Containers, um die Richtung des Scrolling zu ändern:
+Dieses Beispiel verwendet dasselbe CSS wie das vorherige, mit Ausnahme von `animation-timeline`, das wir auf eine `scroll()`-Funktion setzen. Außerdem überschreiben wir die Größe des Containers, um die Scrollrichtung zu ändern:
 
 ```css live-sample___anon_scroll
 .item {
@@ -200,28 +200,27 @@ Dieses Beispiel verwendet denselben CSS wie das vorherige Beispiel, außer dass 
 
 {{EmbedLiveSample("anon_scroll", "100%", "150")}}
 
-Wir setzen eine {{cssxref("inline-size")}} auf den Container, sodass er in der Inline-Richtung überfließt, und setzen die {{cssxref("block-size")}} auf `100%`, sodass er in der Blockrichtung nicht mehr überfließt. Versuchen Sie, in die Inline-Richtung zu scrollen.
+Wir setzen {{cssxref("inline-size")}} für den Container, damit er in Inline-Richtung überläuft, und {{cssxref("block-size")}} auf `100%`, damit er in Blockrichtung nicht mehr überläuft. Scrollen Sie in Inline-Richtung.
 
-## Ansichts-Fortschrittstimelines
+## Ansichtsfortschrittszeitleisten
 
-Sie können eine Animation auch basierend auf der Sichtbarkeitsänderung eines Elements innerhalb eines Scrollers fortschreiten lassen — dies geschieht über _Ansichts-Fortschrittstimelines_. Anstatt den Scroll-Offset eines Scroll-Containers zu verfolgen, verfolgen Ansichts-Fortschrittstimelines die relative Position eines Elements, das als _Subjekt_ bezeichnet wird, innerhalb eines Scrollports. Der Fortschritt der Keyframes einer Animation basiert auf der _Sichtbarkeit_ des Subjekts innerhalb des Scrollers. Im Gegensatz zu Scroll-Fortschrittstimelines können Sie bei Ansichts-Fortschrittstimelines den Scroller nicht festlegen – die Sichtbarkeit des Subjekts wird immer innerhalb seines nächstgelegenen Scroller-Vorfahren verfolgt.
+Sie können den Fortschritt einer Animation auch an die Sichtbarkeit eines Elements innerhalb eines Scrollers koppeln – mithilfe von _Ansichtsfortschrittszeitleisten_. Anders als Scrollfortschrittszeitleisten verfolgen sie nicht den Scrollversatz eines Scroll-Containers, sondern die relative Position eines Elements, des sogenannten _Subjekts_, innerhalb eines Scrollports. Wie weit die Animation ihre Keyframes durchlaufen hat, richtet sich nach der _Sichtbarkeit_ des Subjekts im Scroller. Bei Ansichtsfortschrittszeitleisten können Sie den Scroller nicht selbst festlegen: Die Sichtbarkeit des Subjekts wird immer innerhalb des nächstgelegenen übergeordneten Scrollers verfolgt.
 
-Eine Ansichts-Fortschrittstimeline-Animation tritt nur auf, wenn das Element innerhalb seines Scrollports sichtbar ist. Der Fortschritt der Timeline beginnt bei `0%`, wenn das verfolgte Subjekt beginnt, den Scrollport an der Block- oder Inline-Endkante zu schneiden. Die `100%` treten auf, wenn das Subjekt den Scrollport an der Block- oder Inline-Anfangskante verlässt.
+Eine Animation mit Ansichtsfortschrittszeitleiste findet nur statt, während das Element innerhalb seines Scrollports sichtbar ist. Der Zeitleistenfortschritt beginnt bei `0%`, wenn das verfolgte Subjekt den Scrollport an dessen Endkante in Block- oder Inline-Richtung zu schneiden beginnt. `100%` werden erreicht, wenn das Subjekt den Scrollport an dessen Anfangskante in Block- oder Inline-Richtung verlässt.
 
-Da die `100%` in der Regel erreicht werden, wenn das Element den Viewport verlässt, möchten Sie wahrscheinlich den finalen Effekt Ihrer Animation in einem Keyframe-Block festlegen, der deutlich vor dem Ende der Animation erfolgt. Sie können Ihren abgeschlossenen Effekt innerhalb des `20%`-, `50%`- oder `80%`-Keyframe-Blocks festlegen, anstatt den `to`- oder `100%`-Keyframe zu verwenden, um sicherzustellen, dass das Element die Animation abschließt, während es noch sichtbar ist.
+Da `100%` in der Regel erst erreicht werden, wenn das Element den sichtbaren Bereich verlässt, sollten Sie den Endzustand Ihrer Animation wahrscheinlich in einem Keyframe-Block festlegen, der deutlich vor dem Ende der Animation liegt. Verwenden Sie beispielsweise den Keyframe-Block `20%`, `50%` oder `80%` statt `to` oder `100%`, damit die Animation abgeschlossen ist, solange das Element noch sichtbar ist.
 
-Bei Ansichts-Fortschrittstimelines können Sie den Sichtbarkeitsbereich des Ansichts-Fortschritts anpassen.
-Verwenden Sie {{cssxref("view-timeline-inset")}}, ein Bestandteil der {{cssxref("view-timeline")}}-Kurzform, um anzupassen, wann das Subjekt als im Blick angesehen wird. Der Standardwert ist `auto`. Die Wirkung eines jeden nicht-`auto` Einfügewerts ist, als ob Sie die Kanten des Scrollports verschoben hätten: Ein positiver Einfügewert erzeugt eine nach innen gerichtete Anpassung, und ein negativer Wert erzeugt eine nach außen gerichtete Anpassung.
+Bei Ansichtsfortschrittszeitleisten können Sie den Sichtbarkeitsbereich anpassen. Mit {{cssxref("view-timeline-inset")}}, einem Bestandteil der Kurzschreibweise {{cssxref("view-timeline")}}, bestimmen Sie, ab wann das Subjekt als sichtbar gilt. Der Standardwert ist `auto`. Ein anderer Wert wirkt so, als würden Sie die Kanten des Scrollports verschieben: Ein positiver Inset-Wert verschiebt sie nach innen, ein negativer nach außen.
 
-Ähnlich wie bei Scroll-Fortschrittstimelines kann die Ansichts-Fortschrittstimeline benannt oder anonym sein.
+Wie Scrollfortschrittszeitleisten können auch Ansichtsfortschrittszeitleisten benannt oder anonym sein.
 
-### Benannte Ansichts-Fortschrittstimeline
+### Benannte Ansichtsfortschrittszeitleiste
 
-Eine _benannte Ansichts-Fortschrittstimeline_ ist eine, bei der das Subjekt explizit mithilfe der {{cssxref("view-timeline-name")}}-Eigenschaft benannt wird, einem Bestandteil der `view-timeline`-Kurzform. Der `dashed-ident` Name wird dann mit dem zu animierenden Element verknüpft, indem er als Wert der `animation-timeline`-Eigenschaft dieses Elements angegeben wird.
+Bei einer _benannten Ansichtsfortschrittszeitleiste_ wird das Subjekt ausdrücklich mithilfe der Eigenschaft {{cssxref("view-timeline-name")}} benannt, die Teil der Kurzschreibweise `view-timeline` ist. Der Name `<dashed-ident>` wird anschließend mit dem zu animierenden Element verknüpft, indem Sie ihn als Wert von dessen Eigenschaft `animation-timeline` angeben.
 
-Bei benannten Ansichts-Fortschrittstimelines muss das zu animierende Element nicht dasselbe wie das Subjekt sein. Mit anderen Worten, das Element, das die Timeline steuert, muss nicht dasselbe sein wie das Element, das animiert wird. Dies bedeutet, dass Sie ein Element basieren auf der Bewegung eines anderen Elements innerhalb seines scrollbaren Containers animieren können.
+Bei benannten Ansichtsfortschrittszeitleisten muss das zu animierende Element nicht mit dem Subjekt identisch sein. Das Element, das die Zeitleiste steuert, kann also ein anderes sein als das animierte Element. So können Sie ein Element anhand der Bewegung eines anderen Elements innerhalb seines scrollbaren Containers animieren.
 
-Hier verwenden wir die {{cssxref("view-timeline-name")}}-Eigenschaft, um ein Element zu benennen und es selbst als Quelle einer Ansichts-Fortschrittstimeline zu identifizieren. Wir setzen dann diesen Namen als den Wert der `animation-timeline`-Eigenschaft fest.
+Hier benennen wir ein Element mit der Eigenschaft {{cssxref("view-timeline-name")}} und bestimmen es damit selbst zur Quelle einer Ansichtsfortschrittszeitleiste. Anschließend setzen wir diesen Namen als Wert von `animation-timeline`.
 
 ```css live-sample___named_view
 .item {
@@ -232,9 +231,9 @@ Hier verwenden wir die {{cssxref("view-timeline-name")}}-Eigenschaft, um ein Ele
 }
 ```
 
-Wir haben die Animation **vor** der Animationstimeline angewendet, da die `animation` die `animation-timeline` auf `auto` zurücksetzt.
+Wir haben die Animation **vor** der Animationszeitleiste festgelegt, da `animation` die Eigenschaft `animation-timeline` auf `auto` zurücksetzt.
 
-Die Animation ist etwas anders als in den vorherigen Beispielen, da sich der Drehungseffekt bei `20%` startet und bei `80%` des Wegs durch die Animation endet; dies bedeutet, dass das Element nicht aktiv dreht, wenn es erstmals sichtbar wird, und vor dem vollständigen Verlassen des Blickfelds aufhört, sich zu drehen.
+Die Animation unterscheidet sich etwas von den vorherigen Beispielen: Die Drehung beginnt bei `20%` und endet bei `80%` des Animationsverlaufs. Das Element dreht sich daher noch nicht, wenn es gerade erst sichtbar wird, und hört damit auf, bevor es vollständig aus dem sichtbaren Bereich verschwindet.
 
 ```css live-sample___named_view live-sample___anon_view
 @keyframes action {
@@ -286,15 +285,15 @@ Die Animation ist etwas anders als in den vorherigen Beispielen, da sich der Dre
 
 {{EmbedLiveSample("named_view", "100%", "250")}}
 
-Scrollen Sie das Element in den Blick. Beachten Sie, dass das Element durch die `@keyframes`-Animation animiert, während es sich durch den sichtbaren Bereich seines Vorfahren-Scrollers bewegt.
+Scrollen Sie das Element in den sichtbaren Bereich. Beachten Sie, wie es die `@keyframes`-Animation durchläuft, während es sich durch den sichtbaren Bereich seines übergeordneten Scrollers bewegt.
 
-### Anonyme Ansichts-Fortschrittstimeline: die `view()` Funktion
+### Anonyme Ansichtsfortschrittszeitleiste: die Funktion `view()`
 
-Alternativ kann eine {{cssxref("animation-timeline/view", "view()")}}-Funktion als Wert der `animation-timeline`-Eigenschaft festgelegt werden, um anzugeben, dass die Animation eines Elements auf einer _anonymen Ansicht-Fortschrittstimeline_ basiert. Dies führt dazu, dass das Element basierend auf seiner Position innerhalb seines nächstgelegenen Elternelement-Scrollers animiert wird.
+Alternativ können Sie eine {{cssxref("animation-timeline/view", "view()")}}-Funktion als Wert von `animation-timeline` angeben, um eine _anonyme Ansichtsfortschrittszeitleiste_ für ein Element festzulegen. Dadurch wird das Element abhängig von seiner Position innerhalb des nächstgelegenen übergeordneten Scrollers animiert.
 
-Die `view()`-Funktion erstellt eine Ansichtstimeline. Sie fügen die Timeline dem Element hinzu, das Sie animieren möchten, unter Verwendung der `animation-timeline`-Eigenschaft. Die Funktion erstellt eine Ansichtstimeline für jedes durch den Selektor ausgewählte Element.
+Die Funktion `view()` erstellt eine Ansichtszeitleiste. Mit der Eigenschaft `animation-timeline` weisen Sie diese Zeitleiste dem Element zu, das Sie animieren möchten. Die Funktion erstellt für jedes Element, auf das der Selektor zutrifft, eine Ansichtszeitleiste.
 
-In diesem Beispiel definieren wir die `animation` erneut vor der `animation-timeline`, damit die Timeline nicht zurückgesetzt wird. Dann fügen wir eine `view()`-Funktion ohne Argumente ein. Wir geben keinen Scroller an, da die Sichtbarkeit des Subjekts definitionsgemäß durch seinen nächstgelegenen Vorfahren-Scroller erfasst wird.
+In diesem Beispiel definieren wir `animation` erneut vor `animation-timeline`, damit die Zeitleiste nicht zurückgesetzt wird. Anschließend verwenden wir `view()` ohne Argumente. Einen Scroller geben wir nicht an, da die Sichtbarkeit des Subjekts definitionsgemäß im nächstgelegenen übergeordneten Scroller verfolgt wird.
 
 ```css live-sample___anon_view
 .item {
@@ -305,22 +304,22 @@ In diesem Beispiel definieren wir die `animation` erneut vor der `animation-time
 
 {{EmbedLiveSample("anon_view", "100%", "250")}}
 
-### Parameter der `view()` Funktion
+### Parameter der Funktion `view()`
 
-Die `view()`-Funktion nimmt bis zu drei optionale Werte als Argumente an:
+Die Funktion `view()` akzeptiert bis zu drei optionale Werte als Argumente:
 
-- Null oder ein `<axis>`-Parameter. Wenn gesetzt, gibt dies die Scrollachse an, entlang der die Animation fortschreitet.
-- Entweder das Schlüsselwort `auto` oder Null, eins oder zwei {{cssxref("length-percentage")}}-Einfügewerte. Wenn gesetzt, geben diese Werte die Offsets für den Start und/oder das Ende des Scrollports an.
+- Null oder einen `<axis>`-Parameter. Falls angegeben, legt er die Scrollachse fest, entlang der die Animation fortschreitet.
+- Entweder das Schlüsselwort `auto` oder null, einen oder zwei {{cssxref("length-percentage")}}-Inset-Werte. Falls angegeben, legen diese Werte Versätze für den Anfang und/oder das Ende des Scrollports fest.
 
-Das Deklarieren von `view()` entspricht `view(block auto)`, was `block` als die Achse des Elternelements definiert, die die Timeline liefert, und die {{cssxref("scroll-padding")}}, die allgemein standardmäßig `0` ist, als Einblicke innerhalb des sichtbaren Bereichs, bei dem die Animation startet und endet.
+Die Angabe von `view()` entspricht `view(block auto)`. Dabei wird `block` als Achse des übergeordneten Elements festgelegt, das die Zeitleiste bereitstellt. Als Insets innerhalb des sichtbaren Bereichs, an denen die Animation beginnt und endet, dient {{cssxref("scroll-padding")}}, dessen Standardwert in der Regel `0` ist.
 
-Die Funktion setzt die Werte der {{cssxref("view-timeline-axis")}} und {{cssxref("view-timeline-inset")}}-Eigenschaften.
+Die Funktion legt die Werte der Eigenschaften {{cssxref("view-timeline-axis")}} und {{cssxref("view-timeline-inset")}} fest.
 
-Die {{cssxref("view-timeline-inset")}} Argumente geben Einsätze (wenn positiv) oder Auslagerungen (wenn negativ) an, die den Anfang und das Ende des Scrollports anpassen. Sie werden verwendet, um die Scrollpositionen zu bestimmen, bei denen das Element als "im Blick" angesehen wird, was die Länge der Animationstimeline bestimmt. Mit anderen Worten, anstatt am Anfangsrand zu starten und am Endrand des Scrollports zu enden, erfolgt die Animation am Anfang und Ende der Einsead-Vereinstellten Ansicht.
+Die Argumente von {{cssxref("view-timeline-inset")}} geben Insets (bei positiven Werten) oder Outsets (bei negativen Werten) an, die den Anfang und das Ende des Scrollports anpassen. Sie bestimmen damit die Scrollpositionen, an denen das Element als „sichtbar“ gilt, und somit die Länge der Animationszeitleiste. Anders ausgedrückt: Die Animation beginnt und endet an den durch die Inset-Werte angepassten Grenzen des sichtbaren Bereichs statt an den ursprünglichen Anfangs- und Endkanten des Scrollports.
 
-Im Gegensatz zur `scroll()`-Funktion der Scroll-Timeline gibt es kein `<scroller>`-Argument in der `view()`-Funktion, da die Sichtbarkeits-Timeline das Subjekt immer innerhalb seines nächstgelegenen Vorfahren-Scrollcontainers verfolgt.
+Anders als die Funktion `scroll()` für Scrollzeitleisten besitzt `view()` kein `<scroller>`-Argument, da eine Ansichtszeitleiste das Subjekt immer innerhalb des nächstgelegenen übergeordneten Scroll-Containers verfolgt.
 
-In diesem Beispiel, da wir sie mit Einfügenwerten verwenden, können wir die `from` und `to` [Keyframe-Selektionsson](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) verwenden.
+Da wir in diesem Beispiel Inset-Werte verwenden, können wir die [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) `from` und `to` verwenden.
 
 ```css live-sample___anon_view_args
 @keyframes action {
@@ -340,13 +339,13 @@ In diesem Beispiel, da wir sie mit Einfügenwerten verwenden, können wir die `f
 
 {{EmbedLiveSample("anon_view_args", "100%", "250")}}
 
-## Zugänglichkeitsbedenken
+## Hinweise zur Barrierefreiheit
 
-Wie bei allen Animationen und Übergängen sollten Sie immer die Präferenz eines Benutzers [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) berücksichtigen.
+Berücksichtigen Sie wie bei allen Animationen und Übergängen stets die Einstellung [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) der Benutzer.
 
-### Entfernen Sie die Timeline einer Animation
+### Zeitleiste einer Animation entfernen
 
-Das Setzen von `animation-timeline: none` hebt die Zuordnung des Elements zu allen Animationstimelines auf, einschließlich der standardmäßigen zeitbasierten Dokumententimeline, was bedeutet, dass das Element nicht animiert. Während einige Animationen notwendig sein können, können Sie Animationen basierend auf der Einstellung des Benutzers `prefers-reduced-motion` mit:
+Mit `animation-timeline: none` lösen Sie die Verknüpfung des Elements mit allen Animationszeitleisten, auch mit der standardmäßigen zeitbasierten Dokumentzeitleiste. Das Element wird dadurch nicht animiert. Auch wenn manche Animationen notwendig sein können, können Sie Animationen anhand der Einstellung `prefers-reduced-motion` des Benutzers wie folgt entfernen:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -356,11 +355,11 @@ Das Setzen von `animation-timeline: none` hebt die Zuordnung des Elements zu all
 }
 ```
 
-Da die `animation`-Kurzform die `animation-timeline` auf `auto` setzt, verwenden Sie einen Selektor mit ausreichender Spezifität, um sicherzustellen, dass Ihre `animation-timeline` nicht durch Ihre `animation`-Kurzformdeklarationen überschrieben wird.
+Da die Kurzschreibweise `animation` die Eigenschaft `animation-timeline` auf `auto` setzt, sollten Sie einen ausreichend spezifischen Selektor verwenden. So stellen Sie sicher, dass Ihre Angabe für `animation-timeline` nicht durch Deklarationen mit der Kurzschreibweise `animation` überschrieben wird.
 
 ## Siehe auch
 
-- [Verständnis von Timeline-Namen des Bereichs](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
-- [Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
-- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
+- [Namen von Zeitleistenbereichen verstehen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
+- Modul [CSS-Animationen beim Scrollen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

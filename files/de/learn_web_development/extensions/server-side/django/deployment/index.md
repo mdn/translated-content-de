@@ -1,9 +1,9 @@
 ---
-title: "Django-Tutorial Teil 11: Django in einer Produktionsumgebung bereitstellen"
-short-title: "11: Bereitstellen"
+title: "Django-Tutorial Teil 11: Django in der Produktionsumgebung bereitstellen"
+short-title: "11: Bereitstellung"
 slug: Learn_web_development/Extensions/Server-side/Django/Deployment
 l10n:
-  sourceCommit: cd8d0bb1068b703abe027522a7c0f3e8c9ce9c39
+  sourceCommit: 306f0d17c10c4bfa8179b81fe676102ea0b0b6fa
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Testing", "Learn_web_development/Extensions/Server-side/Django/web_application_security", "Learn_web_development/Extensions/Server-side/Django")}}
@@ -16,112 +16,112 @@ Diese Seite beschreibt, wie Sie ein Django-Projekt hosten und was Sie vorbereite
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Schließen Sie alle vorherigen Tutorial-Themen ab, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Testing">Django-Tutorial Teil 10: Testen einer Django-Webanwendung</a>.
+        Schließen Sie alle vorherigen Teile des Tutorials ab, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Testing">Django-Tutorial Teil 10: Eine Django-Webanwendung testen</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Erfahren, wo und wie Sie eine Django-App in einer Produktionsumgebung bereitstellen können.</td>
+      <td>Erfahren, wo und wie Sie eine Django-Anwendung in einer Produktionsumgebung bereitstellen können.</td>
     </tr>
   </tbody>
 </table>
 
 ## Überblick
 
-Sobald Ihre Website fertig ist (oder „fertig genug“, um öffentliche Tests zu beginnen), müssen Sie sie an einem Ort hosten, der öffentlicher und zugänglicher ist als Ihr persönlicher Entwicklungscomputer.
+Sobald Ihre Website fertig ist – oder zumindest „fertig genug“ für öffentliche Tests –, müssen Sie sie an einem Ort hosten, der besser zugänglich ist als Ihr persönlicher Entwicklungscomputer.
 
-Bisher haben Sie in einer Entwicklungsumgebung gearbeitet, den Django-Entwicklungswebserver verwendet, um Ihre Website für den lokalen Browser bzw. das lokale Netzwerk freizugeben, und Ihre Website mit (unsicheren) Entwicklungseinstellungen ausgeführt, die Debug- und andere private Informationen offenlegen. Bevor Sie eine Website extern hosten können, müssen Sie zunächst:
+Bisher haben Sie in einer Entwicklungsumgebung gearbeitet: Sie haben Ihre Website mit dem Django-Entwicklungswebserver im lokalen Browser oder Netzwerk verfügbar gemacht und sie mit (unsicheren) Entwicklungseinstellungen betrieben, die Debug- und andere vertrauliche Informationen offenlegen. Bevor Sie eine Website öffentlich hosten können, müssen Sie:
 
-- Einige Änderungen an Ihren Projekteinstellungen vornehmen.
-- Eine Umgebung für das Hosting der Django-App auswählen.
-- Eine Umgebung für das Hosting statischer Dateien auswählen.
-- Eine Infrastruktur auf Produktionsniveau für die Bereitstellung Ihrer Website einrichten.
+- Einige Projekteinstellungen ändern.
+- Eine Hosting-Umgebung für die Django-Anwendung auswählen.
+- Eine Hosting-Umgebung für statische Dateien auswählen.
+- Eine produktionsgeeignete Infrastruktur für die Bereitstellung Ihrer Website einrichten.
 
-Dieses Tutorial bietet Hinweise zu Ihren Optionen bei der Auswahl eines Hosting-Anbieters, einen kurzen Überblick über die erforderlichen Schritte, um Ihre Django-App für die Produktion vorzubereiten, sowie ein funktionierendes Beispiel dafür, wie Sie die LocalLibrary-Website beim Cloud-Hosting-Dienst [Railway](https://railway.com/) installieren.
+Dieses Tutorial bietet Orientierung bei der Auswahl eines Hosting-Anbieters, einen kurzen Überblick über die Vorbereitung Ihrer Django-Anwendung für die Produktionsumgebung und ein praktisches Beispiel für die Installation der LocalLibrary-Website beim Cloud-Hosting-Dienst [Railway](https://railway.com/).
 
 ## Was ist eine Produktionsumgebung?
 
-Die Produktionsumgebung ist die Umgebung, die vom Servercomputer bereitgestellt wird, auf dem Sie Ihre Website für externe Nutzer ausführen. Die Umgebung umfasst:
+Die Produktionsumgebung ist die Umgebung auf dem Server, auf dem Ihre Website für externe Besucher betrieben wird. Sie umfasst:
 
-- Computerhardware, auf der die Website ausgeführt wird.
-- Betriebssystem (z. B. Linux, Windows).
-- Laufzeitumgebung der Programmiersprache und Framework-Bibliotheken, auf deren Grundlage Ihre Website erstellt wurde.
-- Webserver zur Bereitstellung von Seiten und anderen Inhalten (z. B. Nginx, Apache).
-- Anwendungsserver, der „dynamische“ Anfragen zwischen Ihrer Django-Website und dem Webserver weiterleitet.
-- Datenbanken, von denen Ihre Website abhängig ist.
-
-> [!NOTE]
-> Abhängig davon, wie Ihre Produktionsumgebung konfiguriert ist, verfügen Sie möglicherweise auch über einen Reverse Proxy, Load Balancer usw.
-
-Der Servercomputer könnte sich in Ihren eigenen Räumlichkeiten befinden und über eine schnelle Verbindung mit dem Internet verbunden sein. Weitaus üblicher ist jedoch die Verwendung eines Computers, der „in der Cloud“ gehostet wird. Das bedeutet in der Praxis, dass Ihr Code auf einem Remotecomputer (oder möglicherweise einem „virtuellen“ Computer) in den Rechenzentren Ihres Hosting-Unternehmens ausgeführt wird. Der Remote-Server bietet normalerweise gegen einen bestimmten Preis ein garantiertes Maß an Rechenressourcen (CPU, RAM, Speicher usw.) und Internetverbindung.
-
-Diese Art von remote zugänglicher Rechen- und Netzwerkhardware wird als _Infrastructure as a Service_ (IaaS) bezeichnet. Viele IaaS-Anbieter bieten Optionen zur Vorinstallation eines bestimmten Betriebssystems an, auf dem Sie die anderen Komponenten Ihrer Produktionsumgebung installieren müssen. Andere Anbieter ermöglichen es Ihnen, umfassendere Umgebungen auszuwählen, die möglicherweise eine vollständige Django- und Webserver-Einrichtung beinhalten.
+- Die Computerhardware, auf der die Website läuft.
+- Das Betriebssystem (z. B. Linux oder Windows).
+- Die Laufzeitumgebung der Programmiersprache und die Framework-Bibliotheken, auf denen Ihre Website basiert.
+- Den Webserver, der Seiten und andere Inhalte ausliefert (z. B. Nginx oder Apache).
+- Den Anwendungsserver, der „dynamische“ Anfragen zwischen Ihrer Django-Website und dem Webserver weiterleitet.
+- Die Datenbanken, von denen Ihre Website abhängt.
 
 > [!NOTE]
-> Vorgefertigte Umgebungen können die Einrichtung Ihrer Website sehr einfach machen, weil sie den Konfigurationsaufwand reduzieren. Die verfügbaren Optionen können Sie jedoch auf einen unbekannten Server (oder andere Komponenten) beschränken und auf einer älteren Version des Betriebssystems basieren. Häufig ist es besser, Komponenten selbst zu installieren, damit Sie genau die gewünschten Komponenten erhalten und beim Aktualisieren von Teilen des Systems eine Vorstellung davon haben, wo Sie beginnen müssen!
+> Je nach Konfiguration Ihrer Produktionsumgebung können auch ein Reverse-Proxy, ein Load Balancer und weitere Komponenten dazugehören.
 
-Andere Hosting-Anbieter unterstützen Django als Teil eines _Platform as a Service_-Angebots (PaaS). Bei dieser Art von Hosting müssen Sie sich nicht um den größten Teil Ihrer Produktionsumgebung kümmern (Webserver, Anwendungsserver, Load Balancer), da die Hosting-Plattform diese Aufgaben für Sie übernimmt — ebenso wie den größten Teil dessen, was erforderlich ist, um Ihre Anwendung zu skalieren.
-Das erleichtert die Bereitstellung erheblich, da Sie sich nur auf Ihre Webanwendung konzentrieren müssen und nicht auf die gesamte übrige Serverinfrastruktur.
+Der Server könnte sich in Ihren eigenen Räumlichkeiten befinden und über eine schnelle Verbindung ans Internet angeschlossen sein. Weitaus üblicher ist es jedoch, einen Computer zu verwenden, der „in der Cloud“ gehostet wird. Das bedeutet, dass Ihr Code auf einem entfernten Computer – möglicherweise einem „virtuellen“ Computer – in einem Rechenzentrum Ihres Hosting-Anbieters ausgeführt wird. Der entfernte Server bietet in der Regel gegen einen bestimmten Preis ein zugesichertes Maß an Rechenressourcen (CPU, RAM, Speicherplatz usw.) und Internetanbindung.
 
-Einige Entwickler bevorzugen die größere Flexibilität von IaaS gegenüber PaaS, während andere den geringeren Wartungsaufwand und die einfachere Skalierung von PaaS schätzen. Wenn Sie beginnen, ist die Einrichtung Ihrer Website auf einem PaaS-System wesentlich einfacher. Daher werden wir dies in diesem Tutorial tun.
-
-> [!NOTE]
-> Wenn Sie einen Python-/Django-freundlichen Hosting-Anbieter wählen, sollte dieser Anweisungen zur Einrichtung einer Django-Website mit unterschiedlichen Konfigurationen von Webserver, Anwendungsserver, Reverse Proxy usw. bereitstellen. (Dies ist nicht relevant, wenn Sie ein PaaS wählen.) Beispielsweise gibt es in der [DigitalOcean-Django-Community-Dokumentation](https://www.digitalocean.com/community/tutorials?q=django) viele Schritt-für-Schritt-Leitfäden für verschiedene Konfigurationen.
-
-## Auswahl eines Hosting-Anbieters
-
-Es gibt viele Hosting-Anbieter, die Django entweder aktiv unterstützen oder gut damit funktionieren, darunter: [Heroku](https://www.heroku.com/), [DigitalOcean](https://www.digitalocean.com/), [Railway](https://railway.com/), [Python Anywhere](https://www.pythonanywhere.com/), [Amazon Web Services](https://aws.amazon.com/), [Azure](https://azure.microsoft.com/en-us), [Google Cloud](https://cloud.google.com/), [Hetzner](https://www.hetzner.com/) und [Vultr Cloud Compute](https://blogs.vultr.com/new-free-tier-plan) — um nur einige zu nennen.
-Diese Anbieter stellen unterschiedliche Arten von Umgebungen (IaaS, PaaS) sowie unterschiedliche Mengen an Rechen- und Netzwerkressourcen zu unterschiedlichen Preisen bereit.
-
-Bei der Auswahl eines Hosts sollten Sie unter anderem Folgendes berücksichtigen:
-
-- Wie stark Ihre Website voraussichtlich genutzt wird und welche Kosten für Daten- und Rechenressourcen anfallen, um diesen Bedarf zu decken.
-- Grad der Unterstützung für horizontale Skalierung (Hinzufügen weiterer Maschinen) und vertikale Skalierung (Upgrade auf leistungsfähigere Maschinen) sowie die damit verbundenen Kosten.
-- Wo der Anbieter Rechenzentren betreibt und daher der Zugriff voraussichtlich am schnellsten ist.
-- Die bisherige Verfügbarkeit und Ausfallzeit des Hosts.
-- Werkzeuge zur Verwaltung der Website — sind sie einfach zu verwenden und sicher (z. B. SFTP gegenüber FTP)?
-- Integrierte Frameworks zur Überwachung Ihres Servers.
-- Bekannte Einschränkungen. Einige Hosts blockieren absichtlich bestimmte Dienste (z. B. E-Mail). Andere bieten in bestimmten Preisstufen nur eine bestimmte Anzahl von Stunden „Laufzeit“ oder nur wenig Speicherplatz.
-- Zusätzliche Vorteile. Einige Anbieter stellen kostenlose Domainnamen und Unterstützung für TLS-Zertifikate bereit, für die Sie andernfalls bezahlen müssten.
-- Ob die von Ihnen genutzte „kostenlose“ Stufe im Laufe der Zeit abläuft und ob die Kosten für die Migration in eine teurere Stufe bedeuten, dass ein anderer Dienst von Anfang an die bessere Wahl gewesen wäre!
-
-Die gute Nachricht für Einsteiger ist, dass es zahlreiche Websites gibt, die „kostenlose“ Rechenumgebungen für Evaluierung und Tests bereitstellen.
-Diese Umgebungen verfügen gewöhnlich über begrenzte Ressourcen. Sie sollten beachten, dass sie nach einer Einführungsphase ablaufen oder andere Einschränkungen haben können.
-Sie eignen sich jedoch hervorragend, um Websites mit geringem Datenverkehr in einer gehosteten Umgebung zu testen, und ermöglichen eine einfache Migration zu kostenpflichtigen Ressourcen, wenn Ihre Website stärker genutzt wird.
-Beliebte Optionen in dieser Kategorie umfassen [Vultr Cloud Compute](https://blogs.vultr.com/new-free-tier-plan), [Python Anywhere](https://www.pythonanywhere.com/), [Amazon Web Services](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html), [Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) usw.
-
-Die meisten Anbieter bieten außerdem eine „Basis“-Stufe für kleine Produktionswebsites an, die mehr nutzbare Rechenleistung und weniger Einschränkungen bereitstellt.
-[Railway](https://railway.com/), [Heroku](https://www.heroku.com/) und [DigitalOcean](https://www.digitalocean.com/) sind Beispiele für beliebte Hosting-Anbieter mit einer vergleichsweise günstigen Basis-Rechenstufe (im Bereich von 5 bis 10 USD pro Monat).
+Diese Art von aus der Ferne zugänglicher Computer- und Netzwerkinfrastruktur wird als _Infrastructure as a Service (IaaS)_ bezeichnet. Viele IaaS-Anbieter bieten die Möglichkeit, ein bestimmtes Betriebssystem vorzuinstallieren, auf dem Sie die übrigen Komponenten Ihrer Produktionsumgebung selbst installieren müssen. Bei anderen Anbietern können Sie eine umfassendere Umgebung auswählen, die beispielsweise bereits Django und einen Webserver enthält.
 
 > [!NOTE]
-> Denken Sie daran, dass der Preis nicht das einzige Auswahlkriterium ist. Wenn Ihre Website erfolgreich ist, könnte Skalierbarkeit der wichtigste Gesichtspunkt werden.
+> Vorgefertigte Umgebungen können die Einrichtung Ihrer Website erheblich erleichtern, weil weniger Konfiguration nötig ist. Die verfügbaren Optionen können Sie jedoch auf einen ungewohnten Server oder andere ungewohnte Komponenten beschränken und auf einer älteren Betriebssystemversion basieren. Häufig ist es besser, die Komponenten selbst zu installieren. So erhalten Sie genau die gewünschten Komponenten und wissen bei späteren Upgrades eher, wo Sie anfangen müssen.
 
-## Ihre Website für die Veröffentlichung vorbereiten
+Andere Hosting-Anbieter unterstützen Django im Rahmen eines _Platform as a Service (PaaS)_-Angebots. Bei dieser Art von Hosting müssen Sie sich um den Großteil Ihrer Produktionsumgebung – Webserver, Anwendungsserver und Load Balancer – nicht selbst kümmern: Die Hosting-Plattform übernimmt dies für Sie, ebenso wie viele Aufgaben zur Skalierung Ihrer Anwendung.
+Das erleichtert die Bereitstellung erheblich, weil Sie sich auf Ihre Webanwendung konzentrieren können statt auf die übrige Serverinfrastruktur.
 
-Die [Django-Skelettwebsite](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website), die mit den Werkzeugen _django-admin_ und _manage.py_ erstellt wurde, ist so konfiguriert, dass die Entwicklung erleichtert wird. Viele Django-Projekteinstellungen (in **settings.py** angegeben) sollten für die Produktion anders sein, entweder aus Sicherheits- oder aus Leistungsgründen.
+Manche Entwickler bevorzugen die größere Flexibilität von IaaS gegenüber PaaS, während andere den geringeren Wartungsaufwand und die einfachere Skalierung von PaaS schätzen. Für den Einstieg ist die Einrichtung einer Website auf einer PaaS-Plattform wesentlich einfacher. Deshalb verwenden wir in diesem Tutorial eine solche Plattform.
 
 > [!NOTE]
-> Es ist üblich, eine separate **settings.py**-Datei für die Produktion zu verwenden und/oder sensible Einstellungen bedingt aus einer separaten Datei oder einer Umgebungsvariable zu importieren. Diese Datei sollte geschützt werden, selbst wenn der übrige Quellcode in einem öffentlichen Repository verfügbar ist.
+> Wenn Sie einen Hosting-Anbieter wählen, der Python und Django unterstützt, sollte dieser Anleitungen zur Einrichtung einer Django-Website mit verschiedenen Kombinationen aus Webserver, Anwendungsserver, Reverse-Proxy usw. bereitstellen. Bei einem PaaS-Angebot ist das nicht relevant. Beispielsweise finden Sie in der [Django-Community-Dokumentation von DigitalOcean](https://www.digitalocean.com/community/tutorials?q=django) viele Schritt-für-Schritt-Anleitungen für unterschiedliche Konfigurationen.
 
-Die kritischen Einstellungen, die Sie überprüfen müssen, sind:
+## Einen Hosting-Anbieter auswählen
 
-- `DEBUG`. Diese Einstellung sollte in der Produktion auf `False` gesetzt sein (`DEBUG = False`). Dadurch wird verhindert, dass sensible/vertrauliche Debug-Trace- und Variableninformationen angezeigt werden.
-- `SECRET_KEY`. Dies ist ein großer zufälliger Wert, der für CSRF-Schutz usw. verwendet wird. Es ist wichtig, dass der in der Produktion verwendete Schlüssel nicht in der Quellcodeverwaltung enthalten oder außerhalb des Produktionsservers zugänglich ist.
+Viele Hosting-Anbieter unterstützen Django aktiv oder eignen sich gut dafür. Dazu gehören beispielsweise [Heroku](https://www.heroku.com/), [DigitalOcean](https://www.digitalocean.com/), [Railway](https://railway.com/), [PythonAnywhere](https://www.pythonanywhere.com/), [Amazon Web Services](https://aws.amazon.com/), [Azure](https://azure.microsoft.com/en-us), [Google Cloud](https://cloud.google.com/), [Hetzner](https://www.hetzner.com/) und [Vultr Cloud Compute](https://blogs.vultr.com/new-free-tier-plan).
+Diese Anbieter stellen unterschiedliche Umgebungen (IaaS oder PaaS) sowie Rechen- und Netzwerkressourcen in unterschiedlichem Umfang und zu unterschiedlichen Preisen bereit.
 
-Die Django-Dokumentation empfiehlt, geheime Informationen am besten aus einer Umgebungsvariable oder einer Datei zu laden, die nur auf dem Server verfügbar ist.
-Ändern wir die _LocalLibrary_-Anwendung so, dass unsere Variablen `SECRET_KEY` und `DEBUG` aus Umgebungsvariablen gelesen werden, sofern sie definiert sind, andernfalls aus Werten in einer **.env**-Datei im Stammverzeichnis und zuletzt aus den Standardwerten in der Konfigurationsdatei.
-Dies ist sehr flexibel, da es jede vom Hosting-Server unterstützte Konfiguration erlaubt.
+Bei der Auswahl eines Anbieters sollten Sie unter anderem Folgendes berücksichtigen:
 
-Zum Lesen von Umgebungswerten aus einer Datei verwenden wir [python-dotenv](https://pypi.org/project/python-dotenv/).
-Dies ist eine Bibliothek zum Lesen von Schlüssel-Wert-Paaren aus einer Datei und zum Verwenden dieser Paare als Umgebungsvariablen, jedoch nur, wenn die entsprechende Umgebungsvariable nicht definiert ist.
+- Wie viel Datenverkehr Ihre Website voraussichtlich haben wird und welche Kosten für die dafür erforderlichen Daten- und Rechenressourcen entstehen.
+- Wie gut horizontale Skalierung (zusätzliche Rechner) und vertikale Skalierung (leistungsfähigere Rechner) unterstützt werden und welche Kosten damit verbunden sind.
+- Wo sich die Rechenzentren des Anbieters befinden und von wo aus der Zugriff daher voraussichtlich am schnellsten ist.
+- Wie zuverlässig der Anbieter in der Vergangenheit war und wie häufig Ausfälle auftraten.
+- Welche Werkzeuge zur Verwaltung der Website bereitstehen – ob sie einfach zu bedienen und sicher sind (z. B. SFTP statt FTP).
+- Welche integrierten Möglichkeiten zur Überwachung Ihres Servers vorhanden sind.
+- Bekannte Einschränkungen. Manche Anbieter sperren bestimmte Dienste bewusst (z. B. E-Mail). Andere bieten in manchen Tarifen nur eine begrenzte Anzahl von Betriebsstunden oder wenig Speicherplatz.
+- Zusätzliche Vorteile. Manche Anbieter stellen kostenlose Domainnamen und Unterstützung für TLS-Zertifikate bereit, für die Sie andernfalls bezahlen müssten.
+- Ob der kostenlose Tarif, auf den Sie setzen, nach einiger Zeit ausläuft und ob die Kosten eines späteren Wechsels in einen teureren Tarif bedeuten, dass ein anderer Dienst von Anfang an günstiger gewesen wäre.
 
-Installieren Sie die Bibliothek wie gezeigt in Ihrer virtuellen Umgebung (und aktualisieren Sie auch Ihre Datei `requirements.txt`):
+Für den Einstieg ist erfreulich, dass einige Anbieter kostenlose Rechenumgebungen für Evaluierungs- und Testzwecke bereitstellen.
+Diese Umgebungen sind in der Regel hinsichtlich ihrer Ressourcen deutlich eingeschränkt. Beachten Sie außerdem, dass sie nach einer Einführungsphase auslaufen oder anderen Beschränkungen unterliegen können.
+Dennoch eignen sie sich hervorragend, um Websites mit wenig Datenverkehr in einer gehosteten Umgebung zu testen. Wenn Ihre Website stärker genutzt wird, ermöglichen sie oft einen einfachen Wechsel zu einem kostenpflichtigen Tarif mit mehr Ressourcen.
+Beliebte Optionen in dieser Kategorie sind unter anderem [Vultr Cloud Compute](https://blogs.vultr.com/new-free-tier-plan), [PythonAnywhere](https://www.pythonanywhere.com/), [Amazon Web Services](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html) und [Microsoft Azure](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/).
+
+Die meisten Anbieter haben außerdem einen Basistarif für kleinere produktive Websites, der mehr nutzbare Rechenleistung und weniger Einschränkungen bietet.
+[Railway](https://railway.com/), [Heroku](https://www.heroku.com/) und [DigitalOcean](https://www.digitalocean.com/) sind Beispiele für beliebte Hosting-Anbieter mit einem vergleichsweise günstigen Basistarif im Bereich von 5 bis 10 US-Dollar pro Monat.
+
+> [!NOTE]
+> Denken Sie daran, dass der Preis nicht das einzige Auswahlkriterium ist. Wenn Ihre Website erfolgreich ist, könnte die Skalierbarkeit zum wichtigsten Faktor werden.
+
+## Ihre Website auf die Veröffentlichung vorbereiten
+
+Die mit den Werkzeugen _django-admin_ und _manage.py_ erstellte [Django-Grundstruktur einer Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) ist so konfiguriert, dass sie die Entwicklung erleichtert. Viele der Django-Projekteinstellungen in **settings.py** sollten in der Produktionsumgebung anders sein – aus Sicherheits- oder Leistungsgründen.
+
+> [!NOTE]
+> Üblicherweise wird für die Produktionsumgebung eine separate **settings.py**-Datei verwendet und/oder vertrauliche Einstellungen werden abhängig von den Bedingungen aus einer separaten Datei oder einer Umgebungsvariable importiert. Diese Datei sollte geschützt werden, selbst wenn der übrige Quellcode in einem öffentlichen Repository verfügbar ist.
+
+Die wichtigsten Einstellungen, die Sie überprüfen müssen, sind:
+
+- `DEBUG`: Dieser Wert sollte in der Produktionsumgebung auf `False` gesetzt sein (`DEBUG = False`). So werden vertrauliche Debug-Traces und Informationen über Variablen nicht angezeigt.
+- `SECRET_KEY`: Dies ist ein großer Zufallswert, der unter anderem für den CSRF-Schutz verwendet wird. Der in der Produktionsumgebung verwendete Schlüssel darf weder in der Versionsverwaltung liegen noch außerhalb des Produktionsservers zugänglich sein.
+
+Die Django-Dokumentation empfiehlt, vertrauliche Informationen aus einer Umgebungsvariable oder einer nur auf dem Server verfügbaren Datei zu laden.
+Wir ändern die Anwendung _LocalLibrary_ nun so, dass sie die Variablen `SECRET_KEY` und `DEBUG` zunächst aus Umgebungsvariablen liest, sofern diese definiert sind. Andernfalls verwendet sie Werte aus einer **.env**-Datei im Stammverzeichnis und zuletzt die Standardwerte aus der Konfigurationsdatei.
+Das ist sehr flexibel und ermöglicht jede Konfiguration, die der Hosting-Server unterstützt.
+
+Um Umgebungswerte aus einer Datei zu lesen, verwenden wir [python-dotenv](https://pypi.org/project/python-dotenv/).
+Diese Bibliothek liest Schlüssel-Wert-Paare aus einer Datei und verwendet sie als Umgebungsvariablen – allerdings nur, wenn die entsprechende Umgebungsvariable noch nicht definiert ist.
+
+Installieren Sie die Bibliothek wie gezeigt in Ihrer virtuellen Umgebung und aktualisieren Sie auch Ihre `requirements.txt`-Datei:
 
 ```bash
 pip3 install python-dotenv
 ```
 
-Öffnen Sie dann **/locallibrary/settings.py** und fügen Sie den folgenden Code ein, nachdem `BASE_DIR` definiert wurde, aber vor der Sicherheitswarnung: `# SECURITY WARNING: keep the secret key used in production secret!`
+Öffnen Sie anschließend **/locallibrary/settings.py** und fügen Sie den folgenden Code nach der Definition von `BASE_DIR`, aber vor dem Sicherheitshinweis `# SECURITY WARNING: keep the secret key used in production secret!` ein:
 
 ```python
 # Support env variables from .env file if defined
@@ -133,15 +133,15 @@ if os.path.exists(env_path):
     load_dotenv(env_path)
 ```
 
-Dadurch wird die Datei `.env` aus dem Stammverzeichnis der Webanwendung geladen.
-Variablen, die in der Datei als `KEY=VALUE` definiert sind, werden importiert, wenn der Schlüssel in `os.environ.get('<KEY>'', '<DEFAULT VALUE>')` verwendet wird, falls er definiert ist.
+Dadurch wird die `.env`-Datei aus dem Stammverzeichnis der Webanwendung geladen.
+Variablen, die in der Datei als `KEY=VALUE` definiert sind, werden bei Verwendung des Schlüssels in `os.environ.get('<KEY>'', '<DEFAULT VALUE>')` importiert, sofern sie vorhanden sind.
 
 > [!NOTE]
-> Alle Werte, die Sie zu **.env** hinzufügen, sind wahrscheinlich _Geheimnisse_!
-> Sie dürfen sie nicht auf GitHub speichern und sollten `.env` zu Ihrer Datei `.gitignore` hinzufügen, damit sie nicht versehentlich hinzugefügt wird.
+> Werte, die Sie zu **.env** hinzufügen, sind wahrscheinlich _vertraulich_!
+> Speichern Sie sie nicht auf GitHub. Nehmen Sie `.env` in Ihre `.gitignore`-Datei auf, damit die Datei nicht versehentlich hinzugefügt wird.
 
-Deaktivieren Sie als Nächstes die ursprüngliche `SECRET_KEY`-Konfiguration und fügen Sie die neuen Zeilen wie unten dargestellt hinzu.
-Während der Entwicklung wird keine Umgebungsvariable für den Schlüssel angegeben, sodass der Standardwert verwendet wird (es sollte keine Rolle spielen, welchen Schlüssel Sie hier verwenden oder ob der Schlüssel „durchsickert“, weil Sie ihn nicht in der Produktion verwenden werden).
+Deaktivieren Sie als Nächstes die ursprüngliche `SECRET_KEY`-Konfiguration und fügen Sie die neuen Zeilen wie unten gezeigt hinzu.
+Während der Entwicklung ist keine Umgebungsvariable für den Schlüssel festgelegt, sodass der Standardwert verwendet wird. Welchen Schlüssel Sie hier verwenden oder ob er bekannt wird, spielt keine Rolle, da Sie ihn nicht in der Produktionsumgebung verwenden.
 
 ```python
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -150,7 +150,7 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8_a+-$4w1f^lt3lx1c@d*p4x$ymm_rn7pwb87')
 ```
 
-Kommentieren Sie dann die vorhandene Einstellung `DEBUG` aus und fügen Sie die unten dargestellte neue Zeile hinzu.
+Kommentieren Sie anschließend die vorhandene `DEBUG`-Einstellung aus und fügen Sie die unten gezeigte neue Zeile hinzu.
 
 ```python
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -158,16 +158,16 @@ Kommentieren Sie dann die vorhandene Einstellung `DEBUG` aus und fügen Sie die 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ```
 
-Der Wert von `DEBUG` ist standardmäßig `True`, wird aber nur dann `False`, wenn der Wert der Umgebungsvariable `DJANGO_DEBUG` auf `False` gesetzt ist oder `DJANGO_DEBUG=False` in der Datei **.env** gesetzt wird.
-Beachten Sie, dass Umgebungsvariablen Zeichenketten und keine Python-Typen sind. Daher müssen wir Zeichenketten vergleichen. Die einzige Möglichkeit, die Variable `DEBUG` auf `False` zu setzen, besteht darin, sie tatsächlich auf die Zeichenkette `False` zu setzen.
+Der Wert von `DEBUG` ist standardmäßig `True`. Er wird nur dann `False`, wenn die Umgebungsvariable `DJANGO_DEBUG` den Wert `False` hat oder `DJANGO_DEBUG=False` in der **.env**-Datei steht.
+Beachten Sie, dass Umgebungsvariablen Zeichenketten und keine Python-Typen sind. Deshalb müssen wir Zeichenketten vergleichen. Um `DEBUG` auf `False` zu setzen, müssen Sie tatsächlich die Zeichenkette `False` angeben.
 
-Unter Linux können Sie die Umgebungsvariable mit dem folgenden Befehl auf „False“ setzen:
+Unter Linux können Sie die Umgebungsvariable mit folgendem Befehl auf „False“ setzen:
 
 ```bash
 export DJANGO_DEBUG=False
 ```
 
-Eine vollständige Prüfliste der Einstellungen, die Sie möglicherweise ändern möchten, finden Sie in der [Bereitstellungs-Checkliste](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/) (Django-Dokumentation). Sie können außerdem einige davon mit dem folgenden Terminalbefehl auflisten:
+Eine vollständige Liste der Einstellungen, die Sie möglicherweise ändern möchten, finden Sie in der [Checkliste für die Bereitstellung](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/) der Django-Dokumentation. Mit dem folgenden Terminalbefehl können Sie einige dieser Einstellungen ebenfalls auflisten:
 
 ```bash
 python3 manage.py check --deploy
@@ -175,11 +175,11 @@ python3 manage.py check --deploy
 
 ### Gunicorn
 
-[Gunicorn](https://gunicorn.org/) ist ein reiner Python-HTTP-Server, der häufig zur Bereitstellung von Django-WSGI-Anwendungen verwendet wird.
+[Gunicorn](https://gunicorn.org/) ist ein in reinem Python geschriebener HTTP-Server, der häufig zur Bereitstellung von Django-WSGI-Anwendungen verwendet wird.
 
-Obwohl wir _Gunicorn_ nicht benötigen, um unsere LocalLibrary-Anwendung während der Entwicklung bereitzustellen, installieren wir ihn lokal, damit er bei der Bereitstellung der Anwendung Teil unserer [Abhängigkeiten](#abhängigkeiten) wird.
+Während der Entwicklung benötigen wir _Gunicorn_ nicht, um unsere LocalLibrary-Anwendung bereitzustellen. Wir installieren es dennoch lokal, damit es bei der Bereitstellung der Anwendung zu unseren [Abhängigkeiten](#abhängigkeiten) gehört.
 
-Stellen Sie zunächst sicher, dass Sie sich in der Python-virtuellen Umgebung befinden, die beim [Einrichten der Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment) erstellt wurde (verwenden Sie den Befehl `workon [name-of-virtual-environment]`).
+Vergewissern Sie sich zuerst, dass Sie sich in der virtuellen Python-Umgebung befinden, die Sie beim [Einrichten der Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment) erstellt haben (verwenden Sie den Befehl `workon [name-of-virtual-environment]`).
 Installieren Sie anschließend _Gunicorn_ lokal über die Befehlszeile mit _pip_:
 
 ```bash
@@ -188,22 +188,22 @@ pip3 install gunicorn
 
 ### Datenbankkonfiguration
 
-SQLite, die Standard-Django-Datenbank, die Sie während der Entwicklung verwendet haben, ist eine vernünftige Wahl für kleine bis mittelgroße Websites.
-Leider kann sie bei einigen beliebten Hosting-Diensten wie Heroku nicht verwendet werden, weil diese keinen persistenten Datenspeicher in der Anwendungsumgebung bereitstellen (eine Anforderung von SQLite).
-Auch wenn dies unsere Beispielbereitstellung(en) möglicherweise nicht betrifft, zeigen wir Ihnen einen anderen Ansatz, der auf Railway, Heroku und einigen anderen Diensten funktioniert.
+SQLite, die standardmäßige Django-Datenbank, die Sie während der Entwicklung verwendet haben, ist für kleine bis mittelgroße Websites eine vernünftige Wahl.
+Leider kann sie bei einigen beliebten Hosting-Diensten wie Heroku nicht verwendet werden, weil diese keinen dauerhaften Datenspeicher in der Anwendungsumgebung bereitstellen, den SQLite benötigt.
+Auch wenn uns das bei den Beispielbereitstellungen möglicherweise nicht betrifft, zeigen wir Ihnen einen anderen Ansatz, der mit Railway, Heroku und einigen weiteren Diensten funktioniert.
 
-Dieser Ansatz besteht darin, eine Datenbank zu verwenden, die in einem eigenen Prozess irgendwo im Internet ausgeführt wird und auf die die Django-Bibliotheksanwendung über eine als Umgebungsvariable übergebene Adresse zugreift.
-In diesem Fall verwenden wir eine ebenfalls bei Railway gehostete Postgres-Datenbank, Sie könnten jedoch jeden beliebigen Datenbank-Hosting-Dienst verwenden.
+Dabei verwenden wir eine Datenbank, die irgendwo im Internet in einem eigenen Prozess läuft. Die Django-Bibliotheksanwendung greift über eine Adresse darauf zu, die als Umgebungsvariable übergeben wird.
+In diesem Fall verwenden wir eine ebenfalls bei Railway gehostete Postgres-Datenbank. Sie können aber auch einen beliebigen anderen Datenbank-Hosting-Dienst verwenden.
 
-Die Datenbankverbindungsinformationen werden Django über eine Umgebungsvariable namens `DATABASE_URL` bereitgestellt.
-Statt diese Informationen fest in Django zu codieren, verwenden wir das Paket [dj-database-url](https://pypi.org/project/dj-database-url/), um die Umgebungsvariable `DATABASE_URL` zu parsen und automatisch in Djangos gewünschtes Konfigurationsformat umzuwandeln.
-Neben der Installation des Pakets _dj-database-url_ müssen wir auch [psycopg2](https://www.psycopg.org/) installieren, da Django dies für die Interaktion mit Postgres-Datenbanken benötigt.
+Die Informationen für die Datenbankverbindung werden Django über eine Umgebungsvariable namens `DATABASE_URL` bereitgestellt.
+Statt diese Informationen fest in Django einzutragen, verwenden wir das Paket [dj-database-url](https://pypi.org/project/dj-database-url/). Es verarbeitet die Umgebungsvariable `DATABASE_URL` und wandelt sie automatisch in das von Django benötigte Konfigurationsformat um.
+Zusätzlich zum Paket _dj-database-url_ müssen wir [psycopg2](https://www.psycopg.org/) installieren, damit Django mit Postgres-Datenbanken arbeiten kann.
 
 #### dj-database-url
 
-_dj-database-url_ wird verwendet, um die Django-Datenbankkonfiguration aus einer Umgebungsvariable zu extrahieren.
+_dj-database-url_ liest die Django-Datenbankkonfiguration aus einer Umgebungsvariable.
 
-Installieren Sie es lokal, damit es Teil unserer [Abhängigkeiten](#abhängigkeiten) wird, die auf dem Bereitstellungsserver eingerichtet werden:
+Installieren Sie es lokal, damit es zu unseren [Abhängigkeiten](#abhängigkeiten) gehört und auf dem Bereitstellungsserver eingerichtet wird:
 
 ```bash
 pip3 install dj-database-url
@@ -211,7 +211,7 @@ pip3 install dj-database-url
 
 #### settings.py
 
-Öffnen Sie **/locallibrary/settings.py** und kopieren Sie die folgende Konfiguration an das Ende der Datei:
+Öffnen Sie **/locallibrary/settings.py** und fügen Sie die folgende Konfiguration am Ende der Datei ein:
 
 ```python
 # Update database configuration from $DATABASE_URL environment variable (if defined)
@@ -224,8 +224,8 @@ if 'DATABASE_URL' in os.environ:
     )
 ```
 
-Django verwendet nun die Datenbankkonfiguration in `DATABASE_URL`, wenn die Umgebungsvariable gesetzt ist; andernfalls verwendet es die Standard-SQLite-Datenbank.
-Der Wert `conn_max_age=500` macht die Verbindung persistent, was wesentlich effizienter ist als das Neuerstellen der Verbindung in jedem Anfragezyklus (dies ist optional und kann bei Bedarf entfernt werden).
+Django verwendet nun die Datenbankkonfiguration aus `DATABASE_URL`, sofern die Umgebungsvariable gesetzt ist. Andernfalls wird die standardmäßige SQLite-Datenbank verwendet.
+Der Wert `conn_max_age=500` sorgt dafür, dass die Verbindung bestehen bleibt. Das ist wesentlich effizienter, als sie bei jedem Anfragezyklus neu aufzubauen. Die Einstellung ist optional und kann bei Bedarf entfernt werden.
 
 #### psycopg2
 
@@ -235,48 +235,48 @@ Der Wert `conn_max_age=500` macht die Verbindung persistent, was wesentlich effi
 -->
 
 Django benötigt _psycopg2_, um mit Postgres-Datenbanken zu arbeiten.
-Installieren Sie es lokal, damit es Teil unserer [Abhängigkeiten](#abhängigkeiten) wird, die Railway auf dem Remote-Server einrichtet:
+Installieren Sie es lokal, damit es zu unseren [Abhängigkeiten](#abhängigkeiten) gehört und Railway es auf dem entfernten Server einrichtet:
 
 ```bash
 pip3 install psycopg2-binary
 ```
 
 Beachten Sie, dass Django während der Entwicklung standardmäßig die SQLite-Datenbank verwendet, sofern `DATABASE_URL` nicht gesetzt ist.
-Sie können vollständig zu Postgres wechseln und dieselbe gehostete Datenbank für Entwicklung und Produktion verwenden, indem Sie dieselbe Umgebungsvariable in Ihrer Entwicklungsumgebung setzen (Railway erleichtert die Verwendung derselben Umgebung für Produktion und Entwicklung).
-Alternativ können Sie auch eine [selbstgehostete Postgres-Datenbank](https://www.psycopg.org/docs/install.html) auf Ihrem lokalen Computer installieren und verwenden.
+Sie können vollständig zu Postgres wechseln und dieselbe gehostete Datenbank für Entwicklung und Produktion verwenden, indem Sie die entsprechende Umgebungsvariable auch in Ihrer Entwicklungsumgebung setzen. Railway erleichtert die Verwendung derselben Umgebung für Entwicklung und Produktion.
+Alternativ können Sie auf Ihrem lokalen Computer eine [selbst gehostete Postgres-Datenbank](https://www.psycopg.org/docs/install.html) installieren und verwenden.
 
-### Statische Dateien in der Produktion bereitstellen
+### Statische Dateien in der Produktionsumgebung bereitstellen
 
-Während der Entwicklung verwenden wir Django und den Django-Entwicklungswebserver, um sowohl unser dynamisches HTML als auch unsere statischen Dateien (CSS, JavaScript usw.) bereitzustellen.
-Dies ist für statische Dateien ineffizient, weil die Anfragen durch Django geleitet werden müssen, obwohl Django nichts mit ihnen macht.
-Während dies in der Entwicklung keine Rolle spielt, hätte derselbe Ansatz in der Produktion erhebliche Auswirkungen auf die Leistung.
+Während der Entwicklung verwenden wir Django und den Django-Entwicklungswebserver, um sowohl dynamisches HTML als auch statische Dateien (CSS, JavaScript usw.) auszuliefern.
+Für statische Dateien ist das ineffizient: Die Anfragen müssen Django durchlaufen, obwohl Django nichts mit ihnen tun muss.
+Während der Entwicklung spielt das keine Rolle. In der Produktionsumgebung hätte derselbe Ansatz jedoch erhebliche Auswirkungen auf die Leistung.
 
-In der Produktionsumgebung trennen wir statische Dateien typischerweise von der Django-Webanwendung, wodurch es einfacher wird, sie direkt vom Webserver oder einem Content Delivery Network (CDN) bereitzustellen.
+In der Produktionsumgebung trennen wir statische Dateien üblicherweise von der Django-Webanwendung. So können sie einfacher direkt über den Webserver oder ein Content Delivery Network (CDN) ausgeliefert werden.
 
 Die wichtigen Einstellungsvariablen sind:
 
-- `STATIC_URL`: Dies ist der Basis-URL-Speicherort, von dem aus statische Dateien bereitgestellt werden, beispielsweise über ein CDN.
-- `STATIC_ROOT`: Dies ist der absolute Pfad zu einem Verzeichnis, in dem Djangos Werkzeug _collectstatic_ alle statischen Dateien sammelt, auf die in unseren Templates verwiesen wird. Nach dem Sammeln können diese als Gruppe dorthin hochgeladen werden, wo die Dateien gehostet werden sollen.
-- `STATICFILES_DIRS`: Diese Einstellung listet zusätzliche Verzeichnisse auf, die Djangos Werkzeug _collectstatic_ nach statischen Dateien durchsuchen soll.
+- `STATIC_URL`: Die Basis-URL, unter der statische Dateien bereitgestellt werden, beispielsweise über ein CDN.
+- `STATIC_ROOT`: Der absolute Pfad zu einem Verzeichnis, in dem Djangos Werkzeug _collectstatic_ alle statischen Dateien sammelt, auf die unsere Templates verweisen. Anschließend können diese Dateien gemeinsam an den Hosting-Ort hochgeladen werden.
+- `STATICFILES_DIRS`: Eine Liste zusätzlicher Verzeichnisse, die Djangos Werkzeug _collectstatic_ nach statischen Dateien durchsuchen soll.
 
-Django-Templates verweisen relativ zu einem `static`-Tag auf Speicherorte statischer Dateien (dies sehen Sie im Basis-Template, das in [Django-Tutorial Teil 5: Erstellen unserer Startseite](/de/docs/Learn_web_development/Extensions/Server-side/Django/Home_page#the_locallibrary_base_template) definiert ist), der wiederum der Einstellung `STATIC_URL` zugeordnet ist.
-Statische Dateien können daher zu jedem Host hochgeladen werden, und Sie können Ihre Anwendung aktualisieren, damit sie diese mithilfe dieser Einstellung findet.
+Django-Templates verweisen mithilfe eines `static`-Tags auf statische Dateien. Ein Beispiel sehen Sie im Basis-Template unter [Django-Tutorial Teil 5: Unsere Startseite erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Home_page#the_locallibrary_base_template). Dieses Tag bezieht sich wiederum auf die Einstellung `STATIC_URL`.
+Statische Dateien können daher bei einem beliebigen Anbieter hochgeladen werden. Über diese Einstellung teilen Sie Ihrer Anwendung mit, wo sie die Dateien findet.
 
-Das Werkzeug _collectstatic_ wird verwendet, um statische Dateien in dem Ordner zu sammeln, der durch die Projekteinstellung `STATIC_ROOT` definiert ist.
-Es wird mit dem folgenden Befehl aufgerufen:
+Das Werkzeug _collectstatic_ sammelt statische Dateien in dem Ordner, der durch die Projekteinstellung `STATIC_ROOT` festgelegt ist.
+Sie rufen es mit folgendem Befehl auf:
 
 ```bash
 python3 manage.py collectstatic
 ```
 
-Für dieses Tutorial kann _collectstatic_ ausgeführt werden, bevor die Anwendung hochgeladen wird. Dabei werden alle statischen Dateien der Anwendung an den durch `STATIC_ROOT` angegebenen Speicherort kopiert.
-`Whitenoise` findet dann die Dateien am durch `STATIC_ROOT` definierten Speicherort (standardmäßig) und stellt sie unter der durch `STATIC_URL` definierten Basis-URL bereit.
+In diesem Tutorial kann _collectstatic_ vor dem Hochladen der Anwendung ausgeführt werden. Dabei werden alle statischen Dateien der Anwendung an den in `STATIC_ROOT` angegebenen Ort kopiert.
+`Whitenoise` findet die Dateien anschließend standardmäßig an dem durch `STATIC_ROOT` festgelegten Ort und stellt sie unter der durch `STATIC_URL` definierten Basis-URL bereit.
 
 #### settings.py
 
-Öffnen Sie **/locallibrary/settings.py** und kopieren Sie die folgende Konfiguration an das Ende der Datei.
-`BASE_DIR` sollte bereits in Ihrer Datei definiert sein (`STATIC_URL` wurde möglicherweise bereits beim Erstellen der Datei darin definiert.
-Obwohl dies keinen Schaden verursacht, können Sie den vorherigen doppelten Verweis ebenso gut löschen).
+Öffnen Sie **/locallibrary/settings.py** und fügen Sie die folgende Konfiguration am Ende der Datei ein.
+`BASE_DIR` sollte in Ihrer Datei bereits definiert sein. Auch `STATIC_URL` wurde möglicherweise schon beim Erstellen der Datei definiert.
+Die doppelte Definition richtet zwar keinen Schaden an, Sie können die frühere Definition aber entfernen.
 
 ```python
 # Static files (CSS, JavaScript, Images)
@@ -289,20 +289,20 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
 ```
 
-Die Dateibereitstellung führen wir tatsächlich mit einer Bibliothek namens [WhiteNoise](https://pypi.org/project/whitenoise/) durch, die wir im nächsten Abschnitt installieren und konfigurieren.
+Für die Bereitstellung der Dateien verwenden wir eine Bibliothek namens [WhiteNoise](https://pypi.org/project/whitenoise/), die wir im nächsten Abschnitt installieren und konfigurieren.
 
 ### Whitenoise
 
-Es gibt viele Möglichkeiten, statische Dateien in der Produktion bereitzustellen (die relevanten Django-Einstellungen haben wir in den vorherigen Abschnitten gesehen).
-Das Projekt [WhiteNoise](https://pypi.org/project/whitenoise/) bietet eine der einfachsten Methoden, statische Assets in der Produktion direkt über Gunicorn bereitzustellen.
+Es gibt viele Möglichkeiten, statische Dateien in der Produktionsumgebung bereitzustellen. Die relevanten Django-Einstellungen haben wir in den vorherigen Abschnitten kennengelernt.
+Das Projekt [WhiteNoise](https://pypi.org/project/whitenoise/) bietet eine der einfachsten Möglichkeiten, statische Ressourcen in der Produktionsumgebung direkt über Gunicorn auszuliefern.
 
-Lesen Sie die [WhiteNoise](https://pypi.org/project/whitenoise/)-Dokumentation für eine Erklärung der Funktionsweise und warum die Implementierung eine relativ effiziente Methode zur Bereitstellung dieser Dateien ist.
+In der [WhiteNoise-Dokumentation](https://pypi.org/project/whitenoise/) erfahren Sie, wie dies funktioniert und warum die Implementierung eine vergleichsweise effiziente Methode zur Bereitstellung dieser Dateien ist.
 
-Die Schritte zur Einrichtung von _WhiteNoise_ für die Verwendung mit dem Projekt sind [hier angegeben](https://whitenoise.readthedocs.io/en/stable/django.html) (und unten wiedergegeben):
+Die Schritte zur Einrichtung von _WhiteNoise_ für dieses Projekt sind [hier beschrieben](https://whitenoise.readthedocs.io/en/stable/django.html) und werden im Folgenden wiedergegeben:
 
 #### whitenoise installieren
 
-Installieren Sie whitenoise lokal mit dem folgenden Befehl:
+Installieren Sie whitenoise lokal mit folgendem Befehl:
 
 ```bash
 pip3 install whitenoise
@@ -310,7 +310,7 @@ pip3 install whitenoise
 
 #### settings.py
 
-Um _WhiteNoise_ in Ihrer Django-Anwendung zu installieren, öffnen Sie **/locallibrary/settings.py**, suchen Sie die Einstellung `MIDDLEWARE` und fügen Sie die `WhiteNoiseMiddleware` nahe dem Anfang der Liste direkt unter der `SecurityMiddleware` hinzu:
+Um _WhiteNoise_ in Ihrer Django-Anwendung einzurichten, öffnen Sie **/locallibrary/settings.py**, suchen Sie die Einstellung `MIDDLEWARE` und fügen Sie `WhiteNoiseMiddleware` weit oben in der Liste ein, direkt unter `SecurityMiddleware`:
 
 ```python
 MIDDLEWARE = [
@@ -325,8 +325,8 @@ MIDDLEWARE = [
 ]
 ```
 
-Optional können Sie die Größe der statischen Dateien reduzieren, wenn sie bereitgestellt werden (dies ist effizienter).
-Fügen Sie einfach Folgendes an das Ende von **/locallibrary/settings.py** hinzu:
+Optional können Sie die Größe der statischen Dateien bei der Bereitstellung reduzieren. Das ist effizienter.
+Fügen Sie dazu Folgendes am Ende von **/locallibrary/settings.py** ein:
 
 ```python
 # Static file serving.
@@ -339,20 +339,20 @@ STORAGES = {
 }
 ```
 
-Sie müssen nichts weiter tun, um _WhiteNoise_ zu konfigurieren, da es standardmäßig Ihre Projekteinstellungen für `STATIC_ROOT` und `STATIC_URL` verwendet.
+Sie müssen _WhiteNoise_ nicht weiter konfigurieren, da es standardmäßig die Projekteinstellungen `STATIC_ROOT` und `STATIC_URL` verwendet.
 
 ### Abhängigkeiten
 
-Die Python-Abhängigkeiten Ihrer Webanwendung sollten in einer Datei **requirements.txt** im Stammverzeichnis Ihres Repositorys gespeichert werden.
-Viele Hosting-Dienste installieren die Abhängigkeiten in dieser Datei automatisch (bei anderen müssen Sie dies selbst tun).
-Sie können diese Datei mit _pip_ über die Befehlszeile erstellen (führen Sie Folgendes im Stammverzeichnis des Repositorys aus):
+Die Python-Abhängigkeiten Ihrer Webanwendung sollten in einer Datei namens **requirements.txt** im Stammverzeichnis Ihres Repositorys stehen.
+Viele Hosting-Dienste installieren die dort aufgeführten Abhängigkeiten automatisch. Bei anderen müssen Sie dies selbst tun.
+Sie können die Datei mit _pip_ über die Befehlszeile erstellen. Führen Sie dazu im Stammverzeichnis des Repositorys Folgendes aus:
 
 ```bash
 pip3 freeze > requirements.txt
 ```
 
-Nach der Installation aller oben genannten Abhängigkeiten sollte Ihre Datei **requirements.txt** _mindestens_ diese Einträge enthalten (die Versionsnummern können jedoch abweichen).
-Löschen Sie alle anderen unten nicht aufgeführten Abhängigkeiten, sofern Sie sie nicht ausdrücklich für diese Anwendung hinzugefügt haben.
+Nachdem Sie alle oben genannten Abhängigkeiten installiert haben, sollte Ihre **requirements.txt**-Datei _mindestens_ die folgenden Einträge enthalten. Die Versionsnummern können abweichen.
+Entfernen Sie bitte alle weiteren Abhängigkeiten, die unten nicht aufgeführt sind, sofern Sie sie nicht ausdrücklich für diese Anwendung hinzugefügt haben.
 
 ```plain
 Django==5.0.2
@@ -366,13 +366,13 @@ python-dotenv==1.0.1
 
 ### Ihr Anwendungs-Repository auf GitHub aktualisieren
 
-Viele Hosting-Dienste ermöglichen Ihnen das Importieren und/oder Synchronisieren von Projekten aus einem lokalen Repository oder aus cloudbasierten Plattformen für die Versionsverwaltung des Quellcodes.
-Dies kann die Bereitstellung und iterative Entwicklung wesentlich erleichtern.
+Viele Hosting-Dienste können Projekte aus einem lokalen Repository oder von cloudbasierten Plattformen zur Quellcodeverwaltung importieren und/oder synchronisieren.
+Das kann die Bereitstellung und die schrittweise Weiterentwicklung erheblich erleichtern.
 
-Sie sollten GitHub bereits verwenden, um den Quellcode der lokalen Bibliothek zu speichern (dies wurde in [Quellcodeverwaltung mit Git und GitHub](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#source_code_management_with_git_and_github) beim Einrichten Ihrer Entwicklungsumgebung konfiguriert.
+Sie sollten den Quellcode von LocalLibrary bereits auf GitHub speichern. Dies wurde unter [Quellcodeverwaltung mit Git und GitHub](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#source_code_management_with_git_and_github) beim Einrichten Ihrer Entwicklungsumgebung beschrieben.
 
-Dies ist ein guter Zeitpunkt, um ein Backup Ihres „unveränderten“ Projekts zu erstellen — einige der Änderungen, die wir in den folgenden Abschnitten vornehmen werden, können zwar für die Bereitstellung bei jedem Hosting-Dienst (oder für die Entwicklung) nützlich sein, andere jedoch möglicherweise nicht.
-Angenommen, Sie haben bereits alle bisher vorgenommenen Änderungen im Branch `main` auf GitHub gesichert, können Sie wie gezeigt einen neuen Branch erstellen, um Ihre Änderungen zu sichern:
+Jetzt ist ein guter Zeitpunkt, eine Sicherung Ihres unveränderten Ausgangsprojekts zu erstellen. Einige Änderungen in den folgenden Abschnitten können auch für die Bereitstellung bei anderen Hosting-Diensten oder für die Entwicklung nützlich sein, andere möglicherweise nicht.
+Wenn Sie alle bisherigen Änderungen bereits im Branch `main` auf GitHub gesichert haben, können Sie wie gezeigt einen neuen Branch erstellen, um Ihre Änderungen zu sichern:
 
 ```bash
 # Fetch the latest main branch
@@ -394,92 +394,92 @@ git checkout -b my_changes_for_deployment # Create a new branch
 
 ## Beispiel: Hosting auf PythonAnywhere
 
-Dieser Abschnitt bietet eine praktische Demonstration, wie Sie _LocalLibrary_ auf [PythonAnywhere](https://www.pythonanywhere.com/) hosten.
+Dieser Abschnitt zeigt praktisch, wie Sie _LocalLibrary_ auf [PythonAnywhere](https://www.pythonanywhere.com/) hosten.
 
 ### Warum PythonAnywhere?
 
-Wir wählen PythonAnywhere aus mehreren Gründen:
+Wir verwenden PythonAnywhere aus mehreren Gründen:
 
-- PythonAnywhere bietet einen [kostenlosen Beginner-Plan](https://www.pythonanywhere.com/pricing/), der _wirklich_ kostenlos ist, wenn auch mit einigen Einschränkungen.
-  Dass der Dienst für alle Entwickler erschwinglich ist, ist für MDN besonders wichtig!
+- PythonAnywhere bietet einen [kostenlosen Einsteigertarif](https://www.pythonanywhere.com/pricing/), der trotz einiger Einschränkungen _wirklich_ kostenlos ist.
+  Dass er für alle Entwickler erschwinglich ist, ist MDN besonders wichtig!
 
   > [!NOTE]
-  > Dieses Tutorial wurde auf Heroku, Railway und jetzt PythonAnywhere gehostet, wobei wir migriert sind, als die zuvor kostenlosen Tarife eingestellt wurden.
-  > Wir haben PythonAnywhere ausgewählt, weil wir glauben, dass dieser Tarif wahrscheinlich kostenlos bleiben wird.
-  > Wir haben das Railway-Beispiel ebenfalls beibehalten, das nicht kostenlos ist, zum Vergleich und weil es uns ermöglicht, Funktionen wie die Integration mit einer Postgres-Datenbank, die auf einem anderen Dienst ausgeführt wird, einfacher zu demonstrieren.
+  > Dieses Tutorial wurde bisher auf Heroku, Railway und nun PythonAnywhere gehostet. Wir sind jeweils gewechselt, als die zuvor kostenlosen Tarife eingestellt wurden.
+  > Wir haben PythonAnywhere gewählt, weil wir davon ausgehen, dass dieser Tarif kostenlos bleiben wird.
+  > Das Railway-Beispiel haben wir zum Vergleich beibehalten, obwohl es nicht kostenlos ist. Zudem können wir damit Funktionen wie die Anbindung einer Postgres-Datenbank auf einem anderen Dienst leichter demonstrieren.
 
-- PythonAnywhere kümmert sich um die Infrastruktur, sodass Sie dies nicht tun müssen.
-  Wenn Sie sich nicht um Server, Load Balancer, Reverse Proxies usw. kümmern müssen, ist der Einstieg wesentlich einfacher.
-- Die Fähigkeiten und Konzepte, die Sie bei der Verwendung von PythonAnywhere erlernen, sind übertragbar.
-- Die Einschränkungen des Dienstes und Plans beeinträchtigen uns bei der Verwendung von PythonAnywhere für das Tutorial nicht wesentlich.
-  Zum Beispiel:
-  - Der Beginner-Plan erlaubt eine Web-App unter `<your-username>.pythonanywhere.com`, eingeschränkten ausgehenden Internetzugriff aus Ihren Apps, geringe CPU-/Bandbreitenressourcen, keine Unterstützung für IPython-/Jupyter-Notebooks und keine kostenlose Postgres-Datenbank.
-    Es gibt jedoch genug Speicherplatz, damit unsere grundlegende Website ausgeführt werden kann!
-  - Benutzerdefinierte Domains werden zum Zeitpunkt der Erstellung nicht unterstützt.
-  - Die Umgebung wird heruntergefahren, wenn sie nicht verwendet wird, sodass ein Neustart langsam sein kann.
-    Sie können sie dauerhaft betreiben, müssen jedoch die Website alle drei Monate besuchen und die Webanwendung erneuern.
-  - Es gibt kostenlose Unterstützung für eine separate MySQL-Datenbank, jedoch nicht für Postgres.
-    In dieser Demonstration verwenden wir lediglich die Standard-Django-SQLite-Datenbank.
+- PythonAnywhere kümmert sich um die Infrastruktur, damit Sie es nicht tun müssen.
+  Wenn Sie sich nicht mit Servern, Load Balancern, Reverse-Proxys usw. beschäftigen müssen, fällt der Einstieg deutlich leichter.
+- Die Kenntnisse und Konzepte, die Sie bei der Arbeit mit PythonAnywhere erwerben, lassen sich auf andere Dienste übertragen.
+- Die Einschränkungen des Dienstes und des Tarifs beeinträchtigen unsere Verwendung von PythonAnywhere für dieses Tutorial nicht wesentlich.
+  Beispielsweise:
+  - Der Einsteigertarif erlaubt eine Webanwendung unter `<your-username>.pythonanywhere.com`. Er bietet eingeschränkten ausgehenden Internetzugriff für Ihre Anwendungen, geringe CPU-Leistung und Bandbreite, keine Unterstützung für IPython/Jupyter-Notebooks und keine kostenlose Postgres-Datenbank.
+    Für unsere einfache Website ist jedoch genug Platz vorhanden!
+  - Eigene Domains werden zum Zeitpunkt der Erstellung dieses Artikels nicht unterstützt.
+  - Die Umgebung wird heruntergefahren, wenn sie nicht genutzt wird. Deshalb kann ein Neustart etwas dauern.
+    Sie können sie dauerhaft betreiben, müssen dafür aber alle drei Monate die Website besuchen und die Webanwendung verlängern.
+  - Eine separate MySQL-Datenbank wird kostenlos unterstützt, Postgres dagegen nicht.
+    Für diese Demonstration verwenden wir einfach die standardmäßige Django-SQLite-Datenbank.
 
-PythonAnywhere eignet sich zum Hosting dieser Demonstration und kann bei Bedarf auf größere Projekte skaliert werden.
-Sie sollten sich die Zeit nehmen, festzustellen, ob es [für Ihre eigene Website geeignet](#auswahl_eines_hosting-anbieters) ist.
+PythonAnywhere eignet sich für das Hosting dieser Demonstration und lässt sich bei Bedarf auch für größere Projekte skalieren.
+Nehmen Sie sich die Zeit zu prüfen, ob der Dienst [für Ihre eigene Website geeignet ist](#einen_hosting-anbieter_auswählen).
 
 ### Wie funktioniert PythonAnywhere?
 
-PythonAnywhere stellt eine vollständig webbasierte Schnittstelle bereit, über die Sie Ihre Anwendung hochladen, bearbeiten und anderweitig mit ihr arbeiten können.
+PythonAnywhere bietet eine vollständig webbasierte Oberfläche zum Hochladen, Bearbeiten und Verwalten Ihrer Anwendung.
 
-Über die Schnittstelle können Sie eine Bash-Konsole für eine Ubuntu-Linux-Umgebung starten, in der Sie Ihre Anwendung erstellen können.
-In dieser Demonstration verwenden wir die Konsole, um unser lokales Bibliotheks-GitHub-Repository zu klonen und eine Python-Umgebung zu erstellen, in der wir die Webanwendung ausführen können.
+Über diese Oberfläche können Sie eine Bash-Konsole in einer Ubuntu-Linux-Umgebung starten und dort Ihre Anwendung einrichten.
+In dieser Demonstration klonen wir über die Konsole unser LocalLibrary-Repository von GitHub und erstellen eine Python-Umgebung, in der wir die Webanwendung ausführen können.
 
-Der kostenlose Plan bietet keine separate Postgres-Unterstützung.
-Obwohl wir einen anderen Hosting-Dienst für unsere Datenbank verwenden könnten, nutzen wir einfach die Standard-SQLite-Datenbank, die Django in der gehosteten Ubuntu-Umgebung erstellt (es gibt mehr als genug Speicherplatz, um die Bibliotheksfunktionalität zu demonstrieren).
+Der kostenlose Tarif bietet keine separate Unterstützung für Postgres.
+Wir könnten unsere Datenbank zwar bei einem anderen Dienst hosten, verwenden aber stattdessen die standardmäßige SQLite-Datenbank, die Django in der gehosteten Ubuntu-Umgebung erstellt. Für die Demonstration der Bibliotheksfunktionen ist mehr als genug Speicherplatz vorhanden.
 
-Sobald die Anwendung ausgeführt wird, kann sie für die Produktion konfiguriert werden, indem Umgebungsvariablen über die Bash-Konsole gesetzt werden.
+Sobald die Anwendung läuft, kann sie über Umgebungsvariablen in der Bash-Konsole für die Produktionsumgebung konfiguriert werden.
 
-Das ist alles, was Sie als Überblick benötigen, um zu beginnen.
+Damit haben Sie alle Grundlagen, die Sie für den Einstieg benötigen.
 
 ### Ein PythonAnywhere-Konto erstellen
 
 Um PythonAnywhere zu verwenden, müssen Sie zunächst ein Konto erstellen:
 
-- Rufen Sie die Seite [Plans and pricing](https://www.pythonanywhere.com/pricing/) von PythonAnywhere auf und wählen Sie die Schaltfläche **Create a Beginner account**.
-- Erstellen Sie ein Konto mit Benutzername, E-Mail-Adresse und Passwort, bestätigen Sie die Geschäftsbedingungen und wählen Sie dann **Register**.
-- Sie werden anschließend angemeldet und zum PythonAnywhere-Dashboard weitergeleitet: `https://www.pythonanywhere.com/user/<your_user_name>/`.
+- Öffnen Sie die PythonAnywhere-Seite [Tarife und Preise](https://www.pythonanywhere.com/pricing/) und wählen Sie die Schaltfläche **Create a Beginner account**.
+- Erstellen Sie ein Konto mit Benutzername, E-Mail-Adresse und Passwort, stimmen Sie den Nutzungsbedingungen zu und wählen Sie **Register**.
+- Anschließend sind Sie angemeldet und werden zum PythonAnywhere-Dashboard weitergeleitet: `https://www.pythonanywhere.com/user/<your_user_name>/`.
 
-### Bibliothek von GitHub installieren
+### Die Bibliothek von GitHub installieren
 
-Als Nächstes öffnen wir eine Bash-Eingabeaufforderung, richten eine virtuelle Umgebung ein und laden den Quellcode der lokalen Bibliothek von GitHub.
-Wir konfigurieren außerdem die Standarddatenbank und sammeln statische Dateien, damit sie von PythonAnywhere bereitgestellt werden können.
+Als Nächstes öffnen wir eine Bash-Eingabeaufforderung, richten eine virtuelle Umgebung ein und laden den LocalLibrary-Quellcode von GitHub.
+Außerdem konfigurieren wir die Standarddatenbank und sammeln die statischen Dateien, damit PythonAnywhere sie bereitstellen kann.
 
-1. Öffnen Sie zunächst den Bildschirm zur Konsolenverwaltung, indem Sie in der oberen Anwendungsleiste **Consoles** auswählen.
+1. Öffnen Sie zunächst die Konsolenverwaltung, indem Sie in der oberen Anwendungsleiste **Consoles** auswählen.
 2. Wählen Sie anschließend den Link **Bash**, um eine neue Konsole zu erstellen und zu starten:
 
-   ![Bild des Bildschirms zur PythonAnywhere-Konsolenverwaltung](python_anywhere_start_bash_console.png)
+   ![Ansicht der Konsolenverwaltung von PythonAnywhere](python_anywhere_start_bash_console.png)
 
-   Beachten Sie, dass jede von Ihnen erstellte Konsole zur späteren Wiederverwendung gespeichert wird, zusammen mit ihrem gesamten Verlauf.
-   Der grüne Pfeil oben zeigt, dass dieses Konto über eine Konsole verfügt, die wir stattdessen hätten öffnen können.
+   Beachten Sie, dass jede erstellte Konsole mit ihrem gesamten Verlauf gespeichert wird und später wiederverwendet werden kann.
+   Der grüne Pfeil oben zeigt, dass für dieses Konto bereits eine Konsole vorhanden ist, die wir stattdessen hätten öffnen können.
 
-3. Geben Sie in der Konsole den folgenden Befehl ein, um eine virtuelle Python-3.10-Umgebung namens „env_local_library“ zur Installation der Abhängigkeiten der lokalen Bibliothek zu erstellen.
+3. Geben Sie in der Konsole den folgenden Befehl ein, um eine virtuelle Python-3.10-Umgebung namens „env_local_library“ für die Installation der LocalLibrary-Abhängigkeiten zu erstellen.
 
    ```bash
    mkvirtualenv --python=python3.10 env_local_library
    ```
 
-   Dies ist genau derselbe Prozess wie in [Einrichten einer Django-Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment).
-   Wir hätten der Umgebung einen beliebigen Namen geben können und können sie mit den folgenden Befehlen deaktivieren und erneut aktivieren:
+   Dies entspricht genau dem unter [Eine Django-Entwicklungsumgebung einrichten](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment) beschriebenen Vorgehen.
+   Wir hätten der Umgebung einen beliebigen Namen geben können. Mit den folgenden Befehlen können wir sie deaktivieren und erneut aktivieren:
 
    ```bash
    deactivate
    workon env_local_library
    ```
 
-4. Laden Sie als Nächstes die Bibliotheksquellen von GitHub.
-   PythonAnywhere erwartet, dass Sie Anwendungen in einem Ordner installieren, der nach Ihrer Website-URL benannt ist.
+4. Laden Sie als Nächstes den Quellcode der Bibliothek von GitHub.
+   PythonAnywhere erwartet, dass Sie Anwendungen in einem Ordner installieren, der nach der URL Ihrer Website benannt ist.
 
    > [!NOTE]
-   > Da wir das kostenlose Konto verwenden, können Sie Ihr Konto nur `<your_pythonanywhere_username>.pythonanywhere.com` nennen (wenn Ihr Benutzername beispielsweise „Odtsetseg“ lautet, müssen Sie den Quellcode der lokalen Bibliothek in einem Ordner namens `odtsetseg.pythonanywhere.com` ablegen).
+   > Da wir ein kostenloses Konto verwenden, kann Ihre Website nur `<your_pythonanywhere_username>.pythonanywhere.com` heißen. Wenn Ihr Benutzername beispielsweise „Odtsetseg“ lautet, müssen Sie den LocalLibrary-Quellcode in einem Ordner namens `odtsetseg.pythonanywhere.com` ablegen.
 
-   Geben Sie den folgenden Befehl ein, um Ihre Bibliotheksquellen in einen entsprechend benannten Ordner zu klonen (Sie müssen die Benutzername-Werte durch Ihren eigenen Namen ersetzen):
+   Geben Sie den folgenden Befehl ein, um den Quellcode Ihrer Bibliothek in einen passend benannten Ordner zu klonen. Ersetzen Sie dabei die Benutzernamen durch Ihren eigenen:
 
    ```bash
    git clone https://github.com/<github_username>/django-locallibrary-tutorial.git <your_pythonanywhere_username>.pythonanywhere.com
@@ -488,80 +488,80 @@ Wir konfigurieren außerdem die Standarddatenbank und sammeln statische Dateien,
    cd <your_pythonanywhere_username>.pythonanywhere.com
    ```
 
-5. Installieren Sie die Bibliotheksabhängigkeiten mithilfe der Datei `requirements.txt`:
+5. Installieren Sie die Abhängigkeiten der Bibliothek anhand der Datei `requirements.txt`:
 
    ```bash
    pip3 install -r requirements.txt
    ```
 
-6. Erstellen und konfigurieren Sie eine SQLite-Datenbank auf dem Hosting-Computer (genau wie während der Entwicklung).
+6. Erstellen und konfigurieren Sie eine SQLite-Datenbank auf dem Hosting-Rechner, wie Sie es bereits während der Entwicklung getan haben.
 
    ```bash
    python manage.py migrate
    ```
 
    > [!NOTE]
-   > Für das Railway-Beispiel werden wir [eine Postgres-Datenbank konfigurieren](#eine_postgres-sql-datenbank_bereitstellen_und_verbinden) und uns mit ihr verbinden, indem wir die Umgebungsvariable `DATABASE_URL` setzen.
-   > Es ist wichtig, dass `migrate` _nach_ der Konfiguration der zu verwendenden Datenbank aufgerufen wird.
+   > Im Railway-Beispiel werden wir [eine Postgres-Datenbank konfigurieren](#eine_postgres-sql-datenbank_bereitstellen_und_verbinden) und die Verbindung herstellen, indem wir die Umgebungsvariable `DATABASE_URL` setzen.
+   > Wichtig ist, dass `migrate` _erst nach_ der Konfiguration der zu verwendenden Datenbank aufgerufen wird.
 
-7. Sammeln Sie alle statischen Dateien an einem Speicherort, von dem aus sie [in der Produktion bereitgestellt](#statische_dateien_in_der_produktion_bereitstellen) werden können:
+7. Sammeln Sie alle statischen Dateien an einem Ort, von dem aus sie [in der Produktionsumgebung bereitgestellt werden können](#statische_dateien_in_der_produktionsumgebung_bereitstellen):
 
    ```bash
    python manage.py collectstatic --no-input
    ```
 
-8. Erstellen Sie einen Superuser für den Zugriff auf die Website (wie im Abschnitt [Django-Admin-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site#creating_a_superuser) behandelt):
+8. Erstellen Sie einen Superuser für den Zugriff auf die Website, wie im Abschnitt über die [Django-Admin-Oberfläche](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site#creating_a_superuser) beschrieben:
 
    ```bash
    python manage.py createsuperuser
    ```
 
-   Notieren Sie sich die Details, da Sie sie benötigen, um Ihre Website zu testen.
+   Notieren Sie sich die Zugangsdaten, da Sie sie zum Testen Ihrer Website benötigen.
 
-### Die Web-App einrichten
+### Die Webanwendung einrichten
 
-Nachdem wir die Quellen der lokalen Bibliothek abgerufen und die Abhängigkeiten in einer virtuellen Umgebung installiert haben, müssen wir PythonAnywhere mitteilen, wie diese gefunden und als Web-App verwendet werden.
+Nachdem wir den LocalLibrary-Quellcode heruntergeladen und die Abhängigkeiten in einer virtuellen Umgebung installiert haben, müssen wir PythonAnywhere mitteilen, wo sich diese befinden und wie sie als Webanwendung verwendet werden sollen.
 
-1. Navigieren Sie zum Bereich _Web_ der Website und wählen Sie den Link **Add a new web app**:
+1. Öffnen Sie den Bereich _Web_ und wählen Sie den Link **Add a new web app**:
 
-   ![PythonAnywhere-Bereich „Web“ mit Schaltfläche zum Hinzufügen einer neuen App](python_anywhere_web_add_new_app.png)
+   ![PythonAnywhere-Bereich „Web“ mit der Schaltfläche zum Hinzufügen einer neuen Anwendung](python_anywhere_web_add_new_app.png)
 
-   Der Assistent _Create new web app_ wird geöffnet und führt Sie durch die Konfiguration der wichtigsten Eigenschaften der Web-App.
+   Daraufhin öffnet sich der Assistent _Create new web app_, der Sie durch die Konfiguration der wichtigsten Eigenschaften der Webanwendung führt.
 
-2. Wählen Sie **Next**, um die Konfiguration des Domainnamens der Web-App zu überspringen.
-   Das kostenlose Konto erstellt die Domain anhand Ihres Benutzernamens: `<user_name>.pythonanywhere.com`.
+2. Wählen Sie **Next**, um die Konfiguration des Domainnamens zu überspringen.
+   Beim kostenlosen Konto wird die Domain anhand Ihres Benutzernamens erstellt: `<user_name>.pythonanywhere.com`.
 
-   ![PythonAnywhere-Eingabeaufforderung zum Festlegen des Domainnamens einer neuen Web-App](python_anywhere_web_add_new_app_prompt.png)
+   ![PythonAnywhere-Eingabeaufforderung zum Festlegen des Domainnamens der neuen Webanwendung](python_anywhere_web_add_new_app_prompt.png)
 
-3. Wählen Sie im Bildschirm _Select a Python Web framework_ die Option **Manual configuration**.
+3. Wählen Sie auf dem Bildschirm _Select a Python Web framework_ die Option **Manual configuration**.
 
-   ![PythonAnywhere-Eingabeaufforderung zur Auswahl des für die Anwendung verwendeten Webframeworks](python_anywhere_web_add_select_framework_manual.png)
+   ![PythonAnywhere-Eingabeaufforderung zur Auswahl des Web-Frameworks für die Anwendung](python_anywhere_web_add_select_framework_manual.png)
 
-   Die manuelle Konfiguration ermöglicht uns vollständige Kontrolle darüber, wie die Umgebung konfiguriert wird.
-   Das ist jetzt nicht so wichtig, wäre es aber, wenn wir mehrere Websites hosten würden, möglicherweise mit unterschiedlichen Python- und/oder Django-Versionen.
+   Die manuelle Konfiguration gibt uns vollständige Kontrolle über die Einrichtung der Umgebung.
+   Im Moment ist das nicht besonders wichtig. Beim Hosting mehrerer Websites mit möglicherweise unterschiedlichen Python- und/oder Django-Versionen wäre es jedoch relevant.
 
-4. Wählen Sie im Bildschirm _Select a Python version_ die Version **3.10** aus.
+4. Wählen Sie auf dem Bildschirm _Select a Python version_ die Version **3.10**.
 
    ![PythonAnywhere-Eingabeaufforderung zur Auswahl der Python-Version für die Webanwendung](python_anywhere_web_add_select_python_version.png)
 
-   Allgemeiner sollten Sie die neueste Python-Version auswählen, die von der verwendeten Django-Version unterstützt wird.
+   Im Allgemeinen sollten Sie die neueste Python-Version auswählen, die von Ihrer Django-Version unterstützt wird.
 
-5. Wählen Sie im Bildschirm _Manual configuration_ **Next** aus (der Bildschirm erläutert lediglich einige Konfigurationsoptionen).
+5. Wählen Sie auf dem Bildschirm _Manual configuration_ die Option **Next**. Der Bildschirm erläutert lediglich einige Konfigurationsmöglichkeiten.
 
-   ![PythonAnywhere-Eingabeaufforderung mit Erläuterung der nächsten Konfigurationsoptionen](python_anywhere_web_add_manual_config.png)
+   ![PythonAnywhere-Eingabeaufforderung mit Erläuterungen zu den nächsten Konfigurationsoptionen](python_anywhere_web_add_manual_config.png)
 
-   Die Web-App wird erstellt und wie gezeigt im Bereich Web angezeigt.
-   Der Bildschirm besitzt eine Schaltfläche **Reload**, mit der Sie die Webanwendung nach weiteren Änderungen neu laden können.
-   Wie auf dem Bildschirm angegeben, müssen Sie auf die Schaltfläche **Run until 3 months from today** klicken, damit die Website weitere drei Monate (und fortlaufend) aktiv bleibt.
+   Die Webanwendung wird erstellt und wie gezeigt im Bereich _Web_ angezeigt.
+   Dort befindet sich eine Schaltfläche **Reload**, mit der Sie die Webanwendung nach weiteren Änderungen neu laden können.
+   Wie auf dem Bildschirm vermerkt, müssen Sie auf **Run until 3 months from today** klicken, damit die Website für weitere drei Monate – und bei erneuter Verlängerung auch darüber hinaus – aktiv bleibt.
 
-   ![Konfigurierte PythonAnywhere-Web-App](python_anywhere_web_configuration.png)
+   ![Konfigurierte Webanwendung bei PythonAnywhere](python_anywhere_web_configuration.png)
 
-6. Scrollen Sie nach unten zum Abschnitt „Code“ des Tabs _Web_ und wählen Sie den Link zur WSGI-Konfigurationsdatei.
-   Diese trägt einen Namen der Form `/var/www/<user_name>_pythonanywhere_com_wsgi.py`.
+6. Scrollen Sie im Tab _Web_ zum Abschnitt „Code“ und wählen Sie den Link zur WSGI-Konfigurationsdatei.
+   Ihr Name hat die Form `/var/www/<user_name>_pythonanywhere_com_wsgi.py`.
 
-   ![PythonAnywhere-WSGI-Datei im Tab Web, Abschnitt Code](python_anywhere_web_code_wsgi_select.png)
+   ![WSGI-Datei von PythonAnywhere im Abschnitt „Code“ des Tabs „Web“](python_anywhere_web_code_wsgi_select.png)
 
-   Ersetzen Sie den Inhalt der Datei durch den folgenden Text (aktualisieren Sie zunächst „hamishwillee“ mit Ihrem eigenen Benutzernamen) und wählen Sie dann die Schaltfläche **Save**.
+   Ersetzen Sie den Dateiinhalt durch den folgenden Text. Ersetzen Sie dabei zuerst „hamishwillee“ durch Ihren eigenen Benutzernamen und wählen Sie anschließend **Save**.
 
    ```python
    import os
@@ -577,39 +577,39 @@ Nachdem wir die Quellen der lokalen Bibliothek abgerufen und die Abhängigkeiten
    application = get_wsgi_application()
    ```
 
-   Beachten Sie, dass die Aufgabe der WSGI-Datei darin besteht, dem Gunicorn-Server beim Auffinden der lokalen Bibliotheksanwendung zu helfen.
-   PythonAnywhere erwartet diese Datei an diesem Speicherort, weshalb die bereits im Projekt vorhandene WSGI-Datei nicht verwendet werden kann.
+   Die WSGI-Datei hilft dem Gunicorn-Server, die LocalLibrary-Anwendung zu finden.
+   PythonAnywhere erwartet diese Datei an genau diesem Ort. Deshalb kann die bereits im Projekt vorhandene WSGI-Datei nicht verwendet werden.
 
-7. Scrollen Sie nach unten zum Abschnitt „Virtualenv“ des Tabs _Web_.
-   Wählen Sie den Link **Enter the path to a virtual env, if desired** und geben Sie den Pfad der im vorherigen Abschnitt erstellten virtuellen Umgebung ein.
+7. Scrollen Sie im Tab _Web_ zum Abschnitt „Virtualenv“.
+   Wählen Sie den Link **Enter the path to a virtual env, if desired** und geben Sie den Pfad der virtuellen Umgebung ein, die Sie im vorherigen Abschnitt erstellt haben.
    Wenn Sie sie wie vorgeschlagen „env_local_library“ genannt haben, lautet der Pfad: `/home/<user_name>/.virtualenvs/env_local_library`
 
-   ![PythonAnywhere-Abschnitt Virtual env im Tab Web](python_anywhere_web_virtualenv.png)
+   ![Abschnitt „Virtual env“ im PythonAnywhere-Tab „Web“](python_anywhere_web_virtualenv.png)
 
-8. Scrollen Sie nach unten zum Abschnitt „Static files“ des Tabs _Web_.
+8. Scrollen Sie im Tab _Web_ zum Abschnitt „Static files“.
 
-   ![PythonAnywhere-Abschnitt Static files im Tab Web](python_anywhere_web_static_files.png)
+   ![Abschnitt „Static files“ im PythonAnywhere-Tab „Web“](python_anywhere_web_static_files.png)
 
    Wählen Sie den Link **Enter URL** und geben Sie `\static_files\` ein.
-   Dies ist die `STATIC_URL` in den [Anwendungseinstellungen](#settings.py_2) und entspricht dem Speicherort, an den die Dateien beim Ausführen von `collectstatic` im vorherigen Abschnitt kopiert wurden.
+   Dies entspricht `STATIC_URL` in den [Anwendungseinstellungen](#settings.py_2) und dem Ort, an den die Dateien beim Ausführen von `collectstatic` im vorherigen Abschnitt kopiert wurden.
 
 9. Wählen Sie oben im Tab _Web_ die Schaltfläche **Reload**, um die Website neu zu starten.
-   Wählen Sie anschließend den Link zur Website-URL, um die Live-Website zu öffnen:
+   Wählen Sie anschließend den Link zur Website-URL, um die öffentlich erreichbare Website zu öffnen:
 
-![PythonAnywhere-Webbildschirm mit hervorgehobenem Link zum Starten der Website](python_anywhere_web_open_site.png)
+![PythonAnywhere-Ansicht „Web“ mit hervorgehobenem Link zum Öffnen der Website](python_anywhere_web_open_site.png)
 
 ### ALLOWED_HOSTS und CSRF_TRUSTED_ORIGINS festlegen
 
-Wenn die Website geöffnet wird, sehen Sie an diesem Punkt einen Fehler-Debug-Bildschirm wie unten dargestellt.
-Dies ist ein Django-Sicherheitsfehler, der ausgelöst wird, weil unser Quellcode nicht auf einem „zulässigen Host“ ausgeführt wird.
+Wenn Sie die Website jetzt öffnen, sehen Sie wie unten gezeigt eine Debug-Fehlerseite.
+Es handelt sich um einen Django-Sicherheitsfehler, der auftritt, weil unser Quellcode nicht auf einem „erlaubten Host“ ausgeführt wird.
 
-![Eine detaillierte Fehlerseite mit vollständigem Traceback eines ungültigen HTTP_HOST-Headers](python_anywhere_error_disallowed_host.png)
+![Ausführliche Fehlerseite mit vollständigem Traceback zu einem ungültigen HTTP_HOST-Header](python_anywhere_error_disallowed_host.png)
 
 > [!NOTE]
-> Diese Art von Debug-Informationen ist beim Einrichten sehr nützlich, stellt jedoch auf einer bereitgestellten Website ein Sicherheitsrisiko dar.
-> Im nächsten Abschnitt zeigen wir Ihnen, wie Sie diese Protokollierungsebene auf der Live-Website mithilfe von [Umgebungsvariablen](#umgebungsvariablen_auf_pythonanywhere_verwenden) deaktivieren.
+> Diese Art von Debug-Information ist bei der Einrichtung sehr hilfreich, stellt auf einer bereitgestellten Website aber ein Sicherheitsrisiko dar.
+> Im nächsten Abschnitt zeigen wir Ihnen, wie Sie diese ausführliche Fehlerausgabe auf der öffentlich erreichbaren Website mithilfe von [Umgebungsvariablen](#umgebungsvariablen_auf_pythonanywhere_verwenden) deaktivieren.
 
-Öffnen Sie **/locallibrary/settings.py** in Ihrem GitHub-Projekt und ändern Sie die Einstellung [ALLOWED_HOSTS](https://docs.djangoproject.com/en/5.0/ref/settings/#allowed-hosts), damit sie Ihre PythonAnywhere-Website-URL enthält:
+Öffnen Sie **/locallibrary/settings.py** in Ihrem GitHub-Projekt und ändern Sie die Einstellung [ALLOWED_HOSTS](https://docs.djangoproject.com/en/5.0/ref/settings/#allowed-hosts) so, dass sie die URL Ihrer PythonAnywhere-Website enthält:
 
 ```python
 ## For example, for a site URL at 'hamishwillee.pythonanywhere.com'
@@ -621,7 +621,7 @@ ALLOWED_HOSTS = ['hamishwillee.pythonanywhere.com', '127.0.0.1']
 # ALLOWED_HOSTS = ['.pythonanywhere.com','127.0.0.1']
 ```
 
-Da die Anwendungen CSRF-Schutz verwendet, müssen Sie außerdem den Schlüssel [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/5.0/ref/settings/#csrf-trusted-origins) setzen.
+Da die Anwendung CSRF-Schutz verwendet, müssen Sie auch den Schlüssel [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/5.0/ref/settings/#csrf-trusted-origins) festlegen.
 Öffnen Sie **/locallibrary/settings.py** und fügen Sie eine Zeile wie die folgende hinzu:
 
 ```python
@@ -636,42 +636,42 @@ CSRF_TRUSTED_ORIGINS = ['https://hamishwillee.pythonanywhere.com']
 Speichern Sie diese Einstellungen und committen Sie sie in Ihr GitHub-Repository.
 
 Anschließend müssen Sie die Version Ihres Projekts auf PythonAnywhere aktualisieren.
-Angenommen, Sie verwenden Ihre Bash-Eingabeaufforderung im Ordner `<user_name>.pythonanywhere.com` und haben die Änderungen in den Branch main gepusht, können Sie sie mit dem folgenden Befehl in der Bash-Eingabeaufforderung importieren:
+Wenn Sie sich in Ihrer Bash-Eingabeaufforderung im Ordner `<user_name>.pythonanywhere.com` befinden und die Änderungen in den Branch `main` gepusht haben, können Sie sie dort mit folgendem Befehl übernehmen:
 
 ```bash
 git pull origin main
 ```
 
 Verwenden Sie die Schaltfläche **Restart** im Tab `Web`, um die Anwendung neu zu starten.
-Wenn Sie Ihre gehostete Website aktualisieren, sollte sie nun geöffnet werden und die Startseite der Website anzeigen.
+Wenn Sie Ihre gehostete Website aktualisieren, sollte nun ihre Startseite angezeigt werden.
 
-Sie sollten sich mit dem oben erstellten Superuser-Konto anmelden und Autoren, Genres, Bücher usw. erstellen können, genau wie auf Ihrem lokalen Computer.
+Sie sollten sich mit dem zuvor erstellten Superuser-Konto anmelden und Autoren, Genres, Bücher usw. anlegen können – genau wie auf Ihrem lokalen Computer.
 
 ### Umgebungsvariablen auf PythonAnywhere verwenden
 
-Im Abschnitt [Ihre Website für die Veröffentlichung vorbereiten](#ihre_website_für_die_veröffentlichung_vorbereiten) haben wir die Anwendung so geändert, dass sie in der Produktion mit Umgebungsvariablen oder Variablen in einer **.env**-Datei konfiguriert werden kann.
+Im Abschnitt [Ihre Website auf die Veröffentlichung vorbereiten](#ihre_website_auf_die_veröffentlichung_vorbereiten) haben wir die Anwendung so geändert, dass sie in der Produktionsumgebung über Umgebungsvariablen oder Variablen in einer **.env**-Datei konfiguriert werden kann.
 
-Insbesondere haben wir die Bibliothek so eingerichtet, dass Sie Folgendes setzen können:
+Konkret haben wir die Bibliothek so eingerichtet, dass Sie Folgendes festlegen können:
 
-- `DJANGO_DEBUG=False`, um die bei einem Fehler für Benutzer angezeigte Debug-Ablaufverfolgung zu reduzieren.
-- `DJANGO_SECRET_KEY` auf einen geheimen Wert in der Produktion.
-- `DATABASE_URL`, wenn Ihre Anwendung eine gehostete Datenbank verwendet (in diesem Beispiel tun wir dies nicht).
+- `DJANGO_DEBUG=False`, um bei Fehlern die dem Benutzer angezeigten Debug-Informationen zu reduzieren.
+- `DJANGO_SECRET_KEY` auf einen geheimen Wert für die Produktionsumgebung.
+- `DATABASE_URL`, falls Ihre Anwendung eine gehostete Datenbank verwendet. In diesem Beispiel ist das nicht der Fall.
 
 Wie Umgebungsvariablen gesetzt werden, hängt vom Hosting-Dienst ab.
 Bei PythonAnywhere müssen Sie sie aus einer Umgebungsdatei lesen.
-Wir sind bereits dafür eingerichtet, daher müssen wir nur die Datei erstellen.
+Dafür ist unsere Anwendung bereits eingerichtet. Wir müssen also nur noch die Datei erstellen.
 
-Die Schritte sind:
+Gehen Sie wie folgt vor:
 
 1. Öffnen Sie eine PythonAnywhere-Bash-Eingabeaufforderung.
-2. Navigieren Sie zu Ihrem Anwendungsverzeichnis (ersetzen Sie `<user-name>` durch Ihr eigenes Konto):
+2. Wechseln Sie in Ihr Anwendungsverzeichnis. Ersetzen Sie dabei `<user-name>` durch Ihren eigenen Benutzernamen:
 
    ```bash
    cd ~/<user-name>.pythonanywhere.com
    ```
 
-3. Setzen Sie die Umgebungsvariablen, indem Sie sie als Schlüssel-Wert-Paare in die Datei `.env` schreiben.
-   Um beispielsweise `DJANGO_DEBUG` in der Bash-Konsole auf `False` zu setzen, geben Sie den folgenden Befehl ein:
+3. Legen Sie die Umgebungsvariablen fest, indem Sie sie als Schlüssel-Wert-Paare in die Datei `.env` schreiben.
+   Um beispielsweise `DJANGO_DEBUG` in der Bash-Konsole auf `False` zu setzen, geben Sie folgenden Befehl ein:
 
    ```bash
    echo "DJANGO_DEBUG=False" >> .env
@@ -679,107 +679,107 @@ Die Schritte sind:
 
 4. Starten Sie die Anwendung neu.
 
-Sie können testen, ob der Vorgang funktioniert hat, indem Sie versuchen, einen nicht vorhandenen Datensatz zu öffnen (erstellen Sie beispielsweise ein Genre und erhöhen Sie dann die Nummer in der URL-Leiste, um einen noch nicht erstellten Datensatz zu öffnen).
-Wenn die Umgebungsvariable geladen wurde, erhalten Sie eine Meldung „Not found“ anstelle einer detaillierten Debug-Ablaufverfolgung.
+Sie können überprüfen, ob es funktioniert hat, indem Sie versuchen, einen nicht vorhandenen Datensatz zu öffnen. Erstellen Sie beispielsweise ein Genre und erhöhen Sie anschließend die Zahl in der URL, um einen noch nicht angelegten Datensatz aufzurufen.
+Wenn die Umgebungsvariable geladen wurde, erhalten Sie statt eines ausführlichen Debug-Traces die Meldung „Not found“.
 
 ## Beispiel: Hosting auf Railway
 
-Dieser Abschnitt bietet eine praktische Demonstration, wie Sie _LocalLibrary_ auf [Railway](https://railway.com/) installieren.
+Dieser Abschnitt zeigt praktisch, wie Sie _LocalLibrary_ auf [Railway](https://railway.com/) installieren.
 
 ### Warum Railway?
 
 > [!WARNING]
-> Railway verfügt nicht mehr über eine vollständig kostenlose Starter-Stufe.
-> Wir haben diese Anweisungen beibehalten, weil Railway einige großartige Funktionen bietet und für einige Benutzer die bessere Option sein wird.
+> Railway bietet keinen vollständig kostenlosen Einsteigertarif mehr an.
+> Wir haben diese Anleitung beibehalten, weil Railway einige hervorragende Funktionen bietet und für manche Benutzer die bessere Wahl ist.
 
 Railway ist aus mehreren Gründen eine attraktive Hosting-Option:
 
-- Railway kümmert sich um den größten Teil der Infrastruktur, sodass Sie dies nicht tun müssen.
-  Wenn Sie sich nicht um Server, Load Balancer, Reverse Proxies usw. kümmern müssen, ist der Einstieg wesentlich einfacher.
-- Railway legt einen [Schwerpunkt auf die Developer Experience bei Entwicklung und Bereitstellung](https://docs.railway.com/platform/compare-to-heroku), was zu einer schnelleren und weniger steilen Lernkurve als bei vielen anderen Alternativen führt.
-- Die Fähigkeiten und Konzepte, die Sie bei der Verwendung von Railway erlernen, sind übertragbar.
-  Railway verfügt zwar über einige hervorragende neue Funktionen, andere beliebte Hosting-Dienste verwenden jedoch viele derselben Ideen und Ansätze.
-- Die [Railway-Dokumentation](https://docs.railway.com/) ist klar und vollständig.
-- Der Dienst scheint sehr zuverlässig zu sein. Falls er Ihnen gefällt, ist die Preisgestaltung vorhersehbar und die Skalierung Ihrer App sehr einfach.
+- Railway übernimmt den Großteil der Infrastruktur.
+  Wenn Sie sich nicht mit Servern, Load Balancern, Reverse-Proxys usw. beschäftigen müssen, fällt der Einstieg deutlich leichter.
+- Railway legt einen [Schwerpunkt auf die Erfahrung von Entwicklern bei Entwicklung und Bereitstellung](https://docs.railway.com/platform/compare-to-heroku). Dadurch ist die Lernkurve im Vergleich zu vielen Alternativen flacher und der Einstieg schneller.
+- Die Kenntnisse und Konzepte, die Sie bei der Arbeit mit Railway erwerben, lassen sich auf andere Dienste übertragen.
+  Railway bietet zwar einige ausgezeichnete neue Funktionen, doch andere beliebte Hosting-Dienste nutzen viele derselben Ideen und Ansätze.
+- Die [Railway-Dokumentation](https://docs.railway.com/) ist verständlich und vollständig.
+- Der Dienst scheint sehr zuverlässig zu sein. Wenn Sie ihn dauerhaft nutzen möchten, sind die Kosten gut vorhersehbar und Ihre Anwendung lässt sich leicht skalieren.
 
-Sie sollten sich die Zeit nehmen, festzustellen, ob Railway [für Ihre eigene Website geeignet](#auswahl_eines_hosting-anbieters) ist.
+Nehmen Sie sich die Zeit zu prüfen, ob Railway [für Ihre eigene Website geeignet ist](#einen_hosting-anbieter_auswählen).
 
 ### Wie funktioniert Railway?
 
-Webanwendungen werden jeweils in einem eigenen isolierten und unabhängigen virtualisierten Container ausgeführt.
-Um Ihre Anwendung auszuführen, muss Railway die passende Umgebung und Abhängigkeiten einrichten können und außerdem verstehen, wie die Anwendung gestartet wird.
-Für Django-Apps stellen wir diese Informationen in mehreren Textdateien bereit:
+Jede Webanwendung läuft in einem eigenen, isolierten und unabhängigen virtualisierten Container.
+Damit Railway Ihre Anwendung ausführen kann, muss der Dienst die passende Umgebung und die Abhängigkeiten einrichten und wissen, wie die Anwendung gestartet wird.
+Für Django-Anwendungen stellen wir diese Informationen in mehreren Textdateien bereit:
 
 - **runtime.txt**: Gibt die zu verwendende Programmiersprache und Version an.
-- **requirements.txt**: Listet die für Ihre Website benötigten Python-Abhängigkeiten auf, einschließlich Django.
-- **Procfile**: Eine Liste von Prozessen, die zum Starten der Webanwendung ausgeführt werden.
-  Bei Django ist dies normalerweise der Gunicorn-Webanwendungsserver (mit einem `.wsgi`-Skript).
-- **wsgi.py**: [WSGI](https://wsgi.readthedocs.io/en/latest/what.html)-Konfiguration zum Aufrufen unserer Django-Anwendung in der Railway-Umgebung.
+- **requirements.txt**: Listet die Python-Abhängigkeiten Ihrer Website auf, einschließlich Django.
+- **Procfile**: Enthält die Prozesse, die zum Starten der Webanwendung ausgeführt werden sollen.
+  Bei Django ist dies üblicherweise der Webanwendungsserver Gunicorn mit einem `.wsgi`-Skript.
+- **wsgi.py**: Die [WSGI](https://wsgi.readthedocs.io/en/latest/what.html)-Konfiguration zum Aufrufen unserer Django-Anwendung in der Railway-Umgebung.
 
-Sobald die Anwendung ausgeführt wird, kann sie sich mithilfe von Informationen aus [Umgebungsvariablen](https://docs.railway.com/variables) konfigurieren.
-Beispielsweise kann eine Anwendung, die eine Datenbank verwendet, die Adresse mit der Variable `DATABASE_URL` abrufen.
-Der Datenbankdienst selbst kann von Railway oder einem anderen Anbieter gehostet werden.
+Sobald die Anwendung läuft, kann sie sich anhand von Informationen aus [Umgebungsvariablen](https://docs.railway.com/variables) selbst konfigurieren.
+Eine Anwendung mit Datenbank kann beispielsweise deren Adresse über die Variable `DATABASE_URL` beziehen.
+Der Datenbankdienst selbst kann bei Railway oder einem anderen Anbieter gehostet werden.
 
-Entwickler interagieren mit Railway über die Railway-Website und ein spezielles Werkzeug für die [Command Line Interface (CLI)](https://docs.railway.com/cli).
-Mit der CLI können Sie ein lokales GitHub-Repository einem Railway-Projekt zuordnen, das Repository vom lokalen Branch auf die Live-Website hochladen, die Protokolle des laufenden Prozesses prüfen, Konfigurationsvariablen setzen und abrufen und vieles mehr.
-Eine der nützlichsten Funktionen besteht darin, dass Sie mit der CLI Ihr lokales Projekt mit denselben Umgebungsvariablen wie das Live-Projekt ausführen können.
+Entwickler nutzen Railway über die Website und ein spezielles [Command Line Interface (CLI)](https://docs.railway.com/cli).
+Mit dem CLI können Sie ein lokales GitHub-Repository mit einem Railway-Projekt verknüpfen, das Repository aus einem lokalen Branch auf die öffentlich erreichbare Website hochladen, die Logs des laufenden Prozesses einsehen, Konfigurationsvariablen setzen und auslesen und vieles mehr.
+Besonders nützlich ist die Möglichkeit, Ihr lokales Projekt mit denselben Umgebungsvariablen wie das bereitgestellte Projekt auszuführen.
 
-Damit unsere Anwendung auf Railway funktioniert, müssen wir unsere Django-Webanwendung in ein Git-Repository legen, die oben genannten Dateien hinzufügen, ein Datenbank-Add-on integrieren und Änderungen zur ordnungsgemäßen Behandlung statischer Dateien vornehmen.
-Sobald wir das erledigt haben, können wir ein Railway-Konto einrichten, den Railway-Client beziehen und unsere Website installieren.
+Damit unsere Anwendung auf Railway funktioniert, müssen wir unsere Django-Webanwendung in einem Git-Repository speichern, die oben genannten Dateien hinzufügen, eine Datenbank anbinden und Änderungen für die korrekte Bereitstellung statischer Dateien vornehmen.
+Anschließend können wir ein Railway-Konto einrichten, den Railway-Client installieren und unsere Website bereitstellen.
 
-Das ist alles, was Sie als Überblick benötigen, um zu beginnen.
+Damit haben Sie alle Grundlagen, die Sie für den Einstieg benötigen.
 
-### Die App für Railway aktualisieren
+### Die Anwendung für Railway aktualisieren
 
-Dieser Abschnitt erläutert die Änderungen, die Sie an unserer _LocalLibrary_-Anwendung vornehmen müssen, damit sie auf Railway funktioniert.
-Wir müssen tatsächlich nur eine `Procfile`- und eine `runtime.txt`-Datei erstellen, weil fast alles andere bereits vorhanden ist.
+In diesem Abschnitt werden die Änderungen erläutert, die Sie an unserer Anwendung _LocalLibrary_ vornehmen müssen, damit sie auf Railway funktioniert.
+Eigentlich müssen wir nur die Dateien `Procfile` und `runtime.txt` erstellen, da fast alles andere bereits vorhanden ist.
 
-Beachten Sie, dass diese Änderungen Sie nicht daran hindern, die bereits erlernten lokalen Tests und Workflows zu verwenden.
+Diese Änderungen hindern Sie nicht daran, die bereits erlernten lokalen Testverfahren und Arbeitsabläufe weiterzuverwenden.
 
 #### Procfile
 
-Eine _Procfile_ ist der „Einstiegspunkt“ der Webanwendung.
-Sie listet die Befehle auf, die Railway zum Starten Ihrer Website ausführt.
+Ein _Procfile_ definiert den Einstiegspunkt der Webanwendung.
+Es listet die Befehle auf, die Railway zum Starten Ihrer Website ausführt.
 
-Erstellen Sie die Datei `Procfile` (ohne Dateierweiterung) im Stammverzeichnis Ihres GitHub-Repositorys und kopieren Sie den folgenden Text hinein:
+Erstellen Sie im Stammverzeichnis Ihres GitHub-Repositorys die Datei `Procfile` ohne Dateiendung und kopieren Sie den folgenden Text hinein:
 
 ```plain
 web: python manage.py migrate && python manage.py collectstatic --no-input && gunicorn locallibrary.wsgi
 ```
 
-Das Präfix `web:` teilt Railway mit, dass dies ein Webprozess ist und HTTP-Datenverkehr an ihn gesendet werden kann.
-Anschließend rufen wir den Django-Migrationsbefehl `python manage.py migrate` auf, um die Datenbanktabellen einzurichten.
-Danach rufen wir den Django-Befehl `python manage.py collectstatic` auf, um statische Dateien in den durch die Projekteinstellung `STATIC_ROOT` definierten Ordner zu sammeln (siehe Abschnitt [statische Dateien in der Produktion bereitstellen](#statische_dateien_in_der_produktion_bereitstellen) unten).
-Abschließend starten wir den Prozess _gunicorn_, einen beliebten Webanwendungsserver, und übergeben ihm Konfigurationsinformationen im Modul `locallibrary.wsgi` (das mit unserem Anwendungsskelett erstellt wurde: **/locallibrary/wsgi.py**).
+Das Präfix `web:` teilt Railway mit, dass es sich um einen Webprozess handelt, der HTTP-Anfragen empfangen kann.
+Anschließend führen wir den Django-Migrationsbefehl `python manage.py migrate` aus, um die Datenbanktabellen einzurichten.
+Danach rufen wir den Django-Befehl `python manage.py collectstatic` auf, um statische Dateien in dem Ordner zu sammeln, der durch die Projekteinstellung `STATIC_ROOT` definiert ist (siehe den Abschnitt über die [Bereitstellung statischer Dateien in der Produktionsumgebung](#statische_dateien_in_der_produktionsumgebung_bereitstellen)).
+Zum Schluss starten wir den beliebten Webanwendungsserver _gunicorn_ und übergeben ihm Konfigurationsinformationen aus dem Modul `locallibrary.wsgi`, das mit der Grundstruktur unserer Anwendung erstellt wurde: **/locallibrary/wsgi.py**.
 
-Sie werden feststellen, dass wir das Projekt bereits für die Einbindung von _gunicorn_ und die Unterstützung der Bereitstellung statischer Dateien eingerichtet haben!
+Das Projekt haben wir bereits so eingerichtet, dass es _gunicorn_ enthält und die Bereitstellung statischer Dateien unterstützt!
 
-Sie können die Procfile auch verwenden, um Worker-Prozesse zu starten oder andere nicht interaktive Aufgaben auszuführen, bevor die Veröffentlichung bereitgestellt wird.
+Mit dem Procfile können Sie auch Worker-Prozesse starten oder vor der Bereitstellung eines Releases andere nicht interaktive Aufgaben ausführen.
 
-#### Laufzeit
+#### Runtime
 
-Die Datei **runtime.txt** teilt Railway, sofern sie definiert ist, mit, welche Python-Version verwendet werden soll.
-Erstellen Sie die Datei im Stammverzeichnis des Repositorys und fügen Sie den folgenden Text hinzu:
+Falls die Datei **runtime.txt** vorhanden ist, teilt sie Railway mit, welche Python-Version verwendet werden soll.
+Erstellen Sie die Datei im Stammverzeichnis des Repositorys und fügen Sie folgenden Text ein:
 
 ```plain
 python-3.10.2
 ```
 
 > [!NOTE]
-> Hosting-Anbieter unterstützen nicht unbedingt jede Python-Laufzeit-Nebenversion.
-> Im Allgemeinen verwenden sie die unterstützte Version, die dem von Ihnen angegebenen Wert am nächsten liegt.
+> Hosting-Anbieter unterstützen nicht unbedingt jede Python-Unterversion.
+> In der Regel verwenden sie die nächstliegende unterstützte Version zu dem von Ihnen angegebenen Wert.
 
-#### Änderungen erneut testen und auf GitHub speichern
+#### Erneut testen und Änderungen auf GitHub speichern
 
-Bevor Sie fortfahren, testen Sie die Website zunächst erneut lokal und stellen Sie sicher, dass sie durch keine der oben genannten Änderungen beschädigt wurde.
-Führen Sie den Entwicklungswebserver wie gewohnt aus und überprüfen Sie anschließend in Ihrem Browser, ob die Website weiterhin erwartungsgemäß funktioniert.
+Bevor Sie fortfahren, testen Sie die Website erneut lokal und vergewissern Sie sich, dass keine der obigen Änderungen ihre Funktion beeinträchtigt hat.
+Starten Sie wie gewohnt den Entwicklungswebserver und prüfen Sie im Browser, ob die Website weiterhin wie erwartet funktioniert.
 
 ```bash
 python3 manage.py runserver
 ```
 
-Als Nächstes `push`en wir die Änderungen auf GitHub.
-Geben Sie im Terminal (nachdem Sie zu unserem lokalen Repository navigiert sind) die folgenden Befehle ein:
+Als Nächstes pushen wir die Änderungen zu GitHub.
+Wechseln Sie im Terminal in Ihr lokales Repository und geben Sie die folgenden Befehle ein:
 
 ```bash
 git checkout -b railway_changes
@@ -788,59 +788,59 @@ git commit -m "Added files and changes required for deployment"
 git push origin railway_changes
 ```
 
-Erstellen und mergen Sie dann den PR auf GitHub.
+Erstellen Sie anschließend den Pull Request auf GitHub und führen Sie ihn zusammen.
 
-Wir sollten nun bereit sein, LocalLibrary auf Railway bereitzustellen.
+Jetzt sollten wir bereit sein, LocalLibrary auf Railway bereitzustellen.
 
 ### Ein Railway-Konto erstellen
 
 Um Railway zu verwenden, müssen Sie zunächst ein Konto erstellen:
 
-- Rufen Sie [railway.com](https://railway.com/) auf und klicken Sie in der oberen Symbolleiste auf den Link **Login**.
-- Wählen Sie im Pop-up GitHub aus, um sich mit Ihren GitHub-Anmeldedaten anzumelden.
-- Möglicherweise müssen Sie anschließend Ihre E-Mails aufrufen und Ihr Konto verifizieren.
-- Sie werden dann beim Railway.com-Dashboard angemeldet: <https://railway.com/dashboard>.
+- Öffnen Sie [railway.com](https://railway.com/) und klicken Sie in der oberen Symbolleiste auf **Login**.
+- Wählen Sie im Popup GitHub aus, um sich mit Ihren GitHub-Zugangsdaten anzumelden.
+- Möglicherweise müssen Sie anschließend Ihre E-Mail-Adresse bestätigen.
+- Danach sind Sie angemeldet und gelangen zum Railway.com-Dashboard: <https://railway.com/dashboard>.
 
-### Auf Railway von GitHub bereitstellen
+### Von GitHub auf Railway bereitstellen
 
 Als Nächstes richten wir Railway so ein, dass unsere Bibliothek von GitHub bereitgestellt wird.
-Wählen Sie zunächst die Option **Dashboard** im oberen Menü der Website und dann die Schaltfläche **New Project**:
+Wählen Sie im oberen Menü der Website zunächst **Dashboard** und anschließend die Schaltfläche **New Project**:
 
-![Railway-Website-Dashboard mit Schaltfläche für neues Projekt](railway_new_project_button.png)
+![Railway-Dashboard mit der Schaltfläche für ein neues Projekt](railway_new_project_button.png)
 
-Railway zeigt eine Liste von Optionen für das neue Projekt an, einschließlich der Option, ein Projekt aus einer Vorlage bereitzustellen, die zuerst in Ihrem GitHub-Konto erstellt wird, sowie mehrere Datenbanken.
+Railway zeigt verschiedene Möglichkeiten für das neue Projekt an, darunter die Bereitstellung eines Projekts aus einer Vorlage, die zuerst in Ihrem GitHub-Konto erstellt wird, sowie mehrere Datenbanken.
 Wählen Sie **Deploy from GitHub repo**.
 
-![Railway-Website-Bildschirm – bereitstellen](railway_new_project_button_deploy_github_repo.png)
+![Railway-Ansicht zur Bereitstellung eines Projekts](railway_new_project_button_deploy_github_repo.png)
 
-Alle Projekte in den GitHub-Repositories, die Sie während der Einrichtung für Railway freigegeben haben, werden angezeigt.
-Wählen Sie Ihr GitHub-Repository für die lokale Bibliothek aus: `<user-name>/django-locallibrary-tutorial`.
+Alle Projekte in den GitHub-Repositorys, die Sie bei der Einrichtung für Railway freigegeben haben, werden angezeigt.
+Wählen Sie Ihr GitHub-Repository für LocalLibrary: `<user-name>/django-locallibrary-tutorial`.
 
-![Railway-Website-Bildschirm mit Dialog zur Auswahl eines vorhandenen GitHub-Repositorys oder eines neuen Repositorys](railway_new_project_button_deploy_github_selectrepo.png)
+![Railway-Dialog zur Auswahl eines vorhandenen oder neuen GitHub-Repositorys](railway_new_project_button_deploy_github_selectrepo.png)
 
-Bestätigen Sie Ihre Bereitstellung durch Auswahl von **Deploy Now**.
+Bestätigen Sie die Bereitstellung mit **Deploy Now**.
 
-![Bestätigungsbildschirm – Bereitstellung auswählen](railway_new_project_deploy_confirm.png)
+![Bestätigungsbildschirm mit der Bereitstellungsoption](railway_new_project_deploy_confirm.png)
 
-Railway lädt dann Ihr Projekt und stellt es bereit; der Fortschritt wird im Tab für Bereitstellungen angezeigt.
-Nach erfolgreichem Abschluss der Bereitstellung sehen Sie einen Bildschirm wie den unten dargestellten.
+Railway lädt Ihr Projekt hoch und stellt es bereit. Der Fortschritt wird im Tab für Bereitstellungen angezeigt.
+Nach erfolgreichem Abschluss sehen Sie einen Bildschirm wie den folgenden.
 
-![Railway-Website-Bildschirm – Bereitstellung](railway_project_deploy.png)
+![Railway-Ansicht einer Bereitstellung](railway_project_deploy.png)
 
-Sie können auf die Website-URL klicken (oben hervorgehoben), um die Website in einem Browser zu öffnen (sie wird noch nicht funktionieren, da die Einrichtung nicht vollständig ist).
+Sie können auf die oben hervorgehobene Website-URL klicken, um die Website im Browser zu öffnen. Sie funktioniert allerdings noch nicht, da die Einrichtung noch nicht abgeschlossen ist.
 
 ### ALLOWED_HOSTS und CSRF_TRUSTED_ORIGINS festlegen
 
-Wenn die Website geöffnet wird, sehen Sie an diesem Punkt einen Fehler-Debug-Bildschirm wie unten dargestellt.
-Dies ist ein Django-Sicherheitsfehler, der ausgelöst wird, weil unser Quellcode nicht auf einem „zulässigen Host“ ausgeführt wird.
+Wenn Sie die Website jetzt öffnen, sehen Sie wie unten gezeigt eine Debug-Fehlerseite.
+Es handelt sich um einen Django-Sicherheitsfehler, der auftritt, weil unser Quellcode nicht auf einem „erlaubten Host“ ausgeführt wird.
 
-![Eine detaillierte Fehlerseite mit vollständigem Traceback eines ungültigen HTTP_HOST-Headers](site_error_disallowed_host.png)
+![Ausführliche Fehlerseite mit vollständigem Traceback zu einem ungültigen HTTP_HOST-Header](site_error_disallowed_host.png)
 
 > [!NOTE]
-> Diese Art von Debug-Informationen ist beim Einrichten sehr nützlich, stellt jedoch auf einer bereitgestellten Website ein Sicherheitsrisiko dar.
-> Wir zeigen Ihnen, wie Sie dies deaktivieren, sobald die Website ausgeführt wird.
+> Diese Art von Debug-Information ist bei der Einrichtung sehr hilfreich, stellt auf einer bereitgestellten Website aber ein Sicherheitsrisiko dar.
+> Wir zeigen Ihnen, wie Sie sie deaktivieren, sobald die Website läuft.
 
-Öffnen Sie **/locallibrary/settings.py** in Ihrem GitHub-Projekt und ändern Sie die Einstellung [ALLOWED_HOSTS](https://docs.djangoproject.com/en/5.0/ref/settings/#allowed-hosts), damit sie Ihre Railway-Website-URL enthält:
+Öffnen Sie **/locallibrary/settings.py** in Ihrem GitHub-Projekt und ändern Sie die Einstellung [ALLOWED_HOSTS](https://docs.djangoproject.com/en/5.0/ref/settings/#allowed-hosts) so, dass sie die URL Ihrer Railway-Website enthält:
 
 ```python
 ## For example, for a site URL at 'web-production-3640.up.railway.app'
@@ -852,7 +852,7 @@ ALLOWED_HOSTS = ['web-production-3640.up.railway.app', '127.0.0.1']
 # ALLOWED_HOSTS = ['.railway.com','127.0.0.1']
 ```
 
-Da die Anwendungen CSRF-Schutz verwendet, müssen Sie außerdem den Schlüssel [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/5.0/ref/settings/#csrf-trusted-origins) setzen.
+Da die Anwendung CSRF-Schutz verwendet, müssen Sie auch den Schlüssel [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/5.0/ref/settings/#csrf-trusted-origins) festlegen.
 Öffnen Sie **/locallibrary/settings.py** und fügen Sie eine Zeile wie die folgende hinzu:
 
 ```python
@@ -864,56 +864,56 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-3640.up.railway.app']
 # CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 ```
 
-Speichern Sie anschließend Ihre Einstellungen und committen Sie sie in Ihr GitHub-Repository (Railway aktualisiert Ihre Anwendung automatisch und stellt sie erneut bereit).
+Speichern Sie anschließend Ihre Einstellungen und committen Sie sie in Ihr GitHub-Repository. Railway aktualisiert Ihre Anwendung daraufhin automatisch und stellt sie erneut bereit.
 
 ### Eine Postgres-SQL-Datenbank bereitstellen und verbinden
 
-Als Nächstes müssen wir eine Postgres-Datenbank erstellen und sie mit der Django-Anwendung verbinden, die wir gerade bereitgestellt haben.
-(Wenn Sie die Website jetzt öffnen, erhalten Sie einen neuen Fehler, weil auf die Datenbank nicht zugegriffen werden kann.)
-Wir erstellen die Datenbank als Teil des Anwendungsprojekts, obwohl Sie die Datenbank auch in einem eigenen separaten Projekt erstellen können.
+Als Nächstes müssen wir eine Postgres-Datenbank erstellen und mit der gerade bereitgestellten Django-Anwendung verbinden.
+Wenn Sie die Website jetzt öffnen, erhalten Sie einen neuen Fehler, weil auf die Datenbank nicht zugegriffen werden kann.
+Wir erstellen die Datenbank innerhalb des Anwendungsprojekts. Sie könnten sie aber auch in einem eigenen Projekt erstellen.
 
-Wählen Sie in Railway die Option **Dashboard** im oberen Menü der Website und dann Ihr Anwendungsprojekt.
-Zu diesem Zeitpunkt enthält es nur einen einzelnen Dienst für Ihre Anwendung (dieser kann ausgewählt werden, um Variablen und andere Details des Dienstes festzulegen).
-Die Schaltfläche **Settings** kann ausgewählt werden, um projektweite Einstellungen zu ändern.
-Wählen Sie die Schaltfläche **New**, die zum Hinzufügen von Diensten zum Projekt verwendet wird.
+Wählen Sie bei Railway im oberen Menü der Website **Dashboard** und anschließend Ihr Anwendungsprojekt aus.
+Derzeit enthält es nur einen Dienst für Ihre Anwendung. Sie können ihn auswählen, um Variablen und andere Dienstdetails festzulegen.
+Über die Schaltfläche **Settings** können Sie projektweite Einstellungen ändern.
+Wählen Sie die Schaltfläche **New**, um dem Projekt einen Dienst hinzuzufügen.
 
-![Railway-Projekt mit hervorgehobener Schaltfläche für neuen Dienst](railway_project_open_no_database.png)
+![Railway-Projekt mit hervorgehobener Schaltfläche für einen neuen Dienst](railway_project_open_no_database.png)
 
-Wählen Sie **Database**, wenn Sie nach dem hinzuzufügenden Diensttyp gefragt werden:
+Wählen Sie **Database**, wenn Sie nach der Art des neuen Dienstes gefragt werden:
 
-![Railway-Projekt – Datenbank als neuen Dienst auswählen](railway_project_add_database.png)
+![Railway-Projekt mit Auswahl einer Datenbank als neuem Dienst](railway_project_add_database.png)
 
-Wählen Sie anschließend **Add PostgreSQL**, um das Hinzufügen der Datenbank zu beginnen.
+Wählen Sie anschließend **Add PostgreSQL**, um die Datenbank hinzuzufügen:
 
-![Railway-Projekt – Postgres als neuen Dienst auswählen](railway_project_add_database_select_type.png)
+![Railway-Projekt mit Auswahl von Postgres als neuem Dienst](railway_project_add_database_select_type.png)
 
-Railway stellt dann einen Dienst mit einer leeren Datenbank im selben Projekt bereit.
-Nach Abschluss sehen Sie in der Projektansicht nun sowohl den Anwendungs- als auch den Datenbankdienst.
+Railway stellt daraufhin innerhalb desselben Projekts einen Dienst mit einer leeren Datenbank bereit.
+Anschließend sehen Sie in der Projektansicht sowohl den Anwendungs- als auch den Datenbankdienst.
 
-![Railway-Projekt mit Anwendungs- und Postgres-Datenbankdienst](railway_project_two_services.png)
+![Railway-Projekt mit Anwendungsdienst und Postgres-Datenbankdienst](railway_project_two_services.png)
 
 Wählen Sie den Webdienst und anschließend den Tab _Variables_.
-Wählen Sie **New Variable** und dann im Feld _Variable name_ die Option **Add reference**.
-Scrollen Sie nach unten und wählen Sie `DATABASE_URL` aus (dies ist der Name der Variablen, die wir für die lokale Bibliothek so eingerichtet haben, dass sie als Umgebungsvariable gelesen wird).
+Wählen Sie **New Variable** und im Feld _Variable name_ die Option **Add reference**.
+Scrollen Sie nach unten und wählen Sie `DATABASE_URL`. Unter diesem Namen liest unsere LocalLibrary-Anwendung die Umgebungsvariable.
 
-![Railway-Website-Bildschirm zur Auswahl einer DATABASE_URL](railway_postgresql_connect.png)
+![Railway-Ansicht zur Auswahl von DATABASE_URL](railway_postgresql_connect.png)
 
-Wählen Sie anschließend **Add**, um den Variablenverweis hinzuzufügen, und schließlich **Deploy** (dies wird in einem Pop-up angezeigt).
-Beachten Sie, dass Sie auch die Postgres-Datenbank und dann deren Variablen-Tab hätten öffnen und die Variable kopieren können.
+Wählen Sie anschließend **Add**, um die Variablenreferenz hinzuzufügen, und zuletzt **Deploy**. Diese Option erscheint in einem Popup.
+Alternativ hätten Sie auch die Postgres-Datenbank und dort den Variablen-Tab öffnen und die Variable kopieren können.
 
-Wenn Sie das Projekt jetzt öffnen, sollte es genauso angezeigt werden wie lokal.
-Beachten Sie jedoch, dass es noch keine Möglichkeit gibt, die Bibliothek mit Daten zu füllen, weil wir noch kein Superuser-Konto erstellt haben.
-Dies erledigen wir mit dem Werkzeug [CLI](https://docs.railway.com/cli) auf unserem lokalen Computer.
+Wenn Sie das Projekt jetzt öffnen, sollte es genauso aussehen wie lokal.
+Allerdings können Sie die Bibliothek noch nicht mit Daten füllen, weil wir noch kein Superuser-Konto erstellt haben.
+Das erledigen wir mit dem [CLI](https://docs.railway.com/cli) auf unserem lokalen Computer.
 
 ### Den Client installieren
 
-Laden Sie den Railway-Client für Ihr lokales Betriebssystem herunter und installieren Sie ihn, indem Sie den [Anweisungen hier](https://docs.railway.com/cli) folgen.
+Laden Sie den Railway-Client für Ihr lokales Betriebssystem herunter und installieren Sie ihn gemäß [dieser Anleitung](https://docs.railway.com/cli).
 
-Nachdem der Client installiert ist, können Sie Befehle ausführen.
-Zu den wichtigsten Vorgängen gehören die Bereitstellung des aktuellen Verzeichnisses Ihres Computers in einem zugeordneten Railway-Projekt (ohne es auf GitHub hochladen zu müssen) und das lokale Ausführen Ihres Django-Projekts mit denselben Einstellungen wie auf dem Produktionsserver.
-Wir zeigen dies in den nächsten Abschnitten.
+Nach der Installation können Sie Befehle ausführen.
+Zu den wichtigsten Möglichkeiten gehören die Bereitstellung des aktuellen Verzeichnisses Ihres Computers in einem verknüpften Railway-Projekt – ohne den Umweg über GitHub – sowie die lokale Ausführung Ihres Django-Projekts mit denselben Einstellungen wie auf dem Produktionsserver.
+Diese Möglichkeiten zeigen wir in den nächsten Abschnitten.
 
-Sie können eine Liste aller möglichen Befehle erhalten, indem Sie Folgendes in einem Terminal eingeben:
+Eine Liste aller verfügbaren Befehle erhalten Sie, indem Sie Folgendes in ein Terminal eingeben:
 
 ```bash
 railway help
@@ -921,105 +921,105 @@ railway help
 
 > [!NOTE]
 > Im folgenden Abschnitt verwenden wir `railway login` und `railway link`, um das aktuelle Projekt mit einem Verzeichnis zu verknüpfen.
-> Wenn Sie vom System abgemeldet werden, müssen Sie beide Befehle erneut aufrufen, um das Projekt erneut zu verknüpfen.
+> Falls Sie vom System abgemeldet werden, müssen Sie beide Befehle erneut ausführen, um die Projektverknüpfung wiederherzustellen.
 
-### Einen Superuser konfigurieren
+### Einen Superuser einrichten
 
-Um einen Superuser zu erstellen, müssen wir den Django-Befehl `createsuperuser` für die Produktionsdatenbank aufrufen (dies ist derselbe Vorgang, den wir lokal in [Django-Tutorial Teil 4: Django-Admin-Website > Erstellen eines Superusers](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site#creating_a_superuser) ausgeführt haben).
-Railway bietet keinen direkten Terminalzugriff auf den Server, und wir können diesen Befehl nicht zur [Procfile](#procfile) hinzufügen, weil er interaktiv ist.
+Um einen Superuser zu erstellen, müssen wir den Django-Befehl `createsuperuser` für die Produktionsdatenbank ausführen. Das ist derselbe Vorgang, den wir lokal unter [Django-Tutorial Teil 4: Django-Admin-Oberfläche > Einen Superuser erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site#creating_a_superuser) durchgeführt haben.
+Railway bietet keinen direkten Terminalzugriff auf den Server. Da der Befehl interaktiv ist, können wir ihn auch nicht zum [Procfile](#procfile) hinzufügen.
 
-Wir können diesen Befehl jedoch lokal für unser Django-Projekt aufrufen, wenn es mit der _Produktionsdatenbank_ verbunden ist.
-Der Railway-Client erleichtert dies, indem er einen Mechanismus bereitstellt, um Befehle lokal mit denselben Umgebungsvariablen wie auf dem Produktionsserver auszuführen, einschließlich der Datenbankverbindungszeichenfolge.
+Wir können den Befehl jedoch lokal in unserem Django-Projekt ausführen, während es mit der _Produktionsdatenbank_ verbunden ist.
+Der Railway-Client erleichtert dies: Er kann lokale Befehle mit denselben Umgebungsvariablen wie auf dem Produktionsserver ausführen, einschließlich der Verbindungszeichenfolge für die Datenbank.
 
-Öffnen Sie zunächst ein Terminal oder eine Eingabeaufforderung in einem Git-Klon Ihres locallibrary-Projekts.
-Melden Sie sich dann mit dem Befehl `login` oder `login --browserless` bei Ihrem Browser-Konto an (folgen Sie allen daraufhin angezeigten Eingabeaufforderungen und Anweisungen des Clients oder der Website, um die Anmeldung abzuschließen):
+Öffnen Sie zunächst ein Terminal oder eine Eingabeaufforderung in einem Git-Klon Ihres LocalLibrary-Projekts.
+Melden Sie sich dann mit dem Befehl `login` oder `login --browserless` bei Ihrem Browserkonto an. Folgen Sie den Anweisungen des Clients oder der Website, um die Anmeldung abzuschließen:
 
 ```bash
 railway login
 ```
 
-Sobald Sie angemeldet sind, verknüpfen Sie Ihr aktuelles locallibrary-Verzeichnis mit dem zugehörigen Railway-Projekt über den folgenden Befehl.
-Beachten Sie, dass Sie bei Aufforderung ein bestimmtes Projekt auswählen/eingeben müssen:
+Verknüpfen Sie nach der Anmeldung Ihr aktuelles LocalLibrary-Verzeichnis mit dem zugehörigen Railway-Projekt. Verwenden Sie dazu den folgenden Befehl.
+Beachten Sie, dass Sie bei entsprechender Aufforderung ein Projekt auswählen oder eingeben müssen:
 
 ```bash
 railway link
 ```
 
-Nachdem das lokale Verzeichnis und das Projekt _verknüpft_ sind, können Sie das lokale Django-Projekt mit Einstellungen aus der Produktionsumgebung ausführen.
-Stellen Sie zunächst sicher, dass Ihre normale [Django-Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment) bereit ist.
-Rufen Sie dann den folgenden Befehl auf und geben Sie bei Bedarf Name, E-Mail-Adresse und Passwort ein:
+Nachdem das lokale Verzeichnis und das Projekt _verknüpft_ sind, können Sie das lokale Django-Projekt mit den Einstellungen der Produktionsumgebung ausführen.
+Vergewissern Sie sich zunächst, dass Ihre übliche [Django-Entwicklungsumgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment) bereit ist.
+Rufen Sie dann den folgenden Befehl auf und geben Sie bei Aufforderung Name, E-Mail-Adresse und Passwort ein:
 
 ```bash
 railway run python manage.py createsuperuser
 ```
 
-Sie sollten nun den Admin-Bereich Ihrer Website öffnen können (`https://[your-url].railway.app/admin/`) und die Datenbank füllen können, wie in [Django-Tutorial Teil 4: Django-Admin-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site)) dargestellt.
+Nun sollten Sie den Administrationsbereich Ihrer Website unter `https://[your-url].railway.app/admin/` öffnen und die Datenbank füllen können, wie in [Django-Tutorial Teil 4: Django-Admin-Oberfläche](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site) gezeigt.
 
 ### Konfigurationsvariablen festlegen
 
 Der letzte Schritt besteht darin, die Website abzusichern.
-Insbesondere müssen wir die Debug-Protokollierung deaktivieren und einen geheimen CSRF-Schlüssel setzen.
-Die Arbeit zum Lesen der benötigten Werte aus Umgebungsvariablen wurde in [Ihre Website für die Veröffentlichung vorbereiten](#ihre_website_für_die_veröffentlichung_vorbereiten) erledigt (siehe `DJANGO_DEBUG` und `DJANGO_SECRET_KEY`).
+Dazu müssen wir insbesondere die Debug-Ausgabe deaktivieren und einen geheimen CSRF-Schlüssel festlegen.
+Das Einlesen der benötigten Werte aus Umgebungsvariablen haben wir bereits unter [Ihre Website auf die Veröffentlichung vorbereiten](#ihre_website_auf_die_veröffentlichung_vorbereiten) eingerichtet (siehe `DJANGO_DEBUG` und `DJANGO_SECRET_KEY`).
 
-Öffnen Sie den Informationsbildschirm für das Projekt und wählen Sie den Tab _Variables_.
-Dieser sollte bereits die `DATABASE_URL` wie unten dargestellt enthalten.
+Öffnen Sie die Informationsansicht des Projekts und wählen Sie den Tab _Variables_.
+Dort sollte `DATABASE_URL` bereits wie unten gezeigt vorhanden sein.
 
-![Railway – Bildschirm zum Hinzufügen einer neuen Variable](railway_variable_new.png)
+![Railway-Ansicht zum Hinzufügen einer neuen Variablen](railway_variable_new.png)
 
-Es gibt viele Möglichkeiten, einen kryptografisch geheimen Schlüssel zu erzeugen.
-Eine einfache Möglichkeit besteht darin, den folgenden Python-Befehl auf Ihrem Entwicklungscomputer auszuführen:
+Es gibt viele Möglichkeiten, einen kryptografisch sicheren geheimen Schlüssel zu erzeugen.
+Eine einfache Möglichkeit besteht darin, auf Ihrem Entwicklungscomputer den folgenden Python-Befehl auszuführen:
 
 ```bash
 python -c "import secrets; print(secrets.token_urlsafe())"
 ```
 
-Wählen Sie die Schaltfläche **New Variable** und geben Sie den Schlüssel `DJANGO_SECRET_KEY` mit Ihrem geheimen Wert ein (wählen Sie dann **Add**).
-Geben Sie anschließend den Schlüssel `DJANGO_DEBUG` mit dem Wert `False` ein.
-Der endgültige Variablensatz sollte folgendermaßen aussehen:
+Wählen Sie die Schaltfläche **New Variable** und geben Sie den Schlüssel `DJANGO_SECRET_KEY` mit Ihrem geheimen Wert ein. Wählen Sie anschließend **Add**.
+Fügen Sie danach den Schlüssel `DJANGO_DEBUG` mit dem Wert `False` hinzu.
+Die vollständige Liste der Variablen sollte nun so aussehen:
 
-![Railway-Bildschirm mit allen Projektvariablen](railway_variables_all.png)
+![Railway-Ansicht mit allen Projektvariablen](railway_variables_all.png)
 
-### Debugging
+### Fehlerbehebung
 
-Der Railway-Client stellt den Befehl logs bereit, um das Ende der Protokolle anzuzeigen (ein vollständigeres Protokoll ist auf der Website für jedes Projekt verfügbar):
+Der Railway-Client bietet den Befehl `logs`, mit dem Sie die neuesten Log-Einträge anzeigen können. Ein vollständigeres Log ist für jedes Projekt auf der Website verfügbar:
 
 ```bash
 railway logs
 ```
 
-Wenn Sie mehr Informationen benötigen, als dies bereitstellen kann, müssen Sie sich mit [Django Logging](https://docs.djangoproject.com/en/5.0/topics/logging/) beschäftigen.
+Wenn Sie mehr Informationen benötigen, als diese Logs liefern, sollten Sie sich mit [Django Logging](https://docs.djangoproject.com/en/5.0/topics/logging/) beschäftigen.
 
 ## Zusammenfassung
 
-Damit endet dieses Tutorial zum Einrichten von Django-Apps in der Produktion und auch die Tutorialreihe zur Arbeit mit Django. Wir hoffen, dass sie für Sie nützlich war. Eine vollständig ausgearbeitete Version des [Quellcodes finden Sie hier auf GitHub](https://github.com/mdn/django-locallibrary-tutorial).
+Damit endet sowohl dieses Tutorial zur Einrichtung von Django-Anwendungen in der Produktionsumgebung als auch die Tutorialreihe zur Arbeit mit Django. Wir hoffen, dass sie Ihnen geholfen hat. Eine vollständig ausgearbeitete Version des [Quellcodes finden Sie hier auf GitHub](https://github.com/mdn/django-locallibrary-tutorial).
 
-Der nächste Schritt besteht darin, unsere letzten Artikel zu lesen und anschließend die Bewertungsaufgabe abzuschließen.
+Lesen Sie als Nächstes unsere letzten Artikel und bearbeiten Sie anschließend die Bewertungsaufgabe.
 
 ## Siehe auch
 
 - [Django bereitstellen](https://docs.djangoproject.com/en/5.0/howto/deployment/) (Django-Dokumentation)
-  - [Bereitstellungs-Checkliste](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/) (Django-Dokumentation)
+  - [Checkliste für die Bereitstellung](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/) (Django-Dokumentation)
   - [Statische Dateien bereitstellen](https://docs.djangoproject.com/en/5.0/howto/static-files/deployment/) (Django-Dokumentation)
-  - [Anleitung: Mit WSGI bereitstellen](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/) (Django-Dokumentation)
-  - [Anleitung: Django mit Apache und mod_wsgi verwenden](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/modwsgi/) (Django-Dokumentation)
-  - [Anleitung: Django mit Gunicorn verwenden](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) (Django-Dokumentation)
+  - [Anleitung zur Bereitstellung mit WSGI](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/) (Django-Dokumentation)
+  - [Anleitung zur Verwendung von Django mit Apache und mod_wsgi](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/modwsgi/) (Django-Dokumentation)
+  - [Anleitung zur Verwendung von Django mit Gunicorn](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) (Django-Dokumentation)
 
 - Railway-Dokumentation
   - [CLI](https://docs.railway.com/cli)
 
 - DigitalOcean
-  - [Django-Anwendungen mit uWSGI und Nginx auf Ubuntu 16.04 bereitstellen](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)
-  - [Weitere DigitalOcean-Django-Community-Dokumentation](https://www.digitalocean.com/community/tutorials?q=django)
+  - [Anleitung zur Bereitstellung von Django-Anwendungen mit uWSGI und Nginx unter Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)
+  - [Weitere Django-Community-Dokumentation von DigitalOcean](https://www.digitalocean.com/community/tutorials?q=django)
 
-- Heroku-Dokumentation (ähnliche Einrichtungskonzepte)
-  - [Django-Apps für Heroku konfigurieren](https://devcenter.heroku.com/articles/django-app-configuration) (Heroku-Dokumentation)
+- Heroku-Dokumentation (ähnliche Konzepte für die Einrichtung)
+  - [Django-Anwendungen für Heroku konfigurieren](https://devcenter.heroku.com/articles/django-app-configuration) (Heroku-Dokumentation)
   - [Erste Schritte mit Django auf Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#introduction) (Heroku-Dokumentation)
-  - [Django und statische Assets](https://devcenter.heroku.com/articles/django-assets) (Heroku-Dokumentation)
-  - [Parallelität und Datenbankverbindungen in Django](https://devcenter.heroku.com/articles/python-concurrency-and-database-connections) (Heroku-Dokumentation)
+  - [Django und statische Ressourcen](https://devcenter.heroku.com/articles/django-assets) (Heroku-Dokumentation)
+  - [Nebenläufigkeit und Datenbankverbindungen in Django](https://devcenter.heroku.com/articles/python-concurrency-and-database-connections) (Heroku-Dokumentation)
   - [Wie Heroku funktioniert](https://devcenter.heroku.com/articles/how-heroku-works) (Heroku-Dokumentation)
   - [Dynos und der Dyno Manager](https://devcenter.heroku.com/articles/dynos) (Heroku-Dokumentation)
-  - [Konfiguration und Config Vars](https://devcenter.heroku.com/articles/config-vars) (Heroku-Dokumentation)
-  - [Grenzwerte](https://devcenter.heroku.com/articles/limits) (Heroku-Dokumentation)
+  - [Konfiguration und Konfigurationsvariablen](https://devcenter.heroku.com/articles/config-vars) (Heroku-Dokumentation)
+  - [Beschränkungen](https://devcenter.heroku.com/articles/limits) (Heroku-Dokumentation)
   - [Python-Anwendungen mit Gunicorn bereitstellen](https://devcenter.heroku.com/articles/python-gunicorn) (Heroku-Dokumentation)
   - [Mit Django arbeiten](https://devcenter.heroku.com/categories/working-with-django) (Heroku-Dokumentation)
 
