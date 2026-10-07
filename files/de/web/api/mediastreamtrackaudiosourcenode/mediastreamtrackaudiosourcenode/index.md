@@ -1,16 +1,16 @@
 ---
-title: "MediaStreamTrackAudioSourceNode: MediaStreamTrackAudioSourceNode() Konstruktor"
+title: "MediaStreamTrackAudioSourceNode: Konstruktor MediaStreamTrackAudioSourceNode()"
 short-title: MediaStreamTrackAudioSourceNode()
 slug: Web/API/MediaStreamTrackAudioSourceNode/MediaStreamTrackAudioSourceNode
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`MediaStreamTrackAudioSourceNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt und gibt ein neues [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt zurück, dessen Audio aus dem im gegebenen Optionsobjekt angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) entnommen wird.
+Der Konstruktor **`MediaStreamTrackAudioSourceNode()`** der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt und gibt es zurück. Dessen Audiodaten stammen aus dem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), das im übergebenen Optionsobjekt angegeben ist.
 
-Eine andere Möglichkeit, einen `MediaStreamTrackAudioSourceNode` zu erstellen, besteht darin, die Methode [`AudioContext.createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource) aufzurufen und den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) anzugeben, von dem Sie Audio erhalten möchten.
+Sie können einen `MediaStreamTrackAudioSourceNode` auch erstellen, indem Sie die Methode [`AudioContext.createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource) aufrufen und das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angeben, aus dem die Audiodaten stammen sollen.
 
 ## Syntax
 
@@ -21,26 +21,26 @@ new MediaStreamTrackAudioSourceNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), das den Audiokontext darstellt, mit dem der Knoten verknüpft werden soll.
+  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext darstellt, dem der Node zugeordnet werden soll.
 - `options`
-  - : Ein Objekt, welches die Eigenschaften definiert, die Sie für den `MediaStreamTrackAudioSourceNode` festlegen möchten:
+  - : Ein Objekt, das die Eigenschaften definiert, die der `MediaStreamTrackAudioSourceNode` haben soll:
     - `mediaStreamTrack`
-      - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), von dem Audio-Daten für die Ausgabe dieses Knotens entnommen werden sollen.
+      - : Das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), aus dem die Audiodaten für die Ausgabe dieses Nodes stammen.
 
 ### Rückgabewert
 
-Ein neues [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt, das den Audio-Knoten darstellt, dessen Medien aus dem angegebenen Medien-Track bezogen werden.
+Ein neues [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt, das den Audio-Node darstellt, dessen Audiodaten aus dem angegebenen Media-Track stammen.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene `context` kein [`AudioContext`](/de/docs/Web/API/AudioContext) ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) kein Audiotrack ist (d.h. seine [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft ist nicht `audio`).
+  - : Wird ausgelöst, wenn das angegebene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) kein Audio-Track ist (das heißt, seine Eigenschaft [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) ist nicht `audio`).
 
 ## Beispiel
 
-Dieses Beispiel verwendet [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Zugriff auf die Kamera des Benutzers zu erhalten und dann einen neuen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) aus dem ersten vom Gerät bereitgestellten Audiotrack zu erstellen.
+Dieses Beispiel verwendet [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Zugriff auf die Kamera der Benutzerin oder des Benutzers zu erhalten. Anschließend erstellt es einen neuen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) aus dem ersten Audio-Track, den das Gerät bereitstellt.
 
 ```js
 const audioCtx = new AudioContext();

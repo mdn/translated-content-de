@@ -2,12 +2,12 @@
 title: <a>
 slug: Web/SVG/Reference/Element/a
 l10n:
-  sourceCommit: 94a841dba1498c685a18e72d041fd9057f302d6c
+  sourceCommit: 8ae90c06d95ae6d0ccae0feb06ccab676fafbd24
 ---
 
-Das **`<a>`** [SVG](/de/docs/Web/SVG)-Element erstellt einen Hyperlink zu anderen Webseiten, Dateien, Orten auf derselben Seite, E-Mail-Adressen oder jeder anderen URL. Es ist dem HTML-Element {{htmlelement("a")}} sehr ähnlich.
+Das **`<a>`**-Element von [SVG](/de/docs/Web/SVG) erstellt einen Hyperlink zu anderen Webseiten, Dateien, Stellen auf derselben Seite, E-Mail-Adressen oder anderen URLs. Es ist dem {{htmlelement("a")}}-Element von HTML sehr ähnlich.
 
-Das `<a>`-Element von SVG ist ein Container, was bedeutet, dass Sie einen Link um Text (wie in HTML), aber auch um jede Form erstellen können.
+Das SVG-Element `<a>` ist ein Container. Daher können Sie einen Link nicht nur um Text (wie in HTML), sondern auch um beliebige Formen legen.
 
 ## Verwendungskontext
 
@@ -16,39 +16,39 @@ Das `<a>`-Element von SVG ist ein Container, was bedeutet, dass Sie einen Link u
 ## Attribute
 
 - {{SVGAttr("download")}}
-  - : Weist Browser an, eine {{Glossary("URL", "URL")}} herunterzuladen, anstatt sie zu öffnen, sodass der Benutzer aufgefordert wird, sie als lokale Datei zu speichern.
-    _Werttyp_: **\<string>**; _Standardwert_: _none_; _Animierbar_: **no**
+  - : Weist Browser an, eine {{Glossary("URL", "URL")}} herunterzuladen, statt sie aufzurufen. Benutzer werden dadurch aufgefordert, die Ressource als lokale Datei zu speichern.
+    _Werttyp_: **\<string>**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("href")}}
-  - : Die {{Glossary("URL", "URL")}} oder URL-Fragement, auf die der Hyperlink zeigt.
-    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **yes**
-- [`hreflang`](/de/docs/Web/HTML/Reference/Elements/a#hreflang)
-  - : Die menschliche Sprache der URL oder des URL-Fragments, auf die der Hyperlink zeigt.
-    _Werttyp_: **\<string>**; _Standardwert_: _none_; _Animierbar_: **no**
+  - : Die {{Glossary("URL", "URL")}} oder das URL-Fragment, auf die bzw. das der Hyperlink verweist.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _keiner_; _Animierbar_: **ja**
+- {{SVGAttr("hreflang")}}
+  - : Die menschliche Sprache der URL oder des URL-Fragments, auf die bzw. das der Hyperlink verweist.
+    _Werttyp_: **\<string>**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - [`interestfor`](/de/docs/Web/HTML/Reference/Elements/a#interestfor) {{experimental_inline}} {{non-standard_inline}}
-  - : Definiert das `<a>`-Element als **Interessen-Initiator**. Sein Wert ist die `id` eines Zielelements, das auf irgendeine Weise beeinflusst wird (normalerweise angezeigt oder ausgeblendet), wenn Interesse an dem Initiator-Element gezeigt oder verloren wird (z. B. durch Hovern/Entfernen des Hovers oder Fokussieren/Defokussieren). Siehe [Using interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers) für weitere Details und Beispiele.
-    _Werttyp_: **\<string>**; _Standardwert_: _none_; _Animierbar_: **no**
-- [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping) {{experimental_inline}}
-  - : Eine durch Leerzeichen getrennte Liste von URLs, an die beim Folgen des Hyperlinks {{HTTPMethod("POST")}}-Anfragen mit dem Inhalt `PING` vom Browser (im Hintergrund) gesendet werden. Typischerweise für das Tracking verwendet. Für ein breiter unterstütztes Feature zur Adressierung derselben Anwendungsfälle siehe [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon).
-    _Werttyp_: **[\<list-of-URLs>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: _none_; _Animierbar_: **no**
-- [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/a#referrerpolicy)
+  - : Definiert das `<a>`-Element als **Interest Invoker**. Sein Wert ist die `id` eines Zielelements, das auf irgendeine Weise beeinflusst wird (normalerweise eingeblendet oder ausgeblendet), wenn Interesse am Invoker-Element gezeigt wird oder verloren geht (beispielsweise durch Bewegen des Mauszeigers darüber bzw. davon weg oder durch Fokussieren bzw. Aufheben des Fokus). Weitere Informationen und Beispiele finden Sie unter [Interest Invoker verwenden](/de/docs/Web/API/Popover_API/Using_interest_invokers).
+    _Werttyp_: **\<string>**; _Standardwert_: _keiner_; _Animierbar_: **nein**
+- {{SVGAttr("ping")}} {{experimental_inline}}
+  - : Eine durch Leerzeichen getrennte Liste von URLs, an die der Browser beim Aufrufen des Hyperlinks im Hintergrund {{HTTPMethod("POST")}}-Anfragen mit dem Inhalt `PING` sendet. Wird üblicherweise für Tracking verwendet. Eine breiter unterstützte Funktion für dieselben Anwendungsfälle ist [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon).
+    _Werttyp_: **[\<list-of-URLs>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: _keiner_; _Animierbar_: **nein**
+- {{SVGAttr("referrerpolicy")}}
   - : Welcher [Referrer](/de/docs/Web/HTTP/Reference/Headers/Referer) beim Abrufen der {{Glossary("URL", "URL")}} gesendet wird.
-    _Werttyp_: `no-referrer` | `no-referrer-when-downgrade` | `same-origin` | `origin` | `strict-origin` | `origin-when-cross-origin` | `strict-origin-when-cross-origin` | `unsafe-url`; _Standardwert_: _none_; _Animierbar_: **no**
-- [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel)
-  - : Die Beziehung des Zielobjekts zum Link-Objekt.
-    _Werttyp_: **[\<list-of-Link-Types>](/de/docs/Web/HTML/Reference/Attributes/rel)**; _Standardwert_: _none_; _Animierbar_: **no**
+    _Werttyp_: `no-referrer` | `no-referrer-when-downgrade` | `same-origin` | `origin` | `strict-origin` | `origin-when-cross-origin` | `strict-origin-when-cross-origin` | `unsafe-url`; _Standardwert_: _keiner_; _Animierbar_: **nein**
+- {{SVGAttr("rel")}}
+  - : Die Beziehung zwischen dem Zielobjekt und dem Linkobjekt.
+    _Werttyp_: **[\<list-of-Link-Types>](/de/docs/Web/HTML/Reference/Attributes/rel)**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("target")}}
-  - : Wo die verlinkte {{Glossary("URL", "URL")}} angezeigt werden soll.
-    _Werttyp_: `_self` | `_parent` | `_top` | `_blank` | **\<XML-Name>**; _Standardwert_: `_self`; _Animierbar_: **yes**
+  - : Wo die verlinkte {{Glossary("URL", "URL")}} angezeigt wird.
+    _Werttyp_: `_self` | `_parent` | `_top` | `_blank` | **\<XML-Name>**; _Standardwert_: `_self`; _Animierbar_: **ja**
 - [`type`](/de/docs/Web/HTML/Reference/Elements/a#type)
   - : Ein {{Glossary("MIME_type", "MIME-Typ")}} für die verlinkte URL.
-    _Werttyp_: **\<string>**; _Standardwert_: _none_; _Animierbar_: **no**
+    _Werttyp_: **\<string>**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die URL oder das URL-Fragment, auf die der Hyperlink zeigt. Möglicherweise für die Kompatibilität mit älteren Browsern erforderlich.
-    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **yes**
+  - : Die URL oder das URL-Fragment, auf die bzw. das der Hyperlink verweist. Kann für die Abwärtskompatibilität mit älteren Browsern erforderlich sein.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _keiner_; _Animierbar_: **ja**
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGAElement`](/de/docs/Web/API/SVGAElement).
 
 ## Beispiel
 
@@ -103,7 +103,7 @@ svg|a:active {
 {{EmbedLiveSample('Example', 100, 100)}}
 
 > [!WARNING]
-> Da dieses Element seinen Tag-Namen mit [HTML's `<a>`-Element](/de/docs/Web/HTML/Reference/Elements/a) teilt, kann das Selektieren von `a` mit CSS oder [`querySelector`](/de/docs/Web/API/Document/querySelector) auf den falschen Elementtyp angewendet werden. Verwenden Sie die {{cssxref("@namespace")}}-Regel, um die beiden zu unterscheiden.
+> Da dieses Element denselben Tag-Namen wie das [HTML-Element `<a>`](/de/docs/Web/HTML/Reference/Elements/a) hat, kann die Auswahl von `a` mit CSS oder [`querySelector`](/de/docs/Web/API/Document/querySelector) den falschen Elementtyp erfassen. Verwenden Sie die Regel {{cssxref("@namespace")}}, um die beiden zu unterscheiden.
 
 ## Spezifikationen
 
@@ -115,5 +115,5 @@ svg|a:active {
 
 ## Siehe auch
 
-- {{SVGAttr("xlink:title")}}-Attribut
-- HTML {{HTMLElement("a")}}-Element
+- Attribut {{SVGAttr("xlink:title")}}
+- HTML-Element {{HTMLElement("a")}}

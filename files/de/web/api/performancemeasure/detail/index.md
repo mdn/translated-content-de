@@ -3,20 +3,20 @@ title: "PerformanceMeasure: detail-Eigenschaft"
 short-title: detail
 slug: Web/API/PerformanceMeasure/detail
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung enthalten waren (wenn [`performance.measure()`](/de/docs/Web/API/Performance/measure) verwendet wird).
+Die schreibgeschützte Eigenschaft **`detail`** gibt beliebige Metadaten zurück, die beim Erstellen des Markers einbezogen wurden (bei Verwendung von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
 
 ## Wert
 
-Gibt den Wert zurück, auf den sie (aus `markOptions` von [`performance.measure()`](/de/docs/Web/API/Performance/measure)) gesetzt wurde.
+Gibt den Wert zurück, auf den die Eigenschaft gesetzt wurde (über `markOptions` von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert die `detail`-Eigenschaft.
+Das folgende Beispiel veranschaulicht die Eigenschaft `detail`.
 
 ```js
 performance.measure("dog", { detail: "labrador", start: 0, end: 12345 });

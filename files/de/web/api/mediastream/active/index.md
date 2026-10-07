@@ -3,20 +3,20 @@ title: "MediaStream: active-Eigenschaft"
 short-title: active
 slug: Web/API/MediaStream/active
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die schreibgeschützte **`active`**-Eigenschaft des [`MediaStream`](/de/docs/Web/API/MediaStream)-Interfaces gibt einen booleschen Wert zurück, der `true` ist, wenn der Stream derzeit aktiv ist; andernfalls wird `false` zurückgegeben. Ein Stream wird als **aktiv** angesehen, wenn mindestens einer seiner [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)s nicht die Eigenschaft [`MediaStreamTrack.readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) auf `ended` gesetzt hat. Sobald jeder Track beendet ist, wird die `active`-Eigenschaft des Streams `false`.
+Die schreibgeschützte Eigenschaft **`active`** der Schnittstelle [`MediaStream`](/de/docs/Web/API/MediaStream) gibt einen booleschen Wert zurück. Dieser ist `true`, wenn der Stream derzeit aktiv ist; andernfalls ist er `false`. Ein Stream gilt als **aktiv**, wenn bei mindestens einem seiner [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte die Eigenschaft [`MediaStreamTrack.readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht auf `ended` gesetzt ist. Sobald alle Tracks beendet sind, wird die Eigenschaft `active` des Streams zu `false`.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der Stream derzeit aktiv ist; andernfalls ist der Wert `false`.
+Ein boolescher Wert, der `true` ist, wenn der Stream derzeit aktiv ist; andernfalls ist er `false`.
 
 ## Beispiele
 
-In diesem Beispiel wird ein neuer Stream angefordert, dessen Quelle die lokale Kamera und das Mikrofon des Benutzers ist, indem [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet wird. Wenn dieser Stream verfügbar wird (das heißt, wenn das zurückgegebene {{jsxref("Promise")}} erfüllt wird), wird ein Button auf der Seite basierend darauf aktualisiert, ob der Stream derzeit aktiv ist oder nicht.
+In diesem Beispiel wird mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) ein neuer Stream angefordert, dessen Quelle die lokale Kamera und das Mikrofon der Benutzerin oder des Benutzers sind. Sobald der Stream verfügbar ist (das heißt, sobald das zurückgegebene {{jsxref("Promise")}} erfüllt ist), wird eine Schaltfläche auf der Seite entsprechend dem aktuellen Wert der Eigenschaft `active` aktualisiert.
 
 ```js
 const promise = navigator.mediaDevices.getUserMedia({

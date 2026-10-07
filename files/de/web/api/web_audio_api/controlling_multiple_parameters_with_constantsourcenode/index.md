@@ -1,35 +1,35 @@
 ---
-title: Steuerung mehrerer Parameter mit ConstantSourceNode
+title: Mehrere Parameter mit ConstantSourceNode steuern
 slug: Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode
 l10n:
-  sourceCommit: 3641c873f377a9b2dcdf9744e11756a21d099875
+  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Dieser Artikel demonstriert, wie Sie einen [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) verwenden können, um mehrere Parameter so zu verknüpfen, dass sie denselben Wert teilen, welcher durch das Setzen des [`ConstantSourceNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset) Parameters geändert werden kann.
+Dieser Artikel zeigt, wie Sie mit einem [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) mehrere Parameter miteinander verknüpfen, sodass sie denselben Wert haben. Diesen Wert können Sie ändern, indem Sie den Parameter [`ConstantSourceNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset) setzen.
 
-Manchmal möchten Sie möglicherweise mehrere Audioparameter verknüpfen, sodass sie denselben Wert teilen und irgendwie verändert werden können. Beispielsweise könnten Sie eine Reihe von Oszillatoren haben, von denen zwei dasselbe konfigurierbare Volumen teilen müssen, oder Sie haben einen Filter, der auf bestimmte Eingänge angewendet wird, aber nicht auf alle. Sie könnten eine Schleife verwenden und den Wert jedes betroffenen [`AudioParam`](/de/docs/Web/API/AudioParam) einzeln ändern. Allerdings gibt es zwei Nachteile bei diesem Ansatz: Zum einen ist das zusätzlicher Code, den Sie, wie Sie gleich sehen werden, nicht schreiben müssen; zum anderen nutzt diese Schleife wertvolle CPU-Zeit auf Ihrem Thread (wahrscheinlich dem Hauptthread), und es gibt eine Möglichkeit, all diese Arbeit auf den Audio-Rendering-Thread auszulagern, der für diese Art von Arbeit optimiert ist und möglicherweise auf einer geeigneteren Prioritätsebene läuft als Ihr Code.
+Manchmal sollen mehrere Audioparameter miteinander verknüpft sein und denselben Wert haben, auch wenn dieser geändert wird. Vielleicht haben Sie beispielsweise mehrere Oszillatoren, von denen zwei dieselbe einstellbare Lautstärke haben sollen. Oder Sie möchten einen Filter auf bestimmte Eingänge anwenden, aber nicht auf alle. Sie könnten mit einer Schleife den Wert jedes betroffenen [`AudioParam`](/de/docs/Web/API/AudioParam) einzeln ändern. Das hat jedoch zwei Nachteile: Erstens erfordert es zusätzlichen Code, den Sie, wie Sie gleich sehen werden, nicht schreiben müssen. Zweitens verbraucht die Schleife wertvolle CPU-Zeit auf Ihrem Thread – wahrscheinlich dem Haupt-Thread. Stattdessen können Sie die gesamte Arbeit dem Audio-Rendering-Thread überlassen. Dieser ist für solche Aufgaben optimiert und läuft möglicherweise mit einer passenderen Priorität als Ihr Code.
 
-Die Lösung ist einfach und beinhaltet die Verwendung eines Audio-Knotentyps, der auf den ersten Blick nicht sehr nützlich erscheint: der [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode).
+Die Lösung ist einfach und verwendet einen Audio-Node-Typ, der auf den ersten Blick nicht besonders nützlich erscheint: [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode).
 
 ## Die Technik
 
-Die Verwendung eines `ConstantSourceNode` ist eine mühelose Möglichkeit, etwas zu tun, das schwierig erscheinen mag. Sie müssen einen [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) erstellen und ihn mit allen [`AudioParam`](/de/docs/Web/API/AudioParam)s verbinden, deren Werte verknüpft sein sollen, um immer gleich zu sein. Da der [`offset`](/de/docs/Web/API/ConstantSourceNode/offset)-Wert des `ConstantSourceNode` direkt an alle seine Ausgänge gesendet wird, fungiert er als Verteiler für diesen Wert und sendet ihn an jeden verbundenen Parameter.
+Mit einem `ConstantSourceNode` lässt sich diese vermeintlich schwierige Aufgabe leicht lösen. Erstellen Sie einen [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) und verbinden Sie ihn mit allen [`AudioParam`](/de/docs/Web/API/AudioParam)-Instanzen, deren Werte dauerhaft übereinstimmen sollen. Da der Wert von [`offset`](/de/docs/Web/API/ConstantSourceNode/offset) bei einem `ConstantSourceNode` direkt an alle seine Ausgänge weitergegeben wird, verteilt der Node diesen Wert an jeden verbundenen Parameter.
 
-Das folgende Diagramm zeigt, wie dies funktioniert: Ein Eingabewert, `N`, wird als Wert der [`ConstantSourceNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset)-Eigenschaft festgelegt. Der `ConstantSourceNode` kann so viele Ausgänge haben, wie nötig; in diesem Fall haben wir ihn mit drei Knoten verbunden: zwei [`GainNode`](/de/docs/Web/API/GainNode)s und einem [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode). So wird `N` zum Wert des angegebenen Parameters ([`gain`](/de/docs/Web/API/GainNode/gain) für die [`GainNode`](/de/docs/Web/API/GainNode)s und pan für den [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)).
+Das folgende Diagramm zeigt, wie das funktioniert: Ein Eingabewert `N` wird als Wert der Eigenschaft [`ConstantSourceNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset) gesetzt. Der `ConstantSourceNode` kann so viele Ausgänge haben wie nötig. In diesem Fall haben wir ihn mit drei Nodes verbunden: zwei [`GainNode`](/de/docs/Web/API/GainNode)-Instanzen und einem [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode). Damit wird `N` zum Wert des jeweiligen Parameters ([`gain`](/de/docs/Web/API/GainNode/gain) bei den [`GainNode`](/de/docs/Web/API/GainNode)-Instanzen und `pan` beim [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)).
 
-![Diagramm im SVG, das zeigt, wie ConstantSourceNode verwendet werden kann, um einen Eingabeparameter auf mehrere Knoten zu teilen.](customsourcenode-as-splitter.svg)
+![SVG-Diagramm, das zeigt, wie ein ConstantSourceNode einen Eingabewert auf mehrere Nodes verteilen kann.](customsourcenode-as-splitter.svg)
 
-Als Ergebnis werden jedes Mal, wenn Sie `N` ändern (den Wert des Eingabe- [`AudioParam`](/de/docs/Web/API/AudioParam)), die Werte der beiden `GainNode.gain`-Eigenschaften und der Wert der `StereoPannerNode` 's `pan`-Eigenschaften alle auf `N` gesetzt.
+Wenn Sie `N` ändern (den Wert des [`AudioParam`](/de/docs/Web/API/AudioParam) am Eingang), werden folglich auch die Werte der beiden `GainNode.gain`-Eigenschaften und der `pan`-Eigenschaft des `StereoPannerNode` auf `N` gesetzt.
 
 ## Beispiel
 
-Werfen wir einen Blick darauf, wie diese Technik in der Praxis funktioniert. In diesem einfachen Beispiel erstellen wir drei [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Objekte. Zwei von ihnen haben einstellbaren Gain, der über ein gemeinsames Eingabesteuerung gesteuert wird. Der andere Oszillator hat ein festes Volumen.
+Sehen wir uns die Technik in der Praxis an. In diesem einfachen Beispiel erstellen wir drei [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Objekte. Bei zwei davon lässt sich die Verstärkung über ein gemeinsames Steuerelement einstellen. Der dritte Oszillator hat eine feste Lautstärke.
 
 ### HTML
 
-Der HTML-Inhalt für dieses Beispiel ist hauptsächlich ein Kontrollkästchen, geformt als eigentliche Taste, um die Oszillatortöne ein- und auszuschalten, und ein {{HTMLElement("input")}}-Element vom Typ `range`, um das Volumen von zwei der drei Oszillatoren zu steuern.
+Der HTML-Inhalt dieses Beispiels besteht hauptsächlich aus einer Checkbox, die wie eine Schaltfläche gestaltet ist und die Oszillatortöne ein- und ausschaltet, sowie einem {{HTMLElement("input")}}-Element vom Typ `range`, mit dem die Lautstärke von zwei der drei Oszillatoren geregelt wird.
 
 ```html
 <div class="controls">
@@ -88,7 +88,7 @@ label {
 
 ### JavaScript
 
-Sehen wir uns nun den JavaScript-Code an, Stück für Stück.
+Sehen wir uns nun den JavaScript-Code Stück für Stück an.
 
 #### Einrichtung
 
@@ -113,17 +113,17 @@ let gainNode3 = null;
 Diese Variablen sind:
 
 - `context`
-  - : Der [`AudioContext`](/de/docs/Web/API/AudioContext), in dem alle Audio-Knoten existieren; er wird nach einer Benutzeraktion initialisiert.
+  - : Der [`AudioContext`](/de/docs/Web/API/AudioContext), in dem sich alle Audio-Nodes befinden. Er wird nach einer Benutzeraktion initialisiert.
 - `playButton` und `volumeControl`
-  - : Referenzen zu den Steuerungselementen für die Wiedergabetaste und die Lautstärkeregelung.
+  - : Referenzen auf die Wiedergabeschaltfläche und das Element zur Lautstärkeregelung.
 - `oscNode1`, `oscNode2` und `oscNode3`
-  - : Die drei [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)s, die den Akkord erzeugen.
+  - : Die drei [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Instanzen, die den Akkord erzeugen.
 - `gainNode1`, `gainNode2` und `gainNode3`
-  - : Die drei [`GainNode`](/de/docs/Web/API/GainNode)-Instanzen, die die Lautstärkepegel für jeden der drei Oszillatoren bereitstellen. `gainNode2` und `gainNode3` werden miteinander verknüpft, um denselben einstellbaren Wert mit dem [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) zu teilen.
+  - : Die drei [`GainNode`](/de/docs/Web/API/GainNode)-Instanzen, die die Lautstärke der einzelnen Oszillatoren bestimmen. `gainNode2` und `gainNode3` werden mithilfe des [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) miteinander verknüpft, sodass sie denselben einstellbaren Wert haben.
 - `constantNode`
-  - : Der [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode), der die Werte von `gainNode2` und `gainNode3` gemeinsam steuert.
+  - : Der [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode), mit dem die Werte von `gainNode2` und `gainNode3` gemeinsam gesteuert werden.
 
-Sehen wir uns nun die `setup()`-Funktion an, die aufgerufen wird, wenn der Benutzer die Wiedergabetaste zum ersten Mal umschaltet; sie erledigt alle Initialisierungsaufgaben, um das Audio-Graph zu erstellen.
+Sehen wir uns nun die Funktion `setup()` an. Sie wird aufgerufen, wenn der Benutzer die Wiedergabeschaltfläche zum ersten Mal betätigt, und übernimmt alle Initialisierungsschritte zum Aufbau des Audiographen.
 
 ```js
 function setup() {
@@ -157,17 +157,17 @@ function setup() {
 }
 ```
 
-Zuerst greifen wir auf den [`AudioContext`](/de/docs/Web/API/AudioContext) des Fensters zu und speichern die Referenz in `context`. Dann erhalten wir Referenzen zu den Steuerelementen, indem wir `playButton` auf die Wiedergabetaste und `volumeControl` auf den Regler verweisen, den der Benutzer verwenden wird, um den Gain des verbundenen Oszillatorpaares einzustellen.
+Zunächst greifen wir auf den [`AudioContext`](/de/docs/Web/API/AudioContext) des Fensters zu und speichern die Referenz in `context`. Anschließend holen wir Referenzen auf die Steuerelemente: `playButton` verweist auf die Wiedergabeschaltfläche und `volumeControl` auf den Schieberegler, mit dem der Benutzer die Verstärkung des verknüpften Oszillatorpaars einstellt.
 
-Anschließend wird der [`GainNode`](/de/docs/Web/API/GainNode) `gainNode1` erstellt, um die Lautstärke für den nicht verbundenen Oszillator (`oscNode1`) zu steuern. Wir setzen diesen Gain auf 0,5. Wir erstellen auch `gainNode2` und `gainNode3`, setzen deren Werte auf die von `gainNode1` und dann den Wert des Lautstärkereglers auf denselben Wert, damit er synchron mit dem von ihm gesteuerten Gain-Level bleibt.
+Als Nächstes erstellen wir den [`GainNode`](/de/docs/Web/API/GainNode) `gainNode1`, der die Lautstärke des nicht verknüpften Oszillators (`oscNode1`) steuert. Seine Verstärkung setzen wir auf 0,5. Wir erstellen außerdem `gainNode2` und `gainNode3`, setzen ihre Werte auf denselben Wert wie bei `gainNode1` und stellen dann den Lautstärkeregler auf diesen Wert ein. So bleibt er mit der von ihm gesteuerten Verstärkung synchronisiert.
 
-Sobald alle Gain-Knoten erstellt sind, erstellen wir den [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode), `constantNode`. Wir verbinden seinen Ausgang mit dem `gain`- [`AudioParam`](/de/docs/Web/API/AudioParam) sowohl von `gainNode2` als auch von `gainNode3` und starten den konstanten Knoten, indem wir seine [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start)-Methode aufrufen; jetzt sendet er den Wert 0,5 an die Werte der beiden Gain-Knoten, und jede Änderung an [`constantNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset) wird automatisch den Gain von `gainNode2` und `gainNode3` setzen (was ihre Audioeingänge wie erwartet beeinflusst).
+Nachdem alle Gain-Nodes erstellt wurden, erstellen wir den [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) `constantNode`. Wir verbinden seinen Ausgang mit dem [`AudioParam`](/de/docs/Web/API/AudioParam) `gain` von `gainNode2` und `gainNode3` und starten den Constant-Node durch Aufruf seiner Methode [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start). Nun sendet er den Wert 0,5 an die beiden Gain-Nodes. Jede Änderung an [`constantNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset) passt automatisch die Verstärkung von `gainNode2` und `gainNode3` an – und damit wie erwartet auch deren Audioeingänge.
 
-Am Ende verbinden wir alle Gain-Knoten mit dem [`AudioContext`](/de/docs/Web/API/AudioContext)'s [`destination`](/de/docs/Web/API/BaseAudioContext/destination), damit jeder Ton, der an die Gain-Knoten geliefert wird, den Ausgang erreicht, sei es Lautsprecher, Kopfhörer, ein Aufnahme-Stream oder jeder andere Ausgabetyp.
+Schließlich verbinden wir alle Gain-Nodes mit der [`destination`](/de/docs/Web/API/BaseAudioContext/destination) des [`AudioContext`](/de/docs/Web/API/AudioContext). Dadurch erreicht jeder an die Gain-Nodes gelieferte Ton den Ausgang, unabhängig davon, ob es sich dabei um Lautsprecher, Kopfhörer, einen Aufnahmestream oder eine andere Art von Ziel handelt.
 
-Dann weisen wir einen Handler für das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis des Lautstärkereglers zu (siehe [Steuerung der verbundenen Oszillatoren](#steuerung_der_verbundenen_oszillatoren), um die sehr kurze `changeVolume()`-Methode zu sehen).
+Anschließend registrieren wir einen Handler für das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis des Lautstärkereglers. Die sehr kurze Methode `changeVolume()` finden Sie unter [Verknüpfte Oszillatoren steuern](#verknüpfte_oszillatoren_steuern).
 
-Direkt nach der Deklaration der `setup()`-Funktion fügen wir einen Handler für das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis des Wiedergabekontrollkästchens hinzu (siehe [Oszillatoren ein- und ausschalten](#oszillatoren_ein-_und_ausschalten) für weitere Informationen zur `togglePlay()`-Methode), und die Bühne ist vorbereitet. Sehen wir, wie die Aktion abläuft.
+Direkt nach der Deklaration der Funktion `setup()` registrieren wir einen Handler für das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis der Wiedergabe-Checkbox. Mehr über die Methode `togglePlay()` erfahren Sie unter [Oszillatoren ein- und ausschalten](#oszillatoren_ein-_und_ausschalten). Damit sind alle Vorbereitungen abgeschlossen. Sehen wir uns den Ablauf an.
 
 ```js
 playButton.addEventListener("change", togglePlay);
@@ -175,7 +175,7 @@ playButton.addEventListener("change", togglePlay);
 
 #### Oszillatoren ein- und ausschalten
 
-Da [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) den Begriff des Pausierens nicht unterstützt, müssen wir dies simulieren, indem wir die Oszillatoren beenden und sie wieder starten, wenn der Benutzer erneut auf das Kontrollkästchen klickt, um sie wieder einzuschalten. Sehen wir uns den Code an.
+Da ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) keinen Pausenzustand unterstützt, müssen wir diesen simulieren: Wir beenden die Oszillatoren und starten sie erneut, wenn der Benutzer die Wiedergabe-Checkbox nochmals anklickt, um sie wieder einzuschalten. Sehen wir uns den Code an.
 
 ```js
 function togglePlay(event) {
@@ -191,13 +191,13 @@ function togglePlay(event) {
 }
 ```
 
-Wenn das `playButton`-Widget nicht aktiviert ist, spielen wir bereits die Oszillatoren, und wir rufen `stopOscillators()` auf, um die Oszillatoren abzuschalten. Siehe [Oszillatoren stoppen](#oszillatoren_stoppen) unten für diesen Code.
+Wenn das Steuerelement `playButton` nicht aktiviert ist, werden die Oszillatoren bereits wiedergegeben. Wir rufen dann `stopOscillators()` auf, um sie zu beenden. Den zugehörigen Code finden Sie weiter unten unter [Oszillatoren stoppen](#oszillatoren_stoppen).
 
-Wenn das `playButton`-Widget aktiviert ist, was anzeigt, dass wir derzeit pausiert sind, rufen wir `startOscillators()` auf, um die Oszillatoren dazu zu bringen, ihre Töne abzuspielen. Unten beschreiben wir diesen Code unter [Oszillatoren starten](#oszillatoren_starten).
+Wenn das Steuerelement `playButton` aktiviert ist, befinden wir uns derzeit im Pausenzustand. Wir rufen dann `startOscillators()` auf, damit die Oszillatoren ihre Töne wiedergeben. Dieser Code wird weiter unten unter [Oszillatoren starten](#oszillatoren_starten) beschrieben.
 
-#### Steuerung der verbundenen Oszillatoren
+#### Verknüpfte Oszillatoren steuern
 
-Die `changeVolume()`-Funktion, der Ereignishandler für das Steuerungselement des Sliders für den Gain des verbundenen Oszillatorpaares, sieht folgendermaßen aus:
+Die Funktion `changeVolume()` verarbeitet die Ereignisse des Schiebereglers, mit dem die Verstärkung des verknüpften Oszillatorpaars eingestellt wird. Sie sieht so aus:
 
 ```js
 function changeVolume(event) {
@@ -205,13 +205,13 @@ function changeVolume(event) {
 }
 ```
 
-Diese einfache Funktion steuert den Gain auf beiden Knoten. Alles, was wir tun müssen, ist den Wert des [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)'s [`offset`](/de/docs/Web/API/ConstantSourceNode/offset)-Parameters zu setzen. Dieser Wert wird zum konstanten Ausgangswert des Knotens, der an alle seine Ausgänge gesendet wird, `gainNode2` und `gainNode3`.
+Diese einfache Funktion steuert die Verstärkung beider Nodes. Dazu müssen wir lediglich den Wert des Parameters [`offset`](/de/docs/Web/API/ConstantSourceNode/offset) des [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) setzen. Dieser Wert wird zum konstanten Ausgangswert des Nodes und an alle seine Ausgänge weitergegeben, also an `gainNode2` und `gainNode3`.
 
-Während dies ein sehr einfaches Beispiel ist, stellen Sie sich vor, Sie hätten einen Synthesizer mit 32 Oszillatoren und mehreren verbundenen Parametern, die über viele gepatchte Knoten im Spiel sind. Die Reduzierung der Anzahl der Operationen, um sie alle anzupassen, wird sowohl für die Codegröße als auch für die Leistung von unschätzbarem Wert sein.
+Dieses Beispiel ist zwar sehr einfach. Stellen Sie sich aber einen Synthesizer mit 32 Oszillatoren vor, bei dem mehrere Parameter über viele miteinander verbundene Nodes hinweg verknüpft sind. Wenn sich die Anzahl der zum Anpassen aller Parameter nötigen Operationen verringert, ist das sowohl für den Codeumfang als auch für die Leistung äußerst wertvoll.
 
 #### Oszillatoren starten
 
-Wenn der Benutzer die Wiedergabe-/Pause-Taste drückt, während die Oszillatoren nicht spielen, wird die Funktion `startOscillators()` aufgerufen.
+Wenn der Benutzer auf die Wiedergabe-/Pause-Schaltfläche klickt, während die Oszillatoren nicht wiedergegeben werden, wird die Funktion `startOscillators()` aufgerufen.
 
 ```js
 function startOscillators() {
@@ -239,18 +239,18 @@ function startOscillators() {
 }
 ```
 
-Jeder der drei Oszillatoren wird auf die gleiche Weise eingerichtet, indem der [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellt wird, indem der [`OscillatorNode()`](/de/docs/Web/API/OscillatorNode/OscillatorNode)-Konstruktor mit zwei Optionen aufgerufen wird:
+Jeder der drei Oszillatoren wird auf dieselbe Weise eingerichtet: Wir erstellen den [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) durch Aufruf des Konstruktors [`OscillatorNode()`](/de/docs/Web/API/OscillatorNode/OscillatorNode) mit zwei Optionen:
 
-1. Stellen Sie den `type` des Oszillators auf `"sine"` ein, um eine Sinuswelle als Audio-Wellenform zu verwenden.
-2. Stellen Sie die `frequency` des Oszillators auf den gewünschten Wert ein; in diesem Fall wird `oscNode1` auf ein mittleres C gesetzt, während `oscNode2` und `oscNode3` den Akkord ergänzen, indem sie die E- und G-Noten spielen.
+1. Wir setzen `type` des Oszillators auf `"sine"`, um eine Sinuswelle als Audio-Wellenform zu verwenden.
+2. Wir setzen `frequency` des Oszillators auf den gewünschten Wert. In diesem Fall wird `oscNode1` auf das mittlere C eingestellt, während `oscNode2` und `oscNode3` mit den Tönen E und G den Akkord vervollständigen.
 
-Dann verbinden wir den neuen Oszillator mit dem entsprechenden Gain-Knoten.
+Anschließend verbinden wir den neuen Oszillator mit dem entsprechenden Gain-Node.
 
-Sobald alle drei Oszillatoren erstellt wurden, werden sie gestartet, indem wir die [`ConstantSourceNode.start()`](/de/docs/Web/API/AudioScheduledSourceNode/start)-Methode nacheinander aufrufen.
+Sobald alle drei Oszillatoren erstellt wurden, starten wir sie, indem wir nacheinander jeweils ihre Methode [`ConstantSourceNode.start()`](/de/docs/Web/API/AudioScheduledSourceNode/start) aufrufen.
 
 #### Oszillatoren stoppen
 
-Das Stoppen der Oszillatoren, wenn der Benutzer den Wiedergabestatus umschaltet, um die Töne zu pausieren, ist so einfach wie das Stoppen jedes Knotens.
+Um die Töne anzuhalten, wenn der Benutzer in den Pausenzustand wechselt, müssen wir lediglich jeden Node stoppen.
 
 ```js
 function stopOscillators() {
@@ -260,7 +260,7 @@ function stopOscillators() {
 }
 ```
 
-Jeder Knoten wird gestoppt, indem seine [`ConstantSourceNode.stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)-Methode aufgerufen wird.
+Jeder Node wird durch Aufruf seiner Methode [`ConstantSourceNode.stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) gestoppt.
 
 ### Ergebnis
 
@@ -270,6 +270,6 @@ Jeder Knoten wird gestoppt, indem seine [`ConstantSourceNode.stop()`](/de/docs/W
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Einfaches Synthesizer-Keyboard](/de/docs/Web/API/Web_Audio_API/Simple_synth) (Beispiel)
+- [Einfache Synthesizer-Tastatur](/de/docs/Web/API/Web_Audio_API/Simple_synth) (Beispiel)
 - [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)
 - [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)

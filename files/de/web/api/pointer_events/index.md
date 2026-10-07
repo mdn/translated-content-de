@@ -2,152 +2,152 @@
 title: Pointer events
 slug: Web/API/Pointer_events
 l10n:
-  sourceCommit: a69f7c732da7be334fc2c679c5cb9484baf79ba9
+  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
 ---
 
 {{DefaultAPISidebar("Pointer Events")}}
 
-Ein Großteil des heutigen Webinhalts geht davon aus, dass das Zeigegerät des Benutzers eine Maus sein wird. Da jedoch viele Geräte andere Arten von Zeigeeingabegeräten wie Stifte/Stylus und Touch-Oberflächen unterstützen, sind Erweiterungen der bestehenden Zeigegerät-Event-Modelle erforderlich. _[Pointer-Ereignisse](#pointer-ereignis)_ adressieren dieses Bedürfnis.
+Viele heutige Webinhalte gehen davon aus, dass die Nutzer eine Maus als Zeigegerät verwenden. Da viele Geräte jedoch auch andere Eingabegeräte wie Stifte und berührungsempfindliche Oberflächen unterstützen, müssen die bestehenden Ereignismodelle für Zeigegeräte erweitert werden. _[Pointer-Events](#pointer_event)_ erfüllen diesen Bedarf.
 
-Pointer-Ereignisse sind DOM-Ereignisse, die für ein Zeigegerät ausgelöst werden. Sie sind darauf ausgelegt, ein einziges DOM-Ereignismodell für die Handhabung von Eingabegeräten wie Maus, Stift/ Stylus oder Touch (wie einem oder mehreren Fingern) zu erstellen.
+Pointer-Events sind DOM-Ereignisse, die von einem Zeigegerät ausgelöst werden. Sie sollen ein einheitliches DOM-Ereignismodell für Eingaben per Maus, Stift oder Berührung (etwa mit einem oder mehreren Fingern) bereitstellen.
 
-Der _[Pointer](#pointer)_ ist ein hardware-unabhängiges Gerät, das eine spezifische Menge von Bildschirmkoordinaten ansteuern kann. Ein einheitliches Ereignismodell für Pointer kann die Erstellung von Websites und Anwendungen vereinfachen und ein gutes Benutzererlebnis unabhängig von der Hardware des Benutzers bieten. Für Szenarien, in denen eine gerätespezifische Behandlung gewünscht wird, definieren Pointer-Ereignisse eine [`pointerType`](/de/docs/Web/API/PointerEvent/pointerType) Eigenschaft, um den Gerätetyp zu untersuchen, der das Ereignis erzeugt hat.
+Ein _[Pointer](#pointer)_ ist eine hardwareunabhängige Repräsentation eines Eingabegeräts, das auf bestimmte Bildschirmkoordinaten zeigen kann. Ein einheitliches Ereignismodell für Pointer kann die Entwicklung von Websites und Anwendungen vereinfachen und unabhängig von der verwendeten Hardware eine gute Nutzererfahrung ermöglichen. Wenn eine gerätespezifische Verarbeitung erforderlich ist, lässt sich über die Eigenschaft [`pointerType`](/de/docs/Web/API/PointerEvent/pointerType) ermitteln, welcher Gerätetyp das Ereignis ausgelöst hat.
 
-Die zum Umgang mit generischen Zeigegeräten benötigten Ereignisse sind analog zu den [Mausereignissen](/de/docs/Web/API/MouseEvent) (`mousedown`/`pointerdown`, `mousemove`/`pointermove`, etc.). Daher sind die Arten von Pointer-Ereignissen bewusst den Arten von Mausereignissen ähnlich.
+Die Ereignisse zur Verarbeitung allgemeiner Pointer-Eingaben entsprechen den [Mausereignissen](/de/docs/Web/API/MouseEvent) (`mousedown`/`pointerdown`, `mousemove`/`pointermove` usw.). Deshalb ähneln die Bezeichnungen der Pointer-Events bewusst denen der Mausereignisse.
 
-Zusätzlich enthalten Pointer-Ereignisse die üblichen Eigenschaften, die in Mausereignissen vorhanden sind (Client-Koordinaten, Ziel-Element, Button-Zustände, etc.), sowie neue Eigenschaften für andere Formen der Eingabe: Druck, Kontaktgeometrie, Neigung, etc. Tatsächlich erbt das [`PointerEvent`](/de/docs/Web/API/PointerEvent) Interface alle Eigenschaften des [`MouseEvent`](/de/docs/Web/API/MouseEvent), was die Migration von Inhalten von Maus- zu Pointer-Ereignissen erleichtert.
+Ein Pointer-Event enthält neben den üblichen Eigenschaften von Mausereignissen (Client-Koordinaten, Zielelement, Tastenstatus usw.) weitere Eigenschaften für andere Eingabeformen, etwa Druck, Geometrie der Kontaktfläche und Neigung. Die Schnittstelle [`PointerEvent`](/de/docs/Web/API/PointerEvent) erbt alle Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent). Das erleichtert die Umstellung von Mausereignissen auf Pointer-Events.
 
 ## Terminologie
 
-### Zustand aktiver Buttons
+### active buttons state
 
-Der Zustand, wenn ein _[Pointer](#pointer)_ einen ungleich null Wert für die `buttons` Eigenschaft hat. Zum Beispiel im Fall eines Stiftes, wenn der Stift physischen Kontakt mit dem Digitalisierer hat oder mindestens ein Button gedrückt wird, während er schwebt.
+Der Zustand, in dem die Eigenschaft `buttons` eines _[Pointers](#pointer)_ einen Wert ungleich null hat. Bei einem Stift ist dies beispielsweise der Fall, wenn er den Digitizer berührt oder wenn beim Schweben über der Oberfläche mindestens eine Taste gedrückt ist.
 
-### Aktiver Pointer
+### active pointer
 
-Jedes Eingabegerät, das in der Lage ist, Ereignisse zu erzeugen. Ein Pointer wird als aktiv betrachtet, wenn er weiterhin Ereignisse erzeugen kann. Zum Beispiel wird ein Stift, der sich in einem "down"-Zustand befindet, als aktiv betrachtet, weil er zusätzliche Ereignisse erzeugen kann, wenn der Stift angehoben oder bewegt wird.
+Jedes _[Pointer](#pointer)_-Eingabegerät, das Ereignisse erzeugen kann. Ein Pointer gilt als aktiv, solange er weitere Ereignisse erzeugen kann. Ein aufgesetzter Stift gilt beispielsweise als aktiv, weil beim Anheben oder Bewegen des Stifts weitere Ereignisse auftreten können.
 
-### Digitalisierer
+### digitizer
 
-Ein Wahrnehmungsgerät mit einer Oberfläche, die Kontakt erkennen kann. Am häufigsten ist das Wahrnehmungsgerät ein berührungsempfindlicher Bildschirm, der Eingaben von einem Eingabegerät wie Stift, Stylus oder Finger erfassen kann. Einige Wahrnehmungsgeräte können die Nähe des Eingabegeräts erkennen, und der Zustand wird als Schweben ausgedrückt, ähnlich der Maus.
+Ein Sensorgerät mit einer Oberfläche, die Berührungen erkennen kann. Meist handelt es sich um einen berührungsempfindlichen Bildschirm, der Eingaben mit einem Stift oder Finger erkennt. Manche Sensorgeräte können auch erkennen, wenn sich ein Eingabegerät in unmittelbarer Nähe befindet. Dieser Zustand wird wie bei einer Maus als Schweben über der Oberfläche behandelt.
 
-### Hit-Test
+### hit test
 
-Der Prozess, den der Browser verwendet, um ein Ziel-Element für ein Pointer-Ereignis zu bestimmen. Typischerweise wird dies durch Berücksichtigung des Standorts des Pointers und auch des visuellen Layouts der Elemente in einem Dokument für Bildschirmmedien bestimmt.
+Das Verfahren, mit dem der Browser das Zielelement für ein Pointer-Event bestimmt. In der Regel berücksichtigt er dazu die Position des Pointers und die visuelle Anordnung der Elemente eines Dokuments auf dem Bildschirm.
 
-### Pointer
+### pointer
 
-Eine hardware-unabhängige Darstellung von Eingabegeräten, die eine spezifische Koordinate (oder eine Menge von Koordinaten) auf einem Bildschirm ansteuern können. Beispiele für _Pointer_-Eingabegeräte sind Maus, Stift/Stylus und Touch-Kontakte.
+Eine hardwareunabhängige Repräsentation von Eingabegeräten, die auf eine bestimmte Koordinate oder eine Gruppe von Koordinaten auf einem Bildschirm zeigen können. Beispiele für _Pointer_-Eingabegeräte sind Maus, Stift und Berührungskontakte.
 
-### Pointer-Erfassung
+### pointer capture
 
-Die Pointer-Erfassung ermöglicht, dass die Ereignisse für einen Pointer auf ein bestimmtes Element umgeleitet werden, anstatt das normale Ergebnis des Hit-Tests am Standort des Pointers. Sehen Sie [das Erfassen des Pointers](#erfassen_des_pointers) für ein Beispiel.
+Pointer Capture ermöglicht es, die Ereignisse eines Pointers an ein bestimmtes Element umzuleiten, statt an das Element, das sich normalerweise aus dem Hit-Test an der Pointer-Position ergeben würde. Ein Beispiel finden Sie unter [Pointer Capture](#pointer_capture).
 
 > [!NOTE]
-> _Pointer-Erfassung_ ist anders als [_Pointer-Sperre_](/de/docs/Web/API/Pointer_Lock_API), die physisch verhindert, dass der Pointer einen Bereich verlässt.
+> _Pointer Capture_ unterscheidet sich von [_Pointer Lock_](/de/docs/Web/API/Pointer_Lock_API). Pointer Lock verhindert, dass der Pointer einen Bereich verlässt.
 
-### Pointer-Ereignis
+### pointer event
 
 Ein DOM-[`event`](/de/docs/Web/API/PointerEvent), das für einen _[Pointer](#pointer)_ ausgelöst wird.
 
 ## Schnittstellen
 
-Die Hauptschnittstelle ist die [`PointerEvent`](/de/docs/Web/API/PointerEvent) Schnittstelle, die einen [`constructor`](/de/docs/Web/API/PointerEvent/PointerEvent) plus mehrere Ereignistypen und zugehörige globale Ereignishandler enthält.
+Die wichtigste Schnittstelle ist [`PointerEvent`](/de/docs/Web/API/PointerEvent). Sie verfügt über einen [`constructor`](/de/docs/Web/API/PointerEvent/PointerEvent); außerdem gibt es mehrere zugehörige Ereignistypen und globale Ereignishandler.
 
-Der Standard beinhaltet auch einige Erweiterungen der [`Element`](/de/docs/Web/API/Element) und [`Navigator`](/de/docs/Web/API/Navigator) Schnittstellen.
+Der Standard enthält auch Erweiterungen der Schnittstellen [`Element`](/de/docs/Web/API/Element) und [`Navigator`](/de/docs/Web/API/Navigator).
 
-Die folgenden Unterabschnitte enthalten kurze Beschreibungen jeder Schnittstelle und Eigenschaft.
+Die folgenden Unterabschnitte beschreiben die einzelnen Schnittstellen und Eigenschaften kurz.
 
-### PointerEvent Schnittstelle
+### PointerEvent-Schnittstelle
 
-Die [`PointerEvent`](/de/docs/Web/API/PointerEvent) Schnittstelle erweitert die [`MouseEvent`](/de/docs/Web/API/MouseEvent) Schnittstelle und hat die folgenden Eigenschaften.
+Die Schnittstelle [`PointerEvent`](/de/docs/Web/API/PointerEvent) erweitert [`MouseEvent`](/de/docs/Web/API/MouseEvent) und verfügt über die folgenden Eigenschaften.
 
 - [`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}}
-  - : Stellt den Winkel zwischen der Achse eines Transduktors (eines Pointers oder Stiftes) und der X-Y-Ebene eines Geräteschirms dar.
+  - : Gibt den Winkel zwischen der Achse eines Eingabegeräts (eines Pointers oder Stifts) und der X-Y-Ebene eines Gerätebildschirms an.
 - [`azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}}
-  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Achse des Transduktors (eines Pointers oder Stiftes) als auch die Y-Achse enthält.
+  - : Gibt den Winkel zwischen der Y-Z-Ebene und der Ebene an, die sowohl die Achse des Eingabegeräts (eines Pointers oder Stifts) als auch die Y-Achse enthält.
 - [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
 - [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Pointer, der das Ereignis verursacht.
 - [`width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
-  - : Die Breite (Größe auf der X-Achse) in CSS-Pixeln, der Kontaktgeometrie des Pointers.
+  - : Die Breite der Kontaktfläche des Pointers (Ausdehnung auf der X-Achse) in CSS-Pixeln.
 - [`height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
-  - : die Höhe (Größe auf der Y-Achse) in CSS-Pixeln, der Kontaktgeometrie des Pointers.
+  - : Die Höhe der Kontaktfläche des Pointers (Ausdehnung auf der Y-Achse) in CSS-Pixeln.
 - [`pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : der normalisierte Druck der Pointer-Eingabe im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erfassen kann.
+  - : Der normierte Druck der Pointer-Eingabe im Bereich von `0` bis `1`. Dabei stehen `0` und `1` für den minimalen beziehungsweise maximalen Druck, den die Hardware erkennen kann.
 - [`tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck der Pointer-Eingabe (auch bekannt als Fassdruck oder Zylinderstress) im Bereich `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+  - : Der normierte tangentiale Druck der Pointer-Eingabe (auch Seitendruck genannt) im Bereich von `-1` bis `1`. `0` bezeichnet die neutrale Stellung des Bedienelements.
 - [`tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Achse des Pointers (z.B. Stift-Stylus) als auch die Y-Achse enthält.
+  - : Der Ebenenwinkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Achse des Pointers (z. B. eines Stifts) als auch die Y-Achse enthält, in Grad im Bereich von `-90` bis `90`.
 - [`tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Achse des Pointers (z.B. Stift-Stylus) als auch die X-Achse enthält.
+  - : Der Ebenenwinkel zwischen der X-Z-Ebene und der Ebene, die sowohl die Achse des Pointers (z. B. eines Stifts) als auch die X-Achse enthält, in Grad im Bereich von `-90` bis `90`.
 - [`twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Pointers (z.B. Stift-Stylus) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich `0` bis `359`.
+  - : Die Drehung des Pointers (z. B. eines Stifts) um seine Längsachse im Uhrzeigersinn, in Grad mit einem Wert von `0` bis `359`.
 - [`pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Touch, etc.).
+  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
 - [`isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
-  - : Gibt an, ob der Pointer den primären Pointer dieses Pointer-Typs darstellt.
+  - : Gibt an, ob der Pointer der primäre Pointer dieses Pointer-Typs ist.
 
 ### Ereignistypen und globale Ereignishandler
 
-Die folgenden Ereignistypen verwenden die [`PointerEvent`](/de/docs/Web/API/PointerEvent) Schnittstelle:
+Die folgenden Ereignistypen verwenden die Schnittstelle [`PointerEvent`](/de/docs/Web/API/PointerEvent):
 
 - [`pointerover`](/de/docs/Web/API/Element/pointerover_event)
-  - : Wird ausgelöst, wenn ein Pointer in die Grenzen eines [Hit-Tests](#hit-test) eines Elements bewegt wird.
+  - : Wird ausgelöst, wenn ein Pointer in den [Hit-Test-Bereich](#hit_test) eines Elements bewegt wird.
 - [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event)
-  - : Wird ausgelöst, wenn ein Pointer in die Grenzen eines [Hit-Tests](#hit-test) eines Elements oder eines seiner Nachkommen bewegt wird, einschließlich als Ergebnis eines `pointerdown` Ereignisses von einem Gerät, das kein Hover unterstützt (siehe `pointerdown`).
+  - : Wird ausgelöst, wenn ein Pointer in den [Hit-Test-Bereich](#hit_test) eines Elements oder eines seiner Nachfahren bewegt wird. Dazu gehört auch ein `pointerdown`-Ereignis eines Geräts, das kein Schweben über der Oberfläche unterstützt (siehe `pointerdown`).
 - [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)
-  - : Wird ausgelöst, wenn ein Pointer den _Zustand aktiver Buttons_ erreicht.
+  - : Wird ausgelöst, wenn ein Pointer in den Zustand _active buttons state_ wechselt.
 - [`pointermove`](/de/docs/Web/API/Element/pointermove_event)
-  - : Wird ausgelöst, wenn ein Pointer die Koordinaten ändert. Dieses Ereignis wird auch verwendet, wenn die Änderung des Pointer-Zustands nicht von anderen Ereignissen gemeldet werden kann.
+  - : Wird ausgelöst, wenn sich die Koordinaten eines Pointers ändern. Dieses Ereignis wird auch verwendet, wenn eine Änderung des Pointer-Zustands nicht durch andere Ereignisse gemeldet werden kann.
 - [`pointerup`](/de/docs/Web/API/Element/pointerup_event)
-  - : Wird ausgelöst, wenn ein Pointer nicht mehr im _Zustand aktiver Buttons_ ist.
+  - : Wird ausgelöst, wenn ein Pointer den Zustand _active buttons state_ verlässt.
 - [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)
-  - : Ein Browser löst dieses Ereignis aus, wenn er zu dem Schluss kommt, dass der Pointer keine weiteren Ereignisse mehr erzeugen kann (zum Beispiel, wenn das zugehörige Gerät deaktiviert wird oder der Browser beschlossen hat, die Interaktion als Pan/Zoom zu interpretieren). Informationen dazu, wie Sie dieses Verhalten steuern können, finden Sie im Abschnitt über die `touch-action` CSS-Eigenschaft unten.
+  - : Der Browser löst dieses Ereignis aus, wenn er davon ausgeht, dass der Pointer keine weiteren Ereignisse mehr erzeugen kann, etwa weil das zugehörige Gerät deaktiviert wurde oder weil der Browser die Interaktion stattdessen als Schwenk- oder Zoomgeste interpretiert. Wie Sie dieses Verhalten steuern können, erfahren Sie weiter unten im [Abschnitt über die CSS-Eigenschaft `touch-action`](#css-eigenschaft_touch-action).
 - [`pointerout`](/de/docs/Web/API/Element/pointerout_event)
-  - : Wird aus verschiedenen Gründen ausgelöst, einschließlich: wenn der Pointer aus den Grenzen eines [Hit-Tests](#hit-test) eines Elements bewegt wird; beim Auslösen des Pointer-Up-Ereignisses für ein Gerät, das kein Hover unterstützt (siehe `pointerup`); nachdem das `pointercancel`-Ereignis ausgelöst wurde (siehe `pointercancel`); wenn ein Stiftstylus den Schweberbereich verlässt, der durch den Digitalisierer erkannt werden kann.
+  - : Wird aus verschiedenen Gründen ausgelöst: wenn ein Pointer den [Hit-Test-Bereich](#hit_test) eines Elements verlässt; wenn für ein Gerät ohne Unterstützung für das Schweben über der Oberfläche ein `pointerup`-Ereignis ausgelöst wird (siehe `pointerup`); nach einem `pointercancel`-Ereignis (siehe `pointercancel`); oder wenn ein Stift den vom Digitizer erkennbaren Schwebebereich verlässt.
 - [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event)
-  - : Wird ausgelöst, wenn ein Pointer die Grenzen eines [Hit-Tests](#hit-test) eines Elements verlässt. Bei Stiftgeräten wird dieses Ereignis ausgelöst, wenn der Stylus den Schweberbereich verlässt, der durch den Digitalisierer erkannt werden kann.
+  - : Wird ausgelöst, wenn ein Pointer den [Hit-Test-Bereich](#hit_test) eines Elements verlässt. Bei Stiften wird dieses Ereignis ausgelöst, wenn der Stift den vom Digitizer erkennbaren Schwebebereich verlässt.
 - [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event) {{experimental_inline}}
-  - : Wird ausgelöst, wenn ein Pointer eine Eigenschaft ändert, die keine `pointerdown`- oder `pointerup`-Ereignisse auslöst.
+  - : Wird ausgelöst, wenn sich Eigenschaften eines Pointers ändern, ohne dass dadurch ein `pointerdown`- oder `pointerup`-Ereignis ausgelöst wird.
 - [`gotpointercapture`](/de/docs/Web/API/Element/gotpointercapture_event)
-  - : Wird ausgelöst, wenn ein Element Pointer-Erfassung erhält.
+  - : Wird ausgelöst, wenn ein Element Pointer Capture erhält.
 - [`lostpointercapture`](/de/docs/Web/API/Element/lostpointercapture_event)
-  - : Wird ausgelöst, nachdem die Pointer-Erfassung für einen Pointer freigegeben wurde.
+  - : Wird ausgelöst, nachdem Pointer Capture für einen Pointer aufgehoben wurde.
 - [`click`](/de/docs/Web/API/Element/click_event)
-  - : Wird ausgelöst, wenn ein Element aktiviert wird, zum Beispiel durch Drücken und Freigeben des primären Pointer-Buttons oder durch Verwendung der Tastatur.
+  - : Wird ausgelöst, wenn ein Element aktiviert wird, beispielsweise durch Drücken und Loslassen der primären Pointer-Taste oder über die Tastatur.
 - [`auxclick`](/de/docs/Web/API/Element/auxclick_event)
-  - : Wird ausgelöst, wenn ein nicht-primärer Pointer-Button über einem Element gedrückt und freigegeben wird.
+  - : Wird ausgelöst, wenn eine nicht primäre Pointer-Taste über einem Element gedrückt und losgelassen wird.
 - [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)
-  - : Wird ausgelöst, wenn der Benutzer versucht, ein Kontextmenü zu öffnen, z.B. durch Rechtsklick oder Drücken der Kontextmenü-Taste.
+  - : Wird ausgelöst, wenn Nutzer versuchen, ein Kontextmenü zu öffnen, beispielsweise durch einen Rechtsklick oder durch Drücken der Kontextmenütaste.
 
-Die Ereignisse `pointerdown`, `pointerup`, `pointermove`, `pointerover`, `pointerout`, `pointerenter` und `pointerleave` haben ähnliche Semantiken wie ihre Mausereignis-Gegenstücke, funktionieren jedoch auch mit anderen Zeigegeräten wie Stiften und Touchscreens.
+Die Ereignisse `pointerdown`, `pointerup`, `pointermove`, `pointerover`, `pointerout`, `pointerenter` und `pointerleave` haben eine ähnliche Bedeutung wie die entsprechenden Mausereignisse, funktionieren aber auch mit anderen Zeigegeräten wie Stiften und Touchscreens.
 
-Die Ereignisse `click`, `auxclick` und `contextmenu` repräsentieren höherstufige Aktionen, wie das Aktivieren eines Elements oder das Anfordern eines Kontextmenüs. Sie sind nicht auf Zeigereingaben beschränkt: Zum Beispiel kann eine Tastatur `click` oder `contextmenu` auslösen, ohne dass eine entsprechende Zeigerbewegung oder Tastendruck notwendig ist.
+Die Ereignisse `click`, `auxclick` und `contextmenu` stehen für übergeordnete Aktionen, etwa das Aktivieren eines Elements oder das Anfordern eines Kontextmenüs. Sie sind nicht auf Pointer-Eingaben beschränkt: Eine Tastatur kann beispielsweise `click` oder `contextmenu` auslösen, ohne dass ein Pointer bewegt oder eine Pointer-Taste gedrückt wird.
 
-### Element-Erweiterungen
+### Erweiterungen von Element
 
-Es gibt drei Erweiterungen der [`Element`](/de/docs/Web/API/Element) Schnittstelle:
+Die Schnittstelle [`Element`](/de/docs/Web/API/Element) hat drei Erweiterungen:
 
 - [`hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
-  - : Gibt an, ob das Element, auf dem es aufgerufen wird, die Pointer-Erfassung für den durch die gegebene Pointer-ID identifizierten Pointer hat.
+  - : Gibt an, ob das Element, auf dem die Methode aufgerufen wird, Pointer Capture für den durch die angegebene Pointer-ID identifizierten Pointer hat.
 - [`releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture)
-  - : Gibt eine _Pointer-Erfassung_ frei (stoppt sie), die zuvor für ein bestimmtes Pointer-Ereignis festgelegt wurde.
+  - : Hebt ein zuvor für einen bestimmten Pointer eingerichtetes _Pointer Capture_ auf.
 - [`setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
-  - : Bestimmt ein bestimmtes Element als _Erfassungsziel_ für zukünftige Pointer-Ereignisse.
+  - : Legt ein bestimmtes Element als _Capture-Ziel_ für künftige Pointer-Events fest.
 
-### Navigator-Erweiterung
+### Erweiterung von Navigator
 
-Die [`Navigator.maxTouchPoints`](/de/docs/Web/API/Navigator/maxTouchPoints) Eigenschaft wird verwendet, um die maximale Anzahl gleichzeitiger Berührungspunkte zu bestimmen, die zu einem bestimmten Zeitpunkt unterstützt werden.
+Mit der Eigenschaft [`Navigator.maxTouchPoints`](/de/docs/Web/API/Navigator/maxTouchPoints) lässt sich die maximale Anzahl gleichzeitig unterstützter Berührungspunkte ermitteln.
 
 ## Beispiele
 
-Dieser Abschnitt enthält Beispiele für die grundlegende Verwendung von Pointer-Ereignis-Schnittstellen.
+Dieser Abschnitt enthält Beispiele für die grundlegende Verwendung der Pointer-Event-Schnittstellen.
 
-### Registrierung von Ereignis-Handlern
+### Ereignishandler registrieren
 
-Dieses Beispiel registriert einen Handler für jeden Ereignistyp für das gegebene Element.
+Dieses Beispiel registriert für jeden Ereignistyp einen Handler am angegebenen Element.
 
 ```html
 <div id="target">Touch me…</div>
@@ -189,7 +189,7 @@ el.oncontextmenu = contextMenuHandler;
 
 ### Ereigniseigenschaften
 
-Dieses Beispiel zeigt das Zugreifen auf alle Eigenschaften eines Pointer-Ereignisses.
+Dieses Beispiel zeigt, wie auf alle Eigenschaften eines Pointer-Events zugegriffen wird.
 
 ```html
 <div id="target">Touch me…</div>
@@ -257,44 +257,45 @@ const el = document.getElementById("target");
 el.onpointerdown = downHandler;
 ```
 
-## Bestimmung des primären Pointers
+## Den primären Pointer bestimmen
 
-In einigen Szenarien kann es mehrere Pointer geben (z.B. ein Gerät mit sowohl Touchscreen als auch Maus), oder einen Pointer, der mehrere Kontaktpunkte unterstützt (z.B. ein Touchscreen, der mehrere Fingerberührungen unterstützt). Die Anwendung kann die [`isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) Eigenschaft verwenden, um einen Haupt-Pointer unter den Satz der _aktiven Pointer_ für jeden Pointer-Typ zu identifizieren. Wenn eine Anwendung nur einen primären Pointer unterstützen möchte, kann sie alle Pointer-Ereignisse ignorieren, die nicht primär sind.
+In manchen Situationen gibt es mehrere Pointer, beispielsweise bei einem Gerät mit Touchscreen und Maus. Ein Pointer kann auch mehrere Kontaktpunkte unterstützen, etwa ein Touchscreen, der gleichzeitige Berührungen mit mehreren Fingern erkennt. Eine Anwendung kann mit der Eigenschaft [`isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) für jeden Pointer-Typ einen primären Pointer unter den _aktiven Pointern_ identifizieren. Wenn eine Anwendung nur den primären Pointer unterstützen soll, kann sie alle Pointer-Events ignorieren, die nicht vom primären Pointer stammen.
 
-Eine Maus hat nur einen einzigen Pointer und wird daher immer der primäre Pointer sein. Bei Berührungseingaben wird ein Pointer als primär betrachtet, wenn der Benutzer den Bildschirm berührt hat, als es keine anderen aktiven Berührungen gab. Bei Stift- und Stylus-Eingaben wird ein Pointer als primär betrachtet, wenn der Stift den Bildschirm berührt hat, als es keine anderen aktiven Stifte gab, die den Bildschirm berührten.
+Eine Maus hat nur einen Pointer; dieser ist daher immer der primäre Pointer. Bei Berührungseingaben gilt ein Pointer als primär, wenn bei der ersten Berührung des Bildschirms keine weiteren Berührungen aktiv waren. Bei Stifteingaben gilt ein Pointer als primär, wenn beim ersten Kontakt des Stifts mit dem Bildschirm keine anderen Stifte den Bildschirm berührten.
 
-## Bestimmung der Zustände von Buttons
+## Tastenstatus bestimmen
 
-Einige Pointer-Geräte (wie Maus und Stift) unterstützen mehrere Buttons, und die Button-Drücke können _begleitet_ sein (d.h. ein zusätzlicher Button wird gedrückt, während ein anderer Button auf dem Pointer-Gerät bereits gedrückt ist).
+Manche Zeigegeräte, etwa Mäuse und Stifte, unterstützen mehrere Tasten. Tasten können auch gleichzeitig gedrückt werden: Eine weitere Taste wird gedrückt, während bereits eine andere Taste des Zeigegeräts gedrückt ist.
 
-Um den Zustand der Button-Drücke zu bestimmen, verwenden Pointer-Ereignisse die [`button`](/de/docs/Web/API/MouseEvent/button) und [`buttons`](/de/docs/Web/API/MouseEvent/buttons) Eigenschaften der [`MouseEvent`](/de/docs/Web/API/MouseEvent) Schnittstelle (von der [`PointerEvent`](/de/docs/Web/API/PointerEvent) erbt).
+Zur Bestimmung des Tastenstatus verwenden Pointer-Events die Eigenschaften [`button`](/de/docs/Web/API/MouseEvent/button) und [`buttons`](/de/docs/Web/API/MouseEvent/buttons) der Schnittstelle [`MouseEvent`](/de/docs/Web/API/MouseEvent), von der [`PointerEvent`](/de/docs/Web/API/PointerEvent) erbt.
 
-Die folgende Tabelle gibt die Werte von `button` und `buttons` für die verschiedenen Zustände des Geräte-Buttons an.
+Die folgende Tabelle zeigt die Werte von `button` und `buttons` für verschiedene Zustände der Gerätetasten.
 
-| Zustand des Geräte-Buttons                                                                      | button | buttons |
-| ----------------------------------------------------------------------------------------------- | ------ | ------- |
-| Weder Buttons noch Touch-/Stiftkontakt haben sich seit dem letzten Ereignis verändert           | `-1`   | —       |
-| Mausbewegung ohne gedrückte Buttons, Stift bewegt sich im Schwebezustand ohne gedrückte Buttons | —      | `0`     |
-| Linke Maus, Touch-Kontakt, Stiftkontakt                                                         | `0`    | `1`     |
-| Mittlere Maus                                                                                   | `1`    | `4`     |
-| Rechte Maus, Stift-Fass-Button                                                                  | `2`    | `2`     |
-| X1 (rückwärts) Maus                                                                             | `3`    | `8`     |
-| X2 (vorwärts) Maus                                                                              | `4`    | `16`    |
-| Stift-Radier-Button                                                                             | `5`    | `32`    |
-
-> [!NOTE]
-> Die `button`-Eigenschaft zeigt eine Änderung im Zustand des Buttons an. Wie im Fall von Touch, wenn mehrere Ereignisse mit einem Ereignis auftreten, haben alle denselben Wert.
-
-## Erfassen des Pointers
-
-Die Pointer-Erfassung ermöglicht, dass Ereignisse für ein bestimmtes [Pointer-Ereignis](/de/docs/Web/API/PointerEvent) auf ein bestimmtes Element umgeleitet werden, anstatt auf den normalen [Hit-Test](#hit-test) an der Position des Pointers. Dies kann verwendet werden, um sicherzustellen, dass ein Element weiterhin Pointer-Ereignisse empfängt, selbst wenn die Kontaktstelle des Pointer-Geräts das Element verlässt (zum Beispiel durch Scrollen oder Schwenken).
-
-Die Pointer-Erfassung wird das Ziel dazu veranlassen, alle nachfolgenden Pointer-Ereignisse so zu erfassen, als ob sie über dem erfassenden Ziel ablaufen würden. Dementsprechend werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**, solange dieser Erfassungsvorgang eingestellt ist. Für Touchscreen-Browser, die [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) erlauben, wird eine [implizite Pointer-Erfassung](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture) auf das Element gerufen, wenn ein `pointerdown`-Ereignis ausgelöst wird. Die Erfassung kann manuell durch Aufrufen von [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) auf das Zielelement freigegeben werden, oder sie wird implizit nach einem `pointerup`- oder `pointercancel`-Ereignis freigegeben.
+| Zustand der Gerätetasten                                                                                  | button | buttons |
+| --------------------------------------------------------------------------------------------------------- | ------ | ------- |
+| Weder Tastenstatus noch Berührungskontakt oder Stiftkontakt haben sich seit dem letzten Ereignis geändert | `-1`   | —       |
+| Mausbewegung ohne gedrückte Tasten; Stiftbewegung im Schwebebereich ohne gedrückte Tasten                 | —      | `0`     |
+| Linke Maustaste, Berührungskontakt, Stiftkontakt                                                          | `0`    | `1`     |
+| Mittlere Maustaste                                                                                        | `1`    | `4`     |
+| Rechte Maustaste, seitliche Stifttaste                                                                    | `2`    | `2`     |
+| X1-Maustaste (Zurück)                                                                                     | `3`    | `8`     |
+| X2-Maustaste (Vorwärts)                                                                                   | `4`    | `16`    |
+| Radierertaste des Stifts                                                                                  | `5`    | `32`    |
 
 > [!NOTE]
-> Wenn Sie ein Element im DOM verschieben müssen, stellen Sie sicher, dass Sie `setPointerCapture()` **nach der Bewegung im DOM** aufrufen, damit `setPointerCapture()` nicht den Überblick verliert. Wenn Sie z.B. verwenden müssen `Element.append()`, um ein Element an eine andere Stelle zu verschieben, stellen Sie sicher, dass Sie erst nach dem Aufruf von `Element.append()` `setPointerCapture()` darauf anwenden.
+> Die Eigenschaft `button` zeigt eine Änderung des Tastenstatus an. Wenn jedoch, wie bei Berührungen, mehrere Ereignisse gleichzeitig auftreten, haben sie alle denselben Wert.
 
-Das folgende Beispiel zeigt die Pointer-Erfassung, die auf ein Element eingestellt wird.
+## Pointer Capture
+
+Mit Pointer Capture können Ereignisse für einen bestimmten [Pointer](/de/docs/Web/API/PointerEvent) an ein bestimmtes Element umgeleitet werden, statt das Ziel durch den üblichen [Hit-Test](#hit_test) an der Pointer-Position zu bestimmen. So kann sichergestellt werden, dass ein Element weiterhin Pointer-Events empfängt, selbst wenn sich die Kontaktfläche des Zeigegeräts vom Element wegbewegt, beispielsweise durch Scrollen oder Schwenken.
+
+Bei aktivem Pointer Capture werden alle folgenden Pointer-Events an das erfassende Zielelement gesendet, als würden sie über diesem Element stattfinden. Daher werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**, solange Pointer Capture aktiv ist.
+Bei Touchscreen-Browsern, die eine [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) ermöglichen, erhält das Element beim Auslösen eines `pointerdown`-Ereignisses [implizites Pointer Capture](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture). Pointer Capture kann durch Aufrufen von [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) auf dem Zielelement manuell aufgehoben werden. Nach einem `pointerup`- oder `pointercancel`-Ereignis wird es automatisch aufgehoben.
+
+> [!NOTE]
+> Wenn Sie ein Element im DOM verschieben müssen, rufen Sie `setPointerCapture()` **nach der Verschiebung im DOM** auf, damit die Zuordnung des Elements für `setPointerCapture()` erhalten bleibt. Wenn Sie beispielsweise ein Element mit `Element.append()` an eine andere Stelle verschieben, rufen Sie `setPointerCapture()` für dieses Element erst nach `Element.append()` auf.
+
+Das folgende Beispiel zeigt, wie Pointer Capture für ein Element eingerichtet wird.
 
 ```html
 <div id="target">Touch me…</div>
@@ -311,7 +312,7 @@ const el = document.getElementById("target");
 el.onpointerdown = downHandler;
 ```
 
-Das folgende Beispiel zeigt eine Pointer-Erfassung, die freigegeben wird (wenn ein [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) Ereignis auftritt. Der Browser übernimmt dies automatisch, wenn ein [`pointerup`](/de/docs/Web/API/Element/pointerup_event) oder [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) Ereignis auftritt.
+Das folgende Beispiel zeigt, wie Pointer Capture beim Auftreten eines [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignisses aufgehoben wird. Der Browser führt dies beim Auftreten eines [`pointerup`](/de/docs/Web/API/Element/pointerup_event)- oder [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignisses automatisch aus.
 
 ```html
 <div id="target">Touch me…</div>
@@ -338,11 +339,11 @@ el.onpointercancel = cancelHandler;
 
 ## CSS-Eigenschaft touch-action
 
-Die {{cssxref("touch-action")}} CSS-Eigenschaft wird verwendet, um festzulegen, ob der Browser sein Standardverhalten (_native_) der Berührung (wie Zoomen oder Scrollen) auf eine Region anwenden soll oder nicht. Diese Eigenschaft kann auf alle Elemente außer nicht-ersetzten Inline-Elementen, Tabellenzeilen, Zeilengruppen, Tabellenspalten und Spaltengruppen angewendet werden.
+Mit der CSS-Eigenschaft {{cssxref("touch-action")}} wird festgelegt, ob der Browser in einem Bereich sein standardmäßiges (_natives_) Verhalten bei Berührungen anwenden soll, etwa Zoomen oder Schwenken. Die Eigenschaft kann auf alle Elemente angewendet werden, außer auf nicht ersetzte Inline-Elemente, Tabellenzeilen, Zeilengruppen, Tabellenspalten und Spaltengruppen.
 
-Ein Wert von `auto` bedeutet, dass der Browser frei ist, sein Standardverhalten für Berührungen auf die angegebene Region anzuwenden, und der Wert `none` deaktiviert das Standardverhalten des Browsers für Berührungen in der Region. Die Werte `pan-x` und `pan-y` bedeutet, dass Berührungen, die in der angegebenen Region beginnen, nur für horizontales bzw. vertikales Scrollen sind. Der Wert `manipulation` bedeutet, dass der Browser berücksichtigen kann, dass Berührungen, die auf dem Element beginnen, nur zum Scrollen und Zoomen sind.
+Beim Wert `auto` kann der Browser sein standardmäßiges Berührungsverhalten im angegebenen Bereich anwenden. Der Wert `none` deaktiviert dieses Verhalten für den Bereich. Die Werte `pan-x` und `pan-y` bedeuten, dass Berührungen, die im angegebenen Bereich beginnen, nur zum horizontalen beziehungsweise vertikalen Scrollen dienen. Beim Wert `manipulation` darf der Browser davon ausgehen, dass Berührungen, die auf dem Element beginnen, nur dem Scrollen und Zoomen dienen.
 
-Im folgenden Beispiel ist das Standardverhalten für Berührungen für einige `button`-Elemente deaktiviert.
+Im folgenden Beispiel ist das standardmäßige Berührungsverhalten für einige `button`-Elemente deaktiviert.
 
 ```css
 button#tiny {
@@ -350,7 +351,7 @@ button#tiny {
 }
 ```
 
-Im folgenden Beispiel wird das `target` Element nur in horizontaler Richtung verschoben, wenn es berührt wird.
+Im folgenden Beispiel kann das Element `target` bei Berührung nur horizontal verschoben werden.
 
 ```css
 #target {
@@ -360,21 +361,21 @@ Im folgenden Beispiel wird das `target` Element nur in horizontaler Richtung ver
 
 ## Kompatibilität mit Mausereignissen
 
-Obwohl die Pointer-Ereignis-Schnittstellen es Anwendungen ermöglichen, verbesserte Benutzererfahrungen auf Pointer-fähigen Geräten zu schaffen, ist die Realität so, dass der Großteil der heutigen Webinhalte darauf ausgelegt ist, ausschließlich mit Maus-Eingaben zu funktionieren. Folglich muss der Browser, selbst wenn er Pointer-Ereignisse unterstützt, weiterhin Mausereignisse verarbeiten, damit Inhalte, die nur Maus-Eingaben voraussetzen, ohne direkte Änderungen funktionieren. Im Idealfall benötigt eine Pointer-fähige Anwendung keine explizite Handhabung von Maus-Eingaben. Da der Browser jedoch Mausereignisse verarbeiten muss, kann es einige Kompatibilitätsprobleme geben, die bearbeitet werden müssen. Dieser Abschnitt enthält Informationen über die Interaktion zwischen Pointer- und Mausereignissen und die Auswirkungen auf Anwendungsentwickler.
+Pointer-Event-Schnittstellen ermöglichen es Anwendungen, auf Geräten mit Pointer-Unterstützung eine verbesserte Nutzererfahrung zu bieten. Die überwiegende Mehrheit heutiger Webinhalte ist jedoch ausschließlich für Mauseingaben ausgelegt. Deshalb muss ein Browser auch dann Mausereignisse verarbeiten, wenn er Pointer-Events unterstützt, damit Inhalte, die nur Mauseingaben voraussetzen, ohne Änderungen funktionieren. Im Idealfall muss eine Anwendung mit Pointer-Unterstützung Mauseingaben nicht ausdrücklich verarbeiten. Da der Browser jedoch Mausereignisse verarbeiten muss, können Kompatibilitätsprobleme auftreten, die berücksichtigt werden müssen. Dieser Abschnitt erläutert das Zusammenspiel von Pointer-Events und Mausereignissen sowie die Folgen für Anwendungsentwickler.
 
-Der Browser _kann generische Pointer-Eingaben auf Mausereignisse für die Kompatibilität mit mausbasierendem Inhalt abbilden_. Diese Abbildung der Ereignisse wird _Kompatibilitätsmausereignisse_ genannt. Autoren können die Erstellung bestimmter Kompatibilitätsmausereignisse verhindern, indem sie das Pointerdown-Ereignis abbrechen, beachten Sie jedoch, dass:
+Der Browser _kann allgemeine Pointer-Eingaben aus Kompatibilitätsgründen auf Mausereignisse abbilden_. Diese Ereignisse werden als _Kompatibilitäts-Mausereignisse_ bezeichnet. Durch Abbrechen des `pointerdown`-Ereignisses können Entwickler die Erzeugung bestimmter Kompatibilitäts-Mausereignisse verhindern. Beachten Sie dabei:
 
-- Mausereignisse nur verhindert werden können, wenn der Zeiger nach unten ist.
-- Schwebende Zeiger (z.B. eine Maus ohne gedrückte Tasten) können ihre Mausereignisse nicht verhindern.
-- Die Ereignisse `mouseover`, `mouseout`, `mouseenter` und `mouseleave` werden niemals verhindert (auch wenn der Zeiger nach unten ist).
+- Mausereignisse können nur verhindert werden, wenn der Pointer gedrückt ist.
+- Bei Pointern, die über der Oberfläche schweben, etwa einer Maus ohne gedrückte Tasten, können Mausereignisse nicht verhindert werden.
+- Die Ereignisse `mouseover`, `mouseout`, `mouseenter` und `mouseleave` werden niemals verhindert, auch dann nicht, wenn der Pointer gedrückt ist.
 
-## Best Practices
+## Bewährte Vorgehensweisen
 
-Hier sind einige _Best Practices_ zu berücksichtigen, wenn Sie Pointer-Ereignisse verwenden:
+Beachten Sie bei der Verwendung von Pointer-Events die folgenden _bewährten Vorgehensweisen_:
 
-- Minimieren Sie die Menge an Arbeit, die in Ereignis-Handlern durchgeführt wird.
-- Fügen Sie die Ereignis-Handler zu einem bestimmten Ziel-Element hinzu (anstatt zum gesamten Dokument oder Knoten höher im Dokumentbaum).
-- Das Ziel-Element (Knoten) sollte groß genug sein, um die größte Kontaktfläche (typischerweise eine Fingerberührung) zu berücksichtigen. Wenn der Zielbereich zu klein ist, könnte das Berühren andere Ereignisse bei benachbarten Elementen auslösen.
+- Halten Sie den Arbeitsaufwand in Ereignishandlern möglichst gering.
+- Registrieren Sie Ereignishandler an einem bestimmten Zielelement statt am gesamten Dokument oder an weiter oben im Dokumentbaum liegenden Knoten.
+- Das Zielelement beziehungsweise der Zielknoten sollte groß genug für die größte zu erwartende Kontaktfläche sein, in der Regel eine Fingerberührung. Ist der Zielbereich zu klein, kann eine Berührung stattdessen Ereignisse für benachbarte Elemente auslösen.
 
 ## Spezifikationen
 
@@ -384,12 +385,12 @@ Hier sind einige _Best Practices_ zu berücksichtigen, wenn Sie Pointer-Ereignis
 
 {{Compat}}
 
-Einige zusätzliche Werte wurden für die CSS {{cssxref("touch-action")}} Eigenschaft im Rahmen der [Pointer Events](https://w3c.github.io/pointerevents/) Spezifikation definiert, aber derzeit haben diese Werte nur begrenzte Unterstützung in der Implementierung.
+Im Rahmen der [Pointer-Events-Spezifikation](https://w3c.github.io/pointerevents/) wurden zusätzliche Werte für die CSS-Eigenschaft {{cssxref("touch-action")}} definiert. Diese Werte werden derzeit jedoch nur eingeschränkt unterstützt.
 
 ## Siehe auch
 
-- [Touch Events](/de/docs/Web/API/Touch_events)
-- [Arbeitsgruppe Pointer Events](https://github.com/w3c/pointerevents)
+- [Touch-Events](/de/docs/Web/API/Touch_events)
+- [Pointer Events Working Group](https://github.com/w3c/pointerevents)
 - [Mailingliste](https://lists.w3.org/Archives/Public/public-pointer-events/)
-- [W3C #pointerevents IRC-Kanal](irc://irc.w3.org:6667/)
-- [Tests und Demos zu Touch-/Pointer-Ereignissen](https://patrickhlauke.github.io/touch/) von Patrick H. Lauke
+- [W3C-IRC-Kanal #pointerevents](irc://irc.w3.org:6667/)
+- [Tests und Demos für Touch- und Pointer-Eingaben](https://patrickhlauke.github.io/touch/) von Patrick H. Lauke

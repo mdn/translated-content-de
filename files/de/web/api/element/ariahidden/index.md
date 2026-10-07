@@ -3,27 +3,27 @@ title: "Element: ariaHidden-Eigenschaft"
 short-title: ariaHidden
 slug: Web/API/Element/ariaHidden
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaHidden`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)-Attributs wider, das angibt, ob das Element für eine Zugänglichkeits-API sichtbar ist.
+Die **`ariaHidden`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des Attributs [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) wider. Dieses gibt an, ob das Element für eine Barrierefreiheits-API zugänglich ist.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Das Element ist vor der Zugänglichkeits-API verborgen.
+  - : Das Element ist vor der Barrierefreiheits-API verborgen.
 - `"false"`
-  - : Das Element ist der Zugänglichkeits-API zugänglich, als ob es gerendert wäre.
+  - : Das Element ist für die Barrierefreiheits-API zugänglich, als ob es gerendert würde.
 - `"undefined"`
-  - : Der versteckte Status des Elements wird vom Benutzeragenten bestimmt, basierend darauf, ob es gerendert wird oder nicht.
+  - : Der User Agent bestimmt anhand dessen, ob das Element gerendert wird, ob es verborgen ist.
 
 ## Beispiele
 
-In diesem Beispiel wird das [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)-Attribut des Elements mit der ID `hidden` auf "true" gesetzt. Mit `ariaHidden` aktualisieren wir den Wert auf "false".
+In diesem Beispiel ist das Attribut [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) des Elements mit der ID `hidden` auf "true" gesetzt. Mit `ariaHidden` ändern wir den Wert auf "false".
 
 ```html
 <div id="hidden" aria-hidden="true">Some things are better left unsaid.</div>
