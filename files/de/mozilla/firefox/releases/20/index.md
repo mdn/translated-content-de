@@ -1,73 +1,73 @@
 ---
-title: Veröffentlichungsnotizen für Entwickler zu Firefox 20
+title: "Firefox 20: Versionshinweise für Entwickler"
 short-title: Firefox 20
 slug: Mozilla/Firefox/Releases/20
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: c61fd478259d34aa4fd6ac4cbf9b7d64a78aff43
 ---
 
-Firefox 20 wurde am 2. April 2013 veröffentlicht. Dieser Artikel bietet Informationen über die Änderungen in dieser Version, die Entwickler betreffen werden.
+Firefox 20 wurde am 2. April 2013 veröffentlicht. Dieser Artikel informiert über die Änderungen in dieser Version, die für Entwickler relevant sind.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-- Unterstützung für das [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)-Attribut bei den {{HTMLElement("a")}} und {{HTMLElement("area")}} Elementen wurde hinzugefügt ([Firefox Fehler 676619](https://bugzil.la/676619)).
-- Der Wert `auto` für das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) wurde implementiert ([Firefox Fehler 548206](https://bugzil.la/548206)).
-- Das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) `contextmenu` funktioniert nun in Firefox für Android ([Firefox Fehler 736321](https://bugzil.la/736321)).
+- Unterstützung für das Attribut [`download`](/de/docs/Web/HTML/Reference/Elements/a#download) bei den Elementen {{HTMLElement("a")}} und {{HTMLElement("area")}} wurde hinzugefügt ([Firefox-Bug 676619](https://bugzil.la/676619)).
+- Der Wert `auto` für das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) wurde implementiert ([Firefox-Bug 548206](https://bugzil.la/548206)).
+- Das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) `contextmenu` funktioniert jetzt auch in Firefox für Android ([Firefox-Bug 736321](https://bugzil.la/736321)).
 
 ### JavaScript
 
-- Unterstützung für die `WeakMap.prototype.clear()`-Methode, die kürzlich zum Harmony (ECMAScript 2015) Entwurfsvorschlag hinzugefügt wurde, wurde hinzugefügt ([Firefox Fehler 814562](https://bugzil.la/814562)).
-- Unterstützung für die [`Math.imul()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/imul)-Methode, eine C-ähnliche 32-Bit-Multiplikationsfunktion. Obwohl sie für Harmony (ECMAScript 2015) vorgeschlagen wurde, ist sie noch nicht akzeptiert worden und ist weiterhin nicht standardisiert ([Firefox Fehler 808148](https://bugzil.la/808148)).
-- Web-Apps, die verschiebbare Texte mit Kinetic 3.x verwenden, funktionieren jetzt, auch wenn das Cairo-Canvas-Backend verwendet wird ([Firefox Fehler 835064](https://bugzil.la/835064)).
-- Die [`for each...in`](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements_2)-Anweisung wurde veraltet und sollte nicht mehr verwendet werden. Erwägen Sie, die neue [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Anweisung zu verwenden ([Firefox Fehler 804834](https://bugzil.la/804834)).
-- Unterstützung für die {{jsxref("Map.prototype.keys()")}}, {{jsxref("Map.prototype.values()")}}, und {{jsxref("Map.prototype.entries()")}} wurde hinzugefügt ([Firefox Fehler 817368](https://bugzil.la/817368)).
+- Unterstützung für die Methode `WeakMap.prototype.clear()`, die kürzlich dem Harmony-Entwurf (ECMAScript 2015) hinzugefügt wurde, wurde ergänzt ([Firefox-Bug 814562](https://bugzil.la/814562)).
+- Unterstützung für die Methode [`Math.imul()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/imul), eine 32-Bit-Multiplikationsfunktion nach C-Vorbild, wurde hinzugefügt. Obwohl sie für Harmony (ECMAScript 2015) vorgeschlagen wurde, ist sie noch nicht angenommen worden und weiterhin nicht standardisiert ([Firefox-Bug 808148](https://bugzil.la/808148)).
+- Webanwendungen, die ziehbaren Text mit Kinetic 3.x verwenden, funktionieren jetzt auch mit dem Cairo-Canvas-Backend ([Firefox-Bug 835064](https://bugzil.la/835064)).
+- Die Anweisung [`for each...in`](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#statements_2) ist veraltet und sollte nicht mehr verwendet werden. Verwenden Sie stattdessen die neue Anweisung [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) ([Firefox-Bug 804834](https://bugzil.la/804834)).
+- Unterstützung für {{jsxref("Map.prototype.keys()")}}, {{jsxref("Map.prototype.values()")}} und {{jsxref("Map.prototype.entries()")}} wurde hinzugefügt ([Firefox-Bug 817368](https://bugzil.la/817368)).
 
 ### CSS
 
-- [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) ist nun standardmäßig nur in Vorabversionen verfügbar (ausgenommen Betaversionen). Es kann in der Release- und Betaversion aktiviert werden, indem die `layout.css.flexbox.enabled` about:config Präferenz auf `true` gesetzt wird.
-- Die [`mask-type`](/de/docs/Web/CSS/Reference/Properties/mask-type)-Eigenschaft wurde hinzugefügt ([Firefox Fehler 793617](https://bugzil.la/793617)).
-- Experimentelle Unterstützung für die {{cssxref(":scope")}} Pseudo-Klasse wurde hinzugefügt. In Aurora und Nightly standardmäßig aktiviert, kann sie in der Release- und Betaversion aktiviert werden, indem die `layout.css.scope-pseudo.enabled` about:config Präferenz auf `true` gesetzt wird ([Firefox Fehler 648722](https://bugzil.la/648722)).
+- [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) ist jetzt standardmäßig nur in Vorabversionen verfügbar (mit Ausnahme der Beta-Versionen). In Release- und Beta-Versionen kann es aktiviert werden, indem die about:config-Einstellung `layout.css.flexbox.enabled` auf `true` gesetzt wird.
+- Die Eigenschaft [`mask-type`](/de/docs/Web/CSS/Reference/Properties/mask-type) wurde hinzugefügt ([Firefox-Bug 793617](https://bugzil.la/793617)).
+- Experimentelle Unterstützung für die Pseudoklasse {{cssxref(":scope")}} wurde hinzugefügt. Sie ist in Aurora und Nightly standardmäßig aktiviert und kann in Release- und Beta-Versionen aktiviert werden, indem die about:config-Einstellung `layout.css.scope-pseudo.enabled` auf `true` gesetzt wird ([Firefox-Bug 648722](https://bugzil.la/648722)).
 
 ### DOM/APIs
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) unterstützt jetzt `playbackRate` (sowohl Lese- als auch Schreibzugriff), mit Tonhöhenkorrektur. Die Tonhöhenkorrektur kann über die Eigenschaft `mozPreservesPitch` gesteuert werden ([Firefox Fehler 495040](https://bugzil.la/495040)).
-- CSSOM: Unterstützung für die neuen [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule) wurde hinzugefügt ([Firefox Fehler 814907](https://bugzil.la/814907)).
-- CSSOM: Bei [`CSSRule`](/de/docs/Web/API/CSSRule) wurden die Konstanten CSSRule.MOZ_KEYFRAME_RULE und CSSRule.MOZ_KEYFRAMES_RULE ohne Präfix auf CSSRule.KEYFRAME_RULE und CSSRule.KEYFRAMES_RULE umgestellt. Die Version mit Präfix wird vorübergehend beibehalten, um Web-Autoren beim Übergang ihres Codes zu unterstützen ([Firefox Fehler 816431](https://bugzil.la/816431)).
-- CSSOM: Es ist nun möglich, den Wert von `conditionText` für [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) zu setzen ([Firefox Fehler 815021](https://bugzil.la/815021)).
-- Die Methoden `parseFromStream` und `parseFromBuffer` des [`DOMParser`](/de/docs/Web/API/DOMParser) sind aus Webinhalten nicht mehr verfügbar ([Firefox Fehler 816410](https://bugzil.la/816410)).
-- Die Methode `serializeToStream` des [`XMLSerializer`](/de/docs/Web/API/XMLSerializer) ist aus Webinhalten nicht mehr verfügbar ([Firefox Fehler 816410](https://bugzil.la/816410)).
-- Die Schnittstellen [`TextDecoder`](/de/docs/Web/API/TextDecoder) und [`TextEncoder`](/de/docs/Web/API/TextEncoder) sind jetzt in Workern verfügbar ([Firefox Fehler 795542](https://bugzil.la/795542)).
-- Unterstützung für die `CSS.supports()`-Methode wurde hinzugefügt, hinter der `layout.css.supports-rule.enabled` Präferenz (standardmäßig deaktiviert) ([Firefox Fehler 779917](https://bugzil.la/779917)).
-- Unterstützung für UndoManager wurde hinzugefügt ([Firefox Fehler 617532](https://bugzil.la/617532)).
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) unterstützt jetzt `playbackRate` (sowohl lesend als auch schreibend) mit Tonhöhenkorrektur. Die Tonhöhenkorrektur kann über die Eigenschaft `mozPreservesPitch` gesteuert werden ([Firefox-Bug 495040](https://bugzil.la/495040)).
+- CSSOM: Unterstützung für die neuen Interfaces [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule) wurde hinzugefügt ([Firefox-Bug 814907](https://bugzil.la/814907)).
+- CSSOM: Bei [`CSSRule`](/de/docs/Web/API/CSSRule) wurden die Präfixe der Konstanten CSSRule.MOZ_KEYFRAME_RULE und CSSRule.MOZ_KEYFRAMES_RULE entfernt; sie heißen jetzt CSSRule.KEYFRAME_RULE und CSSRule.KEYFRAMES_RULE. Die Versionen mit Präfix bleiben vorübergehend erhalten, um Webentwicklern die Umstellung ihres Codes zu erleichtern ([Firefox-Bug 816431](https://bugzil.la/816431)).
+- CSSOM: Der Wert von `conditionText` kann jetzt für [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) festgelegt werden ([Firefox-Bug 815021](https://bugzil.la/815021)).
+- Die Methoden `parseFromStream` und `parseFromBuffer` von [`DOMParser`](/de/docs/Web/API/DOMParser) sind für Webinhalte nicht mehr verfügbar ([Firefox-Bug 816410](https://bugzil.la/816410)).
+- Die Methode `serializeToStream` von [`XMLSerializer`](/de/docs/Web/API/XMLSerializer) ist für Webinhalte nicht mehr verfügbar ([Firefox-Bug 816410](https://bugzil.la/816410)).
+- Die Interfaces [`TextDecoder`](/de/docs/Web/API/TextDecoder) und [`TextEncoder`](/de/docs/Web/API/TextEncoder) sind jetzt in Workern verfügbar ([Firefox-Bug 795542](https://bugzil.la/795542)).
+- Unterstützung für die Methode `CSS.supports()` wurde hinzugefügt. Sie ist über die Einstellung `layout.css.supports-rule.enabled` verfügbar, die standardmäßig deaktiviert ist ([Firefox-Bug 779917](https://bugzil.la/779917)).
+- Unterstützung für UndoManager wurde hinzugefügt ([Firefox-Bug 617532](https://bugzil.la/617532)).
 - Die CSSOM-Methode [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint), die eine [`CaretPosition`](/de/docs/Web/API/CaretPosition) zurückgibt, wurde implementiert.
-- Das Index-Argument der Methoden [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell) und [`HTMLTableElement.insertRow()`](/de/docs/Web/API/HTMLTableElement/insertRow) wurde gemäß HTML-Spezifikation optional gemacht.
-- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia), noch immer mit dem Präfix `Navigator.mozGetUserMedia`, ist jetzt standardmäßig aktiviert.
-- Das dritte, optionale `transfer`-Argument von [`Window.postMessage`](/de/docs/Web/API/Window/postMessage) wird nun unterstützt. Es erlaubt Ihnen, eine Sequenz von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects) an das Ziel zu übertragen ([Firefox Fehler 822094](https://bugzil.la/822094)).
-- Die nicht standardmäßige Methode [`Window.sizeToContent()`](/de/docs/Web/API/Window/sizeToContent) klemmt nun die minimale Größe: Das Fenster kann nicht mehr auf kleine Größen gezwungen werden, die die Interaktion des Benutzers verhindern ([Firefox Fehler 764240](https://bugzil.la/764240)).
-- Mischmodi, wie `overlay`, `color-burn`, `hue`, etc. wurden zur [`CanvasRenderingContext2D.globalCompositeOperation`](/de/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation)-Eigenschaft der Leinwand hinzugefügt ([Firefox Fehler 748433](https://bugzil.la/748433)).
-- Die Version mit Präfix von [`window.indexedDB`](/de/docs/Web/API/Window/indexedDB) — `window.mozIndexedDB` — wurde in Gecko neu eingeführt, sodass schlechtes Cross-Browser-Prefix-Coding (wie `var indexedDB = window.indexedDB || window.webkitIndexedDB …`) in Firefox nicht mehr fehlschlägt. Eine bessere Vorgehensweise ist `window.indexedDB = window.indexedDB || window.webkitIndexedDB …` (siehe [Firefox Fehler 770844](https://bugzil.la/770844).)
+- Das Indexargument der Methoden [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell) und [`HTMLTableElement.insertRow()`](/de/docs/Web/API/HTMLTableElement/insertRow) ist gemäß der HTML-Spezifikation jetzt optional.
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia), weiterhin mit dem Präfix als `Navigator.mozGetUserMedia` verfügbar, ist jetzt standardmäßig aktiviert.
+- Das dritte, optionale Argument `transfer` von [`Window.postMessage`](/de/docs/Web/API/Window/postMessage) wird jetzt unterstützt. Damit können Sie eine Folge [übertragbarer Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) an das Ziel übertragen ([Firefox-Bug 822094](https://bugzil.la/822094)).
+- Die nicht standardisierte Methode [`Window.sizeToContent()`](/de/docs/Web/API/Window/sizeToContent) begrenzt jetzt die Mindestgröße: Ein Fenster kann nicht mehr so stark verkleinert werden, dass Benutzer nicht mehr damit interagieren können ([Firefox-Bug 764240](https://bugzil.la/764240)).
+- Überblendmodi wie `overlay`, `color-burn` und `hue` wurden der Canvas-Eigenschaft [`CanvasRenderingContext2D.globalCompositeOperation`](/de/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation) hinzugefügt ([Firefox-Bug 748433](https://bugzil.la/748433)).
+- Die Version von [`window.indexedDB`](/de/docs/Web/API/Window/indexedDB) mit Präfix – `window.mozIndexedDB` – wurde in Gecko wieder eingeführt, damit fehlerhafter browserübergreifender Code zur Präfixbehandlung (etwa `var indexedDB = window.indexedDB || window.webkitIndexedDB …`) in Firefox nicht mehr fehlschlägt. Ein besserer Ansatz ist `window.indexedDB = window.indexedDB || window.webkitIndexedDB …` (siehe [Firefox-Bug 770844](https://bugzil.la/770844)).
 
 ### SVG
 
-- Die Implementierung der Eigenschaften `contentScriptType` und `contentStyleType` wurde aus dem [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement) entfernt, zusammen mit der Entfernung aus SVG2 ([Firefox Fehler 819731](https://bugzil.la/819731)).
+- Die Implementierung der Eigenschaften `contentScriptType` und `contentStyleType` wurde aus [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement) entfernt, nachdem sie auch aus SVG2 entfernt worden waren ([Firefox-Bug 819731](https://bugzil.la/819731)).
 
 ### MathML
 
-- Zur Unterstützung von MathML-Autoren beim Debuggen von "ungültige-Markup"-Fehlern in ihren Dokumenten werden jetzt MathML-Parsing-Fehler (wie zu viele/zu wenige untergeordnete Elemente) und Warnungen über veraltete Attribute oder falsche Attributwerte an die Fehlerkonsole gemeldet.
-- Das `scriptminsize`-Attribut akzeptiert nun werteinheitenlose Werte und Prozentwerte. Sie werden als Vielfache des Standardwertes (`8pt`) interpretiert.
-- Werteinheitenlose Werte sind jetzt auch für die Attribute `mathsize` und `fontsize` erlaubt; sie multiplizieren den Standardwert.
+- Um MathML-Autoren bei der Fehlersuche nach Fehlern durch ungültiges Markup in ihren Dokumenten zu unterstützen, werden MathML-Parsing-Fehler (etwa zu viele oder zu wenige Kindelemente) sowie Warnungen vor veralteten Attributen oder ungültigen Attributwerten jetzt in der Fehlerkonsole angezeigt.
+- Das Attribut `scriptminsize` akzeptiert jetzt einheitenlose Werte und Prozentwerte. Sie werden als Vielfache des Standardwerts (`8pt`) interpretiert.
+- Einheitenlose Werte sind jetzt auch für die Attribute `mathsize` und `fontsize` zulässig; sie werden mit dem Standardwert multipliziert.
 
 ## Änderungen für Add-on- und Mozilla-Entwickler
 
-- ECMAScript für XML (E4X) ist nun vollständig für alle Chrome- und Inhalts-Skripten deaktiviert. Es war zuvor für Inhalte in Firefox 17 deaktiviert und wurde vollständig für Firefox 21 entfernt. Verwenden Sie DOMParser/DOMSerializer oder einen nicht-nativen JXON-Algorithmus.
-- Die `nsIDOMParserJS`-Schnittstelle existiert nicht mehr ([Firefox Fehler 816410](https://bugzil.la/816410)). Siehe `nsIDOMParser` für Alternativen.
-- Inhaltspräferenzen: Die `nsIContentPrefService`-Schnittstelle ist jetzt veraltet und die asynchrone `nsIContentPrefService2`-Speicher-API wurde implementiert.
-- Die Schnittstellen `nsIProfile` und `nsIProfileChangeStatus` wurden zusammen mit anderem Code, der das vor-Firefox-Profilverwaltungssystem unterstützt, entfernt. Sie haben diese Schnittstellen wahrscheinlich nicht verwendet, aber wenn, sollten Sie damit aufhören. Dies verhindert, dass überholte Teile des Profilsystems den Shutdown-Prozess blockieren.
-- Die `nsIEventSource`-Schnittstelle existiert nicht mehr ([Firefox Fehler 819639](https://bugzil.la/819639)).
+- ECMAScript for XML (E4X) ist jetzt für alle Chrome- und Inhaltsskripte vollständig deaktiviert. Für Inhaltsskripte wurde es bereits in Firefox 17 deaktiviert; in Firefox 21 wurde es vollständig entfernt. Verwenden Sie stattdessen DOMParser/DOMSerializer oder einen nicht nativen JXON-Algorithmus.
+- Das Interface `nsIDOMParserJS` existiert nicht mehr ([Firefox-Bug 816410](https://bugzil.la/816410)). Alternativen finden Sie unter `nsIDOMParser`.
+- Inhaltseinstellungen: Das Interface `nsIContentPrefService` ist jetzt veraltet, und die asynchrone Speicher-API `nsIContentPrefService2` wurde implementiert.
+- Die Interfaces `nsIProfile` und `nsIProfileChangeStatus` wurden entfernt, ebenso wie weiterer Code zur Unterstützung des Profilverwaltungssystems aus der Zeit vor Firefox. Wahrscheinlich haben Sie diese Interfaces nicht verwendet. Falls doch, sollten Sie sie nicht mehr verwenden. Dadurch wird verhindert, dass nicht mehr genutzte Teile des Profilverwaltungssystems das Herunterfahren blockieren.
+- Das Interface `nsIEventSource` existiert nicht mehr ([Firefox-Bug 819639](https://bugzil.la/819639)).
 
 ## Siehe auch
 
-- [Firefox 20 Veröffentlichungsnotizen](https://website-archive.mozilla.org/www.mozilla.org/firefox_releasenotes/en-us/firefox/20.0/releasenotes/)
-- [Add-on Kompatibilität für Firefox 20](https://blog.mozilla.org/addons/2013/03/20/compatibility-for-firefox-20/)
+- [Versionshinweise zu Firefox 20](https://website-archive.mozilla.org/www.mozilla.org/firefox_releasenotes/en-us/firefox/20.0/releasenotes/)
+- [Add-on-Kompatibilität für Firefox 20](https://blog.mozilla.org/addons/2013/03/20/compatibility-for-firefox-20/)

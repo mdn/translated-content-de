@@ -1,92 +1,92 @@
 ---
-title: Firefox 15 Release Notes für Entwickler
+title: Firefox 15 – Versionshinweise für Entwickler
 short-title: Firefox 15
 slug: Mozilla/Firefox/Releases/15
 l10n:
-  sourceCommit: 83f4e64da466670c3700110da364546253eae127
+  sourceCommit: c61fd478259d34aa4fd6ac4cbf9b7d64a78aff43
 ---
 
-Firefox 15 wurde am 28. August 2012 veröffentlicht. Dieser Artikel listet wesentliche Änderungen auf, die nicht nur für Webentwickler interessant sind, sondern auch für Firefox- und Gecko-Entwickler sowie Add-on-Entwickler.
+Firefox 15 wurde am 28. August 2012 veröffentlicht. Dieser Artikel beschreibt wichtige Änderungen für Webentwickler, Firefox- und Gecko-Entwickler sowie Add-on-Entwickler.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-- Das `size`-Attribut des {{HTMLElement("font")}}-Elements wird nun gemäß der HTML5-Spezifikation behandelt. Das bedeutet, dass alle Ganzzahlen größer als 10 oder kleiner als -10 nun als gleichwertig mit 10 bzw. -10 betrachtet werden.
-- Die Unterstützung für `font-weight` und `point-size` Attribute auf dem `<font>`-Element wurde entfernt; diese waren nicht standardisiert und Gecko war die einzige Engine, die sie unterstützte.
-- Der [Opus Codec](https://www.opus-codec.org/) wird jetzt für Audio in Ogg-Containern für die HTML {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente unterstützt.
+- Das `size`-Attribut des {{HTMLElement("font")}}-Elements wird jetzt gemäß der HTML5-Spezifikation behandelt. Das bedeutet, dass alle ganzzahligen Werte größer als 10 beziehungsweise kleiner als -10 nun als gleichbedeutend mit 10 beziehungsweise -10 gelten.
+- Die Unterstützung für die Attribute `font-weight` und `point-size` des `<font>`-Elements wurde entfernt. Diese Attribute waren nicht standardisiert, und Gecko war die einzige Engine, die sie unterstützte.
+- Der [Opus-Codec](https://www.opus-codec.org/) wird jetzt für Audio in Ogg-Containern bei den HTML-Elementen {{HTMLElement("audio")}} und {{HTMLElement("video")}} unterstützt.
 - Das {{HTMLElement("source")}}-Element unterstützt jetzt das `media`-Attribut.
-- Die {{HTMLElement("audio")}} und {{HTMLElement("video")}}-Elemente unterstützen jetzt das `played` Attribut, das ein [`TimeRanges`](/de/docs/Web/API/TimeRanges) Objekt bereitstellt, das die Zeitbereiche auflistet, die bisher zurückgespielt wurden.
+- Die Elemente {{HTMLElement("audio")}} und {{HTMLElement("video")}} unterstützen jetzt das Attribut `played`. Es liefert ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das die Zeitbereiche der bisher wiedergegebenen Medieninhalte auflistet.
 
 ### CSS
 
-- Die {{cssxref("font-feature-settings")}}-Eigenschaft wurde auf die neueste Syntax aktualisiert: `font-feature-settings: "lnum" 1;`
-- Die CSS {{cssxref("text-transform")}} Eigenschaft wurde erweitert, um Unicode-Ligaturzeichen (wie `ﬁ`) korrekt zu behandeln.
-- Die CSS {{cssxref("word-break")}}-Eigenschaft wurde implementiert.
-- Die {{cssxref("border-image")}}-Eigenschaft wurde aktualisiert, um der neuesten Spezifikation zu entsprechen, und die Eigenschaften wurden unverändert. ([Bug 713643](https://bugzil.la/713643))
-- Die `skew()` {{cssxref("transform")}} Funktion, die in Firefox 14 entfernt wurde, wurde aufgrund bestehender Website-Kompatibilität wiederhergestellt. Autoren wird jedoch empfohlen, stattdessen `skewX()` und `skewY()` Funktionen zu verwenden.
-- Der Wert `plaintext` der CSS {{cssxref("unicode-bidi")}}-Eigenschaft gilt jetzt auch für Inline-Elemente. ([Firefox-Bug 746987](https://bugzil.la/746987)).
+- Die Eigenschaft {{cssxref("font-feature-settings")}} wurde auf die aktuelle Syntax aktualisiert: `font-feature-settings: "lnum" 1;`
+- Die CSS-Eigenschaft {{cssxref("text-transform")}} wurde erweitert, sodass Unicode-Ligaturzeichen (wie `ﬁ`) korrekt verarbeitet werden.
+- Die CSS-Eigenschaft {{cssxref("word-break")}} wurde implementiert.
+- Die Eigenschaft {{cssxref("border-image")}} wurde an die aktuelle Spezifikation angepasst; die Präfixe ihrer Eigenschaften wurden entfernt. ([Bug 713643](https://bugzil.la/713643))
+- Die in Firefox 14 entfernte {{cssxref("transform")}}-Funktion `skew()` wurde aus Gründen der Kompatibilität mit bestehenden Websites wiederhergestellt. Autoren wird jedoch empfohlen, stattdessen die Funktionen `skewX()` und `skewY()` zu verwenden.
+- Der Wert `plaintext` der CSS-Eigenschaft {{cssxref("unicode-bidi")}} gilt jetzt auch für Inline-Elemente. ([Firefox-Bug 746987](https://bugzil.la/746987))
 
 ### DOM
 
-- Die DOM Events Level 3 Methoden [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState) und [`MouseEvent.getModifierState()`](/de/docs/Web/API/MouseEvent/getModifierState), die es Ihnen ermöglichen, den Zustand der Modifikatortasten wie `Ctrl` oder `Shift` abzufragen, wurden implementiert (Bugs [630811](https://bugzil.la/630811) und [731878](https://bugzil.la/731878)). Das Verhalten entspricht jedoch dem neuesten D3E-Entwurf. Daher sind einige Modifikatortastausnahmen von IE unterschiedlich ([Firefox-Bug 769190](https://bugzil.la/769190)).
-- Bei Mausereignissen wurde die Unterstützung zum Abfragen des Zustands der Maustasten mit dem [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent) Attribut implementiert.
-- Bei Tastaturereignissen wurde die Unterstützung zum Abfragen der Tastenposition (Standard, links oder rechts der Modifikatortaste, im Numpad) mit dem [KeyboardEvent.location](/de/docs/Web/API/KeyboardEvent/location) Attribut implementiert ([Firefox-Bug 166240](https://bugzil.la/166240)).
-- Das Ergebnis `KeyboardEvent.keycode` wurde aus besseren Regeln berechnet, die unter Windows/Linux/Mac nahezu identisch waren. Jetzt sind sie auch für einige Tastaturlayouts verfügbar, die unter Linux und Mac nicht ASCII-fähig sind, wie Arabisch, Kyrillisch, Thai usw. Siehe [das Dokument für virtuelle Tastencodes](/de/docs/Web/API/UI_Events/Keyboard_event_key_values).
-- Die [`range.detach()`](/de/docs/Web/API/Range/detach) Methode wurde in eine No-Op umgewandelt und wird wahrscheinlich in Zukunft entfernt.
-- Die Methode `HTMLVideoElement.mozHasAudio()` wurde implementiert. Sie gibt an, ob es einen Audiotrack gibt, der mit einem bestimmten Videoelement verknüpft ist. ([Bug 480376](https://bugzil.la/480376))
-- Die `Performance` API hat eine neue Methode, [`now()`](/de/docs/Web/API/Performance/now), die hochauflösende Timer vom Typ `DOMHighResTimeStamp` unterstützt. ([Bug 539095](https://bugzil.la/539095)).
-- Die [WebSMS API](https://web.archive.org/web/20210620092659/https://developer.mozilla.org/de/docs/Archive/B2G_OS/API/Mobile_Messaging_API) wurde aktualisiert und unterstützt jetzt ein `read` Attribut, das angibt, ob eine SMS-Nachricht gelesen oder ungelesen ist.
-- Die [FileHandle API](https://wiki.mozilla.org/WebAPI/FileHandleAPI) wurde implementiert.
-- Der [`Blob`](/de/docs/Web/API/Blob) Konstruktor akzeptiert jetzt `ArrayBufferView` als Mitglied des Parameters `blobParts` zusätzlich zu `ArrayBuffer`. ([Bug 752402](https://bugzil.la/752402))
-- Das `DeviceLightEvent` gemäß dem [Ambient Light Events Working Draft](https://w3c.github.io/ambient-light/) wurde implementiert.
-- Die `DeviceProximityEvent` und `UserProximityEvent` [Proximity Events](https://w3c.github.io/proximity/) wurden implementiert.
-- Die [`File`](/de/docs/Web/API/File) `lastModifiedDate` Eigenschaft wurde implementiert. ([Firefox-Bug 673586](https://bugzil.la/673586))
+- Die Methoden [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState) und [`MouseEvent.getModifierState()`](/de/docs/Web/API/MouseEvent/getModifierState) aus DOM Events Level 3 wurden implementiert. Mit ihnen lässt sich der Zustand von Modifikatortasten wie `Ctrl` oder `Shift` abfragen (Bugs [630811](https://bugzil.la/630811) und [731878](https://bugzil.la/731878)). Das Verhalten entspricht jedoch dem aktuellen D3E-Entwurf. Daher unterscheiden sich einige Namen von Modifikatortasten von denen in IE ([Firefox-Bug 769190](https://bugzil.la/769190)).
+- Für Mausereignisse wurde die Abfrage des Zustands der Maustasten über das Attribut [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent) implementiert.
+- Für Tastaturereignisse wurde die Abfrage der Tastenposition (Standardposition, linke oder rechte Modifikatortaste oder Ziffernblock) über das Attribut [KeyboardEvent.location](/de/docs/Web/API/KeyboardEvent/location) implementiert ([Firefox-Bug 166240](https://bugzil.la/166240)).
+- Der Wert von KeyboardEvent.keycode wird nach verbesserten Regeln berechnet, die unter Windows, Linux und Mac nahezu identisch sind. Die Werte stehen jetzt auch für einige Tastaturlayouts unter Linux und Mac zur Verfügung, die nicht ASCII-fähig sind, etwa arabische, kyrillische und thailändische Layouts. Weitere Informationen finden Sie im [Dokument über virtuelle Tastencodes](/de/docs/Web/API/UI_Events/Keyboard_event_key_values).
+- Die Methode [`range.detach()`](/de/docs/Web/API/Range/detach) wurde in eine wirkungslose Operation umgewandelt und wird voraussichtlich künftig entfernt.
+- Die Methode `HTMLVideoElement.mozHasAudio()` wurde implementiert. Sie gibt an, ob einem bestimmten Videoelement eine Audiospur zugeordnet ist. ([Bug 480376](https://bugzil.la/480376))
+- Die `Performance`-API verfügt über die neue Methode [`now()`](/de/docs/Web/API/Performance/now), die hochauflösende Zeitmessungen vom Typ `DOMHighResTimeStamp` unterstützt. ([Bug 539095](https://bugzil.la/539095))
+- Die [WebSMS-API](https://web.archive.org/web/20210620092659/https://developer.mozilla.org/de/docs/Archive/B2G_OS/API/Mobile_Messaging_API) wurde aktualisiert und unterstützt jetzt ein `read`-Attribut, das angibt, ob eine SMS-Nachricht gelesen wurde oder ungelesen ist.
+- Die [FileHandle-API](https://wiki.mozilla.org/WebAPI/FileHandleAPI) wurde implementiert.
+- Der Konstruktor [`Blob`](/de/docs/Web/API/Blob) akzeptiert für den Parameter `blobParts` jetzt neben `ArrayBuffer` auch `ArrayBufferView`. ([Bug 752402](https://bugzil.la/752402))
+- Das im [Ambient Light Events Working Draft](https://w3c.github.io/ambient-light/) spezifizierte `DeviceLightEvent` wurde implementiert.
+- Die [Proximity Events](https://w3c.github.io/proximity/) `DeviceProximityEvent` und `UserProximityEvent` wurden implementiert.
+- Die Eigenschaft `lastModifiedDate` von [`File`](/de/docs/Web/API/File) wurde implementiert. ([Firefox-Bug 673586](https://bugzil.la/673586))
 
 ### JavaScript
 
-- Unterstützung für das [`DataView`](/de/docs/Web/JavaScript/Reference/Global_Objects/DataView) Interface der Typed Arrays Spezifikation wurde hinzugefügt. Dies bietet Zugriff auf niedriger Ebene auf die Daten, die in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) enthalten sind.
-- Unterstützung für neue ECMAScript 2015 Built-ins: [`Number.isNaN()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN), [`Number.toInteger()`](https://web.archive.org/web/20200204124547/https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toInteger), [`Number.isInteger()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger), [`Number.isFinite()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) wurden hinzugefügt. ([Bug 749818](https://bugzil.la/749818), [Bug 761495](https://bugzil.la/761495), [Bug 761480](https://bugzil.la/749818)).
-- Unterstützung für ECMAScript 2015 [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) wurde hinzugefügt. ([Bug 757676](https://bugzil.la/757676)).
-- Unterstützung für ECMAScript 2015 [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) wurde hinzugefügt. ([Bug 574132](https://bugzil.la/574132)).
+- Die Unterstützung für die Schnittstelle [`DataView`](/de/docs/Web/JavaScript/Reference/Global_Objects/DataView) aus der Typed-Arrays-Spezifikation wurde hinzugefügt. Sie ermöglicht den Zugriff auf die in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) enthaltenen Daten auf niedriger Ebene.
+- Die Unterstützung für neue integrierte Funktionen aus ECMAScript 2015 wurde hinzugefügt: [`Number.isNaN()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN), [`Number.toInteger()`](https://web.archive.org/web/20200204124547/https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toInteger), [`Number.isInteger()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger) und [`Number.isFinite()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite). ([Bug 749818](https://bugzil.la/749818), [Bug 761495](https://bugzil.la/761495), [Bug 761480](https://bugzil.la/749818))
+- Die Unterstützung für [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) aus ECMAScript 2015 wurde hinzugefügt. ([Bug 757676](https://bugzil.la/757676))
+- Die Unterstützung für [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) aus ECMAScript 2015 wurde hinzugefügt. ([Bug 574132](https://bugzil.la/574132))
 
 ### WebGL
 
-- Unterstützung für die [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc) Erweiterung wurde hinzugefügt. Komprimierte Texturen reduzieren den Speicherbedarf auf der GPU, was die Verwendung höher auflösender Texturen oder mehrerer Texturen derselben Auflösung ermöglicht.
+- Die Unterstützung für die Erweiterung [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc) wurde hinzugefügt. Komprimierte Texturen verringern den Speicherbedarf einer Textur auf der GPU. Dadurch können Texturen mit höherer Auflösung oder mehr Texturen mit derselben Auflösung verwendet werden.
 
 ### MathML
 
-- Mathematische Operatoren können jetzt herunterladbare Schriftarten verwenden, die mit {{cssxref("@font-face")}} spezifiziert wurden. Dies ermöglicht, dass das [MathML-fonts Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/) auch mit dehnbaren Operatoren funktioniert.
-- Das `selection`-Attribut des {{MathMLElement("maction")}} wird jetzt nur mit dem `toggle`-Actiontype berücksichtigt.
-- [Veraltete Namensraum-Bindungen](https://www.w3.org/TR/MathML3/chapter3.html#id.3.3.4.2.1) wurden entfernt ([Firefox-Bug 673759](https://bugzil.la/673759)).
-- Unterstützte Syntax für [Length](/de/docs/Web/MathML/Reference/Values) und {{MathMLElement("mpadded")}} Werte wurden näher an jene herangeführt, die in der MathML3-Spezifikation festgelegt sind.
-- Neue MathML-spiegelbare Operatoren für arabische Mathematik wurden dem Operatorwörterbuch hinzugefügt ([Firefox-Bug 757125](https://bugzil.la/757125)).
+- Mathematische Operatoren können jetzt herunterladbare Schriftarten verwenden, die mit {{cssxref("@font-face")}} angegeben werden. Dadurch funktioniert das [Add-on MathML-fonts](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/) auch mit dehnbaren Operatoren.
+- Das Attribut `selection` von {{MathMLElement("maction")}} wird jetzt nur noch beim actiontype `toggle` berücksichtigt.
+- Die [veraltete Namedspace-Bindung](https://www.w3.org/TR/MathML3/chapter3.html#id.3.3.4.2.1) wurde entfernt ([Firefox-Bug 673759](https://bugzil.la/673759)).
+- Die unterstützte Syntax für [Length](/de/docs/Web/MathML/Reference/Values)- und {{MathMLElement("mpadded")}}-Werte wurde stärker an die MathML3-Spezifikation angeglichen.
+- Dem Operatorverzeichnis wurden neue spiegelbare MathML-Operatoren für die arabische Mathematik hinzugefügt ([Firefox-Bug 757125](https://bugzil.la/757125)).
 
 ### SVG
 
-- Unterstützung für das {{SVGElement("view")}} Element wurde hinzugefügt ([Firefox Bug 512525](https://bugzil.la/512525)).
+- Die Unterstützung für das {{SVGElement("view")}}-Element wurde hinzugefügt ([Firefox-Bug 512525](https://bugzil.la/512525)).
 
 ### Netzwerk
 
-- Unterstützung für das SPDY v3 Protokoll wurde eingeführt. Es ist standardmäßig deaktiviert und kann aktiviert werden, indem die Einstellung `network.http.spdy.enabled.v3` auf true gesetzt wird. ([Bug 737470](https://bugzil.la/737470))
+- Die Unterstützung für das Protokoll SPDY v3 wurde hinzugefügt. Sie ist standardmäßig deaktiviert und kann aktiviert werden, indem die Einstellung `network.http.spdy.enabled.v3` auf true gesetzt wird. ([Bug 737470](https://bugzil.la/737470))
 
 ## Änderungen für Add-on- und Mozilla-Entwickler
 
-### Schnittstellenänderungen
+### Änderungen an Schnittstellen
 
 - `nsIDOMWindowUtils`
-  - : `aModifiers` von `sendMouseEvent()`, `sendTouchEvent()`, `sendMouseEventToWindow()`, `sendMouseScrollEvent()` und `sendKeyEvent()` unterstützt alle Modifikatortasten, die von [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState) unterstützt werden. Verwenden Sie `MODIFIER_*` Werte. Und jetzt ist der 5. Parameter von `sendKeyEvent()` von `boolean` in `unsigned long` geändert worden. Für die Rückwärtskompatibilität wird, wenn der Anrufer `true` oder `false` übergibt, das Verhalten nicht geändert. Diese Änderung ermöglicht es Anrufern, den Ort der Taste anzugeben.
+  - : `aModifiers` von `sendMouseEvent()`, `sendTouchEvent()`, `sendMouseEventToWindow()`, `sendMouseScrollEvent()` und `sendKeyEvent()` unterstützt alle Modifikatortasten, die auch [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState) unterstützt. Verwenden Sie die Werte `MODIFIER_*`. Außerdem wurde der Typ des fünften Parameters von `sendKeyEvent()` von `boolean` in `unsigned long` geändert. Aus Gründen der Abwärtskompatibilität bleibt das Verhalten unverändert, wenn der Aufrufer `true` oder `false` übergibt. Durch diese Änderung können Aufrufer die Position der Taste angeben.
 - `nsIBrowserHistory`
-  - : Die `hidePage()`-Methode wurde nie implementiert und in dieser Version vollständig entfernt. Die `addPageWithDetails()`-Methode wurde im Zuge der laufenden Arbeiten, alle 'Places APIs' asynchron zu gestalten, ebenfalls entfernt; verwenden Sie stattdessen `mozIAsyncHistory.updatePlaces()`. Auch das `count` Attribut wurde entfernt; es hatte seit einiger Zeit keine tatsächliche Zählung mehr zurückgegeben (es zeigte stattdessen an, ob Einträge vorhanden waren oder nicht). Sie können stattdessen `nsINavHistoryService.hasHistoryEntries` verwenden.
+  - : Die Methode `hidePage()` wurde nie implementiert und in dieser Version vollständig entfernt. Auch die Methode `addPageWithDetails()` wurde im Zuge der laufenden Umstellung aller „Places APIs“ auf asynchrone Verarbeitung entfernt. Verwenden Sie stattdessen `mozIAsyncHistory.updatePlaces()`. Außerdem wurde das Attribut `count` entfernt: Es gab seit einiger Zeit keine tatsächliche Anzahl mehr zurück, sondern zeigte lediglich an, ob Einträge vorhanden waren. Stattdessen können Sie `nsINavHistoryService.hasHistoryEntries` verwenden.
 - `nsIDOMUtils`
-  - : Die `nsIDOMUtils.parseStyleSheet()` Methode wurde hinzugefügt und ermöglicht das (Neu-)Parsen von Cascading Style Sheets.
+  - : Die Methode `nsIDOMUtils.parseStyleSheet()` wurde hinzugefügt. Sie ermöglicht das Parsen und erneute Parsen von Cascading Style Sheets.
 - `nsIINIParserWriter`
-  - : Die `nsIINIParserWriter.writeFile()` Methode akzeptiert jetzt eine `flags` Eigenschaft. Derzeit wird nur eine Option angeboten: Sie können nun angeben, die Datei im UTF-16-Format anstelle von UTF-8 zu schreiben, für bessere Kompatibilität mit Windows und bestimmten Installationsprogrammen.
+  - : Die Methode `nsIINIParserWriter.writeFile()` akzeptiert jetzt eine Eigenschaft `flags`. Derzeit bietet sie nur eine Option: Sie können festlegen, dass die Datei für eine bessere Kompatibilität mit Windows und bestimmten Installationsprogrammen im UTF-16- statt im UTF-8-Format geschrieben wird.
 
 #### Neue Schnittstellen
 
 - `nsISpeculativeConnect`
-  - : Bietet eine Möglichkeit, dem Netzwerkschicht mitzuteilen, dass Sie voraussichtlich in naher Zukunft eine Verbindung zu einer bestimmten URI öffnen werden. Dies ermöglicht es der Netzwerkschicht, den manchmal hoch-latenzbehafteten Prozess des Öffnens einer neuen Netzwerkverbindung im Voraus zu beginnen.
+  - : Bietet die Möglichkeit, der Netzwerkschicht mitzuteilen, dass Sie voraussichtlich in naher Zukunft eine Verbindung zu einem bestimmten URI anfordern werden. So kann die Netzwerkschicht frühzeitig mit dem Öffnen einer neuen Netzwerkverbindung beginnen, was mitunter viel Zeit in Anspruch nimmt.
 
 #### Entfernte Schnittstellen
 

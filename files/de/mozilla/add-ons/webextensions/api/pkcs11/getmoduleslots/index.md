@@ -2,14 +2,14 @@
 title: pkcs11.getModuleSlots()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/getModuleSlots
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: c61fd478259d34aa4fd6ac4cbf9b7d64a78aff43
 ---
 
-Ermittelt die Steckplätze eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Steckplatz enthält. Jeder Eintrag enthält den Namen des Steckplatzes und, wenn der Steckplatz ein Token enthält, Informationen über das Token.
+Listet die Slots eines Moduls auf. Diese Funktion gibt ein Array mit einem Eintrag für jeden Slot zurück. Jeder Eintrag enthält den Namen des Slots und, falls der Slot ein Token enthält, Informationen über das Token.
 
-Sie können dies nur für ein Modul aufrufen, das in Firefox installiert ist.
+Sie können diese Funktion nur für ein Modul aufrufen, das in Firefox installiert ist.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ let getting = browser.pkcs11.getModuleSlots(
 ### Parameter
 
 - `name`
-  - : `string`. Name des Moduls. Dies muss mit der `name`-Eigenschaft im [PKCS #11-Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) des Moduls übereinstimmen.
+  - : `string`. Name des Moduls. Dieser muss mit der `name`-Eigenschaft im [PKCS #11-Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) des Moduls übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Steckplatz, auf den das Modul Zugriff gewährt. Jedes Objekt hat zwei Eigenschaften:
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die mit einem Array von Objekten erfüllt wird – jeweils einem für jeden Slot, auf den das Modul Zugriff bietet. Jedes Objekt hat zwei Eigenschaften:
 
-- `name`: der Name des Steckplatzes
-- `token`: falls ein Token in diesem Steckplatz vorhanden ist, ein `Token`-Objekt. Falls kein Token im Steckplatz vorhanden ist, ist diese Eigenschaft `null`.
+- `name`: der Name des Slots
+- `token`: ein `Token`-Objekt, wenn in diesem Slot ein Token vorhanden ist. Wenn sich kein Token im Slot befindet, ist diese Eigenschaft `null`.
 
 `Token`-Objekte haben die folgenden Eigenschaften:
 
@@ -38,19 +38,19 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `manufacturer`
   - : `string`. Name des Herstellers des Tokens.
 - `HWVersion`
-  - : `string`. Hardwareversion als PKCS #11-Versionsnummer (zwei 32-Bit-Ganzzahlen, getrennt durch einen Punkt, wie "1.0").
+  - : `string`. Hardwareversion als PKCS #11-Versionsnummer (zwei durch einen Punkt getrennte 32-Bit-Ganzzahlen, beispielsweise „1.0“).
 - `FWVersion`
-  - : `string`. Firmwareversion als PKCS #11-Versionsnummer (zwei 32-Bit-Ganzzahlen, getrennt durch einen Punkt, wie "1.0").
+  - : `string`. Firmwareversion als PKCS #11-Versionsnummer (zwei durch einen Punkt getrennte 32-Bit-Ganzzahlen, beispielsweise „1.0“).
 - `serial`
-  - : `string`. Seriennummer, deren Format durch die Tokenspezifikation definiert ist.
+  - : `string`. Seriennummer, deren Format durch die Token-Spezifikation festgelegt ist.
 - `isLoggedIn`
-  - : `boolean`: `true`, wenn das Token bereits angemeldet ist, `false` sonst.
+  - : `boolean`: `true`, wenn das Token bereits angemeldet ist, andernfalls `false`.
 
-Falls das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn das Modul nicht gefunden werden kann oder ein anderer Fehler auftritt, wird die Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
-Installiert ein Modul, listet dann seine Steckplätze auf und listet die enthaltenen Tokens auf:
+Installiert ein Modul, listet anschließend dessen Slots auf und zeigt die darin enthaltenen Tokens an:
 
 ```js
 function onInstalled() {

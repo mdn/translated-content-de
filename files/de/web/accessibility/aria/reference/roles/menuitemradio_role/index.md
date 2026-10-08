@@ -3,40 +3,40 @@ title: "ARIA: Rolle menuitemradio"
 short-title: menuitemradio
 slug: Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role
 l10n:
-  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
+  sourceCommit: b126460df717d910e92f311f0603800987ecebee
 ---
 
-Ein `menuitemradio` ist ein überprüfbares Menüelement in einer Gruppe von Elementen mit derselben Rolle, von denen nur eines gleichzeitig aktiviert werden kann.
+Ein `menuitemradio` ist ein auswählbarer Menüeintrag in einer Gruppe von Elementen mit derselben Rolle. Innerhalb der Gruppe kann jeweils nur ein Eintrag ausgewählt sein.
 
 ## Beschreibung
 
-Die Elemente in Menüs und Menüleisten sind Menüpunkte. Es gibt drei Arten von Menüpunkten: [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role) und `menuitemradio`. Um die Anzahl der aktivierten Menüpunkte innerhalb einer Gruppe auf eins zu beschränken, verwenden Sie die Rolle `menuitemradio` für alle Elemente in der Gruppe.
+Die Einträge in `menu` und `menubar` sind Menüeinträge. Es gibt drei Arten von Menüeinträgen: [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role) und `menuitemradio`. Damit innerhalb einer Gruppe höchstens ein Menüeintrag ausgewählt sein kann, verwenden Sie für alle Elemente der Gruppe die Rolle `menuitemradio`.
 
-Ein `menuitemradio` ist ein überprüfbares Menüelement in einer Gruppe von Elementen mit derselben Rolle, von denen nur eines aktiviert werden kann.
+Ein `menuitemradio` ist ein auswählbarer Menüeintrag in einer Gruppe von Elementen mit derselben Rolle, von denen jeweils nur eines ausgewählt sein kann.
 
-Die drei Menüelemente können nur in einem Element mit der Rolle [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) oder [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) enthalten sein oder diesem untergeordnet sein, optional verschachtelt innerhalb eines Gruppenelements mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role). Das Verschachteln oder anderweitige Zuordnen (siehe [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)) in einem `menu` oder `menubar` identifiziert die Menüelemente als zusammengehörige Widgets.
+Die drei Arten von Menüeinträgen dürfen nur in einem Element mit der Rolle [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) oder [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) enthalten sein oder einem solchen Element zugeordnet werden. Optional können sie zusätzlich in einem Gruppierungselement mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) verschachtelt sein. Durch die Verschachtelung in einem `menu` oder einer `menubar` beziehungsweise durch eine andere Zuordnung zu einem solchen Element (siehe [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)) werden die Menüeinträge als zusammengehörige Widgets gekennzeichnet.
 
-Wenn alle Elemente in einem Untermenü Mitglieder derselben Radiogruppe sind, wird die `group` durch das Menüelement definiert; das `group`-Element ist nicht erforderlich.
+Wenn alle Einträge eines Untermenüs zur selben Radio-Gruppe gehören, wird die `group` durch das Menüelement definiert; ein `group`-Element ist dann nicht erforderlich.
 
-Menüpunkte mit der Rolle `menuitemradio` müssen das Attribut [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) enthalten, um den Zustand des Radiobuttons für unterstützende Technologien sichtbar zu machen, es sei denn, es wird [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) verwendet, in diesem Fall sollte das Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) verwendet werden.
+Menüeinträge mit der Rolle `menuitemradio` müssen das Attribut [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) enthalten, damit der Zustand des Radio-Buttons für assistive Technologien erkennbar ist. Eine Ausnahme gilt bei Verwendung von [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox): In diesem Fall sollte das Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) verwendet werden.
 
-Ähnlich wie das `checked`-Attribut von {{HTMLElement('input')}}-Elementen vom Typ `radio` zeigt das `aria-checked`-Attribut eines `menuitemradio` an, ob das Menüelement aktiviert (`true`) oder nicht aktiviert (`false`) ist. Es gibt keinen `mixed`-Wert wie bei `menuitemcheckbox`.
+Ähnlich wie das Attribut `checked` bei {{HTMLElement('input')}}-Elementen vom Typ `radio` gibt das Attribut `aria-checked` eines `menuitemradio` an, ob der Menüeintrag ausgewählt (`true`) oder nicht ausgewählt (`false`) ist. Anders als bei `menuitemcheckbox` gibt es keinen Wert `mixed`.
 
-Nur ein `menuitemradio` in einer Gruppe kann gleichzeitig aktiv sein. Wenn ein Element in der Gruppe aktiviert wird, wird das `aria-checked`-Attribut auf `true` gesetzt, während das zuvor aktivierte `menuitemradio`-Element in derselben Gruppe, falls vorhanden, durch Umschalten des `aria-checked`-Attributwerts auf `false` deaktiviert wird.
+In einer Gruppe kann jeweils nur ein `menuitemradio` ausgewählt sein. Wenn ein Eintrag der Gruppe ausgewählt wird, erhält sein Attribut `aria-checked` den Wert `true`. Ein zuvor ausgewähltes `menuitemradio`-Element derselben Gruppe wird, falls vorhanden, abgewählt, indem der Wert seines Attributs `aria-checked` auf `false` gesetzt wird.
 
-Wenn Sie mehr als ein Element in einer Gruppe aktivieren möchten oder das Aktivieren und Deaktivieren eines Elements ermöglichen möchten, verwenden Sie `menuitemcheckbox`.
+Wenn mehrere Einträge einer Gruppe gleichzeitig ausgewählt sein sollen oder wenn sich ein Eintrag einzeln aus- und abwählen lassen soll, sollten Sie `menuitemcheckbox` verwenden.
 
-Wenn ein `menu` oder `menubar` mehr als eine Gruppe von `menuitemradio`-Elementen enthält oder das `menu` eine Gruppe von `menuitemradio`-Elementen sowie andere, nicht verwandte `menuitem`-Elemente und/oder `menuitemcheckbox`-Elemente enthält, fassen Sie jedes Set verwandter `menuitemradio`-Elemente in einem `group`-Element zusammen oder trennen die `menuitemradio`-Elemente von den anderen Menüelementen mit einem `separator`-Element (oder einem HTML-Element mit einer gleichwertigen Rolle wie einer {{HTMLElement('fieldset')}}-Gruppe oder einem thematischen {{HTMLElement('hr')}}-Trennstrich).
+Wenn ein `menu` oder eine `menubar` mehrere Gruppen von `menuitemradio`-Elementen enthält oder wenn ein `menu` neben einer Gruppe von `menuitemradio`-Elementen auch andere, nicht zugehörige `menuitem`- und/oder `menuitemcheckbox`-Elemente enthält, fassen Sie jede zusammengehörige Gruppe von `menuitemradio`-Elementen in einem `group`-Element zusammen. Alternativ können Sie die Gruppe der `menuitemradio`-Elemente durch ein `separator`-Element von den anderen Menüeinträgen abgrenzen (oder durch ein HTML-Element mit einer entsprechenden Rolle, etwa eine Gruppierung mit {{HTMLElement('fieldset')}} oder eine thematische Trennung mit {{HTMLElement('hr')}}).
 
-Ein zugänglicher Name ist erforderlich. Idealerweise sollte der zugängliche Name aus einem zugehörigen {{htmlelement('label')}}-Element stammen, wenn `<input type="radio">` verwendet wird, oder aus sichtbarem, abgeleitetem Inhalt. Beachten Sie, dass, falls das Label oder der abgeleitete Inhalt nicht ausreicht und vorzugsweise [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet wird, das nichtabgeleiteten Inhalt referenziert, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet wird, diese zwei ARIA-Eigenschaften anderen abgeleiteten Inhalt vor unterstützenden Technologien ausblenden.
+Ein zugänglicher Name ist erforderlich. Idealerweise stammt er bei Verwendung von `<input type="radio">` aus einem zugeordneten {{htmlelement('label')}}-Element, andernfalls aus sichtbarem Inhalt eines Nachfahren. Beachten Sie: Wenn die Beschriftung oder der Inhalt der Nachfahren nicht ausreicht und stattdessen vorzugsweise [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) auf Inhalt außerhalb der Nachfahren verweist oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet wird, verbergen diese beiden ARIA-Eigenschaften andere Inhalte von Nachfahren vor assistiven Technologien.
 
-Wenn nicht alle Elemente im Set im DOM vorhanden sind, geben Sie die Eigenschaften [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset) an. Wenn Sie `aria-setsize` und `aria-posinset` auf einem `menuitemradio` angeben, setzen Sie den Wert mit Bezug auf die Gesamtanzahl der Elemente im Menü abzüglich irgendwelcher Trennstriche.
+Wenn nicht alle Elemente der Gruppe im DOM vorhanden sind, geben Sie die Eigenschaften [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset) an. Wenn Sie `aria-setsize` und `aria-posinset` für ein `menuitemradio` angeben, beziehen sich die Werte auf die Gesamtzahl der Einträge im Menü, ohne Trennzeichen mitzuzählen.
 
-Das `menuitemradio`-Element kann Formeninhalte haben, darf jedoch keine interaktiven Inhalte als Nachkommen haben und keine Nachkommen mit einem spezifizierten `tabindex`-Attribut.
+Das `menuitemradio`-Element darf Textinhalte enthalten, aber weder interaktive Inhalte als Nachfahren noch Nachfahren mit einem angegebenen `tabindex`-Attribut.
 
-### Alle Nachkommen sind präsentierend
+### Alle Nachfahren sind rein präsentational
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibility-API dargestellt werden, nur Text enthalten können. Accessibility-APIs können semantische Elemente im `menuitemradio` nicht darstellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente jedes `menuitemradio`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Manche Arten von Benutzeroberflächenkomponenten können in einer Accessibility-API der Plattform nur Text enthalten. Accessibility-APIs können semantische Elemente innerhalb eines `menuitemradio` nicht darstellen. Um diese Einschränkung zu berücksichtigen, weisen Browser allen Nachfahren eines `menuitemradio`-Elements automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) zu, da diese Rolle keine semantischen Kindelemente unterstützt.
 
 Betrachten Sie beispielsweise das folgende `menuitemradio`-Element, das eine Überschrift enthält.
 
@@ -44,7 +44,7 @@ Betrachten Sie beispielsweise das folgende `menuitemradio`-Element, das eine Üb
 <div role="menuitemradio"><h6>Name of my radio button</h6></div>
 ```
 
-Da die Nachkommen von `menuitemradio` präsentierend sind, ist der folgende Code gleichwertig:
+Da Nachfahren von `menuitemradio` rein präsentational sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="menuitemradio">
@@ -52,7 +52,7 @@ Da die Nachkommen von `menuitemradio` präsentierend sind, ist der folgende Code
 </div>
 ```
 
-Aus der Sicht der Benutzer von unterstützenden Technologien existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem Folgenden im {{Glossary("Accessibility_tree", "Accessibility-Baum")}} entsprechen:
+Aus Sicht einer Person, die assistive Technologien verwendet, existiert die Überschrift nicht, da die vorherigen Codebeispiele dem Folgenden im {{Glossary("Accessibility_tree", "Accessibility Tree")}} entsprechen:
 
 ```html
 <div role="menuitemradio">Name of my radio button</div>
@@ -60,50 +60,50 @@ Aus der Sicht der Benutzer von unterstützenden Technologien existiert die Über
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
-- [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) Rolle
-  - : Widget, das eine Liste häufig verwendeter Aktionen oder Funktionen bietet, die der Benutzer ausführen kann.
-- [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) Rolle
-  - : Ähnlich wie `menu` für eine konsistente Sammlung häufig verwendeter Befehle, die sichtbar bleiben und normalerweise horizontal präsentiert werden.
-- [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) Rolle
-  - : Container für eine Gruppe von `menuitem`-Elementen, einschließlich `menuitemradio`-Elementen in einem `menu` oder `menubar`.
+- Rolle [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role)
+  - : Widget, das eine Liste häufiger Aktionen oder Funktionen bereitstellt, die Benutzer ausführen können.
+- Rolle [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role)
+  - : Ähnlich wie `menu`, jedoch für eine dauerhaft sichtbare Gruppe häufig verwendeter Befehle, die üblicherweise horizontal dargestellt wird.
+- Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)
+  - : Container für eine Gruppe von `menuitem`-Elementen, einschließlich `menuitemradio`-Elementen innerhalb eines `menu` oder einer `menubar`.
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) (erforderlich)
-  - : Auf `true` oder `false` gesetzt, zeigt es den aktuellen "checked"-Zustand des `menuitemradio` an.
+  - : Mit dem Wert `true` oder `false` gibt diese Eigenschaft den aktuellen Auswahlzustand des `menuitemradio` an.
 
 ### Tastaturinteraktionen
 
-Wenn ein `menu` geöffnet wird oder wenn ein `menubar` den Fokus erhält, wird der Tastaturfokus auf das erste Element gesetzt. Alle Elemente in beiden sind fokussierbar, einschließlich aller `menuitemradio`-Elemente.
+Wenn ein `menu` geöffnet wird oder eine `menubar` den Fokus erhält, wird der Tastaturfokus auf den ersten Eintrag gesetzt. Alle Einträge in beiden Elementen können den Fokus erhalten, einschließlich aller `menuitemradio`-Elemente.
 
-Wenn `menuitemradio` in einem Untermenü in einem `menubar` oder einem mit einer Menütaste geöffneten Menü ist, müssen die folgenden Tastaturinteraktionen programmiert werden:
+Wenn sich das `menuitemradio` in einem Untermenü einer `menubar` oder in einem über eine Menüschaltfläche geöffneten Menü befindet, müssen die folgenden Tastaturinteraktionen implementiert werden:
 
-- <kbd>Enter</kbd>
-  - : Falls nicht aktiviert, aktiviert den fokussierten `menuitemradio` und deaktiviert alle anderen aktivierten `menuitemradio`-Elemente in derselben Gruppe. Schließt auch das Menü.
+- <kbd>Eingabetaste</kbd>
+  - : Wählt das fokussierte `menuitemradio` aus, falls es noch nicht ausgewählt ist, und wählt jedes andere ausgewählte `menuitemradio`-Element derselben Gruppe ab. Schließt außerdem das Menü.
 - <kbd>Leertaste</kbd>
-  - : Falls nicht aktiviert, aktiviert den fokussierten `menuitemradio` und deaktiviert alle anderen aktivierten `menuitemradio`-Elemente in derselben Gruppe, ohne das Menü zu schließen.
+  - : Wählt das fokussierte `menuitemradio` aus, falls es noch nicht ausgewählt ist, und wählt jedes andere ausgewählte `menuitemradio`-Element derselben Gruppe ab, ohne das Menü zu schließen.
 - <kbd>Escape</kbd>
-  - : Schließt das Menü. In der Menüleiste wird der Fokus auf das übergeordnete Menüleiste-Element verschoben.
-- <kbd>Pfeil rechts</kbd>
-  - : Schliesst das Untermenü. In der Menüleiste bewegt den Fokus zum nächsten Element in der Menüleiste, öffnet ein beliebiges Untermenü, falls vorhanden.
-- <kbd>Pfeil links</kbd>
-  - : Schliesst das Menü. In der Menüleiste bewegt den Fokus zum vorherigen Element in der Menüleiste, öffnet ein beliebiges Untermenü, falls vorhanden.
+  - : Schließt das Menü. In einer Menüleiste wird der Fokus auf den übergeordneten Menüleisteneintrag verschoben.
+- <kbd>Pfeil nach rechts</kbd>
+  - : Schließt das Untermenü. In einer Menüleiste wird der Fokus auf den nächsten Eintrag der Menüleiste verschoben und ein zugehöriges Untermenü gegebenenfalls geöffnet.
+- <kbd>Pfeil nach links</kbd>
+  - : Schließt das Menü. In einer Menüleiste wird der Fokus auf den vorherigen Eintrag der Menüleiste verschoben und ein zugehöriges Untermenü gegebenenfalls geöffnet.
 - <kbd>Pfeil nach unten</kbd>
-  - : Bewegt den Fokus zum nächsten Element im Menü. Wenn der Fokus auf dem letzten Element ist, bewegt er den Fokus auf das erste Element.
+  - : Verschiebt den Fokus auf den nächsten Eintrag im Menü. Befindet sich der Fokus auf dem letzten Eintrag, wird er auf den ersten Eintrag verschoben.
 - <kbd>Pfeil nach oben</kbd>
-  - : Bewegt den Fokus zum vorherigen Element im Menü. Wenn der Fokus auf dem ersten Element ist, bewegt er den Fokus auf das letzte Element.
-- <kbd>Home</kbd>
-  - : Bewegt den Fokus auf das erste Element im Menü.
+  - : Verschiebt den Fokus auf den vorherigen Eintrag im Menü. Befindet sich der Fokus auf dem ersten Eintrag, wird er auf den letzten Eintrag verschoben.
+- <kbd>Pos1</kbd>
+  - : Verschiebt den Fokus auf den ersten Eintrag im Menü.
 - <kbd>Ende</kbd>
-  - : Bewegt den Fokus auf das letzte Element im Menü.
+  - : Verschiebt den Fokus auf den letzten Eintrag im Menü.
 - <kbd>Zeichen</kbd>
-  - : Bewegt den Fokus zum nächsten Element, dessen Name mit dem eingegebenen Zeichen beginnt. Wenn keines der Elemente mit dem eingegebenen Zeichen beginnt, bewegt sich der Fokus nicht.
+  - : Verschiebt den Fokus auf den nächsten Eintrag, dessen Name mit dem eingegebenen Zeichen beginnt. Wenn kein Eintrag einen entsprechenden Namen hat, bleibt der Fokus unverändert.
 
 ### Erforderliches JavaScript
 
-#### Erforderliche Ereignis-Handler
+#### Erforderliche Event-Handler
 
 - `onclick`
-  - : Behandeln Sie Mausklicks auf den Radio-Button und das zugehörige Label, die den Zustand des Radio-Buttons ändern, indem sie den Wert des `aria-checked`-Attributs ändern und das Erscheinungsbild des Radio-Buttons so verändern, dass er für sehende Benutzer als aktiviert oder deaktiviert erscheint.
+  - : Verarbeitet Mausklicks sowohl auf den Radio-Button als auch auf die zugehörige Beschriftung. Dabei wird der Zustand des Radio-Buttons geändert, indem der Wert des Attributs `aria-checked` und das Erscheinungsbild des Radio-Buttons angepasst werden, sodass er für sehende Benutzer als ausgewählt oder nicht ausgewählt erkennbar ist.
 - `onKeyDown`
-  - : Behandeln Sie den Fall, in dem der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand des Radio-Buttons zu ändern, indem der Wert des `aria-checked`-Attributs geändert wird und das Erscheinungsbild des Radio-Buttons so verändert wird, dass er für sehende Benutzer als aktiviert oder deaktiviert erscheint. Behandelt auch alle in der Tastaturnavigationssektion oben aufgeführten Tasten.
+  - : Verarbeitet das Drücken der <kbd>Leertaste</kbd>, um den Zustand des Radio-Buttons zu ändern. Dazu werden der Wert des Attributs `aria-checked` und das Erscheinungsbild des Radio-Buttons angepasst, sodass er für sehende Benutzer als ausgewählt oder nicht ausgewählt erkennbar ist. Verarbeitet außerdem alle oben im Abschnitt zur Tastaturnavigation aufgeführten Tasten.
 
 ## Beispiele
 
@@ -111,9 +111,9 @@ Wenn `menuitemradio` in einem Untermenü in einem `menubar` oder einem mit einer
 <li role="menuitemradio" tabindex="-1" aria-checked="false">Purple</li>
 ```
 
-Der [`tabindex="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) macht das `menuitemradio` fokussierbar, aber nicht Teil der Tabulatorsequenz der Seite. Hätten wir `aria-checked="true"` eingefügt, hätte dies angezeigt, dass das `menuitemradio` aktiviert war, und wir hätten den ausgewählten Zustand visuell durch das Attributselektor `[role='menuitemradio'][aria-checked='true']` so gestaltet, dass er als aktiviert erscheint. Stattdessen zeigt die Anwesenheit von `aria-checked="false"` assistiven Technologien an, dass das `menuitemradio` überprüfbar, aber derzeit nicht aktiviert ist. Der zugängliche Name "purple" stammt aus den Inhalten.
+Durch [`tabindex="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) kann das `menuitemradio` den Fokus erhalten, gehört aber nicht zur Tab-Reihenfolge der Seite. Hätten wir `aria-checked="true"` angegeben, würde dies anzeigen, dass das `menuitemradio` ausgewählt ist. Den ausgewählten Zustand hätten wir mit dem Attributselektor `[role='menuitemradio'][aria-checked='true']` auch visuell entsprechend gestaltet. Stattdessen zeigt `aria-checked="false"` assistiven Technologien an, dass das `menuitemradio` auswählbar, derzeit aber nicht ausgewählt ist. Der zugängliche Name „purple“ stammt aus dem Inhalt.
 
-Das visuelle Erscheinungsbild des ausgewählten Zustands ist ein aktivierter Radio-Button, den wir mithilfe von [generierten Inhalten](/de/docs/Web/CSS/Guides/Generated_content) erstellen können, indem wir ihn sichtbar und die gleiche Farbe wie der Inhalt machen, indem wir mit dem `aria-checked`-Wert unter Verwendung von CSS [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) synchronisieren und die {{cssxref("background-color")}} ändern.
+Der ausgewählte Zustand wird visuell als markierter Radio-Button dargestellt. Diesen können wir mit [generiertem Inhalt](/de/docs/Web/CSS/Guides/Generated_content) erzeugen. Mithilfe von CSS-[Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) und einer Änderung von {{cssxref("background-color")}} lässt er sich sichtbar machen und seine Farbe mit dem Inhalt und dem Wert von `aria-checked` abstimmen.
 
 ```css
 [role="menuitemradio"]::before {
@@ -133,11 +133,11 @@ Das visuelle Erscheinungsbild des ausgewählten Zustands ist ein aktivierter Rad
 }
 ```
 
-Verwenden Sie nicht die Kurzform {{cssxref("background")}}, da dies die {{cssxref("background-clip")}}-Eigenschaft überschreibt, die wir verwendet haben, um den Radio-Button-Effekt zu erzeugen.
+Verwenden Sie nicht die Kurzschreibweise {{cssxref("background")}}, da sie die Eigenschaft {{cssxref("background-clip")}} überschreiben würde, mit der wir den Radio-Button-Effekt erzeugt haben.
 
-### Bevorzugen Sie HTML
+### HTML bevorzugen
 
-Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder Attribut die benötigten Semantiken und das erwartete Verhalten besitzt, verwenden Sie es, anstatt ein Element umzuwidmen und eine ARIA-Rolle, -Zustand oder -Eigenschaft zur Zugänglichkeit hinzuzufügen. Daher wird empfohlen, das native [HTML Radio-Button](/de/docs/Web/HTML/Reference/Elements/input/radio)-Formularsteuerelement zu verwenden, anstatt die Funktionalität eines Radio-Buttons mit JavaScript und ARIA nachzubilden.
+Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder -Attribut die benötigte Semantik und das benötigte Verhalten bietet, verwenden Sie es, statt einem anderen Element eine neue Funktion zu geben und es durch Hinzufügen einer ARIA-Rolle, eines ARIA-Zustands oder einer ARIA-Eigenschaft zugänglich zu machen. Daher empfiehlt es sich, das native [HTML-Radio-Button](/de/docs/Web/HTML/Reference/Elements/input/radio)-Formularsteuerelement zu verwenden, statt die Funktionalität eines Radio-Buttons mit JavaScript und ARIA nachzubilden.
 
 ## Spezifikationen
 
@@ -145,5 +145,5 @@ Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder Attribut die
 
 ## Siehe auch
 
-- [`radio` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)
+- [Rolle `radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)
 - [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)

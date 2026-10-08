@@ -3,10 +3,10 @@ title: "`column-rule-width` CSS property"
 short-title: column-rule-width
 slug: Web/CSS/Reference/Properties/column-rule-width
 l10n:
-  sourceCommit: 04dfe418f2942ae739d41592c22fafa3679fc03c
+  sourceCommit: d3a0fd9820ca27a3f17642841af8426735cb4ec3
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-width`** legt die Breite der Linien fest, die in mehrspaltigen Grid-, Flex- und Multicol-Layouts zwischen den Spalten gezeichnet werden.
+Die [CSS-Eigenschaft](/de/docs/Web/CSS) **`column-rule-width`** definiert die Breite der Linien zwischen Spalten in mehrspaltigen Grid-, Flex- und Multi-Column-Layouts.
 
 {{InteractiveExample("CSS Demo: column-rule-width")}}
 
@@ -81,33 +81,32 @@ column-rule-width: unset;
 Die Eigenschaft `column-rule-width` akzeptiert eine durch Kommas getrennte Liste von Werten, darunter:
 
 - {{cssxref("&lt;line-width&gt;")}}
-  - : Legt die Breite der Linie fest, entweder als expliziter, nicht negativer {{cssxref("&lt;length&gt;")}}-Wert oder mit einem der Schlüsselwörter `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
+  - : Definiert die Breite der Linie, entweder als expliziten, nicht negativen {{cssxref("&lt;length&gt;")}}-Wert oder mit einem der Schlüsselwörter `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 - `<repeat-line-width>`
-  - : Eine {{cssxref("repeat()")}}-Funktion, deren erstes Argument ein {{cssxref("&lt;integer&gt;")}}-Wert von mindestens `1` ist und auf den ein oder mehrere {{cssxref("&lt;line-width&gt;")}}-Werte folgen. Der Integer-Wert legt fest, wie oft die `<line-width>`-Werte wiederholt werden.
-
+  - : Eine {{cssxref("repeat()")}}-Funktion, deren erstes Argument ein {{cssxref("&lt;integer&gt;")}}-Wert von mindestens `1` ist und auf den ein oder mehrere {{cssxref("&lt;line-width&gt;")}}-Werte folgen. Die Ganzzahl gibt an, wie oft die `<line-width>`-Werte wiederholt werden.
 - `<auto-repeat-line-width>`
-  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Die angegebenen `<line-width>`-Werte werden so oft wiederholt, wie nötig ist, um Werte für alle Spaltenlinien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
+  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<line-width>`-Werten als weiteren Argumenten. Die angegebenen `<line-width>`-Werte werden so oft wiederholt, wie es nötig ist, um Werte für alle column-rules bereitzustellen, die nicht durch andere Bestandteile des Eigenschaftswerts ausdrücklich festgelegt sind.
 
 ## Beschreibung
 
-Die Eigenschaft `column-rule-width` legt die Breite der Spaltenlinien fest, die in den Zwischenräumen zwischen benachbarten Spalten von [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Spalte gezeichnet werden.
+Die Eigenschaft `column-rule-width` definiert die Breite der Linien in den Zwischenräumen zwischen benachbarten Spalten von [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Spalte.
 
 > [!NOTE]
-> `column-rule-width` legt nur die Breite der Linien fest, die in den Zwischenräumen gezeichnet werden. Diese Linien haben keine Auswirkungen auf das [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) oder das Layout. Die Größe des Zwischenraums wird durch die Eigenschaft {{cssxref("gap")}} festgelegt; ihr Standardwert beträgt in mehrspaltigen Containern `1em` und in allen anderen Kontexten `0`. Ist eine Linie breiter als der durch {{cssxref("gap")}} festgelegte Zwischenraum, wird sie hinter dem Inhalt der Spalten gezeichnet.
+> `column-rule-width` definiert nur die Breite der Linien, die in den Zwischenräumen gezeichnet werden. Diese Linien wirken sich weder auf das [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) noch auf das Layout aus. Die Größe des Zwischenraums wird durch die Eigenschaft {{cssxref("gap")}} bestimmt. Ihr Standardwert beträgt in mehrspaltigen Containern `1em` und in allen anderen Kontexten `0`. Ist eine Linie breiter als der durch {{cssxref("gap")}} festgelegte Zwischenraum, wird sie hinter dem Spalteninhalt gezeichnet.
 
-Der Wert ist eine durch Kommas getrennte Liste von Bestandteilen, die vom Typ `<line-width>`, `<repeat-line-width>` oder `<auto-repeat-line-width>` sein können.
+Der Wert ist eine durch Kommas getrennte Liste von Bestandteilen der Typen `<line-width>`, `<repeat-line-width>` und `<auto-repeat-line-width>`.
 
 `column-rule-width` kann zusammen mit den Eigenschaften {{cssxref("column-rule-color")}} und {{cssxref("column-rule-style")}} auch über die Kurzschreibweise {{cssxref("column-rule")}} festgelegt werden. {{cssxref("rule-width")}} ist eine Kurzschreibweise, die sowohl `column-rule-width` als auch {{cssxref("row-rule-width")}} festlegt.
 
-Für `<line-width>` kann jeder gültige CSS-{{cssxref("&lt;line-width&gt;")}}-Wert angegeben werden: eines der Schlüsselwörter `thin`, `medium` oder `thick` oder ein positiver {{cssxref("length")}}-Wert. Prozentwerte sind ungültig.
+Für `<line-width>` kann jeder gültige CSS-Wert des Typs {{cssxref("&lt;line-width&gt;")}} angegeben werden: eines der Schlüsselwörter `thin`, `medium` oder `thick` oder ein positiver {{cssxref("length")}}-Wert. Prozentwerte sind ungültig.
 
-Besteht der Eigenschaftswert nur aus einem `<line-width>`-Wert, erhalten alle Spaltenlinien diese Breite. Bei der folgenden Deklaration sind alle Spaltenlinien `2px` breit:
+Besteht der Eigenschaftswert nur aus einem `<line-width>`-Wert, erhalten alle Linien zwischen den Spalten diese Breite. Bei der folgenden Deklaration sind alle Linien `2px` breit:
 
 ```css
 column-rule-width: 2px;
 ```
 
-Werden mehrere `<line-width>`-Werte angegeben, werden sie in der angegebenen Reihenfolge auf die Spaltenlinien angewendet. Gibt es mehr Spaltenlinien als `<line-width>`-Werte, wird die Liste der Linienbreiten wiederholt, bis jede Linie eine Breite hat. Bei der folgenden Deklaration ist beispielsweise jede ungerade Linie `thick` und jede gerade Linie `0.25rem` breit:
+Werden mehrere `<line-width>`-Werte angegeben, gelten sie für die Linien zwischen den Spalten in der angegebenen Reihenfolge. Gibt es mehr Linien als `<line-width>`-Werte, wird die Liste der Breiten wiederholt, bis jeder Linie eine Breite zugewiesen ist. Bei der folgenden Deklaration ist beispielsweise jede ungerade Linie `thick` und jede gerade Linie `0.25rem` breit:
 
 ```css
 column-rule-width: thick, 0.25rem;
@@ -115,14 +114,14 @@ column-rule-width: thick, 0.25rem;
 
 ### Wiederholte Linienbreiten
 
-Mit der Funktion `repeat()` und einer ganzen Zahl ab `1` als erstem Argument lässt sich eine als weitere Argumente übergebene Liste gültiger CSS-{{cssxref("&lt;line-width&gt;")}}-Werte eine bestimmte Anzahl von Malen wiederholen. So kann dieselbe Breite mehrfach verwendet werden, ohne denselben `<line-width>`-Wert mehrfach anzugeben. Die folgenden Deklarationen sind gleichwertig:
+Mit der Funktion `repeat()` und einer Ganzzahl von mindestens `1` als erstem Argument lässt sich eine Liste gültiger CSS-{{cssxref("&lt;line-width&gt;")}}-Werte, die als weitere Argumente übergeben werden, eine festgelegte Anzahl von Malen wiederholen. So kann dieselbe Breite mehrfach verwendet werden, ohne denselben `<line-width>`-Wert mehrfach anzugeben. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 column-rule-width: 1rem, thick, thin, thick, thin, thick, thin;
 column-rule-width: 1rem, repeat(3, thick, thin);
 ```
 
-Sie können beliebige `<line-width>`-Werte verwenden, darunter auch benutzerdefinierte Eigenschaften, die zu einem `<line-width>`-Wert aufgelöst werden. `repeat()` kann die Angabe von Werten vereinfachen, insbesondere bei komplexen Längenberechnungen. Damit lässt sich ein wiederkehrendes Muster unabhängig von der Anzahl der Spalten mit einer einzigen Funktion angeben. Die folgenden Deklarationen sind gleichwertig:
+Sie können beliebige `<line-width>`-Werte verwenden, einschließlich benutzerdefinierter Eigenschaften, die zu einem `<line-width>`-Wert aufgelöst werden. `repeat()` kann die Angabe von Werten vereinfachen, insbesondere bei komplexen Längenberechnungen. Damit lässt sich ein wiederkehrendes Muster unabhängig von der Anzahl der Spalten mit einer einzigen Funktion schreiben. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 column-rule-width:
@@ -141,21 +140,21 @@ column-rule-width:
   thin;
 ```
 
-Dadurch entsteht eine Liste mit 12 Breiten. Enthält die Breitenliste des `column-rule-width`-Werts mehr Werte als Zwischenräume zwischen den Spalten vorhanden sind, werden die überzähligen Breitenwerte ignoriert. Hat der Container drei Spalten, ist die Linie im ersten Zwischenraum `1rem` breit; die Breite der zweiten wird durch die Funktion {{cssxref("min()")}} bestimmt.
+Dadurch entsteht eine Liste mit 12 Breiten. Enthält die Breitenliste des `column-rule-width`-Werts mehr Werte als Zwischenräume zwischen den Spalten vorhanden sind, werden die überzähligen Werte ignoriert. Hat der Container drei Spalten, ist die Linie im ersten Zwischenraum `1rem` breit; die Breite der zweiten wird durch die Funktion {{cssxref("min()")}} bestimmt.
 
-Gibt es mehr Zwischenräume als Breiten, wird die Breitenliste wiederholt. Hat der Container 13 beziehungsweise 25 Spalten, wird diese Breitenfolge ein- beziehungsweise zweimal wiederholt, und die letzte Linie erhält den Wert `thin`. Bei jeder anderen Spaltenzahl bis einschließlich 25 erhält die letzte Linie nicht den Wert `thin`.
+Gibt es mehr Zwischenräume als Breiten, wird die Breitenliste wiederholt. Hat der Container 13 oder 25 Spalten, wird diese Breitenfolge entsprechend ein- oder zweimal wiederholt, und die letzte Linie hat den Wert `thin`. Bei jeder anderen Spaltenanzahl bis 25 hat die letzte Linie nicht den Wert `thin`.
 
 ### Automatisch wiederholte Linienbreiten
 
-Die Funktion `repeat()` akzeptiert als erstes Argument auch `auto` anstelle einer positiven ganzen Zahl. Bei `auto` als erstem Argument wird die als weitere Argumente übergebene Liste von `<line-width>`-Werten so oft wiederholt, wie nötig ist, um Werte für alle Spaltenlinien bereitzustellen, die nicht ausdrücklich durch andere Bestandteile des Eigenschaftswerts festgelegt sind.
+Die Funktion `repeat()` akzeptiert als erstes Argument auch `auto` anstelle einer positiven Ganzzahl. Bei `auto` werden die als weitere Argumente übergebenen `<line-width>`-Werte so oft wiederholt, wie es nötig ist, um Werte für alle Linien zwischen den Spalten bereitzustellen, die nicht durch andere Bestandteile des Eigenschaftswerts ausdrücklich festgelegt sind.
 
 ```css
 column-rule-width: 10px, repeat(auto, thin), 10px;
 ```
 
-In diesem Fall sind die erste und die letzte Spaltenlinie `10px` breit, alle anderen erhalten den Wert `thin`. Unabhängig davon, ob der Container 3, 6, 11, 16 oder 21 Spalten hat, sind die erste und die letzte Spaltenlinie immer `10px` breit. Bei nur 2 oder 3 Spalten gibt es folglich keine Spaltenlinien mit dem Wert `thin`.
+In diesem Fall sind die erste und die letzte Linie zwischen den Spalten jeweils `10px` breit, alle anderen haben den Wert `thin`. Unabhängig davon, ob der Container 3, 6, 11, 16 oder 21 Spalten hat, sind die erste und die letzte Linie stets `10px` breit. Bei nur 2 oder 3 Spalten gibt es somit keine Linien mit dem Wert `thin`.
 
-Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine automatische Wiederholung, die Werte für die Linienbreiten bereitstellt, denen andernfalls durch andere Teile der Liste kein Wert zugewiesen würde. Dadurch wird verhindert, dass die Liste von vorn durchlaufen wird. Ein `column-rule-width`-Wert darf höchstens ein `repeat(auto, <line-width>)` enthalten.
+Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt einen automatischen Wiederholungsmechanismus. Er ergänzt Werte für die Breiten der Linien zwischen den Spalten, denen andernfalls durch andere Teile der Liste kein Wert zugewiesen würde, und verhindert so, dass die Liste erneut von vorn durchlaufen wird. Ein `column-rule-width`-Wert kann höchstens ein `repeat(auto, <line-width>)` enthalten.
 
 ## Formale Definition
 
@@ -169,7 +168,7 @@ Das Schlüsselwort `auto` innerhalb der Funktion `repeat()` erzeugt eine automat
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie mit einem einzelnen Schlüsselwortwert für alle Spaltenlinien dieselbe Breite festgelegt wird.
+Dieses Beispiel zeigt, wie ein einzelnes Schlüsselwort allen Linien zwischen den Spalten dieselbe Breite zuweist.
 
 #### HTML
 
@@ -185,7 +184,7 @@ Wir fügen einen Textabsatz ein:
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("column-count")}} erstellen wir einen mehrspaltigen Container. Da der Standardwert der Eigenschaft {{cssxref("column-rule-style")}} `none` ist, müssen wir sie auf einen sichtbaren Wert setzen, damit die Spaltenlinien gezeichnet werden. Anschließend setzen wir `column-rule-width` auf `thick` und belassen für {{cssxref("column-rule-color")}} den Standardwert `currentcolor`.
+Mit der Eigenschaft {{cssxref("column-count")}} erstellen wir einen mehrspaltigen Container. Da die Eigenschaft {{cssxref("column-rule-style")}} standardmäßig den Wert `none` hat, müssen wir sie auf einen Wert setzen, bei dem die Linien sichtbar sind. Anschließend setzen wir `column-rule-width` auf `thick` und belassen {{cssxref("column-rule-color")}} beim Standardwert `currentcolor`.
 
 ```css
 p {
@@ -200,11 +199,11 @@ p {
 
 {{EmbedLiveSample("Basic usage")}}
 
-In mehrspaltigen Layouts hat die Eigenschaft {{cssxref("gap")}} standardmäßig den Wert `1em`. Dieser ist größer als unsere `column-rule-width`, sodass die Linien nicht über dem Inhalt gezeichnet werden.
+In mehrspaltigen Layouts hat die Eigenschaft {{cssxref("gap")}} standardmäßig den Wert `1em`. Dieser ist größer als unsere `column-rule-width`, sodass die Linien nicht über den Inhalt gezeichnet werden.
 
 ### Mehrere Werte
 
-Dieses Beispiel zeigt, wie mehrere Werte für die Eigenschaft `column-rule-width` verwendet werden. Außerdem zeigt es, dass Linien, die über die Zwischenräume hinausragen, hinter dem Inhalt gezeichnet werden.
+Dieses Beispiel zeigt die Verwendung mehrerer Werte für die Eigenschaft `column-rule-width`. Es zeigt außerdem, dass Linien, die über die Zwischenräume hinausragen, hinter dem Inhalt gezeichnet werden.
 
 #### HTML
 
@@ -226,7 +225,7 @@ Wir fügen eine Liste von Autoren ein:
 
 #### CSS
 
-Wir definieren die Liste als Flex-Container und erzeugen Spalten, indem wir {{cssxref("flex-direction")}} über die Kurzschreibweise {{cssxref("flex-flow")}} auf `row` setzen. Für `column-rule-width` geben wir zehn `<line-width>`-Werte an, von denen jeder größer als der vorherige ist.
+Wir definieren die Liste als Flex-Container und erzeugen Spalten, indem wir {{cssxref("flex-direction")}} über die Kurzschreibweise {{cssxref("flex-flow")}} auf `row` setzen. Für `column-rule-width` geben wir zehn `<line-width>`-Werte an, von denen jeder größer ist als der vorherige.
 
 ```css live-sample___basic live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -246,11 +245,11 @@ ul {
 
 Da es mehr Werte (10) als Zwischenräume (8) gibt, werden die Werte `9px` und `10px` nicht verwendet.
 
-{{cssxref("gap")}} hat standardmäßig den Wert `normal`, der in Flexbox zu `0` aufgelöst wird. `column-rule-width` legt nur die Breite einer gezeichneten Linie fest und beeinflusst das Layout nicht. Die Linien werden hinter dem Inhalt gezeichnet.
+Die Eigenschaft {{cssxref("gap")}} hat standardmäßig den Wert `normal`, der in Flexbox zu `0` aufgelöst wird. `column-rule-width` definiert nur die Breite einer gezeichneten Linie und beeinflusst das Layout nicht. Die Linien werden hinter dem Inhalt gezeichnet.
 
 ### Wiederholte Werte
 
-Dieses Beispiel zeigt, dass die Werte wiederholt werden, wenn die Breitenliste weniger Werte als Spaltenlinien enthält.
+Dieses Beispiel zeigt, dass die Werte wiederholt werden, wenn die Breitenliste weniger Werte enthält, als Linien zwischen den Spalten vorhanden sind.
 
 Wir verwenden dasselbe HTML und CSS wie im vorherigen Beispiel und geben für `column-rule-width` drei durch Kommas getrennte Breiten an:
 
@@ -266,9 +265,9 @@ ul {
 
 ### Verwendung der Funktion `repeat()`
 
-Dieses Beispiel zeigt, wie die Funktion `repeat()` im Wert der Eigenschaft `column-rule-width` verwendet wird und wie sie die Angabe von Werten verkürzen kann.
+Dieses Beispiel zeigt die Verwendung der Funktion `repeat()` im Wert der Eigenschaft `column-rule-width` und wie sie Wertangaben kürzer machen kann.
 
-Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen. Um zu zeigen, wie umfangreich Wertangaben werden können und welchen Nutzen die Funktion `repeat()` hat, deklarieren wir zwei benutzerdefinierte Eigenschaften, die wir in `repeat()`-Funktionsaufrufen verwenden. Die Funktion `repeat()` bewirkt, dass die Liste aus zwei `<line-width>`-Werten dreimal wiederholt wird.
+Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen. Um zu zeigen, wie umfangreich Wertangaben werden können und welchen Nutzen die Funktion `repeat()` bietet, deklarieren wir zwei benutzerdefinierte Eigenschaften und verwenden sie in `repeat()`-Aufrufen. Die Funktion `repeat()` sorgt dafür, dass die Liste aus zwei `<line-width>`-Werten dreimal wiederholt wird.
 
 ```css live-sample___func live-sample___auto
 ul {
@@ -289,13 +288,13 @@ ul {
 
 {{EmbedLiveSample("func", "", "180")}}
 
-Der Flex-Container hat neun Spalten und damit acht Zwischenräume. Die Funktion `repeat()` wiederholt zwei Breitenwerte viermal, sodass eine Liste mit zehn Breitenwerten entsteht. Da es weniger Spaltenzwischenräume als Breitenwerte gibt, werden die letzten beiden Werte der Liste verworfen.
+Der Flex-Container hat neun Spalten und damit acht Zwischenräume. Die Funktion `repeat()` wiederholt zwei Breitenwerte viermal und erzeugt so eine Liste mit zehn Breitenwerten. Da es weniger Zwischenräume zwischen den Spalten als Breitenwerte gibt, werden die letzten beiden Werte der Liste verworfen.
 
 ### Verwendung von `auto` innerhalb von `repeat()`
 
-Dieses Beispiel zeigt, wie innerhalb der Funktion `repeat()` `auto` anstelle einer ganzen Zahl verwendet wird.
+Dieses Beispiel zeigt die Verwendung von `auto` anstelle einer Ganzzahl innerhalb der Funktion `repeat()`.
 
-Mit `repeat(auto, <line-width>)` setzen wir alle Spaltenlinien auf `1px`, mit Ausnahme der ersten und der letzten, die wir auf `5px` setzen.
+Mit `repeat(auto, <line-width>)` setzen wir alle Linien zwischen den Spalten auf `1px`, mit Ausnahme der ersten und der letzten, die wir auf `5px` setzen.
 
 ```css live-sample___auto
 ul {
@@ -311,7 +310,7 @@ ul {
 @layer no-support {
   @supports not (column-rule-width: thin, thick) {
     body::before {
-      content: "Your browser doesn't support the column-rule-width property";
+      content: "Your browser doesn't support multiple values for the column-rule-width property";
       background-color: wheat;
       display: block;
       text-align: center;
@@ -333,9 +332,9 @@ ul {
 
 - {{cssxref("column-rule-color")}}
 - {{cssxref("column-rule-style")}}
-- Kurzschreibweise {{cssxref("column-rule")}}
+- {{cssxref("column-rule")}}-Kurzschreibweise
 - {{cssxref("row-rule-width")}}
-- Kurzschreibweise {{cssxref("rule-width")}}
-- Kurzschreibweise {{cssxref("rule")}}
+- {{cssxref("rule-width")}}-Kurzschreibweise
+- {{cssxref("rule")}}-Kurzschreibweise
 - [CSS-Zwischenräume definieren](/de/docs/Web/CSS/Guides/Gaps/Defining_gaps)
-- Modul [CSS-Zwischenräume](/de/docs/Web/CSS/Guides/Gaps)
+- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)

@@ -1,14 +1,14 @@
 ---
-title: "PaintWorkletGlobalScope: Methode registerPaint()"
+title: "PaintWorkletGlobalScope: registerPaint()-Methode"
 short-title: registerPaint()
 slug: Web/API/PaintWorkletGlobalScope/registerPaint
 l10n:
-  sourceCommit: 4bb8f0d1f9cb2d0e23b9e19f798a7ff39ac34a49
+  sourceCommit: 8b77a013c518ef1b62534a8446a60732d582a24b
 ---
 
 {{APIRef("CSS Painting API")}}{{SeeCompatTable}}
 
-Die Methode **`registerPaint()`** der Schnittstelle [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope) registriert eine Klasse, die programmatisch ein Bild erzeugt, wenn eine CSS-Eigenschaft eine Bilddatei erwartet.
+Die **`registerPaint()`**-Methode der [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)-Schnittstelle registriert eine Klasse, die programmgesteuert ein Bild erzeugt, wenn eine CSS-Eigenschaft eine Bilddatei erwartet.
 
 ## Syntax
 
@@ -36,7 +36,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Registrierung eines Worklet-Moduls. Der Code sollte sich in einer separaten JavaScript-Datei befinden. Beachten Sie, dass `registerPaint()` ohne Referenz auf `PaintWorkletGlobalScope` aufgerufen wird. Die Datei selbst wird über `CSS.paintWorklet.addModule()` geladen (dokumentiert unter [`Worklet.addModule()`](/de/docs/Web/API/Worklet/addModule), einer Methode der übergeordneten Klasse von PaintWorklet).
+Das folgende Beispiel zeigt die Registrierung eines Worklet-Moduls. Dieser Code sollte sich in einer separaten JavaScript-Datei befinden. Beachten Sie, dass `registerPaint()` ohne Referenz auf `PaintWorkletGlobalScope` aufgerufen wird. Die Datei selbst wird über `CSS.paintWorklet.addModule()` geladen (dokumentiert unter [`Worklet.addModule()`](/de/docs/Web/API/Worklet/addModule), einer Methode der übergeordneten Klasse von PaintWorklet).
 
 ```js
 /* checkboardWorklet.js */
@@ -62,13 +62,13 @@ class CheckerboardPainter {
 registerPaint("checkerboard", CheckerboardPainter);
 ```
 
-Der erste Schritt bei der Verwendung eines Paint-Worklets besteht darin, es mit der Funktion `registerPaint()` zu definieren, wie oben gezeigt. Um es zu verwenden, registrieren Sie es mit der Methode `CSS.paintWorklet.addModule()`:
+Der erste Schritt bei der Verwendung eines Paint-Worklets besteht darin, es mit der Funktion `registerPaint()` zu definieren, wie oben gezeigt. Anschließend laden Sie es mit der Methode `CSS.paintWorklet.addModule()`:
 
 ```js
 CSS.paintWorklet.addModule("checkboardWorklet.js");
 ```
 
-Anschließend können Sie die CSS-Funktion {{cssxref('image/paint', 'paint()')}} überall in Ihrem CSS verwenden, wo ein Wert vom Typ {{cssxref('&lt;image&gt;')}} zulässig ist.
+Danach können Sie die CSS-Funktion {{cssxref('image/paint', 'paint()')}} überall dort in Ihrem CSS verwenden, wo ein {{cssxref('&lt;image&gt;')}}-Wert gültig ist.
 
 ```css
 li {
@@ -87,4 +87,4 @@ li {
 ## Siehe auch
 
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
-- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)
+- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)

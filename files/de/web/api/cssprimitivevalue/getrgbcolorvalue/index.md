@@ -1,26 +1,22 @@
 ---
-title: "CSSPrimitiveValue: getRGBColorValue() Methode"
+title: "CSSPrimitiveValue: Methode getRGBColorValue()"
 short-title: getRGBColorValue()
 slug: Web/API/CSSPrimitiveValue/getRGBColorValue
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: a3400c39a245e0404c621c2cdbe75ad0a3eb8672
 ---
 
 {{APIRef("CSSOM")}}{{non-standard_header}}
 
-Die **`getRGBColorValue()`**-Methode des
-[`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Interfaces wird verwendet, um einen RGB-Farbwert zu erhalten. Wenn dieser
-CSS-Wert keinen RGB-Farbwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-Änderungen an der entsprechenden Stil-Eigenschaft können über das
-[`RGBColor`](/de/docs/Web/API/RGBColor)-Interface erreicht werden.
+Die Methode **`getRGBColorValue()`** des Interfaces [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) wird verwendet, um einen RGB-Farbwert abzurufen. Wenn dieser CSS-Wert keinen RGB-Farbwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Die entsprechende Style-Eigenschaft kann über das Interface [`RGBColor`](/de/docs/Web/API/RGBColor) geändert werden.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren ihn nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS Object Model zu entwickeln. Dieser Ansatz wurde aufgegeben, und die meisten Browser implementieren die Methode nicht.
 >
-> Um Ihr Vorhaben zu erreichen, können Sie verwenden:
+> Stattdessen können Sie Folgendes verwenden:
 >
-> - das untypisierte [CSS Object Model](/de/docs/Web/API/CSS_Object_Model), weit verbreitet unterstützt, oder
-> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), weniger unterstützt und als experimentell angesehen.
+> - das nicht typisierte [CSS Object Model](/de/docs/Web/API/CSS_Object_Model), das weithin unterstützt wird, oder
+> - die moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), die weniger breit unterstützt wird und als experimentell gilt.
 
 ## Syntax
 
@@ -34,13 +30,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`RGBColor`](/de/docs/Web/API/RGBColor)-Objekt, das den Farbwert repräsentiert.
+Ein [`RGBColor`](/de/docs/Web/API/RGBColor)-Objekt, das den Farbwert darstellt.
 
 ### Ausnahmen
 
-| **Typ**        | **Beschreibung**                                                                                                                          |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn die angehängte Eigenschaft keinen RGB-Farbwert zurückgeben kann (d.h. kein `CSS_RGBCOLOR`). |
+| **Typ**        | **Beschreibung**                                                                                                                                    |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DOMException` | `INVALID_ACCESS_ERR` wird ausgelöst, wenn die zugehörige Eigenschaft keinen RGB-Farbwert zurückgeben kann (d.h. wenn sie nicht `CSS_RGBCOLOR` ist). |
 
 ## Beispiele
 
@@ -52,9 +48,9 @@ console.log(cssValue.getRGBColorValue());
 
 ## Spezifikationen
 
-Dieses Merkmal wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, ist jedoch seither aus allen Standardisierungsbemühungen herausgefallen.
+Diese Funktion wurde ursprünglich in der Spezifikation [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/) definiert, wird seither jedoch in keinem Standardisierungsverfahren mehr berücksichtigt.
 
-Es wurde durch das moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich jetzt auf dem Standardweg befindet.
+Sie wurde durch die moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) abgelöst, die sich derzeit im Standardisierungsprozess befindet.
 
 ## Browser-Kompatibilität
 

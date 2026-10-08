@@ -3,24 +3,24 @@ title: "MediaTrackConstraints: Eigenschaft noiseSuppression"
 short-title: noiseSuppression
 slug: Web/API/MediaTrackConstraints/noiseSuppression
 l10n:
-  sourceCommit: a5b8c78d6a38dda4194bec70cb82e5bf646178e7
+  sourceCommit: b1bb1b27224e37b2045c6a16b5f9cfa817d0df89
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die Eigenschaft **`noiseSuppression`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die gewünschten oder zwingenden Einschränkungen für den Wert der einschränkbaren Eigenschaft [`noiseSuppression`](/de/docs/Web/API/MediaTrackSettings/noiseSuppression) beschreibt.
+Die Eigenschaft **`noiseSuppression`** des Dictionaries [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), das die gewünschten oder erforderlichen Einschränkungen für den Wert der einschränkbaren Eigenschaft [`noiseSuppression`](/de/docs/Web/API/MediaStreamTrack/getSettings#noisesuppression) beschreibt.
 
-Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`noiseSuppression`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#noisesuppression) prüfen, den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. Normalerweise ist das jedoch nicht nötig, da Browser Einschränkungen ignorieren, die sie nicht kennen.
+Bei Bedarf können Sie prüfen, ob diese Einschränkung unterstützt wird. Überprüfen Sie dazu den Wert von [`noiseSuppression`](/de/docs/Web/API/MediaDevices/getSupportedConstraints#noisesuppression), den ein Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgibt. In der Regel ist das jedoch nicht nötig, da Browser unbekannte Einschränkungen ignorieren.
 
 Rauschunterdrückung wird üblicherweise von Mikrofonen bereitgestellt, kann aber auch von anderen Eingabequellen bereitgestellt werden.
 
 ## Wert
 
-Wenn der Wert einfach `true` oder `false` ist, versucht der User Agent, Medien mit entsprechend aktivierter oder deaktivierter Rauschunterdrückung abzurufen, sofern dies möglich ist. Schlägt das fehl, führt es nicht zu einem Fehler. Wird der Wert stattdessen als Objekt mit einem Feld `exact` angegeben, legt dessen boolescher Wert eine zwingende Einstellung für die Rauschunterdrückung fest. Kann diese nicht erfüllt werden, führt die Anfrage zu einem Fehler.
+Wenn der Wert einfach `true` oder `false` ist, versucht der User Agent, Medien mit entsprechend aktivierter oder deaktivierter Rauschunterdrückung zu erhalten, sofern dies möglich ist. Falls dies nicht möglich ist, schlägt die Anfrage nicht fehl. Wird der Wert stattdessen als Objekt mit einem Feld `exact` angegeben, legt dessen boolescher Wert eine erforderliche Einstellung für die Rauschunterdrückung fest. Kann diese Anforderung nicht erfüllt werden, führt die Anfrage zu einem Fehler.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Sehen Sie sich das Beispiel zum [Testen von Einschränkungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
 
 ## Spezifikationen
 

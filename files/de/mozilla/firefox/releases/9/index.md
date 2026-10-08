@@ -1,139 +1,139 @@
 ---
-title: Firefox 9 Versionshinweise für Entwickler
+title: Firefox 9 – Versionshinweise für Entwickler
 short-title: Firefox 9
 slug: Mozilla/Firefox/Releases/9
 l10n:
-  sourceCommit: 83f4e64da466670c3700110da364546253eae127
+  sourceCommit: c61fd478259d34aa4fd6ac4cbf9b7d64a78aff43
 ---
 
-Firefox 9 wurde am 20. Dezember 2011 für Windows veröffentlicht. Die Mac- und Linux-Version 9.0.1, die einen in letzter Minute entdeckten Absturzfehler behebt, wurden am 21. Dezember 2011 veröffentlicht.
+Firefox 9 wurde am 20. Dezember 2011 für Windows veröffentlicht. Die Version 9.0.1 für Mac und Linux, die einen in letzter Minute entdeckten Absturzfehler behob, wurde am 21. Dezember 2011 veröffentlicht.
 
 ## Änderungen für Webentwickler
 
 ### Entwicklerwerkzeuge
 
-- Die Webkonsole unterstützt jetzt grundlegende [Zeichenfolgenersetzungen](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#string-substitutions) in ihren Protokollierungsmethoden.
-- Sie können jetzt [visuell geschachtelte Ausgabeblöcke erstellen](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#using-groups-in-the-console) in der Webkonsole, um das Lesen zu erleichtern.
+- Die Webkonsole unterstützt in ihren Protokollierungsmethoden jetzt grundlegende [String-Substitutionen](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#string-substitutions).
+- Sie können in der Webkonsole jetzt [visuell verschachtelte Ausgabeblöcke erstellen](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html#using-groups-in-the-console), um die Ausgabe leichter lesbar zu machen.
 
 ### HTML
 
-- Das `value`-Attribut von {{ HTMLElement("li") }} kann jetzt negativ sein. Zuvor wurden negative Werte in 0 umgewandelt.
-- Sie können jetzt [den Start- und Stoppzeitpunkt von Medien](/de/docs/Web/Media/Guides/Audio_and_video_delivery#specifying_playback_range) in der URI der Medien angeben, wenn Sie {{ HTMLElement("audio") }}- und {{ HTMLElement("video") }}-Elemente verwenden.
-- {{ HTMLElement("input") }}- und {{ HTMLElement("textarea") }}-Elemente berücksichtigen jetzt den Wert des `lang`-Attributs, wenn die Rechtschreibprüfung aufgerufen wird.
-- Firefox auf Android ermöglicht es Nutzern jetzt, Fotos mit der Kamera ihres Telefons zu machen, ohne den Browser zu verlassen, wenn das {{ HTMLElement("input") }}-Element mit `type="file"` und `accept="image/*"` verwendet wird.
-- Windows Vista-style PNG-ICO-Bilder werden jetzt unterstützt.
-- Das Zeichnen von Bildern, die das [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)-Attribut verwenden, um CORS-Zugriff anzufordern, verfärbt die Zeichenfläche nicht mehr fälschlicherweise [wenn CORS gewährt wurde](/de/docs/Web/HTML/How_to/CORS_enabled_image#security_and_tainted_canvases).
-- Der Wert des [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan)-Attributs kann jetzt so groß wie 65.534 sein, gegenüber zuvor 8190.
+- Das `value`-Attribut von {{ HTMLElement("li") }} kann jetzt negativ sein. Bisher wurden negative Werte in 0 umgewandelt.
+- Bei Verwendung der Elemente {{ HTMLElement("audio") }} und {{ HTMLElement("video") }} können Sie jetzt [Start- und Endzeit der Medienwiedergabe](/de/docs/Web/Media/Guides/Audio_and_video_delivery#specifying_playback_range) im URI des Mediums angeben.
+- Die Elemente {{ HTMLElement("input") }} und {{ HTMLElement("textarea") }} berücksichtigen beim Aufruf der Rechtschreibprüfung jetzt den Wert des `lang`-Attributs.
+- Wenn das Element {{ HTMLElement("input") }} mit `type="file"` und `accept="image/*"` verwendet wird, können Nutzer von Firefox für Android jetzt mit der Kamera ihres Smartphones Fotos aufnehmen, ohne den Browser zu verlassen.
+- PNG-ICO-Bilder im Stil von Windows Vista werden jetzt unterstützt.
+- Beim Zeichnen von Bildern, die mit dem Attribut [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin) CORS-Zugriff anfordern, wird der [Canvas](/de/docs/Web/HTML/How_to/CORS_enabled_image#security_and_tainted_canvases) nicht mehr fälschlicherweise als „tainted“ markiert, wenn CORS-Zugriff gewährt wurde.
+- Der Wert des Attributs [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan) kann jetzt bis zu 65.534 betragen; bisher lag die Obergrenze bei 8190.
 
 ### CSS
 
-- Die {{ cssxref("font-stretch") }}-Eigenschaft wird jetzt unterstützt.
-- Die {{ cssxref("columns") }}-Eigenschaft wird jetzt mit dem `-moz`-Präfix unterstützt. Dies ist eine Kurzform für die folgenden Eigenschaften: {{ cssxref("column-width") }} und {{ cssxref("column-count") }}.
-- Wenn ein Stylesheet, das mit dem {{ HTMLElement("link") }}-Element eingebunden wurde, vollständig geladen und geparst ist (aber noch nicht auf das Dokument angewendet wurde), wird jetzt ein [`load`-Event](/de/docs/Web/HTML/Reference/Elements/link#stylesheet_load_events) ausgelöst. Wenn ein Fehler beim Verarbeiten eines Stylesheets auftritt, wird jetzt auch ein `error`-Event ausgelöst.
-- Sie können jetzt Überlauf-Einstellungen für sowohl die linke als auch die rechte Kante von Inhalten mit einer neuen Zwei-Wert-Syntax für {{ cssxref("text-overflow") }} angeben.
+- Die Eigenschaft {{ cssxref("font-stretch") }} wird jetzt unterstützt.
+- Die Eigenschaft {{ cssxref("columns") }} wird jetzt mit dem Präfix `-moz` unterstützt. Sie ist eine Kurzschreibweise für die Eigenschaften {{ cssxref("column-width") }} und {{ cssxref("column-count") }}.
+- Wenn ein über das Element {{ HTMLElement("link") }} eingebundenes Stylesheet vollständig geladen und geparst wurde (aber noch nicht auf das Dokument angewendet wurde), wird jetzt ein [`load`-Ereignis](/de/docs/Web/HTML/Reference/Elements/link#stylesheet_load_events) ausgelöst. Tritt bei der Verarbeitung eines Stylesheets ein Fehler auf, wird außerdem ein `error`-Ereignis ausgelöst.
+- Mit einer neuen Syntax aus zwei Werten für {{ cssxref("text-overflow") }} können Sie jetzt festlegen, wie überlaufender Inhalt sowohl am linken als auch am rechten Rand behandelt wird.
 
 ### JavaScript
 
-_Keine Änderung._
+_Keine Änderungen._
 
 ### DOM
 
-- [Verwendung des Vollbildmodus](/de/docs/Web/API/Fullscreen_API)
-  - : Die neue Fullscreen-API bietet eine Möglichkeit, Inhalte bildschirmfüllend darzustellen, ohne dass eine Browser-Schnittstelle angezeigt wird. Das ist großartig für Videos und Spiele. Diese API ist derzeit experimentell und mit Präfix versehen.
+- [Vollbildmodus verwenden](/de/docs/Web/API/Fullscreen_API)
+  - : Die neue Fullscreen API ermöglicht es, Inhalte ohne Browseroberfläche auf dem gesamten Bildschirm darzustellen. Das eignet sich besonders für Videos und Spiele. Diese API ist derzeit experimentell und mit einem Präfix versehen.
 
 <!---->
 
-- Die [`Node.contains()`](/de/docs/Web/API/Node/contains)-Methode ist jetzt implementiert; diese ermöglicht es Ihnen zu bestimmen, ob ein gegebenes Knoten ein Nachfahre eines anderen Knotens ist.
-- Das [`Node.parentElement`](/de/docs/Web/API/Node/parentElement)-Attribut wurde implementiert; dies gibt das übergeordnete [`Element`](/de/docs/Web/API/Element) eines DOM-Knotens zurück oder `null`, wenn das übergeordnete Element kein Element ist.
-- DOM-Level-3-[Kompositionsereignisse](/de/docs/Web/API/CompositionEvent) werden jetzt unterstützt.
-- Das [`Document.scripts`](/de/docs/Web/API/Document/scripts)-Attribut wurde implementiert; dies gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von allen {{ HTMLElement("script") }}-Elementen im Dokument zurück.
-- Die [`Document.queryCommandSupported()`](/de/docs/Web/API/Document/queryCommandSupported)-Methode wurde implementiert.
-- Das Set von Ereignissen, die für {{ HTMLElement("body") }}-Elemente gehörig registriert werden können, wurde überarbeitet, um dem neuesten Entwurf der HTML5-Spezifikation zu entsprechen. Die Liste der Ereignisse im [DOM-Ereignisse-Leitfaden](/de/docs/Web/API/Document_Object_Model/Events#event_index) zeigt, welche Ereignisse auf {{ HTMLElement("body") }} gehört werden können.
-- Das `readystatechange`-Ereignis wird jetzt nur noch auf dem [`Document`](/de/docs/Web/API/Document) ausgelöst, wie beabsichtigt.
-- Ereignis-Handler sind jetzt als Standard-IDL-Interfaces implementiert. Für die meisten Fälle hat dies keine Auswirkungen auf den Inhalt, aber es gibt Ausnahmen.
-- Ein neuer Rückgabetyp, `"moz-json"`, wurde zu `XMLHttpRequest` hinzugefügt, sodass `XMLHttpRequest` automatisch {{Glossary("JSON", "JSON")}}-Zeichenfolgen für Sie parst; wenn Sie diesen Typ anfordern, wird eine zurückgegebene JSON-Zeichenfolge geparst, sodass der Wert der `response`-Eigenschaft das resultierende JavaScript-Objekt ist.
-- [`XMLHttpRequest` "progress" Events](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress) werden jetzt zuverlässig für jeden empfangenen Datenabschnitt gesendet; in der Vergangenheit war es möglich, dass der letzte empfangene Datenabschnitt kein "progress"-Ereignis auslöste. Jetzt können Sie den Fortschritt nur durch das Verfolgen von "progress"-Ereignissen verfolgen, anstatt auch "load"-Ereignisse zu überwachen, um den Empfang des letzten Datenabschnitts zu erkennen.
-- In der Vergangenheit warf das Aufrufen von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) mit einem `null`-Listener eine Ausnahme. Jetzt kehrt es ohne Fehler und ohne Effekt zurück.
-- Das neue [`navigator.doNotTrack`](/de/docs/Web/API/Navigator/doNotTrack)-Eigenschaft lässt Ihre Inhalte leicht feststellen, ob der Benutzer seine Nicht-Verfolgen-Präferenz aktiviert hat; wenn dieser Wert "yes" ist, sollten Sie den Benutzer nicht verfolgen.
-- [`Range`](/de/docs/Web/API/Range)- und [`Selection`](/de/docs/Web/API/Selection)-Objekte verhalten sich jetzt gemäß ihren Spezifikationen, wenn [`splitText()`](/de/docs/Web/API/Text/splitText) und [`normalize()`](/de/docs/Web/API/Node/normalize) aufgerufen werden.
-- Der Wert von [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) für Doctype-Knoten ist jetzt das Dokument, auf dem [`createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) aufgerufen wurde, um den Knoten zu erstellen, anstelle von `null`.
+- Die Methode [`Node.contains()`](/de/docs/Web/API/Node/contains) ist jetzt implementiert. Mit ihr können Sie feststellen, ob ein Knoten ein Nachfahre eines anderen Knotens ist.
+- Das Attribut [`Node.parentElement`](/de/docs/Web/API/Node/parentElement) ist implementiert. Es gibt das übergeordnete [`Element`](/de/docs/Web/API/Element) eines DOM-Knotens zurück oder `null`, wenn der übergeordnete Knoten kein Element ist.
+- [Composition Events](/de/docs/Web/API/CompositionEvent) gemäß DOM Level 3 werden jetzt unterstützt.
+- Das Attribut [`Document.scripts`](/de/docs/Web/API/Document/scripts) ist implementiert. Es gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) aller {{ HTMLElement("script") }}-Elemente im Dokument zurück.
+- Die Methode [`Document.queryCommandSupported()`](/de/docs/Web/API/Document/queryCommandSupported) ist implementiert.
+- Die Ereignisse, auf die bei {{ HTMLElement("body") }}-Elementen reagiert werden kann, wurden an den neuesten Entwurf der HTML5-Spezifikation angepasst. Der [Leitfaden zu DOM-Ereignissen](/de/docs/Web/API/Document_Object_Model/Events#event_index) enthält eine Liste dieser Ereignisse.
+- Das Ereignis `readystatechange` wird jetzt wie vorgesehen nur noch auf dem [`Document`](/de/docs/Web/API/Document) ausgelöst.
+- Ereignis-Handler sind jetzt als standardisierte IDL-Interfaces implementiert. In den meisten Fällen hat dies keine Auswirkungen auf Inhalte, es gibt jedoch Ausnahmen.
+- `XMLHttpRequest` unterstützt jetzt den neuen Antworttyp `"moz-json"`. Damit kann `XMLHttpRequest` {{Glossary("JSON", "JSON")}}-Strings automatisch parsen: Wenn Sie diesen Typ anfordern, wird ein zurückgegebener JSON-String geparst, sodass der Wert der Eigenschaft `response` das resultierende JavaScript-Objekt ist.
+- [`XMLHttpRequest`-„progress“-Ereignisse](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress) werden jetzt zuverlässig für jeden empfangenen Datenblock gesendet. Bisher konnte es vorkommen, dass für den letzten empfangenen Datenblock kein „progress“-Ereignis ausgelöst wurde. Sie können den Fortschritt jetzt allein anhand der „progress“-Ereignisse verfolgen, ohne zusätzlich „load“-Ereignisse überwachen zu müssen, um den Empfang des letzten Datenblocks zu erkennen.
+- Bisher löste ein Aufruf von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) mit einem `null`-Listener eine Ausnahme aus. Jetzt kehrt die Methode ohne Fehler und ohne Wirkung zurück.
+- Mit der neuen Eigenschaft [`navigator.doNotTrack`](/de/docs/Web/API/Navigator/doNotTrack) können Ihre Inhalte einfach feststellen, ob Nutzer die Do-Not-Track-Einstellung aktiviert haben. Lautet der Wert „yes“, sollten Sie die Nutzer nicht tracken.
+- [`Range`](/de/docs/Web/API/Range)- und [`Selection`](/de/docs/Web/API/Selection)-Objekte verhalten sich beim Aufruf von [`splitText()`](/de/docs/Web/API/Text/splitText) und [`normalize()`](/de/docs/Web/API/Node/normalize) jetzt gemäß ihren Spezifikationen.
+- Der Wert von [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) ist bei Doctype-Knoten jetzt das Dokument, für das [`createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) zum Erstellen des Knotens aufgerufen wurde, statt `null`.
 - `window.navigator.taintEnabled` wurde entfernt; es wurde seit vielen Jahren nicht mehr unterstützt.
 
 ### Workers
 
-- Workers, die in Blob-URLs implementiert sind, waren in Firefox 8 defekt und funktionieren ab Firefox 9 wieder.
+- Workers, die über Blob-URLs implementiert wurden, funktionierten in Firefox 8 nicht. Ab Firefox 9 funktionieren sie wieder.
 
 ### WebGL
 
-- Die [WebGL](/de/docs/Web/API/WebGL_API)-Kontext-Attribute `drawingBufferWidth` und `drawingBufferHeight` werden jetzt unterstützt.
+- Die Attribute `drawingBufferWidth` und `drawingBufferHeight` des [WebGL](/de/docs/Web/API/WebGL_API)-Kontexts werden jetzt unterstützt.
 
 ### MathML
 
-- Der nicht-standardmäßige `restyle`-Wert für das `actiontype`-Attribut auf {{ MathMLElement("maction") }}-Elementen wurde entfernt.
-- Obwohl er noch nicht unterstützt wird, führt die Verwendung des `mlabeledtr`-Elements nicht mehr zu einem vollständigen Rendering-Fehler. Siehe [Firefox-Fehler 689641](https://bugzil.la/689641) für Fortschritte bei der tatsächlichen Unterstützung dieses Elements.
+- Der nicht standardisierte Wert `restyle` für das Attribut `actiontype` von {{ MathMLElement("maction") }}-Elementen wurde entfernt.
+- Das Element `mlabeledtr` wird zwar weiterhin nicht unterstützt, seine Verwendung verhindert aber nicht mehr vollständig das Rendering. Den Fortschritt bei der tatsächlichen Unterstützung dieses Elements können Sie unter [Firefox-Bug 689641](https://bugzil.la/689641) verfolgen.
 
 ### Netzwerk
 
-- Sie können jetzt die Inhalte von [JavaScript-gegetippten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) (das heißt, die Inhalte eines [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)-Objekts) [unter Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Sending_and_Receiving_Binary_Data) senden.
-- WebSocket-Verbindungen erlauben jetzt Nicht-Zeichen in ansonsten gültigen UTF-8-Datenrahmen, anstatt zu scheitern.
-- Der HTTP-`Accept`-Header für XSLT-Anfragen wurde der Einfachheit halber in `*/*` geändert. Da das Abrufen von XSLT sowieso immer auf `*/*` zurückgefallen ist, war es sinnvoll, die ursprüngliche Anfrage zu vereinfachen.
-- Versuche eines Servers, die `301 Moved Permanently`- oder `307 Temporary Redirect`-Antwortcodes zu verwenden, um den Benutzer zu einer `javascript:`-URI umzuleiten, führen jetzt zu einem "bad connection"-Fehler anstelle der tatsächlichen Umleitung. Dies verhindert bestimmte Arten von Cross-Site-Scripting-Angriffen.
-- Inhalte, die mit einem leeren {{ HTTPHeader("Content-Disposition") }} serviert wurden, wurden zuvor behandelt, als ob das {{ HTTPHeader("Content-Disposition") }} "attachment" wäre; dies funktionierte nicht immer wie erwartet. Diese werden jetzt so behandelt, als ob das {{ HTTPHeader("Content-Disposition") }} "inline" wäre.
-- Die standardmäßige maximale Größe eines Elements im Festplattencache wurde auf 50 MB erhöht; zuvor wurden nur Elemente bis zu 5 MB zwischengespeichert.
+- Sie können jetzt den Inhalt von [typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) (also den Inhalt eines [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)-Objekts) [mit XMLHttpRequest senden](/de/docs/Web/API/XMLHttpRequest_API/Sending_and_Receiving_Binary_Data).
+- WebSocket-Verbindungen können jetzt Nicht-Zeichen in ansonsten gültigen UTF-8-Datenframes empfangen, statt daran zu scheitern.
+- Der HTTP-Header `Accept` für XSLT-Anfragen wurde zur Vereinfachung in `*/*` geändert. Da beim Abrufen von XSLT ohnehin schon immer auf `*/*` zurückgegriffen wurde, war es sinnvoll, bereits die ursprüngliche Anfrage zu vereinfachen.
+- Wenn ein Server versucht, Nutzer mit den Antwortcodes `301 Moved Permanently` oder `307 Temporary Redirect` zu einem `javascript:`-URI umzuleiten, führt dies jetzt zu einem Fehler wegen einer ungültigen Verbindung, statt die Umleitung auszuführen. Dies verhindert bestimmte Arten von Cross-Site-Scripting-Angriffen.
+- Inhalte, die mit einem leeren {{ HTTPHeader("Content-Disposition") }} ausgeliefert wurden, wurden bisher so behandelt, als wäre {{ HTTPHeader("Content-Disposition") }} auf „attachment“ gesetzt. Das funktionierte nicht immer wie erwartet. Jetzt werden sie so behandelt, als wäre {{ HTTPHeader("Content-Disposition") }} auf „inline“ gesetzt.
+- Die standardmäßige maximale Größe eines Eintrags im Festplatten-Cache wurde auf 50 MB erhöht. Bisher wurden nur Einträge bis zu 5 MB zwischengespeichert.
 
 ## Änderungen für Mozilla- und Add-on-Entwickler
 
-Siehe [Aktualisierung von Add-ons für Firefox 9](/de/docs/Mozilla/Firefox/Releases/9/Updating_add-ons) für einen Überblick über die Änderungen, die möglicherweise vorgenommen werden müssen, um Ihre Add-ons in Firefox 9 zum Laufen zu bringen.
+Unter [Add-ons für Firefox 9 aktualisieren](/de/docs/Mozilla/Firefox/Releases/9/Updating_add-ons) finden Sie einen Überblick über Änderungen, die möglicherweise nötig sind, damit Ihre Add-ons mit Firefox 9 funktionieren.
 
 ### XUL
 
-- Das `<xul:tab>`-Element verfügt jetzt über ein `pending`-Attribut, dessen Wert `true` ist, wenn das Tab im Prozess der Wiederherstellung durch den Sitzungsspeicherdienst ist. Dies kann verwendet werden, um das Tab in Themen zu stylen. Das Attribut ist bei Tabs, die nicht pendent sind, nicht vorhanden.
-- Das `<xul:tab>`-Element verfügt jetzt über ein `unread`-Attribut, dessen Wert `true` ist, wenn das Tab sich seit dem letzten Mal geändert hat, als es das aktive Tab war, oder wenn es seit Beginn der aktuellen Sitzung nicht ausgewählt wurde. Das Attribut ist bei Tabs, die nicht ungelesen sind, nicht vorhanden.
-- Sie können jetzt ein `<xul:panel>` als Ziehbild für DOM-Drag-&-Drop-Operationen verwenden. Dies ermöglicht es Ihnen, die [Standard-Drag-&-Drop-API](/de/docs/Web/API/HTML_Drag_and_Drop_API) für Drag & Drop von XUL-Inhalten zu verwenden.
-- Die `appendNotification`-Methode des `<xul:notificationbox>`-Elements lässt Sie jetzt einen Callback angeben, der für interessante Ereignisse in Bezug auf die Benachrichtigungsbox aufgerufen wird. Derzeit ist das einzige Ereignis "removed", das Ihnen mitteilt, dass die Box aus ihrem Fenster entfernt wurde.
+- Das Element `<xul:tab>` hat jetzt ein `pending`-Attribut mit dem Wert `true`, während der Tab vom Session-Store-Dienst wiederhergestellt wird. Dieses Attribut kann verwendet werden, um den Tab in Themes zu gestalten. Bei Tabs, deren Wiederherstellung nicht aussteht, ist das Attribut nicht vorhanden.
+- Das Element `<xul:tab>` hat jetzt ein `unread`-Attribut mit dem Wert `true`, wenn sich der Tab geändert hat, seit er zuletzt aktiv war, oder wenn er seit Beginn der aktuellen Sitzung noch nicht ausgewählt wurde. Bei Tabs, die nicht als ungelesen gelten, ist das Attribut nicht vorhanden.
+- Sie können jetzt ein `<xul:panel>` als Drag-Image für DOM-Drag-and-Drop-Vorgänge verwenden. Dadurch können Sie die [standardisierte Drag-and-Drop-API](/de/docs/Web/API/HTML_Drag_and_Drop_API) für XUL-Inhalte nutzen.
+- Bei der Methode `appendNotification` des Elements `<xul:notificationbox>` können Sie jetzt einen Callback angeben, der bei relevanten Ereignissen im Zusammenhang mit der Benachrichtigungsbox aufgerufen wird. Derzeit gibt es nur das Ereignis „removed“, das meldet, dass die Box aus ihrem Fenster entfernt wurde.
 
 ### Änderungen an JavaScript-Code-Modulen
 
-- `FileUtils.jsm` verfügt jetzt über einen `File`-Konstruktor, der ein `nsIFile`-Objekt zurückgibt, das eine Datei darstellt, die durch ihren Pfadnamen angegeben ist.
+- `FileUtils.jsm` verfügt jetzt über einen `File`-Konstruktor, der ein `nsIFile`-Objekt zurückgibt, das eine anhand ihres Pfadnamens angegebene Datei repräsentiert.
 
-### Änderungen der Dienste
+### Änderungen an Diensten
 
-- Der Inhaltspräferenzdienst bearbeitet jetzt das private Modus-Browsen (siehe [Firefox-Fehler 679784](https://bugzil.la/679784)).
+- Der Dienst für Inhaltseinstellungen unterstützt jetzt das private Surfen (siehe [Firefox-Bug 679784](https://bugzil.la/679784)).
 
 ### NSPR
 
-- NSPR verfügt jetzt über ein "append"-Modul, das es ermöglicht, neue Daten am Ende eines vorhandenen Protokolls anzuhängen.
+- NSPR verfügt jetzt über ein „append“-Modul, mit dem Sie neue Daten an das Ende eines bestehenden Logs anhängen können.
 
-### Schnittstellenänderungen
+### Änderungen an Interfaces
 
-#### Entfernte Schnittstellen
+#### Entfernte Interfaces
 
-- `nsIGlobalHistory3` wurde während der Straffung des Places- und DocShell-Codes entfernt.
+- `nsIGlobalHistory3` wurde im Zuge der Vereinfachung des Places- und DocShell-Codes entfernt.
 
-#### Verschiedene Schnittstellenänderungen
+#### Weitere Änderungen an Interfaces
 
-- Die `nsISound`-Schnittstelle hat eine neue Konstante, `EVENT_EDITOR_MAX_LEN`. Dies ermöglicht das Abspielen des Systemtons, wenn mehr Zeichen als die maximal zulässige Länge in ein Textfeld eingegeben werden. Derzeit wird dies nur unter Windows verwendet.
-- Die `nsIScriptError2`-Schnittstelle hat neue `timeStamp`- und `innerWindowID`-Eigenschaften; außerdem nimmt die `initWithWindowID()`-Methode jetzt eine innere Fenster-ID anstelle einer äußeren Fenster-ID.
-- Das `nsIBidiKeyboard.haveBidiKeyboards`-Attribut wurde hinzugefügt; dies lässt Sie feststellen, ob das System mindestens eine Tastatur für jede Richtung installiert hat: von links nach rechts und von rechts nach links.
-- Das neue `nsIEditor.isSelectionEditable`-Attribut lässt Sie feststellen, ob der aktuelle Auswahlanker bearbeitbar ist. Dies hilft, Fälle zu unterstützen, in denen nur Teile des Dokuments bearbeitbar sind, indem man sehen kann, ob die aktuelle Auswahl in einem bearbeitbaren Abschnitt liegt.
-- Die `nsIBrowserHistory.registerOpenPage()`- und `nsIBrowserHistory.unregisterOpenPage()`-Methoden wurden als Teil einer Leistungsüberholung im Places-System entfernt. Sie können stattdessen die entsprechenden Methoden in `mozIPlacesAutoComplete` verwenden.
-- Die `nsIDOMWindowUtils.wrapDOMFile()`-Methode wurde hinzugefügt; dies gibt ein DOM-[`File`](/de/docs/Web/API/File)-Objekt für eine gegebene `nsIFile` zurück.
-- Die `nsIChromeFrameMessageManager.removeDelayedFrameScript()`-Methode wurde hinzugefügt, um das Entfernen von verzögert geladenen Skripten zu unterstützen. Bootstrapped-Add-ons sollten dies beim Herunterfahren verwenden, um alle Skripte zu entfernen, die sie mit `nsIChromeFrameMessageManager.loadFrameScript()` mit gesetztem verzögerten Ladeflag geladen haben. Dies wird Add-ons als `browser.messageManager.removeDelayedFrameScript()` zur Verfügung gestellt.
-- Die `nsIAppStartup`-Schnittstelle hat ein neues `interrupted`-Attribut, das Ihnen sagt, ob der Startvorgang zu irgendeinem Zeitpunkt durch ein interaktives Eingabeaufforderung unterbrochen wurde. Dies kann nützlich sein, um bei Leistungsbewertungen Starts zu erfassen, um Zahlen von Sitzungen zu vermeiden, die unterbrochen wurden.
-- Die `nsIEditorSpellCheck`-Schnittstelle wurde überarbeitet, um die Auswahl von Rechtschreibprüfungswörterbüchern pro Standort zu unterstützen.
+- Das Interface `nsISound` hat eine neue Konstante: `EVENT_EDITOR_MAX_LEN`. Damit kann der Systemklang abgespielt werden, wenn in ein Textfeld mehr Zeichen eingegeben werden, als maximal zulässig sind. Derzeit wird dies nur unter Windows verwendet.
+- Das Interface `nsIScriptError2` hat die neuen Eigenschaften `timeStamp` und `innerWindowID`. Außerdem erwartet die Methode `initWithWindowID()` jetzt eine innere statt einer äußeren Fenster-ID.
+- Das Attribut `nsIBidiKeyboard.haveBidiKeyboards` wurde hinzugefügt. Damit können Sie feststellen, ob auf dem System für beide Schreibrichtungen – von links nach rechts und von rechts nach links – jeweils mindestens eine Tastatur installiert ist.
+- Mit dem neuen Attribut `nsIEditor.isSelectionEditable` können Sie feststellen, ob der Anker der aktuellen Auswahl bearbeitbar ist. Das hilft in Fällen, in denen nur Teile eines Dokuments bearbeitbar sind: Sie können prüfen, ob sich die aktuelle Auswahl in einem bearbeitbaren Bereich befindet.
+- Die Methoden `nsIBrowserHistory.registerOpenPage()` und `nsIBrowserHistory.unregisterOpenPage()` wurden im Rahmen einer Leistungsoptimierung des Places-Systems entfernt. Stattdessen können Sie die entsprechenden Methoden in `mozIPlacesAutoComplete` verwenden.
+- Die Methode `nsIDOMWindowUtils.wrapDOMFile()` wurde hinzugefügt. Sie gibt für ein bestimmtes `nsIFile` ein DOM-[`File`](/de/docs/Web/API/File)-Objekt zurück.
+- Die Methode `nsIChromeFrameMessageManager.removeDelayedFrameScript()` wurde hinzugefügt, um verzögert geladene Skripte entfernen zu können. Bootstrapped-Add-ons sollten sie beim Herunterfahren verwenden, um alle Skripte zu entfernen, die sie mit `nsIChromeFrameMessageManager.loadFrameScript()` und gesetztem Flag für verzögertes Laden geladen haben. Für Add-ons ist die Methode als `browser.messageManager.removeDelayedFrameScript()` verfügbar.
+- Das Interface `nsIAppStartup` hat ein neues Attribut namens `interrupted`. Damit können Sie feststellen, ob der Startvorgang zu irgendeinem Zeitpunkt durch eine interaktive Eingabeaufforderung unterbrochen wurde. Das kann beispielsweise bei der Messung von Startzeiten für Leistungsbewertungen hilfreich sein, um Messwerte aus unterbrochenen Sitzungen auszuschließen.
+- Das Interface `nsIEditorSpellCheck` wurde überarbeitet, um die Auswahl von Wörterbüchern für die Rechtschreibprüfung pro Website zu unterstützen.
 
 ### IDL-Parser
 
-Der IDL-Parser unterstützt nicht mehr die nie vollständig implementierte Vorstellung von eindeutigen Zeigern.
+Der IDL-Parser unterstützt das nie vollständig implementierte Konzept eindeutiger Zeiger nicht mehr.
 
 ### Änderungen am Build-System
 
-- Die Option `--enable-application=standalone` zum Erstellen von standalone XPConnect wurde entfernt; sie funktionierte seit 2007 sowieso nicht mehr.
-- Die Unterstützung zum eigenständigen Bauen von Necko und Transformiix XSLT wurde entfernt; Sie können `--enable-application=network` oder `--enable-application=content/xslt` nicht mehr verwenden.
-- Das Build-System sucht jetzt nach `.mozconfig` unter `$topsrcdir/.mozconfig` oder `$topsrcdir/mozconfig` und nirgendwo sonst, es sei denn, Sie überschreiben den `.mozconfig`-Pfad mit der `MOZCONFIG`-Umgebungsvariable.
-- Das `xpidl`-Dienstprogramm wurde im SDK durch `pyxpidl` ersetzt.
+- Die Option `--enable-application=standalone` zum Erstellen eines eigenständigen XPConnect wurde entfernt; sie funktionierte ohnehin seit 2007 nicht mehr.
+- Die Unterstützung für eigenständige Builds von Necko und Transformiix XSLT wurde entfernt. Sie können `--enable-application=network` und `--enable-application=content/xslt` nicht mehr verwenden.
+- Das Build-System sucht `.mozconfig` jetzt nur noch unter `$topsrcdir/.mozconfig` oder `$topsrcdir/mozconfig`, sofern Sie den Pfad zu `.mozconfig` nicht mit der Umgebungsvariablen `MOZCONFIG` überschreiben.
+- Das Dienstprogramm `xpidl` wurde im SDK durch `pyxpidl` ersetzt.
 
 ### Weitere Änderungen
 
-- Der Rechtschreibprüfer hat keine willkürlich 130 Zeichen lange Wortlängenbeschränkung mehr für die Länge der Wörter, die er zu überprüfen versucht. Dieses Limit war ursprünglich vorhanden, um Abstürze im Rechtschreibprüfer zu verhindern, aber die zugrunde liegenden Fehler wurden seitdem behoben.
-- Sie können jetzt Komponenten registrieren, um Funktionen zum [`window.navigator`](/de/docs/Web/API/Window/navigator)-Objekt hinzuzufügen, indem Sie die Kategorie "JavaScript-navigator-property" verwenden.
+- Die Rechtschreibprüfung hat keine willkürliche Begrenzung auf 130 Zeichen pro Wort mehr. Diese Grenze sollte zuvor Abstürze der Rechtschreibprüfung verhindern; die zugrunde liegenden Fehler wurden inzwischen behoben.
+- Sie können jetzt über die Kategorie „JavaScript-navigator-property“ Komponenten registrieren, die dem Objekt [`window.navigator`](/de/docs/Web/API/Window/navigator) Funktionen hinzufügen.

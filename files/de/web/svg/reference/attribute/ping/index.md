@@ -2,10 +2,12 @@
 title: ping
 slug: Web/SVG/Reference/Attribute/ping
 l10n:
-  sourceCommit: 8ae90c06d95ae6d0ccae0feb06ccab676fafbd24
+  sourceCommit: 4c62538fb3d6e71c1d8c380b1ff752cdfd545a12
 ---
 
-Das Attribut **`ping`** gibt eine durch Leerzeichen getrennte Liste von URLs an, an die der Browser beim Folgen des Links `POST`-Anfragen mit dem Inhalt `PING` sendet. Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+{{SeeCompatTable}}
+
+Das **`ping`**-Attribut gibt eine durch Leerzeichen getrennte Liste von URLs an, an die der Browser beim Aufrufen des Links `POST`-Anfragen mit dem Body `PING` sendet. Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 

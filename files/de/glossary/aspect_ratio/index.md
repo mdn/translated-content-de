@@ -2,14 +2,14 @@
 title: Seitenverhältnis
 slug: Glossary/Aspect_ratio
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b1bb1b27224e37b2045c6a16b5f9cfa817d0df89
 ---
 
-Ein **Seitenverhältnis** ist das proportionale Verhältnis zwischen der Breite und Höhe eines Elements oder {{Glossary("viewport", "Viewports")}}. Es wird als {{cssxref("ratio")}} von zwei Zahlen dargestellt.
+Ein **Seitenverhältnis** beschreibt das Verhältnis zwischen Breite und Höhe eines Elements oder eines {{Glossary("viewport", "Viewports")}}. Es wird als {{cssxref("ratio")}} aus zwei Zahlen dargestellt.
 
-Ein Seitenverhältnis, sei es ein inhärentes Seitenverhältnis wie bei Bildern und Videos oder wenn es extrinsisch festgelegt wird, erhält die beabsichtigten Proportionen eines Elements. Sie können auch das Seitenverhältnis eines Elements oder Viewports abfragen, was beim Entwickeln flexibler Komponenten und Layouts nützlich ist.
+Ein Seitenverhältnis bewahrt die vorgesehenen Proportionen eines Elements – unabhängig davon, ob es wie bei Bildern und Videos inhärent ist oder von außen festgelegt wird. Sie können auch das Seitenverhältnis eines Elements oder Viewports abfragen. Das ist bei der Entwicklung flexibler Komponenten und Layouts hilfreich.
 
-In CSS wird der {{cssxref("ratio")}}-Datentyp als `width / height` geschrieben (z.B. `1 / 1` für ein Quadrat, `16 / 9` für Breitbild) oder als einzelne Zahl, wobei die Zahl die Breite und die Höhe `1` darstellt.
+In CSS wird der Datentyp {{cssxref("ratio")}} als `width / height` geschrieben (z. B. `1 / 1` für ein Quadrat oder `16 / 9` für ein Breitbildformat) oder als einzelne Zahl. In diesem Fall gibt die Zahl die Breite an, während die Höhe `1` beträgt.
 
 ```css
 .wideBox {
@@ -20,13 +20,13 @@ In CSS wird der {{cssxref("ratio")}}-Datentyp als `width / height` geschrieben (
 }
 ```
 
-In SVG ist das Seitenverhältnis durch das vierwertige [`viewBox`](/de/docs/Web/SVG/Reference/Attribute/viewBox)-Attribut definiert. Die ersten beiden Werte sind die kleinsten X- und Y-Ursprungskoordinaten, die das SVG haben kann, und die zweiten beiden Werte sind die Breite und Höhe, die das Seitenverhältnis des SVGs festlegen.
+In SVG wird das Seitenverhältnis durch das vier Werte umfassende Attribut [`viewBox`](/de/docs/Web/SVG/Reference/Attribute/viewBox) definiert. Die ersten beiden Werte geben die kleinsten X- und Y-Koordinaten des Ursprungs an, die das SVG haben kann. Die letzten beiden Werte geben die Breite und Höhe an und legen damit das Seitenverhältnis des SVG fest.
 
 ```svg
 <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg"></svg>
 ```
 
-In JavaScript-APIs gibt die Abfrage eines Seitenverhältnisses eine Doppelpräzisions-Gleitkommazahl zurück, die die Breite geteilt durch die Höhe darstellt. Sie können auch JavaScript verwenden, um das Seitenverhältnis eines Elements festzulegen. Zum Beispiel würde das Festlegen einer Seitenverhältniskonstante für ein 1920x1080-Video unter Verwendung der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) oder des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Dictionaries mit der [`aspectRatio`](/de/docs/Web/API/MediaTrackSettings/aspectRatio)-Eigenschaft als 16/9 oder 1920/1080 berechnet werden, was `1.7777777778` ergibt:
+In JavaScript-APIs liefert die Abfrage eines Seitenverhältnisses eine Gleitkommazahl mit doppelter Genauigkeit zurück, die die Breite geteilt durch die Höhe darstellt. Sie können JavaScript auch verwenden, um das Seitenverhältnis eines Elements festzulegen. Beispielsweise ergibt sich für ein Video mit 1920 × 1080 Pixeln bei einer Seitenverhältnisvorgabe über die Eigenschaft [`MediaTrackConstraint.aspectRatio`](/de/docs/Web/API/MediaTrackConstraint/aspectRatio) ein Wert von 16/9 beziehungsweise 1920/1080, also `1.7777777778`:
 
 ```js
 const constraints = {
@@ -40,9 +40,9 @@ myTrack.applyConstraints(constraints);
 
 ## Siehe auch
 
-- CSS {{cssxref("aspect-ratio")}} Eigenschaft
-- [Seitenverhältnisse verstehen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios) Leitfaden
-- [CSS-Box-Sizing](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+- CSS-Eigenschaft {{cssxref("aspect-ratio")}}
+- Leitfaden [Seitenverhältnisse verstehen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+- Modul [CSS-Box-Größenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing)
 - Verwandte Glossarbegriffe:
   - {{Glossary("intrinsic_size", "intrinsische Größe")}}
-- CSS {{cssxref("min-content")}}, {{cssxref("max-content")}} und {{cssxref("fit-content")}} Eigenschaftswerte.
+- CSS-Eigenschaftswerte {{cssxref("min-content")}}, {{cssxref("max-content")}} und {{cssxref("fit-content")}}.

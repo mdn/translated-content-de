@@ -2,14 +2,14 @@
 title: tabGroups.onMoved
 slug: Mozilla/Add-ons/WebExtensions/API/tabGroups/onMoved
 l10n:
-  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
+  sourceCommit: c61fd478259d34aa4fd6ac4cbf9b7d64a78aff43
 ---
 
-Wird ausgelöst, wenn eine Tab-Gruppe innerhalb eines Fensters oder zu einem anderen Fenster verschoben wird. {{WebExtAPIRef("tabs.onMoved")}} wird ebenfalls für die Tabs innerhalb der Gruppe ausgelöst.
+Wird ausgelöst, wenn eine Tab-Gruppe innerhalb eines Fensters oder in ein anderes Fenster verschoben wird. {{WebExtAPIRef("tabs.onMoved")}} wird auch für die Tabs innerhalb der Gruppe ausgelöst.
 
-Das Ereignis erhält ein {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekt. Dieses enthält die `windowId`, jedoch nicht die Position der Tab-Gruppe. Um die Position der Tab-Gruppe zu bestimmen, verwenden Sie {{WebExtAPIRef("tabs.query()")}} mit der `groupId` und lesen Sie die `index`-Eigenschaft des zurückgegebenen Tabs.
+Dem Ereignis wird ein {{WebExtAPIRef("tabGroups.TabGroup")}}-Objekt übergeben. Dieses enthält die `windowId`, aber nicht die Position der Tab-Gruppe. Um die Position der Tab-Gruppe zu ermitteln, verwenden Sie {{WebExtAPIRef("tabs.query()")}} mit der `groupId` und lesen Sie die `index`-Eigenschaft des zurückgegebenen Tabs aus.
 
-In Chrome wird dieses Ereignis nicht ausgelöst, wenn eine Tab-Gruppe zwischen Fenstern verschoben wird; stattdessen wird die Gruppe aus einem Fenster entfernt und in einem anderen erstellt (dabei werden {{WebExtAPIRef("tabGroups.onRemoved")}} und {{WebExtAPIRef("tabGroups.onCreated")}} ausgelöst).
+In Chrome wird dieses Ereignis nicht ausgelöst, wenn eine Tab-Gruppe zwischen Fenstern verschoben wird. Stattdessen wird die Gruppe aus einem Fenster entfernt und in einem anderen erstellt (wodurch {{WebExtAPIRef("tabGroups.onRemoved")}} und {{WebExtAPIRef("tabGroups.onCreated")}} ausgelöst werden).
 
 ## Syntax
 
@@ -24,22 +24,22 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` bezeichnet den zu entfernenden Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn darauf gehört wird, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn dies der Fall ist, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die beim Auftreten dieses Ereignisses aufgerufen wird. Ihr wird folgendes Argument übergeben:
     - `group`
       - : {{WebExtAPIRef("tabGroups.TabGroup")}}. Details zum Zustand der verschobenen Tab-Gruppe.
 
 ## Beispiele
 
-Lauschen und Protokollieren der Bewegung von Tab-Gruppen:
+Verschiebungen von Tab-Gruppen erfassen und protokollieren:
 
 ```js
 function tabGroupMoved(group) {
@@ -51,7 +51,7 @@ function tabGroupMoved(group) {
 browser.tabGroups.onMoved.addListener(tabGroupMoved);
 ```
 
-Lokalisieren einer Tab-Gruppe, die in ein anderes Fenster verschoben wurde.
+Eine Tab-Gruppe finden, die in ein anderes Fenster verschoben wurde:
 
 ```js
 browser.tabGroups.onMoved.addListener(async (group) => {

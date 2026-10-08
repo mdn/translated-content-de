@@ -1,12 +1,12 @@
 ---
-title: "ARIA: contentinfo Rolle"
+title: "ARIA: contentinfo-Rolle"
 short-title: contentinfo
 slug: Web/Accessibility/ARIA/Reference/Roles/contentinfo_role
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: b126460df717d910e92f311f0603800987ecebee
 ---
 
-Die Rolle `contentinfo` definiert einen Footer, der identifizierende Informationen wie Urheberrechtshinweise, Navigationslinks und Datenschutzerklärungen enthält, die auf jedem Dokument einer Website zu finden sind. Dieser Abschnitt wird allgemein als Footer bezeichnet.
+Die Rolle `contentinfo` kennzeichnet einen Fußbereich, der Informationen wie Copyright-Hinweise, Navigationslinks und Datenschutzhinweise enthält und auf jeder Seite einer Website zu finden ist. Dieser Bereich wird üblicherweise Footer genannt.
 
 ```html
 <div role="contentinfo">
@@ -15,7 +15,7 @@ Die Rolle `contentinfo` definiert einen Footer, der identifizierende Information
 </div>
 ```
 
-Dies ist ein Website-Footer. Es wird empfohlen, stattdessen das {{HTMLElement('footer')}}-Element zu verwenden:
+Dies ist ein Website-Footer. Es wird empfohlen, stattdessen das Element {{HTMLElement('footer')}} zu verwenden:
 
 ```html
 <footer>
@@ -26,12 +26,12 @@ Dies ist ein Website-Footer. Es wird empfohlen, stattdessen das {{HTMLElement('f
 
 ## Beschreibung
 
-Die Rolle `contentinfo` ist [eine Landmarke](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), die zum Identifizieren eines Seitenfooters verwendet wird. Landmarken können von unterstützender Technologie genutzt werden, um schnell große Abschnitte des Dokuments zu identifizieren und zu navigieren. Seiten sollten jeweils nur eine `contentinfo`-Landmarke auf oberster Ebene enthalten.
+Die Rolle `contentinfo` ist [eine Landmarke](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), die den Fußbereich einer Seite kennzeichnet. Mithilfe von Landmarken können unterstützende Technologien größere Bereiche eines Dokuments schnell erkennen und ansteuern. Eine Seite sollte nur eine `contentinfo`-Landmarke auf oberster Ebene enthalten.
 
-Jede Seite sollte nur eine `contentinfo`-Landmarke enthalten, die entweder durch die Verwendung des {{HTMLElement('footer')}}-Elements oder durch die Deklaration von `role="contentinfo"` erstellt wird. `contentinfo`-Landmarken, die in über {{HTMLElement('iframe')}} eingebetteten Inhalten vorhanden sind, zählen nicht zu diesem Limit.
+Jede Seite sollte nur eine `contentinfo`-Landmarke enthalten, die entweder durch das Element {{HTMLElement('footer')}} oder durch die Angabe `role="contentinfo"` erstellt wird. `contentinfo`-Landmarken in Inhalten, die über {{HTMLElement('iframe')}} eingebettet sind, zählen bei dieser Begrenzung nicht mit.
 
 > [!NOTE]
-> Die Verwendung des {{HTMLElement('footer')}}-Elements übermittelt automatisch, dass ein Abschnitt die Rolle `contentinfo` hat. Entwickler sollten immer das richtige semantische HTML-Element gegenüber der Verwendung von ARIA bevorzugen und sicherstellen, dass {{HTMLElement('footer#accessibility', 'auf bekannte Probleme')}} in VoiceOver getestet wird.
+> Das Element {{HTMLElement('footer')}} vermittelt automatisch, dass ein Bereich die Rolle `contentinfo` hat. Entwickler sollten stets das passende semantische HTML-Element der Verwendung von ARIA vorziehen und dabei {{HTMLElement('footer#accessibility', 'auf bekannte Probleme testen')}} in VoiceOver.
 
 ## Beispiele
 
@@ -55,27 +55,27 @@ Jede Seite sollte nur eine `contentinfo`-Landmarke enthalten, die entweder durch
 </body>
 ```
 
-## Barrierefreiheitsbedenken
+## Bedenken hinsichtlich der Barrierefreiheit
 
 ### Sparsam verwenden
 
-[Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) dienen dazu, größere übergeordnete Abschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmarkenrollen kann Bildschirmlesegeräte "störungsanfällig" machen, wodurch es schwierig ist, Layouts der Seite zu verstehen.
+[Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) dienen dazu, größere Bereiche eines Dokuments zu kennzeichnen. Zu viele Landmark-Rollen können in Screenreadern zu „Rauschen“ führen und es erschweren, den Gesamtaufbau der Seite zu verstehen.
 
 ### Eine `contentinfo`-Landmarke pro Seite
 
 #### Das `<body>`-Element
 
-Es sollte nur eine `contentinfo`-Landmarke pro Dokument geben, die als unmittelbarer Nachkomme des {{HTMLElement('body')}}-Elements verwendet wird.
+Ein Dokument sollte nur eine `contentinfo`-Landmarke enthalten. Sie sollte ein direktes Kindelement des Elements {{HTMLElement('body')}} sein.
 
-#### Mega-Footer
+#### Umfangreiche Footer
 
-Verschachteln Sie keine zusätzlichen {{HTMLElement('footer')}}-Elemente oder `contentinfo`-Landmarken im Footer des Dokuments. Verwenden Sie stattdessen andere [Inhaltsabschnittselemente](/de/docs/Web/HTML/Reference/Elements#content_sectioning).
+Verschachteln Sie keine zusätzlichen {{HTMLElement('footer')}}-Elemente oder `contentinfo`-Landmarken innerhalb des Fußbereichs des Dokuments. Verwenden Sie stattdessen andere [Elemente zur Gliederung von Inhalten](/de/docs/Web/HTML/Reference/Elements#content_sectioning).
 
 ### Landmarken beschriften
 
 #### Mehrere Landmarken
 
-Wenn es in einem Dokument mehr als eine `contentinfo`-Landmarke oder ein {{HTMLElement('footer')}}-Element gibt, fügen Sie jedem Landmarke eine Beschriftung mit dem [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut hinzu. Diese Beschriftung ermöglicht es Benutzern von unterstützenden Technologien schnell zu verstehen, welchen Zweck jede Landmarke hat.
+Wenn ein Dokument mehr als eine `contentinfo`-Landmarke oder mehr als ein {{HTMLElement('footer')}}-Element enthält, versehen Sie jede Landmarke über das Attribut [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) mit einer Beschriftung. So können Benutzer unterstützender Technologien den Zweck jeder Landmarke schnell verstehen.
 
 ```html
 <body>
@@ -100,21 +100,21 @@ Wenn es in einem Dokument mehr als eine `contentinfo`-Landmarke oder ein {{HTMLE
 </body>
 ```
 
-#### Redundante Beschreibungen
+#### Überflüssige Beschreibungen
 
-Bildschirmleser kündigen die Art der Rolle der Landmarke an. Deshalb müssen Sie nicht beschreiben, was die Landmarke in ihrer Beschriftung ist. Beispielsweise könnte eine Deklaration von `role="contentinfo"` mit `aria-label="Footer"` redundant als "contentinfo footer" angekündigt werden.
+Screenreader geben den Rollentyp einer Landmarke aus. Daher muss die Beschriftung nicht beschreiben, um welche Art von Landmarke es sich handelt. Beispielsweise könnte `role="contentinfo"` zusammen mit `aria-label="Footer"` redundant als „contentinfo footer“ ausgegeben werden.
 
-## Best Practices
+## Bewährte Vorgehensweisen
 
 ### HTML bevorzugen
 
-Wenn es ein unmittelbarer Nachkomme des {{HTMLElement('body')}} ist, wird die Verwendung des {{HTMLElement('footer')}}-Elements automatisch übermitteln, dass ein Abschnitt die Rolle `contentinfo` hat (abgesehen von {{HTMLElement('footer#accessibility', 'einem bekannten Problem')}} in VoiceOver). Wenn möglich, sollte `<footer>` bevorzugt werden. Beachten Sie, dass ein `footer`-Element, das innerhalb eines `article`, `aside`, `main`, `nav` oder `section` geschachtelt ist, nicht als `contentinfo` angesehen wird.
+Wenn das Element {{HTMLElement('footer')}} ein direktes Kindelement von {{HTMLElement('body')}} ist, vermittelt es automatisch, dass der Bereich die Rolle `contentinfo` hat (abgesehen von {{HTMLElement('footer#accessibility', 'einem bekannten Problem')}} in VoiceOver). Verwenden Sie nach Möglichkeit stattdessen `<footer>`. Beachten Sie, dass ein `footer`-Element innerhalb eines `article`-, `aside`-, `main`-, `nav`- oder `section`-Elements nicht als `contentinfo` gilt.
 
-### Zusätzliche Vorteile
+### Weitere Vorteile
 
-Bestimmte Technologien, wie Browser-Erweiterungen, können Listen aller auf einer Seite vorhandenen Landmarkenrollen erzeugen, was es auch Nicht-Screenreader-Benutzern ermöglicht, schnell große Abschnitte des Dokuments zu identifizieren und darin zu navigieren.
+Bestimmte Technologien wie Browser-Erweiterungen können Listen aller Landmark-Rollen auf einer Seite erstellen. Dadurch können auch Benutzer ohne Screenreader größere Bereiche des Dokuments schnell erkennen und ansteuern.
 
-- [Landmarks Browser-Erweiterung](https://matatk.agrip.org.uk/landmarks/)
+- [Landmarks-Browser-Erweiterung](https://matatk.agrip.org.uk/landmarks/)
 
 ## Spezifikationen
 
@@ -122,7 +122,7 @@ Bestimmte Technologien, wie Browser-Erweiterungen, können Listen aller auf eine
 
 ## Siehe auch
 
-- Das {{HTMLElement('footer')}}-Element
-- [Verwendung von HTML-Bereichen und Umrissen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
-- [Barrierefreie Landmarken | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
-- [Das Footer-Element-Update | HTML5 Doctor](https://html5doctor.com/the-footer-element-update/)
+- Das Element {{HTMLElement('footer')}}
+- [HTML-Abschnitte und Gliederungen verwenden](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
+- [Accessible Landmarks | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [The Footer Element Update | HTML5 Doctor](https://html5doctor.com/the-footer-element-update/)

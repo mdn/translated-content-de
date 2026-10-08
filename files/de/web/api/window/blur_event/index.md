@@ -3,16 +3,16 @@ title: "Window: blur-Ereignis"
 short-title: blur
 slug: Web/API/Window/blur_event
 l10n:
-  sourceCommit: 6daf06123a4c7d8b8e2a038e339a05666b22695f
+  sourceCommit: 8b77a013c518ef1b62534a8446a60732d582a24b
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`blur`**-Ereignis wird ausgelöst, wenn das Fenster den Fokus verliert, beispielsweise wenn der Benutzer den Fokus von der Seite auf die Adressleiste verschiebt. Zuvor kann der Fokus auf dem Viewport des Dokuments oder auf einem darin enthaltenen Element gelegen haben.
+Das **`blur`**-Ereignis wird ausgelöst, wenn das Fenster den Fokus verliert, beispielsweise wenn die fokussierte Stelle von der Seite zur Adressleiste wechselt. Zuvor kann der Fokus auf dem Viewport des Dokuments oder auf einem darin enthaltenen Element gelegen haben.
 
 Das Gegenstück zu `blur` ist [`focus`](/de/docs/Web/API/Window/focus_event).
 
-Dieses Ereignis kann nicht abgebrochen werden und durchläuft nicht die Bubbling-Phase.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
@@ -85,5 +85,5 @@ window.addEventListener("focus", play);
 
 ## Siehe auch
 
-- Verwandtes Ereignis: [`focus`](/de/docs/Web/API/Window/focus_event)
-- Dieses Ereignis für `Element`-Ziele: [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis
+- Zugehöriges Ereignis: [`focus`](/de/docs/Web/API/Window/focus_event)
+- Dieses Ereignis auf `Element`-Zielen: [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis

@@ -1,16 +1,16 @@
 ---
-title: "CaptureController: setFocusBehavior() Methode"
+title: "CaptureController: Methode setFocusBehavior()"
 short-title: setFocusBehavior()
 slug: Web/API/CaptureController/setFocusBehavior
 l10n:
-  sourceCommit: 83a92f1eaf27dabf71beec6c548afb03171aa194
+  sourceCommit: b1bb1b27224e37b2045c6a16b5f9cfa817d0df89
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`setFocusBehavior()`** Methode der [`CaptureController`](/de/docs/Web/API/CaptureController) Schnittstelle steuert, ob der erfasste Tab oder das Fenster fokussiert wird, wenn das zugehörige [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) {{jsxref("Promise")}} erfüllt wird, oder ob der Fokus beim Tab mit der erfassenden Anwendung bleibt.
+Die Methode **`setFocusBehavior()`** des Interfaces [`CaptureController`](/de/docs/Web/API/CaptureController) steuert, ob der erfasste Tab oder das erfasste Fenster den Fokus erhält, wenn die zugehörige {{jsxref("Promise")}} von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) erfüllt wird, oder ob der Fokus beim Tab mit der erfassenden App bleibt.
 
-Sie können dieses Verhalten mehrmals vor dem Aufruf von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) festlegen oder einmal unmittelbar, nachdem das `Promise` gelöst wurde. Danach wird gesagt, dass das Fokusverhalten abgeschlossen ist und nicht mehr geändert werden kann.
+Sie können dieses Verhalten vor dem Aufruf von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) mehrfach festlegen oder einmal unmittelbar, nachdem dessen `Promise` erfüllt wurde. Danach gilt das Fokusverhalten als endgültig festgelegt und kann nicht mehr geändert werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ setFocusBehavior(focusBehavior)
 ### Parameter
 
 - `focusBehavior`
-  - : Ein enumerierter Wert, der beschreibt, ob der Benutzeragent den Fokus auf die erfasste Anzeigefläche übertragen oder die erfassende Anwendung fokussiert lassen soll. Mögliche Werte sind `focus-captured-surface` (überträgt den Fokus) und `no-focus-change` (behält den Fokus auf der erfassenden Anwendung).
+  - : Ein Aufzählungswert, der angibt, ob der User Agent den Fokus auf die erfasste Anzeigefläche übertragen oder die erfassende App im Fokus behalten soll. Mögliche Werte sind `focus-captured-surface` (Fokus übertragen) und `no-focus-change` (Fokus bei der erfassenden App belassen).
 
 ### Rückgabewert
 
@@ -31,13 +31,13 @@ Keiner (`undefined`).
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Der Erfassungsstrom gestoppt wurde.
-    - Der Benutzer sich entschieden hat, einen Bildschirm zu teilen (Typ [`displaySurface`](/de/docs/Web/API/MediaTrackSettings/displaySurface) `monitor`) anstatt eines `browser` Tabs oder `window` — Sie können keinen Monitor fokussieren. In diesem Fall wird die Ausnahme ausgelöst, nachdem das [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) `Promise` gelöst wurde.
-    - Genügend Zeit vergangen ist, nachdem das [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) `Promise` erfüllt wurde, sodass das Fokusverhalten abgeschlossen ist.
+    - Der Erfassungsstream gestoppt wurde.
+    - Der Benutzer einen Bildschirm (Typ `monitor` von [`displaySurface`](/de/docs/Web/API/MediaStreamTrack/getSettings#displaysurface)) statt eines `browser`-Tabs oder eines `window` zur Freigabe ausgewählt hat – ein Monitor kann keinen Fokus erhalten. In diesem Fall wird die Ausnahme ausgelöst, nachdem die `Promise` von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) erfüllt wurde.
+    - Nach der Erfüllung der `Promise` von [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) genügend Zeit vergangen ist, sodass das Fokusverhalten endgültig festgelegt wurde.
 
 ## Beispiele
 
-### Grundlegende Nutzung von `setFocusBehavior()`
+### Grundlegende Verwendung von `setFocusBehavior()`
 
 ```js
 // Create a new CaptureController instance
@@ -72,4 +72,4 @@ if (displaySurface === "browser") {
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-- [Besseres Bildschirmfreigeben mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)
+- [Bessere Bildschirmfreigabe mit Conditional Focus](https://developer.chrome.com/docs/web-platform/conditional-focus/)
