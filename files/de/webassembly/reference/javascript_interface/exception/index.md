@@ -2,12 +2,12 @@
 title: WebAssembly.Exception
 slug: WebAssembly/Reference/JavaScript_interface/Exception
 l10n:
-  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
 {{AvailableInWorkers}}
 
-Das **`WebAssembly.Exception`**-Objekt repräsentiert eine Laufzeitausnahme, die in einem Wasm-Modul ausgelöst wird.
+Das **`WebAssembly.Exception`**-Objekt stellt eine Laufzeitausnahme dar, die in einem Wasm-Modul ausgelöst wurde.
 
 ## Konstruktor
 
@@ -29,15 +29,15 @@ Das **`WebAssembly.Exception`**-Objekt repräsentiert eine Laufzeitausnahme, die
 
 ## Beschreibung
 
-Beim Umgang mit Wasm-Ausnahmen aus dem JavaScript-Host haben abgefangene Ausnahmen den Objekttyp `WebAssembly.Exception`.
+Wenn Wasm-Ausnahmen im JavaScript-Host behandelt werden, haben abgefangene Ausnahmen den Objekttyp `WebAssembly.Exception`.
 
-Zum Beispiel könnten Sie beginnen, einen Fehlertagtyp mit dem [`WebAssembly.Tag()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag/Tag)-Konstruktor zu erstellen, wie folgt:
+Sie können beispielsweise zunächst mit dem Konstruktor [`WebAssembly.Tag()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag/Tag) einen Fehler-Tag-Typ erstellen:
 
 ```js
 const myErrorTag = new WebAssembly.Tag({ parameters: ["i32"] });
 ```
 
-Sie können diesen dann in ein Wasm-Modul importieren, wie folgt:
+Anschließend können Sie ihn wie folgt in ein Wasm-Modul importieren:
 
 ```js
 const env = {
@@ -47,7 +47,7 @@ const env = {
 WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(/* ... */);
 ```
 
-Sie könnten dann versuchen, eine exportierte Wasm-Funktion in einer [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung auszuführen. Wenn die Funktion eine Ausnahme auslöst, wird der Fehler, der an den `catch`-Block weitergeleitet wird, eine Instanz des Objekts `WebAssembly.Exception` sein.
+Danach können Sie versuchen, eine exportierte Wasm-Funktion innerhalb einer [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung auszuführen. Wenn die Funktion eine Ausnahme auslöst, ist der an den `catch`-Block weitergegebene Fehler eine Instanz des `WebAssembly.Exception`-Objekts.
 
 ```js
 WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(
@@ -67,25 +67,25 @@ WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(
 );
 ```
 
-Sie können überprüfen, ob sie denselben Ausnahmetyp hat, den wir zuvor definiert haben (`myErrorTag`), indem Sie [`Exception.prototype.is()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is) verwenden und dann die Nutzdaten der Ausnahme mithilfe von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg) abrufen.
+Mit [`Exception.prototype.is()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is) können Sie prüfen, ob die Ausnahme denselben Typ wie das zuvor definierte Tag (`myErrorTag`) hat. Anschließend können Sie mit [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg) auf die Nutzdaten der Ausnahme zugreifen.
 
-JavaScript und anderer Client-Code können WebAssembly-Ausnahmewerte nur dann erreichen, und umgekehrt, wenn der zugehörige Tag geteilt ist (man kann nicht einfach einen anderen Tag verwenden, der zufällig dieselben Datentypen definiert).
-Ohne das passende Tag können Ausnahmen abgefangen und erneut ausgelöst werden, aber sie können nicht untersucht werden.
+JavaScript und anderer Client-Code können nur dann auf WebAssembly-Ausnahmewerte zugreifen – und umgekehrt –, wenn das zugehörige Tag gemeinsam verwendet wird. Es reicht nicht aus, ein anderes Tag zu verwenden, das zufällig dieselben Datentypen definiert.
+Ohne das passende Tag können Ausnahmen abgefangen und erneut ausgelöst, aber nicht untersucht werden.
 
-Um das Auslösen von Ausnahmen schneller zu machen, enthalten aus WebAssembly ausgelöste Ausnahmen im Allgemeinen keinen Stack-Trace.
-WebAssembly-Code, der einen Stack-Trace bereitstellen muss, sollte eine JavaScript-Funktion aufrufen, um die Ausnahme zu erstellen, und dabei den Parameter `options.traceStack=true` im Konstruktor übergeben.
-Der Konstruktor kann dann eine Ausnahme mit einem angehängten Stack-Trace an die Eigenschaft [`stack`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/stack) zurückgeben.
+Damit das Auslösen von Ausnahmen schneller ist, enthalten aus WebAssembly ausgelöste Ausnahmen in der Regel keinen Stack-Trace.
+WebAssembly-Code, der einen Stack-Trace bereitstellen muss, muss eine JavaScript-Funktion aufrufen, um die Ausnahme zu erstellen, und dabei den Parameter `options.traceStack=true` an den Konstruktor übergeben.
+Der Konstruktor kann dann eine Ausnahme zurückgeben, deren Eigenschaft [`stack`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/stack) einen Stack-Trace enthält.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man einen Tag definiert und in ein Modul importiert und es dann verwendet, um eine Ausnahme auszulösen, die in JavaScript abgefangen wird.
+Dieses Beispiel zeigt, wie Sie ein Tag definieren und in ein Modul importieren. Anschließend wird damit eine Ausnahme ausgelöst, die in JavaScript abgefangen wird.
 
-Betrachten Sie den folgenden WebAssembly-Code, der angenommen wird, in eine Datei **example.wasm** kompiliert zu werden.
+Betrachten Sie den folgenden WebAssembly-Code, der in eine Datei namens **example.wasm** kompiliert wurde.
 
-- Das Modul importiert einen Tag, das intern als `$tagname` bezeichnet wird und einen einzelnen `i32`-Parameter hat.
-  Das Tag erwartet, dass es über das Modul `extmod` und das Tag `exttag` übergeben wird.
-- Die Funktion `$throwException` löst eine Ausnahme mit der `throw`-Anweisung aus, indem sie den `$tagname` und das Parameterargument verwendet.
-- Das Modul exportiert die Funktion `run()`, die eine Ausnahme mit dem Wert "42" auslöst.
+- Das Modul importiert ein Tag, das intern als `$tagname` bezeichnet wird und einen einzelnen `i32`-Parameter hat.
+  Das Tag wird unter dem Modulnamen `extmod` und dem Tagnamen `exttag` übergeben.
+- Die Funktion `$throwException` löst mit der Anweisung `throw` eine Ausnahme aus und verwendet dabei `$tagname` und das Parameterargument.
+- Das Modul exportiert die Funktion `run()`, die eine Ausnahme mit dem Wert „42“ auslöst.
 
 ```wat
 (module
@@ -106,10 +106,10 @@ Betrachten Sie den folgenden WebAssembly-Code, der angenommen wird, in eine Date
 )
 ```
 
-Der untenstehende Code ruft [`WebAssembly.instantiateStreaming`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) auf, um die Datei **example.wasm** zu importieren, und übergibt ein "Import-Objekt" (`importObject`), das ein neues [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) namens `tagToImport` enthält.
-Das Import-Objekt definiert ein Objekt mit Eigenschaften, die zur `import`-Anweisung im WebAssembly-Code passen.
+Der folgende Code ruft [`WebAssembly.instantiateStreaming`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) auf, um die Datei **example.wasm** zu importieren. Dabei übergibt er ein „Importobjekt“ (`importObject`), das ein neues [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) namens `tagToImport` enthält.
+Das Importobjekt enthält ein Objekt mit Eigenschaften, die zur `import`-Anweisung im WebAssembly-Code passen.
 
-Sobald die Datei instanziiert ist, ruft der Code die exportierte WebAssembly-Methode `run()` auf, die sofort eine Ausnahme auslöst.
+Nachdem die Datei instanziiert wurde, ruft der Code die exportierte WebAssembly-Methode `run()` auf, die sofort eine Ausnahme auslöst.
 
 ```js
 const tagToImport = new WebAssembly.Tag({ parameters: ["i32"] });
@@ -140,10 +140,10 @@ example.js:41 getArg 0 : 42
 */
 ```
 
-Die Ausnahme wird in JavaScript mit dem `catch`-Block abgefangen.
-Wir sehen, dass es sich um eine Ausnahme vom Typ `WebAssembly.Exception` handelt, aber wenn wir nicht den richtigen Tag hätten, könnten wir nicht viel mehr tun.
+Die Ausnahme wird in JavaScript im `catch`-Block abgefangen.
+Sie hat den Typ `WebAssembly.Exception`. Ohne das passende Tag könnten wir jedoch kaum etwas Weiteres damit anfangen.
 
-Weil wir jedoch einen Tag haben, verwenden wir [`Exception.prototype.is()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is), um zu überprüfen, ob es der richtige ist, und weil es korrekt ist, rufen wir [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg) auf, um den Wert von "42" zu lesen.
+Da uns das Tag zur Verfügung steht, prüfen wir mit [`Exception.prototype.is()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is), ob es das richtige ist. Da dies der Fall ist, lesen wir mit [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg) den Wert „42“ aus.
 
 ## Spezifikationen
 
@@ -157,4 +157,4 @@ Weil wir jedoch einen Tag haben, verwenden wir [`Exception.prototype.is()`](/de/
 
 - [Überblick über WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

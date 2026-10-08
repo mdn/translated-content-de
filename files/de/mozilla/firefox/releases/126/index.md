@@ -1,94 +1,94 @@
 ---
-title: Firefox 126 Versionshinweise für Entwickler
+title: Firefox 126 – Versionshinweise für Entwickler
 short-title: Firefox 126
 slug: Mozilla/Firefox/Releases/126
 l10n:
-  sourceCommit: 03d7663c2965d67eca296f6a27aa8a651de7dfee
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 126, die Entwickler betreffen. Firefox 126 wurde am [14. Mai 2024](https://whattrainisitnow.com/release/?version=126) veröffentlicht.
+Dieser Artikel informiert über Änderungen in Firefox 126, die für Entwickler relevant sind. Firefox 126 wurde am [14. Mai 2024](https://whattrainisitnow.com/release/?version=126) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
-### Entwicklertools
+### Entwicklerwerkzeuge
 
-- Es wurde eine Option hinzugefügt, die geteilte Konsole zu deaktivieren ([Firefox-Bug 1731635](https://bugzil.la/1731635)).
+- Eine Option zum Deaktivieren der geteilten Konsole wurde hinzugefügt ([Firefox-Bug 1731635](https://bugzil.la/1731635)).
 
 ### HTML
 
-Keine bemerkenswerten Änderungen.
+Keine nennenswerten Änderungen.
 
 ### MathML
 
 #### Entfernungen
 
-- Die automatische Anpassung für vertikal zentrierte Operatoren (+, =, <, etc.) wurde standardmäßig deaktiviert. Dieses Verhalten ist nicht im MathML Core definiert und war nur als Workaround für Nicht-Math-Schriftarten nötig. Es kann weiterhin aktiviert werden, indem die Konfiguration `mathml.centered_operators.disabled` auf `false` gesetzt wird. ([Firefox-Bug 1890531](https://bugzil.la/1890531)).
+- Die automatische Anpassung vertikal zentrierter Operatoren (+, =, < usw.) ist standardmäßig deaktiviert. Dieses Verhalten ist in MathML Core nicht definiert und war nur als Behelf für Schriftarten ohne mathematische Zeichen erforderlich. Es kann weiterhin aktiviert werden, indem die Konfigurationseinstellung `mathml.centered_operators.disabled` auf `false` gesetzt wird ([Firefox-Bug 1890531](https://bugzil.la/1890531)).
 
 ### CSS
 
-- Die {{cssxref("zoom")}}-Eigenschaft wird jetzt unterstützt. Sie kann verwendet werden, um die Größe eines Elements und dessen Inhalt zu vergrößern oder zu verkleinern ([Firefox-Bug 390936](https://bugzil.la/390936)).
+- Die Eigenschaft {{cssxref("zoom")}} wird jetzt unterstützt. Mit ihr lässt sich ein Element samt Inhalt vergrößern oder verkleinern ([Firefox-Bug 390936](https://bugzil.la/390936)).
 
 ### JavaScript
 
-Keine bemerkenswerten Änderungen.
+Keine nennenswerten Änderungen.
 
 ### HTTP
 
-- Die [`zstd`](/de/docs/Web/HTTP/Reference/Headers/Content-Encoding#zstd)-Direktive des `Content-Encoding`-HTTP-Headers wird jetzt unterstützt, wodurch das Dekodieren von servergesandten Inhalten ermöglicht wird, die mit dem {{Glossary("Zstandard_compression", "Zstandard-Kompressionsalgorithmus")}} codiert sind ([Firefox-Bug 1871963](https://bugzil.la/1871963)).
+- Die Direktive [`zstd`](/de/docs/Web/HTTP/Reference/Headers/Content-Encoding#zstd) des HTTP-Headers `Content-Encoding` wird jetzt unterstützt. Damit können vom Server gesendete Inhalte dekodiert werden, die mit dem Algorithmus {{Glossary("Zstandard_compression", "Zstandard-Komprimierung")}} kodiert wurden ([Firefox-Bug 1871963](https://bugzil.la/1871963)).
 
 ### APIs
 
-- [`IDBFactory.databases()`](/de/docs/Web/API/IDBFactory/databases) wird jetzt unterstützt, um verfügbare [IndexedDB-API](/de/docs/Web/API/IndexedDB_API)-Datenbanken aufzulisten ([Firefox-Bug 934640](https://bugzil.la/934640)).
-- [`IDBTransaction.durability`](/de/docs/Web/API/IDBTransaction/durability) kann jetzt verwendet werden, um den Hinweise auf die Transaktionsbeständigkeit abzufragen, mit der die Transaktion erstellt wurde ([Firefox-Bug 1878143](https://bugzil.la/1878143)).
-- Die statische Methode [`URL.parse()`](/de/docs/Web/API/URL/parse_static) wird jetzt unterstützt, um [`URL`](/de/docs/Web/API/URL)-Objekte zu erstellen. Diese gibt `null` zurück, wenn die übergebenen Parameter keine gültige `URL` definieren und kann daher als nicht auslösendes Alternative zur Erstellung von `URL`-Objekten mit dem [`URL`-Konstruktor](/de/docs/Web/API/URL/URL) verwendet werden ([Firefox-Bug 1823354](https://bugzil.la/1823354)).
-- Die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) wird jetzt unterstützt, wobei eine Webanwendung anfordern kann, dass der Bildschirm nicht abgedunkelt oder gesperrt wird, während sie aktiv ist. Dies ist besonders nützlich für Navigations- und Leseanwendungen sowie andere Anwendungen, bei denen der Bildschirm möglicherweise keinen regelmäßigen Toucheingaben erhält, die ihn normalerweise wach halten würden. Die API wird über [`Navigator.wakeLock`](/de/docs/Web/API/Navigator/wakeLock) in sicheren Kontexten aufgerufen, was einen [`WakeLock`](/de/docs/Web/API/WakeLock) zurückgibt. Dies ermöglicht es Ihnen, einen [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) zu beantragen, der verwendet werden kann, um den Status der Sperre zu überwachen und diese manuell freizugeben ([Firefox-Bug 1589554](https://bugzil.la/1589554), [Firefox-Bug 1874849](https://bugzil.la/1874849)).
-- Alle [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Eigenschaften und -Methoden werden jetzt unterstützt und entsprechen der Spezifikation, mit Ausnahme der nicht implementierten Eigenschaften `relayProtocol` und `url`. Die folgenden Änderungen wurden an den Eigenschaften von `RTCIceCandidate` vorgenommen:
-  - Die folgenden Eigenschaften wurden schreibgeschützt gemacht: [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate), [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid), [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex) und [`usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
+- [`IDBFactory.databases()`](/de/docs/Web/API/IDBFactory/databases) wird jetzt unterstützt und ermöglicht es, verfügbare Datenbanken der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) aufzulisten ([Firefox-Bug 934640](https://bugzil.la/934640)).
+- Mit [`IDBTransaction.durability`](/de/docs/Web/API/IDBTransaction/durability) lässt sich jetzt der Durability-Hinweis abfragen, mit dem die Transaktion erstellt wurde ([Firefox-Bug 1878143](https://bugzil.la/1878143)).
+- Die statische Methode [`URL.parse()`](/de/docs/Web/API/URL/parse_static) zum Erstellen von [`URL`](/de/docs/Web/API/URL)-Objekten wird jetzt unterstützt. Sie gibt `null` zurück, wenn die übergebenen Parameter keine gültige `URL` definieren. Damit bietet sie eine Alternative zum Erstellen eines `URL`-Objekts mit dem [`URL`-Konstruktor](/de/docs/Web/API/URL/URL), die bei ungültigen Eingaben keine Ausnahme auslöst ([Firefox-Bug 1823354](https://bugzil.la/1823354)).
+- Die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) wird jetzt unterstützt. Mit ihr kann eine Webanwendung anfordern, dass der Bildschirm während ihrer Nutzung weder abgedunkelt noch gesperrt wird. Dies ist insbesondere für Navigations- und Leseanwendungen sowie für andere Anwendungen nützlich, bei denen während der Nutzung möglicherweise keine regelmäßigen Berührungen des Bildschirms erfolgen, die ihn normalerweise aktiv halten würden. In sicheren Kontexten erfolgt der Zugriff auf die API über [`Navigator.wakeLock`](/de/docs/Web/API/Navigator/wakeLock), das ein [`WakeLock`](/de/docs/Web/API/WakeLock) zurückgibt. Damit können Sie ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) anfordern, um den Status des Wake Locks zu überwachen und ihn manuell freizugeben ([Firefox-Bug 1589554](https://bugzil.la/1589554), [Firefox-Bug 1874849](https://bugzil.la/1874849)).
+- Alle Eigenschaften und Methoden von [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) werden jetzt unterstützt und entsprechen der Spezifikation, mit Ausnahme der noch nicht implementierten Eigenschaften `relayProtocol` und `url`. An den Eigenschaften von `RTCIceCandidate` wurden folgende Änderungen vorgenommen:
+  - Die folgenden Eigenschaften sind jetzt schreibgeschützt: [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate), [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid), [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex) und [`usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
   - Die folgenden Eigenschaften wurden hinzugefügt: [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation), [`component`](/de/docs/Web/API/RTCIceCandidate/component), [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), [`address`](/de/docs/Web/API/RTCIceCandidate/address), [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol), [`port`](/de/docs/Web/API/RTCIceCandidate/port), [`type`](/de/docs/Web/API/RTCIceCandidate/type), [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType), [`relatedAddress`](/de/docs/Web/API/RTCIceCandidate/relatedAddress), [`relatedPort`](/de/docs/Web/API/RTCIceCandidate/relatedPort) und [`usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
 
   ([Firefox-Bug 1322186](https://bugzil.la/1322186)).
 
-- Die schreibgeschützte Eigenschaft [`Element.currentCSSZoom`](/de/docs/Web/API/Element/currentCSSZoom) wird jetzt unterstützt, um den effektiven CSS- [zoom](/de/docs/Web/CSS/Reference/Properties/zoom) eines Elements zu erhalten ([Firefox-Bug 1880189](https://bugzil.la/1880189)).
+- Die schreibgeschützte Eigenschaft [`Element.currentCSSZoom`](/de/docs/Web/API/Element/currentCSSZoom) wird jetzt unterstützt. Mit ihr lässt sich der effektive CSS-[Zoomfaktor](/de/docs/Web/CSS/Reference/Properties/zoom) eines Elements ermitteln ([Firefox-Bug 1880189](https://bugzil.la/1880189)).
 
 #### DOM
 
-- Die Möglichkeit, Zustände für benutzerdefinierte Elemente zu definieren und sie mit CSS-Selektoren abzugleichen, ist jetzt standardmäßig verfügbar.
-  Die benutzerdefinierten Zustände werden als benutzerdefinierte Bezeichner dargestellt, die zur oder von der [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states)-Eigenschaft (ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)) des Elements hinzugefügt oder entfernt werden können. Die CSS-Pseudoklasse [`:state()`](/de/docs/Web/CSS/Reference/Selectors/:state) nimmt einen benutzerdefinierten Bezeichner als Argument und gleicht benutzerdefinierte Elemente ab, wenn der Bezeichner in ihrem Satz von Zuständen vorhanden ist ([Firefox-Bug 1887543](https://bugzil.la/1887543)).
-- Die [`Selection.direction`](/de/docs/Web/API/Selection/direction)-Eigenschaft wird jetzt unterstützt, um die Richtung eines Bereichs anzuzeigen ([Firefox-Bug 1867058](https://bugzil.la/1867058)).
+- Das Definieren von Zuständen für Custom Elements und deren Auswahl mithilfe von CSS-Selektoren ist jetzt standardmäßig verfügbar.
+  Benutzerdefinierte Zustände werden durch benutzerdefinierte Bezeichner dargestellt, die der Eigenschaft [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states) des Elements (einem [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)) hinzugefügt oder daraus entfernt werden können. Die CSS-Pseudoklasse [`:state()`](/de/docs/Web/CSS/Reference/Selectors/:state) nimmt einen benutzerdefinierten Bezeichner als Argument entgegen und wählt Custom Elements aus, wenn dieser Bezeichner in ihrer Zustandsmenge enthalten ist ([Firefox-Bug 1887543](https://bugzil.la/1887543)).
+- Die Eigenschaft [`Selection.direction`](/de/docs/Web/API/Selection/direction) zur Angabe der Richtung eines Bereichs wird jetzt unterstützt ([Firefox-Bug 1867058](https://bugzil.la/1867058)).
 
 #### Medien, WebRTC und Web Audio
 
 ##### Entfernungen
 
-- Die Ereignisse [`bounce`](/de/docs/Web/API/HTMLMarqueeElement#bounce), [`finish`](/de/docs/Web/API/HTMLMarqueeElement#finish) und [`start`](/de/docs/Web/API/HTMLMarqueeElement#start) des [`<marquee>` HTML-Elements](/de/docs/Web/HTML/Reference/Elements/marquee) wurden aus [`HTMLMarqueeElement`](/de/docs/Web/API/HTMLMarqueeElement) entfernt, zusammen mit den entsprechenden [Ereignis-Handler-Attributen](/de/docs/Web/API/HTMLMarqueeElement#events) ([Firefox-Bug 1689705](https://bugzil.la/1689705)).
+- Die Ereignisse [`bounce`](/de/docs/Web/API/HTMLMarqueeElement#bounce), [`finish`](/de/docs/Web/API/HTMLMarqueeElement#finish) und [`start`](/de/docs/Web/API/HTMLMarqueeElement#start) des [HTML-Elements `<marquee>`](/de/docs/Web/HTML/Reference/Elements/marquee) wurden zusammen mit den entsprechenden [Event-Handler-Attributen](/de/docs/Web/API/HTMLMarqueeElement#events) aus [`HTMLMarqueeElement`](/de/docs/Web/API/HTMLMarqueeElement) entfernt ([Firefox-Bug 1689705](https://bugzil.la/1689705)).
 - Der [Theora](/de/docs/Web/Media/Guides/Formats/Video_codecs#theora)-Codec wurde standardmäßig deaktiviert und wird in einer zukünftigen Version entfernt ([Firefox-Bug 1860492](https://bugzil.la/1860492)).
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
 #### WebDriver BiDi
 
-- Das `contexts`-Argument wurde dem Befehl `network.addIntercept` hinzugefügt, um die Abfangung von Netzwerk-Anfragen auf bestimmte Top-Level-Browsing-Kontexte zu beschränken ([Firefox-Bug 1882260](https://bugzil.la/1882260)).
-- Beide Befehle `session.subscribe` und `session.unsubscribe` werfen jetzt einen `invalid argument`-Fehler, wenn die Argumentwerte `events` oder `contexts` leere Arrays sind ([Firefox-Bug 1887871](https://bugzil.la/1887871)).
-- Die Implementierung des Befehls `storage.getCookies` wurde aktualisiert, um mit dem Standard-Cookie-Verhalten von Gecko übereinzustimmen. Dadurch kann der Benutzerwert für die Präferenz `network.cookie.cookieBehavior` entfernt werden, der nur für unsere CDP-Implementierung erwartet wurde ([Firefox-Bug 1879503](https://bugzil.la/1879503)).
-- Die Argumente `ownership` und `sandbox` für den Befehl `browsingContext.locateNodes` wurden entfernt, da sie nicht mehr notwendig sind ([Firefox-Bug 1884935](https://bugzil.la/1884935)).
-- Verbessertes Fehlermeldung für den Befehl `session.new` wenn keine Fähigkeiten angegeben sind ([Firefox-Bug 1838152](https://bugzil.la/1838152)).
+- Dem Befehl `network.addIntercept` wurde das Argument `contexts` hinzugefügt, um das Abfangen von Netzwerkanfragen auf bestimmte Browsing-Kontexte der obersten Ebene zu beschränken ([Firefox-Bug 1882260](https://bugzil.la/1882260)).
+- Die Befehle `session.subscribe` und `session.unsubscribe` lösen jetzt einen Fehler vom Typ `invalid argument` aus, wenn die Argumente `events` oder `contexts` leere Arrays enthalten ([Firefox-Bug 1887871](https://bugzil.la/1887871)).
+- Die Implementierung des Befehls `storage.getCookies` wurde an das standardmäßige Cookie-Verhalten von Gecko angepasst. Dadurch kann der benutzerdefinierte Wert für die Einstellung `network.cookie.cookieBehavior` entfernt werden, der nur für unsere CDP-Implementierung vorgesehen war ([Firefox-Bug 1879503](https://bugzil.la/1879503)).
+- Die Argumente `ownership` und `sandbox` wurden aus dem Befehl `browsingContext.locateNodes` entfernt, da sie nicht mehr benötigt werden ([Firefox-Bug 1884935](https://bugzil.la/1884935)).
+- Die Fehlermeldung des Befehls `session.new` wurde verbessert, wenn keine Capabilities angegeben werden ([Firefox-Bug 1838152](https://bugzil.la/1838152)).
 
-## Änderungen für Add-On-Entwickler
+## Änderungen für Add-on-Entwickler
 
-- Das {{WebExtAPIRef("commands.onCommand")}}-Ereignis übergibt jetzt das `tab`-Argument an den Ereignis-Listener. Dies ermöglicht es Erweiterungen, eine ausgelöste Verknüpfung auf die Seite, in der sie ausgeführt wurde, anzuwenden, ohne die Methode `tabs.query()` aufrufen zu müssen ([Firefox-Bug 1843866](https://bugzil.la/1843866)).
-- Der {{WebExtAPIRef("runtime.MessageSender")}}-Typ umfasst jetzt die Eigenschaft `origin`. Dies ermöglicht Anfragen oder Verbindungen zu sehen, welche Seite oder welches Frame die Verbindung geöffnet hat. Dies ist nützlich, um zu identifizieren, ob die Herkunft vertrauenswürdig ist, falls dies nicht aus der URL ersichtlich ist ([Firefox-Bug 1787379](https://bugzil.la/1787379)).
-- Die Berechtigung `"webRequestAuthProvider"` wird jetzt unterstützt. Dies bietet Kompatibilität mit Chrome, um die Berechtigung für {{WebExtAPIRef("webRequest.onAuthRequired")}} in Manifest V3 anzufordern ([Firefox-Bug 1820569](https://bugzil.la/1820569)).
-- Der [`options_page`-Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_page) wird als Alias des Schlüssels [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) bereitgestellt. Dies wurde bereitgestellt, um Erweiterungen eine bessere Kompatibilität mit Chrome zu bieten ([Firefox-Bug 1816960](https://bugzil.la/1816960)).
-- Die Methode {{WebExtAPIRef("tabs.captureVisibleTab")}} wird jetzt auch durch die `activeTab`-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) aktiviert, was die Kompatibilität mit Chrome und Safari bietet ([Firefox-Bug 1784920](https://bugzil.la/1784920)).
+- Das Ereignis {{WebExtAPIRef("commands.onCommand")}} übergibt jetzt das Argument `tab` an den Event Listener. Dadurch können Erweiterungen einen ausgelösten Tastaturkurzbefehl auf die Seite anwenden, auf der er ausgelöst wurde, ohne die Methode `tabs.query()` aufrufen zu müssen ([Firefox-Bug 1843866](https://bugzil.la/1843866)).
+- Der Typ {{WebExtAPIRef("runtime.MessageSender")}} enthält jetzt die Eigenschaft `origin`. Damit lässt sich bei Nachrichten- oder Verbindungsanfragen erkennen, welche Seite oder welcher Frame die Verbindung geöffnet hat. Das ist nützlich, um zu prüfen, ob die Herkunft vertrauenswürdig ist, wenn dies aus der URL nicht hervorgeht ([Firefox-Bug 1787379](https://bugzil.la/1787379)).
+- Die Berechtigung `"webRequestAuthProvider"` wird jetzt unterstützt. Dadurch wird bei der Anforderung der Berechtigung für {{WebExtAPIRef("webRequest.onAuthRequired")}} in Manifest V3 Kompatibilität mit Chrome hergestellt ([Firefox-Bug 1820569](https://bugzil.la/1820569)).
+- Der [Manifest-Schlüssel `options_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_page) steht als Alias für den Schlüssel [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) zur Verfügung. Dies verbessert die Kompatibilität von Erweiterungen mit Chrome ([Firefox-Bug 1816960](https://bugzil.la/1816960)).
+- Die Methode {{WebExtAPIRef("tabs.captureVisibleTab")}} kann jetzt auch mit der [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) verwendet werden. Dies stellt Kompatibilität mit Chrome und Safari her ([Firefox-Bug 1784920](https://bugzil.la/1784920)).
 
-## Experimentelle Web-Features
+## Experimentelle Webfunktionen
 
-Diese Features sind neu in Firefox 126 implementiert, jedoch standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie die entsprechende Präferenz auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solcher Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 126 neu verfügbar, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
-- **Auswahl über Shadow-DOM-Grenzen hinweg:** `dom.shadowdom.selection_across_boundary.enabled`.
+- **Auswahlbereiche über Shadow-DOM-Grenzen hinweg:** `dom.shadowdom.selection_across_boundary.enabled`.
 
-  Die Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) kann verwendet werden, um Auswahlbereiche zu bekommen, deren Anker- oder Fokus-Knoten sich innerhalb eines Shadow DOM befinden — vorausgesetzt, es wird die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekte übergeben, die diese Knoten enthalten. Die `Selection`-Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) wurden ebenfalls geändert, um Knoten innerhalb eines Shadow-Roots zu akzeptieren ([Firefox-Bug 1867058](https://bugzil.la/1867058)).
+  Mit der Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) lassen sich Auswahlbereiche abrufen, deren Anker- oder Fokus-Knoten innerhalb eines Shadow DOM liegen – vorausgesetzt, die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekte, die diese Knoten enthalten, werden der Methode übergeben. Die `Selection`-Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) wurden ebenfalls so geändert, dass sie Knoten innerhalb einer Shadow Root akzeptieren ([Firefox-Bug 1867058](https://bugzil.la/1867058)).
 
-- **CSS `shape()`-Funktion:** `layout.css.basic-shape-shape.enabled`.
+- **CSS-Funktion `shape()`:** `layout.css.basic-shape-shape.enabled`.
 
-  Sie können die {{cssxref("basic-shape/shape","shape()")}}-Funktion verwenden, um Formen in den {{cssxref("clip-path")}}- und {{cssxref("offset-path")}}-Eigenschaften zu definieren. Diese Funktion gibt Ihnen eine feinere Kontrolle über die Formen, die Sie definieren können, und bietet einige Vorteile gegenüber der {{cssxref("basic-shape/path","path()")}}-Funktion ([Firefox-Bug 1823463](https://bugzil.la/1823463) für Unterstützung der `shape()`-Funktion in `clip-path`, [Firefox-Bug 1884424](https://bugzil.la/1884424) für Unterstützung der `shape()`-Funktion in `offset-path`, [Firefox-Bug 1884425](https://bugzil.la/1884425) für `shape()`-Interpolationsunterstützung).
+  Mit der Funktion {{cssxref("basic-shape/shape","shape()")}} können Sie Formen für die Eigenschaften {{cssxref("clip-path")}} und {{cssxref("offset-path")}} definieren. Diese Funktion ermöglicht eine genauere Steuerung der definierten Formen und bietet mehrere Vorteile gegenüber der Funktion {{cssxref("basic-shape/path","path()")}} ([Firefox-Bug 1823463](https://bugzil.la/1823463) für die Unterstützung von `shape()` in `clip-path`, [Firefox-Bug 1884424](https://bugzil.la/1884424) für die Unterstützung von `shape()` in `offset-path`, [Firefox-Bug 1884425](https://bugzil.la/1884425) für die Unterstützung der Interpolation von `shape()`).

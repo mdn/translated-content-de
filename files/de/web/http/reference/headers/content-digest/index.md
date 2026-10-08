@@ -3,18 +3,18 @@ title: Content-Digest header
 short-title: Content-Digest
 slug: Web/HTTP/Reference/Headers/Content-Digest
 l10n:
-  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
+  sourceCommit: f4174abd45aefde55b6d45144c57ec3c2dc037a1
 ---
 
-Der HTTP-{{Glossary("request_header", "Request-Header")}} und {{Glossary("response_header", "Response-Header")}} **`Content-Digest`** enthält einen {{Glossary("hash_function", "Digest")}}, der mithilfe eines Hash-Algorithmus über den Nachrichteninhalt berechnet wird.
+Der HTTP-{{Glossary("request_header", "Request-Header")}} und {{Glossary("response_header", "Response-Header")}} **`Content-Digest`** stellt einen {{Glossary("hash_function", "Digest")}} bereit, der durch Anwendung eines Hash-Algorithmus auf den Nachrichteninhalt berechnet wird.
 Empfänger können mit `Content-Digest` die Integrität des HTTP-Nachrichteninhalts überprüfen.
 
-Mit dem Feld {{HTTPHeader("Want-Content-Digest")}} kann ein Absender einen `Content-Digest` anfordern und seine bevorzugten Hash-Algorithmen angeben.
+Mit dem Feld {{HTTPHeader("Want-Content-Digest")}} kann ein Absender einen `Content-Digest` anfordern und dabei bevorzugte Hash-Algorithmen angeben.
 Ein Content-Digest hängt von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}} ab, nicht jedoch von {{HTTPHeader("Transfer-Encoding")}}.
 
 In bestimmten Fällen kann ein {{HTTPHeader("Repr-Digest")}} verwendet werden, um die Integrität von Teilnachrichten oder mehrteiligen Nachrichten anhand der vollständigen Repräsentation zu überprüfen.
-Bei [Range Requests](/de/docs/Web/HTTP/Guides/Range_requests) beispielsweise hat ein `Repr-Digest` immer denselben Wert, wenn sich nur die angeforderten Bytebereiche unterscheiden. Der Content-Digest ist dagegen für jeden Teil unterschiedlich.
-Daher ist ein `Content-Digest` mit einem {{HTTPHeader("Repr-Digest")}} identisch, wenn eine Repräsentation in einer einzigen Nachricht gesendet wird.
+Bei [Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests) hat ein `Repr-Digest` beispielsweise immer denselben Wert, wenn sich nur die angeforderten Bytebereiche unterscheiden. Der Content-Digest ist dagegen für jeden Teil unterschiedlich.
+Wird eine Repräsentation in einer einzigen Nachricht gesendet, ist ein `Content-Digest` daher mit einem {{HTTPHeader("Repr-Digest")}} identisch.
 
 <table class="properties">
   <tbody>
@@ -38,20 +38,20 @@ Content-Digest: <digest-algorithm>=<digest-value>
 Content-Digest: <digest-algorithm>=<digest-value>,<digest-algorithm>=<digest-value>, …
 ```
 
-`Content-Digest` ist ein _strukturiertes Wörterbuchfeld_ ({{rfc("9651","Structured Field Values for HTTP")}}), dessen Schlüssel `<digest-algorithm>` und dessen Werte `<digest-value>` sind.
+`Content-Digest` ist ein _Wörterbuch strukturierter Felder_ ({{rfc("9651","Structured Field Values for HTTP")}}), dessen Schlüssel `<digest-algorithm>` und dessen Werte `<digest-value>` sind.
 
 ## Direktiven
 
 - `<digest-algorithm>`
   - : Der Algorithmus, mit dem ein Digest des Nachrichteninhalts erstellt wird.
     Nur zwei registrierte Digest-Algorithmen gelten als sicher: `sha-512` und `sha-256`.
-    Die unsicheren (veralteten) registrierten Digest-Algorithmen sind: `md5`, `sha` (SHA-1), `unixsum`, `unixcksum`, `adler` (ADLER32) und `crc32c`.
+    Die registrierten unsicheren (veralteten) Digest-Algorithmen sind `md5`, `sha` (SHA-1), `unixsum`, `unixcksum`, `adler` (ADLER32) und `crc32c`.
 - `<digest-value>`
-  - : Der Digest des Nachrichteninhalts, berechnet mit `<digest-algorithm>`, {{Glossary("base64", "Base64")}}-kodiert und von Doppelpunkten (`:`, ASCII 0x3A) umschlossen. Diese Kodierung wird in der Spezifikation als [Byte Sequence](https://www.rfc-editor.org/info/rfc9651/#name-byte-sequences) bezeichnet.
+  - : Der mit `<digest-algorithm>` berechnete Digest des Nachrichteninhalts, {{Glossary("base64", "Base64")}}-kodiert und von Doppelpunkten (`:`, ASCII 0x3A) umschlossen. Diese Kodierung wird in der Spezifikation als [Byte Sequence](https://www.rfc-editor.org/info/rfc9651/#name-byte-sequences) bezeichnet.
 
 ## Beispiele
 
-In allen Beispielen sind die Endpunkte so konfiguriert, dass sie Digest-Header ohne vorherige Anforderung senden. Optional könnte ein Absender mit den Feldern {{HTTPHeader("Want-Content-Digest")}} und {{HTTPHeader("Want-Repr-Digest")}} einen `Content-Digest` oder `Repr-Digest` anfordern und seine bevorzugten Hash-Algorithmen angeben.
+In allen Beispielen sind die Endpunkte so konfiguriert, dass sie Digest-Header ohne vorherige Anforderung senden. Ein Absender könnte optional die Felder {{HTTPHeader("Want-Content-Digest")}} und {{HTTPHeader("Want-Repr-Digest")}} verwenden, um einen `Content-Digest` oder `Repr-Digest` anzufordern und dabei bevorzugte Hash-Algorithmen anzugeben.
 
 ### Ein SHA-256-Content-Digest in einer Antwort
 
@@ -83,7 +83,7 @@ GET /items/123 HTTP/1.1
 Host: example.com
 ```
 
-Der Server antwortet mit einem `Content-Digest` und einem `Repr-Digest` des Nachrichteninhalts, die mit dem SHA-256-Algorithmus berechnet wurden.
+Der Server antwortet mit einem `Content-Digest` und einem `Repr-Digest`, die mit dem SHA-256-Algorithmus berechnet wurden.
 Die Felder `Repr-Digest` und `Content-Digest` haben übereinstimmende Werte, weil sie mit demselben Algorithmus über dieselben Bytes, `{"hello": "mdn"}` (16 Bytes), berechnet werden und in diesem Fall die gesamte Repräsentation in einer einzigen Nachricht gesendet wird:
 
 ```http
@@ -98,7 +98,7 @@ Repr-Digest: sha-256=:bMGjiT1wkArOzyB9ReAdpW51FV4mHlQygPXGp+TtzG4=:
 
 ### Unterschiedliche Content-Digest- und Repr-Digest-Werte
 
-Ein User-Agent fordert mithilfe eines [Range Requests](/de/docs/Web/HTTP/Guides/Range_requests) nur einen Teil einer Ressource an:
+Ein User-Agent fordert mit einer [Bereichsanfrage](/de/docs/Web/HTTP/Guides/Range_requests) nur einen Teil einer Ressource an:
 
 ```http
 GET /items/123 HTTP/1.1
@@ -106,8 +106,8 @@ Host: example.com
 Range: bytes=0-7
 ```
 
-Der Server gibt eine {{HTTPStatus("206", "206 Partial Content")}}-Antwort zurück, die als Nachrichteninhalt nur die angeforderten Bytes `{"hello"` (8 Bytes) enthält.
-`Content-Digest` deckt nur diese Bytes ab, während `Repr-Digest` weiterhin die gesamte Repräsentation `{"hello": "mdn"}` (16 Bytes) abdeckt. Deshalb unterscheiden sich die beiden Werte:
+Der Server gibt eine {{HTTPStatus("206", "206 Partial Content")}}-Antwort zurück, deren Nachrichteninhalt nur die angeforderten Bytes `{"hello"` (8 Bytes) enthält.
+`Content-Digest` umfasst nur diese Bytes, während `Repr-Digest` weiterhin die gesamte Repräsentation `{"hello": "mdn"}` (16 Bytes) umfasst. Daher unterscheiden sich die beiden Werte:
 
 ```http
 HTTP/1.1 206 Partial Content
@@ -127,9 +127,9 @@ Host: example.com
 Accept-Encoding: gzip
 ```
 
-Die Serverantwort enthält den Header {{httpheader("Content-Encoding")}}. Dieser gibt an, dass die Nachrichtenbytes aus der gzip-Repräsentation der Ressource stammen.
-Der Digest wird über die gzip-kodierten Bytes statt über den ursprünglichen, nicht kodierten Text berechnet.
-Hier wird der 16 Byte lange JSON-Körper `{"hello": "mdn"}` zu einer 36 Byte langen Repräsentation gzip-komprimiert. `Content-Digest` und `Repr-Digest` werden über diese 36 Bytes berechnet (hier zur besseren Lesbarkeit hexadezimal dargestellt):
+Die Serverantwort enthält den Header {{httpheader("Content-Encoding")}}. Dieser gibt an, dass die Bytes der Nachricht aus der gzip-kodierten Repräsentation der Ressource stammen.
+Der Digest wird über die gzip-kodierten Bytes statt über den ursprünglichen unkodierten Text berechnet.
+Hier wird der 16 Bytes lange JSON-Körper `{"hello": "mdn"}` zu einer 36 Bytes langen Repräsentation gzip-komprimiert. `Content-Digest` und `Repr-Digest` werden über diese 36 Bytes berechnet (hier zur besseren Lesbarkeit hexadezimal dargestellt):
 
 ```http
 HTTP/1.1 200 OK
@@ -143,7 +143,7 @@ Repr-Digest: sha-256=:6Gx6u1ZhhahDLs06Zc6ZEqXxUy8RNjy18CaMucjKOFk=:
 
 ### Umgang mit Content-Digest bei fehlendem Inhalt
 
-Wenn dieselbe Ressource mit der Methode {{HTTPMethod("HEAD")}} statt mit {{HTTPMethod("GET")}} angefordert wird, enthält die Antwort keinen Inhalt:
+Wird dieselbe Ressource mit der Methode {{HTTPMethod("HEAD")}} statt mit {{HTTPMethod("GET")}} angefordert, hat die Antwort keinen Inhalt:
 
 ```http
 HEAD /items/123 HTTP/1.1
@@ -159,8 +159,8 @@ Content-Type: application/json
 Repr-Digest: sha-256=:bMGjiT1wkArOzyB9ReAdpW51FV4mHlQygPXGp+TtzG4=:
 ```
 
-Statt `Content-Digest` bei fehlendem Inhalt wegzulassen, kann ein Server den Wert ausdrücklich über eine leere Zeichenfolge berechnen.
-Gemäß [Abschnitt 6.3 von RFC 9530](https://www.rfc-editor.org/info/rfc9530/#section-6.3) können Empfänger damit überprüfen, dass kein Inhalt hinzugefügt oder entfernt wurde, statt lediglich festzustellen, dass der Header fehlt. Dies ist besonders dann relevant, wenn der Digest durch eine HTTP-Nachrichtensignatur abgedeckt ist:
+Statt `Content-Digest` bei fehlendem Inhalt wegzulassen, kann ein Server ihn ausdrücklich über eine leere Zeichenfolge berechnen.
+Gemäß [Abschnitt 6.3 von RFC 9530](https://www.rfc-editor.org/info/rfc9530/#section-6.3) können Empfänger dadurch überprüfen, dass kein Inhalt hinzugefügt oder entfernt wurde, statt lediglich festzustellen, dass der Header fehlt. Das ist insbesondere dann relevant, wenn der Digest durch eine HTTP-Nachrichtensignatur abgedeckt ist:
 
 ```http
 HTTP/1.1 200 OK
@@ -169,11 +169,11 @@ Content-Digest: sha-256=:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=:
 Repr-Digest: sha-256=:bMGjiT1wkArOzyB9ReAdpW51FV4mHlQygPXGp+TtzG4=:
 ```
 
-### User-Agent sendet Digests in Anfragen
+### Ein User-Agent sendet Digests in Anfragen
 
 Im folgenden Beispiel sendet ein User-Agent einen mit SHA-512 berechneten Digest des Nachrichteninhalts.
 Der Digest wird über die exakten Bytes des Nachrichtenkörpers `{"recipient":"Alex","amount":900000000}` berechnet (39 Bytes, ausdrücklich ohne abschließenden Zeilenumbruch).
-Da die gesamte Repräsentation in dieser einen Anfrage gesendet wird, haben `Content-Digest` und `Repr-Digest` denselben Wert:
+Da die gesamte Repräsentation in dieser einzigen Anfrage gesendet wird, haben `Content-Digest` und `Repr-Digest` denselben Wert:
 
 ```http
 POST /bank_transfer HTTP/1.1
@@ -193,11 +193,11 @@ Repr-Digest: sha-512=:PlrIZYU3M76B30wGsL0h6O79BoxHTdAG+RnMPjOyECTSJCN/KnYdOrSCCW
 ## Browser-Kompatibilität
 
 Für diesen Header ist keine Browser-Integration spezifiziert („Browser-Kompatibilität“ ist daher nicht anwendbar).
-Entwickler können mit `fetch()` HTTP-Header setzen und auslesen, um anwendungsspezifisches Verhalten zu implementieren.
+Entwickler können HTTP-Header mit `fetch()` setzen und auslesen, um anwendungsspezifisches Verhalten zu implementieren.
 
 ## Siehe auch
 
-- {{HTTPHeader("Want-Content-Digest")}}-Header zum Anfordern eines Content-Digests
-- {{HTTPHeader("Repr-Digest")}} und {{HTTPHeader("Want-Repr-Digest")}}: Header für Repräsentations-Digests
+- Der Header {{HTTPHeader("Want-Content-Digest")}} zum Anfordern eines Content-Digests
+- Die Repräsentations-Digest-Header {{HTTPHeader("Repr-Digest")}} und {{HTTPHeader("Want-Repr-Digest")}}
 - {{HTTPHeader("ETag")}}
-- Der SDK-Leitfaden [Digital Signatures for APIs](https://developer.ebay.com/develop/guides/sell/digital-signatures-for-apis) beschreibt die Verwendung von `Content-Digest` für digitale Signaturen in HTTP-Aufrufen (developer.ebay.com)
+- Der SDK-Leitfaden [Digital Signatures for APIs](https://developer.ebay.com/develop/guides/sell/digital-signatures-for-apis) verwendet `Content-Digest`-Werte für digitale Signaturen in HTTP-Aufrufen (developer.ebay.com)

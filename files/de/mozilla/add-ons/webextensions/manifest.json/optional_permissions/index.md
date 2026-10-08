@@ -2,7 +2,7 @@
 title: optional_permissions
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions
 l10n:
-  sourceCommit: 5054fb75bce0f095ed9ca9ad11dabde32eea5cb4
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
 <table class="fullwidth-table standard-table">
@@ -31,29 +31,29 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `optional_permissions`, um Berechtigungen aufzulisten, die Sie zur Laufzeit anfordern möchten, nachdem Ihre Erweiterung installiert wurde.
+Verwenden Sie den Schlüssel `optional_permissions`, um Berechtigungen aufzulisten, die Ihre Erweiterung zur Laufzeit anfordern soll, nachdem sie installiert wurde.
 
-Der Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) listet Berechtigungen auf, die Ihre Erweiterung benötigt, bevor sie installiert werden kann. Im Gegensatz dazu listet `optional_permissions` Berechtigungen auf, die Ihre Erweiterung zur Installationszeit nicht benötigt, aber nach der Installation anfordern kann. Um eine Berechtigung anzufordern, verwenden Sie die API {{webextapiref("permissions.request()")}}. Das Anfordern einer Berechtigung zeigt dem Benutzer ein Dialogfeld an, in dem er aufgefordert wird, der Erweiterung die Berechtigung zu erteilen, es sei denn, alle angeforderten Berechtigungen werden stillschweigend gewährt.
+Der Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) listet Berechtigungen auf, die Ihre Erweiterung benötigt, bevor sie installiert werden kann. Im Gegensatz dazu listet `optional_permissions` Berechtigungen auf, die Ihre Erweiterung bei der Installation nicht benötigt, aber danach anfordern kann. Verwenden Sie zum Anfordern einer Berechtigung die API {{webextapiref("permissions.request()")}}. Beim Anfordern einer Berechtigung wird dem Benutzer ein Dialogfeld angezeigt, in dem er aufgefordert wird, Ihrer Erweiterung die Berechtigung zu erteilen, sofern nicht alle angeforderten Berechtigungen ohne Nachfrage erteilt werden.
 
-Für Ratschläge zur Gestaltung Ihrer Anfrage nach Berechtigungen zur Laufzeit, um die Wahrscheinlichkeit zu maximieren, dass Benutzer sie gewähren, siehe [Fordern Sie Berechtigungen zur Laufzeit an](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/#request_permissions_at_runtime).
+Hinweise dazu, wie Sie Berechtigungsanfragen zur Laufzeit so gestalten, dass Benutzer ihnen mit höherer Wahrscheinlichkeit zustimmen, finden Sie unter [Berechtigungen zur Laufzeit anfordern](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/#request_permissions_at_runtime).
 
 > [!NOTE]
-> Benutzer können [optionale Berechtigungen über den Firefox Add-ons-Manager verwalten](https://support.mozilla.org/en-US/kb/manage-optional-permissions-extensions). Erweiterungen, die optionale Berechtigungen verwenden, können die vom Benutzer gewährten Berechtigungen mit {{webextapiref("permissions.getAll()")}} überprüfen und auf {{webextapiref("permissions.onAdded")}} und {{webextapiref("permissions.onRemoved")}} hören, um zu wissen, wann ein Benutzer Berechtigungen gewährt oder widerruft.
+> Benutzer können [optionale Berechtigungen im Firefox-Add-ons-Manager verwalten](https://support.mozilla.org/en-US/kb/manage-optional-permissions-extensions). Erweiterungen, die optionale Berechtigungen verwenden, können mit {{webextapiref("permissions.getAll()")}} prüfen, welche Berechtigungen der Benutzer erteilt hat, und über {{webextapiref("permissions.onAdded")}} und {{webextapiref("permissions.onRemoved")}} erkennen, wann ein Benutzer Berechtigungen erteilt oder widerruft.
 
 Der Schlüssel kann Host-Berechtigungen und API-Berechtigungen enthalten.
 
 ## Host-Berechtigungen
 
-Diese sind identisch mit den Host-Berechtigungen, die Sie im Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) angeben können.
+Dies sind dieselben Host-Berechtigungen, die Sie im Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) angeben können.
 
 > [!NOTE]
-> Bei der Verwendung von Manifest V3 oder höher sollten optionale Host-Berechtigungen mit dem Schlüssel [`optional_host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions) im Manifest angegeben werden. Firefox hat `optional_host_permissions` in Version 128 eingeführt, siehe [Fehler 1766026](https://bugzil.la/1766026), und erlaubt weiterhin die Verwendung von `optional_permissions`, um optionale Hosts anzugeben. Die Verwendung von `optional_host_permissions` wird jedoch empfohlen.
+> Bei Verwendung von Manifest V3 oder höher sollten optionale Host-Berechtigungen mit dem Manifest-Schlüssel [`optional_host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions) angegeben werden. Firefox hat `optional_host_permissions` mit Version 128 eingeführt (siehe [Bug 1766026](https://bugzil.la/1766026)) und erlaubt weiterhin die Verwendung von `optional_permissions` zur Angabe optionaler Hosts. Die Verwendung von `optional_host_permissions` wird jedoch empfohlen.
 
 ## API-Berechtigungen
 
 Die optionalen API-Berechtigungen sind:
 
-- `activeTab`
+- [`activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission)
 - `background`
 - `bookmarks`
 - `browserSettings`
@@ -89,16 +89,16 @@ Die optionalen API-Berechtigungen sind:
 - `tabGroups`
 - `tabs`
 - `topSites`
-- `userScripts` ([optional-only](#nur-optionale_berechtigungen))
+- `userScripts` ([nur optional](#berechtigungen,_die_nur_optional_angefordert_werden_können))
 - `webNavigation`
 - `webRequest`
 - `webRequestBlocking`
 - `webRequestFilterResponse`
 - `webRequestFilterResponse.serviceWorkerScript`
 
-Überprüfen Sie die Kompatibilitätstabelle für detailspezifische Unterstützung der Browser.
+Einzelheiten zur Unterstützung in den jeweiligen Browsern finden Sie in der Kompatibilitätstabelle.
 
-Diese optionalen Berechtigungen werden stillschweigend gewährt, ohne eine Benutzeraufforderung:
+Die folgenden optionalen Berechtigungen werden ohne Nachfrage beim Benutzer erteilt:
 
 - `activeTab`
 - `cookies`
@@ -110,13 +110,13 @@ Diese optionalen Berechtigungen werden stillschweigend gewährt, ohne eine Benut
 - `webRequestFilterResponse`
 - `webRequestFilterResponse.serviceWorkerScript`
 
-### Nur-optionale Berechtigungen
+### Berechtigungen, die nur optional angefordert werden können
 
-Optionale Berechtigungen sind im Allgemeinen zur Verwendung im Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) verfügbar, so dass sie zur Installationszeit angefordert werden können. Einige Browser unterstützen jedoch das Konzept der nur-optionalen Berechtigungen, Berechtigungen, die nur zur Laufzeit angefordert werden können. Zum Beispiel können in Firefox nur-optionale Berechtigungen vom Benutzer von der [Optionsseite der Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) aus oder mithilfe von {{webextapiref("permissions.request()")}} gewährt werden. Nur-optionale Berechtigungen müssen einzeln und allein über die API {{webextapiref("permissions.request()")}} angefordert werden.
+Optionale Berechtigungen können im Allgemeinen im Schlüssel [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) verwendet und somit bei der Installation angefordert werden. Einige Browser unterstützen jedoch Berechtigungen, die nur optional angefordert werden können, also ausschließlich zur Laufzeit. In Firefox kann der Benutzer solche Berechtigungen beispielsweise über die [Optionsseite der Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) oder mithilfe von {{webextapiref("permissions.request()")}} erteilen. Berechtigungen, die nur optional angefordert werden können, müssen über die API {{webextapiref("permissions.request()")}} einzeln und ohne weitere Berechtigungen angefordert werden.
 
-Die nur-optionalen API-Berechtigungen sind:
+Die API-Berechtigungen, die nur optional angefordert werden können, sind:
 
-- `userScripts` (siehe [userScripts permission](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions))
+- `userScripts` (siehe [Berechtigung für userScripts](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions))
 
 ## Beispiele
 
@@ -124,19 +124,19 @@ Die nur-optionalen API-Berechtigungen sind:
  "optional_permissions": ["*://developer.mozilla.org/*"]
 ```
 
-Nur in Manifest V2, ermöglichen Sie der Erweiterung, privilegierten Zugriff auf Seiten unter developer.mozilla.org anzufordern.
+Ermöglicht der Erweiterung, privilegierten Zugriff auf Seiten unter developer.mozilla.org anzufordern. Dies gilt nur für Manifest V2.
 
 ```json
   "optional_permissions": ["tabs"]
 ```
 
-Erlauben Sie der Erweiterung, um Zugriff auf die privilegierten Teile der `tabs` API zu bitten.
+Ermöglicht der Erweiterung, Zugriff auf die privilegierten Teile der `tabs`-API anzufordern.
 
 ```json
   "optional_permissions": ["*://developer.mozilla.org/*", "tabs"]
 ```
 
-Nur in Manifest V2, ermöglichen Sie der Erweiterung, um beide der oben genannten Berechtigungen anzufordern.
+Ermöglicht der Erweiterung, beide oben genannten Berechtigungen anzufordern. Dies gilt nur für Manifest V2.
 
 ## Browser-Kompatibilität
 

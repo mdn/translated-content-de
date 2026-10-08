@@ -3,24 +3,24 @@ title: "CycleTracker: Grundlegendes HTML und CSS"
 short-title: Grundlegendes HTML und CSS
 slug: Web/Progressive_web_apps/Tutorials/CycleTracker/HTML_and_CSS
 l10n:
-  sourceCommit: 57d4a3ab62517528c9642489e9dbdbec3e9c319e
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker", "Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}
 
-Um eine PWA, eine Progressive Web Application, zu erstellen, müssen wir eine voll funktionsfähige Webanwendung entwickeln. In diesem Abschnitt werden wir das HTML für eine statische Webseite auszeichnen und das Erscheinungsbild mit CSS verbessern.
+Um eine PWA, eine Progressive Web App, zu erstellen, benötigen wir zunächst eine voll funktionsfähige Webanwendung. In diesem Abschnitt erstellen wir das HTML-Markup für eine statische Webseite und gestalten sie mit CSS.
 
-Unser Projekt ist es, CycleTracker, einen Menstruationszyklus-Tracker, zu erstellen. Der erste Schritt in diesem einführenden [PWA-Tutorial](/de/docs/Web/Progressive_web_apps/Tutorials) besteht darin, das HTML und CSS zu schreiben. Der obere Teil der Seite ist ein Formular für den Benutzer, um die Start- und Enddaten jedes Zyklus einzugeben. Der untere Teil ist eine Liste der vorherigen Menstruationszyklen.
+Unser Projekt ist CycleTracker, eine Anwendung zur Erfassung von Menstruationszyklen. Der erste Schritt in diesem einführenden [PWA-Tutorial](/de/docs/Web/Progressive_web_apps/Tutorials) besteht darin, HTML und CSS zu schreiben. Im oberen Bereich der Seite befindet sich ein Formular, in das Benutzerinnen das Anfangs- und Enddatum jeder Menstruation eintragen können. Im unteren Bereich werden frühere Menstruationszyklen aufgelistet.
 
-Wir erstellen eine HTML-Datei mit Metadaten im Kopfbereich und einer statischen Webseite, die ein Formular und einen Platzhalter zur Anzeige von Benutzereingaben enthält. Dann fügen wir ein externes CSS-Stylesheet hinzu, um das Erscheinungsbild der Seite zu verbessern.
+Wir erstellen eine HTML-Datei mit Metadaten im Dokumentkopf und einer statischen Webseite, die ein Formular sowie einen Platzhalter für die Anzeige eingegebener Daten enthält. Anschließend fügen wir ein externes CSS-Stylesheet hinzu, um das Erscheinungsbild der Website zu verbessern.
 
-Um dieses Tutorial abzuschließen, ist es hilfreich, ein Grundverständnis von [HTML](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content), [CSS](/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content) und [JavaScript](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity) zu haben. Wenn Sie mit diesen nicht vertraut sind, ist MDN die Heimat von [Getting Started](/de/docs/Learn_web_development/Getting_started/Your_first_website), einer Einführung in die Webentwicklung.
+Für dieses Tutorial sind Grundkenntnisse in [HTML](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content), [CSS](/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content) und [JavaScript](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity) hilfreich. Falls Sie damit noch nicht vertraut sind, finden Sie bei MDN mit [Getting Started](/de/docs/Learn_web_development/Getting_started/Your_first_website) eine Einführungsreihe zur Webentwicklung.
 
-In den nächsten Abschnitten werden wir eine [lokale Entwicklungsumgebung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection) einrichten und unseren Fortschritt überprüfen, bevor wir [JavaScript-Funktionalitäten](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality) hinzufügen, um die in diesem Abschnitt erstellten statischen Inhalte in eine funktionale Webanwendung zu verwandeln. Sobald wir eine funktionierende App haben, können wir diese schrittweise in eine PWA umwandeln, die installiert werden kann und offline funktioniert.
+In den nächsten Abschnitten richten wir eine [lokale Entwicklungsumgebung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection) ein und sehen uns unseren bisherigen Fortschritt an. Danach ergänzen wir [JavaScript-Funktionalität](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality), um aus den hier erstellten statischen Inhalten eine funktionsfähige Webanwendung zu machen. Sobald die Anwendung funktioniert, können wir sie schrittweise zu einer PWA erweitern, die installierbar ist und offline funktioniert.
 
 ## Statische Webinhalte
 
-Unser statisches Site-HTML mit Platzhaltern für {{HTMLElement("link")}} und {{HTMLElement("script")}}-Elementen für noch zu erstellende externe CSS- und JavaScript-Dateien sieht wie folgt aus:
+Das HTML unserer statischen Website enthält als Platzhalter {{HTMLElement("link")}}- und {{HTMLElement("script")}}-Elemente für die noch zu erstellenden externen CSS- und JavaScript-Dateien:
 
 ```html
 <!doctype html>
@@ -59,15 +59,15 @@ Kopieren Sie dieses HTML und speichern Sie es in einer Datei namens `index.html`
 
 ## HTML-Inhalt
 
-Auch wenn Ihnen das HTML in `index.html` bekannt vorkommt, empfehlen wir, diesen Abschnitt zu lesen, bevor Sie einige [temporäre festkodierte Daten](#temporäre_festkodierte_textdaten) hinzufügen, CSS in ein externes Stylesheet [`style.css`](#css-inhalt) integrieren und `app.js` erstellen, das [JavaScript der Anwendung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality), das diese Webseite funktionsfähig macht.
+Auch wenn Ihnen das HTML in `index.html` vertraut ist, empfehlen wir, diesen Abschnitt zu lesen, bevor Sie [vorübergehend fest codierte Daten](#vorübergehend_fest_codierter_ergebnistext) hinzufügen, CSS in ein externes Stylesheet namens [`style.css`](#css-inhalt) schreiben und `app.js` erstellen – das [JavaScript der Anwendung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality), das diese Webseite funktionsfähig macht.
 
-Die erste Zeile des HTMLs ist ein {{Glossary("doctype", "Doctype")}} Präludium, das sicherstellt, dass die Inhalte korrekt funktionieren.
+Die erste Zeile des HTML ist eine {{Glossary("doctype", "Doctype")}}-Deklaration, die dafür sorgt, dass sich der Inhalt korrekt verhält.
 
 ```html
 <!doctype html>
 ```
 
-Die übergeordneten {{HTMLelement("html")}}-Tags umfassen den gesamten Inhalt, wobei das [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut die Hauptsprache der Seite definiert.
+Die {{HTMLelement("html")}}-Tags umschließen den gesamten Inhalt. Das Attribut [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) legt die Hauptsprache der Seite fest.
 
 ```html
 <!doctype html>
@@ -78,9 +78,9 @@ Die übergeordneten {{HTMLelement("html")}}-Tags umfassen den gesamten Inhalt, w
 
 ### Dokumentkopf
 
-Der {{HTMLelement("head")}} enthält maschinenlesbare Informationen über die Webanwendung, die für Leser außer dem `<title>`, das als Überschrift des Browser-Tabs angezeigt wird, nicht sichtbar sind.
+Das {{HTMLelement("head")}}-Element enthält maschinenlesbare Informationen über die Webanwendung, die für Leserinnen und Leser nicht sichtbar sind. Eine Ausnahme ist der `<title>`, der als Titel des Browser-Tabs angezeigt wird.
 
-Der `<head>` enthält alle [Metadaten](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata). Die ersten beiden Informationen im `<head>` sollten immer die Zeichensatzdefinition, die die {{Glossary("Character_encoding", "Zeichenkodierung")}} definiert, und das [Viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) {{HTMLelement("meta")}}-Tag sein, das sicherstellt, dass die Seite in der Breite des Viewports dargestellt wird und nicht verkleinert wird, wenn sie auf sehr kleinen Bildschirmen geladen wird.
+Der `<head>` enthält sämtliche [Metadaten](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata). Die ersten beiden Angaben in Ihrem `<head>` sollten immer die Zeichensatzdefinition, die die {{Glossary("Character_encoding", "Zeichenkodierung")}} festlegt, und das [Viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)-{{HTMLelement("meta")}}-Tag sein. Letzteres sorgt dafür, dass die Seite in der Breite des Viewports dargestellt und beim Laden auf sehr kleinen Bildschirmen nicht verkleinert wird.
 
 ```html
 <head>
@@ -89,31 +89,31 @@ Der `<head>` enthält alle [Metadaten](/de/docs/Learn_web_development/Core/Struc
 </head>
 ```
 
-Wir setzen den Titel der Seite mit dem {{HTMLelement("title")}}-Element auf "Cycle Tracker". Während der Inhalt des `<head>` nicht auf der Seite angezeigt wird, ist der Inhalt des `<title>` sichtbar! Der innere Text des `<title>`-Elements erscheint im Browser-Tab, wenn die Seite geladen wird, in Suchmaschinenergebnissen und ist der Standardtitel, der verwendet wird, wenn ein Benutzer eine Webseite als Lesezeichen speichert. Der Titel bietet auch einen zugänglichen Namen für Bildschirmleser-Benutzer, die darauf angewiesen sind zu wissen, auf welchem Tab sie sich aktuell befinden.
+Mit dem {{HTMLelement("title")}}-Element legen wir „Cycle Tracker“ als Seitentitel fest. Der Inhalt des `<head>` wird zwar nicht auf der Seite angezeigt, der Inhalt des `<title>` ist jedoch sichtbar: Sein Text erscheint nach dem Laden der Seite im Browser-Tab und in Suchmaschinenergebnissen. Er wird außerdem standardmäßig als Titel verwendet, wenn jemand ein Lesezeichen für die Webseite anlegt. Für Personen, die Screenreader verwenden, stellt der Titel zudem einen zugänglichen Namen bereit, anhand dessen sie erkennen können, auf welchem Tab sie sich gerade befinden.
 
-Obwohl der Titel "Menstruationszyklus-Tracker-Anwendung" sein könnte, haben wir uns für einen kürzeren, diskreteren Namen entschieden.
+Wir hätten den Titel auch „Anwendung zur Erfassung von Menstruationszyklen“ nennen können, haben uns aber für einen kürzeren, unauffälligeren Namen entschieden.
 
 ```html
 <title>Cycle Tracker</title>
 ```
 
-Obwohl offiziell optional, sollten für eine bessere Benutzererfahrung diese beiden `<meta>`-Tags und das `<title>` die drei Komponenten des `<head>` sein, die als erforderlich für jedes HTML-Dokument betrachtet werden.
+Obwohl sie formal optional sind, sollten diese beiden `<meta>`-Tags und der `<title>` im Interesse einer besseren Benutzererfahrung als unverzichtbare Bestandteile jedes HTML-Dokuments betrachtet werden.
 
-Für den Moment ist die letzte Komponente, die wir im `<head>` einfügen, ein {{HTMLelement("link")}}-Element, das `style.css`, unser noch zu schreibendes Stylesheet, mit unserem HTML verbindet.
+Als letztes Element fügen wir dem `<head>` vorerst ein {{HTMLelement("link")}}-Element hinzu. Es verknüpft `style.css`, unser noch zu schreibendes Stylesheet, mit dem HTML-Dokument.
 
 ```html
 <link rel="stylesheet" href="style.css" />
 ```
 
-Das HTML-Element `<link>` wird verwendet, um eine Beziehung zwischen dem aktuellen Dokument und einer externen Ressource festzulegen. Es gibt mehr als 25 definierte Werte für das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut — und viele weitere Werte, die in keiner Spezifikation enthalten sind. Der häufigste Wert, `rel="stylesheet"`, importiert eine externe Ressource als Stylesheet.
+Mit dem HTML-Element `<link>` wird eine Beziehung zwischen dem aktuellen Dokument und einer externen Ressource angegeben. Für das Attribut [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel) gibt es mehr als 25 definierte Werte – und viele weitere, die in keiner Spezifikation stehen. Der häufigste Wert, `rel="stylesheet"`, bindet eine externe Ressource als Stylesheet ein.
 
-Wir werden das `<link>`-Element und sein `rel`-Attribut in einem zukünftigen Abschnitt erneut behandeln, wenn wir den [Link zur Manifestdatei](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file#adding_the_manifest_to_the_app) einfügen.
+Auf das `<link>`-Element und sein Attribut `rel` kommen wir in einem späteren Abschnitt zurück, wenn wir den [Link zur Manifestdatei](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file#adding_the_manifest_to_the_app) hinzufügen.
 
-### Dokumentenkörper
+### Dokumentkörper
 
-Das {{HTMLelement("body")}}-Element enthält alle Inhalte, die wir anzeigen möchten, wenn Benutzer die Seite im Internet besuchen.
+Das {{HTMLelement("body")}}-Element enthält alle Inhalte, die beim Besuch der Website angezeigt werden sollen.
 
-Im `<body>` fügen wir den Namen der App als Überschrift der Stufe 1 unter Verwendung eines [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) und eines {{HTMLelement("form")}} hinzu.
+Innerhalb des `<body>` fügen wir den Namen der Anwendung als Überschrift erster Ebene mit einem [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) sowie ein {{HTMLelement("form")}} ein.
 
 ```html
 <body>
@@ -122,9 +122,9 @@ Im `<body>` fügen wir den Namen der App als Überschrift der Stufe 1 unter Verw
 </body>
 ```
 
-Das Formular wird Anweisungen, Formularelemente, ein Label für jedes Formularelement und eine Schaltfläche zum Absenden enthalten. Hinsichtlich der Formularelemente benötigen wir, dass der Benutzer sowohl ein Startdatum als auch ein Enddatum für jeden eingereichten Menstruationszyklus eingibt.
+Das Formular enthält Anweisungen, Formularsteuerelemente, eine Beschriftung für jedes Steuerelement und eine Schaltfläche zum Absenden. Die Benutzerin muss für jeden erfassten Menstruationszyklus sowohl ein Anfangs- als auch ein Enddatum eingeben können.
 
-Im `<form>` fügen wir ein {{HTMLelement("fieldset")}} mit einem {{HTMLelement("legend")}} hinzu, das den Zweck dieser Gruppe von Formularfeldern beschreibt.
+Innerhalb des `<form>` fügen wir ein {{HTMLelement("fieldset")}} mit einem {{HTMLelement("legend")}} ein, das den Zweck dieser Gruppe von Formularfeldern beschreibt.
 
 ```html
 <form>
@@ -134,16 +134,16 @@ Im `<form>` fügen wir ein {{HTMLelement("fieldset")}} mit einem {{HTMLelement("
 </form>
 ```
 
-Die Datumsauswähler sind {{HTMLElement("input")}}-Elemente vom Typ {{HTMLElement("input/date", "date")}}. Wir fügen das [`required`](/de/docs/Web/HTML/Reference/Attributes/required)-Attribut hinzu, um Benutzerfehler zu verringern, indem verhindert wird, dass der Benutzer versehentlich ein unvollständiges Formular absendet.
+Die Steuerelemente zur Datumsauswahl sind {{HTMLElement("input")}}-Elemente vom Typ {{HTMLElement("input/date", "date")}}. Wir fügen das Attribut [`required`](/de/docs/Web/HTML/Reference/Attributes/required) hinzu, um Eingabefehler zu vermeiden: So kann ein unvollständiges Formular nicht versehentlich abgesendet werden.
 
-Um ein `<label>` mit einem Formularelement zu verknüpfen, hat jedes `<input>` ein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut, das mit dem [`for`](/de/docs/Web/HTML/Reference/Attributes/for)-Attribut des zugehörigen {{HTMLelement("label")}} übereinstimmt. Das zugehörige Label bietet jedem `<input>` einen {{Glossary("accessible_name", "zugänglichen Namen")}}.
+Um ein `<label>` einem Formularsteuerelement zuzuordnen, besitzt jedes `<input>` ein Attribut [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id), dessen Wert mit dem Attribut [`for`](/de/docs/Web/HTML/Reference/Attributes/for) des zugehörigen {{HTMLelement("label")}} übereinstimmt. Durch dieses Label erhält jedes `<input>` einen {{Glossary("accessible_name", "zugänglichen Namen")}}.
 
 ```html
 <label for="start-date">Start date</label>
 <input type="date" id="start-date" required />
 ```
 
-Zusammengefasst, innerhalb des `<fieldset>`, fügen wir zwei Absätze ({{HTMLelement("p")}}-Elemente) ein, jeweils mit einem Datumsauswähler für die Start- und Enddaten des aktuell eingegebenen Menstruationszyklus, zusammen mit den zugehörigen {{HTMLelement("label")}}s der Datumsauswähler. Wir fügen auch ein {{HTMLelement("button")}}-Element hinzu, das das Formular absendet; wir beschriften es mit "Add period", indem wir diesen Text zwischen den öffnenden und schließenden Tags einfügen. Das `type="submit"` ist optional, da `submit` der Standardtyp für `<button>` ist.
+Zusammengefasst fügen wir innerhalb des `<fieldset>` zwei Absätze ({{HTMLelement("p")}}-Elemente) ein. Jeder enthält ein Steuerelement zur Auswahl des Anfangs- beziehungsweise Enddatums des gerade eingegebenen Menstruationszyklus und das zugehörige {{HTMLelement("label")}}. Außerdem fügen wir ein {{HTMLelement("button")}}-Element zum Absenden des Formulars hinzu. Seine Beschriftung „Add period“ steht zwischen dem öffnenden und dem schließenden Tag. `type="submit"` ist optional, da `submit` der Standardtyp für `<button>` ist.
 
 ```html
 <form>
@@ -164,19 +164,19 @@ Zusammengefasst, innerhalb des `<fieldset>`, fügen wir zwei Absätze ({{HTMLele
 </form>
 ```
 
-Wir ermutigen Sie, [mehr über die Erstellung zugänglicher Webformulare zu erfahren](/de/docs/Learn_web_development/Extensions/Forms).
+Wir empfehlen Ihnen, sich näher mit der [Erstellung zugänglicher Webformulare](/de/docs/Learn_web_development/Extensions/Forms) zu beschäftigen.
 
-### Temporäre festkodierte Textdaten
+### Vorübergehend fest codierter Ergebnistext
 
-Wir fügen dann einen leeren {{HTMLElement("section")}} ein. Dieser Container wird über JavaScript befüllt.
+Als Nächstes fügen wir ein leeres {{HTMLElement("section")}}-Element ein. Dieser Container wird später mit JavaScript befüllt.
 
 ```html
 <section id="past-periods"></section>
 ```
 
-Wenn der Benutzer das Formular absendet, verwenden wir JavaScript, um die Daten zu erfassen und eine Liste vergangener Perioden zusammen mit einer Überschrift für den Abschnitt zu präsentieren.
+Wenn das Formular abgesendet wird, erfassen wir die Daten mit JavaScript und zeigen eine Liste früherer Menstruationen zusammen mit einer Überschrift für den Abschnitt an.
 
-Vorläufig kodieren wir einige Inhalte innerhalb dieses `<section>`, einschließlich einer `<h2>`-Überschrift und einiger vergangener Perioden, um etwas zu haben, das wir beim Schreiben des CSS der Seite gestalten können.
+Vorerst schreiben wir einige Inhalte fest in dieses `<section>`-Element: eine `<h2>`-Überschrift und einige frühere Menstruationen. So haben wir beim Schreiben des CSS Inhalte, deren Darstellung wir gestalten können.
 
 ```html
 <section id="past-periods">
@@ -188,23 +188,23 @@ Vorläufig kodieren wir einige Inhalte innerhalb dieses `<section>`, einschließ
 </section>
 ```
 
-Dieser Inhalt, mit Ausnahme des Containers `<section id="past-periods"></section>`, ist vorübergehend. Wir werden diese temporären Daten entfernen oder kommentieren, sobald wir mit dem [CSS abgeschlossen](#css-inhalt) und mit dem Erscheinungsbild der App zufrieden sind.
+Mit Ausnahme des Containers `<section id="past-periods"></section>` sind diese Inhalte nur vorübergehend. Sobald wir [das CSS fertiggestellt](#css-inhalt) haben und mit dem Erscheinungsbild der Anwendung zufrieden sind, entfernen oder kommentieren wir die vorübergehenden Daten aus.
 
-### JavaScript-Link
+### JavaScript-Verknüpfung
 
-Bevor wir das `</body>` schließen, fügen wir einen Link zur noch zu erstellenden JavaScript-Datei `app.js` ein. Wir fügen das [`defer`](/de/docs/Web/HTML/Reference/Elements/script#defer)-Attribut hinzu, um das Laden dieses Skripts zu verzögern und sicherzustellen, dass das JavaScript nach dem Parsen des HTML-Dokuments ausgeführt wird.
+Vor dem schließenden `</body>` fügen wir einen Verweis auf die noch zu schreibende JavaScript-Datei `app.js` ein. Mit dem Attribut [`defer`](/de/docs/Web/HTML/Reference/Elements/script#defer) verschieben wir die Ausführung des Skripts, sodass das JavaScript erst ausgeführt wird, nachdem das HTML des Dokuments geparst wurde.
 
 ```html
 <script src="app.js" defer></script>
 ```
 
-Die `app.js` Datei wird alle Funktionalitäten unserer Anwendung enthalten, einschließlich der Ereignishandler für den `<button>`, Speichern der übermittelten Daten im lokalem Speicher und Anzeige der Zyklen im Inhalt des Bodys.
+Die Datei `app.js` wird die gesamte Anwendungslogik enthalten, darunter die Event-Handler für den `<button>`, das Speichern der übermittelten Daten im lokalen Speicher und die Anzeige der Zyklen im Inhalt des Dokumentkörpers.
 
-Die [HTML-Datei für diesen Schritt](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/index.html) ist jetzt fertig! Sie können die Datei nun in Ihrem Browser öffnen, aber Sie werden bemerken, dass sie ziemlich schlicht ist. Wir werden das im nächsten Abschnitt beheben.
+Die [HTML-Datei für diesen Schritt](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/index.html) ist nun fertig! Sie können die Datei jetzt in Ihrem Browser öffnen, werden aber feststellen, dass sie noch recht schlicht aussieht. Das ändern wir im nächsten Abschnitt.
 
 ## CSS-Inhalt
 
-Wir können nun das statische HTML mit CSS gestalten. Unser endgültiges CSS ist:
+Nun können wir das statische HTML mit CSS gestalten. Unser fertiges CSS lautet:
 
 ```css
 body {
@@ -232,15 +232,15 @@ li:nth-of-type(even) {
 }
 ```
 
-Wenn Ihnen jede Zeile bekannt vorkommt, können Sie das obige CSS kopieren oder Ihr eigenes CSS schreiben und die Datei als [`style.css`](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/style.css) speichern, dann [beenden Sie das statische HTML und CSS](#abschließen_des_statischen_html_und_css_für_unsere_pwa). Wenn Ihnen etwas im obigen CSS neu ist, lesen Sie weiter für eine Erklärung.
+Wenn Ihnen jede Zeile vertraut ist, können Sie das obige CSS kopieren oder eigenes CSS schreiben und die Datei als [`style.css`](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/style.css) speichern. Anschließend können Sie [das statische HTML und CSS fertigstellen](#das_statische_html_und_css_für_unsere_pwa_fertigstellen). Falls Ihnen etwas am obigen CSS neu ist, lesen Sie für eine Erklärung weiter.
 
-![Hellgrüne Webseite mit großer Überschrift, einem Formular mit einer Legende, zwei Datumauswählern und einer Schaltfläche. Unten werden gefälschte Daten für zwei Menstruationszyklen und eine Überschrift angezeigt.](html.jpg)
+![Hellgrüne Webseite mit einer großen Überschrift und einem Formular mit Legende, zwei Steuerelementen zur Datumsauswahl und einer Schaltfläche. Im unteren Bereich sind Beispieldaten für zwei Menstruationszyklen sowie eine Überschrift zu sehen.](html.jpg)
 
-### Erklärtes CSS
+### CSS erklärt
 
-Wir verwenden die {{CSSXref("background-color")}}-Eigenschaft, um eine hellgrüne (`#eeffee`) Hintergrundfarbe auf dem `body` zu setzen. Dann verwenden wir auf der ungeordneten Liste, dem fieldset und der Legende eine weiße Hintergrundfarbe zusammen mit einem dünnen festen Rahmen, der mit der {{CSSXref("border")}}-Eigenschaft hinzugefügt wurde. Wir überschreiben die `background-color` für die Legende und setzen die Legende und die Listenelemente auf ein dunkleres Grün (`#ccffcc`).
+Mit der Eigenschaft {{CSSXref("background-color")}} geben wir dem `body` eine hellgrüne Hintergrundfarbe (`#eeffee`). Für die ungeordnete Liste, das Fieldset und die Legende verwenden wir einen weißen Hintergrund und fügen mit der Eigenschaft {{CSSXref("border")}} einen dünnen, durchgezogenen Rahmen hinzu. Für die Legende überschreiben wir `background-color`, sodass sie ebenso wie die Listeneinträge ein dunkleres Grün (`#ccffcc`) erhält.
 
-Wir verwenden die [`:nth-of-type(even)`](/de/docs/Web/CSS/Reference/Selectors/:nth-of-type) Pseudo-Class [Selector](/de/docs/Web/CSS/Guides/Selectors), um jedes gerade Listenelement auf {{CSSXref("inherit")}} die Hintergrundfarbe von seinem Elternteil zu setzen; in diesem Fall, erben der `weißen` Hintergrundfarbe von der ungeordneten Liste.
+Mit dem Pseudoklassen-[Selektor](/de/docs/Web/CSS/Guides/Selectors) [`:nth-of-type(even)`](/de/docs/Web/CSS/Reference/Selectors/:nth-of-type) legen wir fest, dass jeder Listeneintrag mit gerader Nummer die Hintergrundfarbe seines Elternelements mit {{CSSXref("inherit")}} übernimmt. In diesem Fall erbt er die Hintergrundfarbe `white` von der ungeordneten Liste.
 
 ```css
 body {
@@ -261,7 +261,7 @@ li:nth-of-type(even) {
 }
 ```
 
-Um die ungeordnete Liste und die Listenelemente nicht wie eine Liste aussehen zu lassen, entfernen wir das Padding, indem wir {{CSSXref("padding", "padding: 0")}} auf das `ul` setzen und die Listenmarkierungen entfernen, indem wir {{CSSXref("list-style-type", "list-style-type: none")}} auf die Listenelemente selbst setzen.
+Damit die ungeordnete Liste und ihre Einträge nicht wie eine Liste aussehen, entfernen wir den Innenabstand des `ul` mit {{CSSXref("padding", "padding: 0")}} und die Listenmarkierungen der Einträge mit {{CSSXref("list-style-type", "list-style-type: none")}}.
 
 ```css
 ul {
@@ -272,7 +272,7 @@ li {
 }
 ```
 
-Wir fügen ein wenig freien Raum hinzu, indem wir das {{CSSXref("margin")}} des `body` mit den [Viewport-Einheiten](/de/docs/Web/CSS/Reference/Values/length#relative_length_units_based_on_viewport) `vw` und `vh` setzen, wodurch der Freiraum außerhalb unserer App proportional zur Größe des Viewports wird. Wir fügen auch ein wenig Padding zum `li` und `legend` hinzu. Schließlich, um die Ausrichtung der Vergangene-Zeiten-Daten zu verbessern, aber nicht zu korrigieren, setzen wir die {{CSSXref("font-family")}} des `ul`-Ergebnisabschnitts auf `monospace`, wodurch jeder Buchstabe die gleiche feste Breite hat.
+Für etwas Abstand legen wir den {{CSSXref("margin")}} des `body` mit den [Viewport-Einheiten](/de/docs/Web/CSS/Reference/Values/length#relative_length_units_based_on_viewport) `vw` und `vh` fest. Dadurch passt sich der freie Raum um unsere Anwendung an die Größe des Viewports an. Außerdem geben wir `li` und `legend` etwas Innenabstand. Um die Ausrichtung der Daten zu früheren Menstruationen zu verbessern – wenn auch nicht vollständig zu korrigieren –, setzen wir die {{CSSXref("font-family")}} des Ergebnisbereichs `ul` auf `monospace`. Dadurch hat jedes Zeichen dieselbe feste Breite.
 
 ```css
 body {
@@ -287,7 +287,7 @@ legend {
 }
 ```
 
-Wir können das Obige kombinieren, indem wir mehrere Eigenschaften in jedem Selector-Deklarationsblock setzen. Wir können sogar die Stile für das `li` und `legend` zusammenfassen; irrelevante Stile, wie die `list-style-type`-Deklaration auf `legend`, werden ignoriert.
+Wir können diese Regeln zusammenfassen und in jedem Deklarationsblock eines Selektors mehrere Eigenschaften angeben. Die Stile für `li` und `legend` können wir sogar gemeinsam definieren: Nicht zutreffende Stile, etwa die Deklaration `list-style-type` für `legend`, werden ignoriert.
 
 ```css
 body {
@@ -315,13 +315,13 @@ li:nth-of-type(even) {
 }
 ```
 
-Wenn Ihnen immer noch etwas am obigen CSS unbekannt vorkommt, können Sie die {{Glossary("Property/CSS", "CSS-Eigenschaften")}} und [Selektoren](/de/docs/Web/CSS/Guides/Selectors) nachschlagen oder das Modul [CSS Styling Basics](/de/docs/Learn_web_development/Core/Styling_basics) durcharbeiten.
+Falls Ihnen Teile des obigen CSS noch unvertraut sind, können Sie die {{Glossary("Property/CSS", "CSS-Eigenschaften")}} und [Selektoren](/de/docs/Web/CSS/Guides/Selectors) nachschlagen oder das Modul [Grundlagen der CSS-Gestaltung](/de/docs/Learn_web_development/Core/Styling_basics) durcharbeiten.
 
-Unabhängig davon, ob Sie das oben genannte CSS wörtlich verwenden, die obigen Stile nach Ihren Wünschen bearbeiten oder Ihr eigenes CSS von Grund auf neu schreiben, fügen Sie das gesamte CSS in eine neue Datei ein und speichern Sie es als [`style.css`](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/style.css) im selben Verzeichnis wie Ihre `index.html`-Datei.
+Ganz gleich, ob Sie das obige CSS unverändert übernehmen, die Stile nach Ihren Vorstellungen anpassen oder eigenes CSS von Grund auf schreiben: Speichern Sie das gesamte CSS in einer neuen Datei namens [`style.css`](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/style.css) im selben Verzeichnis wie Ihre Datei `index.html`.
 
-### Abschließen des statischen HTML und CSS für unsere PWA
+### Das statische HTML und CSS für unsere PWA fertigstellen
 
-Bevor Sie fortfahren, [kommentieren](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#html_comments) Sie die gefälschten Daten der vergangenen Perioden und die Überschrift aus oder löschen Sie sie:
+Bevor Sie fortfahren, [kommentieren](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#html_comments) Sie die Beispieldaten zu früheren Menstruationen und die Überschrift aus oder löschen Sie sie:
 
 ```html
 <section id="past-periods">
@@ -335,10 +335,10 @@ Bevor Sie fortfahren, [kommentieren](/de/docs/Learn_web_development/Core/Structu
 </section>
 ```
 
-## Als Nächstes
+## Nächste Schritte
 
-Bevor wir die [JavaScript-Funktionalität](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality) hinzufügen, um diesen statischen Inhalt in eine Web-App zu konvertieren und sie dann mit einer [Manifestdatei](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file) und einem [Service Worker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers) zu einer progressiven Webanwendung zu verbessern, werden wir eine [lokale Entwicklungsumgebung einrichten](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection), um unseren Fortschritt zu überprüfen.
+Bevor wir [JavaScript-Funktionalität](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality) hinzufügen, um aus diesen statischen Inhalten eine Webanwendung zu machen und sie anschließend mit einer [Manifestdatei](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file) und einem [Service Worker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers) zu einer Progressive Web App zu erweitern, [richten wir eine lokale Entwicklungsumgebung ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection). Dort können wir uns unseren Fortschritt ansehen.
 
-Bis dahin können Sie die [statische CycleTracker-Shell](https://mdn.github.io/pwa-examples/cycletracker/html_and_css/) anzeigen. Sie können auch den [CycleTracker HTML- und CSS-Quellcode](https://github.com/mdn/pwa-examples/tree/main/cycletracker/html_and_css) in seiner aktuellen, nicht-funktionalen Form von GitHub herunterladen, bevor Sie zu den nächsten Schritten übergehen.
+Bis dahin können Sie sich das [statische Grundgerüst von CycleTracker](https://mdn.github.io/pwa-examples/cycletracker/html_and_css/) ansehen. Sie können auch den [HTML- und CSS-Quellcode von CycleTracker](https://github.com/mdn/pwa-examples/tree/main/cycletracker/html_and_css) in seinem derzeitigen, noch nicht funktionsfähigen Zustand von GitHub herunterladen, bevor Sie mit den nächsten Schritten fortfahren.
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker", "Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}

@@ -2,223 +2,223 @@
 title: Bedrohungsmodellierung
 slug: Web/Security/Threat_modeling
 l10n:
-  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
-Bedrohungsmodellierung ist ein Prozess, der dabei helfen kann, potenzielle Sicherheitsrisiken in Anwendungen und Websites zu identifizieren und zu verstehen. Sie kann Ihnen helfen, die spezifischen Schwachstellen Ihrer Anwendung, der Browserumgebung und der Interaktion der Benutzer mit Ihrer UI zu verstehen. Dieser Artikel beschreibt, was ein Bedrohungsmodell ist und wie Sie Bedrohungsmodellierung durchführen, indem er einen kompakten Überblick gibt und durch den Prozess der Bedrohungsmodellierung führt.
+Bedrohungsmodellierung ist ein Prozess, der dabei hilft, potenzielle Sicherheitsrisiken in Anwendungen und auf Websites zu erkennen und zu verstehen. Sie hilft Ihnen, die spezifischen Schwachstellen Ihrer Anwendung, der Browserumgebung und der Interaktion der Benutzer mit Ihrer Benutzeroberfläche zu verstehen. Dieser Artikel erläutert, was ein Bedrohungsmodell ist und wie Sie eine Bedrohungsmodellierung durchführen. Er gibt einen kompakten Überblick und führt Sie durch den Prozess.
 
-Abhängig von Ihrem Ziel kann die Bedrohungsmodellierung umfassender sein als hier beschrieben. Unabhängig davon, ob Sie eine vereinfachte Bedrohungsmodellierung zu Ihrem eigenen Nutzen durchführen oder eine umfassendere Bewertung für ein Softwareaudit vornehmen: Ein Bedrohungsmodell ermöglicht es, tatsächliche und wahrgenommene Bedrohungen zu identifizieren und zu beheben.
+Je nach Ziel kann eine Bedrohungsmodellierung aufwendiger sein als hier beschrieben. Ob Sie eine einfache Bedrohungsmodellierung für Ihre eigenen Zwecke durchführen oder eine umfassendere Bewertung für ein Software-Audit vornehmen: Ein Bedrohungsmodell ermöglicht es Ihnen, tatsächliche und wahrgenommene Bedrohungen zu erkennen und darauf zu reagieren.
 
-Diese Seite beschreibt den allgemeinen Prozess der Bedrohungsmodellierung. Informationen zu Frameworks und Ressourcen für Bedrohungsmodelle finden Sie unter:
+Diese Seite beschreibt den allgemeinen Prozess der Bedrohungsmodellierung. Informationen zu Frameworks und Ressourcen finden Sie unter:
 
-- [Frameworks und Tools für Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks)
-  - : Überblick über die Frameworks STRIDE und LINDDUN, die Prozessen zur Bedrohungsmodellierung Struktur geben, sowie über zusätzliche Tools zur Bedrohungsmodellierung.
+- [Frameworks und Werkzeuge für die Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks)
+  - : Überblick über die Frameworks STRIDE und LINDDUN, die Bedrohungsmodellierungsprozessen eine Struktur geben, sowie über weitere Werkzeuge für die Bedrohungsmodellierung.
 
-Ein Beispiel für ein Bedrohungsmodell finden Sie unter:
+Ein Beispiel finden Sie unter:
 
 - [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model)
-  - : Ein Beispiel für ein Bedrohungsmodell für einen öffentlich zugänglichen Blog, der statische Seiten bereitstellt. Interaktive Komponenten umfassen Benutzerkommentare, ein Kontaktformular, Analyse-Skripte und eine eingebettete Karte.
+  - : Ein Beispiel für das Bedrohungsmodell eines öffentlich zugänglichen Blogs mit statischen Seiten. Zu den interaktiven Komponenten gehören Benutzerkommentare, ein Kontaktformular, Analyseskripte und eine eingebettete Karte.
 
 ## Was ist eine Bedrohung?
 
-Eine Bedrohung ist alles, was die Funktionalität Ihrer Website oder die darin gespeicherten Daten potenziell beeinträchtigen könnte.
+Eine Bedrohung ist alles, was der Funktionalität Ihrer Website oder den dort gespeicherten Daten potenziell schaden könnte.
 
-Ein Bedrohungsmodell ist eine strukturierte Darstellung potenzieller Bedrohungen. Es umfasst alle Informationen, die die Sicherheit Ihres Produkts beeinflussen, unabhängig davon, ob dieses Produkt ein Server, eine Anwendung oder eine Website ist. Es ist ein lebendiges Dokument oder eine gedankliche Karte, die Ihre Assets identifiziert (Was schützen Sie?), potenzielle Angreifer (Wer möchte Sie, Ihr Produkt oder Ihre Benutzer angreifen?) und potenzielle Schwachstellen (Wo und worin liegen die Schwachpunkte Ihres Produkts?).
+Ein Bedrohungsmodell ist eine strukturierte Darstellung potenzieller Bedrohungen. Es umfasst alle Informationen, die für die Sicherheit Ihres Produkts relevant sind – unabhängig davon, ob es sich dabei um einen Server, eine Anwendung oder eine Website handelt. Es ist ein fortlaufend gepflegtes Dokument oder eine gedankliche Übersicht, die Ihre schützenswerten Werte identifiziert (Was schützen Sie?), potenzielle Angreifer (Wer könnte Sie, Ihr Produkt oder Ihre Benutzer angreifen wollen?) und potenzielle Schwachstellen (Wo liegen die Schwachstellen Ihres Produkts und worin bestehen sie?).
 
-Bedrohungen sind immer vorhanden, müssen aber nicht zu Angriffen werden. Ein Angriff liegt vor, wenn eine Bedrohung tatsächlich gegen ein laufendes System ausgeführt wird (wobei ein System eine Sammlung von Assets ist). Idealerweise bleiben Bedrohungen bei einem gut geschützten System Bedrohungen und treten niemals tatsächlich ein.
+Bedrohungen sind stets vorhanden, müssen aber nicht zu Angriffen führen. Ein Angriff liegt vor, wenn eine Bedrohung tatsächlich gegen ein aktives System umgesetzt wird. Ein System besteht dabei aus einer Sammlung schützenswerter Werte. Ist ein System gut geschützt, bleiben Bedrohungen im Idealfall Bedrohungen und führen nie zu einem tatsächlichen Angriff.
 
-Wenn wir über Bedrohungen nachdenken, können wir Systemschwächen (Schwachstellen) identifizieren, etwa [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) oder [JavaScript-Prototypverschmutzung](/de/docs/Web/Security/Attacks/Prototype_pollution).
+Wenn wir über Bedrohungen nachdenken, können wir Schwachstellen des Systems erkennen, etwa [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) oder [JavaScript Prototype Pollution](/de/docs/Web/Security/Attacks/Prototype_pollution).
 
-Als Reaktion auf Schwachstellen implementieren wir dann Gegenmaßnahmen: Sie verteidigen das System, soweit sie dazu in der Lage sind. In bestimmten Fällen ist es auch möglich zu akzeptieren, dass die Bedrohung eintreten könnte, sich auf die negativen Folgen vorzubereiten und zu überwachen, ob dies tatsächlich geschieht. Dies muss eine bewusste Entscheidung sein: Eine Bedrohung zu akzeptieren, sollte nicht leichtfertig erfolgen.
+Als Reaktion auf Schwachstellen setzen wir dann Schutzmaßnahmen um: Sie schützen das System, soweit es ihnen möglich ist. In bestimmten Fällen kann es auch sinnvoll sein, zu akzeptieren, dass eine Bedrohung eintreten könnte, sich auf die negativen Folgen vorzubereiten und zu beobachten, ob sie tatsächlich eintritt. Dies muss eine bewusste Entscheidung sein: Eine Bedrohung zu akzeptieren, sollte nicht leichtfertig geschehen.
 
-Wie wahrscheinlich das Eintreten einer Bedrohung ist und wie schwerwiegend ihre Auswirkungen wären, wird üblicherweise als Risiko beschrieben.
+Wie wahrscheinlich eine Bedrohung eintritt und wie schwerwiegend ihre Auswirkungen wären, wird üblicherweise als Risiko beschrieben.
 
-Um die verschiedenen Begriffe zu veranschaulichen, nehmen wir ein Haus als Beispiel:
+Zur Veranschaulichung der verschiedenen Begriffe dient ein Haus als Beispiel:
 
 - Bedrohung: ein Einbrecher.
 - Schwachstelle: ein unverschlossenes Fenster oder ein schwaches Türschloss.
-- Angriff: Der Einbrecher klettert durch das Fenster oder knackt das Schloss.
-- Gegenmaßnahme: ein stabiles Riegelschloss, eine Alarmanlage, eine Regel, die sicherstellt, dass alle Fenster verschlossen sind.
-- Risiko: Wir haben öffentlich angekündigt, dass wir im Urlaub sind, was das Risiko erhöht, dass Einbrecher versuchen, in unser Haus einzudringen.
-- Schwere der Auswirkung: Die Auswirkungen sind größer, wenn der Einbrecher weiß, dass wir im Urlaub sind, da er zuversichtlich sein wird, mehr Zeit in unserem Haus verbringen zu können. Die Schwere ist geringer, wenn ich eine Hausbetreuung habe oder alle meine Wertsachen in einem Tresor außerhalb des Hauses aufbewahre.
+- Angriff: Der Einbrecher steigt durch das Fenster oder knackt das Schloss.
+- Schutzmaßnahme: ein stabiles Sicherheitsschloss, eine Alarmanlage oder eine Regel, nach der alle Fenster verschlossen sein müssen.
+- Risiko: Wir haben öffentlich angekündigt, dass wir im Urlaub sind. Das erhöht das Risiko, dass Einbrecher versuchen, in unser Haus einzudringen.
+- Schwere der Auswirkungen: Die Auswirkungen können gravierender sein, wenn der Einbrecher weiß, dass wir im Urlaub sind, da er sich dann vermutlich mehr Zeit im Haus nimmt. Sie fallen möglicherweise geringer aus, wenn sich jemand während unserer Abwesenheit um das Haus kümmert oder wenn ich alle meine Wertsachen in einem externen Safe untergebracht habe.
 
 ## Was ist Bedrohungsmodellierung?
 
-Bedrohungsmodellierung ist der Prozess, ein repräsentatives Modell zu erstellen, das die Bedrohungen Ihres Systems beschreibt. Sie ist eine Form der Risikobewertung mit dem Ziel, die wahrscheinlichsten Angriffsvektoren zu analysieren und die für einen Angreifer wertvollsten Assets zu identifizieren. Sie ist ein strukturierter, wiederholbarer Prozess zur Analyse einer Darstellung eines Systems, damit Sie relevante Sicherheits- und Datenschutzbedenken identifizieren, verstehen können, was schiefgehen kann, und entscheiden können, wie Sie darauf reagieren. Laut dem [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org) umfasst die Erstellung eines Bedrohungsmodells typischerweise die Beantwortung von vier Schlüsselfragen:
+Bedrohungsmodellierung ist der Prozess, ein repräsentatives Modell zu erstellen, das die Bedrohungen für Ihr System beschreibt. Sie ist eine Form der Risikobewertung mit dem Ziel, die wahrscheinlichsten Angriffswege zu analysieren und die für Angreifer attraktivsten Werte zu identifizieren. Es handelt sich um einen strukturierten, wiederholbaren Prozess zur Analyse einer Systemdarstellung. So können Sie relevante Sicherheits- und Datenschutzaspekte erkennen, verstehen, was schiefgehen kann, und entscheiden, wie Sie darauf reagieren. Laut dem [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org) umfasst die Erstellung eines Bedrohungsmodells typischerweise die Beantwortung von vier zentralen Fragen:
 
 1. Woran arbeiten wir?
 2. Was kann schiefgehen?
-3. Was werden wir dagegen tun?
+3. Was werden wir dagegen unternehmen?
 4. Haben wir gute Arbeit geleistet?
 
-## Wie führt man Bedrohungsmodellierung durch?
+## Wie führt man eine Bedrohungsmodellierung durch?
 
-Bedrohungsmodellierung sollte früh in Ihrem Entwicklungsprozess stattfinden und häufig erneut betrachtet werden. Ähnlich wie Sie Ihre Software kontinuierlich weiterentwickeln, sollten Sie auch die Sicherheit des Systems mithilfe Ihres Bedrohungsmodells fortlaufend analysieren. Üblicherweise beginnt dies unmittelbar nachdem die Funktionen definiert wurden.
+Die Bedrohungsmodellierung sollte früh im Entwicklungsprozess beginnen und regelmäßig erneut aufgegriffen werden. So wie Sie Ihre Software fortlaufend weiterentwickeln, sollten Sie auch die Sicherheit des Systems mithilfe Ihres Bedrohungsmodells kontinuierlich analysieren. Üblicherweise beginnt dies unmittelbar nach der Festlegung der Funktionen.
 
-Modellierungsaktivitäten werden nicht ausschließlich von Sicherheitsauditoren durchgeführt. Jede Person, die sich mit dem Datenschutz oder der Sicherheit eines Systems befasst, sollte dazu befähigt werden, mitzuwirken. Funktionsübergreifende Zusammenarbeit mit vielfältigen Teilnehmern macht das Bedrohungsmodell stärker. Wer das System entwirft, hat beispielsweise sicher ein klares Verständnis davon, was gebaut wird, und von den Bedenken, die ihm möglicherweise schlaflose Nächte bereiten.
+Die Modellierung ist nicht ausschließlich Aufgabe von Sicherheitsprüfern. Alle, denen der Datenschutz oder die Sicherheit eines Systems wichtig ist, sollten sich daran beteiligen können. Die fachübergreifende Zusammenarbeit von Personen mit unterschiedlichen Perspektiven stärkt das Bedrohungsmodell. Wer beispielsweise das System entwirft, versteht in der Regel genau, was entwickelt wird und welche möglichen Probleme besonders beunruhigend sind.
 
-Ein gemeinsames Verständnis Ihres Systems und seiner Bedrohungen ermöglicht Ihnen, die Robustheit Ihres Systems zu messen. Dies sollte in einem Bedrohungsmodelldokument festgehalten werden.
+Ein gemeinsames Verständnis Ihres Systems und seiner Bedrohungen ermöglicht es Ihnen, seine Widerstandsfähigkeit zu beurteilen. Dieses Verständnis sollte in einem Bedrohungsmodelldokument festgehalten werden.
 
-Es kann einiges an Arbeit erfordern, ein erstes Dokument zur Bedrohungsmodellierung zu erstellen. Häufig wird diese Arbeit im Rahmen eines Workshops mit Ihrem Team erledigt, entweder selbstorganisiert oder moderiert von einer Fachperson. Das erstellte Bedrohungsmodelldokument muss für künftige Neubewertungen erweiterbar sein und sollte idealerweise versionskontrolliert innerhalb Ihrer Codebasis liegen.
+Die Erstellung eines ersten Bedrohungsmodelldokuments kann einigen Aufwand erfordern. Häufig geschieht dies in einem Workshop mit Ihrem Team, entweder eigenständig oder unter Anleitung einer Fachperson. Das entstandene Dokument muss sich für spätere Neubewertungen erweitern lassen und sollte idealerweise zusammen mit Ihrer Codebasis versionskontrolliert werden.
 
-Für jedes Bedrohungsmodell ist es hilfreich:
+Für jedes Bedrohungsmodell ist es hilfreich, Folgendes zu tun:
 
-- Ihre Systemelemente zu beschreiben (Assets, Komponenten)
-- Datenflüsse und Interaktionen mit Dritten zu beschreiben
-- Stakeholder zu identifizieren
-- Bedrohungen zu besprechen
-- Reaktionen auf Bedrohungen zu berücksichtigen
-- Den Prozess zu wiederholen
+- Die Elemente Ihres Systems beschreiben (schützenswerte Werte und Komponenten)
+- Datenflüsse und Interaktionen mit Dritten beschreiben
+- Beteiligte und Betroffene identifizieren
+- Bedrohungen besprechen
+- Reaktionen auf Bedrohungen erwägen
+- Den Prozess wiederholen
 
 ## Zu beantwortende Fragen
 
-Es gibt keine einzelne ideale Darstellung für Bedrohungsmodellierung. Daher ist es sinnvoll, mehrere [Frameworks für Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks) zu verwenden, um unterschiedliche Probleme zu beleuchten.
+Es gibt keine einzelne ideale Darstellungsform für ein Bedrohungsmodell. Daher ist es sinnvoll, mehrere [Frameworks für die Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks) zu nutzen, um unterschiedliche Probleme sichtbar zu machen.
 
 Eine Form des Bedrohungsmodells besteht darin, die vier Hauptfragen aus dem [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org) zu stellen und zu beantworten.
 
 - [Woran arbeiten wir?](#1._what_are_we_working_on)
 - [Was kann schiefgehen?](#2._what_can_go_wrong)
-- [Was werden wir dagegen tun?](#3._what_are_we_going_to_do_about_it)
+- [Was werden wir dagegen unternehmen?](#3._what_are_we_going_to_do_about_it)
 - [Haben wir gute Arbeit geleistet?](#4._did_we_do_a_good_enough_job)
 
 Gehen wir diese Fragen der Reihe nach durch.
 
 ## 1. Woran arbeiten wir?
 
-Die erste Frage betrifft die Beschreibung des Projekts. Dazu erstellen Sie ein Modell des Systems, das aus Datenflussdiagrammen, Architekturdiagrammen oder Anwendungsfalldiagrammen besteht, die Komponenten, Datenflüsse, Vertrauensgrenzen, Abhängigkeiten und wichtige Stakeholder zeigen.
+Bei der ersten Frage geht es darum, das Projekt zu beschreiben. Dazu erstellen Sie ein Modell des Systems, beispielsweise mit Datenflussdiagrammen, Architekturdiagrammen oder Anwendungsfalldiagrammen. Diese zeigen Komponenten, Datenflüsse, Vertrauensgrenzen, Abhängigkeiten und die wichtigsten Beteiligten und Betroffenen.
 
-Um den Umfang des Bedrohungsmodells festzulegen, müssen wir abgrenzen, welche Bedrohungen unser eigenes Projekt betreffen und welche auf den Browser oder andere Schichten des Webplattform-Stacks abzielen — diese definieren wir als externe Abhängigkeiten unseres Bedrohungsmodells. Das [Threat Model for the Web Platform](https://w3c.github.io/threat-model-web/) bietet einen hilfreichen Ausgangspunkt und beschreibt die Umgebung, die von den meisten Websites und Webanwendungen gemeinsam genutzt wird.
+Um den Umfang des Bedrohungsmodells festzulegen, müssen wir unterscheiden, welche Bedrohungen unser eigenes Projekt betreffen und welche den Browser oder andere Schichten der Webplattform. Letztere betrachten wir als externe Abhängigkeiten unseres Bedrohungsmodells. Das [Bedrohungsmodell für die Webplattform](https://w3c.github.io/threat-model-web/) bietet einen nützlichen Ausgangspunkt und beschreibt die Umgebung, die die meisten Websites und Webanwendungen gemeinsam haben.
 
-Es ist hilfreich, sich bewusst zu machen, für welche Teile Sie verantwortlich sein werden und welche Teile von anderen übernommen werden, beispielsweise Schutzmaßnahmen, die der Browser üblicherweise für Sie bereitstellt. Wenn Sie eine Liste relevanter bestehender Bedrohungsmodelle für Ihre Softwareabhängigkeiten und Ihre Umgebung pflegen, können Sie in Ihrem eigenen Bedrohungsmodell darauf verweisen und müssen die Modellierung nicht erneut durchführen. Bei der Bedrohungsmodellierung geht es nicht um Vollständigkeit, sondern darum, das Verständnis im Laufe der Zeit zu verbessern.
+Es ist hilfreich, sich bewusst zu machen, für welche Teile Sie selbst verantwortlich sind und um welche sich andere kümmern – etwa um Schutzmechanismen, die der Browser normalerweise bereitstellt. Wenn Sie eine Liste relevanter bestehender Bedrohungsmodelle für Ihre Softwareabhängigkeiten und Ihre Umgebung pflegen, können Sie in Ihrem eigenen Bedrohungsmodell darauf verweisen und müssen die Modellierung nicht wiederholen. Bei der Bedrohungsmodellierung geht es nicht um Vollständigkeit, sondern darum, das Verständnis im Laufe der Zeit zu verbessern.
 
-Zu Lernzwecken verwenden die folgenden Abschnitte das Beispiel einer Blog-Website. Auf der Seite [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model) erfahren Sie, wie dieser Leitfaden in ein Bedrohungsmodelldokument übertragen wird.
-Beachten Sie, dass die Annahmen, die wir über den Blog treffen, unvollständig sind, und berücksichtigen Sie, dass auch die Annahmen über Ihr eigenes System wahrscheinlich unvollständig sein werden. Es ist sinnvoll, mit Ihrem Team ein Brainstorming durchzuführen, um einen vollständigeren Überblick über das System zu erhalten, das Sie schützen möchten.
+Zu Lernzwecken verwenden die folgenden Abschnitte eine Blog-Website als Beispiel. Auf der Seite [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model) sehen Sie, wie dieser Leitfaden in ein Bedrohungsmodelldokument umgesetzt wird.
+Beachten Sie, dass unsere Annahmen über den Blog unvollständig sind. Auch die Annahmen, die Sie über Ihr eigenes System treffen, werden wahrscheinlich nicht vollständig sein. Ein Brainstorming mit Ihrem Team hilft dabei, einen umfassenderen Überblick über das zu schützende System zu gewinnen.
 
-Beschreiben wir, woran wir arbeiten, anhand von Komponenten, Assets, Datenflüssen, Vertrauensgrenzen, Abhängigkeiten und Stakeholdern.
+Beschreiben wir also, woran wir arbeiten: Komponenten, schützenswerte Werte, Datenflüsse, Vertrauensgrenzen, Abhängigkeiten sowie Beteiligte und Betroffene.
 
 ### Komponenten
 
-Komponenten sind Dinge, die Code ausführen oder Daten speichern. Beispielsweise könnten wir sagen, dass unsere Blog-Website aus mehreren Softwarekomponenten besteht, die für unser Bedrohungsmodell interessant sind:
+Komponenten sind Dinge, die Code ausführen oder Daten speichern. Beispielsweise könnten wir festhalten, dass unsere Blog-Website aus mehreren Softwarekomponenten besteht, die für unser Bedrohungsmodell relevant sind:
 
 - Webserver
-- Blog-Software (beispielsweise ein Generator für statische Websites oder ein CMS)
+- Blogsoftware (beispielsweise ein Static-Site-Generator oder ein CMS)
 - Statische Seiten
 - Benutzerauthentifizierung
 - Von Benutzern eingereichte Inhalte (beispielsweise ein Kommentarbereich)
 - Kontaktformular
-- Fetch-Aufrufe an APIs (eigene oder externe)
-- Skripte von Drittanbietern, beispielsweise zum Anzeigen einer Karte oder zur Nutzungsanalyse
+- Fetch-Aufrufe an eigene oder externe APIs
+- Skripte von Drittanbietern, beispielsweise zur Anzeige einer Karte oder zur Nutzungsanalyse
 
-Natürlich kann die Komplexität Ihrer Website stark variieren. Vielleicht erstellen Sie eine statische Website, hauptsächlich mit HTML und CSS, vielleicht hosten Sie eine Website mit einem CMS, einem Server und einer Datenbank, oder vielleicht entwickeln Sie eine komplexe Webanwendung wie ein Online-Spiel, einen E-Mail-Client oder eine Zeichen-Webanwendung.
+Die Komplexität Ihrer Website kann natürlich stark variieren. Vielleicht erstellen Sie eine statische Website hauptsächlich mit HTML und CSS, betreiben eine Website mit CMS, Server und Datenbank oder entwickeln eine komplexe Webanwendung wie ein Onlinespiel, einen E-Mail-Client oder eine Zeichenanwendung.
 
-Je nachdem, was Sie tun, kann Ihr Bedrohungsmodell entweder recht kurz und eigenständig sein oder sehr lang werden. Vielleicht ziehen Sie es vor, mehrere Bedrohungsmodelle für verschiedene Teile Ihres Systems zu erstellen und sich jeweils auf einen Teil zu konzentrieren.
+Je nach Projekt kann Ihr Bedrohungsmodell kurz und in sich abgeschlossen sein. Es kann aber auch sehr umfangreich werden. Dann ist es möglicherweise sinnvoll, mehrere Bedrohungsmodelle für verschiedene Teile Ihres Systems zu erstellen und sich jeweils auf einen Teil zu konzentrieren.
 
-Um identifizierte Komponenten zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben C (C1, C2, C3, ...).
+Um identifizierte Komponenten in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben C (C1, C2, C3, ...).
 
-### Assets
+### Schützenswerte Werte
 
-Assets sind Dinge, die ein Angreifer haben möchte und die geschützt werden müssen. Dazu können gehören:
+Schützenswerte Werte sind Dinge, die ein Angreifer erlangen möchte und die geschützt werden müssen. Dazu gehören beispielsweise:
 
-- Benutzerdaten: Allgemeine Benutzerdaten und personenbezogene Informationen (PII).
-- Benutzeranmeldedaten: Anmeldeinformationen, Benutzernamen, Passwörter, Passkeys.
+- Benutzerdaten: allgemeine Benutzerdaten und personenbezogene Daten (PII).
+- Zugangsdaten: Anmeldeinformationen, Benutzernamen, Passwörter und Passkeys.
 - Cookies und Sitzungsinformationen.
-- Private Inhalts-Assets (beispielsweise Entwürfe von Blogbeiträgen).
+- Nicht öffentliche Inhalte (beispielsweise Entwürfe von Blogbeiträgen).
 
-Um identifizierte Assets zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben A (A1, A2, A3, ...).
+Um identifizierte schützenswerte Werte in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben A (A1, A2, A3, ...).
 
 ### Datenflüsse und Vertrauensgrenzen
 
-Alles, was innerhalb des Browsers geschieht oder aus einer Benutzereingabe stammt, ist _nicht vertrauenswürdig_. Bedrohungsmodellierung hilft Ihnen, die **Vertrauensgrenze** zu identifizieren — den Punkt, an dem Daten von nicht vertrauenswürdigen Bereichen außerhalb Ihrer Kontrolle in Ihre vertrauenswürdige Anwendungslogik übergehen.
+Alles, was innerhalb des Browsers geschieht oder aus Benutzereingaben stammt, ist _nicht vertrauenswürdig_. Die Bedrohungsmodellierung hilft Ihnen, die **Vertrauensgrenze** zu identifizieren: den Punkt, an dem Daten aus nicht vertrauenswürdigen Bereichen außerhalb Ihrer Kontrolle in die vertrauenswürdige Logik Ihrer Anwendung gelangen.
 
-Wir identifizieren den Mechanismus, über den Assets zwischen Komponenten verschoben werden. Sie können uni- oder bidirektional sein.
+Wir identifizieren die Wege, auf denen sich schützenswerte Werte zwischen Komponenten bewegen. Diese können in eine oder beide Richtungen verlaufen.
 
-- Authentifizierungsflüsse
-- Ablauf des Kontaktformulars
+- Authentifizierungsabläufe
+- Datenfluss des Kontaktformulars
 - Datenflüsse zu externen Diensten
 
-Wenn Daten zwischen einem Benutzer und Ihrer Anwendung oder zwischen Ihrer Anwendung und Diensten von Drittanbietern fließen, überschreiten sie Vertrauensgrenzen, die von unterschiedlichen Instanzen kontrolliert werden. Angriffe erfolgen häufig zwischen diesen Komponenten mit unterschiedlichen Berechtigungen. Wir sollten uns daher dieser Angriffsflächen bewusst werden und identifizieren, wo Validierung, Verschlüsselung oder andere Sicherheitskontrollen erforderlich sind.
+Wenn Daten zwischen einem Benutzer und Ihrer Anwendung oder zwischen Ihrer Anwendung und Diensten von Drittanbietern fließen, überschreiten sie Vertrauensgrenzen zwischen Bereichen, die von unterschiedlichen Stellen kontrolliert werden. Angriffe erfolgen häufig an den Übergängen zwischen diesen Komponenten mit unterschiedlichen Berechtigungen. Deshalb sollten wir uns dieser Angriffsflächen bewusst sein und ermitteln, wo Validierung, Verschlüsselung oder andere Sicherheitsmaßnahmen erforderlich sind.
 
-Um identifizierte Datenflüsse zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben F (F1, F2, F3, ...). Vertrauensgrenzen werden üblicherweise durch eine gestrichelte Linie visualisiert.
+Um identifizierte Datenflüsse in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben F (F1, F2, F3, ...). Vertrauensgrenzen werden üblicherweise als gestrichelte Linien dargestellt.
 
 ### Externe Abhängigkeiten
 
-Sie müssen externe Abhängigkeiten möglicherweise nicht detailliert modellieren, sollten jedoch Ihre Annahmen über sie dokumentieren und sie auf der Ebene modellieren, die erforderlich ist, um über Ihre eigenen Risiken nachzudenken. Wir können sie als Black Boxes betrachten, deren Interna uns unbekannt sind, die aber idealerweise ebenfalls eigene Bedrohungsmodelle haben, auf die wir in unserem eigenen Modell verweisen. Zum Beispiel:
+Sie müssen externe Abhängigkeiten nicht vollständig modellieren. Sie sollten jedoch Ihre Annahmen darüber dokumentieren und sie so detailliert modellieren, wie es für die Einschätzung Ihrer eigenen Risiken nötig ist. Wir können sie als Blackboxes betrachten, deren Interna wir nicht kennen. Idealerweise gibt es für sie eigene Bedrohungsmodelle, auf die wir in unserem Modell verweisen können. Beispiele sind:
 
 - Betriebssystem (OS)
-- Browser und die Webplattform (siehe auch [Bedrohungsmodell der Webplattform](https://w3c.github.io/threat-model-web/))
+- Browser und Webplattform (siehe auch das [Bedrohungsmodell für die Webplattform](https://w3c.github.io/threat-model-web/))
 - Browsererweiterungen (WebExtensions)
 
-Um identifizierte externe Abhängigkeiten zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben E (E1, E2, E3, ...).
+Um identifizierte externe Abhängigkeiten in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben E (E1, E2, E3, ...).
 
-### Stakeholder
+### Beteiligte und Betroffene
 
-Identifizieren Sie Ihre Zielgruppe und verstehen Sie ihre Interessen, Vorteile und potenziellen Schäden. Wer könnte von potenziellen Bedrohungen betroffen sein? Menschen und Gruppen an erste Stelle zu setzen, hilft Ihnen dabei, nicht nur über die Sicherheit technischer Komponenten nachzudenken. Stattdessen liegt Ihr Fokus darauf, wie sicher und vertrauenswürdig die Beziehung zwischen echten Menschen und Ihrer Software ist.
+Identifizieren Sie die Menschen und Gruppen, die mit Ihrem System zu tun haben, und verstehen Sie ihre Interessen, Vorteile und möglichen Schäden. Wer könnte von potenziellen Bedrohungen betroffen sein? Wenn Sie Menschen und Gruppen in den Mittelpunkt stellen, vermeiden Sie es, nur über die Sicherheit technischer Komponenten nachzudenken. Stattdessen richten Sie den Blick darauf, wie sicher und vertrauenswürdig die Beziehung zwischen echten Menschen und Ihrer Software ist.
 
-- Anonymer Benutzer
-- Registrierter Benutzer
-- Benutzer mit Behinderung
-- Blogadministrator oder Entwickler
+- Anonyme Benutzer
+- Registrierte Benutzer
+- Benutzer mit Behinderungen
+- Blogadministratoren oder -entwickler
 
-Spam kann beispielsweise in erster Linie Administratoren schaden, während das Offenlegen von Anmeldedaten sowohl Benutzern als auch Administratoren schaden kann.
+Spam kann beispielsweise vor allem Administratoren schaden, während der Verlust von Zugangsdaten sowohl Benutzern als auch Administratoren schaden kann.
 
-Beachten Sie, dass Sie potenzielle Angreifer nicht modellieren. Eine übermäßige Charakterisierung von Angreifern kann zu Verzerrungen in der Analyse führen.
+Beachten Sie, dass Sie potenzielle Angreifer nicht modellieren. Eine zu detaillierte Charakterisierung von Angreifern kann zu Verzerrungen bei der Analyse führen.
 
-Um identifizierte Stakeholder zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben S (S1, S2, S3, ...).
+Um identifizierte Beteiligte und Betroffene in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben S (S1, S2, S3, ...).
 
 ## 2. Was kann schiefgehen?
 
-Nachdem wir unsere Umgebung modelliert haben, können wir darüber nachdenken, was damit schiefgehen kann. Bedrohungen können auf verschiedene Arten identifiziert werden; eine gängige Methode besteht darin, Bedrohungslisten zu betrachten. Beispielsweise könnten wir zunächst Bedrohungskarten ansehen oder uns auf externe Bedrohungslisten wie die OWASP Top Ten oder andere stützen.
+Nachdem wir unsere Umgebung modelliert haben, können wir überlegen, was darin schiefgehen könnte. Bedrohungen lassen sich auf unterschiedliche Weise identifizieren. Eine verbreitete Methode ist die Arbeit mit Bedrohungslisten. Beispielsweise könnten wir zunächst Bedrohungsübersichten betrachten oder externe Listen wie die OWASP Top Ten heranziehen.
 
 - [OWASP Top Ten](https://top10.owasp.org/2025/)
-- Abschnitte zu Sicherheitsaspekten in Spezifikationen der Webplattform sowie in MDN Web Docs.
+- Abschnitte zu Sicherheitsaspekten in Spezifikationen der Webplattform sowie in den MDN Web Docs.
 
-Bei einer Webanwendung kann dies Cross-Site Scripting, Cross-Site Request Forgery, Kontoübernahme oder Datenlecks über Skripte von Drittanbietern umfassen.
+Bei einer Webanwendung könnten dazu Cross-Site Scripting, Cross-Site Request Forgery, die Übernahme von Benutzerkonten oder der Abfluss von Daten über Skripte von Drittanbietern gehören.
 
-Eine weitere gängige Methode zur Identifizierung von Bedrohungen ist die Verwendung von [Frameworks zur Bedrohungsanalyse](/de/docs/Web/Security/Threat_modeling/Frameworks), insbesondere STRIDE und LINDDUN.
+Eine weitere verbreitete Möglichkeit, Bedrohungen zu identifizieren, ist die Verwendung von [Frameworks zur Bedrohungsanalyse](/de/docs/Web/Security/Threat_modeling/Frameworks), insbesondere STRIDE und LINDDUN.
 
-Sie können entscheiden, ob Sie identifizierte Bedrohungen in einer Tabelle darstellen oder sie lieber analytischer beschreiben möchten, beispielsweise indem Sie die Ereigniskette aufschreiben, die zu einem Angriff führt („Kill Chain“). Der [W3C Threat Modeling Guide](https://w3c.github.io/threat-modeling-guide/#curatorial-storytelling) empfiehlt, eine Geschichte zu erzählen und Bedrohungen zu priorisieren, damit die wichtigsten Bedrohungen zuerst besprochen werden und Leser nicht mit überflüssigen Details überfordert werden.
+Sie können entscheiden, ob Sie identifizierte Bedrohungen in einer Tabelle darstellen oder sie lieber analytisch beschreiben, indem Sie beispielsweise die Ereigniskette aufschreiben, die zu einem Angriff führt („Kill Chain“). Der [W3C-Leitfaden zur Bedrohungsmodellierung](https://w3c.github.io/threat-modeling-guide/#curatorial-storytelling) empfiehlt, Bedrohungen anhand einer nachvollziehbaren Darstellung zu erläutern und Prioritäten zu setzen. So werden die wichtigsten Bedrohungen zuerst besprochen und Leser nicht mit nebensächlichen Details überfordert.
 
-Um die identifizierten Bedrohungen zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben T (T1, T2, T3, ...).
+Um identifizierte Bedrohungen in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben T (T1, T2, T3, ...).
 
-## 3. Was werden wir dagegen tun?
+## 3. Was werden wir dagegen unternehmen?
 
-Im dritten Schritt müssen wir beantworten, wie wir auf die Bedrohungen reagieren werden, die wir im zweiten Schritt identifiziert haben.
+Im dritten Schritt müssen wir beantworten, wie wir auf die im zweiten Schritt identifizierten Bedrohungen reagieren wollen.
 
-Es gibt verschiedene Optionen dafür, wie wir auf Bedrohungen reagieren können. Im Allgemeinen lassen sich Reaktionen mithilfe der Eselsbrücke **ERTA** in vier Kategorien einteilen:
+Es gibt verschiedene Möglichkeiten, auf Bedrohungen zu reagieren. Grundsätzlich lassen sich die Reaktionen anhand der Eselsbrücke **ERTA** in vier Kategorien einteilen:
 
-- **E**liminieren: Das Asset oder die Bedrohung entfernen.
-- **R**eduzieren: Es erschweren, beispielsweise durch Hinzufügen einer Kontrolle, Gegenmaßnahme oder Abwehrmaßnahme.
-- **T**ransferieren: Die Verantwortung für die Eindämmung der Bedrohung auf ein anderes System oder eine andere Organisation verlagern (beispielsweise einen Dienst eines Drittanbieters).
-- **A**kzeptieren: Akzeptieren, dass es derzeit nicht möglich ist, die Bedrohung einzudämmen; sie ist weiterhin offen und muss überwacht werden.
+- **E**liminate (beseitigen): Den schützenswerten Wert oder die Bedrohung entfernen.
+- **R**educe (verringern): Einen Angriff erschweren, beispielsweise durch eine Sicherheitskontrolle, Schutzmaßnahme oder Gegenmaßnahme.
+- **T**ransfer (übertragen): Die Verantwortung für die Eindämmung der Bedrohung auf ein anderes System oder eine andere Organisation übertragen (beispielsweise einen Dienst von Drittanbietern).
+- **A**ccept (akzeptieren): Anerkennen, dass die Bedrohung derzeit nicht eingedämmt werden kann; sie besteht fort und muss beobachtet werden.
 
 Beispiele:
 
-- Eliminieren: Wir entfernen die Kommentarfunktion aus unserem Blog, da sie nicht weit verbreitet genutzt wird und wir uns nicht mit ihrer Absicherung befassen möchten.
-- Reduzieren: Wir erlauben nur registrierten Benutzern, die Kommentarfunktion zu verwenden.
-- Transferieren: Wir verwenden ein externes Plugin für Kommentare.
-- Akzeptieren: Wir akzeptieren, dass unsere Kommentarfunktion Bedrohungen wie Spam ausgesetzt ist, akzeptieren diese Bedrohung jedoch und implementieren eine Spamüberwachung.
+- Beseitigen: Wir entfernen die Kommentarfunktion aus unserem Blog, weil sie kaum genutzt wird und wir den Aufwand für ihre Absicherung vermeiden möchten.
+- Verringern: Wir erlauben nur registrierten Benutzern, die Kommentarfunktion zu verwenden.
+- Übertragen: Wir nutzen ein externes Plugin für Kommentare.
+- Akzeptieren: Wir akzeptieren, dass unsere Kommentarfunktion Bedrohungen wie Spam ausgesetzt ist, und führen eine Überwachung auf Spam ein.
 
-Dokumentieren Sie Ihre Reaktionen und Entscheidungen. Sie werden wahrscheinlich in Schritt 4 darauf zurückkommen, wenn Sie fragen, ob diese Reaktionen gut genug sind.
+Dokumentieren Sie Ihre Reaktionen und Entscheidungen. Im vierten Schritt werden Sie wahrscheinlich darauf zurückkommen, um zu prüfen, ob diese Reaktionen ausreichen.
 
-Um identifizierte Reaktionen zu referenzieren, indexieren Sie sie in Ihrem Bedrohungsmodell mit dem Buchstaben R (R1, R2, R3, ...).
+Um identifizierte Reaktionen in Ihrem Bedrohungsmodell zu referenzieren, kennzeichnen Sie sie mit dem Buchstaben R (R1, R2, R3, ...).
 
 ## 4. Haben wir gute Arbeit geleistet?
 
-Nachdem Sie eine Runde der Bedrohungsmodellierung durchgeführt haben, erstellen Sie (private) Issues für Ihr Projekt und beschreiben Sie Ihre Ergebnisse in einem Bedrohungsmodelldokument. Auch wenn keine Maßnahme oder Fehlerbehebung erforderlich ist, wird die Dokumentation Ihres Bedrohungsmodells später nützlich sein.
+Nachdem Sie einen Durchlauf der Bedrohungsmodellierung abgeschlossen haben, erstellen Sie (private) Issues für Ihr Projekt und dokumentieren Ihre Erkenntnisse in einem Bedrohungsmodelldokument. Auch wenn keine Maßnahmen oder Fehlerbehebungen erforderlich sind, wird die Dokumentation Ihres Bedrohungsmodells später nützlich sein.
 
-Sie können die erstellten Issues und die verfasste Dokumentation in der nächsten Runde der Bedrohungsmodellierung erneut betrachten und prüfen, ob sich etwas geändert hat oder neu bewertet werden muss. Es ist hilfreich, Ihre dokumentierten Issues erneut zu validieren. Mit jeder Iteration der Bedrohungsmodellierung sollte Ihr System sicherer werden und Sie werden sich weiterer Bedrohungen und Risiken bewusster. Die Erfahrung, die Sie im Laufe der Zeit sammeln, hilft Ihnen dabei, Ihre Bedrohungsmodellierung robuster zu gestalten; sie wird nicht von Anfang an perfekt oder vollständig sein, und das muss sie auch nicht sein, um nützlich zu sein.
+Beim nächsten Durchlauf der Bedrohungsmodellierung können Sie die erstellten Issues und die Dokumentation erneut prüfen, um festzustellen, ob sich etwas geändert hat oder neu bewertet werden muss. Es ist hilfreich, dokumentierte Probleme erneut zu überprüfen. Mit jedem Durchlauf sollte Ihr System sicherer werden und Ihr Bewusstsein für weitere Bedrohungen und Risiken wachsen. Die im Laufe der Zeit gesammelte Erfahrung hilft Ihnen, Ihre Bedrohungsmodellierung fundierter zu gestalten. Sie muss nicht von Anfang an perfekt oder vollständig sein, um nützlich zu sein.
 
-Wir stellen ein [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model) als Inspiration bereit. Bedrohungsmodelldokumente werden leider nicht sehr häufig veröffentlicht und nicht breit geteilt; sie sind oft eine interne Ressource. Es ist jedoch eine gute Praxis, Ihr Bedrohungsmodell zu veröffentlichen, sowohl um Vertrauenswürdigkeit zu demonstrieren als auch um zusätzliches Feedback einzuholen.
+Zur Anregung stellen wir ein [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model) bereit. Leider werden Bedrohungsmodelldokumente nur selten veröffentlicht oder breit geteilt; häufig bleiben sie interne Ressourcen. Dabei ist es eine gute Praxis, Ihr Bedrohungsmodell zu veröffentlichen, um Vertrauenswürdigkeit zu demonstrieren und zusätzliches Feedback einzuholen.
 
-In der obigen Bedrohungsmodellierung konzentrieren wir uns auf die vier Schlüsselfragen, wie sie im [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org) definiert sind. Es gibt Frameworks, einschließlich STRIDE und LINDDUN, die Prozessen zur Bedrohungsmodellierung Struktur geben. Im Leitfaden [Frameworks und Ressourcen für Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks) finden Sie eine Liste von Datenschutz- und Sicherheitsbedrohungen sowie Beispielfragen, die Sie bei der Entwicklung Ihres eigenen Bedrohungsmodells unterstützen können.
+Bei der obigen Bedrohungsmodellierung konzentrieren wir uns auf die vier zentralen Fragen aus dem [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org). Frameworks wie STRIDE und LINDDUN geben Bedrohungsmodellierungsprozessen eine Struktur. Eine Liste von Bedrohungen für Datenschutz und Sicherheit sowie Beispielfragen, die Ihnen bei der Entwicklung Ihres eigenen Bedrohungsmodells helfen können, finden Sie im [Leitfaden zu Frameworks und Ressourcen für die Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks).
 
 ## Siehe auch
 
-- [Frameworks und Ressourcen für Bedrohungsmodelle](/de/docs/Web/Security/Threat_modeling/Frameworks)
+- [Frameworks und Ressourcen für die Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling/Frameworks)
 - [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model)
 - [Sicherheit](/de/docs/Web/Security)
 - [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org)
-- [W3C Threat Modeling Guide für Autoren von Spezifikationen](https://w3c.github.io/threat-modeling-guide/)
-- [Threat Model for the Web Platform](https://w3c.github.io/threat-model-web/)
+- [W3C-Leitfaden zur Bedrohungsmodellierung für Verfasser von Spezifikationen](https://w3c.github.io/threat-modeling-guide/)
+- [Bedrohungsmodell für die Webplattform](https://w3c.github.io/threat-model-web/)
 - [OWASP Threat Modeling Playbook](https://github.com/OWASP/threat-modeling-playbook)
 - [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)

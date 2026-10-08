@@ -1,34 +1,34 @@
 ---
-title: "VTTCue: positionAlign Eigenschaft"
+title: "VTTCue: positionAlign-Eigenschaft"
 short-title: positionAlign
 slug: Web/API/VTTCue/positionAlign
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: e9cb9feda05ce0f1dc08aada71c0a2265baeeaff
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`positionAlign`** Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue) Interfaces wird verwendet, um zu bestimmen, woran [`VTTCue.position`](/de/docs/Web/API/VTTCue/position) verankert ist.
+Die Eigenschaft **`positionAlign`** der Schnittstelle [`VTTCue`](/de/docs/Web/API/VTTCue) bestimmt, woran [`VTTCue.position`](/de/docs/Web/API/VTTCue/position) verankert ist.
 
 ## Wert
 
-Ein String, der einen der folgenden Werte enthält:
+Ein String mit einem der folgenden Werte:
 
 - `"line-left"`
-  - : Linien-links Ausrichtung.
+  - : Ausrichtung am linken Zeilenrand.
 - `"center"`
   - : Zentrierte Ausrichtung.
 - `"line-right"`
-  - : Linien-rechts Ausrichtung.
+  - : Ausrichtung am rechten Zeilenrand.
 - `"auto"`
-  - : Automatische Ausrichtung, die von der Textausrichtung der Beschriftung abhängt und wie folgt interpretiert wird:
-    - **line-left:** wenn die Textausrichtung links ist, die Beschriftung eine LTR-Sprache verwendet und die Textausrichtung Start ist, oder die Beschriftung eine RTL-Sprache verwendet und die Textausrichtung Ende ist.
-    - **line-right:** wenn die Textausrichtung rechts ist, die Beschriftung eine RTL-Sprache verwendet und die Textausrichtung Start ist, oder die Beschriftung eine LTR-Sprache verwendet und die Textausrichtung Ende ist.
-    - **center:** wenn keine Textausrichtungsposition festgelegt ist.
+  - : Automatische Ausrichtung, die von der Textausrichtung des Cues abhängt und wie folgt bestimmt wird:
+    - **line-left:** wenn die Textausrichtung links ist, wenn der Cue eine LTR-Sprache verwendet und die Textausrichtung start ist oder wenn der Cue eine RTL-Sprache verwendet und die Textausrichtung end ist.
+    - **line-right:** wenn die Textausrichtung rechts ist, wenn der Cue eine RTL-Sprache verwendet und die Textausrichtung start ist oder wenn der Cue eine LTR-Sprache verwendet und die Textausrichtung end ist.
+    - **center:** wenn keine Position für die Textausrichtung festgelegt ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `positionAlign` auf `"line-right"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und anschließend der Wert von `positionAlign` auf `"line-right"` gesetzt. Danach wird der Wert in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

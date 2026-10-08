@@ -1,51 +1,52 @@
 ---
-title: Glossarseitenschablone
+title: Vorlage für Glossarseiten
 slug: MDN/Writing_guidelines/Page_structures/Page_types/Glossary_page_template
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
-> [!NOTE] > _Entfernen Sie diese gesamte erklärende Anmerkung vor der Veröffentlichung_
+> [!NOTE]
+> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
 >
 > ---
 >
-> **Seiteneigenschaften:**
+> **Frontmatter der Seite:**
 >
-> Die Seiteneigenschaften am Anfang der Seite werden verwendet, um "Seiten-Metadaten" zu definieren.
-> Die Werte sollten entsprechend der jeweiligen Methode aktualisiert werden.
+> Das Frontmatter am Anfang der Seite dient dazu, „Seitenmetadaten“ festzulegen.
+> Die Werte sollten für den jeweiligen Begriff entsprechend angepasst werden.
 >
 > ```md
 > ---
-> title: Zu definierender Begriff
-> slug: Glossar/ZU_DEFINIERENDER_BEGRIFF
-> page-type: glossary-definition ODER glossary-disambiguation
-> sidebar: glossarseitenleiste
+> title: Term being defined
+> slug: Glossary/Term_being_defined
+> page-type: glossary-definition OR glossary-disambiguation
+> sidebar: glossarysidebar
 > ---
 > ```
 >
 > - **title**
->   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
->     Formatieren als: `Zu definierender Begriff`.
+>   - : Titel, der oben auf der Seite angezeigt wird.
+>     Format: `Term being defined`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`).
->     Dies wird im Snake-Case des Titels formatiert: `Glossar/ZU_DEFINIERENDER_BEGRIFF`.
+>   - : Der letzte Teil des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
+>     Er wird aus dem Titel im Snake-Case-Format gebildet: `Glossary/Term_being_defined`.
 > - **page-type**
 >   - : `glossary-definition` für eine Definitionsseite oder `glossary-disambiguation` für eine Begriffsklärungsseite.
 > - **sidebar**
->   - : Dies ist immer `glossarseitenleiste`.
->     Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
+>   - : Der Wert ist immer `glossarysidebar`.
+>     Weitere Informationen finden Sie unter [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars).
 >
 > ---
 >
-> _Denken Sie daran, diese gesamte erklärende Anmerkung vor der Veröffentlichung zu entfernen_
+> _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen_
 
-Der **TermBeingDefined** ist _(fügen Sie eine prägnante Definition des Begriffs ein)_.
+**TermBeingDefined** ist _(fügen Sie eine kurze Definition des Begriffs ein)_.
 
-Fügen Sie bei Bedarf weitere unterstützende Informationen hinzu, aber nicht viel – nicht mehr als 2 weitere kleine Absätze. Weitere detaillierte Informationen, Code-Beispiele, Tutorials usw. sollten in separaten Artikeln erscheinen.
+Ergänzen Sie bei Bedarf weitere erläuternde Informationen, aber nicht zu viele – höchstens zwei weitere kurze Absätze. Ausführlichere Informationen, Codebeispiele, Tutorials usw. gehören in separate Artikel.
 
 ## Siehe auch
 
-Fügen Sie eine Liste von Links hinzu, die auf ausführlichere allgemeine und technische Informationen verweisen. Zum Beispiel können Sie Links zu Wikipedia-Artikeln, anderen Eintragsenzyklopädien, technischen Tutorials und Spezifikationen hinzufügen. Für Richtlinien zum Hinzufügen dieser Linkliste, siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Leitfaden für Schreibstil_.
+Fügen Sie eine Liste mit Links zu weiterführenden allgemeinen und technischen Informationen hinzu. Sie können beispielsweise auf Wikipedia-Artikel, andere Enzyklopädieeinträge, technische Tutorials und Spezifikationen verlinken. Hinweise zum Erstellen dieser Linkliste finden Sie im [Abschnitt „Siehe auch“](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) des _Leitfadens zum Schreibstil_.
 
-- link1
-- link2
+- Link 1
+- Link 2

@@ -1,64 +1,66 @@
 ---
-title: Grundlegende native Formularelemente
+title: Grundlegende native Formularsteuerelemente
 slug: Learn_web_development/Extensions/Forms/Basic_native_form_controls
 l10n:
-  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/How_to_structure_a_web_form", "Learn_web_development/Extensions/Forms/HTML5_input_types", "Learn_web_development/Extensions/Forms")}}
 
-Im [vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form) haben wir ein funktionales Webformular-Beispiel erstellt, einige Formularelemente und gemeinsame Strukturelemente eingeführt und uns auf die besten Praktiken zur Barrierefreiheit konzentriert. Als nächstes werden wir die Funktionalität der verschiedenen Formularelemente oder Widgets im Detail betrachten — und alle verfügbaren Optionen untersuchen, um unterschiedliche Arten von Daten zu sammeln. In diesem speziellen Artikel werden wir uns mit dem ursprünglichen Satz von Formularelementen befassen, der seit den frühen Tagen des Webs in allen Browsern verfügbar ist.
+Im [vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form) haben wir ein funktionsfähiges Webformular mit Markup versehen, einige Formularsteuerelemente und gängige Strukturelemente vorgestellt und uns auf Best Practices für die Barrierefreiheit konzentriert. Als Nächstes betrachten wir die Funktionsweise der verschiedenen Formularsteuerelemente – auch Widgets genannt – im Detail und untersuchen die Möglichkeiten, unterschiedliche Arten von Daten zu erfassen. In diesem Artikel geht es um die ursprünglichen Formularsteuerelemente, die seit den Anfängen des Webs in allen Browsern verfügbar sind.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Ein grundlegendes
+        Grundlegende
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Verständnis von HTML</a
+          >HTML-Kenntnisse</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein detailliertes Verständnis der ursprünglichen nativen Formular-Widgets in Browsern zur Datenerfassung und deren Implementierung mit HTML.
+        Die ursprünglichen nativen Formular-Widgets zur Datenerfassung
+        in Browsern im Detail verstehen und lernen, wie sie mit HTML
+        implementiert werden.
       </td>
     </tr>
   </tbody>
 </table>
 
-Sie haben bereits einige Formularelemente kennengelernt, darunter {{HTMLelement('form')}}, {{HTMLelement('fieldset')}}, {{HTMLelement('legend')}}, {{HTMLelement('textarea')}}, {{HTMLelement('label')}}, {{HTMLelement('button')}} und {{HTMLelement('input')}}. Dieser Artikel umfasst:
+Einige Formularelemente kennen Sie bereits, darunter {{HTMLelement('form')}}, {{HTMLelement('fieldset')}}, {{HTMLelement('legend')}}, {{HTMLelement('textarea')}}, {{HTMLelement('label')}}, {{HTMLelement('button')}} und {{HTMLelement('input')}}. Dieser Artikel behandelt:
 
-- Die häufigen Eingabetypen {{HTMLelement('input/button', 'button')}}, {{HTMLelement('input/checkbox', 'checkbox')}}, {{HTMLelement('input/file', 'file')}}, {{HTMLelement('input/hidden', 'hidden')}}, {{HTMLelement('input/image', 'image')}}, {{HTMLelement('input/password', 'password')}}, {{HTMLelement('input/radio', 'radio')}}, {{HTMLelement('input/reset', 'reset')}}, {{HTMLelement('input/submit', 'submit')}} und {{HTMLelement('input/text', 'text')}}.
-- Einige der Attribute, die allen Formularelementen gemeinsam sind.
-
-> [!NOTE]
-> Wir behandeln weitere, leistungsstärkere Formularelemente in den nächsten beiden Artikeln. Für eine fortgeschrittenere Referenz sollten Sie unser [HTML-Formular-Elemente-Referenz](/de/docs/Web/HTML/Reference/Elements#forms) und insbesondere unsere umfangreiche [`<input>` Typen](/de/docs/Web/HTML/Reference/Elements/input) Referenz konsultieren.
-
-## Text-Eingabefelder
-
-Text-{{htmlelement("input")}}-Felder sind die grundlegendsten Formular-Widgets. Sie sind eine sehr bequeme Möglichkeit, dem Benutzer die Eingabe aller Art von Daten zu ermöglichen, und wir haben bereits einige einfache Beispiele gesehen.
+- Die gängigen input-Typen {{HTMLelement('input/button', 'button')}}, {{HTMLelement('input/checkbox', 'checkbox')}}, {{HTMLelement('input/file', 'file')}}, {{HTMLelement('input/hidden', 'hidden')}}, {{HTMLelement('input/image', 'image')}}, {{HTMLelement('input/password', 'password')}}, {{HTMLelement('input/radio', 'radio')}}, {{HTMLelement('input/reset', 'reset')}}, {{HTMLelement('input/submit', 'submit')}} und {{HTMLelement('input/text', 'text')}}.
+- Einige Attribute, die allen Formularsteuerelementen gemeinsam sind.
 
 > [!NOTE]
-> HTML-Formular-Textfelder sind einfache Klartext-Eingabesteuerungen. Das bedeutet, dass sie nicht zur Durchführung von Rich-Text-Bearbeitungen (Fett, Kursiv, usw.) verwendet werden können. Alle Rich-Text-Editoren, denen Sie begegnen werden, sind benutzerdefinierte Widgets, die mit HTML, CSS und JavaScript erstellt wurden.
+> In den nächsten beiden Artikeln behandeln wir weitere, leistungsfähigere Formularsteuerelemente. Wenn Sie eine weiterführende Referenz suchen, lesen Sie unsere [Referenz zu HTML-Formularelementen](/de/docs/Web/HTML/Reference/Elements#forms), insbesondere die ausführliche Referenz zu den [Typen von `<input>`](/de/docs/Web/HTML/Reference/Elements/input).
 
-Alle grundlegenden Textsteuerungen teilen einige gemeinsame Verhaltensweisen:
+## Texteingabefelder
 
-- Sie können als [`readonly`](/de/docs/Web/HTML/Reference/Elements/input#readonly) markiert werden (der Benutzer kann den Eingabewert nicht ändern, aber er wird trotzdem mit den restlichen Formulardaten gesendet) oder [`disabled`](/de/docs/Web/HTML/Reference/Elements/input#disabled) (der Eingabewert kann nicht geändert werden und wird niemals mit den restlichen Formulardaten gesendet).
-- Sie können einen [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) haben; dies ist der Text, der im Text-Eingabefeld erscheint und der kurz den Zweck des Feldes beschreiben sollte.
-- Sie können im [`size`](/de/docs/Web/HTML/Reference/Attributes/size) (die physische Größe des Feldes) und [`maxlength`](/de/docs/Web/HTML/Reference/Attributes/maxlength) (die maximale Anzahl von Zeichen, die in das Feld eingegeben werden können) eingeschränkt werden.
-- Sie können von der Rechtschreibprüfung profitieren (mithilfe des [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) Attributs).
+Textfelder mit {{htmlelement("input")}} gehören zu den grundlegendsten Formular-Widgets. Sie ermöglichen die Eingabe unterschiedlichster Daten. Einige einfache Beispiele haben wir bereits gesehen.
 
 > [!NOTE]
-> Das {{htmlelement("input")}}-Element ist einzigartig unter den HTML-Elementen, da es je nach Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attributs viele Formen annehmen kann. Es wird für die Erstellung der meisten Arten von Formular-Widgets verwendet, einschließlich einzeiliger Textfelder, Zeit- und Datumssteuerungen, Steuerungen ohne Texteingabe wie Kontrollkästchen, Radio Buttons und Farbwähler, sowie Schaltflächen.
+> Texteingabefelder in HTML-Formularen sind einfache Steuerelemente für Klartext. Sie eignen sich daher nicht zur Bearbeitung von formatiertem Text (fett, kursiv usw.). Editoren für formatierten Text sind benutzerdefinierte Widgets, die mit HTML, CSS und JavaScript erstellt werden.
+
+Alle grundlegenden Textsteuerelemente haben einige gemeinsame Eigenschaften:
+
+- Sie können als [`readonly`](/de/docs/Web/HTML/Reference/Elements/input#readonly) gekennzeichnet werden (Benutzer können den Eingabewert nicht ändern, er wird aber mit den übrigen Formulardaten gesendet) oder als [`disabled`](/de/docs/Web/HTML/Reference/Elements/input#disabled) (der Eingabewert kann nicht geändert werden und wird nie mit den übrigen Formulardaten gesendet).
+- Sie können einen [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) haben: Text, der im Eingabefeld erscheint und dessen Zweck kurz beschreiben soll.
+- Sie können durch [`size`](/de/docs/Web/HTML/Reference/Attributes/size) (die sichtbare Größe des Feldes) und [`maxlength`](/de/docs/Web/HTML/Reference/Attributes/maxlength) (die maximale Anzahl eingebbarer Zeichen) begrenzt werden.
+- Für sie kann die Rechtschreibprüfung aktiviert werden (mit dem Attribut [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)).
+
+> [!NOTE]
+> Das Element {{htmlelement("input")}} ist unter den HTML-Elementen einzigartig, weil es je nach Wert seines Attributs [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) viele Formen annehmen kann. Es wird für die meisten Arten von Formular-Widgets verwendet: einzeilige Textfelder, Steuerelemente für Uhrzeit und Datum, Steuerelemente ohne Texteingabe wie Kontrollkästchen, Optionsfelder und Farbwähler sowie Schaltflächen.
 
 ### Einzeilige Textfelder
 
-Ein einzeiliges Textfeld wird mit einem {{HTMLElement("input")}}-Element erstellt, dessen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut auf [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) gesetzt ist, oder indem das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut weggelassen wird (`text` ist der Standardwert). Der Wert `text` für dieses Attribut ist auch der Fallback-Wert, wenn der angegebene Wert für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut vom Browser nicht erkannt wird (zum Beispiel, wenn Sie `type="color"` angeben und der Browser keine nativen Farbwähler unterstützt).
+Ein einzeiliges Textfeld wird mit einem {{HTMLElement("input")}}-Element erstellt, dessen Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) auf [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) gesetzt ist. Sie können das Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) auch ganz weglassen (`text` ist der Standardwert). Der Wert `text` ist außerdem der Fallback-Wert, wenn der Browser den angegebenen Wert für [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) nicht kennt (beispielsweise, wenn Sie `type="color"` angeben und der Browser keine nativen Farbwähler unterstützt).
 
-Hier ist ein einfaches einzeiliges Textfeld-Beispiel:
+Hier ist ein einfaches Beispiel für ein einzeiliges Textfeld:
 
 ```html live-sample___single-line
 <input type="text" id="comment" name="comment" value="I'm a text field" />
@@ -68,66 +70,66 @@ Es wird so dargestellt:
 
 {{embedlivesample("single-line", "100%", "80")}}
 
-Einzeilige Textfelder haben nur eine echte Einschränkung: Wenn Sie Text mit Zeilenumbrüchen eingeben, entfernt der Browser diese Zeilenumbrüche, bevor die Daten an den Server gesendet werden.
+Für einzeilige Textfelder gibt es nur eine feste Einschränkung: Wenn Sie Text mit Zeilenumbrüchen eingeben, entfernt der Browser diese vor dem Senden der Daten an den Server.
 
-Der untenstehende Screenshot zeigt ein Texteingabefeld im Standard-, fokussierten und deaktivierten Zustand. Die meisten Browser zeigen den fokussierten Zustand mit einem Fokusring um die Steuerung und den deaktivierten Zustand mit grauem Text oder einer verblassten/halbtransparenten Steuerung.
+Der folgende Screenshot zeigt ein Textfeld im Standardzustand, mit Fokus und im deaktivierten Zustand. Die meisten Browser kennzeichnen den Fokus durch eine Umrandung des Steuerelements und den deaktivierten Zustand durch grauen Text oder ein verblasstes, halbtransparentes Steuerelement.
 
-![Screenshot of the default, focused and disabled states text input in Chrome on macOS](disabled.png)
+![Screenshot eines Textfelds im Standardzustand, mit Fokus und im deaktivierten Zustand in Chrome unter macOS](disabled.png)
 
-Die in diesem Dokument verwendeten Screenshots wurden im Chrome-Browser auf macOS aufgenommen. Es kann zwischen diesen Feldern/Schaltflächen in verschiedenen Browsern zu geringfügigen Unterschieden kommen, aber die grundlegende Hervorhebungstechnik bleibt ähnlich.
+Die Screenshots in diesem Dokument wurden mit Chrome unter macOS aufgenommen. Die Darstellung dieser Felder und Schaltflächen kann sich je nach Browser geringfügig unterscheiden; die grundlegende Hervorhebung ist jedoch ähnlich.
 
 > [!NOTE]
-> Wir diskutieren Werte für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut, die spezifische Validierungseinschränkungen erzwingen, einschließlich der Farbauswahl, E-Mail- und URL-Eingabetypen, im nächsten Artikel, [Die HTML5-Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types).
+> Werte des Attributs [`type`](/de/docs/Web/HTML/Reference/Elements/input#type), die bestimmte Validierungsregeln vorgeben – darunter die Eingabetypen für Farben, E-Mail-Adressen und URLs –, behandeln wir im nächsten Artikel, [HTML5-Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types).
 
 #### Passwortfeld
 
-Einer der ursprünglichen Eingabetypen war der [`password`](/de/docs/Web/HTML/Reference/Elements/input/password) Textfeldtyp:
+Einer der ursprünglichen Eingabetypen war das Textfeld vom Typ [`password`](/de/docs/Web/HTML/Reference/Elements/input/password):
 
 ```html live-sample___password
 <input type="password" id="pwd" name="pwd" />
 ```
 
-Dies wird ähnlich wie das grundlegende einzeilige Textfeld dargestellt:
+Es wird ähnlich dargestellt wie ein einfaches einzeiliges Textfeld:
 
 {{embedlivesample("password", "100%", "80")}}
 
-Versuchen Sie jedoch, etwas in das Feld einzugeben — jedes eingegebene Zeichen wird als Punkt angezeigt.
+Versuchen Sie jedoch, etwas in das Feld einzugeben: Jedes eingegebene Zeichen wird als Punkt angezeigt.
 
-Der `password`-Wert fügt den eingegebenen Text keine speziellen Einschränkungen hinzu, aber er verschleiert den eingegebenen Wert im Feld, sodass er nicht leicht von anderen gelesen werden kann.
+Der Wert `password` schränkt den eingegebenen Text nicht zusätzlich ein. Er verdeckt aber den Wert im Feld, damit andere ihn nicht ohne Weiteres lesen können.
 
-Denken Sie daran, dass dies nur eine Benutzeroberflächenfunktion ist; es sei denn, Sie senden Ihr Formular sicher, wird es im Klartext gesendet, was schlecht für die Sicherheit ist — eine bösartige Partei könnte Ihre Daten abfangen und Passwörter, Kreditkartendetails oder was auch immer Sie gesendet haben, stehlen. Der beste Weg, Benutzer davor zu schützen, besteht darin, alle Seiten mit Formularen über eine sichere Verbindung (d.h. an einer `https://`-Adresse) zu hosten, sodass die Daten vor dem Senden verschlüsselt werden.
+Beachten Sie, dass dies lediglich eine Funktion der Benutzeroberfläche ist: Wenn Sie das Formular nicht sicher übertragen, werden die Daten als Klartext gesendet. Das ist ein Sicherheitsrisiko – Angreifer könnten Ihre Daten abfangen und Passwörter, Kreditkartendaten oder andere übermittelte Angaben stehlen. Am besten schützen Sie Benutzer, indem Sie Seiten mit Formularen über eine sichere Verbindung bereitstellen, also unter einer `https://`-Adresse. So werden die Daten vor dem Senden verschlüsselt.
 
-Browser erkennen die Sicherheitsimplikationen des Sendens von Formulardaten über eine unsichere Verbindung und haben Warnungen, um Benutzer davon abzuhalten, unsichere Formulare zu verwenden.
+Browser erkennen die Sicherheitsrisiken beim Senden von Formulardaten über eine unsichere Verbindung und zeigen Warnungen an, um Benutzer von der Verwendung unsicherer Formulare abzuhalten.
 
-### Versteckter Inhalt
+### Versteckte Inhalte
 
-Ein weiteres ursprüngliches Textelement ist der [`hidden`](/de/docs/Web/HTML/Reference/Elements/input/hidden) Eingabetyp. Dieser wird verwendet, um ein Formularelement zu erstellen, das für den Benutzer unsichtbar ist, aber dennoch zusammen mit den restlichen Formulardaten an den Server gesendet wird, sobald das Formular abgeschickt wird — zum Beispiel könnten Sie einen Zeitstempel an den Server senden, der angibt, wann eine Bestellung aufgegeben wurde. Da es versteckt ist, kann der Benutzer den Wert weder sehen noch absichtlich bearbeiten, es wird niemals fokussiert und ein Bildschirmlesegerät wird es ebenfalls nicht bemerken.
+Ein weiteres ursprüngliches Textsteuerelement ist der Eingabetyp [`hidden`](/de/docs/Web/HTML/Reference/Elements/input/hidden). Damit erstellen Sie ein Formularsteuerelement, das für Benutzer unsichtbar ist, beim Absenden aber zusammen mit den übrigen Formulardaten an den Server gesendet wird. So könnten Sie beispielsweise einen Zeitstempel übermitteln, der angibt, wann eine Bestellung aufgegeben wurde. Da das Steuerelement versteckt ist, können Benutzer seinen Wert weder sehen noch gezielt bearbeiten. Es erhält nie den Fokus und wird auch von Screenreadern nicht erfasst.
 
 ```html
 <input type="hidden" id="timestamp" name="timestamp" value="1286705410" />
 ```
 
-Wenn Sie ein solches Element erstellen, müssen seine `name` und `value` Attribute festgelegt werden. Der Wert kann dynamisch über JavaScript gesetzt werden. Der `hidden` Eingabetyp sollte kein zugehöriges Label haben.
+Wenn Sie ein solches Element erstellen, müssen Sie seine Attribute `name` und `value` festlegen. Der Wert kann dynamisch per JavaScript gesetzt werden. Ein input-Element vom Typ `hidden` sollte kein zugeordnetes label haben.
 
-Andere Texteingabetypen wie {{HTMLElement("input/search", "search")}}, {{HTMLElement("input/url", "url")}} und {{HTMLElement("input/tel", "tel")}} werden im nächsten Tutorial behandelt, [HTML5 Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types).
+Weitere Texteingabetypen wie {{HTMLElement("input/search", "search")}}, {{HTMLElement("input/url", "url")}} und {{HTMLElement("input/tel", "tel")}} behandeln wir im nächsten Tutorial, [HTML5-Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types).
 
-## Prüfelemente: Kontrollkästchen und Radio Buttons
+## Auswählbare Elemente: Kontrollkästchen und Optionsfelder
 
-Prüfelemente sind Steuerungen, deren Zustand Sie durch Klicken auf sie oder deren zugehörige Labels ändern können. Es gibt zwei Arten von Prüfelementen: das Kontrollkästchen und den Radio-Button. Beide verwenden das [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) Attribut, um anzuzeigen, ob das Widget standardmäßig aktiviert ist oder nicht.
+Auswählbare Elemente sind Steuerelemente, deren Zustand Sie durch Anklicken des Elements oder seines zugeordneten Labels ändern können. Es gibt zwei Arten: Kontrollkästchen und Optionsfelder. Beide verwenden das Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked), um festzulegen, ob sie standardmäßig ausgewählt sind.
 
-Es ist anzumerken, dass sich diese Widgets nicht genau wie andere Formular-Widgets verhalten. Für die meisten Formular-Widgets werden alle Widgets, die ein [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) Attribut haben, gesendet, auch wenn kein Wert ausgefüllt wurde, sobald das Formular abgeschickt wird. Bei Prüfelementen werden ihre Werte nur gesendet, wenn sie aktiviert sind. Wenn sie nicht aktiviert sind, wird nichts gesendet, nicht einmal ihr Name. Wenn sie aktiviert sind, aber keinen Wert haben, wird der Name mit einem Wert von _on_ gesendet.
+Diese Widgets verhalten sich nicht genau wie andere Formular-Widgets. Bei den meisten Formular-Widgets werden beim Absenden alle Widgets mit einem Attribut [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) übermittelt, auch wenn kein Wert eingetragen wurde. Bei auswählbaren Elementen werden die Werte nur übermittelt, wenn sie ausgewählt sind. Ist ein Element nicht ausgewählt, wird nichts übermittelt – nicht einmal sein Name. Ist es ausgewählt, hat aber keinen Wert, wird der Name mit dem Wert _on_ übermittelt.
 
-Für maximale Benutzerfreundlichkeit/Barrierefreiheit wird empfohlen, jede Liste verwandter Elemente in ein {{htmlelement("fieldset")}} zu umgeben, mit einem {{htmlelement("legend")}}, das eine allgemeine Beschreibung der Liste liefert. Jedes einzelne Paar von {{htmlelement("label")}}/{{htmlelement("input")}}-Elementen sollte in einem eigenen Listenelement (oder ähnlich) enthalten sein. Das zugeordnete {{htmlelement('label')}} wird im Allgemeinen direkt vor oder nach dem Radio-Button oder Kontrollkästchen platziert, wobei die Anweisungen für die Gruppe von Radio-Buttons oder Kontrollkästchen in der Regel der Inhalt des {{htmlelement("legend")}} sind.
+Für eine möglichst gute Bedienbarkeit und Barrierefreiheit sollten Sie jede Gruppe zusammengehöriger Elemente in ein {{htmlelement("fieldset")}} einschließen und mit einem {{htmlelement("legend")}} eine übergreifende Beschreibung angeben. Jedes einzelne Paar aus {{htmlelement("label")}}- und {{htmlelement("input")}}-Element sollte in einem eigenen Listenelement (oder einem ähnlichen Element) stehen. Das zugehörige {{htmlelement('label')}} steht üblicherweise direkt vor oder nach dem Optionsfeld beziehungsweise Kontrollkästchen. Anweisungen für die Gruppe stehen normalerweise im {{htmlelement("legend")}}.
 
 ### Kontrollkästchen
 
-Ein Kontrollkästchen wird mit dem {{HTMLElement("input")}}-Element erstellt, bei dem das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut auf den Wert [`checkbox`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) gesetzt ist.
+Ein Kontrollkästchen wird mit einem {{HTMLElement("input")}}-Element erstellt, dessen Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) den Wert [`checkbox`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) hat.
 
 ```html
 <input type="checkbox" id="questionOne" name="subscribe" value="yes" checked />
 ```
 
-Verwandte Kontrollkästchen sollten dasselbe [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) Attribut verwenden. Das Hinzufügen des [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) Attributs macht das Kontrollkästchen automatisch aktiviert, wenn die Seite geladen wird. Das Klicken auf das Kontrollkästchen oder sein zugehöriges Label schaltet das Kontrollkästchen ein und aus.
+Zusammengehörige Kontrollkästchen sollten dasselbe Attribut [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) verwenden. Mit dem Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) ist das Kontrollkästchen beim Laden der Seite automatisch ausgewählt. Ein Klick auf das Kontrollkästchen oder sein zugeordnetes Label schaltet es ein oder aus.
 
 ```html live-sample___checkbox
 <fieldset>
@@ -158,24 +160,24 @@ Dieses Beispiel wird so dargestellt:
 
 {{embedlivesample("checkbox", "100%", "150")}}
 
-Der folgende Screenshot zeigt Kontrollkästchen im Standard-, fokussierten und deaktivierten Zustand. Kontrollkästchen im Standard- und deaktivierten Zustand erscheinen aktiviert, während im fokussierten Zustand das Kontrollkästchen nicht aktiviert ist und ein Fokusring darum erscheint.
+Der folgende Screenshot zeigt Kontrollkästchen im Standardzustand, mit Fokus und im deaktivierten Zustand. Im Standardzustand und im deaktivierten Zustand sind sie ausgewählt. Das Kontrollkästchen mit Fokus ist dagegen nicht ausgewählt und von einer Fokusumrandung umgeben.
 
-![Default, focused and disabled Checkboxes in chrome 115 on macOS](checkboxes.png)
+![Kontrollkästchen im Standardzustand, mit Fokus und im deaktivierten Zustand in Chrome 115 unter macOS](checkboxes.png)
 
 > [!NOTE]
-> Alle Kontrollkästchen und Radio-Buttons mit dem [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) Attribut auf Laden entsprechen der {{cssxref(':default')}} Pseudo-Klasse, auch wenn sie nicht mehr aktiviert sind. Alle, die derzeit aktiviert sind, entsprechen der {{cssxref(':checked')}} Pseudo-Klasse.
+> Kontrollkästchen und Optionsfelder, die beim Laden das Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) haben, entsprechen der Pseudoklasse {{cssxref(':default')}} – auch wenn sie später nicht mehr ausgewählt sind. Aktuell ausgewählte Elemente entsprechen der Pseudoklasse {{cssxref(':checked')}}.
 
-Aufgrund der Ein-/Aus-Natur von Kontrollkästchen wird das Kontrollkästchen als Umschaltknopf angesehen, wobei viele Entwickler und Designer das Standard-Kontrollkästchen-Styling erweitern, um Schaltflächen zu erstellen, die wie Umschalter aussehen. Sie können [ein Beispiel in Aktion hier sehen](https://mdn.github.io/learning-area/html/forms/toggle-switch-example/) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/toggle-switch-example/index.html)).
+Da Kontrollkästchen zwischen zwei Zuständen wechseln, gelten sie als Umschalter. Viele Entwickler und Designer erweitern ihre Standardgestaltung, um Schaltflächen zu erstellen, die wie Kippschalter aussehen. Sie können [hier ein Beispiel ausprobieren](https://mdn.github.io/learning-area/html/forms/toggle-switch-example/) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/toggle-switch-example/index.html)).
 
-### Radio-Button
+### Optionsfeld
 
-Ein Radio-Button wird mit dem {{HTMLElement("input")}}-Element erstellt, bei dem das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut auf den Wert [`radio`](/de/docs/Web/HTML/Reference/Elements/input/radio) gesetzt ist:
+Ein Optionsfeld wird mit einem {{HTMLElement("input")}}-Element erstellt, dessen Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) den Wert [`radio`](/de/docs/Web/HTML/Reference/Elements/input/radio) hat:
 
 ```html
 <input type="radio" id="soup" name="meal" value="soup" checked />
 ```
 
-Mehrere Radio-Buttons können miteinander verbunden werden. Wenn sie denselben Wert für ihr [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) Attribut teilen, werden sie als zur gleichen Gruppe von Schaltflächen gehörend betrachtet. Nur eine Schaltfläche in einer bestimmten Gruppe kann gleichzeitig aktiv sein; das bedeutet, wenn eine von ihnen aktiviert ist, werden alle anderen automatisch deaktiviert. Wenn das Formular gesendet wird, wird nur der Wert des aktivierten Radio-Buttons gesendet. Wenn keiner von ihnen aktiviert ist, wird der gesamte Pool von Radiobuttons als unbekannter Status betrachtet und es wird kein Wert mit dem Formular gesendet. Sobald einer der Radiobuttons in einer gleichnamigen Gruppe von Schaltern aktiviert ist, ist es dem Benutzer nicht möglich, alle Schalter ohne Zurücksetzen des Formulars zu deaktivieren.
+Mehrere Optionsfelder können zu einer Gruppe zusammengefasst werden. Wenn sie denselben Wert für ihr Attribut [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) haben, gehören sie zur selben Gruppe. Innerhalb einer Gruppe kann jeweils nur ein Feld ausgewählt sein. Wird eines ausgewählt, werden alle anderen automatisch abgewählt. Beim Absenden des Formulars wird nur der Wert des ausgewählten Optionsfelds übermittelt. Ist keines ausgewählt, gilt die gesamte Gruppe als in einem unbestimmten Zustand, und es wird kein Wert mit dem Formular übermittelt. Sobald eines der Optionsfelder einer Gruppe mit gleichem Namen ausgewählt wurde, können Benutzer nicht mehr alle Felder abwählen, ohne das Formular zurückzusetzen.
 
 ```html live-sample___radio
 <fieldset>
@@ -201,22 +203,22 @@ Dieses Beispiel wird so dargestellt:
 
 {{embedlivesample("radio", "100%", "150")}}
 
-Der folgende Screenshot zeigt Standard- und deaktivierte Radio-Buttons im aktivierten Zustand sowie einen fokussierten Radio-Button im deaktivierten Zustand.
+Der folgende Screenshot zeigt ein ausgewähltes Optionsfeld im Standardzustand und ein ausgewähltes, deaktiviertes Optionsfeld sowie ein nicht ausgewähltes Optionsfeld mit Fokus.
 
-![Default, focused and disabled Radio buttons in chrome 115 on macOS](radios.png)
+![Optionsfelder im Standardzustand, mit Fokus und im deaktivierten Zustand in Chrome 115 unter macOS](radios.png)
 
-## Tatsächliche Schaltflächen
+## Echte Schaltflächen
 
-Der Radio-Button ist trotz seines Namens eigentlich kein Button; lassen Sie uns fortfahren und schauen wir uns tatsächliche Buttons an! Es gibt drei Eingabetypen, die Buttons erzeugen:
+Ein Optionsfeld ist trotz seines englischen Namens „radio button“ keine Schaltfläche. Sehen wir uns nun echte Schaltflächen an! Drei input-Typen erzeugen Schaltflächen:
 
 - [`submit`](/de/docs/Web/HTML/Reference/Elements/input/submit)
-  - : Sendet die Formulardaten an den Server. Für {{HTMLElement("button")}}-Elemente führt das Weglassen des `type` Attributs (oder ein ungültiger Wert des `type`) zu einem Submit-Button.
+  - : Sendet die Formulardaten an den Server. Bei {{HTMLElement("button")}}-Elementen entsteht eine Submit-Schaltfläche, wenn das Attribut `type` fehlt oder einen ungültigen Wert hat.
 - [`reset`](/de/docs/Web/HTML/Reference/Elements/input/reset)
-  - : Setzt alle Formularelemente auf ihre Standardwerte zurück.
+  - : Setzt alle Formular-Widgets auf ihre Standardwerte zurück.
 - [`button`](/de/docs/Web/HTML/Reference/Elements/input/button)
-  - : Schaltflächen, die keine automatische Wirkung haben, sondern mit JavaScript-Code angepasst werden können.
+  - : Eine Schaltfläche ohne automatische Wirkung, deren Verhalten mit JavaScript-Code festgelegt werden kann.
 
-Dann haben wir auch das {{htmlelement("button")}} Element selbst. Dieses kann ein `type` Attribut mit dem Wert `submit`, `reset` oder `button` haben, um das Verhalten der oben genannten drei `<input>` Typen zu imitieren. Der Hauptunterschied zwischen den beiden ist, dass tatsächliche `<button>` Elemente viel einfacher zu stylen sind.
+Daneben gibt es das Element {{htmlelement("button")}} selbst. Sein Attribut `type` kann die Werte `submit`, `reset` oder `button` annehmen und so das Verhalten der drei genannten `<input>`-Typen nachbilden. Der wichtigste Unterschied: Echte `<button>`-Elemente lassen sich wesentlich einfacher gestalten.
 
 ```html live-sample___actual_buttons_ex
 <p>Using &lt;input></p>
@@ -236,11 +238,11 @@ Dann haben wir auch das {{htmlelement("button")}} Element selbst. Dieses kann ei
 {{ EmbedLiveSample('actual_buttons_ex', '500', '250') }}
 
 > [!NOTE]
-> Der `image` Eingabetyp wird ebenfalls als Taste dargestellt. Wir werden diesen später ebenfalls behandeln.
+> Auch der input-Typ `image` wird als Schaltfläche dargestellt. Diesen behandeln wir weiter unten.
 
-Nachfolgend finden Sie Beispiele für jeden Button `<input>` Typ, zusammen mit dem äquivalenten `<button>` Typ. Jedes Paar wurde in ein {{htmlelement("div")}}-Element eingeschlossen, um es auf eine neue Zeile zu setzen.
+Nachfolgend finden Sie Beispiele für jeden Schaltflächen-`<input>`-Typ sowie den entsprechenden `<button>`-Typ. Jedes Paar ist in ein {{htmlelement("div")}}-Element eingeschlossen, damit es in einer neuen Zeile steht.
 
-- Submit-Button:
+- Submit-Schaltfläche:
 
   ```html live-sample___buttons
   <div>
@@ -250,7 +252,7 @@ Nachfolgend finden Sie Beispiele für jeden Button `<input>` Typ, zusammen mit d
   </div>
   ```
 
-- Reset-Button:
+- Reset-Schaltfläche:
 
   ```html live-sample___buttons
   <div>
@@ -260,7 +262,7 @@ Nachfolgend finden Sie Beispiele für jeden Button `<input>` Typ, zusammen mit d
   </div>
   ```
 
-- Anonymer Button:
+- Schaltfläche ohne vordefinierte Funktion:
 
   ```html live-sample___buttons
   <div>
@@ -274,50 +276,50 @@ Diese Beispiele werden so dargestellt:
 
 {{embedlivesample("buttons", "100%", "150")}}
 
-Schaltflächen verhalten sich immer gleich, unabhängig davon, ob Sie ein {{HTMLElement("button")}}-Element oder ein {{HTMLElement("input")}}-Element verwenden. Wie Sie aus den Beispielen sehen können, ermöglichen jedoch {{HTMLElement("button")}}-Elemente die Verwendung von HTML in ihrem Inhalt, der zwischen den öffnenden und schließenden `<button>`-Tags eingefügt wird. {{HTMLElement("input")}}-Elemente dagegen sind {{Glossary("void_element", "Leer-Elemente")}}; ihr angezeigter Inhalt wird im `value` Attribut eingefügt und akzeptiert daher nur Klartext als Inhalt.
+Schaltflächen verhalten sich gleich, unabhängig davon, ob Sie ein {{HTMLElement("button")}}- oder ein {{HTMLElement("input")}}-Element verwenden. Wie Sie an den Beispielen sehen, können {{HTMLElement("button")}}-Elemente jedoch HTML als Inhalt enthalten. Dieser steht zwischen dem öffnenden und dem schließenden `<button>`-Tag. {{HTMLElement("input")}}-Elemente sind dagegen {{Glossary("void_element", "leere Elemente")}}. Ihr angezeigter Inhalt wird über das Attribut `value` festgelegt und kann daher nur aus Klartext bestehen.
 
-Der folgende Screenshot zeigt eine Schaltfläche im Standard-, Fokus- und deaktivierten Zustand. Im fokussierten Zustand gibt es einen Fokusring um die Schaltfläche und im deaktivierten Zustand ist die Schaltfläche ausgegraut.
+Der folgende Screenshot zeigt eine Schaltfläche im Standardzustand, mit Fokus und im deaktivierten Zustand. Bei Fokus ist sie von einer Fokusumrandung umgeben; im deaktivierten Zustand wird sie ausgegraut.
 
-![Default, focus, and disabled button states in chrome 115 on macOS](buttons.png)
+![Schaltfläche im Standardzustand, mit Fokus und im deaktivierten Zustand in Chrome 115 unter macOS](buttons.png)
 
-### Bildtaste
+### Bild-Schaltfläche
 
-Die **Bildtaste**-Steuerung wird genauso gerendert wie ein {{HTMLElement("img")}}-Element, mit der Ausnahme, dass sie, wenn der Benutzer darauf klickt, wie eine Submit-Taste funktioniert.
+Das Steuerelement **Bild-Schaltfläche** wird genau wie ein {{HTMLElement("img")}}-Element dargestellt. Wird es angeklickt, verhält es sich jedoch wie eine Submit-Schaltfläche.
 
-Eine Bildtaste wird erstellt, indem ein {{HTMLElement("input")}}-Element mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attributwert [`image`](/de/docs/Web/HTML/Reference/Elements/input/image) verwendet wird. Dieses Element unterstützt genau dasselbe Attributset wie das {{HTMLElement("img")}}-Element, zusätzlich zu allen Attributen, die von anderen Formular-Buttons unterstützt werden.
+Eine Bild-Schaltfläche wird mit einem {{HTMLElement("input")}}-Element erstellt, dessen Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) den Wert [`image`](/de/docs/Web/HTML/Reference/Elements/input/image) hat. Dieses Element unterstützt dieselben Attribute wie das {{HTMLElement("img")}}-Element sowie alle Attribute, die andere Formularschaltflächen unterstützen.
 
 ```html
 <input type="image" alt="Click me!" src="my-img.png" width="80" height="30" />
 ```
 
-Wenn die Bildtaste verwendet wird, um das Formular zu senden, sendet diese Steuerung nicht ihren Wert — stattdessen werden die X- und Y-Koordinaten des Klicks auf das Bild gesendet (die Koordinaten beziehen sich auf das Bild, was bedeutet, dass die obere linke Ecke des Bildes die Koordinate (0, 0) darstellt). Die Koordinaten werden als zwei Schlüssel/Wert-Paare gesendet:
+Wenn die Bild-Schaltfläche zum Absenden des Formulars verwendet wird, übermittelt sie nicht ihren Wert. Stattdessen werden die X- und Y-Koordinaten des Klicks auf das Bild übermittelt. Die Koordinaten beziehen sich auf das Bild; seine obere linke Ecke entspricht also (0, 0). Sie werden als zwei Schlüssel-Wert-Paare gesendet:
 
-- Der X-Wert-Schlüssel ist der Wert des [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) Attributs gefolgt von der Zeichenfolge "_.x_".
-- Der Y-Wert-Schlüssel ist der Wert des [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) Attributs gefolgt von der Zeichenfolge "_.y_".
+- Der Schlüssel für den X-Wert besteht aus dem Wert des Attributs [`name`](/de/docs/Web/HTML/Reference/Elements/input#name), gefolgt von der Zeichenfolge „_.x_“.
+- Der Schlüssel für den Y-Wert besteht aus dem Wert des Attributs [`name`](/de/docs/Web/HTML/Reference/Elements/input#name), gefolgt von der Zeichenfolge „_.y_“.
 
-So werden zum Beispiel beim Klicken auf das Bild bei der Koordinate (123, 456) und beim Absenden über die `get`-Methode die Werte wie folgt an die URL angehängt:
+Wenn Sie beispielsweise bei den Koordinaten (123, 456) auf das Bild klicken und das Formular mit der Methode `get` absenden, sehen Sie die Werte folgendermaßen an die URL angehängt:
 
 ```url
 https://example.com?pos.x=123&pos.y=456
 ```
 
-Dies ist eine sehr bequeme Möglichkeit, eine "Hot Map" zu erstellen. Wie diese Werte gesendet und abgerufen werden, wird im Artikel [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) detailliert beschrieben.
+Damit lässt sich auf einfache Weise eine interaktive Bildkarte erstellen. Wie diese Werte gesendet und abgerufen werden, erläutert der Artikel [Formulardaten senden](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data).
 
 ## Dateiauswahl
 
-Es gibt einen letzten `<input>`-Typ, der uns in den frühen Tagen von HTML begegnet ist: den Datei-Eingabetyp. Formulare können Dateien an einen Server senden (diese spezielle Aktion wird auch im Artikel [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) detailliert beschrieben). Das Datei-Auswahl-Widget kann verwendet werden, um eine oder mehrere Dateien zum Senden auszuwählen.
+Ein letzter `<input>`-Typ stammt noch aus der frühen HTML-Zeit: die Dateieingabe. Formulare können Dateien an einen Server senden (dieser Vorgang wird ebenfalls im Artikel [Formulardaten senden](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) erläutert). Mit einem Dateiauswahl-Widget lassen sich eine oder mehrere Dateien für den Versand auswählen.
 
-Um ein [Datei-Auswahl-Widget](/de/docs/Web/HTML/Reference/Elements/input/file) zu erstellen, verwenden Sie das {{HTMLElement("input")}}-Element mit seinem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut auf `file` gesetzt. Die akzeptierten Dateitypen können mit dem [`accept`](/de/docs/Web/HTML/Reference/Elements/input#accept) Attribut eingeschränkt werden. Zusätzlich, wenn Sie dem Benutzer gestatten möchten, mehr als eine Datei auszuwählen, können Sie dies durch Hinzufügen des [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple) Attributs tun.
+Um ein [Dateiauswahl-Widget](/de/docs/Web/HTML/Reference/Elements/input/file) zu erstellen, verwenden Sie ein {{HTMLElement("input")}}-Element mit dem Wert `file` für das Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type). Über das Attribut [`accept`](/de/docs/Web/HTML/Reference/Elements/input#accept) können Sie die zulässigen Dateitypen einschränken. Wenn Benutzer mehr als eine Datei auswählen können sollen, fügen Sie außerdem das Attribut [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple) hinzu.
 
 ### Beispiel
 
-In diesem Beispiel wird ein Datei-Auswahl-Widget erstellt, das grafische Bilddateien anfordert. Der Benutzer darf in diesem Fall mehrere Dateien auswählen.
+Dieses Beispiel erstellt eine Dateiauswahl für Bilddateien. Benutzer können dabei mehrere Dateien auswählen.
 
 ```html
 <input type="file" name="file" id="file" accept="image/*" multiple />
 ```
 
-Auf einigen mobilen Geräten kann der Dateiauswähler direkt auf Fotos, Videos und Audio zugreifen, die von der Kamera und dem Mikrofon des Geräts aufgenommen wurden, indem Erfassungsinformationen wie folgt zum `accept` Attribut hinzugefügt werden:
+Auf manchen Mobilgeräten kann die Dateiauswahl auch auf Fotos, Videos und Audioaufnahmen zugreifen, die direkt mit Kamera oder Mikrofon des Geräts erstellt werden. Dazu ergänzen Sie das Attribut `accept` um Angaben zur Aufnahme:
 
 ```html
 <input type="file" accept="image/*;capture=camera" />
@@ -325,13 +327,13 @@ Auf einigen mobilen Geräten kann der Dateiauswähler direkt auf Fotos, Videos u
 <input type="file" accept="audio/*;capture=microphone" />
 ```
 
-Der folgende Screenshot zeigt das Datei-Auswahl-Widget im Standard-, Fokus- und deaktivierten Zustand, wenn keine Datei ausgewählt ist.
+Der folgende Screenshot zeigt das Dateiauswahl-Widget im Standardzustand, mit Fokus und im deaktivierten Zustand, wenn keine Datei ausgewählt ist.
 
-![File picker widget in default, focus, and disabled states in chrome 115 on macOS](filepickers.png)
+![Dateiauswahl-Widget im Standardzustand, mit Fokus und im deaktivierten Zustand in Chrome 115 unter macOS](filepickers.png)
 
 ## Gemeinsame Attribute
 
-Viele der Elemente, die zur Definition von Formularelementen verwendet werden, haben einige ihrer eigenen spezifischen Attribute. Es gibt jedoch einen Satz von Attributen, die allen Formular-Elementen gemeinsam sind. Sie haben einige davon bereits getroffen, aber unten ist eine Liste dieser gemeinsamen Attribute, zu Ihrer Referenz:
+Viele Elemente zur Definition von Formularsteuerelementen haben eigene Attribute. Daneben gibt es Attribute, die allen Formularelementen gemeinsam sind. Einige davon kennen Sie bereits. Die folgende Tabelle bietet einen Überblick:
 
 <table class="no-markdown">
   <thead>
@@ -352,8 +354,8 @@ Viele der Elemente, die zur Definition von Formularelementen verwendet werden, h
       </td>
       <td>false</td>
       <td>
-        Dieses Boolean-Attribut erlaubt es Ihnen, anzugeben, dass das Element beim Laden der Seite automatisch den Eingabefokus haben sollte.
-        Nur ein formularassoziiertes Element in einem Dokument kann dieses Attribut spezifiziert haben.
+        Mit diesem booleschen Attribut legen Sie fest, dass das Element beim Laden der Seite automatisch den Eingabefokus erhalten soll.
+        In einem Dokument darf dieses Attribut nur für ein formularzugeordnetes Element angegeben werden.
       </td>
     </tr>
     <tr>
@@ -364,9 +366,9 @@ Viele der Elemente, die zur Definition von Formularelementen verwendet werden, h
       </td>
       <td>false</td>
       <td>
-        Dieses Boolean-Attribut gibt an, dass der Benutzer nicht mit dem Element interagieren kann.
-        Wenn dieses Attribut nicht angegeben ist, erbt das Element seine Einstellung vom umgebenden Element, z. B. {{HTMLElement("fieldset")}};
-        wenn es kein umgebendes Element mit dem <code>disabled</code> Attribut gibt, dann ist das Element aktiviert.
+        Dieses boolesche Attribut gibt an, dass Benutzer nicht mit dem Element interagieren können.
+        Ist es nicht angegeben, übernimmt das Element die Einstellung seines umschließenden Elements, beispielsweise eines {{HTMLElement("fieldset")}}-Elements.
+        Wenn kein umschließendes Element das Attribut <code>disabled</code> gesetzt hat, ist das Element aktiviert.
       </td>
     </tr>
     <tr>
@@ -375,9 +377,9 @@ Viele der Elemente, die zur Definition von Formularelementen verwendet werden, h
       </td>
       <td></td>
       <td>
-        Das <code>&#x3C;form></code> Element, mit dem das Widget verknüpft ist, wird verwendet, wenn es nicht in diesem Formular verschachtelt ist.
-        Der Wert des Attributs muss die <code>id</code> Attribut eines {{HTMLElement("form")}} Elements im selben Dokument sein.
-        Damit können Sie ein Formularelement mit einem Formular verknüpfen, dem es außerhalb liegt, auch wenn es innerhalb eines anderen Formularelements liegt.
+        Das <code>&#x3C;form></code>-Element, dem das Widget zugeordnet ist. Dieses Attribut wird verwendet, wenn das Widget nicht innerhalb dieses Formulars verschachtelt ist.
+        Sein Wert muss dem Attribut <code>id</code> eines {{HTMLElement("form")}}-Elements im selben Dokument entsprechen.
+        So können Sie ein Formularsteuerelement einem Formular zuordnen, außerhalb dessen es steht – selbst wenn es sich innerhalb eines anderen Formularelements befindet.
       </td>
     </tr>
     <tr>
@@ -385,7 +387,7 @@ Viele der Elemente, die zur Definition von Formularelementen verwendet werden, h
         <code><a href="/de/docs/Web/HTML/Reference/Elements/input#name">name</a></code>
       </td>
       <td></td>
-      <td>Der Name des Elements; dies wird mit den Formulardaten gesendet.</td>
+      <td>Der Name des Elements; er wird mit den Formulardaten übermittelt.</td>
     </tr>
     <tr>
       <td>
@@ -399,6 +401,6 @@ Viele der Elemente, die zur Definition von Formularelementen verwendet werden, h
 
 ## Zusammenfassung
 
-Dieser Artikel hat die älteren Eingabetypen behandelt — den ursprünglichen Satz, der in den frühen Tagen von HTML eingeführt wurde und in allen Browsern gut unterstützt wird. Im nächsten Abschnitt schauen wir uns die moderneren Werte des `type` Attributs an.
+Dieser Artikel hat die älteren Eingabetypen behandelt – die ursprünglichen Typen aus den Anfangstagen von HTML, die von allen Browsern gut unterstützt werden. Im nächsten Abschnitt sehen wir uns die moderneren Werte des Attributs `type` an.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/How_to_structure_a_web_form", "Learn_web_development/Extensions/Forms/HTML5_input_types", "Learn_web_development/Extensions/Forms")}}

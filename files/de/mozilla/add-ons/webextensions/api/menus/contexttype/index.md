@@ -2,51 +2,51 @@
 title: menus.ContextType
 slug: Mozilla/Add-ons/WebExtensions/API/menus/ContextType
 l10n:
-  sourceCommit: 78e767e6d565551ef039a5e38a177a71edac24bf
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Die verschiedenen Kontexte, in denen ein Menüelement erscheinen kann.
+Die verschiedenen Kontexte, in denen ein Menüeintrag erscheinen kann.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Das Element wird angezeigt, wenn der angegebene Kontext zutrifft. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Der Menüeintrag wird angezeigt, wenn der jeweilige Kontext zutrifft. Mögliche Werte sind:
 
 - `all`
   - : Die Angabe von 'all' entspricht der Kombination aller anderen Kontexte außer 'bookmark', 'tab' und 'tools_menu'.
 - `action`
-  - : Gilt, wenn der Benutzer auf Ihre Browser-Aktion in einer Manifest-V3-Erweiterung kontextklickt. Die maximale Anzahl von Elementen, die dem obersten Kontextmenü der Browseraktion hinzugefügt werden können, beträgt {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}}, aber Sie können beliebig viele Elemente zu Untermenüs hinzufügen.
+  - : Gilt, wenn der Benutzer in einer Manifest-V3-Erweiterung mit der rechten Maustaste auf Ihre Browser-Action klickt. Dem Kontextmenü der Browser-Action können auf oberster Ebene höchstens {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}} Einträge hinzugefügt werden; Untermenüs können jedoch beliebig viele Einträge enthalten.
 - `audio`
-  - : Gilt, wenn der Benutzer auf ein [audio](/de/docs/Web/HTML/Reference/Elements/audio)-Element kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf ein [Audioelement](/de/docs/Web/HTML/Reference/Elements/audio) klickt.
 - `bookmark`
-  - : Gilt, wenn der Benutzer auf ein Lesezeichen in der Lesezeichen-Symbolleiste, dem Lesezeichen-Menü, der Lesezeichen-Seitenleiste (<kbd>Strg</kbd>+<kbd>B</kbd>) und dem Bibliotheksfenster (<kbd>Strg</kbd>+<kbd>Umschalt</kbd>+<kbd>B</kbd>) kontextklickt. Die letzten beiden werden seit Firefox 66 unterstützt. Erfordert die "bookmarks" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) im Manifest.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf ein Lesezeichen in der Lesezeichen-Symbolleiste, im Lesezeichen-Menü, in der Lesezeichen-Seitenleiste (<kbd>Strg</kbd>+<kbd>B</kbd>) oder im Bibliotheksfenster (<kbd>Strg</kbd>+<kbd>Umschalt</kbd>+<kbd>B</kbd>) klickt. Die beiden letztgenannten werden seit Firefox 66 unterstützt. Erfordert die [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) "bookmarks" im Manifest.
 
 - `browser_action`
-  - : Gilt, wenn der Benutzer auf Ihre Browser-Aktion in einer Manifest-V2-Erweiterung kontextklickt. Die maximale Anzahl von Elementen, die dem obersten Kontextmenü der Browseraktion hinzugefügt werden können, beträgt {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}}, aber Sie können beliebig viele Elemente zu Untermenüs hinzufügen.
+  - : Gilt, wenn der Benutzer in einer Manifest-V2-Erweiterung mit der rechten Maustaste auf Ihre Browser-Action klickt. Dem Kontextmenü der Browser-Action können auf oberster Ebene höchstens {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}} Einträge hinzugefügt werden; Untermenüs können jedoch beliebig viele Einträge enthalten.
 - `editable`
-  - : Gilt, wenn der Benutzer auf ein bearbeitbares Element, wie ein [textarea](/de/docs/Web/HTML/Reference/Elements/textarea), kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf ein bearbeitbares Element wie eine [Textarea](/de/docs/Web/HTML/Reference/Elements/textarea) klickt.
 - `frame`
-  - : Gilt, wenn der Benutzer in einem verschachtelten [iframe](/de/docs/Web/HTML/Reference/Elements/iframe) kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste in einen verschachtelten [iframe](/de/docs/Web/HTML/Reference/Elements/iframe) klickt.
 - `image`
-  - : Gilt, wenn der Benutzer auf ein Bild kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf ein Bild klickt.
 - `link`
-  - : Gilt, wenn der Benutzer auf einen Link kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf einen Link klickt.
 - `page`
-  - : Gilt, wenn der Benutzer auf der Seite kontextklickt, aber keiner der anderen Seitenkontexte zutrifft (zum Beispiel, wenn der Klick nicht auf einem Bild oder einem verschachtelten iframe oder einem Link erfolgt).
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf die Seite klickt, aber keiner der anderen Seitenkontexte zutrifft (beispielsweise erfolgt der Klick nicht auf ein Bild, einen verschachtelten iframe oder einen Link).
 - `page_action`
-  - : Gilt, wenn der Benutzer auf Ihre Seitenaktion kontextklickt. Die maximale Anzahl von Elementen, die dem obersten Kontextmenü der Seitenaktion hinzugefügt werden können, beträgt {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}}, aber Sie können beliebig viele Elemente zu Untermenüs hinzufügen.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf Ihre Page-Action klickt. Dem Kontextmenü der Page-Action können auf oberster Ebene höchstens {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}} Einträge hinzugefügt werden; Untermenüs können jedoch beliebig viele Einträge enthalten.
 - `password`
-  - : Gilt, wenn der Benutzer auf ein [Passworteingabe-Element](/de/docs/Web/HTML/Reference/Elements/input/password) kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf ein [Passwort-Eingabeelement](/de/docs/Web/HTML/Reference/Elements/input/password) klickt.
 - `selection`
   - : Gilt, wenn ein Teil der Seite ausgewählt ist.
 - `tab`
-  - : Gilt, wenn der Benutzer auf einen Tab kontextklickt (dies bezieht sich speziell auf das Tabstrip oder andere Benutzeroberflächenelemente, die es dem Benutzer ermöglichen, von einem Browser-Tab zu einem anderen zu wechseln, nicht auf die Seite selbst).
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf einen Tab klickt (gemeint ist die Tableiste oder ein anderes Bedienelement, mit dem der Benutzer zwischen Browser-Tabs wechseln kann, nicht die Seite selbst).
 
-    Seit Firefox 63 gewährt das Klicken auf das Menüelement auf einem Tab die [activeTab](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) Berechtigung für den angeklickten Tab, selbst wenn dieser nicht der aktuell aktive Tab ist.
+    Wenn Sie auf einem Tab auf den Menüeintrag klicken, wird die [`activeTab`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) für den angeklickten Tab erteilt, selbst wenn dieser nicht der aktive Tab ist.
 
 - `tools_menu`
-  - : Das Element wird dem Werkzeugmenü des Browsers hinzugefügt. Beachten Sie, dass dies nur verfügbar ist, wenn Sie auf `ContextType` durch den `menus` Namensraum zugreifen. Es ist nicht verfügbar, wenn Sie durch den `contextMenus` Namensraum zugreifen.
+  - : Der Eintrag wird dem Extras-Menü des Browsers hinzugefügt. Dies ist nur verfügbar, wenn Sie über den Namespace `menus` auf `ContextType` zugreifen. Bei einem Zugriff über den Namespace `contextMenus` ist es nicht verfügbar.
 - `video`
-  - : Gilt, wenn der Benutzer auf ein [video](/de/docs/Web/HTML/Reference/Elements/video)-Element kontextklickt.
+  - : Gilt, wenn der Benutzer mit der rechten Maustaste auf ein [Videoelement](/de/docs/Web/HTML/Reference/Elements/video) klickt.
 
 Beachten Sie, dass "launcher" nicht unterstützt wird.
 
@@ -57,7 +57,7 @@ Beachten Sie, dass "launcher" nicht unterstützt wird.
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-ContextType). Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-ContextType)-API von Chromium. Diese Dokumentation wurde aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

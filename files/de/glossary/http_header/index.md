@@ -2,17 +2,17 @@
 title: HTTP-Header
 slug: Glossary/HTTP_header
 l10n:
-  sourceCommit: 81bf621759d3a52fdf737c2d75f186a0073d1406
+  sourceCommit: e9cb9feda05ce0f1dc08aada71c0a2265baeeaff
 ---
 
-Ein **HTTP-Header** ist ein Feld einer HTTP-Anfrage oder -Antwort, das zusätzlichen Kontext und Metadaten über die Anfrage oder Antwort übermittelt. Ein Nachrichtenanforderung kann beispielsweise Header verwenden, um seine bevorzugten Medienformate anzugeben, während eine Antwort Header verwenden kann, um das Medienformat des zurückgegebenen Körpers anzugeben. Header sind nicht case-sensitiv, beginnen am Anfang einer Zeile und werden unmittelbar von einem `':'` und einem header-abhängigen Wert gefolgt. Der Wert endet beim nächsten CRLF oder am Ende der Nachricht.
+Ein **HTTP-Header** ist ein Feld einer HTTP-Anfrage oder HTTP-Antwort, das zusätzlichen Kontext und Metadaten zur Anfrage oder Antwort übermittelt. Beispielsweise kann eine Anfrage mit Headern bevorzugte Medienformate angeben, während eine Antwort mit Headern das Medienformat des zurückgegebenen Bodys angeben kann. Bei Header-Namen wird nicht zwischen Groß- und Kleinschreibung unterschieden. Header beginnen am Anfang einer Zeile; auf ihren Namen folgen unmittelbar ein `':'` und ein vom jeweiligen Header abhängiger Wert. Der Wert endet beim nächsten CRLF oder am Ende der Nachricht.
 
-Die HTTP- und Fetch-Spezifikationen beziehen sich auf eine Reihe von Header-Kategorien, einschließlich:
+Die HTTP- und Fetch-Spezifikationen unterscheiden mehrere Header-Kategorien, darunter:
 
-- {{Glossary("Request_header", "Request header")}}: Header, die mehr Informationen über die abzurufende Ressource oder über den Client selbst enthalten.
-- {{Glossary("Response_header", "Response header")}}: Header mit zusätzlichen Informationen über die Antwort, wie ihren Standort oder über den Server selbst (Name, Version usw.).
-- {{Glossary("Representation_header", "Representation header")}}: Metadaten über die Ressource im Nachrichtenkörper (z. B. Codierung, Medientyp, etc.).
-- {{Glossary("Fetch_metadata_request_header", "Fetch metadata request header")}}: Header, die Informationen über den Kontext bereitstellen, in dem die Anfrage gestellt wird.
+- {{Glossary("Request_header", "Anfrage-Header")}}: Header mit weiteren Informationen über die abzurufende Ressource oder den Client selbst.
+- {{Glossary("Response_header", "Antwort-Header")}}: Header mit zusätzlichen Informationen über die Antwort, etwa ihren Speicherort, oder über den Server selbst (Name, Version usw.).
+- {{Glossary("Representation_header", "Repräsentations-Header")}}: Metadaten über die Ressource im Nachrichten-Body (z. B. Kodierung oder Medientyp).
+- {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anfrage-Header")}}: Header mit Informationen über den Kontext, in dem die Anfrage gestellt wird.
 
 Eine einfache Anfrage mit einem Header:
 
@@ -21,14 +21,14 @@ GET /example.html HTTP/1.1
 Host: example.com
 ```
 
-Weiterleitungen haben obligatorische Header ({{HTTPHeader("Location")}}):
+Weiterleitungen haben erforderliche Header ({{HTTPHeader("Location")}}):
 
 ```http
 HTTP/1.1 302 Found
 Location: /NewPage.html
 ```
 
-Ein typisches Set von Headern:
+Ein typischer Satz von Headern:
 
 ```http
 HTTP/1.1 304 Not Modified
@@ -47,21 +47,21 @@ X-Cache-Info: cached
 ```
 
 > [!NOTE]
-> Ältere Versionen der Spezifikation bezogen sich auf:
+> Ältere Versionen der Spezifikation unterschieden:
 >
-> - {{Glossary("General_header", "General header")}}: Header, die sowohl für Anfragen als auch für Antworten gelten, aber keinen Bezug zu den letztendlich im Körper übertragenen Daten haben.
-> - {{Glossary("Entity_header", "Entity header")}}: Header, die mehr Informationen über den Körper der Entität enthalten, wie deren Inhaltslänge oder deren MIME-Type (dies ist eine Obermenge dessen, was jetzt als die Representation-Metadaten-Header bezeichnet wird)
+> - {{Glossary("General_header", "Allgemeine Header")}}: Header, die sowohl für Anfragen als auch für Antworten gelten, aber keinen Bezug zu den Daten haben, die letztlich im Body übertragen werden.
+> - {{Glossary("Entity_header", "Entity-Header")}}: Header mit weiteren Informationen über den Body der Entity, etwa seine Inhaltslänge oder seinen MIME-Typ (diese Kategorie umfasst auch die Header, die heute als Repräsentationsmetadaten-Header bezeichnet werden).
 
 ## Siehe auch
 
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
-- Syntax von [Headers](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2) in der HTTP-Spezifikation
+- Syntax von [Headern](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2) in der HTTP-Spezifikation
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Request_header", "Request header")}}
-  - {{Glossary("Response_header", "Response header")}}
-  - {{Glossary("Representation_header", "Representation header")}}
-  - {{Glossary("Fetch_metadata_request_header", "Fetch metadata request header")}}
-  - {{Glossary("Forbidden_request_header", "Forbidden request header")}}
-  - {{Glossary("Forbidden_response_header_name", "Forbidden response header name")}}
-  - {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
-  - {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}
+  - {{Glossary("Request_header", "Anfrage-Header")}}
+  - {{Glossary("Response_header", "Antwort-Header")}}
+  - {{Glossary("Representation_header", "Repräsentations-Header")}}
+  - {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anfrage-Header")}}
+  - {{Glossary("Forbidden_request_header", "Verbotene Anfrage-Header")}}
+  - {{Glossary("Forbidden_response_header_name", "Verbotene Antwort-Header-Namen")}}
+  - {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anfrage-Header")}}
+  - {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwort-Header")}}

@@ -2,12 +2,14 @@
 title: onCommand
 slug: Mozilla/Add-ons/WebExtensions/API/commands/onCommand
 l10n:
-  sourceCommit: 0630d0cb464c0b8bd352d4ecd6bead43864ac78f
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Ausgelöst, wenn ein Befehl über sein zugehöriges Tastenkürzel ausgeführt wird.
+Wird ausgelöst, wenn ein Befehl über das zugehörige Tastenkürzel ausgeführt wird.
 
-Das Ereignis übergibt dem Listener den Namen des Befehls. Dieser Name entspricht dem Namen, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) zugewiesen wurde.
+Das Ereignis übergibt dem Listener den Namen des Befehls. Dieser Name entspricht dem Namen, der für den Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegeben ist.
+
+Wenn die Erweiterung über die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) verfügt, gilt das Auslösen eines Tastenkürzels für einen Befehl als Benutzeraktion, die der Erweiterung vorübergehend Zugriff auf den aktiven Tab gewährt.
 
 ## Syntax
 
@@ -22,24 +24,24 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Entfernt einen Listener für dieses Ereignis. Das Argument `listener` gibt den zu entfernenden Listener an.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er registriert ist, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn ein Benutzer das Tastenkürzel des Befehls eingibt. Die Funktion erhält folgende Argumente:
+  - : Die Funktion, die aufgerufen wird, wenn ein Benutzer das Tastenkürzel des Befehls eingibt. Der Funktion werden folgende Argumente übergeben:
     - `name`
-      - : `string`. Name des Befehls. Dieser Name entspricht dem Namen, der dem Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) zugewiesen wurde.
+      - : `string`. Name des Befehls. Dieser Name entspricht dem Namen, der für den Befehl in seinem [manifest.json-Eintrag](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegeben ist.
     - `tab`
-      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als das Befehls-Tastenkürzel eingegeben wurde.
+      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als das Tastenkürzel des Befehls eingegeben wurde.
 
 ## Beispiele
 
-Bei einem solchen manifest.json-Eintrag:
+Angenommen, es gibt einen manifest.json-Eintrag wie diesen:
 
 ```json
 "commands": {
@@ -52,7 +54,7 @@ Bei einem solchen manifest.json-Eintrag:
 }
 ```
 
-Können Sie auf diesen Befehl lauschen und den `tab`, der an den Listener übergeben wird, verwenden, um den aktiven Tab zu duplizieren, wie folgt:
+Sie können auf diesen Befehl reagieren und den an den Listener übergebenen `tab` verwenden, um den aktiven Tab zu duplizieren:
 
 ```js
 browser.commands.onCommand.addListener((command, tab) => {
@@ -69,4 +71,4 @@ browser.commands.onCommand.addListener((command, tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands)-API.

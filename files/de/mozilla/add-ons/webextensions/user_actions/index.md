@@ -2,24 +2,24 @@
 title: Benutzeraktionen
 slug: Mozilla/Add-ons/WebExtensions/User_actions
 l10n:
-  sourceCommit: 9ccb27e3072098028db8651e8b4df980d5e01e71
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Einige WebExtension-APIs führen Funktionen aus, die normalerweise als Ergebnis einer Benutzeraktion stattfinden. Nach dem Prinzip "keine Überraschungen" können diese APIs nur innerhalb des Handlers für eine Benutzeraktion aufgerufen werden (auch als Benutzeraktionen bekannt). Diese Benutzeraktionen sind:
+Einige WebExtension-APIs führen Funktionen aus, die normalerweise durch eine Benutzeraktion ausgelöst werden. Nach dem Prinzip „keine Überraschungen“ können diese APIs nur innerhalb eines Handlers für eine Benutzeraktion (auch als Benutzergeste bezeichnet) aufgerufen werden. Als Benutzeraktionen gelten:
 
-- Das Klicken auf die Browser- oder Seitenerweiterung der Erweiterung.
-- Das Auswählen eines vom Add-on definierten Kontextmenüpunkts.
-- Das Aktivieren einer vom Add-on definierten Tastenkombination (dies wird erst ab Firefox 63 als Benutzeraktion behandelt).
+- Das Klicken auf die Browser-Aktion oder Seiten-Aktion der Erweiterung.
+- Das Auswählen eines von der Erweiterung definierten Kontextmenüeintrags.
+- Das Aktivieren eines von der Erweiterung definierten Tastaturkürzels (dies gilt erst ab Firefox 63 als Benutzeraktion).
 - Das Klicken auf eine Schaltfläche auf einer Seite, die mit der Erweiterung gebündelt ist.
-- Das Klicken auf einen Erweiterungsvorschlag in der Adressleiste (Omnibox) (dies wird erst ab Firefox 142 als Benutzeraktion behandelt).
+- Das Klicken auf einen Vorschlag der Erweiterung in der Adressleiste (Omnibox) (dies gilt erst ab Firefox 142 als Benutzeraktion).
 
-Die durch eine Benutzeraktion aktivierten APIs sind:
+Durch eine Benutzeraktion werden die folgenden APIs nutzbar:
 
-- Die APIs {{WebExtAPIRef("pageAction.openPopup")}}, die das Popup der Seitenaktion einer Erweiterung öffnen. Der Benutzer macht dies, indem er auf die Seitenaktion klickt.
-- Die APIs {{WebExtAPIRef("sidebarAction.open")}}, {{WebExtAPIRef("sidebarAction.close")}} und {{WebExtAPIRef("sidebarAction.toggle")}} öffnen und schließen die Seitenleiste einer Erweiterung. Der Benutzer tut dies aus einem Teil der integrierten Benutzeroberfläche des Browsers, wie dem Menü **Ansicht** > **Seitenleiste**.
-- Die API {{WebExtAPIRef("downloads.open")}} öffnet eine heruntergeladene Datei. Der Benutzer tut dies über einen Teil der integrierten Benutzeroberfläche des Browsers, wie dem Menü **Extras** > **Downloads**.
-- Die API {{WebExtAPIRef("management.setEnabled")}}. Der Benutzer kann eine Themen-Erweiterung auf der Add-on-Manager-Seite der Erweiterung deaktivieren.
-- Die API {{WebExtAPIRef("permissions.request")}}. Der Benutzer kann Berechtigungen auf der Berechtigungs- und Datenregisterkarte des Add-on-Managers der Erweiterung gewähren.
+- Die {{WebExtAPIRef("pageAction.openPopup")}}-API öffnet das Popup der Seiten-Aktion einer Erweiterung. Benutzer können dies tun, indem sie auf die Seiten-Aktion klicken.
+- Die APIs {{WebExtAPIRef("sidebarAction.open")}}, {{WebExtAPIRef("sidebarAction.close")}} und {{WebExtAPIRef("sidebarAction.toggle")}} öffnen und schließen die Seitenleiste einer Erweiterung. Benutzer können dies über die integrierte Benutzeroberfläche des Browsers tun, beispielsweise über das Menü **Ansicht** > **Seitenleiste**.
+- Die API {{WebExtAPIRef("downloads.open")}} öffnet eine heruntergeladene Datei. Benutzer können dies über die integrierte Benutzeroberfläche des Browsers tun, beispielsweise über das Menü **Extras** > **Downloads**.
+- Die API {{WebExtAPIRef("management.setEnabled")}}. Benutzer können eine Theme-Erweiterung auf der Add-on-Manager-Seite der Erweiterung deaktivieren.
+- Die API {{WebExtAPIRef("permissions.request")}}. Benutzer können Berechtigungen auf der Registerkarte für Berechtigungen und Daten im Add-on-Manager der Erweiterung erteilen.
 
 Zum Beispiel:
 
@@ -31,11 +31,11 @@ function handleClick() {
 browser.browserAction.onClicked.addListener(handleClick);
 ```
 
-Zusätzlich zur Aktivierung der APIs ermöglichen diese Aktionen auch die [`"activeTab"` Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission). Diese Berechtigung gewährt zusätzliche Privilegien für den Tab, der sichtbar ist, wenn die Benutzeraktion stattfindet.
+Diese Aktionen machen nicht nur die APIs nutzbar, sondern aktivieren auch die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission). Diese Berechtigung gewährt zusätzliche Rechte für den Tab, der zum Zeitpunkt der Benutzeraktion sichtbar ist.
 
-Benutzerinteraktionen auf normalen Webseiten werden nicht als Benutzeraktionen behandelt. Zum Beispiel wird ein Button auf einer normalen Webseite, der ein Inhaltsskript verwendet, nicht als Benutzeraktion behandelt. Wenn dieses Inhaltsskript einen Klick-Handler für den Button hinzufügt, der eine Nachricht an die Hintergrundseite der Erweiterung sendet, wird der Nachricht-Handler der Hintergrundseite nicht als Bearbeiter einer Benutzeraktion betrachtet, wenn der Benutzer den Button klickt.
+Interaktionen auf gewöhnlichen Webseiten gelten nicht als Benutzeraktionen. Betrachten Sie beispielsweise eine Schaltfläche auf einer gewöhnlichen Webseite, für die ein Content-Skript verwendet wird. Dieses Content-Skript hat für die Schaltfläche einen Click-Handler hinzugefügt, der eine Nachricht an die Hintergrundseite der Erweiterung sendet. Wenn ein Benutzer auf die Schaltfläche klickt, gilt der Nachrichten-Handler der Hintergrundseite nicht als Handler für eine Benutzeraktion.
 
-Auch wenn ein Benutzer-Eingabe-Handler auf ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wartet, verliert er seinen Status als Benutzer-Eingabe-Handler. Zum Beispiel:
+Wenn ein Handler für eine Benutzereingabe auf ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wartet, verliert er außerdem seinen Status als Handler für eine Benutzereingabe. Zum Beispiel:
 
 ```js
 async function handleClick() {

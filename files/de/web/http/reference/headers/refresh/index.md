@@ -3,16 +3,17 @@ title: Refresh header
 short-title: Refresh
 slug: Web/HTTP/Reference/Headers/Refresh
 l10n:
-  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
-Der HTTP **`Refresh`** {{Glossary("response_header", "Response-Header")}} weist einen Webbrowser an, entweder die Seite zu aktualisieren oder umzuleiten, wenn ein bestimmter Zeitraum nach dem vollständigen Laden der Seite verstrichen ist. Er entspricht genau der Verwendung von [`<meta http-equiv="refresh" content="...">`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) in HTML.
+Der HTTP-{{Glossary("response_header", "Response-Header")}} **`Refresh`** weist einen Webbrowser an, die Seite zu aktualisieren oder weiterzuleiten, sobald nach dem vollständigen Laden der Seite eine festgelegte Zeit verstrichen ist.
+Er entspricht genau der Verwendung von [`<meta http-equiv="refresh" content="...">`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) in HTML.
 
 > [!NOTE]
-> Obwohl er in der HTTP-Antwort vorhanden ist, wird der `Refresh`-Header immer noch von der HTML-Lademechanik verarbeitet und erfolgt nach HTTP- oder JavaScript-Weiterleitungen. Weitere Informationen finden Sie unter [Rangfolge der Weiterleitung](/de/docs/Web/HTTP/Guides/Redirections#order_of_precedence).
+> Obwohl der `Refresh`-Header in der HTTP-Antwort enthalten ist, wird er von den HTML-Lademechanismen verarbeitet und erst nach HTTP- oder JavaScript-Weiterleitungen ausgeführt. Weitere Informationen finden Sie unter [Prioritätsreihenfolge von Weiterleitungen](/de/docs/Web/HTTP/Guides/Redirections#order_of_precedence).
 
 > [!NOTE]
-> Wenn eine Aktualisierung zu einer neuen Seite umleitet, wird der {{httpheader("Referer")}}-Header in die Anfrage für die neue Seite aufgenommen (wenn dies durch die {{httpheader("Referrer-Policy")}} erlaubt ist) und [`document.referrer`](/de/docs/Web/API/Document/referrer) wird auf die Referrer-URL nach der Navigation gesetzt.
+> Wenn eine Aktualisierung zu einer neuen Seite weiterleitet, wird der {{httpheader("Referer")}}-Header in die Anfrage für die neue Seite aufgenommen (sofern die {{httpheader("Referrer-Policy")}} dies zulässt). Nach der Navigation wird [`document.referrer`](/de/docs/Web/API/Document/referrer) auf die Referrer-URL gesetzt.
 
 <table class="properties">
   <tbody>
@@ -32,30 +33,30 @@ Refresh: <time>; url=<url>
 ```
 
 - `<time>`
-  - : Eine nicht-negative Anzahl von Sekunden, nach der die Seite aktualisiert wird. Bruchteile werden erkannt, aber ignoriert; es sollten nur ganze Zahlen angegeben werden.
+  - : Eine nicht negative Anzahl von Sekunden, nach der die Seite aktualisiert wird. Nachkommastellen werden erkannt, aber ignoriert; geben Sie daher nur ganze Zahlen an.
 - `<url>` {{optional_inline}}
-  - : Wenn vorhanden, wird der Browser zur angegebenen URL umleiten, anstatt die aktuelle URL zu aktualisieren. Diese URL kann in Anführungszeichen gesetzt oder weggelassen werden. Das `url=`-Präfix ist nicht groß- und kleinschreibungssensitiv und optional.
+  - : Falls angegeben, leitet der Browser zur angegebenen URL weiter, statt die Seite unter der aktuellen URL zu aktualisieren. Die URL kann in Anführungszeichen stehen oder ohne Anführungszeichen angegeben werden. Das Präfix `url=` ist optional; die Groß- und Kleinschreibung spielt dabei keine Rolle.
 
 ## Beispiele
 
-### Aktualisierung einer Seite nach einer bestimmten Zeit
+### Eine Seite nach einer bestimmten Zeit aktualisieren
 
-Dieser Header wird dazu führen, dass der Browser die Seite 5 Sekunden, nachdem sie vollständig geladen ist (d.h. nach dem [`load`](/de/docs/Web/API/Window/load_event)-Event), aktualisiert:
+Dieser Header bewirkt, dass der Browser die Seite 5 Sekunden nach dem vollständigen Laden aktualisiert (also nach dem [`load`](/de/docs/Web/API/Window/load_event)-Ereignis):
 
 ```http
 Refresh: 5
 ```
 
-### Weiterleitung nach einer bestimmten Zeit
+### Nach einer bestimmten Zeit weiterleiten
 
-Dieser Header wird dazu führen, dass der Browser zur einer URL 5 Sekunden, nachdem die Seite vollständig geladen ist, umleitet:
+Dieser Header bewirkt, dass der Browser 5 Sekunden nach dem vollständigen Laden der Seite zu einer URL weiterleitet:
 
 ```http
 Refresh: 5; url=https://example.com/
 ```
 
 > [!NOTE]
-> Sehen Sie im HTML-Referenzdokument unter [`http-equiv="refresh"`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv#refresh) nach wichtigen Informationen zu den Zugänglichkeitsauswirkungen automatischer Weiterleitungen.
+> Wichtige Informationen zu den Auswirkungen automatischer Weiterleitungen auf die Barrierefreiheit finden Sie beim Attribut [`http-equiv="refresh"`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv#refresh) in der HTML-Referenz.
 
 ## Spezifikationen
 
@@ -69,4 +70,4 @@ Refresh: 5; url=https://example.com/
 
 - {{htmlelement("meta")}}
 - [Weiterleitungen in HTTP](/de/docs/Web/HTTP/Guides/Redirections)
-- [The Refresh header is still with us](https://lists.w3.org/Archives/Public/ietf-http-wg/2019JanMar/0197.html) HTTP Working Group Nachricht (2019)
+- [Der Refresh-Header ist immer noch da](https://lists.w3.org/Archives/Public/ietf-http-wg/2019JanMar/0197.html), Nachricht der HTTP Working Group (2019)

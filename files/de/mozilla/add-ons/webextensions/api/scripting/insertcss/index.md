@@ -2,20 +2,20 @@
 title: scripting.insertCSS()
 slug: Mozilla/Add-ons/WebExtensions/API/scripting/insertCSS
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
 Fügt CSS in eine Seite ein.
 
 > [!NOTE]
-> Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Safari und Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
+> Diese Methode ist in Manifest V3 oder höher in Chrome und ab Firefox 101 verfügbar. In Safari und ab Firefox 102 ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API zu nutzen, müssen Sie die `"scripting"`-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und die Berechtigung für die URL des Ziels haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder durch Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
+Um diese API zu verwenden, benötigen Sie die [`scripting`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und eine Berechtigung für die URL des Ziels, entweder ausdrücklich als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder über die [`activeTab`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission).
 
-Sie können CSS nur in Seiten injizieren, deren URL mit einem [Übereinstimmungsmuster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausgedrückt werden kann: Das bedeutet, dass das Schema entweder "http", "https" oder "file" sein muss. Das bedeutet, dass Sie kein CSS in eingebaute Browser-Seiten wie about:debugging, about:addons oder die Seite, die beim Öffnen eines neuen leeren Tabs geöffnet wird, injizieren können.
+Sie können CSS nur in Seiten einfügen, deren URL sich durch ein [Match-Pattern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausdrücken lässt. Das bedeutet, dass das Schema „http“, „https“ oder „file“ sein muss. Daher können Sie CSS nicht in integrierte Browserseiten wie about:debugging, about:addons oder die Seite einfügen, die beim Öffnen eines neuen leeren Tabs angezeigt wird.
 
 > [!NOTE]
-> Firefox löst URLs in injizierten CSS-Dateien relativ zur CSS-Datei auf, statt zur Seite, in die sie injiziert wird.
+> Firefox löst URLs in eingefügten CSS-Dateien relativ zur CSS-Datei auf, nicht relativ zur Seite, in die sie eingefügt werden.
 
 Das eingefügte CSS kann durch Aufrufen von {{WebExtAPIRef("scripting.removeCSS()")}} entfernt werden.
 
@@ -32,26 +32,26 @@ await browser.scripting.insertCSS(
 ### Parameter
 
 - `details`
-  - : Ein Objekt, das das einzufügende CSS beschreibt und wo es eingefügt werden soll. Es enthält die folgenden Eigenschaften:
+  - : Ein Objekt, das beschreibt, welches CSS wo eingefügt werden soll. Es enthält die folgenden Eigenschaften:
     - `css` {{optional_inline}}
-      - : `string`. Ein String, der das zu injizierende CSS enthält. Entweder `css` oder `files` muss angegeben werden.
+      - : `string`. Eine Zeichenfolge mit dem einzufügenden CSS. Entweder `css` oder `files` muss angegeben werden.
     - `files` {{optional_inline}}
-      - : `array` von `string`. Der Pfad der CSS-Dateien, die relativ zum Stammverzeichnis der Erweiterung injiziert werden sollen. Entweder `files` oder `css` muss angegeben werden.
+      - : `array` von `string`. Die Pfade der einzufügenden CSS-Dateien relativ zum Stammverzeichnis der Erweiterung. Entweder `files` oder `css` muss angegeben werden.
     - `origin` {{optional_inline}}
-      - : `string`. Der Stil-Ursprung für die Injektion, entweder `USER`, um das CSS als Benutzer-Stylesheet hinzuzufügen, oder `AUTHOR`, um es als Autoren-Stylesheet hinzuzufügen. Standardmäßig `AUTHOR`. Diese Eigenschaft ist in Firefox 144 unveränderlich.
-        - `USER` ermöglicht es Ihnen, zu verhindern, dass Websites das von Ihnen eingefügte CSS überschreiben: siehe [Cascading order](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order).
-        - `AUTHOR`-Stylesheets verhalten sich so, als ob sie nach allen vom Webdokument spezifizierten Autorenregeln erscheinen. Dieses Verhalten umfasst alle Autoren-Stylesheets, die dynamisch durch die Skripte der Seite hinzugefügt werden, selbst wenn diese Hinzufügung nach Abschluss des `insertCSS`-Aufrufs erfolgt.
+      - : `string`. Der Style-Origin für das Einfügen: entweder `USER`, um das CSS als Benutzer-Stylesheet hinzuzufügen, oder `AUTHOR`, um es als Autoren-Stylesheet hinzuzufügen. Der Standardwert ist `AUTHOR`. Ab Firefox 144 wird bei dieser Eigenschaft nicht zwischen Groß- und Kleinschreibung unterschieden.
+        - `USER` ermöglicht es Ihnen, zu verhindern, dass Websites das von Ihnen eingefügte CSS überschreiben: siehe [Kaskadierungsreihenfolge](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order).
+        - `AUTHOR`-Stylesheets verhalten sich so, als stünden sie nach allen von der Webseite festgelegten Autorenregeln. Dies schließt auch Autoren-Stylesheets ein, die durch Skripte der Seite dynamisch hinzugefügt werden, selbst wenn dies erst nach Abschluss des `insertCSS`-Aufrufs geschieht.
 
     - `target`
-      - : {{WebExtAPIRef("scripting.InjectionTarget")}}. Details, die das Ziel angeben, in das das CSS injiziert werden soll.
+      - : {{WebExtAPIRef("scripting.InjectionTarget")}}. Angaben zum Ziel, in das das CSS eingefügt werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS eingefügt ist. Wenn ein Fehler auftritt, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das gesamte CSS eingefügt wurde. Wenn ein Fehler auftritt, wird das Promise abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel fügt CSS, das aus einem String entnommen wurde, in den aktiven Tab ein.
+Dieses Beispiel fügt CSS aus einer Zeichenfolge in den aktiven Tab ein.
 
 ```js
 browser.action.onClicked.addListener(async (tab) => {
@@ -68,7 +68,7 @@ browser.action.onClicked.addListener(async (tab) => {
 });
 ```
 
-Dieses Beispiel fügt CSS ein, das aus einer Datei geladen wird (mit der Erweiterung gepackt), die `"content-style.css"` heißt:
+Dieses Beispiel fügt CSS aus einer Datei namens `"content-style.css"` ein, die mit der Erweiterung ausgeliefert wird:
 
 ```js
 browser.action.onClicked.addListener(async (tab) => {
@@ -92,4 +92,4 @@ browser.action.onClicked.addListener(async (tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-insertCSS)-API von Chromium.
+> Diese API basiert auf der [`chrome.scripting`-API](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-insertCSS) von Chromium.

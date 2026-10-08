@@ -1,51 +1,51 @@
 ---
-title: Firefox 63 Versionshinweise für Entwickler
+title: Firefox 63 – Versionshinweise für Entwickler
 short-title: Firefox 63
 slug: Mozilla/Firefox/Releases/63
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 63, die sich auf Entwickler auswirken. Firefox 63 wurde am 23. Oktober 2018 veröffentlicht.
+Dieser Artikel informiert über die Änderungen in Firefox 63, die für Entwickler relevant sind. Firefox 63 wurde am 23. Oktober 2018 veröffentlicht.
 
 ## Änderungen für Webentwickler
 
-### Entwicklerwerkzeuge
+### Entwicklertools
 
-- Der Schriftarten-Tab im [Seiteninspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) enthält jetzt einen Editor, der es einfach macht, die Einstellungen der Schriftarten auf Ihrer Seite anzusehen und zu bearbeiten. Siehe [Schriften bearbeiten](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_fonts/index.html) für Details.
-- Der [Barrierefreiheitsinspektor](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) ist nun standardmäßig aktiviert ([Firefox Bug 1482454](https://bugzil.la/1482454)).
-- Wenn Sie mit der Maus über ein Objekt im [Barrierefreiheitsinspektor](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) fahren, [wird das Objekt hervorgehoben](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#highlighting-of-ui-items) und seine Rolle und Name werden in einer Informationsleiste auf der Seite angezeigt ([Firefox Bug 1473030](https://bugzil.la/1473030)).
-- Die Befehlszeile in der [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) wird nun direkt nach der Konsolenausgabe angezeigt ([Firefox Bug 1136299](https://bugzil.la/1136299)).
-- Ein neues Icon wurde für Inhalte im [Netzwerk-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) hinzugefügt, um anzuzeigen, wann eine URL zu einem bekannten Tracker gehört — siehe [Sicherheitssymbole](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_list/index.html#network-monitor-request-list-security-icons) ([Firefox Bug 1333994](https://bugzil.la/1333994)).
-- Der Standardwert von `devtools.aboutdebugging.showSystemAddons` ist nun `false`, was bedeutet, dass System-Add-ons nicht auf der `about:debugging` Seite aufgelistet werden. Sie können die Einstellungen in `about:config` ändern ([Firefox Bug 1425347](https://bugzil.la/1425347)).
-- Die Symbolleiste des [Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) wurde vereinfacht, und wir haben die Option hinzugefügt, das Ansichtsfenster linksbündig auszurichten.
-- Der Seiteninspektor enthält einen [Link zur Klassendefinition](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_html/index.html#custom-element-definition) für ein benutzerdefiniertes Element. ([Firefox Bug 1443923](https://bugzil.la/1443923)).
+- Der Tab „Fonts“ im [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) enthält jetzt einen Editor, mit dem Sie die Schrifteinstellungen Ihrer Seite einfach anzeigen und bearbeiten können. Weitere Informationen finden Sie unter [Schriftarten bearbeiten](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_fonts/index.html).
+- Der [Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) ist jetzt standardmäßig aktiviert ([Firefox-Bug 1482454](https://bugzil.la/1482454)).
+- Wenn Sie im [Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) den Mauszeiger über ein Objekt bewegen, wird [das Element hervorgehoben](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#highlighting-of-ui-items). Seine Rolle und sein Name werden in einer Informationsleiste auf der Seite angezeigt ([Firefox-Bug 1473030](https://bugzil.la/1473030)).
+- Die Befehlszeile der [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) wird jetzt direkt unter der Konsolenausgabe angezeigt ([Firefox-Bug 1136299](https://bugzil.la/1136299)).
+- Im [Netzwerkmonitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) zeigt ein neues Symbol an, wenn eine URL zu einem bekannten Tracker gehört. Siehe [Sicherheitssymbole](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_list/index.html#network-monitor-request-list-security-icons) ([Firefox-Bug 1333994](https://bugzil.la/1333994)).
+- Der Standardwert von `devtools.aboutdebugging.showSystemAddons` ist jetzt `false`. Daher werden System-Add-ons auf der Seite `about:debugging` nicht aufgeführt. Sie können die Einstellung unter `about:config` ändern ([Firefox-Bug 1425347](https://bugzil.la/1425347)).
+- Die Symbolleiste des [Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) wurde vereinfacht. Außerdem kann der Viewport jetzt linksbündig ausgerichtet werden.
+- Der Page Inspector enthält einen [Link zur Klassendefinition](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_html/index.html#custom-element-definition) eines Custom Elements ([Firefox-Bug 1443923](https://bugzil.la/1443923)).
 
 ### HTML
 
-- Unterstützung für das `decoding` Attribut des {{HTMLElement("img")}} Elements wurde hinzugefügt ([Firefox Bug 1416328](https://bugzil.la/1416328)); siehe auch [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding).
+- Das `decoding`-Attribut des {{HTMLElement("img")}}-Elements wird jetzt unterstützt ([Firefox-Bug 1416328](https://bugzil.la/1416328)); siehe auch [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding).
 
-#### Entfernungen
+#### Entfernte Funktionen
 
-- Die Unterstützung für den `sidebar` Link-Typ (`rel="sidebar"`) wurde entfernt. Sollte ein Anker-Tag dieses Attribut enthalten, wird es ignoriert ([Firefox Bug 1452645](https://bugzil.la/1452645)).
+- Die Unterstützung für den Link-Typ `sidebar` (`rel="sidebar"`) wurde entfernt. Wenn ein Ankerelement dieses Attribut enthält, wird es ignoriert ([Firefox-Bug 1452645](https://bugzil.la/1452645)).
 
 ### CSS
 
-- Unterstützung für die {{CSSxRef(":defined")}} Pseudoklasse wurde hinzugefügt ([Firefox Bug 1331334](https://bugzil.la/1331334)).
-- Unterstützung für {{CSSxRef("row-gap")}}, {{CSSxRef("column-gap")}} und {{CSSxRef("gap")}} wurde im [Flexbox-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox#the_gap_properties) hinzugefügt ([Firefox Bug 1398483](https://bugzil.la/1398483)).
-- Erneute Aktivierung der Unterstützung für [WebKit-präfixierte Pixel-Dichte @media Abfragen](/de/docs/Web/CSS/Reference/At-rules/@media/-webkit-device-pixel-ratio) ([Firefox Bug 1444139](https://bugzil.la/1444139)).
-- Unterstützung für die [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) (Flexbox) Eigenschaften {{CSSxRef("align-self")}}, {{CSSxRef("align-content")}}, und {{CSSxRef("align-items")}}, sowie die {{CSSxRef("justify-content")}} Eigenschaft wurde hinzugefügt ([Firefox Bug 1472843](https://bugzil.la/1472843)).
-- Die `path()` Funktion für {{CSSxRef("offset-path")}} wurde implementiert ([Firefox Bug 1429298](https://bugzil.la/1429298)).
-- Syntaxverbesserungen aus der Media Queries Level 4 Spezifikation, insbesondere [verschachtelte boolesche Ausdrücke](/de/docs/Web/CSS/Guides/Media_queries/Using#creating_complex_media_queries) und die [Bereichssyntax](/de/docs/Web/CSS/Guides/Media_queries/Using#targeting_media_features), wurden umgesetzt ([Firefox Bug 1422225](https://bugzil.la/1422225)).
-- Die `offset-*` Eigenschaften wurden in {{CSSxRef("inset-block-start")}}, {{CSSxRef("inset-block-end")}}, {{CSSxRef("inset-inline-start")}}, und {{CSSxRef("inset-inline-end")}} umbenannt ([Firefox Bug 1464782](https://bugzil.la/1464782)).
-- Unterstützung für das [prefers-reduced-motion](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) Medienmerkmal wurde hinzugefügt ([Firefox Bug 1365045](https://bugzil.la/1365045), [Firefox Bug 1475462](https://bugzil.la/1475462)).
-- Flussbezogene Werte (`block`, `inline`) für die {{CSSxRef("resize")}} Eigenschaft wurden hinzugefügt ([Firefox Bug 1464786](https://bugzil.la/1464786)).
-- Flexbox-Layout wurde für `safe` & `unsafe` Werte in {{CSSxRef("align-self")}}, {{CSSxRef("align-content")}}, und {{CSSxRef("justify-content")}} implementiert ([Firefox Bug 1297774](https://bugzil.la/1297774)).
-- Die [logischen Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values) (wo es angebracht ist) sind jetzt animierbar ([Firefox Bug 1309752](https://bugzil.la/1309752)).
+- Die Pseudoklasse {{CSSxRef(":defined")}} wird jetzt unterstützt ([Firefox-Bug 1331334](https://bugzil.la/1331334)).
+- {{CSSxRef("row-gap")}}, {{CSSxRef("column-gap")}} und {{CSSxRef("gap")}} werden jetzt im [Flexbox-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox#the_gap_properties) unterstützt ([Firefox-Bug 1398483](https://bugzil.la/1398483)).
+- Die Unterstützung für [Pixel-Density-@media-Abfragen mit WebKit-Präfix](/de/docs/Web/CSS/Reference/At-rules/@media/-webkit-device-pixel-ratio) wurde wieder aktiviert ([Firefox-Bug 1444139](https://bugzil.la/1444139)).
+- Die Eigenschaften {{CSSxRef("align-self")}}, {{CSSxRef("align-content")}} und {{CSSxRef("align-items")}} des [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) (Flexbox) sowie die Eigenschaft {{CSSxRef("justify-content")}} werden jetzt unterstützt ([Firefox-Bug 1472843](https://bugzil.la/1472843)).
+- Die Funktion `path()` für {{CSSxRef("offset-path")}} wurde implementiert ([Firefox-Bug 1429298](https://bugzil.la/1429298)).
+- Syntaxverbesserungen aus der Spezifikation „Media Queries Level 4“ wurden implementiert, insbesondere [verschachtelte boolesche Ausdrücke](/de/docs/Web/CSS/Guides/Media_queries/Using#creating_complex_media_queries) und die [Bereichssyntax](/de/docs/Web/CSS/Guides/Media_queries/Using#targeting_media_features) ([Firefox-Bug 1422225](https://bugzil.la/1422225)).
+- Die `offset-*`-Eigenschaften wurden in {{CSSxRef("inset-block-start")}}, {{CSSxRef("inset-block-end")}}, {{CSSxRef("inset-inline-start")}} und {{CSSxRef("inset-inline-end")}} umbenannt ([Firefox-Bug 1464782](https://bugzil.la/1464782)).
+- Das Medienmerkmal [prefers-reduced-motion](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) wird jetzt unterstützt ([Firefox-Bug 1365045](https://bugzil.la/1365045), [Firefox-Bug 1475462](https://bugzil.la/1475462)).
+- Für die Eigenschaft {{CSSxRef("resize")}} wurden flussrelative Werte (`block`, `inline`) hinzugefügt ([Firefox-Bug 1464786](https://bugzil.la/1464786)).
+- Die Werte `safe` und `unsafe` wurden für {{CSSxRef("align-self")}}, {{CSSxRef("align-content")}} und {{CSSxRef("justify-content")}} im Flexbox-Layout implementiert ([Firefox-Bug 1297774](https://bugzil.la/1297774)).
+- Die [logischen Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values) sind jetzt animierbar, soweit dies jeweils sinnvoll ist ([Firefox-Bug 1309752](https://bugzil.la/1309752)).
 
-#### Entfernungen
+#### Entfernte Funktionen
 
-- `offset-block-start`, `offset-block-end`, `offset-inline-start`, und `offset-inline-end` wurden entfernt; diese wurden in `inset-*` umbenannt, wie oben beschrieben ([Firefox Bug 1464782](https://bugzil.la/1464782)).
+- `offset-block-start`, `offset-block-end`, `offset-inline-start` und `offset-inline-end` wurden entfernt. Sie wurden, wie oben beschrieben, in `inset-*`-Eigenschaften umbenannt ([Firefox-Bug 1464782](https://bugzil.la/1464782)).
 
 ### SVG
 
@@ -53,64 +53,64 @@ _Keine Änderungen._
 
 ### JavaScript
 
-- Die {{JSxRef("Symbol.prototype.description")}} Eigenschaft wurde implementiert ([Firefox Bug 1472170](https://bugzil.la/1472170)).
-- Die {{JSxRef("Object.fromEntries()")}} Methode wurde hinzugefügt ([Firefox Bug 1469019](https://bugzil.la/1469019)).
-- Wenn Sie versuchen, auf eine Eigenschaft eines undefinierten Objekts zuzugreifen, ist die Fehlermeldung jetzt viel eindeutiger. Im Fall, dass `x` undefiniert ist und Sie versuchen, `x.y` zuzugreifen, gibt die Konsole jetzt anstelle von "TypeError: x is undefined" die genauere Beschreibung [x is undefined; can't access its "y" property](/de/docs/Web/JavaScript/Reference/Errors/Unexpected_type) zurück ([Firefox Bug 1259822](https://bugzil.la/1259822)).
+- Die Eigenschaft {{JSxRef("Symbol.prototype.description")}} wurde implementiert ([Firefox-Bug 1472170](https://bugzil.la/1472170)).
+- Die Methode {{JSxRef("Object.fromEntries()")}} wurde hinzugefügt ([Firefox-Bug 1469019](https://bugzil.la/1469019)).
+- Die Fehlermeldung beim Zugriff auf eine Eigenschaft eines undefinierten Objekts wurde deutlich verbessert. Wenn beispielsweise `x` undefiniert ist und Sie auf `x.y` zugreifen, gibt die Konsole statt „TypeError: x is undefined“ jetzt die aussagekräftigere Meldung [x is undefined; can't access its "y" property](/de/docs/Web/JavaScript/Reference/Errors/Unexpected_type) aus ([Firefox-Bug 1259822](https://bugzil.la/1259822)).
 
-#### Entfernungen
+#### Entfernte Funktionen
 
-- Die experimentelle Unterstützung für WebAssembly Modul IndexedDB-Serialisierung wurde entfernt ([Firefox Bug 1469395](https://bugzil.la/1469395)).
+- Die experimentelle Unterstützung für die IndexedDB-Serialisierung von WebAssembly-Modulen wurde entfernt ([Firefox-Bug 1469395](https://bugzil.la/1469395)).
 
 ### APIs
 
 #### Neue APIs
 
-- Die Shadow-DOM ([Firefox Bug 1471947](https://bugzil.la/1471947)) und Custom Elements ([Firefox Bug 1471948](https://bugzil.la/1471948)) APIs sind nun standardmäßig aktiviert; siehe [Webkomponenten](/de/docs/Web/API/Web_components) für mehr Details.
-- Die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) wurde implementiert ([Firefox Bug 1409664](https://bugzil.la/1409664)).
-- Die [Async Clipboard API](/de/docs/Web/API/Clipboard) wurde implementiert und standardmäßig für alle Kanäle aktiviert ([Firefox Bug 1461465](https://bugzil.la/1461465)). Wie bei Chrome implementiert Firefox derzeit nur die Methoden [`writeText()`](/de/docs/Web/API/Clipboard/writeText) und [`readText()`](/de/docs/Web/API/Clipboard/readText); im Gegensatz zu Chrome ist jedoch `readText()` nur in [Browsererweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) verfügbar.
-- Die [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) Schnittstelle wird jetzt unterstützt. Sie ermöglicht das Senden von Ereignissen, wenn das {{HTTPHeader("Content-Security-Policy")}} verletzt wird ([Firefox Bug 1472661](https://bugzil.la/1472661)).
+- Die APIs für Shadow DOM ([Firefox-Bug 1471947](https://bugzil.la/1471947)) und Custom Elements ([Firefox-Bug 1471948](https://bugzil.la/1471948)) sind jetzt standardmäßig aktiviert. Weitere Informationen finden Sie unter [Web Components](/de/docs/Web/API/Web_components).
+- Die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) wurde implementiert ([Firefox-Bug 1409664](https://bugzil.la/1409664)).
+- Die [Async Clipboard API](/de/docs/Web/API/Clipboard) wurde implementiert und ist in allen Veröffentlichungskanälen standardmäßig aktiviert ([Firefox-Bug 1461465](https://bugzil.la/1461465)). Wie Chrome implementiert Firefox derzeit nur die Methoden [`writeText()`](/de/docs/Web/API/Clipboard/writeText) und [`readText()`](/de/docs/Web/API/Clipboard/readText). Anders als in Chrome ist `readText()` jedoch nur in [Browser-Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) verfügbar.
+- Das Interface [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) wird jetzt unterstützt. Damit können Ereignisse ausgelöst werden, wenn gegen die {{HTTPHeader("Content-Security-Policy")}} verstoßen wird ([Firefox-Bug 1472661](https://bugzil.la/1472661)).
 
 #### DOM
 
-- Die folgenden Teile der [Webanimations-API](/de/docs/Web/API/Web_Animations_API) sind nun standardmäßig aktiviert (siehe [Firefox Bug 1476158](https://bugzil.la/1476158)):
-  - Die [`Animation`](/de/docs/Web/API/Animation) Eigenschaften [`ready`](/de/docs/Web/API/Animation/ready) und [`finished`](/de/docs/Web/API/Animation/finished), die die `ready` und `finished` {{JSxRef("Promise")}}s des `Animation` Objekts angeben.
-  - Die [`Animation`](/de/docs/Web/API/Animation) Eigenschaft [`effect`](/de/docs/Web/API/Animation/effect).
-  - Die Schnittstellen [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) und [`AnimationEffect`](/de/docs/Web/API/AnimationEffect).
+- Die folgenden Teile der [Web Animations API](/de/docs/Web/API/Web_Animations_API) sind jetzt standardmäßig aktiviert (siehe [Firefox-Bug 1476158](https://bugzil.la/1476158)):
+  - Die Eigenschaften [`ready`](/de/docs/Web/API/Animation/ready) und [`finished`](/de/docs/Web/API/Animation/finished) von [`Animation`](/de/docs/Web/API/Animation), die die {{JSxRef("Promise")}}-Objekte `ready` und `finished` des `Animation`-Objekts angeben.
+  - Die Eigenschaft [`effect`](/de/docs/Web/API/Animation/effect) des [`Animation`](/de/docs/Web/API/Animation)-Objekts.
+  - Die Interfaces [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) und [`AnimationEffect`](/de/docs/Web/API/AnimationEffect).
 
-- Die [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute) Methode wurde implementiert ([Firefox Bug 1469592](https://bugzil.la/1469592)).
-- Die historische, zuvor nicht-standardisierte, [`Event.returnValue`](/de/docs/Web/API/Event/returnValue) Eigenschaft wird nun aus Kompatibilitätsgründen unterstützt ([Firefox Bug 1452569](https://bugzil.la/1452569)).
-- Wir haben die [`Window.event`](/de/docs/Web/API/Window/event) Eigenschaft implementiert, um die Web-Kompatibilität zu verbessern, jetzt, da sie Standard geworden ist ([Firefox Bug 218415](https://bugzil.la/218415)). Aufgrund einiger Kompatibilitätsprobleme (z. B. [Firefox Bug 1479964](https://bugzil.la/1479964)) wurde dies jedoch schnell in Nicht-Nightly-Kanälen deaktiviert, hinter der `dom.window.event.enabled`-Einstellung verborgen ([Firefox Bug 1493869](https://bugzil.la/1493869)).
-- Um Firefox mit Edge und Chrome in Einklang zu bringen, gibt die [`navigator.platform`](/de/docs/Web/API/Navigator/platform) Eigenschaft jetzt `"Win32"` zurück, auch wenn sie auf 64-Bit-Windows ausgeführt wird ([Firefox Bug 1472618](https://bugzil.la/1472618)).
-- Vor Firefox 63 öffneten Links, die neue Fenster öffneten und `rel="noopener"` hatten, sowie Aufrufe von [`Window.open()`](/de/docs/Web/API/Window/open) mit dem aktivierten [`noopener`](/de/docs/Web/API/Window/open) Fensterfeature standardmäßig mit allen deaktivierten Fensterfeatures, sodass Sie alle Standardmerkmale, die Sie wollten, explizit neu aktivieren mussten. Jetzt haben diese Fenster denselben Satz von aktivierten Features wie jedes andere Fenster, und Sie müssen explizit diejenigen deaktivieren, die Sie nicht möchten ([Firefox Bug 1419960](https://bugzil.la/1419960)).
+- Die Methode [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute) wurde implementiert ([Firefox-Bug 1469592](https://bugzil.la/1469592)).
+- Die historische, zuvor nicht standardisierte Eigenschaft [`Event.returnValue`](/de/docs/Web/API/Event/returnValue) wird jetzt aus Kompatibilitätsgründen unterstützt ([Firefox-Bug 1452569](https://bugzil.la/1452569)).
+- Die Eigenschaft [`Window.event`](/de/docs/Web/API/Window/event) wurde implementiert, um die Webkompatibilität zu verbessern, nachdem sie standardisiert wurde ([Firefox-Bug 218415](https://bugzil.la/218415)). Aufgrund einiger Webkompatibilitätsprobleme (z. B. [Firefox-Bug 1479964](https://bugzil.la/1479964)) wurde sie in den anderen Veröffentlichungskanälen als Nightly jedoch bald wieder deaktiviert und hinter der Einstellung `dom.window.event.enabled` verborgen ([Firefox-Bug 1493869](https://bugzil.la/1493869)).
+- Damit Firefox mit Edge und Chrome übereinstimmt, gibt die Eigenschaft [`navigator.platform`](/de/docs/Web/API/Navigator/platform) jetzt auch unter 64-Bit-Windows `"Win32"` zurück ([Firefox-Bug 1472618](https://bugzil.la/1472618)).
+- Vor Firefox 63 waren bei neuen Fenstern, die über Links mit `rel="noopener"` oder durch Aufrufe von [`Window.open()`](/de/docs/Web/API/Window/open) mit aktiviertem Fenstermerkmal [`noopener`](/de/docs/Web/API/Window/open) geöffnet wurden, standardmäßig alle Fenstermerkmale deaktiviert. Gewünschte Standardmerkmale mussten Sie ausdrücklich wieder aktivieren. Jetzt sind bei diesen Fenstern dieselben Merkmale aktiviert wie bei anderen Fenstern; unerwünschte Merkmale müssen Sie ausdrücklich deaktivieren ([Firefox-Bug 1419960](https://bugzil.la/1419960)).
 
 #### DOM-Ereignisse
 
-- Die Behandlung der `Alt`-Taste _auf der rechten Seite_ der Tastatur wurde unter Windows verbessert. Wenn das aktuelle Tastaturlayout des Benutzers die `Alt`-Taste der `AltGr`-Modifikatortaste zuordnet, wird der Wert von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) jetzt als `"AltGraph"` gemeldet. Dieses Verhalten entspricht dem kürzlich in Chrome eingeführten Verhalten ([Firefox Bug 900750](https://bugzil.la/900750)).
+- Die Verarbeitung der `Alt`-Taste _auf der rechten Seite_ der Tastatur wurde unter Windows verbessert. Wenn das aktuelle Tastaturlayout des Benutzers die `Alt`-Taste der Modifikatortaste `AltGr` zuordnet, wird als Wert von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) jetzt `"AltGraph"` gemeldet. Dieses Verhalten entspricht dem kürzlich in Chrome eingeführten Verhalten ([Firefox-Bug 900750](https://bugzil.la/900750)).
 
 #### Medien, Web Audio und WebRTC
 
-- Mikrofonzugriff funktioniert jetzt gleichzeitig in mehreren Tabs, sogar innerhalb desselben Inhaltsprozesses ([Firefox Bug 1404977](https://bugzil.la/1404977)).
-- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) wurde aktualisiert, um das sctp-sdp-21 Datenformat für die Daten zu unterstützen, zusätzlich zu dem vorherigen unterstützten sctp-sdp-05 Format.
-- Der [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) Knotentyp für die Web Audio API hat jetzt standardmäßig eine Kanalanzahl von 2 statt 1, um der Spezifikation zu entsprechen ([Firefox Bug 1413283](https://bugzil.la/1413283)).
-- Die [Web Audio API](/de/docs/Web/API/Web_Audio_API) Schnittstelle [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) (und damit auch alle anderen auf dieser basierenden Knotentypen) werfen jetzt die korrekte Ausnahme, wenn ein negativer Wert für die Knotenstartzeit angegeben wird. Dieser Fehler ist `RangeError` ([Firefox Bug 1413284](https://bugzil.la/1413284)).
-- Die minimal und maximal erlaubten Werte für das [`AudioParam`](/de/docs/Web/API/AudioParam) Objekt [`value`](/de/docs/Web/API/AudioParam/value) wurden auf den minimalen negativen Gleitkommabereichswert (-340,282,346,638,528,859,811,704,183,484,516,925,440) und den maximalen positiven Gleitkommabereichswert (+340,282,346,638,528,859,811,704,183,484,516,925,440) geändert ([Firefox Bug 1476695](https://bugzil.la/1476695)).
-- Die Methode [`SourceBuffer.changeType`](/de/docs/Web/API/SourceBuffer/changeType), die es ermöglicht, während eines aktiven Streams die Codecs zu ändern, wurde standardmäßig aktiviert. Dies ist Teil der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ([Firefox Bug 1481166](https://bugzil.la/1481166)).
-- Die [`AudioParam.setValueCurveAtTime()`](/de/docs/Web/API/AudioParam/setValueCurveAtTime) Methode wurde aktualisiert, um korrekt ein Array von Gleitkommawerten zu akzeptieren, um die Werte des Parameters anzugeben, die sich über die Zeit ändern sollen. Zuvor erforderte sie ein {{jsxref("Float32Array")}} ([Firefox Bug 1421091](https://bugzil.la/1421091)).
-- [`AudioParam.setValueCurveAtTime()`](/de/docs/Web/API/AudioParam/setValueCurveAtTime) wurde außerdem aktualisiert, um korrekt einen ordentlichen `TypeError` zurückzugeben, wenn ein nicht-endlicher Wert im `values` Array gefunden wird ([Firefox Bug 1472095](https://bugzil.la/1472095)).
-- Darüber hinaus wurde `setValueCurveAtTime()` aktualisiert, um sicherzustellen, dass, wenn der Parameter nach Ablauf der Dauer aufhört, der spezifizierten Wertekurve zu folgen, der Wert des Parameters auf den letzten Wert in der Liste der zu kurvenden Werte gesetzt wird ([Firefox Bug 1308436](https://bugzil.la/1308436)).
-- Das `RTCRTPStreamStats` Wörterbuch wurde aus Konsistenzgründen mit anderen WebRTC-Wörterbüchern und der Spezifikation in `RTCRtpStreamStats` umbenannt ([Firefox Bug 1480498](https://bugzil.la/1480498)).
-- Unterstützung für das `RTCRtpStreamStats` Wörterbuch `kind` Eigenschaft wurde hinzugefügt ([Firefox Bug 1481851](https://bugzil.la/1481851)).
-- Die `RTCRtpStreamStats` Wörterbuch `isRemote` Eigenschaft ist veraltet und wird in Firefox 65 entfernt. Beim Zugriff auf diese Eigenschaft wird nun ein Warnhinweis in der Konsole angezeigt. Siehe [diesen Blogbeitrag im Advancing WebRTC Blog](https://blog.mozilla.org/webrtc/getstats-isremote-65/) für Details ([Firefox Bug 1393306](https://bugzil.la/1393306)).
+- Der Mikrofonzugriff funktioniert jetzt gleichzeitig in mehreren Tabs, auch innerhalb desselben Content-Prozesses ([Firefox-Bug 1404977](https://bugzil.la/1404977)).
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) wurde aktualisiert und unterstützt für Daten jetzt neben dem bisher unterstützten älteren Format sctp-sdp-05 auch sctp-sdp-21.
+- Der Knotentyp [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) der Web Audio API hat jetzt standardmäßig zwei statt eines Kanals, entsprechend der Spezifikation ([Firefox-Bug 1413283](https://bugzil.la/1413283)).
+- Das Interface [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) der [Web Audio API](/de/docs/Web/API/Web_Audio_API) und damit auch alle darauf basierenden Knotentypen lösen jetzt die korrekte Ausnahme aus, wenn für die Startzeit eines Knotens ein negativer Wert angegeben wird: `RangeError` ([Firefox-Bug 1413284](https://bugzil.la/1413284)).
+- Die zulässigen Minimal- und Maximalwerte für die Eigenschaft [`value`](/de/docs/Web/API/AudioParam/value) eines [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekts wurden auf den kleinsten negativen beziehungsweise den größten positiven Gleitkommawert mit einfacher Genauigkeit geändert: -340,282,346,638,528,859,811,704,183,484,516,925,440 beziehungsweise +340,282,346,638,528,859,811,704,183,484,516,925,440 ([Firefox-Bug 1476695](https://bugzil.la/1476695)).
+- Die Methode [`SourceBuffer.changeType`](/de/docs/Web/API/SourceBuffer/changeType), mit der Sie Codecs während eines aktiven Streams wechseln können, ist jetzt standardmäßig aktiviert. Sie ist Teil der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ([Firefox-Bug 1481166](https://bugzil.la/1481166)).
+- Die Methode [`AudioParam.setValueCurveAtTime()`](/de/docs/Web/API/AudioParam/setValueCurveAtTime) akzeptiert jetzt wie vorgesehen ein Array von Gleitkommawerten, das angibt, welche Werte der Parameter im Zeitverlauf annehmen soll. Zuvor war ein {{jsxref("Float32Array")}} erforderlich ([Firefox-Bug 1421091](https://bugzil.la/1421091)).
+- [`AudioParam.setValueCurveAtTime()`](/de/docs/Web/API/AudioParam/setValueCurveAtTime) wurde außerdem aktualisiert und löst jetzt wie vorgesehen einen `TypeError` aus, wenn das Array `values` einen nicht endlichen Wert enthält ([Firefox-Bug 1472095](https://bugzil.la/1472095)).
+- Darüber hinaus wurde `setValueCurveAtTime()` so aktualisiert, dass der Parameter nach Ablauf der angegebenen Dauer, wenn die Wertkurve vollständig durchlaufen wurde, auf den letzten Wert der Werteliste gesetzt wird ([Firefox-Bug 1308436](https://bugzil.la/1308436)).
+- Das Dictionary `RTCRTPStreamStats` wurde in `RTCRtpStreamStats` umbenannt, um mit anderen WebRTC-Dictionaries und der Spezifikation übereinzustimmen ([Firefox-Bug 1480498](https://bugzil.la/1480498)).
+- Die Eigenschaft `kind` des Dictionarys `RTCRtpStreamStats` wird jetzt unterstützt ([Firefox-Bug 1481851](https://bugzil.la/1481851)).
+- Die Eigenschaft `isRemote` des Dictionarys `RTCRtpStreamStats` ist veraltet und wird in Firefox 65 entfernt. Beim Zugriff auf diese Eigenschaft wird jetzt eine Warnung in der Konsole ausgegeben. Einzelheiten finden Sie in [diesem Beitrag im Blog „Advancing WebRTC“](https://blog.mozilla.org/webrtc/getstats-isremote-65/) ([Firefox-Bug 1393306](https://bugzil.la/1393306)).
 
 #### Canvas und WebGL
 
-- Ein neues `powerPreference` Kontextattribut wurde zu [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) hinzugefügt. Auf macOS ermöglicht dies WebGL-nicht-leistungskritische Anwendungen und Applets, die Low-Power-GPU anstelle der High-Power-GPU in Mehr-GPU-Systemen anzufordern ([Firefox Bug 1349799](https://bugzil.la/1349799)).
+- Zu [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) wurde das neue Kontextattribut `powerPreference` hinzugefügt. Damit können WebGL-Anwendungen und -Applets unter macOS, für die die Leistung nicht entscheidend ist, auf Systemen mit mehreren GPUs die energiesparende statt der leistungsstarken GPU anfordern ([Firefox-Bug 1349799](https://bugzil.la/1349799)).
 
-#### Entfernungen
+#### Entfernte Funktionen
 
-- Die veralteten und nicht-standardisierten, nur in Firefox vorhandenen Methoden `Window.back()` und `Window.forward()` wurden entfernt. Bitte verwenden Sie die [`window.history.back()`](/de/docs/Web/API/History/back) und [`window.history.forward()`](/de/docs/Web/API/History/forward) Methoden stattdessen ([Firefox Bug 1479486](https://bugzil.la/1479486)).
-- Die [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) Methoden sind auf [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Instanzen nicht mehr verfügbar, da sie ein potenzielles Risiko für Speicherlecks darstellten ([Firefox Bug 1264182](https://bugzil.la/1264182)).
-- Da es sowieso in der Spezifikation veraltet war, wurde die eingeschränkte Unterstützung für Dopplereffekte auf [`PannerNode`](/de/docs/Web/API/PannerNode) aus der Web Audio API entfernt. Die [`AudioListener`](/de/docs/Web/API/AudioListener) Eigenschaften `dopplerFactor` und `speedOfSound` wurden entfernt, zusammen mit der `PannerNode` Methode `setVelocity()` ([Firefox Bug 1148354](https://bugzil.la/1148354)).
+- Die veralteten, nicht standardisierten und nur in Firefox verfügbaren Methoden `Window.back()` und `Window.forward()` wurden entfernt. Verwenden Sie stattdessen [`window.history.back()`](/de/docs/Web/API/History/back) und [`window.history.forward()`](/de/docs/Web/API/History/forward) ([Firefox-Bug 1479486](https://bugzil.la/1479486)).
+- Die Methoden [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) sind in [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Instanzen nicht mehr verfügbar, da sie Speicherlecks verursachen können ([Firefox-Bug 1264182](https://bugzil.la/1264182)).
+- Da sie in der Spezifikation ohnehin als veraltet gekennzeichnet war, wurde die eingeschränkte Unterstützung für Doppler-Effekte bei [`PannerNode`](/de/docs/Web/API/PannerNode) aus der Web Audio API entfernt. Die Eigenschaften `dopplerFactor` und `speedOfSound` von [`AudioListener`](/de/docs/Web/API/AudioListener) sowie die Methode `setVelocity()` von `PannerNode` wurden entfernt ([Firefox-Bug 1148354](https://bugzil.la/1148354)).
 
 ### CSSOM
 
@@ -118,13 +118,13 @@ _Keine Änderungen._
 
 ### HTTP
 
-- Der {{HTTPHeader("Clear-Site-Data")}} Header ist implementiert und nicht mehr hinter einer Einstellung versteckt ([Firefox Bug 1470111](https://bugzil.la/1470111)).
+- Der Header {{HTTPHeader("Clear-Site-Data")}} ist implementiert und nicht mehr von einer Einstellung abhängig ([Firefox-Bug 1470111](https://bugzil.la/1470111)).
 
 ### Sicherheit
 
-- Favicon der Website unterliegen jetzt [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP), wenn eine für die Seite konfiguriert ist ([Firefox Bug 1297156](https://bugzil.la/1297156)).
-- Das `script-src` Direktiv in CSP, `'report-sample'` Ausdruck, wird jetzt erkannt, wenn Verletzungsberichte generiert werden. Diese Direktive gibt an, dass ein kurzer Auszug aus der Quelle, an der die Verletzung aufgetreten ist, im Bericht enthalten sein sollte. Zuvor hat Firefox immer diesen Auszug enthalten ([Firefox Bug 1473218](https://bugzil.la/1473218)).
-- Firefox verwendet jetzt NSS 3.39 ([Firefox Bug 1470914](https://bugzil.la/1470914)).
+- Favicons von Websites unterliegen jetzt der [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP), sofern für die Website eine solche konfiguriert ist ([Firefox-Bug 1297156](https://bugzil.la/1297156)).
+- Der Ausdruck `'report-sample'` in der CSP-Direktive `script-src` wird jetzt beim Erstellen von Berichten über Verstöße berücksichtigt. Er legt fest, dass der Bericht einen kurzen Ausschnitt der Stelle enthalten soll, an der der Verstoß auftrat. Zuvor fügte Firefox diesen Ausschnitt immer hinzu ([Firefox-Bug 1473218](https://bugzil.la/1473218)).
+- Firefox verwendet jetzt NSS 3.39 ([Firefox-Bug 1470914](https://bugzil.la/1470914)).
 
 ### Plugins
 
@@ -134,78 +134,78 @@ _Keine Änderungen._
 
 #### Neue Funktionen
 
-- Marionette gibt jetzt eine `setWindowRect` [Fähigkeit](/de/docs/Web/WebDriver/Reference/Capabilities) in der `WebDriver:NewSession` Antwort zurück, die wahr ist, wenn das Browserfenster verschoben und in der Größe verändert werden kann, was z.B. bei Firefox der Fall ist, aber nicht bei mobilen Anwendungen ([Firefox Bug 1470659](https://bugzil.la/1470659)).
-- Unterstützung für die `unhandledPromptBehavior` Fähigkeit wurde hinzugefügt, die es ermöglicht, ein spezifisches [Eingabeforderungsverhalten](https://w3c.github.io/webdriver/#dfn-user-prompt-handler) der WebDriver-Spezifikation zu definieren ([Firefox Bug 1264259](https://bugzil.la/1264259)).
-- Die Behandlung von Benutzereingabeforderungen wurde zu den `WebDriver:ExecuteScript` und `WebDriver:ExecuteAsyncScript` Befehlen hinzugefügt ([Firefox Bug 1439995](https://bugzil.la/1439995)).
+- Marionette gibt in der Antwort auf `WebDriver:NewSession` jetzt die [Capability](/de/docs/Web/WebDriver/Reference/Capabilities) `setWindowRect` zurück. Ihr Wert ist `true`, wenn sich das Browserfenster verschieben und in der Größe ändern lässt. Das ist beispielsweise bei Firefox der Fall, nicht jedoch bei mobilen Anwendungen ([Firefox-Bug 1470659](https://bugzil.la/1470659)).
+- Die Capability `unhandledPromptBehavior` wird jetzt unterstützt. Damit können Sie ein bestimmtes [Verhalten bei Dialogen](https://w3c.github.io/webdriver/#dfn-user-prompt-handler) gemäß der WebDriver-Spezifikation festlegen ([Firefox-Bug 1264259](https://bugzil.la/1264259)).
+- Die Verarbeitung von Benutzerdialogen wurde zu den Befehlen `WebDriver:ExecuteScript` und `WebDriver:ExecuteAsyncScript` hinzugefügt ([Firefox-Bug 1439995](https://bugzil.la/1439995)).
 
 #### API-Änderungen
 
-- Veraltete Befehlsendpunkte ohne das `WebDriver:` Präfix wurden entfernt ([Firefox Bug 1451725](https://bugzil.la/1451725)).
-- Der `WebDriver:NewSession` Befehl gibt empfohlene Zeichenfolgen (`linux`, `mac`, `windows`) für `platformName` zurück, wie in der WebDriver-Spezifikation definiert ([Firefox Bug 1470646](https://bugzil.la/1470646)).
+- Veraltete Befehlsendpunkte ohne das Präfix `WebDriver:` wurden entfernt ([Firefox-Bug 1451725](https://bugzil.la/1451725)).
+- Der Befehl `WebDriver:NewSession` gibt für `platformName` jetzt die in der WebDriver-Spezifikation empfohlenen Zeichenfolgen (`linux`, `mac`, `windows`) zurück ([Firefox-Bug 1470646](https://bugzil.la/1470646)).
 
 #### Fehlerbehebungen
 
-- Fokussierungsbezogene Ereignisse fehlten bei der Elemente-Interaktion, wenn Firefox nicht als oberste Anwendung ausgeführt wurde ([Firefox Bug 1398111](https://bugzil.la/1398111)).
-- Ein `pointerDown` und ein `pointerUp` Aktion in einer nachfolgenden Aktionen-Sequenz konnte einen Doppelklick auslösen, weil `WebDriver:ReleaseActions` den Doppelklick-Tracker nicht zurücksetzte ([Firefox Bug 1422583](https://bugzil.la/1422583)).
-- Das wiederholte Ausführen von `pause` Aktionen konnte zu einem unendlichen Stillstand führen ([Firefox Bug 1447449](https://bugzil.la/1447449)).
-- Ein Fehler wurde behoben, bei dem das Zurückgeben einer Elementkollektion von `WebDriver:ExecuteScript` und `WebDriver:ExecuteAsyncScript` zu einem zyklischen Referenzfehler führen würde ([Firefox Bug 1447977](https://bugzil.la/1447977)).
-- Um ein Race-Condition zu vermeiden, warten sowohl die `WebDriver:AcceptAlert` als auch die `WebDriver:DismissAlert` Befehle jetzt, bis die Benutzereingabe-Prompt geschlossen wurde ([Firefox Bug 1479368](https://bugzil.la/1479368)).
-- Protokolleinträge, wie sie vom Frame-Skript ausgegeben wurden, wurden nicht mehr durch `MarionettePrefs.logLevel` begrenzt, sondern loggten alles ([Firefox Bug 1482829](https://bugzil.la/1482829)).
-- `WebDriver:TakeScreenshot` gab einen Fehler zurück, wenn ein Screenshot von einem Fenster gemacht wurde, das größer als 32767 Pixel in Breite oder Höhe war ([Firefox Bug 1485730](https://bugzil.la/1485730)).
-- `WebDriver:SendAlertText` ersetzte nicht den Standardwert der Benutzereingabeforderung, wenn der zu sendende Text eine leere Zeichenfolge war ([Firefox Bug 1486485](https://bugzil.la/1486485)).
+- Wenn Firefox nicht die oberste Anwendung war, fehlten bei der Interaktion mit Elementen Fokusereignisse ([Firefox-Bug 1398111](https://bugzil.la/1398111)).
+- Das Ausführen von `pointerDown` und `pointerUp` in einer nachfolgenden Aktionssequenz konnte einen Doppelklick auslösen, weil `WebDriver:ReleaseActions` die Doppelklickverfolgung nicht zurücksetzte ([Firefox-Bug 1422583](https://bugzil.la/1422583)).
+- Die wiederholte Ausführung von `pause`-Aktionen konnte dazu führen, dass der Vorgang auf unbestimmte Zeit hängen blieb ([Firefox-Bug 1447449](https://bugzil.la/1447449)).
+- Ein Fehler wurde behoben, bei dem die Rückgabe einer Elementsammlung aus `WebDriver:ExecuteScript` und `WebDriver:ExecuteAsyncScript` einen Fehler wegen einer zyklischen Referenz verursachte ([Firefox-Bug 1447977](https://bugzil.la/1447977)).
+- Um eine Race Condition zu vermeiden, warten die Befehle `WebDriver:AcceptAlert` und `WebDriver:DismissAlert` jetzt, bis der Benutzerdialog geschlossen wurde ([Firefox-Bug 1479368](https://bugzil.la/1479368)).
+- Vom Frame-Skript ausgegebene Log-Einträge wurden nicht mehr durch `MarionettePrefs.logLevel` begrenzt; stattdessen wurde alles protokolliert ([Firefox-Bug 1482829](https://bugzil.la/1482829)).
+- `WebDriver:TakeScreenshot` löste einen Fehler aus, wenn ein Screenshot eines Fensters mit mehr als 32767 Pixeln Breite oder Höhe aufgenommen wurde ([Firefox-Bug 1485730](https://bugzil.la/1485730)).
+- `WebDriver:SendAlertText` ersetzte den Standardwert eines Benutzerdialogs nicht, wenn der zu sendende Text eine leere Zeichenfolge war ([Firefox-Bug 1486485](https://bugzil.la/1486485)).
 
-### Andere
+### Sonstiges
 
-- Das Verhalten von [`PerformanceObserver.observe()`](/de/docs/Web/API/PerformanceObserver/observe) wurde korrigiert, sodass nichts passiert, wenn keine gültigen Eintragstypen im angegebenen Array von zu beobachtenden Eintragstypen gefunden werden oder wenn das Array leer oder fehlenend ist. Zuvor warf Firefox fälschlicherweise einen `TypeError` ([Firefox Bug 1403027](https://bugzil.la/1403027)).
-- In [OpenSearch](/de/docs/Web/XML/Guides/OpenSearch) akzeptiert Firefox jetzt `application/json` als URL-Typ für die Suche, als Alias für `application/x-suggestions+json` ([Firefox Bug 1425827](https://bugzil.la/1425827)).
+- Das Verhalten von [`PerformanceObserver.observe()`](/de/docs/Web/API/PerformanceObserver/observe) wurde korrigiert: Die Methode bewirkt jetzt nichts, wenn das angegebene Array der zu beobachtenden Eintragstypen keine gültigen Eintragstypen enthält, leer ist oder fehlt. Zuvor löste Firefox fälschlicherweise einen `TypeError` aus ([Firefox-Bug 1403027](https://bugzil.la/1403027)).
+- Bei [OpenSearch](/de/docs/Web/XML/Guides/OpenSearch) akzeptiert Firefox jetzt `application/json` als Typ einer Such-URL, als Alias für `application/x-suggestions+json` ([Firefox-Bug 1425827](https://bugzil.la/1425827)).
 
 ## Änderungen für Add-on-Entwickler
 
 ### API-Änderungen
 
-#### Themengestaltung
+#### Themes
 
-- Die Standardtextfarbe für {{WebExtAPIRef("browserAction")}} Abzeichen wird jetzt automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast mit dem Hintergrund zu maximieren ([Firefox Bug 1474110](https://bugzil.la/1474110)).
-- Die `accentcolor` und `textcolor` Eigenschaften des [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) Manifest-Schlüssels sind jetzt optional ([Firefox Bug 1413144](https://bugzil.la/1413144)).
-- {{WebExtAPIRef("browserAction.getBadgeTextColor()")}} und {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} ermöglichen es Ihnen, die Textfarbe von Browser-Aktionsabzeichen zu erhalten und zu setzen ([Firefox Bug 1424620](https://bugzil.la/1424620)).
-- Der `colors` Schlüssel im `manifest.json` unterstützt jetzt die Eigenschaft `ntp_text` zur Festlegung der Textfarbe in einem neuen Tab und die Eigenschaft `ntp_background` zur Festlegung der Farbe eines neuen Tabs ([Firefox Bug 1347204](https://bugzil.la/1347204)).
-- Designs können jetzt die Farben für Seitenleisten, wie z. B. die Lesezeichen-Seitenleiste, definieren ([Firefox Bug 1418602](https://bugzil.la/1418602)). Die relevanten Eigenschaften enthalten:
-  - `sidebar`: Die Hintergrundfarbe für Seitenleisten.
-  - `sidebar_text`: Die Textfarbe für Seitenleisten.
+- Die Standardtextfarbe für Badges von {{WebExtAPIRef("browserAction")}} wird jetzt automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast zum Hintergrund zu maximieren ([Firefox-Bug 1474110](https://bugzil.la/1474110)).
+- Die Eigenschaften `accentcolor` und `textcolor` des Manifest-Schlüssels [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) sind jetzt optional ([Firefox-Bug 1413144](https://bugzil.la/1413144)).
+- Mit {{WebExtAPIRef("browserAction.getBadgeTextColor()")}} und {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} können Sie die Textfarbe von Browser-Action-Badges abrufen und festlegen ([Firefox-Bug 1424620](https://bugzil.la/1424620)).
+- Der Theme-Schlüssel `colors` in `manifest.json` unterstützt jetzt die Eigenschaft `ntp_text` zum Festlegen der Textfarbe eines neuen Tabs und die Eigenschaft `ntp_background` zum Festlegen seiner Hintergrundfarbe ([Firefox-Bug 1347204](https://bugzil.la/1347204)).
+- Themes können jetzt die Farben von Seitenleisten festlegen, beispielsweise der Lesezeichen-Seitenleiste ([Firefox-Bug 1418602](https://bugzil.la/1418602)). Dazu gehören die folgenden Eigenschaften:
+  - `sidebar`: Die Hintergrundfarbe von Seitenleisten.
+  - `sidebar_text`: Die Textfarbe von Seitenleisten.
   - `sidebar_highlight`: Die Hintergrundfarbe eines ausgewählten Elements in einer Seitenleiste.
   - `sidebar_highlight_text`: Die Textfarbe eines ausgewählten Elements in einer Seitenleiste.
 
-- Die Methode {{WebExtAPIRef("management.install()")}} erlaubt Web-Erweiterungen, signierte Browser-Themen zu installieren und zu aktivieren ([Firefox Bug 1369209](https://bugzil.la/1369209)).
-- Der Manifests-Schlüssel [theme_experiment](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme_experiment) wurde eingeführt ([Firefox Bug 1472740](https://bugzil.la/1472740)). Dieser Schlüssel ermöglicht die Definition experimenteller [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) Schlüssel-Eigenschaften für die Firefox-Oberfläche.
+- Mit der Methode {{WebExtAPIRef("management.install()")}} können WebExtensions signierte Browser-Themes installieren und aktivieren ([Firefox-Bug 1369209](https://bugzil.la/1369209)).
+- Der Manifest-Schlüssel [theme_experiment](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme_experiment) wurde eingeführt ([Firefox-Bug 1472740](https://bugzil.la/1472740)). Damit können experimentelle Eigenschaften für den Schlüssel [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) der Firefox-Oberfläche definiert werden.
 
 #### Suche
 
-- Die neue {{WebExtAPIRef("search")}} API ermöglicht es Ihnen, die Liste der installierten Suchmaschinen abzurufen und mit diesen zu suchen ([Firefox Bug 1352598](https://bugzil.la/1352598)).
-- {{WebExtAPIRef("topSites.get()")}} nimmt jetzt einen `options` Parameter an, der es Ihnen ermöglicht, verschiedene Optionen für die zurückgegebene Liste von Seiten zu setzen ([Firefox Bug 1445836](https://bugzil.la/1445836)).
+- Mit der neuen API {{WebExtAPIRef("search")}} können Sie die Liste der installierten Suchmaschinen abrufen und Suchanfragen mit ihnen durchführen ([Firefox-Bug 1352598](https://bugzil.la/1352598)).
+- {{WebExtAPIRef("topSites.get()")}} akzeptiert jetzt den Parameter `options`, mit dem Sie verschiedene Optionen für die zurückgegebene Liste von Websites festlegen können ([Firefox-Bug 1445836](https://bugzil.la/1445836)).
 
 #### Tabs
 
-- {{WebExtAPIRef("tabs.onHighlighted")}} unterstützt jetzt Mehrfachauswahl ([Firefox Bug 1474440](https://bugzil.la/1474440)).
-- {{WebExtAPIRef("tabs.highlight")}} enthält jetzt ein optionales Feld im `highlightInfo` Objekt — `populate` — das standardmäßig auf `true` gesetzt ist. Wenn es auf `false` gesetzt wird, wird verhindert, dass das zurückgegebene `windows.Window` Objekt mit einer Liste von Tabs gefüllt wird, um die Leistung zu verbessern ([Firefox Bug 1489814](https://bugzil.la/1489814)).
-- {{WebExtAPIRef("tabs.update")}} unterstützt jetzt die Änderung des Auswahlstatus eines Tabs durch Einfügen von `highlighted: true` im `updateProperties` Parameter ([Firefox Bug 1479129](https://bugzil.la/1479129)).
-- {{WebExtAPIRef("tabs.update")}} unterstützt jetzt die Änderung des Auswahlstatus eines Tabs, ohne den fokussierten Tab zu ändern ([Firefox Bug 1486050](https://bugzil.la/1486050)) durch Einfügen von `highlighted: true` und `active: false` im `updateProperties` Parameter.
-- {{WebExtAPIRef("tabs.query")}} gibt jetzt ein Array von {{WebExtAPIRef("tabs.Tab")}} Objekten zurück, wenn mehrere Tabs ausgewählt sind ([Firefox Bug 1465170](https://bugzil.la/1465170)).
-- Die {{WebExtAPIRef("tabs.Tab")}} Eigenschaft spiegelt jetzt korrekt wider, welche Tabs in einem Browserfenster ausgewählt (hervorgehoben) sind und {{WebExtAPIRef("tabs.highlight")}} unterstützt die Änderung des hervorgehobenen Status mehrerer Tabs ([Firefox Bug 1464862](https://bugzil.la/1464862)).
-- Die `isarticle` Eigenschaft im `filter` Objekt, das in {{WebExtAPIRef("tabs.onUpdated")}} übergeben wird, wurde in `isArticle` umbenannt. Der alte Name bleibt erhalten, ist aber veraltet. Diese Änderung wurde auf Firefox 62 übertragen ([Firefox Bug 1461695](https://bugzil.la/1461695)).
-- Das {{WebExtAPIRef('tabs.onUpdated')}} Ereignis kann verwendet werden, um zu verfolgen, wann ein Tab die Aufmerksamkeit des Benutzers mit der `attention` Eigenschaft des `changeInfo` Objekts auf sich zieht ([Firefox Bug 1396684](https://bugzil.la/1396684)).
+- {{WebExtAPIRef("tabs.onHighlighted")}} unterstützt jetzt die Mehrfachauswahl ([Firefox-Bug 1474440](https://bugzil.la/1474440)).
+- Das Objekt `highlightInfo` von {{WebExtAPIRef("tabs.highlight")}} enthält jetzt das optionale Feld `populate`, dessen Standardwert `true` ist. Wenn Sie es auf `false` setzen, wird das zurückgegebene `windows.Window`-Objekt aus Leistungsgründen nicht mit einer Liste von Tabs befüllt ([Firefox-Bug 1489814](https://bugzil.la/1489814)).
+- {{WebExtAPIRef("tabs.update")}} unterstützt jetzt das Ändern des Auswahlstatus eines Tabs, indem Sie `highlighted: true` im Parameter `updateProperties` angeben ([Firefox-Bug 1479129](https://bugzil.la/1479129)).
+- {{WebExtAPIRef("tabs.update")}} unterstützt jetzt das Ändern des Auswahlstatus eines Tabs, ohne den Tab mit Fokus zu ändern ([Firefox-Bug 1486050](https://bugzil.la/1486050)). Geben Sie dazu sowohl `highlighted: true` als auch `active: false` im Parameter `updateProperties` an.
+- {{WebExtAPIRef("tabs.query")}} gibt jetzt ein Array von {{WebExtAPIRef("tabs.Tab")}}-Objekten zurück, wenn mehrere Tabs ausgewählt sind ([Firefox-Bug 1465170](https://bugzil.la/1465170)).
+- Die Eigenschaft von {{WebExtAPIRef("tabs.Tab")}} gibt jetzt korrekt an, welche Tabs in einem Browserfenster ausgewählt (hervorgehoben) sind. Außerdem unterstützt {{WebExtAPIRef("tabs.highlight")}} jetzt das Ändern des Hervorhebungsstatus mehrerer Tabs ([Firefox-Bug 1464862](https://bugzil.la/1464862)).
+- Die Eigenschaft `isarticle` im `filter`-Objekt, das an {{WebExtAPIRef("tabs.onUpdated")}} übergeben wird, wurde in `isArticle` umbenannt. Der alte Name bleibt erhalten, ist aber veraltet. Diese Änderung wurde auch in Firefox 62 übernommen ([Firefox-Bug 1461695](https://bugzil.la/1461695)).
+- Mit dem Ereignis {{WebExtAPIRef('tabs.onUpdated')}} können Sie anhand der Eigenschaft `attention` des Objekts `changeInfo` verfolgen, wann ein Tab die Aufmerksamkeit des Benutzers auf sich zieht ([Firefox-Bug 1396684](https://bugzil.la/1396684)).
 
 #### Menüs
 
-- Zu der {{WebExtAPIRef("menus")}} API wurde {{WebExtApiRef("menus.getTargetElement()")}} hinzugefügt. Die Methode gibt das Element zurück, das durch den `targetElementId` Parameter referenziert wird, das das angeklickte Element identifiziert. Wenn der `targetElementId` nicht mehr gültig ist, gibt die Methode null zurück ([Firefox Bug 1325814](https://bugzil.la/1325814)).
-- {{WebExtAPIRef("menus.create()")}} ermöglicht es Ihnen nun, unsichtbare Menüeinträge zu erstellen, und {{WebExtAPIRef("menus.update()")}} ermöglicht es Ihnen, die Sichtbarkeit von Menüeinträgen umzuschalten ([Firefox Bug 1482529](https://bugzil.la/1482529)).
-- Mit {{WebExtAPIRef("menus")}} erstellte Einträge unterstützen jetzt Zugangstasten ([Firefox Bug 1320462](https://bugzil.la/1320462)).
-- Der `targetUrlPatterns` Parameter von {{WebExtApiRef("menus.create()")}} und {{WebExtApiRef("menus.update()")}} unterstützt jetzt jedes URL-Schema, sogar solche, die normalerweise in einem Übereinstimmungsmuster nicht erlaubt sind ([Firefox Bug 1280370](https://bugzil.la/1280370)).
-- Wenn ein Tab-Kontextmenüeintrag angeklickt wird, wird die ["activeTab" Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) nun für diesen Tab erteilt, auch wenn das nicht der aktuell aktive Tab ist ([Firefox Bug 1446956](https://bugzil.la/1446956)).
+- Die Methode {{WebExtApiRef("menus.getTargetElement()")}} wurde zur API {{WebExtApiRef("menus")}} hinzugefügt. Sie gibt das Element zurück, auf das der Parameter `targetElementId` verweist und das angeklickt wurde. Wenn `targetElementId` nicht mehr gültig ist, gibt die Methode null zurück ([Firefox-Bug 1325814](https://bugzil.la/1325814)).
+- Mit {{WebExtAPIRef("menus.create()")}} können Sie jetzt unsichtbare Menüeinträge erstellen. Mit {{WebExtAPIRef("menus.update()")}} können Sie die Sichtbarkeit von Menüeinträgen umschalten ([Firefox-Bug 1482529](https://bugzil.la/1482529)).
+- Mit der API {{WebExtAPIRef("menus")}} erstellte Einträge unterstützen jetzt Zugriffstasten ([Firefox-Bug 1320462](https://bugzil.la/1320462)).
+- Der Parameter `targetUrlPatterns` von {{WebExtApiRef("menus.create()")}} und {{WebExtApiRef("menus.update()")}} unterstützt jetzt jedes URL-Schema, auch wenn es in einem Match-Pattern normalerweise nicht zulässig ist ([Firefox-Bug 1280370](https://bugzil.la/1280370)).
+- Wenn Sie auf einen Eintrag im Kontextmenü eines Tabs klicken, wird für diesen Tab jetzt die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) gewährt, auch wenn es nicht der derzeit aktive Tab ist ([Firefox-Bug 1446956](https://bugzil.la/1446956)).
 
-#### Andere
+#### Sonstiges
 
-- {{WebExtAPIRef("commands.onCommand")}} wird jetzt als [Benutzereingabe](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) behandelt ([Firefox Bug 1408129](https://bugzil.la/1408129)).
-- Die {{WebExtAPIRef("webRequest")}} API ermöglicht es Ihnen jetzt, nach spekulativen Verbindungen zu filtern ([Firefox Bug 1479565](https://bugzil.la/1479565)).
-- {{WebExtAPIRef("webRequest.SecurityInfo")}} fügt zwei neue Eigenschaften hinzu, `keaGroupName`, und `signatureSchemeName`. Diese Änderung wurde auf Firefox 62 übertragen ([Firefox Bug 1471959](https://bugzil.la/1471959)).
-- {{WebExtAPIRef("cookies.Cookie")}} enthält jetzt eine Eigenschaft, die den SameSite-Status des Cookies angibt. Die {{WebExtAPIRef("cookies.SameSiteStatus")}} Enumerierung definiert SameSite-Statuswerte ([Firefox Bug 1351663](https://bugzil.la/1351663)).
-- Übereinstimmungsmuster für URLs stimmen jetzt explizit mit dem "data" URL-Schema überein ([Firefox Bug 1280370](https://bugzil.la/1280370)).
+- {{WebExtAPIRef("commands.onCommand")}} wird jetzt als [Benutzereingabe](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) behandelt ([Firefox-Bug 1408129](https://bugzil.la/1408129)).
+- Mit der API {{WebExtAPIRef("webRequest")}} können Sie jetzt nach spekulativen Verbindungen filtern ([Firefox-Bug 1479565](https://bugzil.la/1479565)).
+- {{WebExtAPIRef("webRequest.SecurityInfo")}} erhält zwei neue Eigenschaften: `keaGroupName` und `signatureSchemeName`. Diese Änderung wurde auch in Firefox 62 übernommen ([Firefox-Bug 1471959](https://bugzil.la/1471959)).
+- {{WebExtAPIRef("cookies.Cookie")}} enthält jetzt eine Eigenschaft, die den SameSite-Status des Cookies angibt. Die Enumeration {{WebExtAPIRef("cookies.SameSiteStatus")}} definiert die Werte für den SameSite-Status ([Firefox-Bug 1351663](https://bugzil.la/1351663)).
+- Match-Patterns für URLs erfassen jetzt ausdrücklich das URL-Schema „data“ ([Firefox-Bug 1280370](https://bugzil.la/1280370)).

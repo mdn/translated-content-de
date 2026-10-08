@@ -1,12 +1,12 @@
 ---
-title: "`multiple` HTML-Attribut"
+title: HTML-Attribut `multiple`
 short-title: multiple
 slug: Web/HTML/Reference/Attributes/multiple
 l10n:
-  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
+  sourceCommit: fd0b11ad5b5014a9333578adcc4bc98fb9024da3
 ---
 
-Das boolesche **`multiple`** Attribut, falls gesetzt, bedeutet, dass das Formularelement einen oder mehrere Werte akzeptiert. Das Attribut ist gültig für die {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/file", "file")}} Eingabetypen sowie das {{HTMLElement("select")}}. Die Art und Weise, wie der Benutzer mehrere Werte auswählt, hängt vom Formularelement ab.
+Wenn das boolesche Attribut **`multiple`** gesetzt ist, kann das Formular-Steuerelement einen oder mehrere Werte annehmen. Das Attribut ist für die input-Typen {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/file", "file")}} sowie für {{HTMLElement("select")}} gültig. Wie Benutzer mehrere Werte auswählen, hängt vom Formular-Steuerelement ab.
 
 {{InteractiveExample("HTML Demo: multiple", "tabbed-standard")}}
 
@@ -44,27 +44,27 @@ input:invalid {
 }
 ```
 
-## Übersicht
+## Überblick
 
-Je nach Typ kann das Formularelement ein unterschiedliches Erscheinungsbild haben, wenn das `multiple` Attribut gesetzt ist. Für den Datei-Eingabetyp unterscheidet sich die native Nachricht, die der Browser anzeigt. In Firefox lautet die Dateieingabe "Keine Dateien ausgewählt", wenn das Attribut vorhanden ist, und "Keine Datei ausgewählt", wenn es nicht vorhanden ist. Die meisten Browser zeigen ein Scroll-Listenfeld für ein {{HTMLElement("select")}} Element mit dem gesetzten `multiple` Attribut an und ein einzeiliges Dropdown-Menü, wenn das Attribut weggelassen wird. Die {{HTMLElement("input/email", "email")}} Eingabe zeigt unabhängig davon, ob das `multiple` Attribut enthalten ist, dasselbe an, wird jedoch die {{cssxref(':invalid')}} Pseudo-Klasse ansprechen, wenn mehr als eine durch Kommas getrennte E-Mail-Adresse enthalten ist, falls das Attribut nicht vorhanden ist.
+Je nach Typ kann das Formular-Steuerelement anders aussehen, wenn das Attribut `multiple` gesetzt ist. Beim file-input-Typ unterscheidet sich der vom Browser angezeigte Standardtext. In Firefox steht „Keine Dateien ausgewählt“, wenn das Attribut vorhanden ist, und „Keine Datei ausgewählt“, wenn es fehlt. Die meisten Browser zeigen für ein {{HTMLElement("select")}}-Steuerelement mit dem Attribut `multiple` ein scrollbares Listenfeld und ohne das Attribut eine einzeilige Dropdown-Liste an. Ein {{HTMLElement("input/email", "email")}}-input sieht mit und ohne das Attribut `multiple` gleich aus. Wenn das Attribut jedoch fehlt und mehr als eine durch Kommas getrennte E-Mail-Adresse eingegeben wird, entspricht das input der Pseudoklasse {{cssxref(':invalid')}}.
 
-Wenn `multiple` auf dem {{HTMLElement("input/email", "email")}} Eingabetyp gesetzt ist, kann der Benutzer null (wenn nicht auch [`required`](/de/docs/Web/HTML/Reference/Attributes/required)), eine oder mehrere durch Kommas getrennte E-Mail-Adressen eingeben.
+Wenn `multiple` beim {{HTMLElement("input/email", "email")}}-input-Typ gesetzt ist, können Benutzer keine, eine oder mehrere durch Kommas getrennte E-Mail-Adressen eingeben. Keine Adresse ist nur dann zulässig, wenn nicht auch [`required`](/de/docs/Web/HTML/Reference/Attributes/required) gesetzt ist.
 
 ```html
 <input type="email" multiple name="emails" id="emails" />
 ```
 
-Nur und nur wenn das `multiple` Attribut angegeben ist, kann der Wert eine Liste von korrekt gebildeten, durch Kommas getrennten E-Mail-Adressen sein. Jeder führende und nachfolgende Leerraum wird aus jeder Adresse in der Liste entfernt.
+Nur wenn das Attribut `multiple` angegeben ist, kann der Wert eine Liste korrekt formatierter, durch Kommas getrennter E-Mail-Adressen sein. Führende und nachfolgende Leerzeichen werden bei jeder Adresse in der Liste entfernt.
 
-Wenn `multiple` auf dem {{HTMLElement("input/file", "file")}} Eingabetyp gesetzt ist, kann der Benutzer eine oder mehrere Dateien auswählen. Der Benutzer kann mehrere Dateien aus dem Dateiauswahlfenster auf jede Weise auswählen, die seine gewählte Plattform erlaubt (z.B. durch Halten von <kbd>Shift</kbd> oder <kbd>Control</kbd> und dann Klicken).
+Wenn `multiple` beim {{HTMLElement("input/file", "file")}}-input-Typ gesetzt ist, können Benutzer eine oder mehrere Dateien auswählen. Im Dateiauswahldialog können sie mehrere Dateien auf jede von ihrer Plattform unterstützte Weise auswählen, beispielsweise indem sie <kbd>Umschalt</kbd> oder <kbd>Strg</kbd> gedrückt halten und dann klicken.
 
 ```html
 <input type="file" multiple name="uploads" id="uploads" />
 ```
 
-Wenn das Attribut weggelassen wird, kann der Benutzer nur eine einzelne Datei pro `<input>` auswählen.
+Wenn das Attribut fehlt, können Benutzer pro `<input>` nur eine Datei auswählen.
 
-Das `multiple` Attribut auf dem {{HTMLElement("select")}} Element stellt eine Kontrolle für die Auswahl von null oder mehr Optionen aus der Liste der Optionen dar. Andernfalls stellt das {{HTMLElement("select")}} Element eine Kontrolle für die Auswahl einer einzelnen {{HTMLElement("option")}} aus der Liste der Optionen dar.
+Das Attribut `multiple` beim Element {{HTMLElement("select")}} kennzeichnet ein Steuerelement, mit dem sich keine, eine oder mehrere Optionen aus einer Liste auswählen lassen. Andernfalls dient das Element {{HTMLElement("select")}} dazu, genau eine {{HTMLElement("option")}} aus der Liste auszuwählen.
 
 ```html
 <select multiple name="dwarfs" id="dwarfs">
@@ -78,19 +78,19 @@ Das `multiple` Attribut auf dem {{HTMLElement("select")}} Element stellt eine Ko
 </select>
 ```
 
-Wenn `multiple` angegeben ist, zeigen die meisten Browser ein Scroll-Listenfeld anstelle eines einzeiligen Dropdowns an.
+Wenn `multiple` angegeben ist, zeigen die meisten Browser statt einer einzeiligen Dropdown-Liste ein scrollbares Listenfeld an.
 
-Mehrere ausgewählte Optionen werden unter Verwendung des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Array-Konvention übermittelt, d.h. `name=value1&name=value2`.
+Mehrere ausgewählte Optionen werden gemäß der Array-Konvention von [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) übermittelt, also als `name=value1&name=value2`.
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-Geben Sie Anweisungen, um Benutzern zu helfen, das Formular auszufüllen und einzelne Formularelemente zu verwenden. Geben Sie erforderliche und optionale Eingaben, Datenformate und andere relevante Informationen an. Wenn Sie das `multiple` Attribut verwenden, informieren Sie den Benutzer, dass mehrere Werte zulässig sind, und geben Sie Anweisungen, wie mehrere Werte bereitgestellt werden können, zum Beispiel "E-Mail-Adressen mit einem Komma trennen."
+Geben Sie Anweisungen, damit Benutzer verstehen, wie sie das Formular ausfüllen und die einzelnen Formular-Steuerelemente verwenden. Kennzeichnen Sie erforderliche und optionale Eingaben, Datenformate und andere relevante Informationen. Wenn Sie das Attribut `multiple` verwenden, weisen Sie darauf hin, dass mehrere Werte zulässig sind, und erklären Sie, wie diese eingegeben werden können, beispielsweise: „Trennen Sie E-Mail-Adressen durch ein Komma.“
 
-Das Setzen von `size="1"` auf einem mehrfachen Auswahlfeld kann es in einigen Browsern als Einzelwahl erscheinen lassen. Es wird jedoch nicht bei Fokus erweitert, was die Benutzerfreundlichkeit beeinträchtigt. Tun Sie das nicht. Wenn Sie das Erscheinungsbild eines Auswahlfelds ändern, und selbst wenn nicht, stellen Sie sicher, dass Sie den Benutzer informieren, dass mehr als eine Option auf eine andere Weise ausgewählt werden kann.
+Wird bei einem select mit Mehrfachauswahl `size="1"` gesetzt (also `<select multiple size="1">`), erscheint eine Dropdown-Liste, in der Benutzer mehrere Optionen auswählen können. Manche Browser erweitern die Optionsliste nicht, wenn das Steuerelement aktiv ist, sondern zeigen mehrere Optionen in einer Menüliste an, die nur so hoch wie ein einzeiliges Feld ist. Das beeinträchtigt die Benutzerfreundlichkeit. Weisen Sie bei einem select mit Mehrfachauswahl darauf hin, dass mehr als eine Option ausgewählt werden kann – auch wenn mehrere Optionen sichtbar sind.
 
 ## Beispiele
 
-### email input
+### email-input
 
 ```html
 <label for="emails">Who do you want to email?</label>
@@ -120,15 +120,15 @@ input:invalid {
 }
 ```
 
-Nur und nur wenn das `multiple` Attribut angegeben ist, kann der Wert eine Liste von korrekt gebildeten, durch Kommas getrennten E-Mail-Adressen sein. Jeder führende und nachfolgende Leerraum wird aus jeder Adresse in der Liste entfernt. Wenn das [`required`](/de/docs/Web/HTML/Reference/Attributes/required) Attribut vorhanden ist, ist mindestens eine E-Mail-Adresse erforderlich.
+Nur wenn das Attribut `multiple` angegeben ist, kann der Wert eine Liste korrekt formatierter, durch Kommas getrennter E-Mail-Adressen sein. Führende und nachfolgende Leerzeichen werden bei jeder Adresse in der Liste entfernt. Wenn das Attribut [`required`](/de/docs/Web/HTML/Reference/Attributes/required) vorhanden ist, muss mindestens eine E-Mail-Adresse eingegeben werden.
 
-Einige Browser unterstützen das Erscheinungsbild der [`list`](/de/docs/Web/HTML/Reference/Elements/input#list) von Optionen aus der zugeordneten {{htmlelement('datalist')}}, wenn `multiple` vorhanden ist. Andere nicht.
+Einige Browser unterstützen bei gesetztem `multiple` die Anzeige der Optionsliste aus dem zugehörigen {{htmlelement('datalist')}} für weitere E-Mail-Adressen über [`list`](/de/docs/Web/HTML/Reference/Elements/input#list). Andere Browser unterstützen dies nicht.
 
 {{EmbedLiveSample("email_input", 600, 80) }}
 
-### file input
+### file-input
 
-Wenn `multiple` auf dem {{HTMLElement("input/file", "file")}} Eingabetyp gesetzt ist, kann der Benutzer eine oder mehrere Dateien auswählen:
+Wenn `multiple` beim {{HTMLElement("input/file", "file")}}-input-Typ gesetzt ist, können Benutzer eine oder mehrere Dateien auswählen:
 
 ```html
 <form method="post" enctype="multipart/form-data">
@@ -153,13 +153,13 @@ Wenn `multiple` auf dem {{HTMLElement("input/file", "file")}} Eingabetyp gesetzt
 
 {{EmbedLiveSample("file_input", 600, 80) }}
 
-Beachten Sie den Unterschied im Erscheinungsbild zwischen dem Beispiel mit gesetztem `multiple` und dem anderen `file` Eingabeelement ohne.
+Beachten Sie den Unterschied im Erscheinungsbild zwischen dem Beispiel mit gesetztem `multiple` und dem anderen `file`-input ohne dieses Attribut.
 
-Wenn das Formular gesendet wird, hätten wir beim Verwenden von [`method="get"`](/de/docs/Web/HTML/Reference/Elements/form) die Namen der ausgewählten Dateien als URL-Parameter wie `?uploads=img1.jpg&uploads=img2.svg` hinzugefügt. Da wir jedoch mehrteilige Formulardaten übermitteln, müssen wir POST verwenden. Siehe das {{htmlelement('form')}} Element und [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data#the_method_attribute) für weitere Informationen.
+Würden wir beim Absenden des Formulars [`method="get"`](/de/docs/Web/HTML/Reference/Elements/form) verwenden, würde der Name jeder ausgewählten Datei als URL-Parameter hinzugefügt, beispielsweise `?uploads=img1.jpg&uploads=img2.svg`. Da wir jedoch Formulardaten im Multipart-Format übermitteln, müssen wir post verwenden. Weitere Informationen finden Sie beim Element {{htmlelement('form')}} und unter [Formulardaten senden](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data#the_method_attribute).
 
 ### select
 
-Das `multiple` Attribut auf dem {{HTMLElement("select")}} Element stellt eine Kontrolle für die Auswahl von null oder mehr Optionen aus der Liste der Optionen dar. Andernfalls stellt das {{HTMLElement("select")}} Element eine Kontrolle für die Auswahl einer einzelnen {{HTMLElement("option")}} aus der Liste dar. Die Kontrolle hat im Allgemeinen ein anderes Erscheinungsbild, basierend auf der Anwesenheit des multiple Attributs, wobei die meisten Browser ein Scroll-Listenfeld anstelle eines einzeiligen Dropdown-Menüs anzeigen, wenn das Attribut vorhanden ist.
+Das Attribut `multiple` beim Element {{HTMLElement("select")}} kennzeichnet ein Steuerelement, mit dem sich keine, eine oder mehrere Optionen aus einer Liste auswählen lassen. Andernfalls dient das Element {{HTMLElement("select")}} dazu, genau eine {{HTMLElement("option")}} aus der Liste auszuwählen. Je nachdem, ob das Attribut `multiple` vorhanden ist, sieht das Steuerelement in der Regel anders aus: Die meisten Browser zeigen bei vorhandenem Attribut statt einer einzeiligen Dropdown-Liste ein scrollbares Listenfeld an.
 
 ```html
 <form method="get" action="#">
@@ -195,7 +195,7 @@ Das `multiple` Attribut auf dem {{HTMLElement("select")}} Element stellt eine Ko
 
 {{EmbedLiveSample("select", 600, 120) }}
 
-Beachten Sie den Unterschied im Erscheinungsbild zwischen den beiden Formularelementen.
+Beachten Sie den Unterschied im Erscheinungsbild der beiden Formular-Steuerelemente.
 
 ```css
 /* uncomment this CSS to make the multiple the same height as the single */
@@ -212,7 +212,7 @@ select[multiple]:active {
 */
 ```
 
-Es gibt einige Möglichkeiten, mehrere Optionen in einem `<select>` Element mit einem `multiple` Attribut auszuwählen. Abhängig vom Betriebssystem können Mausbenutzer die <kbd>Strg</kbd>, <kbd>Befehl</kbd> oder <kbd>Umschalt</kbd> Tasten gedrückt halten und dann mehrere Optionen anklicken, um diese auszuwählen/abzuwählen. Tastaturbenutzer können mehrere zusammenhängende Elemente auswählen, indem sie sich auf das `<select>` Element fokussieren, ein Element am oberen oder unteren Rand des gewünschten Bereichs auswählen und die <kbd>Auf</kbd> und <kbd>Ab</kbd> Cursor-Tasten verwenden, um die Optionen hoch und runter zu navigieren. Die Auswahl von nicht zusammenhängenden Elementen wird nicht so gut unterstützt: Elemente sollten durch Drücken der <kbd>Leertaste</kbd> ausgewählt und abgewählt werden können, aber die Unterstützung variiert zwischen den Browsern.
+Es gibt mehrere Möglichkeiten, in einem `<select>`-Element mit dem Attribut `multiple` mehrere Optionen auszuwählen. Je nach Betriebssystem können Benutzer mit der Maus <kbd>Strg</kbd>, <kbd>Command</kbd> oder <kbd>Umschalt</kbd> gedrückt halten und dann auf mehrere Optionen klicken, um sie aus- oder abzuwählen. Benutzer mit Tastatur können mehrere aufeinanderfolgende Einträge auswählen, indem sie das `<select>`-Element fokussieren und mit den Pfeiltasten <kbd>Aufwärts</kbd> und <kbd>Abwärts</kbd> einen Eintrag am Anfang oder Ende des gewünschten Bereichs auswählen. Die Auswahl nicht aufeinanderfolgender Einträge wird weniger gut unterstützt: Einträge sollten sich mit der <kbd>Leertaste</kbd> aus- und abwählen lassen, die Unterstützung variiert jedoch zwischen Browsern.
 
 ## Spezifikationen
 

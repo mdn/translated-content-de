@@ -2,15 +2,15 @@
 title: scripting.getRegisteredContentScripts()
 slug: Mozilla/Add-ons/WebExtensions/API/scripting/getRegisteredContentScripts
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Gibt alle mit {{WebExtAPIRef("scripting.registerContentScripts()")}} registrierten Inhalts-Skripte zurück oder, bei Verwendung eines Filters, eine Teilmenge der registrierten Skripte.
+Gibt alle mit {{WebExtAPIRef("scripting.registerContentScripts()")}} registrierten Content Scripts zurück oder, wenn ein Filter verwendet wird, eine Teilmenge der registrierten Skripte.
 
 > [!NOTE]
-> Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
+> Diese Methode ist in Manifest V3 oder höher in Chrome und ab Firefox 101 verfügbar. Ab Firefox 102 ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API nutzen zu können, müssen Sie die `"scripting"`- [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder mithilfe der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
+Um diese API zu verwenden, benötigen Sie die [`scripting`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Um Skripte auszuführen, muss die Erweiterung über eine Berechtigung für die URL der Seite verfügen – entweder ausdrücklich als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder über die [`activeTab`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -29,11 +29,11 @@ let scripts = await browser.scripting.getRegisteredContentScripts(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("scripting.RegisteredContentScript")}} erfüllt wird. Tritt ein Fehler auf, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("scripting.RegisteredContentScript")}} erfüllt wird. Tritt ein Fehler auf, wird das Promise zurückgewiesen.
 
 ## Beispiele
 
-Dieses Beispiel gibt alle registrierten Inhalts-Skripte zurück:
+Dieses Beispiel gibt alle registrierten Content Scripts zurück:
 
 ```js
 // Register two content scripts.
@@ -68,4 +68,4 @@ console.log(scripts.map((script) => script.id)); // ["script-2"]
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-getRegisteredContentScripts)-API von Chromium.
+> Diese API basiert auf der [`chrome.scripting`-API](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-getRegisteredContentScripts) von Chromium.

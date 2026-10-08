@@ -2,10 +2,10 @@
 title: declarativeNetRequest.getMatchedRules()
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getMatchedRules
 l10n:
-  sourceCommit: 5137b45128dcf07ac636da68184f00aab30ec1cc
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Gibt alle Regeln zurück, die für die Erweiterung übereingestimmt haben. Aufrufende können die Liste der übereinstimmenden Regeln mit einem `filter` filtern. Diese Methode steht nur Erweiterungen mit der Berechtigung `"declarativeNetRequestFeedback"` oder mit der für die in `filter` angegebene `tabId` gewährten Berechtigung `"activeTab"` zur Verfügung. Regeln, die keinem aktiven Dokument zugeordnet sind und vor mehr als fünf Minuten übereingestimmt haben, werden nicht zurückgegeben.
+Gibt alle Regeln zurück, die für die Erweiterung übereingestimmt haben. Aufrufende können die Liste mit einem `filter` einschränken. Diese Methode steht nur Erweiterungen zur Verfügung, die über die Berechtigung `"declarativeNetRequestFeedback"` verfügen oder denen die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) für die in `filter` angegebene `tabId` erteilt wurde. Regeln, die keinem aktiven Dokument zugeordnet sind und vor mehr als fünf Minuten übereingestimmt haben, werden nicht zurückgegeben.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ let gettingMatchedRules = await browser.declarativeNetRequest.getMatchedRules(
 - `filter` {{optional_inline}}
   - : Ein Objekt zum Filtern der Liste übereinstimmender Regeln.
     - `minTimeStamp` {{optional_inline}}
-      - : Eine `number`. Falls angegeben, werden nur Regeln zurückgegeben, die nach dem angegebenen Zeitstempel übereingestimmt haben.
+      - : Ein `number`. Falls angegeben, werden nur Regeln zurückgegeben, die nach dem angegebenen Zeitstempel übereingestimmt haben.
     - `tabId` {{optional_inline}}
-      - : Eine `number`. Falls angegeben, werden nur Regeln für den angegebenen Tab zurückgegeben. Bei `-1` werden Regeln zurückgegeben, die keinem aktiven Tab zugeordnet sind.
+      - : Ein `number`. Falls angegeben, werden nur Regeln für den angegebenen Tab zurückgegeben. Bei `-1` werden Regeln berücksichtigt, die keinem aktiven Tab zugeordnet sind.
 
 ### Rückgabewert
 
@@ -33,9 +33,9 @@ Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die 
 - `tabId`
   - : `number` Die `tabId` des Tabs, von dem die Anfrage ausging, sofern der Tab noch aktiv ist. Andernfalls `-1`.
 - `timeStamp`
-  - : `number` Der Zeitpunkt, zu dem die Regel übereinstimmte. Zeitstempel folgen der JavaScript-Konvention für Zeitangaben, d.h. sie geben die Anzahl der Millisekunden seit der Epoche an.
+  - : `number` Der Zeitpunkt, zu dem die Regel übereingestimmt hat. Zeitstempel entsprechen der JavaScript-Konvention für Zeitangaben, also der Anzahl der Millisekunden seit der Epoche.
 
-Wenn keine Regeln übereinstimmen, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird die Promise mit einer Fehlermeldung abgelehnt.
+Wenn keine Regeln übereingestimmt haben, ist das Objekt leer. Schlägt die Anfrage fehl, wird die Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 

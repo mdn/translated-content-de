@@ -2,20 +2,20 @@
 title: find.find()
 slug: Mozilla/Add-ons/WebExtensions/API/find/find
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: f4174abd45aefde55b6d45144c57ec3c2dc037a1
 ---
 
-Sucht nach Text in einem Tab.
+Sucht in einem Tab nach Text.
 
-Sie können diese Funktion verwenden, um auf normalen HTTP(S)-Webseiten zu suchen. Sie durchsucht einen einzelnen Tab: Sie können die ID eines bestimmten Tabs angeben, der durchsucht werden soll, oder es wird standardmäßig der aktive Tab durchsucht. Alle Frames im Tab werden durchsucht.
+Mit dieser Funktion können Sie normale HTTP(S)-Webseiten durchsuchen. Sie durchsucht einen einzelnen Tab: Sie können die ID eines bestimmten Tabs angeben oder standardmäßig den aktiven Tab durchsuchen. Dabei werden alle Frames im Tab durchsucht.
 
-Sie können die Suche groß-/kleinschreibungssensitiv machen und nur ganze Wörter abgleichen lassen.
+Sie können festlegen, dass bei der Suche zwischen Groß- und Kleinschreibung unterschieden wird und nur ganze Wörter gefunden werden.
 
-Standardmäßig gibt die Funktion nur die Anzahl der gefundenen Übereinstimmungen zurück. Durch Übergeben der Optionen `includeRangeData` und `includeRectData` können Sie mehr Informationen über die Positionen der Übereinstimmungen im Ziel-Tab erhalten.
+Standardmäßig gibt die Funktion nur die Anzahl der gefundenen Treffer zurück. Mit den Optionen `includeRangeData` und `includeRectData` erhalten Sie weitere Informationen über die Position der Treffer im Ziel-Tab.
 
-Diese Funktion speichert die Ergebnisse intern, sodass beim nächsten Aufruf von {{WebExtAPIRef("find.highlightResults()")}} durch eine Erweiterung die Ergebnisse dieses Suchaufrufs hervorgehoben werden, bis jemand `find()` erneut aufruft.
+Die Funktion speichert die Ergebnisse intern. Wenn anschließend eine Erweiterung {{WebExtAPIRef("find.highlightResults()")}} aufruft, werden die Ergebnisse dieses Suchaufrufs hervorgehoben, bis jemand erneut `find()` aufruft.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -29,75 +29,75 @@ browser.find.find(
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : `object`. Ein Objekt, das zusätzliche Optionen angibt. Es kann eine der folgenden Eigenschaften enthalten, alle optional:
+  - : `object`. Ein Objekt, das zusätzliche Optionen angibt. Es kann die folgenden, sämtlich optionalen Eigenschaften enthalten:
     - `caseSensitive`
-      - : `boolean`. Wenn `true`, ist die Suche groß-/kleinschreibungssensitiv. Standard ist `false`.
+      - : `boolean`. Wenn `true`, wird bei der Suche zwischen Groß- und Kleinschreibung unterschieden. Der Standardwert ist `false`.
     - `entireWord`
-      - : `boolean`. Stimmt nur ganze Wörter ab: "Tok" wird innerhalb von "Tokyo" nicht abgeglichen. Standard ist `false`.
+      - : `boolean`. Nur ganze Wörter werden gefunden: „Tok“ wird also nicht innerhalb von „Tokyo“ gefunden. Der Standardwert ist `false`.
     - `includeRangeData`
-      - : `boolean`. Schließt Bereichsdaten in die Antwort ein, die beschreiben, wo im Seiten-DOM die Übereinstimmung gefunden wurde. Standard ist `false`.
+      - : `boolean`. Nimmt Bereichsdaten in die Antwort auf, die beschreiben, wo der Treffer im DOM der Seite gefunden wurde. Der Standardwert ist `false`.
     - `includeRectData`
-      - : `boolean`. Schließt Rechteckdaten in die Antwort ein, die beschreiben, wo auf der gerenderten Seite die Übereinstimmung gefunden wurde. Standard ist `false`.
+      - : `boolean`. Nimmt Rechteckdaten in die Antwort auf, die beschreiben, wo der Treffer auf der gerenderten Seite gefunden wurde. Der Standardwert ist `false`.
     - `matchDiacritics`
-      - : `boolean`. Wenn `true`, unterscheidet die Suche zwischen diakritischen Zeichen und ihren Grundbuchstaben. Beispielsweise wird bei der Suche nach "résumé" bei `true` keine Übereinstimmung für "resume" gefunden. Standard ist `false`.
+      - : `boolean`. Wenn `true`, unterscheidet die Suche zwischen Buchstaben mit diakritischen Zeichen und den entsprechenden Grundbuchstaben. Bei `true` findet beispielsweise eine Suche nach „résumé“ keinen Treffer für „resume“. Der Standardwert ist `false`.
     - `tabId`
-      - : `integer`. ID des zu durchsuchenden Tabs. Standard ist der aktive Tab.
+      - : `integer`. ID des Tabs, der durchsucht werden soll. Standardmäßig wird der aktive Tab durchsucht.
 
 - `queryPhrase`
   - : `string`. Der zu suchende Text.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das bis zu drei Eigenschaften enthält:
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die mit einem Objekt erfüllt wird, das bis zu drei Eigenschaften enthält:
 
 - `count`
-  - : `integer`. Die Anzahl der gefundenen Ergebnisse.
+  - : `integer`. Die Anzahl der gefundenen Treffer.
 - `rangeData` {{optional_inline}}
-  - : `array`. Wenn `includeRangeData` im `options` Parameter angegeben wurde, wird diese Eigenschaft eingeschlossen. Sie wird als Array von `RangeData`-Objekten bereitgestellt, eines für jede Übereinstimmung. Jedes `RangeData`-Objekt beschreibt, wo im DOM-Baum die Übereinstimmung gefunden wurde. Dadurch könnte eine Erweiterung beispielsweise den umgebenden Text für jede Übereinstimmung erhalten, um den Kontext anzuzeigen.
+  - : `array`. Wenn `includeRangeData` im Parameter `options` angegeben wurde, ist diese Eigenschaft enthalten. Sie wird als Array von `RangeData`-Objekten bereitgestellt, eines für jeden Treffer. Jedes `RangeData`-Objekt beschreibt, wo im DOM-Baum der Treffer gefunden wurde. So könnte eine Erweiterung beispielsweise den Text um jeden Treffer abrufen, um den Kontext der Treffer anzuzeigen.
 
-    Die Elemente entsprechen den Elementen in `rectData`, sodass `rangeData[i]` dieselbe Übereinstimmung beschreibt wie `rectData[i]`.
+    Die Einträge entsprechen denen in `rectData`: `rangeData[i]` beschreibt also denselben Treffer wie `rectData[i]`.
 
-    Jedes `RangeData` enthält die folgenden Eigenschaften:
+    Jedes `RangeData`-Objekt enthält die folgenden Eigenschaften:
     - `endOffset`
-      - : Die Ordinalposition des Endes der Übereinstimmung innerhalb ihres Textknotens.
+      - : Die Position des Trefferendes innerhalb seines Textknotens.
     - `endTextNodePos`
-      - : Die Ordinalposition des Textknotens, in dem die Übereinstimmung endete.
+      - : Die Position des Textknotens, in dem der Treffer endet.
     - `framePos`
-      - : Der Index des Frames, der die Übereinstimmung enthält. 0 entspricht dem Elternfenster. Beachten Sie, dass die Reihenfolge der Objekte im `rangeData`-Array sequentiell mit der Reihenfolge der Frame-Indizes übereinstimmt: Beispielsweise wird `framePos` für die erste Sequenz von `rangeData`-Objekten 0 sein, `framePos` für die nächste Sequenz wird 1 sein usw.
+      - : Der Index des Frames, der den Treffer enthält. 0 entspricht dem übergeordneten Fenster. Die Reihenfolge der Objekte im Array `rangeData` entspricht der Reihenfolge der Frame-Indizes: Beispielsweise ist `framePos` für die erste Gruppe von `rangeData`-Objekten 0, für die nächste Gruppe 1 und so weiter.
     - `startOffset`
-      - : Die Ordinalposition des Starts der Übereinstimmung innerhalb ihres Textknotens.
+      - : Die Position des Trefferanfangs innerhalb seines Textknotens.
     - `startTextNodePos`
-      - : Die Ordinalposition des Textknotens, in dem die Übereinstimmung begonnen hat.
+      - : Die Position des Textknotens, in dem der Treffer beginnt.
 
 - `rectData` {{optional_inline}}
-  - : `array`. Wenn `includeRectData` im `options` Parameter angegeben wurde, wird diese Eigenschaft eingeschlossen. Es ist ein Array von `RectData`-Objekten. Es enthält Client-Rechtecke für den gesamten Text, der in der Suche übereingestimmt wurde, relativ zur oberen linken Ecke des Viewports. Erweiterungen können dies nutzen, um eine benutzerdefinierte Hervorhebung der Ergebnisse bereitzustellen.
+  - : `array`. Wenn `includeRectData` im Parameter `options` angegeben wurde, ist diese Eigenschaft enthalten. Sie ist ein Array von `RectData`-Objekten und enthält Client-Rechtecke für den gesamten bei der Suche gefundenen Text, relativ zur oberen linken Ecke des Viewports. Erweiterungen können damit die Treffer auf eigene Weise hervorheben.
 
-    Jedes `RectData`-Objekt enthält Rechteckdaten für eine einzelne Übereinstimmung. Es hat zwei Eigenschaften:
+    Jedes `RectData`-Objekt enthält Rechteckdaten für einen einzelnen Treffer. Es hat zwei Eigenschaften:
     - `rectsAndTexts`
-      - : Ein Objekt, das zwei Eigenschaften enthält, beide Arrays:
-        - `rectList`: ein Array von Objekten, die jeweils vier ganzzahlige Eigenschaften haben: `top`, `left`, `bottom`, `right`. Diese beschreiben ein Rechteck relativ zur oberen linken Ecke des Viewports.
-        - `textList`: ein Array von Strings, das dem `rectList`-Array entspricht. Der Eintrag bei `textList[i]` enthält den Teil der Übereinstimmung, der durch das Rechteck bei `rectList[i]` begrenzt wird.
+      - : Ein Objekt mit zwei Eigenschaften, die beide Arrays sind:
+        - `rectList`: ein Array von Objekten mit jeweils vier ganzzahligen Eigenschaften: `top`, `left`, `bottom`, `right`. Sie beschreiben ein Rechteck relativ zur oberen linken Ecke des Viewports.
+        - `textList`: ein Array von Zeichenfolgen, das dem Array `rectList` entspricht. Der Eintrag unter `textList[i]` enthält den Teil des Treffers, der von dem Rechteck unter `rectList[i]` begrenzt wird.
 
-        Betrachten Sie beispielsweise einen Teil einer Webseite, der so aussieht:
+        Betrachten Sie beispielsweise einen Ausschnitt einer Webseite, der so aussieht:
 
-        ![Text der liest "this domain is established to be used for illustrative examples in documents. You may use this domain in examples without prior coordination or asking for permission." und ein "More information" Link.](rects-1.png)
+        ![Text mit der Aufschrift „this domain is established to be used for illustrative examples in documents. You may use this domain in examples without prior coordination or asking for permission.“ und einem Link „More information“.](rects-1.png)
 
-        Wenn Sie nach "You may" suchen, muss die Übereinstimmung durch zwei Rechtecke beschrieben werden:
+        Wenn Sie nach „You may“ suchen, muss der Treffer durch zwei Rechtecke beschrieben werden:
 
-        ![Dieser Bereich ist so eingerichtet, dass er für veranschaulichende Beispiele in Dokumenten verwendet wird. Sie dürfen diesen Bereich in Beispielen ohne vorherige Abstimmung oder Genehmigung verwenden.". Die Wörter "you may" sind hervorgehoben.](rects-2.png)
+        ![Text mit der Aufschrift „This domain is established to be used for illustrative examples in documents. You may use this domain in examples without prior coordination or asking for permission.“ Die Wörter „You may“ sind hervorgehoben.](rects-2.png)
 
-        In diesem Fall werden in den `RectData`, die diese Übereinstimmung beschreiben, `rectsAndTexts.rectList` und `rectsAndTexts.textList` jeweils 2 Einträge enthalten.
-        - `textList[0]` wird "You " enthalten, und `rectList[0]` wird sein Begrenzungsrechteck enthalten.
-        - `textList[1]` wird "may" enthalten, und `rectList[1]` wird _sein_ Begrenzungsrechteck enthalten.
+        In diesem Fall enthalten `rectsAndTexts.rectList` und `rectsAndTexts.textList` im `RectData`-Objekt, das diesen Treffer beschreibt, jeweils zwei Einträge.
+        - `textList[0]` enthält „You “ und `rectList[0]` das zugehörige umschließende Rechteck.
+        - `textList[1]` enthält „may“ und `rectList[1]` das zugehörige umschließende Rechteck.
 
     - `text`
-      - : Der vollständige Text der Übereinstimmung, "You may" im obigen Beispiel.
+      - : Der vollständige Text des Treffers, im obigen Beispiel „You may“.
 
 ## Beispiele
 
 ### Grundlegende Beispiele
 
-Durchsuchen Sie den aktiven Tab nach "banana", loggen Sie die Anzahl der Übereinstimmungen und heben Sie sie hervor:
+Durchsuchen Sie den aktiven Tab nach „banana“, protokollieren Sie die Anzahl der Treffer und heben Sie sie hervor:
 
 ```js
 function found(results) {
@@ -110,7 +110,7 @@ function found(results) {
 browser.find.find("banana").then(found);
 ```
 
-Durchsuchen Sie alle Tabs nach "banana" (beachten Sie, dass dies die "tabs" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder entsprechende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) erfordert, da auf `tab.url` zugegriffen wird):
+Durchsuchen Sie alle Tabs nach „banana“ (beachten Sie, dass hierfür die [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) „tabs“ oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) erforderlich sind, da auf `tab.url` zugegriffen wird):
 
 ```js
 async function findInAllTabs(allTabs) {
@@ -123,11 +123,11 @@ async function findInAllTabs(allTabs) {
 browser.tabs.query({}).then(findInAllTabs);
 ```
 
-### Verwendung von rangeData
+### `rangeData` verwenden
 
-In diesem Beispiel verwendet die Erweiterung `rangeData`, um den Kontext zu erhalten, in dem die Übereinstimmung gefunden wurde. Der Kontext ist der vollständige `textContent` des Knotens, in dem die Übereinstimmung gefunden wurde. Wenn die Übereinstimmung Knoten umspannend war, ist der Kontext die Verkettung des `textContent` aller umspannten Knoten.
+In diesem Beispiel verwendet die Erweiterung `rangeData`, um den Kontext des Treffers zu ermitteln. Der Kontext ist der vollständige `textContent` des Knotens, in dem der Treffer gefunden wurde. Wenn sich der Treffer über mehrere Knoten erstreckt, ist der Kontext die Verkettung des `textContent` aller betroffenen Knoten.
 
-Beachten Sie, dass aus Einfachheitsgründen dieses Beispiel keine Seiten behandelt, die Frames enthalten. Um dies zu unterstützen, müssten Sie `rangeData` in Gruppen aufteilen, eine pro Frame, und das Skript in jedem Frame ausführen.
+Beachten Sie, dass dieses Beispiel der Einfachheit halber keine Seiten mit Frames berücksichtigt. Um diese zu unterstützen, müssten Sie `rangeData` in Gruppen aufteilen – eine pro Frame – und das Skript in jedem Frame ausführen.
 
 Das Hintergrundskript:
 
@@ -158,7 +158,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 });
 ```
 
-Das Inhaltsskript:
+Das Content-Skript:
 
 ```js
 /**
@@ -206,13 +206,13 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 ```
 
-### Verwendung von rectData
+### `rectData` verwenden
 
-In diesem Beispiel verwendet die Erweiterung `rectData`, um die Übereinstimmungen zu "redigieren", indem schwarze DIVs über ihre Begrenzungsrechtecke hinzugefügt werden:
+In diesem Beispiel verwendet die Erweiterung `rectData`, um die Treffer zu „schwärzen“, indem sie schwarze DIVs über die umschließenden Rechtecke legt:
 
-![Drei Suchergebnisse mit teilweise geschwärztem Text durch schwarze Rechtecke.](redacted.png)
+![Drei Suchergebnisse, bei denen Teile des Textes durch schwarze Rechtecke geschwärzt sind.](redacted.png)
 
-Beachten Sie, dass dies in vielerlei Hinsicht eine schlechte Methode ist, um Seiten zu redigieren.
+Beachten Sie, dass dies in vielerlei Hinsicht eine ungeeignete Methode zum Schwärzen von Seiten ist.
 
 Das Hintergrundskript:
 
@@ -238,7 +238,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 });
 ```
 
-Das Inhaltsskript:
+Das Content-Skript:
 
 ```js
 // redact.js

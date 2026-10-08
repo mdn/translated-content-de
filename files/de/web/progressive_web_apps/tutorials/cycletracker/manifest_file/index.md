@@ -1,18 +1,18 @@
 ---
-title: "CycleTracker: Manifest und Ikonografie"
-short-title: Manifest und Ikonografie
+title: "CycleTracker: Manifest und Symbole"
+short-title: Manifest und Symbole
 slug: Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file
 l10n:
-  sourceCommit: 57d4a3ab62517528c9642489e9dbdbec3e9c319e
+  sourceCommit: f4174abd45aefde55b6d45144c57ec3c2dc037a1
 ---
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality", "Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}
 
-Eine PWA-Manifestdatei ist eine JSON-Datei, die Informationen über die Funktionen dieser App bereitstellt, damit sie wie eine native App aussieht und sich verhält, wenn sie auf dem Gerät des Benutzers installiert wird. Das Manifest enthält Metadaten für Ihre App, einschließlich ihres Namens, ihrer Symbole und darstellerischer Anweisungen.
+Eine PWA-Manifestdatei ist eine JSON-Datei, die Informationen über die Eigenschaften einer App bereitstellt. Dadurch kann die App nach der Installation auf dem Gerät der Benutzer wie eine native App aussehen und sich entsprechend verhalten. Das Manifest enthält Metadaten zu Ihrer App, darunter ihren Namen, ihre Icons und Vorgaben für ihre Darstellung.
 
-Obwohl gemäß der Spezifikation alle Manifest-Schlüssel (oder Mitglieder) optional sind, haben einige Browser, Betriebssysteme und App-Distributoren [spezifische erforderliche Mitglieder](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#required_manifest_members), damit eine Web-App eine PWA ist. Durch die Angabe eines Namens oder Kurznamens, der Start-URL, eines Symbols, das einige Mindestanforderungen erfüllt, und des Anwendungs-Viewports, in dem die PWA angezeigt werden soll, erfüllt Ihre App die Manifestanforderungen einer PWA.
+Laut Spezifikation sind alle Manifest-Schlüssel (oder -Member) optional. Einige Browser, Betriebssysteme und App-Distributoren setzen jedoch [bestimmte Member voraus](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#required_manifest_members), damit eine Web-App als PWA gilt. Wenn Sie einen Namen oder Kurznamen, die Start-URL, ein Icon, das bestimmte Mindestanforderungen erfüllt, und die Art des Anwendungsfensters angeben, in dem die PWA angezeigt werden soll, erfüllt Ihre App die Manifestanforderungen einer PWA.
 
-Eine minimalistische Manifestdatei für unsere App zur Verfolgung des Menstruationszyklus könnte folgendermaßen aussehen:
+Eine minimale Manifestdatei für unsere App zur Verfolgung des Menstruationszyklus könnte so aussehen:
 
 ```json
 {
@@ -28,27 +28,27 @@ Eine minimalistische Manifestdatei für unsere App zur Verfolgung des Menstruati
 }
 ```
 
-Bevor wir die Manifestdatei speichern und sie von unserer HTML-Datei aus verlinken, können wir ein noch kurzes, aber informativeres JSON-Objekt entwickeln, um die Identität, Präsentation und Ikonografie der PWA zu definieren. Ja, das oben Gesagte würde funktionieren, aber lassen Sie uns die Mitglieder in diesem Beispiel und einige andere Mitglieder besprechen, die es Manifestdateien ermöglichen, das Erscheinungsbild unserer CycleTracker PWA besser zu definieren.
+Bevor wir die Manifestdatei speichern und aus unserer HTML-Datei darauf verlinken, können wir ein weiterhin kurzes, aber aussagekräftigeres JSON-Objekt erstellen, das Identität, Darstellung und Symbole der PWA definiert. Das obige Beispiel würde funktionieren. Sehen wir uns dennoch die Member darin sowie einige weitere Member an, mit denen sich das Erscheinungsbild unserer CycleTracker-PWA genauer festlegen lässt.
 
-## App-Identität
+## Identität der App
 
-Um Ihre PWA zu identifizieren, muss das JSON ein `name` oder `short_name` Mitglied, oder beides, enthalten, um den Namen der PWA zu definieren. Es kann auch eine `description` enthalten.
+Um Ihre PWA zu benennen, muss das JSON-Objekt den Member `name` oder `short_name` oder beide enthalten. Es kann außerdem eine `description` enthalten.
 
 - [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name)
-  - : Der Name der PWA. Dies ist der Name, der verwendet wird, wenn das Betriebssystem Anwendungen auflistet, als Beschriftung neben dem Anwendungssymbol usw.
+  - : Der Name der PWA. Er wird beispielsweise verwendet, wenn das Betriebssystem Anwendungen auflistet, und als Beschriftung neben dem Anwendungs-Icon.
 - [`short_name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/short_name)
-  - : Der Name der PWA, der angezeigt wird, wenn nicht genügend Platz vorhanden ist, um den `name` darzustellen. Er wird als Beschriftung für Symbole auf Bildschirmen von Mobiltelefonen verwendet, einschließlich im „Zum Startbildschirm hinzufügen“-Dialog auf iOS.
+  - : Der Name der PWA, der angezeigt wird, wenn für `name` nicht genügend Platz vorhanden ist. Er wird als Beschriftung für Icons auf Smartphone-Bildschirmen verwendet, auch im iOS-Dialog „Zum Home-Bildschirm hinzufügen“.
 
-Wenn sowohl `name` als auch `short_name` vorhanden sind, wird `name` in den meisten Fällen verwendet, während `short_name` verwendet wird, wenn es nur begrenzten Platz für die Anzeige des Anwendungsnamens gibt.
+Wenn sowohl `name` als auch `short_name` vorhanden sind, wird in den meisten Fällen `name` verwendet. `short_name` kommt zum Einsatz, wenn nur wenig Platz für den Anwendungsnamen verfügbar ist.
 
 - [`description`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/description)
-  - : Erklärung, was die Anwendung macht. Sie bietet eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} des Zwecks und der Funktion der Anwendung.
+  - : Eine Erklärung, was die Anwendung tut. Sie bietet eine {{Glossary("accessible_description", "barrierefreie Beschreibung")}} von Zweck und Funktion der Anwendung.
 
 ### Aufgabe
 
-Schreiben Sie die ersten Zeilen Ihrer Manifestdatei. Sie können den unten stehenden Text verwenden oder diskretere oder beschreibendere Werte und eine Beschreibung Ihrer Wahl hinzufügen.
+Schreiben Sie die ersten Zeilen Ihrer Manifestdatei. Sie können den unten stehenden Text oder zurückhaltendere beziehungsweise aussagekräftigere Werte sowie eine Beschreibung Ihrer Wahl verwenden.
 
-### Beispiel-Lösung
+### Beispiellösung
 
 ```json
 {
@@ -58,34 +58,34 @@ Schreiben Sie die ersten Zeilen Ihrer Manifestdatei. Sie können den unten stehe
 }
 ```
 
-## App-Präsentation
+## Darstellung der App
 
-Das Erscheinungsbild oder die Präsentation der installierten und Offline-Erlebnisse einer PWA werden im Manifest definiert. Präsentationsmanifestmitglieder umfassen `start_url` und `display` sowie Mitglieder, die verwendet werden können, um [Ihre App-Farben anzupassen](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors), einschließlich `theme_color` und `background_color`.
+Das Erscheinungsbild einer installierten PWA und ihrer Offline-Ansicht wird im Manifest definiert. Zu den Manifest-Membern für die Darstellung gehören `start_url` und `display` sowie Member, mit denen Sie [die Farben Ihrer App anpassen](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors) können, darunter `theme_color` und `background_color`.
 
 - [`start_url`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/start_url)
-  - : Die Startseite, wenn ein Benutzer die PWA startet.
+  - : Die Startseite, die geöffnet wird, wenn ein Benutzer die PWA startet.
 
 - [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)
-  - : Steuert den Anzeigemodus der App, einschließlich `fullscreen`, `standalone`, das die [PWA als eigenständige Anwendung](/de/docs/Web/Progressive_web_apps/How_to/Create_a_standalone_app) anzeigt, `minimal-ui`, das ähnlich wie eine eigenständige Ansicht ist, aber mit UI-Elementen zur Steuerung der Navigation, und `browser`, das die App in einer regulären Browserversion öffnet.
+  - : Steuert den Anzeigemodus der App. Dazu gehören `fullscreen`, `standalone`, bei dem die [PWA als eigenständige Anwendung](/de/docs/Web/Progressive_web_apps/How_to/Create_a_standalone_app) angezeigt wird, `minimal-ui`, das einer eigenständigen Ansicht ähnelt, aber UI-Elemente zur Steuerung der Navigation enthält, und `browser`, bei dem die App in einer regulären Browseransicht geöffnet wird.
 
-Es gibt auch ein [`orientation`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/orientation) Mitglied, das die Standardausrichtung der PWA als `portrait` oder `landscape` definiert. Da unsere App in beiden Ausrichtungen gut funktioniert, werden wir dieses Mitglied weglassen.
+Außerdem gibt es den Member [`orientation`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/orientation), der die Standardausrichtung der PWA als `portrait` oder `landscape` festlegt. Da unsere App in beiden Ausrichtungen gut funktioniert, lassen wir diesen Member weg.
 
 ### Farben
 
 - [`theme_color`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/theme_color)
-  - : Die Standardfarbe von Benutzeroberflächenelementen des Betriebssystems und Browsers, wie die Statusleiste bei einigen mobilen Erlebnissen und die Anwendungs-Titelleiste auf Desktop-Betriebssystemen.
+  - : Die Standard-[farbe von UI-Elementen des Betriebssystems und Browsers](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors#define_a_theme_color), etwa der Statusleiste auf manchen Mobilgeräten und der Titelleiste der Anwendung auf Desktop-Betriebssystemen.
 - [`background_color`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/background_color)
-  - : Eine Platzhalterfarbe, die als Hintergrund der App angezeigt wird, bis das CSS geladen ist. Um einen fließenden Übergang zwischen dem Start und dem Ladevorgang der App zu schaffen, empfiehlt es sich, die im {{cssxref("&lt;color&gt;")}} deklarierte Farbe als {{cssxref("background-color")}} Farbe der App zu verwenden.
+  - : Eine Platzhalterfarbe, die als [Hintergrund der App](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors#customize_the_app_window_background_color) angezeigt wird, bis das CSS geladen ist. Für einen fließenden Übergang zwischen dem Starten und dem vollständigen Laden der App empfiehlt es sich, den {{cssxref("&lt;color&gt;")}}-Wert zu verwenden, der für {{cssxref("background-color")}} der App festgelegt ist.
 
 ### Aufgabe
 
-Fügen Sie der Manifestdatei, die Sie in der vorherigen Aufgabe begonnen haben zu erstellen, Präsentationsdefinitionen hinzu.
+Ergänzen Sie die Manifestdatei aus der vorherigen Aufgabe um Angaben zur Darstellung.
 
-### Beispiel-Lösung
+### Beispiellösung
 
-Da die Beispielanwendung eine einzelne Seite in einem Unterverzeichnis ist, können wir `"./"` als `start_url` verwenden oder das Mitglied weglassen. Aus demselben Grund können wir die App ohne Browser-UI anzeigen, indem wir `display` auf `standalone` setzen.
+Da die Beispielanwendung aus einer einzelnen Seite in einem Unterverzeichnis besteht, können wir `"./"` als `start_url` verwenden oder den Member ganz weglassen. Aus demselben Grund können wir die App ohne Browser-UI anzeigen, indem wir `display` auf `standalone` setzen.
 
-In [unserem CSS](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/HTML_and_CSS#css_content) ist `background-color: #eeffee;` auf dem `body` Element-Selektor gesetzt. Wir verwenden `#eeffee`, um einen fließenden Übergang vom Platzhalter-Erscheinungsbild zum Laden der App zu gewährleisten.
+In [unserem CSS](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/HTML_and_CSS#css_content) ist `background-color: #eeffee;` für den `body`-Elementselektor festgelegt. Wir verwenden `#eeffee`, um einen fließenden Übergang von der Platzhalterdarstellung zur geladenen App zu gewährleisten.
 
 ```json
 {
@@ -99,11 +99,11 @@ In [unserem CSS](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/HTML_a
 }
 ```
 
-## App-Ikonografie
+## App-Icons
 
-PWA-Symbole helfen Benutzern, Ihre App zu identifizieren, machen sie optisch ansprechender und verbessern die Auffindbarkeit. Das PWA-App-Symbol erscheint auf Startbildschirmen, App-Launchern oder in den Suchergebnissen des App-Stores. Die Größe des dargestellten Symbols und die Dateianforderungen variieren je nach Anzeigemodus und Anbieter. Das Manifest ist der Ort, an dem Sie Ihre Bilder definieren.
+PWA-Icons helfen Benutzern, Ihre App wiederzuerkennen, machen sie optisch ansprechender und verbessern ihre Auffindbarkeit. Das PWA-App-Icon erscheint auf Startbildschirmen, in App-Launchern oder in den Suchergebnissen von App-Stores. Die Größe des dargestellten Icons und die Anforderungen an die Datei hängen davon ab, wo und durch wen es angezeigt wird. Im Manifest legen Sie die Bilder fest.
 
-Innerhalb des Manifest-JSON-Objekts gibt das `icons` Mitglied ein Array von einem oder mehreren Icon-Objekten für die Verwendung in verschiedenen Kontexten an, jedes mit einem `src` und `sizes` Mitglied und optionalen `type` und `purpose` Mitgliedern. Jedes Icon-Objekt's `src` listet die Quelle einer einzelnen Bilddatei auf. Das `sizes` Mitglied bietet eine durch Leerzeichen getrennte Liste von Größen, für die dieses bestimmte Bild verwendet werden soll, oder das Schlüsselwort `any`; der Wert ist derselbe wie das [`sizes`](/de/docs/Web/HTML/Reference/Elements/link#sizes)-Attribut des {{HTMLElement("link")}} Elements. Das `type` Mitglied listet den MIME-Typ des Bildes auf.
+Im JSON-Objekt des Manifests gibt der Member `icons` ein Array aus einem oder mehreren Icon-Objekten für unterschiedliche Kontexte an. Jedes Objekt enthält die Member `src` und `sizes` sowie optional `type` und `purpose`. Der Member `src` jedes Icon-Objekts gibt die Quelldatei eines einzelnen Bildes an. `sizes` enthält eine durch Leerzeichen getrennte Liste der Größen, für die dieses Bild verwendet werden soll, oder das Schlüsselwort `any`. Der Wert entspricht dem des Attributs [`sizes`](/de/docs/Web/HTML/Reference/Elements/link#sizes) des Elements {{HTMLElement("link")}}. Der Member `type` gibt den MIME-Typ des Bildes an.
 
 ```json
 {
@@ -130,15 +130,15 @@ Innerhalb des Manifest-JSON-Objekts gibt das `icons` Mitglied ein Array von eine
 }
 ```
 
-Alle Symbole sollten das gleiche Aussehen und Gefühl haben, um sicherzustellen, dass Benutzer Ihre PWA erkennen, aber je größer das Symbol, desto mehr Details kann es enthalten. Während alle Symboldateien Quadrate sind, rendern einige Betriebssysteme unterschiedliche Formen, schneiden Abschnitte heraus oder „maskieren“ das Symbol, um die UI zu erfüllen, oder verkleinern und zentrieren das Symbol mit einem Hintergrund, wenn das Symbol nicht maskierbar ist. Die [sichere Zone](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons#support_masking), der Bereich, der als Kreis maskiert werden kann, ist die innere 80% der Bilddatei. Symbole werden als sicher zum Maskieren gekennzeichnet durch das `purpose` Mitglied, das mit dem Wert `maskable` das [Symbol als adaptiv](https://web.dev/articles/maskable-icon) definiert.
+Alle Icons sollten ein einheitliches Erscheinungsbild haben, damit Benutzer Ihre PWA wiedererkennen. Je größer ein Icon ist, desto mehr Details kann es enthalten. Zwar sind alle Icon-Dateien quadratisch, manche Betriebssysteme stellen sie jedoch in anderen Formen dar: Sie schneiden Teile ab oder „maskieren“ das Icon, damit es zur Benutzeroberfläche passt. Ist das Icon nicht maskierbar, wird es unter Umständen verkleinert und auf einem Hintergrund zentriert. Die [Safe Zone](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons#support_masking) – der Bereich, der auch bei einer kreisförmigen Maskierung korrekt dargestellt wird – umfasst die inneren 80 % der Bilddatei. Mit dem Member `purpose` werden Icons als sicher maskierbar gekennzeichnet: Der Wert `maskable` definiert das [Icon als adaptiv](https://web.dev/articles/maskable-icon).
 
-In Safari, und daher für iOS und iPadOS, haben Sie die Möglichkeit, das [nicht standardmäßige `apple-touch-icon`](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site) in das {{HTMLElement("head")}} des HTML-Dokuments über {{HTMLElement("link")}} einzufügen, wodurch sie Vorrang gegenüber im Manifest deklarierten Symbolen haben.
+In Safari und damit auch unter iOS und iPadOS haben Icons Vorrang vor den im Manifest deklarierten Icons, wenn Sie über {{HTMLElement("link")}} im {{HTMLElement("head")}} des HTML-Dokuments ein [nicht standardisiertes `apple-touch-icon`](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site) einbinden.
 
 ### Aufgabe
 
-Fügen Sie die Symbole zur Manifestdatei hinzu, die Sie erstellt haben.
+Fügen Sie der Manifestdatei, an der Sie arbeiten, die Icons hinzu.
 
-Mit den Wörtern „Zyklus“ und „Periode“ von CycleTracker und der grünen Themenfarbe, die wir gewählt haben, könnten unsere Symbolbilder alle hellgrüne Quadrate mit einem grünen Kreis sein. Unsere kleinste Größe `circle.ico`, und Symboldatei, die nur einen Kreis darstellt, der das Satzzeichen und die Themenfarbe der App repräsentiert, mit unseren Zwischenbildern, `circle.svg`, `tire.svg` und `wheel.svg`, die mehr Details in einem Übergang von einem einfachen Kreis zu einem Reifen hinzufügen, je größer sie werden, mit unseren größten Symbolen als detailliertes Rad mit Speichen und Schatten. Das Design von Symbolen liegt jedoch außerhalb des Umfangs dieses Tutorials.
+Wir können mit den Bedeutungen von „cycle“ und „period“ im Namen CycleTracker sowie der gewählten grünen Designfarbe spielen: Unsere Icon-Bilder könnten hellgrüne Quadrate mit einem grünen Kreis sein. Das kleinste Icon, `circle.ico`, wäre lediglich ein Kreis, der zugleich einen Punkt als Satzzeichen und die Designfarbe der App darstellt. Die dazwischenliegenden Bilder `circle.svg`, `tire.svg` und `wheel.svg` könnten mit zunehmender Größe immer mehr Details zeigen – von einem einfachen Kreis über einen Reifen bis hin zu einem Rad. Die größten Icons wären dann detaillierte Räder mit Speichen und Schatten. Die Gestaltung von Icons geht allerdings über den Rahmen dieses Tutorials hinaus.
 
 ```html hidden
 <div>
@@ -158,9 +158,9 @@ img {
 }
 ```
 
-{{EmbedLiveSample("PWA ikonografie", 600, 250)}}
+{{EmbedLiveSample("PWA iconography", 600, 250)}}
 
-### Beispiel-Lösung
+### Beispiellösung
 
 ```json
 {
@@ -195,33 +195,33 @@ img {
 
 ## Das Manifest zur App hinzufügen
 
-Sie haben jetzt eine voll funktionsfähige Manifestdatei. Zeit, sie zu speichern und einen Link von unserer HTML-Datei aus zu erstellen.
+Sie haben jetzt eine vollständig verwendbare Manifestdatei. Nun müssen Sie sie speichern und aus unserer HTML-Datei darauf verlinken.
 
-Die Manifesterweiterung kann gemäß der Spezifikation `.webappmanifest` sein. Da es sich jedoch um eine JSON-Datei handelt, wird sie am häufigsten mit der browserunterstützten `.json` Erweiterung gespeichert.
+Als Dateiendung für das Manifest kann die in der Spezifikation vorgeschlagene Endung `.webappmanifest` verwendet werden. Da es sich jedoch um eine JSON-Datei handelt, wird es meistens mit der von Browsern unterstützten Endung `.json` gespeichert.
 
-PWAs erfordern, dass eine Manifestdatei mit dem HTML-Dokument der App verlinkt ist. Wir haben eine voll funktionsfähige App, aber sie ist noch keine PWA, da sie noch nicht mit unserer externen Manifest-JSON-Datei verlinkt ist. Um die externe JSON-Ressource einzubinden, verwenden wir das `<link>` Element mit dem `rel="manifest"` Attribut und setzen das `href` Attribut auf den Speicherort der Ressource.
+Bei PWAs muss im HTML-Dokument der App auf eine Manifestdatei verlinkt werden. Unsere App ist voll funktionsfähig, aber noch keine PWA, weil sie noch nicht auf unsere externe JSON-Manifestdatei verweist. Um die externe JSON-Ressource einzubinden, verwenden wir das Element `<link>` mit dem Attribut `rel="manifest"` und setzen das Attribut `href` auf den Speicherort der Ressource.
 
 ```html
 <link rel="manifest" href="cycletracker.json" />
 ```
 
-Das `<link>` Element wird am häufigsten verwendet, um zu Stylesheets zu verlinken und ist bei PWAs erforderlich, um die Manifestdatei zu verlinken, wird aber auch verwendet, um [Site-Icons festzulegen](/de/docs/Web/HTML/Reference/Attributes/rel#icon) (sowohl "Favicons" als auch andere Icons für den Startbildschirm und Apps auf mobilen Geräten) unter anderem.
+Das Element `<link>` wird meistens verwendet, um Stylesheets und bei PWAs die erforderliche Manifestdatei einzubinden. Es dient unter anderem aber auch dazu, [Website-Icons festzulegen](/de/docs/Web/HTML/Reference/Attributes/rel#icon) – sowohl Icons im Stil eines Favicons als auch Icons für den Startbildschirm und für Apps auf Mobilgeräten.
 
 ```html
 <link rel="icon" href="icons/circle.svg" />
 ```
 
-Beim Verwenden der `.webmanifest` Erweiterung, setzen Sie `type="application/manifest+json"` wenn Ihr Server diesen MIME-Typ nicht unterstützt.
+Wenn Sie die Endung `.webmanifest` verwenden, setzen Sie `type="application/manifest+json"`, falls Ihr Server diesen MIME-Typ nicht unterstützt.
 
 ### Aufgabe
 
-Speichern Sie die Manifestdatei, die Sie in den obigen Schritten erstellt haben, und verlinken Sie sie dann von der `index.html` Datei.
+Speichern Sie die Manifestdatei, die Sie in den vorherigen Schritten erstellt haben, und verlinken Sie sie aus der Datei `index.html`.
 
-Optional können Sie die HTML-Datei auch mit einem Shortcut-Icon verlinken.
+Optional können Sie aus Ihrem HTML auch auf ein Shortcut-Icon verlinken.
 
-### Beispiel-Lösung
+### Beispiellösung
 
-Der {{HTMLelement("head")}} von `index.html` könnte jetzt ungefähr so aussehen:
+Der {{HTMLelement("head")}} von `index.html` könnte nun etwa so aussehen:
 
 ```html
 <head>
@@ -234,36 +234,36 @@ Der {{HTMLelement("head")}} von `index.html` könnte jetzt ungefähr so aussehen
 </head>
 ```
 
-Sehen Sie sich die [`cycletracker.json` Datei](https://mdn.github.io/pwa-examples/cycletracker/manifest_file/cycletracker.json) an und sehen Sie sich den [Projektquellcode](https://github.com/mdn/pwa-examples/tree/main/cycletracker/manifest_file) auf GitHub an.
+Sehen Sie sich die [Datei `cycletracker.json`](https://mdn.github.io/pwa-examples/cycletracker/manifest_file/cycletracker.json) und den [Quellcode des Projekts](https://github.com/mdn/pwa-examples/tree/main/cycletracker/manifest_file) auf GitHub an.
 
-Mit einer Manifestdatei und wenn sie von einer `https://` URL (oder `localhost`) geladen wird, werden [die meisten Browser](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#browser_support) Ihre Site als PWA erkennen und einige werden dazu auffordern, sie zu installieren. Um unsere PWA offline funktionieren zu lassen, müssen wir dennoch einen Service Worker hinzufügen.
+Mit einer Manifestdatei und beim Laden über eine `https://`-URL (oder `localhost`) erkennen [die meisten Browser](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#browser_support) Ihre Website als PWA; einige bieten dann die Installation an. Damit unsere PWA offline funktioniert, müssen wir noch einen Service Worker hinzufügen.
 
-## Debugging von Manifest-Dateien
+## Manifestdateien debuggen
 
-Einige Browser-Entwicklertools bieten Einblick in das App-Manifest. In Edge, Firefox und den Chrome Entwicklertools sind die Manifestmitglieder und ihre Werte unter dem "Application" Panel sichtbar.
+Die Entwicklertools einiger Browser geben Einblick in das App-Manifest. In den Entwicklertools von Edge, Firefox und Chrome sind die Manifest-Member und ihre Werte im Bereich „Application“ sichtbar.
 
-![In den Entwicklertools enthält das linke Panel Links zum Manifest. Die rechte Seite zeigt das App-Manifest, mit dem Dateinamen als Link zur JSON-Datei.](debugger_devtools.jpg)
+![In den Entwicklertools enthält der linke Bereich Links zum Manifest. Rechts steht „App Manifest“; der Dateiname ist ein Link zur JSON-Datei.](debugger_devtools.jpg)
 
-Das App-Manifest-Panel bietet den Namen der Manifestdatei als Link sowie Abschnitte zur Identität, Präsentation und zu den Symbolen.
+Der Bereich „App Manifest“ zeigt den Namen der Manifestdatei als Link sowie Abschnitte zu Identität, Darstellung und Icons.
 
-![Die Identitäts- und Präsentationsmanifestmitglieder zusammen mit Werten, sofern vorhanden.](manifest_identity_and_presentation.jpg)
+![Die Manifest-Member für Identität und Darstellung sowie ihre Werte, sofern vorhanden.](manifest_identity_and_presentation.jpg)
 
-Unterstützte Manifestmitglieder werden zusammen mit allen beinhalteten Werten angezeigt. In diesem Screenshot, obwohl wir die Mitglieder `orientation` oder `id` nicht enthalten haben, werden sie aufgeführt. Das App-Panel kann verwendet werden, um die Manifestmitglieder zu sehen und sogar zu lernen: In diesem Beispiel erfahren wir, dass um eine App-ID, die zur aktuellen Identität passt, zu spezifizieren, das `id` Feld auf "/" gesetzt werden muss.
+Unterstützte Manifest-Member werden zusammen mit allen angegebenen Werten angezeigt. In diesem Screenshot sind `orientation` und `id` aufgeführt, obwohl wir diese Member nicht angegeben haben. Im Bereich „Application“ können Sie also nicht nur die Manifest-Member einsehen, sondern auch etwas dazulernen: In diesem Beispiel erfahren wir, dass wir das Feld `id` auf „/“ setzen müssen, um eine App-ID anzugeben, die der aktuellen Identität entspricht.
 
-Chrome und Edge bieten auch Fehler und Warnungen, Protokollhandler und Informationen zur Verbesserung des Manifests und der Symbole.
+Chrome und Edge zeigen außerdem Fehler und Warnungen, Protokoll-Handler sowie Informationen an, die bei der Verbesserung des Manifests und der Icons helfen.
 
-Unsere Web-App hat keine Protokollhandler; ein Thema, das in diesem Tutorial nicht behandelt wird. Hätten wir einige eingeschlossen, wären diese unter "Protocol Handlers" zu finden. Da dieser Abschnitt leer ist, verlinken die Entwicklertools zu weiteren Informationen zu diesem Thema.
+Unsere Web-App hat keine Protokoll-Handler; dieses Thema wird in diesem Tutorial nicht behandelt. Hätten wir welche angegeben, würden sie unter „Protocol Handlers“ erscheinen. Da dieser Abschnitt leer ist, verlinken die Entwicklertools auf weiterführende Informationen zum Thema.
 
-![Die vier in der Manifestdatei enthaltenen Symbole, mit entferntem Hintergrund, da "nur der minimal sichere Bereich für maskierbare Symbole" aktiviert ist.](manifest_icons.jpg)
+![Die vier in der Manifestdatei angegebenen Icons, deren Hintergrund ausgeblendet ist, weil „show only the minimum safe area for maskable icons“ aktiviert ist.](manifest_icons.jpg)
 
-Das Manifestpanel bietet auch Einblicke in den sicheren Bereich für maskierbare Symbole und einen Link zu einem [PWA-Bildergenerator](https://www.pwabuilder.com/imageGenerator). Dieses Tool erstellt über 100 quadratische PNG-Bilder für Android, Apple-Betriebssysteme und Windows sowie ein JSON-Objekt, das alle Bilder und ihre Größen auflistet. Die erzeugten Bilder entsprechen möglicherweise nicht Ihren Anforderungen, aber die Liste der Bildgrößen, die für jedes Betriebssystem erstellt werden, zeigt die Vielfalt, wo und wie PWAs verfügbar gemacht werden können.
+Der Manifestbereich zeigt außerdem Informationen zur Safe Zone maskierbarer Icons und einen Link zu einem [PWA-Bildgenerator](https://www.pwabuilder.com/imageGenerator). Dieses Tool erstellt mehr als 100 quadratische PNG-Bilder für Android, Apple-Betriebssysteme und Windows sowie ein JSON-Objekt mit einer Liste aller Bilder und ihrer Größen. Die erzeugten Bilder entsprechen möglicherweise nicht Ihren Anforderungen. Die Liste der Bildgrößen für die einzelnen Betriebssysteme verdeutlicht jedoch, wie vielfältig die Orte und Darstellungsformen von PWAs sind.
 
-Die Entwicklertools sind nützlich, um festzustellen, welche Manifestmitglieder unterstützt werden. Beachten Sie, dass Firefox Entwicklertools Einträge für `dir`, `lang`, `orientation`, `scope` und `id` enthalten, obwohl unsere Manifestdatei diese Mitglieder nicht enthielt. Firefox zeigt auch den Wert des `purpose` Mitglieds für jedes Symbol, wobei `any` angezeigt wird, wenn der Zweck nicht explizit festgelegt ist.
+Die Entwicklertools helfen dabei festzustellen, welche Manifest-Member unterstützt werden. Beachten Sie, dass die Firefox-Entwicklertools Einträge für `dir`, `lang`, `orientation`, `scope` und `id` enthalten, obwohl diese Member in unserer Manifestdatei fehlen. Firefox zeigt außerdem für jedes Icon den Wert des Members `purpose` an. Ist `purpose` nicht ausdrücklich festgelegt, wird `any` angezeigt.
 
-![Das Manifest-Panel in den Firefox-Entwicklertools, das Werte für die nicht enthaltenen dir, scope und id Mitglieder anzeigt, sowie die lang- und orientation-Mitglieder ohne zugehörige Werte.](manifest_firefox.jpg)
+![Der Manifestbereich der Firefox-Entwicklertools zeigt Werte für die nicht angegebenen Member dir, scope und id sowie die Member lang und orientation ohne zugehörige Werte.](manifest_firefox.jpg)
 
 ## Als Nächstes
 
-Um unsere PWA offline funktionsfähig zu machen, müssen wir einen [Service Worker hinzufügen](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers), was wir ohne ein Framework tun werden.
+Damit unsere PWA offline funktioniert, müssen wir [einen Service Worker hinzufügen](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers). Das erledigen wir ohne Framework.
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality", "Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}

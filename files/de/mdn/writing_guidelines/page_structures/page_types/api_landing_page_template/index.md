@@ -1,19 +1,19 @@
 ---
-title: API-Vorlagenseite
+title: Vorlage für eine API-Übersichtsseite
 slug: MDN/Writing_guidelines/Page_structures/Page_types/API_landing_page_template
 l10n:
-  sourceCommit: 8f0171397993605739530a8d32f24a804d06f882
+  sourceCommit: c44003c788a907ef19e0d766e98f29ffca5b6798
 ---
 
 > [!NOTE]
-> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
+> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung._
 >
 > ---
 >
-> **Seiteneinstellungen:**
+> **Front Matter der Seite:**
 >
-> Das 'Front matter' am Anfang der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
-> Die Werte sollten entsprechend der jeweiligen Schnittstelle aktualisiert werden.
+> Das Front Matter am Anfang der Seite definiert die „Seitenmetadaten“.
+> Passen Sie die Werte an die jeweilige API an.
 >
 > ```md
 > ---
@@ -28,170 +28,170 @@ l10n:
 > ```
 >
 > - **title**
->   - : Überschrift, die oben auf der Seite angezeigt wird.
->     Dies ist der Name der API gefolgt von dem Text "API": _NameOfTheAPI_ **API**.
->     Zum Beispiel hat die [WebXR-Geräte-API](/de/docs/Web/API/WebXR_Device_API) den Titel _WebXR-Geräte-API_, die [Fetch-API](/de/docs/Web/API/Fetch_API) hat den Titel _Fetch API_.
+>   - : Der Titel, der oben auf der Seite angezeigt wird.
+>     Er besteht aus dem Namen der API, gefolgt von „API“: _NameOfTheAPI_ **API**.
+>     Beispielsweise lautet der Titel von [WebXR Device](/de/docs/Web/API/WebXR_Device_API) _WebXR Device API_ und der von [Fetch](/de/docs/Web/API/Fetch_API) _Fetch API_.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`).
->     Dies wird formatiert wie `Web/API/NameOfTheAPI_API`.
->     Zum Beispiel ist der 'Slug' der [WebXR-Geräte-API](/de/docs/Web/API/WebVR_API) `Web/API/WebXR_Device_API`.
+>   - : Der Teil des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
+>     Er hat das Format `Web/API/NameOfTheAPI_API`.
+>     Beispielsweise lautet der Slug der [WebXR Device API](/de/docs/Web/API/WebVR_API) `Web/API/WebXR_Device_API`.
 > - **page-type**
->   - : Der `page-type`-Schlüssel für Web/API-Startseiten ist immer `web-api-overview`.
+>   - : Der Schlüssel `page-type` hat für Web/API-Übersichtsseiten immer den Wert `web-api-overview`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Daten zur Browser-Kompatibilität für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Setzen Sie diesen Schlüssel nicht manuell: Er wird automatisch anhand der Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe [„Wie Feature-Status hinzugefügt oder aktualisiert werden“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 >
 > ---
 >
 > **Makros am Seitenanfang**
 >
-> Eine Reihe von Makroaufrufen erscheinen am Anfang des Inhaltsbereichs (direkt unter dem 'Front matter').
+> Direkt unter dem Front Matter stehen am Anfang des Inhaltsbereichs mehrere Makroaufrufe.
 >
-> Diese Makros werden automatisch durch die Toolchain hinzugefügt (es ist nicht nötig, diese hinzuzufügen/zu entfernen):
+> Diese Makros werden automatisch von der Toolchain eingefügt. Sie müssen sie weder hinzufügen noch entfernen:
 >
-> - `\{{SeeCompatTable}}` — dies erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es experimentell ist und die Technologie in Firefox hinter einem Präferenzwert versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Non-standard_Header}}` — dies erzeugt ein **Nicht-standardisiert**-Banner, das darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — erzeugt einen Hinweis **Dies ist eine experimentelle Technologie**, der kennzeichnet, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn sie experimentell ist und in Firefox nur über eine Einstellung aktiviert werden kann, sollten Sie außerdem einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ergänzen.
+> - `\{{Non-standard_Header}}` — erzeugt einen Hinweis **Nicht standardisiert**, der kennzeichnet, dass das Feature nicht Teil einer Spezifikation ist.
 >
-> Sie sollten die folgenden Makros gemäß der untenstehenden Ratschläge aktualisieren oder löschen:
+> Aktualisieren oder entfernen Sie die folgenden Makros gemäß den nachstehenden Hinweisen:
 >
-> - `\{{SecureContext_Header}}` — dies erzeugt ein **Sicherer Kontext**-Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist.
->   Wenn dies nicht der Fall ist, können Sie den Makroaufruf entfernen.
->   Wenn es ist, sollten Sie auch einen Eintrag dafür auf der Seite [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
-> - `\{{AvailableInWorkers}}` — dies erzeugt eine **In Workers verfügbar**-Notiz, die darauf hinweist, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
->   Wenn es nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen.
->   Wenn es auch im Worker-Kontext (oder nur dort) verfügbar ist, müssen Sie möglicherweise einen Parameter übergeben, aufgrund seiner Verfügbarkeit (siehe [\\{{AvailableInWorkers}} Makroquellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) für alle verfügbaren Werte), Sie müssen möglicherweise auch einen Eintrag dafür in der Seite [Web-APIs im Worker-Kontext verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) ausfüllen.
-> - `\{{APIRef("GroupDataName")}}` — dies erzeugt die linke Referenz-Seitenleiste mit Schnellreferenzlinks, die mit der aktuellen Seite zusammenhängen.
->   Zum Beispiel hat jede Seite der [WebVR-API](/de/docs/Web/API/WebVR_API) dieselbe Seitenleiste, die auf die anderen Seiten in der API verweist.
->   Um die korrekte Seitenleiste für Ihre API zu erzeugen, müssen Sie einen `GroupData`-Eintrag in unserem GitHub-Repo hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ einfügen.
->   Siehe unseren [Leitfaden zu API-Referenz-Seitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen, wie dies zu tun ist.
+> - `\{{SecureContext_Header}}` — erzeugt einen Hinweis **Sicherer Kontext**, der kennzeichnet, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist.
+>   Ist das nicht der Fall, können Sie den Makroaufruf entfernen.
+>   Ist es der Fall, sollten Sie außerdem einen Eintrag dafür auf der Seite [Features, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) ergänzen.
+> - `\{{AvailableInWorkers}}` — erzeugt einen Hinweis **In Workern verfügbar**, der kennzeichnet, dass die Technologie in einem [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+>   Wenn sie nur in einem Window-Kontext verfügbar ist, können Sie den Makroaufruf entfernen.
+>   Wenn sie auch oder ausschließlich in einem Worker-Kontext verfügbar ist, müssen Sie je nach Verfügbarkeit möglicherweise einen Parameter übergeben (alle verfügbaren Werte finden Sie im [Quellcode des Makros \\{{AvailableInWorkers}}](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs)). Möglicherweise müssen Sie außerdem einen Eintrag dafür auf der Seite [In Workern verfügbare Web-APIs](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) ergänzen.
+> - `\{{APIRef("GroupDataName")}}` — erzeugt die Referenz-Seitenleiste mit Schnelllinks zu Inhalten, die mit der aktuellen Seite zusammenhängen.
+>   Beispielsweise haben alle Seiten zur [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Seitenleiste, die auf die anderen Seiten zur API verweist.
+>   Um die passende Seitenleiste für Ihre API zu erzeugen, müssen Sie einen `GroupData`-Eintrag in unserem GitHub-Repository hinzufügen und dessen Namen im Makroaufruf anstelle von _GroupDataName_ einsetzen.
+>   Weitere Informationen finden Sie in unserem [Leitfaden zu Seitenleisten für API-Referenzen](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars).
 >
-> Geben Sie keine Status-Header-Makros manuell ein. Lesen Sie den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status der Seite hinzuzufügen.
+> Fügen Sie Makros für Statushinweise nicht manuell ein. Wie Sie diese Statusangaben zur Seite hinzufügen, erfahren Sie im Abschnitt [„Wie Feature-Status hinzugefügt oder aktualisiert werden“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 >
-> Beispiele für die **Sicherer Kontext**, **In Workers verfügbar**, **Experimentell**, **Veraltet** und **Nicht-standardisiert**-Banner werden direkt nach diesem Hinweisblock gezeigt.
+> Beispiele für die Hinweise **Sicherer Kontext**, **In Workern verfügbar**, **Experimentell**, **Veraltet** und **Nicht standardisiert** stehen direkt nach diesem Hinweisblock.
 >
 > ---
 >
 > **Browser-Kompatibilität**
 >
-> API-Startseiten haben optional einen Abschnitt zur Browser-Kompatibilität, der Kompatibilitätstabellen für eine oder mehrere der wichtigsten Schnittstellen der API anzeigt. Wenn die Kompatibilität für die meisten Schnittstellen in der API ähnlich ist, wird oft nur eine Kompatibilitätstabelle benötigt. Wenn die Kompatibilität über die API hinweg kompliziert/unmöglich in wenigen Tabellen zu erfassen ist, sollte dieser Abschnitt weggelassen werden.
+> API-Übersichtsseiten können optional einen Abschnitt zur Browser-Kompatibilität enthalten, der Kompatibilitätstabellen für eine oder mehrere der wichtigsten Schnittstellen der API zeigt. Wenn die Kompatibilität bei den meisten Schnittstellen der API ähnlich ist, genügt oft eine Tabelle. Lässt sich die Kompatibilität innerhalb der API nur schwer oder gar nicht in wenigen Tabellen darstellen, lassen Sie diesen Abschnitt weg.
 >
-> Um den Abschnitt zur Browser-Kompatibilität auszufüllen, müssen Sie möglicherweise zuerst Einträge für die API-Schnittstellen in unserem [Browser-Kompatibilitäts-Daten-Repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren — siehe unseren [Leitfaden, wie dies zu tun ist](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+> Um den Abschnitt zur Browser-Kompatibilität auszufüllen, müssen Sie möglicherweise zuerst Einträge für die API-Schnittstellen in unserem [Repository für Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren. Lesen Sie dazu unseren [Leitfaden zur Vorgehensweise](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
-> Verwenden Sie das `\{{Compat}}`-Makro, um Tabellen für die Informationen zur Browser-Kompatibilität hinzuzufügen.
+> Verwenden Sie das Makro `\{{Compat}}`, um Tabellen mit Informationen zur Browser-Kompatibilität hinzuzufügen.
 >
 > ---
 >
 > **Spezifikationen**
 >
-> API-Startseiten haben optional einen Abschnitt zu Spezifikationen, der die relevanten Spezifikationen für jede Schnittstelle auflistet. Oft gibt es nur eine Spezifikation, die alle Schnittstellen in der API abdeckt.
+> API-Übersichtsseiten können optional einen Abschnitt mit den relevanten Spezifikationen für die einzelnen Schnittstellen enthalten. Häufig gibt es nur eine Spezifikation, die alle Schnittstellen der API abdeckt.
 >
-> Um den Abschnitt zu Spezifikationen auszufüllen, müssen Sie möglicherweise zuerst Einträge für die Schnittstellen im [Browser-Kompatibilitäts-Daten-Repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren, um Spezifikationsdaten einzuschließen — siehe unseren [Leitfaden, wie dies zu tun ist](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+> Um den Abschnitt mit den Spezifikationen auszufüllen, müssen Sie möglicherweise zuerst Einträge für die Schnittstellen im [Repository für Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren und Spezifikationsdaten ergänzen. Lesen Sie dazu unseren [Leitfaden zur Vorgehensweise](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
-> Verwenden Sie das `\{{Specifications}}`-Makro, um Tabellen für die Hauptspezifikationen hinzuzufügen.
+> Verwenden Sie das Makro `\{{Specifications}}`, um Tabellen mit den wichtigsten Spezifikationen hinzuzufügen.
 >
 > ---
 >
-> _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen_
+> _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen._
 
 {{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt der Seite mit einem einleitenden Absatz — beginnen Sie damit, die API zu benennen und zu erläutern, was sie tut. Dies sollte idealerweise ein oder zwei kurze Sätze sein.
+Beginnen Sie den Seiteninhalt mit einem einleitenden Absatz: Nennen Sie zuerst die API und beschreiben Sie, was sie tut. Im Idealfall genügen dafür ein oder zwei kurze Sätze.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Beschreiben Sie in diesem Abschnitt den Zweck der API und die Anwendungsfälle etwas detaillierter — warum wurde ein Bedürfnis dafür erkannt?
-Welche Probleme löst sie? Welche Konzepte beinhaltet sie? Wie verwendet man sie aus einer hohen Perspektive?
+Beschreiben Sie in diesem Abschnitt den Zweck und die Anwendungsfälle der API etwas genauer: Warum wurde ein Bedarf dafür erkannt?
+Welche Probleme löst sie? Welche Konzepte spielen dabei eine Rolle? Wie wird sie grundsätzlich verwendet?
 
-Gehen Sie in diesem Abschnitt nicht zu sehr ins Detail und fügen Sie keine Code-Beispiele ein.
-Wenn es viele Konzepte zu erklären gibt, sollten Sie diese in einem separaten "Grundlagen"- oder "Konzepte"-Artikel erklären (z.B. [Grundlagen von WebXR](/de/docs/Web/API/WebXR_Device_API/Fundamentals)).
-Für einen praktischen Anwendungsleitfaden mit Code-Beispielen sollten Sie einen "Anwendungs…" Artikel in Ihre API-Dokumentation einfügen (z.B. [Verwendung der WebVR API](/de/docs/Web/API/WebVR_API/Using_the_WebVR_API)).
+Gehen Sie in diesem Abschnitt nicht zu sehr ins Detail und fügen Sie keine Codebeispiele ein.
+Wenn zur API viele Konzepte erklärt werden müssen, behandeln Sie diese in einem separaten Artikel zu „Grundlagen“ oder „Konzepten“ (zum Beispiel [Grundlagen von WebXR](/de/docs/Web/API/WebXR_Device_API/Fundamentals)).
+Für einen praxisorientierten Leitfaden mit Codebeispielen sollten Sie einen Artikel zur Verwendung in Ihre API-Dokumentation aufnehmen (zum Beispiel [Die WebVR API verwenden](/de/docs/Web/API/WebVR_API/Using_the_WebVR_API)).
 
 ## Leitfäden
 
-Fügen Sie eine Liste von Leitfäden unterhalb dieser Startseite ein. Jeder DT sollte mit der Seite des Leitfadens verlinkt sein. Dieser Abschnitt ist optional; wenn es nur einen einzigen "Anwendungs"-Leitfaden gibt, zusammen mit einigen anderen konzeptionellen Leitfäden, kann es praktischer sein, diese als Absatz am Ende des Abschnitts "Konzepte und Nutzung" zu verlinken. Dieser Abschnitt kann hilfreicher sein, wenn es so viele Leitfäden gibt, dass der Text schwer zu überfliegen ist.
+Führen Sie die Leitfadenseiten auf, die dieser Übersichtsseite untergeordnet sind. Jeder Begriffseintrag sollte auf die jeweilige Leitfadenseite verlinken. Dieser Abschnitt ist optional. Wenn es nur einen Leitfaden zur Verwendung und einige weitere konzeptionelle Leitfäden gibt, kann es praktischer sein, sie am Ende des Abschnitts „Konzepte und Verwendung“ in einem Absatz zu verlinken. Bei vielen Leitfäden kann eine Liste dagegen übersichtlicher sein als Fließtext.
 
-- Nutzung der ... API
-  - : Einführungstext dieser Leitfadenseite
+- Die … API verwenden
+  - : Einleitender Absatz dieser Leitfadenseite
 - Leitfaden 2
-  - : Einführungstext dieser Leitfadenseite
+  - : Einleitender Absatz dieser Leitfadenseite
 
 ## Schnittstellen
 
-_Um das [domxref Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_reference_pages) zu verwenden, entfernen Sie die Rückstriche und die Backticks in der Markdown-Datei._
+_Um das [domxref-Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_reference_pages) zu verwenden, entfernen Sie im Markdown die Backticks und den Backslash._
 
 - `\{{domxref("NameOfTheInterface")}}`
-  - : Fügen Sie eine kurze Beschreibung der Schnittstelle und ihrer Funktion hier ein.
-    Fügen Sie einen Begriff und die Definition für jede Schnittstelle oder jedes Wörterbuch hinzu.
+  - : Fügen Sie hier eine kurze Beschreibung der Schnittstelle und ihrer Funktion ein.
+    Fügen Sie für jede Schnittstelle oder jedes Dictionary einen Begriffseintrag mit Definition hinzu.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen anderer Schnittstellen
 
-Der _Name der Schnittstelle_ erweitert die folgenden APIs, indem die aufgeführten Funktionen hinzugefügt werden.
+Die Schnittstelle _name of interface_ erweitert die folgenden APIs um die aufgeführten Features.
 
 #### Schnittstelle 1
 
 - `\{{domxref("addition1")}}`
-  - : Beschreibung der Funktion von Schnittstelle#1, die durch die API, die Sie dokumentieren, zu dieser API hinzugefügt wird.
-    Ein \*Begriff und die Definition für jede Funktion. Wenn diese API keine anderen Schnittstellen erweitert, können Sie diese Abschnitte löschen.
+  - : Beschreibung des Features von Schnittstelle 1, das durch die API, die Sie gerade dokumentieren, zu dieser API hinzugefügt wird.
+    Ein Begriffseintrag mit Definition für jedes Feature. Wenn diese API keine anderen Schnittstellen erweitert, können Sie diese Abschnitte löschen.
 
 #### Schnittstelle 2
 
 - `\{{domxref("addition1")}}`
-  - : Beschreibung der Funktion von Schnittstelle#2, die durch die API, die Sie dokumentieren, zu dieser API hinzugefügt wird, usw.
+  - : Beschreibung des Features von Schnittstelle 2, das durch die API, die Sie gerade dokumentieren, zu dieser API hinzugefügt wird usw.
 
 ## Beispiele
 
-Beachten Sie, dass wir den Plural "Beispiele" verwenden, selbst wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir „Beispiele“ im Plural verwenden, auch wenn die Seite nur ein Beispiel enthält.
 
-### Eine beschreibende Überschrift
+### Eine aussagekräftige Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. "Ein einfaches Beispiel" sagt zum Beispiel nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel benötigt eine H3-Überschrift, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel zeigt. „Ein einfaches Beispiel“ sagt beispielsweise nichts über das Beispiel aus und ist daher keine geeignete Überschrift. Halten Sie die Überschrift kurz. Für eine längere Beschreibung nutzen Sie den Absatz darunter.
 
-Siehe unseren Leitfaden, wie man [Code-Beispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Weitere Informationen finden Sie in unserem Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples).
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben werden.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite stehen.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
+> **Szenario 1:** Sie haben einige Beispiele auf dieser Seite und weitere auf einer anderen Seite:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) hinzu. Ergänzen Sie anschließend eine letzte H3-Überschrift (`###`) mit dem Text „Weitere Beispiele“, unter der Sie auf die Beispiele auf anderen Seiten verlinken. Zum Beispiel:
 >
 > ```md
-> ## Beispiele
+> ## Examples
 >
-> ### Verwendung der Fetch-API
+> ### Using the fetch API
 >
-> Beispiel von Fetch
+> Example of Fetch
 >
-> ### Weitere Beispiele
+> ### More examples
 >
-> Links zu weiteren Beispielen auf anderen Seiten
+> Links to more examples on other pages
 > ```
 >
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
+> **Szenario 2:** Sie haben _nur_ auf einer anderen Seite Beispiele und keine auf dieser Seite:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu, sondern platzieren Sie die Links direkt unter der H2-Überschrift „Beispiele“. Zum Beispiel:
 >
 > ```md
-> ## Beispiele
+> ## Examples
 >
-> Für Beispiele zu dieser API, siehe [die Seite über fetch()](https://example.org/).
+> For examples of this API, see [the page on fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
 
 `\{{Specifications}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Rückstrich in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie im Markdown die Backticks und den Backslash._
 
 ## Browser-Kompatibilität
 
 `\{{Compat}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Rückstrich in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie im Markdown die Backticks und den Backslash._
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden ein, die mit der aktuellen API zusammenhängen. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit der aktuellen API zusammenhängen. Weitere Hinweise finden Sie im Abschnitt [„Siehe auch“](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) des _Leitfadens zum Schreibstil_.
 
 - link1
 - link2

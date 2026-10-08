@@ -1,69 +1,69 @@
 ---
-title: Firefox 143 Versionshinweise für Entwickler
+title: "Firefox 143: Versionshinweise für Entwickler"
 short-title: Firefox 143
 slug: Mozilla/Firefox/Releases/143
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 143, die Entwickler betreffen.
+Dieser Artikel informiert über Änderungen in Firefox 143, die für Entwickler relevant sind.
 Firefox 143 wurde am [16. September 2025](https://whattrainisitnow.com/release/?version=143) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-- Das [`type="color"`](/de/docs/Web/HTML/Reference/Elements/input/color) {{HTMLElement("input")}}-Element akzeptiert jetzt nicht nur HEX-Farben wie `#ff6699`, sondern auch alle CSS-[`<color>`](/de/docs/Web/CSS/Reference/Values/color_value)-Werte, zum Beispiel `oklab(50% 0.1 0.1 / 0.5)`. ([Firefox-Bug 1965029](https://bugzil.la/1965029)).
+- Das {{HTMLElement("input")}}-Element mit [`type="color"`](/de/docs/Web/HTML/Reference/Elements/input/color) akzeptiert jetzt nicht nur HEX-Farben wie `#ff6699`, sondern auch alle CSS-[`<color>`](/de/docs/Web/CSS/Reference/Values/color_value)-Werte, beispielsweise `oklab(50% 0.1 0.1 / 0.5)`. ([Firefox-Bug 1965029](https://bugzil.la/1965029)).
 
 ### CSS
 
-- Das {{cssxref("::details-content")}}-Pseudoelement ist jetzt standardmäßig aktiviert. Es ermöglicht die Gestaltung des Inhalts des {{htmlElement("details")}}-Elements.
+- Das Pseudoelement {{cssxref("::details-content")}} ist jetzt standardmäßig aktiviert. Damit können Sie den Inhalt des {{htmlElement("details")}}-Elements gestalten.
   ([Firefox-Bug 1941406](https://bugzil.la/1941406)).
-- Das {{cssxref("::marker")}}-Pseudoelement kann jetzt verwendet werden, um ein Listenelement zu gestalten, das mithilfe des {{cssxref("::before")}}- oder {{cssxref("::after")}}-Pseudoelements erstellt wurde. Dies wird durch die Selektoren [`::before::marker`](/de/docs/Web/CSS/Reference/Selectors/::before#beforemarker_nested_pseudo-elements) und [`::after::marker`](/de/docs/Web/CSS/Reference/Selectors/::after#aftermarker_nested_pseudo-elements) erreicht.
+- Das Pseudoelement {{cssxref("::marker")}} kann jetzt verwendet werden, um einen Listeneintrag zu gestalten, der mit dem Pseudoelement {{cssxref("::before")}} oder {{cssxref("::after")}} erstellt wurde. Dazu dienen die Selektoren [`::before::marker`](/de/docs/Web/CSS/Reference/Selectors/::before#beforemarker_nested_pseudo-elements) und [`::after::marker`](/de/docs/Web/CSS/Reference/Selectors/::after#aftermarker_nested_pseudo-elements).
   ([Firefox-Bug 1980215](https://bugzil.la/1980215)).
-- Das Multi-Pass-Gitterspurensizing ist jetzt standardmäßig aktiviert und folgt dem im CSS Grid-Spezifikation beschriebenen Algorithmus. Im Multi-Pass-Algorithmus werden zuerst die Spalten und dann die Zeilen bemessen; Prozentwerte werden aufgelöst, nachdem die Containergröße bekannt ist. Mit dieser Standardunterstützung werden [prozentbasierte](/de/docs/Web/CSS/Reference/Properties/grid-template-rows#percentage) Zeilenabstands und -gitterelemente mit Seitenverhältnissen jetzt in mehr Fällen korrekt bemessen.
+- Die mehrstufige Größenberechnung für Grid-Tracks ist jetzt standardmäßig aktiviert und folgt dem Algorithmus der CSS-Grid-Spezifikation. Bei diesem Algorithmus werden zuerst die Spalten und dann die Zeilen dimensioniert; Prozentwerte werden aufgelöst, sobald die Größe des Containers bekannt ist. Dadurch werden [prozentbasierte](/de/docs/Web/CSS/Reference/Properties/grid-template-rows#percentage) Zeilen-Tracks und Grid-Elemente mit Seitenverhältnis nun in mehr Fällen korrekt dimensioniert.
   ([Firefox-Bug 1957244](https://bugzil.la/1957244)).
 
 ### JavaScript
 
-Keine bemerkenswerten Änderungen.
+Keine nennenswerten Änderungen.
 
 ### APIs
 
-#### Entfernungen
+#### Entfallene Funktionen
 
-- Die veraltete [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale)-Eigenschaft wird nicht mehr unterstützt.
+- Die veraltete Eigenschaft [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) wird nicht mehr unterstützt.
   ([Firefox-Bug 1700969](https://bugzil.la/1700969)).
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
 #### WebDriver BiDi
 
-- Das `browsingContext.contextCreated`-Ereignis wurde aktualisiert, sodass es für alle offenen Kontexte bei der Anmeldung zum Ereignis ausgelöst wird ([Firefox-Bug 1754273](https://bugzil.la/1754273)).
-- Neue Befehle für das `network`-Modul implementiert, um Netzwerkdaten aufzuzeichnen:
-  - `network.addDataCollector` fügt einen Netzwerkdatensammler zu `contexts`, `userContexts` oder global hinzu. Der Sammler zeichnet Netzwerkdaten entsprechend den bereitgestellten `dataTypes` auf. Derzeit wird nur der Datentyp "response" unterstützt. Es muss auch eine `maxEncodedDataSize` angegeben werden, Netzwerkdaten, die diese Größe überschreiten, werden nicht aufgezeichnet ([Firefox-Bug 1971778](https://bugzil.la/1971778)).
-  - `network.removeDataCollector` entfernt einen zuvor hinzugefügten Netzwerkdatensammler ([Firefox-Bug 1971781](https://bugzil.la/1971781)).
-  - `network.getData` ruft die gesammelten Daten für eine bereitgestellte `request`-ID, `dataType` und optional `collector`-ID ab. Bei Angabe einer `collector`-ID können Clients auch das `disown`-Flag übergeben, um die Netzdaten vom Sammler freizugeben. Beachten Sie, dass Daten gelöscht werden, wenn sie von keinem Sammler mehr im Besitz sind ([Firefox-Bug 1971780](https://bugzil.la/1971780)).
-  - `network.disownData` gibt die Daten für eine angegebene `request`-ID und `dataType` von der bereitgestellten `collector`-ID frei ([Firefox-Bug 1971779](https://bugzil.la/1971779)).
-- Ein Fehler wurde behoben, bei dem `emulation.setLocaleOverride` die Überschreibung nicht auf neu erstellte Cross-Origin-Iframes angewendet hat ([Firefox-Bug 1978533](https://bugzil.la/1978533)).
-- Ein Fehler wurde behoben, bei dem mehrere Befehle wie `session.subscribe` fehlschlugen, wenn ein Tab entladen war ([Firefox-Bug 1949037](https://bugzil.la/1949037)).
-- Das `browsingContext.navigationCommitted`-Ereignis wurde korrigiert, sodass die `url`-Eigenschaft jetzt Basic-Auth-Zugangsdaten enthält. ([Firefox-Bug 1980137](https://bugzil.la/1980137)).
+- Das Ereignis `browsingContext.contextCreated` wurde aktualisiert: Beim Abonnieren des Ereignisses wird es jetzt für alle geöffneten Kontexte ausgelöst ([Firefox-Bug 1754273](https://bugzil.la/1754273)).
+- Für das Modul `network` wurden neue Befehle implementiert, mit denen sich Netzwerkdaten aufzeichnen lassen:
+  - `network.addDataCollector` fügt einen Netzwerkdaten-Collector für `contexts`, `userContexts` oder global hinzu. Der Collector zeichnet Netzwerkdaten entsprechend den angegebenen `dataTypes` auf. Derzeit wird nur der Datentyp „response“ unterstützt. Außerdem muss `maxEncodedDataSize` angegeben werden; Netzwerkdaten, die diese Größe überschreiten, werden nicht aufgezeichnet ([Firefox-Bug 1971778](https://bugzil.la/1971778)).
+  - `network.removeDataCollector` entfernt einen zuvor hinzugefügten Netzwerkdaten-Collector ([Firefox-Bug 1971781](https://bugzil.la/1971781)).
+  - `network.getData` ruft die gesammelten Daten für eine angegebene `request`-ID, einen `dataType` und optional eine `collector`-ID ab. Wird eine `collector`-ID angegeben, können Clients zusätzlich das Flag `disown` übergeben, um die Netzwerkdaten aus dem Collector freizugeben. Die Daten werden gelöscht, sobald kein Collector mehr Zugriff darauf hat ([Firefox-Bug 1971780](https://bugzil.la/1971780)).
+  - `network.disownData` gibt die Daten für eine bestimmte `request`-ID und einen `dataType` aus dem Collector mit der angegebenen `collector`-ID frei ([Firefox-Bug 1971779](https://bugzil.la/1971779)).
+- Ein Fehler wurde behoben, durch den `emulation.setLocaleOverride` die Überschreibung nicht auf neu erstellte Cross-Origin-Iframes anwendete ([Firefox-Bug 1978533](https://bugzil.la/1978533)).
+- Ein Fehler wurde behoben, durch den mehrere Befehle wie `session.subscribe` fehlschlugen, wenn ein Tab entladen war ([Firefox-Bug 1949037](https://bugzil.la/1949037)).
+- Das Ereignis `browsingContext.navigationCommitted` wurde korrigiert, sodass die Eigenschaft `url` jetzt Anmeldedaten für die Basic-Authentifizierung enthält. ([Firefox-Bug 1980137](https://bugzil.la/1980137)).
 
 ## Änderungen für Add-on-Entwickler
 
-- Hinzufügung von {{WebExtAPIRef("storage.StorageArea.getKeys()")}}. Diese Methode gibt ein Array zurück, das alle Schlüssel in einem Speicherbereich enthält. Es ist für alle Speicherbereiche verfügbar, also {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}} und {{WebExtAPIRef("storage.managed", "managed")}}. ([Firefox-Bug 1910669](https://bugzil.la/1910669))
-- Die Auswahl eines Erweiterungsvorschlags in der Adressleiste (Omnibox) durch den Benutzer, eine Aktion, die {{WebExtAPIRef("omnibox.onInputEntered")}} auslöst, wird nun als [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) betrachtet. Zusätzlich zur Aktivierung der APIs, die eine Benutzeraktion erfordern, gewährt die Auswahl eines Erweiterungsvorschlags in der Adressleiste auch die Berechtigung `"activeTab"`.
+- {{WebExtAPIRef("storage.StorageArea.getKeys()")}} wurde hinzugefügt. Diese Methode gibt ein Array mit allen Schlüsseln eines Speicherbereichs zurück. Sie ist für alle Speicherbereiche verfügbar: {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}} und {{WebExtAPIRef("storage.managed", "managed")}}. ([Firefox-Bug 1910669](https://bugzil.la/1910669))
+- Wenn ein Nutzer in der Adressleiste (Omnibox) einen Erweiterungsvorschlag auswählt, wird {{WebExtAPIRef("omnibox.onInputEntered")}} ausgelöst. Diese Auswahl gilt jetzt als [Nutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions). Dadurch werden APIs verfügbar, die eine Nutzeraktion voraussetzen. Außerdem erhält die Erweiterung die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission).
 
 ## Experimentelle Webfunktionen
 
 - **`text-autospace`**: `layout.css.text-autospace.enabled`
 
-  Die **`text-autospace`**-CSS-Eigenschaft ermöglicht es, den Zwischenraum zwischen chinesischen/japanischen/koreanischen (CJK) und Nicht-CJK-Zeichen zu spezifizieren. Derzeit werden diese Werte nur geparst und haben keinen Effekt auf die Ausgabe. ([Firefox-Bug 1869577](https://bugzil.la/1869577)).
+  Mit der CSS-Eigenschaft **`text-autospace`** können Sie den Abstand zwischen chinesischen, japanischen oder koreanischen (CJK) Zeichen und Nicht-CJK-Zeichen festlegen. Derzeit werden diese Werte lediglich geparst und wirken sich nicht auf die Ausgabe aus. ([Firefox-Bug 1869577](https://bugzil.la/1869577)).
 
-- **WebGPU external textures**: `dom.webgpu.external-texture.enable`
+- **Externe WebGPU-Texturen**: `dom.webgpu.external-texture.enable`
 
-  Die [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Schnittstelle und die Methode [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) werden unterstützt, um externe Texturen aus Videobildern oder -elementen zu importieren. ([Firefox-Bug 1979100](https://bugzil.la/1979100)).
+  Die Schnittstelle [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture) und die Methode [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) werden unterstützt, um externe Texturen aus Videoframes oder Elementen zu importieren. ([Firefox-Bug 1979100](https://bugzil.la/1979100)).
 
-Diese Funktionen werden in Firefox 143 ausgeliefert, sind jedoch standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie diese auf `true`.
-Sie können weitere solche Funktionen auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features) finden.
+Diese Funktionen sind in Firefox 143 enthalten, aber standardmäßig deaktiviert.
+Wenn Sie sie ausprobieren möchten, suchen Sie auf der Seite `about:config` nach der jeweiligen Einstellung und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
