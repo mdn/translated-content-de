@@ -3,12 +3,10 @@ title: CSS-Funktion `random()`
 short-title: random()
 slug: Web/CSS/Reference/Values/random
 l10n:
-  sourceCommit: 384b5a2cd42f6ed77add9a1bd96321468456a3cb
+  sourceCommit: 74b73e8310d2ecfecd3e4a2aa21e5b54f43d7387
 ---
 
-{{SeeCompatTable}}
-
-Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`random()`** erzeugt einen zufälligen Wert innerhalb eines angegebenen Bereichs. Optional können die möglichen Werte auf Schrittintervalle innerhalb dieses Bereichs beschränkt werden. Sie kann verwendet werden, wenn innerhalb eines Eigenschaftswerts ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{cssxref("angle")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;resolution&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}} oder {{CSSxRef("&lt;integer&gt;")}} angegeben wird.
+Die **CSS-Funktion `random()`** erzeugt einen Zufallswert innerhalb eines angegebenen Bereichs. Optional können die möglichen Werte auf Intervalle einer bestimmten Schrittweite zwischen den Bereichsgrenzen beschränkt werden. Sie kann verwendet werden, wenn innerhalb eines Eigenschaftswerts ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{cssxref("angle")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;resolution&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}} oder {{CSSxRef("&lt;integer&gt;")}} angegeben wird. Weitere Informationen finden Sie unter [CSS](/de/docs/Web/CSS) und [CSS-Funktionen](/de/docs/Web/CSS/Reference/Values/Functions).
 
 {{InteractiveExample("CSS Demo: random()")}}
 
@@ -62,51 +60,51 @@ random(--my-base, 1em, 3rem, 2px)
 Die Funktion `random(seed, min, max, step)` akzeptiert zwei bis vier durch Kommas getrennte Ausdrücke als Parameter.
 
 - `<random-key>` {{optional_inline}}
-  - : Steuert, welche `random()`-Funktionen im Dokument einen zufälligen Ausgangswert, auch _Seed_ genannt, gemeinsam verwenden und welche unterschiedliche Werte erhalten. Der Parameter wird als einer der folgenden Werte angegeben:
+  - : Steuert, welche `random()`-Funktionen im Dokument denselben zufälligen Ausgangswert, den _Seed_, verwenden und welche unterschiedliche Werte erhalten. Wird als einer der folgenden Werte angegeben:
     - `auto`
-      - : `auto` ist der Standardwert und wird verwendet, wenn `<random-key>` weggelassen wird. Diese Funktion erzeugt unabhängige Zufallswerte. Der Name des Zufallscaches und damit das Ergebnis unterscheidet sich zwischen jeder `random()`-Instanz in einem Wert mit mehreren Komponenten, zwischen verschiedenen Eigenschaften und zwischen verschiedenen Elementen. Dies entspricht der Angabe von `element-scoped property-index-scoped`.
+      - : `auto` ist der Standardwert und wird verwendet, wenn `<random-key>` weggelassen wird. Diese Zufallsfunktion erzeugt unabhängige Zufallswerte. Der Name des Zufallscaches und damit das Ergebnis unterscheidet sich zwischen jeder `random()`-Instanz in einem Wert mit mehreren Komponenten, zwischen verschiedenen Eigenschaften und zwischen verschiedenen Elementen. Dies entspricht der Angabe von `element-scoped property-index-scoped`.
     - `element-scoped`
-      - : Fügt dem Namen des Zufallscaches eine elementspezifische Kennung hinzu. Bei Verwendung für mehrere Eigenschaften (z. B. `width` und `height`) verwenden beide Eigenschaften denselben Wert, aber jedes Element (z. B. `<div>`) erhält andere Zufallswerte.
+      - : Fügt dem Namen des Zufallscaches eine elementspezifische Kennung hinzu. Wird der Wert auf mehrere Eigenschaften angewendet (z. B. `width` und `height`), verwenden beide Eigenschaften denselben Wert, aber jedes Element (z. B. `<div>`) erhält einen anderen Zufallswert.
     - `property-scoped`
-      - : Fügt dem Namen des Zufallscaches den Eigenschaftsnamen hinzu. Bei Verwendung für mehrere Eigenschaften (z. B. `width` und `height`) erhält jede Eigenschaft einen anderen Zufallswert, aber jedes Element (z. B. `<div>`) verwendet dieselben Zufallswerte.
+      - : Fügt dem Namen des Zufallscaches den Eigenschaftsnamen hinzu. Wird der Wert auf mehrere Eigenschaften angewendet (z. B. `width` und `height`), erhalten die Eigenschaften unterschiedliche Zufallswerte, aber jedes Element (z. B. `<div>`) verwendet dieselben Zufallswerte.
     - `property-index-scoped`
-      - : Fügt dem Namen des Zufallscaches den Eigenschaftsnamen und die Position der `random()`-Funktion unter allen Zufallsfunktionen hinzu, die im selben Eigenschaftswert verwendet werden. Dadurch erhält jede Instanz in derselben Deklaration einen anderen Zufallswert.
+      - : Fügt dem Namen des Zufallscaches den Eigenschaftsnamen und den Index der `random()`-Funktion unter allen Zufallsfunktionen hinzu, die im selben Eigenschaftswert verwendet werden. Dadurch erhält jede Instanz in derselben Deklaration einen anderen Zufallswert.
     - {{cssxref("dashed-ident")}}
-      - : Ein benutzerdefinierter Name für den Schlüssel des Zufallscaches (z. B. `--my-random-key`). Allein verwendet, wird derselbe zufällige Ausgangswert von allen Elementen und Eigenschaften mit derselben Kennung gemeinsam genutzt. In Kombination mit einem `*-scoped`-Schlüsselwort bestimmt dieses Schlüsselwort, wie der Wert gemeinsam genutzt wird.
+      - : Ein benutzerdefinierter Name für den Schlüssel des Zufallscaches (z. B. `--my-random-key`). Alle Elemente und Eigenschaften, die dieselbe Kennung verwenden, teilen sich denselben zufälligen Ausgangswert, wenn der Name allein verwendet wird. In Kombination mit einem `*-scoped`-Schlüsselwort bestimmt dieses Schlüsselwort, wie der Wert gemeinsam genutzt wird.
     - `fixed <number>`
-      - : Umgeht den Namen des Zufallscaches und verwendet `<number>` als Seed-Wert. Der Wert liegt zwischen `0` und `1`, einschließlich 0 und ausschließlich 1.
+      - : Umgeht den Namen des Zufallscaches und verwendet `<number>` als Seed-Wert. Der Wert liegt zwischen `0` und `1`, wobei 0 eingeschlossen und 1 ausgeschlossen ist.
 
 - `<calc-sum>, <calc-sum>`
-  - : Werden als `<number>`-, `<dimension>`- oder `<percentage>`-Werte beziehungsweise als Berechnungen angegeben, deren Ergebnis einem dieser Typen entspricht. Sie definieren den Mindest- beziehungsweise Höchstwert. Beide Werte müssen sich in denselben [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) auflösen lassen. Ist der Höchstwert kleiner als der Mindestwert, gibt die Funktion den ersten `<calc-sum>`-Wert zurück.
+  - : Werden als `<number>`-, `<dimension>`- oder `<percentage>`-Werte beziehungsweise als Berechnungen angegeben, die einen dieser Typen ergeben. Sie definieren den Mindest- beziehungsweise Höchstwert. Beide Werte müssen sich in denselben [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) auflösen lassen. Ist der Höchstwert kleiner als der Mindestwert, gibt die Funktion den ersten `<calc-sum>`-Wert zurück.
 
 - `<calc-sum>` {{optional_inline}}
-  - : Gibt das Schrittintervall an. Wenn dieser Parameter vorhanden ist und denselben Datentyp wie die `<calc-sum>`-Werte für Mindest- und Höchstwert hat, ist der Rückgabewert entweder der Mindestwert oder ein Wert, der sich durch wiederholtes Addieren der Schrittweite zum Mindestwert ergibt, bis zum Höchstwert.
+  - : Gibt die Schrittweite an. Wenn dieser Parameter vorhanden ist und denselben Datentyp wie die `<calc-sum>`-Werte für Mindest- und Höchstwert hat, ist der Rückgabewert entweder der Mindestwert oder ein Wert, der vom Mindestwert aus um ein Vielfaches der Schrittweite erhöht wurde, bis zum Höchstwert.
 
 ### Rückgabewert
 
-Gibt einen zufälligen `<number>`-, `<dimension>`- oder `<percentage>`-Wert zwischen dem Mindest- und dem Höchstwert einschließlich dieser Grenzen zurück. Der Rückgabewert hat denselben Typ wie die `<calc-sum>`-Parameter.
+Gibt einen zufälligen `<number>`-, `<dimension>`- oder `<percentage>`-Wert zwischen dem Mindest- und dem Höchstwert einschließlich der Grenzen zurück. Der Typ entspricht dem der `<calc-sum>`-Parameter.
 
 ## Beschreibung
 
-Mit der Funktion `random(SEED, MIN, MAX, STEP)` werden der Mindest- und der Höchstwert sowie optional eine Schrittweite angegeben, ausgehend vom Mindestwert. Die Funktion erzeugt ein zufälliges Ergebnis innerhalb des angegebenen Bereichs. Der Seed, ein [optionaler `<random-key>`-Parameter](#random-key), ermöglicht es, zufällige Ausgangswerte zwischen verschiedenen Eigenschaften und Elementen gemeinsam zu verwenden oder voneinander zu unterscheiden.
+Die Funktion `random(SEED, MIN, MAX, STEP)` legt den Mindest- und Höchstwert sowie optional die Schrittweite fest, ausgehend vom Mindestwert. Sie erzeugt ein zufälliges Ergebnis innerhalb des angegebenen Bereichs. Der Seed, ein [optionaler `<random-key>`-Parameter](#random-key), ermöglicht es, zufällige Ausgangswerte für verschiedene Eigenschaften und Elemente gemeinsam zu verwenden oder voneinander zu unterscheiden.
 
-Damit die Funktion gültig ist, müssen Mindestwert, Höchstwert und Schrittweite denselben Datentyp haben. Die Einheiten der zwei bis drei `<calc-sum>`-Parameter müssen nicht übereinstimmen. Sie müssen aber demselben Datentyp angehören, beispielsweise {{cssxref("number")}}, {{cssxref("percentage")}}, {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}} oder {{cssxref("frequency")}}.
+Damit die Funktion gültig ist, müssen der Mindestwert, der Höchstwert und die Schrittweite denselben Datentyp haben. Die Einheiten der zwei bis drei `<calc-sum>`-Parameter müssen nicht identisch sein, aber sie müssen demselben Datentyp angehören, etwa {{cssxref("number")}}, {{cssxref("percentage")}}, {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}} oder {{cssxref("frequency")}}.
 
 ### Zufälliger Ausgangswert
 
-Der zufällige Ausgangswert funktioniert wie ein {{Glossary("RNG", "Seed für Zufallszahlen")}}. Er ist eine Ausgangszahl, aus der das endgültige Zufallsergebnis erzeugt wird. Wenn zwei `random()`-Funktionen denselben Ausgangswert verwenden, ändern sich ihre Ergebnisse gemeinsam nach einem vorhersagbaren Muster. Bei unterschiedlichen Ausgangswerten sind ihre Ergebnisse vollständig unabhängig voneinander.
+Der zufällige Ausgangswert funktioniert wie ein {{Glossary("RNG", "Seed für die Zufallszahlenerzeugung")}}. Er ist ein Ausgangswert, aus dem das endgültige Zufallsergebnis erzeugt wird. Wenn zwei `random()`-Funktionen denselben Ausgangswert verwenden, verändern sich ihre Ergebnisse gemeinsam nach einem vorhersehbaren Muster. Bei unterschiedlichen Ausgangswerten sind ihre Ergebnisse vollständig voneinander unabhängig.
 
-Der optionale erste Parameter `<random-key>` steuert, wie der zufällige Ausgangswert gemeinsam genutzt wird. Er kann `auto`, ein Schlüsselwort für den Geltungsbereich (`element-scoped`, `property-scoped` oder `property-index-scoped`), ein benutzerdefiniertes {{cssxref("dashed-ident")}}, `fixed <number>` oder ein mit einem Schlüsselwort für den Geltungsbereich kombiniertes `<dashed-ident>` sein.
+Der optionale erste Parameter `<random-key>` steuert, wie der zufällige Ausgangswert gemeinsam verwendet wird. Er kann `auto`, ein Schlüsselwort für den Geltungsbereich (`element-scoped`, `property-scoped` oder `property-index-scoped`), ein benutzerdefiniertes {{cssxref("dashed-ident")}}, `fixed <number>` oder ein mit einem Schlüsselwort für den Geltungsbereich kombiniertes `<dashed-ident>` sein.
 
 #### Schlüsselwörter für den Geltungsbereich
 
-Allein verwendet, steuern die Schlüsselwörter für den Geltungsbereich die gemeinsame Nutzung ohne benutzerdefinierten Namen:
+Für sich genommen steuern die Schlüsselwörter für den Geltungsbereich die gemeinsame Verwendung ohne benutzerdefinierten Namen:
 
-- `property-scoped` verwendet einen Ausgangswert für alle Elemente gemeinsam, jeweils pro Eigenschaft.
-- `element-scoped` gibt jedem Element einen eigenen Ausgangswert, jeweils pro Eigenschaft.
+- `property-scoped` verwendet eigenschaftsweise denselben Ausgangswert für alle Elemente.
+- `element-scoped` gibt jedem Element einen eigenen Ausgangswert.
 - `property-index-scoped` funktioniert wie `property-scoped`, unterscheidet `random()`-Aufrufe aber zusätzlich nach ihrer Position innerhalb einer Kurzschreibweise.
 
-Durch das Schlüsselwort `property-scoped` werden `.a`, `.b` und `.c` zu identischen Rechtecken, da jedes Element denselben `width`-Wert und denselben `height`-Wert erhält:
+Mit `property-scoped` werden `.a`, `.b` und `.c` zu identischen Rechtecken, da jedes Element denselben `width`-Wert und denselben `height`-Wert erhält:
 
 ```css
 .a,
@@ -117,9 +115,9 @@ Durch das Schlüsselwort `property-scoped` werden `.a`, `.b` und `.c` zu identis
 }
 ```
 
-Mit `element-scoped` würde jedes Element einen eigenen, unabhängig bestimmten `width`-Wert und `height`-Wert erhalten.
+Mit `element-scoped` würde jedes Element unabhängig festgelegte Werte für `width` und `height` erhalten.
 
-Das Schlüsselwort `property-index-scoped` ist in Kurzschreibweisen nützlich, wenn für jede Position ein eigener gemeinsam genutzter Wert benötigt wird:
+Das Schlüsselwort `property-index-scoped` ist bei Kurzschreibweisen nützlich, wenn jede Position einen eigenen gemeinsam verwendeten Wert benötigt:
 
 ```css
 .a,
@@ -136,7 +134,7 @@ Alle drei Elemente erhalten denselben oberen Randabstand, denselben rechten Rand
 
 #### Benutzerdefinierte Namen
 
-Ein allein verwendetes `<dashed-ident>` (z. B. `--custom-name`) verwendet seinen Ausgangswert global gemeinsam: Jeder `random()`-Aufruf mit derselben Kennung erhält überall im Dokument dasselbe Ergebnis. Dadurch werden `.a`, `.b` und `.c` zu identischen Quadraten, da jeder `width`- und `height`-Wert zum selben Wert aufgelöst wird:
+Ein allein verwendetes `<dashed-ident>` (z. B. `--custom-name`) teilt seinen Ausgangswert global: Jeder `random()`-Aufruf im Dokument mit derselben Kennung erhält dasselbe Ergebnis. Dadurch werden `.a`, `.b` und `.c` zu identischen Quadraten, da sich alle `width`- und `height`-Werte zum selben Wert auflösen:
 
 ```css
 .a,
@@ -147,7 +145,7 @@ Ein allein verwendetes `<dashed-ident>` (z. B. `--custom-name`) verwendet seinen
 }
 ```
 
-Kombinieren Sie ein `<dashed-ident>` mit einem Schlüsselwort für den Geltungsbereich, um die gemeinsame Nutzung einzuschränken. `property-scoped` sorgt dafür, dass der Ausgangswert elementübergreifend gemeinsam genutzt wird, unterscheidet ihn aber nach Eigenschaft:
+Kombinieren Sie ein `<dashed-ident>` mit einem Schlüsselwort für den Geltungsbereich, um diese gemeinsame Verwendung einzuschränken. `property-scoped` behält die globale Verwendung über Elemente hinweg bei, unterscheidet jedoch nach Eigenschaften:
 
 ```css
 .a,
@@ -171,7 +169,7 @@ Kombinieren Sie ein `<dashed-ident>` mit einem Schlüsselwort für den Geltungsb
 
 #### Automatisches Verhalten
 
-Wenn der erste Parameter weggelassen oder ausdrücklich auf `auto` gesetzt wird, wird eine Kennung aus dem Eigenschaftsnamen und der Position automatisch erzeugt. Dieses Verhalten kann dazu führen, dass zufällige Ausgangswerte unerwartet gemeinsam genutzt werden.
+Wenn der erste Parameter weggelassen oder ausdrücklich auf `auto` gesetzt wird, wird anhand des Eigenschaftsnamens und der Position automatisch eine Kennung erzeugt. Dieses Verhalten kann dazu führen, dass zufällige Ausgangswerte unerwartet gemeinsam verwendet werden.
 
 ```css
 .foo {
@@ -189,21 +187,21 @@ Wenn der erste Parameter weggelassen oder ausdrücklich auf `auto` gesetzt wird,
 }
 ```
 
-Wenn `<random-key>` standardmäßig oder ausdrücklich auf `auto` gesetzt ist, erzeugt der User-Agent nach einheitlichen Regeln anhand des Eigenschaftsnamens und der Reihenfolge automatisch einen Seed-Namen, auch _Kennung für gemeinsam genutzte generierte Werte_ genannt. Dadurch können `random()`-Funktionen denselben Seed-Namen und somit denselben zufälligen Ausgangswert erhalten. In diesem Beispiel ist die Kennung für gemeinsam genutzte generierte Werte der `random()`-Funktion im `width`-Eigenschaftswert für `.foo` und `.foo:hover` identisch. Daher ändert sich der Wert zwischen den Zuständen nicht. Ebenso haben die ersten beiden `random()`-Funktionen in beiden `margin`-Deklarationen dieselbe Kennung. Die ersten beiden Werte der `margin`-Kurzschreibweise bleiben beim Überfahren mit der Maus folglich unverändert: Der obere und der rechte Randabstand von `bar` bleiben gleich, während der untere und der linke Randabstand unabhängige Zufallswerte erhalten. Um für jede `random()`-Funktion einen unabhängigen Wert zu erhalten, geben Sie jeweils ein eindeutiges {{cssxref("dashed-ident")}} an.
+Wenn für `<random-key>` der Standardwert gilt oder ausdrücklich `auto` angegeben wird, erzeugt der User Agent nach festen Regeln anhand des Eigenschaftsnamens und der Reihenfolge automatisch einen Seed-Namen, auch _generated value sharing identifier_ genannt. Daher können `random()`-Funktionen denselben Seed-Namen und damit denselben zufälligen Ausgangswert erhalten. In diesem Beispiel hat die `random()`-Funktion im `width`-Eigenschaftswert für `.foo` dieselbe automatisch erzeugte Kennung wie für `.foo:hover`. Der Wert ändert sich zwischen diesen Zuständen also nicht. Ebenso haben die ersten beiden `random()`-Funktionen in beiden `margin`-Deklarationen dieselbe automatisch erzeugte Kennung. Die ersten beiden Werte der `margin`-Kurzschreibweise bleiben beim Bewegen des Mauszeigers über das Element somit unverändert: Der obere und der rechte Randabstand von `bar` bleiben gleich, während der untere und der linke Randabstand unabhängige Zufallswerte erhalten. Um für jede `random()`-Funktion einen unabhängigen Wert zu erhalten, geben Sie jeweils ein eindeutiges {{cssxref("dashed-ident")}} an.
 
 ### Benutzerdefinierte Eigenschaften
 
-Wie bei allen CSS-Funktionen bleibt der Wert eine Funktion, wenn eine `random()`-Funktion im Wert einer benutzerdefinierten Eigenschaft enthalten ist. Er verhält sich wie ein Textersetzungsmechanismus, statt einen einzelnen Rückgabewert zu speichern.
+Wie bei allen CSS-Funktionen bleibt ein `random()`-Ausdruck innerhalb des Werts einer benutzerdefinierten Eigenschaft eine Funktion. Er verhält sich wie ein Textersetzungsmechanismus, statt einen einzelnen Rückgabewert zu speichern.
 
 ```css
 --random-size: random(1px, 100px);
 ```
 
-In diesem Beispiel „speichert“ die benutzerdefinierte Eigenschaft `--random-size` das zufällig erzeugte Ergebnis nicht. Beim Verarbeiten von `var(--random-size)` wird dieser Ausdruck faktisch durch `random(1px, 100px)` ersetzt. Jede Verwendung erzeugt somit einen neuen `random()`-Funktionsaufruf mit einem eigenen Ausgangswert, der vom jeweiligen Kontext abhängt.
+In diesem Beispiel „speichert“ die benutzerdefinierte Eigenschaft `--random-size` das zufällig erzeugte Ergebnis nicht. Beim Verarbeiten von `var(--random-size)` wird der Ausdruck praktisch durch `random(1px, 100px)` ersetzt. Jede Verwendung erzeugt somit einen neuen `random()`-Funktionsaufruf mit einem eigenen, vom Verwendungskontext abhängigen Ausgangswert.
 
-Anders verhält es sich, wenn `random()` bei der Registrierung einer benutzerdefinierten Eigenschaft mit {{cssxref("@property")}} verwendet wird. Registrierte benutzerdefinierte Eigenschaften berechnen und speichern Zufallswerte.
+Anders verhält es sich, wenn `random()` bei der Registrierung einer benutzerdefinierten Eigenschaft mit {{cssxref("@property")}} verwendet wird. Registrierte benutzerdefinierte Eigenschaften berechnen Zufallswerte und speichern diese.
 
-Im folgenden Beispiel ist `--defaultSize` registriert. Daher sind `.a`, `.b` und `.c` gleich große Quadrate. Ihre Farben sind jedoch zufällig, da `--random-angle` nicht registriert wurde:
+Da `--defaultSize` im folgenden Beispiel registriert ist, werden `.a`, `.b` und `.c` zu gleich großen Quadraten. Ihre Farben sind jedoch zufällig, weil `--random-angle` nicht registriert wurde:
 
 ```css
 @property --defaultSize {
@@ -225,7 +223,7 @@ Im folgenden Beispiel ist `--defaultSize` registriert. Daher sind `.a`, `.b` und
 
 ## Barrierefreiheit
 
-Da `random()` einen unbekannten Wert innerhalb eines Bereichs erzeugen kann, haben Sie keine vollständige Kontrolle über das Ergebnis. Das kann zu Problemen mit der Barrierefreiheit führen. Wenn Sie beispielsweise mit `random()` eine Textfarbe erzeugen, könnte diese einen zu geringen Kontrast zum Hintergrund aufweisen. Achten Sie daher auf den Kontext, in dem Sie `random()` verwenden, und stellen Sie sicher, dass die Ergebnisse stets barrierefrei sind.
+Da `random()` einen unbekannten Wert innerhalb eines Bereichs erzeugen kann, haben Sie keine vollständige Kontrolle über das Ergebnis. Dies kann zu Barrieren führen. Wenn Sie beispielsweise mit `random()` eine Textfarbe erzeugen, könnte der Kontrast zum Hintergrund zu gering sein. Berücksichtigen Sie daher den Kontext, in dem `random()` verwendet wird, und stellen Sie sicher, dass die Ergebnisse stets barrierefrei sind.
 
 ## Formale Syntax
 
@@ -235,7 +233,7 @@ Da `random()` einen unbekannten Wert innerhalb eines Bereichs erzeugen kann, hab
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel erzeugen wir zufällige Farben für einige runde Abzeichen, um die grundlegende Verwendung der Funktion `random()` zu zeigen.
+In diesem Beispiel erzeugen wir zufällige Farben für einige runde Abzeichen, um die grundlegende Verwendung der Funktion `random()` zu demonstrieren.
 
 #### HTML
 
@@ -251,7 +249,7 @@ Wir fügen fünf Abzeichen ein: eines mit der Klasse `desaturated` und zwei mit 
 
 #### CSS
 
-Wir stellen die fünf Abzeichen als Kreise dar. Innerhalb einer {{cssxref("color_value/hsl()")}}-Farbfunktion verwenden wir `random()`, um den {{cssxref("angle")}} des {{cssxref("hue")}} festzulegen. Mit `property-scoped` verwenden das Standardabzeichen `badge` und das Abzeichen `desaturated` denselben zufälligen Ausgangswert. Letzteres erhält dadurch eine weniger gesättigte Variante desselben {{cssxref("hue")}}. Für die Abzeichen mit `unique` überschreiben wir diese Einstellung: Der Parameter für die gemeinsame Nutzung des Ausgangswerts bleibt auf dem Standardwert `auto`, sodass sie einen unabhängigen zufälligen `hue` erhalten.
+Wir stellen die fünf Abzeichen als Kreise dar. Innerhalb einer {{cssxref("color_value/hsl()")}}-Farbfunktion verwenden wir `random()`, um den {{cssxref("angle")}} des {{cssxref("hue")}} festzulegen. Mit `property-scoped` teilen sich das Standard-Abzeichen und das Abzeichen mit `desaturated` denselben zufälligen Ausgangswert. Letzteres ist dadurch eine weniger gesättigte Version desselben {{cssxref("hue")}}. Für die Abzeichen mit `unique` verwenden wir stattdessen den Standardwert `auto` für den Parameter zur gemeinsamen Nutzung des Ausgangswerts, sodass ihr `hue` unabhängig zufällig ist.
 
 ```css
 .badge {
@@ -285,9 +283,9 @@ Wir stellen die fünf Abzeichen als Kreise dar. Innerhalb einer {{cssxref("color
 
 {{EmbedLiveSample('Generate random colors for circular badge', '100%', '300px')}}
 
-### Gemeinsame Nutzung von Zufallswerten zwischen Eigenschaften
+### Gemeinsame Verwendung von Zufallswerten durch mehrere Eigenschaften
 
-In diesem Beispiel erstellen wir einen Sternenhintergrund. Er zeigt, wie sich ein `<dashed-ident>` mit `element-scoped` kombinieren lässt, um einen zufälligen Ausgangswert zwischen den Eigenschaften eines einzelnen Elements gemeinsam zu verwenden, ohne ihn mit anderen Elementen zu teilen.
+In diesem Beispiel erstellen wir einen Sternenhintergrund. Damit zeigen wir, wie sich ein `<dashed-ident>` mit `element-scoped` kombinieren lässt, sodass Eigenschaften innerhalb eines einzelnen Elements denselben zufälligen Ausgangswert verwenden, verschiedene Elemente jedoch nicht.
 
 #### HTML
 
@@ -303,7 +301,7 @@ Wir fügen fünf Partikel ein, die alle denselben Klassennamen haben.
 
 #### CSS
 
-Alle Partikel haben dieselben Styles. Mit der Funktion `random()` legen wir die Werte für {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("top")}} und {{cssxref("left")}} fest, um Größe und Position jedes Partikels zufällig zu bestimmen. Für `height` und `width` kombinieren wir ein `<dashed-ident>` mit `element-scoped`. Dadurch ist jedes Partikel ein Kreis (seine Höhe entspricht seiner Breite), dessen Größe unabhängig von den anderen bestimmt wird. Für `top` und `left` bleibt der Standardwert `auto` bestehen, sodass die Position auf jeder Achse unabhängig bestimmt wird.
+Alle Partikel haben dieselben Formatierungsregeln. Wir verwenden `random()` für die Werte von {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("top")}} und {{cssxref("left")}}, um Größe und Position jedes Partikels zufällig festzulegen. Für `height` und `width` kombinieren wir ein `<dashed-ident>` mit `element-scoped`. Dadurch ist jedes Partikel ein Kreis – seine Höhe entspricht seiner Breite –, seine Größe ist jedoch unabhängig von den anderen Partikeln. Für `top` und `left` bleibt der Standardwert `auto` bestehen, sodass jede Achse unabhängig positioniert wird.
 
 ```css
 body {

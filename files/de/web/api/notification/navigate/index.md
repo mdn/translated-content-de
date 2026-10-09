@@ -1,30 +1,30 @@
 ---
-title: "Benachrichtigung: navigate-Eigenschaft"
+title: "Notification: Eigenschaft navigate"
 short-title: navigate
 slug: Web/API/Notification/navigate
 l10n:
-  sourceCommit: 8a6e8b53625bddb3af2cf2fb927cb3e430b12ba2
+  sourceCommit: 74b73e8310d2ecfecd3e4a2aa21e5b54f43d7387
 ---
 
-{{APIRef("Web Notifications")}}{{securecontext_header}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`navigate`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle enthält die URL, zu der der User-Agent navigiert, wenn der Benutzer die Benachrichtigung aktiviert.
+Die schreibgeschützte Eigenschaft **`navigate`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) enthält die URL, zu der der User Agent navigiert, wenn der Benutzer die Benachrichtigung aktiviert.
 
-Dies ist der aufgelöste Wert der URL, falls eine angegeben wurde, die in der `navigate`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors oder in [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) festgelegt wurde.
+Dies ist der aufgelöste Wert der URL, sofern eine URL in der Option `navigate` des Konstruktors [`Notification()`](/de/docs/Web/API/Notification/Notification) oder von [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) angegeben wurde.
 
-Normalerweise löst das Aktivieren einer nicht persistenten Benachrichtigung das [`click`](/de/docs/Web/API/Notification/click_event) Ereignis auf ihrem [`Notification`](/de/docs/Web/API/Notification)-Objekt aus, und das Aktivieren einer persistenten Benachrichtigung löst das [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) Ereignis im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) aus.
+Normalerweise löst das Aktivieren einer nicht dauerhaften Benachrichtigung das Ereignis [`click`](/de/docs/Web/API/Notification/click_event) auf ihrem [`Notification`](/de/docs/Web/API/Notification)-Objekt aus. Das Aktivieren einer dauerhaften Benachrichtigung löst dagegen das Ereignis [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) aus.
 
-Wenn eine Benachrichtigung mit einer Navigations-URL vom Benutzer aktiviert wird, navigiert der User-Agent zu der angegebenen URL anstatt eines dieser Ereignisse auszulösen. Dies ermöglicht es Benachrichtigungen, Benutzer zu einer bestimmten Seite zu leiten, ohne dass ein Ereignishandler erforderlich ist.
+Wenn der Benutzer eine Benachrichtigung mit einer Navigations-URL aktiviert, navigiert der User Agent zur angegebenen URL, statt eines dieser Ereignisse auszulösen. So können Benachrichtigungen Benutzer zu einer bestimmten Seite führen, ohne dass ein Event-Handler erforderlich ist.
 
 ## Wert
 
-Ein String, der eine {{Glossary("URL", "URL")}} enthält, oder ein leerer String, falls keine Navigations-URL gesetzt wurde.
+Ein String, der eine {{Glossary("URL", "URL")}} enthält, oder ein leerer String, wenn keine Navigations-URL festgelegt wurde.
 
 ## Beispiele
 
-### Lesen des navigate-Eigenschaftswerts
+### Den Wert der Eigenschaft navigate auslesen
 
-Die `navigate`-Eigenschaft gibt den aufgelösten URL-String zurück, wenn eine Navigations-URL gesetzt wurde, oder einen leeren String andernfalls.
+Die Eigenschaft `navigate` gibt den aufgelösten URL-String zurück, wenn eine Navigations-URL festgelegt wurde, andernfalls einen leeren String.
 
 ```js
 const notification = new Notification("New message from Alice", {
@@ -40,9 +40,9 @@ const basic = new Notification("Hello!");
 console.log(basic.navigate); // ""
 ```
 
-### Verwendung von navigate mit einem Service Worker
+### navigate mit einem Service Worker verwenden
 
-Bei der Verwendung von persistenten Benachrichtigungen über einen Service Worker erlaubt die `navigate`-Option der Benachrichtigung, beim Aktivieren eine Seite zu öffnen, ohne dass das [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event)-Ereignis behandelt werden muss.
+Bei dauerhaften Benachrichtigungen über einen Service Worker ermöglicht die Option `navigate`, dass beim Aktivieren der Benachrichtigung eine Seite geöffnet wird, ohne dass das Ereignis [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) behandelt werden muss.
 
 ```js
 // Inside a service worker
@@ -63,5 +63,5 @@ self.registration.showNotification("Order shipped!", {
 ## Siehe auch
 
 - [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
-- [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor
+- Konstruktor [`Notification()`](/de/docs/Web/API/Notification/Notification)
 - [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)

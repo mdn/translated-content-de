@@ -1,28 +1,25 @@
 ---
-title: "RTCOutboundRtpStreamStats: totalEncodedBytesTarget-Eigenschaft"
+title: "RTCOutboundRtpStreamStats: Eigenschaft totalEncodedBytesTarget"
 short-title: totalEncodedBytesTarget
 slug: Web/API/RTCOutboundRtpStreamStats/totalEncodedBytesTarget
 l10n:
-  sourceCommit: 7f29fefe27ee8362a8b5f36255f942a2358cc8f8
+  sourceCommit: 74b73e8310d2ecfecd3e4a2aa21e5b54f43d7387
 ---
 
-{{APIRef("WebRTC")}}{{SeeCompatTable}}
+{{APIRef("WebRTC")}}{{non-standard_header}}
 
-Die **`totalEncodedBytesTarget`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs repräsentiert die Summe der Ziel-Frame-Größen für alle bisher enkodierten Frames.
+Die Eigenschaft **`totalEncodedBytesTarget`** des Dictionaries [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats) gibt die Summe der angestrebten Frame-Größen aller bisher codierten Frames an.
 
-Der Codec hat eine Ziel-Maximalgröße für jedes Frame, das er komprimieren soll, angegeben in Byte.
-Diese Eigenschaft zeigt die kumulative Gesamtsumme der Zielgrößen für jedes Frame zu einem bestimmten Zeitpunkt an.
-Sie wird wahrscheinlich von der Summe der tatsächlichen Frame-Größen abweichen.
-Sie können dies mit [`bytesSent`](/de/docs/Web/API/RTCOutboundRtpStreamStats/bytesSent) vergleichen, um abzuschätzen, wie genau der Codec seine Zielvorgaben einhält.
+Der Codec hat für jeden Frame, den er komprimieren soll, eine angestrebte maximale Größe in Bytes. Diese Eigenschaft gibt die kumulierte Summe der angestrebten Größen aller Frames zum aktuellen Zeitpunkt an. Sie wird sich wahrscheinlich von der Summe der tatsächlichen Frame-Größen unterscheiden. Sie können den Wert mit [`bytesSent`](/de/docs/Web/API/RTCOutboundRtpStreamStats/bytesSent) vergleichen, um abzuschätzen, wie genau der Codec die angestrebte Größe einhält.
 
-Der Wert erhöht sich jedes Mal, wenn [`framesEncoded`](/de/docs/Web/API/RTCOutboundRtpStreamStats/framesEncoded) zunimmt.
+Der Wert steigt jedes Mal, wenn [`framesEncoded`](/de/docs/Web/API/RTCOutboundRtpStreamStats/framesEncoded) zunimmt.
 
 > [!NOTE]
-> Die Eigenschaft ist für Audio-Streams nicht definiert.
+> Die Eigenschaft ist für Audiostreams nicht definiert.
 
 ## Wert
 
-Die Summe der Ziel-Frame-Größen in Byte, dargestellt als positive Ganzzahl.
+Die Summe der angestrebten Frame-Größen in Bytes, dargestellt als positive ganze Zahl.
 
 ## Spezifikationen
 
