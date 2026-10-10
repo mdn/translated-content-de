@@ -1,0 +1,34 @@
+name: Slash commands
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  # Add the 👀 reaction to the triggering comment.
+  issues: write
+  pull-requests: write
+
+jobs:
+  translate:
+    # Fires for both issue and PR comments, and runs on the default branch,
+    # so PR code cannot influence it.
+    if: startsWith(github.event.comment.body, '/translate')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/slash-command-dispatch@9bdcd7914ec1b75590b790b844aa3b8eee7c683a # v5.0.2
+        with:
+          # Needs `actions: write` on the translator repository (workflow_dispatch).
+          token: ${{ secrets.MDN_BOT_PAT }}
+          reaction-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: mdn/private-locale-translator
+          commands: translate
+          permission: write
+          issue-type: both
+          dispatch-type: workflow
+          # Targets `translate-command.yml` (command + `-command` suffix) in the
+          # translator repository. Named args become workflow inputs, e.g.
+          #   /translate slugs=Web/CSS/color,Web/API/Fetch_API/* force=true
+          #   /translate resume=<run-id>   (after a timeout, see the bot's reply)
+          static-args: |
+            issue-url=${{ github.event.issue.html_url }}
