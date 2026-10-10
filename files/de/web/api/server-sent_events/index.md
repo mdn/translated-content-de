@@ -2,25 +2,25 @@
 title: Server-sent events
 slug: Web/API/Server-sent_events
 l10n:
-  sourceCommit: 8a74d8feac267c1ddc37a4a8bc61e9aa8db75b12
+  sourceCommit: 47b1321d6cac5c7093583162c4cf73e015cc4905
 ---
 
 {{DefaultAPISidebar("Server Sent Events")}}{{AvailableInWorkers}}
 
-Traditionell muss eine Webseite eine Anfrage an den Server senden, um neue Daten zu erhalten; das heißt, die Seite fordert Daten vom Server an. Mit server-gesendeten Ereignissen ist es möglich, dass ein Server jederzeit neue Daten an eine Webseite sendet, indem er Nachrichten an die Webseite pusht. Diese eingehenden Nachrichten können innerhalb der Webseite als _[Events](/de/docs/Web/API/Event) + Daten_ behandelt werden.
+Traditionell muss eine Webseite eine Anfrage an den Server senden, um neue Daten zu empfangen. Das heißt, die Seite fordert Daten vom Server an. Mit Server-Sent Events kann ein Server jederzeit neue Daten an eine Webseite senden, indem er Nachrichten aktiv an sie überträgt. Diese eingehenden Nachrichten können innerhalb der Webseite als _[Events](/de/docs/Web/API/Event) + Daten_ behandelt werden.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Um zu lernen, wie man server-gesendete Ereignisse verwendet, lesen Sie unseren Artikel [Verwendung von server-gesendeten Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events).
+Wie Sie Server-Sent Events verwenden, erfahren Sie in unserem Artikel [Server-Sent Events verwenden](/de/docs/Web/API/Server-sent_events/Using_server-sent_events).
 
 ## Schnittstellen
 
 - [`EventSource`](/de/docs/Web/API/EventSource)
-  - : Definiert alle Funktionen, die das Verbinden mit einem Server, das Empfangen von Ereignissen/Daten, Fehlern, das Schließen einer Verbindung usw. verwalten.
+  - : Definiert alle Funktionen für die Verbindung mit einem Server, den Empfang von Events und Daten, die Behandlung von Fehlern, das Schließen einer Verbindung usw.
 
 ## Beispiele
 
-- [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events)
+- [Einfache SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events)
 
 ## Spezifikationen
 
@@ -30,20 +30,17 @@ Um zu lernen, wie man server-gesendete Ereignisse verwendet, lesen Sie unseren A
 
 ### Werkzeuge
 
-- [Mercure: ein Echtzeit-Kommunikationsprotokoll (Publish-Subscribe) basierend auf SSE](https://mercure.rocks/)
-- [Transmit: ein nativer, meinungsstarker Server-Sent-Event (SSE) Modul entwickelt für AdonisJS](https://docs.adonisjs.com/guides/digging-deeper/server-sent-events)
-- [EventSource Polyfill für Node.js](https://github.com/EventSource/eventsource)
-- Remy Sharps [EventSource Polyfill](https://github.com/remy/polyfills/blob/master/EventSource.js)
-- Yaffles [EventSource Polyfill](https://github.com/Yaffle/EventSource)
-- Rick Waldrons [jquery Plugin](https://github.com/rwaldron/jquery.eventsource)
-- intercooler.js [declarative SSE support](https://intercoolerjs.org/docs.html#sse)
+- [Mercure: ein auf SSE aufbauendes Echtzeit-Kommunikationsprotokoll (Publish-Subscribe)](https://mercure.rocks/)
+- [Transmit: ein natives, auf AdonisJS zugeschnittenes Server-Sent-Event-Modul (SSE)](https://docs.adonisjs.com/guides/digging-deeper/server-sent-events)
+- [EventSource-Polyfill für Node.js](https://github.com/EventSource/eventsource)
+- intercooler.js: [deklarative SSE-Unterstützung](https://intercoolerjs.org/docs.html#sse)
 
 ### Verwandte Themen
 
-- [Lernen: Netzwerk-Anfragen mit JavaScript machen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
+- [Lernen: Netzwerkanfragen mit JavaScript stellen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
 - [JavaScript](/de/docs/Web/JavaScript)
 - [WebSockets](/de/docs/Web/API/WebSockets_API)
 
-### Andere Ressourcen
+### Weitere Ressourcen
 
-- [Erstellung einer sozialen Wall/Feed-Anwendung](https://hacks.mozilla.org/2011/06/a-wall-powered-by-eventsource-and-server-sent-events/), unterstützt von server-gesendeten Ereignissen und [ihrem Code auf GitHub](https://github.com/mozilla/webowonder-demos/tree/master/demos/friends%20timeline).
+- [Erstellen einer sozialen Pinnwand- oder Feed-Anwendung](https://hacks.mozilla.org/2011/06/a-wall-powered-by-eventsource-and-server-sent-events/) mit Server-Sent Events und [der zugehörige Code auf GitHub](https://github.com/mozilla/webowonder-demos/tree/master/demos/friends%20timeline).

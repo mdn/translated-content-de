@@ -2,41 +2,43 @@
 title: ReadableStreamDefaultReader
 slug: Web/API/ReadableStreamDefaultReader
 l10n:
-  sourceCommit: 0ca040b6a9cfd931558bd1d3a402707abddc1924
+  sourceCommit: 47b1321d6cac5c7093583162c4cf73e015cc4905
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`ReadableStreamDefaultReader`**-Interface der [Streams-API](/de/docs/Web/API/Streams_API) repräsentiert einen Standardleser, der verwendet werden kann, um Daten aus einem Netzwerkstrom zu lesen (wie z.B. eine Fetch-Anfrage).
+Die Schnittstelle **`ReadableStreamDefaultReader`** der [Streams API](/de/docs/Web/API/Streams_API) stellt einen Standard-Reader dar, mit dem Stream-Daten gelesen werden können, die über ein Netzwerk bereitgestellt werden (beispielsweise durch eine Fetch-Anfrage).
 
-Ein `ReadableStreamDefaultReader` kann verwendet werden, um aus einem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen, das eine zugrunde liegende Quelle beliebigen Typs hat (im Gegensatz zu einem [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader), der nur mit Streams verwendet werden kann, die eine _zugrunde liegende Byte-Quelle_ haben).
+Ein `ReadableStreamDefaultReader` kann Daten aus einem [`ReadableStream`](/de/docs/Web/API/ReadableStream) mit einer zugrunde liegenden Quelle beliebigen Typs lesen. Im Gegensatz dazu kann ein [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) nur mit lesbaren Streams verwendet werden, die eine _zugrunde liegende Byte-Quelle_ haben.
 
-Beachten Sie jedoch, dass Zero-Copy-Transfer von einer zugrunde liegenden Quelle nur für zugrunde liegende Byte-Quellen unterstützt wird, die Puffer automatisch zuweisen. Mit anderen Worten, der Stream muss so [konstruiert](/de/docs/Web/API/ReadableStream/ReadableStream) worden sein, dass sowohl [`type="bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) als auch [`autoAllocateChunkSize`](/de/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize) angegeben sind. Für jede andere zugrunde liegende Quelle wird der Stream Leseanfragen immer mit Daten aus internen Warteschlangen befriedigen.
+Beachten Sie jedoch, dass eine Zero-Copy-Übertragung aus einer zugrunde liegenden Quelle nur für zugrunde liegende Byte-Quellen unterstützt wird, die Puffer automatisch zuweisen.
+Anders ausgedrückt: Der Stream muss unter Angabe sowohl von [`type="bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) als auch von [`autoAllocateChunkSize`](/de/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize) [erstellt](/de/docs/Web/API/ReadableStream/ReadableStream) worden sein.
+Bei allen anderen zugrunde liegenden Quellen bedient der Stream Leseanfragen stets mit Daten aus internen Warteschlangen.
 
 ## Konstruktor
 
 - [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader)
-  - : Erstellt und gibt eine `ReadableStreamDefaultReader`-Objektinstanz zurück.
+  - : Erstellt eine `ReadableStreamDefaultReader`-Objektinstanz und gibt sie zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`ReadableStreamDefaultReader.closed`](/de/docs/Web/API/ReadableStreamDefaultReader/closed) {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler wirft oder die Sperre des Lesers freigegeben wird. Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf ein Ende des Streaming-Prozesses reagiert.
+  - : Gibt eine {{jsxref("Promise")}} zurück, die erfüllt wird, wenn der Stream geschlossen wird, oder zurückgewiesen wird, wenn im Stream ein Fehler auftritt oder die Sperre des Readers freigegeben wird. Mit dieser Eigenschaft können Sie Code schreiben, der auf das Ende des Streaming-Vorgangs reagiert.
 
 ## Instanzmethoden
 
 - [`ReadableStreamDefaultReader.cancel()`](/de/docs/Web/API/ReadableStreamDefaultReader/cancel)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Das Aufrufen dieser Methode signalisiert einen Verlust des Interesses am Stream seitens des Konsumenten. Das übergebene `reason`-Argument wird der zugrunde liegenden Quelle übergeben, die es möglicherweise oder möglicherweise nicht verwendet.
+  - : Gibt eine {{jsxref("Promise")}} zurück, die aufgelöst wird, wenn der Stream abgebrochen wurde. Der Aufruf dieser Methode signalisiert, dass ein Verbraucher nicht mehr an dem Stream interessiert ist. Das übergebene Argument `reason` wird an die zugrunde liegende Quelle weitergegeben, die es verwenden kann, aber nicht muss.
 - [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read)
-  - : Gibt ein Promise zurück, das Zugriff auf das nächste Chunk in der internen Warteschlange des Streams bietet.
+  - : Gibt eine Promise zurück, die Zugriff auf den nächsten Datenblock in der internen Warteschlange des Streams bietet.
 - [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock)
-  - : Gibt die Sperre des Lesers auf den Stream frei.
+  - : Gibt die Sperre des Readers für den Stream frei.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine künstliche [`Response`](/de/docs/Web/API/Response) erstellt, um HTML-Fragmentstücke, die von einer anderen Ressource abgerufen wurden, an den Browser zu streamen.
+Im folgenden Beispiel wird eine künstliche [`Response`](/de/docs/Web/API/Response) erstellt, um HTML-Fragmente, die von einer anderen Ressource abgerufen werden, an den Browser zu streamen.
 
-Es demonstriert die Verwendung eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) in Kombination mit einem {{jsxref("Uint8Array")}}.
+Das Beispiel zeigt die Verwendung eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) zusammen mit einem {{jsxref("Uint8Array")}}.
 
 ```js
 fetch("https://www.example.org/").then((response) => {
@@ -78,7 +80,6 @@ fetch("https://www.example.org/").then((response) => {
 
 ## Siehe auch
 
-- [Konzepte der Streams-API](/de/docs/Web/API/Streams_API)
-- [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [Konzepte der Streams API](/de/docs/Web/API/Streams_API)
+- [Lesbare Streams verwenden](/de/docs/Web/API/Streams_API/Using_readable_streams)
 - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
-- [Web-streams-polyfill](https://github.com/MattiasBuelens/web-streams-polyfill)

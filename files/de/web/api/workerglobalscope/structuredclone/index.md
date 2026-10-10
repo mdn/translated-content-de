@@ -1,16 +1,17 @@
 ---
-title: "WorkerGlobalScope: structuredClone()-Methode"
+title: "WorkerGlobalScope: Methode structuredClone()"
 short-title: structuredClone()
 slug: Web/API/WorkerGlobalScope/structuredClone
 l10n:
-  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
+  sourceCommit: 47b1321d6cac5c7093583162c4cf73e015cc4905
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`structuredClone()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt eine {{Glossary("deep_copy", "tiefe Kopie")}} eines gegebenen Werts unter Verwendung des [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+Die Methode **`structuredClone()`** der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) erstellt mithilfe des [Structured-Clone-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) eine {{Glossary("deep_copy", "tiefe Kopie")}} eines übergebenen Werts.
 
-Die Methode ermöglicht es auch, [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert zu _übertragen_ statt sie in das neue Objekt zu klonen. Übertragene Objekte werden vom ursprünglichen Objekt abgelöst und dem neuen Objekt angehängt; sie sind im ursprünglichen Objekt nicht mehr zugänglich.
+Die Methode ermöglicht außerdem, [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert auf das neue Objekt zu _übertragen_, statt sie zu klonen.
+Übertragene Objekte werden vom ursprünglichen Objekt getrennt und dem neuen Objekt zugeordnet. Im ursprünglichen Objekt sind sie anschließend nicht mehr zugänglich.
 
 ## Syntax
 
@@ -23,11 +24,11 @@ structuredClone(value, options)
 
 - `value`
   - : Das zu klonende Objekt.
-    Dies kann jeder [strukturklonbare Typ](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) sein.
+    Dies kann jeder [strukturiert klonbare Typ](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) sein.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `transfer`
-      - : Ein Array von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die statt zu klonen in das zurückgegebene Objekt verschoben werden.
+      - : Ein Array von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die in das zurückgegebene Objekt verschoben statt geklont werden.
 
 ### Rückgabewert
 
@@ -40,11 +41,11 @@ Eine {{Glossary("deep_copy", "tiefe Kopie")}} des ursprünglichen `value`.
 
 ## Beschreibung
 
-Siehe [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone) für Details zu dieser Funktion.
+Weitere Informationen zu dieser Funktion finden Sie unter [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone).
 
 ## Beispiele
 
-Siehe [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone) für Beispiele.
+Beispiele finden Sie unter [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone).
 
 ## Spezifikationen
 
@@ -56,6 +57,5 @@ Siehe [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone) für
 
 ## Siehe auch
 
-- Ein [Polyfill von `structuredClone`](https://github.com/zloirock/core-js#structuredclone) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
-- [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
-- [Structured Clone Polyfill](https://github.com/ungap/structured-clone)
+- [Ein Polyfill für `structuredClone`](https://github.com/zloirock/core-js#structuredclone) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.
+- [Structured-Clone-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)

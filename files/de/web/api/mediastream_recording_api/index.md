@@ -2,35 +2,35 @@
 title: MediaStream Recording API
 slug: Web/API/MediaStream_Recording_API
 l10n:
-  sourceCommit: 937e773427bd62ab5b83ab13c62759053c2ca714
+  sourceCommit: 47b1321d6cac5c7093583162c4cf73e015cc4905
 ---
 
 {{DefaultAPISidebar("MediaStream Recording")}}
 
-Die **MediaStream Recording API**, manchmal auch als _Media Recording API_ oder _MediaRecorder API_ bezeichnet, ist eng verbunden mit der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) und der [WebRTC API](/de/docs/Web/API/WebRTC_API). Die MediaStream Recording API ermöglicht es, die von einem [`MediaStream`](/de/docs/Web/API/MediaStream) oder einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) erzeugten Daten für Analyse, Verarbeitung oder Speicherung auf der Festplatte zu erfassen. Sie ist auch überraschend einfach zu verwenden.
+Die **MediaStream Recording API**, manchmal auch als _Media Recording API_ oder _MediaRecorder API_ bezeichnet, ist eng mit der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) und der [WebRTC API](/de/docs/Web/API/WebRTC_API) verbunden. Mit der MediaStream Recording API können Sie die von einem [`MediaStream`](/de/docs/Web/API/MediaStream)- oder [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekt erzeugten Daten zur Analyse, Verarbeitung oder Speicherung auf einem Datenträger erfassen. Die API ist zudem überraschend einfach zu verwenden.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die MediaStream Recording API besteht aus einer einzigen Hauptschnittstelle, [`MediaRecorder`](/de/docs/Web/API/MediaRecorder), die die Aufgabe hat, die Daten von einem [`MediaStream`](/de/docs/Web/API/MediaStream) zu nehmen und sie Ihnen zur Verarbeitung bereitzustellen. Die Daten werden durch eine Reihe von [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) Ereignissen geliefert, bereits in dem von Ihnen bei der Erstellung des `MediaRecorder` angegebenen Format. Sie können die Daten dann weiterverarbeiten oder wie gewünscht auf eine Datei schreiben.
+Die MediaStream Recording API besteht im Wesentlichen aus einer Schnittstelle, [`MediaRecorder`](/de/docs/Web/API/MediaRecorder). Sie übernimmt die Daten aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) und stellt sie Ihnen zur Verarbeitung bereit. Die Daten werden über eine Reihe von [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignissen geliefert, bereits in dem Format, das Sie beim Erstellen des `MediaRecorder` festlegen. Anschließend können Sie die Daten nach Bedarf weiterverarbeiten oder in eine Datei schreiben.
 
-### Überblick über den Aufnahmeprozess
+### Überblick über den Aufnahmevorgang
 
-Der Prozess des Aufnehmens eines Streams ist einfach:
+Die Aufnahme eines Streams ist einfach:
 
-1. Richten Sie einen [`MediaStream`](/de/docs/Web/API/MediaStream) oder ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (in Form eines {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Elements) ein, um als Quelle der Mediendaten zu dienen.
-2. Erstellen Sie ein [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) Objekt und geben Sie den Quellstream sowie alle gewünschten Optionen an (z. B. den MIME-Typ des Containers oder die gewünschten Bitraten seiner Spuren).
-3. Setzen Sie [`ondataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) auf einen Ereignishandler für das [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) Ereignis; dies wird aufgerufen, wenn Daten für Sie verfügbar sind.
-4. Sobald das Quellmedium abgespielt wird und Sie bereit sind, Video aufzunehmen, rufen Sie [`MediaRecorder.start()`](/de/docs/Web/API/MediaRecorder/start) auf, um die Aufnahme zu starten.
-5. Ihr [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) Ereignishandler wird jedes Mal aufgerufen, wenn Daten bereit sind, die Sie nach Belieben verwenden können; das Ereignis hat ein `data` Attribut, dessen Wert ein [`Blob`](/de/docs/Web/API/Blob) ist, das die Mediendaten enthält. Sie können ein `dataavailable` Ereignis erzwingen, um sich den neuesten Klang liefern zu lassen, damit Sie ihn filtern, speichern oder was auch immer tun können.
-6. Die Aufnahme stoppt automatisch, wenn das Quellmedium nicht mehr abgespielt wird.
-7. Sie können die Aufnahme jederzeit durch einen Aufruf von [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) beenden.
+1. Richten Sie einen [`MediaStream`](/de/docs/Web/API/MediaStream) oder ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (als {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Element) als Quelle der Mediendaten ein.
+2. Erstellen Sie ein [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekt und geben Sie den Quell-Stream sowie die gewünschten Optionen an, etwa den MIME-Typ des Containers oder die gewünschten Bitraten seiner Tracks.
+3. Richten Sie mit [`ondataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) einen Event-Handler für das [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event)-Ereignis ein. Er wird aufgerufen, sobald Daten verfügbar sind.
+4. Wenn das Quellmedium abgespielt wird und Sie mit der Videoaufnahme beginnen möchten, rufen Sie [`MediaRecorder.start()`](/de/docs/Web/API/MediaRecorder/start) auf.
+5. Ihr Event-Handler für [`dataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event) wird jedes Mal aufgerufen, wenn Daten zur Verarbeitung bereitstehen. Das Ereignis besitzt ein `data`-Attribut, dessen Wert ein [`Blob`](/de/docs/Web/API/Blob) mit den Mediendaten ist. Sie können ein `dataavailable`-Ereignis auch gezielt auslösen, um die neuesten Audiodaten zu erhalten und sie beispielsweise zu filtern oder zu speichern.
+6. Die Aufnahme endet automatisch, wenn die Wiedergabe des Quellmediums endet.
+7. Sie können die Aufnahme jederzeit durch Aufrufen von [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) beenden.
 
 > [!NOTE]
-> Einzelne [`Blob`](/de/docs/Web/API/Blob)s, die Scheiben der aufgenommenen Medien enthalten, sind nicht unbedingt einzeln abspielbar. Die Medien müssen vor der Wiedergabe neu zusammengestellt werden.
+> Einzelne [`Blob`](/de/docs/Web/API/Blob)s mit Ausschnitten der aufgenommenen Medien lassen sich nicht unbedingt einzeln abspielen. Vor der Wiedergabe müssen die Mediendaten wieder zusammengesetzt werden.
 
-Wenn während der Aufnahme etwas schiefgeht, wird ein [`error`](/de/docs/Web/API/MediaRecorder/error_event) Ereignis an den `MediaRecorder` gesendet. Sie können auf `error` Ereignisse hören, indem Sie einen [`onerror`](/de/docs/Web/API/MediaRecorder/error_event) Ereignishandler einrichten.
+Falls während der Aufnahme ein Fehler auftritt, wird ein [`error`](/de/docs/Web/API/MediaRecorder/error_event)-Ereignis an den `MediaRecorder` gesendet. Sie können auf `error`-Ereignisse reagieren, indem Sie einen Event-Handler über [`onerror`](/de/docs/Web/API/MediaRecorder/error_event) einrichten.
 
-Im folgenden Beispiel verwenden wir ein HTML Canvas als Quelle des [`MediaStream`](/de/docs/Web/API/MediaStream) und beenden die Aufnahme nach 9 Sekunden.
+Im folgenden Beispiel verwenden wir ein HTML-Canvas als Quelle des [`MediaStream`](/de/docs/Web/API/MediaStream) und beenden die Aufnahme nach 9 Sekunden.
 
 ```js
 const canvas = document.querySelector("canvas");
@@ -77,17 +77,17 @@ setTimeout((event) => {
 }, 9000);
 ```
 
-### Überprüfen und Steuern des Recorder-Status
+### Status des Recorders prüfen und steuern
 
-Sie können auch die Eigenschaften des `MediaRecorder` Objekts verwenden, um den Status des Aufnahmeprozesses zu bestimmen, und seine Methoden [`pause()`](/de/docs/Web/API/MediaRecorder/pause) und [`resume()`](/de/docs/Web/API/MediaRecorder/resume), um die Aufnahme des Quellmediums zu pausieren und fortzusetzen.
+Sie können auch die Eigenschaften des `MediaRecorder`-Objekts verwenden, um den Status des Aufnahmevorgangs zu bestimmen. Mit den Methoden [`pause()`](/de/docs/Web/API/MediaRecorder/pause) und [`resume()`](/de/docs/Web/API/MediaRecorder/resume) können Sie die Aufnahme des Quellmediums pausieren und fortsetzen.
 
-Wenn Sie prüfen möchten, ob ein bestimmter MIME-Typ unterstützt wird, ist dies ebenfalls möglich. Rufen Sie einfach [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) auf.
+Sie können außerdem prüfen, ob ein bestimmter MIME-Typ unterstützt wird. Rufen Sie dazu [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) auf.
 
-### Überprüfen potenzieller Eingabequellen
+### Mögliche Eingabequellen prüfen
 
-Wenn Sie planen, Kamera- und/oder Mikrofoneingaben aufzuzeichnen, möchten Sie möglicherweise die verfügbaren Eingabegeräte überprüfen, bevor Sie mit dem Aufbau des `MediaRecorder` beginnen. Dazu müssen Sie [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufrufen, um eine Liste der verfügbaren Mediengeräte zu erhalten. Sie können dann diese Liste überprüfen und die potenziellen Eingabequellen identifizieren und sogar die Liste nach gewünschten Kriterien filtern.
+Wenn Sie Kamera- und/oder Mikrofoneingaben aufnehmen möchten, sollten Sie die verfügbaren Eingabegeräte prüfen, bevor Sie den `MediaRecorder` erstellen. Rufen Sie dazu [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) auf, um eine Liste der verfügbaren Mediengeräte zu erhalten. Anschließend können Sie die Liste durchsehen, mögliche Eingabequellen identifizieren und sie nach gewünschten Kriterien filtern.
 
-In diesem Code-Snippet wird `enumerateDevices()` verwendet, um die verfügbaren Eingabegeräte zu überprüfen, solche zu lokalisieren, die Audioeingabegeräte sind, und {{HTMLElement("option")}} Elemente zu erstellen, die dann einem {{HTMLElement("select")}} Element hinzugefügt werden, das einen Eingabequellen-Wähler darstellt.
+Im folgenden Codeausschnitt wird `enumerateDevices()` verwendet, um die verfügbaren Eingabegeräte zu prüfen, Audioeingabegeräte zu finden und {{HTMLElement("option")}}-Elemente zu erstellen. Diese werden dann einem {{HTMLElement("select")}}-Element hinzugefügt, mit dem sich eine Eingabequelle auswählen lässt.
 
 ```js
 navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -103,24 +103,24 @@ navigator.mediaDevices.enumerateDevices().then((devices) => {
 });
 ```
 
-Ähnlicher Code kann verwendet werden, um dem Benutzer zu ermöglichen, die Menge der Geräte einzuschränken, die er verwenden möchte.
+Mit ähnlichem Code können Sie Benutzerinnen und Benutzern ermöglichen, die Auswahl der Geräte einzuschränken, die sie verwenden möchten.
 
 ### Weitere Informationen
 
-Um mehr über die Verwendung der MediaStream Recording API zu lernen, lesen Sie [Using the MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API), das zeigt, wie Sie die API verwenden, um Audio-Clips aufzuzeichnen. Ein zweiter Artikel, [Recording a media element](/de/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element), beschreibt, wie man einen Stream von einem {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element empfängt und den erfassten Stream verwendet (in diesem Fall aufnehmen und auf einer lokalen Festplatte speichern).
+Weitere Informationen zur Verwendung der MediaStream Recording API finden Sie unter [Die MediaStream Recording API verwenden](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API). Der Artikel zeigt, wie Sie mit der API Audioclips aufnehmen. Ein zweiter Artikel, [Ein Medienelement aufnehmen](/de/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element), beschreibt, wie Sie einen Stream von einem {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Element erhalten und den erfassten Stream verwenden – in diesem Fall, indem Sie ihn aufnehmen und auf einem lokalen Datenträger speichern.
 
 ## Schnittstellen
 
 - [`BlobEvent`](/de/docs/Web/API/BlobEvent)
-  - : Jedes Mal, wenn ein Chunk von Mediendaten fertig aufgenommen wurde, wird es den Nutzern in [`Blob`](/de/docs/Web/API/Blob) Form über ein [`BlobEvent`](/de/docs/Web/API/BlobEvent) vom Typ `dataavailable` geliefert.
+  - : Sobald die Aufnahme eines Mediendatenabschnitts abgeschlossen ist, wird er über ein [`BlobEvent`](/de/docs/Web/API/BlobEvent) vom Typ `dataavailable` als [`Blob`](/de/docs/Web/API/Blob) an die Empfänger übermittelt.
 - [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)
-  - : Die primäre Schnittstelle, die die MediaStream Recording API implementiert.
+  - : Die zentrale Schnittstelle, die die MediaStream Recording API implementiert.
 - [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Die Schnittstelle, die Fehler darstellt, die von der MediaStream Recording API geworfen werden. Ihre [`error`](/de/docs/Web/API/MediaRecorderErrorEvent/error) Eigenschaft ist eine [`DOMException`](/de/docs/Web/API/DOMException), die den aufgetretenen Fehler spezifiziert.
+  - : Die Schnittstelle zur Darstellung von Fehlern, die von der MediaStream Recording API ausgelöst werden. Ihre [`error`](/de/docs/Web/API/MediaRecorderErrorEvent/error)-Eigenschaft ist eine [`DOMException`](/de/docs/Web/API/DOMException), die den aufgetretenen Fehler beschreibt.
 
 ## Beispiele
 
-### Grundlegende Videoaufnahme
+### Einfache Videoaufnahme
 
 ```html
 <button id="record-btn">Start</button>
@@ -170,7 +170,7 @@ recordBtn.addEventListener("click", async () => {
 });
 ```
 
-<!-- TODO: wieder aktivieren, wenn blob:-URLs durch CSP-Einstellungen erlaubt sind -->
+<!-- TODO: re-enable when blob: URLs are allowed by CSP settings -->
 <!-- {{EmbedLiveSample("Basic video recording", , "400", , , , "camera")}} -->
 
 ## Spezifikationen
@@ -183,12 +183,11 @@ recordBtn.addEventListener("click", async () => {
 
 ## Siehe auch
 
-- Startseite der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
+- Übersichtsseite zur [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
-- [simpl.info MediaStream Recording demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton)
-- [HTML5's Media Recorder API in Action on Chrome and Firefox](https://blog.addpipe.com/mediarecorder-api/)
-- [MediaRecorder Polyfill](https://github.com/ai/audio-recorder-polyfill) für Safari und Edge
-- [TutorRoom](https://github.com/chrisjohndigital/TutorRoom): HTML-Videoaufnahme/-wiedergabe/-download mit getUserMedia und der MediaStream Recording API ([Quelle auf GitHub](https://github.com/chrisjohndigital/TutorRoom))
-- [Fortgeschrittenes Media-Stream-Recorder-Beispiel](https://quickblox.github.io/javascript-media-recorder/sample/)
-- [OpenLang](https://github.com/chrisjohndigital/OpenLang): HTML-Video-Sprachlabor-Webanwendung unter Verwendung von MediaDevices und der MediaStream Recording API zur Videoaufzeichnung ([Quelle auf GitHub](https://github.com/chrisjohndigital/OpenLang))
-- [MediaStream Recorder API jetzt verfügbar in Safari Technology Preview 73](https://blog.addpipe.com/safari-technology-preview-73-adds-limited-mediastream-recorder-api-support/)
+- [simpl.info-Demo zur MediaStream-Aufnahme](https://simpl.info/mediarecorder/) von [Sam Dutton](https://github.com/samdutton)
+- [Die Media Recorder API von HTML5 im Einsatz in Chrome und Firefox](https://blog.addpipe.com/mediarecorder-api/)
+- [TutorRoom](https://github.com/chrisjohndigital/TutorRoom): Aufnehmen, Abspielen und Herunterladen von HTML-Videos mit getUserMedia und der MediaStream Recording API ([Quellcode auf GitHub](https://github.com/chrisjohndigital/TutorRoom))
+- [Fortgeschrittenes Beispiel für die Aufnahme von Medienstreams](https://quickblox.github.io/javascript-media-recorder/sample/)
+- [OpenLang](https://github.com/chrisjohndigital/OpenLang): Webanwendung für ein Videosprachlabor, die MediaDevices und die MediaStream Recording API zur Videoaufnahme verwendet ([Quellcode auf GitHub](https://github.com/chrisjohndigital/OpenLang))
+- [MediaStream Recorder API jetzt in Safari Technology Preview 73 verfügbar](https://blog.addpipe.com/safari-technology-preview-73-adds-limited-mediastream-recorder-api-support/)
