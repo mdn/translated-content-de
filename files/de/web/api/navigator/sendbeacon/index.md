@@ -1,19 +1,19 @@
 ---
-title: "Navigator: sendBeacon() Methode"
+title: "Navigator: sendBeacon()-Methode"
 short-title: sendBeacon()
 slug: Web/API/Navigator/sendBeacon
 l10n:
-  sourceCommit: e3b1390089160b88a74b2bed5445d9cf7cb7e436
+  sourceCommit: 54ff2391f79eb6e5ee706f3d06eb284f243f89d9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`navigator.sendBeacon()`**-Methode sendet {{Glossary("Asynchronous", "asynchron")}} eine [HTTP POST](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfrage mit einer kleinen Menge Daten an einen Webserver.
+Die Methode **`navigator.sendBeacon()`** sendet {{Glossary("Asynchronous", "asynchron")}} eine [HTTP-POST](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfrage mit einer kleinen Datenmenge an einen Webserver.
 
-Sie soll verwendet werden, um Analysedaten an einen Webserver zu senden und umgeht einige der Probleme mit älteren Techniken zum Senden von Analysedaten, wie z.B. die Verwendung von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
+Sie ist dafür vorgesehen, Analysedaten an einen Webserver zu senden. Dabei vermeidet sie einige Probleme älterer Verfahren, etwa die Verwendung von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
 
 > [!NOTE]
-> Für Anwendungsfälle, die die Möglichkeit erfordern, Anfragen mit anderen Methoden als `POST` zu senden, oder um irgendwelche Anfrageeigenschaften zu ändern, oder die Zugriff auf die Serverantwort benötigen, verwenden Sie stattdessen die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode mit [`keepalive`](/de/docs/Web/API/RequestInit#keepalive) auf true gesetzt.
+> Wenn Sie Anfragen mit anderen Methoden als `POST` senden, Anfrageeigenschaften ändern oder auf die Serverantwort zugreifen müssen, verwenden Sie stattdessen die Methode [`fetch()`](/de/docs/Web/API/Window/fetch) mit auf `true` gesetztem [`keepalive`](/de/docs/Web/API/RequestInit#keepalive).
 
 ## Syntax
 
@@ -25,41 +25,41 @@ sendBeacon(url, data)
 ### Parameter
 
 - `url`
-  - : Die URL, die die _Daten_ empfangen wird. Kann relativ oder absolut sein.
+  - : Die URL, an die die _Daten_ gesendet werden. Sie kann relativ oder absolut sein.
 - `data` {{Optional_inline}}
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein [`Blob`](/de/docs/Web/API/Blob), ein Zeichenkettenliteral oder Objekt, ein [`FormData`](/de/docs/Web/API/FormData)- oder ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt, das die zu sendenden Daten enthält. Die Gesamtgröße der aufgereihten Daten ist auf 64 KiB (65.536 Bytes) begrenzt.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, eine {{jsxref("DataView")}}, ein [`Blob`](/de/docs/Web/API/Blob), ein String-Literal oder -Objekt, ein [`FormData`](/de/docs/Web/API/FormData)- oder ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt mit den zu sendenden Daten. Die Gesamtgröße der zur Übertragung eingereihten Daten ist auf 64 KiB (65.536 Byte) begrenzt.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der {{Glossary("user_agent", "user agent")}} die `data` erfolgreich zur Übertragung in die Warteschlange gestellt hat. Andernfalls wird `false` zurückgegeben.
+Gibt `true` zurück, wenn der {{Glossary("user_agent", "User Agent")}} `data` erfolgreich zur Übertragung eingereiht hat. Andernfalls wird `false` zurückgegeben.
 
 ## Beschreibung
 
-Diese Methode richtet sich an Analysen und Diagnosecode, um Daten an einen Server zu senden.
+Diese Methode ist dafür vorgesehen, dass Analyse- und Diagnosecode Daten an einen Server sendet.
 
-Ein Problem beim Senden von Analysedaten ist, dass eine Website oft Analysedaten senden möchte, wenn der Benutzer mit einer Seite fertig ist: zum Beispiel, wenn der Benutzer zu einer anderen Seite navigiert. In dieser Situation könnte der Browser im Begriff sein, die Seite zu entladen, und in diesem Fall könnte der Browser sich entscheiden, keine asynchronen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Anfragen zu senden.
+Beim Senden von Analysedaten besteht häufig folgendes Problem: Eine Website möchte Daten senden, wenn der Benutzer eine Seite verlässt, beispielsweise um zu einer anderen Seite zu navigieren. In diesem Moment wird die Seite möglicherweise gerade entladen. Der Browser kann dann entscheiden, asynchrone [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Anfragen nicht mehr zu senden.
 
-In der Vergangenheit haben Webseiten versucht, das Entladen der Seite lange genug zu verzögern, um Daten zu senden. Dazu haben sie Workarounds verwendet wie:
+Früher versuchten Webseiten, das Entladen lange genug zu verzögern, um Daten zu senden. Dazu nutzten sie unter anderem folgende Behelfslösungen:
 
-- Das Einreichen der Daten mit einem blockierenden synchronen `XMLHttpRequest`-Aufruf.
-- Erstellen eines {{HTMLElement("img")}}-Elements und Festlegen seines `src`. Die meisten Benutzeragenten verzögern das Entladen, um das Bild zu laden.
-- Erstellen einer No-Op-Schleife für mehrere Sekunden.
+- Senden der Daten mit einem blockierenden, synchronen `XMLHttpRequest`-Aufruf.
+- Erstellen eines {{HTMLElement("img")}}-Elements und Setzen seines `src`. Die meisten User Agents verzögern das Entladen, um das Bild zu laden.
+- Ausführen einer Schleife ohne Wirkung für mehrere Sekunden.
 
-Alle diese Methoden blockieren das Entladen des Dokuments, was die Navigation zur nächsten Seite verlangsamt. Die nachfolgende Seite kann nichts dagegen tun, daher scheint die neue Seite langsam zu sein, obwohl es die Schuld der vorherigen Seite ist.
+Alle diese Verfahren blockieren das Entladen des Dokuments und verlangsamen dadurch die Navigation zur nächsten Seite. Die nächste Seite kann dies nicht verhindern und erscheint deshalb langsam, obwohl die Ursache bei der vorherigen Seite liegt.
 
-Mit der `sendBeacon()`-Methode werden die Daten asynchron übertragen, wenn der Benutzeragent die Gelegenheit dazu hat, ohne das Entladen oder die nächste Navigation zu verzögern. Das bedeutet:
+Mit der Methode `sendBeacon()` werden die Daten asynchron übertragen, sobald der User Agent Gelegenheit dazu hat, ohne das Entladen oder die nächste Navigation zu verzögern. Das bedeutet:
 
-- Die Daten werden zuverlässig gesendet
-- Sie werden asynchron gesendet
-- Sie beeinträchtigen nicht das Laden der nächsten Seite
+- Die Daten werden zuverlässig gesendet.
+- Sie werden asynchron gesendet.
+- Das Laden der nächsten Seite wird nicht beeinträchtigt.
 
-Die Daten werden als [HTTP POST](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfrage gesendet.
+Die Daten werden als [HTTP-POST](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfrage gesendet.
 
-Die Einschränkung besteht jedoch darin, dass die Payload-Größe auf etwa 64 KiB begrenzt ist. Für größere Datenübertragungen sollte `fetch()` in Betracht gezogen werden.
+Allerdings ist die Größe der Nutzdaten auf etwa 64 KiB begrenzt. Für die Übertragung größerer Datenmengen sollten Sie stattdessen `fetch()` verwenden.
 
 ### Analysedaten am Ende einer Sitzung senden
 
-Websites möchten oft Analysen oder Diagnosen an den Server senden, wenn der Benutzer mit der Seite fertig ist. Die zuverlässigste Methode, dies zu tun, besteht darin, die Daten beim [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis zu senden:
+Websites möchten häufig Analyse- oder Diagnosedaten an den Server senden, wenn der Benutzer eine Seite nicht mehr verwendet. Am zuverlässigsten geschieht dies beim Ereignis [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event):
 
 ```js
 document.addEventListener("visibilitychange", () => {
@@ -69,25 +69,23 @@ document.addEventListener("visibilitychange", () => {
 });
 ```
 
-#### Vermeiden Sie unload und beforeunload
+#### Ältere Ereignisse
 
-In der Vergangenheit haben viele Websites die [`unload`](/de/docs/Web/API/Window/unload_event)- oder [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignisse verwendet, um Analysedaten am Ende einer Sitzung zu senden. Dies ist jedoch äußerst unzuverlässig. In vielen Situationen, insbesondere auf mobilen Geräten, wird der Browser die `unload`, `beforeunload` oder `pagehide`-Ereignisse nicht auslösen. Zum Beispiel werden diese Ereignisse in der folgenden Situation nicht ausgelöst:
+Früher verwendeten viele Websites die Ereignisse [`unload`](/de/docs/Web/API/Window/unload_event), [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) oder [`pagehide`](/de/docs/Web/API/Window/pagehide_event), um am Ende einer Sitzung Analysedaten zu senden. Das ist jedoch unzuverlässig. In vielen Situationen, insbesondere auf Mobilgeräten, löst der Browser diese Ereignisse nicht aus. Beispielsweise werden sie in folgender Situation nicht ausgelöst:
 
 1. Der Benutzer lädt die Seite und interagiert mit ihr.
-2. Wenn er fertig ist, wechselt er zu einer anderen App, anstatt den Tab zu schließen.
-3. Später schließt er die Browser-App über den App-Manager des Telefons.
+2. Anschließend wechselt er zu einer anderen App, statt den Tab zu schließen.
+3. Später schließt er die Browser-App über die App-Verwaltung des Telefons.
 
-Zusätzlich ist das `unload`-Ereignis mit dem Vorwärts-/Rückwärts-Cache ([bfcache](https://web.dev/articles/bfcache)) in modernen Browsern unvereinbar. Einige Browser, wie Firefox, behandeln diese Inkompatibilität, indem sie Seiten vom bfcache ausschließen, wenn sie unload-Handler enthalten, was die Leistung beeinträchtigt. Andere, wie Safari und Chrome auf Android, behandeln es, indem sie das `unload`-Ereignis nicht auslösen, wenn der Benutzer zu einer anderen Seite im selben Tab navigiert.
+Außerdem ist das Ereignis `unload` nicht mit dem in modernen Browsern implementierten Back/Forward-Cache ([bfcache](https://web.dev/articles/bfcache)) kompatibel. Einige Browser, darunter Firefox, schließen Seiten mit `unload`-Handlern deshalb vom bfcache aus, was die Leistung beeinträchtigt. Andere, darunter Safari und Chrome unter Android, lösen das Ereignis `unload` nicht aus, wenn der Benutzer im selben Tab zu einer anderen Seite navigiert.
 
-Firefox schließt Seiten auch vom bfcache aus, wenn sie `beforeunload`-Handler enthalten.
+Firefox schließt auch Seiten mit `beforeunload`-Handlern vom bfcache aus.
 
-#### Verwenden Sie pagehide als Fallback
-
-Um Browser zu unterstützen, die `visibilitychange` nicht implementieren, verwenden Sie das [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignis. Wie `beforeunload` und `unload` wird dieses Ereignis nicht zuverlässig ausgelöst, insbesondere auf mobilen Geräten. Es ist jedoch mit dem bfcache kompatibel.
+Das Ereignis `pagehide` ist weniger problematisch als `unload` oder `beforeunload`, da es mit dem bfcache kompatibel ist. Es weist jedoch dieselben Zuverlässigkeitsprobleme wie die beiden anderen Ereignisse auf. Wir empfehlen Entwicklern daher, auch dieses Ereignis zu vermeiden und ausschließlich `visibilitychange` zu verwenden.
 
 ## Beispiele
 
-Das folgende Beispiel spezifiziert einen Handler für das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis. Der Handler ruft `sendBeacon()` auf, um Analysedaten zu senden.
+Das folgende Beispiel legt einen Handler für das Ereignis [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) fest. Der Handler ruft `sendBeacon()` auf, um Analysedaten zu senden.
 
 ```js
 document.addEventListener("visibilitychange", () => {
@@ -107,9 +105,9 @@ document.addEventListener("visibilitychange", () => {
 
 ## Siehe auch
 
-- Das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis.
-- [Beacon API](/de/docs/Web/API/Beacon_API) Übersichtsseite.
-- [Verlieren Sie nicht den Benutzer- und Anwendungszustand, verwenden Sie die Seitensichtbarkeit](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erklärt ausführlich, warum Sie `visibilitychange` und nicht `beforeunload`/`unload` verwenden sollten.
-- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet Leitlinien für Best Practices im Umgang mit Seitensichtbarkeitsverhalten in Ihren Webanwendungen.
-- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): eine JavaScript-Bibliothek, die sich mit inkonsistentem Seitensichtbarkeitsverhalten zwischen verschiedenen Browsern befasst.
-- [Back/forward cache](https://web.dev/articles/bfcache) erklärt, was der Vorwärts-/Rückwärts-Cache ist und seine Auswirkungen auf verschiedene Seitensichtbarkeitsereignisse.
+- Das Ereignis [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event).
+- Die Übersichtsseite zur [Beacon API](/de/docs/Web/API/Beacon_API).
+- [Don't lose user and app state, use Page Visibility](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erklärt ausführlich, warum Sie `visibilitychange` statt `beforeunload`/`unload` verwenden sollten.
+- Die [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet Empfehlungen zum Umgang mit dem Lebenszyklus von Seiten in Ihren Webanwendungen.
+- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle) ist eine JavaScript-Bibliothek, die Unterschiede zwischen Browsern beim Lebenszyklus von Seiten berücksichtigt.
+- [Back/forward cache](https://web.dev/articles/bfcache) erklärt, was der Back/Forward-Cache ist und welche Auswirkungen er auf verschiedene Ereignisse im Lebenszyklus einer Seite hat.
