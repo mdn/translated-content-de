@@ -3,16 +3,18 @@ title: "Notification: badge-Eigenschaft"
 short-title: badge
 slug: Web/API/Notification/badge
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: 922949d1d9793e97e4cf9f2513a967e74b0171cf
 ---
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`badge`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle liefert eine Zeichenkette, die die URL eines Bildes enthält, das die Benachrichtigung repräsentiert, wenn nicht genug Platz vorhanden ist, um die Benachrichtigung selbst anzuzeigen, wie zum Beispiel bei der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Badge Bilder bis zu einer Auflösung von 4x, etwa 96 mal 96 Pixel, unterstützen, und das Bild wird automatisch maskiert.
+Die schreibgeschützte Eigenschaft **`badge`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) gibt einen String zurück, der die URL eines kleinen Symbols enthält, das die Webanwendung selbst repräsentiert. Die Plattform verwendet dieses Symbol, wenn nicht genügend Platz vorhanden ist, um die vollständige Benachrichtigung anzuzeigen – beispielsweise in einer Statusleiste. Unter Android sollte das Symbol eine bis zu vierfache Anzeigeauflösung unterstützen (etwa 96 × 96 px). Das Bild wird automatisch auf eine monochrome Silhouette maskiert.
+
+Eine Gegenüberstellung der drei Bildoptionen finden Sie unter [Benachrichtigungen mit verschiedenen Bildern](/de/docs/Web/API/ServiceWorkerRegistration/showNotification#notifications_with_different_images).
 
 ## Wert
 
-Eine Zeichenkette, die eine URL enthält.
+Ein String, der eine URL enthält.
 
 ## Spezifikationen
 

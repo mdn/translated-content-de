@@ -1,14 +1,16 @@
 ---
-title: "Notification: icon-Eigenschaft"
+title: "Notification: Eigenschaft icon"
 short-title: icon
 slug: Web/API/Notification/icon
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: 922949d1d9793e97e4cf9f2513a967e74b0171cf
 ---
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`icon`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces enthält die URL eines Symbols, das als Teil der Benachrichtigung angezeigt werden soll, wie im `icon`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die schreibgeschützte Eigenschaft **`icon`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) gibt einen String mit der URL eines kleinen Bildes zurück, das die Benachrichtigung ergänzt – beispielsweise ein App-Logo oder ein Foto der Person, die die Nachricht gesendet hat. Das Bild wird neben dem Titel und dem Text der Benachrichtigung angezeigt.
+
+Unter [Benachrichtigungen mit verschiedenen Bildern](/de/docs/Web/API/ServiceWorkerRegistration/showNotification#notifications_with_different_images) finden Sie einen Vergleich der drei Bildoptionen.
 
 ## Wert
 
@@ -16,7 +18,7 @@ Ein String.
 
 ## Beispiele
 
-In unserer [To-do-Liste-App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([sehen Sie die App live](https://mdn.github.io/dom-examples/to-do-notifications/)) verwenden wir den [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor, um eine Benachrichtigung auszulösen. Dabei übergeben wir Argumente, um den gewünschten Text, das Symbol und den Titel festzulegen.
+In unserer [To-do-Listen-App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([App live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)) verwenden wir den Konstruktor [`Notification()`](/de/docs/Web/API/Notification/Notification), um eine Benachrichtigung auszulösen. Dabei übergeben wir Argumente, mit denen wir den gewünschten Text, das Symbol und den Titel festlegen.
 
 ```js
 const notification = new Notification("To do list", {

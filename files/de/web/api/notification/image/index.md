@@ -3,12 +3,14 @@ title: "Notification: image-Eigenschaft"
 short-title: image
 slug: Web/API/Notification/image
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: 922949d1d9793e97e4cf9f2513a967e74b0171cf
 ---
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`image`** schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces enthält die URL eines Bildes, das als Teil der Benachrichtigung angezeigt werden soll, wie im `image`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die schreibgeschützte Eigenschaft **`image`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) gibt einen String mit der URL eines großen Bildes zurück, das im Inhalt der Benachrichtigung angezeigt wird – beispielsweise ein Nachrichtenfoto oder ein Produktvorschaubild. Von den drei Bildoptionen (`image`, `icon`, `badge`) hat sie die höchste visuelle Priorität.
+
+Einen Vergleich der drei Bildoptionen finden Sie unter [Benachrichtigungen mit unterschiedlichen Bildern](/de/docs/Web/API/ServiceWorkerRegistration/showNotification#notifications_with_different_images).
 
 ## Wert
 
