@@ -1,16 +1,16 @@
 ---
-title: "IDBObjectStore: getAllRecords()-Methode"
+title: "IDBObjectStore: Methode getAllRecords()"
 short-title: getAllRecords()
 slug: Web/API/IDBObjectStore/getAllRecords
 l10n:
-  sourceCommit: ad01ed9218be15d7aeaa0666ec0bc2a2d17f3574
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Die **`getAllRecords()`**-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle ruft alle Datensätze (einschließlich Primärschlüssel und Werte) aus dem Object Store ab.
+Die Methode **`getAllRecords()`** der Schnittstelle [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) ruft alle Datensätze (einschließlich Primärschlüsseln und Werten) aus dem Objektspeicher ab.
 
-`getAllRecords()` kombiniert effektiv die Funktionalität von [`getAllKeys()`](/de/docs/Web/API/IDBObjectStore/getAllKeys) und [`getAll()`](/de/docs/Web/API/IDBObjectStore/getAll), indem es sowohl Primärschlüssel als auch Werte gleichzeitig auflistet. Diese kombinierte Operation ermöglicht es bestimmten Datenabrufmustern, erheblich schneller zu sein als Alternativen wie das Iterieren mit Cursors.
+`getAllRecords()` kombiniert die Funktionalität von [`getAllKeys()`](/de/docs/Web/API/IDBObjectStore/getAllKeys) und [`getAll()`](/de/docs/Web/API/IDBObjectStore/getAll), indem Primärschlüssel und Werte gleichzeitig aufgelistet werden. Durch diese kombinierte Operation können bestimmte Datenzugriffe deutlich schneller sein als Alternativen wie die Iteration mit Cursorn.
 
 ## Syntax
 
@@ -21,34 +21,33 @@ getAllRecords(options)
 
 ### Parameter
 
-Ein Optionsobjekt, dessen Eigenschaften Folgendes einschließen können:
+Ein Optionsobjekt, das folgende Eigenschaften enthalten kann:
 
 - `query` {{optional_inline}}
-  - : Ein Schlüssel oder ein [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange), der die abzurufenden Datensätze identifiziert. Wenn dieser Wert `null` ist oder nicht angegeben wird, verwendet der Browser einen ungebundenen Schlüsselbereich.
+  - : Ein Schlüssel oder eine [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange), mit dem bzw. der die abzurufenden Datensätze angegeben werden. Ist dieser Wert `null` oder nicht angegeben, verwendet der Browser einen unbegrenzten Schlüsselbereich.
 - `count` {{optional_inline}}
-  - : Die Anzahl der zurückzugebenden Datensätze. Wenn dieser Wert die Anzahl der Datensätze in der Abfrage übersteigt, ruft der Browser nur die abgefragten Datensätze ab. Wenn der Wert kleiner als `0` oder größer als `2^32 - 1` ist, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+  - : Die Anzahl der zurückzugebenden Datensätze. Übersteigt dieser Wert die Anzahl der Datensätze, die der Abfrage entsprechen, ruft der Browser nur die entsprechenden Datensätze ab. Ist der Wert kleiner als `0` oder größer als `2^32 - 1`, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 - `direction` {{optional_inline}}
-  - : Ein enumerierter Wert, der die Richtung angibt, in der die Datensätze durchlaufen werden, was wiederum die Reihenfolge definiert, in der sie zurückgegeben werden. Mögliche Werte sind:
+  - : Ein Aufzählungswert, der die Richtung angibt, in der die Datensätze durchlaufen werden, und damit ihre Rückgabereihenfolge bestimmt. Mögliche Werte sind:
     - `next`
-      - : Die Datensätze werden vom Anfang in aufsteigender Schlüsselreihenfolge durchlaufen. Dies ist der Standardwert.
+      - : Die Datensätze werden vom Anfang an in aufsteigender Schlüsselreihenfolge durchlaufen. Dies ist der Standardwert.
     - `nextunique`
-      - : Die Datensätze werden vom Anfang in aufsteigender Schlüsselreihenfolge durchlaufen. Dies liefert die gleichen Datensätze wie `next`, da doppelte Schlüssel in `IDBObjectStore`s nicht erlaubt sind.
+      - : Die Datensätze werden vom Anfang an in aufsteigender Schlüsselreihenfolge durchlaufen. Dabei werden dieselben Datensätze wie bei `next` zurückgegeben, da doppelte Schlüssel in `IDBObjectStore`-Instanzen nicht zulässig sind.
     - `prev`
-      - : Die Datensätze werden vom Ende in absteigender Schlüsselreihenfolge durchlaufen.
+      - : Die Datensätze werden vom Ende an in absteigender Schlüsselreihenfolge durchlaufen.
     - `prevunique`
-      - : Die Datensätze werden vom Ende in absteigender Schlüsselreihenfolge durchlaufen. Dies liefert die gleichen Datensätze wie `prev`, da doppelte Schlüssel in `IDBObjectStore`s nicht erlaubt sind.
+      - : Die Datensätze werden vom Ende an in absteigender Schlüsselreihenfolge durchlaufen. Dabei werden dieselben Datensätze wie bei `prev` zurückgegeben, da doppelte Schlüssel in `IDBObjectStore`-Instanzen nicht zulässig sind.
 
 ### Rückgabewert
 
-Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse in Bezug auf diese Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, an dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage ein {{jsxref("Array", "Array")}} von [`IDBRecord`](/de/docs/Web/API/IDBRecord)-Instanzen, die alle Datensätze repräsentieren, die mit der angegebenen Abfrage übereinstimmen, bis zur durch `count` (falls angegeben) spezifizierten Anzahl.
+Ist die Operation erfolgreich, enthält die Eigenschaft [`result`](/de/docs/Web/API/IDBRequest/result) der Anfrage ein {{jsxref("Array", "Array")}} aus [`IDBRecord`](/de/docs/Web/API/IDBRecord)-Instanzen. Diese stellen alle Datensätze dar, die der angegebenen Abfrage entsprechen, höchstens jedoch die durch `count` festgelegte Anzahl (falls angegeben).
 
 Jede [`IDBRecord`](/de/docs/Web/API/IDBRecord)-Instanz enthält die folgenden Eigenschaften:
 
 - `key`
-  - : Ein Wert, der den Schlüssel des Datensatzes darstellt.
-    Dies ist identisch mit der `primaryKey`-Eigenschaft.
+  - : Ein Wert, der den Schlüssel des Datensatzes darstellt. Er ist mit der Eigenschaft `primaryKey` identisch.
 - `primaryKey`
   - : Der Primärschlüssel des Datensatzes.
 - `value`
@@ -56,22 +55,22 @@ Jede [`IDBRecord`](/de/docs/Web/API/IDBRecord)-Instanz enthält die folgenden Ei
 
 ### Ausnahmen
 
-Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen erzeugen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) inaktiv ist.
-- {{jsxref("TypeError")}} [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`count`](#count)-Parameter nicht zwischen `0` und `2^32 - 1` liegt, einschließlich.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Parameter [`count`](#count) nicht im Bereich von `0` bis einschließlich `2^32 - 1` liegt.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel fragt einen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) nach maximal 100 Datensätzen ab, deren Schlüssel nach `"myKey"` kommen, wobei die Ergebnisse in umgekehrter Reihenfolge sortiert werden.
+Dieses Beispiel fragt einen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) nach bis zu 100 Datensätzen ab, deren Schlüssel nach `"myKey"` liegen. Die Ergebnisse werden in umgekehrter Reihenfolge sortiert.
 
-Der Code erstellt zuerst eine Transaktion in einer [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) namens `db` (ohne den Code zum Öffnen der Datenbank zu nennen) und verwendet sie dann, um einen `IDBObjectStore` mit einer Kontaktliste abzurufen. Anschließend ruft er `getAllRecords()` auf dem Object Store auf, wobei eine Instanz von [`IDBRequest`](/de/docs/Web/API/IDBRequest) zurückgegeben wird. Ereignis-Listener werden zu dieser Anfrage für die `success`- und `error`-Ereignisse hinzugefügt. Bei Erfolg wird das Ergebnis `event.target.result` protokolliert (dies ist auch als `request.result` verfügbar). Dieses Ergebnis enthält ein Array von `IDBRecord`-Instanzen. Beachten Sie, dass, da dies eine Abfrage in einem `IDBObjectStore` ist, der `key` und der `primaryKey` in jedem Datensatz denselben Wert haben.
+Der Code erstellt zunächst eine Transaktion für eine [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) namens `db` (der Code zum Öffnen der Datenbank ist ausgelassen) und greift damit auf einen `IDBObjectStore` zu, der eine Kontaktliste enthält. Anschließend ruft er `getAllRecords()` für den Objektspeicher auf und erhält eine [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Instanz. Für diese Anfrage werden Event-Listener für die Ereignisse `success` und `error` hinzugefügt. Bei Erfolg wird das Ergebnis `event.target.result` protokolliert (es ist auch als `request.result` verfügbar). Dieses Ergebnis enthält ein Array von `IDBRecord`-Instanzen. Da die Abfrage für einen `IDBObjectStore` ausgeführt wird, haben `key` und `primaryKey` in jedem Datensatz denselben Wert.
 
 ```js
 // Create a transaction on the database and use it to get the contained store
@@ -107,10 +106,10 @@ request.addEventListener("error", (event) => {
 ## Siehe auch
 
 - [`IDBObjectStore.getAll()`](/de/docs/Web/API/IDBObjectStore/getAll), [`IDBObjectStore.getAllKeys()`](/de/docs/Web/API/IDBObjectStore/getAllKeys)
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- [Schnellere IndexedDB-Lesevorgänge mit dem getAllRecords()-Beispiel](https://microsoftedge.github.io/Demos/idb-getallrecords/) von Microsoft, 2025
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Cursor verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- [Beispiel für schnelleres Lesen aus IndexedDB mit getAllRecords()](https://microsoftedge.github.io/Demos/idb-getallrecords/) von Microsoft, 2025

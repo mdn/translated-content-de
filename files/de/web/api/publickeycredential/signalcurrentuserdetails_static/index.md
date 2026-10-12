@@ -1,16 +1,16 @@
 ---
-title: "PublicKeyCredential: signalCurrentUserDetails() statische Methode"
+title: "PublicKeyCredential: Statische Methode signalCurrentUserDetails()"
 short-title: signalCurrentUserDetails()
 slug: Web/API/PublicKeyCredential/signalCurrentUserDetails_static
 l10n:
-  sourceCommit: a060aa315813bd1e69e4a43d7aed241f649e7e0d
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`signalCurrentUserDetails()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces signalisiert dem Authentifikator, dass ein bestimmter Benutzer seinen Benutzernamen und/oder Anzeigenamen auf dem [relying party (RP)](https://en.wikipedia.org/wiki/Relying_party)-Server aktualisiert hat.
+Die statische Methode **`signalCurrentUserDetails()`** der Schnittstelle [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) signalisiert dem Authenticator, dass ein bestimmter Benutzer seinen Benutzernamen und/oder Anzeigenamen auf dem Server der [Relying Party](https://en.wikipedia.org/wiki/Relying_party) (RP) aktualisiert hat.
 
-Dies ermöglicht es dem Authentifikator, Benutzerkontodaten zu aktualisieren, um sicherzustellen, dass sie mit denen der RP synchron bleiben. Es sollte nur verwendet werden, wenn der aktuelle Benutzer authentifiziert ist – nach dem Einloggen oder wenn er die mit seinen Anmeldeinformationen auf der RP-Webanwendung verbundenen Metadaten ändert.
+Dadurch kann der Authenticator die Benutzerkontodaten aktualisieren, damit sie mit den bei der RP gespeicherten Daten übereinstimmen. Die Methode sollte nur verwendet werden, wenn der aktuelle Benutzer authentifiziert ist – nach der Anmeldung oder wenn er die Metadaten seiner Anmeldedaten in der Webanwendung der RP ändert.
 
 ## Syntax
 
@@ -21,42 +21,42 @@ signalCurrentUserDetails(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das die aktualisierten Benutzerinformationen darstellt und die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den aktualisierten Benutzerinformationen, das die folgenden Eigenschaften enthält:
     - `displayName`
-      - : Ein String, der den aktualisierten Benutzer-[`displayName`](/de/docs/Web/API/PublicKeyCredentialCreationOptions#displayname) darstellt.
+      - : Ein String, der den aktualisierten [`displayName`](/de/docs/Web/API/PublicKeyCredentialCreationOptions#displayname) des Benutzers enthält.
     - `name`
-      - : Ein String, der den aktualisierten Benutzer-[`name`](/de/docs/Web/API/PublicKeyCredentialCreationOptions#name_2) darstellt.
+      - : Ein String, der den aktualisierten [`name`](/de/docs/Web/API/PublicKeyCredentialCreationOptions#name_2) des Benutzers enthält.
     - `rpId`
-      - : Ein String, der die [`id` der RP](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_2) darstellt, die das Signal gesendet hat.
+      - : Ein String, der die [`id` der RP](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_2) enthält, die das Signal gesendet hat.
     - `userId`
-      - : Ein base64url-kodierter String, der die [`id` des Benutzers](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_3) darstellt, auf den sich die Anmeldeinformationen beziehen.
+      - : Ein base64url-kodierter String, der die [`id` des Benutzers](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_3) enthält, zu dem die Anmeldedaten gehören.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu {{jsxref("undefined")}} auflöst.
+Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird.
 
 ### Ausnahmen
 
-Das Promise wird mit den folgenden Ausnahmen abgelehnt:
+Das Promise wird mit einer der folgenden Ausnahmen zurückgewiesen:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die RP-Domain ist nicht gültig.
-- `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die `credentialId` ist kein gültiger base64url-kodierter String.
+  - : Die Domain der RP ist ungültig.
+- {{jsxref("TypeError")}}
+  - : `credentialId` ist kein gültiger base64url-kodierter String.
 
 ## Beschreibung
 
-Es ist möglich, dass die in einem Benutzerauthentifikator gespeicherten Informationen zu einem [auffindbaren Anmeldedaten](/de/docs/Web/API/Web_Authentication_API#discoverable_and_non-discoverable_credentials) (z. B. ein [Passkey](/de/docs/Web/Security/Authentication/Passkeys)) nicht mehr mit dem Server übereinstimmen. Dies kann auftreten, wenn der Benutzer seinen Benutzernamen oder Anzeigenamen in der RP-Webanwendung aktualisiert, ohne den Authentifikator zu aktualisieren.
+Die Informationen, die im Authenticator eines Benutzers über eine [auffindbare Anmeldeinformation](/de/docs/Web/API/Web_Authentication_API#discoverable_and_non-discoverable_credentials) (beispielsweise einen [Passkey](/de/docs/Web/Security/Authentication/Passkeys)) gespeichert sind, können vom Stand auf dem Server abweichen. Das kann passieren, wenn der Benutzer seinen Benutzernamen oder Anzeigenamen in der Webanwendung der RP aktualisiert, ohne den Authenticator zu aktualisieren.
 
-Das nächste Mal, wenn der Benutzer versucht, sich mit einem auffindbaren Anmeldedatum anzumelden, wird ihm das Anmeldedatum immer noch mit dem alten Benutzernamen/Anzeigenamen in der entsprechenden Benutzeroberfläche angezeigt, was zu einer verwirrenden Benutzererfahrung führen kann.
+Wenn sich der Benutzer das nächste Mal mit einer auffindbaren Anmeldeinformation anmelden möchte, wird sie ihm in der entsprechenden Benutzeroberfläche weiterhin mit dem alten Benutzernamen oder Anzeigenamen angezeigt. Das kann verwirrend sein.
 
-Um dieses Problem zu vermeiden, sollte `signalCurrentUserDetails()` auf der RP-Webanwendung jedes Mal aufgerufen werden, wenn ein Benutzer seine Kontodaten aktualisiert oder sich anmeldet, um dem Authentifikator mitzuteilen, dass die Benutzerinformationen aktualisiert wurden. Es liegt am Authentifikator, wie er mit diesen Informationen umgeht, aber die Erwartung ist, dass er seine Benutzerinformationen mit dem bereitgestellten Update synchronisiert.
+Um dies zu vermeiden, sollte `signalCurrentUserDetails()` in der Webanwendung der RP jedes Mal aufgerufen werden, wenn ein Benutzer seine Benutzerkontodaten aktualisiert oder sich anmeldet. So wird dem Authenticator mitgeteilt, dass die Benutzerinformationen aktualisiert wurden. Wie der Authenticator diese Informationen verarbeitet, bleibt ihm überlassen. Es wird jedoch erwartet, dass er seine Benutzerinformationen mit den übermittelten Änderungen synchronisiert.
 
 ## Beispiele
 
-### Signalisieren der aktuellen Benutzerdetails
+### Aktuelle Benutzerdaten signalisieren
 
-In diesem Beispiel rufen wir die Methode `signalCurrentUserDetail()` auf und übergeben die Details eines Anmeldedatums, das der Benutzer gerade auf der RP bearbeitet hat. Infolgedessen sollte der Authentifikator seine eigene Kopie des Anmeldedatums aktualisieren, damit es mit der RP synchron bleibt.
+In diesem Beispiel rufen wir die Methode `signalCurrentUserDetail()` auf und übergeben ihr die Details einer Anmeldeinformation, die der Benutzer gerade bei der RP bearbeitet hat. Daraufhin sollte der Authenticator seine eigene Kopie der Anmeldeinformation aktualisieren, damit sie mit den Daten der RP übereinstimmt.
 
 ```js
 if (PublicKeyCredential.signalCurrentUserDetails) {
@@ -71,7 +71,7 @@ if (PublicKeyCredential.signalCurrentUserDetails) {
 }
 ```
 
-Für weitere Codebeispiele siehe [Halten Sie Passkeys mit Anmeldeinformationen auf Ihrem Server konsistent mit der Signal-API](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024).
+Weitere Codebeispiele finden Sie unter [Passkeys mit den Anmeldedaten auf Ihrem Server mithilfe der Signal API synchron halten](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024).
 
 ## Spezifikationen
 
@@ -85,4 +85,4 @@ Für weitere Codebeispiele siehe [Halten Sie Passkeys mit Anmeldeinformationen a
 
 - [`PublicKeyCredential.signalAllAcceptedCredentials()`](/de/docs/Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static)
 - [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static)
-- [Halten Sie Passkeys mit Anmeldeinformationen auf Ihrem Server konsistent mit der Signal-API](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024)
+- [Passkeys mit den Anmeldedaten auf Ihrem Server mithilfe der Signal API synchron halten](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024)

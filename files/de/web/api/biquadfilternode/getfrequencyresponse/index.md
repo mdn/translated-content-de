@@ -3,14 +3,14 @@ title: "BiquadFilterNode: Methode getFrequencyResponse()"
 short-title: getFrequencyResponse()
 slug: Web/API/BiquadFilterNode/getFrequencyResponse
 l10n:
-  sourceCommit: b21df53ffbb066cfb9347d7f0e5aebb792ed73e5
+  sourceCommit: 5b85e27155260155bd829fc6d4b98ca2c476b2d1
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `getFrequencyResponse()`-Methode des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Interfaces nimmt die Einstellungen des aktuellen Filteralgorithmus und berechnet die Frequenzantwort für die in einem angegebenen Frequenzarray spezifizierten Frequenzen.
+Die Methode `getFrequencyResponse()` der Schnittstelle [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) verwendet die aktuellen Einstellungen des Filteralgorithmus und berechnet den Frequenzgang für die Frequenzen, die in einem Array angegeben sind.
 
-Die beiden Ausgabearrays, `magResponseOutput` und `phaseResponseOutput`, müssen erstellt werden, bevor diese Methode aufgerufen wird; sie müssen die gleiche Größe wie das Array der Eingabefrequenzwerte (`frequencyArray`) haben.
+Die beiden Ausgabearrays `magResponseOutput` und `phaseResponseOutput` müssen vor dem Aufruf dieser Methode erstellt werden. Sie müssen dieselbe Länge wie das Array der Eingabefrequenzen (`frequencyArray`) haben.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ getFrequencyResponse(frequencyArray, magResponseOutput, phaseResponseOutput)
 ### Parameter
 
 - `frequencyArray`
-  - : Ein {{jsxref("Float32Array")}}, das ein Array von Frequenzen in Hertz enthält, die gefiltert werden sollen.
+  - : Ein {{jsxref("Float32Array")}} mit den Frequenzen in Hertz, für die Sie den Frequenzgang berechnen möchten.
 - `magResponseOutput`
-  - : Ein {{jsxref("Float32Array")}}, um die berechneten Magnituden der Frequenzantwort für jeden Frequenzwert im `frequencyArray` zu empfangen. Für jede Frequenz in `frequencyArray`, deren Wert außerhalb des Bereichs von 0,0 bis `sampleRate`/2 liegt (wobei [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) die Abtastrate des [`AudioContext`](/de/docs/Web/API/AudioContext) ist), ist der entsprechende Wert in diesem Array {{jsxref("NaN")}}. Diese sind einheitslose Werte.
+  - : Ein {{jsxref("Float32Array")}}, das die berechneten Amplitudenwerte des Frequenzgangs für jede Frequenz in `frequencyArray` aufnimmt. Für jede Frequenz in `frequencyArray`, deren Wert außerhalb des Bereichs von 0.0 bis `sampleRate`/2 liegt (wobei [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) die Abtastrate des [`AudioContext`](/de/docs/Web/API/AudioContext) ist), lautet der entsprechende Wert in diesem Array {{jsxref("NaN")}}. Die Werte sind einheitenlos.
 - `phaseResponseOutput`
-  - : Ein {{jsxref("Float32Array")}}, um die berechneten Phasenantwortwerte in Radiant für jeden Frequenzwert im Eingabe-`frequencyArray` zu empfangen. Für jede Frequenz in `frequencyArray`, deren Wert außerhalb des Bereichs von 0,0 bis `sampleRate`/2 liegt (wobei [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) die Abtastrate des [`AudioContext`](/de/docs/Web/API/AudioContext) ist), ist der entsprechende Wert in diesem Array {{jsxref("NaN")}}.
+  - : Ein {{jsxref("Float32Array")}}, das die berechneten Phasenwerte in Radiant für jede Frequenz im Eingabearray `frequencyArray` aufnimmt. Für jede Frequenz in `frequencyArray`, deren Wert außerhalb des Bereichs von 0.0 bis `sampleRate`/2 liegt (wobei [`sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) die Abtastrate des [`AudioContext`](/de/docs/Web/API/AudioContext) ist), lautet der entsprechende Wert in diesem Array {{jsxref("NaN")}}.
 
 ### Rückgabewert
 
@@ -33,12 +33,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidAccessError`
-  - : Die bereitgestellten drei Arrays haben nicht alle die gleiche Länge.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die drei übergebenen Arrays haben nicht alle dieselbe Länge.
 
 ## Beispiele
 
-Im folgenden Beispiel verwenden wir einen Biquad-Filter auf einem Medienstream (für die vollständige Demo, siehe unsere [stream-source-buffer demo](https://mdn.github.io/webaudio-examples/stream-source-buffer/) live oder [lesen Sie den Quellcode](https://github.com/mdn/webaudio-examples/blob/main/stream-source-buffer/index.html).). Im Rahmen dieser Demo erhalten wir die Frequenzantworten für diesen Biquad-Filter für fünf Beispiel-Frequenzen. Zuerst erstellen wir die benötigten {{jsxref("Float32Array")}}, eines das die Eingabefrequenzen enthält, und zwei, um die Ausgabe von Magnituden- und Phasenwerten zu empfangen:
+Im folgenden Beispiel verwenden wir einen Biquad-Filter für einen Medienstrom. (Die vollständige Demo können Sie sich als [stream-source-buffer-Demo](https://mdn.github.io/webaudio-examples/stream-source-buffer/) ansehen oder den [Quellcode lesen](https://github.com/mdn/webaudio-examples/blob/main/stream-source-buffer/index.html).) Im Rahmen dieser Demo ermitteln wir den Frequenzgang des Biquad-Filters für fünf Beispielfrequenzen. Zuerst erstellen wir die benötigten {{jsxref("Float32Array")}}-Arrays: eines mit den Eingabefrequenzen und zwei für die Amplituden- und Phasenwerte der Ausgabe:
 
 ```js
 const myFrequencyArray = new Float32Array(5);
@@ -52,7 +52,7 @@ const magResponseOutput = new Float32Array(5);
 const phaseResponseOutput = new Float32Array(5);
 ```
 
-Als nächstes erstellen wir ein {{ htmlelement("ul") }}-Element in unserem HTML, um unsere Ergebnisse zu enthalten und eine Referenz dazu in unserem JavaScript:
+Anschließend erstellen wir in unserem HTML ein {{ htmlelement("ul") }}-Element für die Ergebnisse und rufen in unserem JavaScript eine Referenz darauf ab:
 
 ```html
 <p>Biquad filter frequency response for:</p>
@@ -63,7 +63,7 @@ Als nächstes erstellen wir ein {{ htmlelement("ul") }}-Element in unserem HTML,
 const freqResponseOutput = document.querySelector(".freq-response-output");
 ```
 
-Schließlich, nachdem wir unseren Biquad-Filter erstellt haben, verwenden wir `getFrequencyResponse()`, um die Antwortdaten zu generieren und in unsere Arrays zu platzieren. Dann durchlaufen wir jeden Datensatz und geben ihn in einer verständlichen Liste am unteren Ende der Seite aus:
+Nachdem wir den Biquad-Filter erstellt haben, verwenden wir schließlich `getFrequencyResponse()`, um die Frequenzgangdaten zu berechnen und in den Arrays zu speichern. Danach durchlaufen wir die Datensätze und geben sie am unteren Seitenrand als lesbare Liste aus:
 
 ```js
 const biquadFilter = audioCtx.createBiquadFilter();

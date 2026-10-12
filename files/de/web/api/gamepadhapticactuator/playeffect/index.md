@@ -1,14 +1,14 @@
 ---
-title: "GamepadHapticActuator: playEffect() Methode"
+title: "GamepadHapticActuator: Methode playEffect()"
 short-title: playEffect()
 slug: Web/API/GamepadHapticActuator/playEffect
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("Gamepad API")}}
 
-Die **`playEffect()`** Methode der [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator) Schnittstelle bewirkt, dass die Hardware einen spezifischen Vibrationseffekt abspielt.
+Die Methode **`playEffect()`** der Schnittstelle [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator) veranlasst die Hardware, einen bestimmten Vibrationseffekt auszugeben.
 
 ## Syntax
 
@@ -19,46 +19,46 @@ playEffect(type, params)
 ### Parameter
 
 - `type`
-  - : Ein String, der den gewünschten Effekt darstellt. Mögliche Werte sind `"dual-rumble"` und `"trigger-rumble"`, wobei ihre Auswirkungen je nach Hardwaretyp variieren können. Siehe [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects) für weitere Details zu den Effektarten.
+  - : Ein String, der den gewünschten Effekt angibt. Mögliche Werte sind `"dual-rumble"` und `"trigger-rumble"`. Ihre Wirkung kann je nach Hardwaretyp variieren. Weitere Einzelheiten zu den Effekttypen finden Sie unter [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects).
 
 - `params`
-  - : Ein Objekt zur Beschreibung eines gewünschten haptischen Effekts.
+  - : Ein Objekt, das den gewünschten haptischen Effekt beschreibt.
 
-    Erwartete Werte sind:
+    Folgende Werte werden erwartet:
     - `duration` {{optional_inline}}
       - : Die Dauer des Effekts in Millisekunden.
-        Standardwert ist `0`.
+        Der Standardwert ist `0`.
     - `startDelay` {{optional_inline}}
-      - : Die Verzögerung in Millisekunden, bevor der Effekt gestartet wird.
-        Standardwert ist `0`.
+      - : Die Verzögerung in Millisekunden, bevor der Effekt beginnt.
+        Der Standardwert ist `0`.
     - `strongMagnitude` {{optional_inline}}
-      - : Die Rumpelintensität der niederfrequenten (starken) Rumpelmotoren, normalisiert im Bereich zwischen `0.0` und `1.0`.
-        Standardwert ist `0.0`.
+      - : Die Vibrationsintensität der niederfrequenten (starken) Vibrationsmotoren, normiert auf den Bereich zwischen `0.0` und `1.0`.
+        Der Standardwert ist `0.0`.
     - `weakMagnitude` {{optional_inline}}
-      - : Die Rumpelintensität der hochfrequenten (schwachen) Rumpelmotoren, normalisiert im Bereich zwischen `0.0` und `1.0`.
-        Standardwert ist `0.0`.
-    - `leftTrigger` (nur relevant für `"trigger-rumble"` Effekte) {{optional_inline}}
-      - : Die Rumpelintensität des unteren linken vorderen Triggers, normalisiert im Bereich zwischen `0.0` und `1.0`.
-        Standardwert ist `0.0`.
-    - `rightTrigger` (nur relevant für `"trigger-rumble"` Effekte) {{optional_inline}}
-      - : Die Rumpelintensität des unteren rechten vorderen Triggers, normalisiert im Bereich zwischen `0.0` und `1.0`.
-        Standardwert ist `0.0`.
+      - : Die Vibrationsintensität der hochfrequenten (schwachen) Vibrationsmotoren, normiert auf den Bereich zwischen `0.0` und `1.0`.
+        Der Standardwert ist `0.0`.
+    - `leftTrigger` (nur für `"trigger-rumble"`-Effekte relevant) {{optional_inline}}
+      - : Die Vibrationsintensität des vorderen Triggers unten links, normiert auf den Bereich zwischen `0.0` und `1.0`.
+        Der Standardwert ist `0.0`.
+    - `rightTrigger` (nur für `"trigger-rumble"`-Effekte relevant) {{optional_inline}}
+      - : Die Vibrationsintensität des vorderen Triggers unten rechts, normiert auf den Bereich zwischen `0.0` und `1.0`.
+        Der Standardwert ist `0.0`.
 
 > [!NOTE]
-> Ein neuer Aufruf von `playEffect()` überschreibt einen vorhergehenden laufenden Aufruf.
+> Ein erneuter Aufruf von `playEffect()` überschreibt einen zuvor gestarteten, noch laufenden Aufruf.
 
 ### Rückgabewert
 
-Ein Promise, das mit `"complete"` aufgelöst wird, wenn der Effekt erfolgreich abgeschlossen wird, oder mit `"preempted"`, wenn der aktuelle Effekt gestoppt oder durch einen anderen Effekt ersetzt wird.
+Ein Promise, das mit `"complete"` erfüllt wird, wenn der Effekt erfolgreich abgeschlossen wurde, oder mit `"preempted"`, wenn der aktuelle Effekt beendet oder durch einen anderen ersetzt wird.
 
-Das Promise kann mit folgenden Ausnahmearten abgelehnt werden:
+Das Promise kann mit einer der folgenden Ausnahmen zurückgewiesen werden:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das aktuelle Dokument ist nicht aktiv oder versteckt.
+  - : Das aktuelle Dokument ist nicht aktiv oder ist verborgen.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der angeforderte `type` wird durch den aktuellen Gamepad-Aktuator nicht unterstützt.
-- `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der angeforderte `type` ist kein gültiger Effekt typ.
+  - : Der Aktuator des aktuellen Gamepads unterstützt den angeforderten `type` nicht.
+- {{jsxref("TypeError")}}
+  - : Der angeforderte `type` ist kein gültiger Effekttyp.
 
 ## Beispiele
 

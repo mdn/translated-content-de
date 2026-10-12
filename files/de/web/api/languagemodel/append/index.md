@@ -1,16 +1,16 @@
 ---
-title: "LanguageModel: append() Methode"
+title: "LanguageModel: append()-Methode"
 short-title: append()
 slug: Web/API/LanguageModel/append
 l10n:
-  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
 
-Die **`append()`** Methode des [`LanguageModel`](/de/docs/Web/API/LanguageModel) Interfaces fügt Inhalt zum Kontextfenster der Sitzung hinzu, ohne eine Antwort des Modells zu generieren. Sie gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Inhalt erfolgreich in den Kontext geladen wurde. Verwenden Sie diese Methode, um einen Kontext vorzuladen, bevor Sie dem Modell eine Frage stellen.
+Die **`append()`**-Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle fügt dem Kontextfenster der Sitzung Inhalte hinzu, ohne eine Modellantwort zu erzeugen. Sie gibt eine {{jsxref("Promise")}} zurück, die erfüllt wird, sobald die Inhalte erfolgreich in den Kontext geladen wurden. Verwenden Sie diese Methode, um einen Kontext vorzuladen, bevor Sie dem Modell eine Frage stellen.
 
-Ein Kontext kann ein Dokument, ein Gespräch, eine Historie oder Hintergrundinformationen sein. Sie können die `append()`-Methode zu jedem Zeitpunkt während der Lebensdauer der Sitzung aufrufen.
+Ein Kontext kann aus einem Dokument, einer Unterhaltung, einem Verlauf oder Hintergrundinformationen bestehen. Sie können die `append()`-Methode jederzeit während der Sitzung aufrufen.
 
 ## Syntax
 
@@ -23,77 +23,77 @@ append(input, options)
 
 - `input`
   - : Der Inhalt, der dem Kontextfenster hinzugefügt werden soll. Dies ist entweder:
-    - Ein String — Kurzform für eine einzelne textuelle Nachricht.
-    - Ein Array von Objekten, die jeweils eine einzelne Nachricht in einem Gespräch mit einem Sprachmodell darstellen.
-      Objekte können die folgenden Eigenschaften haben:
+    - Eine Zeichenfolge – Kurzform für eine einzelne Textnachricht.
+    - Ein Array von Objekten, die jeweils eine einzelne Nachricht in einer Unterhaltung mit einem Sprachmodell darstellen.
+      Die Objekte können folgende Eigenschaften haben:
       - `role`
-        - : Ein String, der den Standpunkt angibt, aus dem die Nachricht formuliert ist. Muss eine der folgenden sein:
+        - : Eine Zeichenfolge, die angibt, aus welcher Perspektive die Nachricht formuliert ist. Muss einer der folgenden Werte sein:
           - `system`
-            - : Eine systemweite Anweisung, die das Gesamtverhalten des Modells leitet. Dies muss die erste Anweisung sein, die dem Modell übergeben wird.
+            - : Eine Anweisung auf Systemebene, die das allgemeine Verhalten des Modells steuert. Dies muss die erste Anweisung sein, die an das Modell übergeben wird.
           - `user`
-            - : Eine Nachricht vom Benutzer, auf die die API reagieren soll.
+            - : Eine Nachricht des Benutzers, auf die die API antworten soll.
           - `assistant`
-            - : Eine Eingabe, die den KI-Assistenten mit Kontext versorgt, wie z.B. seine Persona oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext/Verlauf bereitzustellen und zu beeinflussen, wie das Modell reagiert.
+            - : Eine Eingabe, die dem KI-Assistenten Kontext bereitstellt, etwa seine Persona oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext oder einen Verlauf bereitzustellen und die Antworten des Modells weiter zu beeinflussen.
       - `content`
-        - : Ein String, der ein textliches Prompt darstellt, oder ein Array von Objekten. Jedes Objekt umfasst die folgenden Eigenschaften:
+        - : Eine Zeichenfolge, die einen textuellen Prompt darstellt, oder ein Array von Objekten. Jedes Objekt enthält die folgenden Eigenschaften:
           - `type`
-            - : Ein enumerierter Wert, der die Art des Inhalts darstellt. Dies kann eine der folgenden sein:
+            - : Ein Aufzählungswert, der den Inhaltstyp angibt. Dies kann einer der folgenden Werte sein:
               - `audio`
-                - : Audio-Inhalt.
+                - : Audioinhalt.
               - `image`
                 - : Bildinhalt.
               - `text`
                 - : Textinhalt.
               - `tool-call`
-                - : Ein vom Modell ausgeführter Werkzeugaufruf.
+                - : Ein vom Modell ausgelöster Tool-Aufruf.
               - `tool-response`
-                - : Das Ergebnis eines Werkzeugaufrufs.
+                - : Das Ergebnis eines Tool-Aufrufs.
           - `value`
-            - : Der Inhalt der Nachricht. Wenn der `type` `text` ist, ist dies immer ein String. Wenn der `type` `audio` oder `image` ist, kann der `value` eine der mehreren verschiedenen Objektarten sein; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
+            - : Der Inhalt der Nachricht. Wenn `type` den Wert `text` hat, ist dies immer eine Zeichenfolge. Wenn `type` den Wert `audio` oder `image` hat, kann `value` einem von mehreren verschiedenen Objekttypen entsprechen; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
       - `prefix` {{optional_inline}}
-        - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn `true`, wird die Nachricht als Präfix für die nächste generierte Antwort des Modells behandelt, anstatt als vollständiger Turn.
+        - : Ein boolescher Wert, standardmäßig `false`. Bei `true` wird die Nachricht als Präfix für die nächste generierte Antwort des Modells behandelt und nicht als vollständiger Gesprächsbeitrag.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die übergebenen Optionen darstellt. Eigenschaften umfassen:
+  - : Ein Objekt mit den übergebbaren Optionen. Dazu gehört:
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), um die Append-Operation abzubrechen.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem sich der Vorgang des Hinzufügens abbrechen lässt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, wenn der Inhalt in das Kontextfenster vorgefüllt wurde, oder mit einem der folgenden Ausnahmewerte bei Fehlschlag abgelehnt wird.
+Eine {{jsxref("Promise")}}, die mit `undefined` erfüllt wird, sobald die Inhalte in das Kontextfenster vorgeladen wurden. Bei einem Fehler wird sie mit einem der folgenden Ausnahme-Werte zurückgewiesen.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Operation über die `signal`-Option abgebrochen wurde.
+  - : Wird ausgelöst, wenn der Vorgang über die Option `signal` abgebrochen wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Nutzung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}} {{httpheader("Permissions-Policy")}} blockiert wird.
+  - : Wird ausgelöst, wenn die Verwendung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}}-{{httpheader("Permissions-Policy")}} blockiert wird.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die `role` einer Nachricht `assistant` ist und ihr `type` etwas anderes als `text` ist.
-    - Der `type` einer Nachricht `text` ist und ihr `value` kein String ist.
-    - Der Eingabe- oder Ausgabetext in einer Sprache ist, die der Benutzeragent nicht für Prompts unterstützt.
-    - Der `type` einer Nachricht `image` oder `audio` ist, aber der Typ nicht in `expectedInputs` aufgeführt war, oder der `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
+    - `role` einer Nachricht den Wert `assistant` hat und ihr `type` einen anderen Wert als `text` hat.
+    - `type` einer Nachricht den Wert `text` hat und ihr `value` keine Zeichenfolge ist.
+    - Der Eingabe- oder Ausgabetext in einer Sprache verfasst ist, die der User Agent für Prompts nicht unterstützt.
+    - `type` einer Nachricht den Wert `image` oder `audio` hat, dieser Typ aber nicht in `expectedInputs` aufgeführt wurde oder `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Vorfüllen aus einem anderen, nicht in den anderen Ausnahmetypen aufgeführten Grund fehlschlägt.
+  - : Wird ausgelöst, wenn das Vorladen aus einem anderen Grund fehlschlägt, der nicht unter den übrigen Ausnahmetypen aufgeführt ist.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Anhängen von `input` dazu führen würde, dass die Nutzung des Sitzungs-Kontextes das Modell's [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) überschreitet.
+  - : Wird ausgelöst, wenn das Hinzufügen von `input` dazu führen würde, dass die Kontextnutzung der Sitzung den Wert von [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) des Modells überschreitet.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Keine Nachrichten im Nachrichtenarray enthalten sind.
-    - Die `prefix`-Eigenschaft einer Nachricht auf `true` gesetzt ist und:
-      - Die `role` der Nachricht nicht `assistant` ist.
-      - Die Nachricht nicht das letzte Element im Nachrichtenarray ist.
-- `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `role` einer Nachricht `system` ist, diese aber nicht die erste Nachricht war, die dem Kontext übergeben wurde.
+    - Das Nachrichten-Array keine Nachrichten enthält.
+    - Die Eigenschaft `prefix` einer Nachricht auf `true` gesetzt ist und:
+      - `role` der Nachricht nicht `assistant` ist.
+      - Die Nachricht nicht das letzte Element im Nachrichten-Array ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn `role` einer Nachricht den Wert `system` hat, die Nachricht aber nicht die erste an den Kontext übergebene Nachricht war.
 
 ## Beispiele
 
-Siehe auch [Hinzufügen von Kontext mit inizialen und laufenden Prompt-Eingaben > Anhängen zusätzlicher Nachrichten an den Kontext](/de/docs/Web/API/Prompt_API/Adding_context#appending_extra_messages_to_the_context).
+Siehe auch [Kontext durch anfängliche und fortlaufende Prompt-Eingaben hinzufügen > Zusätzliche Nachrichten zum Kontext hinzufügen](/de/docs/Web/API/Prompt_API/Adding_context#appending_extra_messages_to_the_context).
 
-### Kontext vor dem Prompten anhängen
+### Kontext vor einer Prompt-Anfrage hinzufügen
 
-Dieses Beispiel zeigt, wie einem Kontext für die Benutzerrolle hinzugefügt wird, bevor `prompt()` aufgerufen wird.
-Beachten Sie, dass wir einfach Texteingaben (`documentText`) in diesem Fall angeben können, da `user` die Standardrolle ist.
+Dieses Beispiel zeigt, wie Sie vor dem Aufruf von `prompt()` dem Kontext Inhalte mit der Rolle `user` hinzufügen.
+Beachten Sie, dass wir in diesem Fall nur die Texteingabe (`documentText`) angeben müssen, da `user` die Standardrolle ist.
 
 ```js
 const documentText = "This is my important essay...";
@@ -109,9 +109,9 @@ const summary = await session.prompt(
 console.log(summary);
 ```
 
-### Anhängen von Kontext mit einem Abbruchsignal
+### Kontext mit einem Abbruchsignal hinzufügen
 
-Ein Abbruchsignal ermöglicht es, eine Append-Operation abzubrechen. Das folgende Beispiel übergibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) an das `signal`-Mitglied und ruft seine `abort()`-Methode nach 3 Sekunden auf.
+Mit einem Abbruchsignal können Sie den Vorgang des Hinzufügens abbrechen. Das folgende Beispiel übergibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) an `signal` und ruft nach 3 Sekunden dessen Methode `abort()` auf.
 
 ```js
 const controller = new AbortController();
@@ -132,9 +132,9 @@ try {
 }
 ```
 
-### Überprüfung der Kontextnutzung nach dem Anhängen
+### Kontextnutzung nach dem Hinzufügen prüfen
 
-Der folgende Code zeigt, wie die Anzahl der Tokens protokolliert wird, die nach dem Anhängen einer großen Menge an Kontext verwendet wurden.
+Der folgende Code zeigt, wie Sie nach dem Hinzufügen einer großen Menge an Kontext die Anzahl der verwendeten Tokens protokollieren.
 
 ```js
 const largeDocument = "This is my large body of text...";
@@ -160,4 +160,4 @@ console.log(
 - [`LanguageModel.measureContextUsage()`](/de/docs/Web/API/LanguageModel/measureContextUsage)
 - [Prompt API](/de/docs/Web/API/Prompt_API)
 - [Verwendung der Prompt API](/de/docs/Web/API/Prompt_API/Using)
-- [Hinzufügen von Kontext mit inizialen und laufenden Prompt-Eingaben](/de/docs/Web/API/Prompt_API/Adding_context)
+- [Kontext durch anfängliche und fortlaufende Prompt-Eingaben hinzufügen](/de/docs/Web/API/Prompt_API/Adding_context)

@@ -2,40 +2,40 @@
 title: DeferredRequestInit
 slug: Web/API/DeferredRequestInit
 l10n:
-  sourceCommit: 8c1bc8d99fc8301fbbe874f6dcf8d41a9f4fe5fb
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{DefaultAPISidebar("Fetch API")}}{{SeeCompatTable}}
 
-Das **`DeferredRequestInit`** Wörterbuch der [Fetch API](/de/docs/Web/API/Fetch_API) repräsentiert die Menge an Optionen, die verwendet werden können, um eine verzögerte Fetch-Anfrage zu konfigurieren.
+Das **`DeferredRequestInit`**-Dictionary der [Fetch API](/de/docs/Web/API/Fetch_API) enthält die Optionen, mit denen sich eine verzögerte Fetch-Anfrage konfigurieren lässt.
 
-Das `DeferredRequestInit`-Objekt wird direkt in den Funktionsaufruf [`window.fetchLater()`](/de/docs/Web/API/Window/fetchLater) als zweites Argument übergeben.
+Das `DeferredRequestInit`-Objekt wird als zweites Argument direkt an die Funktion [`window.fetchLater()`](/de/docs/Web/API/Window/fetchLater) übergeben.
 
 ## Instanzeigenschaften
 
-Dieses Wörterbuch erweitert das [`RequestInit`](/de/docs/Web/API/RequestInit) Wörterbuch durch die Hinzufügung der folgenden Eigenschaften:
+Dieses Dictionary erweitert das [`RequestInit`](/de/docs/Web/API/RequestInit)-Dictionary um die folgende Eigenschaft:
 
 - `activateAfter` {{optional_inline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der ein Timeout in Millisekunden angibt, nach dem die Fetch-Anfrage gesendet werden sollte. Der Fetch kann früher gesendet werden, wenn die Navigation verlassen wird. Der _tatsächliche_ Versandzeitpunkt ist unbekannt, da der Browser möglicherweise länger oder kürzer wartet, beispielsweise um die Bündelung von verzögerten Fetches zu optimieren. Wenn die `activateAfter`-Eigenschaft nicht angegeben ist, wartet der verzögerte Fetch bis zum Ende des Seitenbesuchs (einschließlich des Eintritts in den {{Glossary("bfcache", "bfcache")}}).
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der eine Zeitspanne in Millisekunden angibt, nach deren Ablauf die Fetch-Anfrage gesendet werden soll. Beim Verlassen der Seite kann die Anfrage früher gesendet werden. Der _tatsächliche_ Sendezeitpunkt ist unbekannt, da der Browser länger oder kürzer warten kann, beispielsweise um mehrere verzögerte Fetch-Anfragen gebündelt zu senden. Wenn die Eigenschaft `activateAfter` nicht angegeben wird, wartet die verzögerte Fetch-Anfrage bis zum Ende des Seitenbesuchs (einschließlich des Wechsels in den {{Glossary("bfcache", "bfcache")}}).
 
 ### Ausnahmen
 
-- `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Tritt auf, wenn ein negativer `activateAfter` bereitgestellt wird.
+- {{jsxref("RangeError")}}
+  - : Wird ausgelöst, wenn ein negativer Wert für `activateAfter` angegeben wird.
 
 ## Beispiele
 
-### Eine `GET`-Anfrage hinauszögern, bis die Seite zerstört oder der bfcache betreten wird
+### Eine `GET`-Anfrage verzögern, bis die Seite zerstört wird oder in den bfcache wechselt
 
-In diesem Beispiel wird kein `DeferredRequestInit`-Objekt bereitgestellt und es wird kein Timeout verwendet:
+In diesem Beispiel wird kein `DeferredRequestInit`-Objekt angegeben und keine Zeitspanne festgelegt:
 
 ```js
 fetchLater("/send_beacon");
 ```
 
-### Eine `POST`-Anfrage für ungefähr 1 Minute hinauszögern
+### Eine `POST`-Anfrage um etwa eine Minute verzögern
 
-In diesem Beispiel erstellen wir eine [`Request`](/de/docs/Web/API/Request) und geben einen `activateAfter`-Wert an, um das Senden der Anfrage um 60.000 Millisekunden (oder eine Minute) zu verzögern:
+In diesem Beispiel erstellen wir ein [`Request`](/de/docs/Web/API/Request)-Objekt und geben für `activateAfter` einen Wert an, um das Senden der Anfrage um 60.000 Millisekunden (also eine Minute) zu verzögern:
 
 ```js
 fetchLater("/send_beacon", {
@@ -46,7 +46,7 @@ fetchLater("/send_beacon", {
 ```
 
 > [!NOTE]
-> Der tatsächliche Sendezeitpunkt ist unbekannt, da der Browser möglicherweise eine längere oder kürzere Zeitspanne wartet, beispielsweise um die Bündelung von verzögerten Fetches zu optimieren.
+> Der tatsächliche Sendezeitpunkt ist unbekannt, da der Browser länger oder kürzer warten kann, beispielsweise um mehrere verzögerte Fetch-Anfragen gebündelt zu senden.
 
 ## Spezifikationen
 

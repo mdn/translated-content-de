@@ -1,23 +1,23 @@
 ---
-title: "IDBObjectStore: getAllKeys() Methode"
+title: "IDBObjectStore: Methode getAllKeys()"
 short-title: getAllKeys()
 slug: Web/API/IDBObjectStore/getAllKeys
 l10n:
-  sourceCommit: a2aab7a2f0d25c63b9fee9cd15f96478ac9186c8
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Die `getAllKeys()`-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück, das Datensatzschlüssel für alle Objekte im Objektspeicher abruft, die dem angegebenen Parameter entsprechen, oder für alle Objekte im Speicher, wenn keine Parameter angegeben sind.
+Die Methode `getAllKeys()` der Schnittstelle [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück, mit dem die Datensatzschlüssel aller Objekte im Object Store abgerufen werden, die dem angegebenen Parameter entsprechen. Werden keine Parameter angegeben, werden die Schlüssel aller Objekte im Store abgerufen.
 
-Wenn ein Wert erfolgreich gefunden wird, wird eine strukturierte Kopie davon erstellt und als Ergebnis des Anforderungsobjekts festgelegt.
+Wenn ein Wert erfolgreich gefunden wird, wird ein strukturierter Klon davon erstellt und als Ergebnis des Anfrageobjekts festgelegt.
 
-Diese Methode führt zu demselben Ergebnis bei:
+Diese Methode liefert in den folgenden Fällen dasselbe Ergebnis:
 
-- einem Datensatz, der nicht in der Datenbank existiert
-- einem Datensatz, der einen undefinierten Wert hat
+- Ein Datensatz ist in der Datenbank nicht vorhanden.
+- Ein Datensatz hat den Wert `undefined`.
 
-Um diese Situationen zu unterscheiden, müssen Sie die [`openCursor()`](/de/docs/Web/API/IDBObjectStore/openCursor)-Methode mit demselben Schlüssel aufrufen. Diese Methode liefert einen Cursor, wenn der Datensatz existiert, und keinen Cursor, wenn er nicht existiert.
+Um diese Fälle zu unterscheiden, müssen Sie die Methode [`openCursor()`](/de/docs/Web/API/IDBObjectStore/openCursor) mit demselben Schlüssel aufrufen. Diese Methode liefert einen Cursor, wenn der Datensatz vorhanden ist, andernfalls keinen.
 
 ## Syntax
 
@@ -30,50 +30,50 @@ getAllKeys(options)
 
 ### Parameter
 
-Die `getAllKeys()`-Methode kann separate Parameter oder ein einzelnes Optionsobjekt entgegennehmen, das die Parameter als Eigenschaften enthält.
+Die Methode `getAllKeys()` kann separate Parameter oder ein einzelnes Optionsobjekt entgegennehmen, das die Parameter als Eigenschaften enthält.
 
-Die Parameter können umfassen:
-
-- `query` {{optional_inline}}
-  - : Ein Wert, der einem [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange) entspricht oder darauf aufgelöst wird. Wenn dieser Wert nicht spezifiziert ist, wird standardmäßig ein Schlüsselbereich verwendet, der alle Datensätze in diesem Objektspeicher auswählt.
-- `count` {{optional_inline}}
-  - : Gibt die Anzahl der Werte an, die zurückgegeben werden sollen, wenn mehr als einer gefunden wird. Wenn dies niedriger als `0` oder größer als `2^32 - 1` ist, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
-
-Wenn ein Objektparameter angegeben ist, können dessen Eigenschaften umfassen:
+Die Parameter können Folgendes umfassen:
 
 - `query` {{optional_inline}}
-  - : Siehe die frühere Definition von [`query`](#query).
+  - : Ein Wert, der ein [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange) ist oder zu einem solchen aufgelöst wird. Wird dieser Wert nicht angegeben, wird standardmäßig ein Schlüsselbereich verwendet, der alle Datensätze in diesem Object Store auswählt.
 - `count` {{optional_inline}}
-  - : Siehe die frühere Definition von [`count`](#count).
+  - : Gibt die Anzahl der zurückzugebenden Werte an, wenn mehr als einer gefunden wird. Ist der Wert kleiner als `0` oder größer als `2^32 - 1`, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+
+Wenn ein Objektparameter angegeben wird, kann er folgende Eigenschaften enthalten:
+
+- `query` {{optional_inline}}
+  - : Siehe die obige Definition von [`query`](#query).
+- `count` {{optional_inline}}
+  - : Siehe die obige Definition von [`count`](#count).
 - `direction` {{optional_inline}}
-  - : Ein enumerierter Wert, der die Richtung angibt, in der die Objekte durchlaufen werden. Mögliche Werte sind:
+  - : Ein Aufzählungswert, der die Richtung angibt, in der die Objekte durchlaufen werden. Mögliche Werte sind:
     - `next`
-      - : Die Objekte werden vom Anfang in aufsteigender Schlüsselreihenfolge durchlaufen. Dies ist der Standardwert.
+      - : Die Objekte werden vom Anfang aus in aufsteigender Schlüsselreihenfolge durchlaufen. Dies ist der Standardwert.
     - `nextunique`
-      - : Die Objekte werden vom Anfang in aufsteigender Schlüsselreihenfolge durchlaufen. Dies liefert dieselben Schlüssel wie `next`, da doppelte Schlüssel in `IDBObjectStore`s nicht erlaubt sind.
+      - : Die Objekte werden vom Anfang aus in aufsteigender Schlüsselreihenfolge durchlaufen. Dabei werden dieselben Schlüssel wie bei `next` zurückgegeben, da doppelte Schlüssel in `IDBObjectStore`s nicht zulässig sind.
     - `prev`
-      - : Die Objekte werden vom Ende in absteigender Schlüsselreihenfolge durchlaufen.
+      - : Die Objekte werden vom Ende aus in absteigender Schlüsselreihenfolge durchlaufen.
     - `prevunique`
-      - : Die Objekte werden vom Ende in absteigender Schlüsselreihenfolge durchlaufen. Dies liefert dieselben Schlüssel wie `prev`, da doppelte Schlüssel in `IDBObjectStore`s nicht erlaubt sind.
+      - : Die Objekte werden vom Ende aus in absteigender Schlüsselreihenfolge durchlaufen. Dabei werden dieselben Schlüssel wie bei `prev` zurückgegeben, da doppelte Schlüssel in `IDBObjectStore`s nicht zulässig sind.
 
 ### Rückgabewert
 
 Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit diesem Vorgang ausgelöst werden.
 
-Wenn der Vorgang erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage ein {{jsxref("Array")}} der Schlüssel für alle Datensätze, die der gegebenen Abfrage entsprechen, bis zum Wert von `count`, falls `count` angegeben wurde.
+Wenn der Vorgang erfolgreich ist, enthält die Eigenschaft [`result`](/de/docs/Web/API/IDBRequest/result) der Anfrage ein {{jsxref("Array")}} mit den Schlüsseln aller Datensätze, die der angegebenen Abfrage entsprechen, höchstens jedoch so viele, wie durch `count` angegeben wurden.
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) inaktiv ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte Schlüssel oder Schlüsselbereich einen ungültigen Schlüssel enthält oder null ist.
+  - : Wird ausgelöst, wenn der angegebene Schlüssel oder Schlüsselbereich einen ungültigen Schlüssel enthält oder `null` ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
-- {{jsxref("TypeError")}} [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`count`](#count)-Parameter nicht zwischen `0` und `2^32 - 1` liegt, inklusive.
+  - : Wird ausgelöst, wenn der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Parameter [`count`](#count) nicht im Bereich von `0` bis einschließlich `2^32 - 1` liegt.
 
 ## Spezifikationen
 
@@ -85,10 +85,10 @@ Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folg
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Cursor verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

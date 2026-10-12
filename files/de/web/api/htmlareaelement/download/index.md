@@ -3,14 +3,14 @@ title: "HTMLAreaElement: download-Eigenschaft"
 short-title: download
 slug: Web/API/HTMLAreaElement/download
 l10n:
-  sourceCommit: ff6f4762dc0f086443390e11cff3753c18fff69d
+  sourceCommit: d8a98813a991199d24cf40bc74298850d8b41e37
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`download`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der anzeigt, dass die verlinkte Ressource heruntergeladen werden soll, anstatt im Browser angezeigt zu werden. Der Wert stellt den vorgeschlagenen Namen der Datei dar. Wenn der Name kein gültiger Dateiname des zugrunde liegenden Betriebssystems ist, passt der Browser ihn entsprechend an.
+Die **`download`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der angibt, dass die verlinkte Ressource heruntergeladen statt im Browser angezeigt werden soll. Der Wert stellt, sofern vorhanden, den vorgeschlagenen Dateinamen dar. Die Eigenschaft spiegelt das [`download`](/de/docs/Web/HTML/Reference/Elements/area#download)-Attribut des {{HTMLElement("area")}}-Elements wider.
 
-Sie spiegelt das `download`-Attribut des {{HTMLElement("area")}}-Elements wider.
+Weitere Informationen zu diesem Attribut finden Sie in der Referenz zum HTML-Element [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#download).
 
 ## Wert
 
@@ -23,3 +23,7 @@ Ein String.
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- HTML-Attribut [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)

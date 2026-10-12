@@ -3,22 +3,18 @@ title: "HTMLAnchorElement: download-Eigenschaft"
 short-title: download
 slug: Web/API/HTMLAnchorElement/download
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: d8a98813a991199d24cf40bc74298850d8b41e37
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.download`**-Eigenschaft ist ein
-String, der anzeigt, dass die verlinkte Ressource heruntergeladen werden soll, anstatt im Browser angezeigt zu werden. Der Wert, falls vorhanden, gibt den
-Standarddateinamen an, der zur Beschriftung der Ressource im lokalen Dateisystem verwendet werden soll. Ist der Name im zugrunde liegenden Betriebssystem kein gültiger Dateiname, passt der Browser ihn an.
+Die **`download`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ist eine Zeichenfolge, die angibt, dass die verlinkte Ressource heruntergeladen und nicht im Browser angezeigt werden soll. Der Wert, sofern vorhanden, gibt den vorgeschlagenen Dateinamen an. Die Eigenschaft spiegelt das [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)-Attribut des {{HTMLElement("a")}}-Elements wider.
 
-> [!NOTE]
-> Dieser Wert wird möglicherweise nicht für den Download verwendet. Dieser Wert kann nicht
-> genutzt werden, um festzustellen, ob der Download durchgeführt wird.
+Weitere Informationen zum Attribut finden Sie in der Referenz zum HTML-Element [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#download).
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 
@@ -27,3 +23,7 @@ Ein String.
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- HTML-Attribut [`download`](/de/docs/Web/HTML/Reference/Elements/a#download)

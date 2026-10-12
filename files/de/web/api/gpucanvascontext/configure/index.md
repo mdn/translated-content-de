@@ -1,14 +1,14 @@
 ---
-title: "GPUCanvasContext: Methode configure()"
+title: "GPUCanvasContext: configure()-Methode"
 short-title: configure()
 slug: Web/API/GPUCanvasContext/configure
 l10n:
-  sourceCommit: e5909a8f548695b72649ce32216c8fada21479c9
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`configure()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle konfiguriert den Kontext zur Verwendung für das Rendering mit einem gegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice). Beim Aufruf wird das Canvas zunächst auf transparentes Schwarz geleert.
+Die **`configure()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle konfiguriert den Kontext für das Rendering mit einem bestimmten [`GPUDevice`](/de/docs/Web/API/GPUDevice). Beim Aufruf wird das Canvas zunächst auf transparentes Schwarz zurückgesetzt.
 
 ## Syntax
 
@@ -19,48 +19,48 @@ configure(configuration)
 ### Parameter
 
 - `configuration`
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `alphaMode` {{optional_inline}}
-      - : Ein enumerierter Wert, der den Effekt angibt, den Alpha-Werte auf den Inhalt der von [`getCurrentTexture()`](/de/docs/Web/API/GPUCanvasContext/getCurrentTexture) zurückgegebenen Texturen beim Lesen, Anzeigen oder Verwenden als Bildquelle haben werden. Mögliche Werte sind:
-        - `opaque`: Alpha-Werte werden ignoriert — wenn eine Textur noch nicht opak ist, wird der Alpha-Kanal auf 1,0 gelöscht, wenn sie als Bildquelle verwendet oder auf dem Bildschirm angezeigt wird. Dies ist der Standardwert.
-        - `premultiplied`: Farbwerte werden mit ihrem Alpha-Wert multipliziert. Zum Beispiel sind 100 % Rot bei 50 % Alpha `[0.5, 0, 0, 0.5]`.
+      - : Ein Aufzählungswert, der festlegt, wie sich Alphawerte auf den Inhalt von Texturen auswirken, die von [`getCurrentTexture()`](/de/docs/Web/API/GPUCanvasContext/getCurrentTexture) zurückgegeben werden, wenn diese gelesen, angezeigt oder als Bildquelle verwendet werden. Mögliche Werte sind:
+        - `opaque`: Alphawerte werden ignoriert. Wenn eine Textur nicht bereits opak ist, wird der Alphakanal auf 1.0 gesetzt, wenn sie als Bildquelle verwendet oder auf dem Bildschirm angezeigt wird. Dies ist der Standardwert.
+        - `premultiplied`: Farbwerte werden mit ihrem Alphawert vormultipliziert. Beispielsweise entspricht 100 % Rot bei einem Alphawert von 50 % dem Wert `[0.5, 0, 0, 0.5]`.
     - `colorSpace` {{optional_inline}}
-      - : Der Farbraum, mit dem Werte in Texturen, die von `getCurrentTexture()` zurückgegeben werden, angezeigt werden sollen. Mögliche Werte sind `srgb` (der Standardwert) und `display-p3`.
+      - : Der Farbraum, in dem Werte angezeigt werden sollen, die in von `getCurrentTexture()` zurückgegebene Texturen geschrieben wurden. Mögliche Werte sind `srgb` (der Standardwert) und `display-p3`.
     - `device`
-      - : Das [`GPUDevice`](/de/docs/Web/API/GPUDevice), das die Rendering-Informationen für den Kontext liefert.
+      - : Das [`GPUDevice`](/de/docs/Web/API/GPUDevice), von dem die Rendering-Informationen für den Kontext stammen.
     - `format`
-      - : Das Format, das Texturen haben werden, die von `getCurrentTexture()` zurückgegeben werden. Dies kann `bgra8unorm`, `rgba8unorm` oder `rgba16float` sein. Das optimale Canvas-Texturformat für das aktuelle System kann von [`GPU.getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat) zurückgegeben werden. Es wird empfohlen, dieses zu verwenden — wenn Sie das bevorzugte Format beim Konfigurieren des Canvas-Kontexts nicht verwenden, können zusätzliche Overheads auftreten, z. B. zusätzliche Texturkopien, je nach Plattform.
+      - : Das Format der von `getCurrentTexture()` zurückgegebenen Texturen. Es kann `bgra8unorm`, `rgba8unorm` oder `rgba16float` sein. Das optimale Canvas-Texturformat für das aktuelle System kann mit [`GPU.getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat) ermittelt werden. Es wird empfohlen, dieses Format zu verwenden. Wenn Sie beim Konfigurieren des Canvas nicht das bevorzugte Format verwenden, kann je nach Plattform zusätzlicher Aufwand entstehen, beispielsweise durch zusätzliche Texturkopien.
 
     - `toneMapping` {{optional_inline}}
-      - : Ein Objekt, das Parameter spezifiziert, die das Tone Mapping für den Kontext definieren — wie der Inhalt der zugehörigen Texturen angezeigt werden soll. Dies ermöglicht es WebGPU, Farben heller als `white` (`#FFFFFF`) zu zeichnen. Mögliche Eigenschaften sind:
+      - : Ein Objekt mit Parametern, die das Tone Mapping für den Kontext festlegen, also wie der Inhalt der zugehörigen Texturen angezeigt werden soll. Dadurch kann WebGPU Farben darstellen, die heller als `white` (`#FFFFFF`) sind. Mögliche Eigenschaften sind:
         - `mode` {{optional_inline}}
-          - : Ein enumerierter Wert, der den Tone-Mapping-Modus für das Canvas angibt. Mögliche Werte sind:
+          - : Ein Aufzählungswert, der den Tone-Mapping-Modus für das Canvas festlegt. Mögliche Werte sind:
             - `standard`
-              - : Der Standardwert. Beschränkt den gerenderten Inhalt auf den Standard-Dynamikbereich (SDR) des Displays. Dieser Modus wird erreicht, indem alle Farbwerte im Farbraum des Bildschirms auf das Intervall `[0, 1]` eingeschränkt werden.
+              - : Der Standardwert. Beschränkt die gerenderten Inhalte auf den Standard Dynamic Range (SDR) des Bildschirms. Dazu werden alle Farbwerte im Farbraum des Bildschirms auf das Intervall `[0, 1]` begrenzt.
             - `extended`
-              - : Ermöglicht das Rendern von Inhalten im gesamten Hochdynamikbereich (HDR) des Displays, sofern verfügbar. Der HDR-Modus erlaubt, eine größere Bandbreite an Farben und Helligkeitsebenen anzuzeigen, mit präziseren Anweisungen, welche Farbe in jedem Fall angezeigt werden soll. Dieser Modus entspricht `"standard"` im `[0, 1]`-Bereich des Bildschirms. Die Einschränkung oder Projektion erfolgt auf den erweiterten Dynamikbereich des Bildschirms, jedoch nicht auf `[0, 1]`.
+              - : Ermöglicht, sofern verfügbar, das Rendern von Inhalten im vollen High Dynamic Range (HDR) des Bildschirms. Im HDR-Modus kann ein größerer Bereich von Farben und Helligkeitsstufen mit präziseren Angaben dazu angezeigt werden, welche Farbe jeweils dargestellt werden soll. Im Bereich `[0, 1]` des Bildschirms entspricht dieser Modus `"standard"`. Die Werte werden auf den erweiterten Dynamikbereich des Bildschirms begrenzt oder in diesen projiziert, jedoch nicht auf `[0, 1]`.
 
     - `usage` {{optional_inline}}
-      - : {{Glossary("Bitwise_flags", "Bitweise Flags")}} zur Angabe der erlaubten Nutzung für Texturen, die von `getCurrentTexture()` zurückgegeben werden. Mögliche Werte sind:
-        - `GPUTextureUsage.COPY_SRC`: Die Textur kann als Quelle einer Kopieroperation verwendet werden, beispielsweise als Argument `source` eines Aufrufs von [`GPUCommandEncoder.copyTextureToBuffer()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToBuffer).
-        - `GPUTextureUsage.COPY_DST`: Die Textur kann als Ziel einer Kopier-/Schreiboperation verwendet werden, beispielsweise als Argument `destination` eines Aufrufs von [`GPUCommandEncoder.copyTextureToTexture()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToTexture).
-        - `GPUTextureUsage.RENDER_ATTACHMENT`: Die Textur kann als Farbanhang in einem Renderpass verwendet werden, beispielsweise in einer Farbanhangansicht in einem Aufruf von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass). `GPUTextureUsage.RENDER_ATTACHMENT` ist der Standardwert für `usage`, aber beachten Sie, dass dieser nicht automatisch enthalten ist, wenn ein anderer Wert explizit gesetzt wird; in solchen Fällen müssen Sie ihn zusätzlich einbeziehen.
-        - `GPUTextureUsage.TEXTURE_BINDING`: Die Textur kann für die Verwendung als abgetastete Textur in einem Shader gebunden werden, beispielsweise in einem Bindgruppeeintrag in einem Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup).
-        - `GPUTextureUsage.STORAGE_BINDING`: Die Textur kann für die Verwendung als Speicherungstextur in einem Shader gebunden werden, beispielsweise in einem Bindgruppeeintrag in einem Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup).
+      - : {{Glossary("Bitwise_flags", "Bitweise Flags")}}, die die zulässige Verwendung der von `getCurrentTexture()` zurückgegebenen Texturen festlegen. Mögliche Werte sind:
+        - `GPUTextureUsage.COPY_SRC`: Die Textur kann als Quelle eines Kopiervorgangs verwendet werden, beispielsweise als Quellargument bei einem Aufruf von [`GPUCommandEncoder.copyTextureToBuffer()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToBuffer).
+        - `GPUTextureUsage.COPY_DST`: Die Textur kann als Ziel eines Kopier- oder Schreibvorgangs verwendet werden, beispielsweise als Zielargument bei einem Aufruf von [`GPUCommandEncoder.copyTextureToTexture()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToTexture).
+        - `GPUTextureUsage.RENDER_ATTACHMENT`: Die Textur kann als Color Attachment in einem Render Pass verwendet werden, beispielsweise in einer Color-Attachment-View bei einem Aufruf von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass). `GPUTextureUsage.RENDER_ATTACHMENT` ist der Standardwert für `usage`. Beachten Sie jedoch, dass dieser Wert nicht automatisch enthalten ist, wenn ausdrücklich ein anderer Wert festgelegt wird. In diesem Fall müssen Sie ihn zusätzlich angeben.
+        - `GPUTextureUsage.TEXTURE_BINDING`: Die Textur kann zur Verwendung als Sampled Texture in einem Shader gebunden werden, beispielsweise in einem Bind-Group-Eintrag bei einem Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup).
+        - `GPUTextureUsage.STORAGE_BINDING`: Die Textur kann zur Verwendung als Storage Texture in einem Shader gebunden werden, beispielsweise in einem Bind-Group-Eintrag bei einem Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup).
 
-        Beachten Sie, dass mehrere mögliche Nutzungen unter Verwendung des [bitweisen OR-Operators](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) spezifiziert werden können. Zum Beispiel `usage: GPUTextureUsage.COPY_SRC | GPUTextureUsage.RENDER_ATTACHMENT`.
+        Beachten Sie, dass mehrere Verwendungsarten mit dem [bitweisen ODER-Operator](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) angegeben werden können. Beispiel: `usage: GPUTextureUsage.COPY_SRC | GPUTextureUsage.RENDER_ATTACHMENT`.
 
     - `viewFormats` {{optional_inline}}
-      - : Ein Array von Formaten, welches Formate enthält, die Ansichten von Texturen, die von `getCurrentTexture()` zurückgegeben werden, verwenden dürfen. Siehe [Texture Formats](https://gpuweb.github.io/gpuweb/#texture-formats) für alle möglichen Werte.
+      - : Ein Array von Formaten, die Views verwenden dürfen, die aus von `getCurrentTexture()` zurückgegebenen Texturen erstellt wurden. Alle möglichen Werte finden Sie unter [Texturformate](https://gpuweb.github.io/gpuweb/#texture-formats).
 
 ### Rückgabewert
 
-Kein (`undefined`).
+Keiner (`undefined`).
 
 ### Ausnahmen
 
-- `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn `usage` das `TRANSIENT_ATTACHMENT`-Bit enthält.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn `usage` das Bit `TRANSIENT_ATTACHMENT` enthält.
 
 ## Beispiele
 
@@ -79,7 +79,7 @@ context.configure({
 
 ### HDR-`toneMapping`-Demos
 
-Siehe das Beispiel [Particles (HDR)](https://webgpu.github.io/webgpu-samples/?sample=particles) und den Test [HDR support](https://ccameron-chromium.github.io/webgpu-hdr/example.html).
+Sehen Sie sich das Beispiel [Particles (HDR)](https://webgpu.github.io/webgpu-samples/?sample=particles) und den Test zur [HDR-Unterstützung](https://ccameron-chromium.github.io/webgpu-hdr/example.html) an.
 
 ## Spezifikationen
 

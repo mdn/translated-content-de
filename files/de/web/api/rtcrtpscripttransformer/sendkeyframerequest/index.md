@@ -1,21 +1,21 @@
 ---
-title: "RTCRtpScriptTransformer: sendKeyFrameRequest() Methode"
+title: "RTCRtpScriptTransformer: Methode sendKeyFrameRequest()"
 short-title: sendKeyFrameRequest()
 slug: Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 5b85e27155260155bd829fc6d4b98ca2c476b2d1
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`sendKeyFrameRequest()`** Methode der [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) Schnittstelle kann von einem [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) aufgerufen werden, das eingehende kodierte Videoframes verarbeitet, um vom Sender ein Schlüsselbild anzufordern.
+Die Methode **`sendKeyFrameRequest()`** der Schnittstelle [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) kann von einer [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) aufgerufen werden, die eingehende codierte Videoframes verarbeitet, um vom Sender einen Keyframe anzufordern.
 
-Die Methode kann nur aufgerufen werden, wenn _Video_- (nicht Audio-)Frames empfangen werden und wenn der Empfänger aus welchem Grund auch immer das Video ohne ein neues Schlüsselbild nicht dekodieren kann.
-Beachten Sie, dass der Benutzeragent entscheiden kann, dass die Anforderung eines Schlüsselbildes nicht notwendig ist, in welchem Fall das zurückgegebene Promise erfüllt wird, auch wenn die Anforderung tatsächlich nicht gesendet wurde.
+Die Methode darf nur beim Empfang von _Video_-Frames (nicht Audioframes) aufgerufen werden und nur dann, wenn ein Empfänger das Video aus irgendeinem Grund ohne einen neuen Keyframe nicht decodieren kann.
+Beachten Sie, dass der User Agent entscheiden kann, dass die Anforderung eines Keyframes nicht nötig ist. In diesem Fall wird das zurückgegebene Promise erfüllt, obwohl die Anforderung nicht tatsächlich gesendet wurde.
 
 > [!NOTE]
-> Sie könnte beispielsweise aufgerufen werden, wenn ein neuer Benutzer einer WebRTC-Konferenz beitritt, um die Zeit zu verkürzen, bis er ein Schlüsselbild erhält und daher mit der Videodarstellung beginnen kann.
-> Weitere Informationen finden Sie unter [Ein Schlüsselbild auslösen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms#triggering_a_key_frame) in der Verwendung von WebRTC Encoded Transforms.
+> Die Methode könnte beispielsweise aufgerufen werden, wenn ein neuer Benutzer einer WebRTC-Konferenz beitritt, um die Zeit zu verkürzen, bis er einen Keyframe empfängt und damit die Videoanzeige beginnen kann.
+> Weitere Informationen finden Sie unter [Einen Keyframe auslösen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms#triggering_a_key_frame) in „WebRTC Encoded Transforms verwenden“.
 
 ## Syntax
 
@@ -29,20 +29,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, sobald die Anforderung gesendet wurde oder der Benutzeragent entscheidet, dass sie nicht benötigt wird.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, sobald die Anforderung gesendet wurde oder der User Agent entschieden hat, dass dies nicht nötig ist.
 
 ### Ausnahmen
 
-- `InvalidStateError`
-  - : Der Depaketisierer verarbeitet keine Videopakete oder ist `undefined`.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der De-Packetizer verarbeitet keine Videopakete oder ist `undefined`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der Hauptthread einer WebRTC-Anwendung, die kodiertes Video empfängt, einen Entschlüsselungsschlüssel an einen Empfänger-Transformator übergeben und den Sender bitten könnte, ein Schlüsselbild zu senden.
+Das folgende Beispiel zeigt, wie der Hauptthread einer WebRTC-Anwendung, die codierte Videodaten empfängt, einen Entschlüsselungsschlüssel an eine Empfänger-Transform übergeben und den Sender auffordern kann, einen Keyframe zu senden.
 
-Beachten Sie, dass der Hauptthread keinen direkten Zugriff auf das [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) Objekt hat, daher muss der Schlüssel an den Worker übergeben werden.
-Hier machen wir das mit einem `MessageChannel`, wobei der zweite Port an den im Worker laufenden Transformator-Code übertragen wird.
-Der Code geht davon aus, dass bereits eine Peer-Verbindung besteht und `videoReceiver` ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) ist.
+Der Hauptthread hat keinen direkten Zugriff auf das Objekt [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) und muss den Schlüssel daher an den Worker übergeben.
+Hier verwenden wir dazu einen `MessageChannel` und übertragen den zweiten Port an den Transformer-Code, der im Worker ausgeführt wird.
+Der Code setzt voraus, dass bereits eine Peer-Verbindung besteht und `videoReceiver` ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) ist.
 
 ```js
 const worker = new Worker("worker.js");
@@ -61,9 +61,9 @@ channel.port1.postMessage({
 });
 ```
 
-Der [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignishandler im Worker erhält den Port als `event.transformer.options.port`.
-Der untenstehende Codeausschnitt zeigt, wie dieser verwendet wird, um auf `message` Ereignisse im Kanal zu hören.
-Wenn ein Ereignis empfangen wird, erhält der Handler den `key` und ruft dann `sendKeyFrameRequest()` auf dem Transformator auf.
+Der Event-Handler für [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) im Worker erhält den Port als `event.transformer.options.port`.
+Der folgende Codeausschnitt zeigt, wie dieser Port verwendet wird, um auf `message`-Events im Channel zu warten.
+Wenn ein Event empfangen wird, liest der Handler den `key` aus und ruft anschließend `sendKeyFrameRequest()` auf dem Transformer auf.
 
 ```js
 event.transformer.options.port.onmessage = (event) => {
@@ -86,5 +86,5 @@ event.transformer.options.port.onmessage = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [WebRTC Encoded Transforms verwenden](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
 - [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)

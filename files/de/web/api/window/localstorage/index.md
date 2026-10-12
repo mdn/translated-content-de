@@ -3,66 +3,66 @@ title: "Window: localStorage-Eigenschaft"
 short-title: localStorage
 slug: Web/API/Window/localStorage
 l10n:
-  sourceCommit: fbe455624f7a57d897260d947580428087a48c09
+  sourceCommit: 5b85e27155260155bd829fc6d4b98ca2c476b2d1
 ---
 
 {{APIRef("Web Storage API")}}
 
-Die **`localStorage`** Nur-Lese-Eigenschaft der [`window`](/de/docs/Web/API/Window)-Schnittstelle ermöglicht es Ihnen, auf ein [`Storage`](/de/docs/Web/API/Storage)-Objekt für den {{Glossary("origin", "Ursprung")}} des [`Dokuments`](/de/docs/Web/API/Document) zuzugreifen; die gespeicherten Daten werden über Browsersitzungen hinweg beibehalten.
+Die schreibgeschützte Eigenschaft **`localStorage`** der Schnittstelle [`window`](/de/docs/Web/API/Window) ermöglicht den Zugriff auf ein [`Storage`](/de/docs/Web/API/Storage)-Objekt für den {{Glossary("origin", "Origin")}} des [`Document`](/de/docs/Web/API/Document). Die gespeicherten Daten bleiben über Browsersitzungen hinweg erhalten.
 
-`localStorage` ist ähnlich wie [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage), allerdings hat `localStorage` keinen Ablaufzeitpunkt, während `sessionStorage`-Daten gelöscht werden, wenn die Seitensitzung endet — das heißt, wenn die Seite geschlossen wird. (`localStorage`-Daten für ein Dokument, das in einer "Privates Surfen"- oder "Inkognito"-Sitzung geladen wurde, werden gelöscht, wenn der letzte "private" Tab geschlossen wird.)
+`localStorage` ähnelt [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage). Während Daten in `localStorage` jedoch nicht ablaufen, werden Daten in `sessionStorage` gelöscht, wenn die Seitensitzung endet – also wenn die Seite geschlossen wird. (`localStorage`-Daten eines Dokuments, das in einer Sitzung zum „privaten Surfen“ oder im „Inkognito-Modus“ geladen wurde, werden gelöscht, wenn der letzte „private“ Tab geschlossen wird.)
 
 ## Wert
 
-Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das verwendet werden kann, um auf den lokalen Speicherplatz des aktuellen Ursprungs zuzugreifen.
+Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, mit dem auf den lokalen Speicherbereich des aktuellen Origins zugegriffen werden kann.
 
 ### Ausnahmen
 
-- `SecurityError`
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Der Ursprung ist kein [gültiges Schema/Host/Port-Tupel](/de/docs/Web/Security/Defenses/Same-origin_policy#definition_of_an_origin). Dies kann passieren, wenn der Ursprung die `file:`- oder `data:`-Schemas verwendet, zum Beispiel.
-    - Die Anfrage verletzt eine politische Entscheidung. Zum Beispiel hat der Benutzer den Browser so konfiguriert, dass die Seite daran gehindert wird, Daten zu speichern.
+    - Der Origin ist kein [gültiges Tupel aus Schema, Host und Port](/de/docs/Web/Security/Defenses/Same-origin_policy#definition_of_an_origin). Dies kann beispielsweise der Fall sein, wenn der Origin das Schema `file:` oder `data:` verwendet.
+    - Die Anfrage verstößt gegen eine Richtlinie. Beispielsweise hat der Benutzer den Browser so konfiguriert, dass die Seite keine Daten dauerhaft speichern darf.
 
-    Beachten Sie, dass, wenn der Benutzer Cookies blockiert, die Browser dies wahrscheinlich als Anweisung interpretieren, die Seite daran zu hindern, Daten zu speichern.
+    Beachten Sie, dass Browser das Blockieren von Cookies durch den Benutzer wahrscheinlich als Anweisung interpretieren, die dauerhafte Speicherung von Daten durch die Seite zu verhindern.
 
 ## Beschreibung
 
-Die Schlüssel und die Werte, die mit `localStorage` gespeichert werden, befinden sich im {{Glossary("UTF-16", "UTF-16")}}-Zeichenfolgenformat. Wie bei Objekten werden ganze Zahl-Schlüssel automatisch in Zeichenfolgen umgewandelt.
+Die mit `localStorage` gespeicherten Schlüssel und Werte liegen als Zeichenfolgen im Format {{Glossary("UTF-16", "UTF-16")}} vor. Wie bei Objekten werden ganzzahlige Schlüssel automatisch in Zeichenfolgen umgewandelt.
 
-`localStorage`-Daten **sind spezifisch für das Protokoll des Dokuments**. Insbesondere für eine über HTTP geladene Seite (z.B. `http://example.com`) gibt `localStorage` ein anderes Objekt zurück als `localStorage` für die entsprechende über HTTPS geladene Seite (z.B. `https://example.com`).
+`localStorage`-Daten sind **spezifisch für das Protokoll des Dokuments**. Für eine über HTTP geladene Website (z. B. `http://example.com`) gibt `localStorage` ein anderes Objekt zurück als für dieselbe über HTTPS geladene Website (z. B. `https://example.com`).
 
-Für Dokumente, die von `file:`-URLs geladen werden (das heißt, Dateien, die im Browser direkt vom lokalen Dateisystem des Benutzers geöffnet werden, anstatt von einem Webserver bereitgestellt zu werden), sind die Anforderungen für das Verhalten von `localStorage` undefiniert und können zwischen verschiedenen Browsern variieren.
+Für Dokumente, die über `file:`-URLs geladen werden (also Dateien, die direkt aus dem lokalen Dateisystem des Benutzers im Browser geöffnet und nicht von einem Webserver bereitgestellt werden), ist das Verhalten von `localStorage` nicht festgelegt und kann sich zwischen Browsern unterscheiden.
 
-In allen aktuellen Browsern scheint `localStorage` ein anderes Objekt für jede `file:`-URL zurückzugeben. Mit anderen Worten: Jeder `file:`-URL scheint über einen eigenen einzigartigen lokalen Speicherbereich zu verfügen. Aber es gibt keine Garantien über dieses Verhalten, daher sollten Sie sich nicht darauf verlassen, da, wie oben erwähnt, die Anforderungen für `file:`-URLs undefiniert bleiben. Es ist möglich, dass Browser ihr `file:`-URL-Handling für `localStorage` jederzeit ändern können. Tatsächlich haben einige Browser ihr Handling dafür im Laufe der Zeit geändert.
+In allen aktuellen Browsern scheint `localStorage` für jede `file:`-URL ein anderes Objekt zurückzugeben. Mit anderen Worten: Jede `file:`-URL scheint einen eigenen lokalen Speicherbereich zu haben. Dieses Verhalten ist jedoch nicht garantiert. Sie sollten sich daher nicht darauf verlassen, denn wie bereits erwähnt ist das Verhalten für `file:`-URLs nicht festgelegt. Browser könnten ihre Behandlung von `file:`-URLs bei `localStorage` jederzeit ändern. Einige Browser _haben_ ihr Verhalten diesbezüglich im Laufe der Zeit geändert.
 
 ## Beispiele
 
-Der folgende Codeausschnitt greift auf das lokale [`Storage`](/de/docs/Web/API/Storage)-Objekt der aktuellen Domain zu und fügt ihm ein Datenelement hinzu, indem er [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) nutzt, oder aktualisiert das Element, falls bereits ein Schlüssel vorhanden ist.
+Der folgende Ausschnitt greift auf das lokale [`Storage`](/de/docs/Web/API/Storage)-Objekt der aktuellen Domain zu und fügt ihm mit [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) einen Dateneintrag hinzu. Falls für diesen Schlüssel bereits ein Eintrag vorhanden ist, wird er aktualisiert.
 
 ```js
 localStorage.setItem("myCat", "Tom");
 ```
 
-Die Syntax zum Lesen des `localStorage`-Elements ist wie folgt:
+Die Syntax zum Lesen eines Eintrags aus `localStorage` lautet:
 
 ```js
 const cat = localStorage.getItem("myCat");
 ```
 
-Die Syntax zum Entfernen des `localStorage`-Elements ist wie folgt:
+Die Syntax zum Entfernen eines Eintrags aus `localStorage` lautet:
 
 ```js
 localStorage.removeItem("myCat");
 ```
 
-Die Syntax zum Entfernen aller `localStorage`-Elemente ist wie folgt:
+Die Syntax zum Entfernen aller Einträge aus `localStorage` lautet:
 
 ```js
 localStorage.clear();
 ```
 
 > [!NOTE]
-> Bitte lesen Sie den Artikel [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) für ein vollständiges Beispiel.
+> Ein vollständiges Beispiel finden Sie im Artikel [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API).
 
 ## Spezifikationen
 

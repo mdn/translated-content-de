@@ -1,16 +1,17 @@
 ---
-title: "RTCPeerConnection: createAnswer() Methode"
+title: "RTCPeerConnection: Methode createAnswer()"
 short-title: createAnswer()
 slug: Web/API/RTCPeerConnection/createAnswer
 l10n:
-  sourceCommit: b913cece0d35b5a7d1b5d3f4c628dcbbddfc7435
+  sourceCommit: 5b85e27155260155bd829fc6d4b98ca2c476b2d1
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`createAnswer()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle erstellt eine {{Glossary("SDP", "SDP")}}-Antwort auf ein Angebot, das von einem entfernten Peer während der Angebot/Antwort-Verhandlung einer WebRTC-Verbindung empfangen wurde.
+Die Methode **`createAnswer()`** des Interfaces [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt eine {{Glossary("SDP", "SDP")}}-Antwort auf ein Angebot, das während der Offer/Answer-Aushandlung einer WebRTC-Verbindung von einem entfernten Peer empfangen wurde.
 
-Die Antwort enthält Informationen über bereits an die Sitzung angehängte Medien, von dem Browser unterstützte Codecs und Optionen sowie bereits gesammelte {{Glossary("ICE", "ICE")}}-Kandidaten. Die Antwort wird an das zurückgegebene {{jsxref("Promise")}} geliefert und sollte dann an die Quelle des Angebots gesendet werden, um den Verhandlungsprozess fortzusetzen.
+Die Antwort enthält Informationen über alle Medien, die bereits mit der Sitzung verknüpft sind, über die vom Browser unterstützten Codecs und Optionen sowie über alle bereits gesammelten {{Glossary("ICE", "ICE")}}-Kandidaten.
+Die Antwort wird über das zurückgegebene {{jsxref("Promise")}} bereitgestellt und sollte anschließend an den Absender des Angebots gesendet werden, um die Aushandlung fortzusetzen.
 
 ## Syntax
 
@@ -25,42 +26,48 @@ createAnswer(successCallback, failureCallback, options) // deprecated
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das angeforderte Optionen für die Antwort bereitstellt.
+  - : Ein optionales Objekt mit den für die Antwort angeforderten Optionen.
     Derzeit sind keine Optionen verfügbar.
 
 ### Veraltete Parameter
 
-In älterem Code und Dokumentationen kann eine callback-basierte Version dieser Funktion auftreten. Diese wurde veraltet und ihre Verwendung wird **dringend** abgeraten. Sie sollten vorhandenen Code aktualisieren, um die {{jsxref("Promise")}}-basierte Version von `createAnswer()` zu verwenden. Die Parameter der älteren Form von `createAnswer()` werden nachstehend beschrieben, um die Aktualisierung vorhandenen Codes zu erleichtern.
+In älterem Code und älterer Dokumentation finden Sie möglicherweise eine Callback-basierte Version dieser Funktion.
+Diese ist veraltet, und von ihrer Verwendung wird **dringend** abgeraten.
+Sie sollten vorhandenen Code aktualisieren und stattdessen die auf {{jsxref("Promise")}} basierende Version von `createAnswer()` verwenden.
+Die Parameter der älteren Form von `createAnswer()` werden im Folgenden beschrieben, um die Aktualisierung vorhandenen Codes zu erleichtern.
 
 - `successCallback` {{deprecated_inline}}
-  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erhält, das die neu erstellte Antwort beschreibt.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, der ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt übergeben wird, das die neu erstellte Antwort beschreibt.
 - `failureCallback` {{deprecated_inline}}
-  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt erhält, das erklärt, warum die Anforderung, eine Antwort zu erstellen, fehlgeschlagen ist.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, der ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt übergeben wird, das erklärt, warum die Erstellung einer Antwort fehlgeschlagen ist.
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das angeforderte Optionen für die Antwort bereitstellt.
+  - : Ein optionales Objekt mit den für die Antwort angeforderten Optionen.
 
 ### Ausnahmen
 
-- `NotReadableError`
-  - : Der Identitätsanbieter war nicht in der Lage, eine Identitätsbehauptung bereitzustellen.
-- `OperationError`
-  - : Die Erstellung der SDP ist aus irgendeinem Grund fehlgeschlagen; dies ist eine allgemeine Fehlerausnahme.
+- `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der Identitätsanbieter konnte keine Identitätsbestätigung bereitstellen.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Erstellung des SDP ist aus einem nicht näher bestimmten Grund fehlgeschlagen. Dies ist eine allgemeine Ausnahme für Fehler, die keiner spezifischeren Kategorie zugeordnet werden können.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ein Objekt mit den gleichen Eigenschaften wie ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekten erfüllt:
+Ein {{jsxref("Promise")}}, das mit einem Objekt erfüllt wird, das dieselben Eigenschaften wie ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt enthält:
 
 - `type`
-  - : Ein String, dessen Wert `"answer"` ist.
+  - : Ein String mit dem Wert `"answer"`.
 - `sdp`
-  - : Ein String, der die SDP beschreibt, welche die Sitzung an den entfernten Peer liefern soll.
+  - : Ein String mit dem SDP, das die Sitzung beschreibt und an den entfernten Peer gesendet werden soll.
 
 ## Beispiele
 
-Hier ist ein Code-Segment aus dem Artikel [Signalisierung und Videoanruf](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling). Dieser Code stammt aus dem Handler für die Nachricht, die ein Angebot über den Signalisierungskanal an einen anderen Peer sendet.
+Der folgende Codeausschnitt stammt aus dem Code zum Artikel [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling).
+Er stammt aus dem Handler für die Nachricht, mit der ein Angebot über den Signalisierungskanal an einen anderen Peer gesendet wird.
 
 > [!NOTE]
-> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen bleibt. In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine {{Glossary("JSON", "JSON")}}-Nachricht mit einem `type`-Feld mit dem Wert "video-answer" an den anderen Peer zu senden, die die Antwort an das Gerät trägt, das das Verbindungsangebot gesendet hat. Der Inhalt des Objekts, das an die `sendToServer()`-Funktion übergeben wird, sowie alles andere im **Promise**-Erfüllungs-Handler hängen vollständig von Ihrem Design ab.
+> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist. Die dafür verwendete Transportschicht ist ein Implementierungsdetail, über das Sie selbst entscheiden.
+> In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine {{Glossary("JSON", "JSON")}}-Nachricht mit einem `type`-Feld mit dem Wert „video-answer“ an den anderen Peer zu senden. Die Nachricht enthält die Antwort für das Gerät, das das Verbindungsangebot gesendet hat.
+> Der Inhalt des an die Funktion `sendToServer()` übergebenen Objekts hängt ebenso wie der übrige Code im Handler für die Erfüllung des Promise vollständig von Ihrer Implementierung ab.
 
 ```js
 pc.createAnswer()
@@ -71,13 +78,14 @@ pc.createAnswer()
   .catch(handleGetUserMediaError);
 ```
 
-Dies fordert [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auf, eine neue Antwort zu erstellen und zurückzugeben. In unserem **Promise**-Handler wird die zurückgegebene Antwort als Beschreibung des lokalen Endes der Verbindung durch Aufrufen von [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) gesetzt.
+Damit wird [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufgefordert, eine neue Antwort zu erstellen und zurückzugeben.
+In unserem Promise-Handler wird die zurückgegebene Antwort durch einen Aufruf von [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) als Beschreibung der lokalen Seite der Verbindung festgelegt.
 
-Sobald dies erfolgreich ist, wird die Antwort unter Verwendung des von Ihnen gewählten Protokolls an den Signalisierungsserver gesendet.
+Sobald dies erfolgreich war, wird die Antwort über ein Protokoll Ihrer Wahl an den Signalisierungsserver gesendet.
 
-{{jsxref("Promise.catch()")}} wird verwendet, um Fehler abzufangen und zu behandeln.
+Mit {{jsxref("Promise.catch()")}} werden Fehler abgefangen und behandelt.
 
-Siehe [Handling the invitation](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#handling_the_invitation) in unserem WebRTC-Chat-Beispiel, um den vollständigen Code zu sehen, von dem dieses Snippet abgeleitet ist; das wird Ihnen helfen, den Signalisierungsprozess und die Funktionsweise von Antworten zu verstehen.
+Den vollständigen Code, aus dem dieser Ausschnitt stammt, finden Sie unter [Die Einladung verarbeiten](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#handling_the_invitation) in unserem WebRTC-Chatbeispiel. Er hilft Ihnen, den Signalisierungsprozess und die Funktionsweise von Antworten zu verstehen.
 
 ## Spezifikationen
 

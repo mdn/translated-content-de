@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: createBuffer() Methode"
+title: "GPUDevice: createBuffer()-Methode"
 short-title: createBuffer()
 slug: Web/API/GPUDevice/createBuffer
 l10n:
-  sourceCommit: 60457fede46884fee5c94976016f30dddc01bb4e
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createBuffer()`**-Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces erstellt ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), in dem Rohdaten gespeichert werden, die in GPU-Operationen verwendet werden sollen.
+Die **`createBuffer()`**-Methode der Schnittstelle [`GPUDevice`](/de/docs/Web/API/GPUDevice) erstellt einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), in dem Rohdaten für GPU-Operationen gespeichert werden.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ createBuffer(descriptor)
 ### Parameter
 
 - `descriptor`
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+      - : Eine Zeichenfolge mit einer Bezeichnung, anhand derer das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen identifiziert werden kann.
     - `mappedAtCreation` {{optional_inline}}
-      - : Ein Boolean. Wenn auf `true` gesetzt, wird der Buffer bei der Erstellung abgebildet, was bedeutet, dass Sie die Werte innerhalb des Buffers sofort festlegen können, indem Sie [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) aufrufen. Der Standardwert ist `false`.
+      - : Ein boolescher Wert. Wenn er auf `true` gesetzt ist, wird der Buffer bei der Erstellung gemappt. Dadurch können Sie die Werte im Buffer sofort durch Aufrufen von [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) festlegen. Der Standardwert ist `false`.
 
-        Beachten Sie, dass es gültig ist, `mappedAtCreation: true` zu setzen, um die anfänglichen Daten des Buffers festzulegen, selbst wenn die `GPUBufferUsage.MAP_READ` oder `GPUBufferUsage.MAP_WRITE` Nutzungsflags nicht gesetzt sind.
+        Sie können `mappedAtCreation: true` setzen, um die Anfangsdaten des Buffers festzulegen, auch wenn die Usage-Flags `GPUBufferUsage.MAP_READ` oder `GPUBufferUsage.MAP_WRITE` nicht gesetzt sind.
 
     - `size`
-      - : Eine Zahl, die die Größe des Buffers in Bytes darstellt. Wenn `mappedAtCreation` auf `true` gesetzt ist, muss dies ein Vielfaches von `4` sein.
+      - : Eine Zahl, die die Größe des Buffers in Bytes angibt. Wenn `mappedAtCreation` auf `true` gesetzt ist, muss sie ein Vielfaches von `4` sein.
     - `usage`
-      - : Die {{Glossary("Bitwise_flags", "bitweisen Flags")}}, die die erlaubten Nutzungen für den `GPUBuffer` darstellen. Die möglichen Werte sind in der [`GPUBuffer.usage` Werte-Tabelle](/de/docs/Web/API/GPUBuffer/usage#value) aufgeführt.
+      - : Die {{Glossary("Bitwise_flags", "bitweisen Flags")}}, die die zulässigen Verwendungen des `GPUBuffer` angeben. Die möglichen Werte finden Sie in der [Wertetabelle für `GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage#value).
 
-        Beachten Sie, dass mehrere mögliche Nutzungen angegeben werden können, indem Werte mit [bitwise OR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) getrennt werden, zum Beispiel: `GPUBufferUsage.COPY_SRC | GPUBufferUsage.MAP_WRITE`.
+        Sie können mehrere zulässige Verwendungen angeben, indem Sie die Werte mit einem [bitweisen OR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) verknüpfen, zum Beispiel: `GPUBufferUsage.COPY_SRC | GPUBufferUsage.MAP_WRITE`.
 
 ### Rückgabewert
 
@@ -40,23 +40,23 @@ Eine [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Objektinstanz.
 
 ### Ausnahmen
 
-- `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
+- {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `mappedAtCreation` auf `true` gesetzt ist und die angegebene `size` kein Vielfaches von `4` ist.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createBuffer()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Objekt zurückgegeben:
+Beim Aufrufen von **`createBuffer()`** müssen die folgenden Kriterien erfüllt sein. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Objekt zurückgegeben:
 
-- Eine gültige `usage` ist angegeben.
-- `GPUBufferUsage.MAP_READ` ist angegeben, und es sind keine zusätzlichen Flags außer `GPUBufferUsage.COPY_DST` angegeben.
-- `GPUBufferUsage.MAP_WRITE` ist angegeben, und es sind keine zusätzlichen Flags außer `GPUBufferUsage.COPY_SRC` angegeben.
+- Ein gültiger `usage`-Wert wird angegeben.
+- Wenn `GPUBufferUsage.MAP_READ` angegeben ist, sind außer `GPUBufferUsage.COPY_DST` keine weiteren Flags angegeben.
+- Wenn `GPUBufferUsage.MAP_WRITE` angegeben ist, sind außer `GPUBufferUsage.COPY_SRC` keine weiteren Flags angegeben.
 
 > [!NOTE]
-> Wenn die Pufferzuordnung ohne spezifische Nebeneffekte fehlschlägt, wird ein [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError)-Objekt erzeugt.
+> Wenn die Zuweisung von Speicher für den Buffer ohne bestimmte Nebeneffekte fehlschlägt, wird ein [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError)-Objekt erzeugt.
 
 ## Beispiele
 
-In unserem [grundlegenden Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) erstellen wir einen Ausgabepuffer, um GPU-Berechnungen zu lesen, und einen Staging-Puffer, der für den Zugriff durch JavaScript abgebildet wird.
+In unserer [einfachen Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) erstellen wir einen Ausgabebuffer, in den Ergebnisse von GPU-Berechnungen geschrieben werden, und einen Staging-Buffer, der für den Zugriff durch JavaScript gemappt wird.
 
 ```js
 const output = device.createBuffer({
@@ -80,4 +80,4 @@ const stagingBuffer = device.createBuffer({
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

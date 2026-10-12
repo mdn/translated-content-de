@@ -1,17 +1,17 @@
 ---
-title: "GPURenderBundleEncoder: setBindGroup()-Methode"
+title: "GPURenderBundleEncoder: Methode setBindGroup()"
 short-title: setBindGroup()
 slug: Web/API/GPURenderBundleEncoder/setBindGroup
 l10n:
-  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setBindGroup()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bundle-Befehle für einen gegebenen Index verwendet werden soll.
+Die Methode **`setBindGroup()`** der Schnittstelle [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) legt für einen bestimmten Index die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) fest, die für nachfolgende Render-Bundle-Befehle verwendet wird.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`setBindGroup()`](/de/docs/Web/API/GPURenderPassEncoder/setBindGroup).
+> Diese Methode ist funktional identisch mit der entsprechenden Methode von [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`setBindGroup()`](/de/docs/Web/API/GPURenderPassEncoder/setBindGroup).
 
 ## Syntax
 
@@ -25,20 +25,20 @@ setBindGroup(index, bindGroup, dynamicOffsets, dynamicOffsetsStart,
 ### Parameter
 
 - `index`
-  - : Der Index, an dem die Bind-Group gesetzt werden soll. Dies entspricht dem `n`-Indexwert des entsprechenden [`@group(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-group)-Attributs im Shader-Code ([`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)), der in der zugehörigen Pipeline verwendet wird.
+  - : Der Index, an dem die Bind Group festgelegt wird. Er entspricht dem Indexwert `n` des zugehörigen Attributs [`@group(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-group) im Shader-Code ([`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)), der in der betreffenden Pipeline verwendet wird.
 - `bindGroup`
-  - : Die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bundle-Befehle verwendet werden soll, oder `null`, wobei jede zuvor gesetzte Bind-Group im angegebenen Slot aufgehoben wird.
+  - : Die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bundle-Befehle verwendet wird, oder `null`. Bei `null` wird eine zuvor im angegebenen Slot festgelegte Bind Group entfernt.
 - `dynamicOffsets` {{optional_inline}}
-  - : Ein Wert, der den Offset in Bytes für jeden Eintrag in `bindGroup` angibt, mit `hasDynamicOffset: true` gesetzt (d.h. im Deskriptor des Aufrufs [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout), der das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt erstellt hat, auf dem die `bindGroup` basiert). Dieser Wert kann sein:
+  - : Ein Wert, der für jeden Eintrag in `bindGroup`, bei dem `hasDynamicOffset: true` festgelegt ist, den Offset in Byte angibt (also im Deskriptor des Aufrufs von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout), mit dem das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt erstellt wurde, auf dem `bindGroup` basiert). Dieser Wert kann Folgendes sein:
     - Ein Array von Zahlen, die die verschiedenen Offsets angeben.
-    - Ein {{jsxref("Uint32Array")}}, das Zahlen enthält, die die Offsets spezifizieren.
+    - Ein {{jsxref("Uint32Array")}} mit Zahlen, die die Offsets angeben.
 
-Wenn ein {{jsxref("Uint32Array")}}-Wert für `dynamicOffsets` angegeben ist, sind die folgenden zwei Parameter ebenfalls erforderlich:
+Wenn für `dynamicOffsets` ein {{jsxref("Uint32Array")}} angegeben wird, sind zusätzlich beide folgenden Parameter erforderlich:
 
 - `dynamicOffsetsStart`
-  - : Eine Zahl, die den Offset in Array-Elementen in `dynamicOffsetsData` angibt, wo die dynamischen Offset-Daten beginnen.
+  - : Eine Zahl, die den Offset in Array-Elementen innerhalb von `dynamicOffsetsData` angibt, an dem die Daten für die dynamischen Offsets beginnen.
 - `dynamicOffsetsLength`
-  - : Eine Zahl, die die Anzahl der dynamischen Offset-Werte angibt, die aus `dynamicOffsetsData` gelesen werden sollen.
+  - : Eine Zahl, die angibt, wie viele Werte für dynamische Offsets aus `dynamicOffsetsData` gelesen werden sollen.
 
 ### Rückgabewert
 
@@ -46,24 +46,24 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Für `setBindGroup()`-Aufrufe, die einen {{jsxref("Uint32Array")}}-Wert für `dynamicOffsets` verwenden, wird ein `RangeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst, wenn:
+Bei Aufrufen von `setBindGroup()`, die für `dynamicOffsets` ein {{jsxref("Uint32Array")}} verwenden, wird ein {{jsxref("RangeError")}} ausgelöst, wenn:
 
 - `dynamicOffsetsStart` kleiner als 0 ist.
 - `dynamicOffsetsStart` + `dynamicOffsetsLength` größer als `dynamicOffsets.length` ist.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setBindGroup()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
+Beim Aufruf von **`setBindGroup()`** müssen die folgenden Kriterien erfüllt sein. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- `index` ist kleiner oder gleich dem `maxBindGroups` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-- `dynamicOffsets.length` entspricht der Anzahl der Einträge in `bindGroup`, bei denen `hasDynamicOffset: true` gesetzt ist.
-- Für `bindGroup`-Einträge, bei denen der gebundene `buffer`-`type` `"uniform"` ist (siehe [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), ist jede Zahl in `dynamicOffsets` ein Vielfaches der `minUniformBufferOffsetAlignment` [Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-- Für `bindGroup`-Einträge, bei denen der gebundene `buffer`-`type` `"storage"` oder `"read-only-storage"` ist (siehe [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), ist jede Zahl in `dynamicOffsets` ein Vielfaches der `minStorageBufferOffsetAlignment` [Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-- Für jeden `bindGroup`-Eintrag ist der gebundene `buffer`-`offset`, plus die entsprechende Layout-Eintrags-`minBindingSize`, plus der entsprechende dynamische Offset, der in `dynamicOffsets` angegeben ist, kleiner oder gleich der `size` des gebundenen `buffer`.
+- `index` ist kleiner oder gleich dem [Limit](/de/docs/Web/API/GPUSupportedLimits) `maxBindGroups` des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- `dynamicOffsets.length` entspricht der Anzahl der Einträge in `bindGroup`, bei denen `hasDynamicOffset: true` festgelegt ist.
+- Bei `bindGroup`-Einträgen, deren gebundener `buffer` den `type` `"uniform"` hat (siehe [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), ist jede Zahl in `dynamicOffsets` ein Vielfaches des [Limits](/de/docs/Web/API/GPUSupportedLimits) `minUniformBufferOffsetAlignment` des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Bei `bindGroup`-Einträgen, deren gebundener `buffer` den `type` `"storage"` oder `"read-only-storage"` hat (siehe [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), ist jede Zahl in `dynamicOffsets` ein Vielfaches des [Limits](/de/docs/Web/API/GPUSupportedLimits) `minStorageBufferOffsetAlignment` des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Für jeden `bindGroup`-Eintrag ist die Summe aus dem `offset` des gebundenen `buffer`, dem `minBindingSize` des entsprechenden Layout-Eintrags und dem zugehörigen, in `dynamicOffsets` angegebenen dynamischen Offset kleiner oder gleich der `size` des gebundenen `buffer`.
 
 ## Beispiele
 
-### Bind-Group setzen
+### Bind Group festlegen
 
 ```js
 function recordRenderPass(passEncoder) {
@@ -87,9 +87,9 @@ function recordRenderPass(passEncoder) {
 }
 ```
 
-Der obige Ausschnitt stammt aus dem WebGPU-Beispiel [Animometer example](https://webgpu.github.io/webgpu-samples/samples/animometer/).
+Der obige Ausschnitt stammt aus dem [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/) der WebGPU Samples.
 
-### Bind-Group aufheben
+### Bind Group entfernen
 
 ```js
 // Set bind group in slot 0

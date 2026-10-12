@@ -1,14 +1,14 @@
 ---
-title: "NDEFReader: write() Methode"
+title: "NDEFReader: Methode write()"
 short-title: write()
 slug: Web/API/NDEFReader/write
 l10n:
-  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
+  sourceCommit: 5b85e27155260155bd829fc6d4b98ca2c476b2d1
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die `write()`-Methode der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle versucht, eine NDEF-Nachricht auf ein Tag zu schreiben und gibt ein {{jsxref("Promise")}} zurück, das entweder aufgelöst wird, wenn eine Nachricht auf das Tag geschrieben wurde, oder abgelehnt wird, wenn ein Hardware- oder Berechtigungsfehler aufgetreten ist. Diese Methode löst eine Berechtigungsabfrage aus, wenn die "nfc"-Berechtigung zuvor nicht erteilt wurde.
+Die Methode `write()` der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle versucht, eine NDEF-Nachricht auf einen Tag zu schreiben. Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Nachricht auf den Tag geschrieben wurde, oder bei einem Hardware- oder Berechtigungsfehler abgelehnt wird. Diese Methode löst eine Berechtigungsanfrage aus, wenn die Berechtigung „nfc“ noch nicht erteilt wurde.
 
 ## Syntax
 
@@ -20,21 +20,19 @@ write(message, options)
 ### Parameter
 
 - `message`
-  - : Die zu schreibende Nachricht, entweder ein String, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}},
-    ein {{jsxref("DataView")}} oder ein Array von Datensätzen. Ein Datensatz hat die folgenden Mitglieder:
+  - : Die zu schreibende Nachricht: ein String, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, eine {{jsxref("DataView")}} oder ein Array von Datensätzen. Ein Datensatz hat folgende Eigenschaften:
     - `data` {{optional_inline}}
-      - : Enthält die zu übertragenden Daten, ein String, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}},
-        ein {{jsxref("DataView")}} oder ein Array von verschachtelten Datensätzen.
+      - : Enthält die zu übertragenden Daten: einen String, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, eine {{jsxref("DataView")}} oder ein Array verschachtelter Datensätze.
     - `encoding` {{optional_inline}}
       - : Ein String, der die Kodierung des Datensatzes angibt.
     - `id` {{optional_inline}}
-      - : Ein vom Entwickler definierter Identifikator für den Datensatz.
+      - : Eine vom Entwickler festgelegte Kennung für den Datensatz.
     - `lang` {{optional_inline}}
-      - : Ein gültiger {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}}.
+      - : Ein gültiges {{Glossary("BCP_47_language_tag", "BCP-47-Sprachtag")}}.
     - `mediaType` {{optional_inline}}
       - : Ein gültiger [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types).
     - `recordType`
-      - : Ein String, der den Typ der in `data` gespeicherten Daten angibt. Er muss einer der folgenden Werte sein:
+      - : Ein String, der den Typ der in `data` gespeicherten Daten angibt. Er muss einen der folgenden Werte haben:
         - `"absolute-url"`
           - : Eine absolute URL zu den Daten.
         - `"empty"`
@@ -42,49 +40,45 @@ write(message, options)
         - `"mime"`
           - : Ein gültiger [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types).
         - `"smart-poster"`
-          - : Ein smart-poster, wie in der [NDEF-SMARTPOSTER](https://w3c.github.io/web-nfc/#bib-ndef-smartposter) Spezifikation definiert.
+          - : Ein Smart Poster gemäß der [NDEF-SMARTPOSTER](https://w3c.github.io/web-nfc/#bib-ndef-smartposter)-Spezifikation.
         - `"text"`
-          - : Text, wie in der [NDEF-TEXT](https://w3c.github.io/web-nfc/#bib-ndef-text) Spezifikation definiert.
+          - : Text gemäß der [NDEF-TEXT](https://w3c.github.io/web-nfc/#bib-ndef-text)-Spezifikation.
         - `"unknown"`
-          - : Der Datensatztyp ist nicht bekannt.
+          - : Der Typ des Datensatzes ist unbekannt.
         - `"URL"`
-          - : Eine URL, wie in der [NDEF-URI](https://w3c.github.io/web-nfc/#bib-ndef-uri) Spezifikation definiert.
+          - : Eine URL gemäß der [NDEF-URI](https://w3c.github.io/web-nfc/#bib-ndef-uri)-Spezifikation.
 
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `overwrite`
-      - : Ein boolescher Wert, der angibt, ob vorhandene Datensätze überschrieben werden sollen, falls solche existieren.
+      - : Ein boolescher Wert, der angibt, ob vorhandene Datensätze überschrieben werden sollen.
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das die aktuelle Schreiboperation abbrechen kann.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem der aktuelle Schreibvorgang abgebrochen werden kann.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das entweder aufgelöst wird, wenn eine Nachricht auf das Tag geschrieben wurde, oder abgelehnt wird, wenn ein Hardware- oder Berechtigungsfehler aufgetreten ist.
+Ein {{JSxRef("Promise")}}, das erfüllt wird, sobald eine Nachricht auf den Tag geschrieben wurde, oder bei einem Hardware- oder Berechtigungsfehler abgelehnt wird.
 
 ### Ausnahmen
 
-Diese Methode löst keine Ausnahmen aus; stattdessen wird das zurückgegebene Promise abgelehnt,
-und ein [`DOMException`](/de/docs/Web/API/DOMException) wird weitergegeben, dessen `name` einer der
-folgenden ist:
+Diese Methode löst keine Ausnahmen aus. Stattdessen wird das zurückgegebene Promise mit einer [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, deren `name` einer der folgenden Werte ist:
 
-- `AbortError`
-  - : Der Scanvorgang wurde mit dem [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen, das im `options`-Argument übergeben wurde.
-- `NotAllowedError`
-  - : Die Berechtigung für diesen Vorgang wurde abgelehnt oder `overwrite` ist
-    `false`, und es befinden sich bereits Datensätze auf dem Tag.
-- `NotSupportedError`
-  - : Es gibt keinen NFC-Adapter, der mit Web NFC kompatibel ist, oder der verfügbare NFC-Adapter unterstützt das Senden von Nachrichten nicht, oder die Verbindung kann nicht hergestellt werden.
-- `NotReadableError`
-  - : Dem UA ist der Zugriff auf den zugrunde liegenden NFC-Adapter nicht gestattet (z. B. aufgrund der Benutzerpräferenz).
-- `NetworkError`
-  - : Der Transfer ist fehlgeschlagen, nachdem er bereits gestartet wurde (z. B. wurde das Tag vom
-    Leser entfernt).
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der Scanvorgang wurde mit dem im Argument `options` übergebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Berechtigung für diesen Vorgang wurde verweigert, oder `overwrite` ist `false` und auf dem Tag befinden sich bereits Datensätze.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Es ist kein mit Web NFC kompatibler NFC-Adapter vorhanden, der verfügbare NFC-Adapter unterstützt das Übertragen von Nachrichten nicht oder es kann keine Verbindung hergestellt werden.
+- `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der User-Agent darf nicht auf den zugrunde liegenden NFC-Adapter zugreifen (z. B. aufgrund einer Benutzereinstellung).
+- `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Übertragung ist fehlgeschlagen, nachdem sie bereits begonnen hatte (z. B. weil der Tag vom Lesegerät entfernt wurde).
 
 ## Beispiele
 
-### Schreiben eines Textstrings
+### Einen Textstring schreiben
 
-Das folgende Beispiel zeigt, wie ein String auf einem NFC-Tag geschrieben wird und wie auf auftretende Fehler reagiert wird.
+Das folgende Beispiel zeigt, wie Sie einen String auf einen NFC-Tag schreiben und dabei auftretende Fehler behandeln.
 
 ```js
 const ndef = new NDEFReader();
@@ -98,9 +92,9 @@ ndef
   });
 ```
 
-### Schreiben einer URL
+### Eine URL schreiben
 
-Das folgende Beispiel zeigt, wie ein Datensatzobjekt (wie oben beschrieben) auf einem NFC-Tag geschrieben wird und wie auf auftretende Fehler reagiert wird.
+Das folgende Beispiel zeigt, wie Sie ein oben beschriebenes Datensatzobjekt auf einen NFC-Tag schreiben und dabei auftretende Fehler behandeln.
 
 ```js
 const ndef = new NDEFReader();
@@ -113,9 +107,9 @@ try {
 }
 ```
 
-### Planung eines Schreibvorgangs mit Timeout
+### Einen Schreibvorgang mit einem Zeitlimit versehen
 
-Es ist manchmal nützlich, ein Zeitlimit für eine Schreiboperation festzulegen. Zum Beispiel bitten Sie den Benutzer, ein Tag zu berühren, aber es wird innerhalb eines bestimmten Zeitraums kein Tag gefunden, dann läuft die Zeit ab.
+Manchmal ist es sinnvoll, für einen Schreibvorgang ein Zeitlimit festzulegen. Wenn Sie beispielsweise einen Benutzer bitten, einen Tag an das Lesegerät zu halten, aber innerhalb einer bestimmten Zeit kein Tag gefunden wird, können Sie den Vorgang wegen Zeitüberschreitung abbrechen.
 
 ```js
 const ndef = new NDEFReader();

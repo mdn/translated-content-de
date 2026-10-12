@@ -1,18 +1,18 @@
 ---
-title: Versionshinweise für Firefox 159 für Entwickler (Nightly)
-short-title: Firefox 159 (Nightly)
+title: Versionshinweise für Entwickler zu Firefox 159 (Beta)
+short-title: Firefox 159 (Beta)
 slug: Mozilla/Firefox/Releases/159
 l10n:
-  sourceCommit: 91c6fa25d660ab9d0f8b60b19b103518cc3c1603
+  sourceCommit: bd4e1a75486ccdf2d36aef41c63d22ec5536b6a6
 ---
 
 Dieser Artikel informiert über Änderungen in Firefox 159, die Entwickler betreffen.
-Firefox 159 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und erscheint am [27. Oktober 2026](https://whattrainisitnow.com/release/?version=159).
+Firefox 159 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [27. Oktober 2026](https://whattrainisitnow.com/release/?version=159).
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentierung bei allen Überschriften, zu denen Sie Hinweise verfassen. -->
+<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, zu denen Sie Hinweise verfassen. -->
 
 ## Änderungen für Webentwickler
 
@@ -79,5 +79,5 @@ Firefox 159 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 ## Experimentelle Webfunktionen
 
 Diese Funktionen sind in Firefox 159 enthalten, aber standardmäßig deaktiviert.
-Wenn Sie sie ausprobieren möchten, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
 Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

@@ -1,16 +1,16 @@
 ---
-title: "XRSystem: isSessionSupported()-Methode"
+title: "XRSystem: Methode isSessionSupported()"
 short-title: isSessionSupported()
 slug: Web/API/XRSystem/isSessionSupported
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5b85e27155260155bd829fc6d4b98ca2c476b2d1
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die Methode **`isSessionSupported()`** des [`XRSystem`](/de/docs/Web/API/XRSystem) gibt ein `Promise` zurück, das auf `true` aufgelöst wird, wenn der spezifizierte WebXR-Sitzungsmodus vom WebXR-Gerät des Nutzers unterstützt wird. Andernfalls wird das `Promise` mit `false` aufgelöst.
+Die Methode **`isSessionSupported()`** von [`XRSystem`](/de/docs/Web/API/XRSystem) gibt ein Promise zurück, das zu `true` aufgelöst wird, wenn das WebXR-Gerät des Benutzers den angegebenen WebXR-Sitzungsmodus unterstützt. Andernfalls wird das Promise zu `false` aufgelöst.
 
-Wenn keine Geräte verfügbar sind oder der Browser keine Berechtigung hat, das XR-Gerät zu verwenden, wird das `Promise` mit einer entsprechenden [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+Wenn keine Geräte verfügbar sind oder der Browser keine Berechtigung zur Nutzung des XR-Geräts hat, wird das Promise mit einer entsprechenden [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
 
 ## Syntax
 
@@ -21,27 +21,27 @@ isSessionSupported(mode)
 ### Parameter
 
 - `mode`
-  - : Ein {{jsxref("String")}}, der den WebXR-Sitzungsmodus angibt, dessen Unterstützung überprüft werden soll. Mögliche zu überprüfende Modi:
+  - : Ein {{jsxref("String")}}, der den WebXR-Sitzungsmodus angibt, dessen Unterstützung geprüft werden soll. Folgende Modi können geprüft werden:
     - `immersive-ar` {{Experimental_Inline}}
     - `immersive-vr`
     - `inline`
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf `true` aufgelöst wird, wenn der angegebene Sitzungsmodus unterstützt wird; andernfalls wird das `Promise` mit `false` aufgelöst.
+Ein {{jsxref("Promise")}}, das zu `true` aufgelöst wird, wenn der angegebene Sitzungsmodus unterstützt wird; andernfalls wird es zu `false` aufgelöst.
 
 ### Ausnahmen
 
-Anstatt echte Ausnahmen auszulösen, lehnt `isSessionSupported()` das zurückgegebene `Promise` ab und übergibt dem Ablehnungs-Handler eine [`DOMException`](/de/docs/Web/API/DOMException), deren `name` einer der folgenden Zeichenfolgen ist:
+Statt Ausnahmen auszulösen, weist `isSessionSupported()` das zurückgegebene Promise zurück und übergibt dem Rejection-Handler eine [`DOMException`](/de/docs/Web/API/DOMException), deren `name` einer der folgenden Strings ist:
 
-- `SecurityError`
-  - : Die Nutzung dieses Features wird durch eine `xr-spatial-tracking` [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Nutzung dieser Funktion wird durch eine `xr-spatial-tracking`-[Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-In diesem Beispiel wird `isSessionSupported()` verwendet, um zu erkennen, ob das Gerät den VR-Modus unterstützt, indem überprüft wird, ob eine `immersive-vr`-Sitzung unterstützt wird. Falls dies der Fall ist, richten wir einen Button ein, der "Enter XR" liest, eine Methode `onButtonClicked()` aufruft und den Button aktiviert.
+In diesem Beispiel wird mit `isSessionSupported()` geprüft, ob das Gerät den VR-Modus unterstützt. Dazu wird geprüft, ob eine `immersive-vr`-Sitzung unterstützt wird. Falls ja, richten wir eine Schaltfläche mit der Beschriftung „Enter XR“ ein, die beim Anklicken die Methode `onButtonClicked()` aufruft, und aktivieren die Schaltfläche.
 
-Wenn noch keine Sitzung läuft, fordern wir die VR-Sitzung an und, im Erfolgsfall, richten wir die Sitzung in einer Methode namens `onSessionStarted()` ein, die hier nicht gezeigt wird. Wenn bereits eine Sitzung läuft, wenn der Button gedrückt wird, rufen wir die Methode [`end()`](/de/docs/Web/API/XRSession/end) des `xrSession`-Objekts auf, um die WebXR-Sitzung zu beenden.
+Wenn noch keine Sitzung läuft, fordern wir die VR-Sitzung an. Bei Erfolg richten wir die Sitzung in einer hier nicht gezeigten Methode namens `onSessionStarted()` ein. Wenn beim Anklicken der Schaltfläche _bereits_ eine Sitzung läuft, rufen wir die Methode [`end()`](/de/docs/Web/API/XRSession/end) des `xrSession`-Objekts auf, um die WebXR-Sitzung zu beenden.
 
 ```js
 if (navigator.xr) {

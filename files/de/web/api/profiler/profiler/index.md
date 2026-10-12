@@ -1,16 +1,16 @@
 ---
-title: "Profiler: Profiler() Konstruktor"
+title: "Profiler: Konstruktor Profiler()"
 short-title: Profiler()
 slug: Web/API/Profiler/Profiler
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 2eb88572e8e972bb87a446f17a4a9a23de0108b5
 ---
 
 {{APIRef("JS Self-Profiling API")}}{{SeeCompatTable}}
 
-Der **`Profiler()`** Konstruktor erstellt ein neues [`Profiler`](/de/docs/Web/API/Profiler)-Objekt.
+Der Konstruktor **`Profiler()`** erstellt ein neues [`Profiler`](/de/docs/Web/API/Profiler)-Objekt.
 
-Sobald es erstellt ist, beginnt der neue Profiler mit der Sammlung von Proben.
+Nach der Erstellung beginnt der neue Profiler, Samples zu erfassen.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ new Profiler(options)
 ### Parameter
 
 - `options`
-  - : Optionen für diesen Profiler. Dies ist ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Optionen für diesen Profiler. Dies ist ein Objekt mit den folgenden Eigenschaften:
     - `maxBufferSize`
-      - : Eine Zahl, die die maximale Anzahl von Proben angibt, die genommen werden sollen. Sobald diese Zahl erreicht ist, löst der Browser das [`samplebufferfull`](/de/docs/Web/API/Profiler/samplebufferfull_event)-Ereignis beim Profiler aus, und es werden keine weiteren Proben aufgezeichnet.
+      - : Eine Zahl, die die maximale Anzahl der zu erfassenden Samples angibt. Sobald diese Anzahl erreicht ist, löst der Browser beim Profiler das Ereignis [`samplebufferfull`](/de/docs/Web/API/Profiler/samplebufferfull_event) aus. Danach werden keine weiteren Samples erfasst.
     - `sampleInterval`
-      - : Das Zeitintervall zwischen den Proben, in Millisekunden.
+      - : Das Zeitintervall zwischen den Samples in Millisekunden.
 
 ### Ausnahmen
 
-- `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `sampleInterval`-Option kleiner als null ist.
+- {{jsxref("RangeError")}}
+  - : Wird ausgelöst, wenn die Option `sampleInterval` kleiner als null ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dokument nicht mit einer [document policy](https://wicg.github.io/document-policy/) bereitgestellt wurde, die den Konfigurationspunkt `"js-profiling"` enthielt.
+  - : Wird ausgelöst, wenn das Dokument nicht mit einer [Dokumentrichtlinie](https://wicg.github.io/document-policy/) ausgeliefert wurde, die den Konfigurationspunkt `"js-profiling"` enthält.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Profiler, der bis zu 1000 Proben aufnehmen wird und alle 10 Millisekunden eine Probe entnimmt.
+Dieses Beispiel erstellt einen Profiler, der bis zu 1000 Samples im Abstand von jeweils 10 Millisekunden erfasst.
 
 ```js
 const profiler = new Profiler({ sampleInterval: 10, maxBufferSize: 1000 });
