@@ -3,14 +3,14 @@ title: Einführung in Events
 short-title: Events
 slug: Learn_web_development/Core/Scripting/Events
 l10n:
-  sourceCommit: c529f2672b3541cc28ea687ff9266f98b1734191
+  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Functions","Learn_web_development/Core/Scripting/Event_bubbling", "Learn_web_development/Core/Scripting")}}
 
-Events sind Ereignisse, die in dem System auftreten, das Sie programmieren. Das System informiert Ihren Code darüber, damit er darauf reagieren kann.
-Wenn eine Person beispielsweise auf einer Webseite auf einen Button klickt, möchten Sie möglicherweise darauf reagieren, indem Sie ein Informationsfeld anzeigen.
-In diesem Artikel besprechen wir wichtige Konzepte rund um Events und die Grundlagen ihrer Funktionsweise in Browsern.
+Events sind Ereignisse, die in dem von Ihnen programmierten System auftreten. Das System teilt sie Ihnen mit, damit Ihr Code darauf reagieren kann.
+Wenn jemand beispielsweise auf einer Webseite auf eine Schaltfläche klickt, möchten Sie darauf vielleicht reagieren, indem Sie ein Informationsfeld anzeigen.
+In diesem Artikel behandeln wir einige wichtige Konzepte rund um Events und sehen uns die Grundlagen ihrer Funktionsweise im Browser an.
 
 <table>
   <tbody>
@@ -22,8 +22,8 @@ In diesem Artikel besprechen wir wichtige Konzepte rund um Events und die Grundl
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was Events sind: Signale, die der Browser auslöst, wenn etwas Wichtiges geschieht, und auf die Entwickler mit Code reagieren können.</li>
-          <li>Event-Handler mit <code>addEventListener()</code> (und <code>removeEventListener()</code>) sowie Event-Handler-Properties einrichten.</li>
+          <li>Was Events sind: Signale, die der Browser auslöst, wenn etwas Bedeutsames geschieht, und auf die Entwickler mit Code reagieren können.</li>
+          <li>Event-Handler mit <code>addEventListener()</code> (und <code>removeEventListener()</code>) sowie über Event-Handler-Eigenschaften einrichten.</li>
           <li>Inline-Event-Handler-Attribute und warum Sie diese nicht verwenden sollten.</li>
           <li>Event-Objekte.</li>
         </ul>
@@ -34,27 +34,27 @@ In diesem Artikel besprechen wir wichtige Konzepte rund um Events und die Grundl
 
 ## Was ist ein Event?
 
-Events sind Ereignisse, die in dem System auftreten, das Sie programmieren. Wenn ein Event auftritt, erzeugt (oder „feuert“) das System eine Art Signal und stellt einen Mechanismus bereit, mit dem automatisch eine Aktion ausgeführt werden kann – also Code –, wenn das Event auftritt.
-Events werden innerhalb des Browserfensters ausgelöst und sind meist mit einem bestimmten Objekt darin verbunden. Das kann ein einzelnes Element, eine Gruppe von Elementen, das im aktuellen Tab geladene HTML-Dokument oder das gesamte Browserfenster sein.
-Es können viele verschiedene Arten von Events auftreten.
+Events sind Ereignisse, die in dem von Ihnen programmierten System auftreten. Wenn ein Event eintritt, erzeugt (oder „löst“) das System ein Signal aus und stellt einen Mechanismus bereit, mit dem automatisch eine Aktion ausgeführt werden kann – also Code –, sobald das Event eintritt.
+Events werden innerhalb des Browserfensters ausgelöst und sind meist mit einem bestimmten Objekt darin verknüpft. Das kann ein einzelnes Element, eine Gruppe von Elementen, das im aktuellen Tab geladene HTML-Dokument oder das gesamte Browserfenster sein.
+Es gibt viele verschiedene Arten von Events.
 
 Zum Beispiel:
 
-- Eine Person wählt ein bestimmtes Element aus, klickt darauf oder bewegt den Mauszeiger darüber.
-- Eine Person drückt eine Taste auf der Tastatur.
-- Eine Person ändert die Größe des Browserfensters oder schließt es.
+- Jemand wählt ein bestimmtes Element aus, klickt darauf oder bewegt den Mauszeiger darüber.
+- Jemand drückt eine Taste auf der Tastatur.
+- Jemand ändert die Größe des Browserfensters oder schließt es.
 - Eine Webseite wird vollständig geladen.
 - Ein Formular wird abgesendet.
 - Ein Video wird abgespielt, pausiert oder endet.
 - Ein Fehler tritt auf.
 
-Daran – und an einem Blick auf den [Event-Index](/de/docs/Web/API/Document_Object_Model/Events#event_index) – erkennen Sie, dass **sehr viele** Events ausgelöst werden können.
+Daran – und an einem Blick auf den [Event-Index](/de/docs/Web/API/Document_Object_Model/Events#event_index) – erkennen Sie, dass **sehr viele** verschiedene Events ausgelöst werden können.
 
-Um auf ein Event zu reagieren, fügen Sie einen **Event-Listener** hinzu. Das ist ein Codeteil, der darauf wartet, dass das Event ausgelöst wird. Wenn dies geschieht, wird eine **Event-Handler**-Funktion aufgerufen, die vom Event-Listener referenziert wird oder in ihm enthalten ist und auf das Event reagiert. Wenn ein solcher Codeblock eingerichtet wird, um auf ein Event zu reagieren, sprechen wir davon, einen **Event-Handler zu registrieren**.
+Um auf ein Event zu reagieren, fügen Sie einen **Event-Listener** hinzu. Dieser Teil des Codes wartet darauf, dass das Event ausgelöst wird. Sobald das geschieht, wird eine **Event-Handler**-Funktion aufgerufen, die im Event-Listener referenziert oder enthalten ist und auf das Event reagiert. Wenn ein solcher Codeblock für die Reaktion auf ein Event eingerichtet wird, spricht man davon, einen **Event-Handler zu registrieren**.
 
-### Ein Beispiel: Ein Klick-Event verarbeiten
+### Ein Beispiel: ein Klick-Event behandeln
 
-Im folgenden Beispiel gibt es auf der Seite einen einzelnen {{htmlelement("button")}}:
+Im folgenden Beispiel befindet sich ein einzelnes {{htmlelement("button")}} auf der Seite:
 
 ```html
 <button>Change color</button>
@@ -66,7 +66,7 @@ button {
 }
 ```
 
-Dazu kommt etwas JavaScript. Im nächsten Abschnitt sehen wir uns den Code genauer an. Für den Moment genügt es zu wissen, dass er dem `"click"`-Event des Buttons einen Event-Listener hinzufügt. Die darin enthaltene Handler-Funktion reagiert auf das Event, indem sie die Hintergrundfarbe der Seite auf eine zufällige Farbe setzt:
+Dazu kommt etwas JavaScript. Im nächsten Abschnitt sehen wir uns den Code genauer an. Für den Moment genügt: Er fügt dem `"click"`-Event der Schaltfläche einen Event-Listener hinzu. Die darin enthaltene Handler-Funktion reagiert auf das Event, indem sie die Hintergrundfarbe der Seite auf eine zufällige Farbe setzt:
 
 ```js
 const btn = document.querySelector("button");
@@ -81,13 +81,13 @@ btn.addEventListener("click", () => {
 });
 ```
 
-Das Ergebnis sieht wie folgt aus. Klicken Sie auf den Button:
+Die Ausgabe des Beispiels sieht wie folgt aus. Klicken Sie auf die Schaltfläche:
 
 {{ EmbedLiveSample('An example: handling a click event', '100%', 200, "", "") }}
 
-## `addEventListener()` verwenden
+## addEventListener() verwenden
 
-Wie wir im letzten Beispiel gesehen haben, besitzen Objekte, die Events auslösen können, eine [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode. Sie ist der empfohlene Weg, Event-Listener hinzuzufügen.
+Wie wir im letzten Beispiel gesehen haben, besitzen Objekte, die Events auslösen können, eine Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener). Sie ist die empfohlene Möglichkeit, Event-Listener hinzuzufügen.
 
 Sehen wir uns den Code aus dem letzten Beispiel genauer an:
 
@@ -104,12 +104,12 @@ btn.addEventListener("click", () => {
 });
 ```
 
-Das HTML-Element {{HTMLElement("button")}} löst ein `click`-Event aus, wenn eine Person darauf klickt. Wir rufen seine `addEventListener()`-Methode auf, um einen Event-Listener hinzuzufügen. Die Methode erhält zwei Parameter:
+Das HTML-Element {{HTMLElement("button")}} löst ein `click`-Event aus, wenn jemand darauf klickt. Wir rufen seine Methode `addEventListener()` auf, um einen Event-Listener hinzuzufügen. Die Methode nimmt zwei Parameter entgegen:
 
-- die Zeichenfolge `"click"`, die angibt, dass wir auf das `click`-Event warten möchten. Buttons können viele weitere Events auslösen, etwa [`"mouseover"`](/de/docs/Web/API/Element/mouseover_event), wenn der Mauszeiger über den Button bewegt wird, oder [`"keydown"`](/de/docs/Web/API/Element/keydown_event), wenn bei fokussiertem Button eine Taste gedrückt wird.
-- eine Funktion, die aufgerufen wird, wenn das Event auftritt. In unserem Fall erzeugt die definierte anonyme Funktion eine zufällige RGB-Farbe und setzt die {{cssxref("background-color")}} des [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) der Seite auf diese Farbe.
+- Die Zeichenfolge `"click"` gibt an, dass wir auf das `click`-Event reagieren möchten. Schaltflächen können viele weitere Events auslösen, beispielsweise [`"mouseover"`](/de/docs/Web/API/Element/mouseover_event), wenn der Mauszeiger über die Schaltfläche bewegt wird, oder [`"keydown"`](/de/docs/Web/API/Element/keydown_event), wenn eine Taste gedrückt wird, während die Schaltfläche fokussiert ist.
+- Eine Funktion, die aufgerufen wird, wenn das Event eintritt. In unserem Fall erzeugt die definierte anonyme Funktion eine zufällige RGB-Farbe und setzt die {{cssxref("background-color")}} des [`<body>`](/de/docs/Web/HTML/Reference/Elements/body)-Elements der Seite auf diese Farbe.
 
-Sie können auch eine separate benannte Funktion erstellen und sie als zweiten Parameter an `addEventListener()` übergeben:
+Sie können auch eine separate benannte Funktion erstellen und diese als zweiten Parameter von `addEventListener()` angeben:
 
 ```js
 const btn = document.querySelector("button");
@@ -126,14 +126,14 @@ function changeBackground() {
 btn.addEventListener("click", changeBackground);
 ```
 
-### Auf andere Events warten
+### Auf andere Events reagieren
 
 Ein `<button>`-Element kann viele verschiedene Events auslösen. Probieren wir einige davon aus.
 
 Erstellen Sie zunächst eine neue HTML-Datei auf Ihrem lokalen Dateisystem und fügen Sie den folgenden Code ein:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
@@ -163,49 +163,49 @@ Erstellen Sie zunächst eine neue HTML-Datei auf Ihrem lokalen Dateisystem und f
 </html>
 ```
 
-Öffnen Sie die Datei in Ihrem Browser und probieren Sie sie aus. Sie ist lediglich eine Kopie des einfachen Beispiels mit zufälligen Farben, das Sie bereits kennengelernt haben.
+Öffnen Sie die Datei in Ihrem Browser und experimentieren Sie damit. Es handelt sich lediglich um eine Kopie des einfachen Beispiels mit der zufälligen Farbe, das Sie bereits ausprobiert haben.
 
-Ersetzen Sie nun `click` nacheinander durch die folgenden Werte und beobachten Sie die Ergebnisse im Browser:
+Ersetzen Sie nun `click` nacheinander durch die folgenden Werte und beobachten Sie das Ergebnis im Browser:
 
-- [`focus`](/de/docs/Web/API/Element/focus_event) und [`blur`](/de/docs/Web/API/Element/blur_event) – Die Farbe ändert sich, wenn der Button den Fokus erhält oder verliert. Drücken Sie die Tabulatortaste, um den Button zu fokussieren, und erneut, um den Fokus von ihm wegzubewegen.
+- [`focus`](/de/docs/Web/API/Element/focus_event) und [`blur`](/de/docs/Web/API/Element/blur_event) – Die Farbe ändert sich, wenn die Schaltfläche den Fokus erhält oder verliert. Drücken Sie die Tabulatortaste, um die Schaltfläche zu fokussieren, und drücken Sie sie erneut, um den Fokus von ihr wegzubewegen.
   Diese Events werden häufig verwendet, um beim Fokussieren eines Formularfelds Hinweise zum Ausfüllen anzuzeigen oder eine Fehlermeldung auszugeben, wenn ein Formularfeld einen ungültigen Wert enthält.
-- [`dblclick`](/de/docs/Web/API/Element/dblclick_event) – Die Farbe ändert sich nur bei einem Doppelklick auf den Button.
-- [`mouseover`](/de/docs/Web/API/Element/mouseover_event) und [`mouseout`](/de/docs/Web/API/Element/mouseout_event) – Die Farbe ändert sich, wenn der Mauszeiger über den Button bewegt wird beziehungsweise ihn verlässt.
+- [`dblclick`](/de/docs/Web/API/Element/dblclick_event) – Die Farbe ändert sich nur bei einem Doppelklick auf die Schaltfläche.
+- [`mouseover`](/de/docs/Web/API/Element/mouseover_event) und [`mouseout`](/de/docs/Web/API/Element/mouseout_event) – Die Farbe ändert sich, wenn der Mauszeiger über die Schaltfläche bewegt wird beziehungsweise wenn er sie verlässt.
 
-Einige Events, etwa `click`, sind für nahezu jedes Element verfügbar. Andere sind spezifischer und nur in bestimmten Situationen sinnvoll: Das Event [`play`](/de/docs/Web/API/HTMLMediaElement/play_event) ist beispielsweise nur für Elemente mit Wiedergabefunktion verfügbar, etwa {{htmlelement("video")}}.
+Einige Events, etwa `click`, stehen für fast jedes Element zur Verfügung. Andere sind spezifischer und nur in bestimmten Situationen sinnvoll. Das Event [`play`](/de/docs/Web/API/HTMLMediaElement/play_event) steht beispielsweise nur für Elemente mit Wiedergabefunktion zur Verfügung, etwa {{htmlelement("video")}}.
 
-### Listener entfernen
+### Event-Listener entfernen
 
-Wenn Sie mit `addEventListener()` einen Event-Listener hinzugefügt haben, können Sie ihn bei Bedarf wieder entfernen. Üblicherweise verwenden Sie dazu die Methode [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener). Die folgende Zeile würde beispielsweise den zuvor gezeigten Event-Handler für `click` entfernen:
+Wenn Sie einen Event-Listener mit `addEventListener()` hinzugefügt haben, können Sie ihn bei Bedarf wieder entfernen. Üblicherweise verwenden Sie dazu die Methode [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener). Die folgende Zeile würde beispielsweise den zuvor gezeigten `click`-Event-Handler entfernen:
 
 ```js
 btn.removeEventListener("click", changeBackground);
 ```
 
-Bei einfachen, kleinen Programmen müssen alte, nicht mehr verwendete Event-Handler nicht unbedingt entfernt werden. Bei größeren, komplexeren Programmen kann dies jedoch die Effizienz verbessern.
-Außerdem können Sie durch das Entfernen von Event-Handlern denselben Button je nach Situation unterschiedliche Aktionen ausführen lassen: Sie müssen lediglich Handler hinzufügen oder entfernen.
+Bei einfachen, kleinen Programmen müssen alte, nicht mehr verwendete Event-Handler nicht unbedingt entfernt werden. Bei größeren und komplexeren Programmen kann das jedoch die Effizienz verbessern.
+Die Möglichkeit, Event-Handler zu entfernen, erlaubt es Ihnen außerdem, dieselbe Schaltfläche unter verschiedenen Umständen unterschiedliche Aktionen ausführen zu lassen: Sie müssen lediglich Handler hinzufügen oder entfernen.
 
 ### Mehrere Listener für ein einzelnes Event hinzufügen
 
-Wenn Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) mehrfach mit unterschiedlichen Handlern aufrufen, können als Reaktion auf ein einzelnes Event mehrere Handler-Funktionen ausgeführt werden:
+Wenn Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) mehrfach mit unterschiedlichen Handlern aufrufen, können mehrere Handler-Funktionen auf dasselbe Event reagieren:
 
 ```js
 myElement.addEventListener("click", functionA);
 myElement.addEventListener("click", functionB);
 ```
 
-Nun würden beide Funktionen ausgeführt, wenn auf das Element geklickt wird.
+Beim Klicken auf das Element würden nun beide Funktionen ausgeführt.
 
-## Andere Möglichkeiten zur Registrierung von Event-Listenern
+## Andere Mechanismen für Event-Listener
 
-Wir empfehlen, Event-Handler mit `addEventListener()` zu registrieren. Dies ist die leistungsfähigste Methode und eignet sich am besten für komplexere Programme. Es gibt jedoch zwei weitere Möglichkeiten, Event-Handler zu registrieren, auf die Sie stoßen könnten: _Event-Handler-Properties_ und _Inline-Event-Handler_.
+Wir empfehlen, Event-Handler mit `addEventListener()` zu registrieren. Diese Methode bietet die meisten Möglichkeiten und eignet sich am besten für komplexere Programme. Es gibt jedoch zwei weitere Möglichkeiten, Event-Handler zu registrieren, denen Sie begegnen könnten: _Event-Handler-Eigenschaften_ und _Inline-Event-Handler_.
 
-### Event-Handler-Properties
+### Event-Handler-Eigenschaften
 
-Objekte wie Buttons, die Events auslösen können, haben in der Regel auch Properties, deren Namen aus `on` und dem Namen eines Events bestehen. Elemente haben beispielsweise eine Property namens `onclick`.
-Dies wird als **Event-Handler-Property** bezeichnet. Um auf das Event zu reagieren, können Sie der Property eine Handler-Funktion zuweisen.
+Objekte wie Schaltflächen, die Events auslösen können, besitzen in der Regel auch Eigenschaften, deren Name aus `on` und dem Namen eines Events besteht. Elemente haben beispielsweise eine Eigenschaft namens `onclick`.
+Eine solche Eigenschaft wird **Event-Handler-Eigenschaft** genannt. Um auf das Event zu reagieren, können Sie der Eigenschaft eine Handler-Funktion zuweisen.
 
-Wir könnten das Beispiel mit der zufälligen Farbe folgendermaßen umschreiben:
+Das Beispiel mit der zufälligen Farbe ließe sich so umschreiben:
 
 ```js
 const btn = document.querySelector("button");
@@ -220,7 +220,7 @@ btn.onclick = () => {
 };
 ```
 
-Sie können der Handler-Property auch eine benannte Funktion zuweisen:
+Sie können der Handler-Eigenschaft auch eine benannte Funktion zuweisen:
 
 ```js
 const btn = document.querySelector("button");
@@ -237,14 +237,14 @@ function bgChange() {
 btn.onclick = bgChange;
 ```
 
-Event-Handler-Properties haben gegenüber `addEventListener()` Nachteile. Einer der wichtigsten ist, dass Sie nicht [mehr als einen Listener für ein einzelnes Event hinzufügen](#mehrere_listener_für_ein_einzelnes_event_hinzufügen) können. Das folgende Muster funktioniert nicht, da jeder weitere Versuch, den Wert der Property festzulegen, den vorherigen überschreibt:
+Event-Handler-Eigenschaften haben gegenüber `addEventListener()` Nachteile. Einer der wichtigsten ist, dass Sie nicht [mehr als einen Listener für ein einzelnes Event hinzufügen](#mehrere_listener_für_ein_einzelnes_event_hinzufügen) können. Das folgende Muster funktioniert nicht, weil jeder weitere Versuch, den Wert der Eigenschaft festzulegen, den vorherigen Wert überschreibt:
 
 ```js
 element.onclick = function1;
 element.onclick = function2;
 ```
 
-### Inline-Event-Handler – verwenden Sie diese nicht
+### Inline-Event-Handler – verwenden Sie sie nicht
 
 Möglicherweise begegnet Ihnen in Code auch ein Muster wie dieses:
 
@@ -259,8 +259,8 @@ function bgChange() {
 }
 ```
 
-Die früheste Methode zur Registrierung von Event-Handlern im Web verwendete [_HTML-Event-Handler-Attribute_](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) (oder _Inline-Event-Handler_) wie das oben gezeigte. Der Attributwert enthält den JavaScript-Code, der beim Auftreten des Events ausgeführt werden soll.
-Das obige Beispiel ruft eine Funktion auf, die innerhalb eines {{htmlelement("script")}}-Elements auf derselben Seite definiert ist. Sie könnten JavaScript aber auch direkt in das Attribut schreiben, zum Beispiel:
+Die früheste im Web verwendete Methode zur Registrierung von Event-Handlern nutzte [_HTML-Event-Handler-Attribute_](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) (oder _Inline-Event-Handler_) wie das oben gezeigte. Der Attributwert enthält den JavaScript-Code, der beim Eintreten des Events ausgeführt werden soll.
+Im obigen Beispiel wird eine Funktion aufgerufen, die in einem {{htmlelement("script")}}-Element auf derselben Seite definiert ist. Sie könnten JavaScript aber auch direkt in das Attribut schreiben, zum Beispiel:
 
 ```html example-bad
 <button onclick="alert('Hello, this is my old-fashioned event handler!');">
@@ -268,14 +268,14 @@ Das obige Beispiel ruft eine Funktion auf, die innerhalb eines {{htmlelement("sc
 </button>
 ```
 
-Für viele Event-Handler-Properties gibt es entsprechende HTML-Attribute. Sie sollten diese jedoch nicht verwenden – ihre Verwendung gilt als schlechte Praxis.
-Für eine sehr schnelle Lösung mag ein Event-Handler-Attribut einfach erscheinen, doch diese Attribute werden schnell unübersichtlich und ineffizient.
+Für viele Event-Handler-Eigenschaften gibt es entsprechende HTML-Attribute. Sie sollten diese jedoch nicht verwenden – ihre Verwendung gilt als schlechte Praxis.
+Wenn Sie schnell etwas ausprobieren möchten, mag ein Event-Handler-Attribut zunächst einfach erscheinen. Solche Attribute werden aber rasch unübersichtlich und ineffizient.
 
-Zunächst ist es keine gute Idee, HTML und JavaScript zu vermischen, weil der Code dadurch schwer zu lesen wird. Es ist gute Praxis, JavaScript getrennt zu halten. Liegt es in einer separaten Datei, können Sie es zudem in mehreren HTML-Dokumenten verwenden.
+Schon grundsätzlich ist es keine gute Idee, HTML und JavaScript zu vermischen, weil der Code dadurch schwer lesbar wird. JavaScript getrennt zu halten, ist gute Praxis. Liegt es in einer separaten Datei, können Sie es außerdem in mehreren HTML-Dokumenten verwenden.
 
-Auch innerhalb einer einzelnen Datei sind Inline-Event-Handler keine gute Idee.
-Bei einem Button mag das noch in Ordnung sein – aber was wäre bei 100 Buttons? Sie müssten der Datei 100 Attribute hinzufügen, was die Wartung schnell zum Albtraum machen würde.
-Mit JavaScript können Sie allen Buttons auf der Seite unabhängig von ihrer Anzahl ganz einfach eine Event-Handler-Funktion hinzufügen, etwa so:
+Selbst innerhalb einer einzelnen Datei sind Inline-Event-Handler keine gute Idee.
+Bei einer Schaltfläche mag es noch gehen – aber was wäre bei 100 Schaltflächen? Sie müssten der Datei 100 Attribute hinzufügen; die Wartung würde schnell zum Albtraum.
+Mit JavaScript könnten Sie allen Schaltflächen auf der Seite unabhängig von ihrer Anzahl ganz einfach eine Event-Handler-Funktion hinzufügen, beispielsweise so:
 
 ```js
 const buttons = document.querySelectorAll("button");
@@ -285,15 +285,15 @@ for (const button of buttons) {
 }
 ```
 
-Schließlich untersagen viele gängige Serverkonfigurationen aus Sicherheitsgründen Inline-JavaScript.
+Außerdem unterbinden viele gängige Serverkonfigurationen Inline-JavaScript aus Sicherheitsgründen.
 
-**Verwenden Sie niemals HTML-Event-Handler-Attribute** – sie sind veraltet, und ihre Verwendung gilt als schlechte Praxis.
+**Sie sollten HTML-Event-Handler-Attribute niemals verwenden** – sie sind veraltet, und ihre Verwendung gilt als schlechte Praxis.
 
 ## Event-Objekte
 
 Manchmal sehen Sie innerhalb einer Event-Handler-Funktion einen Parameter mit einem Namen wie `event`, `evt` oder `e`.
-Dieser wird als **Event-Objekt** bezeichnet und automatisch an Event-Handler übergeben, um zusätzliche Funktionen und Informationen bereitzustellen.
-Schreiben wir beispielsweise unser Beispiel mit der zufälligen Farbe so um, dass es ein Event-Objekt verwendet:
+Dabei handelt es sich um das **Event-Objekt**. Es wird automatisch an Event-Handler übergeben und stellt zusätzliche Funktionen und Informationen bereit.
+Schreiben wir beispielsweise das Beispiel mit der zufälligen Farbe so um, dass es ein Event-Objekt verwendet:
 
 ```html hidden live-sample___event-object
 <button>Change color</button>
@@ -323,24 +323,24 @@ function bgChange(e) {
 btn.addEventListener("click", bgChange);
 ```
 
-Sehen Sie sich das folgende interaktive Beispiel an. Ja, wir haben den `<button>` wirklich groß gemacht!
+Sehen Sie sich das folgende interaktive Beispiel an. Ja, wir haben das `<button>`-Element wirklich sehr groß gemacht!
 
 {{embedlivesample("event-object", "100%", 150)}}
 
-Wir nehmen ein Event-Objekt, **e**, als Parameter in die Funktion auf und setzen für `e.target` – also den Button selbst – eine Hintergrundfarbe.
-Die Property `target` des Event-Objekts verweist immer auf das Element, bei dem das Event aufgetreten ist.
-In diesem Beispiel setzen wir also eine zufällige Hintergrundfarbe für den Button, nicht für die Seite.
+Wir nehmen ein Event-Objekt namens **e** als Parameter in die Funktion auf und setzen eine Hintergrundfarbe für `e.target` – also für die Schaltfläche selbst.
+Die Eigenschaft `target` des Event-Objekts verweist immer auf das Element, bei dem das Event aufgetreten ist.
+In diesem Beispiel geben wir daher der Schaltfläche eine zufällige Hintergrundfarbe, nicht der Seite.
 
 > [!NOTE]
-> Sie können dem Event-Objekt einen beliebigen Namen geben. Wichtig ist nur, dass Sie innerhalb der Event-Handler-Funktion darauf verweisen können.
+> Sie können das Event-Objekt beliebig benennen. Wichtig ist nur, dass Sie innerhalb der Event-Handler-Funktion auf diesen Namen verweisen können.
 > Entwickler verwenden häufig `e`, `evt` oder `event`, weil diese Namen kurz und leicht zu merken sind.
-> Es ist immer gut, bei der Benennung einheitlich vorzugehen – für sich selbst und nach Möglichkeit auch im Team.
+> Es ist immer gut, konsistent zu bleiben – sowohl für sich selbst als auch nach Möglichkeit im Team.
 
-### Zusätzliche Properties von Event-Objekten
+### Zusätzliche Eigenschaften von Event-Objekten
 
-Die meisten Event-Objekte verfügen über eine Standardauswahl an Properties und Methoden. Eine vollständige Liste finden Sie in der Referenz zum [`Event`](/de/docs/Web/API/Event)-Objekt.
+Die meisten Event-Objekte verfügen über eine gemeinsame Gruppe von Eigenschaften und Methoden. Eine vollständige Liste finden Sie in der Referenz zum [`Event`](/de/docs/Web/API/Event)-Objekt.
 
-Einige Event-Objekte haben zusätzliche Properties, die für den jeweiligen Event-Typ relevant sind. Das Event [`keydown`](/de/docs/Web/API/Element/keydown_event) wird beispielsweise ausgelöst, wenn eine Person eine Taste drückt. Sein Event-Objekt ist ein [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent): ein spezialisiertes `Event`-Objekt mit einer Property `key`, die angibt, welche Taste gedrückt wurde:
+Manche Event-Objekte bieten zusätzliche Eigenschaften, die für die jeweilige Art von Event relevant sind. Das Event [`keydown`](/de/docs/Web/API/Element/keydown_event) wird beispielsweise ausgelöst, wenn eine Taste gedrückt wird. Sein Event-Objekt ist ein [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent), also ein spezialisiertes `Event`-Objekt mit einer Eigenschaft `key`, die angibt, welche Taste gedrückt wurde:
 
 ```html
 <input id="textBox" type="text" />
@@ -361,21 +361,21 @@ div {
 }
 ```
 
-Geben Sie etwas in das Textfeld ein und sehen Sie sich die Ausgabe an:
+Geben Sie etwas in das Textfeld ein und beobachten Sie die Ausgabe:
 
 {{EmbedLiveSample("Extra_properties_of_event_objects", 100, 100)}}
 
 ## Standardverhalten verhindern
 
-Manchmal möchten Sie verhindern, dass ein Event seine standardmäßige Aktion ausführt.
-Das häufigste Beispiel dafür ist ein Webformular, etwa ein benutzerdefiniertes Registrierungsformular.
-Wenn Sie die Angaben ausfüllen und auf den Absende-Button klicken, werden die Daten normalerweise zur Verarbeitung an eine festgelegte Seite auf dem Server gesendet. Anschließend leitet der Browser zu einer Seite mit einer Erfolgsmeldung weiter – oder, falls keine andere Seite festgelegt ist, zur selben Seite.
+Manchmal möchten Sie verhindern, dass ein Event die Aktion ausführt, die standardmäßig damit verbunden ist.
+Ein häufiges Beispiel ist ein Webformular, etwa ein benutzerdefiniertes Registrierungsformular.
+Nachdem Sie die Angaben eingetragen und auf die Schaltfläche zum Absenden geklickt haben, werden die Daten normalerweise zur Verarbeitung an eine bestimmte Seite auf dem Server gesendet. Anschließend leitet der Browser auf eine Seite mit einer Erfolgsmeldung weiter – oder auf dieselbe Seite, falls keine andere angegeben ist.
 
-Problematisch wird es, wenn die eingegebenen Daten nicht korrekt sind: Als Entwickler möchten Sie dann das Senden an den Server verhindern und mit einer Fehlermeldung erklären, was falsch ist und wie es behoben werden kann.
-Einige Browser bieten Funktionen zur automatischen Validierung von Formulardaten. Da Sie sich nicht in allen Fällen darauf verlassen können, sollten Sie eigene Validierungsprüfungen implementieren.
+Problematisch wird es, wenn die Angaben nicht korrekt sind. Als Entwickler möchten Sie dann verhindern, dass die Daten an den Server gesendet werden, und stattdessen eine Fehlermeldung anzeigen, die erklärt, was falsch ist und wie sich der Fehler beheben lässt.
+Einige Browser bieten Funktionen zur automatischen Validierung von Formulardaten. Da das nicht für alle gilt, sollten Sie sich nicht darauf verlassen, sondern eigene Validierungsprüfungen implementieren.
 Sehen wir uns ein Beispiel an.
 
-Zunächst ein einfaches HTML-Formular, in das Sie Ihren Vor- und Nachnamen eingeben müssen:
+Zunächst ein einfaches HTML-Formular, in das Vor- und Nachname eingegeben werden sollen:
 
 ```html
 <form action="#">
@@ -400,8 +400,8 @@ div {
 }
 ```
 
-Nun etwas JavaScript: In einem Handler für das Event [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event) – das beim Absenden eines Formulars ausgelöst wird – prüfen wir, ob die Textfelder leer sind.
-Falls ja, rufen wir die Funktion [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) am Event-Objekt auf. Dadurch wird das Absenden des Formulars verhindert. Anschließend zeigen wir im Absatz unter dem Formular eine Fehlermeldung an, die erklärt, was falsch ist:
+Nun etwas JavaScript: Hier implementieren wir eine einfache Prüfung in einem Handler für das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Event, das beim Absenden eines Formulars ausgelöst wird. Die Prüfung ermittelt, ob die Textfelder leer sind.
+Wenn das der Fall ist, rufen wir die Funktion [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Event-Objekts auf. Dadurch wird das Absenden des Formulars verhindert. Anschließend zeigen wir im Absatz unter dem Formular eine Fehlermeldung an, die das Problem beschreibt:
 
 ```js
 const form = document.querySelector("form");
@@ -417,29 +417,29 @@ form.addEventListener("submit", (e) => {
 });
 ```
 
-Natürlich ist diese Formularvalidierung ziemlich schwach: Sie würde beispielsweise nicht verhindern, dass die Felder nur mit Leerzeichen oder Zahlen ausgefüllt werden. Für dieses Beispiel reicht sie jedoch aus.
+Diese Formularvalidierung ist natürlich recht schwach: Sie würde beispielsweise nicht verhindern, dass das Formular mit Leerzeichen oder Zahlen in den Feldern abgesendet wird. Für ein Beispiel reicht sie aber aus.
 
-Sie können sich das vollständige Beispiel [live ansehen](https://mdn.github.io/learning-area/javascript/building-blocks/preventdefault/) und ausprobieren. Sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/preventdefault/) an.
+Sie können das vollständige Beispiel [live ausprobieren](https://mdn.github.io/learning-area/javascript/building-blocks/preventdefault/). Sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/tree/main/javascript/building-blocks/preventdefault/) an.
 
 ## Events gibt es nicht nur auf Webseiten
 
-Events sind keine Besonderheit von JavaScript: Die meisten Programmiersprachen haben eine Art Event-Modell, das oft anders funktioniert als das von JavaScript.
-Tatsächlich unterscheidet sich sogar das Event-Modell von JavaScript für Webseiten von demjenigen, das JavaScript in anderen Umgebungen verwendet.
+Events gibt es nicht nur in JavaScript. Die meisten Programmiersprachen besitzen eine Art Event-Modell, dessen Funktionsweise sich häufig von der in JavaScript unterscheidet.
+Tatsächlich unterscheidet sich sogar das Event-Modell von JavaScript für Webseiten von dem Modell, das bei JavaScript in anderen Umgebungen verwendet wird.
 
-[Node.js](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) ist beispielsweise eine sehr beliebte JavaScript-Laufzeitumgebung, mit der Entwickler Netzwerk- und serverseitige Anwendungen in JavaScript erstellen können.
-Das [Event-Modell von Node.js](https://nodejs.org/api/events.html) verwendet Listener, um auf Events zu warten, und Emitter, um Events auszulösen. Das klingt zunächst ähnlich, doch der Code unterscheidet sich deutlich: Mit Funktionen wie `on()` wird ein Event-Listener registriert; mit `once()` wird ein Event-Listener registriert, der sich nach einmaliger Ausführung wieder entfernt.
-Die [Node.js-Dokumentation zum HTTP-Event `connect`](https://nodejs.org/api/http.html#event-connect) bietet dafür ein gutes Beispiel.
+[Node.js](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) ist beispielsweise eine sehr beliebte JavaScript-Laufzeitumgebung, mit der Entwickler JavaScript für Netzwerk- und serverseitige Anwendungen verwenden können.
+Das [Event-Modell von Node.js](https://nodejs.org/api/events.html) verwendet Listener, die auf Events warten, und Emitter, die Events auslösen. Das klingt nicht sehr anders, doch der Code unterscheidet sich deutlich: Funktionen wie `on()` registrieren einen Event-Listener, während `once()` einen Event-Listener registriert, der nach seiner ersten Ausführung wieder entfernt wird.
+Die Node.js-Dokumentation zum [HTTP-Event connect](https://nodejs.org/api/http.html#event-connect) enthält ein gutes Beispiel.
 
-Mit JavaScript können Sie mithilfe einer Technologie namens [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions) auch browserübergreifende Add-ons erstellen, die Browser um Funktionen erweitern.
-Das Event-Modell ähnelt dem für Webseiten, unterscheidet sich aber in einigen Punkten: Event-Listener-Properties werden in {{Glossary("camel_case", "Camel Case")}} geschrieben (etwa `onMessage` statt `onmessage`) und müssen mit der Funktion `addListener` kombiniert werden.
+Mit JavaScript können Sie mithilfe einer Technologie namens [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions) auch browserübergreifende Add-ons entwickeln, die den Funktionsumfang von Browsern erweitern.
+Das Event-Modell ähnelt dem für Webseiten, unterscheidet sich aber in einigen Punkten: Event-Listener-Eigenschaften werden in {{Glossary("camel_case", "Camel Case")}} geschrieben (beispielsweise `onMessage` statt `onmessage`) und müssen mit der Funktion `addListener` kombiniert werden.
 Ein Beispiel finden Sie auf der Seite zu [`runtime.onMessage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#examples).
 
-Zu diesem Zeitpunkt müssen Sie noch nichts über solche anderen Umgebungen wissen. Wir möchten lediglich verdeutlichen, dass sich Events je nach Programmierumgebung unterscheiden können.
+In dieser Phase müssen Sie nichts über solche anderen Umgebungen wissen. Wir möchten lediglich verdeutlichen, dass sich Events je nach Programmierumgebung unterscheiden können.
 
 ## Zusammenfassung
 
-In diesem Kapitel haben Sie gelernt, was Events sind, wie Sie auf sie warten und wie Sie auf sie reagieren.
+In diesem Kapitel haben wir gelernt, was Events sind, wie man auf sie wartet und wie man auf sie reagiert.
 
-Sie haben inzwischen gesehen, dass Elemente auf einer Webseite in anderen Elementen verschachtelt sein können. Im Beispiel zum [Verhindern des Standardverhaltens](#standardverhalten_verhindern) befinden sich etwa Textfelder innerhalb von {{htmlelement("div")}}-Elementen, die wiederum in einem {{htmlelement("form")}}-Element liegen. Was passiert, wenn dem `<form>`-Element ein Klick-Event-Listener hinzugefügt wurde und eine Person in eines der Textfelder klickt? Die zugehörige Event-Handler-Funktion wird dennoch ausgeführt. Dafür sorgt ein Vorgang namens _Event Bubbling_, den die nächste Lektion behandelt.
+Sie haben inzwischen gesehen, dass Elemente einer Webseite in anderen Elementen verschachtelt sein können. Im Beispiel zum [Verhindern des Standardverhaltens](#standardverhalten_verhindern) befinden sich etwa Textfelder in {{htmlelement("div")}}-Elementen, die wiederum in einem {{htmlelement("form")}}-Element liegen. Was geschieht, wenn dem `<form>`-Element ein Listener für Klick-Events hinzugefügt wird und jemand in eines der Textfelder klickt? Die zugehörige Event-Handler-Funktion wird trotzdem ausgeführt. Der dafür verantwortliche Vorgang heißt _Event-Bubbling_ und wird in der nächsten Lektion behandelt.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Functions","Learn_web_development/Core/Scripting/Event_bubbling", "Learn_web_development/Core/Scripting")}}

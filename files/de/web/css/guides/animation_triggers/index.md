@@ -3,20 +3,20 @@ title: CSS-Animationstrigger
 short-title: Animation triggers
 slug: Web/CSS/Guides/Animation_triggers
 l10n:
-  sourceCommit: 4aba58b4ad2745a73054f60b6d649d8e29b7b44d
+  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
 ---
 
-Das Modul **CSS-Animationstrigger** bietet Funktionen, mit denen sich reguläre zeitbasierte [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) auslösen lassen, wenn ein bestimmter Timeline-Trigger eintritt.
+Das Modul **CSS-Animationstrigger** bietet Funktionen, mit denen sich zeitbasierte [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) auslösen lassen, wenn ein bestimmter Timeline-Trigger eintritt.
 
-**Scroll-ausgelöste Animationen** ermöglichen es Ihnen, ohne JavaScript zu steuern, wann eine reguläre zeitbasierte Animation beginnt, pausiert oder stoppt. Ausschlaggebend ist dabei, wann ein Trigger aktiviert oder deaktiviert wird – beispielsweise, wenn ein Element beim Scrollen einen [Timeline-Bereich](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_insets) betritt oder verlässt.
+**Durch Scrollen ausgelöste Animationen** ermöglichen es Ihnen, ohne JavaScript zu steuern, wann eine reguläre zeitbasierte Animation startet, pausiert oder stoppt. Ausschlaggebend ist, wann ein Trigger aktiviert oder deaktiviert wird. Das kann beispielsweise geschehen, wenn ein Element beim Scrollen einen [Timeline-Bereich](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_insets) betritt oder verlässt.
 
-Diese Bereiche stammen normalerweise aus [View-Progress-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines). So kann eine Animation beispielsweise beginnen, wenn ein Element einen Scrollport betritt, und pausieren, wenn es ihn verlässt. Mit Eigenschaften können Sie den Timeline-Bereich ändern sowie die aktiven Bereiche und Aktivierungsbereiche steuern. Trigger können beim Betreten und Verlassen des Timeline-Bereichs unterschiedliche Aktionen festlegen und so die Wiedergabe der Animation steuern.
+Diese Bereiche stammen normalerweise aus [View-Progress-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines). So kann eine Animation beispielsweise starten, wenn ein Element in einen Scrollport eintritt, und pausieren, wenn es ihn verlässt. Mit Eigenschaften können Sie den Timeline-Bereich ändern und die aktiven Bereiche sowie die Aktivierungsbereiche steuern. Trigger können für das Betreten und Verlassen des Timeline-Bereichs unterschiedliche Aktionen festlegen und so die Wiedergabe der Animation steuern.
 
-Das Modul für Animationstrigger definiert außerdem **Event-Trigger**. Sobald diese unterstützt werden, können sie Timeline-basierte Animationen aktivieren, wenn bestimmte DOM-Ereignisse auftreten.
+Das Modul für Animationstrigger definiert außerdem **Ereignistrigger**. Sobald diese unterstützt werden, aktivieren sie Timeline-basierte Animationen, wenn bestimmte DOM-Ereignisse eintreten.
 
 ## Animationstrigger in Aktion
 
-Dieses Beispiel zeigt [Scroll-ausgelöste Animationen](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations). Scrollen Sie im Kasten nach oben und unten: Wenn der Text „bouncer“ erscheint, wird die Animation des Balls ausgelöst. Verschwindet er, wird dieselbe Animation rückwärts ausgelöst. Scrollen Sie weiter: Derselbe Ablauf wiederholt sich, wenn der Text „another bouncer“ im Scrollport erscheint und anschließend wieder verschwindet.
+Dieses Beispiel zeigt [durch Scrollen ausgelöste Animationen](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations). Scrollen Sie im Kasten nach oben und unten: Wenn der Text „bouncer“ erscheint, wird die Animation des Balls ausgelöst. Verschwindet der Text, wird dieselbe Animation rückwärts ausgelöst. Scrollen Sie weiter, wiederholt sich der Vorgang, wenn der Text „another bouncer“ im Scrollport erscheint und anschließend wieder verschwindet.
 
 ```html hidden live-sample___in-action
 <section>
@@ -38,8 +38,8 @@ Dieses Beispiel zeigt [Scroll-ausgelöste Animationen](/de/docs/Web/CSS/Guides/A
 #ball,
 #ball span {
   animation:
-    moveright 2s 1 ease-out both,
-    moveright 2s 1 ease-out forwards;
+    move-right 2s 1 ease-out both,
+    move-right 2s 1 ease-out forwards;
   animation-trigger:
     --t play-forwards play-backwards,
     --t2 play-forwards play-backwards;
@@ -99,12 +99,12 @@ html {
     aspect-ratio: 1/1;
   }
 
-  @keyframes moveright {
+  @keyframes move-right {
     from {
-      transform: translatex(0);
+      transform: translateX(0);
     }
     to {
-      transform: translatex(90vw);
+      transform: translateX(90vw);
     }
   }
 
@@ -119,11 +119,11 @@ html {
     68%,
     72%,
     76%,
-    to {
-      transform: translatey(0);
+    100% {
+      transform: translateY(0);
       animation-timing-function: ease-out;
     }
-    from,
+    0%,
     17%,
     30%,
     40%,
@@ -136,34 +136,34 @@ html {
       animation-timing-function: ease-in;
     }
     0% {
-      transform: translatey(-96vh);
+      transform: translateY(-96vh);
     }
     17% {
-      transform: translatey(-57.6vh);
+      transform: translateY(-57.6vh);
     }
     30% {
-      transform: translatey(-34.56vh);
+      transform: translateY(-34.56vh);
     }
     40% {
-      transform: translatey(-20.74vh);
+      transform: translateY(-20.74vh);
     }
     48% {
-      transform: translatey(-12.44vh);
+      transform: translateY(-12.44vh);
     }
     55% {
-      transform: translatey(-7.46vh);
+      transform: translateY(-7.46vh);
     }
     61% {
-      transform: translatey(-4.48vh);
+      transform: translateY(-4.48vh);
     }
     66% {
-      transform: translatey(-2.69vh);
+      transform: translateY(-2.69vh);
     }
     70% {
-      transform: translatey(-1.61vh);
+      transform: translateY(-1.61vh);
     }
     74% {
-      transform: translatey(-0.97vh);
+      transform: translateY(-0.97vh);
     }
   }
 }
@@ -186,7 +186,7 @@ html {
 
 {{embedlivesample("in-action", "100%", 400)}}
 
-Wir haben die Animationstrigger definiert, indem wir für die „bouncer“-Elemente {{cssxref("timeline-trigger-name")}} und {{cssxref("timeline-trigger-source")}} angegeben haben. Für den Ball ist eine hüpfende {{cssxref("animation")}} zweimal festgelegt. Außerdem besitzt er die Eigenschaft {{cssxref("animation-trigger")}}. Diese verweist auf die Namen beider Trigger und legt fest, welche Aktionen bei der Aktivierung und Deaktivierung der Animationen ausgeführt werden. Die Aktivierung und Deaktivierung erfolgt, wenn die „bouncer“-Elemente in den sichtbaren Bereich gelangen beziehungsweise ihn verlassen.
+Wir haben die Animationstrigger definiert, indem wir für die „bouncer“-Elemente {{cssxref("timeline-trigger-name")}} und {{cssxref("timeline-trigger-source")}} angegeben haben. Dem Ball ist eine springende {{cssxref("animation")}} zugewiesen, und zwar zweimal. Außerdem ist für ihn die Eigenschaft {{cssxref("animation-trigger")}} gesetzt. Sie verweist auf die Namen beider Trigger und legt fest, welche Aktionen bei der Aktivierung und Deaktivierung der Animationen ausgeführt werden. Die Aktivierung und Deaktivierung erfolgt, wenn die „bouncer“-Elemente in den sichtbaren Bereich eintreten beziehungsweise ihn verlassen.
 
 ## Referenz
 
@@ -212,7 +212,7 @@ Das Modul für CSS-Animationstrigger führt außerdem die Eigenschaften `event-t
 
 ## Leitfäden
 
-- [CSS-Animationen verwenden, die durch Scrollen ausgelöst werden](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
+- [CSS-Animationen durch Scrollen auslösen](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
   - : Eine Einführung in die Implementierung von CSS-Animationen, die durch Scrollen ausgelöst werden.
 - [Namen von Timeline-Bereichen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
   - : Der Datentyp {{cssxref("timeline-range-name")}}: die verschiedenen Namen von Timeline-Bereichen verstehen.
@@ -225,7 +225,7 @@ Das Modul für CSS-Animationstrigger führt außerdem die Eigenschaften `event-t
   - {{cssxref("animation-timeline")}}
   - {{cssxref("@keyframes")}}-At-Regel
   - [`<keyframe-selector>`](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors)
-- Modul [Durch Scrollen gesteuerte CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- Modul [durch Scrollen gesteuerte CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
   - {{cssxref("animation-range")}}-Kurzschreibweise
     - {{cssxref("animation-range-end")}}
     - {{cssxref("animation-range-start")}}

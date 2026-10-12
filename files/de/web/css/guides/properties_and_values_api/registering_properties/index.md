@@ -1,17 +1,17 @@
 ---
-title: Registrierung benutzerdefinierter Eigenschaften in CSS
+title: Benutzerdefinierte Eigenschaften in CSS registrieren
 slug: Web/CSS/Guides/Properties_and_values_API/Registering_properties
 l10n:
-  sourceCommit: c49748a0ce4fdf77427e29cb6edbca8953a514e7
+  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
 ---
 
-Die `@property` Regel, welche Teil des [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Sets ist, ermöglicht es Entwicklern, [benutzerdefinierte CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) explizit zu definieren. In diesem Leitfaden lernen Sie, wie Sie `@property` für die Typüberprüfung und Einschränkung verwenden, Standardwerte für benutzerdefinierte Eigenschaften in CSS festlegen und definieren, ob eine benutzerdefinierte Eigenschaft Werte erben kann oder nicht.
+Die At-Regel `@property`, die zu den [CSS-Houdini-APIs](/de/docs/Web/API/Houdini_APIs) gehört, ermöglicht es Entwicklern, [benutzerdefinierte CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) ausdrücklich zu definieren. In diesem Leitfaden erfahren Sie, wie Sie mit `@property` Typen prüfen und zulässige Werte einschränken, Standardwerte für benutzerdefinierte Eigenschaften in CSS festlegen und bestimmen, ob eine benutzerdefinierte Eigenschaft Werte erben kann.
 
 ## Warum benutzerdefinierte Eigenschaften registrieren?
 
-Benutzerdefinierte CSS-Eigenschaften, häufig als CSS-Variablen bezeichnet, können durch einfache Deklaration definiert werden. Diese werden in der Regel auf dem {{cssxref(":root")}} deklariert und können in nachfolgenden Regelwerken mit einem anderen Wert überschrieben werden — einschließlich in Regeln, die auf UI-Zustand basieren, sowie innerhalb von Container- und Media-Queries.
+Benutzerdefinierte CSS-Eigenschaften, häufig CSS-Variablen genannt, lassen sich durch einfache Deklarationen definieren. Üblicherweise werden sie auf {{cssxref(":root")}} deklariert und können in nachfolgenden Regelsätzen mit einem anderen Wert überschrieben werden – auch in Regeln, die vom UI-Zustand abhängen, sowie innerhalb von Container- und Media-Queries.
 
-In diesem Beispiel wird `--myColor` auf `#bada55` im `:root` gesetzt und dann im `main` auf einen anderen Wert gesetzt, der von allen Nachkommen von `main` geerbt wird. Dieser Wert wird überschrieben, wenn `main` durch Hover interagiert wird oder sich in einem Viewport befindet, der weniger als `750px` breit ist. Innerhalb von Elementen mit der Klasse `circles` wird `--myColor` auf `45deg` gesetzt, was ein anderer Datentyp ist.
+In diesem Beispiel wird `--myColor` auf `:root` der Wert `#bada55` zugewiesen. Auf `main` erhält die Eigenschaft einen anderen Wert, den alle Nachfahren von `main` erben. Dieser Wert wird überschrieben, wenn der Mauszeiger über `main` bewegt wird oder wenn sich `main` in einem Viewport befindet, der weniger als `750px` breit ist. Innerhalb von Elementen mit der Klasse `circles` wird `--myColor` auf `45deg` gesetzt – einen Wert eines anderen Datentyps.
 
 ```css
 :root {
@@ -34,18 +34,18 @@ main:hover {
 }
 ```
 
-Die [CSS Properties and Values API](/de/docs/Web/CSS/Guides/Properties_and_values_API) bietet Methoden zur Registrierung benutzerdefinierter Eigenschaften. Durch die Registrierung von benutzerdefinierten CSS-Eigenschaften werden der Typ, die Vererbung und der Standardwert der Variablen festgelegt, was sie vorhersagbarer und leistungsfähiger macht.
+Die [CSS Properties and Values API](/de/docs/Web/CSS/Guides/Properties_and_values_API) stellt Methoden zum Registrieren benutzerdefinierter Eigenschaften bereit. Durch die Registrierung werden Typ, Vererbung und Standardwert einer Variablen festgelegt. Dadurch wird ihr Verhalten vorhersehbarer und die Verarbeitung effizienter.
 
-Registrierte Eigenschaften werden validiert, wenn sie berechnet werden, anstatt wenn sie analysiert werden. Das bedeutet, dass:
+Registrierte Eigenschaften werden bei der Berechnung ihrer Werte validiert, nicht bereits beim Parsen. Das bedeutet:
 
-- Ungültige Werte beim Inspizieren der Eigenschaften des Elements nicht als ungültig erscheinen.
-- Eine ungültige Eigenschaft, die nach einer gültigen steht, nicht auf die gültige Eigenschaft zurückfällt. Eine ungültige Eigenschaft fällt jedoch auf ihren registrierten Standardwert zurück.
+- Ungültige Werte werden bei der Untersuchung der Eigenschaften eines Elements nicht als ungültig angezeigt.
+- Folgt eine ungültige Deklaration auf eine gültige, wird nicht auf die gültige Deklaration zurückgegriffen. Stattdessen wird für die ungültige Eigenschaft ihr registrierter Standardwert verwendet.
 
-Standardmäßig erben alle CSS-Variablen. Wenn Sie einen nicht registrierten Variablenwert ändern, analysiert der Browser das DOM erneut, um zu überprüfen, welche Elemente im DOM-Baum betroffen sind. Mit registrierten Eigenschaften teilt die Einstellung des Wertes `inherits: false;` dem Browser mit, dass, wenn sich der Wert ändert, die Kinderelemente nicht neu analysiert werden müssen, was den Bereich der Neuberechnung von Stilen einschränkt.
+Standardmäßig werden alle CSS-Variablen vererbt. Wenn Sie den Wert einer nicht registrierten Variablen ändern, parst der Browser den DOM-Baum erneut, um zu prüfen, welche Elemente betroffen sind. Bei registrierten Eigenschaften teilen Sie dem Browser mit `inherits: false;` mit, dass die Kindelemente bei einer Wertänderung nicht erneut geparst werden müssen. Das begrenzt den Umfang der Neuberechnung von Stilen.
 
-In der Regel möchten Sie Ihre benutzerdefinierten Eigenschaften registrieren, wenn Sie die Variable animieren, eine Typüberprüfung implementieren oder vorhersehbares Vererbungsverhalten garantieren. Wenn Sie ein CSS-Framework erstellen, sollten Sie Ihre benutzerdefinierten Eigenschaften mit Namensräumen versehen und registrieren, um sicherzustellen, dass sie immer einen Standardwert haben, und um zu verhindern, dass Benutzer des Frameworks ihnen ungültige Datentypen zuweisen, wenn sie ihre Werte ändern.
+Im Allgemeinen sollten Sie benutzerdefinierte Eigenschaften registrieren, wenn Sie sie animieren, eine Typprüfung umsetzen oder ein vorhersehbares Vererbungsverhalten sicherstellen möchten. Wenn Sie ein CSS-Framework erstellen, versehen Sie Ihre benutzerdefinierten Eigenschaften mit einem Namensraum und registrieren Sie sie. So haben sie stets einen Standardwert, und Nutzer des Frameworks können ihnen bei einer Wertänderung keine Werte eines ungültigen Datentyps zuweisen.
 
-In CSS werden Eigenschaften mit der `@property` Regel registriert. In diesem Beispiel wird `--myColor` global als vererbbare Farbe mit dem Wert `#bada55` registriert und im `main` im Hover-Zustand verwendet. Die Registrierung verbessert die Animationsleistung, weil der Wert vom richtigen Typ ist und der Browser den Wert vor der Animation nicht analysieren muss. Die Zuweisung in `.circles` wird ignoriert, weil der Datentyp der Eigenschaft als `<color>`, nicht `<angle>` registriert ist.
+In CSS werden Eigenschaften mit der At-Regel `@property` registriert. In diesem Beispiel wird `--myColor` global als vererbbare Farbe mit dem Wert `#bada55` registriert und für `main` verwendet, wenn sich der Mauszeiger darüber befindet. Die Registrierung verbessert die Animationsleistung: Der Wert hat den richtigen Typ, und der Browser muss ihn vor der Animation nicht parsen. Die Zuweisung für `.circles` wird ignoriert, weil als Datentyp der Eigenschaft `<color>` und nicht `<angle>` registriert ist.
 
 ```css
 @property --myColor {
@@ -56,10 +56,10 @@ In CSS werden Eigenschaften mit der `@property` Regel registriert. In diesem Bei
 
 main:hover {
   color: var(--myColor);
-  animation: colorChange 2s linear forwards;
+  animation: color-change 2s linear forwards;
 }
 
-@keyframes colorChange {
+@keyframes color-change {
   to {
     color: red;
   }
@@ -70,13 +70,13 @@ main:hover {
 }
 ```
 
-## Die @property Regel und Deskriptoren
+## Die At-Regel @property und ihre Deskriptoren
 
-Die `@property` Regel ermöglicht die Registrierung benutzerdefinierter Eigenschaften direkt in Stylesheets, ohne dass JavaScript erforderlich ist. Gültige `@property` Regeln erzeugen registrierte benutzerdefinierte Eigenschaften, die denselben Effekt haben wie ein Aufruf von [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) mit entsprechenden Parametern.
+Mit der Regel `@property` können benutzerdefinierte Eigenschaften direkt in Stylesheets registriert werden, ohne dass JavaScript erforderlich ist. Gültige `@property`-Regeln erzeugen registrierte benutzerdefinierte Eigenschaften und haben dieselbe Wirkung wie ein Aufruf von [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) mit entsprechenden Parametern.
 
-Der Name der benutzerdefinierten Eigenschaft ist ein {{cssxref("dashed-ident")}}, der mit `--` beginnt und von einem gültigen, benutzerdefinierten Bezeichner gefolgt wird. Er ist case-sensitiv. Die Deklaration umfasst bis zu drei Deskriptoren: {{cssxref("@property/syntax","syntax")}}, {{cssxref("@property/inherits","inherits")}}, und {{cssxref("@property/initial-value","initial-value")}}.
+Der Name einer benutzerdefinierten Eigenschaft ist ein {{cssxref("dashed-ident")}}, das mit `--` beginnt und auf das ein gültiger, benutzerdefinierter Bezeichner folgt. Dabei wird zwischen Groß- und Kleinschreibung unterschieden. Die Deklaration enthält bis zu drei Deskriptoren: {{cssxref("@property/syntax","syntax")}}, {{cssxref("@property/inherits","inherits")}} und {{cssxref("@property/initial-value","initial-value")}}.
 
-In diesem Beispiel erstellen wir eine benutzerdefinierte Eigenschaft `--rotation`.
+In diesem Beispiel erstellen wir die benutzerdefinierte Eigenschaft `--rotation`.
 
 ```css
 @property --rotation {
@@ -86,24 +86,24 @@ In diesem Beispiel erstellen wir eine benutzerdefinierte Eigenschaft `--rotation
 }
 ```
 
-### @property Deskriptoren
+### @property-Deskriptoren
 
-Damit die `@property` Regel gültig ist, muss sie sowohl den {{cssxref("@property/syntax","syntax")}} als auch den {{cssxref("@property/inherits","inherits")}} Deskriptor enthalten. Der {{cssxref("@property/initial-value","initial-value")}} Deskriptor ist optional.
+Damit eine `@property`-Regel gültig ist, muss sie sowohl den Deskriptor {{cssxref("@property/syntax","syntax")}} als auch den Deskriptor {{cssxref("@property/inherits","inherits")}} enthalten. Der Deskriptor {{cssxref("@property/initial-value","initial-value")}} ist optional.
 
 - `syntax`
-  - : Der {{cssxref("@property/syntax","syntax")}} Deskriptor ist ein String, der die erlaubten Wertetypen für die registrierte benutzerdefinierte Eigenschaft beschreibt. Der Wert des Deskriptors kann ein Datentypname sein, wie `<color>`, `<length>`, oder `<number>`, mit Multiplikatoren (`+`, `#`) und Kombinatoren (`|`), oder ein benutzerdefinierter Identifikator. In unserem Beispiel ist die `--rotation` Eigenschaft auf `<angle>` gesetzt, was bedeutet, dass sie nur einen {{cssxref("angle")}} Wert zugewiesen bekommen kann.
+  - : Der Deskriptor {{cssxref("@property/syntax","syntax")}} ist ein String, der die zulässigen Werttypen der registrierten benutzerdefinierten Eigenschaft beschreibt. Sein Wert kann ein Datentypname wie `<color>`, `<length>` oder `<number>` sein, gegebenenfalls mit Multiplikatoren (`+`, `#`) und Kombinatoren (`|`), oder ein benutzerdefinierter Bezeichner. In unserem Beispiel wird die Eigenschaft `--rotation` auf `<angle>` festgelegt. Ihr kann damit nur ein {{cssxref("angle")}}-Wert zugewiesen werden.
 
 - `inherits`
-  - : Der {{cssxref("@property/inherits","inherits")}} Deskriptor ist ein {{Glossary("boolean", "boolean")}} Wert, der steuert, ob die benutzerdefinierte Eigenschaft standardmäßig vererbt wird: Setzen Sie ihn auf `true`, um die Vererbung zu aktivieren, auf `false`, um sie zu deaktivieren. Sehen Sie bei [Registrierung und Nutzung benutzerdefinierter Eigenschaften](#registrierung_und_nutzung_benutzerdefinierter_eigenschaften) ein Beispiel für beide Werte.
+  - : Der Deskriptor {{cssxref("@property/inherits","inherits")}} ist ein {{Glossary("boolean", "boolescher")}} Wert, der steuert, ob die benutzerdefinierte Eigenschaft standardmäßig vererbt wird: Mit `true` wird sie vererbt, mit `false` nicht. Ein Beispiel für beide Werte finden Sie unter [Benutzerdefinierte Eigenschaften registrieren und verwenden](#benutzerdefinierte_eigenschaften_registrieren_und_verwenden).
 
 - `initial-value`
-  - : Die `@property` Regel akzeptiert auch den {{cssxref("@property/initial-value","initial-value")}} Deskriptor. Der Wert definiert den Startwert für die Eigenschaft. Dieser Deskriptor ist nur dann optional, wenn der Wert des `syntax` Deskriptors die universelle Syntaxdefinition ist (also `syntax: "*"`). Wenn die Syntax andere Werte hat, ist er erforderlich und muss ein _rechnerisch unabhängiger_ Wert sein, was bedeutet, dass der Wert nicht von einem anderen Wert abhängiger Datentyp sein kann, wie z.B. Werte mit `%` oder `em` Einheiten.
+  - : Die At-Regel `@property` akzeptiert außerdem den Deskriptor {{cssxref("@property/initial-value","initial-value")}}. Sein Wert legt den Anfangswert der Eigenschaft fest. Dieser Deskriptor ist nur dann optional, wenn der Deskriptor `syntax` die universelle Syntaxdefinition enthält, also `syntax: "*"`. Bei jedem anderen Syntaxwert ist er erforderlich und muss einen _rechnerisch unabhängigen_ Wert enthalten. Das bedeutet, dass der Wert nicht von einem anderen Wert abhängen darf, wie es etwa bei Werten mit den Einheiten `%` oder `em` der Fall ist.
 
-Fehlt entweder der `syntax` oder der `inherits` Deskriptor, ist die gesamte `@property` Regel ungültig und wird ignoriert. Wenn der `initial-value` Deskriptor erforderlich, aber weggelassen wird, ist die gesamte `@property` Regel ungültig und wird ignoriert. Unbekannte Deskriptoren sind ungültig und werden ignoriert, aber machen die `@property` Regel nicht ungültig.
+Fehlt der Deskriptor `syntax` oder `inherits`, ist die gesamte `@property`-Regel ungültig und wird ignoriert. Dasselbe gilt, wenn der Deskriptor `initial-value` erforderlich ist, aber fehlt. Unbekannte Deskriptoren sind ungültig und werden ignoriert; sie machen die `@property`-Regel jedoch nicht ungültig.
 
-## Registrierung und Nutzung benutzerdefinierter Eigenschaften
+## Benutzerdefinierte Eigenschaften registrieren und verwenden
 
-In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften: `--item-size` und `--item-color`. Wir werden diese benutzerdefinierten Eigenschaften dann verwenden, um die Größe (Breite und Höhe) und die Hintergrundfarbe der folgenden drei Elemente zu definieren.
+In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften: `--item-size` und `--item-color`. Anschließend verwenden wir sie, um die Größe (Breite und Höhe) und die Hintergrundfarbe der drei folgenden Elemente festzulegen.
 
 ```html
 <div class="container">
@@ -113,7 +113,7 @@ In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften: `--item
 </div>
 ```
 
-Hier verwenden wir die CSS `@property` Regel, um die `--item-size` benutzerdefinierte Eigenschaft zu definieren. Wir setzen ihren Anfangswert auf `40%` und beschränken gültige Werte auf {{cssxref("percentage")}} Werte. Das bedeutet, dass, wenn diese Eigenschaft verwendet wird, um ein Element zu dimensionieren, die Größe des Elements immer relativ zur Größe seines Elternteils sein wird. Die Eigenschaft ist vererbbar.
+Hier verwenden wir die CSS-At-Regel `@property`, um die benutzerdefinierte Eigenschaft `--item-size` zu definieren. Wir setzen ihren Anfangswert auf `40%` und beschränken gültige Werte auf {{cssxref("percentage")}}-Werte. Wird diese Eigenschaft verwendet, um die Größe eines Elements festzulegen, ist dessen Größe somit immer relativ zur Größe seines Elternelements. Die Eigenschaft ist vererbbar.
 
 ```css
 @property --item-size {
@@ -123,7 +123,7 @@ Hier verwenden wir die CSS `@property` Regel, um die `--item-size` benutzerdefin
 }
 ```
 
-Sie können auch [JavaScript](/de/docs/Web/JavaScript) verwenden, um Eigenschaften zu registrieren. Die JavaScript-Methode [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) ist äquivalent zur `@property` Regel. Hier haben wir unsere zweite benutzerdefinierte Eigenschaft, `--item-color`, mit einem Anfangswert von `aqua` definiert, um nur {{cssxref("&lt;color&gt;")}} Werte zu akzeptieren, und damit diese nicht vererbt wird.
+Sie können Eigenschaften auch mit [JavaScript](/de/docs/Web/JavaScript) registrieren. Die JavaScript-Methode [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) entspricht der At-Regel `@property`. Hier definieren wir für unsere zweite benutzerdefinierte Eigenschaft `--item-color` den Anfangswert `aqua`, lassen nur {{cssxref("&lt;color&gt;")}}-Werte zu und legen fest, dass sie nicht vererbt wird.
 
 ```js
 window.CSS.registerProperty({
@@ -134,11 +134,11 @@ window.CSS.registerProperty({
 });
 ```
 
-Siehe den [JavaScript API Leitfaden zur Registrierung benutzerdefinierter Eigenschaften](/de/docs/Web/API/CSS_Properties_and_Values_API/guide) für weitere Informationen.
+Weitere Informationen finden Sie im [Leitfaden zur Registrierung benutzerdefinierter Eigenschaften mit der JavaScript-API](/de/docs/Web/API/CSS_Properties_and_Values_API/guide).
 
-### Verwendung registrierter benutzerdefinierter Eigenschaften
+### Registrierte benutzerdefinierte Eigenschaften verwenden
 
-Wir können registrierten Eigenschaften neue Werte zuweisen. Hier setzen wir benutzerdefinierte Eigenschaftswerte auf das übergeordnete Container-Element und dann auf die Elemente selbst. Die für `two` gesetzten Werte sind gültig, während die für `three` gesetzten Werte ungültig sind.
+Registrierten Eigenschaften können wir neue Werte zuweisen. Hier setzen wir Werte für benutzerdefinierte Eigenschaften zunächst auf dem übergeordneten Container und anschließend auf den Elementen selbst. Die für `two` festgelegten Werte sind gültig, die für `three` festgelegten dagegen ungültig.
 
 ```css
 .container {
@@ -155,7 +155,7 @@ Wir können registrierten Eigenschaften neue Werte zuweisen. Hier setzen wir ben
 }
 ```
 
-Wir verwenden die beiden benutzerdefinierten Eigenschaften als Werte für die {{cssxref("width")}}, {{cssxref("height")}}, und {{cssxref("background-color")}} Eigenschaften der Elemente:
+Wir verwenden die beiden benutzerdefinierten Eigenschaften als Werte für die Eigenschaften {{cssxref("width")}}, {{cssxref("height")}} und {{cssxref("background-color")}} der Elemente:
 
 ```css
 .item {
@@ -177,35 +177,35 @@ Wir verwenden die beiden benutzerdefinierten Eigenschaften als Werte für die {{
 
 ### Vererbung
 
-Der `inherits` Deskriptor steuert, ob die registrierte CSS-Eigenschaft standardmäßig vererbbar ist oder nicht.
+Der Deskriptor `inherits` steuert, ob die registrierte benutzerdefinierte CSS-Eigenschaft standardmäßig vererbt wird.
 
-In unserem Beispiel war die Größen-Eigenschaft so eingestellt, dass sie vererbbar ist; die Farbe war es nicht. Die beiden benutzerdefinierten Eigenschaften, `--item-size: 20%` und `--item-color: orange;` wurden auf dem übergeordneten `container` festgelegt und überschreiben die `40%` und `aqua` Standardwerte, die gesetzt wurden, als diese benutzerdefinierten Eigenschaften definiert wurden.
+In unserem Beispiel wurde festgelegt, dass die Eigenschaft für die Größe vererbt wird, die für die Farbe jedoch nicht. Auf dem Elternelement `container` wurden die beiden benutzerdefinierten Eigenschaften auf `--item-size: 20%` und `--item-color: orange;` gesetzt. Damit wurden die beim Definieren dieser Eigenschaften festgelegten Standardwerte `40%` und `aqua` überschrieben.
 
-Für das erste Element wurden keine dieser benutzerdefinierten Eigenschaften gesetzt. Weil `--item-size` vererbbar ist, wurde der auf dem übergeordneten `container` gesetzte Wert `20%` geerbt und verwendet. Die Eigenschaft `--item-color` war nicht vererbbar, sodass der auf dem Elternteil gesetzte `orange` Wert nicht berücksichtigt wurde. Stattdessen wurde der Standard-Startwert `aqua` verwendet.
+Für das erste Element wurde keine dieser benutzerdefinierten Eigenschaften gesetzt. Da `--item-size` vererbbar ist, wurde der auf dem Elternelement `container` festgelegte Wert `20%` geerbt und verwendet. Die Eigenschaft `--item-color` ist nicht vererbbar; daher wurde der auf dem Elternelement festgelegte Wert `orange` nicht berücksichtigt. Stattdessen wurde der Standardanfangswert `aqua` verwendet.
 
-Der `inherits` Deskriptor ist ein erforderlicher Deskriptor; wenn er fehlen würde oder ungültig wäre, wäre die gesamte `@property` Regel ungültig und würde ignoriert.
+`inherits` ist ein erforderlicher Deskriptor. Würde er fehlen oder wäre er ungültig, wäre die gesamte `@property`-Regel ungültig und würde ignoriert.
 
 ### Gültige und ungültige Werte
 
-Ein Vorteil der Registrierung Ihrer benutzerdefinierten Eigenschaften (im Gegensatz zur Verwendung einfacher Deklarationen) besteht darin, dass sie nur auf gültige Werte neu zugewiesen werden können. Der `syntax` Deskriptor definiert, welche Werte gültig sind. Jede Deklaration mit einem Wert, der diese Einschränkungen nicht erfüllt, wird ignoriert.
+Ein Vorteil der Registrierung benutzerdefinierter Eigenschaften gegenüber einfachen Deklarationen besteht darin, dass sich festlegen lässt, welche Werte ihnen bei einer erneuten Zuweisung zugewiesen werden dürfen. Der Deskriptor `syntax` bestimmt, welche Werte gültig sind. Jede Deklaration mit einem Wert, der diese Bedingungen nicht erfüllt, wird ignoriert.
 
-Für das zweite Element wurden CSS-Globale-Schlüsselwörter für beide benutzerdefinierten Eigenschaften gesetzt. Die CSS Globalen Schlüsselwortwerte — {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}}, und {{cssxref("revert-layer")}} — sind gültige Werte für alle Wertetypen und daher unabhängig vom `syntax` Deskriptor-Wert gültig. Die `--item-size` wurde auf `initial` gesetzt und daher der `initial-value: 40%;` verwendet, der in der `@property` Deklaration gesetzt wurde. Die `--item-color` wurde auf `inherit` gesetzt, was explizit den `orange` Wert von seinem Elternteil erbte, obwohl die benutzerdefinierte Eigenschaft ansonsten nicht vererbbar gesetzt war. Deshalb war das zweite Element orange.
+Für das zweite Element wurden für beide benutzerdefinierten Eigenschaften globale CSS-Schlüsselwörter gesetzt. Die globalen CSS-Schlüsselwörter {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}} und {{cssxref("revert-layer")}} sind für alle Werttypen gültig – unabhängig vom Wert des Deskriptors `syntax`. `--item-size` wurde auf `initial` gesetzt und verwendet daher den in der `@property`-Deklaration festgelegten Wert `initial-value: 40%;`. `--item-color` wurde auf `inherit` gesetzt. Dadurch wird der Wert `orange` ausdrücklich vom Elternelement geerbt, obwohl für diese benutzerdefinierte Eigenschaft ansonsten festgelegt wurde, dass sie nicht vererbt wird. Deshalb ist das zweite Element orange.
 
-Für das dritte Element wurde der `--item-size` Wert auf `1000px` gesetzt. Während `1000px` ein {{cssxref("length")}} Wert ist, erfordert die `@property` Deklaration, dass der Wert ein `<percentage>` ist, sodass die Deklaration ungültig war und ignoriert wurde, was bedeutete, dass das vererbbare `20%`, das auf dem Elternteil gesetzt wurde, verwendet wurde. Der Wert `xyz` war ebenfalls ungültig. Da `registerProperty()` `--item-color` als nicht vererbbar festlegte, wurde der Standard-Startwert von `aqua` verwendet und nicht der Wert `orange` des Elternteils.
+Für das dritte Element wurde `--item-size` auf `1000px` gesetzt. `1000px` ist zwar ein {{cssxref("length")}}-Wert, die `@property`-Deklaration verlangt jedoch einen `<percentage>`-Wert. Die Deklaration ist deshalb ungültig und wird ignoriert; stattdessen wird der vererbbare Wert `20%` des Elternelements verwendet. Auch der Wert `xyz` ist ungültig. Da `registerProperty()` festgelegt hat, dass `--item-color` nicht vererbt wird, kommt der Standardanfangswert `aqua` zum Einsatz und nicht der Wert `orange` des Elternelements.
 
-### Animation benutzerdefinierter Eigenschaftswerte
+### Werte benutzerdefinierter Eigenschaften animieren
 
-Registrierte CSS benutzerdefinierte Eigenschaften bieten einen Leistungsvorteil, weil sie als getypte Daten und nicht als Strings behandelt werden, wodurch der Rendering-Engine des Browsers eine definierte Syntax und Vererbungsregeln zur Verfügung gestellt werden. Der Browser analysiert die definierte Syntax einmal; wenn diese Variable an anderer Stelle verwendet wird, sind der Typ und die interne Darstellung bereits bekannt, sodass sie nicht neu analysiert werden müssen.
+Registrierte benutzerdefinierte CSS-Eigenschaften bieten einen Leistungsvorteil, weil sie als typisierte Daten statt als Strings behandelt werden. Dadurch stehen der Rendering-Engine des Browsers eine definierte Syntax und Vererbungsregeln zur Verfügung. Der Browser parst die definierte Syntax einmalig. Wird die Variable an anderer Stelle verwendet, sind ihr Typ und ihre interne Darstellung bereits bekannt, sodass sie nicht erneut geparst werden muss.
 
-Da nicht registrierte benutzerdefinierte Eigenschaften nur Strings sind, kann der Browser sie nicht {{Glossary("interpolation", "interpolieren")}}, wodurch eine sanfte Animation nicht möglich ist. Stattdessen werden nicht registrierte benutzerdefinierte Eigenschaftswerte diskret animiert. Registrierte Variablen können interpoliert und daher animiert werden; ihre Interpolationsberechnungen werden an die GPU ausgelagert, was leistungsfähiger ist als Animationen, die auf dem Hauptthread durchgeführt werden.
+Da nicht registrierte benutzerdefinierte Eigenschaften lediglich Strings sind, kann der Browser sie nicht {{Glossary("interpolation", "interpolieren")}} und folglich nicht fließend animieren. Stattdessen werden ihre Werte diskret animiert. Registrierte Variablen lassen sich interpolieren und damit fließend animieren. Die Berechnungen für die Interpolation werden an die GPU ausgelagert, was effizienter ist als Animationen auf dem Haupt-Thread.
 
-Siehe [Animation eines benutzerdefinierten Eigenschaftswertes](/de/docs/Web/CSS/Reference/At-rules/@property#animating_a_custom_property_value) für ein Animationsbeispiel.
+Ein Animationsbeispiel finden Sie unter [Einen Wert einer benutzerdefinierten Eigenschaft animieren](/de/docs/Web/CSS/Reference/At-rules/@property#animating_a_custom_property_value).
 
 ## Siehe auch
 
 - {{cssxref("var()")}}
-- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
-- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) Leitfaden
-- [CSS Properties and Values API](/de/docs/Web/CSS/Guides/Properties_and_values_API) Modul
-- [CSS Properties and Values](/de/docs/Web/API/CSS_Properties_and_Values_API) API
-- [CSS benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul
+- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)
+- Leitfaden zur [Verwendung benutzerdefinierter CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
+- Modul [CSS Properties and Values API](/de/docs/Web/CSS/Guides/Properties_and_values_API)
+- API [CSS Properties and Values](/de/docs/Web/API/CSS_Properties_and_Values_API)
+- Modul [Benutzerdefinierte CSS-Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables)

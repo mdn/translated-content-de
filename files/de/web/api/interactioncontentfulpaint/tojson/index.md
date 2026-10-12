@@ -1,14 +1,14 @@
 ---
-title: "InteractionContentfulPaint: toJSON()-Methode"
+title: "InteractionContentfulPaint: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/InteractionContentfulPaint/toJSON
 l10n:
-  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
+  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Repräsentation des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) ist ein {{Glossary("Serialization", "Serializer")}}. Sie gibt eine JSON-Darstellung des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekts zurück.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`InteractionContentfu
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### Verwendung der Methode toJSON
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Repräsentation des `InteractionContentfulPaint`-Objekts zurück.
+In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `InteractionContentfulPaint`-Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,22 +40,22 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "interaction-contentful-paint", buffered: true });
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+Dabei würde ein JSON-Objekt wie das folgende protokolliert:
 
 ```json
 {
   "entryType": "interaction-contentful-paint",
   "interactionId": 1704,
-  "largestContentfulPaint": <not shown>,
+  "largestContentfulPaint": { "...": "..." },
   "name": "",
   "navigationId": 2463,
   "paintTime": 2589.3,
   "presentationTime": 2616,
-  "startTime": 2226.6,
+  "startTime": 2226.6
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dabei wird `toJSON()` automatisch aufgerufen.
+Um eine JSON-Zeichenfolge zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden. Dabei wird `toJSON()` automatisch aufgerufen.
 
 ## Spezifikationen
 

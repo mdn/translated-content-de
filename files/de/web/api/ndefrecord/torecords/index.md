@@ -3,12 +3,12 @@ title: "NDEFRecord: Methode toRecords()"
 short-title: toRecords()
 slug: Web/API/NDEFRecord/toRecords
 l10n:
-  sourceCommit: 502e8c3f0be95c6f42afe6a72113b029b290b9e8
+  sourceCommit: 6e52a630cb324d0d74e5968661b7e270ac7df93e
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die Methode **`toRecords()`** der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord) Schnittstelle konvertiert [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) in eine Sequenz von Datensätzen basierend auf [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) und gibt das Ergebnis zurück. Dies ermöglicht das Parsen von Nutzlasten von Datentypen, die möglicherweise verschachtelte Datensätze enthalten, wie z.B. Smart-Poster- und externe Typ-Datensätze.
+Die Methode **`toRecords()`** der Schnittstelle [`NDEFRecord`](/de/docs/Web/API/NDEFRecord) wandelt [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) anhand von [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) in eine Folge von Datensätzen um und gibt das Ergebnis zurück. Damit lassen sich die Nutzdaten von Datensatztypen auswerten, die verschachtelte Datensätze enthalten können, beispielsweise Smart-Poster-Datensätze und externe Typdatensätze.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord).
+Eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Objekten.
 
 ### Ausnahmen
 
-- `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Gibt an, dass der {{Glossary("User_Agent", "User Agent")}} nicht weiß, wie diese Kombination aus [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) und [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) zu parsen ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Gibt an, dass der {{Glossary("User_Agent", "User-Agent")}} nicht weiß, wie diese Kombination aus [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) und [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) auszuwerten ist.
 
 ## Beispiele
 
-Ein externes Datenelement mit einer NDEF-Nachricht als Nutzlast lesen
+Einen externen Datensatz mit einer NDEF-Nachricht als Nutzdaten lesen
 
-Das Beispiel verwendet externe Typ-Datensätze, um anwendungsspezifische Datensätze zu erstellen. Diese Datensätze können eine [`NDEFMessage`](/de/docs/Web/API/NDEFMessage) als Nutzlast enthalten, mit ihren eigenen [`NDEFRecord`](/de/docs/Web/API/NDEFRecord) Objekten, einschließlich lokaler Typen, die im Kontext der Anwendung verwendet werden. Beachten Sie, dass der Smart-Poster-Datentyp ebenfalls eine NDEF-Nachricht als Nutzlast enthält.
+Das Beispiel verwendet externe Typdatensätze, um anwendungsdefinierte Datensätze zu erstellen. Diese Datensätze können eine [`NDEFMessage`](/de/docs/Web/API/NDEFMessage) als Nutzdaten enthalten, die ihrerseits [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Objekte umfasst. Dazu gehören lokale Typen, die im Kontext der Anwendung verwendet werden. Beachten Sie, dass auch der Smart-Poster-Datensatztyp eine NDEF-Nachricht als Nutzdaten enthält.
 
-Da NDEF keine Garantie für die Reihenfolge der Datensätze gibt, kann es nützlich sein, einen externen Typ-Datensatz mit einer NDEF-Nachricht als Nutzlast zu verwenden, um verwandte Daten zu kapseln.
+Da NDEF keine Reihenfolge der Datensätze garantiert, kann es nützlich sein, zusammengehörige Daten in einem externen Typdatensatz mit einer NDEF-Nachricht als Nutzdaten zu kapseln.
 
-Dieses Beispiel zeigt, wie man einen externen Datensatz für soziale Beiträge liest, der eine [`NDEFMessage`](/de/docs/Web/API/NDEFMessage) enthält, in der sich ein Textdatensatz und ein Datensatz mit dem lokalen Typ „act“ (Aktion) befinden, mit einer Definition, die von Smart Poster entlehnt, aber im lokalen Anwendungskontext verwendet wird.
+Dieses Beispiel zeigt, wie ein externer Datensatz für Social-Media-Beiträge gelesen wird. Er enthält eine [`NDEFMessage`](/de/docs/Web/API/NDEFMessage) mit einem Textdatensatz und einem Datensatz des lokalen Typs „act“ (Aktion). Die Definition dieses Typs ist vom Smart Poster übernommen, wird hier aber im lokalen Anwendungskontext verwendet.
 
 ```js
 const ndefReader = new NDEFReader();

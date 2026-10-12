@@ -2,7 +2,7 @@
 title: Einrichtung
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Setup
 l10n:
-  sourceCommit: 1402df2877308c09ea2aa1460f1c97c634bd7624
+  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
@@ -11,9 +11,9 @@ l10n:
 
 Beginnen wir damit, die Grundlage für unsere WebRTC-basierte Telefon-App einzurichten.
 
-1. Wählen Sie zunächst einen geeigneten Ort in Ihrem lokalen Dateisystem. Führen Sie `mkdir audio_app` und anschließend `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und in dieses zu wechseln.
-2. Erstellen Sie als Nächstes mit `yarn init` eine neue App. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
-3. Installieren Sie anschließend die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
+1. Wählen Sie zunächst einen geeigneten Ort in Ihrem lokalen Dateisystem aus. Führen Sie `mkdir audio_app` und anschließend `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und in dieses zu wechseln.
+2. Erstellen Sie anschließend mit `yarn init` eine neue App. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
+3. Installieren Sie anschließend die benötigten Abhängigkeiten mit den folgenden Befehlen:
    - [Express](https://expressjs.com/): `yarn add express`
    - [PeerJS](https://peerjs.com/): `yarn add peerjs`
    - [Peer](https://github.com/peers/peerjs-server): `yarn add peer`
@@ -40,7 +40,7 @@ Beginnen wir damit, die Grundlage für unsere WebRTC-basierte Telefon-App einzur
    }
    ```
 
-4. Kopieren Sie zum Abschluss der Einrichtung die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projekts. Sie können beide Dateien `index` nennen: Die HTML-Datei heißt dann `index.html` und die CSS-Datei `index.css`. In den folgenden Artikeln müssen Sie diese Dateien kaum ändern.
+4. Kopieren Sie zum Abschluss der Einrichtung die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projekts. Sie können beiden Dateien den Namen `index` geben, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` heißt. In den folgenden Artikeln müssen Sie diese Dateien kaum ändern.
 
 ```html
 <!doctype html>
@@ -69,8 +69,8 @@ Beginnen wir damit, die Grundlage für unsere WebRTC-basierte Telefon-App einzur
       <section class="call-container" hidden>
         <div class="audio-container">
           <p>You're automatically muted, unmute yourself!</p>
-          <audio controls id="remoteAudio" muted="true"></audio>
-          <audio controls id="localAudio" muted="true"></audio>
+          <audio controls id="remoteAudio" muted></audio>
+          <audio controls id="localAudio" muted></audio>
         </div>
         <button class="hangup-btn">Hang up</button>
       </section>

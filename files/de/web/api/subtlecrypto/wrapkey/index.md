@@ -1,20 +1,24 @@
 ---
-title: "SubtleCrypto: wrapKey() Methode"
+title: "SubtleCrypto: Methode wrapKey()"
 short-title: wrapKey()
 slug: Web/API/SubtleCrypto/wrapKey
 l10n:
-  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
+  sourceCommit: 6e52a630cb324d0d74e5968661b7e270ac7df93e
 ---
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`wrapKey()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces „umhüllt“ einen Schlüssel. Das bedeutet, dass der Schlüssel in einem externen, portablen Format exportiert und anschließend verschlüsselt wird. Das Umhüllen eines Schlüssels hilft, ihn in nicht vertrauenswürdigen Umgebungen zu schützen, wie z.B. in einem ansonsten ungeschützten Datenspeicher oder bei der Übertragung über ein ungeschütztes Netzwerk.
+Die Methode **`wrapKey()`** der Schnittstelle [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) „verpackt“ einen Schlüssel.
+Das bedeutet, dass sie den Schlüssel zunächst in ein externes, portables Format exportiert und den exportierten Schlüssel anschließend verschlüsselt.
+Das Verpacken eines Schlüssels hilft, ihn in nicht vertrauenswürdigen Umgebungen zu schützen, etwa in einem ansonsten ungeschützten Datenspeicher oder bei der Übertragung über ein ungeschütztes Netzwerk.
 
-Wie bei [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) geben Sie ein [Exportformat](/de/docs/Web/API/SubtleCrypto/importKey#supported_formats) für den Schlüssel an. Um einen Schlüssel zu exportieren, muss [`CryptoKey.extractable`](/de/docs/Web/API/CryptoKey/extractable) auf `true` gesetzt sein.
+Wie bei [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) geben Sie für den Schlüssel ein [Exportformat](/de/docs/Web/API/SubtleCrypto/importKey#supported_formats) an.
+Damit ein Schlüssel exportiert werden kann, muss [`CryptoKey.extractable`](/de/docs/Web/API/CryptoKey/extractable) auf `true` gesetzt sein.
 
-Da `wrapKey()` den zu exportierenden Schlüssel verschlüsselt, müssen Sie auch den Schlüssel angeben, der zur Verschlüsselung verwendet werden soll. Dieser wird manchmal als „Verpackungsschlüssel“ bezeichnet.
+Da `wrapKey()` den zu exportierenden Schlüssel auch verschlüsselt, müssen Sie außerdem den Schlüssel übergeben, mit dem er verschlüsselt werden soll.
+Dieser wird manchmal als „Wrapping Key“ bezeichnet.
 
-Das Gegenteil von `wrapKey()` ist [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey): Während `wrapKey` aus Export + Verschlüsselung besteht, besteht `unwrapKey` aus Import + Entschlüsselung.
+Die Umkehrung von `wrapKey()` ist [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey): Während `wrapKey` aus Exportieren und Verschlüsseln besteht, besteht `unwrapKey` aus Importieren und Entschlüsseln.
 
 ## Syntax
 
@@ -25,67 +29,65 @@ wrapKey(format, key, wrappingKey, wrapAlgo)
 ### Parameter
 
 - `format`
-  - : Ein Zeichenfolgewert, der das Datenformat beschreibt, in dem der Schlüssel exportiert wird, bevor er verschlüsselt wird. Es kann eines der folgenden sein:
+  - : Eine Zeichenfolge, die das Datenformat beschreibt, in das der Schlüssel vor der Verschlüsselung exportiert wird. Sie kann einen der folgenden Werte haben:
     - `raw`
-      - : [Roh](/de/docs/Web/API/SubtleCrypto/importKey#raw) Format.
+      - : [Raw-Format](/de/docs/Web/API/SubtleCrypto/importKey#raw).
     - `pkcs8`
-      - : [PKCS #8](/de/docs/Web/API/SubtleCrypto/importKey#pkcs_8) Format.
+      - : [PKCS-#8-Format](/de/docs/Web/API/SubtleCrypto/importKey#pkcs_8).
     - `spki`
-      - : [SubjectPublicKeyInfo](/de/docs/Web/API/SubtleCrypto/importKey#subjectpublickeyinfo) Format.
+      - : [SubjectPublicKeyInfo-Format](/de/docs/Web/API/SubtleCrypto/importKey#subjectpublickeyinfo).
     - `jwk`
-      - : [JSON Web Key](/de/docs/Web/API/SubtleCrypto/importKey#json_web_key) Format.
+      - : [JSON-Web-Key-Format](/de/docs/Web/API/SubtleCrypto/importKey#json_web_key).
 - `key`
-  - : Der zu umhüllende [`CryptoKey`](/de/docs/Web/API/CryptoKey).
+  - : Der zu verpackende [`CryptoKey`](/de/docs/Web/API/CryptoKey).
 - `wrappingkey`
-  - : Der [`CryptoKey`](/de/docs/Web/API/CryptoKey), der zum Verschlüsseln des exportierten Schlüssels verwendet wird. Der Schlüssel muss die Verwendung `wrapKey` haben.
+  - : Der [`CryptoKey`](/de/docs/Web/API/CryptoKey), mit dem der exportierte Schlüssel verschlüsselt wird. Für diesen Schlüssel muss die Verwendung `wrapKey` festgelegt sein.
 - `wrapAlgo`
-  - : Ein Objekt, das den zu verwendenden [Algorithmus](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms) zur Verschlüsselung des exportierten Schlüssels und alle erforderlichen zusätzlichen Parameter spezifiziert:
-    - Um [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep) zu verwenden,
-      geben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams)-Objekt an.
-    - Um [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr) zu verwenden,
-      geben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams)-Objekt an.
-    - Um [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc) zu verwenden,
-      geben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams)-Objekt an.
-    - Um [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm) zu verwenden,
-      geben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams)-Objekt an.
-    - Um [AES-KW](#aes-kw) zu verwenden,
-      geben Sie die Zeichenfolge `"AES-KW"` oder ein Objekt der Form `{ name: "AES-KW" }` an.
+  - : Ein Objekt, das den [Algorithmus](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms) zum Verschlüsseln des exportierten Schlüssels sowie alle erforderlichen zusätzlichen Parameter angibt:
+    - Um [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep) zu verwenden, übergeben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams)-Objekt.
+    - Um [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr) zu verwenden, übergeben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams)-Objekt.
+    - Um [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc) zu verwenden, übergeben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams)-Objekt.
+    - Um [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm) zu verwenden, übergeben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams)-Objekt.
+    - Um [AES-KW](#aes-kw) zu verwenden, übergeben Sie die Zeichenfolge `"AES-KW"` oder ein Objekt der Form `{ name: "AES-KW" }`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) erfüllt wird, der den verschlüsselten exportierten Schlüssel enthält.
+Eine [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), die mit einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) erfüllt wird, der den verschlüsselten exportierten Schlüssel enthält.
 
 ### Ausnahmen
 
-Das Promise wird abgelehnt, wenn eine der folgenden Ausnahmen auftritt:
+Die Promise wird zurückgewiesen, wenn eine der folgenden Ausnahmen auftritt:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Verpackungsschlüssel nicht für den angeforderten Umhüllungsalgorithmus geeignet ist.
-- `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, einen unbekannten oder für Verschlüsselung oder Umhüllung ungeeigneten Algorithmus zu verwenden.
+  - : Wird ausgelöst, wenn der Wrapping Key kein Schlüssel für den angeforderten Verpackungsalgorithmus ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn versucht wird, einen unbekannten Algorithmus oder einen Algorithmus zu verwenden, der sich nicht zum Verschlüsseln oder Verpacken eignet.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn versucht wird, ein ungültiges Format zu verwenden.
 
 ## Unterstützte Algorithmen
 
-Alle [Algorithmen, die für die Verschlüsselung verwendet werden können](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms), können auch für die Schlüsselumhüllung verwendet werden, solange der Schlüssel die Verwendung "wrapKey" hat. Für die Schlüsselumhüllung haben Sie die zusätzliche Option von [AES-KW](#aes-kw).
+Alle [Algorithmen, die zum Verschlüsseln verwendet werden können](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms), können auch zum Verpacken von Schlüsseln verwendet werden, sofern für den Schlüssel die Verwendung „wrapKey“ festgelegt ist.
+Zum Verpacken von Schlüsseln steht zusätzlich [AES-KW](#aes-kw) zur Verfügung.
 
 ### AES-KW
 
-AES-KW ist eine Möglichkeit, das AES-Cipher für die Schlüsselumhüllung zu verwenden.
+AES-KW ist eine Möglichkeit, die AES-Chiffre zum Verpacken von Schlüsseln zu verwenden.
 
-Ein Vorteil von AES-KW gegenüber anderen AES-Modi wie AES-GCM ist, dass AES-KW keinen Initialisierungsvektor benötigt. Um AES-KW zu verwenden, muss die Eingabe ein Vielfaches von 64 Bits sein.
+Ein Vorteil von AES-KW gegenüber einem anderen AES-Modus wie AES-GCM ist, dass AES-KW keinen Initialisierungsvektor benötigt.
+Für die Verwendung von AES-KW muss die Eingabe ein Vielfaches von 64 Bit lang sein.
 
 AES-KW ist in [RFC 3394](https://datatracker.ietf.org/doc/html/rfc3394) spezifiziert.
 
 ## Beispiele
 
 > [!NOTE]
-> Sie können die [funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/wrap-key/index.html).
+> Sie können die [funktionsfähigen Beispiele](https://mdn.github.io/dom-examples/web-crypto/wrap-key/index.html) auf GitHub ausprobieren.
 
-### Rohumhüllung
+### Verpacken im Raw-Format
 
-Dieses Beispiel umhüllt einen AES-Schlüssel. Es verwendet "raw" als Exportformat und AES-KW mit einem passwortabgeleiteten Schlüssel, um ihn zu verschlüsseln. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/raw.js)
+Dieses Beispiel verpackt einen AES-Schlüssel.
+Es verwendet „raw“ als Exportformat und AES-KW mit einem aus einem Passwort abgeleiteten Schlüssel, um ihn zu verschlüsseln. [Den vollständigen Code finden Sie auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/raw.js)
 
 ```js
 let salt;
@@ -154,9 +156,10 @@ window.crypto.subtle
   .then((wrappedKey) => console.log(wrappedKey));
 ```
 
-### PKCS #8 Umhüllung
+### Verpacken im PKCS-#8-Format
 
-Dieses Beispiel umhüllt einen RSA-privaten Signaturschlüssel. Es verwendet "pkcs8" als Exportformat und AES-GCM mit einem passwortabgeleiteten Schlüssel, um ihn zu verschlüsseln. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/pkcs8.js)
+Dieses Beispiel verpackt einen privaten RSA-Signaturschlüssel. Es verwendet „pkcs8“ als Exportformat und AES-GCM mit einem aus einem Passwort abgeleiteten Schlüssel, um ihn zu verschlüsseln.
+[Den vollständigen Code finden Sie auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/pkcs8.js)
 
 ```js
 let salt;
@@ -235,9 +238,10 @@ window.crypto.subtle
   });
 ```
 
-### SubjectPublicKeyInfo Umhüllung
+### Verpacken im SubjectPublicKeyInfo-Format
 
-Dieses Beispiel umhüllt einen RSA-öffentlichen Verschlüsselungsschlüssel. Es verwendet "spki" als Exportformat und AES-CBC mit einem passwortabgeleiteten Schlüssel, um ihn zu verschlüsseln. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/spki.js)
+Dieses Beispiel verpackt einen öffentlichen RSA-Verschlüsselungsschlüssel. Es verwendet „spki“ als Exportformat und AES-CBC mit einem aus einem Passwort abgeleiteten Schlüssel, um ihn zu verschlüsseln.
+[Den vollständigen Code finden Sie auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/spki.js)
 
 ```js
 let salt;
@@ -314,9 +318,10 @@ window.crypto.subtle
   .then((wrappedKey) => console.log(wrappedKey));
 ```
 
-### JSON Web Key Umhüllung
+### Verpacken im JSON-Web-Key-Format
 
-Dieses Beispiel umhüllt einen ECDSA-privaten Signaturschlüssel. Es verwendet "jwk" als Exportformat und AES-GCM mit einem passwortabgeleiteten Schlüssel, um ihn zu verschlüsseln. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/jwk.js)
+Dieses Beispiel verpackt einen privaten ECDSA-Signaturschlüssel. Es verwendet „jwk“ als Exportformat und AES-GCM mit einem aus einem Passwort abgeleiteten Schlüssel, um ihn zu verschlüsseln.
+[Den vollständigen Code finden Sie auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/wrap-key/jwk.js)
 
 ```js
 let salt;
@@ -401,7 +406,7 @@ window.crypto.subtle
 ## Siehe auch
 
 - [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey)
-- [PKCS #8 Format](https://datatracker.ietf.org/doc/html/rfc5208).
-- [SubjectPublicKeyInfo Format](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1).
-- [JSON Web Key Format](https://datatracker.ietf.org/doc/html/rfc7517).
+- [PKCS-#8-Format](https://datatracker.ietf.org/doc/html/rfc5208).
+- [SubjectPublicKeyInfo-Format](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1).
+- [JSON-Web-Key-Format](https://datatracker.ietf.org/doc/html/rfc7517).
 - [AES-KW-Spezifikation](https://datatracker.ietf.org/doc/html/rfc3394).

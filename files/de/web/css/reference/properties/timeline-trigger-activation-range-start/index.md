@@ -3,12 +3,12 @@ title: timeline-trigger-activation-range-start CSS property
 short-title: timeline-trigger-activation-range-start
 slug: Web/CSS/Reference/Properties/timeline-trigger-activation-range-start
 l10n:
-  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
+  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`timeline-trigger-activation-range-start`** legt den Anfang des Aktivierungsbereichs eines Triggers für eine [scrollgesteuerte Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) fest.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`timeline-trigger-activation-range-start`** legt den Beginn des Aktivierungsbereichs eines Triggers für eine [scrollgesteuerte Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) fest.
 
 ## Syntax
 
@@ -43,42 +43,42 @@ timeline-trigger-activation-range-start: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als kommagetrennte Liste der folgenden Werte angegeben:
+Diese Eigenschaft wird als durch Kommas getrennte Liste der folgenden Werte angegeben:
 
 - `normal`
   - : Der Standardwert. Entspricht `cover 0%` für eine [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) als {{cssxref("timeline-trigger-source")}} und `scroll 0%` für eine [Scroll-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
 - {{cssxref("length-percentage")}}
-  - : Gibt einen Versatz als `<length>` oder `<percentage`> an, gemessen vom Anfang der `normal`-Timeline. Prozentwerte beziehen sich auf die Länge des `normal`-Timeline-Bereichs.
+  - : Gibt einen Versatz als `<length>` oder `<percentage>` an, gemessen vom Beginn der `normal`-Timeline. Prozentwerte beziehen sich auf die Länge des Bereichs der `normal`-Timeline.
 - {{cssxref("timeline-range-name")}}
-  - : Gibt den Anfang (`0%`) des Timeline-Bereichs `cover`, `contain`, `entry`, `exit`, `entry-crossing`, `exit-crossing` oder `scroll` an.
+  - : Gibt den Beginn (`0%`) des Timeline-Bereichs `cover`, `contain`, `entry`, `exit`, `entry-crossing`, `exit-crossing` oder `scroll` an.
 - `<timeline-range-name>` `<length-percentage>`
-  - : Gibt einen Längen- oder Prozentversatz an, gemessen vom Anfang des angegebenen [benannten Timeline-Bereichs](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names). Prozentwerte beziehen sich auf die Länge der benannten Timeline.
+  - : Gibt einen Längen- oder Prozentversatz an, gemessen vom Beginn des angegebenen [benannten Timeline-Bereichs](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names). Prozentwerte beziehen sich auf die Länge der benannten Timeline.
 
 ## Beschreibung
 
-Mit der Eigenschaft `timeline-trigger-activation-range-start` können Sie den Anfang des [Aktivierungsbereichs](/de/docs/Web/CSS/Reference/Properties/timeline-trigger-activation-range#description) eines Triggers ausdrücklich festlegen. Der Wert wird als Timeline-Bereich, Versatz oder Kombination aus beidem angegeben.
+Mit der Eigenschaft `timeline-trigger-activation-range-start` lässt sich der Beginn des [Aktivierungsbereichs](/de/docs/Web/CSS/Reference/Properties/timeline-trigger-activation-range#description) eines Triggers ausdrücklich festlegen. Der Wert wird als Timeline-Bereich, Versatz oder Kombination aus beidem angegeben.
 
-Der Aktivierungsbereich eines Triggers ist der Bereich entlang des zugehörigen Scrollports, innerhalb dessen ein Trigger für eine [scrollgesteuerte CSS-Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) aktiviert wird. Die Aktivierung erfolgt, wenn das beobachtete Element in den _Aktivierungsbereich_ eintritt. Die Deaktivierung erfolgt, wenn es den _aktiven Bereich_ verlässt.
+Der Aktivierungsbereich eines Triggers ist der Bereich entlang des zugehörigen Scrollports, in dem ein Trigger für eine [scrollgesteuerte CSS-Animation](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations) aktiviert wird. Die Aktivierung erfolgt, wenn das beobachtete Element in den _Aktivierungsbereich_ eintritt; die Deaktivierung erfolgt, wenn es den _aktiven Bereich_ verlässt.
 
-Der Wert `normal` setzt den Anfang des Aktivierungsbereichs auf den Anfang des standardmäßigen benannten Bereichs. Dies entspricht `cover 0%` bei einer [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) und `scroll 0%` bei einer [Scroll-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
+Der Wert `normal` setzt den Beginn des Aktivierungsbereichs auf den Beginn des standardmäßigen benannten Bereichs. Dies entspricht `cover 0%` für eine [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) und `scroll 0%` für eine [Scroll-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
 
-Mit anderen Werten für `timeline-trigger-activation-range-start` können Sie Folgendes festlegen:
+Andere Werte für `timeline-trigger-activation-range-start` können Folgendes festlegen:
 
 - Einen Versatz gegenüber dem Bereich `normal`
-  - : Ein Wert vom Typ `<length>` oder `<percentage>` gibt einen Versatz vom Anfang der `normal`-Timeline an. Dieser liegt standardmäßig bei `cover 0%` für eine View-Progress-Timeline als Quelle und bei `scroll 0%` für eine Scroll-Progress-Timeline als Quelle. Negative Werte verschieben den Anfang nach außen und verlängern damit den Aktivierungsbereich. Positive Werte verschieben den Anfang nach innen und verkürzen den Aktivierungsbereich.
-- Den Anfang eines bestimmten benannten Bereichs
-  - : Ein Wert vom Typ `<timeline-range-name>` gibt einen Versatz von `0%` innerhalb des benannten Timeline-Bereichs an. Dieser kann `cover`, `contain`, `entry`, `exit`, `entry-crossing`, `exit-crossing` oder `scroll` sein. Siehe [Namen von Timeline-Bereichen verstehen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names).
+  - : Ein Wert vom Typ `<length>` oder `<percentage>` gibt einen Versatz gegenüber dem Beginn der `normal`-Timeline an. Dieser liegt bei einer View-Progress-Timeline als Quelle standardmäßig bei `cover 0%` und bei einer Scroll-Progress-Timeline als Quelle bei `scroll 0%`. Negative Werte verschieben den Beginn nach außen und verlängern so den Aktivierungsbereich. Positive Werte verschieben den Beginn nach innen und verkürzen den Aktivierungsbereich.
+- Den Beginn eines bestimmten benannten Bereichs
+  - : Ein Wert vom Typ `<timeline-range-name>` gibt einen Versatz von `0%` innerhalb des benannten Timeline-Bereichs an. Mögliche Werte sind `cover`, `contain`, `entry`, `exit`, `entry-crossing`, `exit-crossing` und `scroll`. Siehe [Timeline-Bereichsnamen verstehen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names).
 - Einen Versatz gegenüber einem bestimmten benannten Bereich
-  - : Wenn sowohl ein Wert vom Typ `<timeline-range-name>` als auch ein Wert vom Typ `<length>` oder `<percentage>` angegeben wird, liegt der Anfang am Anfang des benannten Bereichs, verschoben um den angegebenen Abstand. Prozentwerte beziehen sich auf die Länge des angegebenen Bereichs. Siehe [Innenabstände mit Prozentwerten festlegen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_insets#setting_insets_using_percentages).
+  - : Wenn sowohl ein Wert vom Typ `<timeline-range-name>` als auch ein Wert vom Typ `<length>` oder `<percentage>` angegeben wird, liegt der Beginn um den angegebenen Abstand versetzt vom Beginn des benannten Bereichs. Prozentwerte beziehen sich auf die Länge des angegebenen Bereichs. Siehe [Innenabstände mit Prozentwerten festlegen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_insets#setting_insets_using_percentages).
 
 Die Eigenschaft `timeline-trigger-activation-range-start` kann zusammen mit der Eigenschaft {{cssxref("timeline-trigger-activation-range-end")}} auch über die Kurzschreibweise {{cssxref("timeline-trigger-activation-range")}} festgelegt werden. Diese kann wiederum über die Kurzschreibweise {{cssxref("timeline-trigger")}} festgelegt werden.
 
-### Mehrere Werte für den Bereichsanfang angeben
+### Mehrere Werte für den Bereichsbeginn angeben
 
-Wenn in einer `timeline-trigger-activation-range-start`-Deklaration mehrere kommagetrennte Werte angegeben werden, gilt jeder Wert für einen Timeline-Trigger, und zwar in der Reihenfolge, in der die Namen in der Eigenschaft {{cssxref("timeline-trigger-name")}} aufgeführt sind. Stimmen die Anzahl der Trigger und die Anzahl der Werte für `timeline-trigger-activation-range-start` nicht überein, werden sie wie [mehrere Werte von Animationseigenschaften](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values) angewendet:
+Werden in einer `timeline-trigger-activation-range-start`-Deklaration mehrere durch Kommas getrennte Werte angegeben, gilt jeder Wert für einen Timeline-Trigger in der Reihenfolge, in der die Namen in der Eigenschaft {{cssxref("timeline-trigger-name")}} stehen. Stimmen die Anzahl der Trigger und die Anzahl der Werte für `timeline-trigger-activation-range-start` nicht überein, werden sie wie [mehrere Werte für Animationseigenschaften](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values) angewendet:
 
 - Gibt es mehr Werte für `timeline-trigger-activation-range-start` als für `timeline-trigger-name`, werden die überschüssigen Bereichswerte verworfen.
-- Gibt es mehr Trigger-Namen als Bereiche, werden die Werte für `timeline-trigger-activation-range-start` wiederholt, bis jedem Wert für `timeline-trigger-name` ein Wert für `timeline-trigger-activation-range-start` zugeordnet ist.
+- Gibt es mehr Triggernamen als Bereichswerte, werden die Werte für `timeline-trigger-activation-range-start` wiederholt, bis jedem Wert für `timeline-trigger-name` ein Wert für `timeline-trigger-activation-range-start` zugeordnet ist.
 - Sind mehrere Werte für `timeline-trigger-name`, aber nur ein Wert für `timeline-trigger-activation-range-start` festgelegt, gilt dieser Wert für alle Werte von `timeline-trigger-name`.
 
 ## Formale Definition
@@ -93,11 +93,11 @@ Wenn in einer `timeline-trigger-activation-range-start`-Deklaration mehrere komm
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel verschieben wir den Anfang des Aktivierungsbereichs eines Triggers für eine scrollgesteuerte Animation nach innen, indem wir einen eigenen Wert für `timeline-trigger-activation-range-start` festlegen.
+In diesem Beispiel verschieben wir den Beginn des Aktivierungsbereichs eines Triggers für eine scrollgesteuerte Animation nach innen, indem wir einen eigenen Wert für `timeline-trigger-activation-range-start` festlegen.
 
 #### HTML
 
-Unser Markup enthält zwei {{htmlelement("div")}}-Elemente – eines, das animiert wird, und eines, auf dem ein Trigger eingerichtet wird. Dazu kommt etwas Textinhalt, damit die Seite scrollbar ist. Der Kürze halber haben wir den Textinhalt ausgeblendet.
+Unser Markup enthält zwei {{htmlelement("div")}}-Elemente – eines, das animiert werden soll, und eines, das als Trigger dient – sowie etwas Text, damit die Seite gescrollt werden kann. Der Textinhalt ist der Kürze halber ausgeblendet.
 
 ```html
 <div class="animated">I am animated</div>
@@ -179,7 +179,7 @@ Die Eigenschaft {{cssxref("position")}} des Elements `.animated` wird auf `fixed
 body {
   width: 80%;
   margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial";
   font-size: 1.3rem;
 }
 
@@ -206,7 +206,7 @@ div {
 }
 ```
 
-Als Nächstes definieren wir {{cssxref("@keyframes")}} für eine `rotate`-Animation:
+Als Nächstes definieren wir die {{cssxref("@keyframes")}} für eine `rotate`-Animation:
 
 ```css live-sample___basic-example
 @keyframes rotate {
@@ -220,7 +220,7 @@ Als Nächstes definieren wir {{cssxref("@keyframes")}} für eine `rotate`-Animat
 }
 ```
 
-Mit der Kurzschreibweise {{cssxref("animation")}} wird die `rotate`-Animation auf das Element `.animated` angewendet. Ohne zugehörigen Trigger würde die Animation des Elements beim Laden der Seite beginnen. Die Eigenschaft `animation-trigger` macht daraus eine durch einen Trigger gesteuerte Animation. Der Wert verweist auf einen `timeline-trigger-name` mit dem Wert `--t` und gibt zwei `<animation-action>`-Werte an – `play` und `pause`. Sie legen fest, dass die Animation bei der Aktivierung abgespielt und bei der Deaktivierung pausiert wird.
+Mithilfe der Kurzschreibweise {{cssxref("animation")}} wird die `rotate`-Animation auf das Element `.animated` angewendet. Ohne zugehörigen Trigger würde das Element beim Laden der Seite mit der Animation beginnen. Durch die Eigenschaft `animation-trigger` wird daraus eine triggergesteuerte Animation. Der Wert verweist auf einen `timeline-trigger-name` mit dem Wert `--t` und gibt zwei `<animation-action>`-Werte an – `play` und `pause`. Diese legen fest, dass die Animation bei der Aktivierung abgespielt und bei der Deaktivierung angehalten wird.
 
 ```css live-sample___basic-example
 .animated {
@@ -229,11 +229,11 @@ Mit der Kurzschreibweise {{cssxref("animation")}} wird die `rotate`-Animation au
 }
 ```
 
-Das Element `.trigger` erstellt den Trigger für das Element `.animated` über die folgenden Eigenschaften:
+Das Element `.trigger` erstellt den Trigger für das Element `.animated` mithilfe der folgenden Eigenschaften:
 
 - {{cssxref("timeline-trigger-name")}} mit dem Wert `--t`. Dieser entspricht dem Bezeichner, auf den der Wert der Eigenschaft `animation-trigger` des Elements `.animated` verweist, und verknüpft so die beiden Elemente.
-- {{cssxref("timeline-trigger-source")}} mit dem Wert [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Damit wird für den Timeline-Trigger eine View-Progress-Timeline festgelegt, deren Quelle das nächstgelegene scrollbare Vorfahrenelement ist.
-- `timeline-trigger-activation-range-start` mit dem Wert `entry 50%`. Der Bereich `entry` reicht vom ersten Eintritt des Trigger-Elements in den Scrollport bis zu dem Punkt, an dem es vollständig eingetreten ist. Dieser Wert setzt den Anfang des Aktivierungsbereichs des Triggers auf `50%` innerhalb des Bereichs `entry`. Das ist der Fall, wenn `50%` des beobachteten Elements `.trigger` über die Endkante des Scrollports eingetreten sind.
+- {{cssxref("timeline-trigger-source")}} mit dem Wert [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view). Dadurch wird für den Timeline-Trigger eine View-Progress-Timeline festgelegt, deren Timeline vom nächstgelegenen scrollenden Vorfahrenelement bereitgestellt wird.
+- `timeline-trigger-activation-range-start` mit dem Wert `entry 50%`. Der Bereich `entry` reicht vom Zeitpunkt, an dem das Trigger-Element erstmals in den Scrollport eintritt, bis zu dem Zeitpunkt, an dem es vollständig eingetreten ist. Dieser Wert setzt den Beginn des Aktivierungsbereichs des Triggers auf `50%` des Bereichs `entry`. Das ist der Zeitpunkt, an dem `50%` des beobachteten Elements `.trigger` über die Endkante des Scrollports eingetreten sind.
 
 ```css live-sample___basic-example
 .trigger {
@@ -243,7 +243,7 @@ Das Element `.trigger` erstellt den Trigger für das Element `.animated` über d
 }
 ```
 
-Wenn kein Wert ausdrücklich festgelegt wird, ist der Standardwert von {{cssxref("timeline-trigger-activation-range-end")}} `normal`, was hier `cover 100%` entspricht. Der Standardwert von {{cssxref("timeline-trigger-active-range-end")}} ist `auto` – derselbe Wert wie für `timeline-trigger-activation-range-end`. Das bedeutet, dass die Deaktivierung am Ende des Bereichs `cover` erfolgt, wenn das beobachtete Element den Scrollport über dessen Anfangskante verlässt.
+Wenn kein Wert ausdrücklich festgelegt wird, ist der Standardwert von {{cssxref("timeline-trigger-activation-range-end")}} `normal`, was in diesem Fall `cover 100%` entspricht. Der Standardwert von {{cssxref("timeline-trigger-active-range-end")}} ist `auto` und damit derselbe wie für `timeline-trigger-activation-range-end`. Die Deaktivierung erfolgt somit am Ende des Bereichs `cover`, wenn das beobachtete Element den Scrollport über dessen Anfangskante verlässt.
 
 ```css hidden live-sample___basic-example
 @supports not (timeline-trigger-activation-range-start: entry 50%) {
@@ -264,7 +264,7 @@ Wenn kein Wert ausdrücklich festgelegt wird, ist der Standardwert von {{cssxref
 
 {{EmbedLiveSample("basic-example", "100%", "240")}}
 
-Scrollen Sie den Inhalt nach oben. Die Animation beginnt abzuspielen, wenn `50%` des beobachteten Elements `.trigger` über die Endkante des Scrollports eingetreten sind. Sie pausiert, wenn das Element den Scrollport über die gegenüberliegende Kante vollständig verlassen hat. Wenn Sie nach unten scrollen, kehrt sich der Ablauf um: Die Animation wird wieder abgespielt, sobald das Trigger-Element beginnt, am oberen Rand in den Scrollport einzutreten. Sie pausiert erneut, wenn `50%` des Trigger-Elements den Scrollport nach unten verlassen haben.
+Scrollen Sie den Inhalt nach oben. Die Animation beginnt, wenn `50%` des beobachteten Elements `.trigger` über die Endkante des Scrollports eingetreten sind, und pausiert, wenn es den Scrollport an der gegenüberliegenden Kante vollständig verlassen hat. Wenn Sie nach unten scrollen, kehrt sich der Effekt um: Die Animation wird fortgesetzt, sobald das Trigger-Element beginnt, oben in den Scrollport einzutreten, und pausiert erneut, wenn `50%` des Trigger-Elements den Scrollport unten verlassen haben.
 
 ## Spezifikationen
 
@@ -277,9 +277,9 @@ Scrollen Sie den Inhalt nach oben. Die Animation beginnt abzuspielen, wenn `50%`
 ## Siehe auch
 
 - {{cssxref("timeline-trigger-activation-range-end")}}
-- {{cssxref("timeline-trigger-activation-range")}}-Kurzschreibweise
+- Kurzschreibweise {{cssxref("timeline-trigger-activation-range")}}
 - {{cssxref("timeline-trigger-name")}}, {{cssxref("timeline-trigger-source")}} und {{cssxref("timeline-trigger-active-range")}}
-- {{cssxref("timeline-trigger")}}-Kurzschreibweise
+- Kurzschreibweise {{cssxref("timeline-trigger")}}
 - [Scrollgesteuerte CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animation_triggers/Using_scroll-triggered_animations)
-- Modul [CSS animation triggers](/de/docs/Web/CSS/Guides/Animation_triggers)
-- Modul [CSS animations](/de/docs/Web/CSS/Guides/Animations)
+- Modul [CSS-Animationstrigger](/de/docs/Web/CSS/Guides/Animation_triggers)
+- Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
