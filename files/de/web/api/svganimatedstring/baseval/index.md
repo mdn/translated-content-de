@@ -1,42 +1,42 @@
 ---
-title: "SVGAnimatedString: baseVal-Eigenschaft"
+title: "SVGAnimatedString: Eigenschaft baseVal"
 short-title: baseVal
 slug: Web/API/SVGAnimatedString/baseVal
 l10n:
-  sourceCommit: f8ef875113a7d3e9952f41de68be1e3a3a1e6988
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("SVG")}}
 
 > [!WARNING]
-> Die `baseVal`-Eigenschaft kann verwendet werden, um den nicht animierten Wert eines reflektierten Attributs festzulegen.
-> Im Fall von [`SVGScriptElement.href.baseVal`](/de/docs/Web/API/SVGScriptElement/href) repräsentiert diese Eigenschaft die URL eines externen Skripts, das in das SVG-Skript-Element geladen wird.
-> Solche APIs sind als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und können potenziell ein Vektor für [cross-site scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe sein.
+> Mit der Eigenschaft `baseVal` kann der nicht animierte Wert eines reflektierten Attributs festgelegt werden.
+> Im Fall von [`SVGScriptElement.href.baseVal`](/de/docs/Web/API/SVGScriptElement/href) stellt diese Eigenschaft die URL eines externen Skripts dar, das in das SVG-Skriptelement geladen wird.
+> APIs wie diese werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können einen Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) darstellen.
 >
-> Sie können dieses Risiko verringern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verwenden, die einschränkt, von welchen Standorten Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zuweisen und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](/de/docs/Web/API/SVGScriptElement/href#security_considerations) in [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href) für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verwenden, die einschränkt, von welchen Orten Skripte geladen werden dürfen. Weisen Sie außerdem stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zu und [erzwingen Sie Trusted Types](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](/de/docs/Web/API/SVGScriptElement/href#security_considerations) in der Dokumentation zu [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href).
 
-Die **`baseVal`**-Eigenschaft der [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Schnittstelle ruft den Basiswert des angegebenen Attributs ab oder setzt ihn.
+Die Eigenschaft **`baseVal`** der Schnittstelle [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) ruft den Basiswert des angegebenen Attributs ab oder legt ihn fest.
 
 Dies ist der Wert des reflektierten Attributs, bevor Animationen angewendet werden.
 
 ## Wert
 
-Beim Abrufen der Eigenschaft wird eine Zeichenkette zurückgegeben, die den nicht animierten Wert des reflektierten Attributs darstellt, falls dieser gesetzt wurde.
-Wenn das reflektierte Attribut nicht angegeben ist, aber eine alternative veraltete Version gesetzt wurde, wird stattdessen dessen Wert zurückgegeben.
-Wenn weder das reflektierte Attribut noch dessen alternative Version gesetzt sind, wird der anfängliche Wert des reflektierten Attributs zurückgegeben, falls vorhanden, andernfalls die leere Zeichenkette (`""`).
+Beim Auslesen gibt die Eigenschaft eine Zeichenfolge zurück, die den nicht animierten Wert des reflektierten Attributs darstellt, sofern dieses gesetzt wurde.
+Ist das reflektierte Attribut nicht angegeben, aber eine alternative, veraltete Version davon gesetzt, wird stattdessen deren Wert zurückgegeben.
+Ist keines von beiden gesetzt, gibt die Eigenschaft einen vorhandenen Initialwert des reflektierten Attributs zurück, andernfalls die leere Zeichenfolge (`""`).
 
-Die Eigenschaft muss auf einen [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) gesetzt werden, wenn das Element des reflektierten Attributs ein [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement) ist und [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-Für alle anderen Fälle kann der Wert eine Zeichenkette sein (oder ein Objekt, das in eine Zeichenkette aufgelöst werden kann).
-Die Eigenschaft setzt den Wert des reflektierten Attributs, wenn es definiert ist, wird jedoch die alternative veraltete Version des reflektierten Attributs setzen, wenn es definiert ist und das reflektierte Attribut nicht.
+Die Eigenschaft muss auf eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) gesetzt werden, wenn das Element des reflektierten Attributs ein [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement) ist und [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+In allen anderen Fällen kann der Wert eine Zeichenfolge sein oder ein Objekt, das sich in eine Zeichenfolge umwandeln lässt.
+Die Eigenschaft setzt den Wert des reflektierten Attributs, wenn dieses definiert ist. Ist das reflektierte Attribut nicht definiert, wohl aber dessen alternative, veraltete Version, setzt sie stattdessen deren Wert.
 
-Beachten Sie, dass [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) oder jeder andere vertrauenswürdige Typ für `baseVal` bei jedem Element gesetzt werden kann, da die vertrauenswürdigen Typen zu Zeichenketten aufgelöst werden.
-Allerdings _muss_ [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) für [`SVGScriptElement.href.baseVal`](/de/docs/Web/API/SVGScriptElement/href) verwendet werden, wenn vertrauenswürdige Typen durchgesetzt werden.
+Beachten Sie, dass [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) oder ein anderer Trusted Type für `baseVal` bei jedem Element verwendet werden kann, da Trusted Types in Zeichenfolgen umgewandelt werden.
+Für [`SVGScriptElement.href.baseVal`](/de/docs/Web/API/SVGScriptElement/href) _muss_ jedoch [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) verwendet werden, wenn Trusted Types erzwungen werden.
 
 ## Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn das Element des reflektierten Attributs ein [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement) ist und die Eigenschaft auf eine Zeichenkette gesetzt wird, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn das Element des reflektierten Attributs ein [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement) ist, die Eigenschaft auf eine Zeichenfolge gesetzt wird, [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Spezifikationen
 

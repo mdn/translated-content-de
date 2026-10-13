@@ -1,19 +1,18 @@
 ---
-title: "ShadowRoot: setHTML() Methode"
+title: "ShadowRoot: Methode setHTML()"
 short-title: setHTML()
 slug: Web/API/ShadowRoot/setHTML
 l10n:
-  sourceCommit: 9cf3002bd29376c15d49df6fab2e6a264285abf6
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("HTML Sanitizer API")}}
 
-Die **`setHTML()`** Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Interfaces bietet eine XSS-sichere Methode, um einen HTML-String zu parsen und zu bereinigen, der dann den bestehenden Baum im Shadow DOM ersetzt.
+Die Methode **`setHTML()`** der Schnittstelle [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) bietet eine vor XSS geschützte Möglichkeit, einen HTML-String zu parsen und zu bereinigen. Das Ergebnis ersetzt anschließend den vorhandenen Baum im Shadow DOM.
 
-Die Methode entfernt alle Elemente und Attribute, die als XSS-gefährlich gelten, auch wenn sie durch einen übergebenen Sanitizer erlaubt wären.
-Insbesondere die folgenden Elemente werden immer entfernt: {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}}, {{HTMLElement("object")}}, {{SVGElement("use")}} und Event-Handler-Attribute.
+Die Methode entfernt alle Elemente und Attribute, die als XSS-unsicher gelten – selbst wenn ein übergebener Sanitizer sie erlaubt. Insbesondere werden die folgenden Elemente immer entfernt: {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}}, {{HTMLElement("object")}}, {{SVGElement("use")}} sowie Event-Handler-Attribute.
 
-Es wird empfohlen (falls unterstützt), diese Methode als Drop-in-Ersatz für [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) beim Setzen eines vom Benutzer bereitgestellten HTML-Strings zu verwenden.
+Wenn die Methode unterstützt wird, empfiehlt sie sich als direkter Ersatz für [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML), wenn ein von Benutzern bereitgestellter HTML-String gesetzt werden soll.
 
 ## Syntax
 
@@ -25,15 +24,15 @@ setHTML(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der das zu bereinigende und in den Shadow Root einzufügende HTML definiert.
+  - : Ein String mit HTML, das bereinigt und in die Shadow Root eingefügt werden soll.
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
     - `sanitizer`
-      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Objekt, das definiert, welche Elemente des Eingabewerts erlaubt oder entfernt werden, oder der String `"default"` für die [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration).
-        Die Methode entfernt alle XSS-gefährlichen Elemente und Attribute, auch wenn sie durch den Sanitizer erlaubt sind.
-        Wenn nicht angegeben, wird die Standardkonfiguration von `Sanitizer` verwendet.
+      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer)- oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Objekt, das festlegt, welche Elemente der Eingabe erlaubt oder entfernt werden, oder der String `"default"` für die [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration).
+        Die Methode entfernt alle XSS-unsicheren Elemente und Attribute, selbst wenn der Sanitizer sie erlaubt.
+        Wenn der Parameter nicht angegeben wird, kommt die Standardkonfiguration von `Sanitizer` zum Einsatz.
 
-        Beachten Sie, dass es effizienter ist, einen `Sanitizer` zu verwenden und diesen bei Bedarf zu modifizieren, wenn Sie die gleiche Konfiguration mehrfach verwenden.
+        Wenn Sie dieselbe Konfiguration mehrfach verwenden, ist es voraussichtlich effizienter, einen `Sanitizer` zu verwenden und ihn bei Bedarf anzupassen.
 
 ### Rückgabewert
 
@@ -41,38 +40,33 @@ Keiner (`undefined`).
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn `options.sanitizer` übergeben wird mit:
-    - einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die nicht [gültig](/de/docs/Web/API/SanitizerConfig#valid_configuration) ist.
-      Zum Beispiel eine Konfiguration, die sowohl "erlaubte" als auch "entfernte" Konfigurationseinstellungen enthält.
-    - einem String, der nicht den Wert `"default"` hat.
-    - einem Wert, der kein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder String ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn an `options.sanitizer` Folgendes übergeben wird:
+    - Eine [ungültige](/de/docs/Web/API/SanitizerConfig#valid_configuration) [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), beispielsweise eine Konfiguration, die sowohl Einstellungen für erlaubte als auch für entfernte Einträge enthält.
+    - Ein String, dessen Wert nicht `"default"` ist.
+    - Ein Wert, der weder ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) noch eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) noch ein String ist.
 
 ## Beschreibung
 
-Die **`setHTML()`** Methode bietet eine XSS-sichere Methode, um einen HTML-String zu parsen und zu bereinigen und diesen zu verwenden, um den bestehenden Baum im Shadow DOM zu ersetzen.
+Die Methode **`setHTML()`** bietet eine vor XSS geschützte Möglichkeit, einen HTML-String zu parsen und zu bereinigen und damit den vorhandenen Baum im Shadow DOM zu ersetzen.
 
-`setHTML()` entfernt alle HTML-Entitäten, die nicht durch die Sanitizer-Konfiguration erlaubt sind, und entfernt weiterhin alle XSS-gefährlichen Elemente oder Attribute – unabhängig davon, ob sie durch die Sanitizer-Konfiguration erlaubt sind oder nicht.
+`setHTML()` entfernt alle HTML-Entitäten, die nach der Sanitizer-Konfiguration nicht erlaubt sind. Darüber hinaus entfernt die Methode alle XSS-unsicheren Elemente und Attribute – unabhängig davon, ob die Sanitizer-Konfiguration sie erlaubt.
 
-Wenn kein Sanitizer im Parameter `options.sanitizer` angegeben ist, wird `setHTML()` mit der [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwendet.
-Diese Konfiguration ist für die meisten Anwendungsfälle geeignet, da sie XSS-Angriffe sowie andere Angriffe wie Clickjacking oder Spoofing verhindert.
+Wenn im Parameter `options.sanitizer` kein Sanitizer angegeben wird, verwendet `setHTML()` die [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration). Diese Konfiguration eignet sich für die meisten Anwendungsfälle, da sie sowohl XSS-Angriffe als auch andere Angriffe wie Clickjacking oder Spoofing verhindert.
 
-Ein benutzerdefinierter `Sanitizer` oder `SanitizerConfig` kann angegeben werden, um auszuwählen, welche Elemente, Attribute und Kommentare erlaubt oder entfernt werden.
-Beachten Sie, dass selbst wenn unsichere Optionen durch den Sanitizer erlaubt werden, sie bei Verwendung dieser Methode dennoch entfernt werden (sie entfernt dieselben Elemente wie ein Sanitizer, bei dem [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) aufgerufen wurde).
+Sie können einen benutzerdefinierten `Sanitizer` oder eine `SanitizerConfig` angeben, um festzulegen, welche Elemente, Attribute und Kommentare erlaubt oder entfernt werden. Auch wenn der Sanitizer unsichere Einträge erlaubt, werden diese bei Verwendung dieser Methode entfernt. Sie entfernt dieselben Elemente wie ein Sanitizer, für den [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) aufgerufen wurde.
 
-`setHTML()` sollte anstelle von [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) verwendet werden, um nicht vertrauenswürdige HTML-Strings in das Shadow DOM einzufügen.
-Es sollte auch anstelle von [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwendet werden, es sei denn, es besteht ein spezifisches Bedürfnis, unsichere Elemente und Attribute zuzulassen.
+Zum Einfügen nicht vertrauenswürdiger HTML-Strings in das Shadow DOM sollten Sie `setHTML()` anstelle von [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) verwenden. Verwenden Sie die Methode auch anstelle von [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe), sofern es keinen besonderen Grund gibt, unsichere Elemente und Attribute zuzulassen.
 
-Beachten Sie, dass diese Methode Eingabestrings von XSS-gefährlichen Entitäten immer bereinigt, sie ist nicht gesichert oder validiert durch die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API).
+Da diese Methode Eingabe-Strings stets von XSS-unsicheren Entitäten bereinigt, wird sie nicht mithilfe der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) abgesichert oder validiert.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt einige der Möglichkeiten, wie Sie `setHTML()` verwenden können, um einen HTML-String zu bereinigen und einzufügen.
+Dieses Beispiel zeigt einige Möglichkeiten, `setHTML()` zum Bereinigen und Einfügen eines HTML-Strings zu verwenden.
 
-Zuerst erstellen wir den [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), den wir anvisieren wollen.
-Dieser könnte programmatisch mit [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) erstellt werden, aber für dieses Beispiel erstellen wir den Root deklarativ.
+Zunächst erstellen wir die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), auf die wir zugreifen möchten. Sie ließe sich mit [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) programmatisch erstellen; für dieses Beispiel erstellen wir sie jedoch deklarativ.
 
 ```html
 <div id="host">
@@ -82,13 +76,13 @@ Dieser könnte programmatisch mit [`Element.attachShadow()`](/de/docs/Web/API/El
 </div>
 ```
 
-Wir können einen Zugriff auf den Shadow Root vom `#host` Element so erhalten:
+Über das Element `#host` können wir wie folgt eine Referenz auf die Shadow Root erhalten:
 
 ```js
 const shadow = document.querySelector("#host").shadowRoot;
 ```
 
-Der untenstehende Code zeigt, wie wir `setHTML()` mit einem String und verschiedenen Sanitizern aufrufen können, um das HTML zu filtern und in den Shadow Root einzufügen.
+Der folgende Code zeigt, wie Sie `setHTML()` mit einem String und verschiedenen Sanitizern aufrufen können, um das HTML zu filtern und in die Shadow Root einzufügen.
 
 ```js
 // Define unsanitized string of HTML
@@ -109,15 +103,13 @@ shadow.setHTML(unsanitizedString, {
 });
 ```
 
-### `setHTML()` Live-Beispiel
+### Interaktives Beispiel für `setHTML()`
 
-Dieses Beispiel bietet eine "Live"-Demonstration der Methode, wenn sie mit verschiedenen Sanitizern aufgerufen wird.
-Der Code definiert Schaltflächen, die Sie anklicken können, um einen HTML-String mit einem Standard- und einem benutzerdefinierten Sanitizer zu bereinigen und einzufügen.
-Der Originalstring und das bereinigte HTML werden protokolliert, sodass Sie die Ergebnisse in jedem Fall inspizieren können.
+Dieses Beispiel demonstriert die Methode beim Aufruf mit verschiedenen Sanitizern. Der Code definiert Schaltflächen, auf die Sie klicken können, um einen HTML-String mit dem Standard-Sanitizer beziehungsweise einem benutzerdefinierten Sanitizer zu bereinigen und einzufügen. Der ursprüngliche String und das bereinigte HTML werden protokolliert, damit Sie die Ergebnisse in beiden Fällen untersuchen können.
 
 #### HTML
 
-Das HTML definiert zwei {{htmlelement("button")}} Elemente für die Anwendung verschiedener Sanitizer, einen weiteren Button, um das Beispiel zurückzusetzen, und ein {{htmlelement("div")}}, das den deklarativen Shadow Root enthält.
+Das HTML definiert zwei {{htmlelement("button")}}-Elemente zum Anwenden verschiedener Sanitizer, eine weitere Schaltfläche zum Zurücksetzen des Beispiels und ein {{htmlelement("div")}}-Element, das die deklarative Shadow Root enthält.
 
 ```html
 <button id="buttonDefault" type="button">Default</button>
@@ -158,16 +150,14 @@ function log(text) {
 if ("Sanitizer" in window) {
 ```
 
-Zuerst definieren wir den Handler für den Reload-Button.
+Zunächst definieren wir den Handler für die Schaltfläche zum Neuladen.
 
 ```js
 const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => document.location.reload());
 ```
 
-Dann definieren wir den zu bereinigenden String, der für alle Fälle derselbe ist.
-Dieser enthält das {{htmlelement("script")}} Element und den `onclick` Handler, die beide als XSS-gefährlich gelten.
-Wir erhalten auch die Variable `shadow`, die unser Zugriff auf den Shadow Root ist.
+Anschließend definieren wir den zu bereinigenden String, der in allen Fällen gleich ist. Er enthält das {{htmlelement("script")}}-Element und den `onclick`-Handler, die beide als XSS-unsicher gelten. Außerdem erhalten wir die Variable `shadow`, unsere Referenz auf die Shadow Root.
 
 ```js
 // Define unsafe string of HTML
@@ -184,9 +174,7 @@ const unsanitizedString = `
 const shadow = document.querySelector("#host").shadowRoot;
 ```
 
-Als nächstes definieren wir den Click-Handler für den Button, der den Shadow Root mit dem Standard-Sanitizer setzt.
-Dies sollte alle unsicheren Entitäten entfernen, bevor der HTML-String eingefügt wird.
-Beachten Sie, dass Sie genau sehen können, welche Elemente in den [`Sanitizer()` Konstruktor-Beispielen](/de/docs/Web/API/Sanitizer/Sanitizer#creating_the_default_sanitizer) entfernt werden.
+Als Nächstes definieren wir den Click-Handler für die Schaltfläche, die den Inhalt der Shadow Root mit dem Standard-Sanitizer setzt. Dieser sollte alle unsicheren Einträge entfernen, bevor der HTML-String eingefügt wird. Welche Elemente genau entfernt werden, sehen Sie in den [Beispielen zum `Sanitizer()`-Konstruktor](/de/docs/Web/API/Sanitizer/Sanitizer#creating_the_default_sanitizer).
 
 ```js
 const defaultSanitizerButton = document.querySelector("#buttonDefault");
@@ -202,8 +190,7 @@ defaultSanitizerButton.addEventListener("click", () => {
 });
 ```
 
-Der nächste Click-Handler setzt das Ziel-HTML unter Verwendung eines benutzerdefinierten Sanitizers, der nur {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}} Elemente erlaubt.
-Beachten Sie, dass weil wir die `setHTML` Methode verwenden, `<script>` trotzdem entfernt wird!
+Der nächste Click-Handler setzt das Ziel-HTML mithilfe eines benutzerdefinierten Sanitizers, der nur die Elemente {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}} erlaubt. Da wir die Methode `setHTML` verwenden, wird auch `<script>` entfernt!
 
 ```js
 const allowScriptButton = document.querySelector("#buttonAllowScript");
@@ -231,10 +218,9 @@ allowScriptButton.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Klicken Sie auf die „Default“ und „allowScript“ Buttons, um die Effekte des Standard- und des benutzerdefinierten Sanitizers zu sehen.
+Klicken Sie auf die Schaltflächen „Default“ und „allowScript“, um die Wirkung des Standard-Sanitizers beziehungsweise des benutzerdefinierten Sanitizers zu sehen.
 
-Beachten Sie, dass weil wir eine sichere Bereinigungsmethode verwenden, in beiden Fällen das `<script>` Element und der `onclick` Handler entfernt werden, selbst wenn sie explizit durch den Sanitizer erlaubt sind.
-Während das `data-` Attribut mit dem Standard-Sanitizer entfernt wird, ist es erlaubt, wenn wir einen Sanitizer übergeben.
+Da wir eine sichere Bereinigungsmethode verwenden, werden in beiden Fällen das Element `<script>` und der `onclick`-Handler entfernt – selbst wenn der Sanitizer sie ausdrücklich erlaubt. Das Attribut `data-` wird hingegen nur vom Standard-Sanitizer entfernt; bei Übergabe des benutzerdefinierten Sanitizers bleibt es erhalten.
 
 {{EmbedLiveSample("setHTML() live example","100","450px")}}
 

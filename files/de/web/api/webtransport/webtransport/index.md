@@ -1,14 +1,14 @@
 ---
-title: "WebTransport: WebTransport() Konstruktor"
+title: "WebTransport: WebTransport()-Konstruktor"
 short-title: WebTransport()
 slug: Web/API/WebTransport/WebTransport
 l10n:
-  sourceCommit: 8413520d9fd826c98db89ff8165408139635d454
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Der **`WebTransport()`** Konstruktor erstellt eine neue Instanz des [`WebTransport`](/de/docs/Web/API/WebTransport)-Objekts.
+Der Konstruktor **`WebTransport()`** erstellt eine neue Instanz eines [`WebTransport`](/de/docs/Web/API/WebTransport)-Objekts.
 
 ## Syntax
 
@@ -20,82 +20,82 @@ new WebTransport(url, options)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des HTTP/3-Servers repräsentiert, mit dem eine Verbindung aufgebaut werden soll.
-    Das Schema muss HTTPS sein, und die Portnummer muss explizit angegeben werden.
+  - : Eine Zeichenfolge, die die URL des HTTP/3-Servers angibt, zu dem eine Verbindung hergestellt werden soll.
+    Das Schema muss HTTPS sein, und die Portnummer muss ausdrücklich angegeben werden.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften haben kann:
     - `allowPooling` {{optional_inline}}
       - : Ein boolescher Wert.
-        Wenn `true`, kann die Netzwerkverbindung für diesen [`WebTransport`](/de/docs/Web/API/WebTransport) mit einem Pool anderer HTTP/3-Sitzungen geteilt werden.
+        Wenn `true`, kann die Netzwerkverbindung für dieses [`WebTransport`](/de/docs/Web/API/WebTransport)-Objekt mit einem Pool anderer HTTP/3-Sitzungen geteilt werden.
         Standardmäßig ist der Wert `false`, und die Verbindung kann nicht geteilt werden.
     - `congestionControl` {{optional_inline}}
-      - : Ein String, der die Präferenz der Anwendung angibt, dass der verwendete Staukontrollalgorithmus beim Senden von Daten über diese Verbindung entweder für Durchsatz oder geringe Latenz optimiert wird.
-        Dies ist ein Hinweis an den Benutzeragenten.
-        Die erlaubten Werte sind: `default` (Standard), `throughput` und `low-latency`.
+      - : Eine Zeichenfolge, die angibt, ob die Anwendung bevorzugt, dass der beim Senden von Daten über diese Verbindung verwendete Algorithmus zur Überlastkontrolle auf Durchsatz oder geringe Latenz abgestimmt ist.
+        Dies ist ein Hinweis an den User Agent.
+        Zulässige Werte sind: `default` (Standardwert), `throughput` und `low-latency`.
     - `protocols` {{optional_inline}}
-      - : Ein Array von Strings, von denen jeder einen anwendungsspezifischen Protokollnamen angibt, in der Reihenfolge der Präferenz.
+      - : Ein Array von Zeichenfolgen, die jeweils einen anwendungsspezifischen Protokollnamen angeben und nach Präferenz geordnet sind.
         Standardmäßig ist der Wert ein leeres Array.
 
         Der Server kann eines der Protokolle auswählen und zurückgeben.
-        In diesem Fall wird der ausgewählte Wert in der [`protocol`](/de/docs/Web/API/WebTransport/protocol)-Eigenschaft verfügbar, sobald das [`ready`](/de/docs/Web/API/WebTransport/ready)-Versprechen erfüllt ist.
-        Der Server kann auch entscheiden, keines der angebotenen Protokolle auszuwählen, in diesem Fall wird `protocol` einen leeren String (`""`) zurückgeben.
-        Der Server kann auch die Verbindung ablehnen, wenn er keines der Protokolle unterstützt, in welchem Fall [`ready`](/de/docs/Web/API/WebTransport/ready) mit einem Fehler abgelehnt wird.
+        In diesem Fall ist der ausgewählte Wert über die Eigenschaft [`protocol`](/de/docs/Web/API/WebTransport/protocol) verfügbar, sobald das Promise [`ready`](/de/docs/Web/API/WebTransport/ready) erfüllt ist.
+        Der Server kann auch keines der angebotenen Protokolle auswählen. In diesem Fall gibt `protocol` eine leere Zeichenfolge (`""`) zurück.
+        Wenn der Server keines der Protokolle unterstützt, kann er die Verbindung auch ablehnen. In diesem Fall wird [`ready`](/de/docs/Web/API/WebTransport/ready) mit einem Fehler zurückgewiesen.
 
     - `requireUnreliable` {{optional_inline}}
       - : Ein boolescher Wert.
-        Wenn `true`, kann die Verbindung nicht über HTTP/2 hergestellt werden, wenn eine HTTP/3-Verbindung nicht möglich ist.
+        Wenn `true`, kann die Verbindung nicht über HTTP/2 hergestellt werden, falls eine HTTP/3-Verbindung nicht möglich ist.
         Standardmäßig ist der Wert `false`.
     - `serverCertificateHashes` {{optional_inline}}
-      - : Ein Array von Objekten, die jeweils den Hash-Wert eines Serverzertifikats zusammen mit dem Namen des Algorithmus, mit dem es generiert wurde, definieren.
-        Diese Option wird nur für Transporte mit dedizierten Verbindungen unterstützt (`allowPooling` ist `false`).
+      - : Ein Array von Objekten, die jeweils den Hashwert eines Serverzertifikats und den Namen des Algorithmus angeben, mit dem er erzeugt wurde.
+        Diese Option wird nur für Verbindungen unterstützt, die nicht mit anderen Sitzungen geteilt werden (`allowPooling` ist `false`).
 
-        Wenn angegeben, wird der Browser versuchen, das vom Server bereitgestellte Zertifikat anhand der bereitgestellten Zertifikat-Hash(es) zu authentifizieren, um eine Verbindung herzustellen, anstatt die öffentliche Schlüsselinfrastruktur des Webs (PKI) zu verwenden.
-        Wenn Hashes übereinstimmen, weiß der Browser, dass der Server über ein vertrauenswürdiges Zertifikat verfügt und wird wie gewohnt verbinden.
-        Wenn leer, verwendet der Benutzeragent dieselben PKI-Zertifikatsüberprüfungsverfahren, die er auch für einen normalen Fetch-Vorgang verwenden würde.
+        Wenn diese Option angegeben ist, versucht der Browser, das vom Server bereitgestellte Zertifikat anhand der angegebenen Zertifikat-Hashwerte zu authentifizieren, um eine Verbindung herzustellen, anstatt die Web-Public-Key-Infrastruktur (PKI) zu verwenden.
+        Wenn einer der Hashwerte übereinstimmt, weiß der Browser, dass der Server über ein vertrauenswürdiges Zertifikat verfügt, und stellt die Verbindung wie gewohnt her.
+        Ist das Array leer, verwendet der User Agent dieselben PKI-Verfahren zur Zertifikatsüberprüfung wie bei einem normalen Fetch-Vorgang.
 
-        Diese Funktion ermöglicht es Entwicklern, sich mit WebTransport-Servern zu verbinden, die normalerweise Schwierigkeiten hätten, ein öffentlich vertrauenswürdiges Zertifikat zu erhalten, wie z. B. Hosts, die nicht öffentlich routbar sind, oder temporäre Hosts wie virtuelle Maschinen.
+        Mit dieser Funktion können Entwickler eine Verbindung zu WebTransport-Servern herstellen, für die es normalerweise schwierig wäre, ein öffentlich vertrauenswürdiges Zertifikat zu erhalten, etwa zu Hosts, die nicht öffentlich erreichbar sind, oder zu kurzlebigen Hosts wie virtuellen Maschinen.
 
         > [!NOTE]
-        > Die Webanwendung könnte typischerweise die Hashes von einem vertrauenswürdigen Vermittler abrufen.
-        > Zum Beispiel könnten Sie einen Cloud-Anbieter verwenden, um VMs bereitzustellen, die Ihre WebTransport-Server ausführen.
-        > Der Anbieter hat vertrauenswürdigen Zugriff auf den Server und kann sein Zertifikat anfordern, Hashes generieren und diese über eine API (vermittelt über PKI) oder eine Cloud-Konsole an die Anwendung bereitstellen.
-        > Die Webanwendung kann nun direkt mit dem auf VM gehosteten Server unter Verwendung der bereitgestellten Hashes verbinden, obwohl die VM selbst kein langfristiges TLS-Zertifikat hat.
+        > Die Webanwendung könnte die Hashwerte üblicherweise von einem vertrauenswürdigen Vermittler abrufen.
+        > Beispielsweise könnten Sie einen Cloud-Anbieter nutzen, um VMs bereitzustellen, auf denen Ihre WebTransport-Server laufen.
+        > Der Anbieter hat vertrauenswürdigen Zugriff auf den Server und kann dessen Zertifikat anfordern, Hashwerte erzeugen und diese der Anwendung über eine API (abgesichert durch PKI) oder eine Cloud-Konsole bereitstellen.
+        > Die Webanwendung kann nun mithilfe der bereitgestellten Hashwerte eine direkte Verbindung zum auf der VM gehosteten Server herstellen, obwohl die VM selbst kein langlebiges TLS-Zertifikat besitzt.
 
-        Das Zertifikat muss ein X.509v3-Zertifikat mit einer Gültigkeitsdauer von weniger als 2 Wochen sein, und die aktuelle Zeit muss innerhalb dieses Gültigkeitszeitraums liegen.
-        Das Format des öffentlichen Schlüssels im Zertifikat hängt von der Implementierung ab, muss jedoch zumindest ECDSA mit der secp256r1 (NIST P-256) benannten Gruppe enthalten und darf keine RSA-Schlüssel enthalten.
-        Ein ECSDA-Schlüssel ist daher ein interoperables Standardformat für öffentliche Schlüssel.
-        Ein Benutzeragent kann weitere Anforderungen hinzufügen; diese werden im Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) aufgeführt, wenn bekannt.
+        Das Zertifikat muss ein X.509v3-Zertifikat mit einer Gültigkeitsdauer von weniger als zwei Wochen sein, und der aktuelle Zeitpunkt muss innerhalb dieser Gültigkeitsdauer liegen.
+        Das Format des öffentlichen Schlüssels im Zertifikat hängt von der Implementierung ab, muss aber mindestens ECDSA mit der benannten Gruppe secp256r1 (NIST P-256) umfassen und darf keine RSA-Schlüssel enthalten.
+        Ein ECDSA-Schlüssel ist daher ein interoperables Standardformat für öffentliche Schlüssel.
+        Ein User Agent kann zusätzliche Anforderungen stellen; sofern bekannt, werden diese im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) aufgeführt.
 
         Jedes Objekt im Array hat die folgenden Eigenschaften:
         - `algorithm`
-          - : Ein String mit dem Wert: `sha-256` (Groß- und Kleinschreibung wird nicht beachtet).
-            Beachten Sie, dass dieser String den Algorithmus repräsentiert, der zur Überprüfung des Hashs verwendet wird, und dass jeder Hash, der einen unbekannten Algorithmus verwendet, ignoriert wird.
-            Zum Zeitpunkt der Erstellung dieser Dokumentation ist `SHA-256` der einzige im Standard aufgeführte Hash-Algorithmus.
+          - : Eine Zeichenfolge mit dem Wert `sha-256` (ohne Beachtung der Groß- und Kleinschreibung).
+            Beachten Sie, dass diese Zeichenfolge den Algorithmus zur Überprüfung des Hashwerts angibt und dass jeder Hashwert mit einem unbekannten Algorithmus ignoriert wird.
+            Zum Zeitpunkt der Erstellung dieses Artikels ist `SHA-256` der einzige in der Spezifikation aufgeführte Hashalgorithmus.
 
         - `value`
-          - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), {{jsxref("TypedArray")}} oder [`DataView`](/de/docs/Web/JavaScript/Reference/Global_Objects/DataView), der den Hash-Wert enthält.
+          - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), {{jsxref("TypedArray")}} oder [`DataView`](/de/docs/Web/JavaScript/Reference/Global_Objects/DataView), der bzw. das den Hashwert enthält.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn `serverCertificateHashes` angegeben ist, das Transportprotokoll diese Funktion jedoch nicht unterstützt.
+  - : Wird ausgelöst, wenn `serverCertificateHashes` angegeben ist, das Transportprotokoll diese Funktion aber nicht unterstützt.
 - `SyntaxError`
-  - : Ausgelöst, wenn die angegebene `url` ungültig ist, das Schema nicht HTTPS ist oder die URL ein Fragment enthält.
-    Auch ausgelöst, wenn `protocols` einen doppelten Wert enthält, einen Wert mit Zeichen, die in einem Protokoll-Token nicht erlaubt sind, oder einen Wert, dessen kodierte Länge `0` oder größer als `512` Bytes ist.
-- `TypeError`
-  - : Ausgelöst, wenn `serverCertificateHashes` für eine nicht-dedizierte Verbindung gesetzt wird (mit anderen Worten, wenn `allowPooling` `true` ist).
+  - : Wird ausgelöst, wenn die angegebene `url` ungültig ist, das Schema nicht HTTPS ist oder die URL ein Fragment enthält.
+    Wird auch ausgelöst, wenn `protocols` einen doppelten Wert, einen Wert mit Zeichen, die in einem Protokoll-Token nicht zulässig sind, oder einen Wert enthält, dessen kodierte Länge `0` oder mindestens `512` Byte beträgt.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn `serverCertificateHashes` für eine geteilte Verbindung gesetzt ist (mit anderen Worten, wenn `allowPooling` den Wert `true` hat).
 
 ## Beispiele
 
-### Verbindung mit Standardoptionen
+### Verbindung mit Standardoptionen herstellen
 
-Dieses Beispiel zeigt, wie Sie ein `WebTransport` nur mit einer URL konstruieren, darauf warten, dass es sich verbindet, und dann den Transport überwachen und melden, wenn er schließt.
+Dieses Beispiel zeigt, wie Sie ein `WebTransport`-Objekt nur mit einer URL erstellen, warten, bis die Verbindung hergestellt ist, und anschließend überwachen, wann die Verbindung geschlossen wird.
 
-Zuerst definieren wir eine `async`-Methode, die eine URL übernimmt und verwendet, um das `WebTransport`-Objekt zu konstruieren.
-Es werden keine Konstruktoroptionen angegeben, sodass die Verbindung Standardoptionen verwendet: dedizierte Verbindung, Unterstützung für unzuverlässige Transporte ist nicht erforderlich, standardmäßige Staukontrolle und normale Web PKI-Authentifizierung mit dem Server.
-Beachten Sie, dass das Schema HTTPS sein muss und die Portnummer explizit angegeben werden muss.
+Zunächst definieren wir eine `async`-Methode, die eine URL entgegennimmt und damit das `WebTransport`-Objekt erstellt.
+Es werden keine Konstruktoroptionen angegeben. Daher verwendet die Verbindung die Standardoptionen: eine nicht geteilte Verbindung, keine Anforderung an die Unterstützung unzuverlässiger Transportmechanismen, die standardmäßige Überlastkontrolle und die übliche Authentifizierung des Servers über die Web-PKI.
+Beachten Sie, dass das Schema HTTPS sein und die Portnummer ausdrücklich angegeben werden muss.
 
-Sobald das [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready)-Versprechen erfüllt ist, können Sie die Verbindung nutzen.
+Sobald das Promise [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready) erfüllt ist, können Sie die Verbindung verwenden.
 
 ```js
 async function initTransport(url) {
@@ -108,11 +108,11 @@ async function initTransport(url) {
 }
 ```
 
-Sie können auf das Schließen der Verbindung reagieren, indem Sie darauf warten, dass das [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed)-Versprechen erfüllt wird.
-Fehler, die von `WebTransport`-Operationen zurückgegeben werden, sind vom Typ [`WebTransportError`](/de/docs/Web/API/WebTransportError) und enthalten zusätzliche Daten über die üblichen [`DOMException`](/de/docs/Web/API/DOMException)-Sätze hinaus.
+Sie können auf das Schließen der Verbindung reagieren, indem Sie darauf warten, dass das Promise [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed) erfüllt wird.
+Fehler, die von `WebTransport`-Operationen zurückgegeben werden, sind vom Typ [`WebTransportError`](/de/docs/Web/API/WebTransportError) und enthalten zusätzliche Daten über die üblichen Eigenschaften von [`DOMException`](/de/docs/Web/API/DOMException) hinaus.
 
-Die Methode `closeTransport()` zeigt, wie es geht.
-Innerhalb eines `try...catch`-Blocks wird `await` verwendet, um auf die Erfüllung oder Ablehnung des `closed`-Versprechens zu warten und dann zu melden, ob die Verbindung absichtlich oder aufgrund eines Fehlers geschlossen wurde.
+Die folgende Methode `closeTransport()` zeigt, wie das geht.
+Innerhalb eines `try...catch`-Blocks wartet sie mit `await` darauf, dass das Promise `closed` erfüllt oder zurückgewiesen wird, und meldet dann, ob die Verbindung absichtlich oder aufgrund eines Fehlers geschlossen wurde.
 
 ```js
 async function closeTransport(transport) {
@@ -126,7 +126,7 @@ async function closeTransport(transport) {
 }
 ```
 
-Wir könnten die oben genannten asynchronen Funktionen in ihrer eigenen asynchronen Funktion aufrufen, wie unten gezeigt.
+Die obigen asynchronen Funktionen könnten wir in einer eigenen asynchronen Funktion aufrufen, wie unten gezeigt.
 
 ```js
 // Use the transport
@@ -144,13 +144,13 @@ const url = "https://example.com:4999/wt";
 useTransport(url);
 ```
 
-### Verbindung mit Serverzertifikats-Hashes
+### Verbindung mit Serverzertifikat-Hashwerten herstellen
 
-Das Beispiel unten zeigt den Code, um ein `WebTransport` zu konstruieren, das die Option `serverCertificateHashes` spezifiziert.
-In diesem Fall enthält das Array zwei Hashes, beide codiert mit dem SHA-256-Algorithmus.
-Beachten Sie, dass die `allowPooling`-Option `false` sein muss (der Standard).
+Das folgende Beispiel zeigt Code zum Erstellen eines `WebTransport`-Objekts, bei dem die Option `serverCertificateHashes` angegeben ist.
+In diesem Fall enthält das Array zwei Hashwerte, die beide mit dem SHA-256-Algorithmus kodiert wurden.
+Beachten Sie, dass die Option `allowPooling` den Wert `false` haben muss (den Standardwert).
 
-Der `value` jedes Hashs kann ein `ArrayBuffer`, ein `TypedArray` (zum Beispiel ein `Uint8Array`) oder ein `DataView` sein. Das folgende Beispiel stellt jeden SHA-256-Hash-Wert als `Uint8Array` dar; zum Beispiel entspricht der hexadezimale String `5a1559...` den Bytewerten `0x5a`, `0x15`, `0x59` und so weiter.
+Der `value` jedes Hashwerts kann ein `ArrayBuffer`, ein `TypedArray` (beispielsweise ein `Uint8Array`) oder ein `DataView` sein. Im folgenden Beispiel wird jeder SHA-256-Hashwert als `Uint8Array` dargestellt. Die hexadezimale Zeichenfolge `5a1559...` entspricht beispielsweise den Bytewerten `0x5a`, `0x15`, `0x59` usw.
 
 ```js
 const transport = new WebTransport(url, {
@@ -187,7 +187,7 @@ const transport = new WebTransport(url, {
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- [WebSockets API](/de/docs/Web/API/WebSockets_API)
-- [Streams API](/de/docs/Web/API/Streams_API)
+- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets-API](/de/docs/Web/API/WebSockets_API)
+- [Streams-API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

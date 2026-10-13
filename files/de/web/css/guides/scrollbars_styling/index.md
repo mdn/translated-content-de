@@ -1,16 +1,16 @@
 ---
-title: CSS-Scrollbars-Styling
-short-title: Scrollbars styling
+title: Gestaltung von CSS-Scrollbalken
+short-title: Gestaltung von Scrollbalken
 slug: Web/CSS/Guides/Scrollbars_styling
 l10n:
-  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
+  sourceCommit: 553d17671f5fec31365fedfaad8e5343d14c0bd8
 ---
 
-Das Modul **CSS-Scrollbars-Styling** definiert Eigenschaften, die Sie zur visuellen Gestaltung von Scrollbars verwenden können. Sie können die Breite der Scrollbar nach Bedarf anpassen. Sie können auch die Farbe des Scrollbar-_Tracks_, also des Hintergrunds der Scrollbar, und die Farbe des Scrollbar-_Thumbs_, also des verschiebbaren Griffs der Scrollbar, anpassen.
+Das Modul **CSS scrollbars styling** definiert Eigenschaften, mit denen Sie Scrollbalken visuell gestalten können. Sie können die Breite des Scrollbalkens nach Bedarf anpassen. Außerdem können Sie die Farbe der Scrollbalken-**Spur** (des Hintergrunds) und des Scrollbalken-**Schiebers** (des verschiebbaren Griffs) anpassen.
 
-## Styling von Scrollbars in Aktion
+## Scrollbalken-Gestaltung in Aktion
 
-Dieses Beispiel definiert eine dünne Scrollbar mit einem roten Thumb und einem orangefarbenen Track. Um den Thumb zu sehen, müssen Sie den Text scrollen. Nachdem die Scrollbar sichtbar ist, bewegen Sie den Mauszeiger darüber, um den Track zu sehen.
+Dieses Beispiel definiert einen schmalen Scrollbalken mit einem blaugrünen Schieber und einer helleren blaugrünen Spur. Scrollen Sie durch den Text, um den Schieber zu sehen. Sobald der Scrollbalken sichtbar ist, bewegen Sie den Mauszeiger darüber, um die Spur zu sehen.
 
 ```css hidden
 .poem {
@@ -23,7 +23,7 @@ Dieses Beispiel definiert eine dünne Scrollbar mit einem roten Thumb und einem 
 ```css
 .poem {
   overflow: scroll;
-  scrollbar-color: red orange;
+  scrollbar-color: #0b4f4a #5f9e98;
   scrollbar-width: thin;
 }
 ```
@@ -57,7 +57,7 @@ for us to breathe.
 {{EmbedLiveSample("Scrollbar_styling_in_action")}}
 
 > [!NOTE]
-> Beim Anpassen von Scrollbars stellen Sie sicher, dass Thumb und Track genügend Kontrast zum umgebenden Hintergrund haben. Achten Sie auch darauf, dass der Berührungsbereich der Scrollbar groß genug für Benutzer ist, die Touch-Eingaben verwenden.
+> Achten Sie beim Anpassen von Scrollbalken darauf, dass Schieber und Spur einen ausreichenden Kontrast zum umgebenden Hintergrund aufweisen. Stellen Sie außerdem sicher, dass der Interaktionsbereich des Scrollbalkens groß genug für Personen ist, die eine Touch-Eingabe verwenden.
 
 ## Referenz
 
@@ -71,7 +71,7 @@ for us to breathe.
 - {{CSSxRef("overflow-block")}} CSS-Eigenschaft
 - {{CSSxRef("overflow-inline")}} CSS-Eigenschaft
 - {{CSSxRef("overflow-x")}} CSS-Eigenschaft
-- {{CSSxRef("overflow-y")}} CSS-Eigenschaft
+- {{CSSxRef("overflow-y")}} CSS-Kurzschreibweise
 - {{CSSxRef("overflow")}} CSS-Kurzschreibweise
 - {{CSSxRef("overflow-clip-margin")}} CSS-Eigenschaft
 - {{CSSxRef("scrollbar-gutter")}} CSS-Eigenschaft
@@ -81,9 +81,9 @@ for us to breathe.
 - {{cssxref("scroll-snap-align")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-stop")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-type")}} CSS-Eigenschaft
-- {{CSSxRef("::-webkit-scrollbar")}} Pseudo-Element
-- {{Glossary("scroll_container", "scroll container")}} Glossarbegriff
-- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role) ARIA-Rolle
+- {{CSSxRef("::-webkit-scrollbar")}} Pseudoelement
+- {{Glossary("scroll_container", "Scroll-Container")}}, Glossarbegriff
+- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), ARIA-Rolle
 
 ## Spezifikationen
 
@@ -92,5 +92,5 @@ for us to breathe.
 ## Siehe auch
 
 - {{cssxref('scroll-timeline')}}, {{cssxref('scroll-timeline-axis')}}, {{cssxref('scroll-timeline-name')}}
-- [CSS overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- Modul [CSS overflow](/de/docs/Web/CSS/Guides/Overflow)
+- Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)

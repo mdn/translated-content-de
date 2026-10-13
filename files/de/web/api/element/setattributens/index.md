@@ -1,23 +1,23 @@
 ---
-title: "Element: setAttributeNS() Methode"
+title: "Element: Methode setAttributeNS()"
 short-title: setAttributeNS()
 slug: Web/API/Element/setAttributeNS
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{ APIRef("DOM") }}
 
 > [!WARNING]
-> Diese Methode kann Attributwerte annehmen, die je nach Attribut als HTML, Skript oder als Skript-URL geparst werden.
-> Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und bieten potenziell eine Angriffsfläche für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, wenn der Wert ursprünglich von einem Angreifer stammt.
+> Diese Methode kann Attributwerte entgegennehmen, die je nach Attribut als HTML, Skript oder Skript-URL interpretiert werden.
+> APIs wie diese werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können einen Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) darstellen, wenn der Wert ursprünglich von einem Angreifer stammt.
 >
-> Sie können dieses Risiko mindern, indem Sie immer das entsprechende vertrauenswürdige Typobjekt ([`TrustedHTML`](/de/docs/Web/API/TrustedHTML), [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)) anstelle von Strings für diese Attribute verwenden, die sie erfordern, und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](/de/docs/Web/API/Element/setAttribute#security_considerations) in [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie für Attribute, die dies erfordern, statt Zeichenfolgen stets ein Objekt des entsprechenden Trusted Type ([`TrustedHTML`](/de/docs/Web/API/TrustedHTML), [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)) übergeben und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](/de/docs/Web/API/Element/setAttribute#security_considerations) zu [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute).
 
-Die **`setAttributeNS()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs mit dem angegebenen Namensraum und Namen.
+Die Methode **`setAttributeNS()`** des Interfaces [`Element`](/de/docs/Web/API/Element) fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs mit dem angegebenen Namespace und Namen.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines spezifischen Namensraums angeben müssen, verwenden Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und nicht angeben müssen, dass das betreffende Attribut zu einem bestimmten Namespace gehört, verwenden Sie stattdessen die Methode [`setAttribute()`](/de/docs/Web/API/Element/setAttribute).
 
 ## Syntax
 
@@ -28,28 +28,28 @@ setAttributeNS(namespaceURI, qualifiedName, value)
 ### Parameter
 
 - `namespaceURI`
-  - : Ein String, der den Namensraum des zu setzenden Attributs angibt, oder der leere String.
+  - : Eine Zeichenfolge, die den Namespace des zu setzenden Attributs angibt, oder eine leere Zeichenfolge.
 
 - `qualifiedName`
-  - : Ein String, der das Attribut durch seinen qualifizierten Namen identifiziert, der das Format `prefix:localName` oder `localName` hat, wobei die Teile wie folgt definiert sind:
+  - : Eine Zeichenfolge, die das Attribut anhand seines qualifizierten Namens identifiziert. Dieser hat das Format `prefix:localName` oder `localName`, wobei die Bestandteile wie folgt definiert sind:
     - `prefix`
-      - : Ein "kurzes Alias" für den Namensraum.
-        Das Präfix ist optional, aber wenn es angegeben ist, muss auch der `namespaceURI` Parameter angegeben werden.
-        Wenn das Präfix auf `xml` oder `xmlns` gesetzt wird, muss der `namespaceURI` entsprechend auf `http://www.w3.org/XML/1998/namespace` oder `http://www.w3.org/2000/xmlns/` gesetzt werden.
+      - : Ein „kurzer Alias“ für den Namespace.
+        Das Präfix ist optional. Wenn es angegeben wird, muss auch der Parameter `namespaceURI` angegeben werden.
+        Wenn das Präfix auf `xml` beziehungsweise `xmlns` gesetzt ist, muss `namespaceURI` auf `http://www.w3.org/XML/1998/namespace` beziehungsweise `http://www.w3.org/2000/xmlns/` gesetzt sein.
 
     - `localName`
       - : Der lokale Name des Attributs.
 
 - `value`
-  - : Ein vertrauenswürdiger Typ oder String, der den zuzuweisenden Wert für das Attribut enthält.
+  - : Ein Trusted Type oder eine Zeichenfolge mit dem Wert, der dem Attribut zugewiesen werden soll.
 
-    Für die folgenden Attribute müssen vertrauenswürdige Typinstanzen übergeben werden, wenn vertrauenswürdige Typen durchgesetzt werden:
-    - Ereignishandler-Attributinhalte wie `onclick` und `onload` erfordern ein [`TrustedScript`](/de/docs/Web/API/TrustedScript).
-    - [`HTMLIFrameElement.srcdoc`](/de/docs/Web/API/HTMLIFrameElement/srcdoc) erfordert eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanz.
-    - [`HTMLScriptElement.src`](/de/docs/Web/API/HTMLScriptElement/src) erfordert eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Instanz.
-    - [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href) erfordert eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Instanz.
+    Wenn Trusted Types erzwungen werden, müssen für die folgenden Attribute Instanzen des jeweiligen Trusted Type übergeben werden:
+    - Event-Handler-Content-Attribute wie `onclick` und `onload` erfordern ein [`TrustedScript`](/de/docs/Web/API/TrustedScript).
+    - [`HTMLIFrameElement.srcdoc`](/de/docs/Web/API/HTMLIFrameElement/srcdoc) erfordert eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanz.
+    - [`HTMLScriptElement.src`](/de/docs/Web/API/HTMLScriptElement/src) erfordert eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanz.
+    - [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href) erfordert eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanz.
 
-    Vertrauenswürdige Typen werden für andere Attribute nicht durchgesetzt, sodass ein String oder ein beliebiger vertrauenswürdiger Typ übergeben werden kann.
+    Für andere Attribute werden Trusted Types nicht erzwungen. Daher können eine Zeichenfolge oder ein beliebiger Trusted Type übergeben werden.
 
 ### Rückgabewert
 
@@ -58,24 +58,24 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NamespaceError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert von [`namespaceURI`](#namespaceuri) ist:
-    - kein gültiger Namensraum-URI.
-    - auf den leeren String gesetzt, wenn `prefix` einen Wert hat.
-    - nicht der Wert `http://www.w3.org/XML/1998/namespace` oder `http://www.w3.org/2000/xmlns/` ist, wenn [`prefix`](#prefix) auf `xml` oder `xmlns` gesetzt ist.
+  - : Wird ausgelöst, wenn der Wert von [`namespaceURI`](#namespaceuri):
+    - kein gültiger Namespace-URI ist.
+    - eine leere Zeichenfolge ist, obwohl `prefix` einen Wert hat.
+    - nicht `http://www.w3.org/XML/1998/namespace` beziehungsweise `http://www.w3.org/2000/xmlns/` ist, obwohl [`prefix`](#prefix) auf `xml` beziehungsweise `xmlns` gesetzt ist.
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn entweder das [`prefix`](#prefix) oder [`localName`](#localname) nicht gültig ist:
-    - Das `prefix` muss mindestens ein Zeichen enthalten und darf keine ASCII-Leerzeichen, `NULL`, `/` oder `>` (U+0000, U+002F oder U+003E) enthalten.
-    - Das `localName` muss mindestens ein Zeichen enthalten und darf keine ASCII-Leerzeichen, `NULL`, `/`, `=` oder `>` (U+0000, U+002F, U+003D oder U+003E) enthalten.
+  - : Wird ausgelöst, wenn [`prefix`](#prefix) oder [`localName`](#localname) ungültig ist:
+    - `prefix` muss mindestens ein Zeichen enthalten und darf weder ASCII-Leerraumzeichen noch `NULL`, `/` oder `>` enthalten (U+0000, U+002F beziehungsweise U+003E).
+    - `localName` muss mindestens ein Zeichen enthalten und darf weder ASCII-Leerraumzeichen noch `NULL`, `/`, `=` oder `>` enthalten (U+0000, U+002F, U+003D beziehungsweise U+003E).
 
     > [!NOTE]
-    > Frühere Versionen der Spezifikation waren restriktiver und erforderten, dass das `qualifiedName` ein gültiger [XML-Name](https://www.w3.org/TR/xml/#dt-name) ist.
+    > Frühere Versionen der Spezifikation waren restriktiver und verlangten, dass `qualifiedName` ein gültiger [XML-Name](https://www.w3.org/TR/xml/#dt-name) ist.
 
-- `TypeError`
-  - : Wird ausgelöst, wenn [`value`](#value) ein String anstelle eines vertrauenswürdigen Typobjekts übergeben wird (für diejenigen Attribute, die diese erfordern), wenn [Vertrauenswürdige Typen](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn für [`value`](#value) statt eines Trusted-Type-Objekts eine Zeichenfolge übergeben wird (bei Attributen, die ein solches Objekt erfordern), während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 let d = document.getElementById("d1");
@@ -86,9 +86,9 @@ d.setAttributeNS(
 );
 ```
 
-### Vertrauenswürdige Typen
+### Trusted Types
 
-Das Beispiel [Unsafe Attribute Setting](/de/docs/Web/API/Element/setAttribute#setting_unsafe_attributes) in `setAttribute()` zeigt, wie Sie `setAttributeNS()` mit den [trusted types](/de/docs/Web/API/Trusted_Types_API) verwenden könnten.
+Das Beispiel [Unsichere Attribute setzen](/de/docs/Web/API/Element/setAttribute#setting_unsafe_attributes) zu `setAttribute()` zeigt, wie Sie `setAttributeNS()` mit [Trusted Types](/de/docs/Web/API/Trusted_Types_API) verwenden können.
 
 ## Spezifikationen
 

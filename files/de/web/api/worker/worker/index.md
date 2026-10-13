@@ -1,21 +1,21 @@
 ---
-title: "Worker: Konstruktor Worker()"
+title: "Worker: Worker()-Konstruktor"
 short-title: Worker()
 slug: Web/API/Worker/Worker
 l10n:
-  sourceCommit: 63ab30ba03e9f0c638e3cb42bb2e878aaaeffa53
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
 > [!WARNING]
-> Dieses Skript, dass dem `url`-Element übergeben wird, wird ausgeführt.
-> Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und sind potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
+> Das Skript, das dem `url`-Parameter übergeben wird, wird ausgeführt.
+> APIs wie diese gelten als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) genutzt werden.
 >
-> Sie können dieses Risiko mindern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) haben, die die Orte einschränkt, von denen Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) einschränken, von welchen Orten Skripte geladen werden dürfen, und stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zuweisen sowie [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](#sicherheitsaspekte).
 
-Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das klassische Skript oder Modul an der angegebenen URL ausführt.
+Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das klassische Skript oder Modul unter der angegebenen URL ausführt.
 
 ## Syntax
 
@@ -27,25 +27,25 @@ new Worker(url, options)
 ### Parameter
 
 - `url`
-  - : Ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt oder ein String, der die URL des Skripts oder Moduls darstellt, das der Worker ausführen wird.
+  - : Ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt oder eine Zeichenfolge, die die URL des Skripts oder Moduls angibt, das der Worker ausführen soll.
 
-    Diese muss ursprungsgleich mit dem Dokument des Aufrufers sein, oder eine `blob:`- oder `data:`-URL.
-    Die URL wird relativ zum aktuellen Ort der HTML-Seite aufgelöst.
+    Die URL muss denselben Ursprung wie das Dokument des Aufrufers haben oder eine `blob:`- bzw. `data:`-URL sein.
+    Sie wird relativ zum Speicherort der aktuellen HTML-Seite aufgelöst.
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Optionen enthält, die beim Erstellen der Objektinstanz festgelegt werden können.
-    Verfügbare Eigenschaften sind wie folgt:
+  - : Ein Objekt mit optionalen Eigenschaften, die beim Erstellen der Objektinstanz festgelegt werden können.
+    Folgende Eigenschaften stehen zur Verfügung:
     - `credentials`
-      - : Ein String, der angibt, ob der Browser Anmeldeinformationen sendet, wenn Module in einen Modul-Worker importiert werden.
-        Die erlaubten Werte sind die gleichen, die an die [`fetch()`-Anfrage](/de/docs/Web/API/RequestInit#credentials) übergeben werden können: `omit`, `same-origin` oder `include`.
-        Der Standardwert ist `same-origin` (nur Anmeldeinformationen für ursprungsgleiche Anfragen einbeziehen).
+      - : Eine Zeichenfolge, die angibt, ob der Browser beim Importieren von Modulen in einen Modul-Worker Anmeldeinformationen sendet.
+        Zulässig sind dieselben Werte wie bei einer [`fetch()`-Anfrage](/de/docs/Web/API/RequestInit#credentials): `omit`, `same-origin` oder `include`.
+        Der Standardwert ist `same-origin` (Anmeldeinformationen werden nur bei Anfragen an denselben Ursprung mitgesendet).
 
-        Dies wird für klassische Worker ignoriert.
+        Bei klassischen Workern wird diese Eigenschaft ignoriert.
 
     - `name`
-      - : Ein String, der einen identifizierenden Namen für den [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) angibt, der den Umfang des Workers repräsentiert, was hauptsächlich für Debugging-Zwecke nützlich ist.
+      - : Eine Zeichenfolge, die einen Namen für den [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) angibt, der den Gültigkeitsbereich des Workers repräsentiert. Dies ist vor allem beim Debuggen hilfreich.
     - `type`
-      - : Ein String, der den Typ des Workers angibt, der erstellt werden soll.
+      - : Eine Zeichenfolge, die den Typ des zu erstellenden Workers angibt.
         Der Wert kann `classic` oder `module` sein.
         Der Standardwert ist `classic`.
 
@@ -53,28 +53,28 @@ new Worker(url, options)
 
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts falsch ist.
-    Es _sollte_ immer `text/javascript` sein (aus historischen Gründen können [andere JavaScript-MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#legacy_javascript_mime_types) akzeptiert werden).
+    Er _sollte_ immer `text/javascript` sein (aus historischen Gründen werden möglicherweise auch [andere JavaScript-MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#legacy_javascript_mime_types) akzeptiert).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dokument nicht berechtigt ist, Worker zu starten, z.B., wenn die URL eine ungültige Syntax hat oder wenn die Same-Origin-Policy verletzt wird.
+  - : Wird ausgelöst, wenn das Dokument keine Worker starten darf, beispielsweise weil die URL eine ungültige Syntax hat oder gegen die Same-Origin-Policy verstößt.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `url` nicht geparst werden kann.
-- `TypeError`
-  - : Wird ausgelöst, wenn der `url`-Parameter ein String ist, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Parameter `url` eine Zeichenfolge ist, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das klassische Skript oder Modul an der angegebenen URL ausführt.
+Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das klassische Skript oder Modul unter der angegebenen URL ausführt.
 
-Das Skript muss [ursprungsgleich](/de/docs/Web/Security/Defenses/Same-origin_policy) mit dem zugehörigen Dokument sein, kann jedoch selbst Skripte oder Module importieren, die nicht ursprungsgleich sind (sofern durch CORS und andere Einschränkungen erlaubt).
-Wenn ein nicht ursprungsgleicher Worker erforderlich ist, müssen Benutzer ihn von einem zwischengeschalteten ursprungsgleichen Worker oder einem Blob laden.
+Das Skript muss [denselben Ursprung](/de/docs/Web/Security/Defenses/Same-origin_policy) wie das zugehörige Dokument haben, darf aber selbst Skripte oder Module von anderen Ursprüngen importieren, sofern CORS und andere Beschränkungen dies erlauben.
+Wenn ein Worker von einem anderen Ursprung benötigt wird, müssen Sie ihn über einen zwischengeschalteten Worker desselben Ursprungs oder über einen Blob laden.
 
 ### Modul- und klassische Worker
 
-Ein klassischer Worker ist einer, der aus einem klassischen Skript konstruiert wird, während ein Modul-Worker aus einem [ECMAScript Modul](/de/docs/Web/JavaScript/Guide/Modules) konstruiert wird.
-Der Typ des Workers wirkt sich auf die Optionen des Worker-Konstruktors, darauf, wie das Worker-Skript abgerufen und wie es ausgeführt wird, aus.
+Ein klassischer Worker wird aus einem klassischen Skript erstellt, ein Modul-Worker dagegen aus einem [ECMAScript-Modul](/de/docs/Web/JavaScript/Guide/Modules).
+Der Worker-Typ beeinflusst die Optionen des Worker-Konstruktors sowie die Art, wie das Worker-Skript abgerufen und ausgeführt wird.
 
-Der unten stehende Code zeigt zwei Möglichkeiten, wie Sie einen klassischen Worker konstruieren können, und auch, wie Sie den `type` von `"module"` angeben, um einen Modul-Worker zu erstellen.
-In beiden Fällen muss das Skript ursprungsgleich mit dem ladenden Dokument sein und wird relativ zum Ort des startenden Dokuments aufgelöst.
+Der folgende Code zeigt zwei Möglichkeiten, einen klassischen Worker zu erstellen, und wie Sie mit dem `type`-Wert `"module"` einen Modul-Worker erstellen.
+In beiden Fällen muss das Skript denselben Ursprung wie das ladende Dokument haben. Seine URL wird relativ zum Speicherort des Dokuments aufgelöst, das den Worker startet.
 
 ```js
 // Construct a classic worker
@@ -89,46 +89,46 @@ const worker3 = new Worker("worker_module.js", {
 });
 ```
 
-Modul-Worker und ihre Abhängigkeiten werden mit ECMAScript-Modul-Semantik geladen und ausgeführt:
+Modul-Worker und ihre Abhängigkeiten werden gemäß der Semantik von ECMAScript-Modulen geladen und ausgeführt:
 
-- Abhängigkeiten werden über statische [`import`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/import) importiert
-- Asynchron unter Verwendung von [CORS](/de/docs/Web/HTTP/Guides/CORS) abgerufen.
-- Alle Module werden aufgelöst, bevor jeglicher Code ausgeführt wird
-- Müssen mit dem Medientyp `Content-Type: text/javascript` bereitgestellt werden
-- Ausgeführt im {{Glossary("Strict_mode", "Strict mode")}}
+- Abhängigkeiten werden über statische [`import`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/import) importiert.
+- Sie werden asynchron mithilfe von [CORS](/de/docs/Web/HTTP/Guides/CORS) abgerufen.
+- Alle Module werden aufgelöst, bevor Code ausgeführt wird.
+- Sie müssen mit dem Medientyp `Content-Type: text/javascript` bereitgestellt werden.
+- Sie werden im {{Glossary("Strict_mode", "Strict Mode")}} ausgeführt.
 
 Klassische Worker werden als Skripte abgerufen und ausgeführt:
 
-- Abhängigkeiten werden mit der Methode [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) importiert
-- Synchronously im `no-cors`-Modus abgerufen
+- Abhängigkeiten werden mit der Methode [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) importiert.
+- Sie werden synchron im `no-cors`-Modus abgerufen.
 
-### Importieren von Skripten oder Modulen
+### Skripte oder Module importieren
 
-Modul-Worker können [ECMAScript-Module](/de/docs/Web/JavaScript/Guide/Modules) mit [`import`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/import) importieren.
-Module werden unter Verwendung von CORS abgerufen, daher müssen Cross-Origin-Module mit dem {{httpheader("Access-Control-Allow-Origin")}}-Header bereitgestellt werden, um geladen zu werden.
-Entwickler können spezifizieren, ob Anmeldeinformationen bei Cross-Origin-Imports gesendet werden sollen oder nicht.
+Modul-Worker können [ECMAScript-Module](/de/docs/Web/JavaScript/Guide/Modules) über [`import`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/import) importieren.
+Module werden mithilfe von CORS abgerufen. Damit Module von anderen Ursprüngen geladen werden können, muss der Server sie daher mit dem Header {{httpheader("Access-Control-Allow-Origin")}} bereitstellen.
+Entwickler können festlegen, ob bei ursprungsübergreifenden Importen Anmeldeinformationen gesendet werden sollen.
 
-Klassische Worker können Skripte (aber keine Module) mit der Methode [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) importieren.
-Im Gegensatz zu Modulen werden Skripte im `no-cors`-Modus abgerufen und können Cross-Origin angefordert werden, auch wenn der Server die entsprechenden CORS-Header nicht setzt.
-Anmeldeinformationen werden für ursprungsgleiche Importe gesendet, normalerweise jedoch nicht für Cross-Origin-Anfragen.
+Klassische Worker können mit der Methode [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) Skripte importieren, aber keine Module.
+Anders als Module werden Skripte im `no-cors`-Modus abgerufen und können auch dann von anderen Ursprüngen angefordert werden, wenn der Server keine entsprechenden CORS-Header setzt.
+Bei Importen vom selben Ursprung werden Anmeldeinformationen gesendet, bei ursprungsübergreifenden Anfragen dagegen normalerweise nicht.
 
-Darüber hinaus, wenn das Dokument über eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verfügt, muss sie die Ursprünge der importierten Skripte oder Module zulassen.
-Für Module werden die erlaubten Quellen in `worker-src` spezifiziert (mit Rückfall auf `script-src` und `default-src` Direktiven), während für klassische Skripte die Quellen in `script-src` spezifiziert werden (mit Rückfall auf die `default-src`-Direktiven).
+Wenn das Dokument eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) hat, muss diese außerdem die Ursprünge importierter Skripte oder Module erlauben.
+Für Module werden die zulässigen Quellen in `worker-src` festgelegt (mit Rückgriff auf die Direktiven `script-src` und `default-src`), für klassische Skripte dagegen in `script-src` (mit Rückgriff auf `default-src`).
 
-### `data:` und `blob:` URLs
+### `data:`- und `blob:`-URLs
 
-`data:`-URLs können dem `url`-Parameter übergeben werden, haben jedoch einen {{Glossary("Origin#opaque_origin", "undurchsichtigen Ursprung")}}, was sie zu Cross-Origin für alle anderen Ursprünge, einschließlich ihres Besitzers, macht.
+`data:`-URLs können an den Parameter `url` übergeben werden. Sie haben jedoch einen {{Glossary("Origin#opaque_origin", "opaken Ursprung")}} und gelten daher gegenüber allen anderen Ursprüngen, einschließlich dem ihres Erstellers, als ursprungsübergreifend.
 
-Infolgedessen kann der Worker zwar weiterhin mit seinem Besitzer unter Verwendung von `postMessage()` kommunizieren, sein Zugriff auf andere externe Ressourcen ist jedoch stark eingeschränkt.
-Zum Beispiel würde eine `fetch()`-Anfrage des Workers zu seiner eigenen Site Cross-Origin sein, und alle Anfragen an jeden Ursprung müssen durch CORS gewährt werden.
+Der Worker kann zwar weiterhin über `postMessage()` mit seinem Ersteller kommunizieren, sein Zugriff auf andere externe Ressourcen ist jedoch stark eingeschränkt.
+Eine `fetch()`-Anfrage des Workers wäre beispielsweise selbst gegenüber der eigenen Website ursprungsübergreifend. Anfragen an beliebige Ursprünge müssen daher durch CORS erlaubt werden.
 
-`blob:`-URLs sollten stattdessen verwendet werden, wo immer möglich, da die URL den Ursprung des Dokuments erbt, das sie erstellt hat.
-Dies stellt sicher, dass ein Worker, der mit einer `blob:`-URL erstellt wurde, ursprungsgleich mit der Seite ist, die ihn erstellt hat.
-Beachten Sie, dass, wenn Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verwenden, um einzuschränken, welche Ressourcen in Ihren Worker geladen werden können, Sie den `blob:`-Ursprung zulassen müssen.
+Verwenden Sie nach Möglichkeit stattdessen `blob:`-URLs, da sie den Ursprung des Dokuments übernehmen, das sie erstellt hat.
+So hat ein mit einer `blob:`-URL erstellter Worker denselben Ursprung wie die Seite, die ihn erstellt hat.
+Wenn Sie mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) einschränken, welche Ressourcen in Ihren Worker geladen werden dürfen, müssen Sie den `blob:`-Ursprung erlauben.
 
-### Bundler-Erwägungen
+### Hinweise zu Bundlern
 
-Bundler wie [webpack](https://webpack.js.org/guides/web-workers/), [Vite](https://vite.dev/guide/features.html#web-workers) und [Parcel](https://parceljs.org/languages/javascript/#web-workers) empfehlen, URLs relativ zu [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#url) an den `Worker()`-Konstruktor zu übergeben.
+Bundler wie [webpack](https://webpack.js.org/guides/web-workers/), [Vite](https://vite.dev/guide/features.html#web-workers) und [Parcel](https://parceljs.org/languages/javascript/#web-workers) empfehlen, dem `Worker()`-Konstruktor URLs zu übergeben, die relativ zu [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#url) sind.
 
 Zum Beispiel:
 
@@ -136,43 +136,43 @@ Zum Beispiel:
 const myWorker = new Worker(new URL("worker.js", import.meta.url));
 ```
 
-Dadurch wird der Pfad relativ zum aktuellen Skript statt zur aktuellen HTML-Seite, was dem Bundler erlaubt, sicher Optimierungen wie Umbenennungen vorzunehmen (da sonst die `worker.js`-URL auf eine Datei zeigen könnte, die nicht vom Bundler kontrolliert wird, sodass er keine Annahmen treffen kann).
+Dadurch bezieht sich der Pfad auf das aktuelle Skript statt auf die aktuelle HTML-Seite. So kann der Bundler Optimierungen wie das Umbenennen von Dateien sicher durchführen. Andernfalls könnte die `worker.js`-URL auf eine Datei verweisen, die nicht vom Bundler verwaltet wird und über die er daher keine Annahmen treffen kann.
 
-### Sicherheitsüberlegungen
+### Sicherheitsaspekte
 
-Das Skript oder Modul, das durch das `url`-Argument spezifiziert wird, wird im Kontext des Webworkers ausgeführt und kann selbst andere ursprungsgleiche und Cross-Origin-Skripte importieren.
-Wenn die `url` von einem Benutzer bereitgestellt wird, stellt dies einen möglichen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar.
+Das durch das Argument `url` angegebene Skript oder Modul wird im Kontext des Web Workers ausgeführt und kann selbst weitere Skripte vom selben oder von anderen Ursprüngen importieren.
+Wenn `url` von einem Benutzer bereitgestellt wird, kann dies für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) genutzt werden.
 
-Obwohl Webworker keinen direkten Zugriff auf das Dokument oder Fenster des Besitzers haben, ist es dennoch äußerst riskant, beliebige URLs von nicht vertrauenswürdigen Ursprüngen zu akzeptieren und auszuführen.
-Für Modul-Worker, aber nicht für klassische Worker, wird CORS kontrollieren, welche Cross-Origin-Ressourcen angefordert werden können.
+Obwohl Web Worker keinen direkten Zugriff auf das zugehörige Dokument oder Fenster haben, ist es äußerst riskant, beliebige URLs aus nicht vertrauenswürdigen Quellen zu akzeptieren und auszuführen.
+Bei Modul-Workern, nicht aber bei klassischen Workern, steuert CORS, welche Ressourcen von anderen Ursprüngen angefordert werden können.
 
-Eine Website sollte auch kontrollieren, welche Skripte mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mit der [`worker-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src)-Direktive (oder einem Rückfall zu [`child-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/child-src), [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src)) ausgeführt werden dürfen.
-Dies kann Skripte auf die des aktuellen Ursprungs, eine spezifische Menge von Ursprüngen oder sogar bestimmte Dateien beschränken.
+Eine Website sollte außerdem mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) und der Direktive [`worker-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src) steuern, welche Skripte ausgeführt werden dürfen (oder ersatzweise mit [`child-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/child-src), [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src)).
+Damit lassen sich Skripte auf den aktuellen Ursprung, eine bestimmte Gruppe von Ursprüngen oder sogar einzelne Dateien beschränken.
 
-Wenn Sie diese Eigenschaft verwenden und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive), müssen Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, URLs, die der Worker benötigt, zu ändern oder abzulehnen, bevor sie abgerufen werden.
+Wenn Sie diese Eigenschaft verwenden und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)), müssen Sie stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zuweisen.
+Dadurch wird die Eingabe durch eine Transformationsfunktion geleitet, die vom Worker benötigte URLs ablehnen oder ändern kann, bevor sie abgerufen werden.
 
 ## Beispiele
 
-Der Übersichtlichkeit halber verwendet nur das erste Beispiel unten Trusted Types.
-In der Produktion sollte Ihr Code immer Trusted Types verwenden, wenn Daten, die von Benutzern stammen, in Injection Sinks übergeben werden.
+Der Kürze halber verwendet nur das erste der folgenden Beispiele Trusted Types.
+In produktivem Code sollten Sie immer Trusted Types verwenden, wenn Sie von Benutzern stammende Daten an Injection Sinks übergeben.
 
-### Verwendung von Trusted Types
+### Trusted Types verwenden
 
-Um das Risiko von XSS zu mindern, sollten wir immer `TrustedScriptURL`-Instanzen an die Worker-URL anstelle von Strings übergeben.
-Wir müssen dies auch tun, wenn wir aus anderen Gründen Trusted Types durchsetzen und einige Quellen zulassen möchten, die erlaubt wurden (durch `CSP: worker-src`).
+Um das XSS-Risiko zu verringern, sollten wir für die Worker-URL stets `TrustedScriptURL`-Instanzen statt Zeichenfolgen übergeben.
+Das ist auch erforderlich, wenn wir Trusted Types aus anderen Gründen erzwingen und bestimmte Quellen zulassen möchten, die durch `CSP: worker-src` erlaubt wurden.
 
-Trusted Types werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparenter Ersatz für die Trusted Types JavaScript-API:
+Trusted Types werden noch nicht von allen Browsern unterstützt. Deshalb definieren wir zunächst den [Trusted-Types-Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Er dient als transparenter Ersatz für die JavaScript-API für Trusted Types:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL)-Methode für die Umwandlung von Eingabestrings in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen definiert.
+Anschließend erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine Methode [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) definiert, um Eingabezeichenfolgen in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen umzuwandeln.
 
-Für das Beispiel nehmen wir an, dass wir eine vordefinierte Menge von URLs in dem Array `workerScriptAllowList` zulassen möchten und alle anderen Skripte protokollieren.
+Für dieses Beispiel nehmen wir an, dass wir eine vordefinierte Gruppe von URLs im Array `workerScriptAllowList` zulassen und alle anderen Skripte protokollieren möchten.
 
 ```js
 const workerScriptAllowList = [
@@ -189,7 +189,7 @@ const policy = trustedTypes.createPolicy("worker-url-policy", {
 });
 ```
 
-Anschließend verwenden wir unser `policy`-Objekt, um ein `trustedScriptURL`-Objekt aus einem potenziell unsicheren Eingabestring zu erstellen und dieses an den Worker zu übergeben.
+Anschließend erstellen wir mit unserem `policy`-Objekt aus einer potenziell unsicheren Eingabezeichenfolge ein `trustedScriptURL`-Objekt und übergeben es an den Worker.
 
 ```js
 // The potentially malicious worker URL
@@ -203,9 +203,9 @@ const trustedScriptURL = policy.createScriptURL(untrustedScriptURL);
 const myWorker = new Worker(trustedScriptURL);
 ```
 
-### Erstellen eines klassischen Workers
+### Einen klassischen Worker erstellen
 
-Der folgende Codeausschnitt zeigt die Erstellung eines klassischen [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem `Worker()`-Konstruktor und die anschließende Verwendung des Objekts:
+Der folgende Codeausschnitt zeigt, wie mit dem `Worker()`-Konstruktor ein klassisches [`Worker`](/de/docs/Web/API/Worker)-Objekt erstellt und anschließend verwendet wird:
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -217,11 +217,11 @@ first.onchange = () => {
 };
 ```
 
-Für ein vollständiges Beispiel siehe unser [Grundlegendes Beispiel für dedizierte Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+Ein vollständiges Beispiel finden Sie in unserem [einfachen Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
 
-### Laden eines Cross-Origin-Modul-Workers aus einem Blob
+### Einen Modul-Worker von einem anderen Ursprung über einen Blob laden
 
-Dieses Beispiel zeigt eine Methode, die ein Cross-Origin-Modul-Worker-Skript abrufen und laden und es dann als Blob in Ihren Worker laden kann (ein klassisches Skript könnte auf die gleiche Weise geladen werden):
+Dieses Beispiel zeigt eine Methode, mit der Sie ein Modul-Worker-Skript von einem anderen Ursprung abrufen und anschließend als Blob in Ihren Worker laden können. Ein klassisches Skript ließe sich auf dieselbe Weise laden:
 
 ```js
 async function loadWorker() {
@@ -241,13 +241,13 @@ async function loadWorker() {
 loadWorker();
 ```
 
-Der anfängliche Abruf erfolgt mit CORS, daher muss die Antwort von `other_origin.com` den {{httpheader("Access-Control-Allow-Origin")}}-Header enthalten, wie gezeigt:
+Der erste Abruf erfolgt mit CORS. Die Antwort von `other_origin.com` muss daher wie gezeigt den Header {{httpheader("Access-Control-Allow-Origin")}} enthalten:
 
 ```http
 Access-Control-Allow-Origin "https://my_origin.com"
 ```
 
-Darüber hinaus, wenn Sie eine CSP verwenden, müssen Sie den `blob:`-Ursprung für `worker-src` zulassen, damit er in das Dokument geladen werden kann:
+Wenn Sie eine CSP verwenden, müssen Sie außerdem den `blob:`-Ursprung für `worker-src` erlauben, damit der Blob in das Dokument geladen werden kann:
 
 ```http
 Content-Security-Policy worker-src 'self' https://other_origin.com blob:

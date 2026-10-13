@@ -1,21 +1,21 @@
 ---
-title: "SharedWorker: SharedWorker() Konstruktor"
+title: "SharedWorker: SharedWorker()-Konstruktor"
 short-title: SharedWorker()
 slug: Web/API/SharedWorker/SharedWorker
 l10n:
-  sourceCommit: 03e3379cbad4f98a74021ad0753a41cd38d547fd
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("Web Workers API")}}
 
 > [!WARNING]
-> Das Skript, das an den `url` Parameter übergeben wird, wird ausgeführt.
-> Solche APIs sind bekannt als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe sein.
+> Das an den Parameter `url` übergebene Skript wird ausgeführt.
+> APIs wie diese gelten als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können einen Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) darstellen.
 >
-> Sie können dieses Risiko mindern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verwenden, die die Orte einschränkt, von denen Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Objekte anstelle von Strings zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](/de/docs/Web/API/Worker/Worker#security_considerations) im `Worker()` Konstruktor für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verwenden, die einschränkt, von welchen Orten Skripte geladen werden dürfen. Weisen Sie außerdem stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zu und [erzwingen Sie Trusted Types](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](/de/docs/Web/API/Worker/Worker#security_considerations) beim `Worker()`-Konstruktor.
 
-Der **`SharedWorker()`** Konstruktor erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt, das das Skript an der angegebenen URL ausführt.
+Der **`SharedWorker()`**-Konstruktor erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt, das das Skript unter der angegebenen URL ausführt.
 
 ## Syntax
 
@@ -28,82 +28,81 @@ new SharedWorker(url, options)
 ### Parameter
 
 - `url`
-  - : Ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Objekt oder ein String, der die URL des Skripts oder Moduls darstellt, das der Worker ausführen wird.
-    Diese muss gleichherkunft mit dem Dokument des Aufrufenden sein oder eine `blob:` oder `data:` URL.
-    Die URL wird relativ zur aktuellen Position der HTML-Seite aufgelöst.
+  - : Ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt oder eine Zeichenfolge, die die URL des Skripts oder Moduls angibt, das der Worker ausführen soll.
+    Die URL muss denselben Ursprung wie das aufrufende Dokument haben oder eine `blob:`- bzw. `data:`-URL sein.
+    Sie wird relativ zum Speicherort der aktuellen HTML-Seite aufgelöst.
 - `name` {{optional_inline}}
-  - : Ein String, der einen identifizierenden Namen für den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) angibt, der den Gültigkeitsbereich des Workers repräsentiert. Dies ist nützlich für das Erstellen neuer Instanzen desselben `SharedWorker` und zum Debuggen.
+  - : Eine Zeichenfolge, die einen identifizierenden Namen für den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) angibt, der den Gültigkeitsbereich des Workers repräsentiert. Dies ist nützlich, um neue Instanzen desselben `SharedWorker` zu erstellen und Fehler zu beheben.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Options-Eigenschaften enthält, die beim Erstellen der Objektinstanz festgelegt werden können.
-    Verfügbare Eigenschaften sind wie folgt:
+  - : Ein Objekt mit Optionseigenschaften, die beim Erstellen der Objektinstanz festgelegt werden können.
+    Folgende Eigenschaften sind verfügbar:
     - `type`
-      - : Ein String, der den Typ des zu erstellenden Workers angibt.
+      - : Eine Zeichenfolge, die den Typ des zu erstellenden Workers angibt.
         Der Wert kann `classic` oder `module` sein.
         Der Standardwert ist `classic`.
     - `credentials`
-      - : Ein String, der angibt, ob der Browser Anmeldeinformationen sendet, wenn Module in einen Moduelworker importiert werden.
-        Die erlaubten Werte sind dieselben, die auch an die [`fetch()` Anfrage](/de/docs/Web/API/RequestInit#credentials) übergeben werden können: `omit`, `same-origin` oder `include`.
-        Der Standardwert ist `same-origin` (enthält nur Anmeldeinformationen für Anfragen gleicher Herkunft).
+      - : Eine Zeichenfolge, die angibt, ob der Browser beim Importieren von Modulen in einen Modul-Worker Anmeldedaten sendet.
+        Zulässig sind dieselben Werte wie für die [`fetch()`-Anfrage](/de/docs/Web/API/RequestInit#credentials): `omit`, `same-origin` oder `include`.
+        Der Standardwert ist `same-origin` (Anmeldedaten werden nur bei Anfragen mit demselben Ursprung gesendet).
 
-        Dies wird für klassische Worker ignoriert.
+        Bei klassischen Workern wird diese Eigenschaft ignoriert.
 
     - `name`
-      - : Ein String, der einen
-        identifizierenden Namen für den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) angibt, der den Gültigkeitsbereich des Workers repräsentiert, was hauptsächlich für Debugging-Zwecke nützlich ist.
+      - : Eine Zeichenfolge, die einen identifizierenden Namen für den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) angibt, der den Gültigkeitsbereich des Workers repräsentiert. Dies ist hauptsächlich für die Fehlerbehebung nützlich.
     - `extendedLifetime`
-      - : Ein Boolean, der angibt, ob dem Shared Worker erlaubt ist, für eine kurze Zeitspanne am Leben zu bleiben, nachdem alle Seiten, die ihn nutzen, weg navigiert oder geschlossen wurden.
+      - : Ein boolescher Wert, der angibt, ob der Shared Worker noch für kurze Zeit aktiv bleiben darf, nachdem alle Seiten, die ihn verwenden, verlassen oder geschlossen wurden.
 
-        Dies soll Arbeit ermöglichen, nachdem der Benutzer von der Seite weg navigiert hat, wie das Schreiben von Zustandsinformationen in den Speicher oder das Senden von Analysedaten zurück an Server.
-        Die genaue Zeit, die der Worker lebendig bleibt, hängt vom Browser ab und kann zwischen 10 Sekunden und 5 Minuten liegen (Chrome verwendet 30 Sekunden).
+        Dadurch können nach dem Verlassen der Seite noch Aufgaben erledigt werden, etwa Zustandsinformationen gespeichert oder Analysedaten an Server gesendet werden.
+        Wie lange der Worker aktiv bleibt, hängt vom Browser ab und kann zwischen 10 Sekunden und 5 Minuten liegen (Chrome verwendet 30 Sekunden).
 
-        Für weitere Informationen siehe [Lebensdauer des Shared Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers#shared_worker_lifetime) in _Using web workers_.
+        Weitere Informationen finden Sie unter [Lebensdauer von Shared Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers#shared_worker_lifetime) in _Web Worker verwenden_.
 
     - `sameSiteCookies`
-      - : Ein String, der angibt, welche [`SameSite` Cookies](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) für den Worker verfügbar sein sollen.
-        Kann einen der folgenden beiden Werte haben:
+      - : Eine Zeichenfolge, die angibt, welche [`SameSite`-Cookies](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) dem Worker zur Verfügung stehen sollen.
+        Sie kann einen der folgenden beiden Werte haben:
         - 'all'
-          - : `SameSite=Strict`, `SameSite=Lax` und `SameSite=None` Cookies werden alle für den Worker verfügbar sein.
-            Diese Option wird nur in Erstanbieter-Kontexten unterstützt und ist der Standardwert in Erstanbieter-Kontexten.
+          - : Dem Worker stehen Cookies mit `SameSite=Strict`, `SameSite=Lax` und `SameSite=None` zur Verfügung.
+            Diese Option wird nur in First-Party-Kontexten unterstützt und ist dort der Standardwert.
         - 'none'
-          - : Nur `SameSite=None` Cookies sind für den Worker verfügbar.
-            Diese Option wird in Erstanbieter- und Drittanbieter-Kontexten unterstützt und ist der Standardwert in Drittanbieter-Kontexten.
+          - : Dem Worker stehen nur Cookies mit `SameSite=None` zur Verfügung.
+            Diese Option wird in First-Party- und Third-Party-Kontexten unterstützt und ist in Third-Party-Kontexten der Standardwert.
 
 > [!WARNING]
-> Sobald ein Shared Worker mit einer bestimmten URL und `name` läuft, sind die Optionen `type`, `credentials` und `extendedLifetime` festgelegt.
-> Das Erstellen eines neuen Shared Workers für dasselbe Skript und `name` wird zu einem Fehler führen, wenn Sie andere Werte für diese Optionen angeben.
-> Wenn andere Optionen für dasselbe Skript erforderlich sind, dann starten Sie zwei Worker mit unterschiedlichen `name` Werten.
+> Sobald ein Shared Worker mit einer bestimmten URL und einem bestimmten `name` ausgeführt wird, sind die Optionen `type`, `credentials` und `extendedLifetime` festgelegt.
+> Wenn Sie für dasselbe Skript und denselben `name` einen neuen Shared Worker mit abweichenden Werten für diese Optionen erstellen, tritt ein Fehler auf.
+> Falls Sie für dasselbe Skript unterschiedliche Optionen benötigen, starten Sie zwei Worker mit unterschiedlichen `name`-Werten.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dokument keine Worker starten darf, zum Beispiel wenn die URL eine ungültige Syntax hat oder die Same-Origin-Policy verletzt wird, oder wenn der `sameSiteCookies` Wert im gegebenen Kontext nicht unterstützt wird.
+  - : Wird ausgelöst, wenn das Dokument keine Worker starten darf, beispielsweise weil die URL eine ungültige Syntax hat, gegen die Same-Origin-Policy verstoßen wird oder der Wert von `sameSiteCookies` im gegebenen Kontext nicht unterstützt wird.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts inkorrekt ist.
-    Es sollte _immer_ `text/javascript` sein (aus historischen Gründen können [andere JavaScript MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) akzeptiert werden).
+  - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts falsch ist.
+    Er sollte _immer_ `text/javascript` sein (aus historischen Gründen werden möglicherweise [andere JavaScript-MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) akzeptiert).
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `url` nicht geparst werden kann.
-- `TypeError`
-  - : Wird ausgelöst, wenn der `url` Parameter ein String ist, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Parameter `url` eine Zeichenfolge ist, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Der **`SharedWorker()`** Konstruktor erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt, das das klassische Skript oder Modul an der angegebenen URL ausführt.
+Der **`SharedWorker()`**-Konstruktor erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt, das das klassische Skript oder Modul unter der angegebenen URL ausführt.
 
-Das Skript muss [gleichherkunft](/de/docs/Web/Security/Defenses/Same-origin_policy) mit dem zugehörigen Dokument sein, kann jedoch selbst Skripte oder Module importieren, die aus anderer Herkunft stammen (sofern sie durch CORS und andere Beschränkungen zugelassen sind).
-Wenn ein Worker aus fremder Herkunft notwendig ist, müssen Nutzer ihn aus einem zwischengeschalteten gleichherkunftlichen Worker oder einem Blob laden.
+Das Skript muss [denselben Ursprung](/de/docs/Web/Security/Defenses/Same-origin_policy) wie das zugehörige Dokument haben. Es darf jedoch selbst Skripte oder Module mit einem anderen Ursprung importieren, sofern CORS und andere Einschränkungen dies zulassen.
+Wird ein Worker mit einem anderen Ursprung benötigt, müssen Sie ihn über einen zwischengeschalteten Worker mit demselben Ursprung oder über einen Blob laden.
 
-Für weitere Informationen sehen Sie [Beschreibung](/de/docs/Web/API/Worker/Worker#description) im `Worker()` Konstruktor.
+Weitere Informationen finden Sie unter [Beschreibung](/de/docs/Web/API/Worker/Worker#description) beim `Worker()`-Konstruktor.
 
 ## Beispiele
 
 Der Kürze halber verwenden die folgenden Beispiele keine [Trusted Types](/de/docs/Web/API/Trusted_Types_API).
-In der Produktion sollte Ihr Code immer Trusted Types verwenden, wenn Daten von Benutzern in Injection Sinks übergeben werden.
+In Produktionscode sollten Sie immer Trusted Types verwenden, wenn Sie Daten, die von Nutzern stammen, an Injection Sinks übergeben.
 
-Für ein Beispiel siehe [Verwendung von Trusted Types](/de/docs/Web/API/Worker/Worker#using_trusted_types) in den `Worker()` Konstruktor-Beispielen.
+Ein Beispiel finden Sie unter [Trusted Types verwenden](/de/docs/Web/API/Worker/Worker#using_trusted_types) in den Beispielen zum `Worker()`-Konstruktor.
 
 ### Grundlegende Verwendung
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekts mit dem `SharedWorker()` Konstruktor und die anschließende Nutzung des Objekts:
+Der folgende Codeausschnitt zeigt, wie mit dem `SharedWorker()`-Konstruktor ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt erstellt und anschließend verwendet wird:
 
 ```js
 const myWorker = new SharedWorker("worker.js");
@@ -123,11 +122,11 @@ myWorker.port.onmessage = (e) => {
 };
 ```
 
-Für ein vollständiges Beispiel siehe unser [Einfaches Shared Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([führen Sie den Shared Worker aus](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/).)
+Ein vollständiges Beispiel finden Sie unter [Einfaches Shared-Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([Shared Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/)).
 
-### Konstruktion eines bereits laufenden Workers wird den bestehenden Worker wiederverwenden
+### Beim Erstellen eines bereits laufenden Workers wird der vorhandene Worker wiederverwendet
 
-Wenn Sie einen neuen Shared Worker mit denselben Optionen wie ein bereits laufender Shared Worker konstruieren, wird der bestehende Shared Worker wiederverwendet.
+Wenn Sie einen neuen Shared Worker mit denselben Optionen wie ein bereits laufender Shared Worker erstellen, wird der vorhandene Shared Worker wiederverwendet.
 
 ```js
 const worker1 = new SharedWorker("./worker.js");
@@ -136,9 +135,9 @@ const worker1 = new SharedWorker("./worker.js");
 const worker2 = new SharedWorker("./worker.js");
 ```
 
-### Konstruktion eines Shared Workers mit Optionen
+### Einen Shared Worker mit Optionen erstellen
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekts mit dem `SharedWorker()` Konstruktor unter Verwendung der `extendedLifetime` Option.
+Der folgende Codeausschnitt zeigt, wie mit dem `SharedWorker()`-Konstruktor und der Option `extendedLifetime` ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt erstellt wird.
 
 ```js
 const worker = new SharedWorker("worker.js", { extendedLifetime: true });
@@ -146,15 +145,15 @@ const worker = new SharedWorker("worker.js", { extendedLifetime: true });
 worker.addEventListener("error", (event) => {});
 ```
 
-Wenn unterstützt, wird dieser Shared Worker für eine kurze Zeit weiterleben, nachdem der Benutzer von der Seite weg navigiert hat.
+Sofern dies unterstützt wird, bleibt dieser Shared Worker noch für kurze Zeit aktiv, nachdem der Nutzer die Seite verlassen hat.
 
 ### Shared Worker mit unterschiedlichen Optionen
 
-Dieses Beispiel zeigt, wie Sie Shared Worker mit unterschiedlichen Konstrukturoptionen starten können, indem Sie jedem einen eindeutigen Namen geben.
+Dieses Beispiel zeigt, wie Sie Shared Worker mit unterschiedlichen Konstruktoroptionen starten können, indem Sie jedem einen eindeutigen Namen geben.
 
-Zuerst demonstrieren wir, was passiert, wenn Sie dasselbe Skript und `name` mit unterschiedlichen Optionen verwenden.
-Dieser Code würde `worker2 error on instantiation:` in die Konsole loggen, weil eine Instanz die `extendedLifetime` Option setzt und die andere nicht.
-Dasselbe würde passieren, wenn wir unterschiedliche `type` oder `credentials` Werte setzen würden.
+Zunächst zeigen wir, was passiert, wenn Sie dasselbe Skript und denselben `name` mit unterschiedlichen Optionen verwenden.
+Dieser Code würde `worker2 error on instantiation:` in der Konsole ausgeben, weil eine Instanz die Option `extendedLifetime` festlegt und die andere nicht.
+Dasselbe würde passieren, wenn wir unterschiedliche Werte für `type` oder `credentials` festlegen würden.
 
 ```js
 const worker = new SharedWorker("worker.js", { extendedLifetime: true });
@@ -168,8 +167,8 @@ worker2.addEventListener("error", (event) => {
 });
 ```
 
-Der folgende Code erstellt einen zweiten Worker aus demselben Skript, aber mit einem anderen Namen und Optionen.
-Kein Fehler wird in die Konsole geloggt, da die Shared Worker unterschiedlich sind.
+Der folgende Code erstellt aus demselben Skript einen zweiten Worker, jedoch mit einem anderen Namen und anderen Optionen.
+Da es sich um unterschiedliche Shared Worker handelt, wird in der Konsole kein Fehler ausgegeben.
 
 ```js
 const worker = new SharedWorker("worker.js", { extendedLifetime: true });
@@ -193,4 +192,4 @@ worker2.port.start();
 
 ## Siehe auch
 
-- Die [`SharedWorker`](/de/docs/Web/API/SharedWorker) Schnittstelle, zu der es gehört.
+- Die zugehörige Schnittstelle [`SharedWorker`](/de/docs/Web/API/SharedWorker).

@@ -1,47 +1,47 @@
 ---
-title: "Element: outerHTML-Eigenschaft"
+title: "Element: Eigenschaft outerHTML"
 short-title: outerHTML
 slug: Web/API/Element/outerHTML
 l10n:
-  sourceCommit: 03e93e0948768ea78474e77a53795698ebca5836
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("DOM")}}
 
 > [!WARNING]
-> Diese Eigenschaft analysiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
-> APIs wie diese werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können ein Vektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) sein, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> Diese Eigenschaft interpretiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
+> APIs wie diese werden als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können einen Angriffsvektor für [Cross-Site-Scripting-(XSS-)Angriffe](/de/docs/Web/Security/Attacks/XSS) darstellen, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
-> Sie können dieses Risiko mindern, indem Sie stets `TrustedHTML`-Objekte statt Strings zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Sie können dieses Risiko verringern, indem Sie stets `TrustedHTML`-Objekte statt Zeichenfolgen zuweisen und die [Verwendung von Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 > Weitere Informationen finden Sie unter [Sicherheitsaspekte](#sicherheitsaspekte).
 
-Das **`outerHTML`**-Attribut der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ruft das HTML- oder XML-Markup des Elements und seiner Nachfolger ab oder legt es fest, wobei {{Glossary("shadow_tree", "Shadow Roots")}} in beiden Fällen ausgelassen werden.
+Das Attribut **`outerHTML`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) gibt das HTML- oder XML-Markup des Elements und seiner Nachfahren zurück oder legt es fest. {{Glossary("shadow_tree", "Shadow Roots")}} werden dabei in beiden Fällen ausgelassen.
 
-Verwenden Sie stattdessen die Eigenschaft [`innerHTML`](/de/docs/Web/API/Element/innerHTML), um den Inhalt eines Elements abzurufen oder festzulegen.
+Um den Inhalt eines Elements abzurufen oder festzulegen, verwenden Sie stattdessen die Eigenschaft [`innerHTML`](/de/docs/Web/API/Element/innerHTML).
 
 ## Wert
 
-Das Abrufen der Eigenschaft gibt einen String zurück, der eine HTML-Serialisierung von `element` und seinen Nachfolgern enthält.
+Beim Lesen der Eigenschaft wird eine Zeichenfolge zurückgegeben, die eine HTML-Serialisierung des `element` und seiner Nachfahren enthält.
 
-Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt oder einen String.
-Die Eingabe wird als HTML analysiert und ersetzt das Element sowie alle seine Nachfolger durch das Ergebnis.
-Wird sie auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `element.outerHTML = null` gleichbedeutend mit `element.outerHTML = ""` ist.
+Beim Festlegen der Eigenschaft wird entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt oder eine Zeichenfolge akzeptiert.
+Die Eingabe wird als HTML interpretiert; das Ergebnis ersetzt das Element und alle seine Nachfahren.
+Wird die Eigenschaft auf den Wert `null` gesetzt, wird `null` in eine leere Zeichenfolge (`""`) umgewandelt. Somit ist `element.outerHTML = null` gleichbedeutend mit `element.outerHTML = ""`.
 
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, `outerHTML` für ein Element festzulegen, das ein direktes Kind eines [`Document`](/de/docs/Web/API/Document) ist, beispielsweise [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
+  - : Wird ausgelöst, wenn versucht wird, `outerHTML` für ein Element festzulegen, das ein direktes Kind eines [`Document`](/de/docs/Web/API/Document) ist, beispielsweise [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, `outerHTML` mithilfe einer nicht wohlgeformten XML-Eingabe festzulegen.
-- `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft auf einen String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+  - : Wird ausgelöst, wenn versucht wird, `outerHTML` mit einer nicht wohlgeformten XML-Eingabe festzulegen.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Eigenschaft eine Zeichenfolge zugewiesen wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-`outerHTML` ruft eine Serialisierung des Elements ab oder legt HTML bzw. XML fest, das analysiert werden soll, um es innerhalb des Elternelements des Elements zu ersetzen.
+`outerHTML` gibt eine Serialisierung des Elements zurück oder legt HTML oder XML fest, das interpretiert werden soll, um das Element innerhalb seines Elternelements zu ersetzen.
 
-Wenn das Element keinen Elternknoten hat, verändert das Setzen seiner `outerHTML`-Eigenschaft weder das Element noch seine Nachfolger.
-Zum Beispiel:
+Hat das Element keinen Elternknoten, ändert das Festlegen seiner Eigenschaft `outerHTML` weder das Element noch seine Nachfahren.
+Beispiel:
 
 ```js
 const div = document.createElement("div");
@@ -49,7 +49,7 @@ div.outerHTML = '<div class="test">test</div>';
 console.log(div.outerHTML); // output: "<div></div>"
 ```
 
-Außerdem wird das Element zwar im Dokument ersetzt, aber die Variable, deren `outerHTML`-Eigenschaft gesetzt wurde, enthält weiterhin eine Referenz auf das ursprüngliche Element:
+Das Element wird zwar im Dokument ersetzt, die Variable, deren Eigenschaft `outerHTML` festgelegt wurde, enthält jedoch weiterhin eine Referenz auf das ursprüngliche Element:
 
 ```js
 const p = document.querySelector("p");
@@ -60,8 +60,8 @@ console.log(p.nodeName); // still "P";
 
 ### Escapte Attributwerte
 
-Der zurückgegebene Wert maskiert einige Werte in HTML-Attributen.
-Hier sehen wir, dass das Zeichen `&` maskiert wird:
+Im zurückgegebenen Wert werden einige Werte in HTML-Attributen escaped.
+Hier ist zu sehen, dass das Zeichen `&` escaped wird:
 
 ```js
 const anchor = document.createElement("a");
@@ -69,40 +69,40 @@ anchor.href = "https://developer.mozilla.org?a=b&c=d";
 console.log(anchor.outerHTML); // output: "<a href='https://developer.mozilla.org?a=b&amp;c=d'></a>"
 ```
 
-Einige Browser serialisieren außerdem die Zeichen `<` und `>` als `&lt;` und `&gt;`, wenn sie in Attributwerten vorkommen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
-Dadurch wird eine potenzielle Sicherheitslücke ([Mutation XSS](https://securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html)) verhindert, bei der ein Angreifer Eingaben erstellen kann, die eine [Sanitization-Funktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen und so einen Cross-Site-Scripting-Angriff (XSS) ermöglichen.
+Einige Browser serialisieren auch die Zeichen `<` und `>` als `&lt;` und `&gt;`, wenn sie in Attributwerten vorkommen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Dadurch soll eine potenzielle Sicherheitslücke ([Mutation XSS](https://securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html)) verhindert werden: Ein Angreifer könnte eine Eingabe erstellen, die eine [Bereinigungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgeht und so einen Cross-Site-Scripting-(XSS-)Angriff ermöglicht.
 
-### Überlegungen zum Shadow DOM
+### Aspekte des Shadow DOM
 
-Die aus der Eigenschaft gelesene Serialisierung des DOM-Baums umfasst keine {{Glossary("shadow_tree", "Shadow Roots")}}.
-Wenn Sie eine HTML-Serialisierung eines Elements einschließlich Shadow Roots erhalten möchten, müssen Sie stattdessen die Methode [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) verwenden.
-Beachten Sie, dass dadurch der _Inhalt_ des Elements abgerufen wird.
+Die Serialisierung des DOM-Baums, die aus der Eigenschaft gelesen wird, enthält keine {{Glossary("shadow_tree", "Shadow Roots")}}.
+Wenn Sie eine HTML-Serialisierung eines Elements einschließlich seiner Shadow Roots erhalten möchten, müssen Sie stattdessen die Methode [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) verwenden.
+Beachten Sie, dass diese den _Inhalt_ des Elements zurückgibt.
 
-Ebenso wird bei der Festlegung von Elementinhalten mit `outerHTML` die HTML-Eingabe in DOM-Elemente analysiert, die keine Shadow Roots enthalten.
-So wird beispielsweise [`<template>`](/de/docs/Web/HTML/Reference/Elements/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) analysiert, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) angegeben ist.
+Auch beim Festlegen von Elementinhalten mit `outerHTML` wird die HTML-Eingabe in DOM-Elemente interpretiert, die keine Shadow Roots enthalten.
+So wird beispielsweise [`<template>`](/de/docs/Web/HTML/Reference/Elements/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) interpretiert, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) angegeben ist.
 Wenn Sie den _Inhalt_ eines Elements anhand einer HTML-Eingabe festlegen möchten, die deklarative Shadow Roots enthält, müssen Sie stattdessen [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
 
 ### Sicherheitsaspekte
 
-Die Eigenschaft `outerHTML` ist ein möglicher Vektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS), da sie verwendet werden kann, um potenziell unsichere, von einem Benutzer bereitgestellte Strings in das DOM einzufügen.
-Die Eigenschaft verhindert zwar, dass {{HTMLElement("script")}}-Elemente bei ihrer Injektion ausgeführt werden, sie ist jedoch anfällig für viele andere Methoden, mit denen Angreifer HTML erstellen können, das schädliches JavaScript ausführt.
-Das folgende Beispiel würde beispielsweise den Code im `error`-Event-Handler ausführen, da der `src`-Wert des {{htmlelement("img")}} keine gültige Bild-URL ist:
+Die Eigenschaft `outerHTML` kann ein Angriffsvektor für [Cross-Site-Scripting-(XSS-)Angriffe](/de/docs/Web/Security/Attacks/XSS) sein, da sich mit ihr potenziell unsichere, von Benutzern bereitgestellte Zeichenfolgen in das DOM einfügen lassen.
+Die Eigenschaft verhindert zwar, dass eingefügte {{HTMLElement("script")}}-Elemente ausgeführt werden. Angreifer können jedoch auf viele andere Arten HTML erstellen, das bösartiges JavaScript ausführt.
+Im folgenden Beispiel würde etwa der Code im `error`-Event-Handler ausgeführt, da der `src`-Wert des {{htmlelement("img")}}-Elements keine gültige Bild-URL ist:
 
 ```js
 const name = "<img src='x' onerror='alert(1)'>";
 element.outerHTML = name; // shows the alert
 ```
 
-Sie können diese Probleme mindern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte statt Strings zuweisen und Trusted Types mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) [erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-Dadurch wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die die Eingabe [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization) kann, um potenziell gefährliches Markup zu entfernen, bevor es eingefügt wird.
+Sie können diese Risiken verringern, indem Sie stets [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte statt Zeichenfolgen zuweisen und mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) die [Verwendung von Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+So wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die sie [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization) und potenziell gefährliches Markup entfernen kann, bevor sie eingefügt wird.
 
 ## Beispiele
 
-### Die Serialisierung eines Elements abrufen
+### Serialisierung eines Elements abrufen
 
-Das Lesen von `outerHTML` veranlasst den User Agent, das Element zu serialisieren.
+Beim Lesen von `outerHTML` serialisiert der User Agent das Element.
 
-Bei folgendem HTML:
+Gegeben sei das folgende HTML:
 
 ```html
 <div id="example">
@@ -111,7 +111,7 @@ Bei folgendem HTML:
 </div>
 ```
 
-Können Sie das Markup für das {{htmlelement("div")}} wie gezeigt abrufen und protokollieren:
+Sie können das Markup des {{htmlelement("div")}}-Elements wie folgt abrufen und protokollieren:
 
 ```js
 const myElement = document.querySelector("#example");
@@ -122,19 +122,19 @@ console.log(contents);
 
 ### Das Element ersetzen
 
-In diesem Beispiel ersetzen wir ein Element im DOM, indem wir der `outerHTML`-Eigenschaft des Elements HTML zuweisen.
-Um das XSS-Risiko zu mindern, erstellen wir zunächst aus dem String, der das HTML enthält, ein `TrustedHTML`-Objekt und weisen dieses Objekt dann `outerHTML` zu.
+In diesem Beispiel ersetzen wir ein Element im DOM, indem wir der Eigenschaft `outerHTML` des Elements HTML zuweisen.
+Um das XSS-Risiko zu verringern, erstellen wir zunächst aus der Zeichenfolge mit dem HTML ein `TrustedHTML`-Objekt und weisen dieses anschließend `outerHTML` zu.
 
-Trusted Types werden noch nicht von allen Browsern unterstützt. Daher definieren wir zunächst den [Trusted-Types-Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dieser fungiert als transparenter Ersatz für die Trusted-Types-JavaScript-API:
+Trusted Types werden noch nicht von allen Browsern unterstützt. Daher definieren wir zuerst das [Trusted-Types-Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Es dient als transparenter Ersatz für die Trusted Types JavaScript API:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die ein [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) zum Umwandeln eines Eingabe-Strings in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen definiert.
-Üblicherweise verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu bereinigen:
+Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) definiert, um eine eingegebene Zeichenfolge in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen umzuwandeln.
+Implementierungen von `createHTML()` verwenden üblicherweise eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu bereinigen:
 
 ```js
 const policy = trustedTypes.createPolicy("my-policy", {
@@ -142,7 +142,7 @@ const policy = trustedTypes.createPolicy("my-policy", {
 });
 ```
 
-Anschließend verwenden wir dieses `policy`-Objekt, um aus dem potenziell unsicheren Eingabe-String ein `TrustedHTML`-Objekt zu erstellen, und weisen das Ergebnis dem Element zu:
+Anschließend verwenden wir dieses `policy`-Objekt, um aus der potenziell unsicheren Eingabezeichenfolge ein `TrustedHTML`-Objekt zu erstellen, und weisen das Ergebnis dem Element zu:
 
 ```js
 // The potentially malicious string
@@ -159,8 +159,8 @@ element.outerHTML = trustedHTML; // Replaces the element with id "container"
 ```
 
 > [!WARNING]
-> Sie können zwar direkt einen String `outerHTML` zuweisen, dies stellt jedoch ein [Sicherheitsrisiko](#sicherheitsaspekte) dar, wenn der einzufügende String potenziell bösartige Inhalte enthalten könnte.
-> Sie sollten `TrustedHTML` verwenden, um sicherzustellen, dass der Inhalt vor dem Einfügen bereinigt wird, und einen CSP-Header festlegen, um [Trusted Types zu erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Sie können `outerHTML` zwar direkt eine Zeichenfolge zuweisen. Dies stellt jedoch ein [Sicherheitsrisiko](#sicherheitsaspekte) dar, wenn die einzufügende Zeichenfolge potenziell bösartige Inhalte enthalten könnte.
+> Verwenden Sie `TrustedHTML`, um sicherzustellen, dass der Inhalt vor dem Einfügen bereinigt wird. Setzen Sie außerdem einen CSP-Header, um die [Verwendung von Trusted Types zu erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 
 ## Spezifikationen
 
@@ -172,6 +172,6 @@ element.outerHTML = trustedHTML; // Replaces the element with id "container"
 
 ## Siehe auch
 
-- Serialisieren von DOM-Bäumen in XML-Strings: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
-- Analysieren von XML oder HTML in DOM-Bäume: [`DOMParser`](/de/docs/Web/API/DOMParser)
+- DOM-Bäume in XML-Zeichenfolgen serialisieren: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
+- XML oder HTML in DOM-Bäume interpretieren: [`DOMParser`](/de/docs/Web/API/DOMParser)
 - [`HTMLElement.outerText`](/de/docs/Web/API/HTMLElement/outerText)

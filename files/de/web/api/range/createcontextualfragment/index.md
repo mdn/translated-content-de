@@ -1,21 +1,21 @@
 ---
-title: "Range: createContextualFragment() Methode"
+title: "Range: Methode createContextualFragment()"
 short-title: createContextualFragment()
 slug: Web/API/Range/createContextualFragment
 l10n:
-  sourceCommit: a287c9eea38e92fe1694f4272fd4969a46b01c5d
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{ApiRef("DOM")}}
 
 > [!WARNING]
-> Diese Methode analysiert ihre Eingabe als HTML oder XML und schreibt das Ergebnis in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das anschließend in das DOM injiziert werden könnte.
-> Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und potenziell eine Angriffsstelle für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> Diese Methode parst ihre Eingabe als HTML oder XML und schreibt das Ergebnis in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das anschließend möglicherweise in das DOM eingefügt wird.
+> APIs wie diese werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet. Wenn die Eingabe ursprünglich von einem Angreifer stammt, können sie als Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) dienen.
 >
-> Sie können das Risiko verringern, indem Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Zeichenfolgen verwenden und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive.
-> Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [sanitizen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup wie {{htmlelement("script")}} Elemente und Event-Handler-Attribute zu entfernen.
+> Sie können das Risiko verringern, indem Sie statt Strings [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte übergeben und [Trusted Types mithilfe der CSP-Direktive erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
+> Dadurch wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die [potenziell gefährliches Markup bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization) kann, etwa {{htmlelement("script")}}-Elemente und Event-Handler-Attribute.
 
-Die **`Range.createContextualFragment()`** Methode der [`Range`](/de/docs/Web/API/Range) Schnittstelle gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das die analysierte Eingabe als HTML oder XML darstellt.
+Die Methode **`Range.createContextualFragment()`** der [`Range`](/de/docs/Web/API/Range)-Schnittstelle gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das die geparste HTML- oder XML-Eingabe enthält.
 
 ## Syntax
 
@@ -26,30 +26,30 @@ createContextualFragment(input)
 ### Parameter
 
 - `input`
-  - : Eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanz oder Zeichenfolge, die den Text und die Tags darstellt, die in ein Dokumentfragment umgewandelt werden sollen.
+  - : Eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanz oder ein String mit dem Text und den Tags, die in ein Dokumentfragment umgewandelt werden sollen.
 
 ### Rückgabewert
 
-Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) Objekt.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt.
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenfolge gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn als Wert ein String übergeben wird, obwohl [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Die **`Range.createContextualFragment()`** Methode gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, indem der HTML-Fragment-Parsing-Algorithmus oder der XML-Fragment-Parsing-Algorithmus mit dem Start des Bereichs (dem _Elternelement_ des ausgewählten Knotens) als Kontextknoten aufgerufen wird.
+Die Methode **`Range.createContextualFragment()`** gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück. Dazu ruft sie den Algorithmus zum Parsen von HTML-Fragmenten oder XML-Fragmenten auf und verwendet den Anfang des Bereichs (das _Elternelement_ des ausgewählten Knotens) als Kontextknoten.
 
-Der HTML-Fragment-Parsing-Algorithmus wird verwendet, wenn der Bereich zu einem `Document` gehört, dessen HTMLbit gesetzt ist.
-Im HTML-Fall, wenn der Kontextknoten `html` wäre, wird aus historischen Gründen der Fragment-Parsing-Algorithmus mit `body` als Kontext aufgerufen.
+Der Algorithmus zum Parsen von HTML-Fragmenten wird verwendet, wenn der Bereich zu einem `Document` gehört, dessen HTMLness-Bit gesetzt ist.
+Falls der Kontextknoten bei HTML `html` wäre, wird der Algorithmus zum Parsen von Fragmenten aus historischen Gründen stattdessen mit `body` als Kontext aufgerufen.
 
-### Sicherheitsüberlegungen
+### Sicherheitshinweise
 
-Die Methode führt keine Sanitizierung der Eingabe durch, um XSS-unsichere Elemente wie {{htmlelement("script")}}, oder Event-Handler-Inhaltsattribute zu entfernen.
-Wenn die Eingabe von einem Benutzer bereitgestellt wird, und das zurückgegebene [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) anschließend in das DOM eingefügt wird, kann diese Methode eine Angriffsstelle für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe werden.
+Die Methode bereinigt die Eingabe nicht um Elemente wie {{htmlelement("script")}} oder Event-Handler-Content-Attribute, die für XSS-Angriffe genutzt werden können.
+Wenn die Eingabe von einem Benutzer stammt und das zurückgegebene [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) anschließend in das DOM eingefügt wird, kann diese Methode als Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) dienen.
 
-Zum Beispiel würde der folgende Code die potenziell gefährliche benutzerbereitgestellte Zeichenfolge in das DOM einfügen.
+Der folgende Code würde beispielsweise einen vom Benutzer bereitgestellten, potenziell gefährlichen String in das DOM einfügen.
 
 ```js example-bad
 const untrustedCode = "<script>alert('Potentially evil code!');</script>";
@@ -61,24 +61,24 @@ const documentFragment = range.createContextualFragment(untrustedCode);
 document.body.appendChild(documentFragment);
 ```
 
-Beim Einfügen von HTML in eine Seite mit `createContextualFragment()` sollten Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Zeichenfolgen verwenden und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [sanitizen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup zu entfernen, bevor es eingefügt wird.
+Wenn Sie mit `createContextualFragment()` HTML in eine Seite einfügen, sollten Sie statt Strings [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte übergeben und [Trusted Types mithilfe der CSP-Direktive erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
+Dadurch wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die potenziell gefährliches Markup [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization) kann, bevor es eingefügt wird.
 
 ## Beispiele
 
-### Verwendung von `createContextualFragment()` mit `TrustedHTML`
+### `createContextualFragment()` mit `TrustedHTML` verwenden
 
-Trusted Types werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparenter Ersatz für die Trusted Types JavaScript API:
+Trusted Types werden noch nicht von allen Browsern unterstützt. Daher definieren wir zunächst den [Trusted Types Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Dieser dient als transparenter Ersatz für die Trusted Types JavaScript API:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als nächstes definieren wir eine Richtlinie namens `some-content-policy`, um [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte aus der Eingabe zu erstellen (wir sollten auch die `some-content-policy` mit CSP durchsetzen).
-Der Code implementiert eine No-Op-Richtlinie, um dieses Beispiel ohne Drittanbieterabhängigkeiten funktionsfähig zu machen.
-Ihr eigener Anwendungscode sollte eine Drittanbieterbibliothek wie die "DOMPurify"-Bibliothek verwenden, um gereinigten Inhalt aus der unzuverlässigen Eingabe zurückzugeben.
+Als Nächstes definieren wir eine Richtlinie namens `some-content-policy`, um aus der Eingabe [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte zu erstellen (wir sollten `some-content-policy` außerdem mithilfe einer CSP erzwingen).
+Der Code implementiert eine Richtlinie, die keine Änderungen vornimmt, damit dieses Beispiel ohne Drittanbieter-Abhängigkeit funktioniert.
+In Ihrem eigenen Anwendungscode sollten Sie eine Drittanbieter-Bibliothek wie „DOMPurify“ verwenden, um aus der nicht vertrauenswürdigen Eingabe bereinigte Inhalte zurückzugeben.
 
 ```js
 const policy = trustedTypes.createPolicy("some-content-policy", {
@@ -93,7 +93,7 @@ const unsafeText = "<script>alert('Potentially evil code!');</script>";
 const trustedHTML = policy.createHTML(unsafeText);
 ```
 
-Wir können dann ein `DocumentFragment` mithilfe unserer vertrauenswürdigen Version des Originaltexts erstellen und es sicher an das Dokument anhängen:
+Anschließend können wir mit der vertrauenswürdigen Version des ursprünglichen Textes ein `DocumentFragment` erstellen und es sicher an das Dokument anhängen:
 
 ```js
 const range = document.createRange();
@@ -114,4 +114,4 @@ document.body.appendChild(documentFragment);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellen-Verzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Verzeichnis der DOM-Schnittstellen](/de/docs/Web/API/Document_Object_Model)

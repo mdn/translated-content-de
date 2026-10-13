@@ -1,14 +1,14 @@
 ---
-title: "Dokument: parseHTML() statische Methode"
+title: "Dokument: Statische Methode parseHTML()"
 short-title: parseHTML()
 slug: Web/API/Document/parseHTML_static
 l10n:
-  sourceCommit: 9cf3002bd29376c15d49df6fab2e6a264285abf6
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("DOM")}}
 
-Die **`parseHTML()`** statische Methode des [`Document`](/de/docs/Web/API/Document)-Objekts bietet eine XSS-sichere Methode zum Parsen und Säubern eines HTML-Strings, um eine neue [`Document`](/de/docs/Web/API/Document)-Instanz zu erstellen.
+Die statische Methode **`parseHTML()`** des [`Document`](/de/docs/Web/API/Document)-Objekts bietet eine XSS-sichere Möglichkeit, einen HTML-String zu parsen und zu bereinigen, um eine neue [`Document`](/de/docs/Web/API/Document)-Instanz zu erstellen.
 
 ## Syntax
 
@@ -20,13 +20,15 @@ Document.parseHTML(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der das HTML definiert, das bereinigt und in die Shadow-Root eingefügt werden soll.
+  - : Ein String mit HTML, das bereinigt und in die Shadow Root eingefügt werden soll.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
+  - : Ein Optionsobjekt mit dem folgenden optionalen Parameter:
     - `sanitizer`
-      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Objekt, das definiert, welche Elemente des Inputs erlaubt oder entfernt werden, oder der String `"default"` für die [Standardsäuberungskonfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration). Die Methode entfernt alle XSS-unsicheren Elemente und Attribute, auch wenn diese vom `sanitizer` erlaubt sind. Wird keine Angabe gemacht, wird die Standardkonfiguration des `Sanitizer` verwendet.
+      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer)- oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Objekt, das festlegt, welche Elemente der Eingabe zugelassen oder entfernt werden, oder der String `"default"` für die [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration).
+        Die Methode entfernt alle Elemente und Attribute, die im Hinblick auf XSS unsicher sind, selbst wenn der Sanitizer sie zulässt.
+        Wenn nichts angegeben wird, kommt die Standardkonfiguration von `Sanitizer` zum Einsatz.
 
-        Beachten Sie, dass die Verwendung derselben Konfiguration mehrmals effizienter ist, wenn Sie einen `Sanitizer` verwenden und diesen bei Bedarf ändern.
+        Wenn Sie dieselbe Konfiguration mehrfach verwenden, ist es voraussichtlich effizienter, einen `Sanitizer` zu verwenden und ihn bei Bedarf anzupassen.
 
 ### Rückgabewert
 
@@ -34,25 +36,31 @@ Ein [`Document`](/de/docs/Web/API/Document).
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Dies wird ausgelöst, wenn `options.sanitizer` übergeben wird:
-    - [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die nicht [gültig](/de/docs/Web/API/SanitizerConfig#valid_configuration) ist. Zum Beispiel eine Konfiguration, die sowohl "allowed" als auch "removed" Konfigurationseinstellungen enthält.
-    - ein String, der nicht den Wert `"default"` hat.
-    - ein Wert, der kein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder String ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn an `options.sanitizer` einer der folgenden Werte übergeben wird:
+    - Eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die nicht [gültig](/de/docs/Web/API/SanitizerConfig#valid_configuration) ist.
+      Dies gilt beispielsweise für eine Konfiguration, die sowohl Einstellungen für zugelassene als auch für entfernte Elemente enthält.
+    - Ein String, dessen Wert nicht `"default"` ist.
+    - Ein Wert, der weder ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) noch eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) noch ein String ist.
 
 ## Beschreibung
 
-Die **`parseHTML()`**-Methode parst und bereinigt einen HTML-String, um eine neue [`Document`](/de/docs/Web/API/Document)-Instanz zu erstellen, die XSS-sicher ist. Das resultierende `Document` wird einen [Inhaltstyp](/de/docs/Web/API/Document/contentType) von "text/html", einen [Zeichensatz](/de/docs/Web/API/Document/characterSet) von UTF-8 und eine URL von "about:blank" haben.
+Die Methode **`parseHTML()`** parst und bereinigt einen HTML-String, um eine neue, XSS-sichere [`Document`](/de/docs/Web/API/Document)-Instanz zu erstellen.
+Das resultierende `Document` hat den [Inhaltstyp](/de/docs/Web/API/Document/contentType) „text/html“, den [Zeichensatz](/de/docs/Web/API/Document/characterSet) UTF-8 und die URL „about:blank“.
 
-Wenn kein `sanitizer` im `options.sanitizer`-Parameter angegeben ist, wird `parseHTML()` mit der [Standardsäuberungskonfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwendet. Diese Konfiguration eignet sich für die meisten Anwendungsfälle, da sie XSS-Angriffe sowie andere Angriffe wie Clickjacking oder Spoofing verhindert.
+Wenn im Parameter `options.sanitizer` kein Sanitizer angegeben ist, verwendet `parseHTML()` die [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration).
+Diese Konfiguration eignet sich für die meisten Anwendungsfälle, da sie XSS-Angriffe sowie andere Angriffe wie Clickjacking oder Spoofing verhindert.
 
-Ein benutzerdefinierter `Sanitizer` oder `SanitizerConfig` kann angegeben werden, um auszuwählen, welche Elemente, Attribute und Kommentare erlaubt oder entfernt werden. Beachten Sie, dass selbst wenn unsichere Optionen vom `sanitizer` erlaubt sind, sie bei der Verwendung dieser Methode dennoch entfernt werden (sie entfernt die gleichen Elemente wie ein `Sanitizer`, auf dem [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) aufgerufen wurde).
+Sie können einen benutzerdefinierten `Sanitizer` oder eine benutzerdefinierte `SanitizerConfig` angeben, um festzulegen, welche Elemente, Attribute und Kommentare zugelassen oder entfernt werden.
+Beachten Sie, dass diese Methode unsichere Elemente und Attribute auch dann entfernt, wenn der Sanitizer sie zulässt. Sie entfernt dieselben Elemente wie ein Sanitizer, für den [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) aufgerufen wurde.
 
-Das Eingabe-HTML kann [deklarative Shadow-Roots](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) enthalten. Wenn der HTML-String mehr als eine [deklarative Shadow-Root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) in einem bestimmten Shadow-Host definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt - nachfolgende Deklarationen werden als {{htmlelement("template")}}-Elemente innerhalb dieser Shadow-Root geparst.
+Das Eingabe-HTML kann [deklarative Shadow Roots](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) enthalten.
+Wenn der HTML-String für einen bestimmten Shadow Host mehr als eine [deklarative Shadow Root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt. Nachfolgende Deklarationen werden als {{htmlelement("template")}}-Elemente innerhalb dieser Shadow Root geparst.
 
-`parseHTML()` sollte anstelle von [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static) verwendet werden, es sei denn, es besteht ein spezifischer Bedarf, unsichere Elemente und Attribute zuzulassen. Wenn das zu parende HTML keine unsicheren HTML-Entities enthalten muss, sollten Sie `Document.parseHTML()` verwenden.
+Verwenden Sie `parseHTML()` anstelle von [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static), sofern es keinen besonderen Grund gibt, unsichere Elemente und Attribute zuzulassen.
+Wenn das zu parsende HTML keine unsicheren HTML-Elemente oder -Attribute enthalten muss, sollten Sie `Document.parseHTML()` verwenden.
 
-Beachten Sie, dass, da diese Methode Eingabestrings von XSS-unsicheren Entitäten immer säubert, sie nicht unter Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) gesichert oder validiert wird.
+Da diese Methode Eingabe-Strings immer von Elementen und Attributen bereinigt, die im Hinblick auf XSS unsicher sind, wird sie nicht durch die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) abgesichert oder validiert.
 
 ## Spezifikationen
 

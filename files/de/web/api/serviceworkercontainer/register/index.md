@@ -1,21 +1,21 @@
 ---
-title: "ServiceWorkerContainer: register()-Methode"
+title: "ServiceWorkerContainer: Methode register()"
 short-title: register()
 slug: Web/API/ServiceWorkerContainer/register
 l10n:
-  sourceCommit: f97112a7e593ef7f9597cde85fa02bc321fa01a7
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 > [!WARNING]
-> Der `scriptURL`-Parameter, der an diese Methode übergeben wird, repräsentiert die URL eines externen Skripts, das in einen Service Worker geladen wird.
-> Solche APIs sind als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und sind potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
+> Der an diese Methode übergebene Parameter `scriptURL` bezeichnet die URL eines externen Skripts, das in einen Service Worker geladen wird.
+> APIs wie diese werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können einen Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) darstellen.
 >
-> Sie können dieses Risiko mindern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) implementieren, die die Standorte einschränkt, von denen Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Zeichenfolgen zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verwenden, die einschränkt, von welchen Orten Skripte geladen werden dürfen, und indem Sie stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](#sicherheitsaspekte).
 
-Die **`register()`**-Methode der [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Schnittstelle erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für den angegebenen Scope.
+Die Methode **`register()`** der Schnittstelle [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für den angegebenen Geltungsbereich.
 
 ## Syntax
 
@@ -27,111 +27,111 @@ register(scriptURL, options)
 ### Parameter
 
 - `scriptURL`
-  - : Eine Instanz von [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) oder eine Zeichenfolge, die die URL des Service Worker-Skripts definiert.
-    Die registrierte Service Worker-Datei muss mit einem gültigen [JavaScript-Medien-Typ](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) geliefert werden.
+  - : Eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanz oder eine Zeichenfolge, die die URL des Service-Worker-Skripts angibt.
+    Die registrierte Service-Worker-Datei muss mit einem gültigen [JavaScript-Medientyp](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) ausgeliefert werden.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Registrierungsoptionen enthält. Derzeit verfügbare Optionen sind:
+  - : Ein Objekt mit Registrierungsoptionen. Derzeit sind folgende Optionen verfügbar:
     - `scope`
-      - : Eine Zeichenfolge, die eine URL repräsentiert, die den Registrierungsbereich eines Service Workers definiert; also welchen Bereich von URLs ein Service Worker steuern kann.
+      - : Eine Zeichenfolge, die eine URL für den Geltungsbereich der Service-Worker-Registrierung angibt, also den Bereich von URLs, den ein Service Worker kontrollieren kann.
 
-        Dies wird normalerweise als URL angegeben, die relativ zur Basis-URL der Seite ist (z. B. `/some/path/`), sodass der aufgelöste Scope unabhängig davon gleich ist, von welcher Seite der Registrierungscode aufgerufen wird.
-        Der Standard-`scope` für eine Service Worker-Registrierung ist das Verzeichnis, in dem sich das Service Worker-Skript befindet (das `./` gegen `scriptURL` auflöst).
+        Üblicherweise wird hierfür eine URL angegeben, die relativ zur Basis-URL der Website ist (z. B. `/some/path/`). So ist der resultierende Geltungsbereich unabhängig davon, von welcher Seite aus der Registrierungscode aufgerufen wird.
+        Der Standardwert für `scope` bei einer Service-Worker-Registrierung ist das Verzeichnis, in dem sich das Service-Worker-Skript befindet (ermittelt durch Auflösen von `./` relativ zu `scriptURL`).
 
-        Der Scope sollte verwendet werden, um Dokumente anzugeben, die sich im gleichen Verzeichnis oder tiefer verschachtelt befinden als der Service Worker.
-        Wenn Sie einen breiteren Scope benötigen, kann dies über den HTTP-{{HTTPHeader("Service-Worker-Allowed")}}-Header erlaubt werden.
-        Siehe den Abschnitt [Beispiele](#beispiele) für Informationen zur Erweiterung des Standard-Scopes eines Service Workers.
+        Der Geltungsbereich sollte Dokumente umfassen, die sich im selben Verzeichnis wie der Service Worker oder in tiefer verschachtelten Verzeichnissen befinden.
+        Wenn Sie einen größeren Geltungsbereich benötigen, kann dieser über den HTTP-Header {{HTTPHeader("Service-Worker-Allowed")}} erlaubt werden.
+        Informationen dazu, wie Sie den standardmäßigen Geltungsbereich eines Service Workers erweitern, finden Sie im Abschnitt [Beispiele](#beispiele).
 
     - `type`
-      - : Eine Zeichenfolge zur Spezifizierung des Typs des zu erstellenden Workers.
+      - : Eine Zeichenfolge, die den Typ des zu erstellenden Workers angibt.
         Gültige Werte sind:
         - `'classic'`
-          - : Der geladene Service Worker befindet sich in einem Standardskript.
+          - : Der geladene Service Worker liegt als herkömmliches Skript vor.
             Dies ist der Standardwert.
         - `'module'`
-          - : Der geladene Service Worker befindet sich in einem [ES-Modul](/de/docs/Web/JavaScript/Guide/Modules) und der Importbefehl ist im Worker-Kontext verfügbar.
-            Für Informationen zur ES-Modul-Kompatibilität siehe die [Browser-Kompatibilitätsdatentabelle für die `ServiceWorker`-Schnittstelle](/de/docs/Web/API/ServiceWorker#browser_compatibility).
+          - : Der geladene Service Worker liegt als [ES-Modul](/de/docs/Web/JavaScript/Guide/Modules) vor, und die Import-Anweisung ist in Worker-Kontexten verfügbar.
+            Informationen zur Kompatibilität mit ES-Modulen finden Sie in der [Browser-Kompatibilitätstabelle für die Schnittstelle `ServiceWorker`](/de/docs/Web/API/ServiceWorker#browser_compatibility).
 
     - `updateViaCache`
-      - : Eine Zeichenfolge, die angibt, wie der HTTP-Cache für Service Worker-Skriptressourcen während Updates genutzt wird.
-        Hinweis: Dies bezieht sich nur auf das Service Worker-Skript und dessen Importe, nicht auf andere von diesen Skripten abgerufene Ressourcen.
+      - : Eine Zeichenfolge, die angibt, wie der HTTP-Cache bei Aktualisierungen für Ressourcen von Service-Worker-Skripten verwendet wird.
+        Hinweis: Dies betrifft nur das Service-Worker-Skript und dessen Importe, nicht andere Ressourcen, die von diesen Skripten abgerufen werden.
         - `'all'`
-          - : Der HTTP-Cache wird für das Hauptskript und alle importierten Skripte abgefragt. Wenn kein aktueller Eintrag im HTTP-Cache gefunden wird, werden die Skripte aus dem Netzwerk abgerufen.
+          - : Der HTTP-Cache wird für das Hauptskript und alle importierten Skripte abgefragt. Wenn im HTTP-Cache kein aktueller Eintrag gefunden wird, werden die Skripte aus dem Netzwerk abgerufen.
         - `'imports'`
-          - : Der HTTP-Cache wird für Importe abgefragt, aber das Hauptskript wird immer vom Netzwerk abgerufen. Wenn kein aktueller Eintrag im HTTP-Cache für die Importe gefunden wird, werden sie aus dem Netzwerk abgerufen.
+          - : Der HTTP-Cache wird für Importe abgefragt, das Hauptskript wird jedoch immer aus dem Netzwerk aktualisiert. Wenn für die Importe im HTTP-Cache kein aktueller Eintrag gefunden wird, werden sie aus dem Netzwerk abgerufen.
         - `'none'`
-          - : Der HTTP-Cache wird weder für das Hauptskript noch für dessen Importe verwendet. Alle Service Worker-Skriptressourcen werden aus dem Netzwerk aktualisiert.
+          - : Der HTTP-Cache wird weder für das Hauptskript noch für dessen Importe verwendet. Alle Ressourcen der Service-Worker-Skripte werden aus dem Netzwerk aktualisiert.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Die `scriptURL` oder `scope URL` ist ein Fehler.
-    Dies kann passieren, wenn die URL nicht zu einer gültigen URL aufgelöst werden kann oder ein Schema verwendet, das nicht `http:` oder `https` ist.
-    Es kann auch passieren, wenn `scriptURL` nicht eine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) ist und dies eine Anforderung der [Trusted Types Policy](/de/docs/Web/API/Trusted_Types_API) der Website ist.
+- {{jsxref("TypeError")}}
+  - : Die `scriptURL` oder die `scope URL` ist ungültig.
+    Dies kann passieren, wenn die URL nicht zu einer gültigen URL aufgelöst werden kann oder ein anderes Schema als `http:` oder `https` verwendet.
+    Es kann auch passieren, wenn `scriptURL` keine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) ist, obwohl die [Trusted-Types-Richtlinie](/de/docs/Web/API/Trusted_Types_API) der Website dies verlangt.
 
-    Die Ausnahme wird auch ausgelöst, wenn der `scriptURL`- oder `scope URL`-Pfad das case-insensitive ASCII "%2F" (`/`) oder "%5C" (`\`) enthält.
+    Die Ausnahme wird auch ausgelöst, wenn der Pfad von `scriptURL` oder `scope URL` die ASCII-Zeichenfolge „%2F“ (`/`) oder „%5C“ (`\`) enthält, unabhängig von der Groß- und Kleinschreibung.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die `scriptURL` ist kein potenziell vertrauenswürdiger Ursprung, wie etwa `localhost` oder eine `https`-URL.
-    Die `scriptURL` und der Scope stammen nicht vom gleichen Ursprung wie die registrierende Seite.
+  - : Die `scriptURL` hat keinen potenziell vertrauenswürdigen Ursprung, etwa `localhost` oder eine `https`-URL.
+    Die `scriptURL` und der Geltungsbereich haben nicht denselben Ursprung wie die registrierende Seite.
 
 ## Beschreibung
 
-Die **`register()`**-Methode erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für den angegebenen Scope.
-Wenn erfolgreich, wird die angegebene Skript-URL einem _Scope_ zugeordnet, der anschließend zum Zuordnen von Dokumenten zu einem bestimmten Service Worker verwendet wird.
+Die Methode **`register()`** erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für den angegebenen Geltungsbereich.
+Bei Erfolg verknüpft die Registrierung die angegebene Skript-URL mit einem _Geltungsbereich_, der anschließend verwendet wird, um Dokumente einem bestimmten Service Worker zuzuordnen.
 
-Für jeden eindeutigen Scope wird eine einzelne Registrierung erstellt.
-Wenn `register()` für einen Scope aufgerufen wird, der bereits eine bestehende Registrierung hat, wird die Registrierung mit allen Änderungen am `scriptURL` oder den Optionen aktualisiert.
+Für jeden eindeutigen Geltungsbereich wird eine einzige Registrierung erstellt.
+Wird `register()` für einen Geltungsbereich aufgerufen, für den bereits eine Registrierung besteht, wird die Registrierung entsprechend den Änderungen an `scriptURL` oder den Optionen aktualisiert.
 Wenn es keine Änderungen gibt, wird die bestehende Registrierung zurückgegeben.
-Der Aufruf von `register()` mit dem gleichen Scope und `scriptURL` startet den Installationsprozess nicht neu, daher ist es im Allgemeinen sicher, diese Methode bedingungslos von einer kontrollierten Seite aus aufzurufen.
-Es wird jedoch eine Netzwerk-Anfrage für das Service Worker-Skript gesendet, was die Serverbelastung erhöhen kann.
-Wenn dies ein Anliegen ist, können Sie zunächst nach einer bestehenden Registrierung mit [`ServiceWorkerContainer.getRegistration()`](/de/docs/Web/API/ServiceWorkerContainer/getRegistration) suchen.
+Ein Aufruf von `register()` mit demselben Geltungsbereich und derselben `scriptURL` startet den Installationsprozess nicht neu. Daher kann diese Methode im Allgemeinen ohne vorherige Prüfung von einer kontrollierten Seite aus aufgerufen werden.
+Allerdings wird dabei eine Netzwerkanfrage für das Service-Worker-Skript gesendet, was den Server zusätzlich belasten kann.
+Falls dies problematisch ist, können Sie zunächst mit [`ServiceWorkerContainer.getRegistration()`](/de/docs/Web/API/ServiceWorkerContainer/getRegistration) prüfen, ob bereits eine Registrierung besteht.
 
-Ein Dokument kann potenziell innerhalb des Scopes mehrerer Registrierungen mit unterschiedlichen Service Workern und Optionen liegen.
-Der Browser wird das Dokument mit der passenden Registrierung assoziieren, die den spezifischsten Scope hat.
-Dies stellt sicher, dass nur ein Service Worker für jedes Dokument läuft.
+Ein Dokument kann potenziell in den Geltungsbereich mehrerer Registrierungen mit unterschiedlichen Service Workern und Optionen fallen.
+Der Browser ordnet das Dokument der passenden Registrierung mit dem spezifischsten Geltungsbereich zu.
+Dadurch wird sichergestellt, dass für jedes Dokument nur ein Service Worker ausgeführt wird.
 
 > [!NOTE]
-> Es ist im Allgemeinen sicherer, keine Registrierungen zu definieren, die sich überlappende Scopes haben.
+> Im Allgemeinen ist es sicherer, keine Registrierungen mit überlappenden Geltungsbereichen zu definieren.
 
-### Sicherheitsüberlegungen
+### Sicherheitsaspekte
 
-Der `scriptURL`-Parameter spezifiziert das Skript für den Service Worker, der Netzwerk-Anfragen für Seiten innerhalb seines Scopes abfangen und Antworten liefern kann, die frisch, zwischengespeichert, neu oder modifiziert sind.
-Wenn die Eingabe von einem Benutzer bereitgestellt wird, ist dies ein möglicher Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
+Der Parameter `scriptURL` gibt das Skript für den Service Worker an. Dieser kann Netzwerkanfragen für Seiten innerhalb seines Geltungsbereichs abfangen und Antworten zurückgeben, die aktuell, zwischengespeichert, neu oder verändert sind.
+Wenn die Eingabe von einem Benutzer stammt, kann dies ein Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) sein.
 
-Es ist äußerst riskant, beliebige URLs von unzuverlässigen Ursprüngen zu akzeptieren und auszuführen.
-Eine Website sollte kontrollieren, welche Skripte ausgeführt werden dürfen, indem sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mit der [`worker-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src)-Direktive (oder einem in [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) definierten Fallback) einsetzt.
-Dies kann Skripte auf diejenigen vom aktuellen Ursprung oder einem spezifischen Satz von Ursprüngen oder sogar bestimmten Dateien beschränken.
+Es ist äußerst riskant, beliebige URLs aus nicht vertrauenswürdigen Ursprüngen zu akzeptieren und auszuführen.
+Eine Website sollte mithilfe einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mit der Direktive [`worker-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src) festlegen, welche Skripte ausgeführt werden dürfen (oder mithilfe eines Fallbacks, der in [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) definiert ist).
+Dadurch lassen sich Skripte auf solche vom aktuellen Ursprung, von einer bestimmten Gruppe von Ursprüngen oder sogar auf bestimmte Dateien beschränken.
 
-Wenn Sie diese Eigenschaft verwenden und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)), müssen Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Zeichenfolgen zuweisen.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die URL vor der Injektion abzulehnen oder zu modifizieren.
+Wenn Sie diese Eigenschaft verwenden und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)), müssen Sie stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Zeichenfolgen zuweisen.
+Dadurch wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die die URL zurückweisen oder ändern kann, bevor sie eingefügt wird.
 
 ## Beispiele
 
-Die folgenden Beispiele sollten zusammen gelesen werden, um zu verstehen, wie der Scope des Service Workers auf eine Seite angewendet wird.
+Die folgenden Beispiele sollten zusammen betrachtet werden, um zu verstehen, wie sich der Geltungsbereich eines Service Workers auf eine Seite auswirkt.
 
-Beachten Sie, dass das erste Beispiel zeigt, wie die Methode mit vertrauenswürdigen Typen verwendet wird.
-Die anderen Beispiele lassen diesen Schritt der Kürze halber aus.
+Das erste Beispiel zeigt, wie die Methode mit Trusted Types verwendet wird.
+In den übrigen Beispielen wird dieser Schritt der Kürze halber ausgelassen.
 
-### Verwendung von `TrustedScriptURL`
+### TrustedScriptURL verwenden
 
-Um das Risiko von XSS zu mindern, sollten wir immer `TrustedScriptURL`-Instanzen an den `scriptURL`-Parameter zuweisen.
-Wir müssen dies auch tun, wenn wir aus anderen Gründen vertrauenswürdige Typen erzwingen und einige Skriptquellen, die erlaubt sind, zulassen wollen (durch `CSP: worker-src`).
+Um das XSS-Risiko zu verringern, sollten wir dem Parameter `scriptURL` stets `TrustedScriptURL`-Instanzen zuweisen.
+Dies ist auch erforderlich, wenn wir Trusted Types aus anderen Gründen erzwingen und bestimmte Skriptquellen zulassen möchten, die durch `CSP: worker-src` erlaubt wurden.
 
-Vertrauenswürdige Typen werden noch nicht in allen Browsern unterstützt, also definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparente Ersatzfunktion für die JavaScript-API der vertrauenswürdigen Typen:
+Trusted Types werden noch nicht von allen Browsern unterstützt. Deshalb definieren wir zunächst den [Trusted-Types-Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Er dient als transparenter Ersatz für die JavaScript-API für Trusted Types:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL)-Methode definiert, um Eingabezeichenfolgen in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen zu transformieren.
+Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine Methode [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) definiert, um Eingabezeichenfolgen in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen umzuwandeln.
 
-Für dieses Beispiel gehen wir davon aus, dass wir eine vordefinierte Menge von URLs im Array `scriptAllowList` zulassen wollen und alle anderen Skripte protokollieren.
+Für dieses Beispiel nehmen wir an, dass wir eine vordefinierte Gruppe von URLs im Array `scriptAllowList` zulassen und alle anderen Skripte protokollieren möchten.
 
 ```js
 const scriptAllowList = [
@@ -148,7 +148,7 @@ const policy = trustedTypes.createPolicy("script-url-policy", {
 });
 ```
 
-Dann verwenden wir das `policy`-Objekt, um ein `TrustedScriptURL`-Objekt aus einer potenziell unsicheren Eingabe-Zeichenfolge zu erstellen:
+Anschließend verwenden wir das Objekt `policy`, um aus einer potenziell unsicheren Eingabezeichenfolge ein `TrustedScriptURL`-Objekt zu erstellen:
 
 ```js
 // The potentially malicious string
@@ -159,18 +159,18 @@ const untrustedScript = "https://evil.example.com/service_worker.js";
 const trustedScriptURL = policy.createScriptURL(untrustedScript);
 ```
 
-Wir können jetzt das `TrustedScriptURL`-Objekt in `register()` übergeben:
+Nun können wir das `TrustedScriptURL`-Objekt an `register()` übergeben:
 
 ```js
 navigator.serviceWorker.register(trustedScriptURL);
 ```
 
-### Registrierung eines Service Workers mit Standard- Scope
+### Einen Service Worker mit dem standardmäßigen Geltungsbereich registrieren
 
-Das folgende Beispiel verwendet den Standardwert von `scope`, indem es weggelassen wird, was ihn auf den gleichen Ort wie die Skript-URL setzt.
+Das folgende Beispiel verwendet den Standardwert von `scope`, indem die Option weggelassen wird. Dadurch entspricht der Geltungsbereich dem Speicherort der Skript-URL.
 
-Angenommen, der Service Worker-Code befindet sich auf `example.com/sw.js` und der Registrierungscode auf `example.com/index.html`.
-Der Service Worker-Code wird `example.com/index.html` sowie darunter liegende Seiten wie `example.com/product/description.html` steuern.
+Angenommen, der Service-Worker-Code befindet sich unter `example.com/sw.js` und der Registrierungscode unter `example.com/index.html`.
+Der Service-Worker-Code kontrolliert `example.com/index.html` sowie darunterliegende Seiten wie `example.com/product/description.html`.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -189,13 +189,13 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Beachten Sie, dass wir die `scriptURL` relativ zum Seitenstamm und nicht zur aktuellen Seite registriert haben.
-Dies ermöglicht die gleiche Registrierung von jeder Seite aus zu verwenden.
+Beachten Sie, dass wir `scriptURL` relativ zum Stammverzeichnis der Website und nicht relativ zur aktuellen Seite angegeben haben.
+Dadurch kann derselbe Registrierungscode auf jeder Seite verwendet werden.
 
-### Registrierung eines Service Workers mit explizitem Standard- Scope
+### Einen Service Worker mit explizit angegebenem standardmäßigem Geltungsbereich registrieren
 
-Der untenstehende Code ist fast identisch, außer dass wir den Scope explizit als `{ scope: "/" }` angegeben haben.
-Wir haben den Scope als site-relativ angegeben, sodass der gleiche Registrierungscode von überall in der Website verwendet werden kann.
+Der folgende Code ist nahezu identisch, allerdings geben wir den Geltungsbereich mit `{ scope: "/" }` ausdrücklich an.
+Wir haben den Geltungsbereich relativ zur Website angegeben, damit derselbe Registrierungscode überall auf der Website verwendet werden kann.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -213,15 +213,15 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Dieser Scope ist der gleiche wie der Standard- Scope, sodass die Registrierung auf genau die gleichen Seiten wie im vorherigen Beispiel angewendet wird.
-Beachten Sie, dass, wenn wir diesen Code nach dem vorherigen Beispiel ausführen würden, Browser erkennen sollten, dass wir eine bestehende Registrierung aktualisieren anstatt eine neue vorzunehmen.
+Dieser Geltungsbereich entspricht dem standardmäßigen Geltungsbereich. Die Registrierung gilt daher für genau dieselben Seiten wie im vorherigen Beispiel.
+Wenn wir diesen Code nach dem vorherigen Beispiel ausführen, sollten Browser erkennen, dass eine bestehende Registrierung aktualisiert und keine neue erstellt wird.
 
-### Registrierung eines Service Workers mit seitenrelativen URLs
+### Einen Service Worker mit seitenrelativen URLs registrieren
 
-Es gibt nichts, das Sie daran hindert, seitenrelative URLs zu verwenden, außer dass dies es schwieriger macht, Ihre Seiten zu verschieben, und es leicht ist, versehentlich unerwünschte Registrierungen zu erstellen, wenn Sie dies tun.
+Sie können auch seitenrelative URLs verwenden. Allerdings erschwert dies das Verschieben Ihrer Seiten, und es können dabei leicht versehentlich unerwünschte Registrierungen entstehen.
 
-In diesem Beispiel befindet sich der Service Worker-Code auf `example.com/product/sw.js` und der Registrierungscode auf `example.com/product/description.html`.
-Wir verwenden URLs, die relativ zum aktuellen Verzeichnis für die `scriptURL` und den `scope` sind, wobei das aktuelle Verzeichnis die Basis-URL der Seite ist, die `register()` aufruft (`example.com/product/`).
+In diesem Beispiel befindet sich der Service-Worker-Code unter `example.com/product/sw.js` und der Registrierungscode unter `example.com/product/description.html`.
+Für `scriptURL` und `scope` verwenden wir URLs relativ zum aktuellen Verzeichnis. Dieses Verzeichnis ist die Basis-URL der Seite, die `register()` aufruft (`example.com/product/`).
 Der Service Worker gilt für Ressourcen unter `example.com/product/`.
 
 ```js
@@ -240,12 +240,12 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-### Verwenden von `Service-Worker-Allowed`, um den Service Worker-Scope zu erhöhen
+### Den Geltungsbereich eines Service Workers mit Service-Worker-Allowed erweitern
 
-Ein Service Worker kann keinen breiteren Scope haben als seine eigene Position, es sei denn, der Server legt einen breiteren maximalen Scope im {{HTTPHeader("Service-Worker-Allowed")}}-Header auf das Service Worker-Skript fest.
-Verwenden Sie die `scope`-Option, wenn Sie einen _schmaleren_ Scope als den Standard benötigen.
+Der Geltungsbereich eines Service Workers kann nicht über seinen eigenen Speicherort hinausgehen, es sei denn, der Server gibt im Header {{HTTPHeader("Service-Worker-Allowed")}} des Service-Worker-Skripts einen größeren maximalen Geltungsbereich an.
+Verwenden Sie die Option `scope`, wenn Sie einen _kleineren_ Geltungsbereich als den standardmäßigen benötigen.
 
-Der folgende Code, wenn er in `example.com/index.html`, an der Wurzel einer Seite, enthalten ist, würde nur auf Ressourcen unter `example.com/product` angewendet.
+Der folgende Code würde, wenn er in `example.com/index.html` im Stammverzeichnis einer Website enthalten wäre, nur für Ressourcen unter `example.com/product` gelten.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -263,10 +263,10 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Wie oben angemerkt, können Server den Standard-Scope ändern, indem sie den `Service-Worker-Allowed`-Header auf das Service Worker-Skript setzen.
-Dies ermöglicht es, die `scope`-Option außerhalb des durch die Position des Service Workers definierten Pfades zu setzen.
+Wie oben erwähnt, können Server den standardmäßigen Geltungsbereich ändern, indem sie beim Ausliefern des Service-Worker-Skripts den Header `Service-Worker-Allowed` setzen.
+Dadurch kann die Option `scope` auf einen Bereich außerhalb des Pfads gesetzt werden, der durch den Speicherort des Service Workers vorgegeben ist.
 
-Der folgende Code, wenn er in `example.com/product/index.html` enthalten ist, würde auf alle Ressourcen unter `example.com` angewendet, wenn der Server den `Service-Worker-Allowed`-Header auf `/` oder `https://example.com/` setzt, wenn er `sw.js` bereitstellt. Wenn der Server den Header nicht setzt, schlägt die Registrierung des Service Workers fehl, da der angeforderte `scope` zu breit ist.
+Der folgende Code würde, wenn er in `example.com/product/index.html` enthalten wäre, für alle Ressourcen unter `example.com` gelten, sofern der Server beim Ausliefern von `sw.js` den Header `Service-Worker-Allowed` auf `/` oder `https://example.com/` setzt. Wenn der Server den Header nicht setzt, schlägt die Service-Worker-Registrierung fehl, weil der angeforderte `scope` zu groß ist.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -297,7 +297,7 @@ if ("serviceWorker" in navigator) {
 
 ## Siehe auch
 
-- [ServiceWorkerRegistration: `unregister()`-Methode](/de/docs/Web/API/ServiceWorkerRegistration/unregister)
+- [ServiceWorkerRegistration: Methode `unregister()`](/de/docs/Web/API/ServiceWorkerRegistration/unregister)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- {{HTTPHeader("Service-Worker-Allowed")}} HTTP-Header
+- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- HTTP-Header {{HTTPHeader("Service-Worker-Allowed")}}

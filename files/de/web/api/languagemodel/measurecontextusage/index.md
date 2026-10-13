@@ -1,18 +1,18 @@
 ---
-title: "LanguageModel: measureContextUsage() Methode"
+title: "LanguageModel: Methode measureContextUsage()"
 short-title: measureContextUsage()
 slug: Web/API/LanguageModel/measureContextUsage
 l10n:
-  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
 
-Die **`measureContextUsage()`** Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel) Schnittstelle schätzt, wie viele Tokens im Kontextfenster der gegebene Input verbrauchen würde, ohne ihn an das Modell zu senden oder den Zustand der Sitzung zu ändern.
+Die Methode **`measureContextUsage()`** der Schnittstelle [`LanguageModel`](/de/docs/Web/API/LanguageModel) schätzt, wie viele Tokens des Kontextfensters die angegebene Eingabe verbrauchen würde, ohne sie an das Modell zu senden oder den Zustand der Sitzung zu verändern.
 
-Dies ermöglicht es Ihnen, zu überprüfen, wie viel des Kontextfensters ein gegebener Input erfordert, bevor Sie entscheiden, ob Sie ihn senden. Das Ergebnis kann mit [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) und [`LanguageModel.contextUsage`](/de/docs/Web/API/LanguageModel/contextUsage) verglichen werden, um festzustellen, ob der Input in das Kontextfenster-Limit passt.
+So können Sie prüfen, wie viel Platz eine Eingabe im Kontextfenster benötigt, bevor Sie entscheiden, ob Sie sie senden. Das Ergebnis lässt sich mit [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) und [`LanguageModel.contextUsage`](/de/docs/Web/API/LanguageModel/contextUsage) vergleichen, um festzustellen, ob die Eingabe innerhalb der Grenze des Kontextfensters liegt.
 
-Dies ist besonders nützlich für Anwendungen mit langen Kontexten wie Dokumentenzusammenfassungen, bei denen Sie möglicherweise Inhalte aufteilen oder kürzen müssen, um innerhalb des Kontextfensters-Limits zu bleiben.
+Dies ist besonders nützlich für Anwendungen mit langen Kontexten, etwa für die Zusammenfassung von Dokumenten, bei denen Sie Inhalte möglicherweise aufteilen oder kürzen müssen, um innerhalb der Grenze des Kontextfensters zu bleiben.
 
 ## Syntax
 
@@ -25,20 +25,21 @@ measureContextUsage(input, options)
 
 - `input`
   - : Der Inhalt, der dem Kontextfenster hinzugefügt werden soll. Dies ist entweder:
-    - Ein String — Abkürzung für eine einzelne Textnachricht.
-    - Ein Array von Objekten, wobei jedes Objekt eine einzelne Nachricht in einem Gespräch mit einem Sprachmodell darstellt. Objekte können die folgenden Eigenschaften haben:
+    - Ein String – Kurzform für eine einzelne Textnachricht.
+    - Ein Array von Objekten, von denen jedes eine einzelne Nachricht in einer Konversation mit einem Sprachmodell darstellt.
+      Die Objekte können folgende Eigenschaften haben:
       - `role`
-        - : Ein String, der den Standpunkt angibt, aus dem die Nachricht formuliert ist. Muss eines der folgenden sein:
+        - : Ein String, der angibt, aus welcher Perspektive die Nachricht formuliert ist. Muss einer der folgenden Werte sein:
           - `system`
-            - : Eine systembezogene Anweisung, die das allgemeine Verhalten des Modells leitet. Dies muss die erste Anweisung sein, die dem Modell übergeben wird.
+            - : Eine Anweisung auf Systemebene, die das allgemeine Verhalten des Modells steuert. Dies muss die erste Anweisung sein, die an das Modell übergeben wird.
           - `user`
-            - : Eine Nachricht vom Benutzer, auf die die API reagieren soll.
+            - : Eine Nachricht des Benutzers, auf die die API antworten soll.
           - `assistant`
-            - : Ein Input, der Kontext für den KI-Assistenten bietet, wie zum Beispiel seine Persona oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext/Verlauf bereitzustellen und die Reaktion des Modells weiter zu gestalten.
+            - : Eine Eingabe, die dem KI-Assistenten Kontext liefert, etwa seine Persona oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext oder bisherigen Verlauf bereitzustellen und die Antworten des Modells weiter zu beeinflussen.
       - `content`
-        - : Ein String, der eine Textaufforderung darstellt oder ein Array von Objekten. Jedes Objekt enthält die folgenden Eigenschaften:
+        - : Ein String, der einen textuellen Prompt darstellt, oder ein Array von Objekten. Jedes Objekt enthält folgende Eigenschaften:
           - `type`
-            - : Ein enumerierter Wert, der den Inhaltstyp darstellt. Dies kann einer der folgenden sein:
+            - : Ein Aufzählungswert, der die Art des Inhalts angibt. Dies kann einer der folgenden Werte sein:
               - `audio`
                 - : Audioinhalt.
               - `image`
@@ -46,54 +47,54 @@ measureContextUsage(input, options)
               - `text`
                 - : Textinhalt.
               - `tool-call`
-                - : Ein Werkzeugaufruf, der vom Modell ausgegeben wurde.
+                - : Ein vom Modell ausgelöster Tool-Aufruf.
               - `tool-response`
-                - : Das Ergebnis eines Werkzeugaufrufs.
+                - : Das Ergebnis eines Tool-Aufrufs.
           - `value`
-            - : Der Inhalt der Nachricht. Wenn der `type` `text` ist, ist dies immer ein String. Wenn der `type` `audio` oder `image` ist, kann der `value` einer von mehreren verschiedenen Objekttypen sein; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
+            - : Der Inhalt der Nachricht. Wenn `type` den Wert `text` hat, ist dies immer ein String. Wenn `type` den Wert `audio` oder `image` hat, kann `value` einer von mehreren Objekttypen sein; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
       - `prefix` {{optional_inline}}
-        - : Ein Boolean, standardmäßig `false`. Wenn `true`, wird die Nachricht als Präfix für die nächste vom Modell generierte Antwort behandelt, anstatt als vollständige Runde.
+        - : Ein boolescher Wert, der standardmäßig `false` ist. Bei `true` wird die Nachricht als Präfix für die nächste vom Modell generierte Antwort behandelt und nicht als vollständiger Gesprächsbeitrag.
 - `options` {{optional_inline}}
-  - : Optionen zur Messung der Kontextnutzung. Eigenschaften sind:
+  - : Optionen zur Messung der Kontextnutzung. Dazu gehören folgende Eigenschaften:
     - `responseConstraint`
-      - : Ein Objekt, das der von [JSON Schema](https://json-schema.org/) definierten Struktur folgt und das genaue Format definiert, in dem die Ausgabe des Modells geliefert werden soll. Wenn angegeben und `omitResponseConstraintInput` `false` ist, ist jede implementationsdefinierte Einschränkungs-Beschreibungsnachricht in der Messung enthalten.
+      - : Ein Objekt mit der durch [JSON Schema](https://json-schema.org/) definierten Struktur, das das genaue Format festlegt, in dem die Ausgabe des Modells bereitgestellt werden soll. Wenn es angegeben ist und `omitResponseConstraintInput` den Wert `false` hat, wird eine implementierungsabhängige Nachricht zur Beschreibung der Einschränkung in die Messung einbezogen.
     - `omitResponseConstraintInput`
-      - : Ein Boolean; wenn `true`, wird die automatische Einschränkungs-Beschreibungsnachricht von der Messung ausgeschlossen.
+      - : Ein boolescher Wert; bei `true` wird die automatische Nachricht zur Beschreibung der Einschränkung von der Messung ausgeschlossen.
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zum Abbrechen der Operation.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem der Vorgang abgebrochen werden kann.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer {{jsxref("Number")}} aufgelöst wird und die Anzahl der Tokens im Kontextfenster darstellt, die der Input verbrauchen würde.
+Ein {{jsxref("Promise")}}, das mit einer {{jsxref("Number")}} erfüllt wird, die angibt, wie viele Tokens des Kontextfensters die Eingabe verbrauchen würde.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Operation über die `signal` Option abgebrochen wird.
+  - : Wird ausgelöst, wenn der Vorgang über die Option `signal` abgebrochen wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Nutzung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}} {{httpheader("Permissions-Policy")}} blockiert ist.
+  - : Wird ausgelöst, wenn die Verwendung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}}-{{httpheader("Permissions-Policy")}} blockiert wird.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die `role` einer Nachricht `assistant` ist und ihr `type` etwas anderes als `text` ist.
-    - Der `type` einer Nachricht `text` ist und ihr `value` kein String ist.
-    - Der Eingabe- oder Ausgabetext in einer Sprache ist, die der Benutzeragent für Aufforderungen nicht unterstützt.
-    - Der `type` einer Nachricht `image` oder `audio` ist, aber der Typ nicht in den `expectedInputs` aufgeführt war, oder der `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
+    - `role` einer Nachricht den Wert `assistant` hat und ihr `type` einen anderen Wert als `text` hat.
+    - `type` einer Nachricht den Wert `text` hat und ihr `value` kein String ist.
+    - Der Eingabe- oder Ausgabetext in einer Sprache verfasst ist, die der User Agent für Prompts nicht unterstützt.
+    - `type` einer Nachricht den Wert `image` oder `audio` hat, dieser Typ aber nicht in `expectedInputs` aufgeführt wurde oder `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Keine Nachrichten im Nachrichtenarray enthalten sind.
-    - Die `prefix` Eigenschaft einer Nachricht auf `true` gesetzt ist und:
-      - Die `role` der Nachricht nicht `assistant` ist.
-      - Die Nachricht nicht das letzte Element im Nachrichtenarray ist.
-- `TypeError`
+    - Das Nachrichten-Array keine Nachrichten enthält.
+    - Die Eigenschaft `prefix` einer Nachricht auf `true` gesetzt ist und:
+      - `role` der Nachricht nicht `assistant` ist.
+      - Die Nachricht nicht das letzte Element im Nachrichten-Array ist.
+- {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - `omitResponseConstraintInput` `true` ist, aber `responseConstraint` nicht angegeben wurde.
-    - Die `role` einer Nachricht `system` ist, die Nachricht jedoch nicht die erste Nachricht ist, die an den Kontext übergeben wurde.
+    - `omitResponseConstraintInput` den Wert `true` hat, aber `responseConstraint` nicht angegeben wurde.
+    - `role` einer Nachricht den Wert `system` hat, die Nachricht aber nicht als erste an den Kontext übergeben wurde.
 
 ## Beispiele
 
-### Warnung, wenn der Kontext fast voll ist
+### Warnung, wenn das Kontextfenster fast voll ist
 
-Das folgende Beispiel verwendet eine Funktion, um zu überprüfen, ob Kontext verfügbar ist, bevor [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufgerufen wird. Es berechnet zuerst den verbleibenden Kontext und übergibt diesen Wert an `measureContextUsage()`. Wenn `needed` kleiner oder gleich `remaining` ist, gibt es `true` zurück und die Sitzung wird fortgesetzt.
+Im folgenden Beispiel prüft eine Funktion, ob noch Platz im Kontextfenster verfügbar ist, bevor [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufgerufen wird. Sie berechnet zunächst den verbleibenden Platz und übergibt diesen Wert an `measureContextUsage()`. Wenn `needed` kleiner oder gleich `remaining` ist, gibt sie `true` zurück und die Sitzung wird fortgesetzt.
 
 ```js
 const promptText = "Let me ask you an interesting question...";

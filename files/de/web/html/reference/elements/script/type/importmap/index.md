@@ -1,18 +1,18 @@
 ---
-title: '`<script type="importmap">` HTML-Attributwert'
+title: '`<script type="importmap">`-Wert des HTML-Attributs'
 short-title: importmap
 slug: Web/HTML/Reference/Elements/script/type/importmap
 l10n:
-  sourceCommit: bf5017c389132af39b50106cf1763fa7106e87b4
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
-Der **`importmap`**-Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)-Attributs des [`<script>`-Elements](/de/docs/Web/HTML/Reference/Elements/script) zeigt an, dass der Inhalt des Elements eine Importmap enthält.
+Der Wert **`importmap`** des Attributs [`type`](/de/docs/Web/HTML/Reference/Elements/script/type) des [Elements `<script>`](/de/docs/Web/HTML/Reference/Elements/script) gibt an, dass der Inhalt des Elements eine Import Map enthält.
 
-Eine Importmap ist ein JSON-Objekt, das Entwicklern ermöglicht, zu steuern, wie der Browser Modulspezifikatoren beim Importieren von [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) auflöst. Sie bietet eine Zuordnung zwischen dem Text, der als Modulspezifikator in einer [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder einem [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) verwendet wird, und dem entsprechenden Wert, der beim Auflösen des Spezifikators den Text ersetzt. Das JSON-Objekt muss dem [Importmap-JSON-Darstellungsformat](#importmap-json-darstellung) entsprechen.
+Eine Import Map ist ein JSON-Objekt, mit dem Entwickler steuern können, wie der Browser Modulbezeichner beim Importieren von [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) auflöst. Sie ordnet dem Text, der als Modulbezeichner in einer [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder beim [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) verwendet wird, einen Wert zu, der diesen Text beim Auflösen des Bezeichners ersetzt. Das JSON-Objekt muss dem [JSON-Repräsentationsformat für Import Maps](#json-repräsentation_einer_import_map) entsprechen.
 
-Eine Importmap wird verwendet, um Modulspezifikatoren in statischen und dynamischen Importen aufzulösen, und muss daher deklariert und verarbeitet werden, bevor `<script>`-Elemente geladen werden, die Module mit in der Map deklarierten Spezifikatoren importieren. Beachten Sie, dass die Importmap nur für Modulspezifikatoren in der [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder dem [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) für Module gilt, die in Dokumente geladen werden; sie gilt nicht für den im `src`-Attribut eines `<script>`-Elements angegebenen Pfad oder für Module, die in Worker oder Worklets geladen werden.
+Eine Import Map wird verwendet, um Modulbezeichner in statischen und dynamischen Importen aufzulösen. Sie muss daher deklariert und verarbeitet werden, bevor `<script>`-Elemente Module mit Bezeichnern importieren, die in der Map definiert sind. Beachten Sie, dass die Import Map nur für Modulbezeichner in der [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder beim [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) für Module gilt, die in Dokumente geladen werden. Sie gilt weder für den im Attribut `src` eines `<script>`-Elements angegebenen Pfad noch für Module, die in Worker oder Worklets geladen werden.
 
-Weitere Informationen finden Sie im Abschnitt [Module mit Importmaps importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) im Leitfaden zu JavaScript-Modulen.
+Weitere Informationen finden Sie im Abschnitt [Module mithilfe von Import Maps importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) des Leitfadens zu JavaScript-Modulen.
 
 ## Syntax
 
@@ -26,27 +26,27 @@ Die Attribute `src`, `async`, `nomodule`, `defer`, `crossorigin`, `integrity` un
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Die Importmap-Definition ist kein JSON-Objekt, der `importmap`-Schlüssel ist definiert, aber sein Wert ist kein JSON-Objekt, oder der `scopes`-Schlüssel ist definiert, aber sein Wert ist kein JSON-Objekt.
+- {{jsxref("TypeError")}}
+  - : Die Definition der Import Map ist kein JSON-Objekt, der Schlüssel `importmap` ist definiert, aber sein Wert ist kein JSON-Objekt, oder der Schlüssel `scopes` ist definiert, aber sein Wert ist kein JSON-Objekt.
 
-Browser generieren Konsolenwarnungen für andere Fälle, in denen das Importmap-JSON nicht dem [Importmap-](#importmap-json-darstellung)-Schema entspricht.
+In anderen Fällen, in denen das JSON der Import Map nicht dem [Import-Map-Schema](#json-repräsentation_einer_import_map) entspricht, geben Browser Warnungen in der Konsole aus.
 
 ## Beschreibung
 
-Beim Importieren eines [JavaScript-Moduls](/de/docs/Web/JavaScript/Guide/Modules) haben sowohl die [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) als auch der [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) einen "Modulspezifikator", der das zu importierende Modul angibt. Ein Browser muss in der Lage sein, diesen Spezifikator in eine absolute URL aufzulösen, um das Modul zu importieren.
+Beim Importieren eines [JavaScript-Moduls](/de/docs/Web/JavaScript/Guide/Modules) enthalten sowohl die [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) als auch der [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) einen „Modulbezeichner“, der das zu importierende Modul angibt. Ein Browser muss diesen Bezeichner in eine absolute URL auflösen können, um das Modul zu importieren.
 
-Beispielsweise importieren die folgenden Anweisungen Elemente aus dem Modulspezifikator `"https://example.com/shapes/circle.js"`, das eine absolute URL ist, und dem Modulspezifikator `"./modules/shapes/square.js"`, das ein Pfad relativ zur Basis-URL des Dokuments ist.
+Die folgenden Anweisungen importieren beispielsweise Elemente über den Modulbezeichner `"https://example.com/shapes/circle.js"`, eine absolute URL, und den Modulbezeichner `"./modules/shapes/square.js"`, einen Pfad relativ zur Basis-URL des Dokuments.
 
 ```js
 import { name as circleName } from "https://example.com/shapes/circle.js";
 import { name as squareName, draw } from "./modules/shapes/square.js";
 ```
 
-Importmaps ermöglichen es Entwicklern, (fast) jeden Text, den sie wollen, im Modulspezifikator zu spezifizieren; die Map bietet einen entsprechenden Wert, der den Text ersetzt, wenn der Modulspezifikator aufgelöst wird.
+Import Maps ermöglichen es Entwicklern, (fast) beliebigen Text als Modulbezeichner anzugeben. Die Map stellt einen entsprechenden Wert bereit, der den Text beim Auflösen des Modulbezeichners ersetzt.
 
-### Bare Modules
+### Modulbezeichner ohne Pfadangabe
 
-Die untenstehende Importmap definiert einen `imports`-Schlüssel, der eine "Modulspezifikatormap" mit den Eigenschaften `circle` und `square` enthält.
+Die folgende Import Map definiert einen Schlüssel `imports`, der eine „Modulbezeichner-Map“ mit den Eigenschaften `circle` und `square` enthält.
 
 ```html
 <script type="importmap">
@@ -59,16 +59,16 @@ Die untenstehende Importmap definiert einen `imports`-Schlüssel, der eine "Modu
 </script>
 ```
 
-Mit dieser Importmap können wir dieselben Module importieren wie oben, aber indem wir "bare modules" in unseren Modulspezifikatoren verwenden:
+Mit dieser Import Map können wir dieselben Module wie oben importieren, aber Modulbezeichner ohne Pfadangabe verwenden:
 
 ```js
 import { name as circleName } from "circle";
 import { name as squareName, draw } from "square";
 ```
 
-### Pfadpräfixe mappen
+### Pfadpräfixe zuordnen
 
-Ein Schlüssel in einer Modulspezifikatormap kann auch verwendet werden, um ein Pfadpräfix in einem Modulspezifikator umzuwandeln. Beachten Sie, dass in diesem Fall die Eigenschaft und der gemappte Pfad beide mit einem nachfolgenden Schrägstrich (`/`) enden müssen.
+Ein Schlüssel in einer Modulbezeichner-Map kann auch verwendet werden, um ein Pfadpräfix in einem Modulbezeichner neu zuzuordnen. Beachten Sie, dass in diesem Fall sowohl die Eigenschaft als auch der zugeordnete Pfad mit einem Schrägstrich (`/`) enden müssen.
 
 ```html
 <script type="importmap">
@@ -81,15 +81,15 @@ Ein Schlüssel in einer Modulspezifikatormap kann auch verwendet werden, um ein 
 </script>
 ```
 
-Dann könnten wir ein Kreismodul wie gezeigt importieren.
+Anschließend könnten wir ein `circle`-Modul wie gezeigt importieren.
 
 ```js
 import { name as circleName } from "shapes/circle.js";
 ```
 
-### Pfade im Modulspezifikatormap-Schlüssel
+### Pfade in Schlüsseln der Modulbezeichner-Map
 
-Modulspezifikatorschlüssel müssen keine einwortigen Namen ("bare Namen") sein. Sie können auch Pfadtrennzeichen enthalten oder mit diesen enden, oder absolute URLs sein, oder relative URL-Pfade, die mit `/`, `./` oder `../` beginnen.
+Schlüssel für Modulbezeichner müssen keine aus einem einzelnen Wort bestehenden Namen („Bare Names“) sein. Sie können auch Pfadtrennzeichen enthalten oder damit enden, absolute URLs sein oder relative URL-Pfade, die mit `/`, `./` oder `../` beginnen.
 
 ```json
 {
@@ -102,15 +102,15 @@ Modulspezifikatorschlüssel müssen keine einwortigen Namen ("bare Namen") sein.
 }
 ```
 
-Wenn es mehrere Modulspezifikatorschlüssel in einer Modulspezifikatormap gibt, die passen könnten, wird der spezifischste Schlüssel ausgewählt (d.h. der mit dem längeren Pfad/Wert).
+Wenn mehrere Schlüssel in einer Modulbezeichner-Map infrage kommen, wird der spezifischste Schlüssel ausgewählt (d.h. der mit dem längeren Pfad oder Wert).
 
-Ein Modulspezifikator von `./foo/../js/app.js` würde zu `./js/app.js` aufgelöst, bevor eine Zuordnung erfolgt. Das bedeutet, dass ein Modulspezifikatorschlüssel von `./js/app.js` mit dem Modulspezifikator übereinstimmen würde, auch wenn sie nicht exakt gleich sind.
+Ein Modulbezeichner `./foo/../js/app.js` würde vor dem Abgleich zu `./js/app.js` aufgelöst. Das bedeutet, dass ein Modulbezeichner-Schlüssel `./js/app.js` mit dem Modulbezeichner übereinstimmen würde, obwohl beide nicht exakt gleich sind.
 
-### Bereichsspezifikators
+### Geltungsbereichsbezogene Modulbezeichner-Maps
 
-Sie können den `scopes`-Schlüssel verwenden, um Zuordnungen bereitzustellen, die nur verwendet werden, wenn das Modul importierende Skript einen bestimmten URL-Pfad enthält. Wenn die URL des ladenden Skripts mit dem bereitgestellten Pfad übereinstimmt, wird die mit dem Bereich verknüpfte Zuordnung verwendet. Dies ermöglicht die Verwendung unterschiedlicher Versionen des Moduls, je nachdem, welcher Code den Import durchführt.
+Mit dem Schlüssel `scopes` können Sie Zuordnungen bereitstellen, die nur verwendet werden, wenn das Skript, das das Modul importiert, einen bestimmten URL-Pfad enthält. Wenn die URL des ladenden Skripts mit dem angegebenen Pfad übereinstimmt, wird die dem Geltungsbereich zugeordnete Map verwendet. So können unterschiedliche Versionen eines Moduls verwendet werden, je nachdem, welcher Code es importiert.
 
-Beispielsweise wird die untenstehende Map nur die Bereichsmap verwenden, wenn das ladende Modul eine URL enthält, die den Pfad: "/modules/custom-shapes/" hat.
+Beispielsweise wird die geltungsbereichsbezogene Map im folgenden Beispiel nur verwendet, wenn die URL des ladenden Moduls den Pfad „/modules/custom-shapes/“ enthält.
 
 ```html
 <script type="importmap">
@@ -127,15 +127,15 @@ Beispielsweise wird die untenstehende Map nur die Bereichsmap verwenden, wenn da
 </script>
 ```
 
-Wenn mehrere Bereiche mit der Referrer-URL übereinstimmen, wird der spezifischste Bereichspfad verwendet (der Bereichsschlüsselname mit dem längsten Namen). Der Browser fällt auf den nächst spezifischeren Bereichspfad zurück, wenn es keinen passenden Spezifikator gibt, und so weiter, wodurch schließlich auf die Modulspezifikatormap im `imports`-Schlüssel zurückgegriffen wird.
+Wenn mehrere Geltungsbereiche mit der Referrer-URL übereinstimmen, wird der spezifischste Geltungsbereichspfad verwendet (der Geltungsbereichsschlüssel mit dem längsten Namen). Falls darin kein passender Bezeichner vorhanden ist, greift der Browser auf den nächstspezifischen Geltungsbereichspfad zurück und so weiter. Schließlich greift er auf die Modulbezeichner-Map im Schlüssel `imports` zurück.
 
-### Integritätsmetadatamap
+### Map für Integritätsmetadaten
 
-Sie können den `integrity`-Schlüssel verwenden, um eine Zuordnung für [Integritätsmetadata](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) bereitzustellen. Dies ermöglicht Ihnen, die Integrität von dynamisch oder statisch importierten Modulen sicherzustellen. `integrity` ermöglicht es Ihnen auch, einen Fallback für Top-Level- oder vorab geladene Module bereitzustellen, falls diese noch kein `integrity`-Attribut enthalten.
+Mit dem Schlüssel `integrity` können Sie Zuordnungen für [Integritätsmetadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) von Modulen bereitstellen. So können Sie die Integrität dynamisch oder statisch importierter Module sicherstellen. `integrity` ermöglicht es außerdem, Integritätsmetadaten für Module bereitzustellen, die direkt oder vorab geladen werden, falls diese nicht bereits ein Attribut `integrity` besitzen.
 
-Die Map-Schlüssel repräsentieren Modul-URLs, die absolut oder relativ sein können (beginnend mit `/`, `./` oder `../`), und die Map-Werte repräsentieren Integritätsmetadata, identisch mit denen, die in [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity)-Attributwerten verwendet werden.
+Die Schlüssel der Map stehen für Modul-URLs, die absolut oder relativ sein können (beginnend mit `/`, `./` oder `../`). Die Werte der Map sind Integritätsmetadaten, wie sie auch in Werten des Attributs [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) verwendet werden.
 
-Beispielsweise definiert die untenstehende Map Integritätsmetadata für das `square.js`-Modul (direkt) und seinen bare Spezifikator (transitiv, über den `imports`-Schlüssel).
+Die folgende Map definiert beispielsweise Integritätsmetadaten für das Modul `square.js` (direkt) und seinen Modulbezeichner ohne Pfadangabe (indirekt über den Schlüssel `imports`).
 
 ```html
 <script type="importmap">
@@ -150,13 +150,13 @@ Beispielsweise definiert die untenstehende Map Integritätsmetadata für das `sq
 </script>
 ```
 
-### Mehrere Importmaps zusammenführen
+### Mehrere Import Maps zusammenführen
 
-Unterstützte Browser können eine oder mehrere Importmaps an beliebiger Stelle im Dokument deklarieren, vorausgesetzt, sie sind definiert, bevor irgendwelche darauf abhängenden Module geladen werden (einige [Browserversionen](#browser-kompatibilität) erlauben nur eine einzelne Importmap-Deklaration, die vor dem Laden eines Moduls erscheinen muss).
+Browser, die dies unterstützen, erlauben eine oder mehrere Import-Map-Deklarationen an beliebiger Stelle im Dokument, sofern sie definiert werden, bevor ein von ihnen abhängiges Modul geladen wird. Einige [Browserversionen](#browser-kompatibilität) erlauben nur eine einzige Import-Map-Deklaration, die vor dem Laden jeglicher Module stehen muss.
 
-Intern pflegen Browser eine einzige globale Importmap-Darstellung. Wenn mehrere Importmaps in einem Dokument enthalten sind, werden deren Inhalte in die globale Importmap übernommen, wenn sie registriert sind.
+Browser verwalten intern eine einzige globale Import-Map-Repräsentation. Wenn ein Dokument mehrere Import Maps enthält, werden ihre Inhalte bei der Registrierung mit der globalen Import Map zusammengeführt.
 
-Beispielsweise betrachten Sie die folgenden zwei Importmaps:
+Betrachten Sie beispielsweise die folgenden beiden Import Maps:
 
 ```html
 <script type="importmap">
@@ -183,7 +183,7 @@ Beispielsweise betrachten Sie die folgenden zwei Importmaps:
 </script>
 ```
 
-Diese sind äquivalent zur folgenden einzelnen Importmap:
+Sie entsprechen der folgenden einzelnen Import Map:
 
 ```html
 <script type="importmap">
@@ -201,9 +201,9 @@ Diese sind äquivalent zur folgenden einzelnen Importmap:
 </script>
 ```
 
-Bereits zuvor aufgelöste Modulspezifikatoren in jeder registrierten Map werden ignoriert. Bei nachfolgenden Auflösungen dieser Spezifikatoren werden die gleichen Ergebnisse wie bei ihren vorherigen Auflösungen geliefert.
+Modulbezeichner in einer neu registrierten Map, die zuvor bereits aufgelöst wurden, werden verworfen. Spätere Auflösungen dieser Bezeichner liefern dieselben Ergebnisse wie zuvor.
 
-Wenn beispielsweise der Modulspezifikator `/app/helper.js` bereits aufgelöst wurde, entspricht die folgende neue Importmap:
+Wenn beispielsweise der Modulbezeichner `/app/helper.js` bereits aufgelöst wurde, wäre die folgende neue Import Map:
 
 ```html
 <script type="importmap">
@@ -216,7 +216,7 @@ Wenn beispielsweise der Modulspezifikator `/app/helper.js` bereits aufgelöst wu
 </script>
 ```
 
-der folgenden:
+gleichbedeutend mit:
 
 ```html
 <script type="importmap">
@@ -228,11 +228,11 @@ der folgenden:
 </script>
 ```
 
-Die Regel `/app/helper.js` wurde ignoriert und nicht in die Map aufgenommen.
+Die Regel für `/app/helper.js` wurde ignoriert und nicht in die Map aufgenommen.
 
-Genauso werden in einer registrierten Map Modulspezifikatoren, die bereits in der globalen Map auf URLs gemappt wurden, ignoriert; ihre vorherige Zuordnung bleibt bestehen.
+Ebenso werden Modulbezeichner in einer registrierten Map verworfen, wenn sie in der globalen Map bereits URLs zugeordnet wurden. Ihre bisherige Zuordnung bleibt bestehen.
 
-Zum Beispiel sind die folgenden zwei Importmaps:
+Die folgenden beiden Import Maps:
 
 ```html
 <script type="importmap">
@@ -255,7 +255,7 @@ Zum Beispiel sind die folgenden zwei Importmaps:
 </script>
 ```
 
-äquivalent zur folgenden einzelnen Importmap:
+entsprechen beispielsweise der folgenden einzelnen Import Map:
 
 ```html
 <script type="importmap">
@@ -268,43 +268,44 @@ Zum Beispiel sind die folgenden zwei Importmaps:
 </script>
 ```
 
-Die `/app/helper/`-Regel wurde aus der zweiten Map entfernt.
+Die Regel für `/app/helper/` aus der zweiten Map wurde verworfen.
 
 > [!NOTE]
-> In nicht unterstützenden Browsern (überprüfen Sie die [Kompatibilitätsdaten](#browser-kompatibilität)) kann eine [Polyfill](https://github.com/guybedford/es-module-shims) verwendet werden, um Probleme bei der Modulauflösung zu vermeiden.
+> In Browsern ohne Unterstützung (siehe [Kompatibilitätsdaten](#browser-kompatibilität)) kann ein [Polyfill](https://github.com/guybedford/es-module-shims) verwendet werden, um Probleme bei der Modulauflösung zu vermeiden.
 
-## Importmap-JSON-Darstellung
+## JSON-Repräsentation einer Import Map
 
-Die folgende ist eine "formale" Definition der Importmap-JSON-Darstellung.
+Im Folgenden finden Sie eine „formale“ Definition der JSON-Repräsentation einer Import Map.
 
-Das Importmap muss ein gültiges JSON-Objekt sein, das beliebige der optionalen Schlüssel `imports`, `scopes` und `integrity` definieren kann. Der Wert jedes Schlüssels muss ein Objekt sein, welches leer sein kann.
+Die Import Map muss ein gültiges JSON-Objekt sein, das die optionalen Schlüssel `imports`, `scopes` und `integrity` enthalten kann. Der Wert jedes Schlüssels muss ein Objekt sein, das auch leer sein darf.
 
 - `imports` {{optional_inline}}
-  - : Der Wert ist eine [Modulspezifikatormap](#module_specifier_map), der die Zuordnungen zwischen Modulspezifikatortext, der in einer `import`-Anweisung oder einem `import()`-Operator erscheinen könnte, und dem Text bietet, der ihn ersetzen wird, wenn der Spezifikator aufgelöst wird.
+  - : Der Wert ist eine [Modulbezeichner-Map](#module_specifier_map). Sie definiert die Zuordnungen zwischen dem Text eines Modulbezeichners, der in einer `import`-Anweisung oder beim `import()`-Operator vorkommen kann, und dem Text, der ihn beim Auflösen des Bezeichners ersetzt.
 
-    Dies ist die Fallback-Map, die nach übereinstimmenden Modulspezifikatoren durchsucht wird, wenn keine `scopes`-Pfad-URLs übereinstimmen oder wenn Modulspezifikatormaps in übereinstimmenden `scopes`-Pfaden keinen Schlüssel enthalten, der mit dem Modulspezifikator übereinstimmt.
+    Dies ist die Fallback-Map, die nach passenden Modulbezeichnern durchsucht wird, wenn keine Pfad-URLs aus `scopes` übereinstimmen oder wenn die Modulbezeichner-Maps in übereinstimmenden `scopes`-Pfaden keinen zum Modulbezeichner passenden Schlüssel enthalten.
     - `<module specifier map>`
-      - : Eine "Modulspezifikatormap" ist ein gültiges JSON-Objekt, bei dem die _Schlüssel_ Texte sind, die im Modulspezifikator beim Importieren eines Moduls vorhanden sein können, und die entsprechenden _Werte_ die URLs oder Pfade sind, die diesen Text ersetzen, wenn der Modulspezifikator in eine Adresse aufgelöst wird.
+      - : Eine „Modulbezeichner-Map“ ist ein gültiges JSON-Objekt, dessen _Schlüssel_ Text enthalten, der beim Importieren eines Moduls im Modulbezeichner vorkommen kann. Die zugehörigen _Werte_ sind URLs oder Pfade, die diesen Text ersetzen, wenn der Modulbezeichner zu einer Adresse aufgelöst wird.
 
-        Das JSON-Objekt der Modulspezifikatormap hat die folgenden Anforderungen:
+        Das JSON-Objekt der Modulbezeichner-Map muss die folgenden Anforderungen erfüllen:
         - Keiner der Schlüssel darf leer sein.
         - Alle Werte müssen Zeichenfolgen sein, die entweder eine gültige absolute URL oder eine gültige URL-Zeichenfolge definieren, die mit `/`, `./` oder `../` beginnt.
-        - Wenn ein Schlüssel mit `/` endet, dann muss der entsprechende Wert ebenfalls mit `/` enden. Ein Schlüssel mit nachfolgendem `/` kann als Präfix verwendet werden, wenn Moduleadressen gemappt (oder remappt) werden.
-        - Die Reihenfolge der Objekteigenschaften ist irrelevant: Wenn mehrere Schlüssel zum Modulspezifikator passen können, wird der spezifischste Schlüssel verwendet (mit anderen Worten, ein Spezifikator "olive/branch/" würde vor "olive/" passen).
+        - Wenn ein Schlüssel mit `/` endet, muss auch der zugehörige Wert mit `/` enden.
+          Ein Schlüssel mit abschließendem `/` kann bei der Zuordnung oder Neuzuordnung von Modul-Adressen als Präfix verwendet werden.
+        - Die Reihenfolge der Objekteigenschaften ist unerheblich: Wenn mehrere Schlüssel zum Modulbezeichner passen, wird der spezifischste Schlüssel verwendet (anders ausgedrückt: Ein Bezeichner „olive/branch/“ würde vor „olive/“ übereinstimmen).
 
 - `integrity` {{optional_inline}}
-  - : Definiert ein gültiges JSON-Objekt, bei dem die _Schlüssel_ Zeichenfolgen sind, die gültige absolute oder relative URLs (beginnend mit `/`, `./` oder `../`) enthalten, und die entsprechenden _Werte_ gültige [Integritätsmetadata](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) sind.
+  - : Definiert ein gültiges JSON-Objekt, dessen _Schlüssel_ Zeichenfolgen mit gültigen absoluten oder relativen URLs sind (beginnend mit `/`, `./` oder `../`) und dessen zugehörige _Werte_ gültige [Integritätsmetadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) sind.
 
-    Wenn die URL eines Skripts, das ein Modul importiert oder vorlädt, mit einem Schlüssel im `integrity`-Objekt übereinstimmt, werden die entsprechenden Integritätsmetadata auf die Fetch-Optionen des Skripts angewendet, es sei denn, sie haben bereits Integritätsmetadata angehängt.
+    Wenn die URL eines Skripts, das ein Modul importiert oder vorab lädt, mit einem Schlüssel im Objekt `integrity` übereinstimmt, werden die zugehörigen Integritätsmetadaten auf die Abrufoptionen des Skripts angewendet, sofern diesen nicht bereits Integritätsmetadaten zugeordnet sind.
 
 - `scopes` {{optional_inline}}
-  - : Bereiche definieren pfadspezifische [Modulspezifikatormaps](#module_specifier_map), die die Wahl der Map basierend auf dem Pfad des Moduls importierenden Codes ermöglichen.
+  - : Geltungsbereiche definieren pfadspezifische [Modulbezeichner-Maps](#module_specifier_map). Dadurch kann die Wahl der Map vom Pfad des Codes abhängen, der das Modul importiert.
 
-    Das Scopes-Objekt ist ein gültiges JSON-Objekt, bei dem jede Eigenschaft ein `<scope key>` ist, das ein URL-Pfad mit einem entsprechenden Wert ist, der eine `<module specifier map>` ist.
+    Das Geltungsbereichsobjekt ist ein gültiges JSON-Objekt, in dem jede Eigenschaft ein `<scope key>` ist – ein URL-Pfad mit einer `<module specifier map>` als zugehörigem Wert.
 
-    Wenn die URL eines Skripts, das ein Modul importiert, mit einem `<scope key>`-Pfad übereinstimmt, wird zunächst der mit dem Schlüssel assoziierte `<module specifier map>`-Wert auf übereinstimmende Spezifikatoren geprüft. Wenn mehrere übereinstimmende Bereichsschlüssel vorhanden sind, werden die Werte, die mit den spezifischsten/ganzheitlichsten Bereichspfaden assoziiert sind, zuerst auf übereinstimmende Modulspezifikatoren geprüft. Die Fallback-Modulspezifikatormap in `imports` wird verwendet, wenn es keine übereinstimmenden Modulspezifikatorschlüssel in einer der übereinstimmenden bereichsspezifischen Modulspezifikatormaps gibt.
+    Wenn die URL eines Skripts, das ein Modul importiert, mit dem Pfad eines `<scope key>` übereinstimmt, wird zuerst der zugehörige Wert `<module specifier map>` auf passende Bezeichner geprüft. Wenn mehrere Geltungsbereichsschlüssel übereinstimmen, werden zuerst die Werte der spezifischsten beziehungsweise am tiefsten verschachtelten Geltungsbereichspfade auf passende Modulbezeichner geprüft. Die Fallback-Modulbezeichner-Map in `imports` wird verwendet, wenn in keiner der passenden geltungsbereichsbezogenen Modulbezeichner-Maps ein passender Schlüssel vorhanden ist.
 
-    Beachten Sie, dass der Bereich nicht beeinflusst, wie eine Adresse aufgelöst wird; relative Adressen werden immer zur Basis-URL der Importmap aufgelöst.
+    Beachten Sie, dass der Geltungsbereich nicht ändert, wie eine Adresse aufgelöst wird: Relative Adressen werden immer relativ zur Basis-URL der Import Map aufgelöst.
 
 ## Spezifikationen
 
@@ -316,7 +317,7 @@ Das Importmap muss ein gültiges JSON-Objekt sein, das beliebige der optionalen 
 
 ## Siehe auch
 
-- [JavaScript-Module > Module mit Importmaps importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps)
-- [Das `type`-Attribut von HTML-`<script>`-Elementen](/de/docs/Web/HTML/Reference/Elements/script/type)
+- [JavaScript-Module > Module mithilfe von Import Maps importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps)
+- [Das Attribut `type` von HTML-`<script>`-Elementen](/de/docs/Web/HTML/Reference/Elements/script/type)
 - [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import)
 - [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import)

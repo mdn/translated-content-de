@@ -1,16 +1,16 @@
 ---
-title: "LanguageModel: promptStreaming() Methode"
+title: "LanguageModel: promptStreaming()-Methode"
 short-title: promptStreaming()
 slug: Web/API/LanguageModel/promptStreaming
 l10n:
-  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
 
-Die **`promptStreaming()`** Methode des [`LanguageModel`](/de/docs/Web/API/LanguageModel) Interfaces sendet Eingaben an das Sprachmodell und gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der die Antwort des Modells schrittweise liefert, während sie generiert wird.
+Die **`promptStreaming()`**-Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle sendet eine Eingabe an das Sprachmodell und gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der die Antwort des Modells schrittweise liefert, während sie generiert wird.
 
-Dies ist nützlich, um Antworten schrittweise an Benutzer anzuzeigen, insbesondere bei Ausgaben, die lange dauern, oder in jeder Situation, in der die wahrgenommene Latenz minimiert werden soll. Der Stream kann mit `for await...of` konsumiert werden oder indem man einen Leser über [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) anhängt.
+Dies ist nützlich, um Benutzern Antworten schrittweise anzuzeigen, deren Generierung lange dauert, oder wenn die wahrgenommene Wartezeit möglichst gering sein soll. Verarbeiten Sie den Stream mit `for await...of` oder binden Sie über [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) einen Reader ein.
 
 ## Syntax
 
@@ -22,91 +22,91 @@ promptStreaming(input, options)
 ### Parameter
 
 - `input`
-  - : Der Inhalt, mit dem das Modell aufgefordert wird. Dies ist entweder:
-    - Ein String — Kurzform für eine einzelne textuelle Nachricht.
-    - Ein Array von Objekten, wobei jedes Objekt eine einzelne Nachricht in einem Gespräch mit einem Sprachmodell repräsentiert.
-      Objekte können die folgenden Eigenschaften haben:
+  - : Der Inhalt, der dem Modell als Prompt übergeben wird. Dies ist entweder:
+    - Ein String – Kurzform für eine einzelne Textnachricht.
+    - Ein Array von Objekten, die jeweils eine einzelne Nachricht in einer Unterhaltung mit einem Sprachmodell darstellen.
+      Die Objekte können folgende Eigenschaften haben:
       - `role`
-        - : Ein String, der angibt, aus welcher Sicht die Nachricht formuliert ist. Muss eine der folgenden sein:
+        - : Ein String, der angibt, aus welcher Perspektive die Nachricht formuliert ist. Muss einer der folgenden Werte sein:
           - `system`
-            - : Eine systemweite Anweisung, die das gesamte Verhalten des Modells anleitet. Dies muss die erste Anweisung sein, die dem Modell übergeben wird.
+            - : Eine Anweisung auf Systemebene, die das allgemeine Verhalten des Modells steuert. Dies muss die erste Anweisung sein, die an das Modell übergeben wird.
           - `user`
-            - : Eine Nachricht vom Benutzer, auf die die API reagieren soll.
+            - : Eine Nachricht des Benutzers, auf die die API antworten soll.
           - `assistant`
-            - : Eine Eingabe, die Kontext für den KI-Assistenten bereitstellt, wie seine Persona oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext/Geschichte bereitzustellen und weiter zu definieren, wie das Modell reagiert.
+            - : Eine Eingabe, die dem KI-Assistenten Kontext gibt, etwa zu seiner Persona oder zum Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext oder Verlauf bereitzustellen und die Antworten des Modells weiter zu beeinflussen.
       - `content`
-        - : Ein String, der eine textbasierte Eingabe darstellt, oder ein Array von Objekten. Jedes Objekt enthält die folgenden Eigenschaften:
+        - : Ein String, der einen textuellen Prompt darstellt, oder ein Array von Objekten. Jedes Objekt enthält folgende Eigenschaften:
           - `type`
-            - : Ein enumerierter Wert, der den Content-Typ repräsentiert. Dies kann einer der folgenden sein:
+            - : Ein Aufzählungswert, der die Art des Inhalts angibt. Dies kann einer der folgenden Werte sein:
               - `audio`
-                - : Audio-Inhalt.
+                - : Audioinhalt.
               - `image`
-                - : Bild-Inhalt.
+                - : Bildinhalt.
               - `text`
-                - : Textueller Inhalt.
+                - : Textinhalt.
               - `tool-call`
-                - : Ein vom Modell ausgeführter Werkzeugaufruf.
+                - : Ein vom Modell ausgelöster Tool-Aufruf.
               - `tool-response`
-                - : Das Ergebnis eines Werkzeugaufrufs.
+                - : Das Ergebnis eines Tool-Aufrufs.
           - `value`
-            - : Der Inhalt der Nachricht. Wenn der `type` `text` ist, ist dies immer ein String. Wenn der `type` `audio` oder `image` ist, kann der `value` einer von mehreren verschiedenen Objekttypen sein; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
+            - : Der Inhalt der Nachricht. Wenn `type` den Wert `text` hat, ist dies immer ein String. Wenn `type` den Wert `audio` oder `image` hat, kann `value` einem von mehreren verschiedenen Objekttypen entsprechen; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
       - `prefix` {{optional_inline}}
-        - : Ein boolescher Wert, standardmäßig `false`. Wenn `true`, wird die Nachricht als Präfix für die nächste vom Modell generierte Antwort und nicht als vollständiger Zug behandelt.
+        - : Ein boolescher Wert, standardmäßig `false`. Bei `true` wird die Nachricht als Präfix für die nächste generierte Antwort des Modells behandelt statt als vollständiger Gesprächsbeitrag.
 - `options` {{optional_inline}}
-  - : Optionen zur Erstellung eines Prompts. Eigenschaften umfassen:
+  - : Optionen für die Erstellung eines Prompts. Zu den Eigenschaften gehören:
     - `responseConstraint`
-      - : Ein Objekt gemäß der Struktur, die von [JSON Schema](https://json-schema.org/) definiert wird und das genaue Format angibt, in dem die Ausgabe des Modells geliefert werden soll. Wenn bereitgestellt und `omitResponseConstraintInput` `false` ist, wird jede implementierungsspezifische Beschreibungsnachricht zur Messung hinzugefügt.
+      - : Ein Objekt gemäß der durch [JSON Schema](https://json-schema.org/) definierten Struktur, das das genaue Format der Modellausgabe festlegt. Wenn es angegeben ist und `omitResponseConstraintInput` den Wert `false` hat, wird jede implementierungsspezifische Nachricht zur Beschreibung der Formatvorgabe in die Messung einbezogen.
     - `omitResponseConstraintInput`
-      - : Ein boolescher Wert; Wenn `true`, wird die automatische Beschreibungsnachricht von der Messung ausgeschlossen.
+      - : Ein boolescher Wert; bei `true` wird die automatisch erzeugte Nachricht zur Beschreibung der Formatvorgabe von der Messung ausgeschlossen.
     - `signal`
       - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), um den Vorgang abzubrechen.
 
 ### Rückgabewert
 
-Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von {{jsxref("String")}}-Teilen. Jeder Teil repräsentiert ein Stück der Modellantwort, während sie generiert wird. Der Stream wird geschlossen, wenn die Generierung abgeschlossen ist.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus {{jsxref("String")}}-Fragmenten. Jedes Fragment stellt einen Teil der Antwort des Modells dar, während sie generiert wird. Der Stream wird geschlossen, wenn die Generierung abgeschlossen ist.
 
 ### Ausnahmen
 
-Fehler werden als Stream-Fehler und nicht als abgelehnte Promises angezeigt. Verbraucher sollten Fehler mit den Standard-Fehlerbehandlungsmechanismen eines Streams behandeln.
+Fehler werden als Stream-Fehler ausgegeben, nicht als abgelehnte Promises. Verarbeiten Sie Fehler mit den üblichen Fehlerbehandlungsmechanismen eines Streams.
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Vorgang über die `signal`-Option abgebrochen wurde.
+  - : Wird ausgelöst, wenn der Vorgang über die Option `signal` abgebrochen wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Verwendung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}} {{httpheader("Permissions-Policy")}} blockiert wird.
+  - : Wird ausgelöst, wenn die Verwendung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}}-{{httpheader("Permissions-Policy")}} blockiert wird.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die `role` einer Nachricht `assistant` ist und ihr `type` etwas anderes als `text` ist.
-    - Der `type` einer Nachricht `text` ist und ihr `value` kein String ist.
-    - Die Eingabe- oder Ausgabetexte in einer Sprache vorliegen, die der Benutzeragent für die Aufforderung nicht unterstützt.
-    - Der `type` einer Nachricht `image` oder `audio` ist, aber der Typ nicht in `expectedInputs` aufgelistet war oder der `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
+    - `role` einer Nachricht den Wert `assistant` hat und ihr `type` einen anderen Wert als `text` hat.
+    - `type` einer Nachricht den Wert `text` hat und ihr `value` kein String ist.
+    - Der Eingabe- oder Ausgabetext in einer Sprache verfasst ist, die der User Agent für Prompts nicht unterstützt.
+    - `type` einer Nachricht den Wert `image` oder `audio` hat, dieser Typ aber nicht in `expectedInputs` aufgeführt wurde oder `value` keinem [akzeptierten Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) entspricht.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Aufforderung aus einem anderen Grund fehlschlägt, der nicht unter den anderen Ausnahmetypen aufgeführt ist.
+  - : Wird ausgelöst, wenn der Prompt aus einem anderen Grund fehlschlägt, der nicht unter den übrigen Ausnahmetypen aufgeführt ist.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Aufforderung dazu führen würde, dass die Kontextnutzung der Sitzung das Modell [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) überschreitet.
+  - : Wird ausgelöst, wenn der Prompt dazu führen würde, dass die Kontextnutzung der Sitzung das [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) des Modells überschreitet.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Keine Nachrichten im Nachrichtenarray enthalten sind.
-    - Die `prefix`-Eigenschaft einer Nachricht auf `true` gesetzt ist und:
-      - Die `role` der Nachricht nicht `assistant` ist.
-      - Die Nachricht nicht das letzte Element im Nachrichtenarray ist.
-- `TypeError`
+    - Das Nachrichten-Array keine Nachrichten enthält.
+    - Die Eigenschaft `prefix` einer Nachricht auf `true` gesetzt ist und:
+      - `role` der Nachricht nicht `assistant` ist.
+      - Die Nachricht nicht das letzte Element im Nachrichten-Array ist.
+- {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - `omitResponseConstraintInput` `true` ist, aber `responseConstraint` nicht bereitgestellt wurde.
-    - Die `role` einer Nachricht `system` ist, aber nicht die erste Nachricht im Kontext war.
+    - `omitResponseConstraintInput` den Wert `true` hat, aber `responseConstraint` nicht angegeben wurde.
+    - `role` einer Nachricht den Wert `system` hat, sie aber nicht die erste Nachricht war, die an den Kontext übergeben wurde.
 
 ## Beschreibung
 
-Die `promptStreaming()`-Methode fügt das bereitgestellte Eingabematerial zum Kontextfenster hinzu und generiert eine Antwort. Die gesamte Antwort wird schrittweise als [`ReadableStream`](/de/docs/Web/API/ReadableStream) empfangen.
+Die `promptStreaming()`-Methode fügt die bereitgestellte Eingabe dem Kontextfenster hinzu und generiert eine Antwort. Die gesamte Antwort wird schrittweise als [`ReadableStream`](/de/docs/Web/API/ReadableStream) empfangen.
 
-Um die Antwort als einen vollständigen String zu erhalten, verwenden Sie stattdessen [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt). Um Inhalt zum Kontextfenster hinzuzufügen, ohne eine Antwort zu generieren, verwenden Sie [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append).
+Um die Antwort als einen vollständigen String zu erhalten, verwenden Sie stattdessen [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt). Um dem Kontextfenster Inhalt hinzuzufügen, ohne eine Antwort zu generieren, verwenden Sie [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append).
 
-Jeder Aufruf von `promptStreaming()` fügt der Sitzungskontext hinzu. Um von einem gegebenen Zustand aus abzweigen zu können, ohne die ursprüngliche Sitzung zu beeinflussen, verwenden Sie [`LanguageModel.clone()`](/de/docs/Web/API/LanguageModel/clone).
+Jeder Aufruf von `promptStreaming()` erweitert den Kontext der Sitzung. Um von einem bestimmten Zustand aus einen separaten Zweig zu erstellen, ohne die ursprüngliche Sitzung zu beeinflussen, rufen Sie [`LanguageModel.clone()`](/de/docs/Web/API/LanguageModel/clone) auf.
 
 ## Beispiele
 
-### Streaming einer Antwort zur Webseite
+### Eine Antwort schrittweise auf der Seite ausgeben
 
-Dieses Beispiel schreibt Teile eines `promptStreaming()`-Aufrufs aus einem [`ReadableStream`](/de/docs/Web/API/ReadableStream), sobald sie ankommen.
+Dieses Beispiel gibt Fragmente aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) eines `promptStreaming()`-Aufrufs aus, sobald sie eintreffen.
 
 ```js
 const session = await LanguageModel.create();
@@ -123,7 +123,7 @@ Siehe auch [Verwendung der Prompt API > Vollständiges Streaming-Beispiel](/de/d
 
 ### Streaming mit einem Abbruchsignal
 
-Dieses Beispiel zeigt, wie ein [`AbortController`](/de/docs/Web/API/AbortController) mit `promptStreaming()` verwendet wird.
+Dieses Beispiel zeigt, wie Sie einen [`AbortController`](/de/docs/Web/API/AbortController) mit `promptStreaming()` verwenden.
 
 ```js
 const controller = new AbortController();
@@ -146,9 +146,9 @@ try {
 }
 ```
 
-### Gesammelte gestreamte Teile in einen einzelnen String umwandeln
+### Gestreamte Fragmente zu einem einzelnen String zusammenfügen
 
-In diesem Beispiel werden Teile aus einem [`ReadableStream`](/de/docs/Web/API/ReadableStream) gesammelt, bevor der gesamte Stream geschrieben wird.
+In diesem Beispiel werden Fragmente aus einem [`ReadableStream`](/de/docs/Web/API/ReadableStream) gesammelt, bevor der gesamte Stream ausgegeben wird.
 
 ```js
 const session = await LanguageModel.create();
@@ -177,4 +177,4 @@ console.log(fullResponse);
 - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
 - [Prompt API](/de/docs/Web/API/Prompt_API)
 - [Verwendung der Prompt API](/de/docs/Web/API/Prompt_API/Using)
-- [Hinzufügen von Kontext mit anfänglichen und laufenden Prompt-Eingaben](/de/docs/Web/API/Prompt_API/Adding_context)
+- [Kontext durch anfängliche und nachfolgende Prompt-Eingaben hinzufügen](/de/docs/Web/API/Prompt_API/Adding_context)

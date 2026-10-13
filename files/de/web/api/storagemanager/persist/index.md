@@ -1,17 +1,17 @@
 ---
-title: "StorageManager: persist() Methode"
+title: "StorageManager: Methode persist()"
 short-title: persist()
 slug: Web/API/StorageManager/persist
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{securecontext_header}}{{APIRef("Storage")}}
 
-Die **`persist()`**-Methode der [`StorageManager`](/de/docs/Web/API/StorageManager)-Schnittstelle fordert die Erlaubnis an, persistenten Speicher zu verwenden, und gibt ein {{jsxref('Promise')}} zurück, das sich auf `true` auflöst, wenn die Erlaubnis erteilt und der Bucket-Modus persistent ist, und auf `false` sonst. Der Browser könnte die Anfrage je nach browser-spezifischen Regeln berücksichtigen oder nicht. (Für weitere Details siehe den Leitfaden zu [Speicherquoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#does_browser-stored_data_persist).)
+Die Methode **`persist()`** der [`StorageManager`](/de/docs/Web/API/StorageManager)-Schnittstelle fordert die Berechtigung zur Nutzung dauerhaften Speichers an und gibt ein {{jsxref('Promise')}} zurück, das zu `true` aufgelöst wird, wenn die Berechtigung erteilt wurde und der Bucket-Modus dauerhaft ist, andernfalls zu `false`. Ob der Browser der Anfrage entspricht, hängt von browserspezifischen Regeln ab. (Weitere Einzelheiten finden Sie im Leitfaden zu [Speicherkontingenten und Kriterien für die Datenentfernung](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#does_browser-stored_data_persist).)
 
 > [!NOTE]
-> Diese Methode ist nicht in [Web Workers](/de/docs/Web/API/Web_Workers_API) verfügbar, obwohl die [`StorageManager`](/de/docs/Web/API/StorageManager)-Schnittstelle es ist.
+> Diese Methode ist in [Web Workers](/de/docs/Web/API/Web_Workers_API) nicht verfügbar, die [`StorageManager`](/de/docs/Web/API/StorageManager)-Schnittstelle hingegen schon.
 
 ## Syntax
 
@@ -25,12 +25,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das sich auf einen {{jsxref('Boolean')}} auflöst.
+Ein {{jsxref('Promise')}}, das zu einem {{jsxref('Boolean')}} aufgelöst wird.
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn das Erhalten eines lokalen Speicherung-Regals fehlschlägt. Zum Beispiel, wenn der aktuelle Ursprung ein opaker Ursprung ist oder wenn der Benutzer den Speicher deaktiviert hat.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn kein lokaler Speicherbereich abgerufen werden konnte. Dies kann beispielsweise der Fall sein, wenn der aktuelle Ursprung ein opaker Ursprung ist oder der Benutzer die Speicherung deaktiviert hat.
 
 ## Beispiel
 

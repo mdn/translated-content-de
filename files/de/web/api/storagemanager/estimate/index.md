@@ -1,16 +1,16 @@
 ---
-title: "StorageManager: estimate() Methode"
+title: "StorageManager: Methode estimate()"
 short-title: estimate()
 slug: Web/API/StorageManager/estimate
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{securecontext_header}}{{APIRef("Storage")}} {{AvailableInWorkers}}
 
-Die **`estimate()`**-Methode des [`StorageManager`](/de/docs/Web/API/StorageManager)-Interfaces fragt den Storage Manager, wie viel Speicher der aktuelle {{Glossary("Same-origin_policy", "Origin")}} beansprucht (`usage`) und wie viel Speicherplatz verfügbar ist (`quota`).
+Die Methode **`estimate()`** des Interfaces [`StorageManager`](/de/docs/Web/API/StorageManager) fragt den Storage Manager, wie viel Speicherplatz der aktuelle {{Glossary("Same-origin_policy", "Origin")}} belegt (`usage`) und wie viel Speicherplatz verfügbar ist (`quota`).
 
-Diese Methode arbeitet asynchron und gibt daher ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Informationen verfügbar sind. Der Erfüllungs-Handler des Promises wird mit einem Objekt aufgerufen, das die Nutzungs- und Quotendaten enthält.
+Die Methode arbeitet asynchron und gibt daher ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Informationen verfügbar sind. Der Erfüllungshandler des Promise erhält ein Objekt mit den Daten zu Speicherbelegung und verfügbarem Speicherplatz.
 
 ## Syntax
 
@@ -24,32 +24,32 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das zu einem Objekt mit den folgenden Eigenschaften aufgelöst wird:
+Ein {{jsxref('Promise')}}, das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
 
 - `quota`
-  - : Ein numerischer Wert in Bytes, der eine konservative Schätzung des gesamten Speichers angibt, der auf dem Gerät oder Computer des Nutzers für den Site-Origin oder die Web-App verfügbar ist. Es ist möglich, dass mehr Speicher verfügbar ist, jedoch sollte man sich darauf nicht verlassen.
+  - : Ein numerischer Wert in Byte, der den gesamten Speicherplatz, der auf dem Gerät oder Computer des Benutzers für den Origin der Website oder Web-App verfügbar ist, vorsichtig schätzt. Möglicherweise ist mehr Speicherplatz verfügbar; darauf können Sie sich jedoch nicht verlassen.
 - `usage`
-  - : Ein numerischer Wert in Bytes, der die Menge des derzeit von der Site oder Web-App genutzten Speicherplatzes aus dem verfügbaren Speicher, wie durch `quota` angegeben, annähert. Einheit ist Byte.
+  - : Ein numerischer Wert in Byte, der schätzt, wie viel des durch `quota` angegebenen verfügbaren Speicherplatzes die Website oder Web-App derzeit belegt. Die Einheit ist Byte.
 - `usageDetails` {{Non-standard_Inline}}
-  - : Ein Objekt, das eine Aufschlüsselung der `usage` nach Speichersystemen enthält. Alle enthaltenen Eigenschaften haben eine `usage` größer als 0 und jedes Speichersystem mit 0 `usage` wird aus dem Objekt ausgeschlossen.
+  - : Ein Objekt, das `usage` nach Speichersystem aufschlüsselt. Alle enthaltenen Eigenschaften haben einen `usage`-Wert größer als 0. Speichersysteme mit einem `usage`-Wert von 0 sind nicht im Objekt enthalten.
 
 > [!NOTE]
 > Die zurückgegebenen Werte sind nicht exakt: Aufgrund von Komprimierung, Deduplizierung und Verschleierung aus Sicherheitsgründen sind sie ungenau.
 
-Es kann sein, dass das `quota` je nach Origin variiert. Diese Abweichung basiert auf Faktoren wie:
+Der Wert von `quota` kann sich von Origin zu Origin unterscheiden. Diese Unterschiede beruhen unter anderem auf folgenden Faktoren:
 
-- Wie häufig der Nutzer die Seite besucht
-- Öffentliche Popularitätsdaten der Seite
-- Nutzerengagement-Signale wie das Setzen eines Lesezeichens, das Hinzufügen zum Startbildschirm oder das Akzeptieren von Push-Benachrichtigungen
+- Wie häufig der Benutzer die Website besucht
+- Öffentliche Daten zur Beliebtheit der Website
+- Hinweise auf die Interaktion des Benutzers mit der Website, etwa das Setzen eines Lesezeichens, das Hinzufügen zum Startbildschirm oder das Akzeptieren von Push-Benachrichtigungen
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn das Erlangen eines Lokalspeicherregals fehlschlug. Zum Beispiel, wenn der aktuelle Origin ein undurchsichtiger Origin ist oder wenn der Nutzer den Speicher deaktiviert hat.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Zugriff auf den lokalen Speicherbereich fehlschlägt. Das kann beispielsweise der Fall sein, wenn der aktuelle Origin undurchsichtig ist oder der Benutzer die Speicherung deaktiviert hat.
 
 ## Beispiele
 
-In diesem Beispiel rufen wir die Speicherplatzschätzungen ab und präsentieren dem Nutzer den prozentualen Anteil der derzeit genutzten Speicherkapazität.
+In diesem Beispiel ermitteln wir die geschätzte Speicherbelegung und zeigen dem Benutzer an, wie viel Prozent des verfügbaren Speicherplatzes derzeit belegt sind.
 
 ### HTML
 
@@ -86,6 +86,6 @@ navigator.storage.estimate().then((estimate) => {
 ## Siehe auch
 
 - [Storage API](/de/docs/Web/API/Storage_API)
-- [`Storage`](/de/docs/Web/API/Storage), das Objekt, das von [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) zurückgegeben wird
+- [`Storage`](/de/docs/Web/API/Storage), das von [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) zurückgegebene Objekt
 - [`StorageManager`](/de/docs/Web/API/StorageManager)
 - [`navigator.storage`](/de/docs/Web/API/Navigator/storage)

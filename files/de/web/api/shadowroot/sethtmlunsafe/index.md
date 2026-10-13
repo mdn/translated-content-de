@@ -1,24 +1,24 @@
 ---
-title: "ShadowRoot: setHTMLUnsafe() Methode"
+title: "ShadowRoot: Methode setHTMLUnsafe()"
 short-title: setHTMLUnsafe()
 slug: Web/API/ShadowRoot/setHTMLUnsafe
 l10n:
-  sourceCommit: cda9415220ba812ba2ee24e0af1c8e8001ab9924
+  sourceCommit: 41a472e5bad6c6d2698d6e85c1172909cb102fa1
 ---
 
 {{APIRef("Shadow DOM")}}
 
 > [!WARNING]
-> Diese Methode analysiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
-> Solche APIs sind als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und könnten eine Quelle für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe darstellen, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> Diese Methode parst ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
+> APIs wie diese gelten als [Injektionssenken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können ein Angriffsweg für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) sein, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
-> Sie können dieses Risiko mindern, indem Sie stets `TrustedHTML`-Objekte anstelle von Zeichenfolgen übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
+> Sie können dieses Risiko verringern, indem Sie immer `TrustedHTML`-Objekte statt Zeichenfolgen übergeben und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](#sicherheitsaspekte).
 
 > [!NOTE]
-> [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) sollte fast immer anstelle dieser Methode verwendet werden - in den Browsern, die es unterstützen - da es immer XSS-unsichere HTML-Entitäten entfernt.
+> Sofern vom Browser unterstützt, sollte fast immer [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) statt dieser Methode verwendet werden, da sie stets XSS-unsichere HTML-Elemente und -Attribute entfernt.
 
-Die **`setHTMLUnsafe()`**-Methode der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle kann verwendet werden, um HTML-Eingaben in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen, optional unerwünschte Elemente und Attribute herauszufiltern, und dann die bestehende Struktur im Shadow DOM zu ersetzen.
+Die Methode **`setHTMLUnsafe()`** der Schnittstelle [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) kann HTML-Eingaben in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) parsen, dabei optional unerwünschte Elemente und Attribute herausfiltern und anschließend den bestehenden Baum im Shadow DOM durch das Ergebnis ersetzen.
 
 ## Syntax
 
@@ -30,15 +30,15 @@ setHTMLUnsafe(input, options)
 ### Parameter
 
 - `input`
-  - : Eine Instanz von [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) oder eine Zeichenkette, die das zu parsende HTML definiert.
+  - : Eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanz oder eine Zeichenfolge mit dem zu parsenden HTML.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
+  - : Ein Optionsobjekt mit dem folgenden optionalen Parameter:
     - `sanitizer` {{optional_inline}}
-      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer)- oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Objekt, das definiert, welche Elemente der Eingabe erlaubt oder entfernt werden.
-        Dies kann auch eine Zeichenkette mit dem Wert `"default"` sein, die einen `Sanitizer` mit der (XSS-sicheren) [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) anwendet.
-        Wenn nicht angegeben, wird kein Sanitizer verwendet.
+      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer)- oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Objekt, das festlegt, welche Elemente der Eingabe zugelassen oder entfernt werden.
+        Alternativ kann dies eine Zeichenfolge mit dem Wert `"default"` sein. Dadurch wird ein `Sanitizer` mit der (XSS-sicheren) [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) angewendet.
+        Wenn der Parameter nicht angegeben wird, wird kein Sanitizer verwendet.
 
-        Beachten Sie, dass es effizienter ist, einen `Sanitizer` zu verwenden, wenn Sie die gleiche Konfiguration mehrfach benötigen und ihn bei Bedarf zu ändern.
+        Wenn Sie dieselbe Konfiguration mehrfach verwenden, ist es voraussichtlich effizienter, einen `Sanitizer` zu verwenden und ihn bei Bedarf anzupassen.
 
 ### Rückgabewert
 
@@ -46,59 +46,59 @@ Keiner (`undefined`).
 
 ### Ausnahmen
 
-- `TypeError`
-  - : Wird ausgelöst, wenn:
-    - `input` eine Zeichenkette ist, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
-    - `options.sanitizer` übergeben wird als:
-      - [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die nicht [gültig](/de/docs/Web/API/SanitizerConfig#valid_configuration) ist.
-        Zum Beispiel eine Konfiguration, die sowohl "erlaubte" als auch "entfernte" Konfigurationseinstellungen enthält.
-      - Eine Zeichenkette, die nicht den Wert `"default"` hat.
-      - Ein Wert, der nicht ein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder eine Zeichenkette ist.
+- {{jsxref("TypeError")}}
+  - : Wird in folgenden Fällen ausgelöst:
+    - Für `input` wird eine Zeichenfolge übergeben, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+    - Für `options.sanitizer` wird Folgendes übergeben:
+      - Eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die nicht [gültig](/de/docs/Web/API/SanitizerConfig#valid_configuration) ist.
+        Ein Beispiel ist eine Konfiguration, die sowohl Einstellungen für zugelassene als auch für entfernte Elemente enthält.
+      - Eine Zeichenfolge mit einem anderen Wert als `"default"`.
+      - Ein Wert, der weder ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) noch eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder eine Zeichenfolge ist.
 
 ## Beschreibung
 
-Die **`setHTMLUnsafe()`**-Methode kann verwendet werden, um eine Zeichenkette von HTML zu parsen, optional unerwünschte Elemente und Attribute herauszufiltern, und sie zu verwenden, um das bestehende Shadow DOM zu ersetzen.
+Die Methode **`setHTMLUnsafe()`** kann eine HTML-Zeichenfolge parsen, dabei optional unerwünschte Elemente und Attribute herausfiltern und anschließend das bestehende Shadow DOM durch das Ergebnis ersetzen.
 
-Im Gegensatz zu [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) werden [deklariative Shadow-Roots](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) in der Eingabe in das DOM geparst.
-Wenn die HTML-Zeichenkette mehr als eine [deklariative Shadow-Root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) in einem bestimmten Shadow-Host definiert, wird nur die erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt - nachfolgende Deklarationen werden als `<template>`-Elemente innerhalb dieser Shadow-Root geparst.
+Anders als bei [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) werden [deklarative Shadow Roots](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) in der Eingabe in das DOM geparst.
+Wenn die HTML-Zeichenfolge für einen bestimmten Shadow-Host mehr als einen [deklarativen Shadow Root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) definiert, wird nur der erste [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) erstellt. Nachfolgende Deklarationen werden als `<template>`-Elemente innerhalb dieses Shadow Roots geparst.
 
-`setHTMLUnsafe()` führt standardmäßig keine Sanitierung durch.
-Wenn kein Sanitizer als Parameter übergeben wird, werden alle HTML-Entitäten in die Eingabe injiziert.
+`setHTMLUnsafe()` führt standardmäßig keine Bereinigung durch.
+Wenn kein Sanitizer als Parameter übergeben wird, werden sämtliche HTML-Elemente und -Attribute der Eingabe eingefügt.
 
-### Sicherheitsüberlegungen
+### Sicherheitsaspekte
 
-Das Suffix "Unsafe" im Methodennamen deutet darauf hin, dass es nicht die Entfernung aller XSS-unsicheren HTML-Entitäten erzwingt (im Gegensatz zu [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML)).
-Während es dies tun könnte, wenn es mit einem geeigneten Sanitizer verwendet wird, muss es keinen effektiven Sanitizer verwenden oder überhaupt einen Sanitizer!
-Die Methode ist daher eine mögliche Quelle für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, bei denen potenziell unsichere Zeichenketten, die von einem Benutzer bereitgestellt werden, in das DOM injiziert werden, ohne vorher gereinigt zu werden.
+Der Namenszusatz „Unsafe“ weist darauf hin, dass die Methode – anders als [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) – nicht die Entfernung aller XSS-unsicheren HTML-Elemente und -Attribute erzwingt.
+Mit einem geeigneten Sanitizer kann sie diese zwar entfernen, sie muss aber weder einen wirksamen Sanitizer noch überhaupt einen Sanitizer verwenden.
+Die Methode kann daher ein Angriffsweg für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) sein, wenn potenziell unsichere Zeichenfolgen von Benutzern ohne vorherige Bereinigung in das DOM eingefügt werden.
 
-Sie sollten dieses Risiko mindern, indem Sie stets [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Zeichenfolgen übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geht, die die Möglichkeit hat, die Eingabe zu [sanitizen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup (wie {{htmlelement("script")}}-Elemente und Event-Handler-Attribute) zu entfernen, bevor es injiziert wird.
+Sie sollten dieses Risiko verringern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte statt Zeichenfolgen übergeben und [Trusted Types](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) durchsetzen.
+So wird sichergestellt, dass die Eingabe eine Transformationsfunktion durchläuft, die sie vor dem Einfügen [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization) und potenziell gefährliches Markup entfernen kann, etwa {{htmlelement("script")}}-Elemente und Event-Handler-Attribute.
 
-Die Verwendung von `TrustedHTML` ermöglicht es, die Effektivität des Sanitierungscodes an nur wenigen Stellen zu überprüfen und zu auditieren, anstatt über alle Injection-Sinks verstreut zu sein.
-Sie sollten keinen Sanitizer an die Methode übergeben müssen, wenn Sie `TrustedHTML` verwenden.
+Durch die Verwendung von `TrustedHTML` können Sie an wenigen Stellen prüfen, ob der Bereinigungscode wirksam ist, statt dies bei allen Injektionssenken einzeln tun zu müssen.
+Wenn Sie `TrustedHTML` verwenden, sollten Sie der Methode keinen Sanitizer übergeben müssen.
 
-Wenn Sie `TrustedHTML` (oder noch besser, `setHTML()`) aus irgendeinem Grund nicht verwenden können, ist die nächst sicherere Option, `setHTMLUnsafe()` mit der XSS-sicheren [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) zu verwenden.
+Falls Sie aus irgendeinem Grund weder `TrustedHTML` noch – die bessere Wahl – `setHTML()` verwenden können, ist die nächstsicherste Option, `setHTMLUnsafe()` mit der XSS-sicheren [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) zu verwenden.
 
 ### Wann sollte `setHTMLUnsafe()` verwendet werden?
 
-`setHTMLUnsafe()` sollte fast nie verwendet werden, wenn [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) verfügbar ist, da es nur sehr wenige (wenn überhaupt) Fälle gibt, in denen benutzerbereitgestellte HTML-Eingaben XSS-unsichere Elemente enthalten müssten.
-Nicht nur ist `setHTML()` sicher, sondern es vermeidet auch die Notwendigkeit, sich mit vertrauenswürdigen Typen zu befassen.
+Wenn [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) verfügbar ist, sollte `setHTMLUnsafe()` fast nie verwendet werden: Es gibt kaum Fälle, in denen von Benutzern bereitgestellte HTML-Eingaben XSS-unsichere Elemente enthalten müssen.
+`setHTML()` ist nicht nur sicher, sondern erspart Ihnen auch die Auseinandersetzung mit Trusted Types.
 
-Die Verwendung von `setHTMLUnsafe()` könnte angemessen sein, wenn:
+Die Verwendung von `setHTMLUnsafe()` kann sinnvoll sein, wenn:
 
-- Sie `setHTML()` oder vertrauenswürdige Typen (aus welchen Gründen auch immer) nicht verwenden können und das sicherste mögliche Filtern wünschen.
-  In diesem Fall könnten Sie `setHTMLUnsafe()` mit der [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwenden, um XSS-unsichere und andere problematische Elemente zu filtern.
-- Sie `setHTML()` nicht verwenden können und die Eingabe deklariative Shadow-Roots enthalten könnte, sodass Sie [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) nicht verwenden können.
-- Sie einen Randfall haben, bei dem Sie HTML-Eingaben zulassen müssen, die eine bekannte Menge unsicherer HTML-Entitäten enthalten.
+- Sie weder `setHTML()` noch Trusted Types verwenden können und die Eingabe möglichst sicher filtern möchten.
+  In diesem Fall können Sie `setHTMLUnsafe()` mit der [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwenden, um XSS-unsichere und andere problematische Elemente herauszufiltern.
+- Sie `setHTML()` nicht verwenden können und die Eingabe deklarative Shadow Roots enthalten könnte, sodass auch [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) nicht infrage kommt.
+- Sie in einem Sonderfall HTML-Eingaben zulassen müssen, die eine bekannte Gruppe unsicherer HTML-Elemente und -Attribute enthalten.
 
-  Sie können in diesem Fall `setHTML()` nicht verwenden, da es alle unsicheren Entitäten entfernt.
-  Sie könnten `setHTMLUnsafe()` ohne einen Sanitizer oder `innerHTML` verwenden, aber das würde alle unsicheren Entitäten zulassen.
+  `setHTML()` können Sie in diesem Fall nicht verwenden, da es alle unsicheren Elemente und Attribute entfernt.
+  Sie könnten `setHTMLUnsafe()` ohne Sanitizer oder `innerHTML` verwenden, würden damit aber alle unsicheren Elemente und Attribute zulassen.
 
-  Eine bessere Option hier ist, `setHTMLUnsafe()` mit einem Sanitizer zu verwenden, der nur die gefährlichen Elemente und Attribute erlaubt, die wir tatsächlich benötigen.
-  Auch wenn dies immer noch unsicher ist, ist es sicherer, als sie alle zuzulassen.
+  Besser ist es, `setHTMLUnsafe()` mit einem Sanitizer aufzurufen, der nur die tatsächlich benötigten gefährlichen Elemente und Attribute zulässt.
+  Das bleibt zwar unsicher, ist aber sicherer, als alle zuzulassen.
 
-Für den letzten Punkt, betrachten Sie eine Situation, in der Ihr Code auf unsichere `onclick`-Handler angewiesen ist.
-Der folgende Code zeigt die Wirkung der unterschiedlichen Methoden und Sanitizer in diesem Fall.
+Betrachten Sie für den letzten Fall eine Situation, in der Ihr Code auf die Verwendung unsicherer `onclick`-Handler angewiesen ist.
+Der folgende Code zeigt, wie sich die verschiedenen Methoden und Sanitizer in diesem Fall auswirken.
 
 ```js
 const shadow = document.querySelector("#host").shadowRoot;
@@ -126,17 +126,17 @@ shadow.setHTMLUnsafe(input, { sanitizer: configLessSafe });
 
 ### setHTMLUnsafe() mit Trusted Types
 
-Um das Risiko von XSS zu mindern, werden wir zuerst ein `TrustedHTML`-Objekt aus der Zeichenkette erstellen, die das HTML enthält, und dann dieses Objekt an `setHTMLUnsafe()` übergeben.
-Da vertrauenswürdige Typen noch nicht in allen Browsern unterstützt werden, definieren wir den [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparenter Ersatz für die Trusted Types JavaScript API:
+Um das XSS-Risiko zu verringern, erstellen wir zunächst aus der HTML-Zeichenfolge ein `TrustedHTML`-Objekt und übergeben dieses dann an `setHTMLUnsafe()`.
+Da Trusted Types noch nicht von allen Browsern unterstützt werden, definieren wir den [Trusted-Types-Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Er dient als transparenter Ersatz für die Trusted Types JavaScript API:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) definiert, um eine Eingabezeichenkette in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen umzuwandeln.
-In der Regel verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu sanitisieren:
+Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML)-Methode definiert, um eine Eingabezeichenfolge in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen umzuwandeln.
+Implementierungen von `createHTML()` verwenden häufig eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu bereinigen:
 
 ```js
 const policy = trustedTypes.createPolicy("my-policy", {
@@ -144,7 +144,7 @@ const policy = trustedTypes.createPolicy("my-policy", {
 });
 ```
 
-Dann verwenden wir dieses `policy`-Objekt, um ein `TrustedHTML`-Objekt aus der potenziell unsicheren Eingabezeichenkette zu erstellen:
+Anschließend verwenden wir dieses `policy`-Objekt, um aus der potenziell unsicheren Eingabezeichenfolge ein `TrustedHTML`-Objekt zu erstellen:
 
 ```js
 // The potentially malicious string
@@ -153,9 +153,9 @@ const untrustedString = "abc <script>alert(1)<" + "/script> def";
 const trustedHTML = policy.createHTML(untrustedString);
 ```
 
-Jetzt, da wir `trustedHTML` haben, zeigt der unten stehende Code, wie Sie es mit `setHTMLUnsafe()` verwenden können.
-Zuerst erstellen wir die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), die wir anvisieren möchten.
-Diese könnte programmgesteuert mithilfe von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) erstellt werden, aber für dieses Beispiel erstellen wir die Root deklarativ.
+Nachdem wir `trustedHTML` erstellt haben, zeigt der folgende Code, wie Sie es mit `setHTMLUnsafe()` verwenden können.
+Zunächst erstellen wir den [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), den wir bearbeiten möchten.
+Er könnte programmgesteuert mit [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) erstellt werden; für dieses Beispiel erstellen wir ihn jedoch deklarativ.
 
 ```html
 <div id="host">
@@ -165,8 +165,8 @@ Diese könnte programmgesteuert mithilfe von [`Element.attachShadow()`](/de/docs
 </div>
 ```
 
-Dann holen wir uns einen Zugriff auf die Shadow-Root vom `#host`-Element und rufen `setHTMLUnsafe()` auf.
-Die Eingabe wurde durch die Transformationsfunktion geleitet, daher übergeben wir keinen Sanitizer an die Methode.
+Dann greifen wir über das Element `#host` auf den Shadow Root zu und rufen `setHTMLUnsafe()` auf.
+Die Eingabe hat die Transformationsfunktion bereits durchlaufen, daher übergeben wir der Methode keinen Sanitizer.
 
 ```js
 const shadow = document.querySelector("#host").shadowRoot;
@@ -174,11 +174,11 @@ const shadow = document.querySelector("#host").shadowRoot;
 shadow.setHTMLUnsafe(trustedHTML);
 ```
 
-### Verwendung von setHTMLUnsafe() ohne Trusted Types
+### setHTMLUnsafe() ohne Trusted Types verwenden
 
-Dieses Beispiel demonstriert den Fall, in dem wir keine vertrauenswürdigen Typen verwenden, daher werden wir Sanitizer-Argumente übergeben.
+Dieses Beispiel zeigt den Fall, dass wir keine Trusted Types verwenden und daher Sanitizer-Argumente übergeben.
 
-Der Code erstellt zunächst eine nicht vertrauenswürdige Zeichenkette und zeigt eine Reihe von Möglichkeiten, einen Sanitizer an die Methode zu übergeben.
+Der Code erstellt zunächst eine nicht vertrauenswürdige Zeichenfolge und zeigt verschiedene Möglichkeiten, der Methode einen Sanitizer zu übergeben.
 
 ```js
 // The potentially malicious string
@@ -201,20 +201,20 @@ shadow.setHTMLUnsafe(untrustedString, {
 });
 ```
 
-### `setHTMLUnsafe()` Live-Beispiel
+### Interaktives Beispiel für `setHTMLUnsafe()`
 
-Dieses Beispiel bietet eine "Live"-Demonstration der Methode, wenn sie mit unterschiedlichen Sanitizern aufgerufen wird.
-Der Code definiert Schaltflächen, auf die Sie klicken können, um eine Zeichenkette von HTML zu injizieren.
-Eine Schaltfläche injiziert das HTML ohne jegliche Sanitisierung, und die zweite verwendet einen benutzerdefinierten Sanitizer, der `<script>`-Elemente, aber keine anderen unsicheren Elemente zulässt.
-Die ursprüngliche Zeichenkette und das injizierte HTML werden protokolliert, damit Sie die Ergebnisse in jedem Fall inspizieren können.
+Dieses Beispiel zeigt eine interaktive Demonstration der Methode mit verschiedenen Sanitizern.
+Der Code definiert Schaltflächen, mit denen Sie eine HTML-Zeichenfolge einfügen können.
+Eine Schaltfläche fügt das HTML ohne jegliche Bereinigung ein. Die zweite verwendet einen benutzerdefinierten Sanitizer, der `<script>`-Elemente zulässt, andere unsichere Bestandteile jedoch nicht.
+Die ursprüngliche Zeichenfolge und das eingefügte HTML werden protokolliert, damit Sie die Ergebnisse in beiden Fällen prüfen können.
 
 > [!NOTE]
-> Da wir zeigen möchten, wie das Sanitizer-Argument verwendet wird, injiziert der folgende Code eine Zeichenkette statt eines vertrauenswürdigen Typs.
-> Dies sollten Sie in Produktionscode nicht tun.
+> Da wir zeigen möchten, wie das Sanitizer-Argument verwendet wird, fügt der folgende Code eine Zeichenfolge statt eines Trusted Type ein.
+> In Produktionscode sollten Sie dies nicht tun.
 
 #### HTML
 
-Der HTML-Code definiert zwei {{htmlelement("button")}}-Elemente, um das HTML ohne Sanitizer und mit einem benutzerdefinierten Sanitizer (jeweils) zu injizieren, eine weitere Schaltfläche, um das Beispiel zurückzusetzen, und ein {{htmlelement("div")}}, das die deklarative Shadow-Root enthält.
+Das HTML definiert zwei {{htmlelement("button")}}-Elemente, um das HTML ohne Sanitizer beziehungsweise mit einem benutzerdefinierten Sanitizer einzufügen, eine weitere Schaltfläche zum Zurücksetzen des Beispiels sowie ein {{htmlelement("div")}}, das den deklarativen Shadow Root enthält.
 
 ```html
 <button id="buttonNoSanitizer" type="button">None</button>
@@ -255,16 +255,16 @@ function log(text) {
 if ("Sanitizer" in window) {
 ```
 
-Zuerst definieren wir den Handler für die Neulade-Schaltfläche.
+Zunächst definieren wir den Handler für die Schaltfläche zum Neuladen.
 
 ```js
 const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => document.location.reload());
 ```
 
-Dann definieren wir die Eingabezeichenkette, die in die Shadow-Root injiziert werden soll, die in allen Fällen gleich sein wird.
-Diese enthält das {{htmlelement("script")}}-Element und den `onclick`-Handler, die beide als XSS-unsicher gelten.
-Wir erhalten auch die Variable `shadow`, die unser Zugriff auf die Shadow-Root ist.
+Dann definieren wir die Eingabezeichenfolge, die in den Shadow Root eingefügt werden soll und in allen Fällen gleich ist.
+Sie enthält das {{htmlelement("script")}}-Element und den `onclick`-Handler, die beide als XSS-unsicher gelten.
+Außerdem holen wir die Variable `shadow`, über die wir auf den Shadow Root zugreifen.
 
 ```js
 // Define unsafe string of HTML
@@ -281,8 +281,8 @@ const unsanitizedString = `
 const shadow = document.querySelector("#host").shadowRoot;
 ```
 
-Als nächstes definieren wir den Klick-Handler für die Schaltfläche, die die Shadow-Root mittels `setHTMLUnsafe()` ohne Angabe eines Sanitizers setzt.
-Da kein Sanitizer vorhanden ist, erwarten wir, dass das injizierte HTML mit der Eingabezeichenkette übereinstimmt.
+Als Nächstes definieren wir den Klick-Handler für die Schaltfläche, die den Shadow Root mit `setHTMLUnsafe()` setzt, ohne einen Sanitizer zu übergeben.
+Da kein Sanitizer verwendet wird, erwarten wir, dass das eingefügte HTML mit der Eingabezeichenfolge übereinstimmt.
 
 ```js
 const buttonNoSanitizer = document.querySelector("#buttonNoSanitizer");
@@ -297,7 +297,7 @@ buttonNoSanitizer.addEventListener("click", () => {
 });
 ```
 
-Der nächste Klick-Handler setzt die Ziel-HTML mit einem benutzerdefinierten Sanitizer, der nur {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}}-Elemente zulässt.
+Der nächste Klick-Handler setzt das Ziel-HTML mit einem benutzerdefinierten Sanitizer, der nur die Elemente {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}} zulässt.
 
 ```js
 const allowScriptButton = document.querySelector("#buttonAllowScript");
@@ -324,11 +324,11 @@ allowScriptButton.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Klicken Sie auf die Schaltflächen "None" und "allowScript", um die Effekte von keinem Sanitizer und einem benutzerdefinierten Sanitizer zu sehen.
+Klicken Sie auf die Schaltflächen „None“ und „allowScript“, um zu sehen, wie sich das Fehlen eines Sanitizers beziehungsweise ein benutzerdefinierter Sanitizer auswirkt.
 
-Wenn Sie auf die Schaltfläche "None" klicken, sollten Sie sehen, dass die Eingabe und Ausgabe übereinstimmen, da kein Sanitizer angewendet wird.
-Wenn Sie auf die Schaltfläche "allowScript" klicken, ist das `<script>`-Element noch vorhanden, aber das `<button>`-Element wird entfernt.
-Mit diesem Ansatz können Sie sicheres HTML erstellen, ohne dazu gezwungen zu sein.
+Wenn Sie auf „None“ klicken, sollten Eingabe und Ausgabe übereinstimmen, da kein Sanitizer angewendet wird.
+Wenn Sie auf „allowScript“ klicken, bleibt das `<script>`-Element erhalten, das `<button>`-Element wird jedoch entfernt.
+Mit diesem Ansatz können Sie sicheres HTML erzeugen, sind dazu aber nicht gezwungen.
 
 {{EmbedLiveSample("setHTMLUnsafe() live example","100","450px")}}
 
