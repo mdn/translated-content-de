@@ -1,14 +1,14 @@
 ---
-title: "CharacterData: remove() Methode"
+title: "CharacterData: Methode remove()"
 short-title: remove()
 slug: Web/API/CharacterData/remove
 l10n:
-  sourceCommit: 04abc9f51d485a5ad2c4c59bdd1511464d14e78f
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`remove()`**-Methode von [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt das Element von seinem Elternknoten. Wenn es keinen Elternknoten hat, bewirkt ein Aufruf von `remove()` nichts.
+Die Methode **`remove()`** der Schnittstelle [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt den `CharacterData`-Knoten aus seinem Elternknoten. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiel
 
-### Verwendung von `remove()`
+### `remove()` verwenden
 
 ```html
 <span>Result: </span>A long string.

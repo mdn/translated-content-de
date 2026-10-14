@@ -1,15 +1,14 @@
 ---
-title: "Element: remove() Methode"
+title: "Element: Methode remove()"
 short-title: remove()
 slug: Web/API/Element/remove
 l10n:
-  sourceCommit: 04abc9f51d485a5ad2c4c59bdd1511464d14e78f
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.remove()`** Methode entfernt das Element von seinem übergeordneten Knoten.
-Wenn es keinen übergeordneten Knoten hat, bewirkt der Aufruf von `remove()` nichts.
+Die Methode **`remove()`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) entfernt das Element aus seinem übergeordneten Knoten. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
@@ -42,7 +41,7 @@ element.remove(); // Removes the div with the 'div-02' id
 
 ### `Element.remove()` ist unscopable
 
-Die `remove()` Methode wird nicht in die `with` Anweisung einbezogen.
+Die Methode `remove()` wird nicht in den Gültigkeitsbereich einer `with`-Anweisung aufgenommen.
 Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js

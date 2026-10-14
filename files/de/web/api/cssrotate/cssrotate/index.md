@@ -3,14 +3,14 @@ title: "CSSRotate: CSSRotate()-Konstruktor"
 short-title: CSSRotate()
 slug: Web/API/CSSRotate/CSSRotate
 l10n:
-  sourceCommit: b9426971d8a2176ad015a0fd01df59ec79760898
+  sourceCommit: ca4b3f28ed0e1ae9817e84a2eab11c2184a0603b
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der Konstruktor **`CSSRotate()`** erstellt ein neues [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekt, das den Wert {{cssxref("transform-function/rotate", "rotate()")}} der individuellen {{cssxref("transform")}}-CSS-Eigenschaft darstellt.
+Der **`CSSRotate()`**-Konstruktor erstellt ein neues [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekt, das den {{cssxref("transform-function/rotate", "rotate()")}}-Wert der individuellen CSS-Eigenschaft {{cssxref("transform")}} repräsentiert.
 
-Dies kann entweder als 2D-Drehung um einen bestimmten Winkel oder als 3D-Drehung um einen Winkel entlang einer bestimmten Achse angegeben werden.
+Die Rotation kann entweder als 2D-Rotation um einen bestimmten Winkel oder als 3D-Rotation um eine bestimmte Achse angegeben werden.
 
 ## Syntax
 
@@ -22,28 +22,28 @@ new CSSRotate(x, y, z, angle)
 ### Parameter
 
 - [`angle`](/de/docs/Web/API/CSSRotate/angle)
-  - : Ein Wert für den Drehwinkel des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts.
-    Dieser muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+  - : Der Rotationswinkel des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts.
+    Der Wert muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
 - [`x`](/de/docs/Web/API/CSSRotate/x) {{optional_inline}}
-  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Wert, der die x-Koordinate des Drehachsenvektors des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts angibt.
-    Wird nur beim Erstellen einer 3D-Drehung verwendet und ist dafür erforderlich; die Form mit 2 Argumenten impliziert eine Drehachse von `(0, 0, 1)` (der z-Achse).
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Wert, der die x-Koordinate des Rotationsachsenvektors des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts angibt.
+    Wird nur beim Erstellen einer 3D-Rotation verwendet und ist dafür erforderlich; die Form mit zwei Argumenten setzt eine Rotationsachse von `(0, 0, 1)` (die z-Achse) voraus.
 - [`y`](/de/docs/Web/API/CSSRotate/y) {{optional_inline}}
-  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Wert, der die y-Koordinate des Drehachsenvektors des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts angibt.
-    Wird nur beim Erstellen einer 3D-Drehung verwendet und ist dafür erforderlich.
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Wert, der die y-Koordinate des Rotationsachsenvektors des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts angibt.
+    Wird nur beim Erstellen einer 3D-Rotation verwendet und ist dafür erforderlich.
 - [`z`](/de/docs/Web/API/CSSRotate/z) {{optional_inline}}
-  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Wert, der die z-Koordinate des Drehachsenvektors des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts angibt.
-    Wird nur beim Erstellen einer 3D-Drehung verwendet und ist dafür erforderlich.
+  - : Eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Wert, der die z-Koordinate des Rotationsachsenvektors des zu erstellenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts angibt.
+    Wird nur beim Erstellen einer 3D-Rotation verwendet und ist dafür erforderlich.
 
 ### Ausnahmen
 
-- [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Wird ausgelöst, wenn der Wert der Eigenschaft `angle` kein [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)-Wert ist oder `CSSRotate.x`, `CSSRotate.y`, `CSSRotate.z` keine [`<number>`](/de/docs/Web/CSS/Reference/Values/number)-Werte sind.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Wert der Eigenschaft `angle` kein [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)-Wert ist oder `CSSRotate.x`, `CSSRotate.y` oder `CSSRotate.z` keine [`<number>`](/de/docs/Web/CSS/Reference/Values/number)-Werte sind.
 
 ## Beispiele
 
-### Erstellen einer 2D-Drehung
+### Eine 2D-Rotation erstellen
 
-Die Form mit 2 Argumenten akzeptiert nur einen Winkel und impliziert eine Drehung um die z-Achse (entspricht `rotate3d(0, 0, 1, angle)`):
+Die Form mit zwei Argumenten verwendet nur einen Winkel und setzt eine Rotation um die z-Achse voraus (entspricht `rotate3d(0, 0, 1, angle)`):
 
 ```js
 const rotate2D = new CSSRotate(CSS.deg(45));
@@ -52,9 +52,9 @@ console.log(rotate2D.is2D); // true
 console.log(rotate2D.toString()); // "rotate(45deg)"
 ```
 
-### Erstellen einer 3D-Drehung
+### Eine 3D-Rotation erstellen
 
-Die Form mit 4 Argumenten akzeptiert die Koordinaten der Drehachse, gefolgt vom Winkel:
+Die Form mit vier Argumenten verwendet die Koordinaten der Rotationsachse, gefolgt vom Winkel:
 
 ```js
 const rotate3D = new CSSRotate(1, 1, 0, CSS.deg(45));
@@ -63,7 +63,7 @@ console.log(rotate3D.is2D); // false
 console.log(rotate3D.toString()); // "rotate3d(1, 1, 0,45deg)"
 ```
 
-### Umgang mit einem ungültigen Winkel
+### Einen ungültigen Winkel behandeln
 
 ```js
 try {

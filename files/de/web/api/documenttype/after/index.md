@@ -1,17 +1,14 @@
 ---
-title: "DocumentType: after() Methode"
+title: "DocumentType: after()-Methode"
 short-title: after()
 slug: Web/API/DocumentType/after
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.after()`**-Methode fügt eine Reihe von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des
-Elternteils des `DocumentType` ein, direkt nach dem `DocumentType`.
-Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die **`after()`**-Methode der [`DocumentType`](/de/docs/Web/API/DocumentType)-Schnittstelle fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Liste der Kindknoten des übergeordneten Knotens von `DocumentType` ein, unmittelbar nach `DocumentType`. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Ist [`parentNode`](/de/docs/Web/API/Node/parentNode) `null`, geschieht nichts.
 
 ## Syntax
 
@@ -38,8 +35,8 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-let docType = document.implementation.createDocumentType("html", "", "");
-let myDoc = document.implementation.createDocument("", "", docType);
+const docType = document.implementation.createDocumentType("html", "", "");
+const myDoc = document.implementation.createDocument("", "", docType);
 
 docType.after(document.createElement("html"));
 

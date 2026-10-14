@@ -1,14 +1,14 @@
 ---
-title: "CSSPerspective: CSSPerspective() Konstruktor"
+title: "CSSPerspective: CSSPerspective()-Konstruktor"
 short-title: CSSPerspective()
 slug: Web/API/CSSPerspective/CSSPerspective
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: ca4b3f28ed0e1ae9817e84a2eab11c2184a0603b
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSPerspective()`** Konstruktor erstellt ein neues [`CSSPerspective`](/de/docs/Web/API/CSSPerspective) Objekt, das den {{cssxref("transform-function/perspective", "perspective()")}} Wert der individuellen {{CSSXref('transform')}} Eigenschaft in CSS darstellt.
+Der **`CSSPerspective()`**-Konstruktor erstellt ein neues [`CSSPerspective`](/de/docs/Web/API/CSSPerspective)-Objekt, das den {{cssxref("transform-function/perspective", "perspective()")}}-Wert der einzelnen {{CSSXref('transform')}}-Eigenschaft in CSS darstellt.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ new CSSPerspective(length)
 ### Parameter
 
 - [`length`](/de/docs/Web/API/CSSPerspective/length)
-  - : Ein Wert für die Distanz von z=0 des zu konstruierenden [`CSSPerspective`](/de/docs/Web/API/CSSPerspective) Objekts.
-    Dies muss ein {{cssxref('length')}} sein.
+  - : Ein Wert für den Abstand des zu erstellenden [`CSSPerspective`](/de/docs/Web/API/CSSPerspective)-Objekts von z=0.
+    Dieser muss ein {{cssxref('length')}}-Wert sein.
 
 ### Ausnahmen
 
-- [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Wird ausgelöst, wenn der Wert von `CSSPerspective.length` existiert, aber kein {{cssxref('length')}} ist.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn ein Wert für `CSSPerspective.length` vorhanden ist, dieser aber kein {{cssxref('length')}}-Wert ist.
 
 ## Beispiele
 
-In Bearbeitung
+Noch zu ergänzen
 
 ## Spezifikationen
 

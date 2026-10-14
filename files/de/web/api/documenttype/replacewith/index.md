@@ -1,27 +1,27 @@
 ---
-title: "DocumentType: replaceWith() Methode"
+title: "DocumentType: Methode replaceWith()"
 short-title: replaceWith()
 slug: Web/API/DocumentType/replaceWith
 l10n:
-  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.replaceWith()`** Methode ersetzt den Dokumenttyp durch eine Gruppe gegebener Knoten.
+Die Methode **`replaceWith()`** der Schnittstelle [`DocumentType`](/de/docs/Web/API/DocumentType) ersetzt dieses `DocumentType` in der Liste der Kindknoten seines Elternknotens durch eine Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
 ```js-nolint
-replaceWith(node1)
-replaceWith(node1, node2)
-replaceWith(node1, node2, /* …, */ nodeN)
+replaceWith(param1)
+replaceWith(param1, param2)
+replaceWith(param1, param2, /* …, */ paramN)
 ```
 
 ### Parameter
 
-- `node1`, …, `nodeN`
-  - : Eine Gruppe von Knoten, durch die der [`DocumentType`](/de/docs/Web/API/DocumentType) ersetzt wird.
+- `param1`, …, `paramN`
+  - : Eine Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -34,10 +34,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung von `replaceWith()`
+### `replaceWith()` verwenden
 
 ```js
-let svgDt = document.implementation.createDocumentType(
+const svgDt = document.implementation.createDocumentType(
   "svg:svg",
   "-//W3C//DTD SVG 1.1//EN",
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd",

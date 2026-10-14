@@ -1,16 +1,14 @@
 ---
-title: "Element: Methode replaceWith()"
+title: "Element: replaceWith()-Methode"
 short-title: replaceWith()
 slug: Web/API/Element/replaceWith
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.replaceWith()`**-Methode ersetzt dieses
-`Element` in der Kindliste seines übergeordneten Elements durch eine Reihe von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die Methode **`replaceWith()`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) ersetzt dieses `Element` in der Liste der Kindknoten seines Elternknotens durch eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
@@ -23,7 +21,7 @@ replaceWith(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die ersetzt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -32,11 +30,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+  - : Wird ausgelöst, wenn der Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden kann.
 
 ## Beispiele
 
-### Verwendung von `replaceWith()`
+### `replaceWith()` verwenden
 
 ```js
 const div = document.createElement("div");
@@ -50,9 +48,9 @@ console.log(div.outerHTML);
 // "<div><span></span></div>"
 ```
 
-### `replaceWith()` ist unscopeable
+### `replaceWith()` ist unscopable
 
-Die `replaceWith()`-Methode ist nicht im `with`-Statement eingeschlossen. Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
+Die Methode `replaceWith()` wird innerhalb einer `with`-Anweisung nicht in deren Gültigkeitsbereich aufgenommen. Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js
 with (node) {

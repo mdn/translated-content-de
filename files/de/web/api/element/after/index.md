@@ -1,27 +1,27 @@
 ---
-title: "Element: after() Methode"
+title: "Element: after()-Methode"
 short-title: after()
 slug: Web/API/Element/after
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.after()`**-Methode fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternteils des `Element` ein, direkt nach dem `Element`. Zeichenfolgen werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die Methode **`after()`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Liste der Kindknoten des übergeordneten Knotens des `Element` ein, unmittelbar nach dem `Element`. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
 ```js-nolint
-after(node1)
-after(node1, node2)
-after(node1, node2, /* …, */ nodeN)
+after(param1)
+after(param1, param2)
+after(param1, param2, /* …, */ paramN)
 ```
 
 ### Parameter
 
-- `node1`, …, `nodeN`
-  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+- `param1`, …, `paramN`
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einfügen eines Elements
+### Ein Element einfügen
 
 ```js
 let container = document.createElement("div");
@@ -48,11 +48,11 @@ console.log(container.outerHTML);
 // "<div><p></p><span></span></div>"
 ```
 
-### Einfügen von Text
+### Text einfügen
 
 ```js
-let container = document.createElement("div");
-let p = document.createElement("p");
+const container = document.createElement("div");
+const p = document.createElement("p");
 container.appendChild(p);
 
 p.after("Text");
@@ -61,13 +61,13 @@ console.log(container.outerHTML);
 // "<div><p></p>Text</div>"
 ```
 
-### Einfügen eines Elements und von Text
+### Ein Element und Text einfügen
 
 ```js
-let container = document.createElement("div");
-let p = document.createElement("p");
+const container = document.createElement("div");
+const p = document.createElement("p");
 container.appendChild(p);
-let span = document.createElement("span");
+const span = document.createElement("span");
 
 p.after(span, "Text");
 

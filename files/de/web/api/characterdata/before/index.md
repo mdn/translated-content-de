@@ -1,27 +1,27 @@
 ---
-title: "CharacterData: before() Methode"
+title: "CharacterData: Methode before()"
 short-title: before()
 slug: Web/API/CharacterData/before
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`before()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten und Zeichenfolgen in die Kindliste des Elternteils der `CharacterData` just vor dem `CharacterData` Knoten ein.
-
-Zeichenfolgen werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenfolge wird als Argument an den [`Text()`](/de/docs/Web/API/Text/Text)-Konstruktor übergeben.
+Die Methode **`before()`** der Schnittstelle [`CharacterData`](/de/docs/Web/API/CharacterData) fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Liste der Kindknoten des Elternknotens dieses `CharacterData`-Knotens ein, unmittelbar vor diesem `CharacterData`-Knoten. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
 ```js-nolint
-before(...nodes)
+before(param1)
+before(param1, param2)
+before(param1, param2, /* …, */ paramN)
 ```
 
 ### Parameter
 
-- `nodes`
-  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+- `param1`, …, `paramN`
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -30,15 +30,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die neuen Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden können, d.h. wenn eine der folgenden Bedingungen erfüllt ist:
-    - Wenn das Einfügen eines der hinzugefügten Knoten zu einem Zyklus führen würde, d.h. wenn einer von ihnen ein Vorfahr dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten ist.
-    - Wenn einer der hinzugefügten Knoten kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), kein [`DocumentType`](/de/docs/Web/API/DocumentType), kein [`Element`](/de/docs/Web/API/Element) oder keine [`CharacterData`](/de/docs/Web/API/CharacterData) ist.
-    - Wenn dieser [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten tatsächlich ein [`Text`](/de/docs/Web/API/Text)-Knoten ist und dessen Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
-    - Wenn das Elternteil dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ein [`Document`](/de/docs/Web/API/Document) ist und einer der einzufügenden Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind ist oder ein [`Text`](/de/docs/Web/API/Text)-Kind hat.
+  - : Wird ausgelöst, wenn die neuen Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden können, das heißt, wenn eine der folgenden Bedingungen erfüllt ist:
+    - Das Einfügen eines der hinzuzufügenden Knoten würde zu einem Zyklus führen, das heißt, einer von ihnen ist ein Vorfahr dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens.
+    - Einer der hinzuzufügenden Knoten ist weder ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) noch ein [`DocumentType`](/de/docs/Web/API/DocumentType), ein [`Element`](/de/docs/Web/API/Element) oder ein [`CharacterData`](/de/docs/Web/API/CharacterData).
+    - Dieser [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten ist ein [`Text`](/de/docs/Web/API/Text)-Knoten und sein Elternknoten ist ein [`Document`](/de/docs/Web/API/Document).
+    - Der Elternknoten dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ist ein [`Document`](/de/docs/Web/API/Document), und einer der einzufügenden Knoten ist ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kindknoten oder mit einem [`Text`](/de/docs/Web/API/Text)-Kindknoten.
 
 ## Beispiele
 
-Die `before()`-Methode erlaubt es Ihnen, neue Knoten vor einem `CharacterData`-Knoten einzufügen, ohne die bisherigen Daten des Knotens zu ändern.
+Mit der Methode `before()` können Sie neue Knoten vor einem `CharacterData`-Knoten einfügen, ohne die Daten des bestehenden Knotens zu verändern.
 
 ```js
 const h1TextNode = document.querySelector("h1").firstChild;

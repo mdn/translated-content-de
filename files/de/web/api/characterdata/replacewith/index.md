@@ -1,30 +1,27 @@
 ---
-title: "CharacterData: replaceWith()-Methode"
+title: "CharacterData: Methode replaceWith()"
 short-title: replaceWith()
 slug: Web/API/CharacterData/replaceWith
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`replaceWith()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces ersetzt diesen Knoten in der Kinderliste seines Elternteils mit einer Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen.
-
-Zeichenfolgen werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenfolge wird als Argument an den [`Text()`](/de/docs/Web/API/Text/Text)-Konstruktor übergeben.
+Die Methode **`replaceWith()`** der Schnittstelle [`CharacterData`](/de/docs/Web/API/CharacterData) ersetzt dieses `CharacterData`-Objekt in der Liste der Kindelemente seines Elternknotens durch eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
 ```js-nolint
-replaceWith(...nodes)
+replaceWith(param1)
+replaceWith(param1, param2)
+replaceWith(param1, param2, /* …, */ paramN)
 ```
 
 ### Parameter
 
-- `nodes` {{optional_inline}}
-  - : Eine durch Kommas getrennte Liste von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die den aktuellen Knoten ersetzen werden.
-
-> [!NOTE]
-> Wenn keine Argumente übergeben werden, entfernt diese Methode den Knoten aus dem DOM-Baum.
+- `param1`, …, `paramN`
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -33,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+  - : Wird ausgelöst, wenn der Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden kann.
 
 ## Beispiele
 
@@ -42,8 +39,8 @@ Keiner ({{jsxref("undefined")}}).
 ```
 
 ```js
-let text = document.getElementById("myText").firstChild;
-let em = document.createElement("em");
+const text = document.getElementById("myText").firstChild;
+const em = document.createElement("em");
 em.textContent = "Italic text";
 
 text.replaceWith(em); // Replace `Some text` by `Italic text`

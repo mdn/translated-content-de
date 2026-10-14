@@ -1,14 +1,14 @@
 ---
-title: "DocumentType: remove() Methode"
+title: "DocumentType: remove()-Methode"
 short-title: remove()
 slug: Web/API/DocumentType/remove
 l10n:
-  sourceCommit: 04abc9f51d485a5ad2c4c59bdd1511464d14e78f
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.remove()`**-Methode entfernt den `doctype` eines Dokuments. Wenn er bereits vom Dokument getrennt ist, hat der Aufruf von `remove()` keine Wirkung.
+Die Methode **`remove()`** der Schnittstelle [`DocumentType`](/de/docs/Web/API/DocumentType) entfernt den `DocumentType`-Knoten aus seinem übergeordneten Knoten. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 

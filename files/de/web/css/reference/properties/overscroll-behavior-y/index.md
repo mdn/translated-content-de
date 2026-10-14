@@ -3,18 +3,19 @@ title: "`overscroll-behavior-y` CSS property"
 short-title: overscroll-behavior-y
 slug: Web/CSS/Reference/Properties/overscroll-behavior-y
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 151d527b2d48812d732cb4f3fdffa0737682e684
 ---
 
-Die **`overscroll-behavior-y`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt fest, wie sich der Browser verhält, wenn die vertikale Grenze eines Scrollbereichs erreicht wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`overscroll-behavior-y`** legt fest, wie sich der Browser verhält, wenn die vertikale Grenze eines Scrollbereichs erreicht wird.
 
-Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
+Eine ausführliche Erklärung finden Sie unter {{cssxref("overscroll-behavior")}}.
 
 ## Syntax
 
 ```css
 /* Keyword values */
 overscroll-behavior-y: auto; /* default */
+overscroll-behavior-y: chain;
 overscroll-behavior-y: contain;
 overscroll-behavior-y: none;
 
@@ -26,16 +27,18 @@ overscroll-behavior-y: revert-layer;
 overscroll-behavior-y: unset;
 ```
 
-Die `overscroll-behavior-y`-Eigenschaft wird als Schlüsselwort aus der untenstehenden Liste von Werten angegeben.
-
 ### Werte
 
+Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
+
 - `auto`
-  - : Das standardmäßige Überlaufverhalten beim Scrollen tritt wie gewohnt auf.
+  - : Erlaubt das Standardverhalten an einer Scrollgrenze. Das Scrollen kann in einem anderen Scrollcontainer fortgesetzt werden.
+- `chain`
+  - : Erlaubt, das Scrollen außerhalb des Scrollcontainers fortzusetzen, verhindert aber Overscroll-„Bounce“-Effekte.
 - `contain`
-  - : Das standardmäßige Überlaufverhalten beim Scrollen (z.B. "Bounce"-Effekte) tritt innerhalb des Elements auf, bei dem dieser Wert festgelegt ist. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll-Chaining")}} in benachbarten Scrollbereichen auf; die darunterliegenden Elemente werden nicht scrollen. Der `contain`-Wert deaktiviert die native Browsernavigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
+  - : Verhindert, dass das Scrollen außerhalb des Scrollcontainers fortgesetzt wird. „Bounce“-Effekte können weiterhin auftreten.
 - `none`
-  - : Es tritt kein Scroll-Chaining in benachbarten Scrollbereichen auf, und das standardmäßige Überlaufverhalten beim Scrollen wird verhindert.
+  - : Verhindert, dass das Scrollen außerhalb des Scrollcontainers fortgesetzt wird, und unterbindet außerdem Overscroll-„Bounce“-Effekte.
 
 ## Formale Definition
 
@@ -47,7 +50,13 @@ Die `overscroll-behavior-y`-Eigenschaft wird als Schlüsselwort aus der untenste
 
 ## Beispiele
 
-### Verhindern, dass ein darunterliegendes Element vertikal scrollt
+### Verhindern, dass ein darunterliegendes Element scrollt
+
+In unserem [Beispiel zu overscroll-behavior](https://mdn.github.io/css-examples/overscroll-behavior/) (siehe auch den [Quellcode](https://github.com/mdn/css-examples/tree/main/overscroll-behavior)) zeigen wir eine seitenfüllende Liste fiktiver Kontakte und ein Dialogfeld mit einem Chatfenster.
+
+![Ein Popup-Chatfenster mit dem Titel „Active chat“, das eine Unterhaltung zwischen Chris und Bob zeigt. Hinter dem Chatfenster befindet sich eine Kontaktliste mit dem Titel „overscroll-behavior demo“.](example.png)
+
+Beide Bereiche sind scrollbar. Wenn Sie normalerweise im Chatfenster bis zu einer Scrollgrenze scrollen, beginnt auch die darunterliegende Kontaktliste zu scrollen. Das ist nicht erwünscht. Sie können dies verhindern, indem Sie `overscroll-behavior-y` auf das Chatfenster anwenden (`overscroll-behavior` würde ebenfalls funktionieren):
 
 ```css
 .messages {
@@ -57,7 +66,14 @@ Die `overscroll-behavior-y`-Eigenschaft wird als Schlüsselwort aus der untenste
 }
 ```
 
-Siehe {{cssxref("overscroll-behavior")}} für ein vollständiges Beispiel und eine Erklärung.
+Außerdem wollten wir die üblichen Overscroll-Effekte unterbinden, die auftreten, wenn die Kontaktliste bis ganz nach oben oder unten gescrollt wird (beispielsweise lädt Chrome unter Android die Seite neu, wenn Sie über die obere Grenze hinaus scrollen). Dies lässt sich verhindern, indem Sie `overscroll-behavior-y: none` für das {{htmlelement("html")}}-Element festlegen:
+
+```css
+html {
+  margin: 0;
+  overscroll-behavior-y: none;
+}
+```
 
 ## Spezifikationen
 
@@ -73,4 +89,4 @@ Siehe {{cssxref("overscroll-behavior")}} für ein vollständiges Beispiel und ei
 - {{cssxref("overscroll-behavior-x")}}
 - {{cssxref("overscroll-behavior-inline")}}
 - {{cssxref("overscroll-behavior-block")}}
-- [CSS overscroll behavior](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul
+- Modul [CSS overscroll behavior](/de/docs/Web/CSS/Guides/Overscroll_behavior)

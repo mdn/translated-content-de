@@ -3,15 +3,12 @@ title: "Element: before()-Methode"
 short-title: before()
 slug: Web/API/Element/before
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 83abbf83add0cd101b13f747bf52da0ff4b51bf8
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.before()`**-Methode fügt eine Reihe von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des Elternteils dieses
-`Element` ein, direkt vor diesem `Element`.
-Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Die Methode **`before()`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) fügt eine Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Liste der Kindknoten des Elternelements dieses `Element` ein, unmittelbar vor diesem `Element`. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt. Wenn [`parentNode`](/de/docs/Web/API/Node/parentNode) `null` ist, geschieht nichts.
 
 ## Syntax
 
@@ -24,7 +21,7 @@ before(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Gruppe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -37,13 +34,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einfügen eines Elements
+### Ein Element einfügen
 
 ```js
-let container = document.createElement("div");
-let p = document.createElement("p");
+const container = document.createElement("div");
+const p = document.createElement("p");
 container.appendChild(p);
-let span = document.createElement("span");
+const span = document.createElement("span");
 
 p.before(span);
 
@@ -51,11 +48,11 @@ console.log(container.outerHTML);
 // "<div><span></span><p></p></div>"
 ```
 
-### Einfügen von Text
+### Text einfügen
 
 ```js
-let container = document.createElement("div");
-let p = document.createElement("p");
+const container = document.createElement("div");
+const p = document.createElement("p");
 container.appendChild(p);
 
 p.before("Text");
@@ -64,13 +61,13 @@ console.log(container.outerHTML);
 // "<div>Text<p></p></div>"
 ```
 
-### Einfügen eines Elements und von Text
+### Ein Element und Text einfügen
 
 ```js
-let container = document.createElement("div");
-let p = document.createElement("p");
+const container = document.createElement("div");
+const p = document.createElement("p");
 container.appendChild(p);
-let span = document.createElement("span");
+const span = document.createElement("span");
 
 p.before(span, "Text");
 
