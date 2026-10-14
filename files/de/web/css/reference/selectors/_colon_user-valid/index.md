@@ -3,22 +3,22 @@ title: "`:user-valid` CSS-Pseudoklasse"
 short-title: :user-valid
 slug: Web/CSS/Reference/Selectors/:user-valid
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Die **`:user-valid`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes validierte Formularelement dessen Wert basierend auf seinen [Validierungsbedingungen](/de/docs/Web/HTML/Guides/Constraint_validation) korrekt validiert. Im Gegensatz zu {{cssxref(":valid")}} wird sie jedoch erst dann übereinstimmend, wenn der Nutzer damit interagiert hat.
+Die **`:user-valid`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) erfasst jedes überprüfte Formularelement, dessen Wert die [Validierungsbedingungen](/de/docs/Web/HTML/Guides/Constraint_validation) erfüllt. Anders als {{cssxref(":valid")}} greift sie jedoch erst, nachdem der Benutzer mit dem Element interagiert hat.
 
-Diese Pseudoklasse wird angewendet, wenn das Formularfeld gültig ist und eines der folgenden Ereignisse eingetreten ist:
+Diese Pseudoklasse wird auf ein gültiges Formularsteuerelement angewendet, wenn mindestens eine der folgenden Bedingungen erfüllt ist:
 
-- Der Nutzer hat eine Änderung am Formularfeld vorgenommen und die Änderung durch Verschieben des Fokus an eine andere Stelle bestätigt.
-- Der Nutzer hat versucht, das Formular abzusenden, auch wenn keine Änderung am Feld vorgenommen wurde.
-- Der Wert war ungültig, als der Fokus erhalten wurde, und der Nutzer hat eine Änderung vorgenommen, die ihn gültig macht, selbst wenn der Fokus noch auf dem Feld liegt.
+- Der Benutzer hat das Formularsteuerelement geändert und die Änderung bestätigt, beispielsweise indem er den Fokus auf ein anderes Element verschoben hat.
+- Der Benutzer hat versucht, das Formular abzusenden, auch wenn er das Steuerelement nicht geändert hat.
+- Der Wert war ungültig, als das Steuerelement den Fokus erhielt, und der Benutzer hat ihn durch eine Änderung gültig gemacht, während das Steuerelement noch den Fokus hat.
 
-Sobald diese Pseudoklasse angewendet wurde, überprüft der User-Agent bei jedem Tastenanschlag, ob das Feld bei Fokus gültig ist.
+Sobald diese Pseudoklasse angewendet wurde, prüft der User-Agent bei jedem Tastendruck erneut, ob das Steuerelement gültig ist, solange es den Fokus hat.
 
-- Wenn das Feld den Fokus hat und der Wert beim Erlangen des Fokus ungültig war, erfolgt bei jedem Tastenanschlag eine erneute Validierung.
+- Wenn das Steuerelement den Fokus hat und sein Wert ungültig war, als es den Fokus erhielt, wird er bei jedem Tastendruck erneut überprüft.
 
-Das Ergebnis ist, dass, wenn das Feld gültig war, als der Nutzer zu interagieren begann, die Gültigkeitsstile nur dann geändert werden, wenn der Nutzer den Fokus auf ein anderes Feld verschiebt. Wenn der Nutzer jedoch versucht, einen zuvor markierten Wert zu korrigieren, zeigt das Feld sofort, wenn der Wert gültig wird. Erforderliche Elemente werden nur dann als ungültig gekennzeichnet, wenn der Nutzer sie ändert oder versucht, einen unveränderten, ungültigen Wert abzusenden.
+Das bedeutet: War das Steuerelement gültig, als der Benutzer mit ihm zu interagieren begann, ändert sich die Darstellung seines Gültigkeitszustands erst, wenn der Benutzer den Fokus auf ein anderes Steuerelement verschiebt. Versucht der Benutzer hingegen, einen zuvor als ungültig gekennzeichneten Wert zu korrigieren, zeigt das Steuerelement sofort an, wenn der Wert gültig wird. Erforderliche Angaben werden nur dann als ungültig gekennzeichnet, wenn der Benutzer sie ändert oder versucht, das Formular mit einem unveränderten ungültigen Wert abzusenden.
 
 ## Syntax
 
@@ -30,22 +30,14 @@ Das Ergebnis ist, dass, wenn das Feld gültig war, als der Nutzer zu interagiere
 
 ## Beispiele
 
-### Festlegen einer Farbe und eines Symbols auf :user-valid
+### Farbe und Symbol für :user-valid festlegen
 
-Im folgenden Beispiel werden der grüne Rahmen und ✅ erst angezeigt, wenn der Nutzer mit dem Feld interagiert hat.
-Versuchen Sie, die E-Mail-Adresse in eine andere gültige E-Mail zu ändern, um dies in Aktion zu sehen.
+Im folgenden Beispiel erscheinen der grüne Rahmen und das ✅ erst, nachdem der Benutzer mit dem Feld interagiert hat. Ändern Sie die E-Mail-Adresse in eine andere gültige E-Mail-Adresse, um dies zu sehen.
 
 ```html
-<form>
-  <label for="email">Email *: </label>
-  <input
-    id="email"
-    name="email"
-    type="email"
-    value="test@example.com"
-    required />
-  <span></span>
-</form>
+<label for="email">Email *: </label>
+<input id="email" name="email" type="email" value="test@example.com" required />
+<span></span>
 ```
 
 ```css

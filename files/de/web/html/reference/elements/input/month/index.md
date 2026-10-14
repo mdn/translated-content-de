@@ -3,10 +3,10 @@ title: HTML-Attributwert für `<input type="month">`
 short-title: <input type="month">
 slug: Web/HTML/Reference/Elements/input/month
 l10n:
-  sourceCommit: bcb7d4dde9f0a43664c64587d9d70b8835286eb7
+  sourceCommit: 46afd57950146568819d0bf98175a2ffdbe079d7
 ---
 
-{{HTMLElement("input")}}-Elemente vom Typ **`month`** erzeugen Eingabefelder, in die Benutzer einen Monat und ein Jahr eingeben können.
+{{HTMLElement("input")}}-Elemente des Typs **`month`** erzeugen Eingabefelder, in denen Benutzer einen Monat und ein Jahr eingeben können.
 Der Wert ist eine Zeichenfolge im Format `YYYY-MM`, wobei `YYYY` das vierstellige Jahr und `MM` die Monatszahl ist.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;month&quot;&gt;", "tabbed-shorter")}}
@@ -34,9 +34,9 @@ label {
 ## Wert
 
 Eine Zeichenfolge, die den in das Eingabefeld eingegebenen Monat und das Jahr im Format YYYY-MM darstellt: ein Jahr mit vier oder mehr Ziffern, ein Bindestrich (`-`) und ein zweistelliger Monat.
-Das Format der Monatszeichenfolge für diesen Eingabetyp wird unter [Monatszeichenfolgen](/de/docs/Web/HTML/Guides/Date_and_time_formats#month_strings) beschrieben.
+Das für diesen Eingabetyp verwendete Format ist unter [Zeichenfolgen für Monate](/de/docs/Web/HTML/Guides/Date_and_time_formats#month_strings) beschrieben.
 
-### Einen Standardwert festlegen
+### Standardwert festlegen
 
 Sie können einen Standardwert für das Eingabefeld festlegen, indem Sie im Attribut [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) einen Monat und ein Jahr angeben:
 
@@ -47,11 +47,11 @@ Sie können einen Standardwert für das Eingabefeld festlegen, indem Sie im Attr
 
 {{EmbedLiveSample('Setting_a_default_value', 600, 60)}}
 
-Beachten Sie, dass sich das angezeigte Datumsformat vom tatsächlichen `value` unterscheidet: Die meisten {{Glossary("user_agent", "User-Agents")}} zeigen Monat und Jahr entsprechend der eingestellten Sprache und Region des Betriebssystems an. Der Datumswert in `value` hat dagegen immer das Format `yyyy-MM`.
+Beachten Sie, dass sich das angezeigte Datumsformat vom tatsächlichen `value` unterscheidet: Die meisten {{Glossary("user_agent", "User Agents")}} zeigen Monat und Jahr entsprechend der Spracheinstellung des Betriebssystems an. Der Datumswert in `value` hat dagegen immer das Format `yyyy-MM`.
 
 Wenn der obige Wert an den Server gesendet wird, sieht er beispielsweise so aus: `bday-month=1978-06`.
 
-### Den Wert mit JavaScript festlegen
+### Wert mit JavaScript festlegen
 
 Sie können den Datumswert auch mit JavaScript über die Eigenschaft [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) auslesen und festlegen:
 
@@ -69,108 +69,104 @@ monthControl.value = "2001-06";
 
 ## Zusätzliche Attribute
 
-Neben den Attributen, die allen {{HTMLElement("input")}}-Elementen gemeinsam sind, stehen für `month`-Eingabefelder die folgenden Attribute zur Verfügung.
+Neben den Attributen, die allen {{HTMLElement("input")}}-Elementen gemeinsam sind, bieten Eingabefelder des Typs `month` die folgenden Attribute.
 
 ### list
 
 Der Wert des Attributs `list` ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements im selben Dokument.
-Das {{HTMLElement("datalist")}}-Element stellt eine Liste vordefinierter Werte bereit, die Benutzern für dieses Eingabefeld vorgeschlagen werden.
-Werte in der Liste, die nicht mit [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht als Optionen vorgeschlagen.
-Die bereitgestellten Werte sind Vorschläge, keine Vorgaben: Benutzer können einen Wert aus der Liste auswählen oder einen anderen Wert eingeben.
+Das {{HTMLElement("datalist")}} stellt eine Liste vordefinierter Werte bereit, die Benutzern für dieses Eingabefeld vorgeschlagen werden.
+Werte aus der Liste, die nicht mit [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, erscheinen nicht unter den Vorschlägen.
+Die Werte sind Vorschläge, keine Vorgaben: Benutzer können einen Wert aus der Liste auswählen oder einen anderen eingeben.
 
 ### max
 
-Der späteste zulässige Monat mit Jahr im Zeichenfolgenformat, das oben im Abschnitt [Wert](#wert) beschrieben wurde.
-Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) diesen Wert überschreitet, schlägt die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) für das Element fehl.
+Der späteste zulässige Monat mit Jahr im Zeichenfolgenformat, das oben im Abschnitt [Wert](#wert) beschrieben ist.
+Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) darüber liegt, schlägt die [Validierung anhand von Einschränkungen](/de/docs/Web/HTML/Guides/Constraint_validation) fehl.
 Wenn der Wert des Attributs `max` keine gültige Zeichenfolge im Format `yyyy-MM` ist, hat das Element keinen Höchstwert.
 
-Dieser Wert muss eine Kombination aus Jahr und Monat angeben, die nach oder gleich der durch das Attribut `min` festgelegten Kombination liegt.
+Dieser Wert muss einen Monat mit Jahr angeben, der nach oder auf dem durch das Attribut `min` angegebenen Monat liegt.
 
 ### min
 
 Der früheste zulässige Monat mit Jahr im oben beschriebenen Format `yyyy-MM`.
-Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements darunter liegt, schlägt die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) für das Element fehl.
-Wenn für `min` keine gültige Zeichenfolge aus Jahr und Monat angegeben wird, hat das Eingabefeld keinen Mindestwert.
+Wenn der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) des Elements darunter liegt, schlägt die [Validierung anhand von Einschränkungen](/de/docs/Web/HTML/Guides/Constraint_validation) fehl.
+Wenn für `min` keine gültige Zeichenfolge für Jahr und Monat angegeben ist, hat das Eingabefeld keinen Mindestwert.
 
-Dieser Wert muss eine Kombination aus Jahr und Monat sein, die vor oder gleich der durch das Attribut `max` festgelegten Kombination liegt.
+Dieser Wert muss einen Monat mit Jahr angeben, der vor oder auf dem durch das Attribut `max` angegebenen Monat liegt.
 
 ### readonly
 
-Ein boolesches Attribut, das festlegt, dass Benutzer dieses Feld nicht bearbeiten können.
-Sein `value` kann jedoch weiterhin durch JavaScript-Code geändert werden, der die Eigenschaft [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) direkt setzt.
+Ein boolesches Attribut, das bei Vorhandensein angibt, dass Benutzer dieses Feld nicht bearbeiten können.
+Der `value` kann jedoch weiterhin durch JavaScript-Code geändert werden, der die Eigenschaft [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) direkt setzt.
 
 > [!NOTE]
 > Da ein schreibgeschütztes Feld keinen erforderlichen Wert haben kann, hat `required` keine Wirkung auf Eingabefelder, für die auch das Attribut `readonly` angegeben ist.
 
 ### step
 
-Das Attribut `step` ist eine Zahl, die die Schrittweite angibt, an die sich der Wert halten muss, oder der unten beschriebene spezielle Wert `any`. Gültig sind nur Werte, die um eine ganzzahlige Anzahl von Schritten von der Schrittbasis entfernt sind. Die Schrittbasis ist [`min`](#min), falls angegeben, andernfalls [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) oder `0` (die Unix-Epoche, `1970-01`), wenn keines von beiden angegeben ist.
+Das Attribut `step` ist eine Zahl, die die Schrittweite festlegt, der der Wert entsprechen muss, oder der unten beschriebene spezielle Wert `any`. Gültig sind nur Werte, die eine ganze Anzahl von Schritten vom Ausgangswert entfernt sind. Der Ausgangswert ist [`min`](#min), falls angegeben, andernfalls [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) oder `0` (die Unix-Epoche, `1970-01`), wenn keines der beiden Attribute angegeben ist.
 
-Bei `month`-Eingabefeldern wird der Wert von `step` in Monaten angegeben. Der Standardwert von `step` ist 1, also ein Monat.
+Bei Eingabefeldern des Typs `month` wird `step` in Monaten angegeben. Der Standardwert von `step` ist 1, also ein Monat.
 
-Der Zeichenfolgenwert `any` bedeutet, dass keine Schrittweite vorgegeben ist und jeder Wert zulässig ist, sofern keine anderen Einschränkungen wie [`min`](#min) und [`max`](#max) gelten. Tatsächlich hat er bei `month`-Eingabefeldern dieselbe Wirkung wie `1`, da die Auswahloberfläche nur ganze Monate zulässt.
+Der Zeichenfolgenwert `any` bedeutet, dass keine Schrittweite vorgegeben ist und jeder Wert zulässig ist, sofern keine anderen Einschränkungen wie [`min`](#min) und [`max`](#max) gelten. Bei Eingabefeldern des Typs `month` hat er praktisch dieselbe Wirkung wie `1`, da die Auswahloberfläche nur ganze Monate zulässt.
 
 > [!NOTE]
-> Wenn die von Benutzern eingegebenen Daten nicht der festgelegten Schrittweite entsprechen, kann der {{Glossary("user_agent", "User-Agent")}} auf den nächstgelegenen gültigen Wert runden. Bei zwei gleich nahen Möglichkeiten werden dabei Werte in positiver Richtung bevorzugt.
+> Wenn die von Benutzern eingegebenen Daten nicht der festgelegten Schrittweite entsprechen, kann der {{Glossary("user_agent", "User Agent")}} auf den nächsten gültigen Wert runden. Sind zwei Werte gleich nah, wird dabei bevorzugt in positive Richtung gerundet.
 
-## `month`-Eingabefelder verwenden
+## Eingabefelder des Typs `month` verwenden
 
-Datumsbezogene Eingabefelder (einschließlich `month`) erscheinen auf den ersten Blick praktisch: Sie versprechen eine einfache Benutzeroberfläche zur Datumsauswahl und vereinheitlichen das Format der an den Server gesendeten Daten unabhängig von den Spracheinstellungen der Benutzer.
-Bei `<input type="month">` gibt es jedoch Probleme, da es derzeit von vielen wichtigen Browsern noch nicht unterstützt wird.
+Datumsbezogene Eingabefelder (einschließlich `month`) wirken zunächst praktisch: Sie versprechen eine einfache Benutzeroberfläche zur Datumsauswahl und vereinheitlichen das an den Server gesendete Datenformat unabhängig von der Spracheinstellung der Benutzer.
+Allerdings gibt es bei `<input type="month">` Probleme, da viele verbreitete Browser diesen Eingabetyp derzeit noch nicht unterstützen.
 
-Wir betrachten zunächst einfache und komplexere Einsatzmöglichkeiten von `<input type="month">` und geben anschließend im Abschnitt [Umgang mit der Browser-Unterstützung](#umgang_mit_der_browser-unterstützung) Hinweise dazu, wie sich die eingeschränkte Browser-Unterstützung abfedern lässt.
+Wir betrachten zunächst einfache und komplexere Anwendungen von `<input type="month">` und geben anschließend im Abschnitt [Browserunterstützung berücksichtigen](#browserunterstützung_berücksichtigen) Hinweise zum Umgang mit der eingeschränkten Browserunterstützung.
 
 ### Grundlegende Verwendung von `month`
 
-Die einfachste Verwendung von `<input type="month">` besteht aus einer Kombination von {{HTMLElement("input")}}- und {{htmlelement("label")}}-Elementen, wie unten gezeigt:
+Die einfachste Verwendung von `<input type="month">` besteht aus einer Kombination von {{HTMLElement("input")}}- und {{htmlelement("label")}}-Element, wie hier gezeigt:
 
 ```html
-<form>
-  <label for="bday-month">What month were you born in?</label>
-  <input id="bday-month" type="month" name="bday-month" />
-</form>
+<label for="bday-month">What month were you born in?</label>
+<input id="bday-month" type="month" name="bday-month" />
 ```
 
 {{EmbedLiveSample('Basic_uses_of_month', 600, 40)}}
 
-### Höchst- und Mindestdatum festlegen
+### Frühestes und spätestes Datum festlegen
 
 Mit den Attributen [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) können Sie den Datumsbereich einschränken, aus dem Benutzer wählen können.
 Im folgenden Beispiel legen wir `1900-01` als frühesten und `2013-12` als spätesten Monat fest:
 
 ```html
-<form>
-  <label for="bday-month">What month were you born in?</label>
-  <input
-    id="bday-month"
-    type="month"
-    name="bday-month"
-    min="1900-01"
-    max="2013-12" />
-</form>
+<label for="bday-month">What month were you born in?</label>
+<input
+  id="bday-month"
+  type="month"
+  name="bday-month"
+  min="1900-01"
+  max="2013-12" />
 ```
 
 {{EmbedLiveSample('Setting_maximum_and_minimum_dates', 600, 40)}}
 
-Das hat folgende Auswirkungen:
+Das Ergebnis ist:
 
 - Es können nur Monate zwischen Januar 1900 und Dezember 2013 ausgewählt werden; Monate außerhalb dieses Bereichs lassen sich im Steuerelement nicht durch Scrollen erreichen.
-- Je nach Browser sind Monate außerhalb des festgelegten Bereichs in der Monatsauswahl möglicherweise nicht auswählbar (z. B. in Edge) oder zwar ungültig (siehe [Validierung](#validierung)), aber weiterhin verfügbar (z. B. in Chrome).
+- Je nach Browser sind Monate außerhalb des angegebenen Bereichs in der Monatsauswahl möglicherweise nicht auswählbar (z. B. in Edge) oder zwar ungültig (siehe [Validierung](#validierung)), aber weiterhin verfügbar (z. B. in Chrome).
 
-### Die Größe des Eingabefelds steuern
+### Größe des Eingabefelds steuern
 
-`<input type="month">` unterstützt keine Attribute zur Größenfestlegung für Formularelemente wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size).
-Um die Größe festzulegen, müssen Sie [CSS](/de/docs/Web/CSS) verwenden.
+`<input type="month">` unterstützt keine Attribute zur Größenfestlegung von Formularfeldern wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size).
+Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS), um die Größe festzulegen.
 
 ## Validierung
 
 Standardmäßig validiert `<input type="month">` eingegebene Werte nicht.
-Die Benutzeroberflächen lassen in der Regel keine Eingaben zu, die kein Datum sind – was hilfreich ist. Dennoch kann ein Formular mit leerem `month`-Eingabefeld abgesendet oder ein ungültiges Datum (z. B. der 32. April) eingegeben werden.
+Die Benutzeroberflächen verhindern in der Regel die Eingabe von Werten, die kein Datum sind. Das ist hilfreich, aber Sie können das Formular dennoch mit einem leeren `month`-Eingabefeld absenden oder ein ungültiges Datum eingeben (z. B. den 32. April).
 
-Um dies zu vermeiden, können Sie mit [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) die verfügbaren Datumsangaben einschränken (siehe [Höchst- und Mindestdatum festlegen](#höchst-_und_mindestdatum_festlegen)). Zusätzlich können Sie mit dem Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) eine Datumseingabe verpflichtend machen.
-Browser, die dies unterstützen, zeigen dann einen Fehler an, wenn versucht wird, ein Datum außerhalb der festgelegten Grenzen oder ein leeres Datumsfeld abzusenden.
+Um dies zu vermeiden, können Sie mit [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) die verfügbaren Daten einschränken (siehe [Frühestes und spätestes Datum festlegen](#frühestes_und_spätestes_datum_festlegen)). Zusätzlich können Sie mit dem Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) die Eingabe eines Datums verpflichtend machen.
+Browser, die diese Funktionen unterstützen, zeigen dann einen Fehler an, wenn Sie versuchen, ein Datum außerhalb des festgelegten Bereichs oder ein leeres Datumsfeld abzusenden.
 
-Sehen wir uns ein Beispiel an: Hier haben wir Mindest- und Höchstwerte festgelegt und das Feld außerdem als erforderlich markiert:
+Sehen wir uns ein Beispiel an: Hier haben wir ein frühestes und ein spätestes Datum festgelegt und das Feld als erforderlich markiert.
 
 ```html
 <form>
@@ -193,14 +189,20 @@ Sehen wir uns ein Beispiel an: Hier haben wir Mindest- und Höchstwerte festgele
 </form>
 ```
 
-Wenn Sie versuchen, das Formular abzusenden, ohne Monat und Jahr anzugeben (oder mit einem Datum außerhalb der festgelegten Grenzen), zeigt der Browser einen Fehler an.
+```js hidden
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+```
+
+Wenn Sie versuchen, das Formular ohne Angabe von Monat und Jahr oder mit einem Datum außerhalb des festgelegten Bereichs abzusenden, zeigt der Browser einen Fehler an.
 Probieren Sie das Beispiel aus:
 
 {{ EmbedLiveSample('Validation', 600, 120) }}
 
-Hier ist das CSS aus dem obigen Beispiel.
-Wir verwenden die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}}, um das Eingabefeld abhängig davon zu gestalten, ob der aktuelle Wert gültig ist.
-Die Symbole mussten wir auf einem {{htmlelement("span")}}-Element neben dem Eingabefeld platzieren, statt auf dem Eingabefeld selbst: In Chrome wird generierter Inhalt innerhalb des Formularsteuerelements platziert und kann dort nicht sinnvoll gestaltet oder angezeigt werden.
+Hier ist das im obigen Beispiel verwendete CSS.
+Mit den CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} gestalten wir das Eingabefeld abhängig davon, ob sein aktueller Wert gültig ist.
+Die Symbole mussten wir in einem {{htmlelement("span")}} neben dem Eingabefeld platzieren statt im Eingabefeld selbst: In Chrome wird generierter Inhalt innerhalb des Formularsteuerelements platziert und kann dort nicht wirksam gestaltet oder angezeigt werden.
 
 ```css
 div {
@@ -230,21 +232,21 @@ input:valid + span::after {
 ```
 
 > [!WARNING]
-> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass eingegebene Daten das richtige Format haben.
-> HTML lässt sich leicht so verändern, dass die Validierung umgangen oder vollständig entfernt wird.
+> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten das richtige Format haben.
+> HTML lässt sich leicht so ändern, dass die Validierung umgangen oder vollständig entfernt wird.
 > Es ist auch möglich, das HTML vollständig zu umgehen und Daten direkt an Ihren Server zu senden.
 > Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, können falsch formatierte Daten (oder zu große Daten, Daten des falschen Typs usw.) schwerwiegende Probleme verursachen.
 
-## Umgang mit der Browser-Unterstützung
+## Browserunterstützung berücksichtigen
 
-Die Benutzeroberfläche des Steuerelements unterscheidet sich generell von Browser zu Browser. Derzeit ist die Unterstützung lückenhaft: Nur Chromium-Browser auf Desktopgeräten und mobile Browser bieten brauchbare Implementierungen. Das Steuerelement wird meist als kalenderähnliches Raster oder als zwei Auswahlräder dargestellt.
+Die Benutzeroberfläche des Steuerelements unterscheidet sich von Browser zu Browser. Derzeit ist die Unterstützung lückenhaft: Nur Chromium-Browser auf Desktopgeräten und mobile Browser bieten nutzbare Implementierungen. Das Steuerelement erscheint normalerweise entweder als kalenderähnliches Raster oder als zwei Auswahlräder.
 
-In Browsern, die `month`-Eingabefelder nicht unterstützen, wird stattdessen [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) verwendet. Dabei kann der eingegebene Text möglicherweise automatisch daraufhin validiert werden, ob er das erwartete Format hat. Dennoch entstehen Probleme sowohl für die Einheitlichkeit der Benutzeroberfläche (da ein anderes Steuerelement angezeigt wird) als auch für die Verarbeitung der Daten.
+In Browsern, die Eingabefelder des Typs `month` nicht unterstützen, wird stattdessen [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) verwendet. Der eingegebene Text wird dabei möglicherweise automatisch darauf geprüft, ob er das erwartete Format hat. Das verursacht jedoch Probleme sowohl bei der Einheitlichkeit der Benutzeroberfläche (das angezeigte Steuerelement ist anders) als auch bei der Verarbeitung der Daten.
 
 Das zweite Problem ist das schwerwiegendere.
-Wie bereits erwähnt, wird der tatsächliche Wert eines `month`-Eingabefelds immer auf das Format `yyyy-mm` normalisiert.
-Ein `text`-Eingabefeld weiß in seiner Standardkonfiguration dagegen nicht, welches Datumsformat erwartet wird. Das ist problematisch, weil Datumsangaben auf viele verschiedene Arten geschrieben werden.
-Beispiele:
+Wie bereits erwähnt, wird der tatsächliche Wert eines `month`-Eingabefelds immer auf das Format `yyyy-mm` vereinheitlicht.
+Ein `text`-Eingabefeld weiß in seiner Standardkonfiguration hingegen nicht, welches Datumsformat erwartet wird. Das ist problematisch, weil Menschen Datumsangaben auf viele unterschiedliche Arten schreiben.
+Zum Beispiel:
 
 - `mmyyyy` (072022)
 - `mm/yyyy` (07/2022)
@@ -253,9 +255,9 @@ Beispiele:
 - `Month yyyy` (July 2022)
 - und so weiter …
 
-Eine Möglichkeit, dies zu umgehen, besteht darin, dem `month`-Eingabefeld ein Attribut [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) hinzuzufügen.
-Das `month`-Eingabefeld selbst verwendet es zwar nicht. Wenn der Browser jedoch auf ein `text`-Eingabefeld zurückgreift, wird das Muster verwendet.
-Öffnen Sie beispielsweise die folgende Demo in einem Browser, der `month`-Eingabefelder nicht unterstützt:
+Eine Möglichkeit, dieses Problem zu umgehen, ist ein [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut für Ihr `month`-Eingabefeld.
+Das `month`-Eingabefeld selbst verwendet es zwar nicht; wenn der Browser jedoch auf ein `text`-Eingabefeld zurückfällt, wird das Muster verwendet.
+Sehen Sie sich beispielsweise die folgende Demo in einem Browser an, der Eingabefelder des Typs `month` nicht unterstützt:
 
 ```html
 <form>
@@ -279,13 +281,19 @@ Das `month`-Eingabefeld selbst verwendet es zwar nicht. Wenn der Browser jedoch 
 </form>
 ```
 
+```js hidden
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+```
+
 {{ EmbedLiveSample('Handling_browser_support', 600, 100) }}
 
-Wenn Sie versuchen, das Formular abzusenden, sehen Sie, dass der Browser nun eine Fehlermeldung anzeigt (und das Eingabefeld als ungültig kennzeichnet), falls Ihre Eingabe nicht dem Muster `nnnn-nn` entspricht, wobei `n` eine Ziffer von 0 bis 9 ist.
-Natürlich hindert das niemanden daran, ungültige Datumsangaben (wie `0000-42`) oder Datumsangaben einzugeben, die zwar dem Muster entsprechen, aber falsch formatiert sind.
+Wenn Sie versuchen, das Formular abzusenden, zeigt der Browser nun eine Fehlermeldung an und markiert das Eingabefeld als ungültig, falls Ihre Eingabe nicht dem Muster `nnnn-nn` entspricht. Dabei steht `n` für eine Ziffer von 0 bis 9.
+Das hindert Benutzer allerdings nicht daran, ungültige Datumsangaben (wie `0000-42`) oder Angaben mit falschem Format einzugeben, die dem Muster entsprechen.
 
 Hinzu kommt, dass Benutzer nicht unbedingt wissen, welches der vielen Datumsformate erwartet wird.
-Hier ist also noch weitere Arbeit nötig.
+Es bleibt also noch etwas zu tun.
 
 ```css hidden
 div {
@@ -314,60 +322,58 @@ input:valid + span::after {
 }
 ```
 
-Die beste browserübergreifende Lösung für Datumsangaben in Formularen besteht darin, Monat und Jahr in getrennten Steuerelementen eingeben zu lassen (häufig werden dafür {{htmlelement("select")}}-Elemente verwendet; eine Implementierung finden Sie unten) oder JavaScript-Bibliotheken wie das Plugin [jQuery date picker](https://jqueryui.com/datepicker/) zu verwenden – zumindest so lange, bis alle wichtigen Browser diese Eingabefelder seit einiger Zeit unterstützen.
+Die beste browserübergreifende Lösung für Datumsangaben in Formularen besteht darin, Monat und Jahr in getrennten Steuerelementen eingeben zu lassen (häufig werden dafür {{htmlelement("select")}}-Elemente verwendet; eine Umsetzung finden Sie unten) oder JavaScript-Bibliotheken wie das [jQuery-Datepicker-Plugin](https://jqueryui.com/datepicker/) zu verwenden. Das gilt zumindest, bis alle wichtigen Browser Datumsfelder schon seit einiger Zeit unterstützen.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir zwei Gruppen von Benutzeroberflächenelementen, mit denen Benutzer jeweils einen Monat und ein Jahr auswählen können.
-Die erste verwendet ein natives `month`-Eingabefeld. Die zweite besteht aus zwei {{HTMLElement("select")}}-Elementen, mit denen Monat und Jahr unabhängig voneinander ausgewählt werden können. Sie dient der Kompatibilität mit Browsern, die `<input type="month">` noch nicht unterstützen.
+In diesem Beispiel erstellen wir zwei Gruppen von Oberflächenelementen, mit denen Benutzer jeweils einen Monat und ein Jahr auswählen können.
+Die erste besteht aus einem nativen `month`-Eingabefeld, die zweite aus zwei {{HTMLElement("select")}}-Elementen, mit denen Monat und Jahr unabhängig voneinander ausgewählt werden können. So bleibt die Funktion auch mit Browsern kompatibel, die `<input type="month">` noch nicht unterstützen.
 
 {{EmbedLiveSample('Examples', 600, 140)}}
 
 ### HTML
 
-Das Formular zur Abfrage von Monat und Jahr sieht so aus:
+Das HTML für die Abfrage von Monat und Jahr sieht so aus:
 
 ```html
-<form>
-  <div class="nativeDatePicker">
-    <label for="month-visit">What month would you like to visit us?</label>
-    <input type="month" id="month-visit" name="month-visit" />
-    <span class="validity"></span>
+<div class="nativeDatePicker">
+  <label for="month-visit">What month would you like to visit us?</label>
+  <input type="month" id="month-visit" name="month-visit" />
+  <span class="validity"></span>
+</div>
+<p class="fallbackLabel">What month would you like to visit us?</p>
+<div class="fallbackDatePicker">
+  <div>
+    <span>
+      <label for="month">Month:</label>
+      <select id="month" name="month">
+        <option selected>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+    </span>
+    <span>
+      <label for="year">Year:</label>
+      <select id="year" name="year"></select>
+    </span>
   </div>
-  <p class="fallbackLabel">What month would you like to visit us?</p>
-  <div class="fallbackDatePicker">
-    <div>
-      <span>
-        <label for="month">Month:</label>
-        <select id="month" name="month">
-          <option selected>January</option>
-          <option>February</option>
-          <option>March</option>
-          <option>April</option>
-          <option>May</option>
-          <option>June</option>
-          <option>July</option>
-          <option>August</option>
-          <option>September</option>
-          <option>October</option>
-          <option>November</option>
-          <option>December</option>
-        </select>
-      </span>
-      <span>
-        <label for="year">Year:</label>
-        <select id="year" name="year"></select>
-      </span>
-    </div>
-  </div>
-</form>
+</div>
 ```
 
-Das {{HTMLElement("div")}}-Element mit der ID `nativeDatePicker` verwendet den Eingabetyp `month`, um Monat und Jahr abzufragen. Das `<div>`-Element mit der ID `fallbackDatePicker` verwendet stattdessen zwei `<select>`-Elemente.
-Mit dem ersten wird der Monat, mit dem zweiten das Jahr ausgewählt.
+Das {{HTMLElement("div")}} mit der ID `nativeDatePicker` verwendet den Eingabetyp `month`, um Monat und Jahr abzufragen. Das `<div>` mit der ID `fallbackDatePicker` verwendet stattdessen zwei `<select>`-Elemente.
+Das erste fragt den Monat ab, das zweite das Jahr.
 
-Das `<select>`-Element zur Monatsauswahl enthält fest eingetragene Monatsnamen, da sich diese nicht ändern (die Lokalisierung bleibt dabei unberücksichtigt).
-Die Liste der verfügbaren Jahreszahlen wird abhängig vom aktuellen Jahr dynamisch erzeugt. In den Codekommentaren unten wird genauer erklärt, wie diese Funktionen arbeiten.
+Die Monatsnamen im `<select>` zur Auswahl des Monats sind fest im Code hinterlegt, da sie sich nicht ändern (die Lokalisierung bleibt hier unberücksichtigt).
+Die Liste der verfügbaren Jahreszahlen wird abhängig vom aktuellen Jahr dynamisch erzeugt. Wie diese Funktionen arbeiten, erläutern die Kommentare im folgenden Code ausführlich.
 
 ```css hidden
 div {
@@ -398,12 +404,12 @@ input:valid + span::after {
 
 ### JavaScript
 
-Es folgt der JavaScript-Code, der auswählt, welcher Ansatz verwendet wird, und die Liste der Jahre für das nicht native `<select>`-Element erstellt.
+Der folgende JavaScript-Code entscheidet, welcher Ansatz verwendet wird, und erstellt die Liste der Jahre für das nicht native `<select>` zur Jahresauswahl.
 
-Besonders interessant ist möglicherweise der Code zur Erkennung der Browser-Unterstützung.
-Um festzustellen, ob der Browser `<input type="month">` unterstützt, erstellen wir ein neues {{htmlelement("input")}}-Element, versuchen, dessen `type` auf `month` zu setzen, und prüfen unmittelbar danach, welchen Typ es hat.
-Browser, die den Typ `month` nicht unterstützen, geben `text` zurück, da dies der Ersatztyp für nicht unterstützte `month`-Eingabefelder ist.
-Wenn `<input type="month">` nicht unterstützt wird, blenden wir die native Auswahl aus und zeigen stattdessen die alternative Benutzeroberfläche an.
+Besonders interessant ist möglicherweise der Code zur Erkennung der Browserunterstützung.
+Um festzustellen, ob der Browser `<input type="month">` unterstützt, erstellen wir ein neues {{htmlelement("input")}}-Element, versuchen, seinen `type` auf `month` zu setzen, und prüfen unmittelbar danach den Wert von `type`.
+Browser, die den Typ `month` nicht unterstützen, geben `text` zurück, da dies der Ausweichwert für einen nicht unterstützten Typ `month` ist.
+Wird `<input type="month">` nicht unterstützt, blenden wir die native Auswahl aus und zeigen stattdessen die alternative Benutzeroberfläche an.
 
 ```js
 // Get UI elements
@@ -465,7 +471,7 @@ function populateYears() {
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
         Eine Zeichenfolge, die einen Monat und ein Jahr darstellt, oder
-        leer.
+        eine leere Zeichenfolge.
       </td>
     </tr>
     <tr>
@@ -514,7 +520,7 @@ function populateYears() {
 
 ## Siehe auch
 
-- Das allgemeine {{HTMLElement("input")}}-Element und die Schnittstelle zu dessen Bearbeitung, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- Das allgemeine {{HTMLElement("input")}}-Element und die Schnittstelle zu seiner Bearbeitung, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [In HTML verwendete Datums- und Zeitformate](/de/docs/Web/HTML/Guides/Date_and_time_formats)
-- [Tutorial zur Datums- und Zeitauswahl](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#date_and_time_pickers)
+- [Tutorial zu Auswahlfeldern für Datum und Uhrzeit](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#date_and_time_pickers)
 - [`<input type="datetime-local">`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local), [`<input type="date">`](/de/docs/Web/HTML/Reference/Elements/input/date), [`<input type="time">`](/de/docs/Web/HTML/Reference/Elements/input/time) und [`<input type="week">`](/de/docs/Web/HTML/Reference/Elements/input/week)

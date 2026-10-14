@@ -1,12 +1,12 @@
 ---
-title: "`:in-range` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:in-range`
 short-title: :in-range
 slug: Web/CSS/Reference/Selectors/:in-range
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Die **`:in-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der durch die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
+Die **[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) `:in-range`** steht für ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der durch die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) festgelegten Grenzen liegt.
 
 {{InteractiveExample("CSS Demo: :in-range", "tabbed-shorter")}}
 
@@ -22,28 +22,26 @@ input:in-range {
 ```
 
 ```html interactive-example
-<form>
-  <label for="amount">How many tickets? (You can buy 2-6 tickets)</label>
-  <input id="amount" name="amount" type="number" min="2" max="6" value="4" />
+<label for="amount">How many tickets? (You can buy 2-6 tickets)</label>
+<input id="amount" name="amount" type="number" min="2" max="6" value="4" />
 
-  <label for="dep">Departure Date: (Whole year 2022 is acceptable)</label>
-  <input
-    id="dep"
-    name="dep"
-    type="date"
-    min="2022-01-01"
-    max="2022-12-31"
-    value="2025-05-05" />
+<label for="dep">Departure Date: (Whole year 2022 is acceptable)</label>
+<input
+  id="dep"
+  name="dep"
+  type="date"
+  min="2022-01-01"
+  max="2022-12-31"
+  value="2025-05-05" />
 
-  <label for="ret">Return Date: (Whole year 2022 is acceptable)</label>
-  <input id="ret" name="ret" type="date" min="2022-01-01" max="2022-12-31" />
-</form>
+<label for="ret">Return Date: (Whole year 2022 is acceptable)</label>
+<input id="ret" name="ret" type="date" min="2022-01-01" max="2022-12-31" />
 ```
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes innerhalb der zulässigen Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um Benutzern visuell anzuzeigen, dass der aktuelle Wert eines Felds innerhalb der zulässigen Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichseinschränkung haben (und annehmen können). In Abwesenheit einer solchen Einschränkung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, für die eine Bereichsbegrenzung festgelegt werden kann und wurde. Ohne eine solche Begrenzung ist das Element weder „innerhalb“ noch „außerhalb“ des Bereichs.
 
 ## Syntax
 
@@ -58,33 +56,24 @@ Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der a
 ### HTML
 
 ```html
-<form action="" id="form1">
-  <ul>
-    Values between 1 and 10 are valid.
-    <li>
-      <input
-        id="value1"
-        name="value1"
-        type="number"
-        placeholder="1 to 10"
-        min="1"
-        max="10"
-        value="12"
-        required />
-      <label for="value1">Your value is </label>
-    </li>
-  </ul>
-</form>
+<p>
+  <label for="value1">How many toes? Values between 1 and 10 are valid.</label>
+  <input
+    id="value1"
+    name="value1"
+    type="number"
+    placeholder="1 to 10"
+    min="1"
+    max="10"
+    value="12"
+    required />
+  <span></span>
+</p>
 ```
 
 ### CSS
 
 ```css
-li {
-  list-style: none;
-  margin-bottom: 1em;
-}
-
 input {
   border: 1px solid black;
 }
@@ -98,12 +87,12 @@ input:out-of-range {
   border: 2px solid red;
 }
 
-input:in-range + label::after {
-  content: "okay.";
+input:in-range + span::after {
+  content: "Your value is okay.";
 }
 
-input:out-of-range + label::after {
-  content: "out of range!";
+input:out-of-range + span::after {
+  content: "Your value is out of range!";
 }
 ```
 
@@ -112,7 +101,7 @@ input:out-of-range + label::after {
 {{EmbedLiveSample('Examples', 600, 140)}}
 
 > [!NOTE]
-> Ein leeres `<input>` zählt nicht als außerhalb des Bereichs liegend und wird nicht mit dem `:out-of-range`-Pseudoklassen-Selektor ausgewählt. Die {{cssxref(":blank")}}-Pseudoklasse existiert, um leere Eingaben auszuwählen, obwohl sie zum Zeitpunkt des Schreibens experimentell und nicht gut unterstützt ist. Sie könnten auch das `required`-Attribut und die {{cssxref(":invalid")}}-Pseudoklasse verwenden, um allgemeinere Logik und Styling für die Verpflichtung zur Eingabe zu bieten (`:invalid` wird sowohl leere als auch außerhalb des Bereichs liegende Eingaben stylen).
+> Ein leeres `<input>` gilt nicht als außerhalb des Bereichs und wird daher nicht durch den Pseudoklassen-Selektor `:out-of-range` ausgewählt. Zum Auswählen leerer Eingabefelder gibt es die Pseudoklasse {{cssxref(":blank")}}. Zum Zeitpunkt der Erstellung dieses Texts ist sie jedoch experimentell und wird nicht umfassend unterstützt. Sie können auch das Attribut `required` und die Pseudoklasse {{cssxref(":invalid")}} verwenden, um eine allgemeinere Logik und Gestaltung für Pflichtfelder bereitzustellen (`:invalid` wirkt sowohl auf leere Eingabefelder als auch auf solche mit Werten außerhalb des zulässigen Bereichs).
 
 ## Spezifikationen
 
@@ -125,4 +114,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":out-of-range")}}
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

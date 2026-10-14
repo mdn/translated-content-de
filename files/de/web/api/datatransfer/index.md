@@ -2,53 +2,53 @@
 title: DataTransfer
 slug: Web/API/DataTransfer
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das **`DataTransfer`**-Objekt wird verwendet, um Daten zu speichern, die zwischen Kontexten übertragen werden, wie z.B. bei Drag-and-Drop-Operationen oder Lese-/Schreibvorgängen in der Zwischenablage. Es kann einen oder mehrere Datenobjekte enthalten, von denen jedes eine oder mehrere Datentypen hat.
+Das **`DataTransfer`**-Objekt speichert Daten, die zwischen Kontexten übertragen werden, beispielsweise bei einer Drag-and-Drop-Operation oder beim Lesen und Schreiben über die Zwischenablage. Es kann ein oder mehrere Datenelemente enthalten, die jeweils einem oder mehreren Datentypen angehören.
 
-`DataTransfer` wurde ursprünglich für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) als [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft konzipiert und ist immer noch im HTML-Drag-and-Drop-Bereich spezifiziert. Es wird jedoch jetzt auch von anderen APIs genutzt, wie etwa [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer). Allerdings nutzen andere APIs nur bestimmte Teile seiner Schnittstelle und ignorieren Eigenschaften wie `dropEffect`. Die Dokumentation zu `DataTransfer` wird hauptsächlich seine Verwendung bei Drag-and-Drop-Operationen besprechen, und Sie sollten in der Dokumentation der anderen APIs nachsehen, wie `DataTransfer` in diesen Kontexten genutzt wird.
+`DataTransfer` wurde ursprünglich vor allem für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) als Eigenschaft [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) entwickelt und ist weiterhin im Abschnitt zu HTML Drag and Drop spezifiziert. Inzwischen wird es jedoch auch von anderen APIs verwendet, etwa von [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer). Diese APIs verwenden allerdings nur bestimmte Teile der Schnittstelle und ignorieren Eigenschaften wie `dropEffect`. Diese Dokumentation behandelt hauptsächlich die Verwendung von `DataTransfer` bei Drag-and-Drop-Operationen. Informationen zur Verwendung in anderen Kontexten finden Sie in der Dokumentation der jeweiligen APIs.
 
 ## Konstruktor
 
 - [`DataTransfer()`](/de/docs/Web/API/DataTransfer/DataTransfer)
-  - : Erstellt und gibt ein neues `DataTransfer`-Objekt zurück.
+  - : Erstellt ein neues `DataTransfer`-Objekt und gibt es zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)
-  - : Ruft die Art der derzeit ausgewählten Drag-and-Drop-Operation ab oder setzt die Operation auf einen neuen Typ. Der Wert muss `none`, `copy`, `link` oder `move` sein.
+  - : Gibt den Typ der aktuell ausgewählten Drag-and-Drop-Operation zurück oder legt einen neuen Typ fest. Der Wert muss `none`, `copy`, `link` oder `move` sein.
 - [`DataTransfer.effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)
-  - : Bietet alle möglichen Arten von Operationen. Muss einer von `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all` oder `uninitialized` sein.
+  - : Gibt alle zulässigen Operationstypen an. Der Wert muss `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all` oder `uninitialized` sein.
 - [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files) {{ReadOnlyInline}}
-  - : Enthält eine Liste aller lokalen Dateien, die beim Datentransfer verfügbar sind. Wenn die Drag-Operation nicht das Ziehen von Dateien umfasst, ist diese Eigenschaft eine leere Liste.
+  - : Enthält eine Liste aller lokalen Dateien, die bei der Datenübertragung verfügbar sind. Wenn bei der Drag-Operation keine Dateien gezogen werden, ist diese Liste leer.
 - [`DataTransfer.items`](/de/docs/Web/API/DataTransfer/items) {{ReadOnlyInline}}
-  - : Gibt ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das eine Liste aller Drag-Daten ist.
+  - : Gibt ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt zurück, das alle Drag-Daten auflistet.
 - [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) {{ReadOnlyInline}}
-  - : Ein Array von Zeichenfolgen, die die Formate angeben, die im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis gesetzt wurden.
+  - : Ein Array von Zeichenfolgen mit den Formaten, die beim [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis festgelegt wurden.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`DataTransfer.addElement()`](/de/docs/Web/API/DataTransfer/addElement) {{experimental_inline}} {{non-standard_inline}}
-  - : Setzt die Drag-Quelle für das angegebene Element. Dies wird das Element sein, bei dem [`drag`](/de/docs/Web/API/HTMLElement/drag_event)- und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignisse ausgelöst werden, und nicht das Standardziel (das zu ziehende Element). Spezifisch für Firefox.
+  - : Legt das angegebene Element als Quelle der Drag-Operation fest. Auf diesem Element werden die Ereignisse [`drag`](/de/docs/Web/API/HTMLElement/drag_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) ausgelöst, statt auf dem standardmäßigen Zielelement (dem gezogenen Knoten). Firefox-spezifisch.
 - [`DataTransfer.clearData()`](/de/docs/Web/API/DataTransfer/clearData)
-  - : Entfernt die Daten, die mit einem bestimmten Typ assoziiert sind. Das Typ-Argument ist optional. Wenn der Typ leer oder nicht angegeben ist, werden die Daten, die mit allen Typen assoziiert sind, entfernt. Wenn es keine Daten für den angegebenen Typ gibt oder der Datentransfer keine Daten enthält, hat diese Methode keine Wirkung.
+  - : Entfernt die Daten, die einem bestimmten Typ zugeordnet sind. Das Typ-Argument ist optional. Wenn der Typ leer oder nicht angegeben ist, werden die Daten aller Typen entfernt. Sind für den angegebenen Typ keine Daten vorhanden oder enthält die Datenübertragung keine Daten, hat diese Methode keine Wirkung.
 - [`DataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData)
-  - : Ruft die Daten für einen bestimmten Typ ab oder eine leere Zeichenfolge, wenn keine Daten für diesen Typ existieren oder der Datentransfer keine Daten enthält.
+  - : Ruft die Daten für einen bestimmten Typ ab. Sind für diesen Typ keine Daten vorhanden oder enthält die Datenübertragung keine Daten, wird eine leere Zeichenfolge zurückgegeben.
 - [`DataTransfer.setData()`](/de/docs/Web/API/DataTransfer/setData)
-  - : Setzt die Daten für einen bestimmten Typ. Wenn keine Daten für den Typ vorhanden sind, werden sie am Ende hinzugefügt, sodass das letzte Element in der Typenliste das neue Format ist. Wenn Daten für den Typ bereits vorhanden sind, werden die vorhandenen Daten an derselben Position ersetzt.
+  - : Legt die Daten für einen bestimmten Typ fest. Sind für den Typ noch keine Daten vorhanden, werden sie am Ende hinzugefügt, sodass das neue Format der letzte Eintrag in der Liste der Typen ist. Sind bereits Daten für den Typ vorhanden, werden sie an derselben Position ersetzt.
 - [`DataTransfer.setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage)
-  - : Setzt das Bild, das beim Ziehen verwendet werden soll, falls ein kundenspezifisches Bild erwünscht ist.
+  - : Legt ein benutzerdefiniertes Bild fest, das beim Ziehen verwendet werden soll.
 
 ## Beispiele
 
-Jede in diesem Dokument aufgelistete Methode und Eigenschaft hat ihre eigene Referenzseite, und jede Referenzseite enthält entweder direkt ein Beispiel der Schnittstelle oder hat einen Link zu einem Beispiel.
+Jede hier aufgeführte Methode und Eigenschaft hat eine eigene Referenzseite. Jede dieser Seiten enthält entweder direkt ein Beispiel für die Schnittstelle oder einen Link zu einem Beispiel.
 
-### Lesen der Daten in einem Einfüge- oder Drop-Ereignis
+### Daten bei einem Einfüge- oder Drop-Ereignis lesen
 
-Im folgenden Beispiel haben wir ein {{htmlelement("form")}}, das drei verschiedene Arten von Texteingaben enthält: ein Text-{{htmlelement("input")}}-Element, ein {{htmlelement("textarea")}}-Element und ein {{htmlelement("div")}}-Element mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt. Der Benutzer kann Text in eines dieser Elemente einfügen oder ziehen, und die Daten im [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) oder [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Objekt werden angezeigt.
+Im folgenden Beispiel enthält ein {{htmlelement("form")}} drei unterschiedliche Arten von Texteingaben: ein {{htmlelement("input")}}-Element für Text, ein {{htmlelement("textarea")}}-Element und ein {{htmlelement("div")}}-Element, bei dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt ist. Sie können Text in jedes dieser Elemente einfügen oder dort ablegen. Anschließend werden die Daten aus dem Objekt [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) beziehungsweise [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) angezeigt.
 
 #### HTML
 
@@ -106,6 +106,12 @@ Im folgenden Beispiel haben wir ein {{htmlelement("form")}}, das drei verschiede
     <input type="reset" />
   </p>
 </form>
+```
+
+```js hidden
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 ```
 
 #### CSS
@@ -171,7 +177,7 @@ form.addEventListener("reset", () => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Lesen der Daten in einem Einfüge- oder Drop-Ereignis", "", 400, , , , , "allow-forms")}}
+{{EmbedLiveSample("Reading the data in a paste or drop event", "", 400, , , , , "allow-forms")}}
 
 ## Spezifikationen
 
@@ -183,6 +189,6 @@ form.addEventListener("reset", () => {
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Arbeiten mit dem Drag-Daten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Arbeiten mit dem Drag-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

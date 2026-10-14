@@ -3,10 +3,10 @@ title: CSS-Pseudoklasse `:valid`
 short-title: :valid
 slug: Web/CSS/Reference/Selectors/:valid
 l10n:
-  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Die **`:valid`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder andere {{HTMLElement("form")}}-Element, dessen Inhalte erfolgreich [validiert](/de/docs/Web/HTML/Guides/Constraint_validation) werden. Dadurch können Sie gültigen Feldern leicht ein Erscheinungsbild geben, das Nutzenden bestätigt, dass ihre Daten korrekt formatiert sind.
+Die [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:valid`** steht für jedes {{HTMLElement("input")}}- oder andere {{HTMLElement("form")}}-Element, dessen Inhalt die [Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) erfolgreich durchläuft. So können Sie gültigen Feldern ein Erscheinungsbild geben, an dem Benutzer erkennen, dass ihre Daten korrekt formatiert sind.
 
 {{InteractiveExample("CSS Demo: :valid", "tabbed-shorter")}}
 
@@ -26,21 +26,19 @@ input:valid {
 ```
 
 ```html interactive-example
-<form>
-  <label for="email">Email Address:</label>
-  <input id="email" name="email" type="email" value="na@me@example.com" />
+<label for="email">Email Address:</label>
+<input id="email" name="email" type="email" value="na@me@example.com" />
 
-  <label for="secret">Secret Code: (lower case letters)</label>
-  <input id="secret" name="secret" type="text" value="test" pattern="[a-z]+" />
+<label for="secret">Secret Code: (lower case letters)</label>
+<input id="secret" name="secret" type="text" value="test" pattern="[a-z]+" />
 
-  <label for="age">Your age: (18+)</label>
-  <input id="age" name="age" type="number" value="5" min="18" />
+<label for="age">Your age: (18+)</label>
+<input id="age" name="age" type="number" value="5" min="18" />
 
-  <label
-    ><input name="tos" type="checkbox" required checked /> - Do you agree to
-    ToS?</label
-  >
-</form>
+<label
+  ><input name="tos" type="checkbox" required checked /> - Do you agree to
+  ToS?</label
+>
 ```
 
 ## Syntax
@@ -53,45 +51,40 @@ input:valid {
 
 ## Barrierefreiheit
 
-Die Farbe Grün wird häufig verwendet, um gültige Eingaben anzuzeigen. Menschen mit bestimmten Arten von Farbenblindheit können den Zustand der Eingabe nicht erkennen, sofern dieser nicht von einem zusätzlichen Indikator begleitet wird, der sich nicht auf Farbe stützt, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
+Die Farbe Grün wird häufig verwendet, um gültige Eingaben zu kennzeichnen. Menschen mit bestimmten Formen von Farbenblindheit können den Zustand einer Eingabe jedoch nicht erkennen, wenn kein zusätzlicher Hinweis vorhanden ist, der die Information unabhängig von der Farbe vermittelt. Üblicherweise werden dafür beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Understanding WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
+- [MDN: WCAG verstehen, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erfolgskriterium 1.4.1 verstehen | W3C: WCAG 2.0 verstehen](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 ## Beispiele
 
 ### Gültige und ungültige Formularfelder kennzeichnen
 
-In diesem Beispiel fügen wir zusätzliche `<span>`-Elemente ein, um Inhalte zu erzeugen, die gültige oder ungültige Daten anzeigen:
+In diesem Beispiel fügen wir zusätzliche `<span>`-Elemente ein, um Inhalte zu erzeugen, die gültige oder ungültige Daten kennzeichnen:
 
 ```html
-<form>
-  <fieldset>
-    <legend>Feedback form</legend>
-    <p>Required fields are labeled with "required".</p>
-    <div>
-      <label for="fname">First name: </label>
-      <input id="fname" name="fname" type="text" required />
-      <span></span>
-    </div>
-    <div>
-      <label for="lname">Last name: </label>
-      <input id="lname" name="lname" type="text" required />
-      <span></span>
-    </div>
-    <div>
-      <label for="email">
-        Email address (include if you want a response):
-      </label>
-      <input id="email" name="email" type="email" />
-      <span></span>
-    </div>
-    <div><button>Submit</button></div>
-  </fieldset>
-</form>
+<fieldset>
+  <legend>Contact information</legend>
+  <p>Required fields are labeled with "required".</p>
+  <div>
+    <label for="fname">First name: </label>
+    <input id="fname" name="fname" type="text" required />
+    <span></span>
+  </div>
+  <div>
+    <label for="lname">Last name: </label>
+    <input id="lname" name="lname" type="text" required />
+    <span></span>
+  </div>
+  <div>
+    <label for="email"> Email address (include if you want a response): </label>
+    <input id="email" name="email" type="email" />
+    <span></span>
+  </div>
+</fieldset>
 ```
 
-Um diese Indikatoren bereitzustellen, verwenden wir das folgende CSS:
+Für diese Kennzeichnungen verwenden wir das folgende CSS:
 
 ```css hidden
 body {
@@ -116,7 +109,6 @@ fieldset > div {
   flex-flow: row wrap;
 }
 
-button,
 label,
 input {
   display: block;
@@ -148,11 +140,6 @@ input:required + span::after {
   top: -26px;
   left: -70px;
 }
-
-button {
-  width: 60%;
-  margin: 0 auto;
-}
 ```
 
 ```css
@@ -181,16 +168,16 @@ input:valid + span::before {
 }
 ```
 
-Wir setzen die `<span>`s auf `position: relative`, damit wir die erzeugten Inhalte relativ zu ihnen positionieren können. Anschließend positionieren wir unterschiedliche erzeugte Inhalte absolut, je nachdem, ob die Daten des Formulars gültig oder ungültig sind – jeweils ein grünes Häkchen oder ein rotes Kreuz. Um den ungültigen Daten etwas mehr Dringlichkeit zu verleihen, haben wir den Eingaben bei Ungültigkeit außerdem einen dicken roten Rahmen gegeben.
+Wir setzen die `<span>`-Elemente auf `position: relative`, damit wir die erzeugten Inhalte relativ zu ihnen positionieren können. Anschließend positionieren wir abhängig davon, ob die Formulardaten gültig oder ungültig sind, unterschiedliche erzeugte Inhalte absolut: ein grünes Häkchen beziehungsweise ein rotes Kreuz. Um ungültige Daten noch deutlicher hervorzuheben, geben wir den Eingabefeldern außerdem einen dicken roten Rahmen, wenn sie ungültig sind.
 
 > [!NOTE]
-> Wir haben `::before` verwendet, um diese Beschriftungen hinzuzufügen, da wir `::after` bereits für die Beschriftungen „required“ verwendet haben.
+> Wir haben `::before` verwendet, um diese Kennzeichnungen hinzuzufügen, da wir `::after` bereits für die Kennzeichnungen der Pflichtfelder verwenden.
 
 Sie können es unten ausprobieren:
 
 {{EmbedLiveSample("indicating_valid_and_invalid_form_fields", "", 430)}}
 
-Beachten Sie, dass die erforderlichen Texteingaben ungültig sind, wenn sie leer sind, aber gültig, wenn sie einen Wert enthalten. Die E-Mail-Eingabe hingegen ist gültig, wenn sie leer ist, da sie nicht erforderlich ist, aber ungültig, wenn sie etwas enthält, das keine korrekte E-Mail-Adresse ist.
+Beachten Sie, dass die Text-Eingabefelder für Pflichtangaben ungültig sind, solange sie leer sind, aber gültig werden, sobald etwas eingegeben wurde. Das E-Mail-Eingabefeld ist dagegen leer gültig, da es keine Pflichtangabe ist. Es ist jedoch ungültig, wenn es einen Wert enthält, der keine gültige E-Mail-Adresse ist.
 
 ## Spezifikationen
 
@@ -202,6 +189,6 @@ Beachten Sie, dass die erforderlichen Texteingaben ungültig sind, wenn sie leer
 
 ## Siehe auch
 
-- Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":invalid") }}
+- Weitere Pseudoklassen zur Validierung: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":invalid") }}
 - [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- Zugriff auf den [Gültigkeitszustand](/de/docs/Web/API/ValidityState) aus JavaScript
+- Zugriff auf den [Validitätsstatus](/de/docs/Web/API/ValidityState) mit JavaScript

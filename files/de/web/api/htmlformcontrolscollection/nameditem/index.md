@@ -1,16 +1,16 @@
 ---
-title: "HTMLFormControlsCollection: namedItem() Methode"
+title: "HTMLFormControlsCollection: Methode namedItem()"
 short-title: namedItem()
 slug: Web/API/HTMLFormControlsCollection/namedItem
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormControlsCollection.namedItem()`** Methode gibt die [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Knoten übereinstimmt.
+Die Methode **`HTMLFormControlsCollection.namedItem()`** gibt die [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) aus der Collection zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt. Wenn kein Knoten übereinstimmt, gibt sie `null` zurück.
 
-Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Methode verbirgt. Wie diese kann in JavaScript die Array-Klammer-Syntax mit einem {{jsxref("String")}}, wie `collection["value"]` verwendet werden, was gleichbedeutend mit `collection.namedItem("value")` ist.
+Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Methode verdeckt. Wie bei der geerbten Methode ist in JavaScript die Verwendung der Array-Klammernotation mit einem {{jsxref("String")}}, etwa `collection["value"]`, gleichbedeutend mit `collection.namedItem("value")`.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ namedItem(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der verwendet wird, um mit den `name`- oder `id`-Attributen der Steuerelemente in diesem `HTMLFormControlsCollection`-Objekt abzugleichen.
+  - : Ein String, der mit den Attributen `name` oder `id` der Steuerelemente in diesem `HTMLFormControlsCollection`-Objekt abgeglichen wird.
 
 ### Rückgabewert
 
-- Eine [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), wenn es mehrere Elemente mit dem gegebenen `name` oder `id` gibt,
-- Ein [`Element`](/de/docs/Web/API/Element), wenn es genau ein Element mit dem gegebenen `name` oder `id` gibt, oder
-- [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn kein Element den gegebenen `name` oder `id` hat.
+- Eine [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), wenn mehrere Elemente den angegebenen `name` oder die angegebene `id` haben,
+- ein [`Element`](/de/docs/Web/API/Element), wenn genau ein Element den angegebenen `name` oder die angegebene `id` hat, oder
+- [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn kein Element den angegebenen `name` oder die angegebene `id` hat.
 
 > [!NOTE]
-> Die zurückgegebene [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) ist live, was bedeutet, dass sich ihr Inhalt automatisch aktualisiert, wenn Elemente, die mit dem angegebenen Namen übereinstimmen, zur Sammlung hinzugefügt oder daraus entfernt werden. Darüber hinaus kann sie nicht-radioeingabe Elemente enthalten, trotz des Namens der Sammlung.
+> Die zurückgegebene [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) ist live. Das bedeutet, dass sich ihr Inhalt automatisch aktualisiert, wenn Elemente, die dem angegebenen Namen entsprechen, zur Collection hinzugefügt oder daraus entfernt werden. Trotz ihres Namens kann sie auch Eingabeelemente enthalten, die keine Radio-Buttons sind.
 
 ## Beispiele
 
-### Verwendung von namedItem()
+### namedItem() verwenden
 
 #### HTML
 
@@ -48,8 +48,8 @@ namedItem(name)
   <label for="maybe">Maybe</label>
   <input id="maybe" name="my-radio" type="radio" />
   <br />
-  <label for="text1">Text input 1</label>
-  <input id="text1" name="my-form-control" type="text" />
+  <label for="checkbox1">Checkbox</label>
+  <input id="checkbox1" name="my-form-control" type="checkbox" />
 </form>
 
 <div id="output"></div>
@@ -91,4 +91,4 @@ My single item: "${item2.id}"`;
 
 ## Siehe auch
 
-- [`HTMLCollection.namedItem`](/de/docs/Web/API/HTMLCollection/namedItem), die es ersetzt
+- [`HTMLCollection.namedItem`](/de/docs/Web/API/HTMLCollection/namedItem), die durch diese Methode ersetzt wird

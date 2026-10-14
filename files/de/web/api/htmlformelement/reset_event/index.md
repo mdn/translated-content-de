@@ -1,18 +1,18 @@
 ---
-title: "HTMLFormElement: reset-Ereignis"
+title: "HTMLFormElement: reset-Event"
 short-title: reset
 slug: Web/API/HTMLFormElement/reset_event
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`reset`**-Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
+Das **`reset`**-Event wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("reset", (event) => { })
@@ -20,19 +20,19 @@ addEventListener("reset", (event) => { })
 onreset = (event) => { }
 ```
 
-## Ereignistyp
+## Event-Typ
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Zurücksetzungen des Formulars zu hören und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies eintritt.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf das Zurücksetzen des Formulars zu reagieren. Bei jedem Zurücksetzen wird der aktuelle Wert von [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) protokolliert.
 
 ### HTML
 
 ```html
 <form id="form">
-  <label>Test field: <input type="text" /></label>
+  <label>Test checkbox: <input type="checkbox" /></label>
   <br /><br />
   <button type="reset">Reset form</button>
 </form>
@@ -66,4 +66,4 @@ form.addEventListener("reset", logReset);
 
 ## Siehe auch
 
-- HTML {{HTMLElement("form")}}-Element
+- HTML-Element {{HTMLElement("form")}}

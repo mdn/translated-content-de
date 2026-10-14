@@ -3,12 +3,12 @@ title: CSS-Pseudoklasse `:focus-within`
 short-title: :focus-within
 slug: Web/CSS/Reference/Selectors/:focus-within
 l10n:
-  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Die [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:focus-within`** stimmt mit einem Element überein, wenn das Element selbst oder einer seiner Nachkommen fokussiert ist. Mit anderen Worten stellt sie ein Element dar, das selbst von der Pseudoklasse {{CSSxRef(":focus")}} erfasst wird oder einen Nachkommen hat, der von `:focus` erfasst wird. (Dies schließt Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **CSS-Pseudoklasse `:focus-within`** wählt ein Element aus, wenn dieses Element oder eines seiner Nachfahren den Fokus hat. Anders ausgedrückt: Sie steht für ein Element, auf das entweder selbst die Pseudoklasse {{CSSxRef(":focus")}} zutrifft oder das einen Nachfahren hat, auf den `:focus` zutrifft. Dazu gehören auch Nachfahren in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM).
 
-Dieser Selektor ist beispielsweise nützlich, um einen gesamten {{HTMLElement("form")}}-Container hervorzuheben, wenn die Benutzerin oder der Benutzer eines seiner {{HTMLElement("input")}}-Felder fokussiert.
+Mit diesem Selektor lässt sich beispielsweise ein gesamter {{HTMLElement("form")}}-Container hervorheben, wenn ein {{HTMLElement("input")}}-Feld darin den Fokus erhält.
 
 {{InteractiveExample("CSS Demo: :focus-within", "tabbed-shorter")}}
 
@@ -24,19 +24,17 @@ label:focus-within {
 ```
 
 ```html interactive-example
-<form>
-  <p>Which flavor would you like to order?</p>
-  <label>Full Name: <input name="firstName" type="text" /></label>
-  <label
-    >Flavor:
-    <select name="flavor">
-      <option>Cherry</option>
-      <option>Green Tea</option>
-      <option>Moose Tracks</option>
-      <option>Mint Chip</option>
-    </select>
-  </label>
-</form>
+<p>Which flavor would you like to order?</p>
+<label>Full Name: <input name="firstName" type="text" /></label>
+<label
+  >Flavor:
+  <select name="flavor">
+    <option>Cherry</option>
+    <option>Green Tea</option>
+    <option>Moose Tracks</option>
+    <option>Mint Chip</option>
+  </select>
+</label>
 ```
 
 ## Syntax
@@ -49,32 +47,34 @@ label:focus-within {
 
 ## Beispiele
 
-In diesem Beispiel erhält das Formular spezielle Farbformatierungen, wenn eine der beiden Texteingaben den Fokus erhält.
+In diesem Beispiel erhält der Container eine besondere Farbgestaltung, sobald eines der Texteingabefelder den Fokus erhält.
 
 ### HTML
 
 ```html
-<p>Try typing into this form.</p>
-
-<form>
-  <label for="given_name">Given Name:</label>
-  <input id="given_name" type="text" />
-  <br />
-  <label for="family_name">Family Name:</label>
-  <input id="family_name" type="text" />
-</form>
+<ul class="group">
+  <li>
+    <label for="given-name">Given Name:</label>
+    <input id="given-name" type="text" />
+  </li>
+  <li>
+    <label for="family-name">Family Name:</label>
+    <input id="family-name" type="text" />
+  </li>
+</ul>
 ```
 
 ### CSS
 
 ```css
-form {
+.group {
+  list-style: none;
   border: 1px solid;
   color: gray;
   padding: 4px;
 }
 
-form:focus-within {
+.group:focus-within {
   background: #ffff88;
   color: black;
 }
@@ -88,6 +88,8 @@ input {
 
 {{EmbedLiveSample("Examples", 500, 150)}}
 
+Versuchen Sie, Text in die Eingabefelder einzugeben.
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -100,4 +102,4 @@ input {
 
 - {{CSSxRef(":focus")}}
 - {{CSSxRef(":focus-visible")}}
-- [Erregen Sie die Aufmerksamkeit Ihrer Benutzerinnen und Benutzer mit dem focus-within-Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)
+- [Mit dem Selektor focus-within die Aufmerksamkeit Ihrer Nutzer gewinnen](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)

@@ -1,70 +1,70 @@
 ---
-title: Erstellen Sie eine Cross-Browser-Erweiterung
+title: Eine browserübergreifende Erweiterung erstellen
 slug: Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension
 l10n:
-  sourceCommit: 83b221d2955a42bed9b87a5206a7953d1b57d8a9
+  sourceCommit: 8adfa9f21be15f90b5ee73dbfb9bc441038ac55d
 ---
 
-Die Einführung der Browsererweiterungs-API schuf eine einheitliche Landschaft für die Entwicklung von Browser-Erweiterungen. Es gibt jedoch Unterschiede in den API-Implementierungen und im Abdeckungsumfang zwischen den Browsern, die die Erweiterungs-API verwenden (die wichtigsten sind Chrome, Edge, Firefox, Opera und Safari).
+Mit der Einführung der Browsererweiterungs-API entstand eine einheitliche Grundlage für die Entwicklung von Browsererweiterungen. Allerdings unterscheiden sich die Implementierungen und der Funktionsumfang der API zwischen den Browsern, die sie verwenden – insbesondere Chrome, Edge, Firefox, Opera und Safari.
 
-Um die Reichweite Ihrer Browser-Erweiterung zu maximieren, sollten Sie sie für mindestens zwei Browser, möglicherweise mehr, entwickeln. Dieser Artikel behandelt die Hauptherausforderungen, denen Sie bei der Erstellung einer Cross-Browser-Erweiterung gegenüberstehen, und schlägt vor, wie diese Herausforderungen angegangen werden können.
+Wenn Ihre Browsererweiterung möglichst viele Menschen erreichen soll, müssen Sie sie für mindestens zwei Browser entwickeln, möglicherweise auch für mehr. Dieser Artikel beschreibt die wichtigsten Herausforderungen bei der Erstellung einer browserübergreifenden Erweiterung und zeigt, wie Sie diese bewältigen können.
 
 > [!NOTE]
-> Die wichtigsten Browser haben Manifest V3 übernommen. Diese Manifestversion bietet eine bessere Kompatibilität zwischen den Browsererweiterungsumgebungen, wie z.B. die Verwendung des `browser.*` Namespace und Promises für die Behandlung asynchroner Ereignisse. Zusätzlich zu den Informationen in diesem Leitfaden beziehen Sie sich bitte auf die Manifest V3-Migrationsleitfäden für [Firefox](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/) und [Chrome](https://developer.chrome.com/docs/extensions/develop/migrate).
+> Die wichtigsten Browser haben Manifest V3 eingeführt. Diese Manifest-Version verbessert die Kompatibilität zwischen den Umgebungen für Browsererweiterungen, etwa durch die Verwendung des `browser.*`-Namespace und von Promises zur Verarbeitung asynchroner Ereignisse. Lesen Sie ergänzend zu diesem Leitfaden die Anleitungen zur Migration auf Manifest V3 für [Firefox](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/) und [Chrome](https://developer.chrome.com/docs/extensions/develop/migrate).
 
-## Hürden beim Codieren von plattformübergreifenden Erweiterungen
+## Herausforderungen bei der Entwicklung plattformübergreifender Erweiterungen
 
-Sie müssen folgende Bereiche ansprechen, wenn Sie eine plattformübergreifende Erweiterung angehen möchten:
+Bei der Entwicklung einer plattformübergreifenden Erweiterung müssen Sie folgende Bereiche berücksichtigen:
 
 - [API-Namespace](#api-namespace)
-- [API-asynchrones Event-Handling](#api-asynchrones_event-handling)
-- [API-Funktionenabdeckung](#api-funktionenabdeckung)
-- [Ausführungskontexte von Inhalts-Skripten](#ausführungskontexte_von_inhalts-skripten)
-- [Hintergrundseite versus Erweiterungsservice-Arbeiter (in Manifest V3)](#hintergrundseite_und_erweiterungsdienstarbeiter)
+- [Verarbeitung asynchroner API-Ereignisse](#verarbeitung_asynchroner_api-ereignisse)
+- [Unterstützung von API-Funktionen](#unterstützung_von_api-funktionen)
+- [Ausführungskontexte von Content Scripts](#ausführungskontexte_von_content_scripts)
+- [Background Page und Extension Service Worker (in Manifest V3)](#background_page_und_extension_service_worker)
 - [Manifest-Schlüssel](#manifest-schlüssel)
-- [Erweiterungspaketierung](#erweiterungspaketierung)
-- [Erweiterungsveröffentlichung](#erweiterungsveröffentlichung)
+- [Paketierung der Erweiterung](#paketierung_der_erweiterung)
+- [Veröffentlichung der Erweiterung](#veröffentlichung_der_erweiterung)
 
 ### API-Namespace
 
-Es gibt zwei API-Namespaces, die von den Hauptbrowsern verwendet werden:
+In den wichtigsten Browsern werden zwei API-Namespaces verwendet:
 
-- `browser.*`, der Standard für die Erweiterungs-API. Ursprünglich von Firefox und Safari verwendet, ab [Mitte 2026](https://developer.chrome.com/docs/extensions/develop/concepts/browser-namespace) von Chrome unterstützt (d.h. Chrome 148, Opera 121, und Edge 136, und 4 Versionen später für Erweiterungen, die [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) verwenden).
-- `chrome.*` wird von Chrome, Opera und Edge verwendet.
+- `browser.*`, der Standard für die Erweiterungs-API. Er wurde ursprünglich von Firefox und Safari verwendet und wird seit [Mitte 2026](https://developer.chrome.com/docs/extensions/develop/concepts/browser-namespace) von Chrome unterstützt (d.h. ab Chrome 148, Opera 121 und Edge 136; für Erweiterungen mit [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) jeweils vier Versionen später).
+- `chrome.*`, verwendet von Chrome, Opera und Edge.
 
-Firefox unterstützt ebenfalls den `chrome.*` Namespace für APIs, die mit Chrome kompatibel sind, vor allem um bei der [Portierung](https://extensionworkshop.com/documentation/develop/porting-a-google-chrome-extension/) zu helfen. Die Verwendung des `browser.*` Namespace wird jedoch bevorzugt. Neben dem vorgeschlagenen Standard verwendet `browser.*` Promises – ein modernes und bequemes Mechanismus zur Behandlung asynchroner Ereignisse.
+Firefox unterstützt außerdem den `chrome.*`-Namespace für APIs, die mit Chrome kompatibel sind, vor allem um die [Portierung](https://extensionworkshop.com/documentation/develop/porting-a-google-chrome-extension/) zu erleichtern. Die Verwendung des `browser.*`-Namespace ist jedoch vorzuziehen. `browser.*` ist nicht nur der vorgeschlagene Standard, sondern verwendet auch Promises – einen modernen und praktischen Mechanismus zur Verarbeitung asynchroner Ereignisse.
 
-### API-asynchrones Event-Handling
+### Verarbeitung asynchroner API-Ereignisse
 
-Mit der Einführung von Manifest V3 nahmen alle wichtigen Browser den Standard der Rückgabe von _[Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)_ bei asynchronen Methoden an. Firefox und Safari unterstützen Promises bei allen asynchronen APIs. Ab Chrome Version 121 unterstützen alle asynchronen Erweiterungs-APIs Promises, es sei denn, es ist anders dokumentiert. Für Erweiterungen, die den `devtools_page` Manifest-Schlüssel verwenden, stellte Chrome in Version 152 Promise-Unterstützung bereit (siehe [Chrome Bug 500769389](https://crbug.com/500769389)).
+Mit der Einführung von Manifest V3 haben alle wichtigen Browser den Standard übernommen, dass asynchrone Methoden _[Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)_ zurückgeben. Firefox und Safari unterstützen Promises für alle asynchronen APIs. Seit Chrome 121 unterstützen alle asynchronen Erweiterungs-APIs Promises, sofern nicht anders dokumentiert. Für Erweiterungen, die den Manifest-Schlüssel `devtools_page` verwenden, wurde die Unterstützung für Promises mit Chrome 152 eingeführt (siehe [Chrome-Bug 500769389](https://crbug.com/500769389)).
 
-In Manifest V2 unterstützen Firefox und Safari Promises für asynchrone Methoden. Gleichzeitig rufen Chrome-Methoden _Callbacks_ auf. Aus Kompatibilitätsgründen unterstützen alle Hauptbrowser Callbacks über alle Manifest-Versionen hinweg. Siehe den Abschnitt [Historische Unterschiede](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#historical_differences) auf der Seite Chrome-Inkompatibilitäten für Details.
+In Manifest V2 unterstützen Firefox und Safari Promises für asynchrone Methoden. Chrome-Methoden rufen dagegen _Callbacks_ auf. Aus Kompatibilitätsgründen unterstützen alle wichtigen Browser Callbacks in allen Manifest-Versionen. Weitere Informationen finden Sie im Abschnitt [Historische Unterschiede](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#historical_differences) auf der Seite zu Chrome-Inkompatibilitäten.
 
-Einige Handler von Erweiterungs-API-Ereignissen sollen asynchron durch ein `Promise` oder eine Callback-Funktion antworten. Ein Handler des `runtime.onMessage`-Ereignisses kann [eine asynchrone Antwort mithilfe eines `Promise`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_a_promise) senden oder [ein Callback verwenden](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_sendresponse). Ein `Promise` als Rückgabewert von einem Ereignishandler wird in Firefox und Safari unterstützt, aber noch nicht in Chrome.
+Von manchen Handlern für Ereignisse der Erweiterungs-API wird erwartet, dass sie asynchron über ein `Promise` oder eine Callback-Funktion antworten. Beispielsweise kann ein Handler für das Ereignis `runtime.onMessage` [eine asynchrone Antwort mit einem `Promise` senden](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_a_promise) oder [einen Callback verwenden](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_sendresponse). Ein `Promise` als Rückgabewert eines Event-Handlers wird von Firefox und Safari unterstützt, bislang jedoch nicht von Chrome.
 
-Firefox unterstützt auch Callbacks für die APIs, die den `chrome.*` Namespace unterstützen. Die Verwendung von Promises wird jedoch empfohlen. Promises vereinfachen die asynchrone Ereignisbehandlung erheblich, insbesondere wenn Sie Ereignisse verketten müssen. Wenn Sie den `browser.*` Namespace mit Promises verwenden und Chrome 147 oder früher anvisieren möchten, müssen Sie ein Polyfill oder ähnliches verwenden.
-
-> [!NOTE]
-> Wenn Sie mit den Unterschieden zwischen diesen beiden Methoden nicht vertraut sind, schauen Sie sich [Getting to know asynchronous JavaScript: Callbacks, Promises and Async/Await](https://medium.com/codebuddies/getting-to-know-asynchronous-javascript-callbacks-promises-and-async-await-17e0673281ee) oder die MDN-Seite [Using promises](/de/docs/Web/JavaScript/Guide/Using_promises) an.
-
-#### Das WebExtension Browser-API-Polyfill
-
-Ab Chrome Version 148 unterstützt Chrome den `browser` Namenraum, außer in Erweiterungen, die eine DevTools-Seite enthalten. Diese Einschränkung wurde in Chrome 152 (siehe [Chrome Bug 500769389](https://crbug.com/500769389)) entfernt, und der `browser` Namespace wurde für alle Chrome-Erweiterungen verfügbar.
-
-Um den `browser.*` Namespace und Promises in früheren Versionen zu nutzen, verwenden Sie das [WebExtension Browser API Polyfill](https://github.com/mozilla/webextension-polyfill/). Dieses Polyfill behandelt den API-Namespace und das asynchrone Ereignis-Handling in Firefox, Chrome, Opera und Edge.
+Firefox unterstützt außerdem Callbacks für APIs, die den `chrome.*`-Namespace unterstützen. Dennoch wird empfohlen, Promises zu verwenden. Sie vereinfachen die Verarbeitung asynchroner Ereignisse erheblich, insbesondere wenn mehrere Ereignisse verkettet werden müssen. Wenn Sie den `browser.*`-Namespace mit Promises verwenden und Chrome 147 oder ältere Versionen unterstützen möchten, benötigen Sie einen Polyfill oder eine vergleichbare Lösung.
 
 > [!NOTE]
-> In Chrome Version 152 oder später ist das Polyfill ein No-Op.
+> Falls Ihnen die Unterschiede zwischen diesen beiden Methoden nicht vertraut sind, lesen Sie [Getting to know asynchronous JavaScript: Callbacks, Promises and Async/Await](https://medium.com/codebuddies/getting-to-know-asynchronous-javascript-callbacks-promises-and-async-await-17e0673281ee) oder die MDN-Seite [Promises verwenden](/de/docs/Web/JavaScript/Guide/Using_promises).
 
-Um das Polyfill zu verwenden, installieren Sie es in Ihrer Entwicklungsumgebung mit npm oder laden Sie es direkt von [GitHub-Releases](https://github.com/mozilla/webextension-polyfill/releases) herunter.
+#### Der WebExtension browser API Polyfill
 
-Verweisen Sie dann auf `browser-polyfill.js` in:
+Seit Chrome 148 unterstützt Chrome den `browser`-Namespace, außer in Erweiterungen mit einer DevTools-Seite. Diese Einschränkung wurde in Chrome 152 aufgehoben (siehe [Chrome-Bug 500769389](https://crbug.com/500769389)); seitdem ist der `browser`-Namespace für alle Chrome-Erweiterungen verfügbar.
 
-- `manifest.json`, um es für Hintergrund- und Inhalts-Skripte verfügbar zu machen.
-- HTML-Dokumenten, wie `browserAction` Popups oder Tab-Seiten.
-- Der `executeScript`-Aufruf in dynamisch injizierten Inhalts-Skripten, die durch `tabs.executeScript` geladen werden, wo es nicht mit einer `content_scripts`-Deklaration in `manifest.json` geladen wurde.
+Um den `browser.*`-Namespace und Promises in älteren Versionen zu verwenden, nutzen Sie den [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill/). Dieser Polyfill gleicht Unterschiede beim API-Namespace und bei der Verarbeitung asynchroner Ereignisse zwischen Firefox, Chrome, Opera und Edge aus.
 
-Dieses `manifest.json`-Beispiel macht das Polyfill für Hintergrundskripte verfügbar:
+> [!NOTE]
+> In Chrome 152 oder neuer hat der Polyfill keine Wirkung.
+
+Installieren Sie den Polyfill mit npm in Ihrer Entwicklungsumgebung oder laden Sie ihn direkt von den [GitHub-Releases](https://github.com/mozilla/webextension-polyfill/releases) herunter.
+
+Binden Sie anschließend `browser-polyfill.js` an folgenden Stellen ein:
+
+- In `manifest.json`, damit es für Background Scripts und Content Scripts verfügbar ist.
+- In HTML-Dokumenten, etwa in `browserAction`-Popups oder Tab-Seiten.
+- Im `executeScript`-Aufruf für dynamisch eingefügte Content Scripts, die über `tabs.executeScript` geladen werden, sofern es nicht bereits über eine `content_scripts`-Deklaration in `manifest.json` geladen wurde.
+
+Der folgende Code in `manifest.json` stellt den Polyfill beispielsweise für Background Scripts bereit:
 
 ```json
 {
@@ -75,35 +75,35 @@ Dieses `manifest.json`-Beispiel macht das Polyfill für Hintergrundskripte verf�
 }
 ```
 
-Ihr Ziel ist sicherzustellen, dass das Polyfill in Ihrer Erweiterung ausgeführt wird, bevor andere Skripte, die den `browser.*` API-Namespace erwarten, ausgeführt werden.
+Stellen Sie sicher, dass der Polyfill in Ihrer Erweiterung ausgeführt wird, bevor andere Skripte ausgeführt werden, die den `browser.*`-API-Namespace erwarten.
 
 > [!NOTE]
-> Weitere Details und Informationen zur Verwendung des Polyfills mit einem Modulpaketierer finden Sie im [README des Projekts auf GitHub](https://github.com/mozilla/webextension-polyfill/blob/master/README.md).
+> Weitere Informationen, auch zur Verwendung des Polyfills mit einem Module Bundler, finden Sie in der [README-Datei des Projekts auf GitHub](https://github.com/mozilla/webextension-polyfill/blob/master/README.md).
 
-Es gibt andere Polyfill-Optionen. Derzeit bietet jedoch keine der anderen Optionen die Abdeckung des WebExtension-Browser-API-Polyfills. Falls Firefox nicht Ihre erste Wahl war, bestehen Ihre Optionen darin, die Einschränkungen alternativer Polyfills zu akzeptieren, auf Firefox zu portieren und Cross-Browser-Unterstützung hinzuzufügen oder Ihr eigenes Polyfill zu entwickeln.
+Es gibt weitere Polyfills. Zum Zeitpunkt der Erstellung dieses Artikels bietet jedoch keiner davon einen vergleichbaren Abdeckungsgrad wie der WebExtension browser API Polyfill. Wenn Sie Ihre Erweiterung nicht zuerst für Firefox entwickelt haben, können Sie daher die Einschränkungen anderer Polyfills akzeptieren, Ihre Erweiterung auf Firefox portieren und browserübergreifende Unterstützung hinzufügen oder einen eigenen Polyfill entwickeln.
 
-### API-Funktionenabdeckung
+### Unterstützung von API-Funktionen
 
-Die Unterschiede in den von den Hauptbrowsern angebotenen API-Funktionen fallen in drei Hauptkategorien:
+Die Unterschiede zwischen den API-Funktionen der wichtigsten Browser lassen sich grob in drei Kategorien einteilen:
 
-1. **Fehlende Unterstützung für eine gesamte Funktion.**
-   Zum Beispiel unterstützte Edge zum Zeitpunkt des Schreibens die {{WebExtAPIRef("browserSettings")}}-Funktion nicht.
-2. **Variationen in der Unterstützung von Funktionen innerhalb einer Funktion.**
-   Zum Beispiel unterstützt Firefox zum Zeitpunkt des Schreibens nicht die Benachrichtigungsfunktion {{WebExtAPIRef("notifications.onButtonClicked")}}, während Firefox der einzige Browser ist, der {{WebExtAPIRef("notifications.onShown")}} unterstützt.
-3. **Proprietäre Funktionen zur Unterstützung browserspezifischer Merkmale.**
-   Zum Beispiel war Containers zum Zeitpunkt des Schreibens ein Firefox-spezifisches Feature, das von der {{WebExtAPIRef("contextualIdentities")}}-Funktion unterstützt wird.
+1. **Eine Funktion wird überhaupt nicht unterstützt.**
+   Zum Zeitpunkt der Erstellung dieses Artikels unterstützte Edge beispielsweise die Funktion {{WebExtAPIRef("browserSettings")}} nicht.
+2. **Die Unterstützung einzelner Features einer Funktion unterscheidet sich.**
+   Zum Zeitpunkt der Erstellung dieses Artikels unterstützte Firefox beispielsweise die Methode {{WebExtAPIRef("notifications.onButtonClicked")}} der Benachrichtigungsfunktion nicht, während Firefox als einziger Browser {{WebExtAPIRef("notifications.onShown")}} unterstützte.
+3. **Proprietäre Funktionen unterstützen browserspezifische Features.**
+   Zum Zeitpunkt der Erstellung dieses Artikels waren Container beispielsweise ein Firefox-spezifisches Feature, das von der Funktion {{WebExtAPIRef("contextualIdentities")}} unterstützt wurde.
 
-Details zur Unterstützung der Erweiterungs-APIs unter den Hauptbrowsern sowie Firefox für Android und Safari auf iOS finden Sie auf der [Browser-Unterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs) Seite des Mozilla Developer Network. Browser-Kompatibilitätsinformationen sind ebenfalls bei jeder Funktion und ihren Methoden, Typen und Ereignissen in den JavaScript-API-Referenzseiten des Mozilla Developer Network enthalten.
+Einzelheiten zur Unterstützung der Erweiterungs-APIs in den wichtigsten Browsern sowie in Firefox für Android und Safari auf iOS finden Sie auf der Mozilla-Developer-Network-Seite [Browserunterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs). Informationen zur Browser-Kompatibilität finden Sie auch für jede Funktion sowie deren Methoden, Typen und Ereignisse auf den Referenzseiten zu den [JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) im Mozilla Developer Network.
 
 #### Umgang mit API-Unterschieden
 
-Ein einfacher Ansatz zur Bewältigung von API-Unterschieden besteht darin, die in Ihrer Erweiterung verwendeten Funktionen auf solche zu beschränken, die über Ihre Zielbrowser hinweg die gleiche Funktionalität bieten. In der Praxis wird dieser Ansatz wahrscheinlich zu restriktiv für die meisten Erweiterungen sein.
+Eine einfache Möglichkeit, API-Unterschiede zu berücksichtigen, besteht darin, in Ihrer Erweiterung nur Funktionen zu verwenden, die in allen Zielbrowsern dieselbe Funktionalität bieten. In der Praxis dürfte dieser Ansatz für die meisten Erweiterungen jedoch zu restriktiv sein.
 
-Stattdessen sollten Sie dort, wo Unterschiede zwischen den APIs bestehen, entweder alternative Implementierungen oder Rückfallebenen anbieten. (Denken Sie daran: Sie müssen dies möglicherweise auch tun, um Unterschiede in der API-Unterstützung zwischen Versionen desselben Browsers zu berücksichtigen.)
+Stattdessen sollten Sie bei Unterschieden zwischen den APIs alternative Implementierungen oder Fallback-Funktionen bereitstellen. (Denken Sie daran, dass dies möglicherweise auch für Unterschiede in der API-Unterstützung zwischen Versionen _desselben_ Browsers erforderlich ist.)
 
-Die Verwendung von Laufzeitprüfungen zur Verfügbarkeit von Funktionen wird empfohlen, um alternative oder Rückfallfunktionen zu implementieren. Der Vorteil einer Laufzeitprüfung besteht darin, dass Sie die Erweiterung nicht aktualisieren und neu verteilen müssen, um eine Funktion zu nutzen, sobald sie verfügbar wird.
+Es wird empfohlen, zur Laufzeit zu prüfen, ob die benötigten Features einer Funktion verfügbar sind, und auf dieser Grundlage alternative oder Fallback-Funktionen zu implementieren. Eine Laufzeitprüfung hat den Vorteil, dass Sie die Erweiterung nicht aktualisieren und erneut verteilen müssen, sobald eine Funktion verfügbar wird.
 
-Der folgende Code ermöglicht es Ihnen, eine Laufzeitprüfung durchzuführen:
+Mit dem folgenden Code können Sie eine Laufzeitprüfung durchführen:
 
 ```js
 if (typeof fn === "function") {
@@ -111,59 +111,59 @@ if (typeof fn === "function") {
 }
 ```
 
-### Ausführungskontexte von Inhalts-Skripten
+### Ausführungskontexte von Content Scripts
 
-Inhalts-Skripte können auf das DOM der Seite zugreifen und es modifizieren, genauso wie Seitenskripte. Sie können auch jede Änderung im DOM sehen, die von Seitenskripten vorgenommen wird. Inhalts-Skripte erhalten jedoch eine "saubere" Ansicht des DOMs.
+Content Scripts können ebenso wie Seitenskripte auf das DOM einer Seite zugreifen und es verändern. Sie können auch Änderungen sehen, die Seitenskripte am DOM vornehmen. Content Scripts erhalten jedoch eine „bereinigte“ Sicht auf das DOM.
 
-Firefox und Chrome verwenden grundsätzlich unterschiedliche Ansätze, um dieses Verhalten zu handhaben: In Firefox wird es als "Xray vision" bezeichnet, während Chrome isolierte Welten verwendet. Weitere Details finden Sie im Abschnitt [Umgebung des Inhalts-Skripts](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#content_script_environment) des Konzeptartikels zu Inhalts-Skripten.
+Firefox und Chrome verwenden grundlegend unterschiedliche Ansätze, um dieses Verhalten umzusetzen: In Firefox heißt der Mechanismus Xray Vision, während Chrome isolierte Welten verwendet. Weitere Informationen finden Sie im Abschnitt [Content-Script-Umgebung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#content_script_environment) des Artikels über Content Scripts.
 
-Firefox bietet jedoch einige APIs, mit denen Inhalts-Skripte auf JavaScript-Objekte zugreifen können, die von Seitenskripten erstellt wurden, und um ihre JavaScript-Objekte für Seitenskripte sichtbar zu machen. Weitere Details finden Sie unter [Sharing objects with page scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
+Firefox stellt jedoch einige APIs bereit, mit denen Content Scripts auf JavaScript-Objekte zugreifen können, die von Seitenskripten erstellt wurden, und ihre eigenen JavaScript-Objekte für Seitenskripte verfügbar machen können. Weitere Informationen finden Sie unter [Objekte mit Seitenskripten teilen](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
 
-Es gibt auch Unterschiede zwischen der [Content Security Policy (CSP) für Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#csp_for_content_scripts).
+Auch bei der [Content Security Policy (CSP) für Content Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#csp_for_content_scripts) gibt es Unterschiede.
 
-### Hintergrundseite und Erweiterungsdienstarbeiter
+### Background Page und Extension Service Worker
 
-Als Teil seiner Implementierung von Manifest V3 hat Chrome Hintergrundseiten durch Erweiterungsdienstarbeiter ersetzt. Firefox behält die Verwendung von Hintergrundseiten bei, während Safari sowohl Hintergrundseiten als auch Dienstarbeiter unterstützt.
+Im Rahmen der Implementierung von Manifest V3 hat Chrome Background Pages durch Extension Service Worker ersetzt. Firefox verwendet weiterhin Background Pages, während Safari sowohl Background Pages als auch Service Worker unterstützt.
 
-Weitere Informationen finden Sie im Abschnitt [Browser-Unterstützung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background#browser_support) auf der Seite über den `"background"` Manifest-Schlüssel. Dies beinhaltet ein Beispiel zur Implementierung eines Cross-Browser-Skripts.
+Weitere Informationen finden Sie im Abschnitt zur [Browserunterstützung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background#browser_support) auf der Seite zum Manifest-Schlüssel `"background"`. Dieser Abschnitt enthält ein Beispiel für die Implementierung eines browserübergreifenden Skripts. Das Beispiel [script-on-click](https://github.com/mdn/webextensions-examples/tree/main/script-on-click) demonstriert diesen Ansatz anhand einer vollständigen, funktionsfähigen Erweiterung.
 
 ### Manifest-Schlüssel
 
-Die Unterschiede in den [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Dateischlüsseln, die von den Hauptbrowsern unterstützt werden, fallen im Wesentlichen in drei Kategorien:
+Die Unterschiede zwischen den Schlüsseln der Datei [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json), die von den wichtigsten Browsern unterstützt werden, lassen sich grob in drei Kategorien einteilen:
 
-1. **Attribute zur Erweiterungsinformation.**
-   Zum Beispiel enthalten Firefox und Opera zum Zeitpunkt des Schreibens den [`developer`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer#browser_compatibility)-Schlüssel für Details über den Entwickler der Erweiterung.
-2. **Erweiterungsfunktionen.**
-   Zum Beispiel unterstützte Chrome zum Zeitpunkt des Schreibens nicht den [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#browser_compatibility)-Schlüssel.
-3. **Schlüsseloptionen.**
-   Zum Zeitpunkt des Schreibens sind im Allgemeinen nur `"manifest_version"`, `"version"` und `"name"` obligatorische Schlüssel.
+1. **Angaben zur Erweiterung.**
+   Zum Zeitpunkt der Erstellung dieses Artikels unterstützten Firefox und Opera beispielsweise den Schlüssel [`developer`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer#browser_compatibility) für Angaben zu den Entwicklern der Erweiterung.
+2. **Features der Erweiterung.**
+   Zum Zeitpunkt der Erstellung dieses Artikels unterstützte Chrome beispielsweise den Schlüssel [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#browser_compatibility) nicht.
+3. **Pflichtschlüssel und optionale Schlüssel.**
+   Zum Zeitpunkt der Erstellung dieses Artikels waren im Allgemeinen nur `"manifest_version"`, `"version"` und `"name"` Pflichtschlüssel.
 
-Browser-Kompatibilitätsinformationen sind bei jedem Schlüssel in den [`manifest.json`-Schlüsselreferenzseiten](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) des Mozilla Developer Network enthalten.
+Informationen zur Browser-Kompatibilität finden Sie für jeden Schlüssel auf den Mozilla-Developer-Network-[Referenzseiten zu den Schlüsseln von `manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json).
 
-Da `manifest.json`-Dateien tendenziell wenig Änderungen aufweisen – außer bei Versionsnummern, die zwischen den verschiedenen Browsern unterschiedlich sein können – ist es in der Regel der einfachste Ansatz, eine statische Version für jeden Browser zu erstellen und zu bearbeiten.
+Da sich `manifest.json`-Dateien in der Regel nur wenig ändern – abgesehen von Versionsnummern, die sich zwischen den Browsern unterscheiden können –, ist es meist am einfachsten, für jeden Browser eine eigene statische Version zu erstellen und zu bearbeiten.
 
-### Erweiterungspaketierung
+### Paketierung der Erweiterung
 
-Die Verpackung einer Erweiterung für die Verteilung über die Browser-Erweiterungsgeschäfte ist relativ einfach. Firefox, Chrome, Edge und Opera verwenden alle ein einfaches Zip-Format, das erfordert, dass die `manifest.json`-Datei im Stamm des Zip-Pakets liegt. Safari erfordert, dass Erweiterungen in ähnlicher Weise wie Apps verpackt werden.
+Eine Erweiterung für die Verteilung über die Erweiterungs-Stores der Browser zu paketieren, ist relativ unkompliziert. Firefox, Chrome, Edge und Opera verwenden ein einfaches ZIP-Format, bei dem sich die Datei `manifest.json` im Stammverzeichnis des ZIP-Pakets befinden muss. Für Safari müssen Erweiterungen ähnlich wie Apps paketiert werden.
 
-Für Einzelheiten zur Paketierung, beziehen Sie sich bitte auf die Richtlinien in den jeweiligen Entwicklerportalen der Erweiterungen.
+Einzelheiten zur Paketierung finden Sie in den Anleitungen der jeweiligen Entwicklerportale für Erweiterungen.
 
-### Erweiterungsveröffentlichung
+### Veröffentlichung der Erweiterung
 
-Jeder der großen Browser führt Browsererweiterungsgeschäfte. Jedes Geschäft überprüft Ihre Erweiterung auch auf Sicherheitslücken.
+Jeder der wichtigsten Browser betreibt einen Store für Browsererweiterungen. Jeder Store prüft Ihre Erweiterung auch auf Sicherheitslücken.
 
-Infolgedessen müssen Sie sich separat darum bemühen, Ihre Erweiterung für jedes Geschäft hinzuzufügen und zu aktualisieren. In einigen Fällen können Sie Ihre Erweiterung mithilfe eines Dienstprogramms hochladen.
+Daher müssen Sie das Hinzufügen und Aktualisieren Ihrer Erweiterung für jeden Store separat durchführen. In einigen Fällen können Sie Ihre Erweiterung mithilfe eines Hilfsprogramms hochladen.
 
-Diese Tabelle fasst den Ansatz und die Merkmale jedes Geschäfts zusammen:
+Die folgende Tabelle fasst die Verfahren und Merkmale der einzelnen Stores zusammen:
 
 <table>
   <thead>
     <tr>
       <th>Browser</th>
       <th>Registrierungsgebühr</th>
-      <th>Upload-Dienstprogramm</th>
-      <th>Überprüfungsprozess vor der Veröffentlichung</th>
-      <th>Kontozweistufen-Authentifizierung</th>
+      <th>Hilfsprogramm zum Hochladen</th>
+      <th>Prüfverfahren vor der Veröffentlichung</th>
+      <th>Zwei-Faktor-Authentifizierung für das Konto</th>
     </tr>
   </thead>
   <tbody>
@@ -178,7 +178,7 @@ Diese Tabelle fasst den Ansatz und die Merkmale jedes Geschäfts zusammen:
       <th><p>Edge</p></th>
       <td><p>Nein</p></td>
       <td><p>Nein</p></td>
-      <td><p>Kein SLA angegeben</p></td>
+      <td><p>Keine Service-Level-Vereinbarung angegeben</p></td>
       <td><p>Ja</p></td>
     </tr>
     <tr>
@@ -193,9 +193,11 @@ Diese Tabelle fasst den Ansatz und die Merkmale jedes Geschäfts zusammen:
         </p>
       </td>
       <td>
-        <p>Automatisch, ein paar Sekunden.</p>
+        <p>Automatisch, wenige Sekunden.</p>
         <p>
-          Eine manuelle Überprüfung der Erweiterung findet nach der Veröffentlichung statt, was dazu führen kann, dass die Erweiterung gesperrt wird, wenn Probleme festgestellt werden, die behoben werden müssen.
+          Nach der Veröffentlichung wird die Erweiterung manuell geprüft.
+          Werden dabei Probleme festgestellt, die behoben werden müssen,
+          kann die Erweiterung gesperrt werden.
         </p>
       </td>
       <td><p>Ja</p></td>
@@ -204,14 +206,14 @@ Diese Tabelle fasst den Ansatz und die Merkmale jedes Geschäfts zusammen:
       <th><p>Opera</p></th>
       <td><p>Nein</p></td>
       <td><p>Nein</p></td>
-      <td><p>Manuell, kein SLA angegeben</p></td>
+      <td><p>Manuell, keine Service-Level-Vereinbarung angegeben</p></td>
       <td><p>Nein</p></td>
     </tr>
     <tr>
       <th><p>Safari</p></th>
       <td><p>Ja</p></td>
       <td><p>Nein</p></td>
-      <td><p>Ja, laut Apple werden im Durchschnitt 50% der Apps innerhalb von 24 Stunden und über 90% innerhalb von 48 Stunden überprüft.</p></td>
+      <td><p>Ja. Laut Apple werden im Durchschnitt 50 % der Apps innerhalb von 24 Stunden und über 90 % innerhalb von 48 Stunden geprüft.</p></td>
       <td><p>Ja</p></td>
     </tr>
   </tbody>
@@ -219,14 +221,14 @@ Diese Tabelle fasst den Ansatz und die Merkmale jedes Geschäfts zusammen:
 
 ### Weitere Überlegungen
 
-#### Versionsnummerierung
+#### Versionsnummern
 
-Die Firefox-, Chrome- und Edge-Geschäfte erfordern, dass jede hochgeladene Version eine andere Versionsnummer hat. Das bedeutet, dass Sie nicht zu einer früheren Versionsnummer zurückkehren können, wenn Sie auf Probleme in einem Release stoßen.
+Die Stores für Firefox, Chrome und Edge verlangen, dass jede hochgeladene Version eine andere Versionsnummer hat. Wenn bei einer Veröffentlichung Probleme auftreten, können Sie daher nicht zu einer früheren Versionsnummer zurückkehren.
 
 ## Fazit
 
-Wenn Sie die Entwicklung einer plattformübergreifenden Erweiterung angehen, können Sie den `browser.*`-Namespace und Promises in einer Firefox-Implementierung verwenden. Sie können dies tun, im Wissen, dass diese Funktionen ab Chrome 148 unterstützt werden. Wenn Sie frühere Versionen von Chrome anvisieren möchten, können Sie dann das [WebExtension Browser API Polyfill](https://github.com/mozilla/webextension-polyfill/) verwenden.
+Bei der Entwicklung einer plattformübergreifenden Erweiterung können Sie in einer Firefox-Implementierung den `browser.*`-Namespace und Promises verwenden. Diese Features werden ab Chrome 148 unterstützt. Wenn Sie ältere Chrome-Versionen unterstützen möchten, können Sie zusätzlich den [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill/) verwenden.
 
-Der Großteil Ihrer plattformübergreifenden Arbeit wird sich wahrscheinlich darauf konzentrieren, Variationen zwischen den von den Hauptbrowsern unterstützten API-Funktionen zu behandeln. Sie müssen möglicherweise auch Unterschiede zwischen der Implementierung von Inhalts-Skripten und Hintergrund-Skripten berücksichtigen. Die Erstellung Ihrer `manifest.json`-Dateien sollte relativ einfach sein und etwas sein, das Sie manuell tun können. Anschließend müssen Sie die Unterschiede in den Prozessen zur Einreichung an jedes Erweiterungsgeschäft berücksichtigen.
+Der größte Teil Ihrer plattformübergreifenden Arbeit wird sich wahrscheinlich darauf konzentrieren, Unterschiede zwischen den von den wichtigsten Browsern unterstützten API-Features zu berücksichtigen. Möglicherweise müssen Sie auch Unterschiede bei der Implementierung von Content Scripts und Background Scripts beachten. Ihre `manifest.json`-Dateien lassen sich relativ einfach erstellen, auch manuell. Anschließend müssen Sie die unterschiedlichen Verfahren für die Einreichung bei den einzelnen Erweiterungs-Stores berücksichtigen.
 
-Wenn Sie den Rat in diesem Artikel befolgen, sollten Sie in der Lage sein, eine Erweiterung zu erstellen, die gut auf allen vier Hauptbrowsern funktioniert, sodass Sie Ihre Erweiterungsfunktionen an mehr Personen liefern können.
+Wenn Sie die Hinweise in diesem Artikel befolgen, sollten Sie eine Erweiterung erstellen können, die in allen vier wichtigsten Browsern gut funktioniert und deren Features damit mehr Menschen zur Verfügung stehen.

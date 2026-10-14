@@ -1,30 +1,30 @@
 ---
-title: "`<search>` HTML generisches Such-Element"
+title: "`<search>`: Allgemeines HTML-Suchelement"
 short-title: <search>
 slug: Web/HTML/Reference/Elements/search
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 46afd57950146568819d0bf98175a2ffdbe079d7
 ---
 
-Das **`<search>`** [HTML](/de/docs/Web/HTML)-Element ist ein Container, der die Teile des Dokuments oder der Anwendung mit Formularsteuerelementen oder anderem Inhalt darstellt, die mit der Durchführung einer Such- oder Filteroperation verbunden sind. Das `<search>`-Element identifiziert semantisch den Zweck der Inhalte des Elements als Such- oder Filterfunktionen. Die Such- oder Filterfunktionalität kann für die Website oder Anwendung, die aktuelle Webseite oder das Dokument, oder das gesamte Internet oder einen Teil davon sein.
+Das **`<search>`**-[HTML](/de/docs/Web/HTML)-Element ist ein Container für die Teile eines Dokuments oder einer Anwendung, die Formularsteuerelemente oder andere Inhalte für eine Such- oder Filterfunktion enthalten. Das `<search>`-Element kennzeichnet den Zweck seines Inhalts semantisch als Suche oder Filterung. Die Such- oder Filterfunktion kann sich auf die Website oder Anwendung, die aktuelle Webseite oder das aktuelle Dokument oder auf das gesamte Internet beziehungsweise einen Teil davon beziehen.
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Das `<search>`-Element dient nicht zur Präsentation von Suchergebnissen. Vielmehr sollten Such- oder gefilterte Ergebnisse als Teil des Hauptinhalts dieser Webseite präsentiert werden. Dennoch sind Vorschläge und Links, die Teil der "Schnellsuch"-Funktionalität innerhalb der Such- oder Filterfunktionalität sind, angemessen innerhalb der Inhalte des `<search>`-Elements verschachtelt, da sie Suchfunktionen sind.
+Das `<search>`-Element dient nicht zur Darstellung von Suchergebnissen. Suchergebnisse oder gefilterte Ergebnisse sollten stattdessen als Teil des Hauptinhalts der Webseite angezeigt werden. Vorschläge und Links einer „Schnellsuche“ können jedoch innerhalb des `<search>`-Elements stehen, da sie Teil der Suchfunktion sind.
 
 ## Barrierefreiheit
 
-Das `<search>`-Element definiert ein [`search`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)-Landmark. Dies macht es überflüssig, `role=search` zu einem {{HTMLElement('form')}}-Element hinzuzufügen.
+Das `<search>`-Element definiert einen [`search`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)-Landmark. Daher muss einem {{HTMLElement('form')}}-Element nicht zusätzlich `role=search` zugewiesen werden.
 
 ## Beispiele
 
-### Suchformular im Kopfbereich
+### Suchformular im Header
 
-Dieses Beispiel demonstriert die Verwendung von `<search>` als Container für eine Suche innerhalb eines Website-Kopfbereichs zum Durchführen einer siteweiten Suche. Das `<search>` ist ein semantischer Container für das {{HTMLElement("form")}}, das die vom Benutzer eingegebene Suchanfrage an einen Server sendet.
+Dieses Beispiel zeigt, wie `<search>` als Container für eine Suche im Header einer Website verwendet wird, um die gesamte Website zu durchsuchen. `<search>` ist ein semantischer Container für das {{HTMLElement("form")}}-Element, das die von der Benutzerin oder dem Benutzer eingegebene Suchanfrage an einen Server sendet.
 
 #### HTML
 
@@ -41,13 +41,19 @@ Dieses Beispiel demonstriert die Verwendung von `<search>` als Container für ei
 </header>
 ```
 
+```js hidden
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+```
+
 #### Ergebnis
 
 {{EmbedLiveSample('Header search form')}}
 
-### Web-App-Suche
+### Suche in einer Webanwendung
 
-Dieses Beispiel zeigt mögliche DOM-Inhalte, wenn eine JavaScript-Suchfunktionalität dynamisch in einer Webanwendung integriert wird. Wenn Suchfunktionen vollständig mit JavaScript implementiert werden und kein Formular übermittelt wird, sind weder ein {{HTMLElement("form")}}-Element noch ein Senden-{{HTMLElement("button")}} erforderlich. Für semantische Zwecke wird das `<search>`-Element hinzugefügt, um die Such- und Filterfunktionen zu enthalten.
+Dieses Beispiel zeigt mögliche DOM-Inhalte, wenn eine Suchfunktion mit JavaScript dynamisch in eine Webanwendung eingebunden wird. Wenn die Suchfunktion vollständig mit JavaScript umgesetzt wird und kein Formular abgesendet wird, sind weder ein {{HTMLElement("form")}}-Element noch ein {{HTMLElement("button")}}-Element zum Absenden erforderlich. Das `<search>`-Element dient dabei als semantischer Container für die Such- und Filterfunktionen.
 
 #### HTML
 
@@ -79,11 +85,11 @@ Dieses Beispiel zeigt mögliche DOM-Inhalte, wenn eine JavaScript-Suchfunktional
 {{EmbedLiveSample('Web app search')}}
 
 > [!NOTE]
-> Denken Sie daran, dass einige Benutzer kein JavaScript haben und keiner Ihrer Benutzer JavaScript ausführt, bis das JavaScript erfolgreich heruntergeladen, analysiert und ausgeführt wurde. Stellen Sie sicher, dass Ihre Benutzer auf den Inhalt Ihrer Website zugreifen können, wenn JavaScript deaktiviert ist.
+> Bedenken Sie, dass manche Nutzerinnen und Nutzer kein JavaScript zur Verfügung haben. Zudem wird JavaScript erst ausgeführt, nachdem es erfolgreich heruntergeladen, geparst und ausgeführt wurde. Stellen Sie sicher, dass die Inhalte Ihrer Website auch bei deaktiviertem JavaScript zugänglich sind.
 
-### Mehrfache Suchen
+### Mehrere Suchfunktionen
 
-Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine globale Site-Suche im Kopfbereich. Die zweite ist eine Suche und ein Filter basierend auf dem Seitenkontext, in unserem Beispiel eine Autosuche.
+Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine globale Suche für die gesamte Website im Header. Die zweite ist eine Suche mit Filtermöglichkeiten, die sich auf den Seiteninhalt bezieht – in diesem Beispiel auf Autos.
 
 #### HTML
 
@@ -110,7 +116,7 @@ Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine glo
 
 {{EmbedLiveSample('Multiple searches')}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -119,18 +125,18 @@ Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine glo
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>, <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">greifbarer Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließinhalt</a>, <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">wahrnehmbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließinhalt</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Nicht zulässig; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -139,7 +145,7 @@ Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine glo
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role"><code>form</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role"><code>region</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role"><code>search</code></a>
       </td>
@@ -161,5 +167,5 @@ Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine glo
 
 ## Siehe auch
 
-- Andere suchbezogene Elemente: {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("aside")}}, {{HTMLElement("nav")}}, {{HTMLElement("form")}}
-- [ARIA: Suchrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)
+- Weitere Elemente im Zusammenhang mit der Suche: {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("aside")}}, {{HTMLElement("nav")}}, {{HTMLElement("form")}}
+- [ARIA: Rolle „search“](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)

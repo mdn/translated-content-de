@@ -2,63 +2,63 @@
 title: Hintergrundskripte
 slug: Mozilla/Add-ons/WebExtensions/Background_scripts
 l10n:
-  sourceCommit: 4ecb85924cb9982ab3dc6b849ccfac0edbfda171
+  sourceCommit: 8adfa9f21be15f90b5ee73dbfb9bc441038ac55d
 ---
 
-Hintergrundskripte oder eine Hintergrundseite ermöglichen es Ihnen, Ereignisse im Browser zu überwachen und darauf zu reagieren, wie zum Beispiel das Navigieren zu einer neuen Seite, das Entfernen eines Lesezeichens oder das Schließen eines Tabs.
+Hintergrundskripte oder eine Hintergrundseite ermöglichen es Ihnen, Ereignisse im Browser zu überwachen und darauf zu reagieren, etwa wenn zu einer neuen Seite navigiert, ein Lesezeichen entfernt oder ein Tab geschlossen wird.
 
-Hintergrundskripte oder -seiten sind:
+Hintergrundskripte oder eine Hintergrundseite können sein:
 
-- Persistente – werden geladen, wenn die Erweiterung startet und entladen, wenn die Erweiterung deaktiviert oder deinstalliert wird.
-- Nicht-persistente (auch als Ereignisseiten bekannt) – werden nur geladen, wenn sie benötigt werden, um auf ein Ereignis zu reagieren, und entladen, wenn sie inaktiv werden. Eine Hintergrundseite wird jedoch erst entladen, wenn alle sichtbaren Ansichten und Nachrichtenschnittstellen geschlossen sind. Das Öffnen einer Ansicht führt nicht dazu, dass die Hintergrundseite geladen wird, verhindert aber, dass sie geschlossen wird.
+- Persistent – sie werden beim Start der Erweiterung geladen und entladen, wenn die Erweiterung deaktiviert oder deinstalliert wird.
+- Nicht persistent (auch Event Pages genannt) – sie werden nur geladen, wenn sie auf ein Ereignis reagieren müssen, und entladen, sobald sie inaktiv sind. Eine Hintergrundseite wird jedoch erst entladen, wenn alle sichtbaren Ansichten und Message Ports geschlossen sind. Das Öffnen einer Ansicht bewirkt nicht, dass die Hintergrundseite geladen wird, verhindert aber, dass sie geschlossen wird.
 
 > [!NOTE]
-> In Firefox, wenn der Erweiterungsprozess abstürzt:
+> Wenn in Firefox der Erweiterungsprozess abstürzt:
 >
-> - werden persistente Hintergrundskripte, die zum Zeitpunkt des Absturzes ausgeführt werden, automatisch neu geladen.
-> - werden nicht-persistente Hintergrundskripte (auch als "Ereignisseiten" bekannt), die zum Zeitpunkt des Absturzes ausgeführt werden, nicht neu geladen. Sie werden jedoch automatisch neu gestartet, wenn Firefox einen ihrer WebExtensions API-Ereignislistener aufruft.
-> - Erweiterungsseiten, die zum Zeitpunkt des Absturzes in Tabs geladen sind, werden nicht automatisch wiederhergestellt. Eine Warnmeldung in jedem Tab informiert den Benutzer, dass die Seite abgestürzt ist und ermöglicht es dem Benutzer, den Tab zu schließen oder wiederherzustellen.
->   ![Browserfenster zeigt die Benutzermeldung an, die angibt, dass eine Seite abgestürzt ist, mit den Optionen, den Tab zu schließen oder neu zu starten](your-tab-crashed-screenshot.png)
->   Sie können diesen Zustand testen, indem Sie einen neuen Tab öffnen und zu `about:crashextensions` navigieren, was einen stillen Absturz des Erweiterungsprozesses auslöst.
+> - werden persistente Hintergrundskripte, die zum Zeitpunkt des Absturzes ausgeführt wurden, automatisch neu geladen.
+> - werden nicht persistente Hintergrundskripte (auch „Event Pages“ genannt), die zum Zeitpunkt des Absturzes ausgeführt wurden, nicht neu geladen. Sie werden jedoch automatisch neu gestartet, wenn Firefox einen ihrer WebExtensions-API-Event-Listener aufruft.
+> - werden Erweiterungsseiten, die zum Zeitpunkt des Absturzes in Tabs geladen waren, nicht automatisch wiederhergestellt. Eine Warnmeldung in jedem Tab informiert die Benutzer darüber, dass die Seite abgestürzt ist, und bietet die Möglichkeit, den Tab zu schließen oder wiederherzustellen.
+>   ![Browserfenster mit einer Meldung über den Absturz einer Seite und den Optionen, den Tab zu schließen oder neu zu starten](your-tab-crashed-screenshot.png)
+>   Sie können dieses Verhalten testen, indem Sie einen neuen Tab öffnen und zu `about:crashextensions` navigieren. Dadurch wird ohne weitere Meldung ein Absturz des Erweiterungsprozesses ausgelöst.
 
-In Manifest V2 können Hintergrundskripte oder -seiten persistent oder nicht-persistent sein. Nicht-persistente Hintergrundskripte werden empfohlen, da sie die Ressourcenkosten Ihrer Erweiterung reduzieren. In Manifest V3 werden nur nicht-persistente Hintergrundskripte oder -seiten unterstützt.
+In Manifest V2 können Hintergrundskripte oder eine Hintergrundseite persistent oder nicht persistent sein. Nicht persistente Hintergrundskripte werden empfohlen, da sie den Ressourcenbedarf Ihrer Erweiterung verringern. In Manifest V3 werden nur nicht persistente Hintergrundskripte oder eine nicht persistente Hintergrundseite unterstützt.
 
-Wenn Sie persistente Hintergrundskripte oder -seiten in Manifest V2 haben und Ihre Erweiterung auf Manifest V3 vorbereiten möchten, bietet [Umwandlung in nicht-persistente](#umwandlung_in_nicht-persistent) Ratschläge zum Übergang von Skripten oder Seiten zum nicht-persistenten Modell.
+Wenn Sie in Manifest V2 persistente Hintergrundskripte oder eine persistente Hintergrundseite verwenden und Ihre Erweiterung auf die Migration zu Manifest V3 vorbereiten möchten, finden Sie unter [Auf nicht persistent umstellen](#auf_nicht_persistent_umstellen) Hinweise für die Umstellung auf das nicht persistente Modell.
 
 ## Umgebung von Hintergrundskripten
 
 ### DOM-APIs
 
-Hintergrundskripte laufen im Kontext einer speziellen Seite, die als Hintergrundseite bezeichnet wird. Dadurch erhalten sie ein [`window`](/de/docs/Web/API/Window) globales Objekt, zusammen mit allen standardmäßigen DOM-APIs, die durch dieses Objekt bereitgestellt werden.
+Hintergrundskripte werden im Kontext einer speziellen Seite ausgeführt, der sogenannten Hintergrundseite. Dadurch steht ihnen ein globales [`window`](/de/docs/Web/API/Window)-Objekt mit allen von diesem Objekt bereitgestellten Standard-DOM-APIs zur Verfügung.
 
 > [!WARNING]
-> In Firefox unterstützen Hintergrundseiten die Nutzung von [`alert()`](/de/docs/Web/API/Window/alert), [`confirm()`](/de/docs/Web/API/Window/confirm) oder [`prompt()`](/de/docs/Web/API/Window/prompt) nicht.
+> In Firefox unterstützen Hintergrundseiten nicht die Verwendung von [`alert()`](/de/docs/Web/API/Window/alert), [`confirm()`](/de/docs/Web/API/Window/confirm) oder [`prompt()`](/de/docs/Web/API/Window/prompt).
 
 ### WebExtension-APIs
 
-Hintergrundskripte können alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, solange ihre Erweiterung die notwendigen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat.
+Hintergrundskripte können alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, sofern ihre Erweiterung über die erforderlichen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) verfügt.
 
 ### Zugriff über Ursprungsgrenzen hinweg
 
-Hintergrundskripte können XHR-Anfragen an Hosts stellen, für die sie [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Hintergrundskripte können XHR-Anfragen an Hosts senden, für die sie [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
 
-### Web-Inhalt
+### Webinhalte
 
-Hintergrundskripte haben keinen direkten Zugriff auf Webseiten. Sie können jedoch [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) in Webseiten laden und [mit diesen Inhalts-Skripten über eine Nachrichtenübermittlungs-API kommunizieren](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#communicating_with_background_scripts).
+Hintergrundskripte haben keinen direkten Zugriff auf Webseiten. Sie können jedoch [Content Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) in Webseiten laden und [über eine Message-Passing-API mit diesen Content Scripts kommunizieren](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#communicating_with_background_scripts).
 
-### Content-Security-Policy
+### Content Security Policy
 
-Hintergrundskripte sind durch eine Content-Security-Policy von bestimmten potenziell gefährlichen Operationen wie der Nutzung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) ausgeschlossen.
+Eine Content Security Policy verhindert, dass Hintergrundskripte bestimmte potenziell gefährliche Operationen ausführen, beispielsweise die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval).
 
-Siehe [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy) für weitere Details.
+Weitere Informationen finden Sie unter [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy).
 
-## Implementierung von Hintergrundskripten
+## Hintergrundskripte implementieren
 
-Dieser Abschnitt beschreibt, wie ein nicht-persistentes Hintergrundskript implementiert wird.
+Dieser Abschnitt beschreibt, wie Sie ein nicht persistentes Hintergrundskript implementieren.
 
-### Hintergrundskripte spezifizieren
+### Hintergrundskripte angeben
 
-In Ihrer Erweiterung schließen Sie ein Hintergrundskript oder mehrere ein, wenn Sie diese benötigen, indem Sie den [`"background"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background)-Schlüssel in `manifest.json` verwenden. Für Manifest V2-Erweiterungen muss die Eigenschaft `persistent` auf `false` gesetzt sein, um ein nicht-persistentes Skript zu erstellen. Es kann für Manifest V3-Erweiterungen weggelassen werden oder es muss auf `false` gesetzt werden, da Skripte immer nicht-persistent in Manifest V3 sind. Wenn Sie `"type": "module"` einschließen, werden die Hintergrundskripte als ES-Module geladen.
+Wenn Ihre Erweiterung Hintergrundskripte benötigt, binden Sie diese über den Schlüssel [`"background"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background) in `manifest.json` ein. Bei Manifest-V2-Erweiterungen muss die Eigenschaft `persistent` den Wert `false` haben, um ein nicht persistentes Skript zu erstellen. Bei Manifest-V3-Erweiterungen kann sie weggelassen werden oder muss auf `false` gesetzt sein, da Skripte in Manifest V3 immer nicht persistent sind. Mit `"type": "module"` werden die Hintergrundskripte als ES-Module geladen.
 
 ```json
 "background": {
@@ -68,9 +68,9 @@ In Ihrer Erweiterung schließen Sie ein Hintergrundskript oder mehrere ein, wenn
 }
 ```
 
-Diese Skripte werden auf der Hintergrundseite der Erweiterung ausgeführt, sodass sie im selben Kontext laufen, wie Skripte, die in eine Webseite geladen werden.
+Diese Skripte werden auf der Hintergrundseite der Erweiterung ausgeführt. Sie laufen daher im selben Kontext, ähnlich wie Skripte, die in eine Webseite geladen werden.
 
-Wenn Sie jedoch bestimmten Inhalt auf der Hintergrundseite benötigen, können Sie eine angeben. Dann geben Sie Ihr Skript von der Seite anstelle der Verwendung der `"scripts"`-Eigenschaft an. Vor der Einführung der `"type"`-Eigenschaft für den `"background"`-Schlüssel war dies die einzige Möglichkeit, ES-Module einzuschließen. So geben Sie eine Hintergrundseite an:
+Wenn Sie jedoch bestimmte Inhalte auf der Hintergrundseite benötigen, können Sie eine eigene Hintergrundseite angeben. In diesem Fall binden Sie Ihr Skript über die Seite ein, statt die Eigenschaft `"scripts"` zu verwenden. Vor der Einführung der Eigenschaft `"type"` für den Schlüssel `"background"` war dies die einzige Möglichkeit, ES-Module einzubinden. Eine Hintergrundseite geben Sie wie folgt an:
 
 - manifest.json
 
@@ -93,13 +93,15 @@ Wenn Sie jedoch bestimmten Inhalt auf der Hintergrundseite benötigen, können S
   </html>
   ```
 
-Sie können keine Hintergrundskripte und eine Hintergrundseite angeben.
+Sie können nicht gleichzeitig Hintergrundskripte und eine Hintergrundseite angeben.
 
-### Die Erweiterung initialisieren
+Damit Hintergrundskripte sowohl in Browsern, die Service Workers verwenden (beispielsweise Chrome), als auch in Browsern mit Event Pages funktionieren, geben Sie im Schlüssel `background` sowohl `scripts` als auch `service_worker` an. Das Beispiel [script-on-click](https://github.com/mdn/webextensions-examples/tree/main/script-on-click) veranschaulicht dieses browserübergreifende Muster.
 
-Hören Sie {{WebExtAPIRef("runtime.onInstalled")}}, um eine Erweiterung bei der Installation zu initialisieren. Verwenden Sie dieses Ereignis, um einen Status festzulegen oder für eine einmalige Initialisierung.
+### Erweiterung initialisieren
 
-Für Erweiterungen mit Ereignisseiten ist dies der Ort, an dem zustandsbehaftete APIs, wie ein Kontextmenü, das mit {{WebExtAPIRef("menus.create")}} erstellt wird, verwendet werden sollten. Dies liegt daran, dass zustandsbehaftete APIs nicht jedes Mal ausgeführt werden müssen, wenn die Ereignisseite neu geladen wird; sie müssen nur ausgeführt werden, wenn die Erweiterung installiert wird.
+Reagieren Sie auf {{WebExtAPIRef("runtime.onInstalled")}}, um eine Erweiterung bei der Installation zu initialisieren. Verwenden Sie dieses Ereignis, um einen Zustand festzulegen oder eine einmalige Initialisierung durchzuführen.
+
+Bei Erweiterungen mit Event Pages sollten hier zustandsbehaftete APIs verwendet werden, beispielsweise zum Erstellen eines Kontextmenüs mit {{WebExtAPIRef("menus.create")}}. Denn zustandsbehaftete APIs müssen nicht bei jedem erneuten Laden der Event Page ausgeführt werden, sondern nur bei der Installation der Erweiterung.
 
 ```js
 browser.runtime.onInstalled.addListener(() => {
@@ -113,9 +115,9 @@ browser.runtime.onInstalled.addListener(() => {
 
 ### Listener hinzufügen
 
-Strukturieren Sie Hintergrundskripte um Ereignisse, von denen die Erweiterung abhängt. Das Definieren relevanter Ereignisse ermöglicht es den Hintergrundskripten, im Leerlauf zu bleiben, bis diese Ereignisse ausgelöst werden, und verhindert, dass die Erweiterung wesentliche Auslöser verpasst.
+Strukturieren Sie Hintergrundskripte anhand der Ereignisse, von denen die Erweiterung abhängt. Wenn Sie die relevanten Ereignisse festlegen, können Hintergrundskripte inaktiv bleiben, bis diese Ereignisse eintreten. Zugleich verhindern Sie, dass die Erweiterung wichtige Auslöser verpasst.
 
-Listener müssen synchron von Beginn der Seite an registriert werden.
+Listener müssen beim Start der Seite synchron registriert werden.
 
 ```js
 browser.runtime.onInstalled.addListener(() => {
@@ -132,7 +134,7 @@ browser.bookmarks.onCreated.addListener(() => {
 });
 ```
 
-Registrieren Sie Listener nicht asynchron, da sie nicht ordnungsgemäß ausgelöst werden. Daher, anstatt:
+Registrieren Sie Listener nicht asynchron, da sie sonst nicht zuverlässig ausgelöst werden. Verwenden Sie also statt:
 
 ```js example-bad
 window.onload = () => {
@@ -143,7 +145,7 @@ window.onload = () => {
 };
 ```
 
-Machen Sie dies:
+Folgendes:
 
 ```js
 browser.tabs.onUpdated.addListener(() => {
@@ -152,7 +154,7 @@ browser.tabs.onUpdated.addListener(() => {
 });
 ```
 
-Erweiterungen können Listener aus ihren Hintergrundskripten entfernen, indem sie `removeListener` aufrufen, wie zum Beispiel mit {{WebExtAPIRef("runtime.onMessage")}} `removeListener`. Wenn alle Listener für ein Ereignis entfernt werden, lädt der Browser das Hintergrundskript der Erweiterung für dieses Ereignis nicht mehr.
+Erweiterungen können Listener aus ihren Hintergrundskripten entfernen, indem sie `removeListener` aufrufen, beispielsweise `removeListener` für {{WebExtAPIRef("runtime.onMessage")}}. Wenn alle Listener für ein Ereignis entfernt wurden, lädt der Browser das Hintergrundskript der Erweiterung für dieses Ereignis nicht mehr.
 
 ```js
 browser.runtime.onMessage.addListener(
@@ -164,9 +166,9 @@ browser.runtime.onMessage.addListener(
 
 ### Ereignisse filtern
 
-Wenn Ihre Erweiterung nur auf eine Untermenge von Ereignissen reagieren muss, zum Beispiel, wenn eine Webseite von einer bestimmten Domain geöffnet wird, verwenden Sie Ereignisfilter, wo sie verfügbar sind.
+Wenn Ihre Erweiterung nur auf einen Teil der Ereignisse reagieren muss, etwa wenn eine Webseite einer bestimmten Domain geöffnet wird, verwenden Sie Ereignisfilter, sofern diese verfügbar sind.
 
-Zum Beispiel können Sie einen Filter zum {{WebExtAPIRef("webNavigation.onCompleted")}}-Ereignis hinzufügen, um Ihr Hintergrundskript zu starten, wenn bestimmte URLs geladen werden, wie folgt:
+Sie können beispielsweise dem Ereignis {{WebExtAPIRef("webNavigation.onCompleted")}} einen Filter hinzufügen, damit Ihr Hintergrundskript startet, wenn bestimmte URLs geladen werden:
 
 ```js
 browser.webNavigation.onCompleted.addListener(
@@ -177,15 +179,15 @@ browser.webNavigation.onCompleted.addListener(
 );
 ```
 
-Wenn Sie nur auf Desktop-Firefox abzielen, können Sie auch Filter zu {{WebExtAPIRef("tabs.onUpdated")}} hinzufügen, um ein ähnliches Ergebnis zu erzielen.
+Wenn Sie ausschließlich Firefox für Desktop-Systeme unterstützen, können Sie auch {{WebExtAPIRef("tabs.onUpdated")}} Filter hinzufügen, um ein ähnliches Ergebnis zu erzielen.
 
-### Auf Listener reagieren
+### Auf Ereignisse reagieren
 
-Listener existieren, um Funktionalität auszulösen, sobald ein Ereignis ausgelöst wurde. Um auf ein Ereignis zu reagieren, strukturieren Sie die gewünschte Reaktion innerhalb des Listener-Ereignisses.
+Listener lösen Funktionen aus, sobald ein Ereignis eingetreten ist. Definieren Sie die gewünschte Reaktion auf ein Ereignis innerhalb des jeweiligen Listeners.
 
-Wenn Sie auf Ereignisse im Kontext eines bestimmten Tabs oder Frames reagieren, verwenden Sie `tabId` und `frameId` aus den Ereignisdetails, anstatt sich auf den „aktuellen Tab“ zu verlassen. Das Angeben des Ziels stellt sicher, dass Ihre Erweiterung keine Erweiterungs-API auf das falsche Ziel aufruft, wenn sich der „aktuelle Tab“ während des Aufweckens der Ereignisseite ändert.
+Wenn Sie auf Ereignisse im Kontext eines bestimmten Tabs oder Frames reagieren, verwenden Sie `tabId` und `frameId` aus den Ereignisdetails, statt sich auf den „aktuellen Tab“ zu verlassen. Durch die Angabe des Ziels verhindern Sie, dass Ihre Erweiterung eine Erweiterungs-API für das falsche Ziel aufruft, falls sich der „aktuelle Tab“ ändert, während die Event Page aktiviert wird.
 
-Zum Beispiel kann {{WebExtAPIRef("runtime.onMessage")}} auf Aufrufe von {{WebExtAPIRef("runtime.sendMessage")}} wie folgt reagieren:
+Beispielsweise kann {{WebExtAPIRef("runtime.onMessage")}} wie folgt auf Aufrufe von {{WebExtAPIRef("runtime.sendMessage")}} reagieren:
 
 ```js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -215,14 +217,14 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 ### Hintergrundskripte entladen
 
-Daten sollten regelmäßig gespeichert werden, um nicht wichtige Informationen zu verlieren, wenn eine Erweiterung abstürzt, ohne {{WebExtAPIRef("runtime.onSuspend")}} zu empfangen. Verwenden Sie die Speicher-API, um dies zu unterstützen.
+Speichern Sie Daten regelmäßig dauerhaft, damit bei einem Absturz der Erweiterung keine wichtigen Informationen verloren gehen, falls {{WebExtAPIRef("runtime.onSuspend")}} nicht empfangen wird. Verwenden Sie dazu die Storage-API.
 
 ```js
 // Or storage.session if the variable does not need to persist pass browser shutdown.
 browser.storage.local.set({ variable: variableInformation });
 ```
 
-Message-Ports können eine Ereignisseite nicht am Herunterfahren hindern. Wenn eine Erweiterung Nachrichtenübermittlung verwendet, werden die Ports geschlossen, wenn die Ereignisseite inaktiv wird. Durch das Hören auf {{WebExtAPIRef("runtime.Port")}} `onDisconnect` können Sie erkennen, wann offene Ports geschlossen werden, der Listener steht jedoch unter den gleichen Zeitbeschränkungen wie {{WebExtAPIRef("runtime.onSuspend")}}.
+Message Ports können nicht verhindern, dass eine Event Page heruntergefahren wird. Wenn eine Erweiterung Message Passing verwendet, werden die Ports geschlossen, sobald die Event Page inaktiv wird. Indem Sie auf `onDisconnect` von {{WebExtAPIRef("runtime.Port")}} reagieren, können Sie erkennen, wann offene Ports geschlossen werden. Für diesen Listener gelten jedoch dieselben zeitlichen Beschränkungen wie für {{WebExtAPIRef("runtime.onSuspend")}}.
 
 ```js
 browser.runtime.onConnect.addListener((port) => {
@@ -241,7 +243,7 @@ browser.runtime.onConnect.addListener((port) => {
 });
 ```
 
-Hintergrundskripte werden nach wenigen Sekunden Inaktivität entladen. Wenn jedoch während des Anhaltens eines Hintergrundskripts ein weiteres Ereignis das Hintergrundskript weckt, wird {{WebExtAPIRef("runtime.onSuspendCanceled")}} aufgerufen und das Hintergrundskript läuft weiter. Wenn eine Bereinigung erforderlich ist, hören Sie auf {{WebExtAPIRef("runtime.onSuspend")}}.
+Hintergrundskripte werden nach einigen Sekunden Inaktivität entladen. Wenn während der Aussetzung eines Hintergrundskripts jedoch ein weiteres Ereignis das Skript aktiviert, wird {{WebExtAPIRef("runtime.onSuspendCanceled")}} aufgerufen und das Hintergrundskript läuft weiter. Falls Bereinigungsarbeiten erforderlich sind, reagieren Sie auf {{WebExtAPIRef("runtime.onSuspend")}}.
 
 ```js
 browser.runtime.onSuspend.addListener(() => {
@@ -250,15 +252,15 @@ browser.runtime.onSuspend.addListener(() => {
 });
 ```
 
-Das regelmäßige Speichern von Daten sollte jedoch bevorzugt werden, anstatt sich auf {{WebExtAPIRef("runtime.onSuspend")}} zu verlassen. Es erlaubt nicht so viel Bereinigung, wie möglicherweise notwendig wäre, und hilft nicht im Falle eines Absturzes.
+Speichern Sie Daten jedoch vorzugsweise dauerhaft, statt sich auf {{WebExtAPIRef("runtime.onSuspend")}} zu verlassen. Dieses Ereignis lässt möglicherweise nicht genug Zeit für alle erforderlichen Bereinigungsarbeiten und hilft bei einem Absturz nicht.
 
-## Umwandlung in nicht-persistent
+## Auf nicht persistent umstellen
 
-Wenn Sie ein persistentes Hintergrundskript haben, bietet dieser Abschnitt Anweisungen zur Umwandlung in das nicht-persistente Modell.
+Wenn Sie ein persistentes Hintergrundskript verwenden, finden Sie in diesem Abschnitt eine Anleitung zur Umstellung auf das nicht persistente Modell.
 
-### Aktualisieren Sie Ihre manifest.json-Datei
+### Ihre manifest.json-Datei aktualisieren
 
-Ändern Sie in der `manifest.json`-Datei Ihrer Erweiterung die `persistent`-Eigenschaft des [`"background"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background)-Schlüssels auf `false` für Ihr Skript oder Ihre Seite.
+Setzen Sie in der Datei `manifest.json` Ihrer Erweiterung die Eigenschaft `persistent` des Schlüssels [`"background"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/background) für Ihr Skript oder Ihre Seite auf `false`.
 
 ```json
 "background": {
@@ -267,9 +269,9 @@ Wenn Sie ein persistentes Hintergrundskript haben, bietet dieser Abschnitt Anwei
 }
 ```
 
-### Ereignis-Listener verschieben
+### Event-Listener verschieben
 
-Listener müssen auf der obersten Ebene sein, um das Hintergrundskript zu aktivieren, wenn ein Ereignis ausgelöst wird. Registrierte Listener müssen möglicherweise in das synchrone Muster umstrukturiert und an die oberste Ebene verschoben werden.
+Listener müssen auf oberster Ebene definiert sein, damit das Hintergrundskript aktiviert wird, wenn ein Ereignis ausgelöst wird. Bereits registrierte Listener müssen möglicherweise auf das synchrone Muster umgestellt und auf die oberste Ebene verschoben werden.
 
 ```js
 browser.runtime.onStartup.addListener(() => {
@@ -277,9 +279,9 @@ browser.runtime.onStartup.addListener(() => {
 });
 ```
 
-### Statusänderungen aufzeichnen
+### Zustandsänderungen speichern
 
-Skripte werden jetzt bei Bedarf geöffnet und geschlossen. Verlassen Sie sich daher nicht auf globale Variablen.
+Skripte werden nun nach Bedarf geladen und entladen. Verlassen Sie sich daher nicht auf globale Variablen.
 
 ```js example-bad
 var count = 101;
@@ -291,10 +293,10 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 ```
 
-Verwenden Sie stattdessen die Speicher-API, um Zustände und Werte zu setzen und zurückzugeben:
+Verwenden Sie stattdessen die Storage-API, um Zustände und Werte zu speichern und abzurufen:
 
-- Verwenden Sie {{WebExtAPIRef("storage.session")}} für den Speicher im Arbeitsspeicher, der gelöscht wird, wenn die Erweiterung oder der Browser heruntergefahren wird. Standardmäßig ist `storage.session` nur für Erweiterungskontexte verfügbar und nicht für Inhaltsskripte.
-- Verwenden Sie {{WebExtAPIRef("storage.local")}} für einen größeren Speicherbereich, der über Neustarts des Browsers und der Erweiterung hinweg bestehen bleibt.
+- Verwenden Sie {{WebExtAPIRef("storage.session")}} für einen In-Memory-Speicher, der beim Beenden der Erweiterung oder des Browsers gelöscht wird. Standardmäßig steht `storage.session` nur Erweiterungskontexten zur Verfügung, nicht Content Scripts.
+- Verwenden Sie {{WebExtAPIRef("storage.local")}} für einen größeren Speicherbereich, dessen Daten auch nach einem Neustart des Browsers oder der Erweiterung erhalten bleiben.
 
 ```js
 browser.runtime.onMessage.addListener(async (message, sender) => {
@@ -308,7 +310,8 @@ browser.runtime.onMessage.addListener(async (message, sender) => {
 });
 ```
 
-Das obige Beispiel [sendet eine asynchrone Antwort unter Verwendung eines Versprechens](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_a_promise), was in Chrome nicht unterstützt wird, bis [Chrome Bug 1185241](https://crbug.com/1185241) gelöst ist. Eine Cross-Browser-Alternative ist, [true zurückzugeben und `sendResponse` zu verwenden](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_sendresponse).
+Das vorherige Beispiel [sendet eine asynchrone Antwort mithilfe eines Promise](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_a_promise). Dies wird in Chrome erst unterstützt, wenn [Chrome-Bug 1185241](https://crbug.com/1185241) behoben ist.
+Eine browserübergreifende Alternative besteht darin, [true zurückzugeben und `sendResponse` zu verwenden](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_sendresponse).
 
 ```js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -324,15 +327,15 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 ```
 
-### Timer in Alarme umwandeln
+### Timer durch Alarme ersetzen
 
-DOM-basierte Timer, wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), bleiben nach dem Leerlauf einer Ereignisseite nicht aktiv. Verwenden Sie stattdessen die {{WebExtAPIRef("alarms")}}-API, wenn Sie einen Timer benötigen, der eine Ereignisseite weckt.
+DOM-basierte Timer wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) bleiben nicht aktiv, nachdem eine Event Page inaktiv geworden ist. Verwenden Sie stattdessen die API {{WebExtAPIRef("alarms")}}, wenn ein Timer eine Event Page aktivieren soll.
 
 ```js
 browser.alarms.create({ delayInMinutes: 3.0 });
 ```
 
-Fügen Sie dann einen Listener hinzu.
+Fügen Sie anschließend einen Listener hinzu.
 
 ```js
 browser.alarms.onAlarm.addListener(() => {
@@ -340,20 +343,20 @@ browser.alarms.onAlarm.addListener(() => {
 });
 ```
 
-### Überarbeitungen von Aufrufen von Hintergrundskript-Funktionen
+### Aufrufe von Funktionen in Hintergrundskripten aktualisieren
 
-Erweiterungen hosten ihre Hauptfunktionalität häufig im Hintergrundskript. Einige Erweiterungen greifen auf Funktionen und Variablen zu, die auf der Hintergrundseite durch das `window`, das von {{WebExtAPIRef("runtime.getBackgroundPage")}} zurückgegeben wird, definiert sind.
+Erweiterungen stellen ihre Hauptfunktionalität häufig im Hintergrundskript bereit. Manche Erweiterungen greifen über das von {{WebExtAPIRef("runtime.getBackgroundPage")}} zurückgegebene `window` auf Funktionen und Variablen zu, die auf der Hintergrundseite definiert sind.
 Die Methode gibt `null` zurück, wenn:
 
-- Erweiterungsseiten isoliert sind, wie zum Beispiel Erweiterungsseiten im privaten Modus oder in Container-Tabs.
-- die Hintergrundseite nicht läuft. Dies ist mit persistenten Hintergrundseiten ungewöhnlich, aber sehr wahrscheinlich, wenn eine Ereignisseite verwendet wird, da eine Ereignisseite angehalten werden kann.
+- Erweiterungsseiten isoliert sind, beispielsweise Erweiterungsseiten im privaten Modus oder in Container-Tabs.
+- die Hintergrundseite nicht ausgeführt wird. Bei persistenten Hintergrundseiten ist dies ungewöhnlich, bei einer Event Page hingegen sehr wahrscheinlich, da diese ausgesetzt werden kann.
 
 > [!NOTE]
-> Der empfohlene Weg, Funktionalität im Hintergrundskript aufzurufen, ist die Kommunikation damit durch {{WebExtAPIRef("runtime.sendMessage","runtime.sendMessage()")}} oder {{WebExtAPIRef("runtime.connect","runtime.connect()")}}.
-> Die in diesem Abschnitt diskutierten `getBackgroundPage()`-Methoden können in einer browserübergreifenden Erweiterung nicht verwendet werden, da Manifest-Version-3-Erweiterungen in Chrome keine Hintergrund- oder Ereignisseiten verwenden können.
+> Es wird empfohlen, Funktionen im Hintergrundskript über {{WebExtAPIRef("runtime.sendMessage","runtime.sendMessage()")}} oder {{WebExtAPIRef("runtime.connect","runtime.connect()")}} aufzurufen.
+> Die in diesem Abschnitt beschriebenen `getBackgroundPage()`-Methoden können nicht in einer browserübergreifenden Erweiterung verwendet werden, da Manifest-Version-3-Erweiterungen in Chrome weder Hintergrundseiten noch Event Pages verwenden können.
 
-Wenn Ihre Erweiterung eine Referenz auf das `window` der Hintergrundseite benötigt, verwenden Sie {{WebExtAPIRef("runtime.getBackgroundPage")}}, um sicherzustellen, dass die Ereignisseite läuft.
-Wenn der Aufruf optional ist (das heißt, nur benötigt wird, wenn die Ereignisseite aktiv ist), verwenden Sie {{WebExtAPIRef("runtime.getBackgroundPage")}}.
+Wenn Ihre Erweiterung eine Referenz auf das `window` der Hintergrundseite benötigt, verwenden Sie {{WebExtAPIRef("runtime.getBackgroundPage")}}, um sicherzustellen, dass die Event Page ausgeführt wird.
+Wenn der Aufruf optional ist (also nur benötigt wird, wenn die Event Page aktiv ist), verwenden Sie {{WebExtAPIRef("runtime.getBackgroundPage")}}.
 
 ```js example-bad
 document.getElementById("target").addEventListener("click", async () => {

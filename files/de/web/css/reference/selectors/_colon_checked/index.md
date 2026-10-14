@@ -1,20 +1,23 @@
 ---
-title: "`:checked` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:checked`
 short-title: :checked
 slug: Web/CSS/Reference/Selectors/:checked
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklasse-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes **Radiobutton** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **Kontrollkästchen** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das aktiviert oder auf einen `on`-Zustand geschaltet ist.
+Der [CSS](/de/docs/Web/CSS)-[Pseudoklassenselektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:checked`** erfasst jedes **radio**-Element ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **checkbox**-Element ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) und **option**-Element ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das ausgewählt oder in den Zustand `on` versetzt wurde.
 
-{{InteractiveExample("CSS Demo: :checked", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :checked", "tabbed-standard")}}
 
 ```css interactive-example
-label,
-input[type="submit"] {
+label {
   display: block;
-  margin-top: 1em;
+  margin-top: 0.5em;
+}
+
+fieldset {
+  margin-top: 0.5em;
 }
 
 input:checked {
@@ -24,32 +27,42 @@ input:checked {
 ```
 
 ```html interactive-example
-<form>
-  <p>How did you find out about us?</p>
-  <label
-    ><input name="origin" type="radio" value="google" checked /> Google</label
-  >
-  <label><input name="origin" type="radio" value="facebook" /> Facebook</label>
-  <p>Please agree to our terms:</p>
+<label for="name">Name (required):</label>
+<input id="name" name="name" type="text" required />
 
-  <label
-    ><input name="newsletter" type="checkbox" checked /> I want to subscribe to
-    a personalized newsletter.</label
-  >
+<label for="birth">Date of birth:</label>
+<input id="birth" name="birth" type="date" />
 
-  <label
-    ><input name="privacy" type="checkbox" /> I have read and I agree to the
-    Privacy Policy.</label
-  >
+<label for="origin">How did you find out about us? (required)</label>
+<select id="origin" name="origin" required>
+  <option value="">Choose an option</option>
+  <option value="google">Google</option>
+  <option value="facebook">Facebook</option>
+  <option value="advertisement">Advertisement</option>
+</select>
 
-  <input type="submit" value="Submit form" />
-</form>
+<fieldset>
+  <legend>Preferred contact method:</legend>
+  <label>
+    <input name="contact" type="radio" value="email" checked /> Email
+  </label>
+  <label><input name="contact" type="radio" value="phone" /> Phone</label>
+</fieldset>
+
+<label>
+  <input name="newsletter" type="checkbox" checked /> I want to subscribe to a
+  personalized newsletter.
+</label>
+<label>
+  <input name="privacy" type="checkbox" required /> I have read and I agree to
+  the Privacy Policy (required).
+</label>
 ```
 
-Der Benutzer kann diesen Zustand aktivieren, indem er ein Element auswählt oder markiert, oder er kann ihn deaktivieren, indem er das Element abwählt oder dessen Markierung aufhebt.
+Benutzer können diesen Zustand aktivieren, indem sie ein Element auswählen, und ihn durch Aufheben der Auswahl wieder deaktivieren.
 
 > [!NOTE]
-> Da Browser `<option>`s oft als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert das Ausmaß, in dem sie mit der `:checked`-Pseudoklasse gestylt werden können, von Browser zu Browser. Die Funktionalität von [anpassbaren Select-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) kann verwendet werden, um die vollständige Anpassung von `<option>`-Elementen wie bei jedem regulären DOM-Element in unterstützten Browsern zu ermöglichen.
+> Da Browser `<option>`-Elemente häufig als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, unterscheidet sich von Browser zu Browser, inwieweit sie sich mit der Pseudoklasse `:checked` gestalten lassen. Die Funktionalität für [anpassbare select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ermöglicht in unterstützenden Browsern die vollständige Anpassung von `<option>`-Elementen wie bei jedem anderen regulären DOM-Element.
 
 ## Syntax
 
@@ -120,9 +133,9 @@ option:checked {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Umschalten von Elementen mit einem versteckten Kontrollkästchen
+### Elemente mit einer ausgeblendeten checkbox umschalten
 
-Dieses Beispiel verwendet die `:checked`-Pseudoklasse, um dem Benutzer das Umschalten von Inhalten basierend auf dem Zustand eines Kontrollkästchens zu ermöglichen, ohne [JavaScript](/de/docs/Web/JavaScript) zu verwenden.
+Dieses Beispiel verwendet die Pseudoklasse `:checked`, damit Benutzer Inhalte abhängig vom Zustand einer checkbox ein- und ausblenden können – ganz ohne [JavaScript](/de/docs/Web/JavaScript).
 
 #### HTML
 
@@ -218,7 +231,7 @@ Dieses Beispiel verwendet die `:checked`-Pseudoklasse, um dem Benutzer das Umsch
 
 ## Siehe auch
 
-- [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
-- [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- [Webformulare – Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
+- [Webformulare gestalten](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
 - Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), {{HTMLElement("select")}} und {{HTMLElement("option")}}
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

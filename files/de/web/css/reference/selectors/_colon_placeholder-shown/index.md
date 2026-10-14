@@ -1,12 +1,12 @@
 ---
-title: "`:placeholder-shown` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:placeholder-shown`
 short-title: :placeholder-shown
 slug: Web/CSS/Reference/Selectors/:placeholder-shown
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element, das derzeit [Platzhaltertext](/de/docs/Web/HTML/Reference/Elements/input#placeholder) anzeigt.
+Die **[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) `:placeholder-shown`** bezeichnet jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das gerade einen [Platzhaltertext](/de/docs/Web/HTML/Reference/Elements/input#placeholder) anzeigt.
 
 {{InteractiveExample("CSS Demo: :placeholder-shown", "tabbed-shorter")}}
 
@@ -24,21 +24,19 @@ input:placeholder-shown {
 ```
 
 ```html interactive-example
-<form>
-  <label for="name">Full Name:</label>
-  <input id="name" name="name" type="text" />
+<label for="name">Full Name:</label>
+<input id="name" name="name" type="text" />
 
-  <label for="email">Email Address:</label>
-  <input id="email" name="email" type="email" placeholder="name@example.com" />
+<label for="email">Email Address:</label>
+<input id="email" name="email" type="email" placeholder="name@example.com" />
 
-  <label for="age">Your age:</label>
-  <input
-    id="age"
-    name="age"
-    type="number"
-    value="18"
-    placeholder="You must be 18+" />
-</form>
+<label for="age">Your age:</label>
+<input
+  id="age"
+  name="age"
+  type="number"
+  value="18"
+  placeholder="You must be 18+" />
 ```
 
 ## Syntax
@@ -53,7 +51,7 @@ input:placeholder-shown {
 
 ### Einfaches Beispiel
 
-Dieses Beispiel wendet spezielle Schriftarten- und Rahmenstile an, wenn der Platzhalter angezeigt wird.
+Dieses Beispiel wendet besondere Schrift- und Rahmenstile an, wenn der Platzhalter angezeigt wird.
 
 #### HTML
 
@@ -82,7 +80,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn Formularfelder zu klein sind, kann der Platzhaltertext in unerwünschter Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um die Anzeige von überlaufendem Text zu ändern.
+Wenn Formularfelder zu klein sind, kann Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Mit der Eigenschaft {{cssxref("text-overflow")}} können Sie ändern, wie überlaufender Text dargestellt wird.
 
 #### HTML
 
@@ -105,31 +103,27 @@ Wenn Formularfelder zu klein sind, kann der Platzhaltertext in unerwünschter We
 
 ### Angepasstes Eingabefeld
 
-Das folgende Beispiel hebt das Feld für die Studenten-ID mit einem benutzerdefinierten Stil hervor.
+Das folgende Beispiel hebt das Feld für die Studierenden-ID durch einen angepassten Stil hervor.
 
 #### HTML
 
 ```html
-<form id="test">
-  <p>
-    <label for="name">Enter Student Name:</label>
-    <input id="name" placeholder="Student Name" />
-  </p>
-  <p>
-    <label for="branch">Enter Student Branch:</label>
-    <input id="branch" placeholder="Student Branch" />
-  </p>
-  <p>
-    <label for="sid">Enter Student ID:</label>
-    <input
-      pattern="[0-9]{8}"
-      title="8 digit ID"
-      id="sid"
-      class="student-id"
-      placeholder="8 digit id" />
-  </p>
-  <input type="submit" />
-</form>
+<p>
+  <label for="name">Student Name:</label>
+  <input id="name" placeholder="Student Name" />
+</p>
+<p>
+  <label for="branch">Student Branch:</label>
+  <input id="branch" placeholder="Student Branch" />
+</p>
+<p>
+  <label for="sid">8-Digit Student ID:</label>
+  <input
+    pattern="[0-9]{8}"
+    id="sid"
+    class="student-id"
+    placeholder="8 digit id" />
+</p>
 ```
 
 #### CSS
@@ -161,6 +155,6 @@ input.student-id:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}} Pseudoelement gestaltet den Platzhalter selbst.
+- Das Pseudoelement {{CSSxRef("::placeholder")}} gestaltet den Platzhalter _selbst_.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)

@@ -1,41 +1,41 @@
 ---
-title: "`required` HTML-Attribut"
+title: HTML-Attribut `required`
 short-title: required
 slug: Web/HTML/Reference/Attributes/required
 l10n:
-  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
+  sourceCommit: 46afd57950146568819d0bf98175a2ffdbe079d7
 ---
 
-Das {{Glossary("Boolean/HTML", "Boolean")}} **`required`** Attribut, wenn vorhanden, gibt an, dass der Benutzer einen Wert für die Eingabe angeben muss, bevor das zugehörige Formular abgeschickt werden kann.
+Das {{Glossary("Boolean/HTML", "boolesche")}} Attribut **`required`** gibt, wenn es vorhanden ist, an, dass Benutzer einen Wert für das Eingabefeld angeben müssen, bevor das zugehörige Formular abgesendet werden kann.
 
-Das `required` Attribut wird von den `{{HTMLElement("input/text","text")}}`, `{{HTMLElement("input/search","search")}}`, `{{HTMLElement("input/url","url")}}`, `{{HTMLElement("input/tel","tel")}}`, `{{HTMLElement("input/email","email")}}`, `{{HTMLElement("input/password","password")}}`, `{{HTMLElement("input/date","date")}}`, `{{HTMLElement("input/month","month")}}`, `{{HTMLElement("input/week","week")}}`, `{{HTMLElement("input/time","time")}}`, `{{HTMLElement("input/datetime-local","datetime-local")}}`, `{{HTMLElement("input/number","number")}}`, `{{HTMLElement("input/checkbox","checkbox")}}`, `{{HTMLElement("input/radio","radio")}}`, `{{HTMLElement("input/file","file")}}`, {{HTMLElement("input")}} Typen sowie den {{HTMLElement("select")}} und {{HTMLElement("textarea")}} Formularelementen unterstützt. Wenn es bei einem dieser Eingabetypen und Elemente vorhanden ist, wird die {{cssxref(':required')}} Pseudoklasse übereinstimmen. Wenn das Attribut nicht enthalten ist, wird die {{cssxref(':optional')}} Pseudoklasse übereinstimmen.
+Das Attribut `required` wird von den {{HTMLElement("input")}}-Typen `{{HTMLElement("input/text","text")}}`, `{{HTMLElement("input/search","search")}}`, `{{HTMLElement("input/url","url")}}`, `{{HTMLElement("input/tel","tel")}}`, `{{HTMLElement("input/email","email")}}`, `{{HTMLElement("input/password","password")}}`, `{{HTMLElement("input/date","date")}}`, `{{HTMLElement("input/month","month")}}`, `{{HTMLElement("input/week","week")}}`, `{{HTMLElement("input/time","time")}}`, `{{HTMLElement("input/datetime-local","datetime-local")}}`, `{{HTMLElement("input/number","number")}}`, `{{HTMLElement("input/checkbox","checkbox")}}`, `{{HTMLElement("input/radio","radio")}}` und `{{HTMLElement("input/file","file")}}` sowie von den Formularsteuerelementen {{HTMLElement("select")}} und {{HTMLElement("textarea")}} unterstützt. Ist das Attribut bei einem dieser Eingabetypen oder Elemente vorhanden, trifft die Pseudoklasse {{cssxref(':required')}} zu. Ist es nicht vorhanden, trifft die Pseudoklasse {{cssxref(':optional')}} zu.
 
-Das Attribut wird bei den {{HTMLElement("input/range","range")}} und {{HTMLElement("input/color","color")}} Eingabetypen nicht unterstützt und ist nicht relevant, da beide Standardwerte haben. Typ `color` hat standardmäßig den Wert `#000000`. Typ `range` hat standardmäßig den Mittelwert zwischen `min` und `max` — wobei `min` und `max` standardmäßig auf 0 bzw. 100 in den meisten Browsern eingestellt sind, wenn sie nicht deklariert werden. `required` wird auch nicht auf den {{HTMLElement("input/hidden","hidden")}} Eingabetyp unterstützt — Benutzer können nicht erwartet werden, ein verstecktes Formularfeld auszufüllen. Schließlich wird `required` nicht bei irgendeinem Button-Eingabetyp unterstützt, einschließlich {{HTMLElement("input/image","image")}}.
+Für die Eingabetypen {{HTMLElement("input/range","range")}} und {{HTMLElement("input/color","color")}} wird das Attribut nicht unterstützt und ist auch nicht relevant, da beide Standardwerte haben. Der Typ `color` hat standardmäßig den Wert `#000000`. Der Typ `range` hat standardmäßig den Wert in der Mitte zwischen `min` und `max`. Wenn `min` und `max` nicht angegeben sind, haben sie in den meisten Browsern standardmäßig die Werte 0 beziehungsweise 100. `required` wird auch für den Eingabetyp {{HTMLElement("input/hidden","hidden")}} nicht unterstützt – von Benutzern kann nicht erwartet werden, ein verborgenes Formularfeld auszufüllen. Schließlich wird `required` für keinen Eingabetyp für Schaltflächen unterstützt, einschließlich {{HTMLElement("input/image","image")}}.
 
-Im Fall einer gleichnamigen Gruppe von {{HTMLElement("input/radio","radio")}} Knöpfen, wenn ein einzelner Radiobutton in der Gruppe das `required` Attribut hat, muss ein Radiobutton in dieser Gruppe ausgewählt sein, obwohl es nicht der sein muss, auf dem das Attribut angewendet wurde. Um die Wartung des Codes zu verbessern, wird empfohlen, entweder das `required` Attribut in jedem gleichnamigen Radiobutton der Gruppe einzuschließen oder es bei keinem.
+Wenn in einer Gruppe von {{HTMLElement("input/radio","radio")}}-Schaltflächen mit demselben Namen eine einzelne Schaltfläche das Attribut `required` hat, muss eine Schaltfläche dieser Gruppe ausgewählt sein. Das muss jedoch nicht die Schaltfläche sein, für die das Attribut gesetzt ist. Um die Wartbarkeit des Codes zu verbessern, empfiehlt es sich, das Attribut `required` entweder für alle gleichnamigen Radio-Buttons der Gruppe oder für keinen davon anzugeben.
 
-Im Fall einer gleichnamigen Gruppe von {{HTMLElement("input/checkbox","checkbox")}} Eingabetypen sind nur die Checkboxen mit dem `required` Attribut erforderlich.
+Bei einer Gruppe von {{HTMLElement("input/checkbox","checkbox")}}-Eingaben mit demselben Namen sind nur die Checkboxen mit dem Attribut `required` erforderlich.
 
 > [!NOTE]
-> Festlegen von [`aria-required="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required) teilt einem Screenreader mit, dass ein Element (jedes Element) erforderlich ist, hat aber keinen Einfluss auf die Optionalität des Elements.
+> Durch Setzen von [`aria-required="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required) wird einem Screenreader mitgeteilt, dass ein Element (beliebiger Art) erforderlich ist. Dies hat jedoch keinen Einfluss darauf, ob das Element optional ist.
 
 ## Beschreibung
 
-### Attribut-Interaktionen
+### Zusammenspiel mit anderen Attributen
 
-Da ein schreibgeschütztes Feld nicht geändert werden kann, hat `required` keine Auswirkungen auf Eingaben, bei denen das [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) Attribut ebenfalls angegeben ist.
+Da ein schreibgeschütztes Feld nicht geändert werden kann, hat `required` keine Wirkung auf Eingabefelder, bei denen auch das Attribut [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) angegeben ist.
 
-### Benutzbarkeit
+### Benutzerfreundlichkeit
 
-Beim Einschließen des `required` Attributs sollte in der Nähe der Steuerung eine sichtbare Anzeige bereitgestellt werden, die dem Benutzer mitteilt, dass die {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} erforderlich ist. Zusätzlich sollten erforderliche Formularelemente mit der {{cssxref(':required')}} Pseudoklasse angesprochen werden, indem sie auf eine Weise gestaltet werden, die zeigt, dass sie erforderlich sind. Dies verbessert die Benutzbarkeit für sehende Benutzer. Assistive Technologie sollte den Benutzer informieren, dass das Formularelement basierend auf dem erforderlichen Attribut obligatorisch ist. Das Hinzufügen von `aria-required="true"` kann jedoch nicht schaden, falls die Kombination aus Browser / Screenreader `required` noch nicht unterstützt.
+Wenn Sie das Attribut `required` verwenden, kennzeichnen Sie in der Nähe des Steuerelements sichtbar, dass {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} erforderlich ist. Wählen Sie außerdem erforderliche Formularsteuerelemente mit der Pseudoklasse {{cssxref(':required')}} aus und gestalten Sie sie so, dass erkennbar ist, dass sie erforderlich sind. Das verbessert die Benutzerfreundlichkeit für sehende Benutzer. Unterstützende Technologien sollten Benutzer anhand des Attributs `required` darüber informieren, dass das Formularsteuerelement ein Pflichtfeld ist. Zusätzlich `aria-required="true"` anzugeben, schadet jedoch nicht, falls die Kombination aus Browser und Screenreader `required` noch nicht unterstützt.
 
-### Validierung von Einschränkungen
+### Constraint Validation
 
-Wenn das Element erforderlich ist und der Wert des Elements der leere String ist, leidet das Element unter [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) und das Element wird die {{cssxref(':invalid')}} Pseudoklasse übereinstimmen.
+Wenn das Element erforderlich und sein Wert eine leere Zeichenfolge ist, liegt der Gültigkeitsfehler [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) vor und die Pseudoklasse {{cssxref(':invalid')}} trifft auf das Element zu.
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-Bieten Sie den Benutzern eine Anzeige, die ihnen mitteilt, dass das Formularelement erforderlich ist. Stellen Sie sicher, dass die Nachricht facettenreich ist, beispielsweise durch Text, Farbe, Markierungen und Attribute, sodass alle Benutzer die Anforderungen verstehen, egal ob sie farbenblind sind, kognitive Unterschiede haben oder einen Screenreader verwenden.
+Kennzeichnen Sie für Benutzer, dass das Formularsteuerelement erforderlich ist. Verwenden Sie dafür mehrere Mittel, etwa Text, Farbe, Markierungen und Attribute. So können alle Benutzer die Anforderung verstehen – auch wenn sie eine Farbsehschwäche oder kognitive Einschränkungen haben oder einen Screenreader verwenden.
 
 ## Beispiel
 
@@ -53,6 +53,12 @@ Bieten Sie den Benutzern eine Anzeige, die ihnen mitteilt, dass das Formularelem
   </div>
   <input type="submit" />
 </form>
+```
+
+```js hidden
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 ```
 
 ### Ergebnis

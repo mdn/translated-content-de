@@ -3,21 +3,21 @@ title: "`:optional` CSS-Pseudoklasse"
 short-title: :optional
 slug: Web/CSS/Reference/Selectors/:optional
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
 ---
 
-Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das nicht das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut gesetzt hat.
+Die **`:optional`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) steht für jedes {{HTMLElement("input")}}-, {{HTMLElement("select")}}- oder {{HTMLElement("textarea")}}-Element, bei dem das Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) nicht gesetzt ist.
 
 {{InteractiveExample("CSS Demo: :optional", "tabbed-standard")}}
 
 ```css interactive-example
 label {
   display: block;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
-.req {
-  color: red;
+fieldset {
+  margin-top: 0.5em;
 }
 
 *:optional {
@@ -26,29 +26,42 @@ label {
 ```
 
 ```html interactive-example
-<form>
-  <label for="name">Name: <span class="req">*</span></label>
-  <input id="name" name="name" type="text" required />
+<label for="name">Name (required):</label>
+<input id="name" name="name" type="text" required />
 
-  <label for="birth">Date of Birth:</label>
-  <input id="birth" name="birth" type="date" />
+<label for="birth">Date of birth:</label>
+<input id="birth" name="birth" type="date" />
 
-  <label for="origin"
-    >How did you find out about us? <span class="req">*</span></label
-  >
-  <select id="origin" name="origin" required>
-    <option>Google</option>
-    <option>Facebook</option>
-    <option>Advertisement</option>
-  </select>
-  <p><span class="req">*</span> - Required field</p>
-</form>
+<label for="origin">How did you find out about us? (required)</label>
+<select id="origin" name="origin" required>
+  <option value="">Choose an option</option>
+  <option value="google">Google</option>
+  <option value="facebook">Facebook</option>
+  <option value="advertisement">Advertisement</option>
+</select>
+
+<fieldset>
+  <legend>Preferred contact method:</legend>
+  <label>
+    <input name="contact" type="radio" value="email" checked /> Email
+  </label>
+  <label><input name="contact" type="radio" value="phone" /> Phone</label>
+</fieldset>
+
+<label>
+  <input name="newsletter" type="checkbox" checked /> I want to subscribe to a
+  personalized newsletter.
+</label>
+<label>
+  <input name="privacy" type="checkbox" required /> I have read and I agree to
+  the Privacy Policy (required).
+</label>
 ```
 
-Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht zum Absenden eines Formulars erforderlich sind.
+Diese Pseudoklasse ist nützlich, um Felder zu gestalten, die zum Absenden eines Formulars nicht ausgefüllt werden müssen.
 
 > [!NOTE]
-> Die {{cssxref(":required")}} Pseudoklasse wählt _erforderliche_ Formularfelder aus.
+> Die Pseudoklasse {{cssxref(":required")}} wählt _erforderliche_ Formularfelder aus.
 
 ## Syntax
 
@@ -60,16 +73,16 @@ Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht zum Absenden ei
 
 ## Barrierefreiheit
 
-Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) optionale {{htmlelement("input")}}-Felder enthält, sollten erforderliche Eingaben mit dem [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut angegeben werden. Dies stellt sicher, dass Personen, die mit Hilfe von unterstützenden Technologien wie einem Screenreader navigieren, verstehen, welche Eingaben gültigen Inhalt benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
+Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) optionale {{htmlelement("input")}}-Elemente enthält, sollten erforderliche Eingabefelder mit dem Attribut [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) gekennzeichnet werden. So können Personen, die Hilfstechnologien wie einen Screenreader verwenden, erkennen, welche Eingabefelder gültige Inhalte benötigen, damit das Formular erfolgreich abgesendet werden kann.
 
-Erforderliche Eingaben sollten auch visuell verdeutlicht werden, wobei eine Darstellung verwendet wird, die sich nicht ausschließlich auf Farbe zur Bedeutungsübermittlung stützt. Typischerweise werden beschreibender Text und/oder ein Symbol benutzt.
+Erforderliche Eingabefelder sollten auch visuell gekennzeichnet werden, und zwar so, dass die Bedeutung nicht allein durch Farbe vermittelt wird. Üblicherweise werden dafür ein beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Understanding WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
-- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
+- [MDN: WCAG verstehen – Erläuterungen zu Richtlinie 3.3](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
+- [Erfolgskriterium 3.3.2 verstehen | W3C: WCAG 2.0 verstehen](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
 
 ## Beispiele
 
-### Das optionale Feld hat einen lilafarbenen Rahmen
+### Das optionale Feld hat einen violetten Rahmen
 
 #### HTML
 
@@ -121,5 +134,5 @@ input:optional {
 
 ## Siehe auch
 
-- Andere Validierungs-bezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
-- [Formular-Datenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- Weitere Pseudoklassen für die Validierung: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
+- [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

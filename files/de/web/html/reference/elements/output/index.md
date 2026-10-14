@@ -1,52 +1,49 @@
 ---
-title: HTML-Ausgabeelement `<output>`
+title: "`<output>` HTML-Ausgabeelement"
 short-title: <output>
 slug: Web/HTML/Reference/Elements/output
 l10n:
-  sourceCommit: 04cf692e8b950c028aca8fab9664d52e7cbfaebf
+  sourceCommit: 46afd57950146568819d0bf98175a2ffdbe079d7
 ---
 
-Das [HTML](/de/docs/Web/HTML)-Element **`<output>`** ist ein Containerelement, in das eine Website oder App die Ergebnisse einer Berechnung oder das Resultat einer Benutzeraktion einfügen kann.
+Das **`<output>`**-[HTML](/de/docs/Web/HTML)-Element ist ein Containerelement, in das eine Website oder App das Ergebnis einer Berechnung oder einer Benutzeraktion einfügen kann.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`for`](/de/docs/Web/HTML/Reference/Attributes/for)
-  - : Eine durch Leerzeichen getrennte Liste der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)s anderer Elemente, die angibt, dass diese Elemente Eingabewerte zur Berechnung beigetragen oder sie anderweitig beeinflusst haben.
+  - : Eine durch Leerzeichen getrennte Liste der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Werte anderer Elemente. Sie gibt an, dass diese Elemente Eingabewerte für die Berechnung geliefert oder sie anderweitig beeinflusst haben.
 - [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
-  - : Das {{HTMLElement("form")}}-Element, dem die Ausgabe zugeordnet werden soll (sein _form owner_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>` im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird `<output>` seinem übergeordneten `<form>`-Element zugeordnet, falls vorhanden.)
+  - : Das {{HTMLElement("form")}}-Element, dem die Ausgabe zugeordnet ist (ihr _Formulareigentümer_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>`-Elements im selben Dokument sein. (Ist dieses Attribut nicht gesetzt, wird `<output>` dem übergeordneten `<form>`-Element zugeordnet, sofern eines vorhanden ist.)
 
-    Mit diesem Attribut können Sie `<output>`-Elemente `<form>`s an jeder Stelle im Dokument zuordnen, nicht nur innerhalb eines `<form>`. Es kann auch ein übergeordnetes `<form>`-Element überschreiben. Der Name und der Inhalt des `<output>`-Elements werden beim Absenden des Formulars nicht übermittelt.
+    Mit diesem Attribut können Sie `<output>`-Elemente einem `<form>` an beliebiger Stelle im Dokument zuordnen, nicht nur innerhalb eines `<form>`. Es kann auch die Zuordnung zu einem übergeordneten `<form>`-Element überschreiben. Name und Inhalt des `<output>`-Elements werden beim Absenden des Formulars nicht übermittelt.
 
 - `name`
-  - : Der Name des Elements. Wird in der API [`form.elements`](/de/docs/Web/API/HTMLFormElement/elements) verwendet.
+  - : Der Name des Elements. Er wird in der [`form.elements`](/de/docs/Web/API/HTMLFormElement/elements)-API verwendet.
 
-Der Wert, der Name und der Inhalt von `<output>` werden beim Absenden eines Formulars **NICHT** übermittelt.
+Wert, Name und Inhalt von `<output>` werden beim Absenden des Formulars **nicht** übermittelt.
 
 ## Barrierefreiheit
 
-Viele Browser implementieren dieses Element als [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)-Region. Assistive Technologien geben dadurch die darin veröffentlichten Ergebnisse von UI-Interaktionen bekannt, ohne dass der Fokus von den Steuerelementen weg verschoben werden muss, die diese Ergebnisse erzeugen.
+Viele Browser implementieren dieses Element als [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)-Bereich. Dadurch können assistive Technologien die darin ausgegebenen Ergebnisse von Interaktionen mit der Benutzeroberfläche ansagen, ohne dass der Fokus von den Bedienelementen wegbewegt werden muss, die diese Ergebnisse erzeugen.
 
-Aktualisierungen von Live-Regionen werden in der Regel als Klartext angekündigt, sodass Links, Schaltflächen und andere innerhalb von `<output>` verschachtelte Semantik möglicherweise nicht in der Ankündigung vermittelt werden.
+Aktualisierungen von Live-Bereichen werden im Allgemeinen als reiner Text angesagt. Links, Schaltflächen und andere semantische Informationen innerhalb von `<output>` werden bei der Ansage daher möglicherweise nicht vermittelt.
 
 ## Beispiele
 
-Im folgenden Beispiel bietet das Formular einen Schieberegler, dessen Wert zwischen `0` und `100` liegen kann, sowie ein {{HTMLElement("input")}}-Element, in das Sie eine zweite Zahl eingeben können. Die beiden Zahlen werden addiert, und das Ergebnis wird bei jeder Änderung des Werts eines der Steuerelemente im `<output>`-Element angezeigt.
+Im folgenden Beispiel gibt es einen Schieberegler mit Werten zwischen `0` und `100` und ein {{HTMLElement("input")}}-Element, in das Sie eine zweite Zahl eingeben können. Die beiden Zahlen werden addiert, und das Ergebnis wird bei jeder Wertänderung eines der Bedienelemente im `<output>`-Element angezeigt.
 
 ```html
-<form id="example-form">
-  <input type="range" id="b" name="b" value="50" /> +
-  <input type="number" id="a" name="a" value="10" /> =
-  <output name="result" for="a b">60</output>
-</form>
+<input type="range" id="b" name="b" value="50" /> +
+<input type="number" id="a" name="a" value="10" /> =
+<output id="result" for="a b">60</output>
 ```
 
 ```js
-const form = document.getElementById("example-form");
-const a = form.elements["a"];
-const b = form.elements["b"];
-const result = form.elements["result"];
+const a = document.getElementById("a");
+const b = document.getElementById("b");
+const result = document.getElementById("result");
 
 function updateResult() {
   const aValue = a.valueAsNumber;
@@ -54,7 +51,8 @@ function updateResult() {
   result.value = aValue + bValue;
 }
 
-form.addEventListener("input", updateResult);
+a.addEventListener("input", updateResult);
+b.addEventListener("input", updateResult);
 
 updateResult();
 ```
@@ -75,13 +73,13 @@ updateResult();
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Formulierungsinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#listed"
-          >gelistet</a
+          >aufgelistet</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#labelable"
           >beschriftbar</a
@@ -99,21 +97,22 @@ updateResult();
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Formulierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Weglassen von Tags</th>
-      <td>Keines, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keines; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        > akzeptiert.
+          >Formulierungsinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -122,7 +121,7 @@ updateResult();
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Alle</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

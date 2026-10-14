@@ -1,38 +1,35 @@
 ---
-title: "`placeholder` HTML-Attribut"
+title: HTML-Attribut `placeholder`
 short-title: placeholder
 slug: Web/HTML/Reference/Attributes/placeholder
 l10n:
-  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
+  sourceCommit: 46afd57950146568819d0bf98175a2ffdbe079d7
 ---
 
-Das **`placeholder`**-Attribut definiert den Text, der in einem Formularsteuerelement angezeigt wird, wenn das Steuerelement keinen Wert hat. Der Platzhaltertext sollte dem Benutzer einen kurzen Hinweis darauf geben, welcher Datentyp in das Steuerelement eingegeben werden sollte.
+Das Attribut **`placeholder`** definiert den Text, der in einem Formularfeld angezeigt wird, wenn das Feld keinen Wert hat. Der Platzhaltertext sollte einen kurzen Hinweis darauf geben, welche Art von Daten in das Feld eingegeben werden soll.
 
-Effektiver Platzhaltertext beinhaltet ein Wort oder einen kurzen Satz, der auf den erwarteten Datentyp hinweist, nicht jedoch eine Erklärung oder Aufforderung. Der Platzhalter darf nicht anstelle eines {{HTMLElement("label")}} verwendet werden. Da der Platzhalter nicht sichtbar ist, wenn der Wert des Formularsteuerelements nicht null ist, beeinträchtigt die Verwendung von `placeholder` anstelle eines `<label>` die Benutzerfreundlichkeit und Zugänglichkeit.
+Ein geeigneter Platzhaltertext besteht aus einem Wort oder einer kurzen Formulierung, die auf den erwarteten Datentyp hinweist, nicht aus einer Erklärung oder Aufforderung. Der Platzhalter darf nicht anstelle eines {{HTMLElement("label")}} verwendet werden. Da der Platzhalter nicht sichtbar ist, sobald das Formularfeld einen Wert hat, beeinträchtigt die Verwendung von `placeholder` anstelle eines `<label>` für eine Eingabeaufforderung die Benutzerfreundlichkeit und Barrierefreiheit.
 
-Das `placeholder`-Attribut wird von den folgenden Eingabetypen unterstützt: `{{HTMLElement("input/text", "text")}}`, `{{HTMLElement("input/search", "search")}}`, `{{HTMLElement("input/url", "url")}}`, `{{HTMLElement("input/tel", "tel")}}`, `{{HTMLElement("input/email", "email")}}` und `{{HTMLElement("input/password", "password")}}`. Es wird auch vom `{{HTMLElement("textarea")}}`-Element unterstützt. Das [Beispiel](#beispiel) unten zeigt die Verwendung des `placeholder`-Attributs, um das erwartete Format eines Eingabefelds zu erklären.
+Das Attribut `placeholder` wird von den folgenden input-Typen unterstützt: `{{HTMLElement("input/text", "text")}}`, `{{HTMLElement("input/search", "search")}}`, `{{HTMLElement("input/url", "url")}}`, `{{HTMLElement("input/tel", "tel")}}`, `{{HTMLElement("input/email", "email")}}` und `{{HTMLElement("input/password", "password")}}`. Es wird auch vom Element `{{HTMLElement("textarea")}}` unterstützt. Das folgende [Beispiel](#beispiel) zeigt, wie das Attribut `placeholder` verwendet wird, um das erwartete Format eines Eingabefelds zu verdeutlichen.
 
 > [!NOTE]
-> Mit Ausnahme von `{{HTMLElement("textarea")}}`-Elementen kann das `placeholder`-Attribut keine Zeilenumbrüche (LF) oder Wagenrückläufe (CR) enthalten. Wenn einer von beiden im Wert enthalten ist, wird der Platzhaltertext abgeschnitten.
+> Außer in `{{HTMLElement("textarea")}}`-Elementen darf das Attribut `placeholder` keine Zeilenvorschübe (LF) oder Wagenrückläufe (CR) enthalten. Wenn eines davon im Wert enthalten ist, wird der Platzhaltertext abgeschnitten.
 
-## Zugängigkeitsbedenken
+## Hinweise zur Barrierefreiheit
 
-Platzhalter sollten nur dazu verwendet werden, ein Beispiel für den Datentyp zu zeigen, der in ein Formular eingegeben werden sollte, niemals als Ersatz für ein `<label>`-Element; dies beeinträchtigt die Zugänglichkeit und Benutzererfahrung.
+Platzhalter sollten nur verwendet werden, um ein Beispiel für die Art von Daten zu zeigen, die in ein Formular eingegeben werden sollen – niemals als Ersatz für ein `<label>`-Element. Letzteres beeinträchtigt die Barrierefreiheit und die Benutzerfreundlichkeit.
 
-Der `<label>`-Text ist visuell und programmatisch mit seinem entsprechenden Formularsteuerelement verbunden. Screenreader kündigen Platzhalterinhalte standardmäßig nicht an, aber sie kündigen Label-Inhalte an; es ist das Label, das Benutzer von unterstützenden Technologien darüber informiert, welche Daten in das Steuerelement eingegeben werden sollten. Labels verbessern auch die Benutzererfahrung für Benutzer von Zeigegeräten: Wenn ein Benutzer auf ein `<label>` klickt, es berührt oder antippt, wird der Fokus auf das mit dem Label verbundene Formularsteuerelement verschoben.
+Der Text eines `<label>` ist visuell und programmatisch mit dem zugehörigen Formularfeld verknüpft. Screenreader lesen Platzhaltertext standardmäßig nicht vor, den Text eines Labels dagegen schon. Das Label informiert Benutzerinnen und Benutzer assistiver Technologien darüber, welche Daten in das Feld eingegeben werden sollen. Labels verbessern auch die Benutzerfreundlichkeit für Personen, die Zeigegeräte verwenden: Wenn jemand auf ein `<label>` klickt oder tippt, wird der Fokus auf das zugehörige Formularfeld gesetzt.
 
-Platzhalter können nicht als Ersatz für ein Label verwendet werden, selbst für diejenigen, die nicht auf unterstützende Technologien angewiesen sind. Platzhaltertext wird in einem niedrigeren Farbkontrast als der Standardtext des Formularsteuerelements angezeigt. Dies ist absichtlich so gestaltet, da Benutzer nicht verwirrt werden sollen, was Platzhaltertext und was ein ausgefülltes Formularfeld ist. Allerdings kann dieser mangelnde Kontrast Probleme für sehbehinderte Benutzer verursachen. Außerdem verschwindet der Platzhaltertext aus Formularfeldern, wenn Benutzer mit der Eingabe von Text beginnen. Wenn der Platzhaltertext Anweisungen oder Beispiele enthält, die verschwinden, kann dies für Benutzer mit kognitiven Problemen verwirrend sein und das Formular unzugänglich machen, wenn der Platzhalter das Label enthielt.
+Platzhalter können auch für Personen, die keine assistiven Technologien verwenden, ein Label nicht zuverlässig ersetzen. Platzhaltertext wird mit geringerem Farbkontrast dargestellt als der normale Text eines Formularfelds. Dies ist beabsichtigt, damit Platzhaltertext nicht mit einem bereits ausgefüllten Feld verwechselt wird. Der geringe Kontrast kann jedoch für Menschen mit eingeschränktem Sehvermögen problematisch sein. Außerdem verschwindet der Platzhaltertext, sobald jemand beginnt, Text in das Formularfeld einzugeben. Wenn dadurch Anweisungen oder Beispiele verschwinden, kann das für Menschen mit kognitiven Beeinträchtigungen verwirrend sein. Enthielt der Platzhalter die Feldbeschriftung, kann das Formular dadurch unzugänglich werden.
 
 ## Beispiel
 
 ### HTML
 
 ```html
-<form action="/en-US/docs/Web/HTML/Reference/Attributes/placeholder">
-  <label for="name">Enter your name:</label>
-  <input type="text" id="name" name="name" placeholder="e.g. Mike Shinoda" />
-  <button type="submit">Submit</button>
-</form>
+<label for="name">Enter your name:</label>
+<input type="text" id="name" name="name" placeholder="e.g. Mike Shinoda" />
 ```
 
 ### Ergebnis
@@ -50,5 +47,5 @@ Platzhalter können nicht als Ersatz für ein Label verwendet werden, selbst fü
 ## Siehe auch
 
 - HTML [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)
-- CSS {{cssxref(":placeholder-shown")}} Pseudoklassen-Selektor
-- CSS {{cssxref("::placeholder")}} Pseudoelement-Selektor
+- CSS-Pseudoklassenselektor {{cssxref(":placeholder-shown")}}
+- CSS-Pseudoelementselektor {{cssxref("::placeholder")}}
