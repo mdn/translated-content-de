@@ -2,27 +2,27 @@
 title: PerformanceSoftNavigation
 slug: Web/API/PerformanceSoftNavigation
 l10n:
-  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
+  sourceCommit: 1c5c84aed1c144e69427aa81d65b95180f58fbee
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die `PerformanceSoftNavigation`-Schnittstelle stellt Timing-Informationen zu {{Glossary("soft_navigation", "Soft-Navigationen")}} bereit, wie sie beim clientseitigen Routing auf Websites von {{Glossary("SPA", "Single-Page-Anwendungen (SPAs)")}} verwendet werden. Ein entsprechender Eintrag wird erzeugt, wenn ein Browser feststellt, dass eine Soft-Navigation stattgefunden hat.
+Die Schnittstelle `PerformanceSoftNavigation` stellt Zeitinformationen zu {{Glossary("soft_navigation", "Soft Navigations")}} bereit, wie sie beim clientseitigen Routing auf Websites mit {{Glossary("SPA", "Single-Page Applications (SPAs)")}} verwendet werden. Ein entsprechender Eintrag wird erzeugt, wenn ein Browser feststellt, dass eine Soft Navigation stattgefunden hat.
 
 ## Instanzeigenschaften
 
-Diese Schnittstelle definiert direkt die folgenden Eigenschaften:
+Diese Schnittstelle definiert unmittelbar die folgenden Eigenschaften:
 
 - [`PerformanceSoftNavigation.interactionId`](/de/docs/Web/API/PerformanceSoftNavigation/interactionId) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die ID der Navigation, die innerhalb dieses Seitenladevorgangs eindeutig ist.
+  - : Die ID der Interaktion, die zur Soft Navigation geführt hat.
 - [`PerformanceSoftNavigation.navigationType`](/de/docs/Web/API/PerformanceSoftNavigation/navigationType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Der Typ der Navigation.
 - [`PerformanceSoftNavigation.paintTime`](/de/docs/Web/API/PerformanceSoftNavigation/paintTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die erste Rendering-Phase endete und die Paint-Phase begann.
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die erste Rendering-Phase endete und die Paint-Phase begann.
 - [`PerformanceSoftNavigation.presentationTime`](/de/docs/Web/API/PerformanceSoftNavigation/presentationTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die ersten gezeichneten Pixel tatsächlich auf dem Bildschirm dargestellt wurden.
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die ersten gerenderten Pixel tatsächlich auf dem Bildschirm dargestellt wurden.
 
-Sie erweitert außerdem die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), wobei diese wie beschrieben konkretisiert und eingeschränkt werden:
+Außerdem übernimmt sie die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) und konkretisiert oder beschränkt sie wie beschrieben:
 
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt `"soft-navigation"` zurück.
@@ -31,37 +31,37 @@ Sie erweitert außerdem die folgenden Eigenschaften von [`PerformanceEntry`](/de
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Die neue URL, zu der navigiert wurde.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) der Interaktion zurück, die zur Soft-Navigation führte.
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) der Interaktion zurück, die zur Soft Navigation geführt hat.
 
 ## Instanzmethoden
 
 - [`PerformanceSoftNavigation.getLargestInteractionContentfulPaint()`](/de/docs/Web/API/PerformanceSoftNavigation/getLargestInteractionContentfulPaint) {{Experimental_Inline}}
-  - : Gibt den aktuellen größten [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) für diese Soft-Navigation zurück.
+  - : Gibt den derzeit größten [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) für diese Soft Navigation zurück.
 - [`PerformanceSoftNavigation.toJSON()`](/de/docs/Web/API/PerformanceSoftNavigation/toJSON) {{experimental_inline}}
-  - : Gibt ein JSON-serialisierbares, einfaches Objekt zurück, das das `PerformanceSoftNavigation`-Objekt repräsentiert. Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
+  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das Objekt `PerformanceSoftNavigation` repräsentiert. Wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
 
 ## Beschreibung
 
-Die `PerformanceSoftNavigation`-Schnittstelle basiert darauf, dass der Browser Folgendes beobachtet:
+Die Schnittstelle `PerformanceSoftNavigation` basiert darauf, dass der Browser Folgendes beobachtet:
 
 - Eine [vertrauenswürdige](/de/docs/Web/API/Event/isTrusted) Benutzerinteraktion.
-- Ein sichtbares {{Glossary("Contentful_Paint", "Contentful Paint")}}, bei dem der Bildschirm infolge dieser Interaktion aktualisiert wird.
+- Einen sichtbaren {{Glossary("Contentful_Paint", "Contentful Paint")}}, der daraus resultiert, dass diese Interaktion den Bildschirminhalt aktualisiert.
 - Eine Aktualisierung der URL in der Adressleiste des Benutzers infolge dieser Interaktion.
 
-Dass der Browser diesen Eintrag bereitstellt, statt dass ein Routing-Framework eine API aufruft, um ihn zu erzeugen, ermöglicht eine konsistente Messung der SPA-Performance-Timings – unabhängig davon, wie verschiedene Anwendungen Navigationen handhaben (beispielsweise ob sie die URL zu Beginn oder am Ende der Navigationsverarbeitung aktualisieren).
+Dass der Browser diesen Eintrag bereitstellt, statt dass ein Routing-Framework eine API aufruft, um ihn zu erzeugen, ermöglicht eine einheitliche Messung der Zeitwerte für die SPA-Performance – unabhängig davon, wie verschiedene Anwendungen Navigationen handhaben (beispielsweise, ob sie die URL zu Beginn oder am Ende der Navigationsverarbeitung aktualisieren).
 
-Mit der `PerformanceSoftNavigation`-Schnittstelle können Entwickler SPA-Performance-Metriken wie die folgenden messen:
+Mit der Schnittstelle `PerformanceSoftNavigation` können Entwickler SPA-Performance-Metriken wie die folgenden messen:
 
-- {{Glossary("First_Contentful_Paint", "First Contentful Paint (FCP)")}}: Kann als erster Paint ab dem Zeitpunkt der Soft-Navigation gemessen werden.
-- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}}: Kann über [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) für die Soft-Navigation gemessen werden.
+- {{Glossary("First_Contentful_Paint", "First Contentful Paint (FCP)")}}: Kann als erster Paint ab dem Zeitpunkt der Soft Navigation gemessen werden.
+- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint (LCP)")}}: Kann über den [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) für die Soft Navigation gemessen werden.
 - {{Glossary("CLS", "Cumulative Layout Shift (CLS)")}}: Kann zwischen Navigationen berechnet werden.
 - {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint (INP)")}}: Kann zwischen Navigationen berechnet werden.
 
 ## Beispiele
 
-### Soft-Navigationen beobachten
+### Soft Navigations beobachten
 
-Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwendet, um Soft-Navigationen zu protokollieren. Das `buffered`-Flag wird verwendet, um auf Daten aus der Zeit vor der Erstellung des Observers zuzugreifen.
+Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwendet, um Soft Navigations zu protokollieren. Das Flag `buffered` ermöglicht den Zugriff auf Daten, die vor der Erstellung des Observers erfasst wurden.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -82,4 +82,4 @@ observer.observe({ type: "soft-navigation", buffered: true });
 
 ## Siehe auch
 
-- [Soft-Navigationen messen](https://developer.chrome.com/docs/web-platform/soft-navigations) auf developer.chrome.com (2026)
+- [Soft Navigations messen](https://developer.chrome.com/docs/web-platform/soft-navigations) auf developer.chrome.com (2026)
