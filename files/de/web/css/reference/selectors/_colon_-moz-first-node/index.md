@@ -8,10 +8,10 @@ l10n:
 
 {{Non-standard_header}}{{SeeCompatTable}}
 
-Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die ein beliebiges Element darstellt, welches das erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie kein erstes Kind-Element erfasst, das davor (nicht-leeren) Text hat.
+Die **`:-moz-first-node`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element repräsentiert, das der erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie nicht auf ein erstes Kindelement zutrifft, vor dem Text steht, der nicht ausschließlich aus Leerraum besteht.
 
 > [!NOTE]
-> Jegliche Leerzeichen am Anfang eines Elements werden bei der Bestimmung von `:-moz-first-node` ignoriert.
+> Leerraum am Anfang eines Elements wird bei der Bestimmung von `:-moz-first-node` ignoriert.
 
 ## Syntax
 
@@ -51,7 +51,7 @@ span:-moz-first-node {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Nicht Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

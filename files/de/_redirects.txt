@@ -6317,6 +6317,7 @@
 /de/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_build/Linux_and_MacOS_build_preparation	https://firefox-source-docs.mozilla.org/setup/linux_build.html
 /de/docs/Mozilla/Developer_guide/ESLint	https://firefox-source-docs.mozilla.org/code-quality/lint/index.html
 /de/docs/Mozilla/Developer_guide/Source_Code/Directory_structure	https://firefox-source-docs.mozilla.org/contributing/directory_structure.html
+/de/docs/Mozilla/Firefox/Enterprise_deployment	https://firefox-admin-docs.mozilla.org/guides/firefox-enterprise/
 /de/docs/Mozilla/Firefox/Performance_best_practices_for_Firefox_fe_engineers	https://firefox-source-docs.mozilla.org/performance/bestpractices.html
 /de/docs/Mozilla/Firefox/Privacy	/de/docs/Web/Privacy
 /de/docs/Mozilla/Firefox/Privacy/Guides/Tracking_Protection	/de/docs/Web/Privacy/Guides/Firefox_tracking_protection
@@ -14779,7 +14780,6 @@
 /de/docs/Web/HTTP/CORS/Errors/CORSExternalRedirectNotAllowed	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSExternalRedirectNotAllowed
 /de/docs/Web/HTTP/CORS/Errors/CORSInvalidAllowHeader	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSInvalidAllowHeader
 /de/docs/Web/HTTP/CORS/Errors/CORSInvalidAllowMethod	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSInvalidAllowMethod
-/de/docs/Web/HTTP/CORS/Errors/CORSMIssingAllowCredentials	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMIssingAllowCredentials
 /de/docs/Web/HTTP/CORS/Errors/CORSMethodNotFound	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMethodNotFound
 /de/docs/Web/HTTP/CORS/Errors/CORSMissingAllowHeaderFromPreflight	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMissingAllowHeaderFromPreflight
 /de/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin	/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMissingAllowOrigin

@@ -74,7 +74,7 @@ Die Konsole von Firefox zeigt Nachrichten in ihrer Konsole an, wenn Anfragen auf
 - [Grund: CORS-Header 'Access-Control-Allow-Origin' stimmt nicht überein mit 'xyz'](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSAllowOriginNotMatchingOrigin)
 - [Grund: Anmeldeinformationen werden nicht unterstützt, wenn der CORS-Header 'Access-Control-Allow-Origin' '\*' ist](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSNotSupportingCredentials)
 - [Grund: Methode im CORS-Header 'Access-Control-Allow-Methods' nicht gefunden](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMethodNotFound)
-- [Grund: erwartetes 'true' im CORS-Header 'Access-Control-Allow-Credentials'](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMIssingAllowCredentials)
+- [Grund: erwartetes 'true' im CORS-Header 'Access-Control-Allow-Credentials'](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSMissingAllowCredentials)
 - [Grund: CORS-Preflight-Kanal war nicht erfolgreich](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSPreflightDidNotSucceed)
 - [Grund: Ungültiges Token 'xyz' im CORS-Header 'Access-Control-Allow-Methods'](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSInvalidAllowMethod)
 - [Grund: Ungültiges Token 'xyz' im CORS-Header 'Access-Control-Allow-Headers'](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSInvalidAllowHeader)
