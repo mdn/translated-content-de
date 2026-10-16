@@ -31,4 +31,5 @@ jobs:
           #   /translate slugs=Web/CSS/color,Web/API/Fetch_API/* force=true
           #   /translate resume=<run-id>   (after a timeout, see the bot's reply)
           static-args: |
+            ref=refs/heads/main
             issue-url=${{ github.event.issue.html_url }}
