@@ -1,14 +1,14 @@
 ---
-title: "`<del>`: HTML-Element für gelöschten Text"
+title: HTML-Element `<del>` für gelöschten Text
 short-title: <del>
 slug: Web/HTML/Reference/Elements/del
 l10n:
-  sourceCommit: 15e1155ab8a0587405601cc4753bb789cd6ac47c
+  sourceCommit: 32eceacf42b6bff41d9605298eba143cb7e199a1
 ---
 
-Das **`<del>`**-Element von [HTML](/de/docs/Web/HTML) kennzeichnet einen Textbereich, der aus einem Dokument gelöscht wurde. Es kann beispielsweise verwendet werden, um nachverfolgte Änderungen oder Unterschiede zwischen Quellcodeversionen darzustellen. Das {{HTMLElement("ins")}}-Element dient dem gegenteiligen Zweck: Es kennzeichnet Text, der dem Dokument hinzugefügt wurde.
+Das [HTML](/de/docs/Web/HTML)-Element **`<del>`** kennzeichnet einen Textbereich, der aus einem Dokument gelöscht wurde. Es kann beispielsweise verwendet werden, um nachverfolgte Änderungen oder Unterschiede zwischen Quellcodeversionen darzustellen. Das Element {{HTMLElement("ins")}} dient dem entgegengesetzten Zweck: Es kennzeichnet Text, der dem Dokument hinzugefügt wurde.
 
-Dieses Element wird häufig, aber nicht zwingend, mit durchgestrichenem Text dargestellt.
+Dieses Element wird häufig (aber nicht zwingend) mit durchgestrichenem Text dargestellt.
 
 {{InteractiveExample("HTML Demo: &lt;del&gt;", "tabbed-standard")}}
 
@@ -43,38 +43,9 @@ blockquote {
 Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Ein URI für eine Ressource, die die Änderung erläutert, beispielsweise ein Sitzungsprotokoll.
+  - : Eine URI für eine Ressource, die die Änderung erläutert (beispielsweise ein Sitzungsprotokoll).
 - `datetime`
-  - : Dieses Attribut gibt Datum und Uhrzeit der Änderung an. Sein Wert muss eine gültige Datumszeichenfolge mit optionaler Uhrzeit sein. Wenn der Wert nicht als Datum mit optionaler Uhrzeit interpretiert werden kann, ist dem Element kein Zeitstempel zugeordnet. Das Format einer Zeichenfolge ohne Uhrzeit wird unter [Datumszeichenfolgen](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings) beschrieben. Das Format einer Zeichenfolge mit Datum und Uhrzeit wird unter [Lokale Datums- und Uhrzeitzeichenfolgen](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) beschrieben.
-
-## Barrierefreiheit
-
-Die meisten Screenreader kündigen das `del`-Element in ihrer Standardkonfiguration nicht an. Mithilfe der CSS-Eigenschaft {{cssxref("content")}} sowie der Pseudoelemente {{cssxref("::before")}} und {{cssxref("::after")}} lässt sich eine solche Ankündigung ergänzen.
-
-```css
-del::before,
-del::after {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-del::before {
-  content: " [deletion start] ";
-}
-
-del::after {
-  content: " [deletion end] ";
-}
-```
-
-Manche Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung zusätzlicher Inhalte, um übermäßig ausführliche Ausgaben zu vermeiden. Setzen Sie diese Technik daher sparsam und nur dann ein, wenn das Verständnis darunter leiden würde, dass die Löschung des Textes nicht erkennbar ist.
-
-- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+  - : Dieses Attribut gibt Datum und Uhrzeit der Änderung an und muss eine gültige Datumszeichenfolge mit optionaler Uhrzeit enthalten. Wenn der Wert nicht als Datum mit optionaler Uhrzeit interpretiert werden kann, ist dem Element kein Zeitstempel zugeordnet. Das Format einer Zeichenfolge ohne Uhrzeit ist unter [Datumszeichenfolgen](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings) beschrieben. Das Format einer Zeichenfolge, die sowohl Datum als auch Uhrzeit enthält, ist unter [Lokale Datums- und Uhrzeitzeichenfolgen](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) beschrieben.
 
 ## Beispiele
 
@@ -99,15 +70,15 @@ Manche Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing Content</a
+          >Formulierungsinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow Content</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
@@ -120,12 +91,13 @@ Manche Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
       <td>Keines; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Elternelemente</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing Content</a
-        > zulässt.
+          >Formulierungsinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -138,7 +110,7 @@ Manche Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Alle</td>
     </tr>
     <tr>
@@ -158,5 +130,5 @@ Manche Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
 
 ## Siehe auch
 
-- {{HTMLElement("ins")}}-Element zum Kennzeichnen von eingefügtem Text
-- {{HTMLElement("s")}}-Element zum Durchstreichen von Text, ohne ihn als gelöscht zu kennzeichnen
+- Das Element {{HTMLElement("ins")}} zum Kennzeichnen von Einfügungen in einen Text
+- Das Element {{HTMLElement("s")}} zum Durchstreichen von Text, ohne ihn als gelöscht zu kennzeichnen
