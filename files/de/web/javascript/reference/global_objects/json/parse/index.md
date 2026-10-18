@@ -3,10 +3,10 @@ title: JSON.parse()
 short-title: parse()
 slug: Web/JavaScript/Reference/Global_Objects/JSON/parse
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: a1aa79c09717761fc72c20bac94bb9c430ed487a
 ---
 
-Die statische Methode **`JSON.parse()`** analysiert einen JSON-String und konstruiert den durch den String beschriebenen JavaScript-Wert oder das Objekt. Es kann eine optionale _reviver_-Funktion bereitgestellt werden, um eine Transformation des resultierenden Objekts durchzuführen, bevor es zurückgegeben wird.
+Die statische Methode **`JSON.parse()`** analysiert eine JSON-Zeichenfolge und erzeugt den darin beschriebenen JavaScript-Wert oder das Objekt. Optional kann eine _Reviver_-Funktion angegeben werden, die das Ergebnis vor der Rückgabe transformiert.
 
 {{InteractiveExample("JavaScript Demo: JSON.parse()")}}
 
@@ -31,40 +31,40 @@ JSON.parse(text, reviver)
 ### Parameter
 
 - `text`
-  - : Der String, der als JSON analysiert werden soll. Siehe das {{jsxref("JSON")}}-Objekt für eine Beschreibung der JSON-Syntax.
+  - : Die Zeichenfolge, die als JSON analysiert werden soll. Eine Beschreibung der JSON-Syntax finden Sie beim Objekt {{jsxref("JSON")}}.
 - `reviver` {{optional_inline}}
-  - : Wenn es sich um eine Funktion handelt, legt diese fest, wie jeder Wert, der ursprünglich durch das Parsen erzeugt wurde, vor der Rückgabe transformiert wird. Nicht-aufrufbare Werte werden ignoriert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Falls eine Funktion angegeben wird, legt sie fest, wie jeder beim Analysieren erzeugte Wert vor der Rückgabe transformiert wird. Werte, die nicht aufgerufen werden können, werden ignoriert. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `key`
-      - : Der Schlüssel, der mit dem Wert verknüpft ist.
+      - : Der dem Wert zugeordnete Schlüssel.
     - `value`
-      - : Der durch das Parsen erzeugte Wert.
-    - `context` {{optional_inline}}
-      - : Ein Kontextobjekt, das den Status enthält, der für den aktuellen Ausdruck relevant ist, der wiederbelebt wird. Es ist ein neues Objekt für jeden Aufruf der Reviver-Funktion. Es wird nur beim Wiederbeleben primitiver Werte übergeben, jedoch nicht, wenn `value` ein Objekt oder Array ist. Es enthält folgende Eigenschaft:
-        - `source`
-          - : Der ursprüngliche JSON-String, der diesen Wert darstellt.
+      - : Der beim Analysieren erzeugte Wert.
+    - `context`
+      - : Ein Kontextobjekt mit Informationen zum aktuellen Ausdruck, dessen Wert wiederhergestellt wird. Bei jedem Aufruf der Reviver-Funktion wird ein neues Objekt erstellt.
+        - `source` {{optional_inline}}
+          - : Die ursprüngliche JSON-Zeichenfolge, die diesen Wert darstellt. Diese Eigenschaft ist nur bei der Wiederherstellung primitiver Werte vorhanden, nicht jedoch, wenn `value` ein Objekt oder Array ist.
 
 ### Rückgabewert
 
-Der {{jsxref("Object")}}, {{jsxref("Array")}}, String, die Zahl, der Boolean oder der `null`-Wert, der dem gegebenen JSON-`text` entspricht.
+Der dem angegebenen JSON-`text` entsprechende Wert: ein {{jsxref("Object")}}, ein {{jsxref("Array")}}, eine Zeichenfolge, eine Zahl, ein boolescher Wert oder `null`.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Wird ausgelöst, wenn der zu parsende String kein gültiges JSON ist.
+  - : Wird ausgelöst, wenn die zu analysierende Zeichenfolge kein gültiges JSON ist.
 
 ## Beschreibung
 
-`JSON.parse()` analysiert einen JSON-String entsprechend der [JSON-Grammatik](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#full_json_grammar) und bewertet den String, als ob er ein JavaScript-Ausdruck wäre. Der einzige Fall, in dem ein JSON-Text einen anderen Wert darstellt als der gleiche JavaScript-Ausdruck, tritt bei dem Schlüssel `"__proto__"` auf — siehe [Objektliteral-Syntax vs. JSON](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#object_literal_syntax_vs._json).
+`JSON.parse()` analysiert eine JSON-Zeichenfolge gemäß der [JSON-Grammatik](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#full_json_grammar) und wertet sie anschließend wie einen JavaScript-Ausdruck aus. Nur beim Schlüssel `"__proto__"` kann ein JSON-Text einen anderen Wert darstellen als der entsprechende JavaScript-Ausdruck – siehe [Objektliteral-Syntax im Vergleich zu JSON](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#object_literal_syntax_vs._json).
 
-### Der Reviver-Parameter
+### Der Parameter `reviver`
 
-Wenn ein `reviver` angegeben ist, wird der durch das Parsen berechnete Wert _transformiert_, bevor er zurückgegeben wird. Insbesondere werden der berechnete Wert und alle seine Eigenschaften (in einer [Tiefensuche](https://en.wikipedia.org/wiki/Depth-first_search) beginnend mit den am tiefsten verschachtelten Eigenschaften weiter zur ursprünglichen Wert selbst) einzeln durch den `reviver` geführt.
+Wenn ein `reviver` angegeben ist, wird der beim Analysieren ermittelte Wert vor der Rückgabe _transformiert_. Dazu werden der ermittelte Wert und alle seine Eigenschaften einzeln an den `reviver` übergeben. Die Verarbeitung erfolgt in [Tiefensuche](https://en.wikipedia.org/wiki/Depth-first_search): Sie beginnt bei den am tiefsten verschachtelten Eigenschaften und endet beim ursprünglichen Wert selbst.
 
-Der `reviver` wird mit dem Objekt aufgerufen, das die zu verarbeitende Eigenschaft enthält, als `this` (es sei denn, Sie definieren den `reviver` als Arrow-Funktion, in diesem Fall gibt es keine separate `this`-Bindung) und zwei Argumenten: `key` und `value`, die den Eigenschaftsnamen als String (auch für Arrays) und den Eigenschaftswert darstellen. Für primitive Werte wird ein zusätzlicher `context`-Parameter übergeben, der den Quelltext dieses Wertes enthält. Wenn die `reviver`-Funktion {{jsxref("undefined")}} zurückgibt (oder keinen Wert zurückgibt — zum Beispiel, wenn die Ausführung am Ende der Funktion endet), wird die Eigenschaft aus dem Objekt gelöscht. Andernfalls wird die Eigenschaft neu definiert, um der Rückgabewert zu sein. Wenn der `reviver` nur einige Werte transformiert und andere nicht, sollten alle untransformierten Werte unverändert zurückgegeben werden — andernfalls werden sie aus dem resultierenden Objekt gelöscht.
+Der `reviver` wird mit dem Objekt, das die gerade verarbeitete Eigenschaft enthält, als `this` und mit drei Argumenten aufgerufen: `key`, `value` und `context`. Wenn Sie den `reviver` als Pfeilfunktion definieren, gibt es keine eigene `this`-Bindung. Der Schlüssel ist auch bei Arrays eine Zeichenfolge. Bei primitiven Werten enthält das Argument `context` ein Feld namens `source` mit dem ursprünglichen Text dieses Werts. Gibt die `reviver`-Funktion {{jsxref("undefined")}} oder keinen Wert zurück – etwa weil das Ende der Funktion erreicht wird –, wird die Eigenschaft aus dem Objekt gelöscht. Andernfalls erhält die Eigenschaft den zurückgegebenen Wert. Wenn der `reviver` nur bestimmte Werte transformiert, müssen Sie alle unveränderten Werte unverändert zurückgeben. Andernfalls werden sie aus dem Ergebnis gelöscht.
 
-Ähnlich wie beim `replacer`-Parameter von {{jsxref("JSON.stringify()")}} wird `reviver` bei Arrays und Objekten zuletzt auf den Wurzelwert mit einem leeren String als `key` und dem Wurzelobjekt als `value` aufgerufen. Für andere gültige JSON-Werte funktioniert `reviver` ähnlich und wird einmal mit einem leeren String als `key` und dem Wert selbst als `value` aufgerufen.
+Ähnlich wie beim Parameter `replacer` von {{jsxref("JSON.stringify()")}} wird `reviver` bei Arrays und Objekten zuletzt für den Wurzelwert aufgerufen, mit einer leeren Zeichenfolge als `key` und dem Wurzelobjekt als `value`. Bei anderen gültigen JSON-Werten wird `reviver` entsprechend einmal aufgerufen, mit einer leeren Zeichenfolge als `key` und dem Wert selbst als `value`.
 
-Wenn Sie einen anderen Wert von `reviver` zurückgeben, ersetzt dieser Wert den ursprünglich geparsten Wert vollständig. Dies gilt auch für den Wurzelwert. Ein Beispiel:
+Wenn Sie aus `reviver` einen anderen Wert zurückgeben, ersetzt dieser den ursprünglich analysierten Wert vollständig. Das gilt auch für den Wurzelwert. Beispiel:
 
 ```js
 const transformedObj = JSON.parse('[1,5,{"s":1}]', (key, value) =>
@@ -74,11 +74,11 @@ const transformedObj = JSON.parse('[1,5,{"s":1}]', (key, value) =>
 console.log(transformedObj); // undefined
 ```
 
-Es gibt keine generische Möglichkeit, dies zu umgehen. Sie können den Fall, bei dem `key` ein leerer String ist, nicht speziell behandeln, da JSON-Objekte auch Schlüssel haben können, die leere Strings sind. Sie müssen sehr genau wissen, welche Art von Transformation für jeden Schlüssel erforderlich ist, wenn Sie den Reviver implementieren.
+Dafür gibt es keine allgemeingültige Umgehung. Sie können den Fall eines leeren `key` nicht einfach gesondert behandeln, da JSON-Objekte ebenfalls Schlüssel enthalten können, die leere Zeichenfolgen sind. Bei der Implementierung des Revivers müssen Sie daher genau wissen, welche Transformation für jeden Schlüssel erforderlich ist.
 
-Beachten Sie, dass `reviver` ausgeführt wird, nachdem der Wert geparst wurde. So werden beispielsweise Zahlen im JSON-Text bereits in JavaScript-Zahlen konvertiert und können dabei an Genauigkeit verlieren. Eine Möglichkeit, große Zahlen ohne Genauigkeitsverlust zu übertragen, ist, sie als Strings zu serialisieren und sie in [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) oder andere geeignete Formate mit beliebiger Genauigkeit wiederzubeleben.
+Beachten Sie, dass `reviver` erst nach dem Analysieren des Werts ausgeführt wird. Zahlen im JSON-Text wurden zu diesem Zeitpunkt beispielsweise bereits in JavaScript-Zahlen umgewandelt und haben dabei möglicherweise an Genauigkeit verloren. Eine Möglichkeit, große Zahlen ohne Genauigkeitsverlust zu übertragen, besteht darin, sie als Zeichenfolgen zu serialisieren und anschließend als [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) oder in einem anderen geeigneten Format mit beliebiger Genauigkeit wiederherzustellen.
 
-Sie können auch die Eigenschaft `context.source` verwenden, um auf den ursprünglichen JSON-Quelltext zuzugreifen, der den Wert darstellt, wie unten gezeigt:
+Sie können auch über die Eigenschaft `context.source` auf den ursprünglichen JSON-Quelltext zugreifen, der den Wert darstellt, wie im folgenden Beispiel gezeigt:
 
 ```js
 const bigJSON = '{"gross_gdp": 12345678901234567890}';
@@ -93,7 +93,7 @@ const bigObj = JSON.parse(bigJSON, (key, value, context) => {
 
 ## Beispiele
 
-### Verwendung von JSON.parse()
+### JSON.parse() verwenden
 
 ```js
 JSON.parse("{}"); // {}
@@ -103,7 +103,7 @@ JSON.parse('[1, 5, "false"]'); // [1, 5, "false"]
 JSON.parse("null"); // null
 ```
 
-### Verwendung des Reviver-Parameters
+### Den Parameter `reviver` verwenden
 
 ```js
 JSON.parse(
@@ -128,9 +128,9 @@ JSON.parse('{"1": 1, "2": 2, "3": {"4": 4, "5": {"6": 6}}}', (key, value) => {
 // ""
 ```
 
-### Verwendung des Revivers in Kombination mit dem Replacer von JSON.stringify()
+### `reviver` zusammen mit dem `replacer` von JSON.stringify() verwenden
 
-Damit ein Wert ordnungsgemäß "round-tript" (d.h. er wird auf das gleiche ursprüngliche Objekt deserialisiert), muss der Serialisierungsprozess die Typinformationen beibehalten. Beispielsweise können Sie hierfür den `replacer`-Parameter von {{jsxref("JSON.stringify()")}} verwenden:
+Damit ein Wert nach der Serialisierung und Deserialisierung wieder dem ursprünglichen Objekt entspricht, muss die Serialisierung die Typinformationen bewahren. Dazu können Sie beispielsweise den Parameter `replacer` von {{jsxref("JSON.stringify()")}} verwenden:
 
 ```js
 // Maps are normally serialized as objects with no properties.
@@ -156,17 +156,17 @@ console.log(map2);
 // Map { 1 => "one", 2 => "two", 3 => "three" }
 ```
 
-Da JSON keinen syntaktischen Raum zur Annotation von Typ-Metadaten hat, müssen Sie eine der folgenden Möglichkeiten in Betracht ziehen, um Werte zu beleben, die keine einfachen Objekte sind:
+Da die JSON-Syntax keine Möglichkeit bietet, Typmetadaten anzugeben, müssen Sie zur Wiederherstellung von Werten, die keine einfachen Objekte sind, eine der folgenden Möglichkeiten in Betracht ziehen:
 
-- Serialisieren Sie das gesamte Objekt zu einem String und versehen Sie es mit einem Typ-Tag.
-- "Erraten" basierend auf der Struktur der Daten (z. B. ein Array von Zweier-Arrays)
-- Wenn die Form der Nutzlast festgelegt ist, basierend auf dem Eigenschaftsnamen (z. B. halten alle Eigenschaften namens `registry` `Map`-Objekte).
+- Das gesamte Objekt als Zeichenfolge serialisieren und ein Typkennzeichen voranstellen.
+- Den Typ aus der Datenstruktur „erraten“ (beispielsweise bei einem Array aus Arrays mit jeweils zwei Elementen).
+- Bei fest vorgegebener Struktur der Daten den Typ anhand des Eigenschaftsnamens bestimmen (beispielsweise wenn alle Eigenschaften namens `registry` `Map`-Objekte enthalten).
 
 ### Ungültiges JSON
 
-Wenn `JSON.parse` einen String erhält, der nicht der JSON-Grammatik entspricht, wird eine `SyntaxError`-Ausnahme ausgelöst.
+Wenn `JSON.parse` eine Zeichenfolge erhält, die nicht der JSON-Grammatik entspricht, wird ein `SyntaxError` ausgelöst.
 
-Arrays und Objekte dürfen in JSON keine [nachgestellten Kommata](/de/docs/Web/JavaScript/Reference/Trailing_commas) haben:
+Arrays und Objekte dürfen in JSON keine [abschließenden Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) enthalten:
 
 ```js example-bad
 JSON.parse("[1, 2, 3, 4, ]");
@@ -176,7 +176,7 @@ JSON.parse('{"foo": 1, }');
 // SyntaxError: Unexpected token } in JSON at position 12
 ```
 
-JSON-Strings müssen durch doppelte (nicht einfache) Anführungszeichen begrenzt werden:
+JSON-Zeichenfolgen müssen durch doppelte Anführungszeichen begrenzt sein, nicht durch einfache:
 
 ```js example-bad
 JSON.parse("{'foo': 1}");
@@ -186,7 +186,7 @@ JSON.parse("'string'");
 // SyntaxError: Unexpected token ' in JSON at position 0
 ```
 
-Wenn Sie JSON in einem JavaScript-Stringliteral schreiben, sollten Sie entweder einfache Anführungszeichen verwenden, um das JavaScript-Stringliteral zu begrenzen, oder die doppelten Anführungszeichen, die das JSON-String begrenzen, maskieren:
+Wenn Sie JSON innerhalb eines JavaScript-Zeichenfolgenliterals schreiben, sollten Sie entweder das JavaScript-Zeichenfolgenliteral durch einfache Anführungszeichen begrenzen oder die doppelten Anführungszeichen des JSON-Texts maskieren:
 
 ```js-nolint example-good
 JSON.parse('{"foo": 1}'); // OK
@@ -203,5 +203,5 @@ JSON.parse("{\"foo\": 1}"); // OK
 
 ## Siehe auch
 
-- [Polyfill des modernen `JSON.parse`-Verhaltens (`context`-Parameter des Revivers) in `core-js`](https://github.com/zloirock/core-js#jsonparse-source-text-access)
+- [Polyfill für das moderne Verhalten von `JSON.parse` (Parameter `context` des Revivers) in `core-js`](https://github.com/zloirock/core-js#jsonparse-source-text-access)
 - {{jsxref("JSON.stringify()")}}
