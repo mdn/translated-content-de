@@ -1,12 +1,12 @@
 ---
-title: "`browsingContext.create` Befehl"
+title: Befehl `browsingContext.create`
 short-title: create
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext/create
 l10n:
-  sourceCommit: 50e846e7423814d7d0c3c3630ff8e793b38cad8a
+  sourceCommit: eb950353cc947fb1c00397334b13a5f9457d734a
 ---
 
-Der `browsingContext.create` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext) Moduls erstellt einen [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) als neuen Tab oder in einem neuen Fenster und gibt dessen Kontext-ID zurück.
+Der [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) `browsingContext.create` des Moduls [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext) erstellt einen [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) als neuen Tab oder neues Fenster und gibt dessen Kontext-ID zurück.
 
 ## Syntax
 
@@ -37,35 +37,37 @@ Das Feld `params` enthält:
 
 - `background` {{optional_inline}}
   - : Ein boolescher Wert, der angibt, ob der Kontext im Hintergrund oder im Vordergrund erstellt wird.
-    - `false`: Der Kontext wird in den Vordergrund gebracht und erhält den Fokus, nachdem er erstellt wurde. Dies ist die Standardeinstellung.
-    - `true`: Der Kontext wird im Hintergrund erstellt. Siehe [`browsingContext.activate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate), um ihn in den Vordergrund zu bringen und den Fokus darauf zu setzen.
+    - `false`: Der Kontext wird nach seiner Erstellung in den Vordergrund gebracht und erhält den Fokus. Dies ist die Standardeinstellung.
+    - `true`: Der Kontext wird im Hintergrund erstellt. Mit [`browsingContext.activate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate) können Sie ihn in den Vordergrund bringen und ihm den Fokus geben.
 - `referenceContext` {{optional_inline}}
-  - : Ein String, der die ID eines vorhandenen [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) enthält, der verwendet wird, um den neuen Kontext zu positionieren.
-    Kontext-IDs werden durch Befehle wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
+  - : Eine Zeichenfolge mit der ID eines vorhandenen [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context), die zur Positionierung des neuen Kontexts verwendet wird.
 
-    Wenn `type` den Wert `"tab"` hat, wird der neue Kontext im selben Fenster wie der Kontext geöffnet, der durch `referenceContext` spezifiziert ist.
-    Wenn `type` `"window"` ist oder `referenceContext` weggelassen wird, entscheidet der Browser, wo der neue Kontext erscheint.
+    Wenn `type` den Wert `"tab"` hat, wird der neue Kontext im selben Fenster wie der durch `referenceContext` angegebene Kontext geöffnet.
+    Wenn `type` den Wert `"window"` hat oder `referenceContext` weggelassen wird, bestimmt der Browser, wo der neue Kontext erscheint.
 
-    Der neue Kontext erbt den [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) des angegebenen Referenzkontextes, es sei denn, `userContext` wird explizit angegeben.
+    Der neue Kontext übernimmt den [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) des angegebenen Referenzkontexts, sofern `userContext` nicht ausdrücklich angegeben wird.
+
+    Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
 
 - `type`
-  - : Ein String, der den Typ des erstellten Kontexts spezifiziert.
-    Er akzeptiert einen der folgenden Werte:
+  - : Eine Zeichenfolge, die den Typ des zu erstellenden Kontexts angibt.
+    Sie akzeptiert einen der folgenden Werte:
     - `"tab"`: Erstellt den Kontext als Tab in einem vorhandenen Fenster.
-      Wenn `referenceContext` angegeben wird, öffnet sich der neue Tab daneben.
+      Wenn `referenceContext` angegeben ist, wird der neue Tab neben dem angegebenen Kontext geöffnet.
     - `"window"`: Erstellt den Kontext in einem neuen Browserfenster.
 - `userContext` {{optional_inline}}
-  - : Ein String, der die ID des [Benutzerkontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) enthält, in dem der Kontext erstellt wird.
-    Benutzerkontext-IDs werden von [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) oder [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) zurückgegeben.
+  - : Eine Zeichenfolge mit der ID des [Benutzerkontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts), in dem der Kontext erstellt wird.
 
-    Wenn nicht angegeben, verwendet der neue Kontext den `"default"` Benutzerkontext oder erbt den Benutzerkontext von `referenceContext`, falls angegeben.
+    Wenn der Wert nicht angegeben ist, verwendet der neue Kontext den Benutzerkontext `"default"` oder übernimmt den Benutzerkontext von `referenceContext`, falls dieser angegeben ist.
+
+    Benutzerkontext-IDs werden von [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) oder [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) zurückgegeben.
 
 ### Rückgabewert
 
-Das `result` Objekt in der Antwort enthält die folgenden Felder:
+Das Objekt `result` in der Antwort enthält das folgende Feld:
 
 - `context`
-  - : Ein String, der die ID des neu erstellten Kontexts enthält.
+  - : Eine Zeichenfolge mit der ID des neu erstellten Kontexts.
 
 ### Fehler
 
@@ -73,30 +75,30 @@ Das `result` Objekt in der Antwort enthält die folgenden Felder:
   - : Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
     Dieser Fehler wird auch zurückgegeben, wenn der durch `referenceContext` angegebene Kontext kein Top-Level-Kontext ist.
 - `no such frame`
-  - : Kein Kontext mit der angegebenen `referenceContext` ID wird gefunden.
+  - : Es wurde kein Kontext mit der angegebenen `referenceContext`-ID gefunden.
 - `no such user context`
-  - : Kein Benutzerkontext mit der angegebenen `userContext` ID wird gefunden.
+  - : Es wurde kein Benutzerkontext mit der angegebenen `userContext`-ID gefunden.
 - `unsupported operation`
   - : Der Browser kann keinen neuen [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) erstellen.
 
 ## Beschreibung
 
 Der Befehl `browsingContext.create` erstellt immer einen [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context).
-Der `type` Parameter bestimmt, wie der neue Kontext im Browser erscheint: `"window"` erstellt ein neues [Client-Fenster](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows), während `"tab"` ihn als Tab in einem vorhandenen Client-Fenster öffnet.
+Der Parameter `type` bestimmt, wie der neue Kontext im Browser erscheint: `"window"` erstellt ein neues [Client-Fenster](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows), während `"tab"` ihn als Tab in einem vorhandenen Client-Fenster öffnet.
 
 Standardmäßig erhält der neue Kontext sofort den Fokus.
 Um dieses Verhalten zu deaktivieren, setzen Sie `background` auf `true`.
-Sie können später einen Hintergrundkontext in den Vordergrund bringen, indem Sie [`browsingContext.activate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate) verwenden.
+Später können Sie einen Kontext im Hintergrund mit [`browsingContext.activate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate) in den Vordergrund bringen.
 
-Wenn Sie möchten, dass der neue Tab neben einem bestimmten vorhandenen Tab geöffnet wird, übergeben Sie die Kontext-ID dieses Tabs als `referenceContext`. Ohne diese Angabe platziert der Browser den neuen Tab, wo er es für richtig hält.
+Wenn der neue Tab neben einem bestimmten vorhandenen Tab geöffnet werden soll, übergeben Sie dessen Kontext-ID als `referenceContext`. Andernfalls bestimmt der Browser selbst, wo der neue Tab platziert wird.
 
-Standardmäßig wird der neue Kontext dem `"default"` [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) hinzugefügt und teilt den Speicher mit anderen Tabs in diesem Kontext. Um ihn zu isolieren, also ihm separate Cookies und Sitzungsdaten zu geben, geben Sie einen anderen Benutzerkontext mit `userContext` an.
+Standardmäßig wird der neue Kontext dem [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) `"default"` hinzugefügt und teilt sich den Speicher mit anderen Tabs in diesem Kontext. Um ihn zu isolieren, ihm also eigene Cookies und Sitzungsdaten zu geben, geben Sie mit `userContext` einen anderen Benutzerkontext an.
 
 ## Beispiele
 
-### Erstellen eines Tabs
+### Einen Tab erstellen
 
-Mit einer [WebDriver BiDi Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), senden Sie die folgende Nachricht, um einen neuen Tab zu erstellen:
+Senden Sie bei bestehender [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und [aktiver Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) die folgende Nachricht, um einen neuen Tab zu erstellen:
 
 ```json
 {
@@ -120,13 +122,13 @@ Bei erfolgreicher Erstellung antwortet der Browser mit der Kontext-ID des neuen 
 }
 ```
 
-Da `background` nicht angegeben ist, öffnet sich der Tab standardmäßig im Vordergrund.
+Da `background` nicht angegeben ist, wird der Tab standardmäßig im Vordergrund geöffnet.
 
-### Erstellen eines Tabs neben einem bestehenden Kontext
+### Einen Tab neben einem vorhandenen Kontext erstellen
 
-Das folgende Beispiel zeigt, wie man einen Tab im Hintergrund neben einem bestehenden Tab innerhalb des angegebenen Benutzerkontexts erstellt.
+Das folgende Beispiel zeigt, wie Sie innerhalb des angegebenen Benutzerkontexts einen Tab im Hintergrund neben einem vorhandenen Tab erstellen.
 
-Zuerst erhalten Sie die Kontext-ID des Referenztabs mit [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) und die Benutzerkontext-ID mit [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) oder [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext). Senden Sie dann die folgende Nachricht:
+Ermitteln Sie zunächst die Kontext-ID des Referenz-Tabs mit [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) und die Benutzerkontext-ID mit [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) oder [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext). Senden Sie anschließend die folgende Nachricht:
 
 ```json
 {
@@ -141,7 +143,7 @@ Zuerst erhalten Sie die Kontext-ID des Referenztabs mit [`browsingContext.getTre
 }
 ```
 
-Der Browser öffnet den neuen Tab im selben Fenster wie den Referenzkontext und reagiert wie folgt:
+Der Browser öffnet den neuen Tab im selben Fenster wie den Referenzkontext und antwortet wie folgt:
 
 ```json
 {
@@ -153,7 +155,7 @@ Der Browser öffnet den neuen Tab im selben Fenster wie den Referenzkontext und 
 }
 ```
 
-### Erstellen eines Fensters im Hintergrund
+### Ein Fenster im Hintergrund erstellen
 
 Senden Sie die folgende Nachricht, um ein neues Fenster zu erstellen, ohne es zu aktivieren:
 
@@ -168,7 +170,7 @@ Senden Sie die folgende Nachricht, um ein neues Fenster zu erstellen, ohne es zu
 }
 ```
 
-Der Browser antwortet mit der Kontext-ID des neuen Fensters wie folgt:
+Der Browser antwortet wie folgt mit der Kontext-ID des neuen Fensters:
 
 ```json
 {
@@ -190,8 +192,8 @@ Der Browser antwortet mit der Kontext-ID des neuen Fensters wie folgt:
 
 ## Siehe auch
 
-- [`browsingContext.activate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate) Befehl
-- [`browsingContext.close`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/close) Befehl
-- [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) Befehl
-- [`browsingContext.contextCreated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextCreated) Ereignis
-- [`browsingContext.contextDestroyed`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextDestroyed) Ereignis
+- Befehl [`browsingContext.activate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate)
+- Befehl [`browsingContext.close`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/close)
+- Befehl [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree)
+- Ereignis [`browsingContext.contextCreated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextCreated)
+- Ereignis [`browsingContext.contextDestroyed`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextDestroyed)

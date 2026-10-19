@@ -3,10 +3,10 @@ title: "`session.subscribe`-Befehl"
 short-title: subscribe
 slug: Web/WebDriver/Reference/BiDi/Modules/session/subscribe
 l10n:
-  sourceCommit: 9703f3f0a1ae56e4e40af5505451f96c78495cb9
+  sourceCommit: eb950353cc947fb1c00397334b13a5f9457d734a
 ---
 
-Der `session.subscribe` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls registriert den Client für den asynchronen Empfang von Ereignissen, entweder pro Ereignis oder pro Modul, global oder auf spezifische Kontexte beschränkt.
+Der [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) `session.subscribe` des Moduls [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) registriert den Client für den asynchronen Empfang von Ereignissen. Das Abonnement kann einzelne Ereignisse oder alle Ereignisse eines Moduls umfassen und entweder global gelten oder auf bestimmte Kontexte beschränkt sein.
 
 ## Syntax
 
@@ -31,49 +31,51 @@ Der `session.subscribe` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#c
 
 ### Parameter
 
-Das `params`-Feld enthält:
+Das Feld `params` enthält:
 
 - `contexts` {{optional_inline}}
-  - : Ein Array mit einer oder mehreren Kontext-ID-Strings, jeweils entsprechend einem Tab oder Frame.
-    Kontext-IDs werden durch Befehle wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
-    Wenn angegeben, werden Ereignisse nur für diese Kontexte und deren Nachkommen empfangen.
-    Wenn die Kontext-ID einem Frame entspricht, wird das Abonnement für den übergeordneten Kontext (Tab) erstellt, dem der Frame gehört.
+  - : Ein Array mit einer oder mehreren Kontext-ID-Zeichenfolgen, die jeweils einem Tab oder Frame entsprechen.
+    Wenn dieses Feld angegeben ist, werden Ereignisse nur für diese Kontexte und ihre untergeordneten Kontexte empfangen.
+    Entspricht die Kontext-ID einem Frame, wird das Abonnement für den übergeordneten Top-Level-Kontext (Tab) erstellt.
 
-    Dieses Feld kann nicht verwendet werden, wenn `userContexts` ebenfalls angegeben ist.
+    Dieses Feld kann nicht verwendet werden, wenn auch `userContexts` angegeben ist.
+
+    Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
 
 - `events`
-  - : Ein Array mit einem oder mehreren Ereignisnamen-Strings.
-    Verwenden Sie einen Modulnamen (zum Beispiel `"log"`), um alle Ereignisse in diesem Modul zu abonnieren, oder einen spezifischen Ereignisnamen (zum Beispiel `"log.entryAdded"`), um nur dieses Ereignis zu abonnieren.
+  - : Ein Array mit einem oder mehreren Ereignisnamen als Zeichenfolgen.
+    Verwenden Sie einen Modulnamen (zum Beispiel `"log"`), um alle Ereignisse dieses Moduls zu abonnieren, oder einen bestimmten Ereignisnamen (zum Beispiel `"log.entryAdded"`), um nur dieses Ereignis zu abonnieren.
 - `userContexts` {{optional_inline}}
-  - : Ein Array mit einer oder mehreren Benutzerkontext-ID-Strings, jeweils entsprechend einem Browserkontext oder Container.
-    Benutzerkontext-IDs werden durch Befehle wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
-    Wenn angegeben, werden Ereignisse nur für diese Benutzerkontexte empfangen.
+  - : Ein Array mit einer oder mehreren Benutzerkontext-ID-Zeichenfolgen, die jeweils einem Browserkontext oder Container entsprechen.
+    Wenn dieses Feld angegeben ist, werden Ereignisse nur für diese Benutzerkontexte empfangen.
 
-    Dieses Feld kann nicht verwendet werden, wenn `contexts` ebenfalls angegeben ist.
+    Dieses Feld kann nicht verwendet werden, wenn auch `contexts` angegeben ist.
 
-Wenn weder `contexts` noch `userContexts` angegeben sind, ist das Abonnement global, sodass Ereignisse für alle Kontexte empfangen werden.
+    Benutzerkontext-IDs werden von Befehlen wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
+
+Wenn weder `contexts` noch `userContexts` angegeben ist, gilt das Abonnement global. Ereignisse werden dann für alle Kontexte empfangen.
 
 ### Rückgabewert
 
-Das `result`-Feld in der Antwort ist ein Objekt mit folgendem Feld:
+Das Feld `result` in der Antwort ist ein Objekt mit folgendem Feld:
 
 - `subscription`
-  - : Ein String, der die eindeutige Kennung für dieses Abonnement enthält.
+  - : Eine Zeichenfolge mit der eindeutigen Kennung dieses Abonnements.
 
 ### Fehler
 
-- [`InvalidArgument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
+- [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Das `events`-Array ist leer, weggelassen oder enthält einen nicht erkannten Ereignisnamen.
+    - Das Array `events` ist leer, fehlt oder enthält einen unbekannten Ereignisnamen.
     - `contexts` oder `userContexts` ist angegeben, aber leer.
     - Sowohl `contexts` als auch `userContexts` sind in derselben Anfrage angegeben.
     - Ein Parameterwert hat einen ungültigen Typ.
 
 ## Beispiele
 
-### Globales Abonnieren eines Ereignisses
+### Ein Ereignis global abonnieren
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um das `log.entryAdded` Ereignis für alle Kontexte zu abonnieren:
+Senden Sie bei bestehender [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und [aktiver Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) die folgende Nachricht, um das Ereignis `log.entryAdded` für alle Kontexte zu abonnieren:
 
 ```json
 {
@@ -85,7 +87,7 @@ Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_
 }
 ```
 
-Der Browser antwortet mit einer Abonnement-ID wie folgt:
+Der Browser antwortet mit einer Abonnement-ID:
 
 ```json
 {
@@ -97,9 +99,9 @@ Der Browser antwortet mit einer Abonnement-ID wie folgt:
 }
 ```
 
-### Globales Abonnieren mehrerer Ereignisse
+### Mehrere Ereignisse global abonnieren
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um alle Ereignisse im `log` Modul und ein spezifisches Ereignis aus dem `network` Modul zu abonnieren:
+Senden Sie bei bestehender [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und [aktiver Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) die folgende Nachricht, um alle Ereignisse des Moduls `log` und ein bestimmtes Ereignis des Moduls `network` zu abonnieren:
 
 ```json
 {
@@ -111,7 +113,7 @@ Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_
 }
 ```
 
-Der Browser antwortet mit einer Abonnement-ID wie folgt:
+Der Browser antwortet mit einer Abonnement-ID:
 
 ```json
 {
@@ -123,9 +125,9 @@ Der Browser antwortet mit einer Abonnement-ID wie folgt:
 }
 ```
 
-### Abonnieren von Ereignissen, die auf einen Tab beschränkt sind
+### Ereignisse für einen bestimmten Tab abonnieren
 
-Angenommen, Ihre Automatisierung hat zwei Tabs geöffnet — einen für die Startseite und einen für die Checkout-Seite. Um `log.entryAdded` Ereignisse nur vom Checkout-Tab zu empfangen, senden Sie die folgende Nachricht mit der Kontext-ID dieses Tabs:
+Angenommen, Ihre Automatisierung hat zwei Tabs geöffnet – einen für die Startseite und einen für die Checkout-Seite. Um `log.entryAdded`-Ereignisse nur vom Checkout-Tab zu empfangen, senden Sie die folgende Nachricht mit der Kontext-ID dieses Tabs:
 
 ```json
 {
@@ -138,7 +140,7 @@ Angenommen, Ihre Automatisierung hat zwei Tabs geöffnet — einen für die Star
 }
 ```
 
-Der Browser antwortet mit einer Abonnement-ID wie folgt:
+Der Browser antwortet mit einer Abonnement-ID:
 
 ```json
 {
@@ -160,6 +162,6 @@ Der Browser antwortet mit einer Abonnement-ID wie folgt:
 
 ## Siehe auch
 
-- [`session.unsubscribe`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/unsubscribe) Befehl
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) Befehl
-- [`session.end`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/end) Befehl
+- Befehl [`session.unsubscribe`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/unsubscribe)
+- Befehl [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)
+- Befehl [`session.end`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/end)
