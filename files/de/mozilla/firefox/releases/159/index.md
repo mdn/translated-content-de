@@ -1,18 +1,18 @@
 ---
-title: Versionshinweise für Entwickler zu Firefox 159 (Beta)
+title: Firefox 159 – Versionshinweise für Entwickler (Beta)
 short-title: Firefox 159 (Beta)
 slug: Mozilla/Firefox/Releases/159
 l10n:
-  sourceCommit: bd4e1a75486ccdf2d36aef41c63d22ec5536b6a6
+  sourceCommit: e7808c08820d6e167bf5013b4f94ef3ff90ad147
 ---
 
 Dieser Artikel informiert über Änderungen in Firefox 159, die Entwickler betreffen.
 Firefox 159 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [27. Oktober 2026](https://whattrainisitnow.com/release/?version=159).
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, zu denen Sie Hinweise verfassen. -->
+<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, für die Sie Hinweise verfassen. -->
 
 ## Änderungen für Webentwickler
 
@@ -50,7 +50,9 @@ Firefox 159 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- #### Entfernungen -->
 
-<!-- ### APIs -->
+### APIs
+
+- Methoden, die HTML mit der [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) bereinigen, etwa [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML), entfernen unerwünschte Elemente und Attribute jetzt bereits beim Parsen des Markups. Zuvor wurde erst das gesamte Markup geparst und anschließend der entstandene DOM-Baum bereinigt. Das Ergebnis ist dasselbe, mit einer Ausnahme: Benachbarter Text befindet sich nun in einem einzigen Textknoten, statt auf mehrere verteilt zu sein. ([Firefox-Bug 2070498](https://bugzil.la/2070498)).
 
 <!-- #### DOM -->
 
