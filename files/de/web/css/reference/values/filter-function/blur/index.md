@@ -1,12 +1,12 @@
 ---
-title: "`blur()` CSS-Funktion"
+title: CSS-Funktion `blur()`
 short-title: blur()
 slug: Web/CSS/Reference/Values/filter-function/blur
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: cff28ac91efd68d0809779c81902bd080f614a1d
 ---
 
-Die **`blur()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wendet einen [Gaussian Blur](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`blur()`** wendet eine [gaußsche Unschärfe](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
 
 {{InteractiveExample("CSS Demo: blur()")}}
 
@@ -45,11 +45,11 @@ blur(1.17rem)  /* Blur with 1.17rem radius */
 ### Parameter
 
 - {{cssxref("length")}} {{Optional_Inline}}
-  - : Gibt den Radius der Unschärfe an. Es definiert den Wert der Standardabweichung für die Gaußsche Funktion, also wie viele Pixel auf dem Bildschirm ineinander übergehen. Daher erzeugt ein größerer Wert mehr Unschärfe. Ein Wert von `0` lässt die Eingabe unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig. Der Standardwert ist `0`.
+  - : Gibt den Radius der Unschärfe an. Der Wert definiert die Standardabweichung der Gauß-Funktion und bestimmt damit, wie viele Pixel auf dem Bildschirm ineinander übergehen. Ein größerer Wert erzeugt daher eine stärkere Unschärfe. Bei einem Wert von `0` bleibt die Eingabe unverändert. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte und negative Werte sind ungültig. Der Standardwert ist `0`.
 
 ## SVG-Filter
 
-Das SVG {{SVGElement("feGaussianBlur")}} Filterelement kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, um komplexere Unschärfewerke zu erzeugen. Um eine äquivalente Unschärfe zu erzeugen, verwenden wir einen Wert für `stdDeviation`. Dieser SVG-Effekt kann dann durch ID referenziert werden:
+Auch das SVG-Filterelement {{SVGElement("feGaussianBlur")}} kann verwendet werden, um Inhalte unscharf darzustellen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, mit denen sich komplexere Unschärfeeffekte erzeugen lassen. Für einen gleichwertigen Unschärfeeffekt geben wir einen Wert für `stdDeviation` an. Auf diesen SVG-Effekt kann dann über seine ID verwiesen werden:
 
 ```html
 <svg role="none">
@@ -73,7 +73,7 @@ filter: url("folder/fileName.svg#blur11"); /* external svg filter definition */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()`-Filterfunktion angewendet, das Bild mit der äquivalenten SVG-Blur-Funktion angewendet und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: eines mit angewendeter `blur()`-Filterfunktion, eines mit der entsprechenden SVG-Unschärfefunktion und das Originalbild zum Vergleich:
 
 ```css
 .filter {
@@ -154,8 +154,8 @@ td {
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul
-- Die anderen {{cssxref("filter-function")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
+- Zu den weiteren {{cssxref("filter-function")}}-Funktionen, die als Werte der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

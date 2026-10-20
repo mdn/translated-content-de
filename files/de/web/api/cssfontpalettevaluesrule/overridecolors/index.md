@@ -3,22 +3,22 @@ title: "CSSFontPaletteValuesRule: overrideColors-Eigenschaft"
 short-title: overrideColors
 slug: Web/API/CSSFontPaletteValuesRule/overrideColors
 l10n:
-  sourceCommit: 6ed02a2b0e0d891f7d3b4c2a6b1d9cc05c90ed9c
+  sourceCommit: 72af34c38ae0d97bc3c9bde4998d538bcc56634a
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`overrideColors`**-Eigenschaft des [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Interfaces ist ein String, der eine Liste von Farbindex und Farbenpaar enthält, die stattdessen verwendet werden sollen. Sie ist im gleichen Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor.
+Die schreibgeschützte Eigenschaft **`overrideColors`** der Schnittstelle [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule) ist ein String mit einer Liste von Farbindizes und Farbwerten, die stattdessen verwendet werden sollen. Sie hat dasselbe Format wie der entsprechende Deskriptor {{cssxref("@font-palette-values/override-colors", "override-colors")}}.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbenpaar enthält
+Ein String mit einer durch Kommas getrennten Liste von Farbindizes und Farbwerten.
 
 ## Beispiele
 
-### Den überschriebenen Farbwert lesen
+### Überschriebene Farben auslesen
 
-Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Die MDN [Live-Beispielinfrastruktur](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) kombiniert alle CSS-Blöcke im Beispiel zu einem einzigen Inline-Style mit der ID `css-output`, daher verwenden wir zunächst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
+In diesem Beispiel werden zunächst einige At-Regeln definiert, darunter zwei {{cssxref("@font-palette-values")}}-Regeln. Die MDN-Infrastruktur für [interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) fasst alle CSS-Blöcke des Beispiels zu einem einzigen Inline-Stylesheet mit der ID `css-output` zusammen. Daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
 
 #### HTML
 
@@ -37,7 +37,7 @@ Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@
   font-family: "Noto Color Emoji";
   font-style: normal;
   font-weight: normal;
-  src: url("https://fonts.gstatic.com/l/font?kit=Yq6P-KqIXTD0t4D9z1ESnKM3-HpFabts6diywYkdG3gjD0U&skey=a373f7129eaba270&v=v24")
+  src: url("https://mdn.github.io/shared-assets/fonts/noto-color-emoji/NotoColorEmoji-Regular.woff2")
     format("woff2");
 }
 
@@ -49,15 +49,15 @@ Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@
 @font-palette-values --blue {
   font-family: "Noto Color Emoji";
   override-colors:
-    3 rgb(1 28 193),
-    4 rgb(60 124 230);
+    3426 rgb(1 28 193),
+    4614 rgb(60 124 230);
 }
 
 @font-palette-values --green {
   font-family: "Noto Color Emoji";
   override-colors:
-    3 rgb(28 193 1),
-    4 rgb(34 230 1);
+    3426 rgb(28 193 1),
+    4614 rgb(34 230 1);
 }
 
 .colored-hat {

@@ -3,13 +3,13 @@ title: "`font-width` CSS property"
 short-title: font-width
 slug: Web/CSS/Reference/Properties/font-width
 l10n:
-  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
+  sourceCommit: 72af34c38ae0d97bc3c9bde4998d538bcc56634a
 ---
 
 > [!NOTE]
-> Die Eigenschaft `font-width` ist der moderne Ersatz für {{cssxref("font-stretch")}}, welches ein veraltetes Alias ist. Während `font-width` der bevorzugte Name der Spezifikation ist, verfügt `font-stretch` derzeit über eine breitere Browser-Unterstützung. Überprüfen Sie das [Fallback-Beispiel](#bereitstellung_eines_font-stretch-fallbacks) und die [Browser-Kompatibilität](#browser-kompatibilität) Tabelle für Details.
+> Die Eigenschaft `font-width` ist der moderne Ersatz für {{cssxref("font-stretch")}}, einen älteren Alias. Obwohl `font-width` der in der Spezifikation bevorzugte Name ist, wird `font-stretch` derzeit von mehr Browsern unterstützt. Weitere Informationen finden Sie im [Beispiel mit Fallback](#`font-stretch`_als_fallback_verwenden) und in der Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität).
 
-Die **`font-width`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt ein normales, kondensiertes oder erweitertes Gesicht aus einer Schriftart aus.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`font-width`** wählt einen Schriftstil mit normaler, schmalerer oder breiterer Zeichenbreite aus einer Schriftart aus.
 
 {{InteractiveExample("CSS Demo: font-width")}}
 
@@ -92,55 +92,55 @@ font-width: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste spezifiziert:
+Diese Eigenschaft wird durch einen einzelnen Wert aus der folgenden Liste angegeben:
 
 - `normal`
-  - : Gibt ein normal kondensiertes Schriftbild an.
+  - : Gibt einen Schriftstil mit normaler Zeichenbreite an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt ein stärker kondensiertes Schriftbild an als normal, wobei `ultra-condensed` das am meisten kondensierte ist.
+  - : Gibt einen Schriftstil mit schmaleren Zeichen als normal an, wobei `ultra-condensed` am schmalsten ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt ein stärker erweitertes Schriftbild an als normal, wobei `ultra-expanded` das am meisten erweiterte ist.
+  - : Gibt einen Schriftstil mit breiteren Zeichen als normal an, wobei `ultra-expanded` am breitesten ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50 % und 200 % (einschließlich). Negative Werte sind für diese Eigenschaft nicht zulässig.
 
-### Zuordnung von Schlüsselwörtern zu numerischen Werten
+### Zuordnung von Schlüsselwörtern zu Zahlenwerten
 
-Die folgende Tabelle zeigt die Zuordnung zwischen den Schlüsselwortwerten und numerischen Prozentsätzen:
+Die folgende Tabelle zeigt, welchen Prozentwerten die Schlüsselwörter entsprechen:
 
-| Schlüsselwort     | Prozentsatz |
+| Schlüsselwort     | Prozentwert |
 | ----------------- | ----------- |
-| `ultra-condensed` | 50%         |
-| `extra-condensed` | 62.5%       |
-| `condensed`       | 75%         |
-| `semi-condensed`  | 87.5%       |
-| `normal`          | 100%        |
-| `semi-expanded`   | 112.5%      |
-| `expanded`        | 125%        |
-| `extra-expanded`  | 150%        |
-| `ultra-expanded`  | 200%        |
+| `ultra-condensed` | 50 %        |
+| `extra-condensed` | 62,5 %      |
+| `condensed`       | 75 %        |
+| `semi-condensed`  | 87,5 %      |
+| `normal`          | 100 %       |
+| `semi-expanded`   | 112,5 %     |
+| `expanded`        | 125 %       |
+| `extra-expanded`  | 150 %       |
+| `ultra-expanded`  | 200 %       |
 
 ## Beschreibung
 
-Einige Schriftfamilien bieten zusätzliche Schriftbilder an, bei denen die Zeichen schmaler als das normale Schriftbild (_kondensierte_ Schriftbilder) oder breiter als das normale Schriftbild (_erweiterte_ Schriftbilder) sind.
+Einige Schriftfamilien bieten zusätzliche Schriftstile, deren Zeichen schmaler als beim normalen Stil (_condensed_) oder breiter als beim normalen Stil (_expanded_) sind.
 
-Sie können `font-width` verwenden, um ein kondensiertes oder erweitertes Schriftbild aus solchen Schriften auszuwählen. Wenn die verwendete Schrift keine kondensierten oder erweiterten Schriftbilder anbietet, hat diese Eigenschaft keine Auswirkung.
+Mit `font-width` können Sie bei solchen Schriftarten einen schmaleren oder breiteren Stil auswählen. Wenn die verwendete Schriftart keine entsprechenden Stile bietet, hat diese Eigenschaft keine Wirkung.
 
-### Schriftbildauswahl
+### Auswahl des Schriftstils
 
-Das für einen gegebenen `font-width`-Wert ausgewählte Schriftbild hängt von den von der Schrift unterstützten Schriftbildern ab. Wenn die Schrift kein Schriftbild anbietet, das exakt dem gegebenen Wert entspricht, werden Werte unter 100% einem kondensierten Schriftbild zugeordnet, und Werte größer oder gleich 100% einem erweiterten Schriftbild.
+Welcher Stil für einen bestimmten `font-width`-Wert ausgewählt wird, hängt von den verfügbaren Stilen der jeweiligen Schriftart ab. Wenn die Schriftart keinen Stil bietet, der genau dem angegebenen Wert entspricht, werden Werte unter 100 % einem schmaleren Stil und Werte ab 100 % einem breiteren Stil zugeordnet.
 
-Die folgende Tabelle zeigt die Auswirkung verschiedenen Prozentwerten von `font-width` auf zwei verschiedene Schriften:
+Die folgende Tabelle veranschaulicht, wie sich unterschiedliche Prozentwerte für `font-width` bei zwei Schriftarten auswirken:
 
 ```css hidden
 @font-face {
   font-family: "Inconsolata";
-  src: url("https://fonts.gstatic.com/s/inconsolata/v31/QlddNThLqRwH-OJ1UHjlKENVzlm-WkL3GZQmAwPyya15.woff2")
+  src: url("https://mdn.github.io/shared-assets/fonts/inconsolata/Inconsolata-VF.woff2")
     format("woff2");
 }
 
 @font-face {
   font-family: "Anek Malayalam";
-  src: url("https://fonts.gstatic.com/s/anekmalayalam/v4/6qLUKZActRTs_mZAJUZWWkhke0nYa-f6__Azq3-gP1W7db9_.woff2")
+  src: url("https://mdn.github.io/shared-assets/fonts/anek-malayalam/AnekMalayalam-VF.woff2")
     format("woff2");
 }
 
@@ -254,12 +254,12 @@ td:nth-child(10) {
 
 {{EmbedLiveSample('Font face selection', "100%", "250px")}}
 
-Das folgende Bildschirmfoto zeigt, wie die obige Tabelle gerendert wird, falls Ihr Browser die `font-width`-Eigenschaft nicht unterstützt:
+Der folgende Screenshot zeigt, wie die obige Tabelle dargestellt wird, falls Ihr Browser die Eigenschaft `font-width` nicht unterstützt:
 
-![Eine Vergleichstabelle mit zwei Zeilen, die den Kleinbuchstaben "e" in verschiedenen Breiten (50%, 62.5%, 75%, 87.5%, 100%, 112.5%, 125%, 150%, 200%) zeigt. Die obere Zeile ist mit Inconsolata und die untere mit Anek Malayalam beschriftet. Beide Schriften sind serifenlos und die Buchstaben von Inconsolata sind im Vergleich zu denen von Anek Malayalam etwas breiter.](font-face-selection.png)
+![Vergleichstabelle mit zwei Zeilen, die den Kleinbuchstaben e in unterschiedlichen Breiten (50 %, 62,5 %, 75 %, 87,5 %, 100 %, 112,5 %, 125 %, 150 %, 200 %) zeigt. Die obere Zeile ist mit Inconsolata beschriftet, die untere mit Anek Malayalam. Beide Schriftarten sind serifenlos; die Buchstaben von Inconsolata sind etwas breiter als die von Anek Malayalam.](font-face-selection.png)
 
-- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die ein kontinuierliches Spektrum von Breiten von 50% bis 200% bietet. <!-- Hinweis, dynamisch bezogenes woff2 von Google Fonts mit der Abfrage: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
-- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schrift, die Breiten von 75% bis 125% unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die am nächsten passende Schrift aus.
+- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von 50 % bis 200 % abdeckt. <!-- Note, dynamically obtained woff2 from Google fonts using query: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
+- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Schriftart von Google, die Breiten von 75 % bis 125 % unterstützt. Für Werte außerhalb dieses Bereichs wird der jeweils nächstliegende Schriftstil ausgewählt.
 
 ## Formale Definition
 
@@ -271,7 +271,7 @@ Das folgende Bildschirmfoto zeigt, wie die obige Tabelle gerendert wird, falls I
 
 ## Beispiele
 
-### Einstellen von Schriftbreiten-Prozentwerten
+### Prozentwerte für die Schriftbreite festlegen
 
 ```html
 <p class="condensed">an elephantine lizard</p>
@@ -307,9 +307,9 @@ p {
 
 {{EmbedLiveSample("Setting font width percentages", "100%", 200)}}
 
-### Bereitstellung eines Font-Stretch-Fallbacks
+### `font-stretch` als Fallback verwenden
 
-Da `font-width` derzeit noch keine breite Browser-Unterstützung hat, möchten Sie möglicherweise die veraltete Eigenschaft {{cssxref("font-stretch")}} als Fallback einfügen. Platzieren Sie `font-stretch` vor `font-width`, damit unterstützende Browser die moderne Eigenschaft verwenden:
+Da `font-width` noch nicht von vielen Browsern unterstützt wird, können Sie die ältere Eigenschaft {{cssxref("font-stretch")}} als Fallback angeben. Platzieren Sie `font-stretch` vor `font-width`, damit Browser, die die moderne Eigenschaft unterstützen, diese verwenden:
 
 ```css
 p {
@@ -319,7 +319,7 @@ p {
 ```
 
 > [!NOTE]
-> Sie können dieses Fallback-Muster mithilfe des Plugins [postcss-preset-env](https://preset-env.cssdb.org/) für PostCSS automatisieren, das die Umwandlung von `font-width`-Eigenschaften in `font-stretch` automatisch mit der [postcss-font-width-property](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-width-property) Transformation einschließt.
+> Sie können dieses Fallback-Muster mit dem Plug-in [postcss-preset-env](https://preset-env.cssdb.org/) für PostCSS automatisieren. Es enthält die Transformation [postcss-font-width-property](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-width-property), die `font-width`-Eigenschaften automatisch in `font-stretch` umwandelt.
 
 ## Spezifikationen
 
@@ -331,11 +331,11 @@ p {
 
 ## Siehe auch
 
-- {{cssxref("@font-face/font-width")}} Deskriptor für {{cssxref("@font-face")}}
-- Veraltete {{cssxref("font-stretch")}} Alias-Eigenschaft mit besserer Browser-Unterstützung
-- {{cssxref("font-style")}} Eigenschaft
-- {{cssxref("font-weight")}} Eigenschaft
-- SVG {{SVGAttr("font-width")}} Attribut
-- SVG {{SVGAttr("font-stretch")}} Attribut
-- [Lernen: Grundlegendes zu Text- und Schriftarten-Styling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
-- [CSS-Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul
+- Deskriptor {{cssxref("@font-face/font-width")}} für {{cssxref("@font-face")}}
+- Ältere Alias-Eigenschaft {{cssxref("font-stretch")}} mit breiterer Browser-Unterstützung
+- Eigenschaft {{cssxref("font-style")}}
+- Eigenschaft {{cssxref("font-weight")}}
+- SVG-Attribut {{SVGAttr("font-width")}}
+- SVG-Attribut {{SVGAttr("font-stretch")}}
+- [Lernen: Grundlagen der Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- Modul [CSS-Schriftarten](/de/docs/Web/CSS/Guides/Fonts)

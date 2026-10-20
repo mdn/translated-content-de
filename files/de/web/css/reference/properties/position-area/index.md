@@ -3,17 +3,17 @@ title: "`position-area` CSS property"
 short-title: position-area
 slug: Web/CSS/Reference/Properties/position-area
 l10n:
-  sourceCommit: c9f812354ae36bbafc6f6d9b0961f3b25f350f4c
+  sourceCommit: 93149226b6b94a770731d262508f5c4aa10bcbed
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`position-area`** ermöglicht es, ein per Anker positioniertes Element relativ zu den Kanten seines zugehörigen Ankerelements zu positionieren, indem das positionierte Element auf einer oder mehreren Kacheln eines impliziten 3x3-Rasters platziert wird, dessen mittlere Zelle das Ankerelement ist.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`position-area`** kann ein an einem Ankerelement positioniertes Element relativ zu dessen Kanten angeordnet werden. Dazu wird das positionierte Element auf einer oder mehreren Zellen eines impliziten 3×3-Rasters platziert, dessen mittlere Zelle das Ankerelement bildet.
 
-`position-area` bietet eine praktische Alternative zum Anheften und Positionieren eines Elements relativ zu seinem Anker über {{Glossary("inset_properties", "Inset-Eigenschaften")}} und die Funktion {{cssxref("anchor()")}}. Das rasterbasierte Konzept löst den häufigen Anwendungsfall, die Kanten des Containing Blocks des positionierten Elements relativ zu den Kanten seines Standardankerelements zu positionieren.
+`position-area` bietet eine praktische Alternative dazu, ein Element mit {{Glossary("inset_properties", "Inset-Eigenschaften")}} und der Funktion {{cssxref("anchor()")}} an seinem Ankerelement auszurichten und relativ dazu zu positionieren. Das Rasterkonzept deckt den häufigen Anwendungsfall ab, die Kanten des umschließenden Blocks eines positionierten Elements relativ zu den Kanten seines Standard-Ankerelements anzuordnen.
 
-Wenn ein Element kein Standardankerelement hat oder kein absolut positioniertes Element ist, hat diese Eigenschaft keine Wirkung.
+Wenn ein Element kein Standard-Ankerelement hat oder nicht absolut positioniert ist, hat diese Eigenschaft keine Wirkung.
 
 > [!NOTE]
-> Diese Eigenschaft hieß ursprünglich `inset-area` und wurde unter diesem Namen in Chromium-Browsern unterstützt; die Eigenschaftswerte sind identisch. Beide Eigenschaftsnamen werden aus Gründen der Abwärtskompatibilität noch für kurze Zeit unterstützt.
+> Diese Eigenschaft hieß ursprünglich `inset-area` und wurde unter diesem Namen in Chromium-Browsern mit denselben Eigenschaftswerten unterstützt. Aus Gründen der Abwärtskompatibilität werden beide Eigenschaftsnamen noch für kurze Zeit unterstützt.
 
 ## Syntax
 
@@ -57,76 +57,69 @@ position-area: unset;
 
 ### Werte
 
-Der Eigenschaftswert besteht aus zwei `<position-area>`-Schlüsselbegriffen oder dem Schlüsselwort `none`. Wenn nur ein `<position-area>`-Schlüsselbegriff angegeben wird, wird der zweite Schlüsselbegriff impliziert.
+Der Eigenschaftswert besteht aus zwei `<position-area>`-Schlüsselwörtern oder dem Schlüsselwort `none`. Wird nur ein `<position-area>`-Schlüsselwort angegeben, wird das zweite implizit ergänzt.
 
 - [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value)
-  - : Gibt den Bereich des Positionierungsbereichsrasters an, auf dem ausgewählte positionierte Elemente platziert werden.
+  - : Gibt den Bereich des Positionierungsrasters an, in dem ausgewählte positionierte Elemente platziert werden.
 
 - `none`
-  - : Es wird kein Positionierungsbereich festgelegt.
+  - : Es ist kein Positionierungsbereich festgelegt.
 
 ## Beschreibung
 
-Die Eigenschaft `position-area` stellt eine Alternative zur Funktion `anchor()` für die Positionierung von Elementen relativ zu Ankern bereit. `position-area` basiert auf einem 3x3-Raster aus Kacheln, dem sogenannten **Positionierungsbereichsraster**, wobei das Ankerelement die mittlere Kachel bildet:
+Die Eigenschaft `position-area` bietet eine Alternative zur Funktion `anchor()`, um Elemente relativ zu Ankerelementen zu positionieren. `position-area` basiert auf einem 3×3-Raster aus Zellen, dem sogenannten **Positionierungsraster**, dessen mittlere Zelle das Ankerelement bildet:
 
-![Das Positionierungsbereichsraster, wie unten beschrieben](/shared-assets/images/diagrams/css/anchor-positioning/position-area.svg)
+![Das Positionierungsraster, wie unten beschrieben](/shared-assets/images/diagrams/css/anchor-positioning/position-area.svg)
 
-Die Rasterkacheln sind in Zeilen und Spalten unterteilt:
+Die Rasterzellen sind in Zeilen und Spalten unterteilt:
 
-- Die drei Zeilen werden durch die [physischen Werte](/de/docs/Web/CSS/Reference/Values/position-area_value#physical_grid_keywords) `top`, `center` und `bottom` dargestellt. Sie haben außerdem [logische Entsprechungen](/de/docs/Web/CSS/Reference/Values/position-area_value#logical_grid_keywords) wie `block-start`, `center` und `block-end` sowie [Koordinatenentsprechungen](/de/docs/Web/CSS/Reference/Values/position-area_value#coordinate_grid_keywords) — `y-start`, `center` und `y-end`.
-- Die drei Spalten werden durch die physischen Werte `left`, `center` und `right` dargestellt. Sie haben außerdem logische Entsprechungen wie `inline-start`, `center` und `inline-end` sowie Koordinatenentsprechungen — `x-start`, `center` und `x-end`.
+- Die drei Zeilen werden durch die [physischen Werte](/de/docs/Web/CSS/Reference/Values/position-area_value#physical_grid_keywords) `top`, `center` und `bottom` dargestellt. Sie haben auch [logische Entsprechungen](/de/docs/Web/CSS/Reference/Values/position-area_value#logical_grid_keywords) wie `block-start`, `center` und `block-end` sowie [Koordinatenentsprechungen](/de/docs/Web/CSS/Reference/Values/position-area_value#coordinate_grid_keywords) — `y-start`, `center` und `y-end`.
+- Die drei Spalten werden durch die physischen Werte `left`, `center` und `right` dargestellt. Sie haben ebenfalls logische Entsprechungen wie `inline-start`, `center` und `inline-end` sowie Koordinatenentsprechungen — `x-start`, `center` und `x-end`.
 
-Die Abmessungen der mittleren Kachel werden durch den [Containing Block](/de/docs/Web/CSS/Guides/Display/Containing_block) des Ankerelements definiert, während die Abmessungen der Außenkante des Rasters durch den Containing Block des positionierten Elements definiert werden.
+Die Abmessungen der mittleren Zelle werden durch den [umschließenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) des Ankerelements bestimmt, während die Abmessungen der äußeren Rastergrenzen durch den umschließenden Block des positionierten Elements bestimmt werden.
 
-Der Wert [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value) besteht aus einem oder zwei Schlüsselwörtern, die den Bereich des Rasters festlegen, in dem das positionierte Element platziert werden soll. Genauer gesagt wird der Containing Block des positionierten Elements auf den Rasterbereich festgelegt.
+Der Wert [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value) besteht aus einem oder zwei Schlüsselwörtern, die den Rasterbereich festlegen, in dem das positionierte Element platziert werden soll. Genauer gesagt wird der umschließende Block des positionierten Elements auf diesen Rasterbereich festgelegt.
 
-Zum Beispiel:
+Beispiele:
 
-- Sie können einen Zeilenwert und einen Spaltenwert angeben, um das positionierte Element in einem einzelnen, bestimmten Rasterfeld zu platzieren — beispielsweise platzieren `top left` (logische Entsprechung `start start`) oder `bottom center` (logische Entsprechung `end center`) das positionierte Element im oberen rechten beziehungsweise im unteren mittleren Feld.
-- Sie können einen Zeilen- oder Spaltenwert zusammen mit einem `span-*`-Wert angeben, um zwei oder drei Zellen zu überspannen. Der erste Wert gibt die Zeile oder Spalte an, in der das positionierte Element platziert wird, wodurch es zunächst in der Mitte platziert wird, und der andere gibt die weiteren Kacheln dieser Zeile oder Spalte an, die überspannt werden sollen. Zum Beispiel:
-  - `top span-left` bewirkt, dass das positionierte Element in der Mitte der oberen Zeile platziert wird und die mittlere sowie die linke Kachel dieser Zeile überspannt.
-  - `block-end span-inline-end` bewirkt, dass das positionierte Element in der Mitte der Zeile am Blockende platziert wird und die mittlere sowie die Kachel am Inline-Ende dieser Zeile überspannt.
-  - `bottom span-all` und `y-end span-all` bewirken, dass das positionierte Element in der Mitte der unteren Zeile platziert wird und drei Zellen überspannt, in diesem Fall die linken, mittleren und rechten Kacheln der unteren Zeile.
+- Sie können einen Zeilen- und einen Spaltenwert angeben, um das positionierte Element in einer bestimmten einzelnen Rasterzelle zu platzieren. Beispielsweise platziert `top left` (logische Entsprechung `start start`) oder `bottom center` (logische Entsprechung `end center`) das positionierte Element in der oberen rechten beziehungsweise unteren mittleren Zelle.
+- Sie können einen Zeilen- oder Spaltenwert zusammen mit einem `span-*`-Wert angeben, um zwei oder drei Zellen zu überspannen. Der erste Wert legt die Zeile oder Spalte fest, in der das positionierte Element zunächst mittig platziert wird. Der andere Wert gibt an, welche weiteren Zellen dieser Zeile oder Spalte überspannt werden. Zum Beispiel:
+  - `top span-left` platziert das positionierte Element in der Mitte der oberen Zeile und lässt es die mittlere und die linke Zelle dieser Zeile überspannen.
+  - `block-end span-inline-end` platziert das positionierte Element in der Mitte der Zeile am Blockende und lässt es die mittlere Zelle und die Zelle am Inline-Ende dieser Zeile überspannen.
+  - `bottom span-all` und `y-end span-all` platzieren das positionierte Element in der Mitte der unteren Zeile und lassen es alle drei Zellen dieser Zeile überspannen: die linke, die mittlere und die rechte Zelle.
 
-Detaillierte Informationen zu Ankerfunktionen, ihrer Verwendung und der Eigenschaft `position-area` finden Sie im Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) sowie im Leitfaden [CSS-Ankerpositionierung verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Using), insbesondere im Abschnitt zum [Festlegen einer `position-area`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_a_position-area).
+Ausführliche Informationen zu Ankerfunktionen, ihrer Verwendung und der Eigenschaft `position-area` finden Sie im Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) und im Leitfaden [CSS-Ankerpositionierung verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Using), insbesondere im Abschnitt zum [Festlegen einer `position-area`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_a_position-area).
 
 ### Angepasstes Standardverhalten
 
-Wenn ein [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value)-Wert für ein positioniertes Element festgelegt wird, wird das Standardverhalten einiger seiner Eigenschaften angepasst, um eine passende Standardausrichtung bereitzustellen.
+Wenn für ein positioniertes Element ein Wert für [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value) festgelegt wird, ändert sich das Standardverhalten einiger seiner Eigenschaften, damit es standardmäßig passend ausgerichtet wird.
 
-#### Wert `normal` der Selbstausrichtungseigenschaften
+#### Wert `normal` bei Eigenschaften zur Selbstausrichtung
 
-Der Wert `normal` der Selbstausrichtungseigenschaften, einschließlich {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}}, verhält sich entweder als `start`, `end` oder [`anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center). Der Standardwert einer Selbstausrichtungseigenschaft hängt von der Positionierung des Elements ab:
+Der Wert `normal` der Eigenschaften zur Selbstausrichtung, darunter {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}}, verhält sich wie `start`, `end` oder [`anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center). Welcher Wert standardmäßig für eine Eigenschaft zur Selbstausrichtung gilt, hängt von der Positionierung des Elements ab:
 
-- Wenn der Wert `position-area` in einer Achse den mittleren Bereich angibt, ist die Standardausrichtung auf dieser Achse `anchor-center`.
-- Andernfalls ist das Verhalten dem durch die Eigenschaft `position-area` angegebenen Bereich entgegengesetzt. Wenn der Wert `position-area` beispielsweise den Startbereich seiner Achse angibt, ist die Standardausrichtung auf dieser Achse `end`.
+- Wenn der Wert von `position-area` in einer Achse den mittleren Bereich angibt, ist die Standardausrichtung in dieser Achse `anchor-center`.
+- Andernfalls entspricht das Verhalten dem Gegenstück des durch `position-area` angegebenen Bereichs. Gibt der Wert von `position-area` beispielsweise den Anfangsbereich einer Achse an, ist die Standardausrichtung in dieser Achse `end`.
 
-Wenn beispielsweise `writing-mode` auf `horizontal-tb` gesetzt ist, bewirkt `position-area: top span-x-start`, dass das positionierte Element in der Mitte der oberen Zeile platziert wird und die mittlere sowie die Startkacheln dieser Zeile überspannt. In diesem Fall haben die Selbstausrichtungseigenschaften standardmäßig die Werte `align-self: end` und `justify-self: anchor-center`.
+Wenn beispielsweise `writing-mode` auf `horizontal-tb` gesetzt ist, bewirkt `position-area: top span-x-start`, dass das positionierte Element in der Mitte der oberen Zeile platziert wird und die mittlere Zelle sowie die Zelle am Anfang dieser Zeile überspannt. In diesem Fall gelten für die Eigenschaften zur Selbstausrichtung standardmäßig `align-self: end` und `justify-self: anchor-center`.
 
 #### Inset-Eigenschaften und -Werte
 
-Wenn ein per Anker positioniertes Element mit der Eigenschaft `position-area` positioniert wird, geben alle festgelegten {{Glossary("inset_properties", "Inset-Eigenschaften")}}, etwa {{cssxref("top")}} oder {{cssxref("inset-inline-end")}}, Versätze vom Positionierungsbereich an. Einige andere Eigenschaftswerte, wie [`max-block-size: 100%`](/de/docs/Web/CSS/Reference/Properties/max-block-size), beziehen sich ebenfalls auf den Positionierungsbereich. Alle Inset-Eigenschaften, die auf `auto` gesetzt sind oder standardmäßig `auto` verwenden, verhalten sich so, als wäre ihr Wert auf `0` gesetzt.
+Wenn ein an einem Ankerelement positioniertes Element mit der Eigenschaft `position-area` angeordnet wird, geben festgelegte {{Glossary("inset_properties", "Inset-Eigenschaften")}} wie {{cssxref("top")}} oder {{cssxref("inset-inline-end")}} Abstände vom Positionierungsbereich an. Auch einige andere Eigenschaftswerte wie [`max-block-size: 100%`](/de/docs/Web/CSS/Reference/Properties/max-block-size) beziehen sich dann auf den Positionierungsbereich. Inset-Eigenschaften, die auf `auto` gesetzt sind oder standardmäßig diesen Wert haben, verhalten sich so, als wäre ihr Wert `0`.
 
-### Hinweis zur Breite positionierter Elemente
+### Ein Hinweis zur Breite des positionierten Elements
 
-Wenn für das positionierte Element keine bestimmte Größe festgelegt ist, entspricht seine Größe standardmäßig seiner {{Glossary("Intrinsic_Size", "intrinsischen Größe")}}, wird jedoch auch durch die Größe des Positionierungsbereichsrasters beeinflusst.
+Wenn für das positionierte Element keine bestimmte Größe festgelegt ist, entspricht seine Größe standardmäßig seiner {{Glossary("Intrinsic_Size", "intrinsischen Größe")}}. Sie wird jedoch auch von der Größe des Positionierungsrasters beeinflusst.
 
-Wenn das positionierte Element in einer einzelnen Zelle oben-mittig, unten-mittig oder mittig-mittig platziert wird, entspricht seine Blockgröße der Größe des Containing Blocks des Ankers und wächst jeweils nach oben, nach unten oder in beide Richtungen. Das positionierte Element wird am angegebenen Rasterfeld ausgerichtet, übernimmt jedoch dieselbe Breite wie das Ankerelement. Sein Inhalt darf jedoch nicht überlaufen — seine minimale `width` entspricht seinem `min-content` (definiert durch die Breite seines längsten Wortes).
+Wird das positionierte Element in einer einzelnen oberen mittleren, unteren mittleren oder zentralen Zelle platziert, entspricht seine Blockgröße der Größe des umschließenden Blocks des Ankerelements; dabei erstreckt es sich entsprechend nach oben, nach unten oder in beide Richtungen. Das positionierte Element wird an der angegebenen Rasterzelle ausgerichtet und übernimmt die Breite des Ankerelements. Sein Inhalt darf jedoch nicht überlaufen — seine minimale `width` entspricht seiner `min-content`-Breite (die durch die Breite seines längsten Wortes bestimmt wird).
 
-Wenn das positionierte Element in einem anderen einzelnen Rasterfeld platziert wird, etwa mit `position-area: top left`, oder so eingestellt wird, dass es zwei oder mehr Rasterfelder überspannt, beispielsweise mit `position-area: bottom span-all`, wird es am angegebenen Rasterbereich ausgerichtet, verhält sich aber so, als wäre für es eine {{cssxref("width")}} von `max-content` gesetzt. Seine Größe richtet sich nach der Größe seines Containing Blocks, also der Größe, die ihm bei `position: fixed` zugewiesen worden wäre. Es wird so breit wie der Textinhalt, kann jedoch auch durch die Kante von `<body>` eingeschränkt werden.
+Wird das positionierte Element in einer anderen einzelnen Rasterzelle platziert (etwa mit `position-area: top left`) oder so festgelegt, dass es zwei oder mehr Rasterzellen überspannt (beispielsweise mit `position-area: bottom span-all`), wird es am angegebenen Rasterbereich ausgerichtet, verhält sich aber so, als wäre seine {{cssxref("width")}} auf `max-content` gesetzt. Seine Größe richtet sich nach der Größe seines umschließenden Blocks, die ihm bei `position: fixed` vorgegeben wurde. Es wird so breit wie sein Textinhalt, kann jedoch auch durch den Rand des `<body>` begrenzt werden.
 
-### Verwendung von `position-area` zum Positionieren von Popovers
+### Popovers mit `position-area` positionieren
 
-Beachten Sie bei der Verwendung von `position-area` zum Positionieren von [Popovers](/de/docs/Web/HTML/Reference/Global_attributes/popover), dass [die Standardstile für Popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) möglicherweise mit der gewünschten Positionierung kollidieren. Die üblichen Ursachen sind die Standardstile für `margin` und `inset`; daher empfiehlt es sich, diese zurückzusetzen:
+Wenn Sie [Popovers](/de/docs/Web/HTML/Reference/Global_attributes/popover) mit `position-area` positionieren, beachten Sie: Der verwendete Wert `auto` für {{Glossary("Inset_properties", "Inset-")}} und {{cssxref("margin")}}-Eigenschaften wird bei jedem Element, dessen `position-area`-Wert nicht `none` ist, zu `0` aufgelöst. Dadurch stehen [die Standardstile für Popovers](https://html.spec.whatwg.org/multipage/rendering.html#flow-content-3:~:text=%5Bpopover%5D%20%7B) nicht im Widerspruch zur Position, die Sie mit `position-area` festlegen möchten.
 
-```css
-.my-popover {
-  margin: 0;
-  inset: auto;
-}
-```
-
-Die CSS-Arbeitsgruppe [prüft Möglichkeiten, um diesen Workaround überflüssig zu machen](https://github.com/w3c/csswg-drafts/issues/10258).
+Bei der Funktion {{cssxref("anchor()")}} ist das anders — siehe [Popovers mit `anchor()` positionieren](/de/docs/Web/CSS/Reference/Values/anchor#using_anchor_to_position_popovers).
 
 ## Formale Definition
 
@@ -138,13 +131,13 @@ Die CSS-Arbeitsgruppe [prüft Möglichkeiten, um diesen Workaround überflüssig
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-In diesem Beispiel wird ein positioniertes Element mithilfe der Eigenschaft `position-area` relativ zu seinem zugehörigen Anker angeheftet und positioniert.
+In diesem Beispiel wird ein positioniertes Element mit der Eigenschaft `position-area` an seinem zugehörigen Ankerelement ausgerichtet und relativ dazu positioniert.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("div")}} und ein {{htmlelement("p")}}. Das `<p>` wird mit CSS relativ zum `<div>` positioniert. Außerdem fügen wir einen Stilblock ein, der sichtbar gemacht wird. Alle Elemente werden über das Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) direkt bearbeitbar gemacht.
+Das HTML enthält ein {{htmlelement("div")}} und ein {{htmlelement("p")}}. Das `<p>` wird mit CSS relativ zum `<div>` positioniert. Außerdem fügen wir einen Style-Block hinzu, dessen Inhalt sichtbar gemacht wird. Alle Elemente können über das Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) direkt bearbeitet werden.
 
 ```html-nolint
 <div class="anchor" contenteditable="true">⚓︎</div>
@@ -159,9 +152,9 @@ Das HTML enthält ein {{htmlelement("div")}} und ein {{htmlelement("p")}}. Das `
 
 #### CSS
 
-Wir wandeln das `<div>` mit der Eigenschaft {{cssxref("anchor-name")}} in ein Ankerelement um. Anschließend verknüpfen wir das absolut positionierte `<p>` damit, indem wir seinen Wert für {{cssxref("position-anchor")}} auf denselben Ankernamen setzen.
+Mit der Eigenschaft {{cssxref("anchor-name")}} machen wir das `<div>` zu einem Ankerelement. Anschließend verknüpfen wir das absolut positionierte `<p>` damit, indem wir für seine Eigenschaft {{cssxref("position-anchor")}} denselben Ankernamen festlegen.
 
-Wir setzen den anfänglichen Wert von `position-area` auf `top center`. Dieser Wert wird für einen `p`-Selektor festgelegt und hat daher eine geringere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) als jeder Wert, der dem `.positionedElement`-[Klassenselektor](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) des `<style>`-Blocks hinzugefügt wird. Daher können Sie den anfänglichen Wert von `position-area` überschreiben, indem Sie innerhalb des Stilblocks einen `position-area`-Wert festlegen.
+Wir setzen `position-area` zunächst auf `top center`. Dieser Wert wird mit einem `p`-Selektor festgelegt und hat daher eine geringere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) als jeder Wert, der im `<style>`-Block mit dem [Klassenselektor](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) `.positionedElement` hinzugefügt wird. Sie können den anfänglichen `position-area`-Wert daher überschreiben, indem Sie im Style-Block einen anderen Wert für `position-area` festlegen.
 
 ```css
 .anchor {
@@ -193,21 +186,21 @@ style {
 }
 ```
 
-#### Ergebnisse
+#### Ergebnis
 
 {{ EmbedLiveSample("Basic example", "100%", "360") }}
 
-Versuchen Sie, die Textmenge im per Anker positionierten Element zu ändern, um zu sehen, wie es wächst. Versuchen Sie außerdem, den Wert der Eigenschaft `position-area` in einen anderen Wert wie `center` zu ändern.
+Ändern Sie die Textmenge im am Ankerelement positionierten Element, um zu sehen, wie es wächst. Versuchen Sie auch, die Eigenschaft `position-area` auf einen anderen Wert wie `center` zu setzen.
 
 ### Vergleich von `position-area`-Werten
 
-Diese Demo erstellt einen Anker und heftet ein positioniertes Element daran an. Außerdem stellt sie ein Dropdown-Menü bereit, mit dem Sie verschiedene `position-area`-Werte auswählen und auf das positionierte Element anwenden können, um deren Wirkung zu sehen. Eine der Optionen lässt ein Textfeld erscheinen, in das Sie einen benutzerdefinierten Wert eingeben können. Schließlich gibt es ein Kontrollkästchen, mit dem Sie `writing-mode: vertical-lr` ein- und ausschalten können, sodass Sie beobachten können, wie sich die Auswirkungen der `position-area`-Werte zwischen verschiedenen Schreibmodi unterscheiden.
+Diese Demo erstellt ein Ankerelement und richtet ein positioniertes Element daran aus. Über ein Dropdown-Menü können Sie verschiedene `position-area`-Werte für das positionierte Element auswählen und deren Wirkung beobachten. Bei einer der Optionen erscheint ein Textfeld, in das Sie einen eigenen Wert eingeben können. Außerdem können Sie mit einem Kontrollkästchen `writing-mode: vertical-lr` ein- und ausschalten. So lässt sich beobachten, wie sich `position-area`-Werte bei unterschiedlichen Schreibrichtungen auswirken.
 
 #### HTML
 
-Im HTML geben wir zwei {{htmlelement("div")}}-Elemente an, eines mit der Klasse `anchor` und eines mit der Klasse `infobox`. Diese sind jeweils als Ankerelement und als damit zu verknüpfendes positioniertes Element vorgesehen. Beide enthalten das Attribut `contenteditable`, wodurch sie direkt bearbeitbar sind.
+Im HTML definieren wir zwei {{htmlelement("div")}}-Elemente: eines mit der Klasse `anchor` und eines mit der Klasse `infobox`. Sie dienen als Ankerelement beziehungsweise als positioniertes Element, das damit verknüpft wird. Beide haben das Attribut `contenteditable` und können daher direkt bearbeitet werden.
 
-Außerdem haben wir zwei Formulare eingefügt, die die Elemente {{htmlelement("select")}} und [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) zum Festlegen verschiedener `position-area`-Werte sowie das Element [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) zum Ein- und Ausschalten des vertikalen {{cssxref("writing-mode")}} enthalten. Der Code dafür sowie das JavaScript wurden der Kürze halber ausgeblendet.
+Außerdem haben wir zwei Formulare hinzugefügt. Sie enthalten die Elemente {{htmlelement("select")}} und [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) zum Festlegen verschiedener `position-area`-Werte sowie das Element [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), mit dem sich der vertikale {{cssxref("writing-mode")}} ein- und ausschalten lässt. Der zugehörige Code und das JavaScript sind der Kürze halber ausgeblendet.
 
 ```html
 <div class="anchor" contenteditable>⚓︎</div>
@@ -283,9 +276,9 @@ Außerdem haben wir zwei Formulare eingefügt, die die Elemente {{htmlelement("s
 
 #### CSS
 
-Im CSS deklarieren wir zunächst das `<div>` `anchor` als Ankerelement, indem wir ihm über die Eigenschaft {{cssxref("anchor-name")}} einen Ankernamen zuweisen.
+Im CSS erklären wir zunächst das `anchor`-`<div>` zum Ankerelement, indem wir ihm über die Eigenschaft {{cssxref("anchor-name")}} einen Ankernamen zuweisen.
 
-Das positionierte Element wird mit dem Ankerelement verknüpft, indem dessen Ankername als Wert der Eigenschaft {{cssxref("position-anchor")}} des positionierten Elements festgelegt wird. Außerdem geben wir ihm mit `position-area: top left` eine anfängliche Position; diese wird überschrieben, wenn neue Werte im `<select>`-Menü ausgewählt werden. Schließlich setzen wir seine {{cssxref("opacity")}} auf `0.8`, sodass Sie die Position der Elemente relativ zueinander weiterhin sehen können, wenn dem positionierten Element ein `position-area`-Wert zugewiesen wird, der es über dem Anker platziert.
+Das positionierte Element wird mit dem Ankerelement verknüpft, indem dessen Ankername als Wert der Eigenschaft {{cssxref("position-anchor")}} des positionierten Elements festgelegt wird. Mit `position-area: top left` geben wir ihm außerdem eine Anfangsposition; diese wird überschrieben, wenn im `<select>`-Menü neue Werte ausgewählt werden. Schließlich setzen wir seine {{cssxref("opacity")}} auf `0.8`. So bleibt die Position der beiden Elemente zueinander erkennbar, wenn ein `position-area`-Wert das positionierte Element über dem Ankerelement platziert.
 
 ```css hidden
 .anchor {
@@ -425,7 +418,7 @@ Das Ergebnis sieht wie folgt aus:
 
 {{ EmbedLiveSample("`position-area` value comparison", "100%", "360") }}
 
-Wählen Sie im `<select>`-Menü neue `position-area`-Werte aus, um zu sehen, wie sie sich auf die Position der Infobox auswirken. Wählen Sie den Wert „Custom“ aus und versuchen Sie, einige benutzerdefinierte `position-area`-Werte in die Texteingabe einzugeben, um deren Wirkung zu sehen. Fügen Sie Text zum Anker und zu den per Anker positionierten Elementen hinzu, um zu sehen, wie das per Anker positionierte Element anhand des `position-area`-Werts wächst. Aktivieren Sie schließlich das Kontrollkästchen und experimentieren Sie dann mit unterschiedlichen `position-area`-Werten, um zu sehen, welche in verschiedenen Schreibmodi dasselbe Ergebnis liefern und welche unterschiedliche Ergebnisse liefern.
+Wählen Sie im `<select>`-Menü andere `position-area`-Werte aus, um deren Wirkung auf die Position der Infobox zu sehen. Wählen Sie die Option „Custom“ und geben Sie eigene `position-area`-Werte in das Textfeld ein, um deren Wirkung zu prüfen. Fügen Sie dem Ankerelement und dem daran positionierten Element Text hinzu, um zu sehen, wie Letzteres abhängig vom `position-area`-Wert wächst. Aktivieren Sie schließlich das Kontrollkästchen und probieren Sie verschiedene `position-area`-Werte aus. So können Sie feststellen, welche Werte bei unterschiedlichen Schreibrichtungen zum gleichen Ergebnis führen und welche nicht.
 
 ## Spezifikationen
 
@@ -443,5 +436,5 @@ Wählen Sie im `<select>`-Menü neue `position-area`-Werte aus, um zu sehen, wie
 - Die Funktion [`anchor()`](/de/docs/Web/CSS/Reference/Values/anchor)
 - Der Wert [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value)
 - Leitfaden [CSS-Ankerpositionierung verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
-- Leitfaden [Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)
+- Leitfaden [Ausweichoptionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)
 - Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)

@@ -1,20 +1,20 @@
 ---
-title: "ClipboardItem: ClipboardItem() Konstruktor"
+title: "ClipboardItem: Konstruktor ClipboardItem()"
 short-title: ClipboardItem()
 slug: Web/API/ClipboardItem/ClipboardItem
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 7b8a3c0a4ab5b4b0c605641e8b64c8da42d8dd51
 ---
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Der **`ClipboardItem()`** Konstruktor erstellt ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekt, das Daten repräsentiert, die über die [Clipboard API](/de/docs/Web/API/Clipboard_API) mit den Methoden [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) und [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) gespeichert oder abgerufen werden können.
+Der Konstruktor **`ClipboardItem()`** erstellt ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekt. Es repräsentiert Daten, die mit den Methoden [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) beziehungsweise [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) der [Clipboard API](/de/docs/Web/API/Clipboard_API) gespeichert oder abgerufen werden.
 
 > [!NOTE]
-> Die Methoden `read()` und `write()` können verwendet werden, um mit Textzeichenfolgen und beliebigen Datenelementen zu arbeiten, die durch [`Blob`](/de/docs/Web/API/Blob)-Instanzen dargestellt werden. Wenn Sie jedoch ausschließlich mit Text arbeiten, ist es bequemer, die Methoden [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) zu verwenden.
+> Mit den Methoden `read()` und `write()` können Sie Textzeichenfolgen und beliebige Datenelemente verarbeiten, die durch [`Blob`](/de/docs/Web/API/Blob)-Instanzen repräsentiert werden. Wenn Sie ausschließlich mit Text arbeiten, sind die Methoden [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) jedoch praktischer.
 
 > [!NOTE]
-> Die Unterstützung des Bildformats variiert je nach Browser. Siehe die [Browser-Kompatibilitätstabelle](/de/docs/Web/API/Clipboard#browser_compatibility) für das `Clipboard`-Interface.
+> Die Unterstützung von Bildformaten variiert je nach Browser. Weitere Informationen finden Sie in der [Tabelle zur Browser-Kompatibilität](/de/docs/Web/API/Clipboard#browser_compatibility) für das `Clipboard`-Interface.
 
 ## Syntax
 
@@ -26,25 +26,31 @@ new ClipboardItem(data, options)
 ### Parameter
 
 - `data`
-  - : Ein {{jsxref("Object")}} mit dem {{Glossary("MIME_type", "MIME-Typ")}} als Schlüssel und den Daten als Wert.
-    Die Daten können wie folgt dargestellt werden:
-    - ein [`Blob`](/de/docs/Web/API/Blob)
-    - eine Zeichenfolge
-    - ein {{jsxref("Promise")}}, das entweder zu einem `Blob` oder einer Zeichenfolge aufgelöst wird.
+  - : Ein {{jsxref("Object")}} mit einer oder mehreren Eigenschaften, die jeweils ein anderes Format desselben Zwischenablageeintrags repräsentieren.
+    Der Schlüssel jeder Eigenschaft ist ein {{Glossary("MIME_type", "MIME-Typ")}}, beispielsweise `"text/plain"` oder `"text/html"`. Ihr Wert enthält die Daten in diesem Format.
+
+    Jeder Wert kann wie folgt angegeben werden:
+    - als [`Blob`](/de/docs/Web/API/Blob)
+    - als Zeichenfolge
+    - als {{jsxref("Promise")}}, das zu einem `Blob` oder einer Zeichenfolge aufgelöst wird.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `presentationStyle` {{optional_inline}}
-      - : Einer der drei Zeichenfolgen: `unspecified`, `inline` oder `attachment`.
+      - : Eine der drei Zeichenfolgen `unspecified`, `inline` oder `attachment`.
         Der Standardwert ist `unspecified`.
 
-        `inline` bedeutet, dass Apps, die das Einfügen erhalten, den `ClipboardItem` an der Einfügestelle inline einfügen sollen. `attachment` bedeutet, dass Apps, die das Einfügen erhalten, den `ClipboardItem` als Anhang hinzufügen sollen. `unspecified` gibt keine Information zur Einfügung an die Apps weiter.
+        `inline` signalisiert Anwendungen, in die der Inhalt eingefügt wird, dass das `ClipboardItem` an der Einfügeposition direkt in den Inhalt eingefügt werden soll. `attachment` signalisiert, dass das `ClipboardItem` als Anhang hinzugefügt werden soll. `unspecified` übermittelt diesen Anwendungen keine Informationen zur Darstellung.
 
 ## Beispiele
 
-Das folgende Beispiel fordert ein PNG-Bild an, indem [`fetch()`](/de/docs/Web/API/Window/fetch) und die Methode [`Response.blob()`](/de/docs/Web/API/Response/blob) verwendet werden, um ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) zu erstellen. Dieses Element wird dann mit der Methode [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write) in die Zwischenablage geschrieben.
+Das folgende Beispiel ruft mit [`fetch()`](/de/docs/Web/API/Window/fetch) ein PNG-Bild ab und erstellt daraus mithilfe der Methode [`Response.blob()`](/de/docs/Web/API/Response/blob) ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem).
+Anschließend wird dieses Element mit der Methode [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write) in die Zwischenablage geschrieben.
+
+Ein Beispiel für das Schreiben und anschließende Lesen mehrerer MIME-Typ-Repräsentationen in einem `ClipboardItem` finden Sie unter [Mehrere Formate aus der Zwischenablage lesen](/de/docs/Web/API/Clipboard/read#reading_multiple_formats_from_the_clipboard).
 
 > [!NOTE]
-> Sie können jeweils nur ein Zwischenablageelement übergeben.
+> [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write) erwartet ein Array von `ClipboardItem`-Objekten. Wenn das zugrunde liegende Betriebssystem das Schreiben mehrerer Elemente jedoch nicht unterstützt, wird nur das erste Element geschrieben.
+> Einige Browserversionen lösen eine Ausnahme aus, wenn das Array mehr als ein Element enthält (siehe [Browser-Kompatibilität](/de/docs/Web/API/Clipboard/write#browser_compatibility) für `Clipboard.write()`).
 
 ```js
 async function writeClipImg() {
@@ -79,4 +85,4 @@ async function writeClipImg() {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Artikel zur Unterstützung von Bildern für die asynchrone Zwischenablage](https://web.dev/articles/async-clipboard)
+- [Artikel zur Bildunterstützung für die Async Clipboard API](https://web.dev/articles/async-clipboard)

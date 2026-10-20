@@ -2,25 +2,25 @@
 title: menus.create()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/create
 l10n:
-  sourceCommit: 674fbb492c76a45adf433810f0f5737a0405bd9c
+  sourceCommit: 6d79bbcef5344fc28331ecae7b5fd21ba7790fb7
 ---
 
-Erstellt einen Menüeintrag anhand eines Optionsobjekts, das dessen Eigenschaften festlegt.
+Erstellt einen Menüeintrag anhand eines Optionsobjekts, das die Eigenschaften des Eintrags festlegt.
 
-Anders als andere asynchrone Funktionen gibt diese Methode kein Promise zurück. Stattdessen kann sie über einen optionalen Callback Erfolg oder Fehlschlag melden. Das liegt daran, dass ihr Rückgabewert die ID des neuen Eintrags ist.
+Anders als andere asynchrone Funktionen gibt diese Funktion kein Promise zurück. Stattdessen verwendet sie einen optionalen Callback, um Erfolg oder Fehler mitzuteilen. Der Rückgabewert der Funktion ist nämlich die ID des neuen Eintrags.
 
-Aus Gründen der Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl im Namespace `contextMenus` als auch im Namespace `menus` bereit. Über den Namespace `contextMenus` können jedoch keine Einträge für das Werkzeugmenü (`contexts: ["tools_menu"]`) erstellt werden.
+Für die Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl im Namespace `contextMenus` als auch im Namespace `menus` bereit.
 
 > **Menüs in Erweiterungen mit und ohne persistente Hintergrundseiten erstellen**
 >
 > Wie Sie Menüeinträge erstellen, hängt davon ab, ob Ihre Erweiterung Folgendes verwendet:
 >
-> - nicht persistente Hintergrundseiten (eine Ereignisseite), bei denen Menüs über Neustarts des Browsers und der Erweiterung hinweg erhalten bleiben. Rufen Sie `menus.create` (mit einer menüspezifischen ID) innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}}-Listeners auf. So vermeiden Sie wiederholte Versuche, den Menüeintrag bei jedem Neustart der Seiten zu erstellen, wie es bei einem Aufruf auf oberster Ebene der Fall wäre.
-> - persistente Hintergrundseiten:
->   - In Chrome bleiben Menüeinträge aus persistenten Hintergrundseiten erhalten. Erstellen Sie Ihre Menüs in einem {{WebExtAPIRef("runtime.onInstalled")}}-Listener.
->   - In Firefox bleiben Menüeinträge aus persistenten Hintergrundseiten nie erhalten. Rufen Sie `menus.create` ohne Bedingung auf oberster Ebene auf, um die Menüeinträge zu registrieren.
+> - Nicht persistente Hintergrundseiten (Event Pages), bei denen Menüs über Neustarts des Browsers und der Erweiterung hinweg erhalten bleiben. Rufen Sie `menus.create` (mit einer menüspezifischen ID) innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}}-Listeners auf. So vermeiden Sie wiederholte Versuche, den Menüeintrag zu erstellen, wenn die Seiten neu gestartet werden. Bei einem Aufruf auf oberster Ebene würde dies geschehen.
+> - Persistente Hintergrundseiten:
+>   - In Chrome bleiben Menüeinträge von persistenten Hintergrundseiten erhalten. Erstellen Sie Ihre Menüs in einem {{WebExtAPIRef("runtime.onInstalled")}}-Listener.
+>   - In Firefox bleiben Menüeinträge von persistenten Hintergrundseiten nie erhalten. Rufen Sie `menus.create` ohne Bedingung auf oberster Ebene auf, um die Menüeinträge zu registrieren.
 >
-> Weitere Informationen finden Sie unter [Die Erweiterung initialisieren](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts#initialize_the_extension) auf der Seite zu Hintergrundskripten und unter [Ereignisgesteuerte Hintergrundskripte](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/#event-driven-background-scripts) im Extension Workshop.
+> Weitere Informationen finden Sie unter [Erweiterung initialisieren](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts#initialize_the_extension) auf der Seite über Hintergrundskripte und unter [Ereignisgesteuerte Hintergrundskripte](https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/#event-driven-background-scripts) im Extension Workshop.
 
 ## Syntax
 
@@ -36,21 +36,21 @@ browser.menus.create(
 - `createProperties`
   - : `object`. Eigenschaften des neuen Menüeintrags.
     - `checked` {{optional_inline}}
-      - : `boolean`. Der Anfangszustand eines Kontrollkästchen- oder Optionsfeld-Eintrags: `true` für ausgewählt und `false` für nicht ausgewählt. Innerhalb einer Gruppe von Optionsfeld-Einträgen kann jeweils nur ein Eintrag ausgewählt sein.
+      - : `boolean`. Der Anfangszustand eines Kontrollkästchen- oder Radio-Eintrags: `true` für ausgewählt und `false` für nicht ausgewählt. In einer Gruppe von Radio-Einträgen kann jeweils nur ein Eintrag ausgewählt sein.
     - `command` {{optional_inline}}
-      - : `string`. Zeichenfolge, die eine Aktion beschreibt, die beim Anklicken des Eintrags ausgeführt werden soll. Folgende Werte werden erkannt:
-        - `"_execute_browser_action"`: Simuliert einen Klick auf die Browser-Aktion der Erweiterung und öffnet gegebenenfalls deren Popup (nur Manifest V2).
-        - `"_execute_action"`: Simuliert einen Klick auf die Aktion der Erweiterung und öffnet gegebenenfalls deren Popup (nur Manifest V3).
-        - `"_execute_page_action"`: Simuliert einen Klick auf die Seitenaktion der Erweiterung und öffnet gegebenenfalls deren Popup.
+      - : `string`. Zeichenfolge, die eine Aktion beschreibt, die beim Klicken auf den Eintrag ausgeführt werden soll. Folgende Werte werden erkannt:
+        - `"_execute_browser_action"`: Simuliert einen Klick auf die browser action der Erweiterung und öffnet deren Popup, falls vorhanden (nur Manifest V2).
+        - `"_execute_action"`: Simuliert einen Klick auf die action der Erweiterung und öffnet deren Popup, falls vorhanden (nur Manifest V3).
+        - `"_execute_page_action"`: Simuliert einen Klick auf die page action der Erweiterung und öffnet deren Popup, falls vorhanden.
         - `"_execute_sidebar_action"`: Öffnet die Seitenleiste der Erweiterung.
 
-        Einzelheiten finden Sie in der Dokumentation zu speziellen Tastenkombinationen beim manifest.json-Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts).
+        Einzelheiten finden Sie in der Dokumentation zu speziellen Tastenkombinationen für den manifest.json-Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts).
 
-        Wenn einer der erkannten Werte angegeben ist, löst ein Klick auf den Eintrag nicht das Ereignis {{WebExtAPIRef("menus.onClicked")}} aus. Stattdessen wird die Standardaktion ausgeführt, beispielsweise das Öffnen eines Popups. Andernfalls löst ein Klick auf den Eintrag {{WebExtAPIRef("menus.onClicked")}} aus; dieses Ereignis kann zur Implementierung eines alternativen Verhaltens verwendet werden.
+        Wenn einer der erkannten Werte angegeben ist, löst ein Klick auf den Eintrag nicht das Ereignis {{WebExtAPIRef("menus.onClicked")}} aus. Stattdessen wird die Standardaktion ausgeführt, beispielsweise das Öffnen eines Popups. Andernfalls löst ein Klick auf den Eintrag {{WebExtAPIRef("menus.onClicked")}} aus. Dieses Ereignis kann verwendet werden, um ein alternatives Verhalten zu implementieren.
 
     - `contexts` {{optional_inline}}
-      - : `array` von {{WebExtAPIRef('menus.ContextType')}}. Array der Kontexte, in denen dieser Menüeintrag erscheint. Wenn diese Option weggelassen wird:
-        - Erbt der Eintrag die Kontexte seines übergeordneten Eintrags, sofern für diesen Kontexte festgelegt sind.
+      - : `array` von {{WebExtAPIRef('menus.ContextType')}}. Array der Kontexte, in denen dieser Menüeintrag angezeigt wird. Wenn diese Option weggelassen wird:
+        - Erbt der Eintrag die Kontexte seines übergeordneten Eintrags, falls für diesen Kontexte festgelegt sind.
         - Andernfalls erhält der Eintrag das Kontext-Array \["page"].
 
     - `documentUrlPatterns` {{optional_inline}}
@@ -58,7 +58,7 @@ browser.menus.create(
     - `enabled` {{optional_inline}}
       - : `boolean`. Gibt an, ob dieser Menüeintrag aktiviert oder deaktiviert ist. Der Standardwert ist `true`.
     - `icons` {{optional_inline}}
-      - : `object`. Ein oder mehrere benutzerdefinierte Symbole, die neben dem Eintrag angezeigt werden. Benutzerdefinierte Symbole können nur für Einträge in Untermenüs festgelegt werden. Diese Eigenschaft ist ein Objekt mit einer Eigenschaft für jedes bereitgestellte Symbol: Der Eigenschaftsname sollte die Größe des Symbols in Pixeln angeben; der Pfad zum Symbol ist relativ zum Stammverzeichnis der Erweiterung. Der Browser versucht, für eine normale Anzeige ein Symbol mit 16 × 16 Pixeln und für eine Anzeige mit hoher Pixeldichte eines mit 32 × 32 Pixeln auszuwählen. Um eine Skalierung zu vermeiden, können Sie Symbole wie folgt angeben:
+      - : `object`. Ein oder mehrere benutzerdefinierte Symbole, die neben dem Eintrag angezeigt werden. Benutzerdefinierte Symbole können nur für Einträge in Untermenüs festgelegt werden. Diese Eigenschaft ist ein Objekt mit einer Eigenschaft für jedes bereitgestellte Symbol: Der Eigenschaftsname sollte die Größe des Symbols in Pixeln enthalten, und der Pfad zum Symbol ist relativ zum Stammverzeichnis der Erweiterung. Der Browser versucht, für eine normale Anzeige ein Symbol mit 16 × 16 Pixeln und für eine Anzeige mit hoher Pixeldichte ein Symbol mit 32 × 32 Pixeln auszuwählen. Um eine Skalierung zu vermeiden, können Sie Symbole wie folgt angeben:
 
         ```js
         browser.menus.create({
@@ -80,29 +80,29 @@ browser.menus.create(
         ```
 
         > [!NOTE]
-        > Der Menüeintrag auf oberster Ebene verwendet die im Manifest angegebenen [Symbole](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) und nicht die mit diesem Schlüssel festgelegten.
+        > Der Menüeintrag auf oberster Ebene verwendet die im Manifest angegebenen [Symbole](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) statt der mit diesem Schlüssel angegebenen Symbole.
 
     - `id` {{optional_inline}}
-      - : `string`. Die eindeutige ID, die diesem Eintrag zugewiesen wird. Für nicht persistente [Hintergrundseiten (Ereignisseiten)](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) in Manifest V2 und in Manifest V3 ist sie erforderlich. Sie darf nicht mit einer anderen ID dieser Erweiterung übereinstimmen.
+      - : `string`. Die eindeutige ID, die diesem Eintrag zugewiesen wird. Sie ist für nicht persistente [Hintergrundseiten (Event Pages)](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) in Manifest V2 und für Manifest V3 erforderlich. Sie darf nicht mit einer anderen ID dieser Erweiterung übereinstimmen.
     - `onclick` {{optional_inline}}
-      - : `function`. Die Funktion, die beim Anklicken des Menüeintrags aufgerufen wird. Ereignisseiten können diese Eigenschaft nicht verwenden; stattdessen sollten sie einen Listener für {{WebExtAPIRef('menus.onClicked')}} registrieren.
+      - : `function`. Die Funktion, die beim Klicken auf den Menüeintrag aufgerufen wird. Event Pages können diese Eigenschaft nicht verwenden; stattdessen sollten sie einen Listener für {{WebExtAPIRef('menus.onClicked')}} registrieren.
     - `parentId` {{optional_inline}}
-      - : `integer` oder `string`. Die ID eines übergeordneten Menüeintrags; dadurch wird der Eintrag einem zuvor hinzugefügten Eintrag untergeordnet. Hinweis: Wenn Sie mehr als einen Menüeintrag erstellt haben, werden die Einträge in einem Untermenü platziert. Der übergeordnete Eintrag des Untermenüs trägt den Namen der Erweiterung.
+      - : `integer` oder `string`. Die ID eines übergeordneten Menüeintrags. Dadurch wird der Eintrag einem zuvor hinzugefügten Eintrag untergeordnet. Hinweis: Wenn Sie mehr als einen Menüeintrag erstellt haben, werden die Einträge in einem Untermenü angeordnet. Der übergeordnete Eintrag des Untermenüs trägt den Namen der Erweiterung.
     - `targetUrlPatterns` {{optional_inline}}
-      - : `array` von `string`. Ähnlich wie `documentUrlPatterns`, ermöglicht aber die Filterung anhand von `href` bei Anker-Tags und des `src`-Attributs bei img/audio/video-Tags. Dieser Parameter unterstützt jedes URL-Schema, auch solche, die in Übereinstimmungsmustern normalerweise nicht zulässig sind.
+      - : `array` von `string`. Ähnlich wie `documentUrlPatterns`, ermöglicht jedoch die Filterung anhand von `href` bei Anchor-Tags und des Attributs `src` bei img/audio/video-Tags. Dieser Parameter unterstützt jedes URL-Schema, auch solche, die in einem Übereinstimmungsmuster normalerweise nicht zulässig sind.
     - `title` {{optional_inline}}
-      - : `string`. Der Text, der im Eintrag angezeigt wird. Erforderlich, sofern `type` nicht "separator" ist.
+      - : `string`. Der im Eintrag angezeigte Text. Erforderlich, sofern `type` nicht "separator" ist.
 
-        Sie können `%s` in der Zeichenfolge verwenden. Wenn Sie dies bei einem Menüeintrag tun und beim Anzeigen des Menüs Text auf der Seite ausgewählt ist, wird der ausgewählte Text in den Titel eingefügt. Wenn `title` beispielsweise "Translate '%s' to Pig Latin" lautet und der Benutzer das Wort "cool" auswählt und dann das Menü öffnet, lautet der Titel des Menüeintrags: "Translate 'cool' to Pig Latin".
+        Sie können `%s` in der Zeichenfolge verwenden. Wenn Sie dies in einem Menüeintrag tun und beim Anzeigen des Menüs Text auf der Seite ausgewählt ist, wird der ausgewählte Text in den Titel eingefügt. Wenn `title` beispielsweise "Translate '%s' to Pig Latin" lautet, der Benutzer das Wort "cool" auswählt und dann das Menü öffnet, lautet der Titel des Menüeintrags: "Translate 'cool' to Pig Latin".
 
-        Wenn der Titel ein kaufmännisches Und-Zeichen "&" enthält, wird das folgende Zeichen als Zugriffstaste für den Eintrag verwendet und das kaufmännische Und-Zeichen nicht angezeigt. Ausnahmen sind:
-        - Wenn das nächste Zeichen ebenfalls ein kaufmännisches Und-Zeichen ist, wird ein einzelnes kaufmännisches Und-Zeichen angezeigt und keine Zugriffstaste festgelegt. Mit "&&" lässt sich also ein einzelnes kaufmännisches Und-Zeichen anzeigen.
-        - Wenn die nächsten Zeichen die Einfügeanweisung "%s" sind, wird das kaufmännische Und-Zeichen nicht angezeigt und keine Zugriffstaste festgelegt.
-        - Wenn das kaufmännische Und-Zeichen das letzte Zeichen im Titel ist, wird es nicht angezeigt und keine Zugriffstaste festgelegt.
+        Wenn der Titel ein kaufmännisches Und-Zeichen „&“ enthält, wird das folgende Zeichen als Zugriffstaste für den Eintrag verwendet und das Und-Zeichen nicht angezeigt. Ausnahmen:
+        - Wenn das nächste Zeichen ebenfalls ein Und-Zeichen ist, wird ein einzelnes Und-Zeichen angezeigt und keine Zugriffstaste festgelegt. „&&“ dient somit dazu, ein einzelnes Und-Zeichen anzuzeigen.
+        - Wenn die nächsten Zeichen die Einfügeanweisung „%s“ sind, wird das Und-Zeichen nicht angezeigt und keine Zugriffstaste festgelegt.
+        - Wenn das Und-Zeichen das letzte Zeichen im Titel ist, wird es nicht angezeigt und keine Zugriffstaste festgelegt.
 
-        Nur das erste kaufmännische Und-Zeichen wird zum Festlegen einer Zugriffstaste verwendet: Nachfolgende kaufmännische Und-Zeichen werden nicht angezeigt, legen aber auch keine Zugriffstasten fest. So wird "\&A and \&B" als "A and B" angezeigt und "A" als Zugriffstaste festgelegt.
+        Nur das erste Und-Zeichen wird zum Festlegen einer Zugriffstaste verwendet. Nachfolgende Und-Zeichen werden nicht angezeigt, legen aber auch keine Zugriffstasten fest. So wird „\&A and \&B“ als „A and B“ angezeigt und „A“ als Zugriffstaste festgelegt.
 
-        In einigen lokalisierten Versionen von Firefox (Japanisch und Chinesisch) wird die Zugriffstaste in Klammern gesetzt und an die Menübeschriftung angehängt, _es sei denn_, der Menütitel endet bereits mit der Zugriffstaste (zum Beispiel `"toolkit(&K)"`). Weitere Einzelheiten finden Sie unter [Firefox-Bug 1647373](https://bugzil.la/1647373).
+        In einigen lokalisierten Firefox-Versionen (Japanisch und Chinesisch) wird die Zugriffstaste in Klammern gesetzt und an die Menübeschriftung angehängt, _es sei denn_, der Menütitel endet bereits mit der Zugriffstaste (beispielsweise `"toolkit(&K)"`). Weitere Informationen finden Sie unter [Firefox-Bug 1647373](https://bugzil.la/1647373).
 
     - `type` {{optional_inline}}
       - : {{WebExtAPIRef('menus.ItemType')}}. Der Typ des Menüeintrags: "normal", "checkbox", "radio" oder "separator". Der Standardwert ist "normal".
@@ -112,7 +112,7 @@ browser.menus.create(
       - : `boolean`. Gibt an, ob der Eintrag im Menü angezeigt wird. Der Standardwert ist `true`.
 
 - `callback` {{optional_inline}}
-  - : `function`. Wird aufgerufen, wenn der Eintrag erstellt wurde. Falls beim Erstellen Probleme aufgetreten sind, stehen Einzelheiten unter {{WebExtAPIRef('runtime.lastError')}} zur Verfügung.
+  - : `function`. Wird aufgerufen, wenn der Eintrag erstellt wurde. Falls beim Erstellen des Eintrags Probleme aufgetreten sind, stehen Einzelheiten in {{WebExtAPIRef('runtime.lastError')}} zur Verfügung.
 
 ### Rückgabewert
 
@@ -136,7 +136,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 });
 ```
 
-Dieses Beispiel fügt zwei Optionsfeld-Einträge hinzu, mit denen Sie der Seite einen grünen oder blauen Rahmen geben können. Für dieses Beispiel ist die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) erforderlich.
+Dieses Beispiel fügt zwei Radio-Einträge hinzu, mit denen Sie der Seite einen grünen oder blauen Rahmen zuweisen können. Dafür ist die [Berechtigung `activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/activeTab_permission) erforderlich.
 
 ```js
 function onCreated() {
@@ -192,7 +192,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-create) von Chromium. Diese Dokumentation wurde aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-create) von Chromium. Diese Dokumentation basiert auf [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

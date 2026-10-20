@@ -1,12 +1,12 @@
 ---
-title: "`grayscale()` CSS Funktion"
+title: "`grayscale()`-CSS-Funktion"
 short-title: grayscale()
 slug: Web/CSS/Reference/Values/filter-function/grayscale
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: cff28ac91efd68d0809779c81902bd080f614a1d
 ---
 
-Die **`grayscale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) konvertiert das Eingabebild in Graustufen. Das Ergebnis ist eine {{cssxref("filter-function")}}.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`grayscale()`** wandelt das Eingabebild in Graustufen um. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
 
 {{InteractiveExample("CSS Demo: grayscale()")}}
 
@@ -45,7 +45,7 @@ grayscale(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Menge des Eingabebildes, die in Graustufen umgewandelt wird. Sie wird als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` verändert das Eingabebild vollständig zu Graustufen, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Der Anfangswert, der für die {{Glossary("interpolation", "Interpolation")}} verwendet wird, ist `0`. Der Standardwert ist `1`.
+  - : Anteil des Eingabebilds, der in Graustufen umgewandelt wird. Er wird als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` wandelt das Eingabebild vollständig in Graustufen um, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` skalieren den Effekt linear. Werte über `100%` sind zulässig, der Effekt wird jedoch auf `100%` begrenzt. Negative Werte sind nicht zulässig. Der für die {{Glossary("interpolation", "Interpolation")}} verwendete Anfangswert ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -53,7 +53,7 @@ grayscale(amount)
 
 ## Beispiele
 
-### Beispiele für korrekte Werte für grayscale()
+### Beispiele für gültige Werte von grayscale()
 
 ```css
 grayscale(0)     /* No effect */
@@ -74,7 +74,7 @@ grayscale(100%)
 
 ## Siehe auch
 
-Die anderen {{cssxref("filter-function")}} Funktionen, die in Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, sind:
+Zu den weiteren {{cssxref("filter-function")}}-Funktionen, die als Werte der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

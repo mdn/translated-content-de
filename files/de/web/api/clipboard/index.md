@@ -1,39 +1,43 @@
 ---
-title: Zwischenablage
+title: Clipboard
 slug: Web/API/Clipboard
 l10n:
-  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
+  sourceCommit: 7b8a3c0a4ab5b4b0c605641e8b64c8da42d8dd51
 ---
 
 {{APIRef("Clipboard API")}}{{SecureContext_Header}}
 
-Das **`Clipboard`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) ermöglicht Lese- und Schreibzugriff auf den Inhalt der Systemzwischenablage. Dies ermöglicht es einer Webanwendung, Funktionen wie Ausschneiden, Kopieren und Einfügen zu implementieren.
+Das **`Clipboard`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) bietet Lese- und Schreibzugriff auf den Inhalt der Systemzwischenablage.
+Damit kann eine Webanwendung Funktionen zum Ausschneiden, Kopieren und Einfügen implementieren.
 
 {{InheritanceDiagram}}
 
-Die Systemzwischenablage wird über die globale [`Navigator.clipboard`](/de/docs/Web/API/Navigator/clipboard)-Eigenschaft bereitgestellt.
+Die Systemzwischenablage ist über die globale Eigenschaft [`Navigator.clipboard`](/de/docs/Web/API/Navigator/clipboard) zugänglich.
 
-Alle Methoden der Clipboard API arbeiten asynchron; sie geben ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald auf die Zwischenablage zugegriffen wurde. Das Versprechen wird abgelehnt, wenn der Zugriff auf die Zwischenablage verweigert wird.
+Alle Methoden der Clipboard API arbeiten asynchron. Sie geben ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Zugriff auf die Zwischenablage abgeschlossen ist.
+Wird der Zugriff auf die Zwischenablage verweigert, wird das Promise zurückgewiesen.
 
-Alle Methoden erfordern einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts). Zusätzliche Anforderungen zur Nutzung der API werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtsthemas behandelt.
+Alle Methoden erfordern einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts).
+Weitere Voraussetzungen für die Verwendung der API werden im Abschnitt [Sicherheitsaspekte](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Überblicks erläutert.
 
 ## Instanzmethoden
 
-_`Clipboard` basiert auf dem [`EventTarget`](/de/docs/Web/API/EventTarget)-Interface und enthält dessen Methoden._
+_`Clipboard` basiert auf dem Interface [`EventTarget`](/de/docs/Web/API/EventTarget) und umfasst dessen Methoden._
 
 - [`read()`](/de/docs/Web/API/Clipboard/read)
-  - : Fordert beliebige Daten (wie Bilder) von der Zwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekten aufgelöst wird, die den Inhalt der Zwischenablage enthalten.
+  - : Liest die Einträge in der Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Vorgang abgeschlossen ist.
+    Jeder Eintrag ist ein [`ClipboardItem`](/de/docs/Web/API/ClipboardItem), das mehrere Darstellungen der kopierten Daten enthalten kann, beispielsweise als HTML und Text.
 - [`readText()`](/de/docs/Web/API/Clipboard/readText)
-  - : Fordert Text von der Systemzwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einem String aufgelöst wird, der den Text der Zwischenablage enthält, sobald er verfügbar ist.
+  - : Fordert Text aus der Systemzwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einer Zeichenfolge erfüllt wird, die den Text aus der Zwischenablage enthält, sobald er verfügbar ist.
 - [`write()`](/de/docs/Web/API/Clipboard/write)
-  - : Schreibt beliebige Daten in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Vorgang abgeschlossen ist.
+  - : Schreibt ein oder mehrere [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekte in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Vorgang abgeschlossen ist.
 - [`writeText()`](/de/docs/Web/API/Clipboard/writeText)
-  - : Schreibt Text in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Text vollständig in die Zwischenablage kopiert wurde.
+  - : Schreibt Text in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Text vollständig in die Zwischenablage kopiert wurde.
 
 ## Ereignisse
 
 - [`clipboardchange`](/de/docs/Web/API/Clipboard/clipboardchange_event) {{experimental_inline}}
-  - : Wird ausgelöst, wenn sich der Inhalt der Systemzwischenablage in irgendeiner Weise ändert, zum Beispiel durch einen Systemkopierbefehl oder durch eine API-Methode wie [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText).
+  - : Wird ausgelöst, wenn sich der Inhalt der Systemzwischenablage auf irgendeine Weise ändert, beispielsweise durch einen Kopierbefehl des Systems oder durch eine API-Methode wie [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText).
 
 ## Spezifikationen
 

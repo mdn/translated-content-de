@@ -1,12 +1,12 @@
 ---
-title: "`sepia()` CSS-Funktion"
+title: CSS-Funktion `sepia()`
 short-title: sepia()
 slug: Web/CSS/Reference/Values/filter-function/sepia
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: cff28ac91efd68d0809779c81902bd080f614a1d
 ---
 
-Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) konvertiert das Eingabebild in Sepia und verleiht ihm ein wärmeres, mehr gelbliches/braunes Erscheinungsbild. Das Ergebnis ist eine {{cssxref("filter-function")}}.
+Die **`sepia()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wandelt das Eingabebild in Sepiatöne um und verleiht ihm ein wärmeres, stärker gelb-braunes Aussehen. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
 
 {{InteractiveExample("CSS Demo: sepia()")}}
 
@@ -45,7 +45,7 @@ sepia(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Der Betrag der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig Sepia, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren für den Effekt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
+  - : Der Grad der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Bei einem Wert von `100%` wird das Bild vollständig in Sepiatöne umgewandelt, während es bei `0%` unverändert bleibt. Werte zwischen `0%` und `100%` skalieren den Effekt linear. Werte über `100%` sind zulässig, der Effekt wird jedoch auf `100%` begrenzt. Negative Werte sind nicht zulässig. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -53,7 +53,7 @@ sepia(amount)
 
 ## Beispiele
 
-### Beispiele für korrekte Werte für sepia()
+### Beispiele für gültige Werte von `sepia()`
 
 ```css
 sepia(0)     /* No effect */
@@ -73,7 +73,7 @@ sepia(100%)
 
 ## Siehe auch
 
-Die anderen {{cssxref("filter-function")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
+Zu den weiteren {{cssxref("filter-function")}}-Funktionen, die als Werte der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}
