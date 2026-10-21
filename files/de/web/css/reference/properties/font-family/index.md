@@ -3,10 +3,10 @@ title: "`font-family` CSS property"
 short-title: font-family
 slug: Web/CSS/Reference/Properties/font-family
 l10n:
-  sourceCommit: 0631b5e26979eca4d1505d4762fd3ad77fb329de
+  sourceCommit: e7ee9edb037573b84aca121a0bce4f3f700f3fa3
 ---
 
-Die **`font-family`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt eine priorisierte Liste von einem oder mehreren Schriftfamiliennamen und/oder generischen Familiennamen für das ausgewählte Element an.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`font-family`** legt für das ausgewählte Element eine nach Priorität geordnete Liste mit einem oder mehreren Schriftfamiliennamen und/oder generischen Schriftfamiliennamen fest.
 
 {{InteractiveExample("CSS Demo: font-family")}}
 
@@ -52,13 +52,13 @@ section {
 }
 ```
 
-Die Werte werden durch Kommata getrennt, um anzuzeigen, dass sie Alternativen darstellen. Der Browser wählt die erste Schriftart in der Liste, die installiert ist oder die mithilfe eines {{CSSxRef("@font-face")}}-At-rules heruntergeladen werden kann.
+Die Werte werden durch Kommas getrennt, um anzuzeigen, dass es sich um Alternativen handelt. Der Browser wählt die erste Schriftart in der Liste aus, die installiert ist oder mithilfe einer {{CSSxRef("@font-face")}}-At-Regel heruntergeladen werden kann.
 
-Es ist oft praktisch, die Kurzschreibweise der Eigenschaft {{CSSxRef("font")}} zu verwenden, um `font-size` und andere Schriftbezogene Eigenschaften gleichzeitig festzulegen.
+Oft ist es praktisch, die Kurzschreibweise {{CSSxRef("font")}} zu verwenden, um `font-size` und andere schriftbezogene Eigenschaften gleichzeitig festzulegen.
 
-Sie sollten immer mindestens einen generischen Familiennamen in einer `font-family`-Liste einschließen, da es keine Garantie gibt, dass eine bestimmte Schriftart verfügbar ist. Dies ermöglicht es dem Browser, bei Bedarf eine akzeptable Ersatzschrift auszuwählen.
+Eine `font-family`-Liste sollte immer mindestens einen generischen Schriftfamiliennamen enthalten, da nicht garantiert ist, dass eine bestimmte Schriftart verfügbar ist. So kann der Browser bei Bedarf eine geeignete Ersatzschrift auswählen.
 
-Die `font-family`-Eigenschaft spezifiziert eine Liste von Schriftarten, von der höchsten bis zur niedrigsten Priorität. Die Schriftauswahl _stoppt nicht_ bei der ersten Schrift in der Liste, die sich auf dem System des Benutzers befindet. Vielmehr wird die Schriftauswahl _Zeichen für Zeichen_ vorgenommen, sodass, wenn eine verfügbare Schrift kein Glyph für ein benötigtes Zeichen hat, die nachfolgenden Schriften ausprobiert werden. Wenn eine Schriftart nur in einigen [Stilen](/de/docs/Web/CSS/Reference/Properties/font-style), [Varianten](/de/docs/Web/CSS/Reference/Properties/font-variant) oder [Größen](/de/docs/Web/CSS/Reference/Properties/font-size) verfügbar ist, können diese Eigenschaften ebenfalls beeinflussen, welche Schriftfamilie gewählt wird.
+Die Eigenschaft `font-family` legt eine Liste von Schriftarten fest, geordnet von der höchsten zur niedrigsten Priorität. Die Schriftauswahl endet _nicht_ bei der ersten Schriftart in der Liste, die auf dem System der nutzenden Person vorhanden ist. Stattdessen erfolgt die Auswahl _Zeichen für Zeichen_: Wenn eine verfügbare Schriftart keine Glyphe für ein benötigtes Zeichen enthält, werden die nachfolgenden Schriftarten ausprobiert. Ist eine Schriftart nur in bestimmten [Schriftstilen](/de/docs/Web/CSS/Reference/Properties/font-style), [Varianten](/de/docs/Web/CSS/Reference/Properties/font-variant) oder [Größen](/de/docs/Web/CSS/Reference/Properties/font-size) verfügbar, können auch diese Eigenschaften beeinflussen, welche Schriftfamilie ausgewählt wird.
 
 ## Syntax
 
@@ -89,9 +89,9 @@ font-family: revert-layer;
 font-family: unset;
 ```
 
-Die `font-family`-Eigenschaft listet eine oder mehrere Schriftfamilien auf, getrennt durch Kommata. Jede Schriftfamilie wird entweder als `<family-name>` oder als `<generic-name>` Wert angegeben.
+Die Eigenschaft `font-family` enthält eine oder mehrere durch Kommas getrennte Schriftfamilien. Jede Schriftfamilie wird entweder als `<family-name>`- oder als `<generic-name>`-Wert angegeben.
 
-Das folgende Beispiel listet zwei Schriftfamilien auf, die erste mit einem `<family-name>` und die zweite mit einem `<generic-name>`:
+Das folgende Beispiel enthält zwei Schriftfamilien: Die erste wird mit `<family-name>`, die zweite mit `<generic-name>` angegeben:
 
 ```css
 font-family: "Gill Sans Extrabold", sans-serif;
@@ -100,58 +100,62 @@ font-family: "Gill Sans Extrabold", sans-serif;
 ### Werte
 
 - `<family-name>`
-  - : Der Name einer Schriftfamilie. Dies muss entweder ein einzelner {{cssxref("string")}} Wert oder eine durch Leerzeichen getrennte Folge von {{cssxref("custom-ident")}} Werten sein. Zeichenfolgenwerte müssen in Anführungszeichen stehen, können jedoch jedes Unicode-Zeichen enthalten. Benutzerdefinierte Bezeichner stehen nicht in Anführungszeichen, aber bestimmte Zeichen müssen maskiert werden.
+  - : Der Name einer Schriftfamilie. Er muss entweder ein einzelner {{cssxref("string")}}-Wert oder eine durch Leerzeichen getrennte Folge von {{cssxref("custom-ident")}}-Werten sein. Zeichenfolgen müssen in Anführungszeichen stehen, dürfen aber beliebige Unicode-Zeichen enthalten. Benutzerdefinierte Bezeichner stehen nicht in Anführungszeichen; bestimmte Zeichen müssen jedoch mit einem Escape-Zeichen versehen werden.
 
-    Es ist eine gute Praxis, Schriftfamiliennamen in Anführungszeichen zu setzen, die Leerzeichen, Ziffern oder Satzzeichen außer Bindestrichen enthalten.
+    Es empfiehlt sich, Schriftfamiliennamen in Anführungszeichen zu setzen, wenn sie Leerzeichen, Ziffern oder andere Satzzeichen als Bindestriche enthalten.
 
-    Siehe auch [Gültige Familiennamen](#gültige_familiennamen).
+    Siehe auch [Gültige Schriftfamiliennamen](#gültige_schriftfamiliennamen).
 
 - `<generic-name>`
-  - : Generische Schriftfamilien sind ein Rückfallmechanismus, um einige der Absichten des Autors des Stylesheets beizubehalten, wenn keine der angegebenen Schriftarten verfügbar ist. Generische Familiennamen sind Schlüsselwörter und dürfen nicht in Anführungszeichen stehen. Eine generische Schriftfamilie sollte der letzte Punkt in der Liste der Schriftfamiliennamen sein. Die folgenden Schlüsselwörter sind definiert:
+  - : Generische Schriftfamilien dienen als Ersatz, wenn keine der angegebenen Schriftarten verfügbar ist. Dadurch bleibt ein Teil der gestalterischen Absicht der Person erhalten, die das Stylesheet verfasst hat. Generische Schriftfamiliennamen sind Schlüsselwörter und dürfen nicht in Anführungszeichen stehen. Eine generische Schriftfamilie sollte der letzte Eintrag in der Liste der Schriftfamiliennamen sein. Die folgenden Schlüsselwörter sind definiert:
     - `serif`
-      - : Glyphen haben abschließende Striche, ausgedehnte oder sich verjüngende Enden oder tatsächliche Serifierungen.
+      - : Die Glyphen haben Abschlussstriche, verbreiterte oder sich verjüngende Enden oder ausgeprägte Serifen.
 
-        Zum Beispiel: Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio, URW Palladio, serif.
+        Beispiele: Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio, URW Palladio, serif.
 
     - `sans-serif`
-      - : Glyphen haben schlichte Strichenden.
+      - : Die Striche der Glyphen haben schlichte Enden.
 
-        Zum Beispiel: Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans, Nimbus Sans L, sans-serif.
+        Beispiele: Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans, Nimbus Sans L, sans-serif.
 
     - `monospace`
       - : Alle Glyphen haben dieselbe feste Breite.
 
-        Zum Beispiel: Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace.
+        Beispiele: Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace.
 
         > [!NOTE]
-        > Wenn `font-family` auf das einzelne Schlüsselwort `monospace` gesetzt ist und keine `font-size` eingestellt ist, verwenden Browser die monospaced Schriftgrößeinstellung des Benutzers, die oft kleiner ist als die Größe, die für proportionale Schriftarten verwendet wird. Siehe [Monospace-Schriftgröße](#monospace-schriftgröße) für Details und wie Sie dies steuern können.
+        > Wenn `font-family` ausschließlich auf das Schlüsselwort `monospace` gesetzt ist und kein `font-size` festgelegt wurde, verwenden Browser die vom Nutzer bevorzugte Schriftgröße für Festbreitenschriften. Diese ist häufig kleiner als die für proportionale Schriftarten verwendete Größe. Weitere Informationen und Hinweise zur Steuerung dieses Verhaltens finden Sie unter [Schriftgröße von Festbreitenschriften](#schriftgröße_von_festbreitenschriften).
 
     - `cursive`
-      - : Glyphen in Schreibschrift-Schriften haben im Allgemeinen entweder verbindende Striche oder andere handschrift-ähnliche Merkmale über die normalen Kursivschriftarten hinaus. Die Glyphen sind teilweise oder vollständig verbunden, und das Ergebnis sieht mehr nach handgeschriebener Feder- oder Pinselarbeit aus als nach gedruckter Schreibmaschinenarbeit.
+      - : Die Glyphen von Schreibschriften haben im Allgemeinen Verbindungsstriche oder andere kursive Merkmale, die über die Merkmale kursiver Druckschriften hinausgehen. Die Glyphen sind teilweise oder vollständig miteinander verbunden. Das Ergebnis ähnelt eher handgeschriebenem Text mit Stift oder Pinsel als gedruckten Buchstaben.
 
-        Zum Beispiel: Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting, Apple Chancery, cursive.
+        Beispiele: Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting, Apple Chancery, cursive.
+
+        > [!NOTE]
+        > Unter Windows verwenden Browser Comic Sans MS als `cursive`-Schriftart. Dabei handelt es sich um eine informelle Schriftart mit vollständig unverbundenen Glyphen.
 
     - `fantasy`
-      - : Fantasy-Schriften sind hauptsächlich dekorative Schriftarten, die spielerische Darstellungen von Zeichen enthalten.
+      - : Fantasy-Schriftarten sind vorwiegend dekorative Schriftarten mit verspielten Darstellungen von Zeichen.
 
-        Zum Beispiel: Papyrus, Herculanum, Party LET, Curlz MT, Harrington, fantasy.
+        Beispiele: Papyrus, Herculanum, Party LET, Curlz MT, Harrington, fantasy.
 
     - `system-ui`
-      - : Glyphen werden aus der Default-Benutzeroberflächenschriftart auf einer gegebenen Plattform genommen. Da die typografischen Traditionen weltweit sehr unterschiedlich sind, wird dieses generische Element für Schriftarten bereitgestellt, die sich nicht sauber in die anderen generischen Kategorien einordnen lassen.
+      - : Die Glyphen stammen aus der Standardschriftart der Benutzeroberfläche der jeweiligen Plattform. Da sich typografische Traditionen weltweit stark unterscheiden, steht diese generische Schriftfamilie für Schriftarten zur Verfügung, die sich keiner der anderen generischen Schriftfamilien eindeutig zuordnen lassen.
         > [!NOTE]
-        > Wie der Name schon sagt, soll `system-ui` UI-Elemente wie native Apps aussehen lassen und nicht für das Setzen großer Textabschnitte verwendet werden. Es kann dazu führen, dass die angezeigte Schriftart für einige Benutzer unerwünscht ist — zum Beispiel kann die Standard-CJK-Schrift von Windows lateinische Skripte schlecht darstellen, und das `lang`-Attribut kann die angezeigte Schriftart nicht beeinflussen. Einige Betriebssysteme erlauben keine Anpassung von `system-ui`, während Browser in der Regel die Anpassung der `sans-serif`-Schriftfamilie zulassen. Für große Absätze verwenden Sie `sans-serif` oder eine andere nicht-UI-Schriftfamilie.
+        > Wie der Name nahelegt, ist `system-ui` dafür gedacht, Benutzeroberflächenelemente wie in nativen Anwendungen aussehen zu lassen, nicht aber für den Satz längerer Textabsätze. Die angezeigte Schriftart kann für manche Nutzende ungeeignet sein: Beispielsweise stellt die standardmäßige CJK-Schriftart unter Windows lateinische Schriften möglicherweise schlecht dar, und das Attribut `lang` beeinflusst die angezeigte Schriftart möglicherweise nicht. Bei manchen Betriebssystemen lässt sich `system-ui` nicht anpassen, während Browser in der Regel die Anpassung der Schriftfamilie `sans-serif` erlauben. Verwenden Sie für längere Absätze stattdessen `sans-serif` oder eine andere Schriftfamilie, die nicht für Benutzeroberflächen vorgesehen ist.
     - `ui-serif`
-      - : Die Standard-UI-serif-Schrift.
+      - : Die standardmäßige Serifenschriftart der Benutzeroberfläche.
     - `ui-sans-serif`
-      - : Die Standard-UI-sans-serif-Schrift.
+      - : Die standardmäßige serifenlose Schriftart der Benutzeroberfläche.
     - `ui-monospace`
-      - : Die Standard-UI-monospace-Schrift.
+      - : Die standardmäßige Festbreitenschriftart der Benutzeroberfläche.
     - `ui-rounded`
-      - : Die Standard-UI-Schrift mit abgerundeten Merkmalen.
+      - : Die standardmäßige Schriftart der Benutzeroberfläche mit abgerundeten Formen.
     - `math`
-      - : Schrift, die auf die speziellen stilistischen Anforderungen der Darstellung von Mathematik eingeht: Hoch- und Tiefstellungen, Klammern, die mehrere Linien überspannen, verschachtelte Ausdrücke, und doppelt geschlagene Glyphen mit unterschiedlichen Bedeutungen. UA-Stylesheets können `math { font-family: math }` so einstellen, dass das {{MathMLElement("math")}}-Element standardmäßig geeignete Schriften verwendet.
+      - : Eine Schriftart, die den besonderen typografischen Anforderungen bei der Darstellung mathematischer Inhalte gerecht wird: hoch- und tiefgestellte Zeichen, Klammern über mehrere Zeilen, verschachtelte Ausdrücke und doppelt gestrichene Glyphen mit unterschiedlichen Bedeutungen.
+        User-Agent-Stylesheets können `math { font-family: math }` festlegen, damit das Element {{MathMLElement("math")}} standardmäßig geeignete Schriftarten verwendet.
     - `fangsong`
-      - : Ein bestimmter Stil chinesischer Zeichen, die zwischen serif-Stil Song und kursivem Stil Kai Formen liegen. Dieser Stil wird häufig für Regierungsdokumente verwendet.
+      - : Ein besonderer Stil chinesischer Schriftzeichen zwischen dem Serifenstil Song und dem Schreibschriftstil Kai. Dieser Stil wird häufig für amtliche Dokumente verwendet.
 
 ## Formale Definition
 
@@ -163,7 +167,7 @@ font-family: "Gill Sans Extrabold", sans-serif;
 
 ## Beispiele
 
-### Einige häufige Schriftfamilien
+### Einige gebräuchliche Schriftfamilien
 
 ```css
 .serif {
@@ -219,13 +223,13 @@ div {
 
 {{EmbedLiveSample("Some_common_font_families", 600, 220)}}
 
-### Monospace-Schriftgröße
+### Schriftgröße von Festbreitenschriften
 
-Browser haben getrennte Standard-Schriftgrößenpräferenzen für proportionale Schriftarten (wie `serif` und `sans-serif`) und für Monospace-Schriftarten. Typische Standards sind `16px` für proportionale Schriftarten und `13px` für Monospace-Schriftarten.
+Browser verwalten getrennte Einstellungen für die Standardschriftgröße proportionaler Schriftarten (wie `serif` und `sans-serif`) und Festbreitenschriften. Typische Standardwerte sind `16px` für proportionale Schriftarten und `13px` für Festbreitenschriften.
 
-Wenn `font-family` auf das einzelne Schlüsselwort `monospace` gesetzt ist, wenden Browser die Monospace-Größeinstellung an. Wenn Benutzer ihre Browsereinstellungen nicht geändert haben und {{cssxref("font-size")}} nicht explizit festgelegt ist, kann monospace Text kleiner als der umgebende Inhalt angezeigt werden. Die gleiche Reduktion gilt für Elemente, deren User-Agent-Stylesheet `font-family: monospace` festlegt, wie {{HTMLElement("code")}} und {{HTMLElement("pre")}}.
+Wenn `font-family` ausschließlich auf das Schlüsselwort `monospace` gesetzt ist, verwenden Browser die bevorzugte Schriftgröße für Festbreitenschriften. Wenn Nutzende ihre Browsereinstellungen nicht geändert haben und {{cssxref("font-size")}} nicht ausdrücklich festgelegt ist, kann Text in Festbreitenschrift kleiner dargestellt werden als der umgebende Inhalt. Dieselbe Verkleinerung gilt für Elemente, für die das User-Agent-Stylesheet `font-family: monospace` festlegt, beispielsweise {{HTMLElement("code")}} und {{HTMLElement("pre")}}.
 
-Enthält der `font-family` Wert mehr als eine Familie, selbst wenn der Wert `monospace, monospace` ist, wenden Browser die Monospace-Schriftgröße nicht an, und der Text wird in der geerbten `font-size` gerendert. Die Deklaration `font-family: monospace, monospace` (oder eine benannte Monospace-Schrift gefolgt von `monospace`) wird daher in der gleichen Größe wie der umgebende proportionale Text dargestellt. Dieses Verhalten ist nicht in CSS spezifiziert, aber es ist interoperabel über die großen Browser-Engines hinweg.
+Wenn der Wert von `font-family` mehr als eine Schriftfamilie enthält – selbst wenn der Wert `monospace, monospace` lautet –, verwenden Browser nicht die bevorzugte Schriftgröße für Festbreitenschriften. Stattdessen stellen sie den Text mit dem geerbten `font-size` dar. Mit `font-family: monospace, monospace` (oder einer benannten Festbreitenschrift, gefolgt von `monospace`) wird der Text daher in derselben Größe wie der umgebende Text in proportionaler Schrift dargestellt. Dieses Verhalten ist nicht in CSS spezifiziert, funktioniert aber in den wichtigsten Browser-Engines einheitlich.
 
 ```html
 <p class="proportional">
@@ -253,9 +257,9 @@ Enthält der `font-family` Wert mehr als eine Familie, selbst wenn der Wert `mon
 
 {{EmbedLiveSample("Monospace_font_size", 600, 120)}}
 
-Wenn Sie Ihre Schriftgröße nicht in den Browsereinstellungen geändert haben, sind der erste und der letzte Absatz in der gleichen Schriftgröße gerendert, die von den Browsereinstellungen bevorzugt wird. Der mittlere Absatz wird in der bevorzugten Monospace-Schriftgröße gerendert, die im Allgemeinen kleiner eingestellt ist als die bevorzugte Schriftgröße für anderen Text.
+Wenn Sie die Schriftgröße in Ihren Browsereinstellungen nicht geändert haben, werden der erste und der letzte Absatz in derselben Schriftgröße dargestellt: der vom Browser bevorzugten Schriftgröße. Der mittlere Absatz wird in der bevorzugten Schriftgröße für Festbreitenschriften dargestellt, die im Allgemeinen kleiner eingestellt ist als die bevorzugte Schriftgröße für anderen Text.
 
-### Gültige Familiennamen
+### Gültige Schriftfamiliennamen
 
 Die folgenden Deklarationen sind gültig:
 
@@ -275,7 +279,7 @@ font-family: #POUND, sans-serif;
 font-family: Hawaii 5-0, sans-serif;
 ```
 
-Das folgende Beispiel ist technisch gültig, wird jedoch nicht empfohlen:
+Das folgende Beispiel ist technisch gültig, wird aber nicht empfohlen:
 
 ```css
 font-family:
@@ -296,5 +300,5 @@ font-family:
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
 - {{cssxref("font-variant-emoji")}}
-- SVG {{SVGAttr("font-family")}} Attribut
-- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- SVG-Attribut {{SVGAttr("font-family")}}
+- [Lernen: Grundlagen der Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
