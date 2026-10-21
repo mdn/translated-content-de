@@ -3,32 +3,33 @@ title: "MutationRecord: nextSibling-Eigenschaft"
 short-title: nextSibling
 slug: Web/API/MutationRecord/nextSibling
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 1d46ed6db9aaa9a4e43aa5b2964f128c147153b8
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`nextSibling`** von [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das nächste Geschwisterkind eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
+Die schreibgeschützte Eigenschaft **`nextSibling`** eines [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist der nächste Geschwisterknoten eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
 
 ## Wert
 
-Wenn ein Knoten dem [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), die das nächste Geschwister des hinzugefügten oder entfernten Knotens ist: das heißt, der Knoten, der diesem unmittelbar in der Elternliste der [`childNodes`](/de/docs/Web/API/Node/childNodes) folgt.
+Wenn dem [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) ein Knoten hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), der auf den hinzugefügten oder entfernten Knoten folgt: also der Knoten, der in der [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des Elternknotens unmittelbar nach ihm steht.
 
-Der Wert ist `null`, wenn keine Knoten hinzugefügt oder entfernt werden oder wenn der Knoten das letzte Kind seines Elternknotens ist.
+Der Wert ist `null`, wenn keine Knoten hinzugefügt oder entfernt wurden oder wenn der Knoten das letzte Kind seines Elternknotens ist.
 
 ## Beispiele
 
-### Das nächste Geschwister einer Mutation protokollieren
+### Den nächsten Geschwisterknoten einer Mutation protokollieren
 
-Dies fügt bei jedem Klick auf den Button einen Knoten hinzu, jedoch am _Anfang des Zieles_, nicht am Ende. Der Observer protokolliert dann das `textContent` des `nextSibling` des hinzugefügten Knotens.
+Bei jedem Klick auf die Schaltfläche wird ein Knoten hinzugefügt oder entfernt. Die Änderung erfolgt jedoch _am Anfang des Zielelements_, nicht am Ende. Anschließend protokolliert der Observer den `textContent` des `nextSibling` des betroffenen Knotens.
 
 #### HTML
 
 ```html
 <button id="add-nodes">Add a node</button>
+<button id="remove-nodes">Remove a node</button>
 <button id="reset">Reset</button>
 
-<pre id="log" class="log">Next sibling of added node:</pre>
+<pre id="log" class="log">Next sibling of updated node:</pre>
 <div id="target"><p>Node #0</p></div>
 ```
 
@@ -43,15 +44,21 @@ Dies fügt bei jedem Klick auf den Button einen Knoten hinzu, jedoch am _Anfang 
 
 ```js
 const addNodes = document.querySelector("#add-nodes");
+const removeNodes = document.querySelector("#remove-nodes");
 const reset = document.querySelector("#reset");
 const target = document.querySelector("#target");
-let nodeNumber = 1;
 
 addNodes.addEventListener("click", () => {
   const newPara = document.createElement("p");
-  newPara.textContent = `Node #${nodeNumber}`;
-  nodeNumber++;
+  newPara.textContent = `Node #${target.childElementCount}`;
   target.insertBefore(newPara, target.firstChild);
+});
+
+removeNodes.addEventListener("click", () => {
+  const oldPara = target.firstChild;
+  if (oldPara) {
+    target.removeChild(oldPara);
+  }
 });
 
 reset.addEventListener("click", () => self.location.reload());
@@ -59,9 +66,7 @@ reset.addEventListener("click", () => self.location.reload());
 function logNextSibling(records) {
   for (const record of records) {
     if (record.type === "childList") {
-      for (const newNode of record.addedNodes) {
-        log.textContent = `Next sibling of added node: ${record.nextSibling?.textContent}`;
-      }
+      log.textContent = `Next sibling of updated node: ${record.nextSibling?.textContent ?? null}`;
     }
   }
 }
@@ -72,7 +77,7 @@ observer.observe(target, { childList: true });
 
 #### Ergebnis
 
-{{EmbedLiveSample("Das nächste Geschwister einer Mutation protokollieren", "", 250)}}
+{{EmbedLiveSample("Log the next sibling of a mutation", "", 250)}}
 
 ## Spezifikationen
 

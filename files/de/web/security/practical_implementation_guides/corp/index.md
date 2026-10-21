@@ -1,55 +1,73 @@
 ---
-title: Cross-Origin Resource Policy (CORP) Implementierung
+title: Implementierung der Cross-Origin Resource Policy (CORP)
 short-title: Cross-Origin Resource Policy (CORP)
 slug: Web/Security/Practical_implementation_guides/CORP
 l10n:
-  sourceCommit: ade8d870ed7e18a71dc51fe25aa13d812fb82558
+  sourceCommit: bd5271a96d814ed6876e974186c465f1b3959e07
 ---
 
-Die Cross-Origin Resource Policy (CORP) wird durch das {{httpheader("Cross-Origin-Resource-Policy")}} Antwort-Header gesetzt, der es Webseiten und Anwendungen ermöglicht, sich für Schutzmaßnahmen gegen Schwachstellen im Zusammenhang mit bestimmten cross-origin-Anfragen (wie denen, die durch {{htmlelement("script")}} und {{htmlelement("img")}} Elemente gemacht werden) zu entscheiden.
+Die Cross-Origin Resource Policy (CORP) wird über den Antwort-Header {{httpheader("Cross-Origin-Resource-Policy")}} festgelegt. Damit können Websites und Anwendungen einen Schutz vor Sicherheitslücken aktivieren, die mit bestimmten Cross-Origin-Anfragen zusammenhängen, etwa solchen durch die Elemente {{htmlelement("script")}} und {{htmlelement("img")}}. CORP bietet eine zusätzliche Schutzebene über die standardmäßige {{Glossary("same-origin_policy", "Same-Origin-Policy")}} hinaus.
 
 ## Problem
 
-Einige Seitenkanal-Hardware-Schwachstellen (auch bekannt als Cross-site leaks oder XS-Leaks), wie [Meltdown](<https://de.wikipedia.org/wiki/Meltdown_(Sicherheitsl%C3%BCcke)>) und [Spectre](<https://de.wikipedia.org/wiki/Spectre_(Sicherheitsl%C3%BCcke)>), nutzen eine Race-Condition aus, die sich im Rahmen der spekulativen Ausführungsfunktionalität moderner Prozessoren ergibt. Diese Funktionalität ist darauf ausgelegt, die Leistung zu verbessern, kann jedoch manipuliert werden, um sensible Daten preiszugeben.
+Standardmäßig verhindert die {{Glossary("same-origin_policy", "Same-Origin-Policy")}}, dass Skripte Cross-Origin-Antworten direkt lesen, und schützt so vor der Offenlegung von Nutzerdaten auf der Website, die die Ressource bereitstellt. Einige hardwarebasierte Seitenkanal-Sicherheitslücken, insbesondere [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>), nutzen jedoch die spekulative Ausführung moderner Prozessoren aus, um sensible Daten offenzulegen, sobald die Antwortbytes in den Speicher der einbettenden Seite gelangen. Darüber hinaus ermöglichen Cross-Site Script Inclusion-Angriffe (XSSI), mithilfe herkömmlicher `<script>`-Elemente Cross-Origin-Daten zu erlangen. Daher können selbst Kanäle unsicher sein, die traditionell als sicher für die Cross-Origin-Einbettung gelten und deshalb keine Mitwirkung des Ressourcenanbieters erfordern.
 
 ## Lösung
 
-Verwenden Sie `Cross-Origin-Resource-Policy`, um [`no-cors`](/de/docs/Web/API/RequestInit#mode) cross-origin-Anfragen zu bestimmten Ressourcen zu blockieren. Da diese Richtlinie über ein Antwort-Header ausgedrückt wird, wird die eigentliche Anfrage nicht verhindert. Stattdessen verhindert der Browser, dass das Ergebnis durch das Entfernen des Antwortkörpers durchsickert.
+Verwenden Sie `Cross-Origin-Resource-Policy` für die Ressource, um Cross-Origin-Anfragen im Modus [`no-cors`](/de/docs/Web/API/RequestInit#mode) zu blockieren. Solche Anfragen werden von bestimmten APIs und Elementen standardmäßig gesendet, insbesondere von `<script>`- und `<img>`-Elementen. Da diese Richtlinie durch einen Antwort-Header ausgedrückt wird, wird die eigentliche Anfrage nicht verhindert. Stattdessen verhindert der Browser die Offenlegung des Ergebnisses, indem er die Antwort in einen Netzwerkfehler umwandelt.
 
-Die möglichen Werte sind:
+Folgende Werte sind möglich:
 
 - `same-origin`
-  - : Beschränkt den Ressourcenzugriff auf Anfragen, die von demselben Origin kommen. Dies wird für URLs empfohlen, die mit sensiblen Benutzerinformationen oder privaten APIs antworten.
+  - : Beschränkt den Zugriff auf die Ressource auf Anfragen desselben _{{Glossary("origin", "Origin")}}_. Dies wird für URLs empfohlen, die sensible Nutzerinformationen zurückgeben, sowie für private APIs.
 - `same-site`
-  - : Beschränkt den Ressourcenzugriff auf Anfragen, die von derselben Site kommen. Dies wird für Antworten von Origins empfohlen, deren Funktionalität über mehrere andere gleiche Site-Origins geteilt wird. Beispiele umfassen ein Unternehmens-CDN, das statische Ressourcen bereitstellt, und eine Single-Sign-On (SSO)-App, die die Authentifizierung verwaltet.
+  - : Beschränkt den Zugriff auf die Ressource auf Anfragen derselben _{{Glossary("site", "Site")}}_. Dies wird für Antworten von Origins empfohlen, deren Funktionalität von mehreren anderen Origins derselben Site genutzt wird. Beispiele sind ein Unternehmens-CDN, das statische Ressourcen bereitstellt, und eine Single-Sign-on-Anwendung (SSO), die die Authentifizierung übernimmt.
+
+    > [!WARNING]
+    > Dies ist weniger restriktiv als `same-origin`. Der [Algorithmus zur Prüfung, ob zwei Origins derselben Site angehören](https://html.spec.whatwg.org/multipage/origin.html#same-site), ist im HTML-Standard definiert und prüft unter anderem die _registrierbare Domain_.
+
 - `cross-origin`
-  - : Erlaubt den Zugriff auf Ressourcen durch cross-origin-Anfragen. Dies wird nur für Antworten von weithin genutzten Ursprüngen, wie öffentliche CDNs oder Widgets empfohlen. Dies ist der Standardwert, wenn `Cross-Origin-Resource-Policy` nicht gesetzt ist.
+  - : Erlaubt Cross-Origin-Anfragen den Zugriff auf Ressourcen. Dies wird nur für Antworten von breit genutzten Origins empfohlen, beispielsweise öffentlichen CDNs oder Widgets. Wenn der Header nicht gesetzt ist, ist dies das Standardverhalten. Der Wert muss jedoch ausdrücklich gesetzt werden, damit eine einbettende Seite mit einer restriktiven {{httpheader("Cross-Origin-Embedder-Policy")}} die Ressource einbetten kann.
 
-Setzen Sie den restriktivsten Wert, der für Ihre Seite möglich ist.
+Legen Sie für Ihre Website den restriktivsten möglichen Wert fest.
 
-Wenn Ihre Seite ihrerseits Zugriff auf cross-origin-Ressourcen benötigt, entscheiden Sie sich für einen besseren Standard, indem Sie zusammen mit den zugehörigen Anfragen einen {{httpheader("Cross-Origin-Embedder-Policy")}} Header senden. Dies verhindert das Laden von cross-origin-Ressourcen, die nicht ebenfalls explizit einen `Cross-Origin-Resource-Policy: cross-origin` Header senden.
+CORP wird vom Ressourcenanbieter bereitgestellt. Wenn Sie solche Cross-Origin-Ressourcen einbetten, können Sie Ihr Dokument mit einem {{httpheader("Cross-Origin-Embedder-Policy")}}-Header mit dem Wert `require-corp` ausliefern. Der Browser verhindert dann, dass das Dokument Cross-Origin-Ressourcen lädt, die nicht ausdrücklich einen `Cross-Origin-Resource-Policy`-Header senden, der die Einbettung erlaubt. Dies ist ein Schritt, um Ihre Website [Cross-Origin-isoliert](/de/docs/Web/API/Window/crossOriginIsolated) zu machen.
 
 ## Beispiele
 
-Weisen Sie Browser an, cross-origin-Anfragen im `no-cors` Modus nicht zu erlauben:
+### Den Ressourcenanbieter absichern
+
+Wenn eine Ressource nicht im Modus `no-cors` über Origin-Grenzen hinweg geladen werden darf, sollte ihre Antwort Folgendes enthalten:
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
 ```
 
-Weisen Sie Browser an, den Zugriff auf cross-origin-Ressourcen zu erlauben, einschließlich des Zugriffs auf Funktionen mit nicht gebremsten Timern (wie {{jsxref("SharedArrayBuffer")}} Objekte oder [`Performance.now()`](/de/docs/Web/API/Performance/now)):
+### Die einbettende Seite Cross-Origin-isoliert machen
+
+Um {{jsxref("SharedArrayBuffer")}} und hochpräzise Aufrufe von [`Performance.now()`](/de/docs/Web/API/Performance/now) zu ermöglichen, muss das Dokument Cross-Origin-isoliert sein. Fügen Sie dem Dokument die folgenden Header hinzu:
 
 ```http
-Cross-Origin-Resource-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Dies erlaubt auch das Einbetten solcher Ressourcen.
+Eine Seite, die `Cross-Origin-Embedder-Policy: require-corp` verwendet, darf nur Cross-Origin-Ressourcen laden, die ihre Einbettung ausdrücklich erlauben. Ressourcen können dies durch eine explizite CORP-Angabe tun:
+
+```http
+Cross-Origin-Resource-Policy: cross-origin
+```
+
+Verwenden Sie für Anfragen mit [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) stattdessen `Access-Control-Allow-Origin`:
+
+```http
+Access-Control-Allow-Origin: https://example.com
+```
 
 ## Siehe auch
 
-- [Erwägen Sie, die Cross-Origin Resource Policy einzusetzen](https://resourcepolicy.fyi/)
-- [XS-Leaks Wiki](https://xsleaks.dev/)
+- [Den Einsatz der Cross-Origin Resource Policy erwägen](https://resourcepolicy.fyi/)
+- [XS-Leaks-Wiki](https://xsleaks.dev/)
 - [`Access-Control-Allow-Origin`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)
 - [`Cross-Origin-Embedder-Policy`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy)
 - [`Cross-Origin-Opener-Policy`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy)

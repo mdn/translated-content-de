@@ -14804,11 +14804,12 @@
 /de/docs/Web/HTTP/Controlling_DNS_prefetching	/de/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control
 /de/docs/Web/HTTP/Cookies	/de/docs/Web/HTTP/Guides/Cookies
 /de/docs/Web/HTTP/Cookies/Cookie_Prefixes	/de/docs/Web/HTTP/Guides/Cookies#Cookie_prefixes
-/de/docs/Web/HTTP/Cross-Origin_Resource_Policy	/de/docs/Web/HTTP/Guides/Cross-Origin_Resource_Policy
-/de/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)	/de/docs/Web/HTTP/Guides/Cross-Origin_Resource_Policy
+/de/docs/Web/HTTP/Cross-Origin_Resource_Policy	/de/docs/Web/Security/Practical_implementation_guides/CORP
+/de/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)	/de/docs/Web/Security/Practical_implementation_guides/CORP
 /de/docs/Web/HTTP/Evolution_of_HTTP	/de/docs/Web/HTTP/Guides/Evolution_of_HTTP
 /de/docs/Web/HTTP/Feature_Policy	/de/docs/Web/HTTP/Guides/Permissions_Policy
 /de/docs/Web/HTTP/Gecko_user_agent_string_reference	/de/docs/Web/HTTP/Reference/Headers/User-Agent/Firefox
+/de/docs/Web/HTTP/Guides/Cross-Origin_Resource_Policy	/de/docs/Web/Security/Practical_implementation_guides/CORP
 /de/docs/Web/HTTP/HTTP_response_codes	/de/docs/Web/HTTP/Reference/Status
 /de/docs/Web/HTTP/Headers	/de/docs/Web/HTTP/Reference/Headers
 /de/docs/Web/HTTP/Headers/Accept	/de/docs/Web/HTTP/Reference/Headers/Accept

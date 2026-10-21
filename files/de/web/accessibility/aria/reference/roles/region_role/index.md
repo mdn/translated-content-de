@@ -1,12 +1,12 @@
 ---
-title: "ARIA: region Rolle"
+title: "ARIA: region-Rolle"
 short-title: region
 slug: Web/Accessibility/ARIA/Reference/Roles/region_role
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: 05c1aed375bab88f322b15319e45fb326e4a341c
 ---
 
-Die **`region`** Rolle wird verwendet, um Bereiche im Dokument zu identifizieren, die der Autor als bedeutend erachtet. Es ist ein allgemeines Wegweiser-Element, das zur Navigation eingesetzt wird, wenn keine der anderen Wegweiser-Rollen geeignet ist.
+Die **`region`**-Rolle kennzeichnet Bereiche eines Dokuments, die der Autor für wichtig hält. Sie ist eine allgemeine Landmarke, die die Navigation erleichtert, wenn keine der anderen Landmarkenrollen passt.
 
 ```html
 <div role="region" aria-label="Example">
@@ -16,18 +16,19 @@ Die **`region`** Rolle wird verwendet, um Bereiche im Dokument zu identifizieren
 
 ## Beschreibung
 
-Die `region` Rolle ist eine [ARIA Wegweiser](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) Rolle. Die `region` Rolle sollte für Inhaltsbereiche reserviert werden, die so wichtig sind, dass Benutzer wahrscheinlich direkt zu diesem Abschnitt navigieren und ihn in einer Zusammenfassung der Seite aufgeführt haben möchten. Eine `region` Rolle ist ein generischer Begriff und sollte nur verwendet werden, wenn der zu identifizierende Abschnitt nicht treffend durch eine der anderen Wegweiser-Rollen beschrieben wird, wie z. B. [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role), [`main`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role), [`contentinfo`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role), [`complementary`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role), oder [`navigation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role).
+Die `region`-Rolle ist eine [ARIA-Landmarkenrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles).
+Sie sollte Abschnitten vorbehalten bleiben, die so wichtig sind, dass Benutzer wahrscheinlich direkt zu ihnen navigieren und sie in einer Seitenübersicht sehen möchten. Die `region`-Rolle ist allgemeiner als andere Landmarkenrollen und sollte nur verwendet werden, wenn keine davon den betreffenden Abschnitt treffend beschreibt, beispielsweise [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role), [`main`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role), [`contentinfo`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role), [`complementary`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role) oder [`navigation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role).
 
-Jedes Element mit einer `region` Rolle sollte ein Label enthalten, das den Zweck des Inhalts im Bereich beschreibt, vorzugsweise mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), das auf eine sichtbare Überschrift verweist. Wenn keine passende sichtbare Überschrift vorhanden ist, sollte [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet werden.
+Jedes Element mit der `region`-Rolle sollte eine Beschriftung haben, die den Zweck des enthaltenen Inhalts beschreibt. Verwenden Sie dafür vorzugsweise [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) mit einem Verweis auf eine sichtbare Überschrift. Ist keine passende sichtbare Überschrift vorhanden, verwenden Sie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label).
 
-Der Inhalt der `region` Wegweiser-Rolle sollte auch ohne den Hauptinhalt des Dokuments sinnvoll sein.
+Der Inhalt einer `region`-Landmarke sollte auch dann verständlich sein, wenn er vom Hauptinhalt des Dokuments getrennt betrachtet wird.
 
-Die Verwendung des {{HTMLElement('section')}} Elements kommuniziert automatisch, dass ein Abschnitt die Rolle `region` hat, wenn er einen zugänglichen Namen erhält. Entwickler sollten immer die Verwendung des korrekten semantischen HTML-Elements, in diesem Fall `<section>`, der Verwendung von ARIA vorziehen.
+Das Element {{HTMLElement('section')}} vermittelt automatisch die Rolle `region`, wenn es einen zugänglichen Namen hat. Entwickler sollten stets das passende semantische HTML-Element – in diesem Fall `<section>` – gegenüber ARIA bevorzugen.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Verwenden Sie dieses Attribut, um die Region zu beschriften. Häufig besteht der Wert des `aria-labelledby` Attributs aus der ID des Elements, das den Abschnitt betitelt. Wenn keine passende sichtbare Überschrift vorhanden ist, sollte `aria-label` verwendet werden.
+  - : Verwenden Sie eines dieser Attribute, um die Region zu beschriften. Häufig ist der Wert des Attributs `aria-labelledby` die id des Elements, das als Überschrift für den Abschnitt dient. Ist keine passende sichtbare Überschrift vorhanden, verwenden Sie `aria-label`.
 
 ## Beispiele
 
@@ -40,21 +41,21 @@ Die Verwendung des {{HTMLElement('section')}} Elements kommuniziert automatisch,
 </div>
 ```
 
-## Zugänglichkeitsbedenken
+## Bedenken hinsichtlich der Barrierefreiheit
 
-Verwenden Sie die `region` Rolle sparsam! [Wegweiser-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sind dazu gedacht, sparsam eingesetzt zu werden, um größere allgemeine Abschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Wegweiser-Rollen kann "Rauschen" in Bildschirmleseprogrammen erzeugen und es schwierig machen, die Gesamtstruktur der Seite zu verstehen.
+Sparsam verwenden! [Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollen nur für größere, übergeordnete Abschnitte eines Dokuments eingesetzt werden. Zu viele Landmarkenrollen können in Screenreadern „Rauschen“ erzeugen und es erschweren, den Gesamtaufbau der Seite zu verstehen.
 
-Verwenden Sie die `region` Rolle nur, wenn kein anderes relevantes [Inhalts-Sectioning](/de/docs/Web/HTML/Reference/Elements#content_sectioning) Element oder [Wegweiser-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) zutrifft. Wenn auf einer Seite mehrere Regionen existieren, könnte es sinnvoll sein, die Gesamtstruktur der Seite erneut zu überdenken.
+Verwenden Sie die `region`-Rolle nur, wenn kein anderes passendes [Element zur Inhaltsgliederung](/de/docs/Web/HTML/Reference/Elements#content_sectioning) und keine andere passende [Landmarkenrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) infrage kommt. Gibt es mehrere Regionen auf einer Seite, kann es sinnvoll sein, den Gesamtaufbau der Seite noch einmal zu überprüfen.
 
-## Beste Praktiken
+## Bewährte Vorgehensweisen
 
-### Bevorzugen Sie HTML
+### HTML bevorzugen
 
-Die Verwendung des {{HTMLElement('section')}} Elements kommuniziert automatisch, dass das Element die Rolle `region` hat. Wenn möglich, ziehen Sie es vor, das semantische `<section>` Element anstelle der `region` Rolle zu verwenden.
+Das Element {{HTMLElement('section')}} vermittelt automatisch, dass es die Rolle `region` hat. Verwenden Sie nach Möglichkeit das semantische Element `<section>` anstelle der `region`-Rolle.
 
-### Bezeichnen von Wegweisern
+### Landmarken beschriften
 
-Wenn es in einem Dokument mehr als eine `region` Wegweiser-Rolle gibt, geben Sie jeder eine eindeutige Bezeichnung. Diese Bezeichnung ermöglicht es einem Benutzer mit assistiver Technologie, schnell den Zweck jedes Wegweisers zu verstehen.
+Wenn ein Dokument mehr als eine `region`-Landmarke enthält, geben Sie jeder eine eindeutige Beschriftung. So können Benutzer assistiver Technologien den Zweck jeder Landmarke schnell erkennen.
 
 ```html
 <div role="region" aria-labelledby="use-discretion">
@@ -70,15 +71,15 @@ Wenn es in einem Dokument mehr als eine `region` Wegweiser-Rolle gibt, geben Sie
 </div>
 ```
 
-In diesem Beispiel wird das Label der Region durch das [`aria-labelledby` Attribut](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) erzeugt.
+In diesem Beispiel wird die Beschriftung der Region durch das [Attribut `aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) erzeugt.
 
-### Scrollende Inhaltsbereiche mit Überlauftext
+### Scrollbare Inhaltsbereiche mit überlaufendem Text
 
-Wenn es einen Inhaltsbereich mit `tabindex="0"` gibt, fügen Sie `role="region"` hinzu, um Bildschirmleser-Benutzern zu signalisieren, dass es sich um eine generische Region handelt. Dies wird getan, um Benutzern, die nur die Tastatur verwenden, das Scrollen in Bereichen mit überlaufendem Text zu ermöglichen.
+Ein scrollbarer Bereich benötigt möglicherweise `tabindex="0"`, damit Benutzer, die ausschließlich die Tastatur verwenden, ihn fokussieren und scrollen können. Dadurch wird der Bereich allein noch nicht zu einer Landmarke. Verwenden Sie `role="region"` nur für einen ausreichend wichtigen Abschnitt der Seite, den Benutzer über die Landmarkennavigation finden können sollten. Geben Sie jeder solchen Region einen aussagekräftigen, eindeutigen zugänglichen Namen, beispielsweise mit `aria-labelledby`. Informationen zu gewöhnlichen scrollbaren Inhalten, die keine Landmarke erfordern, finden Sie unter der [`group`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role#scrollable_content_areas).
 
 ### SVG
 
-`role="region"` kann auf Bereiche eines {{SVGElement('svg')}} zusammen mit einem `aria-label` deklariert werden, um einzelnen Abschnitten der SVG eine Beschreibung zu geben.
+`role="region"` kann zusammen mit einem `aria-label` für Bereiche eines {{SVGElement('svg')}} angegeben werden, damit einzelne Abschnitte des SVG beschrieben werden können.
 
 ## Spezifikationen
 
@@ -86,11 +87,11 @@ Wenn es einen Inhaltsbereich mit `tabindex="0"` gibt, fügen Sie `role="region"`
 
 ## Siehe auch
 
-- Das {{HTMLElement('section')}} Element
-- [ARIA: `banner` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role)
-- [ARIA: `main` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role)
-- [ARIA: `contentinfo` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role)
-- [ARIA: `complementary` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role)
-- [ARIA: `navigation` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role)
-- [Wegweiser-Rollen: Verwenden von ARIA: Rollen, Zuständen und Eigenschaften](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles)
-- [Accessible Landmarks | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- Das Element {{HTMLElement('section')}}
+- [ARIA: `banner`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role)
+- [ARIA: `main`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role)
+- [ARIA: `contentinfo`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role)
+- [ARIA: `complementary`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role)
+- [ARIA: `navigation`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role)
+- [Landmarkenrollen: ARIA verwenden: Rollen, Zustände und Eigenschaften](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles)
+- [Zugängliche Landmarken | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)

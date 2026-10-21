@@ -3,74 +3,74 @@ title: Firefox 159 – Versionshinweise für Entwickler (Beta)
 short-title: Firefox 159 (Beta)
 slug: Mozilla/Firefox/Releases/159
 l10n:
-  sourceCommit: 30f17ced3a8fc8172e11e7379893d4e61f5bdd61
+  sourceCommit: 7220cba37bea17e7e18a674ec730366e8af815ab
 ---
 
-Dieser Artikel informiert über die Änderungen in Firefox 159, die für Entwickler relevant sind.
+Dieser Artikel informiert über Änderungen in Firefox 159, die Entwickler betreffen.
 Firefox 159 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [27. Oktober 2026](https://whattrainisitnow.com/release/?version=159).
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei den Überschriften, zu denen Sie Hinweise verfassen. -->
+<!-- Authors: Please uncomment any headings you are writing notes for -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Developer Tools -->
 
 <!-- ### HTML -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 ### CSS
 
 #### Entfernungen
 
-- Die bisherige Syntax für das Masonry-Layout wurde entfernt: der Wert `masonry` der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} sowie die Eigenschaft `masonry-auto-flow`. Diese Syntax war standardmäßig nur in Nightly aktiviert, gesteuert durch die Einstellung `layout.css.grid-template-masonry-value.enabled`. Sie wurde durch das [Grid-Lanes-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes) ersetzt, das die Werte `grid-lanes` und `inline-grid-lanes` der Eigenschaft {{cssxref("display")}} verwendet. ([Firefox-Bug 2077170](https://bugzil.la/2077170))
+- Die veraltete Syntax für Masonry-Layouts wurde entfernt: der Wert `masonry` der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} sowie die Eigenschaft `masonry-auto-flow`. Diese Syntax war standardmäßig nur in Nightly aktiviert, gesteuert durch die Einstellung `layout.css.grid-template-masonry-value.enabled`. Sie wurde durch das [Grid-Lanes-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes) ersetzt, das die Werte `grid-lanes` und `inline-grid-lanes` der Eigenschaft {{cssxref("display")}} verwendet. ([Firefox-Bug 2077170](https://bugzil.la/2077170))
 
 <!-- ### JavaScript -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### Sicherheit -->
+<!-- ### Security -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 ### APIs
 
-- Methoden zur Bereinigung von HTML mit der [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API), etwa [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML), entfernen unerwünschte Elemente und Attribute jetzt bereits beim Parsen des Markups. Bisher wurde zunächst das gesamte Markup geparst und anschließend der entstandene DOM-Baum bereinigt. Das Ergebnis ist dasselbe, mit einer Ausnahme: Benachbarter Text befindet sich nun in einem einzigen Textknoten, statt auf mehrere verteilt zu sein. ([Firefox-Bug 2070498](https://bugzil.la/2070498))
+- Methoden, die HTML mit der [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) bereinigen, beispielsweise [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML), entfernen unerwünschte Elemente und Attribute nun bereits beim Parsen des Markups. Zuvor wurde zunächst das gesamte Markup geparst und anschließend der entstandene DOM-Baum bereinigt. Das Ergebnis ist unverändert, mit einer Ausnahme: Benachbarter Text befindet sich nun in einem einzigen Textknoten, statt auf mehrere verteilt zu sein. ([Firefox-Bug 2070498](https://bugzil.la/2070498))
 
 #### DOM
 
-- [Bereichsgebundene Custom-Element-Registries](/de/docs/Web/API/Web_components/Using_custom_elements#scoped_custom_element_registries) werden jetzt unterstützt. Damit kann für einen Shadow-Tree eine unabhängige [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) erstellt werden, deren Definitionen nur für diesen DOM-Teilbaum gelten. So lassen sich Namenskonflikte vermeiden, wenn mehrere Web Components Elemente mit demselben Namen deklarieren. Die Eigenschaft `customElementRegistry` kann für [`Document`](/de/docs/Web/API/Document), [`Element`](/de/docs/Web/API/Element) und [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) verwendet werden. Der [Konstruktor `CustomElementRegistry()`](/de/docs/Web/API/CustomElementRegistry/CustomElementRegistry) erstellt ein neues `CustomElementRegistry`-Objekt zur bereichsgebundenen Verwendung. ([Firefox-Bug 2070506](https://bugzil.la/2070506))
+- [Geltungsbereichsgebundene Registries für benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements#scoped_custom_element_registries) werden jetzt unterstützt. Damit kann für einen Shadow Tree eine unabhängige [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) erstellt werden, deren Definitionen nur für diesen bestimmten DOM-Teilbaum gelten. So lassen sich Namenskonflikte vermeiden, wenn mehrere Web Components Elemente mit demselben Namen deklarieren. Die Eigenschaft `customElementRegistry` kann auf [`Document`](/de/docs/Web/API/Document), [`Element`](/de/docs/Web/API/Element) und [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) verwendet werden. Der [Konstruktor `CustomElementRegistry()`](/de/docs/Web/API/CustomElementRegistry/CustomElementRegistry) erstellt ein neues `CustomElementRegistry`-Objekt für die Verwendung in einem bestimmten Geltungsbereich. ([Firefox-Bug 2070506](https://bugzil.la/2070506))
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, and Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemeines -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -78,9 +78,9 @@ Firefox 159 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-<!-- ### Entfernungen -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
 ## Experimentelle Webfunktionen
 
@@ -90,4 +90,8 @@ Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/
 
 - **Numerische CSS-Factory-Funktionen in Workern und Worklets verfügbar**: `layout.css.namespace.exposed-in-workers-and-worklets`
 
-  Die [numerischen Factory-Funktionen](/de/docs/Web/API/CSS/factory_functions_static) des Namensraums [`CSS`](/de/docs/Web/API/CSS), beispielsweise `CSS.px()`, sind jetzt auch in Workern und Paint Worklets verfügbar, nicht mehr nur auf `Window`. Sie sind Teil der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API). Außerhalb von Nightly muss daher zusätzlich die Einstellung `layout.css.typed-om.enabled` auf `true` gesetzt sein. ([Firefox-Bug 2079188](https://bugzil.la/2079188))
+  Die [numerischen Factory-Funktionen](/de/docs/Web/API/CSS/factory_functions_static) des [`CSS`](/de/docs/Web/API/CSS)-Namespace, beispielsweise `CSS.px()`, sind jetzt auch in Workern und Paint Worklets verfügbar, nicht mehr nur auf `Window`. Sie sind Teil der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API). Außerhalb von Nightly muss daher zusätzlich die Einstellung `layout.css.typed-om.enabled` auf `true` gesetzt sein. ([Firefox-Bug 2079188](https://bugzil.la/2079188))
+
+- **Neue Eigenschaften von `MathMLAnchorElement`**: `mathml.a.element.enabled`
+
+  Das Interface [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) unterstützt jetzt die Eigenschaften [`download`](/de/docs/Web/API/MathMLAnchorElement/download), [`ping`](/de/docs/Web/API/MathMLAnchorElement/ping), [`rel`](/de/docs/Web/API/MathMLAnchorElement/rel), [`relList`](/de/docs/Web/API/MathMLAnchorElement/relList) und [`referrerPolicy`](/de/docs/Web/API/MathMLAnchorElement/referrerPolicy). ([Firefox-Bug 2064612](https://bugzil.la/2064612))

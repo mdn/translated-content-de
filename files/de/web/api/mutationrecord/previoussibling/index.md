@@ -1,34 +1,35 @@
 ---
-title: "MutationRecord: previousSibling-Eigenschaft"
+title: "MutationRecord: Eigenschaft previousSibling"
 short-title: previousSibling
 slug: Web/API/MutationRecord/previousSibling
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 1d46ed6db9aaa9a4e43aa5b2964f128c147153b8
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`previousSibling`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist das vorhergehende Geschwisterknoten eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver).
+Die schreibgeschützte Eigenschaft **`previousSibling`** eines [`MutationRecord`](/de/docs/Web/API/MutationRecord) gibt den vorherigen Geschwisterknoten eines hinzugefügten oder entfernten Kindknotens des [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) zurück.
 
 ## Wert
 
-Wenn ein Knoten zum [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), die das vorherige Geschwister des hinzugefügten oder entfernten Knotens ist: das heißt, der Knoten, der sich unmittelbar vor diesem im [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des Elternteils befindet.
+Wenn dem [`target`](/de/docs/Web/API/MutationRecord/target) eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) ein Knoten hinzugefügt oder daraus entfernt wird, ist der Wert der [`Node`](/de/docs/Web/API/Node), der dem hinzugefügten oder entfernten Knoten unmittelbar vorausgeht – also der Knoten direkt vor ihm in der [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des Elternknotens.
 
-Der Wert ist `null`, wenn es keine hinzugefügten oder entfernten Knoten gibt oder wenn der Knoten das erste Kind seines Elternteils ist.
+Der Wert ist `null`, wenn keine Knoten hinzugefügt oder entfernt wurden oder wenn der Knoten das erste Kind seines Elternknotens ist.
 
 ## Beispiele
 
-### Das vorherige Geschwister einer Mutation protokollieren
+### Den vorherigen Geschwisterknoten einer Mutation protokollieren
 
-Dies fügt jedes Mal, wenn Sie auf den Button klicken, einen Knoten hinzu. Dann protokolliert der Beobachter den `textContent` des `previousSibling` des hinzugefügten Knotens.
+Bei jedem Klick auf die Schaltfläche wird ein Knoten hinzugefügt oder entfernt. Anschließend protokolliert der Observer den `textContent` des `previousSibling` des betroffenen Knotens.
 
 #### HTML
 
 ```html
 <button id="add-nodes">Add a node</button>
+<button id="remove-nodes">Remove a node</button>
 <button id="reset">Reset</button>
 
-<pre id="log" class="log">Previous sibling of added node:</pre>
+<pre id="log" class="log">Previous sibling of updated node:</pre>
 <div id="target"><p>Node #0</p></div>
 ```
 
@@ -43,15 +44,21 @@ Dies fügt jedes Mal, wenn Sie auf den Button klicken, einen Knoten hinzu. Dann 
 
 ```js
 const addNodes = document.querySelector("#add-nodes");
+const removeNodes = document.querySelector("#remove-nodes");
 const reset = document.querySelector("#reset");
 const target = document.querySelector("#target");
-let nodeNumber = 1;
 
 addNodes.addEventListener("click", () => {
   const newPara = document.createElement("p");
-  newPara.textContent = `Node #${nodeNumber}`;
-  nodeNumber++;
+  newPara.textContent = `Node #${target.childElementCount}`;
   target.appendChild(newPara);
+});
+
+removeNodes.addEventListener("click", () => {
+  const oldPara = target.lastChild;
+  if (oldPara) {
+    target.removeChild(oldPara);
+  }
 });
 
 reset.addEventListener("click", () => self.location.reload());
@@ -59,9 +66,7 @@ reset.addEventListener("click", () => self.location.reload());
 function logPreviousSibling(records) {
   for (const record of records) {
     if (record.type === "childList") {
-      for (const newNode of record.addedNodes) {
-        log.textContent = `Previous sibling of added node: ${newNode.previousSibling?.textContent}`;
-      }
+      log.textContent = `Previous sibling of updated node: ${record.previousSibling?.textContent ?? null}`;
     }
   }
 }
@@ -72,7 +77,7 @@ observer.observe(target, { childList: true });
 
 #### Ergebnis
 
-{{EmbedLiveSample("Das vorherige Geschwister einer Mutation protokollieren", "", 250)}}
+{{EmbedLiveSample("Log the previous sibling of a mutation", "", 250)}}
 
 ## Spezifikationen
 
