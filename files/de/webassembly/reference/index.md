@@ -3,15 +3,15 @@ title: WebAssembly-Referenz
 short-title: Reference
 slug: WebAssembly/Reference
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 52218d727e31f467a5fd52133902c4a8f1c9a8fe
 ---
 
-Diese Seite listet Referenzen für [WebAssembly](/de/docs/WebAssembly).
+Diese Seite enthält Referenzen zu [WebAssembly](/de/docs/WebAssembly).
 
 ## JavaScript-Referenz
 
 - [WebAssembly](/de/docs/WebAssembly/Reference/JavaScript_interface)
-  - : Das WebAssembly-JavaScript-Objekt fungiert als Namensraum für alle WebAssembly-bezogenen Funktionen.
+  - : Das WebAssembly-JavaScript-Objekt dient als Namensraum für alle WebAssembly-bezogenen Funktionen.
 
 ## Werttypen
 
@@ -21,20 +21,22 @@ Diese Seite listet Referenzen für [WebAssembly](/de/docs/WebAssembly).
 ## Definitionen
 
 - [WebAssembly-Definitionen](/de/docs/WebAssembly/Reference/Definitions)
-  - : Die auf oberster Ebene verfügbaren Definitionen in Wasm zur Definition von Moduleigenschaften wie Tabellen, Typen, Speicher, Funktionen usw.
+  - : Die in Wasm verfügbaren Definitionen auf oberster Ebene zum Definieren von Moduleigenschaften wie Tabellen, Typen, Speicherbereichen und Funktionen.
 
 ## Anweisungen
 
-- [WebAssembly-Steuerflussanweisungen](/de/docs/WebAssembly/Reference/Control_flow)
-  - : WebAssembly-Steuerflussanweisungen.
+- [WebAssembly-Kontrollflussanweisungen](/de/docs/WebAssembly/Reference/Control_flow)
+  - : WebAssembly-Kontrollflussanweisungen.
 - [WebAssembly-Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory)
   - : WebAssembly-Speicheranweisungen.
 - [WebAssembly-numerische Anweisungen](/de/docs/WebAssembly/Reference/Numeric)
   - : WebAssembly-numerische Anweisungen.
+- [WebAssembly-Referenzanweisungen](/de/docs/WebAssembly/Reference/Reference)
+  - : Die in Wasm verfügbaren Anweisungen zum Erstellen, Prüfen und Konvertieren von Referenzen.
 - [WebAssembly-SIMD-Anweisungen](/de/docs/WebAssembly/Reference/SIMD)
-  - : Die SIMD- (Single Instruction, Multiple Data) Anweisungen, die in Wasm verfügbar sind.
+  - : Die in Wasm verfügbaren SIMD-Anweisungen (Single Instruction, Multiple Data).
 - [WebAssembly-Tabellenanweisungen](/de/docs/WebAssembly/Reference/Table)
-  - : Die in Wasm verfügbaren Anweisungen zur Manipulation von Tabellen.
+  - : Die in Wasm verfügbaren Anweisungen zum Bearbeiten von Tabellen.
 - [WebAssembly-Variablenanweisungen](/de/docs/WebAssembly/Reference/Variables)
   - : WebAssembly-Variablenanweisungen.
 

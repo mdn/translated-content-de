@@ -1,62 +1,62 @@
 ---
-title: "Seitenbefüllung: Wie Browser funktionieren"
-short-title: Wie Browser funktionieren
+title: "Seitenaufbau: So funktionieren Browser"
+short-title: So funktionieren Browser
 slug: Web/Performance/Guides/How_browsers_work
 l10n:
-  sourceCommit: bf4475f3ca689796977ddf27f4ec8623d35b4db5
+  sourceCommit: 9945c1ccba85d04624c7608c48b61e2eed98d579
 ---
 
-Benutzer wünschen sich Web-Erlebnisse mit Inhalten, die schnell geladen werden und mit denen man reibungslos interagieren kann. Daher sollte ein Entwickler bestrebt sein, diese beiden Ziele zu erreichen.
+Nutzer möchten Webangebote, deren Inhalte schnell laden und die sich flüssig bedienen lassen. Entwickler sollten daher darauf hinarbeiten, diese Ziele zu erreichen.
 
-Um zu verstehen, wie die Leistung und die wahrgenommene Leistung verbessert werden können, ist es hilfreich zu verstehen, wie der Browser funktioniert.
+Wenn Sie Änderungen umsetzen, die die tatsächliche und die wahrgenommene Performance verbessern, ist es hilfreich zu verstehen, wie der Browser funktioniert. Dieser Artikel erklärt, wie der Browser Inhalte lädt und welche Faktoren die Performance beeinflussen.
 
 ## Überblick
 
-Schnelle Websites bieten bessere Benutzererlebnisse. Benutzer erwarten und wünschen sich Web-Erlebnisse mit Inhalten, die schnell geladen werden und mit denen man reibungslos interagieren kann.
+Schnelle Websites bieten eine bessere Nutzererfahrung. Nutzer erwarten, dass Inhalte schnell laden und die Bedienung flüssig und reaktionsschnell ist.
 
-Zwei Hauptprobleme bei der Web-Performance sind Latenzprobleme und das Problem, dass Browser größtenteils einsträngig arbeiten.
+Zwei große Herausforderungen für die Web-Performance sind die Latenz und die Tatsache, dass Browser größtenteils nur einen Thread für die Ausführung verwenden.
 
-Latenz ist die größte Bedrohung für unsere Fähigkeit, eine schnell ladende Seite sicherzustellen. Es ist das Ziel der Entwickler, die Website so schnell wie möglich zu laden – oder zumindest _erscheinen_ zu lassen, als würde sie superschnell laden –, damit der Benutzer die angeforderten Informationen so schnell wie möglich erhält. Netzwerk-Latenz ist die Zeit, die benötigt wird, um Bytes über Funk an Computer zu übertragen. Web-Performance ist das, was wir tun müssen, um die Seite so schnell wie möglich zu laden.
+Die Latenz ist die größte Hürde auf dem Weg zu schnell ladenden Seiten. Ziel der Entwickler ist es, die Website so schnell wie möglich laden zu lassen – oder sie zumindest _scheinbar_ besonders schnell laden zu lassen –, damit Nutzer die angeforderten Informationen möglichst rasch erhalten. Die Netzwerklatenz ist die Zeit, die benötigt wird, um Bytes über das Netzwerk an Computer zu übertragen. Bei der Web-Performance geht es darum, die Ladezeit einer Seite so weit wie möglich zu verkürzen.
 
-Im Wesentlichen gelten Browser als einsträngig. Das bedeutet, sie führen eine Aufgabe von Anfang bis Ende aus, bevor sie eine andere Aufgabe angehen. Für reibungslose Interaktionen ist es das Ziel des Entwicklers, performante Seiteninteraktionen sicherzustellen, von reibungslosem Scrollen bis hin zur Reaktionsfähigkeit auf Berührungen. Renderzeit ist entscheidend; es muss sichergestellt sein, dass der Haupt-Thread all die Arbeit bewältigen kann, die wir ihm auftragen, und dennoch immer verfügbar ist, um auf Benutzerinteraktionen zu reagieren. Die Web-Performance kann verbessert werden, indem die einsträngige Natur des Browsers verstanden und die Verantwortlichkeiten des Haupt-Threads dort minimiert werden, wo es möglich und angemessen ist, um sicherzustellen, dass das Rendering reibungslos und die Reaktionen auf Interaktionen sofort erfolgen.
+Browser gelten größtenteils als single-threaded. Das heißt, sie führen eine Aufgabe von Anfang bis Ende aus, bevor sie die nächste beginnen. Entwickler müssen für performante Interaktionen mit der Website sorgen – vom flüssigen Scrollen bis hin zu reaktionsschnellen Touch-Interaktionen. Die Renderzeit ist dabei entscheidend: Der Hauptthread muss alle Aufgaben erledigen, die wir ihm übertragen, und trotzdem für Nutzerinteraktionen verfügbar bleiben. Die Web-Performance lässt sich verbessern, wenn Sie die Single-Thread-Natur des Browsers berücksichtigen und die Aufgaben des Hauptthreads auf ein Minimum reduzieren. So können Inhalte flüssig gerendert und Eingaben unmittelbar beantwortet werden.
 
 ## Navigation
 
-_Navigation_ ist der erste Schritt beim Laden einer Webseite. Sie erfolgt immer, wenn ein Benutzer eine Seite anfordert, indem er eine URL in die Adressleiste eingibt, auf einen Link klickt, ein Formular einreicht und andere ähnliche Handlungen vornimmt.
+Die _Navigation_ ist der erste Schritt beim Laden einer Webseite. Sie beginnt, wenn ein Nutzer eine Seite anfordert, etwa indem er eine URL in die Adressleiste eingibt, auf einen Link klickt oder ein Formular absendet.
 
-Eines der Ziele der Web-Performance ist es, die Zeit zu minimieren, die die Navigation benötigt, um abgeschlossen zu werden. Unter idealen Bedingungen dauert dies normalerweise nicht lange, aber Latenz und Bandbreite sind Gegner, die Verzögerungen verursachen können.
+Ein Ziel der Web-Performance ist es, die Dauer bis zum Abschluss der Navigation zu minimieren. Latenz und Bandbreite können dabei zu Verzögerungen führen.
 
 ### DNS-Abfrage
 
-Der erste Schritt beim Navigieren zu einer Webseite ist das Auffinden der Lage der Assets für diese Seite. Wenn Sie zu `https://example.com` navigieren, befindet sich die HTML-Seite auf dem Server mit der IP-Adresse `93.184.216.34`. Wenn Sie diese Seite noch nie besucht haben, muss eine DNS-Abfrage erfolgen.
+Der erste Schritt beim Aufrufen einer Webseite besteht darin, die Ressourcen der Seite zu finden. Wenn Sie `https://example.com` aufrufen, liegt die HTML-Seite auf einem Server mit der IP-Adresse `93.184.216.34`. Beim ersten Besuch dieser Website findet eine DNS-Abfrage statt.
 
-Ihr Browser fordert eine DNS-Abfrage an, die letztendlich von einem Namensserver beantwortet wird, der wiederum mit einer IP-Adresse antwortet. Nach dieser ersten Anfrage wird die IP wahrscheinlich für eine Weile im Cache gespeichert, was nachfolgende Anfragen beschleunigt, indem die IP-Adresse aus dem Cache abgerufen wird, anstatt erneut einen Namensserver zu kontaktieren.
+Ihr Browser fordert eine DNS-Abfrage an, die schließlich von einem Nameserver beantwortet wird. Dieser liefert eine IP-Adresse zurück. Nach dieser ersten Anfrage wird die IP-Adresse wahrscheinlich zwischengespeichert. Das beschleunigt spätere Anfragen, da die IP-Adresse aus dem Cache statt vom Nameserver abgerufen werden kann.
 
-DNS-Abfragen müssen meist nur einmal pro Hostname für einen Seitenaufruf durchgeführt werden. Allerdings müssen DNS-Abfragen für jeden eindeutigen Hostnamen erfolgen, auf den die angeforderte Seite verweist. Wenn Ihre Schriften, Bilder, Skripte, Anzeigen und Metriken alle unterschiedliche Hostnamen haben, muss für jeden ein DNS-Lookup durchgeführt werden.
+Eine DNS-Abfrage ist beim Laden einer Seite in der Regel nur einmal pro Hostname erforderlich. Für jeden eindeutigen Hostnamen, auf den die angeforderte Seite verweist, muss jedoch eine eigene DNS-Abfrage stattfinden. Wenn Ihre Schriftarten, Bilder, Skripte, Anzeigen und Metriken jeweils unterschiedliche Hostnamen haben, ist für jeden davon eine DNS-Abfrage nötig.
 
-![Mobile Anfragen gehen zuerst zum Funkmast, dann zu einem zentralen Rechner des Telefonanbieters, bevor sie ins Internet gesendet werden](latency.jpg)
+![Anfragen von Mobilgeräten gelangen zuerst zum Mobilfunkmast und dann zu einem zentralen Rechner des Mobilfunkanbieters, bevor sie ins Internet gesendet werden](latency.jpg)
 
-Dies kann problematisch für die Leistung sein, insbesondere in Mobilfunknetzen. Wenn ein Benutzer in einem Mobilfunknetzwerk ist, muss jede DNS-Abfrage vom Telefon über den Funkmast gehen, um einen autoritativen DNS-Server zu erreichen. Die Entfernung zwischen einem Telefon, einem Funkmast und dem Namensserver kann eine erhebliche Latenz hinzufügen.
+Das kann besonders in Mobilfunknetzen die Performance beeinträchtigen. Wenn ein Nutzer ein Mobilfunknetz verwendet, führt jede DNS-Abfrage vom Telefon über den Mobilfunkmast zu einem autoritativen DNS-Server. Die Entfernung zwischen Telefon, Mobilfunkmast und Nameserver kann die Latenz erheblich erhöhen.
 
 ### TCP-Handshake
 
-Sobald die IP-Adresse bekannt ist, stellt der Browser eine Verbindung zum Server über einen {{Glossary("TCP_handshake", "TCP-Drei-Wege-Handshake")}} her. Dieser Mechanismus ist so konzipiert, dass zwei Einheiten, die versuchen zu kommunizieren - in diesem Fall der Browser und der Webserver - die Parameter der TCP-Netzwerksockel-Verbindung verhandeln können, bevor Daten gesendet werden, in der Regel über {{Glossary("HTTPS", "HTTPS")}}.
+Sobald die IP-Adresse bekannt ist, stellt der Browser über einen {{Glossary("TCP_handshake", "dreistufigen TCP-Handshake")}} eine Verbindung zum Server her. Dieser Mechanismus ermöglicht es zwei Kommunikationspartnern – hier dem Browser und dem Webserver –, die Parameter der TCP-Socket-Verbindung auszuhandeln, bevor Daten übertragen werden, häufig über {{Glossary("HTTPS", "HTTPS")}}.
 
-Die Drei-Wege-Handshake-Technik von TCP wird oft als "SYN-SYN-ACK" bezeichnet - oder genauer SYN, SYN-ACK, ACK - weil TCP drei Nachrichten übermittelt, um eine TCP-Sitzung zwischen zwei Computern auszuhandeln und zu starten. Ja, das bedeutet drei weitere Nachrichten hin und her zwischen jedem Server, und die Anfrage wurde noch nicht gestellt.
+Der dreistufige TCP-Handshake wird oft als „SYN-SYN-ACK“ bezeichnet – genauer gesagt als SYN, SYN-ACK, ACK. TCP überträgt diese drei Nachrichten, um eine TCP-Sitzung zwischen zwei Computern auszuhandeln und zu starten, noch bevor die eigentliche Anfrage gestellt wird.
 
-### TLS-Verhandlung
+### TLS-Aushandlung
 
-Für sichere Verbindungen, die über HTTPS hergestellt werden, ist ein weiterer "Handshake" erforderlich. Diese Verhandlung, oder besser gesagt die {{Glossary("TLS", "TLS")}}-Verhandlung, bestimmt, welcher Verschlüsselungsalgorithmus zur Verschlüsselung der Kommunikation verwendet wird, überprüft den Server und stellt sicher, dass eine sichere Verbindung besteht, bevor der tatsächliche Datentransfer beginnt. Dies erfordert fünf weitere Rundreisen zum Server, bevor die Anfrage nach Inhalten tatsächlich gesendet wird.
+Für sichere Verbindungen über HTTPS ist ein weiterer „Handshake“ erforderlich. Bei diesem Handshake, genauer gesagt bei der {{Glossary("TLS", "TLS")}}-Aushandlung, wird festgelegt, welches Verschlüsselungsverfahren für die Kommunikation verwendet wird. Außerdem wird der Server überprüft und eine sichere Verbindung hergestellt, bevor die Datenübertragung beginnt. Dafür sind fünf weitere Umläufe zum Server erforderlich, bevor die Anfrage nach dem Inhalt gesendet wird.
 
-![Die DNS-Abfrage, der TCP-Handshake und 5 Schritte der TLS-Verhandlung einschließlich Client Hello, Server Hello und Zertifikat, Client Key und abgeschlossen für Server und Client.](ssl.jpg)
+![Die DNS-Abfrage, der TCP-Handshake und fünf Schritte des TLS-Handshakes, darunter Client Hello, Server Hello und Zertifikat, Client Key sowie Finished für Server und Client.](ssl.jpg)
 
-Während das Herstellen der Verbindung sicher zusätzliche Zeit zum Laden der Seite hinzufügt, ist eine sichere Verbindung die Latenz wert, da die zwischen dem Browser und dem Webserver übertragenen Daten von Dritten nicht entschlüsselt werden können.
+Die Absicherung der Verbindung verlängert die Ladezeit der Seite. Diese zusätzliche Latenz lohnt sich jedoch, da Dritte die zwischen Browser und Webserver übertragenen Daten nicht entschlüsseln können.
 
-Nach den acht Rundreisen zum Server ist der Browser schließlich in der Lage, die Anfrage zu stellen.
+Nach acht Umläufen zum Server kann der Browser schließlich die Anfrage stellen.
 
 ## Antwort
 
-Sobald wir eine etablierte Verbindung zu einem Webserver haben, sendet der Browser eine anfängliche [HTTP `GET`-Anfrage](/de/docs/Web/HTTP/Reference/Methods) im Namen des Benutzers, die bei Websites meistens eine HTML-Datei ist. Sobald der Server die Anfrage erhält, antwortet er mit relevanten Antwort-Headern und dem Inhalt des HTML.
+Sobald eine Verbindung zum Webserver besteht, sendet der Browser im Namen des Nutzers eine erste [HTTP-`GET`-Anfrage](/de/docs/Web/HTTP/Reference/Methods). Bei Websites richtet sich diese meist auf eine HTML-Datei. Wenn der Server die Anfrage erhält, antwortet er mit den entsprechenden Antwort-Headern und dem HTML-Inhalt.
 
 ```html
 <!doctype html>
@@ -78,47 +78,49 @@ Sobald wir eine etablierte Verbindung zu einem Webserver haben, sendet der Brows
 </html>
 ```
 
-Diese Antwort auf diese anfängliche Anfrage enthält das erste empfangene Datenbyte. {{Glossary("Time_to_First_Byte", "Time to First Byte")}} (TTFB) ist die Zeit zwischen dem Moment, in dem der Benutzer die Anfrage gestellt hat - zum Beispiel durch Klicken auf einen Link - und dem Empfang dieses ersten HTML-Pakets. Der erste Datenblock ist normalerweise 14 KB groß.
+Die Antwort auf diese erste Anfrage enthält das erste empfangene Datenbyte. Die {{Glossary("Time_to_First_Byte", "Time to First Byte")}} (TTFB) bezeichnet die Zeitspanne zwischen der Anfrage des Nutzers – beispielsweise durch einen Klick auf einen Link – und dem Empfang dieses ersten HTML-Pakets. Der erste Teil der Antwort umfasst üblicherweise 14 KB Daten.
 
-In unserem obigen Beispiel ist die Anfrage definitiv weniger als 14 KB, aber die verlinkten Ressourcen werden erst angefordert, wenn der Browser während der unten beschriebenen Analyse auf die Links stößt.
+In unserem obigen Beispiel ist die Anfrage deutlich kleiner als 14 KB. Die verlinkten Ressourcen werden jedoch erst angefordert, wenn der Browser beim Parsen auf die Links stößt, wie weiter unten beschrieben.
 
-### Staukontrolle / TCP Slow Start
+### Überlastungssteuerung / TCP Slow Start
 
-TCP-Pakete werden während der Übertragung in Segmente aufgeteilt. Da TCP die Reihenfolge der Pakete garantiert, muss der Server nach dem Senden einer bestimmten Anzahl von Segmenten eine Empfangsbestätigung vom Client in der Form eines ACK-Pakets erhalten.
+TCP teilt Daten für die Übertragung in Segmente auf und gewährleistet, dass alle Segmente zuverlässig zwischen Server und Client zugestellt werden. Der Client bestätigt empfangene Segmente mit ACK-Paketen. Der Server entscheidet, wie viele Segmente er sendet, bevor er auf eine solche Bestätigung wartet.
 
-Wenn der Server nach jedem Segment auf ein ACK wartet, führt das zu häufigen ACKs vom Client und kann die Übertragungszeit erhöhen, selbst bei niedriger Netzauslastung.
+Diese Anzahl muss ausgewogen sein: Wartet der Server nach jedem Segment auf ein ACK, verläuft die Übertragung langsam, weil er für jedes gesendete Segment einen vollständigen Umlauf abwarten muss – selbst in einem wenig ausgelasteten Netzwerk.
+Werden andererseits zu viele Segmente gleichzeitig in ein stark ausgelastetes Netzwerk gesendet, können einige davon unterwegs verloren gehen. Der Client kann Segmente, die er nie empfangen hat, nicht bestätigen; der Server sendet sie daher schließlich erneut.
 
-Auf der anderen Seite kann das Senden von zu vielen Segmenten auf einmal dazu führen, dass in einem stark ausgelasteten Netzwerk der Client die Segmente nicht empfangen kann und nur lange Zeit mit ACKs antwortet, und der Server die Segmente immer wieder neu senden muss.
+TCP verwendet zwei voneinander unabhängige Grenzen für die Menge unbestätigter Daten, die der Server gleichzeitig übertragen kann:
 
-Um die Anzahl der gesendeten Segmente auszubalancieren, wird der Algorithmus {{Glossary("TCP_slow_start", "TCP Slow Start")}} verwendet, um die Menge der gesendeten Daten allmählich zu erhöhen, bis die maximale Netzwerkbandbreite ermittelt werden kann, und um die Menge der gesendeten Daten bei hoher Netzauslastung zu reduzieren.
+- Das _Empfangsfenster_ (RWND) schützt den Client: Es teilt dem Server mit, wie viele eingehende Daten der Client derzeit aufnehmen kann. Diese Grenze hängt vom verfügbaren Platz im Empfangspuffer des Clients ab. Der Client gibt sie dem Server bekannt, um den TCP-Datenfluss zu steuern.
+- Das _Überlastungsfenster_ (CWND) schützt das Netzwerk: Es entspricht der Einschätzung des Servers, wie viele Daten der Übertragungsweg zum Client aufnehmen kann, ohne dass Segmente verloren gehen.
 
-Die Anzahl der zu sendenden Segmente wird durch den Wert des Stau-Fensters (CWND) gesteuert, das mit 1, 2, 4 oder 10 MSS (MSS sind 1500 Bytes über das Ethernet-Protokoll) initialisiert werden kann. Dieser Wert ist die Anzahl der Bytes, die gesendet werden sollen, deren Empfang der Client bestätigen muss.
+Der Server überträgt nie mehr unbestätigte Daten gleichzeitig, als das kleinere dieser beiden Fenster zulässt.
 
-Wenn ein ACK empfangen wird, wird der CWND-Wert verdoppelt, sodass der Server beim nächsten Mal mehr Segmente senden kann. Wird stattdessen kein ACK empfangen, wird der CWND-Wert halbiert. Dieser Mechanismus erreicht so ein Gleichgewicht zwischen dem Senden von zu vielen und zu wenigen Segmenten.
+Das Überlastungsfenster ist anfangs klein und wird im Verlauf der Übertragung angepasst. Während des {{Glossary("TCP_slow_start", "TCP Slow Start")}} wächst es schnell und verdoppelt sich ungefähr bei jedem Umlauf, bis Segmente verloren gehen oder der TCP-Slow-Start-Schwellenwert (`ssthresh`) erreicht wird. Danach wächst es langsamer und wird reduziert, sobald das Netzwerk Anzeichen einer Überlastung zeigt. Weitere Einzelheiten zur TCP-Überlastungssteuerung finden Sie in [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681.html).
 
 ## Parsing
 
-Sobald der Browser den ersten Datenblock empfängt, kann er mit dem Parsing der empfangenen Informationen beginnen. {{Glossary("parse", "Parsing")}} ist der Schritt, in dem der Browser die über das Netzwerk empfangenen Daten in den {{Glossary("DOM", "DOM")}} und {{Glossary("CSSOM", "CSSOM")}} umwandelt, die vom Renderer verwendet werden, um eine Seite auf dem Bildschirm darzustellen.
+Sobald der Browser den ersten Teil der Daten erhält, kann er beginnen, die empfangenen Informationen zu parsen. Beim {{Glossary("parse", "Parsing")}} wandelt der Browser die über das Netzwerk empfangenen Daten in das {{Glossary("DOM", "DOM")}} und das {{Glossary("CSSOM", "CSSOM")}} um. Der Renderer verwendet diese Strukturen, um die Seite auf dem Bildschirm darzustellen.
 
-Der DOM ist die interne Darstellung der Markup-Sprache für den Browser. Der DOM ist auch über verschiedene APIs in JavaScript zugänglich und manipulierbar.
+Das DOM ist die interne Darstellung des Markups im Browser. Es ist außerdem zugänglich und kann über verschiedene JavaScript-APIs verändert werden.
 
-Selbst wenn das HTML der angeforderten Seite größer als das anfängliche 14 KB-Paket ist, beginnt der Browser mit dem Parsing und versucht, eine Erfahrung basierend auf den verfügbaren Daten zu rendern. Aus diesem Grund ist es wichtig, dass die Web-Performance-Optimierung alles umfasst, was der Browser benötigt, um mit dem Rendern einer Seite zu beginnen, oder zumindest eine Vorlage der Seite - das CSS und HTML, das für das erste Rendering benötigt wird - im ersten 14 KB-Paket enthält. Aber bevor etwas auf den Bildschirm gerendert wird, müssen das HTML, CSS und JavaScript geparst werden.
+Selbst wenn das HTML der angeforderten Seite größer ist als das erste 14-KB-Paket, beginnt der Browser mit dem Parsen und versucht, die Inhalte anhand der bereits verfügbaren Daten zu rendern. Für die Optimierung der Web-Performance ist es daher wichtig, alles, was der Browser für den Beginn des Renderings benötigt – oder zumindest das HTML- und CSS-Grundgerüst der Seite –, in den ersten 14 KB unterzubringen. Bevor jedoch etwas auf dem Bildschirm dargestellt werden kann, müssen HTML, CSS und JavaScript geparst werden.
 
 ### Aufbau des DOM-Baums
 
-Wir beschreiben fünf Schritte im [kritischen Rendering-Pfad](/de/docs/Web/Performance/Guides/Critical_rendering_path).
+Wir beschreiben fünf Schritte des [kritischen Rendering-Pfads](/de/docs/Web/Performance/Guides/Critical_rendering_path).
 
-Der erste Schritt ist das Verarbeiten der HTML-Markup-Sprache und der Aufbau des DOM-Baums. Das HTML-Parsen umfasst die [Tokenisierung](/de/docs/Web/API/DOMTokenList) und den Baumaufbau. HTML-Tokens umfassen Start- und End-Tags sowie Attributnamen und -werte. Wenn das Dokument gut strukturiert ist, ist das Parsing einfach und schneller. Der Parser parst eingetokene Eingaben in das Dokument und baut den Dokumentbaum auf.
+Der erste Schritt besteht darin, das HTML-Markup zu verarbeiten und den DOM-Baum aufzubauen. Zum HTML-Parsing gehören die [Tokenisierung](/de/docs/Web/API/DOMTokenList) und der Aufbau des Baums. HTML-Tokens umfassen Start- und End-Tags sowie Attributnamen und -werte. Ist das Dokument wohlgeformt, lässt es sich einfach und schnell parsen. Der Parser verarbeitet die tokenisierte Eingabe und baut daraus den Dokumentbaum auf.
 
-Der DOM-Baum beschreibt den Inhalt des Dokuments. Das [`<html>`](/de/docs/Web/HTML/Reference/Elements/html)-Element ist das erste Element und der Wurzelknoten des Dokumentbaums. Der Baum spiegelt die Beziehungen und Hierarchien zwischen verschiedenen Elementen wider. In andere Elemente geschachtelte Elemente sind Kindknoten. Je mehr DOM-Knoten vorhanden sind, desto länger dauert es, den DOM-Baum zu konstruieren.
+Der DOM-Baum beschreibt den Inhalt des Dokuments. Das Element [`<html>`](/de/docs/Web/HTML/Reference/Elements/html) ist das erste Element und der Wurzelknoten des Dokumentbaums. Der Baum bildet die Beziehungen und Hierarchien zwischen den Elementen ab. Elemente innerhalb anderer Elemente sind Kindknoten. Je mehr DOM-Knoten vorhanden sind, desto länger dauert der Aufbau des DOM-Baums.
 
-![Der DOM-Baum für unser Beispielcode zeigt alle Knoten, einschließlich Textknoten.](dom.gif)
+![Der DOM-Baum für unseren Beispielcode mit allen Knoten einschließlich der Textknoten.](dom.gif)
 
-Wenn der Parser nicht blockierende Ressourcen wie ein Bild findet, fordert der Browser diese Ressourcen an und setzt das Parsing fort. Das Parsing kann fortgesetzt werden, wenn eine CSS-Datei entdeckt wird, aber `<script>`-Elemente – insbesondere solche ohne das [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder `defer`-Attribut – blockieren das Rendering und pausieren das Parsing von HTML. Obwohl der Preload-Scanner diesen Prozess beschleunigt, können übermäßige Skripte trotzdem ein erheblicher Engpass sein.
+Wenn der Parser auf Ressourcen stößt, die das Parsing nicht blockieren, beispielsweise ein Bild, fordert der Browser diese an und setzt das Parsing fort. Auch beim Verarbeiten einer CSS-Datei kann das HTML-Parsing weiterlaufen. `<script>`-Elemente hingegen – insbesondere solche ohne [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)- oder `defer`-Attribut – blockieren das Rendering und unterbrechen das HTML-Parsing. Der Preload-Scanner des Browsers mildert zwar diese Blockierung des Renderings ab, große Skripte können aber weiterhin einen erheblichen Engpass verursachen.
 
 ### Preload-Scanner
 
-Während der Browser den DOM-Baum erstellt, belegt dieser Prozess den Haupt-Thread. Während dies geschieht, durchsucht der _Preload-Scanner_ den verfügbaren Inhalt und fordert hochpriorisierte Ressourcen wie CSS, JavaScript und Web-Schriften an. Dank des Preload-Scanners müssen wir nicht warten, bis der Parser einen Verweis auf eine externe Ressource findet, um sie anzufordern. Er ruft Ressourcen im Hintergrund ab, sodass sie möglicherweise bereits unterwegs sind oder heruntergeladen wurden, wenn der Haupt-HTML-Parser die angeforderten Assets erreicht. Die Optimierungen, die der Preload-Scanner bietet, reduzieren Blockaden.
+Der Aufbau des DOM-Baums beansprucht den Hauptthread. Der _Preload-Scanner_ durchsucht die verfügbaren Inhalte und fordert Ressourcen mit hoher Priorität an, etwa CSS, JavaScript und Webfonts. Dank des Preload-Scanners müssen wir nicht warten, bis der Parser auf einen Verweis auf eine externe Ressource stößt, um diese anzufordern. Der Scanner lädt Ressourcen im Hintergrund. Wenn der eigentliche HTML-Parser die betreffenden Ressourcen erreicht, werden sie möglicherweise bereits übertragen oder sind schon heruntergeladen. Das reduziert Blockierungen.
 
 ```html
 <link rel="stylesheet" href="styles.css" />
@@ -127,81 +129,82 @@ Während der Browser den DOM-Baum erstellt, belegt dieser Prozess den Haupt-Thre
 <script src="another-script.js" async></script>
 ```
 
-In diesem Beispiel findet der Preload-Scanner während der Haupt-Thread das HTML und CSS analysiert, Skripte und Bilder, und beginnt, sie ebenfalls herunterzuladen. Um sicherzustellen, dass das Skript den Prozess nicht blockiert, fügen Sie das `async`-Attribut hinzu, oder das `defer`-Attribut, wenn Parsing und Ausführungsreihenfolge von JavaScript wichtig sind.
+Während der Hauptthread in diesem Beispiel HTML und CSS parst, findet der Preload-Scanner die Skripte und das Bild und beginnt ebenfalls mit deren Download. Das Attribut `async` sorgt dafür, dass das Skript den Ablauf nicht blockiert. Wenn die Reihenfolge beim Parsen und Ausführen von JavaScript wichtig ist, kann stattdessen das Attribut `defer` verwendet werden.
 
-Das Warten auf das Abrufen von CSS blockiert nicht das HTML-Parsen oder Herunterladen, aber es blockiert JavaScript, da JavaScript oft verwendet wird, um die Auswirkungen von CSS-Eigenschaften auf Elemente abzufragen.
+Das Warten auf CSS blockiert weder das HTML-Parsing noch Downloads. Es blockiert jedoch JavaScript, weil Skripte häufig abfragen, wie sich CSS-Eigenschaften auf Elemente auswirken.
 
 ### Aufbau des CSSOM-Baums
 
-Der zweite Schritt im kritischen Rendering-Pfad ist das Verarbeiten von CSS und der Aufbau des CSSOM-Baums. Das CSS-Objektmodell ist dem DOM ähnlich. Der DOM und der CSSOM sind beide Bäume. Sie sind unabhängige Datenstrukturen. Der Browser konvertiert die CSS-Regeln in eine Karte von Stilen, die er verstehen und verarbeiten kann. Der Browser geht durch jede Regel im CSS und erstellt einen Baum von Knoten mit Eltern-, Kinder- und Geschwisterbeziehungen basierend auf den CSS-Selektoren.
+Der zweite Schritt des kritischen Rendering-Pfads besteht darin, CSS zu verarbeiten und den CSSOM-Baum aufzubauen. Das CSS-Objektmodell ähnelt dem DOM. DOM und CSSOM sind beides Bäume, aber voneinander unabhängige Datenstrukturen. Der Browser wandelt CSS-Regeln in eine Struktur von Stilinformationen um. Diese umfasst einen Baum aus Knoten mit Eltern-, Kind- und Geschwisterbeziehungen, die sich aus den CSS-Selektoren ergeben.
 
-Wie bei HTML muss der Browser die empfangenen CSS-Regeln in etwas konvertieren, mit dem er arbeiten kann. Deshalb wiederholt er den HTML-zu-Objekt-Prozess für das CSS.
+Wie bei HTML wandelt der Browser die empfangenen CSS-Regeln in eine Form um, mit der er arbeiten kann. Er wiederholt also den Vorgang, mit dem HTML in Objekte umgewandelt wird, für CSS.
 
-Der CSSOM-Baum umfasst Stile aus dem Benutzeragenten-Stylesheet. Der Browser beginnt mit der allgemeinsten Regel, die auf einen Knoten anwendbar ist, und verfeinert rekursiv die berechneten Stile, indem spezifischere Regeln angewendet werden. Mit anderen Worten, er kaskadiert die Eigenschaftswerte.
+Der CSSOM-Baum enthält auch Stile aus dem Stylesheet des User-Agents. Der Browser beginnt mit der allgemeinsten Regel, die auf einen Knoten zutrifft, und verfeinert die berechneten Stile rekursiv, indem er spezifischere Regeln anwendet. Mit anderen Worten: Die Eigenschaftswerte werden gemäß der Kaskade bestimmt.
 
-Der Aufbau des CSSOM ist sehr, sehr schnell, und diese Bauzeitinformationen werden nicht in den Entwicklertools angezeigt. Stattdessen zeigt "Stile neu berechnen" in den Entwicklertools die Gesamtzeit an, die nötig ist, um CSS zu analysieren, den CSSOM-Baum zu erstellen, und berechnete Stile rekursiv zu berechnen. In Bezug auf die Web-Performance gibt es viele bessere Möglichkeiten, Optimierungsbemühungen zu investieren, da die Gesamtzeit zur Erstellung des CSSOM in der Regel weniger als die Zeit für ein DNS-Lookup beträgt.
+Der Aufbau des CSSOM geht schnell und wird in den Entwicklerwerkzeugen nicht gesondert angezeigt.
+Stattdessen zeigt die Metrik „Recalculate Style“ in den Entwicklerwerkzeugen die gesamte Zeit an, die benötigt wird, um CSS zu parsen, den CSSOM-Baum aufzubauen und die berechneten Stile rekursiv zu ermitteln. Bei der Performance-Optimierung lässt sich Ihre Zeit meist sinnvoller einsetzen: Der Aufbau des CSSOM dauert in der Regel weniger lang als eine einzige DNS-Abfrage.
 
-### Andere Prozesse
+### Weitere Prozesse
 
 #### JavaScript-Kompilierung
 
-Während das CSS analysiert und der CSSOM erstellt wird, werden andere Assets, einschließlich JavaScript-Dateien, heruntergeladen (dank des Preload-Scanners). JavaScript wird analysiert, kompiliert und interpretiert. Die Skripte werden in abstrakte Syntaxbäume geparst. Einige Browser-Engines nehmen die [abstrakten Syntaxbäume](https://en.wikipedia.org/wiki/Abstract_Syntax_Tree) und geben sie in einen Compiler ein, der Bytecode ausgibt. Dies ist als JavaScript-Kompilierung bekannt. Der Großteil des Codes wird im Haupt-Thread interpretiert, aber es gibt Ausnahmen wie Code, der in [Web-Workern](/de/docs/Web/API/Web_Workers_API) ausgeführt wird.
+Während CSS geparst und das CSSOM erstellt wird, werden weitere Ressourcen heruntergeladen, darunter JavaScript-Dateien – dank des Preload-Scanners. JavaScript wird geparst, kompiliert und interpretiert. Die Skripte werden in abstrakte Syntaxbäume zerlegt. Einige Browser-Engines übergeben diese [abstrakten Syntaxbäume](https://en.wikipedia.org/wiki/Abstract_Syntax_Tree) an einen Compiler, der daraus Bytecode erzeugt. Dies wird als JavaScript-Kompilierung bezeichnet. Der Großteil des Codes wird auf dem Hauptthread interpretiert; Ausnahmen sind beispielsweise Programme, die in [Web Workern](/de/docs/Web/API/Web_Workers_API) ausgeführt werden.
 
-#### Aufbau des Zugänglichkeitsbaums
+#### Aufbau des Barrierefreiheitsbaums
 
-Der Browser erstellt auch einen [Zugänglichkeitsbaum](/de/docs/Learn_web_development/Core/Accessibility), den Hilfsgeräte verwenden, um Inhalte zu parsen und zu interpretieren. Das Accessibility Object Model (AOM) ist wie eine semantische Version des DOM. Der Browser aktualisiert den Zugänglichkeitsbaum, wenn der DOM aktualisiert wird. Der Zugänglichkeitsbaum kann von Hilfstechnologien selbst nicht modifiziert werden.
+Der Browser erstellt außerdem einen [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility), den assistive Technologien zum Erfassen und Interpretieren der Inhalte verwenden. Das Accessibility Object Model (AOM) ähnelt einer semantischen Version des DOM. Der Browser aktualisiert den Barrierefreiheitsbaum und das DOM gleichzeitig. Assistive Technologien können den Barrierefreiheitsbaum nicht direkt verändern.
 
-Bis der AOM erstellt ist, ist der Inhalt nicht für [Bildschirmleseprogramme](/de/docs/Web/Accessibility/ARIA/Guides/Screen_Reader_Implementors) zugänglich.
+Solange das AOM nicht aufgebaut ist, sind die Inhalte für [Screenreader](/de/docs/Web/Accessibility/ARIA/Guides/Screen_Reader_Implementors) nicht zugänglich.
 
-## Rendern
+## Rendering
 
-Die Rendering-Schritte umfassen Stil, Layout, Malen und in einigen Fällen Compositing. Die im Parsing-Schritt erstellten CSSOM- und DOM-Bäume werden in einem Renderbaum kombiniert, der dann verwendet wird, um das Layout jedes sichtbaren Elements zu berechnen, das dann auf dem Bildschirm gemalt wird. In einigen Fällen kann Inhalt auf seine eigene Ebene gefördert und zusammengesetzt werden, was die Performance verbessert, indem Teile des Bildschirms auf der GPU anstelle der CPU gemalt werden, was den Haupt-Thread entlastet.
+Zu den Rendering-Schritten gehören die Stilberechnung, das Layout, das Zeichnen und in manchen Fällen das Compositing. Die beim Parsing erstellten CSSOM- und DOM-Bäume werden zu einem Renderbaum zusammengeführt. Anhand dieses Baums wird das Layout aller sichtbaren Elemente berechnet, die auf dem Bildschirm gezeichnet werden. In manchen Fällen können Inhalte eine eigene Ebene erhalten und per Compositing zusammengesetzt werden. Das verbessert die Performance, da Teile des Bildschirms auf der GPU statt auf der CPU gezeichnet werden und der Hauptthread entlastet wird.
 
-### Stil
+### Stilberechnung
 
-Der dritte Schritt im kritischen Rendering-Pfad besteht darin, den DOM und den CSSOM in einen Renderbaum zu kombinieren. Die Stilberechnungsbaum- oder Renderbaum-Konstruktion beginnt mit der Wurzel des DOM-Baums und durchläuft jeden sichtbaren Knoten.
+Der dritte Schritt des kritischen Rendering-Pfads besteht darin, DOM und CSSOM zu einem Renderbaum zusammenzuführen. Der Aufbau dieses Baums der berechneten Stile, auch Renderbaum genannt, beginnt an der Wurzel des DOM-Baums und durchläuft jeden sichtbaren Knoten.
 
-Elemente, die nicht angezeigt werden sollen, wie das [`<head>`](/de/docs/Web/HTML/Reference/Elements/head)-Element und seine Kinder sowie alle Knoten mit `display: none`, wie das `script { display: none; }`, das Sie in Benutzeragenten-Stylesheets finden, sind nicht im Renderbaum enthalten, da sie im gerenderten Ergebnis nicht dargestellt werden. Knoten mit angewendetem `visibility: hidden` werden im Renderbaum enthalten, da sie Platz beanspruchen. Da wir keine Direktiven angegeben haben, um die Benutzeragenten-Standardeinstellungen zu überschreiben, wird der `script`-Knoten in unserem obigen Codebeispiel nicht im Renderbaum enthalten sein.
+Elemente, die nicht angezeigt werden – etwa das Element [`<head>`](/de/docs/Web/HTML/Reference/Elements/head) und seine Kindknoten sowie Knoten mit `display: none`, wie bei `script { display: none; }` in User-Agent-Stylesheets –, werden nicht in den Renderbaum aufgenommen, da sie nicht in der gerenderten Ausgabe erscheinen. Knoten mit `visibility: hidden` werden hingegen aufgenommen, weil sie Platz beanspruchen. Da wir keine Anweisungen festgelegt haben, die den Standard des User-Agents überschreiben, wird der `script`-Knoten aus unserem obigen Codebeispiel nicht in den Renderbaum aufgenommen.
 
-Jedem sichtbaren Knoten werden seine CSSOM-Regeln angewendet. Der Renderbaum enthält alle sichtbaren Knoten mit Inhalten und berechneten Stilen – er ordnet alle relevanten Stile jedem sichtbaren Knoten im DOM-Baum zu und bestimmt anhand der [CSS-Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction), welche berechneten Stile für jeden Knoten anzuwenden sind.
+Auf jeden sichtbaren Knoten werden seine CSSOM-Regeln angewendet. Der Renderbaum enthält alle sichtbaren Knoten samt Inhalt und berechneten Stilen: Er ordnet jedem sichtbaren Knoten des DOM-Baums die relevanten Stile zu und bestimmt anhand der [CSS-Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction), welche Stile sich für die einzelnen Knoten ergeben.
 
 ### Layout
 
-Der vierte Schritt im kritischen Rendering-Pfad ist der Layout-Durchlauf des Renderbaums, um die Geometrie jedes Knotens zu berechnen. _Layout_ ist der Prozess zur Bestimmung der Abmessungen und der Position aller Knoten im Renderbaum, sowie zur Festlegung der Größe und Position jedes Objekts auf der Seite. _Reflow_ ist jede nachfolgende Größen- und Positionsbestimmung eines Teils der Seite oder des gesamten Dokuments.
+Im vierten Schritt des kritischen Rendering-Pfads wird das Layout des Renderbaums berechnet, um die Geometrie jedes Knotens zu bestimmen. _Layout_ bezeichnet den Vorgang, bei dem Abmessungen und Positionen aller Knoten im Renderbaum und damit Größe und Position jedes Objekts auf der Seite ermittelt werden. Als _Reflow_ wird jede spätere Neuberechnung von Größe und Position eines Teils der Seite oder des gesamten Dokuments bezeichnet.
 
-Sobald der Renderbaum erstellt ist, beginnt das Layout. Der Renderbaum hat bestimmt, welche Knoten angezeigt werden (auch wenn sie unsichtbar sind) zusammen mit ihren berechneten Stilen, aber nicht mit den Abmessungen oder dem Ort jedes Knotens. Um die genaue Größe und Position jedes Objekts zu bestimmen, beginnt der Browser beim Stamm des Renderbaums und durchläuft ihn.
+Sobald der Renderbaum erstellt ist, beginnt die Layout-Berechnung. Der Renderbaum gibt an, welche Knoten angezeigt werden – selbst wenn sie unsichtbar sind – und welche berechneten Stile sie haben. Abmessungen und Positionen der Knoten enthält er jedoch nicht. Um die genaue Größe und Position jedes Objekts zu bestimmen, beginnt der Browser an der Wurzel des Renderbaums und durchläuft ihn.
 
-Auf der Webseite ist fast alles ein Kasten. Unterschiedliche Geräte und unterschiedliche Desktop-Präferenzen bedeuten eine unbegrenzte Anzahl unterschiedlicher Ansichtsfenstergrößen. In dieser Phase, unter Berücksichtigung der Ansichtsfenstergröße, bestimmt der Browser, welche Größen alle unterschiedlichen Kästen auf dem Bildschirm haben werden. Ausgehend von der Größe des Ansichtsfensters beginnt das Layout normalerweise mit dem body, legt die Größen aller Nachkommen des body fest, wobei jede Element-Box-Model-Eigenschaft Platzhalterraum für ersetzte Elemente bereitstellt, deren Dimensionen es nicht kennt, wie unser Bild.
+Auf einer Webseite ist fast alles eine Box. Unterschiedliche Geräte und Desktop-Einstellungen führen zu einer unbegrenzten Zahl verschiedener Viewport-Größen. In dieser Phase bestimmt der Browser unter Berücksichtigung der Viewport-Größe die Abmessungen aller Boxen auf dem Bildschirm. Die Layout-Berechnung beginnt üblicherweise beim Body. Dabei werden die Abmessungen aller seiner Nachfahren festgelegt und Platzhalter für ersetzte Elemente mit unbekannten Abmessungen vorgesehen, etwa für unser Bild.
 
-Das erste Mal, dass die Größe und Position jedes Knotens bestimmt werden, wird als _Layout_ bezeichnet. Nachfolgende Neuberechnungen des _Layouts_ werden als _Reflows_ bezeichnet. In unserem Beispiel nehmen wir an, dass das erste Layout vor der Rückgabe des Bildes erfolgt. Da wir die Dimensionen unseres Bildes nicht deklariert haben, erfolgt ein Reflow, sobald die Bilddimensionen bekannt sind.
+Die erstmalige Bestimmung von Größe und Position jedes Knotens wird _Layout_ genannt. Spätere Neuberechnungen des _Layouts_ heißen _Reflows_. Nehmen wir in unserem Beispiel an, dass das erste Layout berechnet wird, bevor das Bild eintrifft. Da wir keine Bildabmessungen angegeben haben, kommt es zu einem Reflow, sobald diese bekannt sind.
 
-### Paint
+### Zeichnen
 
-Der letzte Schritt im kritischen Rendering-Pfad ist das Malen der einzelnen Knoten auf den Bildschirm, wobei das erste Vorkommen als {{Glossary("First_meaningful_paint", "First Meaningful Paint")}} bezeichnet wird. In der Mal- oder Rasterisierungsphase konvertiert der Browser jeden im Layout-Schritt berechneten Kasten in tatsächliche Pixel auf dem Bildschirm. Das Malen umfasst das Zeichnen jedes visuellen Teils eines Elements auf den Bildschirm, einschließlich Text, Farben, Rändern, Schatten und ersetzten Elementen wie Schaltflächen und Bildern. Der Browser muss dies sehr schnell tun.
+Der letzte Schritt des kritischen Rendering-Pfads besteht darin, die einzelnen Knoten auf dem Bildschirm zu zeichnen. Das erste solche Zeichnen wird als {{Glossary("First_meaningful_paint", "First Meaningful Paint")}} bezeichnet. In der Zeichen- oder Rasterisierungsphase wandelt der Browser jede in der Layout-Phase berechnete Box in tatsächliche Pixel auf dem Bildschirm um. Dabei werden alle sichtbaren Bestandteile eines Elements gezeichnet, darunter Text, Farben, Rahmen, Schatten und ersetzte Elemente wie Schaltflächen und Bilder. Das muss sehr schnell geschehen.
 
-Um ein reibungsloses Scrollen und Animationen zu gewährleisten, muss alles, was den Haupt-Thread beansprucht, einschließlich der Berechnung von Stilen, zusammen mit Reflow und Paint, dem Browser weniger als 16,67 ms beanspruchen. Bei 2048 x 1536 hat das iPad über 3.145.000 Pixel, die auf den Bildschirm gemalt werden müssen. Das sind viele Pixel, die sehr schnell gemalt werden müssen. Um sicherzustellen, dass das Übermalen noch schneller als das erste Malen durchgeführt werden kann, wird das Zeichnen auf den Bildschirm im Allgemeinen in mehrere Schichten aufgeteilt. Wenn dies auftritt, ist ein Compositing erforderlich.
+Damit Scrollen und Animationen flüssig ablaufen, müssen alle Vorgänge auf dem Hauptthread – einschließlich Stilberechnung, Reflow und Zeichnen – in weniger als 16,67 ms abgeschlossen sein. Bei einer Auflösung von 2048 × 1536 müssen auf einem iPad über 3.145.000 Pixel auf dem Bildschirm gezeichnet werden. Das sind sehr viele Pixel, die in kürzester Zeit gezeichnet werden müssen. Damit spätere Neuzeichnungen schneller sind als das erste Zeichnen, wird die Darstellung auf dem Bildschirm in der Regel in mehrere Ebenen aufgeteilt. Dafür ist Compositing erforderlich.
 
-Das Malen kann die Elemente im Layoutbaum in Schichten aufteilen. Das Fördern von Inhalten in Schichten auf der GPU (anstelle des Haupt-Threads auf der CPU) verbessert die Paint- und Repaint-Performance. Es gibt bestimmte Eigenschaften und Elemente, die eine Schicht instanzieren, einschließlich [`<video>`](/de/docs/Web/HTML/Reference/Elements/video) und [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas), und jedes Element, das die CSS-Eigenschaften von {{cssxref("opacity")}}, einer 3D-{{cssxref("transform")}}, {{cssxref("will-change")}} und einigen anderen hat. Diese Knoten werden zusammen mit ihren Nachfahren, es sei denn, ein Nachfahre benötigt eine eigene Schicht aus einem der oben genannten Gründe, auf ihrer eigenen Schicht gemalt.
+Beim Zeichnen können die Elemente des Layout-Baums auf Ebenen verteilt werden. Wenn Inhalte auf der GPU eigene Ebenen erhalten, statt auf dem Hauptthread der CPU verarbeitet zu werden, verbessert das die Performance beim Zeichnen und Neuzeichnen. Bestimmte Eigenschaften und Elemente erzeugen eine eigene Ebene, darunter [`<video>`](/de/docs/Web/HTML/Reference/Elements/video) und [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas) sowie Elemente mit den CSS-Eigenschaften {{cssxref("opacity")}}, einem 3D-{{cssxref("transform")}}, {{cssxref("will-change")}} und einigen weiteren Eigenschaften. Diese Knoten und ihre Nachfahren werden auf einer eigenen Ebene gezeichnet, sofern einem Nachfahren nicht aus einem oder mehreren der genannten Gründe eine eigene Ebene zugewiesen wird.
 
-Schichten verbessern die Leistung, sind jedoch in Bezug auf das Speichermanagement teuer, daher sollten sie nicht übermäßig als Teil von Web-Performance-Optimierungsstrategien verwendet werden.
+Ebenen verbessern die Performance, verursachen aber Kosten bei der Speicherverwaltung. Im Rahmen der Web-Performance-Optimierung sollten sie daher nicht übermäßig eingesetzt werden.
 
 ### Compositing
 
-Wenn Abschnitte des Dokuments in verschiedenen Schichten gezeichnet werden und sich überlappen, ist Compositing erforderlich, um sicherzustellen, dass sie in der richtigen Reihenfolge auf den Bildschirm gezeichnet werden und der Inhalt korrekt angezeigt wird.
+Wenn Teile des Dokuments auf verschiedenen, sich überlappenden Ebenen gezeichnet werden, sorgt das Compositing dafür, dass sie in der richtigen Reihenfolge auf dem Bildschirm erscheinen und der Inhalt korrekt gerendert wird.
 
-Während die Seite weiterhin Assets lädt, können Reflows auftreten (erinnern Sie sich an unser Beispielbild, das zu spät ankam). Ein Reflow führt zu einem Neumalen und einem neuen Compositing. Hätten wir die Dimensionen unseres Bildes definiert, wäre kein Reflow notwendig gewesen, und nur die Schicht, die neu bemalt werden musste, hätte neu bemalt und bei Bedarf zusammengesetzt worden. Aber wir haben die Bilddimensionen nicht angegeben! Wenn das Bild vom Server abgerufen wird, kehrt der Rendering-Prozess zu den Layout-Schritten zurück und beginnt dort erneut.
+Während weitere Ressourcen für die Seite geladen werden, können Reflows auftreten – denken Sie an unser Beispielbild, das erst später eintrifft. Ein Reflow löst ein erneutes Zeichnen und Compositing aus. Hätten wir die Bildabmessungen festgelegt, wäre kein Reflow erforderlich gewesen. Nur die betroffene Ebene wäre bei Bedarf neu gezeichnet und zusammengesetzt worden. Wir haben die Bildabmessungen aber nicht angegeben. Sobald das Bild vom Server geladen ist, kehrt der Rendering-Prozess deshalb zum Layout-Schritt zurück und setzt dort erneut an.
 
 ## Interaktivität
 
-Sobald der Haupt-Thread mit dem Malen der Seite fertig ist, denkt man, dass alles "erledigt" wäre. Das ist jedoch nicht unbedingt der Fall. Wenn das Laden JavaScript umfasst, das korrekt verschoben wurde und erst nach dem [`onload`](/de/docs/Web/API/Window/load_event)-Ereignis ausgeführt wird, könnte der Haupt-Thread beschäftigt sein und nicht für Scrollen, Berührungen und andere Interaktionen verfügbar sein.
+Nachdem der Hauptthread die Seite gezeichnet hat, könnte man meinen, der Vorgang sei abgeschlossen. Das ist nicht unbedingt der Fall. Wenn beim Laden auch JavaScript ausgeführt werden soll, dessen Ausführung ordnungsgemäß bis nach dem Auslösen des [`onload`](/de/docs/Web/API/Window/load_event)-Events aufgeschoben wurde, ist der Hauptthread möglicherweise beschäftigt und steht nicht für Scrollen, Touch-Eingaben und andere Interaktionen zur Verfügung.
 
-{{Glossary("Time_to_Interactive", "Time to Interactive")}} (TTI) ist das Maß dafür, wie lange es gedauert hat, von dieser ersten Anfrage, die zu der DNS-Abfrage und der TCP-Verbindung führte, bis die Seite interaktiv wurde – interaktiv bedeutet der Zeitpunkt nach dem {{Glossary("First_Contentful_Paint", "First Contentful Paint")}}, wenn die Seite innerhalb von 50ms auf Benutzerinteraktionen reagiert. Wenn der Haupt-Thread beschäftigt ist, JavaScript zu analysieren, zu kompilieren und auszuführen, ist er nicht verfügbar und kann daher nicht rechtzeitig (weniger als 50ms) auf Benutzerinteraktionen reagieren.
+Die {{Glossary("Time_to_Interactive", "Time to Interactive")}} (TTI) misst, wie viel Zeit von der ersten Anfrage, die zur DNS-Abfrage und TCP-Verbindung führte, bis zur Interaktivität der Seite vergangen ist. Als interaktiv gilt die Seite ab dem Zeitpunkt nach dem {{Glossary("First_Contentful_Paint", "First Contentful Paint")}}, an dem sie innerhalb von 50 ms auf Nutzerinteraktionen reagiert. Wenn der Hauptthread JavaScript parst, kompiliert und ausführt, ist er nicht verfügbar und kann nicht rechtzeitig – also in weniger als 50 ms – auf Nutzerinteraktionen reagieren.
 
-In unserem Beispiel könnte das Bild schnell geladen worden sein, aber vielleicht war die Datei `another-script.js` 2 MB groß und die Netzwerkverbindung unseres Benutzers war langsam. In diesem Fall würde der Benutzer die Seite sehr schnell sehen, aber nicht ohne Ruckeln scrollen können, bis das Skript heruntergeladen, geparst und ausgeführt wurde. Das ist kein gutes Benutzererlebnis. Vermeiden Sie es, den Haupt-Thread zu beanspruchen, wie in diesem WebPageTest-Beispiel demonstriert:
+Nehmen wir für unser Beispiel an, dass das Bild schnell geladen wurde, die Datei `another-script.js` aber 2 MB groß und die Netzwerkverbindung des Nutzers langsam ist. In diesem Fall würde der Nutzer die Seite schnell sehen, könnte aber erst dann ruckelfrei scrollen, wenn das Skript heruntergeladen, geparst und ausgeführt wurde. Das ist keine gute Nutzererfahrung. Vermeiden Sie es, den Hauptthread zu blockieren, wie dieses WebPageTest-Beispiel zeigt:
 
-![Der Haupt-Thread ist durch das Herunterladen, Parsen und Ausführen einer JavaScript-Datei blockiert - über eine schnelle Verbindung](visa_network.png)
+![Der Hauptthread ist durch das Herunterladen, Parsen und Ausführen einer JavaScript-Datei ausgelastet – selbst bei einer schnellen Verbindung.](visa_network.png)
 
-In diesem Beispiel dauerte die JavaScript-Ausführung über 1,5 Sekunden, und der Haupt-Thread war die gesamte Zeit vollständig ausgelastet, nicht ansprechbar auf Klickereignisse oder Bildschirmberührungen.
+In diesem Beispiel dauerte die JavaScript-Ausführung mehr als 1,5 Sekunden. Während dieser gesamten Zeit war der Hauptthread vollständig ausgelastet und reagierte weder auf Klicks noch auf Berührungen des Bildschirms.
 
 ## Siehe auch
 
