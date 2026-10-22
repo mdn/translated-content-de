@@ -3,37 +3,37 @@ title: CONNECT request method
 short-title: CONNECT
 slug: Web/HTTP/Reference/Methods/CONNECT
 l10n:
-  sourceCommit: 44a853a7fce4ef042b6eeddc96f0a587f25704d3
+  sourceCommit: b25798255cfb773885c94557b74179400ac7153d
 ---
 
-Die **`CONNECT`** HTTP-Methode fordert, dass ein {{Glossary("Proxy_server", "Proxy")}} einen HTTP-Tunnel zu einem Zielserver herstellt, und wenn erfolgreich, Daten in beide Richtungen blind weiterleitet, bis der Tunnel geschlossen wird.
+Die HTTP-Methode **`CONNECT`** fordert einen {{Glossary("Proxy_server", "Proxy")}} auf, einen HTTP-Tunnel zu einem Zielserver aufzubauen und bei Erfolg Daten in beide Richtungen unverändert weiterzuleiten, bis der Tunnel geschlossen wird.
 
-Das Anforderungsziel ist bei dieser Methode einzigartig, da es nur aus dem Host und der Portnummer des Tunnelziels besteht, die durch einen Doppelpunkt getrennt sind (siehe [Syntax](#syntax) für Details).
-Jeder [2XX erfolgreiche Antwortstatuscode](/de/docs/Web/HTTP/Reference/Status#successful_responses) bedeutet, dass der Proxy in den 'Tunnelmodus' wechselt und alle Daten im Erfolgsantwortkörper stammen von dem Server, der durch das Anforderungsziel identifiziert wird.
+Das Anfrageziel ist bei dieser Methode einzigartig: Es besteht nur aus dem Host und der Portnummer des Tunnelziels, getrennt durch einen Doppelpunkt (Einzelheiten finden Sie unter [Syntax](#syntax)).
+Jeder [2XX-Erfolgsstatuscode](/de/docs/Web/HTTP/Reference/Status#successful_responses) bedeutet, dass der Proxy in den „Tunnelmodus“ wechselt. Alle Daten im Body der erfolgreichen Antwort stammen von dem Server, der durch das Anfrageziel angegeben wird.
 
-Wenn eine Website hinter einem Proxy steht und durch Netzwerkregeln erzwungen wird, dass der gesamte externe Datenverkehr über den Proxy laufen muss, ermöglicht die `CONNECT`-Methode Ihnen eine {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) Verbindung mit dieser Website aufzubauen:
+Wenn sich eine Website hinter einem Proxy befindet und Netzwerkregeln vorschreiben, dass der gesamte externe Datenverkehr über den Proxy laufen muss, können Sie mit der Methode `CONNECT` eine {{Glossary("TLS", "TLS")}}-Verbindung ({{Glossary("HTTPS", "HTTPS")}}) zu dieser Website herstellen:
 
-- Der Client bittet den Proxy, die {{Glossary("TCP", "TCP")}}-Verbindung zum gewünschten Ziel zu tunneln.
-- Der Proxy-Server stellt im Namen des Clients eine sichere Verbindung zum Server her.
-- Sobald die Verbindung hergestellt ist, leitet der Proxy-Server den TCP-Datenstrom weiterhin an den Client und vom Client weiter.
+- Der Client fordert den Proxy auf, die {{Glossary("TCP", "TCP")}}-Verbindung zum gewünschten Ziel zu tunneln.
+- Der Proxyserver stellt im Auftrag des Clients eine sichere Verbindung zum Server her.
+- Sobald die Verbindung hergestellt ist, leitet der Proxyserver den TCP-Datenstrom weiterhin vom und zum Client weiter.
 
-Abgesehen davon, dass ein sicherer Zugriff auf hinter Proxys liegende Websites ermöglicht wird, bietet ein HTTP-Tunnel eine Möglichkeit, den über das HTTP(S)-Protokoll eingeschränkten Verkehr (SSH oder FTP) zuzulassen.
+Ein HTTP-Tunnel ermöglicht nicht nur den sicheren Zugriff auf Websites hinter Proxys, sondern auch die Übertragung von Datenverkehr, der andernfalls eingeschränkt wäre (etwa SSH oder FTP), über das HTTP(S)-Protokoll.
 
-`CONNECT` ist eine Hop-by-Hop-Methode, was bedeutet, dass Proxys die `CONNECT`-Anfrage nur weiterleiten, wenn vor dem Ursprungsserver ein weiterer eingehender Proxy vorhanden ist, da die meisten Ursprungsserver `CONNECT` nicht implementieren.
+`CONNECT` ist eine Hop-by-Hop-Methode. Das bedeutet, dass Proxys die `CONNECT`-Anfrage nur weiterleiten, wenn sich vor dem Ursprungsserver ein weiterer eingehender Proxy befindet, da die meisten Ursprungsserver `CONNECT` nicht implementieren.
 
 > [!WARNING]
-> Wenn Sie einen Proxy betreiben, der `CONNECT` unterstützt, beschränken Sie dessen Nutzung auf eine Reihe von bekannten Ports oder eine konfigurierbare Liste sicherer Anforderungsziele.
-> Es bestehen erhebliche Risiken beim Aufbau eines Tunnels zu beliebigen Servern, insbesondere wenn das Ziel ein bekannter oder reservierter TCP-Port ist, der nicht für Webdatenverkehr vorgesehen ist.
-> Ein locker konfigurierter Proxy kann missbraucht werden, um Verkehr wie SMTP weiterzuleiten, um beispielsweise Spam-E-Mails zu senden.
+> Wenn Sie einen Proxy betreiben, der `CONNECT` unterstützt, beschränken Sie dessen Verwendung auf bekannte Ports oder eine konfigurierbare Liste sicherer Anfrageziele.
+> Der Aufbau eines Tunnels zu beliebigen Servern birgt erhebliche Risiken, insbesondere wenn das Ziel ein bekannter oder reservierter TCP-Port ist, der nicht für Web-Datenverkehr vorgesehen ist.
+> Ein zu großzügig konfigurierter Proxy könnte beispielsweise missbraucht werden, um SMTP-Datenverkehr weiterzuleiten und so Spam-E-Mails zu versenden.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anforderung hat einen Körper</th>
+      <th scope="row">Anfrage hat einen Body</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
+      <th scope="row">Erfolgreiche Antwort hat einen Body</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -45,12 +45,12 @@ Abgesehen davon, dass ein sicherer Zugriff auf hinter Proxys liegende Websites e
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Cache-fähig")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Cachefähig")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        Erlaubt in <a href="/de/docs/Learn_web_development/Extensions/Forms">HTML-Formularen</a>
+        In <a href="/de/docs/Learn_web_development/Extensions/Forms">HTML-Formularen</a> zulässig
       </th>
       <td>Nein</td>
     </tr>
@@ -64,15 +64,16 @@ CONNECT <host>:<port> HTTP/1.1
 ```
 
 - `<host>`
-  - : Ein Host, der ein registrierter Hostname (z.B. `example.com`) oder eine IP-Adresse (IPv4, IPv6) sein kann.
+  - : Ein Host, der ein registrierter Hostname (z. B. `example.com`) oder eine IP-Adresse (IPv4, IPv6) sein kann.
 - `<port>`
-  - : Eine Portnummer in Dezimalnotation (z.B. `80`, `443`). Es gibt keinen Standardport, daher muss ein Client unbedingt einen angeben.
+  - : Eine Portnummer in Dezimalschreibweise (z. B. `80`, `443`). Es gibt keinen Standardport; ein Client **muss** daher eine Portnummer angeben.
 
 ## Beispiele
 
 ### Proxy-Authentifizierung
 
-Eine Anfrage an Proxy-Server, die zur Erstellung eines Tunnels eine Authentifizierung erfordern, sieht folgendermaßen aus. Weitere Informationen finden Sie im {{HTTPHeader("Proxy-Authorization")}}-Header.
+Eine Anfrage an einen Proxyserver, der für den Aufbau eines Tunnels eine Authentifizierung verlangt, sieht wie folgt aus.
+Weitere Informationen finden Sie unter dem Header {{HTTPHeader("Proxy-Authorization")}}.
 
 ```http
 CONNECT server.example.com:80 HTTP/1.1
@@ -93,6 +94,5 @@ Proxy-Authorization: basic aGVsbG86d29ybGQ=
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
-- {{Glossary("Proxy_server", "Eintrag im Glossar zum Proxy-Server")}}
-- {{HTTPHeader("Proxy-Authorization")}} Header
-- [Anleitung zur Nutzung von SSH über einen HTTP-Proxy](https://www.dimoulis.net/posts/ssh-over-proxy/) dimoulis.net (2023)
+- Glossareintrag {{Glossary("Proxy_server", "Proxyserver")}}
+- Header {{HTTPHeader("Proxy-Authorization")}}

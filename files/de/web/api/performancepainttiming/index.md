@@ -2,23 +2,23 @@
 title: PerformancePaintTiming
 slug: Web/API/PerformancePaintTiming
 l10n:
-  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
+  sourceCommit: 468fcd167cd6f5979b1f6c92583894a281ae886e
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`PerformancePaintTiming`**-Schnittstelle liefert Zeitinformationen zu „Paint“-Vorgängen (auch „Render“-Vorgänge genannt) beim Aufbau einer Webseite. „Paint“ bezeichnet die Umwandlung des Render-Baums in Bildschirmpixel.
+Das **`PerformancePaintTiming`**-Interface liefert Zeitinformationen zu „Paint“-Vorgängen (auch „Render“-Vorgänge genannt) beim Aufbau einer Webseite. „Paint“ bezeichnet die Umwandlung des Render-Baums in Pixel auf dem Bildschirm.
 
 Diese API liefert Informationen zu zwei wichtigen Paint-Zeitpunkten:
 
-- {{Glossary("First_Paint", "First Paint")}} (FP): Der Zeitpunkt, zu dem erstmals etwas dargestellt wird. Die Erfassung dieses Zeitpunkts ist optional; nicht alle User Agents melden ihn.
-- {{Glossary("First_Contentful_Paint", "First Contentful Paint")}} (FCP): Der Zeitpunkt, zu dem erstmals {{Glossary("Contentful_paint", "inhaltstragender Inhalt")}} dargestellt wird – also der erste DOM-Text oder Bildinhalt.
+- {{Glossary("First_Paint", "First Paint")}} (FP): Der Zeitpunkt, zu dem erstmals etwas gerendert wird. Die Erfassung des First Paint ist optional; nicht alle User Agents melden ihn.
+- {{Glossary("First_Contentful_Paint", "First Contentful Paint")}} (FCP): Der Zeitpunkt des ersten {{Glossary("Contentful_paint", "Contentful Paint")}} – wenn erstmals DOM-Text oder Bildinhalt gerendert wird.
 
-Einen dritten wichtigen Paint-Zeitpunkt liefert die [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-API:
+Ein dritter wichtiger Paint-Zeitpunkt wird von der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-API bereitgestellt:
 
-- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP): Der Zeitpunkt, zu dem das größte im Viewport sichtbare Bild oder der größte Textblock dargestellt wird, gemessen ab dem Beginn des Seitenladens.
+- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP): Der Zeitpunkt, zu dem das größte im Viewport sichtbare Bild oder der größte Textblock gerendert wird, gemessen ab dem Beginn des Seitenladevorgangs.
 
-Die Daten dieser API helfen Ihnen, die Wartezeit zu verkürzen, bis Nutzer erste Inhalte der Website sehen können. Kürzere Zeiten bis zu diesen wichtigen Paint-Zeitpunkten lassen Websites reaktionsschneller, leistungsfähiger und ansprechender wirken.
+Die von dieser API bereitgestellten Daten helfen Ihnen, die Wartezeit zu verkürzen, bis Nutzer die ersten Inhalte der Website sehen können. Wenn Sie die Zeit bis zu diesen wichtigen Paint-Zeitpunkten verkürzen, wirkt die Website auf Ihre Nutzer reaktionsschneller, leistungsfähiger und ansprechender.
 
 Wie andere Performance-APIs erweitert diese API [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
@@ -26,14 +26,14 @@ Wie andere Performance-APIs erweitert diese API [`PerformanceEntry`](/de/docs/We
 
 ## Instanzeigenschaften
 
-Diese Schnittstelle definiert direkt die folgenden Eigenschaften:
+Dieses Interface definiert direkt die folgenden Eigenschaften:
 
 - [`PerformancePaintTiming.paintTime`](/de/docs/Web/API/PerformancePaintTiming/paintTime) {{ReadOnlyInline}}
   - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Rendering-Phase endete und die Paint-Phase begann.
 - [`PerformancePaintTiming.presentationTime`](/de/docs/Web/API/PerformancePaintTiming/presentationTime) {{ReadOnlyInline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die erzeugten Pixel tatsächlich auf dem Bildschirm angezeigt wurden.
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die erzeugten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
 
-Sie erweitert außerdem die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) und legt deren Werte wie beschrieben fest:
+Außerdem erweitert es die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) und legt deren Werte wie beschrieben fest:
 
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Gibt `"paint"` zurück.
@@ -47,13 +47,13 @@ Sie erweitert außerdem die folgenden Eigenschaften von [`PerformanceEntry`](/de
 ## Instanzmethoden
 
 - [`PerformancePaintTiming.toJSON()`](/de/docs/Web/API/PerformancePaintTiming/toJSON)
-  - : Gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformancePaintTiming`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
+  - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `PerformancePaintTiming`-Objekt darstellt. Wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen.
 
 ## Beispiele
 
-### Grundlegende Paint-Zeiten abrufen
+### Grundlegende Paint-Zeitpunkte ermitteln
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `paint`-Performance-Einträge informiert, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden. Mit der Option `buffered` können Sie auch auf Einträge zugreifen, die vor der Erstellung des Observers erfasst wurden.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `paint`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Timeline des Browsers erfasst werden. Verwenden Sie die Option `buffered`, um auch auf Einträge zuzugreifen, die vor der Erstellung des Observers erfasst wurden.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -69,7 +69,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "paint", buffered: true });
 ```
 
-Dieses Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType). Die Methode zeigt nur die `paint`-Performance-Einträge an, die zum Zeitpunkt ihres Aufrufs in der Performance-Zeitleiste des Browsers vorhanden sind:
+Dieses Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType). Die Methode zeigt nur `paint`-Performance-Einträge an, die zum Zeitpunkt des Aufrufs in der Performance-Timeline des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("paint");
@@ -80,11 +80,11 @@ entries.forEach((entry) => {
 });
 ```
 
-### Getrennte Paint- und Anzeigezeiten abrufen
+### Separate Zeitpunkte für Paint und Darstellung ermitteln
 
-Mit den Eigenschaften `paintTime` und `presentationTime` können Sie die Zeitpunkte abrufen, zu denen die Paint-Phase beginnt beziehungsweise die erzeugten Pixel auf dem Bildschirm angezeigt werden. `paintTime` wird browserübergreifend weitgehend unterstützt, während `presentationTime` von der Implementierung abhängt.
+Mit den Eigenschaften `paintTime` und `presentationTime` können Sie die Zeitpunkte für den Beginn der Paint-Phase und für das Zeichnen der erzeugten Pixel auf dem Bildschirm getrennt abrufen. `paintTime` ist weitgehend interoperabel, während `presentationTime` von der Implementierung abhängt.
 
-Dieses Beispiel baut auf dem vorherigen Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) auf. Es zeigt, wie Sie die Unterstützung für `paintTime` und `presentationTime` prüfen und die Werte abrufen, sofern sie verfügbar sind. In Browsern, die diese Eigenschaften nicht unterstützen, ruft der Code `loadTime` ab.
+Dieses Beispiel baut auf dem vorherigen Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) auf. Es zeigt, wie Sie prüfen, ob `paintTime` und `presentationTime` unterstützt werden, und die Werte abrufen, falls sie verfügbar sind. In Browsern, die diese Eigenschaften nicht unterstützen, ruft der Code `loadTime` ab.
 
 ```js
 const entries = performance.getEntriesByType("paint");
@@ -112,6 +112,6 @@ entries.forEach((entry) => {
 
 {{Compat}}
 
-### Siehe auch
+## Siehe auch
 
 - [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)

@@ -2,40 +2,40 @@
 title: PerformanceMeasure
 slug: Web/API/PerformanceMeasure
 l10n:
-  sourceCommit: 5b8d7c22883325e4abffcce235520c4a8b840bf3
+  sourceCommit: 468fcd167cd6f5979b1f6c92583894a281ae886e
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-**`PerformanceMeasure`** ist ein _abstraktes_ Interface für [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"`. Einträge dieses Typs werden durch Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt. Dadurch wird ein _benanntes_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (das _Measure_) zwischen zwei _Marks_ zur _Performance-Timeline_ des Browsers hinzugefügt.
+**`PerformanceMeasure`** ist eine _abstrakte_ Schnittstelle für [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"`. Einträge dieses Typs werden durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt. Dabei wird der _Performance-Zeitleiste_ des Browsers ein _benannter_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (die _Messung_) zwischen zwei _Markierungen_ hinzugefügt.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
 - [`PerformanceMeasure.detail`](/de/docs/Web/API/PerformanceMeasure/detail) {{ReadOnlyInline}}
-  - : Enthält beliebige Metadaten über das Measure.
+  - : Enthält beliebige Metadaten zur Messung.
 
-Dieses Interface erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), indem es sie wie folgt konkretisiert oder einschränkt:
+Diese Schnittstelle erweitert die folgenden Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), indem sie diese wie folgt näher bestimmt oder einschränkt:
 
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Gibt `"measure"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der dem Measure beim Erstellen durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) gegeben wurde.
+  - : Gibt den Namen zurück, der der Messung beim Erstellen durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) gegeben wurde.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
-  - : Gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der dem Measure beim Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) zugewiesen wurde.
+  - : Gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der der Messung beim Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) zugewiesen wurde.
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer des Measures angibt (in der Regel der Zeitstempel des End-Marks abzüglich des Zeitstempels des Start-Marks).
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer der Messung angibt (üblicherweise der Zeitstempel der Endmarkierung abzüglich des Zeitstempels der Startmarkierung).
 
 ## Instanzmethoden
 
-Dieses Interface hat keine Methoden.
+Diese Schnittstelle hat keine Methoden.
 
-## Beispiel
+## Beispiele
 
-Ein Beispiel finden Sie unter [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing).
+Siehe das Beispiel unter [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing).
 
-Chrome DevTools verwendet `performance.measure()` und insbesondere eine strukturierte `detail`-Eigenschaft als Teil seiner Erweiterbarkeits-API. Damit werden diese Daten in benutzerdefinierten Tracks von Performance-Traces angezeigt. Weitere Informationen und Beispiele finden Sie im Beispiel auf der Seite [Performance: Methode measure()](/de/docs/Web/API/Performance/measure) und in der [Dokumentation zur Erweiterbarkeits-API von Chrome](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_the_user_timings_api).
+Chrome DevTools verwendet `performance.measure()` und insbesondere eine strukturierte `detail`-Eigenschaft als Teil seiner Erweiterungs-API, um diese Daten in benutzerdefinierten Spuren von Performance-Aufzeichnungen anzuzeigen. Weitere Informationen und Beispiele finden Sie im Beispiel auf der Seite zur [Methode Performance: measure()](/de/docs/Web/API/Performance/measure) und in der [Dokumentation zur Erweiterungs-API von Chrome](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_the_user_timings_api).
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: WebTransport API
 slug: Web/API/WebTransport_API
 l10n:
-  sourceCommit: 64685d67035fa6c3ad63a36e89ce8f59d670c3ac
+  sourceCommit: b25798255cfb773885c94557b74179400ac7153d
 ---
 
 {{DefaultAPISidebar("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **WebTransport API** ist eine moderne Weiterentwicklung von [WebSockets](/de/docs/Web/API/WebSockets_API). Sie überträgt Daten zwischen Client und Server mithilfe von [HTTP/3 Transport](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/). WebTransport unterstützt mehrere Streams, unidirektionale Streams und die Zustellung außerhalb der ursprünglichen Reihenfolge. Es ermöglicht zuverlässige Übertragung über [Streams](/de/docs/Web/API/Streams_API) und unzuverlässige Übertragung über UDP-ähnliche Datagramme.
+Die **WebTransport API** ist eine moderne Weiterentwicklung von [WebSockets](/de/docs/Web/API/WebSockets_API). Sie überträgt Daten zwischen Client und Server über [HTTP/3 Transport](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/). WebTransport unterstützt mehrere Streams, unidirektionale Streams und die Zustellung in abweichender Reihenfolge. Die API ermöglicht zuverlässige Übertragung über [Streams](/de/docs/Web/API/Streams_API) und unzuverlässige Übertragung über UDP-ähnliche Datagramme.
 
 ## Konzepte und Verwendung
 
@@ -17,11 +17,11 @@ Es basiert auf dem {{Glossary("QUIC", "QUIC")}}-Protokoll, das seinerseits auf U
 Dazu gehören:
 
 - **{{Glossary("head_of_line_blocking", "Head-of-Line-Blocking")}}**
-  - : HTTP/2 ermöglicht Multiplexing, sodass über eine einzelne Verbindung mehrere Ressourcen gleichzeitig übertragen werden können. Wenn jedoch die Übertragung einer einzelnen Ressource scheitert, werden alle anderen Ressourcen auf dieser Verbindung aufgehalten, bis fehlende Pakete erneut übertragen wurden. Bei QUIC ist nur die betroffene Ressource beeinträchtigt.
+  - : HTTP/2 ermöglicht Multiplexing, sodass über eine einzelne Verbindung mehrere Ressourcen gleichzeitig übertragen werden können. Tritt jedoch bei einer einzelnen Ressource ein Fehler auf, werden alle anderen Ressourcen auf dieser Verbindung aufgehalten, bis fehlende Pakete erneut übertragen wurden. Bei QUIC ist nur die betroffene Ressource beeinträchtigt.
 - **Höhere Leistung**
-  - : QUIC ist in vielerlei Hinsicht leistungsfähiger als TCP. QUIC kann Sicherheitsfunktionen selbst übernehmen, statt die Verantwortung an andere Protokolle wie TLS abzugeben – dadurch sind weniger Hin- und Rückübertragungen nötig. Außerdem bieten Streams eine höhere Übertragungseffizienz als der ältere paketbasierte Mechanismus. Das kann insbesondere in Netzwerken mit hoher Latenz einen erheblichen Unterschied machen.
+  - : QUIC ist in vielerlei Hinsicht leistungsfähiger als TCP. QUIC kann Sicherheitsfunktionen selbst übernehmen, statt sie anderen Protokollen wie TLS zu überlassen – dadurch sind weniger Hin- und Rückübertragungen nötig. Außerdem ermöglichen Streams eine effizientere Übertragung als der ältere paketbasierte Mechanismus. Das kann insbesondere in Netzwerken mit hoher Latenz einen erheblichen Unterschied machen.
 - **Bessere Netzwerkwechsel**
-  - : QUIC verwendet eine eindeutige Verbindungs-ID, um Quelle und Ziel jeder Anfrage zuzuordnen und sicherzustellen, dass Pakete korrekt zugestellt werden. Diese ID kann beim Wechsel zwischen verschiedenen Netzwerken bestehen bleiben. So kann beispielsweise ein Download ohne Unterbrechung fortgesetzt werden, wenn Sie von WLAN zu einem Mobilfunknetz wechseln. HTTP/2 verwendet dagegen IP-Adressen als Kennungen, weshalb Netzwerkwechsel problematisch sein können.
+  - : QUIC verwendet eine eindeutige Verbindungs-ID, um Quelle und Ziel jeder Anfrage zuzuordnen und die korrekte Zustellung der Pakete sicherzustellen. Diese ID kann beim Wechsel zwischen verschiedenen Netzwerken bestehen bleiben. So kann beispielsweise ein Download ohne Unterbrechung fortgesetzt werden, wenn Sie von WLAN zu einem Mobilfunknetz wechseln. HTTP/2 verwendet dagegen IP-Adressen als Kennungen, weshalb Netzwerkwechsel problematisch sein können.
 - **Unzuverlässige Übertragung**
   - : HTTP/3 unterstützt die unzuverlässige Datenübertragung über Datagramme.
 
@@ -29,7 +29,7 @@ Die WebTransport API bietet direkten Zugriff auf die bidirektionale Kommunikatio
 
 ### Verbindungsaufbau
 
-Um eine Verbindung zu einem HTTP/3-Server herzustellen, übergeben Sie dessen URL an den Konstruktor [`WebTransport()`](/de/docs/Web/API/WebTransport/WebTransport). Beachten Sie, dass das URL-Schema HTTPS sein muss und die Portnummer ausdrücklich angegeben werden muss. Sobald das Promise [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready) erfüllt ist, können Sie die Verbindung verwenden.
+Um eine Verbindung zu einem HTTP/3-Server herzustellen, übergeben Sie dessen URL an den [`WebTransport()`](/de/docs/Web/API/WebTransport/WebTransport)-Konstruktor. Beachten Sie, dass das Schema HTTPS sein und die Portnummer ausdrücklich angegeben werden muss. Sobald das [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready)-Promise erfüllt ist, können Sie die Verbindung verwenden.
 
 ```js
 const url = "https://example.com:4999/wt";
@@ -47,19 +47,19 @@ async function initTransport(url) {
 
 ### Serverimplementierung
 
-Für eine WebTransport-Verbindung ist ein Server mit entsprechender Unterstützung erforderlich. Um eine Sitzung aufzubauen, sendet der Client eine erweiterte `CONNECT`-Anfrage mit einem `:protocol`-Pseudo-Header, der WebTransport angibt. Bei Browser-Clients enthält die Anfrage außerdem einen `Origin`-Header, den der Server prüfen muss, bevor er die Sitzung akzeptiert. (Der Konstruktor `WebTransport()` übernimmt dies automatisch auf Client-Seite.) Der Server akzeptiert die Sitzung, indem er eine erfolgreiche Antwort (2xx) sendet. Anschließend können Client und Server über mehrere bidirektionale Streams, unidirektionale Streams und Datagramme, die dieser Sitzung zugeordnet sind, Daten austauschen.
+Eine WebTransport-Verbindung erfordert einen Server, der WebTransport unterstützt. Um eine Sitzung aufzubauen, sendet der Client eine erweiterte `CONNECT`-Anfrage mit einem `:protocol`-Pseudo-Header, der WebTransport angibt. Bei Browser-Clients enthält die Anfrage außerdem einen `Origin`-Header, den der Server prüfen muss, bevor er die Sitzung akzeptiert. (Dies wird vom `WebTransport()`-Konstruktor automatisch gehandhabt.) Der Server akzeptiert die Sitzung mit einer erfolgreichen Antwort (2xx). Anschließend können Client und Server über mehrere bidirektionale Streams, unidirektionale Streams und Datagramme Daten austauschen, die dieser Sitzung zugeordnet sind.
 
-Die [Spezifikation für WebTransport über HTTP/3](https://datatracker.ietf.org/doc/draft-ietf-webtrans-http3/) beschreibt das Protokoll und die Anforderungen an den Server ausführlicher.
+Die [WebTransport-over-HTTP/3-Spezifikation](https://datatracker.ietf.org/doc/draft-ietf-webtrans-http3/) beschreibt das Protokoll und die Anforderungen an den Server ausführlicher.
 
-Sie sollten eine WebTransport-Bibliothek verwenden, um die serverseitigen Protokolldetails zu handhaben. Zum Beispiel:
+Für die serverseitigen Protokolldetails sollten Sie eine WebTransport-Bibliothek verwenden. Zum Beispiel:
 
 - **Go**: [`webtransport-go`](https://github.com/quic-go/webtransport-go)
-- **Python**: [`aioquic`](https://github.com/aiortc/aioquic); siehe auch [Googles Chrome-Beispiel für einen WebTransport-Server](https://github.com/GoogleChrome/samples/blob/gh-pages/webtransport/webtransport_server.py)
+- **Python**: [`aioquic`](https://github.com/aiortc/aioquic); siehe auch [Googles WebTransport-Serverbeispiel für Chrome](https://github.com/GoogleChrome/samples/blob/gh-pages/webtransport/webtransport_server.py)
 - **Rust**: [`wtransport`](https://github.com/BiagioFesta/wtransport)
 - **Node.js**: [`@fails-components/webtransport`](https://github.com/fails-components/webtransport)
 - **Deno**: [integrierte WebTransport-Unterstützung](https://docs.deno.com/examples/web_transport/) (instabil)
 
-Für alle Client-Beispiele stellen wir minimale Serverbeispiele bereit, die das Node.js-Paket `@fails-components/webtransport` verwenden. Code, der mit anderen Bibliotheken oder in anderen Sprachen geschrieben wurde, kann deutlich anders aussehen.
+Zu allen Client-Beispielen stellen wir minimale Serverbeispiele mit dem Node.js-Paket `@fails-components/webtransport` bereit. Code, der mit anderen Bibliotheken oder Sprachen geschrieben wurde, kann erheblich anders aussehen.
 
 > [!NOTE]
 > Serverseitige JavaScript-Beispiele sind mit `// -- server.js --` gekennzeichnet. JavaScript-Beispiele ohne diesen Kommentar sind clientseitiger Code.
@@ -107,13 +107,13 @@ for await (const session of sessions) {
 }
 ```
 
-Wenn Sie den Code ausführen möchten, müssen Sie alle Vorkommen von `example.com` im Client- und Servercode durch die jeweiligen tatsächlichen Endpunkte ersetzen. Außerdem müssen Sie `certificate.pem` und `private-key.pem` bereitstellen. Diese enthalten ein vom Browser als vertrauenswürdig eingestuftes TLS-Zertifikat und dessen privaten Schlüssel.
+Wenn Sie den Code ausführen möchten, müssen Sie alle Vorkommen von `example.com` im Client- und Servercode durch die jeweiligen tatsächlichen Endpunkte ersetzen. Außerdem müssen Sie `certificate.pem` und `private-key.pem` bereitstellen. Diese Dateien enthalten ein vom Browser als vertrauenswürdig eingestuftes TLS-Zertifikat und den zugehörigen privaten Schlüssel.
 
-Sofern nicht anders angegeben, ersetzt jedes der folgenden serverseitigen Beispiele den Rumpf von `handleSession()`. Das Objekt `session` repräsentiert eine akzeptierte Client-Sitzung.
+Sofern nicht anders angegeben, ersetzt jedes der folgenden serverseitigen Beispiele den Inhalt von `handleSession()`. Das `session`-Objekt repräsentiert eine akzeptierte Client-Sitzung.
 
 ### Verbindung schließen
 
-Sie können auf das Schließen der Verbindung reagieren, indem Sie warten, bis das Promise [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed) erfüllt ist. Fehler, die von WebTransport-Operationen zurückgegeben werden, sind vom Typ [`WebTransportError`](/de/docs/Web/API/WebTransportError) und enthalten zusätzliche Daten über die Standarddaten von [`DOMException`](/de/docs/Web/API/DOMException) hinaus.
+Sie können auf das Schließen der Verbindung reagieren, indem Sie warten, bis das [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed)-Promise erfüllt ist. Fehler, die von WebTransport-Operationen zurückgegeben werden, sind vom Typ [`WebTransportError`](/de/docs/Web/API/WebTransportError) und enthalten zusätzliche Daten über die Angaben einer standardmäßigen [`DOMException`](/de/docs/Web/API/DOMException) hinaus.
 
 ```js
 async function closeTransport(transport) {
@@ -135,10 +135,10 @@ session.close({ closeCode: 0, reason: "Work complete" });
 await session.closed;
 ```
 
-Der Server kann auch signalisieren, dass er die Verbindung vor dem Schließen auslaufen lassen möchte, etwa um die zugrunde liegende Übertragung zu verwalten.
+Der Server kann auch signalisieren, dass er die Verbindung vor dem Schließen auslaufen lassen möchte, etwa weil die zugrunde liegende Übertragung verwaltet werden muss.
 In `@fails-components/webtransport` geschieht dies beispielsweise mit `session.notifySessionDraining()`.
-In diesem Fall sollte der Client beginnen, Streams zu schließen, und eine neue Sitzung erstellen, wenn er seine Arbeit fortsetzen muss.
-Sie können dies über das Promise [`WebTransport.draining`](/de/docs/Web/API/WebTransport/draining) erkennen. Es wird erfüllt, sobald der Server signalisiert, dass die Sitzung in den Auslaufzustand übergeht:
+In diesem Fall sollte der Client beginnen, Streams zu schließen, und eine neue Sitzung erstellen, falls er seine Arbeit fortsetzen muss.
+Sie können dies mit dem [`WebTransport.draining`](/de/docs/Web/API/WebTransport/draining)-Promise erkennen. Es wird erfüllt, sobald der Server signalisiert, dass die Sitzung in den Auslaufzustand übergeht:
 
 ```js
 async function watchForDraining(transport) {
@@ -151,12 +151,12 @@ async function watchForDraining(transport) {
 
 ### Ein Anwendungsprotokoll aushandeln
 
-Ein WebTransport-Server kann mehrere Anwendungen unterstützen, die jeweils ein eigenes, benutzerdefiniertes Kommunikationsprotokoll verwenden.
-Dazu kann der Client über die Option [`protocols`](/de/docs/Web/API/WebTransport/WebTransport#protocols) des Konstruktors `WebTransport()` eine nach Präferenz geordnete Liste möglicher Protokollnamen anbieten.
-Der Server kann beim Verbindungsaufbau eines dieser Protokolle auswählen.
+Ein WebTransport-Server kann mehrere Anwendungen unterstützen, die jeweils ein eigenes Kommunikationsprotokoll verwenden.
+Dazu kann der Client über die Option [`protocols`](/de/docs/Web/API/WebTransport/WebTransport#protocols) des `WebTransport()`-Konstruktors eine Liste möglicher Protokollnamen in der Reihenfolge seiner Präferenz anbieten.
+Der Server kann beim Verbindungsaufbau eines davon auswählen.
 
-Sobald das Promise [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready) erfüllt ist, ist das ausgehandelte Protokoll (falls vorhanden) über die Eigenschaft [`WebTransport.protocol`](/de/docs/Web/API/WebTransport/protocol) verfügbar.
-Wenn `protocols` nicht verwendet wurde oder der Server keines der angebotenen Protokolle ausgewählt hat, ist der Wert eine leere Zeichenfolge.
+Sobald das [`WebTransport.ready`](/de/docs/Web/API/WebTransport/ready)-Promise erfüllt ist, ist das ausgehandelte Protokoll, sofern vorhanden, über die Eigenschaft [`WebTransport.protocol`](/de/docs/Web/API/WebTransport/protocol) verfügbar.
+Der Wert ist eine leere Zeichenfolge, wenn `protocols` nicht verwendet wurde oder der Server keines der angebotenen Protokolle ausgewählt hat.
 Ein Server, der keines der angebotenen Protokolle unterstützt, kann die Verbindung stattdessen vollständig ablehnen, wodurch `ready` zurückgewiesen wird.
 
 ```js
@@ -177,7 +177,7 @@ async function initTransport(url) {
 }
 ```
 
-Wenn die Bibliothek `@fails-components/webtransport` die Header verarbeitet, behandelt sie `header["wt-available-protocols"]` gesondert und wandelt den Wert in ein Array um. Sie können beispielsweise `server.setRequestCallback(acceptRequest)` durch Folgendes ersetzen, um fehlerhafte Werte abzulehnen und das erste vom Server unterstützte Protokoll auszuwählen:
+Beim Parsen der Header behandelt die Bibliothek `@fails-components/webtransport` `header["wt-available-protocols"]` als Sonderfall und wandelt den Wert in ein Array um. Sie können beispielsweise `server.setRequestCallback(acceptRequest)` durch Folgendes ersetzen, um fehlerhafte Werte zurückzuweisen und das erste vom Server unterstützte Protokoll auszuwählen:
 
 ```js
 // -- server.js --
@@ -202,11 +202,11 @@ server.setRequestCallback(async (request) => {
 
 ### Unzuverlässige Übertragung über Datagramme
 
-„Unzuverlässig“ bedeutet, dass weder die Übertragung der Daten noch deren Eintreffen in einer bestimmten Reihenfolge garantiert ist. In manchen Situationen ist das unproblematisch und ermöglicht eine sehr schnelle Zustellung. Beispielsweise möchten Sie möglicherweise regelmäßige Aktualisierungen eines Spielzustands übertragen, bei denen jede Nachricht die zuletzt eingetroffene ersetzt und die Reihenfolge unwichtig ist.
+„Unzuverlässig“ bedeutet, dass weder die Übertragung der Daten noch ihr Eintreffen in einer bestimmten Reihenfolge garantiert ist. In manchen Situationen ist das unproblematisch und ermöglicht eine sehr schnelle Zustellung. Beispielsweise können Sie regelmäßig Aktualisierungen eines Spielzustands übertragen, bei denen jede Nachricht die zuletzt eingetroffene ersetzt und die Reihenfolge keine Rolle spielt.
 
-Die unzuverlässige Datenübertragung erfolgt über die Eigenschaft [`WebTransport.datagrams`](/de/docs/Web/API/WebTransport/datagrams). Sie gibt ein [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Objekt zurück, das alles enthält, was Sie benötigen, um Datagramme an den Server zu senden und von ihm zu empfangen.
+Die unzuverlässige Datenübertragung erfolgt über die Eigenschaft [`WebTransport.datagrams`](/de/docs/Web/API/WebTransport/datagrams). Sie gibt ein [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Objekt zurück, das alles enthält, was Sie zum Senden von Datagrammen an den Server und zum Empfangen von Datagrammen benötigen.
 
-Die Eigenschaft [`WebTransportDatagramDuplexStream.writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) gibt ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt zurück. Mit einem Writer können Sie Daten hineinschreiben, die an den Server übertragen werden:
+Die Eigenschaft [`WebTransportDatagramDuplexStream.writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) gibt ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt zurück. Mithilfe eines Writers können Sie Daten hineinschreiben, die an den Server übertragen werden:
 
 ```js
 const writer = transport.datagrams.writable.getWriter();
@@ -216,7 +216,7 @@ writer.write(data1);
 writer.write(data2);
 ```
 
-Lesen Sie diese Datagramme in `@fails-components/webtransport` aus `session.datagrams.readable`:
+In `@fails-components/webtransport` lesen Sie diese Datagramme aus `session.datagrams.readable`:
 
 ```js
 // -- server.js --
@@ -241,7 +241,7 @@ async function readData() {
 }
 ```
 
-Um in `@fails-components/webtransport` Datagramme zu senden, die dieser Clientcode lesen kann, holen Sie sich einen Writer:
+Um in `@fails-components/webtransport` Datagramme zu senden, die dieser Clientcode lesen kann, beziehen Sie einen Writer:
 
 ```js
 // -- server.js --
@@ -256,13 +256,13 @@ try {
 
 ### Zuverlässige Übertragung über Streams
 
-„Zuverlässig“ bedeutet, dass die Übertragung und die Reihenfolge der Daten garantiert sind. Dies führt zu einer langsameren Zustellung (wenngleich sie schneller als bei WebSockets ist) und ist dort erforderlich, wo Zuverlässigkeit und Reihenfolge wichtig sind, beispielsweise bei Chat-Anwendungen.
+„Zuverlässig“ bedeutet, dass die Übertragung und die Reihenfolge der Daten garantiert sind. Dies führt zu einer langsameren Zustellung, die allerdings immer noch schneller als bei WebSockets ist. Eine zuverlässige Übertragung ist erforderlich, wenn Zuverlässigkeit und Reihenfolge wichtig sind, beispielsweise bei Chat-Anwendungen.
 
-Bei der zuverlässigen Übertragung über Streams können Sie außerdem die relative Priorität verschiedener Streams festlegen, die dieselbe Verbindung verwenden.
+Bei der zuverlässigen Übertragung über Streams können Sie außerdem die relative Priorität verschiedener Streams auf derselben Verbindung festlegen.
 
 ### Unidirektionale Übertragung
 
-Um einen unidirektionalen Stream von einem User Agent aus zu öffnen, verwenden Sie die Methode [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream). Sie erhalten damit eine Referenz auf einen [`WritableStream`](/de/docs/Web/API/WritableStream). Von diesem können Sie [einen Writer abrufen](/de/docs/Web/API/WritableStream/getWriter), um Daten in den Stream zu schreiben und an den Server zu senden.
+Um von einem User Agent aus einen unidirektionalen Stream zu öffnen, verwenden Sie die Methode [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream). Sie erhalten damit eine Referenz auf einen [`WritableStream`](/de/docs/Web/API/WritableStream). Von diesem können Sie [einen Writer beziehen](/de/docs/Web/API/WritableStream/getWriter), um Daten in den Stream zu schreiben und an den Server zu senden.
 
 ```js
 async function writeData() {
@@ -282,9 +282,9 @@ async function writeData() {
 }
 ```
 
-Beachten Sie auch die Verwendung der Methode [`WritableStreamDefaultWriter.close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close), um den Stream zu schließen, sobald alle Daten gesendet wurden.
+Beachten Sie auch die Verwendung der Methode [`WritableStreamDefaultWriter.close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close), mit der der Stream geschlossen wird, sobald alle Daten gesendet wurden.
 
-In `@fails-components/webtransport` ist jeder Eintrag in `session.incomingUnidirectionalStreams` ein lesbarer Stream, der Daten vom Client enthält. Starten Sie für jeden Stream einen eigenen Reader, damit ein auf Daten wartender Stream den Server nicht daran hindert, einen weiteren anzunehmen:
+In `@fails-components/webtransport` ist jedes Element in `session.incomingUnidirectionalStreams` ein lesbarer Stream mit Daten vom Client. Starten Sie für jeden Stream einen eigenen Reader, damit ein Stream, der auf Daten wartet, den Server nicht daran hindert, einen weiteren anzunehmen:
 
 ```js
 // -- server.js --
@@ -299,9 +299,9 @@ for await (const stream of session.incomingUnidirectionalStreams) {
 }
 ```
 
-Wenn der Server einen unidirektionalen Stream öffnet, um Daten an den Client zu übertragen, kann der Client über die Eigenschaft [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) darauf zugreifen. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Mit diesen können vom Server gesendete {{jsxref("Uint8Array")}}-Instanzen gelesen werden.
+Wenn der Server einen unidirektionalen Stream öffnet, um Daten an den Client zu übertragen, kann der Client über die Eigenschaft [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) darauf zugreifen. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Mit diesen können vom Server gesendete {{jsxref("Uint8Array")}}-Instanzen gelesen werden.
 
-In diesem Fall richten Sie zunächst eine Funktion zum Lesen eines `WebTransportReceiveStream` ein. Diese Objekte erben von der Klasse `ReadableStream` und können daher genauso verwendet werden:
+Erstellen Sie in diesem Fall zunächst eine Funktion zum Lesen eines `WebTransportReceiveStream`. Diese Objekte erben von der Klasse `ReadableStream` und können daher auf dieselbe Weise verwendet werden:
 
 ```js
 async function readData(receiveStream) {
@@ -317,7 +317,7 @@ async function readData(receiveStream) {
 }
 ```
 
-Greifen Sie anschließend auf [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) zu und holen Sie sich eine Referenz auf den Reader des zurückgegebenen `ReadableStream`. Verwenden Sie den Reader dann, um die Daten vom Server zu lesen. Jeder Datenblock ist ein `WebTransportReceiveStream`, den wir mit der zuvor eingerichteten Funktion `readData()` lesen:
+Greifen Sie anschließend auf [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) zu und beziehen Sie einen Reader für den zurückgegebenen `ReadableStream`. Verwenden Sie den Reader dann, um die Daten vom Server zu lesen. Jeder Datenblock ist ein `WebTransportReceiveStream`, den wir mit der zuvor eingerichteten Funktion `readData()` lesen:
 
 ```js
 async function receiveUnidirectional() {
@@ -334,7 +334,7 @@ async function receiveUnidirectional() {
 }
 ```
 
-Um in `@fails-components/webtransport` einen Stream für die Clientfunktionen `receiveUnidirectional()` und `readData()` bereitzustellen, erstellen Sie einen unidirektionalen Stream und schreiben Sie Daten hinein:
+Um in `@fails-components/webtransport` einen Stream für die clientseitigen Funktionen `receiveUnidirectional()` und `readData()` bereitzustellen, erstellen Sie einen unidirektionalen Stream und schreiben Daten hinein:
 
 ```js
 // -- server.js --
@@ -347,8 +347,8 @@ await writer.close();
 
 #### Bidirektionale Übertragung
 
-Um einen bidirektionalen Stream von einem User Agent aus zu öffnen, verwenden Sie die Methode [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream). Sie erhalten damit eine Referenz auf einen [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream).
-Dieser besitzt die Eigenschaften `readable` und `writable`, die Referenzen auf `WebTransportReceiveStream`- beziehungsweise `WebTransportSendStream`-Instanzen zurückgeben. Damit können Daten vom Server gelesen und an ihn geschrieben werden.
+Um von einem User Agent aus einen bidirektionalen Stream zu öffnen, verwenden Sie die Methode [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream). Sie erhalten damit eine Referenz auf einen [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream).
+Dieser enthält die Eigenschaften `readable` und `writable`, die Referenzen auf `WebTransportReceiveStream`- und `WebTransportSendStream`-Instanzen zurückgeben. Mit ihnen können Sie Daten vom Server lesen und Daten an ihn schreiben.
 
 > [!NOTE]
 > `WebTransportBidirectionalStream` ähnelt [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream). Bei letzterem sind die Eigenschaften `readable` und `writable` jedoch ein `ReadableStream` beziehungsweise ein `WritableStream`.
@@ -383,7 +383,7 @@ async function readData(readable) {
 }
 ```
 
-Und in den `WebTransportSendStream` können Sie so schreiben:
+In den `WebTransportSendStream` können Sie so schreiben:
 
 ```js
 async function writeData(writable) {
@@ -396,14 +396,14 @@ async function writeData(writable) {
 }
 ```
 
-Führen Sie die Clientfunktionen gleichzeitig aus, damit während des Schreibens weitergelesen werden kann:
+Führen Sie die Clientfunktionen parallel aus, damit das Lesen während des Schreibens fortgesetzt werden kann:
 
 ```js
 const stream = await setUpBidirectional();
 await Promise.all([readData(stream.readable), writeData(stream.writable)]);
 ```
 
-Nehmen Sie in `@fails-components/webtransport` die vom Client erstellten Streams aus `session.incomingBidirectionalStreams` an. Jeder besitzt eine `readable`-Seite für Daten vom Client und eine `writable`-Seite für Daten an den Client:
+In `@fails-components/webtransport` nehmen Sie die vom Client erstellten Streams aus `session.incomingBidirectionalStreams` an. Jeder hat eine `readable`-Seite für Daten vom Client und eine `writable`-Seite für Daten an den Client:
 
 ```js
 // -- server.js --
@@ -413,9 +413,9 @@ for await (const stream of session.incomingBidirectionalStreams) {
 }
 ```
 
-Dieser Handler arbeitet mit beiden Funktionen zusammen: `pipeTo()` liest die von `writeData()` gesendeten Bytes und schreibt sie zurück, damit `readData()` sie lesen kann.
+Dieser Handler arbeitet mit beiden Funktionen zusammen: `pipeTo()` liest die von `writeData()` gesendeten Bytes und schreibt sie für `readData()` zurück.
 
-Wenn der Server einen bidirektionalen Stream öffnet, um Daten an den Client zu senden und von ihm zu empfangen, kann der Client über die Eigenschaft [`WebTransport.incomingBidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingBidirectionalStreams) darauf zugreifen. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von `WebTransportBidirectionalStream`-Objekten zurück. Mit jedem davon können {{jsxref("Uint8Array")}}-Instanzen wie oben gezeigt gelesen und geschrieben werden. Wie beim unidirektionalen Beispiel benötigen Sie jedoch zunächst eine Funktion, um den bidirektionalen Stream zu lesen:
+Wenn der Server einen bidirektionalen Stream öffnet, um Daten an den Client zu senden und von ihm zu empfangen, kann der Client über die Eigenschaft [`WebTransport.incomingBidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingBidirectionalStreams) darauf zugreifen. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus `WebTransportBidirectionalStream`-Objekten zurück. Jedes dieser Objekte kann wie oben gezeigt zum Lesen und Schreiben von {{jsxref("Uint8Array")}}-Instanzen verwendet werden. Wie beim unidirektionalen Beispiel benötigen Sie jedoch zunächst eine Funktion, um den bidirektionalen Stream selbst zu lesen:
 
 ```js
 async function receiveBidirectional() {
@@ -433,7 +433,7 @@ async function receiveBidirectional() {
 }
 ```
 
-Als Gegenstück zu `receiveBidirectional()` erstellt der Server einen Stream, sendet Daten und schließt seine sendende Seite, bevor er die Antwort des Clients liest. Durch das Schließen der sendenden Seite kann der Aufruf von `readData()` auf dem Client abgeschlossen werden, sodass anschließend `writeData()` aufgerufen werden kann:
+Als Gegenstück zu `receiveBidirectional()` erstellt der Server einen Stream, sendet Daten und schließt seine sendende Seite, bevor er die Antwort des Clients liest. Dadurch kann der Aufruf von `readData()` auf dem Client abgeschlossen werden, sodass der Client `writeData()` aufrufen kann:
 
 ```js
 // -- server.js --
@@ -450,11 +450,11 @@ for await (const data of stream.readable) {
 ## Schnittstellen
 
 - [`WebTransport`](/de/docs/Web/API/WebTransport)
-  - : Bietet Funktionen, mit denen ein User Agent eine Verbindung zu einem HTTP/3-Server herstellen, zuverlässige und unzuverlässige Übertragungen in eine oder beide Richtungen beginnen und die Verbindung schließen kann, sobald sie nicht mehr benötigt wird.
+  - : Bietet Funktionen, mit denen ein User Agent eine Verbindung zu einem HTTP/3-Server herstellen, eine zuverlässige oder unzuverlässige Übertragung in eine oder beide Richtungen einleiten und die Verbindung schließen kann, sobald sie nicht mehr benötigt wird.
 - [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)
-  - : Repräsentiert einen von einem Server oder Client erstellten bidirektionalen Stream, der für zuverlässige Übertragung verwendet werden kann. Bietet Zugriff auf einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zum Lesen eingehender Daten und einen [`WritableStream`](/de/docs/Web/API/WritableStream) zum Schreiben ausgehender Daten.
+  - : Repräsentiert einen von einem Server oder Client erstellten bidirektionalen Stream für die zuverlässige Übertragung. Bietet Zugriff auf einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zum Lesen eingehender Daten und einen [`WritableStream`](/de/docs/Web/API/WritableStream) zum Schreiben ausgehender Daten.
 - [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)
-  - : Repräsentiert einen Duplex-Stream, der für die unzuverlässige Übertragung von Datagrammen zwischen Client und Server verwendet werden kann. Bietet Zugriff auf einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zum Lesen eingehender Datagramme, einen [`WritableStream`](/de/docs/Web/API/WritableStream) zum Schreiben ausgehender Datagramme sowie auf verschiedene Einstellungen und Statistiken zum Stream.
+  - : Repräsentiert einen Duplex-Stream für die unzuverlässige Übertragung von Datagrammen zwischen Client und Server. Bietet Zugriff auf einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zum Lesen eingehender Datagramme, einen [`WritableStream`](/de/docs/Web/API/WritableStream) zum Schreiben ausgehender Datagramme sowie verschiedene Einstellungen und Statistiken zum Stream.
 - [`WebTransportError`](/de/docs/Web/API/WebTransportError)
   - : Repräsentiert einen Fehler im Zusammenhang mit der WebTransport API, der durch Serverfehler, Probleme mit der Netzwerkverbindung oder vom Client ausgelöste Abbruchvorgänge entstehen kann, beispielsweise durch einen Aufruf von [`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort).
 - [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)
@@ -466,7 +466,7 @@ for await (const data of stream.readable) {
 
 Vollständige Beispiele finden Sie unter:
 
-- [WebTransport über HTTP/3: Client](https://webtransport.day/)
+- [WebTransport-over-HTTP/3-Client](https://googlechrome.github.io/samples/webtransport/client.html)
 
 ## Spezifikationen
 

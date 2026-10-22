@@ -1,14 +1,14 @@
 ---
-title: "`:local-link` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:local-link`
 short-title: :local-link
 slug: Web/CSS/Reference/Selectors/:local-link
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: e59d26003fa9f0a91ae316fad08c5977cf69908b
 ---
 
 {{SeeCompatTable}}
 
-Die **`:local-link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert einen Link zum gleichen Dokument. Sie betrifft daher ein Element, das der Quellanker eines Hyperlinks ist, dessen Ziel-URL mit der absoluten URL des Dokuments des Elements übereinstimmt.
+Die [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:local-link`** repräsentiert einen Link zum selben Dokument. Sie trifft auf ein Element zu, das als Ausgangsanker eines Hyperlinks dient, dessen absolute Ziel-URL mit der URL des Dokuments übereinstimmt, zu dem das Element gehört.
 
 ```css
 /* Selects any <a> that links to the current document */
@@ -56,5 +56,5 @@ Derzeit unterstützt kein Browser diese Funktion.
 
 ## Siehe auch
 
-- Link-bezogene Pseudoklassen: {{ cssxref(":link") }}, {{ cssxref(":visited") }}, {{ cssxref(":hover") }}, {{ cssxref(":active") }}, {{ cssxref(":any-link") }}
-- [CSS Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- Linkbezogene Pseudoklassen: {{ cssxref(":link") }}, {{ cssxref(":visited") }}, {{ cssxref(":hover") }}, {{ cssxref(":active") }}, {{ cssxref(":any-link") }}
+- Modul [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)

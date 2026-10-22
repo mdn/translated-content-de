@@ -2,14 +2,14 @@
 title: PerformanceEntry
 slug: Web/API/PerformanceEntry
 l10n:
-  sourceCommit: 6bb81a788ff71f726e32d16757c99d5c45a7edf9
+  sourceCommit: 468fcd167cd6f5979b1f6c92583894a281ae886e
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
 Das **`PerformanceEntry`**-Objekt kapselt eine einzelne Leistungsmetrik, die Teil der Performance-Timeline des Browsers ist.
 
-Die Performance API bietet integrierte Metriken in Form spezialisierter Unterklassen von `PerformanceEntry`. Dazu gehören Einträge für das Laden von Ressourcen, das Timing von Ereignissen und mehr.
+Die Performance API bietet integrierte Metriken in Form spezialisierter Unterklassen von `PerformanceEntry`. Dazu gehören Einträge für das Laden von Ressourcen, das Timing von Ereignissen und weitere Metriken.
 
 Ein Performance-Eintrag kann auch erstellt werden, indem die Methoden [`Performance.mark()`](/de/docs/Web/API/Performance/mark) oder [`Performance.measure()`](/de/docs/Web/API/Performance/measure) an einer bestimmten Stelle in einer Anwendung aufgerufen werden. So können Sie der Performance-Timeline eigene Metriken hinzufügen.
 
@@ -36,27 +36,27 @@ Ein Performance-Eintrag kann auch erstellt werden, indem die Methoden [`Performa
 ## Instanzeigenschaften
 
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
-  - : Eine Zeichenfolge, die den Namen eines Performance-Eintrags angibt. Der Wert hängt vom Untertyp ab.
+  - : Ein String, der den Namen eines Performance-Eintrags angibt. Der Wert hängt vom Untertyp ab.
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des Performance-Eintrags angibt.
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
-  - : Eine Zeichenfolge, die den Typ der Leistungsmetrik angibt. Beispielsweise `"mark"`, wenn [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) verwendet wird.
+  - : Ein String, der den Typ der Leistungsmetrik angibt. Bei Verwendung von [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) ist dies beispielsweise `"mark"`.
 - [`PerformanceEntry.navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die ID der Navigation, in deren Rahmen der Performance-Eintrag ausgegeben wurde.
+  - : Die ID der Navigation, der der Performance-Eintrag zugeordnet ist.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Startzeitpunkt der Leistungsmetrik angibt.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit der Leistungsmetrik angibt.
 
 ## Instanzmethoden
 
 - [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON)
   - : Gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `PerformanceEntry`-Objekt repräsentiert. Wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen.
 
-## Beispiel
+## Beispiele
 
 ### Mit Performance-Einträgen arbeiten
 
 Das folgende Beispiel erstellt `PerformanceEntry`-Objekte der Typen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure).
-Die Unterklassen `PerformanceMark` und `PerformanceMeasure` erben die Eigenschaften `duration`, `entryType`, `name` und `startTime` von `PerformanceEntry` und setzen sie auf die entsprechenden Werte.
+Die Unterklassen `PerformanceMark` und `PerformanceMeasure` erben die Eigenschaften `duration`, `entryType`, `name` und `startTime` von `PerformanceEntry` und setzen sie auf die jeweils passenden Werte.
 
 ```js
 // Place at a location in the code that starts login

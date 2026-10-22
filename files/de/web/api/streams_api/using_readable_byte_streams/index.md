@@ -1,69 +1,91 @@
 ---
-title: Verwendung von lesbaren Bytestreams
+title: Lesbare Byte-Streams verwenden
 slug: Web/API/Streams_API/Using_readable_byte_streams
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: 103fb0852700db9d4ca3b5fd2bfe6f2c65e8251c
 ---
 
 {{DefaultAPISidebar("Streams")}}
 
-Lesbare _Bytestreams_ sind [lesbare Streams](/de/docs/Web/API/Streams_API/Using_readable_streams), die eine zugrunde liegende Byte-Quelle vom `type: "bytes"` haben und eine effiziente Zero-Copy-Übertragung von Daten von der zugrunde liegenden Quelle zu einem Verbraucher unterstützen (wobei die internen Warteschlangen des Streams umgangen werden). Sie sind vorgesehen für Anwendungsfälle, bei denen Daten in beliebig großen und potenziell sehr großen Blöcken geliefert oder angefordert werden könnten und bei denen das Vermeiden von Kopien die Effizienz wahrscheinlich verbessert.
+Lesbare _Byte-Streams_ sind [lesbare Streams](/de/docs/Web/API/Streams_API/Using_readable_streams) mit einer zugrunde liegenden Byte-Quelle vom Typ `type: "bytes"`. Sie unterstützen die effiziente Übertragung von Daten aus der zugrunde liegenden Quelle an einen Verbraucher ohne Kopieren der Daten, wobei die internen Warteschlangen des Streams umgangen werden.
+Sie sind für Anwendungsfälle gedacht, in denen Daten in beliebig großen und möglicherweise sehr umfangreichen Blöcken bereitgestellt oder angefordert werden. In solchen Fällen kann das Vermeiden von Kopien die Effizienz verbessern.
 
-Dieser Artikel erklärt, wie sich lesbare Bytestreams von normalen "Standard"-Streams unterscheiden und wie Sie sie erstellen und verwenden.
+Dieser Artikel erklärt, wie sich lesbare Byte-Streams von normalen „Standard“-Streams unterscheiden und wie Sie sie erstellen und verwenden.
 
 > [!NOTE]
-> Lesbare Bytestreams sind fast identisch mit "normalen" lesbaren Streams und fast alle Konzepte sind dieselben.
-> Dieser Artikel geht davon aus, dass Sie diese Konzepte bereits verstehen, und behandelt sie nur oberflächlich (wenn überhaupt).
-> Wenn Sie mit den relevanten Konzepten nicht vertraut sind, lesen Sie bitte zuerst: [Using readable streams](/de/docs/Web/API/Streams_API/Using_readable_streams), [Streams concepts and usage overview](/de/docs/Web/API/Streams_API#concepts_and_usage) und [Streams API concepts](/de/docs/Web/API/Streams_API/Concepts).
+> Lesbare Byte-Streams sind „normalen“ lesbaren Streams sehr ähnlich; fast alle Konzepte sind identisch.
+> Dieser Artikel setzt voraus, dass Sie diese Konzepte bereits verstehen, und behandelt sie höchstens oberflächlich.
+> Falls Sie mit ihnen noch nicht vertraut sind, lesen Sie zuerst [Lesbare Streams verwenden](/de/docs/Web/API/Streams_API/Using_readable_streams), [Überblick über Konzepte und Verwendung von Streams](/de/docs/Web/API/Streams_API#concepts_and_usage) und [Konzepte der Streams API](/de/docs/Web/API/Streams_API/Concepts).
 
-## Übersicht
+## Überblick
 
-Lesbare Streams bieten eine einheitliche Schnittstelle zum Streamen von Daten von einer zugrunde liegenden Quelle, wie einer Datei oder einem Socket, zu einem Verbraucher, wie einem Leser, einem Transform-Stream oder einem beschreibbaren Stream. In einem normalen lesbaren Stream gelangen Daten von der zugrunde liegenden Quelle immer über die internen Warteschlangen zu einem Verbraucher. Ein lesbarer Bytestream unterscheidet sich dadurch, dass wenn die internen Warteschlangen leer sind, die zugrunde liegende Quelle direkt an den Verbraucher schreiben kann (eine effiziente Zero-Copy-Übertragung).
+Lesbare Streams bieten eine einheitliche Schnittstelle, um Daten von einer zugrunde liegenden Quelle, etwa einer Datei oder einem Socket, an einen Verbraucher zu streamen, etwa einen Reader, einen Transform-Stream oder einen beschreibbaren Stream.
+Bei einem normalen lesbaren Stream durchlaufen Daten aus der zugrunde liegenden Quelle auf dem Weg zum Verbraucher immer die internen Warteschlangen.
+Ein lesbarer Byte-Stream unterscheidet sich dadurch, dass die zugrunde liegende Quelle bei leeren internen Warteschlangen direkt an den Verbraucher schreiben kann – eine effiziente Übertragung ohne Kopieren der Daten.
 
-Ein lesbarer Bytestream wird erstellt, indem `type: "bytes"` im `underlyingSource`-Objekt angegeben wird, das als erster Parameter an den [`ReadableStream()`-Konstruktor](/de/docs/Web/API/ReadableStream/ReadableStream) übergeben werden kann. Mit diesem Wert wird der Stream mit einem [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) erstellt, und dieses Objekt wird an die zugrunde liegende Quelle übergeben, wenn die `start(controller)` und `pull(controller)` Callback-Funktionen aufgerufen werden.
+Ein lesbarer Byte-Stream wird erstellt, indem im `underlyingSource`-Objekt, das als erster Parameter an den [`ReadableStream()`-Konstruktor](/de/docs/Web/API/ReadableStream/ReadableStream) übergeben werden kann, `type: "bytes"` angegeben wird.
+Mit diesem Wert wird der Stream mit einem [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) erstellt. Dieses Objekt wird an die zugrunde liegende Quelle übergeben, wenn die Callback-Funktionen `start(controller)` und `pull(controller)` aufgerufen werden.
 
-Der Hauptunterschied zwischen dem [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) und dem Standardcontroller ([`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)) ist, dass er eine zusätzliche Eigenschaft [`ReadableByteStreamController.byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest) vom Typ [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest) hat. Diese stellt eine ausstehende Leseanforderung eines Verbrauchers dar, die als Zero-Copy-Übertragung von der zugrunde liegenden Quelle ausgeführt wird. Die Eigenschaft ist `null`, wenn keine ausstehende Anforderung vorliegt.
+Der Hauptunterschied zwischen [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) und dem Standard-Controller ([`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)) besteht darin, dass ersterer die zusätzliche Eigenschaft [`ReadableByteStreamController.byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest) vom Typ [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest) besitzt.
+Sie repräsentiert eine ausstehende Leseanforderung eines Verbrauchers, bei der Daten ohne Kopieren aus der zugrunde liegenden Quelle übertragen werden.
+Wenn keine Anforderung aussteht, ist der Wert der Eigenschaft `null`.
 
-Ein `byobRequest` steht nur zur Verfügung, wenn eine Leseanforderung an einen lesbaren Bytestream gestellt wird und sich keine Daten in den internen Warteschlangen des Streams befinden (wenn Daten vorhanden sind, wird die Anforderung aus diesen Warteschlangen erfüllt).
+Ein `byobRequest` steht nur dann zur Verfügung, wenn für einen lesbaren Byte-Stream eine Leseanforderung gestellt wird und sich keine Daten in dessen internen Warteschlangen befinden. Sind dort Daten vorhanden, wird die Anforderung aus diesen Warteschlangen erfüllt.
 
-Eine zugrunde liegende Byte-Quelle, die Daten übertragen muss, muss die `byobRequest`-Eigenschaft überprüfen und, wenn diese verfügbar ist, diese zur Datenübertragung verwenden. Ist die Eigenschaft `null`, sollten eingehende Daten stattdessen mit [`ReadableByteStreamController.enqueue()`](/de/docs/Web/API/ReadableByteStreamController/enqueue) zu den internen Warteschlangen des Streams hinzugefügt werden (dies ist die einzige Möglichkeit, Daten bei Verwendung eines "Standard"-Streams zu übertragen).
+Eine zugrunde liegende Byte-Quelle, die Daten übertragen muss, muss die Eigenschaft `byobRequest` prüfen und sie verwenden, falls sie verfügbar ist.
+Ist die Eigenschaft `null`, sollten eingehende Daten stattdessen mit [`ReadableByteStreamController.enqueue()`](/de/docs/Web/API/ReadableByteStreamController/enqueue) zu den internen Warteschlangen des Streams hinzugefügt werden. Bei einem „Standard“-Stream ist dies die einzige Möglichkeit, Daten zu übertragen.
 
-Die [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest) hat eine [`view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) Eigenschaft, die eine Ansicht auf den für die Übertragung zugewiesenen Puffer ist. Daten aus einer zugrunde liegenden Quelle sollten in diese Eigenschaft geschrieben werden, und dann muss die zugrunde liegende Quelle [`respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) aufrufen, um die Anzahl der geschriebenen Bytes anzugeben. Dies signalisiert, dass die Daten übertragen werden sollen und die ausstehende Leseanforderung des Verbrauchers erfüllt ist. Nach dem Aufruf von `respond()` kann die `view` nicht mehr beschrieben werden.
+[`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest) besitzt die Eigenschaft [`view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view), die eine Ansicht des für die Übertragung bereitgestellten Puffers ist.
+Daten aus einer zugrunde liegenden Quelle sollten in diese Ansicht geschrieben werden. Anschließend muss die zugrunde liegende Quelle [`respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) aufrufen und dabei die Anzahl der geschriebenen Bytes angeben.
+Damit wird signalisiert, dass die Daten übertragen und die ausstehende Leseanforderung des Verbrauchers erfüllt werden sollen.
+Nach dem Aufruf von `respond()` kann nicht mehr in `view` geschrieben werden.
 
-Es gibt auch eine zusätzliche Methode [`ReadableStreamBYOBRequest.respondWithNewView()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respondWithNewView), an die eine zugrunde liegende Quelle eine "neue" Ansicht mit zu übertragenden Daten übergeben kann. Diese neue Ansicht muss über denselben Speicherpuffer wie das Original verfügen und am selben Startoffset beginnen. Diese Methode könnte verwendet werden, wenn die zugrunde liegende Byte-Quelle die Ansicht zuerst an einen Worker-Thread übertragen muss, um sie dort zu befüllen (zum Beispiel) und dann zurückerhalten muss, bevor sie auf die `byobRequest` antwortet. In den meisten Fällen wird diese Methode nicht benötigt.
+Daneben gibt es die Methode [`ReadableStreamBYOBRequest.respondWithNewView()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respondWithNewView), der eine zugrunde liegende Quelle eine „neue“ Ansicht mit den zu übertragenden Daten übergeben kann.
+Diese neue Ansicht muss denselben Speicherpuffer wie die ursprüngliche Ansicht verwenden und am selben Offset beginnen.
+Die Methode kann beispielsweise verwendet werden, wenn die zugrunde liegende Byte-Quelle die Ansicht zum Befüllen zunächst an einen Worker-Thread übertragen und sie zurückerhalten muss, bevor sie auf `byobRequest` antwortet.
+In den meisten Fällen wird diese Methode nicht benötigt.
 
-Lesbare Bytestreams werden normalerweise mit einem [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) gelesen, den Sie erhalten, indem Sie [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) am Stream aufrufen und `mode: "byob"` im Optionsparameter angeben.
+Lesbare Byte-Streams werden normalerweise mit einem [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) gelesen. Sie erhalten ihn, indem Sie [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) für den Stream aufrufen und im Optionsparameter `mode: "byob"` angeben.
 
-Ein lesbarer Bytestream kann auch mit einem Standardleser ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) gelesen werden, jedoch werden in diesem Fall `byobRequest`-Objekte nur erstellt, wenn für den Stream die automatische Pufferspeicherzuweisung aktiviert ist ([`autoAllocateChunkSize`](/de/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize) war für die `underlyingSource` des Streams festgelegt). Beachten Sie, dass die durch `autoAllocateChunkSize` angegebene Größe in diesem Fall für die Puffergröße verwendet wird; für einen Byte-Leser wird der verwendete Puffer vom Verbraucher bereitgestellt. Wenn die Eigenschaft nicht spezifiziert wurde, "funktioniert" der Standardleser zwar immer noch, aber der zugrunde liegenden Quelle wird nie ein `byobRequest` angeboten und alle Daten werden über die internen Warteschlangen des Streams übertragen.
+Ein lesbarer Byte-Stream kann auch mit einem Standard-Reader ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) gelesen werden. In diesem Fall werden `byobRequest`-Objekte jedoch nur erstellt, wenn die automatische Pufferzuweisung für den Stream aktiviert ist ([`autoAllocateChunkSize`](/de/docs/Web/API/ReadableStream/ReadableStream#autoallocatechunksize) wurde für dessen `underlyingSource` festgelegt).
+Die durch `autoAllocateChunkSize` angegebene Größe bestimmt dabei die Puffergröße. Bei einem Byte-Reader wird der verwendete Puffer dagegen vom Verbraucher bereitgestellt.
+Wurde die Eigenschaft nicht angegeben, „funktioniert“ der Standard-Reader trotzdem. Der zugrunde liegenden Quelle wird dann jedoch nie ein `byobRequest` angeboten, und sämtliche Daten werden über die internen Warteschlangen des Streams übertragen.
 
-Abgesehen von den oben genannten Unterschieden sind der Controller und die zugrunde liegende Quelle für Bytestreams denjenigen für Standardstreams sehr ähnlich, [und werden in fast derselben Weise verwendet](/de/docs/Web/API/Streams_API/Using_readable_streams).
+Abgesehen von diesen Unterschieden ähneln der Controller und die zugrunde liegende Quelle eines Byte-Streams denen eines Standard-Streams sehr und [werden weitgehend auf dieselbe Weise verwendet](/de/docs/Web/API/Streams_API/Using_readable_streams).
 
 ## Beispiele
 
-### Zugrunde liegende Push-Quelle mit Byte-Leser
+### Zugrunde liegende Push-Quelle mit Byte-Reader
 
-Dieses Live-Beispiel zeigt, wie man einen lesbaren Bytestream mit einer _Push_-Quelle und einem Byte-Leser erstellt.
+Dieses interaktive Beispiel zeigt, wie Sie einen lesbaren Byte-Stream mit einer zugrunde liegenden Byte-Quelle erstellen, die Daten aktiv bereitstellt, und ihn mit einem Byte-Reader lesen.
 
-Im Gegensatz zu einer Pull-Basisquelle können Daten jederzeit ankommen. Daher muss die zugrunde liegende Quelle `controller.byobRequest` verwenden, um eingehende Daten zu übertragen, wenn eines existiert, und andernfalls die Daten in die internen Warteschlangen des Streams einreihen. Da die Daten jederzeit ankommen können, wird das Monitorverhalten in der `underlyingSource.start()` Callback-Funktion eingerichtet.
+Anders als bei einer zugrunde liegenden Quelle, aus der Daten bei Bedarf abgerufen werden, können die Daten hier jederzeit eintreffen.
+Deshalb muss die zugrunde liegende Quelle eingehende Daten über `controller.byobRequest` übertragen, sofern ein solcher vorhanden ist. Andernfalls muss sie die Daten in die internen Warteschlangen des Streams einreihen.
+Da die Daten jederzeit eintreffen können, wird außerdem die Überwachung in der Callback-Funktion `underlyingSource.start()` eingerichtet.
 
-Das Beispiel ist stark von einem Push-Byte-Quellenbeispiel in der Stream-Spezifikation beeinflusst. Es nutzt eine simulierte "hypothetische Socket"-Quelle, die Daten beliebiger Größen liefert. Der Leser wird absichtlich an verschiedenen Stellen verzögert, um es der zugrunde liegenden Quelle zu erlauben, sowohl übertragen als auch eingelagerte Daten an den Stream zu senden. Unterstützung für Rückstau ist nicht demonstriert.
+Das Beispiel orientiert sich stark an einem Beispiel für eine Byte-Quelle, die Daten aktiv bereitstellt, aus der Streams-Spezifikation.
+Es verwendet eine simulierte „hypothetische Socket“-Quelle, die Daten in Blöcken beliebiger Größe liefert.
+Der Reader wird an verschiedenen Stellen absichtlich verzögert, damit die zugrunde liegende Quelle sowohl die direkte Übertragung als auch das Einreihen in die Warteschlange nutzen kann, um Daten an den Stream zu übergeben.
+Die Unterstützung für Backpressure wird nicht demonstriert.
 
 > [!NOTE]
-> Eine zugrunde liegende Byte-Quelle kann auch mit einem Standardleser verwendet werden.
-> Wenn die automatische Pufferspeicherzuweisung aktiviert ist, wird der Controller feste Puffergrößen für Zero-Copy-Übertragungen bereitstellen, wenn eine ausstehende Anforderung von einem Leser vorliegt und die internen Warteschlangen des Streams leer sind.
-> Wenn die automatische Pufferspeicherzuweisung nicht aktiviert ist, werden alle Daten aus dem Bytestream immer eingereiht.
-> Dies ähnelt dem Verhalten, das in den "Pull: zugrunde liegende Byte-Quellen"-Beispielen gezeigt wird.
+> Eine zugrunde liegende Byte-Quelle kann auch mit einem Standard-Reader verwendet werden.
+> Ist die automatische Pufferzuweisung aktiviert, stellt der Controller Puffer fester Größe für Übertragungen ohne Kopieren bereit, wenn eine Leseanforderung aussteht und die internen Warteschlangen des Streams leer sind.
+> Ist die automatische Pufferzuweisung nicht aktiviert, werden alle Daten des Byte-Streams in die Warteschlange eingereiht.
+> Dies ähnelt dem Verhalten in den Beispielen [Zugrunde liegende Pull-Quelle mit Standard-Reader](#zugrunde_liegende_pull-quelle_mit_standard-reader) und [Zugrunde liegende Pull-Quelle mit Standard-Reader und ohne Pufferzuweisung](#zugrunde_liegende_pull-quelle_mit_standard-reader_und_ohne_pufferzuweisung).
 
 #### Simulierte zugrunde liegende Socket-Quelle
 
 Die simulierte zugrunde liegende Quelle hat drei wichtige Methoden:
 
-- `select2()` stellt eine ausstehende Anforderung an den Socket dar.
-  Sie gibt ein Versprechen zurück, das aufgelöst wird, wenn Daten verfügbar sind.
-- `readInto()` liest Daten vom Socket in einen bereitgestellten Puffer und löscht dann die Daten.
+- `select2()` repräsentiert eine ausstehende Anforderung an den Socket.
+  Die Methode gibt ein Promise zurück, das erfüllt wird, sobald Daten verfügbar sind.
+- `readInto()` liest Daten aus dem Socket in einen bereitgestellten Puffer und entfernt sie anschließend aus der Quelle.
 - `close()` schließt den Socket.
 
-Die Implementierung ist sehr einfach gehalten. Wie unten gezeigt, erstellt `select2()` einen zufällig dimensionierten Puffer mit zufälligen Daten nach einem Timeout. Die erstellten Daten werden in einen Puffer gelesen und dann in `readInto()` gelöscht.
+Die Implementierung ist stark vereinfacht.
+Wie unten gezeigt, erstellt `select2()` nach einer Zeitverzögerung einen Puffer zufälliger Größe mit Zufallsdaten.
+Die erstellten Daten werden in `readInto()` in einen Puffer gelesen und anschließend aus der Quelle entfernt.
 
 ```js
 class MockHypotheticalSocket {
@@ -159,7 +181,7 @@ class MockHypotheticalSocket {
 }
 ```
 
-<!-- Der folgende HTML-Code und das JS richten das Reporting ein. Versteckt, da es für Leser nicht nützlich ist -->
+<!-- Der folgende HTML- und JS-Code richtet die Ausgabe ein. Er ist ausgeblendet, da er für Leser nicht hilfreich ist. -->
 
 ```css hidden
 .input {
@@ -212,15 +234,22 @@ function logConsumer(result) {
 }
 ```
 
-#### Erstellen eines lesbaren Socket-Push-Bytestreams
+#### Lesbaren Socket-Byte-Stream mit Push-Quelle erstellen
 
-Der folgende Code zeigt, wie man einen lesbaren Socket-"Push"-Bytestream definiert.
+Der folgende Code zeigt, wie Sie einen lesbaren Socket-Byte-Stream mit einer Push-Quelle definieren.
 
-Die `underlyingSource`-Objektdefinition wird als erster Parameter an den [`ReadableStream()`-Konstruktor](/de/docs/Web/API/ReadableStream/ReadableStream) übergeben. Um daraus einen lesbaren "Byte"-Stream zu machen, geben wir als Eigenschaft des Objekts `type: "bytes"` an. Dies stellt sicher, dass der Stream einen [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) erhält (anstatt des Standardcontrollers ([`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)))
+Das `underlyingSource`-Objekt wird als erster Parameter an den [`ReadableStream()`-Konstruktor](/de/docs/Web/API/ReadableStream/ReadableStream) übergeben.
+Damit ein lesbarer Byte-Stream entsteht, geben wir `type: "bytes"` als Eigenschaft des Objekts an.
+Dadurch erhält der Stream einen [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) statt des Standard-Controllers ([`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)).
 
-Da Daten am Socket ankommen können, bevor der Verbraucher bereit ist, sie zu verarbeiten, wird alles, was das Lesen der zugrunde liegenden Quelle betrifft, in der `start()` Callback-Methode konfiguriert (wir warten nicht auf einen Pull, um mit der Datenverarbeitung zu beginnen). Die Implementierung öffnet den "Socket" und ruft `select2()` auf, um Daten anzufordern. Wenn das zurückgegebene Versprechen aufgelöst wird, prüft der Code, ob `controller.byobRequest` existiert (nicht `null` ist), und falls ja, wird `socket.readInto()` aufgerufen, um Daten in die Anfrage zu kopieren und sie zu übertragen. Wenn `byobRequest` nicht existiert, gibt es keine ausstehende Anforderung von einem verbrauchenden Stream, die als Zero-Copy-Übertragung erfüllt werden kann. In diesem Fall wird `controller.enqueue()` verwendet, um Daten zu den internen Warteschlangen des Streams zu kopieren.
+Da Daten am Socket eintreffen können, bevor der Verbraucher sie verarbeiten kann, wird das Lesen der zugrunde liegenden Quelle vollständig in der Callback-Methode `start()` eingerichtet. Wir warten nicht auf einen Abruf, bevor wir mit der Verarbeitung der Daten beginnen.
+Die Implementierung öffnet den „Socket“ und ruft `select2()` auf, um Daten anzufordern.
+Wenn das zurückgegebene Promise erfüllt wird, prüft der Code, ob `controller.byobRequest` vorhanden, also nicht `null`, ist. Falls ja, ruft er `socket.readInto()` auf, um Daten in die Anforderung zu kopieren und zu übertragen.
+Ist kein `byobRequest` vorhanden, gibt es keine ausstehende Leseanforderung eines Verbrauchers, die durch eine Übertragung ohne Kopieren erfüllt werden könnte.
+In diesem Fall wird `controller.enqueue()` verwendet, um Daten in die internen Warteschlangen des Streams zu kopieren.
 
-Die `select2()`-Anforderung nach mehr Daten wird erneut gepostet, bis eine Anforderung ohne Daten zurückgegeben wird. In diesem Punkt wird der Controller verwendet, um den Stream zu schließen.
+Die Anforderung weiterer Daten über `select2()` wird so lange wiederholt, bis eine Anforderung keine Daten mehr zurückliefert.
+An diesem Punkt wird der Stream über den Controller geschlossen.
 
 ```js
 const stream = makeSocketStream("dummy host", "dummy port");
@@ -276,15 +305,19 @@ function makeSocketStream(host, port) {
 }
 ```
 
-Beachten Sie, dass `readRepeatedly()` ein Versprechen zurückgibt, das wir verwenden, um Fehler abzufangen, die beim Einrichten oder Verarbeiten des Lesevorgangs auftreten. Die Fehler werden dann an den Controller weitergegeben, wie oben gezeigt (siehe `readRepeatedly().catch((e) => controller.error(e));`).
+Beachten Sie, dass `readRepeatedly()` ein Promise zurückgibt. Dieses verwenden wir, um Fehler beim Einrichten oder Verarbeiten des Lesevorgangs abzufangen.
+Die Fehler werden dann wie oben gezeigt an den Controller übergeben (siehe `readRepeatedly().catch((e) => controller.error(e));`).
 
-Eine `cancel()`-Methode wird am Ende bereitgestellt, um die zugrunde liegende Quelle zu schließen; die `pull()`-Callback-Methode wird nicht benötigt und deshalb nicht implementiert.
+Am Ende ist eine Methode `cancel()` vorgesehen, um die zugrunde liegende Quelle zu schließen. Der Callback `pull()` wird nicht benötigt und daher nicht implementiert.
 
-#### Konsumieren des Push-Bytestreams
+#### Push-Byte-Stream verwenden
 
-Der folgende Code erstellt einen `ReadableStreamBYOBReader` für den Socket-Bytestream und nutzt ihn, um Daten in einen Puffer zu lesen. Beachten Sie, dass `processText()` rekursiv aufgerufen wird, um mehr Daten zu lesen, bis der Puffer gefüllt ist. Wenn die zugrunde liegende Quelle signalisiert, dass sie keine Daten mehr hat, wird `reader.read()` `done` auf `true` gesetzt, was den Lesevorgang abschließt.
+Der folgende Code erstellt einen `ReadableStreamBYOBReader` für den Socket-Byte-Stream und liest damit Daten in einen Puffer.
+`processText()` wird rekursiv aufgerufen, um weitere Daten zu lesen, bis der Puffer gefüllt ist.
+Wenn die zugrunde liegende Quelle signalisiert, dass keine weiteren Daten vorhanden sind, ist `done` im Ergebnis von `reader.read()` auf `true` gesetzt. Damit endet der Lesevorgang.
 
-Dieser Code ist fast identisch mit dem Beispiel [Zugrunde liegende Pull-Quelle mit Byte-Leser](#zugrunde_liegende_pull-quelle_mit_byte-leser) weiter oben. Der einzige Unterschied ist, dass der Leser Code enthält, um das Lesen zu verlangsamen, damit die Protokollausgabe zeigen kann, dass Daten eingereiht werden, wenn sie nicht schnell genug gelesen werden.
+Dieser Code ist fast identisch mit dem des nachfolgenden Beispiels [Zugrunde liegende Pull-Quelle mit Byte-Reader](#zugrunde_liegende_pull-quelle_mit_byte-reader).
+Der einzige Unterschied besteht darin, dass der Reader zusätzlichen Code enthält, der das Lesen verlangsamt. So kann die Protokollausgabe zeigen, dass Daten in die Warteschlange eingereiht werden, wenn sie nicht schnell genug gelesen werden.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
@@ -336,9 +369,11 @@ function readStream(reader) {
 }
 ```
 
-#### Den Stream mithilfe des Lesers abbrechen
+#### Stream über den Reader abbrechen
 
-Wir können [`ReadableStreamBYOBReader.cancel()`](/de/docs/Web/API/ReadableStreamBYOBReader/cancel) verwenden, um den Stream abzubrechen. Für dieses Beispiel rufen wir die Methode auf, wenn ein Button mit dem Grund "user choice" geklickt wird (anderes HTML und Code für den Button nicht gezeigt). Wir loggen auch, wann der Abbruch abgeschlossen ist.
+Mit [`ReadableStreamBYOBReader.cancel()`](/de/docs/Web/API/ReadableStreamBYOBReader/cancel) können wir den Stream abbrechen.
+In diesem Beispiel rufen wir die Methode mit dem Grund „user choice“ auf, wenn auf eine Schaltfläche geklickt wird. Das übrige HTML und der Code für die Schaltfläche sind nicht gezeigt.
+Außerdem protokollieren wir, wann der Abbruch abgeschlossen ist.
 
 ```js
 button.addEventListener("click", () => {
@@ -348,11 +383,14 @@ button.addEventListener("click", () => {
 });
 ```
 
-[`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock) kann verwendet werden, um den Leser freizugeben, ohne den Stream abzubrechen. Beachten Sie jedoch, dass alle ausstehenden Leseanforderungen sofort abgelehnt werden. Zu einem späteren Zeitpunkt kann ein neuer Leser erworben werden, um die restlichen Datenblöcke zu lesen.
+Mit [`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock) kann die Sperre des Readers freigegeben werden, ohne den Stream abzubrechen.
+Beachten Sie jedoch, dass alle ausstehenden Leseanforderungen sofort zurückgewiesen werden.
+Später kann ein neuer Reader angefordert werden, um die verbleibenden Blöcke zu lesen.
 
-#### Stream auf Schließen/Fehler überwachen
+#### Schließen und Fehler des Streams überwachen
 
-Die [`ReadableStreamBYOBReader.closed`](/de/docs/Web/API/ReadableStreamBYOBReader/closed) Eigenschaft gibt ein Versprechen zurück, das aufgelöst wird, wenn der Stream geschlossen wird, und abgelehnt wird, wenn ein Fehler auftritt. Obwohl in diesem Fall keine Fehler erwartet werden, sollte der folgende Code den Abschlussfall protokollieren.
+Die Eigenschaft [`ReadableStreamBYOBReader.closed`](/de/docs/Web/API/ReadableStreamBYOBReader/closed) gibt ein Promise zurück, das beim Schließen des Streams erfüllt und bei einem Fehler zurückgewiesen wird.
+Obwohl in diesem Fall keine Fehler zu erwarten sind, sollte der folgende Code protokollieren, wenn der Stream geschlossen wird.
 
 ```js
 reader.closed
@@ -366,20 +404,25 @@ reader.closed
 
 #### Ergebnis
 
-Das Protokollieren der zugrunde liegenden Push-Quelle (links) und des Verbrauchers (rechts) wird unten gezeigt. Beachten Sie den Zeitraum in der Mitte, in dem Daten eingereiht anstelle einer Zero-Copy-Operation übertragen werden.
+Unten sehen Sie die Protokollausgaben der zugrunde liegenden Push-Quelle (links) und des Verbrauchers (rechts).
+Beachten Sie den Abschnitt in der Mitte, in dem Daten in die Warteschlange eingereiht werden, statt ohne Kopieren übertragen zu werden.
 
 {{EmbedLiveSample("Underlying push source with default reader","100%","500px")}}
 
-### Zugrunde liegende Pull-Quelle mit Byte-Leser
+### Zugrunde liegende Pull-Quelle mit Byte-Reader
 
-Dieses Live-Beispiel zeigt, wie Daten aus einer "Pull"-Bytestream-Quelle, wie einer Datei, gelesen werden könnten und als Zero-Copy-Übertragung an einen [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) übertragen werden.
+Dieses interaktive Beispiel zeigt, wie Daten aus einer zugrunde liegenden Byte-Quelle, aus der Daten bei Bedarf abgerufen werden, beispielsweise einer Datei, gelesen und vom Stream ohne Kopieren an einen [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) übertragen werden können.
 
-#### Simulierte zugrunde liegende Datei-Quelle
+#### Simulierte zugrunde liegende Dateiquelle
 
-Für die zugrunde liegende Pull-Quelle verwenden wir die folgende Klasse, um (_sehr_ oberflächlich) ein Nodejs-`FileHandle` zu simulieren, und insbesondere die `read()`-Methode. Die Klasse generiert zufällige Daten, um eine Datei darzustellen. Die `read()`-Methode liest einen "halb-zufällig" dimensionierten Block zufälliger Daten in einen bereitgestellten Puffer von der angegebenen Position aus. Die `close()`-Methode macht nichts: Sie wird nur bereitgestellt, um zu zeigen, wo Sie beim Definieren des Stream-Konstruktors die Quelle schließen könnten.
+Für die zugrunde liegende Pull-Quelle verwenden wir die folgende Klasse, um ein Node.js-[`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle) und insbesondere dessen Methode [`read()`](https://nodejs.org/api/fs.html#filehandlereadbuffer-offset-length-position) _sehr_ vereinfacht zu simulieren.
+Die Klasse erzeugt Zufallsdaten, die eine Datei darstellen.
+Die Methode `read()` liest ab der angegebenen Position einen Block von Zufallsdaten „halbzufälliger“ Größe in einen bereitgestellten Puffer.
+Die Methode `close()` führt nichts aus. Sie dient lediglich dazu zu zeigen, an welcher Stelle Sie die Quelle beim Definieren des Stream-Konstruktors schließen könnten.
 
 > [!NOTE]
-> Eine ähnliche Klasse wird für alle Beispiele der "Pull-Quelle" verwendet. Sie wird hier nur zur Information gezeigt (damit klar ist, dass es sich um einen Mock handelt).
+> Eine ähnliche Klasse wird für alle Beispiele mit Pull-Quellen verwendet.
+> Sie wird hier nur zur Information gezeigt, damit deutlich wird, dass es sich um eine Simulation handelt.
 
 ```js
 class MockUnderlyingFileHandle {
@@ -453,7 +496,7 @@ class MockUnderlyingFileHandle {
 }
 ```
 
-<!-- Der folgende HTML-Code und das JS richten das Reporting ein. Versteckt, da es für Leser nicht nützlich ist -->
+<!-- Der folgende HTML- und JS-Code richtet die Ausgabe ein. Er ist ausgeblendet, da er für Leser nicht hilfreich ist. -->
 
 ```css hidden
 .input {
@@ -506,15 +549,20 @@ function logConsumer(result) {
 }
 ```
 
-#### Erstellen eines lesbaren Datei-Bytestreams
+#### Lesbaren Datei-Byte-Stream erstellen
 
-Der folgende Code zeigt, wie man einen lesbaren Datei-Bytestream definiert.
+Der folgende Code zeigt, wie Sie einen lesbaren Datei-Byte-Stream definieren.
 
-Genau wie im vorherigen Beispiel wird die `underlyingSource`-Objektdefinition als erster Parameter an den [`ReadableStream()`-Konstruktor](/de/docs/Web/API/ReadableStream/ReadableStream) übergeben. Um daraus einen lesbaren "Byte"-Stream zu machen, geben wir `type: "bytes"` als Eigenschaft des Objekts an. Dies stellt sicher, dass der Stream einen [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) erhält.
+Wie im vorherigen Beispiel wird das `underlyingSource`-Objekt als erster Parameter an den [`ReadableStream()`-Konstruktor](/de/docs/Web/API/ReadableStream/ReadableStream) übergeben.
+Damit ein lesbarer Byte-Stream entsteht, geben wir `type: "bytes"` als Eigenschaft des Objekts an.
+Dadurch erhält der Stream einen [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController).
 
-Die `start()`-Funktion öffnet einfach den Datei-Handle, der dann im `cancel()`-Callback geschlossen wird. `cancel()` wird bereitgestellt, um alle Ressourcen zu bereinigen, wenn [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) oder [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) aufgerufen werden.
+Die Funktion `start()` öffnet lediglich das Datei-Handle, das im Callback `cancel()` wieder geschlossen wird.
+`cancel()` dient dazu, Ressourcen freizugeben, wenn [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) oder [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) aufgerufen werden.
 
-Der größte Teil des interessanten Codes befindet sich im `pull()`-Callback. Dieser kopiert Daten aus der Datei in die ausstehende Leseanforderung ([`ReadableByteStreamController.byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest)) und ruft dann [`respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) auf, um anzugeben, wie viele Daten im Puffer sind und sie zu übertragen. Wenn 0 Bytes von der Datei übertragen wurden, dann wissen wir, dass alles kopiert wurde, und rufen [`close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) am Controller auf, was dazu führt, dass `cancel()` an der zugrunde liegenden Quelle aufgerufen wird.
+Der wichtigste Teil des Codes befindet sich im Callback `pull()`.
+Er kopiert Daten aus der Datei in die ausstehende Leseanforderung ([`ReadableByteStreamController.byobRequest`](/de/docs/Web/API/ReadableByteStreamController/byobRequest)) und ruft dann [`respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) auf, um anzugeben, wie viele Daten sich im Puffer befinden, und sie zu übertragen.
+Wenn 0 Bytes aus der Datei übertragen wurden, wissen wir, dass alle Daten kopiert wurden, und rufen [`close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) auf dem Controller auf. Dadurch wird wiederum `cancel()` für die zugrunde liegende Quelle aufgerufen.
 
 ```js
 const stream = makeReadableByteFileStream("dummy file.txt");
@@ -564,9 +612,11 @@ function makeReadableByteFileStream(filename) {
 }
 ```
 
-#### Konsumieren des Bytestreams
+#### Byte-Stream verwenden
 
-Der folgende Code erstellt einen `ReadableStreamBYOBReader` für den Datei-Bytestream und nutzt ihn, um Daten in einen Puffer zu lesen. Beachten Sie, dass `processText()` rekursiv aufgerufen wird, um mehr Daten zu lesen, bis der Puffer gefüllt ist. Wenn die zugrunde liegende Quelle signalisiert, dass sie keine Daten mehr hat, wird `reader.read()` `done` auf `true` gesetzt, was den Lesevorgang abschließt.
+Der folgende Code erstellt einen `ReadableStreamBYOBReader` für den Datei-Byte-Stream und liest damit Daten in einen Puffer.
+`processText()` wird rekursiv aufgerufen, um weitere Daten zu lesen, bis der Puffer gefüllt ist.
+Wenn die zugrunde liegende Quelle signalisiert, dass keine weiteren Daten vorhanden sind, ist `done` im Ergebnis von `reader.read()` auf `true` gesetzt. Damit endet der Lesevorgang.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
@@ -607,7 +657,7 @@ function readStream(reader) {
 }
 ```
 
-Zuletzt fügen wir einen Handler hinzu, der den Stream abbricht, wenn ein Button geklickt wird (anderes HTML und Code für den Button nicht gezeigt).
+Abschließend fügen wir einen Handler hinzu, der den Stream abbricht, wenn auf eine Schaltfläche geklickt wird. Das übrige HTML und der Code für die Schaltfläche sind nicht gezeigt.
 
 ```js
 button.addEventListener("click", () => {
@@ -619,17 +669,19 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Protokollieren der zugrunde liegenden Pull-Quelle (links) und des Verbrauchers (rechts) wird unten gezeigt. Besonders bemerkenswert sind:
+Unten sehen Sie die Protokollausgaben der zugrunde liegenden Pull-Quelle (links) und des Verbrauchers (rechts).
+Beachten Sie insbesondere Folgendes:
 
-- Die `start()`-Funktion erhält einen `ReadableByteStreamController`
-- der Puffer, der an den Leser übergeben wird, ist groß genug, um die gesamte "Datei" zu umfassen.
-  Die zugrunde liegende Datenquelle liefert die Daten in zufällig dimensionierten Blöcken.
+- Der Funktion `start()` wird ein `ReadableByteStreamController` übergeben.
+- Der an den Reader übergebene Puffer ist groß genug für die gesamte „Datei“.
+  Die zugrunde liegende Datenquelle stellt die Daten in Blöcken zufälliger Größe bereit.
 
 {{EmbedLiveSample("Underlying pull source","100%","500px")}}
 
-### Zugrunde liegende Pull-Quelle mit Standardleser
+### Zugrunde liegende Pull-Quelle mit Standard-Reader
 
-Dieses Live-Beispiel zeigt, wie dieselben Daten von einer Zero-Copy-Übertragung mit einem Standardleser ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) gelesen werden könnten. Dies verwendet dieselbe [simulierte zugrunde liegende Datei-Quelle](#simulierte_zugrunde_liegende_datei-quelle) wie im vorherigen Beispiel.
+Dieses interaktive Beispiel zeigt, wie dieselben Daten mit einem Standard-Reader ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) ohne Kopieren gelesen werden können.
+Es verwendet dieselbe [simulierte zugrunde liegende Dateiquelle](#simulierte_zugrunde_liegende_dateiquelle) wie das vorherige Beispiel.
 
 ```js hidden
 class MockUnderlyingFileHandle {
@@ -703,7 +755,7 @@ class MockUnderlyingFileHandle {
 }
 ```
 
-<!-- Der folgende HTML-Code und das JS richten das Reporting ein. Versteckt, da es für Leser nicht nützlich ist -->
+<!-- Der folgende HTML- und JS-Code richtet die Ausgabe ein. Er ist ausgeblendet, da er für Leser nicht hilfreich ist. -->
 
 ```css hidden
 .input {
@@ -756,9 +808,9 @@ function logConsumer(result) {
 }
 ```
 
-#### Erstellen eines lesbaren Datei-Bytestreams mit automatischer Pufferspeicherzuweisung
+#### Lesbaren Datei-Byte-Stream mit automatischer Pufferzuweisung erstellen
 
-Der einzige Unterschied in unserer zugrunde liegenden Quelle ist, dass wir `autoAllocateChunkSize` angeben müssen und dass die Größe als Ansichtspuffergröße für `controller.byobRequest` verwendet wird, anstatt einer vom Verbraucher bereitgestellten.
+Der einzige Unterschied bei unserer zugrunde liegenden Quelle besteht darin, dass wir `autoAllocateChunkSize` angeben müssen. Dessen Wert wird als Größe des Puffers für die Ansicht von `controller.byobRequest` verwendet, statt einen vom Verbraucher bereitgestellten Puffer zu verwenden.
 
 ```js
 const DEFAULT_CHUNK_SIZE = 20;
@@ -810,9 +862,10 @@ function makeReadableByteFileStream(filename) {
 }
 ```
 
-#### Konsumieren des Bytestreams mit einem Standardleser
+#### Byte-Stream mit Standard-Reader verwenden
 
-Der folgende Code erstellt einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) für den Datei-Bytestream, indem `stream.getReader();` aufgerufen wird, ohne den Modus anzugeben, und verwendet ihn, um Daten in einen Puffer zu lesen. Der Betrieb des Codes ist derselbe wie im vorherigen Beispiel, außer dass der Puffer vom Stream und nicht vom Verbraucher bereitgestellt wird.
+Der folgende Code erstellt einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) für den Datei-Byte-Stream, indem er `stream.getReader();` ohne Angabe eines Modus aufruft. Anschließend liest er damit Daten in einen Puffer.
+Der Code funktioniert wie im vorherigen Beispiel, mit dem Unterschied, dass der Puffer vom Stream statt vom Verbraucher bereitgestellt wird.
 
 ```js
 const reader = stream.getReader();
@@ -845,7 +898,7 @@ function readStream(reader) {
 }
 ```
 
-Zuletzt fügen wir einen Handler hinzu, der den Stream abbricht, wenn ein Button geklickt wird (anderes HTML und Code für den Button nicht gezeigt).
+Abschließend fügen wir einen Handler hinzu, der den Stream abbricht, wenn auf eine Schaltfläche geklickt wird. Das übrige HTML und der Code für die Schaltfläche sind nicht gezeigt.
 
 ```js
 button.addEventListener("click", () => {
@@ -857,15 +910,16 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Protokollieren der zugrunde liegenden Byte-Pull-Quelle (links) und des Verbrauchers (rechts) wird unten gezeigt.
+Unten sehen Sie die Protokollausgaben der zugrunde liegenden Byte-Pull-Quelle (links) und des Verbrauchers (rechts).
 
-Beachten Sie, dass die Blöcke jetzt _maximal_ 20 Byte breit sind, da dies die Größe des im zugrunde liegenden Byte-Quellcode angegebenen automatisch zugewiesenen Puffers ist (`autoAllocateChunkSize`). Diese werden als Zero-Copy-Übertragungen durchgeführt.
+Beachten Sie, dass die Blöcke nun _höchstens_ 20 Bytes groß sind. Dies entspricht der Größe des automatisch zugewiesenen Puffers, die in der zugrunde liegenden Byte-Quelle über `autoAllocateChunkSize` angegeben wurde.
+Sie werden ohne Kopieren übertragen.
 
 {{EmbedLiveSample("Underlying pull source with default reader","100%","500px")}}
 
-### Zugrunde liegende Pull-Quelle mit Standardleser und ohne Zuweisung
+### Zugrunde liegende Pull-Quelle mit Standard-Reader und ohne Pufferzuweisung
 
-Der Vollständigkeit halber können wir auch einen Standardleser mit einer Byte-Quelle verwenden, die keine automatische Pufferspeicherzuordnung unterstützt.
+Der Vollständigkeit halber können wir einen Standard-Reader auch mit einer Byte-Quelle verwenden, die keine automatische Pufferzuweisung unterstützt.
 
 ```js hidden
 class MockUnderlyingFileHandle {
@@ -939,7 +993,7 @@ class MockUnderlyingFileHandle {
 }
 ```
 
-<!-- Der folgende HTML-Code und das JS richten das Reporting ein. Versteckt, da es für Leser nicht nützlich ist -->
+<!-- Der folgende HTML- und JS-Code richtet die Ausgabe ein. Er ist ausgeblendet, da er für Leser nicht hilfreich ist. -->
 
 ```css hidden
 .input {
@@ -992,7 +1046,9 @@ function logConsumer(result) {
 }
 ```
 
-In diesem Fall wird der Controller jedoch kein `byobRequest` zur Verfügung stellen, in das die zugrunde liegende Quelle schreiben kann. Stattdessen müsste die zugrunde liegende Quelle die Daten einreihen. Beachten Sie unten, dass wir im `pull()` prüfen müssen, ob die `byobRequest` existiert, um diesen Fall zu unterstützen.
+In diesem Fall stellt der Controller der zugrunde liegenden Quelle jedoch keinen `byobRequest` zum Schreiben bereit.
+Stattdessen muss die zugrunde liegende Quelle die Daten in die Warteschlange einreihen.
+Beachten Sie, dass wir zur Unterstützung dieses Falls in `pull()` prüfen müssen, ob ein `byobRequest` vorhanden ist.
 
 ```js
 const stream = makeReadableByteFileStream("dummy file.txt");
@@ -1107,12 +1163,13 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Protokollieren der zugrunde liegenden Pull-Quelle (links) und des Verbrauchers (rechts) wird unten gezeigt. Beachten Sie, dass die zugrunde liegende Quellen-Seite zeigt, dass die Daten eingereiht anstelle von Zero-Byte übertragen wurden.
+Unten sehen Sie die Protokollausgaben der zugrunde liegenden Pull-Quelle (links) und des Verbrauchers (rechts).
+Die Ausgabe der zugrunde liegenden Quelle zeigt, dass die Daten in die Warteschlange eingereiht und nicht ohne Kopieren übertragen wurden.
 
 {{EmbedLiveSample("Underlying pull source with default reader and no allocation","100%","500px")}}
 
 ## Siehe auch
 
-- [Streams API concepts](/de/docs/Web/API/Streams_API/Concepts)
-- [Streams concepts and usage overview](/de/docs/Web/API/Streams_API#concepts_and_usage)
-- [Using readable streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [Konzepte der Streams API](/de/docs/Web/API/Streams_API/Concepts)
+- [Überblick über Konzepte und Verwendung von Streams](/de/docs/Web/API/Streams_API#concepts_and_usage)
+- [Lesbare Streams verwenden](/de/docs/Web/API/Streams_API/Using_readable_streams)

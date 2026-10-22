@@ -2,27 +2,27 @@
 title: PerformanceObserverEntryList
 slug: Web/API/PerformanceObserverEntryList
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 468fcd167cd6f5979b1f6c92583894a281ae886e
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Das **`PerformanceObserverEntryList`**-Interface ist eine Liste von [Performance-Ereignissen](/de/docs/Web/API/PerformanceEntry), die explizit über die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode beobachtet wurden.
+Die **`PerformanceObserverEntryList`**-Schnittstelle ist eine Liste von [Performance-Ereignissen](/de/docs/Web/API/PerformanceEntry), die explizit über die Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) beobachtet wurden.
 
 ## Instanzmethoden
 
 - [`PerformanceObserverEntryList.getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries)
   - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück.
 - [`PerformanceObserverEntryList.getEntriesByType()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByType)
-  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte des angegebenen Entry-Typs zurück.
+  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte des angegebenen Eintragstyps zurück.
 - [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName)
-  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte basierend auf dem angegebenen Namen und Entry-Typ zurück.
+  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte anhand des angegebenen Namens und Eintragstyps zurück.
 
-## Beispiel
+## Beispiele
 
-### Verwendung von PerformanceObserverEntryList
+### PerformanceObserverEntryList verwenden
 
-Im folgenden Beispiel ist `list` das `PerformanceObserverEntryList`-Objekt. Die [`getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries)-Methode wird aufgerufen, um alle explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zu erhalten, die in diesem Fall "measure" und "mark" sind.
+Im folgenden Beispiel ist `list` das `PerformanceObserverEntryList`-Objekt. Die Methode [`getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries) wird aufgerufen, um alle explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte abzurufen. In diesem Fall sind dies Einträge der Typen „measure“ und „mark“.
 
 ```js
 function perfObserver(list, observer) {
