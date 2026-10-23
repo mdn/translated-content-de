@@ -1,16 +1,16 @@
 ---
-title: "WritableStreamDefaultController: error() Methode"
+title: "WritableStreamDefaultController: Methode error()"
 short-title: error()
 slug: Web/API/WritableStreamDefaultController/error
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 2610bf04cc058d5ea2432012e6ade57394d9258c
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`error()`** Methode der [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) Schnittstelle verursacht, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream fehlerhaft werden.
+Die Methode **`error()`** des Interfaces [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) bewirkt, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream mit einem Fehler fehlschlagen.
 
-Diese Methode wird selten verwendet, da es normalerweise ausreicht, ein abgelehntes Promise von einer der Methoden des zugrunde liegenden Sinks zurückzugeben. Sie kann jedoch nützlich sein, um einen Stream plötzlich in Reaktion auf ein Ereignis außerhalb des normalen Lebenszyklus von Interaktionen mit dem zugrunde liegenden Sink zu beenden.
+Diese Methode wird selten verwendet, da es normalerweise ausreicht, aus einer der Methoden der zugrunde liegenden Senke ein abgelehntes Promise zurückzugeben. Sie kann jedoch nützlich sein, um einen Stream als Reaktion auf ein Ereignis außerhalb des normalen Ablaufs der Interaktionen mit der zugrunde liegenden Senke abrupt zu beenden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ error(message)
 ### Parameter
 
 - `message`
-  - : Ein String, der den Fehler repräsentiert, mit dem zukünftige Interaktionen fehlschlagen sollen.
+  - : Ein String, der den Fehler angibt, mit dem zukünftige Interaktionen fehlschlagen sollen.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie fehlerhaft machen möchten, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream).
+  - : Der Stream, für den Sie einen Fehler auslösen möchten, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ const writableStream = new WritableStream({
   write(chunk, controller) {
     // …
   },
-  close(controller) {
+  close() {
     // …
   },
   abort(err) {

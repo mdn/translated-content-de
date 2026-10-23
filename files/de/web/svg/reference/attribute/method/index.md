@@ -2,10 +2,10 @@
 title: method
 slug: Web/SVG/Reference/Attribute/method
 l10n:
-  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
+  sourceCommit: dc195092b071bc64c614958a1fedb316a0b57ed7
 ---
 
-Das **`method`**-Attribut gibt die Methode an, mit der Text entlang des Pfades eines {{SVGElement("textPath")}}-Elements gerendert werden soll.
+Das Attribut **`method`** gibt an, mit welcher Methode Text entlang des Pfads eines {{SVGElement("textPath")}}-Elements gerendert werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -13,7 +13,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## textPath
 
-Für {{SVGElement("textPath")}} gibt `method` die Methode an, mit der Text entlang des Pfades gerendert werden soll.
+Bei {{SVGElement("textPath")}} gibt `method` an, mit welcher Methode Text entlang des Pfads gerendert werden soll.
 
 <table class="properties">
   <tbody>
@@ -33,13 +33,17 @@ Für {{SVGElement("textPath")}} gibt `method` die Methode an, mit der Text entla
 </table>
 
 - align
-  - : Dieser Wert gibt an, dass die Zeichen so gerendert werden sollen, dass sie nicht gestreckt oder verzerrt werden. Die Zeichen werden gedreht, skaliert und gestreckt, wenn sie gerendert werden. Als Ergebnis können bei Schriftarten mit verbundenen Zeichen (z. B. kursiven Schriften) die Verbindungen nicht richtig ausgerichtet sein, wenn der Text entlang des Pfades gerendert wird.
+  - : Dieser Wert gibt an, dass die Zeichen ohne Streckung oder Verzerrung gerendert werden sollen. Beim Rendern werden die Zeichen gedreht, skaliert und verschoben. Daher kann es bei Schriftarten mit verbundenen Zeichen (z. B. Schreibschriften) vorkommen, dass die Verbindungen nicht richtig ausgerichtet sind, wenn der Text entlang des Pfads gerendert wird.
 - stretch
-  - : Dieser Wert gibt an, dass die Konturen der Zeichen in Pfade umgewandelt und dann gestreckt und möglicherweise verzerrt werden. Mit diesem Ansatz bleiben verbundene Zeichen, wie bei kursiven Schriften, in ihren Verbindungen erhalten.
+  - : Dieser Wert gibt an, dass die Zeichenkonturen in Pfade umgewandelt und anschließend gestreckt und gegebenenfalls verzerrt werden. Bei diesem Ansatz bleiben die Verbindungen zwischen verbundenen Zeichen, etwa in Schreibschriften, erhalten.
 
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

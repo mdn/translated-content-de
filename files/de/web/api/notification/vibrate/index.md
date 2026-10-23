@@ -1,22 +1,22 @@
 ---
-title: "Benachrichtigung: vibrate-Eigenschaft"
+title: "Notification: Eigenschaft vibrate"
 short-title: vibrate
 slug: Web/API/Notification/vibrate
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: 85577061e99da7082b48263fa19f9b1ef4187eda
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{non-standard_header}}
 
-Die schreibgeschützte **`vibrate`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) an, das von der Vibrationshardware des Geräts bei Aktivierung der Benachrichtigung ausgegeben werden soll. Dies wird in der `vibrate`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die schreibgeschützte Eigenschaft **`vibrate`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) gibt ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) an, das die Vibrationshardware des Geräts ausgibt, wenn die Benachrichtigung ausgelöst wird. Es wird in der Option `vibrate` des Konstruktors [`Notification()`](/de/docs/Web/API/Notification/Notification) festgelegt.
 
 ## Wert
 
-Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns), wie in der [Vibration API-Spezifikation](https://w3c.github.io/vibration/) angegeben.
+Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns), wie in der [Vibration-API-Spezifikation](https://w3c.github.io/vibration/) definiert.
 
 ## Beispiele
 
-Der folgende Codeausschnitt soll eine Benachrichtigung erstellen, die auch eine Gerätevibration auslöst; ein einfaches `options`-Objekt wird erstellt und dann wird die Benachrichtigung mit dem `Notification()`-Konstruktor aktiviert.
+Der folgende Ausschnitt soll eine Benachrichtigung erstellen, die auch eine Vibration des Geräts auslöst. Dazu wird ein einfaches `options`-Objekt erstellt und anschließend die Benachrichtigung mit dem Konstruktor `Notification()` ausgelöst.
 
 ```js
 const options = {

@@ -3,12 +3,10 @@ title: "`text-decoration-inset` CSS property"
 short-title: text-decoration-inset
 slug: Web/CSS/Reference/Properties/text-decoration-inset
 l10n:
-  sourceCommit: 3a04f324f1fb55e3c073c32d0ead28b5803a6284
+  sourceCommit: 85577061e99da7082b48263fa19f9b1ef4187eda
 ---
 
-{{SeeCompatTable}}
-
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-decoration-inset`** ermöglicht das Anpassen der Start- und Endpunkte der Textdekoration eines Elements, sodass sie verkürzt, verlängert oder ihre Position relativ zum gerenderten Text verschoben werden kann.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-decoration-inset`** ermöglicht es, den Anfangs- und Endpunkt der Textdekoration eines Elements anzupassen. So kann die Textdekoration verkürzt, verlängert oder gegenüber dem gerenderten Text verschoben werden.
 
 {{InteractiveExample("CSS Demo: text-decoration-inset")}}
 
@@ -72,29 +70,29 @@ text-decoration-inset: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer oder zwei der folgenden Werte oder als Schlüsselwort `auto` angegeben:
+Diese Eigenschaft wird mit einem oder zwei der folgenden Werte oder mit dem Schlüsselwort `auto` angegeben:
 
 - {{cssxref("length-percentage")}}
-  - : Gibt den Betrag an, um den die Position der Textdekoration angepasst wird. Positive Werte rücken die Textdekoration ein (machen sie kürzer), während negative Werte die Textdekoration ausrücken (machen sie länger). Wenn ein Wert angegeben wird, gilt er sowohl für den Start- als auch für den Endpunkt der Textdekoration. Wenn zwei Werte angegeben werden, gilt der erste für den Startpunkt der Textdekoration und der zweite für den Endpunkt der Textdekoration. Prozentwerte beziehen sich entweder auf die gesamte Inline-Größe der {{Glossary("decorating_box", "dekorierenden Box")}}, wenn {{cssxref("box-decoration-break")}} auf {{cssxref("box-decoration-break", "slice", "#slice")}} gesetzt ist, oder auf die Inline-Größe jedes einzelnen {{Glossary("box_fragment", "Box-Fragments")}}, wenn es auf {{cssxref("box-decoration-break", "clone", "#clone")}} gesetzt ist.
+  - : Gibt an, um welchen Betrag die Position der Textdekoration angepasst wird. Positive Werte rücken die Textdekoration ein (verkürzen sie), während negative Werte sie nach außen verschieben (verlängern sie). Wird ein Wert angegeben, gilt er sowohl für den Anfangs- als auch für den Endpunkt der Textdekoration. Werden zwei Werte angegeben, gilt der erste für den Anfangspunkt und der zweite für den Endpunkt. Prozentwerte beziehen sich auf die gesamte Inline-Größe der {{Glossary("decorating_box", "dekorierenden Box")}}, wenn {{cssxref("box-decoration-break")}} auf {{cssxref("box-decoration-break", "slice", "#slice")}} gesetzt ist. Ist die Eigenschaft auf {{cssxref("box-decoration-break", "clone", "#clone")}} gesetzt, beziehen sie sich auf die Inline-Größe jedes einzelnen {{Glossary("box_fragment", "Boxfragments")}}.
 - `auto`
-  - : Der Browser wählt einen Einrückungsbetrag für Start und Ende, um sicherzustellen, dass bei zwei nebeneinander erscheinenden dekorierten Textboxen zwischen ihren Textdekorationen der Eindruck einer Lücke entsteht, sodass sie nicht wie eine einzelne Textdekoration wirken.
+  - : Der Browser wählt einen Betrag, um den Anfangs- und Endpunkt eingerückt werden. So entsteht zwischen den Textdekorationen zweier nebeneinanderstehender dekorierter Textboxen eine Lücke, statt dass sie wie eine einzige Textdekoration aussehen.
 
 ## Beschreibung
 
-Standardmäßig hat die Textdekoration eines Elements, wie sie durch die Kurzform {{cssxref("text-decoration")}} und die zugehörigen Longhand-Eigenschaften festgelegt wird, dieselbe Größe wie der gerenderte Text.
+Standardmäßig ist die Textdekoration eines Elements, die durch die Kurzschreibweise {{cssxref("text-decoration")}} und die zugehörigen einzelnen Eigenschaften festgelegt wird, genauso lang wie der gerenderte Text.
 
-Mit der Eigenschaft `text-decoration-inset` können Sie die Start- und/oder Endpunkte der Textdekoration eines Textcontainers anpassen. Dies ist nützlich, um Effekte zu erzeugen, bei denen die Textdekoration gegenüber dem Text selbst eingerückt oder ausgerückt oder in ihrer Position verschoben sein soll. Ein Beispiel für jeden Fall finden Sie unter [Grundlegende Anwendungsfälle](#grundlegende_anwendungsfälle).
+Mit der Eigenschaft `text-decoration-inset` können Sie den Anfangs- und/oder Endpunkt der Textdekoration eines Textcontainers anpassen. Das ist nützlich, wenn die Textdekoration gegenüber dem Text eingerückt, über ihn hinaus verlängert oder verschoben sein soll. Unter [Grundlegende Anwendungsfälle](#grundlegende_anwendungsfälle) finden Sie für jeden dieser Fälle ein Beispiel.
 
-Ein einzelner `<length-percentage>`-Wert legt die Einrückung (bei positiven Werten) oder Ausrückung (bei negativen Werten) an der Start- und Endposition der Textdekoration fest. Um die Start- und Endposition separat festzulegen, können Sie zwei `<length-percentage>`-Werte verwenden — der erste gilt für die Startposition der Textdekoration und der zweite für die Endposition.
+Ein einzelner `<length-percentage>`-Wert legt fest, um wie viel die Textdekoration an ihrem Anfangs- und Endpunkt eingerückt (bei einem positiven Wert) oder über den Text hinaus verlängert (bei einem negativen Wert) wird. Um die beiden Punkte getrennt festzulegen, können Sie zwei `<length-percentage>`-Werte verwenden: Der erste gilt für den Anfangspunkt der Textdekoration, der zweite für den Endpunkt.
 
 > [!NOTE]
-> Ein Prozentwert hängt vom Wert von {{cssxref("box-decoration-break")}} ab: Wenn dieser auf `slice` (den Anfangswert) gesetzt ist, bezieht er sich auf die Inline-Größe der dekorierenden Box; wenn er auf `clone` gesetzt ist, bezieht er sich auf jedes einzelne Box-Fragment.
+> Worauf sich ein Prozentwert bezieht, hängt vom Wert von {{cssxref("box-decoration-break")}} ab: Bei `slice` (dem Anfangswert) bezieht er sich auf die Inline-Größe der dekorierenden Box, bei `clone` auf die Inline-Größe jedes einzelnen Boxfragments.
 
-Die Eigenschaft `text-decoration-inset` kann auch das Schlüsselwort `auto` annehmen. Dadurch rückt der Browser die Start- und Endpunkte der Textdekoration ein, um sicherzustellen, dass zwei nebeneinander erscheinende dekorierte Textboxen nicht wie eine einzelne Textdekoration wirken. Der Wert `auto` ist besonders beim Rendern chinesischen Textes wichtig, bei dem Unterstreichungen verwendet werden, um [Eigennamen zu kennzeichnen](https://www.w3.org/International/clreq/#id88), und bei dem benachbarte Eigennamen separate Unterstreichungen haben sollten. Ein Beispiel finden Sie unter [Wirkung des Werts `auto`](#effect_of_the_auto_value).
+Die Eigenschaft `text-decoration-inset` akzeptiert auch das Schlüsselwort `auto`. Dadurch rückt der Browser den Anfangs- und Endpunkt der Textdekoration so ein, dass die Textdekorationen zweier nebeneinanderstehender dekorierter Textboxen nicht wie eine einzige aussehen. Der Wert `auto` ist besonders wichtig bei der Darstellung chinesischen Texts: Dort werden Unterstreichungen zur [Kennzeichnung von Eigennamen](https://www.w3.org/International/clreq/#id88) verwendet, und benachbarte Eigennamen sollten getrennte Unterstreichungen erhalten. Ein Beispiel finden Sie unter [Wirkung des Werts `auto`](#effect_of_the_auto_value).
 
-Der Wert `auto` hat nicht dieselbe Wirkung wie der Anfangswert `0`. Wenn `text-decoration-inset` auf `0` gesetzt wird, entsteht kein Abstand zwischen Dekorationen.
+Der Wert `auto` hat nicht dieselbe Wirkung wie der Anfangswert `0`. Wenn `text-decoration-inset` auf `0` gesetzt ist, entsteht kein Abstand zwischen den Textdekorationen.
 
-Die Eigenschaft `text-decoration-inset` wird nicht vererbt und ist keine Bestandteil-Eigenschaft der Kurzform {{cssxref("text-decoration")}}.
+Die Eigenschaft `text-decoration-inset` wird nicht vererbt und ist kein Bestandteil der Kurzschreibweise {{cssxref("text-decoration")}}.
 
 ## Formale Definition
 
@@ -108,11 +106,11 @@ Die Eigenschaft `text-decoration-inset` wird nicht vererbt und ist keine Bestand
 
 ### Grundlegende Anwendungsfälle
 
-In diesem Beispiel demonstrieren wir die Anwendungsfälle Ausrückung, Einrückung und „Verschiebung“.
+Dieses Beispiel zeigt, wie Textdekorationen verlängert, eingerückt und verschoben werden können.
 
 #### HTML
 
-Wir definieren eine ungeordnete Liste mit drei Listenelementen, die jeweils eine eigene `id` haben.
+Wir definieren eine ungeordnete Liste mit drei Listeneinträgen, die jeweils eine eigene `id` haben.
 
 ```html live-sample___use-case-examples
 <ul>
@@ -124,11 +122,11 @@ Wir definieren eine ungeordnete Liste mit drei Listenelementen, die jeweils eine
 
 #### CSS
 
-Wir geben jedem Listenelement eine andere {{cssxref("text-decoration")}} und ein anderes `text-decoration-inset`:
+Jeder Listeneintrag erhält unterschiedliche Werte für {{cssxref("text-decoration")}} und `text-decoration-inset`:
 
-- Das erste hat eine dicke lindgrüne Unterstreichung, die auf beiden Seiten gleichmäßig um `10px` ausgerückt ist.
-- Das zweite hat eine mittelstarke weiße Durchstreichung, die auf beiden Seiten gleichmäßig um `0.5em` eingerückt ist.
-- Das dritte hat eine dünne wellige blaue Unterstreichung, die um `1em` nach rechts verschoben ist.
+- Der erste hat eine dicke, limettengrüne Unterstreichung, die auf beiden Seiten um jeweils `10px` verlängert wird.
+- Der zweite hat eine weiße Durchstreichung mittlerer Dicke, die auf beiden Seiten um jeweils `0.5em` eingerückt wird.
+- Der dritte hat eine dünne, wellenförmige blaue Unterstreichung, die um `1em` nach rechts verschoben wird.
 
 ```css hidden live-sample___use-case-examples
 li {
@@ -167,13 +165,13 @@ li {
 
 #### Ergebnis
 
-Dies wird wie folgt gerendert:
+Das Ergebnis sieht so aus:
 
 {{embedlivesample("use-case-examples", "100%", "230")}}
 
 ### Wirkung des Werts `auto`
 
-Dieses Beispiel demonstriert die Wirkung des Werts `text-decoration-inset: auto`.
+Dieses Beispiel zeigt die Wirkung des Werts `text-decoration-inset: auto`.
 
 #### HTML
 
@@ -187,7 +185,7 @@ Wir definieren zwei Gruppen nebeneinanderstehender {{htmlelement("u")}}-Elemente
 
 #### CSS
 
-Jedes `<u>`-Element hat für seine Unterstreichung eine Farbe von `red` und eine Stärke von `3px` festgelegt. Für die erste Gruppe von `<u>`-Elementen ist `text-decoration-inset` auf `auto` gesetzt, während für die zweite Gruppe zu Vergleichszwecken der Anfangswert `0` von `text-decoration-inset` explizit festgelegt ist:
+Bei jedem `<u>`-Element werden die Farbe der Unterstreichung auf `red` und ihre Dicke auf `3px` gesetzt. Für die erste Gruppe von `<u>`-Elementen wird `text-decoration-inset` auf `auto` gesetzt. Bei der zweiten Gruppe wird zum Vergleich der Anfangswert `0` ausdrücklich festgelegt:
 
 ```css hidden live-sample___auto-example
 u {
@@ -223,11 +221,11 @@ u {
 
 #### Ergebnis
 
-Dies wird wie folgt gerendert:
+Das Ergebnis sieht so aus:
 
 {{embedlivesample("auto-example", "100%", "200")}}
 
-Beachten Sie, wie der Wert `auto` die Textdekoration auf beiden Seiten leicht einrückt und dadurch eine Lücke zwischen den Unterstreichungen der beiden Elemente erzeugt (zwischen den beiden Elementen selbst wird kein Abstand hinzugefügt). Der Wert `0` führt zu keiner Lücke.
+Beachten Sie, wie der Wert `auto` die Textdekoration auf beiden Seiten leicht einrückt. Dadurch entsteht eine Lücke zwischen den Unterstreichungen der beiden Elemente (zwischen den Elementen selbst wird kein Abstand eingefügt). Beim Wert `0` entsteht keine Lücke.
 
 ## Spezifikationen
 
@@ -240,4 +238,4 @@ Beachten Sie, wie der Wert `auto` die Textdekoration auf beiden Seiten leicht ei
 ## Siehe auch
 
 - {{cssxref("text-decoration")}}
-- Das Modul [CSS text decoration](/de/docs/Web/CSS/Guides/Text_decoration)
+- Das Modul [CSS-Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration)

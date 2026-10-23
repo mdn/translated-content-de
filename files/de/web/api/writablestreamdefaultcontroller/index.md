@@ -2,26 +2,26 @@
 title: WritableStreamDefaultController
 slug: Web/API/WritableStreamDefaultController
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 2610bf04cc058d5ea2432012e6ade57394d9258c
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`WritableStreamDefaultController`** Interface der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert einen Controller, der es ermöglicht, den Zustand eines [`WritableStream`](/de/docs/Web/API/WritableStream) zu steuern. Beim Erstellen eines `WritableStream` wird dem zugrunde liegenden Sink eine entsprechende `WritableStreamDefaultController` Instanz zur Manipulation gegeben.
+Das Interface **`WritableStreamDefaultController`** der [Streams API](/de/docs/Web/API/Streams_API) stellt einen Controller dar, mit dem sich der Zustand eines [`WritableStream`](/de/docs/Web/API/WritableStream) steuern lässt. Beim Erstellen eines `WritableStream` erhält die zugrunde liegende Senke eine entsprechende `WritableStreamDefaultController`-Instanz, die sie zur Steuerung verwenden kann.
 
 ## Konstruktor
 
-Keiner. `WritableStreamDefaultController` Instanzen werden automatisch während der `WritableStream`-Konstruktion erstellt.
+Keiner. `WritableStreamDefaultController`-Instanzen werden beim Erstellen eines `WritableStream` automatisch erzeugt.
 
 ## Instanzeigenschaften
 
 - [`WritableStreamDefaultController.signal`](/de/docs/Web/API/WritableStreamDefaultController/signal) {{ReadOnlyInline}}
-  - : Gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit dem Controller verbunden ist.
+  - : Gibt das dem Controller zugeordnete [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 
 ## Instanzmethoden
 
 - [`WritableStreamDefaultController.error()`](/de/docs/Web/API/WritableStreamDefaultController/error)
-  - : Führt dazu, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream einen Fehler verursachen.
+  - : Bewirkt, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream zu einem Fehler führen.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ const writableStream = new WritableStream({
   write(chunk, controller) {
     // …
   },
-  close(controller) {
+  close() {
     // …
   },
   abort(err) {

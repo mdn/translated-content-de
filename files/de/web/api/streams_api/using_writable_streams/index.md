@@ -1,41 +1,41 @@
 ---
-title: Verwenden von beschreibbaren Streams
+title: Schreibbare Streams verwenden
 slug: Web/API/Streams_API/Using_writable_streams
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 2610bf04cc058d5ea2432012e6ade57394d9258c
 ---
 
 {{DefaultAPISidebar("Streams")}}
 
-Als JavaScript-Entwickler ist es sehr nützlich, programmatisch Daten in einen Stream zu schreiben! Dieser Artikel erklärt die Funktionalität beschreibbarer Streams der [Streams API](/de/docs/Web/API/Streams_API).
+Für JavaScript-Entwickler ist es sehr nützlich, Daten programmgesteuert in einen Stream zu schreiben. Dieser Artikel erläutert die Funktionen der [Streams API](/de/docs/Web/API/Streams_API) für schreibbare Streams.
 
 > [!NOTE]
-> Dieser Artikel setzt voraus, dass Sie die Anwendungsfälle von beschreibbaren Streams verstehen und mit den grundlegenden Konzepten vertraut sind.
-> Falls nicht, empfehlen wir Ihnen, zuerst den [Überblick über Streams-Konzepte und deren Verwendung](/de/docs/Web/API/Streams_API#concepts_and_usage) sowie den speziellen Artikel zu [Streams API-Konzepten](/de/docs/Web/API/Streams_API/Concepts) zu lesen und dann zurückzukehren.
+> Dieser Artikel setzt voraus, dass Sie die Anwendungsfälle für schreibbare Streams verstehen und mit den grundlegenden Konzepten vertraut sind.
+> Falls nicht, empfehlen wir Ihnen, zuerst den [Überblick über Konzepte und Verwendung von Streams](/de/docs/Web/API/Streams_API#concepts_and_usage) und den ausführlichen Artikel zu den [Konzepten der Streams API](/de/docs/Web/API/Streams_API/Concepts) zu lesen und anschließend hierher zurückzukehren.
 
 > [!NOTE]
-> Wenn Sie nach Informationen zu lesbaren Streams suchen, versuchen Sie [Verwenden von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams) und [Verwenden von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams).
+> Wenn Sie Informationen zu lesbaren Streams suchen, lesen Sie stattdessen [Lesbare Streams verwenden](/de/docs/Web/API/Streams_API/Using_readable_streams) und [Lesbare Byte-Streams verwenden](/de/docs/Web/API/Streams_API/Using_readable_byte_streams).
 
-## Einführung in ein Beispiel
+## Ein Beispiel
 
-In unserem [dom-examples/streams](https://github.com/mdn/dom-examples/tree/main/streams) Repository finden Sie ein [Einfaches Schreibbeispiel](https://github.com/mdn/dom-examples/blob/main/streams/simple-writer/index.html) ([sehen Sie es sich auch live an](https://mdn.github.io/dom-examples/streams/simple-writer/)). Es nimmt eine gegebene Nachricht und schreibt sie in einen beschreibbaren Stream, wobei jeder Chunk auf der Benutzeroberfläche angezeigt wird, sobald er in den Stream geschrieben wird. Die gesamte Nachricht wird auf der Benutzeroberfläche angezeigt, wenn das Schreiben abgeschlossen ist.
+Im Repository [dom-examples/streams](https://github.com/mdn/dom-examples/tree/main/streams) finden Sie ein [einfaches Beispiel für das Schreiben in einen Stream](https://github.com/mdn/dom-examples/blob/main/streams/simple-writer/index.html) ([auch als Live-Demo verfügbar](https://mdn.github.io/dom-examples/streams/simple-writer/)). Das Beispiel nimmt eine vorgegebene Nachricht und schreibt sie in einen schreibbaren Stream. Dabei zeigt es jeden Datenblock beim Schreiben auf der Benutzeroberfläche an und gibt nach Abschluss des Schreibvorgangs dort auch die gesamte Nachricht aus.
 
-## Funktionsweise von beschreibbaren Streams
+## Funktionsweise schreibbarer Streams
 
-Schauen wir uns an, wie die Funktionalität der beschreibbaren Streams in unserem Demo funktioniert.
+Sehen wir uns an, wie das Schreiben in einen Stream in unserer Demo funktioniert.
 
-### Erstellen eines beschreibbaren Streams
+### Einen schreibbaren Stream erstellen
 
-Um einen beschreibbaren Stream zu erstellen, verwenden wir den [`WritableStream()`](/de/docs/Web/API/WritableStream/WritableStream) Konstruktor; die Syntax sieht zunächst komplex aus, ist aber eigentlich gar nicht so schlimm.
+Um einen schreibbaren Stream zu erstellen, verwenden wir den Konstruktor [`WritableStream()`](/de/docs/Web/API/WritableStream/WritableStream). Die Syntax sieht zunächst kompliziert aus, ist aber recht überschaubar.
 
-Das Syntax-Skelett sieht so aus:
+Das Grundgerüst der Syntax sieht so aus:
 
 ```js
 const stream = new WritableStream(
   {
     start(controller) {},
     write(chunk, controller) {},
-    close(controller) {},
+    close() {},
     abort(reason) {},
   },
   {
@@ -45,16 +45,16 @@ const stream = new WritableStream(
 );
 ```
 
-Der Konstruktor nimmt zwei Objekte als Parameter an. Das erste Objekt ist erforderlich und erstellt ein Modell in JavaScript des zugrunde liegenden Sinks, in das die Daten geschrieben werden. Das zweite Objekt ist optional und ermöglicht es Ihnen, eine [benutzerdefinierte Warteschlangenstrategie](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für Ihren Stream zu spezifizieren, die in Form einer Instanz von [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy) erfolgt.
+Der Konstruktor nimmt zwei Objekte als Parameter entgegen. Das erste Objekt ist erforderlich und bildet in JavaScript die zugrunde liegende Datensenke ab, in die die Daten geschrieben werden. Das zweite Objekt ist optional. Damit können Sie eine [benutzerdefinierte Warteschlangenstrategie](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für Ihren Stream angeben, und zwar als Instanz von [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy).
 
-Das erste Objekt kann bis zu vier Mitglieder enthalten, die alle optional sind:
+Das erste Objekt kann bis zu vier Eigenschaften enthalten, die alle optional sind:
 
-1. `start(controller)` — Eine Methode, die einmal nach dem Erstellen des [`WritableStream`](/de/docs/Web/API/WritableStream) aufgerufen wird. In dieser Methode sollten Sie Code einfügen, der die Stream-Funktionalität einrichtet, z.B. den Zugriff auf den zugrunde liegenden Sink erhalten.
-2. `write(chunk,controller)` — Eine Methode, die wiederholt aufgerufen wird, wenn ein neuer Chunk bereit ist, in den zugrunde liegenden Sink geschrieben zu werden (im `chunk`-Parameter angegeben).
-3. `close(controller)` — Eine Methode, die aufgerufen wird, wenn die App signalisiert, dass sie das Schreiben von Chunks in den Stream abgeschlossen hat. Sie sollte alles Nötige tun, um die Schreibvorgänge in den zugrunde liegenden Sink abzuschließen und den Zugriff darauf freizugeben.
-4. `abort(reason)` — Eine Methode, die aufgerufen wird, wenn die App signalisiert, dass sie den Stream abrupt schließen und in einen Fehlerzustand versetzen möchte.
+1. `start(controller)` — Eine Methode, die unmittelbar nach der Erstellung des [`WritableStream`](/de/docs/Web/API/WritableStream) einmal aufgerufen wird. In dieser Methode sollten Sie den Code zur Einrichtung der Stream-Funktionalität unterbringen, beispielsweise um Zugriff auf die zugrunde liegende Datensenke zu erhalten.
+2. `write(chunk,controller)` — Eine Methode, die jedes Mal aufgerufen wird, wenn ein neuer Datenblock bereit ist, in die zugrunde liegende Datensenke geschrieben zu werden. Der Datenblock wird im Parameter `chunk` übergeben.
+3. `close()` — Eine Methode, die aufgerufen wird, wenn die Anwendung signalisiert, dass sie keine weiteren Datenblöcke in den Stream schreiben wird. Sie sollte alle erforderlichen Schritte ausführen, um die Schreibvorgänge für die zugrunde liegende Datensenke abzuschließen und den Zugriff darauf freizugeben.
+4. `abort(reason)` — Eine Methode, die aufgerufen wird, wenn die Anwendung signalisiert, dass sie den Stream unvermittelt beenden und in einen Fehlerzustand versetzen möchte.
 
-Der Konstruktoraufruf in unserem Beispiel sieht folgendermaßen aus:
+Der Konstruktoraufruf in unserem Beispiel sieht so aus:
 
 ```js
 const decoder = new TextDecoder("utf-8");
@@ -89,19 +89,19 @@ const writableStream = new WritableStream(
 );
 ```
 
-- Die `write()`-Methode enthält ein Versprechen, das jeden geschriebenen Chunk in ein Format dekodiert, das auf die Benutzeroberfläche geschrieben werden kann. Dies wird aufgerufen, wenn jeder Chunk tatsächlich geschrieben wird (siehe nächsten Abschnitt).
-- Die `close()`-Methode wird automatisch aufgerufen, wenn das Schreiben abgeschlossen ist — sie gibt das gesamte dekodierte Ergebnis als eine Zeichenkette auf der Benutzeroberfläche aus.
-- Die `abort()`-Methode gibt einen Fehler in der Konsole aus, wenn der Stream abgebrochen wird.
+- Die Methode `write()` enthält ein Promise mit Code, der jeden geschriebenen Datenblock in ein Format dekodiert, das auf der Benutzeroberfläche angezeigt werden kann. Sie wird aufgerufen, wenn der jeweilige Datenblock tatsächlich geschrieben wird (siehe den nächsten Abschnitt).
+- Die Methode `close()` wird automatisch aufgerufen, wenn der Schreibvorgang abgeschlossen ist. Sie gibt das gesamte dekodierte Ergebnis als eine Zeichenfolge auf der Benutzeroberfläche aus.
+- Die Methode `abort()` gibt einen Fehler in der Konsole aus, wenn der Stream abgebrochen wird.
 
 ### Schreiben
 
-Um tatsächlich Inhalt in den Stream zu schreiben, rufen wir die Funktion `sendMessage()` auf, indem wir ihr eine Nachricht übergeben, die geschrieben werden soll, und den Stream, in den geschrieben werden soll:
+Um Inhalte tatsächlich in den Stream zu schreiben, rufen wir die Funktion `sendMessage()` auf und übergeben ihr die zu schreibende Nachricht sowie den Stream, in den geschrieben werden soll:
 
 ```js
 sendMessage("Hello, world.", writableStream);
 ```
 
-Die Definition von `sendMessage()` sieht folgendermaßen aus:
+Die Definition von `sendMessage()` sieht so aus:
 
 ```js
 function sendMessage(message, writableStream) {
@@ -124,26 +124,26 @@ function sendMessage(message, writableStream) {
 }
 ```
 
-Hier erstellen wir einen Writer, um die Chunks in den Stream zu schreiben, indem wir [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) verwenden. Dies erstellt eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter).
+Hier erstellen wir also mit [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) einen Writer, um die Datenblöcke in den Stream zu schreiben. Dadurch entsteht eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter).
 
-Wir erstellen auch eine neue Instanz von [`TextEncoder`](/de/docs/Web/API/TextEncoder) mit dem entsprechenden Konstruktor, um die Nachricht in Chunks zu kodieren, die in den Stream eingefügt werden.
+Außerdem erstellen wir mit dem entsprechenden Konstruktor eine neue Instanz von [`TextEncoder`](/de/docs/Web/API/TextEncoder), um die Nachricht in Datenblöcke zu kodieren, die in den Stream geschrieben werden können.
 
-Mit den kodierten Chunks rufen wir dann [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/forEach) auf dem resultierenden Array auf. Innerhalb dieses Blocks verwenden wir [`WritableStreamDefaultWriter.ready`](/de/docs/Web/API/WritableStreamDefaultWriter/ready), um zu überprüfen, ob der Writer bereit ist, einen weiteren Chunk geschrieben zu bekommen. `ready` gibt ein Versprechen zurück, das erfüllt wird, wenn dies der Fall ist, innerhalb dessen wir [`WritableStreamDefaultWriter.write()`](/de/docs/Web/API/WritableStreamDefaultWriter/write) aufrufen, um den Chunk tatsächlich in den Stream zu schreiben. Dies löst auch die `write()`-Methode aus, die im `WritableStream()` Konstruktor angegeben ist, wie oben besprochen.
+Nachdem die Datenblöcke kodiert wurden, rufen wir [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/forEach) für das resultierende Array auf. Innerhalb dieses Blocks prüfen wir mit [`WritableStreamDefaultWriter.ready`](/de/docs/Web/API/WritableStreamDefaultWriter/ready), ob der Writer bereit ist, einen weiteren Datenblock entgegenzunehmen. `ready` gibt ein Promise zurück, das erfüllt wird, sobald dies der Fall ist. Anschließend rufen wir [`WritableStreamDefaultWriter.write()`](/de/docs/Web/API/WritableStreamDefaultWriter/write) auf, um den Datenblock tatsächlich in den Stream zu schreiben. Dadurch wird auch die Methode `write()` ausgelöst, die wie oben beschrieben im Konstruktor `WritableStream()` angegeben wurde.
 
-Nachdem alle Chunks geschrieben wurden, führen wir die `ready`-Überprüfung erneut durch, um sicherzustellen, dass der letzte Chunk fertig geschrieben wurde und alle Arbeiten abgeschlossen sind. Wenn diese `ready`-Überprüfung erfüllt ist, rufen wir [`WritableStreamDefaultWriter.close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close) auf, um den Stream zu schließen. Dies löst auch die `close()`-Methode aus, die im `WritableStream()` Konstruktor angegeben ist, wie oben besprochen.
+Nachdem alle Datenblöcke geschrieben wurden, prüfen wir `ready` noch einmal, um sicherzustellen, dass der letzte Datenblock vollständig geschrieben und die gesamte Arbeit erledigt ist. Sobald dieses `ready`-Promise erfüllt wird, rufen wir [`WritableStreamDefaultWriter.close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close) auf, um den Stream zu schließen. Dadurch wird auch die Methode `close()` ausgelöst, die wie oben beschrieben im Konstruktor `WritableStream()` angegeben wurde.
 
 ### Controller
 
-Wie Sie beim Studieren des `WritableStream()` Syntax-Skeletts bemerkt haben, können die Methoden `start()`, `write()` und `close()` optional einen `controller`-Parameter erhalten. Dieser enthält eine Instanz der [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) Schnittstelle, die vom Entwickler verwendet werden kann, um den Stream nach Bedarf weiter zu steuern.
+Wie Sie beim Betrachten des Syntaxgerüsts von `WritableStream()` vielleicht bemerkt haben, kann den Methoden `start()`, `write()` und `close()` optional ein Parameter `controller` übergeben werden. Dieser enthält eine Instanz der Schnittstelle [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController), mit der Entwickler den Stream bei Bedarf weiter steuern können.
 
-Dieser hat derzeit nur eine verfügbare Methode — [`WritableStreamDefaultController.error()`](/de/docs/Web/API/WritableStreamDefaultController/error), die bei Aufruf dazu führt, dass zukünftige Interaktionen mit dem Stream fehlerhaft sind. Dies ist nützlich, wenn ein anderer Teil einer App schiefgeht und Sie den Fehler an den Stream weitergeben möchten, damit das gesamte System sauber fehlschlägt, anstatt zu riskieren, dass Garbage still in den Stream geschrieben wird (oder etwas ähnlich Schlechtes).
+Derzeit steht dafür nur eine Methode zur Verfügung: [`WritableStreamDefaultController.error()`](/de/docs/Web/API/WritableStreamDefaultController/error). Wird sie aufgerufen, führen zukünftige Interaktionen mit dem Stream zu einem Fehler. Das ist nützlich, wenn in einem anderen Teil der Anwendung ein Fehler auftritt und Sie ihn an den Stream weitergeben möchten. So kann das gesamte System kontrolliert mit einem Fehler abbrechen, anstatt zu riskieren, dass unbemerkt fehlerhafte Daten in den Stream geschrieben werden oder Ähnliches geschieht.
 
 ### Schließen und Abbrechen
 
-Wie oben erwähnt, rufen wir die `close()`-Methode auf, wenn das Schreiben abgeschlossen ist, wodurch die `close()`-Methode ausgelöst wird, die im `WritableStream()` Konstruktor angegeben ist.
+Wie oben beschrieben, rufen wir nach Abschluss des Schreibvorgangs `close()` auf. Dadurch wird die im Konstruktor `WritableStream()` angegebene Methode `close()` ausgelöst.
 
-Wir könnten den Stream auch abbrechen, indem wir [`WritableStreamDefaultWriter.abort()`](/de/docs/Web/API/WritableStreamDefaultWriter/abort) aufrufen.
+Wir könnten den Stream auch durch Aufruf von [`WritableStreamDefaultWriter.abort()`](/de/docs/Web/API/WritableStreamDefaultWriter/abort) abbrechen.
 
-Der Unterschied besteht darin, dass beim Aufruf von `close` alle zuvor in die Warteschlange gestellten Chunks geschrieben und beendet werden, bevor der Stream geschlossen wird.
+Der Unterschied besteht darin, dass beim Schließen zunächst alle zuvor in die Warteschlange eingereihten Datenblöcke vollständig geschrieben werden, bevor der Stream geschlossen wird.
 
-Beim Aufruf von `abort` werden alle zuvor in die Warteschlange gestellten Chunks einfach sofort verworfen und dann wird der Stream in einen Fehlerzustand versetzt. Dies löst auch jede `abort()`-Methode aus, die im `WritableStream()` Konstruktor angegeben ist.
+Beim Abbrechen werden dagegen alle zuvor eingereihten Datenblöcke sofort verworfen und der Stream in einen Fehlerzustand versetzt. Dadurch wird auch eine gegebenenfalls im Konstruktor `WritableStream()` angegebene Methode `abort()` aufgerufen.

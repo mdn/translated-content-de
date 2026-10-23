@@ -1,14 +1,14 @@
 ---
-title: "WritableStream: WritableStream() Konstruktor"
+title: "WritableStream: WritableStream()-Konstruktor"
 short-title: WritableStream()
 slug: Web/API/WritableStream/WritableStream
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 2610bf04cc058d5ea2432012e6ade57394d9258c
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`WritableStream()`** Konstruktor erstellt eine neue Instanz des [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekts.
+Der **`WritableStream()`**-Konstruktor erstellt eine neue Instanz des [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekts.
 
 ## Syntax
 
@@ -20,38 +20,38 @@ new WritableStream(underlyingSink, queuingStrategy)
 ### Parameter
 
 - `underlyingSink` {{optional_inline}}
-  - : Ein Objekt, das Methoden und Eigenschaften enthält, die definieren, wie sich die erstellte Stream-Instanz verhalten wird.
-    Der `controller`-Parameter, der an die Methoden dieses Objekts übergeben wird, ist ein [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController), der Abbruch- und Fehlersignale bereitstellt.
+  - : Ein Objekt mit Methoden und Eigenschaften, die das Verhalten der erstellten Stream-Instanz festlegen.
+    Der Parameter `controller`, der an die Methoden `start()` und `write()` dieses Objekts übergeben wird, ist ein [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController), der Signale für Abbruch und Fehler bereitstellt.
     `underlyingSink` kann Folgendes enthalten:
     - `start(controller)` {{optional_inline}}
-      - : Eine Methode, die sofort beim Erstellen des Objekts aufgerufen wird.
-        Der Inhalt dieser Methode wird vom Entwickler definiert und sollte darauf abzielen, Zugriff auf das zugrunde liegende Ziel zu erhalten. Soll dieser Prozess asynchron durchgeführt werden, kann er ein Versprechen zurückgeben, um Erfolg oder Misserfolg zu signalisieren.
+      - : Diese Methode wird unmittelbar nach der Erstellung des Objekts aufgerufen.
+        Ihr Inhalt wird vom Entwickler festgelegt und sollte den Zugriff auf die zugrunde liegende Senke ermöglichen. Wenn dieser Vorgang asynchron abläuft, kann die Methode ein Promise zurückgeben, um Erfolg oder Fehlschlag zu signalisieren.
     - `write(chunk, controller)` {{optional_inline}}
-      - : Diese vom Entwickler definierte Methode wird aufgerufen, wenn ein neuer Datenblock (im `chunk`-Parameter angegeben) bereit ist, in das zugrunde liegende Ziel geschrieben zu werden.
-        Sie kann ein Versprechen zurückgeben, um Erfolg oder Fehlschlagen des Schreibvorgangs zu signalisieren.
-        Diese Methode wird nur aufgerufen, nachdem vorherige Schreibvorgänge erfolgreich waren und nie nachdem der Stream geschlossen oder abgebrochen wurde (siehe unten).
-    - `close(controller)` {{optional_inline}}
-      - : Diese vom Entwickler definierte Methode wird aufgerufen, wenn die App signalisiert, dass sie das Schreiben von Datenblöcken in den Stream beendet hat.
-        Der Inhalt sollte alles Notwendige tun, um die Schreibvorgänge im zugrunde liegenden Ziel abzuschließen und den Zugriff darauf freizugeben.
-        Falls dieser Prozess asynchron ist, kann er ein Versprechen zurückgeben, um Erfolg oder Misserfolg zu signalisieren.
-        Diese Methode wird nur aufgerufen, nachdem alle angestauten Schreibvorgänge erfolgreich waren.
+      - : Diese ebenfalls vom Entwickler definierte Methode wird aufgerufen, wenn ein neues Datenstück (im Parameter `chunk` angegeben) in die zugrunde liegende Senke geschrieben werden kann.
+        Sie kann ein Promise zurückgeben, um Erfolg oder Fehlschlag des Schreibvorgangs zu signalisieren.
+        Die Methode wird erst aufgerufen, nachdem vorherige Schreibvorgänge erfolgreich abgeschlossen wurden, und niemals, nachdem der Stream geschlossen oder abgebrochen wurde (siehe unten).
+    - `close()` {{optional_inline}}
+      - : Diese ebenfalls vom Entwickler definierte Methode wird aufgerufen, wenn die Anwendung signalisiert, dass sie keine weiteren Datenstücke in den Stream schreiben wird.
+        Sie sollte alles Notwendige tun, um die Schreibvorgänge in die zugrunde liegende Senke abzuschließen und den Zugriff darauf freizugeben.
+        Wenn dieser Vorgang asynchron abläuft, kann sie ein Promise zurückgeben, um Erfolg oder Fehlschlag zu signalisieren.
+        Die Methode wird erst aufgerufen, nachdem alle eingereihten Schreibvorgänge erfolgreich abgeschlossen wurden.
     - `abort(reason)` {{optional_inline}}
-      - : Diese vom Entwickler definierte Methode wird aufgerufen, wenn die App signalisiert, dass sie den Stream abrupt schließen und in einen Fehlerzustand versetzen möchte.
-        Sie kann alle gehaltenen Ressourcen bereinigen, ähnlich wie `close()`, aber `abort()` wird auch dann aufgerufen, wenn Schreibvorgänge anstehen — diese Datenblöcke werden verworfen.
-        Falls dieser Prozess asynchron ist, kann er ein Versprechen zurückgeben, um Erfolg oder Misserfolg zu signalisieren.
-        Der `reason`-Parameter enthält eine Zeichenkette, die beschreibt, warum der Stream abgebrochen wurde.
+      - : Diese ebenfalls vom Entwickler definierte Methode wird aufgerufen, wenn die Anwendung signalisiert, dass sie den Stream abrupt schließen und in einen Fehlerzustand versetzen möchte.
+        Sie kann, ähnlich wie `close()`, belegte Ressourcen freigeben. `abort()` wird jedoch auch aufgerufen, wenn noch Schreibvorgänge in der Warteschlange stehen – die betreffenden Datenstücke werden verworfen.
+        Wenn dieser Vorgang asynchron abläuft, kann sie ein Promise zurückgeben, um Erfolg oder Fehlschlag zu signalisieren.
+        Der Parameter `reason` enthält eine Zeichenfolge, die beschreibt, warum der Stream abgebrochen wurde.
 
 - `queuingStrategy` {{optional_inline}}
   - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert.
-    Dies nimmt zwei Parameter auf:
+    Es umfasst zwei Angaben:
     - `highWaterMark`
-      - : Eine nicht-negative Ganzzahl — dies definiert die Gesamtanzahl der Datenblöcke, die in der internen Warteschlange enthalten sein können, bevor Gegenverkehr angewendet wird.
+      - : Eine nicht negative Ganzzahl – sie legt fest, wie viele Datenstücke die interne Warteschlange insgesamt enthalten kann, bevor Gegendruck ausgeübt wird.
     - `size(chunk)`
-      - : Eine Methode mit einem Parameter `chunk` — dies gibt die Größe an, die für jeden Datenblock in Bytes verwendet wird.
+      - : Eine Methode mit dem Parameter `chunk` – sie gibt die für jedes Datenstück zu verwendende Größe in Byte an.
 
     > [!NOTE]
-    > Sie könnten Ihre eigene benutzerdefinierte `queuingStrategy` definieren oder eine Instanz von [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy) für diesen Objektwert verwenden.
-    > Wenn keine `queuingStrategy` angegeben wird, ist die standardmäßig verwendete dieselbe wie bei einer `CountQueuingStrategy` mit einem High Water Mark von 1\.
+    > Sie können eine eigene `queuingStrategy` definieren oder als Objektwert eine Instanz von [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy) verwenden.
+    > Wenn keine `queuingStrategy` angegeben wird, entspricht der Standard einer `CountQueuingStrategy` mit einem `highWaterMark` von 1\.
 
 ### Rückgabewert
 
@@ -59,10 +59,10 @@ Eine Instanz des [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekts.
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht mehrere Merkmale dieser Schnittstelle.
-Es zeigt die Erstellung des `WritableStream` mit einem benutzerdefinierten Ziel und einer von der API bereitgestellten Warteschlangenstrategie. Anschließend wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und eine Zeichenkette übergibt.
-Innerhalb dieser Funktion wird die Methode `getWriter()` des Streams aufgerufen, die eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt.
-Ein Aufruf von `forEach()` wird verwendet, um jeden Datenblock der Zeichenkette in den Stream zu schreiben. Schließlich geben `write()` und `close()` Versprechen zurück, die verarbeitet werden, um Erfolg oder Misserfolg von Datenblöcken und Streams zu behandeln.
+Das folgende Beispiel veranschaulicht mehrere Funktionen dieser Schnittstelle.
+Es zeigt, wie ein `WritableStream` mit einer benutzerdefinierten Senke und einer von der API bereitgestellten Warteschlangenstrategie erstellt wird. Anschließend wird die Funktion `sendMessage()` mit dem neu erstellten Stream und einer Zeichenfolge aufgerufen.
+Innerhalb dieser Funktion wird die Methode `getWriter()` des Streams aufgerufen. Sie gibt eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurück.
+Mit `forEach()` wird jedes Datenstück der Zeichenfolge in den Stream geschrieben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um den Erfolg oder Fehlschlag beim Schreiben der Datenstücke und beim Schließen des Streams zu behandeln.
 
 ```js
 const list = document.querySelector("ul");
@@ -130,20 +130,20 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Den vollständigen Code finden Sie in unserem [einfachen Schreibbeispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
+Den vollständigen Code finden Sie in unserem [Beispiel für einen einfachen Writer](https://mdn.github.io/dom-examples/streams/simple-writer/).
 
-### Gegenverkehr
+### Gegendruck
 
-Aufgrund der Unterstützung von Gegenverkehr in der API kann seine Implementierung im Code weniger offensichtlich sein.
-Um zu sehen, wie Gegenverkehr implementiert ist, suchen Sie nach drei Dingen.
+Aufgrund der Art, wie die API Gegendruck unterstützt, ist dessen Umsetzung im Code möglicherweise nicht sofort ersichtlich.
+Achten Sie auf drei Dinge, um zu erkennen, wie Gegendruck umgesetzt wird:
 
-- Die `highWaterMark`-Eigenschaft, die beim Erstellen der Zählstrategie mit `new CountQueuingStrategy` festgelegt wird, legt die maximale Datenmenge fest, die die `WritableStream`-Instanz in einer einzigen `write()`-Operation verarbeitet.
-  In diesem Beispiel ist es die maximale Datenmenge, die an `defaultWriter.write()` in der `sendMessage`-Funktion gesendet werden kann.
-- Die `defaultWriter.ready`-Eigenschaft gibt ein Versprechen zurück, das aufgelöst wird, wenn das Ziel (die erste Eigenschaft des `WritableStream`-Konstruktors) die Daten schreibt.
-  Die Datenquelle kann entweder mehr Daten mit `defaultWriter.write()` schreiben oder `defaultWriter.close()` aufrufen, wie im obigen Beispiel gezeigt.
-  Das zu frühe Aufrufen von `close()` kann verhindern, dass Daten geschrieben werden.
-  Aus diesem Grund wird im Beispiel `defaultWriter.ready` zweimal aufgerufen.
-- Das {{jsxref("Promise")}}, das von der `write()`-Methode des Ziels zurückgegeben wird, teilt dem `WritableStream` und seinem Writer mit, wann `defaultWriter.ready` aufzulösen ist.
+- Die Eigenschaft `highWaterMark`, die beim Erstellen der Warteschlangenstrategie mit `new CountQueuingStrategy` festgelegt wird, bestimmt die maximale Datenmenge, die die `WritableStream`-Instanz in einem einzelnen `write()`-Vorgang verarbeitet.
+  In diesem Beispiel ist das die maximale Datenmenge, die in der Funktion `sendMessage` an `defaultWriter.write()` übergeben werden kann.
+- Die Eigenschaft `defaultWriter.ready` gibt ein Promise zurück, das erfüllt wird, wenn die Senke (die erste Eigenschaft des `WritableStream`-Konstruktors) das Schreiben der Daten abgeschlossen hat.
+  Die Datenquelle kann dann entweder mit `defaultWriter.write()` weitere Daten schreiben oder, wie im obigen Beispiel gezeigt, `defaultWriter.close()` aufrufen.
+  Wird `close()` zu früh aufgerufen, kann dies verhindern, dass Daten geschrieben werden.
+  Deshalb greift das Beispiel zweimal auf `defaultWriter.ready` zu.
+- Das von der `write()`-Methode der Senke zurückgegebene {{jsxref("Promise")}} teilt dem `WritableStream` und seinem Writer mit, wann `defaultWriter.ready` erfüllt werden soll.
 
 ## Spezifikationen
 

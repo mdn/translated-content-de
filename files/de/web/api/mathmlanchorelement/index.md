@@ -2,7 +2,7 @@
 title: MathMLAnchorElement
 slug: Web/API/MathMLAnchorElement
 l10n:
-  sourceCommit: 7220cba37bea17e7e18a674ec730366e8af815ab
+  sourceCommit: 85577061e99da7082b48263fa19f9b1ef4187eda
 ---
 
 {{APIRef("MathML")}}{{SeeCompatTable}}
@@ -15,16 +15,16 @@ Die Schnittstelle **`MathMLAnchorElement`** repräsentiert MathML-[`<a>`](/de/do
 
 _Erbt Eigenschaften von der übergeordneten Schnittstelle [`MathMLElement`](/de/docs/Web/API/MathMLElement)._
 
-- [`MathMLAnchorElement.download`](/de/docs/Web/API/MathMLAnchorElement/download) {{experimental_inline}}
+- [`MathMLAnchorElement.download`](/de/docs/Web/API/MathMLAnchorElement/download) {{experimental_inline}} {{non-standard_inline}}
   - : Ein String, der angibt, dass die verlinkte Ressource heruntergeladen und nicht im Browser angezeigt werden soll.
 - [`MathMLAnchorElement.hash`](/de/docs/Web/API/MathMLAnchorElement/hash) {{experimental_inline}}
-  - : Ein String, der den Fragmentbezeichner der referenzierten URL einschließlich des vorangestellten Hash-Zeichens (`#`) darstellt, sofern vorhanden.
+  - : Ein String, der den Fragmentbezeichner einschließlich des vorangestellten Rautezeichens (`#`) darstellt, sofern vorhanden, in der referenzierten URL.
 - [`MathMLAnchorElement.host`](/de/docs/Web/API/MathMLAnchorElement/host) {{experimental_inline}}
-  - : Ein String, der den Hostnamen und den Port der referenzierten URL darstellt, sofern es sich nicht um den Standardport handelt.
+  - : Ein String, der den Hostnamen und den Port (sofern es sich nicht um den Standardport handelt) in der referenzierten URL darstellt.
 - [`MathMLAnchorElement.hostname`](/de/docs/Web/API/MathMLAnchorElement/hostname) {{experimental_inline}}
-  - : Ein String, der den Hostnamen der referenzierten URL darstellt.
+  - : Ein String, der den Hostnamen in der referenzierten URL darstellt.
 - [`MathMLAnchorElement.href`](/de/docs/Web/API/MathMLAnchorElement/href) {{experimental_inline}}
-  - : Ein String, der sich aus der Auswertung des [`href`](/de/docs/Web/MathML/Reference/Element/a#href)-Attributs des Elements relativ zum Dokument ergibt und eine gültige URL einer verlinkten Ressource enthält.
+  - : Ein String, der sich aus dem Parsen des [`href`](/de/docs/Web/MathML/Reference/Element/a#href)-Attributs des Elements relativ zum Dokument ergibt und eine gültige URL einer verlinkten Ressource enthält.
 - [`MathMLAnchorElement.hreflang`](/de/docs/Web/API/MathMLAnchorElement/hreflang) {{experimental_inline}}
   - : Ein String, der das [`hreflang`](/de/docs/Web/MathML/Reference/Element/a#hreflang)-Attribut des Elements widerspiegelt und die Sprache der verlinkten Ressource angibt.
 - [`MathMLAnchorElement.origin`](/de/docs/Web/API/MathMLAnchorElement/origin) {{ReadOnlyInline}} {{experimental_inline}}
@@ -32,21 +32,21 @@ _Erbt Eigenschaften von der übergeordneten Schnittstelle [`MathMLElement`](/de/
 - [`MathMLAnchorElement.password`](/de/docs/Web/API/MathMLAnchorElement/password) {{experimental_inline}}
   - : Ein String, der das vor dem Domainnamen angegebene Passwort enthält.
 - [`MathMLAnchorElement.pathname`](/de/docs/Web/API/MathMLAnchorElement/pathname) {{experimental_inline}}
-  - : Ein String, der mit `/` beginnt und darauf folgend den Pfad der URL enthält, jedoch weder die Abfragezeichenfolge noch das Fragment.
-- [`MathMLAnchorElement.ping`](/de/docs/Web/API/MathMLAnchorElement/ping) {{experimental_inline}}
-  - : Eine durch Leerzeichen getrennte Liste von URLs. Wenn dem Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Inhalt `PING` an diese URLs.
+  - : Ein String, der mit `/` beginnt und darauf folgend den Pfad der URL enthält, ohne Query-String oder Fragment.
+- [`MathMLAnchorElement.ping`](/de/docs/Web/API/MathMLAnchorElement/ping) {{experimental_inline}} {{non-standard_inline}}
+  - : Eine durch Leerzeichen getrennte Liste von URLs. Wenn dem Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Inhalt `PING` an die URLs.
 - [`MathMLAnchorElement.port`](/de/docs/Web/API/MathMLAnchorElement/port) {{experimental_inline}}
   - : Ein String, der die Portkomponente der referenzierten URL darstellt, sofern vorhanden.
 - [`MathMLAnchorElement.protocol`](/de/docs/Web/API/MathMLAnchorElement/protocol) {{experimental_inline}}
   - : Ein String, der die Protokollkomponente der referenzierten URL einschließlich des abschließenden Doppelpunkts (`:`) darstellt.
-- [`MathMLAnchorElement.referrerPolicy`](/de/docs/Web/API/MathMLAnchorElement/referrerPolicy) {{experimental_inline}}
-  - : Ein String, der festlegt, wie viele Informationen über den [Referrer](/de/docs/Web/HTTP/Reference/Headers/Referer) beim Folgen des Links unter welchen Umständen gesendet werden.
-- [`MathMLAnchorElement.rel`](/de/docs/Web/API/MathMLAnchorElement/rel) {{experimental_inline}}
+- [`MathMLAnchorElement.referrerPolicy`](/de/docs/Web/API/MathMLAnchorElement/referrerPolicy) {{experimental_inline}} {{non-standard_inline}}
+  - : Ein String, der festlegt, wie viele Informationen des [Referrers](/de/docs/Web/HTTP/Reference/Headers/Referer) beim Folgen des Links unter welchen Umständen gesendet werden.
+- [`MathMLAnchorElement.rel`](/de/docs/Web/API/MathMLAnchorElement/rel) {{experimental_inline}} {{non-standard_inline}}
   - : Eine durch Leerzeichen getrennte Liste von Linktypen, die die Beziehung zwischen der durch den Link repräsentierten Ressource und dem aktuellen Dokument angeben.
-- [`MathMLAnchorElement.relList`](/de/docs/Web/API/MathMLAnchorElement/relList) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein dynamisch aktualisiertes [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt, das die Linktypen enthält, die die Beziehung zwischen der durch den Link repräsentierten Ressource und dem aktuellen Dokument angeben.
+- [`MathMLAnchorElement.relList`](/de/docs/Web/API/MathMLAnchorElement/relList) {{ReadOnlyInline}} {{experimental_inline}} {{non-standard_inline}}
+  - : Ein Live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt, das die Menge der Linktypen enthält, die die Beziehung zwischen der durch den Link repräsentierten Ressource und dem aktuellen Dokument angeben.
 - [`MathMLAnchorElement.search`](/de/docs/Web/API/MathMLAnchorElement/search) {{experimental_inline}}
-  - : Ein String, der die Abfragekomponente der referenzierten URL einschließlich des vorangestellten Fragezeichens (`?`) darstellt, sofern vorhanden.
+  - : Ein String, der die Suchkomponente der referenzierten URL einschließlich des vorangestellten Fragezeichens (`?`) darstellt, sofern vorhanden.
 - [`MathMLAnchorElement.target`](/de/docs/Web/API/MathMLAnchorElement/target) {{experimental_inline}}
   - : Ein String, der das [`target`](/de/docs/Web/MathML/Reference/Element/a#target)-Attribut des Elements widerspiegelt und angibt, wo die verlinkte Ressource angezeigt werden soll.
 - [`MathMLAnchorElement.type`](/de/docs/Web/API/MathMLAnchorElement/type) {{experimental_inline}}
@@ -58,11 +58,11 @@ _Erbt Eigenschaften von der übergeordneten Schnittstelle [`MathMLElement`](/de/
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeichnet die [Gammafunktion](https://en.wikipedia.org/wiki/Gamma_function) in MathML aus. Es zeigt, wie Sie in JavaScript über die Schnittstelle `MathMLAnchorElement` auf Eigenschaften von MathML-`<a>`-Elementen zugreifen können.
+Dieses Beispiel zeichnet die [Gammafunktion](https://en.wikipedia.org/wiki/Gamma_function) in MathML aus. Es zeigt, wie Sie in JavaScript über die Schnittstelle `MathMLAnchorElement` auf Eigenschaften eines MathML-`<a>`-Elements zugreifen.
 
 #### MathML
 
-Das Beispiel enthält mehrere `<a>`-Elemente. Das erste ist ein Link zu `example.com`, der mehrere Link- und URL-Merkmale enthält, auf die wir mit JavaScript zugreifen können. Außerdem fügen wir ein {{htmlelement("ul")}}-Element hinzu, in dem die Eigenschaftswerte ausgegeben werden.
+Das Beispiel enthält mehrere `<a>`-Elemente. Das erste ist ein Link zu `example.com` mit mehreren Link- und URL-Merkmalen, auf die wir mit JavaScript zugreifen können. Außerdem fügen wir ein {{htmlelement("ul")}}-Element hinzu, in dem die Eigenschaftswerte ausgegeben werden.
 
 ```html live-sample___mathmlanchorelement
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"
@@ -141,14 +141,14 @@ math {
 
 #### JavaScript
 
-Wir holen Referenzen auf das erste MathML-`<a>`-Element im Dokument und auf das `<ul>`-Element.
+Wir rufen Referenzen auf das erste MathML-`<a>`-Element im Dokument und auf das `<ul>`-Element ab.
 
 ```js live-sample___mathmlanchorelement
 const mathAnchor = document.querySelector("math a");
 const list = document.querySelector("ul");
 ```
 
-Als Nächstes definieren wir eine Funktion, die einen String als Bezeichnung einer Eigenschaft des `MathMLAnchorElement`-Objekts entgegennimmt und der `list` ein {{htmlelement("li")}} mit dem Eigenschaftsnamen und dem Eigenschaftswert hinzufügt:
+Als Nächstes definieren wir eine Funktion, die einen String-Wert entgegennimmt, der eine Eigenschaft des `MathMLAnchorElement`-Objekts bezeichnet. Sie fügt der `list` ein {{htmlelement("li")}} hinzu, das den Namen und den Wert der Eigenschaft enthält:
 
 ```js live-sample___mathmlanchorelement
 function outputValue(value) {
@@ -158,7 +158,7 @@ function outputValue(value) {
 }
 ```
 
-Schließlich rufen wir die Funktion mehrmals auf, um die Namen und Werte der direkt in der Schnittstelle definierten Eigenschaften in der Liste auszugeben:
+Schließlich rufen wir die Funktion mehrmals auf, um die Namen und Werte von Eigenschaften, die direkt auf der Schnittstelle definiert sind, in der Liste auszugeben:
 
 ```js live-sample___mathmlanchorelement
 outputValue("href");

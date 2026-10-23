@@ -3,14 +3,14 @@ title: "MathMLAnchorElement: rel-Eigenschaft"
 short-title: rel
 slug: Web/API/MathMLAnchorElement/rel
 l10n:
-  sourceCommit: 7220cba37bea17e7e18a674ec730366e8af815ab
+  sourceCommit: 85577061e99da7082b48263fa19f9b1ef4187eda
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`rel`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist eine Zeichenfolge mit einer durch Leerzeichen getrennten Liste von Linktypen, die die Beziehung zwischen der durch den Link repräsentierten Ressource und dem aktuellen Dokument angeben.
+Die Eigenschaft **`rel`** der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist eine Zeichenfolge mit einer durch Leerzeichen getrennten Liste von Linktypen, die die Beziehung zwischen der durch den Link repräsentierten Ressource und dem aktuellen Dokument angeben.
 
-Sie spiegelt das `rel`-Attribut des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements wider.
+Sie spiegelt das Attribut `rel` des Elements [`<a>`](/de/docs/Web/MathML/Reference/Element/a) wider.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Eine Zeichenfolge.
 
 ### Grundlegende Verwendung
 
-Gegeben sei dieses MathML:
+Bei folgendem MathML:
 
 ```html
 <math>
@@ -28,7 +28,7 @@ Gegeben sei dieses MathML:
 </math>
 ```
 
-Sie können den `rel`-Wert des Links wie folgt abrufen:
+können Sie den Wert von `rel` für den Link wie folgt abrufen:
 
 ```js
 const mathAnchor = document.getElementById("myAnchor");

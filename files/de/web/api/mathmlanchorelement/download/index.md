@@ -3,24 +3,24 @@ title: "MathMLAnchorElement: download-Eigenschaft"
 short-title: download
 slug: Web/API/MathMLAnchorElement/download
 l10n:
-  sourceCommit: 7220cba37bea17e7e18a674ec730366e8af815ab
+  sourceCommit: 85577061e99da7082b48263fa19f9b1ef4187eda
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`download`**-Eigenschaft der [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement)-Schnittstelle ist ein String, der angibt, dass die verknüpfte Ressource heruntergeladen und nicht im Browser angezeigt werden soll. Der Wert, sofern vorhanden, gibt den vorgeschlagenen Dateinamen an.
+Die **`download`**-Eigenschaft der Schnittstelle [`MathMLAnchorElement`](/de/docs/Web/API/MathMLAnchorElement) ist eine Zeichenfolge, die angibt, dass die verlinkte Ressource heruntergeladen und nicht im Browser angezeigt werden soll. Falls ein Wert vorhanden ist, gibt er den vorgeschlagenen Dateinamen an.
 
-Sie spiegelt das `download`-Attribut des [`<a>`](/de/docs/Web/MathML/Reference/Element/a)-Elements wider.
+Sie spiegelt das `download`-Attribut des Elements [`<a>`](/de/docs/Web/MathML/Reference/Element/a) wider.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Gegeben sei dieses MathML:
+Bei folgendem MathML:
 
 ```html
 <math>
@@ -28,7 +28,7 @@ Gegeben sei dieses MathML:
 </math>
 ```
 
-So können Sie den `download`-Wert des Ankers abrufen:
+können Sie den `download`-Wert des Ankers wie folgt abrufen:
 
 ```js
 const mathAnchor = document.getElementById("myAnchor");
