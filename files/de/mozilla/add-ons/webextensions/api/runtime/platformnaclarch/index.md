@@ -2,26 +2,26 @@
 title: runtime.PlatformNaclArch
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/PlatformNaclArch
 l10n:
-  sourceCommit: d093679f1b6c69e417e761d90eca65681e5f95f4
+  sourceCommit: c6a89971a820ca6b76479a7ffc1b32c09aae2415
 ---
 
 > [!NOTE]
-> **Dieser Typ ist veraltet** zugunsten von {{WebExtAPIRef("runtime.PlatformArch")}}. `PlatformArch` ist ebenfalls verfügbar in {{WebExtAPIRef("runtime.PlatformInfo")}}, die Sie durch die Verwendung von {{WebExtAPIRef("runtime.getPlatformInfo()")}} erhalten.
+> **Dieser Typ ist veraltet.** Verwenden Sie stattdessen {{WebExtAPIRef("runtime.PlatformArch")}}. `PlatformArch` ist auch in {{WebExtAPIRef("runtime.PlatformInfo")}} verfügbar, das Sie über {{WebExtAPIRef("runtime.getPlatformInfo()")}} abrufen.
 
-Der aufgezählte Wert, der das CPU-Befehlssatzarchitektur des Google Native Client repräsentiert, das vom Browser verwendet wird. Dieses Enum ist veraltet, nach der Entfernung von Google Native Client aus Google Chrome. Ab 2026 plant Chromium, dieses Enum zu entfernen.
+Ein Aufzählungswert, der die CPU-Befehlssatzarchitektur von Google Native Client angibt, die der Browser verwendet. Dieses Enum ist seit der Entfernung von Google Native Client aus Google Chrome veraltet. Chromium beabsichtigt, dieses Enum ab 2026 zu entfernen.
 
 ## Typ
 
 - `ARM`
-  - : Der Zeichenfolgenliteral `"arm"`. Repräsentiert alle Versionen der ARM ISA, einschließlich aller 32-Bit- und 64-Bit-Varianten. Entspricht [`PlatformArch.arm`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#arm) (32-Bit-Variante) und `PlatformArch.arm64` kombiniert in einem Wert.
+  - : Das String-Literal `"arm"`. Repräsentiert alle Versionen der ARM-ISA, einschließlich aller 32-Bit- und 64-Bit-Varianten. Entspricht [`PlatformArch.arm`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#arm) (32-Bit-Variante) und [`PlatformArch.arm64`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#arm64) zusammengefasst in einem Wert.
 - `X86_32`
-  - : Der Zeichenfolgenliteral `"x86-32"`. Repräsentiert die 32-Bit-Variante der x86-Architektur. Entspricht [`PlatformArch.x86_32`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#x86-32).
+  - : Das String-Literal `"x86-32"`. Repräsentiert die 32-Bit-Variante der x86-Architektur. Entspricht [`PlatformArch.x86_32`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#x86-32).
 - `X86_64`
-  - : Der Zeichenfolgenliteral `"x86-64"`. Repräsentiert die 64-Bit-Variante der x86-Architektur. Entspricht [`PlatformArch.X86_64`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#x86-64).
+  - : Das String-Literal `"x86-64"`. Repräsentiert die 64-Bit-Variante der x86-Architektur. Entspricht [`PlatformArch.X86_64`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#x86-64).
 - `MIPS`
-  - : Der Zeichenfolgenliteral `"mips"`. Repräsentiert die 32-Bit-Variante der MIPS ISA, die von offiziellen Releases nie unterstützt wurde. Entspricht `PlatformArch.mips`.
+  - : Das String-Literal `"mips"`. Repräsentiert die 32-Bit-Variante der MIPS-ISA, die von offiziellen Versionen nie unterstützt wurde. Entspricht [`PlatformArch.mips`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#mips).
 - `MIPS64`
-  - : Der Zeichenfolgenliteral `"mips64"`. Repräsentiert die 64-Bit-Variante der MIPS ISA, die von offiziellen Releases nie unterstützt wurde. Entspricht `PlatformArch.mips64`.
+  - : Das String-Literal `"mips64"`. Repräsentiert die 64-Bit-Variante der MIPS-ISA, die von offiziellen Versionen nie unterstützt wurde. Entspricht [`PlatformArch.mips64`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/PlatformArch#xmips64).
 
 {{WebExtExamples}}
 
@@ -30,7 +30,7 @@ Der aufgezählte Wert, der das CPU-Befehlssatzarchitektur des Google Native Clie
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformNaclArch) API von Chromium. Diese Dokumentation basiert auf [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformNaclArch) von Chromium. Diese Dokumentation wurde aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

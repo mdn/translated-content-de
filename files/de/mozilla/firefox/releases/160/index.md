@@ -1,18 +1,18 @@
 ---
-title: Firefox 160 – Versionshinweise für Entwickler (Nightly)
+title: "Firefox 160: Versionshinweise für Entwickler (Nightly)"
 short-title: Firefox 160 (Nightly)
 slug: Mozilla/Firefox/Releases/160
 l10n:
-  sourceCommit: bd4e1a75486ccdf2d36aef41c63d22ec5536b6a6
+  sourceCommit: c6a89971a820ca6b76479a7ffc1b32c09aae2415
 ---
 
-Dieser Artikel informiert über die Änderungen in Firefox 160, die Entwickler betreffen.
+Dieser Artikel informiert über Änderungen in Firefox 160, die Entwickler betreffen.
 Firefox 160 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und erscheint am [10. November 2026](https://whattrainisitnow.com/release/?version=160).
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, für die Sie Hinweise verfassen. -->
+<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, zu denen Sie Hinweise verfassen. -->
 
 ## Änderungen für Webentwickler
 
@@ -71,6 +71,8 @@ Firefox 160 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 <!-- #### Marionette -->
 
 ## Änderungen für Add-on-Entwickler
+
+- {{WebExtAPIRef("runtime.PlatformInfo")}} gibt auf ARM64-Plattformen für `arch` jetzt `arm64` zurück. Zuvor wurde `aarch64` zurückgegeben. Damit entspricht der von Firefox für ARM64-Plattformen zurückgegebene Wert dem von Chrome. ([Firefox-Bug 2080310](https://bugzil.la/2080310))
 
 <!-- ### Entfernungen -->
 
