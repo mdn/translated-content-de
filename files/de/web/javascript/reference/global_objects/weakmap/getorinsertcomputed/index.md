@@ -3,12 +3,12 @@ title: WeakMap.prototype.getOrInsertComputed()
 short-title: getOrInsertComputed()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/getOrInsertComputed
 l10n:
-  sourceCommit: af88df72d0ee1da6fd1be412f615e8b4caf98e70
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`getOrInsertComputed()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in diesem `WeakMap` entspricht. Wenn der Schlüssel nicht vorhanden ist, wird ein neuer Eintrag mit dem Schlüssel und einem Standardwert eingefügt, der aus einem gegebenen Callback berechnet wird, und der eingefügte Wert wird zurückgegeben.
+Die Methode **`getOrInsertComputed()`** von {{jsxref("WeakMap")}}-Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `WeakMap` zugeordnet ist. Ist der Schlüssel nicht vorhanden, fügt sie einen neuen Eintrag mit dem Schlüssel und einem durch eine Callback-Funktion berechneten Standardwert ein und gibt den eingefügten Wert zurück.
 
-Verwenden Sie diese Methode anstelle von {{jsxref("WeakMap.prototype.getOrInsert()")}}, wenn der Standardwert aufwendig zu berechnen ist und Sie vermeiden möchten, ihn zu berechnen, es sei denn, er wird tatsächlich benötigt.
+Verwenden Sie diese Methode anstelle von {{jsxref("WeakMap.prototype.getOrInsert()")}}, wenn die Berechnung des Standardwerts aufwendig ist und Sie ihn nur dann berechnen möchten, wenn er tatsächlich benötigt wird.
 
 {{InteractiveExample("JavaScript Demo: WeakMap.prototype.getOrInsertComputed()")}}
 
@@ -34,30 +34,30 @@ getOrInsertComputed(key, callback)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt zurückgegeben werden soll. Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Objekt-Schlüssel werden durch {{Glossary("Object_reference", "Referenz")}}, nicht durch Wert, verglichen.
+  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt zurückgegeben werden soll. Er muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Objektschlüssel werden anhand ihrer {{Glossary("Object_reference", "Referenz")}} verglichen, nicht anhand ihres Werts.
 - `callback`
   - : Eine Funktion, die den Wert zurückgibt, der eingefügt und zurückgegeben werden soll, wenn der Schlüssel im `Map`-Objekt noch nicht vorhanden ist. Die Funktion wird mit dem folgenden Argument aufgerufen:
     - `key`
-      - : Der gleiche Schlüssel, der an `getOrInsertComputed()` übergeben wurde.
+      - : Derselbe Schlüssel, der an `getOrInsertComputed()` übergeben wurde.
 
 ### Rückgabewert
 
-Der Wert, der dem angegebenen Schlüssel im `WeakMap`-Objekt zugeordnet ist. Wenn der Schlüssel nicht gefunden werden kann, werden das Ergebnis von `callback(key)` eingefügt und zurückgegeben.
+Der Wert, der dem angegebenen Schlüssel im `WeakMap`-Objekt zugeordnet ist. Wenn der Schlüssel nicht gefunden wird, wird das Ergebnis von `callback(key)` eingefügt und zurückgegeben.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `key` ist kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry).
+    - `key` ist weder ein Objekt noch ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry).
     - `callback` ist nicht aufrufbar.
 
 ## Beispiele
 
-### Caching
+### Zwischenspeicherung
 
-Caching beinhaltet den Aufbau einer Zuordnung vom Parameter einer aufwendigen Funktion zu ihrem Rückgabewert, sodass zukünftige Aufrufe mit demselben Parameter den zwischengespeicherten Wert zurückgeben können, anstatt ihn neu zu berechnen. Wenn kein zwischengespeicherter Wert existiert, muss er berechnet und im Cache abgelegt werden.
+Bei der Zwischenspeicherung wird eine Zuordnung zwischen dem Parameter einer aufwendig zu berechnenden Funktion und ihrem Rückgabewert erstellt. So können spätere Aufrufe mit demselben Parameter den zwischengespeicherten Wert zurückgeben, statt ihn erneut zu berechnen. Wenn noch kein zwischengespeicherter Wert vorhanden ist, muss er berechnet und in den Cache eingefügt werden.
 
-Wir verwenden hier ein `WeakMap` anstelle eines `Map`, damit die zwischengespeicherten Argumentwerte nicht verhindern, dass sie vom Garbage Collector eingesammelt werden, wenn sie im Programm nicht mehr benötigt werden. Wenn Ihre zwischengespeicherte Funktion Nicht-Objekt-Argumente annimmt, können Sie stattdessen ein `Map` verwenden.
+Hier verwenden wir eine `WeakMap` anstelle einer `Map`, damit die zwischengespeicherten Argumentwerte nicht verhindern, dass die entsprechenden Objekte von der Garbage Collection erfasst werden, wenn sie an anderer Stelle im Programm nicht mehr benötigt werden. Wenn Ihre zwischengespeicherte Funktion Argumente akzeptiert, die keine Objekte sind, können Sie stattdessen eine `Map` verwenden.
 
 ```js
 // Any expensive function you want to cache
@@ -89,8 +89,8 @@ const value2 = computeWithCache(options); // No log
 
 ## Siehe auch
 
-- [Polyfill von `WeakMap.prototype.getOrInsertComputed` in `core-js`](https://github.com/zloirock/core-js#map-upsert)
-- [es-shims Polyfill von `WeakMap.prototype.getOrInsertComputed`](https://www.npmjs.com/package/weakmap.prototype.getorinsertcomputed)
+- [Polyfill für `WeakMap.prototype.getOrInsertComputed` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-weakmap)
+- [Polyfill für `WeakMap.prototype.getOrInsertComputed` von es-shims](https://www.npmjs.com/package/weakmap.prototype.getorinsertcomputed)
 - {{jsxref("WeakMap")}}
 - {{jsxref("WeakMap.prototype.get()")}}
 - {{jsxref("WeakMap.prototype.set()")}}

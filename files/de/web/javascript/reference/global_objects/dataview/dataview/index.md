@@ -3,7 +3,7 @@ title: DataView()-Konstruktor
 short-title: DataView()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/DataView
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 Der **`DataView()`**-Konstruktor erstellt {{jsxref("DataView")}}-Objekte.
@@ -32,29 +32,29 @@ new DataView(buffer, byteOffset, byteLength)
 ```
 
 > [!NOTE]
-> `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `buffer`
-  - : Ein vorhandener {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als Speicher für das neue `DataView`-Objekt dient.
+  - : Ein vorhandener {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als zugrunde liegender Speicher für das neue `DataView`-Objekt verwendet wird.
 - `byteOffset` {{optional_inline}}
-  - : Der Offset in Bytes zum ersten Byte im obigen Buffer, auf das die neue Ansicht verweisen soll. Wenn nicht angegeben, beginnt die Ansicht des Buffers beim ersten Byte.
+  - : Der Versatz in Bytes bis zum ersten Byte im oben genannten Buffer, auf das die neue Ansicht verweist. Wenn nicht angegeben, beginnt die Ansicht beim ersten Byte des Buffers.
 - `byteLength` {{optional_inline}}
   - : Die Anzahl der Elemente im Byte-Array. Wenn nicht angegeben, entspricht die Länge der Ansicht der Länge des Buffers.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("DataView")}}-Objekt, das den angegebenen Datenpuffer darstellt.
+Ein neues {{jsxref("DataView")}}-Objekt, das den angegebenen Datenbuffer repräsentiert.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn die Werte der Parameter `byteOffset` oder `byteLength` dazu führen, dass die Ansicht über das Ende des Buffers hinausgeht. Mit anderen Worten, `byteOffset + byteLength > buffer.byteLength`.
+  - : Wird ausgelöst, wenn die Werte der Parameter `byteOffset` oder `byteLength` dazu führen, dass die Ansicht über das Ende des Buffers hinausreicht. Anders ausgedrückt: `byteOffset + byteLength > buffer.byteLength`.
 
 ## Beispiele
 
-### Verwendung von DataView
+### DataView verwenden
 
 ```js
 const buffer = new ArrayBuffer(16);
@@ -74,5 +74,5 @@ view.getInt16(1); // 42
 
 ## Siehe auch
 
-- [Polyfill von `DataView` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
+- [Polyfill für `DataView` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
 - {{jsxref("DataView")}}

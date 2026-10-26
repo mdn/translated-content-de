@@ -3,10 +3,10 @@ title: Symbol.isConcatSpreadable
 short-title: isConcatSpreadable
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable
 l10n:
-  sourceCommit: 1474534461893381d54c502e655f334b5568e597
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Dateneigenschaft **`Symbol.isConcatSpreadable`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.isConcatSpreadable`. Die Methode {{jsxref("Array.prototype.concat()")}} prüft dieses Symbol für jedes Objekt, das zusammengefügt wird, um festzustellen, ob es als array-ähnliches Objekt behandelt und auf seine Array-Elemente abgeflacht werden soll.
+Die statische Dateneigenschaft **`Symbol.isConcatSpreadable`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.isConcatSpreadable`. Die Methode {{jsxref("Array.prototype.concat()")}} prüft dieses Symbol bei jedem zu verkettenden Objekt, um festzustellen, ob es als Array-ähnliches Objekt behandelt und seine Elemente in das Ergebnis eingefügt werden sollen.
 
 {{InteractiveExample("JavaScript Demo: Symbol.isConcatSpreadable")}}
 
@@ -27,22 +27,22 @@ console.log(alphaNumeric);
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.isConcatSpreadable`.
+Das bekannte Symbol `Symbol.isConcatSpreadable`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Die Eigenschaft `[Symbol.isConcatSpreadable]` kann als eigene oder geerbte Eigenschaft definiert werden und ihr Wert ist ein boolescher Wert. Sie kann das Verhalten für Arrays und array-ähnliche Objekte steuern:
+Die Eigenschaft `[Symbol.isConcatSpreadable]` kann als eigene oder geerbte Eigenschaft definiert werden. Ihr Wert ist ein boolescher Wert. Sie kann das Verhalten von Arrays und Array-ähnlichen Objekten steuern:
 
-- Für Array-Objekte ist das Standardverhalten, Elemente zu spreaden (abzuflachen). `Symbol.isConcatSpreadable` kann das Abflachen in diesen Fällen verhindern.
-- Für array-ähnliche Objekte ist das Standardverhalten, nicht zu spreaden oder abzuflachen. `Symbol.isConcatSpreadable` kann in diesen Fällen das Abflachen erzwingen.
+- Bei Arrays werden die Elemente standardmäßig einzeln in das Ergebnis eingefügt. `Symbol.isConcatSpreadable` kann dieses Verhalten verhindern.
+- Bei Array-ähnlichen Objekten werden die Elemente standardmäßig nicht einzeln eingefügt. `Symbol.isConcatSpreadable` kann dieses Verhalten erzwingen.
 
 ## Beispiele
 
 ### Arrays
 
-Standardmäßig spreadet (flacht) {{jsxref("Array.prototype.concat()")}} Arrays in seinem Ergebnis ab:
+Standardmäßig fügt {{jsxref("Array.prototype.concat()")}} die Elemente von Arrays einzeln in das Ergebnis ein:
 
 ```js
 const alpha = ["a", "b", "c"];
@@ -53,7 +53,7 @@ const alphaNumeric = alpha.concat(numeric);
 console.log(alphaNumeric); // Result: ['a', 'b', 'c', 1, 2, 3]
 ```
 
-Wenn `Symbol.isConcatSpreadable` auf `false` gesetzt wird, kann das Standardverhalten deaktiviert werden:
+Wenn Sie `Symbol.isConcatSpreadable` auf `false` setzen, können Sie dieses Standardverhalten deaktivieren:
 
 ```js
 const alpha = ["a", "b", "c"];
@@ -67,7 +67,7 @@ console.log(alphaNumeric); // Result: ['a', 'b', 'c', [1, 2, 3] ]
 
 ### Array-ähnliche Objekte
 
-Für array-ähnliche Objekte ist es Standard, nicht zu spreaden. `Symbol.isConcatSpreadable` muss auf `true` gesetzt werden, um ein abgeflachtes Array zu erhalten:
+Array-ähnliche Objekte werden standardmäßig nicht aufgelöst. Um ihre Elemente einzeln in das Ergebnis einzufügen, muss `Symbol.isConcatSpreadable` auf `true` gesetzt werden:
 
 ```js
 const x = [1, 2, 3];
@@ -83,7 +83,7 @@ x.concat(fakeArray); // [1, 2, 3, "hello", "world"]
 ```
 
 > [!NOTE]
-> Die `length`-Eigenschaft wird verwendet, um die Anzahl der hinzuzufügenden Objekteigenschaften zu steuern. Im obigen Beispiel zeigt `length:2` an, dass zwei Eigenschaften hinzugefügt werden müssen.
+> Die Eigenschaft `length` steuert, wie viele Eigenschaften des Objekts hinzugefügt werden. Im obigen Beispiel gibt `length:2` an, dass zwei Eigenschaften hinzugefügt werden.
 
 ## Spezifikationen
 
@@ -95,5 +95,5 @@ x.concat(fakeArray); // [1, 2, 3, "hello", "world"]
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.isConcatSpreadable` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [Polyfill für `Symbol.isConcatSpreadable` in `core-js`](https://core-js.io/docs/features/ecmascript/symbol)
 - {{jsxref("Array.prototype.concat()")}}

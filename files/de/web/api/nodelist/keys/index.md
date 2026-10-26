@@ -3,12 +3,12 @@ title: "NodeList: keys()-Methode"
 short-title: keys()
 slug: Web/API/NodeList/keys
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.keys()`**-Methode gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der es Ihnen ermöglicht, alle Schlüssel in diesem Objekt durchzugehen. Die Schlüssel sind `unsigned integer`.
+Die Methode **`NodeList.keys()`** gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem Sie alle in diesem Objekt enthaltenen Schlüssel durchlaufen können. Die Schlüssel sind `unsigned integer`.
 
 ## Syntax
 
@@ -62,6 +62,6 @@ Das Ergebnis ist:
 
 ## Siehe auch
 
-- [Polyfill von `NodeList.prototype.keys` in `core-js`](https://github.com/zloirock/core-js#iterable-dom-collections)
+- [Polyfill für `NodeList.prototype.keys` in `core-js`](https://core-js.io/docs/features/web-standards/iterable-dom-collections)
 - [`Node`](/de/docs/Web/API/Node)
 - [`NodeList`](/de/docs/Web/API/NodeList)

@@ -3,10 +3,10 @@ title: Date.prototype.getYear()
 short-title: getYear()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getYear
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`getYear()`** Methode von {{jsxref("Date")}} Instanzen gibt das Jahr für dieses Datum gemäß der lokalen Zeit zurück. Da `getYear()` keine vollständigen Jahre zurückgibt (das sogenannte „Jahr 2000 Problem“), ist sie veraltet und wurde durch die {{jsxref("Date/getFullYear", "getFullYear()")}} Methode ersetzt.
+Die Methode **`getYear()`** von {{jsxref("Date")}}-Instanzen gibt das Jahr dieses Datums gemäß der lokalen Zeit zurück. Da `getYear()` keine vollständigen Jahreszahlen zurückgibt (das „Jahr-2000-Problem“), ist die Methode veraltet und wurde durch {{jsxref("Date/getFullYear", "getFullYear()")}} ersetzt.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der das Jahr für das angegebene Datum gemäß der lokalen Zeit minus 1900 darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl, die das Jahr des angegebenen Datums gemäß der lokalen Zeit abzüglich 1900 darstellt. Ist das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), wird `NaN` zurückgegeben.
 
-- Für Jahre größer oder gleich 2000 ist der Wert 100 oder größer. Zum Beispiel, wenn das Jahr 2026 ist, gibt `getYear()` 126 zurück.
-- Für Jahre zwischen einschließlich 1900 und 1999 liegt der von `getYear()` zurückgegebene Wert zwischen 0 und 99. Zum Beispiel, wenn das Jahr 1976 ist, gibt `getYear()` 76 zurück.
-- Für Jahre kleiner als 1900 ist der von `getYear()` zurückgegebene Wert kleiner als 0. Zum Beispiel, wenn das Jahr 1800 ist, gibt `getYear()` -100 zurück.
+- Für Jahre ab 2000 beträgt der Wert mindestens 100. Wenn das Jahr beispielsweise 2026 ist, gibt `getYear()` den Wert 126 zurück.
+- Für Jahre von 1900 bis einschließlich 1999 liegt der von `getYear()` zurückgegebene Wert zwischen 0 und 99. Wenn das Jahr beispielsweise 1976 ist, gibt `getYear()` den Wert 76 zurück.
+- Für Jahre vor 1900 ist der von `getYear()` zurückgegebene Wert kleiner als 0. Wenn das Jahr beispielsweise 1800 ist, gibt `getYear()` den Wert -100 zurück.
 
-Diese Methode gibt im Wesentlichen den Wert von {{jsxref("Date/getFullYear", "getFullYear()")}} minus 1900 zurück. Sie sollten `getFullYear()` verwenden, um das Jahr vollständig anzugeben.
+Diese Methode gibt im Wesentlichen den Wert von {{jsxref("Date/getFullYear", "getFullYear()")}} abzüglich 1900 zurück. Verwenden Sie stattdessen `getFullYear()`, damit das Jahr vollständig angegeben wird.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ const xmas = new Date("1995-12-25");
 const year = xmas.getYear(); // returns 95
 ```
 
-### Jahre über 1999
+### Jahre nach 1999
 
 Die zweite Anweisung weist der Variablen `year` den Wert 100 zu.
 
@@ -48,7 +48,7 @@ const xmas = new Date("2000-12-25");
 const year = xmas.getYear(); // returns 100
 ```
 
-### Jahre unter 1900
+### Jahre vor 1900
 
 Die zweite Anweisung weist der Variablen `year` den Wert -100 zu.
 
@@ -57,9 +57,9 @@ const xmas = new Date("1800-12-25");
 const year = xmas.getYear(); // returns -100
 ```
 
-### Einstellen und Abrufen eines Jahres zwischen 1900 und 1999
+### Festlegen und Abrufen eines Jahres zwischen 1900 und 1999
 
-Die dritte Anweisung weist der Variablen `year` den Wert 95 zu, was das Jahr 1995 darstellt.
+Die dritte Anweisung weist der Variablen `year` den Wert 95 zu, der für das Jahr 1995 steht.
 
 ```js
 const xmas = new Date("2015-12-25");
@@ -77,8 +77,8 @@ const year = xmas.getYear(); // returns 95
 
 ## Siehe auch
 
-- [Polyfill von `Date.prototype.getYear` in `core-js`](https://github.com/zloirock/core-js#ecmascript-date)
-- [es-shims polyfill von `Date.prototype.getYear`](https://www.npmjs.com/package/date.prototype.getyear)
+- [Polyfill für `Date.prototype.getYear` in `core-js`](https://core-js.io/docs/features/ecmascript/date)
+- [es-shims-Polyfill für `Date.prototype.getYear`](https://www.npmjs.com/package/date.prototype.getyear)
 - {{jsxref("Date.prototype.getFullYear()")}}
 - {{jsxref("Date.prototype.getUTCFullYear()")}}
 - {{jsxref("Date.prototype.setYear()")}}

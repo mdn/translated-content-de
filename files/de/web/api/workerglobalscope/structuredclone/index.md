@@ -3,15 +3,15 @@ title: "WorkerGlobalScope: Methode structuredClone()"
 short-title: structuredClone()
 slug: Web/API/WorkerGlobalScope/structuredClone
 l10n:
-  sourceCommit: 47b1321d6cac5c7093583162c4cf73e015cc4905
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
 Die Methode **`structuredClone()`** der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) erstellt mithilfe des [Structured-Clone-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) eine {{Glossary("deep_copy", "tiefe Kopie")}} eines übergebenen Werts.
 
-Die Methode ermöglicht außerdem, [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert auf das neue Objekt zu _übertragen_, statt sie zu klonen.
-Übertragene Objekte werden vom ursprünglichen Objekt getrennt und dem neuen Objekt zugeordnet. Im ursprünglichen Objekt sind sie anschließend nicht mehr zugänglich.
+Die Methode ermöglicht es außerdem, [übertragbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert auf das neue Objekt zu _übertragen_, statt sie zu klonen.
+Übertragene Objekte werden vom ursprünglichen Objekt getrennt und dem neuen Objekt zugeordnet; im ursprünglichen Objekt sind sie nicht mehr zugänglich.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ structuredClone(value, options)
   - : Das zu klonende Objekt.
     Dies kann jeder [strukturiert klonbare Typ](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) sein.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt mit der folgenden Eigenschaft:
     - `transfer`
-      - : Ein Array von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die in das zurückgegebene Objekt verschoben statt geklont werden.
+      - : Ein Array von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die in das zurückgegebene Objekt verschoben statt geklont werden.
 
 ### Rückgabewert
 
@@ -57,5 +57,5 @@ Beispiele finden Sie unter [`Window.structuredClone()`](/de/docs/Web/API/Window/
 
 ## Siehe auch
 
-- [Ein Polyfill für `structuredClone`](https://github.com/zloirock/core-js#structuredclone) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.
+- [Ein Polyfill für `structuredClone`](https://core-js.io/docs/features/web-standards/structured-clone) ist in [`core-js`](https://core-js.io/) verfügbar
 - [Structured-Clone-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)

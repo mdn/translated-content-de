@@ -3,10 +3,10 @@ title: Reflect.setPrototypeOf()
 short-title: setPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Reflect.setPrototypeOf()`** ist ähnlich wie {{jsxref("Object.setPrototypeOf()")}}, gibt jedoch einen {{jsxref("Boolean")}} zurück. Sie setzt das Prototype (d.h. die interne `[[Prototype]]`-Eigenschaft) eines angegebenen Objekts.
+Die statische Methode **`Reflect.setPrototypeOf()`** ähnelt {{jsxref("Object.setPrototypeOf()")}}, gibt aber einen {{jsxref("Boolean")}}-Wert zurück. Sie setzt den Prototyp (d.h. die interne Eigenschaft `[[Prototype]]`) eines angegebenen Objekts.
 
 {{InteractiveExample("JavaScript Demo: Reflect.setPrototypeOf()")}}
 
@@ -34,28 +34,28 @@ Reflect.setPrototypeOf(target, prototype)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, dessen Prototype gesetzt werden soll.
+  - : Das Zielobjekt, dessen Prototyp gesetzt werden soll.
 - `prototype`
-  - : Das neue Prototype des Objekts (ein Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)).
+  - : Der neue Prototyp des Objekts (ein Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)).
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das Prototype erfolgreich gesetzt wurde oder nicht.
+Ein {{jsxref("Boolean")}}-Wert, der angibt, ob der Prototyp erfolgreich gesetzt wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn `target` kein Objekt ist oder `prototype` weder ein Objekt noch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
+  - : Wird ausgelöst, wenn `target` kein Objekt ist oder `prototype` weder ein Objekt noch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
 
 ## Beschreibung
 
-`Reflect.setPrototypeOf()` bietet die reflektive Semantik, um das Prototype eines Objekts zu setzen. Auf sehr niedrigem Niveau gibt das Setzen des Prototypes einen Boolean zurück (wie im Fall des [Proxy-Handlers](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/setPrototypeOf)). {{jsxref("Object.setPrototypeOf()")}} bietet eine nahezu gleiche Semantik, wirft jedoch einen {{jsxref("TypeError")}}, wenn der Status `false` ist (die Operation war erfolglos), während `Reflect.setPrototypeOf()` den Status direkt zurückgibt.
+`Reflect.setPrototypeOf()` bietet eine reflektierende Semantik für das Setzen des Prototyps eines Objekts. Auf der untersten Ebene gibt das Setzen des Prototyps einen booleschen Wert zurück (wie auch beim [Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/setPrototypeOf)). {{jsxref("Object.setPrototypeOf()")}} bietet nahezu dieselbe Semantik, löst aber einen {{jsxref("TypeError")}} aus, wenn der Status `false` ist (der Vorgang war nicht erfolgreich). `Reflect.setPrototypeOf()` gibt den Status dagegen direkt zurück.
 
-`Reflect.setPrototypeOf()` ruft die `[[SetPrototypeOf]]` [interne Objektsmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.setPrototypeOf()` ruft die [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) `[[SetPrototypeOf]]` von `target` auf.
 
 ## Beispiele
 
-### Verwendung von Reflect.setPrototypeOf()
+### Reflect.setPrototypeOf() verwenden
 
 ```js
 Reflect.setPrototypeOf({}, Object.prototype); // true
@@ -82,7 +82,7 @@ Reflect.setPrototypeOf(target, proto); // false
 
 ## Siehe auch
 
-- [Polyfill von `Reflect.setPrototypeOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
+- [Polyfill für `Reflect.setPrototypeOf` in `core-js`](https://core-js.io/docs/features/ecmascript/reflect)
 - {{jsxref("Reflect")}}
 - {{jsxref("Object.setPrototypeOf()")}}
 - [`handler.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/setPrototypeOf)

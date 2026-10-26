@@ -3,10 +3,10 @@ title: Array.prototype.lastIndexOf()
 short-title: lastIndexOf()
 slug: Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`lastIndexOf()`**-Methode von {{jsxref("Array")}}-Instanzen gibt den letzten Index zurück, an dem ein bestimmtes Element im Array gefunden werden kann, oder -1, falls es nicht vorhanden ist. Das Array wird rückwärts durchsucht, beginnend bei `fromIndex`.
+Die Methode **`lastIndexOf()`** von {{jsxref("Array")}}-Instanzen gibt den letzten Index zurück, an dem ein bestimmtes Element im Array gefunden wird, oder `-1`, wenn es nicht vorhanden ist. Das Array wird ab `fromIndex` rückwärts durchsucht.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.lastIndexOf()")}}
 
@@ -30,30 +30,30 @@ lastIndexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Element, das im Array gefunden werden soll.
+  - : Das Element, das im Array gesucht werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem rückwärts gesucht wird, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= fromIndex < 0`, wird `fromIndex + array.length` verwendet.
-    - Wenn `fromIndex < -array.length`, wird das Array nicht durchsucht und `-1` zurückgegeben. Man kann sich dies konzeptionell so vorstellen, als würde man an einer nicht existierenden Position vor dem Anfang des Arrays beginnen und von dort rückwärts gehen. Es gibt keine Array-Elemente auf dem Weg, daher wird `searchElement` nie gefunden.
-    - Wenn `fromIndex >= array.length` oder `fromIndex` weggelassen oder `undefined` ist, wird `array.length - 1` verwendet, wodurch das gesamte Array durchsucht wird. Man kann sich dies konzeptionell so vorstellen, als würde man an einer nicht existierenden Position über dem Ende des Arrays beginnen und von dort rückwärts gehen. Schließlich erreicht es die reale Endposition des Arrays und beginnt dort, rückwärts durch die tatsächlichen Array-Elemente zu suchen.
+  - : Nullbasierter Index, an dem die Rückwärtssuche beginnt; er wird [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück. Wenn `-array.length <= fromIndex < 0` gilt, wird `fromIndex + array.length` verwendet.
+    - Wenn `fromIndex < -array.length` gilt, wird das Array nicht durchsucht und `-1` zurückgegeben. Anschaulich beginnt die Suche dann an einer nicht vorhandenen Position vor dem Anfang des Arrays und läuft von dort rückwärts. Auf diesem Weg liegen keine Array-Elemente, daher wird `searchElement` nie gefunden.
+    - Wenn `fromIndex >= array.length` gilt oder `fromIndex` weggelassen wird oder `undefined` ist, wird `array.length - 1` verwendet. Dadurch wird das gesamte Array durchsucht. Anschaulich beginnt die Suche dann an einer nicht vorhandenen Position hinter dem Ende des Arrays und läuft von dort rückwärts. Schließlich erreicht sie das tatsächliche Ende des Arrays und durchsucht ab dort die vorhandenen Array-Elemente rückwärts.
 
 ### Rückgabewert
 
-Der letzte Index von `searchElement` im Array; `-1` falls nicht gefunden.
+Der letzte Index von `searchElement` im Array; `-1`, wenn das Element nicht gefunden wird.
 
 ## Beschreibung
 
-Die `lastIndexOf()`-Methode vergleicht `searchElement` mit den Elementen des Arrays unter Verwendung von [strikter Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) (der gleiche Algorithmus, der vom `===`-Operator verwendet wird). [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN)-Werte werden niemals als gleich verglichen, daher gibt `lastIndexOf()` immer `-1` zurück, wenn `searchElement` `NaN` ist.
+Die Methode `lastIndexOf()` vergleicht `searchElement` mit den Elementen des Arrays mittels [strikter Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) (demselben Algorithmus, den der Operator `===` verwendet). [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN)-Werte werden nie als gleich betrachtet. Daher gibt `lastIndexOf()` immer `-1` zurück, wenn `searchElement` den Wert `NaN` hat.
 
-Die `lastIndexOf()`-Methode überspringt leere Plätze in [sparsely Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
+Die Methode `lastIndexOf()` überspringt leere Stellen in [Arrays mit Lücken](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
 
-Die `lastIndexOf()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlige, schlüsselbasierte Eigenschaften hat.
+Die Methode `lastIndexOf()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln besitzt.
 
 ## Beispiele
 
-### Verwendung von lastIndexOf()
+### lastIndexOf() verwenden
 
-Das folgende Beispiel verwendet `lastIndexOf()`, um Werte in einem Array zu lokalisieren.
+Das folgende Beispiel verwendet `lastIndexOf()`, um Werte in einem Array zu finden.
 
 ```js
 const numbers = [2, 5, 9, 2];
@@ -65,7 +65,7 @@ numbers.lastIndexOf(2, -2); // 0
 numbers.lastIndexOf(2, -1); // 3
 ```
 
-Sie können `lastIndexOf()` nicht verwenden, um nach `NaN` zu suchen.
+Mit `lastIndexOf()` können Sie nicht nach `NaN` suchen.
 
 ```js
 const array = [NaN];
@@ -74,7 +74,7 @@ array.lastIndexOf(NaN); // -1
 
 ### Alle Vorkommen eines Elements finden
 
-Das folgende Beispiel verwendet `lastIndexOf`, um alle Indizes eines Elements in einem gegebenen Array zu finden, indem {{jsxref("Array/push", "push()")}} genutzt wird, um sie zu einem anderen Array hinzuzufügen, sobald sie gefunden werden.
+Das folgende Beispiel verwendet `lastIndexOf`, um alle Indizes eines Elements in einem bestimmten Array zu finden. Dabei werden die gefundenen Indizes mit {{jsxref("Array/push", "push()")}} zu einem anderen Array hinzugefügt.
 
 ```js
 const indices = [];
@@ -90,19 +90,19 @@ console.log(indices);
 // [4, 2, 0]
 ```
 
-Beachten Sie, dass wir hier den Fall `idx === 0` separat behandeln müssen, da das Element immer gefunden wird, unabhängig vom `fromIndex`-Parameter, wenn es das erste Element des Arrays ist. Dies unterscheidet sich von der {{jsxref("Array/indexOf", "indexOf()")}}-Methode.
+Beachten Sie, dass der Fall `idx === 0` hier gesondert behandelt werden muss: Wenn das gesuchte Element das erste Element des Arrays ist, wird es unabhängig vom Parameter `fromIndex` immer gefunden. Dies unterscheidet sich von der Methode {{jsxref("Array/indexOf", "indexOf()")}}.
 
-### Verwendung von lastIndexOf() in dünn besetzten Arrays
+### lastIndexOf() bei Arrays mit Lücken verwenden
 
-Sie können `lastIndexOf()` nicht verwenden, um nach leeren Plätzen in dünn besetzten Arrays zu suchen.
+Mit `lastIndexOf()` können Sie nicht nach leeren Stellen in Arrays mit Lücken suchen.
 
 ```js
 console.log([1, , 3].lastIndexOf(undefined)); // -1
 ```
 
-### Aufrufen von lastIndexOf() bei Nicht-Array-Objekten
+### lastIndexOf() für Objekte aufrufen, die keine Arrays sind
 
-Die `lastIndexOf()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel ein nicht-negativer Integer kleiner als `length` ist.
+Die Methode `lastIndexOf()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative Ganzzahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -128,9 +128,9 @@ console.log(Array.prototype.lastIndexOf.call(arrayLike, 5));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.lastIndexOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.lastIndexOf`](https://www.npmjs.com/package/array.prototype.lastindexof)
-- [Indexed collections](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.lastIndexOf` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.lastIndexOf` von es-shims](https://www.npmjs.com/package/array.prototype.lastindexof)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.findIndex()")}}
 - {{jsxref("Array.prototype.findLastIndex()")}}

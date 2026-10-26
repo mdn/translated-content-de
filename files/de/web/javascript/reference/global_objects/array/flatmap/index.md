@@ -3,10 +3,10 @@ title: Array.prototype.flatMap()
 short-title: flatMap()
 slug: Web/JavaScript/Reference/Global_Objects/Array/flatMap
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`flatMap()`**-Methode von {{jsxref("Array")}} Instanzen gibt ein neues Array zurück, das durch Anwenden einer angegebenen Callback-Funktion auf jedes Element des Arrays gebildet wird und dann das Ergebnis eine Ebene tief plättet. Es ist identisch mit einem {{jsxref("Array/map", "map()")}} gefolgt von einem {{jsxref("Array/flat", "flat()")}} mit einer Tiefe von 1 (`arr.map(...args).flat()`), jedoch geringfügig effizienter als das separate Aufrufen dieser beiden Methoden.
+Die Methode **`flatMap()`** von {{jsxref("Array")}}-Instanzen gibt ein neues Array zurück. Dazu wendet sie eine angegebene Callback-Funktion auf jedes Element des Arrays an und verflacht das Ergebnis anschließend um eine Ebene. Dies entspricht einem Aufruf von {{jsxref("Array/map", "map()")}} gefolgt von {{jsxref("Array/flat", "flat()")}} mit Tiefe 1 (`arr.map(...args).flat()`), ist aber etwas effizienter, als die beiden Methoden getrennt aufzurufen.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.flatMap()", "shorter")}}
 
@@ -29,7 +29,7 @@ flatMap(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte ein Array zurückgeben, das neue Elemente des neuen Arrays enthält, oder einen einzelnen Nicht-Array-Wert, der dem neuen Array hinzugefügt werden soll. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte entweder ein Array mit neuen Elementen für das neue Array oder einen einzelnen Wert, der kein Array ist und dem neuen Array hinzugefügt wird, zurückgeben. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -37,21 +37,21 @@ flatMap(callbackFn, thisArg)
     - `array`
       - : Das Array, auf dem `flatMap()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der beim Ausführen von `callbackFn` als `this` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Ein neues Array, bei dem jedes Element das Ergebnis der Callback-Funktion ist und auf eine Tiefe von 1 platt gemacht wurde.
+Ein neues Array, dessen Elemente die Ergebnisse der Callback-Funktion sind und das um eine Ebene verflacht wurde.
 
 ## Beschreibung
 
-Die `flatMap()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Siehe {{jsxref("Array.prototype.map()")}} für eine detaillierte Beschreibung der Callback-Funktion. Die `flatMap()`-Methode ist identisch mit [`map(callbackFn, thisArg)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) gefolgt von [`flat(1)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) — für jedes Element erzeugt sie ein Array neuer Elemente und kombiniert die resultierenden Arrays zu einem neuen Array. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die Methode `flatMap()` ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Eine ausführliche Beschreibung der Callback-Funktion finden Sie unter {{jsxref("Array.prototype.map()")}}. Die Methode `flatMap()` entspricht [`map(callbackFn, thisArg)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) gefolgt von [`flat(1)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/flat): Sie erzeugt für jedes Element ein Array neuer Elemente und verkettet die resultierenden Arrays zu einem neuen Array. Weitere Informationen zur allgemeinen Funktionsweise dieser Methoden finden Sie im Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
-Die `flatMap()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat. Der von `callbackFn` zurückgegebene Wert muss jedoch ein Array sein, wenn es platt gemacht werden soll.
+Die Methode `flatMap()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln besitzt. Damit der von `callbackFn` zurückgegebene Wert verflacht wird, muss er allerdings ein Array sein.
 
 ### Alternative
 
-#### Vorabbelegung und explizites Iterieren
+#### Speicher vorab reservieren und explizit iterieren
 
 ```js
 const arr = [1, 2, 3, 4];
@@ -68,11 +68,7 @@ for (let i = 0; i < n; i++) {
 // [1, 2, 2, 4, 3, 6, 4, 8]
 ```
 
-Beachten Sie, dass in diesem speziellen Fall der `flatMap`-Ansatz langsamer als der
-for-Schleifen-Ansatz ist — aufgrund der Erstellung temporärer Arrays, die
-abgefangen werden müssen, sowie des Rückgabearrays, das nicht häufig
-größenverändert werden muss. Dennoch kann `flatMap` die richtige Lösung in Fällen sein, in denen
-Flexibilität und Lesbarkeit gewünscht sind.
+Beachten Sie, dass der Ansatz mit `flatMap` in diesem speziellen Fall langsamer ist als der Ansatz mit einer for-Schleife. Der Grund dafür sind temporäre Arrays, die von der Garbage Collection bereinigt werden müssen, sowie die Tatsache, dass die Größe des Ergebnis-Arrays nicht häufig angepasst werden muss. Dennoch kann `flatMap` die richtige Lösung sein, wenn seine Flexibilität und Lesbarkeit gefragt sind.
 
 ## Beispiele
 
@@ -92,10 +88,9 @@ arr.flatMap((x) => [[x * 2]]);
 // [[2], [4], [6], [8]]
 ```
 
-Während das obige Beispiel durch die Verwendung von map selbst erreicht werden könnte, hier ein Beispiel, das
-die Verwendung von `flatMap()` besser veranschaulicht.
+Das obige Ergebnis hätte sich auch allein mit map erzielen lassen. Das folgende Beispiel veranschaulicht die Verwendung von `flatMap()` besser.
 
-Lassen Sie uns eine Liste von Wörtern aus einer Liste von Sätzen generieren.
+Erstellen wir aus einer Liste von Sätzen eine Liste von Wörtern.
 
 ```js
 const arr = ["it's Sunny in", "", "California"];
@@ -107,16 +102,11 @@ arr.flatMap((x) => x.split(" "));
 // ["it's","Sunny","in", "", "California"]
 ```
 
-Beachten Sie, dass die Ausgabeliste eine andere Länge als die Eingabeliste haben kann.
+Beachten Sie, dass die Länge der Ausgabeliste von der Länge der Eingabeliste abweichen kann.
 
-### Zum Hinzufügen und Entfernen von Elementen während eines map()
+### Elemente während eines map()-Aufrufs hinzufügen und entfernen
 
-`flatMap` kann verwendet werden, um Elemente hinzuzufügen und zu entfernen (die Anzahl der
-Elemente zu ändern) während eines `map`. Mit anderen Worten, es ermöglicht Ihnen, _viele Elemente zu
-vielen Elementen_ zuzuordnen (indem jedes Eingabeelement separat behandelt wird), anstatt immer
-_eins-zu-eins_. In diesem Sinne funktioniert es wie das Gegenteil von [filter](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter).
-Geben Sie ein 1-Element-Array zurück, um das Element zu behalten, ein Mehrfach-Element-Array, um Elemente hinzuzufügen, oder ein
-0-Element-Array, um das Element zu entfernen.
+Mit `flatMap` können Sie während eines `map`-Aufrufs Elemente hinzufügen und entfernen, also die Anzahl der Elemente ändern. Anders ausgedrückt: Statt Elemente immer _eins zu eins_ abzubilden, können Sie _viele Elemente auf viele Elemente_ abbilden, indem Sie jedes Eingabeelement einzeln verarbeiten. In diesem Sinne funktioniert es wie das Gegenstück zu [filter](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter). Geben Sie ein Array mit einem Element zurück, um das Element beizubehalten, ein Array mit mehreren Elementen, um Elemente hinzuzufügen, oder ein leeres Array, um das Element zu entfernen.
 
 ```js
 // Let's say we want to remove all the negative numbers
@@ -134,9 +124,9 @@ const result = a.flatMap((n) => {
 console.log(result); // [4, 1, 4, 20, 16, 1, 18]
 ```
 
-### Verwendung des dritten Arguments von callbackFn
+### Das dritte Argument von callbackFn verwenden
 
-Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Das folgende Beispiel verwendet zuerst `filter()`, um betriebsbereite Stationen zu extrahieren, und verwendet dann `flatMap()`, um ein neues Array zu erstellen, bei dem jedes Element eine Station und ihre nächste Station enthält. Bei der letzten Station wird ein leeres Array zurückgegeben, um es aus dem endgültigen Array auszuschließen.
+Das Argument `array` ist nützlich, wenn Sie auf ein anderes Element des Arrays zugreifen möchten, insbesondere wenn keine Variable vorhanden ist, die auf das Array verweist. Im folgenden Beispiel werden zunächst mit `filter()` betriebsbereite Stationen ausgewählt. Anschließend wird mit `flatMap()` ein neues Array erstellt, dessen Elemente jeweils eine Station und die darauffolgende Station enthalten. Für die letzte Station wird ein leeres Array zurückgegeben, damit sie nicht im Ergebnis-Array erscheint.
 
 ```js
 const stations = ["New Haven", "West Haven", "Milford (closed)", "Stratford"];
@@ -151,20 +141,20 @@ const line = stations
 console.log(line); // ['New Haven - West Haven', 'West Haven - Stratford']
 ```
 
-Das `array`-Argument ist _nicht_ das Array, das erstellt wird — es gibt keine Möglichkeit, von der Callback-Funktion auf das erstellte Array zuzugreifen.
+Das Argument `array` ist _nicht_ das Array, das gerade erstellt wird. Von der Callback-Funktion aus kann nicht auf dieses Array zugegriffen werden.
 
-### Verwendung von flatMap() auf dünn besetzten Arrays
+### flatMap() mit Arrays mit unbelegten Positionen verwenden
 
-Das `callbackFn` wird nicht für leere Slots im Quellarray aufgerufen, da `map()` dies nicht tut, während `flat()` leere Slots in den zurückgegebenen Arrays ignoriert.
+`callbackFn` wird für unbelegte Positionen im Quell-Array nicht aufgerufen, da auch `map()` sie überspringt. `flat()` ignoriert außerdem unbelegte Positionen in den zurückgegebenen Arrays.
 
 ```js
 console.log([1, 2, , 4, 5].flatMap((x) => [x, x * 2])); // [1, 2, 2, 4, 4, 8, 5, 10]
 console.log([1, 2, 3, 4].flatMap((x) => [, x * 2])); // [2, 4, 6, 8]
 ```
 
-### Aufruf von flatMap() auf Nicht-Array-Objekten
+### flatMap() für Objekte aufrufen, die keine Arrays sind
 
-Die `flatMap()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl kleiner als `length` ist. Wenn der Rückgabewert der Callback-Funktion kein Array ist, wird er immer direkt an das Ergebnis-Array angehängt.
+Die Methode `flatMap()` liest die `length`-Eigenschaft von `this` und greift anschließend auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist. Ist der Rückgabewert der Callback-Funktion kein Array, wird er immer direkt an das Ergebnis-Array angehängt.
 
 ```js
 const arrayLike = {
@@ -197,9 +187,9 @@ console.log(
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.flatMap` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.flatMap`](https://www.npmjs.com/package/array.prototype.flatmap)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.flatMap` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.flatMap` von es-shims](https://www.npmjs.com/package/array.prototype.flatmap)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.concat()")}}
 - {{jsxref("Array.prototype.flat()")}}

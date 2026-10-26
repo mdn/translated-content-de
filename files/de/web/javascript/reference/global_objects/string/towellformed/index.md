@@ -3,10 +3,10 @@ title: String.prototype.toWellFormed()
 short-title: toWellFormed()
 slug: Web/JavaScript/Reference/Global_Objects/String/toWellFormed
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toWellFormed()`** Methode von {{jsxref("String")}}-Werten gibt einen String zurück, bei dem alle [einsamen Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dieses Strings durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden.
+Die Methode **`toWellFormed()`** von {{jsxref("String")}}-Werten gibt einen String zurück, in dem alle [einzelstehenden Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) des ursprünglichen Strings durch das Unicode-Ersatzzeichen U+FFFD ersetzt wurden.
 
 ## Syntax
 
@@ -20,19 +20,19 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der eine Kopie dieses Strings ist, bei dem alle einsamen Surrogate durch das Unicode-Ersatzzeichen U+FFFD ersetzt sind. Falls `str` [wohlgeformt ist](/de/docs/Web/JavaScript/Reference/Global_Objects/String/isWellFormed), wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Ein neuer String, der eine Kopie des ursprünglichen Strings ist, wobei alle einzelstehenden Surrogate durch das Unicode-Ersatzzeichen U+FFFD ersetzt wurden. Wenn `str` [wohlgeformt ist](/de/docs/Web/JavaScript/Reference/Global_Objects/String/isWellFormed), wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beschreibung
 
-Strings in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Konzept von _Surrogatpaaren_, das im Abschnitt [UTF-16-Zeichen, Unicode-Codierungspunkte und Graphemes](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich beschrieben wird.
+Strings in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung verwendet sogenannte _Surrogatpaare_, die im Abschnitt [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich erläutert werden.
 
-`toWellFormed()` durchläuft die Code-Einheiten dieses Strings und ersetzt alle einsamen Surrogate durch das [Unicode-Ersatzzeichen](<https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character>) U+FFFD `�`. Dies stellt sicher, dass der zurückgegebene String wohlgeformt ist und in Funktionen verwendet werden kann, die wohlgeformte Strings erwarten, wie z.B. {{jsxref("encodeURI")}}. Im Vergleich zu einer benutzerdefinierten Implementierung ist `toWellFormed()` effizienter, da Engine direkten Zugriff auf die interne Darstellung von Strings haben.
+`toWellFormed()` durchläuft die Codeeinheiten des Strings und ersetzt jedes einzelstehende Surrogat durch das [Unicode-Ersatzzeichen](<https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character>) U+FFFD `�`. Dadurch ist der zurückgegebene String wohlgeformt und kann in Funktionen verwendet werden, die wohlgeformte Strings erwarten, beispielsweise {{jsxref("encodeURI")}}. Im Vergleich zu einer eigenen Implementierung ist `toWellFormed()` effizienter, da JavaScript-Engines direkt auf die interne Darstellung von Strings zugreifen können.
 
-Wenn fehlerhaft geformte Strings in bestimmten Kontexten verwendet werden, wie z.B. bei [`TextEncoder`](/de/docs/Web/API/TextEncoder), werden sie automatisch mithilfe des gleichen Ersatzzeichens in wohlgeformte Strings konvertiert. Wenn einsame Surrogate gerendert werden, erscheinen sie auch als Ersatzzeichen (ein Rhombus mit einem Fragezeichen darin).
+Wenn nicht wohlgeformte Strings in bestimmten Kontexten verwendet werden, etwa mit [`TextEncoder`](/de/docs/Web/API/TextEncoder), werden sie automatisch mit demselben Ersatzzeichen in wohlgeformte Strings umgewandelt. Auch bei der Darstellung einzelstehender Surrogate wird das Ersatzzeichen angezeigt (eine Raute mit einem Fragezeichen darin).
 
 ## Beispiele
 
-### Verwendung von toWellFormed()
+### toWellFormed() verwenden
 
 ```js
 const strings = [
@@ -59,9 +59,9 @@ for (const str of strings) {
 // "ab😄c"
 ```
 
-### Fehlervermeidung in encodeURI()
+### Fehler in encodeURI() vermeiden
 
-{{jsxref("encodeURI")}} wirft einen Fehler, wenn der übergebene String nicht wohlgeformt ist. Dies kann vermieden werden, indem `toWellFormed()` verwendet wird, um den String zuerst in einen wohlgeformten String zu konvertieren.
+{{jsxref("encodeURI")}} löst einen Fehler aus, wenn der übergebene String nicht wohlgeformt ist. Dies lässt sich vermeiden, indem Sie den String zuerst mit `toWellFormed()` in einen wohlgeformten String umwandeln.
 
 ```js
 const illFormed = "https://example.com/search?q=\uD800";
@@ -85,7 +85,7 @@ console.log(encodeURI(illFormed.toWellFormed())); // "https://example.com/search
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.toWellFormed` in `core-js`](https://github.com/zloirock/core-js#well-formed-unicode-strings)
-- [es-shims Polyfill von `String.prototype.toWellFormed`](https://www.npmjs.com/package/string.prototype.towellformed)
+- [Polyfill für `String.prototype.toWellFormed` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.toWellFormed` von es-shims](https://www.npmjs.com/package/string.prototype.towellformed)
 - {{jsxref("String.prototype.isWellFormed()")}}
 - {{jsxref("String.prototype.normalize()")}}

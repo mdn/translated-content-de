@@ -3,14 +3,14 @@ title: Iterator.prototype.chunks()
 short-title: chunks()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/chunks
 l10n:
-  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{SeeCompatTable}}
 
-Die **`chunks()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die Elemente des ursprünglichen Iterators in aufeinanderfolgende Array-Blöcke aufteilt. Jedes Mal, wenn der Hilfsiterator durchlaufen wird, werden die angegebene Anzahl von Elementen aus dem zugrunde liegenden Iterator entnommen und gemeinsam ausgegeben.
+Die Methode **`chunks()`** von {{jsxref("Iterator")}}-Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die Elemente des ursprünglichen Iterators in aufeinanderfolgende Arrays aufteilt. Bei jedem Iterationsschritt ruft das Hilfsobjekt die angegebene Anzahl von Elementen aus dem zugrunde liegenden Iterator ab und gibt sie gemeinsam zurück.
 
-Um überlappende Sequenzen (d.h. ein gleitendes Fenster) auszugeben, siehe {{jsxref("Iterator.prototype.windows()")}}.
+Informationen zur Ausgabe überlappender Sequenzen (eines gleitenden Fensters) finden Sie unter {{jsxref("Iterator.prototype.windows()")}}.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ chunks(chunkSize)
 ### Parameter
 
 - `chunkSize`
-  - : Die Anzahl von Elementen in jedem Block. Muss eine positive ganze Zahl kleiner als 2<sup>32</sup> (die maximale Array-Länge) sein.
+  - : Die Anzahl der Elemente in jedem Array. Muss eine positive Ganzzahl kleiner als 2<sup>32</sup> (die maximale Array-Länge) sein.
 
 ### Rückgabewert
 
-Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Jedes Mal, wenn die `next()`-Methode des zurückgegebenen Iterator-Hilfsobjekts aufgerufen wird, wird der ursprüngliche Iterator um `chunkSize` Elemente vorgerückt und diese Elemente werden gemeinsam als Array ausgegeben.
+Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Bei jedem Aufruf der Methode `next()` des zurückgegebenen Iterator-Hilfsobjekts wird der ursprüngliche Iterator um `chunkSize` Elemente weiterbewegt. Diese Elemente werden gemeinsam als Array zurückgegeben.
 
-Wenn der ursprüngliche Iterator einige, aber weniger als `chunkSize` Elemente übrig hat, werden diese Elemente trotzdem als Array ausgegeben (sodass die Länge kleiner als `chunkSize` ist), und der Iterator-Hilfsobjekt wird beim nächsten Aufruf von `next()` sofort abgeschlossen.
+Wenn im ursprünglichen Iterator noch Elemente vorhanden sind, aber weniger als `chunkSize`, werden diese ebenfalls als Array zurückgegeben (dessen Länge somit kleiner als `chunkSize` ist). Beim nächsten Aufruf von `next()` ist das Iterator-Hilfsobjekt dann abgeschlossen.
 
-Wenn der ursprüngliche Iterator keine Elemente mehr hat, wird der Iterator-Hilfsobjekt sofort abgeschlossen, ohne ein leeres Array auszugeben.
+Wenn im ursprünglichen Iterator keine Elemente mehr vorhanden sind, ist das Iterator-Hilfsobjekt sofort abgeschlossen, ohne ein leeres Array zurückzugeben.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `chunkSize` keine ganze Zahl ist.
+  - : Wird ausgelöst, wenn `chunkSize` keine Ganzzahl ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `chunkSize` kleiner als 1 oder größer als 2<sup>32</sup>－1 ist.
 
@@ -42,7 +42,7 @@ Wenn der ursprüngliche Iterator keine Elemente mehr hat, wird der Iterator-Hilf
 
 ### Elemente in einem Raster ausgeben
 
-Das folgende Beispiel erstellt einen Iterator, der die Terme der Fibonacci-Sequenz ausgibt. Dann werden diese in einem Rasterlayout ausgegeben, indem jedes Mal 5 Elemente abgerufen werden.
+Das folgende Beispiel erstellt einen Iterator, der Glieder der Fibonacci-Folge zurückgibt. Anschließend werden sie in einem Raster ausgegeben, indem jeweils 5 Elemente abgerufen werden.
 
 ```js
 function* fibonacci() {
@@ -81,7 +81,7 @@ Ausgabe:
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.chunks` in `core-js`](https://github.com/zloirock/core-js#iterator-chunking)
-- [es-shims Polyfill von `Iterator.prototype.chunks`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.chunks` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.chunks` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.windows()")}}

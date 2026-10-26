@@ -1,12 +1,12 @@
 ---
-title: AsyncDisposableStack() Konstruktor
+title: AsyncDisposableStack()-Konstruktor
 short-title: AsyncDisposableStack()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/AsyncDisposableStack
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`AsyncDisposableStack()`** Konstruktor erstellt {{jsxref("AsyncDisposableStack")}} Objekte.
+Der **`AsyncDisposableStack()`**-Konstruktor erstellt {{jsxref("AsyncDisposableStack")}}-Objekte.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ new AsyncDisposableStack()
 ```
 
 > [!NOTE]
-> `AsyncDisposableStack()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `AsyncDisposableStack()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `AsyncDisposableStack` Objekt.
+Ein neues `AsyncDisposableStack`-Objekt.
 
 ## Beispiele
 
-### Erstellen eines AsyncDisposableStack
+### Einen AsyncDisposableStack erstellen
 
 ```js
 const disposer = new AsyncDisposableStack();
@@ -46,4 +46,5 @@ await disposer.disposeAsync();
 
 ## Siehe auch
 
-- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `AsyncDisposableStack` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)

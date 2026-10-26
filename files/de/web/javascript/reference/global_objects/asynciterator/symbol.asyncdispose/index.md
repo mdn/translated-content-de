@@ -3,10 +3,10 @@ title: AsyncIterator.prototype[Symbol.asyncDispose]()
 short-title: "[Symbol.asyncDispose]()"
 slug: Web/JavaScript/Reference/Global_Objects/AsyncIterator/Symbol.asyncDispose
 l10n:
-  sourceCommit: 99e4e41ce89ef69db3d08766296699f342c5a8ff
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`[Symbol.asyncDispose]()`** Methode von {{jsxref("AsyncIterator")}} Instanzen implementiert das _asynchrone Entsorgungsprotokoll_ und ermöglicht es, entsorgt zu werden, wenn es mit {{jsxref("Statements/await_using", "await using")}} verwendet wird. Sie ruft die `return()` Methode von `this` auf und wartet diese ab, falls sie existiert.
+Die Methode **`[Symbol.asyncDispose]()`** von {{jsxref("AsyncIterator")}}-Instanzen implementiert das _Protokoll zur asynchronen Ressourcenfreigabe_. Dadurch kann eine Instanz bei der Verwendung mit {{jsxref("Statements/await_using", "await using")}} freigegeben werden. Die Methode ruft die `return()`-Methode von `this` auf und wartet auf deren Abschluss, sofern sie vorhanden ist.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Deklaration eines asynchronen Iterators mit `await using`
+### Einen asynchronen Iterator mit `await using` deklarieren
 
-Die Methode `Symbol.asyncDispose` soll automatisch in einer `await using`-Deklaration aufgerufen werden. Dies ist nützlich, wenn Sie einen asynchronen Iterator haben, den Sie manuell durch Aufruf seiner `next()` Methode iterieren; wenn Sie ihn mit {{jsxref("Statements/for-await...of", "for await...of")}} oder etwas Ähnlichem iterieren, dann werden Fehlerbehandlung und Aufräumarbeiten automatisch durchgeführt.
+Die Methode `Symbol.asyncDispose` ist dafür vorgesehen, bei einer `await using`-Deklaration automatisch aufgerufen zu werden. Das ist nützlich, wenn Sie einen asynchronen Iterator manuell durch Aufrufe seiner `next()`-Methode durchlaufen. Wenn Sie ihn mit {{jsxref("Statements/for-await...of", "for await...of")}} oder auf ähnliche Weise durchlaufen, erfolgen Fehlerbehandlung und Bereinigung automatisch.
 
 ```js
 async function* generateNumbers() {
@@ -60,7 +60,7 @@ doSomething();
 
 ## Siehe auch
 
-- [Polyfill von `AsyncIterator.prototype[Symbol.asyncDispose]` in `core-js`](https://github.com/zloirock/core-js#explicit-resource-management)
+- [Polyfill für `AsyncIterator.prototype[Symbol.asyncDispose]` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("Symbol.asyncDispose")}}
 - {{jsxref("Statements/await_using", "await using")}}

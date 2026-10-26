@@ -1,24 +1,25 @@
 ---
-title: "PerformanceElementTiming: presentationTime-Eigenschaft"
+title: "PerformanceElementTiming: Eigenschaft presentationTime"
 short-title: presentationTime
 slug: Web/API/PerformanceElementTiming/presentationTime
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`presentationTime`**-Schreibgeschützte Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann das Element tatsächlich auf dem Bildschirm gezeichnet wurde.
+Die schreibgeschützte Eigenschaft **`presentationTime`** der Schnittstelle [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem das Element tatsächlich auf dem Bildschirm dargestellt wurde.
 
-Die `presentationTime` ist optional - einige Browser können immer `0` zurückgeben oder den Wert gar nicht offenlegen. Der Wert ist auch implementationsabhängig - er kann sich zwischen Browsern unterscheiden, die sich dazu entscheiden, ihn offen zu legen.
+Der Wert von `presentationTime` kann `null` sein: Der zugrunde liegende Zeitstempel ist implementierungsabhängig. Browser, die ihn nicht bereitstellen, geben daher stattdessen `null` zurück.
+Da [`PerformanceElementTiming.paintTime`](/de/docs/Web/API/PerformanceElementTiming/paintTime) in allen Implementierungen auf dieselbe Weise bereitgestellt wird, ist dieser Wert für Metriken, die browserübergreifend vergleichbar sein müssen, zuverlässiger.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht offengelegt wird.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht bereitgestellt wird.
 
 ## Beispiele
 
-Siehe [Beobachtung von getrennten Mal- und Darstellungstiming](/de/docs/Web/API/PerformanceElementTiming#observing_separate_paint_and_presentation_timings).
+Siehe [Getrennte Paint- und Präsentationszeitpunkte beobachten](/de/docs/Web/API/PerformanceElementTiming#observing_separate_paint_and_presentation_timings).
 
 ## Spezifikationen
 

@@ -3,28 +3,29 @@ title: "PerformanceEntry: startTime-Eigenschaft"
 short-title: startTime
 slug: Web/API/PerformanceEntry/startTime
 l10n:
-  sourceCommit: 153369fa094f0b58ce1aee3f3cc1a3d7ab540b91
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`startTime`** gibt den ersten [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der für diesen [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) aufgezeichnet wurde. Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Eintrags ab.
+Die schreibgeschützte Eigenschaft **`startTime`** gibt den ersten für diesen [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) erfassten [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück. Die Bedeutung dieser Eigenschaft hängt vom Wert von [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Eintrags ab.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den ersten Zeitstempel darstellt, zu dem der
-[`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) erstellt wurde.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den ersten Zeitstempel bei der Erstellung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) darstellt.
 
-Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Performance-Eintrags ab:
+Die Bedeutung dieser Eigenschaft hängt vom Wert von [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Performance-Eintrags ab:
 
+- `container`
+  - : Der Wert von [`paintTime`](/de/docs/Web/API/PerformanceContainerTiming/paintTime) dieses Eintrags.
 - `element`
-  - : Entweder der Wert von [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) dieses Eintrags, falls er nicht `0` ist, andernfalls der Wert von [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) dieses Eintrags.
+  - : Der Wert von [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) dieses Eintrags, falls er nicht `0` ist; andernfalls der Wert von [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) dieses Eintrags.
 - `event`
-  - : Der Zeitpunkt, zu dem das Ereignis erstellt wurde, d.h. die Eigenschaft [`timeStamp`](/de/docs/Web/API/Event/timeStamp) des Ereignisses.
+  - : Der Zeitpunkt, zu dem das Ereignis erstellt wurde, also der Wert der Eigenschaft [`timeStamp`](/de/docs/Web/API/Event/timeStamp) des Ereignisses.
 - `first-input`
-  - : Der Zeitpunkt, zu dem das erste Eingabeereignis erstellt wurde, d.h. der [`timeStamp`](/de/docs/Web/API/Event/timeStamp) dieses Ereignisses.
+  - : Der Zeitpunkt, zu dem das erste Eingabeereignis erstellt wurde, also der Wert von [`timeStamp`](/de/docs/Web/API/Event/timeStamp) dieses Ereignisses.
 - `largest-contentful-paint`
-  - : Der Wert von [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) dieses Eintrags, falls er nicht `0` ist, andernfalls der Wert von [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) dieses Eintrags.
+  - : Der Wert von [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) dieses Eintrags, falls er nicht `0` ist; andernfalls der Wert von [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) dieses Eintrags.
 - `layout-shift`
   - : Der Zeitpunkt, zu dem die Layoutverschiebung begann.
 - `longtask`
@@ -36,21 +37,21 @@ Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/
 - `navigation`
   - : Immer `0`.
 - `paint`
-  - : Der Zeitpunkt, zu dem das Zeichnen erfolgte.
+  - : Der Zeitpunkt, zu dem der Paint-Vorgang stattfand.
 - `resource`
-  - : Der Zeitpunkt, zu dem das Abrufen der Ressource begann, einschließlich Weiterleitungen. Wenn keine HTTP-Weiterleitungen vorhanden sind oder deren Zeitinformationen nicht verfügbar gemacht werden, entspricht dieser Wert [`PerformanceResourceTiming.fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart). Andernfalls kann dieser Wert früher als `fetchStart` liegen.
+  - : Der Zeitpunkt, zu dem das Abrufen der Ressource begann, einschließlich Weiterleitungen. Wenn es keine HTTP-Weiterleitungen gibt oder deren Zeitinformationen nicht offengelegt werden, entspricht dieser Wert [`PerformanceResourceTiming.fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart). Andernfalls kann dieser Wert vor `fetchStart` liegen.
 - `taskattribution`
   - : Immer `0`.
 - `visibility-state`
-  - : Der Zeitpunkt, zu dem die Änderung des Sichtbarkeitsstatus erfolgte.
+  - : Der Zeitpunkt, zu dem sich der Sichtbarkeitsstatus änderte.
 
 ## Beispiele
 
-### Verwendung der startTime-Eigenschaft
+### Die startTime-Eigenschaft verwenden
 
-Das folgende Beispiel zeigt die Verwendung der `startTime`-Eigenschaft, die Sie während der Performance-Beobachtung protokollieren können.
+Das folgende Beispiel zeigt die Verwendung der Eigenschaft `startTime`, deren Wert Sie bei der Performance-Beobachtung protokollieren können.
 
-Hinweis: Die Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) ermöglicht es Ihnen, Ihre eigene `startTime` festzulegen, und die Methode [`performance.measure()`](/de/docs/Web/API/Performance/measure) ermöglicht es Ihnen, den Beginn der Messung festzulegen.
+Hinweis: Mit der Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) können Sie `startTime` selbst festlegen. Mit der Methode [`performance.measure()`](/de/docs/Web/API/Performance/measure) können Sie den Beginn der Messung festlegen.
 
 ```js
 performance.mark("my-mark");

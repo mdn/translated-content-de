@@ -1,12 +1,12 @@
 ---
-title: DisposableStack() Konstruktor
+title: DisposableStack()-Konstruktor
 short-title: DisposableStack()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/DisposableStack
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`DisposableStack()`** Konstruktor erstellt {{jsxref("DisposableStack")}} Objekte.
+Der **`DisposableStack()`**-Konstruktor erstellt {{jsxref("DisposableStack")}}-Objekte.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ new DisposableStack()
 ```
 
 > [!NOTE]
-> `DisposableStack()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `DisposableStack()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `DisposableStack` Objekt.
+Ein neues `DisposableStack`-Objekt.
 
 ## Beispiele
 
-### Erstellen eines DisposableStack
+### Einen DisposableStack erstellen
 
 ```js
 const disposer = new DisposableStack();
@@ -46,4 +46,5 @@ disposer.dispose();
 
 ## Siehe auch
 
+- [Polyfill für `DisposableStack` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)

@@ -3,10 +3,10 @@ title: Iterator.prototype.take()
 short-title: take()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/take
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`take()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die gegebene Anzahl von Elementen in diesem Iterator liefert und dann beendet.
+Die Methode **`take()`** von {{jsxref("Iterator")}}-Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die angegebene Anzahl von Elementen aus diesem Iterator liefert und danach endet.
 
 ## Syntax
 
@@ -17,22 +17,22 @@ take(limit)
 ### Parameter
 
 - `limit`
-  - : Die Anzahl von Elementen, die vom Beginn der Iteration an übernommen werden sollen.
+  - : Die Anzahl der Elemente, die vom Anfang der Iteration übernommen werden sollen.
 
 ### Rückgabewert
 
-Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Der zurückgegebene Iteratoren-Helfer liefert die Elemente im ursprünglichen Iterator einzeln und endet dann (die `next()` Methode erzeugt `{ value: undefined, done: true }`), nachdem `limit` Elemente geliefert wurden oder wenn der ursprüngliche Iterator erschöpft ist, je nachdem, was zuerst eintritt.
+Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Es liefert die Elemente des ursprünglichen Iterators nacheinander und endet dann (die Methode `next()` gibt `{ value: undefined, done: true }` zurück), sobald `limit` Elemente geliefert wurden oder der ursprüngliche Iterator erschöpft ist – je nachdem, was zuerst eintritt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `limit` zu {{jsxref("NaN")}} oder negativ wird, wenn es [in eine Ganzzahl konvertiert wird](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Wird ausgelöst, wenn `limit` bei der [Umwandlung in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) zu {{jsxref("NaN")}} oder einem negativen Wert wird.
 
 ## Beispiele
 
-### Verwendung von take()
+### take() verwenden
 
-Das folgende Beispiel erstellt einen Iterator, der Begriffe in der Fibonacci-Sequenz liefert, und protokolliert dann die ersten drei Begriffe:
+Das folgende Beispiel erstellt einen Iterator, der Glieder der Fibonacci-Folge liefert, und gibt anschließend die ersten drei Glieder aus:
 
 ```js
 function* fibonacci() {
@@ -51,9 +51,9 @@ console.log(seq.next().value); // 2
 console.log(seq.next().value); // undefined
 ```
 
-### Verwendung von take() mit einer for...of Schleife
+### take() mit einer for...of-Schleife verwenden
 
-`take()` ist am bequemsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}} Schleife durchlaufen:
+`take()` ist besonders praktisch, wenn Sie den Iterator nicht selbst implementieren. Da Iteratoren auch iterierbar sind, können Sie das zurückgegebene Hilfsobjekt mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
 
 ```js
 for (const n of fibonacci().take(5)) {
@@ -68,9 +68,9 @@ for (const n of fibonacci().take(5)) {
 // 5
 ```
 
-Da `fibonacci()` ein unendlicher Iterator ist, würde die Verwendung einer `for` Schleife, um ihn zu durchlaufen, ohne eine Logik zum vorzeitigen Beenden (wie eine {{jsxref("Statements/break", "break")}} Anweisung), zu einer Endlosschleife führen.
+Da `fibonacci()` ein unendlicher Iterator ist, würde das Durchlaufen mit einer `for`-Schleife ohne eine Möglichkeit zum vorzeitigen Beenden (etwa eine {{jsxref("Statements/break", "break")}}-Anweisung) zu einer Endlosschleife führen.
 
-### Kombination von drop() mit take()
+### drop() mit take() kombinieren
 
 Sie können `take()` mit {{jsxref("Iterator.prototype.drop()")}} kombinieren, um einen Ausschnitt eines Iterators zu erhalten:
 
@@ -96,16 +96,16 @@ for (const n of fibonacci().take(5).drop(2)) {
 // 5
 ```
 
-### Untere und obere Grenzen der Übernahmeanzahl
+### Untere und obere Grenzen der Anzahl
 
-Wenn das `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
+Wenn `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
 
 ```js
 fibonacci().take(-1); // RangeError: -1 must be positive
 fibonacci().take(undefined); // RangeError: undefined must be positive
 ```
 
-Wenn das `limit` größer ist als die Gesamtzahl der Elemente, die der Iterator erzeugen kann (wie {{jsxref("Infinity")}}), hat der zurückgegebene Iteratoren-Helfer im Wesentlichen dasselbe Verhalten wie der ursprüngliche Iterator:
+Wenn `limit` größer ist als die Gesamtzahl der Elemente, die der Iterator liefern kann (beispielsweise {{jsxref("Infinity")}}), verhält sich das zurückgegebene Iterator-Hilfsobjekt im Wesentlichen wie der ursprüngliche Iterator:
 
 ```js
 for (const n of new Set([1, 2, 3]).values().take(Infinity)) {
@@ -128,7 +128,7 @@ for (const n of new Set([1, 2, 3]).values().take(Infinity)) {
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.take` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill von `Iterator.prototype.take`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.take` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.take` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.drop()")}}

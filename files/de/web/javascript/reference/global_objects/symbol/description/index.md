@@ -3,10 +3,10 @@ title: Symbol.prototype.description
 short-title: description
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/description
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`description`**-Zugriffs-Eigenschaft von {{jsxref("Symbol")}}-Werten gibt eine Zeichenfolge zurück, die die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
+Die Accessor-Eigenschaft **`description`** von {{jsxref("Symbol")}}-Werten gibt einen String zurück, der die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
 
 {{InteractiveExample("JavaScript Demo: Symbol.prototype.description")}}
 
@@ -26,11 +26,11 @@ console.log(`${Symbol("foo").description}bar`);
 
 ## Beschreibung
 
-{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debuggen verwendet werden kann, aber nicht, um auf das Symbol selbst zuzugreifen. Die Eigenschaft `Symbol.prototype.description` kann verwendet werden, um diese Beschreibung zu lesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht die umschließende Zeichenfolge `"Symbol()"` enthält. Siehe die Beispiele.
+{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden. Diese kann beim Debuggen helfen, dient aber nicht dazu, auf das Symbol selbst zuzugreifen. Mit der Eigenschaft `Symbol.prototype.description` können Sie diese Beschreibung auslesen. Anders als `Symbol.prototype.toString()` enthält sie nicht den umschließenden String `"Symbol()"`. Siehe die Beispiele.
 
 ## Beispiele
 
-### Nutzung der description
+### description verwenden
 
 ```js
 Symbol("desc").toString(); // "Symbol(desc)"
@@ -57,6 +57,6 @@ Symbol.for("foo").description; // "foo"
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.prototype.description` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
-- [es-shims Polyfill von `Symbol.prototype.description`](https://www.npmjs.com/package/symbol.prototype.description)
+- [Polyfill für `Symbol.prototype.description` in `core-js`](https://core-js.io/docs/features/ecmascript/symbol)
+- [es-shims-Polyfill für `Symbol.prototype.description`](https://www.npmjs.com/package/symbol.prototype.description)
 - {{jsxref("Symbol.prototype.toString()")}}

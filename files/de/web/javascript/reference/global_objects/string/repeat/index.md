@@ -3,10 +3,10 @@ title: String.prototype.repeat()
 short-title: repeat()
 slug: Web/JavaScript/Reference/Global_Objects/String/repeat
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, zusammengefügt zu einem.
+Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt eine neue Zeichenfolge und gibt sie zurück. Diese enthält die angegebene Anzahl von Kopien der ursprünglichen Zeichenfolge, die aneinandergehängt sind.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.repeat()", "shorter")}}
 
@@ -26,16 +26,16 @@ repeat(count)
 ### Parameter
 
 - `count`
-  - : Eine ganze Zahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "Infinity")}}, die angibt, wie oft der String wiederholt werden soll.
+  - : Eine Ganzzahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "Infinity")}}, die angibt, wie oft die Zeichenfolge wiederholt werden soll.
 
 ### Rückgabewert
 
-Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings enthält.
+Eine neue Zeichenfolge, die die angegebene Anzahl von Kopien der ursprünglichen Zeichenfolge enthält.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn `count` negativ ist oder wenn `count` die maximale Stringlänge überschreitet.
+  - : Wird ausgelöst, wenn `count` negativ ist oder die maximal zulässige Länge einer Zeichenfolge überschritten würde.
 
 ## Beispiele
 
@@ -63,6 +63,6 @@ Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings ent
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.repeat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.repeat`](https://www.npmjs.com/package/string.prototype.repeat)
+- [Polyfill für `String.prototype.repeat` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.repeat` von es-shims](https://www.npmjs.com/package/string.prototype.repeat)
 - {{jsxref("String.prototype.concat()")}}

@@ -1,12 +1,12 @@
 ---
-title: Int16Array() Konstruktor
+title: Int16Array()-Konstruktor
 short-title: Int16Array()
 slug: Web/JavaScript/Reference/Global_Objects/Int16Array/Int16Array
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`Int16Array()`** Konstruktor erstellt {{jsxref("Int16Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Int16Array()`**-Konstruktor erstellt {{jsxref("Int16Array")}}-Objekte. Ihr Inhalt wird mit `0` initialisiert, sofern nicht ausdrücklich Initialisierungsdaten angegeben werden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Int16Array(buffer, byteOffset, length)
 ```
 
 > [!NOTE]
-> `Int16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `Int16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, eine Int16Array zu erstellen
+### Verschiedene Möglichkeiten, ein Int16Array zu erstellen
 
 ```js
 // From a length
@@ -76,8 +76,8 @@ console.log(int16FromIterable);
 
 ## Siehe auch
 
-- [Polyfill von `Int16Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `Int16Array` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Leitfaden zu typisierten Arrays in JavaScript](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

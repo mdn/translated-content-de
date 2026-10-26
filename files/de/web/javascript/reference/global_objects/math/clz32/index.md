@@ -3,10 +3,10 @@ title: Math.clz32()
 short-title: clz32()
 slug: Web/JavaScript/Reference/Global_Objects/Math/clz32
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Math.clz32()`** statische Methode gibt die Anzahl der führenden Nullbits in der 32-Bit-Binärdarstellung einer Zahl zurück.
+Die statische Methode **`Math.clz32()`** gibt die Anzahl der führenden Nullbits in der 32-Bit-Binärdarstellung einer Zahl zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.clz32()")}}
 
@@ -41,17 +41,17 @@ Die Anzahl der führenden Nullbits in der 32-Bit-Binärdarstellung von `x`.
 
 ## Beschreibung
 
-`clz32` steht für **C**ount**L**eading**Z**eros**32**.
+`clz32` ist die Abkürzung für **C**ount**L**eading**Z**eros**32** (führende Nullen zählen).
 
-Wenn `x` keine Zahl ist, wird es zuerst in eine Zahl und dann in eine 32-Bit-Unsigned-Integer umgewandelt.
+Wenn `x` keine Zahl ist, wird der Wert zuerst in eine Zahl und anschließend in eine vorzeichenlose 32-Bit-Ganzzahl umgewandelt.
 
-Wenn der umgewandelte 32-Bit-Unsigned-Integer `0` ist, wird `32` zurückgegeben, da alle Bits `0` sind. Wenn das höchstwertige Bit `1` ist (d.h. die Zahl ist größer oder gleich 2<sup>31</sup>), wird `0` zurückgegeben.
+Wenn die umgewandelte vorzeichenlose 32-Bit-Ganzzahl `0` ist, wird `32` zurückgegeben, da alle Bits `0` sind. Wenn das höchstwertige Bit `1` ist (d.h. die Zahl größer oder gleich 2<sup>31</sup> ist), wird `0` zurückgegeben.
 
-Diese Funktion ist besonders nützlich für Systeme, die in JS kompilieren, wie [Emscripten](https://emscripten.org/).
+Diese Funktion ist besonders nützlich für Systeme, die nach JS kompilieren, wie [Emscripten](https://emscripten.org/).
 
 ## Beispiele
 
-### Verwendung von Math.clz32()
+### Math.clz32() verwenden
 
 ```js
 Math.clz32(1); // 31
@@ -77,9 +77,9 @@ Math.clz32(true); // 31
 Math.clz32(3.5); // 30
 ```
 
-### Implementieren von Count Leading Ones und mehr
+### Führende Einsen zählen und weitere Funktionen implementieren
 
-Derzeit gibt es kein `Math.clon` für "Count Leading Ones" (genannt "clon", nicht "clo", da "clo" und "clz" besonders für nicht-englischsprachige Personen zu ähnlich sind). Eine `clon`-Funktion kann jedoch leicht erstellt werden, indem die Bits einer Zahl invertiert und das Ergebnis an `Math.clz32` übergeben wird. Dies funktioniert, weil das Inverse von 1 gleich 0 ist und umgekehrt. Das Invertieren der Bits kehrt die gemessene Menge der 0en (von `Math.clz32`) um und lässt dadurch `Math.clz32` die Zahl der Einsen zählen, anstatt die der Nullen.
+Derzeit gibt es kein `Math.clon` für „Count Leading Ones“ (führende Einsen zählen). Der Name wäre „clon“ und nicht „clo“, weil „clo“ und „clz“ einander zu ähnlich sind, insbesondere für Menschen, deren Muttersprache nicht Englisch ist. Eine `clon`-Funktion lässt sich jedoch leicht erstellen, indem die Bits einer Zahl invertiert und das Ergebnis an `Math.clz32` übergeben wird. Das funktioniert, weil die Invertierung von 1 den Wert 0 ergibt und umgekehrt. Durch das Invertieren der Bits zählt `Math.clz32` somit die Einsen statt der Nullen.
 
 Betrachten Sie das folgende 32-Bit-Wort:
 
@@ -91,7 +91,7 @@ const b = ~32776; // 11111111111111110111111111110111 (32776 inverted, 0 leading
 Math.clz32(b); // 0 (this is equal to how many leading one's there are in a)
 ```
 
-Mit dieser Logik kann eine `clon`-Funktion wie folgt erstellt werden:
+Nach diesem Prinzip lässt sich eine `clon`-Funktion wie folgt erstellen:
 
 ```js
 const clz = Math.clz32;
@@ -101,7 +101,7 @@ function clon(integer) {
 }
 ```
 
-Darüber hinaus könnte diese Technik erweitert werden, um eine sprunglose "Count Trailing Zeros"-Funktion zu erstellen, wie unten gezeigt. Die `ctrz`-Funktion nimmt ein bitweises UND des Integers mit seinem Zweierkomplement. Durch die Funktionsweise von Zweierkomplement werden alle endständigen Nullen in Einsen umgewandelt, und wenn dann 1 hinzugefügt wird, würde es bis zur ersten `0` (die ursprünglich eine `1` war) übertragen werden. Alle Bits höher als dieses bleiben gleich und sind Inverse der Bits des ursprünglichen Integers. Daher werden bei einem bitweisen UND mit dem ursprünglichen Integer alle höheren Bits zu `0`, die mit `clz` gezählt werden können. Die Anzahl der endständigen Nullen, plus das erste `1`-Bit, plus die führenden Bits, die durch `clz` gezählt werden, summieren sich auf 32.
+Mit dieser Technik lässt sich auch eine Funktion zum Zählen nachgestellter Nullen („Count Trailing Zeros“) ohne Sprunganweisungen erstellen, wie unten gezeigt. Die Funktion `ctrz` verknüpft die Ganzzahl bitweise mit ihrem Zweierkomplement durch AND. Aufgrund der Funktionsweise des Zweierkomplements werden alle nachgestellten Nullen in Einsen umgewandelt. Beim anschließenden Addieren von 1 wird der Übertrag bis zur ersten `0` weitergegeben, die ursprünglich eine `1` war. Alle höherwertigen Bits bleiben dabei unverändert und sind die invertierten Bits der ursprünglichen Ganzzahl. Bei einer bitweisen AND-Verknüpfung mit der ursprünglichen Ganzzahl werden daher alle höherwertigen Bits zu `0` und können mit `clz` gezählt werden. Die Anzahl der nachgestellten Nullen, das erste `1`-Bit und die mit `clz` gezählten führenden Bits ergeben zusammen 32.
 
 ```js
 function ctrz(integer) {
@@ -115,7 +115,7 @@ function ctrz(integer) {
 }
 ```
 
-Dann können wir eine "Count Trailing Ones"-Funktion wie folgt definieren:
+Anschließend können wir eine Funktion zum Zählen nachgestellter Einsen („Count Trailing Ones“) wie folgt definieren:
 
 ```js
 function ctron(integer) {
@@ -123,7 +123,7 @@ function ctron(integer) {
 }
 ```
 
-Diese Hilfsfunktionen können in ein [asm.js](/de/docs/Games/Tools/asm.js) Modul umgewandelt werden für eine mögliche Leistungsverbesserung.
+Diese Hilfsfunktionen können zu einem [asm.js](/de/docs/Games/Tools/asm.js)-Modul zusammengefasst werden, um möglicherweise die Leistung zu verbessern.
 
 ```js
 const countTrailsMethods = (function (stdlib, foreign, heap) {
@@ -165,7 +165,7 @@ const { ctrz, ctron } = countTrailsMethods;
 
 ## Siehe auch
 
-- [Polyfill von `Math.clz32` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
-- [es-shims Polyfill von `Math.clz32`](https://www.npmjs.com/package/math.clz32)
+- [Polyfill für `Math.clz32` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
+- [Polyfill für `Math.clz32` von es-shims](https://www.npmjs.com/package/math.clz32)
 - {{jsxref("Math")}}
 - {{jsxref("Math.imul")}}

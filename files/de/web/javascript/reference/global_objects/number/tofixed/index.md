@@ -3,10 +3,10 @@ title: Number.prototype.toFixed()
 short-title: toFixed()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toFixed
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toFixed()`**-Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl unter Verwendung der [Festkomma-Darstellung](https://en.wikipedia.org/wiki/Fixed-point_arithmetic) mit der angegebenen Anzahl von Dezimalstellen darstellt.
+Die Methode **`toFixed()`** von {{jsxref("Number")}}-Werten gibt einen String zurück, der die Zahl mit der angegebenen Anzahl von Nachkommastellen in [Festkommadarstellung](https://en.wikipedia.org/wiki/Fixed-point_arithmetic) darstellt.
 
 {{InteractiveExample("JavaScript Demo: Number.toFixed()")}}
 
@@ -35,33 +35,33 @@ toFixed(digits)
 ### Parameter
 
 - `digits` {{optional_inline}}
-  - : Die Anzahl der Ziffern, die nach dem Dezimalpunkt erscheinen sollen; sollte ein Wert zwischen `0` und `100` sein, einschließlich. Wenn dieses Argument weggelassen wird, wird es als `0` behandelt.
+  - : Die Anzahl der Stellen nach dem Dezimalpunkt; der Wert muss zwischen `0` und `100` (einschließlich) liegen. Wird dieses Argument weggelassen, wird es als `0` behandelt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die gegebene Zahl unter Verwendung der Festkomma-Darstellung darstellt. Wissenschaftliche Notation wird verwendet, wenn der Betrag der Zahl (ohne Vorzeichen) größer oder gleich 10<sup>21</sup> ist (gleicher Rückgabewert wie {{jsxref("Number.prototype.toString()")}}).
+Ein String, der die angegebene Zahl in Festkommadarstellung darstellt. Wenn der Betrag der Zahl (ohne Berücksichtigung des Vorzeichens) größer oder gleich 10<sup>21</sup> ist, wird die wissenschaftliche Notation verwendet (mit demselben Rückgabewert wie {{jsxref("Number.prototype.toString()")}}).
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `digits` nicht zwischen `0` und `100` (einschließlich) liegt.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode für ein Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ## Beschreibung
 
-Die `toFixed()`-Methode gibt eine Zeichenketten-Darstellung einer Zahl zurück, die keine [exponentielle Notation](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential) verwendet und genau `digits` Ziffern nach dem Dezimalpunkt hat. Die Zahl wird bei Bedarf gerundet, und der Bruchteil ist bei Bedarf mit Nullen aufgefüllt, sodass er die angegebene Länge hat.
+Die Methode `toFixed()` gibt eine String-Darstellung einer Zahl ohne [Exponentialschreibweise](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential) und mit genau `digits` Stellen nach dem Dezimalpunkt zurück. Die Zahl wird bei Bedarf gerundet, und der Nachkommateil wird bei Bedarf mit Nullen aufgefüllt, sodass er die angegebene Länge hat.
 
-Wenn der absolute Wert der Zahl größer oder gleich 10<sup>21</sup> ist, verwendet diese Methode den gleichen Algorithmus wie {{jsxref("Number.prototype.toString()")}} und gibt eine Zeichenkette in Exponentialdarstellung zurück. `toFixed()` gibt `"Infinity"`, `"NaN"` oder `"-Infinity"` zurück, wenn der Wert der Zahl nicht endlich ist.
+Wenn der Betrag der Zahl größer oder gleich 10<sup>21</sup> ist, verwendet diese Methode denselben Algorithmus wie {{jsxref("Number.prototype.toString()")}} und gibt einen String in Exponentialschreibweise zurück. `toFixed()` gibt `"Infinity"`, `"NaN"` oder `"-Infinity"` zurück, wenn der Wert der Zahl nicht endlich ist.
 
-Die Ausgabe von `toFixed()` kann für einige Werte präziser sein als [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString), da `toString()` nur genügend signifikante Ziffern ausdruckt, um die Zahl von angrenzenden Zahlenwerten zu unterscheiden. Zum Beispiel:
+Die Ausgabe von `toFixed()` kann für manche Werte präziser sein als die von [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString), da `toString()` nur so viele signifikante Stellen ausgibt, wie nötig sind, um die Zahl von benachbarten Zahlenwerten zu unterscheiden. Zum Beispiel:
 
 ```js
 (1000000000000000128).toString(); // '1000000000000000100'
 (1000000000000000128).toFixed(0); // '1000000000000000128'
 ```
 
-Jedoch kann die Wahl einer zu hohen `digits`-Präzision unerwartete Ergebnisse liefern, da Dezimalbrüche im Gleitkomma nicht genau dargestellt werden können. Zum Beispiel:
+Eine zu hohe Genauigkeit für `digits` kann jedoch zu unerwarteten Ergebnissen führen, da Dezimalbrüche nicht exakt als Gleitkommazahlen dargestellt werden können. Zum Beispiel:
 
 ```js
 (0.3).toFixed(50); // '0.29999999999999998889776975374843459576368331909180'
@@ -93,7 +93,7 @@ numObj.toFixed(6); // '12345.678900'; additional zeros
 
 ### Verwendung von toFixed() mit negativen Zahlen
 
-Da der Memberzugriff eine höhere [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) als das unäre Minus hat, müssen Sie den Ausdruck für die negative Zahl gruppieren, um eine Zeichenkette zu erhalten.
+Da der Zugriff auf Eigenschaften eine höhere [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) hat als das unäre Minus, müssen Sie den Ausdruck für die negative Zahl einklammern, um einen String zu erhalten.
 
 ```js-nolint
 -2.34.toFixed(1); // -2.3; a number
@@ -110,6 +110,7 @@ Da der Memberzugriff eine höhere [Priorität](/de/docs/Web/JavaScript/Reference
 
 ## Siehe auch
 
+- [Polyfill für das moderne Verhalten von `Number.prototype.toFixed` in `core-js`](https://core-js.io/docs/features/ecmascript/number)
 - {{jsxref("Number.prototype.toExponential()")}}
 - {{jsxref("Number.prototype.toPrecision()")}}
 - {{jsxref("Number.prototype.toString()")}}

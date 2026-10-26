@@ -1,14 +1,14 @@
 ---
-title: "Window: clearImmediate() Methode"
+title: "Window: Methode clearImmediate()"
 short-title: clearImmediate()
 slug: Web/API/Window/clearImmediate
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("HTML DOM")}} {{non-standard_header}}
 
-Diese Methode beendet die Aktion, die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) spezifiziert wurde.
+Diese Methode hebt die mit [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) geplante Aktion auf.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ clearImmediate(immediateID)
 ### Parameter
 
 - `immediateID`
-  - : Die ID, die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) zurückgegeben wird.
+  - : Die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) zurückgegebene ID.
 
 ### Rückgabewert
 
@@ -39,9 +39,8 @@ document.getElementById("button").addEventListener(() => {
 
 ## Spezifikationen
 
-Kein Teil der aktuellen Spezifikationen.
-An der [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate)
-Spezifikation wird nicht mehr gearbeitet.
+Diese Methode ist nicht Bestandteil einer aktuellen Spezifikation.
+An der Spezifikation [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate) wird nicht mehr gearbeitet.
 
 ## Browser-Kompatibilität
 
@@ -49,5 +48,5 @@ Spezifikation wird nicht mehr gearbeitet.
 
 ## Siehe auch
 
-- [Polyfill von `clearImmediate` in `core-js`](https://github.com/zloirock/core-js#setimmediate)
+- [Polyfill für `clearImmediate` in `core-js`](https://core-js.io/docs/features/web-standards/set-immediate)
 - [`Window.setImmediate()`](/de/docs/Web/API/Window/setImmediate)

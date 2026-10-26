@@ -3,10 +3,10 @@ title: Iterator.prototype.some()
 short-title: some()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/some
 l10n:
-  sourceCommit: 76972cdb4d87dd72e0a2a3146af07d82c7ef7d67
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`some()`** Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich wie {{jsxref("Array.prototype.some()")}}: Sie gibt `true` zurück, wenn sie ein Element findet, das die angegebene Testfunktion erfüllt. Andernfalls, wenn der Iterator erschöpft ist, ohne ein solches Element zu finden, gibt sie `false` zurück.
+Die Methode **`some()`** von {{jsxref("Iterator")}}-Instanzen ähnelt {{jsxref("Array.prototype.some()")}}: Sie gibt `true` zurück, wenn sie ein Element findet, das die angegebene Prüffunktion erfüllt. Wird der Iterator vollständig durchlaufen, ohne ein solches Element zu finden, gibt sie `false` zurück.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ some(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator produzierte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "Truthy-Wert")}} zurückgeben, wenn das Element die Prüfung besteht, andernfalls einen {{Glossary("Falsy", "Falsy-Wert")}}. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuell verarbeitete Element.
     - `index`
@@ -25,19 +25,19 @@ some(callbackFn)
 
 ### Rückgabewert
 
-`true`, wenn die Rückruffunktion einen {{Glossary("truthy", "truthy")}} Wert für mindestens ein Element zurückgibt. Andernfalls `false`.
+`true`, wenn die Callback-Funktion für mindestens ein Element einen {{Glossary("truthy", "Truthy-Wert")}} zurückgibt. Andernfalls `false`.
 
 ## Beschreibung
 
-`some()` iteriert über den Iterator und ruft die `callbackFn` Funktion einmal für jedes Element auf. Sie gibt sofort `true` zurück, wenn die Rückruffunktion einen truthy Wert zurückgibt. Andernfalls iteriert sie bis zum Ende des Iterators und gibt `false` zurück. Wenn `some()` `true` zurückgibt, wird der zugrunde liegende Iterator durch Aufrufen seiner `return()` Methode geschlossen.
+`some()` durchläuft den Iterator und ruft `callbackFn` einmal für jedes Element auf. Wenn die Callback-Funktion einen Truthy-Wert zurückgibt, gibt `some()` sofort `true` zurück. Andernfalls durchläuft die Methode den Iterator bis zum Ende und gibt `false` zurück. Wenn `some()` `true` zurückgibt, wird der zugrunde liegende Iterator durch Aufruf seiner Methode `return()` geschlossen.
 
-Der Hauptvorteil von Iterator-Helfern gegenüber Array-Methoden besteht darin, dass sie lazy sind, was bedeutet, dass sie den nächsten Wert nur bei Bedarf erzeugen. Dies vermeidet unnötige Berechnungen und ermöglicht es ihnen auch, mit unendlichen Iteratoren verwendet zu werden. Bei unendlichen Iteratoren gibt `some()` `true` zurück, sobald der erste truthy Wert gefunden wird. Wenn die `callbackFn` immer einen falsy Wert zurückgibt, gibt die Methode niemals zurück.
+Der wichtigste Vorteil von Iterator-Hilfsmethoden gegenüber Array-Methoden ist ihre verzögerte Auswertung: Sie erzeugen den nächsten Wert erst, wenn er angefordert wird. Das vermeidet unnötige Berechnungen und ermöglicht auch die Verwendung mit unendlichen Iteratoren. Bei unendlichen Iteratoren gibt `some()` `true` zurück, sobald das erste Element gefunden wird, für das `callbackFn` einen Truthy-Wert zurückgibt. Wenn `callbackFn` immer einen Falsy-Wert zurückgibt, kehrt die Methode nie zurück.
 
-Der Aufruf von `some()` schließt immer den zugrunde liegenden Iterator, auch wenn die Methode früh zurückkehrt. Der Iterator wird nie in einem unvollständigen Zustand zurückgelassen.
+Ein Aufruf von `some()` schließt den zugrunde liegenden Iterator immer, auch wenn die Methode vorzeitig zurückkehrt. Der Iterator verbleibt nie in einem teilweise durchlaufenen Zustand.
 
 ## Beispiele
 
-### Nutzung von some()
+### some() verwenden
 
 ```js
 function* fibonacci() {
@@ -57,7 +57,7 @@ console.log(fibonacci().take(10).some(isNegative)); // false
 console.log(fibonacci().some(isNegative)); // Never completes
 ```
 
-Die Methode schließt den Iterator, nachdem sie zurückgegeben wurde.
+Die Methode schließt den Iterator, nachdem sie zurückgekehrt ist.
 
 ```js
 const seq = fibonacci();
@@ -75,8 +75,8 @@ console.log(seq.next()); // { value: undefined, done: true }
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.some` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill von `Iterator.prototype.some`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.some` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.some` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.every()")}}
 - {{jsxref("Iterator.prototype.find()")}}

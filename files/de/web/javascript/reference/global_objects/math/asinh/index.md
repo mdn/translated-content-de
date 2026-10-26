@@ -3,10 +3,10 @@ title: Math.asinh()
 short-title: asinh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/asinh
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Math.asinh()`** gibt den inversen hyperbolischen Sinus einer Zahl zurück. Das heißt,
+Die statische Methode **`Math.asinh()`** gibt den inversen hyperbolischen Sinus einer Zahl zurück. Das heißt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -47,11 +47,11 @@ Der inverse hyperbolische Sinus von `x`.
 
 ## Beschreibung
 
-Da `asinh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.asinh()` und nicht als Methode eines `Math`-Objekts, das Sie erstellt haben (`Math` ist kein Konstruktor).
+Da `asinh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.asinh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.asinh()
+### Math.asinh() verwenden
 
 ```js
 Math.asinh(-Infinity); // -Infinity
@@ -72,8 +72,8 @@ Math.asinh(Infinity); // Infinity
 
 ## Siehe auch
 
-- [Polyfill von `Math.asinh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
-- [es-shims polyfill von `Math.asinh`](https://www.npmjs.com/package/math.asinh)
+- [Polyfill für `Math.asinh` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
+- [Polyfill für `Math.asinh` von es-shims](https://www.npmjs.com/package/math.asinh)
 - {{jsxref("Math.acosh()")}}
 - {{jsxref("Math.atanh()")}}
 - {{jsxref("Math.cosh()")}}

@@ -3,10 +3,10 @@ title: TypedArray.of()
 short-title: of()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/of
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`TypedArray.of()`** erstellt ein neues [typisiertes Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects) aus einer variablen Anzahl von Argumenten. Diese Methode ist fast identisch mit {{jsxref("Array.of()")}}.
+Die statische Methode **`TypedArray.of()`** erstellt ein neues [typisiertes Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects) aus einer variablen Anzahl von Argumenten. Diese Methode ist {{jsxref("Array.of()")}} sehr ähnlich.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.of()", "shorter")}}
 
@@ -26,7 +26,7 @@ TypedArray.of(element1, element2)
 TypedArray.of(element1, element2, /* …, */ elementN)
 ```
 
-Wobei `TypedArray` eine der folgenden ist:
+Dabei ist `TypedArray` eines der folgenden:
 
 - {{jsxref("Int8Array")}}
 - {{jsxref("Uint8Array")}}
@@ -44,18 +44,18 @@ Wobei `TypedArray` eine der folgenden ist:
 ### Parameter
 
 - `element1`, …, `elementN`
-  - : Elemente, die zur Erstellung des typisierten Arrays verwendet werden.
+  - : Elemente, aus denen das typisierte Array erstellt wird.
 
 ### Rückgabewert
 
-Eine neue Instanz von {{jsxref("TypedArray")}}.
+Eine neue {{jsxref("TypedArray")}}-Instanz.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.of()")}} für weitere Details. Es gibt einige subtile Unterschiede zwischen {{jsxref("Array.of()")}} und `TypedArray.of()`:
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.of()")}}. Zwischen {{jsxref("Array.of()")}} und `TypedArray.of()` gibt es einige feine Unterschiede:
 
-- Wenn der `this`-Wert, der an `TypedArray.of()` übergeben wird, kein Konstruktor ist, löst `TypedArray.of()` einen {{jsxref("TypeError")}} aus, während `Array.of()` standardmäßig ein neues {{jsxref("Array")}} erstellt.
-- `TypedArray.of()` verwendet `[[Set]]`, während `Array.of()` `[[DefineOwnProperty]]` verwendet. Daher wird beim Arbeiten mit {{jsxref("Proxy")}}-Objekten [`handler.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set) aufgerufen, um neue Elemente zu erstellen, anstatt [`handler.defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty).
+- Wenn der an `TypedArray.of()` übergebene `this`-Wert kein Konstruktor ist, löst `TypedArray.of()` einen {{jsxref("TypeError")}} aus. `Array.of()` erstellt in diesem Fall standardmäßig ein neues {{jsxref("Array")}}.
+- `TypedArray.of()` verwendet `[[Set]]`, während `Array.of()` `[[DefineOwnProperty]]` verwendet. Bei der Arbeit mit {{jsxref("Proxy")}}-Objekten wird daher zum Erstellen neuer Elemente [`handler.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set) statt [`handler.defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty) aufgerufen.
 
 ## Beispiele
 
@@ -78,8 +78,8 @@ Int16Array.of(undefined); // Int16Array [ 0 ]
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.of` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- JavaScript typisierte Arrays [Leitfaden](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Polyfill für `TypedArray.of` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- Leitfaden zu [typisierten Arrays in JavaScript](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.from()")}}
 - {{jsxref("Array.of()")}}

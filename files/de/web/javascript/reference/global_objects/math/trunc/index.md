@@ -3,10 +3,10 @@ title: Math.trunc()
 short-title: trunc()
 slug: Web/JavaScript/Reference/Global_Objects/Math/trunc
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Math.trunc()`** gibt den Ganzzahlanteil einer Zahl zurück, indem alle Nachkommastellen entfernt werden.
+Die statische Methode **`Math.trunc()`** gibt den ganzzahligen Teil einer Zahl zurück, indem sie alle Nachkommastellen entfernt.
 
 {{InteractiveExample("JavaScript Demo: Math.trunc()")}}
 
@@ -37,17 +37,17 @@ Math.trunc(x)
 
 ### Rückgabewert
 
-Der Ganzzahlanteil von `x`.
+Der ganzzahlige Teil von `x`.
 
 ## Beschreibung
 
-Die Funktionsweise von `Math.trunc()` ist einfacher als die der anderen drei `Math`-Methoden: {{jsxref("Math.floor()")}}, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}}; sie _kürzt ab_ (schneidet den Punkt und die Ziffern rechts davon ab), unabhängig davon, ob das Argument eine positive oder negative Zahl ist.
+Die Funktionsweise von `Math.trunc()` ist einfacher als die der anderen drei `Math`-Methoden {{jsxref("Math.floor()")}}, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}}: Die Methode _schneidet_ den Dezimalpunkt und die rechts davon stehenden Ziffern ab, unabhängig davon, ob das Argument eine positive oder negative Zahl ist.
 
-Da `trunc()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.trunc()`, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `trunc()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.trunc()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.trunc()
+### Math.trunc() verwenden
 
 ```js
 Math.trunc(-Infinity); // -Infinity
@@ -61,12 +61,12 @@ Math.trunc(42.84); // 42
 Math.trunc(Infinity); // Infinity
 ```
 
-### Verwendung von bitweise No-Ops zum Kürzen von Zahlen
+### Zahlen mit bitweisen No-Op-Operationen abschneiden
 
 > [!WARNING]
-> Dies ist aufgrund nicht vernachlässigbarer Randfälle kein Polyfill für `Math.trunc()`.
+> Dies ist kein Polyfill für `Math.trunc()`, da es relevante Grenzfälle gibt.
 
-Bitweise Operationen konvertieren ihre Operanden in 32-Bit-Ganzzahlen, was historisch genutzt wurde, um Gleitkommazahlen zu kürzen. Zu den gängigen Techniken gehören:
+Bitweise Operationen wandeln ihre Operanden in 32-Bit-Ganzzahlen um. Dies wurde in der Vergangenheit genutzt, um Gleitkommazahlen abzuschneiden. Häufig verwendete Techniken sind:
 
 ```js
 const original = 3.14;
@@ -77,7 +77,7 @@ const truncated4 = original ^ 0; // Bitwise XOR with 0
 const truncated5 = original >> 0; // Bitwise shifting by 0
 ```
 
-Seien Sie sich bewusst, dass dies im Wesentlichen `toInt32` ist, was nicht dasselbe wie `Math.trunc` ist. Wenn der Wert die Bedingung -2<sup>31</sup> - 1 < `value` < 2<sup>31</sup> (-2147483649 < `value` < 2147483648) nicht erfüllt, würde die Umwandlung überlaufen.
+Beachten Sie, dass dies im Wesentlichen `toInt32` entspricht und nicht mit `Math.trunc` identisch ist. Wenn der Wert nicht die Bedingung -2<sup>31</sup> - 1 < `value` < 2<sup>31</sup> (-2147483649 < `value` < 2147483648) erfüllt, führt die Umwandlung zu einem Überlauf.
 
 ```js
 const a = ~~2147483648; // -2147483648
@@ -85,7 +85,7 @@ const b = ~~-2147483649; // 2147483647
 const c = ~~4294967296; // 0
 ```
 
-Verwenden Sie `~~` nur als Ersatz für `Math.trunc()`, wenn Sie sicher sind, dass der Eingabebereich innerhalb des Bereichs der 32-Bit-Ganzzahlen liegt.
+Verwenden Sie `~~` nur dann als Ersatz für `Math.trunc()`, wenn Sie sicher sind, dass die Eingabewerte im Bereich der 32-Bit-Ganzzahlen liegen.
 
 ## Spezifikationen
 
@@ -97,7 +97,7 @@ Verwenden Sie `~~` nur als Ersatz für `Math.trunc()`, wenn Sie sicher sind, das
 
 ## Siehe auch
 
-- [Polyfill von `Math.trunc` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [Polyfill für `Math.trunc` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
 - {{jsxref("Math.abs()")}}
 - {{jsxref("Math.ceil()")}}
 - {{jsxref("Math.floor()")}}

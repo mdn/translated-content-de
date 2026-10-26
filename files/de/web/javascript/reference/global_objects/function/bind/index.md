@@ -3,10 +3,10 @@ title: Function.prototype.bind()
 short-title: bind()
 slug: Web/JavaScript/Reference/Global_Objects/Function/bind
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`bind()`**-Methode von {{jsxref("Function")}}-Instanzen erstellt eine neue Funktion, die, wenn sie aufgerufen wird, diese Funktion mit ihrem `this`-Schlüsselwort, das auf den bereitgestellten Wert gesetzt ist, und einer gegebenen Abfolge von Argumenten, welche den bei Aufruf der neuen Funktion bereitgestellten Argumenten vorausgehen, ausführt.
+Die Methode **`bind()`** von {{jsxref("Function")}}-Instanzen erstellt eine neue Funktion. Wird diese aufgerufen, ruft sie die ursprüngliche Funktion auf, wobei deren `this`-Wert auf den angegebenen Wert gesetzt ist. Außerdem werden die beim Binden angegebenen Argumente den Argumenten vorangestellt, die beim Aufruf der neuen Funktion übergeben werden.
 
 {{InteractiveExample("JavaScript Demo: Function.prototype.bind()", "taller")}}
 
@@ -39,19 +39,19 @@ bind(thisArg, arg1, arg2, /* …, */ argN)
 ### Parameter
 
 - `thisArg`
-  - : Der Wert, der als `this`-Parameter an die Ziel-Funktion `func` übergeben wird, wenn die gebundene Funktion aufgerufen wird. Wenn die Funktion nicht im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist, werden [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) mit dem globalen Objekt ersetzt, und primitive Werte werden in Objekte umgewandelt. Der Wert wird ignoriert, wenn die gebundene Funktion mit dem {{jsxref("new")}}-Operator erzeugt wird.
+  - : Der Wert, der beim Aufruf der gebundenen Funktion als `this`-Parameter an die Zielfunktion `func` übergeben wird. Befindet sich die Funktion nicht im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode), werden [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) durch das globale Objekt ersetzt und primitive Werte in Objekte umgewandelt. Der Wert wird ignoriert, wenn die gebundene Funktion mit dem Operator {{jsxref("new")}} konstruiert wird.
 - `arg1`, …, `argN` {{optional_inline}}
-  - : Argumente, die den Argumenten vorangestellt werden, welche an die gebundene Funktion beim Aufruf von `func` übergeben werden.
+  - : Argumente, die beim Aufruf von `func` den an die gebundene Funktion übergebenen Argumenten vorangestellt werden.
 
 ### Rückgabewert
 
-Eine Kopie der übergebenen Funktion mit dem angegebenen `this`-Wert und den initialen Argumenten (falls angegeben).
+Eine Kopie der angegebenen Funktion mit dem festgelegten `this`-Wert und gegebenenfalls vorangestellten Argumenten.
 
 ## Beschreibung
 
-Die `bind()`-Funktion erstellt eine neue _gebundene Funktion_. Das Aufrufen dieser gebundenen Funktion resultiert in der Regel in der Ausführung der Funktion, die sie umschließt, welche auch als _Ziel-Funktion_ bezeichnet wird. Die gebundene Funktion speichert die übergebenen Parameter — dazu gehören der Wert von `this` und die ersten Argumente — als ihren internen Zustand. Diese Werte werden im Voraus gespeichert, anstatt bei der Ausführung übergeben zu werden. Man kann im Allgemeinen `const boundFn = fn.bind(thisArg, arg1, arg2)` als äquivalent zu `const boundFn = (...restArgs) => fn.call(thisArg, arg1, arg2, ...restArgs)` betrachten, was den Effekt beim Aufruf betrifft (aber nicht, wenn `boundFn` konstruiert wird).
+Die Funktion `bind()` erstellt eine neue _gebundene Funktion_. Ein Aufruf der gebundenen Funktion führt im Allgemeinen die Funktion aus, die sie umschließt. Diese wird auch als _Zielfunktion_ bezeichnet. Die gebundene Funktion speichert die übergebenen Parameter – darunter den Wert von `this` und die ersten Argumente – als internen Zustand. Diese Werte werden im Voraus gespeichert, statt erst beim Aufruf übergeben zu werden. Hinsichtlich der Wirkung beim Aufruf können Sie `const boundFn = fn.bind(thisArg, arg1, arg2)` im Allgemeinen als gleichwertig mit `const boundFn = (...restArgs) => fn.call(thisArg, arg1, arg2, ...restArgs)` betrachten. Das gilt jedoch nicht, wenn `boundFn` konstruiert wird.
 
-Eine gebundene Funktion kann weiter gebunden werden, indem `boundFn.bind(thisArg, /* more args */)` aufgerufen wird, was eine weitere gebundene Funktion `boundFn2` erstellt. Der neu gebundene `thisArg`-Wert wird ignoriert, weil die Ziel-Funktion von `boundFn2`, die `boundFn` ist, bereits ein gebundenes `this` hat. Wenn `boundFn2` aufgerufen wird, ruft es `boundFn` auf, welches wiederum `fn` aufruft. Die Argumente, die `fn` letztlich erhält, sind in der Reihenfolge: die Argumente, die von `boundFn` gebunden sind, die von `boundFn2` gebundenen Argumente und die von `boundFn2` empfangenen Argumente.
+Eine gebundene Funktion kann durch einen Aufruf von `boundFn.bind(thisArg, /* more args */)` erneut gebunden werden. Dadurch entsteht eine weitere gebundene Funktion namens `boundFn2`. Der neu angegebene Wert für `thisArg` wird ignoriert, da die Zielfunktion von `boundFn2` – also `boundFn` – bereits ein gebundenes `this` besitzt. Beim Aufruf von `boundFn2` wird `boundFn` aufgerufen, das wiederum `fn` aufruft. `fn` erhält die Argumente in folgender Reihenfolge: zuerst die durch `boundFn` gebundenen Argumente, dann die durch `boundFn2` gebundenen Argumente und schließlich die an `boundFn2` übergebenen Argumente.
 
 ```js
 "use strict"; // prevent `this` from being boxed into the wrapper object
@@ -64,7 +64,7 @@ const boundLog2 = boundLog.bind("new this value", 3, 4);
 boundLog2(5, 6); // "this value", 1, 2, 3, 4, 5, 6
 ```
 
-Eine gebundene Funktion kann auch mit dem {{jsxref("new")}}-Operator konstruiert werden, wenn ihre Ziel-Funktion konstruierbar ist. Dies wirkt so, als ob die Ziel-Funktion stattdessen konstruiert worden wäre. Die vorangestellten Argumente werden der Ziel-Funktion wie gewohnt übergeben, während der bereitgestellte `this`-Wert ignoriert wird (weil der Konstruktion ein eigenes `this` vorbereitet, wie an den Parametern von {{jsxref("Reflect.construct")}} zu sehen ist). Wenn die gebundene Funktion direkt konstruiert wird, ist [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) die Ziel-Funktion. (Das bedeutet, dass die gebundene Funktion für `new.target` transparent ist.)
+Eine gebundene Funktion kann auch mit dem Operator {{jsxref("new")}} konstruiert werden, sofern ihre Zielfunktion konstruierbar ist. Das wirkt so, als wäre stattdessen die Zielfunktion konstruiert worden. Die vorangestellten Argumente werden wie gewohnt an die Zielfunktion übergeben, während der angegebene `this`-Wert ignoriert wird. Bei der Konstruktion wird nämlich ein eigener `this`-Wert erzeugt, wie an den Parametern von {{jsxref("Reflect.construct")}} zu sehen ist. Wird die gebundene Funktion direkt konstruiert, verweist [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) stattdessen auf die Zielfunktion. Die gebundene Funktion ist für `new.target` also transparent.
 
 ```js
 class Base {
@@ -79,14 +79,14 @@ const BoundBase = Base.bind(null, 1, 2);
 new BoundBase(3, 4); // true, [1, 2, 3, 4]
 ```
 
-Da eine gebundene Funktion jedoch nicht die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft hat, kann sie nicht als Basisklasse für [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) verwendet werden.
+Da eine gebundene Funktion jedoch keine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft besitzt, kann sie nicht als Basisklasse für [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) verwendet werden.
 
 ```js example-bad
 class Derived extends class {}.bind(null) {}
 // TypeError: Class extends value does not have valid prototype property undefined
 ```
 
-Wenn eine gebundene Funktion als rechte Seite von [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) verwendet wird, würde `instanceof` nach der Ziel-Funktion greifen (die intern in der gebundenen Funktion gespeichert ist) und deren `prototype` lesen.
+Wird eine gebundene Funktion auf der rechten Seite von [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) verwendet, greift `instanceof` auf die intern in der gebundenen Funktion gespeicherte Zielfunktion zu und liest stattdessen deren `prototype`.
 
 ```js
 class Base {}
@@ -97,21 +97,21 @@ console.log(new Base() instanceof BoundBase); // true
 Die gebundene Funktion hat die folgenden Eigenschaften:
 
 - [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)
-  - : Die `length` der Ziel-Funktion minus der Anzahl der zu bindenden Argumente (ohne den `thisArg`-Parameter zu zählen), wobei 0 der Minimalwert ist.
+  - : Der Wert von `length` der Zielfunktion abzüglich der Anzahl der gebundenen Argumente (ohne den Parameter `thisArg`), mindestens jedoch 0.
 - [`name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name)
-  - : Der `name` der Ziel-Funktion plus ein `"bound "`-Präfix.
+  - : Der Wert von `name` der Zielfunktion mit dem Präfix `"bound "`.
 
-Die gebundene Funktion erbt auch die [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) der Ziel-Funktion. Sie hat jedoch nicht andere eigene Eigenschaften der Ziel-Funktion (wie [statische Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/static), wenn die Ziel-Funktion eine Klasse ist).
+Die gebundene Funktion erbt außerdem die [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) der Zielfunktion. Andere eigene Eigenschaften der Zielfunktion besitzt sie jedoch nicht. Dazu gehören beispielsweise [statische Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/static), wenn die Zielfunktion eine Klasse ist.
 
 ## Beispiele
 
-### Erstellen einer gebundenen Funktion
+### Eine gebundene Funktion erstellen
 
-Die häufigste Verwendung von `bind()` besteht darin, eine Funktion zu erstellen, die unabhängig davon, wie sie aufgerufen wird, mit einem bestimmten `this`-Wert aufgerufen wird.
+Die häufigste Verwendung von `bind()` besteht darin, eine Funktion zu erstellen, die unabhängig von der Art ihres Aufrufs mit einem bestimmten `this`-Wert aufgerufen wird.
 
-Ein häufiger Fehler bei neuen JavaScript-Programmierern ist es, eine Methode aus einem Objekt zu extrahieren, dann diese Funktion aufzurufen und zu erwarten, dass sie das ursprüngliche Objekt als `this` verwendet (z.B. indem die Methode in callback-basiertem Code verwendet wird).
+Ein häufiger Fehler von JavaScript-Einsteigern besteht darin, eine Methode aus einem Objekt herauszulösen und die Funktion später aufzurufen, in der Erwartung, dass sie das ursprüngliche Objekt als `this` verwendet – etwa wenn die Methode in Code mit Callbacks verwendet wird.
 
-Ohne besondere Vorsicht geht das ursprüngliche Objekt jedoch normalerweise verloren. Das Erstellen einer gebundenen Funktion aus der Funktion unter Verwendung des ursprünglichen Objekts löst dieses Problem elegant:
+Ohne besondere Vorkehrungen geht der Bezug zum ursprünglichen Objekt jedoch meist verloren. Dieses Problem lässt sich lösen, indem Sie aus der Funktion eine gebundene Funktion erstellen und dabei das ursprüngliche Objekt angeben:
 
 ```js
 // Top-level 'this' is bound to 'globalThis' in scripts.
@@ -136,19 +136,19 @@ console.log(boundGetX()); // 81
 ```
 
 > [!NOTE]
-> Wenn Sie dieses Beispiel im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ausführen, wird der `this`-Parameter von `retrieveX` auf `undefined` anstatt auf `globalThis` gebunden, was dazu führt, dass der `retrieveX()`-Aufruf fehlschlägt.
+> Wenn Sie dieses Beispiel im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ausführen, wird der `this`-Parameter von `retrieveX` an `undefined` statt an `globalThis` gebunden. Dadurch schlägt der Aufruf von `retrieveX()` fehl.
 >
-> Wenn Sie dieses Beispiel in einem ECMAScript-Modul ausführen, wird das top-level `this` auf `undefined` anstatt auf `globalThis` gebunden, was dazu führt, dass die Zuweisung `this.x = 9` fehlschlägt.
+> Wenn Sie dieses Beispiel in einem ECMAScript-Modul ausführen, ist `this` auf oberster Ebene an `undefined` statt an `globalThis` gebunden. Dadurch schlägt die Zuweisung `this.x = 9` fehl.
 >
-> Wenn Sie dieses Beispiel in einem Node CommonJS-Modul ausführen, wird das Top-Level-`this` auf `module.exports` anstatt auf `globalThis` gebunden. Der `this`-Parameter von `retrieveX` wird jedoch in nicht-striktem Modus weiterhin an `globalThis` gebunden und in strengem Modus an `undefined`. Daher wird im nicht-strikten Modus (der Standard) der `retrieveX()`-Aufruf `undefined` zurückgeben, da `this.x = 9` auf ein anderes Objekt (`module.exports`) schreibt, als von dem `getX` liest (`globalThis`).
+> Wenn Sie dieses Beispiel in einem Node-CommonJS-Modul ausführen, ist `this` auf oberster Ebene an `module.exports` statt an `globalThis` gebunden. Der `this`-Parameter von `retrieveX` ist jedoch außerhalb des Strict Mode weiterhin an `globalThis` gebunden und im Strict Mode an `undefined`. Außerhalb des Strict Mode – der Standardeinstellung – gibt der Aufruf von `retrieveX()` daher `undefined` zurück: `this.x = 9` schreibt in ein anderes Objekt (`module.exports`) als das, aus dem `getX` liest (`globalThis`).
 
-Tatsächlich sind einige eingebaute "Methoden" auch Getter, die gebundene Funktionen zurückgeben — ein bemerkenswertes Beispiel ist [`Intl.NumberFormat.prototype.format()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/format#using_format_with_map), das, wenn darauf zugegriffen wird, eine gebundene Funktion zurückgibt, die Sie direkt als Callback verwenden können.
+Tatsächlich sind einige integrierte „Methoden“ zugleich Getter, die gebundene Funktionen zurückgeben. Ein bekanntes Beispiel ist [`Intl.NumberFormat.prototype.format()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/format#using_format_with_map): Beim Zugriff darauf erhalten Sie eine gebundene Funktion, die Sie direkt als Callback übergeben können.
 
-### Partiell angewandte Funktionen
+### Teilweise angewendete Funktionen
 
-Eine weitere Verwendung von `bind()` besteht darin, eine Funktion mit vorgegebenen Anfangsargumenten zu erstellen.
+Eine weitere Verwendung von `bind()` besteht darin, eine Funktion mit vorab festgelegten Anfangsargumenten zu erstellen.
 
-Diese Argumente (falls vorhanden) folgen dem bereitgestellten `this`-Wert und werden dann am Anfang der an die Ziel-Funktion übergebenen Argumente eingefügt, gefolgt von den Argumenten, die beim Aufruf der gebundenen Funktion übergeben werden.
+Diese Argumente folgen, sofern vorhanden, auf den angegebenen `this`-Wert. Sie werden den Argumenten vorangestellt, die beim Aufruf an die gebundene Funktion übergeben werden.
 
 ```js
 function list(...args) {
@@ -178,7 +178,7 @@ console.log(addThirtySeven(5, 10)); // 42
 
 ### Mit setTimeout()
 
-Per Standard wird innerhalb von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) das `this`-Schlüsselwort auf [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) gesetzt, welches in Browsern dem [`window`](/de/docs/Web/API/Window) entspricht. Beim Arbeiten mit Klassenmethoden, die `this` benötigen, um auf Klasseninstanzen zu verweisen, können Sie `this` explizit an die Callback-Funktion binden, um die Instanz zu erhalten.
+Innerhalb von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) ist `this` standardmäßig auf [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) gesetzt, in Browsern also auf [`window`](/de/docs/Web/API/Window). Wenn Sie mit Klassenmethoden arbeiten, deren `this` auf eine Klasseninstanz verweisen muss, können Sie `this` ausdrücklich an die Callback-Funktion binden, damit der Bezug zur Instanz erhalten bleibt.
 
 ```js
 class LateBloomer {
@@ -199,7 +199,7 @@ flower.bloom();
 // After 1 second, calls 'flower.declare()'
 ```
 
-Sie können auch [Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) für diesen Zweck verwenden.
+Sie können zu diesem Zweck auch [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) verwenden.
 
 ```js
 class LateBloomer {
@@ -210,9 +210,9 @@ class LateBloomer {
 }
 ```
 
-### Gebundene Funktionen als Konstruktoren verwendet
+### Gebundene Funktionen als Konstruktoren verwenden
 
-Gebundene Funktionen sind automatisch geeignet für die Verwendung mit dem {{jsxref("new")}}-Operator, um neue Instanzen zu erstellen, die durch die Ziel-Funktion erzeugt wurden. Wenn eine gebundene Funktion verwendet wird, um einen Wert zu konstruieren, wird das bereitgestellte `this` ignoriert. Die bereitgestellten Argumente werden jedoch immer noch dem Konstruktoraufruf vorangestellt.
+Gebundene Funktionen können mit dem Operator {{jsxref("new")}} verwendet werden, um neue Instanzen durch die Zielfunktion zu erzeugen. Wird eine gebundene Funktion zum Konstruieren eines Werts verwendet, wird der angegebene `this`-Wert ignoriert. Die angegebenen Argumente werden dem Konstruktoraufruf jedoch weiterhin vorangestellt.
 
 ```js
 function Point(x, y) {
@@ -239,9 +239,9 @@ axisPoint instanceof YAxisPoint; // true
 new YAxisPoint(17, 42) instanceof Point; // true
 ```
 
-Beachten Sie, dass Sie nichts Besonderes tun müssen, um eine gebundene Funktion für die Verwendung mit {{jsxref("new")}} zu erstellen. [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target), [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) usw. funktionieren wie erwartet, als wäre der Konstruktor nie gebunden. Der einzige Unterschied ist, dass sie nicht mehr für [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) verwendet werden kann.
+Beachten Sie, dass Sie nichts Besonderes tun müssen, um eine gebundene Funktion für die Verwendung mit {{jsxref("new")}} zu erstellen. [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target), [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) usw. funktionieren wie erwartet, als wäre der Konstruktor nie gebunden worden. Der einzige Unterschied besteht darin, dass er nicht mehr für [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) verwendet werden kann.
 
-Die Schlussfolgerung ist, dass Sie nichts Besonderes tun müssen, um eine gebundene Funktion zu erstellen, die schlicht aufgerufen werden soll, selbst wenn Sie möchten, dass die gebundene Funktion nur mit {{jsxref("new")}} aufgerufen wird. Wenn Sie sie ohne `new` aufrufen, wird das gebundene `this` plötzlich nicht ignoriert.
+Umgekehrt müssen Sie auch nichts Besonderes tun, um eine gebundene Funktion für einen gewöhnlichen Aufruf zu erstellen – selbst wenn Sie eigentlich verlangen möchten, dass sie nur mit {{jsxref("new")}} aufgerufen wird. Rufen Sie sie ohne `new` auf, wird der gebundene `this`-Wert nicht mehr ignoriert.
 
 ```js
 const emptyObj = {};
@@ -255,11 +255,11 @@ YAxisPoint(13);
 console.log(emptyObj); // { x: 0, y: 13 }
 ```
 
-Wenn Sie möchten, dass eine gebundene Funktion nur mit {{jsxref("new")}} aufgerufen werden kann, oder nur ohne `new` aufgerufen werden kann, muss die Ziel-Funktion diese Einschränkung durchsetzen, z.B. indem sie prüft, ob `new.target !== undefined` oder indem sie eine [Klasse](/de/docs/Web/JavaScript/Reference/Classes) verwendet.
+Wenn Sie eine gebundene Funktion so einschränken möchten, dass sie nur mit {{jsxref("new")}} oder nur ohne `new` aufgerufen werden kann, muss die Zielfunktion diese Einschränkung selbst durchsetzen. Dazu kann sie beispielsweise `new.target !== undefined` prüfen oder als [Klasse](/de/docs/Web/JavaScript/Reference/Classes) definiert sein.
 
-### Binden von Klassen
+### Klassen binden
 
-Die Verwendung von `bind()` bei Klassen bewahrt die meisten Semantiken der Klasse, außer dass alle statischen eigenen Eigenschaften der aktuellen Klasse verloren gehen. Da jedoch die Prototypenkette bewahrt wird, können Sie weiterhin auf statische Eigenschaften zugreifen, die von der Elternklasse geerbt werden.
+Die Verwendung von `bind()` mit Klassen erhält den Großteil ihrer Semantik. Allerdings gehen alle eigenen statischen Eigenschaften der betreffenden Klasse verloren. Da die Prototypenkette erhalten bleibt, können Sie weiterhin auf statische Eigenschaften zugreifen, die von der übergeordneten Klasse geerbt wurden.
 
 ```js
 class Base {
@@ -276,11 +276,11 @@ console.log(BoundDerived.derivedProp); // undefined
 console.log(new BoundDerived() instanceof Derived); // true
 ```
 
-### Transformation von Methoden zu Hilfsfunktionen
+### Methoden in Hilfsfunktionen umwandeln
 
-`bind()` ist auch hilfreich in Fällen, in denen Sie eine Methode, die einen bestimmten `this`-Wert benötigt, in eine einfache Hilfsfunktion umwandeln möchten, die den vorherigen `this`-Parameter als normalen Parameter akzeptiert. Dies ist ähnlich wie bei allgemeinen Hilfsfunktionen: anstatt `array.map(callback)` aufzurufen, verwenden Sie `map(array, callback)`, was es Ihnen erlaubt, `map` mit array-ähnlichen Objekten zu verwenden, die keine Arrays sind (zum Beispiel [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)), ohne `Object.prototype` zu verändern.
+`bind()` ist auch nützlich, wenn Sie eine Methode, die einen bestimmten `this`-Wert benötigt, in eine gewöhnliche Hilfsfunktion umwandeln möchten. Diese nimmt den bisherigen `this`-Wert als regulären Parameter entgegen. Das entspricht der Funktionsweise allgemeiner Hilfsfunktionen: Statt `array.map(callback)` aufzurufen, verwenden Sie `map(array, callback)`. So können Sie `map` auch mit Array-ähnlichen Objekten verwenden, die keine Arrays sind – beispielsweise mit [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) –, ohne `Object.prototype` zu verändern.
 
-Nehmen Sie {{jsxref("Array.prototype.slice()")}} als Beispiel, das Sie verwenden möchten, um ein array-ähnliches Objekt in ein echtes Array zu konvertieren. Sie könnten eine Abkürzung wie diese erstellen:
+Nehmen Sie beispielsweise {{jsxref("Array.prototype.slice()")}}, das Sie verwenden möchten, um ein Array-ähnliches Objekt in ein echtes Array umzuwandeln. Dafür könnten Sie die folgende Kurzform erstellen:
 
 ```js
 const slice = Array.prototype.slice;
@@ -290,7 +290,7 @@ const slice = Array.prototype.slice;
 slice.call(arguments);
 ```
 
-Beachten Sie, dass Sie `slice.call` nicht speichern und als einfache Funktion aufrufen können, da die `call()`-Methode auch ihren `this`-Wert liest, welcher die Funktion ist, die sie aufrufen soll. In diesem Fall können Sie `bind()` verwenden, um den Wert von `this` für `call()` zu binden. Im folgenden Codebeispiel ist `slice()` eine gebundene Version von {{jsxref("Function.prototype.call()")}}, wobei der `this`-Wert an {{jsxref("Array.prototype.slice()")}} gebunden ist. Dies bedeutet, dass zusätzliche `call()`-Aufrufe vermieden werden können:
+Beachten Sie, dass Sie `slice.call` nicht speichern und als gewöhnliche Funktion aufrufen können. Die Methode `call()` liest nämlich ebenfalls ihren `this`-Wert; dieser muss die Funktion sein, die sie aufrufen soll. In diesem Fall können Sie mit `bind()` den `this`-Wert für `call()` binden. Im folgenden Code ist `slice()` eine gebundene Version von {{jsxref("Function.prototype.call()")}}, deren `this`-Wert an {{jsxref("Array.prototype.slice()")}} gebunden ist. Dadurch sind keine zusätzlichen Aufrufe von `call()` nötig:
 
 ```js
 // Same as "slice" in the previous example
@@ -312,7 +312,7 @@ slice(arguments);
 
 ## Siehe auch
 
-- [Polyfill von `Function.prototype.bind` in `core-js`](https://github.com/zloirock/core-js#ecmascript-function)
+- [Polyfill für `Function.prototype.bind` in `core-js`](https://core-js.io/docs/features/ecmascript/function)
 - {{jsxref("Function.prototype.apply()")}}
 - {{jsxref("Function.prototype.call()")}}
 - {{jsxref("Functions", "Functions", "", 1)}}

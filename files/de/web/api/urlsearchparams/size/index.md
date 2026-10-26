@@ -3,37 +3,37 @@ title: "URLSearchParams: size-Eigenschaft"
 short-title: size
 slug: Web/API/URLSearchParams/size
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`size`** schreibgeschützte Eigenschaft der Schnittstelle [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) gibt die Gesamtzahl der Sucheintragparameter an.
+Die schreibgeschützte Eigenschaft **`size`** der Schnittstelle [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) gibt die Gesamtzahl der Suchparametereinträge an.
 
 ## Wert
 
-Eine Zahl, die die Gesamtanzahl der Sucheintragparameter im [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt angibt.
+Eine Zahl, die die Gesamtzahl der Suchparametereinträge im [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt angibt.
 
 ## Beispiele
 
-### Ermitteln der Anzahl der Sucheintragparameter
+### Anzahl der Suchparametereinträge ermitteln
 
-Sie können die Gesamtanzahl der Sucheintragparameter folgendermaßen abrufen:
+Sie können die Gesamtzahl der Suchparametereinträge wie folgt ermitteln:
 
 ```js
 const searchParams = new URLSearchParams("c=4&a=2&b=3&a=1");
 searchParams.size; // 4
 ```
 
-Beachten Sie, wie der `a`-Parameter zweimal angegeben wird, aber `size` gibt die Anzahl aller angegebenen Einträge (4) und nicht 3 zurück. Um die Anzahl der eindeutigen Schlüssel zu erhalten, können Sie zum Beispiel ein {{jsxref("Set")}} verwenden:
+Beachten Sie, dass der Parameter `a` zweimal vorkommt. `size` gibt jedoch die Anzahl aller Einträge (4) zurück und nicht 3. Um die Anzahl der eindeutigen Schlüssel zu ermitteln, können Sie beispielsweise ein {{jsxref("Set")}} verwenden:
 
 ```js
 [...new Set(searchParams.keys())].length; // 3
 ```
 
-### Überprüfen, ob Sucheintragparameter existieren
+### Prüfen, ob Suchparameter vorhanden sind
 
-Die `size`-Eigenschaft ist nützlich, um zu überprüfen, ob überhaupt Sucheintragparameter vorhanden sind:
+Die Eigenschaft `size` ist nützlich, um zu prüfen, ob überhaupt Suchparameter vorhanden sind:
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2");
@@ -54,4 +54,4 @@ if (url.searchParams.size) {
 ## Siehe auch
 
 - [`URL.searchParams`](/de/docs/Web/API/URL/searchParams)
-- [Polyfill von `URLSearchParams` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
+- [Polyfill für `URLSearchParams` in `core-js`](https://core-js.io/docs/features/web-standards/url)

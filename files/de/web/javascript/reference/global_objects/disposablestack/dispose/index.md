@@ -3,12 +3,12 @@ title: DisposableStack.prototype.dispose()
 short-title: dispose()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/dispose
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`dispose()`**-Methode von {{jsxref("DisposableStack")}}-Instanzen entsorgt diesen Stapel, indem sie alle bei ihm registrierten Disposer in umgekehrter Reihenfolge der Registrierung aufruft. Wenn der Stapel bereits entsorgt ist, tut diese Methode nichts.
+Die Methode **`dispose()`** von {{jsxref("DisposableStack")}}-Instanzen gibt die Ressourcen dieses Stacks frei, indem sie alle für ihn registrierten Disposer in umgekehrter Reihenfolge ihrer Registrierung aufruft. Wenn die Ressourcen des Stacks bereits freigegeben wurden, bewirkt diese Methode nichts.
 
-Sie führt dieselbe Aktion aus wie `using disposer = new DisposableStack()` beim Verlassen des Gültigkeitsbereichs. Sie kann verwendet werden, wenn Sie die Bereinigung zu einem anderen Zeitpunkt als beim Verlassen des Gültigkeitsbereichs vornehmen müssen.
+Sie führt dieselbe Aktion aus wie `using disposer = new DisposableStack()` beim Verlassen des Gültigkeitsbereichs. Sie können sie verwenden, wenn die Bereinigung zu einem anderen Zeitpunkt erfolgen soll.
 
 ## Syntax
 
@@ -27,15 +27,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("SuppressedError")}}
-  - : Wird ausgelöst, wenn mehrere Disposer im Stapel einen Fehler verursachen. Wenn nur ein Fehler ausgelöst wird, wird er unverändert erneut ausgelöst. Andernfalls wird für jeden zusätzlichen Fehler ein neuer {{jsxref("SuppressedError")}} erstellt, wobei der ursprüngliche Fehler als `suppressed`-Eigenschaft und der neue Fehler als `error`-Eigenschaft dient.
+  - : Wird ausgelöst, wenn mehrere Disposer im Stack einen Fehler auslösen. Wird nur ein Fehler ausgelöst, wird dieser unverändert erneut ausgelöst. Andernfalls wird für jeden weiteren Fehler ein neuer {{jsxref("SuppressedError")}} erstellt, wobei der ursprüngliche Fehler in der Eigenschaft `suppressed` und der neue Fehler in der Eigenschaft `error` gespeichert wird.
 
 ## Beispiele
 
-### Einen Stapel entsorgen
+### Ressourcen eines Stacks freigeben
 
-Hier fügen wir dem Stapel drei Disposer hinzu, indem wir die Methoden {{jsxref("DisposableStack/use", "use()")}}, {{jsxref("DisposableStack/adopt", "adopt()")}} und {{jsxref("DisposableStack/defer", "defer()")}} verwenden. Wenn `dispose()` aufgerufen wird, werden die Disposer in umgekehrter Reihenfolge der Registrierung aufgerufen.
+Hier fügen wir dem Stack mit den Methoden {{jsxref("DisposableStack/use", "use()")}}, {{jsxref("DisposableStack/adopt", "adopt()")}} und {{jsxref("DisposableStack/defer", "defer()")}} drei Disposer hinzu. Wenn `dispose()` aufgerufen wird, werden die Disposer in umgekehrter Reihenfolge ihrer Registrierung aufgerufen.
 
-Beachten Sie, dass es normalerweise nicht erforderlich ist, `dispose()` manuell aufzurufen. Deklarieren Sie den Stapel mit {{jsxref("Statements/using", "using")}}, und die Methode [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/DisposableStack/Symbol.dispose) wird automatisch aufgerufen, wenn der Stapel den Gültigkeitsbereich verlässt.
+Beachten Sie, dass Sie `dispose()` normalerweise nicht manuell aufrufen müssen. Deklarieren Sie den Stack mit {{jsxref("Statements/using", "using")}}. Seine Methode [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/DisposableStack/Symbol.dispose) wird dann automatisch aufgerufen, wenn der Stack seinen Gültigkeitsbereich verlässt.
 
 ```js
 class Resource {
@@ -72,6 +72,7 @@ class Resource {
 
 ## Siehe auch
 
+- [Polyfill für `DisposableStack.prototype.dispose` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.adopt()")}}

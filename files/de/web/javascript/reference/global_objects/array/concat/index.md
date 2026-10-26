@@ -3,11 +3,11 @@ title: Array.prototype.concat()
 short-title: concat()
 slug: Web/JavaScript/Reference/Global_Objects/Array/concat
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`concat()`**-Methode von {{jsxref("Array")}}-Instanzen wird verwendet, um zwei oder mehr Arrays zu verknüpfen.
-Diese Methode ändert die bestehenden Arrays nicht, sondern gibt stattdessen ein neues Array zurück.
+Die Methode **`concat()`** von {{jsxref("Array")}}-Instanzen wird verwendet, um zwei oder mehr Arrays zusammenzuführen.
+Sie verändert die bestehenden Arrays nicht, sondern gibt ein neues Array zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.concat()", "shorter")}}
 
@@ -32,28 +32,25 @@ concat(value1, value2, /* …, */ valueN)
 ### Parameter
 
 - `value1`, …, `valueN` {{optional_inline}}
-  - : Arrays und/oder Werte, die zu einem neuen Array verkettet werden sollen. Wenn alle
-    `valueN` Parameter weggelassen werden, gibt `concat` eine
-    {{Glossary("Shallow_copy", "flache Kopie")}} des bestehenden Arrays zurück, auf dem sie aufgerufen wird. Siehe die Beschreibung unten
-    für weitere Details.
+  - : Arrays und/oder Werte, die zu einem neuen Array verkettet werden sollen. Wenn alle `valueN`-Parameter weggelassen werden, gibt `concat` eine {{Glossary("Shallow_copy", "flache Kopie")}} des bestehenden Arrays zurück, für das die Methode aufgerufen wird. Weitere Einzelheiten finden Sie in der folgenden Beschreibung.
 
 ### Rückgabewert
 
-Eine neue {{jsxref("Array")}} Instanz.
+Eine neue {{jsxref("Array")}}-Instanz.
 
 ## Beschreibung
 
-Die `concat`-Methode erstellt ein neues Array. Das Array wird zuerst mit den Elementen des Objekts gefüllt, auf dem es aufgerufen wird. Dann wird für jedes Argument der entsprechende Wert dem Array verkettet – für normale Objekte oder Primitive wird das Argument selbst ein Element des endgültigen Arrays; für Arrays oder array-ähnliche Objekte mit der Eigenschaft [`Symbol.isConcatSpreadable`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable), die auf einen wahrheitsgemäßen Wert gesetzt ist, wird jedes Element des Arguments unabhängig dem endgültigen Array hinzugefügt. Die `concat`-Methode rekursiert nicht in verschachtelten Array-Argumenten.
+Die Methode `concat` erstellt ein neues Array. Dieses wird zunächst mit den Elementen des Objekts gefüllt, für das die Methode aufgerufen wird. Anschließend wird der Wert jedes Arguments an das Array angehängt: Bei gewöhnlichen Objekten oder primitiven Werten wird das Argument selbst zu einem Element des resultierenden Arrays. Bei Arrays oder arrayähnlichen Objekten, deren Eigenschaft [`Symbol.isConcatSpreadable`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable) einen truthy-Wert hat, wird jedes Element des Arguments einzeln zum resultierenden Array hinzugefügt. Die Methode `concat` verarbeitet verschachtelte Arrays nicht rekursiv.
 
-Die `concat()`-Methode ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert weder `this` noch eines der übergebenen Arrays, sondern gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die die gleichen Elemente wie die der ursprünglichen Arrays enthält.
+Die Methode `concat()` ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert weder `this` noch eines der als Argumente übergebenen Arrays, sondern gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die dieselben Elemente wie die ursprünglichen Arrays enthält.
 
-Die `concat()`-Methode bewahrt leere Stellen, wenn eines der Quellarrays [spärlich](/de/docs/Web/JavaScript/Leitfaden/Indexed_collections#spärliche_arrays) ist.
+Die Methode `concat()` erhält leere Positionen, wenn eines der Quell-Arrays [spärlich besetzt](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist.
 
-Die `concat()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Der `this`-Wert wird auf die gleiche Weise wie die anderen Argumente behandelt (außer dass er zuerst in ein Objekt konvertiert wird), was bedeutet, dass einfache Objekte direkt vor das resultierende Array gestellt werden, während array-ähnliche Objekte mit wahrheitsgemäßem `[Symbol.isConcatSpreadable]` in das resultierende Array verteilt werden.
+Die Methode `concat()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Der `this`-Wert wird genauso behandelt wie die anderen Argumente, mit der Ausnahme, dass er zuerst in ein Objekt umgewandelt wird. Das bedeutet, dass gewöhnliche Objekte direkt an den Anfang des resultierenden Arrays gestellt werden, während die Elemente arrayähnlicher Objekte mit einem truthy-Wert für `[Symbol.isConcatSpreadable]` einzeln in das resultierende Array übernommen werden.
 
 ## Beispiele
 
-### Verketten von zwei Arrays
+### Zwei Arrays verketten
 
 Der folgende Code verkettet zwei Arrays:
 
@@ -66,7 +63,7 @@ console.log(alphaNumeric);
 // results in ['a', 'b', 'c', 1, 2, 3]
 ```
 
-### Verketten von drei Arrays
+### Drei Arrays verketten
 
 Der folgende Code verkettet drei Arrays:
 
@@ -81,9 +78,9 @@ console.log(numbers);
 // results in [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-### Verketten von Werten zu einem Array
+### Werte an ein Array anhängen
 
-Der folgende Code verkettet drei Werte zu einem Array:
+Der folgende Code hängt drei Werte an ein Array an:
 
 ```js
 const letters = ["a", "b", "c"];
@@ -94,9 +91,9 @@ console.log(alphaNumeric);
 // results in ['a', 'b', 'c', 1, 2, 3]
 ```
 
-### Verketten von verschachtelten Arrays
+### Verschachtelte Arrays verketten
 
-Der folgende Code verkettet verschachtelte Arrays und demonstriert die Beibehaltung von Referenzen:
+Der folgende Code verkettet verschachtelte Arrays und zeigt, dass Referenzen erhalten bleiben:
 
 ```js
 const num1 = [[1]];
@@ -114,9 +111,9 @@ console.log(numbers);
 // results in [[1, 4], 2, [3]]
 ```
 
-### Verketten von array-ähnlichen Objekten mit Symbol.isConcatSpreadable
+### Arrayähnliche Objekte mit Symbol.isConcatSpreadable verketten
 
-`concat` behandelt nicht standardmäßig alle array-ähnlichen Objekte als Arrays – nur wenn `Symbol.isConcatSpreadable` auf einen wahrheitsgemäßen Wert (z.B. `true`) gesetzt ist.
+`concat` behandelt arrayähnliche Objekte standardmäßig nicht als Arrays – nur, wenn `Symbol.isConcatSpreadable` auf einen truthy-Wert gesetzt ist (z. B. `true`).
 
 ```js
 const obj1 = { 0: 1, 1: 2, 2: 3, length: 3 };
@@ -125,18 +122,18 @@ console.log([0].concat(obj1, obj2));
 // [ 0, { '0': 1, '1': 2, '2': 3, length: 3 }, 1, 2, 3 ]
 ```
 
-### Verwendung von concat() auf spärlichen Arrays
+### concat() mit spärlich besetzten Arrays verwenden
 
-Wenn eines der Quellarrays spärlich ist, wird das resultierende Array ebenfalls spärlich sein:
+Wenn eines der Quell-Arrays spärlich besetzt ist, ist auch das resultierende Array spärlich besetzt:
 
 ```js
 console.log([1, , 3].concat([4, 5])); // [1, empty, 3, 4, 5]
 console.log([1, 2].concat([3, , 5])); // [1, 2, 3, empty, 5]
 ```
 
-### Aufrufen von concat() auf Nicht-Array-Objekten
+### concat() für Objekte aufrufen, die keine Arrays sind
 
-Wenn der `this`-Wert kein Array ist, wird er in ein Objekt konvertiert und dann genauso behandelt wie die Argumente für `concat()`. In diesem Fall ist der Rückgabewert immer ein einfaches neues Array.
+Wenn der `this`-Wert kein Array ist, wird er in ein Objekt umgewandelt und anschließend genauso behandelt wie die Argumente für `concat()`. In diesem Fall ist der Rückgabewert immer ein neues, gewöhnliches Array.
 
 ```js
 console.log(Array.prototype.concat.call({}, 1, 2, 3)); // [{}, 1, 2, 3]
@@ -161,9 +158,9 @@ console.log(Array.prototype.concat.call(arrayLike, 3, 4)); // [1, 2, 3, 4]
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.concat` in `core-js` mit Korrekturen und Implementierung moderner Verhaltensweisen wie `Symbol.isConcatSpreadable` Unterstützung](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims polyfill von `Array.prototype.concat`](https://www.npmjs.com/package/array.prototype.concat)
-- [Indexed Sammlungen](/de/docs/Web/JavaScript/Leitfaden/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.concat` in `core-js` mit Korrekturen und Implementierung modernen Verhaltens, etwa der Unterstützung von `Symbol.isConcatSpreadable`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.concat` von es-shims](https://www.npmjs.com/package/array.prototype.concat)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.push()")}}
 - {{jsxref("Array.prototype.unshift()")}}

@@ -3,10 +3,10 @@ title: Iterator.prototype.find()
 short-title: find()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/find
 l10n:
-  sourceCommit: 76972cdb4d87dd72e0a2a3146af07d82c7ef7d67
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`find()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.find()")}}: Sie gibt das erste Element zurück, das vom Iterator erzeugt wird und die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben.
+Die Methode **`find()`** von {{jsxref("Iterator")}}-Instanzen ähnelt {{jsxref("Array.prototype.find()")}}: Sie gibt das erste vom Iterator erzeugte Element zurück, das die angegebene Prüffunktion erfüllt. Wenn kein Wert die Prüffunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Syntax
 
@@ -17,27 +17,27 @@ find(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, wenn ein passendes Element gefunden wurde, andernfalls einen {{Glossary("Falsy", "falsy")}}-Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das verarbeitet wird.
+      - : Das aktuell verarbeitete Element.
     - `index`
-      - : Der Index des aktuellen Elements, das verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements.
 
 ### Rückgabewert
 
-Das erste vom Iterator erzeugte Element, das die bereitgestellte Testfunktion erfüllt. Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
+Das erste vom Iterator erzeugte Element, das die angegebene Prüffunktion erfüllt. Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beschreibung
 
-`find()` iteriert über den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Es gibt das Element sofort zurück, wenn die Callback-Funktion einen truthy Wert zurückgibt. Andernfalls wird bis zum Ende des Iterators iteriert und `undefined` zurückgegeben. Wenn `find()` ein Element zurückgibt, wird der zugrunde liegende Iterator durch Aufruf seiner `return()`-Methode geschlossen.
+`find()` durchläuft den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Wenn die Callback-Funktion einen truthy-Wert zurückgibt, gibt `find()` das Element sofort zurück. Andernfalls durchläuft die Methode den Iterator bis zum Ende und gibt `undefined` zurück. Wenn `find()` ein Element zurückgibt, wird der zugrunde liegende Iterator durch Aufruf seiner Methode `return()` geschlossen.
 
-Der Hauptvorteil von Iterator-Helpern gegenüber Array-Methoden ist, dass sie faul sind, was bedeutet, dass sie den nächsten Wert nur bei Bedarf erzeugen. Dies vermeidet unnötige Berechnungen und ermöglicht auch die Verwendung mit unendlichen Iteratoren. Bei unendlichen Iteratoren gibt `find()` das erste passende Element zurück, sobald es gefunden wird. Wenn die `callbackFn` immer einen falsy Wert zurückgibt, gibt die Methode nie etwas zurück.
+Der Hauptvorteil von Iterator-Hilfsmethoden gegenüber Array-Methoden besteht darin, dass sie Werte erst bei Bedarf erzeugen: Der nächste Wert wird nur erzeugt, wenn er angefordert wird. Das vermeidet unnötige Berechnungen und ermöglicht ihre Verwendung mit unendlichen Iteratoren. Bei unendlichen Iteratoren gibt `find()` das erste passende Element zurück, sobald es gefunden wird. Wenn `callbackFn` immer einen falsy-Wert zurückgibt, kehrt die Methode nie zurück.
 
-Ein Aufruf von `find()` schließt immer den zugrunde liegenden Iterator, auch wenn die Methode frühzeitig zurückkehrt. Der Iterator wird nie in einem halbfertigen Zustand belassen.
+Ein Aufruf von `find()` schließt den zugrunde liegenden Iterator immer, auch wenn die Methode vorzeitig zurückkehrt. Der Iterator verbleibt nie in einem teilweise durchlaufenen Zustand.
 
 ## Beispiele
 
-### Verwendung von find()
+### find() verwenden
 
 ```js
 function* fibonacci() {
@@ -57,7 +57,7 @@ console.log(fibonacci().take(10).find(isNegative)); // undefined
 console.log(fibonacci().find(isNegative)); // Never completes
 ```
 
-Die Methode schließt den Iterator nach der Rückgabe.
+Die Methode schließt den Iterator, nachdem sie einen Wert zurückgegeben hat.
 
 ```js
 const seq = fibonacci();
@@ -75,8 +75,8 @@ console.log(seq.next()); // { value: undefined, done: true }
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.find` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill von `Iterator.prototype.find`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.find` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.find` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.every()")}}
 - {{jsxref("Iterator.prototype.some()")}}

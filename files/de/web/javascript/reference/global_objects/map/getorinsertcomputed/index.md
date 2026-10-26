@@ -3,12 +3,12 @@ title: Map.prototype.getOrInsertComputed()
 short-title: getOrInsertComputed()
 slug: Web/JavaScript/Reference/Global_Objects/Map/getOrInsertComputed
 l10n:
-  sourceCommit: af88df72d0ee1da6fd1be412f615e8b4caf98e70
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`getOrInsertComputed()`**-Methode von {{jsxref("Map")}} Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` entspricht. Wenn der Schlüssel nicht vorhanden ist, fügt sie einen neuen Eintrag mit dem Schlüssel und einem Standardwert ein, der aus einem angegebenen Callback berechnet wird, und gibt den eingefügten Wert zurück.
+Die Methode **`getOrInsertComputed()`** von {{jsxref("Map")}}-Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` zugeordnet ist. Ist der Schlüssel nicht vorhanden, fügt sie einen neuen Eintrag mit diesem Schlüssel und einem Standardwert hinzu, der durch eine übergebene Callback-Funktion berechnet wird, und gibt den eingefügten Wert zurück.
 
-Verwenden Sie diese Methode anstelle von {{jsxref("Map.prototype.getOrInsert()")}}, wenn der Standardwert aufwendig zu berechnen ist und Sie vermeiden möchten, ihn zu berechnen, es sei denn, er wird tatsächlich benötigt.
+Verwenden Sie diese Methode anstelle von {{jsxref("Map.prototype.getOrInsert()")}}, wenn die Berechnung des Standardwerts aufwendig ist und Sie sie nur bei Bedarf durchführen möchten.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.getOrInsertComputed()")}}
 
@@ -32,15 +32,15 @@ getOrInsertComputed(key, callback)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt zurückgegeben werden soll. Objektschlüssel werden nach {{Glossary("Object_reference", "Referenz")}} verglichen, nicht nach Wert.
+  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt zurückgegeben werden soll. Objektschlüssel werden anhand ihrer {{Glossary("Object_reference", "Referenz")}} verglichen, nicht anhand ihres Werts.
 - `callback`
-  - : Eine Funktion, die den Wert zurückgibt, der eingefügt und zurückgegeben werden soll, wenn der Schlüssel im `Map`-Objekt noch nicht vorhanden ist. Die Funktion wird mit dem folgenden Argument aufgerufen:
+  - : Eine Funktion, die den Wert zurückgibt, der eingefügt und zurückgegeben werden soll, wenn der Schlüssel noch nicht im `Map`-Objekt vorhanden ist. Die Funktion wird mit dem folgenden Argument aufgerufen:
     - `key`
-      - : Der gleiche Schlüssel, der an `getOrInsertComputed()` übergeben wurde.
+      - : Derselbe Schlüssel, der an `getOrInsertComputed()` übergeben wurde.
 
 ### Rückgabewert
 
-Der mit dem angegebenen Schlüssel im `Map`-Objekt verknüpfte Wert. Wenn der Schlüssel nicht gefunden werden kann, wird das Ergebnis von `callback(key)` eingefügt und zurückgegeben.
+Der Wert, der dem angegebenen Schlüssel im `Map`-Objekt zugeordnet ist. Wird der Schlüssel nicht gefunden, wird das Ergebnis von `callback(key)` eingefügt und zurückgegeben.
 
 ### Ausnahmen
 
@@ -49,9 +49,9 @@ Der mit dem angegebenen Schlüssel im `Map`-Objekt verknüpfte Wert. Wenn der Sc
 
 ## Beispiele
 
-### Vermeidung unnötiger Standardberechnung
+### Unnötige Berechnung des Standardwerts vermeiden
 
-Bei der Verwendung von {{jsxref("Map.prototype.getOrInsert()")}} wird der Standardwert jedes Mal berechnet, auch wenn er nicht benötigt wird. Mit `getOrInsertComputed()` wird der Standardwert nur bei Bedarf berechnet.
+Bei Verwendung von {{jsxref("Map.prototype.getOrInsert()")}} wird der Standardwert jedes Mal berechnet, auch wenn er nicht benötigt wird. Mit `getOrInsertComputed()` wird der Standardwert nur bei Bedarf berechnet.
 
 ```js
 const map = new Map([["bar", "foo"]]);
@@ -74,8 +74,8 @@ map.getOrInsertComputed("bar", defaultCreator); // No log
 
 ## Siehe auch
 
-- [Polyfill von `Map.prototype.getOrInsertComputed` in `core-js`](https://github.com/zloirock/core-js#map-upsert)
-- [es-shims Polyfill von `Map.prototype.getOrInsertComputed`](https://www.npmjs.com/package/map.prototype.getorinsertcomputed)
+- [Polyfill für `Map.prototype.getOrInsertComputed` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-map)
+- [Polyfill für `Map.prototype.getOrInsertComputed` von es-shims](https://www.npmjs.com/package/map.prototype.getorinsertcomputed)
 - {{jsxref("Map")}}
 - {{jsxref("Map.prototype.get()")}}
 - {{jsxref("Map.prototype.set()")}}

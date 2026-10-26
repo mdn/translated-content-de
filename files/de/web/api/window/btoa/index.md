@@ -1,18 +1,18 @@
 ---
-title: "Window: btoa() Methode"
+title: "Window: btoa()-Methode"
 short-title: btoa()
 slug: Web/API/Window/btoa
 l10n:
-  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`btoa()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erstellt einen {{Glossary("Base64", "Base64")}}-codierten {{Glossary("ASCII", "ASCII")}} Zeichenfolge aus einem _Binärstring_ (d.h. ein String, bei dem jedes Zeichen im String als Byte von Binärdaten behandelt wird).
+Die Methode **`btoa()`** der Schnittstelle [`Window`](/de/docs/Web/API/Window) erzeugt aus einer _binären Zeichenkette_ eine {{Glossary("Base64", "Base64")}}-codierte {{Glossary("ASCII", "ASCII")}}-Zeichenkette. Dabei wird jedes Zeichen der Eingabe als ein Byte binärer Daten behandelt.
 
-Sie können diese Methode verwenden, um Daten zu kodieren, die ansonsten Kommunikationsprobleme verursachen könnten, sie zu übertragen und dann die [`Window.atob()`](/de/docs/Web/API/Window/atob) Methode nutzen, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte von 0 bis 31 kodieren.
+Mit dieser Methode können Sie Daten codieren, die andernfalls bei der Übertragung Probleme verursachen könnten. Nach der Übertragung können Sie die Daten mit der Methode [`Window.atob()`](/de/docs/Web/API/Window/atob) wieder decodieren. So lassen sich beispielsweise Steuerzeichen wie die ASCII-Werte 0 bis 31 codieren.
 
-Sie sollten auch die {{jsxref("Uint8Array.prototype.toBase64()")}} Methode in Betracht ziehen, wenn Ihre Daten in einem `Uint8Array` Objekt vorliegen, um zu vermeiden, dass ein String erstellt wird, der rohe Bytes enthält.
+Wenn Ihre Daten in einem `Uint8Array`-Objekt vorliegen, sollten Sie auch die Methode {{jsxref("Uint8Array.prototype.toBase64()")}} in Betracht ziehen. Damit vermeiden Sie, eine Zeichenkette mit unverarbeiteten Bytes zu erstellen.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ btoa(stringToEncode)
 ### Parameter
 
 - `stringToEncode`
-  - : Der zu kodierende _Binärstring_. Strings in JavaScript sind als {{Glossary("UTF-16", "UTF-16")}} kodiert, was bedeutet, dass jeder Charakter einen Codepunkt unter 256 haben muss, der ein Byte Daten repräsentiert.
+  - : Die zu codierende _binäre Zeichenkette_. Zeichenketten in JavaScript sind als {{Glossary("UTF-16", "UTF-16")}} codiert. Daher muss jedes Zeichen einen Codepunkt unter 256 haben und damit ein Byte Daten repräsentieren.
 
 ### Rückgabewert
 
-Eine ASCII-Zeichenfolge, die die Base64-Darstellung von `stringToEncode` enthält.
+Eine ASCII-Zeichenkette, die die Base64-Darstellung von `stringToEncode` enthält.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der String enthielt ein Zeichen, das nicht in ein einzelnes Byte passte. Siehe "Unicode-Zeichenfolgen" unten für mehr Details.
+  - : Die Zeichenkette enthält ein Zeichen, das nicht in ein einzelnes Byte passt. Weitere Informationen finden Sie unten unter „Unicode-Zeichenketten“.
 
 ## Beispiele
 
@@ -41,9 +41,9 @@ const encodedData = window.btoa("Hello, world"); // encode a string
 const decodedData = window.atob(encodedData); // decode the string
 ```
 
-### Unicode-Zeichenfolgen
+### Unicode-Zeichenketten
 
-Base64 erwartet von Haus aus Binärdaten als Eingabe. In Bezug auf JavaScript-Strings bedeutet dies, dass Strings, bei denen der Codepunkt jedes Zeichens nur ein Byte belegt. Wenn Sie also einen String in `btoa()` übergeben, der Zeichen enthält, die mehr als ein Byte belegen, erhalten Sie einen Fehler, da dies nicht als Binärdaten angesehen wird:
+Base64 erwartet binäre Daten als Eingabe. Bei JavaScript-Zeichenketten bedeutet das, dass der Codepunkt jedes Zeichens nur ein Byte belegt. Wenn Sie `btoa()` eine Zeichenkette übergeben, die Zeichen mit Codepunkten enthält, die mehr als ein Byte benötigen, erhalten Sie einen Fehler: Eine solche Zeichenkette gilt nicht als binäre Daten.
 
 ```js
 const ok = "a";
@@ -56,9 +56,9 @@ console.log(window.btoa(ok)); // YQ==
 console.log(window.btoa(notOK)); // error
 ```
 
-Da `btoa` die Codepunkte seines Eingabestrings als Bytewerte interpretiert, wird ein "Character Out Of Range"-Ausnahme ausgelöst, wenn der Codepunkt eines Zeichens `0xff` überschreitet. Für Anwendungsfälle, bei denen Sie beliebigen Unicode-Text kodieren müssen, ist es notwendig, den String zuerst in seine Bestandteile in {{Glossary("UTF-8", "UTF-8")}} zu konvertieren und dann die Bytes zu kodieren.
+Da `btoa` die Codepunkte der Eingabezeichenkette als Bytewerte interpretiert, führt der Aufruf von `btoa` mit einer Zeichenkette zu einer „Character Out Of Range“-Ausnahme, wenn der Codepunkt eines Zeichens `0xff` überschreitet. Wenn Sie beliebigen Unicode-Text codieren möchten, müssen Sie die Zeichenkette zuerst in ihre {{Glossary("UTF-8", "UTF-8")}}-Bytes umwandeln und anschließend diese Bytes codieren.
 
-Die einfachste Lösung besteht darin, `TextEncoder` und `TextDecoder` zu verwenden, um zwischen UTF-8 und einbyteigen Darstellungen des Strings zu konvertieren:
+Am einfachsten verwenden Sie `TextEncoder` und `TextDecoder`, um zwischen UTF-8 und Ein-Byte-Darstellungen der Zeichenkette zu konvertieren:
 
 ```js
 function base64ToBytes(base64) {
@@ -78,11 +78,11 @@ bytesToBase64(new TextEncoder().encode("a Ā 𐀀 文 🦄")); // "YSDEgCDwkICAI
 new TextDecoder().decode(base64ToBytes("YSDEgCDwkICAIOaWhyDwn6aE")); // "a Ā 𐀀 文 🦄"
 ```
 
-### Konvertierung beliebiger Binärdaten
+### Beliebige binäre Daten konvertieren
 
-Die Funktionen `bytesToBase64` und `base64ToBytes` aus dem vorherigen Abschnitt können direkt genutzt werden, um zwischen Base64-Strings und [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)s zu konvertieren.
+Die Funktionen `bytesToBase64` und `base64ToBytes` aus dem vorherigen Abschnitt können Sie direkt verwenden, um zwischen Base64-Zeichenketten und [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)-Objekten zu konvertieren.
 
-Für eine bessere Leistung ist eine asynchrone Konvertierung zwischen base64-Daten-URLs nativ innerhalb der Webplattform über die [`FileReader`](/de/docs/Web/API/FileReader) und [`fetch`](/de/docs/Web/API/Fetch_API) APIs möglich:
+Für eine bessere Leistung können Sie Base64-Daten-URLs auf der Webplattform nativ und asynchron über die APIs [`FileReader`](/de/docs/Web/API/FileReader) und [`fetch`](/de/docs/Web/API/Fetch_API) konvertieren:
 
 ```js
 async function bytesToBase64DataUrl(bytes, type = "application/octet-stream") {
@@ -106,7 +106,7 @@ await dataUrlToBytes("data:application/octet-stream;base64,AAEC"); // Uint8Array
 ```
 
 > [!NOTE]
-> Für unterstützte Umgebungen ziehen Sie auch die nativen Methoden {{jsxref("Uint8Array.fromBase64()")}}, {{jsxref("Uint8Array.prototype.toBase64()")}} und {{jsxref("Uint8Array.prototype.setFromBase64()")}} in Betracht.
+> In Umgebungen, die diese Methoden unterstützen, sollten Sie auch die nativen Methoden {{jsxref("Uint8Array.fromBase64()")}}, {{jsxref("Uint8Array.prototype.toBase64()")}} und {{jsxref("Uint8Array.prototype.setFromBase64()")}} in Betracht ziehen.
 
 ## Spezifikationen
 
@@ -118,9 +118,9 @@ await dataUrlToBytes("data:application/octet-stream;base64,AAEC"); // Uint8Array
 
 ## Siehe auch
 
-- [Ein Polyfill von `btoa`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
-- [`data` URLs](/de/docs/Web/URI/Reference/Schemes/data)
-- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa): dieselbe Methode, jedoch in Worker-Kontexten.
+- [Ein Polyfill für `btoa`](https://core-js.io/docs/features/web-standards/atob-btoa) ist in [`core-js`](https://core-js.io/) verfügbar
+- [`data`-URLs](/de/docs/Web/URI/Reference/Schemes/data)
+- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa): dieselbe Methode, jedoch in Worker-Geltungsbereichen.
 - [`Window.atob()`](/de/docs/Web/API/Window/atob)
 - {{jsxref("Uint8Array.prototype.toBase64()")}}
 - {{Glossary("Base64", "Base64")}}

@@ -3,10 +3,10 @@ title: Array.prototype.filter()
 short-title: filter()
 slug: Web/JavaScript/Reference/Global_Objects/Array/filter
 l10n:
-  sourceCommit: 9f46f08d20b21498293cbf6b84f508103272ec6f
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`filter()`** Methode von {{jsxref("Array")}} Instanzen erstellt eine {{Glossary("Shallow_copy", "flache Kopie")}} eines Teils eines gegebenen Arrays, gefiltert auf die Elemente, die den Test bestehen, der von der bereitgestellten Funktion implementiert wurde.
+Die Methode **`filter()`** von {{jsxref("Array")}}-Instanzen erstellt eine {{Glossary("Shallow_copy", "flache Kopie")}} eines Teils eines Arrays. Diese enthält nur die Elemente des ursprünglichen Arrays, die den von der übergebenen Funktion implementierten Test bestehen.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.filter()", "shorter")}}
 
@@ -29,33 +29,33 @@ filter(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um das Element im resultierenden Array zu behalten, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, wenn das Element im resultierenden Array enthalten sein soll, andernfalls einen {{Glossary("Falsy", "falsy")}}-Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im Array verarbeitet wird.
+      - : Das aktuell verarbeitete Element des Arrays.
     - `index`
-      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements im Array.
     - `array`
-      - : Das Array, auf das `filter()` aufgerufen wurde.
+      - : Das Array, für das `filter()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der beim Ausführen von `callbackFn` als `this` verwendet wird. Weitere Informationen finden Sie unter [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Eine {{Glossary("Shallow_copy", "flache Kopie")}} des gegebenen Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn keine Elemente den Test bestehen, wird ein leeres Array zurückgegeben.
+Eine {{Glossary("Shallow_copy", "flache Kopie")}} des ursprünglichen Arrays, die nur die Elemente enthält, die den Test bestehen. Besteht kein Element den Test, wird ein leeres Array zurückgegeben.
 
 ## Beschreibung
 
-Die `filter()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf und konstruiert ein neues Array mit allen Werten, für die `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. Array-Elemente, die den `callbackFn` Test nicht bestehen, werden im neuen Array nicht aufgenommen. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
+Die Methode `filter()` ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die übergebene Funktion `callbackFn` einmal für jedes Element eines Arrays auf und erstellt ein neues Array mit allen Werten, für die `callbackFn` einen {{Glossary("Truthy", "truthy")}}-Wert zurückgibt. Array-Elemente, die den Test von `callbackFn` nicht bestehen, werden nicht in das neue Array aufgenommen. Weitere Informationen zur allgemeinen Funktionsweise dieser Methoden finden Sie im Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen wurden. Für leere Plätze in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) wird es nicht aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Für leere Positionen in [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) wird die Funktion nicht aufgerufen.
 
-Die `filter()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-basierte Eigenschaften hat.
+Die Methode `filter()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln besitzt.
 
 ## Beispiele
 
-### Herausfiltern aller kleinen Werte
+### Alle kleinen Werte herausfiltern
 
-Das folgende Beispiel verwendet `filter()`, um ein gefiltertes Array zu erstellen, das alle Elemente mit Werten kleiner als 10 entfernt.
+Im folgenden Beispiel wird mit `filter()` ein Array erstellt, aus dem alle Elemente mit Werten kleiner als 10 entfernt wurden.
 
 ```js
 function isBigEnough(value) {
@@ -66,7 +66,7 @@ const filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // filtered is [12, 130, 44]
 ```
 
-### Finden aller Primzahlen in einem Array
+### Alle Primzahlen in einem Array finden
 
 Das folgende Beispiel gibt alle Primzahlen im Array zurück:
 
@@ -92,11 +92,11 @@ console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]
 ```
 
 > [!NOTE]
-> Die Implementierung von `isPrime()` dient nur als Demonstration. Für eine reale Anwendung sollten Sie einen stark {{Glossary("Memoization", "memoisierten")}} Algorithmus wie den [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
+> Die Implementierung von `isPrime()` dient nur zur Veranschaulichung. Für eine reale Anwendung empfiehlt sich ein Algorithmus mit umfassender {{Glossary("Memoization", "Memoisierung")}}, etwa das [Sieb des Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), um wiederholte Berechnungen zu vermeiden.
 
-### Filtern ungültiger Objekte aus einem Array von Objekten
+### Ungültige Objekte aus einem Array von Objekten herausfiltern
 
-Das folgende Beispiel verwendet `filter()`, um ein gefiltertes Array aller Objekte mit nicht-null, numerischer `id` zu erstellen.
+Im folgenden Beispiel wird mit `filter()` ein Array erstellt, das alle Objekte mit einer numerischen `id` ungleich null enthält.
 
 ```js
 const arr = [
@@ -131,9 +131,9 @@ console.log("Number of Invalid Entries =", invalidEntries);
 // Number of Invalid Entries = 5
 ```
 
-### Suche im Array
+### In einem Array suchen
 
-Das folgende Beispiel verwendet `filter()`, um Array-Inhalte basierend auf Suchkriterien zu filtern.
+Im folgenden Beispiel wird mit `filter()` der Inhalt eines Arrays anhand von Suchkriterien gefiltert.
 
 ```js
 const fruits = ["apple", "banana", "grapes", "mango", "orange"];
@@ -149,9 +149,9 @@ console.log(filterItems(fruits, "ap")); // ['apple', 'grapes']
 console.log(filterItems(fruits, "an")); // ['banana', 'mango', 'orange']
 ```
 
-### Verwenden des dritten Parameters von callbackFn
+### Das dritte Argument von callbackFn verwenden
 
-Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn keine vorhandene Variable auf das Array verweist. Das folgende Beispiel verwendet zuerst `map()`, um die numerische ID aus jedem Namen zu extrahieren, und dann `filter()`, um diejenigen auszuwählen, die größer sind als ihre Nachbarn.
+Das Argument `array` ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn keine vorhandene Variable auf das Array verweist. Im folgenden Beispiel wird zunächst mit `map()` die numerische ID aus jedem Namen extrahiert. Anschließend werden mit `filter()` diejenigen ausgewählt, die größer als ihre Nachbarn sind.
 
 ```js
 const names = ["JC63", "Bob132", "Ursula89", "Ben96"];
@@ -167,20 +167,20 @@ const greatIDs = names
 console.log(greatIDs); // [132, 96]
 ```
 
-Das `array`-Argument ist _nicht_ das Array, das erstellt wird – es gibt keine Möglichkeit, vom Rückruffunktion aus auf das erstellte Array zuzugreifen.
+Das Argument `array` ist _nicht_ das Array, das gerade erstellt wird. Auf dieses Array kann von der Callback-Funktion aus nicht zugegriffen werden.
 
-### Verwenden von filter() auf spärlichen Arrays
+### filter() bei dünn besetzten Arrays verwenden
 
-`filter()` überspringt leere Plätze.
+`filter()` überspringt leere Positionen.
 
 ```js
 console.log([1, , undefined].filter((x) => x === undefined)); // [undefined]
 console.log([1, , undefined].filter((x) => x !== 2)); // [1, undefined]
 ```
 
-### Aufrufen von filter() bei Nicht-Array-Objekten
+### filter() für Objekte aufrufen, die keine Arrays sind
 
-Die `filter()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist.
+Die Methode `filter()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -204,9 +204,9 @@ console.log(Array.prototype.filter.call(arrayLike, (x) => x <= "b"));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.filter` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.filter`](https://www.npmjs.com/package/array.prototype.filter)
-- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.filter` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.filter` von es-shims](https://www.npmjs.com/package/array.prototype.filter)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.forEach()")}}
 - {{jsxref("Array.prototype.every()")}}

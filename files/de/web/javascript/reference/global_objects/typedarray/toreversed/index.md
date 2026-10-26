@@ -3,10 +3,10 @@ title: TypedArray.prototype.toReversed()
 short-title: toReversed()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toReversed
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toReversed()`** Methode von {{jsxref("TypedArray")}} Instanzen ist das [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Gegenstück zur {{jsxref("TypedArray/reverse", "reverse()")}} Methode. Sie gibt ein neues typisiertes Array mit umgekehrter Reihenfolge der Elemente zurück. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.toReversed()")}}.
+Die Methode **`toReversed()`** von {{jsxref("TypedArray")}}-Instanzen ist das [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Gegenstück zur Methode {{jsxref("TypedArray/reverse", "reverse()")}}. Sie gibt ein neues Typed Array zurück, dessen Elemente in umgekehrter Reihenfolge angeordnet sind. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toReversed()")}}.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues typisiertes Array, das die Elemente in umgekehrter Reihenfolge enthält.
+Ein neues Typed Array mit den Elementen in umgekehrter Reihenfolge.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.toReversed()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.toReversed()")}}. Diese Methode ist nicht generisch und kann nur für Typed-Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
@@ -47,8 +47,8 @@ console.log(uint8); // Uint8Array [1, 2, 3]
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.toReversed` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.toReversed` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) – Leitfaden
 - {{jsxref("TypedArray.prototype.reverse()")}}
 - {{jsxref("TypedArray.prototype.toSorted()")}}
 - {{jsxref("TypedArray.prototype.with()")}}

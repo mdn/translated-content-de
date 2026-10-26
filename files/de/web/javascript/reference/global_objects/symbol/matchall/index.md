@@ -3,10 +3,10 @@ title: Symbol.matchAll
 short-title: matchAll
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/matchAll
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol im ersten Argument, um die Methode zu erhalten, die einen Iterator bereitstellt, der Übereinstimmungen des aktuellen Objekts mit einer Zeichenkette liefert.
+Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht auf ihrem ersten Argument nach diesem Symbol, um eine Methode zu finden, die einen Iterator zurückgibt. Dieser liefert Übereinstimmungen des aktuellen Objekts mit einer Zeichenfolge.
 
 Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
 
@@ -29,7 +29,7 @@ Das bekannte Symbol `Symbol.matchAll`.
 
 ## Beispiele
 
-### Verwendung von Symbol.matchAll
+### Symbol.matchAll verwenden
 
 ```js
 const str = "2016-01-02|2019-03-07";
@@ -54,8 +54,8 @@ console.log(Array.from(str.matchAll(numbers)));
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.matchAll` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
-- [es-shims Polyfill von `Symbol.matchAll`](https://www.npmjs.com/package/string.prototype.matchall)
+- [Polyfill für `Symbol.matchAll` in `core-js`](https://core-js.io/docs/features/ecmascript/symbol)
+- [Polyfill für `Symbol.matchAll` von es-shims](https://www.npmjs.com/package/string.prototype.matchall)
 - {{jsxref("Symbol.match")}}
 - {{jsxref("Symbol.replace")}}
 - {{jsxref("Symbol.search")}}

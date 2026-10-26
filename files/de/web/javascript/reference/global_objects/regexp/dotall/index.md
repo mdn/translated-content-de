@@ -3,10 +3,10 @@ title: RegExp.prototype.dotAll
 short-title: dotAll
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/dotAll
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`dotAll`** Zugriffsoroperty von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `s`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`dotAll`**-Accessor-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt an, ob bei diesem regulären Ausdruck das `s`-Flag verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.dotAll")}}
 
@@ -24,41 +24,41 @@ console.log(regex2.dotAll);
 
 ## Beschreibung
 
-`RegExp.prototype.dotAll` hat den Wert `true`, wenn das `s`-Flag verwendet wurde; ansonsten `false`. Das `s`-Flag gibt an, dass das spezielle Zeichen Punkt (`.`) zusätzlich die folgenden Zeilenabschlusszeichen ("Newline") in einem String übereinstimmen soll, die es ansonsten nicht übereinstimmen würde:
+`RegExp.prototype.dotAll` hat den Wert `true`, wenn das `s`-Flag verwendet wurde, andernfalls `false`. Das `s`-Flag bewirkt, dass das Sonderzeichen Punkt (`.`) zusätzlich mit den folgenden Zeilenumbruchzeichen („newlines“) in einer Zeichenfolge übereinstimmt, mit denen es andernfalls nicht übereinstimmen würde:
 
 - U+000A LINE FEED (LF) (`\n`)
 - U+000D CARRIAGE RETURN (CR) (`\r`)
 - U+2028 LINE SEPARATOR
 - U+2029 PARAGRAPH SEPARATOR
 
-Das bedeutet effektiv, dass der Punkt jede UTF-16-Codeeinheit übereinstimmen wird. Es wird jedoch _nicht_ mit Zeichen übereinstimmen, die außerhalb der Unicode Basic Multilingual Plane (BMP) liegen, auch bekannt als astrale Zeichen, die als [Surrogatpaare](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dargestellt werden, und erfordert das Übereinstimmen mit zwei `.` Mustern statt einem.
+Das bedeutet, dass der Punkt mit jeder UTF-16-Codeeinheit übereinstimmt. Er stimmt jedoch _nicht_ mit Zeichen außerhalb der Unicode Basic Multilingual Plane (BMP) überein, die auch als astrale Zeichen bezeichnet werden. Diese werden als [Surrogatpaare](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dargestellt und erfordern für eine Übereinstimmung zwei `.`-Muster statt eines.
 
 ```js
 "😄".match(/(.)(.)/s);
 // Array(3) [ "😄", "\ud83d", "\ude04" ]
 ```
 
-Das [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) (unicode) Flag kann verwendet werden, um dem Punkt zu ermöglichen, astrale Zeichen als einzelnes Zeichen zu übereinstimmen.
+Mit dem [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)-Flag (Unicode) kann der Punkt mit astralen Zeichen als jeweils einem einzelnen Zeichen übereinstimmen.
 
 ```js
 "😄".match(/./su);
 // Array [ "😄" ]
 ```
 
-Beachten Sie, dass ein Muster wie `.*` immer noch in der Lage ist, astrale Zeichen als Teil eines größeren Kontextes _zu konsumieren_, auch ohne das `u`-Flag.
+Beachten Sie, dass ein Muster wie `.*` astrale Zeichen auch ohne das `u`-Flag als Teil eines größeren Zusammenhangs _erfassen_ kann.
 
 ```js
 "😄".match(/.*/s);
 // Array [ "😄" ]
 ```
 
-Die gleichzeitige Verwendung von `s` und `u` Flags ermöglicht es dem Punkt, jedes Unicode-Zeichen auf eine intuitivere Weise zu übereinstimmen.
+Wenn das `s`- und das `u`-Flag zusammen verwendet werden, kann der Punkt auf intuitivere Weise mit jedem Unicode-Zeichen übereinstimmen.
 
-Der Set-Zugriffsoroperty von `dotAll` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `dotAll` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
-### Verwendung von dotAll
+### dotAll verwenden
 
 ```js
 const str1 = "bar\nexample foo example";
@@ -90,7 +90,7 @@ console.log(str2.replace(regex2, ""));
 
 ## Siehe auch
 
-- [Polyfill des `dotAll`-Flags in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Polyfill für das `dotAll`-Flag in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
 - {{jsxref("RegExp.prototype.lastIndex")}}
 - {{jsxref("RegExp.prototype.global")}}
 - {{jsxref("RegExp.prototype.hasIndices")}}

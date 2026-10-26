@@ -3,10 +3,10 @@ title: Iterator.prototype.drop()
 short-title: drop()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/drop
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die Methode **`drop()`** von {{jsxref("Iterator")}}-Instanzen gibt ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die angegebene Anzahl von Elementen am Anfang dieses Iterators überspringt.
+Die Methode **`drop()`** von {{jsxref("Iterator")}}-Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die angegebene Anzahl von Elementen am Anfang dieses Iterators überspringt.
 
 ## Syntax
 
@@ -17,22 +17,22 @@ drop(limit)
 ### Parameter
 
 - `limit`
-  - : Die Anzahl der Elemente, die vom Anfang der Iteration entfernt werden sollen.
+  - : Die Anzahl der Elemente, die am Anfang der Iteration übersprungen werden sollen.
 
 ### Rückgabewert
 
-Ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Das erste Mal, wenn die `next()`-Methode des zurückgegebenen Iterator-Helfers aufgerufen wird, wird der aktuelle Iterator sofort um `limit` Elemente weitergeschaltet, und dann wird das nächste Element (das `limit+1`-te Element) geliefert. Der Iterator-Helfer liefert dann die verbleibenden Elemente einzeln. Wenn der aktuelle Iterator weniger als `limit` Elemente hat, wird der neue Iterator-Helfer sofort beim ersten Aufruf von `next()` abgeschlossen.
+Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Beim ersten Aufruf der Methode `next()` des zurückgegebenen Iterator-Hilfsobjekts wird der aktuelle Iterator sofort um `limit` Elemente vorgerückt. Anschließend wird das nächste Element (das Element an Position `limit+1`) zurückgegeben. Danach gibt das Iterator-Hilfsobjekt die übrigen Elemente einzeln zurück. Hat der aktuelle Iterator weniger als `limit` Elemente, ist das neue Iterator-Hilfsobjekt bereits beim ersten Aufruf von `next()` abgeschlossen.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `limit` zu {{jsxref("NaN")}} oder negativ wird, wenn es [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
+  - : Wird ausgelöst, wenn `limit` bei der [Umwandlung in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) zu {{jsxref("NaN")}} wird oder negativ ist.
 
 ## Beispiele
 
-### Verwendung von drop()
+### drop() verwenden
 
-Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Sequenz liefert und ab dem 3. Term beginnt, indem die ersten beiden Terme übersprungen werden:
+Das folgende Beispiel erstellt einen Iterator, der Glieder der Fibonacci-Folge ausgibt. Durch das Überspringen der ersten beiden Glieder beginnt er beim dritten Glied:
 
 ```js
 function* fibonacci() {
@@ -49,7 +49,7 @@ console.log(seq.next().value); // 2
 console.log(seq.next().value); // 3
 ```
 
-Dies ist gleichbedeutend mit:
+Dies entspricht:
 
 ```js
 const seq = fibonacci();
@@ -57,9 +57,9 @@ seq.next();
 seq.next();
 ```
 
-### Verwendung von drop() mit einer for...of-Schleife
+### drop() mit einer for...of-Schleife verwenden
 
-`drop()` ist am bequemsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
+`drop()` ist besonders praktisch, wenn Sie den Iterator nicht selbst implementieren. Da Iteratoren auch iterierbar sind, können Sie das zurückgegebene Hilfsobjekt mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen:
 
 ```js
 for (const n of fibonacci().drop(2)) {
@@ -79,9 +79,9 @@ for (const n of fibonacci().drop(2)) {
 // 34
 ```
 
-### Kombination von drop() mit take()
+### drop() mit take() kombinieren
 
-Sie können `drop()` mit {{jsxref("Iterator.prototype.take()")}} kombinieren, um einen Abschnitt eines Iterators zu erhalten:
+Sie können `drop()` mit {{jsxref("Iterator.prototype.take()")}} kombinieren, um einen Ausschnitt eines Iterators zu erhalten:
 
 ```js
 for (const n of fibonacci().drop(2).take(5)) {
@@ -105,7 +105,7 @@ for (const n of fibonacci().take(5).drop(2)) {
 // 5
 ```
 
-### Untere und obere Grenzen der Drop-Anzahl
+### Untere und obere Grenzen für die Anzahl übersprungener Elemente
 
 Wenn `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
 
@@ -114,7 +114,7 @@ fibonacci().drop(-1); // RangeError: -1 must be positive
 fibonacci().drop(undefined); // RangeError: undefined must be positive
 ```
 
-Wenn `limit` größer ist als die Gesamtanzahl der Elemente, die der Iterator erzeugen kann (wie {{jsxref("Infinity")}}), wird der zurückgegebene Iterator-Helfer sofort alle Elemente verwerfen und dann beim ersten Aufruf von `next()` abgeschlossen. Wenn der aktuelle Iterator unendlich ist, wird der zurückgegebene Iterator-Helfer niemals abgeschlossen.
+Wenn `limit` größer ist als die Gesamtzahl der Elemente, die der Iterator liefern kann (beispielsweise {{jsxref("Infinity")}}), überspringt das zurückgegebene Iterator-Hilfsobjekt sofort alle Elemente und ist beim ersten Aufruf von `next()` abgeschlossen. Ist der aktuelle Iterator unendlich, wird das zurückgegebene Iterator-Hilfsobjekt nie abgeschlossen.
 
 ```js
 fibonacci().drop(Infinity).next(); // Never ends
@@ -132,7 +132,7 @@ new Set([1, 2, 3]).values().drop(4).next(); // { value: undefined, done: true }
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.drop` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill von `Iterator.prototype.drop`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.drop` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.drop` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.take()")}}

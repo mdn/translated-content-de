@@ -1,20 +1,20 @@
 ---
-title: "Window: pagehide Ereignis"
+title: "Window: pagehide-Ereignis"
 short-title: pagehide
 slug: Web/API/Window/pagehide_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 958799789600997855abbdabca7abc8a221b6778
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`pagehide`** Ereignis wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser die aktuelle Seite verbirgt, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
+Das Ereignis **`pagehide`** wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
 
-Beispielsweise erhält die aktuelle Seite ein `pagehide` Ereignis, bevor die vorherige Seite angezeigt wird, wenn der Benutzer auf die Zurück-Schaltfläche des Browsers klickt.
+Wenn beispielsweise jemand auf die Zurück-Schaltfläche des Browsers klickt, empfängt die aktuelle Seite ein `pagehide`-Ereignis, bevor die vorherige Seite angezeigt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("pagehide", (event) => { })
@@ -28,33 +28,33 @@ Ein [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent). Erbt von [`Ev
 
 {{InheritanceDiagram("PageTransitionEvent")}}
 
-## Ereignishandler-Aliase
+## Aliase für Event-Handler
 
-Zusätzlich zur `Window` Schnittstelle ist die Ereignishandler-Eigenschaft `onpagehide` auch auf den folgenden Zielen verfügbar:
+Neben der `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onpagehide` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
 - [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
-## Anmerkungen zur Verwendung
+## Hinweise zur Verwendung
 
-Wie die Ereignisse [`unload`](/de/docs/Web/API/Window/unload_event) und [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) wird dieses Ereignis von Browsern, insbesondere auf mobilen Geräten, nicht zuverlässig ausgelöst. Beispielsweise wird das `pagehide` Ereignis in folgendem Szenario überhaupt nicht ausgelöst:
+Wie die Ereignisse [`unload`](/de/docs/Web/API/Window/unload_event) und [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) wird auch dieses Ereignis von Browsern nicht zuverlässig ausgelöst, insbesondere auf Mobilgeräten. Im folgenden Szenario wird das Ereignis `pagehide` beispielsweise überhaupt nicht ausgelöst:
 
-1. Ein mobiler Benutzer besucht Ihre Seite.
-2. Der Benutzer wechselt dann zu einer anderen App.
-3. Später schließt der Benutzer den Browser über den App-Manager.
+1. Jemand ruft Ihre Seite auf einem Mobilgerät auf.
+2. Anschließend wechselt die Person zu einer anderen App.
+3. Später schließt sie den Browser über den App-Manager.
 
-Im Gegensatz zu den Ereignissen `unload` und `beforeunload` ist dieses Ereignis jedoch mit dem [back/forward cache](https://web.dev/articles/bfcache) (bfcache) kompatibel, sodass das Hinzufügen eines Listeners zu diesem Ereignis nicht verhindert, dass die Seite in den bfcache aufgenommen wird.
+Dieses Ereignis ist jedoch mit dem [Back/Forward-Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel. Das Hinzufügen eines Listeners verhindert daher nicht, dass die Seite im bfcache gespeichert wird.
 
-Das beste Ereignis, um das Ende einer Benutzersitzung zu signalisieren, ist das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) Ereignis. In Browsern, die `visibilitychange` nicht unterstützen, ist das `pagehide` Ereignis die nächstbeste Alternative.
+Das am besten geeignete Ereignis, um das Ende einer Sitzung zu erkennen, ist [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event). In Browsern, die `visibilitychange` nicht unterstützen, ist `pagehide` die nächstbeste Alternative.
 
-Wenn Sie speziell versuchen, das Entladen von Seiten zu erkennen, ist das `pagehide` Ereignis die beste Option.
+Wenn Sie gezielt erkennen möchten, dass eine Seite verlassen wird, ist `pagehide` die beste Wahl.
 
-Siehe den [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api) Leitfaden für weitere Informationen darüber, wie sich dieses Ereignis auf andere Ereignisse im Seitenlebenszyklus bezieht.
+Weitere Informationen darüber, wie dieses Ereignis mit anderen Ereignissen im Lebenszyklus einer Seite zusammenhängt, finden Sie im Leitfaden zur [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api).
 
 ## Beispiele
 
-In diesem Beispiel wird ein Ereignishandler eingerichtet, der auf `pagehide` Ereignisse achtet und eine spezielle Handhabung vornimmt, wenn die Seite für eine mögliche Wiederverwendung gespeichert wird.
+In diesem Beispiel wird ein Event-Handler eingerichtet, der `pagehide`-Ereignisse überwacht und eine besondere Verarbeitung vornimmt, wenn die Seite zur möglichen Wiederverwendung gespeichert wird.
 
 ```js
 window.addEventListener("pagehide", (event) => {
@@ -64,7 +64,7 @@ window.addEventListener("pagehide", (event) => {
 });
 ```
 
-Dies kann auch unter Verwendung der `onpagehide` Ereignishandler-Eigenschaft auf dem [`Window`](/de/docs/Web/API/Window) geschrieben werden:
+Dasselbe lässt sich auch mit der Event-Handler-Eigenschaft `onpagehide` von [`Window`](/de/docs/Web/API/Window) schreiben:
 
 ```js
 window.onpagehide = (event) => {
@@ -84,7 +84,7 @@ window.onpagehide = (event) => {
 
 ## Siehe auch
 
-- Das [`pageshow`](/de/docs/Web/API/Window/pageshow_event) Ereignis.
-- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet Best-Practice-Empfehlungen zur Handhabung des Seitenlebenszyklusverhaltens in Ihren Webanwendungen.
-- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): Eine JavaScript-Bibliothek, die sich mit browserübergreifenden Inkonsistenzen im Seitenlebenszyklusverhalten befasst.
-- [Back/forward cache](https://web.dev/articles/bfcache) erklärt, was der Rückwärts-/Vorwärts-Cache ist und seine Auswirkungen auf verschiedene Seitenlebenszyklusereignisse.
+- Das Ereignis [`pageshow`](/de/docs/Web/API/Window/pageshow_event).
+- Die [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet Empfehlungen zum Umgang mit dem Lebenszyklus von Seiten in Ihren Webanwendungen.
+- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): eine JavaScript-Bibliothek, die browserübergreifende Unterschiede beim Lebenszyklus von Seiten behandelt.
+- [Back/Forward-Cache](https://web.dev/articles/bfcache) erklärt, was der Back/Forward-Cache ist und welche Auswirkungen er auf verschiedene Ereignisse im Lebenszyklus einer Seite hat.

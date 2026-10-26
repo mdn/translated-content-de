@@ -3,10 +3,10 @@ title: Array.prototype.toReversed()
 short-title: toReversed()
 slug: Web/JavaScript/Reference/Global_Objects/Array/toReversed
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toReversed()`**-Methode von {{jsxref("Array")}} Instanzen ist das [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Gegenstück zur {{jsxref("Array/reverse", "reverse()")}}-Methode. Sie gibt ein neues Array mit den Elementen in umgekehrter Reihenfolge zurück.
+Die Methode **`toReversed()`** von {{jsxref("Array")}}-Instanzen ist das [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Gegenstück zur Methode {{jsxref("Array/reverse", "reverse()")}}. Sie gibt ein neues Array zurück, dessen Elemente in umgekehrter Reihenfolge angeordnet sind.
 
 ## Syntax
 
@@ -20,21 +20,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Array, das die Elemente in umgekehrter Reihenfolge enthält.
+Ein neues Array mit den Elementen in umgekehrter Reihenfolge.
 
 ## Beschreibung
 
-Die `toReversed()`-Methode transponiert die Elemente des aufrufenden Array-Objekts in umgekehrter Reihenfolge und gibt ein neues Array zurück.
+Die Methode `toReversed()` ordnet die Elemente des aufrufenden Array-Objekts in umgekehrter Reihenfolge an und gibt ein neues Array zurück.
 
-Wenn sie auf [lückenhafte Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, durchläuft die `toReversed()`-Methode leere Plätze, als ob sie den Wert `undefined` hätten.
+Bei [Arrays mit Lücken](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) behandelt die Methode `toReversed()` leere Positionen so, als hätten sie den Wert `undefined`.
 
-Die `toReversed()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integerindizierte Eigenschaften hat.
+Die Methode `toReversed()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der `this`-Wert eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln besitzt.
 
 ## Beispiele
 
-### Umkehren der Elemente in einem Array
+### Elemente eines Arrays umkehren
 
-Im folgenden Beispiel wird ein Array `items` erstellt, das drei Elemente enthält, und dann ein neues Array, das die Umkehrung von `items` darstellt. Das `items`-Array bleibt unverändert.
+Das folgende Beispiel erstellt ein Array `items` mit drei Elementen und anschließend ein neues Array, dessen Elemente gegenüber `items` in umgekehrter Reihenfolge angeordnet sind. Das Array `items` bleibt unverändert.
 
 ```js
 const items = [1, 2, 3];
@@ -45,18 +45,18 @@ console.log(reversedItems); // [3, 2, 1]
 console.log(items); // [1, 2, 3]
 ```
 
-### Verwenden von toReversed() bei lückenhaften Arrays
+### toReversed() bei Arrays mit Lücken verwenden
 
-Der Rückgabewert von `toReversed()` ist niemals lückenhaft. Leere Plätze werden zu `undefined` im zurückgegebenen Array.
+Der Rückgabewert von `toReversed()` enthält niemals Lücken. Leere Positionen werden im zurückgegebenen Array zu `undefined`.
 
 ```js
 console.log([1, , 3].toReversed()); // [3, undefined, 1]
 console.log([1, , 3, 4].toReversed()); // [4, 3, undefined, 1]
 ```
 
-### Aufrufen von toReversed() auf Nicht-Array-Objekten
+### toReversed() für Objekte aufrufen, die keine Arrays sind
 
-Die `toReversed()`-Methode liest die `length`-Eigenschaft von `this`. Sie besucht dann jede Eigenschaft mit einem Integer-Schlüssel zwischen `length - 1` und `0` in absteigender Reihenfolge und fügt den Wert der aktuellen Eigenschaft am Ende des zurückzugebenden Arrays hinzu.
+Die Methode `toReversed()` liest die `length`-Eigenschaft von `this`. Anschließend besucht sie in absteigender Reihenfolge jede Eigenschaft mit einem ganzzahligen Schlüssel zwischen `length - 1` und `0` und fügt deren Wert am Ende des zurückzugebenden Arrays hinzu.
 
 ```js
 const arrayLike = {
@@ -79,9 +79,9 @@ console.log(Array.prototype.toReversed.call(arrayLike));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.toReversed` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
-- [es-shims Polyfill von `Array.prototype.toReversed`](https://www.npmjs.com/package/array.prototype.toreversed)
-- [Leitfaden für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Polyfill für `Array.prototype.toReversed` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [es-shims-Polyfill für `Array.prototype.toReversed`](https://www.npmjs.com/package/array.prototype.toreversed)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array.prototype.reverse()")}}
 - {{jsxref("Array.prototype.toSorted()")}}
 - {{jsxref("Array.prototype.toSpliced()")}}

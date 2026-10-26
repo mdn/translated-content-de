@@ -3,12 +3,12 @@ title: Uint8Array.fromBase64()
 short-title: fromBase64()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Uint8Array.fromBase64()`** statische Methode erstellt ein neues {{jsxref("Uint8Array")}}-Objekt aus einem {{Glossary("Base64", "base64")}}-kodierten String.
+Die statische Methode **`Uint8Array.fromBase64()`** erstellt ein neues {{jsxref("Uint8Array")}}-Objekt aus einer {{Glossary("Base64", "base64")}}-codierten Zeichenfolge.
 
-Diese Methode sollte gegenüber [`Window.atob()`](/de/docs/Web/API/Window/atob) bevorzugt werden, da sie ein Byte-Array liefert, mit dem einfacher zu arbeiten ist als mit einem String, der rohe Bytes enthält, es sei denn, Ihre dekodierten Binärdaten sollen tatsächlich ASCII-Text sein. Wenn Sie bereits einen Array-Puffer zugewiesen haben und diesen befüllen möchten, verwenden Sie stattdessen die Instanzmethode {{jsxref("Uint8Array.prototype.setFromBase64()")}}.
+Diese Methode ist [`Window.atob()`](/de/docs/Web/API/Window/atob) vorzuziehen, da sie ein Byte-Array zurückgibt. Damit lässt sich leichter arbeiten als mit einer Zeichenfolge, die rohe Bytes enthält – es sei denn, die decodierten Binärdaten sollen tatsächlich ASCII-Text sein. Wenn Sie bereits einen ArrayBuffer zugewiesen haben und ihn mit Daten füllen möchten, verwenden Sie stattdessen die Instanzmethode {{jsxref("Uint8Array.prototype.setFromBase64()")}}.
 
 ## Syntax
 
@@ -20,56 +20,56 @@ Uint8Array.fromBase64(string, options)
 ### Parameter
 
 - `string`
-  - : Ein Base64-String, der Bytes kodiert, die in ein `Uint8Array` umgewandelt werden sollen. Der String darf nur Zeichen aus dem Base64-Alphabet enthalten, das A–Z, a–z, 0–9 und zwei Sonderzeichen umfasst, die entweder `+` und `/` (wenn `alphabet: "base64"` in `options` verwendet wird) oder `-` und `_` (wenn `alphabet: "base64url"` in `options` verwendet wird) sind. Am Ende dürfen Auffüllzeichen `=` vorhanden sein. Alle ASCII-Leerzeichen innerhalb des Strings werden ignoriert.
+  - : Eine base64-Zeichenfolge, die die in ein `Uint8Array` umzuwandelnden Bytes codiert. Die Zeichenfolge darf nur Zeichen des base64-Alphabets enthalten: A–Z, a–z, 0–9 sowie zwei Sonderzeichen, entweder `+` und `/` (bei `alphabet: "base64"` in `options`) oder `-` und `_` (bei `alphabet: "base64url"` in `options`). Am Ende darf sie `=`-Zeichen als Padding enthalten. ASCII-Leerraumzeichen innerhalb der Zeichenfolge werden ignoriert.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das den Interpretationsprozess des Base64-Strings anpasst. Es kann die folgenden Eigenschaften enthalten:
+  - : Ein Objekt, mit dem sich die Interpretation der base64-Zeichenfolge anpassen lässt. Es kann die folgenden Eigenschaften enthalten:
     - `alphabet` {{optional_inline}}
-      - : Ein String, der das Base64-Alphabet angibt, das verwendet wird. Es kann eines der folgenden sein:
-        - `"base64"` (Standard)
-          - : Akzeptiere Eingaben, die mit dem Standard-Base64-Alphabet kodiert sind, das `+` und `/` verwendet.
+      - : Eine Zeichenfolge, die das zu verwendende base64-Alphabet angibt. Mögliche Werte sind:
+        - `"base64"` (Standardwert)
+          - : Akzeptiert Eingaben, die mit dem Standard-base64-Alphabet codiert sind, das `+` und `/` verwendet.
         - `"base64url"`
-          - : Akzeptiere Eingaben, die mit dem URL-sicheren Base64-Alphabet kodiert sind, das `-` und `_` verwendet.
+          - : Akzeptiert Eingaben, die mit dem URL-sicheren base64-Alphabet codiert sind, das `-` und `_` verwendet.
     - `lastChunkHandling` {{optional_inline}}
-      - : Ein String, der angibt, wie der letzte Block des Base64-Strings behandelt werden soll. Da jede 4 Zeichen in Base64 3 Bytes kodieren, wird der String in Blöcke von 4 Zeichen aufgeteilt. Wenn der letzte Block weniger als 4 Zeichen hat, muss er anders behandelt werden. Er kann einer der folgenden sein:
-        - `"loose"` (Standard)
-          - : Der letzte Block kann entweder 2 oder 3 Base64-Zeichen oder genau 4 Zeichen lang mit Auffüllzeichen `=` sein. Der letzte Block wird dekodiert und dem Ergebnis hinzugefügt.
+      - : Eine Zeichenfolge, die angibt, wie der letzte Block der base64-Zeichenfolge behandelt wird. Da jeweils 4 base64-Zeichen 3 Bytes codieren, wird die Zeichenfolge in Blöcke zu je 4 Zeichen unterteilt. Enthält der letzte Block weniger als 4 Zeichen, muss er anders behandelt werden. Mögliche Werte sind:
+        - `"loose"` (Standardwert)
+          - : Der letzte Block kann aus 2 oder 3 base64-Zeichen bestehen oder genau 4 Zeichen lang sein und `=`-Zeichen als Padding enthalten. Er wird decodiert und an das Ergebnis angehängt.
         - `"strict"`
-          - : Der letzte Block muss genau 4 Zeichen lang mit Auffüllzeichen `=` sein. Außerdem müssen {{Glossary("Base64#last_chunk", "Überlauf-Bits")}} (nachlaufende Bits vom letzten Base64-Zeichen, die keine Daten darstellen) 0 sein. Der letzte Block wird dekodiert und dem Ergebnis hinzugefügt.
+          - : Der letzte Block muss genau 4 Zeichen lang sein und `=`-Zeichen als Padding enthalten. Außerdem müssen die {{Glossary("Base64#last_chunk", "Overflow-Bits")}} (die nachgestellten Bits des letzten base64-Zeichens, die keine Daten darstellen) den Wert 0 haben. Der letzte Block wird decodiert und an das Ergebnis angehängt.
         - `"stop-before-partial"`
-          - : Wenn der letzte Block genau 4 Zeichen lang mit Auffüllzeichen `=` ist, wird er dekodiert und dem Ergebnis hinzugefügt. Andernfalls wird der letzte partielle Block ignoriert (aber wenn er ein Base64-Zeichen gefolgt von `=` enthält, wird dennoch ein Syntaxfehler ausgelöst). Dies ist nützlich, wenn der String aus einem Stream stammt und der letzte Block noch nicht vollständig ist. Um zu wissen, wie viele Zeichen der Eingabe gelesen wurden, verwenden Sie {{jsxref("Uint8Array.prototype.setFromBase64()")}} stattdessen (die verlinkte Seite enthält auch ein Beispiel für die Dekodierung von Streams mit `"stop-before-partial"`).
+          - : Ist der letzte Block genau 4 Zeichen lang und enthält `=`-Zeichen als Padding, wird er decodiert und an das Ergebnis angehängt. Andernfalls wird der letzte unvollständige Block ignoriert. Enthält er jedoch ein base64-Zeichen, auf das `=` folgt, wird weiterhin ein Syntaxfehler ausgelöst. Dies ist nützlich, wenn die Zeichenfolge aus einem Stream stammt und der letzte Block noch nicht vollständig ist. Wenn Sie wissen möchten, wie viele Zeichen der Eingabe gelesen wurden, verwenden Sie stattdessen {{jsxref("Uint8Array.prototype.setFromBase64()")}}. Die verlinkte Seite enthält auch ein Beispiel für die Decodierung eines Streams mit `"stop-before-partial"`.
 
 ### Rückgabewert
 
-Ein neues `Uint8Array`-Objekt, das die dekodierten Bytes aus dem Base64-kodierten String enthält.
+Ein neues `Uint8Array`-Objekt, das die decodierten Bytes der base64-codierten Zeichenfolge enthält.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Wird ausgelöst, wenn der Eingabestring Zeichen außerhalb des angegebenen Alphabets enthält oder wenn der letzte Block die Vorgaben der `lastChunkHandling`-Option nicht erfüllt.
+  - : Wird ausgelöst, wenn die Eingabezeichenfolge Zeichen außerhalb des angegebenen Alphabets enthält oder der letzte Block die Option `lastChunkHandling` nicht erfüllt.
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Der Eingabestring ist kein String.
-    - Das `options`-Objekt ist kein Objekt oder `undefined`.
-    - Die Optionen haben nicht die erwarteten Werte oder sind `undefined`.
+    - Die Eingabe ist keine Zeichenfolge.
+    - Das Argument `options` ist weder ein Objekt noch `undefined`.
+    - Die Optionen haben weder die erwarteten Werte noch den Wert `undefined`.
 
 ## Beispiele
 
-### Dekodierung eines Base64-Strings
+### Eine base64-Zeichenfolge decodieren
 
-Dieses Beispiel verwendet die Standardoptionen `alphabet` und `lastChunkHandling`, um einen Base64-String zu dekodieren. Beachten Sie, dass:
+In diesem Beispiel werden die Standardwerte für `alphabet` und `lastChunkHandling` verwendet, um eine base64-Zeichenfolge zu decodieren. Beachten Sie Folgendes:
 
-- Die Leerzeichen im String ignoriert werden.
-- Der String 14 Base64-Zeichen hat, keine Vielfaches von 4. Dies ist nur mit `lastChunkHandling: "loose"` gültig und dekodierbar.
-- Der letzte Block, `Ph`, endet im Zeichen `h`, das `0b100001` in Base64 ist, daher sind die letzten `0001`-Bits "Überlauf-Bits" und werden ignoriert. Dies ist nur mit `lastChunkHandling: "loose"` gültig und dekodierbar.
+- Das Leerraumzeichen in der Zeichenfolge wird ignoriert.
+- Die Zeichenfolge enthält 14 base64-Zeichen; ihre Anzahl ist also kein Vielfaches von 4. Sie ist nur mit `lastChunkHandling: "loose"` gültig und decodierbar.
+- Der letzte Block, `Ph`, endet mit dem Zeichen `h`, das in base64 `0b100001` entspricht. Die letzten `0001`-Bits sind daher „Overflow-Bits“ und werden ignoriert. Dies ist nur mit `lastChunkHandling: "loose"` gültig und decodierbar.
 
 ```js
 const uint8Array = Uint8Array.fromBase64("PGI+ TURO PC9i Ph");
 console.log(uint8Array); // Uint8Array(10) [60, 98, 62, 77, 68, 78, 60, 47, 98, 62]
 ```
 
-### Dekodierung eines URL-sicheren Base64-Strings
+### Eine URL-sichere base64-Zeichenfolge decodieren
 
-Dieses Beispiel verwendet die Option `alphabet`, um einen URL-sicheren Base64-String zu dekodieren.
+In diesem Beispiel wird die Option `alphabet` verwendet, um eine URL-sichere base64-Zeichenfolge zu decodieren.
 
 ```js
 const uint8Array = Uint8Array.fromBase64("PGI-TUROPC9iPg", {
@@ -78,9 +78,9 @@ const uint8Array = Uint8Array.fromBase64("PGI-TUROPC9iPg", {
 console.log(uint8Array); // Uint8Array(10) [60, 98, 62, 77, 68, 78, 60, 47, 98, 62]
 ```
 
-### Dekodierung eines Base64-Strings mit strikter Handhabung des letzten Blocks
+### Eine base64-Zeichenfolge mit strikter Behandlung des letzten Blocks decodieren
 
-Dieses Beispiel verwendet die Option `lastChunkHandling`, um einen Base64-String zu dekodieren, bei dem der letzte Block exakt 4 Zeichen lang mit Auffüllzeichen `=` sein muss und die Überlauf-Bits 0 sein müssen.
+In diesem Beispiel wird die Option `lastChunkHandling` verwendet, um eine base64-Zeichenfolge zu decodieren. Dabei muss der letzte Block genau 4 Zeichen lang sein und `=`-Zeichen als Padding enthalten; außerdem müssen die Overflow-Bits den Wert 0 haben.
 
 ```js
 const array1 = Uint8Array.fromBase64("PGI+ TURO PC9i Pg==", {
@@ -99,9 +99,9 @@ const array3 = Uint8Array.fromBase64("PGI+ TURO PC9i Pg", {
 // Throws a SyntaxError because the last chunk is not exactly 4 characters long
 ```
 
-### Dekodierung eines Base64-Strings mit partieller Handhabung des letzten Blocks
+### Eine base64-Zeichenfolge unter Ignorieren eines unvollständigen letzten Blocks decodieren
 
-Dieses Beispiel verwendet die Option `lastChunkHandling`, um einen Base64-String zu dekodieren und dabei jeden partiellen letzten Block zu ignorieren.
+In diesem Beispiel wird die Option `lastChunkHandling` verwendet, um eine base64-Zeichenfolge zu decodieren. Ein unvollständiger letzter Block wird dabei ignoriert.
 
 ```js
 // The last chunk is complete
@@ -145,8 +145,8 @@ const array5 = Uint8Array.fromBase64("PGI+ TURO PC9i P=", {
 
 ## Siehe auch
 
-- [Polyfill von `Uint8Array.fromBase64` in `core-js`](https://github.com/zloirock/core-js#uint8array-to--from-base64-and-hex)
-- [es-shims polyfill von `Uint8Array.fromBase64`](https://www.npmjs.com/package/es-arraybuffer-base64)
+- [Polyfill für `Uint8Array.fromBase64` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Polyfill für `Uint8Array.fromBase64` von es-shims](https://www.npmjs.com/package/es-arraybuffer-base64)
 - {{jsxref("Uint8Array")}}
 - {{jsxref("Uint8Array.prototype.setFromBase64()")}}
 - {{jsxref("Uint8Array.prototype.toBase64()")}}

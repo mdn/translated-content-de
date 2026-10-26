@@ -3,10 +3,10 @@ title: Array.prototype.map()
 short-title: map()
 slug: Web/JavaScript/Reference/Global_Objects/Array/map
 l10n:
-  sourceCommit: 4df87a237b1ffa981254e5e3c97628f890ab1191
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`map()`** Methode von {{jsxref("Array")}} Instanzen erstellt ein neues Array, das mit den Ergebnissen einer bereitgestellten Funktion gefüllt ist, die auf jedes Element im aufrufenden Array angewendet wird.
+Die Methode **`map()`** von {{jsxref("Array")}}-Instanzen erstellt ein neues Array, dessen Elemente die Ergebnisse des Aufrufs einer bereitgestellten Funktion für jedes Element des ursprünglichen Arrays sind.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.map()")}}
 
@@ -30,35 +30,35 @@ map(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Der Rückgabewert wird als einzelnes Element im neuen Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element des Arrays ausgeführt wird. Ihr Rückgabewert wird als einzelnes Element zum neuen Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das gerade im Array verarbeitet wird.
+      - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
-      - : Der Index des aktuellen Elements, das gerade im Array verarbeitet wird.
+      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
     - `array`
       - : Das Array, auf dem `map()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der bei der Ausführung von `callbackFn` als `this` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Ein neues Array, bei dem jedes Element das Ergebnis der Callback-Funktion ist.
+Ein neues Array, in dem jedes Element das Ergebnis der Callback-Funktion ist.
 
 ## Beschreibung
 
-Die `map()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf und erstellt aus den Ergebnissen ein neues Array. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die Methode `map()` ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte Funktion `callbackFn` einmal für jedes Element eines Arrays auf und erstellt aus den Ergebnissen ein neues Array. Weitere Informationen zur allgemeinen Funktionsweise dieser Methoden finden Sie im Abschnitt [Iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Sie wird nicht für leere Slots in [sparse arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Für leere Positionen in [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) wird die Funktion nicht aufgerufen.
 
-Die `map()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this` Wert eine `length` Eigenschaft und Ganzzahl-indizierte Eigenschaften hat.
+Die Methode `map()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln hat.
 
-Da `map` ein neues Array erstellt, wird ein Aufruf ohne Verwendung des zurückgegebenen Arrays als Anti-Pattern angesehen; verwenden Sie stattdessen {{jsxref("Array/forEach", "forEach")}} oder {{jsxref("Statements/for...of", "for...of")}}.
+Da `map` ein neues Array erstellt, gilt es als Anti-Pattern, die Methode aufzurufen, ohne das zurückgegebene Array zu verwenden. Verwenden Sie stattdessen {{jsxref("Array/forEach", "forEach")}} oder {{jsxref("Statements/for...of", "for...of")}}.
 
 ## Beispiele
 
-### Mapping eines Zahlenarrays auf ein Array von Quadratwurzeln
+### Ein Array von Zahlen auf ein Array von Quadratwurzeln abbilden
 
-Der folgende Code nimmt ein Array von Zahlen und erstellt ein neues Array, das die Quadratwurzeln der Zahlen im ersten Array enthält.
+Der folgende Code nimmt ein Array von Zahlen und erstellt ein neues Array mit den Quadratwurzeln der Zahlen aus dem ursprünglichen Array.
 
 ```js
 const numbers = [1, 4, 9];
@@ -68,9 +68,9 @@ const roots = numbers.map((num) => Math.sqrt(num));
 // numbers is still [1, 4, 9]
 ```
 
-### Verwenden von map, um Objekte in einem Array neu zu formatieren
+### Objekte in einem Array mit map neu formatieren
 
-Der folgende Code nimmt ein Array von Objekten und erstellt ein neues Array, das die neu formatierten Objekte enthält.
+Der folgende Code nimmt ein Array von Objekten und erstellt ein neues Array mit den neu formatierten Objekten.
 
 ```js
 const kvArray = [
@@ -90,19 +90,19 @@ console.log(kvArray);
 // ]
 ```
 
-### Verwenden von parseInt() mit map()
+### parseInt() mit map() verwenden
 
-Es ist üblich, den Callback mit einem Argument zu verwenden (das durchlaufene Element). Bestimmte Funktionen werden auch häufig mit einem Argument verwendet, obwohl sie zusätzliche optionale Argumente nehmen. Diese Gewohnheiten können zu verwirrenden Verhaltensweisen führen. Betrachten Sie:
+Häufig wird der Callback mit einem Argument verwendet (dem gerade durchlaufenen Element). Bestimmte Funktionen werden ebenfalls häufig mit einem Argument verwendet, obwohl sie zusätzliche optionale Argumente annehmen. Diese Gewohnheiten können zu verwirrendem Verhalten führen. Betrachten Sie Folgendes:
 
 ```js
 ["1", "2", "3"].map(parseInt);
 ```
 
-Während man `[1, 2, 3]` erwarten könnte, ist das tatsächliche Ergebnis `[1, NaN, NaN]`.
+Obwohl man `[1, 2, 3]` erwarten könnte, lautet das tatsächliche Ergebnis `[1, NaN, NaN]`.
 
-{{jsxref("parseInt")}} wird häufig mit einem Argument verwendet, nimmt jedoch zwei. Das erste ist ein Ausdruck und das zweite ist die Basis (radix); an die Callback-Funktion `Array.prototype.map` werden 3 Argumente übergeben: das Element, der Index und das Array. Das dritte Argument wird von {{jsxref("parseInt")}} ignoriert – aber _nicht_ das zweite! Dies ist die Quelle möglicher Verwirrung.
+{{jsxref("parseInt")}} wird oft mit einem Argument verwendet, nimmt aber zwei entgegen: Das erste ist ein Ausdruck, das zweite die Zahlenbasis. `Array.prototype.map` übergibt der Callback-Funktion drei Argumente: das Element, den Index und das Array. Das dritte Argument wird von {{jsxref("parseInt")}} ignoriert – das zweite jedoch _nicht_! Darin liegt die Ursache für die mögliche Verwirrung.
 
-Hier ist ein prägnantes Beispiel für die Iterationsschritte:
+Hier ist ein kurzes Beispiel für die einzelnen Iterationsschritte:
 
 ```js
 /* first iteration  (index is 0): */ parseInt("1", 0); // 1
@@ -110,13 +110,13 @@ Hier ist ein prägnantes Beispiel für die Iterationsschritte:
 /* third iteration  (index is 2): */ parseInt("3", 2); // NaN
 ```
 
-Um dies zu lösen, definieren Sie eine andere Funktion, die nur ein Argument nimmt:
+Um dieses Problem zu lösen, definieren Sie eine weitere Funktion, die nur ein Argument entgegennimmt:
 
 ```js
 ["1", "2", "3"].map((str) => parseInt(str, 10)); // [1, 2, 3]
 ```
 
-Sie können auch die {{jsxref("Number")}} Funktion verwenden, die nur ein Argument nimmt:
+Sie können auch die Funktion {{jsxref("Number")}} verwenden, die nur ein Argument entgegennimmt:
 
 ```js
 ["1", "2", "3"].map(Number); // [1, 2, 3]
@@ -128,11 +128,11 @@ Sie können auch die {{jsxref("Number")}} Funktion verwenden, die nur ein Argume
 ["1.1", "2.2e2", "3e300"].map((str) => parseInt(str, 10)); // [1, 2, 3]
 ```
 
-Siehe [Ein JavaScript optionales Argumentproblem](https://wirfs-brock.com/allen/posts/166) von Allen Wirfs-Brock für weitere Diskussionen.
+Weitere Erläuterungen finden Sie in [A JavaScript optional argument hazard](https://wirfs-brock.com/allen/posts/166) von Allen Wirfs-Brock.
 
-### Gemapptes Array enthält undefined
+### Das abgebildete Array enthält undefined
 
-Wenn {{jsxref("undefined")}} oder nichts zurückgegeben wird, enthält das resultierende Array `undefined`. Wenn Sie stattdessen das Element löschen möchten, verketten Sie eine {{jsxref("Array/filter", "filter()")}} Methode oder verwenden Sie die {{jsxref("Array/flatMap", "flatMap()")}} Methode und geben Sie ein leeres Array zurück, um die Löschung anzuzeigen.
+Wenn {{jsxref("undefined")}} oder nichts zurückgegeben wird, enthält das resultierende Array `undefined`. Wenn Sie das Element stattdessen entfernen möchten, verketten Sie die Methode {{jsxref("Array/filter", "filter()")}} oder verwenden Sie die Methode {{jsxref("Array/flatMap", "flatMap()")}} und geben Sie ein leeres Array zurück, um das Entfernen anzuzeigen.
 
 ```js
 const numbers = [1, 2, 3, 4];
@@ -147,9 +147,9 @@ const filteredNumbers = numbers.map((num, index) => {
 // numbers is still [1, 2, 3, 4]
 ```
 
-### Mapping mit Nebeneffekten
+### Abbildung mit Seiteneffekten
 
-Der Callback kann Nebeneffekte haben.
+Der Callback kann Seiteneffekte haben.
 
 ```js
 const cart = [5, 15, 25];
@@ -162,7 +162,7 @@ console.log(withTax); // [6, 18, 30]
 console.log(total); // 45
 ```
 
-Dies wird nicht empfohlen, da Kopiermethoden am besten mit reinen Funktionen verwendet werden. In diesem Fall können wir wählen, das Array zweimal zu durchlaufen.
+Dies wird nicht empfohlen, da Methoden, die eine Kopie erstellen, am besten mit reinen Funktionen verwendet werden. In diesem Fall können wir das Array stattdessen zweimal durchlaufen.
 
 ```js
 const cart = [5, 15, 25];
@@ -170,7 +170,7 @@ const total = cart.reduce((acc, cost) => acc + cost, 0);
 const withTax = cart.map((cost) => cost * 1.2);
 ```
 
-Manchmal geht dieses Muster ins Extreme und das _Einzige_ Nützliche, was `map()` macht, ist, Nebeneffekte zu verursachen.
+Manchmal wird dieses Muster so weit getrieben, dass das _einzige_ Nützliche, was `map()` tut, das Auslösen von Seiteneffekten ist.
 
 ```js
 const products = [
@@ -184,7 +184,7 @@ products.map((product) => {
 });
 ```
 
-Wie zuvor erwähnt, ist dies ein Anti-Pattern. Wenn Sie den Rückgabewert von `map()` nicht verwenden, verwenden Sie `forEach()` oder eine `for...of` Schleife stattdessen.
+Wie bereits erwähnt, ist dies ein Anti-Pattern. Wenn Sie den Rückgabewert von `map()` nicht verwenden, nutzen Sie stattdessen `forEach()` oder eine `for...of`-Schleife.
 
 ```js
 products.forEach((product) => {
@@ -201,9 +201,9 @@ const productsWithPrice = products.map((product) => ({
 }));
 ```
 
-### Verwenden des dritten Arguments von callbackFn
+### Das dritte Argument von callbackFn verwenden
 
-Das `array` Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Das folgende Beispiel verwendet zuerst `filter()`, um die positiven Werte zu extrahieren, und dann `map()`, um ein neues Array zu erstellen, wobei jedes Element der Durchschnitt seiner Nachbarn und sich selbst ist.
+Das Argument `array` ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Im folgenden Beispiel werden zunächst mit `filter()` die positiven Werte extrahiert. Anschließend wird mit `map()` ein neues Array erstellt, in dem jedes Element der Durchschnitt seiner Nachbarelemente und seiner selbst ist.
 
 ```js
 const numbers = [3, -1, 1, 4, 1, 5, 9, 2, 6];
@@ -231,11 +231,11 @@ const averaged = numbers
 console.log(averaged); // [2, 2.67, 2, 3.33, 5, 5.33, 5.67, 4]
 ```
 
-Das `array` Argument ist _nicht_ das Array, das gerade erstellt wird – es gibt keine Möglichkeit, auf das Array zuzugreifen, das aus der Callback-Funktion heraus erstellt wird.
+Das Argument `array` ist _nicht_ das Array, das gerade erstellt wird – von der Callback-Funktion aus gibt es keine Möglichkeit, auf dieses Array zuzugreifen.
 
-### Verwenden von map() mit Sparse Arrays
+### map() bei dünn besetzten Arrays verwenden
 
-Ein Sparse Array bleibt nach einem `map()` Aufruf ein Sparse Array. Die Indizes der leeren Slots bleiben im zurückgegebenen Array leer und die Callback-Funktion wird auf ihnen nicht aufgerufen.
+Ein dünn besetztes Array bleibt auch nach `map()` dünn besetzt. Die Indizes leerer Positionen bleiben im zurückgegebenen Array leer, und die Callback-Funktion wird für diese Positionen nicht aufgerufen.
 
 ```js
 console.log(
@@ -249,9 +249,9 @@ console.log(
 // [2, empty, 6]
 ```
 
-### Aufrufen von map() auf Nicht-Array Objekten
+### map() für Objekte aufrufen, die keine Arrays sind
 
-Die `map()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist.
+Die Methode `map()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -265,14 +265,14 @@ console.log(Array.prototype.map.call(arrayLike, (x) => x ** 2));
 // [ 4, 9, 16 ]
 ```
 
-Dieses Beispiel zeigt, wie man durch eine Sammlung von Objekten iteriert, die durch `querySelectorAll()` gesammelt wurden, um ein Array zu erstellen, das die Werte aller ausgewählten `option` Elemente enthält. Da `querySelectorAll()` eine `NodeList` zurückgibt, die ein array-ähnliches Objekt ohne die `map()` Methode ist, verwenden wir `Array.prototype.map.call()`, wobei wir `elems` als den `this` Wert und den Callback als das zweite Argument übergeben.
+Dieses Beispiel zeigt, wie Sie eine mit `querySelectorAll()` erfasste Sammlung von Objekten durchlaufen und ein Array mit den Werten aller ausgewählten `option`-Elemente zurückgeben. Da `querySelectorAll()` eine `NodeList` zurückgibt – ein Array-ähnliches Objekt ohne die Methode `map()` –, verwenden wir `Array.prototype.map.call()` und übergeben `elems` als `this`-Wert sowie den Callback als zweites Argument.
 
 ```js
 const elems = document.querySelectorAll("select option:checked");
 const values = Array.prototype.map.call(elems, ({ value }) => value);
 ```
 
-Sie können auch {{jsxref("Array.from()")}} verwenden, um `elems` in ein Array zu transformieren und dann auf die `map()` Methode zuzugreifen.
+Sie können auch {{jsxref("Array.from()")}} verwenden, um `elems` in ein Array umzuwandeln, und anschließend auf die Methode `map()` zugreifen.
 
 ## Spezifikationen
 
@@ -284,9 +284,9 @@ Sie können auch {{jsxref("Array.from()")}} verwenden, um `elems` in ein Array z
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.map` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.map`](https://www.npmjs.com/package/array.prototype.map)
-- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.map` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.map` von es-shims](https://www.npmjs.com/package/array.prototype.map)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.forEach()")}}
 - {{jsxref("Array.from()")}}

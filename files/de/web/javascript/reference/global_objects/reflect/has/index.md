@@ -3,10 +3,10 @@ title: Reflect.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/has
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Reflect.has()`** statische Methode ist wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, jedoch als Funktion.
+Die statische Methode **`Reflect.has()`** ähnelt dem [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, wird aber als Funktion aufgerufen.
 
 {{InteractiveExample("JavaScript Demo: Reflect.has()")}}
 
@@ -34,13 +34,13 @@ Reflect.has(target, propertyKey)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, in dem nach der Eigenschaft gesucht werden soll.
+  - : Das Zielobjekt, in dem nach der Eigenschaft gesucht wird.
 - `propertyKey`
-  - : Der Name der zu überprüfenden Eigenschaft.
+  - : Der Name der zu prüfenden Eigenschaft.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, das anzeigt, ob das `target` die Eigenschaft hat oder nicht.
+Ein {{jsxref("Boolean")}}-Wert, der angibt, ob `target` die Eigenschaft besitzt.
 
 ### Ausnahmen
 
@@ -49,17 +49,17 @@ Ein {{jsxref("Boolean")}}, das anzeigt, ob das `target` die Eigenschaft hat oder
 
 ## Beschreibung
 
-`Reflect.has()` bietet die reflexive Semantik der Überprüfung, ob eine Eigenschaft in einem Objekt vorhanden ist. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
+`Reflect.has()` ermöglicht die reflektive Prüfung, ob eine Eigenschaft in einem Objekt vorhanden ist. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch gleichbedeutend mit:
 
 ```js
 propertyKey in target;
 ```
 
-`Reflect.has()` ruft die `[[HasProperty]]`-[objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.has()` ruft die [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) `[[HasProperty]]` von `target` auf.
 
 ## Beispiele
 
-### Verwendung von Reflect.has()
+### Reflect.has() verwenden
 
 ```js
 Reflect.has({ x: 0 }, "x"); // true
@@ -81,7 +81,7 @@ Reflect.has(obj, "doorbell"); // true
 Reflect.has(obj, "dormitory"); // false
 ```
 
-`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator:
+Wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator gibt `Reflect.has` auch für geerbte Eigenschaften `true` zurück:
 
 ```js
 const a = { foo: 123 };
@@ -101,7 +101,7 @@ Reflect.has(c, "foo"); // true
 
 ## Siehe auch
 
-- [Polyfill von `Reflect.has` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
+- [Polyfill für `Reflect.has` in `core-js`](https://core-js.io/docs/features/ecmascript/reflect)
 - {{jsxref("Reflect")}}
 - [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)
 - [`handler.has()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/has)

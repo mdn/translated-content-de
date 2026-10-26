@@ -1,16 +1,16 @@
 ---
-title: "URL: canParse() statische Methode"
+title: "URL: Statische Methode canParse()"
 short-title: canParse()
 slug: Web/API/URL/canParse_static
 l10n:
-  sourceCommit: 5c569deab82d7efb49718eb64b2bda5d5b9c8954
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`URL.canParse()`** statische Methode des [`URL`](/de/docs/Web/API/URL)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob eine absolute URL oder eine relative URL in Kombination mit einer Basis-URL parsbar und gültig ist.
+Die statische Methode **`URL.canParse()`** der [`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob eine absolute URL oder eine relative URL in Kombination mit einer Basis-URL geparst werden kann und gültig ist.
 
-Dies ist eine schnelle und einfache Alternative zur Konstruktion einer `URL` innerhalb eines [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Blocks. Sie gibt `true` für dieselben Werte zurück, für die der [`URL()` Konstruktor](/de/docs/Web/API/URL/URL) erfolgreich wäre, und `false` für Werte, die den Konstruktor zum Werfen bringen würden.
+Dies ist eine schnelle und einfache Alternative dazu, eine `URL` innerhalb eines [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Blocks zu erzeugen. Die Methode gibt für dieselben Werte `true` zurück, für die der [`URL()`-Konstruktor](/de/docs/Web/API/URL/URL) erfolgreich wäre, und `false` für Werte, bei denen der Konstruktor eine Ausnahme auslösen würde.
 
 ## Syntax
 
@@ -22,26 +22,26 @@ URL.canParse(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein beliebiges anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich, zum Beispiel, eines {{htmlelement("a")}} oder {{htmlelement("area")}} Elements — das eine absolute oder relative URL darstellt.
+  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} – beispielsweise ein {{htmlelement("a")}}- oder {{htmlelement("area")}}-Element –, das eine absolute oder relative URL darstellt.
     Wenn `url` eine relative URL ist, ist `base` erforderlich und wird als Basis-URL verwendet.
-    Wenn `url` eine absolute URL ist, wird eine angegebene `base` ignoriert.
+    Wenn `url` eine absolute URL ist, wird ein angegebener Wert für `base` ignoriert.
 - `base` {{optional_inline}}
-  - : Ein String, der die Basis-URL darstellt, die verwendet wird, wenn `url` eine relative URL ist.
-    Wird nichts angegeben, ist der Standardwert `undefined`.
+  - : Ein String, der die Basis-URL angibt, die verwendet wird, wenn `url` eine relative URL ist.
+    Wenn kein Wert angegeben wird, ist der Standardwert `undefined`.
 
 > [!NOTE]
-> Die Argumente `url` und `base` werden jeweils aus dem Wert, den Sie übergeben, stringifiziert, genau wie bei anderen Web-APIs, die einen String akzeptieren.
-> Insbesondere können Sie ein bestehendes [`URL`](/de/docs/Web/API/URL)-Objekt für jedes Argument verwenden, und es wird zum [`href`](/de/docs/Web/API/URL/href)-Eigenschaft des Objekts stringifiziert.
+> Die Argumente `url` und `base` werden unabhängig vom übergebenen Wert jeweils in einen String umgewandelt, wie bei anderen Web-APIs, die einen String akzeptieren.
+> Insbesondere können Sie für beide Argumente ein vorhandenes [`URL`](/de/docs/Web/API/URL)-Objekt verwenden. Es wird anhand der [`href`](/de/docs/Web/API/URL/href)-Eigenschaft des Objekts in einen String umgewandelt.
 
 ### Rückgabewert
 
-`true`, wenn die URL geparst werden kann und gültig ist; `false` andernfalls.
+`true`, wenn die URL geparst werden kann und gültig ist; andernfalls `false`.
 
 ## Beispiele
 
-Dieses Live-Beispiel zeigt, wie die `URL.canParse()` statische Methode für einige verschiedene absolute und relative URL-Werte verwendet wird.
+Dieses interaktive Beispiel zeigt, wie Sie die statische Methode `URL.canParse()` mit verschiedenen absoluten und relativen URL-Werten verwenden.
 
-Der erste Teil des Beispiels definiert ein HTML-<pre>-Element zum Protokollieren zusammen mit einer Protokollierungsmethode `log()`.
+Im ersten Teil des Beispiels werden ein HTML-Element `<pre>` für die Protokollausgabe und eine Protokollierungsmethode `log()` definiert.
 
 ```html
 <pre id="log"></pre>
@@ -54,9 +54,9 @@ function log(text) {
 }
 ```
 
-Als nächstes prüfen wir, ob die `URL.canParse()` Methode mit der Bedingung `"canParse" in URL` unterstützt wird.
-Wenn die Methode unterstützt wird, protokollieren wir das Ergebnis der Prüfung einer absoluten URL, einer relativen URL ohne Basis-URL und einer relativen URL mit einer gültigen Basis-URL.
-Wir protokollieren auch den Fall, wenn `URL.canParse()` nicht unterstützt wird.
+Anschließend prüfen wir mit der Bedingung `"canParse" in URL`, ob die Methode `URL.canParse()` unterstützt wird.
+Wenn die Methode unterstützt wird, protokollieren wir die Ergebnisse für eine absolute URL, eine relative URL ohne Basis-URL und eine relative URL mit einer gültigen Basis-URL.
+Wir protokollieren auch den Fall, dass `URL.canParse()` nicht unterstützt wird.
 
 ```js
 if ("canParse" in URL) {
@@ -79,8 +79,8 @@ if ("canParse" in URL) {
 }
 ```
 
-Zuletzt zeigt der untenstehende Code, dass `baseUrl` kein String sein muss.
-Hier haben wir ein `URL`-Objekt übergeben.
+Abschließend zeigt der folgende Code, dass `baseUrl` kein String sein muss.
+Hier übergeben wir ein `URL`-Objekt.
 
 ```js
 if ("canParse" in URL) {
@@ -92,7 +92,7 @@ if ("canParse" in URL) {
 }
 ```
 
-Die Ergebnisse jedes der Tests werden unten angezeigt.
+Die Ergebnisse der einzelnen Prüfungen sind unten zu sehen.
 
 {{EmbedLiveSample('Examples', '100%', '200')}}
 
@@ -107,4 +107,4 @@ Die Ergebnisse jedes der Tests werden unten angezeigt.
 ## Siehe auch
 
 - [`URL()`](/de/docs/Web/API/URL/URL)
-- [Ein Polyfill von `URL.canParse()`](https://github.com/zloirock/core-js#url-and-urlsearchparams) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.
+- [Ein Polyfill für `URL.canParse()`](https://core-js.io/docs/features/web-standards/url) ist in [`core-js`](https://core-js.io/) verfügbar.

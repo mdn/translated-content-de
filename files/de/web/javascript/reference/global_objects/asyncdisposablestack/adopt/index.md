@@ -3,12 +3,12 @@ title: AsyncDisposableStack.prototype.adopt()
 short-title: adopt()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/adopt
 l10n:
-  sourceCommit: 419694495e070daaf466c923b413b3f476740fd6
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`adopt()`** Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen registriert einen Wert, der das asynchrone Disposable-Protokoll nicht implementiert, auf dem Stack, indem eine benutzerdefinierte Entsorgerfunktion bereitgestellt wird.
+Die Methode **`adopt()`** von {{jsxref("AsyncDisposableStack")}}-Instanzen registriert einen Wert, der das asynchrone Disposable-Protokoll nicht implementiert, mithilfe einer benutzerdefinierten Funktion zur Freigabe im Stack.
 
-Siehe {{jsxref("DisposableStack.prototype.adopt()")}} für allgemeine Informationen über die `adopt()`-Methode.
+Allgemeine Informationen zur Methode `adopt()` finden Sie unter {{jsxref("DisposableStack.prototype.adopt()")}}.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ adopt(value, onDispose)
 ### Parameter
 
 - `value`
-  - : Jeder Wert, der auf dem Stack registriert werden soll.
+  - : Ein beliebiger Wert, der im Stack registriert werden soll.
 - `onDispose`
-  - : Eine Funktion, die aufgerufen wird, wenn der Stack entsorgt wird. Die Funktion erhält `value` als einziges Argument und kann ein Promise zurückgeben, das abgewartet wird.
+  - : Eine Funktion, die aufgerufen wird, wenn der Stack freigegeben wird. Sie erhält `value` als einziges Argument und kann ein Promise zurückgeben, dessen Erfüllung abgewartet wird.
 
 ### Rückgabewert
 
-Der gleiche `value`, der übergeben wurde.
+Derselbe `value`, der übergeben wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `onDispose` keine Funktion ist.
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits entsorgt ist.
+  - : Wird ausgelöst, wenn der Stack bereits freigegeben wurde.
 
 ## Beispiele
 
-### Verwendung von adopt()
+### adopt() verwenden
 
-Diese Funktion erstellt einen Datei-Handle (als Node.js [`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle)), der geschlossen wird, wenn die Funktion abgeschlossen wird. Wir nehmen an, dass der Datei-Handle das asynchrone Disposable-Protokoll nicht implementiert (in Wirklichkeit tut er das), somit verwenden wir `adopt()`, um ihn auf dem Stack zu registrieren. Da die Methode `handle.close()` ein Promise zurückgibt, müssen wir einen `AsyncDisposableStack` verwenden, damit das Entsorgen abgewartet werden kann.
+Diese Funktion erstellt ein Datei-Handle (ein Node.js-[`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle)), das geschlossen wird, wenn die Funktion abgeschlossen ist. Wir nehmen an, dass das Datei-Handle das asynchrone Disposable-Protokoll nicht implementiert (tatsächlich tut es das). Deshalb verwenden wir `adopt()`, um es im Stack zu registrieren. Da die Methode `handle.close()` ein Promise zurückgibt, müssen wir einen `AsyncDisposableStack` verwenden, damit die Freigabe abgewartet wird.
 
 ```js
 async function readFile(path) {
@@ -63,6 +63,7 @@ async function readFile(path) {
 
 ## Siehe auch
 
+- [Polyfill für `AsyncDisposableStack.prototype.adopt` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.defer()")}}

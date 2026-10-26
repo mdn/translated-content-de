@@ -3,10 +3,10 @@ title: String.prototype.big()
 short-title: big()
 slug: Web/JavaScript/Reference/Global_Objects/String/big
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`big()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("big")}}-Element einbettet (`<big>str</big>`), wodurch dieser String in einer großen Schrift angezeigt wird.
+Die Methode **`big()`** von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("big")}}-Element einbettet (`<big>str</big>`). Dadurch wird der String in einer großen Schrift angezeigt.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `big()` wurde das `<big>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<big>`-Start-Tag beginnt, dann den Text `str`, und dann einen `</big>`-End-Tag enthält.
+Ein String, der mit einem `<big>`-Start-Tag beginnt, darauf den Text `str` enthält und mit einem `</big>`-End-Tag endet.
 
 ## Beispiele
 
-### Verwendung von big()
+### big() verwenden
 
-Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt anschließend den Inhalt des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -37,7 +37,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.big();
 ```
 
-Dadurch wird folgendes HTML erstellt:
+Dadurch entsteht das folgende HTML:
 
 ```html
 <big>Hello, world</big>
@@ -46,7 +46,7 @@ Dadurch wird folgendes HTML erstellt:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `big` kein gültiges Element mehr ist.
 
-Anstatt `big()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Beispielsweise können Sie {{cssxref("font-size")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
+Anstatt `big()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie Schriftarten mit CSS anpassen. Beispielsweise können Sie {{cssxref("font-size")}} über das Attribut [`element.style`](/de/docs/Web/API/HTMLElement/style) ändern:
 
 ```js
 document.getElementById("yourElemId").style.fontSize = "2em";
@@ -62,7 +62,7 @@ document.getElementById("yourElemId").style.fontSize = "2em";
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.big` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.big`](https://www.npmjs.com/package/es-string-html-methods)
+- [Polyfill für `String.prototype.big` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.big` von es-shims](https://www.npmjs.com/package/es-string-html-methods)
 - [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("big")}}

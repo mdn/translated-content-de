@@ -3,10 +3,10 @@ title: Math.f16round()
 short-title: f16round()
 slug: Web/JavaScript/Reference/Global_Objects/Math/f16round
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Math.f16round()`** statische Methode gibt die nächste [16-Bit-Halb-Präzisions](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)-Fließkommadarstellung einer Zahl zurück.
+Die statische Methode **`Math.f16round()`** gibt die nächstgelegene [16-Bit-Gleitkommadarstellung mit halber Genauigkeit](https://en.wikipedia.org/wiki/Half-precision_floating-point_format) einer Zahl zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.f16round()")}}
 
@@ -37,33 +37,33 @@ Math.f16round(doubleFloat)
 
 ### Rückgabewert
 
-Die nächste [16-Bit-Halb-Präzisions](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)-Fließkommadarstellung von `doubleFloat`.
+Die nächstgelegene [16-Bit-Gleitkommadarstellung mit halber Genauigkeit](https://en.wikipedia.org/wiki/Half-precision_floating-point_format) von `doubleFloat`.
 
 ## Beschreibung
 
-`Math.f16round` ist das 16-Bit-Gegenstück zu {{jsxref("Math.fround()")}}. Es soll einige Ungenauigkeiten glätten, wenn mit float16-Zahlen interagiert wird, wie z.B. beim Lesen aus einem {{jsxref("Float16Array")}}. Intern behandelt JavaScript die Zahl weiterhin als 64-Bit-Fließkommazahl, es führt lediglich ein "round to even" auf dem 10. Bit der Mantisse durch und setzt alle folgenden Mantissabits auf `0`. Befindet sich die Zahl außerhalb des Bereichs eines 16-Bit-Fließkommas, wird {{jsxref("Infinity")}} oder `-Infinity` zurückgegeben.
+`Math.f16round` ist das 16-Bit-Gegenstück zu {{jsxref("Math.fround()")}}. Die Methode soll den Umgang mit float16-Zahlen erleichtern, etwa beim Lesen aus einem {{jsxref("Float16Array")}}. Intern behandelt JavaScript die Zahl weiterhin als 64-Bit-Gleitkommazahl. Es rundet lediglich das 10. Bit der Mantisse auf die nächste gerade Zahl und setzt alle folgenden Mantissenbits auf `0`. Liegt die Zahl außerhalb des Wertebereichs einer 16-Bit-Gleitkommazahl, wird {{jsxref("Infinity")}} oder `-Infinity` zurückgegeben.
 
-Da `f16round()` eine statische Methode von `Math` ist, verwendet man sie immer als `Math.f16round()` und nicht als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `f16round()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.f16round()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.f16round()
+### Math.f16round() verwenden
 
-Die Zahl 1.5 kann im binären Zahlensystem präzise dargestellt werden und ist in 16-Bit und 64-Bit identisch:
+Die Zahl 1,5 lässt sich im Binärsystem exakt darstellen und ist in 16 Bit und 64 Bit identisch:
 
 ```js
 Math.f16round(1.5); // 1.5
 Math.f16round(1.5) === 1.5; // true
 ```
 
-Die Zahl 1.337 kann jedoch im binären Zahlensystem nicht präzise dargestellt werden, daher unterscheidet sie sich in 16-Bit und 64-Bit:
+Die Zahl 1,337 lässt sich dagegen im Binärsystem nicht exakt darstellen. Daher unterscheidet sich ihre Darstellung in 16 Bit und 64 Bit:
 
 ```js
 Math.f16round(1.337); // 1.3369140625
 Math.f16round(1.337) === 1.337; // false
 ```
 
-100000 ist zu groß für ein 16-Bit-Fließkomma, daher wird `Infinity` zurückgegeben:
+100000 ist zu groß für eine 16-Bit-Gleitkommazahl. Daher wird `Infinity` zurückgegeben:
 
 ```js
 Math.f16round(100000); // Infinity
@@ -79,7 +79,7 @@ Math.f16round(100000); // Infinity
 
 ## Siehe auch
 
-- [Polyfill von `Math.f16round` in `core-js`](https://github.com/zloirock/core-js#float16-methods)
-- [es-shims Polyfill von `Math.f16round`](https://www.npmjs.com/package/math.f16round)
+- [Polyfill für `Math.f16round` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
+- [Polyfill für `Math.f16round` von es-shims](https://www.npmjs.com/package/math.f16round)
 - {{jsxref("Math.fround()")}}
 - {{jsxref("Math.round()")}}

@@ -1,12 +1,12 @@
 ---
-title: Error() Konstruktor
+title: Error()-Konstruktor
 short-title: Error()
 slug: Web/JavaScript/Reference/Global_Objects/Error/Error
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`Error()`** Konstruktor erzeugt {{jsxref("Error")}} Objekte.
+Der **`Error()`**-Konstruktor erstellt {{jsxref("Error")}}-Objekte.
 
 ## Syntax
 
@@ -25,27 +25,27 @@ Error(message, fileName, lineNumber)
 ```
 
 > [!NOTE]
-> `Error()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `Error` Instanz.
+> `Error()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. In beiden Fällen wird eine neue `Error`-Instanz erstellt.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Eine menschenlesbare Beschreibung des Fehlers.
+  - : Eine für Menschen lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das folgende Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Ein Wert, der die spezifische Ursache des Fehlers angibt, wie in der {{jsxref("Error/cause", "cause")}} Eigenschaft widergespiegelt. Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Ein Wert, der die konkrete Ursache des Fehlers angibt und in der Eigenschaft {{jsxref("Error/cause", "cause")}} gespeichert wird. Wenn ein Fehler abgefangen und mit einer genaueren oder hilfreicheren Fehlermeldung erneut ausgelöst wird, kann über diese Eigenschaft der ursprüngliche Fehler weitergegeben werden.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Pfad zur Datei, die diesen Fehler ausgelöst hat, wie in der {{jsxref("Error/fileName", "fileName")}} Eigenschaft widergespiegelt. Standardmäßig der Name der Datei, die den `Error()` Konstruktor aufgerufen hat.
+  - : Der Pfad zur Datei, in der der Fehler aufgetreten ist. Er wird in der Eigenschaft {{jsxref("Error/fileName", "fileName")}} gespeichert. Der Standardwert ist der Name der Datei mit dem Code, der den `Error()`-Konstruktor aufgerufen hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer in der Datei, bei der der Fehler aufgetreten ist, wie in der {{jsxref("Error/lineNumber", "lineNumber")}} Eigenschaft widergespiegelt. Standardmäßig die Zeilennummer, die den `Error()` Konstruktoraufruf enthält.
+  - : Die Zeilennummer innerhalb der Datei, in der der Fehler aufgetreten ist. Sie wird in der Eigenschaft {{jsxref("Error/lineNumber", "lineNumber")}} gespeichert. Der Standardwert ist die Zeilennummer des Aufrufs des `Error()`-Konstruktors.
 
 ## Beispiele
 
 ### Funktionsaufruf oder Konstruktion mit new
 
-Wenn `Error` wie eine Funktion verwendet wird, das heißt ohne {{jsxref("new")}}, wird es ein `Error` Objekt zurückgeben.
-Daher wird ein einfacher Aufruf von `Error` die gleiche Ausgabe erzeugen, die das Konstruieren eines `Error` Objekts über das `new` Schlüsselwort geben würde.
+Wenn `Error` wie eine Funktion verwendet wird, also ohne {{jsxref("new")}}, gibt es ein `Error`-Objekt zurück.
+Ein einfacher Aufruf von `Error` liefert daher dasselbe Ergebnis wie die Erstellung eines `Error`-Objekts mit dem Schlüsselwort `new`.
 
 ```js
 const x = Error("I was created using a function call!");
@@ -56,8 +56,8 @@ const y = new Error('I was constructed via the "new" keyword!');
 
 ### Erneutes Auslösen eines Fehlers mit einer Ursache
 
-Es ist manchmal nützlich, einen Fehler abzufangen und ihn mit einer neuen Nachricht erneut auszulösen.
-In diesem Fall sollten Sie den ursprünglichen Fehler in den Konstruktor für den neuen `Error` übergeben, wie gezeigt.
+Manchmal ist es sinnvoll, einen Fehler abzufangen und mit einer neuen Meldung erneut auszulösen.
+Übergeben Sie in diesem Fall den ursprünglichen Fehler an den Konstruktor des neuen `Error`-Objekts, wie hier gezeigt.
 
 ```js
 try {
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-Für ein ausführlicheres Beispiel siehe [Error > Differenzierung zwischen ähnlichen Fehlern](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
+Ein ausführlicheres Beispiel finden Sie unter [Error > Ähnliche Fehler unterscheiden](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
 
-### Weglassen des options Arguments
+### Weglassen des options-Arguments
 
-JavaScript versucht nur dann `options.cause` zu lesen, wenn `options` ein Objekt ist — dies vermeidet Verwirrung mit der anderen nicht standardmäßigen `Error(message, fileName, lineNumber)` Signatur, die als zweiten Parameter einen String erfordert. Wenn Sie `options` weglassen, einen primitiven Wert als `options` übergeben oder ein Objekt ohne die `cause` Eigenschaft übergeben, dann wird das erstellte `Error` Objekt keine `cause` Eigenschaft haben.
+JavaScript versucht nur dann, `options.cause` auszulesen, wenn `options` ein Objekt ist. Dadurch werden Mehrdeutigkeiten mit der anderen, nicht standardisierten Signatur `Error(message, fileName, lineNumber)` vermieden, bei der der zweite Parameter ein String sein muss. Wenn Sie `options` weglassen, einen primitiven Wert als `options` übergeben oder ein Objekt ohne die Eigenschaft `cause` übergeben, besitzt das erstellte `Error`-Objekt keine Eigenschaft `cause`.
 
 ```js
 // Omitting options
@@ -97,8 +97,8 @@ console.log("cause" in error3); // false
 
 ## Siehe auch
 
-- [Polyfill des `Error` mit `cause` Unterstützung in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)
-- [es-shims Polyfill von Error `cause`](https://www.npmjs.com/package/error-cause)
+- [Polyfill für `Error` mit Unterstützung für `cause` in `core-js`](https://core-js.io/docs/features/ecmascript/error)
+- [es-shims-Polyfill für Error `cause`](https://www.npmjs.com/package/error-cause)
 - {{jsxref("Statements/throw", "throw")}}
 - {{jsxref("Statements/try...catch", "try...catch")}}
-- [Error causes](https://v8.dev/features/error-cause) auf v8.dev (2021)
+- [Fehlerursachen](https://v8.dev/features/error-cause) auf v8.dev (2021)

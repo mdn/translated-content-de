@@ -3,10 +3,10 @@ title: DataView.prototype.setFloat16()
 short-title: setFloat16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setFloat16
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`setFloat16()`** Methode der {{jsxref("DataView")}} Instanzen nimmt eine Zahl und speichert sie als 16-Bit-Gleitkommazahl in den 2 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem innerhalb der Grenzen liegenden Offset gespeichert werden.
+Die Methode **`setFloat16()`** von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl entgegen und speichert sie als 16-Bit-Gleitkommazahl in den 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsanforderung; Werte, die mehrere Bytes umfassen, können an jedem Offset innerhalb der Grenzen gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setFloat16()")}}
 
@@ -31,11 +31,11 @@ setFloat16(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, ab dem Anfang der Ansicht, zu dem die Daten gespeichert werden sollen.
+  - : Der Offset in Bytes vom Anfang der Ansicht bis zu der Stelle, an der die Daten gespeichert werden.
 - `value`
-  - : Der Wert, der festgelegt werden soll. Informationen darüber, wie der Wert in Bytes kodiert wird, finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der zu setzende Wert. Wie der Wert in Bytes codiert wird, erfahren Sie unter [Wertcodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert werden. Ist `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little-Endian- oder Big-Endian-Format")}} gespeichert werden. Bei `false` oder `undefined` wird ein Wert im Big-Endian-Format geschrieben.
 
 ### Rückgabewert
 
@@ -44,7 +44,7 @@ setFloat16(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so eingestellt wird, dass es über das Ende der Ansicht hinaus speichert.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass die Daten über das Ende der Ansicht hinaus gespeichert würden.
 
 ## Beispiele
 
@@ -67,8 +67,8 @@ dataview.getFloat16(1); // 0
 
 ## Siehe auch
 
-- [Polyfill von `DataView.prototype.setFloat16` in `core-js`](https://github.com/zloirock/core-js#float16-methods)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `DataView.prototype.setFloat16` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) – Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Float16Array")}}

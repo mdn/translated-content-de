@@ -1,16 +1,16 @@
 ---
-title: "URL: parse() statische Methode"
+title: "URL: Statische Methode parse()"
 short-title: parse()
 slug: Web/API/URL/parse_static
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`URL.parse()`** statische Methode des [`URL`](/de/docs/Web/API/URL)-Interfaces gibt ein neu erstelltes [`URL`](/de/docs/Web/API/URL)-Objekt zurück, das die durch die Parameter definierte URL darstellt.
+Die statische Methode **`URL.parse()`** der Schnittstelle [`URL`](/de/docs/Web/API/URL) gibt ein neu erstelltes [`URL`](/de/docs/Web/API/URL)-Objekt zurück, das die durch die Parameter definierte URL darstellt.
 
-Wenn die angegebene Basis-URL oder die resultierende URL nicht analysierbar und gültig sind, wird `null` zurückgegeben. Dies ist eine Alternative zur Verwendung des [`URL()`](/de/docs/Web/API/URL/URL)-Konstruktors, um eine `URL` innerhalb eines [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Blocks zu konstruieren, oder zur Verwendung von [`canParse()`](/de/docs/Web/API/URL/canParse_static), um die Parameter zu überprüfen und `null` zurückzugeben, wenn die Methode `false` zurückgibt.
+Wenn die angegebene Basis-URL oder die resultierende URL nicht geparst werden kann oder keine gültige URL ist, wird `null` zurückgegeben. Dies ist eine Alternative dazu, mit dem Konstruktor [`URL()`](/de/docs/Web/API/URL/URL) innerhalb eines [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Blocks eine `URL` zu erstellen oder die Parameter mit [`canParse()`](/de/docs/Web/API/URL/canParse_static) zu prüfen und `null` zurückzugeben, wenn die Methode `false` zurückgibt.
 
 ## Syntax
 
@@ -22,26 +22,32 @@ URL.parse(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}}, das eine absolute URL oder eine relative Referenz zu einer URL darstellt. Wenn `url` eine relative Referenz ist, ist `base` erforderlich und wird verwendet, um die endgültige URL zu ermitteln. Wenn `url` eine absolute URL ist, wird eine angegebene `base` nicht verwendet, um die resultierende URL zu erstellen.
+  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}}, das eine absolute URL oder einen relativen Verweis auf eine URL darstellt.
+    Wenn `url` ein relativer Verweis ist, ist `base` erforderlich und wird verwendet, um die endgültige URL zu ermitteln.
+    Wenn `url` eine absolute URL ist, wird ein angegebener Wert für `base` nicht verwendet, um die resultierende URL zu erstellen.
 - `base` {{optional_inline}}
-  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `url` eine relative URL ist. Falls nicht angegeben, ist der Standardwert `undefined`.
+  - : Ein String, der die Basis-URL darstellt, die verwendet werden soll, wenn `url` eine relative URL ist.
+    Wenn der Parameter nicht angegeben wird, ist sein Standardwert `undefined`.
 
-    Wenn Sie eine `base`-URL angeben, ist die ermittelte URL nicht einfach eine Verkettung von `url` und `base`. Relative Referenzen zum übergeordneten und aktuellen Verzeichnis werden relativ zum aktuellen Verzeichnis der `base`-URL aufgelöst, das nur Pfadsegmente bis zum letzten Schrägstrich, aber keine danach enthält. Relative Referenzen zur Wurzel werden relativ zum Basis-Ursprung aufgelöst. Weitere Informationen finden Sie unter [Resolving relative references to a URL](/de/docs/Web/API/URL_API/Resolving_relative_references).
+    Wenn Sie eine `base`-URL angeben, wird die aufgelöste URL nicht einfach durch Aneinanderhängen von `url` und `base` gebildet.
+    Relative Verweise auf das übergeordnete und das aktuelle Verzeichnis werden relativ zum aktuellen Verzeichnis der `base`-URL aufgelöst. Dieses umfasst nur die Pfadsegmente bis zum letzten Schrägstrich, nicht aber die darauf folgenden.
+    Weitere Informationen finden Sie unter [Relative Verweise auf eine URL auflösen](/de/docs/Web/API/URL_API/Resolving_relative_references).
 
 > [!NOTE]
-> Die Argumente `url` und `base` werden von dem Wert, den Sie übergeben, wie ein [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) oder [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Element, stringifiziert, genau wie bei anderen Web-APIs, die einen String akzeptieren. Insbesondere können Sie ein vorhandenes [`URL`](/de/docs/Web/API/URL)-Objekt für jedes Argument verwenden, und es wird aus der [`href`](/de/docs/Web/API/URL/href)-Eigenschaft des Objekts stringifiziert.
+> Die Argumente `url` und `base` werden unabhängig vom übergebenen Wert jeweils in einen String umgewandelt, etwa wenn Sie ein [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)- oder [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Element übergeben. Dies gilt auch für andere Web-APIs, die einen String akzeptieren.
+> Insbesondere können Sie für beide Argumente ein vorhandenes [`URL`](/de/docs/Web/API/URL)-Objekt verwenden. Es wird anhand der [`href`](/de/docs/Web/API/URL/href)-Eigenschaft des Objekts in einen String umgewandelt.
 
 ### Rückgabewert
 
-Eine `URL`, wenn die Parameter zu einer gültigen URL aufgelöst werden können; sonst `null`.
+Eine `URL`, wenn sich aus den Parametern eine gültige URL ermitteln lässt; andernfalls `null`.
 
 ## Beispiele
 
-[Resolving relative references to a URL](/de/docs/Web/API/URL_API/Resolving_relative_references) und [`URL()` constructor](/de/docs/Web/API/URL/URL#examples) bieten weitere Beispiele, die zeigen, wie unterschiedliche `url`- und `base`-Werte zu einer endgültigen absoluten URL aufgelöst werden (hauptsächlich durch die Verwendung von `URL()`).
+[Relative Verweise auf eine URL auflösen](/de/docs/Web/API/URL_API/Resolving_relative_references) und [Konstruktor `URL()`](/de/docs/Web/API/URL/URL#examples) enthalten weitere Beispiele dafür, wie verschiedene Werte für `url` und `base` zu einer endgültigen absoluten URL aufgelöst werden, hauptsächlich unter Verwendung von `URL()`.
 
-### Verwendung von URL.parse()
+### URL.parse() verwenden
 
-Dieses Live-Beispiel zeigt, wie die `URL.parse()`-statische Methode für einige verschiedene absolute und relative Referenzwerte verwendet wird.
+Dieses interaktive Beispiel zeigt, wie Sie die statische Methode `URL.parse()` mit verschiedenen absoluten URLs und relativen Verweisen verwenden.
 
 ```html hidden
 <pre id="log"></pre>
@@ -63,9 +69,10 @@ function log(text) {
 }
 ```
 
-Zuerst überprüfen wir, ob die `URL.parse()`-Methode unterstützt wird, indem wir die Bedingung `"parse" in URL` verwenden. Wenn die Methode unterstützt wird, protokollieren wir das Ergebnis der Überprüfung einer absoluten URL, einer relativen Referenz und einer Basis-URL, einer relativen Referenz mit einer [komplizierteren Basis-URL](/de/docs/Web/API/URL_API/Resolving_relative_references), einer gültigen absoluten URL mit einer gültigen Basis-URL (die nicht verwendet wird), und einer ungültigen Basis-URL, die dazu führt, dass die Methode `null` zurückgibt.
+Zunächst prüfen wir mit der Bedingung `"parse" in URL`, ob die Methode `URL.parse()` unterstützt wird.
+Wenn sie unterstützt wird, protokollieren wir die Ergebnisse für eine absolute URL, einen relativen Verweis mit einer Basis-URL, einen relativen Verweis mit einer [komplexeren Basis-URL](/de/docs/Web/API/URL_API/Resolving_relative_references), eine gültige absolute URL mit einer gültigen Basis-URL (die nicht verwendet wird) sowie eine ungültige Basis-URL, bei der die Methode `null` zurückgibt.
 
-Wir protokollieren auch den Fall, wenn `URL.parse()` nicht unterstützt wird.
+Wir protokollieren auch den Fall, dass `URL.parse()` nicht unterstützt wird.
 
 ```js
 if ("parse" in URL) {
@@ -100,7 +107,7 @@ if ("parse" in URL) {
 }
 ```
 
-Zuletzt zeigt der untenstehende Code, dass die Argumente keine Strings sein müssen, indem ein `URL`-Objekt für den `base`-Parameter übergeben wird.
+Abschließend zeigt der folgende Code, dass die Argumente keine Strings sein müssen: Für den Parameter `base` wird ein `URL`-Objekt übergeben.
 
 ```js
 if ("parse" in URL) {
@@ -110,7 +117,7 @@ if ("parse" in URL) {
 }
 ```
 
-Die Ergebnisse jedes der Checks sind unten zu sehen.
+Die Ergebnisse der einzelnen Prüfungen sind unten dargestellt.
 
 {{EmbedLiveSample('URL.parse()', '100%')}}
 
@@ -124,5 +131,5 @@ Die Ergebnisse jedes der Checks sind unten zu sehen.
 
 ## Siehe auch
 
-- [`URL()` Constructor](/de/docs/Web/API/URL/URL), der eine Ausnahme auslöst, wenn die übergebenen Parameter eine ungültige URL definieren
-- [Ein Polyfill von `URL.parse()`](https://github.com/zloirock/core-js#url-and-urlsearchparams) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.
+- [Konstruktor `URL()`](/de/docs/Web/API/URL/URL), der eine Ausnahme auslöst, wenn die übergebenen Parameter eine ungültige URL definieren
+- [Ein Polyfill für `URL.parse()`](https://core-js.io/docs/features/web-standards/url) ist in [`core-js`](https://core-js.io/) verfügbar

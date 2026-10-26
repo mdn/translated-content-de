@@ -3,10 +3,10 @@ title: TypedArray.prototype.fill()
 short-title: fill()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/fill
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`fill()`**-Methode von {{jsxref("TypedArray")}}-Instanzen ändert alle Elemente innerhalb eines Indexbereichs in einem typisierten Array in einen statischen Wert. Sie gibt das modifizierte typisierte Array zurück. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.fill()")}}.
+Die Methode **`fill()`** von {{jsxref("TypedArray")}}-Instanzen setzt alle Elemente innerhalb eines Indexbereichs in einem typisierten Array auf einen festen Wert. Sie gibt das veränderte typisierte Array zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.fill()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.fill()", "shorter")}}
 
@@ -30,23 +30,23 @@ fill(value, start, end)
 ### Parameter
 
 - `value`
-  - : Wert, mit dem das typisierte Array gefüllt werden soll.
+  - : Der Wert, mit dem das typisierte Array gefüllt werden soll.
 - `start` {{optional_inline}}
-  - : Nullbasierter Index, ab dem gefüllt werden soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der nullbasierte Index, ab dem gefüllt wird; er wird [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, bis zu dem gefüllt werden soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `fill()` füllt bis, aber nicht einschließlich `end`.
+  - : Der nullbasierte Index, bis zu dem gefüllt wird; er wird [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `fill()` füllt bis zu diesem Index, jedoch ohne `end` einzuschließen.
 
 ### Rückgabewert
 
-Das modifizierte typisierte Array, gefüllt mit `value`.
+Das veränderte typisierte Array, das mit `value` gefüllt wurde.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.fill()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Informationen finden Sie unter {{jsxref("Array.prototype.fill()")}}. Diese Methode ist nicht generisch und kann nur für Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Nutzung von fill()
+### fill() verwenden
 
 ```js
 new Uint8Array([1, 2, 3]).fill(4); // Uint8Array [4, 4, 4]
@@ -66,7 +66,7 @@ new Uint8Array([1, 2, 3]).fill(4, -3, -2); // Uint8Array [4, 2, 3]
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.fill` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Polyfill für `TypedArray.prototype.fill` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) – Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("Array.prototype.fill()")}}

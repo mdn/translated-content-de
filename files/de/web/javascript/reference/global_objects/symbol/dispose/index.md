@@ -3,32 +3,32 @@ title: Symbol.dispose
 short-title: dispose
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/dispose
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Symbol.dispose`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.dispose`. Die {{jsxref("Statements/using", "using")}}-Deklaration sucht dieses Symbol im Variableninitialisierer, um die Methode aufzurufen, wenn die Variable aus dem Gültigkeitsbereich verschwindet.
+Die statische Dateneigenschaft **`Symbol.dispose`** steht für das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.dispose`. Die {{jsxref("Statements/using", "using")}}-Deklaration sucht im Initialisierungswert der Variablen nach diesem Symbol, um die Methode zu ermitteln, die aufgerufen werden soll, wenn die Variable ihren Gültigkeitsbereich verlässt.
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.dispose`.
+Das bekannte Symbol `Symbol.dispose`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Ein Objekt ist entsorgbar, wenn es die Methode `[Symbol.dispose]()` hat. Die Methode sollte die folgenden Semantiken haben:
+Ein Objekt kann explizit freigegeben werden, wenn es über die Methode `[Symbol.dispose]()` verfügt. Für diese Methode wird das folgende Verhalten erwartet:
 
-- Der Aufruf dieser Methode teilt dem Disposable-Objekt mit, dass der Anrufer nicht beabsichtigt, dieses Objekt weiterhin zu verwenden. Diese Methode sollte jede notwendige Logik ausführen, um die Ressource explizit zu bereinigen, einschließlich, aber nicht beschränkt auf Dateisystem-Handles, Streams, Hostobjekte usw.
-- Wenn von dieser Methode eine Ausnahme ausgelöst wird, bedeutet dies typischerweise, dass die Ressource nicht explizit freigegeben werden konnte.
-- Wenn die Methode mehrmals auf dasselbe Objekt aufgerufen wird, sollte die Funktion keine Ausnahme werfen. Diese Anforderung wird jedoch nicht erzwungen.
+- Der Aufruf dieser Methode teilt dem freizugebenden Objekt mit, dass der Aufrufer es nicht weiter verwenden möchte. Die Methode sollte alle erforderlichen Schritte ausführen, um die Ressource explizit freizugeben. Dazu gehören unter anderem Dateisystem-Handles, Streams und Host-Objekte.
+- Wenn diese Methode eine Ausnahme auslöst, bedeutet dies in der Regel, dass die Ressource nicht explizit freigegeben werden konnte.
+- Wird die Methode mehrmals für dasselbe Objekt aufgerufen, sollte sie keine Ausnahme auslösen. Diese Anforderung wird jedoch nicht erzwungen.
 
-Diese Methode sollte kein Promise zurückgeben, da Promises, die von `[Symbol.dispose]()` zurückgegeben werden, nicht von {{jsxref("Statements/await_using", "await using")}} abgewartet werden. Um asynchrone Disposables zu deklarieren, verwenden Sie {{jsxref("Symbol.asyncDispose")}}.
+Diese Methode sollte kein Promise zurückgeben, da von `[Symbol.dispose]()` zurückgegebene Promises durch {{jsxref("Statements/await_using", "await using")}} nicht abgewartet werden. Verwenden Sie {{jsxref("Symbol.asyncDispose")}}, um asynchron freizugebende Objekte zu definieren.
 
 ## Beispiele
 
-### Benutzerdefinierte Disposables
+### Benutzerdefinierte freizugebende Objekte
 
-`[Symbol.dispose]` ermöglicht die Erstellung benutzerdefinierter Disposables. Weitere Informationen finden Sie in der {{jsxref("Statements/using", "using")}}-Referenz.
+`[Symbol.dispose]` ermöglicht es, eigene freizugebende Objekte zu erstellen. Weitere Informationen finden Sie in der Referenz zu {{jsxref("Statements/using", "using")}}.
 
 ```js
 class Disposable {
@@ -63,7 +63,7 @@ console.log(resource.isDisposed); // true
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.dispose` in `core-js`](https://github.com/zloirock/core-js#explicit-resource-management)
+- [Polyfill für `Symbol.dispose` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("Symbol.asyncDispose")}}
 - {{jsxref("Statements/using", "using")}}

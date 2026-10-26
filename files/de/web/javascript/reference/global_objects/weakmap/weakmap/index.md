@@ -3,7 +3,7 @@ title: WeakMap()-Konstruktor
 short-title: WeakMap()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/WeakMap
 l10n:
-  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 Der **`WeakMap()`**-Konstruktor erstellt {{jsxref("WeakMap")}}-Objekte.
@@ -16,16 +16,16 @@ new WeakMap(iterable)
 ```
 
 > [!NOTE]
-> `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `iterable`
-  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-elementiges array-ähnliches Objekt produziert, dessen erstes Element ein Wert ist, der als `WeakMap`-Schlüssel verwendet wird und dessen zweites Element der Wert ist, der diesem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
+  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das arrayähnliche Objekte mit jeweils zwei Elementen liefert. Das erste Element ist ein Wert, der als `WeakMap`-Schlüssel verwendet wird; das zweite Element ist der Wert, der diesem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird wie `undefined` behandelt.
 
 ## Beispiele
 
-### Verwendung von WeakMap
+### WeakMap verwenden
 
 ```js
 const wm1 = new WeakMap();
@@ -67,7 +67,7 @@ wm1.has(o1); // false
 
 ## Siehe auch
 
-- [Polyfill von `WeakMap` in `core-js`](https://github.com/zloirock/core-js#weakmap)
+- [Polyfill für `WeakMap` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-weakmap)
 - [`WeakMap` im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}

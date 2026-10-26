@@ -3,12 +3,12 @@ title: Symbol.split
 short-title: split
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/split
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Dateneigenschaft **`Symbol.split`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht dieses Symbol im ersten Argument für die Methode, die einen String an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
+Die statische Dateneigenschaft **`Symbol.split`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht auf ihrem ersten Argument nach diesem Symbol, um die Methode zu finden, die einen String an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
 
-Für mehr Informationen siehe [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.split", "taller")}}
 
@@ -37,7 +37,7 @@ Das bekannte Symbol `Symbol.split`.
 
 ## Beispiele
 
-### Benutzerdefiniertes Rückwärts-Split
+### Benutzerdefinierte umgekehrte Aufteilung
 
 ```js
 class ReverseSplit {
@@ -61,7 +61,7 @@ console.log("Another one bites the dust".split(new ReverseSplit()));
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.split` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [Polyfill für `Symbol.split` in `core-js`](https://core-js.io/docs/features/ecmascript/symbol)
 - {{jsxref("Symbol.match")}}
 - {{jsxref("Symbol.matchAll")}}
 - {{jsxref("Symbol.replace")}}

@@ -3,10 +3,10 @@ title: RegExp.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/toString
 l10n:
-  sourceCommit: 939067a53bb5bb3787f2d536b83df2252d4e838e
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toString()`**-Methode von {{jsxref("RegExp")}}-Instanzen gibt einen String zurück, der diesen regulären Ausdruck repräsentiert.
+Die Methode **`toString()`** von {{jsxref("RegExp")}}-Instanzen gibt einen String zurück, der diesen regulären Ausdruck repräsentiert.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.toString()", "taller")}}
 
@@ -39,13 +39,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der das gegebene Objekt repräsentiert.
+Ein String, der das angegebene Objekt repräsentiert.
 
 ## Beschreibung
 
-Das {{jsxref("RegExp")}}-Objekt überschreibt die `toString()`-Methode des {{jsxref("Object")}}-Objekts; es erbt nicht von {{jsxref("Object.prototype.toString()")}}. Für {{jsxref("RegExp")}}-Objekte gibt die `toString()`-Methode eine String-Darstellung des regulären Ausdrucks zurück.
+Das {{jsxref("RegExp")}}-Objekt überschreibt die Methode `toString()` des {{jsxref("Object")}}-Objekts; es erbt {{jsxref("Object.prototype.toString()")}} nicht. Für {{jsxref("RegExp")}}-Objekte gibt die Methode `toString()` eine String-Darstellung des regulären Ausdrucks zurück.
 
-In der Praxis liest es die [`source`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source)- und [`flags`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags)-Eigenschaften des Regex aus und gibt einen String in der Form `/source/flags` zurück. Der Rückgabewert von `toString()` ist garantiert ein parsierbares Regex-Literal, auch wenn es möglicherweise nicht exakt derselbe Text ist, der ursprünglich für das Regex angegeben wurde (zum Beispiel könnten die Flags neu geordnet sein).
+In der Praxis liest sie die Eigenschaften [`source`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source) und [`flags`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags) des regulären Ausdrucks und gibt einen String der Form `/source/flags` zurück. Der Rückgabewert von `toString()` ist garantiert ein gültiges Literal für einen regulären Ausdruck, auch wenn er möglicherweise nicht genau dem ursprünglich angegebenen Text entspricht (beispielsweise können die Flags anders angeordnet sein).
 
 ## Beispiele
 
@@ -61,9 +61,9 @@ const foo = new RegExp("bar", "g");
 console.log(foo.toString()); // '/bar/g'
 ```
 
-### Leere reguläre Ausdrücke und Escaping
+### Leere reguläre Ausdrücke und Escape-Sequenzen
 
-Da `toString()` auf die [`source`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source)-Eigenschaft zugreift, gibt ein leerer regulärer Ausdruck den String `"/(?:)/"` zurück, und Zeilenumbrüche wie `\n` werden escaped. Dies macht den zurückgegebenen Wert immer zu einem gültigen Regex-Literal.
+Da `toString()` auf die Eigenschaft [`source`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source) zugreift, gibt ein leerer regulärer Ausdruck den String `"/(?:)/"` zurück. Zeilenabschlusszeichen wie `\n` werden mit Escape-Zeichen versehen. Dadurch ist der Rückgabewert immer ein gültiges Literal für einen regulären Ausdruck.
 
 ```js
 new RegExp().toString(); // "/(?:)/"
@@ -81,4 +81,5 @@ new RegExp("\n").toString() === "/\\n/"; // true
 
 ## Siehe auch
 
+- [Polyfill für das moderne Verhalten von `RegExp.prototype.toString` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
 - {{jsxref("Object.prototype.toString()")}}

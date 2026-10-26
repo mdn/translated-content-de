@@ -3,10 +3,10 @@ title: TypedArray.prototype.at()
 short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/at
 l10n:
-  sourceCommit: de5b264fa7bf6bb49811bf79f8f28f10835bfb79
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`at()`** Methode von {{jsxref("TypedArray")}} Instanzen nimmt einen ganzzahligen Wert und gibt das Element an diesem Index zurück, wobei positive und negative Ganzzahlen zulässig sind. Negative Ganzzahlen zählen vom letzten Element im typisierten Array rückwärts. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.at()")}}.
+Die Methode **`at()`** von {{jsxref("TypedArray")}}-Instanzen nimmt eine Ganzzahl entgegen und gibt das Element an diesem Index zurück. Dabei sind positive und negative Ganzzahlen zulässig. Negative Ganzzahlen zählen vom letzten Element des typisierten Arrays rückwärts. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.at()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.at()")}}
 
@@ -33,21 +33,21 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Nullbasierter Index des typisierten Array-Elements, das zurückgegeben werden soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Ein negativer Index zählt vom Ende des typisierten Arrays zurück — wenn `index < 0`, wird `index + array.length` aufgerufen.
+  - : Nullbasierter Index des zurückzugebenden Elements des typisierten Arrays, der [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird. Ein negativer Index zählt vom Ende des typisierten Arrays rückwärts – wenn `index < 0`, wird auf `index + array.length` zugegriffen.
 
 ### Rückgabewert
 
-Das Element im typisierten Array, das dem gegebenen Index entspricht. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length`, ohne zu versuchen, auf die entsprechende Eigenschaft zuzugreifen.
+Das Element des typisierten Arrays am angegebenen Index. Wenn `index < -array.length` oder `index >= array.length`, wird immer {{jsxref("undefined")}} zurückgegeben, ohne zu versuchen, auf die entsprechende Eigenschaft zuzugreifen.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.at()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.at()")}}. Diese Methode ist nicht generisch und kann nur für Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Das letzte Element eines typisierten Arrays zurückgeben
+### Den letzten Wert eines typisierten Arrays zurückgeben
 
-Das folgende Beispiel bietet eine Funktion, die das letzte in einem angegebenen Array gefundene Element zurückgibt.
+Das folgende Beispiel zeigt eine Funktion, die das letzte Element eines angegebenen Arrays zurückgibt.
 
 ```js
 const uint8 = new Uint8Array([1, 2, 4, 7, 11, 18]);
@@ -61,9 +61,9 @@ const lastItem = returnLast(uint8);
 console.log(lastItem); // 18
 ```
 
-### Vergleich von Methoden
+### Methoden vergleichen
 
-Hier vergleichen wir verschiedene Möglichkeiten, das vorletzte (das vor dem letzten) Element eines {{jsxref("TypedArray")}} auszuwählen. Während alle unten aufgeführten Methoden gültig sind, wird die Prägnanz und Lesbarkeit der `at()` Methode hervorgehoben.
+Hier vergleichen wir verschiedene Möglichkeiten, das vorletzte Element eines {{jsxref("TypedArray")}} auszuwählen. Alle folgenden Methoden sind gültig; der Vergleich verdeutlicht jedoch, wie knapp und gut lesbar die Methode `at()` ist.
 
 ```js
 // Our typed array with values
@@ -92,9 +92,9 @@ console.log(atWay); // 11
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.at` in `core-js`](https://github.com/zloirock/core-js#relative-indexing-method)
-- [es-shims Polyfill von `TypedArray.prototype.at`](https://www.npmjs.com/package/typedarray.prototype.at)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.at` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [es-shims-Polyfill für `TypedArray.prototype.at`](https://www.npmjs.com/package/typedarray.prototype.at)
+- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)-Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.indexOf()")}}

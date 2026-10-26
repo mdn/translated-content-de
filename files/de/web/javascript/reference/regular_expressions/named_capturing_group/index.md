@@ -2,10 +2,10 @@
 title: "Benannte Erfassungsgruppe: (?<name>...)"
 slug: Web/JavaScript/Reference/Regular_expressions/Named_capturing_group
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Eine **benannte Erfassungsgruppe** ist eine besondere Art von [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group), die es Ihnen ermöglicht, der Gruppe einen Namen zu geben. Das Abgleichsergebnis der Gruppe kann später durch diesen Namen identifiziert werden, anstatt durch seinen Index im Muster.
+Eine **benannte Erfassungsgruppe** ist eine besondere Art von [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group), der Sie einen Namen geben können. Das Übereinstimmungsergebnis der Gruppe lässt sich später über diesen Namen statt über ihren Index im Muster identifizieren.
 
 ## Syntax
 
@@ -16,50 +16,50 @@ Eine **benannte Erfassungsgruppe** ist eine besondere Art von [Erfassungsgruppe]
 ### Parameter
 
 - `pattern`
-  - : Ein Muster, das alles enthalten kann, das Sie in einem Regex-Literal verwenden können, einschließlich einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
+  - : Ein Muster, das aus allem bestehen kann, was in einem Literal für reguläre Ausdrücke zulässig ist, einschließlich einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
 - `name`
   - : Der Name der Gruppe. Muss ein gültiger [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) sein.
 
 ## Beschreibung
 
-Benannte Erfassungsgruppen können genauso wie Erfassungsgruppen verwendet werden - sie haben ebenfalls ihren Abgleichsindex im Ergebnisarray und können durch `\1`, `\2` usw. referenziert werden. Der einzige Unterschied ist, dass sie _zusätzlich_ durch ihren Namen referenziert werden können. Die Informationen des Abgleichs der Erfassungsgruppe können abgerufen werden durch:
+Benannte Erfassungsgruppen können wie andere Erfassungsgruppen verwendet werden: Sie haben ebenfalls einen Übereinstimmungsindex im Ergebnisarray und können über `\1`, `\2` usw. referenziert werden. Der einzige Unterschied besteht darin, dass sie _zusätzlich_ über ihren Namen referenziert werden können. Auf die Informationen zur Übereinstimmung einer Erfassungsgruppe können Sie wie folgt zugreifen:
 
-- Die `groups`-Eigenschaft des Rückgabewerts von {{jsxref("RegExp.prototype.exec()")}}, {{jsxref("String.prototype.match()")}}, und {{jsxref("String.prototype.matchAll()")}}
-- Der `groups`-Parameter der `replacement`-Rückruffunktion der Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}}
-- [Benannte Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) innerhalb desselben Musters
+- Über die Eigenschaft `groups` des Rückgabewerts von {{jsxref("RegExp.prototype.exec()")}}, {{jsxref("String.prototype.match()")}} und {{jsxref("String.prototype.matchAll()")}}
+- Über den Parameter `groups` der `replacement`-Callback-Funktion der Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}}
+- Über [benannte Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) innerhalb desselben Musters
 
-Alle Namen müssen einzigartig innerhalb desselben Musters sein. Mehrere benannte Erfassungsgruppen mit demselben Namen führen zu einem Syntaxfehler.
+Alle Namen müssen innerhalb desselben Musters eindeutig sein. Mehrere benannte Erfassungsgruppen mit demselben Namen führen zu einem Syntaxfehler.
 
 ```js-nolint example-bad
 /(?<name>)(?<name>)/; // SyntaxError: Invalid regular expression: Duplicate capture group name
 ```
 
-Diese Einschränkung wird gelockert, wenn die doppelten benannten Erfassungsgruppen nicht in derselben [Disjunktionsalternative](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) sind, so dass für jede Zeichenketteingabe nur eine benannte Erfassungsgruppe tatsächlich abgeglichen werden kann. Dies ist ein viel neueres Feature, daher überprüfen Sie bitte die [Browser-Kompatibilität](#browser-kompatibilität), bevor Sie es verwenden.
+Diese Einschränkung gilt nicht, wenn sich die benannten Erfassungsgruppen mit demselben Namen in unterschiedlichen [Disjunktionsalternativen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) befinden, sodass für jede Eingabezeichenfolge tatsächlich nur eine benannte Erfassungsgruppe eine Übereinstimmung erzielen kann. Diese Funktion ist deutlich neuer. Prüfen Sie daher vor ihrer Verwendung die [Browser-Kompatibilität](#browser-kompatibilität).
 
 ```js
 /(?<year>\d{4})-\d{2}|\d{2}-(?<year>\d{4})/;
 // Works; "year" can either come before or after the hyphen
 ```
 
-Benannte Erfassungsgruppen werden alle im Ergebnis vorhanden sein. Wenn eine benannte Erfassungsgruppe nicht abgeglichen wird (beispielsweise gehört sie zu einer nicht abgeglichenen Alternative in einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)), hat die entsprechende Eigenschaft im `groups`-Objekt den Wert `undefined`.
+Alle benannten Erfassungsgruppen sind im Ergebnis vorhanden. Wenn für eine benannte Erfassungsgruppe keine Übereinstimmung gefunden wird (beispielsweise weil sie zu einer nicht übereinstimmenden Alternative in einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) gehört), hat die entsprechende Eigenschaft des `groups`-Objekts den Wert `undefined`.
 
 ```js
 /(?<ab>ab)|(?<cd>cd)/.exec("cd").groups; // [Object: null prototype] { ab: undefined, cd: 'cd' }
 ```
 
-Sie können die Start- und Endindizes jeder benannten Erfassungsgruppe in der Eingabestring mit dem [`d`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices) Flag erhalten. Zusätzlich zum Zugriff auf diese über die `indices`-Eigenschaft des Arrays, das von `exec()` zurückgegeben wird, können Sie auch über ihre Namen auf `indices.groups` darauf zugreifen.
+Mit dem Flag [`d`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices) können Sie den Anfangs- und Endindex jeder benannten Erfassungsgruppe in der Eingabezeichenfolge ermitteln. Neben dem Zugriff über die Eigenschaft `indices` des von `exec()` zurückgegebenen Arrays können Sie über `indices.groups` auch anhand der Namen darauf zugreifen.
 
-Im Vergleich zu unbenannten Erfassungsgruppen bieten benannte Erfassungsgruppen folgende Vorteile:
+Gegenüber unbenannten Erfassungsgruppen haben benannte Erfassungsgruppen folgende Vorteile:
 
-- Sie ermöglichen es Ihnen, jedem Teilergebniss einen beschreibenden Namen zu geben.
-- Sie ermöglichen den Zugriff auf Teilergebnisse, ohne sich an die Reihenfolge erinnern zu müssen, in der sie im Muster erscheinen.
-- Beim Refactoring von Code können Sie die Reihenfolge der Erfassungsgruppen ändern, ohne sich Sorgen machen zu müssen, andere Referenzen zu brechen.
+- Sie können jedem Ergebnis einer Teilübereinstimmung einen aussagekräftigen Namen geben.
+- Sie können auf die Ergebnisse von Teilübereinstimmungen zugreifen, ohne sich deren Reihenfolge im Muster merken zu müssen.
+- Bei der Umstrukturierung von Code können Sie die Reihenfolge der Erfassungsgruppen ändern, ohne befürchten zu müssen, dass andere Referenzen dadurch ungültig werden.
 
 ## Beispiele
 
-### Verwendung benannter Erfassungsgruppen
+### Benannte Erfassungsgruppen verwenden
 
-Das folgende Beispiel analysiert einen Zeitstempel und einen Autorennamen aus einem Git-Log-Eintrag (Ausgabe mit `git log --format=%ct,%an -- filename`):
+Das folgende Beispiel liest einen Zeitstempel und den Namen eines Autors aus einem Git-Protokolleintrag aus (ausgegeben mit `git log --format=%ct,%an -- filename`):
 
 ```js
 function parseLog(entry) {
@@ -84,10 +84,10 @@ parseLog("1560979912,Caroline"); // "Caroline committed on 6/19/2019, 5:31:52 PM
 
 ## Siehe auch
 
-- [Polyfill benannter Erfassungsgruppen in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
+- [Polyfill für benannte Erfassungsgruppen in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Leitfaden zu Gruppen und Rückverweisen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
 - [Nicht erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
 - [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
-- [ESLint Regel: `prefer-named-capture-group`](https://eslint.org/docs/latest/rules/prefer-named-capture-group)
+- [ESLint-Regel: `prefer-named-capture-group`](https://eslint.org/docs/latest/rules/prefer-named-capture-group)

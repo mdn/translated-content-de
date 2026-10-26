@@ -3,12 +3,12 @@ title: Symbol.replace
 short-title: replace
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/replace
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Dateneigenschaft **`Symbol.replace`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.replace`. Die Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} suchen dieses Symbol in ihrem ersten Argument, um die Methode zu finden, die Teilstrings ersetzt, die mit dem aktuellen Objekt übereinstimmen.
+Die statische Dateneigenschaft **`Symbol.replace`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.replace`. Die Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} suchen auf ihrem ersten Argument nach diesem Symbol, um die Methode zu finden, die Teilzeichenfolgen ersetzt, auf die das aktuelle Objekt passt.
 
-Für weitere Informationen siehe [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace), {{jsxref("String.prototype.replace()")}}, und {{jsxref("String.prototype.replaceAll()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace), {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.replace")}}
 
@@ -28,13 +28,13 @@ console.log("foo".replace(new Replace1("bar")));
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.replace`.
+Das bekannte Symbol `Symbol.replace`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beispiele
 
-### Verwendung von Symbol.replace
+### Symbol.replace verwenden
 
 <!-- cSpell:ignore tball -->
 
@@ -61,7 +61,7 @@ console.log("football".replace(new CustomReplacer("foo"))); // "#!@?tball"
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.replace` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [Polyfill für `Symbol.replace` in `core-js`](https://core-js.io/docs/features/ecmascript/symbol)
 - {{jsxref("Symbol.match")}}
 - {{jsxref("Symbol.matchAll")}}
 - {{jsxref("Symbol.search")}}

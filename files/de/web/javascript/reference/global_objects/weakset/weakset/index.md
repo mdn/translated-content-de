@@ -3,7 +3,7 @@ title: WeakSet()-Konstruktor
 short-title: WeakSet()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/WeakSet
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 Der **`WeakSet()`**-Konstruktor erstellt {{jsxref("WeakSet")}}-Objekte.
@@ -16,16 +16,16 @@ new WeakSet(iterable)
 ```
 
 > [!NOTE]
-> `WeakSet()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `WeakSet()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
-  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente dem neuen `WeakSet` hinzugefügt. `null` wird als `undefined` behandelt.
+  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente dem neuen `WeakSet` hinzugefügt. `null` wird wie `undefined` behandelt.
 
 ## Beispiele
 
-### Verwendung des WeakSet-Objekts
+### Das WeakSet-Objekt verwenden
 
 ```js
 const ws = new WeakSet();
@@ -43,7 +43,7 @@ ws.has(foo); // false, foo has been removed
 ws.has(bar); // true, bar is retained
 ```
 
-Beachten Sie, dass `foo !== bar`. Während sie ähnliche Objekte sind, _sind sie nicht **das gleiche Objekt**_. Daher werden sie beide der Menge hinzugefügt.
+Beachten Sie, dass `foo !== bar` gilt. Obwohl es sich um ähnliche Objekte handelt, sind sie _nicht **dasselbe Objekt**_. Daher werden beide dem Set hinzugefügt.
 
 ## Spezifikationen
 
@@ -55,5 +55,5 @@ Beachten Sie, dass `foo !== bar`. Während sie ähnliche Objekte sind, _sind sie
 
 ## Siehe auch
 
-- [Polyfill von `WeakSet` in `core-js`](https://github.com/zloirock/core-js#weakset)
+- [Polyfill für `WeakSet` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-weakset)
 - {{jsxref("WeakSet")}}

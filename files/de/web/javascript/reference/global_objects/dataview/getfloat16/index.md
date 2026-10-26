@@ -3,10 +3,10 @@ title: DataView.prototype.getFloat16()
 short-title: getFloat16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getFloat16
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`getFloat16()`** Methode von {{jsxref("DataView")}} Instanzen liest 2 Bytes ab dem angegebenen Byteversatz dieses `DataView` und interpretiert sie als 16-Bit Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbytewerte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die Methode **`getFloat16()`** von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Gleitkommazahl. Es gibt keine Ausrichtungsanforderung; Mehrbytewerte können von jedem Offset innerhalb der Grenzen gelesen werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.getFloat16()")}}
 
@@ -31,9 +31,9 @@ getFloat16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Versatz in Bytes vom Anfang der Ansicht, ab dem die Daten gelesen werden.
+  - : Der Offset in Bytes vom Anfang der Ansicht bis zu den zu lesenden Daten.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little-Endian- oder Big-Endian-Format")}} gespeichert sind. Wenn der Wert `false` oder `undefined` ist, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
@@ -42,7 +42,7 @@ Eine Gleitkommazahl von `-65504` bis `65504`.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so festgelegt ist, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 
@@ -64,8 +64,8 @@ console.log(dataview.getFloat16(1)); // 0.00001537799835205078
 
 ## Siehe auch
 
-- [Polyfill von `DataView.prototype.getFloat16` in `core-js`](https://github.com/zloirock/core-js#float16-methods)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `DataView.prototype.getFloat16` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) – Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Float16Array")}}

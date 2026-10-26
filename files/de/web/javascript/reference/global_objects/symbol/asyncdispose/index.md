@@ -3,31 +3,31 @@ title: Symbol.asyncDispose
 short-title: asyncDispose
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Dateneigenschaft **`Symbol.asyncDispose`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncDispose`. Die {{jsxref("Statements/await_using", "await using")}}-Deklaration sucht dieses Symbol im Variablen-Initializer für die Methode, die aufgerufen werden soll, wenn die Variable außer Reichweite gerät.
+Die statische Dateneigenschaft **`Symbol.asyncDispose`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncDispose`. Die Deklaration {{jsxref("Statements/await_using", "await using")}} sucht im Initialisierungswert der Variablen nach diesem Symbol, um die Methode zu bestimmen, die aufgerufen wird, wenn die Variable ihren Gültigkeitsbereich verlässt.
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.asyncDispose`.
+Das bekannte Symbol `Symbol.asyncDispose`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Ein Objekt ist asynchron disposable, wenn es die Methode `[Symbol.asyncDispose]()` hat. Diese Methode sollte die folgenden Semantiken besitzen:
+Ein Objekt kann asynchron freigegeben werden, wenn es über die Methode `[Symbol.asyncDispose]()` verfügt. Für diese Methode wird folgendes Verhalten erwartet:
 
-- Der Aufruf dieser Methode benachrichtigt das AsyncDisposable-Objekt, dass der Aufrufer nicht die Absicht hat, das Objekt weiter zu verwenden. Diese Methode sollte alle notwendigen Logiken ausführen, um die Ressource explizit zu bereinigen, einschließlich, aber nicht beschränkt auf Dateisystem-Handles, Streams, Host-Objekte etc.
-- Diese Methode kann ein Promise zurückgeben, das vor dem Fortfahren abgewartet wird.
-- Wenn eine Ausnahme von dieser Methode ausgelöst wird, bedeutet das typischerweise, dass die Ressource nicht explizit freigegeben werden konnte. Ein AsyncDisposable-Objekt wird nicht als "disposed" betrachtet, bis das resultierende Promise erfüllt worden ist.
-- Wenn die Funktion mehr als einmal auf dasselbe Objekt aufgerufen wird, sollte keine Ausnahme ausgelöst werden. Diese Anforderung wird jedoch nicht erzwungen.
+- Ein Aufruf dieser Methode teilt dem AsyncDisposable-Objekt mit, dass der Aufrufer das Objekt nicht weiter verwenden möchte. Die Methode sollte alle erforderlichen Schritte ausführen, um die Ressource ausdrücklich freizugeben. Dazu gehören beispielsweise Dateisystem-Handles, Streams und Host-Objekte.
+- Die Methode kann ein Promise zurückgeben, dessen Erfüllung abgewartet wird, bevor die Ausführung fortgesetzt wird.
+- Wenn diese Methode eine Ausnahme auslöst, bedeutet dies in der Regel, dass die Ressource nicht ausdrücklich freigegeben werden konnte. Ein AsyncDisposable-Objekt gilt erst dann als „freigegeben“, wenn das zurückgegebene Promise erfüllt wurde.
+- Bei mehrmaligem Aufruf für dasselbe Objekt sollte die Funktion keine Ausnahme auslösen. Diese Anforderung wird jedoch nicht erzwungen.
 
 ## Beispiele
 
-### Benutzerdefinierte asynchrone Disposables
+### Benutzerdefinierte asynchron freigebbare Objekte
 
-`[Symbol.asyncDispose]` ermöglicht die Erstellung von benutzerdefinierten asynchronen Disposables. Siehe die Referenz zu `await using` für weitere Informationen.
+`[Symbol.asyncDispose]` ermöglicht es, benutzerdefinierte asynchron freigebbare Objekte zu erstellen. Weitere Informationen finden Sie in der Referenz zu `await using`.
 
 ```js
 class Disposable {
@@ -67,8 +67,8 @@ console.log(resource.isDisposed); // true
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.asyncDispose` in `core-js`](https://github.com/zloirock/core-js#explicit-resource-management)
-- [JavaScript-Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `Symbol.asyncDispose` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [Ressourcenverwaltung in JavaScript](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("Symbol.dispose")}}
 - {{jsxref("Statements/await_using", "await using")}}
 - [`AsyncDisposableStack.prototype[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose)

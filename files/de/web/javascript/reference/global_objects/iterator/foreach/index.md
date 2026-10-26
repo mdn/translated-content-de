@@ -3,10 +3,10 @@ title: Iterator.prototype.forEach()
 short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/forEach
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`forEach()`**-Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich wie {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes vom Iterator produzierte Element aus.
+Die Methode **`forEach()`** von {{jsxref("Iterator")}}-Instanzen ähnelt {{jsxref("Array.prototype.forEach()")}}: Sie führt für jedes vom Iterator erzeugte Element einmal eine bereitgestellte Funktion aus.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ forEach(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator produzierte Element ausgeführt wird. Ihr Rückgabewert wird verworfen. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Ihr Rückgabewert wird verworfen. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuell verarbeitete Element.
     - `index`
@@ -29,11 +29,11 @@ forEach(callbackFn)
 
 ## Beschreibung
 
-`forEach()` iteriert über den Iterator und ruft die `callbackFn` Funktion einmal für jedes Element auf. Im Gegensatz zu den meisten anderen Iterator-Hilfsmethoden funktioniert es nicht mit unendlichen Iteratoren, da es nicht lazy ist.
+`forEach()` durchläuft den Iterator und ruft die Funktion `callbackFn` für jedes Element einmal auf. Anders als die meisten anderen Iterator-Hilfsmethoden kann die Methode nicht mit unendlichen Iteratoren verwendet werden, da sie nicht verzögert ausgeführt wird.
 
 ## Beispiele
 
-### Verwendung von forEach()
+### forEach() verwenden
 
 ```js
 new Set([1, 2, 3]).values().forEach((v) => console.log(v));
@@ -44,7 +44,7 @@ new Set([1, 2, 3]).values().forEach((v) => console.log(v));
 // 3
 ```
 
-Dies ist gleichwertig zu:
+Dies entspricht:
 
 ```js
 for (const v of new Set([1, 2, 3]).values()) {
@@ -62,8 +62,8 @@ for (const v of new Set([1, 2, 3]).values()) {
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill von `Iterator.prototype.forEach`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.forEach` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.forEach` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.find()")}}
 - {{jsxref("Iterator.prototype.map()")}}

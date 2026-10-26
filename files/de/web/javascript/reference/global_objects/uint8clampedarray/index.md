@@ -2,12 +2,12 @@
 title: Uint8ClampedArray
 slug: Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Das **`Uint8ClampedArray`** typisierte Array stellt ein Array von 8-Bit-Ganzzahlen ohne Vorzeichen dar, die auf 0–255 begrenzt sind. Der Inhalt wird standardmäßig auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente im Array über die Methoden des Objekts oder über die standardmäßige Array-Indizierungssyntax (also unter Verwendung von Klammern) zugreifen.
+Das typisierte Array **`Uint8ClampedArray`** stellt ein Array vorzeichenloser 8-Bit-Ganzzahlen dar, deren Werte auf den Bereich von 0 bis 255 begrenzt werden. Die Elemente werden mit `0` initialisiert, sofern nicht ausdrücklich Initialisierungsdaten angegeben werden. Nach der Erstellung können Sie mit den Methoden des Objekts oder mit der üblichen Array-Indexsyntax (also der Klammerschreibweise) auf die Elemente zugreifen.
 
-`Uint8ClampedArray` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
+`Uint8ClampedArray` ist eine Unterklasse der verborgenen Klasse {{jsxref("TypedArray")}}.
 
 ## Konstruktor
 
@@ -16,33 +16,33 @@ Das **`Uint8ClampedArray`** typisierte Array stellt ein Array von 8-Bit-Ganzzahl
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt außerdem statische Eigenschaften von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint8ClampedArray.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall von `Uint8ClampedArray`.
+  - : Gibt einen Zahlenwert für die Größe eines Elements zurück. Bei `Uint8ClampedArray` ist dieser Wert `1`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
 ## Instanzeigenschaften
 
-_Erbt auch Instanzeigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt außerdem Instanzeigenschaften von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
-Diese Eigenschaften sind definiert auf `Uint8ClampedArray.prototype` und werden von allen `Uint8ClampedArray`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Uint8ClampedArray.prototype` definiert und werden von allen `Uint8ClampedArray`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint8ClampedArray.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall eines `Uint8ClampedArray`.
+  - : Gibt einen Zahlenwert für die Größe eines Elements zurück. Bei einer `Uint8ClampedArray`-Instanz ist dieser Wert `1`.
 - {{jsxref("Object/constructor", "Uint8ClampedArray.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Uint8ClampedArray`-Instanzen ist der anfängliche Wert der {{jsxref("Uint8ClampedArray/Uint8ClampedArray", "Uint8ClampedArray")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint8ClampedArray`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("Uint8ClampedArray/Uint8ClampedArray", "Uint8ClampedArray")}}.
 
 ## Instanzmethoden
 
-_Erbt Instanzmethoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt Instanzmethoden von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
 ## Beispiele
 
-### Verschiedene Wege, ein Uint8ClampedArray zu erstellen
+### Verschiedene Möglichkeiten, ein Uint8ClampedArray zu erstellen
 
 ```js
 // From a length
@@ -86,8 +86,8 @@ console.log(uint8cFromIterable);
 
 ## Siehe auch
 
-- [Polyfill von `Uint8ClampedArray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `Uint8ClampedArray` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- Leitfaden zu [typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

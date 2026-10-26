@@ -3,10 +3,10 @@ title: Set.prototype.union()
 short-title: union()
 slug: Web/JavaScript/Reference/Global_Objects/Set/union
 l10n:
-  sourceCommit: d2305d186d6b934b5fdd85d422e59fa8e4151a2d
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`union()`** Methode von {{jsxref("Set")}} Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die entweder in dieser Menge oder in der angegebenen Menge oder in beiden vorhanden sind.
+Die Methode **`union()`** von {{jsxref("Set")}}-Instanzen nimmt eine Menge entgegen und gibt eine neue Menge zurück, die alle Elemente enthält, die in dieser Menge, in der übergebenen Menge oder in beiden enthalten sind.
 
 ## Syntax
 
@@ -17,15 +17,15 @@ union(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}} Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [Set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}} Objekt, das Elemente enthält, die entweder in dieser Menge oder in der `other` Menge oder in beiden vorhanden sind.
+Ein neues {{jsxref("Set")}}-Objekt, das alle Elemente enthält, die in dieser Menge, in der Menge `other` oder in beiden enthalten sind.
 
 ## Beschreibung
 
-In der mathematischen Notation ist _Union_ definiert als:
+In der mathematischen Notation ist die _Vereinigung_ wie folgt definiert:
 
 <!-- Note: the {} need to be double-escaped, once for Yari -->
 <!-- prettier-ignore-start -->
@@ -34,19 +34,19 @@ In der mathematischen Notation ist _Union_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und unter Verwendung eines Venn-Diagramms:
+Als Venn-Diagramm dargestellt:
 
-![Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Die Union von A und B ist der Bereich, der entweder von beiden Kreisen oder von einem der Kreise enthalten wird.](diagram.svg)
+![Ein Venn-Diagramm mit zwei überlappenden Kreisen. Die Vereinigung von A und B ist der Bereich innerhalb eines der beiden Kreise oder beider Kreise.](diagram.svg)
 
-`union()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other` Parameter. Es erfordert, dass {{jsxref("this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, da es direkt die zugrunde liegenden Daten in `this` abruft, ohne benutzerdefinierten Code aufzurufen. Dann iteriert es über `other`, indem es dessen `keys()` Methode aufruft und eine neue Menge mit allen Elementen in `this` sowie allen Elementen in `other`, die in `this` nicht vorhanden sind, konstruiert.
+`union()` akzeptiert [Set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als Parameter `other`. {{jsxref("this")}} muss eine tatsächliche {{jsxref("Set")}}-Instanz sein, da die Methode direkt auf die in `this` gespeicherten Daten zugreift, ohne benutzerdefinierten Code aufzurufen. Anschließend durchläuft sie `other`, indem sie dessen Methode `keys()` aufruft, und erstellt eine neue Menge mit allen Elementen aus `this`, gefolgt von allen Elementen aus `other`, die nicht in `this` enthalten sind.
 
-Die Reihenfolge der Elemente in der zurückgegebenen Menge ist zuerst die in `this`, gefolgt von denen in `other`.
+Die Reihenfolge der Elemente in der zurückgegebenen Menge entspricht zunächst der Reihenfolge in `this`, gefolgt von den Elementen aus `other`.
 
 ## Beispiele
 
-### Verwendung von union()
+### union() verwenden
 
-Im folgenden Beispiel wird die Union zwischen der Menge der geraden Zahlen (<10) und der Menge der perfekten Quadratzahlen (<10) berechnet. Das Ergebnis ist die Menge der Zahlen, die entweder gerade oder ein perfektes Quadrat oder beides sind.
+Das folgende Beispiel berechnet die Vereinigung der Menge gerader Zahlen (<10) und der Menge der Quadratzahlen (<10). Das Ergebnis ist die Menge der Zahlen, die gerade, eine Quadratzahl oder beides sind.
 
 ```js
 const evens = new Set([2, 4, 6, 8]);
@@ -64,8 +64,8 @@ console.log(evens.union(squares)); // Set(6) { 2, 4, 6, 8, 1, 9 }
 
 ## Siehe auch
 
-- [Polyfill von `Set.prototype.union` in `core-js`](https://github.com/zloirock/core-js#new-set-methods)
-- [es-shims Polyfill von `Set.prototype.union`](https://www.npmjs.com/package/set.prototype.union)
+- [Polyfill für `Set.prototype.union` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-set)
+- [Polyfill für `Set.prototype.union` von es-shims](https://www.npmjs.com/package/set.prototype.union)
 - {{jsxref("Set.prototype.difference()")}}
 - {{jsxref("Set.prototype.intersection()")}}
 - {{jsxref("Set.prototype.isDisjointFrom()")}}

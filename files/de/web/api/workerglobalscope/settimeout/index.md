@@ -1,21 +1,21 @@
 ---
-title: "WorkerGlobalScope: setTimeout() Methode"
+title: "WorkerGlobalScope: Methode setTimeout()"
 short-title: setTimeout()
 slug: Web/API/WorkerGlobalScope/setTimeout
 l10n:
-  sourceCommit: 3b7310aac5ffd95db697bf136b7323cffc7e5bd2
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
 > [!WARNING]
-> Wenn der `code`-Parameter verwendet wird, führt diese Methode ihren Wert dynamisch als JavaScript aus.
-> Solche APIs sind bekannt als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und sind potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Attacken.
+> Wenn der Parameter `code` verwendet wird, führt diese Methode seinen Wert dynamisch als JavaScript aus.
+> APIs wie diese werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können ein Angriffsvektor für [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS) sein.
 >
-> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenfolgen zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](/de/docs/Web/API/Window/setTimeout#security_considerations) in `Window.setTimeout()` für mehr Informationen.
+> Sie können dieses Risiko verringern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte statt Zeichenfolgen zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsaspekte](/de/docs/Web/API/Window/setTimeout#security_considerations) bei `Window.setTimeout()`.
 
-Die **`setTimeout()`** Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle setzt einen Timer, der eine Funktion oder angegebenen Code ausführt, sobald der Timer abläuft.
+Die Methode **`setTimeout()`** der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) setzt einen Timer, der nach Ablauf der festgelegten Zeit eine Funktion oder einen angegebenen Codeabschnitt einmal ausführt.
 
 ## Syntax
 
@@ -33,49 +33,49 @@ setTimeout(func, delay, param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `func`
-  - : Eine {{jsxref("Function")}}, die nach dem Ablaufen des Timers ausgeführt wird.
+  - : Eine {{jsxref("Function")}}, die nach Ablauf des Timers ausgeführt wird.
 - `code`
-  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder eine Zeichenfolge von beliebigem Code, der alle `delay` Millisekunden kompiliert und ausgeführt wird.
-    Dies kann anstelle einer Funktion verwendet werden, wird jedoch aus denselben Gründen, die {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen, _stark abgeraten_.
+  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder eine Zeichenfolge mit beliebigem Code, der kompiliert und alle `delay` Millisekunden ausgeführt wird.
+    Dies kann anstelle einer Funktion übergeben werden, wird aber aus denselben Gründen, aus denen die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} ein Sicherheitsrisiko darstellt, _dringend abgeraten_.
 - `delay` {{optional_inline}}
-  - : Die Zeit, die der Timer warten soll, bevor die angegebene Funktion oder der Code ausgeführt wird, in Millisekunden.
-    Standardmäßig 0, wenn nicht angegeben.
+  - : Die Zeit in Millisekunden, die der Timer warten soll, bevor die angegebene Funktion oder der angegebene Code ausgeführt wird.
+    Wenn kein Wert angegeben wird, beträgt er standardmäßig 0.
 
     Hinweis:
-    - Die Verzögerung hat einen maximalen Wert von 2147483647 ms — die Angabe größerer Werte kann zu einem Überlauf oder dem Wert 0 führen.
-      Siehe [maximaler Verzögerungswert](/de/docs/Web/API/Window/setTimeout#maximum_delay_value) für weitere Informationen.
-    - Die tatsächliche Verzögerung kann länger sein als eingestellt.
-      Zum Beispiel wird bei einem `delay` von 0 im nächsten Ereigniszyklus ausgeführt, statt "sofort".
-      Siehe [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/Window/setTimeout#reasons_for_longer_delays_than_specified) für weitere Informationen.
-    - Wenn der Wert keine Zahl ist, wird eine implizite {{Glossary("Type_coercion", "Typkonvertierung")}} stillschweigend durchgeführt, um ihn in eine Zahl zu konvertieren.
-      Dies kann zu unerwarteten und überraschenden Ergebnissen führen — siehe [Nicht-zahlen Verzögerungswerte werden stillschweigend in Zahlen umgewandelt](/de/docs/Web/API/Window/setTimeout#non-number_delay_values_are_silently_coerced_into_numbers) für ein Beispiel.
+    - Der Verzögerungswert darf höchstens 2147483647 ms betragen. Die Angabe größerer Werte kann zu einem Überlauf oder dazu führen, dass der Wert 0 verwendet wird.
+      Weitere Informationen finden Sie unter [Maximaler Verzögerungswert](/de/docs/Web/API/Window/setTimeout#maximum_delay_value).
+    - Die tatsächliche Verzögerung kann länger sein als angegeben.
+      Wenn `delay` beispielsweise auf 0 gesetzt wird, erfolgt die Ausführung im nächsten Ereigniszyklus und nicht „sofort“.
+      Weitere Informationen finden Sie unter [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/Window/setTimeout#reasons_for_longer_delays_than_specified).
+    - Wenn der Wert keine Zahl ist, wird er stillschweigend durch implizite {{Glossary("Type_coercion", "Typumwandlung")}} in eine Zahl umgewandelt.
+      Dies kann zu unerwarteten Ergebnissen führen. Ein Beispiel finden Sie unter [Nicht numerische Verzögerungswerte werden stillschweigend in Zahlen umgewandelt](/de/docs/Web/API/Window/setTimeout#non-number_delay_values_are_silently_coerced_into_numbers).
 
 - `param1`, …, `paramN` {{optional_inline}}
-  - : Zusätzliche Argumente, die an die durch `func` angegebene Funktion übergeben werden.
+  - : Zusätzliche Argumente, die an die durch `func` angegebene Funktion weitergegeben werden.
 
 ### Rückgabewert
 
-Ein positiver Integer (typischerweise im Bereich von 1 bis 2,147,483,647), der den durch den Aufruf erstellten Timer eindeutig identifiziert.
-Diese Kennung, oft als "Timeout-ID" bezeichnet, kann an [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) übergeben werden, um den Timer abzubrechen.
+Eine positive Ganzzahl (üblicherweise im Bereich von 1 bis 2.147.483.647), die den durch den Aufruf erstellten Timer eindeutig identifiziert.
+Dieser Bezeichner, häufig als „Timeout-ID“ bezeichnet, kann an [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) übergeben werden, um den Timer abzubrechen.
 
-Innerhalb derselben globalen Umgebung (z.B. ein bestimmtes Fenster oder Worker) wird die Timeout-ID garantiert nicht für irgendeinen neuen Timer wiederverwendet, solange der ursprüngliche Timer aktiv bleibt.
-Jedoch führen separate globale Umgebungen ihre eigenen unabhängigen Pools von Timer-IDs.
+Innerhalb derselben globalen Umgebung (z. B. eines bestimmten Fensters oder Workers) wird die Timeout-ID garantiert nicht für einen neuen Timer wiederverwendet, solange der ursprüngliche Timer aktiv ist.
+Getrennte globale Umgebungen verwalten jedoch jeweils eigene, voneinander unabhängige Pools von Timer-IDs.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Der `code` kann nicht als Skript geparst werden.
+  - : `code` kann nicht als Skript geparst werden.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der `code`-Parameter auf eine Zeichenfolge gesetzt ist, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durchgesetzt werden durch einen CSP](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
-    Es wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, Zeichenfolge oder `TrustedScript`.
+  - : Wird ausgelöst, wenn der Parameter `code` auf eine Zeichenfolge gesetzt ist, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+    Der Fehler wird auch ausgelöst, wenn der erste Parameter keinem der unterstützten Typen entspricht: einer Funktion, einer Zeichenfolge oder `TrustedScript`.
 
 ## Beschreibung
 
-Siehe [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) für detaillierte Beschreibungen.
+Ausführliche Beschreibungen finden Sie unter [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout).
 
 ## Beispiele
 
-Siehe [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) für Beispiele.
+Beispiele finden Sie unter [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout).
 
 ## Spezifikationen
 
@@ -87,7 +87,7 @@ Siehe [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) für Beispiele
 
 ## Siehe auch
 
-- [Polyfill von `setTimeout`, der das Übergeben von Argumenten an den Callback in `core-js` erlaubt](https://github.com/zloirock/core-js#settimeout-and-setinterval)
+- [Polyfill für `setTimeout` in `core-js`, mit dem Argumente an die Callback-Funktion übergeben werden können](https://core-js.io/docs/features/web-standards/settimeout-setinterval)
 - [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout)
 - [`WorkerGlobalScope.clearTimeout()`](/de/docs/Web/API/WorkerGlobalScope/clearTimeout)
 - [`WorkerGlobalScope.setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval)

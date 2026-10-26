@@ -1,12 +1,12 @@
 ---
-title: Set() Konstruktor
+title: Set()-Konstruktor
 short-title: Set()
 slug: Web/JavaScript/Reference/Global_Objects/Set/Set
 l10n:
-  sourceCommit: 1d905454be7d8910d5e3b33f0c22d063fe212816
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`Set()`** Konstruktor erstellt {{jsxref("Set")}} Objekte.
+Der **`Set()`**-Konstruktor erstellt {{jsxref("Set")}}-Objekte.
 
 {{InteractiveExample("JavaScript Demo: Set() constructor")}}
 
@@ -31,20 +31,20 @@ new Set(iterable)
 ```
 
 > [!NOTE]
-> `Set()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` zu aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> `Set()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
-  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (wie ein Array) übergeben wird, werden alle seine Elemente dem neuen `Set` hinzugefügt. Wenn Sie diesen Parameter nicht angeben oder sein Wert `null` oder `undefined` ist, ist das neue `Set` leer.
+  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (z. B. ein Array) übergeben wird, werden alle seine Elemente dem neuen `Set` hinzugefügt. Wenn Sie diesen Parameter nicht angeben oder sein Wert `null` oder `undefined` ist, ist das neue `Set` leer.
 
 ### Rückgabewert
 
-Ein neues `Set` Objekt.
+Ein neues `Set`-Objekt.
 
 ## Beispiele
 
-### Verwenden des `Set` Objekts
+### Verwendung des `Set`-Objekts
 
 ```js
 const mySet = new Set();
@@ -67,6 +67,6 @@ mySet.add(o);
 
 ## Siehe auch
 
-- [Polyfill von `Set` in `core-js`](https://github.com/zloirock/core-js#set)
-- [es-shims Polyfill von `Set`](https://www.npmjs.com/package/es-set)
+- [Polyfill für `Set` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-set)
+- [Polyfill für `Set` von es-shims](https://www.npmjs.com/package/es-set)
 - {{jsxref("Set")}}

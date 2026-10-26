@@ -1,18 +1,18 @@
 ---
-title: "URLSearchParams: has() Methode"
+title: "URLSearchParams: has()-Methode"
 short-title: has()
 slug: Web/API/URLSearchParams/has
 l10n:
-  sourceCommit: 42d23bc68c42b3eaef5a4a7990499bdf88ff680f
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`has()`**-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der angegebene Parameter in den Suchparametern vorhanden ist.
+Die **`has()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der angegebene Parameter in den Suchparametern enthalten ist.
 
-Ein Parametername und ein optionaler Wert werden verwendet, um Parameter abzugleichen.
-Wenn nur ein Parametername angegeben ist, gibt die Methode `true` zurück, wenn irgendwelche Parameter in der Abfragezeichenfolge den Namen entsprechen, und `false` ansonsten.
-Wenn sowohl ein Parametername als auch ein Wert angegeben sind, gibt die Methode `true` zurück, wenn ein Parameter sowohl den Namen als auch den Wert entspricht.
+Für den Abgleich werden ein Parametername und optional ein Wert verwendet.
+Wenn nur ein Parametername angegeben wird, gibt die Methode `true` zurück, falls ein Parameter im Query-String mit dem Namen übereinstimmt, andernfalls `false`.
+Wenn sowohl ein Parametername als auch ein Wert angegeben werden, gibt die Methode `true` zurück, falls ein Parameter sowohl mit dem Namen als auch mit dem Wert übereinstimmt.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ has(name, value)
 ### Parameter
 
 - `name`
-  - : Der Name des zu vergleichenden Parameters.
+  - : Der Name des Parameters, mit dem abgeglichen werden soll.
 - `value`
-  - : Der Wert des Parameters, zusammen mit dem angegebenen Namen, zum Abgleichen.
+  - : Der Wert, mit dem zusammen mit dem angegebenen Namen abgeglichen werden soll.
 
 ### Rückgabewert
 
@@ -34,9 +34,9 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-### Überprüfung eines Parameters mit angegebenem Namen
+### Auf einen Parameter mit einem bestimmten Namen prüfen
 
-Dieses Beispiel zeigt, wie überprüft wird, ob die Abfragezeichenfolge Parameter mit einem bestimmten Namen hat.
+Dieses Beispiel zeigt, wie Sie prüfen, ob der Query-String einen Parameter mit einem bestimmten Namen enthält.
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2&foo=3");
@@ -48,7 +48,7 @@ console.log(`bark?:\t${params.has("bark")}`);
 console.log(`foo?:\t${params.has("foo")}`);
 ```
 
-Das untenstehende Protokoll zeigt, ob die Parameter `bar`, `bark` und `foo` in der Abfragezeichenfolge vorhanden sind.
+Die folgende Protokollausgabe zeigt, ob die Parameter `bar`, `bark` und `foo` im Query-String vorhanden sind.
 
 ```plain
 bar?:  true
@@ -56,9 +56,9 @@ bark?: false
 foo?:  true
 ```
 
-### Überprüfung eines Parameters mit angegebenem Namen und Wert
+### Auf einen Parameter mit einem bestimmten Namen und Wert prüfen
 
-Dieses Beispiel zeigt, wie überprüft wird, ob die Abfragezeichenfolge einen Parameter hat, der sowohl einem bestimmten Namen als auch einem Wert entspricht.
+Dieses Beispiel zeigt, wie Sie prüfen, ob der Query-String einen Parameter enthält, der sowohl mit einem bestimmten Namen als auch mit einem bestimmten Wert übereinstimmt.
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2&foo=3");
@@ -70,7 +70,7 @@ console.log(`bar=2?:\t${params.has("bar", "2")}`);
 console.log(`foo=4?:\t${params.has("foo", "4")}`);
 ```
 
-Nur der zweite Wert sollte `true` sein, da nur der Parametername `bar` mit dem Wert `2` übereinstimmt.
+Nur der zweite der obigen Werte sollte `true` sein, da nur der Parameter mit dem Namen `bar` und dem Wert `2` übereinstimmt.
 
 ```plain
 bar=1?: false
@@ -78,7 +78,7 @@ bar=2?: true
 foo=4?: false
 ```
 
-Wenn Ihr Browser die `value`-Option nicht unterstützt, wird die Methode den Namen abgleichen, und alle Ergebnisse sollten `true` sein.
+Wenn Ihr Browser die Option `value` nicht unterstützt, gleicht die Methode nur den Namen ab, und alle Ergebnisse sollten `true` sein.
 
 ## Spezifikationen
 
@@ -90,4 +90,4 @@ Wenn Ihr Browser die `value`-Option nicht unterstützt, wird die Methode den Nam
 
 ## Siehe auch
 
-- [Polyfill von `URLSearchParams` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
+- [Polyfill für `URLSearchParams` in `core-js`](https://core-js.io/docs/features/web-standards/url)

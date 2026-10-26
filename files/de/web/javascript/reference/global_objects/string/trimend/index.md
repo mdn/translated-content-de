@@ -3,10 +3,10 @@ title: String.prototype.trimEnd()
 short-title: trimEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/trimEnd
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`trimEnd()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen vom Ende dieser Zeichenkette und gibt eine neue Zeichenkette zurück, ohne die ursprüngliche Zeichenkette zu ändern. `trimRight()` ist ein Alias für diese Methode.
+Die Methode **`trimEnd()`** von {{jsxref("String")}}-Werten entfernt Leerraum am Ende dieses Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu verändern. `trimRight()` ist ein Alias für diese Methode.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.trimEnd()")}}
 
@@ -34,13 +34,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Zeichenkette, die `str` darstellt, von Leerzeichen am Ende (rechte Seite) befreit. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+Ein neuer String, der `str` ohne Leerraum am Ende (auf der rechten Seite) darstellt. Als Leerraum gelten [Leerraumzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) und [Zeilenabschlusszeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn das Ende von `str` keine Leerzeichen hat, wird dennoch eine neue Zeichenkette zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn sich am Ende von `str` kein Leerraum befindet, wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
-### Aliasnamen
+### Alias
 
-Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, implementierten die Engines auch die nicht standardisierte Methode `trimRight`. Aus Konsistenzgründen mit {{jsxref("String/padEnd", "padEnd()")}} wurde beim Standardisierungsprozess der Name `trimEnd` gewählt. Aus Gründen der Web-Kompatibilität bleibt `trimRight` als Alias zu `trimEnd` erhalten, und sie beziehen sich auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
+Nachdem {{jsxref("String/trim", "trim()")}} standardisiert worden war, implementierten Engines auch die nicht standardisierte Methode `trimRight`. Um mit {{jsxref("String/padEnd", "padEnd()")}} konsistent zu bleiben, wurde bei der Standardisierung dieser Methode jedoch der Name `trimEnd` gewählt. Aus Gründen der Webkompatibilität bleibt `trimRight` ein Alias für `trimEnd`; beide verweisen auf dasselbe Funktionsobjekt. In einigen Engines bedeutet das:
 
 ```js
 String.prototype.trimRight.name === "trimEnd";
@@ -50,7 +50,7 @@ String.prototype.trimRight.name === "trimEnd";
 
 ### Verwendung von trimEnd()
 
-Das folgende Beispiel entfernt Leerzeichen vom Ende von `str`, aber nicht vom Anfang.
+Das folgende Beispiel entfernt Leerraum am Ende von `str`, jedoch nicht am Anfang.
 
 ```js
 let str = "   foo  ";
@@ -62,7 +62,7 @@ console.log(str.length); // 6
 console.log(str); // '   foo'
 ```
 
-## Definitionen
+## Spezifikationen
 
 {{Specifications}}
 
@@ -72,7 +72,7 @@ console.log(str); // '   foo'
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.trimEnd` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.trimEnd`](https://www.npmjs.com/package/string.prototype.trimend)
+- [Polyfill für `String.prototype.trimEnd` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.trimEnd` von es-shims](https://www.npmjs.com/package/string.prototype.trimend)
 - {{jsxref("String.prototype.trim()")}}
 - {{jsxref("String.prototype.trimStart()")}}

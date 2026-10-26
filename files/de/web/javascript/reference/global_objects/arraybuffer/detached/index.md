@@ -3,14 +3,14 @@ title: ArrayBuffer.prototype.detached
 short-title: detached
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/detached
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`detached`** Zugriffseigenschaft von {{jsxref("ArrayBuffer")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob dieser Puffer getrennt (übertragen) wurde oder nicht.
+Die **`detached`**-Accessor-Eigenschaft von {{jsxref("ArrayBuffer")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob dieser Puffer abgetrennt (übertragen) wurde.
 
 ## Beschreibung
 
-Die `detached`-Eigenschaft ist eine Zugriffseigenschaft, deren set-Zugriffsfunktionswert `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert ist `false`, wenn der `ArrayBuffer` zuerst erstellt wird. Der Wert wird `true`, wenn der `ArrayBuffer` [übertragen](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers) wird, wodurch die Instanz von ihrem zugrunde liegenden Speicher getrennt wird. Sobald ein Puffer getrennt ist, ist er nicht mehr verwendbar.
+Die `detached`-Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist. Sie können diese Eigenschaft daher nur lesen. Beim Erstellen des `ArrayBuffer` ist der Wert `false`. Er wird zu `true`, wenn der `ArrayBuffer` [übertragen](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers) wird. Dabei wird die Instanz von ihrem zugrunde liegenden Speicher abgetrennt. Sobald ein Puffer abgetrennt ist, kann er nicht mehr verwendet werden.
 
 ## Beispiele
 
@@ -34,8 +34,8 @@ console.log(newBuffer.detached); // false
 
 ## Siehe auch
 
-- [Polyfill von `ArrayBuffer.prototype.detached` in `core-js`](https://github.com/zloirock/core-js#arraybufferprototypetransfer-and-friends)
-- [es-shims Polyfill von `ArrayBuffer.prototype.detached`](https://www.npmjs.com/package/arraybuffer.prototype.detached)
+- [Polyfill für `ArrayBuffer.prototype.detached` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [es-shims-Polyfill für `ArrayBuffer.prototype.detached`](https://www.npmjs.com/package/arraybuffer.prototype.detached)
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("ArrayBuffer.prototype.transfer()")}}
 - {{jsxref("ArrayBuffer.prototype.transferToFixedLength()")}}

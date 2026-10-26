@@ -3,10 +3,10 @@ title: Math.tanh()
 short-title: tanh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/tanh
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **statische Methode `Math.tanh()`** gibt den hyperbolischen Tangens einer Zahl zurück. Das bedeutet,
+Die statische Methode **`Math.tanh()`** gibt den hyperbolischen Tangens einer Zahl zurück. Das heißt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -47,11 +47,11 @@ Der hyperbolische Tangens von `x`.
 
 ## Beschreibung
 
-Da `tanh()` eine statische Methode von `Math` ist, verwenden Sie diese immer als `Math.tanh()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `tanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.tanh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.tanh()
+### Math.tanh() verwenden
 
 ```js
 Math.tanh(-Infinity); // -1
@@ -71,7 +71,7 @@ Math.tanh(Infinity); // 1
 
 ## Siehe auch
 
-- [Polyfill von `Math.tanh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [Polyfill für `Math.tanh` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
 - {{jsxref("Math.acosh()")}}
 - {{jsxref("Math.asinh()")}}
 - {{jsxref("Math.atanh()")}}

@@ -3,10 +3,10 @@ title: Math.sumPrecise()
 short-title: sumPrecise()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sumPrecise
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Math.sumPrecise()`** nimmt ein Iterable von Zahlen an und gibt deren Summe zurück. Sie ist genauer als das Aufsummieren in einer Schleife, da sie den Verlust an Genauigkeit bei Gleitkommazahlen in Zwischenergebnissen vermeidet.
+Die statische Methode **`Math.sumPrecise()`** nimmt ein Iterable von Zahlen entgegen und gibt deren Summe zurück. Sie ist präziser als das Addieren der Zahlen in einer Schleife, da sie Genauigkeitsverluste bei Zwischenergebnissen mit Gleitkommazahlen vermeidet.
 
 {{InteractiveExample("JavaScript Demo: Math.sumPrecise()")}}
 
@@ -27,22 +27,22 @@ Math.sumPrecise(numbers)
 ### Parameter
 
 - `numbers`
-  - : Ein [Iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Zahlen.
+  - : Ein [Iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) von Zahlen (beispielsweise ein {{jsxref("Array")}}).
 
 ### Rückgabewert
 
-Eine Zahl, die die Summe der Zahlen im `numbers` Iterable ist. Wenn das Iterable leer ist, ist der Rückgabewert `-0` (_nicht_ `0`).
+Eine Zahl, die der Summe der Zahlen im Iterable `numbers` entspricht. Ist das Iterable leer, lautet der Rückgabewert `-0` (_nicht_ `0`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wenn `numbers` kein Iterable ist oder wenn eine der Zahlen im Iterable nicht vom Typ Zahl ist.
+  - : Wenn `numbers` kein Iterable ist oder wenn ein Wert im Iterable nicht vom Typ Number ist.
 
 ## Beschreibung
 
 Da `sumPrecise()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sumPrecise()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Die Methode wird `Math.sumPrecise()` genannt, weil sie genauer ist als das naive Aufsummieren von Zahlen in einer Schleife. Betrachten Sie das folgende Beispiel:
+Die Methode heißt `Math.sumPrecise()`, weil sie präziser ist als das einfache Addieren von Zahlen in einer Schleife. Betrachten Sie das folgende Beispiel:
 
 ```js
 let sum = 0;
@@ -53,19 +53,19 @@ for (const number of numbers) {
 console.log(sum); // 0
 ```
 
-Das Ergebnis ist 0. Dies liegt daran, dass `1e20 + 0.1` nicht präzise in 64-Bit-Gleitkommazahlen dargestellt werden kann und daher das Zwischenergebnis auf `1e20` gerundet wird. Dann ist die Summe von `1e20` und `-1e20` `0`, sodass das Endergebnis `0` ist.
+Die Ausgabe ist 0. Der Grund dafür ist, dass `1e20 + 0.1` mit 64-Bit-Gleitkommazahlen nicht exakt dargestellt werden kann. Daher wird das Zwischenergebnis auf `1e20` gerundet. Die Summe von `1e20` und `-1e20` ist dann `0`, sodass auch das Endergebnis `0` ist.
 
-`Math.sumPrecise()` umgeht dieses Problem, indem ein spezieller Summierungsalgorithmus verwendet wird. Es funktioniert so, als ob die Gleitkommazahlen unter Verwendung ihrer exakten mathematischen Werte aufaddiert werden, und das Endergebnis wird dann in die nächstliegende darstellbare 64-Bit-Fließkommazahl umgewandelt. Dies kann dennoch das `0.1 + 0.2`-Präzisionsproblem nicht vermeiden:
+`Math.sumPrecise()` vermeidet dieses Problem durch einen speziellen Summierungsalgorithmus. Die Methode verhält sich so, als würden die Gleitkommazahlen anhand ihrer exakten mathematischen Werte addiert und erst das Endergebnis in die nächstgelegene darstellbare 64-Bit-Gleitkommazahl umgewandelt. Das Genauigkeitsproblem bei `0.1 + 0.2` lässt sich dadurch allerdings nicht vermeiden:
 
 ```js
 console.log(Math.sumPrecise([0.1, 0.2])); // 0.30000000000000004
 ```
 
-Da die Gleitkommaliterale `0.1` und `0.2` bereits mathematische Werte darstellen, die größer als `0.1` und `0.2` sind, und die nächstliegende 64-Bit-Gleitkommadarstellung ihrer Summe tatsächlich `0.30000000000000004` ist.
+Das liegt daran, dass die Gleitkommazahl-Literale `0.1` und `0.2` bereits mathematische Werte darstellen, die größer als 0,1 beziehungsweise 0,2 sind. Die 64-Bit-Gleitkommazahl, die ihrer Summe am nächsten kommt, ist tatsächlich `0.30000000000000004`.
 
 ## Beispiele
 
-### Verwendung von Math.sumPrecise()
+### Math.sumPrecise() verwenden
 
 ```js
 console.log(Math.sumPrecise([1, 2, 3])); // 6
@@ -82,6 +82,6 @@ console.log(Math.sumPrecise([1e20, 0.1, -1e20])); // 0.1
 
 ## Siehe auch
 
-- [Polyfill von `Math.sumPrecise` in `core-js`](https://github.com/zloirock/core-js#mathsumprecise)
-- [es-shims Polyfill von `Math.sumPrecise`](https://www.npmjs.com/package/math.sumprecise)
+- [Polyfill für `Math.sumPrecise` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
+- [Polyfill für `Math.sumPrecise` von es-shims](https://www.npmjs.com/package/math.sumprecise)
 - {{jsxref("Array.prototype.reduce()")}}

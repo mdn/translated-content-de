@@ -3,10 +3,10 @@ title: Array.prototype.flat()
 short-title: flat()
 slug: Web/JavaScript/Reference/Global_Objects/Array/flat
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die Methode **`flat()`** von {{jsxref("Array")}}-Instanzen erstellt ein neues Array, in dem alle Unter-Array-Elemente rekursiv bis zur angegebenen Tiefe verkettet werden.
+Die Methode **`flat()`** von {{jsxref("Array")}}-Instanzen erstellt ein neues Array, in das alle Elemente verschachtelter Arrays rekursiv bis zur angegebenen Tiefe eingefügt werden.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.flat()")}}
 
@@ -38,19 +38,19 @@ flat(depth)
 ### Parameter
 
 - `depth` {{optional_inline}}
-  - : Die Tiefenebene, die angibt, bis zu welcher Tiefe eine verschachtelte Array-Struktur abgeflacht werden soll. Standardmäßig 1.
+  - : Die Tiefe, bis zu der eine verschachtelte Array-Struktur abgeflacht werden soll. Der Standardwert ist 1.
 
 ### Rückgabewert
 
-Ein neues Array mit den verketteten Unter-Array-Elementen.
+Ein neues Array, in das die Elemente der verschachtelten Arrays eingefügt wurden.
 
 ## Beschreibung
 
 Die Methode `flat()` ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert `this` nicht, sondern gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die dieselben Elemente wie das ursprüngliche Array enthält.
 
-Die Methode `flat()` entfernt leere Plätze, wenn das Array, das abgeflacht wird, [spärlich](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist. Wenn beispielsweise `depth` 1 ist, werden sowohl leere Plätze im Stamm-Array als auch in der ersten Ebene der verschachtelten Arrays ignoriert, aber leere Plätze in weiter verschachtelten Arrays bleiben mit den Arrays selbst erhalten.
+Die Methode `flat()` entfernt leere Positionen, wenn das abzuflachende Array [spärlich besetzt](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist. Wenn `depth` beispielsweise 1 ist, werden sowohl leere Positionen im äußeren Array als auch auf der ersten Ebene verschachtelter Arrays ignoriert. Leere Positionen in tiefer verschachtelten Arrays bleiben dagegen zusammen mit diesen Arrays erhalten.
 
-Die Methode `flat()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-beschriftete Eigenschaften hat. Die Elemente müssen jedoch Arrays sein, um abgeflacht zu werden.
+Die Methode `flat()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln besitzt. Die Elemente müssen jedoch Arrays sein, damit sie abgeflacht werden können.
 
 ## Beispiele
 
@@ -74,9 +74,9 @@ arr4.flat(Infinity);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-### Verwenden von flat() auf spärlichen Arrays
+### flat() mit spärlich besetzten Arrays verwenden
 
-Die Methode `flat()` entfernt [leere Plätze](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) in Arrays:
+Die Methode `flat()` entfernt [leere Positionen](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) in Arrays:
 
 ```js
 const arr5 = [1, 2, , 4, 5];
@@ -90,9 +90,9 @@ console.log(array2.flat()); // [ 1, 3, undefined, "a", ["d", empty, "e"], null ]
 console.log(array2.flat(2)); // [ 1, 3, undefined, "a", "d", "e", null ]
 ```
 
-### Aufrufen von flat() auf Nicht-Array-Objekten
+### flat() für Objekte aufrufen, die keine Arrays sind
 
-Die Methode `flat()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist. Wenn das Element kein Array ist, wird es direkt an das Ergebnis angehängt. Wenn das Element ein Array ist, wird es entsprechend dem `depth`-Parameter abgeflacht.
+Die Methode `flat()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative ganze Zahl kleiner als `length` ist. Wenn das Element kein Array ist, wird es direkt an das Ergebnis angehängt. Wenn es ein Array ist, wird es entsprechend dem Parameter `depth` abgeflacht.
 
 ```js
 const arrayLike = {
@@ -117,9 +117,9 @@ console.log(Array.prototype.flat.call(arrayLike));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.flat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims polyfill von `Array.prototype.flat`](https://www.npmjs.com/package/array.prototype.flat)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.flat` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.flat` von es-shims](https://www.npmjs.com/package/array.prototype.flat)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.concat()")}}
 - {{jsxref("Array.prototype.flatMap()")}}

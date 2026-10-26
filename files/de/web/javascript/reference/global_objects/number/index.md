@@ -2,16 +2,16 @@
 title: Number
 slug: Web/JavaScript/Reference/Global_Objects/Number
 l10n:
-  sourceCommit: 56b4064cda33205f7fb9dd9826665fbf75508cdf
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-**`Number`** Werte stellen Gleitkommazahlen wie `37` oder `-9.25` dar.
+**`Number`**-Werte stellen Gleitkommazahlen wie `37` oder `-9.25` dar.
 
-Der `Number` Konstruktor enthält Konstanten und Methoden zur Arbeit mit Zahlen. Werte anderer Typen können mit der `Number()` Funktion in Zahlen konvertiert werden.
+Der `Number`-Konstruktor enthält Konstanten und Methoden für die Arbeit mit Zahlen. Werte anderer Typen können mit der Funktion `Number()` in Zahlen umgewandelt werden.
 
 ## Beschreibung
 
-Zahlen werden am häufigsten in literaler Form wie `255` oder `3.14159` ausgedrückt. Die [lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals) enthält eine detailliertere Referenz.
+Zahlen werden meist als Literale wie `255` oder `3.14159` ausgedrückt. Die [lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals) enthält eine ausführlichere Referenz.
 
 ```js
 255; // two-hundred and fifty-five
@@ -22,9 +22,9 @@ Zahlen werden am häufigsten in literaler Form wie `255` oder `3.14159` ausgedr�
 255 === 0.255e3; // true (decimal exponential notation)
 ```
 
-Ein Zahlenliteral wie `37` im JavaScript-Code ist ein Gleitkommawert und kein Integer. Es gibt keinen separaten Integer-Typ in der alltäglichen Verwendung. (JavaScript hat auch einen {{jsxref("BigInt")}} Typ, aber dieser ist nicht dafür gedacht, Number im alltäglichen Gebrauch zu ersetzen. `37` ist immer noch eine Zahl, kein BigInt.)
+Ein Zahlenliteral wie `37` ist in JavaScript-Code ein Gleitkommawert und kein Integer. Für den alltäglichen Gebrauch gibt es keinen separaten Integer-Typ. (JavaScript hat auch den Typ {{jsxref("BigInt")}}, der aber nicht dafür gedacht ist, Number im alltäglichen Gebrauch zu ersetzen. `37` ist weiterhin eine Zahl und kein BigInt.)
 
-Wenn `Number(value)` als Funktion verwendet wird, konvertiert es einen String oder einen anderen Wert in den Typ Number. Wenn der Wert nicht konvertiert werden kann, gibt er {{jsxref("NaN")}} zurück.
+Wenn `Number(value)` als Funktion verwendet wird, wandelt es einen String oder einen anderen Wert in den Typ Number um. Kann der Wert nicht umgewandelt werden, gibt die Funktion {{jsxref("NaN")}} zurück.
 
 ```js
 Number("123"); // returns the number 123
@@ -34,15 +34,15 @@ Number("unicorn"); // NaN
 Number(undefined); // NaN
 ```
 
-### Zahlencodierung
+### Kodierung von Number
 
-Der JavaScript `Number` Typ ist ein [doppelt-genauer 64-Bit-binär formatierter IEEE 754](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) Wert, ähnlich wie `double` in Java oder C#. Das bedeutet, dass er Bruchwerte darstellen kann, es gibt jedoch einige Grenzen hinsichtlich der Größe und Präzision der gespeicherten Zahl. Kurz gesagt, eine IEEE 754 Gleitkommazahl mit doppelter Genauigkeit verwendet 64 Bits, um 3 Teile darzustellen:
+Der JavaScript-Typ `Number` speichert Werte im [64-Bit-Binärformat mit doppelter Genauigkeit nach IEEE 754](https://en.wikipedia.org/wiki/Double_precision_floating-point_format), ähnlich wie `double` in Java oder C#. Damit lassen sich Bruchwerte darstellen, allerdings sind Betrag und Genauigkeit der gespeicherten Zahl begrenzt. Vereinfacht gesagt verwendet eine IEEE-754-Zahl mit doppelter Genauigkeit 64 Bit für drei Bestandteile:
 
 - 1 Bit für das _Vorzeichen_ (positiv oder negativ)
-- 11 Bits für den _Exponenten_ (-1022 bis 1023)
-- 52 Bits für die _Mantisse_ (darstellend eine Zahl zwischen 0 und 1)
+- 11 Bit für den _Exponenten_ (-1022 bis 1023)
+- 52 Bit für die _Mantisse_ (die eine Zahl zwischen 0 und 1 darstellt)
 
-Die Mantisse (auch _Signifikand_ genannt) ist der Teil der Zahl, der den tatsächlichen Wert (bedeutende Ziffern) darstellt. Der Exponent ist die Potenz von 2, mit der die Mantisse multipliziert werden muss. Man kann es sich wie wissenschaftliche Notation vorstellen:
+Die Mantisse (auch _Signifikand_ genannt) ist der Teil der Zahl, der den eigentlichen Wert darstellt (die signifikanten Stellen). Der Exponent ist die Zweierpotenz, mit der die Mantisse multipliziert wird. In wissenschaftlicher Schreibweise lässt sich dies so ausdrücken:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -50,49 +50,49 @@ Die Mantisse (auch _Signifikand_ genannt) ist der Teil der Zahl, der den tatsäc
 </math>
 <!-- prettier-ignore-end -->
 
-Die Mantisse wird mit 52 Bits gespeichert, die als Ziffern nach `1.…` in einer binären Bruchzahl interpretiert werden. Daher beträgt die Präzision der Mantisse 2<sup>-52</sup> (erhältlich über {{jsxref("Number.EPSILON")}}), oder etwa 15 bis 17 signifikante Dezimalziffern; arithmetische Operationen über diesem Präzisionsniveau unterliegen dem [Runden](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Representable_numbers,_conversion_and_rounding).
+Die Mantisse wird mit 52 Bit gespeichert, die als Stellen nach `1.…` in einer binären Bruchzahl interpretiert werden. Daher beträgt die Genauigkeit der Mantisse 2<sup>-52</sup> (abrufbar über {{jsxref("Number.EPSILON")}}), was etwa 15 bis 17 signifikanten Dezimalstellen entspricht. Bei Berechnungen oberhalb dieser Genauigkeit kommt es zu [Rundungen](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Representable_numbers,_conversion_and_rounding).
 
-Der größte Wert, den eine Zahl halten kann, ist 2<sup>1023</sup> × (2 - 2<sup>-52</sup>) (wobei der Exponent 1023 und die Mantisse 0.1111… in Basis 2 ist), was über {{jsxref("Number.MAX_VALUE")}} erlangt werden kann. Werte, die höher sind, werden durch die spezielle Zahlkonstante {{jsxref("Infinity")}} ersetzt.
+Der größte Wert, den eine Zahl annehmen kann, ist 2<sup>1023</sup> × (2 - 2<sup>-52</sup>) (mit dem Exponenten 1023 und der Mantisse 0,1111… zur Basis 2). Er ist über {{jsxref("Number.MAX_VALUE")}} abrufbar. Höhere Werte werden durch die spezielle Zahlenkonstante {{jsxref("Infinity")}} ersetzt.
 
-Ganze Zahlen können im Bereich von -2<sup>53</sup> + 1 bis 2<sup>53</sup> - 1 ohne Präzisionsverlust dargestellt werden (erhältlich über {{jsxref("Number.MIN_SAFE_INTEGER")}} und {{jsxref("Number.MAX_SAFE_INTEGER")}}), weil die Mantisse nur 53 Bits halten kann (einschließlich des führenden 1).
+Integer lassen sich nur im Bereich von -2<sup>53</sup> + 1 bis einschließlich 2<sup>53</sup> - 1 ohne Genauigkeitsverlust darstellen (abrufbar über {{jsxref("Number.MIN_SAFE_INTEGER")}} und {{jsxref("Number.MAX_SAFE_INTEGER")}}), da die Mantisse nur 53 Bit aufnehmen kann (einschließlich der führenden 1).
 
-Mehr Details hierzu sind im [ECMAScript-Standard](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-number-type) beschrieben.
+Weitere Einzelheiten dazu sind im [ECMAScript-Standard](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-number-type) beschrieben.
 
-### Typumwandlung von Zahlen
+### Umwandlung in Number
 
-Viele eingebaute Operationen, die Zahlen erwarten, wandeln zuerst ihre Argumente in Zahlen um (was weitgehend der Grund ist, warum `Number` Objekte ähnlich wie Zahlenprimitiven verhalten). [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tonumber) kann wie folgt zusammengefasst werden:
+Viele integrierte Operationen, die Zahlen erwarten, wandeln ihre Argumente zunächst in Zahlen um (was weitgehend erklärt, warum sich `Number`-Objekte ähnlich wie primitive Zahlenwerte verhalten). [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tonumber) lässt sich wie folgt zusammenfassen:
 
 - Zahlen werden unverändert zurückgegeben.
 - [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) wird zu [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
 - [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) wird zu `0`.
 - `true` wird zu `1`; `false` wird zu `0`.
-- Strings werden konvertiert, indem sie geparst werden, als ob sie ein [Zahlenliteral](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals) enthalten. Bei Parsfehlern ergibt sich `NaN`. Es gibt einige kleine Unterschiede im Vergleich zu einem tatsächlichen Zahlenliteral:
-  - Führender und nachfolgender Leerraum/Zeilenabschlusszeichen werden ignoriert.
-  - Eine führende `0`-Ziffer führt nicht dazu, dass die Zahl zu einem oktalen Literal wird (oder in strict mode abgelehnt wird).
-  - `+` und `-` sind am Anfang des Strings erlaubt, um das Vorzeichen anzuzeigen. (In tatsächlichem Code scheinen sie Teil des Literals zu sein, sind aber tatsächlich separate unäre Operatoren.) Das Vorzeichen darf jedoch nur einmal erscheinen und darf nicht von Leerzeichen gefolgt werden.
-  - `Infinity` und `-Infinity` werden als Literale erkannt. In tatsächlichem Code sind sie globale Variablen.
-  - Leere oder nur aus Leerzeichen bestehende Strings werden zu `0` konvertiert.
-  - [Nummerische Separatoren](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_separators) sind nicht erlaubt.
-- [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) lösen einen {{jsxref("TypeError")}} aus, um unbeabsichtigte implizite Typumwandlungen zu verhindern, die einen Präzisionsverlust verursachen.
-- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) lösen einen {{jsxref("TypeError")}} aus.
-- Objekte werden zuerst [in einen primitiven Wert umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion), indem ihre [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit `"number"` als Hinweis), `valueOf()` und `toString()` Methoden in dieser Reihenfolge aufgerufen werden. Der resultierende primitive Wert wird dann in eine Zahl konvertiert.
+- Strings werden so geparst, als enthielten sie ein [Zahlenliteral](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals). Schlägt das Parsen fehl, ergibt sich `NaN`. Gegenüber einem tatsächlichen Zahlenliteral gibt es einige kleinere Unterschiede:
+  - Führende und nachfolgende Leerzeichen und Zeilenabschlusszeichen werden ignoriert.
+  - Eine führende Ziffer `0` führt weder dazu, dass die Zahl als oktales Literal interpretiert wird, noch dazu, dass sie im strikten Modus abgelehnt wird.
+  - `+` und `-` sind am Anfang des Strings als Vorzeichen zulässig. (Im tatsächlichen Code „sehen sie aus“ wie ein Teil des Literals, sind aber eigenständige unäre Operatoren.) Das Vorzeichen darf jedoch nur einmal vorkommen und unmittelbar darauf dürfen keine Leerzeichen folgen.
+  - `Infinity` und `-Infinity` werden als Literale erkannt. Im tatsächlichen Code sind sie globale Variablen.
+  - Leere Strings oder Strings, die nur Leerzeichen enthalten, werden in `0` umgewandelt.
+  - [Numerische Trennzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_separators) sind nicht zulässig.
+- [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) lösen einen {{jsxref("TypeError")}} aus, um einen Genauigkeitsverlust durch unbeabsichtigte implizite Umwandlung zu verhindern.
+- [Symbols](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) lösen einen {{jsxref("TypeError")}} aus.
+- Objekte werden zunächst [in einen primitiven Wert umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion). Dazu werden ihre Methoden [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (mit `"number"` als Hint), `valueOf()` und `toString()` in dieser Reihenfolge aufgerufen. Der resultierende primitive Wert wird anschließend in eine Zahl umgewandelt.
 
-Es gibt zwei Möglichkeiten, fast den gleichen Effekt in JavaScript zu erzielen.
+In JavaScript gibt es zwei Möglichkeiten, nahezu denselben Effekt zu erzielen.
 
-- [Einziges Pluszeichen](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus): `+x` führt genau die oben beschriebenen Typumwandlungsschritte durch, um `x` zu konvertieren.
-- Die [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number) Funktion: `Number(x)` verwendet den gleichen Algorithmus, um `x` zu konvertieren, außer dass [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) keinen {{jsxref("TypeError")}} auslösen, sondern ihren Zahlenwert zurückgeben, mit möglichem Präzisionsverlust.
+- [Unäres Plus](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus): `+x` führt genau die oben beschriebenen Schritte aus, um `x` in eine Zahl umzuwandeln.
+- Die Funktion [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number): `Number(x)` verwendet denselben Algorithmus zur Umwandlung von `x`, mit einer Ausnahme: [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) lösen keinen {{jsxref("TypeError")}} aus, sondern geben ihren Zahlenwert zurück, wobei Genauigkeit verloren gehen kann.
 
-{{jsxref("Number.parseFloat()")}} und {{jsxref("Number.parseInt()")}} sind ähnlich wie `Number()`, aber konvertieren nur Strings und haben leicht unterschiedliche Parsing-Regeln. Zum Beispiel erkennt `parseInt()` den Dezimalpunkt nicht, und `parseFloat()` erkennt das `0x` Präfix nicht.
+{{jsxref("Number.parseFloat()")}} und {{jsxref("Number.parseInt()")}} ähneln `Number()`, wandeln aber nur Strings um und verwenden etwas andere Regeln beim Parsen. Beispielsweise erkennt `parseInt()` den Dezimalpunkt nicht und `parseFloat()` erkennt das Präfix `0x` nicht.
 
-#### Ganzzahlkonvertierung
+#### Umwandlung in Integer
 
-Einige Operationen erwarten Ganzzahlen, insbesondere diejenigen, die mit Array-/String-Indizes, Datum-/Zeitkomponenten und Zahlenradixen arbeiten. Nach Durchführung der obigen Typumwandlungsschritte wird das Ergebnis [abgeschnitten](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc), indem der Bruchteil entfernt wird. Wenn die Zahl ±Infinity ist, bleibt sie unverändert. Ist die Zahl `NaN` oder `-0`, wird `0` zurückgegeben. Das Ergebnis ist daher immer eine Ganzzahl (die nicht `-0` ist) oder ±Infinity.
+Einige Operationen erwarten Integer, insbesondere solche, die mit Array- oder String-Indizes, Datums- und Zeitkomponenten sowie Zahlenbasen arbeiten. Nach den oben beschriebenen Schritten zur Umwandlung in eine Zahl wird das Ergebnis auf einen Integer [abgeschnitten](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc) (indem der Bruchteil verworfen wird). Ist die Zahl ±Infinity, wird sie unverändert zurückgegeben. Ist sie `NaN` oder `-0`, wird `0` zurückgegeben. Das Ergebnis ist somit immer ein Integer (der nicht `-0` ist) oder ±Infinity.
 
-Bemerkenswert ist, dass `undefined` und `null` beim Umwandeln in Ganzzahlen zu `0` werden, weil `undefined` in `NaN` konvertiert wird, was auch zu `0` wird.
+Insbesondere werden bei der Umwandlung in Integer sowohl `undefined` als auch `null` zu `0`: `undefined` wird zunächst zu `NaN`, das ebenfalls zu `0` wird.
 
-#### Festbreite-Typumwandlung von Zahlen
+#### Umwandlung in Zahlen mit fester Bitbreite
 
-JavaScript hat einige Funktionen auf niedrigerer Ebene, die mit der binären Codierung von Ganzzahlen umgehen, insbesondere [bitweise Operatoren](/de/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators) und {{jsxref("TypedArray")}} Objekte. Bitweise Operatoren konvertieren die Operanden immer in 32-Bit-Ganzzahlen. In diesen Fällen wird nach der Konvertierung des Wertes in eine Zahl zunächst der Bruchteil [abgeschnitten](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc) und dann die niedrigsten Bits in der Zweierkomplementcodierung der Ganzzahl genommen.
+JavaScript verfügt über einige Funktionen auf niedrigerer Ebene, die mit der binären Kodierung von Integern arbeiten, insbesondere [bitweise Operatoren](/de/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators) und {{jsxref("TypedArray")}}-Objekte. Bitweise Operatoren wandeln die Operanden immer in 32-Bit-Integer um. In diesen Fällen wird der Wert zunächst in eine Zahl umgewandelt. Anschließend wird die Zahl auf die vorgegebene Bitbreite normalisiert, indem zuerst der Bruchteil [abgeschnitten](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc) wird und dann die niederwertigsten Bits der Zweierkomplementdarstellung des Integers übernommen werden.
 
 ```js
 new Int32Array([1.1, 1.9, -1.1, -1.9]); // Int32Array(4) [ 1, 1, -1, -1 ]
@@ -114,69 +114,69 @@ new Uint8Array([257, -257]); // Uint8Array(2) [ 1, 255 ]
 ## Konstruktor
 
 - {{jsxref("Number/Number", "Number()")}}
-  - : Erzeugt `Number` Objekte. Wenn sie als Funktion aufgerufen wird, gibt sie primitive Werte vom Typ Number zurück.
+  - : Erstellt `Number`-Objekte. Wird der Konstruktor als Funktion aufgerufen, gibt er primitive Werte des Typs Number zurück.
 
 ## Statische Eigenschaften
 
 - {{jsxref("Number.EPSILON")}}
-  - : Das kleinste Intervall zwischen zwei darstellbaren Zahlen.
+  - : Der kleinste Abstand zwischen zwei darstellbaren Zahlen.
 - {{jsxref("Number.MAX_SAFE_INTEGER")}}
-  - : Die maximale sichere Ganzzahl in JavaScript (2<sup>53</sup> - 1).
+  - : Der größte sichere Integer in JavaScript (2<sup>53</sup> - 1).
 - {{jsxref("Number.MAX_VALUE")}}
-  - : Der größte positive darstellbare Wert.
+  - : Die größte darstellbare positive Zahl.
 - {{jsxref("Number.MIN_SAFE_INTEGER")}}
-  - : Die minimale sichere Ganzzahl in JavaScript (-(2<sup>53</sup> - 1)).
+  - : Der kleinste sichere Integer in JavaScript (-(2<sup>53</sup> - 1)).
 - {{jsxref("Number.MIN_VALUE")}}
-  - : Die kleinste positive darstellbare Zahl—das heißt, die positive Zahl, die null am nächsten kommt (ohne tatsächlich null zu sein).
+  - : Die kleinste darstellbare positive Zahl, also die positive Zahl, die null am nächsten liegt (ohne selbst null zu sein).
 - {{jsxref("Number.NaN")}}
-  - : Spezieller "**N**ot **a** **N**umber"-Wert.
+  - : Der spezielle Wert „**N**ot **a** **N**umber“.
 - {{jsxref("Number.NEGATIVE_INFINITY")}}
-  - : Spezieller Wert, der negative Unendlichkeit darstellt. Wird bei Überlauf zurückgegeben.
+  - : Ein spezieller Wert, der negative Unendlichkeit darstellt. Wird bei einem Überlauf zurückgegeben.
 - {{jsxref("Number.POSITIVE_INFINITY")}}
-  - : Spezieller Wert, der Unendlichkeit darstellt. Wird bei Überlauf zurückgegeben.
+  - : Ein spezieller Wert, der Unendlichkeit darstellt. Wird bei einem Überlauf zurückgegeben.
 
 ## Statische Methoden
 
 - {{jsxref("Number.isFinite()")}}
-  - : Bestimmt, ob der übergebene Wert eine endliche Zahl ist.
+  - : Prüft, ob der übergebene Wert eine endliche Zahl ist.
 - {{jsxref("Number.isInteger()")}}
-  - : Bestimmt, ob der übergebene Wert eine Ganzzahl ist.
+  - : Prüft, ob der übergebene Wert ein Integer ist.
 - {{jsxref("Number.isNaN()")}}
-  - : Bestimmt, ob der übergebene Wert `NaN` ist.
+  - : Prüft, ob der übergebene Wert `NaN` ist.
 - {{jsxref("Number.isSafeInteger()")}}
-  - : Bestimmt, ob der übergebene Wert eine sichere Ganzzahl ist (Zahl zwischen -(2<sup>53</sup> - 1) und 2<sup>53</sup> - 1).
+  - : Prüft, ob der übergebene Wert ein sicherer Integer ist (eine Zahl zwischen -(2<sup>53</sup> - 1) und 2<sup>53</sup> - 1).
 - {{jsxref("Number.parseFloat()")}}
-  - : Dies ist das gleiche wie die globale {{jsxref("parseFloat()")}} Funktion.
+  - : Entspricht der globalen Funktion {{jsxref("parseFloat()")}}.
 - {{jsxref("Number.parseInt()")}}
-  - : Dies ist das gleiche wie die globale {{jsxref("parseInt()")}} Funktion.
+  - : Entspricht der globalen Funktion {{jsxref("parseInt()")}}.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `Number.prototype` definiert und werden von allen `Number` Instanzen geteilt.
+Diese Eigenschaften sind auf `Number.prototype` definiert und werden von allen `Number`-Instanzen gemeinsam verwendet.
 
 - {{jsxref("Object/constructor", "Number.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Number` Instanzen ist der Anfangswert der {{jsxref("Number/Number", "Number")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Number`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("Number/Number", "Number")}}.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Number.prototype.toExponential()")}}
-  - : Gibt einen String zurück, der die Zahl in exponentielle Notation darstellt.
+  - : Gibt einen String zurück, der die Zahl in Exponentialschreibweise darstellt.
 - {{jsxref("Number.prototype.toFixed()")}}
-  - : Gibt einen String zurück, der die Zahl in Festkommanotation darstellt.
+  - : Gibt einen String zurück, der die Zahl in Festkommaschreibweise darstellt.
 - {{jsxref("Number.prototype.toLocaleString()")}}
-  - : Gibt einen String mit einer sprachsensitiven Darstellung dieser Zahl zurück. Überschreibt die {{jsxref("Object.prototype.toLocaleString()")}} Methode.
+  - : Gibt einen String mit einer sprachabhängigen Darstellung dieser Zahl zurück. Überschreibt die Methode {{jsxref("Object.prototype.toLocaleString()")}}.
 - {{jsxref("Number.prototype.toPrecision()")}}
-  - : Gibt einen String zurück, der die Zahl mit einer angegebenen Präzision in Festkomma- oder Exponentialnotation darstellt.
+  - : Gibt einen String zurück, der die Zahl mit einer angegebenen Genauigkeit in Festkomma- oder Exponentialschreibweise darstellt.
 - {{jsxref("Number.prototype.toString()")}}
-  - : Gibt einen String zurück, der das angegebene Objekt in dem angegebenen _Radix_ ("Basis") darstellt. Überschreibt die {{jsxref("Object.prototype.toString()")}} Methode.
+  - : Gibt einen String zurück, der das angegebene Objekt zur angegebenen _Basis_ darstellt. Überschreibt die Methode {{jsxref("Object.prototype.toString()")}}.
 - {{jsxref("Number.prototype.valueOf()")}}
-  - : Gibt den primitiven Wert des angegebenen Objekts zurück. Überschreibt die {{jsxref("Object.prototype.valueOf()")}} Methode.
+  - : Gibt den primitiven Wert des angegebenen Objekts zurück. Überschreibt die Methode {{jsxref("Object.prototype.valueOf()")}}.
 
 ## Beispiele
 
-### Verwendung des Number-Objekts zur Zuweisung von Werten zu numerischen Variablen
+### Das Number-Objekt verwenden, um numerischen Variablen Werte zuzuweisen
 
-Das folgende Beispiel verwendet die Eigenschaften des `Number` Objekts, um mehreren numerischen Variablen Werte zuzuweisen:
+Im folgenden Beispiel werden Eigenschaften des `Number`-Objekts verwendet, um mehreren numerischen Variablen Werte zuzuweisen:
 
 ```js
 const biggestNum = Number.MAX_VALUE;
@@ -186,31 +186,31 @@ const negInfiniteNum = Number.NEGATIVE_INFINITY;
 const notANum = Number.NaN;
 ```
 
-### Ganzzahlbereich für Number
+### Integer-Bereich von Number
 
-Im folgenden Beispiel werden die minimalen und maximalen Ganzzahlwerte angezeigt, die als `Number` Objekt dargestellt werden können.
+Das folgende Beispiel zeigt die kleinsten und größten Integer-Werte, die als `Number`-Objekt dargestellt werden können.
 
 ```js
 const biggestInt = Number.MAX_SAFE_INTEGER; // (2**53 - 1) => 9007199254740991
 const smallestInt = Number.MIN_SAFE_INTEGER; // -(2**53 - 1) => -9007199254740991
 ```
 
-Beim Parsen von Daten, die in JSON serialisiert wurden, können Ganzzahlen, die außerhalb dieses Bereichs liegen, beim Zuordnen zum `Number` Typ durch den JSON-Parser beschädigt werden.
+Wenn zu JSON serialisierte Daten geparst werden, können Integer-Werte außerhalb dieses Bereichs verfälscht werden, sobald der JSON-Parser sie in den Typ `Number` umwandelt.
 
-Ein möglicher Workaround besteht darin, {{jsxref("String")}} zu verwenden.
+Eine mögliche Umgehung besteht darin, stattdessen {{jsxref("String")}} zu verwenden.
 
-Größere Zahlen können mit dem {{jsxref("BigInt")}} Typ dargestellt werden.
+Größere Zahlen können mit dem Typ {{jsxref("BigInt")}} dargestellt werden.
 
-### Verwendung von Number() zur Umwandlung eines Date-Objekts
+### Number() verwenden, um ein Date-Objekt umzuwandeln
 
-Das folgende Beispiel konvertiert das {{jsxref("Date")}} Objekt in einen numerischen Wert, indem `Number` als Funktion verwendet wird:
+Das folgende Beispiel wandelt das {{jsxref("Date")}}-Objekt in einen numerischen Wert um, indem `Number` als Funktion verwendet wird:
 
 ```js
 const d = new Date("1995-12-17T03:24:00");
 console.log(Number(d));
 ```
 
-Dies protokolliert `819199440000`.
+Dabei wird `819199440000` ausgegeben.
 
 ### Numerische Strings und null in Zahlen umwandeln
 
@@ -240,7 +240,7 @@ Number("-Infinity"); // -Infinity
 
 ## Siehe auch
 
-- [Polyfill des modernen `Number`-Verhaltens (mit Unterstützung für binäre und oktale Literale) in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [Polyfill für modernes `Number`-Verhalten (mit Unterstützung für Binär- und Oktalliterale) in `core-js`](https://core-js.io/docs/features/ecmascript/number)
 - {{jsxref("NaN")}}
 - [Arithmetische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#arithmetic_operators)
 - {{jsxref("Math")}}

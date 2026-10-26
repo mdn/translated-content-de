@@ -3,10 +3,10 @@ title: Math.sinh()
 short-title: sinh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sinh
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Math.sinh()`** statische Methode gibt den hyperbolischen Sinus einer Zahl zurück. Das heißt,
+Die statische Methode **`Math.sinh()`** gibt den hyperbolischen Sinus einer Zahl zurück. Das heißt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -47,11 +47,11 @@ Der hyperbolische Sinus von `x`.
 
 ## Beschreibung
 
-Da `sinh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sinh()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktorkonstruktor).
+Da `sinh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sinh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.sinh()
+### Math.sinh() verwenden
 
 ```js
 Math.sinh(-Infinity); // -Infinity
@@ -71,7 +71,7 @@ Math.sinh(Infinity); // Infinity
 
 ## Siehe auch
 
-- [Polyfill von `Math.sinh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [Polyfill für `Math.sinh` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
 - {{jsxref("Math.acosh()")}}
 - {{jsxref("Math.asinh()")}}
 - {{jsxref("Math.atanh()")}}

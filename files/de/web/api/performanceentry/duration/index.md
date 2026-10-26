@@ -3,34 +3,35 @@ title: "PerformanceEntry: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/PerformanceEntry/duration
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`duration`**-Eigenschaft gibt einen [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer des [Performance Entry](/de/docs/Web/API/PerformanceEntry) darstellt. Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Eintrags ab.
+Die schreibgeschützte Eigenschaft **`duration`** gibt einen [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Dauer des [Performance-Eintrags](/de/docs/Web/API/PerformanceEntry) angibt. Die Bedeutung dieser Eigenschaft hängt vom Wert der [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Eigenschaft des Eintrags ab.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des [Performance Entry](/de/docs/Web/API/PerformanceEntry) darstellt. Wenn das Dauer-Konzept für eine bestimmte Leistungsmetrik nicht zutrifft, wird eine Dauer von `0` zurückgegeben.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des [Performance-Eintrags](/de/docs/Web/API/PerformanceEntry) angibt. Wenn das Konzept einer Dauer auf eine bestimmte Performance-Metrik nicht anwendbar ist, wird `0` zurückgegeben.
 
-Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Performance-Eintrags ab:
+Die Bedeutung dieser Eigenschaft hängt vom Wert der [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Eigenschaft des Performance-Eintrags ab:
 
 - `event`
-  - : Die Zeit von `startTime` des Events bis zum nächsten Rendering-Paint (gerundet auf die nächsten 8ms).
+  - : Die Zeit vom `startTime` des Ereignisses bis zum nächsten Rendering-Paint (auf die nächsten 8 ms gerundet).
 - `first-input`
-  - : Die Zeit vom `startTime` des ersten Eingabegeräts bis zum nächsten Rendering-Paint (gerundet auf die nächsten 8ms).
+  - : Die Zeit vom `startTime` des ersten Eingabeereignisses bis zum nächsten Rendering-Paint (auf die nächsten 8 ms gerundet).
 - `longtask`
-  - : Die verstrichene Zeit zwischen Beginn und Ende der Aufgabe, mit einer Granularität von 1ms.
+  - : Die verstrichene Zeit zwischen Beginn und Ende der Aufgabe, mit einer Auflösung von 1 ms.
 - `measure`
   - : Die Dauer der Messung.
 - `navigation`
   - : Die Differenz zwischen den Eigenschaften [`loadEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventEnd) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) des Eintrags.
 - `resource`
-  - : Der Wert von [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) des Eintrags minus dem Wert von [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) des Eintrags.
+  - : Der Wert von [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) des Eintrags abzüglich des Werts von [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) des Eintrags.
 
-Für die folgenden Eintragstypen ist `duration` nicht zutreffend, und in diesem Fall ist der Wert immer `0`:
+Für die folgenden Eintragstypen ist `duration` nicht anwendbar; der Wert ist in diesen Fällen immer `0`:
 
+- `container`
 - `element`
 - `largest-contentful-paint`
 - `layout-shift`
@@ -41,7 +42,7 @@ Für die folgenden Eintragstypen ist `duration` nicht zutreffend, und in diesem 
 
 ## Beispiele
 
-### Verwendung der duration-Eigenschaft
+### Die duration-Eigenschaft verwenden
 
 Das folgende Beispiel protokolliert alle beobachteten Performance-Einträge mit einer `duration` größer als `0`.
 

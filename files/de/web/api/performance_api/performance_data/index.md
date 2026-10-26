@@ -1,61 +1,63 @@
 ---
-title: Leistungsdaten
+title: Performancedaten
 slug: Web/API/Performance_API/Performance_data
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{DefaultAPISidebar("Performance API")}}
 
-Die Performance API misst und stellt Leistungsdaten bereit, die als Leistungskennzahlen für Ihre Webanwendung gesammelt werden können. Sie bietet Methoden, um Aspekte der Anwendungsleistung zu beobachten. Sie bietet jedoch keine Leistungsdatenanalyse oder Visualisierungen. Die Performance API ist jedoch gut in Entwickler-Tools in Browsern integriert, und ihre Daten werden häufig an Analysedienste und Bibliotheken gesendet, um Leistungskennzahlen aufzuzeichnen, die Ihnen helfen, die Daten zu bewerten und Leistungsengpässe zu finden, die Ihre Benutzer beeinflussen.
+Die Performance API misst und stellt Performancedaten bereit, die Sie als Performancemetriken für Ihre Webanwendung erfassen können. Sie bietet Methoden, um Aspekte der Anwendungsperformance zu beobachten. Eine Analyse oder Visualisierung der Performancedaten bietet sie nicht. Die Performance API ist jedoch gut in die Entwicklertools der Browser integriert. Ihre Daten werden häufig an Analyse-Endpunkte und -Bibliotheken gesendet, um Performancemetriken aufzuzeichnen. Mithilfe dieser Metriken können Sie die Daten auswerten und Performanceengpässe erkennen, die sich auf Ihre Nutzer auswirken.
 
-Diese Seite bietet einen Überblick darüber, welche Arten von Performance-API-Daten existieren, wie sie gesammelt werden und wie sie zugänglich gemacht werden können.
+Diese Seite gibt einen Überblick darüber, welche Arten von Daten die Performance API bereitstellt, wie diese erfasst werden und wie Sie darauf zugreifen können.
 
-## Datenerfassung
+## Daten erfassen
 
-Die meisten der von der Performance API bereitgestellten Metriken werden automatisch vom Browser erfasst, und Sie müssen ihn nicht dazu auffordern, sie zu erfassen: Sie müssen sie nur abrufen.
+Die meisten Metriken, die die Performance API bereitstellt, werden automatisch vom Browser erfasst. Sie müssen die Erfassung nicht eigens anstoßen, sondern nur die Daten abrufen.
 
-Für einige Metriken müssen Sie dem Browser jedoch mitteilen, was gemessen werden soll:
+Bei einigen Metriken müssen Sie dem Browser allerdings mitteilen, was er messen soll:
 
-- Die [Element Timing](/de/docs/Web/API/PerformanceElementTiming)-Metrik misst die Zeit, die zum Laden und Rendern bestimmter DOM-Elemente erforderlich ist. Diese Metrik ist optional: Um den Browser zu bitten, Metriken für ein bestimmtes Element einzuschließen, müssen Sie ihm das `elementtiming`-Attribut hinzufügen.
-- Die [User Timing](/de/docs/Web/API/Performance_API/User_timing)-Metrik ermöglicht es Ihnen, die Zeit zwischen beliebigen Punkten in Ihrem Programm zu messen, die möglicherweise auf von der Anwendung definierte Operationen abbilden (wie das Einloggen eines Benutzers). Um diese Metriken zu erfassen, müssen Sie Performance-API-Aufrufe an den entsprechenden Punkten hinzufügen.
-- Die [Server Timing](/de/docs/Web/API/Performance_API/Server_timing)-Metrik ermöglicht es Ihnen, die Zeit zu messen, die für benutzerdefinierte serverseitige Operationen benötigt wird. Um diese Metriken zu erfassen, muss Ihr Server den `Server-Timing`-HTTP-Header senden.
+- Die Metrik [Element Timing](/de/docs/Web/API/PerformanceElementTiming) misst, wie lange das Laden und Rendern bestimmter DOM-Elemente dauert. Diese Metrik muss ausdrücklich aktiviert werden: Damit der Browser Metriken für ein bestimmtes Element erfasst, müssen Sie diesem das Attribut `elementtiming` hinzufügen.
+- Mit der Metrik [User Timing](/de/docs/Web/API/Performance_API/User_timing) können Sie die Zeit zwischen beliebigen Punkten in Ihrem Programm messen, die anwendungsdefinierten Vorgängen entsprechen können, etwa der Anmeldung eines Nutzers. Um diese Metriken zu erfassen, müssen Sie an den entsprechenden Stellen Aufrufe der Performance API einfügen.
+- Mit der Metrik [Server Timing](/de/docs/Web/API/Performance_API/Server_timing) können Sie messen, wie lange anwendungsdefinierte serverseitige Vorgänge dauern. Um diese Metriken zu erfassen, muss Ihr Server den HTTP-Header `Server-Timing` senden.
 
-## Datenstruktur der Leistung
+## Struktur der Performancedaten
 
-Mit der Performance API können Sie Leistungsdaten sowohl im [`Window`](/de/docs/Web/API/Window/performance)- als auch im [`Worker`](/de/docs/Web/API/WorkerGlobalScope/performance)-globalen Kontext sammeln. Wenn Sie Leistungsmetriken für mehrere Kontexte erfassen, sehen Sie sich [`performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) an, um Zeitursprünge zwischen Kontexten zu synchronisieren.
+Mit der Performance API können Sie Performancedaten sowohl im globalen Kontext von [`Window`](/de/docs/Web/API/Window/performance) als auch von [`Worker`](/de/docs/Web/API/WorkerGlobalScope/performance) erfassen. Wenn Sie Performancemetriken für mehrere Kontexte erfassen, können Sie mit [`performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) die Zeitursprünge der Kontexte synchronisieren.
 
-Innerhalb dieser Kontexte wird jedes Leistungsdatum durch Leistungseinträge dargestellt.
+Innerhalb dieser Kontexte werden einzelne Performancedatenpunkte durch Performance-Einträge dargestellt.
 
-### Leistungseinträge
+### Performance-Einträge
 
-Ein einzeln aufgezeichneter Leistungsdatensatz wird als _Leistungseintrag_ bezeichnet und durch eine Instanz des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Interfaces dargestellt.
+Ein einzelner aufgezeichneter Performancedatenpunkt wird als _Performance-Eintrag_ bezeichnet und durch eine Instanz der Schnittstelle [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) dargestellt.
 
-Die Performance API zeichnet verschiedene Arten von Leistungsdaten auf, und der `PerformanceEntry` verfügt über eine [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Eigenschaft, die als String die Art dieses Leistungseintrags beschreibt:
+Die Performance API zeichnet verschiedene Arten von Performancedaten auf. `PerformanceEntry` besitzt die Eigenschaft [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType), deren Zeichenfolge den Typ des jeweiligen Performance-Eintrags beschreibt:
 
-- `"element"` zeichnet auf, wie lange ein Element zum Laden und Rendern benötigt.
-- `"event"` zeichnet auf, wie lange der Browser benötigt hat, um einen Ereignishandler in Antwort auf seinen Auslöser auszuführen, und wie lange der Ereignishandler benötigt hat, um ausgeführt zu werden. Wird verwendet, um die {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint")}} zu messen.
-- `"first-input"` zeichnet die {{Glossary("First_Input_Delay", "First Input Delay")}} auf.
-- `"largest-contentful-paint"` zeichnet die größte Darstellung während des Seitenladens auf.
-- `"layout-shift"` zeichnet eine Metrik auf, die angibt, wie stark sich das Seitenlayout in jedem Animationsframe verschoben hat.
-- `"longtask"` zeichnet Aufgaben auf, die 50 ms oder länger dauern.
-- `"mark"` zeichnet einen vom Entwickler erstellten benutzerdefinierten Zeitstempel auf.
-- `"measure"` zeichnet eine benutzerdefinierte Messung zwischen zwei vom Entwickler erstellten Zeitstempeln auf.
-- `"navigation"` zeichnet Metriken in Verbindung mit der Navigation zur und dem anfänglichen Laden der Seite auf.
-- `"paint"` zeichnet wichtige Momente des Renderings während des Seitenladens auf.
-- `"resource"` zeichnet auf, wie lange der Browser benötigt hat, um eine Ressource abzurufen.
-- `"visibility-state"` zeichnet die Zeitpunkte von Sichtbarkeitszustandsänderungen der Seite auf, d.h. wenn ein Tab vom Vordergrund in den Hintergrund wechselt oder umgekehrt.
+- `"container"` erfasst, wann Gruppen von Elementen innerhalb eines Containers gerendert werden.
+- `"element"` erfasst, wie lange das Laden und Rendern eines Elements dauert.
+- `"event"` erfasst, wie lange es dauerte, bis der Browser als Reaktion auf einen Auslöser mit der Ausführung eines Event-Handlers begann, und wie lange dessen Ausführung dauerte. Dies wird zur Messung von {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint")}} verwendet.
+- `"first-input"` erfasst den {{Glossary("First_Input_Delay", "First Input Delay")}}.
+- `"largest-contentful-paint"` erfasst den größten Rendering-Vorgang während des Ladens der Seite.
+- `"layout-shift"` erfasst eine Metrik dafür, wie stark sich das Seitenlayout in jedem Animationsframe verschoben hat.
+- `"longtask"` erfasst Aufgaben, die mindestens 50 ms dauerten.
+- `"mark"` erfasst einen benutzerdefinierten Zeitstempel, den Entwickler gesetzt haben.
+- `"measure"` erfasst eine benutzerdefinierte Messung zwischen zwei Zeitstempeln, die Entwickler gesetzt haben.
+- `"navigation"` erfasst Metriken im Zusammenhang mit der Navigation zur Seite und ihrem anfänglichen Laden.
+- `"paint"` erfasst wichtige Zeitpunkte des Renderns während des Ladens der Seite.
+- `"resource"` erfasst, wie lange der Browser brauchte, um eine Ressource abzurufen.
+- `"visibility-state"` erfasst den Zeitpunkt von Änderungen des Sichtbarkeitsstatus der Seite, also beispielsweise, wann ein Tab vom Vordergrund in den Hintergrund wechselt oder umgekehrt.
 
-### Subklassen von Leistungseinträgen
+### Unterklassen von Performance-Einträgen
 
-Bestimmte Eintragstypen enthalten in der Regel zusätzliche typenspezifische Daten: Zum Beispiel erfasst der `"resource"`-Typ die Zeitpunkte, zu denen die DNS-Suche begann und endete. Daher werden Einträge durch Subklassen dargestellt, die das grundlegende `PerformanceEntry`-Interface erweitern. Ein `"resource"`-Eintrag wird beispielsweise durch eine Instanz von [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) dargestellt, die von `PerformanceEntry` erbt und Eigenschaften hinzufügt, um DNS-Suchzeitstempel aufzuzeichnen.
+Bestimmte Eintragstypen enthalten üblicherweise zusätzliche typspezifische Daten. Der Typ `"resource"` erfasst beispielsweise, wann die DNS-Abfrage begonnen und geendet hat. Daher werden Einträge durch Unterklassen dargestellt, die die grundlegende Schnittstelle `PerformanceEntry` erweitern. Ein `"resource"`-Eintrag wird beispielsweise durch eine Instanz von [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) dargestellt. Diese erbt von `PerformanceEntry` und ergänzt Eigenschaften zum Erfassen der Zeitstempel der DNS-Abfrage.
 
-Die Subklassen von `PerformanceEntry` definieren auch die Semantik der Eigenschaften, die zu `PerformanceEntry` selbst gehören: Zum Beispiel hat `PerformanceEntry` eine [`name`](/de/docs/Web/API/PerformanceEntry/name)-Eigenschaft, deren Bedeutung von der Subklasse abhängt.
+Die Unterklassen von `PerformanceEntry` legen auch fest, welche Bedeutung die Eigenschaften von `PerformanceEntry` selbst haben. So besitzt `PerformanceEntry` beispielsweise eine Eigenschaft [`name`](/de/docs/Web/API/PerformanceEntry/name), deren Bedeutung von der jeweiligen Unterklasse abhängt.
 
-Die folgenden Interfaces erben von `PerformanceEntry`:
+Die folgenden Schnittstellen erben von `PerformanceEntry`:
 
 - [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)
 - [`LayoutShift`](/de/docs/Web/API/LayoutShift)
+- [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming)
 - [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)
 - [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)
 - [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)
@@ -67,9 +69,9 @@ Die folgenden Interfaces erben von `PerformanceEntry`:
 - [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)
 - [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)
 
-## Zugriff auf Daten
+## Auf Daten zugreifen
 
-Sie können auf Leistungseinträge auf zwei Arten zugreifen. Die bevorzugte Methode ist die Verwendung des [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Interfaces, das mit einer Callback-Funktion erstellt wird, die aufgerufen wird, wenn bestimmte Leistungseinträge aufgezeichnet werden. Sie rufen dann die [`observe`](/de/docs/Web/API/PerformanceObserver/observe)-Methode auf, geben die zu beobachtenden Typen an und verwenden die `buffered`-Option, um Einträge abzurufen, die vor der Beobachtung aufgetreten sind.
+Sie können auf zwei Arten auf Performance-Einträge zugreifen. Die bevorzugte Methode verwendet die Schnittstelle [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver). Sie wird mit einer Callback-Funktion erstellt, die aufgerufen wird, wenn bestimmte Performance-Einträge aufgezeichnet werden. Anschließend rufen Sie ihre Methode [`observe`](/de/docs/Web/API/PerformanceObserver/observe) auf und übergeben die zu beobachtenden Typen. Mit der Option `buffered` können Sie auch Einträge abrufen, die vor Beginn der Beobachtung entstanden sind.
 
 ```js
 function logEventDuration(entries) {
@@ -87,7 +89,7 @@ const observer = new PerformanceObserver(logEventDuration);
 observer.observe({ type: "event", buffered: true });
 ```
 
-Alternativ können Sie die Methoden [`Performance.getEntries()`](/de/docs/Web/API/Performance/getEntries), [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) und [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) verwenden, um alle Leistungseinträge für eine Seite oder Einträge, die dem angegebenen Namen oder Typ entsprechen, abzurufen.
+Alternativ können Sie mit den Methoden [`Performance.getEntries()`](/de/docs/Web/API/Performance/getEntries), [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) und [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) alle Performance-Einträge einer Seite oder Einträge mit einem bestimmten Namen beziehungsweise Typ abrufen.
 
 ```js
 const events = performance.getEntriesByType("event");
@@ -101,38 +103,39 @@ for (const event of events) {
 }
 ```
 
-Die `PerformanceObserver`-Option wird bevorzugt, weil:
+`PerformanceObserver` wird aus folgenden Gründen bevorzugt:
 
-- Die `getEntries*`-Methoden immer alle relevanten Einträge seit Beginn der Zeitachse zurückgeben. Wenn Sie sie also zweimal aufrufen, sehen Sie dieselben Einträge erneut und müssen Einträge herausfiltern, die Sie bereits gesehen haben.
-- Beobachternachrichten werden asynchron zugestellt, sodass der Browser sie während inaktiver Zeit zur Minimierung ihres Leistungseinflusses senden kann.
-- Nicht alle Eintragstypen funktionieren mit den `getEntries*`-Methoden. Für einige müssen Sie Leistungsbeobachter verwenden, um auf sie zuzugreifen.
+- Die Methoden `getEntries*` geben immer alle relevanten Einträge seit Beginn der Zeitachse zurück. Wenn Sie eine dieser Methoden zweimal aufrufen, erhalten Sie dieselben Einträge erneut und müssen bereits gesehene Einträge herausfiltern.
+- Benachrichtigungen von Observers werden asynchron zugestellt. So kann der Browser sie während Leerlaufzeiten verarbeiten und ihre Auswirkungen auf die Performance minimieren.
+- Nicht alle Eintragstypen lassen sich mit den Methoden `getEntries*` abrufen. Für einige müssen Sie Performance Observers verwenden.
 
-## Verwalten von Pufferspeichern
+## Puffergrößen verwalten
 
-Es gibt ein Pufferlimit für Leistungseinträge für jedes globale Objekt. Dieses stellt sicher, dass der Browser nicht unbegrenzt Speicher verbraucht, wenn er Leistungsdaten speichert. Besonders wenn Ihre Website oder Anwendung viele Ressourcen abruft (z.B. bei Verwendung von Polling), müssen Sie sich die Pufferlimits ansehen:
+Für jedes globale Objekt gibt es eine Puffergrenze für Performance-Einträge. Sie verhindert, dass der Browser beim Vorhalten von Performancedaten unbegrenzt Speicher belegt. Insbesondere wenn Ihre Website oder Anwendung viele Ressourcen abruft, etwa beim Polling, sollten Sie die Grenzen der Puffer berücksichtigen:
 
-| [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Kennung | Interface                                                                     | Maximale Anzahl von Puffereinträgen |
+| [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Kennung | Schnittstelle                                                                 | Maximale Anzahl von Puffereinträgen |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------------- | ----------------------------------- |
-| `"mark"`                                                           | [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)                         | Unendlich                           |
-| `"measure"`                                                        | [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)                   | Unendlich                           |
-| `"navigation"`                                                     | [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) | Unendlich                           |
-| `"resource"`                                                       | [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)     | 250 (einstellbar, siehe unten)      |
+| `"mark"`                                                           | [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)                         | Unbegrenzt                          |
+| `"measure"`                                                        | [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)                   | Unbegrenzt                          |
+| `"navigation"`                                                     | [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) | Unbegrenzt                          |
+| `"resource"`                                                       | [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)     | 250 (anpassbar, siehe unten)        |
 | `"longtask"`                                                       | [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)     | 200                                 |
-| `"paint"`                                                          | [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)           | 2 (es gibt keine weiteren)          |
+| `"paint"`                                                          | [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)           | 2 (es wird nicht mehr geben)        |
+| `"container"`                                                      | [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming)   | 150                                 |
 | `"element"`                                                        | [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)       | 150                                 |
 | `"event"`                                                          | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)           | 150                                 |
-| `"first-input"`                                                    | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)           | 1 (es gibt keine weiteren)          |
+| `"first-input"`                                                    | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)           | 1 (es wird nicht mehr geben)        |
 | `"layout-shift"`                                                   | [`LayoutShift`](/de/docs/Web/API/LayoutShift)                                 | 150                                 |
 | `"largest-contentful-paint"`                                       | [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)           | 150                                 |
 | `"visibility-state"`                                               | [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)               | 50                                  |
 
-Tabelle 1. Pufferspeichergrößen ([Quelle](https://w3c.github.io/timing-entrytypes-registry/#registry)).
+Tabelle 1. Puffergrößen ([Quelle](https://w3c.github.io/timing-entrytypes-registry/#registry)).
 
-Für `"resource"`-Eintragstypen finden Sie unter [Verwalten von Ressourcenspeichergrößen](/de/docs/Web/API/Performance_API/Resource_timing#managing_resource_buffer_sizes) Informationen dazu, wie Sie eine andere Pufferspeichergröße festlegen können.
+Wie Sie für Einträge vom Typ `"resource"` eine andere Puffergröße festlegen, erfahren Sie unter [Ressourcenpuffergrößen verwalten](/de/docs/Web/API/Performance_API/Resource_timing#managing_resource_buffer_sizes).
 
-Für `"first-input"` und `"paint"` ist die Begrenzung in der Definition der Metrik inhärent. Es wird nicht mehr als einen (oder zwei) Einträge geben.
+Bei `"first-input"` und `"paint"` ergibt sich die Begrenzung aus der Definition der jeweiligen Metrik. Es wird nicht mehr als einen beziehungsweise zwei Einträge geben.
 
-Der [Performance Observer-Rückruf](/de/docs/Web/API/PerformanceObserver/PerformanceObserver) enthält einen optionalen `droppedEntriesCount`-Parameter, der Ihnen mitteilt, wie viele Einträge verloren gingen, weil der Puffer voll war.
+Der [Performance-Observer-Callback](/de/docs/Web/API/PerformanceObserver/PerformanceObserver) enthält den optionalen Parameter `droppedEntriesCount`. Er gibt an, wie viele Einträge verloren gingen, weil der Puffer voll war.
 
 ```js
 function perfObserver(list, observer, droppedEntriesCount) {
@@ -149,11 +152,11 @@ const observer = new PerformanceObserver(perfObserver);
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Eine weitere nützliche Methode ist [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords), die die aktuelle Liste der im Leistungsbeobachter gespeicherten Leistungseinträge zurückgibt und diese gleichzeitig leert.
+Eine weitere nützliche Methode ist [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords). Sie gibt die aktuelle Liste der im Performance Observer gespeicherten Performance-Einträge zurück und leert sie zugleich.
 
 ## JSON-Daten
 
-Alle Leistungseinträge bieten einen `toJSON()`- {{Glossary("Serialization", "Serializer")}}, der eine {{jsxref("JSON")}}-Darstellung des Eintrags liefert. Dies kann nützlich sein, wenn Sie alle verfügbaren Daten sammeln und irgendwo speichern möchten.
+Alle Performance-Einträge bieten einen `toJSON()`-{{Glossary("Serialization", "Serializer")}}, der eine {{jsxref("JSON")}}-Darstellung des Eintrags zurückgibt. Das ist hilfreich, wenn Sie alle verfügbaren Daten erfassen und an einem anderen Ort speichern möchten.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -165,7 +168,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "event", buffered: true });
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+Dadurch würde ein JSON-Objekt wie das folgende ausgegeben:
 
 ```json
 {
@@ -179,7 +182,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um eine String-Darstellung des Eintrags zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) mit jedem `PerformanceEntry`-Objekt direkt verwenden; es wird automatisch die `toJSON()`-Methode des Eintrags aufrufen.
+Um eine Zeichenfolgendarstellung des Eintrags zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt mit einem beliebigen `PerformanceEntry`-Objekt verwenden. Dabei wird automatisch dessen Methode `toJSON()` aufgerufen.
 
 ## Siehe auch
 

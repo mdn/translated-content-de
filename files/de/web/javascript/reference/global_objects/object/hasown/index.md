@@ -3,10 +3,10 @@ title: Object.hasOwn()
 short-title: hasOwn()
 slug: Web/JavaScript/Reference/Global_Objects/Object/hasOwn
 l10n:
-  sourceCommit: 06f8ebf948372dfb6c3c22d26d4f672c99cd4e0d
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Object.hasOwn()`** gibt `true` zurück, wenn das angegebene Objekt die angegebene Eigenschaft als _eigene_ Eigenschaft besitzt. Wenn die Eigenschaft geerbt wurde oder nicht existiert, gibt die Methode `false` zurück.
+Die statische Methode **`Object.hasOwn()`** gibt `true` zurück, wenn das angegebene Objekt die betreffende Eigenschaft als _eigene_ Eigenschaft besitzt. Wenn die Eigenschaft geerbt wurde oder nicht existiert, gibt die Methode `false` zurück.
 
 > [!NOTE]
 > `Object.hasOwn()` ist als Ersatz für {{jsxref("Object.prototype.hasOwnProperty()")}} vorgesehen.
@@ -43,13 +43,13 @@ Object.hasOwn(obj, prop)
 
 ### Rückgabewert
 
-`true`, wenn die angegebene Eigenschaft direkt für das angegebene Objekt definiert ist. Andernfalls `false`.
+`true`, wenn die angegebene Eigenschaft direkt auf dem angegebenen Objekt definiert ist. Andernfalls `false`.
 
 ## Beschreibung
 
-Die Methode `Object.hasOwn()` gibt `true` zurück, wenn die angegebene Eigenschaft eine direkte Eigenschaft des Objekts ist – selbst wenn ihr Wert `null` oder `undefined` ist. Die Methode gibt `false` zurück, wenn die Eigenschaft geerbt wurde oder überhaupt nicht deklariert ist. Anders als der Operator {{jsxref("Operators/in", "in")}} durchsucht diese Methode die Prototypenkette des Objekts nicht nach der angegebenen Eigenschaft.
+Die Methode `Object.hasOwn()` gibt `true` zurück, wenn die angegebene Eigenschaft eine direkte Eigenschaft des Objekts ist – auch wenn ihr Wert `null` oder `undefined` ist. Die Methode gibt `false` zurück, wenn die Eigenschaft geerbt wurde oder überhaupt nicht deklariert ist. Anders als der Operator {{jsxref("Operators/in", "in")}} prüft diese Methode nicht, ob die angegebene Eigenschaft in der Prototypkette des Objekts vorhanden ist.
 
-Sie wird gegenüber {{jsxref("Object.prototype.hasOwnProperty()")}} empfohlen, da sie auch bei [Objekten mit `null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und bei Objekten funktioniert, die die geerbte Methode `hasOwnProperty()` überschrieben haben. Zwar lassen sich diese Probleme umgehen, indem `Object.prototype.hasOwnProperty()` über ein anderes Objekt aufgerufen wird (etwa mit `Object.prototype.hasOwnProperty.call(obj, prop)`), doch `Object.hasOwn()` ist intuitiver und kürzer.
+Sie wird gegenüber {{jsxref("Object.prototype.hasOwnProperty()")}} empfohlen, weil sie mit [Objekten mit `null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und mit Objekten funktioniert, die die geerbte Methode `hasOwnProperty()` überschrieben haben. Diese Probleme lassen sich zwar umgehen, indem `Object.prototype.hasOwnProperty()` über ein anderes Objekt aufgerufen wird (etwa mit `Object.prototype.hasOwnProperty.call(obj, prop)`), aber `Object.hasOwn()` ist intuitiver und kürzer.
 
 ## Beispiele
 
@@ -73,7 +73,7 @@ Object.hasOwn(example, "prop"); // true - own property exists with value of unde
 
 ### Direkte und geerbte Eigenschaften
 
-Das folgende Beispiel unterscheidet zwischen direkten Eigenschaften und Eigenschaften, die über die Prototypenkette geerbt wurden:
+Das folgende Beispiel unterscheidet zwischen direkten Eigenschaften und Eigenschaften, die über die Prototypkette geerbt wurden:
 
 ```js
 const example = {};
@@ -122,9 +122,9 @@ Object.hasOwn(fruits, 3); // true ('Orange')
 Object.hasOwn(fruits, 4); // false - not defined
 ```
 
-### Problematische Fälle für hasOwnProperty()
+### Problemfälle für hasOwnProperty()
 
-Dieser Abschnitt zeigt, dass `Object.hasOwn()` nicht von den Problemen betroffen ist, die bei `hasOwnProperty()` auftreten. Erstens lässt es sich mit Objekten verwenden, die `hasOwnProperty()` neu implementiert haben. Im folgenden Beispiel meldet die neu implementierte Methode `hasOwnProperty()` für _jede_ Eigenschaft `false`, während das Verhalten von `Object.hasOwn()` unverändert bleibt:
+Dieser Abschnitt zeigt, dass `Object.hasOwn()` nicht von den Problemen betroffen ist, die bei `hasOwnProperty()` auftreten. Erstens kann die Methode mit Objekten verwendet werden, die `hasOwnProperty()` neu implementiert haben. Im folgenden Beispiel meldet die neu implementierte Methode `hasOwnProperty()` für _jede_ Eigenschaft `false`, das Verhalten von `Object.hasOwn()` bleibt jedoch unverändert:
 
 ```js
 const foo = {
@@ -139,7 +139,7 @@ console.log(foo.hasOwnProperty("bar")); // false
 console.log(Object.hasOwn(foo, "bar")); // true
 ```
 
-Die Methode lässt sich auch mit [Objekten mit `null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) verwenden. Diese erben nicht von `Object.prototype`, sodass `hasOwnProperty()` für sie nicht verfügbar ist.
+Die Methode kann auch mit [Objekten mit `null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) verwendet werden. Diese erben nicht von `Object.prototype`, weshalb `hasOwnProperty()` nicht verfügbar ist.
 
 ```js
 const foo = Object.create(null);
@@ -161,11 +161,11 @@ console.log(Object.hasOwn(foo, "prop")); // true
 
 ## Siehe auch
 
-- [Polyfill für `Object.hasOwn` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
+- [Polyfill für `Object.hasOwn` in `core-js`](https://core-js.io/docs/features/ecmascript/object)
 - [Polyfill für `Object.hasOwn` von es-shims](https://www.npmjs.com/package/object.hasown)
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
 - [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Statements/for...in", "for...in")}}
 - {{jsxref("Operators/in", "in")}}
-- [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+- [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)

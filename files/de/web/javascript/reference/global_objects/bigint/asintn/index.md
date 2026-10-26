@@ -3,10 +3,10 @@ title: BigInt.asIntN()
 short-title: asIntN()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/asIntN
 l10n:
-  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
+  sourceCommit: c7424294e2e85922c9af80b2b557ece47654604c
 ---
 
-Die statische Methode **`BigInt.asIntN()`** kürzt einen `BigInt`-Wert auf die gegebene Anzahl an niederwertigen Bits und gibt diesen Wert als vorzeichenbehaftete ganze Zahl zurück.
+Die statische Methode **`BigInt.asIntN()`** kürzt einen `BigInt`-Wert auf die angegebene Anzahl niederwertigster Bits und gibt das Ergebnis als vorzeichenbehaftete Ganzzahl zurück.
 
 {{InteractiveExample("JavaScript Demo: BigInt.asIntN()")}}
 
@@ -14,7 +14,7 @@ Die statische Methode **`BigInt.asIntN()`** kürzt einen `BigInt`-Wert auf die g
 const I64_CEIL = 2n ** 63n;
 
 console.log(BigInt.asIntN(64, I64_CEIL - 1n));
-// 9223372036854775807n (2n ** 64n - 1n, the maximum non-wrapping value)
+// 9223372036854775807n (2n ** 63n - 1n, the maximum non-wrapping value)
 console.log(BigInt.asIntN(64, I64_CEIL));
 // -9223372036854775808n (wraps to min value)
 console.log(BigInt.asIntN(64, I64_CEIL + 1n));
@@ -34,13 +34,13 @@ BigInt.asIntN(bits, bigint)
 ### Parameter
 
 - `bits`
-  - : Die Anzahl der für den zurückgegebenen `BigInt` verfügbaren Bits. Sollte eine ganze Zahl zwischen 0 und 2<sup>53</sup> - 1, einschließlich, sein.
+  - : Die Anzahl der Bits, die für den zurückgegebenen BigInt zur Verfügung stehen. Muss eine Ganzzahl zwischen 0 und 2<sup>53</sup> - 1 einschließlich sein.
 - `bigint`
-  - : Der `BigInt`-Wert, der gekürzt werden soll, um in die bereitgestellten Bits zu passen.
+  - : Der BigInt-Wert, der auf die angegebene Anzahl von Bits gekürzt werden soll.
 
 ### Rückgabewert
 
-Ein `BigInt`, das die Bitdarstellung von `bigint`, gekürzt auf `bits` Bits, als vorzeichenbehaftete ganze Zahl enthält.
+Ein BigInt, der die auf `bits` Bits gekürzte Bitdarstellung von `bigint` enthält, interpretiert als vorzeichenbehaftete Ganzzahl.
 
 ### Ausnahmen
 
@@ -49,7 +49,7 @@ Ein `BigInt`, das die Bitdarstellung von `bigint`, gekürzt auf `bits` Bits, als
 
 ## Beschreibung
 
-Die Methode `BigInt.asIntN` kürzt einen `BigInt`-Wert auf die gegebene Anzahl von Bits und interpretiert das Ergebnis als vorzeichenbehaftete ganze Zahl. Zum Beispiel wird bei `BigInt.asIntN(3, 25n)` der Wert `25n` auf `1n` gekürzt:
+Die Methode `BigInt.asIntN` kürzt einen `BigInt`-Wert auf die angegebene Anzahl von Bits und interpretiert das Ergebnis als vorzeichenbehaftete Ganzzahl. Beispielsweise wird bei `BigInt.asIntN(3, 25n)` der Wert `25n` auf `1n` gekürzt:
 
 ```plain
 25n = 00011001 (base 2)
@@ -57,7 +57,7 @@ Die Methode `BigInt.asIntN` kürzt einen `BigInt`-Wert auf die gegebene Anzahl v
 ===>       001 (base 2) = 1n
 ```
 
-Wenn das führende Bit der verbleibenden Zahl `1` ist, ist das Ergebnis negativ. Zum Beispiel ergibt `BigInt.asIntN(4, 25n)` `-7n`, weil `1001` die Kodierung von `-7` im Zweierkomplement ist:
+Wenn das höchstwertige Bit der verbleibenden Zahl `1` ist, ist das Ergebnis negativ. Beispielsweise ergibt `BigInt.asIntN(4, 25n)` den Wert `-7n`, da `1001` die Darstellung von `-7` im Zweierkomplement ist:
 
 ```plain
 25n = 00011001 (base 2)
@@ -66,15 +66,15 @@ Wenn das führende Bit der verbleibenden Zahl `1` ist, ist das Ergebnis negativ.
 ```
 
 > [!NOTE]
-> `BigInt`-Werte werden immer als Zweierkomplement in Binärform kodiert.
+> `BigInt`-Werte werden binär immer im Zweierkomplement dargestellt.
 
-Im Gegensatz zu ähnlichen Sprach-APIs wie {{jsxref("Number.prototype.toExponential()")}} ist `asIntN` eine statische Eigenschaft von {{jsxref("BigInt")}}, daher verwenden Sie sie stets als `BigInt.asIntN()`, anstatt als Methode eines `BigInt`-Wertes. Das Bereitstellen von `asIntN()` als "Standardbibliotheksfunktion" ermöglicht [Interop mit asm.js](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
+Anders als bei ähnlichen APIs der Sprache wie {{jsxref("Number.prototype.toExponential()")}} ist `asIntN` eine statische Eigenschaft von {{jsxref("BigInt")}}. Sie verwenden sie daher immer als `BigInt.asIntN()` und nicht als Methode eines BigInt-Werts. Die Bereitstellung von `asIntN()` als „Standardbibliotheksfunktion“ ermöglicht die [Interoperabilität mit asm.js](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
 
 ## Beispiele
 
-### Im Bereich von 64-Bit bleiben
+### Im 64-Bit-Bereich bleiben
 
-Die Methode `BigInt.asIntN()` kann nützlich sein, um im Bereich der 64-Bit-Arithmetik zu bleiben.
+Die Methode `BigInt.asIntN()` kann nützlich sein, um im Wertebereich der 64-Bit-Arithmetik zu bleiben.
 
 ```js
 const max = 2n ** (64n - 1n) - 1n;

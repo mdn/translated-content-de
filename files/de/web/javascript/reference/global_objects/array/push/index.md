@@ -3,10 +3,10 @@ title: Array.prototype.push()
 short-title: push()
 slug: Web/JavaScript/Reference/Global_Objects/Array/push
 l10n:
-  sourceCommit: c7b05ac470c1717289df09b999326c76f174e309
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`push()`**-Methode von {{jsxref("Array")}}-Instanzen fügt die angegebenen Elemente am Ende eines Arrays hinzu und gibt die neue Länge des Arrays zurück.
+Die Methode **`push()`** von {{jsxref("Array")}}-Instanzen fügt die angegebenen Elemente am Ende eines Arrays hinzu und gibt die neue Länge des Arrays zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.push()")}}
 
@@ -36,27 +36,27 @@ push(element1, element2, /* …, */ elementN)
 ### Parameter
 
 - `element1`, …, `elementN`
-  - : Das oder die Elemente, die am Ende des Arrays hinzugefügt werden sollen.
+  - : Die Elemente, die am Ende des Arrays hinzugefügt werden sollen.
 
 ### Rückgabewert
 
-Die neue {{jsxref("Array/length", "length")}}-Eigenschaft des Objekts, auf dem die Methode aufgerufen wurde.
+Der neue Wert der Eigenschaft {{jsxref("Array/length", "length")}} des Objekts, auf dem die Methode aufgerufen wurde.
 
 ## Beschreibung
 
-Die `push()`-Methode hängt Werte an ein Array an.
+Die Methode `push()` hängt Werte an ein Array an.
 
-{{jsxref("Array.prototype.unshift()")}} hat ein ähnliches Verhalten wie `push()`, wird aber auf den Beginn eines Arrays angewendet.
+{{jsxref("Array.prototype.unshift()")}} verhält sich ähnlich wie `push()`, fügt Elemente jedoch am Anfang eines Arrays hinzu.
 
-Die `push()`-Methode ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert die Länge und den Inhalt von `this`. Falls Sie möchten, dass der Wert von `this` gleich bleibt, aber ein neues Array mit angehängten Elementen zurückgegeben wird, können Sie stattdessen [`arr.concat([element0, element1, /* ... ,*/ elementN])`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) verwenden. Beachten Sie, dass die Elemente in einem zusätzlichen Array eingeschlossen sind – andernfalls, falls das Element selbst ein Array ist, würde es aufgrund des Verhaltens von `concat()` verbreitet statt als einzelnes Element angehängt.
+Die Methode `push()` ist eine [verändernde Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert die Länge und den Inhalt von `this`. Wenn `this` unverändert bleiben soll, Sie aber ein neues Array mit angehängten Elementen zurückgeben möchten, können Sie stattdessen [`arr.concat([element0, element1, /* ... ,*/ elementN])`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) verwenden. Beachten Sie, dass die Elemente in ein zusätzliches Array eingeschlossen sind. Andernfalls würde ein Element, das selbst ein Array ist, aufgrund des Verhaltens von `concat()` auf seine einzelnen Elemente verteilt, statt als einzelnes Element angehängt zu werden.
 
-Die `push()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und mit Integer-Schlüsseln versehene Eigenschaften hat. Obwohl Strings ebenfalls array-ähnlich sind, ist diese Methode nicht geeignet, auf sie angewendet zu werden, da Strings unveränderlich sind.
+Die Methode `push()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine Eigenschaft `length` und Eigenschaften mit ganzzahligen Schlüsseln hat. Obwohl Strings ebenfalls arrayähnlich sind, eignet sich die Methode nicht für sie, da Strings unveränderlich sind.
 
 ## Beispiele
 
 ### Elemente zu einem Array hinzufügen
 
-Der folgende Code erzeugt das Array `sports` mit zwei Elementen und fügt dann zwei Elemente hinzu. Die Variable `total` enthält die neue Länge des Arrays.
+Der folgende Code erstellt das Array `sports` mit zwei Elementen und hängt anschließend zwei weitere Elemente an. Die Variable `total` enthält die neue Länge des Arrays.
 
 ```js
 const sports = ["soccer", "baseball"];
@@ -68,7 +68,7 @@ console.log(total); // 4
 
 ### Zwei Arrays zusammenführen
 
-Dieses Beispiel verwendet die {{jsxref("Operators/Spread_syntax", "Spread-Syntax", "", 1)}}, um alle Elemente eines zweiten Arrays in das erste zu pushen.
+Dieses Beispiel verwendet {{jsxref("Operators/Spread_syntax", "Spread-Syntax", "", 1)}}, um alle Elemente eines zweiten Arrays an das erste anzuhängen.
 
 ```js
 const vegetables = ["parsnip", "potato"];
@@ -80,11 +80,11 @@ vegetables.push(...moreVegs);
 console.log(vegetables); // ['parsnip', 'potato', 'celery', 'beetroot']
 ```
 
-Das Zusammenführen von zwei Arrays kann auch mit der {{jsxref("Array/concat", "concat()")}}-Methode durchgeführt werden, die ein neues kombiniertes Array erstellt, anstatt dem Original hinzuzufügen. Die Spread-Syntax funktioniert nur, wenn die Anzahl der Elemente im Array kleiner als die maximale Anzahl von Funktionsargumenten ist, die vom Engine erlaubt sind. Für längere Arrays verwenden Sie `concat()` oder rufen Sie `push()` mehrfach in einer Schleife auf.
+Zwei Arrays lassen sich auch mit der Methode {{jsxref("Array/concat", "concat()")}} zusammenführen. Diese erstellt ein neues kombiniertes Array, statt das ursprüngliche zu erweitern. Die Spread-Syntax funktioniert nur, wenn die Anzahl der Elemente im Array unter der maximalen Anzahl an Funktionsargumenten liegt, die die Engine zulässt. Verwenden Sie für längere Arrays `concat()` oder rufen Sie `push()` mehrfach in einer Schleife auf.
 
-### push() auf Objekte, die keine Arrays sind, anwenden
+### push() für Objekte aufrufen, die keine Arrays sind
 
-Die `push()`-Methode liest die `length`-Eigenschaft von `this`. Sie setzt dann jeden Index von `this`, beginnend bei `length`, mit den an `push()` übergebenen Argumenten. Schließlich setzt sie die `length` auf die vorherige Länge plus die Anzahl der hinzugefügten Elemente.
+Die Methode `push()` liest die Eigenschaft `length` von `this`. Anschließend setzt sie die Eigenschaften von `this` mit Indizes ab `length` auf die an `push()` übergebenen Argumente. Zum Schluss setzt sie `length` auf die bisherige Länge zuzüglich der Anzahl der hinzugefügten Elemente.
 
 ```js
 const arrayLike = {
@@ -103,11 +103,11 @@ console.log(plainObj);
 // { '0': 1, '1': 2, length: 2 }
 ```
 
-### Ein Objekt auf array-ähnliche Weise verwenden
+### Ein Objekt wie ein Array verwenden
 
-Wie oben erwähnt, ist `push` absichtlich generisch, und das können wir zu unserem Vorteil nutzen. `Array.prototype.push` kann gut auf einem Objekt funktionieren, wie dieses Beispiel zeigt.
+Wie oben erwähnt, ist `push` bewusst generisch gestaltet. Das können Sie sich zunutze machen: `Array.prototype.push` funktioniert auch mit einem Objekt, wie dieses Beispiel zeigt.
 
-Beachten Sie, dass wir kein Array erstellen, um eine Sammlung von Objekten zu speichern. Stattdessen speichern wir die Sammlung im Objekt selbst und verwenden `call` auf `Array.prototype.push`, um die Methode zu täuschen, dass wir es mit einem Array zu tun haben – und es funktioniert einfach, dank der Art und Weise, wie JavaScript uns erlaubt, den Ausführungskontext auf jede gewünschte Weise festzulegen.
+Beachten Sie, dass hier kein Array erstellt wird, um eine Sammlung von Objekten zu speichern. Stattdessen wird die Sammlung im Objekt selbst gespeichert. Mit `call` auf `Array.prototype.push` wird die Methode so aufgerufen, als würde sie mit einem Array arbeiten. Das funktioniert, weil sich der Ausführungskontext in JavaScript entsprechend festlegen lässt.
 
 ```js
 const obj = {
@@ -126,7 +126,7 @@ obj.addElem({});
 console.log(obj.length); // 2
 ```
 
-Beachten Sie, dass `obj` zwar kein Array ist, die `push`-Methode jedoch erfolgreich die `length`-Eigenschaft von `obj` erhöht hat, als ob wir es mit einem echten Array zu tun hätten.
+Obwohl `obj` kein Array ist, hat die Methode `push` die Eigenschaft `length` von `obj` erfolgreich erhöht – genau wie bei einem Array.
 
 ## Spezifikationen
 
@@ -138,9 +138,9 @@ Beachten Sie, dass `obj` zwar kein Array ist, die `push`-Methode jedoch erfolgre
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.push` in `core-js` mit Korrekturen dieser Methode](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.push`](https://www.npmjs.com/package/array.prototype.push)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)-Leitfaden
+- [Polyfill für `Array.prototype.push` in `core-js` mit Korrekturen für diese Methode](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.push` von es-shims](https://www.npmjs.com/package/array.prototype.push)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.pop()")}}
 - {{jsxref("Array.prototype.shift()")}}

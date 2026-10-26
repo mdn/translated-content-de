@@ -3,10 +3,10 @@ title: Date.now()
 short-title: now()
 slug: Web/JavaScript/Reference/Global_Objects/Date/now
 l10n:
-  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Date.now()`** statische Methode gibt die Anzahl der Millisekunden zurück, die seit dem [epoch](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) vergangen sind, welcher als Mitternacht am Anfang des 1. Januar 1970, UTC, definiert ist.
+Die statische Methode **`Date.now()`** gibt die Anzahl der Millisekunden zurück, die seit der [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) vergangen sind. Diese ist als Mitternacht zu Beginn des 1. Januar 1970 (UTC) definiert.
 
 {{InteractiveExample("JavaScript Demo: Date.now()")}}
 
@@ -37,19 +37,19 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) in Millisekunden der aktuellen Zeit darstellt.
+Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) der aktuellen Zeit in Millisekunden darstellt.
 
 ## Beschreibung
 
-### Reduzierte Zeitpräzision
+### Reduzierte Zeitgenauigkeit
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Genauigkeit von `Date.now()` abhängig von den Browsereinstellungen verringert werden.
+Zum Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} kann die Genauigkeit von `Date.now()` je nach Browsereinstellungen reduziert sein.
 
-Der Zeitstempel ist immer eine ganze Anzahl von Millisekunden, daher ist seine Auflösung in allen Kontexten auf 1 ms beschränkt. Dies erfüllt bereits bestimmte grundlegende Sicherheits- und Datenschutzanforderungen.
+Der Zeitstempel ist immer eine ganzzahlige Anzahl von Millisekunden. Seine Auflösung ist daher in allen Kontexten auf 1 ms begrenzt. Dies erfüllt bereits bestimmte grundlegende Anforderungen an Sicherheit und Datenschutz.
 
-In Firefox ist die `privacy.reduceTimerPrecision`-Einstellung standardmäßig aktiviert. Bei den Standardeinstellungen hat der Zeitstempel eine Auflösung von 1 ms. Wenn `privacy.resistFingerprinting` aktiviert ist, beträgt das Rundungsintervall 16.667 ms oder das Intervall, das durch `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` konfiguriert ist, je nachdem, welches größer ist. Das Endergebnis wird auf eine ganze Zahl gerundet.
+In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert. Mit den Standardeinstellungen hat der Zeitstempel eine Auflösung von 1 ms. Wenn `privacy.resistFingerprinting` aktiviert ist, beträgt das Rundungsintervall 16,667 ms oder den durch `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` konfigurierten Wert, je nachdem, welcher größer ist. Die endgültige Ausgabe wird auf eine ganze Zahl gerundet.
 
-Zum Beispiel sind dies mögliche Werte in Firefox:
+Dies sind beispielsweise mögliche Werte in Firefox:
 
 ```js
 // Reduced time precision (1 ms) with default settings
@@ -71,9 +71,9 @@ Date.now();
 
 ## Beispiele
 
-### Erfassene Zeit messen
+### Vergangene Zeit messen
 
-Sie können `Date.now()` verwenden, um die aktuelle Zeit in Millisekunden zu erhalten, und dann eine vorherige Zeit subtrahieren, um herauszufinden, wie viel Zeit zwischen den beiden Aufrufen vergangen ist.
+Mit `Date.now()` können Sie die aktuelle Zeit in Millisekunden ermitteln und davon einen zuvor ermittelten Wert abziehen, um festzustellen, wie viel Zeit zwischen den beiden Aufrufen vergangen ist.
 
 ```js
 const start = Date.now();
@@ -81,7 +81,7 @@ doSomeLongRunningProcess();
 console.log(`Time elapsed: ${Date.now() - start} ms`);
 ```
 
-Für komplexere Szenarien möchten Sie möglicherweise stattdessen die [Performance-API](/de/docs/Web/API/Performance_API/High_precision_timing) verwenden.
+Für komplexere Szenarien empfiehlt sich stattdessen die [Performance API](/de/docs/Web/API/Performance_API/High_precision_timing).
 
 ## Spezifikationen
 
@@ -93,7 +93,7 @@ Für komplexere Szenarien möchten Sie möglicherweise stattdessen die [Performa
 
 ## Siehe auch
 
-- [Polyfill von `Date.now` in `core-js`](https://github.com/zloirock/core-js#ecmascript-date)
+- [Polyfill für `Date.now` in `core-js`](https://core-js.io/docs/features/ecmascript/date)
 - [`Performance.now()`](/de/docs/Web/API/Performance/now)
 - [`console.time()`](/de/docs/Web/API/console/time_static)
 - [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static)

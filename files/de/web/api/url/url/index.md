@@ -1,16 +1,16 @@
 ---
-title: "URL: Konstruktor URL()"
+title: "URL: URL()-Konstruktor"
 short-title: URL()
 slug: Web/API/URL/URL
 l10n:
-  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Der **`URL()`**-Konstruktor gibt ein neu erstelltes [`URL`](/de/docs/Web/API/URL)-Objekt zurück, das die URL darstellt, die durch die Parameter definiert ist.
+Der **`URL()`**-Konstruktor gibt ein neu erstelltes [`URL`](/de/docs/Web/API/URL)-Objekt zurück, das die durch die Parameter definierte URL repräsentiert.
 
-Wenn die angegebene Basis-URL oder die resultierende URL keine gültigen URLs sind, wird die JavaScript-Ausnahme {{jsxref("TypeError")}} ausgelöst.
+Wenn die angegebene Basis-URL oder die resultierende URL keine gültige URL ist, wird die JavaScript-Ausnahme {{jsxref("TypeError")}} ausgelöst.
 
 ## Syntax
 
@@ -22,33 +22,33 @@ new URL(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}}, das eine absolute URL oder eine relative Referenz zu einer Basis-URL darstellt.
+  - : Eine Zeichenfolge oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}}, das eine absolute URL oder eine relative Referenz auf eine Basis-URL repräsentiert.
     Wenn `url` eine relative Referenz ist, ist `base` erforderlich und wird verwendet, um die endgültige URL aufzulösen.
-    Wenn `url` eine absolute URL ist, wird ein gegebenes `base` nicht verwendet, um die resultierende URL zu erstellen.
+    Wenn `url` eine absolute URL ist, wird ein angegebenes `base` nicht zum Erstellen der resultierenden URL verwendet.
 - `base` {{optional_inline}}
-  - : Ein String, der die Basis-URL darstellt, die verwendet wird, wenn `url` eine relative Referenz ist.
-    Wenn nicht angegeben, ist der Standardwert `undefined`.
+  - : Eine Zeichenfolge, die die Basis-URL für Fälle angibt, in denen `url` eine relative Referenz ist.
+    Wenn der Parameter nicht angegeben wird, ist sein Standardwert `undefined`.
 
-    Wenn ein `base` angegeben ist, ist die aufgelöste URL nicht einfach eine Verkettung von `url` und `base`.
-    Relative Referenzen zum übergeordneten und aktuellen Verzeichnis werden relativ zum aktuellen Verzeichnis der `base`-URL aufgelöst, das Pfadsegmente bis zum letzten Schrägstrich enthält, aber keine danach.
-    Relative Referenzen zur Wurzel werden relativ zum Basis-Ursprung aufgelöst.
-    Weitere Informationen finden Sie unter [Auflösen relativer Referenzen zu einer URL](/de/docs/Web/API/URL_API/Resolving_relative_references).
+    Wenn `base` angegeben ist, entsteht die aufgelöste URL nicht einfach durch Aneinanderhängen von `url` und `base`.
+    Relative Referenzen auf das übergeordnete und das aktuelle Verzeichnis werden relativ zum aktuellen Verzeichnis der `base`-URL aufgelöst. Dieses umfasst die Pfadsegmente bis zum letzten Schrägstrich, aber keine danach.
+    Relative Referenzen auf das Stammverzeichnis werden relativ zum Ursprung der Basis-URL aufgelöst.
+    Weitere Informationen finden Sie unter [Relative Referenzen auf eine URL auflösen](/de/docs/Web/API/URL_API/Resolving_relative_references).
 
 > [!NOTE]
-> Die `url`- und `base`-Argumente werden jeweils aus dem Wert, den Sie übergeben, in einen String umgewandelt, wie z.B. ein [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) oder [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Element, genau wie bei anderen Web-APIs, die einen String akzeptieren.
-> Insbesondere können Sie ein bestehendes [`URL`](/de/docs/Web/API/URL)-Objekt für jedes Argument verwenden, und es wird aus der [`href`](/de/docs/Web/API/URL/href)-Eigenschaft des Objekts in einen String umgewandelt.
+> Die Argumente `url` und `base` werden unabhängig davon, welchen Wert Sie übergeben, jeweils in eine Zeichenfolge umgewandelt. Das gilt beispielsweise auch für ein [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)- oder [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Element, wie bei anderen Web-APIs, die eine Zeichenfolge akzeptieren.
+> Insbesondere können Sie für beide Argumente ein vorhandenes [`URL`](/de/docs/Web/API/URL)-Objekt verwenden. Es wird anhand seiner [`href`](/de/docs/Web/API/URL/href)-Eigenschaft in eine Zeichenfolge umgewandelt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : `url` (im Fall von absoluten URLs) oder `base` + `url` (im Fall von relativen Referenzen) ist keine gültige URL.
+  - : `url` (bei absoluten URLs) oder `base` + `url` (bei relativen Referenzen) ist keine gültige URL.
 
 ## Beispiele
 
 Hier sind einige Beispiele für die Verwendung des Konstruktors.
 
 > [!NOTE]
-> [Auflösen relativer Referenzen zu einer URL](/de/docs/Web/API/URL_API/Resolving_relative_references) bietet zusätzliche Beispiele, die zeigen, wie unterschiedliche `url`- und `base`-Werte zu einer endgültigen absoluten URL aufgelöst werden.
+> [Relative Referenzen auf eine URL auflösen](/de/docs/Web/API/URL_API/Resolving_relative_references) enthält weitere Beispiele, die zeigen, wie verschiedene Werte für `url` und `base` zu einer endgültigen absoluten URL aufgelöst werden.
 
 ```js
 // Base URLs:
@@ -114,5 +114,5 @@ new URL("//foo.example", "https://example.com");
 ## Siehe auch
 
 - [`URL.parse()`](/de/docs/Web/API/URL/parse_static), eine Alternative zu diesem Konstruktor, die keine Ausnahme auslöst
-- [Polyfill von `URL` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
-- Die Schnittstelle, zu der es gehört: [`URL`](/de/docs/Web/API/URL).
+- [Polyfill für `URL` in `core-js`](https://core-js.io/docs/features/web-standards/url)
+- Die zugehörige Schnittstelle: [`URL`](/de/docs/Web/API/URL).

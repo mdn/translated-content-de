@@ -1,14 +1,16 @@
 ---
-title: "Element: elementTiming-Eigenschaft"
+title: "Element: Eigenschaft elementTiming"
 short-title: elementTiming
 slug: Web/API/Element/elementTiming
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die **`elementTiming`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces identifiziert Elemente zur Beobachtung in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API. Die `elementTiming`-Eigenschaft spiegelt den Wert des [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attributs wider.
+Die Eigenschaft **`elementTiming`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) kennzeichnet Elemente, die über die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API beobachtet werden sollen.
+
+Die Eigenschaft `elementTiming` spiegelt den Wert des Attributs [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) wider.
 
 ## Wert
 
@@ -16,9 +18,9 @@ Ein String.
 
 ## Beispiele
 
-### Den Wert von `elementTiming` protokollieren
+### Wert von `elementTiming` protokollieren
 
-In diesem Beispiel bewirkt das Hinzufügen des [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attributs zum {{HTMLElement("img")}}-Element, dass das Bild beobachtet wird.
+In diesem Beispiel wird durch Hinzufügen des Attributs [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) zum Element {{HTMLElement("img")}} festgelegt, dass das Bild beobachtet werden soll.
 
 ```html
 <img
@@ -28,14 +30,14 @@ In diesem Beispiel bewirkt das Hinzufügen des [`elementtiming`](/de/docs/Web/HT
   id="myImage" />
 ```
 
-Sie können den Stringwert des `elementtiming`-HTML-Attributs abrufen, indem Sie `el.elementTiming` aufrufen.
+Sie können den String-Wert des HTML-Attributs `elementtiming` abrufen, indem Sie `el.elementTiming` aufrufen.
 
 ```js
 const el = document.getElementById("myImage");
 console.log(el.elementTiming); // "big-image"
 ```
 
-Für ein umfassenderes Beispiel, wie Sie die Element Timing API verwenden können, siehe [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming).
+Ein ausführlicheres Beispiel zur Verwendung der Element Timing API finden Sie unter [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming).
 
 ## Spezifikationen
 
@@ -48,4 +50,4 @@ Für ein umfassenderes Beispiel, wie Sie die Element Timing API verwenden könne
 ## Siehe auch
 
 - [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)
-- [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) HTML-Attribut
+- HTML-Attribut [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)

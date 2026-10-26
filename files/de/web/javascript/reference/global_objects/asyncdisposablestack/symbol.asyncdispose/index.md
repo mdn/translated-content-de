@@ -3,10 +3,10 @@ title: AsyncDisposableStack.prototype[Symbol.asyncDispose]()
 short-title: "[Symbol.asyncDispose]()"
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die Methode **`[Symbol.asyncDispose]()`** von {{jsxref("AsyncDisposableStack")}} Instanzen implementiert das _asynchrone Entsorgungsprotokoll_ und ermöglicht es, diese Instanzen zu entsorgen, wenn sie mit {{jsxref("Statements/await_using", "await using")}} verwendet werden. Es ist ein Alias für die Methode {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}}.
+Die Methode **`[Symbol.asyncDispose]()`** von {{jsxref("AsyncDisposableStack")}}-Instanzen implementiert das _Protokoll zur asynchronen Freigabe_ und ermöglicht die Freigabe einer Instanz, wenn sie mit {{jsxref("Statements/await_using", "await using")}} verwendet wird. Sie ist ein Alias für die Methode {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}}.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ Keine.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Deklarieren eines Stacks mit `await using`
+### Einen Stack mit `await using` deklarieren
 
-Die `Symbol.asyncDispose`-Methode soll automatisch in einer `await using`-Deklaration aufgerufen werden.
+Die Methode `Symbol.asyncDispose` wird bei einer `await using`-Deklaration automatisch aufgerufen.
 
 ```js
 async function doSomething() {
@@ -48,6 +48,7 @@ async function doSomething() {
 
 ## Siehe auch
 
-- [JavaScript Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `AsyncDisposableStack.prototype[Symbol.asyncDispose]` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.disposeAsync()")}}

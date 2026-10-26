@@ -3,14 +3,15 @@ title: "WorkerGlobalScope: btoa()-Methode"
 short-title: btoa()
 slug: Web/API/WorkerGlobalScope/btoa
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`btoa()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt einen {{Glossary("Base64", "Base64")}}-codierten {{Glossary("ASCII", "ASCII")}}-String aus einem _Binär-String_ (d.h. ein String, bei dem jedes Zeichen im String als Byte von Binärdaten behandelt wird).
+Die Methode **`btoa()`** der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) erstellt aus einer _binären Zeichenfolge_ eine {{Glossary("Base64", "Base64")}}-codierte {{Glossary("ASCII", "ASCII")}}-Zeichenfolge. Dabei wird jedes Zeichen der Eingabe als ein Byte binärer Daten behandelt.
 
-Sie können diese Methode verwenden, um Daten zu codieren, die ansonsten Kommunikationsprobleme verursachen könnten, diese zu übertragen und anschließend die [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)-Methode zu verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 codieren.
+Mit dieser Methode können Sie Daten codieren, die andernfalls Kommunikationsprobleme verursachen könnten, sie übertragen und anschließend mit der Methode [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob) wieder decodieren.
+So können Sie beispielsweise Steuerzeichen wie die ASCII-Werte 0 bis 31 codieren.
 
 ## Syntax
 
@@ -21,16 +22,16 @@ btoa(stringToEncode)
 ### Parameter
 
 - `stringToEncode`
-  - : Der _Binär-String_, der codiert werden soll.
+  - : Die zu codierende _binäre Zeichenfolge_.
 
 ### Rückgabewert
 
-Ein ASCII-String, der die Base64-Darstellung von `stringToEncode` enthält.
+Eine ASCII-Zeichenfolge, die die Base64-Darstellung von `stringToEncode` enthält.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der String enthielt ein Zeichen, das nicht in ein einzelnes Byte passte. Weitere Informationen finden Sie unten unter „Unicode-Strings“.
+  - : Die Zeichenfolge enthielt ein Zeichen, das nicht in ein einzelnes Byte passt. Weitere Informationen finden Sie unten unter „Unicode-Zeichenfolgen“.
 
 ## Beispiele
 
@@ -39,11 +40,13 @@ const encodedData = self.btoa("Hello, world"); // encode a string
 const decodedData = self.atob(encodedData); // decode the string
 ```
 
-## Unicode-Strings
+## Unicode-Zeichenfolgen
 
-Base64 ist gemäß seiner Definition dafür konzipiert, Binärdaten als Eingabe zu erwarten. Im Hinblick auf JavaScript-Strings bedeutet dies, dass es sich um Strings handelt, bei denen der Codepunkt jedes Zeichens nur ein Byte belegt. Wenn Sie also einen String an `btoa()` übergeben, der Zeichen enthält, die mehr als ein Byte belegen, erhalten Sie einen Fehler, da dies nicht als Binärdaten betrachtet wird.
+Base64 erwartet binäre Daten als Eingabe.
+Bei JavaScript-Zeichenfolgen bedeutet dies, dass der Codepunkt jedes Zeichens nur ein Byte belegt.
+Wenn Sie `btoa()` eine Zeichenfolge übergeben, die Zeichen enthält, die mehr als ein Byte belegen, erhalten Sie daher einen Fehler: Eine solche Zeichenfolge gilt nicht als binäre Daten.
 
-Weitere Informationen und mögliche Umgehungen finden Sie unter [`Window.btoa()`](/de/docs/Web/API/Window/btoa#unicode_strings).
+Weitere Informationen und mögliche Umgehungslösungen finden Sie unter [`Window.btoa()`](/de/docs/Web/API/Window/btoa#unicode_strings).
 
 ## Spezifikationen
 
@@ -55,9 +58,9 @@ Weitere Informationen und mögliche Umgehungen finden Sie unter [`Window.btoa()`
 
 ## Siehe auch
 
-- [Ein Polyfill für `btoa`](https://github.com/zloirock/core-js#base64-utility-methods) ist verfügbar in [`core-js`](https://github.com/zloirock/core-js)
+- [Ein Polyfill für `btoa`](https://core-js.io/docs/features/web-standards/atob-btoa) ist in [`core-js`](https://core-js.io/) verfügbar
 - [`data`-URLs](/de/docs/Web/URI/Reference/Schemes/data)
 - [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
-- [`Window.btoa()`](/de/docs/Web/API/Window/btoa): dieselbe Methode, aber im Scope des Fensters.
+- [`Window.btoa()`](/de/docs/Web/API/Window/btoa): dieselbe Methode, jedoch im Window-Kontext.
 - {{jsxref("Uint8Array.prototype.toBase64()")}}
 - {{Glossary("Base64", "Base64")}}

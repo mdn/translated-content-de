@@ -3,10 +3,10 @@ title: Iterator.prototype.toArray()
 short-title: toArray()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/toArray
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toArray()`** Methode von {{jsxref("Iterator")}} Instanzen erstellt eine neue {{jsxref("Array")}} Instanz, die mit den vom Iterator gelieferten Elementen gefüllt ist.
+Die Methode **`toArray()`** von {{jsxref("Iterator")}}-Instanzen erstellt eine neue {{jsxref("Array")}}-Instanz mit den vom Iterator gelieferten Elementen.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue {{jsxref("Array")}} Instanz, die die Elemente des Iterators in der Reihenfolge enthält, in der sie erzeugt wurden.
+Eine neue {{jsxref("Array")}}-Instanz, die die Elemente des Iterators in der Reihenfolge enthält, in der sie geliefert wurden.
 
 ## Beispiele
 
 ### Verwendung von toArray()
 
-`iterator.toArray()` ist gleichwertig mit `Array.from(iterator)` und `[...iterator]`, mit dem Unterschied, dass es einfacher zu verketten ist, wenn mehrere Methodenhelfer des Iterators beteiligt sind. Im folgenden Beispiel wird ein Iterator erstellt, der Begriffe in der Fibonacci-Folge liefert, die ersten 10 Begriffe nimmt, ungerade Zahlen herausfiltert und das Ergebnis in ein Array umwandelt:
+`iterator.toArray()` entspricht `Array.from(iterator)` und `[...iterator]`, lässt sich aber einfacher mit mehreren Iterator-Hilfsmethoden verketten. Das folgende Beispiel erstellt einen Iterator, der Glieder der Fibonacci-Folge liefert, nimmt die ersten 10 Glieder, filtert die ungeraden Zahlen heraus und wandelt das Ergebnis in ein Array um:
 
 ```js
 function* fibonacci() {
@@ -46,7 +46,7 @@ const array = fibonacci()
 console.log(array); // [2, 8, 34]
 ```
 
-Beachten Sie, dass es eine gute Idee ist, `toArray()` als letzten Schritt Ihrer Verarbeitung aufzurufen. Zum Beispiel ist `fibonacci().take(10).toArray().filter(...)` weniger effizient, da Iterator-Helfer faul sind und vermeiden, ein temporäres Array zu erstellen.
+Es empfiehlt sich, `toArray()` erst als letzten Verarbeitungsschritt aufzurufen. Beispielsweise ist `fibonacci().take(10).toArray().filter(...)` weniger effizient, weil Iterator-Hilfsmethoden verzögert ausgewertet werden und so die Erstellung eines temporären Arrays vermieden werden kann.
 
 ## Spezifikationen
 
@@ -58,7 +58,7 @@ Beachten Sie, dass es eine gute Idee ist, `toArray()` als letzten Schritt Ihrer 
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.prototype.toArray` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims Polyfill von `Iterator.prototype.toArray`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.prototype.toArray` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.prototype.toArray` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Array.from()")}}

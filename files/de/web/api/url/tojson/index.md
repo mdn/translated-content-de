@@ -1,14 +1,14 @@
 ---
-title: "URL: toJSON()-Methode"
+title: "URL: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/URL/toJSON
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode der [`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt einen String zurück, der eine serialisierte Version der URL enthält. In der Praxis scheint sie jedoch den gleichen Effekt wie [`URL.toString()`](/de/docs/Web/API/URL/toString) zu haben.
+Die Methode **`toJSON()`** der Schnittstelle [`URL`](/de/docs/Web/API/URL) gibt einen String mit einer serialisierten Version der URL zurück. In der Praxis scheint sie jedoch denselben Effekt zu haben wie [`URL.toString()`](/de/docs/Web/API/URL/toString).
 
 ## Syntax
 
@@ -43,4 +43,4 @@ url.toJSON(); // should return the URL as a string
 
 ## Siehe auch
 
-- [Polyfill von `URL.prototype.toJSON` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
+- [Polyfill für `URL.prototype.toJSON` in `core-js`](https://core-js.io/docs/features/web-standards/url)

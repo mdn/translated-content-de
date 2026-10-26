@@ -1,14 +1,14 @@
 ---
-title: "NodeList: forEach() Methode"
+title: "NodeList: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/NodeList/forEach
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`** Methode der [`NodeList`](/de/docs/Web/API/NodeList) Schnittstelle ruft die im Parameter übergebene Rückruffunktion einmal für jedes Wertpaar in der Liste in Einfügereihenfolge auf.
+Die Methode **`forEach()`** des Interfaces [`NodeList`](/de/docs/Web/API/NodeList) ruft die als Parameter übergebene Callback-Funktion für jedes Element der Liste einmal auf, und zwar in der Reihenfolge, in der die Elemente eingefügt wurden.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ forEach(callback, thisArg)
 ### Parameter
 
 - `callback`
-  - : Eine Funktion, die auf jedes Element der `someNodeList` angewendet wird. Sie akzeptiert 3 Parameter:
+  - : Eine Funktion, die für jedes Element von `someNodeList` ausgeführt wird. Sie akzeptiert drei Parameter:
     - `currentValue`
       - : Das aktuelle Element, das in `someNodeList` verarbeitet wird.
     - `currentIndex` {{Optional_inline}}
@@ -29,7 +29,7 @@ forEach(callback, thisArg)
       - : Die `someNodeList`, auf die `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwendet wird, wenn `callback` ausgeführt wird.
+  - : Der Wert, der beim Ausführen von `callback` als [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwendet wird.
 
 ### Rückgabewert
 
@@ -54,7 +54,7 @@ list.forEach(function (currentValue, currentIndex, listObj) {
 }, "myThisArg");
 ```
 
-Der obige Code führt zu folgendem Ergebnis:
+Der obige Code liefert folgendes Ergebnis:
 
 ```plain
 [object HTMLParagraphElement], 0, myThisArg
@@ -72,6 +72,6 @@ Der obige Code führt zu folgendem Ergebnis:
 
 ## Siehe auch
 
-- [Polyfill von `NodeList.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#iterable-dom-collections)
+- [Polyfill für `NodeList.prototype.forEach` in `core-js`](https://core-js.io/docs/features/web-standards/iterable-dom-collections)
 - [`Node`](/de/docs/Web/API/Node)
 - [`NodeList`](/de/docs/Web/API/NodeList)

@@ -3,10 +3,10 @@ title: Number.prototype.toPrecision()
 short-title: toPrecision()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toPrecision
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die Methode **`toPrecision()`** von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
+Die Methode **`toPrecision()`** von {{jsxref("Number")}}-Werten gibt einen String zurück, der diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
 
 {{InteractiveExample("JavaScript Demo: Number.prototype.toPrecision()")}}
 
@@ -35,18 +35,18 @@ toPrecision(precision)
 ### Parameter
 
 - `precision` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der die Anzahl signifikanter Stellen angibt.
+  - : Eine Ganzzahl, die die Anzahl signifikanter Stellen angibt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die gegebene Zahl unter Verwendung der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat das gleiche Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision`-Argument weggelassen wird.
+Ein String, der die gegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Die wissenschaftliche Schreibweise wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Wird das Argument `precision` weggelassen, verhält sich die Methode wie {{jsxref("Number.prototype.toString()")}}.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `precision` nicht zwischen `1` und `100` (einschließlich) liegt.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode für ein Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ## Beispiele
 
@@ -91,6 +91,7 @@ console.log(num.toPrecision(10)); // '1.234500000e-7'
 
 ## Siehe auch
 
+- [Polyfill für das moderne Verhalten von `Number.prototype.toPrecision` in `core-js`](https://core-js.io/docs/features/ecmascript/number)
 - {{jsxref("Number.prototype.toFixed()")}}
 - {{jsxref("Number.prototype.toExponential()")}}
 - {{jsxref("Number.prototype.toString()")}}

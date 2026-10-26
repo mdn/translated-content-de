@@ -3,12 +3,10 @@ title: TypedArray.prototype.subarray()
 short-title: subarray()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/subarray
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`subarray()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues typisiertes Array
-im selben {{jsxref("ArrayBuffer")}}-Speicher und mit den gleichen Elementtypen wie dieses
-typisierte Array zurück. Der Startversatz ist **inklusive** und der Endversatz ist **exklusiv**.
+Die Methode **`subarray()`** von {{jsxref("TypedArray")}}-Instanzen gibt ein neues typisiertes Array zurück, das denselben {{jsxref("ArrayBuffer")}}-Speicher und denselben Elementtyp wie das ursprüngliche typisierte Array verwendet. Der Anfangsindex ist **einschließlich**, der Endindex **ausschließlich**.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.subarray()")}}
 
@@ -33,12 +31,9 @@ subarray(begin, end)
 ### Parameter
 
 - `begin` {{optional_inline}}
-  - : Element, bei dem begonnen wird. Der Versatz ist inklusive. Das gesamte Array wird in
-    der neuen Ansicht enthalten sein, wenn dieser Wert nicht angegeben wird.
+  - : Element, bei dem der Bereich beginnt. Der Index ist einschließlich. Wird dieser Wert nicht angegeben, umfasst die neue Ansicht das gesamte Array.
 - `end` {{optional_inline}}
-  - : Element, bei dem geendet wird. Der Versatz ist exklusiv. Wenn nicht angegeben, werden alle Elemente von
-    dem durch `begin` angegebenen bis zum Ende des Arrays in
-    der neuen Ansicht enthalten sein.
+  - : Element, bei dem der Bereich endet. Der Index ist ausschließlich. Wird dieser Wert nicht angegeben, umfasst die neue Ansicht alle Elemente ab dem durch `begin` angegebenen Element bis zum Ende des Arrays.
 
 ### Rückgabewert
 
@@ -46,18 +41,13 @@ Ein neues {{jsxref("TypedArray")}}-Objekt.
 
 ## Beschreibung
 
-Der durch `begin` und `end` angegebene Bereich
-wird auf den gültigen Indexbereich für das aktuelle Array beschränkt; wenn die berechnete Länge des
-neuen Arrays negativ wäre, wird sie auf Null beschränkt. Wenn entweder
-`begin` oder `end` negativ ist, bezieht es sich
-auf einen Index vom Ende des Arrays anstatt vom Anfang.
+Der durch `begin` und `end` angegebene Bereich wird auf den gültigen Indexbereich des aktuellen Arrays begrenzt. Wäre die berechnete Länge des neuen Arrays negativ, wird sie auf null gesetzt. Ist `begin` oder `end` negativ, bezieht sich der Wert auf einen Index vom Ende des Arrays aus statt vom Anfang.
 
-Es ist auch zu beachten, dass dies eine neue Ansicht auf den bestehenden Puffer erstellt; Änderungen am Inhalt des neuen
-Objekts wirken sich auf das ursprüngliche Objekt aus und umgekehrt.
+Beachten Sie außerdem, dass eine neue Ansicht auf den vorhandenen Buffer erstellt wird. Änderungen am Inhalt des neuen Objekts wirken sich auf das ursprüngliche Objekt aus und umgekehrt.
 
 ## Beispiele
 
-### Verwendung der subarray()-Methode
+### Die Methode subarray() verwenden
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -81,7 +71,7 @@ console.log(sub); // Uint8Array [ 1, 2, 3, 0 ]
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.subarray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.subarray` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Leitfaden zu typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}

@@ -3,12 +3,12 @@ title: "WorkerGlobalScope: atob()-Methode"
 short-title: atob()
 slug: Web/API/WorkerGlobalScope/atob
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`atob()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle dekodiert eine Zeichenkette von Daten, die mit der {{Glossary("Base64", "Base64")}}-Kodierung kodiert wurden. Sie können die [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die sonst Kommunikationsprobleme verursachen könnten. Anschließend können diese Daten übertragen und mit der `atob()`-Methode wieder dekodiert werden. Beispielsweise können Sie Steuerzeichen wie {{Glossary("ASCII", "ASCII")}}-Werte 0 bis 31 kodieren, übertragen und dekodieren.
+Die **`atob()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle dekodiert eine Zeichenfolge, die mit {{Glossary("Base64", "Base64")}} kodiert wurde. Sie können die Methode [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa) verwenden, um Daten zu kodieren, die andernfalls Kommunikationsprobleme verursachen könnten. Anschließend können Sie die Daten übertragen und mit `atob()` wieder dekodieren. So können Sie beispielsweise Steuerzeichen wie die {{Glossary("ASCII", "ASCII")}}-Werte 0 bis 31 kodieren, übertragen und dekodieren.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ atob(encodedData)
 ### Parameter
 
 - `encodedData`
-  - : Eine binäre Zeichenkette (d.h. eine Zeichenkette, in der jedes Zeichen als Byte binärer Daten behandelt wird), die base64-kodierte Daten enthält.
+  - : Eine binäre Zeichenfolge (d.h. eine Zeichenfolge, bei der jedes Zeichen als Byte binärer Daten behandelt wird), die Base64-kodierte Daten enthält.
 
 ### Rückgabewert
 
-Eine ASCII-Zeichenkette, die die dekodierten Daten von `encodedData` enthält.
+Eine ASCII-Zeichenfolge mit den dekodierten Daten aus `encodedData`.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `encodedData` keine gültige Base64-Kodierung enthält.
+  - : Wird ausgelöst, wenn `encodedData` kein gültiges Base64 ist.
 
 ## Beispiele
 
@@ -47,8 +47,8 @@ const decodedData = self.atob(encodedData); // decode the string
 
 ## Siehe auch
 
-- [Ein Polyfill für `atob`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
+- [Ein Polyfill für `atob`](https://core-js.io/docs/features/web-standards/atob-btoa) ist in [`core-js`](https://core-js.io/) verfügbar.
 - [`data`-URLs](/de/docs/Web/URI/Reference/Schemes/data)
-- [`Window.atob()`](/de/docs/Web/API/Window/atob): die gleiche Methode, jedoch im Window-Kontext.
+- [`Window.atob()`](/de/docs/Web/API/Window/atob): dieselbe Methode, jedoch im Gültigkeitsbereich von Fenstern.
 - [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
 - {{jsxref("Uint8Array.fromBase64()")}}

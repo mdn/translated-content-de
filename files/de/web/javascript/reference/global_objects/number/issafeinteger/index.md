@@ -3,10 +3,10 @@ title: Number.isSafeInteger()
 short-title: isSafeInteger()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Number.isSafeInteger()`** statische Methode bestimmt, ob der angegebene Wert eine Zahl ist, die ein _sicherer Integer_ ist.
+Die statische Methode **`Number.isSafeInteger()`** bestimmt, ob der angegebene Wert eine Zahl ist, die eine _sichere Ganzzahl_ darstellt.
 
 {{InteractiveExample("JavaScript Demo: Number.isSafeInteger()")}}
 
@@ -34,28 +34,28 @@ Number.isSafeInteger(testValue)
 ### Parameter
 
 - `testValue`
-  - : Der Wert, der darauf getestet werden soll, ob er ein sicherer Integer ist.
+  - : Der Wert, der darauf geprüft werden soll, ob er eine sichere Ganzzahl ist.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der angegebene Wert eine Zahl ist, die ein sicherer Integer ist. Andernfalls `false`.
+Der boolesche Wert `true`, wenn der angegebene Wert eine Zahl ist, die eine sichere Ganzzahl darstellt. Andernfalls `false`.
 
 ## Beschreibung
 
-Die sicheren Integer umfassen alle Ganzzahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1 einschließlich (±9.007.199.254.740.991). Ein sicherer Integer ist ein Integer, der:
+Die sicheren Ganzzahlen umfassen alle Ganzzahlen von -(2<sup>53</sup> - 1) bis einschließlich 2<sup>53</sup> - 1 (±9.007.199.254.740.991). Eine sichere Ganzzahl ist eine Ganzzahl, die:
 
-- genau als IEEE-754-Doppelpräzisionszahl dargestellt werden kann und
-- dessen IEEE-754-Darstellung nicht das Ergebnis der Rundung einer anderen Ganzzahl ist, um in die IEEE-754-Darstellung zu passen.
+- sich exakt als IEEE-754-Zahl mit doppelter Genauigkeit darstellen lässt und
+- deren IEEE-754-Darstellung nicht dadurch entstehen kann, dass eine andere Ganzzahl auf eine darstellbare IEEE-754-Zahl gerundet wird.
 
-Zum Beispiel ist 2<sup>53</sup> - 1 ein sicherer Integer: Er kann genau dargestellt werden, und keine andere Ganzzahl wird unter irgendeinem IEEE-754-Rundungsmodus auf ihn gerundet. Im Gegensatz dazu ist 2<sup>53</sup> _kein_ sicherer Integer: Er kann genau in IEEE-754 dargestellt werden, aber die Ganzzahl 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden, sondern wird stattdessen bei Rundung auf den nächsten und Rundung auf Null auf 2<sup>53</sup> gerundet.
+Beispielsweise ist 2<sup>53</sup> - 1 eine sichere Ganzzahl: Sie lässt sich exakt darstellen, und keine andere Ganzzahl wird bei irgendeinem IEEE-754-Rundungsmodus auf sie gerundet. Dagegen ist 2<sup>53</sup> _keine_ sichere Ganzzahl: Sie lässt sich zwar in IEEE-754 exakt darstellen, aber die Ganzzahl 2<sup>53</sup> + 1 lässt sich nicht direkt in IEEE-754 darstellen und wird stattdessen sowohl bei Rundung auf den nächsten Wert als auch bei Rundung gegen null auf 2<sup>53</sup> gerundet.
 
-Um Werte größer oder kleiner als \~9 Billiarden mit voller Präzision zu handhaben, ist die Verwendung einer [Arbitrary-Precision-Arithmetik-Bibliothek](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) erforderlich. Siehe [Was jeder Programmierer über Gleitkommaarithmetik wissen muss](https://floating-point-gui.de/) für weitere Informationen zu Gleitkommadarstellungen von Zahlen.
+Um Werte über oder unter etwa 9 Billiarden mit voller Genauigkeit zu verarbeiten, benötigen Sie eine [Bibliothek für Arithmetik mit beliebiger Genauigkeit](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic). Weitere Informationen zur Gleitkommadarstellung von Zahlen finden Sie unter [Was jeder Programmierer über Gleitkommaarithmetik wissen sollte](https://floating-point-gui.de/).
 
-Für größere Ganzzahlen sollten Sie den {{jsxref("BigInt")}}-Typ in Betracht ziehen.
+Für größere Ganzzahlen sollten Sie den Typ {{jsxref("BigInt")}} verwenden.
 
 ## Beispiele
 
-### Verwendung von isSafeInteger()
+### isSafeInteger() verwenden
 
 ```js
 Number.isSafeInteger(3); // true
@@ -78,8 +78,8 @@ Number.isSafeInteger(3.0); // true
 
 ## Siehe auch
 
-- [Polyfill von `Number.isSafeInteger` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
-- [es-shims Polyfill von `Number.isSafeInteger`](https://www.npmjs.com/package/number.issafeinteger)
+- [Polyfill für `Number.isSafeInteger` in `core-js`](https://core-js.io/docs/features/ecmascript/number)
+- [Polyfill für `Number.isSafeInteger` von es-shims](https://www.npmjs.com/package/number.issafeinteger)
 - {{jsxref("Number")}}
 - {{jsxref("Number.MIN_SAFE_INTEGER")}}
 - {{jsxref("Number.MAX_SAFE_INTEGER")}}

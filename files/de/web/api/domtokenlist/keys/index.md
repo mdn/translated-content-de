@@ -1,16 +1,14 @@
 ---
-title: "DOMTokenList: keys() Methode"
+title: "DOMTokenList: keys()-Methode"
 short-title: keys()
 slug: Web/API/DOMTokenList/keys
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`keys()`** Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Interfaces
-gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der es Ihnen ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen.
-Die Schlüssel sind vorzeichenlose Ganzzahlen.
+Die **`keys()`**-Methode der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, mit dem Sie alle in diesem Objekt enthaltenen Schlüssel durchlaufen können. Die Schlüssel sind vorzeichenlose Ganzzahlen.
 
 ## Syntax
 
@@ -28,11 +26,7 @@ Gibt einen {{jsxref("Iteration_protocols","iterator","",1)}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der auf einem
-{{htmlelement("span")}}-Element gesetzten Klassen als `DOMTokenList` mit
-[`Element.classList`](/de/docs/Web/API/Element/classList) ab. Wir rufen dann mit `keys()` einen Iterator ab, der die Schlüssel enthält,
-und iterieren durch diese Schlüssel mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
-wobei jeder Schlüssel in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` geschrieben wird.
+Im folgenden Beispiel rufen wir die Liste der Klassen eines {{htmlelement("span")}}-Elements mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend rufen wir mit `keys()` einen Iterator für die Schlüssel ab und durchlaufen diese mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife. Dabei schreiben wir jeden Schlüssel in die Eigenschaft [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`-Elements.
 
 Zuerst das HTML:
 
@@ -52,7 +46,7 @@ for (let value of iterator) {
 }
 ```
 
-Die Ausgabe sieht folgendermaßen aus:
+Die Ausgabe sieht so aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 
@@ -66,4 +60,5 @@ Die Ausgabe sieht folgendermaßen aus:
 
 ## Siehe auch
 
+- [Polyfill für `DOMTokenList.prototype.keys` in `core-js`](https://core-js.io/docs/features/web-standards/iterable-dom-collections)
 - [`DOMTokenList.entries()`](/de/docs/Web/API/DOMTokenList/entries), [`DOMTokenList.forEach()`](/de/docs/Web/API/DOMTokenList/forEach) und [`DOMTokenList.values`](/de/docs/Web/API/DOMTokenList/values).

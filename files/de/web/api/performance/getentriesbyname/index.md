@@ -3,21 +3,22 @@ title: "Performance: getEntriesByName()-Methode"
 short-title: getEntriesByName()
 slug: Web/API/Performance/getEntriesByName
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`getEntriesByName()`**-Methode gibt ein Array von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten zurück, die sich derzeit in der Performance-Zeitleiste mit dem angegebenen _Namen_ und _Typ_ befinden.
+Die Methode **`getEntriesByName()`** gibt ein Array von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten zurück, die zum Zeitpunkt des Aufrufs in der Performance-Timeline vorhanden sind und den angegebenen _Namen_ und _Typ_ haben.
 
-Wenn Sie an Performance-Einträgen bestimmter Typen interessiert sind, sehen Sie sich [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) an. Für alle Performance-Einträge siehe [`getEntries()`](/de/docs/Web/API/Performance/getEntries).
+Wenn Sie sich für Performance-Einträge bestimmter Typen interessieren, verwenden Sie [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType). Alle Performance-Einträge erhalten Sie mit [`getEntries()`](/de/docs/Web/API/Performance/getEntries).
 
 > [!NOTE]
-> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge; Sie erhalten nur Einträge, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste vorhanden sind.
-> Um Benachrichtigungen über Einträge zu erhalten, sobald sie verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
+> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge. Sie erhalten nur Einträge, die zum Zeitpunkt des Aufrufs in der Performance-Timeline vorhanden sind.
+> Um Benachrichtigungen zu erhalten, sobald Einträge verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
-Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, selbst wenn möglicherweise Einträge für diese Typen existieren:
+Die folgenden Eintragstypen werden von dieser Methode nicht unterstützt und daher nicht zurückgegeben, selbst wenn entsprechende Einträge vorhanden sind:
 
+- `"container"` ([`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming))
 - `"element"` ([`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming))
 - `"event"` ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming))
 - `"largest-contentful-paint"` ([`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint))
@@ -38,20 +39,18 @@ getEntriesByName(name, type)
 - `name`
   - : Der Name der abzurufenden Einträge.
 - `type` {{optional_inline}}
-  - : Der Typ der abzurufenden Einträge, wie z. B. `"mark"`. Die gültigen Eintragstypen sind
-    in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgelistet.
+  - : Der Typ der abzurufenden Einträge, beispielsweise `"mark"`. Die gültigen Eintragstypen sind unter [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgeführt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `name` und `type` haben.
-Die Elemente werden in chronologischer Reihenfolge basierend auf den [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge angeordnet sein. Wenn keine Objekte den
-angegebenen Kriterien entsprechen, wird ein leeres Array zurückgegeben.
+Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten mit dem angegebenen `name` und `type`.
+Die Elemente sind anhand ihres [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime)-Werts chronologisch geordnet. Wenn keine Objekte die angegebenen Kriterien erfüllen, wird ein leeres Array zurückgegeben.
 
 ## Beispiele
 
-### Protokollierung von Performance-Markern
+### Performance-Markierungen protokollieren
 
-Das folgende Beispiel protokolliert alle [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte, die den Namen `"debug-mark"` haben.
+Das folgende Beispiel protokolliert alle [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte mit dem Namen `"debug-mark"`.
 
 ```js
 const debugMarks = performance.getEntriesByName("debug-mark", "mark");

@@ -3,10 +3,10 @@ title: Object.entries()
 short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Object/entries
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Object.entries()`** gibt ein Array der eigenen aufzählbaren, string-basierten Schlüssel-Wert-Paare eines Objekts zurück.
+Die statische Methode **`Object.entries()`** gibt ein Array mit den Schlüssel-Wert-Paaren der eigenen, aufzählbaren Eigenschaften eines Objekts zurück, deren Schlüssel Strings sind.
 
 {{InteractiveExample("JavaScript Demo: Object.entries()")}}
 
@@ -38,17 +38,17 @@ Object.entries(obj)
 
 ### Rückgabewert
 
-Ein Array der eigenen aufzählbaren, string-basierten Schlüssel-Wert-Paare des angegebenen Objekts. Jedes Schlüssel-Wert-Paar ist ein Array mit zwei Elementen: das erste Element ist der Schlüssel der Eigenschaft (immer ein String) und das zweite Element ist der Wert der Eigenschaft.
+Ein Array mit den Schlüssel-Wert-Paaren der eigenen, aufzählbaren Eigenschaften des angegebenen Objekts, deren Schlüssel Strings sind. Jedes Schlüssel-Wert-Paar ist ein Array mit zwei Elementen: Das erste Element ist der Eigenschaftsschlüssel (immer ein String), das zweite der Eigenschaftswert.
 
 ## Beschreibung
 
-`Object.entries()` gibt ein Array zurück, dessen Elemente Arrays sind, die den aufzählbaren, string-basierten Schlüssel-Wert-Paaren entsprechen, die direkt auf dem `object` gefunden wurden. Dies ist dasselbe wie die Iteration mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, außer dass eine `for...in` Schleife auch Eigenschaften in der Prototypenkette aufzählt. Die Reihenfolge des von `Object.entries()` zurückgegebenen Arrays entspricht der, die durch eine {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
+`Object.entries()` gibt ein Array zurück, dessen Elemente Arrays sind, die den eigenen, aufzählbaren Schlüssel-Wert-Paaren von `object` entsprechen, deren Schlüssel Strings sind. Das entspricht der Iteration mit einer {{jsxref("Statements/for...in", "for...in")}}-Schleife, mit dem Unterschied, dass eine `for...in`-Schleife auch Eigenschaften in der Prototypkette aufzählt. Die Reihenfolge der Elemente im von `Object.entries()` zurückgegebenen Array entspricht der Reihenfolge bei einer {{jsxref("Statements/for...in", "for...in")}}-Schleife.
 
 Wenn Sie nur die Eigenschaftsschlüssel benötigen, verwenden Sie stattdessen {{jsxref("Object.keys()")}}. Wenn Sie nur die Eigenschaftswerte benötigen, verwenden Sie stattdessen {{jsxref("Object.values()")}}.
 
 ## Beispiele
 
-### Verwendung von Object.entries()
+### Object.entries() verwenden
 
 ```js
 const obj = { foo: "bar", baz: 42 };
@@ -75,9 +75,9 @@ myObj.foo = "bar";
 console.log(Object.entries(myObj)); // [ ['foo', 'bar'] ]
 ```
 
-### Verwendung von Object.entries() bei Primitiven
+### Object.entries() mit primitiven Werten verwenden
 
-Nicht-Objekt-Argumente werden [zu Objekten konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten konvertiert werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Strings können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
+Argumente, die keine Objekte sind, werden [in Objekte umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht in Objekte umgewandelt werden und lösen sofort einen {{jsxref("TypeError")}} aus. Nur Strings können eigene, aufzählbare Eigenschaften haben; bei allen anderen primitiven Werten wird ein leeres Array zurückgegeben.
 
 ```js
 // Strings have indices as enumerable own properties
@@ -89,7 +89,7 @@ console.log(Object.entries(100)); // []
 
 ### Ein Objekt in eine Map umwandeln
 
-Der {{jsxref("Map/Map", "Map()")}} Konstruktor akzeptiert ein iterierbares Objekt von `entries`. Mit `Object.entries` können Sie einfach von einem {{jsxref("Object")}} zu einer {{jsxref("Map")}} konvertieren:
+Der {{jsxref("Map/Map", "Map()")}}-Konstruktor akzeptiert ein iterierbares Objekt mit `entries`. Mit `Object.entries` können Sie ein {{jsxref("Object")}} einfach in eine {{jsxref("Map")}} umwandeln:
 
 ```js
 const obj = { foo: "bar", baz: 42 };
@@ -97,7 +97,7 @@ const map = new Map(Object.entries(obj));
 console.log(map); // Map(2) {"foo" => "bar", "baz" => 42}
 ```
 
-### Iteration über ein Objekt
+### Über ein Objekt iterieren
 
 Mit [Array-Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#array_destructuring) können Sie einfach über Objekte iterieren.
 
@@ -124,9 +124,9 @@ Object.entries(obj).forEach(([key, value]) => {
 
 ## Siehe auch
 
-- [Polyfill von `Object.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
-- [es-shims Polyfill von `Object.entries`](https://www.npmjs.com/package/object.entries)
-- [Aufzählbarkeit und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Polyfill für `Object.entries` in `core-js`](https://core-js.io/docs/features/ecmascript/object)
+- [Polyfill für `Object.entries` von es-shims](https://www.npmjs.com/package/object.entries)
+- [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.keys()")}}
 - {{jsxref("Object.values()")}}
 - {{jsxref("Object.prototype.propertyIsEnumerable()")}}

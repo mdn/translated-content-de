@@ -3,10 +3,10 @@ title: DisposableStack.prototype.defer()
 short-title: defer()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/defer
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`defer()`** Methode von {{jsxref("DisposableStack")}} Instanzen nimmt eine Rückruffunktion an, die aufgerufen wird, wenn der Stack entsorgt wird.
+Die Methode **`defer()`** von {{jsxref("DisposableStack")}}-Instanzen nimmt eine Callback-Funktion entgegen, die aufgerufen wird, wenn der Stack freigegeben wird.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ defer(onDispose)
 ### Parameter
 
 - `onDispose`
-  - : Eine Funktion, die aufgerufen wird, wenn der Stack entsorgt wird. Die Funktion erhält keine Argumente.
+  - : Eine Funktion, die aufgerufen wird, wenn der Stack freigegeben wird. Die Funktion erhält keine Argumente.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Keiner ({{jsxref("undefined")}}).
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `onDispose` keine Funktion ist.
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits entsorgt ist.
+  - : Wird ausgelöst, wenn der Stack bereits freigegeben wurde.
 
 ## Beschreibung
 
-Der Hauptzweck von `defer()` besteht darin, einen Bereinigungs-Callback zu registrieren, der nicht spezifisch für die Entsorgung einer bestimmten Ressource ist. Wenn der Callback spezifisch für eine Ressource ist, sollten Sie {{jsxref("DisposableStack/use", "use()")}} oder {{jsxref("DisposableStack/adopt", "adopt()")}} verwenden. Sie können `defer` auch verwenden, wenn die Ressource nicht in Ihrem Code beansprucht wird:
+Der Hauptzweck von `defer()` besteht darin, einen Callback zur Bereinigung zu registrieren, der nicht an die Freigabe einer bestimmten Ressource gebunden ist. Wenn sich der Callback auf eine bestimmte Ressource bezieht, sollten Sie stattdessen {{jsxref("DisposableStack/use", "use()")}} oder {{jsxref("DisposableStack/adopt", "adopt()")}} verwenden. Sie können `defer` auch verwenden, wenn die Ressource nicht in Ihrem Code verwaltet wird:
 
 ```js
 function consumeReader(reader) {
@@ -44,9 +44,9 @@ function consumeReader(reader) {
 
 ## Beispiele
 
-### Verwendung von defer()
+### defer() verwenden
 
-Diese Funktion setzt ein einfaches Sperre, um zu verhindern, dass mehrere asynchrone Operationen gleichzeitig ausgeführt werden. Die Sperre wird freigegeben, wenn die Funktion abgeschlossen ist.
+Diese Funktion setzt eine einfache Sperre, damit nicht mehrere asynchrone Operationen gleichzeitig ausgeführt werden. Die Sperre wird aufgehoben, wenn die Funktion abgeschlossen ist.
 
 ```js
 let isLocked = false;
@@ -73,7 +73,8 @@ async function requestWithLock(url, options) {
 
 ## Siehe auch
 
-- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `DisposableStack.prototype.defer` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.adopt()")}}
 - {{jsxref("DisposableStack.prototype.use()")}}

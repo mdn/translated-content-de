@@ -1,18 +1,18 @@
 ---
-title: Vorlage für JavaScript-Eigenschaften mit statischem Accessor
+title: Vorlage für eine Seite zu einer statischen JavaScript-Accessor-Eigenschaft
 slug: MDN/Writing_guidelines/Page_structures/Page_types/JavaScript_static_accessor_property_page_template
 l10n:
-  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 > [!NOTE]
-> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
+> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung._
 >
 > ---
 >
-> **Frontmatter der Seite:**
+> **Front Matter der Seite:**
 >
-> Das Frontmatter am Anfang der Seite wird verwendet, um „Seitenmetadaten“ zu definieren. Die Werte sollten für die jeweilige Eigenschaft entsprechend aktualisiert werden.
+> Das Front Matter am Anfang der Seite dient dazu, „Seitenmetadaten“ festzulegen. Die Werte sollten für die jeweilige Eigenschaft entsprechend angepasst werden.
 >
 > ```md
 > ---
@@ -30,49 +30,49 @@ l10n:
 > ```
 >
 > - **title**
->   - : Überschrift, die oben auf der Seite angezeigt wird. Format: `Constructor.nameOfTheProperty`.
+>   - : Die Überschrift, die oben auf der Seite angezeigt wird. Verwenden Sie das Format `Constructor.nameOfTheProperty`.
 > - **short-title**
->   - : Ein kurzer Titel, der in Navigationspfaden und Seitenleisten verwendet wird. Format: `nameOfTheProperty`. Beispielsweise hat die Eigenschaft [`RegExp.input`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/input) den _short-title_ `input ($_)`.
+>   - : Ein Kurztitel, der in Breadcrumbs und Seitenleisten verwendet wird. Verwenden Sie das Format `nameOfTheProperty`. Beispielsweise hat die Eigenschaft [`RegExp.input`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/input) den _short-title_ `input ($_)`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dies wird wie `Web/JavaScript/Reference/Global_Objects/Constructor/nameOfTheProperty` formatiert.
+>   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Es hat ein Format wie `Web/JavaScript/Reference/Global_Objects/Constructor/nameOfTheProperty`.
 > - **page-type**
->   - : Der Schlüssel `page-type` für Seiten zu JavaScript-Eigenschaften mit statischem Accessor ist `javascript-static-accessor-property`.
+>   - : Der `page-type`-Schlüssel für Seiten zu statischen JavaScript-Accessor-Eigenschaften lautet `javascript-static-accessor-property`.
 > - **status**
->   - : Kennzeichnungen, die den Status dieser Funktion beschreiben. Ein Array, das eine oder mehrere der folgenden Angaben enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch auf Grundlage der Werte in den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe [„Wie Funktionsstatus hinzugefügt oder aktualisiert werden“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch anhand der Werte in den Browser-Kompatibilitätsdaten für das Feature festgelegt. Siehe [„Wie Feature-Status hinzugefügt oder aktualisiert werden“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert `javascript.builtins.Constructor.nameOfTheProperty` durch die Abfragezeichenfolge für die Eigenschaft im [Browser-Compat-Data-Repository](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte zur Kompatibilität und Spezifikation auszufüllen (und ersetzt die Makros `\{{Compat}}` und `\{{Specifications}}`).
+>   - : Ersetzen Sie den Platzhalterwert `javascript.builtins.Constructor.nameOfTheProperty` durch die Abfragezeichenfolge für die Eigenschaft im [Repository für Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte zur Kompatibilität und zu den Spezifikationen zu füllen (und ersetzt dabei die Makros `\{{Compat}}` und `\{{Specifications}}`).
 >
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Eigenschaft in unserem [Browser-Compat-Data-Repository](https://github.com/mdn/browser-compat-data) erstellen bzw. aktualisieren müssen und dass der Eintrag für die API Spezifikationsinformationen enthalten muss.
->     Siehe unseren [Leitfaden dazu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Eigenschaft in unserem [Repository für Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren müssen. Der Eintrag für die API muss außerdem Informationen zur Spezifikation enthalten.
+>     Lesen Sie unseren [Leitfaden dazu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 > - **sidebar**
->   - : Für Seiten zu JavaScript-Eigenschaften mit statischem Accessor lautet dies `jsref`.
+>   - : Für Seiten zu statischen JavaScript-Accessor-Eigenschaften lautet der Wert `jsref`.
 >     Einzelheiten finden Sie unter [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars).
 >
 > ---
 >
 > **Makros am Seitenanfang**
 >
-> Am Anfang des Inhaltsabschnitts (direkt unter dem Frontmatter der Seite) erscheinen mehrere Makroaufrufe.
+> Am Anfang des Inhaltsbereichs (direkt unter dem Front Matter der Seite) stehen mehrere Makroaufrufe.
 >
-> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht notwendig, sie hinzuzufügen oder zu entfernen):
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (Sie müssen sie nicht hinzufügen oder entfernen):
 >
-> - `\{{SeeCompatTable}}` — dies erzeugt ein Banner **Dies ist eine experimentelle Technologie**, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn sie experimentell ist und die Technologie in Firefox hinter einer Präferenz verborgen ist, sollten Sie außerdem einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Non-standard_Header}}` — dies erzeugt ein Banner **Nicht standardisiert**, das darauf hinweist, dass die Funktion nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — erzeugt einen Hinweis **Dies ist eine experimentelle Technologie**, der anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn sie experimentell ist und in Firefox durch eine Einstellung verborgen wird, sollten Sie außerdem einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ergänzen.
+> - `\{{Non-standard_Header}}` — erzeugt einen Hinweis **Nicht standardisiert**, der anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
 >
-> Geben Sie Status-Header-Makros nicht manuell an. Informationen dazu, wie diese Status zur Seite hinzugefügt werden, finden Sie im Abschnitt [Wie Funktionsstatus hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+> Fügen Sie Makros für Statushinweise nicht manuell hinzu. Wie Sie diese Status zur Seite hinzufügen, erfahren Sie im Abschnitt [Wie Feature-Status hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 >
-> Beispiele für die Banner **Experimentell** und **Nicht standardisiert** werden direkt nach diesem Hinweisblock angezeigt.
+> Beispiele für die Hinweise **Experimentell** und **Nicht standardisiert** finden Sie direkt nach diesem Hinweisblock.
 >
 > _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen._
 
 > [!NOTE]
-> Denken Sie an das wichtigste Prinzip zum Schreiben konsistenter JavaScript-Referenzseiten: **sehen Sie sich um**! Viele verwandte Seiten haben über die Anforderungen dieser Vorlage hinaus konsistente Strukturen. Beispielsweise alle Proxy-Handler, die meisten Array-Methoden usw. Suchen Sie zunächst nach vorhandener Dokumentation für ähnliche APIs und übernehmen Sie deren Struktur.
+> Denken Sie an den wichtigsten Grundsatz für das Verfassen einheitlicher JavaScript-Referenzseiten: **Sehen Sie sich um!** Viele verwandte Seiten haben über die Anforderungen dieser Vorlage hinaus einheitliche Strukturen. Das gilt beispielsweise für alle Proxy-Handler und die meisten Array-Methoden. Suchen Sie zunächst nach vorhandener Dokumentation für ähnliche APIs und übernehmen Sie deren Struktur.
 
 {{SeeCompatTable}}{{Non-standard_Header}}
 
-Die statische Accessor-Eigenschaft **`Constructor.nameOfTheProperty`** gibt etwas zurück. Dies sollten idealerweise 1 oder 2 kurze Sätze sein. Halten Sie dies mit der Landingpage der Klasse oder des Namespace synchron — beispielsweise sollte die Landingpage entsprechende Zeilen wie diese enthalten:
+Die statische Accessor-Eigenschaft **`Constructor.nameOfTheProperty`** gibt etwas zurück. Diese Beschreibung sollte idealerweise aus einem oder zwei kurzen Sätzen bestehen. Stimmen Sie sie mit der Übersichtsseite der Klasse oder des Namensraums ab – die Übersichtsseite sollte beispielsweise Zeilen wie diese enthalten:
 
 ```md
 - \{{jsxref("Constructor.nameOfTheProperty")}}
@@ -81,27 +81,27 @@ Die statische Accessor-Eigenschaft **`Constructor.nameOfTheProperty`** gibt etwa
 
 ## Wert
 
-Fügen Sie eine Beschreibung des Werts der Eigenschaft ein, einschließlich seines Datentyps und dessen, was er darstellt.
+Beschreiben Sie den Wert der Eigenschaft, einschließlich seines Datentyps und seiner Bedeutung.
 
-Fügen Sie für eine reine Getter-Eigenschaft den folgenden Absatz hinzu:
+Fügen Sie bei einer Eigenschaft, die nur einen Getter hat, den folgenden Absatz hinzu:
 
-> Es gibt keinen Setter für `nameOfTheProperty`, daher können Sie den Wert dieser Eigenschaft nicht durch Zuweisung ändern.
+> Für `nameOfTheProperty` gibt es keinen Setter. Daher können Sie den Wert dieser Eigenschaft nicht durch eine Zuweisung ändern.
 
-Beschreiben Sie für eine Eigenschaft mit einem Setter die Werte, die sie akzeptiert, und die Auswirkung der Zuweisung eines Werts.
+Beschreiben Sie bei einer Eigenschaft mit einem Setter, welche Werte sie akzeptiert und welche Auswirkung die Zuweisung eines Werts hat.
 
 ## Beschreibung
 
-Der größte Teil der Beschreibung der Eigenschaft sollte hier stehen. Seien Sie so umfassend wie möglich. Wenn viele Seiten dieselbe Beschreibung verwenden, sollten Sie erwägen, einen neuen Abschnitt zur Landingpage der Klasse oder des Namespace hinzuzufügen und von hier aus darauf zu verlinken.
+Der Großteil der Beschreibung der Eigenschaft sollte hier stehen. Beschreiben Sie sie so umfassend wie möglich. Wenn viele Seiten dieselbe Beschreibung enthalten, erwägen Sie, der Übersichtsseite der Klasse oder des Namensraums einen neuen Abschnitt hinzuzufügen und von hier aus darauf zu verlinken.
 
-Leser sollten die API anhand dieses Abschnitts vollständig verstehen können, ohne den folgenden Beispielabschnitt lesen zu müssen. Falls Beispiele in diesem Abschnitt erforderlich sind, sollten sie knapp sein und müssen nicht für reale Anwendungsfälle relevant sein.
+Lesende sollten die API anhand dieses Abschnitts vollständig verstehen können, ohne den folgenden Abschnitt mit Beispielen lesen zu müssen. Falls Beispiele in diesem Abschnitt nötig sind, sollten sie knapp sein und keinen Bezug zu einem realen Anwendungsfall haben müssen.
 
 ## Beispiele
 
-Beachten Sie, dass wir den Plural „Beispiele“ verwenden, selbst wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir die Pluralform „Beispiele“ verwenden, auch wenn die Seite nur ein Beispiel enthält.
 
 ### Eine aussagekräftige Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Beispielsweise sagt „Ein einfaches Beispiel“ nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte knapp sein. Verwenden Sie für eine längere Beschreibung den Absatz nach der Überschrift. Das erste Beispiel kann „Verwendung von Constructor.nameOfTheProperty“ heißen.
+Jedes Beispiel muss eine H3-Überschrift haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel zeigt. „Ein einfaches Beispiel“ sagt beispielsweise nichts über das Beispiel aus und ist daher keine geeignete Überschrift. Die Überschrift sollte kurz sein. Verwenden Sie für eine längere Beschreibung den Absatz nach der Überschrift. Das erste Beispiel kann „Constructor.nameOfTheProperty verwenden“ heißen.
 
 Weitere Informationen finden Sie in unserem Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples).
 
@@ -119,10 +119,10 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Eigenschaft beziehen. Weitere Richtlinien finden Sie im Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Leitfaden zum Schreibstil_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Eigenschaft beziehen. Weitere Richtlinien finden Sie im Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) des _Leitfadens zum Schreibstil_.
 
-- [Polyfill von `Constructor.nameOfTheProperty` in `core-js`](https://github.com/zloirock/core-js#anchor)
-- [es-shims-Polyfill von `Constructor.nameOfTheProperty`](https://www.npmjs.com/package/es-aggregate-error)
+- [Polyfill für `Constructor.nameOfTheProperty` in `core-js`](https://core-js.io/docs/)
+- [es-shims-Polyfill für `Constructor.nameOfTheProperty`](https://www.npmjs.com/package/es-aggregate-error)
 - link1
 - link2
 - external_link (Jahr)

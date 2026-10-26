@@ -3,10 +3,10 @@ title: String.prototype.padStart()
 short-title: padStart()
 slug: Web/JavaScript/Reference/Global_Objects/String/padStart
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`padStart()`** Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String (bei Bedarf wiederholt und/oder abgeschnitten), so dass der resultierende String eine bestimmte Länge hat. Die Auffüllung wird vom Anfang dieses Strings angewendet.
+Die Methode **`padStart()`** von {{jsxref("String")}}-Werten füllt diese Zeichenfolge mit einer angegebenen Zeichenfolge auf (die bei Bedarf wiederholt und/oder gekürzt wird), sodass die resultierende Zeichenfolge eine bestimmte Länge hat. Die Auffüllung erfolgt am Anfang dieser Zeichenfolge.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padStart()")}}
 
@@ -34,13 +34,13 @@ padStart(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge der resultierenden Zeichenfolge, nachdem das aktuelle `str` aufgefüllt wurde. Ist der Wert kleiner oder gleich `str.length`, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Leerzeichen-Zeichen (U+0020).
+  - : Die Zeichenfolge, mit der das aktuelle `str` aufgefüllt wird. Ist `padString` zu lang, um innerhalb von `targetLength` zu bleiben, wird es am Ende gekürzt. Der Standardwert ist das Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, der am Anfang angewendet wird.
+Ein {{jsxref("String")}} der angegebenen Länge `targetLength`, an dessen Anfang `padString` hinzugefügt wurde.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, der am 
 "abc".padStart(1); // "abc"
 ```
 
-### Konvertierung von Stringnummern mit fester Breite
+### Umwandlung von Zahlen in Zeichenfolgen mit fester Breite
 
 ```js
 // JavaScript version of: (unsigned)
@@ -77,6 +77,6 @@ console.log(leftFillNum(num, 5)); // "00123"
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.padStart` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.padStart`](https://www.npmjs.com/package/string.prototype.padstart)
+- [Polyfill für `String.prototype.padStart` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.padStart` von es-shims](https://www.npmjs.com/package/string.prototype.padstart)
 - {{jsxref("String.prototype.padEnd()")}}

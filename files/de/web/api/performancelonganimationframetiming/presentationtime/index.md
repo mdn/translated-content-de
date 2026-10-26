@@ -1,24 +1,25 @@
 ---
-title: "PerformanceLongAnimationFrameTiming: presentationTime Eigenschaft"
+title: "PerformanceLongAnimationFrameTiming: Eigenschaft presentationTime"
 short-title: presentationTime
 slug: Web/API/PerformanceLongAnimationFrameTiming/presentationTime
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`presentationTime`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem das Benutzeroberflächen-Update tatsächlich auf dem Bildschirm angezeigt wurde.
+Die schreibgeschützte Eigenschaft **`presentationTime`** der Schnittstelle [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Aktualisierung der Benutzeroberfläche tatsächlich auf dem Bildschirm dargestellt wurde.
 
-Das `presentationTime` ist optional — einige Browser können immer `0` zurückgeben oder den Wert überhaupt nicht anzeigen. Der Wert ist auch implementierungsabhängig — er kann sich zwischen Browsern unterscheiden, die sich dafür entscheiden, ihn anzuzeigen.
+Der Wert von `presentationTime` kann `null` sein: Der zugrunde liegende Zeitstempel ist implementierungsabhängig. Browser, die ihn nicht bereitstellen, geben daher stattdessen `null` zurück.
+Da [`PerformanceLongAnimationFrameTiming.paintTime`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/paintTime) in allen Implementierungen auf dieselbe Weise belegt wird, ist diese Eigenschaft für Metriken, die browserübergreifend vergleichbar sein müssen, zuverlässiger.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht angezeigt wird.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht verfügbar gemacht wird.
 
 ## Beispiele
 
-Siehe [Long Animation Frame Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Beispiele zur Long Animation Frames API finden Sie unter [Timing langer Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples).
 
 ## Spezifikationen
 

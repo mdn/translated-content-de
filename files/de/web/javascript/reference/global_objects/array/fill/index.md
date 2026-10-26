@@ -3,10 +3,10 @@ title: Array.prototype.fill()
 short-title: fill()
 slug: Web/JavaScript/Reference/Global_Objects/Array/fill
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`fill()`** Methode von {{jsxref("Array")}} Instanzen ändert alle Elemente innerhalb eines Indexbereichs in einem Array zu einem statischen Wert. Sie gibt das modifizierte Array zurück.
+Die Methode **`fill()`** von {{jsxref("Array")}}-Instanzen ändert alle Elemente innerhalb eines Indexbereichs in einem Array auf einen festen Wert. Sie gibt das geänderte Array zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.fill()")}}
 
@@ -36,39 +36,39 @@ fill(value, start, end)
 ### Parameter
 
 - `value`
-  - : Wert, mit dem das Array gefüllt werden soll. Beachten Sie, dass alle Elemente im Array genau diesen Wert haben werden: wenn `value` ein Objekt ist, wird jeder Platz im Array auf dieses Objekt verweisen.
+  - : Wert, mit dem das Array gefüllt wird. Beachten Sie, dass alle Elemente im Array genau diesen Wert erhalten: Wenn `value` ein Objekt ist, verweist jede Position im Array auf dieses Objekt.
 - `start` {{optional_inline}}
-  - : Der nullbasierte Index, an dem das Füllen beginnt, [konvertiert in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
-    - Wenn `start < -array.length` oder `start` weggelassen wird, wird `0` verwendet.
-    - Wenn `start >= array.length`, wird kein Index gefüllt.
+  - : Nullbasierter Index, ab dem das Array gefüllt wird, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück – wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
+    - Wenn `start < -array.length` gilt oder `start` weggelassen wird, wird `0` verwendet.
+    - Wenn `start >= array.length` gilt, wird kein Index gefüllt.
 - `end` {{optional_inline}}
-  - : Der nullbasierte Index, an dem das Füllen endet, [konvertiert in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `fill()` füllt bis, aber nicht einschließlich `end`.
-    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
-    - Wenn `end < -array.length`, wird `0` verwendet.
-    - Wenn `end >= array.length` oder `end` weggelassen oder `undefined` ist, wird `array.length` verwendet, wodurch alle Indizes bis zum Ende gefüllt werden.
-    - Wenn `end` eine Position vor oder an der Position angibt, die `start` angibt, wird nichts gefüllt.
+  - : Nullbasierter Index, an dem das Füllen endet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `fill()` füllt bis zum Index `end`, aber nicht einschließlich dieses Index.
+    - Ein negativer Index zählt vom Ende des Arrays zurück – wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
+    - Wenn `end < -array.length` gilt, wird `0` verwendet.
+    - Wenn `end >= array.length` gilt oder `end` weggelassen wird oder `undefined` ist, wird `array.length` verwendet. Dadurch werden alle Indizes bis zum Ende gefüllt.
+    - Wenn `end` eine Position vor oder an der durch `start` bestimmten Position bezeichnet, wird nichts gefüllt.
 
 ### Rückgabewert
 
-Das modifizierte Array, gefüllt mit `value`.
+Das geänderte, mit `value` gefüllte Array.
 
 ## Beschreibung
 
-Die `fill()` Methode ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert nicht die Länge von `this`, aber sie wird den Inhalt von `this` ändern.
+Die Methode `fill()` ist eine [verändernde Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert die Länge von `this` nicht, verändert aber dessen Inhalt.
 
-Die `fill()` Methode füllt auch leere Stellen in [sparse](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) Arrays mit `value`.
+Die Methode `fill()` füllt auch leere Positionen in [dünn besetzten](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) Arrays mit `value`.
 
-Die `fill()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft hat. Obwohl Strings auch array-ähnlich sind, ist diese Methode nicht geeignet, um auf ihnen angewendet zu werden, da Strings unveränderlich sind.
+Die Methode `fill()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine `length`-Eigenschaft besitzt. Obwohl Strings ebenfalls arrayähnlich sind, eignet sich diese Methode nicht für sie, da Strings unveränderlich sind.
 
 > [!NOTE]
-> Die Verwendung von `Array.prototype.fill()` auf einem leeren Array (`length = 0`) würde es nicht modifizieren, da das Array nichts zu modifizieren hat.
-> Um `Array.prototype.fill()` beim Deklarieren eines Arrays zu verwenden, stellen Sie sicher, dass das Array eine Nicht-Null-`length` hat.
+> Die Verwendung von `Array.prototype.fill()` auf einem leeren Array (`length = 0`) verändert es nicht, da das Array keine Elemente enthält, die verändert werden könnten.
+> Wenn Sie `Array.prototype.fill()` beim Deklarieren eines Arrays verwenden möchten, stellen Sie sicher, dass das Array eine `length` größer als `0` hat.
 > [Siehe Beispiel](#using_fill_to_populate_an_empty_array).
 
 ## Beispiele
 
-### Verwendung von fill()
+### fill() verwenden
 
 ```js
 console.log([1, 2, 3].fill(4)); // [4, 4, 4]
@@ -86,9 +86,9 @@ const arr = Array(3).fill({}); // [{}, {}, {}]
 arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 ```
 
-### Verwendung von fill(), um eine Matrix aus Einsen zu erstellen
+### Mit fill() eine Matrix aus Einsen erstellen
 
-Dieses Beispiel zeigt, wie man eine Matrix aus Einsen erstellt, ähnlich der `ones()` Funktion von Octave oder MATLAB.
+Dieses Beispiel zeigt, wie Sie eine Matrix erstellen, deren Werte alle `1` sind, ähnlich der Funktion `ones()` in Octave oder MATLAB.
 
 ```js
 const arr = new Array(3);
@@ -101,19 +101,20 @@ console.log(arr[1][0]); // 1
 console.log(arr[2][0]); // 1
 ```
 
-### Verwendung von fill(), um ein leeres Array zu füllen
+### Mit fill() ein leeres Array befüllen
 
-Dieses Beispiel zeigt, wie man ein Array füllt, indem alle Elemente auf einen bestimmten Wert gesetzt werden. Der `end` Parameter muss nicht angegeben werden.
+Dieses Beispiel zeigt, wie Sie ein Array befüllen, indem Sie alle Elemente auf einen bestimmten Wert setzen.
+Der Parameter `end` muss nicht angegeben werden.
 
 ```js
 const tempGirls = Array(5).fill("girl", 0);
 ```
 
-Beachten Sie, dass das Array ursprünglich ein [sparse array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ohne zugewiesene Indizes war. `fill()` ist dennoch in der Lage, dieses Array zu füllen.
+Beachten Sie, dass das Array anfangs ein [dünn besetztes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ohne belegte Indizes war. `fill()` kann dieses Array dennoch füllen.
 
-### Aufrufen von fill() auf Nicht-Array-Objekten
+### fill() für Objekte aufrufen, die keine Arrays sind
 
-Die `fill()` Methode liest die `length` Eigenschaft von `this` und setzt den Wert jeder ganzzahligen Schlüssel-Eigenschaft von `start` bis `end`.
+Die Methode `fill()` liest die `length`-Eigenschaft von `this` und setzt den Wert jeder Eigenschaft mit einem ganzzahligen Schlüssel von `start` bis `end`.
 
 ```js
 const arrayLike = { length: 2 };
@@ -131,7 +132,7 @@ console.log(Array.prototype.fill.call(arrayLike, 1));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.fill` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Polyfill für `Array.prototype.fill` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("TypedArray.prototype.fill()")}}

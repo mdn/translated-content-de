@@ -3,12 +3,12 @@ title: Symbol.search
 short-title: search
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/search
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Symbol.search`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die {{jsxref("String.prototype.search()")}} Methode sucht dieses Symbol im ersten Argument, um die Methode zu finden, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
+Die statische Dateneigenschaft **`Symbol.search`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die Methode {{jsxref("String.prototype.search()")}} sucht auf ihrem ersten Argument nach diesem Symbol, um die Methode zu finden, die den Index innerhalb eines Strings zurückgibt, an dem eine Übereinstimmung mit dem aktuellen Objekt vorliegt.
 
-Für weitere Informationen siehe [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.search")}}
 
@@ -28,7 +28,7 @@ console.log("foobar".search(new Search1("bar")));
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.search`.
+Das bekannte Symbol `Symbol.search`.
 
 {{js_property_attributes(0, 0, 0)}}
 
@@ -59,7 +59,7 @@ console.log("foobar".search(new CaseInsensitiveSearch("BaR"))); // 3
 
 ## Siehe auch
 
-- [Polyfill von `Symbol.search` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [Polyfill für `Symbol.search` in `core-js`](https://core-js.io/docs/features/ecmascript/symbol)
 - {{jsxref("Symbol.match")}}
 - {{jsxref("Symbol.matchAll")}}
 - {{jsxref("Symbol.replace")}}

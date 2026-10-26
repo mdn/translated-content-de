@@ -3,12 +3,12 @@ title: AsyncDisposableStack.prototype.use()
 short-title: use()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/use
 l10n:
-  sourceCommit: 419694495e070daaf466c923b413b3f476740fd6
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`use()`**-Methode von Instanzen des {{jsxref("AsyncDisposableStack")}} registriert einen Wert, der das [asynchrone Entsorgungsprotokoll](/de/docs/Web/JavaScript/Guide/Resource_management) auf dem Stapel implementiert.
+Die Methode **`use()`** von {{jsxref("AsyncDisposableStack")}}-Instanzen registriert einen Wert im Stack, der das [Protokoll zur asynchronen Ressourcenfreigabe](/de/docs/Web/JavaScript/Guide/Resource_management) implementiert.
 
-Siehe {{jsxref("DisposableStack.prototype.use()")}} für allgemeine Informationen über die `use()`-Methode.
+Allgemeine Informationen zur Methode `use()` finden Sie unter {{jsxref("DisposableStack.prototype.use()")}}.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ use(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf dem Stapel registriert werden soll. Muss entweder eine `[Symbol.asyncDispose]()`- oder `[Symbol.dispose]()`-Methode enthalten oder `null` oder `undefined` sein.
+  - : Der Wert, der im Stack registriert werden soll. Er muss entweder eine Methode `[Symbol.asyncDispose]()` oder `[Symbol.dispose]()` enthalten oder `null` beziehungsweise `undefined` sein.
 
 ### Rückgabewert
 
-Der gleiche `value`, der übergeben wurde.
+Derselbe `value`, der übergeben wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `value` weder `null` noch `undefined` ist und keine `[Symbol.asyncDispose]()`- oder `[Symbol.dispose]()`-Methode enthält.
+  - : Wird ausgelöst, wenn `value` weder `null` noch `undefined` ist und keine Methode `[Symbol.asyncDispose]()` oder `[Symbol.dispose]()` enthält.
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stapel bereits entsorgt wurde.
+  - : Wird ausgelöst, wenn der Stack bereits freigegeben wurde.
 
 ## Beispiele
 
-### Verwendung von use()
+### use() verwenden
 
-Diese Funktion liest eine Datei (als Node.js [`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle)) und gibt deren Inhalt zurück. Der Datei-Handle wird automatisch geschlossen, wenn die Funktion abgeschlossen ist, da die `FileHandle`-Klasse eine `[Symbol.asyncDispose]()`-Methode implementiert, die die Datei asynchron schließt.
+Diese Funktion liest eine Datei (als Node.js-[`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle)) und gibt deren Inhalt zurück. Das Datei-Handle wird automatisch geschlossen, wenn die Funktion abgeschlossen ist, da die Klasse `FileHandle` eine Methode `[Symbol.asyncDispose]()` implementiert, die die Datei asynchron schließt.
 
 ```js
 async function readFileContents(path) {
@@ -58,6 +58,7 @@ async function readFileContents(path) {
 
 ## Siehe auch
 
+- [Polyfill für `AsyncDisposableStack.prototype.use` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.adopt()")}}

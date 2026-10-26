@@ -3,13 +3,13 @@ title: String.prototype.strike()
 short-title: strike()
 slug: Web/JavaScript/Reference/Global_Objects/String/strike
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`strike()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in ein {{HTMLElement("strike")}} Element einbettet (`<strike>str</strike>`), wodurch dieser String als durchgestrichener Text angezeigt wird.
+Die Methode **`strike()`** von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("strike")}}-Element einbettet (`<strike>str</strike>`). Dadurch wird der String als durchgestrichener Text angezeigt.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `strike()` wurde das `<strike>` Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen das {{HTMLElement("del")}} für gelöschte Inhalte oder das {{HTMLElement("s")}} für Inhalte verwenden, die nicht mehr korrekt oder relevant sind.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `strike()` wurde das `<strike>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen {{HTMLElement("del")}} für gelöschte Inhalte oder {{HTMLElement("s")}} für Inhalte verwenden, die nicht mehr korrekt oder relevant sind.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, beginnend mit einem `<strike>` Start-Tag, dann der Text `str`, und dann ein `</strike>` End-Tag.
+Ein String, der mit einem `<strike>`-Start-Tag beginnt, gefolgt vom Text `str` und einem `</strike>`-End-Tag.
 
 ## Beispiele
 
-### Verwendung von strike()
+### strike() verwenden
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt damit den Inhalt des Dokuments:
 
 ```js
 const contentString = "Hello, world";
@@ -37,7 +37,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.strike();
 ```
 
-Dies erzeugt das folgende HTML:
+Dadurch entsteht das folgende HTML:
 
 ```html
 <strike>Hello, world</strike>
@@ -65,7 +65,7 @@ document.body.appendChild(elem);
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.strike` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.strike`](https://www.npmjs.com/package/es-string-html-methods)
+- [Polyfill für `String.prototype.strike` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.strike` von es-shims](https://www.npmjs.com/package/es-string-html-methods)
 - [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("strike")}}

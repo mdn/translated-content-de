@@ -3,10 +3,10 @@ title: SuppressedError()-Konstruktor
 short-title: SuppressedError()
 slug: Web/JavaScript/Reference/Global_Objects/SuppressedError/SuppressedError
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`SuppressedError()`**-Konstruktor erzeugt {{jsxref("SuppressedError")}}-Objekte.
+Der **`SuppressedError()`**-Konstruktor erstellt {{jsxref("SuppressedError")}}-Objekte.
 
 ## Syntax
 
@@ -19,23 +19,23 @@ SuppressedError(error, suppressed, message)
 ```
 
 > [!NOTE]
-> `SuppressedError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue `SuppressedError`-Instanz.
+> `SuppressedError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. In beiden Fällen wird eine neue `SuppressedError`-Instanz erstellt.
 
 ### Parameter
 
 - `error`
-  - : Der neue Fehler, der zur Unterdrückung von `suppressed` führt.
+  - : Der neue Fehler, der dazu führt, dass `suppressed` unterdrückt wird.
 - `suppressed`
-  - : Der ursprünglich ausgelöste Fehler, der nun unterdrückt wird.
+  - : Der Fehler, der ursprünglich ausgelöst wurde und nun unterdrückt wird.
 - `message` {{optional_inline}}
-  - : Eine optionale, menschenlesbare Beschreibung des aggregierten Fehlers.
+  - : Eine optionale, für Menschen lesbare Beschreibung des zusammengefassten Fehlers.
 
 > [!NOTE]
-> `SuppressedError()` akzeptiert keine `options` wie {{jsxref("Error/Error", "Error()")}} und andere Unterklassen, da die Semantik von {{jsxref("Error/cause", "cause")}} sich mit `suppressed` überschneidet.
+> `SuppressedError()` akzeptiert anders als {{jsxref("Error/Error", "Error()")}} und andere Unterklassen kein `options`, da sich die Bedeutung von {{jsxref("Error/cause", "cause")}} mit der von `suppressed` überschneidet.
 
 ## Beispiele
 
-### Erstellen eines SuppressedError
+### Einen SuppressedError erstellen
 
 ```js
 try {
@@ -60,4 +60,4 @@ try {
 
 ## Siehe auch
 
-- [Polyfill von `SuppressedError` in `core-js`](https://github.com/zloirock/core-js#explicit-resource-management)
+- [Polyfill für `SuppressedError` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)

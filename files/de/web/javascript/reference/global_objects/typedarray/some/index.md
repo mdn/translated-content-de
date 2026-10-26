@@ -3,10 +3,10 @@ title: TypedArray.prototype.some()
 short-title: some()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/some
 l10n:
-  sourceCommit: dd88a6eb2176fa31f5b744d8964efecf3f1f425b
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`some()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt `true` zurück, wenn sie ein Element im Array findet, das die bereitgestellte Testfunktion erfüllt. Andernfalls gibt sie `false` zurück. Diese Methode verwendet den gleichen Algorithmus wie {{jsxref("Array.prototype.some()")}}.
+Die Methode **`some()`** von {{jsxref("TypedArray")}}-Instanzen gibt `true` zurück, wenn sie ein Element im Array findet, das die angegebene Testfunktion erfüllt. Andernfalls gibt sie `false` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.some()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.some()")}}
 
@@ -35,29 +35,29 @@ some(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy-Wert")}} zurückgeben, wenn das Element den Test besteht, andernfalls einen {{Glossary("Falsy", "falsy-Wert")}}. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf das `some()` aufgerufen wurde.
+      - : Das typisierte Array, für das `some()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der bei der Ausführung von `callbackFn` als `this` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-`false`, es sei denn, `callbackFn` gibt einen {{Glossary("truthy", "truthy")}} Wert für ein Element im typisierten Array zurück. In diesem Fall wird `true` sofort zurückgegeben.
+`false`, sofern `callbackFn` nicht für ein Element des typisierten Arrays einen {{Glossary("truthy", "truthy-Wert")}} zurückgibt. In diesem Fall wird sofort `true` zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.some()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.some()")}}. Diese Methode ist nicht generisch und kann nur für Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Prüfung der Größe aller Elemente im typisierten Array
+### Größe der Elemente eines typisierten Arrays prüfen
 
-Das folgende Beispiel überprüft, ob ein Element im typisierten Array größer als 10 ist.
+Das folgende Beispiel prüft, ob ein Element des typisierten Arrays größer als 10 ist.
 
 ```js
 function isBiggerThan10(element, index, array) {
@@ -77,8 +77,8 @@ new Uint8Array([12, 5, 8, 1, 4]).some(isBiggerThan10); // true
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.some` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.some` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [JavaScript: Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) – Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.every()")}}
 - {{jsxref("TypedArray.prototype.forEach()")}}

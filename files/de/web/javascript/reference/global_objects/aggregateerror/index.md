@@ -2,12 +2,12 @@
 title: AggregateError
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError
 l10n:
-  sourceCommit: 1d2e1875bdfdd2fb8d0806535220bbd56d3a091d
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in einem einzigen Fehler zusammengefasst werden müssen. Es wird ausgelöst, wenn mehrere Fehler von einer Operation gemeldet werden müssen, zum Beispiel durch {{jsxref("Promise.any()")}}, wenn alle an sie übergebenen Versprechen abgelehnt werden.
+Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in einem einzigen Fehler zusammengefasst werden müssen. Es wird ausgelöst, wenn eine Operation mehrere Fehler melden muss, beispielsweise {{jsxref("Promise.any()")}}, wenn alle übergebenen Promises abgelehnt werden.
 
-Im Vergleich zu {{jsxref("SuppressedError")}} repräsentiert `AggregateError` eine Liste von nicht zusammenhängenden Fehlern, während `SuppressedError` einen Fehler darstellt, der während der Behandlung eines anderen Fehlers auftrat.
+Im Gegensatz zu {{jsxref("SuppressedError")}} stellt `AggregateError` eine Liste voneinander unabhängiger Fehler dar. `SuppressedError` hingegen stellt einen Fehler dar, der bei der Behandlung eines anderen Fehlers aufgetreten ist.
 
 `AggregateError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -16,29 +16,29 @@ Im Vergleich zu {{jsxref("SuppressedError")}} repräsentiert `AggregateError` ei
 - {{jsxref("AggregateError/AggregateError", "AggregateError()")}}
   - : Erstellt ein neues `AggregateError`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("Error")}}_.
+_Erbt außerdem Instanzeigenschaften von der übergeordneten Klasse {{jsxref("Error")}}._
 
-Diese Eigenschaften sind auf `AggregateError.prototype` definiert und werden von allen `AggregateError`-Instanzen geteilt.
+Diese Eigenschaften sind auf `AggregateError.prototype` definiert und werden von allen `AggregateError`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "AggregateError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `AggregateError`-Instanzen ist der Anfangswert der {{jsxref("AggregateError/AggregateError", "AggregateError")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `AggregateError`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("AggregateError/AggregateError", "AggregateError")}}.
 - {{jsxref("Error/name", "AggregateError.prototype.name")}}
-  - : Repräsentiert den Namen des Fehlertyps. Für `AggregateError.prototype.name` ist der Anfangswert `"AggregateError"`.
+  - : Gibt den Namen des Fehlertyps an. Für `AggregateError.prototype.name` ist der Anfangswert `"AggregateError"`.
 
-Diese Eigenschaften sind eigenständige Eigenschaften jeder `AggregateError`-Instanz.
+Diese Eigenschaften sind eigene Eigenschaften jeder `AggregateError`-Instanz.
 
 - {{jsxref("AggregateError/errors", "errors")}}
-  - : Ein Array, das die aggregierten Fehler darstellt.
+  - : Ein Array mit den zusammengefassten Fehlern.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("Error")}}_.
+_Erbt Instanzmethoden von der übergeordneten Klasse {{jsxref("Error")}}._
 
 ## Beispiele
 
-### Abfangen eines AggregateError
+### Einen AggregateError abfangen
 
 ```js
 Promise.any([Promise.reject(new Error("some error"))]).catch((e) => {
@@ -49,7 +49,7 @@ Promise.any([Promise.reject(new Error("some error"))]).catch((e) => {
 });
 ```
 
-### Erstellen eines AggregateError
+### Einen AggregateError erstellen
 
 ```js
 try {
@@ -72,7 +72,7 @@ try {
 
 ## Siehe auch
 
-- [Polyfill von `AggregateError` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
-- [es-shims Polyfill von `AggregateError`](https://www.npmjs.com/package/es-aggregate-error)
+- [Polyfill für `AggregateError` in `core-js`](https://core-js.io/docs/features/ecmascript/error)
+- [Polyfill für `AggregateError` von es-shims](https://www.npmjs.com/package/es-aggregate-error)
 - {{jsxref("Error")}}
 - {{jsxref("Promise.any")}}

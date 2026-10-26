@@ -1,23 +1,24 @@
 ---
-title: "Leistung: getEntries()-Methode"
+title: "Performance: getEntries()-Methode"
 short-title: getEntries()
 slug: Web/API/Performance/getEntries
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`getEntries()`**-Methode gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die derzeit in der Leistungschronologie vorhanden sind.
+Die Methode **`getEntries()`** gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die sich derzeit in der Performance-Timeline befinden.
 
-Wenn Sie nur an Leistungsdatensätzen bestimmter Typen oder mit bestimmten Namen interessiert sind, siehe [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName).
+Wenn Sie nur an Performance-Einträgen bestimmter Typen oder mit bestimmten Namen interessiert sind, lesen Sie die Dokumentation zu [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName).
 
 > [!NOTE]
-> Diese Methode benachrichtigt Sie nicht über neue Leistungsdatensätze; Sie erhalten nur Datensätze, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungschronologie vorhanden sind.
-> Um Benachrichtigungen über Datensätze zu erhalten, sobald sie verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
+> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge. Sie erhalten nur Einträge, die sich zum Zeitpunkt des Methodenaufrufs in der Performance-Timeline befinden.
+> Um über neue Einträge benachrichtigt zu werden, sobald sie verfügbar sind, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
-Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, selbst wenn Einträge für diese Typen existieren könnten:
+Die folgenden Eintragstypen werden von dieser Methode nicht unterstützt und nicht zurückgegeben, selbst wenn Einträge dieser Typen vorhanden sind:
 
+- `"container"` ([`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming))
 - `"element"` ([`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming))
 - `"event"` ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming))
 - `"largest-contentful-paint"` ([`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint))
@@ -38,13 +39,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten. Die Elemente sind in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge angeordnet.
+Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten. Die Elemente sind anhand des jeweiligen [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime)-Werts chronologisch geordnet.
 
 ## Beispiele
 
-### Protokollierung aller Leistungsmarker und -messungen
+### Alle Performance-Marker und -Messungen in der Konsole ausgeben
 
-Angenommen, Sie haben Ihre eigenen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte an geeigneten Stellen in Ihrem Code erstellt, möchten Sie möglicherweise alle an die Konsole protokollieren, wie folgt:
+Wenn Sie an geeigneten Stellen in Ihrem Code eigene [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte erstellt haben, können Sie sie alle wie folgt in der Konsole ausgeben:
 
 ```js
 // Example markers/measures

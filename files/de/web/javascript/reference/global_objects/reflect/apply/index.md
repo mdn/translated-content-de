@@ -3,7 +3,7 @@ title: Reflect.apply()
 short-title: apply()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/apply
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 Die statische Methode **`Reflect.apply()`** ruft eine Zielfunktion mit den angegebenen Argumenten auf.
@@ -37,24 +37,24 @@ Reflect.apply(target, thisArgument, argumentsList)
 ### Parameter
 
 - `target`
-  - : Die Zielfunktion, die aufgerufen werden soll.
+  - : Die aufzurufende Zielfunktion.
 - `thisArgument`
-  - : Der Wert für `this`, der für den Aufruf an `target` übergeben wird.
+  - : Der Wert von `this`, der beim Aufruf von `target` verwendet wird.
 - `argumentsList`
   - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente angibt, mit denen `target` aufgerufen werden soll.
 
 ### Rückgabewert
 
-Das Ergebnis des Aufrufs der angegebenen `target`-Funktion mit dem angegebenen `this`-Wert und den Argumenten.
+Das Ergebnis des Aufrufs der angegebenen Funktion `target` mit dem festgelegten `this`-Wert und den Argumenten.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `target` keine Funktion ist oder `argumentsList` kein Objekt ist.
+  - : Wird ausgelöst, wenn `target` keine Funktion oder `argumentsList` kein Objekt ist.
 
 ## Beschreibung
 
-`Reflect.apply()` bietet die reflexive Semantik eines Funktionsaufrufs. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch äquivalent zu:
+`Reflect.apply()` stellt die reflektive Semantik eines Funktionsaufrufs bereit. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch gleichbedeutend mit:
 
 ```js
 Math.floor.apply(null, [1.75]);
@@ -63,14 +63,14 @@ Reflect.apply(Math.floor, null, [1.75]);
 
 Die einzigen Unterschiede sind:
 
-- `Reflect.apply()` nimmt die aufzurufende Funktion als `target`-Parameter anstelle des `this`-Kontexts.
-- `Reflect.apply()` wirft einen Fehler, wenn `argumentsList` weggelassen wird, anstatt standardmäßig ohne Parameter aufzurufen.
+- `Reflect.apply()` erhält die aufzurufende Funktion über den Parameter `target` statt über den `this`-Kontext.
+- `Reflect.apply()` löst eine Ausnahme aus, wenn `argumentsList` weggelassen wird, statt standardmäßig einen Aufruf ohne Argumente auszuführen.
 
-`Reflect.apply()` ruft die `[[Call]]` [interne Methode des Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.apply()` ruft die [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) `[[Call]]` von `target` auf.
 
 ## Beispiele
 
-### Verwenden von Reflect.apply()
+### Reflect.apply() verwenden
 
 ```js
 Reflect.apply(Math.floor, undefined, [1.75]);
@@ -96,8 +96,8 @@ Reflect.apply("".charAt, "ponies", [3]);
 
 ## Siehe auch
 
-- [Polyfill von `Reflect.apply` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
-- [es-shims Polyfill von `Reflect.apply`](https://www.npmjs.com/package/reflect-apply)
+- [Polyfill für `Reflect.apply` in `core-js`](https://core-js.io/docs/features/ecmascript/reflect)
+- [Polyfill für `Reflect.apply` von es-shims](https://www.npmjs.com/package/reflect-apply)
 - {{jsxref("Reflect")}}
 - {{jsxref("Function.prototype.apply()")}}
 - [`handler.apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/apply)

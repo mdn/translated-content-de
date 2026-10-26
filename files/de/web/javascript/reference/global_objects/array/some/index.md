@@ -3,10 +3,10 @@ title: Array.prototype.some()
 short-title: some()
 slug: Web/JavaScript/Reference/Global_Objects/Array/some
 l10n:
-  sourceCommit: dd88a6eb2176fa31f5b744d8964efecf3f1f425b
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`some()`**-Methode von {{jsxref("Array")}}-Instanzen gibt `true` zurück, wenn sie ein Element im Array findet, das die bereitgestellte Testfunktion erfüllt. Andernfalls gibt sie `false` zurück.
+Die Methode **`some()`** von {{jsxref("Array")}}-Instanzen gibt `true` zurück, wenn sie im Array ein Element findet, das die bereitgestellte Prüffunktion erfüllt. Andernfalls gibt sie `false` zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.some()")}}
 
@@ -30,44 +30,44 @@ some(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt werden soll. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, wenn das Element die Prüfung besteht, andernfalls einen {{Glossary("Falsy", "falsy")}}-Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im Array verarbeitet wird.
+      - : Das aktuell verarbeitete Element im Array.
     - `index`
-      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements im Array.
     - `array`
-      - : Das Array, auf das `some()` aufgerufen wurde.
+      - : Das Array, für das `some()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` bei der Ausführung von `callbackFn` verwendet werden soll. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der bei der Ausführung von `callbackFn` als `this` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-`false`, es sei denn, `callbackFn` gibt einen {{Glossary("Truthy", "truthy")}} Wert für ein Array-Element zurück, in diesem Fall wird sofort `true` zurückgegeben.
+`false`, es sei denn, `callbackFn` gibt für ein Array-Element einen {{Glossary("truthy", "truthy")}}-Wert zurück. In diesem Fall wird sofort `true` zurückgegeben.
 
 ## Beschreibung
 
-Die `some()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Array auf, bis die `callbackFn`-Funktion einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. Wenn ein solches Element gefunden wird, gibt `some()` sofort `true` zurück und stoppt die Iteration durch das Array. Andernfalls gibt `some()` `false` zurück, wenn `callbackFn` für alle Elemente einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die Methode `some()` ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte Funktion `callbackFn` einmal für jedes Element eines Arrays auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}}-Wert zurückgibt. Wird ein solches Element gefunden, gibt `some()` sofort `true` zurück und beendet die Iteration durch das Array. Gibt `callbackFn` hingegen für alle Elemente einen {{Glossary("Falsy", "falsy")}}-Wert zurück, gibt `some()` `false` zurück. Weitere Informationen zur allgemeinen Funktionsweise dieser Methoden finden Sie im Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
-`some()` handelt wie der "es existiert"-Quantor in der Mathematik. Insbesondere für ein leeres Array gibt es `false` für jede Bedingung zurück.
+`some()` verhält sich wie der Existenzquantor („es gibt“) in der Mathematik. Insbesondere gibt die Methode für ein leeres Array unabhängig von der Bedingung `false` zurück.
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen wurden. Es wird nicht für leere Slots in [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen wurden. Für leere Einträge in [Sparse Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) wird die Funktion nicht aufgerufen.
 
-`some()` verändert das Array, auf dem es aufgerufen wird, nicht, aber die als `callbackFn` bereitgestellte Funktion kann es. Beachten Sie jedoch, dass die Länge des Arrays _vor_ der ersten Ausführung von `callbackFn` gespeichert wird. Daher:
+`some()` verändert das Array, für das die Methode aufgerufen wird, nicht. Die als `callbackFn` bereitgestellte Funktion kann das Array jedoch verändern. Beachten Sie allerdings, dass die Länge des Arrays _vor_ dem ersten Aufruf von `callbackFn` gespeichert wird. Daher gilt:
 
-- `callbackFn` wird keine Elemente besuchen, die über die ursprüngliche Länge des Arrays hinaus hinzugefügt wurden, als der Aufruf von `some()` begann.
-- Änderungen an bereits besuchten Indizes führen nicht dazu, dass `callbackFn` erneut auf sie angewendet wird.
-- Wenn ein vorhandenes, noch nicht besuchtes Element des Arrays von `callbackFn` geändert wird, wird sein Wert, der an `callbackFn` übergeben wird, der Wert zu dem Zeitpunkt sein, an dem dieses Element besucht wird. [Gelöschte](/de/docs/Web/JavaScript/Reference/Operators/delete) Elemente werden nicht besucht.
+- `callbackFn` verarbeitet keine Elemente, die nach Beginn des Aufrufs von `some()` über die ursprüngliche Länge des Arrays hinaus hinzugefügt werden.
+- Änderungen an bereits besuchten Indizes führen nicht dazu, dass `callbackFn` für diese erneut aufgerufen wird.
+- Wenn `callbackFn` ein vorhandenes, aber noch nicht besuchtes Element des Arrays verändert, wird der Wert an `callbackFn` übergeben, den das Element zum Zeitpunkt des Besuchs hat. [Gelöschte](/de/docs/Web/JavaScript/Reference/Operators/delete) Elemente werden nicht besucht.
 
 > [!WARNING]
-> Gleichzeitige Modifikationen der oben beschriebenen Art führen häufig zu schwer verständlichem Code und sollten in der Regel vermieden werden (außer in besonderen Fällen).
+> Gleichzeitige Änderungen der oben beschriebenen Art führen häufig zu schwer verständlichem Code und sollten im Allgemeinen vermieden werden (außer in Sonderfällen).
 
-Die `some()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlig indizierte Eigenschaften hat.
+Die Methode `some()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln besitzt.
 
 ## Beispiele
 
-### Testen des Werts von Array-Elementen
+### Werte von Array-Elementen prüfen
 
-Im folgenden Beispiel wird getestet, ob ein Element im Array größer als 10 ist.
+Das folgende Beispiel prüft, ob ein Element im Array größer als 10 ist.
 
 ```js
 function isBiggerThan10(element, index, array) {
@@ -78,18 +78,18 @@ function isBiggerThan10(element, index, array) {
 [12, 5, 8, 1, 4].some(isBiggerThan10); // true
 ```
 
-### Testen von Array-Elementen mit Pfeilfunktionen
+### Array-Elemente mit Arrow Functions prüfen
 
-[Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) bieten eine kürzere Syntax für denselben Test.
+[Arrow Functions](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) bieten eine kürzere Syntax für dieselbe Prüfung.
 
 ```js
 [2, 5, 8, 1, 4].some((x) => x > 10); // false
 [12, 5, 8, 1, 4].some((x) => x > 10); // true
 ```
 
-### Überprüfen, ob ein Wert in einem Array existiert
+### Prüfen, ob ein Wert in einem Array vorhanden ist
 
-Um die Funktion der `includes()`-Methode nachzuahmen, gibt diese benutzerdefinierte Funktion `true` zurück, wenn das Element im Array vorhanden ist:
+Die folgende benutzerdefinierte Funktion ahmt die Funktionalität der Methode `includes()` nach und gibt `true` zurück, wenn das Element im Array vorhanden ist:
 
 ```js
 const fruits = ["apple", "banana", "mango", "guava"];
@@ -102,7 +102,7 @@ checkAvailability(fruits, "grapefruit"); // false
 checkAvailability(fruits, "banana"); // true
 ```
 
-### Konvertieren eines beliebigen Werts in Boolean
+### Einen beliebigen Wert in einen Boolean-Wert umwandeln
 
 ```js
 const TRUTHY_VALUES = [true, "true", 1];
@@ -121,9 +121,9 @@ getBoolean(1); // true
 getBoolean("true"); // true
 ```
 
-### Verwendung des dritten Arguments von callbackFn
+### Das dritte Argument von callbackFn verwenden
 
-Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Im folgenden Beispiel wird zunächst `filter()` verwendet, um die positiven Werte zu extrahieren, und dann `some()`, um zu prüfen, ob das Array streng ansteigend ist.
+Das Argument `array` ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn keine Variable vorhanden ist, die auf das Array verweist. Im folgenden Beispiel werden zunächst mit `filter()` die positiven Werte extrahiert. Anschließend wird mit `some()` geprüft, ob das Array streng monoton steigend ist.
 
 ```js
 const numbers = [3, -1, 1, 4, 1, 5];
@@ -138,9 +138,9 @@ const isIncreasing = !numbers
 console.log(isIncreasing); // false
 ```
 
-### Verwendung von some() bei dünn besetzten Arrays
+### some() auf Sparse Arrays anwenden
 
-`some()` wird sein Prädikat nicht auf leere Slots anwenden.
+`some()` führt die Prüffunktion nicht für leere Einträge aus.
 
 ```js
 console.log([1, , 3].some((x) => x === undefined)); // false
@@ -148,9 +148,9 @@ console.log([1, , 1].some((x) => x !== 1)); // false
 console.log([1, undefined, 1].some((x) => x !== 1)); // true
 ```
 
-### Aufrufen von some() für Nicht-Array-Objekte
+### some() für Objekte aufrufen, die keine Arrays sind
 
-Die `some()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist, bis alle zugegriffen wurden oder `callbackFn` `true` zurückgibt.
+Die Methode `some()` liest die Eigenschaft `length` von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative ganze Zahl kleiner als `length` ist, bis auf alle diese Eigenschaften zugegriffen wurde oder `callbackFn` `true` zurückgibt.
 
 ```js
 const arrayLike = {
@@ -174,9 +174,9 @@ console.log(Array.prototype.some.call(arrayLike, (x) => typeof x === "number"));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.some` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims polyfill von `Array.prototype.some`](https://www.npmjs.com/package/array.prototype.some)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.prototype.some` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.some` von es-shims](https://www.npmjs.com/package/array.prototype.some)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.every()")}}
 - {{jsxref("Array.prototype.forEach()")}}

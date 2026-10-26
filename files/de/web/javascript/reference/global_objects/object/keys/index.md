@@ -3,10 +3,10 @@ title: Object.keys()
 short-title: keys()
 slug: Web/JavaScript/Reference/Global_Objects/Object/keys
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Object.keys()`** gibt ein Array der eigenen aufzählbaren, mit String-Schlüssel versehenen Eigenschaftsnamen eines gegebenen Objekts zurück.
+Die statische Methode **`Object.keys()`** gibt ein Array mit den Namen der eigenen, aufzählbaren Eigenschaften eines Objekts zurück, deren Schlüssel Strings sind.
 
 {{InteractiveExample("JavaScript Demo: Object.keys()")}}
 
@@ -34,17 +34,17 @@ Object.keys(obj)
 
 ### Rückgabewert
 
-Ein Array von Strings, die die eigenen aufzählbaren, mit String-Schlüssel versehenen Eigenschaftenschlüssel des gegebenen Objekts darstellen.
+Ein Array von Strings, die die Schlüssel der eigenen, aufzählbaren Eigenschaften des angegebenen Objekts darstellen, deren Schlüssel Strings sind.
 
 ## Beschreibung
 
-`Object.keys()` gibt ein Array zurück, dessen Elemente Strings sind, die den aufzählbaren, mit String-Schlüssel versehenen Eigenschaftsnamen entsprechen, die direkt auf dem `object` gefunden werden. Dies ist das Gleiche wie das Iterieren mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, mit dem Unterschied, dass eine `for...in` Schleife auch Eigenschaften in der Prototyp-Kette aufzählt. Die Reihenfolge des von `Object.keys()` zurückgegebenen Arrays ist die gleiche wie die, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
+`Object.keys()` gibt ein Array zurück, dessen Elemente den Namen der aufzählbaren Eigenschaften entsprechen, die direkt auf `object` definiert sind und deren Schlüssel Strings sind. Dies entspricht der Iteration mit einer {{jsxref("Statements/for...in", "for...in")}}-Schleife, mit dem Unterschied, dass eine `for...in`-Schleife auch Eigenschaften in der Prototypkette aufzählt. Die Reihenfolge im von `Object.keys()` zurückgegebenen Array entspricht der Reihenfolge bei einer {{jsxref("Statements/for...in", "for...in")}}-Schleife.
 
 Wenn Sie die Eigenschaftswerte benötigen, verwenden Sie stattdessen {{jsxref("Object.values()")}}. Wenn Sie sowohl die Eigenschaftsschlüssel als auch die Werte benötigen, verwenden Sie stattdessen {{jsxref("Object.entries()")}}.
 
 ## Beispiele
 
-### Verwendung von Object.keys()
+### Object.keys() verwenden
 
 ```js
 // Basic array
@@ -74,11 +74,11 @@ myObj.foo = 1;
 console.log(Object.keys(myObj)); // ['foo']
 ```
 
-Wenn Sie _alle_ mit String-Schlüssel versehenen eigenen Eigenschaften, einschließlich nicht aufzählbarer, wünschen, siehe {{jsxref("Object.getOwnPropertyNames()")}}.
+Wenn Sie _alle_ eigenen Eigenschaften mit String-Schlüsseln benötigen, einschließlich der nicht aufzählbaren, lesen Sie {{jsxref("Object.getOwnPropertyNames()")}}.
 
-### Verwendung von Object.keys() mit Primitiven
+### Object.keys() mit primitiven Werten verwenden
 
-Nicht-Objekt-Argumente werden [zu Objekten gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten gezwungen werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Strings können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
+Argumente, die keine Objekte sind, werden [in Objekte umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht in Objekte umgewandelt werden und lösen unmittelbar einen {{jsxref("TypeError")}} aus. Nur Strings können eigene, aufzählbare Eigenschaften haben; bei allen anderen primitiven Werten wird ein leeres Array zurückgegeben.
 
 ```js
 // Strings have indices as enumerable own properties
@@ -89,7 +89,7 @@ console.log(Object.keys(100)); // []
 ```
 
 > [!NOTE]
-> In ES5 führte das Übergeben eines Nicht-Objekts an `Object.keys()` zu einem {{jsxref("TypeError")}}.
+> In ES5 löste die Übergabe eines Werts, der kein Objekt ist, an `Object.keys()` einen {{jsxref("TypeError")}} aus.
 
 ## Spezifikationen
 
@@ -101,9 +101,9 @@ console.log(Object.keys(100)); // []
 
 ## Siehe auch
 
-- [Polyfill von `Object.keys` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
-- [es-shims Polyfill von `Object.keys`](https://www.npmjs.com/package/object-key)
-- [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Polyfill für `Object.keys` in `core-js`](https://core-js.io/docs/features/ecmascript/object)
+- [Polyfill für `Object.keys` von es-shims](https://www.npmjs.com/package/object-key)
+- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.entries()")}}
 - {{jsxref("Object.values()")}}
 - {{jsxref("Object.prototype.propertyIsEnumerable()")}}

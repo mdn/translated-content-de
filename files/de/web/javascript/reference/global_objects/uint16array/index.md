@@ -2,12 +2,12 @@
 title: Uint16Array
 slug: Web/JavaScript/Reference/Global_Objects/Uint16Array
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Das **`Uint16Array`** typisierte Array stellt ein Array von 16-Bit-Integern ohne Vorzeichen in der Plattform-Byte-Reihenfolge dar. Wenn Kontrolle über die Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es wird explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente des Arrays mithilfe der Methoden des Objekts oder durch die Standard-Array-Index-Syntax (d.h. durch eckige Klammern) zugreifen.
+Das typisierte Array **`Uint16Array`** stellt ein Array vorzeichenloser 16-Bit-Ganzzahlen in der Byte-Reihenfolge der Plattform dar. Wenn Sie die Byte-Reihenfolge festlegen müssen, verwenden Sie stattdessen {{jsxref("DataView")}}. Die Elemente werden mit `0` initialisiert, sofern nicht ausdrücklich Initialisierungsdaten bereitgestellt werden. Nach der Erstellung können Sie über die Methoden des Objekts oder mit der üblichen Array-Index-Syntax (also der Klammernotation) auf die Elemente zugreifen.
 
-`Uint16Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}}-Klasse.
+`Uint16Array` ist eine Unterklasse der verborgenen Klasse {{jsxref("TypedArray")}}.
 
 ## Konstruktor
 
@@ -16,29 +16,29 @@ Das **`Uint16Array`** typisierte Array stellt ein Array von 16-Bit-Integern ohne
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt außerdem statische Eigenschaften von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint16Array.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert für die Elementgröße zurück. `2` im Fall von `Uint16Array`.
+  - : Gibt die Größe eines Elements als Zahl zurück. Bei `Uint16Array` ist der Wert `2`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt außerdem Instanzeigenschaften von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
-Diese Eigenschaften sind auf `Uint16Array.prototype` definiert und werden von allen `Uint16Array` Instanzen geteilt.
+Diese Eigenschaften sind auf `Uint16Array.prototype` definiert und werden von allen `Uint16Array`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint16Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert für die Elementgröße zurück. `2` im Fall eines `Uint16Array`.
+  - : Gibt die Größe eines Elements als Zahl zurück. Bei einer `Uint16Array`-Instanz ist der Wert `2`.
 - {{jsxref("Object/constructor", "Uint16Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint16Array`-Instanzen ist der Anfangswert der {{jsxref("Uint16Array/Uint16Array", "Uint16Array")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Uint16Array`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("Uint16Array/Uint16Array", "Uint16Array")}}.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt Instanzmethoden von der übergeordneten Klasse {{jsxref("TypedArray")}}._
 
 ## Beispiele
 
@@ -84,8 +84,8 @@ console.log(uint16FromIterable);
 
 ## Siehe auch
 
-- [Polyfill von `Uint16Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `Uint16Array` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- Leitfaden zu [typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

@@ -3,10 +3,10 @@ title: DisposableStack.prototype.move()
 short-title: move()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/move
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`move()`**-Methode von Instanzen von {{jsxref("DisposableStack")}} erstellt eine neue `DisposableStack`-Instanz, die dieselben Disposer wie dieser Stack enthält, und markiert dann diesen Stack als entsorgt, ohne die Disposer aufzurufen.
+Die Methode **`move()`** von {{jsxref("DisposableStack")}}-Instanzen erstellt eine neue `DisposableStack`-Instanz, die dieselben Bereinigungsfunktionen wie der aktuelle Stack enthält. Anschließend markiert sie den aktuellen Stack als bereinigt, ohne Bereinigungsfunktionen aufzurufen.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ Eine neue {{jsxref("DisposableStack")}}-Instanz.
 ### Ausnahmen
 
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits entsorgt ist.
+  - : Wird ausgelöst, wenn der Stack bereits bereinigt wurde.
 
 ## Beschreibung
 
-Der Hauptzweck von `move()` besteht darin, die Verantwortung für die Entsorgung aus dem aktuellen Bereich zu übertragen. Beispielsweise kann Ihre Funktion das Eigentum an einigen Ressourcen beanspruchen und sie entsorgen, wenn ein Fehler auftritt; wenn alles erfolgreich abgeschlossen wird, geben Sie diese Ressourcen zurück und übertragen das Eigentum an den Aufrufer.
+Der Hauptzweck von `move()` besteht darin, die Verantwortung für die Bereinigung aus dem aktuellen Gültigkeitsbereich zu übertragen. Beispielsweise kann Ihre Funktion die Verantwortung für bestimmte Ressourcen übernehmen und sie bereinigen, falls ein Fehler auftritt. Wenn alles erfolgreich abgeschlossen wird, gibt sie diese Ressourcen zurück und überträgt die Verantwortung an den Aufrufer.
 
-Wenn Sie `move()` verwenden, um das Eigentum zu übertragen, sollte der Aufruf von `move()` der letzte Schritt in Ihrem Kontrollfluss sein, da es keinen Besitzer zwischen dem Loslassen des Eigentums durch Ihren Code mit `move()` und dem Aufnehmen des Eigentums durch den Aufrufer aus dem Rückgabewert gibt.
+Wenn Sie mit `move()` die Verantwortung übertragen, sollte der Aufruf von `move()` der allerletzte Schritt im Kontrollfluss sein. Andernfalls gibt es zwischen der Abgabe der Verantwortung durch Ihren Code mittels `move()` und der Übernahme durch den Aufrufer über den Rückgabewert keinen Verantwortlichen für die Ressourcen.
 
 ```js example-good
 let resource1;
@@ -64,7 +64,7 @@ function init() {
 using disposer = init();
 ```
 
-Seien Sie auch vorsichtig bei folgendem Muster, obwohl in vielen Fällen die Verwendung des "guten" Musters sehr umständlich sein kann:
+Seien Sie auch bei folgendem Muster vorsichtig, obwohl die Verwendung des „guten“ Musters in vielen Fällen sehr umständlich sein kann:
 
 ```js
 function init() {
@@ -80,7 +80,7 @@ const { resource1, ...rest } = init();
 using disposer = rest.disposer;
 ```
 
-`move()` kann auch für die konditionale Entsorgung verwendet werden, wenn Sie manchmal die Ressourcen überhaupt nicht entsorgen möchten. Zum Beispiel:
+`move()` kann auch für eine bedingte Bereinigung verwendet werden, wenn Sie die Ressourcen unter Umständen überhaupt nicht bereinigen möchten. Zum Beispiel:
 
 ```js
 using disposer = new DisposableStack();
@@ -99,7 +99,7 @@ if (server.ready) {
 
 ## Beispiele
 
-### Eigentum an einem Stack beanspruchen
+### Verantwortung für einen Stack übernehmen
 
 ```js
 function consumeStack(stack) {
@@ -115,9 +115,9 @@ consumeStack(stack);
 console.log(stack.disposed); // true
 ```
 
-### Ermöglichen, dass Ressourcen in zwei Codepfaden entsorgt werden
+### Die Bereinigung von Ressourcen in zwei verschiedenen Codepfaden ermöglichen
 
-Der Hauptanwendungsfall von `move()` ist, wenn Sie eine oder mehrere Ressourcen haben, die entweder direkt hier entsorgt oder für die spätere Verwendung aufbewahrt werden sollen. In diesem Fall können Sie die Ressourcen in einen `DisposableStack` legen und `move()` aufrufen, wenn Sie die Ressourcen für die spätere Verwendung aufbewahren müssen.
+Der wichtigste Anwendungsfall für `move()` liegt vor, wenn Sie eine oder mehrere Ressourcen entweder an dieser Stelle bereinigen oder für eine spätere Verwendung behalten möchten. In diesem Fall können Sie die Ressourcen in einen `DisposableStack` aufnehmen und `move()` aufrufen, wenn Sie die Ressourcen für eine spätere Verwendung behalten müssen.
 
 ```js
 class PluginHost {
@@ -179,6 +179,7 @@ class PluginHost {
 
 ## Siehe auch
 
+- [Polyfill für `DisposableStack.prototype.move` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
 - [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.dispose()")}}

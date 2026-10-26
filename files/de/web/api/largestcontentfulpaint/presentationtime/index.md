@@ -1,24 +1,25 @@
 ---
-title: "LargestContentfulPaint: Eigenschaft presentationTime"
+title: "LargestContentfulPaint: presentationTime-Eigenschaft"
 short-title: presentationTime
 slug: Web/API/LargestContentfulPaint/presentationTime
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
 ---
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`presentationTime`** des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die angezeigten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
+Die schreibgeschützte Eigenschaft **`presentationTime`** der Schnittstelle [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die gerenderten Pixel tatsächlich auf dem Bildschirm dargestellt wurden.
 
-Die `presentationTime` ist optional — einige Browser könnten immer `0` zurückgeben oder den Wert überhaupt nicht offenlegen. Der Wert ist auch von der Implementierung abhängig — er kann sich zwischen Browsern unterscheiden, die sich entscheiden, ihn offenzulegen.
+Der Wert von `presentationTime` kann `null` sein: Der zugrunde liegende Zeitstempel ist implementierungsabhängig. Browser, die ihn nicht bereitstellen, geben daher stattdessen `null` zurück.
+Da [`LargestContentfulPaint.paintTime`](/de/docs/Web/API/LargestContentfulPaint/paintTime) in allen Implementierungen auf dieselbe Weise bereitgestellt wird, ist dies der zuverlässigere Wert für Metriken, die browserübergreifend vergleichbar sein müssen.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht offengelegt wird.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht verfügbar ist.
 
 ## Beispiele
 
-Sehen Sie [Beobachtung separater Paint- und Präsentationstiming](/de/docs/Web/API/LargestContentfulPaint#observing_separate_paint_and_presentation_timings).
+Siehe [Getrennte Paint- und Präsentationszeitpunkte beobachten](/de/docs/Web/API/LargestContentfulPaint#observing_separate_paint_and_presentation_timings).
 
 ## Spezifikationen
 

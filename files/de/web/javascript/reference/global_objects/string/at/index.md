@@ -3,10 +3,10 @@ title: String.prototype.at()
 short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/String/at
 l10n:
-  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`at()`**-Methode von {{jsxref("String")}}-Werten nimmt einen ganzzahligen Wert und gibt einen neuen {{jsxref("String")}} zurück, der aus der einzelnen UTF-16-Codeeinheit besteht, die sich am angegebenen Offset befindet. Diese Methode ermöglicht positive und negative Ganzzahlen. Negative Ganzzahlen zählen rückwärts vom letzten Zeichen des Strings.
+Die Methode **`at()`** von {{jsxref("String")}}-Werten nimmt eine Ganzzahl entgegen und gibt einen neuen {{jsxref("String")}} zurück, der aus der einzelnen UTF-16-Codeeinheit an der angegebenen Position besteht. Die Methode akzeptiert positive und negative Ganzzahlen. Bei negativen Ganzzahlen wird vom letzten Zeichen des Strings rückwärts gezählt.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.at()")}}
 
@@ -33,17 +33,17 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Der Index (Position) des zurückzugebenden Zeichen im String. Unterstützt relatives Indexieren vom Ende des Strings, wenn ein negativer Index übergeben wird; d.h. wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen durch Zählen vom Ende des Strings gefunden.
+  - : Der Index (die Position) des zurückzugebenden Zeichens im String. Ein negativer Index ermöglicht die relative Indizierung vom Ende des Strings aus; das Zeichen wird dann durch Rückwärtszählen vom Ende des Strings ermittelt.
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}}, der aus der einzelnen UTF-16-Codeeinheit besteht, die sich an der angegebenen Position befindet. Gibt {{jsxref("undefined")}} zurück, wenn der angegebene Index nicht gefunden werden kann.
+Ein {{jsxref("String")}}, der aus der einzelnen UTF-16-Codeeinheit an der angegebenen Position besteht. Gibt {{jsxref("undefined")}} zurück, wenn der angegebene Index nicht gefunden werden kann.
 
 ## Beispiele
 
 ### Das letzte Zeichen eines Strings zurückgeben
 
-Das folgende Beispiel stellt eine Funktion bereit, die das letzte gefundene Zeichen in einem angegebenen String zurückgibt.
+Das folgende Beispiel zeigt eine Funktion, die das letzte Zeichen eines angegebenen Strings zurückgibt.
 
 ```js
 // A function which returns the last character of a given string
@@ -60,9 +60,9 @@ invoiceRef = "my-invoice02";
 console.log(returnLast(invoiceRef)); // '2'
 ```
 
-### Vergleich von Methoden
+### Methoden vergleichen
 
-Hier vergleichen wir verschiedene Möglichkeiten, das vorletzte (letzte, aber eines) Zeichen eines {{jsxref("String")}} auszuwählen. Obwohl alle unten stehenden Methoden gültig sind, wird die Prägnanz und Lesbarkeit der `at()`-Methode hervorgehoben.
+Hier vergleichen wir verschiedene Möglichkeiten, das vorletzte Zeichen eines {{jsxref("String")}} auszuwählen. Alle folgenden Methoden sind gültig; der Vergleich verdeutlicht jedoch, wie knapp und gut lesbar die Methode `at()` ist.
 
 ```js
 const myString = "Every green bus drives fast.";
@@ -90,8 +90,8 @@ console.log(atWay); // 't'
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.at` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.at`](https://www.npmjs.com/package/string.prototype.at)
+- [Polyfill für `String.prototype.at` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.at` von es-shims](https://www.npmjs.com/package/string.prototype.at)
 - {{jsxref("String.prototype.indexOf()")}}
 - {{jsxref("String.prototype.lastIndexOf()")}}
 - {{jsxref("String.prototype.charCodeAt()")}}

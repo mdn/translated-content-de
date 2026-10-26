@@ -3,10 +3,10 @@ title: Reflect.defineProperty()
 short-title: defineProperty()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Reflect.defineProperty()`** statische Methode ist wie {{jsxref("Object.defineProperty()")}}, gibt aber ein {{jsxref("Boolean")}} zurück.
+Die statische Methode **`Reflect.defineProperty()`** ähnelt {{jsxref("Object.defineProperty()")}}, gibt aber einen {{jsxref("Boolean")}} zurück.
 
 {{InteractiveExample("JavaScript Demo: Reflect.defineProperty()")}}
 
@@ -35,13 +35,13 @@ Reflect.defineProperty(target, propertyKey, attributes)
 - `target`
   - : Das Zielobjekt, auf dem die Eigenschaft definiert werden soll.
 - `propertyKey`
-  - : Der Name der zu definierenden oder zu ändernden Eigenschaft.
+  - : Der Name der Eigenschaft, die definiert oder geändert werden soll.
 - `attributes`
-  - : Die Attribute für die zu definierende oder zu ändernde Eigenschaft.
+  - : Die Attribute der Eigenschaft, die definiert oder geändert werden soll.
 
 ### Rückgabewert
 
-Ein Boolean, der anzeigt, ob die Eigenschaft erfolgreich definiert wurde oder nicht.
+Ein boolescher Wert, der angibt, ob die Eigenschaft erfolgreich definiert wurde.
 
 ### Ausnahmen
 
@@ -50,9 +50,9 @@ Ein Boolean, der anzeigt, ob die Eigenschaft erfolgreich definiert wurde oder ni
 
 ## Beschreibung
 
-`Reflect.defineProperty()` bietet die reflektive Semantik, eine eigene Eigenschaft in einem Objekt zu definieren. Auf sehr niedrigem Niveau gibt das Definieren einer Eigenschaft einen Boolean zurück (wie es bei [dem Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty) der Fall ist). {{jsxref("Object.defineProperty()")}} bietet nahezu die gleiche Semantik, wirft jedoch einen {{jsxref("TypeError")}}, wenn der Status `false` ist (die Operation war nicht erfolgreich), während `Reflect.defineProperty()` den Status direkt zurückgibt.
+`Reflect.defineProperty()` bietet die reflektierende Semantik für das Definieren einer eigenen Eigenschaft eines Objekts. Auf der untersten Ebene gibt das Definieren einer Eigenschaft einen booleschen Wert zurück (wie auch beim [Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty)). {{jsxref("Object.defineProperty()")}} bietet nahezu dieselbe Semantik, löst aber einen {{jsxref("TypeError")}} aus, wenn der Status `false` ist (die Operation also nicht erfolgreich war). `Reflect.defineProperty()` gibt den Status dagegen direkt zurück.
 
-Viele eingebettete Operationen würden ebenfalls eigene Eigenschaften auf Objekten definieren. Der bedeutendste Unterschied zwischen dem Definieren von Eigenschaften und dem [Setzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set) von ihnen ist, dass [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) nicht aufgerufen werden. Zum Beispiel definieren [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) direkt Eigenschaften auf der Instanz, ohne Setter aufzurufen.
+Auch viele integrierte Operationen definieren eigene Eigenschaften von Objekten. Der wichtigste Unterschied zwischen dem Definieren und dem [Setzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set) von Eigenschaften besteht darin, dass beim Definieren keine [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) aufgerufen werden. Beispielsweise definieren [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) Eigenschaften direkt auf der Instanz, ohne Setter aufzurufen.
 
 ```js
 class B extends class A {
@@ -64,11 +64,11 @@ class B extends class A {
 }
 ```
 
-`Reflect.defineProperty()` ruft die `[[DefineOwnProperty]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.defineProperty()` ruft die [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) `[[DefineOwnProperty]]` von `target` auf.
 
 ## Beispiele
 
-### Verwendung von Reflect.defineProperty()
+### Reflect.defineProperty() verwenden
 
 ```js
 const obj = {};
@@ -76,11 +76,11 @@ Reflect.defineProperty(obj, "x", { value: 7 }); // true
 console.log(obj.x); // 7
 ```
 
-### Überprüfen, ob die Eigenschaftsdefinition erfolgreich war
+### Prüfen, ob das Definieren einer Eigenschaft erfolgreich war
 
-Mit {{jsxref("Object.defineProperty()")}}, das ein Objekt zurückgibt, falls erfolgreich, oder einen {{jsxref("TypeError")}} auslöst, andernfalls würden Sie einen [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block verwenden, um Fehler abzufangen, die beim Definieren einer Eigenschaft auftreten.
+Bei {{jsxref("Object.defineProperty()")}}, das bei Erfolg ein Objekt zurückgibt und andernfalls einen {{jsxref("TypeError")}} auslöst, würden Sie einen [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block verwenden, um Fehler abzufangen, die beim Definieren einer Eigenschaft auftreten.
 
-Da `Reflect.defineProperty()` einen Boolean-Erfolgsstatus zurückgibt, können Sie hier einfach einen [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Block verwenden:
+Da `Reflect.defineProperty()` einen booleschen Erfolgsstatus zurückgibt, können Sie hier einfach einen [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Block verwenden:
 
 ```js
 if (Reflect.defineProperty(target, property, attributes)) {
@@ -100,7 +100,7 @@ if (Reflect.defineProperty(target, property, attributes)) {
 
 ## Siehe auch
 
-- [Polyfill von `Reflect.defineProperty` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
+- [Polyfill für `Reflect.defineProperty` in `core-js`](https://core-js.io/docs/features/ecmascript/reflect)
 - {{jsxref("Reflect")}}
 - {{jsxref("Object.defineProperty()")}}
 - [`handler.defineProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty)

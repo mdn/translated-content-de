@@ -3,10 +3,10 @@ title: DisposableStack.prototype.use()
 short-title: use()
 slug: Web/JavaScript/Reference/Global_Objects/DisposableStack/use
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`use()`**-Methode von {{jsxref("DisposableStack")}}-Instanzen registriert einen Wert, der das [disposable Protokoll](/de/docs/Web/JavaScript/Guide/Resource_management) implementiert, auf dem Stack.
+Die Methode **`use()`** von {{jsxref("DisposableStack")}}-Instanzen registriert einen Wert im Stack, der das [Disposable-Protokoll](/de/docs/Web/JavaScript/Guide/Resource_management) implementiert.
 
 ## Syntax
 
@@ -17,24 +17,24 @@ use(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf dem Stack registriert werden soll. Muss entweder eine `[Symbol.dispose]()`-Methode enthalten oder `null` oder `undefined` sein.
+  - : Der Wert, der im Stack registriert werden soll. Er muss entweder eine `[Symbol.dispose]()`-Methode enthalten oder `null` beziehungsweise `undefined` sein.
 
 ### Rückgabewert
 
-Der gleiche `value`, der übergeben wurde.
+Derselbe `value`, der übergeben wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `value` nicht `null` oder `undefined` ist und keine `[Symbol.dispose]()`-Methode enthält.
+  - : Wird ausgelöst, wenn `value` weder `null` noch `undefined` ist und keine `[Symbol.dispose]()`-Methode enthält.
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits dispose wurde.
+  - : Wird ausgelöst, wenn der Stack bereits bereinigt wurde.
 
 ## Beschreibung
 
-Der Hauptzweck von `use()` ist es, einen Wert zu registrieren, der das disposable Protokoll auf dem Stack implementiert, als Äquivalent zur {{jsxref("Statements/using", "using")}}-Deklaration. Wenn der Wert das disposable Protokoll nicht implementiert (es hat nicht die `[Symbol.dispose]()`-Methode), verwenden Sie stattdessen {{jsxref("DisposableStack/adopt", "adopt()")}}, indem Sie einen Rückruf übergeben, der die Aufräummethode der Ressource aufruft.
+Der Hauptzweck von `use()` besteht darin, einen Wert im Stack zu registrieren, der das Disposable-Protokoll implementiert – entsprechend der {{jsxref("Statements/using", "using")}}-Deklaration. Wenn der Wert das Disposable-Protokoll nicht implementiert (also keine `[Symbol.dispose]()`-Methode hat), verwenden Sie stattdessen {{jsxref("DisposableStack/adopt", "adopt()")}} und übergeben Sie einen Callback, der die Bereinigungsmethode der Ressource aufruft.
 
-Sie sollten Ihre Ressource sofort registrieren, sobald sie deklariert ist. Das bedeutet, Sie sollten Ihren Ressourcenerwerbungs-Ausdruck immer in `use()` einpacken, anstatt ihn in eine separate Anweisung zu extrahieren.
+Sie sollten Ihre Ressource unmittelbar nach ihrer Deklaration registrieren. Umschließen Sie daher den Ausdruck zum Abrufen der Ressource immer mit `use()`, statt ihn in eine separate Anweisung auszulagern.
 
 ```js example-bad
 using disposer = new DisposableStack();
@@ -44,9 +44,9 @@ disposer.use(reader);
 
 ## Beispiele
 
-### Verwendung von use()
+### use() verwenden
 
-Dieser Code konsumiert einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) über einen [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader). Der Reader wird automatisch geschlossen, wenn die Funktion abgeschlossen ist, sofern er eine `[Symbol.dispose]()`-Methode implementiert, die die Sperre des Streams synchron freigibt.
+Dieser Code liest einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) mithilfe eines [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader). Der Reader wird automatisch geschlossen, wenn die Funktion abgeschlossen ist – vorausgesetzt, er implementiert eine `[Symbol.dispose]()`-Methode, die die Sperre für den Stream synchron freigibt.
 
 ```js
 {
@@ -70,7 +70,8 @@ Dieser Code konsumiert einen [`ReadableStream`](/de/docs/Web/API/ReadableStream)
 
 ## Siehe auch
 
-- [JavaScript-Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `DisposableStack.prototype.use` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("DisposableStack")}}
 - {{jsxref("DisposableStack.prototype.adopt()")}}
 - {{jsxref("DisposableStack.prototype.defer()")}}

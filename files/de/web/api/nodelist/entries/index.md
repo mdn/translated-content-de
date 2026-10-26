@@ -3,13 +3,12 @@ title: "NodeList: entries()-Methode"
 short-title: entries()
 slug: Web/API/NodeList/entries
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.entries()`**-Methode gibt einen
-{{jsxref("Iteration_protocols", 'Iterator')}} zurück, der es Ihnen ermöglicht, alle Schlüssel/Wert-Paare in diesem Objekt durchzugehen. Die Werte sind [`Node`](/de/docs/Web/API/Node)-Objekte.
+Die Methode **`NodeList.entries()`** gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem Sie alle in diesem Objekt enthaltenen Schlüssel-Wert-Paare durchlaufen können. Die Werte sind [`Node`](/de/docs/Web/API/Node)-Objekte.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiel
 
@@ -44,7 +43,7 @@ for (const entry of list.entries()) {
 }
 ```
 
-führt zu:
+ergibt:
 
 ```plain
 Array [ 0, <p> ]
@@ -62,6 +61,6 @@ Array [ 2, <span> ]
 
 ## Siehe auch
 
-- [Polyfill von `NodeList.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#iterable-dom-collections)
+- [Polyfill für `NodeList.prototype.entries` in `core-js`](https://core-js.io/docs/features/web-standards/iterable-dom-collections)
 - [`Node`](/de/docs/Web/API/Node)
 - [`NodeList`](/de/docs/Web/API/NodeList)

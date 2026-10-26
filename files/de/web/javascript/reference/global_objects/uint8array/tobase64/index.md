@@ -3,12 +3,12 @@ title: Uint8Array.prototype.toBase64()
 short-title: toBase64()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8Array/toBase64
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`toBase64()`** Methode von {{jsxref("Uint8Array")}} Instanzen gibt einen auf den Daten in diesem `Uint8Array`-Objekt basierenden {{Glossary("Base64", "base64")}}-codierten String zurück.
+Die Methode **`toBase64()`** von {{jsxref("Uint8Array")}}-Instanzen gibt einen {{Glossary("Base64", "base64")}}-kodierten String zurück, der auf den Daten in diesem `Uint8Array`-Objekt basiert.
 
-Diese Methode sollte gegenüber [`Window.btoa()`](/de/docs/Web/API/Window/btoa) bevorzugt werden, insbesondere wenn Sie bereits ein `Uint8Array` mit dem Objekt besitzen, da Sie es nicht zuerst in einen String umwandeln müssen.
+Diese Methode ist [`Window.btoa()`](/de/docs/Web/API/Window/btoa) vorzuziehen, insbesondere wenn die Daten bereits in einem `Uint8Array` vorliegen, da Sie sie nicht zuerst in einen String umwandeln müssen.
 
 ## Syntax
 
@@ -20,48 +20,48 @@ toBase64(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das das Format des base64-Strings anpasst. Es kann die folgenden Eigenschaften enthalten:
+  - : Ein Objekt, mit dem sich das Format des base64-Strings anpassen lässt. Es kann die folgenden Eigenschaften enthalten:
     - `alphabet` {{optional_inline}}
-      - : Ein String, der das zu verwendende base64-Alphabet angibt. Es kann eines der folgenden sein:
-        - `"base64"` (Standard)
+      - : Ein String, der das zu verwendende base64-Alphabet angibt. Einer der folgenden Werte ist möglich:
+        - `"base64"` (Standardwert)
           - : Kodiert die Eingabe mit dem Standard-base64-Alphabet, das `+` und `/` verwendet.
         - `"base64url"`
           - : Kodiert die Eingabe mit dem URL-sicheren base64-Alphabet, das `-` und `_` verwendet.
     - `omitPadding` {{optional_inline}}
-      - : Ein Boolean, der angibt, ob Auffüllzeichen (`=`) am Ende des base64-Strings weggelassen werden sollen. Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob Auffüllzeichen (`=`) am Ende des base64-Strings weggelassen werden sollen. Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein base64-codierter String, der die Daten im `Uint8Array` darstellt.
+Ein base64-kodierter String, der die Daten im `Uint8Array` darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Das `options`-Objekt ist kein Objekt oder `undefined`.
-    - Das `options.alphabet` entspricht nicht den erwarteten Werten oder ist `undefined`.
+    - Das Argument `options` ist weder ein Objekt noch `undefined`.
+    - `options.alphabet` hat keinen der erwarteten Werte und ist auch nicht `undefined`.
 
 ## Beispiele
 
-### Kodierung von Binärdaten
+### Binärdaten kodieren
 
-Dieses Beispiel verwendet die Standardoptionen `alphabet` und `omitPadding`, um Daten aus einem `Uint8Array` in einen base64-String zu kodieren.
+Dieses Beispiel verwendet die Standardwerte für `alphabet` und `omitPadding`, um Daten aus einem `Uint8Array` in einen base64-String zu kodieren.
 
 ```js
 const uint8Array = new Uint8Array([29, 233, 101, 161]);
 console.log(uint8Array.toBase64()); // "HelloQ=="
 ```
 
-### Kodierung von Daten ohne Auffüllung
+### Daten ohne Auffüllzeichen kodieren
 
 ```js
 const uint8Array = new Uint8Array([29, 233, 101, 161]);
 console.log(uint8Array.toBase64({ omitPadding: true })); // "HelloQ"
 ```
 
-### Kodierung von Daten mit URL-sicherem Alphabet
+### Daten mit URL-sicherem Alphabet kodieren
 
-Dieses Beispiel füllt ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt mit einem base64-codierten String, der das URL-sichere Alphabet verwendet.
+Dieses Beispiel befüllt ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt mit einem base64-kodierten String unter Verwendung des URL-sicheren Alphabets.
 
 ```js
 const uint8Array = new Uint8Array([46, 139, 222, 255, 42, 46]);
@@ -73,7 +73,7 @@ console.log(params.toString()); // "data=Love_you"
 
 ### Stream-Kodierung
 
-Dieses Beispiel ist aus dem [originalen Vorschlag](https://github.com/tc39/proposal-arraybuffer-base64/blob/main/stream.mjs) entnommen und zeigt, wie Streaming in Benutzerseitensoftware implementiert werden kann. Es ahmt die API von [`TextEncoder`](/de/docs/Web/API/TextEncoder) mit der `stream`-Option nach.
+Dieses Beispiel wurde aus dem [ursprünglichen Vorschlag](https://github.com/tc39/proposal-arraybuffer-base64/blob/main/stream.mjs) übernommen und zeigt, wie Streaming im Anwendungscode implementiert werden kann. Es ahmt die [`TextEncoder`](/de/docs/Web/API/TextEncoder)-API mit der Option `stream` nach.
 
 ```js
 class Base64Encoder {
@@ -145,8 +145,8 @@ console.log(encoder.encode());
 
 ## Siehe auch
 
-- [Polyfill von `Uint8Array.prototype.toBase64` in `core-js`](https://github.com/zloirock/core-js#uint8array-to--from-base64-and-hex)
-- [es-shims Polyfill von `Uint8Array.prototype.toBase64`](https://www.npmjs.com/package/es-arraybuffer-base64)
+- [Polyfill für `Uint8Array.prototype.toBase64` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Polyfill für `Uint8Array.prototype.toBase64` von es-shims](https://www.npmjs.com/package/es-arraybuffer-base64)
 - {{jsxref("Uint8Array")}}
 - {{jsxref("Uint8Array.fromBase64()")}}
 - {{jsxref("Uint8Array.prototype.setFromBase64()")}}

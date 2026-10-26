@@ -1,16 +1,14 @@
 ---
-title: "DOMTokenList: entries() Methode"
+title: "DOMTokenList: Methode entries()"
 short-title: entries()
 slug: Web/API/DOMTokenList/entries
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`entries()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
-gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der es Ihnen ermöglicht, alle Schlüssel/Wert-Paare in diesem Objekt zu durchlaufen. Die Werte sind
-{{jsxref("Array")}}s, die [Schlüssel, Wert] Paare enthalten, von denen jedes einen einzelnen Token darstellt.
+Die Methode **`entries()`** der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem Sie alle in diesem Objekt enthaltenen Schlüssel-Wert-Paare durchlaufen können. Die Werte sind {{jsxref("Array")}}s mit Paaren der Form [Schlüssel, Wert], die jeweils ein einzelnes Token repräsentieren.
 
 ## Syntax
 
@@ -24,15 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
-{{htmlelement("span")}} Element als `DOMTokenList` gesetzt sind, indem wir
-[`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Wir erhalten dann einen Iterator mit den Schlüssel/Wert-Paaren mit `entries()`, und iterieren durch jedes Paar mit einer
-{{jsxref("Statements/for...of", "for...of")}} Schleife, um sie in das
-`<span>`'s [`Node.textContent`](/de/docs/Web/API/Node/textContent) zu schreiben.
+Im folgenden Beispiel rufen wir die Liste der für ein {{htmlelement("span")}}-Element festgelegten Klassen mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend rufen wir mit `entries()` einen Iterator mit den Schlüssel-Wert-Paaren ab und durchlaufen diese mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife. Dabei schreiben wir sie in die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des `<span>`-Elements.
 
 Zuerst das HTML:
 
@@ -66,4 +60,5 @@ Die Ausgabe sieht so aus:
 
 ## Siehe auch
 
+- [Polyfill für `DOMTokenList.prototype.entries` in `core-js`](https://core-js.io/docs/features/web-standards/iterable-dom-collections)
 - [`DOMTokenList.foreach()`](/de/docs/Web/API/DOMTokenList/forEach), [`DOMTokenList.keys`](/de/docs/Web/API/DOMTokenList/keys) und [`DOMTokenList.values`](/de/docs/Web/API/DOMTokenList/values).

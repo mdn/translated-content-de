@@ -3,10 +3,10 @@ title: Array.prototype.entries()
 short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Array/entries
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`entries()`** Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
+Die Methode **`entries()`** von {{jsxref("Array")}}-Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das für jeden Index im Array ein Schlüssel-Wert-Paar enthält.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.entries()")}}
 
@@ -38,13 +38,13 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Wird die `entries()` Methode auf [löchrige Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet, iteriert sie leere Felder, als ob sie den Wert `undefined` hätten.
+Bei [Arrays mit Lücken](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) behandelt die Methode `entries()` leere Positionen bei der Iteration so, als hätten sie den Wert `undefined`.
 
-Die `entries()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-basierte Eigenschaften hat.
+Die Methode `entries()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie setzt lediglich voraus, dass der Wert von `this` eine `length`-Eigenschaft und Eigenschaften mit ganzzahligen Schlüsseln hat.
 
 ## Beispiele
 
-### Iterieren mit Index und Element
+### Über Index und Element iterieren
 
 ```js
 const a = ["a", "b", "c"];
@@ -58,7 +58,7 @@ for (const [index, element] of a.entries()) {
 // 2 'c'
 ```
 
-### Verwendung einer for...of Schleife
+### Eine for...of-Schleife verwenden
 
 ```js
 const array = ["a", "b", "c"];
@@ -73,9 +73,9 @@ for (const element of arrayEntries) {
 // [2, 'c']
 ```
 
-### Iterieren von löchrigen Arrays
+### Über Arrays mit Lücken iterieren
 
-`entries()` wird leere Felder besuchen, als ob sie `undefined` wären.
+`entries()` berücksichtigt leere Positionen so, als hätten sie den Wert `undefined`.
 
 ```js
 for (const element of [, "a"].entries()) {
@@ -85,9 +85,9 @@ for (const element of [, "a"].entries()) {
 // [1, 'a']
 ```
 
-### Aufrufen von entries() auf Nicht-Array-Objekten
+### entries() für Objekte aufrufen, die keine Arrays sind
 
-Die `entries()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl ist, die kleiner als `length` ist.
+Die Methode `entries()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -115,9 +115,9 @@ for (const entry of Array.prototype.entries.call(arrayLike)) {
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims Polyfill von `Array.prototype.entries`](https://www.npmjs.com/package/array.prototype.entries)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Polyfill für `Array.prototype.entries` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.prototype.entries` von es-shims](https://www.npmjs.com/package/array.prototype.entries)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.keys()")}}
 - {{jsxref("Array.prototype.values()")}}

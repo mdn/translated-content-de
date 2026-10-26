@@ -3,20 +3,20 @@ title: "SuppressedError: suppressed"
 short-title: suppressed
 slug: Web/JavaScript/Reference/Global_Objects/SuppressedError/suppressed
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`suppressed`** Dateneigenschaft einer Instanz von {{jsxref("SuppressedError")}} enthält einen Verweis auf den ursprünglichen Fehler, der unterdrückt wurde, weil bei dessen Behandlung ein neuer Fehler erzeugt wurde.
+Die Dateneigenschaft **`suppressed`** einer {{jsxref("SuppressedError")}}-Instanz enthält eine Referenz auf den ursprünglichen Fehler, der unterdrückt wurde, weil bei seiner Behandlung ein neuer Fehler aufgetreten ist.
 
 ## Wert
 
-Jeder beliebige Wert. Wie bei {{jsxref("Error/cause", "cause")}}, kann nicht davon ausgegangen werden, dass es sich um eine Instanz von {{jsxref("Error")}} handelt, obwohl dies normalerweise der Fall ist.
+Ein beliebiger Wert. Wie bei {{jsxref("Error/cause", "cause")}} können Sie nicht davon ausgehen, dass es sich um eine {{jsxref("Error")}}-Instanz handelt, auch wenn das üblicherweise der Fall ist.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beispiele
 
-### Verwendung von suppressed
+### `suppressed` verwenden
 
 ```js
 try {
@@ -40,6 +40,7 @@ try {
 
 ## Siehe auch
 
-- [Kontrollfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) Leitfaden
+- [Polyfill für `SuppressedError` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- Leitfaden zu [Kontrollfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 - {{jsxref("SuppressedError")}}
 - [`Error`: `cause`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)

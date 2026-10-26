@@ -3,14 +3,14 @@ title: Iterator.zip()
 short-title: zip()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/zip
 l10n:
-  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Iterator.zip()`** erstellt ein neues {{jsxref("Iterator")}}-Objekt, das Elemente aus mehreren iterierbaren Objekten durch das Ausgeben von Arrays aggregiert, die Elemente an der gleichen Position enthalten. Es „zipt“ im Wesentlichen die Eingabeiterables zusammen und ermöglicht das gleichzeitige Durchlaufen dieser.
+Die statische Methode **`Iterator.zip()`** erstellt ein neues {{jsxref("Iterator")}}-Objekt, das Elemente aus mehreren iterierbaren Objekten zusammenfasst, indem es Arrays mit den Elementen an derselben Position liefert. Sie führt die Eingabe-Iterables damit gewissermaßen wie mit einem Reißverschluss zusammen und ermöglicht es, sie gleichzeitig zu durchlaufen.
 
-Die Methode {{jsxref("Iterator.zipKeyed()")}} ist ähnlich, gibt jedoch Objekte statt Arrays aus, wobei Sie die Schlüssel angeben können.
+Die Methode {{jsxref("Iterator.zipKeyed()")}} ist ähnlich, liefert aber statt Arrays Objekte mit Schlüsseln, die Sie angeben können.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ Iterator.zip(iterables, options)
 ### Parameter
 
 - `iterables`
-  - : Ein Iterable von Iterables, dessen Elemente aggregiert werden. Es muss [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) sein und kann kein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) sein. Es sollte endlich sein, obwohl seine Elemente unendliche Iterables sein können. Jedes Element muss entweder das [iterierbare](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Protokoll oder, falls dies nicht der Fall ist, das [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) Protokoll implementieren. Zeichenfolgen werden abgelehnt: Um Zeichenfolgen zu zippen, konvertieren Sie sie explizit mit {{jsxref("Iterator.from()")}} in Iteratoren.
+  - : Ein Iterable aus Iterables, deren Elemente zusammengefasst werden. Es muss [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) sein und darf kein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) sein. Es sollte endlich sein, seine Elemente dürfen jedoch unendliche Iterables sein. Jedes Element muss entweder das [Iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) oder, falls nicht, das [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) implementieren. Strings werden abgelehnt: Um Strings zusammenzuführen, konvertieren Sie sie mit {{jsxref("Iterator.from()")}} ausdrücklich in Iteratoren.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das das Verhalten bei inkonsistenten Eingabelängen angibt. Es kann die folgenden Eigenschaften haben:
+  - : Ein Objekt, das das Verhalten bei unterschiedlichen Eingabelängen festlegt. Es kann die folgenden Eigenschaften haben:
     - `mode` {{optional_inline}}
-      - : Eine der folgenden:
-        - `"shortest"` (Standard): Der resultierende Iterator stoppt, wenn ein Eingabe-Iterable erschöpft ist.
-        - `"longest"`: Der resultierende Iterator stoppt, wenn alle Eingabe-Iterables erschöpft sind. Fehlende Werte aus kürzeren Iterables werden gemäß der `padding`-Option ausgefüllt.
-        - `"strict"`: Ein {{jsxref("TypeError")}} wird geworfen, wenn nicht alle Eingabe-Iterables gleichzeitig enden.
+      - : Einer der folgenden Werte:
+        - `"shortest"` (Standard): Der resultierende Iterator endet, sobald ein Eingabe-Iterable erschöpft ist.
+        - `"longest"`: Der resultierende Iterator endet, sobald alle Eingabe-Iterables erschöpft sind. Fehlende Werte kürzerer Iterables werden gemäß der Option `padding` aufgefüllt.
+        - `"strict"`: Ein {{jsxref("TypeError")}} wird ausgelöst, wenn nicht alle Eingabe-Iterables gleichzeitig enden.
     - `padding` {{optional_inline}}
-      - : Ein iterierbares Objekt (kein Iterator). Nur abgerufen und validiert, wenn `mode` `"longest"` ist. Wenn `undefined` oder nicht vorhanden, werden fehlende Werte aus kürzeren Iterables mit `undefined` gefüllt (was dem Übergeben eines leeren Iterables entspricht). Wenn ein Iterable bereitgestellt wird, wird es für die Anzahl der Elemente in `iterables` durchlaufen, _sobald `Iterator.zip()` aufgerufen wird_. `padding[i]` wird für fehlende Werte für `iterables[i]` verwendet (angenommen, `padding` und `iterables` werden als Arrays angegeben; das müssen sie nicht). Wenn `padding` kürzer ist als `iterables`, wird `undefined` für die verbleibenden Iterables verwendet.
+      - : Ein iterierbares Objekt (kein Iterator). Wird nur abgerufen und validiert, wenn `mode` den Wert `"longest"` hat. Ist der Wert `undefined` oder fehlt er, werden fehlende Werte kürzerer Iterables mit `undefined` aufgefüllt (was der Übergabe eines leeren Iterables entspricht). Wird ein Iterable angegeben, werden daraus _unmittelbar beim Aufruf von `Iterator.zip()`_ so viele Werte entnommen, wie `iterables` Elemente enthält. `padding[i]` wird für fehlende Werte von `iterables[i]` verwendet (unter der Annahme, dass `padding` und `iterables` als Arrays angegeben werden; das ist nicht erforderlich). Ist `padding` kürzer als `iterables`, wird für die übrigen Iterables `undefined` verwendet.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Iterator")}}-Objekt. Jedes seiner Elemente ist ein Array mit der Länge, die der Anzahl der Eingabe-Iterables entspricht, und enthält die Elemente jedes Eingabe-Iterables an der entsprechenden Position. Wenn das `iterables`-Objekt leer ist, wird der resultierende Iterator als abgeschlossen erstellt.
+Ein neues {{jsxref("Iterator")}}-Objekt. Jedes seiner Elemente ist ein Array, dessen Länge der Anzahl der Eingabe-Iterables entspricht und das die Elemente aus den einzelnen Eingabe-Iterables an der jeweiligen Position enthält. Ist das Objekt `iterables` leer, wird der resultierende Iterator im abgeschlossenen Zustand erstellt.
 
 ## Beschreibung
 
-Die Funktion `Iterator.zip()` verhält sich wie eine [Transposition](https://en.wikipedia.org/wiki/Transpose)-Operation und gibt Arrays aus, die die Elemente an übereinstimmenden Positionen in jedem der Eingaben enthalten. Wenn wir die Iterables als Arrays darstellen, mag die Eingabe so aussehen:
+Die Funktion `Iterator.zip()` verhält sich wie eine [Transposition](https://en.wikipedia.org/wiki/Transpose): Sie liefert Arrays mit den Elementen an übereinstimmenden Positionen der Eingaben. Wenn wir die Iterables als Arrays darstellen, könnte die Eingabe so aussehen:
 
 ```js
 [
@@ -49,7 +49,7 @@ Die Funktion `Iterator.zip()` verhält sich wie eine [Transposition](https://en.
 ];
 ```
 
-Der resultierende Iterator, unabhängig von den Optionen, beginnt mit der Ausgabe der folgenden Arrays:
+Der resultierende Iterator beginnt unabhängig von den Optionen damit, die folgenden Arrays zu liefern:
 
 ```js
 [a1, b1, c1];
@@ -57,27 +57,27 @@ Der resultierende Iterator, unabhängig von den Optionen, beginnt mit der Ausgab
 [a3, b3, c3];
 ```
 
-Nachdem die ersten drei Arrays ausgegeben wurden, ist das Eingabe-Iterable `b` bei der vierten `next()`-Aufruf erschöpft—es gibt `{ done: true }` zurück. Was als nächstes passiert, hängt von der `mode`-Option ab. Wenn `mode` `"shortest"` (der Standard) ist, stoppt der resultierende Iterator hier: die beiden anderen Eingabe-Iteratoren werden [geschlossen](/de/docs/Web/JavaScript/Reference/Iteration_protocols#errors_during_iteration). Wenn `mode` `"strict"` ist, wird ein Fehler geworfen, weil die beiden anderen Iterables _nicht_ abgeschlossen sind, wenn das zweite das Ergebnis `{ done: true }` liefert. Wenn `mode` `"longest"` ist, setzt der resultierende Iterator fort, Arrays auszugeben und fehlende Werte zu füllen. Zum Beispiel, wenn `padding` nicht bereitgestellt wird, standardmäßig auf `undefined`:
+Nachdem die ersten drei Arrays geliefert wurden, ist das Eingabe-Iterable `b` beim vierten Aufruf von `next()` erschöpft – es gibt `{ done: true }` zurück. Was danach geschieht, hängt von der Option `mode` ab. Ist `mode` auf `"shortest"` gesetzt (der Standardwert), endet der resultierende Iterator an dieser Stelle: Die beiden anderen Eingabe-Iteratoren werden [geschlossen](/de/docs/Web/JavaScript/Reference/Iteration_protocols#errors_during_iteration). Ist `mode` auf `"strict"` gesetzt, wird ein Fehler ausgelöst, weil die beiden anderen Iterables _noch nicht_ beendet sind, wenn das zweite `{ done: true }` liefert. Ist `mode` auf `"longest"` gesetzt, liefert der resultierende Iterator weitere Arrays und füllt fehlende Werte auf. Wenn beispielsweise `padding` nicht angegeben wird, wird standardmäßig `undefined` verwendet:
 
 ```js
 [a4, undefined, c4];
 [undefined, undefined, c5];
 ```
 
-Wenn `padding` als Iterable bereitgestellt wird, weil es drei Eingabe-Iterables gibt, werden die ersten drei Werte aus dem `padding`-Iterable verwendet, um fehlende Werte zu füllen. Nehmen wir an, dass `padding` ein Array mit Werten `[p1, p2, p3]` ist. Dann wird `p2` verwendet, um den fehlenden Wert aus dem Eingabe-Iterable `b` zu füllen, und `p1` wird verwendet, um den fehlenden Wert aus dem Eingabe-Iterable `a` zu füllen:
+Wenn `padding` als Iterable angegeben wird, werden dessen erste drei Werte zum Auffüllen fehlender Werte verwendet, da es drei Eingabe-Iterables gibt. Nehmen wir an, `padding` ist ein Array mit den Werten `[p1, p2, p3]`. Dann wird `p2` verwendet, um den fehlenden Wert des Eingabe-Iterables `b` aufzufüllen, und `p1` für den fehlenden Wert des Eingabe-Iterables `a`:
 
 ```js
 [a4, p2, c4];
 [p1, p2, c5];
 ```
 
-Wenn das `padding`-Iterable weniger als drei Werte hat, werden die verbleibenden fehlenden Werte mit `undefined` gefüllt.
+Hat das Iterable `padding` weniger als drei Werte, werden die übrigen fehlenden Werte mit `undefined` aufgefüllt.
 
 ## Beispiele
 
-### Iteration über eine Karte mit Indizes
+### Eine Map mit Indizes durchlaufen
 
-Mit `Iterator.zip()` können Sie über ein beliebiges iterierbares Objekt interieren (Zeichenfolgen werden standardmäßig nicht unterstützt) und gleichzeitig auf einen inkrementierenden Zähler zugreifen:
+Mit `Iterator.zip()` können Sie jedes iterierbare Objekt durchlaufen (Strings werden standardmäßig nicht unterstützt) und dabei zugleich auf einen hochzählenden Zähler zugreifen:
 
 ```js
 const ages = new Map([
@@ -102,11 +102,11 @@ for (const [index, [name, age]] of Iterator.zip([numbers, ages])) {
 // 2: Evelyn is 35 years old.
 ```
 
-`numbers` ist ein unendlicher Iterator, der inkrementierende Zahlen ab `0` generiert. Da `Iterator.zip()` standardmäßig stoppt, wenn das kürzeste Eingabe-Iterable erschöpft ist, wird die Schleife genau dreimal durchlaufen. Der `numbers`-Iterator wird ordnungsgemäß geschlossen, nachdem die Schleife beendet ist; es verursacht keine Endlosschleife.
+`numbers` ist ein unendlicher Iterator, der aufsteigende Zahlen ab `0` erzeugt. Da `Iterator.zip()` standardmäßig endet, sobald das kürzeste Eingabe-Iterable erschöpft ist, wird die Schleife genau dreimal durchlaufen. Der Iterator `numbers` wird nach Ende der Schleife ordnungsgemäß geschlossen; er verursacht keine Endlosschleife.
 
-### Erstellen einer Map aus Listen von Schlüsseln und Werten
+### Eine Map aus Listen von Schlüsseln und Werten erstellen
 
-Angenommen, Sie haben zwei Arrays: eins mit Schlüsseln und ein anderes mit Werten. Sie können `Iterator.zip()` verwenden, um sie in eine {{jsxref("Map")}} zu kombinieren:
+Angenommen, Sie haben zwei Arrays: eines mit Schlüsseln und eines mit Werten. Mit `Iterator.zip()` können Sie diese zu einer {{jsxref("Map")}} zusammenfügen:
 
 ```js
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
@@ -117,9 +117,9 @@ console.log(dayTemperatureMap);
 // Map(5) { 'Mon' => 22, 'Tue' => 21, 'Wed' => 23, 'Thu' => 20, 'Fri' => 19 }
 ```
 
-### Gemeinsame Iteration über mehrere Datenquellen
+### Mehrere Datenquellen gemeinsam durchlaufen
 
-Angenommen, Sie haben Daten aus mehreren Quellen, wie z.B. aus mehreren Microservices oder Datenbanken. Sie wissen, dass jede Quelle verwandte Daten in der gleichen Reihenfolge bereitstellt, und möchten diese zusammen verarbeiten. Sie können `Iterator.zip()` verwenden, um dies zu erreichen:
+Angenommen, Sie erhalten Daten aus mehreren Quellen, etwa aus verschiedenen Microservices oder Datenbanken. Sie wissen, dass jede Quelle zusammengehörige Daten in derselben Reihenfolge liefert, und möchten diese gemeinsam verarbeiten. Dazu können Sie `Iterator.zip()` verwenden:
 
 ```js
 const names = fetchNames(); // e.g., ["Caroline", "Danielle", "Evelyn"]
@@ -136,9 +136,9 @@ for (const [name, age, city] of Iterator.zip([names, ages, cities])) {
 // Evelyn, aged 35, lives in Hong Kong.
 ```
 
-### Bereitstellen eines Paddings für ungleichmäßige Iterables
+### Fehlende Werte bei unterschiedlich langen Iterables auffüllen
 
-Beim Zippen von Iterables unterschiedlicher Längen und mit `mode` auf `"longest"` gesetzt, können Sie ein `padding`-Iterable bereitstellen, um die Werte anzugeben, die zum Füllen fehlender Einträge verwendet werden:
+Wenn Sie Iterables unterschiedlicher Länge zusammenführen und `mode` auf `"longest"` gesetzt ist, können Sie mit einem Iterable für `padding` festlegen, welche Werte für fehlende Einträge verwendet werden:
 
 ```js
 const letters = ["a", "b", "c", "d", "e"];
@@ -158,9 +158,9 @@ for (const [letter, number] of it) {
 // e: [Number missing]
 ```
 
-### Zipping von Zeichenfolgen
+### Strings zusammenführen
 
-Zeichenfolgen werden nicht als Eingabe-Iterables für `Iterator.zip()` akzeptiert, da es jetzt als Fehler betrachtet wird, Zeichenfolgen implizit iterierbar zu machen. Um Zeichenfolgen zu zippen, konvertieren Sie sie explizit mit {{jsxref("Iterator.from()")}} in Iteratoren:
+Strings werden von `Iterator.zip()` nicht als Eingabe-Iterables akzeptiert, da es inzwischen als Fehler angesehen wird, Strings implizit als Iterables zu behandeln. Um Strings zusammenzuführen, konvertieren Sie sie mit {{jsxref("Iterator.from()")}} ausdrücklich in Iteratoren:
 
 ```js
 const str1 = "abc";
@@ -175,7 +175,7 @@ for (const [char1, char2] of it) {
 // c - 3
 ```
 
-In einigen Fällen möchten Sie möglicherweise nach [Graphem-Clustern](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) anstatt nach Code-Einheiten aufteilen. In diesem Fall können Sie die {{jsxref("Intl.Segmenter")}}-API verwenden:
+In manchen Fällen möchten Sie möglicherweise nach [Graphemclustern](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) statt nach Codeeinheiten aufteilen. Dafür können Sie die API {{jsxref("Intl.Segmenter")}} verwenden:
 
 ```js
 const segmenter = new Intl.Segmenter("en-US", { granularity: "grapheme" });
@@ -204,8 +204,8 @@ for (const [char1, char2] of it) {
 
 ## Siehe auch
 
-- [Polyfill von `Iterator.zip` in `core-js`](https://core-js.io/docs/features/proposals/joint-iteration)
-- [es-shims Polyfill von `Iterator.zip`](https://www.npmjs.com/package/es-iterator-helpers)
+- [Polyfill für `Iterator.zip` in `core-js`](https://core-js.io/docs/features/ecmascript/iterator)
+- [Polyfill für `Iterator.zip` von es-shims](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.zipKeyed()")}}
 - {{jsxref("Iterator.from()")}}

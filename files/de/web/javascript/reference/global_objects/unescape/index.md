@@ -2,13 +2,13 @@
 title: unescape()
 slug: Web/JavaScript/Reference/Global_Objects/unescape
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 > [!NOTE]
-> `unescape()` ist eine nicht standardisierte Funktion, die von Browsern implementiert wurde und nur zur Gewährleistung der Kompatibilität zwischen verschiedenen Engines standardisiert wurde. Es ist nicht erforderlich, dass alle JavaScript-Engines implementiert sind, und sie funktioniert möglicherweise nicht überall. Verwenden Sie nach Möglichkeit {{jsxref("decodeURIComponent()")}} oder {{jsxref("decodeURI()")}}.
+> `unescape()` ist eine nicht standardisierte Funktion, die von Browsern implementiert wurde und nur zur Gewährleistung der Kompatibilität zwischen verschiedenen Engines standardisiert wurde. Nicht alle JavaScript-Engines müssen sie implementieren, und sie funktioniert möglicherweise nicht überall. Verwenden Sie nach Möglichkeit {{jsxref("decodeURIComponent()")}} oder {{jsxref("decodeURI()")}}.
 
-Die **`unescape()`**-Funktion erstellt einen neuen Zeichenfolgenwert, in dem hexadezimale Escape-Sequenzen durch die Zeichen ersetzt werden, die sie repräsentieren. Die Escape-Sequenzen könnten durch eine Funktion wie {{jsxref("escape()")}} eingeführt worden sein.
+Die Funktion **`unescape()`** erzeugt einen neuen String, in dem hexadezimale Escape-Sequenzen durch die Zeichen ersetzt werden, die sie darstellen. Die Escape-Sequenzen können durch eine Funktion wie {{jsxref("escape()")}} erzeugt worden sein.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ unescape(str)
 ### Parameter
 
 - `str`
-  - : Eine Zeichenfolge, die decodiert werden soll.
+  - : Ein String, der dekodiert werden soll.
 
 ### Rückgabewert
 
-Eine neue Zeichenfolge, in der bestimmte Zeichen unescaped worden sind.
+Ein neuer String, in dem bestimmte Zeichen dekodiert wurden.
 
 ## Beschreibung
 
 `unescape()` ist eine Funktionseigenschaft des globalen Objekts.
 
-Die `unescape()`-Funktion ersetzt jede Escape-Sequenz durch das Zeichen, das sie repräsentiert. Genauer gesagt ersetzt sie jede Escape-Sequenz der Form `%XX` oder `%uXXXX` (wobei `X` eine hexadezimale Ziffer darstellt) durch das Zeichen mit dem hexadezimalen Wert `XX`/`XXXX`. Wenn die Escape-Sequenz keine gültige Escape-Sequenz ist (beispielsweise, wenn `%` von einer oder keiner Hexadezimalziffer gefolgt wird), bleibt sie unverändert.
+Die Funktion `unescape()` ersetzt jede gültige Escape-Sequenz durch das Zeichen, das sie darstellt. Konkret ersetzt sie Escape-Sequenzen der Form `%XX` oder `%uXXXX` (wobei `X` für eine hexadezimale Ziffer steht) durch das Zeichen mit dem Hexadezimalwert `XX` beziehungsweise `XXXX`. Ist eine Escape-Sequenz ungültig (beispielsweise wenn auf `%` nur eine oder keine hexadezimale Ziffer folgt), bleibt sie unverändert.
 
 > [!NOTE]
-> Diese Funktion wurde hauptsächlich für die {{Glossary("Percent-encoding", "Prozentcodierung")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Die `unescape()`-Funktion wertet _nicht_ [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in Zeichenfolgenliteral aus. Sie können `\xXX` durch `%XX` und `\uXXXX` durch `%uXXXX` ersetzen, um eine Zeichenfolge zu erhalten, die von `unescape()` behandelt werden kann.
+> Diese Funktion wurde hauptsächlich für die {{Glossary("Percent-encoding", "Prozentkodierung")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Die Funktion `unescape()` wertet [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in String-Literalen _nicht_ aus. Sie können `\xXX` durch `%XX` und `\uXXXX` durch `%uXXXX` ersetzen, um einen String zu erhalten, den `unescape()` verarbeiten kann.
 
 ## Beispiele
 
-### Verwendung von unescape()
+### unescape() verwenden
 
 ```js
 unescape("abc123"); // "abc123"
@@ -54,7 +54,7 @@ unescape("%u0107"); // "ć"
 
 ## Siehe auch
 
-- [Polyfill von `unescape` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Polyfill für `unescape` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
 - {{jsxref("decodeURI")}}
 - {{jsxref("decodeURIComponent")}}
 - {{jsxref("escape")}}

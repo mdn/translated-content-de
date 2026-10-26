@@ -1,28 +1,28 @@
 ---
-title: "Fehler: cause"
+title: "Error: cause"
 short-title: cause
 slug: Web/JavaScript/Reference/Global_Objects/Error/cause
 l10n:
-  sourceCommit: 1d2e1875bdfdd2fb8d0806535220bbd56d3a091d
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`cause`**-Datenproperty einer {{jsxref("Error")}}-Instanz gibt die spezifische ursprüngliche Ursache des Fehlers an.
+Die Dateneigenschaft **`cause`** einer {{jsxref("Error")}}-Instanz gibt die konkrete ursprüngliche Ursache des Fehlers an.
 
-Sie wird verwendet, wenn ein Fehler aufgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut geworfen wird, um weiterhin Zugang zum ursprünglichen Fehler zu haben.
+Sie wird verwendet, wenn ein Fehler abgefangen und mit einer präziseren oder hilfreicheren Fehlermeldung erneut ausgelöst wird, damit der ursprüngliche Fehler weiterhin zugänglich bleibt.
 
 ## Wert
 
-Der Wert, der im `options.cause`-Argument an den [`Error()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error)-Konstruktor übergeben wurde. Er muss möglicherweise nicht vorhanden sein.
+Der Wert, der dem Konstruktor [`Error()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error) im Argument `options.cause` übergeben wurde. Die Eigenschaft ist möglicherweise nicht vorhanden.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Der Wert von `cause` kann jeden Typ haben. Sie sollten nicht davon ausgehen, dass der von Ihnen abgefangene Fehler eine `Error`-Instanz als `cause` hat, ebenso wenig wie Sie sicher sein können, dass die im `catch`-Statement gebundene Variable eine `Error` ist. Das unten stehende Beispiel "Bereitstellung von strukturierten Daten als Fehlerursache" zeigt einen Fall, in dem absichtlich eine Nicht-Fehlermeldung als Ursache angegeben wird.
+Der Wert von `cause` kann einen beliebigen Typ haben. Gehen Sie nicht davon aus, dass ein abgefangener Fehler einen `Error` als `cause` hat. Ebenso wenig können Sie sicher sein, dass die in einer `catch`-Anweisung gebundene Variable ein `Error` ist. Das folgende Beispiel „Strukturierte Daten als Fehlerursache bereitstellen“ zeigt einen Fall, in dem absichtlich ein Wert, der kein Fehler ist, als Ursache angegeben wird.
 
-Die Unterklassen {{jsxref("SuppressedError")}} und {{jsxref("AggregateError")}} dienen beide dem Zweck, mehrere Fehler zu verknüpfen. Sie repräsentieren beide mehrere Fehlerstellen: `SuppressedError` repräsentiert einen Fehler, der beim Umgang mit einem anderen Fehler auftrat, während `AggregateError` eine Sammlung von mehreren, nicht zusammenhängenden Fehlern repräsentiert, die während derselben Operation auftraten. Die `cause`-Eigenschaft repräsentiert eine einzelne Fehlerstelle, wobei der umschlossene Fehler nur Kontext zur Ursache hinzufügt und keinen zusätzlichen Fehler darstellt.
+Die Unterklassen {{jsxref("SuppressedError")}} und {{jsxref("AggregateError")}} dienen beide dazu, mehrere Fehler miteinander zu verknüpfen. Beide stehen für mehrere Stellen, an denen Fehler aufgetreten sind: `SuppressedError` steht für einen Fehler, der bei der Behandlung eines anderen Fehlers aufgetreten ist, während `AggregateError` eine Sammlung mehrerer, voneinander unabhängiger Fehler darstellt, die während desselben Vorgangs aufgetreten sind. Die Eigenschaft `cause` steht für eine einzelne Fehlerstelle. Der umschließende Fehler ergänzt lediglich Kontext zur Ursache und stellt keinen zusätzlichen Fehler dar.
 
-Das folgende Beispiel zeigt die typische Verwendung von `cause`. Es gibt eine einzige Fehlerstelle, die innerhalb von `mainLogic()` entspringt. Die `throw new Error()`-Anweisung umhüllt lediglich diesen ursprünglichen Fehler, um Kontext hinzuzufügen, und stellt keinen zusätzlichen Fehler dar.
+Im Folgenden sehen Sie eine typische Verwendung von `cause`. Es gibt eine einzelne Fehlerstelle innerhalb von `mainLogic()`. Die Anweisung `throw new Error()` umschließt lediglich den ursprünglichen Fehler, um Kontext hinzuzufügen, und stellt keinen zusätzlichen Fehler dar.
 
 ```js
 try {
@@ -32,7 +32,7 @@ try {
 }
 ```
 
-Das folgende Beispiel zeigt die typische Verwendung von `SuppressedError`. Es gibt zwei Fehlerstellen: eine innerhalb von `mainLogic()` und eine innerhalb von `cleanup()`. Die `SuppressedError`-Instanz verknüpft die zwei Fehler.
+Im Folgenden sehen Sie eine typische Verwendung von `SuppressedError`. Es gibt zwei Fehlerstellen: eine innerhalb von `mainLogic()` und eine innerhalb von `cleanup()`. Die `SuppressedError`-Instanz verknüpft die beiden Fehler.
 
 ```js
 try {
@@ -50,7 +50,7 @@ try {
 }
 ```
 
-Das folgende Beispiel zeigt die typische Verwendung von `AggregateError`. Es gibt mehrere Fehlerstellen innerhalb von `mainLogic()`. Die `AggregateError`-Instanz verknüpft alle Fehler.
+Im Folgenden sehen Sie eine typische Verwendung von `AggregateError`. Innerhalb von `mainLogic()` gibt es mehrere Fehlerstellen. Die `AggregateError`-Instanz verknüpft alle Fehler.
 
 ```js
 function mainLogic() {
@@ -73,10 +73,10 @@ function mainLogic() {
 
 ## Beispiele
 
-### Erneutes Werfen eines Fehlers mit einer Ursache
+### Einen Fehler mit einer Ursache erneut auslösen
 
-Es kann manchmal nützlich sein, einen Fehler abzufangen und ihn mit einer neuen Nachricht erneut zu werfen.
-In diesem Fall sollten Sie den ursprünglichen Fehler in den Konstruktor für den neuen `Error` übergeben, wie gezeigt.
+Manchmal ist es sinnvoll, einen Fehler abzufangen und ihn mit einer neuen Meldung erneut auszulösen.
+In diesem Fall sollten Sie den ursprünglichen Fehler an den Konstruktor des neuen `Error` übergeben, wie hier gezeigt.
 
 ```js
 try {
@@ -86,11 +86,11 @@ try {
 }
 ```
 
-Für ein detaillierteres Beispiel siehe [Error > Differenzieren zwischen ähnlichen Fehlern](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
+Ein ausführlicheres Beispiel finden Sie unter [Error > Zwischen ähnlichen Fehlern unterscheiden](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#differentiate_between_similar_errors).
 
-### Bereitstellung von strukturierten Daten als Fehlerursache
+### Strukturierte Daten als Fehlerursache bereitstellen
 
-Fehlermeldungen, die für den menschlichen Verbrauch geschrieben wurden, sind möglicherweise nicht geeignet für die maschinelle Analyse — da sie einer Umformulierung oder Zeichenänderungen unterliegen können, die jede bestehende Analyse, die zur Verarbeitung gedacht ist, beeinträchtigen könnten. Deshalb können Sie, wenn Sie einen Fehler aus einer Funktion werfen, anstatt einer menschenlesbaren Fehlermeldung, alternativ die Ursache als strukturierte Daten bereitstellen, für die maschinelle Analyse.
+Für Menschen formulierte Fehlermeldungen eignen sich möglicherweise nicht für die maschinelle Auswertung: Ihre Formulierung oder Zeichensetzung kann sich ändern und dadurch vorhandenen Code zum Auswerten der Meldungen beeinträchtigen. Wenn Sie einen Fehler aus einer Funktion heraus auslösen, können Sie deshalb statt einer für Menschen lesbaren Fehlermeldung die Ursache als strukturierte Daten für die maschinelle Auswertung bereitstellen.
 
 ```js
 function makeRSA(p, q) {
@@ -118,5 +118,6 @@ function makeRSA(p, q) {
 
 ## Siehe auch
 
+- [Polyfill für `Error` mit Unterstützung für `cause` in `core-js`](https://core-js.io/docs/features/ecmascript/error)
 - {{jsxref("Error.prototype.message")}}
 - {{jsxref("Error.prototype.toString()")}}

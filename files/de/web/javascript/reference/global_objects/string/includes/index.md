@@ -3,10 +3,10 @@ title: String.prototype.includes()
 short-title: includes()
 slug: Web/JavaScript/Reference/Global_Objects/String/includes
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`includes()`**-Methode von {{jsxref("String")}}-Werten führt eine Groß-/Kleinschreibung beachtende Suche durch, um festzustellen, ob ein gegebener String innerhalb dieses Strings gefunden werden kann und gibt entsprechend `true` oder `false` zurück.
+Die Methode **`includes()`** von {{jsxref("String")}}-Werten führt eine Suche unter Berücksichtigung der Groß- und Kleinschreibung durch, um festzustellen, ob eine bestimmte Zeichenfolge in dieser Zeichenfolge enthalten ist. Sie gibt entsprechend `true` oder `false` zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.includes()", "shorter")}}
 
@@ -33,32 +33,32 @@ includes(searchString, position)
 ### Parameter
 
 - `searchString`
-  - : Ein String, nach dem innerhalb von `str` gesucht wird. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexes sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Wenn `searchString` weggelassen wird oder `undefined` übergeben wird, sucht `includes()` nach dem String `"undefined"`, was selten gewünscht ist.
+  - : Die Zeichenfolge, nach der in `str` gesucht wird. Sie darf [kein regulärer Ausdruck sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine regulären Ausdrücke sind, werden [in Zeichenfolgen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Wenn Sie den Parameter weglassen oder `undefined` übergeben, sucht `includes()` daher nach der Zeichenfolge `"undefined"`, was selten beabsichtigt ist.
 - `position` {{optional_inline}}
-  - : Die Position innerhalb des Strings, an der die Suche nach `searchString` beginnen soll. (Standard ist `0`.)
+  - : Die Position innerhalb der Zeichenfolge, ab der nach `searchString` gesucht wird. (Standardwert: `0`.)
 
 ### Rückgabewert
 
-**`true`**, wenn der Such-String irgendwo innerhalb des gegebenen Strings gefunden wird, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
+**`true`**, wenn die gesuchte Zeichenfolge an irgendeiner Stelle in der angegebenen Zeichenfolge gefunden wird, auch wenn `searchString` eine leere Zeichenfolge ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `searchString` [ein Regex ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+  - : Wird ausgelöst, wenn `searchString` [ein regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
 
 ## Beschreibung
 
-Diese Methode erlaubt Ihnen festzustellen, ob ein String einen anderen String enthält.
+Mit dieser Methode können Sie feststellen, ob eine Zeichenfolge eine andere Zeichenfolge enthält.
 
-### Groß-/Kleinschreibung
+### Groß- und Kleinschreibung
 
-Die `includes()`-Methode ist groß-/kleinschreibungssensitiv. Zum Beispiel gibt der folgende Ausdruck `false` zurück:
+Die Methode `includes()` unterscheidet zwischen Groß- und Kleinschreibung. Der folgende Ausdruck gibt beispielsweise `false` zurück:
 
 ```js
 "Blue Whale".includes("blue"); // returns false
 ```
 
-Sie können diese Einschränkung umgehen, indem Sie sowohl den ursprünglichen String als auch den Such-String in Kleinbuchstaben umwandeln:
+Sie können diese Einschränkung umgehen, indem Sie sowohl die ursprüngliche Zeichenfolge als auch die gesuchte Zeichenfolge in Kleinbuchstaben umwandeln:
 
 ```js
 "Blue Whale".toLowerCase().includes("blue"); // returns true
@@ -66,7 +66,7 @@ Sie können diese Einschränkung umgehen, indem Sie sowohl den ursprünglichen S
 
 ## Beispiele
 
-### Verwendung von includes()
+### `includes()` verwenden
 
 ```js
 const str = "To be, or not to be, that is the question.";
@@ -89,8 +89,8 @@ console.log(str.includes("")); // true
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.includes`](https://www.npmjs.com/package/string.prototype.includes)
+- [Polyfill für `String.prototype.includes` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.includes` von es-shims](https://www.npmjs.com/package/string.prototype.includes)
 - {{jsxref("Array.prototype.includes()")}}
 - {{jsxref("TypedArray.prototype.includes()")}}
 - {{jsxref("String.prototype.indexOf()")}}

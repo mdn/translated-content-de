@@ -3,10 +3,10 @@ title: TypedArray.prototype.reduce()
 short-title: reduce()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/reduce
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`reduce()`** Methode von {{jsxref("TypedArray")}} Instanzen führt eine vom Benutzer bereitgestellte "Reducer"-Callback-Funktion auf jedem Element des typisierten Arrays aus, der Reihe nach, und übergibt den Rückgabewert der Berechnung des vorhergehenden Elements. Das endgültige Ergebnis der Ausführung des Reducers über alle Elemente des typisierten Arrays ist ein einzelner Wert. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.reduce()")}}.
+Die Methode **`reduce()`** von {{jsxref("TypedArray")}}-Instanzen führt für jedes Element des typisierten Arrays der Reihe nach eine vom Benutzer bereitgestellte „Reducer“-Callback-Funktion aus. Dabei wird jeweils das Ergebnis der Berechnung für das vorherige Element übergeben. Das Endergebnis nach der Verarbeitung aller Elemente des typisierten Arrays ist ein einzelner Wert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.reduce()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.reduce()")}}
 
@@ -31,34 +31,36 @@ reduce(callbackFn, initialValue)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Ihr Rückgabewert wird zum Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduce()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element des typisierten Arrays ausgeführt wird. Ihr Rückgabewert wird beim nächsten Aufruf von `callbackFn` zum Wert des Parameters `accumulator`. Beim letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduce()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `accumulator`
-      - : Der Wert, der sich aus dem vorhergehenden Aufruf von `callbackFn` ergibt. Beim ersten Aufruf ist sein Wert `initialValue`, wenn letzteres angegeben ist; andernfalls ist sein Wert `array[0]`.
+      - : Der Wert, der sich aus dem vorherigen Aufruf von `callbackFn` ergibt. Beim ersten Aufruf ist sein Wert `initialValue`, falls dieser angegeben wurde; andernfalls ist sein Wert `array[0]`.
     - `currentValue`
-      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert `array[0]`, wenn `initialValue` angegeben ist; andernfalls ist sein Wert `array[1]`.
+      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert `array[0]`, falls `initialValue` angegeben wurde; andernfalls ist sein Wert `array[1]`.
     - `currentIndex`
-      - : Die Indexposition von `currentValue` im typisierten Array. Beim ersten Aufruf ist sein Wert `0`, wenn `initialValue` angegeben ist, andernfalls `1`.
+      - : Die Indexposition von `currentValue` im typisierten Array. Beim ersten Aufruf ist sein Wert `0`, falls `initialValue` angegeben wurde, andernfalls `1`.
     - `array`
-      - : Das typisierte Array, auf dem `reduce()` aufgerufen wurde.
+      - : Das typisierte Array, für das `reduce()` aufgerufen wurde.
 - `initialValue` {{optional_inline}}
-  - : Ein Wert, auf den der `accumulator` beim ersten Aufruf des Callback initialisiert wird. Wenn `initialValue` angegeben ist, beginnt `callbackFn` die Ausführung mit dem ersten Wert im typisierten Array als `currentValue`. Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` auf den ersten Wert im typisierten Array initialisiert und `callbackFn` beginnt die Ausführung mit dem zweiten Wert im typisierten Array als `currentValue`. In diesem Fall, wenn das typisierte Array leer ist (sodass kein erster Wert als `accumulator` zurückgegeben werden kann), wird ein Fehler ausgelöst.
+  - : Ein Wert, mit dem `accumulator` beim ersten Aufruf der Callback-Funktion initialisiert wird.
+    Wenn `initialValue` angegeben ist, beginnt `callbackFn` mit dem ersten Wert des typisierten Arrays als `currentValue`.
+    Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` mit dem ersten Wert des typisierten Arrays initialisiert und `callbackFn` beginnt mit dem zweiten Wert als `currentValue`. Ist das typisierte Array in diesem Fall leer (sodass kein erster Wert für `accumulator` vorhanden ist), wird ein Fehler ausgelöst.
 
 ### Rückgabewert
 
-Der Wert, der sich ergibt, wenn die "Reducer"-Callback-Funktion über das gesamte typisierte Array durchgeführt wird.
+Der Wert, der sich ergibt, nachdem die „Reducer“-Callback-Funktion das gesamte typisierte Array verarbeitet hat.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das typisierte Array keine Elemente enthält und `initialValue` nicht angegeben ist.
+  - : Wird ausgelöst, wenn das typisierte Array keine Elemente enthält und `initialValue` nicht angegeben wurde.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.reduce()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Typisierungs-Array-Instanzen aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.reduce()")}}. Diese Methode ist nicht generisch und kann nur für Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Alle Werte innerhalb eines Arrays summieren
+### Alle Werte in einem Array summieren
 
 ```js
 const total = new Uint8Array([0, 1, 2, 3]).reduce((a, b) => a + b);
@@ -75,8 +77,8 @@ const total = new Uint8Array([0, 1, 2, 3]).reduce((a, b) => a + b);
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.reduce` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.reduce` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- Leitfaden zu [typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.map()")}}
 - {{jsxref("TypedArray.prototype.reduceRight()")}}

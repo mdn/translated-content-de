@@ -3,10 +3,10 @@ title: Array.isArray()
 short-title: isArray()
 slug: Web/JavaScript/Reference/Global_Objects/Array/isArray
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`Array.isArray()`** statische Methode bestimmt, ob der übergebene Wert ein {{jsxref("Array")}} ist.
+Die statische Methode **`Array.isArray()`** bestimmt, ob der übergebene Wert ein {{jsxref("Array")}} ist.
 
 {{InteractiveExample("JavaScript Demo: Array.isArray()")}}
 
@@ -37,22 +37,22 @@ Array.isArray(value)
 
 ### Rückgabewert
 
-`true`, wenn `value` ein {{jsxref("Array")}} ist; andernfalls `false`. `false` wird immer zurückgegeben, wenn `value` eine Instanz von {{jsxref("TypedArray")}} ist.
+`true`, wenn `value` ein {{jsxref("Array")}} ist; andernfalls `false`. Wenn `value` eine Instanz von {{jsxref("TypedArray")}} ist, wird immer `false` zurückgegeben.
 
 ## Beschreibung
 
-`Array.isArray()` prüft, ob der übergebene Wert ein {{jsxref("Array")}} ist. Es führt eine _markierte Prüfung_ durch, ähnlich dem [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator, für ein privates Feld, das durch den {{jsxref("Array/Array", "Array()")}} Konstruktor initialisiert wird.
+`Array.isArray()` prüft, ob der übergebene Wert ein {{jsxref("Array")}} ist. Dazu führt die Methode eine _Markenprüfung_ durch, ähnlich wie der Operator [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) bei einem privaten Feld, das vom Konstruktor {{jsxref("Array/Array", "Array()")}} initialisiert wurde.
 
-Es ist eine robustere Alternative zum [`instanceof Array`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), da es falsche Positive und falsche Negative vermeidet:
+Die Methode ist eine zuverlässigere Alternative zu [`instanceof Array`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), da sie falsch positive und falsch negative Ergebnisse vermeidet:
 
-- `Array.isArray()` lehnt Werte ab, die keine tatsächlichen `Array` Instanzen sind, selbst wenn sie `Array.prototype` in ihrer Prototypenkette haben — `instanceof Array` würde diese akzeptieren, da es die Prototypenkette überprüft.
-- `Array.isArray()` akzeptiert `Array` Objekte, die in einem anderen Kontext konstruiert wurden — `instanceof Array` gibt `false` für diese zurück, da die Identität des `Array` Konstruktors zwischen den Kontexten verschieden ist.
+- `Array.isArray()` weist Werte zurück, die keine tatsächlichen `Array`-Instanzen sind, selbst wenn sich `Array.prototype` in ihrer Prototypenkette befindet. `instanceof Array` würde diese Werte akzeptieren, da es die Prototypenkette prüft.
+- `Array.isArray()` akzeptiert `Array`-Objekte, die in einem anderen Realm erstellt wurden. `instanceof Array` gibt für diese `false` zurück, weil der `Array`-Konstruktor in jedem Realm eine andere Identität hat.
 
-Details finden Sie im Artikel ["Determining with absolute accuracy whether or not a JavaScript object is an array"](https://web.mit.edu/jwalden/www/isArray.html).
+Weitere Informationen finden Sie im Artikel [„Determining with absolute accuracy whether or not a JavaScript object is an array“](https://web.mit.edu/jwalden/www/isArray.html).
 
 ## Beispiele
 
-### Verwendung von Array.isArray()
+### Array.isArray() verwenden
 
 ```js
 // all following calls return true
@@ -79,9 +79,9 @@ Array.isArray(new Uint8Array(32));
 Array.isArray({ __proto__: Array.prototype });
 ```
 
-### instanceof vs. Array.isArray()
+### instanceof im Vergleich zu Array.isArray()
 
-Beim Prüfen auf eine `Array` Instanz wird `Array.isArray()` dem `instanceof` vorgezogen, da es über verschiedene Kontexte hinweg funktioniert.
+Bei der Prüfung, ob ein Wert eine `Array`-Instanz ist, sollten Sie `Array.isArray()` gegenüber `instanceof` bevorzugen, da es auch über Realm-Grenzen hinweg funktioniert.
 
 ```js
 const iframe = document.createElement("iframe");
@@ -106,7 +106,7 @@ arr instanceof Array; // false
 
 ## Siehe auch
 
-- [Polyfill von `Array.isArray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [es-shims polyfill von `Array.isArray`](https://www.npmjs.com/package/array.isarray)
-- [Indexed collections](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Polyfill für `Array.isArray` in `core-js`](https://core-js.io/docs/features/ecmascript/array)
+- [Polyfill für `Array.isArray` von es-shims](https://www.npmjs.com/package/array.isarray)
+- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}

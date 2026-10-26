@@ -3,12 +3,12 @@ title: Map.prototype.getOrInsert()
 short-title: getOrInsert()
 slug: Web/JavaScript/Reference/Global_Objects/Map/getOrInsert
 l10n:
-  sourceCommit: 5956b80db199b86203b2cdfafe3e6ce45b6ad3c3
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`getOrInsert()`** Methode von {{jsxref("Map")}} Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` entspricht. Falls der Schlüssel nicht vorhanden ist, fügt sie einen neuen Eintrag mit dem Schlüssel und einem gegebenen Standardwert ein und gibt den eingefügten Wert zurück.
+Die Methode **`getOrInsert()`** von {{jsxref("Map")}}-Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` zugeordnet ist. Ist der Schlüssel nicht vorhanden, fügt sie einen neuen Eintrag mit dem Schlüssel und einem angegebenen Standardwert ein und gibt den eingefügten Wert zurück.
 
-Falls die Berechnung des Standardwerts aufwendig ist, sollten Sie in Betracht ziehen, anstelle dessen {{jsxref("Map.prototype.getOrInsertComputed()")}} zu verwenden, welche einen Rückruf annimmt, um den Standardwert nur dann zu berechnen, wenn er tatsächlich benötigt wird.
+Wenn die Berechnung des Standardwerts aufwendig ist, verwenden Sie stattdessen {{jsxref("Map.prototype.getOrInsertComputed()")}}. Diese Methode erwartet eine Callback-Funktion, die den Standardwert nur dann berechnet, wenn er tatsächlich benötigt wird.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.getOrInsert()")}}
 
@@ -30,17 +30,17 @@ getOrInsert(key, defaultValue)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Werts, der aus dem `Map` Objekt zurückgegeben werden soll. Objektschlüssel werden durch {{Glossary("Object_reference", "Referenz")}} verglichen, nicht durch den Wert.
+  - : Der Schlüssel des Werts, der aus dem `Map`-Objekt zurückgegeben werden soll. Objektschlüssel werden anhand ihrer {{Glossary("Object_reference", "Referenz")}} verglichen, nicht anhand ihres Werts.
 - `defaultValue`
-  - : Der Wert, der eingefügt und zurückgegeben wird, wenn der Schlüssel im `Map` Objekt noch nicht vorhanden ist.
+  - : Der Wert, der eingefügt und zurückgegeben wird, wenn der Schlüssel im `Map`-Objekt noch nicht vorhanden ist.
 
 ### Rückgabewert
 
-Der Wert, der dem angegebenen Schlüssel im `Map` Objekt zugeordnet ist. Falls der Schlüssel nicht gefunden werden kann, wird `defaultValue` eingefügt und zurückgegeben.
+Der Wert, der dem angegebenen Schlüssel im `Map`-Objekt zugeordnet ist. Wenn der Schlüssel nicht gefunden wird, wird `defaultValue` eingefügt und zurückgegeben.
 
 ## Beschreibung
 
-Die `getOrInsert()` Methode ist äquivalent zum Folgenden:
+Die Methode `getOrInsert()` entspricht Folgendem:
 
 ```js
 if (map.has(key)) {
@@ -50,7 +50,7 @@ map.set(key, defaultValue);
 return defaultValue;
 ```
 
-Sie ist auch ähnlich dem folgenden Muster (das etwas weniger zuverlässig ist, falls `null` oder `undefined` gültige Werte in Ihrer Map sind):
+Sie ähnelt auch dem folgenden Muster (das etwas weniger zuverlässig ist, wenn `null` oder `undefined` gültige Werte in Ihrer Map sind):
 
 ```js
 map.set(key, map.get(key) ?? defaultValue);
@@ -60,17 +60,17 @@ map.set(key, map.get(key) ?? defaultValue);
 
 ### Multimap
 
-In einer Map, wo jeder Schlüssel auf ein Array von Werten abgebildet ist, können Sie `getOrInsert()` verwenden, um sicherzustellen, dass das Array für einen gegebenen Schlüssel existiert, bevor Sie versuchen, einen neuen Wert in das Array zu schieben.
+In einer Map, in der jedem Schlüssel ein Array von Werten zugeordnet ist, können Sie mit `getOrInsert()` sicherstellen, dass das Array für einen bestimmten Schlüssel existiert, bevor Sie ihm einen neuen Wert hinzufügen.
 
 ```js
 map.getOrInsert(key, []).push(value);
 ```
 
-### Anwenden von Standardwerten
+### Standardwerte anwenden
 
-Sie können `getOrInsert()` verwenden, um sicherzustellen, dass ein Schlüssel in einer Map existiert, selbst wenn Sie seinen Wert derzeit nicht benötigen. Dies geschieht meistens, um Benutzereingaben zu normalisieren.
+Mit `getOrInsert()` können Sie sicherstellen, dass ein Schlüssel in einer Map vorhanden ist, auch wenn Sie seinen Wert derzeit nicht benötigen. Dies dient üblicherweise dazu, Benutzereingaben zu normalisieren.
 
-Stellen Sie sich vor, Sie haben eine Map mit Benutzerpräferenzen und möchten sicherstellen, dass eine bestimmte Präferenz immer auf einen Standardwert gesetzt ist, wenn der Benutzer sie nicht spezifiziert hat:
+Angenommen, Sie haben eine Map mit Benutzereinstellungen und möchten sicherstellen, dass eine bestimmte Einstellung immer einen Standardwert erhält, wenn der Benutzer sie nicht festgelegt hat:
 
 ```js
 const options = readConfig();
@@ -91,8 +91,8 @@ document.body.dataset.theme = options.get("theme");
 
 ## Siehe auch
 
-- [Polyfill von `Map.prototype.getOrInsert` in `core-js`](https://github.com/zloirock/core-js#map-upsert)
-- [es-shims polyfill von `Map.prototype.getOrInsert`](https://www.npmjs.com/package/map.prototype.getorinsert)
+- [Polyfill für `Map.prototype.getOrInsert` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-map)
+- [es-shims-Polyfill für `Map.prototype.getOrInsert`](https://www.npmjs.com/package/map.prototype.getorinsert)
 - {{jsxref("Map")}}
 - {{jsxref("Map.prototype.get()")}}
 - {{jsxref("Map.prototype.set()")}}

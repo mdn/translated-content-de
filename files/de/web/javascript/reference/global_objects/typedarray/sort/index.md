@@ -3,10 +3,10 @@ title: TypedArray.prototype.sort()
 short-title: sort()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/sort
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`sort()`**-Methode von {{jsxref("TypedArray")}}-Instanzen sortiert die Elemente eines typisierten Arrays _[vor Ort](https://en.wikipedia.org/wiki/In-place_algorithm)_ und gibt die Referenz auf dasselbe, nun sortierte, typisierte Array zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.sort()")}}, außer dass sie die Werte standardmäßig numerisch anstatt als Strings sortiert.
+Die Methode **`sort()`** von {{jsxref("TypedArray")}}-Instanzen sortiert die Elemente eines typisierten Arrays _[an Ort und Stelle](https://en.wikipedia.org/wiki/In-place_algorithm)_ und gibt eine Referenz auf dasselbe, nun sortierte typisierte Array zurück. Die Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.sort()")}}, sortiert die Werte standardmäßig jedoch numerisch statt als Zeichenfolgen.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.sort()", "shorter")}}
 
@@ -34,28 +34,28 @@ sort(compareFn)
     - `b`
       - : Das zweite zu vergleichende Element.
 
-    Sie sollte eine Zahl zurückgeben, wobei:
-    - Ein negativer Wert anzeigt, dass `a` vor `b` kommen sollte.
-    - Ein positiver Wert anzeigt, dass `a` nach `b` kommen sollte.
-    - Null oder `NaN` anzeigt, dass `a` und `b` als gleich betrachtet werden.
+    Sie sollte eine Zahl zurückgeben, wobei gilt:
+    - Ein negativer Wert bedeutet, dass `a` vor `b` stehen soll.
+    - Ein positiver Wert bedeutet, dass `a` nach `b` stehen soll.
+    - Null oder `NaN` bedeutet, dass `a` und `b` als gleich betrachtet werden.
 
-    Um sich dies zu merken, denken Sie daran, dass `(a, b) => a - b` Zahlen in aufsteigender Reihenfolge sortiert.
+    Als Merkhilfe: `(a, b) => a - b` sortiert Zahlen in aufsteigender Reihenfolge.
 
-    Wenn ausgelassen, werden die Elemente des typisierten Arrays gemäß ihrem numerischen Wert sortiert.
+    Wird `compareFn` weggelassen, werden die Elemente des typisierten Arrays nach ihrem numerischen Wert sortiert.
 
 ### Rückgabewert
 
-Die Referenz auf das originale, nun sortierte, typisierte Array. Beachten Sie, dass das typisierte Array _[vor Ort](https://en.wikipedia.org/wiki/In-place_algorithm)_ sortiert wird und keine Kopie erstellt wird.
+Eine Referenz auf das ursprüngliche, nun sortierte typisierte Array. Beachten Sie, dass das typisierte Array _[an Ort und Stelle](https://en.wikipedia.org/wiki/In-place_algorithm)_ sortiert und keine Kopie erstellt wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.sort()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen angewendet werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.sort()")}}. Diese Methode ist nicht generisch und kann nur für Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Verwenden von sort()
+### sort() verwenden
 
-Für weitere Beispiele siehe auch die Methode {{jsxref("Array.prototype.sort()")}}.
+Weitere Beispiele finden Sie auch bei der Methode {{jsxref("Array.prototype.sort()")}}.
 
 ```js
 let numbers = new Uint8Array([40, 1, 5, 200]);
@@ -83,8 +83,8 @@ numbers.sort((a, b) => a - b); // compare numbers
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.sort` mit modernem Verhalten wie stabile Sortierung in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.sort` mit modernem Verhalten wie stabiler Sortierung in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Leitfaden zu typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.reverse()")}}
 - {{jsxref("TypedArray.prototype.toSorted()")}}

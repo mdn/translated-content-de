@@ -3,10 +3,10 @@ title: Promise.try()
 short-title: try()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/try
 l10n:
-  sourceCommit: ff5a8ae3b5d69a777068b9571934342443e14ab0
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Promise.try()`** nimmt einen Callback beliebiger Art entgegen (der synchron oder asynchron zurückgibt oder einen Fehler auslöst) und [löst](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) dessen Ergebnis zu einem {{jsxref("Promise")}} auf.
+Die statische Methode **`Promise.try()`** nimmt eine Callback-Funktion entgegen, die einen Wert zurückgeben oder einen Fehler auslösen kann – synchron oder asynchron – und [löst](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) ihr Ergebnis zu einem {{jsxref("Promise")}} auf.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Promise.try(func, arg1, arg2, /* …, */ argN)
 ### Parameter
 
 - `func`
-  - : Eine Funktion, die synchron mit den bereitgestellten Argumenten (`arg1`, `arg2`, …, `argN`) aufgerufen wird. Sie kann beliebige Aktionen ausführen – entweder einen Wert zurückgeben, einen Fehler auslösen oder ein Promise zurückgeben.
+  - : Eine Funktion, die synchron mit den übergebenen Argumenten (`arg1`, `arg2`, …, `argN`) aufgerufen wird. Sie kann einen Wert zurückgeben, einen Fehler auslösen oder ein Promise zurückgeben.
 - `arg1`, `arg2`, …, `argN`
   - : Argumente, die an `func` übergeben werden.
 
@@ -28,15 +28,15 @@ Promise.try(func, arg1, arg2, /* …, */ argN)
 
 Ein {{jsxref("Promise")}}, das:
 
-- bereits erfüllt ist, wenn `func` synchron einen Wert zurückgibt.
-- bereits abgelehnt ist, wenn `func` synchron einen Fehler auslöst.
-- asynchron erfüllt oder abgelehnt wird, wenn `func` ein Promise zurückgibt. Der zurückgegebene Wert wird zu einem Promise [aufgelöst](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve), was bedeutet, dass integrierte {{jsxref("Promise")}}-Objekte unverändert zurückgegeben werden.
+- bereits erfüllt ist, wenn `func` synchron einen Wert zurückgibt;
+- bereits abgelehnt ist, wenn `func` synchron einen Fehler auslöst;
+- asynchron erfüllt oder abgelehnt wird, wenn `func` ein Promise zurückgibt. Der Rückgabewert wird [zu einem Promise aufgelöst](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve). Das bedeutet, dass integrierte {{jsxref("Promise")}}-Objekte unverändert zurückgegeben werden.
 
 ## Beschreibung
 
-Möglicherweise haben Sie eine API, die einen Callback entgegennimmt. Der Callback kann synchron oder asynchron sein. Sie möchten alles einheitlich behandeln, indem Sie das Ergebnis in ein Promise einschließen. Der direkteste Ansatz könnte {{jsxref("Promise/resolve", "Promise.resolve(func())")}} sein. Das Problem besteht darin, dass ein Fehler, den `func()` synchron auslöst, nicht abgefangen und in ein abgelehntes Promise umgewandelt würde.
+Möglicherweise verwenden Sie eine API, die eine Callback-Funktion entgegennimmt. Diese kann synchron oder asynchron sein. Um beide Fälle einheitlich zu behandeln, möchten Sie das Ergebnis in ein Promise einbinden. Der naheliegendste Weg ist möglicherweise {{jsxref("Promise/resolve", "Promise.resolve(func())")}}. Wenn `func()` jedoch synchron einen Fehler auslöst, wird dieser nicht abgefangen und in ein abgelehntes Promise umgewandelt.
 
-Sie können diesen Ausdruck in `try...catch` einschließen:
+Sie können den Ausdruck in `try...catch` einschließen:
 
 ```js
 let result;
@@ -47,53 +47,53 @@ try {
 }
 ```
 
-Das Problem ist, dass `try...catch` kein Ausdruck ist, sodass Sie es nicht direkt an Ausdruckspositionen verwenden können, beispielsweise beim Übergeben an andere Funktionen.
+Das Problem ist, dass `try...catch` kein Ausdruck ist. Sie können es daher nicht direkt dort verwenden, wo ein Ausdruck erwartet wird, etwa als Argument einer anderen Funktion.
 
-Daher wird beim Überführen eines Funktionsergebnisses in ein Promise – erfüllt oder abgelehnt – häufiger Folgendes verwendet:
+Um das Ergebnis eines Funktionsaufrufs in ein erfülltes oder abgelehntes Promise zu überführen, wird daher häufiger Folgendes verwendet:
 
 ```js
 new Promise((resolve) => resolve(func()));
 ```
 
-Beim integrierten `Promise()`-Konstruktor werden Fehler, die vom Executor ausgelöst werden, automatisch abgefangen und in Ablehnungen umgewandelt, sodass dies auch synchrone Fehler verhindert. Das Problem ist, dass dadurch bedingungslos ein neues `Promise`-Objekt erstellt wird, was unnötig ist, wenn `func()` bereits ein `Promise` zurückgibt. `Promise.resolve()` hingegen ist intelligent genug, dieses zusätzliche Einschließen in ein Promise zu vermeiden.
+Beim integrierten `Promise()`-Konstruktor werden Fehler, die der Executor auslöst, automatisch abgefangen und in Ablehnungen umgewandelt. Damit werden auch synchrone Fehler behandelt. Allerdings wird dabei ausnahmslos ein neues `Promise`-Objekt erstellt, was unnötig ist, wenn `func()` bereits ein `Promise` zurückgibt. `Promise.resolve()` vermeidet diese zusätzliche Einbindung in ein Promise.
 
-`Promise.try()` entspricht fast genau dem `try...catch`-Ansatz, außer dass es kürzer ist und als Ausdruck verwendet werden kann:
+`Promise.try()` ist nahezu gleichwertig mit dem Ansatz über `try...catch`, ist aber kürzer und kann als Ausdruck verwendet werden:
 
 ```js
 Promise.try(func);
 ```
 
-Beachten Sie, dass `Promise.try()` trotz großer Ähnlichkeit _nicht_ diesem Ausdruck entspricht:
+Beachten Sie, dass `Promise.try()` trotz großer Ähnlichkeit _nicht_ dem Folgenden entspricht:
 
 ```js
 Promise.resolve().then(func);
 ```
 
-Der Unterschied besteht darin, dass der an {{jsxref("Promise/then", "then()")}} übergebene Callback immer asynchron aufgerufen wird, während der Executor des `Promise()`-Konstruktors synchron aufgerufen wird. `Promise.try` ruft die Funktion ebenfalls synchron auf und löst das Promise, wenn möglich, sofort auf.
+Der Unterschied besteht darin, dass die an {{jsxref("Promise/then", "then()")}} übergebene Callback-Funktion immer asynchron aufgerufen wird, während der Executor des `Promise()`-Konstruktors synchron aufgerufen wird. Auch `Promise.try` ruft die Funktion synchron auf und löst das Promise nach Möglichkeit sofort auf.
 
-`Promise.try()` kann zusammen mit {{jsxref("Promise/catch", "catch()")}} und {{jsxref("Promise/finally", "finally()")}} verwendet werden, um sowohl synchrone als auch asynchrone Fehler in einer einzigen Kette zu behandeln und die Fehlerbehandlung von Promises fast wie synchrone Fehlerbehandlung erscheinen zu lassen.
+Zusammen mit {{jsxref("Promise/catch", "catch()")}} und {{jsxref("Promise/finally", "finally()")}} kann `Promise.try()` synchrone und asynchrone Fehler in einer einzigen Promise-Kette behandeln. Dadurch ähnelt die Fehlerbehandlung bei Promises der synchronen Fehlerbehandlung.
 
-Wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) akzeptiert `Promise.try()` zusätzliche Argumente, die an den Callback übergeben werden. Das bedeutet, dass Sie statt Folgendem:
+Wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) akzeptiert `Promise.try()` zusätzliche Argumente, die an die Callback-Funktion übergeben werden. Statt Folgendes zu schreiben:
 
 ```js
 Promise.try(() => func(arg1, arg2));
 ```
 
-Folgendes tun können:
+können Sie Folgendes schreiben:
 
 ```js
 Promise.try(func, arg1, arg2);
 ```
 
-Beide Varianten sind gleichwertig, aber die letztere vermeidet das Erstellen eines zusätzlichen Closure und ist effizienter.
+Beide Varianten sind gleichwertig. Die zweite vermeidet jedoch die Erstellung einer zusätzlichen Closure und ist effizienter.
 
-`Promise.try()` ist generisch und unterstützt Vererbung, was bedeutet, dass es auf Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Promise des Unterklassentyps enthält. Dazu muss der Konstruktor der Unterklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren – also eine einzelne `executor`-Funktion akzeptieren, die mit den Callbacks `resolve` und `reject` als Parametern aufgerufen werden kann.
+`Promise.try()` ist generisch und unterstützt Unterklassen. Es kann also für Unterklassen von `Promise` aufgerufen werden; das Ergebnis enthält dann ein Promise des Unterklassentyps. Dazu muss der Konstruktor der Unterklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren: Er muss eine einzelne `executor`-Funktion entgegennehmen, die mit den Callback-Funktionen `resolve` und `reject` als Parametern aufgerufen werden kann.
 
 ## Beispiele
 
-### Verwenden von Promise.try()
+### Promise.try() verwenden
 
-Das folgende Beispiel nimmt einen Callback entgegen, „hebt“ ihn in ein Promise, verarbeitet das Ergebnis und führt eine Fehlerbehandlung durch:
+Das folgende Beispiel nimmt eine Callback-Funktion entgegen, überführt sie in ein Promise, verarbeitet das Ergebnis und behandelt mögliche Fehler:
 
 ```js
 function doSomething(action) {
@@ -116,7 +116,7 @@ doSomething(async () => {
 });
 ```
 
-Mit async/await würde derselbe Code folgendermaßen aussehen:
+Mit async/await sähe derselbe Code so aus:
 
 ```js
 async function doSomething(action) {
@@ -131,11 +131,11 @@ async function doSomething(action) {
 }
 ```
 
-### Aufrufen von try() bei einem Nicht-Promise-Konstruktor
+### try() für einen Konstruktor aufrufen, der kein Promise-Konstruktor ist
 
-`Promise.try()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der dieselbe Signatur wie der `Promise()`-Konstruktor implementiert.
+`Promise.try()` ist eine generische Methode. Sie kann für jeden Konstruktor aufgerufen werden, der dieselbe Signatur wie der `Promise()`-Konstruktor implementiert.
 
-Das Folgende ist eine etwas originalgetreuere Annäherung an das tatsächliche `Promise.try()` (sollte jedoch weiterhin nicht als Polyfill verwendet werden):
+Das Folgende ist eine etwas genauere Annäherung an die tatsächliche Implementierung von `Promise.try()` (sollte aber dennoch nicht als Polyfill verwendet werden):
 
 ```js
 Promise.try = function (func, ...args) {
@@ -149,9 +149,9 @@ Promise.try = function (func, ...args) {
 };
 ```
 
-`Promise.try()` delegiert an {{jsxref("Promise.resolve()")}} und {{jsxref("Promise.reject()")}}, um den Rückgabewert zu erstellen, und beide Funktionen sind generisch.
+`Promise.try()` verwendet {{jsxref("Promise.resolve()")}} und {{jsxref("Promise.reject()")}}, um den Rückgabewert zu erzeugen. Beide Funktionen sind generisch.
 
-Beispielsweise können wir es bei einem Konstruktor aufrufen, der `console.log` als die Funktionen `resolve` und `reject` an `executor` übergibt:
+Beispielsweise können wir die Methode für einen Konstruktor aufrufen, der `console.log` als `resolve`- und `reject`-Funktion an `executor` übergibt:
 
 ```js
 class NotPromise {
@@ -188,8 +188,8 @@ const p2 = NotPromise.try(() => {
 
 ## Siehe auch
 
-- [Polyfill von `Promise.try` in `core-js`](https://github.com/zloirock/core-js#promisetry)
-- [es-shims-Polyfill von `Promise.try`](https://www.npmjs.com/package/promise.try)
-- Leitfaden [Verwenden von Promises](/de/docs/Web/JavaScript/Guide/Using_promises)
+- [Polyfill für `Promise.try` in `core-js`](https://core-js.io/docs/features/ecmascript/promise)
+- [Polyfill für `Promise.try` von es-shims](https://www.npmjs.com/package/promise.try)
+- Leitfaden zur [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises)
 - {{jsxref("Promise")}}
 - [`Promise()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)

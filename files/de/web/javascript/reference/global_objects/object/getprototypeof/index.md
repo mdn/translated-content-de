@@ -3,10 +3,10 @@ title: Object.getPrototypeOf()
 short-title: getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Object.getPrototypeOf()`** gibt das Prototypobjekt (d.h. den Wert der internen `[[Prototype]]`-Eigenschaft) des angegebenen Objekts zurück.
+Die statische Methode **`Object.getPrototypeOf()`** gibt den Prototyp (d.h. den Wert der internen Eigenschaft `[[Prototype]]`) des angegebenen Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.getPrototypeOf()", "shorter")}}
 
@@ -31,11 +31,11 @@ Object.getPrototypeOf(obj)
 
 ### Rückgabewert
 
-Der Prototyp des angegebenen Objekts, der möglicherweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
+Der Prototyp des angegebenen Objekts, der auch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein kann.
 
 ## Beispiele
 
-### Verwendung von getPrototypeOf
+### getPrototypeOf verwenden
 
 ```js
 const proto = {};
@@ -43,9 +43,9 @@ const obj = Object.create(proto);
 Object.getPrototypeOf(obj) === proto; // true
 ```
 
-### Zwangsumwandlung von Nicht-Objekten
+### Umwandlung von Nicht-Objekten
 
-In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme geworfen, wenn der `obj`-Parameter kein Objekt ist. In ES2015 wird der Parameter in ein {{jsxref("Object")}} umgewandelt.
+In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst, wenn der Parameter `obj` kein Objekt ist. In ES2015 wird der Parameter in ein {{jsxref("Object")}} umgewandelt.
 
 ```js
 Object.getPrototypeOf("foo");
@@ -64,8 +64,8 @@ Object.getPrototypeOf("foo");
 
 ## Siehe auch
 
-- [Polyfill von `Object.getPrototypeOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
-- [es-shims Polyfill von `Object.getPrototypeOf`](https://www.npmjs.com/package/object.getprototypeof)
+- [Polyfill für `Object.getPrototypeOf` in `core-js`](https://core-js.io/docs/features/ecmascript/object)
+- [Polyfill für `Object.getPrototypeOf` von es-shims](https://www.npmjs.com/package/object.getprototypeof)
 - {{jsxref("Object.prototype.isPrototypeOf()")}}
 - {{jsxref("Object.setPrototypeOf()")}}
 - [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)

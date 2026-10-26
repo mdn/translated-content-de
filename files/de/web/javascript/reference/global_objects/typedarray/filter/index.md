@@ -3,10 +3,10 @@ title: TypedArray.prototype.filter()
 short-title: filter()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/filter
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`filter()`**-Methode von {{jsxref("TypedArray")}}-Instanzen erstellt eine Kopie eines Teils eines gegebenen typisierten Arrays, gefiltert auf nur die Elemente aus dem gegebenen typisierten Array, die den Test bestehen, der von der bereitgestellten Funktion implementiert wird. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.filter()")}}.
+Die Methode **`filter()`** von {{jsxref("TypedArray")}}-Instanzen erstellt eine Kopie eines Teils eines typisierten Arrays. Diese enthält nur die Elemente des ursprünglichen typisierten Arrays, die den von der übergebenen Funktion implementierten Test bestehen. Die Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.filter()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.filter()")}}
 
@@ -32,29 +32,29 @@ filter(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um das Element im resultierenden typisierten Array zu behalten, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um das Element im resultierenden typisierten Array zu behalten, andernfalls einen {{Glossary("Falsy", "falsy")}}-Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf dem `filter()` aufgerufen wurde.
+      - : Das typisierte Array, für das `filter()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der beim Ausführen von `callbackFn` als `this` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Eine Kopie des gegebenen typisierten Arrays, das nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres typisiertes Array zurückgegeben.
+Eine Kopie des übergebenen typisierten Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres typisiertes Array zurückgegeben.
 
 ## Beschreibung
 
-Weitere Details finden Sie unter {{jsxref("Array.prototype.filter()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.filter()")}}. Diese Methode ist nicht generisch und kann nur für Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Herausfiltern aller kleinen Werte
+### Alle kleinen Werte herausfiltern
 
-Das folgende Beispiel verwendet `filter()`, um ein gefiltertes typisiertes Array zu erstellen, das alle Elemente mit Werten unter 10 entfernt.
+Das folgende Beispiel verwendet `filter()`, um ein gefiltertes typisiertes Array zu erstellen, aus dem alle Elemente mit einem Wert kleiner als 10 entfernt wurden.
 
 ```js
 function isBigEnough(element, index, array) {
@@ -74,8 +74,8 @@ new Uint8Array([12, 5, 8, 130, 44]).filter(isBigEnough);
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.filter` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- Leitfaden zu [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Polyfill für `TypedArray.prototype.filter` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Leitfaden zu typisierten Arrays in JavaScript](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.forEach()")}}
 - {{jsxref("TypedArray.prototype.every()")}}

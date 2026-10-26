@@ -3,10 +3,10 @@ title: String.prototype.padEnd()
 short-title: padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer angegebenen Zeichenkette auf (falls nötig wiederholt und/oder gekürzt), sodass die resultierende Zeichenkette eine bestimmte Länge hat. Das Auffüllen erfolgt vom Ende dieser Zeichenkette aus.
+Die Methode **`padEnd()`** von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String auf (der bei Bedarf wiederholt und/oder gekürzt wird), sodass der resultierende String eine bestimmte Länge hat. Die Zeichen werden am Ende dieses Strings angefügt.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padEnd()")}}
 
@@ -32,17 +32,17 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge der resultierenden Zeichenkette, nachdem die aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Ist der Wert kleiner oder gleich `str.length`, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Die Zeichenkette, mit der die aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird sie am Ende abgeschnitten. Der Standardwert ist das Leerzeichen (U+0020).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb von `targetLength` zu bleiben, wird er am Ende gekürzt. Der Standardwert ist das Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString` am Ende angewendet.
+Ein {{jsxref("String")}} mit der angegebenen Länge `targetLength`, an dessen Ende `padString` angefügt wurde.
 
 ## Beispiele
 
-### Verwendung von String.prototype.padEnd()
+### String.prototype.padEnd() verwenden
 
 ```js
 "abc".padEnd(10); // "abc       "
@@ -61,6 +61,6 @@ Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString` am Ende 
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.padEnd` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.padEnd`](https://www.npmjs.com/package/string.prototype.padend)
+- [Polyfill für `String.prototype.padEnd` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.padEnd` von es-shims](https://www.npmjs.com/package/string.prototype.padend)
 - {{jsxref("String.prototype.padStart()")}}

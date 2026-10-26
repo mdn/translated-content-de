@@ -3,15 +3,15 @@ title: Map.groupBy()
 short-title: groupBy()
 slug: Web/JavaScript/Reference/Global_Objects/Map/groupBy
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 > [!NOTE]
-> In einigen Versionen einiger Browser wurde diese Methode als `Array.prototype.groupToMap()` implementiert. Aufgrund von Web-Kompatibilitätsproblemen wird sie nun als statische Methode implementiert. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
+> In einigen Versionen bestimmter Browser wurde diese Methode als `Array.prototype.groupToMap()` implementiert. Aufgrund von Problemen mit der Webkompatibilität ist sie jetzt als statische Methode implementiert. Weitere Informationen finden Sie in der [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität).
 
-Die statische Methode **`Map.groupBy()`** gruppiert die Elemente eines gegebenen Iterables mithilfe der Werte, die von einer bereitgestellten Callback-Funktion zurückgegeben werden. Die endgültig zurückgegebene {{jsxref("Map")}} verwendet die eindeutigen Werte der Testfunktion als Schlüssel, die zum Abrufen des Arrays der Elemente in jeder Gruppe verwendet werden können.
+Die statische Methode **`Map.groupBy()`** gruppiert die Elemente eines übergebenen iterierbaren Objekts anhand der Werte, die eine bereitgestellte Callback-Funktion zurückgibt. Die zurückgegebene {{jsxref("Map")}} verwendet die eindeutigen Rückgabewerte der Funktion als Schlüssel. Über diese Schlüssel lässt sich das Array der Elemente in der jeweiligen Gruppe abrufen.
 
-Die Methode ist hauptsächlich nützlich, wenn Elemente gruppiert werden, die mit einem Objekt verknüpft sind, insbesondere wenn sich dieses Objekt im Laufe der Zeit ändern könnte. Wenn das Objekt unveränderlich ist, könnten Sie stattdessen einen String verwenden und die Elemente mit {{jsxref("Object.groupBy()")}} gruppieren.
+Die Methode ist besonders nützlich, wenn Elemente anhand eines Objekts gruppiert werden sollen, das sich im Laufe der Zeit ändern kann. Wenn das Objekt unveränderlich ist, können Sie es stattdessen als String darstellen und die Elemente mit {{jsxref("Object.groupBy()")}} gruppieren.
 
 {{InteractiveExample("JavaScript Demo: Map.groupBy()", "taller")}}
 
@@ -42,9 +42,9 @@ Map.groupBy(items, callbackFn)
 ### Parameter
 
 - `items`
-  - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}), dessen Elemente gruppiert werden.
+  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (z. B. ein {{jsxref("Array")}}), dessen Elemente gruppiert werden.
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Iterable ausgeführt wird. Sie sollte einen Wert ({{Glossary("object", "objekt")}} oder {{Glossary("primitive", "primitiv")}}) zurückgeben, der die Gruppe des aktuellen Elements angibt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element des iterierbaren Objekts ausgeführt wird. Sie sollte einen Wert ({{Glossary("object", "Objekt")}} oder {{Glossary("primitive", "primitiven Wert")}}) zurückgeben, der die Gruppe des aktuellen Elements angibt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuell verarbeitete Element.
     - `index`
@@ -52,26 +52,26 @@ Map.groupBy(items, callbackFn)
 
 ### Rückgabewert
 
-Ein {{jsxref("Map")}}-Objekt mit Schlüsseln für jede Gruppe, wobei jeder Schlüssel einem Array zugewiesen ist, das die Elemente der zugehörigen Gruppe enthält.
+Ein {{jsxref("Map")}}-Objekt mit einem Schlüssel für jede Gruppe. Jedem Schlüssel ist ein Array mit den Elementen der zugehörigen Gruppe zugeordnet.
 
 ## Beschreibung
 
-`Map.groupBy()` ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Iterable auf. Die Callback-Funktion sollte einen Wert zurückgeben, der die Gruppe des zugehörigen Elements angibt. Die von `callbackFn` zurückgegebenen Werte werden als Schlüssel für die von `Map.groupBy()` zurückgegebene {{jsxref("Map")}} verwendet. Jeder Schlüssel hat ein zugeordnetes Array, das alle Elemente enthält, für die die Callback-Funktion denselben Wert zurückgegeben hat.
+`Map.groupBy()` ruft die bereitgestellte Funktion `callbackFn` einmal für jedes Element eines iterierbaren Objekts auf. Die Callback-Funktion sollte einen Wert zurückgeben, der die Gruppe des jeweiligen Elements angibt. Die von `callbackFn` zurückgegebenen Werte werden als Schlüssel für die von `Map.groupBy()` zurückgegebene {{jsxref("Map")}} verwendet. Jedem Schlüssel ist ein Array mit allen Elementen zugeordnet, für die die Callback-Funktion denselben Wert zurückgegeben hat.
 
-Die Elemente in der zurückgegebenen {{jsxref("Map")}} und dem ursprünglichen Iterable sind dieselben (keine {{Glossary("deep_copy", "tiefe Kopien")}}). Änderungen an der internen Struktur der Elemente werden sowohl im ursprünglichen Iterable als auch in der zurückgegebenen {{jsxref("Map")}} widergespiegelt.
+Die Elemente in der zurückgegebenen {{jsxref("Map")}} und im ursprünglichen iterierbaren Objekt sind dieselben (keine {{Glossary("deep_copy", "tiefen Kopien")}}). Änderungen an der internen Struktur der Elemente sind daher sowohl im ursprünglichen iterierbaren Objekt als auch in der zurückgegebenen {{jsxref("Map")}} sichtbar.
 
-Diese Methode ist nützlich, wenn Sie Informationen gruppieren müssen, die mit einem bestimmten Objekt verknüpft sind, das sich möglicherweise im Laufe der Zeit ändert. Dies liegt daran, dass das Objekt, selbst wenn es modifiziert wird, weiterhin als Schlüssel zur zurückgegebenen `Map` funktionieren wird. Wenn Sie stattdessen eine String-Darstellung für das Objekt erstellen und diese als Gruppierungsschlüssel in {{jsxref("Object.groupBy()")}} verwenden, müssen Sie die Zuordnung zwischen dem ursprünglichen Objekt und seiner Darstellung beibehalten, während sich das Objekt ändert.
+Diese Methode ist nützlich, wenn Sie Informationen anhand eines bestimmten Objekts gruppieren müssen, das sich im Laufe der Zeit ändern kann. Auch nach einer Änderung kann das Objekt weiterhin als Schlüssel in der zurückgegebenen `Map` verwendet werden. Wenn Sie stattdessen eine String-Darstellung des Objekts erstellen und diese mit {{jsxref("Object.groupBy()")}} als Gruppierungsschlüssel verwenden, müssen Sie die Zuordnung zwischen dem ursprünglichen Objekt und seiner Darstellung bei Änderungen am Objekt selbst aktualisieren.
 
 > [!NOTE]
-> Um auf die Gruppen in der zurückgegebenen `Map` zuzugreifen, müssen Sie dasselbe Objekt verwenden, das ursprünglich als Schlüssel in der `Map` verwendet wurde (obwohl Sie dessen Eigenschaften ändern können). Sie können kein anderes Objekt verwenden, das zufällig denselben Namen und dieselben Eigenschaften hat.
+> Um auf die Gruppen in der zurückgegebenen `Map` zuzugreifen, müssen Sie dasselbe Objekt verwenden, das ursprünglich als Schlüssel in der `Map` verwendet wurde (seine Eigenschaften dürfen Sie jedoch ändern). Ein anderes Objekt mit zufällig demselben Namen und denselben Eigenschaften funktioniert nicht.
 
-`Map.groupBy` liest den Wert von `this` nicht. Es kann auf jedem Objekt aufgerufen werden und eine neue {{jsxref("Map")}}-Instanz wird zurückgegeben.
+`Map.groupBy` liest den Wert von `this` nicht. Die Methode kann für ein beliebiges Objekt aufgerufen werden und gibt eine neue {{jsxref("Map")}}-Instanz zurück.
 
 ## Beispiele
 
-### Verwendung von Map.groupBy()
+### Map.groupBy() verwenden
 
-Zuerst definieren wir ein Array, das Objekte enthält, die ein Inventar verschiedener Lebensmittel darstellen. Jedes Lebensmittel hat einen `type` und eine `quantity`.
+Zunächst definieren wir ein Array mit Objekten, die einen Bestand verschiedener Lebensmittel darstellen. Jedes Lebensmittel hat einen `type` und eine `quantity`.
 
 ```js
 const inventory = [
@@ -83,7 +83,7 @@ const inventory = [
 ];
 ```
 
-Der unten stehende Code verwendet `Map.groupBy()` mit einer Pfeilfunktion, die die Objektschlüssel `restock` oder `sufficient` zurückgibt, abhängig davon, ob das Element `quantity < 6` hat. Das zurückgegebene `result`-Objekt ist eine `Map`, sodass wir `get()` mit dem Schlüssel aufrufen müssen, um das Array zu erhalten.
+Der folgende Code verwendet `Map.groupBy()` mit einer Pfeilfunktion, die je nachdem, ob für das Element `quantity < 6` gilt, den Objektschlüssel `restock` oder `sufficient` zurückgibt. Das zurückgegebene Objekt `result` ist eine `Map`. Deshalb müssen wir `get()` mit dem jeweiligen Schlüssel aufrufen, um das Array abzurufen.
 
 ```js
 const restock = { restock: true };
@@ -95,9 +95,9 @@ console.log(result.get(restock));
 // [{ name: "bananas", type: "fruit", quantity: 5 }]
 ```
 
-Beachten Sie, dass das Funktionsargument `{ quantity }` ein einfaches Beispiel für die [Destrukturierungssyntax für Funktionsargumente](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#unpacking_properties_from_objects_passed_as_a_function_parameter) ist. Dies packt die `quantity`-Eigenschaft eines als Parameter übergebenen Objekts aus und weist sie einer Variablen namens `quantity` im Funktionskörper zu. Dies ist eine sehr prägnante Möglichkeit, auf die relevanten Werte von Elementen innerhalb einer Funktion zuzugreifen.
+Das Funktionsargument `{ quantity }` ist ein einfaches Beispiel für die [Destrukturierung von Objekten in Funktionsargumenten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#unpacking_properties_from_objects_passed_as_a_function_parameter). Dabei wird die Eigenschaft `quantity` eines als Parameter übergebenen Objekts entnommen und innerhalb der Funktion einer Variablen namens `quantity` zugewiesen. So können Sie innerhalb einer Funktion auf knappe Weise auf die relevanten Werte der Elemente zugreifen.
 
-Der Schlüssel zu einer `Map` kann geändert und weiterhin verwendet werden. Sie können jedoch den Schlüssel nicht neu erstellen und weiterhin verwenden. Aus diesem Grund ist es wichtig, dass alles, was die Map verwenden muss, einen Bezug zu seinen Schlüsseln beibehält.
+Ein Schlüssel einer `Map` kann verändert und weiterhin verwendet werden. Er kann jedoch nicht neu erstellt und dann als derselbe Schlüssel verwendet werden. Deshalb ist es wichtig, dass Code, der die Map verwenden muss, Referenzen auf ihre Schlüssel behält.
 
 ```js
 // The key can be modified and still used
@@ -120,9 +120,9 @@ console.log(result.get(restock2)); // undefined
 
 ## Siehe auch
 
-- [Polyfill von `Map.groupBy` in `core-js`](https://github.com/zloirock/core-js#array-grouping)
-- [es-shims polyfill von `Map.groupBy`](https://www.npmjs.com/package/map.groupby)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Polyfill für `Map.groupBy` in `core-js`](https://core-js.io/docs/features/ecmascript/collections#h-map)
+- [Polyfill für `Map.groupBy` von es-shims](https://www.npmjs.com/package/map.groupby)
+- Leitfaden zu [indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array.prototype.reduce()")}}
 - {{jsxref("Map/Map", "Map()")}}
 - {{jsxref("Object.groupBy()")}}

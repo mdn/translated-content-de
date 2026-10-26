@@ -1,18 +1,18 @@
 ---
-title: JavaScript-Klassenseitenvorlage
+title: Vorlage für JavaScript-Klassenseiten
 slug: MDN/Writing_guidelines/Page_structures/Page_types/JavaScript_class_page_template
 l10n:
-  sourceCommit: 4c5b1bd7b5f9142c4c53ab6321e19bfdfaf1ddda
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
 > [!NOTE]
-> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
+> _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung._
 >
 > ---
 >
-> **Frontmatter der Seite:**
+> **Front Matter der Seite:**
 >
-> Das Frontmatter am Anfang der Seite wird verwendet, um „Seitenmetadaten“ zu definieren. Die Werte sollten für die jeweilige Klasse entsprechend aktualisiert werden.
+> Das Front Matter am Anfang der Seite definiert die Metadaten der Seite. Die Werte sollten für die jeweilige Klasse entsprechend angepasst werden.
 >
 > ```md
 > ---
@@ -29,51 +29,51 @@ l10n:
 > ```
 >
 > - **title**
->   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Formatieren Sie sie als `Constructor`. Die Klasse [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) hat beispielsweise den _title_ `Array`.
+>   - : Titel, der oben auf der Seite angezeigt wird. Verwenden Sie das Format `Constructor`. Die Klasse [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) hat beispielsweise den _Titel_ `Array`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dieser sollte wie `Web/JavaScript/Reference/Global_Objects/Constructor` formatiert sein.
+>   - : Der Teil des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Er sollte wie `Web/JavaScript/Reference/Global_Objects/Constructor` formatiert sein.
 > - **page-type**
->   - : Der Schlüssel `page-type` für JavaScript-Klassen ist `javascript-class`.
+>   - : Der Schlüssel `page-type` hat für JavaScript-Klassen den Wert `javascript-class`.
 > - **status**
->   - : Kennzeichen, die den Status dieses Features beschreiben. Ein Array, das eines oder mehrere der folgenden Elemente enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch anhand der Werte in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe [„Wie Feature-Status hinzugefügt oder aktualisiert werden“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch anhand der Werte in den Browser-Kompatibilitätsdaten für das Feature festgelegt. Siehe [„Wie Feature-Status hinzugefügt oder aktualisiert werden“](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert `javascript.builtins.Constructor` durch die Abfragezeichenfolge für die Klasse im [Browser-compat-data-Repository](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte zur Kompatibilität und Spezifikation auszufüllen (und ersetzt dabei die Makros `\{{Compat}}` und `\{{Specifications}}`).
+>   - : Ersetzen Sie den Platzhalterwert `javascript.builtins.Constructor` durch den Abfrageschlüssel für die Klasse im [Repository für Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet diesen Schlüssel automatisch, um die Abschnitte zur Kompatibilität und zu den Spezifikationen zu füllen (und ersetzt dabei die Makros `\{{Compat}}` und `\{{Specifications}}`).
 >
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Klasse in unserem [Browser-compat-data-Repository](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren müssen und dass der Eintrag für die API Spezifikationsinformationen enthalten muss.
->     Siehe unseren [Leitfaden dazu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Klasse in unserem [Repository für Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren müssen. Der Eintrag für die API muss auch Angaben zur Spezifikation enthalten.
+>     Lesen Sie dazu unseren [Leitfaden](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 > - **sidebar**
->   - : Dies ist `jsref` für JavaScript-Klassenseiten.
->     Einzelheiten finden Sie unter [Seitenstrukturen: Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars).
+>   - : Für JavaScript-Klassenseiten lautet der Wert `jsref`.
+>     Weitere Informationen finden Sie unter [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars).
 >
 > ---
 >
 > **Makros am Seitenanfang**
 >
-> Am Anfang des Inhaltsabschnitts (unmittelbar unter dem Frontmatter der Seite) erscheinen mehrere Makroaufrufe.
+> Am Anfang des Inhaltsbereichs (direkt unter dem Front Matter der Seite) stehen mehrere Makroaufrufe.
 >
-> Diese Makros werden automatisch von der Toolchain hinzugefügt (sie müssen nicht hinzugefügt oder entfernt werden):
+> Diese Makros werden von der Toolchain automatisch hinzugefügt (Sie müssen sie nicht hinzufügen oder entfernen):
 >
-> - `\{{SeeCompatTable}}` — dies erzeugt ein Banner **Dies ist eine experimentelle Technologie**, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn sie experimentell ist und die Technologie in Firefox hinter einer Präferenz verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Non-standard_Header}}` — dies erzeugt ein Banner **Nicht standardisiert**, das darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — erzeugt einen Hinweis **Dies ist eine experimentelle Technologie**, der darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn sie experimentell ist und in Firefox hinter einer Einstellung verborgen ist, sollten Sie auch auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) einen Eintrag dafür ergänzen.
+> - `\{{Non-standard_Header}}` — erzeugt einen Hinweis **Nicht standardisiert**, der darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
 >
-> Geben Sie keine Makros für Statusüberschriften manuell an. Informationen zum Hinzufügen dieser Status zur Seite finden Sie im Abschnitt [Wie Feature-Status hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+> Fügen Sie Status-Header-Makros nicht manuell hinzu. Im Abschnitt [Wie Feature-Status hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated) erfahren Sie, wie Sie diese Status zur Seite hinzufügen.
 >
-> Beispiele für die Banner **Experimentell** und **Nicht standardisiert** werden direkt nach diesem Hinweisblock angezeigt.
+> Beispiele für die Hinweise **Experimentell** und **Nicht standardisiert** finden Sie direkt nach diesem Hinweisblock.
 >
 > _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen._
 
 > [!NOTE]
-> Denken Sie an das wichtigste Prinzip beim Schreiben konsistenter JavaScript-Referenzseiten: **schauen Sie sich um**! Viele verwandte Seiten haben konsistente Strukturen, die über die Anforderungen dieser Vorlage hinausgehen. Beispielsweise alle Proxy-Handler, die meisten Array-Methoden usw. Beginnen Sie damit, nach vorhandener Dokumentation für ähnliche APIs zu suchen, und übernehmen Sie deren Struktur.
+> Denken Sie an den wichtigsten Grundsatz für einheitliche JavaScript-Referenzseiten: **Sehen Sie sich um**! Viele verwandte Seiten haben einheitliche Strukturen, die über die Vorgaben dieser Vorlage hinausgehen. Das gilt beispielsweise für alle Proxy-Handler, die meisten Array-Methoden usw. Sehen Sie sich zunächst die vorhandene Dokumentation ähnlicher APIs an und übernehmen Sie deren Struktur.
 
 {{SeeCompatTable}}{{Non-standard_Header}}
 
-Das **`Constructor`**-Objekt repräsentiert etwas. Dies sollte idealerweise aus 1 oder 2 kurzen Sätzen bestehen. Schreiben Sie im Allgemeinen nicht mehr als einen einzelnen Absatz mit mehr als wenigen Sätzen: Wesentliche Details gehören in die Beschreibung.
+Das Objekt **`Constructor`** stellt etwas dar. Diese Beschreibung sollte idealerweise aus ein oder zwei kurzen Sätzen bestehen. Schreiben Sie hier im Allgemeinen nicht mehr als einen kurzen Absatz: Ausführlichere Informationen gehören in die Beschreibung.
 
 (Falls zutreffend) `Constructor` ist eine Unterklasse von \\{{jsxref("BaseConstructor")}}.
 
-Schreiben Sie ein [interaktives Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples), das wichtige Aspekte der Klasse veranschaulicht. Dies sollte selten vorkommen: Üblicherweise würden Sie interaktive Beispiele für den Konstruktor und jede einzelne Methode haben. Schreiben Sie nur dann ein interaktives Beispiel für die Klasse, wenn es die Klasse als Ganzes demonstriert, beispielsweise den gesamten CRUD-Workflow mit einem {{jsxref("Map")}}.
+Erstellen Sie ein [interaktives Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples), das wichtige Aspekte der Klasse veranschaulicht. Das sollte selten nötig sein: In der Regel gibt es interaktive Beispiele für den Konstruktor und jede einzelne Methode. Erstellen Sie nur dann ein interaktives Beispiel für die Klasse, wenn es die Klasse als Ganzes veranschaulicht, etwa den vollständigen CRUD-Ablauf mit einer {{jsxref("Map")}}.
 
 {{InteractiveExample("JavaScript Demo: Constructor")}}
 
@@ -88,11 +88,11 @@ console.log(obj.something);
 Die Beschreibung einer Klasse sollte Folgendes enthalten:
 
 - Hintergrundinformationen dazu, warum die API nützlich ist
-- Kernkonzepte, auf die Unterseiten potenziell verlinken könnten
-- Überblick über Möglichkeiten zur Interaktion mit dieser API
-- Einschränkungen
+- Grundlegende Konzepte, auf die Unterseiten gegebenenfalls verweisen können
+- Einen Überblick über die Möglichkeiten, mit dieser API zu arbeiten
+- Einschränkungen und Besonderheiten
 
-Verwenden Sie gegebenenfalls H3-Überschriften.
+Verwenden Sie bei Bedarf H3-Überschriften.
 
 ## Konstruktor
 
@@ -107,7 +107,7 @@ Verwenden Sie gegebenenfalls H3-Überschriften.
 ## Statische Methoden
 
 - \\{{jsxref("Constructor.nameOfTheMethod()")}}
-  - : Führt etwas aus.
+  - : Führt eine Aktion aus.
 
 ## Instanzeigenschaften
 
@@ -118,9 +118,9 @@ Diese Eigenschaften sind auf `Constructor.prototype` definiert und werden von al
 - \\{{jsxref("Constructor.prototype.nameOfTheProperty")}}
   - : Gibt etwas zurück.
 - `Constructor.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der Eigenschaft [`Symbol.toStringTag`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) ist die Zeichenkette `"Constructor"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der Eigenschaft [`Symbol.toStringTag`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) ist die Zeichenfolge `"Constructor"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-Diese Eigenschaften sind eigene Eigenschaften jeder `Constructor`-Instanz.
+Die folgenden Eigenschaften sind eigene Eigenschaften jeder `Constructor`-Instanz.
 
 - \\{{jsxref("Constructor/nameOfTheProperty", "nameOfTheProperty")}}
   - : Enthält etwas.
@@ -132,11 +132,11 @@ Diese Eigenschaften sind eigene Eigenschaften jeder `Constructor`-Instanz.
 
 ## Beispiele
 
-Beachten Sie, dass wir den Plural „Beispiele“ verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir auch dann die Pluralform „Beispiele“ verwenden, wenn die Seite nur ein Beispiel enthält.
 
-### Eine beschreibende Überschrift
+### Eine aussagekräftige Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Beispielsweise sagt „Ein einfaches Beispiel“ nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte kurz sein. Verwenden Sie für eine längere Beschreibung den Absatz nach der Überschrift. Das erste Beispiel kann „Verwendung von Constructor“ heißen.
+Jedes Beispiel muss eine H3-Überschrift haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel zeigt. „Ein einfaches Beispiel“ sagt beispielsweise nichts über den Inhalt aus und ist daher keine geeignete Überschrift. Die Überschrift sollte kurz sein. Verwenden Sie für eine ausführlichere Beschreibung den Absatz nach der Überschrift. Das erste Beispiel kann „Constructor verwenden“ heißen.
 
 Weitere Informationen finden Sie in unserem Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples).
 
@@ -144,20 +144,20 @@ Weitere Informationen finden Sie in unserem Leitfaden zum Hinzufügen von [Codeb
 
 `\{{Specifications}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie im Markdown-Dokument die Backticks und den Backslash._
 
 ## Browser-Kompatibilität
 
 `\{{Compat}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie im Markdown-Dokument die Backticks und den Backslash._
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Klasse beziehen. Weitere Richtlinien finden Sie im [Abschnitt „Siehe auch“](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Leitfaden zum Schreibstil_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Klasse beziehen. Weitere Richtlinien finden Sie im Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) des _Schreibstil-Leitfadens_.
 
-- [Polyfill von `Constructor` in `core-js`](https://github.com/zloirock/core-js#anchor)
-- [es-shims-Polyfill von `Constructor`](https://www.npmjs.com/package/es-aggregate-error)
-- link1
-- link2
-- external_link (Jahr)
+- [Polyfill für `Constructor` in `core-js`](https://core-js.io/docs/)
+- [es-shims-Polyfill für `Constructor`](https://www.npmjs.com/package/es-aggregate-error)
+- Link1
+- Link2
+- Externer_Link (Jahr)

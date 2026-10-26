@@ -3,10 +3,10 @@ title: String.prototype.codePointAt()
 short-title: codePointAt()
 slug: Web/JavaScript/Reference/Global_Objects/String/codePointAt
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`codePointAt()`**-Methode von {{jsxref("String")}} Werten gibt eine nicht negative Ganzzahl zurück, die der Unicode-Codepunktwert des Zeichens ist, das an dem angegebenen Index beginnt. Beachten Sie, dass der Index immer noch auf UTF-16-Codeeinheiten basiert, nicht auf Unicode-Codepunkten.
+Die Methode **`codePointAt()`** von {{jsxref("String")}}-Werten gibt eine nicht negative Ganzzahl zurück, die dem Unicode-Codepunkt des Zeichens entspricht, das am angegebenen Index beginnt. Beachten Sie, dass der Index weiterhin auf UTF-16-Codeeinheiten basiert, nicht auf Unicode-Codepunkten.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.codePointAt()", "shorter")}}
 
@@ -26,25 +26,25 @@ codePointAt(index)
 ### Parameter
 
 - `index`
-  - : Nullbasierter Index des zurückzugebenden Zeichens. [In eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 konvertiert.
+  - : Nullbasierter Index des zurückzugebenden Zeichens. Er wird [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 umgewandelt.
 
 ### Rückgabewert
 
-Eine nicht negative Ganzzahl, die den Codepunktwert des Zeichens an der angegebenen `index` repräsentiert.
+Eine nicht negative Ganzzahl, die den Codepunktwert des Zeichens am angegebenen `index` darstellt.
 
-- Wenn `index` außerhalb des Bereichs von `0` – `str.length - 1` liegt, gibt `codePointAt()` {{jsxref("undefined")}} zurück.
-- Wenn das Element am `index` ein UTF-16 führendes Surrogat ist, gibt es den Codepunkt des Surrogatpaars zurück.
-- Wenn das Element am `index` ein UTF-16 nachfolgendes Surrogat ist, gibt es nur die nachfolgende Surrogat-Codeeinheit zurück.
+- Liegt `index` außerhalb des Bereichs von `0` bis `str.length - 1`, gibt `codePointAt()` {{jsxref("undefined")}} zurück.
+- Ist das Element an `index` ein führendes UTF-16-Surrogat, wird der Codepunkt des Surrogat_paares_ zurückgegeben.
+- Ist das Element an `index` ein nachfolgendes UTF-16-Surrogat, wird _nur_ die nachfolgende Surrogat-Codeeinheit zurückgegeben.
 
 ## Beschreibung
 
-Zeichen in einem String sind von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einem String namens `str` ist `str.length - 1`.
+Die Zeichen in einem String werden von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einem String namens `str` ist `str.length - 1`.
 
-Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jeder String-Index eine Codeeinheit mit dem Wert `0` – `65535`. Höhere Codepunkte werden durch ein Paar von 16-Bit-Surrogat-Pseudo-Zeichen dargestellt. Daher gibt `codePointAt()` einen Codepunkt zurück, der sich möglicherweise über zwei String-Indizes erstreckt. Für Informationen zu Unicode, siehe [UTF-16-Zeichen, Unicode-Codepunkte und Grapheme-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
+Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jeder String-Index eine Codeeinheit mit einem Wert von `0` bis `65535`. Höhere Codepunkte werden durch _ein Paar_ von 16-Bit-Surrogat-Pseudozeichen dargestellt. Daher gibt `codePointAt()` einen Codepunkt zurück, der sich über zwei String-Indizes erstrecken kann. Weitere Informationen zu Unicode finden Sie unter [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
 
 ## Beispiele
 
-### Verwendung von codePointAt()
+### codePointAt() verwenden
 
 ```js
 "ABC".codePointAt(0); // 65
@@ -61,9 +61,9 @@ Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jed
 "ABC".codePointAt(42); // undefined
 ```
 
-### Schleifen mit codePointAt()
+### Mit codePointAt() iterieren
 
-Da die Verwendung von String-Indizes für Schleifen dazu führt, dass derselbe Codepunkt zweimal besucht wird (einmal für das führende Surrogat, einmal für das nachfolgende Surrogat), und beim zweiten Mal gibt `codePointAt()` nur das nachfolgende Surrogat zurück, ist es besser, Schleifen nach Index zu vermeiden.
+Wenn Sie mit String-Indizes iterieren, wird derselbe Codepunkt zweimal besucht (einmal beim führenden und einmal beim nachfolgenden Surrogat). Beim zweiten Mal gibt `codePointAt()` _nur_ das nachfolgende Surrogat zurück. Vermeiden Sie daher nach Möglichkeit eine Iteration über Indizes.
 
 ```js example-bad
 const str = "\ud83d\udc0e\ud83d\udc71\u2764";
@@ -74,7 +74,7 @@ for (let i = 0; i < str.length; i++) {
 // '1f40e', 'dc0e', '1f471', 'dc71', '2764'
 ```
 
-Verwenden Sie stattdessen eine [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement)-Anweisung oder [spreaden Sie den String](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), die beide den String's [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) aufrufen, der nach Codepunkten iteriert. Verwenden Sie dann `codePointAt(0)`, um den Codepunkt jedes Elements zu erhalten.
+Verwenden Sie stattdessen eine [`for...of`-Anweisung](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement) oder [verteilen Sie den String mit der Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Beide Möglichkeiten rufen [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) des Strings auf, wodurch über Codepunkte iteriert wird. Verwenden Sie anschließend `codePointAt(0)`, um den Codepunkt jedes Elements zu erhalten.
 
 ```js
 for (const codePoint of str) {
@@ -96,8 +96,8 @@ for (const codePoint of str) {
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.codePointAt` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims-Polyfill von `String.prototype.codePointAt`](https://www.npmjs.com/package/string.prototype.codepointat)
+- [Polyfill für `String.prototype.codePointAt` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.codePointAt` von es-shims](https://www.npmjs.com/package/string.prototype.codepointat)
 - {{jsxref("String.fromCodePoint()")}}
 - {{jsxref("String.fromCharCode()")}}
 - {{jsxref("String.prototype.charCodeAt()")}}

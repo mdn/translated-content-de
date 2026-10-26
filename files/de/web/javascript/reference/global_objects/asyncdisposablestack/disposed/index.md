@@ -3,18 +3,18 @@ title: AsyncDisposableStack.prototype.disposed
 short-title: disposed
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/disposed
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`disposed`** Zugriffs-Eigenschaft von Instanzen des {{jsxref("AsyncDisposableStack")}} gibt einen booleschen Wert zurück, der anzeigt, ob dieser `AsyncDisposableStack` entsorgt oder verschoben wurde, indem eine der folgenden Aktionen ausgeführt wurde:
+Die **`disposed`**-Accessor-Eigenschaft von {{jsxref("AsyncDisposableStack")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob dieser `AsyncDisposableStack` durch eine der folgenden Aktionen freigegeben oder verschoben wurde:
 
-- Aufrufen der {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}} Methode
-- Aufrufen der {{jsxref("AsyncDisposableStack/move", "move()")}} Methode
-- Deklarieren mit {{jsxref("Statements/await_using", "await using")}} und das Variablen aus dem Gültigkeitsbereich entlassen, was automatisch die Methode [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose) aufruft.
+- Aufrufen seiner {{jsxref("AsyncDisposableStack/disposeAsync", "disposeAsync()")}}-Methode
+- Aufrufen seiner {{jsxref("AsyncDisposableStack/move", "move()")}}-Methode
+- Deklarieren mit {{jsxref("Statements/await_using", "await using")}} und Verlassen des Gültigkeitsbereichs durch die Variable, wodurch die Methode [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/Symbol.asyncDispose) automatisch aufgerufen wird.
 
 ## Beispiele
 
-### Überprüfen, ob ein Stack entsorgt wurde
+### Prüfen, ob ein Stack freigegeben wurde
 
 ```js
 const disposer = new AsyncDisposableStack();
@@ -33,4 +33,5 @@ console.log(disposer.disposed); // true
 
 ## Siehe auch
 
-- [JavaScript Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `AsyncDisposableStack.prototype.disposed` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)

@@ -3,10 +3,10 @@ title: Math.sign()
 short-title: sign()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sign
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Math.sign()`** gibt 1 oder -1 zurück, was das Vorzeichen der als Argument übergebenen Zahl anzeigt. Wenn die Eingabe 0 oder -0 ist, wird der Wert unverändert zurückgegeben.
+Die statische Methode **`Math.sign()`** gibt 1 oder -1 zurück und zeigt damit das Vorzeichen der als Argument übergebenen Zahl an. Ist die Eingabe 0 oder -0, wird sie unverändert zurückgegeben.
 
 {{InteractiveExample("JavaScript Demo: Math.sign()")}}
 
@@ -37,21 +37,21 @@ Math.sign(x)
 
 ### Rückgabewert
 
-Eine Zahl, die das Vorzeichen von `x` darstellt:
+Eine Zahl, die das Vorzeichen von `x` angibt:
 
-- Wenn `x` positiv ist, wird `1` zurückgegeben.
-- Wenn `x` negativ ist, wird `-1` zurückgegeben.
-- Wenn `x` positive Null ist, wird `0` zurückgegeben.
-- Wenn `x` negative Null ist, wird `-0` zurückgegeben.
+- Ist `x` positiv, wird `1` zurückgegeben.
+- Ist `x` negativ, wird `-1` zurückgegeben.
+- Ist `x` positiv null, wird `0` zurückgegeben.
+- Ist `x` negativ null, wird `-0` zurückgegeben.
 - Andernfalls wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sign()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sign()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `sign()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sign()` und nicht als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.sign()
+### Math.sign() verwenden
 
 ```js
 Math.sign(3); // 1
@@ -74,8 +74,8 @@ Math.sign(); // NaN
 
 ## Siehe auch
 
-- [Polyfill von `Math.sign` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
-- [es-shims Polyfill von `Math.sign`](https://www.npmjs.com/package/math.sign)
+- [Polyfill für `Math.sign` in `core-js`](https://core-js.io/docs/features/ecmascript/math)
+- [Polyfill für `Math.sign` von es-shims](https://www.npmjs.com/package/math.sign)
 - {{jsxref("Math.abs()")}}
 - {{jsxref("Math.ceil()")}}
 - {{jsxref("Math.floor()")}}

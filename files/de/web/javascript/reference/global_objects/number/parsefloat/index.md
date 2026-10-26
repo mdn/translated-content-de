@@ -3,10 +3,10 @@ title: Number.parseFloat()
 short-title: parseFloat()
 slug: Web/JavaScript/Reference/Global_Objects/Number/parseFloat
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Fließkommazahl zurück. Wenn eine Zahl nicht aus dem Argument analysiert werden kann, wird {{jsxref("NaN")}} zurückgegeben.
+Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Gleitkommazahl zurück. Wenn aus dem Argument keine Zahl ermittelt werden kann, gibt sie {{jsxref("NaN")}} zurück.
 
 {{InteractiveExample("JavaScript Demo: Number.parseFloat()")}}
 
@@ -34,27 +34,27 @@ Number.parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, [auf einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, der [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) wird. Vorangestellte {{Glossary("whitespace", "Leerraumzeichen")}} in diesem Argument werden ignoriert.
 
 ### Rückgabewert
 
-Eine Fließkommazahl, die aus dem angegebenen `string` analysiert wurde.
+Eine aus dem angegebenen `string` ermittelte Gleitkommazahl.
 
-Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
+Oder {{jsxref("NaN")}}, wenn das erste Zeichen, das kein Leerraumzeichen ist, nicht in eine Zahl umgewandelt werden kann.
 
 ## Beispiele
 
-### Number.parseFloat vs. parseFloat
+### Number.parseFloat im Vergleich zu parseFloat
 
-Diese Methode hat die gleiche Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
+Diese Methode hat dieselbe Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
 
 ```js
 Number.parseFloat === parseFloat; // true
 ```
 
-Ihr Zweck ist die Modularisierung von globalen Funktionen.
+Sie dient dazu, globale Funktionen zu modularisieren.
 
-Weitere Details und Beispiele finden Sie unter {{jsxref("parseFloat()")}}.
+Weitere Einzelheiten und Beispiele finden Sie unter {{jsxref("parseFloat()")}}.
 
 ## Spezifikationen
 
@@ -66,7 +66,7 @@ Weitere Details und Beispiele finden Sie unter {{jsxref("parseFloat()")}}.
 
 ## Siehe auch
 
-- [Polyfill von `Number.parseFloat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
-- [es-shims Polyfill von `Number.parseFloat`](https://www.npmjs.com/package/number.parsefloat)
+- [Polyfill für `Number.parseFloat` in `core-js`](https://core-js.io/docs/features/ecmascript/number)
+- [Polyfill für `Number.parseFloat` von es-shims](https://www.npmjs.com/package/number.parsefloat)
 - {{jsxref("Number")}}
 - {{jsxref("parseFloat()")}}

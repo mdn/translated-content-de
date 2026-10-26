@@ -3,12 +3,12 @@ title: AsyncDisposableStack.prototype.defer()
 short-title: defer()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/defer
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`defer()`**-Methode von Instanzen des {{jsxref("AsyncDisposableStack")}} nimmt eine Rückruffunktion an, die aufgerufen und erwartet wird, wenn der Stack entsorgt wird.
+Die Methode **`defer()`** von {{jsxref("AsyncDisposableStack")}}-Instanzen nimmt eine Callback-Funktion entgegen, die aufgerufen und auf deren Ergebnis gewartet wird, wenn der Stack freigegeben wird.
 
-Siehe {{jsxref("DisposableStack.prototype.defer()")}} für allgemeine Informationen über die `defer()`-Methode.
+Allgemeine Informationen zur Methode `defer()` finden Sie unter {{jsxref("DisposableStack.prototype.defer()")}}.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ defer(onDispose)
 ### Parameter
 
 - `onDispose`
-  - : Eine Funktion, die aufgerufen wird, wenn der Stack entsorgt wird. Die Funktion erhält keine Argumente und kann ein Versprechen zurückgeben, das erwartet wird.
+  - : Eine Funktion, die aufgerufen wird, wenn der Stack freigegeben wird. Sie erhält keine Argumente und kann ein Promise zurückgeben, auf dessen Erfüllung gewartet wird.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `onDispose` keine Funktion ist.
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits entsorgt ist.
+  - : Wird ausgelöst, wenn der Stack bereits freigegeben wurde.
 
 ## Beispiele
 
-### Verwendung von defer()
+### defer() verwenden
 
-Ein Anwendungsfall von `defer()` ist das Ausführen einer Aktion, die nicht mit der Freigabe von Ressourcen zusammenhängt, beim Verlassen des Bereichs, wie z. B. das Protokollieren einer Nachricht.
+Ein Anwendungsfall für `defer()` besteht darin, beim Verlassen eines Gültigkeitsbereichs etwas zu tun, das nicht mit der Freigabe von Ressourcen zusammenhängt, beispielsweise eine Nachricht zu protokollieren.
 
 ```js
 async function doSomething() {
@@ -58,7 +58,8 @@ async function doSomething() {
 
 ## Siehe auch
 
-- [JavaScript Ressourcenmanagement](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [Polyfill für `AsyncDisposableStack.prototype.defer` in `core-js`](https://core-js.io/docs/features/ecmascript/explicit-resource-management)
+- [JavaScript-Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.adopt()")}}
 - {{jsxref("AsyncDisposableStack.prototype.use()")}}

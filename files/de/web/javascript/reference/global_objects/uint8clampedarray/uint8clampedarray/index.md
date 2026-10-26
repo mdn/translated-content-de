@@ -3,10 +3,10 @@ title: Uint8ClampedArray()-Konstruktor
 short-title: Uint8ClampedArray()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray/Uint8ClampedArray
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`Uint8ClampedArray()`**-Konstruktor erstellt {{jsxref("Uint8ClampedArray")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Uint8ClampedArray()`**-Konstruktor erstellt {{jsxref("Uint8ClampedArray")}}-Objekte. Die Inhalte werden mit `0` initialisiert, sofern nicht ausdrücklich Initialisierungsdaten angegeben werden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Uint8ClampedArray(buffer, byteOffset, length)
 ```
 
 > [!NOTE]
-> `Uint8ClampedArray()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> `Uint8ClampedArray()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -78,8 +78,8 @@ console.log(uint8cFromIterable);
 
 ## Siehe auch
 
-- [Polyfill von `Uint8ClampedArray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `Uint8ClampedArray` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Leitfaden zu typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

@@ -3,10 +3,10 @@ title: String.prototype.fixed()
 short-title: fixed()
 slug: Web/JavaScript/Reference/Global_Objects/String/fixed
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`fixed()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in ein {{HTMLElement("tt")}}-Element (`<tt>str</tt>`) einbettet, wodurch dieser String in einer Schrift mit fester Breite angezeigt wird.
+Die Methode **`fixed()`** von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("tt")}}-Element einbettet (`<tt>str</tt`). Dadurch wird der String in einer Schriftart mit fester Zeichenbreite angezeigt.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `fixed()` wurde das `<tt>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<tt>` Start-Tag beginnt, gefolgt von dem Text `str`, und dann einem `</tt>` End-Tag.
+Ein String, der mit einem öffnenden `<tt>`-Tag beginnt, gefolgt vom Text `str` und einem schließenden `</tt>`-Tag.
 
 ## Beispiele
 
-### Nutzung von fixed()
+### fixed() verwenden
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt damit den Inhalt des Dokuments:
 
 ```js
 const contentString = "Hello, world";
@@ -37,7 +37,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.fixed();
 ```
 
-Dies erzeugt das folgende HTML:
+Dadurch wird das folgende HTML erzeugt:
 
 ```html
 <tt>Hello, world</tt>
@@ -46,7 +46,7 @@ Dies erzeugt das folgende HTML:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `tt` kein gültiges Element mehr ist.
 
-Anstatt `fixed()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Beispielsweise können Sie {{cssxref("font-family")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
+Statt `fixed()` zu verwenden und HTML-Text direkt zu erzeugen, sollten Sie Schriftarten mit CSS anpassen. Beispielsweise können Sie {{cssxref("font-family")}} über das Attribut [`element.style`](/de/docs/Web/API/HTMLElement/style) ändern:
 
 ```js
 document.getElementById("yourElemId").style.fontFamily = "monospace";
@@ -62,7 +62,7 @@ document.getElementById("yourElemId").style.fontFamily = "monospace";
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.fixed` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.fixed`](https://www.npmjs.com/package/es-string-html-methods)
+- [Polyfill für `String.prototype.fixed` in `core-js`](https://core-js.io/docs/features/ecmascript/string-regexp)
+- [Polyfill für `String.prototype.fixed` von es-shims](https://www.npmjs.com/package/es-string-html-methods)
 - [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("tt")}}

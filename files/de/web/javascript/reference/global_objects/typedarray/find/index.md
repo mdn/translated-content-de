@@ -3,10 +3,10 @@ title: TypedArray.prototype.find()
 short-title: find()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/find
 l10n:
-  sourceCommit: 9f46f08d20b21498293cbf6b84f508103272ec6f
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Die **`find()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt das erste Element im angegebenen typisierten Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn keine Werte die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
+Die Methode **`find()`** von {{jsxref("TypedArray")}}-Instanzen gibt das erste Element des angegebenen typisierten Arrays zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Wert die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.find()")}}
 
@@ -31,30 +31,30 @@ find(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element des typisierten Arrays ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, wenn ein passendes Element gefunden wurde, andernfalls einen {{Glossary("Falsy", "falsy")}}-Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
+      - : Das aktuell verarbeitete Element des typisierten Arrays.
     - `index`
-      - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements des typisierten Arrays.
     - `array`
-      - : Das typisierte Array, auf das `find()` aufgerufen wurde.
+      - : Das typisierte Array, auf dem `find()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet werden soll, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der beim Ausführen von `callbackFn` als `this` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Das erste Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt.
+Das erste Element des typisierten Arrays, das die bereitgestellte Testfunktion erfüllt.
 Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.find()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.find()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen typisierter Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Finden Sie die erste Primzahl in einem typisierten Array
+### Die erste Primzahl in einem typisierten Array finden
 
-Das folgende Beispiel gibt das erste Element im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahl gibt.
+Das folgende Beispiel gibt das erste Element des typisierten Arrays zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn keine Primzahl vorhanden ist.
 
 ```js
 function isPrime(n) {
@@ -77,7 +77,7 @@ console.log(uint8.find(isPrime)); // 5
 ```
 
 > [!NOTE]
-> Die Implementierung von `isPrime()` dient nur zur Demonstration. Für eine Anwendung in der realen Welt sollten Sie einen stark {{Glossary("Memoization", "memoisierten")}} Algorithmus wie den [Sieb des Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
+> Die Implementierung von `isPrime()` dient nur der Veranschaulichung. Für eine Anwendung in der Praxis sollten Sie einen Algorithmus mit umfassender {{Glossary("Memoization", "Memoisierung")}} wie das [Sieb des Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
 
 ## Spezifikationen
 
@@ -89,8 +89,8 @@ console.log(uint8.find(isPrime)); // 5
 
 ## Siehe auch
 
-- [Polyfill von `TypedArray.prototype.find` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Polyfill für `TypedArray.prototype.find` in `core-js`](https://core-js.io/docs/features/ecmascript/typed-arrays)
+- [Leitfaden zu typisierten JavaScript-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.findLast()")}}

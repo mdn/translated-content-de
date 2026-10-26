@@ -1,12 +1,12 @@
 ---
-title: Number() Konstruktor
+title: Number()-Konstruktor
 short-title: Number()
 slug: Web/JavaScript/Reference/Global_Objects/Number/Number
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
 ---
 
-Der **`Number()`** Konstruktor erstellt {{jsxref("Number")}} Objekte. Bei Aufruf als Funktion gibt er primitive Werte des Typs Number zurück.
+Der **`Number()`**-Konstruktor erstellt {{jsxref("Number")}}-Objekte. Wird er als Funktion aufgerufen, gibt er primitive Werte des Typs Number zurück.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Number(value)
 ```
 
 > [!NOTE]
-> `Number()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, aber mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
+> `Number()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, allerdings mit unterschiedlichen Auswirkungen. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
@@ -25,12 +25,12 @@ Number(value)
 
 ### Rückgabewert
 
-Wenn `Number()` als Funktion aufgerufen wird (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)), gibt es `value` [in einen Zahl-Primitive umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) zurück. Insbesondere werden [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte in Zahlen umgewandelt, anstatt einen Fehler auszulösen. Wenn `value` fehlt, wird es zu `0`.
+Wenn `Number()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [als primitiven Zahlenwert konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) zurück. Insbesondere werden [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte in Zahlen umgewandelt, statt einen Fehler auszulösen. Fehlt `value`, wird `0` verwendet.
 
-Wenn `Number()` als Konstruktor aufgerufen wird (mit `new`), verwendet es den oben beschriebenen Umwandlungsprozess und gibt ein umhüllendes {{jsxref("Number")}} Objekt zurück, das **kein** Primitive ist.
+Wenn `Number()` als Konstruktor (mit `new`) aufgerufen wird, verwendet es den oben beschriebenen Konvertierungsprozess und gibt ein umhüllendes {{jsxref("Number")}}-Objekt zurück, das **kein** primitiver Wert ist.
 
 > [!WARNING]
-> Sie sollten `Number` selten als Konstruktor verwenden.
+> Sie sollten `Number` nur selten als Konstruktor verwenden.
 
 ## Beispiele
 
@@ -45,9 +45,9 @@ typeof a; // "object"
 typeof b; // "number"
 ```
 
-### Verwendung von Number(), um ein BigInt in eine Zahl zu konvertieren
+### Mit Number() einen BigInt-Wert in eine Zahl umwandeln
 
-`Number()` ist der einzige Fall, bei dem ein BigInt ohne Fehler in eine Zahl konvertiert werden kann, da es sehr explizit ist.
+`Number()` ist die einzige Möglichkeit, einen BigInt-Wert ohne Fehler in eine Zahl umzuwandeln, da die Umwandlung dabei ausdrücklich erfolgt.
 
 ```js example-bad
 +1n; // TypeError: Cannot convert a BigInt value to a number
@@ -58,7 +58,7 @@ typeof b; // "number"
 Number(1n); // 1
 ```
 
-Beachten Sie, dass dies zu einem Präzisionsverlust führen kann, wenn das BigInt zu groß ist, um [sicher dargestellt zu werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger).
+Beachten Sie, dass dies zu einem Genauigkeitsverlust führen kann, wenn der BigInt-Wert zu groß ist, um [sicher dargestellt zu werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger).
 
 ```js
 BigInt(Number(2n ** 54n + 1n)) === 2n ** 54n + 1n; // false
@@ -74,7 +74,7 @@ BigInt(Number(2n ** 54n + 1n)) === 2n ** 54n + 1n; // false
 
 ## Siehe auch
 
-- [Polyfill des modernen `Number`-Verhaltens (mit Unterstützung für binäre und oktale Literale) in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [Polyfill für das moderne Verhalten von `Number` (mit Unterstützung für binäre und oktale Literale) in `core-js`](https://core-js.io/docs/features/ecmascript/number)
 - {{jsxref("NaN")}}
 - {{jsxref("Math")}}
 - {{jsxref("BigInt")}}
