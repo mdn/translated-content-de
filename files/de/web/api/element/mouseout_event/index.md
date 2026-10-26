@@ -3,24 +3,28 @@ title: "Element: mouseout-Ereignis"
 short-title: mouseout
 slug: Web/API/Element/mouseout_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`mouseout`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) verwendet wird, um den Cursor so zu bewegen, dass er sich nicht mehr innerhalb des Elements oder eines seiner Kinder befindet.
+Das **`mouseout`**-Ereignis wird an einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn der Cursor mit einem Zeigegerät (üblicherweise einer Maus) so bewegt wird, dass er sich nicht mehr innerhalb des Elements oder eines seiner Kindelemente befindet.
 
-`mouseout` wird auch an ein Element übermittelt, wenn der Cursor ein Kind-Element betritt, da das Kind-Element den sichtbaren Bereich des Elements verdeckt.
+`mouseout` wird auch an ein Element übermittelt, wenn der Cursor in ein Kindelement eintritt, da das Kindelement den sichtbaren Bereich des Elements verdeckt.
 
-Wenn das Ziel-Element Kind-Elemente hat, werden `mouseout`- und `mouseover`-Ereignisse ebenfalls ausgelöst, wenn die Maus über die Grenzen dieser Elemente bewegt wird, nicht nur über das Ziel-Element selbst. Gewöhnlich ist das Verhalten der [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)- und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)-Ereignisse sinnvoller, da sie nicht betroffen sind, wenn man in Kind-Elemente hineinwechselt.
+Wenn das Zielelement Kindelemente hat, werden `mouseout`- und `mouseover`-Ereignisse auch ausgelöst, wenn die Maus die Grenzen dieser Kindelemente überschreitet, nicht nur die Grenze des Zielelements selbst. Das Verhalten der Ereignisse [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event) und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) ist in der Regel besser geeignet, da sie nicht durch das Bewegen des Cursors in Kindelemente beeinflusst werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mouseout", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmouseout = (event) => { }
 ```
 
@@ -36,9 +40,9 @@ Die folgenden Beispiele zeigen die Verwendung des `mouseout`-Ereignisses.
 
 ### mouseout und mouseleave
 
-Das folgende Beispiel illustriert den Unterschied zwischen den `mouseout`- und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)-Ereignissen. Das `mouseleave`-Ereignis wird zum {{HTMLElement("ul")}} hinzugefügt, um die Liste lila zu färben, wenn die Maus das `<ul>` verlässt. `mouseout` wird der Liste hinzugefügt, um das angezielte Element orange zu färben, wenn die Maus es verlässt.
+Das folgende Beispiel veranschaulicht den Unterschied zwischen den Ereignissen `mouseout` und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event). Das `mouseleave`-Ereignis wird dem {{HTMLElement("ul")}}-Element hinzugefügt, um die Liste lila zu färben, sobald die Maus das `<ul>`-Element verlässt. `mouseout` wird der Liste hinzugefügt, um das jeweilige Zielelement orange zu färben, wenn die Maus es verlässt.
 
-Wenn Sie dies ausprobieren, werden Sie feststellen, dass `mouseout` an die einzelnen Listenelemente geliefert wird, während `mouseleave` zur gesamten Liste geht, dank der Hierarchie der Elemente und der Tatsache, dass Listenelemente die darunterliegende `<ul>` verdecken.
+Wenn Sie das Beispiel ausprobieren, werden Sie feststellen, dass `mouseout` an die einzelnen Listeneinträge übermittelt wird, während `mouseleave` an die gesamte Liste übermittelt wird. Das liegt an der Hierarchie der Elemente und daran, dass die Listeneinträge das darunterliegende `<ul>`-Element verdecken.
 
 #### HTML
 

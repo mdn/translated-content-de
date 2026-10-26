@@ -1,32 +1,36 @@
 ---
-title: "HTMLFormElement: reset-Event"
+title: "HTMLFormElement: reset-Ereignis"
 short-title: reset
 slug: Web/API/HTMLFormElement/reset_event
 l10n:
-  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`reset`**-Event wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
+Das **`reset`**-Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
 
 ## Syntax
 
-Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("reset", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onreset = (event) => { }
 ```
 
-## Event-Typ
+## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf das Zurücksetzen des Formulars zu reagieren. Bei jedem Zurücksetzen wird der aktuelle Wert von [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) protokolliert.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf das Zurücksetzen des Formulars zu reagieren. Jedes Mal, wenn dies geschieht, wird der aktuelle Wert von [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) protokolliert.
 
 ### HTML
 

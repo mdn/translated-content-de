@@ -3,20 +3,24 @@ title: "XMLHttpRequestEventTarget: load-Ereignis"
 short-title: load
 slug: Web/API/XMLHttpRequestEventTarget/load_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `load`-Ereignis wird ausgelöst, wenn eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Transaktion erfolgreich abgeschlossen wird.
+Das `load`-Ereignis wird ausgelöst, wenn eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Transaktion erfolgreich abgeschlossen wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("load", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onload = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-### Nutzung mit XMLHttpRequest
+### Verwendung mit XMLHttpRequest
 
 #### HTML
 
@@ -117,9 +121,9 @@ xhrButtonAbort.addEventListener("click", () => {
 
 {{ EmbedLiveSample('Usage with XMLHttpRequest', '100%', '150px') }}
 
-### Nutzung mit XMLHttpRequestUpload
+### Verwendung mit XMLHttpRequestUpload
 
-Sie können das `load`-Ereignis verwenden, um das erfolgreiche Ende eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige zeigt, siehe die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Mit dem `load`-Ereignis können Sie erkennen, ob ein Upload erfolgreich abgeschlossen wurde. Ein vollständiges Codebeispiel, das eine Datei hochlädt und einen Fortschrittsbalken anzeigt, finden Sie auf der Hauptseite zu [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
 // When the upload is finished, we hide the progress bar.
@@ -141,4 +145,4 @@ xhr.upload.addEventListener("load", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequestEventTarget/loadstart_event), [`loadend`](/de/docs/Web/API/XMLHttpRequestEventTarget/loadend_event), [`progress`](/de/docs/Web/API/XMLHttpRequestEventTarget/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestEventTarget/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequestEventTarget/abort_event)
-- [Überwachung des Fortschritts](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)
+- [Fortschritt überwachen](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)

@@ -1,44 +1,48 @@
 ---
-title: "Element: paste Ereignis"
+title: "Element: paste-Ereignis"
 short-title: paste
 slug: Web/API/Element/paste_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Clipboard API")}}
 
-Das **`paste`**-Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer im Browser eine "Einfügen"-Aktion über die Benutzeroberfläche initiiert hat.
+Das **`paste`**-Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn ein Benutzer über die Benutzeroberfläche des Browsers eine Aktion zum Einfügen gestartet hat.
 
-Befindet sich der Cursor in einem bearbeitbaren Kontext (zum Beispiel in einem {{HTMLElement("textarea")}} oder in einem Element mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut, das auf `true` gesetzt ist), dann besteht die Standardaktion darin, die Inhalte der Zwischenablage an der Cursorposition in das Dokument einzufügen.
+Befindet sich der Cursor in einem bearbeitbaren Bereich (beispielsweise in einem {{HTMLElement("textarea")}} oder einem Element, dessen Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt ist), wird standardmäßig der Inhalt der Zwischenablage an der Cursorposition in das Dokument eingefügt.
 
-Ein Handler für dieses Ereignis kann auf die Inhalte der Zwischenablage zugreifen, indem [`getData()`](/de/docs/Web/API/DataTransfer/getData) auf der `clipboardData`-Eigenschaft des Ereignisses aufgerufen wird.
+Ein Handler für dieses Ereignis kann auf den Inhalt der Zwischenablage zugreifen, indem er [`getData()`](/de/docs/Web/API/DataTransfer/getData) für die `clipboardData`-Eigenschaft des Ereignisses aufruft.
 
-Um das Standardverhalten zu überschreiben (zum Beispiel, um einige andere Daten oder eine Transformation der Zwischenablageinhalte einzufügen), muss ein Ereignishandler die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen und dann seine gewünschten Daten manuell einfügen.
+Um das Standardverhalten zu überschreiben (beispielsweise um andere Daten oder eine veränderte Fassung des Inhalts der Zwischenablage einzufügen), muss ein Event-Handler die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) verhindern und anschließend die gewünschten Daten manuell einfügen.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) `paste`-Ereignis zu erstellen und auszulösen, aber dies wird die Inhalte des Dokuments nicht beeinflussen.
+Ein [synthetisches](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) `paste`-Ereignis kann erstellt und ausgelöst werden. Dies wirkt sich jedoch nicht auf den Inhalt des Dokuments aus.
 
-Dieses Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) den DOM-Baum hinauf, schließlich zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window), ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [steigt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) im DOM-Baum bis zu [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) auf, ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und [composed](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("paste", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpaste = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent), erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
 ## Beispiele
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 
@@ -90,5 +94,5 @@ target.addEventListener("paste", (event) => {
 
 ## Siehe auch
 
-- [`cut`](/de/docs/Web/API/Element/cut_event) Ereignis
-- [`copy`](/de/docs/Web/API/Element/copy_event) Ereignis
+- [`cut`](/de/docs/Web/API/Element/cut_event)-Ereignis
+- [`copy`](/de/docs/Web/API/Element/copy_event)-Ereignis

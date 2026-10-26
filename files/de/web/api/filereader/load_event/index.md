@@ -3,22 +3,26 @@ title: "FileReader: load-Ereignis"
 short-title: load
 slug: Web/API/FileReader/load_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`load`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird ausgelöst, wenn eine Datei erfolgreich gelesen wurde.
+Das **`load`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird ausgelöst, wenn eine Datei erfolgreich gelesen wurde.
 
-Dieses Ereignis ist nicht abbruchfähig und breitet sich nicht aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("load", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onload = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

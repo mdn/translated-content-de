@@ -3,22 +3,26 @@ title: "HTMLMediaElement: encrypted-Ereignis"
 short-title: encrypted
 slug: Web/API/HTMLMediaElement/encrypted_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Das `encrypted`-Ereignis wird ausgelöst, wenn Initialisierungsdaten in den Medien gefunden werden, die anzeigen, dass sie verschlüsselt sind.
+Das Ereignis `encrypted` wird ausgelöst, wenn in einem Medium Initialisierungsdaten gefunden werden, die darauf hinweisen, dass es verschlüsselt ist.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbles.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("encrypted", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onencrypted = (event) => { }
 ```
 

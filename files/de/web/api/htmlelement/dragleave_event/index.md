@@ -3,22 +3,26 @@ title: "HTMLElement: dragleave-Ereignis"
 short-title: dragleave
 slug: Web/API/HTMLElement/dragleave_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel verlässt.
+Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine gezogene Textauswahl ein gültiges Ablageziel verlässt.
 
-Dieses Ereignis ist nicht abbrechbar und kann zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window)-Objekt aufsteigen.
+Dieses Ereignis kann nicht abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) aufsteigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("dragleave", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 ondragleave = (event) => { }
 ```
 
@@ -30,13 +34,13 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiele
 
-### Zurücksetzen der Stilvorlagen der Ablagezone bei dragleave
+### Stile der Ablagezone bei dragleave zurücksetzen
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und loszulassen.
+In diesem Beispiel befindet sich ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und dort loszulassen.
 
-Wir geben dem anderen Container einen violetten Hintergrund, während das ziehbare Element darüber liegt, um anzuzeigen, dass es auf dem Container abgelegt werden könnte. Wir lauschen auf das `dragleave`-Ereignis, um den Hintergrund des Containers zurückzusetzen, wenn das ziehbare Element vom Container weggezogen wird.
+Solange sich das ziehbare Element über dem anderen Container befindet, geben wir diesem einen violetten Hintergrund. Dadurch wird angezeigt, dass das Element auf dem Container abgelegt werden könnte. Wir reagieren auf das `dragleave`-Ereignis, um den Hintergrund des Containers zurückzusetzen, wenn das ziehbare Element den Container verlässt.
 
-In diesem Teilausschnitt haben wir jedoch das Ablegen noch nicht implementiert: für ein vollständiges Beispiel zum Ziehen und Ablegen siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+In diesem unvollständigen Beispiel haben wir das Ablegen allerdings nicht implementiert. Ein vollständiges Drag-and-Drop-Beispiel finden Sie auf der Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -106,7 +110,7 @@ target.addEventListener("dragleave", (event) => {
 
 ## Siehe auch
 
-- Andere Drag-and-Drop-Ereignisse:
+- Weitere Drag-and-Drop-Ereignisse:
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
   - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)

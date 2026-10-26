@@ -1,24 +1,28 @@
 ---
-title: "HTMLDialogElement: close Event"
+title: "HTMLDialogElement: close-Ereignis"
 short-title: close
 slug: Web/API/HTMLDialogElement/close_event
 l10n:
-  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `close`-Ereignis wird auf einem `HTMLDialogElement`-Objekt ausgelöst, wenn das von ihm repräsentierte {{htmlelement("dialog")}} geschlossen wurde.
+Das `close`-Ereignis wird für ein `HTMLDialogElement`-Objekt ausgelöst, wenn das von ihm repräsentierte {{htmlelement("dialog")}} geschlossen wurde.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("close", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onclose = (event) => { }
 ```
 
@@ -28,12 +32,12 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Behandlung von `close`-Ereignissen
+### `close`-Ereignisse behandeln
 
-Dieses Beispiel zeigt, wie `close`-Ereignisse, die durch mehrere verschiedene Methoden zum Schließen eines Dialogs ausgelöst werden, erfasst werden können:
+Dieses Beispiel zeigt, wie Sie auf `close`-Ereignisse reagieren, die durch verschiedene Methoden zum Schließen eines Dialogs ausgelöst werden:
 
-- Aufruf der [`close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode
-- Ein Formular mit `method="dialog"`. Das Absenden des Formulars schließt den `dialog` und löst ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis aus, ohne Daten zu übermitteln oder das Formular zu löschen
+- Aufrufen der Methode [`close()`](/de/docs/Web/API/HTMLDialogElement/close)
+- Ein Formular mit `method="dialog"`. Das Absenden des Formulars schließt den `dialog` und löst ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis aus, ohne Daten zu übermitteln oder das Formular zurückzusetzen
 - Die <kbd>Esc</kbd>-Taste.
   Siehe [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis
 
@@ -101,7 +105,7 @@ dialog.addEventListener("close", (event) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample('Handling `close` events', '100%', '250px')}}
+{{ EmbedLiveSample('Handling `close` events', '100%', '250px') }}
 
 ## Spezifikationen
 
@@ -113,4 +117,4 @@ dialog.addEventListener("close", (event) => {
 
 ## Siehe auch
 
-- HTML {{htmlelement("dialog")}}-Element
+- HTML-Element {{htmlelement("dialog")}}

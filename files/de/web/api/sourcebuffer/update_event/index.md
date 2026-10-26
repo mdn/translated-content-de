@@ -3,20 +3,24 @@ title: "SourceBuffer: update-Ereignis"
 short-title: update
 slug: Web/API/SourceBuffer/update_event
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`update`**-Ereignis des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces signalisiert den erfolgreichen Abschluss einer [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)- oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation. Das Attribut [`updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`. Dieses Ereignis wird vor dem [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)-Ereignis ausgelöst.
+Das **`update`**-Ereignis der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle signalisiert den erfolgreichen Abschluss einer [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)- oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation. Das [`updating`](/de/docs/Web/API/SourceBuffer/updating)-Attribut wechselt von `true` zu `false`. Dieses Ereignis wird vor dem [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("update", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onupdate = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Behandlung des update-Ereignisses nach dem Anhängen von Daten
+### Das update-Ereignis nach dem Anhängen von Daten behandeln
 
-Dieses Beispiel zeigt, wie das `update`-Ereignis nach einer erfolgreichen `appendBuffer()`-Operation behandelt wird.
+Dieses Beispiel zeigt, wie Sie das `update`-Ereignis nach einer erfolgreichen `appendBuffer()`-Operation behandeln.
 
 ```js
 const sourceBuffer = source.addSourceBuffer(mimeCodec);

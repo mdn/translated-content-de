@@ -3,20 +3,24 @@ title: "WebSocket: message-Ereignis"
 short-title: message
 slug: Web/API/WebSocket/message_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `message`-Ereignis wird ausgelöst, wenn Daten über ein `WebSocket` empfangen werden.
+Das `message`-Ereignis wird ausgelöst, wenn Daten über einen `WebSocket` empfangen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("message", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onmessage = (event) => { }
 ```
 
@@ -51,4 +55,4 @@ socket.addEventListener("message", (event) => {
 - [WebSocket: close-Ereignis](/de/docs/Web/API/WebSocket/close_event)
 - [WebSocket: error-Ereignis](/de/docs/Web/API/WebSocket/error_event)
 - [WebSocket: open-Ereignis](/de/docs/Web/API/WebSocket/open_event)
-- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket-Client-Anwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

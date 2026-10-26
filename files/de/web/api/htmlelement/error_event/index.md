@@ -3,34 +3,38 @@ title: "HTMLElement: error-Ereignis"
 short-title: error
 slug: Web/API/HTMLElement/error_event
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden werden kann oder ungültig ist.
+Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Dies ist beispielsweise der Fall, wenn bei der Ausführung eines Skripts ein Fehler auftritt oder ein Bild nicht gefunden wird oder ungültig ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
 ## Ereignistyp
 
-Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzeroberflächenelement generiert wurde, oder sonst eine Instanz von [`Event`](/de/docs/Web/API/Event).
+Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzeroberflächenelement erzeugt wurde, andernfalls eine Instanz von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("UIEvent")}}
 
 ## Beispiele
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 
@@ -120,5 +124,5 @@ imgError.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse
-  - Fenster: [`error`](/de/docs/Web/API/Window/error_event)-Ereignis
+  - Window: [`error`](/de/docs/Web/API/Window/error_event)-Ereignis
   - HTMLElement: [`load`](/de/docs/Web/API/HTMLElement/load_event)-Ereignis

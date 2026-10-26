@@ -3,30 +3,34 @@ title: "Navigation: currententrychange-Ereignis"
 short-title: currententrychange
 slug: Web/API/Navigation/currententrychange_event
 l10n:
-  sourceCommit: e7ffb2866dc8b67280801535c7f58bf073a5aaf9
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Navigation API")}}
 
-Das **`currententrychange`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn sich der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ändert.
+Das **`currententrychange`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn sich [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) geändert hat.
 
 Dieses Ereignis wird ausgelöst bei:
 
-- Navigationen im selben Dokument (z. B. [`back()`](/de/docs/Web/API/Navigation/back) oder [`traverseTo()`](/de/docs/Web/API/Navigation/traverseTo)).
+- Navigationen innerhalb desselben Dokuments (z. B. [`back()`](/de/docs/Web/API/Navigation/back) oder [`traverseTo()`](/de/docs/Web/API/Navigation/traverseTo)).
 
-- Ersetzungen (d.h. ein Aufruf von [`navigate()`](/de/docs/Web/API/Navigation/navigate) mit `history` auf `replace` gesetzt).
+- Ersetzungen (d.h. einem Aufruf von [`navigate()`](/de/docs/Web/API/Navigation/navigate), bei dem `history` auf `replace` gesetzt ist).
 
-- Anderen Aufrufen, die den Zustand des Eintrags ändern (z. B. [`updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry) oder der [`History.replaceState()`](/de/docs/Web/API/History/replaceState)-Aufruf der [History API](/de/docs/Web/API/History_API)).
+- Anderen Aufrufen, die den Zustand des Eintrags ändern (z. B. [`updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry) oder [`History.replaceState()`](/de/docs/Web/API/History/replaceState) der [History API](/de/docs/Web/API/History_API)).
 
-Dieses Ereignis wird ausgelöst, nachdem die Navigation festgeschrieben wurde, was bedeutet, dass die sichtbare URL geändert wurde und das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Update erfolgt ist. Es ist nützlich für die Migration von der Nutzung älterer API-Funktionen wie den [`hashchange`](/de/docs/Web/API/Window/hashchange_event)- oder [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignissen.
+Dieses Ereignis wird ausgelöst, nachdem die Navigation übernommen wurde. Das bedeutet, dass sich die sichtbare URL geändert hat und der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) aktualisiert wurde. Es ist hilfreich, wenn Sie von älteren API-Funktionen wie den Ereignissen [`hashchange`](/de/docs/Web/API/Window/hashchange_event) oder [`popstate`](/de/docs/Web/API/Window/popstate_event) umsteigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("currententrychange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncurrententrychange = (event) => { }
 ```
 
@@ -38,7 +42,7 @@ Ein [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntr
 
 ## Beispiele
 
-Berichterstattung von Navigationsdaten:
+Navigationsdaten erfassen:
 
 ```js
 navigation.addEventListener("currententrychange", () => {
@@ -47,7 +51,7 @@ navigation.addEventListener("currententrychange", () => {
 });
 ```
 
-Einrichtung eines Ereignisses pro Eintrag:
+Ein Ereignis für einen einzelnen Eintrag einrichten:
 
 ```js
 navigation.addEventListener("currententrychange", () => {
@@ -65,5 +69,5 @@ navigation.addEventListener("currententrychange", () => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API explainer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)

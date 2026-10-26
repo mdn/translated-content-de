@@ -3,24 +3,28 @@ title: "HTMLCanvasElement: contextlost-Ereignis"
 short-title: contextlost
 slug: Web/API/HTMLCanvasElement/contextlost_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Canvas API")}}
 
-Das **`contextlost`**-Ereignis der [Canvas API](/de/docs/Web/API/Canvas_API) wird ausgelöst, wenn der User-Agent feststellt, dass der zugehörige Speicher eines [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Kontexts verloren gegangen ist.
-Kontexte können aus verschiedenen Gründen verloren gehen, wie zum Beispiel Treiberabstürze oder Speichermangel der Anwendung.
+Das **`contextlost`**-Ereignis der [Canvas API](/de/docs/Web/API/Canvas_API) wird ausgelöst, wenn der User Agent erkennt, dass der einem [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Kontext zugeordnete zugrunde liegende Speicher verloren gegangen ist.
+Ein Kontext kann aus verschiedenen Gründen verloren gehen, beispielsweise durch einen Treiberabsturz oder weil der Anwendung der Arbeitsspeicher ausgeht.
 
-Standardmäßig wird der User-Agent versuchen, den Kontext wiederherzustellen und anschließend das [`contextrestored`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event) auslösen.
-Benutzercode kann verhindern, dass der Kontext wiederhergestellt wird, indem [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) während der Ereignisbehandlung aufgerufen wird.
+Standardmäßig versucht der User Agent, den Kontext wiederherzustellen, und löst anschließend das [`contextrestored`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event) aus.
+Anwendungscode kann die Wiederherstellung des Kontexts verhindern, indem er während der Ereignisverarbeitung [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("contextlost", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncontextlost = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt erkennt das `contextlost`-Ereignis.
+Das folgende Codefragment erkennt das `contextlost`-Ereignis.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -40,7 +44,7 @@ canvas.addEventListener("contextlost", (event) => {
 });
 ```
 
-Um zu verhindern, dass der Kontext wiederhergestellt wird, könnte der Code stattdessen so aussehen:
+Um die Wiederherstellung des Kontexts zu verhindern, könnte der Code stattdessen so aussehen:
 
 ```js
 const canvas = document.getElementById("canvas");

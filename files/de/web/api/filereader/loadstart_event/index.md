@@ -1,24 +1,28 @@
 ---
-title: "FileReader: loadstart Ereignis"
+title: "FileReader: loadstart-Ereignis"
 short-title: loadstart
 slug: Web/API/FileReader/loadstart_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`loadstart`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader) Interfaces wird ausgelöst, wenn eine Datei-Leseoperation begonnen hat.
+Das **`loadstart`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird ausgelöst, wenn ein Lesevorgang für eine Datei begonnen hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("loadstart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onloadstart = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

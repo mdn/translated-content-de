@@ -1,34 +1,38 @@
 ---
-title: "CreateMonitor: downloadprogress Ereignis"
+title: "CreateMonitor: downloadprogress-Ereignis"
 short-title: downloadprogress
 slug: Web/API/CreateMonitor/downloadprogress_event
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Das **`downloadprogress`** Ereignis der [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) Schnittstelle wird ausgelöst, wenn Fortschritte beim Herunterladen des KI-Modells erzielt werden.
+Das **`downloadprogress`**-Ereignis der [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Schnittstelle wird ausgelöst, wenn der Download des KI-Modells voranschreitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("downloadprogress", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ondownloadprogress = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent), der von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Beispiele
 
-Siehe die Hauptseite von [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite zu [`CreateMonitor`](/de/docs/Web/API/CreateMonitor).
 
 ## Spezifikationen
 
@@ -41,4 +45,4 @@ Siehe die Hauptseite von [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für 
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.
+- [Web-AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.

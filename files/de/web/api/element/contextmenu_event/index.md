@@ -1,29 +1,33 @@
 ---
-title: "Element: contextmenu Ereignis"
+title: "Element: contextmenu-Ereignis"
 short-title: contextmenu
 slug: Web/API/Element/contextmenu_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das **`contextmenu`**-Ereignis wird ausgelöst, wenn der Benutzer versucht, ein Kontextmenü zu öffnen. Dies wird typischerweise durch das Klicken der rechten Maustaste oder durch Drücken der Kontextmenü-Taste initiiert.
+Das **`contextmenu`**-Ereignis wird ausgelöst, wenn der Benutzer versucht, ein Kontextmenü zu öffnen. Dies geschieht in der Regel durch einen Klick mit der rechten Maustaste oder durch Drücken der Kontextmenütaste.
 
-Im letzteren Fall wird das Kontextmenü unten links am fokussierten Element angezeigt, es sei denn, das Element ist ein Baum, in diesem Fall wird das Kontextmenü unten links in der aktuellen Zeile angezeigt.
+Im letzteren Fall wird das Kontextmenü links unten am fokussierten Element angezeigt. Handelt es sich bei dem Element um eine Baumansicht, wird es stattdessen links unten an der aktuellen Zeile angezeigt.
 
-Jedes Rechtsklick-Ereignis, das nicht deaktiviert wurde (durch Aufruf der Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Klick-Ereignisses), führt dazu, dass ein `contextmenu`-Ereignis am Ziel-Element ausgelöst wird.
+Jeder Rechtsklick, dessen Standardverhalten nicht durch Aufrufen der Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) für das Klickereignis verhindert wird, löst ein `contextmenu`-Ereignis am Zielelement aus.
 
 > [!NOTE]
-> Eine Ausnahme in Firefox: Wenn der Benutzer die <kbd>Umschalt</kbd>-Taste gedrückt hält, während er mit der rechten Maustaste klickt, wird das Kontextmenü angezeigt, ohne dass ein `contextmenu`-Ereignis ausgelöst wird.
+> In Firefox gibt es eine Ausnahme: Wenn Sie beim Rechtsklick die <kbd>Shift</kbd>-Taste gedrückt halten, wird das Kontextmenü angezeigt, ohne dass ein `contextmenu`-Ereignis ausgelöst wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("contextmenu", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 oncontextmenu = (event) => { }
 ```
 
@@ -34,16 +38,16 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de
 {{InheritanceDiagram("PointerEvent")}}
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität) für mehr Informationen.
+> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Beispiele
 
 ### Das `contextmenu`-Ereignis abbrechen
 
-In diesem Beispiel wird die Standardaktion des `contextmenu`-Ereignisses mittels `preventDefault()` abgebrochen, wenn das `contextmenu`-Ereignis beim ersten Absatz ausgelöst wird. Dadurch wird beim Rechtsklick auf den ersten Absatz nichts passieren, während der zweite Absatz das standardmäßige Kontextmenü Ihres Browsers anzeigen wird.
+In diesem Beispiel wird die Standardaktion des `contextmenu`-Ereignisses mit `preventDefault()` verhindert, wenn das Ereignis am ersten Absatz ausgelöst wird. Daher geschieht bei einem Rechtsklick auf den ersten Absatz nichts, während beim zweiten Absatz das Standardkontextmenü Ihres Browsers angezeigt wird.
 
 > [!NOTE]
-> In Firefox, wenn Sie die <kbd>Umschalt</kbd>-Taste gedrückt halten, während Sie mit der rechten Maustaste klicken, wird das Kontextmenü angezeigt, ohne dass das `contextmenu`-Ereignis ausgelöst wird. Daher verhindert das Abbrechen des Ereignisses nicht die Anzeige des Kontextmenüs.
+> Wenn Sie in Firefox beim Rechtsklick die <kbd>Shift</kbd>-Taste gedrückt halten, wird das Kontextmenü angezeigt, ohne dass das `contextmenu`-Ereignis ausgelöst wird. Das Verhindern des Ereignisses kann die Anzeige des Kontextmenüs daher in diesem Fall nicht unterbinden.
 
 #### HTML
 

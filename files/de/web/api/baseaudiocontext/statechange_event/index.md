@@ -3,20 +3,24 @@ title: "BaseAudioContext: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/BaseAudioContext/statechange_event
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("Web Audio API")}}
 
-Ein `statechange`-Ereignis wird bei einem [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Objekt ausgelöst, wenn sich sein [`state`](/de/docs/Web/API/BaseAudioContext/state)-Element ändert.
+Ein `statechange`-Ereignis wird auf einem [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Objekt ausgelöst, wenn sich dessen [`state`](/de/docs/Web/API/BaseAudioContext/state) ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("statechange", (event) => { })
+```
 
+Alternativ können Sie den [Event-Handler-Property](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onstatechange = (event) => { }
 ```
 
@@ -26,8 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Der folgende Codeausschnitt stammt aus unserem [AudioContext-Zustände-Demo](https://github.com/mdn/webaudio-examples) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Der `onstatechange`-Handler wird verwendet, um den aktuellen
-[`state`](/de/docs/Web/API/BaseAudioContext/state) in der Konsole zu protokollieren, jedes Mal, wenn er sich ändert.
+Der folgende Ausschnitt stammt aus unserer [Demo zu AudioContext-Zuständen](https://github.com/mdn/webaudio-examples) ([Live-Demo ansehen](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Der `onstatechange`-Handler protokolliert den aktuellen [`state`](/de/docs/Web/API/BaseAudioContext/state) bei jeder Änderung in der Konsole.
 
 ```js
 audioCtx.onstatechange = () => {

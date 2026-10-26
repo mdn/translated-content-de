@@ -3,20 +3,24 @@ title: "Element: touchmove-Ereignis"
 short-title: touchmove
 slug: Web/API/Element/touchmove_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Touch Events")}}
 
-Das `touchmove`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf der Berührungsoberfläche bewegt werden.
+Das `touchmove`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte über die berührungsempfindliche Oberfläche bewegt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("touchmove", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ontouchmove = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`TouchEvent`](/de/docs/Web/API/TouchEvent). Erbt von [`Event`](/de/docs/Web
 
 ## Beispiele
 
-Codebeispiele für diese Ereignisse sind auf der speziellen Seite verfügbar: [Touch events](/de/docs/Web/API/Touch_events).
+Codebeispiele für diese Ereignisse finden Sie auf der entsprechenden Seite: [Touch-Ereignisse](/de/docs/Web/API/Touch_events).
 
 ## Spezifikationen
 
@@ -40,5 +44,5 @@ Codebeispiele für diese Ereignisse sind auf der speziellen Seite verfügbar: [T
 
 ## Siehe auch
 
-- [Touch events](/de/docs/Web/API/Touch_events)
+- [Touch-Ereignisse](/de/docs/Web/API/Touch_events)
 - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)

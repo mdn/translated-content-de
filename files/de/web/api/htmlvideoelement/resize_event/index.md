@@ -1,24 +1,28 @@
 ---
-title: "HTMLVideoElement: resize Ereignis"
+title: "HTMLVideoElement: resize-Ereignis"
 short-title: resize
 slug: Web/API/HTMLVideoElement/resize_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`resize`**-Ereignis der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) Schnittstelle wird ausgelöst, wenn eine oder beide Eigenschaften [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) gerade aktualisiert wurden.
+Das **`resize`**-Ereignis der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle wird ausgelöst, wenn eine oder beide der Eigenschaften [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) aktualisiert wurden.
 
-Dieses Ereignis kann nicht abgebrochen werden, kann jedoch eine Blasenbildung aufweisen.
+Dieses Ereignis kann nicht abgebrochen werden, kann aber durch die DOM-Hierarchie aufsteigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("resize", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle eine Funktion zuweisen:
+
+```js-nolint
 onresize = (event) => { }
 ```
 

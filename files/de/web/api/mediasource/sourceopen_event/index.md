@@ -1,22 +1,27 @@
 ---
-title: "MediaSource: sourceopen Ereignis"
+title: "MediaSource: sourceopen-Ereignis"
 short-title: sourceopen
 slug: Web/API/MediaSource/sourceopen_event
 l10n:
-  sourceCommit: 0f8be363b1b680bdab9bc2f459787160f232e158
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`sourceopen`** Ereignis wird ausgelöst, wenn sich der [`readyState`](/de/docs/Web/API/MediaSource/readyState) eines [`MediaSource`](/de/docs/Web/API/MediaSource) Objekts in `"open"` ändert. Dies deutet darauf hin, dass das `MediaSource` bereit ist, Daten von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) Objekten zu empfangen. Dies kann entweder auftreten, wenn das `MediaSource` Objekt erstmals an ein Medienelement angehängt wird oder wenn sich der [`readyState`](/de/docs/Web/API/MediaSource/readyState) von `"ended"` zurück zu `"open"` ändert.
+Das **`sourceopen`**-Ereignis wird ausgelöst, wenn sich der [`readyState`](/de/docs/Web/API/MediaSource/readyState) eines [`MediaSource`](/de/docs/Web/API/MediaSource)-Objekts zu `"open"` ändert.
+Dies zeigt an, dass die `MediaSource` bereit ist, Daten von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekten zu empfangen. Das kann geschehen, wenn das `MediaSource`-Objekt erstmals mit einem Medienelement verbunden wird oder wenn der [`readyState`](/de/docs/Web/API/MediaSource/readyState) von `"ended"` zurück zu `"open"` wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
-```js
+```js-nolint
 addEventListener("sourceopen", (event) => {});
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onsourceopen = (event) => {};
 ```
 
@@ -26,9 +31,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Umgang mit dem sourceopen Ereignis
+### Das sourceopen-Ereignis behandeln
 
-Dieses Beispiel richtet ein [`MediaSource`](/de/docs/Web/API/MediaSource) ein, verbindet es mit einem Video-Element und lauscht auf das `sourceopen` Ereignis. Wenn das Ereignis ausgelöst wird, wird ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) hinzugefügt, um die Videodaten zu handhaben, die Daten werden abgerufen, dem Puffer hinzugefügt und schließlich die Objekt-URL widerrufen, wenn die Quelle endet.
+Dieses Beispiel richtet eine [`MediaSource`](/de/docs/Web/API/MediaSource) ein, verbindet sie mit einem Videoelement und wartet auf das `sourceopen`-Ereignis. Wenn das Ereignis ausgelöst wird, fügt es einen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zur Verarbeitung der Videodaten hinzu, ruft die Daten ab, hängt sie an den Puffer an und gibt schließlich die Objekt-URL frei, wenn die Quelle endet.
 
 ```js
 const video = document.getElementById("myVideo");

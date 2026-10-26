@@ -3,27 +3,31 @@ title: "Element: afterscriptexecute-Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Element/afterscriptexecute_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef}}{{Non-standard_header}}
 
 > [!WARNING]
-> Dieses Ereignis war ein Vorschlag in einer frühen Version der Spezifikation. Verlassen Sie sich nicht darauf.
+> Dieses Ereignis wurde in einer frühen Version der Spezifikation vorgeschlagen. Verlassen Sie sich nicht darauf.
 
-Das **`afterscriptexecute`**-Ereignis wird ausgelöst, nachdem ein Skript ausgeführt wurde.
+Das Ereignis **`afterscriptexecute`** wird ausgelöst, nachdem ein Skript ausgeführt wurde.
 
-Es ist ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
+Es ist ein proprietäres Ereignis, das nur in Gecko (Firefox) verfügbar ist.
 
-Dieses Ereignis ist nicht abbrechbar.
+Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("afterscriptexecute", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onafterscriptexecute = (event) => { }
 ```
 
@@ -41,4 +45,4 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event)-Ereignis
+- Ereignis [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event)

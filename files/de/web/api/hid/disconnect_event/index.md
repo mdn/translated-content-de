@@ -1,22 +1,26 @@
 ---
-title: "HID: disconnect event"
+title: "HID: disconnect-Ereignis"
 short-title: disconnect
 slug: Web/API/HID/disconnect_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Das **`disconnect`**-Ereignis des [`HID`](/de/docs/Web/API/HID)-Interfaces wird ausgelöst, wenn der Benutzeragent ein HID-Gerät trennt.
+Das **`disconnect`**-Ereignis der [`HID`](/de/docs/Web/API/HID)-Schnittstelle wird ausgelöst, wenn der User Agent die Verbindung zu einem HID-Gerät trennt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("disconnect", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignishandler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ondisconnect = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent). Erbt von [`Even
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein Ereignis-Listener registriert, um auf die Trennung eines Geräts zu lauschen. Der Name des Geräts wird dann mit [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein Event-Listener registriert, der auf die Trennung der Verbindung zu einem Gerät wartet. Anschließend wird der Name des Geräts mithilfe von [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) in der Konsole ausgegeben.
 
 ```js
 navigator.hid.addEventListener("disconnect", ({ device }) => {

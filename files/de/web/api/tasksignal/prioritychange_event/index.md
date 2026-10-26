@@ -1,9 +1,9 @@
 ---
-title: "TaskSignal: prioritychange Event"
+title: "TaskSignal: prioritychange-Ereignis"
 short-title: prioritychange
 slug: Web/API/TaskSignal/prioritychange_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
@@ -12,11 +12,15 @@ Das **`prioritychange`**-Ereignis wird an ein [`TaskSignal`](/de/docs/Web/API/Ta
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("prioritychange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onprioritychange = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`TaskPriorityChangeEvent`](/de/docs/Web/API/TaskPriorityChangeEvent). Erbt 
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie das `prioritychange`-Ereignis auf einem [`TaskSignal`](/de/docs/Web/API/TaskSignal) abhören können.
+Das folgende Beispiel zeigt, wie Sie auf das `prioritychange`-Ereignis eines [`TaskSignal`](/de/docs/Web/API/TaskSignal) reagieren.
 
 ```html hidden
 <textarea id="log"></textarea>
@@ -48,10 +52,10 @@ function myLog(text) {
 }
 ```
 
-Zuerst erstellen wir einen Controller und fügen einen Ereignislistener zu dessen Signal hinzu.
-Beim Umgang mit dem Ereignis verwenden wir [`previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) am Ereignis, um die ursprüngliche Priorität zu erhalten, und [`TaskSignal.priority`](/de/docs/Web/API/TaskSignal/priority) am Ereignisziel, um die neue/aktuelle Priorität zu bekommen.
+Zunächst erstellen wir einen Controller und fügen seinem Signal einen Event-Listener hinzu.
+Bei der Verarbeitung des Ereignisses verwenden wir [`previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) am Ereignis, um die ursprüngliche Priorität zu ermitteln, und [`TaskSignal.priority`](/de/docs/Web/API/TaskSignal/priority) am Ereignisziel, um die neue bzw. aktuelle Priorität zu ermitteln.
 
-Der Task wird dann gepostet und das Signal übergeben. Danach ändern wir umgehend die Priorität.
+Anschließend wird die Aufgabe unter Übergabe des Signals eingeplant, und unmittelbar danach ändern wir die Priorität.
 
 ```js
 if ("scheduler" in this) {
@@ -80,11 +84,11 @@ if ("scheduler" in this) {
 ```
 
 > [!NOTE]
-> Der obige Code verwendet eine benutzerdefinierte Protokollierungsfunktion `myLog()`, um in das untenstehende Textfeld zu protokollieren.
-> Diese ist verborgen, da sie für das Beispiel nicht relevant ist.
+> Der obige Code verwendet die benutzerdefinierte Logging-Funktion `myLog()`, um Meldungen im Textbereich unten auszugeben.
+> Sie wird hier nicht gezeigt, da sie für das Beispiel nicht relevant ist.
 
-Die untenstehende Ausgabe zeigt, dass sich die [Priorität des Tasks](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) von `user-blocking` zu `background` geändert hat.
-Dies geschieht, bevor der Task ausgeführt wird, könnte aber auch während der Ausführung des Tasks passieren.
+Die folgende Ausgabe zeigt, dass sich die [Priorität der Aufgabe](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) von `user-blocking` zu `background` geändert hat.
+Dies geschieht, bevor die Aufgabe ausgeführt wird, könnte aber auch während ihrer Ausführung geschehen.
 
 {{EmbedLiveSample("Examples",'400px','130px')}}
 

@@ -1,41 +1,45 @@
 ---
-title: "Window: pageshow-Event"
+title: "Window: pageshow-Ereignis"
 short-title: pageshow
 slug: Web/API/Window/pageshow_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`pageshow`**-Event wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser zu einem neuen Dokument navigiert.
+Das **`pageshow`**-Ereignis wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser zu einem neuen Dokument navigiert.
 
 Dies umfasst:
 
-- Initiales Laden der Seite.
-- Navigieren zur Seite von einer anderen Seite im gleichen Fenster oder Tab.
-- Wiederherstellen einer eingefrorenen Seite auf mobilen Betriebssystemen.
-- Zurückkehr zur Seite mittels der Vorwärts- oder Rückwärtsbuttons des Browsers (einschließlich wenn sie aus dem {{Glossary("bfcache", "bfcache")}} wiederhergestellt wird).
-- Öffnen einer Seite in einem Hintergrund-Tab.
-- {{Glossary("Prerender", "Prerendern")}} einer Seite, noch bevor diese aktiviert wird.
+- Das erstmalige Laden der Seite.
+- Die Navigation von einer anderen Seite im selben Fenster oder Tab zu dieser Seite.
+- Die Wiederherstellung einer eingefrorenen Seite auf mobilen Betriebssystemen.
+- Die Rückkehr zur Seite über die Vorwärts- oder Zurück-Schaltfläche des Browsers (auch bei einer Wiederherstellung aus dem {{Glossary("bfcache", "bfcache")}}).
+- Das Öffnen einer Seite in einem Hintergrund-Tab.
+- Das {{Glossary("Prerender", "Prerendering")}} einer Seite, noch bevor sie aktiviert wird.
 
 > [!WARNING]
-> Trotz des Namens wird das `pageshow`-Event nicht ausgelöst, wenn die Seite tatsächlich dem Benutzer _gezeigt_ wird. Zum Beispiel könnte sie in einem Hintergrund-Tab geöffnet oder prerendert werden. Wenn Sie interessiert daran sind zu reagieren, wenn die Seite dem Benutzer gezeigt wird, nutzen Sie die folgenden Ereignisse:
+> Trotz seines Namens wird das `pageshow`-Ereignis nicht ausgelöst, wenn die Seite dem Benutzer tatsächlich _angezeigt_ wird. Beispielsweise kann sie in einem Hintergrund-Tab geöffnet oder vorgerendert werden. Wenn Sie darauf reagieren möchten, dass die Seite dem Benutzer angezeigt wird, verwenden Sie die folgenden Ereignisse:
 >
 > - [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event): Wird gesendet, wenn eine Seite erstmals gerendert wird.
 > - [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event): Wird jedes Mal gesendet, wenn sich die Sichtbarkeit einer Seite ändert.
-> - [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event): Wird gesendet, wenn eine prerendered Seite aktiviert wird.
+> - [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event): Wird gesendet, wenn eine vorgerenderte Seite aktiviert wird.
 
 > [!NOTE]
-> Während des initialen Seitenladens wird das `pageshow`-Event _nach_ dem [`load`](/de/docs/Web/API/Window/load_event)-Event ausgelöst.
+> Beim erstmaligen Laden der Seite wird das `pageshow`-Ereignis _nach_ dem [`load`](/de/docs/Web/API/Window/load_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pageshow", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Property](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpageshow = (event) => { }
 ```
 
@@ -45,9 +49,9 @@ Ein [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent). Erbt von [`Ev
 
 {{InheritanceDiagram("PageTransitionEvent")}}
 
-## Event-Handler-Aliase
+## Event-Handler-Aliasse
 
-Zusätzlich zur `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onpageshow` ebenfalls auf folgenden Zielen verfügbar:
+Neben der `Window`-Schnittstelle ist die Event-Handler-Property `onpageshow` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -55,7 +59,7 @@ Zusätzlich zur `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onpage
 
 ## Beispiele
 
-Dieses Beispiel richtet Event-Handler für Ereignisse ein, die im Array `events` aufgelistet sind. Der Handler `eventLogger()` protokolliert den Typ des aufgetretenen Ereignisses in die Konsole und enthält den Wert des [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted)-Flags bei `pageshow`- und `pagehide`-Ereignissen.
+Dieses Beispiel richtet Event-Handler für die im Array `events` aufgeführten Ereignisse ein. Der Handler `eventLogger()` protokolliert den Typ des aufgetretenen Ereignisses in der Konsole und gibt bei `pageshow`- und `pagehide`-Ereignissen auch den Wert des Flags [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) aus.
 
 ### JavaScript
 
@@ -89,7 +93,7 @@ events.forEach((eventName) => window.addEventListener(eventName, eventLogger));
 </p>
 ```
 
-### Ergebnisse
+### Ergebnis
 
 {{EmbedLiveSample("Examples", 640, 250)}}
 

@@ -3,22 +3,26 @@ title: "Element: mousemove-Ereignis"
 short-title: mousemove
 slug: Web/API/Element/mousemove_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das `mousemove`-Ereignis wird auf einem Element ausgelöst, wenn ein Zeigegerät (in der Regel eine Maus) bewegt wird, während sich der Hotspot des Cursors darin befindet.
+Das `mousemove`-Ereignis wird an einem Element ausgelöst, wenn ein Zeigegerät (üblicherweise eine Maus) bewegt wird, während sich der Hotspot des Mauszeigers innerhalb des Elements befindet.
 
-Diese Ereignisse treten auf, unabhängig davon, ob eine Maustaste gedrückt ist oder nicht. Sie können mit einer sehr hohen Rate ausgelöst werden, abhängig davon, wie schnell der Benutzer die Maus bewegt, wie schnell der Computer ist, welche anderen Aufgaben und Prozesse ausgeführt werden, usw.
+Diese Ereignisse treten unabhängig davon auf, ob Maustasten gedrückt sind. Sie können sehr häufig ausgelöst werden – abhängig davon, wie schnell die Maus bewegt wird, wie leistungsfähig der Computer ist und welche anderen Aufgaben und Prozesse gerade ausgeführt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mousemove", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmousemove = (event) => { }
 ```
 
@@ -30,17 +34,17 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-, `mousemove`- und [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignisse, um dem Benutzer zu ermöglichen, auf einem HTML-[canvas](/de/docs/Web/API/Canvas_API) zu zeichnen. Die Funktionalität ist einfach: Die Linienbreite ist auf 1 gesetzt, und die Farbe ist immer schwarz.
+Das folgende Beispiel verwendet die Ereignisse [`mousedown`](/de/docs/Web/API/Element/mousedown_event), `mousemove` und [`mouseup`](/de/docs/Web/API/Element/mouseup_event), damit Benutzer auf einem HTML-[Canvas](/de/docs/Web/API/Canvas_API) zeichnen können. Die Funktionsweise ist einfach: Die Linienstärke ist auf 1 festgelegt, und die Farbe ist immer Schwarz.
 
-Beim Laden der Seite werden die Konstanten `myPics` und `context` erstellt, um eine Referenz auf das Canvas und den 2D-Kontext zu speichern, den wir zum Zeichnen verwenden werden.
+Beim Laden der Seite werden die Konstanten `myPics` und `context` erstellt. Sie speichern Referenzen auf das Canvas und den 2D-Kontext, der zum Zeichnen verwendet wird.
 
-Das Zeichnen beginnt, wenn das `mousedown`-Ereignis ausgelöst wird. Zuerst speichern wir die x- und y-Koordinaten des Mauszeigers in den Variablen `x` und `y` und setzen dann `isDrawing` auf `true`.
+Das Zeichnen beginnt, wenn das `mousedown`-Ereignis ausgelöst wird. Zuerst werden die x- und y-Koordinaten des Mauszeigers in den Variablen `x` und `y` gespeichert. Anschließend wird `isDrawing` auf `true` gesetzt.
 
-Wenn sich die Maus über die Seite bewegt, wird das `mousemove`-Ereignis ausgelöst. Wenn `isDrawing` `true` ist, ruft der Ereignishandler die Funktion `drawLine` auf, um eine Linie von den gespeicherten `x`- und `y`-Werten zur aktuellen Position zu zeichnen.
+Während sich die Maus über die Seite bewegt, wird das `mousemove`-Ereignis ausgelöst. Wenn `isDrawing` den Wert `true` hat, ruft der Event-Handler die Funktion `drawLine` auf, um eine Linie von den gespeicherten Werten `x` und `y` zur aktuellen Position zu zeichnen.
 
-Wenn die `drawLine()`-Funktion zurückkehrt, passen wir die Koordinaten an und speichern sie dann in `x` und `y`.
+Nachdem die Funktion `drawLine()` zurückgekehrt ist, werden die Koordinaten aktualisiert und in `x` und `y` gespeichert.
 
-Das `mouseup`-Ereignis zeichnet das letzte Liniensegment, setzt `x` und `y` auf `0` und beendet das weitere Zeichnen, indem es `isDrawing` auf `false` setzt.
+Das `mouseup`-Ereignis zeichnet das letzte Liniensegment, setzt `x` und `y` auf `0` und beendet das Zeichnen, indem es `isDrawing` auf `false` setzt.
 
 ### HTML
 

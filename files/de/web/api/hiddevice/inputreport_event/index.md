@@ -1,22 +1,26 @@
 ---
-title: "HIDDevice: inputreport Ereignis"
+title: "HIDDevice: inputreport-Ereignis"
 short-title: inputreport
 slug: Web/API/HIDDevice/inputreport_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Das **`inputreport`** Ereignis der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle wird ausgelöst, wenn ein neuer Bericht vom HID-Gerät empfangen wird.
+Das **`inputreport`**-Ereignis der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle wird ausgelöst, wenn ein neuer Bericht vom HID-Gerät empfangen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("inputreport", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oninputreport = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent). Erbt von [`Ev
 
 ## Beispiel
 
-Das folgende Beispiel zeigt das Lauschen auf ein `inputreport` Ereignis, das es der Anwendung ermöglicht, zu erkennen, welcher Knopf auf einem Joy-Con Right Gerät gedrückt wird. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbindung zu ungewöhnlichen HID-Geräten](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt, wie Sie auf ein `inputreport`-Ereignis reagieren, um zu erkennen, welche Taste auf einem Joy-Con Right-Gerät gedrückt wird. Weitere Beispiele und interaktive Demos finden Sie im Artikel [Verbindung mit ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 device.addEventListener("inputreport", (event) => {

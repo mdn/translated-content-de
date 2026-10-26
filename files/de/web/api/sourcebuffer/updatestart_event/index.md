@@ -3,7 +3,7 @@ title: "SourceBuffer: updatestart-Ereignis"
 short-title: updatestart
 slug: Web/API/SourceBuffer/updatestart_event
 l10n:
-  sourceCommit: 42ea605d69523989e468990fcd9e17abe934ec98
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
@@ -12,11 +12,15 @@ Das **`updatestart`**-Ereignis der [`SourceBuffer`](/de/docs/Web/API/SourceBuffe
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("updatestart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onupdatestart = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Abhören des updatestart-Ereignisses
+### Auf das updatestart-Ereignis reagieren
 
 ```js
 const sourceBuffer = source.addSourceBuffer(mimeCodec);

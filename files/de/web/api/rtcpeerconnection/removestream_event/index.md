@@ -3,27 +3,32 @@ title: "RTCPeerConnection: removestream-Ereignis"
 short-title: removestream
 slug: Web/API/RTCPeerConnection/removestream_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("WebRTC")}}{{Non-standard_Header}}
 
-Das veraltete **`removestream`**-Ereignis wurde an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um darüber zu informieren, dass ein [`MediaStream`](/de/docs/Web/API/MediaStream) aus der Verbindung entfernt wurde. Sie können die `onremovestream`-Eigenschaft der `RTCPeerConnection`-Schnittstelle verwenden, um einen Handler für dieses Ereignis festzulegen.
+Das veraltete **`removestream`**-Ereignis wurde an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um darüber zu informieren, dass ein [`MediaStream`](/de/docs/Web/API/MediaStream) aus der Verbindung entfernt wurde.
+Sie können mit der `onremovestream`-Eigenschaft des `RTCPeerConnection`-Interfaces einen Handler für dieses Ereignis festlegen.
 
-Dies ist das Gegenstück zum [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event)-Ereignis, das ebenfalls veraltet ist.
+Das Gegenstück dazu ist das ebenfalls veraltete [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event)-Ereignis.
 
 > [!WARNING]
-> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt zugunsten des vorhandenen [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)-Ereignisses auf dem entfernten [`MediaStream`](/de/docs/Web/API/MediaStream) und der entsprechenden Ereignishandlereigenschaft des entfernten [`MediaStream`](/de/docs/Web/API/MediaStream). Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-API basiert jetzt auf Tracks, sodass das Vorhandensein von null Tracks im entfernten Stream dem Entfernungsereignis des Streams gleichkommt, was ein `removestream`-Ereignis verursacht.
+> Dieses Ereignis wurde zugunsten des bereits vorhandenen [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)-Ereignisses auf dem entfernten [`MediaStream`](/de/docs/Web/API/MediaStream) und der entsprechenden Event-Handler-Eigenschaft des entfernten [`MediaStream`](/de/docs/Web/API/MediaStream) aus der WebRTC-Spezifikation entfernt. Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-API basiert inzwischen auf Tracks. Wenn der entfernte Stream keine Tracks mehr enthält, entspricht dies daher dem Entfernen des Streams, das zuvor ein `removestream`-Ereignis auslöste.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("removestream", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onremovestream = (event) => { }
 ```
 
@@ -39,6 +44,6 @@ Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent). Erbt von [`Event`](
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [`RTCPeerConnection.removeStream()`](/de/docs/Web/API/RTCPeerConnection/removeStream)
 - [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)

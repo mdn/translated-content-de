@@ -1,22 +1,26 @@
 ---
-title: "ManagedMediaSource: startstreaming Ereignis"
+title: "ManagedMediaSource: startstreaming-Ereignis"
 short-title: startstreaming
 slug: Web/API/ManagedMediaSource/startstreaming_event
 l10n:
-  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Das **`startstreaming`**-Ereignis der [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource)-Schnittstelle wird ausgelöst, wenn sich die [`streaming`](/de/docs/Web/API/ManagedMediaSource/streaming)-Eigenschaft von `false` auf `true` ändert. Dies weist darauf hin, dass der Benutzeragent mehr Daten benötigt, um eine unterbrechungsfreie Wiedergabe sicherzustellen, und die Anwendung sollte beginnen, Media-Segmente abzurufen und anzuhängen.
+Das **`startstreaming`**-Ereignis der [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource)-Schnittstelle wird ausgelöst, wenn sich die [`streaming`](/de/docs/Web/API/ManagedMediaSource/streaming)-Eigenschaft von `false` zu `true` ändert. Dies zeigt an, dass der User Agent weitere Daten benötigt, um eine unterbrechungsfreie Wiedergabe sicherzustellen. Die Anwendung sollte daher beginnen, Mediensegmente abzurufen und anzuhängen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("startstreaming", (event) => {});
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onstartstreaming = (event) => {};
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Abrufen von Daten als Reaktion auf startstreaming
+### Daten als Reaktion auf startstreaming abrufen
 
 Dieses Beispiel erstellt eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource), verknüpft sie mit einem {{htmlelement("video")}}-Element und verwendet das `startstreaming`-Ereignis, um mit dem Abrufen und Anhängen von Mediendaten zu beginnen.
 
@@ -67,7 +71,7 @@ if (ManagedMediaSource.isTypeSupported(mediaType)) {
 
 ## Siehe auch
 
-- [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event) Ereignis
+- [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event)-Ereignis
 - [`ManagedMediaSource.streaming`](/de/docs/Web/API/ManagedMediaSource/streaming)
 - [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource)
 - [`MediaSource`](/de/docs/Web/API/MediaSource)

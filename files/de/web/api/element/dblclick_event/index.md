@@ -1,24 +1,28 @@
 ---
-title: "Element: dblclick-Event"
+title: "Element: dblclick-Ereignis"
 short-title: dblclick
 slug: Web/API/Element/dblclick_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`dblclick`**-Event wird ausgelöst, wenn eine Taste eines Zeigegeräts (wie die Primärtaste einer Maus) doppelt geklickt wird; das heißt, wenn sie innerhalb eines sehr kurzen Zeitraums zweimal schnell auf ein einzelnes Element geklickt wird.
+Das Ereignis **`dblclick`** wird ausgelöst, wenn die Taste eines Zeigegeräts (z. B. die primäre Maustaste) doppelt angeklickt wird, also wenn sie innerhalb sehr kurzer Zeit zweimal schnell auf demselben Element betätigt wird.
 
-Das `dblclick`-Event wird nach zwei [`click`](/de/docs/Web/API/Element/click_event)-Events ausgelöst (und somit auch nach zwei Paaren von [`mousedown`](/de/docs/Web/API/Element/mousedown_event)- und [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Events).
+`dblclick` wird nach zwei [`click`](/de/docs/Web/API/Element/click_event)-Ereignissen ausgelöst (und damit nach zwei Paaren von [`mousedown`](/de/docs/Web/API/Element/mousedown_event)- und [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignissen).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlers-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("dblclick", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 ondblclick = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Beispiele
 
-Dieses Beispiel ändert die Größe einer Karte, wenn Sie doppelt darauf klicken.
+Dieses Beispiel ändert die Größe einer Karte, wenn Sie darauf doppelklicken.
 
 ### JavaScript
 

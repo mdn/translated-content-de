@@ -1,24 +1,28 @@
 ---
-title: "Window: deviceorientationabsolute Ereignis"
+title: "Window: deviceorientationabsolute-Ereignis"
 short-title: deviceorientationabsolute
 slug: Web/API/Window/deviceorientationabsolute_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`deviceorientationabsolute`** Ereignis wird ausgelöst, wenn sich die absolute Geräteausrichtung ändert.
+Das **`deviceorientationabsolute`**-Ereignis wird ausgelöst, wenn sich die absolute Geräteausrichtung ändert.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("deviceorientationabsolute", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ondeviceorientationabsolute = (event) => { }
 ```
 
@@ -38,6 +42,6 @@ Ein [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent). Erbt vo
 
 ## Siehe auch
 
-- [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event) Ereignis
-- [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) Ereignis
-- [Erkennung der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event)-Ereignis
+- [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis
+- [Geräteausrichtung erkennen](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)

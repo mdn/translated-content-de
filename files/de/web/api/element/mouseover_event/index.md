@@ -3,22 +3,26 @@ title: "Element: mouseover-Ereignis"
 short-title: mouseover
 slug: Web/API/Element/mouseover_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`mouseover`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (wie eine Maus oder ein Trackpad) verwendet wird, um den Cursor auf das Element oder eines seiner Kindelemente zu bewegen.
+Das **`mouseover`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn der Cursor mit einem Zeigegerät (z. B. einer Maus oder einem Trackpad) auf das Element oder eines seiner Kindelemente bewegt wird.
 
-Wenn das Zielelement Kindelemente hat, werden die Ereignisse `mouseout` und `mouseover` ebenfalls ausgelöst, wenn die Maus über die Grenzen dieser Elemente bewegt wird, nicht nur über das Zielelement selbst. In der Regel ist das Verhalten von `mouseenter`- und `mouseleave`-Ereignissen sinnvoller, da sie nicht durch das Bewegen in Kindelemente beeinflusst werden.
+Wenn das Zielelement Kindelemente hat, werden `mouseout`- und `mouseover`-Ereignisse auch ausgelöst, wenn die Maus die Grenzen dieser Elemente überquert, und nicht nur die Grenze des Zielelements selbst. Das Verhalten der Ereignisse `mouseenter` und `mouseleave` ist in der Regel besser geeignet, da sie nicht durch das Bewegen des Cursors auf Kindelemente beeinflusst werden.
 
 ## Syntax
 
-Nutzen Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mouseover", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmouseover = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Beispiele
 
-Das folgende Beispiel zeigt den Unterschied zwischen `mouseover`- und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)-Ereignissen.
+Das folgende Beispiel veranschaulicht den Unterschied zwischen den Ereignissen `mouseover` und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event).
 
 ### HTML
 

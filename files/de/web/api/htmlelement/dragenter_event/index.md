@@ -3,22 +3,26 @@ title: "HTMLElement: dragenter-Ereignis"
 short-title: dragenter
 slug: Web/API/HTMLElement/dragenter_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel zum Ablegen erreicht. Das Zielelement ist die _unmittelbare Benutzerauswahl_ (das Element, das vom Benutzer direkt als Ziel zum Ablegen angegeben wurde) oder das {{HTMLElement("body")}}-Element.
+Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine gezogene Textauswahl in ein gültiges Ablageziel eintritt. Das Zielobjekt ist die _unmittelbare Benutzerauswahl_ (das Element, das der Benutzer direkt als Ablageziel angibt) oder das {{HTMLElement("body")}}-Element.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zum [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekt weiterverbreitet werden.
+Dieses Ereignis kann abgebrochen werden und sich bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) ausbreiten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("dragenter", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ondragenter = (event) => { }
 ```
 
@@ -30,13 +34,13 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiele
 
-### Drop-Zonen bei `dragenter` stylen
+### Ablagezonen bei dragenter gestalten
 
-In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel befindet sich ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und dort loszulassen.
 
-Wir lauschen dem `dragenter`-Ereignis, um dem anderen Container einen lilafarbenen Hintergrund zu geben, während sich das ziehbare Element darüber befindet, um anzuzeigen, dass das Element in den Container abgelegt werden könnte.
+Wir reagieren auf das `dragenter`-Ereignis, um dem anderen Container einen violetten Hintergrund zu geben, solange sich das ziehbare Element darüber befindet. So wird signalisiert, dass das Element auf dem Container abgelegt werden könnte.
 
-In diesem Teilbeispiel haben wir jedoch das Ablegen nicht implementiert: für ein vollständiges Beispiel zu Drag and Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+In diesem unvollständigen Beispiel ist das Ablegen jedoch nicht implementiert. Ein vollständiges Drag-and-Drop-Beispiel finden Sie auf der Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -106,7 +110,7 @@ target.addEventListener("dragleave", (event) => {
 
 ## Siehe auch
 
-- Andere Drag-and-Drop-Ereignisse:
+- Weitere Drag-and-Drop-Ereignisse:
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
   - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)

@@ -3,28 +3,32 @@ title: "EditContext: textformatupdate-Ereignis"
 short-title: textformatupdate
 slug: Web/API/EditContext/textformatupdate_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `textformatupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn eine Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) Fenster stattfindet.
+Das `textformatupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, während Text mithilfe eines {{Glossary("Input_Method_Editor", "Input Method Editors")}} (IME) eingegeben wird.
 
-Das Ereignis wird ausgelöst, wenn das IME entscheidet, dass bestimmte Teile des zu komponierenden Textes anders formatiert werden sollten, um den Kompositionszustand anzuzeigen.
+Das Ereignis wird ausgelöst, wenn der IME festlegt, dass bestimmte Teile des gerade eingegebenen Textes anders formatiert werden sollen, um den Eingabestatus anzuzeigen.
 
-Der folgende Screenshot zeigt ein Beispiel für Text, der in der Notepad-App unter Windows mit dem japanischen IME geschrieben wird. Der Text ist mit einer dicken Unterstreichung formatiert, um anzuzeigen, dass er aus einem der Vorschläge des IMEs komponiert wurde.
+Der folgende Screenshot zeigt ein Beispiel für die Texteingabe in der Notepad-App unter Windows mit dem japanischen IME. Der Text ist dick unterstrichen, um anzuzeigen, dass er aus einem der Vorschläge des IME übernommen wurde.
 
-![Notepad auf Windows mit japanischem Text, der aus dem IME-Fenster komponiert wird](./ime-notepad.png)
+![Notepad unter Windows mit japanischem Text, der mithilfe des IME-Fensters eingegeben wird](./ime-notepad.png)
 
-Als Webentwickler sollten Sie auf das `textformatupdate`-Ereignis hören und die Formatierung des in Ihrem bearbeitbaren Bereich angezeigten Textes entsprechend aktualisieren.
+Als Webentwickler sollten Sie auf das `textformatupdate`-Ereignis reagieren und die Formatierung des Textes in Ihrem bearbeitbaren Bereich entsprechend aktualisieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("textformatupdate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ontextformatupdate = (event) => { }
 ```
 
@@ -34,9 +38,9 @@ Ein [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent). Erbt von 
 
 ## Beispiele
 
-### Rendern von IME-Kompositionstextformatierungen
+### Formatierung von Text während der IME-Eingabe darstellen
 
-Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren. Beachten Sie, dass die Rückruffunktion des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungs-Oberflächen zur Komposition von Text verwendet werden.
+Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren. Beachten Sie, dass die Event-Listener-Callback-Funktion in diesem Beispiel nur aufgerufen wird, wenn Text mit einem IME-Fenster oder einer anderen plattformspezifischen Benutzeroberfläche zur Texteingabe eingegeben wird.
 
 ```html
 <canvas id="editor-canvas"></canvas>

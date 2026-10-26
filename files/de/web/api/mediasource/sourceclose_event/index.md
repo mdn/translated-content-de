@@ -3,20 +3,24 @@ title: "MediaSource: sourceclose-Ereignis"
 short-title: sourceclose
 slug: Web/API/MediaSource/sourceclose_event
 l10n:
-  sourceCommit: 0f8be363b1b680bdab9bc2f459787160f232e158
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`sourceclose`**-Ereignis wird ausgelöst, wenn sich der [`readyState`](/de/docs/Web/API/MediaSource/readyState) eines [`MediaSource`](/de/docs/Web/API/MediaSource)-Objekts auf `"closed"` ändert. Dies weist darauf hin, dass die `MediaSource` von dem Medien-Element getrennt wurde.
+Das **`sourceclose`**-Ereignis wird ausgelöst, wenn sich der [`readyState`](/de/docs/Web/API/MediaSource/readyState) eines [`MediaSource`](/de/docs/Web/API/MediaSource)-Objekts zu `"closed"` ändert. Dies zeigt an, dass die `MediaSource` vom Medienelement getrennt wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("sourceclose", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onsourceclose = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Umgang mit dem sourceclose-Ereignis
+### Das sourceclose-Ereignis behandeln
 
-Dieses Beispiel zeigt, wie ein Medien-Element von einer `MediaSource` getrennt wird und wie das `sourceclose`-Ereignis zur ordnungsgemäßen Ressourcenverwaltung behandelt wird. Der Code richtet eine [`MediaSource`](/de/docs/Web/API/MediaSource) ein, verbindet sie mit einem Video-Element und hört auf das `sourceclose`-Ereignis. Wenn das Ereignis ausgelöst wird, führt es Bereinigungsaufgaben aus (`revokeObjectURL`).
+Dieses Beispiel zeigt, wie ein Medienelement von einer `MediaSource` getrennt und das `sourceclose`-Ereignis behandelt wird, um Ressourcen ordnungsgemäß freizugeben. Der Code richtet eine [`MediaSource`](/de/docs/Web/API/MediaSource) ein, verknüpft sie mit einem Videoelement und überwacht das `sourceclose`-Ereignis. Wenn das Ereignis ausgelöst wird, gibt er Ressourcen mithilfe von `revokeObjectURL` frei.
 
 ```js
 const video = document.getElementById("myVideo");

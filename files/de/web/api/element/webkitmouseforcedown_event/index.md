@@ -3,22 +3,26 @@ title: "Element: webkitmouseforcedown-Ereignis"
 short-title: webkitmouseforcedown
 slug: Web/API/Element/webkitmouseforcedown_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-Nachdem ein [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis auf das Element ausgelöst wurde, sendet Safari **`webkitmouseforcedown`**-Ereignisse an das Element, wenn und sobald ausreichender Druck auf den Maus- oder Trackpad-Button ausgeübt wurde, um als "Force Click" zu qualifizieren.
+Nachdem ein [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis am Element ausgelöst wurde, beginnt Safari, **`webkitmouseforcedown`**-Ereignisse an das Element zu senden, sobald genügend Druck auf die Maus- oder Trackpad-Taste ausgeübt wird, um als „Force Click“ zu gelten.
 
-**`webkitmouseforcedown`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil der [Force Touch-Ereignisse](/de/docs/Web/API/Force_Touch_events)-Funktion.
+**`webkitmouseforcedown`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil der Funktion [Force Touch events](/de/docs/Web/API/Force_Touch_events).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("webkitmouseforcedown", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onwebkitmouseforcedown = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Spezifikationen
 
-_Nicht Teil einer Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
+_Nicht Teil einer Spezifikation._ Apple stellt [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html) bereit.
 
 ## Browser-Kompatibilität
 

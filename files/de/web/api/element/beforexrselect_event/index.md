@@ -1,24 +1,28 @@
 ---
-title: "Element: beforexrselect Event"
+title: "Element: beforexrselect-Ereignis"
 short-title: beforexrselect
 slug: Web/API/Element/beforexrselect_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Das **`beforexrselect`**-Ereignis wird ausgelöst, bevor WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) gesendet werden. Es kann verwendet werden, um XR-Welteingabeereignisse zu unterdrücken, während der Benutzer mit einer DOM-Overlay-Benutzeroberfläche interagiert.
+Das **`beforexrselect`**-Ereignis wird ausgelöst, bevor WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) weitergeleitet werden. Es kann verwendet werden, um Eingabeereignisse für die XR-Welt zu unterdrücken, während Benutzer mit einer DOM-Overlay-Benutzeroberfläche interagieren.
 
-Dieses Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling), ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [steigt im DOM-Baum auf](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling), ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und [komponiert](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("beforexrselect", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onbeforexrselect = (event) => { }
 ```
 
@@ -28,9 +32,9 @@ Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de/
 
 {{InheritanceDiagram("XRSessionEvent")}}
 
-## Ereignisverfügbarkeit
+## Verfügbarkeit des Ereignisses
 
-Das **`beforexrselect`**-Ereignis ist ein globales Ereignis und für die folgenden Schnittstellen verfügbar:
+Das **`beforexrselect`**-Ereignis ist ein globales Ereignis und steht auf den folgenden Schnittstellen zur Verfügung:
 
 - [`Window`](/de/docs/Web/API/Window)
 - [`Document`](/de/docs/Web/API/Document)
@@ -40,7 +44,7 @@ Das **`beforexrselect`**-Ereignis ist ein globales Ereignis und für die folgend
 
 ## Beispiele
 
-Um WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) zu unterdrücken, kann eine Anwendung das `beforexrselect`-Ereignis abhören. Das Ereignis bubbelt, daher verhindert ein Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem DOM-Overlay-Element alle WebXR-Auswahlereignisse innerhalb dieses Containers, sodass eine Interaktion mit dem DOM-Element möglich ist und doppelte Ereigniseingaben in die XR-Welt vermieden werden.
+Um WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) zu unterdrücken, kann eine Anwendung auf das `beforexrselect`-Ereignis warten. Da das Ereignis im DOM-Baum aufsteigt, verhindert ein Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem DOM-Overlay-Element sämtliche WebXR-Auswahlereignisse innerhalb dieses Containers. Dadurch ist die Interaktion mit dem DOM-Element möglich, ohne dass dieselbe Eingabe zusätzlich als Ereignis an die XR-Welt weitergegeben wird.
 
 ```js
 document
@@ -61,4 +65,4 @@ document
 - [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis
 - [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event)-Ereignis
 - [`selectend`](/de/docs/Web/API/XRSession/selectend_event)-Ereignis
-- {{cssxref(":xr-overlay")}} Pseudoklasse
+- {{cssxref(":xr-overlay")}}-Pseudoklasse

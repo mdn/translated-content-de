@@ -3,20 +3,24 @@ title: "SourceBuffer: abort-Ereignis"
 short-title: abort
 slug: Web/API/SourceBuffer/abort_event
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`abort`**-Ereignis der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle wird ausgelöst, wenn das Anfügen an den Puffer abgebrochen wird, weil die Methode [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove) aufgerufen wird, während der Algorithmus [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) noch läuft. Die Eigenschaft [`updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`. Dieses Ereignis wird vor dem [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)-Ereignis ausgelöst.
+Das **`abort`**-Ereignis der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle wird ausgelöst, wenn das Anhängen an den Puffer abgebrochen wird, weil die Methode [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove) aufgerufen wird, während der Algorithmus von [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) noch läuft. Die Eigenschaft [`updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`. Dieses Ereignis wird vor dem Ereignis [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event) ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("abort", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onabort = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Abbrechen eines Anfüge-Vorgangs
+### Eine Anhängeoperation abbrechen
 
-Dieses Beispiel zeigt, wie ein Anfüge-Vorgang abgebrochen wird und das `abort`-Ereignis behandelt wird.
+Dieses Beispiel zeigt, wie Sie eine Anhängeoperation abbrechen und das `abort`-Ereignis behandeln.
 
 ```js
 const sourceBuffer = source.addSourceBuffer(mimeCodec);

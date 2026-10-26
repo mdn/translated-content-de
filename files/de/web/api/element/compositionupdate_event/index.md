@@ -3,28 +3,32 @@ title: "Element: compositionupdate-Ereignis"
 short-title: compositionupdate
 slug: Web/API/Element/compositionupdate_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`compositionupdate`**-Ereignis wird ausgelöst, wenn im Rahmen einer Textzusammensetzungs-Sitzung, die von einem Textkompositionssystem wie einem {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} gesteuert wird, ein neues Zeichen empfangen wird.
+Das **`compositionupdate`**-Ereignis wird ausgelöst, wenn im Rahmen einer Texteingabesitzung ein neues Zeichen empfangen wird. Die Sitzung wird von einem Texteingabesystem wie einem {{Glossary("input_method_editor", "Input Method Editor")}} gesteuert.
 
-Beispielsweise könnte dieses Ereignis ausgelöst werden, während ein Benutzer mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} ein chinesisches Zeichen eingibt.
+Dieses Ereignis kann beispielsweise ausgelöst werden, während eine Person mithilfe eines [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Input Method Editors")}} ein chinesisches Zeichen eingibt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("compositionupdate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncompositionupdate = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbte von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
+Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("CompositionEvent")}}
 
@@ -38,7 +42,7 @@ inputElement.addEventListener("compositionupdate", (event) => {
 });
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

@@ -1,24 +1,28 @@
 ---
-title: "RTCPeerConnection: icecandidateerror Ereignis"
+title: "RTCPeerConnection: icecandidateerror-Ereignis"
 short-title: icecandidateerror
 slug: Web/API/RTCPeerConnection/icecandidateerror_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`icecandidateerror`** Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn ein Fehler während der ICE-Aushandlung über einen {{Glossary("STUN", "STUN")}} oder {{Glossary("TURN", "TURN")}}-Server auftritt.
+Das Ereignis **`icecandidateerror`** wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn bei der ICE-Aushandlung über einen {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server ein Fehler auftritt.
 
-Dieses Ereignis ist nicht abbrechbar und verbreitet sich nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("icecandidateerror", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onicecandidateerror = (event) => { }
 ```
 
@@ -32,9 +36,9 @@ Ein [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErro
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel richtet einen Handler für `icecandidateerror` Ereignisse ein, die bei der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` auftreten. Dieser Handler sucht speziell nach 701-Fehlern, die darauf hinweisen, dass Kandidaten den STUN- oder TURN-Server nicht erreichen konnten.
+Das folgende Beispiel richtet einen Handler für `icecandidateerror`-Ereignisse ein, die bei der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` auftreten. Dieser Handler prüft gezielt auf Fehler mit dem Code 701, die darauf hinweisen, dass Kandidaten den STUN- oder TURN-Server nicht erreichen konnten.
 
-Wenn dies geschieht, werden die Server-URL und die Fehlermeldung an eine Funktion namens `reportConnectFail()` übergeben, um das Verbindungsproblem zu protokollieren oder auszugeben.
+In diesem Fall werden die Server-URL und die Fehlermeldung an eine Funktion namens `reportConnectFail()` übergeben, um den Verbindungsfehler zu protokollieren oder auszugeben.
 
 ```js
 pc.addEventListener("icecandidateerror", (event) => {
@@ -44,7 +48,7 @@ pc.addEventListener("icecandidateerror", (event) => {
 });
 ```
 
-Beachten Sie, dass, wenn beim Erstellen der Verbindung mehrere STUN- und/oder TURN-Server bereitgestellt werden, dieser Fehler mehrmals auftreten kann, wenn mehr als einer dieser Server ausfällt. Jeder bereitgestellte Server wird ausprobiert, bis eine Verbindung hergestellt wird.
+Beachten Sie, dass dieser Fehler mehrfach auftreten kann, wenn beim Erstellen der Verbindung mehrere STUN- und/oder TURN-Server angegeben wurden und mehr als einer dieser Server nicht erreichbar ist. Jeder angegebene Server wird ausprobiert, bis eine Verbindung hergestellt ist.
 
 ## Spezifikationen
 
@@ -56,4 +60,4 @@ Beachten Sie, dass, wenn beim Erstellen der Verbindung mehrere STUN- und/oder TU
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)

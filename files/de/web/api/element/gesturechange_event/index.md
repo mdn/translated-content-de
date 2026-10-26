@@ -1,24 +1,28 @@
 ---
-title: "Element: gesturechange Ereignis"
+title: "Element: gesturechange-Ereignis"
 short-title: gesturechange
 slug: Web/API/Element/gesturechange_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef}}{{Non-standard_header}}
 
-Das **`gesturechange`** Ereignis wird ausgelöst, wenn Finger sich während einer Touch-Geste bewegen.
+Das **`gesturechange`**-Ereignis wird ausgelöst, wenn sich Finger während einer Touch-Geste bewegen.
 
-Es handelt sich um ein proprietäres Ereignis, das spezifisch für WebKit ist.
+Es handelt sich um ein proprietäres, WebKit-spezifisches Ereignis.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("gesturechange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ongesturechange = (event) => { }
 ```
 

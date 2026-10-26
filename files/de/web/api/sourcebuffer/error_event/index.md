@@ -3,20 +3,24 @@ title: "SourceBuffer: error-Ereignis"
 short-title: error
 slug: Web/API/SourceBuffer/error_event
 l10n:
-  sourceCommit: 42ea605d69523989e468990fcd9e17abe934ec98
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`error`**-Ereignis des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces wird ausgelöst, wenn ein Fehler während der Verarbeitung einer [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)-Operation auftritt. Dies kann zum Beispiel passieren, wenn die hinzuzufügenden Daten nicht im erwarteten Format sind, der `SourceBuffer` in einem ungültigen Zustand ist oder der Benutzeragent die Daten nicht verarbeiten kann. Die [`updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft wechselt von `true` zu `false`. Dieses Ereignis wird vor dem [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)-Ereignis ausgelöst.
+Das **`error`**-Ereignis der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle wird ausgelöst, wenn bei der Verarbeitung einer [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)-Operation ein Fehler auftritt. Dies kann beispielsweise geschehen, wenn die angehängten Daten nicht das erwartete Format haben, sich der `SourceBuffer` in einem ungültigen Zustand befindet oder der User Agent die Daten nicht verarbeiten kann. Die Eigenschaft [`updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`. Dieses Ereignis wird vor dem Ereignis [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event) ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Umgang mit Fehlern während `appendBuffer()`
+### Fehler bei appendBuffer() behandeln
 
-Dieses Beispiel zeigt, wie Sie mit Fehlern umgehen, die während der `appendBuffer()`-Operation auftreten.
+Dieses Beispiel zeigt, wie Sie Fehler behandeln, die während der `appendBuffer()`-Operation auftreten.
 
 ```js
 const sourceBuffer = source.addSourceBuffer(mimeCodec);

@@ -1,34 +1,38 @@
 ---
-title: "Performance: resourcetimingbufferfull Ereignis"
+title: "Performance: resourcetimingbufferfull-Ereignis"
 short-title: resourcetimingbufferfull
 slug: Web/API/Performance/resourcetimingbufferfull_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Das `resourcetimingbufferfull` Ereignis wird ausgelöst, wenn der [Ressourcentimingspeicher](/de/docs/Web/API/Performance/setResourceTimingBufferSize) des Browsers voll ist.
+Das Ereignis `resourcetimingbufferfull` wird ausgelöst, wenn der [Puffer für Ressourcen-Timing](/de/docs/Web/API/Performance/setResourceTimingBufferSize) des Browsers voll ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("resourcetimingbufferfull", (event) => { })
+```
 
+Alternativ können Sie einen Wert der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onresourcetimingbufferfull = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein generisches [`Ereignis`](/de/docs/Web/API/Event).
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Erhöhung der Größe, wenn der Puffer voll ist
+### Puffergröße erhöhen, wenn der Puffer voll ist
 
-Das folgende Beispiel hört auf das `resourcetimingbufferfull` Ereignis und erhöht die Größe des Puffers mit der Methode [`setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize).
+Das folgende Beispiel überwacht das Ereignis `resourcetimingbufferfull` und erhöht die Puffergröße mit der Methode [`setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize).
 
 ```js
 function increaseFilledBufferSize(event) {

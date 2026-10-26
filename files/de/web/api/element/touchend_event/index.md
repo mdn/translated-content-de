@@ -1,34 +1,38 @@
 ---
-title: "Element: touchend-Event"
+title: "Element: touchend-Ereignis"
 short-title: touchend
 slug: Web/API/Element/touchend_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Touch Events")}}
 
-Das `touchend`-Event wird ausgelöst, wenn ein oder mehrere Berührungspunkte von der Berührungsfläche entfernt werden. Beachten Sie, dass es stattdessen möglich ist, ein [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Event zu erhalten.
+Das `touchend`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte von der Berührungsfläche entfernt werden. Beachten Sie, dass stattdessen auch ein [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignis auftreten kann.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("touchend", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ontouchend = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`TouchEvent`](/de/docs/Web/API/TouchEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`TouchEvent`](/de/docs/Web/API/TouchEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TouchEvent")}}
 
 ## Beispiele
 
-Code-Beispiele für diese Events sind auf der speziellen Seite verfügbar: [Touch events](/de/docs/Web/API/Touch_events).
+Codebeispiele für diese Ereignisse finden Sie auf der entsprechenden Seite: [Touch-Ereignisse](/de/docs/Web/API/Touch_events).
 
 ## Spezifikationen
 
@@ -40,4 +44,4 @@ Code-Beispiele für diese Events sind auf der speziellen Seite verfügbar: [Touc
 
 ## Siehe auch
 
-- [Touch events](/de/docs/Web/API/Touch_events)
+- [Touch-Ereignisse](/de/docs/Web/API/Touch_events)

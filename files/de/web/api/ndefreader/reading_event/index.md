@@ -1,22 +1,26 @@
 ---
-title: "NDEFReader: reading Ereignis"
+title: "NDEFReader: reading-Ereignis"
 short-title: reading
 slug: Web/API/NDEFReader/reading_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird immer dann ausgelöst, wenn eine neue Lesung von kompatiblen NFC-Geräten (z.B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn sich diese Geräte innerhalb des magnetischen Induktionsfelds des Lesers befinden.
+Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird ausgelöst, sobald ein neuer Lesevorgang von einem kompatiblen NFC-Gerät (z. B. einem NFC-Tag, das NDEF unterstützt) verfügbar ist und sich dieses Gerät im magnetischen Induktionsfeld des Lesegeräts befindet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("reading", (event) => { })
+```
 
+Alternativ können Sie den [Event-Handler-Eigenschaften](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onreading = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Ereignisse mithilfe der Ereignis-Handler `onreading` und `onreadingerror` verarbeitet werden.
+Das folgende Beispiel zeigt, wie Ereignisse mit den Event-Handlern `onreading` und `onreadingerror` verarbeitet werden.
 
 ```js
 const ndef = new NDEFReader();
@@ -58,4 +62,4 @@ ndef
 
 ## Siehe auch
 
-- [`readingerror`](/de/docs/Web/API/NDEFReader/readingerror_event) Ereignis
+- [`readingerror`](/de/docs/Web/API/NDEFReader/readingerror_event)-Ereignis

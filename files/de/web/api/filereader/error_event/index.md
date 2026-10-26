@@ -1,24 +1,28 @@
 ---
-title: "FileReader: error Ereignis"
+title: "FileReader: error-Ereignis"
 short-title: error
 slug: Web/API/FileReader/error_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`error`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird ausgelöst, wenn das Lesen aufgrund eines Fehlers fehlgeschlagen ist (zum Beispiel, weil die Datei nicht gefunden oder nicht lesbar war).
+Das **`error`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird ausgelöst, wenn das Lesen aufgrund eines Fehlers fehlschlägt (beispielsweise weil die Datei nicht gefunden wurde oder nicht lesbar ist).
 
-Dieses Ereignis ist nicht abbruchsicher und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onerror = (event) => { }
 ```
 

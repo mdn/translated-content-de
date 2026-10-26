@@ -1,22 +1,26 @@
 ---
-title: "Navigation: navigate-Event"
+title: "Navigation: navigate-Ereignis"
 short-title: navigate
 slug: Web/API/Navigation/navigate_event
 l10n:
-  sourceCommit: e7ffb2866dc8b67280801535c7f58bf073a5aaf9
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Navigation API")}}
 
-Der **`navigate`**-Ereignis des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces wird ausgelöst, wenn [eine beliebige Art der Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) eingeleitet wird, sodass Sie diese bei Bedarf abfangen können.
+Das **`navigate`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn [eine Navigation beliebigen Typs](https://github.com/WICG/navigation-api#appendix-types-of-navigations) eingeleitet wird. So können Sie bei Bedarf eingreifen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("navigate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onnavigate = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-### Handhabung einer Navigation mit `intercept()`
+### Eine Navigation mit `intercept()` behandeln
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -57,11 +61,11 @@ navigation.addEventListener("navigate", (event) => {
 ```
 
 > [!NOTE]
-> Bevor die Navigation API verfügbar war, mussten Sie, um etwas Ähnliches zu erreichen, auf alle Klickereignisse bei Links hören, `event.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen und dann die Seitenansicht basierend auf der neuen URL einrichten. Und dies würde nicht alle Navigationsvorgänge abdecken – nur benutzerinitiierte Link-Klicks.
+> Bevor die Navigation API verfügbar war, mussten Sie für ein ähnliches Verhalten alle Klickereignisse auf Links überwachen, `event.preventDefault()` aufrufen, den passenden Aufruf von [`History.pushState()`](/de/docs/Web/API/History/pushState) durchführen und anschließend die Seitenansicht anhand der neuen URL einrichten. Damit ließen sich jedoch nicht alle Navigationen behandeln, sondern nur Link-Klicks, die von Benutzern ausgelöst wurden.
 
-### Handhabung des Scrollens mit `scroll()`
+### Scrollen mit `scroll()` behandeln
 
-In diesem Beispiel zum Abfangen einer Navigation beginnt die Funktion `handler()` damit, einige Artikelinhalte abzurufen und darzustellen. Anschließend werden jedoch einige sekundäre Inhalte abgerufen und gerendert. Es ist sinnvoll, die Seite auf die Hauptartikelinhalte zu scrollen, sobald diese verfügbar sind, sodass der Benutzer damit interagieren kann, anstatt darauf zu warten, dass auch die sekundären Inhalte gerendert werden. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen den beiden hinzugefügt.
+In diesem Beispiel für das Abfangen einer Navigation ruft die Funktion `handler()` zunächst Artikelinhalte ab und stellt sie dar. Danach ruft sie weitere Inhalte ab und stellt auch diese dar. Es ist sinnvoll, zur Artikelhauptansicht zu scrollen, sobald sie verfügbar ist, damit Benutzer mit ihr interagieren können, statt zu warten, bis auch die weiteren Inhalte dargestellt sind. Dazu wurde zwischen den beiden Schritten ein Aufruf von [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll) eingefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -96,5 +100,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)

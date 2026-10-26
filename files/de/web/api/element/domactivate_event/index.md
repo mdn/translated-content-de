@@ -1,25 +1,25 @@
 ---
-title: "Element: DOMActivate Event"
+title: "Element: DOMActivate-Ereignis"
 short-title: DOMActivate
 slug: Web/API/Element/DOMActivate_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef}}
 
-Das **`DOMActivate`**-Ereignis wird an einem Element ausgelöst, wenn es aktiv wird, beispielsweise wenn es mit der Maus angeklickt wird oder eine Tasteneingabe verwendet wird, um zu ihm zu navigieren.
+Das Ereignis **`DOMActivate`** wird bei einem Element ausgelöst, wenn es aktiviert wird, beispielsweise durch einen Mausklick oder durch einen Tastendruck, mit dem zu ihm navigiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("DOMActivate", (event) => { })
 ```
 
 > [!NOTE]
-> Es gibt keine `onDOMActivate`-Ereignishandler-Eigenschaft für dieses Ereignis.
+> Für dieses Ereignis gibt es keine Ereignishandler-Eigenschaft `onDOMActivate`.
 
 ## Ereignistyp
 
@@ -29,7 +29,7 @@ Ein [`UIEvent`](/de/docs/Web/API/UIEvent). Erbt von [`Event`](/de/docs/Web/API/E
 
 ## Beispiele
 
-Dieses Beispiel wartet auf `DOMActivate` bei einem {{HtmlElement("button")}}-Element und zeigt dessen [`detail`](/de/docs/Web/API/UIEvent/detail).
+Dieses Beispiel lauscht auf `DOMActivate` an einem {{HtmlElement("button")}}-Element und zeigt dessen [`detail`](/de/docs/Web/API/UIEvent/detail) an.
 
 ### HTML
 
@@ -49,7 +49,7 @@ button.addEventListener("DOMActivate", (event) => {
 
 ### Ergebnis
 
-Beachten Sie, dass `detail` des `DOMActivate`-Ereignisses ein browser-spezifisches Verhalten haben kann. Es kann entweder immer `0` sein oder ein ähnliches Verhalten wie das `detail` des [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses haben (d.h. die Anzahl der aufeinanderfolgenden Klicks anzeigen).
+Beachten Sie, dass sich `detail` beim Ereignis `DOMActivate` je nach Browser unterschiedlich verhalten kann. Der Wert kann entweder immer `0` sein oder sich ähnlich wie `detail` beim Ereignis [`click`](/de/docs/Web/API/Element/click_event) verhalten, also die Anzahl aufeinanderfolgender Klicks angeben.
 
 {{EmbedLiveSample("Examples")}}
 

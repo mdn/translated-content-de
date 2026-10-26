@@ -1,16 +1,16 @@
 ---
-title: "BackgroundFetchRegistration: progress Ereignis"
+title: "BackgroundFetchRegistration: progress-Ereignis"
 short-title: progress
 slug: Web/API/BackgroundFetchRegistration/progress_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`progress`** Ereignis der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Schnittstelle wird ausgelöst, wenn der zugehörige Hintergrundabruf Fortschritte macht.
+Das **`progress`**-Ereignis der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle wird ausgelöst, wenn der zugehörige Hintergrundabruf fortschreitet.
 
-Praktisch wird dieses Ereignis ausgelöst, wenn eine der folgenden Eigenschaften einen neuen Wert zurückgibt:
+In der Praxis wird dieses Ereignis ausgelöst, wenn eine der folgenden Eigenschaften einen neuen Wert zurückgibt:
 
 - [`uploaded`](/de/docs/Web/API/BackgroundFetchRegistration/uploaded),
 - [`downloaded`](/de/docs/Web/API/BackgroundFetchRegistration/downloaded),
@@ -19,11 +19,15 @@ Praktisch wird dieses Ereignis ausgelöst, wenn eine der folgenden Eigenschaften
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("progress", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onprogress = (event) => { }
 ```
 
@@ -33,7 +37,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiel
 
-Das folgende Beispiel demonstriert, wie der Fortschritt eines Downloads protokolliert wird. Der Code überprüft zuerst, ob ein `downloadTotal` angegeben wurde, als der Hintergrundabruf registriert wurde. Dies wird dann verwendet, um den prozentualen Anteil basierend auf der Eigenschaft `downloaded` zu berechnen.
+Das folgende Beispiel zeigt, wie Sie den Fortschritt eines Downloads protokollieren. Der Code prüft zunächst, ob bei der Registrierung des Hintergrundabrufs ein `downloadTotal` angegeben wurde. Dieser Wert wird dann verwendet, um anhand der Eigenschaft `downloaded` den Prozentsatz zu berechnen.
 
 ```js
 bgFetch.addEventListener("progress", () => {

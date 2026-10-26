@@ -1,24 +1,28 @@
 ---
-title: "FileReader: progress Event"
+title: "FileReader: progress-Ereignis"
 short-title: progress
 slug: Web/API/FileReader/progress_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`progress`**-Event der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird regelmäßig ausgelöst, während der `FileReader` Daten liest.
+Das **`progress`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird regelmäßig ausgelöst, während der `FileReader` Daten liest.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("progress", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onprogress = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

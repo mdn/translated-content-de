@@ -3,20 +3,24 @@ title: "Element: touchstart-Ereignis"
 short-title: touchstart
 slug: Web/API/Element/touchstart_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Touch Events")}}
 
-Das `touchstart`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf der Berührungsoberfläche platziert werden.
+Das `touchstart`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf einer berührungsempfindlichen Oberfläche platziert werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("touchstart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 ontouchstart = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`TouchEvent`](/de/docs/Web/API/TouchEvent). Erbt von [`Event`](/de/docs/Web
 
 ## Beispiele
 
-Beispielcode für diese Ereignisse ist auf der speziellen Seite verfügbar: [Touch-Ereignisse](/de/docs/Web/API/Touch_events).
+Codebeispiele für diese Ereignisse finden Sie auf der entsprechenden Seite: [Touch-Ereignisse](/de/docs/Web/API/Touch_events).
 
 ## Spezifikationen
 

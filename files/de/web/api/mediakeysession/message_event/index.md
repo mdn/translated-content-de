@@ -3,22 +3,24 @@ title: "MediaKeySession: message-Ereignis"
 short-title: message
 slug: Web/API/MediaKeySession/message_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Das **`message`**-Ereignis des
-[`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces wird ausgelöst, wenn eine Nachricht vom
-Inhaltsentschlüsselungsmodul generiert wird.
+Das **`message`**-Ereignis der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle wird ausgelöst, wenn das Modul zur Inhaltsentschlüsselung eine Nachricht erzeugt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("message", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessage = (event) => { }
 ```
 

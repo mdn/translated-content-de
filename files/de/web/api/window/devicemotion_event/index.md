@@ -3,22 +3,26 @@ title: "Window: devicemotion-Ereignis"
 short-title: devicemotion
 slug: Web/API/Window/devicemotion_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`devicemotion`**-Ereignis wird in regelmäßigen Abständen ausgelöst und zeigt die Beschleunigungsrate des Geräts mit/ohne den Einfluss der Gravitationskraft zu diesem Zeitpunkt an. Es liefert auch Informationen über die Rotationsrate, sofern verfügbar.
+Das **`devicemotion`**-Ereignis wird in regelmäßigen Abständen ausgelöst und gibt die Beschleunigung des Geräts zu diesem Zeitpunkt mit und ohne Berücksichtigung der Schwerkraft an. Falls verfügbar, liefert es auch Informationen über die Rotationsgeschwindigkeit.
 
-Dieses Ereignis kann nicht abgebrochen werden und hat kein Bubbling.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("devicemotion", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 ondevicemotion = (event) => { }
 ```
 

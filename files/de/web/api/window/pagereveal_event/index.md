@@ -3,22 +3,26 @@ title: "Window: pagereveal-Ereignis"
 short-title: pagereveal
 slug: Web/API/Window/pagereveal_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "Rückwärts/Vorwärts-Cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
+Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird – entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments aus dem {{Glossary("bfcache", "Back/Forward-Cache")}} (bfcache) oder einem {{Glossary("Prerender", "Prerender")}}.
 
-Dies ist nützlich im Fall von Übergängen zwischen Dokumenten (MPA) bei [Ansichtstransitionen](/de/docs/Web/API/View_Transition_API), um einen aktiven Übergang von der eingehenden Seite einer Navigation zu manipulieren. Zum Beispiel könnten Sie den Übergang überspringen oder die eingehende Übergangsanimation über JavaScript anpassen.
+Dies ist bei dokumentübergreifenden (MPA-) [View Transitions](/de/docs/Web/API/View_Transition_API) nützlich, um eine aktive Transition von der Zielseite einer Navigation aus zu beeinflussen. Beispielsweise können Sie die Transition überspringen oder die Animation beim Einblenden der Zielseite mit JavaScript anpassen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pagereveal", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpagereveal = (event) => { }
 ```
 
@@ -82,7 +86,7 @@ window.addEventListener("pagereveal", async (e) => {
 ```
 
 > [!NOTE]
-> Siehe [Liste der Chrome DevRel Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
+> Eine Live-Demo, aus der dieser Code stammt, finden Sie unter [Liste der Mitglieder des Chrome-DevRel-Teams](https://view-transitions.chrome.dev/profiles/mpa/).
 
 ## Spezifikationen
 
@@ -95,4 +99,4 @@ window.addEventListener("pagereveal", async (e) => {
 ## Siehe auch
 
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-- [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis
+- [`pageswap`-Ereignis](/de/docs/Web/API/Window/pageswap_event)

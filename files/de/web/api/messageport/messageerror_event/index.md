@@ -3,22 +3,26 @@ title: "MessagePort: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/MessagePort/messageerror_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis wird bei einem [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
+Das **`messageerror`**-Ereignis wird auf einem [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessageerror = (event) => { }
 ```
 
@@ -30,9 +34,9 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-### Versuch, Speicher zu teilen
+### Versuch, Speicher gemeinsam zu nutzen
 
-Eine häufige Ursache für `messageerror`-Ereignisse ist der Versuch, ein {{jsxref("SharedArrayBuffer")}}-Objekt oder eine Pufferansicht, die von einem solchen unterstützt wird, über [Agenten-Cluster](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) hinweg zu senden. Zum Beispiel befindet sich ein Fenster nicht im gleichen Agenten-Cluster wie ein von ihm erstellter Shared Worker. Angenommen, die Seite führt den folgenden Code aus:
+Eine häufige Ursache für `messageerror`-Ereignisse ist der Versuch, ein {{jsxref("SharedArrayBuffer")}}-Objekt oder eine darauf basierende Buffer-Ansicht über Grenzen von [Agent-Clustern](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) hinweg zu senden. Ein Fenster befindet sich beispielsweise nicht im selben Agent-Cluster wie ein von ihm erstellter Shared Worker. Angenommen, die Seite führt folgenden Code aus:
 
 ```js
 const worker = new SharedWorker("worker.js");
@@ -42,7 +46,7 @@ worker.port.addEventListener("message", (event) => {
 });
 ```
 
-Und `worker.js` enthält den folgenden Code:
+Und `worker.js` enthält folgenden Code:
 
 ```js
 self.addEventListener("connect", (event) => {
@@ -56,10 +60,10 @@ self.addEventListener("connect", (event) => {
 });
 ```
 
-Dann wird der Shared Worker ein `messageerror`-Ereignis erhalten, wenn er versucht, die vom Fenster gesendete Nachricht zu deserialisieren.
+Dann empfängt der Shared Worker ein `messageerror`-Ereignis, wenn er versucht, die vom Fenster gesendete Nachricht zu deserialisieren.
 
 > [!NOTE]
-> Sie können die Entwicklerwerkzeuge Ihres Browsers verwenden, um Ihren SharedWorker zu debuggen, indem Sie eine URL in der Adressleiste Ihres Browsers eingeben, um auf den Entwicklerwerkzeuge-Inspektor der Worker zuzugreifen; zum Beispiel in Chrome die URL `chrome://inspect/#workers` und in Firefox die URL `about:debugging#workers`.
+> Sie können die Entwicklertools Ihres Browsers verwenden, um Ihren SharedWorker zu debuggen. Geben Sie dazu eine URL in die Adressleiste Ihres Browsers ein, um die Worker-Ansicht der Entwicklertools aufzurufen: in Chrome beispielsweise `chrome://inspect/#workers` und in Firefox `about:debugging#workers`.
 
 ## Spezifikationen
 
@@ -72,4 +76,4 @@ Dann wird der Shared Worker ein `messageerror`-Ereignis erhalten, wenn er versuc
 ## Siehe auch
 
 - Verwandte Ereignisse: [`message`](/de/docs/Web/API/MessagePort/message_event).
-- [Verwendung der Kanal-Nachrichtenübermittlung](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Channel Messaging verwenden](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

@@ -3,20 +3,24 @@ title: "HTMLGeolocationElement: promptdismiss-Ereignis"
 short-title: promptdismiss
 slug: Web/API/HTMLGeolocationElement/promptdismiss_event
 l10n:
-  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`promptdismiss`**-Ereignis der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle wird ausgelöst, wenn der Benutzer das `<geolocation>`-Element aktiviert und den resultierenden Dialog durch Drücken der "Schließen"-Schaltfläche oder der <kbd>Esc</kbd>-Taste schließt.
+Das **`promptdismiss`**-Ereignis der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle wird ausgelöst, wenn der Benutzer das `<geolocation>`-Element aktiviert und den daraufhin angezeigten Dialog über die Schaltfläche „Schließen“ oder die <kbd>Esc</kbd>-Taste schließt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("promptdismiss", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onpromptdismiss = (event) => { }
 ```
 
@@ -26,15 +30,15 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwendung von `promptdismiss`, um auf die Ablehnung durch den Benutzer zu reagieren
+### Mit `promptdismiss` auf das Schließen der Berechtigungsabfrage reagieren
 
-In unserem [Eingebettete Karte Demo](https://mdn.github.io/dom-examples/geolocation-element/embedded-map/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/embedded-map)) verwenden wir einen `promptdismiss`-Ereignishandler, um darauf zu reagieren, dass der Benutzer die `<geolocation>`-Berechtigungsaufforderung ablehnt:
+In unserer [Demo einer eingebetteten Karte](https://mdn.github.io/dom-examples/geolocation-element/embedded-map/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/embedded-map)) verwenden wir einen `promptdismiss`-Event-Handler, um darauf zu reagieren, dass der Benutzer die Berechtigungsabfrage des `<geolocation>`-Elements schließt:
 
 ```js
 geo.addEventListener("promptdismiss", notifyUserRetrySelection);
 ```
 
-In der Funktion `notifyUserRetrySelection()` bitten wir den Benutzer, die Schaltfläche erneut zu drücken und den Standort zuzulassen.
+In der Funktion `notifyUserRetrySelection()` bitten wir den Benutzer, die Schaltfläche erneut zu drücken und den Zugriff auf den Standort zu erlauben.
 
 ```js
 function notifyUserRetrySelection() {
@@ -43,7 +47,7 @@ function notifyUserRetrySelection() {
 }
 ```
 
-Sehen Sie auf der Hauptseite [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement) eine vollständige Anleitung dieses Beispiels.
+Eine vollständige Erläuterung dieses Beispiels finden Sie auf der Hauptseite zu [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement).
 
 ## Spezifikationen
 

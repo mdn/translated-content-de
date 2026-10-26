@@ -3,22 +3,26 @@ title: "Element: compositionstart-Ereignis"
 short-title: compositionstart
 slug: Web/API/Element/compositionstart_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`compositionstart`**-Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Input-Method-Editor")}} eine neue Kompositionssitzung startet.
+Das **`compositionstart`**-Ereignis wird ausgelöst, wenn ein Texteingabesystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} eine neue Kompositionssitzung beginnt.
 
-Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Input-Method-Editor")}} einzugeben.
+Dieses Ereignis kann beispielsweise ausgelöst werden, wenn eine Person beginnt, ein chinesisches Schriftzeichen mithilfe eines [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editors")}} einzugeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("compositionstart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncompositionstart = (event) => { }
 ```
 
@@ -38,7 +42,7 @@ inputElement.addEventListener("compositionstart", (event) => {
 });
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

@@ -1,25 +1,29 @@
 ---
-title: "Animation: cancel Ereignis"
+title: "Animation: cancel-Ereignis"
 short-title: cancel
 slug: Web/API/Animation/cancel_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{ APIRef("Web Animations") }}
 
-Das **`cancel`** Ereignis der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle wird ausgelöst, wenn die Methode [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) aufgerufen wird oder wenn die Animation in den `"idle"`-Wiedergabestatus wechselt, zum Beispiel, wenn die Animation von einem Element entfernt wird, bevor sie zu Ende gespielt ist.
+Das **`cancel`**-Ereignis der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle wird ausgelöst, wenn die Methode [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) aufgerufen wird oder wenn die Animation aus einem anderen Wiedergabezustand in den Zustand `"idle"` wechselt, beispielsweise weil sie vor dem Ende der Wiedergabe von einem Element entfernt wird.
 
 > [!NOTE]
-> Das Erstellen einer neuen Animation, die anfänglich im Leerlauf ist, löst kein `cancel` Ereignis für die neue Animation aus.
+> Wenn eine neue Animation erstellt wird, die sich anfangs im Zustand `"idle"` befindet, wird für diese Animation kein `cancel`-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("cancel", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncancel = (event) => { }
 ```
 
@@ -49,5 +53,5 @@ animation.oncancel = (event) => {
 
 ## Siehe auch
 
-- [Web-Animations-API](/de/docs/Web/API/Web_Animations_API)
+- [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [`Animation`](/de/docs/Web/API/Animation)

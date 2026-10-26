@@ -3,20 +3,24 @@ title: "VisualViewport: scroll-Ereignis"
 short-title: scroll
 slug: Web/API/VisualViewport/scroll_event
 l10n:
-  sourceCommit: 9be502ee0f8b030908e59d30884190281acb8054
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Das **`scroll`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn das visuelle Viewport gescrollt wird. Dies ermöglicht Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, während es gescrollt wird, was normalerweise an das Layout-Viewport verankert wäre.
+Das **`scroll`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn der visuelle Viewport gescrollt wird. Damit können Sie Elemente beim Scrollen relativ zum visuellen Viewport positionieren, die normalerweise am Layout-Viewport verankert wären.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("scroll", (event) => { })
+```
 
+Alternativ können Sie einen Wert der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onscroll = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sehen Sie sich die [`VisualViewport`](/de/docs/Web/API/VisualViewport#examples)-Startseite für eine Nutzungsvorführung an.
+Ein Anwendungsbeispiel finden Sie auf der Seite zu [`VisualViewport`](/de/docs/Web/API/VisualViewport#examples).
 
 ## Spezifikationen
 

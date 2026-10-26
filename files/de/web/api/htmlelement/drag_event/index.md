@@ -3,24 +3,28 @@ title: "HTMLElement: drag-Ereignis"
 short-title: drag
 slug: Web/API/HTMLElement/drag_event
 l10n:
-  sourceCommit: 3385bda58637833eedc9b8dc41a2804e653208a7
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `drag`-Ereignis wird wiederholt ausgelöst, wenn ein Element oder eine Textauswahl vom Benutzer gezogen wird. Die Häufigkeit des Auslösens hängt vom Browser, Betriebssystem und der Bewegung des Zeigers ab; verlassen Sie sich nicht auf ein festes Intervall.
+Das `drag`-Ereignis wird wiederholt ausgelöst, während ein Element oder eine Textauswahl von einer Person gezogen wird. Die Häufigkeit hängt vom Browser, vom Betriebssystem und von der Zeigerbewegung ab; verlassen Sie sich nicht auf ein festes Intervall.
 
-Die Häufigkeit des Auslösens hängt vom Browser, Betriebssystem und der Zeigerbewegung ab. Das `drag`-Ereignis kann weiterhin ausgelöst werden, während der Zeiger stationär ist, und kann häufiger ausgelöst werden, während er sich bewegt. Verlassen Sie sich nicht auf ein festes Intervall oder erwarten Sie ein Ereignis bei jeder Zeigerbewegung. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) verwendet eine Auslösefrequenz von etwa 350 ms (±200 ms). In der Praxis verwenden Browser native Drag-Updates und plattformspezifische Timer, um diese Ereignisse zu versenden, sodass dieses Intervall nicht alle Browserverhalten beschreibt.
+Die Häufigkeit hängt vom Browser, vom Betriebssystem und von der Zeigerbewegung ab. Das `drag`-Ereignis kann weiterhin ausgelöst werden, während der Zeiger stillsteht, und häufiger ausgelöst werden, während er sich bewegt. Verlassen Sie sich nicht auf ein festes Intervall und erwarten Sie nicht für jede Zeigerbewegung ein Ereignis. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) geht von einer Auslösung ungefähr alle 350 ms (±200 ms) aus. In der Praxis verwenden Browser native Drag-Aktualisierungen und plattformspezifische Timer, um diese Ereignisse auszulösen. Dieses Intervall beschreibt daher nicht das Verhalten aller Browser.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hinaufblubbern.
+Dieses Ereignis kann abgebrochen werden und bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) aufsteigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("drag", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ondrag = (event) => { }
 ```
 
@@ -32,7 +36,7 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiele
 
-### Beispiel für Drag and Drop
+### Drag-and-Drop-Beispiel
 
 #### HTML
 

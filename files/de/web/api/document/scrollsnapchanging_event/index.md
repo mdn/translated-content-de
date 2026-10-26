@@ -1,36 +1,40 @@
 ---
-title: "Dokument: scrollsnapchanging Ereignis"
+title: "Dokument: scrollsnapchanging-Ereignis"
 short-title: scrollsnapchanging
 slug: Web/API/Document/scrollsnapchanging_event
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`scrollsnapchanging`**-Ereignis des [`Document`](/de/docs/Web/API/Document) Interfaces wird auf dem {{Glossary("Scroll_container", "Scroll-Container")}} ausgelöst, wenn der Browser feststellt, dass ein neues Ziel für das Scroll-Schnappen bevorsteht, d.h. es wird ausgewählt, wenn das aktuelle Scroll-Gesten endet.
+Das **`scrollsnapchanging`**-Ereignis des [`Document`](/de/docs/Web/API/Document)-Interfaces wird auf dem {{Glossary("Scroll_container", "Scroll-Container")}} ausgelöst, wenn der Browser feststellt, dass ein neues Scroll-Snap-Ziel vorgemerkt ist, das heißt, dass es ausgewählt wird, sobald die aktuelle Scroll-Geste endet.
 
-Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element) Interface-Ereignis [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event), außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt sein muss (d.h. {{cssxref("scroll-snap-type")}} ist auf dem {{htmlelement("html")}} Element gesetzt).
+Dieses Ereignis funktioniert weitgehend wie das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis des [`Element`](/de/docs/Web/API/Element)-Interfaces. Allerdings muss hier das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt sein (das heißt, {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element gesetzt).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("scrollsnapchanging", (event) => { })
+```
 
+Alternativ können Sie dem [Event-Handler-Attribut](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces einen Wert zuweisen:
+
+```js-nolint
 onscrollsnapchanging = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`SnapEvent`](/de/docs/Web/API/SnapEvent), das vom generischen [`Event`](/de/docs/Web/API/Event) Typ erbt.
+Ein [`SnapEvent`](/de/docs/Web/API/SnapEvent), das vom allgemeinen Typ [`Event`](/de/docs/Web/API/Event) erbt.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Angenommen, wir haben ein {{htmlelement("main")}} Element, das signifikante Inhalte enthält, die ein Scrollen verursachen:
+Angenommen, ein {{htmlelement("main")}}-Element enthält so viel Inhalt, dass darin gescrollt werden muss:
 
 ```html
 <main>
@@ -38,7 +42,7 @@ Angenommen, wir haben ein {{htmlelement("main")}} Element, das signifikante Inha
 </main>
 ```
 
-Das `<main>` Element kann durch eine Kombination von CSS-Eigenschaften in einen Scroll-Container verwandelt werden, zum Beispiel:
+Das `<main>`-Element kann mithilfe einer Kombination von CSS-Eigenschaften zu einem Scroll-Container gemacht werden, zum Beispiel:
 
 ```css
 main {
@@ -48,7 +52,7 @@ main {
 }
 ```
 
-Wir können dann ein Scroll-Snap-Verhalten auf den scrollenden Inhalt implementieren, indem wir die {{cssxref("scroll-snap-type")}} Eigenschaft auf dem {{htmlelement("html")}} Element spezifizieren:
+Anschließend können wir Scroll-Snapping für den scrollbaren Inhalt implementieren, indem wir die Eigenschaft {{cssxref("scroll-snap-type")}} auf dem {{htmlelement("html")}}-Element festlegen:
 
 ```css
 html {
@@ -56,7 +60,7 @@ html {
 }
 ```
 
-Das folgende JavaScript-Snippet würde das `scrollsnapchanging` Ereignis auf dem HTML-Dokument auslösen, wenn ein Kind des `<main>` Elements ein anstehendes Snap-Ziel wird. In der Handler-Funktion setzen wir eine `pending` Klasse auf das Kind, das durch die [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) Eigenschaft referenziert wird, die verwendet werden könnte, um es anders zu stylen, wenn das Ereignis ausgelöst wird.
+Das folgende JavaScript-Snippet bewirkt, dass das `scrollsnapchanging`-Ereignis auf dem HTML-Dokument ausgelöst wird, wenn ein Kindelement des `<main>`-Elements zu einem vorgemerkten Snap-Ziel wird. In der Handler-Funktion setzen wir die Klasse `pending` auf dem Kindelement, auf das die Eigenschaft [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) verweist. Damit könnte es beim Auslösen des Ereignisses anders gestaltet werden.
 
 ```js
 document.addEventListener("scrollsnapchanging", (event) => {
@@ -71,7 +75,7 @@ document.addEventListener("scrollsnapchanging", (event) => {
 });
 ```
 
-Zu Beginn der Funktion wählen wir alle Elemente aus, denen zuvor die `pending` Klasse zugewiesen wurde, und entfernen diese, sodass nur das neueste anstehende Snap-Ziel gestylt wird.
+Zu Beginn der Funktion wählen wir alle Elemente aus, denen zuvor die Klasse `pending` zugewiesen wurde, und entfernen sie. So wird nur das zuletzt vorgemerkte Snap-Ziel entsprechend gestaltet.
 
 ## Spezifikationen
 
@@ -83,10 +87,10 @@ Zu Beginn der Funktion wählen wir alle Elemente aus, denen zuvor die `pending` 
 
 ## Siehe auch
 
-- [`scrollsnapchange`](/de/docs/Web/API/Document/scrollsnapchange_event) Ereignis
-- [`scrollend`](/de/docs/Web/API/Document/scrollend_event) Ereignis
+- [`scrollsnapchange`](/de/docs/Web/API/Document/scrollsnapchange_event)-Ereignis
+- [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis
 - [`SnapEvent`](/de/docs/Web/API/SnapEvent)
-- CSS {{cssxref("scroll-snap-type")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("scroll-snap-type")}}
 - [CSS-Scroll-Snap-Modul](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Verwendung von Scroll-Snap-Ereignissen](/de/docs/Web/CSS/Guides/Scroll_snap/Using_scroll_snap_events)
+- [Scroll-Snap-Ereignisse verwenden](/de/docs/Web/CSS/Guides/Scroll_snap/Using_scroll_snap_events)
 - [Scroll-Snap-Ereignisse](https://developer.chrome.com/blog/scroll-snap-events) auf developer.chrome.com (2024)

@@ -3,20 +3,24 @@ title: "ServiceWorker: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/ServiceWorker/statechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das `statechange`-Ereignis wird ausgelöst, sobald sich der [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) ändert.
+Das `statechange`-Ereignis wird jedes Mal ausgelöst, wenn sich [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("statechange", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onstatechange = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Codebeispiel stammt aus dem [Beispiel für service worker-Registrierungsereignisse](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([Live-Demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code lauscht auf Änderungen im [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) und gibt dessen Wert zurück.
+Dieser Codeausschnitt stammt aus dem [Beispiel für Service-Worker-Registrierungsereignisse](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([Live-Demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code überwacht Änderungen an [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) und gibt dessen Wert zurück.
 
 ```js
 let serviceWorker;
@@ -49,7 +53,7 @@ if (serviceWorker) {
 }
 ```
 
-Beachten Sie, dass beim Auslösen von `statechange` die Referenzen des Service Workers möglicherweise geändert wurden. Zum Beispiel:
+Beachten Sie, dass sich die Referenzen auf den Service Worker geändert haben können, wenn `statechange` ausgelöst wird. Zum Beispiel:
 
 ```js
 navigator.serviceWorker.register("/sw.js").then((swr) => {

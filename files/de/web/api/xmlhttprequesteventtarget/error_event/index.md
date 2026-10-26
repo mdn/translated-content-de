@@ -1,22 +1,26 @@
 ---
-title: "XMLHttpRequestEventTarget: error Ereignis"
+title: "XMLHttpRequestEventTarget: error-Ereignis"
 short-title: error
 slug: Web/API/XMLHttpRequestEventTarget/error_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `error` Ereignis wird ausgelöst, wenn bei der Anfrage ein Fehler auftritt.
+Das `error`-Ereignis wird ausgelöst, wenn bei der Anfrage ein Fehler auftritt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
@@ -119,7 +123,7 @@ xhrButtonAbort.addEventListener("click", () => {
 
 ### Verwendung mit XMLHttpRequestUpload
 
-Sie können das `error` Ereignis verwenden, um ein Problem mit dem Upload zu erkennen. Ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, finden Sie auf der Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `error`-Ereignis verwenden, um ein Problem beim Hochladen zu erkennen. Ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, finden Sie auf der Hauptseite zu [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
 // In case of an error we hide the progress bar

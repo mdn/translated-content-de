@@ -3,20 +3,24 @@ title: "BatteryManager: chargingchange-Ereignis"
 short-title: chargingchange
 slug: Web/API/BatteryManager/chargingchange_event
 l10n:
-  sourceCommit: 8d54a21ae2677dba11569e7b7d918eac828af0b3
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`chargingchange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager) Schnittstelle wird ausgelöst, wenn die Batterie-Eigenschaft [`charging`](/de/docs/Web/API/BatteryManager/charging) aktualisiert wird.
+Das **`chargingchange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Schnittstelle wird ausgelöst, wenn die [`charging`](/de/docs/Web/API/BatteryManager/charging)-Eigenschaft der Batterie aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("chargingchange", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle eine Funktion zuweisen:
+
+```js-nolint
 onchargingchange = (event) => { }
 ```
 

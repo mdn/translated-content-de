@@ -1,29 +1,33 @@
 ---
-title: "HTMLSlotElement: slotchange Event"
+title: "HTMLSlotElement: slotchange-Ereignis"
 short-title: slotchange
 slug: Web/API/HTMLSlotElement/slotchange_event
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Web Components")}}
 
-Das **`slotchange`**-Ereignis wird auf einer Instanz von [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement) ({{HTMLElement("slot")}}-Element) ausgelöst, wenn sich der/die Knoten in diesem Slot ändern.
+Das **`slotchange`**-Ereignis wird auf einer [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Instanz (einem {{HTMLElement("slot")}}-Element) ausgelöst, wenn sich die in diesem Slot enthaltenen Knoten ändern.
 
 > [!NOTE]
-> Das `slotchange`-Ereignis wird nicht ausgelöst, wenn sich die Kinder eines geschlitzten Knotens ändern – sondern nur, wenn Sie die tatsächlichen Knoten selbst ändern (z.B. hinzufügen oder löschen).
+> Das `slotchange`-Ereignis wird nicht ausgelöst, wenn sich die Kindknoten eines einem Slot zugewiesenen Knotens ändern – nur, wenn Sie die zugewiesenen Knoten selbst ändern (z. B. hinzufügen oder entfernen).
 
-Um ein **slotchange**-Ereignis auszulösen, muss man das `slot`-Attribut setzen oder entfernen.
+Um ein **slotchange**-Ereignis auszulösen, müssen Sie das `slot`-Attribut setzen oder entfernen.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("slotchange", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces einen Wert zuweisen:
+
+```js-nolint
 onslotchange = (event) => { }
 ```
 
@@ -40,7 +44,7 @@ element.removeAttribute("slot");
 // element.assignedSlot = null
 ```
 
-Das folgende Snippet stammt aus unserem [slotchange-Beispiel](https://github.com/mdn/web-components-examples/tree/main/slotchange) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/slotchange/)).
+Der folgende Ausschnitt stammt aus unserem [slotchange-Beispiel](https://github.com/mdn/web-components-examples/tree/main/slotchange) ([auch live ansehen](https://mdn.github.io/web-components-examples/slotchange/)).
 
 ```js
 let slots = this.shadowRoot.querySelectorAll("slot");
@@ -52,9 +56,9 @@ slots[1].addEventListener("slotchange", (e) => {
 });
 ```
 
-Hier holen wir Referenzen zu allen `<slot>`s und fügen dem zweiten Slot der Vorlage — das ist derjenige, dessen Inhalt im Beispiel geändert wird — einen `slotchange`-Ereignislistener hinzu.
+Hier holen wir Referenzen auf alle `<slot>`-Elemente und fügen dann dem zweiten Slot des Templates einen `slotchange`-Event-Listener hinzu. In diesem Slot ändert sich im Beispiel der Inhalt.
 
-Jedes Mal, wenn sich das im Slot eingefügte Element ändert, protokollieren wir einen Bericht in der Konsole, der angibt, welcher Slot sich geändert hat und was der neue Knoten im Slot ist.
+Jedes Mal, wenn sich das in den Slot eingefügte Element ändert, geben wir auf der Konsole aus, welcher Slot sich geändert hat und welcher Knoten sich nun darin befindet.
 
 ## Spezifikationen
 

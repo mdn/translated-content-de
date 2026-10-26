@@ -1,22 +1,26 @@
 ---
-title: "BatteryManager: chargingtimechange Ereignis"
+title: "BatteryManager: chargingtimechange-Ereignis"
 short-title: chargingtimechange
 slug: Web/API/BatteryManager/chargingtimechange_event
 l10n:
-  sourceCommit: 8d54a21ae2677dba11569e7b7d918eac828af0b3
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`chargingtimechange`** Ereignis des [`BatteryManager`](/de/docs/Web/API/BatteryManager) Interfaces wird ausgelöst, wenn die [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime) Eigenschaft des Akkus aktualisiert wird.
+Das Ereignis **`chargingtimechange`** der Schnittstelle [`BatteryManager`](/de/docs/Web/API/BatteryManager) wird ausgelöst, wenn die Eigenschaft [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime) des Akkus aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("chargingtimechange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onchargingtimechange = (event) => { }
 ```
 

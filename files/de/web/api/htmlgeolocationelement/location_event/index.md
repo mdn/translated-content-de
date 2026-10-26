@@ -1,22 +1,26 @@
 ---
-title: "HTMLGeolocationElement: location event"
+title: "HTMLGeolocationElement: location-Ereignis"
 short-title: location
 slug: Web/API/HTMLGeolocationElement/location_event
 l10n:
-  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`location`**-Ereignis der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle wird ausgelöst, wann immer der Browser Ortungsdaten oder Fehlermeldungen erhält, wenn eine Anfrage nach Ortungsdaten nicht erfolgreich war.
+Das **`location`**-Ereignis der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle wird ausgelöst, wenn der Browser Standortdaten empfängt oder wenn eine Anfrage nach Standortdaten fehlgeschlagen ist und Fehlerinformationen vorliegen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("location", (event) => { })
+```
 
+Alternativ können Sie der [Ereignisbehandlereigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onlocation = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwendung von `location`, um auf Ortungsdaten und Fehler zu reagieren
+### Mit `location` auf Standortdaten und Fehler reagieren
 
-In unserem [Eingebettete Karte-Demo](https://mdn.github.io/dom-examples/geolocation-element/embedded-map/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/embedded-map)) verwenden wir einen `location`-Ereignis-Handler, um auf Empfang von Ortungsdaten und Fehlern zu reagieren:
+In unserer [Demo einer eingebetteten Karte](https://mdn.github.io/dom-examples/geolocation-element/embedded-map/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/embedded-map)) verwenden wir einen `location`-Ereignisbehandler, um auf empfangene Standortdaten und Fehler zu reagieren:
 
 ```js
 geo.addEventListener("location", () => {
@@ -43,9 +47,9 @@ geo.addEventListener("location", () => {
 });
 ```
 
-Wenn Ortungsdaten erfolgreich zurückgegeben werden, greifen wir über die [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft darauf zu und rufen die Breitengrad- und Längengradwerte ab. Wir protokollieren diese in der Konsole und zeichnen sie dann auf einer Karte, indem wir sie zusammen mit einem Verweis auf das `HTMLGeolocationElement`-Objekt an die `drawMap()`-Funktion übergeben. Wenn die Datenanfrage fehlschlägt, greifen wir über die [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft auf den Fehler zu und protokollieren die Fehlermeldung in der Konsole.
+Wenn Standortdaten erfolgreich zurückgegeben werden, greifen wir über die Eigenschaft [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position) darauf zu und lesen die Werte für Breiten- und Längengrad aus. Wir geben diese Werte in der Konsole aus und stellen sie anschließend auf einer Karte dar, indem wir sie zusammen mit einer Referenz auf das `HTMLGeolocationElement`-Objekt an die Funktion `drawMap()` übergeben. Wenn die Datenanfrage fehlschlägt, greifen wir über die Eigenschaft [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error) auf den Fehler zu und geben die Fehlermeldung in der Konsole aus.
 
-Sehen Sie die Hauptseite [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement) für eine vollständige Erklärung dieses Beispiels.
+Eine vollständige Erläuterung dieses Beispiels finden Sie auf der Hauptseite zu [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement).
 
 ## Spezifikationen
 
@@ -57,4 +61,4 @@ Sehen Sie die Hauptseite [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeoloca
 
 ## Siehe auch
 
-- {{htmlelement("geolocation")}} Element
+- {{htmlelement("geolocation")}}-Element

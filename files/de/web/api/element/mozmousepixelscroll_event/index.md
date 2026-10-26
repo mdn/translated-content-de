@@ -3,23 +3,27 @@ title: "Element: MozMousePixelScroll-Ereignis"
 short-title: MozMousePixelScroll
 slug: Web/API/Element/MozMousePixelScroll_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}{{Non-standard_header}}
 
-Das ausschließlich in Firefox verfügbare, _nicht standardisierte_ und _veraltete_ **`MozMousePixelScroll`**-Ereignis wird asynchron bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Mausrad oder ein ähnliches Gerät betätigt wird. Es wird durch die [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent)-Schnittstelle dargestellt.
+Das ausschließlich in Firefox verfügbare, _nicht standardisierte_ und _veraltete_ Ereignis **`MozMousePixelScroll`** wird asynchron an einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Mausrad oder ein ähnliches Gerät betätigt wird. Es wird durch die Schnittstelle [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent) repräsentiert.
 
 > [!NOTE]
-> Verwenden Sie dieses nicht standardisierte und veraltete Ereignis nicht. Stattdessen sollten Sie immer das standardisierte [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis verwenden.
+> Verwenden Sie dieses nicht standardisierte und veraltete Ereignis nicht. Verwenden Sie stattdessen immer das standardisierte Ereignis [`wheel`](/de/docs/Web/API/Element/wheel_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("MozMousePixelScroll", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onMozMousePixelScroll = (event) => { }
 ```
 
@@ -29,16 +33,16 @@ Ein [`WheelEvent`](/de/docs/Web/API/WheelEvent). Erbt von [`MouseEvent`](/de/doc
 
 {{InheritanceDiagram("WheelEvent")}}
 
-## Ermittlung der gescrollten Distanz
+## Ermitteln der Scrollstrecke
 
-Die [`detail`](/de/docs/Web/API/UIEvent/detail)-Eigenschaft des Ereignisses gibt die Scroll-Distanz in Bezug auf Zeilen an, wobei negative Werte anzeigen, dass die Scrollbewegung entweder nach unten oder nach rechts erfolgt, und positive Werte anzeigen, dass nach oben oder links gescrollt wird.
+Die Eigenschaft [`detail`](/de/docs/Web/API/UIEvent/detail) des Ereignisses gibt die Scrollstrecke in Zeilen an. Negative Werte stehen für eine Scrollbewegung nach unten oder rechts, positive Werte für eine Scrollbewegung nach oben oder links.
 
-Wenn die nativen Mausrad-Ereignisse der Plattform die Scroll-Distanz in Bezug auf Zeilen oder Seiten angeben, wird der Wert von `detail` unter Verwendung dieses Wertes und der Zeilenhöhe oder Seitenbreite/-höhe des nächstgelegenen scrollbaren übergeordneten Elements, das das Ziel-Element enthält, berechnet.
+Wenn die nativen Mausradereignisse der Plattform die Scrollstrecke in Zeilen oder Seiten angeben, wird der Wert von `detail` anhand dieser Angabe und der Zeilenhöhe beziehungsweise der Seitenbreite oder -höhe des nächstgelegenen scrollbaren Vorfahrenelements berechnet, das das Zielelement enthält.
 
 > [!NOTE]
-> Auf macOS wird die Scroll-Distanz (und damit der Wert von `detail`) basierend auf der beschleunigten Scroll-Distanz berechnet.
+> Unter macOS wird die Scrollstrecke (und damit der Wert von `detail`) anhand der beschleunigten Scrollstrecke berechnet.
 
-Der Wert von `detail` ist niemals 0, wenn die Ereignisse legitim sind.
+Bei regulären Ereignissen ist der Wert von `detail` niemals 0.
 
 ## Browser-Kompatibilität
 
@@ -47,6 +51,6 @@ Der Wert von `detail` ist niemals 0, wenn die Ereignisse legitim sind.
 ## Siehe auch
 
 - [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent)
-- Geckos veraltetes Zeilen- oder Seitenscroll-Ereignis: `DOMMouseScroll`
-- Veraltetes Mausrad-Ereignis in Nicht-Gecko-Browsern: `mousewheel`
-- Standardisiertes Wheel-Ereignis: `wheel`
+- Geckos veraltetes Ereignis zum Scrollen nach Zeilen oder Seiten: `DOMMouseScroll`
+- Veraltetes Mausradereignis in Browsern ohne Gecko: `mousewheel`
+- Standardisiertes Mausradereignis: `wheel`

@@ -1,33 +1,37 @@
 ---
-title: "Window: beforeinstallprompt Ereignis"
+title: "Window: beforeinstallprompt-Ereignis"
 short-title: beforeinstallprompt
 slug: Web/API/Window/beforeinstallprompt_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef}}
 
-Das **`beforeinstallprompt`** Ereignis wird ausgelöst, wenn der Browser erkennt, dass eine Website [als Progressive Web App installiert](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable) werden kann.
+Das **`beforeinstallprompt`**-Ereignis wird ausgelöst, wenn der Browser erkannt hat, dass eine Website [als Progressive Web App installiert werden kann](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
-Es gibt keinen garantierten Zeitpunkt, zu dem dieses Ereignis ausgelöst wird, aber es passiert normalerweise beim Laden der Seite.
+Es gibt keinen garantierten Zeitpunkt für das Auslösen dieses Ereignisses, es tritt jedoch üblicherweise beim Laden der Seite auf.
 
-Der typische Verwendungszweck dieses Ereignisses ist, wenn eine Web-App ihre eigene In-App-Benutzeroberfläche bereitstellen möchte, um den Benutzer zur Installation der App aufzufordern, anstatt die generische, vom Browser bereitgestellte Oberfläche zu nutzen. Dies ermöglicht der App, mehr Kontext über die App bereitzustellen und dem Benutzer zu erklären, warum er sie installieren sollte.
+Dieses Ereignis wird typischerweise verwendet, wenn eine Web-App eine eigene Benutzeroberfläche innerhalb der App anbieten möchte, die zur Installation einlädt, anstatt die allgemeine Benutzeroberfläche des Browsers zu verwenden. So kann die App mehr Kontext bieten und erklären, warum eine Installation sinnvoll sein könnte.
 
-In diesem Szenario wird der Handler für dieses Ereignis folgendes tun:
+In diesem Fall wird der Event-Handler:
 
-- Eine Referenz auf das [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent) Objekt, das übergeben wird, behalten.
-- Die eigene In-App-Installationsoberfläche anzeigen (diese sollte standardmäßig verborgen sein, da nicht alle Browser die Installation unterstützen).
+- Eine Referenz auf das übergebene [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent)-Objekt speichern.
+- Die Installationsoberfläche innerhalb der App einblenden (diese sollte standardmäßig ausgeblendet sein, da nicht alle Browser die Installation unterstützen).
 
-Wenn der Benutzer die In-App-Installationsoberfläche nutzt, um die App zu installieren, ruft die In-App-Installationsoberfläche die [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)-Methode des beibehaltenen `BeforeInstallPromptEvent`-Objekts auf, um das Installationsfenster anzuzeigen.
+Wenn die Person die Installation über die Benutzeroberfläche der App startet, ruft diese die Methode [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt) des gespeicherten `BeforeInstallPromptEvent`-Objekts auf, um die Installationsaufforderung anzuzeigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("beforeinstallprompt", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onbeforeinstallprompt = (event) => { }
 ```
 
@@ -40,21 +44,21 @@ Ein [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent). Erb
 ## Ereignismethoden
 
 - [`BeforeInstallPromptEvent.prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt){{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Zeigt ein Dialogfeld an, das den Benutzer fragt, ob er die App installieren möchte. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das ein Objekt beschreibt, das die Entscheidung des Benutzers bei der Aufforderung zur Installation beschreibt.
+  - : Zeigt eine Aufforderung an, die fragt, ob die App installiert werden soll. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die Entscheidung zur Installation beschreibt.
 
 ## Beispiele
 
-Im folgenden Beispiel bietet eine App ihren eigenen Installationsbutton an, der die `id` `"install"` hat. Der Button ist zunächst verborgen.
+Im folgenden Beispiel stellt eine App eine eigene Installationsschaltfläche mit der `id` `"install"` bereit. Anfangs ist die Schaltfläche ausgeblendet.
 
 ```html
 <button id="install" hidden>Install</button>
 ```
 
-Der `beforeinstallprompt` Handler:
+Der `beforeinstallprompt`-Handler:
 
-- Bricht das Ereignis ab, was verhindert, dass der Browser auf manchen Plattformen seine eigene Installationsoberfläche zeigt.
-- Weist das `BeforeInstallPromptEvent`-Objekt einer Variable zu, damit es später verwendet werden kann.
-- Zeigt den Installationsbutton der App an.
+- Bricht das Ereignis ab. Dadurch wird auf einigen Plattformen verhindert, dass der Browser seine eigene Installationsoberfläche anzeigt.
+- Weist das `BeforeInstallPromptEvent`-Objekt einer Variablen zu, damit es später verwendet werden kann.
+- Blendet die Installationsschaltfläche der App ein.
 
 ```js
 let installPrompt = null;
@@ -67,10 +71,10 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 ```
 
-Bei einem Klick:
+Wenn auf die Installationsschaltfläche der App geklickt wird, geschieht Folgendes:
 
-- Ruft der Installationsbutton der App die [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)-Methode des gespeicherten Ereignisobjekts auf, um das Installationsfenster auszulösen.
-- Setzt seinen Zustand zurück, indem die Variable `installPrompt` gelöscht und der Button wieder verborgen wird.
+- Die Methode [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt) des gespeicherten Ereignisobjekts wird aufgerufen, um die Installationsaufforderung anzuzeigen.
+- Die Schaltfläche setzt ihren Zustand zurück, indem sie die Variable `installPrompt` leert und sich wieder ausblendet.
 
 ```js
 installButton.addEventListener("click", async () => {

@@ -1,24 +1,29 @@
 ---
-title: "HTMLMediaElement: waitingforkey Ereignis"
+title: "HTMLMediaElement: waitingforkey-Ereignis"
 short-title: waitingforkey
 slug: Web/API/HTMLMediaElement/waitingforkey_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Das `waitingforkey` Ereignis wird bei einem Medien-Element ausgelöst, wenn es erstmals nicht in der Lage ist, abzuspielen, weil es einen Schlüssel benötigt, um die folgenden Daten zu dekodieren, und die Wiedergabe gestoppt wird.
+Das `waitingforkey`-Ereignis wird bei einem Medienelement ausgelöst, wenn es erstmals nicht wiedergegeben werden kann, weil zum Decodieren der folgenden Daten ein Schlüssel benötigt wird. Die Wiedergabe wird dabei angehalten.
 
-Wenn der Videorahmen und/oder die Audiodaten für die aktuelle Wiedergabeposition dekodiert wurden, wird [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) auf [`HAVE_CURRENT_DATA`](/de/docs/Web/API/HTMLMediaElement/readyState#htmlmediaelement.have_current_data) gesetzt. Andernfalls, einschließlich wenn die Daten zuvor verfügbar waren, aber nicht mehr sind, wird `readyState` auf [`HAVE_METADATA`](/de/docs/Web/API/HTMLMediaElement/readyState#htmlmediaelement.have_metadata) gesetzt.
+Wenn das Videobild und/oder die Audiodaten für die aktuelle Wiedergabeposition decodiert wurden, wird [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) auf [`HAVE_CURRENT_DATA`](/de/docs/Web/API/HTMLMediaElement/readyState#htmlmediaelement.have_current_data) gesetzt.
+Andernfalls wird `readyState` auf [`HAVE_METADATA`](/de/docs/Web/API/HTMLMediaElement/readyState#htmlmediaelement.have_metadata) gesetzt. Das gilt auch, wenn die Daten zuvor verfügbar waren, es aber nicht mehr sind.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("waitingforkey", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onwaitingforkey = (event) => { }
 ```
 

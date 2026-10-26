@@ -1,28 +1,32 @@
 ---
-title: "CaptureController: zoomlevelchange Ereignis"
+title: "CaptureController: zoomlevelchange-Ereignis"
 short-title: zoomlevelchange
 slug: Web/API/CaptureController/zoomlevelchange_event
 l10n:
-  sourceCommit: 83a92f1eaf27dabf71beec6c548afb03171aa194
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}
 
-Das **`zoomlevelchange`** Ereignis der [`CaptureController`](/de/docs/Web/API/CaptureController) Schnittstelle wird ausgelöst, wenn sich der Zoom-Level der erfassten Anzeigeoberfläche ändert.
+Das **`zoomlevelchange`**-Ereignis der [`CaptureController`](/de/docs/Web/API/CaptureController)-Schnittstelle wird ausgelöst, wenn sich die Zoomstufe der erfassten Anzeigefläche ändert.
 
-Dies tritt speziell auf, wenn:
+Dies geschieht insbesondere, wenn:
 
-- Die Methoden [`increaseZoomLevel()`](/de/docs/Web/API/CaptureController/increaseZoomLevel), [`decreaseZoomLevel()`](/de/docs/Web/API/CaptureController/decreaseZoomLevel) oder [`resetZoomLevel()`](/de/docs/Web/API/CaptureController/resetZoomLevel) auf einem Controller aufgerufen werden, der aktiv eine erfasste Anzeigeoberfläche steuert.
-- Der Benutzer den Zoom-Level in der erfassten Oberfläche ändert.
-- Der Benutzer die erfasste Anzeigeoberfläche auf eine andere mit einem anderen Zoom-Level wechselt.
+- Die Methoden [`increaseZoomLevel()`](/de/docs/Web/API/CaptureController/increaseZoomLevel), [`decreaseZoomLevel()`](/de/docs/Web/API/CaptureController/decreaseZoomLevel) oder [`resetZoomLevel()`](/de/docs/Web/API/CaptureController/resetZoomLevel) auf einem Controller aufgerufen werden, der eine erfasste Anzeigefläche aktiv steuert.
+- Die benutzende Person die Zoomstufe auf der erfassten Anzeigefläche ändert.
+- Die benutzende Person zu einer anderen erfassten Anzeigefläche mit einer anderen Zoomstufe wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("zoomlevelchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onzoomlevelchange = (event) => { }
 ```
 
@@ -34,7 +38,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ### Grundlegende Verwendung von `zoomlevelchange`
 
-Wenn sich der Zoom-Level einer erfassten Anzeigeoberfläche ändert, wird ein `zoomlevelchange` Ereignis auf dem Controller ausgelöst. Dieses kann verwendet werden, um einen Ereignishandler wie den folgenden auszuführen, der den aktualisierten Zoom-Level an ein beliebiges Ausgabe-Element schreibt.
+Wenn sich die Zoomstufe einer erfassten Anzeigefläche ändert, wird auf dem Controller ein `zoomlevelchange`-Ereignis ausgelöst. Damit kann ein Event-Handler wie der folgende ausgeführt werden. Dieser schreibt die aktualisierte Zoomstufe in ein Ausgabeelement.
 
 ```js
 // Create controller and start capture
@@ -51,7 +55,7 @@ controller.addEventListener(
 );
 ```
 
-Siehe [Verwendung der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control) für ein vollständiges Arbeitsbeispiel.
+Ein vollständiges, funktionsfähiges Beispiel finden Sie unter [Verwenden der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control).
 
 ## Spezifikationen
 
@@ -65,4 +69,4 @@ Siehe [Verwendung der Captured Surface Control API](/de/docs/Web/API/Screen_Capt
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-- [Verwendung der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control)
+- [Verwenden der Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control)

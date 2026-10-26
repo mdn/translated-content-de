@@ -1,24 +1,28 @@
 ---
-title: "ServiceWorkerGlobalScope: push-Event"
+title: "ServiceWorkerGlobalScope: push-Ereignis"
 short-title: push
 slug: Web/API/ServiceWorkerGlobalScope/push_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`push`**-Event wird an den globalen Bereich eines Service Workers gesendet (dargestellt durch das [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interface), wenn der Service Worker eine Push-Nachricht erhalten hat.
+Das **`push`**-Ereignis wird an den globalen Gültigkeitsbereich eines Service Workers gesendet (repräsentiert durch die Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)), wenn der Service Worker eine Push-Nachricht empfangen hat.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("push", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onpush = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`PushEvent`](/de/docs/Web/API/PushEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiel
 
-Dieses Beispiel richtet einen Handler für `push`-Ereignisse ein, der {{Glossary("JSON", "JSON")}}-Daten entgegennimmt, sie parst und die Nachricht basierend auf den im Nachrichtentext enthaltenen Informationen weiterverarbeitet.
+Dieses Beispiel richtet einen Handler für `push`-Ereignisse ein, der {{Glossary("JSON", "JSON")}}-Daten entgegennimmt und parst. Anschließend leitet er die Nachricht anhand der darin enthaltenen Informationen zur Verarbeitung weiter.
 
 ```js
 self.addEventListener("push", (event) => {
@@ -57,5 +61,5 @@ self.addEventListener("push", (event) => {
 
 ## Siehe auch
 
-- [Verwendung der Push-API](/de/docs/Web/API/Push_API)
-- [`pushsubscriptionchange`](/de/docs/Web/API/ServiceWorkerGlobalScope/pushsubscriptionchange_event)-Ereignis
+- [Verwendung der Push API](/de/docs/Web/API/Push_API)
+- Ereignis [`pushsubscriptionchange`](/de/docs/Web/API/ServiceWorkerGlobalScope/pushsubscriptionchange_event)

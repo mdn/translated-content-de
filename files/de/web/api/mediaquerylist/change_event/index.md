@@ -1,22 +1,26 @@
 ---
-title: "MediaQueryList: change Ereignis"
+title: "MediaQueryList: change-Ereignis"
 short-title: change
 slug: Web/API/MediaQueryList/change_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Das **`change`** Ereignis der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Schnittstelle wird ausgelöst, wenn sich der Status der Unterstützung von Media Queries ändert.
+Das **`change`**-Ereignis der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle wird ausgelöst, wenn sich der Status der Übereinstimmung mit einer Media Query ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("change", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onchange = (event) => { }
 ```
 
@@ -53,7 +57,7 @@ mql.onchange = (e) => {
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
-- [Media Queries aus dem Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
+- [Media Queries im Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

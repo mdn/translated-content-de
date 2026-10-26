@@ -3,24 +3,28 @@ title: "Element: mouseup-Ereignis"
 short-title: mouseup
 slug: Web/API/Element/mouseup_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`mouseup`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts (wie eine Maus oder ein Trackpad) losgelassen wird, während sich der Zeiger innerhalb des Elements befindet.
+Das **`mouseup`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts (z. B. einer Maus oder eines Trackpads) losgelassen wird, während sich der Zeiger innerhalb des Elements befindet.
 
 `mouseup`-Ereignisse sind das Gegenstück zu [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignissen.
 
-Dieses Verhalten unterscheidet sich von [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignissen. Bei der Verwendung einer physischen Maus werden `mouseup`-Ereignisse ausgelöst, wenn eine beliebige Taste an einer Maus losgelassen wird. `pointerup`-Ereignisse werden nur beim letzten Loslassen einer Taste ausgelöst; vorherige Loslassungen von Tasten, während andere Tasten gedrückt gehalten werden, lösen keine `pointerup`-Ereignisse aus.
+Dieses Verhalten unterscheidet sich von [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignissen. Bei Verwendung einer physischen Maus werden `mouseup`-Ereignisse jedes Mal ausgelöst, wenn eine beliebige Maustaste losgelassen wird. `pointerup`-Ereignisse werden dagegen erst ausgelöst, wenn die letzte gedrückte Taste losgelassen wird. Werden zuvor Tasten losgelassen, während andere noch gedrückt sind, werden keine `pointerup`-Ereignisse ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mouseup", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmouseup = (event) => { }
 ```
 
@@ -32,7 +36,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Beispiele
 
-Siehe [`mousemove`-Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) für Beispielcode.
+Beispielcode finden Sie beim [`mousemove`-Ereignis](/de/docs/Web/API/Element/mousemove_event#examples).
 
 ## Spezifikationen
 

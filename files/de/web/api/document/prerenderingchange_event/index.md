@@ -1,22 +1,26 @@
 ---
-title: "Dokument: prerenderingchange Ereignis"
+title: "Dokument: prerenderingchange-Ereignis"
 short-title: prerenderingchange
 slug: Web/API/Document/prerenderingchange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{ APIRef("Speculation Rules API") }}{{seecompattable}}
 
-Das **`prerenderingchange`**-Ereignis wird bei einem vorgerenderten Dokument ausgelöst, wenn es aktiviert wird (d.h. der Benutzer die Seite anzeigt).
+Das **`prerenderingchange`**-Ereignis wird für ein vorgerendertes Dokument ausgelöst, wenn es aktiviert wird (d.h. wenn der Benutzer die Seite aufruft).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("prerenderingchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onprerenderingchange = (event) => { }
 ```
 
@@ -26,13 +30,13 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verhindern, dass Code während des Prerenderings ausgeführt wird
+### Ausführung von Code während des Vorrenderns verhindern
 
-Das Beispiel zeigt, wie man Code, der ansonsten während des Prerenderings ausgeführt würde, aufschiebt, bis die Seite aktiviert wurde.
-Dies ist nützlich, um Analytik-Code zu verzögern, der nur relevant ist, wenn und falls die Seite tatsächlich angezeigt wird.
+Das Beispiel zeigt, wie sich die Ausführung von Code, der andernfalls während des Vorrenderns ausgeführt würde, bis nach der Aktivierung der Seite aufschieben lässt.
+Dies ist nützlich für Analysecode, der nur relevant ist, wenn die Seite tatsächlich aufgerufen wird.
 
-Der Code überprüft, ob Prerendering läuft, indem [`Document.prerendering`](/de/docs/Web/API/Document/prerendering) verwendet wird, und fügt in diesem Fall einen Ereignislistener hinzu, der eine Initialisierungsfunktion für Analytik ausführt, sobald die Seite aktiviert wird.
-Auf einer Seite, die nicht vorgerendert wird, wird der Analytik-Code sofort ausgeführt.
+Der Code prüft mithilfe von [`Document.prerendering`](/de/docs/Web/API/Document/prerendering), ob die Seite gerade vorgerendert wird. Falls ja, fügt er einen Event-Listener hinzu, der nach der Aktivierung der Seite eine Funktion zur Initialisierung des Analysecodes ausführt.
+Wird eine Seite nicht vorgerendert, wird der Analysecode sofort ausgeführt.
 
 ```js
 if (document.prerendering) {
@@ -44,15 +48,15 @@ if (document.prerendering) {
 }
 ```
 
-Beachten Sie, dass dieser Code nicht verwendet werden sollte, um zu messen, wie oft ein Vorab-Rendern aktiviert wird, da der Code möglicherweise ausgeführt wird, nachdem eine vorgerenderte Seite bereits aktiviert wurde.
+Beachten Sie, dass diese Art von Code nicht verwendet werden sollte, um zu messen, wie oft eine vorgerenderte Seite aktiviert wird: Der Code wird möglicherweise erst ausgeführt, nachdem die Seite bereits aktiviert wurde.
 
 > [!NOTE]
-> Siehe die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Hauptseite und insbesondere den Abschnitt [Unsichere spekulative Ladebedingungen](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions) für weitere Informationen zu den Arten von Aktivitäten, die Sie möglicherweise aufschieben möchten, bis das Prerendering abgeschlossen ist.
+> Weitere Informationen darüber, welche Aktivitäten Sie möglicherweise bis nach Abschluss des Vorrenderns aufschieben sollten, finden Sie auf der Übersichtsseite zur [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API), insbesondere im Abschnitt [Unsichere Bedingungen für spekulatives Laden](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions).
 
-### Messen von Prerendering-Aktivierungen
+### Aktivierungen vorgerenderter Seiten messen
 
-Dieser Code zeigt, wie man misst, wie oft ein Vorab-Rendern aktiviert wird.
-Es verwendet das `prerenderingchange`, um Aktivierungsereignisse zu verfolgen, und [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), um Navigationsaktivierungen zu verfolgen.
+Dieser Code zeigt, wie Sie messen können, wie oft eine vorgerenderte Seite aktiviert wird.
+Er verwendet `prerenderingchange`, um Aktivierungsereignisse zu erfassen, und [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), um Navigationsaktivierungen zu erfassen.
 
 ```js
 if (document.prerendering) {
@@ -81,5 +85,5 @@ if (document.prerendering) {
 ## Siehe auch
 
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)
-- [`prerendering`](/de/docs/Web/API/Document/prerendering) Eigenschaft
-- [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) Eigenschaft
+- Eigenschaft [`prerendering`](/de/docs/Web/API/Document/prerendering)
+- Eigenschaft [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart)

@@ -1,39 +1,43 @@
 ---
-title: "Window: unload event"
+title: "Window: unload-Ereignis"
 short-title: unload
 slug: Web/API/Window/unload_event
 l10n:
-  sourceCommit: 75b6c08573c39a7d6557c911502912f1a3c7da9f
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("UI Events")}}
 
 > [!WARNING]
-> Entwickler sollten die Verwendung dieses Ereignisses vermeiden. Siehe unten „Hinweise zur Verwendung“.
+> Entwickler sollten dieses Ereignis nicht verwenden. Weitere Informationen finden Sie unten unter „Hinweise zur Verwendung“.
 
 Das **`unload`**-Ereignis wird ausgelöst, wenn das Dokument oder eine untergeordnete Ressource entladen wird.
 
-Es wird ausgelöst nach:
+Es wird nach den folgenden Ereignissen ausgelöst:
 
 - [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) (abbrechbares Ereignis)
 - [`pagehide`](/de/docs/Web/API/Window/pagehide_event)
 
-Das Dokument befindet sich in folgendem Zustand:
+Das Dokument befindet sich dabei in folgendem Zustand:
 
-- Alle Ressourcen existieren weiterhin (img, iframe usw.)
-- Für Endbenutzer ist nichts mehr sichtbar
-- UI-Interaktionen haben keine Wirkung ([`window.open`](/de/docs/Web/API/Window/open), [`alert`](/de/docs/Web/API/Window/alert), [`confirm`](/de/docs/Web/API/Window/confirm) usw.)
-- Ein Fehler wird den Entladevorgang nicht stoppen
+- Alle Ressourcen sind noch vorhanden (img, iframe usw.).
+- Für Endnutzer ist nichts mehr sichtbar.
+- UI-Interaktionen haben keine Wirkung ([`window.open`](/de/docs/Web/API/Window/open), [`alert`](/de/docs/Web/API/Window/alert), [`confirm`](/de/docs/Web/API/Window/confirm) usw.).
+- Ein Fehler unterbricht den Entladevorgang nicht.
 
-Beachten Sie, dass das unload-Ereignis auch der Dokumentstruktur folgt: Das Entladen des übergeordneten Frames erfolgt **vor** dem `unload` des untergeordneten Frames (siehe Beispiel unten).
+Beachten Sie, dass das unload-Ereignis auch der Dokumentstruktur folgt: Das Entladen eines übergeordneten Frames erfolgt **vor** dem `unload`-Ereignis eines untergeordneten Frames (siehe Beispiel unten).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("unload", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onunload = (event) => { }
 ```
 
@@ -41,9 +45,9 @@ onunload = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Event-Handler-Aliasse
+## Aliase für Event-Handler
 
-Zusätzlich zur `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onunload` auch für die folgenden Ziele verfügbar:
+Neben der `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onunload` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -51,24 +55,24 @@ Zusätzlich zur `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onunlo
 
 ## Hinweise zur Verwendung
 
-Entwickler sollten die Verwendung dieses Ereignisses vermeiden.
+Entwickler sollten dieses Ereignis nicht verwenden.
 
-Insbesondere auf Mobilgeräten wird das `unload`-Ereignis nicht zuverlässig ausgelöst. Beispielsweise wird das `unload`-Ereignis im folgenden Szenario überhaupt nicht ausgelöst:
+Insbesondere auf Mobilgeräten wird das `unload`-Ereignis nicht zuverlässig ausgelöst. Im folgenden Szenario wird es beispielsweise überhaupt nicht ausgelöst:
 
-1. Ein mobiler Benutzer besucht Ihre Seite.
-2. Der Benutzer wechselt dann zu einer anderen App.
-3. Später schließt der Benutzer den Browser über den App-Manager.
+1. Ein Nutzer besucht Ihre Seite auf einem Mobilgerät.
+2. Der Nutzer wechselt zu einer anderen App.
+3. Später schließt der Nutzer den Browser über den App-Manager.
 
-Außerdem ist das `unload`-Ereignis nicht mit dem [Back/forward cache](https://web.dev/articles/bfcache) (bfcache) kompatibel, weil viele Seiten, die dieses Ereignis verwenden, davon ausgehen, dass die Seite nach Auslösen des Ereignisses nicht weiter existiert. Um dem entgegenzuwirken, legen einige Browser (wie Firefox) Seiten mit unload-Listenern nicht im bfcache ab, was sich negativ auf die Leistung auswirkt.
+Außerdem ist das `unload`-Ereignis nicht mit dem [Back/Forward-Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel, da viele Seiten, die dieses Ereignis verwenden, davon ausgehen, dass die Seite nach dem Auslösen des Ereignisses nicht mehr existiert. Um dem entgegenzuwirken, nehmen einige Browser (etwa Firefox) Seiten mit unload-Event-Listenern nicht in den bfcache auf. Das beeinträchtigt die Leistung.
 
-Aus diesen Gründen hat Chrome [das standardmäßige Auslösen von `unload`-Ereignissen eingestellt](https://developer.chrome.com/docs/web-platform/deprecating-unload). Eine Seite, die weiterhin von `unload` abhängt, kann sich mithilfe der `unload`-Direktive des {{HTTPHeader("Permissions-Policy")}}-Headers wieder dafür anmelden.
+Aus diesen Gründen löst Chrome [`unload`-Ereignisse standardmäßig nicht mehr aus](https://developer.chrome.com/docs/web-platform/deprecating-unload). Eine Seite, die weiterhin von `unload` abhängt, kann die Auslösung mithilfe der [`unload`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/unload)-Direktive des {{HTTPHeader("Permissions-Policy")}}-Headers wieder aktivieren.
 
-Verwenden Sie anstelle von `unload` die folgenden Ereignisse, die beide mit dem bfcache kompatibel sind:
+Verwenden Sie statt `unload` die folgenden Ereignisse, die beide mit dem bfcache kompatibel sind:
 
-- Das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis wird ausgelöst, wenn sich [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) von `visible` zu `hidden` oder umgekehrt ändert. Dies ist das letzte Ereignis, das zuverlässig ausgelöst wird, daher ist es der beste Ort, um den Anwendungszustand zu speichern oder Analysedaten zu senden. Beachten Sie, dass `visibilitychange` ausgelöst wird, wenn der Benutzer zu einem anderen Tab wechselt, die aktuelle Seite verlässt oder sie schließt.
-- Das [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignis wird ausgelöst, wenn der Browser die aktuelle Seite ausblendet, während er eine andere Seite aus dem Verlauf der Sitzung darstellt. Dies ist nützlich, wenn Sie gezielt erkennen möchten, dass der Benutzer von der Seite weg navigiert. Wie `unload` wird es jedoch nicht zuverlässig ausgelöst, insbesondere auf Mobilgeräten. Bevorzugen Sie daher nach Möglichkeit `visibilitychange`.
+- Das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis wird ausgelöst, wenn [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) von `visible` zu `hidden` oder umgekehrt wechselt. Es ist das letzte Ereignis, das zuverlässig ausgelöst wird, und daher der beste Zeitpunkt, um den Anwendungszustand zu speichern oder Analysedaten zu senden. Beachten Sie, dass `visibilitychange` ausgelöst wird, wenn der Nutzer zu einem anderen Tab wechselt, die aktuelle Seite verlässt oder sie schließt.
+- Das [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignis wird ausgelöst, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen. Das ist nützlich, wenn Sie gezielt erkennen möchten, ob der Nutzer die Seite verlässt. Wie `unload` wird es jedoch insbesondere auf Mobilgeräten nicht zuverlässig ausgelöst. Bevorzugen Sie daher nach Möglichkeit `visibilitychange`.
 
-Anstatt beispielsweise Daten in einem `unload`-Listener zu senden:
+Statt Daten beispielsweise in einem `unload`-Event-Listener zu senden:
 
 ```js example-bad
 window.addEventListener("unload", () => {
@@ -86,7 +90,7 @@ document.addEventListener("visibilitychange", () => {
 });
 ```
 
-Weitere Informationen zu den Problemen im Zusammenhang mit dem `unload`-Ereignis finden Sie im [Leitfaden zur Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#the-unload-event).
+Weitere Informationen zu den Problemen im Zusammenhang mit dem `unload`-Ereignis finden Sie im Leitfaden zur [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#the-unload-event).
 
 ## Beispiele
 
@@ -111,7 +115,7 @@ Weitere Informationen zu den Problemen im Zusammenhang mit dem `unload`-Ereignis
 </html>
 ```
 
-Im Folgenden der Inhalt von `child-frame.html`:
+Nachfolgend der Inhalt von `child-frame.html`:
 
 ```html
 <!doctype html>
@@ -134,7 +138,7 @@ Im Folgenden der Inhalt von `child-frame.html`:
 </html>
 ```
 
-Wenn der übergeordnete Frame entladen wird, werden Ereignisse in der durch die `console.log()`-Meldungen beschriebenen Reihenfolge ausgelöst.
+Wenn der übergeordnete Frame entladen wird, werden die Ereignisse in der durch die `console.log()`-Meldungen beschriebenen Reihenfolge ausgelöst.
 
 ## Spezifikationen
 
@@ -147,9 +151,9 @@ Wenn der übergeordnete Frame entladen wird, werden Ereignisse in der durch die 
 ## Siehe auch
 
 - Verwandte Ereignisse: [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event), [`load`](/de/docs/Web/API/Window/load_event)
-- [Dokumente entladen — ein Dokument entladen](https://html.spec.whatwg.org/multipage/browsers.html#unloading-documents)
+- [Dokumente entladen – ein Dokument entladen](https://html.spec.whatwg.org/multipage/browsers.html#unloading-documents)
 - Das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis.
-- [Benutzer- und Anwendungszustand nicht verlieren, Page Visibility verwenden](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erläutert ausführlich, warum Sie `visibilitychange` und nicht `beforeunload`/`unload` verwenden sollten.
-- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet Best-Practice-Empfehlungen für den Umgang mit dem Verhalten des Seitenlebenszyklus in Ihren Webanwendungen.
-- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): eine JavaScript-Bibliothek, die browserübergreifende Inkonsistenzen im Verhalten des Seitenlebenszyklus behandelt.
-- [Back/forward cache](https://web.dev/articles/bfcache) erläutert, was der Back/forward cache ist und welche Auswirkungen er auf verschiedene Ereignisse des Seitenlebenszyklus hat.
+- [Nutzer- und Anwendungszustand nicht verlieren: Page Visibility verwenden](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erklärt ausführlich, warum Sie `visibilitychange` statt `beforeunload`/`unload` verwenden sollten.
+- Die [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet Best-Practice-Empfehlungen für den Umgang mit dem Lebenszyklus von Seiten in Ihren Webanwendungen.
+- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): eine JavaScript-Bibliothek, die browserübergreifende Unterschiede beim Lebenszyklus von Seiten berücksichtigt.
+- [Back/Forward-Cache](https://web.dev/articles/bfcache) erklärt, was der Back/Forward-Cache ist und welche Auswirkungen er auf verschiedene Ereignisse im Lebenszyklus einer Seite hat.

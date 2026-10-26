@@ -1,22 +1,26 @@
 ---
-title: "ScreenOrientation: change Ereignis"
+title: "ScreenOrientation: change-Ereignis"
 short-title: change
 slug: Web/API/ScreenOrientation/change_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Screen Orientation API")}}
 
-Das **`change`** Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle wird ausgelöst, wenn sich die Ausrichtung des Bildschirms geändert hat, zum Beispiel wenn ein Benutzer sein Mobiltelefon dreht.
+Das **`change`**-Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle wird ausgelöst, wenn sich die Ausrichtung des Bildschirms geändert hat, beispielsweise wenn eine Person ihr Mobiltelefon dreht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("change", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onchange = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel gibt der `change`-Callback den neuen [Screen Orientation Type](/de/docs/Web/API/ScreenOrientation/type) und den [Winkel](/de/docs/Web/API/ScreenOrientation/angle) aus.
+Im folgenden Beispiel gibt der `change`-Callback den neuen [Bildschirmausrichtungstyp](/de/docs/Web/API/ScreenOrientation/type) und den neuen [Winkel](/de/docs/Web/API/ScreenOrientation/angle) aus.
 
 ```js
 screen.orientation.addEventListener("change", (event) => {

@@ -1,24 +1,28 @@
 ---
-title: "HTMLCanvasElement: webglcontextlost Ereignis"
+title: "HTMLCanvasElement: webglcontextlost-Ereignis"
 short-title: webglcontextlost
 slug: Web/API/HTMLCanvasElement/webglcontextlost_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("WebGL API")}}
 
-Das **`webglcontextlost`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent feststellt, dass der Zeichenpuffer, der mit einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt verbunden ist, verloren gegangen ist.
+Das **`webglcontextlost`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User Agent erkennt, dass der einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekt zugeordnete Zeichenpuffer verloren gegangen ist.
 
-Dieses Ereignis wird nicht weitergeleitet.
+Dieses Ereignis wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("webglcontextlost", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onwebglcontextlost = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`
 
 ## Beispiel
 
-Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context) Erweiterung können Sie das `webglcontextlost` Ereignis simulieren:
+Mithilfe der Erweiterung [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context) können Sie das `webglcontextlost`-Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

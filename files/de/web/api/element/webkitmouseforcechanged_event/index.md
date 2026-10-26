@@ -1,26 +1,30 @@
 ---
-title: "Element: webkitmouseforcechanged Event"
+title: "Element: webkitmouseforcechanged-Ereignis"
 short-title: webkitmouseforcechanged
 slug: Web/API/Element/webkitmouseforcechanged_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-Das in Safari nicht standardmäßige **`webkitmouseforcechanged`**-Ereignis wird jedes Mal ausgelöst, wenn sich der Druck auf dem Trackpad/Bildschirm ändert.
+Das nicht standardisierte Ereignis **`webkitmouseforcechanged`** wird von Safari jedes Mal ausgelöst, wenn sich der Druck auf dem Trackpad oder Touchscreen ändert.
 
-**`webkitmouseforcechanged`** ist ein proprietäres, WebKit-spezifisches Ereignis, das von Apple eingeführt wurde, um ihre [Force Touch-Ereignisse](/de/docs/Web/API/Force_Touch_events) zu unterstützen.
+**`webkitmouseforcechanged`** ist ein proprietäres, WebKit-spezifisches Ereignis, das Apple zur Unterstützung der Funktion [Force Touch-Ereignisse](/de/docs/Web/API/Force_Touch_events) eingeführt hat.
 
-Dieses Ereignis wird erstmals nach dem [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis ausgelöst und stoppt das Auslösen, bevor das [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignis eintritt.
+Dieses Ereignis wird erstmals nach dem Ereignis [`mousedown`](/de/docs/Web/API/Element/mousedown_event) ausgelöst und vor dem Ereignis [`mouseup`](/de/docs/Web/API/Element/mouseup_event) nicht mehr ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("webkitmouseforcechanged", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onwebkitmouseforcechanged = (event) => { }
 ```
 
@@ -32,7 +36,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Spezifikationen
 
-_Teil keiner Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
+_Nicht Teil einer Spezifikation._ Apple stellt [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html) bereit.
 
 ## Browser-Kompatibilität
 

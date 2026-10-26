@@ -1,51 +1,55 @@
 ---
-title: "Element: click event"
+title: "Element: click-Ereignis"
 short-title: click
 slug: Web/API/Element/click_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Ein Element empfängt ein **`click`**-Ereignis, wenn eines der folgenden Ereignisse eintritt:
+Ein Element empfängt ein **`click`**-Ereignis, wenn einer der folgenden Fälle eintritt:
 
-- Eine Zeigegeräte-Taste (wie die Primärtaste einer Maus) wird sowohl gedrückt als auch losgelassen, während der Zeiger sich innerhalb des Elements befindet.
-- Eine Berührungsgeste wird auf dem Element ausgeführt.
-- Jede Benutzerinteraktion, die einem Klick entspricht, wie das Drücken der <kbd>Space</kbd>- oder <kbd>Enter</kbd>-Taste, während das Element fokussiert ist. Beachten Sie, dass dies nur für Elemente mit einem Standard-Tastaturereignis-Handler gilt und daher andere Elemente ausschließt, die durch das Setzen des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attributs Fokus erhalten haben.
+- Eine Taste eines Zeigegeräts (etwa die primäre Maustaste) wird gedrückt und wieder losgelassen, während sich der Zeiger innerhalb des Elements befindet.
+- Auf dem Element wird eine Berührungsgeste ausgeführt.
+- Eine Benutzerinteraktion entspricht einem Klick, etwa das Drücken der <kbd>Leertaste</kbd> oder der <kbd>Eingabetaste</kbd>, während das Element fokussiert ist. Dies gilt nur für Elemente mit einem standardmäßigen Handler für Tastaturereignisse. Elemente, die durch Setzen des Attributs [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) fokussierbar gemacht wurden, sind daher ausgeschlossen.
 
-Wird die Taste auf einem Element gedrückt und der Zeiger bewegt sich außerhalb des Elements, bevor die Taste losgelassen wird, wird das Ereignis auf dem spezifischsten übergeordneten Element ausgelöst, das beide Elemente enthielt.
+Wenn die Taste auf einem Element gedrückt und der Zeiger vor dem Loslassen aus dem Element herausbewegt wird, wird das Ereignis auf dem spezifischsten übergeordneten Element ausgelöst, das beide Elemente enthält.
 
-`click` wird in der Reihenfolge ausgelöst, nachdem sowohl das [`mousedown`](/de/docs/Web/API/Element/mousedown_event) als auch das [`mouseup`](/de/docs/Web/API/Element/mouseup_event) Ereignis ausgelöst wurden.
+`click` wird ausgelöst, nachdem die Ereignisse [`mousedown`](/de/docs/Web/API/Element/mousedown_event) und [`mouseup`](/de/docs/Web/API/Element/mouseup_event) in dieser Reihenfolge ausgelöst wurden.
 
-Das Ereignis ist ein geräteunabhängiges Ereignis – es kann durch Berührung, Tastatur, Maus und jedes andere von unterstützender Technologie bereitgestellte Mechanismus aktiviert werden.
+Das Ereignis ist geräteunabhängig. Es kann durch Berührung, Tastatur, Maus und andere von assistiven Technologien bereitgestellte Mechanismen ausgelöst werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Property.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("click", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onclick = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de/docs/Web/API/MouseEvent).
+Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Es erbt von [`MouseEvent`](/de/docs/Web/API/MouseEvent).
 
 {{InheritanceDiagram("PointerEvent")}}
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
+> In früheren Versionen der Spezifikation war der Ereignistyp dieses Ereignisses ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Verwendungshinweise
 
-Das [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekt, das in den Ereignis-Handler für `click` übergeben wird, hat seine [`detail`](/de/docs/Web/API/UIEvent/detail)-Eigenschaft auf die Anzahl der Male gesetzt, die das [`target`](/de/docs/Web/API/Event/target) angeklickt wurde. Mit anderen Worten, `detail` wird für einen Doppelklick 2, für einen Dreifachklick 3 und so weiter sein. Dieser Zähler wird nach einem kurzen Intervall ohne Klicks zurückgesetzt; die Details, wie lange dieses Intervall ist, können von Browser zu Browser und über Plattformen hinweg variieren. Das Intervall wird wahrscheinlich auch von Benutzereinstellungen beeinflusst; zum Beispiel können Barrierefreiheitsoptionen dieses Intervall verlängern, um es einfacher zu machen, mehrere Klicks mit adaptiven Schnittstellen auszuführen.
+Die Eigenschaft [`detail`](/de/docs/Web/API/UIEvent/detail) des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts, das an den Event-Handler für `click` übergeben wird, enthält die Anzahl der Klicks auf das [`target`](/de/docs/Web/API/Event/target). Bei einem Doppelklick hat `detail` also den Wert 2, bei einem Dreifachklick den Wert 3 und so weiter. Dieser Zähler wird zurückgesetzt, wenn für kurze Zeit keine Klicks erfolgen. Die genaue Dauer dieses Zeitraums kann je nach Browser und Plattform variieren. Sie wird wahrscheinlich auch von den Benutzereinstellungen beeinflusst: Barrierefreiheitsoptionen können den Zeitraum beispielsweise verlängern, damit sich mehrere Klicks mit adaptiven Eingabegeräten leichter ausführen lassen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Anzahl der aufeinanderfolgenden Klicks auf eine {{HtmlElement("button")}}.
+Dieses Beispiel zeigt die Anzahl aufeinanderfolgender Klicks auf ein {{HtmlElement("button")}} an.
 
 ### HTML
 
@@ -65,7 +69,7 @@ button.addEventListener("click", (event) => {
 
 ### Ergebnis
 
-Versuchen Sie, schnelle, wiederholte Klicks auf den Button zu machen, um die Klickanzahl zu erhöhen. Wenn Sie eine Pause zwischen den Klicks machen, wird der Zähler zurückgesetzt.
+Klicken Sie mehrmals schnell hintereinander auf die Schaltfläche, um die Anzahl zu erhöhen. Wenn Sie zwischen den Klicks eine Pause machen, wird der Zähler zurückgesetzt.
 
 {{EmbedLiveSample("Examples")}}
 

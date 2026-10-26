@@ -1,22 +1,26 @@
 ---
-title: "Benachrichtigung: show Ereignis"
+title: "Notification: show-Ereignis"
 short-title: show
 slug: Web/API/Notification/show_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`show`** Ereignis des [`Notification`](/de/docs/Web/API/Notification)-Interfaces wird ausgelöst, wenn eine [`Notification`](/de/docs/Web/API/Notification) angezeigt wird.
+Das **`show`**-Ereignis der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle wird ausgelöst, wenn eine [`Notification`](/de/docs/Web/API/Notification) angezeigt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("show", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onshow = (event) => { }
 ```
 

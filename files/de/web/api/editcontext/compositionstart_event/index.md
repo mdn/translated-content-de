@@ -1,30 +1,34 @@
 ---
-title: "EditContext: compositionstart Ereignis"
+title: "EditContext: compositionstart-Ereignis"
 short-title: compositionstart
 slug: Web/API/EditContext/compositionstart_event
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `compositionstart`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces wird ausgelöst, wenn die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster beginnt.
+Das `compositionstart`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn die Texteingabe über ein Fenster eines {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) beginnt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("compositionstart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncompositionstart = (event) => { }
 ```
 
 ## Beispiele
 
-### Verwendung von `compositionstart`, um den Rahmen des editierbaren Bereichs zu ändern
+### Mit `compositionstart` den Rahmen des bearbeitbaren Bereichs ändern
 
-Im folgenden Beispiel wird der Rahmen des editierbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Event-Listener-Callbacks in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zur Textkomposition verwendet werden.
+Im folgenden Beispiel wird der Rahmen des bearbeitbaren Bereichs rot, wenn das `compositionstart`-Ereignis ausgelöst wird, und wieder schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Event-Listener-Callbacks in diesem Beispiel nur aufgerufen werden, wenn Text über ein IME-Fenster oder eine andere plattformspezifische Bearbeitungsoberfläche eingegeben wird.
 
 ```css
 #text-editor {

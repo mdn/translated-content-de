@@ -1,24 +1,28 @@
 ---
-title: "Element: webkitmouseforceup Ereignis"
+title: "Element: webkitmouseforceup-Ereignis"
 short-title: webkitmouseforceup
 slug: Web/API/Element/webkitmouseforceup_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-Das nicht standardisierte **`webkitmouseforceup`** Ereignis wird von Safari bei einem [`Element`](/de/docs/Web/API/Element) einige Zeit nach dem [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event) Ereignis ausgelöst, wenn der Druck auf die Taste ausreichend reduziert wurde, um den "Force Click" zu beenden.
+Das nicht standardisierte Ereignis **`webkitmouseforceup`** wird von Safari an einem [`Element`](/de/docs/Web/API/Element) ausgelöst, nachdem das Ereignis [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event) aufgetreten ist und der Druck auf die Taste ausreichend nachgelassen hat, um den „Force Click“ zu beenden.
 
-**`webkitmouseforceup`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil des [Force Touch events](/de/docs/Web/API/Force_Touch_events) Features.
+**`webkitmouseforceup`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil der Funktion [Force Touch-Ereignisse](/de/docs/Web/API/Force_Touch_events).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("webkitmouseforceup", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onwebkitmouseforceup = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Spezifikationen
 
-_Nicht Teil einer Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
+_Kein Bestandteil einer Spezifikation._ Apple stellt [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html) bereit.
 
 ## Browser-Kompatibilität
 

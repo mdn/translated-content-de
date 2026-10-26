@@ -3,22 +3,26 @@ title: "Sensor: activate-Ereignis"
 short-title: activate
 slug: Web/API/Sensor/activate_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
 Das **`activate`**-Ereignis wird ausgelöst, wenn ein Sensor aktiviert wird. Das bedeutet, dass er beginnt, Messwerte zu erfassen.
 
-Die [`Sensor`](/de/docs/Web/API/Sensor)-Schnittstelle ist eine Basisklasse, `onactivate` und das `activate`-Ereignis dürfen nur auf einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
+Das [`Sensor`](/de/docs/Web/API/Sensor)-Interface ist eine Basisklasse. `onactivate` und das `activate`-Ereignis können nur bei einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("activate", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onactivate = (event) => { }
 ```
 
@@ -28,9 +32,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-### Protokollieren, wenn ein Beschleunigungsmesser bereit zum Messen ist
+### Protokollieren, wenn ein Beschleunigungssensor messbereit ist
 
-In diesem Beispiel wird ein Ereignislistener hinzugefügt, um die Aktivierung eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) zu protokollieren.
+Dieses Beispiel fügt einen Event-Listener hinzu, der die Aktivierung eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) protokolliert.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });
@@ -48,5 +52,5 @@ acl.start();
 
 ## Siehe auch
 
-- Sensor [`error`](/de/docs/Web/API/Sensor/error_event)-Ereignis
-- Sensor [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis
+- Sensor-Ereignis [`error`](/de/docs/Web/API/Sensor/error_event)
+- Sensor-Ereignis [`reading`](/de/docs/Web/API/Sensor/reading_event)

@@ -3,20 +3,24 @@ title: "Screen: orientationchange-Ereignis"
 short-title: orientationchange
 slug: Web/API/Screen/orientationchange_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Screen Orientation API")}}{{Non-standard_Header}}
 
-Das `orientationchange`-Ereignis wird ausgelöst, wenn sich die Orientierung des Geräts geändert hat.
+Das `orientationchange`-Ereignis wird ausgelöst, wenn sich die Ausrichtung des Geräts geändert hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("orientationchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onorientationchange = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht Bestandteil einer Spezifikation. Ihre Standardisierung wird nicht mehr verfolgt.
 
-Verwenden Sie stattdessen das `ScreenOrientation` [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis.
+Verwenden Sie stattdessen das [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis von `ScreenOrientation`.
 
 ## Browser-Kompatibilität
 
@@ -36,4 +40,4 @@ Verwenden Sie stattdessen das `ScreenOrientation` [`change`](/de/docs/Web/API/Sc
 
 ## Siehe auch
 
-- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Bildschirmausrichtung verwalten](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

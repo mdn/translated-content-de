@@ -3,22 +3,26 @@ title: "Element: mouseenter-Ereignis"
 short-title: mouseenter
 slug: Web/API/Element/mouseenter_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`mouseenter`**-Ereignis wird an einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) zunächst so bewegt wird, dass sein Hotspot innerhalb des Elements liegt, bei dem das Ereignis ausgelöst wurde.
+Das **`mouseenter`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (in der Regel eine Maus) erstmals so bewegt wird, dass sich sein Hotspot innerhalb des Elements befindet, bei dem das Ereignis ausgelöst wird.
 
-Beachten Sie, dass sich „in ein Element bewegen“ auf die Position des Elements im DOM-Baum bezieht, nicht auf seine visuelle Position. Wenn beispielsweise ein Kindelement so positioniert ist, dass es außerhalb seines Elternteils platziert wird, wird das `mouseenter`-Ereignis auf dem Elternelement ausgelöst, auch wenn der Zeiger sich noch außerhalb der Grenzen des Elternelements befindet.
+Beachten Sie, dass sich „in ein Element hineinbewegen“ auf die Position des Elements im DOM-Baum bezieht, nicht auf seine visuelle Position. Wenn beispielsweise ein Kindelement so positioniert ist, dass es außerhalb seines Elternelements liegt, löst die Bewegung des Zeigers in das Kindelement hinein `mouseenter` beim Elternelement aus – auch wenn sich der Zeiger weiterhin außerhalb der Grenzen des Elternelements befindet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mouseenter", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onmouseenter = (event) => { }
 ```
 
@@ -28,32 +32,32 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 {{InheritanceDiagram("MouseEvent")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-Obwohl es dem [`mouseover`](/de/docs/Web/API/Element/mouseover_event) ähnlich ist, unterscheidet sich `mouseenter` darin, dass es nicht [bubble](/de/docs/Web/API/Event/bubbles) und nicht an Nachkommen gesendet wird, wenn der Zeiger von einem Nachkommen in seinen eigenen physischen Raum bewegt wird. Abgesehen davon werden enter- und over-Ereignisse für die gleiche Situation gleichzeitig ausgelöst, wenn dies zutreffend ist.
+Obwohl `mouseenter` [`mouseover`](/de/docs/Web/API/Element/mouseover_event) ähnelt, unterscheidet es sich dadurch, dass es nicht [aufsteigt](/de/docs/Web/API/Event/bubbles) und nicht an Nachfahren gesendet wird, wenn der Zeiger aus dem sichtbaren Bereich eines Nachfahren in den sichtbaren Bereich des Elements selbst bewegt wird. Abgesehen davon werden `mouseenter`- und `mouseover`-Ereignisse für dieselbe Situation gegebenenfalls gleichzeitig ausgelöst.
 
 ### Verhalten von `mouseenter`-Ereignissen
 
-Dies beschreibt die `mouseenter`-Ereignisse, die von vier konzentrischen `divs` ohne Padding oder Rand empfangen werden, sodass die Ereignisse alle gleichzeitig auftreten:
-![Mouseenter-Verhaltensdiagramm](mouseenter.png)
-Ein `mouseenter`-Ereignis wird an jedes Element der Hierarchie gesendet, wenn man in diese eintritt. Hier werden 4 Ereignisse an die vier Elemente der Hierarchie gesendet, wenn der Zeiger den Text erreicht.
+Die folgende Abbildung zeigt die `mouseenter`-Ereignisse, die jedes von vier ineinander verschachtelten `div`-Elementen ohne Innen- oder Außenabstand empfängt. Daher treten alle Ereignisse gleichzeitig auf:
+![Diagramm zum Verhalten von mouseenter](mouseenter.png)
+Beim Eintritt in die Elemente wird an jedes Element der Hierarchie ein `mouseenter`-Ereignis gesendet. Hier werden vier Ereignisse an die vier Elemente der Hierarchie gesendet, wenn der Zeiger den Text erreicht.
 
 ### Verhalten von `mouseover`-Ereignissen
 
-![Mouseover-Verhaltensdiagramm](mouseover.png)
-Ein einziges `mouseover`-Ereignis wird an das tiefste Element des DOM-Baums gesendet und dann in der Hierarchie nach oben geleitet, bis es von einem Handler abgebrochen wird oder die Wurzel erreicht.
+![Diagramm zum Verhalten von mouseover](mouseover.png)
+Ein einzelnes `mouseover`-Ereignis wird an das am tiefsten verschachtelte Element des DOM-Baums gesendet. Anschließend steigt es in der Hierarchie auf, bis es durch einen Handler abgebrochen wird oder die Wurzel erreicht.
 
-Bei tiefen Hierarchien kann die Anzahl der gesendeten `mouseenter`-Ereignisse ziemlich groß sein und erhebliche Leistungsprobleme verursachen. In solchen Fällen ist es besser, `mouseover`-Ereignisse zu überwachen.
+Bei tiefen Hierarchien kann die Zahl der gesendeten `mouseenter`-Ereignisse sehr groß werden und erhebliche Leistungsprobleme verursachen. In solchen Fällen ist es besser, auf `mouseover`-Ereignisse zu reagieren.
 
-In Kombination mit dem entsprechenden `mouseleave` (das bei dem Element ausgelöst wird, wenn die Maus dessen Inhaltsbereich verlässt) verhält sich das `mouseenter`-Ereignis sehr ähnlich wie das CSS {{cssxref(':hover')}}-Pseudoklasse.
+Zusammen mit dem zugehörigen `mouseleave`-Ereignis (das beim Element ausgelöst wird, wenn die Maus dessen Inhaltsbereich verlässt) verhält sich das `mouseenter`-Ereignis sehr ähnlich wie die CSS-Pseudoklasse {{cssxref(':hover')}}.
 
 ## Beispiele
 
-Die [`mouseover`](/de/docs/Web/API/Element/mouseover_event#examples)-Dokumentation enthält ein Beispiel, das den Unterschied zwischen `mouseover` und `mouseenter` veranschaulicht.
+Die Dokumentation zu [`mouseover`](/de/docs/Web/API/Element/mouseover_event#examples) enthält ein Beispiel, das den Unterschied zwischen `mouseover` und `mouseenter` veranschaulicht.
 
-### Mouseenter
+### mouseenter
 
-Das folgende triviale Beispiel verwendet das `mouseenter`-Ereignis, um den Rand des `div` zu ändern, wenn die Maus den dafür vorgesehenen Bereich betritt. Anschließend wird der Liste ein Eintrag mit der Nummer des `mouseenter`- oder `mouseleave`-Ereignisses hinzugefügt.
+Das folgende einfache Beispiel verwendet das `mouseenter`-Ereignis, um den Rahmen des `div` zu ändern, wenn die Maus in den ihm zugewiesenen Bereich gelangt. Anschließend fügt es der Liste einen Eintrag mit der Nummer des `mouseenter`- oder `mouseleave`-Ereignisses hinzu.
 
 #### HTML
 
@@ -67,7 +71,7 @@ Das folgende triviale Beispiel verwendet das `mouseenter`-Ereignis, um den Rand 
 
 #### CSS
 
-Stilisierung des `div`, um es sichtbarer zu machen.
+Das `div` wird gestaltet, damit es besser sichtbar ist.
 
 ```css
 #mouseTarget {

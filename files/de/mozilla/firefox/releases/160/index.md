@@ -1,70 +1,70 @@
 ---
-title: "Firefox 160: Versionshinweise für Entwickler (Nightly)"
-short-title: Firefox 160 (Nightly)
+title: Versionshinweise für Entwickler zu Firefox 160 (Beta)
+short-title: Firefox 160 (Beta)
 slug: Mozilla/Firefox/Releases/160
 l10n:
-  sourceCommit: c6a89971a820ca6b76479a7ffc1b32c09aae2415
+  sourceCommit: 521fe7795f4dbfa723d800a94884d7608fa0e17e
 ---
 
-Dieser Artikel informiert über Änderungen in Firefox 160, die Entwickler betreffen.
-Firefox 160 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und erscheint am [10. November 2026](https://whattrainisitnow.com/release/?version=160).
+Dieser Artikel informiert über Änderungen in Firefox 160, die für Entwickler relevant sind.
+Firefox 160 ist die aktuelle [Betaversion von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [10. November 2026](https://whattrainisitnow.com/release/?version=160).
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, zu denen Sie Hinweise verfassen. -->
+<!-- Authors: Please uncomment any headings you are writing notes for -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Developer Tools -->
 
 <!-- ### HTML -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### CSS -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### JavaScript -->
 
-<!-- Keine nennenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### Sicherheit -->
+<!-- ### Security -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### APIs -->
 
 <!-- #### DOM -->
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, and Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemeines -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -72,14 +72,14 @@ Firefox 160 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 ## Änderungen für Add-on-Entwickler
 
-- {{WebExtAPIRef("runtime.PlatformInfo")}} gibt auf ARM64-Plattformen für `arch` jetzt `arm64` zurück. Zuvor wurde `aarch64` zurückgegeben. Damit entspricht der von Firefox für ARM64-Plattformen zurückgegebene Wert dem von Chrome. ([Firefox-Bug 2080310](https://bugzil.la/2080310))
+- {{WebExtAPIRef("runtime.PlatformInfo")}} gibt auf ARM64-Plattformen für `arch` jetzt `arm64` zurück. Zuvor wurde `aarch64` zurückgegeben. Damit entspricht der von Firefox auf ARM64-Plattformen zurückgegebene Wert dem von Chrome. ([Firefox-Bug 2080310](https://bugzil.la/2080310))
 
-<!-- ### Entfernungen -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
 ## Experimentelle Webfunktionen
 
-Diese Funktionen sind in Firefox 160 enthalten, aber standardmäßig deaktiviert.
+Diese Funktionen werden mit Firefox 160 ausgeliefert, sind aber standardmäßig deaktiviert.
 Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
 Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

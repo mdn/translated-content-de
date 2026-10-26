@@ -1,22 +1,26 @@
 ---
-title: "BroadcastChannel: message event"
+title: "BroadcastChannel: message-Ereignis"
 short-title: message
 slug: Web/API/BroadcastChannel/message_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-Das **`message`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht auf diesem Kanal eintrifft.
+Das **`message`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn auf diesem Kanal eine Nachricht eintrifft.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("message", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessage = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-In diesem Beispiel gibt es einen "Sender" {{HTMLElement("iframe")}}, der die Inhalte eines {{HTMLElement("textarea")}} sendet, wenn der Benutzer auf eine Schaltfläche klickt. Es gibt zwei "Empfänger"-Iframes, die auf die Broadcast-Nachricht hören und das Ergebnis in ein {{HTMLElement("div")}}-Element schreiben.
+In diesem Beispiel gibt es einen „Sender“-{{HTMLElement("iframe")}}, der den Inhalt einer {{HTMLElement("textarea")}} sendet, wenn der Benutzer auf eine Schaltfläche klickt. Zwei „Empfänger“-iframes empfangen die gesendete Nachricht und schreiben das Ergebnis in ein {{HTMLElement("div")}}-Element.
 
 ### Sender
 

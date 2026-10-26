@@ -1,80 +1,84 @@
 ---
-title: "Element: mousewheel event"
+title: "Element: mousewheel-Ereignis"
 short-title: mousewheel
 slug: Web/API/Element/mousewheel_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}{{Non-standard_header}}
 
-Das _veraltete_ und _nicht standardisierte_ **`mousewheel`** Ereignis wird asynchron an ein [`Element`](/de/docs/Web/API/Element) ausgelöst, um Updates bereitzustellen, während ein Mausrad oder ein ähnliches Gerät verwendet wird. Das `mousewheel`-Ereignis war nie Teil eines Standards, und obwohl es von mehreren Browsern implementiert wurde, wurde es nie von Firefox implementiert.
+Das _veraltete_ und _nicht standardisierte_ **`mousewheel`**-Ereignis wird asynchron auf einem [`Element`](/de/docs/Web/API/Element) ausgelöst, um Aktualisierungen bereitzustellen, während ein Mausrad oder ein ähnliches Gerät betätigt wird. Das `mousewheel`-Ereignis war nie Teil eines Standards. Es wurde zwar von mehreren Browsern implementiert, jedoch nie von Firefox.
 
 > [!NOTE]
-> Verwenden Sie anstelle dieses veralteten Ereignisses das standardisierte [`wheel`](/de/docs/Web/API/Element/wheel_event) Ereignis.
+> Verwenden Sie statt dieses veralteten Ereignisses das standardisierte [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mousewheel", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmousewheel = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`WheelEvent`](/de/docs/Web/API/WheelEvent). Erbt von [`MouseEvent`](/de/docs/Web/API/MouseEvent), [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
+Ein [`WheelEvent`](/de/docs/Web/API/WheelEvent). Es erbt von [`MouseEvent`](/de/docs/Web/API/MouseEvent), [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("WheelEvent")}}
 
-## Die Detail-Eigenschaft
+## Die Eigenschaft detail
 
-Der Wert der [`detail`](/de/docs/Web/API/UIEvent/detail) Eigenschaft ist immer null, außer in Opera, das `detail` ähnlich wie das Firefox-exklusive [`DOMMouseScroll`](/de/docs/Web/API/Element/DOMMouseScroll_event)-Ereignis verwendet, dessen `detail`-Wert die Scroll-Distanz in Linien angibt, wobei negative Werte Bewegung entweder nach unten oder nach rechts anzeigen und positive Werte nach oben oder links.
+Der Wert der Eigenschaft [`detail`](/de/docs/Web/API/UIEvent/detail) ist immer null, außer in Opera. Dort wird `detail` ähnlich wie der `detail`-Wert des nur in Firefox verfügbaren Ereignisses [`DOMMouseScroll`](/de/docs/Web/API/Element/DOMMouseScroll_event) verwendet: Er gibt die Scrollstrecke in Zeilen an. Negative Werte kennzeichnen eine Scrollbewegung nach unten oder rechts, positive Werte eine Scrollbewegung nach oben oder links.
 
 > [!NOTE]
-> Unter macOS wird die Scroll-Distanz (und damit der `detail`-Wert) basierend auf der beschleunigten Scroll-Distanz berechnet.
+> Unter macOS wird die Scrollstrecke (und damit der Wert von `detail`) anhand der beschleunigten Scrollstrecke berechnet.
 
-Unter Linux wird `2` oder `-2` pro nativem Wheel-Event gesetzt.
+Unter Linux wird pro nativem Mausradereignis `2` oder `-2` gesetzt.
 
-## wheelDelta, wheelDeltaX und wheelDeltaY Wert
+## Werte von wheelDelta, wheelDeltaX und wheelDeltaY
 
-Der `wheelDelta` Attributwert ist ein abstrakter Wert, der angibt, wie weit das Rad gedreht wurde. Wenn das Rad vom Benutzer weg gedreht wird, ist es positiv, andernfalls negativ. Das bedeutet, dass das Vorzeichen des Delta-Werts anders ist als bei dem `wheel` des DOM Level 3 Events. Jedoch ist die Bedeutung der Höhe dieser Werte nicht in allen Browsern gleich. Siehe die folgende Erklärung für Details.
+Der Wert des Attributs `wheelDelta` ist ein abstrakter Wert, der angibt, wie weit sich das Mausrad gedreht hat. Dreht sich das Rad vom Benutzer weg, ist der Wert positiv, andernfalls negativ. Das Vorzeichen des Delta-Werts unterscheidet sich damit von dem des `wheel`-Ereignisses in DOM Level 3 Events. Allerdings wird auch die Größe dieser Werte von Browser zu Browser unterschiedlich interpretiert. Die folgenden Abschnitte erläutern die Unterschiede.
 
-IE und Opera (Presto) unterstützen nur das `wheelDelta`-Attribut und _nicht_ den horizontalen Scroll.
+IE und Opera (Presto) unterstützen nur das Attribut `wheelDelta` und **kein** horizontales Scrollen.
 
-Der `wheelDeltaX` Attributwert gibt den `wheelDelta`-Attributwert entlang der horizontalen Achse an. Wenn ein Benutzer das Gerät zum Scrollen nach rechts bedient, ist der Wert negativ. Andernfalls, d.h. wenn es nach links geht, ist der Wert positiv.
+Der Wert des Attributs `wheelDeltaX` gibt den Wert von `wheelDelta` entlang der horizontalen Achse an. Wenn ein Benutzer das Gerät betätigt, um nach rechts zu scrollen, ist der Wert negativ. Beim Scrollen nach links ist er positiv.
 
-Der `wheelDeltaY` Attributwert gibt den `wheelDelta`-Attributwert entlang der vertikalen Achse an. Das Vorzeichen des Wertes ist dasselbe wie der `wheelDelta`-Attributwert.
+Der Wert des Attributs `wheelDeltaY` gibt den Wert von `wheelDelta` entlang der vertikalen Achse an. Sein Vorzeichen entspricht dem des Attributwerts von `wheelDelta`.
 
 ### Chrome
 
-Unter Windows ist der Wert derselbe wie der Delta-Wert von `WM_MOUSEWHEEL` oder `WM_MOUSEHWHEEL`. Und auch, der Wert ändert sich nicht, selbst wenn die Scroll-Menge der Systemeinstellungen Seitenscrollen ist, d.h. der Wert ist derselbe wie bei IE unter Windows.
+Unter Windows entspricht der Wert dem Delta-Wert von `WM_MOUSEWHEEL` oder `WM_MOUSEHWHEEL`. Er bleibt auch dann unverändert, wenn in den Systemeinstellungen seitenweises Scrollen festgelegt ist. Damit entspricht er dem Wert in IE unter Windows.
 
-Unter Linux ist der Wert `120` oder `-120` pro nativem Wheel-Event. Dies ergibt das gleiche Verhalten wie bei IE und Chrome für Windows.
+Unter Linux beträgt der Wert pro nativem Mausradereignis `120` oder `-120`. Das Verhalten entspricht damit dem von IE und Chrome unter Windows.
 
-Auf Mac ist der Wert kompliziert. Der Wert ändert sich, wenn das **Gerät**, das das native Wheel-Event auslöst, kontinuierliches Scrollen unterstützt.
+Unter Mac ist der Wert komplexer. Er hängt davon ab, ob das **Gerät**, das das native Mausradereignis auslöst, kontinuierliches Scrollen unterstützt.
 
-Wenn das Gerät kontinuierliches Scrollen unterstützt (z.B. Trackpad eines MacBook oder Mausrad, das sich reibungslos drehen lässt), wird der Wert aus der beschleunigten Scroll-Menge berechnet. In diesem Fall ist der Wert derselbe wie bei Safari.
+Unterstützt das Gerät kontinuierliches Scrollen (etwa das Trackpad eines MacBook oder ein stufenlos drehbares Mausrad), wird der Wert aus der beschleunigten Scrollstrecke berechnet. In diesem Fall entspricht er dem Wert in Safari.
 
-Wenn das Gerät **kein** kontinuierliches Scrollen unterstützt (typischerweise ein altes Mausrad, das sich nicht reibungslos drehen lässt), wird der Wert aus der nicht beschleunigten Scroll-Menge berechnet (120 pro Kerbe). In diesem Fall ist der Wert anders als bei Safari.
+Unterstützt das Gerät **kein** kontinuierliches Scrollen (typischerweise ein älteres, nicht stufenlos drehbares Mausrad), wird der Wert aus der unbeschleunigten Scrollstrecke berechnet (120 pro Rastschritt). In diesem Fall unterscheidet er sich vom Wert in Safari.
 
-Dieser Unterschied stellt ein ernsthaftes Problem für Webentwickler dar. Das heißt, Webentwickler können nicht wissen, ob das `mousewheel`-Ereignis durch welches Gerät verursacht wurde.
+Dieser Unterschied stellt Entwickler von Webanwendungen vor ein erhebliches Problem: Sie können nicht erkennen, von welchem Gerät ein `mousewheel`-Ereignis ausgelöst wurde.
 
 ### Safari
 
-Der Wert wird immer aus der beschleunigten Scroll-Menge berechnet. Dies unterscheidet sich wirklich von anderen Browsern, außer Chrome mit einem Gerät, das kontinuierliches Scrollen unterstützt.
+Der Wert wird immer aus der beschleunigten Scrollstrecke berechnet. Damit unterscheidet er sich von den Werten anderer Browser, mit Ausnahme von Chrome bei einem Gerät, das kontinuierliches Scrollen unterstützt.
 
 ### Opera (Presto)
 
-Der Wert ist immer der `detail`-Attributwert ✕ `40`.
+Der Wert entspricht immer dem Wert des Attributs `detail` ✕ `40`.
 
-Unter Windows, da der `detail`-Attributwert aus der tatsächlichen Scroll-Menge berechnet wird, ist der Wert anders als bei anderen Browsern, außer die Scroll-Menge pro Kerbe ist 3 Linien in den Systemeinstellungen oder eine Seite.
+Unter Windows wird der Wert des Attributs `detail` aus der tatsächlichen Scrollstrecke berechnet. Daher unterscheidet sich der Wert von dem anderer Browser, es sei denn, in den Systemeinstellungen sind drei Zeilen oder eine Seite pro Rastschritt festgelegt.
 
-Unter Linux ist der Wert `80` oder `-80` pro nativem Wheel-Event. Dies unterscheidet sich von anderen Browsern.
+Unter Linux beträgt der Wert pro nativem Mausradereignis `80` oder `-80`. Das unterscheidet sich von anderen Browsern.
 
-Auf Mac wird der `detail`-Attributwert aus der beschleunigten Scroll-Menge des nativen Events berechnet. Der Wert ist normalerweise viel größer als der Wert von Safari oder Chrome.
+Unter Mac wird der Wert des Attributs `detail` aus der beschleunigten Scrollstrecke des nativen Ereignisses berechnet. Er ist in der Regel deutlich größer als der Wert in Safari oder Chrome.
 
 ## Spezifikationen
 
@@ -86,4 +90,4 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- Das standardisierte [`wheel`](/de/docs/Web/API/Element/wheel_event) Ereignis, das stattdessen verwendet werden soll.
+- Das standardisierte [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis, das Sie stattdessen verwenden sollten.

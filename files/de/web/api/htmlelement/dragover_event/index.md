@@ -3,24 +3,28 @@ title: "HTMLElement: dragover-Ereignis"
 short-title: dragover
 slug: Web/API/HTMLElement/dragover_event
 l10n:
-  sourceCommit: 3385bda58637833eedc9b8dc41a2804e653208a7
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `dragover`-Ereignis wird wiederholt ausgelöst, wenn ein Element oder eine Textauswahl über ein potenzielles Ziehziel gezogen wird.
+Das `dragover`-Ereignis wird wiederholt ausgelöst, wenn ein Element oder eine Textauswahl über ein potenzielles Ablageziel gezogen wird.
 
-Die Auslösefrequenz hängt vom Browser, Betriebssystem und der Zeigerbewegung ab. Das `dragover`-Ereignis kann weiterhin ausgelöst werden, während der Zeiger stationär ist, und kann häufiger ausgelöst werden, während er sich bewegt. Verlassen Sie sich nicht auf ein festes Intervall oder erwarten Sie ein Ereignis für jede Zeigerbewegung. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) verwendet eine Auslösefrequenz von ungefähr 350 ms (±200 ms). In der Praxis verwenden Browser native Drag-Updates und plattformspezifische Timer, um diese Ereignisse zu verteilen, sodass dieses Intervall nicht das gesamte Browserverhalten beschreibt.
+Wie häufig es ausgelöst wird, hängt vom Browser, vom Betriebssystem und von der Zeigerbewegung ab. Das `dragover`-Ereignis kann auch dann weiter ausgelöst werden, wenn der Zeiger stillsteht, und häufiger ausgelöst werden, während er sich bewegt. Verlassen Sie sich nicht auf ein festes Intervall und erwarten Sie nicht für jede Zeigerbewegung ein Ereignis. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) sieht eine Häufigkeit von ungefähr einem Ereignis alle 350 ms (±200 ms) vor. In der Praxis verwenden Browser native Drag-Updates und plattformspezifische Timer, um diese Ereignisse auszulösen. Dieses Intervall beschreibt daher nicht das Verhalten aller Browser.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) aufsteigen.
+Dieses Ereignis kann abgebrochen werden und zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) aufsteigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("dragover", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ondragover = (event) => { }
 ```
 
@@ -32,17 +36,17 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiele
 
-### Ein minimales Drag-and-Drop-Beispiel
+### Ein einfaches Drag-and-Drop-Beispiel
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel befindet sich ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es dort loszulassen.
 
-Wir verwenden hier drei Ereignishandler:
+Hier verwenden wir drei Event-Handler:
 
-- im `dragstart`-Ereignishandler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat
-- im `dragover`-Ereignishandler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop`-Ereignisse zu empfangen.
-- im `drop`-Ereignishandler für die Zielzone behandeln wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Zielzone.
+- Im `dragstart`-Event-Handler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat.
+- Im `dragover`-Event-Handler für den Zielcontainer rufen wir `event.preventDefault()` auf. Dadurch kann der Container `drop`-Ereignisse empfangen.
+- Im `drop`-Event-Handler für die Ablagezone verschieben wir das ziehbare Element aus dem ursprünglichen Container in die Ablagezone.
 
-Für ein vollständiges Beispiel von Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+Ein vollständiges Drag-and-Drop-Beispiel finden Sie auf der Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 

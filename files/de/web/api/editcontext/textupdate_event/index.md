@@ -1,24 +1,28 @@
 ---
-title: "EditContext: textupdate Ereignis"
+title: "EditContext: textupdate-Ereignis"
 short-title: textupdate
 slug: Web/API/EditContext/textupdate_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `textupdate` Ereignis der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle wird ausgelöst, wenn der Benutzer Änderungen am Text oder der Auswahl eines bearbeitbaren Bereichs vorgenommen hat, der an eine `EditContext` Instanz angehängt ist.
+Das `textupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn Benutzer Änderungen am Text oder an der Auswahl in einem bearbeitbaren Bereich vornehmen, der mit einer `EditContext`-Instanz verknüpft ist.
 
-Dieses Ereignis ermöglicht es, den aktualisierten Text und die Auswahl im UI als Reaktion auf Benutzereingaben darzustellen.
+Dieses Ereignis ermöglicht es, den aktualisierten Text und die Auswahl als Reaktion auf Benutzereingaben in der Benutzeroberfläche darzustellen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("textupdate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ontextupdate = (event) => { }
 ```
 
@@ -28,9 +32,9 @@ Ein [`TextUpdateEvent`](/de/docs/Web/API/TextUpdateEvent). Erbt von [`Event`](/d
 
 ## Beispiele
 
-### Rendering des aktualisierten Texts bei `textupdate`
+### Aktualisierten Text bei `textupdate` darstellen
 
-Im folgenden Beispiel wird das `textupdate` Ereignis der EditContext API verwendet, um den Text darzustellen, den ein Benutzer in ein bearbeitbares `<canvas>` Element eingibt.
+Im folgenden Beispiel wird das `textupdate`-Ereignis der EditContext API verwendet, um den Text darzustellen, den Benutzer in ein bearbeitbares `<canvas>`-Element eingeben.
 
 ```html
 <canvas id="editor-canvas"></canvas>

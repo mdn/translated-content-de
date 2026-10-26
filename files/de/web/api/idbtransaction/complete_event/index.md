@@ -3,20 +3,24 @@ title: "IDBTransaction: complete-Ereignis"
 short-title: complete
 slug: Web/API/IDBTransaction/complete_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("IndexedDB")}}
 
-Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde, entweder nachdem Sie explizit [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) aufgerufen haben oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Verarbeitung ihrer Ergebnisse keine neuen Anfragen gestellt wurden. Siehe [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) für weitere Informationen.
+Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich übernommen wurde. Dies geschieht entweder, nachdem Sie [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) explizit aufgerufen haben, oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Verarbeitung ihrer Ergebnisse keine neuen Anfragen gestellt wurden. Weitere Informationen finden Sie unter [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("complete", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncomplete = (event) => { }
 ```
 
@@ -98,4 +102,4 @@ DBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

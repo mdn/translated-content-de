@@ -3,22 +3,26 @@ title: "Element: compositionend-Ereignis"
 short-title: compositionend
 slug: Web/API/Element/compositionend_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`compositionend`**-Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} die aktuelle Kompositionssitzung abschließt oder abbricht.
+Das **`compositionend`**-Ereignis wird ausgelöst, wenn ein System zur Texteingabe, beispielsweise ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}}, die aktuelle Kompositionssitzung abschließt oder abbricht.
 
-Dieses Ereignis könnte zum Beispiel ausgelöst werden, nachdem ein Benutzer das Eingeben eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} abgeschlossen hat.
+Dieses Ereignis kann beispielsweise ausgelöst werden, nachdem eine Person die Eingabe eines chinesischen Schriftzeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} abgeschlossen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("compositionend", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncompositionend = (event) => { }
 ```
 
@@ -38,7 +42,7 @@ inputElement.addEventListener("compositionend", (event) => {
 });
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

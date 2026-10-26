@@ -3,24 +3,28 @@ title: "XRSession: visibilitymaskchange-Ereignis"
 short-title: visibilitymaskchange
 slug: Web/API/XRSession/visibilitymaskchange_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`visibilitymaskchange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn sich der für den Benutzer sichtbare Teil einer [`XRView`](/de/docs/Web/API/XRView) ändert.
+Das **`visibilitymaskchange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn sich der für den Benutzer sichtbare Bereich einer [`XRView`](/de/docs/Web/API/XRView) ändert.
 
-Beachten Sie, dass die Ansicht mit einem bestimmten Auge verbunden ist und der sichtbare Teil für den Benutzer durch eine Sichtbarkeitsmaske definiert ist. Weitere Informationen finden Sie in der [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent)-Schnittstelle.
+Beachten Sie, dass die Ansicht einem bestimmten Auge zugeordnet ist und der für den Benutzer sichtbare Bereich durch eine Sichtbarkeitsmaske definiert wird. Weitere Informationen finden Sie in der Beschreibung der Schnittstelle [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent).
 
-Dies ermöglicht Leistungsverbesserungen, indem der Browser nur den sichtbaren Teil der aktualisierten Ansicht zeichnet.
+Dies ermöglicht Leistungsverbesserungen, da der Browser nur den sichtbaren Bereich der aktualisierten Ansicht zeichnen muss.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("visibilitymaskchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onvisibilitymaskchange = (event) => { }
 ```
 
@@ -34,7 +38,7 @@ Ein [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent
 
 ### Three.js-Beispiel
 
-Dieses Snippet zeigt, wie `visibilitymaskchange` verwendet werden könnte, um in einer Three.js-Anwendung nur den sichtbaren Teil der `XRView` zu zeichnen. Die neue Ansicht muss mit der [`XRView.projectionMatrix`](/de/docs/Web/API/XRView/projectionMatrix) der entsprechenden `XRView` und einem Standard-[`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) gezeichnet werden.
+Dieser Ausschnitt zeigt, wie `visibilitymaskchange` verwendet werden kann, um in einer Three.js-Anwendung nur den sichtbaren Bereich der `XRView` zu zeichnen. Die neue Ansicht muss mithilfe der [`XRView.projectionMatrix`](/de/docs/Web/API/XRView/projectionMatrix) der betreffenden `XRView` und eines standardmäßigen [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) gezeichnet werden.
 
 ```js
 session.addEventListener("visibilitymaskchange", onVisibilityMaskChange);
@@ -70,7 +74,7 @@ function onVisibilityMaskChange(event) {
 }
 ```
 
-Der Code-Schnipsel stammt aus [diesem Fork von WebXRManager.js](https://github.com/cabanier/three.js/blob/78a3227d95fc29e001d8cd139504c643987430c5/src/renderers/webxr/WebXRManager.js).
+Der Codeausschnitt stammt aus [diesem Fork von WebXRManager.js](https://github.com/cabanier/three.js/blob/78a3227d95fc29e001d8cd139504c643987430c5/src/renderers/webxr/WebXRManager.js).
 
 ## Spezifikationen
 

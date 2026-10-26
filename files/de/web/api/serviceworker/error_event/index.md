@@ -1,22 +1,26 @@
 ---
-title: "ServiceWorker: Fehlerereignis"
+title: "ServiceWorker: error-Ereignis"
 short-title: error
 slug: Web/API/ServiceWorker/error_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 60898650ee472d10cc15cb91c982fede0d0c5e34
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das `error`-Ereignis wird jedes Mal ausgelöst, wenn ein Fehler im Service Worker auftritt.
+Das `error`-Ereignis wird ausgelöst, sobald im Service Worker ein Fehler auftritt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie einen Handler über die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt erhält einen Verweis auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
+Der folgende Codeausschnitt ruft über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt ab und richtet für das zurückgegebene Objekt einen `onerror`-Handler ein:
 
 ```js
 // in the page being controlled

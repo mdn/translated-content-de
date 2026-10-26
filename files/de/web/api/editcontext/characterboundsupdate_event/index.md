@@ -3,26 +3,30 @@ title: "EditContext: characterboundsupdate-Ereignis"
 short-title: characterboundsupdate
 slug: Web/API/EditContext/characterboundsupdate_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `characterboundsupdate`-Ereignis wird ausgelöst, wenn das Betriebssystem die Grenzen bestimmter Zeichen innerhalb des editierbaren Textbereichs des `EditContext`-Objekts ermitteln muss.
+Das Ereignis `characterboundsupdate` wird ausgelöst, wenn das Betriebssystem die Begrenzungen bestimmter Zeichen innerhalb des bearbeitbaren Textbereichs eines `EditContext`-Objekts benötigt.
 
-Dies geschieht, wenn das Betriebssystem eine plattformspezifische, textbearbeitungsbezogene Benutzeroberfläche anzeigen muss, wie zum Beispiel ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster.
+Dies geschieht, wenn das Betriebssystem eine plattformspezifische Benutzeroberfläche für die Textbearbeitung anzeigen muss, beispielsweise ein Fenster für einen {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME).
 
-Wenn das `characterboundsupdate`-Ereignis ausgelöst wird, sollten Sie die Zeichenbegrenzungen für den Text berechnen und anschließend die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
+Wenn das Ereignis `characterboundsupdate` ausgelöst wird, sollten Sie die Begrenzungen der Zeichen im Text berechnen und anschließend die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
 
-Siehe die Dokumentation der Methode [`updateCharacterBounds`](/de/docs/Web/API/EditContext/updateCharacterBounds) für mehr Informationen darüber, wann und wie das `characterboundsupdate`-Ereignis verwendet werden sollte.
+Weitere Informationen dazu, wann und wie Sie das Ereignis `characterboundsupdate` verwenden, finden Sie in der Dokumentation zur Methode [`updateCharacterBounds`](/de/docs/Web/API/EditContext/updateCharacterBounds).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("characterboundsupdate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncharacterboundsupdate = (event) => { }
 ```
 
@@ -32,9 +36,9 @@ Ein [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent).
 
 ## Beispiele
 
-### Aktualisierung der Zeichenbegrenzungen bei Bedarf
+### Zeichenbegrenzungen bei Bedarf aktualisieren
 
-Dieses Beispiel zeigt, wie die Methode `updateCharacterBounds` verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `canvas`-Elements zu aktualisieren, wenn das Betriebssystem angibt, dass es die Informationen benötigt. Beachten Sie, dass der Event Listener Callback nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische textbearbeitungsbezogene Benutzeroberflächen zur Textzusammenstellung verwendet werden.
+Dieses Beispiel zeigt, wie Sie mit der Methode `updateCharacterBounds` die Zeichenbegrenzungen im `EditContext` eines `canvas`-Elements aktualisieren, wenn das Betriebssystem diese Informationen benötigt. Beachten Sie, dass die Callback-Funktion des Event-Listeners nur aufgerufen wird, wenn Text mithilfe eines IME-Fensters oder einer anderen plattformspezifischen Benutzeroberfläche für die Textbearbeitung eingegeben wird.
 
 ```html
 <canvas id="editor-canvas"></canvas>

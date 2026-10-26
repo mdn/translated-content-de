@@ -1,26 +1,30 @@
 ---
-title: "Window: pageswap Ereignis"
+title: "Window: pageswap-Ereignis"
 short-title: pageswap
 slug: Web/API/Window/pageswap_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`pageswap`** Ereignis wird ausgelöst, wenn Sie zwischen Dokumenten navigieren, wenn das vorherige Dokument kurz davor ist, entladen zu werden.
+Das **`pageswap`**-Ereignis wird bei der Navigation zwischen Dokumenten ausgelöst, wenn das vorherige Dokument gerade entladen werden soll.
 
-Dies ist nützlich im Fall von Cross-Dokument (MPA) [View Transitions](/de/docs/Web/API/View_Transition_API) für das Manipulieren einer aktiven Transition von der ausgehenden Seite einer Navigation. Zum Beispiel könnten Sie die Transition überspringen oder die ausgehende Übergangsanimation über JavaScript anpassen.
+Dies ist bei dokumentübergreifenden (MPA-) [View Transitions](/de/docs/Web/API/View_Transition_API) nützlich, um eine aktive Transition auf der Seite zu beeinflussen, die bei einer Navigation verlassen wird. Sie können beispielsweise die Transition überspringen oder die Animation beim Verlassen der Seite mit JavaScript anpassen.
 
-Es bietet auch Zugriff auf den Navigationstyp sowie die aktuellen und Ziel-Dokument-Historieneinträge.
+Das Ereignis bietet außerdem Zugriff auf den Navigationstyp sowie auf die Verlaufseinträge des aktuellen Dokuments und des Zieldokuments.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pageswap", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onpageswap = (event) => { }
 ```
 
@@ -83,7 +87,7 @@ window.addEventListener("pageswap", async (e) => {
 ```
 
 > [!NOTE]
-> Sehen Sie sich die [Liste der Chrome DevRel Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/) an für die Live-Demo, aus der dieser Code stammt.
+> Eine Live-Demo, aus der dieser Code stammt, finden Sie unter [Liste der Mitglieder des Chrome-DevRel-Teams](https://view-transitions.chrome.dev/profiles/mpa/).
 
 ## Spezifikationen
 
@@ -96,4 +100,4 @@ window.addEventListener("pageswap", async (e) => {
 ## Siehe auch
 
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-- [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis
+- [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis

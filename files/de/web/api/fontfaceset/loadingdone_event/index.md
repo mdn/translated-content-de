@@ -3,26 +3,30 @@ title: "FontFaceSet: loadingdone-Ereignis"
 short-title: loadingdone
 slug: Web/API/FontFaceSet/loadingdone_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Das `loadingdone`-Ereignis wird ausgelöst, wenn das Dokument alle Schriften geladen hat.
+Das Ereignis `loadingdone` wird ausgelöst, wenn das Dokument alle Schriftarten geladen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("loadingdone", (event) => { })
+```
 
+Alternativ können Sie einen Wert der [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onloadingdone = (event) => { }
 ```
 
 ## Beispiel
 
-Im folgenden Beispiel wird "Font loading complete" in die Konsole ausgegeben, wenn die Schriftart `Ephesis` fertig geladen ist.
+Im folgenden Beispiel wird „Font loading complete“ in der Konsole ausgegeben, sobald die Schriftart `Ephesis` vollständig geladen wurde.
 
 ```js
 document.fonts.onloadingdone = () => {

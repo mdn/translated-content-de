@@ -1,22 +1,26 @@
 ---
-title: "CloseWatcher: cancel event"
+title: "CloseWatcher: cancel-Ereignis"
 short-title: cancel
 slug: Web/API/CloseWatcher/cancel_event
 l10n:
-  sourceCommit: de5b557883e8eff2514f0fe6eeb180db782575b1
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("HTML DOM")}}
 
-Ein `cancel`-Ereignis wird an einem [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt vor dem `close`-Ereignis ausgelöst, sodass `close` verhindert werden kann, falls erforderlich. Es wird durch alle Schließsignale ausgelöst (z. B. die <kbd>Esc</kbd>-Taste) sowie durch [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose).
+Ein `cancel`-Ereignis wird für ein [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt vor dem `close`-Ereignis ausgelöst, damit bei Bedarf verhindert werden kann, dass `close` ausgelöst wird. Es wird durch alle Schließsignale (z. B. die <kbd>Esc</kbd>-Taste) sowie durch [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("cancel", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncancel = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ### Verwendung des `cancel`-Ereignisses
 
-In diesem Beispiel fragen wir den Benutzer, ob er das Schließen der Komponente wirklich bestätigen möchte, und wenn nicht, brechen wir das Ereignis mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) ab, was verhindert, dass das `close`-Ereignis ausgelöst wird.
+In diesem Beispiel bitten wir die Benutzer, zu bestätigen, dass sie die Komponente wirklich schließen möchten. Wenn sie dies nicht möchten, brechen wir das Ereignis mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) ab. Dadurch wird verhindert, dass das `close`-Ereignis ausgelöst wird.
 
 ```js
 watcher.addEventListener("cancel", (e) => {

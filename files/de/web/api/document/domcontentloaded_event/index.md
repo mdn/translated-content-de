@@ -3,31 +3,31 @@ title: "Dokument: DOMContentLoaded-Ereignis"
 short-title: DOMContentLoaded
 slug: Web/API/Document/DOMContentLoaded_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 9a0e5c1cfa8d5079e22c410de757707706f1cc75
 ---
 
 {{APIRef("DOM")}}
 
-Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig analysiert wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Reference/Elements/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Reference/Elements/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht auf andere Dinge wie Bilder, Unterrahmen oder asynchrone Skripte.
+Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögert ausgeführten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Reference/Elements/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Reference/Elements/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Ressourcen wie Bilder, Subframes und asynchrone Skripte vollständig geladen sind.
 
-`DOMContentLoaded` wartet nicht auf Stylesheets, jedoch warten verzögerte Skripte _schon_ auf Stylesheets, und das `DOMContentLoaded`-Ereignis wird nach den verzögerten Skripten in die Warteschlange gestellt. Auch Skripte, die nicht verzögert oder asynchron sind (z.B. `<script>`), warten darauf, dass bereits analysierte Stylesheets geladen werden.
+`DOMContentLoaded` wartet nicht darauf, dass Stylesheets geladen werden. Verzögert ausgeführte Skripte warten _jedoch_ auf Stylesheets, und das `DOMContentLoaded`-Ereignis wird erst nach diesen Skripten in die Warteschlange eingereiht. Auch Skripte, die weder verzögert noch asynchron ausgeführt werden (z. B. `<script>`), warten darauf, dass bereits geparste Stylesheets geladen werden.
 
-Ein anderes Ereignis, [`load`](/de/docs/Web/API/Window/load_event), sollte nur verwendet werden, um eine vollständig geladene Seite zu erkennen. Es ist ein häufiger Fehler, `load` zu verwenden, wo `DOMContentLoaded` angemessener wäre.
+Ein anderes Ereignis, [`load`](/de/docs/Web/API/Window/load_event), sollte nur verwendet werden, um zu erkennen, dass eine Seite vollständig geladen wurde. Es ist ein häufiger Fehler, `load` zu verwenden, obwohl `DOMContentLoaded` besser geeignet wäre.
 
-Üblicherweise können Sie, um zu vermeiden, dass ein Skript ausgeführt wird, bevor der von ihm manipulierte DOM vollständig aufgebaut ist, das Skript einfach am Ende des Dokuments, unmittelbar vor dem schließenden `</body>`-Tag, platzieren, ohne es in einen Ereignis-Listener zu packen.
+Um zu vermeiden, dass ein Skript ausgeführt wird, bevor das DOM, das es verändert, vollständig aufgebaut ist, können Sie das Skript in der Regel einfach am Ende des Dokumentkörpers unmittelbar vor dem schließenden `</body>`-Tag platzieren, ohne es in einen Event-Listener einzubinden.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("DOMContentLoaded", (event) => { })
 ```
 
 > [!NOTE]
-> Es gibt keine `onDOMContentLoaded`-Ereignishandler-Eigenschaft für dieses Ereignis.
+> Für dieses Ereignis gibt es keine `onDOMContentLoaded`-Event-Handler-Eigenschaft.
 
 ## Ereignistyp
 
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 ```
 
-### Verzögern von DOMContentLoaded
+### DOMContentLoaded verzögern
 
 ```html
 <script>
@@ -57,18 +57,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
 </script>
 ```
 
-### Überprüfen, ob das Laden bereits abgeschlossen ist
+### Prüfen, ob der Ladevorgang bereits abgeschlossen ist
 
-Manchmal kann es vorkommen, dass Ihr Skript ausgeführt wird, nachdem das `DOMContentLoaded`-Ereignis bereits ausgelöst wurde. Dies geschieht typischerweise, wenn das Skript asynchron ausgeführt wird. Häufige Szenarien umfassen:
+Manchmal wird Ihr Skript erst ausgeführt, nachdem das `DOMContentLoaded`-Ereignis bereits ausgelöst wurde. Das passiert typischerweise, wenn das Skript asynchron ausgeführt wird. Häufige Fälle sind:
 
-- Ein Modul, das dynamisch importiert wird, nachdem das Dokument bereits geladen ist.
+- Ein Modul, das dynamisch importiert wird, nachdem das Dokument bereits geladen wurde.
 - Ein Skript, das über `<script async>` eingebunden wird.
 - Ein Skript, das dynamisch in die Seite eingefügt wird.
-- Code, der nach einer asynchronen Operation wieder fortgeführt wird, wie `await fetch(...)`, einschließlich nach einem Top-Level await in einem Modul.
+- Code, dessen Ausführung nach einer asynchronen Operation wie `await fetch(...)` fortgesetzt wird, einschließlich nach einem Top-Level-`await` in einem Modul.
 
-In diesen Fällen sollten Sie den `readyState` des Dokuments überprüfen, bevor Sie einen `DOMContentLoaded`-Listener hinzufügen, da Ihre Einrichtung sonst möglicherweise nicht ausgeführt wird. Für synchrone Skripte (ohne `async`), die bereits im anfänglichen Markup vorhanden sind, tritt diese Situation nicht auf. Das Dokument wartet darauf, dass das Skript ausgeführt wird, bevor `DOMContentLoaded` ausgelöst wird, sodass Sie sich immer sicher sein können, dass die Einrichtung im Listener ausgeführt wird.
+In diesen Fällen sollten Sie `readyState` des Dokuments prüfen, bevor Sie einen `DOMContentLoaded`-Listener hinzufügen. Andernfalls wird Ihre Initialisierungslogik möglicherweise überhaupt nicht ausgeführt. Bei synchronen Skripten (ohne `async`), die bereits im ursprünglichen Markup enthalten sind, tritt diese Situation nicht auf. Das Dokument wartet mit dem Auslösen von `DOMContentLoaded`, bis das Skript ausgeführt wurde. Daher können Sie sicher sein, dass die Initialisierungslogik im Listener ausgeführt wird.
 
-Betrachten Sie die folgende Skriptdatei isoliert:
+Betrachten Sie die folgende Skriptdatei für sich genommen:
 
 ```js
 function doSomething() {
@@ -84,15 +84,15 @@ if (document.readyState === "loading") {
 }
 ```
 
-Das Skript kann nicht erzwingen, wie es durch das HTML eingebunden wird. Wenn es über `<script async>` eingebunden oder dynamisch eingefügt wird, dann wird beim Ausführen das `DOMContentLoaded`-Ereignis bereits ausgelöst. Um sicherzustellen, dass `doSomething()` immer ausgeführt wird, wenn das Skript geladen wird, müssen wir zwei Pfade haben: einen, der `doSomething` sofort ausführt, wenn das Dokument bereits geladen ist, und einen anderen, der `doSomething` ausführt, sobald das Dokument geladen ist.
+Das Skript kann nicht bestimmen, wie es in das HTML eingebunden wird. Wenn es über `<script async>` eingebunden oder dynamisch eingefügt wird, kann `DOMContentLoaded` zum Zeitpunkt seiner Ausführung bereits ausgelöst worden sein. Damit `doSomething()` beim Laden des Skripts immer ausgeführt wird, benötigen wir zwei Wege: einen, der `doSomething` sofort ausführt, wenn das Dokument bereits geladen ist, und einen weiteren, der `doSomething` ausführt, sobald das Dokument geladen ist.
 
 > [!NOTE]
-> Hier gibt es keine Race-Bedingung — es ist nicht möglich, dass das Dokument zwischen der `if`-Überprüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Lauf-zur-Vollendung-Semantik, was bedeutet, dass, wenn das Dokument in einem bestimmten Tick der Ereignisschleife lädt, es erst im nächsten Zyklus geladen sein kann, zu dem Zeitpunkt, an dem der `doSomething`-Handler bereits angehängt ist und ausgelöst wird.
+> Hier gibt es keine Race Condition: Das Dokument kann nicht zwischen der `if`-Prüfung und dem Aufruf von `addEventListener()` geladen werden. JavaScript folgt der Run-to-Completion-Semantik. Das bedeutet: Wenn das Dokument in einem bestimmten Durchlauf der Ereignisschleife noch geladen wird, kann es erst im nächsten Durchlauf vollständig geladen sein. Zu diesem Zeitpunkt ist der `doSomething`-Handler bereits registriert und wird aufgerufen.
 
 > [!NOTE]
-> `document.readyState` wird auf `"interactive"` gesetzt, nachdem der HTML-Parser beendet ist, aber bevor die Ausführung von Skripten mit `defer` oder `type="module"`. `DOMContentLoaded` wird nach der Ausführung dieser Skripte ausgelöst, aber vor der Ausführung von Skripten mit `async`. `document.readyState` wird auf `"complete"` gesetzt, nachdem asynchrone Skripte ausgeführt wurden. Das bedeutet, dass während der Ausführung von verzögerten und Modulscripten `document.readyState` `"interactive"` ist, es jedoch weiterhin möglich ist, `DOMContentLoaded`-Listener anzuhängen und sie wie gewohnt auszulösen. In der Praxis ist es in Ordnung, `doSomething()` etwas früher auszuführen, es sei denn, es hängt von einem globalen Zustand ab, der von anderen verzögerten/Modulskripten eingerichtet wurde.
+> `document.readyState` wird nach Abschluss des HTML-Parsers, aber vor der Ausführung von Skripten mit `defer` oder `type="module"` auf `"interactive"` gesetzt. `DOMContentLoaded` wird nach der Ausführung dieser Skripte ausgelöst, aber vor der Ausführung von Skripten mit `async`. Nach der Ausführung asynchroner Skripte wird `document.readyState` auf `"complete"` gesetzt. Das bedeutet, dass `document.readyState` während der Ausführung verzögert ausgeführter Skripte und von Modulskripten `"interactive"` ist. Dennoch können `DOMContentLoaded`-Listener registriert werden, die dann wie üblich aufgerufen werden. In der Praxis ist es unproblematisch, `doSomething()` etwas früher auszuführen, sofern die Funktion nicht von einem globalen Zustand abhängt, der durch andere verzögert ausgeführte Skripte oder Modulskripte eingerichtet wird.
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 

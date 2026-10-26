@@ -3,7 +3,7 @@ title: "Element: beforescriptexecute-Ereignis"
 short-title: beforescriptexecute
 slug: Web/API/Element/beforescriptexecute_event
 l10n:
-  sourceCommit: d19dec85109590176f946fcceef48c787d578b1e
+  sourceCommit: 195b87dbb0e63aab27700b606fc96c4cd7982f64
 ---
 
 {{APIRef("DOM")}}{{Non-standard_header}}
@@ -11,17 +11,21 @@ l10n:
 > [!WARNING]
 > Dieses Ereignis war ein Vorschlag in einer frühen Version der Spezifikation. Verlassen Sie sich nicht darauf.
 
-Das **`beforescriptexecute`**-Ereignis wird ausgelöst, wenn ein Skript ausgeführt werden soll. Das Abbrechen des Ereignisses verhindert die Ausführung des Skripts.
+Das Ereignis **`beforescriptexecute`** wird ausgelöst, wenn ein Skript unmittelbar vor der Ausführung steht. Wird das Ereignis abgebrochen, wird das Skript nicht ausgeführt.
 
-Es ist ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
+Es handelt sich um ein proprietäres Ereignis, das nur in Gecko (Firefox) verfügbar ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("beforescriptexecute", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onbeforescriptexecute = (event) => { }
 ```
 
@@ -39,4 +43,4 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`afterscriptexecute`](/de/docs/Web/API/Element/afterscriptexecute_event) Ereignis
+- Ereignis [`afterscriptexecute`](/de/docs/Web/API/Element/afterscriptexecute_event)

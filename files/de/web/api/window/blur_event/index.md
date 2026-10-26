@@ -3,12 +3,12 @@ title: "Window: blur-Ereignis"
 short-title: blur
 slug: Web/API/Window/blur_event
 l10n:
-  sourceCommit: 8b77a013c518ef1b62534a8446a60732d582a24b
+  sourceCommit: d4f95d5a32920324e2502a556d8bdd9d7f446718
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`blur`**-Ereignis wird ausgelöst, wenn das Fenster den Fokus verliert, beispielsweise wenn die fokussierte Stelle von der Seite zur Adressleiste wechselt. Zuvor kann der Fokus auf dem Viewport des Dokuments oder auf einem darin enthaltenen Element gelegen haben.
+Das **`blur`**-Ereignis wird ausgelöst, wenn das Fenster den Fokus verliert, beispielsweise wenn der Benutzer den Fokus von der Seite auf die Adressleiste verschiebt. Zuvor kann der Fokus auf dem Viewport des Dokuments oder auf einem Element darin gelegen haben.
 
 Das Gegenstück zu `blur` ist [`focus`](/de/docs/Web/API/Window/focus_event).
 
@@ -16,17 +16,21 @@ Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("blur", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onblur = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
+Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Es erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FocusEvent")}}
 
@@ -86,4 +90,4 @@ window.addEventListener("focus", play);
 ## Siehe auch
 
 - Zugehöriges Ereignis: [`focus`](/de/docs/Web/API/Window/focus_event)
-- Dieses Ereignis auf `Element`-Zielen: [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis
+- Dieses Ereignis für `Element`-Ziele: [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis

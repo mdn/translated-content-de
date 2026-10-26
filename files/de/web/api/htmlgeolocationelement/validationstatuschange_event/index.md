@@ -1,24 +1,28 @@
 ---
-title: "HTMLGeolocationElement: validationstatuschange-Ereignis"
+title: "HTMLGeolocationElement: Ereignis validationstatuschange"
 short-title: validationstatuschange
 slug: Web/API/HTMLGeolocationElement/validationstatuschange_event
 l10n:
-  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
+  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
 ---
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`validationstatuschange`**-Ereignis des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces wird ausgelöst, wann immer sich der Wert [`isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid) des {{htmlelement("geolocation")}}-Elements ändert.
+Das Ereignis **`validationstatuschange`** der Schnittstelle [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement) wird ausgelöst, wenn sich der Wert von [`isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid) des {{htmlelement("geolocation")}}-Elements ändert.
 
-Dies erfolgt, wenn ein [Blocker](/de/docs/Web/HTML/Reference/Elements/geolocation#geolocation_blocking) zu einem `<geolocation>`-Element hinzugefügt oder von diesem entfernt wird.
+Dies geschieht, wenn einem `<geolocation>`-Element ein [Blocker](/de/docs/Web/HTML/Reference/Elements/geolocation#geolocation_blocking) hinzugefügt oder ein Blocker daraus entfernt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("validationstatuschange", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onvalidationstatuschange = (event) => { }
 ```
 
@@ -28,9 +32,9 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwendung von `validationstatuschange`, um ungültige Gründe zu melden
+### Ungültigkeitsgründe mit `validationstatuschange` ausgeben
 
-In unserem [Exploring invalid reasons demo](https://mdn.github.io/dom-examples/geolocation-element/exploring-invalid-reasons/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/exploring-invalid-reasons)) verwenden wir einen `validationstatuschange`-Ereignis-Handler, um zu melden, wann ein `<geolocation>`-Element gültig wird, und den ungültigen Grund zu berichten, wenn es ungültig wird:
+In unserer [Demo zur Untersuchung von Ungültigkeitsgründen](https://mdn.github.io/dom-examples/geolocation-element/exploring-invalid-reasons/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/exploring-invalid-reasons)) verwenden wir einen `validationstatuschange`-Event-Handler, um zu melden, wenn ein `<geolocation>`-Element gültig wird, und den Grund für die Ungültigkeit auszugeben, wenn es ungültig wird:
 
 ```js
 geo.addEventListener("validationstatuschange", () => {
@@ -42,9 +46,9 @@ geo.addEventListener("validationstatuschange", () => {
 });
 ```
 
-Wann immer sich der Validierungsstatus ändert, prüfen wir, ob das `<geolocation>`-Element mit [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid) gültig ist. Falls ja, geben wir eine Bestätigungsnachricht in den Textinhalt des `<p>`-Elements aus. Ist das `<geolocation>`-Element ungültig, geben wir den [`HTMLGeolocationElement.invalidReason`](/de/docs/Web/API/HTMLGeolocationElement/invalidReason) im Textinhalt des `<p>`-Elements aus.
+Bei jeder Änderung des Validierungsstatus prüfen wir mit [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid), ob das `<geolocation>`-Element gültig ist. Ist dies der Fall, geben wir eine entsprechende Bestätigung als Textinhalt des `<p>`-Elements aus. Ist das `<geolocation>`-Element ungültig, geben wir den Wert von [`HTMLGeolocationElement.invalidReason`](/de/docs/Web/API/HTMLGeolocationElement/invalidReason) als Textinhalt des `<p>`-Elements aus.
 
-Besuchen Sie die Seite [`HTMLGeolocationElement.invalidReason`](/de/docs/Web/API/HTMLGeolocationElement/invalidReason) für eine vollständige Erläuterung dieses Beispiels.
+Eine vollständige Erläuterung dieses Beispiels finden Sie auf der Seite zu [`HTMLGeolocationElement.invalidReason`](/de/docs/Web/API/HTMLGeolocationElement/invalidReason).
 
 ## Spezifikationen
 
