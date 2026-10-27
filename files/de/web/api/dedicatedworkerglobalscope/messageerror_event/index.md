@@ -1,36 +1,40 @@
 ---
-title: "DedicatedWorkerGlobalScope: messageerror-Event"
+title: "DedicatedWorkerGlobalScope: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/DedicatedWorkerGlobalScope/messageerror_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Das `messageerror`-Event wird auf einem [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
+Das `messageerror`-Ereignis wird auf einem [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
 
-Dieses Event kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessageerror = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Es erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Beispiele
 
-Hören Sie auf `messageerror` mit Hilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Lauschen Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `messageerror`:
 
 ```js
 // worker.js
@@ -41,7 +45,7 @@ self.addEventListener("messageerror", (event) => {
 });
 ```
 
-Das gleiche, aber unter Verwendung der `onmessageerror`-Ereignis-Handler-Eigenschaft:
+Das Gleiche mit der Event-Handler-Eigenschaft `onmessageerror` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onmessageerror` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 // worker.js
@@ -64,6 +68,6 @@ self.onmessageerror = (event) => {
 
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
-- Verwandte Events: [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event)
+- Zugehöriges Ereignis: [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event)
 - [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage)
-- [Verwendung der Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Channel Messaging verwenden](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

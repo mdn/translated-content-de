@@ -3,25 +3,29 @@ title: "SVGAnimationElement: endEvent-Ereignis"
 short-title: endEvent
 slug: Web/API/SVGAnimationElement/endEvent_event
 l10n:
-  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("SVG")}}
 
-Das **`endEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht wird.
+Das **`endEvent`**-Ereignis der Schnittstelle [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
 
 > [!NOTE]
-> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Dieses Ereignis kann sowohl im Verlauf der normalen (d.h. geplanten oder interaktiven) Wiedergabe der Zeitachse als auch dann ausgelöst werden, wenn das Element mit einer DOM-Methode beendet wurde.
+> Dieses Ereignis wird nicht am Ende jeder einzelnen Animationswiederholung ausgelöst. Es kann sowohl während des normalen (d.h. geplanten oder interaktiven) Ablaufs der Zeitleiste ausgelöst werden als auch dann, wenn das Element mit einer DOM-Methode beendet wurde.
 
-Dieses Ereignis ist nicht abbrechbar und bubblt nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("endEvent", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onend = (event) => { }
 ```
 
@@ -95,9 +99,9 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '300')}}
 
-### Entsprechende Event-Handler-Eigenschaft
+### Verwendung der Event-Handler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Event-Listener für das `end`-Ereignis mithilfe der Event-Handler-Eigenschaft `onend` erstellen können:
+Sie können auch mit der Event-Handler-Eigenschaft `onend` einen Event-Listener für das Ereignis `end` erstellen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onend` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 animateElem.onend = () => {

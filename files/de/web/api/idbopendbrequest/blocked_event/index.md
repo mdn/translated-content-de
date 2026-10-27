@@ -3,22 +3,26 @@ title: "IDBOpenDBRequest: blocked-Ereignis"
 short-title: blocked
 slug: Web/API/IDBOpenDBRequest/blocked_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("IndexedDB")}}
 
-Der `blocked`-Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert.
+Der `blocked`-Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion für dieselbe Datenbank blockiert.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("blocked", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onblocked = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von 
 
 ## Beispiele
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 // Open the database
@@ -67,7 +71,7 @@ DBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Verwendung der `onblocked`-Eigenschaft:
+Mit der Eigenschaft `onblocked` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onblocked` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 // Open the database
@@ -114,4 +118,4 @@ DBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

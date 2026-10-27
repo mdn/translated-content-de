@@ -3,22 +3,26 @@ title: "MediaStream: removetrack-Ereignis"
 short-title: removetrack
 slug: Web/API/MediaStream/removetrack_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`removetrack`**-Ereignis wird ausgelöst, wenn ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt von einem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt wurde.
+Das **`removetrack`**-Ereignis wird ausgelöst, wenn ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und hat keine Bubbelung.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("removetrack", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onremovetrack = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent). Erbt von 
 
 ## Beispiele
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const stream = new MediaStream();
@@ -40,7 +44,7 @@ stream.addEventListener("removetrack", (event) => {
 });
 ```
 
-Verwendung der `onremovetrack`-Ereignishandler-Eigenschaft:
+Mit der Event-Handler-Eigenschaft `onremovetrack` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onremovetrack` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const stream = new MediaStream();
@@ -61,7 +65,7 @@ stream.onremovetrack = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event)
-- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt ab auf: [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
-- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt ab auf: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
+- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekten: [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
+- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekten: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

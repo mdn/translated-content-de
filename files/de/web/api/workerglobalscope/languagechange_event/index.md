@@ -1,24 +1,28 @@
 ---
-title: "WorkerGlobalScope: languagechange Ereignis"
+title: "WorkerGlobalScope: languagechange-Ereignis"
 short-title: languagechange
 slug: Web/API/WorkerGlobalScope/languagechange_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Das **`languagechange`** Ereignis wird beim globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
+Das **`languagechange`**-Ereignis wird am globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("languagechange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onlanguagechange = (event) => { }
 ```
 
@@ -28,18 +32,18 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie können das `languagechange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `languagechange`-Ereignis in der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
-worker.addEventListener("languagechange", () => {
+self.addEventListener("languagechange", () => {
   console.log("languagechange event detected!");
 });
 ```
 
-Oder die `onlanguagechange` Ereignishandler-Eigenschaft nutzen:
+Oder verwenden Sie die Event-Handler-Eigenschaft `onlanguagechange` (beachten Sie jedoch, dass dadurch gegebenenfalls andere Event-Listener ersetzt werden, die über `onlanguagechange` hinzugefügt wurden):
 
 ```js
-worker.onlanguagechange = (event) => {
+self.onlanguagechange = (event) => {
   console.log("languagechange event detected!");
 };
 ```

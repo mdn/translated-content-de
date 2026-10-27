@@ -3,24 +3,28 @@ title: "SVGAnimationElement: beginEvent-Ereignis"
 short-title: beginEvent
 slug: Web/API/SVGAnimationElement/beginEvent_event
 l10n:
-  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("SVG")}}
 
-Das **`beginEvent`**-Ereignis der Schnittstelle [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) wird ausgelöst, wenn die lokale Zeitleiste des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu gestartet wird, jedoch nicht wenn es wiederholt wird).
+Das **`beginEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements zu laufen beginnt. Es wird jedes Mal ausgelöst, wenn die aktive Dauer des Elements beginnt (also wenn es neu startet, nicht aber wenn es sich wiederholt).
 
-Es kann sowohl im Verlauf der normalen (d.h. geplanten oder interaktiven) Wiedergabe der Zeitleiste als auch in dem Fall ausgelöst werden, dass das Element mit einer DOM-Methode gestartet wurde.
+Es kann sowohl während des normalen (also geplanten oder interaktiven) Ablaufs der Zeitleiste als auch dann ausgelöst werden, wenn das Element mit einer DOM-Methode gestartet wurde.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht durch die DOM-Hierarchie weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("beginEvent", (event) => { })
+```
 
+Alternativ können Sie die [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onbegin = (event) => { }
 ```
 
@@ -80,9 +84,9 @@ animateElem.addEventListener("repeatEvent", (e) => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '270')}}
 
-### Entsprechende Ereignishandler-Eigenschaft
+### Verwendung der Ereignisbehandlungseigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignis-Listener für das `begin`-Ereignis mithilfe der Ereignishandler-Eigenschaft `onbegin` erstellen können:
+Sie können auch mit der Ereignisbehandlungseigenschaft `onbegin` einen Event-Listener für das Ereignis `begin` erstellen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onbegin` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 animateElem.onbegin = () => {
@@ -101,5 +105,5 @@ animateElem.onbegin = () => {
 ## Siehe auch
 
 - [SVG-Animation mit SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL)
-- `endEvent`-Ereignis von [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)
-- `repeatEvent`-Ereignis von [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)
+- Ereignis [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)
+- Ereignis [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)

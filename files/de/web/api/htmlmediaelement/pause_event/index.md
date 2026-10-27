@@ -3,24 +3,28 @@ title: "HTMLMediaElement: pause-Ereignis"
 short-title: pause
 slug: Web/API/HTMLMediaElement/pause_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `pause`-Ereignis wird gesendet, wenn eine Anforderung zum Pausieren einer Aktivität bearbeitet wurde und die Aktivität in den pausierten Zustand übergegangen ist, meist nachdem das Medium durch einen Aufruf der [`pause()`](/de/docs/Web/API/HTMLMediaElement/pause)-Methode des Elements pausiert wurde.
+Das `pause`-Ereignis wird ausgelöst, wenn eine Anforderung zum Pausieren einer Aktivität verarbeitet wurde und die Aktivität in den pausierten Zustand übergegangen ist. Dies geschieht meist, nachdem die Wiedergabe des Mediums durch einen Aufruf der Methode [`pause()`](/de/docs/Web/API/HTMLMediaElement/pause) des Elements pausiert wurde.
 
-Das Ereignis wird gesendet, sobald die `pause()`-Methode zurückkehrt und nachdem die [`paused`](/de/docs/Web/API/HTMLMediaElement/paused)-Eigenschaft des Medienelements auf `true` geändert wurde.
+Das Ereignis wird ausgelöst, nachdem die Methode `pause()` zurückgegeben hat und die Eigenschaft [`paused`](/de/docs/Web/API/HTMLMediaElement/paused) des Medienelements auf `true` gesetzt wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pause", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpause = (event) => { }
 ```
 
@@ -30,9 +34,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `pause`-Ereignis des HTMLMediaElements hinzu und geben eine Nachricht aus, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Event-Listener für das `pause`-Ereignis des HTMLMediaElement hinzu und geben eine Meldung aus, wenn der Event-Handler auf das Auslösen des Ereignisses reagiert hat.
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const video = document.querySelector("video");
@@ -44,7 +48,7 @@ video.addEventListener("pause", (event) => {
 });
 ```
 
-Verwendung der `onpause`-Ereignis-Handler-Eigenschaft:
+Mit der Event-Handler-Eigenschaft `onpause` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onpause` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const video = document.querySelector("video");
@@ -66,23 +70,23 @@ video.onpause = (event) => {
 
 ## Verwandte Ereignisse
 
-- Das HTMLMediaElement [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)-Ereignis
-- Das HTMLMediaElement [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)-Ereignis
-- Das HTMLMediaElement [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)-Ereignis
-- Das HTMLMediaElement [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)-Ereignis
-- Das HTMLMediaElement [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)-Ereignis
-- Das HTMLMediaElement [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)-Ereignis
-- Das HTMLMediaElement [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)-Ereignis
-- Das HTMLMediaElement [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)-Ereignis
-- Das HTMLMediaElement [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)-Ereignis
-- Das HTMLMediaElement [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)-Ereignis
-- Das HTMLMediaElement [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)-Ereignis
-- Das HTMLMediaElement [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)-Ereignis
-- Das HTMLMediaElement [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)-Ereignis
-- Das HTMLMediaElement [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)-Ereignis
-- Das HTMLMediaElement [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)-Ereignis
-- Das HTMLMediaElement [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)-Ereignis
-- Das HTMLMediaElement [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)-Ereignis
+- Das HTMLMediaElement-Ereignis [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)
+- Das HTMLMediaElement-Ereignis [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)
+- Das HTMLMediaElement-Ereignis [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)
+- Das HTMLMediaElement-Ereignis [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)
+- Das HTMLMediaElement-Ereignis [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)
+- Das HTMLMediaElement-Ereignis [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)
+- Das HTMLMediaElement-Ereignis [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)
+- Das HTMLMediaElement-Ereignis [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)
+- Das HTMLMediaElement-Ereignis [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)
+- Das HTMLMediaElement-Ereignis [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)
+- Das HTMLMediaElement-Ereignis [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)
+- Das HTMLMediaElement-Ereignis [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)
+- Das HTMLMediaElement-Ereignis [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)
+- Das HTMLMediaElement-Ereignis [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)
+- Das HTMLMediaElement-Ereignis [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)
+- Das HTMLMediaElement-Ereignis [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)
+- Das HTMLMediaElement-Ereignis [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)
 
 ## Siehe auch
 

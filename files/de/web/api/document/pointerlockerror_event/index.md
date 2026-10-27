@@ -3,22 +3,26 @@ title: "Dokument: pointerlockerror-Ereignis"
 short-title: pointerlockerror
 slug: Web/API/Document/pointerlockerror_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("Pointer Lock API")}}
 
-Das **`pointerlockerror`**-Ereignis wird ausgelöst, wenn das Sperren des Zeigers aus technischen Gründen oder wegen verweigerter Berechtigung fehlgeschlagen ist.
+Das **`pointerlockerror`**-Ereignis wird ausgelöst, wenn das Sperren des Zeigers fehlschlägt (aus technischen Gründen oder weil die Berechtigung verweigert wurde).
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerlockerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointerlockerror = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const para = document.querySelector("p");
@@ -38,7 +42,7 @@ document.addEventListener("pointerlockerror", (event) => {
 });
 ```
 
-Verwendung der `onpointerlockerror` Ereignis-Handler-Eigenschaft:
+Mit der Event-Handler-Eigenschaft `onpointerlockerror` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onpointerlockerror` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 document.onpointerlockerror = (event) => {
@@ -56,4 +60,4 @@ document.onpointerlockerror = (event) => {
 
 ## Siehe auch
 
-- [Verwendung der Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API)
+- [Pointer Lock API verwenden](/de/docs/Web/API/Pointer_Lock_API)

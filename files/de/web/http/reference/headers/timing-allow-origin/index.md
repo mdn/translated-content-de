@@ -3,16 +3,24 @@ title: Timing-Allow-Origin header
 short-title: Timing-Allow-Origin
 slug: Web/HTTP/Reference/Headers/Timing-Allow-Origin
 l10n:
-  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
+  sourceCommit: e8712755654ac056f2fb02282177e13d7b9ce780
 ---
 
-Der HTTP **`Timing-Allow-Origin`**-{{Glossary("response_header", "Antwort-Header")}} gibt Ursprünge an, die berechtigt sind, die Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden. Diese Werte würden andernfalls aufgrund von Cross-Origin-Beschränkungen als Null gemeldet.
+Der HTTP-{{Glossary("response_header", "Response-Header")}} **`Timing-Allow-Origin`** gibt an, welche Origins die Werte von Attributen sehen dürfen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden und für Cross-Origin-Ressourcen andernfalls eingeschränkt sind.
+Ohne diesen Header meldet der Browser für diese Werte null, eine leere Zeichenfolge oder ein leeres Array.
+Eine Liste der betroffenen Eigenschaften finden Sie unter [Cross-Origin-Einschränkungen](/de/docs/Web/API/PerformanceResourceTiming#cross-origin_restrictions) in der Referenz zu [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming).
+
+Der Browser prüft diesen Header bei Cross-Origin-Antworten: Same-Origin-Ressourcen geben auch ohne ihn vollständige Timing-Informationen preis.
+
+Dieser Header ist unabhängig von [CORS](/de/docs/Web/HTTP/Guides/CORS).
+Eine erfolgreiche CORS-Prüfung gewährt keinen Zugriff auf detaillierte Timing-Informationen.
+Umgekehrt gibt `Timing-Allow-Origin` keine Eigenschaften preis, die die Antwort selbst beschreiben, etwa ihre Body-Größe, ihren Inhaltstyp oder ihren Statuscode.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -27,21 +35,21 @@ Timing-Allow-Origin: <origin>, …, <originN>
 ## Direktiven
 
 - `*` (Wildcard)
-  - : Jeder Ursprung darf Timing-Ressourcen sehen.
+  - : Jede Origin darf Timing-Informationen zu Ressourcen sehen.
 - `<origin>`
-  - : Gibt eine URI an, die die Timing-Ressourcen einsehen darf. Sie können mehrere Ursprünge angeben, getrennt durch Kommas.
+  - : Gibt einen URI an, der die Timing-Informationen zu Ressourcen sehen darf. Sie können mehrere Origins angeben, die durch Kommas getrennt sind.
 
 ## Beispiele
 
-### Verwendung von Timing-Allow-Origin
+### Timing-Allow-Origin verwenden
 
-Um jeder Ressource das Einsehen von Timing-Ressourcen zu ermöglichen:
+So erlauben Sie jeder Origin, Timing-Informationen zu Ressourcen zu sehen:
 
 ```http
 Timing-Allow-Origin: *
 ```
 
-Um `https://developer.mozilla.org` das Einsehen von Timing-Ressourcen zu erlauben, können Sie angeben:
+Damit `https://developer.mozilla.org` Timing-Informationen zu Ressourcen sehen darf, können Sie Folgendes angeben:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
@@ -57,6 +65,7 @@ Timing-Allow-Origin: https://developer.mozilla.org
 
 ## Siehe auch
 
+- [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)
 - [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing)
 - {{HTTPHeader("Server-Timing")}}-Header
 - {{HTTPHeader("Vary")}}-Header

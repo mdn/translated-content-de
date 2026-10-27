@@ -1,24 +1,28 @@
 ---
-title: "Window: messageerror Ereignis"
+title: "Window: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/Window/messageerror_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `messageerror`-Ereignis wird bei einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
+Das Ereignis `messageerror` wird auf einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessageerror = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-Hören Sie auf `messageerror` mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+So reagieren Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `messageerror`:
 
 ```js
 window.addEventListener("messageerror", (event) => {
@@ -38,7 +42,7 @@ window.addEventListener("messageerror", (event) => {
 });
 ```
 
-Das Gleiche, aber mit der `onmessageerror`-Ereignis-Handler-Eigenschaft:
+Dasselbe mit der Event-Handler-Eigenschaft `onmessageerror`. Beachten Sie jedoch, dass dadurch gegebenenfalls andere Ereignis-Listener ersetzt werden, die über `onmessageerror` hinzugefügt wurden:
 
 ```js
 window.onmessageerror = (event) => {
@@ -57,4 +61,4 @@ window.onmessageerror = (event) => {
 ## Siehe auch
 
 - [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
-- Verwandte Ereignisse: [`message`](/de/docs/Web/API/Window/message_event).
+- Zugehöriges Ereignis: [`message`](/de/docs/Web/API/Window/message_event).

@@ -1,28 +1,32 @@
 ---
-title: "AudioTrackList: removetrack Ereignis"
+title: "AudioTrackList: removetrack-Ereignis"
 short-title: removetrack
 slug: Web/API/AudioTrackList/removetrack_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `removetrack` Ereignis wird ausgelöst, wenn ein Track von einer [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) entfernt wird.
+Das `removetrack`-Ereignis wird ausgelöst, wenn ein Track aus einer [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) entfernt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignisbehandlungs-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("removetrack", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces verwenden:
+
+```js-nolint
 onremovetrack = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Es erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TrackEvent")}}
 
@@ -30,17 +34,17 @@ Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web
 
 ### Auslöser
 
-Das `removetrack` Ereignis wird jedes Mal aufgerufen, wenn ein Track von dem Media-Element entfernt wird, dessen Audio-Tracks durch das `AudioTrackList` Objekt dargestellt werden.
+Das `removetrack`-Ereignis wird ausgelöst, wenn ein Track aus dem Medienelement entfernt wird, dessen Audio-Tracks durch das `AudioTrackList`-Objekt repräsentiert werden.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht durch die DOM-Hierarchie weitergereicht.
 
 ### Anwendungsfälle
 
-Sie können dieses Ereignis verwenden, um auf ein nicht mehr verfügbares Audio-Track zu reagieren. Sie könnten z.B. Ihre UI-Elemente aktualisieren, um die Auswahl des entfernten Audio-Tracks für den Benutzer zu verhindern.
+Sie können dieses Ereignis verwenden, um darauf zu reagieren, dass ein Audio-Track nicht mehr verfügbar ist. Beispielsweise können Sie Ihre UI-Elemente aktualisieren, damit der entfernte Audio-Track nicht mehr ausgewählt werden kann.
 
 ## Beispiele
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const videoElement = document.querySelector("video");
@@ -50,7 +54,7 @@ videoElement.audioTracks.addEventListener("removetrack", (event) => {
 });
 ```
 
-Verwendung der `onremovetrack` Ereignisbehandlungs-Eigenschaft:
+Mit der `onremovetrack`-Event-Handler-Eigenschaft (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onremovetrack` hinzugefügte Event-Handler ersetzt werden):
 
 ```js
 const videoElement = document.querySelector("video");
@@ -71,7 +75,7 @@ videoElement.audioTracks.onremovetrack = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event), [`change`](/de/docs/Web/API/AudioTrackList/change_event)
-- Dieses Ereignis für [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt auf: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis für [`MediaStream`](/de/docs/Web/API/MediaStream) zielt auf: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
+- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekten: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
+- Dieses Ereignis auf [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

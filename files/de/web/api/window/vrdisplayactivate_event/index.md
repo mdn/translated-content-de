@@ -3,25 +3,29 @@ title: "Window: vrdisplayactivate-Ereignis"
 short-title: vrdisplayactivate
 slug: Web/API/Window/vrdisplayactivate_event
 l10n:
-  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("Window")}}{{Non-standard_Header}}
 
-Das **`vrdisplayactivate`**-Ereignis der [WebVR API](/de/docs/Web/API/WebVR_API) wird ausgelöst, wenn Inhalte auf einem VR-Display dargestellt werden können, beispielsweise nachdem ein HMD bewegt wurde und dadurch den Standby-Modus verlassen hat oder nachdem es durch Aufsetzen aktiviert wurde.
+Das **`vrdisplayactivate`**-Ereignis der [WebVR API](/de/docs/Web/API/WebVR_API) wird ausgelöst, wenn Inhalte auf einem VR-Display dargestellt werden können, beispielsweise wenn ein HMD bewegt wurde und dadurch den Standby-Modus verlässt oder wenn es durch Aufsetzen aktiviert wurde.
 
 > [!NOTE]
-> Dieses Ereignis war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
+> Dieses Ereignis war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Diese wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("vrdisplayactivate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onvrdisplayactivate = (event) => { }
 ```
 
@@ -33,7 +37,7 @@ Ein [`VRDisplayEvent`](/de/docs/Web/API/VRDisplayEvent). Erbt von [`Event`](/de/
 
 ## Beispiele
 
-Sie können das `vrdisplayactivate`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `vrdisplayactivate`-Ereignis mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 window.addEventListener("vrdisplayactivate", () => {
@@ -42,7 +46,7 @@ window.addEventListener("vrdisplayactivate", () => {
 });
 ```
 
-Oder verwenden Sie die Event-Handler-Eigenschaft `onvrdisplayactivate`:
+Oder verwenden Sie die Ereignisbehandlungs-Eigenschaft `onvrdisplayactivate`. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onvrdisplayactivate` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 window.onvrdisplayactivate = () => {
@@ -53,9 +57,9 @@ window.onvrdisplayactivate = () => {
 
 ## Spezifikationen
 
-Dieses Ereignis war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Es wird nicht mehr als Standard weiterentwickelt.
+Dieses Ereignis war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es wird nicht mehr als Standard weiterentwickelt.
 
-Bis alle Browser die neue [WebXR Device API](https://immersive-web.github.io/webxr/) implementiert haben, empfiehlt es sich, Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Weitere Informationen finden Sie in [Metas Leitfaden zur Migration von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
+Bis alle Browser die neue [WebXR Device API](https://immersive-web.github.io/webxr/) implementiert haben, empfiehlt es sich, für die Entwicklung browserübergreifend funktionierender WebXR-Anwendungen Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder einen [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden. Weitere Informationen finden Sie in [Metas Leitfaden zur Migration von WebVR zu WebXR](https://developers.meta.com/vr/documentation/web/port-vr-xr/).
 
 ## Browser-Kompatibilität
 

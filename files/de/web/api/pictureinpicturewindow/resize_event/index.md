@@ -3,22 +3,26 @@ title: "PictureInPictureWindow: resize-Ereignis"
 short-title: resize
 slug: Web/API/PictureInPictureWindow/resize_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das **`resize`**-Ereignis wird ausgelöst, wenn das schwebende Videofenster in der Größe verändert wurde.
+Das **`resize`**-Ereignis wird ausgelöst, wenn die Größe des schwebenden Videofensters geändert wurde.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("resize", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onresize = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 ## Beispiele
 
-### Fenstergrößen-Protokollierer
+### Fenstergröße protokollieren
 
 ```html
 <p>Resize the floating video window to fire the <code>resize</code> event.</p>
@@ -50,6 +54,8 @@ function resize(evt) {
 }
 
 video.requestPictureInPicture().then((pictureInPictureWindow) => {
+  // Use onresize (but note that this replaces other event listeners
+  // added using onresize, if any)
   pictureInPictureWindow.onresize = resize;
   // or
   pictureInPictureWindow.addEventListener("resize", resize);

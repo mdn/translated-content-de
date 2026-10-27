@@ -3,23 +3,27 @@ title: "RTCPeerConnection: connectionstatechange-Ereignis"
 short-title: connectionstatechange
 slug: Web/API/RTCPeerConnection/connectionstatechange_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`connectionstatechange`**-Ereignis wird an den `onconnectionstatechange` Ereignis-Handler eines [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekts gesendet, nachdem ein neuer Track zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), das Teil der Verbindung ist, hinzugefügt wurde.
-Der neue Verbindungsstatus kann in [`connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState) gefunden werden und ist einer der folgenden String-Werte: `new`, `connecting`, `connected`, `disconnected`, `failed` oder `closed`.
+Das Ereignis **`connectionstatechange`** wird an den Event-Handler `onconnectionstatechange` eines [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekts gesendet, nachdem einem zur Verbindung gehörenden [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) ein neuer Track hinzugefügt wurde.
+Der neue Verbindungsstatus ist in [`connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState) verfügbar und hat einen der folgenden String-Werte: `new`, `connecting`, `connected`, `disconnected`, `failed` oder `closed`.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht hochgebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht durch die DOM-Hierarchie weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("connectionstatechange", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onconnectionstatechange = (event) => { }
 ```
 
@@ -29,8 +33,8 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), die `peerConnection` genannt wird, verwendet dieses Beispiel [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Änderungen der Konnektivität der WebRTC-Sitzung zu handhaben.
-Es ruft eine von der App definierte Funktion namens `setOnlineStatus()` auf, um eine Statusanzeige zu aktualisieren.
+Dieses Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Änderungen am Verbindungsstatus der WebRTC-Sitzung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `peerConnection` zu verarbeiten.
+Es ruft die anwendungsspezifische Funktion `setOnlineStatus()` auf, um eine Statusanzeige zu aktualisieren.
 
 ```js
 peerConnection.addEventListener("connectionstatechange", (event) => {
@@ -58,7 +62,7 @@ peerConnection.addEventListener("connectionstatechange", (event) => {
 });
 ```
 
-Sie können auch einen Handler für das `connectionstatechange`-Ereignis mit der Eigenschaft `RTCPeerConnection.onconnectionstatechange` erstellen:
+Sie können auch über die Eigenschaft `RTCPeerConnection.onconnectionstatechange` einen Handler für das Ereignis `connectionstatechange` erstellen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onconnectionstatechange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 peerConnection.onconnectionstatechange = (ev) => {
@@ -85,7 +89,7 @@ peerConnection.onconnectionstatechange = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-Verbindungen](/de/docs/Web/API/WebRTC_API/Connectivity)
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
 - [`RTCPeerConnection.connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState)

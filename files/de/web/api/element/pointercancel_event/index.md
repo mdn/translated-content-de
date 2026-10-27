@@ -3,31 +3,35 @@ title: "Element: pointercancel-Ereignis"
 short-title: pointercancel
 slug: Web/API/Element/pointercancel_event
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das **`pointercancel`**-Ereignis wird ausgelöst, wenn der Browser feststellt, dass es wahrscheinlich keine weiteren Zeigerereignisse mehr geben wird, oder wenn nach dem Auslösen des [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignisses der Zeiger dann zur Manipulation des Ansichtsbereichs durch Schwenken, Zoomen oder Scrollen verwendet wird.
+Das **`pointercancel`**-Ereignis wird ausgelöst, wenn der Browser feststellt, dass voraussichtlich keine weiteren Pointer-Ereignisse auftreten werden, oder wenn der Pointer nach dem Auslösen des [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignisses zum Verschieben, Zoomen oder Scrollen des Viewports verwendet wird.
 
-Einige Beispiele für Situationen, die ein `pointercancel`-Ereignis auslösen werden:
+Beispiele für Situationen, die ein `pointercancel`-Ereignis auslösen:
 
-- Ein Hardware-Ereignis tritt auf, das die Zeigeraktivitäten abbricht. Dies kann zum Beispiel der Fall sein, wenn der Benutzer zwischen Anwendungen über eine Anwendungsumschalter-Schnittstelle oder die "Home"-Taste auf einem Mobilgerät wechselt.
-- Die Bildschirmorientierung des Geräts wird geändert, während der Zeiger aktiv ist.
-- Der Browser entscheidet, dass der Benutzer die Zeigereingabe versehentlich gestartet hat. Dies kann passieren, wenn die Hardware beispielsweise Palm Rejection unterstützt, um zu verhindern, dass sich eine Hand auf dem Display ablegt, während ein Stift verwendet wird und versehentlich Ereignisse auslöst.
+- Ein Hardware-Ereignis bricht die Pointer-Aktivitäten ab. Das kann beispielsweise der Fall sein, wenn die Person über eine Oberfläche zum Wechseln zwischen Anwendungen oder mit der „Home“-Taste eines Mobilgeräts zu einer anderen Anwendung wechselt.
+- Die Bildschirmausrichtung des Geräts ändert sich, während der Pointer aktiv ist.
+- Der Browser stellt fest, dass die Pointer-Eingabe versehentlich begonnen wurde. Dies kann beispielsweise passieren, wenn die Hardware eine Handballenerkennung unterstützt, damit eine auf dem Display aufliegende Hand bei der Verwendung eines Eingabestifts nicht versehentlich Ereignisse auslöst.
 - Die CSS-Eigenschaft {{cssxref("touch-action")}} verhindert, dass die Eingabe fortgesetzt wird.
-- Wenn der Benutzer mit zu vielen gleichzeitigen Zeigern interagiert, kann der Browser dieses Ereignis für alle bestehenden Zeiger auslösen (auch wenn der Benutzer den Bildschirm noch berührt).
+- Wenn eine Person mit zu vielen Pointern gleichzeitig interagiert, kann der Browser dieses Ereignis für alle vorhandenen Pointer auslösen (auch wenn die Person den Bildschirm weiterhin berührt).
 
 > [!NOTE]
-> Nachdem das `pointercancel`-Ereignis ausgelöst wurde, sendet der Browser auch [`pointerout`](/de/docs/Web/API/Element/pointerout_event), gefolgt von [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event).
+> Nach dem Auslösen des `pointercancel`-Ereignisses sendet der Browser außerdem [`pointerout`](/de/docs/Web/API/Element/pointerout_event), gefolgt von [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointercancel", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointercancel = (event) => { }
 ```
 
@@ -49,7 +53,7 @@ para.addEventListener("pointercancel", (event) => {
 });
 ```
 
-Verwendung der `onpointercancel`-Ereignishandler-Eigenschaft:
+Verwendung der Event-Handler-Eigenschaft `onpointercancel` (beachten Sie jedoch, dass dadurch andere gegebenenfalls über `onpointercancel` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

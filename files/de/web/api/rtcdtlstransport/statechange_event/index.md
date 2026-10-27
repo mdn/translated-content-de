@@ -1,34 +1,38 @@
 ---
-title: "RTCDtlsTransport: statechange-Event"
+title: "RTCDtlsTransport: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/RTCDtlsTransport/statechange_event
 l10n:
-  sourceCommit: ef185b1e0a720a4b7f5da3745831871248e6a2f1
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`statechange`**-Event tritt auf, wenn sich der Zustand von [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) ändert. Die Eigenschaft [`state`](/de/docs/Web/API/RTCDtlsTransport/state) kann verwendet werden, um den aktuellen Zustand des zugrunde liegenden Datagram Transport Layer Security (DTLS)-Transports zu bestimmen.
+Ein **`statechange`**-Ereignis tritt auf, wenn sich der Zustand eines [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) ändert. Mit der Eigenschaft [`state`](/de/docs/Web/API/RTCDtlsTransport/state) können Sie den aktuellen Zustand des zugrunde liegenden Datagram Transport Layer Security (DTLS)-Transports ermitteln.
 
-Dieses Event kann nicht abgebrochen werden und entfaltet sich nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("statechange", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onstatechange = (event) => { }
 ```
 
-## Eventtyp
+## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Angenommen, es gibt eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, erzeugt der folgende Code einen Event-Handler, der eine Funktion namens `handleFailure()` aufruft, wenn der DTLS-Transport in einen Fehlerzustand wechselt.
+Für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` erstellt der folgende Code einen Event-Handler, der eine Funktion namens `handleFailure()` aufruft, wenn der DTLS-Transport in einen Fehlerzustand übergeht.
 
 ```js
 const dtlsTransport = pc.getSenders()[0].transport;
@@ -40,7 +44,7 @@ dtlsTransport.addEventListener("statechange", (ev) => {
 });
 ```
 
-Der gleiche Code, unter Verwendung der `onstatechange`-Event-Handler-Eigenschaft, sieht so aus:
+Derselbe Code sieht mit der Event-Handler-Eigenschaft `onstatechange` so aus (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onstatechange` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const dtlsTransport = pc.getSenders()[0].transport;

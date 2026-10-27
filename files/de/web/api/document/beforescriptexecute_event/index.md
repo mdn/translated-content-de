@@ -1,22 +1,26 @@
 ---
-title: "Dokumentation: beforescriptexecute-Ereignis"
+title: "Dokument: beforescriptexecute-Ereignis"
 short-title: beforescriptexecute
 slug: Web/API/Document/beforescriptexecute_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("DOM")}}{{non-standard_header}}
 
-Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davorsteht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, beispielsweise mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("beforescriptexecute", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onbeforescriptexecute = (event) => { }
 ```
 
@@ -32,11 +36,12 @@ function starting(e) {
 }
 
 document.addEventListener("beforescriptexecute", starting);
-// or
+// Or (but note that this replaces other event listeners
+// added using onbeforescriptexecute, if any)
 document.onbeforescriptexecute = starting;
 ```
 
-[Beispiel live anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
+[Live-Beispiel ansehen](https://mdn.dev/archives/media/samples/html/currentScript.html)
 
 ## Spezifikationen
 

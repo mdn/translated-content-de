@@ -3,22 +3,26 @@ title: "RTCDataChannel: bufferedamountlow-Ereignis"
 short-title: bufferedamountlow
 slug: Web/API/RTCDataChannel/bufferedamountlow_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`bufferedamountlow`**-Ereignis wird an ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, wenn die Anzahl der Bytes, die sich derzeit im ausgehenden Datenübertragungs-Puffer befinden ([`bufferedAmount`](/de/docs/Web/API/RTCDataChannel/bufferedAmount)), von über auf unter oder gleich dem in [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegebenen Schwellenwert fällt.
+Ein **`bufferedamountlow`**-Ereignis wird an einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, wenn die Anzahl der Bytes im Puffer für ausgehende Datenübertragungen ([`bufferedAmount`](/de/docs/Web/API/RTCDataChannel/bufferedAmount)) von einem Wert oberhalb des in [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) festgelegten Schwellenwerts auf einen Wert fällt, der kleiner oder gleich diesem Schwellenwert ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und bubblet nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht durch die DOM-Hierarchie weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("bufferedamountlow", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onbufferedamountlow = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel wird ein Handler für `bufferedamountlow` eingerichtet, um mehr Daten anzufordern, sobald der Puffer des Datenkanals unter die Anzahl der Bytes fällt, die durch [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegeben sind, welche wir auf 65536 gesetzt haben. Mit anderen Worten, wir versuchen, mindestens 64 kB Daten im Puffer zu halten und lesen jeweils 64 kB aus der Quelle.
+Dieses Beispiel richtet einen Handler für `bufferedamountlow` ein, der weitere Daten anfordert, sobald der Puffer des Datenkanals unter die in [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegebene Anzahl von Bytes fällt. Dieser Wert ist hier auf 65536 gesetzt. Mit anderen Worten: Wir versuchen, mindestens 64 kB Daten im Puffer zu halten, indem wir jeweils 64 kB aus der Quelle lesen.
 
 ```js
 let pc = new RTCPeerConnection();
@@ -37,20 +41,20 @@ let dc = pc.createDataChannel("SendFile");
 let source = null;
 dc.bufferedAmountLowThreshold = 65536;
 
-pc.addEventListener("bufferedamountlow", (ev) => {
-  if (source.position <= source.length) {
+dc.addEventListener("bufferedamountlow", (ev) => {
+  if (source.position < source.length) {
     dc.send(source.readFile(65536));
   }
 });
 ```
 
-Nach der Erstellung der `RTCPeerConnection` wird [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen, um den Datenkanal zu erstellen. Dann wird ein Listener für `bufferedamountlow` erstellt, um den eingehenden Datenpuffer jedes Mal nachzufüllen, wenn sein Inhalt unter 65536 Bytes fällt.
+Nach dem Erstellen der `RTCPeerConnection` wird mit [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) der Datenkanal erstellt. Anschließend wird ein Listener für `bufferedamountlow` eingerichtet, der den Puffer für ausgehende Daten wieder auffüllt, sobald dessen Inhalt unter 65536 Bytes fällt.
 
-Sie können auch einen Listener für `bufferedamountlow` über seine Ereignis-Handler-Eigenschaft `onbufferedamountlow` einrichten:
+Sie können einen Listener für `bufferedamountlow` auch über die Event-Handler-Eigenschaft `onbufferedamountlow` einrichten. Beachten Sie jedoch, dass dadurch andere mit `onbufferedamountlow` hinzugefügte Event-Listener gegebenenfalls ersetzt werden:
 
 ```js
-pc.onbufferedamountlow = (ev) => {
-  if (source.position <= source.length) {
+dc.onbufferedamountlow = (ev) => {
+  if (source.position < source.length) {
     dc.send(source.readFile(65536));
   }
 };
@@ -66,6 +70,6 @@ pc.onbufferedamountlow = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
 - [`RTCDataChannel.bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold)

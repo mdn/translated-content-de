@@ -3,22 +3,26 @@ title: "XRCylinderLayer: redraw-Ereignis"
 short-title: redraw
 slug: Web/API/XRCylinderLayer/redraw_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Das `redraw`-Ereignis wird an das `XRCylinderLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR-Compositor die Ebene nicht mehr neu projizieren kann. Wenn dieses Ereignis gesendet wird, sollten die Autoren die Inhalte der Ebene im nächsten XR-Animationsframe neu zeichnen.
+Das `redraw`-Ereignis wird an das `XRCylinderLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder der XR Compositor die Ebene nicht mehr reprojizieren kann. Wenn dieses Ereignis gesendet wird, sollten Sie den Inhalt der Ebene im nächsten XR-Animationsframe neu zeichnen.
 
-Siehe auch die [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw) Eigenschaft, die ebenfalls über Vererbung von [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) für `XRCylinderLayer`-Objekte verfügbar ist.
+Siehe auch die Eigenschaft [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw), die `XRCylinderLayer`-Objekten ebenfalls durch Vererbung von [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) zur Verfügung steht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("redraw", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onredraw = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-### Verwendung des `redraw`-Ereignisses
+### Das `redraw`-Ereignis verwenden
 
 Sie können `redraw` an [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) übergeben:
 
@@ -38,7 +42,7 @@ cylinderLayer.addEventListener("redraw", (event) => {
 });
 ```
 
-Alternativ können Sie die `onredraw`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `redraw`-Ereignis festzulegen:
+Alternativ können Sie mit der Event-Handler-Eigenschaft `onredraw` einen Handler für das `redraw`-Ereignis einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onredraw` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 cylinderLayer.onredraw = (event) => {

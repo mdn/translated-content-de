@@ -3,22 +3,26 @@ title: "Worker: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/Worker/messageerror_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `messageerror`-Ereignis wird bei einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
+Das `messageerror`-Ereignis wird bei einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessageerror = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-Erstellen Sie einen Worker und lauschen Sie auf `message`- und `messageerror`-Ereignisse mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Erstellen Sie einen Worker und registrieren Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) Listener für die Ereignisse `message` und `messageerror`:
 
 ```js
 // main.js
@@ -46,7 +50,7 @@ worker.addEventListener("messageerror", (event) => {
 });
 ```
 
-Das Gleiche, aber unter Verwendung der `onmessageerror`-Ereignishandler-Eigenschaft:
+Dasselbe mit der Event-Handler-Eigenschaft `onmessageerror`. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onmessage` und `onmessageerror` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 // main.js

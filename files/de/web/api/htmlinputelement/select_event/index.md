@@ -1,22 +1,26 @@
 ---
-title: "HTMLInputElement: select Ereignis"
+title: "HTMLInputElement: select-Ereignis"
 short-title: select
 slug: Web/API/HTMLInputElement/select_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`select`** Ereignis wird ausgelöst, wenn ein Text ausgewählt wurde.
+Das **`select`**-Ereignis wird ausgelöst, wenn Text ausgewählt wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("select", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onselect = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Auswahl-Logger
+### Ausgewählten Text protokollieren
 
 ```html
 <input value="Try selecting some text in this element." />
@@ -49,9 +53,9 @@ input.addEventListener("select", logSelection);
 
 {{EmbedLiveSample("Selection_logger")}}
 
-### onselect Äquivalent
+### Die Event-Handler-Eigenschaft `onselect` verwenden
 
-Sie können den Ereignishandler auch mit der `onselect` Eigenschaft einrichten:
+Sie können den Event-Handler auch über die Eigenschaft `onselect` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere Event-Listener ersetzt werden, die über `onselect` hinzugefügt wurden:
 
 ```js
 input.onselect = logSelection;

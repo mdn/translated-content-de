@@ -3,22 +3,26 @@ title: "SharedWorkerGlobalScope: connect-Ereignis"
 short-title: connect
 slug: Web/API/SharedWorkerGlobalScope/connect_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("Web Workers API")}}
 
-Das **`connect`**-Ereignis wird in Shared Workers bei ihrem [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) ausgelöst, wenn ein neuer Client sich verbindet.
+Das **`connect`**-Ereignis wird in Shared Workers in deren [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) ausgelöst, wenn sich ein neuer Client verbindet.
 
-Dieses Ereignis ist nicht abbruchfähig und verbreitet sich nicht in der Ereigniskette.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("connect", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces einen Wert zuweisen:
+
+```js-nolint
 onconnect = (event) => { }
 ```
 
@@ -30,9 +34,11 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Shared Worker-Datei – wenn eine Verbindung zum Worker von einem Hauptthread über einen [`MessagePort`](/de/docs/Web/API/MessagePort) hergestellt wird, wird der `onconnect`-Ereignishandler ausgelöst. Das Ereignisobjekt ist ein [`MessageEvent`](/de/docs/Web/API/MessageEvent).
+Dieses Beispiel zeigt eine Shared-Worker-Datei: Wenn über einen [`MessagePort`](/de/docs/Web/API/MessagePort) eine Verbindung von einem Haupt-Thread zum Worker hergestellt wird, wird der `onconnect`-Event-Handler ausgelöst. Das Ereignisobjekt ist ein [`MessageEvent`](/de/docs/Web/API/MessageEvent).
 
-Der verbindende Port kann über den `ports`-Parameter des Ereignisobjekts referenziert werden; diese Referenz kann einen `onmessage`-Handler angefügt bekommen, um Nachrichten zu bearbeiten, die über den Port hereinkommen, und seine `postMessage()`-Methode kann verwendet werden, um Nachrichten vom Worker an den Hauptthread zurückzusenden.
+Auf den verbindenden Port kann über den `ports`-Parameter des Ereignisobjekts zugegriffen werden. Dieser Referenz kann ein `onmessage`-Handler zugewiesen werden, um über den Port eingehende Nachrichten zu verarbeiten. Mit ihrer `postMessage()`-Methode können über den Worker Nachrichten an den Haupt-Thread zurückgesendet werden.
+
+Bei Verwendung der `onconnect`-Event-Handler-Eigenschaft (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onconnect` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 self.onconnect = (e) => {
@@ -47,11 +53,11 @@ self.onconnect = (e) => {
 };
 ```
 
-Für ein vollständiges, laufendes Beispiel siehe unser [Einfaches Shared Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([run shared worker](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/).)
+Ein vollständiges, lauffähiges Beispiel finden Sie in unserem [einfachen Shared-Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([Shared Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/)).
 
-### Gleichwertig zu addEventListener
+### Verwendung von addEventListener()
 
-Sie könnten auch einen Ereignishandler mit der [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode einrichten:
+Sie können einen Event-Handler auch mit der Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einrichten:
 
 ```js
 self.addEventListener("connect", (e) => {
@@ -74,5 +80,5 @@ self.addEventListener("connect", (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Web Workers verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)

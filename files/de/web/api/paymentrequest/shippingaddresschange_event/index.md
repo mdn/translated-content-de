@@ -3,38 +3,42 @@ title: "PaymentRequest: shippingaddresschange-Ereignis"
 short-title: shippingaddresschange
 slug: Web/API/PaymentRequest/shippingaddresschange_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
-Das **`shippingaddresschange`**-Ereignis wird an das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt gesendet, wenn der Benutzer eine Versandadresse auswählt oder Details seiner Versandadresse ändert.
+Das Ereignis **`shippingaddresschange`** wird an das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt gesendet, wenn der Benutzer eine Lieferadresse auswählt oder Angaben zu seiner Lieferadresse ändert.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("shippingaddresschange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onshippingaddresschange = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PaymentRequestUpdateEvent")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Abhängig vom Browser können die Informationen zur Versandadresse aus Datenschutzgründen redigiert werden. Das heißt, die [`PaymentAddress`](/de/docs/Web/API/PaymentAddress), die die Versandadresse enthält, kann in einigen Teilen ihres Inhalts geändert, verdeckt oder vollständig weggelassen sein, um zu verhindern, dass der Benutzer ohne seine Zustimmung identifiziert wird (da Sie, wenn sie sich entscheiden, dass Sie Produkte an sie versenden sollen, ihre Adresse benötigen).
+Je nach Browser können die Angaben zur Lieferadresse aus Datenschutzgründen teilweise verborgen werden. Das bedeutet, dass Inhalte der [`PaymentAddress`](/de/docs/Web/API/PaymentAddress), die die Lieferadresse enthält, verändert, unkenntlich gemacht oder vollständig weggelassen werden können. So wird verhindert, dass der Benutzer ohne seine Zustimmung identifiziert wird. Wenn er sich dafür entscheidet, dass Sie ihm Produkte zusenden, benötigen Sie seine Adresse.
 
 ## Beispiel
 
-In diesem Beispiel wird ein Handler für das `shippingaddresschange`-Ereignis eingerichtet, um zu validieren, dass die Adresse die von der Webanwendung festgelegten Anforderungen erfüllt.
+In diesem Beispiel wird ein Handler für das Ereignis `shippingaddresschange` eingerichtet, der überprüft, ob die Adresse die Anforderungen der Webanwendung erfüllt.
 
 ```js
 const paymentRequest = new PaymentRequest(methodData, details, options);
@@ -53,7 +57,7 @@ function checkAddress(theAddress) {
 }
 ```
 
-Sie können auch einen Handler für `shippingaddresschange` mit der `onshippingaddresschange`-Ereignis-Handler-Eigenschaft festlegen:
+Sie können einen Handler für `shippingaddresschange` auch über die Event-Handler-Eigenschaft `onshippingaddresschange` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onshippingaddresschange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 paymentRequest.onshippingaddresschange = (event) => {

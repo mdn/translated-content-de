@@ -1,24 +1,28 @@
 ---
-title: "IDBDatabase: close-Event"
+title: "IDBDatabase: close-Ereignis"
 short-title: close
 slug: Web/API/IDBDatabase/close_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `close`-Ereignis wird auf `IDBDatabase` ausgelöst, wenn die Datenbankverbindung unerwartet geschlossen wird. Dies kann beispielsweise passieren, wenn der zugrunde liegende Speicher entfernt wird oder der Benutzer die Datenbank in den Verlaufseinstellungen des Browsers löscht.
+Das `close`-Ereignis wird auf `IDBDatabase` ausgelöst, wenn die Datenbankverbindung unerwartet geschlossen wird. Dies kann beispielsweise passieren, wenn der zugrunde liegende Speicher entfernt wird oder wenn der Benutzer die Datenbank über die Einstellungen für den Browserverlauf löscht.
 
-Beachten Sie, dass es nicht ausgelöst wird, wenn die Datenbankverbindung normal mit [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close) geschlossen wird.
+Das Ereignis wird nicht ausgelöst, wenn die Datenbankverbindung regulär mit [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close) geschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("close", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onclose = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und hört auf das `close`-Ereignis:
+Dieses Beispiel öffnet eine Datenbank und überwacht das `close`-Ereignis:
 
 ```js
 // Open the database
@@ -58,7 +62,7 @@ dBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Das gleiche Beispiel, mit der `onclose`-Eigenschaft anstelle von `addEventListener()`:
+Dasselbe Beispiel verwendet die Eigenschaft `onclose` anstelle von `addEventListener()` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onclose` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 // Open the database
@@ -98,4 +102,4 @@ dBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

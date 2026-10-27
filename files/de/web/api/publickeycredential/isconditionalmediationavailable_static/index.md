@@ -1,14 +1,19 @@
 ---
-title: "PublicKeyCredential: isConditionalMediationAvailable() statische Methode"
+title: "PublicKeyCredential: Statische Methode isConditionalMediationAvailable()"
 short-title: isConditionalMediationAvailable()
 slug: Web/API/PublicKeyCredential/isConditionalMediationAvailable_static
 l10n:
-  sourceCommit: a060aa315813bd1e69e4a43d7aed241f649e7e0d
+  sourceCommit: fc8ab6bcb82917a1a42fb95c2b3dd27a7f1b4807
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`isConditionalMediationAvailable()`** statische Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich auf `true` auflöst, wenn [bedingte Vermittlung](/de/docs/Web/API/Web_Authentication_API#autofill_ui) verfügbar ist.
+Die statische Methode **`isConditionalMediationAvailable()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit `true` erfüllt wird, wenn das Gerät [conditional get](/de/docs/Web/API/Web_Authentication_API#autofill_ui) unterstützt.
+
+Dies entspricht einem von [`PublicKeyCredential.getClientCapabilities()`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities) zurückgegebenen Objekt, dessen [`conditionalGet`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities_static#conditionalget)-Eigenschaft den Wert `true` hat. Entwicklern wird empfohlen, diese API zu bevorzugen.
+
+> [!NOTE]
+> Diese Methode gibt **nicht** an, ob [conditional create](/de/docs/Web/API/Web_Authentication_API#conditional_create) unterstützt wird. Prüfen Sie dazu den Wert von [`conditionalCreate`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities_static#conditionalcreate) im Objekt, das [`PublicKeyCredential.getClientCapabilities()`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities) zurückgibt.
 
 ## Syntax
 
@@ -22,21 +27,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich auf einen booleschen Wert auflöst und anzeigt, ob die bedingte Vermittlung verfügbar ist oder nicht.
+Ein {{jsxref("Promise")}}, das mit einem booleschen Wert erfüllt wird, der angibt, ob conditional get verfügbar ist.
 
 ### Ausnahmen
 
-Das zurückgegebene {{jsxref("Promise")}} kann mit folgenden Werten abgelehnt werden:
+Das zurückgegebene {{jsxref("Promise")}} kann mit folgendem Wert zurückgewiesen werden:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die RP-Domain ist nicht gültig.
+  - : Die RP-Domain ist ungültig.
 
 ## Beispiele
 
-Bevor Sie einen bedingten WebAuthn-API-Aufruf durchführen, überprüfen Sie:
+Prüfen Sie vor dem Aufruf einer conditional WebAuthn API, ob:
 
-- Ob der Browser die Web Authentication API unterstützt.
-- Ob der Browser die bedingte Vermittlung unterstützt.
+- der Browser die Web Authentication API unterstützt.
+- der Browser conditional get unterstützt.
 
 ```js
 // Availability of `window.PublicKeyCredential` means WebAuthn is usable.
@@ -44,7 +49,7 @@ if (
   window.PublicKeyCredential &&
   PublicKeyCredential.isConditionalMediationAvailable
 ) {
-  // Check if conditional mediation is available.
+  // Check if conditional get is available.
   const isCMA = await PublicKeyCredential.isConditionalMediationAvailable();
   if (isCMA) {
     // Call WebAuthn authentication

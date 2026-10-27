@@ -3,20 +3,24 @@ title: "BroadcastChannel: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/BroadcastChannel/messageerror_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht, die nicht deserialisiert werden kann, auf dem Kanal ankommt.
+Das **`messageerror`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht im Kanal eintrifft, die nicht deserialisiert werden kann.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessageerror = (event) => { }
 ```
 
@@ -28,9 +32,9 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-### Hören auf messageerror-Ereignisse
+### Auf messageerror-Ereignisse lauschen
 
-Dieser Code verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Nachrichten und Fehler zu hören:
+Dieser Code verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Nachrichten und Fehler zu lauschen:
 
 ```js
 const channel = new BroadcastChannel("example-channel");
@@ -44,7 +48,7 @@ channel.addEventListener("messageerror", (event) => {
 });
 ```
 
-Dasselbe, jedoch mit den Ereignisbehandler-Eigenschaften `onmessage` und `onmessageerror`:
+Dasselbe mit den Event-Handler-Eigenschaften `onmessage` und `onmessageerror` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onmessage` und `onmessageerror` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const channel = new BroadcastChannel("example-channel");
@@ -58,9 +62,9 @@ channel.onmessageerror = (event) => {
 };
 ```
 
-### Versuch, Speicher zu teilen
+### Versuch, Speicher gemeinsam zu nutzen
 
-Ein häufiger Grund für `messageerror`-Ereignisse ist der Versuch, ein {{jsxref("SharedArrayBuffer")}}-Objekt oder eine Pufferansicht, die von einem solchen unterstützt wird, über [Agent-Clustern](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) hinweg zu senden. Der folgende Code demonstriert dies.
+Eine häufige Ursache für `messageerror`-Ereignisse ist der Versuch, ein {{jsxref("SharedArrayBuffer")}}-Objekt oder eine darauf basierende Buffer-View zwischen [Agent-Clustern](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) zu senden. Der folgende Code veranschaulicht dies.
 
 Seite A führt den folgenden Code aus:
 
@@ -78,7 +82,7 @@ channel.addEventListener("messageerror", (event) => {
 });
 ```
 
-Dann wird Seite B ein `messageerror`-Ereignis erhalten, wenn versucht wird, die von Seite A gesendete Nachricht zu deserialisieren.
+Wenn Seite B versucht, die von Seite A gesendete Nachricht zu deserialisieren, empfängt sie ein `messageerror`-Ereignis.
 
 ## Spezifikationen
 

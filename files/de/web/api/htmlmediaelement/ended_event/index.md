@@ -1,29 +1,33 @@
 ---
-title: "HTMLMediaElement: ended event"
+title: "HTMLMediaElement: ended-Ereignis"
 short-title: ended
 slug: Web/API/HTMLMediaElement/ended_event
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `ended`-Ereignis wird ausgelöst, wenn die Wiedergabe oder das Streaming gestoppt wurde, weil das Ende der Medien erreicht wurde oder keine weiteren Daten verfügbar sind.
+Das `ended`-Ereignis wird ausgelöst, wenn die Wiedergabe oder das Streaming beendet wurde, weil das Ende des Mediums erreicht wurde oder keine weiteren Daten verfügbar sind.
 
-Dieses Ereignis tritt auf, wenn [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) `ended` auslöst, wenn die Wiedergabe das Ende der Medien erreicht hat.
+Dieses Ereignis wird bei [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) ausgelöst, wenn die Wiedergabe das Ende des Mediums erreicht.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 > [!NOTE]
-> Das `ended`-Ereignis wird nicht ausgelöst, wenn die [`loop`](/de/docs/Web/API/HTMLMediaElement/loop)-Eigenschaft `true` ist und die [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) nicht negativ ist.
+> Das `ended`-Ereignis wird nicht ausgelöst, wenn die Eigenschaft [`loop`](/de/docs/Web/API/HTMLMediaElement/loop) den Wert `true` hat und [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) nicht negativ ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("ended", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onended = (event) => { }
 ```
 
@@ -33,9 +37,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `ended`-Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `ended`-Ereignis von HTMLMediaElement hinzu und geben eine Meldung aus, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const video = document.querySelector("video");
@@ -47,7 +51,7 @@ video.addEventListener("ended", (event) => {
 });
 ```
 
-Verwendung der `onended` Ereignishandlereigenschaft:
+Mit der Ereignisbehandlungs-Eigenschaft `onended` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onended` hinzugefügte Ereignis-Listener ersetzt werden):
 
 ```js
 const video = document.querySelector("video");
@@ -69,23 +73,23 @@ video.onended = (event) => {
 
 ## Verwandte Ereignisse
 
-- Das HTMLMediaElement [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event) Ereignis
-- Das HTMLMediaElement [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event) Ereignis
-- Das HTMLMediaElement [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event) Ereignis
-- Das HTMLMediaElement [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event) Ereignis
-- Das HTMLMediaElement [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event) Ereignis
-- Das HTMLMediaElement [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event) Ereignis
-- Das HTMLMediaElement [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event) Ereignis
-- Das HTMLMediaElement [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event) Ereignis
-- Das HTMLMediaElement [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event) Ereignis
-- Das HTMLMediaElement [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event) Ereignis
-- Das HTMLMediaElement [`play`](/de/docs/Web/API/HTMLMediaElement/play_event) Ereignis
-- Das HTMLMediaElement [`pause`](/de/docs/Web/API/HTMLMediaElement/pause_event) Ereignis
-- Das HTMLMediaElement [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event) Ereignis
-- Das HTMLMediaElement [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event) Ereignis
-- Das HTMLMediaElement [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event) Ereignis
-- Das HTMLMediaElement [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event) Ereignis
-- Das HTMLMediaElement [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event) Ereignis
+- Das HTMLMediaElement-Ereignis [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)
+- Das HTMLMediaElement-Ereignis [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)
+- Das HTMLMediaElement-Ereignis [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)
+- Das HTMLMediaElement-Ereignis [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)
+- Das HTMLMediaElement-Ereignis [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)
+- Das HTMLMediaElement-Ereignis [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)
+- Das HTMLMediaElement-Ereignis [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)
+- Das HTMLMediaElement-Ereignis [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)
+- Das HTMLMediaElement-Ereignis [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)
+- Das HTMLMediaElement-Ereignis [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)
+- Das HTMLMediaElement-Ereignis [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)
+- Das HTMLMediaElement-Ereignis [`pause`](/de/docs/Web/API/HTMLMediaElement/pause_event)
+- Das HTMLMediaElement-Ereignis [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)
+- Das HTMLMediaElement-Ereignis [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)
+- Das HTMLMediaElement-Ereignis [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)
+- Das HTMLMediaElement-Ereignis [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)
+- Das HTMLMediaElement-Ereignis [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)
 
 ## Siehe auch
 
@@ -93,8 +97,8 @@ video.onended = (event) => {
 - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}
-- [Media Capture and Streams](/de/docs/Web/API/Media_Capture_and_Streams_API)
-  - [`MediaStreamTrack`: `ended` event](/de/docs/Web/API/MediaStreamTrack/ended_event)
+- [Medienerfassung und Streams](/de/docs/Web/API/Media_Capture_and_Streams_API)
+  - [`MediaStreamTrack`: `ended`-Ereignis](/de/docs/Web/API/MediaStreamTrack/ended_event)
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-  - [Web audio API: ended event](/de/docs/Web/API/AudioScheduledSourceNode/ended_event)
+  - [Web Audio API: ended-Ereignis](/de/docs/Web/API/AudioScheduledSourceNode/ended_event)

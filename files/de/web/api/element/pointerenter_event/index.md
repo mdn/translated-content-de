@@ -1,22 +1,26 @@
 ---
-title: "Element: pointerenter Ereignis"
+title: "Element: pointerenter-Ereignis"
 short-title: pointerenter
 slug: Web/API/Element/pointerenter_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das `pointerenter`-Ereignis tritt auf, wenn ein Zeigegerät in die Hit-Test-Grenzen eines Elements oder eines seiner Nachkommen bewegt wird, einschließlich als Ergebnis eines [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignisses von einem Gerät, das Hover nicht unterstützt (siehe [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)). Ansonsten funktioniert `pointerenter` genauso wie [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event) und wird zur gleichen Zeit ausgelöst. Sie werden auch zur gleichen Zeit wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event) und [`pointerover`](/de/docs/Web/API/Element/pointerover_event) Ereignisse ausgelöst, wenn dies zutrifft.
+Das `pointerenter`-Ereignis wird ausgelöst, wenn ein Zeigegerät in den Bereich eines Elements oder eines seiner Nachfahren bewegt wird, in dem eine Treffertestung erfolgt. Dies gilt auch, wenn ein [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis von einem Gerät ausgelöst wird, das kein Hover unterstützt (siehe [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)). Ansonsten funktioniert `pointerenter` wie [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event); beide Ereignisse werden gleichzeitig ausgelöst. Gegebenenfalls werden sie auch gleichzeitig mit den Ereignissen [`mouseover`](/de/docs/Web/API/Element/mouseover_event) und [`pointerover`](/de/docs/Web/API/Element/pointerover_event) ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerenter", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointerenter = (event) => { }
 ```
 
@@ -38,7 +42,7 @@ para.addEventListener("pointerenter", (event) => {
 });
 ```
 
-Verwendung der `onpointerenter` Ereignishandlereigenschaft:
+Verwendung der Event-Handler-Eigenschaft `onpointerenter` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onpointerenter` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

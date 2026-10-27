@@ -1,22 +1,26 @@
 ---
-title: "SpeechSynthesisUtterance: start Ereignis"
+title: "SpeechSynthesisUtterance: start-Ereignis"
 short-title: start
 slug: Web/API/SpeechSynthesisUtterance/start_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`start`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn das Sprechen der Äußerung begonnen hat.
+Das **`start`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn mit der Sprachausgabe der Äußerung begonnen wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("start", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onstart = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent). Erbt von [`
 
 ## Beispiele
 
-Sie können das `start`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `start`-Ereignis mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 utterThis.addEventListener("start", (event) => {
@@ -36,7 +40,7 @@ utterThis.addEventListener("start", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onstart`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die Event-Handler-Eigenschaft `onstart` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onstart` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 utterThis.onstart = (event) => {

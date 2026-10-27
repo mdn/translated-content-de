@@ -1,16 +1,16 @@
 ---
-title: "PublicKeyCredential: GetClientCapabilities() statische Methode"
+title: "PublicKeyCredential: Statische Methode getClientCapabilities()"
 short-title: getClientCapabilities()
 slug: Web/API/PublicKeyCredential/getClientCapabilities_static
 l10n:
-  sourceCommit: a060aa315813bd1e69e4a43d7aed241f649e7e0d
+  sourceCommit: fc8ab6bcb82917a1a42fb95c2b3dd27a7f1b4807
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`getClientCapabilities()`** statische Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das verwendet werden kann, um zu überprüfen, ob bestimmte WebAuthn-Client-Fähigkeiten und [Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions) unterstützt werden.
+Die statische Methode **`getClientCapabilities()`** der Schnittstelle [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird. Mit diesem Objekt lässt sich prüfen, ob bestimmte WebAuthn-Client-Funktionen und [Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions) unterstützt werden.
 
-Ein Relying Party (RP) kann diese Informationen nutzen, um seine Anmelde- und Registrierungsbenutzeroberflächen und Workflows entsprechend anzupassen.
+Eine Relying Party (RP) kann diese Informationen nutzen, um ihre Benutzeroberflächen und Abläufe für die Anmeldung und Registrierung entsprechend anzupassen.
 
 ## Syntax
 
@@ -24,70 +24,70 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, bei dem die Eigenschaftsnamen die Client-Fähigkeitszeichenfolgen sind und die Werte boolesche Werte, die angeben, ob die entsprechende Fähigkeit oder Erweiterung unterstützt wird oder nicht.
+Ein {{jsxref("Promise")}}, das mit einem Objekt erfüllt wird. Die Eigenschaftsnamen des Objekts sind die Zeichenfolgen für Client-Funktionen; die Werte sind boolesche Werte, die angeben, ob die jeweilige Funktion oder Erweiterung unterstützt wird.
 
-Die WebAuthn-Client-Fähigkeitszeichenfolgen sind:
+Die Zeichenfolgen für WebAuthn-Client-Funktionen sind:
 
 - `"conditionalCreate"`
-  - : Der Client ist in der Lage, [auffindbare Anmeldedaten](/de/docs/Web/API/Web_Authentication_API#discoverable_and_non-discoverable_credentials) zu erstellen.
+  - : Der Client unterstützt [conditional create](/de/docs/Web/API/Web_Authentication_API#conditional_create). Beachten Sie, dass [`isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static) _nicht_ angibt, ob conditional create unterstützt wird.
 - `"conditionalGet"`
-  - : Der Client ist in der Lage, [bedingte Vermittlung](/de/docs/Web/API/Web_Authentication_API#autofill_ui) anzuwenden.
-    Diese Fähigkeit entspricht [`isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static), welches mit `true` aufgelöst wird.
+  - : Der Client unterstützt [conditional get](/de/docs/Web/API/Web_Authentication_API#autofill_ui).
+    Diese Funktion entspricht einem Rückgabewert von `true` für [`isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static).
 - `"hybridTransport"`
-  - : Der Client unterstützt die Verwendung des [hybriden](/de/docs/Web/API/AuthenticatorAttestationResponse/getTransports#hybrid) Transports.
-    Das bedeutet, dass der Client Authentifikatoren verwenden kann, die auf Bluetooth, NFC oder USB basieren.
+  - : Der Client unterstützt die Verwendung des [hybrid](/de/docs/Web/API/AuthenticatorAttestationResponse/getTransports#hybrid)-Transports.
+    Das bedeutet, dass der Client Authentifikatoren verwenden kann, die Bluetooth, NFC oder USB nutzen.
 - `"passkeyPlatformAuthenticator"`
-  - : Der Client erlaubt die Verwendung eines Passkey-Authentifikators, der {{Glossary("multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} Mechanismen wie eine PIN oder biometrische Überprüfung unterstützt.
-    Der Authentifikator kann Teil der gleichen Plattform (Gerät) wie der Client sein oder über einen hybriden Transport wie Bluetooth oder USB verbunden sein.
+  - : Der Client erlaubt die Verwendung eines Passkey-Authentifikators, der Mechanismen zur {{Glossary("multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} wie eine PIN oder eine biometrische Prüfung unterstützt.
+    Der Authentifikator kann Teil derselben Plattform (desselben Geräts) wie der Client oder über einen hybrid-Transport wie Bluetooth oder USB verbunden sein.
     Die Anmeldedaten werden auf dem Authentifikator gespeichert.
-    Siehe [Leitfaden für Passkey-Entwickler für Relying Parties](https://developers.google.com/identity/passkeys/developer-guides).
+    Weitere Informationen finden Sie im [Entwicklerleitfaden zu Passkeys für Relying Parties](https://developers.google.com/identity/passkeys/developer-guides).
 - `userVerifyingPlatformAuthenticator`
-  - : Der Client hat einen Plattform-Authentifikator (Teil des gleichen Geräts), der {{Glossary("multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} Mechanismen unterstützt, wie eine PIN oder biometrische Überprüfung.
-    Die Anmeldedaten können entweder auf dem RP oder dem Authentifikator gespeichert werden.
+  - : Der Client verfügt über einen Plattform-Authentifikator (als Teil desselben Geräts), der Mechanismen zur {{Glossary("multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} wie eine PIN oder eine biometrische Prüfung unterstützt.
+    Die Anmeldedaten können entweder bei der RP oder auf dem Authentifikator gespeichert werden.
 - `relatedOrigins`
   - : Der Client unterstützt [Related Origin Requests](https://web.dev/articles/webauthn-related-origin-requests).
-    Diese Clients erlauben die Verwendung eines Passkeys über mehrere Webseiten hinweg, die denselben Ursprung haben.
+    Diese Clients ermöglichen es, einen Passkey über mehrere Websites hinweg zu verwenden, die denselben Origin haben.
 - `signalAllAcceptedCredentials`
-  - : Der Client unterstützt die [`PublicKeyCredential.signalAllAcceptedCredentials()`](/de/docs/Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static) statische Methode.
-    Wenn dies nicht unterstützt wird, müssen RP-Workflows den Benutzer auffordern, Anmeldedaten manuell auf dem Authentifikator zu löschen.
+  - : Der Client unterstützt die statische Methode [`PublicKeyCredential.signalAllAcceptedCredentials()`](/de/docs/Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static).
+    Falls sie nicht unterstützt wird, müssen RP-Abläufe die Benutzer auffordern, Anmeldedaten auf dem Authentifikator manuell zu löschen.
 - `signalCurrentUserDetails`
-  - : Der Client unterstützt die [`PublicKeyCredential.signalCurrentUserDetails()`](/de/docs/Web/API/PublicKeyCredential/signalCurrentUserDetails_static) statische Methode.
-    Wenn dies nicht unterstützt wird, müssen RP-Workflows den Benutzer auffordern, die Benutzerdetails manuell auf dem Authentifikator zu aktualisieren.
+  - : Der Client unterstützt die statische Methode [`PublicKeyCredential.signalCurrentUserDetails()`](/de/docs/Web/API/PublicKeyCredential/signalCurrentUserDetails_static).
+    Falls sie nicht unterstützt wird, müssen RP-Abläufe die Benutzer auffordern, Benutzerdaten auf dem Authentifikator manuell zu aktualisieren.
 - `signalUnknownCredential`
-  - : Der Client unterstützt die [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static) statische Methode.
-    Wenn dies nicht unterstützt wird, müssen RP-Workflows den Benutzer auffordern, Anmeldedaten manuell vom Authentifikator zu löschen.
+  - : Der Client unterstützt die statische Methode [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static).
+    Falls sie nicht unterstützt wird, müssen RP-Abläufe die Benutzer auffordern, Anmeldedaten manuell vom Authentifikator zu löschen.
 
-Die [Web-Erweiterungs](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions) Zeichenfolgen sind formatiert, indem der [Erweiterungsbezeichner](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions#available_extensions) mit dem Präfix `extension:` versehen wird.
-Beispielsweise kann der Schlüssel `extension:appid` verwendet werden, um zu überprüfen, ob die [`appid` Erweiterung](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions#appid) unterstützt wird.
+Die Zeichenfolgen für [WebAuthn-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions) werden gebildet, indem dem [Erweiterungsbezeichner](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions#available_extensions) das Präfix `extension:` vorangestellt wird.
+Beispielsweise kann mit dem Schlüssel `extension:appid` geprüft werden, ob die [`appid`-Erweiterung](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions#appid) unterstützt wird.
 
 ### Ausnahmen
 
 Das zurückgegebene {{jsxref("Promise")}} kann mit den folgenden Werten abgelehnt werden:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die RP-Domain ist nicht gültig.
+  - : Die Domain der RP ist ungültig.
 
 ## Beschreibung
 
-`getClientCapabilities()` ermöglicht es Ihnen, zu überprüfen, ob eine bestimmte Fähigkeit oder Erweiterung unterstützt wird, und die Informationen zu nutzen, um ein angemessenes Benutzererlebnis zu bieten.
+Mit `getClientCapabilities()` können Sie prüfen, ob eine bestimmte Funktion oder Erweiterung unterstützt wird, und anhand dieser Information eine passende Benutzererfahrung bereitstellen.
 
-Beispielsweise zeigt die Unterstützung für die `userVerifyingPlatformAuthenticator` Fähigkeit an, dass biometrische Verfahren wie ein Fingerabdrucksensor zulässig sind.
-Eine Webanwendung könnte dies nutzen, um ein Fingerabdruck-Symbol anzuzeigen, wenn die Fähigkeit unterstützt wird, oder eine Passwort-Eingabe, wenn dies nicht der Fall ist.
-Wenn ein biometrischer Login erforderlich ist, könnte sie stattdessen eine Benachrichtigung bereitstellen, dass die Seite nicht mit diesem Browser oder Gerät authentifizieren kann.
-Ebenso zeigt `conditionalGet` an, dass der Client bedingte Vermittlung beim Anmelden eines Benutzers unterstützt, was bedeutet, dass der Browser automatisch ausfüllbare auffindbare Anmeldedaten in einem Anmeldeformular bereitstellen kann (zum Beispiel ein automatisch vervollständigendes Textfeld oder eine Dropdown-Liste) sowie eine Anmeldeschaltfläche.
+Die Unterstützung der Funktion `userVerifyingPlatformAuthenticator` zeigt beispielsweise an, dass biometrische Verfahren wie ein Fingerabdrucksensor zulässig sind.
+Eine Webanwendung könnte damit ein Fingerabdrucksymbol anzeigen, wenn die Funktion unterstützt wird, andernfalls aber ein Eingabefeld für ein Passwort.
+Wenn eine biometrische Anmeldung erforderlich ist, könnte sie stattdessen darauf hinweisen, dass eine Authentifizierung auf der Website mit diesem Browser oder Gerät nicht möglich ist.
+Entsprechend zeigt `conditionalGet` an, dass der Client bei der Anmeldung eines Benutzers conditional mediation unterstützt. Das bedeutet, dass der Browser in einem Anmeldeformular automatisch ausgefüllte, auffindbare Anmeldedaten bereitstellen kann (beispielsweise in einem Texteingabefeld mit automatischer Vervollständigung oder einer Dropdown-Liste), zusammen mit einer Anmeldeschaltfläche.
 
-Wenn der Wert einer bestimmten Fähigkeit im zurückgegebenen Objekt vorhanden ist, dann zeigt `true` an, dass die Fähigkeit derzeit unterstützt wird, und `false` gibt an, dass dies nicht der Fall ist.
-Wenn jedoch ein Schlüssel für eine bestimmte Fähigkeit nicht vorhanden ist, können keine Annahmen über die Verfügbarkeit der zugehörigen Funktion getroffen werden.
+Wenn der Wert einer bestimmten Funktion im zurückgegebenen Objekt vorhanden ist, gibt `true` an, dass die Funktion derzeit unterstützt wird, und `false`, dass sie nicht unterstützt wird.
+Fehlt jedoch der Schlüssel für eine bestimmte Funktion, lässt sich daraus keine Aussage über die Verfügbarkeit der zugehörigen Funktion ableiten.
 
-Für eine Erweiterung gelten die gleichen Annahmen.
-Beachten Sie jedoch, dass auch wenn die Erweiterung vom Client unterstützt wird, ein bestimmter Authentifikator diese Erweiterung möglicherweise nicht unterstützt, sodass RPs nicht davon ausgehen dürfen, dass dies eine Garantie dafür ist, dass die Authentifikator-Verarbeitungsschritte für diese Erweiterung ausgeführt werden.
-Wenn der Schlüssel für eine Erweiterung nicht vorhanden ist, kann ein RP nicht davon ausgehen, dass die Client-Verarbeitungsschritte für diese Erweiterung von diesem Client ausgeführt werden oder dass die Erweiterung an den Authentifikator weitergeleitet wird.
+Für Erweiterungen gelten dieselben Annahmen.
+Beachten Sie jedoch: Auch wenn der Client eine Erweiterung unterstützt, muss ein bestimmter Authentifikator sie nicht unterstützen. RPs dürfen daher nicht davon ausgehen, dass die Verarbeitungsschritte des Authentifikators für diese Erweiterung durchgeführt werden.
+Fehlt der Schlüssel für eine Erweiterung, kann eine RP weder davon ausgehen, dass dieser Client die Verarbeitungsschritte für die Erweiterung ausführt, noch davon, dass die Erweiterung an den Authentifikator weitergeleitet wird.
 
 ## Beispiele
 
-### Überprüfen aller Fähigkeiten
+### Alle Funktionen prüfen
 
-Dieses Beispiel zeigt, wie man das Fähigkeitsobjekt erhält und seine Werte durchläuft.
+Dieses Beispiel zeigt, wie Sie das Objekt mit den Funktionen abrufen und über seine Werte iterieren.
 
 ```html hidden
 <pre id="log"></pre>
@@ -112,8 +112,8 @@ function log(text) {
 
 #### JavaScript
 
-Zuerst warten wir auf `getClientCapabilities()`, um ein Objekt mit den Fähigkeiten zu erhalten.
-Wir durchlaufen dann das Objekt und loggen das Ergebnis (Logging-Code nicht gezeigt):
+Zunächst warten wir auf `getClientCapabilities()`, um ein Objekt mit den Funktionen zu erhalten.
+Anschließend iterieren wir über das Objekt und protokollieren das Ergebnis (der Code für die Protokollierung ist nicht dargestellt):
 
 ```js
 async function checkClientCapabilities() {
@@ -129,7 +129,7 @@ async function checkClientCapabilities() {
 }
 ```
 
-Bevor wir die Funktion aufrufen, prüfen wir, ob sie definiert ist, und loggen das Ergebnis.
+Bevor wir die Funktion aufrufen, prüfen wir, ob sie definiert ist, und protokollieren das Ergebnis.
 
 ```js
 // Call the function to check capabilities.
@@ -144,11 +144,11 @@ if (PublicKeyCredential.getClientCapabilities) {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Überprüfen aller Fähigkeiten", "", "280")}}
+{{EmbedLiveSample("Check all capabilities", "", "280")}}
 
-### Test für benutzerverifizierenden Plattform-Authentifikator
+### Auf einen benutzerverifizierenden Plattform-Authentifikator prüfen
 
-Dieses Beispiel überprüft eine einzelne Fähigkeit, `userVerifyingPlatformAuthenticator`. Eine reale Anwendung könnte das Ergebnis verwenden, um die Benutzeroberfläche zu konfigurieren.
+Dieses Beispiel prüft eine einzelne Funktion: `userVerifyingPlatformAuthenticator`. Eine reale Anwendung könnte das Ergebnis nutzen, um die Benutzeroberfläche zu konfigurieren.
 
 ```html hidden
 <pre id="log"></pre>
@@ -173,7 +173,7 @@ function log(text) {
 
 #### JavaScript
 
-Der Code ähnelt dem vorherigen Beispiel, außer dass wir eine bestimmte zurückgegebene Fähigkeit prüfen und `try...catch` verwenden, um den Fall abzudecken, dass `getClientCapabilities()` nicht unterstützt wird.
+Der Code ähnelt dem vorherigen Beispiel. Allerdings prüfen wir eine bestimmte zurückgegebene Funktion und verwenden `try...catch`, um den Fall abzufangen, dass `getClientCapabilities()` nicht unterstützt wird.
 
 ```js
 checkIsUserVerifyingPlatformAuthenticatorAvailable();
@@ -199,14 +199,14 @@ async function checkIsUserVerifyingPlatformAuthenticatorAvailable() {
 }
 ```
 
-Hier loggen wir das Ergebnis einer Prüfung.
+Beachten Sie, dass wir hier das Ergebnis einer Prüfung protokollieren.
 In einer realen Anwendung könnten wir die Benutzeroberfläche aktualisieren, um geeignete Optionen zur Verifizierung des Benutzers anzuzeigen.
 
 #### Ergebnis
 
-Das Log unten zeigt entweder eine Zeichenfolge an, die angibt, dass die Methode nicht unterstützt wird, oder eine, die angibt, ob biometrische oder Passwort-Authentifizierung unterstützt wird.
+Das nachfolgende Protokoll zeigt entweder eine Zeichenfolge an, die darauf hinweist, dass die Methode nicht unterstützt wird, oder eine, die angibt, ob die biometrische Anmeldung oder die Anmeldung mit Passwort unterstützt wird.
 
-{{EmbedLiveSample("Test für benutzerverifizierenden Plattform-Authentifikator", "", "90")}}
+{{EmbedLiveSample("Test for user verifying platform authenticator", "", "90")}}
 
 ## Spezifikationen
 

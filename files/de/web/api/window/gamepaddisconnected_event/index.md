@@ -3,30 +3,34 @@ title: "Window: gamepaddisconnected-Ereignis"
 short-title: gamepaddisconnected
 slug: Web/API/Window/gamepaddisconnected_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("Gamepad API")}}
 
 Das `gamepaddisconnected`-Ereignis wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
 
-Das Ereignis wird nicht ausgelöst, wenn es durch die {{httpheader('Permissions-Policy/gamepad','gamepad')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) des Dokuments nicht erlaubt ist.
+Das Ereignis wird nicht ausgelöst, wenn die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) des Dokuments dies über {{httpheader('Permissions-Policy/gamepad','gamepad')}} untersagt.
 
-Dieses Ereignis ist nicht abbrechbar und hat keine Bubbling-Eigenschaften.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("gamepaddisconnected", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Handler zuweisen:
+
+```js-nolint
 ongamepaddisconnected = (event) => { }
 ```
 
 ## Beispiele
 
-Um informiert zu werden, wenn ein Gamepad getrennt wird, können Sie einen Handler mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zum Fenster hinzufügen, wie hier:
+Um benachrichtigt zu werden, wenn ein Gamepad getrennt wird, können Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einen Handler zum Fenster hinzufügen:
 
 ```js
 window.addEventListener("gamepaddisconnected", (event) => {
@@ -34,7 +38,7 @@ window.addEventListener("gamepaddisconnected", (event) => {
 });
 ```
 
-Alternativ können Sie die `window.ongamepaddisconnected`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `gamepaddisconnected`-Ereignis einzurichten:
+Alternativ können Sie über die Event-Handler-Eigenschaft `window.ongamepaddisconnected` einen Handler für das `gamepaddisconnected`-Ereignis festlegen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `ongamepaddisconnected` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 window.ongamepaddisconnected = (event) => {

@@ -3,22 +3,26 @@ title: "IDBRequest: success-Ereignis"
 short-title: success
 slug: Web/API/IDBRequest/success_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `success`-Ereignis wird ausgelöst, wenn eine `IDBRequest` erfolgreich ist. Im `success`-Ereignishandler können Sie auf das Ergebnis der Anfrage zugreifen und weitere Anfragen an dieselbe Transaktion stellen.
+Das `success`-Ereignis wird ausgelöst, wenn ein `IDBRequest` erfolgreich abgeschlossen wird. Im Ereignishandler für `success` können Sie auf das Ergebnis der Anfrage zugreifen und weitere Anfragen innerhalb derselben Transaktion stellen.
 
-Dieses Ereignis kann nicht abgebrochen werden und es findet kein Bubbling statt.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("success", (event) => { })
+```
 
+Alternativ können Sie der [Ereignishandler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onsuccess = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel versucht, eine Datenbank zu öffnen und hört auf das `success`-Ereignis unter Verwendung von `addEventListener()`:
+Dieses Beispiel versucht, eine Datenbank zu öffnen, und überwacht das `success`-Ereignis mit `addEventListener()`:
 
 ```js
 // Open the database
@@ -59,7 +63,7 @@ openRequest.addEventListener("success", (event) => {
 });
 ```
 
-Das gleiche Beispiel, aber mit der `onsuccess`-Ereignishandler-Eigenschaft:
+Dasselbe Beispiel, jedoch mit der Ereignishandler-Eigenschaft `onsuccess`. Beachten Sie, dass dadurch gegebenenfalls andere Ereignis-Listener ersetzt werden, die über `onsuccess` hinzugefügt wurden:
 
 ```js
 // Open the database
@@ -100,4 +104,4 @@ openRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

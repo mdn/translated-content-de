@@ -1,27 +1,31 @@
 ---
-title: "Window: storage event"
+title: "Window: storage-Ereignis"
 short-title: storage
 slug: Web/API/Window/storage_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`storage`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn ein anderes Dokument, das denselben Speicherbereich (entweder [`localStorage`](/de/docs/Web/API/Window/localStorage) oder [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage)) mit dem aktuellen Fenster teilt, diesen Speicherbereich aktualisiert. Das Ereignis wird _nicht_ im Fenster, das die Änderung vorgenommen hat, ausgelöst.
+Das **`storage`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn ein anderes Dokument, das denselben Speicherbereich (entweder [`localStorage`](/de/docs/Web/API/Window/localStorage) oder [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage)) wie das aktuelle Fenster nutzt, diesen Speicherbereich aktualisiert. Das Ereignis wird _nicht_ in dem Fenster ausgelöst, das die Änderung vorgenommen hat.
 
-- Für `localStorage` wird das Ereignis in allen anderen {{Glossary("browsing_context", "Browsing-Kontexten")}} ausgelöst, die sich im selben Ursprung wie das auslösende Dokument befinden. Dazu gehören andere Tabs mit demselben Ursprung.
-- Für `sessionStorage` wird das Ereignis in allen anderen {{Glossary("browsing_context", "Browsing-Kontexten")}} ausgelöst, die sich im selben Ursprung und im selben übergeordneten Browsing-Kontext wie das auslösende Dokument befinden. Dies schließt nur eingebettete iframes, falls vorhanden, im selben Tab ein, jedoch nicht andere Tabs.
+- Bei `localStorage` wird das Ereignis in allen anderen {{Glossary("browsing_context", "Browsing-Kontexten")}} ausgelöst, die denselben Origin wie das auslösende Dokument haben. Dazu gehören auch andere Tabs mit demselben Origin.
+- Bei `sessionStorage` wird das Ereignis in allen anderen {{Glossary("browsing_context", "Browsing-Kontexten")}} ausgelöst, die denselben Origin und denselben übergeordneten Browsing-Kontext wie das auslösende Dokument haben. Dazu gehören nur eingebettete iframes im selben Tab, sofern vorhanden, aber keine anderen Tabs.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbeling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("storage", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onstorage = (event) => { }
 ```
 
@@ -31,9 +35,9 @@ Ein [`StorageEvent`](/de/docs/Web/API/StorageEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("StorageEvent")}}
 
-## Ereignishandler-Aliase
+## Aliase für die Ereignisbehandlung
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandlereigenschaft `onstorage` auch auf den folgenden Zielen verfügbar:
+Neben der `Window`-Schnittstelle ist die Ereignisbehandlungs-Eigenschaft `onstorage` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -41,7 +45,7 @@ Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandlereigenschaft `onsto
 
 ## Beispiele
 
-Protokollieren Sie das `sampleList`-Element in der Konsole, wenn das `storage`-Ereignis ausgelöst wird:
+Geben Sie den Eintrag `sampleList` auf der Konsole aus, wenn das `storage`-Ereignis ausgelöst wird:
 
 ```js
 window.addEventListener("storage", () => {
@@ -51,7 +55,7 @@ window.addEventListener("storage", () => {
 });
 ```
 
-Die gleiche Aktion kann mit der `onstorage`-Ereignishandlereigenschaft erreicht werden:
+Dasselbe lässt sich mit der Ereignisbehandlungs-Eigenschaft `onstorage` erreichen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onstorage` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 window.onstorage = () => {
@@ -73,4 +77,4 @@ window.onstorage = () => {
 
 - [Web Storage API](/de/docs/Web/API/Web_Storage_API)
 - [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Reaktion auf Speicheränderungen mit dem StorageEvent](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)
+- [Auf Speicheränderungen mit dem StorageEvent reagieren](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)

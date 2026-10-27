@@ -1,22 +1,26 @@
 ---
-title: "Element: lostpointercapture Ereignis"
+title: "Element: lostpointercapture-Ereignis"
 short-title: lostpointercapture
 slug: Web/API/Element/lostpointercapture_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das **`lostpointercapture`** Ereignis wird ausgelöst, wenn ein [gefangener Zeiger](/de/docs/Web/API/Pointer_events#pointer_capture) freigegeben wird.
+Das **`lostpointercapture`**-Ereignis wird ausgelöst, wenn ein [erfasster Pointer](/de/docs/Web/API/Pointer_events#pointer_capture) freigegeben wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("lostpointercapture", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onlostpointercapture = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-In diesem Beispiel wird für ein Element das `lostpointercapture` Ereignis überwacht, und der Zeiger für das Element bei `pointerdown` erfasst. Wenn der Benutzer anschließend den Zeiger freigibt, wird das `lostpointercapture` Ereignis ausgelöst.
+Dieses Beispiel überwacht das `lostpointercapture`-Ereignis für ein Element und erfasst den Pointer für dieses Element bei `pointerdown`. Wenn der Benutzer den Pointer anschließend freigibt, wird das `lostpointercapture`-Ereignis ausgelöst.
 
 ```js
 const para = document.querySelector("p");
@@ -42,7 +46,7 @@ para.addEventListener("pointerdown", (event) => {
 });
 ```
 
-Dasselbe Beispiel, aber unter Verwendung der `onlostpointercapture` Ereignis-Handler-Eigenschaft:
+Dasselbe Beispiel, jedoch mit der Event-Handler-Eigenschaft `onlostpointercapture`. Beachten Sie, dass dadurch gegebenenfalls andere Ereignis-Listener ersetzt werden, die mit `onlostpointercapture` hinzugefügt wurden:
 
 ```js
 const para = document.querySelector("p");

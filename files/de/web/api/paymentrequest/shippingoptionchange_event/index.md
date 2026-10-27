@@ -1,26 +1,30 @@
 ---
-title: "PaymentRequest: shippingoptionchange Event"
+title: "PaymentRequest: shippingoptionchange-Ereignis"
 short-title: shippingoptionchange
 slug: Web/API/PaymentRequest/shippingoptionchange_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
-Für Zahlungsanforderungen, die Versandinformationen anfordern und für die Versandoptionen angeboten werden, wird das **`shippingoptionchange`**-Ereignis an die [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) gesendet, wann immer der Benutzer eine Versandoption aus der Liste der verfügbaren Optionen auswählt.
+Bei Zahlungsanforderungen, die Versandinformationen anfordern und Versandoptionen anbieten, wird das **`shippingoptionchange`**-Ereignis an [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) gesendet, wenn der Benutzer eine Versandoption aus der Liste der verfügbaren Optionen auswählt.
 
-Der String, der die aktuell ausgewählte Versandoption identifiziert, ist in der [`shippingOption`](/de/docs/Web/API/PaymentRequest/shippingOption) Eigenschaft zu finden.
+Die Zeichenfolge, die die aktuell ausgewählte Versandoption identifiziert, steht in der [`shippingOption`](/de/docs/Web/API/PaymentRequest/shippingOption)-Eigenschaft.
 
-Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("shippingoptionchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+
+```js-nolint
 onshippingoptionchange = (event) => { }
 ```
 
@@ -32,31 +36,29 @@ Ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent). E
 
 ## Beispiele
 
-Dieses Codebeispiel richtet einen Handler für das `shippingoptionchange`-Ereignis ein. Der Code berechnet die Gesamtkosten für die Zahlung basierend auf der ausgewählten Versandoption neu. Zum Beispiel, wenn es drei Optionen gibt (wie "Kostenloser Bodentransport", "Luftversand in 2 Tagen" und "Nächster Tag"), wird jedes Mal, wenn der Benutzer eine dieser Optionen auswählt, dieser Ereignishandler aufgerufen, um den Gesamtbetrag basierend auf der geänderten Versandoption neu zu berechnen.
+Dieser Codeausschnitt richtet einen Handler für das `shippingoptionchange`-Ereignis ein. Der Code berechnet den Gesamtbetrag der Zahlung anhand der ausgewählten Versandoption neu. Wenn es beispielsweise drei Optionen gibt („Kostenloser Standardversand“, „Luftversand innerhalb von zwei Tagen“ und „Lieferung am nächsten Tag“), wird dieser Event-Handler jedes Mal aufgerufen, wenn der Benutzer eine dieser Optionen auswählt, um den Gesamtbetrag entsprechend der geänderten Versandoption neu zu berechnen.
 
 ```js
 paymentRequest.addEventListener("shippingoptionchange", (event) => {
   const value = calculateNewTotal(paymentRequest.shippingOption);
   const total = {
-    currency: "EUR",
     label: "Total due",
-    value,
+    amount: { currency: "EUR", value },
   };
   event.updateWith({ total });
 });
 ```
 
-Nach dem Aufruf einer benutzerdefinierten Funktion, `calculateNewTotal()`, um den aktualisierten Gesamtbetrag basierend auf der neu ausgewählten Versandoption zu berechnen, wie sie durch die [`shippingOption`](/de/docs/Web/API/PaymentRequest/shippingOption) angegeben ist. Der überarbeitete Gesamtbetrag wird durch den Aufruf der [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) Methode des Ereignisses zurück an die Zahlungsanforderung übermittelt.
+Anschließend wird eine benutzerdefinierte Funktion, `calculateNewTotal()`, aufgerufen, um den aktualisierten Gesamtbetrag anhand der neu ausgewählten Versandoption zu berechnen, die durch [`shippingOption`](/de/docs/Web/API/PaymentRequest/shippingOption) angegeben wird. Der neue Gesamtbetrag wird an die Zahlungsanforderung übergeben, indem die Methode [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) des Ereignisses aufgerufen wird.
 
-Sie können auch einen Ereignishandler für `shippingoptionchange` erstellen, indem Sie dessen entsprechende Ereignishandlereigenschaft, `onshippingoptionchange`, verwenden:
+Sie können einen Event-Handler für `shippingoptionchange` auch über die zugehörige Event-Handler-Eigenschaft `onshippingoptionchange` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onshippingoptionchange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 paymentRequest.onshippingoptionchange = (event) => {
   const value = calculateNewTotal(paymentRequest.shippingOption);
   const total = {
-    currency: "EUR",
     label: "Total due",
-    value,
+    amount: { currency: "EUR", value },
   };
   event.updateWith({ total });
 };

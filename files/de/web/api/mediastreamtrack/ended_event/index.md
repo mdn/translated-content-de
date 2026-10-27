@@ -1,24 +1,28 @@
 ---
-title: "MediaStreamTrack: ended Ereignis"
+title: "MediaStreamTrack: ended-Ereignis"
 short-title: ended
 slug: Web/API/MediaStreamTrack/ended_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`ended`** Ereignis der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Schnittstelle wird ausgelöst, wenn die Wiedergabe oder das Streaming gestoppt wurde, da das Ende der Medien erreicht wurde oder keine weiteren Daten verfügbar sind.
+Das **`ended`**-Ereignis der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle wird ausgelöst, wenn die Wiedergabe oder das Streaming beendet wurde, weil das Ende des Mediums erreicht wurde oder keine weiteren Daten verfügbar sind.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("ended", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onended = (event) => { }
 ```
 
@@ -26,21 +30,21 @@ onended = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-`ended`-Ereignisse werden ausgelöst, wenn die Quelle der Mediastream-Spur dauerhaft aufhört, Daten im Stream zu senden. Es gibt verschiedene Möglichkeiten, wie dies geschehen kann, darunter:
+`ended`-Ereignisse werden ausgelöst, wenn die Quelle des Media-Stream-Tracks dauerhaft aufhört, Daten über den Stream zu senden. Dafür gibt es verschiedene mögliche Ursachen:
 
-- Es sind keine Daten mehr zum Senden vorhanden.
-- Der Benutzer hat die erforderlichen Berechtigungen für das Senden der Daten widerrufen.
-- Die Hardware, die die Quelldaten generiert, wurde entfernt oder ausgeworfen.
-- Ein entfernter Teilnehmer hat dauerhaft aufgehört, Daten zu senden.
-- Der einzige Fall, in dem die Spur endet, das `ended`-Ereignis jedoch nicht ausgelöst wird, ist beim Aufruf von [`MediaStreamTrack.stop`](/de/docs/Web/API/MediaStreamTrack/stop).
+- Es sind keine weiteren Daten zum Senden vorhanden.
+- Der Benutzer hat die zum Senden der Daten erforderlichen Berechtigungen widerrufen.
+- Die Hardware, die die Quelldaten erzeugt, wurde entfernt oder ausgeworfen.
+- Ein entfernter Peer hat dauerhaft aufgehört, Daten zu senden.
+- Der einzige Fall, in dem der Track endet, ohne dass das `ended`-Ereignis ausgelöst wird, ist ein Aufruf von [`MediaStreamTrack.stop`](/de/docs/Web/API/MediaStreamTrack/stop).
 
-Das Pausieren von Medien _erzeugt kein_ `ended`-Ereignis.
+Das Pausieren von Medien löst _kein_ `ended`-Ereignis aus.
 
 ## Beispiele
 
-Dieses Beispiel richtet einen Ereignishandler für das `ended`-Ereignis ein, der ein Symbol auf dem Bildschirm ändert, um anzuzeigen, dass die Spur nicht mehr aktiv ist.
+In diesem Beispiel wird ein Event-Handler für das `ended`-Ereignis eingerichtet, der ein Symbol auf dem Bildschirm ändert, um anzuzeigen, dass der Track nicht mehr aktiv ist.
 
 ```js
 track.addEventListener("ended", () => {
@@ -49,7 +53,7 @@ track.addEventListener("ended", () => {
 });
 ```
 
-Sie können den Ereignishandler auch mit der `onended`-Eigenschaft einrichten:
+Sie können den Event-Handler auch über die `onended`-Eigenschaft einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onended` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 track.onended = () => {
@@ -69,10 +73,10 @@ track.onended = () => {
 
 ## Siehe auch
 
-- Das HTMLMediaElement [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event) Ereignis
-- Das HTMLMediaElement [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event) Ereignis
-- Das HTMLMediaElement [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event) Ereignis
+- Das HTMLMediaElement-Ereignis [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)
+- Das HTMLMediaElement-Ereignis [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)
+- Das HTMLMediaElement-Ereignis [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}
-- Das HTMLMediaElement [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event) Ereignis
-- Das AudioScheduledSourceNode [`ended`](/de/docs/Web/API/AudioScheduledSourceNode/ended_event) Ereignis
+- Das HTMLMediaElement-Ereignis [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)
+- Das AudioScheduledSourceNode-Ereignis [`ended`](/de/docs/Web/API/AudioScheduledSourceNode/ended_event)

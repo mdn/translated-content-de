@@ -1,26 +1,30 @@
 ---
-title: "AudioScheduledSourceNode: ended Ereignis"
+title: "AudioScheduledSourceNode: ended-Ereignis"
 short-title: ended
 slug: Web/API/AudioScheduledSourceNode/ended_event
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das `ended` Ereignis der [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) Schnittstelle wird ausgelöst, wenn der Quellknoten das Abspielen beendet hat.
+Das `ended`-Ereignis der Schnittstelle [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) wird ausgelöst, wenn der Quellknoten die Wiedergabe beendet hat.
 
-Dieses Ereignis tritt auf, wenn ein [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) das Abspielen beendet hat, entweder weil eine vorherbestimmte Stoppzeit erreicht wurde, die vollständige Dauer des Audios durchgeführt wurde oder weil der gesamte Puffer abgespielt wurde.
+Dies geschieht, wenn ein [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) die Wiedergabe beendet hat – entweder weil ein vorab festgelegter Stoppzeitpunkt erreicht wurde, die gesamte Audiodauer abgespielt wurde oder der gesamte Buffer abgespielt wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("ended", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onended = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird ein Ereignis-Listener für das `ended` Ereignis eingerichtet, um eine "Start"-Schaltfläche in der Benutzeroberfläche zu aktivieren, wenn der Knoten das Abspielen stoppt:
+In diesem einfachen Beispiel wird ein Event-Listener für das `ended`-Ereignis eingerichtet, der eine „Start“-Schaltfläche in der Benutzeroberfläche aktiviert, sobald der Knoten die Wiedergabe beendet:
 
 ```js
 node.addEventListener("ended", () => {
@@ -38,7 +42,7 @@ node.addEventListener("ended", () => {
 });
 ```
 
-Sie können den Ereignishandler auch mit der `onended` Eigenschaft einrichten:
+Sie können den Event-Handler auch über die Eigenschaft `onended` einrichten. Beachten Sie jedoch, dass dadurch andere über `onended` hinzugefügte Event-Listener ersetzt werden, sofern vorhanden:
 
 ```js
 node.onended = () => {
@@ -46,7 +50,7 @@ node.onended = () => {
 };
 ```
 
-Für ein Beispiel zur Verwendung des ended Ereignisses, sehen Sie sich unser [Audio-Puffer-Beispiel auf GitHub](https://mdn.github.io/webaudio-examples/audio-buffer/) an.
+Ein Anwendungsbeispiel für das `ended`-Ereignis finden Sie in unserem [Audio-Buffer-Beispiel auf GitHub](https://mdn.github.io/webaudio-examples/audio-buffer/).
 
 ## Spezifikationen
 
@@ -67,5 +71,5 @@ Für ein Beispiel zur Verwendung des ended Ereignisses, sehen Sie sich unser [Au
 - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}
-- Das HTMLMediaElement [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event) Ereignis
-- Das MediaStreamTrack [`ended`](/de/docs/Web/API/MediaStreamTrack/ended_event) Ereignis
+- Das [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)-Ereignis von HTMLMediaElement
+- Das [`ended`](/de/docs/Web/API/MediaStreamTrack/ended_event)-Ereignis von MediaStreamTrack

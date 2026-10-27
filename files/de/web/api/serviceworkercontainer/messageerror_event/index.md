@@ -3,22 +3,26 @@ title: "ServiceWorkerContainer: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/ServiceWorkerContainer/messageerror_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis wird an den [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) ausgelöst, wenn eine eingehende Nachricht, die an den zugehörigen Worker gesendet wird, nicht deserialisiert werden kann.
+Das **`messageerror`**-Ereignis wird für den [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) ausgelöst, wenn eine eingehende Nachricht, die an den zugehörigen Worker gesendet wurde, nicht deserialisiert werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessageerror = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-In diesem Beispiel erhält der Service Worker die ID des Clients von einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis und sendet ihm dann eine Nachricht mit [`Client.postMessage`](/de/docs/Web/API/Client/postMessage):
+In diesem Beispiel ermittelt der Service Worker die ID des Clients aus einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis und sendet ihm anschließend mit [`Client.postMessage`](/de/docs/Web/API/Client/postMessage) eine Nachricht:
 
 ```js
 // service-worker.js
@@ -47,7 +51,7 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Der Service Worker kann auf den Fehler bei der Nachrichtendeserialisierung achten, indem er auf das `messageerror`-Ereignis hört:
+Der Service Worker kann auf Fehler bei der Deserialisierung der Nachricht reagieren, indem er auf das `messageerror`-Ereignis lauscht:
 
 ```js
 // main.js
@@ -56,7 +60,7 @@ navigator.serviceWorker.addEventListener("messageerror", (event) => {
 });
 ```
 
-Alternativ kann das Skript auch auf den Fehler bei der Nachrichtendeserialisierung achten, indem `onmessageerror` verwendet wird:
+Alternativ kann das Skript mithilfe von `onmessageerror` auf Fehler bei der Deserialisierung der Nachricht reagieren. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onmessageerror` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 // main.js
@@ -77,6 +81,6 @@ navigator.serviceWorker.onmessageerror = (event) => {
 
 - [`message`](/de/docs/Web/API/ServiceWorkerContainer/message_event)
 - [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Einfaches Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Web Workers verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

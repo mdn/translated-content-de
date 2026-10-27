@@ -1,26 +1,30 @@
 ---
-title: "Dokument: pointerlockchange Ereignis"
+title: "Dokument: pointerlockchange-Ereignis"
 short-title: pointerlockchange
 slug: Web/API/Document/pointerlockchange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("Pointer Lock API")}}
 
 Das **`pointerlockchange`**-Ereignis wird ausgelöst, wenn der Zeiger gesperrt oder entsperrt wird.
 
-Der Ereignishandler kann [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) verwenden, um festzustellen, ob der Zeiger gesperrt ist und, falls ja, an welches Element er gebunden ist.
+Mit [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) kann im Event-Handler festgestellt werden, ob der Zeiger gesperrt ist und, falls ja, an welches Element er gebunden ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und bildet keine Blase.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerlockchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointerlockchange = (event) => { }
 ```
 
@@ -33,7 +37,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 Verwendung von `addEventListener()`:
 
 ```js
-addEventListener("pointerlockchange", (event) => {
+document.addEventListener("pointerlockchange", (event) => {
   if (document.pointerLockElement)
     console.log("The pointer is locked to: ", document.pointerLockElement);
   else {
@@ -42,7 +46,7 @@ addEventListener("pointerlockchange", (event) => {
 });
 ```
 
-Verwendung der `onpointerlockchange` Ereignishandler-Eigenschaft:
+Verwendung der Event-Handler-Eigenschaft `onpointerlockchange` (beachten Sie jedoch, dass dadurch andere gegebenenfalls über `onpointerlockchange` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 document.onpointerlockchange = (event) => {

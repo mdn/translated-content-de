@@ -1,22 +1,26 @@
 ---
-title: "SpeechSynthesisUtterance: mark-Event"
+title: "SpeechSynthesisUtterance: mark-Ereignis"
 short-title: mark
 slug: Web/API/SpeechSynthesisUtterance/mark_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`mark`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn die gesprochene Äußerung einen benannten SSML-"Mark"-Tag erreicht.
+Das **`mark`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn die gesprochene Äußerung ein benanntes SSML-„mark“-Tag erreicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("mark", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmark = (event) => { }
 ```
 
@@ -36,7 +40,7 @@ utterThis.addEventListener("mark", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onmark` Event-Handler-Eigenschaft:
+Oder verwenden Sie die `onmark`-Event-Handler-Eigenschaft. Beachten Sie jedoch, dass dadurch andere Ereignis-Listener ersetzt werden, die gegebenenfalls über `onmark` hinzugefügt wurden:
 
 ```js
 utterThis.onmark = (event) => {

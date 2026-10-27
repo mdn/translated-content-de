@@ -1,22 +1,26 @@
 ---
-title: "Element: gotpointercapture Ereignis"
+title: "Element: gotpointercapture-Ereignis"
 short-title: gotpointercapture
 slug: Web/API/Element/gotpointercapture_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das **`gotpointercapture`** Ereignis wird ausgelöst, wenn ein Element einen Zeiger mit [`setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture) erfasst.
+Das **`gotpointercapture`**-Ereignis wird ausgelöst, wenn ein Element mithilfe von [`setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture) einen Zeiger erfasst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("gotpointercapture", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ongotpointercapture = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-Dieses Beispiel erhält ein `<p>`-Element und hört auf das `gotpointercapture` Ereignis. Es ruft dann `setPointerCapture()` auf dem Element bei einem `pointerdown` Ereignis auf, was `gotpointercapture` auslöst.
+Dieses Beispiel ruft ein `<p>`-Element ab und lauscht auf das `gotpointercapture`-Ereignis. Bei einem `pointerdown`-Ereignis ruft es dann `setPointerCapture()` für das Element auf, wodurch `gotpointercapture` ausgelöst wird.
 
 ```js
 const para = document.querySelector("p");
@@ -42,7 +46,7 @@ para.addEventListener("pointerdown", (event) => {
 });
 ```
 
-Das gleiche Beispiel unter Verwendung der `ongotpointercapture` Ereignis-Handler-Eigenschaft:
+Dasselbe Beispiel mit der Event-Handler-Eigenschaft `ongotpointercapture` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `ongotpointercapture` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

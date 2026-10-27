@@ -1,29 +1,33 @@
 ---
-title: "RTCPeerConnection: icegatheringstatechange Ereignis"
+title: "RTCPeerConnection: icegatheringstatechange-Ereignis"
 short-title: icegatheringstatechange
 slug: Web/API/RTCPeerConnection/icegatheringstatechange_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`icegatheringstatechange`** Ereignis wird an den `onicegatheringstatechange` Ereignishandler auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Zustand des {{Glossary("ICE", "ICE")}} Kandidatensammlungsprozesses ändert. Dies bedeutet, dass sich der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) Eigenschaft der Verbindung geändert hat.
+Das **`icegatheringstatechange`**-Ereignis wird an den Event-Handler `onicegatheringstatechange` einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Zustand der Erfassung von {{Glossary("ICE", "ICE")}}-Kandidaten ändert. Das bedeutet, dass sich der Wert der Eigenschaft [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) der Verbindung geändert hat.
 
-Wenn ICE erstmals beginnt, Verbindungskandidaten zu sammeln, ändert sich der Wert von `new` zu `gathering`, um anzuzeigen, dass der Prozess des Sammelns von Konfigurationskandidaten für die Verbindung begonnen hat. Sobald der Wert zu `complete` wechselt, haben alle Transports, die die `RTCPeerConnection` ausmachen, die Sammlung von ICE-Kandidaten abgeschlossen.
+Wenn ICE mit der Erfassung von Verbindungskandidaten beginnt, ändert sich der Wert von `new` zu `gathering`. Dies zeigt an, dass die Erfassung möglicher Konfigurationen für die Verbindung begonnen hat. Wenn sich der Wert zu `complete` ändert, haben alle Transports der `RTCPeerConnection` die Erfassung von ICE-Kandidaten abgeschlossen.
 
 > [!NOTE]
-> Während Sie feststellen können, dass die Sammlung von ICE-Kandidaten abgeschlossen ist, indem Sie auf `icegatheringstatechange` Ereignisse achten und überprüfen, ob der Wert von [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) zu `complete` geworden ist, können Sie auch Ihren Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis so konfigurieren, dass er überprüft, ob seine [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) Eigenschaft `null` ist. Dies zeigt ebenfalls an, dass die Sammlung von Kandidaten abgeschlossen ist.
+> Sie können feststellen, dass die Erfassung von ICE-Kandidaten abgeschlossen ist, indem Sie auf `icegatheringstatechange`-Ereignisse achten und prüfen, ob der Wert von [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) zu `complete` wechselt. Alternativ können Sie im Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis prüfen, ob dessen Eigenschaft [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) `null` ist. Auch dies zeigt an, dass die Erfassung von Kandidaten abgeschlossen ist.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht durch die DOM-Hierarchie weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("icegatheringstatechange", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onicegatheringstatechange = (event) => { }
 ```
 
@@ -33,7 +37,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Handler für `icegatheringstatechange` Ereignisse.
+Dieses Beispiel erstellt mithilfe der Eigenschaft `onicegatheringstatechange` einen Handler für `icegatheringstatechange`-Ereignisse. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onicegatheringstatechange` hinzugefügte Event-Listener ersetzt werden.
 
 ```js
 pc.onicegatheringstatechange = (ev) => {
@@ -50,7 +54,7 @@ pc.onicegatheringstatechange = (ev) => {
 };
 ```
 
-Ebenso können Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um einen Listener für `icegatheringstatechange` Ereignisse hinzuzufügen:
+Ebenso können Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einen Listener für `icegatheringstatechange`-Ereignisse hinzufügen:
 
 ```js
 pc.addEventListener("icegatheringstatechange", (ev) => {
@@ -77,7 +81,7 @@ pc.addEventListener("icegatheringstatechange", (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)

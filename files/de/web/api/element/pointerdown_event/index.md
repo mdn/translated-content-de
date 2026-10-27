@@ -1,27 +1,31 @@
 ---
-title: "Element: pointerdown Ereignis"
+title: "Element: pointerdown-Ereignis"
 short-title: pointerdown
 slug: Web/API/Element/pointerdown_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das `pointerdown` Ereignis wird ausgelöst, wenn ein Zeiger aktiv wird. Bei einer Maus wird es ausgelöst, wenn das Gerät vom Zustand ohne gedrückte Tasten in einen Zustand mit mindestens einer gedrückten Taste wechselt. Bei Berührung wird es ausgelöst, wenn physischer Kontakt mit dem Digitalisierer hergestellt wird. Bei einem Stift wird es ausgelöst, wenn der Stift physischen Kontakt mit dem Digitalisierer herstellt.
+Das `pointerdown`-Ereignis wird ausgelöst, wenn ein Zeiger aktiv wird. Bei einer Maus geschieht dies, wenn von keiner gedrückten Taste zu mindestens einer gedrückten Taste gewechselt wird. Bei einer Berührung wird es ausgelöst, wenn physischer Kontakt mit dem Digitizer hergestellt wird. Bei einem Stift wird es ausgelöst, wenn die Stiftspitze physischen Kontakt mit dem Digitizer herstellt.
 
-Dieses Verhalten unterscheidet sich von [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignissen. Bei Verwendung einer physischen Maus werden `mousedown` Ereignisse ausgelöst, wenn irgendeine Taste an der Maus gedrückt wird. `pointerdown` Ereignisse werden nur beim Drücken der ersten Taste ausgelöst; nachfolgende Tastendrücke lösen keine `pointerdown` Ereignisse aus.
+Dieses Verhalten unterscheidet sich von [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignissen. Bei einer physischen Maus werden `mousedown`-Ereignisse jedes Mal ausgelöst, wenn eine Maustaste gedrückt wird. `pointerdown`-Ereignisse werden nur beim ersten Tastendruck ausgelöst; weitere Tastendrücke lösen keine `pointerdown`-Ereignisse aus.
 
 > [!NOTE]
-> Bei Touchscreen-Browsern, die [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) erlauben, löst ein `pointerdown` Ereignis eine [implizite Zeigererfassung](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture) aus, wodurch das Ziel alle nachfolgenden Zeigerereignisse erfasst, als ob sie über dem erfassenden Ziel auftreten würden. Entsprechend werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**, solange diese Erfassung aktiv ist. Die Erfassung kann manuell beendet werden, indem [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) auf dem Zielelement aufgerufen wird, oder sie wird automatisch nach einem `pointerup` oder `pointercancel` Ereignis beendet.
+> In Touchscreen-Browsern, die [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) erlauben, löst ein `pointerdown`-Ereignis eine [implizite Zeigererfassung](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture) aus. Dadurch erfasst das Zielelement alle nachfolgenden Zeigerereignisse, als würden sie über ihm stattfinden. Solange diese Erfassung besteht, werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**. Die Erfassung kann manuell aufgehoben werden, indem Sie [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) für das Zielelement aufrufen. Nach einem `pointerup`- oder `pointercancel`-Ereignis wird sie automatisch aufgehoben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder stellen Sie eine Ereignisbehandlereigenschaft ein.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerdown", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignishandler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointerdown = (event) => { }
 ```
 
@@ -33,7 +37,7 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 
 ## Beispiele
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const para = document.querySelector("p");
@@ -43,7 +47,7 @@ para.addEventListener("pointerdown", (event) => {
 });
 ```
 
-Verwendung der `onpointerdown` Ereignisbehandlereigenschaft:
+Mit der Ereignishandler-Eigenschaft `onpointerdown` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onpointerdown` hinzugefügte Ereignislistener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

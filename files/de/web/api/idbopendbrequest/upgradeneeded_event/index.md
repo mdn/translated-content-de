@@ -3,22 +3,26 @@ title: "IDBOpenDBRequest: upgradeneeded-Ereignis"
 short-title: upgradeneeded
 slug: Web/API/IDBOpenDBRequest/upgradeneeded_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("IndexedDB")}}
 
-Das `upgradeneeded`-Ereignis wird ausgelöst, wenn versucht wurde, eine Datenbank mit einer Versionsnummer zu öffnen, die höher ist als die aktuelle Version.
+Das `upgradeneeded`-Ereignis wird ausgelöst, wenn versucht wird, eine Datenbank mit einer höheren Versionsnummer als ihrer aktuellen zu öffnen.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("upgradeneeded", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onupgradeneeded = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von 
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und behandelt das `upgradeneeded`-Ereignis, indem notwendige Aktualisierungen im Objektstore vorgenommen werden.
+Dieses Beispiel öffnet eine Datenbank und verarbeitet das `upgradeneeded`-Ereignis, indem es alle erforderlichen Änderungen am Object Store vornimmt.
 
 ```js
 // Open the database
@@ -54,7 +58,7 @@ dBOpenRequest.addEventListener("upgradeneeded", (event) => {
 });
 ```
 
-Dies ist dasselbe Beispiel, verwendet jedoch die `onupgradeneeded`-Ereignis-Handler-Eigenschaft.
+Dies ist dasselbe Beispiel, verwendet aber die Event-Handler-Eigenschaft `onupgradeneeded`. Beachten Sie, dass dadurch gegebenenfalls andere über `onupgradeneeded` hinzugefügte Event-Listener ersetzt werden.
 
 ```js
 // Open the database
@@ -88,4 +92,4 @@ dBOpenRequest.onupgradeneeded = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

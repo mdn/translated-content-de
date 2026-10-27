@@ -1,32 +1,36 @@
 ---
-title: "RTCDataChannel: error Ereignis"
+title: "RTCDataChannel: error-Ereignis"
 short-title: error
 slug: Web/API/RTCDataChannel/error_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein WebRTC `error`-Ereignis wird an den `onerror` Ereignishandler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn ein Fehler im Datenkanal auftritt.
+Ein WebRTC-`error`-Ereignis wird an den `onerror`-Event-Handler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn auf dem Datenkanal ein Fehler auftritt.
 
-Das [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent)-Objekt liefert Einzelheiten über den Fehler, der aufgetreten ist; siehe diesen Artikel für Details.
+Das [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent)-Objekt enthält Einzelheiten zum aufgetretenen Fehler. Weitere Informationen finden Sie im verlinkten Artikel.
 
-Dieses Ereignis ist nicht stornierbar und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht durch die DOM-Hierarchie weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
+Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Es erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("RTCErrorEvent")}}
 
@@ -83,7 +87,7 @@ dc.addEventListener("error", (ev) => {
         console.error("    Received DTLS failure alert: ", err.receivedAlert);
       }
       if (err.sentAlert) {
-        console.error("    Sent DTLS failure alert: ", err.receivedAlert);
+        console.error("    Sent DTLS failure alert: ", err.sentAlert);
       }
       break;
   }
@@ -101,13 +105,13 @@ dc.addEventListener("error", (ev) => {
 });
 ```
 
-Das empfangene Ereignis liefert Details in einem [`RTCError`](/de/docs/Web/API/RTCError)-Objekt namens [`error`](/de/docs/Web/API/RTCErrorEvent/error); `RTCError` ist eine Erweiterung der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle. Der [`name`](/de/docs/Web/API/DOMException/name) des Fehlers ist `RTCError` und die [`message`](/de/docs/Web/API/DOMException/message) ist eine Fehlermeldung, die von der WebRTC-Schicht angegeben wird.
+Das empfangene Ereignis stellt Einzelheiten in einem [`RTCError`](/de/docs/Web/API/RTCError)-Objekt namens [`error`](/de/docs/Web/API/RTCErrorEvent/error) bereit. `RTCError` ist eine Erweiterung der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle. Der [`name`](/de/docs/Web/API/DOMException/name) des Fehlers ist `RTCError`, und die [`message`](/de/docs/Web/API/DOMException/message) ist eine von der WebRTC-Schicht festgelegte Fehlermeldung.
 
-Fehlerinformationen werden mit [`console.error()`](/de/docs/Web/API/console/error_static) an die Konsole ausgegeben. Der `message`-String wird immer ausgegeben, ebenso wie Informationen über den Namen der Quelldatei, die Zeilennummer und die Spaltennummer, an denen der Fehler aufgetreten ist.
+Die Fehlerinformationen werden mit [`console.error()`](/de/docs/Web/API/console/error_static) in der Konsole ausgegeben. Die Zeichenfolge `message` wird immer ausgegeben, ebenso wie Informationen zum Namen der Quelldatei sowie zur Zeilen- und Spaltennummer, an der der Fehler aufgetreten ist.
 
-Darüber hinaus können je nach Wert von [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) zusätzliche Informationen ausgegeben werden. Jeder Fehlertyp hat eine unterschiedliche Menge an ausgegebenen Informationen. Zum Beispiel zeigt ein SDP-Syntaxfehler die Zeilennummer des Fehlers innerhalb des SDP an, und ein SCTP-Fehler zeigt eine Nachricht an, die dem SCTP-Ursachencode entspricht. Andere Fehlertypen geben ähnlich geeignete Informationen aus.
+Abhängig vom Wert von [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) können darüber hinaus zusätzliche Informationen ausgegeben werden. Für jeden Fehlertyp werden andere Informationen ausgegeben. Bei einem SDP-Syntaxfehler wird beispielsweise die Zeilennummer des Fehlers innerhalb des SDP angezeigt; bei einem SCTP-Fehler wird eine Meldung ausgegeben, die dem SCTP-Ursachencode entspricht. Auch bei anderen Fehlertypen werden entsprechende Informationen ausgegeben.
 
-Sie können auch einen Ereignishandler für `error`-Ereignisse mit der `onerror`-Ereignishandlereigenschaft der `RTCDataChannel`-Schnittstelle einrichten:
+Sie können einen Event-Handler für `error`-Ereignisse auch über die `onerror`-Event-Handler-Eigenschaft der `RTCDataChannel`-Schnittstelle einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onerror` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 dc.onerror = (ev) => {
@@ -118,7 +122,7 @@ dc.onerror = (ev) => {
 ```
 
 > [!NOTE]
-> Da `RTCError` nicht zu den älteren Fehlern gehört, ist der Wert von [`RTCError.code`](/de/docs/Web/API/DOMException/code) immer 0.
+> Da `RTCError` nicht zu den älteren Fehlertypen gehört, ist der Wert von [`RTCError.code`](/de/docs/Web/API/DOMException/code) immer 0.
 
 ## Spezifikationen
 
@@ -130,6 +134,6 @@ dc.onerror = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
 - Verwandte Ereignisse: [`open`](/de/docs/Web/API/RTCDataChannel/open_event), [`message`](/de/docs/Web/API/RTCDataChannel/message_event) und [`close`](/de/docs/Web/API/RTCDataChannel/close_event)

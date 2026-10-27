@@ -3,22 +3,26 @@ title: "Element: transitionstart-Ereignis"
 short-title: transitionstart
 slug: Web/API/Element/transitionstart_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef}}
 
-Das **`transitionstart`**-Ereignis wird ausgelöst, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions/Using) tatsächlich begonnen hat, d.h. nach Ablauf einer {{cssxref("transition-delay")}}.
+Das **`transitionstart`**-Ereignis wird ausgelöst, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions/Using) tatsächlich begonnen hat, also nachdem eine etwaige {{cssxref("transition-delay")}} abgelaufen ist.
 
-Dieses Ereignis ist nicht abbrechbar.
+Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("transitionstart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ontransitionstart = (event) => { }
 ```
 
@@ -38,7 +42,7 @@ element.addEventListener("transitionstart", () => {
 });
 ```
 
-Dasselbe, jedoch unter Verwendung der `ontransitionstart`-Eigenschaft anstelle von `addEventListener()`:
+Das Gleiche, jedoch mit der Eigenschaft `ontransitionstart` statt `addEventListener()` (beachten Sie, dass dadurch gegebenenfalls andere über `ontransitionstart` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 element.ontransitionstart = () => {
@@ -46,9 +50,9 @@ element.ontransitionstart = () => {
 };
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
-Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, das mit einer Transition inklusive einer Verzögerung gestylt ist:
+Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, das mit einer Transition gestaltet ist, die eine Verzögerung enthält:
 
 ```html
 <div class="transition">Hover over me</div>
@@ -71,7 +75,7 @@ Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, da
 }
 ```
 
-Dazu fügen wir etwas JavaScript hinzu, um zu zeigen, wo die `transitionstart`- und [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event)-Ereignisse auftreten.
+Dazu fügen wir etwas JavaScript hinzu, um anzuzeigen, wann die Ereignisse `transitionstart` und [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event) ausgelöst werden.
 
 ```js
 const transition = document.querySelector(".transition");
@@ -92,10 +96,10 @@ transition.addEventListener("transitionend", () => {
 
 {{ EmbedLiveSample('Live example', '100%', '170') }}
 
-Der Unterschied ist, dass:
+Der Unterschied besteht darin:
 
-- transitionrun ausgelöst wird, wenn die Transition erstellt wird (d.h. zu Beginn einer Verzögerung).
-- transitionstart ausgelöst wird, wenn die eigentliche Animation begonnen hat (d.h. am Ende einer Verzögerung).
+- `transitionrun` wird ausgelöst, wenn die Transition erstellt wird (also zu Beginn einer etwaigen Verzögerung).
+- `transitionstart` wird ausgelöst, wenn die eigentliche Animation begonnen hat (also am Ende einer etwaigen Verzögerung).
 
 ## Spezifikationen
 
@@ -107,6 +111,6 @@ Der Unterschied ist, dass:
 
 ## Siehe auch
 
-- Das [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Interface
+- Die Schnittstelle [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)
 - CSS-Eigenschaften: {{cssxref("transition")}}, {{cssxref("transition-delay")}}, {{cssxref("transition-duration")}}, {{cssxref("transition-property")}}, {{cssxref("transition-timing-function")}}
 - Verwandte Ereignisse: [`transitionend`](/de/docs/Web/API/Element/transitionend_event), [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event), [`transitioncancel`](/de/docs/Web/API/Element/transitioncancel_event)

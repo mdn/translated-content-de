@@ -3,7 +3,7 @@ title: "WebSocket: close-Ereignis"
 short-title: close
 slug: Web/API/WebSocket/close_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
@@ -12,11 +12,15 @@ Das `close`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket`
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("close", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onclose = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`CloseEvent`](/de/docs/Web/API/CloseEvent). Erbt von [`Event`](/de/docs/Web
 
 ## Beispiele
 
-Es könnte sinnvoll sein, zu wissen, wann die Verbindung geschlossen wurde, damit die Benutzeroberfläche aktualisiert oder möglicherweise Daten über die geschlossene Verbindung gespeichert werden können. Angenommen, Sie haben eine Variable namens `exampleSocket`, die auf einen geöffneten `WebSocket` verweist, würde dieser Handler die Situation behandeln, in der der Socket geschlossen wurde.
+Wenn die Verbindung geschlossen wurde, möchten Sie möglicherweise die Benutzeroberfläche aktualisieren oder Daten über die geschlossene Verbindung speichern. Angenommen, Sie haben eine Variable namens `exampleSocket`, die auf einen geöffneten `WebSocket` verweist. Dieser Handler behandelt den Fall, dass der Socket geschlossen wurde.
 
 ```js
 exampleSocket.addEventListener("close", (event) => {
@@ -36,7 +40,7 @@ exampleSocket.addEventListener("close", (event) => {
 });
 ```
 
-Sie können dieselben Aktionen mit der Ereignis-Handler-Eigenschaft durchführen, wie folgt:
+Sie können dieselben Aktionen auch über die Event-Handler-Eigenschaft ausführen (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onclose` hinzugefügte Ereignis-Listener ersetzt werden):
 
 ```js
 exampleSocket.onclose = (event) => {
@@ -54,7 +58,7 @@ exampleSocket.onclose = (event) => {
 
 ## Siehe auch
 
-- [WebSocket: error event](/de/docs/Web/API/WebSocket/error_event)
-- [WebSocket: message event](/de/docs/Web/API/WebSocket/message_event)
-- [WebSocket: open event](/de/docs/Web/API/WebSocket/open_event)
-- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket: error-Ereignis](/de/docs/Web/API/WebSocket/error_event)
+- [WebSocket: message-Ereignis](/de/docs/Web/API/WebSocket/message_event)
+- [WebSocket: open-Ereignis](/de/docs/Web/API/WebSocket/open_event)
+- [WebSocket-Client-Anwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

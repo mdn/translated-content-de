@@ -1,22 +1,26 @@
 ---
-title: "IDBRequest: error Ereignis"
+title: "IDBRequest: error-Ereignis"
 short-title: error
 slug: Web/API/IDBRequest/error_event
 l10n:
-  sourceCommit: 2055b7ecf76d97c34db90fa9e499391ec2354088
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("IndexedDB")}}
 
-Der `error`-Handler wird ausgeführt, wenn ein Fehler eine Anfrage fehlgeschlagen lässt. Im `error`-Ereignis-Handler können Sie auf den Fehler der Anfrage zugreifen und auch weitere Anfragen an die gleiche Transaktion stellen.
+Der `error`-Handler wird ausgeführt, wenn eine Anfrage aufgrund eines Fehlers fehlschlägt. Im Event-Handler für das `error`-Ereignis können Sie auf den Fehler der Anfrage zugreifen und weitere Anfragen innerhalb derselben Transaktion stellen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen. Es wird auf das `error`-Ereignis für die `add()`-Operation gehört (dies tritt auf, wenn zum Beispiel bereits ein Datensatz mit dem angegebenen `taskTitle` existiert):
+Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen. Dabei überwacht es das `error`-Ereignis für die `add()`-Operation. Dieses tritt beispielsweise auf, wenn bereits ein Datensatz mit dem angegebenen `taskTitle` existiert:
 
 ```js
 // Open the database
@@ -74,7 +78,7 @@ DBOpenRequest.addEventListener("success", (event) => {
 });
 ```
 
-Das gleiche Beispiel unter Verwendung der `onerror`-Eigenschaft anstelle von `addEventListener()`:
+Dasselbe Beispiel verwendet die `onerror`-Eigenschaft anstelle von `addEventListener()`. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onerror`, `onupgradeneeded` und `onsuccess` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 // Open the database
@@ -132,4 +136,4 @@ DBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

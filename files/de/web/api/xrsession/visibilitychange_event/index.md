@@ -1,22 +1,26 @@
 ---
-title: "XRSession: visibilitychange Event"
+title: "XRSession: visibilitychange-Ereignis"
 short-title: visibilitychange
 slug: Web/API/XRSession/visibilitychange_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`visibilitychange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, um sie darüber zu informieren, wann sie sichtbar oder versteckt wird oder wann sie sichtbar, aber nicht aktuell fokussiert ist. Nach Erhalt des Ereignisses können Sie den Wert der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState)-Eigenschaft der Sitzung überprüfen, um den neuen Sichtbarkeitszustand zu bestimmen.
+Das **`visibilitychange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn sie sichtbar oder verborgen wird oder wenn sie sichtbar wird, aber derzeit nicht fokussiert ist. Wenn Sie das Ereignis empfangen, können Sie den Wert der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState)-Eigenschaft der Sitzung prüfen, um ihren neuen Sichtbarkeitsstatus zu ermitteln.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("visibilitychange", (event) => { })
+```
 
+Alternativ können Sie den [Event-Handler-Property](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onvisibilitychange = (event) => { }
 ```
 
@@ -30,17 +34,17 @@ Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de/
 
 ### Auslöser
 
-Wird ausgelöst, wenn eine [`XRSession`](/de/docs/Web/API/XRSession) sichtbar oder versteckt wird, oder wenn sie sichtbar, aber nicht aktuell fokussiert ist.
+Wird ausgelöst, wenn eine [`XRSession`](/de/docs/Web/API/XRSession) sichtbar oder verborgen wird oder wenn sie sichtbar wird, aber derzeit nicht fokussiert ist.
 
-Wenn die `XRSession` dieses Ereignis empfängt, wurde der Sichtbarkeitszustand bereits geändert.
+Wenn die `XRSession` dieses Ereignis empfängt, wurde der Sichtbarkeitsstatus bereits geändert.
 
 ### Anwendungsfälle
 
-Nach Erhalt des Ereignisses können Sie den Wert der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState)-Eigenschaft der Sitzung überprüfen, um den neuen Sichtbarkeitszustand zu bestimmen.
+Wenn Sie das Ereignis empfangen, können Sie den Wert der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState)-Eigenschaft der Sitzung prüfen, um ihren neuen Sichtbarkeitsstatus zu ermitteln.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert, wie man mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf ein `visibilitychange`-Ereignis in einer WebXR-Sitzung lauscht, um mit dem Abhören des Ereignisses zu beginnen:
+Dieses Beispiel zeigt, wie Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf einer WebXR-Sitzung auf ein `visibilitychange`-Ereignis warten:
 
 ```js
 navigator.xr.requestSession("inline").then((xrSession) => {
@@ -58,9 +62,9 @@ navigator.xr.requestSession("inline").then((xrSession) => {
 });
 ```
 
-Wenn eine Änderung des Sichtbarkeitszustands auftritt, wird das Ereignis empfangen und an eine Funktion `mySessionVisible()` weitergeleitet, mit einem booleschen Parameter, der angibt, ob die Sitzung dem Benutzer derzeit angezeigt wird oder nicht.
+Wenn sich der Sichtbarkeitsstatus ändert, wird das Ereignis empfangen und an die Funktion `mySessionVisible()` weitergegeben. Ein boolescher Parameter gibt dabei an, ob die Sitzung dem Benutzer gerade angezeigt wird.
 
-Sie können den Ereignis-Handler auch erstellen, indem Sie ihn der `onvisibilitychange`-Ereignis-Handler-Eigenschaft der [`XRSession`](/de/docs/Web/API/XRSession) zuweisen, wie folgt:
+Sie können den Event-Handler auch erstellen, indem Sie ihn der `onvisibilitychange`-Event-Handler-Property der [`XRSession`](/de/docs/Web/API/XRSession) zuweisen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onvisibilitychange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 xrSession.onvisibilitychange = (e) => {

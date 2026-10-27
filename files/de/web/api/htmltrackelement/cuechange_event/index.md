@@ -1,22 +1,26 @@
 ---
-title: "HTMLTrackElement: cuechange Ereignis"
+title: "HTMLTrackElement: cuechange-Ereignis"
 short-title: cuechange
 slug: Web/API/HTMLTrackElement/cuechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("WebVTT")}}
 
-Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem es angezeigt wird, falls vorhanden.
+Das **`cuechange`**-Ereignis wird ausgelöst, wenn sich die aktuell angezeigten Cues eines [`TextTrack`](/de/docs/Web/API/TextTrack) ändern. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem er gegebenenfalls dargestellt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("cuechange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncuechange = (event) => { }
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-das zugrunde liegende [`TextTrack`](/de/docs/Web/API/TextTrack), durch die [`track`](/de/docs/Web/API/HTMLTrackElement/track)-Eigenschaft angezeigt, erhält jedes Mal ein `cuechange`-Ereignis, wenn der aktuell präsentierte Cue geändert wird. Dies geschieht auch, wenn das Track nicht mit einem Medien-Element verknüpft ist.
+Der zugrunde liegende [`TextTrack`](/de/docs/Web/API/TextTrack), auf den die Eigenschaft [`track`](/de/docs/Web/API/HTMLTrackElement/track) verweist, empfängt jedes Mal ein `cuechange`-Ereignis, wenn sich der aktuell angezeigte Cue ändert. Dies geschieht auch dann, wenn der Track keinem Medienelement zugeordnet ist.
 
-Wenn das Track _mit_ einem Medien-Element verknüpft ist, indem das {{HTMLElement("track")}}-Element als Kind des {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Elements verwendet wird, wird das `cuechange`-Ereignis auch an das [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) gesendet.
+Wenn der Track einem Medienelement zugeordnet ist, indem das {{HTMLElement("track")}}-Element als Kindelement des {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Elements verwendet wird, wird das `cuechange`-Ereignis auch an das [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) gesendet.
 
 ```js
 let textTrackElem = document.getElementById("text-track");
@@ -38,7 +42,7 @@ textTrackElem.addEventListener("cuechange", (event) => {
 });
 ```
 
-Alternativ können Sie den `oncuechange`-Ereignis-Handler verwenden:
+Alternativ können Sie den `oncuechange`-Event-Handler verwenden. Beachten Sie jedoch, dass dadurch andere gegebenenfalls über `oncuechange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 let textTrackElem = document.getElementById("text-track");

@@ -3,20 +3,24 @@ title: "SpeechSynthesisUtterance: resume-Ereignis"
 short-title: resume
 slug: Web/API/SpeechSynthesisUtterance/resume_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`resume`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API)-[`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts wird ausgelöst, wenn eine pausierte Äußerung fortgesetzt wird.
+Das **`resume`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn eine pausierte Äußerung fortgesetzt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("resume", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces einen Wert zuweisen:
+
+```js-nolint
 onresume = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent). Erbt von [`
 
 ## Beispiele
 
-Sie können das `resume`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `resume`-Ereignis mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 utterThis.addEventListener("resume", (event) => {
@@ -36,7 +40,7 @@ utterThis.addEventListener("resume", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onresume`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die Event-Handler-Eigenschaft `onresume` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onresume` hinzugefügte Ereignis-Listener ersetzt werden):
 
 ```js
 utterThis.onresume = (event) => {

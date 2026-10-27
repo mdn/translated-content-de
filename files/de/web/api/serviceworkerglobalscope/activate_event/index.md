@@ -1,28 +1,32 @@
 ---
-title: "ServiceWorkerGlobalScope: activate-Event"
+title: "ServiceWorkerGlobalScope: activate-Ereignis"
 short-title: activate
 slug: Web/API/ServiceWorkerGlobalScope/activate_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Der **`activate`**-Event des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird ausgelöst, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active)-Worker übernimmt.
+Das **`activate`**-Ereignis der Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) wird ausgelöst, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen aktiven Worker unter [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) erhält.
 
-Dieser Event kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("activate", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onactivate = (event) => { }
 ```
 
-## Eventtyp
+## Ereignistyp
 
 Ein [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
@@ -30,7 +34,7 @@ Ein [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Erbt von [`Event`](/d
 
 ## Beispiele
 
-Das folgende Codebeispiel zeigt, wie ein `activate`-Event-Handler verwendet werden könnte, um einen Cache zu aktualisieren.
+Der folgende Ausschnitt zeigt, wie Sie mit einem `activate`-Event-Handler einen Cache aktualisieren können.
 
 ```js
 self.addEventListener("activate", (event) => {
@@ -51,7 +55,7 @@ self.addEventListener("activate", (event) => {
 });
 ```
 
-Sie können den Event-Handler auch über die `onactivate`-Eigenschaft einrichten:
+Sie können den Event-Handler auch über die Eigenschaft `onactivate` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onactivate` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 self.onactivate = (event) => {
@@ -69,6 +73,6 @@ self.onactivate = (event) => {
 
 ## Siehe auch
 
-- [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Event
+- [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignis
 - [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)
-- [Service Workers API](/de/docs/Web/API/Service_Worker_API)
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API)

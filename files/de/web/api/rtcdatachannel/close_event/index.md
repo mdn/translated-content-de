@@ -1,24 +1,28 @@
 ---
-title: "RTCDataChannel: close-Event"
+title: "RTCDataChannel: close-Ereignis"
 short-title: close
 slug: Web/API/RTCDataChannel/close_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`close`**-Event wird an den `onclose`-Ereignishandler einer [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Instanz gesendet, wenn der Datentransport für den Datenkanal geschlossen wurde. Bevor weitere Daten mit `RTCDataChannel` übertragen werden können, muss eine neue 'RTCDataChannel'-Instanz erstellt werden.
+Das **`close`**-Ereignis wird an den `onclose`-Ereignishandler einer [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Instanz gesendet, wenn der Datentransport für den Datenkanal geschlossen wurde. Bevor weitere Daten über `RTCDataChannel` übertragen werden können, muss eine neue `RTCDataChannel`-Instanz erstellt werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("close", (event) => { })
+```
 
+Alternativ können Sie der [Ereignishandler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Handler zuweisen:
+
+```js-nolint
 onclose = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel richtet einen Handler für das `close`-Event für das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) namens `dc` ein. In diesem Beispiel besteht seine Aufgabe darin, die Benutzeroberflächenelemente so zu aktualisieren, dass sie widerspiegeln, dass kein laufender Anruf mehr vorhanden ist, und einen neuen Anruf zu ermöglichen.
+Dieses Beispiel richtet einen Handler für das `close`-Ereignis des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) namens `dc` ein. Der Handler aktualisiert Elemente der Benutzeroberfläche, um anzuzeigen, dass kein Anruf mehr läuft und ein neuer Anruf gestartet werden kann.
 
 ```js
 dc.addEventListener("close", (ev) => {
@@ -39,9 +43,9 @@ dc.addEventListener("close", (ev) => {
 });
 ```
 
-Der gesamte Code bewirkt als Reaktion auf das Empfangs des `close`-Ereignisses, dass ein Eingabefeld und dessen "Senden"-Schaltfläche deaktiviert werden und die Schaltfläche, die verwendet wird, um einen Anruf zu starten, aktiviert wird (während diejenige, die einen Anruf beendet, deaktiviert wird).
+Als Reaktion auf das `close`-Ereignis deaktiviert dieser Code ein Eingabefeld und die zugehörige Schaltfläche „Senden“. Außerdem aktiviert er die Schaltfläche zum Starten eines Anrufs und deaktiviert die Schaltfläche zum Beenden eines Anrufs.
 
-Sie können auch die `onclose`-Ereignishandler-Eigenschaft verwenden, um einen Handler für `close`-Ereignisse zu setzen:
+Sie können auch die `onclose`-Ereignishandler-Eigenschaft verwenden, um einen Handler für `close`-Ereignisse festzulegen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onclose` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 dc.onclose = (ev) => {

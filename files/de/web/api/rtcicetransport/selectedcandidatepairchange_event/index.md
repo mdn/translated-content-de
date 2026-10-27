@@ -1,28 +1,32 @@
 ---
-title: "RTCIceTransport: selectedcandidatepairchange Ereignis"
+title: "RTCIceTransport: selectedcandidatepairchange-Ereignis"
 short-title: selectedcandidatepairchange
 slug: Web/API/RTCIceTransport/selectedcandidatepairchange_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`selectedcandidatepairchange`** Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der {{Glossary("ICE", "ICE")}}-Agent ein neues Paar von Kandidaten auswählt, die die Endpunkte einer brauchbaren Verbindung beschreiben.
+Ein **`selectedcandidatepairchange`**-Ereignis wird an einen [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der {{Glossary("ICE", "ICE")}}-Agent ein neues Kandidatenpaar auswählt, das die Endpunkte einer nutzbaren Verbindung beschreibt.
 
-Das Paar von Kandidaten wird durch ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt beschrieben, das einen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, der das lokale Ende der Verbindung darstellt, und einen anderen, der das entfernte Ende der Verbindung darstellt.
+Das Kandidatenpaar wird durch ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt beschrieben. Dieses enthält einen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) für den lokalen Endpunkt der Verbindung und einen weiteren für den entfernten Endpunkt.
 
-Zusammen können die Kandidaten verwendet werden, um eine Verbindung herzustellen, die vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) und, in der Folge, von einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) genutzt werden kann.
+Zusammen können die Kandidaten verwendet werden, um eine Verbindung herzustellen, die vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) und damit auch von einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) genutzt wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("selectedcandidatepairchange", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onselectedcandidatepairchange = (event) => { }
 ```
 
@@ -32,7 +36,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Ereignishandler für `selectedcandidatepairchange`, der eine Anzeige aktualisiert, die dem Benutzer Informationen über den Fortschritt der ICE-Verhandlung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` bereitstellt.
+Dieses Beispiel erstellt einen Event-Handler für `selectedcandidatepairchange`, der eine Anzeige aktualisiert. Sie informiert den Benutzer über den Fortschritt der ICE-Aushandlung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc`.
 
 ```js
 let iceTransport = pc.getSenders()[0].transport.iceTransport;
@@ -46,7 +50,7 @@ iceTransport.addEventListener("selectedcandidatepairchange", (ev) => {
 });
 ```
 
-Dies kann auch durch direktes Setzen der `onselectedcandidatepairchange` Ereignis-Handler-Eigenschaft erfolgen.
+Dies ist auch möglich, indem Sie die Event-Handler-Eigenschaft `onselectedcandidatepairchange` direkt setzen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onselectedcandidatepairchange` hinzugefügte Event-Listener ersetzt werden.
 
 ```js
 let iceTransport = pc.getSenders()[0].transport.iceTransport;

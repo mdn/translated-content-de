@@ -1,22 +1,26 @@
 ---
-title: "Element: animationiteration event"
+title: "Element: animationiteration-Ereignis"
 short-title: animationiteration
 slug: Web/API/Element/animationiteration_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`animationiteration`**-Ereignis wird ausgelöst, wenn eine Iteration einer [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) endet und eine weitere beginnt. Dieses Ereignis tritt nicht gleichzeitig mit dem [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis auf und tritt daher nicht für Animationen mit einem `animation-iteration-count` von eins auf.
+Das **`animationiteration`**-Ereignis wird ausgelöst, wenn eine Iteration einer [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) endet und die nächste beginnt. Dieses Ereignis tritt nicht gleichzeitig mit dem [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis auf. Bei Animationen mit einem `animation-iteration-count` von eins tritt es daher nicht auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("animationiteration", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onanimationiteration = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 
 ## Beispiele
 
-Dieser Code verwendet `animationiteration`, um die Anzahl der Iterationen, die eine Animation abgeschlossen hat, zu verfolgen:
+Dieser Code verwendet `animationiteration`, um die Anzahl der abgeschlossenen Iterationen einer Animation zu zählen:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -41,7 +45,7 @@ animated.addEventListener("animationiteration", () => {
 });
 ```
 
-Das gleiche, aber unter Verwendung der `onanimationiteration`-Ereignishandler-Eigenschaft:
+Dasselbe mit der Event-Handler-Eigenschaft `onanimationiteration` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onanimationiteration` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const animated = document.querySelector(".animated");
@@ -54,7 +58,7 @@ animated.onanimationiteration = () => {
 };
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 
@@ -156,6 +160,6 @@ applyAnimation.addEventListener("click", () => {
 ## Siehe auch
 
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - Verwandte Ereignisse: [`animationstart`](/de/docs/Web/API/Element/animationstart_event), [`animationend`](/de/docs/Web/API/Element/animationend_event), [`animationcancel`](/de/docs/Web/API/Element/animationcancel_event)

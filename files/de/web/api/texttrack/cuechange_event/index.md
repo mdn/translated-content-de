@@ -1,22 +1,26 @@
 ---
-title: "TextTrack: cuechange Ereignis"
+title: "TextTrack: cuechange-Ereignis"
 short-title: cuechange
 slug: Web/API/TextTrack/cuechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("WebVTT")}}
 
-Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem es präsentiert wird, falls vorhanden.
+Das **`cuechange`**-Ereignis wird ausgelöst, wenn sich die aktuell angezeigten Cues eines [`TextTrack`](/de/docs/Web/API/TextTrack) ändern. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem er dargestellt wird, sofern vorhanden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("cuechange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncuechange = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-Sie können einen Listener für das `cuechange`-Ereignis auf einem `TextTrack` mithilfe der [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode einrichten:
+Mit der Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) können Sie einen Listener für das `cuechange`-Ereignis auf einem `TextTrack` einrichten:
 
 ```js
 track.addEventListener("cuechange", () => {
@@ -35,7 +39,7 @@ track.addEventListener("cuechange", () => {
 });
 ```
 
-Oder Sie können die `oncuechange`-Ereignishandler-Eigenschaft setzen:
+Alternativ können Sie die Event-Handler-Eigenschaft `oncuechange` festlegen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `oncuechange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 track.oncuechange = (event) => {

@@ -1,34 +1,38 @@
 ---
-title: "SpeechSynthesisUtterance: error Ereignis"
+title: "SpeechSynthesisUtterance: error-Ereignis"
 short-title: error
 slug: Web/API/SpeechSynthesisUtterance/error_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`error`** Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein Fehler auftritt, der verhindert, dass die Äußerung erfolgreich gesprochen wird.
+Das **`error`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein Fehler auftritt, der verhindert, dass die Äußerung erfolgreich gesprochen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`SpeechSynthesisErrorEvent`](/de/docs/Web/API/SpeechSynthesisErrorEvent). Erbt von [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) und [`Event`](/de/docs/Web/API/Event).
+Ein [`SpeechSynthesisErrorEvent`](/de/docs/Web/API/SpeechSynthesisErrorEvent). Es erbt von [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SpeechSynthesisErrorEvent")}}
 
 ## Beispiele
 
-Sie können das `error` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `error`-Ereignis mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 utterThis.addEventListener("error", (event) => {
@@ -38,7 +42,7 @@ utterThis.addEventListener("error", (event) => {
 });
 ```
 
-Oder Sie verwenden die `onerror` Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die Event-Handler-Eigenschaft `onerror` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onerror` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 utterThis.onerror = (event) => {

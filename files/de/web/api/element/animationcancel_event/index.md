@@ -1,24 +1,26 @@
 ---
-title: "Element: animationcancel Ereignis"
+title: "Element: animationcancel-Ereignis"
 short-title: animationcancel
 slug: Web/API/Element/animationcancel_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`animationcancel`** Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) unerwartet abbricht. Mit anderen Worten, jedes Mal, wenn sie ohne das Senden eines [`animationend`](/de/docs/Web/API/Element/animationend_event) Ereignisses stoppt. Dies kann passieren, wenn das {{cssxref("animation-name")}} geändert wird, sodass die Animation entfernt wird, oder wenn der animierte Knoten mithilfe von CSS verborgen wird. Dies kann direkt geschehen oder weil einer der enthaltenen Knoten verborgen ist.
-
-Ein Ereignishandler für dieses Ereignis kann durch Setzen der `onanimationcancel` Eigenschaft hinzugefügt werden oder durch die Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+Das **`animationcancel`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) unerwartet abgebrochen wird. Das ist der Fall, wenn sie beendet wird, ohne ein [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis auszulösen. Dies kann geschehen, wenn {{cssxref("animation-name")}} so geändert wird, dass die Animation entfernt wird, oder wenn das animierte Element mithilfe von CSS ausgeblendet wird – entweder direkt oder weil eines seiner übergeordneten Elemente ausgeblendet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("animationcancel", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Property](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle verwenden:
+
+```js-nolint
 onanimationcancel = (event) => { }
 ```
 
@@ -30,7 +32,7 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 
 ## Beispiele
 
-Dieser Code holt ein Element, das derzeit animiert ist, und fügt einen Listener für das `animationcancel` Ereignis hinzu. Anschließend wird die {{cssxref("display")}} Eigenschaft des Elements auf `none` gesetzt, was das `animationcancel` Ereignis auslöst.
+Dieser Code ruft ein Element ab, das gerade animiert wird, und fügt einen Listener für das `animationcancel`-Ereignis hinzu. Anschließend setzt er die {{cssxref("display")}}-Property des Elements auf `none`, wodurch das `animationcancel`-Ereignis ausgelöst wird.
 
 ```js
 const animated = document.querySelector(".animated");
@@ -42,7 +44,7 @@ animated.addEventListener("animationcancel", () => {
 animated.style.display = "none";
 ```
 
-Dasselbe, aber mit der `onanimationcancel` Eigenschaft anstelle von `addEventListener()`:
+Das Gleiche, jedoch mit der `onanimationcancel`-Property anstelle von `addEventListener()` (beachten Sie, dass dadurch gegebenenfalls andere über `onanimationcancel` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const animated = document.querySelector(".animated");
@@ -53,7 +55,7 @@ animated.onanimationcancel = () => {
 animated.style.display = "none";
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 
@@ -155,6 +157,6 @@ applyAnimation.addEventListener("click", () => {
 ## Siehe auch
 
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - Verwandte Ereignisse: [`animationstart`](/de/docs/Web/API/Element/animationstart_event), [`animationend`](/de/docs/Web/API/Element/animationend_event), [`animationiteration`](/de/docs/Web/API/Element/animationiteration_event)

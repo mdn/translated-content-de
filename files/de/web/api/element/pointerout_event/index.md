@@ -1,24 +1,28 @@
 ---
-title: "Element: pointerout Ereignis"
+title: "Element: pointerout-Ereignis"
 short-title: pointerout
 slug: Web/API/Element/pointerout_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das `pointerout` Ereignis wird aus verschiedenen Gründen ausgelöst, unter anderem: wenn sich das Zeigegerät außerhalb der _Hit-Test_-Grenzen eines Elements bewegt; beim Auslösen des [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignisses für ein Gerät, das keinen Hover unterstützt (siehe [`pointerup`](/de/docs/Web/API/Element/pointerup_event)); nach dem Auslösen des [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) Ereignisses (siehe [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)); wenn ein Stift außerhalb des durch den Digitalisierer erkennbaren Hover-Bereichs verlässt.
+Das `pointerout`-Ereignis wird aus mehreren Gründen ausgelöst: Ein Zeigegerät bewegt sich aus den Grenzen des _Hit-Tests_ eines Elements heraus; für ein Gerät, das Hover nicht unterstützt, wird das Ereignis [`pointerup`](/de/docs/Web/API/Element/pointerup_event) ausgelöst (siehe [`pointerup`](/de/docs/Web/API/Element/pointerup_event)); das Ereignis [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) wurde ausgelöst (siehe [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)); oder ein Eingabestift verlässt den vom Digitizer erkennbaren Hover-Bereich.
 
-`pointerout` Ereignisse haben die gleichen Probleme wie [`mouseout`](/de/docs/Web/API/Element/mouseout_event). Wenn das Zielelement Kindelemente hat, werden `pointerout` und `pointerover` Ereignisse ausgelöst, wenn sich der Zeiger über die Grenzen dieser Elemente bewegt, nicht nur über das Zielelement selbst. Normalerweise ist das Verhalten der [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event) und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) Ereignisse sinnvoller, da sie nicht von der Bewegung in Kindelemente beeinflusst werden.
+`pointerout`-Ereignisse haben dieselben Probleme wie [`mouseout`](/de/docs/Web/API/Element/mouseout_event). Wenn das Zielelement Kindelemente hat, werden `pointerout`- und `pointerover`-Ereignisse auch ausgelöst, wenn der Zeiger die Grenzen dieser Kindelemente überschreitet, nicht nur die Grenzen des Zielelements selbst. Das Verhalten der Ereignisse [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event) und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) ist meist sinnvoller, da sie nicht durch Bewegungen in Kindelemente hinein beeinflusst werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerout", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointerout = (event) => { }
 ```
 
@@ -40,7 +44,7 @@ para.addEventListener("pointerout", (event) => {
 });
 ```
 
-Verwendung der `onpointerout` Ereignishandler-Eigenschaft:
+Verwendung der Event-Handler-Eigenschaft `onpointerout` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onpointerout` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

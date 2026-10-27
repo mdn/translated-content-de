@@ -3,22 +3,26 @@ title: "ServiceWorkerGlobalScope: message-Ereignis"
 short-title: message
 slug: Web/API/ServiceWorkerGlobalScope/message_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`message`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces tritt auf, wenn eingehende Nachrichten empfangen werden. Kontrollierte Seiten können die Methode [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage) verwenden, um Nachrichten an Service Worker zu senden. Der Service Worker kann optional eine Antwort über die [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage) senden, die der kontrollierten Seite entspricht.
+Das **`message`**-Ereignis der Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) tritt ein, wenn Nachrichten empfangen werden. Kontrollierte Seiten können mit der Methode [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage) Nachrichten an Service Worker senden. Der Service Worker kann der kontrollierten Seite optional über [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage) antworten.
 
-Dieses Ereignis ist nicht stornierbar und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("message", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onmessage = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent). Erbt vo
 
 ## Beispiele
 
-Im folgenden Beispiel erhält eine Seite Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann die Funktion `postMessage()` auf.
+Im folgenden Beispiel erhält eine Seite über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Zugriff auf ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt und ruft anschließend dessen `postMessage()`-Funktion auf.
 
 ```js
 // main.js
@@ -48,7 +52,7 @@ if (navigator.serviceWorker) {
 }
 ```
 
-Der Service Worker kann die Nachricht empfangen, indem er auf das `message`-Ereignis hört:
+Der Service Worker kann die Nachricht empfangen, indem er auf das `message`-Ereignis wartet:
 
 ```js
 // service-worker.js
@@ -60,7 +64,7 @@ addEventListener("message", (event) => {
 });
 ```
 
-Alternativ kann das Skript auf die Nachricht mithilfe von `onmessage` hören:
+Alternativ kann das Skript mit `onmessage` auf die Nachricht warten. Beachten Sie jedoch, dass dadurch andere mit `onmessage` hinzugefügte Event-Listener ersetzt werden, sofern vorhanden:
 
 ```js
 // service-worker.js
@@ -82,6 +86,6 @@ self.onmessage = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Einfaches Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Web Worker verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

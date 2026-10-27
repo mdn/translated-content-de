@@ -1,24 +1,28 @@
 ---
-title: "RTCDataChannel: open Ereignis"
+title: "RTCDataChannel: open-Ereignis"
 short-title: open
 slug: Web/API/RTCDataChannel/open_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Das WebRTC **`open`** Ereignis wird an den `onopen` Ereignishandler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn das zugrunde liegende Transportmittel, das zum Senden und Empfangen der Nachrichten des Datenkanals verwendet wird, geöffnet oder wieder geöffnet wird.
+Das WebRTC-Ereignis **`open`** wird an den `onopen`-Event-Handler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn die zugrunde liegende Transportverbindung zum Senden und Empfangen von Nachrichten über den Datenkanal geöffnet oder erneut geöffnet wird.
 
-Dieses Ereignis ist nicht abbruchfähig und löst keine Ereigniskettenreaktion aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht an übergeordnete Elemente weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("open", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onopen = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent). Erbt von [`Ev
 
 ## Beispiele
 
-Dieses Beispiel fügt dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) `dc` einen Handler für das `open` Ereignis hinzu, der die Benutzeroberfläche anpasst, um anzuzeigen, dass ein Chatfenster bereit ist, verwendet zu werden, nachdem eine Verbindung hergestellt wurde. Es aktiviert das Nachrichten-Eingabefeld und die Sende-Schaltfläche sowie die Trennungs-Schaltfläche und deaktiviert die Verbindungs-Schaltfläche. Schließlich wird das Nachrichten-Eingabefeld fokussiert, sodass der Benutzer sofort beginnen kann zu tippen.
+In diesem Beispiel wird dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) `dc` ein Handler für das `open`-Ereignis hinzugefügt. Sobald die Verbindung hergestellt ist, passt er die Benutzeroberfläche an, um anzuzeigen, dass das Chatfenster verwendet werden kann. Dazu aktiviert er das Nachrichteneingabefeld, die Sende-Schaltfläche und die Trennen-Schaltfläche und deaktiviert die Verbinden-Schaltfläche. Abschließend wird das Nachrichteneingabefeld fokussiert, damit der Benutzer sofort mit der Eingabe beginnen kann.
 
 ```js
 dc.addEventListener("open", (ev) => {
@@ -43,7 +47,7 @@ dc.addEventListener("open", (ev) => {
 });
 ```
 
-Dies kann auch erreicht werden, indem der Wert der `onopen` Ereignishandler-Eigenschaft des Kanals direkt gesetzt wird.
+Sie können dazu auch direkt die Event-Handler-Eigenschaft `onopen` des Kanals setzen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onopen` hinzugefügte Event-Listener ersetzt werden.
 
 ```js
 dc.onopen = (ev) => {
@@ -66,6 +70,6 @@ dc.onopen = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
 - Verwandte Ereignisse: [`message`](/de/docs/Web/API/RTCDataChannel/message_event), [`close`](/de/docs/Web/API/RTCDataChannel/close_event) und [`error`](/de/docs/Web/API/RTCDataChannel/error_event)

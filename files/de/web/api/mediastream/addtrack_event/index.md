@@ -3,22 +3,26 @@ title: "MediaStream: addtrack-Ereignis"
 short-title: addtrack
 slug: Web/API/MediaStream/addtrack_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`addtrack`**-Ereignis wird ausgelöst, wenn ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) hinzugefügt wurde.
+Das **`addtrack`**-Ereignis wird ausgelöst, wenn einem [`MediaStream`](/de/docs/Web/API/MediaStream) ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt hinzugefügt wurde.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht hochgebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("addtrack", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onaddtrack = (event) => { }
 ```
 
@@ -40,7 +44,7 @@ stream.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack`-Ereignis-Handler-Eigenschaft:
+Verwendung der Event-Handler-Eigenschaft `onaddtrack` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onaddtrack` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const stream = new MediaStream();
@@ -60,8 +64,8 @@ stream.onaddtrack = (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
-- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
-- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt auf: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)
+- Verwandtes Ereignis: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
+- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Zielen: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
+- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Zielen: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

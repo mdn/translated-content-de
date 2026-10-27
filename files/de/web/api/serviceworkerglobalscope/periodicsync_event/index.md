@@ -3,22 +3,26 @@ title: "ServiceWorkerGlobalScope: periodicsync-Ereignis"
 short-title: periodicsync
 slug: Web/API/ServiceWorkerGlobalScope/periodicsync_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`periodicsync`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird in festgelegten Zeitintervallen ausgelöst, die beim Registrieren eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) angegeben werden.
+Das **`periodicsync`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird in zeitlichen Abständen ausgelöst, die bei der Registrierung eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) festgelegt werden.
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("periodicsync", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onperiodicsync = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent). Erbt von [`Event`
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie auf ein periodisches Synchronisierungsereignis im Service Worker reagiert wird.
+Das folgende Beispiel zeigt, wie Sie im Service Worker auf ein periodisches Synchronisierungsereignis reagieren können.
 
 ```js
 self.addEventListener("periodicsync", (event) => {
@@ -40,7 +44,7 @@ self.addEventListener("periodicsync", (event) => {
 });
 ```
 
-Sie können den Ereignis-Handler auch über die `onperiodicsync`-Eigenschaft einrichten:
+Sie können den Event-Handler auch über die Eigenschaft `onperiodicsync` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onperiodicsync` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 self.onperiodicsync = (event) => {
@@ -58,4 +62,4 @@ self.onperiodicsync = (event) => {
 
 ## Siehe auch
 
-- [Mehr Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Umfangreichere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)

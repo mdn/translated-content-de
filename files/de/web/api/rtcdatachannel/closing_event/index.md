@@ -1,24 +1,28 @@
 ---
-title: "RTCDataChannel: closing Ereignis"
+title: "RTCDataChannel: closing-Ereignis"
 short-title: closing
 slug: Web/API/RTCDataChannel/closing_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`closing`**-Ereignis wird an einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, kurz bevor der Kanal mit dem Prozess der Beendigung seines zugrunde liegenden Datentransports beginnt.
+Das **`closing`**-Ereignis wird an einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet, unmittelbar bevor der Kanal beginnt, seinen zugrunde liegenden Datentransport zu beenden.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("closing", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onclosing = (event) => { }
 ```
 
@@ -28,13 +32,13 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beschreibung
 
-Während das `closing`-Ereignis an den Kanal gesendet wird, kurz bevor der Datentransport des Kanals geschlossen wird, wird das [`close`](/de/docs/Web/API/RTCDataChannel/close_event)-Ereignis gesendet, sobald der Schließvorgang abgeschlossen ist.
+Das `closing`-Ereignis wird an den Kanal gesendet, unmittelbar bevor dieser beginnt, seinen Datentransport zu beenden. Das [`close`](/de/docs/Web/API/RTCDataChannel/close_event)-Ereignis wird dagegen gesendet, sobald der Schließvorgang abgeschlossen ist.
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert eine Verbindungsstatus-Oberfläche, wenn das `closing`-Ereignis eintrifft.
+Dieses Beispiel aktualisiert eine Anzeige des Verbindungsstatus, wenn das `closing`-Ereignis eintrifft.
 
-Zuerst ein Beispiel mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Zunächst ein Beispiel mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 dataChannel.addEventListener("closing", (ev) => {
@@ -43,10 +47,10 @@ dataChannel.addEventListener("closing", (ev) => {
 });
 ```
 
-Sie können auch die `onclosing`-Ereignishandler-Eigenschaft direkt festlegen:
+Sie können auch die Event-Handler-Eigenschaft `onclosing` direkt festlegen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onclosing` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
-pc.onclosing = (ev) => {
+dataChannel.onclosing = (ev) => {
   myConnectionStatus.icon = closingIcon;
   myConnectionStatus.text = "Connection closing";
 };
@@ -62,5 +66,5 @@ pc.onclosing = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Signalübertragung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)

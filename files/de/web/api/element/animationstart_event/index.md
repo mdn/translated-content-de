@@ -3,20 +3,24 @@ title: "Element: animationstart-Ereignis"
 short-title: animationstart
 slug: Web/API/Element/animationstart_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`animationstart`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) gestartet wurde. Wenn es eine {{cssxref("animation-delay")}} gibt, wird dieses Ereignis ausgelöst, sobald die Verzögerungszeit abgelaufen ist. Eine negative Verzögerung führt dazu, dass das Ereignis mit einer [`elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) gleich dem absoluten Wert der Verzögerung ausgelöst wird (und entsprechend wird die Animation zu diesem Zeitpunkt in der Sequenz abgespielt).
+Das **`animationstart`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) gestartet ist. Wenn ein {{cssxref("animation-delay")}} festgelegt ist, wird das Ereignis ausgelöst, sobald die Verzögerung abgelaufen ist. Bei einer negativen Verzögerung wird das Ereignis mit einer [`elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) ausgelöst, die dem absoluten Wert der Verzögerung entspricht. Die Animation beginnt entsprechend an diesem Zeitpunkt innerhalb der Sequenz.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("animationstart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onanimationstart = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 
 ## Beispiele
 
-Dieses Beispiel hört auf das `animationstart`-Ereignis und protokolliert eine Nachricht, wenn es ausgelöst wird:
+Im folgenden Beispiel wird auf das `animationstart`-Ereignis gewartet und eine Meldung protokolliert, wenn es ausgelöst wird:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -38,7 +42,7 @@ animated.addEventListener("animationstart", () => {
 });
 ```
 
-Dasselbe, aber mit `onanimationstart` verwendet:
+Dasselbe mit `onanimationstart` (beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onanimationstart` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const animated = document.querySelector(".animated");
@@ -48,7 +52,7 @@ animated.onanimationstart = () => {
 };
 ```
 
-### Live-Beispiel
+### Interaktives Beispiel
 
 #### HTML
 
@@ -150,6 +154,6 @@ applyAnimation.addEventListener("click", () => {
 ## Siehe auch
 
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - Verwandte Ereignisse: [`animationend`](/de/docs/Web/API/Element/animationend_event), [`animationiteration`](/de/docs/Web/API/Element/animationiteration_event), [`animationcancel`](/de/docs/Web/API/Element/animationcancel_event)

@@ -3,20 +3,24 @@ title: "XRSession: end-Ereignis"
 short-title: end
 slug: Web/API/XRSession/end_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Ein `end`-Ereignis wird an einem [`XRSession`](/de/docs/Web/API/XRSession)-Objekt ausgelöst, wenn die WebXR-Sitzung beendet wurde, entweder weil die Webanwendung sich entschieden hat, die Sitzung zu beenden, oder weil der {{Glossary("user_agent", "User Agent")}} die Sitzung beendet hat.
+Ein `end`-Ereignis wird für ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt ausgelöst, wenn die WebXR-Sitzung beendet wurde – entweder weil die Webanwendung die Sitzung beendet hat oder weil der {{Glossary("user_agent", "User Agent")}} sie beendet hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("end", (event) => { })
+```
 
+Alternativ können Sie einen Handler der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onend = (event) => { }
 ```
 
@@ -28,30 +32,30 @@ Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de/
 
 ## Beschreibung
 
-### Auslösung
+### Auslöser
 
-Ausgelöst, wenn die WebXR-Sitzung beendet ist, entweder weil die Webanwendung entschieden hat, die Sitzung zu beenden, oder weil der {{Glossary("user_agent", "User Agent")}} die Sitzung beendet hat.
+Wird ausgelöst, wenn die WebXR-Sitzung beendet wurde – entweder weil die Webanwendung die Sitzung beendet hat oder weil der {{Glossary("user_agent", "User Agent")}} sie beendet hat.
 
-Dieses Ereignis ist nicht stornierbar und wird nicht verbreitet.
+Dieses Ereignis kann nicht abgebrochen werden und durchläuft die Ereigniskette nicht nach oben.
 
-### Anwendungsszenarien
+### Anwendungsfälle
 
-Sie können dieses Ereignis nutzen, um auf das Ende einer WebXR-Sitzung zu reagieren. Vielleicht möchten Sie zum Beispiel ein UI-Element anzeigen, das über das Ende der Sitzung informiert.
+Sie können dieses Ereignis verwenden, um auf das Ende einer WebXR-Sitzung zu reagieren. Beispielsweise können Sie ein UI-Element anzeigen, das über die Beendigung der Sitzung informiert.
 
 ## Beispiele
 
-Um informiert zu werden, wenn eine WebXR-Sitzung zu Ende geht, können Sie einen Handler zu Ihrer [`XRSession`](/de/docs/Web/API/XRSession)-Instanz mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie folgt:
+Um benachrichtigt zu werden, wenn eine WebXR-Sitzung endet, können Sie Ihrer [`XRSession`](/de/docs/Web/API/XRSession)-Instanz mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einen Handler hinzufügen:
 
 ```js
-XRSession.addEventListener("end", (event) => {
+xrSession.addEventListener("end", (event) => {
   /* the session has shut down */
 });
 ```
 
-Alternativ können Sie die `XRSession.onend`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `end`-Ereignis zu definieren:
+Alternativ können Sie über die Event-Handler-Eigenschaft `xrSession.onend` einen Handler für das `end`-Ereignis festlegen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onend` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
-XRSession.onend = (event) => {
+xrSession.onend = (event) => {
   /* the session has shut down */
 };
 ```

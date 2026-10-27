@@ -1,32 +1,36 @@
 ---
-title: "Window: offline-Event"
+title: "Window: offline-Ereignis"
 short-title: offline
 slug: Web/API/Window/offline_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`offline`**-Event des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser den Zugriff auf das Netzwerk verloren hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
+Das **`offline`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn der Browser den Zugriff auf das Netzwerk verliert und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("offline", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onoffline = (event) => { }
 ```
 
-## Event-Typ
+## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Event-Handler-Aliase
+## Aliasse für den Event-Handler
 
-Zusätzlich zum `Window`-Interface ist die Event-Handler-Eigenschaft `onoffline` auch für die folgenden Ziele verfügbar:
+Neben der `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onoffline` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -40,7 +44,8 @@ window.addEventListener("offline", (event) => {
   console.log("The network connection has been lost.");
 });
 
-// onoffline version
+// onoffline version (but note that this replaces other event listeners
+// added using onoffline, if any)
 window.onoffline = (event) => {
   console.log("The network connection has been lost.");
 };

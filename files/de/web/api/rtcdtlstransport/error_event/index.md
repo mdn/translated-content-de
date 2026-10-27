@@ -3,22 +3,26 @@ title: "RTCDtlsTransport: error-Ereignis"
 short-title: error
 slug: Web/API/RTCDtlsTransport/error_event
 l10n:
-  sourceCommit: 1463dd31170006c52fe0fd8c691652741d2b3e68
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
 Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) empfängt ein `error`-Ereignis, wenn bei der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ein Fehler auf Transportebene auftritt.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("error", (event) => { })
+```
 
+Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onerror = (event) => { }
 ```
 
@@ -33,15 +37,15 @@ Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Erbt von [`Event`](/de/do
 Bei Fehlern auf Transportebene hat die [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail)-Eigenschaft des zugehörigen [`RTCError`](/de/docs/Web/API/RTCError) einen der folgenden Werte:
 
 - `dtls-failure`
-  - : Die Aushandlung der {{Glossary("DTLS", "DTLS")}}-Verbindung ist fehlgeschlagen oder die Verbindung wurde aufgrund eines schwerwiegenden Fehlers beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Einzelheiten zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wurde, wird die [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert)-Eigenschaft des Fehlerobjekts auf den Wert der empfangenen DTLS-Warnmeldung gesetzt. Wurde dagegen ein schwerwiegender Fehler _gesendet_, wird [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert der Warnmeldung gesetzt.
+  - : Die Aushandlung der {{Glossary("DTLS", "DTLS")}}-Verbindung ist fehlgeschlagen oder die Verbindung wurde aufgrund eines schwerwiegenden Fehlers beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Einzelheiten zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wurde, wird die [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert)-Eigenschaft des Fehlerobjekts auf den Wert des empfangenen DTLS-Alerts gesetzt. Wenn dagegen ein schwerwiegender Fehler _gesendet_ wurde, wird [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert des Alerts gesetzt.
 - `fingerprint-failure`
-  - : Das entfernte Zertifikat für den [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) stimmte mit keinem der im SDP aufgeführten Fingerabdrücke überein. Wenn die entfernte Gegenstelle das lokale Zertifikat keinem der angegebenen Fingerabdrücke zuordnen kann, tritt dieser Fehler nicht auf. Stattdessen kann es jedoch zu einem `dtls-failure`-Fehler kommen.
+  - : Das Remote-Zertifikat für den [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) stimmte mit keinem der im SDP aufgeführten Fingerprints überein. Wenn die Gegenstelle das lokale Zertifikat keinem der bereitgestellten Fingerprints zuordnen kann, tritt dieser Fehler nicht auf. Stattdessen kann in diesem Fall ein `dtls-failure`-Fehler auftreten.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Der folgende Code verarbeitet einen DTLS-Transportfehler für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc`:
+Für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `pc` behandelt der folgende Code einen DTLS-Transportfehler:
 
 ```js
 const dtlsTransport = pc.getSenders()[0].transport;
@@ -52,7 +56,7 @@ dtlsTransport.addEventListener("error", (ev) => {
 });
 ```
 
-Derselbe Code sieht bei Verwendung der Event-Handler-Eigenschaft `onerror` so aus:
+Derselbe Code sieht mit der Event-Handler-Eigenschaft `onerror` wie folgt aus. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onerror` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 dtlsTransport.onerror = (ev) => {
@@ -74,4 +78,4 @@ dtlsTransport.onerror = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC API](/de/docs/Web/API/WebRTC_API)

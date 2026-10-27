@@ -1,22 +1,26 @@
 ---
-title: "IDBDatabase: versionchange Ereignis"
+title: "IDBDatabase: versionchange-Ereignis"
 short-title: versionchange
 slug: Web/API/IDBDatabase/versionchange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("IndexedDB")}}
 
-Das `versionchange` Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Ereignis, das auf einer [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) gesendet wird, oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)) anderswo angefordert wurde (höchstwahrscheinlich in einem anderen Fenster/Tab auf demselben Computer).
+Das Ereignis `versionchange` wird ausgelöst, wenn an anderer Stelle eine Änderung der Datenbankstruktur angefordert wurde (durch ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignis, das bei einem [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) ausgelöst wird, oder durch [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)). Dies geschieht höchstwahrscheinlich in einem anderen Fenster oder Tab auf demselben Computer.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("versionchange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onversionchange = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und fügt nach erfolgreichem Öffnen einen Listener für `versionchange` hinzu:
+Dieses Beispiel öffnet eine Datenbank und fügt bei Erfolg einen Listener für `versionchange` hinzu:
 
 ```js
 // Open the database
@@ -55,7 +59,7 @@ dBOpenRequest.addEventListener("success", (event) => {
 });
 ```
 
-Dasselbe Beispiel, mit der `onversionchange` Ereignis-Handler-Eigenschaft:
+Dasselbe Beispiel mit der Event-Handler-Eigenschaft `onversionchange` (beachten Sie jedoch, dass dadurch andere, gegebenenfalls mit `onversionchange` und `onsuccess` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 // Open the database
@@ -94,4 +98,4 @@ dBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

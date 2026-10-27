@@ -1,26 +1,30 @@
 ---
-title: "RTCIceTransport: gatheringstatechange-Event"
+title: "RTCIceTransport: gatheringstatechange-Ereignis"
 short-title: gatheringstatechange
 slug: Web/API/RTCIceTransport/gatheringstatechange_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`gatheringstatechange`**-Event wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn sich der {{Glossary("ICE", "ICE")}} Kandidatensammlungszustand ändert.
+Ein **`gatheringstatechange`**-Ereignis wird an einen [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn sich dessen Status beim Sammeln von {{Glossary("ICE", "ICE")}}-Kandidaten ändert.
 
-Der Sammelzustand, dessen aktueller Status in der [`gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState)-Eigenschaft des Transportobjekts gefunden werden kann, gibt an, ob der ICE-Agent begonnen hat, Kandidaten für diesen Transport zu sammeln, und falls ja, ob er dies abgeschlossen hat.
+Der Sammelstatus, dessen aktueller Wert in der Eigenschaft [`gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState) des Transportobjekts zu finden ist, gibt an, ob der ICE-Agent begonnen hat, Kandidaten für diesen Transport zu sammeln, und gegebenenfalls, ob er damit fertig ist.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht im DOM-Baum auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("gatheringstatechange", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 ongatheringstatechange = (event) => { }
 ```
 
@@ -30,7 +34,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel wird ein Handler für `gatheringstatechange`-Ereignisse auf jedem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) erstellt, der mit einer bestimmten [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verknüpft ist. Hier wird die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen, um einen Listener für `gatheringstatechange`-Ereignisse hinzuzufügen:
+Dieses Beispiel erstellt einen Handler für `gatheringstatechange`-Ereignisse für jeden [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der mit einer bestimmten [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verknüpft ist. Hier wird die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen, um einen Listener für `gatheringstatechange`-Ereignisse hinzuzufügen:
 
 ```js
 pc.getSenders().forEach((sender) => {
@@ -48,7 +52,7 @@ pc.getSenders().forEach((sender) => {
 });
 ```
 
-Ebenso können Sie die `ongatheringstatechange`-Ereignis-Handler-Eigenschaft verwenden:
+Ebenso können Sie die Event-Handler-Eigenschaft `ongatheringstatechange` verwenden. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `ongatheringstatechange` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 pc.getSenders().forEach((sender) => {

@@ -3,20 +3,24 @@ title: "SpeechRecognition: audiostart-Ereignis"
 short-title: audiostart
 slug: Web/API/SpeechRecognition/audiostart_event
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`audiostart`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Benutzeragent beginnt, Audio für die Spracherkennung aufzunehmen.
+Das Ereignis **`audiostart`** der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der User Agent begonnen hat, Audio für die Spracherkennung aufzunehmen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("audiostart", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onaudiostart = (event) => { }
 ```
 
@@ -26,17 +30,19 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-Sie können das `audiostart`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das Ereignis `audiostart` mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
-const recognition = new (SpeechRecognition || webkitSpeechRecognition)();
+const recognition = new (
+  window.SpeechRecognition || window.webkitSpeechRecognition
+)();
 
 recognition.addEventListener("audiostart", () => {
   console.log("Audio capturing started");
 });
 ```
 
-Oder Sie verwenden die `onaudiostart`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die Event-Handler-Eigenschaft `onaudiostart` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onaudiostart` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 recognition.onaudiostart = () => {

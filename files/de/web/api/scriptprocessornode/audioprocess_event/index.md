@@ -3,25 +3,29 @@ title: "ScriptProcessorNode: audioprocess-Ereignis"
 short-title: audioprocess
 slug: Web/API/ScriptProcessorNode/audioprocess_event
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: ded0a8bc0b6622b4a95253e358c6a58a77ad2387
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das **`audioprocess`**-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Skriptprozessors zur Verarbeitung bereit ist.
+Das **`audioprocess`**-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Script-Prozessors zur Verarbeitung bereit ist.
 
 > [!NOTE]
 > Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
-Dieses Ereignis kann nicht abgebrochen werden und ist nicht aufsteigend.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("audioprocess", (event) => { })
+```
 
+Alternativ können Sie einen Wert für die [Ereignisbehandlungseigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle festlegen:
+
+```js-nolint
 onaudioprocess = (event) => { }
 ```
 
@@ -58,7 +62,7 @@ scriptNode.addEventListener("audioprocess", (audioProcessingEvent) => {
 });
 ```
 
-Sie könnten den Ereignis-Handler auch über die `onaudioprocess`-Eigenschaft einrichten:
+Sie können die Ereignisbehandlung auch über die Eigenschaft `onaudioprocess` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onaudioprocess` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 scriptNode.onaudioprocess = (audioProcessingEvent) => {

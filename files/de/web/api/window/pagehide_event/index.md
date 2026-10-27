@@ -3,22 +3,26 @@ title: "Window: pagehide-Ereignis"
 short-title: pagehide
 slug: Web/API/Window/pagehide_event
 l10n:
-  sourceCommit: 958799789600997855abbdabca7abc8a221b6778
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das Ereignis **`pagehide`** wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
+Das **`pagehide`**-Ereignis wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
 
 Wenn beispielsweise jemand auf die Zurück-Schaltfläche des Browsers klickt, empfängt die aktuelle Seite ein `pagehide`-Ereignis, bevor die vorherige Seite angezeigt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pagehide", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignishandler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpagehide = (event) => { }
 ```
 
@@ -28,9 +32,9 @@ Ein [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent). Erbt von [`Ev
 
 {{InheritanceDiagram("PageTransitionEvent")}}
 
-## Aliase für Event-Handler
+## Aliasse für Ereignishandler
 
-Neben der `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onpagehide` auch für die folgenden Ziele verfügbar:
+Neben der `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onpagehide` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -38,23 +42,23 @@ Neben der `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onpagehide` 
 
 ## Hinweise zur Verwendung
 
-Wie die Ereignisse [`unload`](/de/docs/Web/API/Window/unload_event) und [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) wird auch dieses Ereignis von Browsern nicht zuverlässig ausgelöst, insbesondere auf Mobilgeräten. Im folgenden Szenario wird das Ereignis `pagehide` beispielsweise überhaupt nicht ausgelöst:
+Wie die Ereignisse [`unload`](/de/docs/Web/API/Window/unload_event) und [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) wird auch dieses Ereignis von Browsern nicht zuverlässig ausgelöst, insbesondere auf Mobilgeräten. Im folgenden Szenario wird das `pagehide`-Ereignis beispielsweise überhaupt nicht ausgelöst:
 
-1. Jemand ruft Ihre Seite auf einem Mobilgerät auf.
-2. Anschließend wechselt die Person zu einer anderen App.
-3. Später schließt sie den Browser über den App-Manager.
+1. Eine Person besucht Ihre Seite auf einem Mobilgerät.
+2. Die Person wechselt zu einer anderen App.
+3. Später schließt sie den Browser über die App-Verwaltung.
 
-Dieses Ereignis ist jedoch mit dem [Back/Forward-Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel. Das Hinzufügen eines Listeners verhindert daher nicht, dass die Seite im bfcache gespeichert wird.
+Dieses Ereignis ist jedoch mit dem [Back/Forward-Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel. Wenn Sie einen Listener dafür hinzufügen, verhindert dies nicht, dass die Seite in den bfcache aufgenommen wird.
 
-Das am besten geeignete Ereignis, um das Ende einer Sitzung zu erkennen, ist [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event). In Browsern, die `visibilitychange` nicht unterstützen, ist `pagehide` die nächstbeste Alternative.
+Das beste Ereignis, um das Ende einer Sitzung zu erkennen, ist [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event). In Browsern, die `visibilitychange` nicht unterstützen, ist `pagehide` die nächstbeste Alternative.
 
-Wenn Sie gezielt erkennen möchten, dass eine Seite verlassen wird, ist `pagehide` die beste Wahl.
+Wenn Sie speziell erkennen möchten, wann eine Seite entladen wird, ist `pagehide` die beste Wahl.
 
-Weitere Informationen darüber, wie dieses Ereignis mit anderen Ereignissen im Lebenszyklus einer Seite zusammenhängt, finden Sie im Leitfaden zur [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api).
+Weitere Informationen dazu, wie dieses Ereignis mit anderen Ereignissen im Lebenszyklus einer Seite zusammenhängt, finden Sie im Leitfaden zur [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api).
 
 ## Beispiele
 
-In diesem Beispiel wird ein Event-Handler eingerichtet, der `pagehide`-Ereignisse überwacht und eine besondere Verarbeitung vornimmt, wenn die Seite zur möglichen Wiederverwendung gespeichert wird.
+In diesem Beispiel wird ein Ereignishandler eingerichtet, der auf `pagehide`-Ereignisse achtet und eine besondere Verarbeitung durchführt, wenn die Seite für eine mögliche spätere Wiederverwendung gespeichert wird.
 
 ```js
 window.addEventListener("pagehide", (event) => {
@@ -64,7 +68,7 @@ window.addEventListener("pagehide", (event) => {
 });
 ```
 
-Dasselbe lässt sich auch mit der Event-Handler-Eigenschaft `onpagehide` von [`Window`](/de/docs/Web/API/Window) schreiben:
+Dies lässt sich auch mit der Ereignishandler-Eigenschaft `onpagehide` von [`Window`](/de/docs/Web/API/Window) schreiben. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onpagehide` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 window.onpagehide = (event) => {

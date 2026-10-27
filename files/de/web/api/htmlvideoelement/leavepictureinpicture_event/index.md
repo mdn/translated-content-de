@@ -1,24 +1,28 @@
 ---
-title: "HTMLVideoElement: leavepictureinpicture Event"
+title: "HTMLVideoElement: leavepictureinpicture-Ereignis"
 short-title: leavepictureinpicture
 slug: Web/API/HTMLVideoElement/leavepictureinpicture_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 500a87094bd8ca5e41a6dab23f733867b9c9570e
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das `leavepictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) den Bild-in-Bild-Modus erfolgreich beendet.
+Das `leavepictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) den Bild-in-Bild-Modus erfolgreich verlässt.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("leavepictureinpicture", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onleavepictureinpicture = (event) => { }
 ```
 
@@ -30,9 +34,9 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `leavepictureinpicture`-Ereignis des HTMLVideoElements hinzu und senden eine Nachricht, wenn der Ereignishandler auf das Ereignis reagiert hat.
+In diesen Beispielen wird ein Event-Listener für das `leavepictureinpicture`-Ereignis des HTMLVideoElement hinzugefügt. Anschließend wird eine Nachricht ausgegeben, wenn der Event-Handler auf das ausgelöste Ereignis reagiert hat.
 
-Verwendung von `addEventListener()`:
+Mit `addEventListener()`:
 
 ```js
 const video = document.querySelector("#video");
@@ -51,7 +55,7 @@ button.onclick = () => {
 };
 ```
 
-Verwendung der `onleavepictureinpicture`-Ereignishandler-Eigenschaft:
+Mit der Event-Handler-Eigenschaft `onleavepictureinpicture` (beachten Sie jedoch, dass dadurch gegebenenfalls andere Event-Listener ersetzt werden, die über `onleavepictureinpicture` hinzugefügt wurden):
 
 ```js
 const video = document.querySelector("#video");

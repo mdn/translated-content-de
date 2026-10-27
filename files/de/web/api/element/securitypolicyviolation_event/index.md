@@ -3,28 +3,32 @@ title: "Element: securitypolicyviolation-Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/Element/securitypolicyviolation_event
 l10n:
-  sourceCommit: f37e438c6dece2b381d2b9f35dc53af21a916a75
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Reporting API")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn gegen eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verstoßen wird.
+Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verletzt wird.
 
-Das Ereignis wird auf dem Element ausgelöst, wenn es einen Verstoß gegen die CSP-Richtlinie gibt.
+Das Ereignis wird auf dem Element ausgelöst, wenn ein Verstoß gegen die CSP-Richtlinie vorliegt.
 
-Dieses Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum [`Window`](/de/docs/Web/API/Window)-Objekt und ist [composed](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [steigt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) bis zum [`Window`](/de/docs/Web/API/Window)-Objekt auf und ist [composed](/de/docs/Web/API/Event/composed).
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis im Allgemeinen zu einem Objekt der obersten Ebene hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
-> Obwohl HTML-Elemente technisch gesehen das Ziel des `securitypolicyviolation`-Ereignisses sein können, wird dieses Ereignis in der Praxis nicht auf ihnen ausgelöst – beispielsweise löst eine blockierte `<img>`-Quelle dieses Ereignis direkt auf `document` als Ziel aus, anstatt vom `<img>`-Element zu bubblen.
+> In der Regel sollten Sie den Handler für dieses Ereignis einem übergeordneten Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Obwohl HTML-Elemente technisch gesehen das Ziel des `securitypolicyviolation`-Ereignisses sein können, wird es tatsächlich nicht auf ihnen ausgelöst: Eine blockierte `<img>`-Quelle löst das Ereignis beispielsweise direkt mit `document` als Ziel aus, statt dass es vom `<img>`-Element aufsteigt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("securitypolicyviolation", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onsecuritypolicyviolation = (event) => { }
 ```
 
@@ -36,9 +40,9 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-### Auf securitypolicyviolation bei Window lauschen
+### Auf securitypolicyviolation auf Window reagieren
 
-Der folgende Code zeigt, wie Sie eine Event-Handler-Funktion mithilfe der globalen Event-Handler-Eigenschaft `onsecuritypolicyviolation` oder `addEventListener()` auf dem `Window` der obersten Ebene hinzufügen können (Sie könnten denselben Ansatz auch bei `Document` verwenden).
+Der folgende Code zeigt, wie Sie eine Event-Handler-Funktion über die globale Event-Handler-Eigenschaft `onsecuritypolicyviolation` hinzufügen können. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onsecuritypolicyviolation` hinzugefügte Event-Listener ersetzt werden. Alternativ können Sie `addEventListener()` auf dem übergeordneten `Window` verwenden (auf `Document` können Sie genauso vorgehen).
 
 ```js
 window.onsecuritypolicyviolation = (e) => {
@@ -60,6 +64,6 @@ window.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event)-Ereignis der [`Document`](/de/docs/Web/API/Document)-Schnittstelle
-- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event)-Ereignis der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle
+- Das Ereignis [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) der Schnittstelle [`Document`](/de/docs/Web/API/Document)
+- Das Ereignis [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event) der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
 - [HTTP > Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)

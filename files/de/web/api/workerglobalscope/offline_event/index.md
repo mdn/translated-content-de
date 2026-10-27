@@ -3,20 +3,24 @@ title: "WorkerGlobalScope: offline-Ereignis"
 short-title: offline
 slug: Web/API/WorkerGlobalScope/offline_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Das **`offline`**-Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät die Verbindung zum Internet verliert.
+Das **`offline`**-Ereignis von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät die Verbindung zum Internet verliert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("offline", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onoffline = (event) => { }
 ```
 
@@ -26,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt ist:
+Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers festgelegt wird. Beachten Sie, dass dadurch gegebenenfalls andere mit `onoffline` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 self.onoffline = () => {
@@ -34,7 +38,7 @@ self.onoffline = () => {
 };
 ```
 
-Der gleiche Ausschnitt, jedoch unter Verwendung von `addEventListener()`:
+Derselbe Codeausschnitt, jedoch mit `addEventListener()`:
 
 ```js
 self.addEventListener("offline", () => {
@@ -52,4 +56,4 @@ self.addEventListener("offline", () => {
 
 ## Siehe auch
 
-Das [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interface, zu dem es gehört.
+Die [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle, zu der das Ereignis gehört.

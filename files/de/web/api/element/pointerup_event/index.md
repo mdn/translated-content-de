@@ -3,22 +3,26 @@ title: "Element: pointerup-Ereignis"
 short-title: pointerup
 slug: Web/API/Element/pointerup_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das `pointerup`-Ereignis wird ausgelöst, wenn ein Zeiger nicht mehr aktiv ist. Denken Sie daran, dass es stattdessen möglich ist, ein [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignis zu erhalten.
+Das `pointerup`-Ereignis wird ausgelöst, wenn ein Zeiger nicht mehr aktiv ist. Beachten Sie, dass stattdessen auch ein [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignis auftreten kann.
 
-Dieses Verhalten unterscheidet sich von [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignissen. Beim Verwenden einer physischen Maus werden `mouseup`-Ereignisse immer dann ausgelöst, wenn eine Taste an der Maus losgelassen wird. `pointerup`-Ereignisse werden nur beim Loslassen der letzten Taste ausgelöst; vorherige Tastenfreigaben, während andere Tasten gedrückt gehalten werden, lösen keine `pointerup`-Ereignisse aus.
+Dieses Verhalten unterscheidet sich von [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignissen. Bei einer physischen Maus wird ein `mouseup`-Ereignis ausgelöst, sobald eine beliebige Maustaste losgelassen wird. Ein `pointerup`-Ereignis wird dagegen erst ausgelöst, wenn die letzte gedrückte Taste losgelassen wird. Werden zuvor Tasten losgelassen, während andere noch gedrückt sind, wird kein `pointerup`-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerup", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onpointerup = (event) => { }
 ```
 
@@ -40,7 +44,7 @@ para.addEventListener("pointerup", (event) => {
 });
 ```
 
-Verwendung der `onpointerup`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onpointerup`-Ereignisbehandlungs-Eigenschaft (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onpointerup` hinzugefügte Ereignis-Listener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

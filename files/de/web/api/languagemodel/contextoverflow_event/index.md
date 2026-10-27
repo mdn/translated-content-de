@@ -1,9 +1,9 @@
 ---
-title: "LanguageModel: Ereignis contextoverflow"
+title: "LanguageModel: contextoverflow-Ereignis"
 short-title: contextoverflow
 slug: Web/API/LanguageModel/contextoverflow_event
 l10n:
-  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
+  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
@@ -12,11 +12,15 @@ Das **`contextoverflow`**-Ereignis wird auf einer [`LanguageModel`](/de/docs/Web
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("contextoverflow", (event) => {})
+```
 
+Alternativ können Sie ihn der [Ereignisbehandlungs-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 oncontextoverflow = (event) => {}
 ```
 
@@ -26,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Reaktion auf einen Kontextüberlauf
+### Auf einen Kontextüberlauf reagieren
 
-Der folgende Code zeigt zwei Methoden zur Erstellung eines Ereignis-Listeners für das `contextoverflow`-Ereignis.
+Der folgende Code zeigt zwei Möglichkeiten, einen Ereignis-Listener für das `contextoverflow`-Ereignis zu erstellen.
 
 ```js
 const session = await LanguageModel.create();
@@ -38,7 +42,7 @@ session.addEventListener("contextoverflow", () => {
 });
 ```
 
-Alternativ:
+Alternativ können Sie die Ereignisbehandlungs-Eigenschaft `oncontextoverflow` verwenden. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `oncontextoverflow` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 const session = await LanguageModel.create();
@@ -51,7 +55,7 @@ session.oncontextoverflow = () => {
 };
 ```
 
-### Zurücksetzen der Sitzung bei Überlauf
+### Die Sitzung bei einem Überlauf zurücksetzen
 
 Das folgende Beispiel erstellt eine neue Sitzung, wenn das `contextoverflow`-Ereignis ausgelöst wird.
 

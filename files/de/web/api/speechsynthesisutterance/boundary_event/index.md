@@ -1,22 +1,26 @@
 ---
-title: "SpeechSynthesisUtterance: boundary Ereignis"
+title: "SpeechSynthesisUtterance: boundary-Ereignis"
 short-title: boundary
 slug: Web/API/SpeechSynthesisUtterance/boundary_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 5019c0ab87d0e75a5505c0d12aac1e135e1877d7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`boundary`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn die gesprochene Äußerung eine Wort- oder Satzgrenze erreicht.
+Das **`boundary`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn die gesprochene Äußerung eine Wort- oder Satzgrenze erreicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("boundary", (event) => { })
+```
 
+Alternativ können Sie ihn der [Ereignishandler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onboundary = (event) => { }
 ```
 
@@ -28,7 +32,7 @@ Ein [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent). Erbt von [`
 
 ## Beispiele
 
-Sie können das `boundary` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `boundary`-Ereignis mit der Methode [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 utterThis.addEventListener("boundary", (event) => {
@@ -38,7 +42,7 @@ utterThis.addEventListener("boundary", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onboundary` Ereignishandler-Eigenschaft:
+Oder verwenden Sie die Ereignishandler-Eigenschaft `onboundary`. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onboundary` hinzugefügte Ereignis-Listener ersetzt werden:
 
 ```js
 utterThis.onboundary = (event) => {

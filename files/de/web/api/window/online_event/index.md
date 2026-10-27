@@ -1,25 +1,29 @@
 ---
-title: "Fenster: online-Ereignis"
+title: "Window: online-Ereignis"
 short-title: online
 slug: Web/API/Window/online_event
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: 023b9075df473020b3279afa031bb4a32e3b743b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`online`**-Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser Zugang zum Netzwerk erhält und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
+Das **`online`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn der Browser Zugriff auf das Netzwerk erhält und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) zu `true` wechselt.
 
 > [!NOTE]
-> Dieses Ereignis sollte nicht verwendet werden, um die Verfügbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls könnten dennoch verhindern, dass die Website erreichbar ist.
+> Dieses Ereignis sollte nicht verwendet werden, um die Erreichbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls können weiterhin verhindern, dass die Website erreicht wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("online", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 ononline = (event) => { }
 ```
 
@@ -27,9 +31,9 @@ ononline = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Ereignishandler-Aliase
+## Aliase für Event-Handler
 
-Zusätzlich zum `Window`-Interface ist die Ereignis-Handler-Eigenschaft `ononline` auch auf den folgenden Zielen verfügbar:
+Neben der `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `ononline` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -43,7 +47,8 @@ window.addEventListener("online", (event) => {
   console.log("You are now connected to the network.");
 });
 
-// ononline version
+// ononline version (but note that this replaces other event listeners
+// added using ononline, if any)
 window.ononline = (event) => {
   console.log("You are now connected to the network.");
 };

@@ -1,22 +1,26 @@
 ---
-title: "Element: pointerleave Ereignis"
+title: "Element: pointerleave-Ereignis"
 short-title: pointerleave
 slug: Web/API/Element/pointerleave_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das `pointerleave`-Ereignis wird ausgelöst, wenn ein Zeigegerät aus den Treffergrenzen eines Elements bewegt wird. Bei Stiftgeräten wird dieses Ereignis ausgelöst, wenn der Stift den vom Digitalisierer erkennbaren Hover-Bereich verlässt. Ansonsten funktioniert `pointerleave` genauso wie [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) und wird zur gleichen Zeit ausgelöst. Sie werden ebenfalls zur gleichen Zeit wie die Ereignisse [`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) ausgelöst, wenn zutreffend.
+Das `pointerleave`-Ereignis wird ausgelöst, wenn ein Zeigegerät den für die Trefferprüfung relevanten Bereich eines Elements verlässt. Bei Stiftgeräten wird dieses Ereignis ausgelöst, wenn der Stift den vom Digitizer erfassbaren Hover-Bereich verlässt. Ansonsten verhält sich `pointerleave` wie [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event); beide Ereignisse werden gleichzeitig ausgelöst. Gegebenenfalls werden zur selben Zeit auch die Ereignisse [`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("pointerleave", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+
+```js-nolint
 onpointerleave = (event) => { }
 ```
 
@@ -38,7 +42,7 @@ para.addEventListener("pointerleave", (event) => {
 });
 ```
 
-Verwendung der `onpointerleave` Ereignishandler-Eigenschaft:
+Verwendung der Event-Handler-Eigenschaft `onpointerleave` (beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onpointerleave` hinzugefügte Event-Listener ersetzt werden):
 
 ```js
 const para = document.querySelector("p");

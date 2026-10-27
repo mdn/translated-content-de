@@ -1,28 +1,32 @@
 ---
-title: "Element: fullscreenerror Event"
+title: "Element: fullscreenerror-Ereignis"
 short-title: fullscreenerror
 slug: Web/API/Element/fullscreenerror_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
 ---
 
 {{APIRef("Fullscreen API")}}
 
 Das **`fullscreenerror`**-Ereignis wird ausgelöst, wenn der Browser nicht in den Vollbildmodus wechseln kann.
 
-Wie beim [`fullscreenchange`-Ereignis](/de/docs/Web/API/Element/fullscreenchange_event) werden zwei `fullscreenerror`-Ereignisse ausgelöst; das erste wird an das [`Element`](/de/docs/Web/API/Element) gesendet, das den Modus nicht ändern konnte, und das zweite an das [`Document`](/de/docs/Web/API/Document), dem dieses Element gehört.
+Wie beim [`fullscreenchange`-Ereignis](/de/docs/Web/API/Element/fullscreenchange_event) werden zwei `fullscreenerror`-Ereignisse ausgelöst: Das erste wird an das [`Element`](/de/docs/Web/API/Element) gesendet, bei dem der Moduswechsel fehlgeschlagen ist, und das zweite an das [`Document`](/de/docs/Web/API/Document), zu dem dieses Element gehört.
 
-Für einige Gründe, warum das Umschalten in den Vollbildmodus fehlschlagen könnte, siehe [den Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide).
+Einige Gründe, aus denen der Wechsel in den Vollbildmodus fehlschlagen kann, finden Sie im [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide).
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("fullscreenerror", (event) => { })
+```
 
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+
+```js-nolint
 onfullscreenerror = (event) => { }
 ```
 
@@ -41,7 +45,8 @@ function handleError(event) {
 }
 
 requestor.addEventListener("fullscreenerror", handleError);
-// or
+// Or (but note that this replaces other event listeners
+// added using onfullscreenerror, if any)
 requestor.onfullscreenerror = handleError;
 
 requestor.requestFullscreen();
@@ -58,5 +63,5 @@ requestor.requestFullscreen();
 ## Siehe auch
 
 - [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)
-- [Fullscreen-API](/de/docs/Web/API/Fullscreen_API)
-- [Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide)
+- [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
+- [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)

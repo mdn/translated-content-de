@@ -1,24 +1,28 @@
 ---
-title: "XRSession: squeezestart-Event"
+title: "XRSession: squeezestart-Ereignis"
 short-title: squeezestart
 slug: Web/API/XRSession/squeezestart_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 92c5e81c587ffea6177431743106118984f1675d
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das [WebXR](/de/docs/Web/API/WebXR_Device_API)-Ereignis **`squeezestart`** wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn der Benutzer eine [primäre Quetschaktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) auf einer ihrer Eingabequellen beginnt.
+Das [WebXR](/de/docs/Web/API/WebXR_Device_API)-Ereignis **`squeezestart`** wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn der Benutzer an einer ihrer Eingabequellen eine [primäre Squeeze-Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) beginnt.
 
-Primäre Quetschaktionen sind Aktionen, die das Greifen oder Quetschen mit den Händen darstellen sollen und können mit Triggern an Handcontrollern simuliert werden.
+Primäre Squeeze-Aktionen sollen das Greifen oder Zusammendrücken mit den Händen darstellen. Sie können auch durch Auslöser an Handcontrollern simuliert werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js-nolint
 addEventListener("squeezestart", (event) => { })
+```
 
+Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle eine Funktion zuweisen:
+
+```js-nolint
 onsqueezestart = (event) => { }
 ```
 
@@ -32,29 +36,29 @@ Ein [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent). Erbt von [`Even
 
 ### Auslöser
 
-Wird ausgelöst, wenn Benutzer beginnen, den Controller zu drücken, eine Handbewegung machen, die das Greifen von etwas imitiert, oder einen Trigger betätigen (quetschen).
+Das Ereignis wird ausgelöst, wenn Benutzer beginnen, den Controller zusammenzudrücken, mit einer Handgeste das Greifen eines Gegenstands nachahmen oder einen Auslöser betätigen.
 
 ### Anwendungsfälle
 
-Das `squeezestart`-Ereignis wird gesendet, um anzuzeigen, dass der Benutzer eine Quetschaktion begonnen hat.
+Das Ereignis `squeezestart` zeigt an, dass der Benutzer eine Squeeze-Aktion begonnen hat.
 
-Wenn die primäre Quetschaktion erfolgreich endet, wird an die Sitzung ein [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event)-Ereignis gesendet.
+Wenn die primäre Squeeze-Aktion erfolgreich endet, wird ein [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event)-Ereignis an die Sitzung gesendet.
 
-Ein [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event)-Ereignis wird gesendet, um anzuzeigen, dass die Quetschaktion nicht mehr im Gange ist. Dies wird gesendet, unabhängig davon, ob die Quetschaktion erfolgreich war oder nicht.
+Ein [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event)-Ereignis zeigt an, dass die Squeeze-Aktion nicht mehr andauert. Es wird unabhängig davon gesendet, ob die Aktion erfolgreich war.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Handler für die Quetschereignisse einzurichten: `squeezestart`, [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) und [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event). Dieses Snippet bildet den Kern eines Ereignishandlers, der es dem Benutzer ermöglicht, Objekte in der Szene zu greifen und zu bewegen.
+Im folgenden Beispiel werden mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) Handler für die Squeeze-Ereignisse `squeezestart`, [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) und [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event) eingerichtet. Dieser Ausschnitt bildet den Kern eines Event-Handlers, mit dem Benutzer Objekte in der Szene greifen und bewegen können.
 
-In diesem Fall wird eine einzige Funktion verwendet, um alle drei Ereignisse zu behandeln, sodass sie bestimmten Code teilen können, der unabhängig davon gleich ist, welches der drei Ereignisse empfangen wird. Erst nachdem diese Aufgaben abgeschlossen sind, leitet die Funktion `onSqueezeEvent()` unten die Aktion zur Behandlung der Dinge an eine spezialisierte Funktion weiter.
+Hier verarbeitet eine einzige Funktion alle drei Ereignisse. Dadurch können sie Code gemeinsam nutzen, der unabhängig vom empfangenen Ereignis gleich ist. Erst nach diesen gemeinsamen Aufgaben leitet die unten stehende Funktion `onSqueezeEvent()` die Aktion an eine spezialisierte Funktion weiter.
 
-Nachdem sichergestellt wurde, dass das empfangene Ereignis ein `tracked-pointer`-Ereignis ist (die einzige Art, die wir hier handhaben), wird die Pose des Zielstrahls mithilfe von [`getPose()`](/de/docs/Web/API/XRFrame/getPose) abgerufen.
+Nachdem geprüft wurde, ob das empfangene Ereignis ein `tracked-pointer`-Ereignis ist – der einzige hier verarbeitete Typ –, wird die Pose des Zielstrahls mit [`getPose()`](/de/docs/Web/API/XRFrame/getPose) abgerufen.
 
-Wenn die Pose des Zielstrahls erfolgreich abgerufen wurde, verwendet der Code dann den Wert der [`Event`](/de/docs/Web/API/Event)-Eigenschaft [`type`](/de/docs/Web/API/Event/type), um die Kontrolle an eine geeignete Funktion zur Behandlung des eingegangenen Ereignisses weiterzuleiten:
+Wenn die Pose des Zielstrahls erfolgreich abgerufen wurde, verwendet der Code den Wert der [`Event`](/de/docs/Web/API/Event)-Eigenschaft [`type`](/de/docs/Web/API/Event/type), um die Verarbeitung an eine passende Funktion für das empfangene Ereignis weiterzuleiten:
 
-- Bei `squeezestart`-Ereignissen wird eine Funktion `myBeginTracking()` mit der [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) der Zielstrahl-Pose aufgerufen. Die Funktion `myBeginTracking()` würde vermutlich mit der Darstellung des Objekt-Ziehprozesses beginnen, indem der transformierte Hit-Test durchgeführt wird, um zu bestimmen, welches Objekt aufgenommen werden soll. `myBeginTracking()` gibt ein Objekt zurück, das das vom Benutzer begonnene Ziehen repräsentiert.
-- Beim Empfang eines `squeeze`-Ereignisses wird die Funktion `myDropObject()` mit dem Zielobjekt und der aktuellen Zielstrahl-Pose-Transformation als Eingaben aufgerufen. Dies platziert das Objekt in seiner neuen Position in der Welt und löst gegebenenfalls Effekte aus, wie z.B. das Planen einer Animation eines Spritzers, wenn es ins Wasser fällt usw.
-- Das `squeezeend`-Ereignis führt dazu, dass eine Funktion `myStopTracking()` aufgerufen wird, die das gezogene Objekt und die finale Zielstrahl-Pose-Transformation verwendet.
+- Bei `squeezestart`-Ereignissen wird `myBeginTracking()` mit der [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) der Zielstrahl-Pose aufgerufen. `myBeginTracking()` würde vermutlich die Darstellung des Ziehvorgangs beginnen und anhand der Transformation mit einem Treffertest ermitteln, welches Objekt aufgenommen werden soll. `myBeginTracking()` gibt ein Objekt zurück, das das vom Benutzer gezogene Objekt repräsentiert.
+- Beim Empfang eines `squeeze`-Ereignisses wird `myDropObject()` mit dem Zielobjekt und der aktuellen Transformation der Zielstrahl-Pose aufgerufen. Die Funktion platziert das Objekt an seiner neuen Position in der Welt und löst gegebenenfalls weitere Effekte aus, etwa eine Animation für aufspritzendes Wasser, wenn das Objekt ins Wasser fällt.
+- Das `squeezeend`-Ereignis führt dazu, dass `myStopTracking()` mit dem gezogenen Objekt und der Transformation der abschließenden Zielstrahl-Pose aufgerufen wird.
 
 ```js
 xrSession.addEventListener("squeezestart", onSqueezeEvent);
@@ -88,7 +92,7 @@ function onSqueezeEvent(event) {
 }
 ```
 
-Sie können auch einen Handler für diese Ereignisse einrichten, indem Sie die Ereignishandler-Eigenschaften des [`XRSession`](/de/docs/Web/API/XRSession)-Objekts auf eine Funktion setzen, die das Ereignis behandelt:
+Sie können einen Handler für diese Ereignisse auch einrichten, indem Sie den Event-Handler-Eigenschaften des [`XRSession`](/de/docs/Web/API/XRSession)-Objekts eine Funktion zuweisen, die das Ereignis verarbeitet. Beachten Sie jedoch, dass dadurch gegebenenfalls vorhandene Event-Listener ersetzt werden, die über `onsqueezestart`, `onsqueeze` und `onsqueezeend` hinzugefügt wurden:
 
 ```js
 xrSession.onsqueezestart = onSqueezeEvent;
