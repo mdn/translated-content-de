@@ -2,29 +2,29 @@
 title: Mozilla Firefox
 slug: Glossary/Mozilla_Firefox
 l10n:
-  sourceCommit: ef78a9a3336c884fb3587e4ff833e64704296f01
+  sourceCommit: a4ff34eef85ccb654c5c3af7974caba396e8adcf
 ---
 
-**Firefox** ist ein freier, quelloffener {{Glossary("Browser", "Webbrowser")}}, der von der Mozilla Corporation entwickelt wird. Firefox ist für Windows, macOS, Linux, Android und iOS verfügbar.
+**Firefox** ist ein kostenloser, quelloffener {{Glossary("Browser", "Webbrowser")}}, der von der Mozilla Corporation entwickelt wird. Firefox ist für Windows, macOS, Linux, Android und iOS verfügbar.
 
-Erstmals im November 2004 veröffentlicht, ist Firefox mit Themen, Plugins und [Add-ons](/de/docs/Mozilla/Add-ons) anpassbar. Firefox verwendet die {{Glossary("Gecko", "Gecko")}} Rendering-Engine, um Webseiten anzuzeigen, und implementiert sowohl aktuelle als auch zukünftige {{Glossary("world_wide_web", "Web")}} Standards.
+Firefox wurde erstmals im November 2004 veröffentlicht und lässt sich mit Themes, Plugins und [Add-ons](/de/docs/Mozilla/Add-ons) anpassen. Firefox verwendet die Rendering-Engine {{Glossary("Gecko", "Gecko")}}, um Webseiten darzustellen, und unterstützt sowohl aktuelle als auch kommende {{Glossary("world_wide_web", "Webstandards")}}.
 
 ## Firefox herunterladen
 
-Firefox ist auf mehreren Plattformen verfügbar und kommt in verschiedenen Versionen für unterschiedliche Benutzerbedürfnisse.
+Firefox ist für verschiedene Plattformen und in unterschiedlichen Versionen für verschiedene Anforderungen verfügbar.
 
-### Benutzer
+### Nutzer
 
-Verwenden Sie diese Links, um Firefox für verschiedene Plattformen, Geräte oder Einsatzbedürfnisse herunterzuladen:
+Über diese Links können Sie Firefox für unterschiedliche Plattformen, Geräte oder Bereitstellungsanforderungen herunterladen:
 
 - [Desktop](https://www.firefox.com/en-US/)
 - [Android](https://www.firefox.com/en-US/mobile/)
 - [iOS](https://www.firefox.com/en-US/mobile/)
-- [Firefox für Unternehmen](https://www.firefox.com/en-US/browsers/enterprise/)
+- [Firefox für Unternehmen](https://www.firefox.com/en-US/enterprise/)
 
 ### Webentwickler
 
-Wenn Sie die neuesten Funktionen von Firefox ausprobieren möchten, installieren Sie eine der Vorabversionen:
+Wenn Sie die neuesten Firefox-Funktionen ausprobieren möchten, installieren Sie eine der Vorabversionen:
 
 - [Firefox Developer Edition](https://www.firefox.com/en-US/channel/desktop/developer/)
 - [Firefox Nightly](https://www.firefox.com/en-US/channel/desktop/#nightly)
@@ -33,13 +33,13 @@ Wenn Sie die neuesten Funktionen von Firefox ausprobieren möchten, installieren
 ## Siehe auch
 
 - [Firefox](https://en.wikipedia.org/wiki/Firefox) auf Wikipedia
-- [Firefox Versionshinweise](https://www.firefox.com/en-US/releases/)
-- [Firefox Source Docs](https://firefox-source-docs.mozilla.org/)
-- [Firefox Entwicklerdokumentation](/de/docs/Mozilla/Firefox) bei den MDN Web Docs
-- [SpiderMonkey](https://spidermonkey.dev/) JavaScript- und WebAssembly-Engine
-- [Mozilla Standards Positionen](https://mozilla.github.io/standards-positions/)
-- [Firefox Fehler melden](https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox)
-- Verwandte Glossartermine:
+- [Versionshinweise zu Firefox](https://www.firefox.com/en-US/releases/)
+- [Firefox-Quelldokumentation](https://firefox-source-docs.mozilla.org/)
+- [Firefox-Entwicklerdokumentation](/de/docs/Mozilla/Firefox) auf MDN Web Docs
+- [SpiderMonkey](https://spidermonkey.dev/), eine JavaScript- und WebAssembly-Engine
+- [Mozillas Positionen zu Webstandards](https://mozilla.github.io/standards-positions/)
+- [Firefox-Fehler melden](https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox)
+- Verwandte Glossareinträge:
   - {{Glossary("Browser", "Browser")}}
   - {{Glossary("Gecko", "Gecko")}}
   - {{Glossary("Engine/Rendering", "Rendering-Engine")}}

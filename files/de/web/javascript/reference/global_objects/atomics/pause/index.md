@@ -3,12 +3,12 @@ title: Atomics.pause()
 short-title: pause()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/pause
 l10n:
-  sourceCommit: f3bcd518b873a2264b2ec9005060741e4def8b2c
+  sourceCommit: 9d64ff6c5d0eee1800b0d3b4f9076de65f34f5ce
 ---
 
-Die statische Methode **`Atomics.pause()`** stellt eine Mikro-Warte-Primitiv zur Verfügung, die der CPU andeutet, dass der Aufrufer auf den Zugriff auf eine gemeinsam genutzte Ressource wartet. Dadurch kann das System die zugewiesenen Ressourcen für den Kern (wie Leistung) oder Thread reduzieren, ohne den aktuellen Thread abzugeben.
+Die statische Methode **`Atomics.pause()`** stellt ein Primitiv für eine sehr kurze Wartezeit bereit. Sie signalisiert der CPU, dass der Aufrufer in einer Schleife auf den Zugriff auf eine gemeinsam genutzte Ressource wartet. Dadurch kann das System die dem Prozessorkern oder Thread zugewiesenen Ressourcen, etwa die Leistungsaufnahme, reduzieren, ohne die Ausführung des aktuellen Threads abzugeben.
 
-`pause()` hat kein beobachtbares Verhalten außer der zeitlichen Wirkung. Das genaue Verhalten hängt von der CPU-Architektur und dem Betriebssystem ab. Zum Beispiel kann es auf Intel x86 eine `pause`-Anweisung gemäß [Intels Optimierungs-Handbuch](https://www.intel.com/content/www/us/en/content-details/671488/intel-64-and-ia-32-architectures-optimization-reference-manual-volume-1.html) sein. Auf manchen Plattformen könnte es ein no-op sein.
+`pause()` hat außer einer möglichen Auswirkung auf die zeitliche Ausführung kein beobachtbares Verhalten. Das genaue Verhalten hängt von der CPU-Architektur und dem Betriebssystem ab. Auf Intel x86 kann beispielsweise eine `pause`-Instruktion gemäß [Intels Optimierungshandbuch](https://www.intel.com/content/www/us/en/content-details/671488/intel-64-and-ia-32-architectures-optimization-reference-manual-volume-1.html) ausgeführt werden. Auf bestimmten Plattformen kann der Aufruf wirkungslos sein.
 
 ## Syntax
 
@@ -26,38 +26,42 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Beachten Sie, dass diese Beispiele nicht direkt in der Konsole oder einer beliebigen Webseite ausgeführt werden können, da `SharedArrayBuffer` nicht definiert ist, es sei denn, seine [Sicherheitsanforderungen](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) sind erfüllt.
+Diese Beispiele können nicht direkt in der Konsole oder auf einer beliebigen Webseite ausgeführt werden, da `SharedArrayBuffer` nur definiert ist, wenn seine [Sicherheitsanforderungen](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) erfüllt sind.
 
-### Verwendung von Atomics.pause()
+### Atomics.pause() verwenden
 
-Der Aufruf von {{jsxref("Atomics.wait()")}} oder {{jsxref("Atomics.waitAsync()")}}, um auf den Zugriff auf geteilten Speicher zu warten, bewirkt, dass der Thread aus dem Kern herausgeplant wird und dann nach der Wartezeit wieder herein, was während Zeiten hoher Konkurrenz effizient ist, in denen der Zugriff auf den geteilten Speicher einige Zeit in Anspruch nehmen könnte. Wenn die Konkurrenz gering ist, ist es oft effizienter, die Sperre abzufragen, ohne den Thread abzugeben: Dieser Ansatz wird als [Busy Waiting](https://en.wikipedia.org/wiki/Busy_waiting) oder [Spinlocking](https://en.wikipedia.org/wiki/Spinlock) bezeichnet. Die Methode `pause()` ermöglicht es Ihnen, effizienter während des Wartens zu Spinlocken, indem sie der CPU einen Hinweis gibt, was der Thread tut, und dadurch sein geringes Ressourcenbedürfnis anzeigt.
+Wenn {{jsxref("Atomics.wait()")}} oder {{jsxref("Atomics.waitAsync()")}} aufgerufen wird, um auf den Zugriff auf gemeinsam genutzten Speicher zu warten, wird die Ausführung des Threads auf dem Prozessorkern ausgesetzt und nach dem Warten wieder aufgenommen. Das ist bei hoher Zugriffskonkurrenz effizient, wenn der Zugriff auf den gemeinsam genutzten Speicher einige Zeit dauern kann. Bei geringer Zugriffskonkurrenz ist es dagegen oft effizienter, die Sperre wiederholt zu prüfen, ohne die Ausführung des Threads abzugeben. Dieser Ansatz wird als [Busy Waiting](https://en.wikipedia.org/wiki/Busy_waiting) oder [Spinlocking](https://en.wikipedia.org/wiki/Spinlock) bezeichnet. Die Methode `pause()` macht Spinlocking während des Wartens effizienter, indem sie der CPU signalisiert, was der Thread gerade tut und dass er daher nur wenige Ressourcen benötigt.
 
-Um beiden Bedingungen gerecht zu werden, besteht ein gängiger Ansatz darin, zuerst zu Spinlocken, in der Hoffnung, dass die Konkurrenz gering ist, und dann zu warten, wenn die Sperre nicht nach kurzer Zeit erlangt wird. Wenn wir die Sperre bereits durch Spinlocking erlangt haben, wird der `wait()`-Aufruf ein no-op sein.
+Um beide Situationen abzudecken, wird häufig zunächst per Spinlocking auf die Sperre gewartet, in der Annahme, dass die Zugriffskonkurrenz gering ist. Wird die Sperre nach kurzer Zeit nicht erlangt, geht der Thread in den Wartezustand über. Wurde die Sperre bereits durch Spinlocking erlangt, wird der Aufruf von `wait()` übersprungen.
 
-Das folgende Beispiel zeigt, wie dieser Ansatz mit `Atomics.pause()` und `Atomics.wait()` verwendet werden kann.
+Das folgende Beispiel zeigt, wie sich dieser Ansatz mit `Atomics.pause()` und `Atomics.wait()` umsetzen lässt.
 
 > [!WARNING]
-> Die Verwendung von Spinlocking auf dem Hauptthread wird nicht empfohlen, da dadurch die gesamte Seite einfriert. Allgemein gilt, dass Spinlocks, sofern sie nicht sehr sorgfältig entworfen werden, möglicherweise nicht tatsächlich leistungsfähiger sind als ein reguläres Warten.
+> Spinlocking im Hauptthread wird nicht empfohlen, da dadurch die gesamte Seite blockiert wird. Sofern sie nicht sehr sorgfältig konzipiert sind, bieten Spinlocks im Allgemeinen möglicherweise keinen Leistungsvorteil gegenüber einem regulären Wartevorgang.
 
 ```js
 // Imagine another thread also has access to this shared memory
 const sab = new SharedArrayBuffer(1024);
 const i32 = new Int32Array(sab);
 
-// Fast path: spin the CPU for a short while
-let spin = 0;
-do {
-  if (Atomics.compareExchange(i32, 0, 0, 1) === 0) {
-    break;
-  }
-  Atomics.pause();
-  spin++;
-} while (spin < 10);
+function lock() {
+  while (true) {
+    // Fast path: spin the CPU for a short while
+    let spin = 0;
+    do {
+      if (Atomics.compareExchange(i32, 0, 0, 1) === 0) {
+        return;
+      }
+      Atomics.pause();
+      spin++;
+    } while (spin < 10);
 
-// Slow path: wait for the lock
-// This can only be called in a worker thread,
-// because the main thread cannot be blocked
-Atomics.wait(i32, 0, 1);
+    // Slow path: wait for the lock
+    // This can only be called in a worker thread,
+    // because the main thread cannot be blocked
+    Atomics.wait(i32, 0, 1);
+  }
+}
 ```
 
 ## Spezifikationen

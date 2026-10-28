@@ -2,25 +2,25 @@
 title: SharedArrayBuffer
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
 l10n:
-  sourceCommit: 48f29758dbe9036bd04baf519b8e35d1f989e532
+  sourceCommit: 9d64ff6c5d0eee1800b0d3b4f9076de65f34f5ce
 ---
 
-Das **`SharedArrayBuffer`**-Objekt wird verwendet, um einen generischen rohen binären Datenpuffer darzustellen, ähnlich dem {{jsxref("ArrayBuffer")}}-Objekt, jedoch so, dass es möglich ist, Ansichten auf gemeinsam genutzten Speicher zu erstellen. Ein `SharedArrayBuffer` ist kein [Transferable Object](/de/docs/Web/API/Web_Workers_API/Transferable_objects), im Gegensatz zu einem `ArrayBuffer`, der übertragbar ist.
+Das **`SharedArrayBuffer`**-Objekt stellt einen generischen Puffer für binäre Rohdaten dar, ähnlich dem {{jsxref("ArrayBuffer")}}-Objekt. Im Unterschied dazu können mit ihm jedoch Ansichten auf gemeinsam genutzten Speicher erstellt werden. Ein `SharedArrayBuffer` ist kein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects), anders als ein `ArrayBuffer`, der übertragen werden kann.
 
 ## Beschreibung
 
-Um Speicher mithilfe von `SharedArrayBuffer`-Objekten von einem Agent im Cluster zu einem anderen zu teilen (ein Agent ist entweder das Hauptprogramm der Webseite oder einer ihrer Webworker), wird [`postMessage`](/de/docs/Web/API/Worker/postMessage) und [strukturiertes Klonen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) verwendet.
+Um Speicher mithilfe von `SharedArrayBuffer`-Objekten zwischen Agents desselben Clusters gemeinsam zu nutzen, werden [`postMessage`](/de/docs/Web/API/Worker/postMessage) und [strukturiertes Klonen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) verwendet. Ein Agent ist entweder das Hauptprogramm der Webseite oder einer ihrer Web Worker.
 
-Der Algorithmus für strukturiertes Klonen akzeptiert `SharedArrayBuffer`-Objekte und Typarrays, die auf `SharedArrayBuffer`-Objekte abgebildet sind. In beiden Fällen wird das `SharedArrayBuffer`-Objekt an den Empfänger übermittelt, was zu einem neuen, privaten `SharedArrayBuffer`-Objekt im empfangenden Agent führt (genau wie bei {{jsxref("ArrayBuffer")}}). Der gemeinsam genutzte Datenblock, auf den die beiden `SharedArrayBuffer`-Objekte verweisen, ist jedoch derselbe Datenblock, und ein Nebeneffekt auf den Block in einem Agent wird schließlich im anderen Agent sichtbar.
+Der Algorithmus für strukturiertes Klonen akzeptiert `SharedArrayBuffer`-Objekte sowie Typed Arrays, die auf `SharedArrayBuffer`-Objekte abgebildet sind. In beiden Fällen erhält der empfangende Agent ein neues, eigenes `SharedArrayBuffer`-Objekt – wie bei {{jsxref("ArrayBuffer")}}. Der gemeinsam genutzte Datenblock, auf den die beiden `SharedArrayBuffer`-Objekte verweisen, ist jedoch derselbe. Eine Änderung dieses Blocks durch einen Agent wird daher schließlich auch für den anderen Agent sichtbar.
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 worker.postMessage(sab);
 ```
 
-Gemeinsam genutzter Speicher kann gleichzeitig in Workern oder dem Hauptthread erstellt und aktualisiert werden. Je nach System (CPU, Betriebssystem, Browser) kann es eine Weile dauern, bis die Änderung in allen Kontexten propagiert wird. Um dies zu synchronisieren, sind {{jsxref("Atomics", "atomare", "", 1)}} Operationen erforderlich.
+Gemeinsam genutzter Speicher kann gleichzeitig in Workern und im Hauptthread erstellt und aktualisiert werden. Je nach System (CPU, Betriebssystem und Browser) kann es einige Zeit dauern, bis eine Änderung in allen Kontexten sichtbar wird. Zur Synchronisierung sind {{jsxref("Atomics", "atomic", "", 1)}}-Operationen erforderlich.
 
-`SharedArrayBuffer`-Objekte werden von einigen Web-APIs verwendet, wie zum Beispiel:
+`SharedArrayBuffer`-Objekte werden von einigen Web-APIs verwendet, darunter:
 
 - [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData)
 - [`WebGLRenderingContext.bufferSubData()`](/de/docs/Web/API/WebGLRenderingContext/bufferSubData)
@@ -28,9 +28,11 @@ Gemeinsam genutzter Speicher kann gleichzeitig in Workern oder dem Hauptthread e
 
 ### Sicherheitsanforderungen
 
-Gemeinsam genutzter Speicher und hochauflösende Timer wurden Anfang 2018 [effektiv deaktiviert](https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/) im Lichte von [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>). Im Jahr 2020 wurde ein neuer, sicherer Ansatz standardisiert, um gemeinsamen Speicher wieder zu ermöglichen.
+Gemeinsam genutzter Speicher und hochauflösende Timer wurden angesichts von [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>) [Anfang 2018 praktisch deaktiviert](https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/).
+Im Jahr 2020 wurde ein neuer, sicherer Ansatz standardisiert, um gemeinsam genutzten Speicher wieder zu ermöglichen.
 
-Um gemeinsam genutzten Speicher zu verwenden, muss Ihr Dokument in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) sein und [über Ursprünge isoliert](/de/docs/Web/API/Window/crossOriginIsolated) sein. Sie können die Eigenschaften [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) und [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated) verwenden, um zu überprüfen, ob das Dokument über Ursprünge isoliert ist:
+Um gemeinsam genutzten Speicher zu verwenden, muss sich Ihr Dokument in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) befinden und [Cross-Origin-isoliert](/de/docs/Web/API/Window/crossOriginIsolated) sein.
+Mit den Eigenschaften [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) und [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated) können Sie prüfen, ob das Dokument Cross-Origin-isoliert ist:
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -44,29 +46,29 @@ if (crossOriginIsolated) {
 }
 ```
 
-Wenn über Ursprünge isoliert, wirft `postMessage()` für `SharedArrayBuffer`-Objekte nicht länger Ausnahmen, und gemeinsam genutzter Speicher zwischen Threads ist daher verfügbar.
+Bei Cross-Origin-Isolierung löst `postMessage()` für `SharedArrayBuffer`-Objekte keinen Fehler mehr aus. Damit steht gemeinsam genutzter Speicher über Threads hinweg zur Verfügung.
 
-### Verfügbarkeit von APIs
+### Verfügbarkeit der APIs
 
-Je nachdem, ob die oben genannten Sicherheitsmaßnahmen ergriffen werden, haben die verschiedenen Speicherfreigabe-APIs unterschiedliche Verfügbarkeiten:
+Je nachdem, ob die oben genannten Sicherheitsmaßnahmen umgesetzt wurden, sind die verschiedenen APIs zur gemeinsamen Speichernutzung unterschiedlich verfügbar:
 
 - Das `Atomics`-Objekt ist immer verfügbar.
-- `SharedArrayBuffer`-Objekte sind prinzipiell immer verfügbar, aber leider ist der Konstruktor im globalen Objekt verborgen, es sei denn, die beiden oben erwähnten Header sind gesetzt, für die Kompatibilität mit Web-Inhalten. Es besteht die Hoffnung, dass diese Einschränkung in Zukunft aufgehoben werden kann. [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) kann dennoch verwendet werden, um eine Instanz zu erhalten.
-- Sofern die beiden oben genannten Header nicht gesetzt sind, werfen die verschiedenen `postMessage()`-APIs für `SharedArrayBuffer`-Objekte Ausnahmen. Wenn sie jedoch gesetzt sind, funktionieren `postMessage()` auf `Window`-Objekten und dedizierten Workern und ermöglichen die Speicherfreigabe.
+- `SharedArrayBuffer`-Objekte sind grundsätzlich immer verfügbar. Aus Gründen der Kompatibilität mit Webinhalten ist der Konstruktor im globalen Objekt jedoch verborgen, sofern die beiden oben erwähnten Header nicht gesetzt sind. Möglicherweise kann diese Einschränkung künftig aufgehoben werden. Über [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) lässt sich dennoch eine Instanz erhalten.
+- Solange die beiden oben erwähnten Header nicht gesetzt sind, lösen die verschiedenen `postMessage()`-APIs bei `SharedArrayBuffer`-Objekten einen Fehler aus. Sind sie gesetzt, funktioniert `postMessage()` bei `Window`-Objekten und Dedicated Workern und ermöglicht die gemeinsame Speichernutzung.
 
-### WebAssembly gemeinsamer Speicher
+### Gemeinsam genutzter Speicher in WebAssembly
 
-[`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte können mit dem [`shared`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/Memory#shared) Konstruktor-Flag erstellt werden. Wenn dieses Flag auf `true` gesetzt ist, kann das konstruierte `Memory`-Objekt zwischen Workern über `postMessage()` geteilt werden, genau wie `SharedArrayBuffer`, und der zugrunde liegende [`buffer`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/buffer) des `Memory`-Objekts ist ein `SharedArrayBuffer`. Daher gelten die oben aufgeführten Anforderungen für das Teilen eines `SharedArrayBuffer` zwischen Workern auch für das Teilen eines `WebAssembly.Memory`.
+[`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte können mit dem Konstruktor-Flag [`shared`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/Memory#shared) erstellt werden. Ist dieses Flag auf `true` gesetzt, kann das erstellte `Memory`-Objekt wie ein `SharedArrayBuffer` über `postMessage()` zwischen Workern geteilt werden. Der zugrunde liegende [`buffer`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/buffer) des `Memory`-Objekts ist dabei ein `SharedArrayBuffer`. Die oben genannten Anforderungen für die gemeinsame Nutzung eines `SharedArrayBuffer` zwischen Workern gelten daher auch für die gemeinsame Nutzung eines `WebAssembly.Memory`-Objekts.
 
-Der WebAssembly Threads-Vorschlag definiert auch einen neuen Satz von [atomaren](https://github.com/WebAssembly/threads/blob/main/proposals/threads/Overview.md#atomic-memory-accesses) Instruktionen. Genau wie `SharedArrayBuffer` und seine Methoden bedingungslos aktiviert sind (und nur das Teilen zwischen Threads durch die neuen Header gesteuert wird), sind die WebAssembly-atomaren Instruktionen ebenfalls bedingungslos erlaubt.
+Der Vorschlag zu WebAssembly Threads definiert außerdem neue [atomare](https://github.com/WebAssembly/threads/blob/main/proposals/threads/Overview.md#atomic-memory-accesses) Anweisungen. Ebenso wie `SharedArrayBuffer` und seine Methoden ohne Einschränkung verfügbar sind und nur die gemeinsame Nutzung zwischen Threads von den neuen Headern abhängt, sind auch die atomaren WebAssembly-Anweisungen ohne Einschränkung zulässig.
 
-### Wachstum von SharedArrayBuffers
+### Vergrößerbare SharedArrayBuffers
 
-`SharedArrayBuffer`-Objekte können durch Einschließen der `maxByteLength`-Option beim Aufruf des {{jsxref("SharedArrayBuffer/SharedArrayBuffer", "SharedArrayBuffer()")}}-Konstruktors wachstumsfähig gemacht werden. Sie können überprüfen, ob ein `SharedArrayBuffer` wachstumsfähig ist und wie groß es maximal sein kann, indem Sie auf seine {{jsxref("SharedArrayBuffer/growable", "growable")}}- und {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaften zugreifen. Sie können einem wachstumsfähigen `SharedArrayBuffer` mit einem {{jsxref("SharedArrayBuffer/grow", "grow()")}}-Aufruf eine neue Größe zuweisen. Neue Bytes werden auf 0 initialisiert.
+`SharedArrayBuffer`-Objekte können vergrößerbar gemacht werden, indem beim Aufruf des Konstruktors {{jsxref("SharedArrayBuffer/SharedArrayBuffer", "SharedArrayBuffer()")}} die Option `maxByteLength` angegeben wird. Ob ein `SharedArrayBuffer` vergrößerbar ist und wie groß er maximal werden kann, können Sie über seine Eigenschaften {{jsxref("SharedArrayBuffer/growable", "growable")}} beziehungsweise {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}} abfragen. Mit einem Aufruf von {{jsxref("SharedArrayBuffer/grow", "grow()")}} können Sie einem vergrößerbaren `SharedArrayBuffer` eine neue Größe zuweisen. Neue Bytes werden mit 0 initialisiert.
 
-Diese Funktionen machen das Wachstum von `SharedArrayBuffer`s effizienter — andernfalls müssen Sie eine Kopie des Puffers mit einer neuen Größe erstellen. Es bringt auch die JavaScript-Parität mit WebAssembly in dieser Hinsicht (Wasm-Speicher kann mit [`WebAssembly.Memory.prototype.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/grow) resized werden).
+Diese Funktionen machen das Vergrößern von `SharedArrayBuffer`-Objekten effizienter – andernfalls müssten Sie eine Kopie des Puffers mit der neuen Größe erstellen. Außerdem erhält JavaScript damit in dieser Hinsicht dieselben Möglichkeiten wie WebAssembly (linearer Wasm-Speicher kann mit [`WebAssembly.Memory.prototype.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory/grow) vergrößert werden).
 
-Aus Sicherheitsgründen können `SharedArrayBuffer`s nicht in der Größe reduziert werden, sondern nur wachsen.
+Aus Sicherheitsgründen können `SharedArrayBuffer`-Objekte nur vergrößert, nicht verkleinert werden.
 
 ## Konstruktor
 
@@ -76,41 +78,41 @@ Aus Sicherheitsgründen können `SharedArrayBuffer`s nicht in der Größe reduzi
 ## Statische Eigenschaften
 
 - [`SharedArrayBuffer[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/Symbol.species)
-  - : Gibt den Konstruktor zurück, der zur Konstruktion von Rückgabewerten von `SharedArrayBuffer`-Methoden verwendet wird.
+  - : Gibt den Konstruktor zurück, mit dem Rückgabewerte von `SharedArrayBuffer`-Methoden erstellt werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `SharedArrayBuffer.prototype` definiert und werden von allen `SharedArrayBuffer`-Instanzen geteilt.
+Diese Eigenschaften sind auf `SharedArrayBuffer.prototype` definiert und werden von allen `SharedArrayBuffer`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("SharedArrayBuffer.prototype.byteLength")}}
-  - : Die Größe, in Bytes, des Arrays. Diese wird festgelegt, wenn das Array erstellt wird und kann nur geändert werden, wenn der `SharedArrayBuffer` wachstumsfähig ist, unter Verwendung der {{jsxref("SharedArrayBuffer.prototype.grow()")}}-Methode.
+  - : Die Größe des Arrays in Bytes. Sie wird beim Erstellen des Arrays festgelegt und kann nur mit der Methode {{jsxref("SharedArrayBuffer.prototype.grow()")}} geändert werden, wenn der `SharedArrayBuffer` vergrößerbar ist.
 - {{jsxref("Object/constructor", "SharedArrayBuffer.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `SharedArrayBuffer`-Instanzen ist der Initialwert der {{jsxref("SharedArrayBuffer/SharedArrayBuffer", "SharedArrayBuffer")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `SharedArrayBuffer`-Instanzen ist der Anfangswert der Konstruktor {{jsxref("SharedArrayBuffer/SharedArrayBuffer", "SharedArrayBuffer")}}.
 - {{jsxref("SharedArrayBuffer.prototype.growable")}}
-  - : Schreibgeschützt. Gibt `true` zurück, wenn der `SharedArrayBuffer` wachsen kann, oder `false`, wenn nicht.
+  - : Schreibgeschützt. Gibt `true` zurück, wenn der `SharedArrayBuffer` vergrößert werden kann, andernfalls `false`.
 - {{jsxref("SharedArrayBuffer.prototype.maxByteLength")}}
-  - : Die schreibgeschützte maximale Länge, in Bytes, auf die der `SharedArrayBuffer` wachsen kann. Diese wird bei der Erstellung des Arrays festgelegt und kann nicht geändert werden.
+  - : Die schreibgeschützte maximale Länge in Bytes, auf die der `SharedArrayBuffer` vergrößert werden kann. Sie wird beim Erstellen des Arrays festgelegt und kann nicht geändert werden.
 - `SharedArrayBuffer.prototype[Symbol.toStringTag]`
-  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"SharedArrayBuffer"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der Eigenschaft [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) ist die Zeichenfolge `"SharedArrayBuffer"`. Diese Eigenschaft wird von {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("SharedArrayBuffer.prototype.grow()")}}
   - : Vergrößert den `SharedArrayBuffer` auf die angegebene Größe in Bytes.
 - {{jsxref("SharedArrayBuffer.prototype.slice()")}}
-  - : Gibt einen neuen `SharedArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `SharedArrayBuffer` von `begin` (einschließlich) bis `end` (ausschließlich) ist. Wenn entweder `begin` oder `end` negativ ist, bezieht es sich auf einen Index vom Ende des Arrays, im Gegensatz zum Anfang.
+  - : Gibt einen neuen `SharedArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `SharedArrayBuffer` von `begin` (einschließlich) bis `end` (ausschließlich) ist. Ist `begin` oder `end` negativ, bezieht sich der Index auf das Ende statt auf den Anfang des Arrays.
 
 ## Beispiele
 
-Beachten Sie, dass diese Beispiele nicht direkt aus der Konsole oder einer beliebigen Webseite ausgeführt werden können, da `SharedArrayBuffer` nicht definiert ist, es sei denn, seine [Sicherheitsanforderungen](#sicherheitsanforderungen) sind erfüllt.
+Beachten Sie, dass diese Beispiele nicht direkt in der Konsole oder auf einer beliebigen Webseite ausgeführt werden können, da `SharedArrayBuffer` nur definiert ist, wenn seine [Sicherheitsanforderungen](#sicherheitsanforderungen) erfüllt sind.
 
-### Erstellen eines neuen SharedArrayBuffer
+### Einen neuen SharedArrayBuffer erstellen
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 ```
 
-### Slicing des SharedArrayBuffer
+### Einen Ausschnitt aus dem SharedArrayBuffer erstellen
 
 ```js
 sab.slice(); // SharedArrayBuffer { byteLength: 1024 }
@@ -139,15 +141,16 @@ gl.bufferData(gl.ARRAY_BUFFER, sab, gl.STATIC_DRAW);
 
 ## Siehe auch
 
+- Leitfaden zur [Kommunikation und Koordination zwischen Agents](/de/docs/Web/JavaScript/Guide/Agent_communication_and_coordination)
 - {{jsxref("Atomics")}}
 - {{jsxref("ArrayBuffer")}}
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
-- [Web Worker](/de/docs/Web/API/Web_Workers_API)
-- [Gemeinsamer Speicher – ein kurzes Tutorial](https://github.com/tc39/proposal-ecmascript-sharedmem/blob/main/TUTORIAL.md) im TC39 ecmascript-sharedmem Vorschlag
-- [Ein Vorgeschmack auf JavaScripts neue parallele Primitive](https://hacks.mozilla.org/2016/05/a-taste-of-javascripts-new-parallel-primitives/) auf hacks.mozilla.org (2016)
+- Leitfaden zu [Typed Arrays in JavaScript](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Web Workers](/de/docs/Web/API/Web_Workers_API)
+- [Gemeinsam genutzter Speicher – eine kurze Einführung](https://github.com/tc39/proposal-ecmascript-sharedmem/blob/main/TUTORIAL.md) im TC39-Vorschlag ecmascript-sharedmem
+- [Ein Einblick in die neuen Parallelisierungsprimitive von JavaScript](https://hacks.mozilla.org/2016/05/a-taste-of-javascripts-new-parallel-primitives/) auf hacks.mozilla.org (2016)
 - [COOP und COEP erklärt](https://docs.google.com/document/d/1zDlfvfTJ_9e8Jdc8ehuV4zMEu9ySMCiTGMS9y0GU92k/edit) vom Chrome-Team (2020)
 - {{HTTPHeader("Cross-Origin-Opener-Policy")}}
 - {{HTTPHeader("Cross-Origin-Embedder-Policy")}}
 - {{HTTPHeader("Cross-Origin-Resource-Policy")}}
 - [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) und [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated)
-- [SharedArrayBuffer-Updates in Android Chrome 88 und Desktop Chrome 92](https://developer.chrome.com/blog/enabling-shared-array-buffer/) auf developer.chrome.com (2021)
+- [Aktualisierungen für SharedArrayBuffer in Android Chrome 88 und Desktop Chrome 92](https://developer.chrome.com/blog/enabling-shared-array-buffer/) auf developer.chrome.com (2021)

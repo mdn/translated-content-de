@@ -3,10 +3,53 @@ title: "`text-autospace` CSS property"
 short-title: text-autospace
 slug: Web/CSS/Reference/Properties/text-autospace
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c91282d3f1f546ba4bc98a107ef97ce298846a91
 ---
 
-Die **`text-autospace`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, den Abstand zwischen chinesischen/japanischen/koreanischen (CJK) und nicht-CJK-Zeichen festzulegen.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-autospace`** können Sie festlegen, welcher Abstand zwischen chinesischen, japanischen und koreanischen (CJK) Zeichen und Nicht-CJK-Zeichen eingefügt wird.
+
+Viele typografische Konventionen für CJK-Texte erfordern einen kleinen Abstand zwischen CJK-Zeichen und westlichen Buchstaben oder Ziffern (siehe die Beschreibungen des W3C zu den Konventionen für das Textlayout im [Chinesischen](https://www.w3.org/International/clreq/#mixed_text_composition_in_horizontal_writing_mode) und [Japanischen](https://www.w3.org/TR/jlreq/#composition_of_japanese_and_western_mixed_texts)). Manche Autoren fügen dafür manuell ein Leerzeichen ein. `text-autospace` erzeugt diesen Abstand hingegen auf Ebene der Layout-Engine, ohne zusätzliche Zeichen im Textinhalt zu benötigen.
+
+{{InteractiveExample("CSS Demo: text-autospace")}}
+
+```css interactive-example-choice
+text-autospace: no-autospace;
+```
+
+```css interactive-example-choice
+text-autospace: normal;
+```
+
+```css interactive-example-choice
+text-autospace: ideograph-alpha;
+```
+
+```css interactive-example-choice
+text-autospace: ideograph-numeric;
+```
+
+```css interactive-example-choice
+text-autospace: auto;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element" lang="zh">
+    <p>HTML超文本标记语言</p>
+    <p>42四十二</p>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  font: 2rem sans-serif;
+}
+
+p {
+  margin: 0;
+}
+```
 
 ## Syntax
 
@@ -34,29 +77,29 @@ text-autospace: unset;
 ### Werte
 
 - `normal`
-  - : Erzeugt das Standardverhalten, um automatisch Abstände zwischen CJK- und nicht-CJK-Zeichen sowie um Satzzeichen herum anzuwenden. Dieser Wert hat denselben Effekt wie das Anwenden von sowohl [`ideograph-alpha`](#ideograph-alpha) als auch [`ideograph-numeric`](#ideograph-numeric).
+  - : Legt das Standardverhalten fest, bei dem automatisch Abstände zwischen CJK- und Nicht-CJK-Zeichen sowie um Satzzeichen eingefügt werden. Dieser Wert hat dieselbe Wirkung wie die gemeinsame Angabe von [`ideograph-alpha`](#ideograph-alpha) und [`ideograph-numeric`](#ideograph-numeric).
 - `<autospace>`
-  - : Bietet mehr Kontrolle über das Verhalten der Abstände. Es akzeptiert das Schlüsselwort `no-autospace` oder eine Kombination von einem oder mehreren der Werte `ideograph-alpha`, `ideograph-numeric` und `punctuation`, optional gefolgt von `insert` oder `replace`.
+  - : Ermöglicht eine genauere Steuerung der Abstände. Akzeptiert das Schlüsselwort `no-autospace` oder eine Kombination aus einem oder mehreren der Werte `ideograph-alpha`, `ideograph-numeric` und `punctuation`, optional gefolgt von `insert` oder `replace`.
     - `no-autospace`
-      - : Deaktiviert den automatischen Abstand zwischen CJK- und nicht-CJK-Zeichen.
+      - : Deaktiviert automatische Abstände zwischen CJK- und Nicht-CJK-Zeichen.
     - `ideograph-alpha`
-      - : Fügt nur einen Abstand zwischen ideografischen Zeichen (wie Katakana und Han) und nicht-ideografischen Buchstaben (wie Latein) hinzu. Es wird kein Abstand zwischen ideografischen Zeichen und nicht-ideografischen Zahlen hinzugefügt.
+      - : Fügt Abstände nur zwischen ideografischen Zeichen (wie Katakana und Han) und nicht ideografischen Buchstaben (wie lateinischen Buchstaben) ein. Zwischen ideografischen Zeichen und nicht ideografischen Ziffern werden keine Abstände eingefügt.
     - `ideograph-numeric`
-      - : Fügt nur einen Abstand zwischen ideografischen Zeichen (wie Katakana und Han) und nicht-ideografischen Zahlen (wie Latein) hinzu. Es wird kein Abstand zwischen ideografischen Zeichen und nicht-ideografischen Buchstaben hinzugefügt.
+      - : Fügt Abstände nur zwischen ideografischen Zeichen (wie Katakana und Han) und nicht ideografischen Ziffern (wie lateinischen Ziffern) ein. Zwischen ideografischen Zeichen und nicht ideografischen Buchstaben werden keine Abstände eingefügt.
     - `punctuation`
-      - : Fügt nicht trennende Abstände um Satzzeichen hinzu, wie es die sprachspezifischen typografischen Konventionen erfordern.
+      - : Fügt um Satzzeichen geschützte Abstände ein, sofern sprachspezifische typografische Konventionen dies erfordern.
     - `insert`
-      - : Fügt den angegebenen Abstand nur hinzu, wenn es keine vorhandenen Abstände zwischen dem ideografischen und nicht-ideografischen Text gibt.
+      - : Fügt den angegebenen Abstand nur dann ein, wenn zwischen den ideografischen und nicht ideografischen Schriftsystemen noch keine Leerzeichen vorhanden sind.
     - `replace`
-      - : Ersetzt vorhandene Abstände (wie {{Glossary("Whitespace", "U+0020")}}) zwischen ideografischen und nicht-ideografischen Zeichen durch den angegebenen Abstand.
+      - : Ersetzt vorhandene Leerzeichen (wie {{Glossary("Whitespace", "U+0020")}}) zwischen ideografischen und nicht ideografischen Zeichen durch den angegebenen Abstand.
 - `auto`
-  - : Lässt den Browser typografisch angemessene Abstände wählen. Die Abstände können zwischen verschiedenen Browsern und Plattformen variieren.
+  - : Überlässt dem Browser die Wahl eines typografisch geeigneten Abstands. Der Abstand kann je nach Browser und Plattform variieren.
 
 > [!NOTE]
-> Wenn weder `insert` noch `replace` angegeben sind, ist das Verhalten dasselbe wie bei `insert`.
+> Wenn weder `insert` noch `replace` angegeben ist, entspricht das Verhalten dem von `insert`.
 
 > [!NOTE]
-> Diese Eigenschaft ist additiv mit den Eigenschaften {{CSSXRef("word-spacing")}} und {{CSSXRef("letter-spacing")}}. Der durch die Einstellung von `letter-spacing` erzeugte Abstand wird zu dem durch `text-autospace` erzeugten Abstand hinzugefügt. Dasselbe gilt für `word-spacing`.
+> Diese Eigenschaft wirkt zusätzlich zu den Eigenschaften {{CSSXRef("word-spacing")}} und {{CSSXRef("letter-spacing")}}. Der durch `letter-spacing` festgelegte Abstand wird zu dem durch `text-autospace` erzeugten Abstand addiert. Dasselbe gilt für `word-spacing`.
 
 ## Formale Definition
 
@@ -65,102 +108,6 @@ text-autospace: unset;
 ## Formale Syntax
 
 {{csssyntax}}
-
-## Beispiele
-
-Dieses Beispiel zeigt den Unterschied zwischen den verschiedenen Werten von `text-autospace`. Versuchen Sie, einen Wert aus dem Dropdown-Menü auszuwählen, um zu sehen, wie er den Abstand im Text beeinflusst.
-
-```html hidden
-<form>
-  <label for="autospace">Choose value for <code>text-autospace:</code></label>
-  <select name="autospace" id="autospace">
-    <option selected value="no-autospace">no-autospace</option>
-    <option value="normal">normal</option>
-    <option value="ideograph-alpha">ideograph-alpha</option>
-    <option value="ideograph-numeric">ideograph-numeric</option>
-  </select>
-</form>
-<div class="unsupported">
-  <code>text-autospace</code> is not supported in your browser.
-</div>
-```
-
-```html
-<main>
-  <figure class="no-autospace">
-    <figcaption>
-      <code>
-        text-autospace: <span id="autospace-value">no-autospace</span>;
-      </code>
-    </figcaption>
-    <div>
-      <p>HTML超文本标记语言</p>
-      <p>42四十二</p>
-    </div>
-  </figure>
-</main>
-```
-
-```css
-.no-autospace {
-  text-autospace: no-autospace;
-}
-.auto {
-  text-autospace: auto;
-}
-.normal {
-  text-autospace: normal;
-}
-.ideograph-alpha {
-  text-autospace: ideograph-alpha;
-}
-.ideograph-numeric {
-  text-autospace: ideograph-numeric;
-}
-```
-
-```css hidden
-figure {
-  margin: 1rem;
-  div {
-    font-size: 2rem;
-    padding: 1rem;
-    font-family: sans-serif;
-    border: tomato solid 1px;
-  }
-  p {
-    margin: 0;
-  }
-}
-main {
-  max-width: max-content;
-}
-@supports not (text-autospace: normal) {
-  form {
-    display: none;
-  }
-  .unsupported {
-    color: red;
-  }
-}
-@supports (text-autospace: normal) {
-  .unsupported {
-    display: none;
-  }
-}
-```
-
-```js hidden
-const chose = document.querySelector("#autospace");
-const fig = document.querySelector("figure");
-const codeValue = document.querySelector("#autospace-value");
-chose.addEventListener("change", (e) => {
-  fig.className = e.target.value;
-  codeValue.innerText = e.target.value;
-});
-```
-
-{{EmbedLiveSample("Example", 200, 200)}}
 
 ## Spezifikationen
 
@@ -173,5 +120,7 @@ chose.addEventListener("change", (e) => {
 ## Siehe auch
 
 - {{cssxref('text-spacing-trim')}}
-- [`ic`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) und [`ric`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#root_font-relative_lengths) Einheiten
-- [CSS Text](/de/docs/Web/CSS/Guides/Text) Modul
+- Die Einheiten [`ic`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) und [`ric`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#root_font-relative_lengths)
+- Das Modul [CSS Text](/de/docs/Web/CSS/Guides/Text)
+- [Zusammensetzung gemischter Texte im horizontalen Schreibmodus](https://www.w3.org/International/clreq/#mixed_text_composition_in_horizontal_writing_mode) in „Requirements for Chinese Text Layout“ auf w3.org
+- [Zusammensetzung gemischter japanischer und westlicher Texte](https://www.w3.org/International/jlreq/#japanese_and_western_mixed_text_composition) in „Requirements for Japanese Text Layout“ auf w3.org

@@ -3,28 +3,28 @@ title: "PerformanceContainerTiming: firstRenderTime-Eigenschaft"
 short-title: firstRenderTime
 slug: Web/API/PerformanceContainerTiming/firstRenderTime
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: a4ff34eef85ccb654c5c3af7974caba396e8adcf
 ---
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`firstRenderTime`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt den Zeitpunkt zurück, zu dem die Rendering-Aktualisierung für den ersten Paint abgeschlossen war, der Inhalte zu diesem Container beitrug.
+Die schreibgeschützte Eigenschaft **`firstRenderTime`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt den Zeitpunkt zurück, zu dem die Rendering-Aktualisierung für den ersten Paint abgeschlossen war, der Inhalte zu diesem Container beigetragen hat.
 
-Dieser Wert wird beim allerersten Paint des Containers nach seiner Registrierung festgelegt und bleibt für alle Einträge, die für diesen Container gemeldet werden, unverändert. Darin unterscheidet er sich von [`paintTime`](/de/docs/Web/API/PerformanceContainerTiming/paintTime) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime), die sich auf den Paint beziehen, der den jeweiligen Eintrag erzeugt hat.
+Dieser Wert bleibt für alle Einträge, die für den Container gemeldet werden, auf den Zeitpunkt des allerersten Paints des Containers nach seiner Registrierung festgelegt. Damit unterscheidet er sich von [`paintTime`](/de/docs/Web/API/PerformanceContainerTiming/paintTime) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime), die sich auf den Paint beziehen, der den jeweiligen Eintrag erzeugt hat.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), gemessen relativ zum [`time origin`](/de/docs/Web/API/Performance/timeOrigin).
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), gemessen relativ zum [Zeitursprung](/de/docs/Web/API/Performance/timeOrigin).
 
 ## Beispiele
 
 ### Beobachten, dass firstRenderTime unverändert bleibt
 
-Dieses Beispiel zeigt, dass `firstRenderTime` beim allerersten Paint des Containers festgelegt wird und unverändert bleibt, während sich `startTime` und `paintTime` mit jedem Eintrag ändern.
+Dieses Beispiel zeigt, dass `firstRenderTime` auf den Zeitpunkt des allerersten Paints des Containers festgelegt bleibt, während sich `startTime` und `paintTime` mit jedem Eintrag ändern.
 
 #### HTML
 
-Definieren Sie zunächst ein {{htmlelement("section")}}-Element, das durch sein `containertiming`-Attribut als Container-Wurzel mit der Kennung `"hero"` markiert ist, sowie einen Button zum Zurücksetzen des Beispiels.
+Definieren Sie zunächst ein {{htmlelement("section")}}-Element, das durch sein `containertiming`-Attribut als Container-Root mit der Kennung `"hero"` markiert ist, sowie eine Schaltfläche zum Zurücksetzen des Beispiels.
 
 ```html
 <button id="reset">Reset</button>
@@ -33,7 +33,7 @@ Definieren Sie zunächst ein {{htmlelement("section")}}-Element, das durch sein 
 </section>
 ```
 
-Beachten Sie, dass es außerdem verborgenes HTML (und Code) zur Anzeige von Protokollinformationen gibt. Neue Protokolleinträge werden am Anfang des Protokolls eingefügt.
+Beachten Sie, dass außerdem verborgenes HTML (und Code) zum Anzeigen von Protokollinformationen vorhanden ist. Neue Protokolleinträge werden oben im Protokoll hinzugefügt.
 
 ```html hidden
 <pre id="log"></pre>
@@ -57,7 +57,7 @@ function log(text) {
 
 #### JavaScript
 
-Der folgende Code prüft zunächst, ob der Browser `"container"`-Einträge unterstützt. Falls nicht, wird protokolliert, dass die Funktion nicht unterstützt wird. Anschließend erstellt er einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der für jeden Eintrag dessen [`lastPaintedElement`](/de/docs/Web/API/PerformanceContainerTiming/lastPaintedElement) sowie `firstRenderTime`, [`paintTime`](/de/docs/Web/API/PerformanceContainerTiming/paintTime) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) protokolliert.
+Der folgende Code prüft zunächst, ob der Browser Einträge vom Typ `"container"` unterstützt. Falls nicht, protokolliert er, dass die Funktion nicht unterstützt wird. Anschließend erstellt er einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der für jeden Eintrag [`lastPaintedElement`](/de/docs/Web/API/PerformanceContainerTiming/lastPaintedElement), `firstRenderTime`, [`paintTime`](/de/docs/Web/API/PerformanceContainerTiming/paintTime) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) protokolliert.
 
 ```js
 const container = document.querySelector("section");
@@ -79,7 +79,7 @@ if (PerformanceObserver.supportedEntryTypes.includes("container")) {
 }
 ```
 
-Anschließend verwenden wir [`setInterval()`](/de/docs/Web/API/Window/setInterval), um dem Container jede Sekunde einen neuen Absatz hinzuzufügen. Nach fünf Absätzen stoppen wir. Jeder Absatz löst einen neuen Paint und einen neuen Timing-Eintrag aus. Beachten Sie, dass wir Inhalte zeitgesteuert hinzufügen und nicht erst, wenn jemand auf einen Button klickt, da nach einer Interaktion mit der Seite keine Einträge mehr gemeldet werden (siehe [Die Meldung endet nach dem Scrollen oder einer Nutzereingabe](/de/docs/Web/API/PerformanceContainerTiming#reporting_stops_after_scrolling_or_user_input)).
+Anschließend verwenden wir [`setInterval()`](/de/docs/Web/API/Window/setInterval), um dem Container jede Sekunde einen neuen Absatz hinzuzufügen. Nach fünf Absätzen wird das Hinzufügen beendet. Jeder Absatz löst einen neuen Paint und einen neuen Timing-Eintrag aus. Beachten Sie, dass wir Inhalte zeitgesteuert hinzufügen und nicht, wenn der Benutzer auf eine Schaltfläche klickt, da nach einer Interaktion des Benutzers mit der Seite keine Einträge mehr gemeldet werden (siehe [Meldungen enden nach dem Scrollen oder nach Benutzereingaben](/de/docs/Web/API/PerformanceContainerTiming#reporting_stops_after_scrolling_or_user_input)).
 
 ```js
 const maxParagraphs = 5;
@@ -96,7 +96,7 @@ const timer = setInterval(() => {
 }, 1000);
 ```
 
-Zum Schluss fügen wir einen Click-Event-Handler hinzu, der das Beispiel durch Neuladen der Seite zurücksetzt.
+Zum Schluss fügen wir einen Click-Event-Handler hinzu, der das Beispiel durch erneutes Laden der Seite zurücksetzt.
 
 ```js
 document.querySelector("#reset").addEventListener("click", () => {
@@ -106,7 +106,7 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 #### Ergebnis
 
-Jede Sekunde wird ein neuer Absatz hinzugefügt. Jeder Absatz sollte einen neuen Protokolleintrag auslösen, in dem `firstRenderTime` unverändert bleibt, während sich die Werte der anderen Eigenschaften ändern. Klicken Sie auf den Button **Reset**, um das Beispiel neu zu starten.
+Jede Sekunde wird ein neuer Absatz hinzugefügt. Jeder Absatz sollte einen neuen Protokolleintrag auslösen, bei dem `firstRenderTime` gleich bleibt, während sich die Werte der anderen Eigenschaften ändern. Klicken Sie auf die Schaltfläche **Zurücksetzen**, um das Beispiel neu zu starten.
 
 {{EmbedLiveSample("Observing that firstRenderTime stays fixed", "100%", 400)}}
 

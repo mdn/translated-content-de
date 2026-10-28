@@ -2,19 +2,19 @@
 title: APIs von Drittanbietern
 slug: Learn_web_development/Extensions/Client-side_APIs/Third_party_APIs
 l10n:
-  sourceCommit: 3bb9f59e86a92584f306d5fe6c07572f7a08ee7e
+  sourceCommit: a4ff34eef85ccb654c5c3af7974caba396e8adcf
 ---
 
 {{PreviousMenu("Learn_web_development/Extensions/Client-side_APIs/Client-side_storage", "Learn_web_development/Extensions/Client-side_APIs")}}
 
-Die APIs, die wir bisher behandelt haben, sind in den Browser integriert. Das gilt jedoch nicht für alle APIs. Viele große Websites und Dienste wie Google, GitHub, YouTube und Spotify stellen APIs bereit. Damit können Entwickler deren Daten nutzen (z. B. Informationen über ihre Repositories in einem Blog anzeigen) oder Dienste einbinden (z. B. Nutzern die Anmeldung über Google ermöglichen). Dieser Artikel erklärt den Unterschied zwischen Browser-APIs und APIs von Drittanbietern und zeigt einige typische Einsatzmöglichkeiten für letztere.
+Die bisher behandelten APIs sind im Browser integriert. Das gilt jedoch nicht für alle APIs. Viele große Websites und Dienste wie Google, GitHub, YouTube und Spotify stellen APIs bereit. Damit können Entwickler deren Daten nutzen (etwa um Informationen über ihre Repositorys in einem Blog anzuzeigen) oder deren Dienste einbinden (etwa um Nutzern die Anmeldung über Google zu ermöglichen). Dieser Artikel erläutert den Unterschied zwischen Browser-APIs und APIs von Drittanbietern und zeigt einige typische Einsatzmöglichkeiten der letzteren.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere mit den <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Grundlagen von JavaScript-Objekten</a> sowie grundlegenden APIs wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere mit <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">den Grundlagen von JavaScript-Objekten</a> sowie grundlegenden API-Themen wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
       </td>
     </tr>
     <tr>
@@ -32,13 +32,13 @@ Die APIs, die wir bisher behandelt haben, sind in den Browser integriert. Das gi
 
 ## Was sind APIs von Drittanbietern?
 
-APIs von Drittanbietern werden von externen Anbietern – in der Regel Unternehmen wie Spotify oder Google – bereitgestellt. Sie ermöglichen es Ihnen, über JavaScript auf deren Funktionen zuzugreifen und sie auf Ihrer Website zu nutzen. Ein Beispiel sind die APIs von YouTube, mit denen Sie nach Videos suchen und diese auf Ihren Seiten anzeigen können.
+APIs von Drittanbietern werden von externen Anbietern – in der Regel Unternehmen wie Spotify oder Google – bereitgestellt. Sie ermöglichen es Ihnen, über JavaScript auf deren Funktionen zuzugreifen und diese auf Ihrer Website zu nutzen. Ein Beispiel sind die YouTube-APIs, mit denen Sie nach Videos suchen und sie auf Ihren Seiten anzeigen können.
 
 Sehen wir uns an, wie sich APIs von Drittanbietern von Browser-APIs unterscheiden.
 
 ### Sie befinden sich auf Servern von Drittanbietern
 
-Browser-APIs sind in den Browser integriert – Sie können unmittelbar über JavaScript auf sie zugreifen. Beispielsweise erfolgt der Zugriff auf die Web Audio API, die wir [im einführenden Artikel kennengelernt haben](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Introduction#how_do_apis_work), über das native [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekt:
+Browser-APIs sind im Browser integriert – Sie können unmittelbar aus JavaScript darauf zugreifen. Auf die Web Audio API, die wir [im einführenden Artikel kennengelernt haben](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Introduction#how_do_apis_work), greifen Sie beispielsweise über das native [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekt zu:
 
 ```js
 const audioCtx = new AudioContext();
@@ -49,13 +49,13 @@ const audioSource = audioCtx.createMediaElementSource(audioElement);
 // etc.
 ```
 
-APIs von Drittanbietern befinden sich dagegen auf deren Servern. Um über JavaScript auf sie zuzugreifen, müssen Sie zunächst eine Verbindung zu den API-Funktionen herstellen und diese auf Ihrer Seite verfügbar machen.
+APIs von Drittanbietern befinden sich dagegen auf externen Servern. Um aus JavaScript darauf zuzugreifen, müssen Sie zunächst eine Verbindung zu den API-Funktionen herstellen und sie auf Ihrer Seite verfügbar machen.
 
-Letztlich kommunizieren alle APIs von Drittanbietern über HTTP mit ihren Servern. [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufrufe manuell zu schreiben, ist jedoch umständlich und anfällig für Probleme durch Änderungen. Deshalb stellen Anbieter ihre Funktionen meist über Funktionen bereit, die als Software Development Kit (SDK) bezeichnet werden. Das SDK erstellt die HTTP-Nutzdaten, sendet die Anfrage an den richtigen Endpoint, verarbeitet die Antwort und so weiter. Dadurch müssen Sie möglichst wenig Code schreiben und nur die benötigten Daten angeben.
+Letztlich kommunizieren alle APIs von Drittanbietern über HTTP mit ihren Servern. [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufrufe von Hand zu schreiben ist jedoch umständlich und anfällig für Änderungen, die den Code funktionsunfähig machen. Deshalb stellen Anbieter ihre Funktionen meist über eine Sammlung von Funktionen bereit, die als Software Development Kit (SDK) bezeichnet wird. Das SDK erstellt die HTTP-Nutzdaten, sendet die Anfrage an den richtigen Endpunkt, verarbeitet die Antwort und übernimmt weitere Aufgaben. So müssen Sie möglichst wenig Code schreiben und nur die erforderlichen Daten angeben.
 
-Traditionell wird ein SDK eingebunden, indem ein externes Skript in ein {{htmlelement("script")}}-Element eingefügt wird, das die Bibliothek als globale Variable registriert. Modernere APIs stellen SDKs meist als [Module](/de/docs/Web/JavaScript/Guide/Modules) bereit, die Sie importieren können und die manchmal über Paketmanager wie [npm](https://docs.npmjs.com/) verteilt werden.
+Traditionell wird das SDK durch Einbinden eines externen Skripts in ein {{htmlelement("script")}}-Element bereitgestellt. Dadurch wird die Bibliothek als globale Variable registriert. Modernere APIs stellen SDKs üblicherweise als [Module](/de/docs/Web/JavaScript/Guide/Modules) bereit, die Sie importieren können und die mitunter über Paketmanager wie [npm](https://docs.npmjs.com/) verteilt werden.
 
-Wenn Sie beispielsweise das Skript der JavaScript-Clientbibliothek von Google laden, stellt es ein globales `gapi`-Objekt bereit:
+Die JavaScript-Clientbibliothek von Google stellt beispielsweise ein globales `gapi`-Objekt bereit, sobald Sie ihr Skript laden:
 
 ```html
 <script src="https://apis.google.com/js/api.js"></script>
@@ -80,74 +80,74 @@ async function listDriveFiles() {
 }
 ```
 
-Die Bibliothek wandelt `gapi.client.drive.files.list()` in eine HTTP-Anfrage um und stellt die verarbeitete Antwort über `response.result` bereit. Natürlich sind für die Verwendung der Google-APIs einige Vorbereitungen erforderlich, wie im [JavaScript-Schnellstart für die Drive API](https://developers.google.com/workspace/drive/api/quickstart/js) beschrieben: Sie müssen die Anwendung mit ihren Berechtigungen registrieren, OAuth konfigurieren und so weiter.
+Die Bibliothek übersetzt `gapi.client.drive.files.list()` in eine HTTP-Anfrage und stellt die verarbeitete Antwort über `response.result` zur Verfügung. Um Google-APIs zu verwenden, sind allerdings einige Vorbereitungsschritte erforderlich, die im [JavaScript-Schnellstart für die Drive API](https://developers.google.com/workspace/drive/api/quickstart/js) von Google beschrieben werden: Sie müssen die Anwendung mit ihren Berechtigungen registrieren, OAuth konfigurieren und weitere Schritte durchführen.
 
-### Sie erfordern meist API-Schlüssel
+### Sie erfordern üblicherweise API-Schlüssel
 
-Bei Browser-APIs wird die Sicherheit häufig durch Berechtigungsabfragen gewährleistet, wie [in unserem ersten Artikel erläutert](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Introduction#they_have_additional_security_mechanisms_where_appropriate). Sie sollen Nutzer darüber informieren, was auf den besuchten Websites geschieht, und die Wahrscheinlichkeit verringern, dass sie Opfer einer böswilligen API-Nutzung werden.
+Die Sicherheit von Browser-APIs wird häufig über Berechtigungsabfragen geregelt, wie [in unserem ersten Artikel erläutert](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Introduction#they_have_additional_security_mechanisms_where_appropriate). Sie informieren Nutzer darüber, was auf besuchten Websites geschieht, und sollen verhindern, dass jemand eine API zu ihren Lasten missbräuchlich verwendet.
 
-APIs von Drittanbietern verwenden ein etwas anderes Berechtigungssystem: Sie nutzen meist Entwicklerschlüssel, um Entwicklern Zugriff auf die API-Funktionen zu gewähren. Das dient eher dem Schutz des API-Anbieters als dem der Nutzer.
+APIs von Drittanbietern haben ein etwas anderes Berechtigungssystem: Sie verwenden häufig Entwicklerschlüssel, um Entwicklern Zugriff auf die API-Funktionen zu gewähren. Dabei geht es eher um den Schutz des API-Anbieters als um den der Nutzer.
 
-Durch die Anforderung eines Schlüssels kann der API-Anbieter Entwickler für ihre Handlungen verantwortlich machen. Registriert ein Entwickler einen Schlüssel, kann der Anbieter ihn identifizieren und Maßnahmen ergreifen, falls er beginnt, die API für böswillige Zwecke einzusetzen – etwa um Standorte von Personen zu verfolgen oder die API mit Anfragen zu überlasten, sodass sie nicht mehr funktioniert. Die einfachste Maßnahme ist, dem Entwickler die API-Zugriffsrechte zu entziehen.
+Durch die Pflicht zur Verwendung eines Schlüssels kann der API-Anbieter Entwickler für ihre Handlungen verantwortlich machen. Wenn ein Entwickler einen Schlüssel registriert, kann der Anbieter ihn identifizieren und Maßnahmen ergreifen, falls der Entwickler die API missbräuchlich nutzt – beispielsweise, um Standorte von Personen zu verfolgen oder die API mit so vielen Anfragen zu überlasten, dass sie nicht mehr funktioniert. Die einfachste Maßnahme besteht darin, dem Entwickler die Zugriffsrechte auf die API zu entziehen.
 
-Im Beispiel für die YouTube-API finden Sie eine Zeile wie diese:
+Im Beispiel zur YouTube-API finden Sie eine Zeile, die der folgenden ähnelt:
 
 ```js
 gapi.client.setApiKey("YOUR-API-KEY-HERE");
 ```
 
-Diese Zeile gibt einen API- oder Entwicklerschlüssel an, der in Ihrer Anwendung verwendet werden soll. Der Anwendungsentwickler muss einen Schlüssel beantragen und ihn anschließend in seinen Code einfügen, um auf die API-Funktionen zugreifen zu können. In unserem Beispiel steht dort lediglich ein Platzhalter.
+Diese Zeile legt einen API- oder Entwicklerschlüssel für Ihre Anwendung fest. Der Anwendungsentwickler muss einen solchen Schlüssel beantragen und in seinen Code einfügen, um auf die Funktionen der API zugreifen zu dürfen. In unserem Beispiel steht dort lediglich ein Platzhalter.
 
-Bei anderen APIs müssen Sie den Schlüssel möglicherweise etwas anders einbinden, das Grundmuster ist aber bei den meisten ähnlich.
+Andere APIs verlangen möglicherweise, dass Sie den Schlüssel auf etwas andere Weise angeben. Das Grundmuster ist bei den meisten jedoch ähnlich.
 
 > [!WARNING]
-> Schützen Sie API-Schlüssel genauso wie Ihre Passwörter. Sofern die Dokumentation des API-Anbieters es nicht ausdrücklich erlaubt, dürfen Sie API-Schlüssel niemals in Ihren Frontend-Code einbetten. Andernfalls kann jeder Besucher Ihrer Website den API-Schlüssel auslesen und missbrauchen. Dadurch könnten vertrauliche Informationen offengelegt werden oder Ihr API-Zugriff könnte gesperrt werden. Richten Sie stattdessen immer ein eigenes Backend ein und leiten Sie die Anfrage als _Proxy_ weiter: Ihr Server kommuniziert mit der API des Drittanbieters unter Verwendung des API-Schlüssels, während Ihre Nutzer mit Ihrem Server kommunizieren. Der API-Schlüssel befindet sich ausschließlich auf Ihrem Server.
+> Schützen Sie API-Schlüssel genauso wie Ihre Passwörter. Sofern die Dokumentation des API-Anbieters es nicht ausdrücklich erlaubt, sollten Sie API-Schlüssel niemals in Ihren Frontend-Code einbetten. Andernfalls kann jeder Besucher Ihrer Website den Schlüssel auslesen und missbrauchen. Das könnte vertrauliche Informationen offenlegen oder dazu führen, dass Sie von der Nutzung der API ausgeschlossen werden. Richten Sie stattdessen immer ein eigenes Backend ein und leiten Sie die Anfrage darüber als _Proxy_ weiter: Ihr Server kommuniziert mithilfe des API-Schlüssels mit der API des Drittanbieters, während der Nutzer mit Ihrem Server kommuniziert. Der API-Schlüssel befindet sich nur auf Ihrem Server.
 >
-> Selbstverständlich sollten Sie API-Schlüssel auch niemals in öffentliche GitHub-Repositories übertragen. Falls Sie einen Schlüssel versehentlich offenlegen, widerrufen Sie ihn sofort und erstellen Sie einen neuen.
+> Ebenso sollten Sie API-Schlüssel niemals in Ihre öffentlichen GitHub-Repositorys übernehmen. Falls Sie einen Schlüssel versehentlich offenlegen, widerrufen Sie ihn sofort und erstellen Sie einen neuen.
 
-Nicht alle APIs benötigen API-Schlüssel. Manche APIs bieten Funktionen mit offenem Zugriff und hohem Anfragevolumen an, sodass eine Zugriffsgenehmigung die Serverlast kaum beeinflussen würde (auch wenn die Anzahl der Anfragen begrenzt sein kann). Beispiele sind die [GitHub REST API](https://docs.github.com/en/rest) (siehe nächster Abschnitt), die [Wikipedia-APIs](https://www.mediawiki.org/wiki/API:Main_page) für Artikelinhalte und die [Stack Exchange API](https://api.stackexchange.com/docs) für Fragen und Antworten.
+Nicht alle APIs benötigen API-Schlüssel. Manche APIs stellen öffentlich zugängliche Funktionen mit hohem Anfragevolumen bereit, bei denen eine Zugriffsgenehmigung die Serverlast kaum beeinflussen würde (auch wenn die Anfragen weiterhin begrenzt sein können). Beispiele sind die [GitHub REST API](https://docs.github.com/en/rest) (siehe nächster Abschnitt), die [Wikipedia-APIs](https://www.mediawiki.org/wiki/API:Main_page) für Artikelinhalte und die [Stack Exchange API](https://api.stackexchange.com/docs) für Fragen und Antworten.
 
 ## Eine RESTful API – GitHub
 
-Wie bereits erwähnt, laufen alle APIs letztlich auf HTTP-Anfragen hinaus. Manche APIs stellen dafür SDKs bereit, während andere erwarten, dass Sie die Anfragen selbst verarbeiten.
+Wie bereits erwähnt, werden alle API-Aufrufe letztlich zu HTTP-Anfragen. Manche APIs stellen dafür SDKs bereit, während andere erwarten, dass Sie die Anfragen selbst handhaben.
 
-Im letzteren Fall sind APIs meist nach dem [**RESTful**-Prinzip](https://en.wikipedia.org/wiki/REST) gestaltet. Dabei ist der Client _zustandslos_ (das heißt, jede Anfrage wird unabhängig von anderen gestellt). Er sendet Anfragen an bestimmte URLs und verwendet dabei bestimmte HTTP-Methoden (`GET`, `POST` usw.), um bestimmte Aktionen auszuführen. Die Eingabedaten für jede Aktion übermittelt er über URL-Parameter oder den Anfragekörper.
+Im letzteren Fall sind die APIs üblicherweise nach dem [**RESTful**](https://en.wikipedia.org/wiki/REST)-Prinzip gestaltet. Bei diesem Ansatz ist der Client _zustandslos_ (das heißt, jede Anfrage wird unabhängig von anderen gestellt). Er sendet Anfragen an bestimmte URLs und verwendet dafür bestimmte HTTP-Methoden (`GET`, `POST` usw.), um bestimmte Aktionen auszuführen. Die Eingaben für eine Aktion übermittelt er als URL-Parameter oder im Anfragetext.
 
-Sehen wir uns die [GitHub REST API](https://docs.github.com/en/rest) an. Mit ihr können Sie Informationen über GitHub-Repositories abrufen und auf Ihrer Website anzeigen.
+Sehen wir uns die [GitHub REST API](https://docs.github.com/en/rest) an. Mit dieser API können Sie Informationen über GitHub-Repositorys abrufen und auf Ihrer Website anzeigen.
 
 ### Die Dokumentation finden
 
-Wenn Sie eine API eines Drittanbieters verwenden möchten, suchen Sie zunächst nach ihrer Dokumentation. Dort können Sie nachlesen, welche Funktionen die API bietet und wie Sie sie verwenden. Für dieses Beispiel verwenden wir den [Endpoint zur Suche nach Repositories](https://docs.github.com/en/rest/search/search#search-repositories) von GitHub.
+Wenn Sie eine API eines Drittanbieters verwenden möchten, suchen Sie nach ihrer Dokumentation. Dort erfahren Sie, welche Funktionen die API bietet und wie Sie sie verwenden. Für dieses Beispiel nutzen wir den [Endpunkt zur Suche nach Repositorys](https://docs.github.com/en/rest/search/search#search-repositories) von GitHub.
 
 Achten Sie beim Lesen der Dokumentation einer REST-API auf diese fünf Fragen:
 
 1. Welche [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) ist für die Aufgabe zu verwenden?
-2. An welchen URL-Endpoint muss die Anfrage gesendet werden?
-3. Welche Nutzdaten erwartet der Endpoint und in welchem Format (JSON-Körper, XML-Körper, Query-Parameter usw.)?
-4. Welche [Statuscodes](/de/docs/Web/HTTP/Reference/Status) kann er zurückgeben und was bedeuten sie?
-5. Was enthält der Antwortkörper und in welchem Format?
+2. An welchen URL-Endpunkt muss die Anfrage gesendet werden?
+3. Welche Nutzdaten erwartet der Endpunkt und in welchem Format (JSON-Text, XML-Text, Abfrageparameter usw.)?
+4. Welche [Statuscodes](/de/docs/Web/HTTP/Reference/Status) kann er zurückgeben und was bedeuten sie jeweils?
+5. Was enthält der Antworttext und in welchem Format liegt er vor?
 
-### Ein persönliches Zugriffstoken erstellen
+### Einen persönlichen Zugriffstoken erstellen
 
-Erstellen Sie für diese Übung ein **persönliches Zugriffstoken (PAT)**, um Ihre Anfragen zu authentifizieren:
+Erstellen Sie für diese Übung einen **persönlichen Zugriffstoken (PAT)**, um Ihre Anfragen zu authentifizieren:
 
-1. Melden Sie sich bei Ihrem GitHub-Konto an oder [erstellen Sie eines](https://github.com/signup), falls Sie noch keines haben.
-2. Folgen Sie der GitHub-Anleitung zum [Erstellen eines fein abgestuften persönlichen Zugriffstokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token). Geben Sie dem Token einen aussagekräftigen Namen (z. B. „MDN 3rd party API lesson“) und eine kurze Gültigkeitsdauer (falls Sie es nach dieser Lektion voraussichtlich nicht weiterverwenden). Wählen Sie außerdem Ihr eigenes Konto als Ressourceninhaber aus.
-3. Wählen Sie unter **Repository access** die Option **Public repositories**. Legen Sie keine zusätzlichen Berechtigungen fest: Für die Suche in öffentlichen Repositories sind keine erforderlich.
-4. Klicken Sie auf **Generate token** und kopieren Sie das Token. Sie geben es in das Formular im [interaktiven Beispiel](#das_beispiel_ausprobieren) ein, statt es Ihrem Quellcode hinzuzufügen.
+1. Melden Sie sich bei Ihrem GitHub-Konto an oder [erstellen Sie ein Konto](https://github.com/signup), falls Sie noch keines haben.
+2. Folgen Sie der GitHub-Anleitung zum [Erstellen eines persönlichen Zugriffstokens mit fein abgestuften Berechtigungen](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token). Geben Sie dem Token einen aussagekräftigen Namen (beispielsweise „MDN 3rd party API lesson“) und ein nahes Ablaufdatum (wenn Sie ihn nach dieser Lektion voraussichtlich nicht mehr verwenden). Wählen Sie Ihr eigenes Konto als Ressourceninhaber aus.
+3. Wählen Sie unter **Repository access** die Option **Public repositories**. Legen Sie keine zusätzlichen Berechtigungen fest: Für die Suche in öffentlichen Repositorys sind keine erforderlich.
+4. Klicken Sie auf **Generate token** und kopieren Sie den Token. Sie geben ihn im Formular des [interaktiven Beispiels](#das_beispiel_ausprobieren) ein, statt ihn Ihrem Quellcode hinzuzufügen.
 
-In diesem Beispiel wird ein API-Schlüssel anders als üblich verwendet: Die Website fordert den Nutzer auf, seinen eigenen Schlüssel anzugeben, und führt die Aktion in seinem Namen aus. Daher benötigt sie weder einen eigenen API-Schlüssel noch einen Server, der die Anfragen weiterleitet.
+In diesem Beispiel werden API-Schlüssel anders als üblich verwendet: Die Website fordert Nutzer auf, ihren eigenen Schlüssel einzugeben, und führt die Aktion in deren Auftrag aus. Daher benötigt sie weder einen eigenen API-Schlüssel noch einen Server, der die Anfragen weiterleitet.
 
 > [!WARNING]
-> Behandeln Sie dieses PAT ebenfalls wie Ihr Passwort. Geben Sie Ihr PAT nur auf Websites ein, denen Sie vertrauen. Vergeben Sie möglichst eng begrenzte Berechtigungen und wählen Sie ein kurzes Ablaufdatum, damit es nicht missbraucht werden kann. Unser Beispiel sendet das Token direkt von Ihrem Browser an GitHub. Es speichert das Token weder im Browser-Speicher noch sendet es dieses an andere Server.
+> Behandeln Sie diesen PAT ebenfalls wie ein Passwort. Geben Sie ihn nur auf Websites ein, denen Sie vertrauen, und versehen Sie ihn mit möglichst eng begrenzten Berechtigungen und einem nahen Ablaufdatum, damit er nicht missbraucht werden kann. Unser Beispiel sendet den Token direkt von Ihrem Browser an GitHub. Es speichert ihn weder im Browser noch sendet es ihn an andere Server.
 
-GitHub erlaubt auch nicht authentifizierte Suchanfragen in öffentlichen Repositories, allerdings mit einem niedrigeren [Limit für Suchanfragen](https://docs.github.com/en/rest/search/search#rate-limit). Wir machen das Token-Feld optional, damit Sie das Beispiel zunächst ohne Token ausprobieren und anschließend Ihr Token eingeben können, um zu sehen, wie eine Anfrage authentifiziert wird.
+GitHub erlaubt auch nicht authentifizierte Suchanfragen in öffentlichen Repositorys, allerdings mit einer niedrigeren [Ratenbegrenzung für Suchanfragen](https://docs.github.com/en/rest/search/search#rate-limit). Das Token-Feld ist daher optional: Sie können das Beispiel zunächst ohne Token ausprobieren und ihn anschließend eingeben, um zu sehen, wie einer Anfrage die Authentifizierung hinzugefügt wird.
 
 ### Das Beispiel einrichten
 
-In der Anwendung können Sie einen Suchbegriff und optional ein Anfangs- und Enddatum für die Erstellung des Repositories eingeben. Anschließend zeigt sie passende Repositories an.
+In der Anwendung können Sie einen Suchbegriff sowie optional ein Anfangs- und Enddatum für die Erstellung von Repositorys eingeben. Anschließend zeigt sie passende Repositorys an.
 
-Das HTML definiert das Suchformular, eine Statusmeldung, einen Ergebnisbereich und Schaltflächen zum Blättern:
+Der HTML-Code definiert das Suchformular, eine Statusmeldung, einen Bereich für die Ergebnisse und Schaltflächen zum Blättern zwischen den Seiten:
 
 ```html live-sample___github-search
 <form>
@@ -180,7 +180,7 @@ Das HTML definiert das Suchformular, eine Statusmeldung, einen Ergebnisbereich u
 </nav>
 ```
 
-Zu Beginn speichert das JavaScript Referenzen auf die HTML-Elemente und richtet den Zustand für das Blättern ein:
+Der JavaScript-Code speichert zunächst Referenzen auf die HTML-Elemente und richtet den Zustand für die Seitennavigation ein:
 
 ```js live-sample___github-search
 const baseURL = "https://api.github.com/search/repositories";
@@ -203,7 +203,7 @@ let hasNextPage = false;
 
 ### Die API mit Ihrer Anwendung verbinden
 
-Wenn das Formular abgeschickt wird, setzen wir die Suchanfrage zusammen:
+Beim Absenden des Formulars setzen wir die Suchanfrage zusammen:
 
 ```js live-sample___github-search
 searchForm.addEventListener("submit", submitSearch);
@@ -226,7 +226,7 @@ function submitSearch(e) {
 }
 ```
 
-`submitSearch()` ruft [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, damit das Formular nicht tatsächlich abgeschickt und die Seite nicht neu geladen wird. Anschließend kombiniert die Funktion den Suchbegriff mit den [Suchqualifikatoren](https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories) von GitHub: `is:public` beschränkt die Ergebnisse auf öffentliche Repositories und die `created:`-Qualifikatoren filtern nach Erstellungsdatum. Wir speichern diese Suchanfrage in einer Variable auf oberster Ebene. So wird beim Blättern dieselbe Suchanfrage erneut verwendet, selbst wenn das Suchformular inzwischen bearbeitet wurde.
+`submitSearch()` ruft [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, damit das Formular nicht tatsächlich abgesendet und die Seite neu geladen wird. Anschließend kombiniert die Funktion den Suchbegriff mit den [Suchqualifikatoren](https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories) von GitHub: `is:public` beschränkt die Ergebnisse auf öffentliche Repositorys und die `created:`-Qualifikatoren filtern nach Erstellungsdatum. Wir speichern diese Anfrage in einer übergeordneten Variablen, damit beim Blättern zwischen den Seiten dieselbe Anfrage verwendet wird – auch wenn das Suchformular inzwischen geändert wurde.
 
 ### Daten von der API anfordern
 
@@ -277,7 +277,7 @@ async function fetchResults(page) {
 }
 ```
 
-Die GitHub REST API verwendet die üblichen HTTP-Methoden, um Aktionstypen zu unterscheiden. Da es sich um einen Lesevorgang handelt, stellen wir eine `GET`-Anfrage (die Standardeinstellung für `fetch()`). Die `GET`-Anfrage hat keinen Anfragekörper; deshalb werden die Eingabedaten als Query-Parameter übermittelt. Wir fügen sie über die Eigenschaft `searchParams` des [`URL`](/de/docs/Web/API/URL)-Objekts hinzu: die Suchanfrage (`q`), die Seitennummer (`page`) und die Anzahl der Ergebnisse pro Seite (`per_page`).
+Die GitHub REST API verwendet die üblichen HTTP-Methoden, um verschiedene Aktionen zu unterscheiden. Da wir Daten lesen, senden wir eine `GET`-Anfrage (die Standardeinstellung von `fetch()`). Eine `GET`-Anfrage hat keinen Anfragetext, daher übermitteln wir die Eingaben als Abfrageparameter. Wir fügen sie über die Eigenschaft `searchParams` des [`URL`](/de/docs/Web/API/URL)-Objekts hinzu: die Suchanfrage (`q`), die Seitennummer (`page`) und die Anzahl der Ergebnisse pro Seite (`per_page`).
 
 Eine Suche nach `cats` ohne Datumsangaben erzeugt beispielsweise eine URL wie diese:
 
@@ -285,18 +285,18 @@ Eine Suche nach `cats` ohne Datumsangaben erzeugt beispielsweise eine URL wie di
 https://api.github.com/search/repositories?q=cats+is%3Apublic&page=1&per_page=10
 ```
 
-Das Objekt `headers` legt das Antwortformat und die API-Version fest. Der Header {{HTTPHeader("Authorization")}} verdient besondere Aufmerksamkeit: Über ihn werden API-Schlüssel üblicherweise übertragen. Hier verwenden wir das `Bearer`-Schema.
+Das `headers`-Objekt legt das Antwortformat und die API-Version fest. Beachten Sie insbesondere den Header {{HTTPHeader("Authorization")}}: Über ihn werden üblicherweise API-Schlüssel übertragen. Hier verwenden wir das `Bearer`-Schema.
 
-Die REST-API gibt Daten im JSON-Format zurück, weil wir dieses mit `Accept: "application/vnd.github+json"` angefordert haben. Anschließend verarbeiten wir sie mit [`response.json()`](/de/docs/Web/API/Response/json). Die Struktur des JSON ist auch in GitHubs [Dokumentation zum Endpoint für die Repository-Suche](https://docs.github.com/en/rest/search/search#search-repositories) beschrieben.
+Die REST-API gibt Daten im JSON-Format zurück, weil wir dies mit `Accept: "application/vnd.github+json"` angefordert haben. Anschließend verarbeiten wir die Antwort mit [`response.json()`](/de/docs/Web/API/Response/json). Die Struktur des JSON-Objekts finden Sie auch in der [Dokumentation des Endpunkts zur Suche nach Repositorys](https://docs.github.com/en/rest/search/search#search-repositories) von GitHub.
 
 > [!NOTE]
-> Wenn Sie einen `401`-Fehler erhalten, prüfen Sie, ob das Token falsch eingegeben wurde, abgelaufen ist oder widerrufen wurde. Ein `403`- oder `429`-Fehler kann darauf hinweisen, dass ein Limit für Anfragen erreicht wurde. Warten Sie in diesem Fall, bevor Sie es erneut versuchen, statt wiederholt auf „Search“ zu klicken – das würde die Situation nur verschlimmern. Weitere Informationen finden Sie in GitHubs [Anleitung zur Fehlerbehebung](https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api).
+> Wenn Sie einen `401`-Fehler erhalten, prüfen Sie, ob der Token falsch eingegeben wurde, abgelaufen ist oder widerrufen wurde. Ein `403`- oder `429`-Fehler kann auf eine Ratenbegrenzung hinweisen. Warten Sie in diesem Fall, bevor Sie es erneut versuchen, statt wiederholt auf „Search“ zu klicken – das würde die Situation nur verschlimmern. Weitere Informationen finden Sie in der [Anleitung zur Fehlerbehebung](https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api) von GitHub.
 
-Nach einer erfolgreichen Anfrage aktualisiert `fetchResults()` die Variable `pageNumber` und aktiviert die jeweils passenden Schaltflächen. Auf der ersten Seite ist die Schaltfläche für die vorherige Seite deaktiviert. Der Such-Endpoint stellt höchstens 1.000 Ergebnisse bereit. `fetchResults()` verwendet diesen Grenzwert und `total_count`, um zu entscheiden, wann die Schaltfläche für die nächste Seite deaktiviert werden muss.
+Nach einer erfolgreichen Anfrage aktualisiert `fetchResults()` `pageNumber` und aktiviert die jeweils passenden Schaltflächen. Auf der ersten Seite ist die Schaltfläche für die vorherige Seite deaktiviert. Der Suchendpunkt stellt höchstens 1.000 Ergebnisse bereit. `fetchResults()` berücksichtigt diese Grenze und `total_count`, um zu entscheiden, wann die Schaltfläche für die nächste Seite deaktiviert werden muss.
 
 ### Die Daten anzeigen
 
-Die Funktion `displayResults()` zeigt die zurückgegebenen Repositories an:
+Die Funktion `displayResults()` zeigt die zurückgegebenen Repositorys an:
 
 ```js live-sample___github-search
 function displayResults(json) {
@@ -331,15 +331,15 @@ function displayResults(json) {
 }
 ```
 
-Der Code liest den JSON-Antwortkörper und wandelt das Ergebnis in einen DOM-Baum um.
+Der Code liest den JSON-Antworttext und wandelt das Ergebnis in einen DOM-Baum um.
 
-- Zunächst leert er den Inhalt des Bereichs.
-- Die Repositories befinden sich im Array `items` der Antwort. Ist es leer, zeigen wir eine Meldung an, dass keine Ergebnisse zurückgegeben wurden.
-- Andernfalls erstellen wir für jedes Repository Elemente für den Namen, den Link, die Beschreibung und die Anzahl der Sterne und fügen diese in das DOM ein.
+- Zunächst entfernt er den bisherigen Inhalt des Bereichs.
+- Die Repositorys befinden sich im `items`-Array der Antwort. Ist es leer, zeigen wir eine Meldung an, dass keine Ergebnisse zurückgegeben wurden.
+- Andernfalls erstellen wir für jedes Repository Elemente für den Namen, den Link, die Beschreibung und die Anzahl der Sterne und fügen sie in das DOM ein.
 
-### Die Schaltflächen zum Blättern verknüpfen
+### Die Schaltflächen zur Seitennavigation einbinden
 
-Wir richten Event-Listener ein, die auf Klicks auf die Schaltflächen „Previous page“ und „Next page“ reagieren und die vorherige beziehungsweise nächste Ergebnisseite anfordern:
+Wir richten Event-Listener ein, die auf Klicks auf die Schaltflächen „Previous page“ und „Next page“ reagieren und die jeweils vorherige oder nächste Ergebnisseite anfordern:
 
 ```js live-sample___github-search
 nextBtn.addEventListener("click", () => {
@@ -351,11 +351,11 @@ previousBtn.addEventListener("click", () => {
 });
 ```
 
-Die Seitennummerierung von GitHub beginnt bei 1. Wir haben 10 Ergebnisse pro Seite angefordert, daher enthält Seite 2 die nächsten 10 Ergebnisse und so weiter. Die aktuelle Seitennummer wird in `pageNumber` gespeichert und nur nach einer erfolgreichen Anfrage aktualisiert.
+Die Seitennummerierung von GitHub beginnt bei 1. Wir haben 10 Ergebnisse pro Seite angefordert. Seite 2 enthält daher die nächsten 10 Ergebnisse und so weiter. Die aktuelle Seitennummer wird in `pageNumber` gespeichert und erst nach einer erfolgreichen Anfrage aktualisiert.
 
 ### Das Beispiel ausprobieren
 
-Geben Sie einen Suchbegriff wie `javascript` ein und schicken Sie das Formular ab. Probieren Sie die Suche mit und ohne Ihr Token aus, fügen Sie Datumsangaben hinzu und blättern Sie zwischen den Seiten.
+Geben Sie einen Suchbegriff wie `javascript` ein und senden Sie das Formular ab. Probieren Sie die Suche mit und ohne Token aus, fügen Sie Datumsangaben hinzu und blättern Sie zwischen den Seiten.
 
 ```css hidden live-sample___github-search
 body {
@@ -390,31 +390,31 @@ nav {
 
 ## YouTube-Beispiel
 
-Wir haben außerdem ein weiteres Beispiel erstellt, das Sie untersuchen können: unser [Beispiel für die YouTube-Videosuche](https://mdn.github.io/learning-area/javascript/apis/third-party-apis/youtube/).
+Wir haben außerdem ein weiteres Beispiel erstellt, das Sie untersuchen können: unser [Beispiel zur Suche nach YouTube-Videos](https://mdn.github.io/learning-area/javascript/apis/third-party-apis/youtube/).
 
 > [!NOTE]
-> Das verlinkte Beispiel funktioniert nicht, da es keinen gültigen API-Schlüssel enthält. Wie bereits erwähnt, sollten Sie API-Schlüssel niemals in veröffentlichtem Frontend-Code weitergeben. Um die Demo auszuführen, richten Sie wie unten beschrieben eine lokale Kopie mit Ihrem eigenen API-Schlüssel ein.
+> Das verlinkte Beispiel funktioniert nicht, weil es keinen gültigen API-Schlüssel enthält. Wie bereits erläutert, sollten Sie API-Schlüssel niemals in veröffentlichtem Frontend-Code weitergeben. Um die Demo auszuführen, richten Sie wie unten beschrieben eine lokale Kopie mit Ihrem eigenen API-Schlüssel ein.
 
-Dieses Beispiel verwendet zwei miteinander verbundene APIs:
+Das Beispiel verwendet zwei zusammengehörige APIs:
 
-- Die [YouTube Data API](https://developers.google.com/youtube/v3/docs/), um nach YouTube-Videos zu suchen und Ergebnisse zurückzugeben.
-- Die [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference), um die zurückgegebenen Videos in iframe-Videoplayern anzuzeigen, damit Sie sie ansehen können.
+- Die [YouTube Data API](https://developers.google.com/youtube/data/reference/rest), um nach YouTube-Videos zu suchen und Ergebnisse zurückzugeben.
+- Die [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference), um die gefundenen Videos in iframe-Videoplayern anzuzeigen, sodass Sie sie ansehen können.
 
-Das Beispiel ist interessant, weil es zeigt, wie zwei miteinander verbundene APIs von Drittanbietern gemeinsam zum Erstellen einer Anwendung verwendet werden. Die erste ist eine RESTful API, während die zweite JavaScript-Methoden zur Steuerung eines Videoplayers bereitstellt. Dieses Beispiel verwendet JavaScript-Bibliotheken für beide APIs: Die Clientbibliothek für die Data API verarbeitet die HTTP-Anfragen und gibt die Ergebnisse zurück.
+Das Beispiel ist interessant, weil es zeigt, wie sich zwei zusammengehörige APIs von Drittanbietern gemeinsam zum Erstellen einer Anwendung nutzen lassen. Die erste ist eine RESTful API, während die zweite JavaScript-Methoden zur Steuerung eines Videoplayers bereitstellt. Das Beispiel verwendet für beide APIs JavaScript-Bibliotheken: Die Clientbibliothek der Data API übernimmt die HTTP-Anfragen und gibt die Ergebnisse zurück.
 
-![Screenshot einer beispielhaften YouTube-Videosuche mit zwei miteinander verbundenen APIs. Links ist eine beispielhafte Suchanfrage über die YouTube Data API zu sehen. Rechts werden die Suchergebnisse mithilfe der YouTube IFrame Player API angezeigt.](youtube-example.png)
+![Screenshot einer beispielhaften YouTube-Videosuche mit zwei zusammengehörigen APIs. Links ist eine beispielhafte Suchanfrage über die YouTube Data API zu sehen. Rechts werden die Suchergebnisse mithilfe der YouTube Iframe Player API angezeigt.](youtube-example.png)
 
-Wir gehen in diesem Artikel nicht näher auf das Beispiel ein. Der [Quellcode](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/youtube) enthält ausführliche Kommentare, die seine Funktionsweise erklären.
+Wir gehen in diesem Artikel nicht weiter auf das Beispiel ein. Der [Quellcode](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/youtube) enthält ausführliche Kommentare, die seine Funktionsweise erklären.
 
-Die Data API stellt für Projekte, die sie aktivieren, standardmäßig ein tägliches [Kontingent](https://developers.google.com/youtube/v3/getting-started#quota) bereit. Anfragen verbrauchen dieses Kontingent, sodass Sie nur eine begrenzte Anzahl von Suchanfragen durchführen können.
+Die Data API stellt für Projekte, die sie aktivieren, standardmäßig ein tägliches [Kontingent](https://developers.google.com/youtube/data/getting-started#quota) bereit. Anfragen verbrauchen dieses Kontingent, sodass Sie nur eine begrenzte Anzahl von Suchanfragen durchführen können.
 
-Um das Beispiel auszuführen, müssen Sie:
+So nehmen Sie das Beispiel in Betrieb:
 
-- Die Dokumentation zur [Übersicht über die YouTube Data API](https://developers.google.com/youtube/v3/getting-started) lesen.
-- Die [Seite der aktivierten APIs](https://console.cloud.google.com/apis/enabled) aufrufen und sicherstellen, dass in der API-Liste der Status der YouTube Data API v3 auf ON steht.
-- Einen API-Schlüssel von [Google Cloud](https://cloud.google.com/) beziehen.
-- Im Quellcode die Zeichenfolge `YOUR-API-KEY-HERE` suchen und durch Ihren API-Schlüssel ersetzen.
-- Das Beispiel über einen Webserver ausführen. Es funktioniert nicht, wenn Sie es direkt im Browser öffnen (also über eine `file://`-URL).
+- Lesen Sie die Dokumentation in der [Übersicht zur YouTube Data API](https://developers.google.com/youtube/data/getting-started).
+- Rufen Sie die [Seite mit den aktivierten APIs](https://console.cloud.google.com/apis/enabled) auf und prüfen Sie in der API-Liste, ob der Status der YouTube Data API v3 auf ON steht.
+- Besorgen Sie sich über [Google Cloud](https://cloud.google.com/) einen API-Schlüssel.
+- Suchen Sie im Quellcode nach der Zeichenfolge `YOUR-API-KEY-HERE` und ersetzen Sie sie durch Ihren API-Schlüssel.
+- Führen Sie das Beispiel über einen Webserver aus. Wenn Sie es direkt im Browser öffnen (also über eine `file://`-URL), funktioniert es nicht.
 
 ## Zusammenfassung
 

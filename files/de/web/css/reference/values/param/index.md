@@ -3,12 +3,12 @@ title: CSS-Funktion `param()`
 short-title: param()
 slug: Web/CSS/Reference/Values/param
 l10n:
-  sourceCommit: b7e9f482c51817d3a885e26092f8219fd0d9d278
+  sourceCommit: 5738cef418354ffa76a451281312fec98a7aad63
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`param()`** dient zum Festlegen von Link-Parametern. Dies ist mit der CSS-Funktion {{cssxref("link-parameters")}}, in der Fragment-URL einer externen Ressource oder im [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier) der CSS-Funktion `url()` möglich.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`param()`** wird verwendet, um Link-Parameter festzulegen. Sie kann in der CSS-Eigenschaft {{cssxref("link-parameters")}}, im URL-Fragment einer externen Ressource oder im [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier) der CSS-Funktion `url()` verwendet werden.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ param(--color3, green);
   - : Ein `<dashed-ident>` ist eine benutzerdefinierte Variable, die in der CSS-Funktion {{cssxref("env")}} als Bezeichner verwendet wird, um den Wert zu aktualisieren.
 
 - `<declaration_value>` {{optional_inline}}
-  - : Ein `<declaration_value>` ist der Wert des Attributs, das aktualisiert wird. Wird `<declaration-value>` weggelassen, steht es für einen leeren Wert.
+  - : Ein `<declaration_value>` ist der Wert des Attributs, das aktualisiert wird. Wenn `<declaration-value>` weggelassen wird, steht dies für einen leeren Wert.
 
 ## Formale Syntax
 
@@ -53,7 +53,7 @@ Alle folgenden Beispiele verwenden dieselbe SVG-Datei, deren Attribute mithilfe 
 
 ### Verwendung der Eigenschaft `link-parameters`
 
-In diesem Beispiel werden die SVG-Attribute mit der CSS-Eigenschaft {{cssxref("link-parameters")}} und der Funktion `param()` aktualisiert.
+In diesem Beispiel werden die SVG-Attribute mithilfe der CSS-Eigenschaft {{cssxref("link-parameters")}} und der Funktion `param()` aktualisiert.
 
 ```html
 <div class="squares">
@@ -111,7 +111,7 @@ img {
 
 ### Übergabe von `param()` an einen URL-Modifikator
 
-In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die Funktion `param()` im URL-Fragment des Attributs [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) des HTML-Elements {{htmlelement("img")}} übergeben wird.
+In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die Funktion `param()` an das URL-Fragment des Attributs [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) des HTML-Elements {{htmlelement("img")}} übergeben wird.
 
 ```html-nolint
 <img

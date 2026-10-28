@@ -3,15 +3,15 @@ title: X-Permitted-Cross-Domain-Policies header
 short-title: X-Permitted-Cross-Domain-Policies
 slug: Web/HTTP/Reference/Headers/X-Permitted-Cross-Domain-Policies
 l10n:
-  sourceCommit: 13ef67a4ffbdb929415dfa1b3d65ab1aa9ebe5da
+  sourceCommit: a4ff34eef85ccb654c5c3af7974caba396e8adcf
 ---
 
-Der HTTP-**`X-Permitted-Cross-Domain-Policies`**-{{Glossary("response_header", "Response-Header")}} definiert eine Meta-Richtlinie, die steuert, ob Website-Ressourcen von einem Dokument, das in einem Webclient wie Adobe Acrobat oder Microsoft Silverlight ausgeführt wird, ursprungsübergreifend abgerufen werden können.
+Der HTTP-{{Glossary("response_header", "Response-Header")}} **`X-Permitted-Cross-Domain-Policies`** definiert eine Meta-Richtlinie, die steuert, ob ein Dokument, das in einem Webclient wie Adobe Acrobat oder Microsoft Silverlight ausgeführt wird, originübergreifend auf Ressourcen einer Website zugreifen kann.
 
-Er kann in Fällen verwendet werden, in denen die Website eine Cross-Domain-Richtlinie deklarieren muss, aber nicht in das Stammverzeichnis der Domain schreiben kann.
+Er kann verwendet werden, wenn eine Website eine Cross-Domain-Richtlinie festlegen muss, aber nicht in das Stammverzeichnis der Domain schreiben kann.
 
-Die Verwendung dieses Headers ist weniger verbreitet, seit Adobe Flash Player und Microsoft Silverlight als veraltet eingestuft wurden.
-Einige Sicherheitstesttools prüfen weiterhin auf das Vorhandensein eines `X-Permitted-Cross-Domain-Policies: none`-Headers, da er das Risiko einer übermäßig freizügigen Richtliniendatei mindern kann, die versehentlich oder durch böswillige Handlungen zu Ihrer Website hinzugefügt wurde.
+Die Verwendung dieses Headers ist seltener geworden, seit Adobe Flash Player und Microsoft Silverlight eingestellt wurden.
+Einige Sicherheitstest-Tools prüfen weiterhin, ob der Header `X-Permitted-Cross-Domain-Policies: none` vorhanden ist. Er kann das Risiko mindern, dass versehentlich oder durch böswillige Handlungen eine zu freizügige Richtliniendatei zur Website hinzugefügt wird.
 
 <table class="properties">
   <tbody>
@@ -31,30 +31,30 @@ X-Permitted-Cross-Domain-Policies: <permitted-cross-domain-policy>
 ## Direktiven
 
 - `none`
-  - : Es sind keine Richtliniendateien irgendwo auf dem Zielserver erlaubt, einschließlich in einer Master-Richtliniendatei.
+  - : Auf dem Zielserver sind keine Richtliniendateien zulässig, auch keine Master-Richtliniendatei.
 - `master-only`
-  - : Ermöglicht ursprungsübergreifenden Zugriff auf die Master-Richtliniendatei, die auf derselben Domain definiert ist.
+  - : Erlaubt originübergreifenden Zugriff gemäß der auf derselben Domain definierten Master-Richtliniendatei.
 - `by-content-type` (nur HTTP/HTTPS)
-  - : Nur Richtliniendateien, die mit `Content-Type: text/x-cross-domain-policy` bereitgestellt werden, sind erlaubt.
+  - : Nur Richtliniendateien, die mit `Content-Type: text/x-cross-domain-policy` ausgeliefert werden, sind zulässig.
 - `by-ftp-filename` (nur FTP)
-  - : Nur Richtliniendateien, deren Dateinamen `crossdomain.xml` sind (URLs, die auf `/crossdomain.xml` enden), sind erlaubt.
+  - : Nur Richtliniendateien mit dem Dateinamen `crossdomain.xml` (URLs, die auf `/crossdomain.xml` enden) sind zulässig.
 - `all`
-  - : Alle Richtliniendateien auf dieser Ziel-Domain sind erlaubt.
+  - : Alle Richtliniendateien auf dieser Zieldomain sind zulässig.
 - `none-this-response`
-  - : Gibt an, dass das aktuelle Dokument trotz anderer Header oder seines Inhalts nicht als Richtliniendatei verwendet werden soll.
-    Dieser Wert ist ausschließlich für den HTTP-Header verfügbar.
+  - : Gibt an, dass das aktuelle Dokument ungeachtet anderer Header oder seines Inhalts nicht als Richtliniendatei verwendet werden soll.
+    Dieser Wert ist nur für den HTTP-Header verfügbar.
 
 ## Beschreibung
 
-Webclients wie Adobe Acrobat oder Apache Flex können Webdokumente laden, die ihrerseits Ressourcen von derselben Website oder von anderen Websites laden können.
-Der Zugriff ist aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) standardmäßig auf Ressourcen derselben Website beschränkt, aber ursprungsübergreifende Websites können entscheiden, einige oder alle ihrer Ressourcen mithilfe spezieller Dateien, die als Cross-Domain-Richtliniendateien bezeichnet werden, für Clients ursprungsübergreifend verfügbar zu machen.
+Webclients wie Adobe Acrobat oder Apache Flex können Webdokumente laden, die ihrerseits Ressourcen von derselben oder von anderen Websites laden können.
+Aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) ist der Zugriff standardmäßig auf Ressourcen derselben Website beschränkt. Websites mit einer anderen Origin können jedoch mithilfe spezieller Dateien, sogenannter Cross-Domain-Richtliniendateien, einige oder alle ihrer Ressourcen für originübergreifende Zugriffe durch Clients freigeben.
 
-Eine „Master“-Cross-Domain-Richtliniendatei kann als `crossdomain.xml`-Datei im Stammverzeichnis der Domain definiert werden, zum Beispiel: `http://example.com/crossdomain.xml`.
-Die Master-Datei definiert die _Meta-Richtlinie_ für die gesamte Website mithilfe des Attributs `permitted-cross-domain-policies` des Tags `<site-control>`.
-Die Meta-Richtlinie steuert, ob Richtlinien zulässig sind, sowie die Bedingungen, unter denen die anderen „Unter“-Cross-Domain-Richtliniendateien verwendet werden können.
-Diese anderen Richtliniendateien können in bestimmten Verzeichnissen erstellt werden, um den Zugriff auf die Dateien in ihrem jeweiligen Verzeichnisbaum festzulegen.
+Eine „Master“-Cross-Domain-Richtliniendatei kann als Datei `crossdomain.xml` im Stammverzeichnis der Domain definiert werden, beispielsweise unter `http://example.com/crossdomain.xml`.
+Die Master-Datei legt mit dem Attribut `permitted-cross-domain-policies` des Tags `<site-control>` die _Meta-Richtlinie_ für die gesamte Website fest.
+Die Meta-Richtlinie steuert, ob Richtlinien überhaupt zulässig sind und unter welchen Bedingungen andere „untergeordnete“ Cross-Domain-Richtliniendateien verwendet werden dürfen.
+Solche weiteren Richtliniendateien können in bestimmten Verzeichnissen erstellt werden, um den Zugriff auf Dateien im jeweiligen Verzeichnisbaum festzulegen.
 
-Dies ist beispielsweise die am wenigsten freizügige Master-Richtliniendefinition, die keinen Zugriff erlaubt und die Verwendung anderer „Unter“-Richtliniendateien nicht zulässt.
+Das folgende Beispiel zeigt die restriktivste Definition einer Master-Richtlinie. Sie erlaubt keinerlei Zugriff und lässt auch die Verwendung anderer „untergeordneter“ Richtliniendateien nicht zu.
 
 ```xml
 <?xml version="1.0"?>
@@ -64,16 +64,16 @@ Dies ist beispielsweise die am wenigsten freizügige Master-Richtliniendefinitio
 </cross-domain-policy>
 ```
 
-Der `X-Permitted-Cross-Domain-Policies`-Header kann eine Meta-Richtlinie für die HTTP-Antwort angeben, in der er enthalten ist, oder eine Meta-Richtlinie überschreiben, die gegebenenfalls in der Master-Cross-Domain-Richtliniendatei definiert ist.
+Der Header `X-Permitted-Cross-Domain-Policies` kann eine Meta-Richtlinie für die HTTP-Antwort festlegen, in der er enthalten ist. Er kann auch eine Meta-Richtlinie überschreiben, die in der Master-Cross-Domain-Richtliniendatei definiert ist, sofern eine solche Datei vorhanden ist.
 Er akzeptiert dieselben Werte wie das Attribut `permitted-cross-domain-policies` der Datei sowie zusätzlich `none-this-response`.
 
-Am häufigsten wird er verwendet, um jeglichen Zugriff auf Website-Ressourcen zu verhindern, wenn der Entwickler keinen Zugriff darauf hat, eine Master-Cross-Domain-Richtliniendatei im Stammverzeichnis der Website zu erstellen.
+Am häufigsten wird er verwendet, um jeglichen Zugriff auf Website-Ressourcen zu verhindern, wenn Entwickler keine Master-Cross-Domain-Richtliniendatei im Stammverzeichnis der Website erstellen können.
 
 ## Beispiele
 
 ### Cross-Domain-Richtliniendateien verbieten
 
-Wenn Sie keine Anwendungsdaten in Clients wie Adobe Flash Player oder Adobe Acrobat (oder älteren Clients) laden müssen, sollte der Header als `X-Permitted-Cross-Domain-Policies: none` konfiguriert werden:
+Wenn Sie keine Anwendungsdaten in Clients wie Adobe Flash Player oder Adobe Acrobat (oder älteren Clients) laden müssen, sollten Sie den Header als `X-Permitted-Cross-Domain-Policies: none` konfigurieren:
 
 ```http
 X-Permitted-Cross-Domain-Policies: none
@@ -86,7 +86,7 @@ Dokumentiert in der [Adobe Cross Domain Policy File Specification](https://www.a
 ## Siehe auch
 
 - [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)
-- [Leitfäden zur praktischen Sicherheitsimplementierung](/de/docs/Web/Security/Practical_implementation_guides)
-- Testtool für den [HTTP Observatory](/en-US/observatory/)-Header
+- [Praxisleitfäden zur Implementierung von Sicherheitsmaßnahmen](/de/docs/Web/Security/Practical_implementation_guides)
+- [HTTP Observatory](/en-US/observatory/), ein Tool zum Testen von Headern
 - [Cross Domain Configuration](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/xdomain.html) auf adobe.com
-- [X-Permitted-Cross-Domain-Policies](https://owasp.github.io/www-project-secure-headers/response-headers/#x-permitted-cross-domain-policies) im OWASP Secure Headers Project
+- [X-Permitted-Cross-Domain-Policies](https://secure-headers-project.owasp.org/response-headers/#x-permitted-cross-domain-policies) im OWASP Secure Headers Project
