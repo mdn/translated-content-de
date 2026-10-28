@@ -3,12 +3,14 @@ title: "HTMLInputElement: select-Ereignis"
 short-title: select
 slug: Web/API/HTMLInputElement/select_event
 l10n:
-  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
+  sourceCommit: 3869033353873623537ef2d810c1406a7299b49c
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`select`**-Ereignis wird ausgelöst, wenn Text ausgewählt wurde.
+Das **`select`**-Ereignis der Schnittstelle [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) wird ausgelöst, wenn sich der Umfang oder die Richtung der Auswahl programmgesteuert ändert oder wenn die Benutzerin oder der Benutzer Text auswählt.
+
+Dieses Ereignis wird nicht ausgelöst, wenn nichts ausgewählt ist und die Benutzerin oder der Benutzer die Einfügemarke verschiebt. In diesem Fall wird nur das [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event)-Ereignis ausgelöst.
 
 ## Syntax
 
@@ -18,7 +20,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("select", (event) => { })
 ```
 
-Alternativ können Sie der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle einen Wert zuweisen:
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
 
 ```js-nolint
 onselect = (event) => { }
@@ -30,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Ausgewählten Text protokollieren
+### Auswahl protokollieren
 
 ```html
 <input value="Try selecting some text in this element." />

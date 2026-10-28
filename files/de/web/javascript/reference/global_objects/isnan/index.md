@@ -2,10 +2,10 @@
 title: isNaN()
 slug: Web/JavaScript/Reference/Global_Objects/isNaN
 l10n:
-  sourceCommit: bbd7dfff9f34ca8cb851adfec767e2e17f24ea6e
+  sourceCommit: 52aca3c51ce0ff04036a13d4db471c9844d07b00
 ---
 
-Die **`isNaN()`**-Funktion bestimmt, ob ein Wert {{jsxref("NaN")}} ist, indem sie den Wert bei Bedarf zuerst in eine Zahl umwandelt. Da die Umwandlung innerhalb der `isNaN()`-Funktion [überraschend](#beschreibung) sein kann, ziehen Sie möglicherweise die Verwendung von {{jsxref("Number.isNaN()")}} vor.
+Die Funktion **`isNaN()`** ermittelt, ob ein Wert {{jsxref("NaN")}} ist. Falls nötig, wandelt sie den Wert zuerst in eine Zahl um. Da die Typumwandlung innerhalb von `isNaN()` [überraschend sein kann](#beschreibung), sollten Sie gegebenenfalls {{jsxref("Number.isNaN()")}} verwenden.
 
 {{InteractiveExample("JavaScript Demo: isNaN()")}}
 
@@ -33,30 +33,36 @@ isNaN(value)
 ### Parameter
 
 - `value`
-  - : Der zu testende Wert.
+  - : Der zu prüfende Wert.
 
 ### Rückgabewert
 
-`true`, wenn der gegebene Wert nach der [Umwandlung in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) {{jsxref("NaN")}} ist; andernfalls `false`.
+`true`, wenn der angegebene Wert nach der [Umwandlung in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) {{jsxref("NaN")}} ist.
 
 ## Beschreibung
 
-`isNaN()` ist eine Funktions-Eigenschaft des globalen Objekts.
+`isNaN()` ist eine Funktionseigenschaft des globalen Objekts.
 
-Für Zahlenwerte prüft `isNaN()`, ob die Zahl der Wert [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) ist. Wenn das Argument für die `isNaN()`-Funktion nicht vom Typ [Number](/de/docs/Web/JavaScript/Guide/Data_structures#number_type) ist, wird der Wert zuerst in eine Zahl umgewandelt und der resultierende Wert dann mit {{jsxref("NaN")}} verglichen.
+Bei Zahlenwerten prüft `isNaN()`, ob die Zahl den Wert [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) hat. Wenn das Argument der Funktion `isNaN()` nicht vom Typ [Number](/de/docs/Web/JavaScript/Guide/Data_structures#number_type) ist, wird der Wert zuerst [in eine Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Anschließend wird das Ergebnis mit {{jsxref("NaN")}} verglichen.
 
-Dieses Verhalten von `isNaN()` bei nicht-numerischen Argumenten kann verwirrend sein! Zum Beispiel wird ein leerer String zu 0 umgewandelt, während ein Boolean zu 0 oder 1 umgewandelt wird; beide Werte sind intuitiv "keine Zahlen", aber sie evaluieren nicht zu `NaN`, sodass `isNaN()` `false` zurückgibt. Daher beantwortet `isNaN()` weder die Frage "ist die Eingabe der Gleitkommawert {{jsxref("NaN")}}" noch die Frage "ist die Eingabe keine Zahl".
+Dieses Verhalten von `isNaN()` bei nicht numerischen Argumenten kann verwirrend sein! Zum Beispiel:
 
-{{jsxref("Number.isNaN()")}} ist eine verlässlichere Methode, um zu prüfen, ob ein Wert der Zahlenwert `NaN` ist oder nicht. Alternativ kann der Ausdruck `x !== x` verwendet werden, und keine der Lösungen unterliegt den Fehlalarmen, die den globalen `isNaN()` unzuverlässig machen. Um zu testen, ob ein Wert eine Zahl ist, verwenden Sie [`typeof x === "number"`](/de/docs/Web/JavaScript/Reference/Operators/typeof).
+- [`null`](/de/docs/Web/JavaScript/Guide/Data_structures#null_type) wird in 0 umgewandelt.
+- Ein leerer String wird in 0 umgewandelt.
+- Ein boolescher Wert wird in 0 oder 1 umgewandelt.
 
-Die `isNaN()`-Funktion beantwortet die Frage "ist die Eingabe funktional gleichwertig mit {{jsxref("NaN")}}, wenn sie in einem Zahlenkontext verwendet wird". Wenn `isNaN(x)` `false` zurückgibt, können Sie `x` in einem arithmetischen Ausdruck verwenden, als wäre es eine gültige Zahl, die nicht `NaN` ist. Wenn `isNaN(x)` `true` zurückgibt, wird `x` zu `NaN` umgewandelt und die meisten arithmetischen Ausdrücke geben `NaN` zurück (da `NaN` sich ausbreitet). Dies können Sie verwenden, um beispielsweise zu prüfen, ob ein Argument einer Funktion arithmetisch verarbeitbar ist (also "wie" eine Zahl verwendbar) und Werte, die nicht zahlengleich sind, durch das Auslösen eines Fehlers, das Bereitstellen eines Standardwertes usw. zu behandeln. Auf diese Weise können Sie eine Funktion erstellen, die die volle Vielseitigkeit von JavaScript ausnutzt, indem sie Werte je nach Kontext implizit umwandelt.
+Diese Werte sind intuitiv betrachtet „keine Zahlen“, ergeben aber nicht `NaN`. Deshalb gibt `isNaN()` `false` zurück. `isNaN()` beantwortet somit weder die Frage „Ist die Eingabe der Gleitkommawert {{jsxref("NaN")}}?“ noch die Frage „Ist die Eingabe keine Zahl?“.
+
+{{jsxref("Number.isNaN()")}} ist eine zuverlässigere Methode, um zu prüfen, ob ein Wert der Zahlenwert `NaN` ist. Alternativ können Sie den Ausdruck `x !== x` verwenden. Keine dieser beiden Möglichkeiten liefert die falsch positiven Ergebnisse, die das globale `isNaN()` unzuverlässig machen. Um zu prüfen, ob ein Wert eine Zahl ist, verwenden Sie [`typeof x === "number"`](/de/docs/Web/JavaScript/Reference/Operators/typeof).
+
+Die Funktion `isNaN()` beantwortet die Frage: „Ist die Eingabe bei Verwendung in einem numerischen Kontext funktional gleichwertig mit {{jsxref("NaN")}}?“ Wenn `isNaN(x)` `false` zurückgibt, können Sie `x` in einem arithmetischen Ausdruck verwenden, als wäre es eine gültige Zahl, die nicht `NaN` ist. Wenn `isNaN(x)` `true` zurückgibt, wird `x` in `NaN` umgewandelt. Dadurch liefern die meisten arithmetischen Ausdrücke ebenfalls `NaN` zurück, da sich `NaN` fortpflanzt. So können Sie beispielsweise prüfen, ob ein Argument einer Funktion arithmetisch verarbeitet werden kann, also „wie“ eine Zahl verwendbar ist. Werte, die sich nicht wie Zahlen verwenden lassen, können Sie dann behandeln, indem Sie etwa einen Fehler auslösen oder einen Standardwert bereitstellen. Auf diese Weise kann eine Funktion die Vielseitigkeit nutzen, die JavaScript durch die implizite, vom Kontext abhängige Umwandlung von Werten bietet.
 
 > [!NOTE]
-> Der [`+` Operator](/de/docs/Web/JavaScript/Reference/Operators/Addition) führt sowohl die Zahladdition als auch die String-Konkatenation durch. Daher kann der `+` Operator selbst dann einen String zurückgeben, wenn `isNaN()` für beide Operanden `false` zurückgibt, da er nicht als arithmetischer Operator verwendet wird. Zum Beispiel gibt `isNaN("1")` `false` zurück, aber `"1" + 1` ergibt `"11"`. Um sicherzustellen, dass Sie mit Zahlen arbeiten, [zwingen Sie den Wert zu einer Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) und verwenden Sie {{jsxref("Number.isNaN()")}}, um das Ergebnis zu testen.
+> Der [`+`-Operator](/de/docs/Web/JavaScript/Reference/Operators/Addition) dient sowohl zur Addition von Zahlen als auch zur Verkettung von Strings. Daher kann er auch dann einen String zurückgeben, wenn `isNaN()` für beide Operanden `false` zurückgibt: In diesem Fall wird er nicht als arithmetischer Operator verwendet. Beispielsweise gibt `isNaN("1")` `false` zurück, aber `"1" + 1` ergibt `"11"`. Um sicherzugehen, dass Sie mit Zahlen arbeiten, [wandeln Sie den Wert in eine Zahl um](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) und prüfen Sie das Ergebnis mit {{jsxref("Number.isNaN()")}}.
 
 ## Beispiele
 
-Beachten Sie, wie `isNaN()` `true` für Werte zurückgibt, die nicht der Wert `NaN` sind, aber auch keine Zahlen:
+Beachten Sie, dass `isNaN()` für Werte `true` zurückgibt, die nicht den Wert `NaN` haben, aber auch keine Zahlen sind:
 
 ```js
 isNaN(NaN); // true

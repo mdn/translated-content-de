@@ -3,21 +3,17 @@ title: "HTMLInputElement: selectionchange-Ereignis"
 short-title: selectionchange
 slug: Web/API/HTMLInputElement/selectionchange_event
 l10n:
-  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
+  sourceCommit: 3869033353873623537ef2d810c1406a7299b49c
 ---
 
 {{APIRef("Selection API")}}
 
-Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn sich die Textauswahl innerhalb eines {{HTMLElement("input")}}-Elements ändert. Dazu zählen sowohl Änderungen am ausgewählten Zeichenbereich als auch Bewegungen des Cursors.
+Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn sich die Textauswahl innerhalb eines {{HTMLElement("input")}}-Elements in ihrem Umfang oder ihrer Richtung ändert – unabhängig davon, ob die Auswahl aus einer Einfügemarke oder einem Zeichenbereich besteht.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 > [!NOTE]
-> Wenn Sie die Auswahl programmgesteuert ändern, beispielsweise durch einen Aufruf von [`setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange), wird die Auswahl sofort aktualisiert. Das `selectionchange`-Ereignis wird jedoch als Aufgabe in die Warteschlange gestellt. Die zugehörigen Listener werden erst später ausgeführt, nachdem das aktuelle Skript beendet ist. Im Gegensatz dazu werden die Listener von Ereignissen wie `focus` und `click` synchron ausgeführt, wenn die Ereignisse durch [`focus()`](/de/docs/Web/API/HTMLElement/focus) beziehungsweise [`click()`](/de/docs/Web/API/HTMLElement/click) ausgelöst werden.
-
-Das Ereignis wird üblicherweise verarbeitet, indem dem {{HTMLElement("input")}}-Element ein Event-Listener hinzugefügt wird. In dessen Handler-Funktion werden die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) ausgelesen.
-
-Sie können auch über den Event-Handler `onselectionchange` einen Listener hinzufügen. Beachten Sie jedoch, dass dadurch gegebenenfalls andere Listener ersetzt werden, die über `onselectionchange` hinzugefügt wurden. Innerhalb der Handler-Funktion können Sie dann mit [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) die [`Selection`](/de/docs/Web/API/Selection) abrufen. Um Änderungen an einer _Textauswahl_ zu erfassen, ist dies allerdings wenig hilfreich.
+> Wenn Sie die Auswahl programmgesteuert ändern, beispielsweise durch einen Aufruf von [`setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange), wird die Auswahl sofort aktualisiert. Das `selectionchange`-Ereignis wird jedoch als Task in die Warteschlange gestellt. Seine Listener werden erst später ausgeführt, nachdem das aktuelle Skript beendet ist. Im Gegensatz dazu werden die Listener von Ereignissen wie `focus` und `click` synchron ausgeführt, wenn diese durch [`focus()`](/de/docs/Web/API/HTMLElement/focus) beziehungsweise [`click()`](/de/docs/Web/API/HTMLElement/click) ausgelöst werden.
 
 ## Syntax
 
@@ -27,7 +23,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("selectionchange", (event) => { })
 ```
 
-Alternativ können Sie die [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
 
 ```js-nolint
 onselectionchange = (event) => { }

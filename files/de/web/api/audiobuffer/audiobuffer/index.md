@@ -1,14 +1,14 @@
 ---
-title: "AudioBuffer: AudioBuffer()-Konstruktor"
+title: "AudioBuffer: Konstruktor AudioBuffer()"
 short-title: AudioBuffer()
 slug: Web/API/AudioBuffer/AudioBuffer
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 01501e37cc8a84b9193671f348ff2c7b10f5dffe
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`AudioBuffer`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt.
+Der Konstruktor **`AudioBuffer`** der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ new AudioBuffer(options)
 ### Parameter
 
 - `options`
-  - : Optionen sind wie folgt:
+  - : Die Optionen sind:
     - `length`
-      - : Die Größe des Audiobuffers in Sample-Frames. Um die `length` für eine bestimmte Anzahl von Sekunden Audio zu bestimmen, verwenden Sie `numSeconds * sampleRate`.
+      - : Die Größe des Audiopuffers in Sample-Frames. Um `length` für eine bestimmte Anzahl von Sekunden Audiomaterial zu bestimmen, verwenden Sie `numSeconds * sampleRate`.
     - `numberOfChannels`
-      - : Die Anzahl der Kanäle für den Buffer. Der Standardwert ist 1, und alle Benutzeragenten müssen mindestens 32 Kanäle unterstützen.
+      - : Die Anzahl der Kanäle für den Puffer. Der Standardwert ist 1. Alle User Agents müssen mindestens 32 Kanäle unterstützen.
     - `sampleRate`
-      - : Die Abtastrate in Hz für den Buffer. Der Standardwert ist die Abtastrate des `context`, der beim Erstellen dieses Objekts verwendet wird. Benutzeragenten müssen Abtastraten von 8.000 Hz bis 96.000 Hz unterstützen (dürfen aber auch außerhalb dieses Bereichs liegen).
+      - : Die Abtastrate des Puffers in Hz. User Agents müssen Abtastraten von 3.000 Hz bis einschließlich 768.000 Hz unterstützen.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine oder mehrere Optionen negativ oder anderweitig einen ungültigen Wert haben (zum Beispiel `numberOfChannels` höher ist als unterstützt oder eine `sampleRate` außerhalb des nominalen Bereichs liegt).
+  - : Wird ausgelöst, wenn eine oder mehrere der Optionen negativ sind oder anderweitig einen ungültigen Wert haben (etwa wenn `numberOfChannels` höher ist als unterstützt oder `sampleRate` außerhalb des vorgesehenen Bereichs liegt).
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn nicht genügend Speicher verfügbar ist, um den Buffer zuzuweisen.
+  - : Wird ausgelöst, wenn nicht genügend Arbeitsspeicher verfügbar ist, um den Puffer zuzuweisen.
 
 ## Spezifikationen
 

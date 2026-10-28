@@ -3,12 +3,14 @@ title: "HTMLTextAreaElement: select-Ereignis"
 short-title: select
 slug: Web/API/HTMLTextAreaElement/select_event
 l10n:
-  sourceCommit: 1c322acc575d927494ecff49c04159ba34aec781
+  sourceCommit: 3869033353873623537ef2d810c1406a7299b49c
 ---
 
-{{APIRef("Selection API")}}
+{{APIRef("HTML DOM")}}
 
-Das **`select`**-Ereignis wird ausgelöst, wenn Text ausgewählt wurde.
+Das **`select`**-Ereignis der Schnittstelle [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) wird ausgelöst, wenn die Ausdehnung oder Richtung der Auswahl programmgesteuert geändert wird oder wenn der Benutzer Text auswählt.
+
+Allgemeine Informationen zu diesem Ereignis finden Sie unter [`HTMLInputElement`: `select`-Ereignis](/de/docs/Web/API/HTMLInputElement/select_event).
 
 ## Syntax
 
@@ -28,39 +30,6 @@ onselect = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Beispiele
-
-### Ausgewählten Text protokollieren
-
-```html
-<textarea>Try selecting some text in this element.</textarea>
-<p id="log"></p>
-```
-
-```js
-function logSelection(event) {
-  const log = document.getElementById("log");
-  const selection = event.target.value.substring(
-    event.target.selectionStart,
-    event.target.selectionEnd,
-  );
-  log.textContent = `You selected: ${selection}`;
-}
-
-const textarea = document.querySelector("textarea");
-textarea.addEventListener("select", logSelection);
-```
-
-{{EmbedLiveSample("Selection_logger")}}
-
-### Die Event-Handler-Eigenschaft `onselect` verwenden
-
-Sie können den Event-Handler auch über die Eigenschaft `onselect` einrichten. Beachten Sie jedoch, dass dadurch gegebenenfalls andere über `onselect` hinzugefügte Event-Listener ersetzt werden:
-
-```js
-textarea.onselect = logSelection;
-```
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -68,7 +37,3 @@ textarea.onselect = logSelection;
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)

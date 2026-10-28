@@ -1,16 +1,16 @@
 ---
-title: "HTMLInputElement: Methode select()"
+title: "HTMLInputElement: select()-Methode"
 short-title: select()
 slug: Web/API/HTMLInputElement/select
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: 3869033353873623537ef2d810c1406a7299b49c
 ---
 
-{{ APIRef("HTML DOM") }}
+{{APIRef("HTML DOM")}}
 
-Die **`HTMLInputElement.select()`**-Methode markiert den gesamten Text
-in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element,
-das ein Textfeld enthält.
+Die **`select()`**-Methode der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle wählt den gesamten Text in einem {{HTMLElement("input")}}-Element mit einem Textfeld aus.
+
+Ein Aufruf von `element.select()` setzt den Fokus nicht unbedingt auf das Eingabefeld. Daher wird die Methode häufig zusammen mit [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) verwendet.
 
 ## Syntax
 
@@ -28,8 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie in diesem Beispiel auf die Schaltfläche, um den gesamten Text im
-`<input>`-Element auszuwählen.
+Klicken Sie in diesem Beispiel auf die Schaltfläche, um den gesamten Text im `<input>`-Element auszuwählen.
 
 ### HTML
 
@@ -54,10 +53,6 @@ document.querySelector("button").addEventListener("click", selectText);
 
 {{EmbedLiveSample("Examples")}}
 
-## Anmerkungen
-
-Ein Aufruf von `element.select()` wird das Eingabefeld nicht notwendigerweise fokussieren, daher wird es oft zusammen mit [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) verwendet.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -68,7 +63,5 @@ Ein Aufruf von `element.select()` wird das Eingabefeld nicht notwendigerweise fo
 
 ## Siehe auch
 
-- {{ HTMLElement("input") }}
-- {{ HTMLElement("textarea") }}
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
-- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)
+- [`HTMLInputElement.setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)

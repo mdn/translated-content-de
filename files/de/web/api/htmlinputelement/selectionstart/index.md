@@ -1,38 +1,30 @@
 ---
-title: "HTMLInputElement: selectionStart-Eigenschaft"
+title: "HTMLInputElement: Eigenschaft selectionStart"
 short-title: selectionStart
 slug: Web/API/HTMLInputElement/selectionStart
 l10n:
-  sourceCommit: 7a255a5942e2e3edb4cc5c1604a7bb597d34157f
+  sourceCommit: 3869033353873623537ef2d810c1406a7299b49c
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`selectionStart`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interfaces gibt die Startposition der aktuellen Textauswahl in einem {{HTMLElement("input")}}-Element an.
+Die Eigenschaft **`selectionStart`** der Schnittstelle [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gibt die Anfangsposition der aktuellen Textauswahl in einem {{HTMLElement("input")}}-Element an.
 
 ## Wert
 
-Eine nicht-negative Zahl.
+Eine nicht negative Zahl, die den nullbasierten Index des ersten ausgewählten Zeichens in einem `<input>`-Element mit Texteingabe angibt. Wenn nichts ausgewählt ist, entsprechen sowohl `selectionStart` als auch [`selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) der Position des Cursors (der Einfügemarke) innerhalb des `<input>`-Elements.
 
-## Beschreibung
+Wenn `selectionStart` auf einen Wert gesetzt wird, der größer als der aktuelle Wert von `selectionEnd` ist, werden beide Eigenschaften auf den neuen Wert gesetzt. Werte, die größer als die Länge des Eingabewerts sind, werden als Ende des Werts behandelt. Das Setzen von `selectionStart` auf einen neuen Wert löst die Ereignisse [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) und [`select`](/de/docs/Web/API/HTMLInputElement/select_event) aus.
 
-Die `selectionStart`-Eigenschaft ist eine Zahl, die den nullbasierten Index des ersten ausgewählten Zeichens in einem Text-`<input>` darstellt. Die Eigenschaft kann verwendet werden, um die Startposition abzurufen oder festzulegen.
+Der Eigenschaftswert kann auch dann abgerufen und gesetzt werden, wenn das `<input>`-Element keinen Fokus hat. Damit das Pseudoelement {{cssxref("::selection")}} jedoch auf den ausgewählten Text zutrifft, muss das Element den Fokus haben.
 
-Wenn nichts ausgewählt ist, ist der Wert von sowohl `selectionStart` als auch [`selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) die Position des Cursors (Eingabepunkt) innerhalb des `<input>`-Elements.
-
-Wenn `selectionStart` auf einen Wert gesetzt wird, der größer ist als der aktuelle Wert von `selectionEnd`, werden beide Eigenschaften auf den neuen Wert aktualisiert. Werte, die größer sind als die Länge des Werts des Eingabefelds, werden als das Ende des Werts behandelt.
-
-Die `selectionStart`-Eigenschaft gilt nur für Eingaben der Typen `text`, `search`, `url`, `tel` und `password`. Bei anderen Eingabetypen gibt das Lesen der Eigenschaft `null` zurück, und das Setzen wirft einen `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException).
-
-Der Eigenschaftswert kann abgerufen und gesetzt werden, ohne dass das `<input>` im Fokus ist, aber das Element muss im Fokus sein, damit das {{cssxref("::selection")}} Pseudo-Element den ausgewählten Text zuordnen kann.
-
-Das Setzen von `selectionStart` auf einen neuen Wert löst die [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) und [`select`](/de/docs/Web/API/HTMLInputElement/select_event) Ereignisse aus.
+Die Eigenschaft `selectionStart` gilt nur für Eingaben der Typen `text`, `search`, `url`, `tel` und `password`. Bei anderen Eingabetypen gibt das Lesen der Eigenschaft `null` zurück; beim Setzen wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `InvalidStateError` ausgelöst.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel meldet den ausgewählten Text sowie dessen Start- und Endpositionen. Wählen Sie etwas Text im Eingabefeld aus und klicken Sie dann auf den Button.
+Dieses Beispiel zeigt den ausgewählten Text sowie dessen Anfangs- und Endposition an. Wählen Sie Text im Eingabefeld aus und klicken Sie anschließend auf die Schaltfläche.
 
 ### HTML
 
@@ -76,10 +68,10 @@ document.querySelector("#show-selection").addEventListener("click", () => {
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd)
 - [`HTMLInputElement.selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection)
-- [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis
+- Ereignis [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event)
 - [`HTMLInputElement.select()`](/de/docs/Web/API/HTMLInputElement/select)
 - [`HTMLInputElement.setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)
 - [`HTMLInputElement.setRangeText()`](/de/docs/Web/API/HTMLInputElement/setRangeText)
 - [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)
 - [`Selection`](/de/docs/Web/API/Selection)
-- {{cssxref("::selection")}} Pseudo-Element
+- Pseudoelement {{cssxref("::selection")}}
