@@ -3,7 +3,7 @@ title: Modul `browsingContext`
 short-title: browsingContext
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext
 l10n:
-  sourceCommit: 6cb739dac09c71c59f78190a43d13247835f878e
+  sourceCommit: a0ec5a931fb40d9307d096de83c1d4d10f0d6ea6
 ---
 
 Das Modul **`browsingContext`** enthält Befehle und Ereignisse zur Verwaltung von Kontexten.
@@ -11,21 +11,21 @@ Das Modul **`browsingContext`** enthält Befehle und Ereignisse zur Verwaltung v
 ## Kontexte
 
 Ein Kontext ist ein navigierbarer Bereich, der ein Dokument laden kann, beispielsweise ein Tab, ein iframe oder ein Popup.
-Jeder Kontext hat eine eindeutige Zeichenkennung, die als Kontext-ID bezeichnet wird und dazu dient, in Befehlen und Ereignissen auf ihn zu verweisen.
+Jeder Kontext hat eine eindeutige Zeichenfolgenkennung, die als Kontext-ID bezeichnet wird und über Befehle und Ereignisse hinweg als Referenz dient.
 
 Es gibt zwei Arten von Kontexten:
 
-- **Kontext der obersten Ebene**
+- **Top-Level-Kontext**
   - : Dieser Kontexttyp hat keinen übergeordneten Kontext und entspricht einem Browser-Tab oder einem eigenständigen Fenster.
-    Kontexte der obersten Ebene gehören zu einem [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) und befinden sich in einem [Client-Fenster](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows).
+    Top-Level-Kontexte gehören zu einem [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) und befinden sich in einem [Client-Fenster](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows).
 - **Untergeordneter Kontext**
-  - : Dieser Kontexttyp ist in einen Kontext der obersten Ebene eingebettet, beispielsweise als {{HTMLElement("iframe")}}.
+  - : Dieser Kontexttyp ist in einen Top-Level-Kontext eingebettet, beispielsweise als {{HTMLElement("iframe")}}.
     [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) gibt untergeordnete Kontexte als Kinder ihres übergeordneten Kontexts zurück.
 
-Wenn Sie beispielsweise ein Browserfenster öffnen und zu `https://example.com` navigieren, entsteht ein Kontext der obersten Ebene mit einer eigenen Kontext-ID.
-Wenn diese Seite ein `<iframe>` enthält, das `https://other.com` lädt, entsteht ein untergeordneter Kontext innerhalb des Kontexts der obersten Ebene.
-Durch das Öffnen eines neuen Tabs entsteht ein zweiter Kontext der obersten Ebene mit einer eigenen Kontext-ID.
-Ein Aufruf von [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) würde beide Kontexte der obersten Ebene zurückgeben, wobei der erste einen untergeordneten Kontext enthält.
+Wenn Sie beispielsweise ein Browserfenster öffnen und zu `https://example.com` navigieren, wird ein Top-Level-Kontext mit einer eigenen Kontext-ID erstellt.
+Enthält diese Seite ein `<iframe>`, das `https://other.com` lädt, wird ein untergeordneter Kontext erstellt, der in den Top-Level-Kontext eingebettet ist.
+Wenn Sie einen neuen Tab öffnen, wird ein zweiter Top-Level-Kontext mit einer eigenen Kontext-ID erstellt.
+Ein Aufruf von [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) würde beide Top-Level-Kontexte zurückgeben, wobei der erste einen untergeordneten Kontext enthält.
 
 ## Befehle
 
@@ -40,6 +40,8 @@ Ein Aufruf von [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi
 - [`browsingContext.print`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/print)
 - [`browsingContext.reload`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/reload)
 - [`browsingContext.setViewport`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/setViewport)
+- [`browsingContext.startScreencast`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/startScreencast)
+- [`browsingContext.stopScreencast`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/stopScreencast)
 - [`browsingContext.traverseHistory`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/traverseHistory)
 
 ## Ereignisse
