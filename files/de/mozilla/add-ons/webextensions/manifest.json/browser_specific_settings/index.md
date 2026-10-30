@@ -2,7 +2,7 @@
 title: browser_specific_settings
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings
 l10n:
-  sourceCommit: c27b843b70ca03c9dc2f46805cae2c0017d8bce6
+  sourceCommit: 5ea16dbadbd11a2718f7ffba9dd02efe1b69c322
 ---
 
 <table class="fullwidth-table standard-table">
@@ -12,19 +12,19 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Pflicht</th>
+      <th scope="row">Erforderlich</th>
       <td>
         <ul>
           <li>In Firefox:
             <br/>
-            Muss bereitgestellt werden mit Details, die für <a href="#data_collection_permissions"><code>browser_specific_settings.gecko.data_collection_permissions</code></a> für neue Erweiterungen angegeben sind, die ab dem 3. November 2025 bei addons.mozilla.org eingereicht werden.
+            Für neue Erweiterungen, die ab dem 3. November 2025 bei addons.mozilla.org eingereicht werden, müssen Angaben zu <a href="#data_collection_permissions"><code>browser_specific_settings.gecko.data_collection_permissions</code></a> bereitgestellt werden.
             <br/>
-            Ansonsten:
+            Ansonsten gilt:
             <ul>
-              <li>Manifest V3: Erforderlich für das Signieren von Erweiterungen, d.h. die Verteilung über addons.mozilla.org (AMO) oder Selbstverteilung, um eine Erweiterungs-ID bereitzustellen.</li>
-              <li>Manifest V2: Nicht erforderlich, es sei denn, es muss eine Erweiterungs-ID angegeben werden. Es wird jedoch empfohlen, die ID festzulegen.</li>
+              <li>Manifest V3: Für die Signierung von Erweiterungen erforderlich, unabhängig davon, ob sie über addons.mozilla.org (AMO) oder selbst vertrieben werden, um eine Erweiterungs-ID anzugeben.</li>
+              <li>Manifest V2: Nicht erforderlich, sofern keine Erweiterungs-ID angegeben werden muss. Es wird jedoch empfohlen, die ID festzulegen.</li>
             </ul>
-            Siehe <a href="#id"><code>browser_specific_settings.gecko.id</code></a> für weitere Informationen.</li>
+            Weitere Informationen finden Sie unter <a href="#id"><code>browser_specific_settings.gecko.id</code></a>.</li>
           <li>In Safari nicht erforderlich.</li>
         </ul>
       </td>
@@ -41,7 +41,7 @@ l10n:
         "none"
       ]
     },
-    "strict_min_version": "58.0"
+    "strict_min_version": "140.0"
   }
 }
 </pre
@@ -53,32 +53,32 @@ l10n:
 
 ## Beschreibung
 
-Der Schlüssel `browser_specific_settings` enthält Schlüssel, die spezifisch für eine bestimmte Host-Anwendung sind.
+Der Schlüssel `browser_specific_settings` enthält Schlüssel, die für eine bestimmte Host-Anwendung spezifisch sind.
 
-### Firefox (Gecko) Eigenschaften
+### Eigenschaften für Firefox (Gecko)
 
 Firefox speichert browserspezifische Einstellungen in diesen Eigenschaften:
 
-- `gecko` für die Desktop- und (wenn aktiviert) Android-Versionen von Firefox.
+- `gecko` für die Desktop-Version und (sofern aktiviert) die Android-Version von Firefox.
 - `gecko_android` für die Android-Version von Firefox.
 
-Der Unter-Schlüssel `gecko` unterstützt diese Eigenschaften:
+Der Unterschlüssel `gecko` unterstützt diese Eigenschaften:
 
 - `data_collection_permissions`
-  - : Die optionalen und erforderlichen Datentypen, die die Erweiterung sammelt und zur Speicherung und Verarbeitung außerhalb der Erweiterung überträgt. Diese werden durch die Eigenschaften dargestellt:
+  - : Die optionalen und erforderlichen Datentypen, die die Erweiterung erfasst und zur Speicherung und Verarbeitung außerhalb der Erweiterung überträgt. Sie werden durch folgende Eigenschaften dargestellt:
     - `required`
-      - : Die Daten, deren Sammlung und Übertragung für den Betrieb der Erweiterung erforderlich sind. Muss den Wert `none` oder einen oder mehrere der folgenden enthalten: `authenticationInfo`, `bookmarksInfo`, `browsingActivity`, `financialAndPaymentInfo`, `healthInfo`, `locationInfo`, `personalCommunications`, `personallyIdentifyingInfo`, `searchTerms`, `websiteActivity` oder `websiteContent`.
+      - : Die Daten, deren Erfassung und Übertragung für den Betrieb der Erweiterung erforderlich sind. Muss den Wert `none` oder einen oder mehrere der folgenden Werte enthalten: `authenticationInfo`, `bookmarksInfo`, `browsingActivity`, `financialAndPaymentInfo`, `healthInfo`, `locationInfo`, `personalCommunications`, `personallyIdentifyingInfo`, `searchTerms`, `websiteActivity` oder `websiteContent`.
     - `optional` {{optional_inline}}
-      - : Die Daten, die der Benutzer optional bereitstellen kann. Kann einen oder mehrere der folgenden Inhalte umfassen: `authenticationInfo`, `bookmarksInfo`, `browsingActivity`, `financialAndPaymentInfo`, `healthInfo`, `locationInfo`, `personalCommunications`, `personallyIdentifyingInfo`, `searchTerms`, `technicalAndInteraction`, `websiteActivity` oder `websiteContent`.
+      - : Die Daten, deren Bereitstellung Benutzer ausdrücklich zustimmen können. Kann einen oder mehrere der folgenden Werte enthalten: `authenticationInfo`, `bookmarksInfo`, `browsingActivity`, `financialAndPaymentInfo`, `healthInfo`, `locationInfo`, `personalCommunications`, `personallyIdentifyingInfo`, `searchTerms`, `technicalAndInteraction`, `websiteActivity` oder `websiteContent`.
 
-    Weitere Informationen finden Sie im Artikel [Firefox integrierte Einwilligung zur Datenerfassung und -übertragung](https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/).
+    Weitere Informationen finden Sie im Extension-Workshop-Artikel [In Firefox integrierte Einwilligung zur Datenerfassung und -übertragung](https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/).
 
 - `id`
-  - : Die Erweiterungs-ID. Optional für Manifest V2 (obwohl es empfohlen wird, eine ID festzulegen) und erforderlich für das Signieren von Manifest V3-Erweiterungen. Wenn Sie für Manifest V2-Erweiterungen keinen Wert angeben, weist AMO der Erweiterung eine GUID zu, wenn sie signiert wird. Sie müssen eine ID für das Signieren von Manifest V3-Erweiterungen erstellen; AMO weist keine ID zu. Wenn angegeben, muss diese Eigenschaft eine sein:
-    - (empfohlen) Zeichenkette mit bis zu 80 Zeichen, die wie eine E-Mail-Adresse formatiert ist. (`^[a-zA-Z0-9-._]*@[a-zA-Z0-9-._]+$`). Sie können zwar eine echte E-Mail-Adresse verwenden (achten Sie darauf, dass dies Spam anziehen könnte), jedoch kann jede korrekt formatierte Zeichenkette verwendet werden. Zum Beispiel `great_app@developers.company`.
-    - [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) (`^\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}$`)
+  - : Die Erweiterungs-ID. Für Manifest V2 optional (obwohl empfohlen wird, eine ID festzulegen) und für die Signierung von Manifest-V3-Erweiterungen erforderlich. Wenn Sie für eine Manifest-V2-Erweiterung keinen Wert angeben, weist AMO der Erweiterung bei der Signierung eine GUID zu. Für die Signierung von Manifest-V3-Erweiterungen müssen Sie selbst eine ID erstellen; AMO weist keine ID zu. Falls angegeben, muss diese Eigenschaft eine der folgenden Formen haben:
+    - (empfohlen) Eine Zeichenfolge mit höchstens 80 Zeichen, die wie eine E-Mail-Adresse formatiert ist (`^[a-zA-Z0-9-._]*@[a-zA-Z0-9-._]+$`). Sie können zwar eine echte E-Mail-Adresse verwenden (bedenken Sie, dass dies Spam anziehen kann), aber jede korrekt formatierte Zeichenfolge ist zulässig. Zum Beispiel `great_app@developers.company`.
+    - Eine [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) (`^\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}$`).
 
-    Beim ersten Signieren von Erweiterungen überprüft addons.mozilla.org (AMO), dass die ID einzigartig ist.
+    Bei der erstmaligen Signierung einer Erweiterung prüft addons.mozilla.org (AMO), ob die ID eindeutig ist.
 
     Zum Beispiel:
 
@@ -90,38 +90,38 @@ Der Unter-Schlüssel `gecko` unterstützt diese Eigenschaften:
       "id": "{daf44bf7-a45e-4450-979c-91cf07434c3d}"
     ```
 
-    Weitere Informationen zum Festlegen von Erweiterungs-IDs finden Sie unter [Extensions and the Add-on ID](https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/).
+    Weitere Informationen zum Festlegen von Erweiterungs-IDs finden Sie unter [Erweiterungen und die Add-on-ID](https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/).
 
 - `strict_min_version`
-  - : Mindestversion von Gecko, die unterstützt wird. Wenn die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, unter dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Wenn nicht angegeben, werden alle Versionen früher als `strict_max_version` unterstützt. "\*" ist in diesem Feld nicht gültig.
+  - : Die mindestens zu unterstützende Gecko-Version. Wenn die Firefox-Version, unter der die Erweiterung installiert oder ausgeführt wird, darunter liegt, wird die Erweiterung nicht installiert beziehungsweise nicht ausgeführt. Falls nicht angegeben, werden alle Versionen unterstützt, die älter als `strict_max_version` sind. „\*“ ist in diesem Feld nicht zulässig.
     > [!NOTE]
-    > Die minimal unterstützte Version, die Updates empfangen kann, ist 115.0 (ESR) oder, wenn ESR-Versionen nicht enthalten sind, 128.0. Dies liegt an der Ablauf der Root-Zertifizierung in Firefox im März 2025. Daher erkennen ältere Versionen von Firefox keine Erweiterungssignaturen. Weitere Informationen finden Sie unter [Aktualisieren Sie Firefox, um Add-on-Probleme durch Ablauf des Root-Zertifikats zu verhindern](https://support.mozilla.org/en-US/kb/root-certificate-expiration).
+    > Die älteste unterstützte Version, die Updates empfangen kann, ist 115.0 (ESR) oder, wenn ESR-Versionen nicht berücksichtigt werden, 128.0. Grund dafür ist der Ablauf des Stammzertifikats in Firefox im März 2025. Ältere Firefox-Versionen erkennen daher Erweiterungssignaturen nicht. Weitere Informationen finden Sie unter [Firefox aktualisieren, um Probleme mit Add-ons durch den Ablauf des Stammzertifikats zu vermeiden](https://support.mozilla.org/en-US/kb/root-certificate-expiration).
 - `strict_max_version`
-  - : Maximale unterstützte Version von Gecko. Wenn die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, über dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Standardmäßig wird "\*" verwendet, was die Überprüfung einer maximalen Version deaktiviert.
+  - : Die höchstens zu unterstützende Gecko-Version. Wenn die Firefox-Version, unter der die Erweiterung installiert oder ausgeführt wird, darüber liegt, wird die Erweiterung nicht installiert beziehungsweise nicht ausgeführt. Der Standardwert ist „\*“, wodurch die Prüfung auf eine Höchstversion deaktiviert wird.
 
     > [!CALLOUT]
     > Siehe die Liste der [gültigen Gecko-Versionen](https://addons.mozilla.org/api/v5/applications/firefox/).
 
 - `update_url`
-  - : Ein Link zu einem [Manifest für Erweiterungs-Updates](https://extensionworkshop.com/documentation/manage/updating-your-extension/). Beachten Sie, dass der Link mit "https" beginnen muss. Dieser Schlüssel dient zur selbstständigen Verwaltung von Erweiterungs-Updates (d.h. nicht über AMO).
+  - : Ein Link zu einem [Update-Manifest für Erweiterungen](https://extensionworkshop.com/documentation/manage/updating-your-extension/). Beachten Sie, dass der Link mit „https“ beginnen muss. Dieser Schlüssel dient dazu, Updates für Ihre Erweiterung selbst zu verwalten, also nicht über AMO.
 
-Der Unter-Schlüssel `gecko_android` unterstützt diese Eigenschaften:
+Der Unterschlüssel `gecko_android` unterstützt diese Eigenschaften:
 
 - `strict_min_version`
-  - : Mindestversion von Gecko für die Unterstützung auf Android. Wenn die Firefox für Android-Version, auf der die Erweiterung installiert oder ausgeführt wird, unter dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Wenn nicht angegeben, wird standardmäßig die durch `gecko.strict_min_version` bestimmte Version verwendet. "\*" ist in diesem Feld nicht gültig.
+  - : Die mindestens zu unterstützende Gecko-Version unter Android. Wenn die Version von Firefox für Android, unter der die Erweiterung installiert oder ausgeführt wird, darunter liegt, wird die Erweiterung nicht installiert beziehungsweise nicht ausgeführt. Falls nicht angegeben, gilt standardmäßig die durch `gecko.strict_min_version` festgelegte Version. „\*“ ist in diesem Feld nicht zulässig.
 - `strict_max_version`
-  - : Maximale Version von Gecko für die Unterstützung auf Android. Wenn die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, über dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Standardmäßig wird die durch `gecko.strict_max_version` bestimmte Version verwendet.
+  - : Die höchstens zu unterstützende Gecko-Version unter Android. Wenn die Firefox-Version, unter der die Erweiterung installiert oder ausgeführt wird, darüber liegt, wird die Erweiterung nicht installiert beziehungsweise nicht ausgeführt. Falls nicht angegeben, gilt standardmäßig die durch `gecko.strict_max_version` festgelegte Version.
 
-Um Firefox für Android zu unterstützen, ohne einen Versionsbereich anzugeben, muss der Unter-Schlüssel `gecko_android` ein leeres Objekt sein, d.h. `"gecko_android": {}`. Andernfalls ist die Erweiterung nur auf dem Firefox-Desktop verfügbar.
+Um Firefox für Android ohne Angabe eines Versionsbereichs zu unterstützen, muss der Unterschlüssel `gecko_android` ein leeres Objekt sein, also `"gecko_android": {}`. Andernfalls ist die Erweiterung nur für Firefox auf dem Desktop verfügbar.
 
-#### Erweiterungs-ID-Format
+#### Format der Erweiterungs-ID
 
-Die Erweiterungs-ID muss eine der folgenden sein:
+Die Erweiterungs-ID muss eine der folgenden Formen haben:
 
-- [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)
-- Eine Zeichenkette, die wie eine E-Mail-Adresse formatiert ist: `extensionname@example.org`. Die Verwendung eines `@string`-Formats wird jedoch empfohlen.
+- Eine [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)
+- Eine wie eine E-Mail-Adresse formatierte Zeichenfolge: `extensionname@example.org`. Es wird jedoch empfohlen, das Format `@string` zu verwenden.
 
-Das letztere Format ist einfacher zu erzeugen und zu handhaben. Beachten Sie, dass die Verwendung einer echten E-Mail-Adresse hier Spam anziehen könnte.
+Das zweite Format lässt sich leichter erzeugen und bearbeiten. Beachten Sie, dass die Verwendung einer echten E-Mail-Adresse hier Spam anziehen kann.
 
 Zum Beispiel:
 
@@ -133,34 +133,38 @@ Zum Beispiel:
 "id": "{daf44bf7-a45e-4450-979c-91cf07434c3d}"
 ```
 
-### Safari Eigenschaften
+### Eigenschaften für Safari
 
-Safari speichert seine browserspezifischen Einstellungen im Unter-Schlüssel `safari`, der diese Eigenschaften hat:
+Safari speichert seine browserspezifischen Einstellungen im Unterschlüssel `safari`, der diese Eigenschaften hat:
 
 - `strict_min_version`
-  - : Mindestversion von Safari, die unterstützt wird.
+  - : Die mindestens zu unterstützende Safari-Version.
 - `strict_max_version`
-  - : Maximale Version von Safari, die unterstützt wird.
+  - : Die höchstens zu unterstützende Safari-Version.
 
-### Chrome-Eigenschaften
+### Eigenschaften für Chrome
 
-Chrome verwendet diesen Schlüssel nicht und ignoriert ihn, wenn er in der `manifest.json`-Datei einer Erweiterung vorhanden ist.
+Chrome verwendet diesen Schlüssel nicht und ignoriert ihn, wenn er in der Datei `manifest.json` einer Erweiterung vorhanden ist.
 
 ## Beispiele
 
-Beispiel mit allen möglichen Schlüsseln. Beachten Sie, dass die meisten Erweiterungen `strict_max_version` und `update_url` weglassen.
+Ein Beispiel mit allen möglichen Schlüsseln. Beachten Sie, dass die meisten Erweiterungen `strict_max_version` und `update_url` weglassen.
 
 ```json
 "browser_specific_settings": {
   "gecko": {
     "id": "@addon-example",
-    "strict_min_version": "42.0",
-    "strict_max_version": "50.*",
+    "strict_min_version": "128.0",
+    "strict_max_version": "159.*",
     "update_url": "https://example.com/updates.json"
+  },
+  "gecko_android": {
+    "strict_min_version": "128.0",
+    "strict_max_version": "159.*"
   },
   "safari": {
     "strict_min_version": "14",
-    "strict_max_version": "20"
+    "strict_max_version": "26"
   }
 }
 ```
