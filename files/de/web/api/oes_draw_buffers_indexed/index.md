@@ -2,46 +2,47 @@
 title: OES_draw_buffers_indexed
 slug: Web/API/OES_draw_buffers_indexed
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_draw_buffers_indexed`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht die Nutzung unterschiedlicher Mischoptionen beim gleichzeitigen Schreiben in mehrere Farb-Puffer.
+Die Erweiterung **`OES_draw_buffers_indexed`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es, beim gleichzeitigen Schreiben in mehrere Farbpuffer unterschiedliche Blending-Optionen zu verwenden.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> Diese Erweiterung ist nur für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar.
 
 ## Instanzmethoden
 
 - [`OES_draw_buffers_indexed.blendEquationiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendEquationiOES)
-  - : Setzt sowohl die RGB- als auch die Alpha-Berechnungsgleichungen für einen bestimmten Zeichnungspuffer.
+  - : Legt sowohl die RGB- als auch die Alpha-Blending-Gleichung für einen bestimmten Zeichenpuffer fest.
 - [`OES_draw_buffers_indexed.blendEquationSeparateiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendEquationSeparateiOES)
-  - : Setzt die RGB- und Alpha-Berechnungsgleichungen separat für einen bestimmten Zeichnungspuffer.
+  - : Legt die RGB- und die Alpha-Blending-Gleichung für einen bestimmten Zeichenpuffer getrennt fest.
 - [`OES_draw_buffers_indexed.blendFunciOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendFunciOES)
-  - : Definiert, welche Funktion beim Mischen von Pixeln für einen bestimmten Zeichnungspuffer verwendet wird.
+  - : Legt fest, welche Funktion beim Mischen von Pixeln für einen bestimmten Zeichenpuffer verwendet wird.
 - [`OES_draw_buffers_indexed.blendFuncSeparateiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendFuncSeparateiOES)
-  - : Definiert, welche Funktion beim Mischen von Pixeln für RGB- und Alpha-Komponenten separat für einen bestimmten Zeichnungspuffer verwendet wird.
+  - : Legt fest, welche Funktion beim Mischen von Pixeln für RGB- und Alpha-Komponenten eines bestimmten Zeichenpuffers jeweils verwendet wird.
 - [`OES_draw_buffers_indexed.colorMaskiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/colorMaskiOES)
-  - : Legt fest, welche Farbkomponenten beim Zeichnen oder Rendern für einen bestimmten Zeichnungspuffer aktiviert oder deaktiviert werden sollen.
+  - : Legt fest, welche Farbkomponenten beim Zeichnen oder Rendern in einen bestimmten Zeichenpuffer aktiviert oder deaktiviert sind.
 - [`OES_draw_buffers_indexed.disableiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/disableiOES)
-  - : Deaktiviert das Mischen für einen bestimmten Zeichnungspuffer.
+  - : Deaktiviert das Blending für einen bestimmten Zeichenpuffer.
 - [`OES_draw_buffers_indexed.enableiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/enableiOES)
-  - : Aktiviert das Mischen für einen bestimmten Zeichnungspuffer.
+  - : Aktiviert das Blending für einen bestimmten Zeichenpuffer.
 
 ## Beispiele
 
-### Verwendung der `OES_draw_buffers_indexed` Erweiterung
+### Die Erweiterung `OES_draw_buffers_indexed` verwenden
 
-Aktivieren Sie die Erweiterung mit einem Aufruf von [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension).
+Aktivieren Sie die Erweiterung durch einen Aufruf von [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension).
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
 ```
 
-Sie können jetzt das Mischen aktivieren, die Mischgleichung, die Mischfunktion und die Farbmaske für einen bestimmten Zeichnungspuffer festlegen.
+Anschließend können Sie für einen bestimmten Zeichenpuffer das Blending aktivieren sowie die Blending-Gleichung, die Blending-Funktion und die Farbmaske festlegen.
 
 ```js
 // For gl.DRAW_BUFFER0
@@ -63,7 +64,7 @@ ext.blendFuncSeparateiOES(
 ext.colorMaskiOES(1, 0, 1, 0, 0);
 ```
 
-Um Einstellungen für einen bestimmten Zeichnungspuffer abzurufen, verwenden Sie [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter).
+Um die Einstellungen für einen bestimmten Zeichenpuffer abzurufen, verwenden Sie [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter).
 
 ```js
 // For gl.DRAW_BUFFER0
@@ -85,7 +86,7 @@ gl.getIndexedParameter(gl.BLEND_DST_ALPHA, 1);
 gl.getIndexedParameter(gl.COLOR_WRITEMASK, 1);
 ```
 
-Sie können [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) verwenden, um zu sehen, wie viele Zeichnungspuffer verfügbar sind.
+Mit [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) können Sie ermitteln, wie viele Zeichenpuffer verfügbar sind.
 
 ```js
 const maxDrawBuffers = gl.getParameter(gl.MAX_DRAW_BUFFERS);

@@ -3,24 +3,25 @@ title: WEBGL_lose_context-Erweiterung
 short-title: WEBGL_lose_context
 slug: Web/API/WEBGL_lose_context
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WEBGL_lose_context**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet Funktionen, um das Verlieren und Wiederherstellen eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) zu simulieren.
+Die **WEBGL_lose_context**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt Funktionen bereit, mit denen sich der Verlust und die Wiederherstellung eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) simulieren lassen.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL1-](/de/docs/Web/API/WebGLRenderingContext) als auch für [WebGL2-Kontexte](/de/docs/Web/API/WebGL2RenderingContext) verfügbar.
 
 ## Instanzmethoden
 
 - [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext)
-  - : Simuliert das Verlieren des Kontextes.
+  - : Simuliert den Verlust des Kontexts.
 - [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext)
-  - : Simuliert das Wiederherstellen des Kontextes.
+  - : Simuliert die Wiederherstellung des Kontexts.
 
 ## Beispiele
 

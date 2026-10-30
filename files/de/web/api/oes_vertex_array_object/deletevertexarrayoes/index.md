@@ -1,14 +1,14 @@
 ---
-title: "OES_vertex_array_object: deleteVertexArrayOES() Methode"
+title: "OES_vertex_array_object: Methode deleteVertexArrayOES()"
 short-title: deleteVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/deleteVertexArrayOES
 l10n:
-  sourceCommit: 15db4f1dd87a80c4aec2cfba3e73bc8291f29110
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_vertex_array_object.deleteVertexArrayOES()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt.
+Die Methode **`OES_vertex_array_object.deleteVertexArrayOES()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteVertexArrayOES(arrayObject)
 ### Parameter
 
 - `arrayObject`
-  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO)-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt (VAO), das gelöscht werden soll.
 
 ### Rückgabewert
 

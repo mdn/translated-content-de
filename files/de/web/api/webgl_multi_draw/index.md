@@ -1,61 +1,43 @@
 ---
-title: WEBGL_multi_draw Erweiterung
+title: WEBGL_multi_draw-Erweiterung
 short-title: WEBGL_multi_draw
 slug: Web/API/WEBGL_multi_draw
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_multi_draw`** Erweiterung ist Teil der
-[WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, mehr als ein
-Primitive mit einem einzigen Funktionsaufruf zu rendern. Dies kann die
-Leistung einer WebGL-Anwendung verbessern, da es die Bindungskosten im Renderer
-reduziert und die GPU-Thread-Zeit mit gleichmäßigen Daten beschleunigt.
+Die Erweiterung **`WEBGL_multi_draw`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, mit einem einzigen Funktionsaufruf mehrere Primitive zu rendern. Dies kann die Leistung einer WebGL-Anwendung verbessern, da es den Aufwand für Bindungen im Renderer reduziert und die Verarbeitungszeit des GPU-Threads bei der Verwendung von Uniform-Daten verkürzt.
 
 Wenn diese Erweiterung aktiviert ist:
 
-- Neue Methoden, die mehrere Listen von Argumenten in einem
-  Aufruf verarbeiten, werden hinzugefügt (siehe Methodenliste unten).
-- Die `gl_DrawID` Built-in wird der Shading-Sprache hinzugefügt.
+- Werden neue Methoden hinzugefügt, die mehrere Argumentlisten in einem Aufruf verarbeiten (siehe die Methodenliste unten).
+- Wird das Built-in `gl_DrawID` zur Shading-Sprache hinzugefügt.
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl in
-> [WebGL 1](/de/docs/Web/API/WebGLRenderingContext) als auch
-> [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) Kontexten verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL-1-Kontexte](/de/docs/Web/API/WebGLRenderingContext) als auch für [WebGL-2-Kontexte](/de/docs/Web/API/WebGL2RenderingContext) verfügbar.
 >
-> Im Shader-Code muss die Direktive `#extension GL_ANGLE_multi_draw`
-> aufgerufen werden, um die Erweiterung zu aktivieren.
+> Im Shader-Code muss die Direktive `#extension GL_ANGLE_multi_draw` verwendet werden, um die Erweiterung zu aktivieren.
 >
-> Diese Erweiterung aktiviert implizit die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung.
+> Diese Erweiterung aktiviert implizit die Erweiterung [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays).
 
 ## Instanzmethoden
 
 - [`ext.multiDrawArraysWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysWEBGL)
-  - : Rendert mehrere Primitives aus Array-Daten (identisch zu mehreren Aufrufen von
-    [`drawArrays`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)).
+  - : Rendert mehrere Primitive aus Array-Daten (entspricht mehreren Aufrufen von [`drawArrays`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)).
 - [`ext.multiDrawElementsWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)
-  - : Rendert mehrere Primitives aus Elementarray-Daten (identisch zu mehreren Aufrufen von
-    [`drawElements`](/de/docs/Web/API/WebGLRenderingContext/drawElements)).
+  - : Rendert mehrere Primitive aus Element-Array-Daten (entspricht mehreren Aufrufen von [`drawElements`](/de/docs/Web/API/WebGLRenderingContext/drawElements)).
 - [`ext.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL)
-  - : Rendert mehrere Primitives aus Array-Daten (identisch zu mehreren Aufrufen von
-    [`drawArraysInstanced`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)).
+  - : Rendert mehrere Primitive aus Array-Daten (entspricht mehreren Aufrufen von [`drawArraysInstanced`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)).
 - [`ext.multiDrawElementsInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL)
-  - : Rendert mehrere Primitives aus Elementarray-Daten (identisch zu mehreren Aufrufen von
-    [`drawElementsInstanced`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)).
+  - : Rendert mehrere Primitive aus Element-Array-Daten (entspricht mehreren Aufrufen von [`drawElementsInstanced`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)).
 
 ## Shader-Erweiterung
 
-Hinweis: Obwohl der Name der Erweiterung `WEBGL_multi_draw` lautet,
-muss die Erweiterung mit der Direktive `#extension GL_ANGLE_multi_draw`
-aktiviert werden, um die Erweiterung in einem Shader zu verwenden.
+Hinweis: Obwohl die Erweiterung `WEBGL_multi_draw` heißt, muss sie mit der Direktive `#extension GL_ANGLE_multi_draw` aktiviert werden, damit sie in einem Shader verwendet werden kann.
 
-Wenn diese Erweiterung aktiviert ist, kann das `gl_DrawID` Built-in
-im Shader-Code verwendet werden. Für jede `multi*` Zeichnungsaufrufvariante
-kann der Index der Zeichnung `i` vom Vertex-Shader als `gl_DrawID` gelesen werden.
-Für nicht-`multi*` Aufrufe ist der Wert von
-`gl_DrawID` `0`.
+Wenn diese Erweiterung aktiviert ist, kann das Built-in `gl_DrawID` im Shader-Code verwendet werden. Bei jeder `multi*`-Variante eines Zeichenaufrufs kann der Vertex-Shader den Index `i` des jeweiligen Zeichenaufrufs als `gl_DrawID` auslesen. Bei Aufrufen ohne `multi*` ist der Wert von `gl_DrawID` gleich `0`.
 
 ```html
 <script type="x-shader/x-vertex">
@@ -68,20 +50,17 @@ Für nicht-`multi*` Aufrufe ist der Wert von
 
 ## Beispiele
 
-### Aktivieren der Erweiterung
+### Erweiterung aktivieren
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
-Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions)
-im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 ```js
 let ext = gl.getExtension("WEBGL_multi_draw");
 ```
 
-### Zeichnen mehrerer Arrays
+### Mehrere Arrays zeichnen
 
-Beispielaufrufe für [`ext.multiDrawArraysWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysWEBGL)
-und [`ext.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL):
+Beispielaufrufe für [`ext.multiDrawArraysWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysWEBGL) und [`ext.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL):
 
 ```js
 // multiDrawArrays variant
@@ -107,13 +86,11 @@ ext.multiDrawArraysInstancedWEBGL(
 );
 ```
 
-### Zeichnen mehrerer Elemente
+### Mehrere Elemente zeichnen
 
-Beispielaufrufe für [`ext.multiDrawElementsWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)
-und [`ext.multiDrawElementsInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL).
+Beispielaufrufe für [`ext.multiDrawElementsWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL) und [`ext.multiDrawElementsInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL).
 
-Es wird davon ausgegangen, dass die zuvor in den `ELEMENT_ARRAY_BUFFER` hochgeladenen
-Indizes als `UNSIGNED_SHORT` behandelt werden.
+Dabei wird angenommen, dass die zuvor in den `ELEMENT_ARRAY_BUFFER` hochgeladenen Indizes als `UNSIGNED_SHORT` behandelt werden.
 
 ```js
 // multiDrawElements variant
@@ -160,7 +137,5 @@ ext.multiDrawElementsInstancedWEBGL(
 
 - [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)
 - [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements)
-- [`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE) oder
-  in WebGL 2: [`WebGL2RenderingContext.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)
-- [`ANGLE_instanced_arrays.drawElementsInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawElementsInstancedANGLE) oder
-  in WebGL 2: [`WebGL2RenderingContext.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)
+- [`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE) oder in WebGL 2: [`WebGL2RenderingContext.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)
+- [`ANGLE_instanced_arrays.drawElementsInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawElementsInstancedANGLE) oder in WebGL 2: [`WebGL2RenderingContext.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)

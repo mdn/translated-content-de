@@ -3,23 +3,24 @@ title: OES_texture_float_linear-Erweiterung
 short-title: OES_texture_float_linear
 slug: Web/API/OES_texture_float_linear
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_texture_float_linear`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und erlaubt lineares Filterung mit Gleitkomma-Pixeltypen für Texturen.
+Die Erweiterung **`OES_texture_float_linear`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht die lineare Filterung von Texturen mit Gleitkomma-Pixeltypen.
 
-WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen sehen Sie auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar.
 
 ## Lineare Filterung
 
-Die [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung allein erlaubt keine lineare Filterung mit Gleitkomma-Texturen. Diese Erweiterung ermöglicht diese Fähigkeit.
+Die Erweiterung [`OES_texture_float`](/de/docs/Web/API/OES_texture_float) allein ermöglicht keine lineare Filterung von Gleitkomma-Texturen. Diese Erweiterung fügt diese Möglichkeit hinzu.
 
-Mit Hilfe dieser Erweiterung können Sie jetzt den Vergrößerungs- oder Verkleinerungsfilter in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf eines von `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und Gleitkomma-Texturen verwenden.
+Mit dieser Erweiterung können Sie den Vergrößerungs- oder Verkleinerungsfilter in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und Gleitkomma-Texturen verwenden.
 
 ## Beispiele
 

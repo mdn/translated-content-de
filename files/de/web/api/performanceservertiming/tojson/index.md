@@ -1,14 +1,16 @@
 ---
-title: "PerformanceServerTiming: toJSON()-Methode"
+title: "PerformanceServerTiming: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PerformanceServerTiming/toJSON
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformanceServerTiming`-Objekt repräsentiert.
+
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PerformanceServerTiming`-Objekt angetroffen wird.
 
 ## Syntax
 
@@ -22,27 +24,38 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts ist.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
+
+- [`name`](/de/docs/Web/API/PerformanceServerTiming/name)
+- [`duration`](/de/docs/Web/API/PerformanceServerTiming/duration)
+- [`description`](/de/docs/Web/API/PerformanceServerTiming/description)
+
+Der Wert jeder Eigenschaft wird unverändert kopiert.
 
 ## Beispiele
 
-### Protokollierung von Server-Timing-Einträgen
+### Direkter Aufruf von toJSON()
 
-Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timing")}}-Header sendet. Zum Beispiel:
+Dieses Beispiel ruft ein `PerformanceServerTiming`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
+
+Für Server-Timing-Metriken muss der Server den Header {{HTTPHeader("Server-Timing")}} senden. Zum Beispiel:
 
 ```http
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
 
-Die `serverTiming`-Einträge können sich in `navigation` und `resource` Einträgen befinden.
+`serverTiming`-Einträge können in `navigation`- und `resource`-Einträgen enthalten sein.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation` und `resource` Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`- und `resource`-Performance-Einträge benachrichtigt, sobald diese in der Performance-Zeitleiste des Browsers erfasst werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers erfasst wurden.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    entry.serverTiming.forEach((serverEntry) => {
-      console.log(serverEntry.toJSON());
+    entry.serverTiming.forEach((serverTiming) => {
+      const json = serverTiming.toJSON();
+      console.log(json); // A plain object
+      console.log(typeof json); // "object"
+      console.log(json.name); // Same value as serverTiming.name
     });
   });
 });
@@ -52,7 +65,15 @@ const observer = new PerformanceObserver((list) => {
 );
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+### Serialisierung als JSON-String
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(serverTiming));
+```
+
+Dadurch würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
@@ -61,8 +82,6 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
   "description": "Cache Read"
 }
 ```
-
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(serverEntry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es ruft automatisch `toJSON()` auf.
 
 ## Spezifikationen
 

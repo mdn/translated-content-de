@@ -1,14 +1,16 @@
 ---
-title: "PressureRecord: toJSON()-Methode"
+title: "PressureRecord: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PressureRecord/toJSON
 l10n:
-  sourceCommit: e1d2d6a3880d47638de6b5a54b58df92826ec58e
+  sourceCommit: 15d531b54c7f0d96ac80ef00b494fd40743d59ce
 ---
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Die **`toJSON()`**-Methode ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`PressureRecord`](/de/docs/Web/API/PressureRecord) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PressureRecord`-Objekt repräsentiert.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PressureRecord`-Objekt verarbeitet wird.
 
 ## Syntax
 
@@ -22,18 +24,28 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts darstellt.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
+
+- [`source`](/de/docs/Web/API/PressureRecord/source)
+- [`state`](/de/docs/Web/API/PressureRecord/state)
+- [`time`](/de/docs/Web/API/PressureRecord/time)
+
+Der Wert jeder Eigenschaft wird unverändert übernommen.
 
 ## Beispiele
 
-### Verwendung der `toJSON`-Methode
+### toJSON() direkt aufrufen
 
-In diesem Beispiel gibt der Aufruf von `lastRecord.toJSON()` eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
+In diesem Beispiel wird ein `PressureRecord`-Objekt abgerufen. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
 function callback(records) {
-  const lastRecord = records[records.length - 1];
-  console.log(lastRecord.toJSON);
+  const record = records[records.length - 1];
+
+  const json = record.toJSON();
+  console.log(json); // A plain object
+  console.log(typeof json); // "object"
+  console.log(json.state); // Same value as record.state
 }
 
 try {
@@ -46,17 +58,23 @@ try {
 }
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+### In einen JSON-String serialisieren
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(record));
+```
+
+Dadurch würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
   "source": "cpu",
   "state": "fair",
-  "time": 1712052746385.347
+  "time": 1000.5
 }
 ```
-
-Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(lastRecord)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

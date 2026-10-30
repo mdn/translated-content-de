@@ -1,14 +1,16 @@
 ---
-title: "Performance: toJSON()-Methode"
+title: "Performance: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/Performance/toJSON
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode des [`Performance`](/de/docs/Web/API/Performance)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`Performance`](/de/docs/Web/API/Performance)-Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`Performance`](/de/docs/Web/API/Performance) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `Performance`-Objekt repräsentiert.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `Performance`-Objekt auftritt.
 
 ## Syntax
 
@@ -22,24 +24,42 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`Performance`](/de/docs/Web/API/Performance)-Objekts darstellt.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
-Das zurückgegebene JSON enthält nicht die Eigenschaft [`eventCounts`](/de/docs/Web/API/Performance/eventCounts), da diese vom Typ [`EventCounts`](/de/docs/Web/API/EventCounts) ist, welches keine `toJSON()`-Operation bereitstellt.
+- [`timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)
+- [`timing`](/de/docs/Web/API/Performance/timing)
+- [`navigation`](/de/docs/Web/API/Performance/navigation)
+- [`interactionCount`](/de/docs/Web/API/Performance/interactionCount)
+
+Der Wert jeder Eigenschaft wird unverändert kopiert. Wenn das zurückgegebene Objekt an {{jsxref("JSON.stringify()")}} übergeben wird, werden die Eigenschaften `timing` und `navigation` zusätzlich mit [`PerformanceTiming.toJSON()`](/de/docs/Web/API/PerformanceTiming/toJSON) beziehungsweise [`PerformanceNavigation.toJSON()`](/de/docs/Web/API/PerformanceNavigation/toJSON) serialisiert.
+
+Das zurückgegebene Objekt enthält die Eigenschaft [`eventCounts`](/de/docs/Web/API/Performance/eventCounts) nicht, da [`EventCounts`](/de/docs/Web/API/EventCounts) keine `toJSON()`-Operation bereitstellt.
 
 > [!NOTE]
-> Das JSON-Objekt enthält die Serialisierung der veralteten Eigenschaften [`performance.timing`](/de/docs/Web/API/Performance/timing) und [`performance.navigation`](/de/docs/Web/API/Performance/navigation). Um eine JSON-Darstellung des neueren [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interfaces zu erhalten, rufen Sie stattdessen [`PerformanceNavigationTiming.toJSON()`](/de/docs/Web/API/PerformanceNavigationTiming/toJSON) auf.
+> In einem Fensterkontext enthält das zurückgegebene Objekt [`interactionCount`](/de/docs/Web/API/Performance/interactionCount) sowie die veralteten Eigenschaften [`performance.timing`](/de/docs/Web/API/Performance/timing) und [`performance.navigation`](/de/docs/Web/API/Performance/navigation). Diese Eigenschaften sind in Workern nicht verfügbar. Um ein JSON-serialisierbares einfaches Objekt zu erhalten, das einen [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Eintrag repräsentiert, rufen Sie stattdessen [`PerformanceNavigationTiming.toJSON()`](/de/docs/Web/API/PerformanceNavigationTiming/toJSON) auf.
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### toJSON() direkt aufrufen
 
-In diesem Beispiel gibt der Aufruf von `performance.toJSON()` eine JSON-Darstellung des `Performance`-Objekts zurück.
+Wenn `toJSON()` direkt auf `performance` aufgerufen wird, gibt die Methode ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
-performance.toJSON();
+const json = performance.toJSON();
+console.log(json); // A plain object
+console.log(typeof json); // "object"
+console.log(json.timeOrigin); // Same value as performance.timeOrigin
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+### Als JSON-String serialisieren
+
+In diesem Beispiel wird das `Performance`-Objekt mit {{jsxref("JSON.stringify()")}} serialisiert. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(performance));
+```
+
+Dadurch würde ein JSON-String wie der folgende protokolliert (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
@@ -70,11 +90,10 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
   "navigation": {
     "type": 0,
     "redirectCount": 0
-  }
+  },
+  "interactionCount": 0
 }
 ```
-
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(performance)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

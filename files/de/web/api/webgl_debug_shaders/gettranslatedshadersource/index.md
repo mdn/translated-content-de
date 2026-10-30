@@ -1,14 +1,14 @@
 ---
-title: "WEBGL_debug_shaders: getTranslatedShaderSource() Methode"
+title: "WEBGL_debug_shaders: Methode getTranslatedShaderSource()"
 short-title: getTranslatedShaderSource()
 slug: Web/API/WEBGL_debug_shaders/getTranslatedShaderSource
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_debug_shaders.getTranslatedShaderSource()`** Methode ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht Ihnen das Debuggen eines übersetzten Shaders.
+Die Methode **`WEBGL_debug_shaders.getTranslatedShaderSource()`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, einen übersetzten Shader zu debuggen.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ getTranslatedShaderSource(shader)
 ### Parameter
 
 - `shader`
-  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), von dem der übersetzte Quellcode abgerufen werden soll.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), dessen übersetzter Quellcode abgerufen werden soll.
 
 ### Rückgabewert
 
 Ein {{jsxref("String")}}, der den übersetzten Shader-Quellcode enthält. Ein leerer String wird zurückgegeben, wenn:
 
-- kein Quellcode definiert wurde oder,
-- [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) noch nicht aufgerufen wurde oder,
-- die Übersetzung für den Shader fehlgeschlagen ist.
+- kein Quellcode definiert wurde oder
+- [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) noch nicht aufgerufen wurde oder
+- die Übersetzung des Shaders fehlgeschlagen ist.
 
 ## Beispiele
 

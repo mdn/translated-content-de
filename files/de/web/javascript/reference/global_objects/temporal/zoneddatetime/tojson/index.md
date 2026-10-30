@@ -3,7 +3,7 @@ title: Temporal.ZonedDateTime.prototype.toJSON()
 short-title: toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toJSON
 l10n:
-  sourceCommit: 13d5331637ae88b41af236e4b3d1b6c901d08f69
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 Die Methode **`toJSON()`** von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt einen String zurück, der dieses Datum und diese Uhrzeit im selben [RFC-9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/ZonedDateTime/toString", "toString()")}}. Sie ist dafür vorgesehen, implizit von {{jsxref("JSON.stringify()")}} aufgerufen zu werden.
@@ -24,11 +24,11 @@ Ein String, der das angegebene Datum und die angegebene Uhrzeit im [RFC-9557-For
 
 ## Beschreibung
 
-Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.ZonedDateTime`-Objekt in einen String umgewandelt wird. Sie dient dazu, `Temporal.ZonedDateTime`-Objekte bei der {{Glossary("JSON", "JSON")}}-Serialisierung standardmäßig in einer brauchbaren Form zu serialisieren. Diese können anschließend mithilfe der Funktion {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} im Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden.
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `Temporal.ZonedDateTime`-Objekt auftritt. Der serialisierte Wert kann anschließend mit der Funktion {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} innerhalb der Reviver-Funktion von {{jsxref("JSON.parse()")}} deserialisiert werden.
 
 ## Beispiele
 
-### `toJSON()` verwenden
+### toJSON() verwenden
 
 ```js
 const zdt = Temporal.ZonedDateTime.from({
@@ -43,7 +43,7 @@ const zdt2 = Temporal.ZonedDateTime.from(zdtStr);
 
 ### JSON-Serialisierung und -Parsing
 
-Dieses Beispiel zeigt, wie `Temporal.ZonedDateTime` ohne zusätzlichen Aufwand als JSON serialisiert und anschließend wieder eingelesen werden kann.
+Dieses Beispiel zeigt, wie `Temporal.ZonedDateTime` ohne zusätzlichen Aufwand als JSON serialisiert und anschließend wieder geparst werden kann.
 
 ```js
 const zdt = Temporal.ZonedDateTime.from({

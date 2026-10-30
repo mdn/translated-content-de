@@ -1,14 +1,16 @@
 ---
-title: "PerformanceTimingConfidence: toJSON() Methode"
+title: "PerformanceTimingConfidence: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PerformanceTimingConfidence/toJSON
 l10n:
-  sourceCommit: 29e6ba9d844b835a1f00346ef1a78fa5d9e7c1a8
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}, der eine JSON-Darstellung des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Objekts zurückgibt.
+Die Methode **`toJSON()`** der Schnittstelle [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence) gibt ein JSON-serialisierbares, einfaches Objekt zurück, das das `PerformanceTimingConfidence`-Objekt repräsentiert.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PerformanceTimingConfidence`-Objekt auftritt.
 
 ## Syntax
 
@@ -22,25 +24,43 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Objekts ist.
+Ein JSON-serialisierbares, einfaches Objekt mit den folgenden Eigenschaften:
+
+- [`randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate)
+- [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value)
+
+Der Wert jeder Eigenschaft wird unverändert übernommen.
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### toJSON() direkt aufrufen
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um eine JSON-Serialisierung der Vertrauensdaten für beobachtete [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Einträge abzurufen.
+Dieses Beispiel ruft ein `PerformanceTimingConfidence`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    console.log(entry.confidence.toJSON());
+    const confidence = entry.confidence;
+
+    const json = confidence.toJSON();
+    console.log(json); // A plain object
+    console.log(typeof json); // "object"
+    console.log(json.value); // Same value as confidence.value
   });
 });
 
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Dies würde ein JSON-Objekt folgendermaßen protokollieren:
+### In einen JSON-String serialisieren
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(confidence));
+```
+
+Dadurch würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
@@ -48,8 +68,6 @@ Dies würde ein JSON-Objekt folgendermaßen protokollieren:
   "value": "high"
 }
 ```
-
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

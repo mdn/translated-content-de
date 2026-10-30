@@ -1,51 +1,53 @@
 ---
-title: "Django Tutorial Teil 7: Sitzungsframework"
-short-title: "7: Sitzungsframework"
+title: "Django-Tutorial Teil 7: Session-Framework"
+short-title: "7: Session-Framework"
 slug: Learn_web_development/Extensions/Server-side/Django/Sessions
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: d0d002817fbb057e80a4f7b8670b09cc80250516
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Generic_views", "Learn_web_development/Extensions/Server-side/Django/Authentication", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Dieses Tutorial erweitert unsere [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website, indem es einen sitzungsbasierten Besuchszähler zur Startseite hinzufügt. Dies ist ein relativ einfaches Beispiel, aber es zeigt, wie Sie das Sitzungsframework verwenden können, um für anonyme Benutzer auf Ihren eigenen Websites ein dauerhaftes Verhalten zu schaffen.
+Dieses Tutorial erweitert unsere [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website)-Website um einen sitzungsbasierten Besuchszähler auf der Startseite.
+Das ist ein relativ einfaches Beispiel, zeigt aber, wie Sie mit dem Session-Framework dauerhaftes Verhalten für anonyme Benutzer auf Ihren eigenen Websites bereitstellen können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Schließen Sie alle vorherigen Tutorial-Themen ab, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Generic_views">Django Tutorial Teil 6: Generische Listen- und Detailansichten</a>
+        Bearbeiten Sie alle vorherigen Tutorial-Teile, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Generic_views">Django-Tutorial Teil 6: Generische Listen- und Detailansichten</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Zu verstehen, wie Sitzungen verwendet werden.</td>
+      <td>Verstehen, wie Sessions verwendet werden.</td>
     </tr>
   </tbody>
 </table>
 
-## Übersicht
+## Überblick
 
-Die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website, die wir in den vorherigen Tutorials erstellt haben, ermöglicht es Benutzern, Bücher und Autoren im Katalog zu durchsuchen. Obwohl der Inhalt dynamisch aus der Datenbank generiert wird, haben alle Benutzer im Wesentlichen Zugriff auf dieselben Seiten und Arten von Informationen, wenn sie die Website nutzen.
+Die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website)-Website, die wir in den vorherigen Tutorials erstellt haben, ermöglicht es Benutzern, Bücher und Autoren im Katalog anzusehen. Obwohl die Inhalte dynamisch aus der Datenbank generiert werden, haben alle Benutzer bei der Nutzung der Website im Wesentlichen Zugriff auf dieselben Seiten und Informationen.
 
-In einer "echten" Bibliothek möchten Sie möglicherweise einzelnen Benutzern ein personalisiertes Erlebnis bieten, basierend auf ihrer vorherigen Nutzung der Website, ihren Präferenzen usw. Zum Beispiel könnten Sie Warnmeldungen, die der Benutzer zuvor zur Kenntnis genommen hat, das nächste Mal ausblenden, wenn er die Website besucht, oder seine Präferenzen speichern und berücksichtigen (wie die Anzahl der Suchergebnisse, die auf jeder Seite angezeigt werden sollen).
+In einer „echten“ Bibliothek möchten Sie einzelnen Benutzern möglicherweise ein personalisiertes Erlebnis bieten, das auf ihrer bisherigen Nutzung der Website, ihren Präferenzen und Ähnlichem beruht.
+Beispielsweise könnten Sie Warnmeldungen, die ein Benutzer bereits bestätigt hat, bei seinem nächsten Besuch ausblenden oder seine Präferenzen speichern und berücksichtigen – etwa die Anzahl der Suchergebnisse, die pro Seite angezeigt werden sollen.
 
-Das Sitzungsframework ermöglicht es Ihnen, ein solches Verhalten zu implementieren, indem Sie beliebige Daten auf einer pro-Site-Besucher-Basis speichern und abrufen können.
+Mit dem Session-Framework können Sie dieses Verhalten umsetzen: Sie können beliebige Daten für einzelne Website-Besucher speichern und wieder abrufen.
 
-## Was sind Sitzungen?
+## Was sind Sessions?
 
-Alle Kommunikation zwischen Webbrowsern und Servern erfolgt über {{Glossary("HTTP", "HTTP")}}, das _zustandslos_ ist. Die Tatsache, dass das Protokoll zustandslos ist, bedeutet, dass Nachrichten zwischen dem Client und dem Server völlig unabhängig voneinander sind — es gibt keinen Begriff von "Sequenz" oder Verhalten basierend auf vorherigen Nachrichten. Wenn Sie also eine Website haben möchten, die laufende Beziehungen mit einem Client verfolgt, müssen Sie dies selbst implementieren.
+Die gesamte Kommunikation zwischen Webbrowsern und Servern erfolgt über {{Glossary("HTTP", "HTTP")}}, ein _zustandsloses_ Protokoll. Das bedeutet, dass Nachrichten zwischen Client und Server vollständig unabhängig voneinander sind – es gibt kein Konzept einer „Abfolge“ oder eines Verhaltens, das auf vorherigen Nachrichten beruht. Wenn Ihre Website eine fortlaufende Beziehung zu einem Client nachverfolgen soll, müssen Sie dies daher selbst implementieren.
 
-Sitzungen sind der Mechanismus, den Django (und die meisten Internetdienste) verwenden, um den "Zustand" zwischen der Website und einem bestimmten Browser zu verfolgen. Sitzungen ermöglichen es Ihnen, beliebige Daten pro Browser zu speichern und diese Daten der Website zur Verfügung zu stellen, wann immer der Browser eine Verbindung herstellt. Einzelne Datenpunkte, die mit der Sitzung verknüpft sind, werden dann durch einen "Schlüssel" referenziert, der sowohl zum Speichern als auch Abrufen der Daten verwendet wird.
+Sessions sind der Mechanismus, mit dem Django (und ein Großteil des Internets) den „Zustand“ zwischen einer Website und einem bestimmten Browser nachverfolgt. Sie ermöglichen es, beliebige Daten pro Browser zu speichern und sie der Website bei jeder Verbindung des Browsers zur Verfügung zu stellen. Auf einzelne Datenelemente einer Session wird über einen „Schlüssel“ zugegriffen, der sowohl zum Speichern als auch zum Abrufen der Daten dient.
 
-Django verwendet ein Cookie, das eine spezielle _Sitzungs-ID_ enthält, um jeden Browser und seine zugehörige Sitzung mit der Website zu identifizieren. Die tatsächlichen Sitzungsdaten werden standardmäßig in der Site-Datenbank gespeichert (dies ist sicherer als das Speichern der Daten in einem Cookie, wo sie anfälliger für böswillige Benutzer sind). Sie können Django so konfigurieren, dass die Sitzungsdaten an anderen Orten gespeichert werden (Cache, Dateien, "sichere" Cookies), aber der Standardspeicherort ist eine gute und relativ sichere Option.
+Django verwendet ein Cookie mit einer speziellen _Session-ID_, um jeden Browser und die zugehörige Session auf der Website zu identifizieren. Die eigentlichen _Session-Daten_ werden standardmäßig in der Datenbank der Website gespeichert. Das ist sicherer, als die Daten in einem Cookie zu speichern, wo sie anfälliger für Manipulationen durch böswillige Benutzer wären. Sie können Django so konfigurieren, dass es Session-Daten an anderen Orten speichert (im Cache, in Dateien oder in „sicheren“ Cookies). Der Standardspeicherort ist jedoch eine gute und relativ sichere Wahl.
 
-## Sitzungen aktivieren
+## Sessions aktivieren
 
-Sitzungen wurden automatisch aktiviert, als wir die [Gerüst-Website erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) (im Tutorial 2).
+Sessions wurden automatisch aktiviert, als wir die [Grundstruktur der Website erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) (in Tutorial 2).
 
-Die Konfiguration ist in den Abschnitten `INSTALLED_APPS` und `MIDDLEWARE` der Projektdatei (**django-locallibrary-tutorial/locallibrary/settings.py**) eingerichtet, wie unten gezeigt:
+Die Konfiguration befindet sich in den Abschnitten `INSTALLED_APPS` und `MIDDLEWARE` der Projektdatei (**/locallibrary/settings.py**), wie unten gezeigt:
 
 ```python
 INSTALLED_APPS = [
@@ -59,16 +61,17 @@ MIDDLEWARE = [
     # …
 ```
 
-## Verwendung von Sitzungen
+## Sessions verwenden
 
-Sie können im Rahmen einer Ansicht über den `request`-Parameter (ein `HttpRequest`, der als erstes Argument an die Ansicht übergeben wird) auf das `session`-Attribut zugreifen. Dieses Sitzungsattribut repräsentiert die spezifische Verbindung zum aktuellen Benutzer (oder genauer gesagt, die Verbindung zum aktuellen _Browser_, identifiziert durch die Sitzungs-ID im Cookie des Browsers für diese Website).
+Innerhalb einer View können Sie über den Parameter `request` auf das Attribut `session` zugreifen. `request` ist ein `HttpRequest`, der als erstes Argument an die View übergeben wird.
+Dieses Session-Attribut repräsentiert die Verbindung zum aktuellen Benutzer – genauer gesagt zum aktuellen _Browser_, der durch die Session-ID im Cookie des Browsers für diese Website identifiziert wird.
 
-Das `session`-Attribut ist ein objektähnliches Wörterbuch, auf das Sie so oft, wie Sie möchten, in Ihrer Ansicht lesen und schreiben können und es nach Belieben ändern können. Sie können alle normalen Wörterbuchoperationen ausführen, einschließlich des Löschens aller Daten, des Testens, ob ein Schlüssel vorhanden ist, des Durchlaufens der Daten usw. Meistens verwenden Sie jedoch einfach die Standard-"Wörterbuch"-API, um Werte zu erhalten und zu setzen.
+Das Attribut `session` ist ein wörterbuchähnliches Objekt, das Sie innerhalb Ihrer View beliebig oft lesen und beschreiben können. Sie können alle üblichen Wörterbuchoperationen ausführen, beispielsweise sämtliche Daten löschen, prüfen, ob ein Schlüssel vorhanden ist, oder die Daten durchlaufen. Meistens verwenden Sie jedoch einfach die übliche Wörterbuch-API, um Werte abzurufen und zu setzen.
 
-Die unten stehenden Codefragmente zeigen, wie Sie einige Daten mit dem Schlüssel `my_car`, die mit der aktuellen Sitzung (Browser) verbunden sind, erhalten, setzen und löschen können.
+Die folgenden Codeausschnitte zeigen, wie Sie Daten mit dem Schlüssel `my_car` abrufen, setzen und löschen, die der aktuellen Session (dem Browser) zugeordnet sind.
 
 > [!NOTE]
-> Einer der großen Vorteile von Django ist, dass Sie nicht über die Mechanismen, die die Sitzung mit Ihrer aktuellen Anfrage in Ihrer Ansicht verbinden, nachdenken müssen. Wenn wir die untenstehenden Fragmente in unserer Ansicht verwenden würden, wüssten wir, dass die Informationen über `my_car` nur mit dem Browser verbunden sind, der die aktuelle Anfrage gesendet hat.
+> Ein großer Vorteil von Django ist, dass Sie sich in Ihrer View nicht um die Mechanismen kümmern müssen, die die Session mit der aktuellen Anfrage verknüpfen. Wenn wir die folgenden Codeausschnitte in unserer View verwenden würden, könnten wir sicher sein, dass die Informationen zu `my_car` ausschließlich dem Browser zugeordnet sind, der die aktuelle Anfrage gesendet hat.
 
 ```python
 # Get a session value by its key (e.g. 'my_car'), raising a KeyError if the key is not present
@@ -84,18 +87,18 @@ request.session['my_car'] = 'mini'
 del request.session['my_car']
 ```
 
-Die API bietet auch eine Reihe anderer Methoden, die hauptsächlich dazu verwendet werden, das zugehörige Sitzungscookie zu verwalten. Beispielsweise gibt es Methoden, um zu testen, ob Cookies im Clientbrowser unterstützt werden, um das Ablaufdatum des Cookies zu setzen und zu überprüfen und um abgelaufene Sitzungen aus dem Datenspeicher zu löschen. Weitere Informationen über die vollständige API finden Sie in [How to use sessions](https://docs.djangoproject.com/en/5.0/topics/http/sessions/) (Django-Dokumentation).
+Die API bietet außerdem weitere Methoden, die hauptsächlich zur Verwaltung des zugehörigen Session-Cookies dienen. Dazu gehören beispielsweise Methoden, mit denen Sie prüfen können, ob der Browser des Clients Cookies unterstützt, Ablaufdaten für Cookies festlegen und überprüfen sowie abgelaufene Sessions aus dem Datenspeicher entfernen können. Die vollständige API ist unter [Sessions verwenden](https://docs.djangoproject.com/en/6.1/topics/http/sessions/) (Django-Dokumentation) beschrieben.
 
-## Speichern von Sitzungsdaten
+## Session-Daten speichern
 
-Standardmäßig speichert Django nur dann in die Sitzungsdatenbank und sendet das Sitzungs-Cookie an den Client, wenn die Sitzung _geändert_ (zugewiesen) oder _gelöscht_ wurde. Wenn Sie einige Daten mit ihrem Sitzungs-Schlüssel wie im vorherigen Abschnitt gezeigt aktualisieren, müssen Sie sich darüber keine Sorgen machen! Zum Beispiel:
+Standardmäßig speichert Django Änderungen nur dann in der Session-Datenbank und sendet das Session-Cookie an den Client, wenn die Session _geändert_ (durch eine Zuweisung) oder ein Eintrag _gelöscht_ wurde. Wenn Sie Daten wie im vorherigen Abschnitt über ihren Session-Schlüssel aktualisieren, müssen Sie sich darum nicht kümmern. Zum Beispiel:
 
 ```python
 # This is detected as an update to the session, so session data is saved.
 request.session['my_car'] = 'mini'
 ```
 
-Wenn Sie einige Informationen _innerhalb_ von Sitzungsdaten aktualisieren, wird Django nicht erkennen, dass Sie eine Änderung an der Sitzung vorgenommen haben und die Daten speichern (zum Beispiel, wenn Sie `wheels`-Daten in Ihren `my_car`-Daten ändern würden, wie unten gezeigt). In diesem Fall müssen Sie die Sitzung ausdrücklich als geändert markieren.
+Wenn Sie dagegen Informationen _innerhalb_ von Session-Daten aktualisieren, erkennt Django die Änderung an der Session nicht und speichert die Daten nicht. Das wäre beispielsweise der Fall, wenn Sie die `wheels`-Daten innerhalb Ihrer `my_car`-Daten wie unten gezeigt ändern. In diesem Fall müssen Sie die Session ausdrücklich als geändert markieren.
 
 ```python
 # Session object not directly modified, only data within the session. Session changes not saved!
@@ -106,13 +109,13 @@ request.session.modified = True
 ```
 
 > [!NOTE]
-> Sie können das Verhalten so ändern, dass die Site die Datenbank/das Cookie bei jeder Anfrage aktualisiert, indem Sie `SESSION_SAVE_EVERY_REQUEST = True` in Ihre Projekteinstellungen einfügen (**django-locallibrary-tutorial/locallibrary/settings.py**).
+> Sie können dieses Verhalten ändern, sodass die Website bei jeder Anfrage die Datenbank aktualisiert und ein Cookie sendet. Fügen Sie dazu `SESSION_SAVE_EVERY_REQUEST = True` zu Ihren Projekteinstellungen (**/locallibrary/settings.py**) hinzu.
 
-## Einfaches Beispiel — Abruf von Besuchszahlen
+## Einfaches Beispiel – Besuche zählen
 
-Als einfaches Praxisbeispiel aktualisieren wir unsere Bibliothek, um dem aktuellen Benutzer mitzuteilen, wie oft er die Startseite der _LocalLibrary_ besucht hat.
+Als einfaches praxisnahes Beispiel erweitern wir unsere Bibliothek so, dass sie dem aktuellen Benutzer anzeigt, wie oft er die Startseite von _LocalLibrary_ besucht hat.
 
-Öffnen Sie **/django-locallibrary-tutorial/catalog/views.py** und fügen Sie die Zeilen, die `num_visits` enthalten, in `index()` ein (wie unten gezeigt).
+Öffnen Sie **/catalog/views.py** und fügen Sie die Zeilen mit `num_visits` in `index()` ein (wie unten gezeigt).
 
 ```python
 def index(request):
@@ -137,12 +140,12 @@ def index(request):
     return render(request, 'index.html', context=context)
 ```
 
-Hier holen wir zuerst den Wert des `'num_visits'`-Sitzungsschlüssels, und setzen den Wert auf 0, wenn er zuvor nicht gesetzt wurde. Jedes Mal, wenn eine Anfrage empfangen wird, erhöhen wir dann den Wert und speichern ihn wieder in der Sitzung (für das nächste Mal, wenn der Benutzer die Seite besucht). Die Variable `num_visits` wird dann in unsere Kontextvariable an die Vorlage übergeben.
+Zunächst rufen wir den Wert des Session-Schlüssels `'num_visits'` ab. Falls er noch nicht gesetzt wurde, verwenden wir den Wert 0. Bei jeder Anfrage erhöhen wir anschließend den Wert und speichern ihn wieder in der Session, damit er beim nächsten Seitenbesuch verfügbar ist. Die Variable `num_visits` wird dann über unsere Kontextvariable an das Template übergeben.
 
 > [!NOTE]
-> Wir könnten hier auch testen, ob Cookies im Browser überhaupt unterstützt werden (siehe [How to use sessions](https://docs.djangoproject.com/en/5.0/topics/http/sessions/) für Beispiele) oder unser UI so gestalten, dass es egal ist, ob Cookies unterstützt werden oder nicht.
+> Wir könnten hier auch prüfen, ob der Browser überhaupt Cookies unterstützt (Beispiele finden Sie unter [Sessions verwenden](https://docs.djangoproject.com/en/6.1/topics/http/sessions/)). Alternativ könnten wir die Benutzeroberfläche so gestalten, dass es keine Rolle spielt, ob Cookies unterstützt werden.
 
-Fügen Sie die unten stehende Zeile am Ende des folgenden Blocks zu Ihrer Haupt-HTML-Vorlage (**/django-locallibrary-tutorial/catalog/templates/index.html**) am Ende des Abschnitts "Dynamische Inhalte" hinzu, um die `num_visits`-Kontextvariable anzuzeigen.
+Fügen Sie die am Ende des folgenden Blocks gezeigte Zeile in Ihr HTML-Haupttemplate (**/catalog/templates/index.html**) ein, und zwar am Ende des Abschnitts „Dynamischer Inhalt“. Dadurch wird die Kontextvariable `num_visits` angezeigt.
 
 ```django
 <h2>Dynamic content</h2>
@@ -160,18 +163,18 @@ Fügen Sie die unten stehende Zeile am Ende des folgenden Blocks zu Ihrer Haupt-
 </p>
 ```
 
-Beachten Sie, dass wir das in Django integrierte Template-Tag [pluralize](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#pluralize) verwenden, um ein "s" hinzuzufügen, wenn die Seite mehrere Male besucht wurde.
+Beachten Sie, dass wir das integrierte Django-Template-Tag [pluralize](https://docs.djangoproject.com/en/6.1/ref/templates/builtins/#pluralize) verwenden, um ein „s“ anzuhängen, wenn die Seite mehrfach besucht wurde.
 
-Speichern Sie Ihre Änderungen und starten Sie den Testserver neu. Jedes Mal, wenn Sie die Seite aktualisieren, sollte sich die Anzahl aktualisieren.
+Speichern Sie Ihre Änderungen und aktualisieren Sie die Startseite. Die Zahl sollte bei jedem Besuch steigen.
 
 ## Zusammenfassung
 
-Sie wissen jetzt, wie einfach es ist, Sitzungen zu verwenden, um Ihre Interaktion mit _anonymen_ Benutzern zu verbessern.
+Sie wissen jetzt, wie einfach Sie mit Sessions die Interaktion mit _anonymen_ Benutzern verbessern können.
 
-In unseren nächsten Artikeln werden wir das Authentifizierungs- und Autorisierungsrahmenwerk erklären und Ihnen zeigen, wie Sie Benutzerkonten unterstützen können.
+In den nächsten Artikeln erklären wir das Framework für Authentifizierung und Autorisierung (Berechtigungen) und zeigen, wie Sie Benutzerkonten unterstützen können.
 
 ## Siehe auch
 
-- [How to use sessions](https://docs.djangoproject.com/en/5.0/topics/http/sessions/) (Django-Dokumentation)
+- [Sessions verwenden](https://docs.djangoproject.com/en/6.1/topics/http/sessions/) (Django-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Generic_views", "Learn_web_development/Extensions/Server-side/Django/Authentication", "Learn_web_development/Extensions/Server-side/Django")}}

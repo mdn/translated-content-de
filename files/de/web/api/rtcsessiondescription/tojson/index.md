@@ -1,17 +1,16 @@
 ---
-title: "RTCSessionDescription: toJSON()-Methode"
+title: "RTCSessionDescription: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/RTCSessionDescription/toJSON
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 15d531b54c7f0d96ac80ef00b494fd40743d59ce
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCSessionDescription.toJSON()`**-Methode erzeugt eine
-{{Glossary("JSON", "JSON")}}-Beschreibung des Objekts. Beide Eigenschaften,
-[`type`](/de/docs/Web/API/RTCSessionDescription/type) und
-[`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp), sind in dem generierten JSON enthalten.
+Die Methode **`toJSON()`** der Schnittstelle [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `RTCSessionDescription`-Objekt repräsentiert.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `RTCSessionDescription`-Objekt angetroffen wird.
 
 ## Syntax
 
@@ -25,19 +24,43 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die folgenden Eigenschaften enthält:
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
-- `type`
-  - : Eine der folgenden: `"offer"`, `"answer"`, `"pranswer"` oder `null`.
-- `sdp`
-  - : Entweder `null` oder der {{Glossary("SDP", "SDP")}}-Nachrichtenstring, der der Eigenschaft [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) entspricht.
+- [`type`](/de/docs/Web/API/RTCSessionDescription/type)
+- [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp)
 
-## Beispiel
+Der Wert jeder Eigenschaft wird unverändert kopiert.
+
+## Beispiele
+
+### toJSON() direkt aufrufen
+
+Dieses Beispiel erstellt ein `RTCSessionDescription`-Objekt. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Seine Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
-// sd is a RTCSessionDescriptor
+const description = new RTCSessionDescription({ type: "rollback", sdp: "" });
 
-alert(JSON.stringify(sd)); // This call the toJSON() method behind the scene.
+const json = description.toJSON();
+console.log(json); // A plain object
+console.log(typeof json); // "object"
+console.log(json.type); // Same value as description.type
+```
+
+### In einen JSON-String serialisieren
+
+Das `RTCSessionDescription`-Objekt aus dem vorherigen Beispiel wird mit {{jsxref("JSON.stringify()")}} serialisiert. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(description));
+```
+
+Dies würde einen JSON-String wie den folgenden ausgeben (zur besseren Lesbarkeit formatiert):
+
+```json
+{
+  "type": "rollback",
+  "sdp": ""
+}
 ```
 
 ## Spezifikationen

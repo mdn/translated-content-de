@@ -1,34 +1,35 @@
 ---
-title: WEBGL_compressed_texture_astc Erweiterung
+title: WEBGL_compressed_texture_astc-Erweiterung
 short-title: WEBGL_compressed_texture_astc
 slug: Web/API/WEBGL_compressed_texture_astc
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_compressed_texture_astc`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht den Zugriff auf [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) komprimierte Texturformate in WebGL.
+Die Erweiterung **`WEBGL_compressed_texture_astc`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt WebGL komprimierte Texturformate der [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) zur Verfügung.
 
-Für weitere Informationen lesen Sie den Artikel [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
+Weitere Informationen finden Sie im Artikel [ASTC-Texturkomprimierung für Spiel-Assets verwenden](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
 
-WebGL-Erweiterungen sind mittels der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Using Extensions](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> ASTC-Kompression ist typischerweise verfügbar auf Mali ARM GPUs, Intel GPUs, und NVIDIA Tegra Chips.
+> ASTC-Komprimierung ist üblicherweise auf Mali-ARM-GPUs, Intel-GPUs und NVIDIA-Tegra-Chips verfügbar.
 >
-> Diese Erweiterung ist verfügbar in beiden, [WebGL1](/de/docs/Web/API/WebGLRenderingContext) und [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexten.
+> Diese Erweiterung ist sowohl in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch in [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten verfügbar.
 
 ## Instanzmethoden
 
 Diese Erweiterung stellt eine neue Methode bereit.
 
 - [`ext.getSupportedProfiles()`](/de/docs/Web/API/WEBGL_compressed_texture_astc/getSupportedProfiles)
-  - : Gibt ein Array von Zeichenfolgen zurück, das die Namen der von der Implementierung unterstützten ASTC-Profile enthält.
+  - : Gibt ein Array von Strings mit den Namen der ASTC-Profile zurück, die von der Implementierung unterstützt werden.
 
 ## Konstanten
 
-Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
+Die komprimierten Texturformate werden durch 28 Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
 
 <table class="no-markdown">
   <thead>
@@ -37,7 +38,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
       <th>Blöcke</th>
       <th>Bits pro Pixel</th>
       <th>{{jsxref("ArrayBuffer")}} <code>byteLength</code></th>
-      <th>Bytes, wenn Höhe und Breite 512 sind</th>
+      <th>Bytes bei einer Höhe und Breite von jeweils 512</th>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +49,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>4x4</td>
-      <td>8,00</td>
+      <td>8.00</td>
       <td>
         <code>floor((width + 3) / 4) * floor((height + 3) / 4) * 16</code>
       </td>
@@ -61,7 +62,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>5x4</td>
-      <td>6,40</td>
+      <td>6.40</td>
       <td>
         <code>floor((width + 4) / 5) * floor((height + 3) / 4) * 16</code>
       </td>
@@ -74,7 +75,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>5x5</td>
-      <td>5,12</td>
+      <td>5.12</td>
       <td>
         <code>floor((width + 4) / 5) * floor((height + 4) / 5) * 16</code>
       </td>
@@ -87,7 +88,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>6x5</td>
-      <td>4,27</td>
+      <td>4.27</td>
       <td>
         <code>floor((width + 5) / 6) * floor((height + 4) / 5) * 16</code>
       </td>
@@ -100,7 +101,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>6x6</td>
-      <td>3,56</td>
+      <td>3.56</td>
       <td>
         <code>floor((width + 5) / 6) * floor((height + 5) / 6) * 16</code>
       </td>
@@ -113,7 +114,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>8x5</td>
-      <td>3,20</td>
+      <td>3.20</td>
       <td>
         <code>floor((width + 7) / 8) * floor((height + 4) / 5) * 16</code>
       </td>
@@ -126,7 +127,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>8x6</td>
-      <td>2,67</td>
+      <td>2.67</td>
       <td>
         <code>floor((width + 7) / 8) * floor((height + 5) / 6) * 16</code>
       </td>
@@ -139,7 +140,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>8x8</td>
-      <td>2,00</td>
+      <td>2.00</td>
       <td>
         <code>floor((width + 7) / 8) * floor((height + 7) / 8) * 16</code>
       </td>
@@ -152,7 +153,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>10x5</td>
-      <td>2,56</td>
+      <td>2.56</td>
       <td>
         <code>floor((width + 9) / 10) * floor((height + 4) / 5) * 16</code>
       </td>
@@ -165,7 +166,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>10x6</td>
-      <td>2,13</td>
+      <td>2.13</td>
       <td>
         <code>floor((width + 9) / 10) * floor((height + 5) / 6) * 16</code>
       </td>
@@ -178,7 +179,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>10x8</td>
-      <td>1,60</td>
+      <td>1.60</td>
       <td>
         <code>floor((width + 9) / 10) * floor((height + 7) / 8) * 16</code>
       </td>
@@ -191,7 +192,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>10x10</td>
-      <td>1,28</td>
+      <td>1.28</td>
       <td>
         <code>floor((width + 9) / 10) * floor((height + 9) / 10) * 16</code>
       </td>
@@ -204,7 +205,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>12x10</td>
-      <td>1,07</td>
+      <td>1.07</td>
       <td>
         <code>floor((width + 11) / 12) * floor((height + 9) / 10) * 16</code>
       </td>
@@ -217,7 +218,7 @@ Die komprimierten Texturformate werden durch 28 Konstanten dargestellt und könn
         >
       </td>
       <td>12x12</td>
-      <td>0,89</td>
+      <td>0.89</td>
       <td>
         <code>floor((width + 11) / 12) * floor((height + 11) / 12) * 16</code>
       </td>
@@ -255,7 +256,7 @@ gl.compressedTexImage2D(
 
 ## Siehe auch
 
-- [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets)
+- [ASTC-Texturkomprimierung für Spiel-Assets verwenden](https://developer.nvidia.com/astc-texture-compression-for-game-assets)
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
 - [`WebGLRenderingContext.compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D)

@@ -1,14 +1,16 @@
 ---
-title: "PerformanceScriptTiming: toJSON()-Methode"
+title: "PerformanceScriptTiming: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PerformanceScriptTiming/toJSON
 l10n:
-  sourceCommit: 6d363614de8a40c33d1afe92e4e846b75beea986
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des `PerformanceScriptTiming`-Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformanceScriptTiming`-Objekt repräsentiert.
+
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PerformanceScriptTiming`-Objekt verarbeitet wird.
 
 ## Syntax
 
@@ -22,45 +24,76 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Objekts ist.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
+
+- [`name`](/de/docs/Web/API/PerformanceEntry/name)
+- [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)
+- [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime)
+- [`duration`](/de/docs/Web/API/PerformanceEntry/duration)
+- [`navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId)
+- [`invoker`](/de/docs/Web/API/PerformanceScriptTiming/invoker)
+- [`invokerType`](/de/docs/Web/API/PerformanceScriptTiming/invokerType)
+- [`windowAttribution`](/de/docs/Web/API/PerformanceScriptTiming/windowAttribution)
+- [`executionStart`](/de/docs/Web/API/PerformanceScriptTiming/executionStart)
+- [`forcedStyleAndLayoutDuration`](/de/docs/Web/API/PerformanceScriptTiming/forcedStyleAndLayoutDuration)
+- [`pauseDuration`](/de/docs/Web/API/PerformanceScriptTiming/pauseDuration)
+- [`sourceURL`](/de/docs/Web/API/PerformanceScriptTiming/sourceURL)
+- [`sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName)
+- [`sourceCharPosition`](/de/docs/Web/API/PerformanceScriptTiming/sourceCharPosition)
+
+Der Wert jeder Eigenschaft wird unverändert übernommen.
+
+Das zurückgegebene Objekt enthält die Eigenschaft [`window`](/de/docs/Web/API/PerformanceScriptTiming/window) nicht, da [`Window`](/de/docs/Web/API/Window) keine `toJSON()`-Operation bereitstellt.
 
 ## Beispiele
 
-### Verwendung der `toJSON`-Methode
+### toJSON() direkt aufrufen
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des ersten `PerformanceScriptTiming`-Objekts zurück, das in einem beobachteten langen Animationsframe verfügbar ist.
+Dieses Beispiel ruft ein `PerformanceScriptTiming`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    console.log(entry.scripts[0].toJSON());
+    const scriptTiming = entry.scripts[0];
+
+    const json = scriptTiming.toJSON();
+    console.log(json); // A plain object
+    console.log(typeof json); // "object"
+    console.log(json.sourceURL); // Same value as scriptTiming.sourceURL
   });
 });
 
 observer.observe({ type: "long-animation-frame", buffered: true });
 ```
 
-Dies würde ein Objekt wie folgt protokollieren:
+### In einen JSON-String serialisieren
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
 
 ```js
-({
-  duration: 45,
-  entryType: "script",
-  executionStart: 11803.199999999255,
-  forcedStyleAndLayoutDuration: 0,
-  invoker: "DOMWindow.onclick",
-  invokerType: "event-listener",
-  name: "script",
-  pauseDuration: 0,
-  sourceURL: "https://web.dev/js/index-ffde4443.js",
-  sourceFunctionName: "myClickHandler",
-  sourceCharPosition: 17796,
-  startTime: 11803.199999999255,
-  windowAttribution: "self",
-});
+console.log(JSON.stringify(scriptTiming));
 ```
 
-Um eine JSON-Zeichenkette zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
+Dadurch würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
+
+```json
+{
+  "name": "script",
+  "entryType": "script",
+  "startTime": 11803.25,
+  "duration": 49.25,
+  "navigationId": 2463,
+  "invoker": "DOMWindow.onclick",
+  "invokerType": "event-listener",
+  "windowAttribution": "self",
+  "executionStart": 11803.25,
+  "forcedStyleAndLayoutDuration": 0.5,
+  "pauseDuration": 0.25,
+  "sourceURL": "https://web.dev/js/index-ffde4443.js",
+  "sourceFunctionName": "myClickHandler",
+  "sourceCharPosition": 17796
+}
+```
 
 ## Spezifikationen
 
@@ -72,5 +105,5 @@ Um eine JSON-Zeichenkette zu erhalten, können Sie [`JSON.stringify(entry)`](/de
 
 ## Siehe auch
 
-- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Timing langer Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - {{jsxref("JSON")}}

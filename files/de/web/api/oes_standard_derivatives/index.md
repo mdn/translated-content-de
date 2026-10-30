@@ -3,26 +3,27 @@ title: OES_standard_derivatives-Erweiterung
 short-title: OES_standard_derivatives
 slug: Web/API/OES_standard_derivatives
 l10n:
-  sourceCommit: 469f97048247e0d738897cae20c695da6f1f738d
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_standard_derivatives`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die GLSL-Derivatfunktionen `dFdx`, `dFdy` und `fwidth` hinzu.
+Die Erweiterung **`OES_standard_derivatives`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und fügt die GLSL-Ableitungsfunktionen `dFdx`, `dFdy` und `fwidth` hinzu.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. In WebGL 2 ist die Konstante als `gl.FRAGMENT_SHADER_DERIVATIVE_HINT` verfügbar und erfordert GLSL `#version 300 es`.
+> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist ihre Funktionalität standardmäßig im WebGL2-Kontext verfügbar. In WebGL 2 ist die Konstante als `gl.FRAGMENT_SHADER_DERIVATIVE_HINT` verfügbar; dafür ist GLSL `#version 300 es` erforderlich.
 
 ## Konstanten
 
 Diese Erweiterung stellt eine neue Konstante bereit, die in den Methoden [`hint()`](/de/docs/Web/API/WebGLRenderingContext/hint) und [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) verwendet werden kann.
 
 - `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Genauigkeit der Derivationsberechnung für die eingebauten GLSL-Funktionen angibt: `dFdx`, `dFdy` und `fwidth`.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Genauigkeit der Ableitungsberechnung für die integrierten GLSL-Funktionen `dFdx`, `dFdy` und `fwidth` angibt.
 
-## Eingebaute GLSL-Funktionen
+## Integrierte GLSL-Funktionen
 
 Die folgenden neuen Funktionen können im GLSL-Shader-Code verwendet werden, wenn diese Erweiterung aktiviert ist:
 
@@ -33,24 +34,24 @@ genType fwidth(genType p)
 ```
 
 - `dFdx()`
-  - : Gibt die Ableitung in `x` unter Verwendung lokaler Differenzierung für das Eingabeargument `p` zurück.
+  - : Gibt die Ableitung in `x` für das Eingabeargument `p` zurück, berechnet durch lokale Differenzenbildung.
 - `dFdy()`
-  - : Gibt die Ableitung in `y` unter Verwendung lokaler Differenzierung für das Eingabeargument `p` zurück.
+  - : Gibt die Ableitung in `y` für das Eingabeargument `p` zurück, berechnet durch lokale Differenzenbildung.
 - `fwidth()`
-  - : Gibt die Summe der absoluten Ableitung in `x` und `y` unter Verwendung lokaler Differenzierung für das Eingabeargument `p` zurück. Das heißt, `abs(dFdx(p)) + abs(dFdy(p))`.
+  - : Gibt die Summe der Beträge der Ableitungen in `x` und `y` für das Eingabeargument `p` zurück, berechnet durch lokale Differenzenbildung. Das entspricht `abs(dFdx(p)) + abs(dFdy(p))`.
 
-`dFdx()` und `dFdy()` werden häufig verwendet, um die Filterbreite abzuschätzen, die zur Antialiasing von prozeduralen Texturen verwendet wird.
+`dFdx()` und `dFdy()` werden häufig verwendet, um die Filterbreite für das Anti-Aliasing prozeduraler Texturen zu schätzen.
 
 ## Beispiele
 
-Aktivierung der Erweiterungen:
+Aktivieren der Erweiterungen:
 
 ```js
 gl.getExtension("OES_standard_derivatives");
 gl.getExtension("EXT_shader_texture_lod");
 ```
 
-Shader-Code, der Artefakte beim Umwickeln von Texturkoordinaten vermeidet:
+Shader-Code, der Artefakte beim Umbrechen von Texturkoordinaten vermeidet:
 
 ```html
 <script type="x-shader/x-fragment">

@@ -1,14 +1,16 @@
 ---
-title: "PerformanceElementTiming: toJSON() Methode"
+title: "PerformanceElementTiming: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PerformanceElementTiming/toJSON
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}. Sie gibt eine JSON-Darstellung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformanceElementTiming`-Objekt repräsentiert.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PerformanceElementTiming`-Objekt angetroffen wird.
 
 ## Syntax
 
@@ -22,15 +24,33 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts darstellt.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
-Das JSON enthält nicht die [`element`](/de/docs/Web/API/PerformanceElementTiming/element)-Eigenschaft, da diese vom Typ [`Element`](/de/docs/Web/API/Element) ist, der keine `toJSON()`-Operation bereitstellt. Die [`id`](/de/docs/Web/API/PerformanceElementTiming/id) des Elements wird jedoch bereitgestellt.
+- [`name`](/de/docs/Web/API/PerformanceEntry/name)
+- [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)
+- [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime)
+- [`duration`](/de/docs/Web/API/PerformanceEntry/duration)
+- [`navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId)
+- [`paintTime`](/de/docs/Web/API/PerformanceElementTiming/paintTime)
+- [`presentationTime`](/de/docs/Web/API/PerformanceElementTiming/presentationTime)
+- [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime)
+- [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime)
+- [`intersectionRect`](/de/docs/Web/API/PerformanceElementTiming/intersectionRect)
+- [`identifier`](/de/docs/Web/API/PerformanceElementTiming/identifier)
+- [`naturalWidth`](/de/docs/Web/API/PerformanceElementTiming/naturalWidth)
+- [`naturalHeight`](/de/docs/Web/API/PerformanceElementTiming/naturalHeight)
+- [`id`](/de/docs/Web/API/PerformanceElementTiming/id)
+- [`url`](/de/docs/Web/API/PerformanceElementTiming/url)
+
+Der Wert jeder Eigenschaft wird unverändert kopiert. Wenn das zurückgegebene Objekt an {{jsxref("JSON.stringify()")}} übergeben wird, wird die Eigenschaft `intersectionRect` zusätzlich mithilfe von [`DOMRectReadOnly.toJSON()`](/de/docs/Web/API/DOMRectReadOnly/toJSON) serialisiert.
+
+Das zurückgegebene Objekt enthält die Eigenschaft [`element`](/de/docs/Web/API/PerformanceElementTiming/element) nicht, da [`Element`](/de/docs/Web/API/Element) keine `toJSON()`-Operation bereitstellt. Die [`id`](/de/docs/Web/API/PerformanceElementTiming/id) des Elements wird jedoch bereitgestellt.
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### toJSON() direkt aufrufen
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceElementTiming`-Objekts zurück, mit Informationen über das Bildelement.
+In diesem Beispiel wird ein `PerformanceElementTiming`-Objekt abgerufen. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Seine Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```html
 <img
@@ -44,32 +64,46 @@ In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung de
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
     if (entry.identifier === "big-image") {
-      console.log(entry.toJSON());
+      const json = entry.toJSON();
+      console.log(json); // A plain object
+      console.log(typeof json); // "object"
+      console.log(json.identifier); // Same value as entry.identifier
     }
   });
 });
 observer.observe({ type: "element", buffered: true });
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+### In einen JSON-String serialisieren
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(entry));
+```
+
+Dadurch würde ein JSON-String wie der folgende protokolliert (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
   "name": "image-paint",
   "entryType": "element",
-  "startTime": 670894.1000000238,
+  "startTime": 670900.5,
   "duration": 0,
-  "renderTime": 0,
-  "loadTime": 670894.1000000238,
+  "navigationId": 2463,
+  "paintTime": 670898.25,
+  "presentationTime": 670900.5,
+  "renderTime": 670900.5,
+  "loadTime": 670894.25,
   "intersectionRect": {
-    "x": 299,
-    "y": 76,
-    "width": 135,
-    "height": 155,
-    "top": 76,
-    "right": 434,
-    "bottom": 231,
-    "left": 299
+    "x": 299.25,
+    "y": 76.25,
+    "width": 135.5,
+    "height": 155.5,
+    "top": 76.25,
+    "right": 434.75,
+    "bottom": 231.75,
+    "left": 299.25
   },
   "identifier": "big-image",
   "naturalWidth": 135,
@@ -78,8 +112,6 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
   "url": "https://en.wikipedia.org/static/images/project-logos/enwiki.png"
 }
 ```
-
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
 
 ## Spezifikationen
 

@@ -1,14 +1,16 @@
 ---
-title: "TrustedScriptURL: toJSON()-Methode"
+title: "TrustedScriptURL: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/TrustedScriptURL/toJSON
 l10n:
-  sourceCommit: f4c14731a1a157fc8d8f7357ac4d74d14a7d7fb5
+  sourceCommit: 15d531b54c7f0d96ac80ef00b494fd40743d59ce
 ---
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode der [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Schnittstelle gibt eine JSON-Darstellung der gespeicherten Daten zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) gibt einen String zurück, der das `TrustedScriptURL`-Objekt repräsentiert. Dies ist derselbe String, den [`TrustedScriptURL.toString()`](/de/docs/Web/API/TrustedScriptURL/toString) zurückgibt.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `TrustedScriptURL`-Objekt auftritt. Der serialisierte Wert kann anschließend mit der Methode [`TrustedTypePolicy.createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) innerhalb des Revivers von {{jsxref("JSON.parse()")}} zurückkonvertiert werden. Dabei wird die Transformation der Policy erneut auf den Wert angewendet.
 
 ## Syntax
 
@@ -22,17 +24,36 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der eine JSON-Darstellung der gespeicherten Daten enthält.
+Ein String.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde. Die Methode `toString()` gibt einen String zurück, der sicher verwendet werden kann, um ein Drittanbieter-Skript zu laden.
+### toJSON() direkt aufrufen
+
+Dieses Beispiel erstellt ein `TrustedScriptURL`-Objekt. Ein direkter Aufruf von `toJSON()` gibt den darin gespeicherten Stringwert zurück.
 
 ```js
 const sanitized = scriptPolicy.createScriptURL(
   "https://example.com/my-script.js",
 );
-console.log(sanitized.toJSON());
+
+const json = sanitized.toJSON();
+console.log(json); // Same value as sanitized.toString()
+console.log(typeof json); // "string"
+```
+
+### In einen JSON-String serialisieren
+
+Das `TrustedScriptURL`-Objekt aus dem vorherigen Beispiel wird mit {{jsxref("JSON.stringify()")}} serialisiert. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(sanitized));
+```
+
+Dabei würde der folgende JSON-String ausgegeben, einschließlich der umgebenden doppelten Anführungszeichen, die zum Inhalt des Strings gehören:
+
+```json
+"https://example.com/my-script.js"
 ```
 
 ## Spezifikationen

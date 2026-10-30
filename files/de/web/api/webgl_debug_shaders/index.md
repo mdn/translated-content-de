@@ -3,21 +3,22 @@ title: WEBGL_debug_shaders-Erweiterung
 short-title: WEBGL_debug_shaders
 slug: Web/API/WEBGL_debug_shaders
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_debug_shaders`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt eine Methode zur Verfügung, um Shader aus privilegierten Kontexten zu debuggen.
+Die Erweiterung **`WEBGL_debug_shaders`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt eine Methode zum Debuggen von Shadern in privilegierten Kontexten bereit.
 
-Diese Erweiterung ist nicht direkt für Webseiten verfügbar, da die Art und Weise, wie der Shader übersetzt wird, persönlich identifizierbare Informationen über die Art der Grafikkarte im Computer des Benutzers an die Webseite preisgeben könnte.
+Diese Erweiterung steht Websites nicht direkt zur Verfügung, da die Art und Weise, wie der Shader übersetzt wird, der Webseite personenbezogene Informationen über die Grafikkarte im Computer des Benutzers offenlegen könnte.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar sein.
+> Abhängig von den Datenschutzeinstellungen des Browsers ist diese Erweiterung möglicherweise nur in privilegierten Kontexten verfügbar.
 >
-> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> Diese Erweiterung ist sowohl in [WebGL1-](/de/docs/Web/API/WebGLRenderingContext) als auch in [WebGL2-Kontexten](/de/docs/Web/API/WebGL2RenderingContext) verfügbar.
 
 ## Instanzmethoden
 

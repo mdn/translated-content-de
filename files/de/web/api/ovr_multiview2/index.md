@@ -3,28 +3,29 @@ title: OVR_multiview2-Erweiterung
 short-title: OVR_multiview2
 slug: Web/API/OVR_multiview2
 l10n:
-  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Erweiterung `OVR_multiview2` ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht das gleichzeitige Rendern in mehrere Ansichten. Dies ist besonders für Virtual Reality (VR) und WebXR nützlich.
+Die Erweiterung `OVR_multiview2` ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht das gleichzeitige Rendern in mehrere Ansichten. Das ist besonders für Virtual Reality (VR) und WebXR nützlich.
 
 Weitere Informationen finden Sie unter:
 
-- [Multiview auf WebXR](https://error.ghost.org/)
+- [Multiview in WebXR](https://error.ghost.org/)
 - [Multiview in babylon.js](https://doc.babylonjs.com/features/featuresDeepDive/cameras/multiViewsPart1)
 - [Virtual Reality optimieren: Multiview verstehen](https://developer.arm.com/community/arm-community-blogs/b/mobile-graphics-and-gaming-blog/posts/optimizing-virtual-reality-understanding-multiview)
 - [Multiview-WebGL-Rendering für Meta Quest](https://developers.meta.com/vr/documentation/web/web-multiview/)
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
 > Die Unterstützung hängt vom Grafiktreiber des Systems ab (Windows+ANGLE und Android werden unterstützt; Windows+GL, Mac und Linux werden nicht unterstützt).
 >
-> Diese Erweiterung ist nur für [WebGL-2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar, da sie GLSL 3.00 und Texture-Arrays benötigt.
+> Diese Erweiterung ist nur für [WebGL-2-Kontexte](/de/docs/Web/API/WebGL2RenderingContext) verfügbar, da sie GLSL 3.00 und Texture Arrays benötigt.
 >
-> Derzeit gibt es keine Möglichkeit, mit Multiview in einen multisampled Backbuffer zu rendern. Erstellen Sie Kontexte daher mit `antialias: false`. Der Oculus-Browser (ab Version 6) unterstützt Multisampling jedoch auch über die Erweiterung [`OCULUS_multiview`](https://developers.meta.com/vr/documentation/web/web-multiview/#using-oculus_multiview-in-webgl-20). Siehe auch [diesen WebGL-Issue](https://github.com/KhronosGroup/WebGL/issues/2912).
+> Derzeit gibt es keine Möglichkeit, mit Multiview in einen multisampled Backbuffer zu rendern. Erstellen Sie Kontexte daher mit `antialias: false`. Der Oculus Browser (ab Version 6) unterstützt allerdings auch Multisampling über die Erweiterung [`OCULUS_multiview`](https://developers.meta.com/vr/documentation/web/web-multiview/#using-oculus_multiview-in-webgl-20). Siehe auch [dieses WebGL-Issue](https://github.com/KhronosGroup/WebGL/issues/2912).
 
 ## Konstanten
 
@@ -35,9 +36,9 @@ Diese Erweiterung stellt vier Konstanten bereit, die in [`getParameter()`](/de/d
 - `FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR`
   - : Basisansichtsindex des Framebuffer-Objekt-Anhangs.
 - `MAX_VIEWS_OVR`
-  - : Die maximale Anzahl von Ansichten. Die meisten VR-Headsets haben zwei Ansichten. Es gibt jedoch Prototypen von Headsets mit einem besonders großen Sichtfeld, die vier Ansichten verwenden. Dies ist derzeit die maximale von Multiview unterstützte Anzahl.
+  - : Die maximale Anzahl von Ansichten. Die meisten VR-Headsets haben zwei Ansichten. Es gibt jedoch Prototypen von Headsets mit einem ultrabreiten Sichtfeld, die vier Ansichten verwenden. Das ist derzeit die maximale Anzahl von Ansichten, die Multiview unterstützt.
 - `FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR`
-  - : Wenn baseViewIndex nicht für alle Framebuffer-Anhangspunkte gleich ist, deren Wert für `FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE` nicht `NONE` ist, gilt der Framebuffer als unvollständig. Ein Aufruf von [`checkFramebufferStatus`](/de/docs/Web/API/WebGLRenderingContext/checkFramebufferStatus) für einen Framebuffer in diesem Zustand gibt `FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR` zurück.
+  - : Wenn `baseViewIndex` nicht für alle Framebuffer-Anhangspunkte gleich ist, bei denen der Wert von `FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE` nicht `NONE` ist, gilt der Framebuffer als unvollständig. Ein Aufruf von [`checkFramebufferStatus`](/de/docs/Web/API/WebGLRenderingContext/checkFramebufferStatus) für einen Framebuffer in diesem Zustand gibt `FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR` zurück.
 
 ## Instanzmethoden
 
@@ -97,7 +98,7 @@ void main() {
 }
 ```
 
-Ein interaktives Multiview-Beispiel finden Sie auch in dieser [three.js-Demo](https://threejs.org/examples/?q=mult#webgl_multiple_views).
+Ein interaktives Multiview-Beispiel finden Sie außerdem in dieser [three.js-Demo](https://threejs.org/examples/?q=mult#webgl_multiple_views).
 
 ## Spezifikationen
 

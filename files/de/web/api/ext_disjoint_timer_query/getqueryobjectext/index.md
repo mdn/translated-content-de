@@ -1,16 +1,14 @@
 ---
-title: "EXT_disjoint_timer_query: getQueryObjectEXT() Methode"
+title: "EXT_disjoint_timer_query: Methode getQueryObjectEXT()"
 short-title: getQueryObjectEXT()
 slug: Web/API/EXT_disjoint_timer_query/getQueryObjectEXT
 l10n:
-  sourceCommit: 15db4f1dd87a80c4aec2cfba3e73bc8291f29110
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`EXT_disjoint_timer_query.getQueryObjectEXT()`**-Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Status eines
-Query-Objekts zurück.
+Die Methode **`EXT_disjoint_timer_query.getQueryObjectEXT()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt den Zustand eines Abfrageobjekts zurück.
 
 ## Syntax
 
@@ -21,19 +19,16 @@ getQueryObjectEXT(query, pname)
 ### Parameter
 
 - `query`
-  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, aus dem Informationen zurückgegeben werden sollen.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, zu dem Informationen zurückgegeben werden sollen.
 - `pname`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche Informationen zurückgegeben werden sollen. Muss
-    `ext.QUERY_RESULT_EXT` oder `ext.QUERY_RESULT_AVAILABLE_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen zurückgegeben werden sollen. Muss `ext.QUERY_RESULT_EXT` oder `ext.QUERY_RESULT_AVAILABLE_EXT` sein.
 
 ### Rückgabewert
 
 Hängt von `pname` ab:
 
-- Wenn `pname` `ext.QUERY_RESULT_EXT` ist: Ein
-  [`GLuint64EXT`](/de/docs/Web/API/WebGL_API/Types), das das Abfrageergebnis enthält.
-- Wenn `pname` `ext.QUERY_RESULT_AVAILABLE_EXT` ist: Ein
-  [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
+- Wenn `pname` den Wert `ext.QUERY_RESULT_EXT` hat: Ein [`GLuint64EXT`](/de/docs/Web/API/WebGL_API/Types), der das Abfrageergebnis enthält.
+- Wenn `pname` den Wert `ext.QUERY_RESULT_AVAILABLE_EXT` hat: Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ein Abfrageergebnis verfügbar ist.
 
 ## Beispiele
 

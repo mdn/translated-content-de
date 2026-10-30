@@ -1,14 +1,16 @@
 ---
-title: "LargestContentfulPaint: toJSON() Methode"
+title: "LargestContentfulPaint: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/LargestContentfulPaint/toJSON
 l10n:
-  sourceCommit: 92eab76b7686dadbce22affd372889bc2154f4ef
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`** Methode der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Objekts zurück.
+Die Methode **`toJSON()`** der Schnittstelle [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `LargestContentfulPaint`-Objekt repräsentiert.
+
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `LargestContentfulPaint`-Objekt vorkommt.
 
 ## Syntax
 
@@ -22,43 +24,70 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Objekts ist.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
-Das JSON enthält nicht die [`element`](/de/docs/Web/API/LargestContentfulPaint/element) Eigenschaft, da diese vom Typ [`Element`](/de/docs/Web/API/Element) ist, welches keine `toJSON()` Operation bereitstellt.
+- [`name`](/de/docs/Web/API/PerformanceEntry/name)
+- [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)
+- [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime)
+- [`duration`](/de/docs/Web/API/PerformanceEntry/duration)
+- [`navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId)
+- [`paintTime`](/de/docs/Web/API/LargestContentfulPaint/paintTime)
+- [`presentationTime`](/de/docs/Web/API/LargestContentfulPaint/presentationTime)
+- [`size`](/de/docs/Web/API/LargestContentfulPaint/size)
+- [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime)
+- [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime)
+- [`id`](/de/docs/Web/API/LargestContentfulPaint/id)
+- [`url`](/de/docs/Web/API/LargestContentfulPaint/url)
+
+Der Wert jeder Eigenschaft wird unverändert kopiert.
+
+Das zurückgegebene Objekt enthält die Eigenschaft [`element`](/de/docs/Web/API/LargestContentfulPaint/element) nicht, da [`Element`](/de/docs/Web/API/Element) keine `toJSON()`-Operation bereitstellt.
 
 ## Beispiele
 
-### Verwendung der toJSON Methode
+### toJSON() direkt aufrufen
 
-In diesem Beispiel liefert der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `LargestContentfulPaint` Objekts.
+Dieses Beispiel ruft ein `LargestContentfulPaint`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    console.log(entry.toJSON());
+    const json = entry.toJSON();
+    console.log(json); // A plain object
+    console.log(typeof json); // "object"
+    console.log(json.size); // Same value as entry.size
   });
 });
 
 observer.observe({ type: "largest-contentful-paint", buffered: true });
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+### In eine JSON-Zeichenfolge serialisieren
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(entry));
+```
+
+Dabei würde eine JSON-Zeichenfolge wie die folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
   "name": "",
   "entryType": "largest-contentful-paint",
-  "startTime": 468.2,
+  "startTime": 468.5,
   "duration": 0,
+  "navigationId": 2463,
+  "paintTime": 460.25,
+  "presentationTime": 468.5,
   "size": 19824,
-  "renderTime": 468.2,
+  "renderTime": 468.5,
   "loadTime": 0,
   "id": "",
   "url": ""
 }
 ```
-
-Um eine JSON-Zeichenkette zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

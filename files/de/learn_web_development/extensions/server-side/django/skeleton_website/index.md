@@ -1,49 +1,50 @@
 ---
-title: "Django Tutorial Teil 2: Erstellen einer Skelett-Website"
-short-title: "2: Skelett-Website"
+title: "Django-Tutorial Teil 2: Erstellen eines Website-Grundgerüsts"
+short-title: "2: Website-Grundgerüst"
 slug: Learn_web_development/Extensions/Server-side/Django/skeleton_website
 l10n:
-  sourceCommit: 324c613947adaa5e19ad0f409c5f4c535ee8cf6b
+  sourceCommit: d0d002817fbb057e80a4f7b8670b09cc80250516
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website", "Learn_web_development/Extensions/Server-side/Django/Models", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Dieser zweite Artikel in unserem [Django Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) zeigt, wie Sie ein "Skeleton"-Website-Projekt als Grundlage erstellen können, das Sie dann mit sitespezifischen Einstellungen, Pfaden, Modellen, Ansichten und Vorlagen füllen können.
+Dieser zweite Artikel unseres [Django-Tutorials](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) zeigt, wie Sie ein Website-Projekt als Grundgerüst erstellen. Dieses können Sie anschließend um seitenspezifische Einstellungen, Pfade, Modelle, Views und Templates ergänzen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment">Richten Sie eine Django-Entwicklungsumgebung ein</a>.
-        Überprüfen Sie das <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website">Django-Tutorial</a>.
+        <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment">Eine Django-Entwicklungsumgebung einrichten</a>.
+        Lesen Sie das <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website">Django-Tutorial</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        In der Lage sein, Djangos Tools zu verwenden, um eigene neue Website-Projekte zu starten.
+        Sie können mit den Werkzeugen von Django eigene neue Website-Projekte starten.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Übersicht
+## Überblick
 
-Dieser Artikel zeigt, wie Sie eine "Skelett"-Website erstellen können, die Sie dann mit sitespezifischen Einstellungen, Pfaden, Modellen, Ansichten und Vorlagen füllen können (wir besprechen diese in späteren Artikeln).
+Dieser Artikel zeigt, wie Sie eine Website als Grundgerüst erstellen, die Sie anschließend um seitenspezifische Einstellungen, Pfade, Modelle, Views und Templates ergänzen können. Diese behandeln wir in späteren Artikeln.
 
-Um loszulegen:
+So beginnen Sie:
 
-1. Verwenden Sie das Tool `django-admin`, um einen Projektordner, die grundlegenden Dateivorlagen und **manage.py** zu generieren, das als Ihr Projektverwaltungsskript dient.
+1. Verwenden Sie das Werkzeug `django-admin`, um einen Projektordner, grundlegende Dateivorlagen und **manage.py** zu erzeugen. Dieses Skript dient zur Verwaltung Ihres Projekts.
 2. Verwenden Sie **manage.py**, um eine oder mehrere _Anwendungen_ zu erstellen.
 
    > [!NOTE]
-   > Eine Website kann aus einem oder mehreren Abschnitten bestehen. Beispielsweise Hauptwebsite, Blog, Wiki, Download-Bereich usw. Django ermutigt Sie, diese Komponenten als separate _Anwendungen_ zu entwickeln, die bei Bedarf in verschiedenen Projekten wiederverwendet werden könnten.
+   > Eine Website kann aus einem oder mehreren Bereichen bestehen, beispielsweise einer Hauptseite, einem Blog, einem Wiki oder einem Download-Bereich. Django empfiehlt, diese Komponenten als separate _Anwendungen_ zu entwickeln. Bei Bedarf können Sie sie dann in anderen Projekten wiederverwenden.
 
-3. Registrieren Sie die neuen Anwendungen, um sie in das Projekt aufzunehmen.
-4. Verbinden Sie den **url/path** Mapper für jede Anwendung.
+3. Registrieren Sie die neuen Anwendungen, damit sie in das Projekt eingebunden werden.
+4. Binden Sie für jede Anwendung die **URL-/Pfad-Zuordnung** ein.
 
-Für die [Local Library Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) sind der Website- und der Projektordner _locallibrary_ benannt und enthalten eine Anwendung namens _catalog_. Die Ordnerstruktur der obersten Ebene sieht daher wie folgt aus:
+Bei der [Local-Library-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) heißen die Website- und Projektordner _locallibrary_. Das Projekt enthält eine Anwendung namens _catalog_.
+Die Ordnerstruktur auf oberster Ebene sieht daher wie folgt aus:
 
 ```bash
 locallibrary/         # Website folder
@@ -52,22 +53,23 @@ locallibrary/         # Website folder
     catalog/          # Application folder (created using manage.py)
 ```
 
-Die folgenden Abschnitte besprechen die Prozessschritte im Detail und zeigen, wie Sie Ihre Änderungen testen können. Am Ende dieses Artikels diskutieren wir andere standortweite Konfigurationen, die Sie in diesem Stadium ebenfalls durchführen könnten.
+Die folgenden Abschnitte erläutern die einzelnen Schritte ausführlich und zeigen, wie Sie Ihre Änderungen testen können.
+Am Ende dieses Artikels besprechen wir weitere projektweite Einstellungen, die Sie in dieser Phase vornehmen können.
 
-## Erstellen des Projekts
+## Das Projekt erstellen
 
-Um das Projekt zu erstellen:
+So erstellen Sie das Projekt:
 
-1. Öffnen Sie ein Befehlsfenster (oder ein Terminalfenster) und stellen Sie sicher, dass Sie sich in Ihrer [virtuellen Umgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#using_a_virtual_environment) befinden.
-2. Navigieren Sie zu dem Ordner, in dem Sie Ihre lokal Bibliothek-Anwendung erstellen möchten (später verschieben wir sie in die "django_local_library", die Sie [als lokales GitHub-Repository angelegt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#clone_the_repo_to_your_local_computer), als Sie die Entwicklungsumgebung eingerichtet haben).
-3. Erstellen Sie das neue Projekt mit dem Befehl `django-admin startproject`, wie gezeigt, und navigieren Sie dann in den Projektordner:
+1. Öffnen Sie eine Befehlszeile oder ein Terminalfenster und stellen Sie sicher, dass Ihre [virtuelle Umgebung](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#using_a_virtual_environment) aktiv ist.
+2. Wechseln Sie in den Ordner, in dem Sie Ihre Local-Library-Anwendung erstellen möchten. Später verschieben wir sie in den Ordner „django_local_library“, den Sie beim Einrichten der Entwicklungsumgebung [als lokales GitHub-Repository erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#clone_the_repo_to_your_local_computer) haben.
+3. Erstellen Sie das neue Projekt mit dem Befehl `django-admin startproject` wie gezeigt und wechseln Sie anschließend in den Projektordner:
 
    ```bash
    django-admin startproject locallibrary
    cd locallibrary
    ```
 
-   Das Tool `django-admin` erstellt eine Ordner-/Dateistruktur wie folgt:
+   Das Werkzeug `django-admin` erstellt die folgende Ordner- und Dateistruktur:
 
    ```bash
    locallibrary/
@@ -83,16 +85,19 @@ Um das Projekt zu erstellen:
 Der Projektunterordner _locallibrary_ ist der Einstiegspunkt für die Website:
 
 - **\_\_init\_\_.py** ist eine leere Datei, die Python anweist, dieses Verzeichnis als Python-Paket zu behandeln.
-- **settings.py** enthält alle Website-Einstellungen, einschließlich der Registrierung aller erstellten Anwendungen, des Speicherorts unserer statischen Dateien, der Datenbankkonfigurationsdetails usw.
-- **urls.py** definiert die Site-URL-zu-Ansicht- Zuordnungen. Während dies _alle_ URL-Zuordnungscodes enthalten könnte, ist es üblicher, einige der Zuordnungen an bestimmte Anwendungen zu delegieren, wie Sie später sehen werden.
-- **wsgi.py** wird verwendet, um Ihrer Django-Anwendung bei der Kommunikation mit dem Webserver zu helfen. Sie können dies als Vorlage verwenden.
-- **asgi.py** ist ein Standard für Python-asynchrone Web-Apps und Server, um miteinander zu kommunizieren. Die Asynchronous Server Gateway Interface (ASGI) ist der asynchrone Nachfolger der Web Server Gateway Interface (WSGI). ASGI bietet einen Standard für sowohl asynchrone als auch synchrone Python-Apps, während WSGI nur einen Standard für synchrone Apps bot. ASGI ist rückwärtskompatibel mit WSGI und unterstützt mehrere Server und Anwendungs-Frameworks.
+- **settings.py** enthält alle Website-Einstellungen, darunter die Registrierung der von uns erstellten Anwendungen, den Speicherort der statischen Dateien und Angaben zur Datenbankkonfiguration.
+- **urls.py** definiert die Zuordnung zwischen Website-URLs und Views. Die Datei könnte zwar den _gesamten_ Code für die URL-Zuordnung enthalten, üblicher ist es jedoch, einen Teil der Zuordnungen an einzelne Anwendungen zu delegieren. Das werden Sie später sehen.
+- **wsgi.py** hilft Ihrer Django-Anwendung bei der Kommunikation mit dem Webserver. Sie können diese Datei als vorgegebenen Standardcode betrachten.
+- **asgi.py** steht für einen Standard, über den asynchrone Python-Webanwendungen und Server miteinander kommunizieren. Das Asynchronous Server Gateway Interface (ASGI) ist der asynchrone Nachfolger des Web Server Gateway Interface (WSGI). ASGI bietet einen Standard sowohl für asynchrone als auch für synchrone Python-Anwendungen, während WSGI nur einen Standard für synchrone Anwendungen bereitstellte. ASGI ist abwärtskompatibel mit WSGI und unterstützt mehrere Server und Anwendungsframeworks.
 
-Das Skript **manage.py** wird verwendet, um Anwendungen zu erstellen, mit Datenbanken zu arbeiten und den Entwicklungswebserver zu starten.
+Das Skript **manage.py** dient dazu, Anwendungen zu erstellen, mit Datenbanken zu arbeiten und den Entwicklungswebserver zu starten.
 
-## Erstellen der Kataloganwendung
+> [!NOTE]
+> Im weiteren Verlauf dieses Tutorials beziehen sich Dateipfade wie **/locallibrary/settings.py** auf den Projektordner der obersten Ebene, der **manage.py** enthält. Der führende `/` steht für diesen Ordner.
 
-Führen Sie als Nächstes den folgenden Befehl aus, um die _catalog_ Anwendung zu erstellen, die innerhalb unseres _locallibrary_ Projekts leben wird. Stellen Sie sicher, dass Sie diesen Befehl aus demselben Ordner wie Ihr **manage.py** Projekt ausführen:
+## Die catalog-Anwendung erstellen
+
+Führen Sie als Nächstes den folgenden Befehl aus, um die Anwendung _catalog_ innerhalb unseres Projekts _locallibrary_ zu erstellen. Achten Sie darauf, den Befehl im selben Ordner wie die Datei **manage.py** Ihres Projekts auszuführen:
 
 ```bash
 # Linux/macOS
@@ -103,12 +108,13 @@ py manage.py startapp catalog
 ```
 
 > [!NOTE]
-> Der Rest des Tutorials verwendet die Linux/macOS-Syntax.
-> Wenn Sie unter Windows arbeiten, sollten Sie überall dort, wo Sie einen Befehl sehen, der mit `python3` beginnt, stattdessen `py` (oder `py -3`) verwenden.
+> Im weiteren Verlauf des Tutorials wird die Syntax für Linux/macOS verwendet.
+> Wenn Sie unter Windows arbeiten, verwenden Sie anstelle eines Befehls, der mit `python3` beginnt, `py` oder `py -3`.
 
-Das Tool erstellt einen neuen Ordner und füllt ihn mit Dateien für die verschiedenen Teile der Anwendung (siehe folgendes Beispiel). Die meisten Dateien sind nach ihrem Zweck benannt (z. B. sollten Ansichten in **views.py**, Modelle in **models.py**, Tests in **tests.py**, Verwaltungssite-Konfigurationen in **admin.py**, Anwendungsregistrierungen in **apps.py** gespeichert werden) und enthalten einige minimale Boilerplate-Codes zur Arbeit mit den zugehörigen Objekten.
+Das Werkzeug erstellt einen neuen Ordner und fügt Dateien für die verschiedenen Bestandteile der Anwendung hinzu, wie das folgende Beispiel zeigt.
+Die meisten Dateien sind nach ihrem Zweck benannt: Views gehören beispielsweise in **views.py**, Modelle in **models.py**, Tests in **tests.py**, die Konfiguration der Administrationsoberfläche in **admin.py** und die Anwendungsregistrierung in **apps.py**. Die Dateien enthalten bereits etwas grundlegenden Standardcode für die Arbeit mit den jeweiligen Objekten.
 
-Das aktualisierte Projektverzeichnis sollte jetzt so aussehen:
+Das aktualisierte Projektverzeichnis sollte nun so aussehen:
 
 ```bash
 locallibrary/
@@ -124,19 +130,19 @@ locallibrary/
         migrations/
 ```
 
-Zusätzlich haben wir jetzt:
+Außerdem haben wir nun:
 
-- Einen _migrations_ Ordner, der für die Speicherung von "Migrationen" verwendet wird — Dateien, die es ermöglichen, Ihre Datenbank automatisch zu aktualisieren, wenn Sie Ihre Modelle ändern.
-- **\_\_init\_\_.py** — eine hier erstellte leere Datei, damit Django/Python den Ordner als [Python Paket](https://docs.python.org/3/tutorial/modules.html#packages) erkennt und Sie seine Objekte innerhalb anderer Teile des Projekts verwenden können.
+- Einen Ordner _migrations_, in dem „Migrationen“ gespeichert werden. Das sind Dateien, mit denen Sie Ihre Datenbank automatisch aktualisieren können, wenn Sie Ihre Modelle ändern.
+- **\_\_init\_\_.py** — eine hier erstellte leere Datei, damit Django/Python den Ordner als [Python-Paket](https://docs.python.org/3/tutorial/modules.html#packages) erkennt und Sie dessen Objekte in anderen Teilen des Projekts verwenden können.
 
 > [!NOTE]
-> Haben Sie bemerkt, was in der obigen Dateiliste fehlt? Während es Platz für Ihre Ansichten und Modelle gibt, gibt es keinen Ort, an dem Sie Ihre URL-Zuordnungen, Vorlagen und statischen Dateien ablegen können. Wir zeigen Ihnen, wie Sie sie weiter unten erstellen (diese sind nicht in jeder Website erforderlich, aber sie werden in diesem Beispiel benötigt).
+> Ist Ihnen aufgefallen, was in der obigen Dateiliste fehlt? Für Views und Modelle gibt es bereits Dateien, aber noch keinen Ort für Ihre URL-Zuordnungen, Templates und statischen Dateien. Wir zeigen Ihnen später, wie Sie diese erstellen. Sie werden nicht für jede Website benötigt, wohl aber für dieses Beispiel.
 
-## Registrierung der Kataloganwendung
+## Die catalog-Anwendung registrieren
 
-Nachdem die Anwendung jetzt erstellt wurde, müssen wir sie beim Projekt registrieren, damit sie einbezogen wird, wenn Tools ausgeführt werden (wie z. B. das Hinzufügen von Modellen zur Datenbank). Anwendungen werden registriert, indem sie der `INSTALLED_APPS`-Liste in den Projekteinstellungen hinzugefügt werden.
+Nachdem die Anwendung erstellt wurde, müssen wir sie beim Projekt registrieren. So wird sie berücksichtigt, wenn Werkzeuge ausgeführt werden, beispielsweise beim Hinzufügen von Modellen zur Datenbank. Anwendungen werden registriert, indem sie der Liste `INSTALLED_APPS` in den Projekteinstellungen hinzugefügt werden.
 
-Öffnen Sie die Projekteinstellungsdatei, **django-locallibrary-tutorial/locallibrary/settings.py**, und finden Sie die Definition für die `INSTALLED_APPS`-Liste. Fügen Sie dann am Ende der Liste eine neue Zeile hinzu, wie unten gezeigt:
+Öffnen Sie die Projekteinstellungsdatei **/locallibrary/settings.py** und suchen Sie die Definition der Liste `INSTALLED_APPS`. Fügen Sie am Ende der Liste eine neue Zeile hinzu, wie unten gezeigt:
 
 ```bash
 INSTALLED_APPS = [
@@ -151,16 +157,16 @@ INSTALLED_APPS = [
 ]
 ```
 
-Die neue Zeile gibt das Anwendungs-Konfigurationsobjekt (`CatalogConfig`) an, das für Sie in **/django-locallibrary-tutorial/catalog/apps.py** generiert wurde, als Sie die Anwendung erstellt haben.
+Die neue Zeile gibt das Anwendungskonfigurationsobjekt (`CatalogConfig`) an, das beim Erstellen der Anwendung in **/catalog/apps.py** für Sie erzeugt wurde.
 
 > [!NOTE]
-> Sie werden feststellen, dass es bereits viele andere `INSTALLED_APPS` (und `MIDDLEWARE`, weiter unten in der Einstellungsdatei) gibt. Diese ermöglichen die Unterstützung der [Django-Verwaltungssite](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site) und der von ihr verwendeten Funktionalitäten (einschließlich Sessions, Authentifizierung usw.).
+> Sie werden feststellen, dass bereits viele andere Einträge in `INSTALLED_APPS` vorhanden sind. Weiter unten in der Einstellungsdatei finden Sie außerdem `MIDDLEWARE`. Diese Einträge aktivieren die Unterstützung für die [Django-Administrationsoberfläche](/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site) und die von ihr verwendeten Funktionen, darunter Sessions und Authentifizierung.
 
-## Festlegen der Datenbank
+## Die Datenbank festlegen
 
-Dies ist auch der Punkt, an dem Sie normalerweise die zu verwendende Datenbank für das Projekt festlegen würden. Es ist sinnvoll, wo möglich, dieselbe Datenbank für Entwicklung und Produktion zu verwenden, um geringfügige Verhaltensunterschiede zu vermeiden. Informationen zu den verschiedenen Optionen finden Sie in [Datenbanken](https://docs.djangoproject.com/en/5.0/ref/settings/#databases) (Django Dokumentation).
+An dieser Stelle würden Sie normalerweise auch die Datenbank festlegen, die für das Projekt verwendet werden soll. Wenn möglich, ist es sinnvoll, für Entwicklung und Produktion dieselbe Datenbank zu verwenden, um kleinere Unterschiede im Verhalten zu vermeiden. Informationen zu den verschiedenen Optionen finden Sie unter [Datenbanken](https://docs.djangoproject.com/en/6.1/ref/settings/#databases) in der Django-Dokumentation.
 
-Wir verwenden die Standard-SQLite-Datenbank für den größten Teil dieses Beispiels, weil wir nicht erwarten, dass auf eine Demonstrationsdatenbank übermäßig zugegriffen wird und es keine zusätzliche Einrichtung erfordert! Sie können sehen, wie diese Datenbank in **settings.py** konfiguriert ist:
+Für den größten Teil dieses Beispiels verwenden wir die standardmäßig eingerichtete SQLite-Datenbank. Bei einer Demonstrationsdatenbank erwarten wir nicht viele gleichzeitige Zugriffe, und SQLite erfordert keinen zusätzlichen Einrichtungsaufwand. Wie diese Datenbank konfiguriert ist, sehen Sie in **settings.py**:
 
 ```python
 DATABASES = {
@@ -171,33 +177,33 @@ DATABASES = {
 }
 ```
 
-Später im Abschnitt [Django in die Produktion bringen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Deployment#database_configuration) zeigen wir Ihnen auch, wie Sie eine Postgres-Datenbank konfigurieren, die möglicherweise besser für größere Websites geeignet ist.
+Später zeigen wir unter [Django in der Produktionsumgebung bereitstellen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Deployment#database_configuration) außerdem, wie Sie eine Postgres-Datenbank konfigurieren. Diese eignet sich möglicherweise besser für größere Websites.
 
-## Andere Projekteinstellungen
+## Weitere Projekteinstellungen
 
-Die Datei **settings.py** wird auch zur Konfiguration einer Reihe anderer Einstellungen verwendet, aber an dieser Stelle möchten Sie wahrscheinlich nur die [TIME_ZONE](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-TIME_ZONE) ändern — diese sollte gleich einer Zeichenfolge aus der Standard-[Liste der tz-Datenbank-Zeitzonen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) festgelegt werden (die TZ-Spalte in der Tabelle enthält die gewünschten Werte). Ändern Sie Ihren `TIME_ZONE` Wert in eine dieser Zeichenketten, die für Ihre Zeitzone geeignet ist, zum Beispiel:
+Die Datei **settings.py** dient auch dazu, zahlreiche weitere Einstellungen zu konfigurieren. An dieser Stelle möchten Sie wahrscheinlich nur die [TIME_ZONE](https://docs.djangoproject.com/en/6.1/ref/settings/#std-setting-TIME_ZONE) ändern. Ihr Wert sollte eine Zeichenfolge aus der standardisierten [Liste der Zeitzonen der tz-Datenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) sein. Die gewünschten Werte stehen in der Spalte „TZ“ der Tabelle. Ändern Sie den Wert von `TIME_ZONE` in eine dieser Zeichenfolgen, die Ihrer Zeitzone entspricht, beispielsweise:
 
 ```python
 TIME_ZONE = 'Europe/London'
 ```
 
-Es gibt zwei weitere Einstellungen, die Sie jetzt nicht ändern werden, sich aber bewusst sein sollten:
+Zwei weitere Einstellungen werden Sie jetzt nicht ändern, sollten sie aber kennen:
 
-- `SECRET_KEY`. Dies ist ein geheimer Schlüssel, der als Teil von Djangos Website-Sicherheitsstrategie verwendet wird. Wenn Sie diesen Code nicht in der Entwicklung schützen, müssen Sie einen anderen Code verwenden (möglicherweise von einer Umgebungsvariable oder Datei gelesen), wenn Sie ihn in die Produktion bringen.
-- `DEBUG`. Dies ermöglicht es, dass Debug-Logs bei einem Fehler angezeigt werden, anstatt HTTP-Statuscode-Antworten. Dies sollte in der Produktion auf `False` gesetzt werden, da Debug-Informationen für Angreifer nützlich sind, aber für jetzt können wir es auf `True` belassen.
+- `SECRET_KEY`. Dies ist ein geheimer Schlüssel, der Teil von Djangos Sicherheitskonzept für Websites ist. Wenn Sie diesen Code während der Entwicklung nicht schützen, müssen Sie für den Produktivbetrieb einen anderen Schlüssel verwenden, den Sie beispielsweise aus einer Umgebungsvariablen oder einer Datei einlesen.
+- `DEBUG`. Diese Einstellung bewirkt, dass bei Fehlern Debug-Informationen angezeigt werden, statt nur eine Antwort mit einem HTTP-Statuscode zurückzugeben. In der Produktionsumgebung sollte sie auf `False` gesetzt sein, da Debug-Informationen für Angreifer nützlich sind. Vorerst können wir sie jedoch auf `True` belassen.
 
-## Verbinden des URL-Mappers
+## Die URL-Zuordnung einbinden
 
-Die Website wird mit einer URL-Mapper-Datei (**urls.py**) im Projektordner erstellt. Während Sie diese Datei verwenden können, um alle Ihre URL-Zuordnungen zu verwalten, ist es üblicher, Zuordnungen mit der zugehörigen Anwendung zu überlassen.
+Beim Erstellen der Website wird im Projektordner eine Datei für die URL-Zuordnung (**urls.py**) angelegt. Sie können darin zwar alle URL-Zuordnungen verwalten, üblicherweise werden die Zuordnungen jedoch an die jeweilige Anwendung delegiert.
 
-Öffnen Sie **django-locallibrary-tutorial/locallibrary/urls.py** und beachten Sie den Anleitungstext, der einige der Möglichkeiten erklärt, den URL-Mapper zu verwenden.
+Öffnen Sie **/locallibrary/urls.py** und beachten Sie den erklärenden Text zu einigen Verwendungsmöglichkeiten der URL-Zuordnung.
 
 ```python
 """
 URL configuration for locallibrary project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+    https://docs.djangoproject.com/en/6.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -217,12 +223,12 @@ urlpatterns = [
 ]
 ```
 
-Die URL-Zuordnungen werden durch die Variable `urlpatterns` verwaltet, die eine Python-_Liste_ der `path()` Funktionen ist. Jede `path()` Funktion ordnet entweder ein URL-Muster einer _spezifischen Ansicht_ zu, die angezeigt wird, wenn das Muster übereinstimmt, oder einer anderen Liste von URL-Muster-Testcodierung (in diesem zweiten Fall wird das Muster zur "Basis-URL" für Muster, die im Zielmodul definiert sind). Die `urlpatterns` Liste definiert anfangs eine einzelne Funktion, die alle URLs mit dem Muster _admin/_ dem Modul `admin.site.urls` zuordnet, das die eigenen URL-Zuordnungsdefinitionen der Admin-Anwendung enthält.
+Die URL-Zuordnungen werden über die Variable `urlpatterns` verwaltet, eine Python-_Liste_ von `path()`-Funktionen. Jede `path()`-Funktion verknüpft entweder ein URL-Muster mit einer _bestimmten View_, die bei einer Übereinstimmung angezeigt wird, oder mit einer weiteren Liste zur Prüfung von URL-Mustern. Im zweiten Fall wird das Muster zur „Basis-URL“ für die im Zielmodul definierten Muster. Anfangs enthält die Liste `urlpatterns` eine einzige Funktion. Sie ordnet alle URLs mit dem Muster _admin/_ dem Modul `admin.site.urls` zu, das die URL-Zuordnungen der Administrationsanwendung enthält.
 
 > [!NOTE]
-> Die Route in `path()` ist eine Zeichenfolge, die ein zuzuordnendes URL-Muster definiert. Diese Zeichenfolge kann eine benannte Variable (in spitzen Klammern) enthalten, z. B. `'catalog/<id>/'`. Dieses Muster wird eine URL wie **catalog/_any_chars_/** zuordnen und _`any_chars`_ als Zeichenfolge mit dem Parameternamen `id` zur Ansicht übergeben. Wir besprechen Pfadmethoden und Routenmuster weiter in späteren Themen.
+> Die Route in `path()` ist eine Zeichenfolge, die ein URL-Muster für den Abgleich definiert. Diese Zeichenfolge kann eine benannte Variable in spitzen Klammern enthalten, beispielsweise `'catalog/<id>/'`. Dieses Muster entspricht einer URL wie **catalog/_any_chars_/** und übergibt _`any_chars`_ als Zeichenfolge mit dem Parameternamen `id` an die View. Pfadmethoden und Routenmuster behandeln wir in späteren Abschnitten ausführlicher.
 
-Um ein neues Listenelement zur `urlpatterns`-Liste hinzuzufügen, fügen Sie die folgenden Zeilen am Ende der Datei hinzu. Dieses neue Element enthält eine `path()`, die Anforderungen mit dem Muster `catalog/` an das Modul `catalog.urls` weiterleitet (die Datei mit der relativen URL **catalog/urls.py**).
+Um der Liste `urlpatterns` einen neuen Eintrag hinzuzufügen, ergänzen Sie am Ende der Datei die folgenden Zeilen. Der neue Eintrag enthält eine `path()`-Funktion, die Anfragen mit dem Muster `catalog/` an das Modul `catalog.urls` weiterleitet, also an die Datei mit der relativen URL **catalog/urls.py**.
 
 ```python
 # Use include() to add paths from the catalog application
@@ -234,21 +240,21 @@ urlpatterns += [
 ```
 
 > [!NOTE]
-> Beachten Sie, dass wir die Importzeile (`from django.urls import include`) mit dem Code enthalten haben, der sie verwendet (um leicht zu sehen, was wir hinzugefügt haben), aber es ist üblich, alle Ihre Importzeilen an den Anfang einer Python-Datei zu setzen.
+> Beachten Sie, dass wir die Importzeile (`from django.urls import include`) zusammen mit dem Code eingefügt haben, der sie verwendet. So ist leicht zu erkennen, was wir hinzugefügt haben. Üblicherweise stehen jedoch alle Importzeilen am Anfang einer Python-Datei.
 
-Nun lassen Sie uns die Wurzel-URL unserer Seite (d.h. `127.0.0.1:8000`) auf die URL `127.0.0.1:8000/catalog/` umleiten. Dies ist die einzige App, die wir in diesem Projekt verwenden werden. Dazu verwenden wir eine spezielle View-Funktion, `RedirectView`, die die neue relative URL, auf die umgeleitet werden soll (`/catalog/`), als erstes Argument nimmt, wenn das durch die `path()` Funktion angegebene URL-Muster übereinstimmt (die Wurzel-URL, in diesem Fall).
+Leiten wir nun die Stamm-URL unserer Website (`127.0.0.1:8000`) an die URL `127.0.0.1:8000/catalog/` weiter. Dies ist die einzige Anwendung, die wir in diesem Projekt verwenden. Dafür nutzen wir eine spezielle View-Funktion namens `RedirectView`. Wenn das in `path()` angegebene URL-Muster übereinstimmt — hier die Stamm-URL —, leitet sie an die neue relative URL (`/catalog/`) weiter, die ihr als erstes Argument übergeben wird.
 
-Fügen Sie die folgenden Zeilen an das Ende der Datei hinzu:
+Fügen Sie am Ende der Datei die folgenden Zeilen hinzu:
 
 ```python
 # Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='catalog/', permanent=True)),
+    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
 ]
 ```
 
-Lassen Sie den ersten Parameter der Path-Funktion leer, um '/' anzudeuten. Wenn Sie den ersten Parameter als '/' schreiben, gibt Ihnen Django beim Starten des Entwicklungsservers die folgende Warnung:
+Lassen Sie den ersten Parameter der `path()`-Funktion leer, um „/“ anzugeben. Wenn Sie als ersten Parameter „/“ eintragen, gibt Django beim Starten des Entwicklungsservers die folgende Warnung aus:
 
 ```python
 System check identified some issues:
@@ -259,9 +265,9 @@ Remove this slash as it is unnecessary.
 If this pattern is targeted in an include(), ensure the include() pattern has a trailing '/'.
 ```
 
-Django dient standardmäßig nicht statische Dateien wie CSS, JavaScript und Bilder, aber es kann nützlich für den Entwicklungswebserver sein, dies zu tun, während Sie Ihre Website erstellen. Als abschließende Ergänzung zu diesem URL-Mapper können Sie das Anbieten von statischen Dateien während der Entwicklung aktivieren, indem Sie die folgenden Zeilen anhängen.
+Standardmäßig stellt Django keine statischen Dateien wie CSS, JavaScript und Bilder bereit. Während Sie Ihre Website erstellen, kann es jedoch hilfreich sein, wenn der Entwicklungswebserver dies übernimmt. Als letzte Ergänzung dieser URL-Zuordnung können Sie die Bereitstellung statischer Dateien während der Entwicklung aktivieren, indem Sie die folgenden Zeilen anhängen.
 
-Fügen Sie jetzt den folgenden letzten Block der Datei hinzu:
+Fügen Sie jetzt den folgenden abschließenden Block am Ende der Datei hinzu:
 
 ```python
 # Use static() to add URL mapping to serve static files during development (only)
@@ -272,7 +278,7 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
 > [!NOTE]
-> Es gibt eine Reihe von Möglichkeiten, die `urlpatterns`-Liste zu erweitern (zuvor haben wir einfach ein neues Listenelement mit dem `+=` Operator angehängt, um den alten und neuen Code klar zu trennen). Wir könnten dieses neue Muster auch in die ursprüngliche Listendefinition einfügen:
+> Die Liste `urlpatterns` lässt sich auf verschiedene Weise erweitern. Zuvor haben wir mit dem Operator `+=` einen neuen Listeneintrag angehängt, um den alten und den neuen Code klar voneinander zu trennen. Stattdessen hätten wir das neue Zuordnungsmuster auch direkt in die ursprüngliche Listendefinition aufnehmen können:
 >
 > ```python
 > urlpatterns = [
@@ -282,7 +288,7 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 > ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 > ```
 
-Als letzten Schritt erstellen Sie eine Datei in Ihrem _catalog_ Ordner mit dem Namen **urls.py** und fügen Sie den folgenden Text hinzu, um die (leeren) importierten `urlpatterns` zu definieren. Hier werden wir unsere Muster hinzufügen, während wir die Anwendung erstellen.
+Erstellen Sie abschließend im Ordner _catalog_ eine Datei namens **urls.py** und fügen Sie den folgenden Text hinzu. Damit definieren Sie die importierte, zunächst leere Liste `urlpatterns`. Hier werden wir beim Aufbau der Anwendung unsere Muster eintragen.
 
 ```python
 from django.urls import path
@@ -293,17 +299,17 @@ urlpatterns = [
 ]
 ```
 
-## Testen des Website-Frameworks
+## Das Website-Grundgerüst testen
 
-Zu diesem Zeitpunkt haben wir ein vollständiges Skelettprojekt. Die Website tut eigentlich noch _nichts_, aber es lohnt sich, sie auszuführen, um sicherzustellen, dass unsere Änderungen nichts kaputt gemacht haben.
+An diesem Punkt haben wir ein vollständiges Projektgrundgerüst. Die Website _tut_ zwar noch nichts, aber es lohnt sich, sie auszuführen, um sicherzustellen, dass unsere Änderungen nichts beschädigt haben.
 
-Bevor wir das tun, sollten wir zuerst eine _Datenbank-Migration_ durchführen. Diese aktualisiert unsere Datenbank (um alle Modelle in unseren installierten Anwendungen aufzunehmen) und entfernt einige Build-Warnungen.
+Zuvor sollten wir eine _Datenbankmigration_ ausführen. Dadurch wird unsere Datenbank aktualisiert, sodass sie alle Modelle unserer installierten Anwendungen enthält, und einige Warnungen beim Erstellen werden beseitigt.
 
-### Ausführen von Datenbankmigrationen
+### Datenbankmigrationen ausführen
 
-Django verwendet einen Objekt-Relational-Mapper (ORM), um Modelldefinitionen im Django-Code auf die Datenstruktur abzubilden, die von der zugrunde liegenden Datenbank verwendet wird. Wenn wir unsere Modell-Definitionen ändern, verfolgt Django die Änderungen und kann Datenbankmigrationsskripte (in **/django-locallibrary-tutorial/catalog/migrations/**) erstellen, um die zugrunde liegende Datenstruktur in der Datenbank automatisch mit dem Modell abzugleichen.
+Django verwendet einen Object-Relational-Mapper (ORM), um Modelldefinitionen im Django-Code auf die Datenstruktur der zugrunde liegenden Datenbank abzubilden. Wenn wir unsere Modelldefinitionen ändern, erfasst Django diese Änderungen und kann Skripte für Datenbankmigrationen erstellen, die unter **/catalog/migrations/** gespeichert werden. Damit lässt sich die zugrunde liegende Datenstruktur der Datenbank automatisch an das Modell anpassen.
 
-Als wir die Website erstellt haben, hat Django automatisch eine Anzahl von Modellen für die Verwendung im Admin-Bereich der Site hinzugefügt (auf die wir später eingehen werden). Führen Sie die folgenden Befehle aus, um Tabellen für diese Modelle in der Datenbank zu definieren (stellen Sie sicher, dass Sie sich in dem Verzeichnis befinden, das **manage.py** enthält):
+Als wir die Website erstellt haben, hat Django automatisch mehrere Modelle für den Administrationsbereich hinzugefügt, den wir später betrachten werden. Führen Sie die folgenden Befehle aus, um in der Datenbank Tabellen für diese Modelle anzulegen. Stellen Sie sicher, dass Sie sich im Verzeichnis befinden, das **manage.py** enthält:
 
 ```bash
 python3 manage.py makemigrations
@@ -311,48 +317,50 @@ python3 manage.py migrate
 ```
 
 > [!WARNING]
-> Sie müssen diese Befehle jedes Mal ausführen, wenn sich Ihre Modelle in einer Weise ändern, die die Struktur der zu speichernden Daten beeinflusst (einschließlich sowohl Hinzufügung als auch Entfernung ganzer Modelle und einzelner Felder).
+> Sie müssen diese Befehle jedes Mal ausführen, wenn Sie Ihre Modelle so ändern, dass sich die Struktur der zu speichernden Daten ändert. Das gilt sowohl beim Hinzufügen oder Entfernen ganzer Modelle als auch bei einzelnen Feldern.
 
-Der Befehl `makemigrations` _erstellt_ (aber wendet nicht an) die Migrationen für alle im Projekt installierten Anwendungen. Sie können auch den Anwendungsnamen angeben, um eine Migration nur für eine einzelne App durchzuführen. Dadurch erhalten Sie die Möglichkeit, den Code für diese Migrationen zu prüfen, bevor sie angewendet werden. Wenn Sie ein Django-Experte sind, können Sie sich entscheiden, diese leicht zu optimieren!
+Der Befehl `makemigrations` _erstellt_ die Migrationen für alle in Ihrem Projekt installierten Anwendungen, wendet sie aber nicht an. Sie können zusätzlich den Namen einer Anwendung angeben, um nur für diese eine Migration zu erstellen. So haben Sie Gelegenheit, den Code der Migrationen zu prüfen, bevor sie angewendet werden. Wenn Sie bereits viel Erfahrung mit Django haben, können Sie ihn bei Bedarf leicht anpassen.
 
-Der `migrate` Befehl ist es, der die Migrationen auf Ihre Datenbank anwendet. Django verfolgt, welche bereits zur aktuellen Datenbank hinzugefügt wurden.
+Der Befehl `migrate` wendet die Migrationen auf Ihre Datenbank an. Django hält fest, welche Migrationen bereits auf die aktuelle Datenbank angewendet wurden.
 
 > [!NOTE]
-> Sie sollten Migrationen wiederholt ausführen und die Seite erneut testen, wann immer Sie wesentliche Änderungen vornehmen. Es dauert nicht sehr lange!
+> Nach größeren Änderungen sollten Sie die Migrationen erneut ausführen und die Website noch einmal testen. Das dauert nicht lange.
 >
-> Siehe [Migrationen](https://docs.djangoproject.com/en/5.0/topics/migrations/) (Django-Dokumentation) für zusätzliche Informationen über die weniger verwendeten Migrationsbefehle.
+> Weitere Informationen zu den seltener verwendeten Migrationsbefehlen finden Sie unter [Migrationen](https://docs.djangoproject.com/en/6.1/topics/migrations/) in der Django-Dokumentation.
 
 ### Die Website ausführen
 
-Während der Entwicklung können Sie die Website zuerst mit dem _Entwicklungswebserver_ bereitstellen und sie dann in Ihrem lokalen Webbrowser ansehen.
+Während der Entwicklung können Sie die Website zunächst über den _Entwicklungswebserver_ bereitstellen und sie anschließend in Ihrem lokalen Webbrowser aufrufen.
 
 > [!NOTE]
-> Der Entwicklungswebserver ist weder robust noch leistungsfähig genug für die Nutzung in der Produktion, aber es ist eine sehr einfache Möglichkeit, Ihre Django-Website während der Entwicklung zum Laufen zu bringen, um sie schnell zu testen. Standardmäßig wird die Website an Ihren lokalen Computer (`http://127.0.0.1:8000/`) bereitgestellt, aber Sie können auch andere Computer in Ihrem Netzwerk angeben. Für weitere Informationen siehe [django-admin und manage.py: runserver](https://docs.djangoproject.com/en/5.0/ref/django-admin/#runserver) (Django-Dokumentation).
+> Der Entwicklungswebserver ist für den Produktivbetrieb weder robust noch leistungsfähig genug. Während der Entwicklung können Sie Ihre Django-Website damit jedoch sehr einfach starten und schnell testen. Standardmäßig stellt er die Website auf Ihrem lokalen Computer bereit (`http://127.0.0.1:8000/)`. Sie können aber auch festlegen, dass sie für andere Computer in Ihrem Netzwerk erreichbar ist. Weitere Informationen finden Sie unter [django-admin und manage.py: runserver](https://docs.djangoproject.com/en/6.1/ref/django-admin/#runserver) in der Django-Dokumentation.
 
-Führen Sie den _Entwicklungswebserver_ aus, indem Sie den Befehl `runserver` aufrufen (im gleichen Verzeichnis wie **manage.py**):
+Starten Sie den _Entwicklungswebserver_ mit dem Befehl `runserver` im selben Verzeichnis wie **manage.py**:
 
 ```bash
 python3 manage.py runserver
 ```
 
-Sobald der Server läuft, können Sie die Seite anzeigen, indem Sie in Ihrem lokalen Webbrowser zu `http://127.0.0.1:8000/` navigieren. Sie sollten eine Fehlerseite sehen, die so aussieht:
+Sobald der Server läuft, können Sie die Website in Ihrem lokalen Webbrowser unter `http://127.0.0.1:8000/` aufrufen. Sie sollten eine Fehlerseite sehen, die ungefähr so aussieht:
 
-![Django Debug-Seite (Django 4.2)](django_404_debug_page.png)
+![Django-Debug-Seite](django_404_debug_page.png)
 
-Keine Sorge! Diese Fehlerseite wird erwartet, da wir keine Seiten/URLs im `catalog.urls`-Modul definiert haben (auf die wir umleiten, wenn wir eine URL für die Basis der Site erhalten).
+Keine Sorge! Diese Fehlerseite ist zu erwarten, weil wir im Modul `catalog.urls` noch keine Seiten oder URLs definiert haben. An dieses Modul werden Anfragen an die Stamm-URL der Website weitergeleitet.
 
-Zu diesem Zeitpunkt wissen wir, dass Django funktioniert!
+Damit wissen wir, dass Django funktioniert!
 
 > [!NOTE]
-> Die Beispielsseite demonstriert ein großartiges Django-Feature — automatisiertes Debug-Logging. Jedes Mal, wenn eine Seite nicht gefunden werden kann, zeigt Django einen Fehlerbildschirm mit nützlichen Informationen oder einem von dem Code generierten Fehler an. In diesem Fall können wir sehen, dass die von uns angegebene URL mit keinem unserer URL-Muster (wie aufgelistet) übereinstimmt. Logging wird in Produktion ausgeschaltet (was der Fall ist, wenn wir die Site live im Web schalten), in welchem Fall eine weniger informative, aber benutzerfreundlichere Seite bereitgestellt wird.
+> Die Beispielseite zeigt eine nützliche Django-Funktion: die automatische Anzeige von Debug-Informationen. Wenn eine Seite nicht gefunden werden kann, zeigt Django eine Fehlerseite mit hilfreichen Informationen oder mit einem vom Code ausgelösten Fehler an. In diesem Fall sehen wir, dass die angegebene URL keinem unserer aufgeführten URL-Muster entspricht. In der Produktionsumgebung, wenn die Website im Web veröffentlicht ist, wird diese Ausgabe deaktiviert. Stattdessen wird eine weniger informative, aber benutzerfreundlichere Seite angezeigt.
 
-## Vergessen Sie nicht, auf GitHub zu sichern
+## Vergessen Sie nicht, Ihr Projekt auf GitHub zu sichern
 
-Wir haben gerade bedeutende Arbeit geleistet, daher ist jetzt ein guter Zeitpunkt, um das Projekt mit GitHub zu sichern.
+Wir haben gerade einige wichtige Arbeiten abgeschlossen. Daher ist jetzt ein guter Zeitpunkt, das Projekt mithilfe von GitHub zu sichern.
 
-Bewegen Sie zuerst den _Inhalt_ des oberen **locallibrary** Ordners in den **django_local_library** Ordner, den Sie [als lokales GitHub-Repository erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#clone_the_repo_to_your_local_computer), als Sie die Entwicklungsumgebung eingerichtet haben. Dies beinhaltet **manage.py**, den **locallibrary** Unterordner, den **catalog** Unterordner und alles andere im oberen Ordner.
+Verschieben Sie zunächst den _Inhalt_ des Ordners **locallibrary** auf oberster Ebene in den Ordner **django_local_library**, den Sie beim Einrichten der Entwicklungsumgebung [als lokales GitHub-Repository erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#clone_the_repo_to_your_local_computer) haben.
+Dazu gehören **manage.py**, der Unterordner **locallibrary**, der Unterordner **catalog** und alles Weitere im Ordner auf oberster Ebene.
 
-Dann fügen Sie die Änderungen im **django_local_library** Ordner hinzu, committen sie und schieben sie zu GitHub. Vom Root dieses Ordners aus können Sie eine ähnliche Reihe von Befehlen wie die im Abschnitt [Änderungen ändern und synchronisieren](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#modify_and_sync_changes) des Themas _Entwicklungsumgebung_ verwenden:
+Fügen Sie anschließend die Änderungen im Ordner **django_local_library** hinzu, committen Sie sie und pushen Sie sie zu GitHub.
+Im Stammverzeichnis dieses Ordners können Sie ähnliche Befehle verwenden wie im Abschnitt [Änderungen vornehmen und synchronisieren](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#modify_and_sync_changes) des Themas _Entwicklungsumgebung_:
 
 ```bash
 # Get the current source from GitHub on the main branch
@@ -368,7 +376,8 @@ git commit -m "Create Skeleton framework for LocalLibrary" # Commit the changed 
 git push origin skeleton_website
 ```
 
-Dann erstellen und mergen Sie einen PR von Ihrem GitHub-Repo. Nach dem Mergen können Sie zurück zum `main`-Zweig wechseln und Ihre Änderungen von GitHub ziehen:
+Erstellen Sie dann in Ihrem GitHub-Repository einen Pull Request (PR) und führen Sie ihn zusammen.
+Danach können Sie zum Branch `main` zurückwechseln und Ihre Änderungen von GitHub abrufen:
 
 ```bash
 git checkout main
@@ -376,26 +385,26 @@ git pull origin main
 ```
 
 > [!NOTE]
-> Wenn Sie den `skeleton_website`-Zweig nicht löschen, können Sie jederzeit zu einem späteren Zeitpunkt zu ihm zurückkehren.
+> Wenn Sie den Branch `skeleton_website` nicht löschen, können Sie jederzeit später zu ihm zurückwechseln.
 
-Wir werden dies möglicherweise nicht jedes Mal in Zukunft erwähnen, aber vielleicht finden Sie es nützlich, GitHub am Ende jedes Abschnitts in diesem Tutorial mit Ihren Änderungen zu aktualisieren.
+Wir werden dies künftig nicht unbedingt jedes Mal erwähnen. Es kann jedoch sinnvoll sein, GitHub nach jedem Abschnitt dieses Tutorials mit Ihren Änderungen zu aktualisieren.
 
-## Fordern Sie sich heraus
+## Probieren Sie es selbst aus
 
-Das **catalog/** Verzeichnis enthält Dateien für die Ansichten, Modelle und andere Teile der Anwendung. Öffnen Sie diese Dateien und inspizieren Sie das Boilerplate.
+Das Verzeichnis **catalog/** enthält Dateien für die Views, Modelle und andere Teile der Anwendung. Öffnen Sie diese Dateien und sehen Sie sich den enthaltenen Standardcode an.
 
-Wie Sie zuvor gesehen haben, wurde dem `urls.py`-Projekt bereits eine URL-Zuweisung für die Admin-Site hinzugefügt. Navigieren Sie im Browser zum Admin-Bereich und sehen Sie, was passiert (Sie können die korrekte URL aus der Zuordnung ableiten).
+Wie Sie bereits gesehen haben, wurde in der Datei **urls.py** des Projekts schon eine URL-Zuordnung für die Administrationsoberfläche hinzugefügt. Rufen Sie den Administrationsbereich in Ihrem Browser auf und sehen Sie nach, was passiert. Die passende URL können Sie aus der Zuordnung ableiten.
 
 ## Zusammenfassung
 
-Sie haben nun ein vollständiges Skelett-Website-Projekt erstellt, das Sie mit URLs, Modellen, Ansichten und Vorlagen füllen können.
+Sie haben nun ein vollständiges Website-Projekt als Grundgerüst erstellt, das Sie als Nächstes um URLs, Modelle, Views und Templates ergänzen können.
 
-Da das Skelett für die [Local Library Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) jetzt vollständig und funktionsfähig ist, ist es an der Zeit, den Code zu schreiben, der diese Website das tun lässt, wofür sie gedacht ist.
+Da das Grundgerüst für die [Local-Library-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) fertig ist und läuft, können wir nun den Code schreiben, der die vorgesehenen Funktionen der Website umsetzt.
 
 ## Siehe auch
 
-- [Writing your first Django app - part 1](https://docs.djangoproject.com/en/5.0/intro/tutorial01/) (Django Dokumentation)
-- [Anwendungen](https://docs.djangoproject.com/en/5.0/ref/applications/#configuring-applications) (Django Dokumentation).
+- [Ihre erste Django-Anwendung schreiben – Teil 1](https://docs.djangoproject.com/en/6.1/intro/tutorial01/) (Django-Dokumentation)
+- [Anwendungen](https://docs.djangoproject.com/en/6.1/ref/applications/#configuring-applications) (Django-Dokumentation).
   Enthält Informationen zur Konfiguration von Anwendungen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website", "Learn_web_development/Extensions/Server-side/Django/Models", "Learn_web_development/Extensions/Server-side/Django")}}

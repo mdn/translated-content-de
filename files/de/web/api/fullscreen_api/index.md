@@ -2,77 +2,91 @@
 title: Fullscreen API
 slug: Web/API/Fullscreen_API
 l10n:
-  sourceCommit: 2c6874c58a262083450afcc76789d4399adb6583
+  sourceCommit: 9740186550ed818e727ecc9906b499cdbe951cfc
 ---
 
 {{DefaultAPISidebar("Fullscreen API")}}
 
-Die **Fullscreen-API** fügt Methoden hinzu, um ein bestimmtes [`Element`](/de/docs/Web/API/Element) (und seine Nachkommen) im Vollbildmodus anzuzeigen und den Vollbildmodus zu verlassen, wenn er nicht mehr benötigt wird. Dies ermöglicht es, gewünschte Inhalte – wie beispielsweise ein Online-Spiel – auf dem gesamten Bildschirm des Benutzers darzustellen, wodurch alle Benutzeroberflächenelemente des Browsers und andere Anwendungen vom Bildschirm entfernt werden, bis der Vollbildmodus beendet wird.
+Die **Fullscreen API** stellt Methoden bereit, mit denen ein bestimmtes [`Element`](/de/docs/Web/API/Element) (und seine Nachfahren) im Vollbildmodus angezeigt und der Vollbildmodus wieder beendet werden kann, wenn er nicht mehr benötigt wird.
+So lassen sich gewünschte Inhalte – etwa ein Onlinespiel – auf dem gesamten Bildschirm des Benutzers anzeigen. Dabei werden alle Elemente der Browseroberfläche und andere Anwendungen vom Bildschirm ausgeblendet, bis der Vollbildmodus beendet wird.
 
-Lesen Sie den Artikel [Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide) für Details zur Verwendung der API.
+Weitere Informationen zur Verwendung der API finden Sie im Artikel [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide).
 
 ## Schnittstellen
 
-_Die Fullscreen-API hat keine eigenen Schnittstellen. Stattdessen erweitert sie mehrere andere Schnittstellen, um die Methoden, Eigenschaften und Ereignishandler hinzuzufügen, die zur Bereitstellung der Vollbildfunktionalität benötigt werden. Diese sind in den folgenden Abschnitten aufgeführt._
+_Die Fullscreen API hat keine eigenen Schnittstellen. Stattdessen erweitert sie mehrere andere Schnittstellen um die Methoden, Eigenschaften und Event-Handler, die für die Vollbildfunktion benötigt werden. Diese werden in den folgenden Abschnitten aufgeführt._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die Fullscreen-API fügt den [`Document`](/de/docs/Web/API/Document) und [`Element`](/de/docs/Web/API/Element)-Schnittstellen Methoden hinzu, um den Vollbildmodus ein- und auszuschalten.
+Die Fullscreen API ergänzt die Schnittstellen [`Document`](/de/docs/Web/API/Document) und [`Element`](/de/docs/Web/API/Element) um Methoden zum Aktivieren und Beenden des Vollbildmodus.
 
-### Instanz-Methoden in der Document-Schnittstelle
+### Instanzmethoden der Document-Schnittstelle
 
 - [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
-  - : Fordert, dass der {{Glossary("user_agent", "Benutzer-Agent")}} vom Vollbildmodus in den Fenstermodus wechselt. Gibt ein {{jsxref("Promise")}} zurück, welches aufgelöst wird, sobald der Vollbildmodus vollständig beendet ist.
+  - : Fordert den {{Glossary("user_agent", "User Agent")}} auf, vom Vollbildmodus in den Fenstermodus zurückzukehren. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Vollbildmodus vollständig beendet wurde.
 
-### Instanz-Methoden in der Element-Schnittstelle
+### Instanzmethoden der Element-Schnittstelle
 
 - [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
-  - : Fordert den Benutzer-Agent auf, das angegebene Element (und damit auch seine Nachkommen) in den Vollbildmodus zu versetzen, wodurch alle UI-Elemente des Browsers sowie alle anderen Anwendungen vom Bildschirm entfernt werden. Gibt ein {{jsxref("Promise")}} zurück, welches aufgelöst wird, sobald der Vollbildmodus aktiviert wurde.
+  - : Fordert den User Agent auf, das angegebene Element (und damit auch seine Nachfahren) im Vollbildmodus anzuzeigen. Dabei werden alle Elemente der Browseroberfläche sowie andere Anwendungen vom Bildschirm ausgeblendet. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Vollbildmodus aktiviert wurde.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) / [`ShadowRoot.fullscreenElement`](/de/docs/Web/API/ShadowRoot/fullscreenElement)
-  - : Die Eigenschaft `fullscreenElement` gibt das [`Element`](/de/docs/Web/API/Element) an, das momentan im Vollbildmodus im DOM (oder Shadow DOM) angezeigt wird. Wenn dies `null` ist, befindet sich das Dokument (oder Shadow DOM) nicht im Vollbildmodus.
+  - : Die Eigenschaft `fullscreenElement` gibt das [`Element`](/de/docs/Web/API/Element) an, das derzeit im DOM (oder Shadow DOM) im Vollbildmodus angezeigt wird.
+    Ist der Wert `null`, befindet sich das Dokument (oder Shadow DOM) nicht im Vollbildmodus.
 - [`Document.fullscreenEnabled`](/de/docs/Web/API/Document/fullscreenEnabled)
-  - : Die Eigenschaft `fullscreenEnabled` gibt an, ob es möglich ist, in den Vollbildmodus zu wechseln. Dies ist `false`, wenn der Vollbildmodus aus irgendeinem Grund nicht verfügbar ist (z. B. wenn die Funktion `"fullscreen"` nicht erlaubt ist oder der Vollbildmodus nicht unterstützt wird).
+  - : Die Eigenschaft `fullscreenEnabled` gibt an, ob der Vollbildmodus aktiviert werden kann.
+    Ihr Wert ist `false`, wenn der Vollbildmodus aus irgendeinem Grund nicht verfügbar ist (etwa weil die Funktion `"fullscreen"` nicht erlaubt ist oder der Vollbildmodus nicht unterstützt wird).
 
 ### Veraltete Eigenschaften
 
 - [`Document.fullscreen`](/de/docs/Web/API/Document/fullscreen) {{Deprecated_Inline}}
-  - : Ein Boolescher Wert, der `true` ist, wenn das Dokument ein Element hat, das momentan im Vollbildmodus angezeigt wird; andernfalls gibt er `false` zurück.
+  - : Ein boolescher Wert, der `true` ist, wenn im Dokument derzeit ein Element im Vollbildmodus angezeigt wird; andernfalls gibt die Eigenschaft `false` zurück.
 
     > [!NOTE]
-    > Verwenden Sie stattdessen die Eigenschaft [`fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) auf dem [`Document`](/de/docs/Web/API/Document) oder [`ShadowRoot`](/de/docs/Web/API/ShadowRoot); wenn es nicht `null` ist, dann handelt es sich um ein [`Element`](/de/docs/Web/API/Element), das momentan im Vollbildmodus angezeigt wird.
+    > Verwenden Sie stattdessen die Eigenschaft [`fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) von [`Document`](/de/docs/Web/API/Document) oder [`ShadowRoot`](/de/docs/Web/API/ShadowRoot). Ist ihr Wert nicht `null`, verweist sie auf ein [`Element`](/de/docs/Web/API/Element), das derzeit im Vollbildmodus angezeigt wird.
 
 ## Ereignisse
 
 - [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)
-  - : Wird an ein [`Element`](/de/docs/Web/API/Element) gesendet, wenn es in den oder aus dem Vollbildmodus wechselt.
+  - : Wird an ein [`Element`](/de/docs/Web/API/Element) gesendet, wenn es in den Vollbildmodus wechselt oder ihn verlässt.
 - [`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event)
-  - : Wird an ein `Element` gesendet, wenn ein Fehler beim Wechseln in den oder aus dem Vollbildmodus auftritt.
+  - : Wird an ein `Element` gesendet, wenn beim Versuch, es in den Vollbildmodus zu versetzen oder diesen zu beenden, ein Fehler auftritt.
 
-## Zugriffskontrolle
+## Sicherheitsaspekte
 
-Die Verfügbarkeit des Vollbildmodus kann mit einer [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden. Das Feature für den Vollbildmodus wird durch den String `"fullscreen"` identifiziert, mit einem standardmäßigen Allowlist-Wert von `"self"`, was bedeutet, dass der Vollbildmodus in höchstebenen Dokumentenkontexten sowie in eingebetteten Browsing-Kontexten erlaubt ist, die von derselben Herkunft wie das oberste Dokument geladen werden.
+Zum Aktivieren des Vollbildmodus ist eine [vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) erforderlich: Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion verwendet werden kann.
 
-## Verwendungshinweise
+Der Vollbildmodus wird durch die [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Direktive {{HTTPHeader("Permissions-Policy/fullscreen","fullscreen")}} gesteuert.
 
-Benutzer können den Vollbildmodus beenden, indem sie die <kbd>ESC</kbd> (oder <kbd>F11</kbd>) Taste drücken, anstatt darauf zu warten, dass die Website oder App dies programmgesteuert tut. Stellen Sie sicher, dass Sie in Ihrer Benutzeroberfläche geeignete Elemente bereitstellen, die den Benutzer darüber informieren, dass diese Möglichkeit besteht.
+Die Standard-Allowlist für `fullscreen` ist `self`.
+Damit ist die Verwendung des Vollbildmodus in verschachtelten Frames derselben Origin möglich, in Inhalten von Drittanbietern jedoch nicht.
+Um die Verwendung durch einen Drittanbieter zu ermöglichen, muss der Server zunächst mit dem `Permissions-Policy`-Header einer bestimmten Drittanbieter-Origin die Berechtigung erteilen.
 
-> [!NOTE]
-> Das Navigieren zu einer anderen Seite, das Wechseln von Tabs oder das Umschalten zu einer anderen Anwendung über einen beliebigen Anwendungsumschalter (oder <kbd>Alt</kbd>-<kbd>Tab</kbd>) wird ebenfalls den Vollbildmodus beenden.
+```http
+Permissions-Policy: fullscreen=(self "https://b.example.com")
+```
+
+Anschließend muss das Attribut `allow="fullscreen"` zum Frame-Container-Element für Quellen dieser Origin hinzugefügt werden:
+
+```html
+<iframe src="https://b.example.com" allow="fullscreen"></iframe>
+```
+
+Mit der `fullscreen`-Berechtigung der [Permissions API](/de/docs/Web/API/Permissions_API) lässt sich prüfen, ob der Zugriff auf den Vollbildmodus `granted`, `denied` oder `prompt` ist (eine Bestätigung durch den Benutzer erfordert).
 
 ## Beispiele
 
-### Einfache Nutzung des Vollbildmodus
+### Einfache Verwendung des Vollbildmodus
 
-In diesem Beispiel wird ein Video auf einer Webseite präsentiert. Durch Drücken der <kbd>Enter</kbd>-Taste kann der Benutzer zwischen der Fenster- und der Vollbilddarstellung des Videos umschalten.
+In diesem Beispiel wird ein Video auf einer Webseite angezeigt. Durch Drücken der <kbd>Eingabetaste</kbd> kann der Benutzer zwischen der Anzeige im Fenster und im Vollbildmodus wechseln.
 
-[Beispiel live ansehen](https://mdn.github.io/dom-examples/fullscreen-api/index.html)
+[Live-Beispiel ansehen](https://mdn.github.io/dom-examples/fullscreen-api/index.html)
 
-#### Überwachen der Enter-Taste
+#### Auf die Eingabetaste reagieren
 
-Wenn die Seite geladen ist, wird dieser Code ausgeführt, um einen Ereignislistener einzurichten, der auf die <kbd>Enter</kbd>-Taste achtet.
+Beim Laden der Seite wird dieser Code ausgeführt, um einen Event-Listener einzurichten, der auf die <kbd>Eingabetaste</kbd> reagiert.
 
 ```js
 const video = document.getElementById("video");
@@ -85,9 +99,9 @@ document.addEventListener("keydown", (e) => {
 });
 ```
 
-#### Umschalten des Vollbildmodus
+#### Zwischen Fenster- und Vollbildmodus wechseln
 
-Dieser Code wird von dem oben genannten Ereignishandler aufgerufen, wenn der Benutzer die <kbd>Enter</kbd>-Taste drückt.
+Dieser Code wird vom obigen Event-Handler aufgerufen, wenn der Benutzer die <kbd>Eingabetaste</kbd> drückt.
 
 ```js
 function toggleFullScreen(video) {
@@ -102,9 +116,9 @@ function toggleFullScreen(video) {
 }
 ```
 
-Das beginnt mit der Untersuchung des Wertes des `fullscreenElement`-Attributs des [`document`](/de/docs/Web/API/Document). Wenn der Wert `null` ist, befindet sich das Dokument derzeit im Fenstermodus, weshalb wir in den Vollbildmodus wechseln müssen; andernfalls ist es das Element, das derzeit im Vollbildmodus ist. Der Wechsel in den Vollbildmodus erfolgt durch Aufruf von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) auf dem {{HTMLElement("video")}} Element.
+Zunächst wird der Wert des Attributs `fullscreenElement` von [`document`](/de/docs/Web/API/Document) geprüft. Ist der Wert `null`, befindet sich das Dokument derzeit im Fenstermodus und muss in den Vollbildmodus wechseln. Andernfalls verweist der Wert auf das Element, das derzeit im Vollbildmodus angezeigt wird. Der Wechsel in den Vollbildmodus erfolgt durch Aufrufen von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) auf dem {{HTMLElement("video")}}-Element.
 
-Wenn der Vollbildmodus bereits aktiv ist (`fullscreenElement` ist nicht `null`), rufen wir [`exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) auf dem `document` auf, um den Vollbildmodus zu beenden.
+Ist der Vollbildmodus bereits aktiv (`fullscreenElement` ist nicht `null`), rufen wir [`exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) auf `document` auf, um den Vollbildmodus zu beenden.
 
 ## Spezifikationen
 

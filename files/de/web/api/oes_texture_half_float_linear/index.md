@@ -1,25 +1,26 @@
 ---
-title: OES_texture_half_float_linear Erweiterung
+title: OES_texture_half_float_linear-Erweiterung
 short-title: OES_texture_half_float_linear
 slug: Web/API/OES_texture_half_float_linear
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_texture_half_float_linear`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht lineares Filtern mit halb gleitenden Pixeltypen für Texturen.
+Die Erweiterung **`OES_texture_half_float_linear`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht lineare Filterung für Texturen mit Pixeltypen mit halber Gleitkommagenauigkeit.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar und die Erweiterung wird nicht benötigt.
+> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) steht diese Funktionalität im WebGL2-Kontext standardmäßig zur Verfügung; die Erweiterung wird nicht benötigt.
 
-## Lineares Filtern
+## Lineare Filterung
 
-Die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float) Erweiterung allein erlaubt kein lineares Filtern mit halb gleitenden Texturen. Diese Erweiterung aktiviert diese Fähigkeit.
+Die Erweiterung [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float) allein ermöglicht keine lineare Filterung für Texturen mit halber Gleitkommagenauigkeit. Diese Erweiterung stellt die Funktionalität bereit.
 
-Mit Hilfe dieser Erweiterung können Sie nun den Vergrößerungs- oder Verkleinerungsfilter in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf einen der Werte `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und halb gleitende Texturen verwenden.
+Mit dieser Erweiterung können Sie den Vergrößerungs- oder Verkleinerungsfilter in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und Texturen mit halber Gleitkommagenauigkeit verwenden.
 
 ## Beispiele
 

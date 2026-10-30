@@ -3,7 +3,7 @@ title: Temporal.PlainYearMonth.prototype.toJSON()
 short-title: toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/toJSON
 l10n:
-  sourceCommit: 13d5331637ae88b41af236e4b3d1b6c901d08f69
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
 Die Methode **`toJSON()`** von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen String zurück, der dieses Jahr und diesen Monat im selben [RFC-9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/PlainYearMonth/toString", "toString()")}}. Sie ist dafür vorgesehen, implizit von {{jsxref("JSON.stringify()")}} aufgerufen zu werden.
@@ -24,7 +24,7 @@ Ein String, der das angegebene Datum im [RFC-9557-Format](/de/docs/Web/JavaScrip
 
 ## Beschreibung
 
-Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.PlainYearMonth`-Objekt in einen String umgewandelt wird. Sie dient im Allgemeinen dazu, `Temporal.PlainYearMonth`-Objekte bei der {{Glossary("JSON", "JSON")}}-Serialisierung standardmäßig in einer brauchbaren Form zu serialisieren. Anschließend können sie mithilfe der Funktion {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} im Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden.
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `Temporal.PlainYearMonth`-Objekt vorkommt. Der serialisierte Wert kann anschließend mithilfe der Funktion {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} im Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ const ym2 = Temporal.PlainYearMonth.from(ymStr);
 
 ### JSON-Serialisierung und -Parsing
 
-Dieses Beispiel zeigt, wie `Temporal.PlainYearMonth` ohne zusätzlichen Aufwand als JSON serialisiert und anschließend wieder eingelesen werden kann.
+Dieses Beispiel zeigt, wie `Temporal.PlainYearMonth` ohne zusätzlichen Aufwand als JSON serialisiert und anschließend wieder geparst werden kann.
 
 ```js
 const ym = Temporal.PlainYearMonth.from({ year: 2021, month: 8 });

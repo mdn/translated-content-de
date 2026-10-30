@@ -1,14 +1,14 @@
 ---
-title: "OES_draw_buffers_indexed: disableiOES()-Methode"
+title: "OES_draw_buffers_indexed: Methode disableiOES()"
 short-title: disableiOES()
 slug: Web/API/OES_draw_buffers_indexed/disableiOES
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die `disableiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung deaktiviert das Blending für einen bestimmten Zeichnungspuffer.
+Die Methode `disableiOES()` der WebGL-Erweiterung [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) aktiviert Blending für einen bestimmten Draw-Buffer.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ disableiOES(target, index)
 - `target`
   - : Muss `gl.BLEND` sein.
 - `index`
-  - : Ein ganzzahliger `i`, der den Zeichnungspuffer angegeben wird, der mit der Konstante `gl.DRAW_BUFFERi` verbunden ist, siehe [WebGL-Zeichnungspuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Eine Ganzzahl `i`, die den Draw-Buffer angibt, der der Konstante `gl.DRAW_BUFFERi` zugeordnet ist. Siehe [WebGL-Draw-Buffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 
 ### Rückgabewert
 
@@ -34,9 +34,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Deaktivierung des Blendings für Zeichnungspuffer
+### Blending für Draw-Buffer deaktivieren
 
-Die folgenden beiden Aufrufe deaktivieren das Blending für die Zeichnungspuffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1`.
+Die folgenden beiden Aufrufe deaktivieren Blending für die Draw-Buffer `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1`.
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -56,4 +56,4 @@ ext.disableiOES(gl.BLEND, 1);
 ## Siehe auch
 
 - [`OES_draw_buffers_indexed.enableiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/enableiOES)
-- [WebGL-Zeichnungspuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers)
+- [WebGL-Draw-Buffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers)

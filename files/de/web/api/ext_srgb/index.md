@@ -1,32 +1,33 @@
 ---
-title: EXT_sRGB Erweiterung
+title: EXT_sRGB-Erweiterung
 short-title: EXT_sRGB
 slug: Web/API/EXT_sRGB
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`EXT_sRGB`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt sRGB-Unterstützung zu Texturen und Framebuffer-Objekten hinzu.
+Die Erweiterung **`EXT_sRGB`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ergänzt Texturen und Framebuffer-Objekte um sRGB-Unterstützung.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) steht die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext zur Verfügung. Die Konstanten in WebGL2 sind: `gl.SRGB`, `gl.SRGB8`, `gl.SRGB8_ALPHA8` und `gl.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING`.
+> Diese Erweiterung ist nur in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexten verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist ihre Funktionalität standardmäßig im WebGL2-Kontext verfügbar. Die Konstanten in WebGL2 lauten: `gl.SRGB`, `gl.SRGB8`, `gl.SRGB8_ALPHA8` und `gl.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING`.
 
 ## Konstanten
 
 Diese Erweiterung stellt die folgenden Konstanten bereit, die in den Methoden [`texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D), [`texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D), [`renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage) und [`getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter) verwendet werden können.
 
 - `ext.SRGB_EXT`
-  - : Ungerastertes sRGB-Format, das die Präzision dem Treiber überlässt.
+  - : sRGB-Format ohne festgelegte Größe, bei dem die Genauigkeit dem Treiber überlassen bleibt.
 - `ext.SRGB_ALPHA_EXT`
-  - : Ungerastertes sRGB-Format mit ungerasterter Alphakomponente.
+  - : sRGB-Format ohne festgelegte Größe mit einer Alpha-Komponente ohne festgelegte Größe.
 - `ext.SRGB8_ALPHA8_EXT`
-  - : Gerasterte (8-Bit) sRGB- und Alpha-Formate.
+  - : sRGB- und Alpha-Formate mit festgelegter Größe (8 Bit).
 - `ext.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT`
-  - : Gibt die Framebuffer-Farbkodierung zurück (`gl.LINEAR` oder `ext.SRGB_EXT`).
+  - : Gibt die Farbkodierung des Framebuffers zurück (`gl.LINEAR` oder `ext.SRGB_EXT`).
 
 ## Beispiele
 

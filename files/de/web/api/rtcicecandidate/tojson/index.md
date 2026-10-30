@@ -1,16 +1,16 @@
 ---
-title: "RTCIceCandidate: toJSON()-Methode"
+title: "RTCIceCandidate: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/RTCIceCandidate/toJSON
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 15d531b54c7f0d96ac80ef00b494fd40743d59ce
 ---
 
 {{APIRef("WebRTC")}}
 
-Die Methode **`toJSON()`** von [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) konvertiert das `RTCIceCandidate`, auf dem sie aufgerufen wird, in JSON.
+Die Methode **`toJSON()`** der Schnittstelle [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `RTCIceCandidate`-Objekt repräsentiert.
 
-Eine serialisierte Version des Objekts kann dann durch Aufruf von {{jsxref("JSON.stringify", "stringify()")}} auf dem zurückgegebenen Objekt erhalten werden.
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `RTCIceCandidate`-Objekt vorkommt. Der serialisierte Wert kann anschließend mit dem Konstruktor [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate) innerhalb der Reviver-Funktion von {{jsxref("JSON.parse()")}} deserialisiert werden.
 
 ## Syntax
 
@@ -24,35 +24,52 @@ Keine.
 
 ### Rückgabewert
 
-<!-- RTCIceCandidateInit in spec -->
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
-Ein JSON-Objekt mit den folgenden Eigenschaften, die auf die entsprechenden Werte im `RTCIceCandidate`-Objekt gesetzt wurden:
+- [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate)
+- [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid)
+- [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex)
+- [`usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment)
 
-- `candidate` {{optional_inline}}
-  - : Ein String, der die Netzwerkverbindungsinformationen für den Kandidaten beschreibt.
-    Weitere Informationen finden Sie in [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate).
-- `sdpMid` {{optional_inline}}
-  - : Ein String, der das Identifikations-Tag des Medienstroms enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein zugeordneter Medienstrom vorhanden ist.
-    Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
-
-- `sdpMLineIndex` {{optional_inline}}
-  - : Eine Zahleneigenschaft, die den nullbasierten Index der m-Linie enthält, mit der der Kandidat in der [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn keine solche Verknüpfung besteht.
-    Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
-
-- `usernameFragment` {{optional_inline}}
-  - : Ein String, der das Benutzername-Fragment enthält (häufig in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet).
-    Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeglicher Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server).
-    Weitere Informationen finden Sie in [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
-
-> [!NOTE]
-> Das zurückgegebene JSON-Objekt hat die gleiche Form/Eigenschaften wie das `candidateInfo`-Objekt, das optional an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben werden kann, um den Kandidaten zu konfigurieren.
+Der Wert jeder Eigenschaft wird unverändert kopiert.
 
 ## Beispiele
 
-Dieses einfache Beispiel erhält einen JSON-String, der ein `RTCIceCandidate` repräsentiert, das in der Variablen `candidate` gefunden wurde.
+### toJSON() direkt aufrufen
+
+Dieses Beispiel erstellt ein `RTCIceCandidate`-Objekt. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
-let jsonString = candidate.toJSON().stringify();
+const candidate = new RTCIceCandidate({
+  candidate: "",
+  sdpMid: "0",
+  sdpMLineIndex: 0,
+});
+
+const json = candidate.toJSON();
+console.log(json); // A plain object
+console.log(typeof json); // "object"
+console.log(json.candidate); // Same value as candidate.candidate
+```
+
+### In einen JSON-String serialisieren
+
+Das `RTCIceCandidate`-Objekt aus dem vorherigen Beispiel wird mit {{jsxref("JSON.stringify()")}} serialisiert. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+const jsonString = JSON.stringify(candidate);
+console.log(jsonString);
+```
+
+Dadurch würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
+
+```json
+{
+  "candidate": "",
+  "sdpMid": "0",
+  "sdpMLineIndex": 0,
+  "usernameFragment": null
+}
 ```
 
 ## Spezifikationen

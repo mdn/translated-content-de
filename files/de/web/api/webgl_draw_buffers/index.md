@@ -3,47 +3,48 @@ title: WEBGL_draw_buffers-Erweiterung
 short-title: WEBGL_draw_buffers
 slug: Web/API/WEBGL_draw_buffers
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_draw_buffers`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es einem Fragment-Shader, in mehrere Texturen zu schreiben. Dies ist nützlich zum Beispiel für [Deferred Shading](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/).
+Die Erweiterung **`WEBGL_draw_buffers`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es einem Fragment-Shader, in mehrere Texturen zu schreiben. Das ist beispielsweise für [Deferred Shading](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/) nützlich.
 
-WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Anleitung zur Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexten verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. In WebGL 2 sind die Konstanten ohne das "WEBGL"-Suffix verfügbar und die neuen GLSL-Built-ins erfordern GLSL `#version 300 es`.
+> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) steht die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig zur Verfügung. In WebGL 2 sind die Konstanten ohne das Suffix „WEBGL“ verfügbar, und die neuen integrierten GLSL-Variablen erfordern GLSL `#version 300 es`.
 
 ## Konstanten
 
 Diese Erweiterung stellt neue Konstanten bereit, die in den Methoden [`gl.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer), [`gl.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D), [`gl.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter), [`ext.drawBuffersWEBGL()`](/de/docs/Web/API/WEBGL_draw_buffers/drawBuffersWEBGL) und [`gl.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) verwendet werden können.
 
 - `ext.COLOR_ATTACHMENT0_WEBGL`, `ext.COLOR_ATTACHMENT1_WEBGL`, `ext.COLOR_ATTACHMENT2_WEBGL`, `ext.COLOR_ATTACHMENT3_WEBGL`, `ext.COLOR_ATTACHMENT4_WEBGL`, `ext.COLOR_ATTACHMENT5_WEBGL`, `ext.COLOR_ATTACHMENT6_WEBGL`, `ext.COLOR_ATTACHMENT7_WEBGL`, `ext.COLOR_ATTACHMENT8_WEBGL`, `ext.COLOR_ATTACHMENT9_WEBGL`, `ext.COLOR_ATTACHMENT10_WEBGL`, `ext.COLOR_ATTACHMENT11_WEBGL`, `ext.COLOR_ATTACHMENT12_WEBGL`, `ext.COLOR_ATTACHMENT13_WEBGL`, `ext.COLOR_ATTACHMENT14_WEBGL`, `ext.COLOR_ATTACHMENT15_WEBGL`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Farb-Puffer angibt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das einen Farbpuffer angibt.
 - `ext.DRAW_BUFFER0_WEBGL`, `ext.DRAW_BUFFER1_WEBGL`, `ext.DRAW_BUFFER2_WEBGL`, `ext.DRAW_BUFFER3_WEBGL`, `ext.DRAW_BUFFER4_WEBGL`, `ext.DRAW_BUFFER5_WEBGL`, `ext.DRAW_BUFFER6_WEBGL`, `ext.DRAW_BUFFER7_WEBGL`, `ext.DRAW_BUFFER8_WEBGL ext.DRAW_BUFFER9_WEBGL`, `ext.DRAW_BUFFER10_WEBGL`, `ext.DRAW_BUFFER11_WEBGL`, `ext.DRAW_BUFFER12_WEBGL`, `ext.DRAW_BUFFER13_WEBGL`, `ext.DRAW_BUFFER14_WEBGL`, `ext.DRAW_BUFFER15_WEBGL`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Zeichenpuffer zurückgibt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das einen Zeichenpuffer zurückgibt.
 - `ext.MAX_COLOR_ATTACHMENTS_WEBGL`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die maximale Anzahl von Framebuffer-Farb-Anschlusspunkten angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die maximale Anzahl von Farbanhangspunkten eines Framebuffers angibt.
 - `ext.MAX_DRAW_BUFFERS_WEBGL`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die maximale Anzahl von Zeichenpuffern angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die maximale Anzahl von Zeichenpuffern angibt.
 
 ## Instanzmethoden
 
 Diese Erweiterung stellt eine neue Methode bereit.
 
 - [`ext.drawBuffersWEBGL()`](/de/docs/Web/API/WEBGL_draw_buffers/drawBuffersWEBGL)
-  - : Definiert die Zeichenpuffer, in die alle Fragmentfarben geschrieben werden. (Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers) verfügbar).
+  - : Legt die Zeichenpuffer fest, in die alle Fragmentfarben geschrieben werden. (Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers) verfügbar.)
 
 ## Beispiele
 
-Aktivierung der Erweiterung:
+Die Erweiterung aktivieren:
 
 ```js
 const ext = gl.getExtension("WEBGL_draw_buffers");
 ```
 
-Mehrere Texturen (zu einem `tx[]`-Array) an verschiedene Framebuffer-Farbanfügungen binden:
+Mehrere Texturen (aus einem `tx[]`-Array) an verschiedene Farbanhänge eines Framebuffers binden:
 
 ```js
 const fb = gl.createFramebuffer();
@@ -78,7 +79,7 @@ gl.framebufferTexture2D(
 );
 ```
 
-Farb-Anhänge in Zeichnen-Puffer-Slots abbilden, in die der Fragment-Shader mittels `gl_FragData` schreiben wird:
+Die Farbanhänge den Zeichenpuffer-Slots zuordnen, in die der Fragment-Shader mittels `gl_FragData` schreibt:
 
 ```js
 ext.drawBuffersWEBGL([
@@ -118,4 +119,4 @@ Shader-Code, der in mehrere Texturen schreibt:
 
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGL2RenderingContext.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers)
-- [WebGL deferred shading - Mozilla Hacks Blog](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/)
+- [WebGL Deferred Shading – Mozilla-Hacks-Blog](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/)

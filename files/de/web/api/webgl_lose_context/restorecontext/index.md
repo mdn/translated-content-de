@@ -1,16 +1,16 @@
 ---
-title: "WEBGL_lose_context: restoreContext() Methode"
+title: "WEBGL_lose_context: Methode restoreContext()"
 short-title: restoreContext()
 slug: Web/API/WEBGL_lose_context/restoreContext
 l10n:
-  sourceCommit: cedeb457a35e8cc06f5760495caa3ecc2571db25
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`restoreContext()`** Methode der `WEBGL_lose_context` Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, das Wiederherstellen des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) zu simulieren.
+Die Methode **`restoreContext()`** der Erweiterung `WEBGL_lose_context` ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, die Wiederherstellung des Kontexts eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) zu simulieren.
 
-Sie löst die [im WebGL-Spezifikation beschriebenen Schritte](https://registry.khronos.org/webgl/specs/latest/1.0/#5.15.3) zum Umgang mit wiederhergestellten Kontexten aus. Der Kontext ist erst nach dem Auslösen des [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) Ereignisses verwendbar.
+Sie löst die [in der WebGL-Spezifikation beschriebenen Schritte](https://registry.khronos.org/webgl/specs/latest/1.0/#5.15.3) zur Handhabung eines wiederhergestellten Kontexts aus. Der Kontext kann erst verwendet werden, nachdem das Ereignis [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) ausgelöst wurde.
 
 ## Syntax
 
@@ -28,14 +28,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Browser melden WebGL-Fehler möglicherweise nicht standardmäßig. WebGLs Fehlerberichterstattung funktioniert durch Aufrufen von [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError) und Überprüfen auf Fehler. Die folgenden Ausnahmen können geworfen werden:
+Browser melden WebGL-Fehler möglicherweise nicht standardmäßig. Um WebGL-Fehler zu prüfen, rufen Sie [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError) auf. Der folgende Fehler kann auftreten:
 
 - `INVALID_OPERATION`
-  - : Wird ausgelöst, wenn der Kontext nicht verloren ging.
+  - : Tritt auf, wenn der Kontext nicht verloren gegangen war.
 
 ## Beispiele
 
-Mit dieser Methode können Sie das [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) Ereignis simulieren:
+Mit dieser Methode können Sie das Ereignis [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

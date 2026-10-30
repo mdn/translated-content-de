@@ -1,22 +1,19 @@
 ---
-title: "WEBGL_draw_buffers: drawBuffersWEBGL() Methode"
+title: "WEBGL_draw_buffers: Methode drawBuffersWEBGL()"
 short-title: drawBuffersWEBGL()
 slug: Web/API/WEBGL_draw_buffers/drawBuffersWEBGL
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_draw_buffers.drawBuffersWEBGL()`**-Methode ist Teil
-der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, die Zeichnungspuffer festzulegen, in die alle Fragmentfarben geschrieben werden.
+Die Methode **`WEBGL_draw_buffers.drawBuffersWEBGL()`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, die Zeichenpuffer festzulegen, in die alle Fragmentfarben geschrieben werden.
 
-Diese Methode ist Teil der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)-Erweiterung.
+Diese Methode ist Teil der Erweiterung [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers).
 
 > [!NOTE]
-> Beim Verwenden von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext)
-> ist diese Methode standardmäßig als [`gl.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers)
-> verfügbar, und die Konstanten sind als `gl.COLOR_ATTACHMENT1` etc. ohne das Suffix "WEBGL" benannt.
+> Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers) verfügbar. Die Konstanten heißen `gl.COLOR_ATTACHMENT1` usw., ohne das Suffix „WEBGL“.
 
 ## Syntax
 
@@ -27,12 +24,11 @@ drawBuffersWEBGL(buffers)
 ### Parameter
 
 - `buffers`
-  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types)-Konstanten, die zeichnende Puffer definieren.
+  - : Ein {{jsxref("Array")}} aus [`GLenum`](/de/docs/Web/API/WebGL_API/Types)-Konstanten, die die Zeichenpuffer festlegen.
     Mögliche Werte:
-    - `gl.NONE`: Der Fragment-Shader wird in keinen Farb-Puffer geschrieben.
-    - `gl.BACK`: Der Fragment-Shader wird in den hinteren Farb-Puffer geschrieben.
-    - `ext.COLOR_ATTACHMENT0_WEBGL` Der Fragment-Shader wird in den
-      n-ten Farbanhang des Framebuffers geschrieben.
+    - `gl.NONE`: Der Fragment-Shader schreibt in keinen Farbpuffer.
+    - `gl.BACK`: Der Fragment-Shader schreibt in den hinteren Farbpuffer.
+    - `ext.COLOR_ATTACHMENT0_WEBGL`: Der Fragment-Shader schreibt in den n-ten Farb-Anhang des Framebuffers.
     - `ext.COLOR_ATTACHMENT1_WEBGL`
     - `ext.COLOR_ATTACHMENT2_WEBGL`
     - `ext.COLOR_ATTACHMENT3_WEBGL`
@@ -55,7 +51,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers) für mehr Kontext mit diesem Beispielcode.
+Weitere Erläuterungen zu diesem Beispielcode finden Sie unter [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers).
 
 ```js
 ext.drawBuffersWEBGL([
@@ -82,4 +78,4 @@ ext.drawBuffersWEBGL([
 - [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D)
 - [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter)
 - [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter)
-- [WebGL Deferred Shading - Mozilla Hacks Blog](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/)
+- [WebGL Deferred Shading – Mozilla-Hacks-Blog](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/)

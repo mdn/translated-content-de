@@ -3,10 +3,10 @@ title: Temporal.Duration.prototype.toJSON()
 short-title: toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/toJSON
 l10n:
-  sourceCommit: 13d5331637ae88b41af236e4b3d1b6c901d08f69
+  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
 ---
 
-Die Methode **`toJSON()`** von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine Zeichenfolge zurück, die diese Dauer im selben [ISO-8601-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt wie ein Aufruf von {{jsxref("Temporal/Duration/toString", "toString()")}}. Sie ist dafür vorgesehen, implizit von {{jsxref("JSON.stringify()")}} aufgerufen zu werden.
+Die Methode **`toJSON()`** von {{jsxref("Temporal.Duration")}}-Instanzen gibt einen String zurück, der diese Dauer im selben [ISO-8601-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt wie ein Aufruf von {{jsxref("Temporal/Duration/toString", "toString()")}}. Sie ist dafür vorgesehen, implizit von {{jsxref("JSON.stringify()")}} aufgerufen zu werden.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die die angegebene Dauer im [ISO-8601-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt. Sie enthält so viele Nachkommastellen für Sekunden, wie für eine genaue Darstellung der Dauer erforderlich sind.
+Ein String, der die angegebene Dauer im [ISO-8601-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt, mit so vielen Nachkommastellen für Sekunden wie nötig, um die Dauer genau wiederzugeben.
 
 ## Beschreibung
 
-Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.Duration`-Objekt in eine Zeichenfolge umgewandelt wird. Sie dient dazu, `Temporal.Duration`-Objekte bei der {{Glossary("JSON", "JSON")}}-Serialisierung standardmäßig in einer nützlichen Form zu serialisieren. Anschließend können sie mit der Funktion {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} im Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden.
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `Temporal.Duration`-Objekt angetroffen wird. Der serialisierte Wert kann anschließend mithilfe der Funktion {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} innerhalb der Reviver-Funktion von {{jsxref("JSON.parse()")}} deserialisiert werden.
 
 ## Beispiele
 
-### toJSON() verwenden
+### Verwendung von toJSON()
 
 ```js
 const duration = Temporal.Duration.from({ hours: 1, minutes: 30, seconds: 15 });
@@ -38,7 +38,7 @@ const d2 = Temporal.Duration.from(durationStr);
 
 ### JSON-Serialisierung und -Parsing
 
-Dieses Beispiel zeigt, wie `Temporal.Duration` ohne zusätzlichen Aufwand als JSON serialisiert und anschließend wieder geparst werden kann.
+Dieses Beispiel zeigt, wie `Temporal.Duration` ohne zusätzlichen Aufwand als JSON serialisiert und anschließend wieder eingelesen werden kann.
 
 ```js
 const duration = Temporal.Duration.from({ hours: 1, minutes: 30, seconds: 15 });

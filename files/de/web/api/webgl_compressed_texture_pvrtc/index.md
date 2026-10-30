@@ -1,40 +1,41 @@
 ---
-title: WEBGL_compressed_texture_pvrtc Erweiterung
+title: WEBGL_compressed_texture_pvrtc-Erweiterung
 short-title: WEBGL_compressed_texture_pvrtc
 slug: Web/API/WEBGL_compressed_texture_pvrtc
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_compressed_texture_pvrtc`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet Zugriff auf vier [PVRTC komprimierte Texturformate](https://en.wikipedia.org/wiki/PVRTC).
+Die Erweiterung **`WEBGL_compressed_texture_pvrtc`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt vier [komprimierte PVRTC-Texturformate](https://en.wikipedia.org/wiki/PVRTC) bereit.
 
-Komprimierte Texturen reduzieren die Speichermenge, die benötigt wird, um eine Textur auf der GPU zu speichern. Dadurch können Texturen mit höherer Auflösung oder mehr Texturen mit derselben Auflösung verwendet werden.
+Komprimierte Texturen verringern den Speicherbedarf einer Textur auf der GPU. Dadurch können Texturen mit höherer Auflösung oder mehr Texturen mit derselben Auflösung verwendet werden.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> PVRTC ist typischerweise nur auf mobilen Geräten mit PowerVR-Chipsätzen verfügbar.
-> Es wird in allen Generationen des iPhone, iPod Touch und iPad verwendet und unterstützt bestimmte Android-Geräte, die eine PowerVR-GPU verwenden.
+> PVRTC ist in der Regel nur auf Mobilgeräten mit PowerVR-Chipsätzen verfügbar.
+> Es wird in allen Generationen von iPhone, iPod Touch und iPad verwendet und auf bestimmten Android-Geräten mit einer PowerVR-GPU unterstützt.
 >
-> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar.
+> Diese Erweiterung ist sowohl in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch in [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten verfügbar.
 
 > [!NOTE]
-> Auf iOS-Geräten wird diese Erweiterung `WEBKIT_WEBGL_compressed_texture_pvrtc` genannt.
+> Auf iOS-Geräten heißt diese Erweiterung `WEBKIT_WEBGL_compressed_texture_pvrtc`.
 
 ## Konstanten
 
-Die komprimierten Texturformate werden durch vier Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) (bei der die Parameter `height` und `width` Potenzen von 2 sein müssen) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D) (bei der die Höhe und Breite den aktuellen Werten der vorhandenen Textur entsprechen und die Parameter `xoffset` und `yoffset` 0 sein müssen).
+Die komprimierten Texturformate werden durch vier Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) (wobei die Parameter `height` und `width` Zweierpotenzen sein müssen) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D) (wobei die Parameter `height` und `width` den aktuellen Werten der vorhandenen Textur entsprechen und die Parameter `xoffset` und `yoffset` den Wert 0 haben müssen).
 
 - `ext.COMPRESSED_RGB_PVRTC_4BPPV1_IMG`
-  - : RGB-Kompression im 4-Bit-Modus. Ein Block für jeweils 4×4 Pixel.
+  - : RGB-Komprimierung im 4-Bit-Modus. Ein Block für jeweils 4 × 4 Pixel.
 - `ext.COMPRESSED_RGBA_PVRTC_4BPPV1_IMG`
-  - : RGBA-Kompression im 4-Bit-Modus. Ein Block für jeweils 4×4 Pixel.
+  - : RGBA-Komprimierung im 4-Bit-Modus. Ein Block für jeweils 4 × 4 Pixel.
 - `ext.COMPRESSED_RGB_PVRTC_2BPPV1_IMG`
-  - : RGB-Kompression im 2-Bit-Modus. Ein Block für jeweils 8×4 Pixel.
+  - : RGB-Komprimierung im 2-Bit-Modus. Ein Block für jeweils 8 × 4 Pixel.
 - `ext.COMPRESSED_RGBA_PVRTC_2BPPV1_IMG`
-  - : RGBA-Kompression im 2-Bit-Modus. Ein Block für jeweils 8×4 Pixel.
+  - : RGBA-Komprimierung im 2-Bit-Modus. Ein Block für jeweils 8 × 4 Pixel.
 
 ## Beispiele
 
@@ -65,7 +66,7 @@ gl.compressedTexImage2D(
 
 ## Siehe auch
 
-- [PVRTC Texture Compression – Wikipedia](https://en.wikipedia.org/wiki/PVRTC)
+- [PVRTC-Texturkomprimierung – Wikipedia](https://en.wikipedia.org/wiki/PVRTC)
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
 - [`WebGLRenderingContext.compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D)

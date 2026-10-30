@@ -1,14 +1,14 @@
 ---
-title: "EXT_disjoint_timer_query: createQueryEXT()-Methode"
+title: "EXT_disjoint_timer_query: Methode createQueryEXT()"
 short-title: createQueryEXT()
 slug: Web/API/EXT_disjoint_timer_query/createQueryEXT
 l10n:
-  sourceCommit: 15db4f1dd87a80c4aec2cfba3e73bc8291f29110
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`EXT_disjoint_timer_query.createQueryEXT()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekte, die die Zeit verfolgen, die benötigt wird, um eine Reihe von GL-Befehlen vollständig auszuführen.
+Die Methode **`EXT_disjoint_timer_query.createQueryEXT()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekte, die die Zeit erfassen, die benötigt wird, um eine Reihe von GL-Befehlen vollständig auszuführen.
 
 ## Syntax
 

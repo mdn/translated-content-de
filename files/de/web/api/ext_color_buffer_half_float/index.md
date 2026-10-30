@@ -3,41 +3,42 @@ title: EXT_color_buffer_half_float-Erweiterung
 short-title: EXT_color_buffer_half_float
 slug: Web/API/EXT_color_buffer_half_float
 l10n:
-  sourceCommit: 8745b31f3e08546a7561e94153b5788fbe1c9da6
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`EXT_color_buffer_half_float`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die Möglichkeit hinzu, auf 16-Bit-Float-Farbpuffer zu rendern.
+Die Erweiterung **`EXT_color_buffer_half_float`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht das Rendern in 16-Bit-Gleitkomma-Farbpuffer.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist in beiden Kontexten verfügbar, sowohl [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext). Unter WebGL 2 ist sie eine Alternative zur Verwendung der [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)-Erweiterung auf Plattformen, die 16-Bit-Float-Renderziele unterstützen, aber keine 32-Bit-Float-Renderziele.
+> Diese Erweiterung ist sowohl für [WebGL1-](/de/docs/Web/API/WebGLRenderingContext) als auch für [WebGL2-Kontexte](/de/docs/Web/API/WebGL2RenderingContext) verfügbar. In WebGL 2 ist sie auf Plattformen, die 16-Bit-Gleitkomma-Renderziele, aber keine 32-Bit-Gleitkomma-Renderziele unterstützen, eine Alternative zur Erweiterung [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float).
 >
-> Die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung aktiviert implizit diese Erweiterung.
+> Die Erweiterung [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float) aktiviert diese Erweiterung implizit.
 
 ## Konstanten
 
 - `ext.RGBA16F_EXT`
-  - : RGBA 16-Bit-Float-Farb-renderbares Format.
+  - : RGBA-Format mit 16-Bit-Gleitkommawerten, das als Farb-Renderziel verwendet werden kann.
 - `ext.RGB16F_EXT`
-  - : RGB 16-Bit-Float-Format. In WebGL 1.0 kann dies farb-renderbar sein (implementierungsabhängig). In WebGL 2.0 ist dieses Format nicht farb-renderbar.
+  - : RGB-Format mit 16-Bit-Gleitkommawerten. In WebGL 1.0 kann es abhängig von der Implementierung als Farb-Renderziel verwendet werden. In WebGL 2.0 kann dieses Format nicht als Farb-Renderziel verwendet werden.
 - `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`
-  - : Wird an [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter) übergeben, um den Framebuffer-Typ zu erhalten.
+  - : Wird an [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter) übergeben, um den Typ des Framebuffers abzufragen.
 - `ext.UNSIGNED_NORMALIZED_EXT`
-  - : Der Framebuffer enthält unbezeichnete Festkomma-Komponenten.
+  - : Der Framebuffer enthält vorzeichenlose Festkommakomponenten.
 
 ## Erweiterte Methoden
 
 Diese Erweiterung erweitert [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage):
 
-- In WebGL 1.0-Kontexten akzeptiert der `internalFormat`-Parameter jetzt `ext.RGBA16F_EXT` und `ext.RGB16F_EXT`. Die Unterstützung von `ext.RGB16F_EXT` ist jedoch optional und Anwendungen müssen die Vollständigkeit des Framebuffers überprüfen, um festzustellen, ob es unterstützt wird.
-- In WebGL 2.0-Kontexten akzeptiert der `internalFormat`-Parameter jetzt `ext.RGBA16F_EXT`. Das `RGB16F`-Format ist in WebGL 2.0 nicht farb-renderbar.
+- In WebGL-1.0-Kontexten akzeptiert der Parameter `internalFormat` nun `ext.RGBA16F_EXT` und `ext.RGB16F_EXT`. Die Unterstützung für `ext.RGB16F_EXT` ist jedoch optional. Anwendungen müssen daher prüfen, ob der Framebuffer vollständig ist, um festzustellen, ob das Format unterstützt wird.
+- In WebGL-2.0-Kontexten akzeptiert der Parameter `internalFormat` nun `ext.RGBA16F_EXT`. Das Format `RGB16F` kann in WebGL 2.0 nicht als Farb-Renderziel verwendet werden.
 
-Sie erweitert [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter):
+Sie erweitert außerdem [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter):
 
-- In WebGL 1.0-Kontexten akzeptiert der `pname`-Parameter jetzt `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`. Ein `INVALID_OPERATION`-Fehler wird erzeugt, wenn `attachment` `DEPTH_STENCIL_ATTACHMENT` ist und `pname` `FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`. Wenn `pname` `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT` ist, gibt `getFramebufferAttachmentParameter()` entweder `gl.FLOAT` oder `gl.UNSIGNED_NORMALIZED_EXT` für Float- oder unbezeichnete Festkomma-Komponenten zurück.
+- In WebGL-1.0-Kontexten akzeptiert der Parameter `pname` nun `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`. Wenn `attachment` den Wert `DEPTH_STENCIL_ATTACHMENT` und `pname` den Wert `FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT` hat, wird ein `INVALID_OPERATION`-Fehler ausgelöst. Wenn `pname` den Wert `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT` hat, gibt `getFramebufferAttachmentParameter()` für Gleitkommakomponenten `gl.FLOAT` und für vorzeichenlose Festkommakomponenten `gl.UNSIGNED_NORMALIZED_EXT` zurück.
 
 ## Beispiele
 

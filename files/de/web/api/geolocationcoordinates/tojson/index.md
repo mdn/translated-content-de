@@ -1,14 +1,16 @@
 ---
-title: "GeolocationCoordinates: toJSON()-Methode"
+title: "GeolocationCoordinates: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/GeolocationCoordinates/toJSON
 l10n:
-  sourceCommit: 4558d208395a5b1df4db44b0c8ef4e9a0f8adbbf
+  sourceCommit: 15d531b54c7f0d96ac80ef00b494fd40743d59ce
 ---
 
 {{APIRef("Geolocation API")}}
 
-Die **`toJSON()`**-Methode der [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie liefert eine JSON-Darstellung des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts.
+Die Methode **`toJSON()`** des Interfaces [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `GeolocationCoordinates`-Objekt repräsentiert.
+
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `GeolocationCoordinates`-Objekt gefunden wird.
 
 ## Syntax
 
@@ -22,35 +24,56 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts darstellt.
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
+
+- [`accuracy`](/de/docs/Web/API/GeolocationCoordinates/accuracy)
+- [`latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude)
+- [`longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude)
+- [`altitude`](/de/docs/Web/API/GeolocationCoordinates/altitude)
+- [`altitudeAccuracy`](/de/docs/Web/API/GeolocationCoordinates/altitudeAccuracy)
+- [`heading`](/de/docs/Web/API/GeolocationCoordinates/heading)
+- [`speed`](/de/docs/Web/API/GeolocationCoordinates/speed)
+
+Der Wert jeder Eigenschaft wird unverändert kopiert.
 
 ## Beispiele
 
-### Verwendung der `toJSON()`-Methode
+### toJSON() direkt aufrufen
 
-In diesem Beispiel gibt der Aufruf von `position.coords.toJSON()` eine JSON-Darstellung des `GeolocationCoordinates`-Objekts zurück.
+Dieses Beispiel ruft ein `GeolocationCoordinates`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
 navigator.geolocation.getCurrentPosition((position) => {
-  console.log(position.coords.toJSON());
+  const coords = position.coords;
+
+  const json = coords.toJSON();
+  console.log(json); // A plain object
+  console.log(typeof json); // "object"
+  console.log(json.latitude); // Same value as coords.latitude
 });
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+### Als JSON-Zeichenfolge serialisieren
+
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+
+```js
+console.log(JSON.stringify(coords));
+```
+
+Dadurch würde eine JSON-Zeichenfolge wie die folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
-  "accuracy": 12.0,
-  "latitude": 53.0,
-  "longitude": 8.0,
+  "accuracy": 12.5,
+  "latitude": 53.125,
+  "longitude": 8.75,
   "altitude": null,
   "altitudeAccuracy": null,
   "heading": null,
   "speed": null
 }
 ```
-
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(position.coords)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; diese Methode ruft `toJSON()` automatisch auf.
 
 ## Spezifikationen
 

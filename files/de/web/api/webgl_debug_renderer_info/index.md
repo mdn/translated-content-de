@@ -1,34 +1,35 @@
 ---
-title: WEBGL_debug_renderer_info Erweiterung
+title: WEBGL_debug_renderer_info-Erweiterung
 short-title: WEBGL_debug_renderer_info
 slug: Web/API/WEBGL_debug_renderer_info
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_debug_renderer_info`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt zwei Konstanten mit Informationen über den Grafiktreiber für Debugging-Zwecke bereit.
+Die **`WEBGL_debug_renderer_info`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt zwei Konstanten mit Informationen über den Grafiktreiber für Debugging-Zwecke bereit.
 
-Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar sein. Im Allgemeinen sollten die Informationen über den Grafiktreiber nur in Ausnahmefällen genutzt werden, um Ihre WebGL-Inhalte zu optimieren oder um Probleme mit der GPU zu debuggen. Die Methode [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) kann Ihnen helfen, zu erkennen, welche Funktionen unterstützt werden, und das Attribut [`failIfMajorPerformanceCaveat`](/de/docs/Web/API/HTMLCanvasElement/getContext) ermöglicht Ihnen zu steuern, ob ein Kontext überhaupt zurückgegeben werden soll, wenn die Leistung drastisch langsam wäre.
+Abhängig von den Datenschutzeinstellungen des Browsers ist diese Erweiterung möglicherweise nur in privilegierten Kontexten verfügbar. Im Allgemeinen sollten Informationen über den Grafiktreiber nur in Ausnahmefällen verwendet werden, um Ihre WebGL-Inhalte zu optimieren oder GPU-Probleme zu untersuchen. Mit der Methode [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) können Sie feststellen, welche Funktionen unterstützt werden. Mit dem Kontextattribut [`failIfMajorPerformanceCaveat`](/de/docs/Web/API/HTMLCanvasElement/getContext) können Sie steuern, ob überhaupt ein Kontext zurückgegeben werden soll, wenn die Leistung erheblich beeinträchtigt wäre.
 
-WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar oder überhaupt nicht funktionsfähig sein. In Firefox wird diese Erweiterung deaktiviert, wenn `privacy.resistFingerprinting` auf `true` gesetzt ist.
+> Abhängig von den Datenschutzeinstellungen des Browsers ist diese Erweiterung möglicherweise nur in privilegierten Kontexten verfügbar oder funktioniert überhaupt nicht. In Firefox ist diese Erweiterung deaktiviert, wenn `privacy.resistFingerprinting` auf `true` gesetzt ist.
 >
-> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar.
 
 ## Konstanten
 
 - ext.UNMASKED_VENDOR_WEBGL
-  - : Hersteller-String des Grafiktreibers.
+  - : Vendor-String des Grafiktreibers.
 - ext.UNMASKED_RENDERER_WEBGL
   - : Renderer-String des Grafiktreibers.
 
 ## Beispiele
 
-Mit Hilfe dieser Erweiterung können privilegierte Kontexte Debug-Informationen über den Grafiktreiber des Benutzers abrufen:
+Mithilfe dieser Erweiterung können privilegierte Kontexte Debugging-Informationen über den Grafiktreiber der Benutzerin oder des Benutzers abrufen:
 
 ```js
 const canvas = document.getElementById("canvas");

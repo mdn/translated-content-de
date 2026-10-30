@@ -3,26 +3,27 @@ title: WEBGL_color_buffer_float-Erweiterung
 short-title: WEBGL_color_buffer_float
 slug: Web/API/WEBGL_color_buffer_float
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WEBGL_color_buffer_float`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die Fähigkeit hinzu, zu 32-Bit-Gleitkommafarbpuffern zu rendern.
+Die **`WEBGL_color_buffer_float`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht das Rendern in 32-Bit-Gleitkomma-Farbpuffer.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL 1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. Für [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) verwenden Sie die [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)-Erweiterung.
+> Diese Erweiterung ist nur für [WebGL 1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. Verwenden Sie für [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) die Erweiterung [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float).
 >
-> Die [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung aktiviert diese Erweiterung implizit.
+> Die Erweiterung [`OES_texture_float`](/de/docs/Web/API/OES_texture_float) aktiviert diese Erweiterung implizit.
 
 ## Konstanten
 
 - `ext.RGBA32F_EXT`
-  - : RGBA 32-Bit Gleitkomma-Farb-Renderformat.
+  - : RGBA-Format mit 32-Bit-Gleitkommawerten, das als Renderziel für Farben verwendet werden kann.
 - `ext.RGB32F_EXT` ({{deprecated_inline}})
-  - : RGB 32-Bit Gleitkomma-Farb-Renderformat.
+  - : RGB-Format mit 32-Bit-Gleitkommawerten, das als Renderziel für Farben verwendet werden kann.
 - `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`
   - : ?
 - `ext.UNSIGNED_NORMALIZED_EXT`

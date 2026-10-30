@@ -1,16 +1,14 @@
 ---
-title: "OES_vertex_array_object: createVertexArrayOES() Methode"
+title: "OES_vertex_array_object: Methode createVertexArrayOES()"
 short-title: createVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/createVertexArrayOES
 l10n:
-  sourceCommit: 15db4f1dd87a80c4aec2cfba3e73bc8291f29110
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_vertex_array_object.createVertexArrayOES()`** Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
-[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt, das ein Vertex-Array-Objekt (VAO) darstellt. Dieses verweist auf Vertex-Array-Daten und ermöglicht es, Namen für verschiedene Sätze von Vertex-Daten zu vergeben.
+Die Methode **`OES_vertex_array_object.createVertexArrayOES()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt. Dieses stellt ein Vertex-Array-Objekt (VAO) dar, das auf Vertex-Array-Daten verweist und verschiedene Sätze von Vertex-Daten benennbar macht.
 
 ## Syntax
 
@@ -51,4 +49,4 @@ ext.bindVertexArrayOES(vao);
 
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
-- WebGL2-Äquivalent: [`WebGL2RenderingContext.createVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/createVertexArray)
+- Entsprechende Methode in WebGL2: [`WebGL2RenderingContext.createVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/createVertexArray)

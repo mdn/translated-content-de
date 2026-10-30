@@ -1,40 +1,41 @@
 ---
-title: OES_texture_half_float Erweiterung
+title: OES_texture_half_float-Erweiterung
 short-title: OES_texture_half_float
 slug: Web/API/OES_texture_half_float
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`OES_texture_half_float`** Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und fügt Texturformate mit 16- (auch als Half Float bekannt) und 32-Bit Gleitkomma-Komponenten hinzu.
+Die Erweiterung **`OES_texture_half_float`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und fügt Texturformate mit 16-Bit- (auch „Half Float“ genannt) und 32-Bit-Gleitkommakomponenten hinzu.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. Die Konstante in WebGL2 ist `gl.HALF_FLOAT`.
+> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) steht ihre Funktionalität standardmäßig im WebGL2-Kontext zur Verfügung. Die entsprechende Konstante in WebGL2 ist `gl.HALF_FLOAT`.
 
 ## Konstanten
 
 - `ext.HALF_FLOAT_OES`
-  - : Half Float-Datentyp (16-Bit).
+  - : Gleitkommatyp mit halber Genauigkeit (16 Bit).
 
 ## Erweiterte Methoden
 
 Diese Erweiterung erweitert [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D):
 
-- Der `type`-Parameter akzeptiert nun `ext.HALF_FLOAT_OES`.
+- Der Parameter `type` akzeptiert nun `ext.HALF_FLOAT_OES`.
 
-## Einschränkung: Lineares Filtern
+## Einschränkung: Lineare Filterung
 
-Lineares Filtern auf Half Float-Texturen ist mit dieser Erweiterung nicht erlaubt. Wenn Sie in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) den Vergrößerungs- oder Verkleinerungsfilter auf einen von `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und Half Float-Texturen verwenden, wird die Textur als unvollständig markiert.
+Diese Erweiterung erlaubt keine lineare Filterung von Texturen mit Gleitkommawerten halber Genauigkeit. Wenn Sie den Vergrößerungs- oder Verkleinerungsfilter mit der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und solche Texturen verwenden, wird die Textur als unvollständig markiert.
 
-Um lineares Filtern auf Half Float-Texturen zu verwenden, aktivieren Sie die [`OES_texture_half_float_linear`](/de/docs/Web/API/OES_texture_half_float_linear) Erweiterung zusätzlich zu dieser Erweiterung.
+Um Texturen mit Gleitkommawerten halber Genauigkeit linear zu filtern, aktivieren Sie zusätzlich die Erweiterung [`OES_texture_half_float_linear`](/de/docs/Web/API/OES_texture_half_float_linear).
 
-## Half Float-Farbpuffer
+## Farbpuffer mit Gleitkommawerten halber Genauigkeit
 
-Diese Erweiterung aktiviert implizit die [`EXT_color_buffer_half_float`](/de/docs/Web/API/EXT_color_buffer_half_float) Erweiterung (falls unterstützt), die das Rendern in 16-Bit Gleitkommaformate ermöglicht.
+Diese Erweiterung aktiviert implizit die Erweiterung [`EXT_color_buffer_half_float`](/de/docs/Web/API/EXT_color_buffer_half_float), sofern sie unterstützt wird. Dadurch wird das Rendern in 16-Bit-Gleitkommaformate ermöglicht.
 
 ## Beispiele
 

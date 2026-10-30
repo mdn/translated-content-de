@@ -1,34 +1,35 @@
 ---
-title: EXT_texture_compression_bptc Erweiterung
+title: EXT_texture_compression_bptc-Erweiterung
 short-title: EXT_texture_compression_bptc
 slug: Web/API/EXT_texture_compression_bptc
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die `EXT_texture_compression_bptc`-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt 4 BPTC-komprimierte Texturformate bereit. Diese Kompressionsformate werden in [Microsofts DirectX API](https://learn.microsoft.com/en-us/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) als [BC7](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc7-format) und [BC6H](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc6h-format) bezeichnet.
+Die Erweiterung `EXT_texture_compression_bptc` ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt vier komprimierte BPTC-Texturformate bereit. In der [DirectX-API von Microsoft](https://learn.microsoft.com/en-us/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) heißen diese Komprimierungsformate [BC7](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc7-format) und [BC6H](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc6h-format).
 
-WebGL-Erweiterungen sind mittels der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie unter [Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
+Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions).
 
 > [!NOTE]
-> Die Unterstützung hängt vom Grafiktreiber des Systems ab. Es gibt keine Unterstützung unter Windows.
+> Die Unterstützung hängt vom Grafiktreiber des Systems ab. Unter Windows wird diese Erweiterung nicht unterstützt.
 >
-> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar.
+> Diese Erweiterung ist sowohl in [WebGL1-](/de/docs/Web/API/WebGLRenderingContext) als auch in [WebGL2-Kontexten](/de/docs/Web/API/WebGL2RenderingContext) verfügbar.
 
 ## Konstanten
 
-Die komprimierten Texturformate werden durch 4 Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
+Die komprimierten Texturformate werden durch vier Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
 
 - `ext.COMPRESSED_RGBA_BPTC_UNORM_EXT`
-  - : Komprimiert 8-Bit-Festwertdaten. Jeder 4x4-Block von Texeln besteht aus 128 Bits von RGBA- oder Bilddaten. Siehe auch [BC7-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc7-format).
+  - : Komprimiert 8-Bit-Festkommadaten. Jeder 4×4-Block aus Texeln besteht aus 128 Bit RGBA- oder Bilddaten. Siehe auch [BC7-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc7-format).
 - `ext.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT`
-  - : Komprimiert 8-Bit-Festwertdaten. Jeder 4x4-Block von Texeln besteht aus 128 Bits von SRGB_ALPHA- oder Bilddaten. Siehe auch [BC7-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc7-format).
+  - : Komprimiert 8-Bit-Festkommadaten. Jeder 4×4-Block aus Texeln besteht aus 128 Bit SRGB_ALPHA- oder Bilddaten. Siehe auch [BC7-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc7-format).
 - `ext.COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT`
-  - : Komprimiert hochdynamische Bereichswerte mit Vorzeichen und Gleitkommazahlen. Jeder 4x4-Block von Texeln besteht aus 128 Bits von RGB-Daten. Es enthält nur RGB-Daten, sodass der zurückgegebene Alphawert 1.0 ist. Siehe auch [BC6H-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc6h-format).
+  - : Komprimiert vorzeichenbehaftete Gleitkommawerte mit hohem Dynamikumfang. Jeder 4×4-Block aus Texeln besteht aus 128 Bit RGB-Daten. Das Format enthält nur RGB-Daten; daher beträgt der zurückgegebene Alphawert 1,0. Siehe auch [BC6H-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc6h-format).
 - `ext.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT`
-  - : Komprimiert hochdynamische Bereichswerte ohne Vorzeichen und Gleitkommazahlen. Jeder 4x4-Block von Texeln besteht aus 128 Bits von RGB-Daten. Es enthält nur RGB-Daten, sodass der zurückgegebene Alphawert 1.0 ist. Siehe auch [BC6H-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc6h-format).
+  - : Komprimiert vorzeichenlose Gleitkommawerte mit hohem Dynamikumfang. Jeder 4×4-Block aus Texeln besteht aus 128 Bit RGB-Daten. Das Format enthält nur RGB-Daten; daher beträgt der zurückgegebene Alphawert 1,0. Siehe auch [BC6H-Format](https://learn.microsoft.com/en-us/windows/win32/direct3d11/bc6h-format).
 
 ## Beispiele
 

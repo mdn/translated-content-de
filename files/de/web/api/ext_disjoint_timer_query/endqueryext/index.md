@@ -1,14 +1,14 @@
 ---
-title: "EXT_disjoint_timer_query: endQueryEXT() Methode"
+title: "EXT_disjoint_timer_query: Methode endQueryEXT()"
 short-title: endQueryEXT()
 slug: Web/API/EXT_disjoint_timer_query/endQueryEXT
 l10n:
-  sourceCommit: 15db4f1dd87a80c4aec2cfba3e73bc8291f29110
+  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`EXT_disjoint_timer_query.endQueryEXT()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) beendet eine Timer-Abfrage.
+Die Methode **`EXT_disjoint_timer_query.endQueryEXT()`** der [WebGL API](/de/docs/Web/API/WebGL_API) beendet eine Zeitmessabfrage.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ endQueryEXT(target)
 ### Parameter
 
 - `target`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Zeitabfrage spezifiziert. Muss `ext.TIME_ELAPSED_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Zeitmessabfrage angibt. Der Wert muss `ext.TIME_ELAPSED_EXT` sein.
 
 ### Rückgabewert
 
