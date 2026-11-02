@@ -3,16 +3,16 @@ title: "SVGFEGaussianBlurElement: result-Eigenschaft"
 short-title: result
 slug: Web/API/SVGFEGaussianBlurElement/result
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 607900f2b3fdd97a1c591b3dc9f6d81c8623d48c
 ---
 
 {{APIRef("SVG")}}
 
-Die **`result`** schreibgeschützte Eigenschaft der [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle beschreibt den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
+Die schreibgeschützte Eigenschaft **`result`** der Schnittstelle [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement) beschreibt den zugewiesenen Namen einer SVG-Filterprimitive als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
 
-Sie spiegelt das {{SVGAttr("result")}}-Attribut des {{SVGElement("feGaussianBlur")}}-Elements wider, das ein Eingangsbild verwischt. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, durch ein {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
+Sie spiegelt das Attribut {{SVGAttr("result")}} des Elements {{SVGElement("feGaussianBlur")}} wider, das ein Eingabebild weichzeichnet. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn das Attribut angegeben ist, kann die durch die Verarbeitung dieser Filterprimitive erzeugte Grafik über ein Attribut {{SVGAttr("in")}} einer nachfolgenden Filterprimitive innerhalb desselben Elements {{SVGElement("filter")}} referenziert werden.
 
-Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und das Ergebnis des `<feGaussianBlur>`-Filters steht nur zur Wiederverwendung als impliziter Eingang in das nächste Filterprimitiv zur Verfügung, wenn dieses Filterprimitiv keinen Wert für sein `in`-Attribut angibt.
+Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen. Die Ausgabe des `<feGaussianBlur>`-Filters steht dann nur als implizite Eingabe für die nächste Filterprimitive zur Wiederverwendung bereit, sofern diese keinen Wert für ihr `in`-Attribut angibt.
 
 ## Wert
 
@@ -37,8 +37,9 @@ console.log(filterName.baseVal); // the filter's assigned name
 ## Siehe auch
 
 - [`SVGFEGaussianBlurElement.in1`](/de/docs/Web/API/SVGFEGaussianBlurElement/in1)
-- {{cssxref("custom-ident")}} Datentyp
-- [SVG-Filter-Tutorial](/de/docs/Web/SVG/Guides/SVG_filters)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("filter-function/blur", "blur()")}} Funktion
-- [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul - CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- Datentyp {{cssxref("custom-ident")}}
+- [Effekte mit SVG-Filtern anwenden](/de/docs/Web/SVG/Guides/Filters)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Funktion {{cssxref("filter-function/blur", "blur()")}}
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

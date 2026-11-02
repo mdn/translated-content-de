@@ -1,70 +1,69 @@
 ---
-title: Transformation von XML mit XSLT
+title: XML mit XSLT transformieren
 slug: Web/XML/XSLT/Guides/Transforming_XML_with_XSLT
 l10n:
-  sourceCommit: 5431a637ec932c0c8c978210809e0994f0cf9ee1
+  sourceCommit: d50a52075711e21da27bce5ee24f6334b56cf0f3
 ---
 
-Die Trennung von Inhalt und Präsentation ist ein zentrales Gestaltungselement von [XML](/de/docs/Web/XML). Die Struktur eines XML-Dokuments soll wichtige Beziehungen zwischen den einzelnen Aspekten des Inhalts selbst widerspiegeln und klären, ohne einen Hinweis darauf geben zu müssen, wie diese Daten letztendlich präsentiert werden sollen. Diese intelligente Strukturierung ist besonders wichtig, da mehr und mehr Datentransfers automatisiert ablaufen und zwischen hochgradig heterogenen, durch ein Netzwerk verbundenen Maschinen stattfinden.
+Die Trennung von Inhalt und Darstellung ist ein zentrales Gestaltungsprinzip von [XML](/de/docs/Web/XML). Die Struktur eines XML-Dokuments soll wichtige Beziehungen zwischen den einzelnen Aspekten des Inhalts selbst abbilden und verdeutlichen, ohne durch Anforderungen an die spätere Darstellung der Daten eingeschränkt zu werden. Diese durchdachte Strukturierung ist besonders wichtig, da immer mehr Datenübertragungen automatisiert zwischen sehr unterschiedlichen, über ein Netzwerk verbundenen Systemen stattfinden.
 
-Letztendlich müssen jedoch viele der in XML-Dokumenten gespeicherten Inhalte menschlichen Lesern präsentiert werden. Da ein Browser eine vertraute und sehr flexible Schnittstelle bietet, ist er ein ideales Mittel, um solche Präsentationsversionen von XML-Inhalten bereitzustellen. Firefox, das von Grund auf mit einer Vielzahl von XML-Technologien gebaut wurde, verfügt über alle Mechanismen, die benötigt werden, um sowohl ursprüngliche XML-Dokumente als auch die spezialisierten Stylesheets, die für die HTML-Anzeige verwendet werden, zu verarbeiten und so die Serverlast durch clientseitige Verarbeitung zu reduzieren.
+Letztlich muss jedoch ein großer Teil der in XML-Dokumenten gespeicherten Inhalte für Menschen dargestellt werden. Da ein Browser eine vertraute und äußerst flexible Oberfläche bietet, eignet er sich ideal für die Ausgabe solcher Darstellungsformen von XML-Inhalten. Firefox wurde von Grund auf unter Verwendung vielfältiger XML-Technologien entwickelt und enthält alle Mechanismen, die zur Verarbeitung sowohl der ursprünglichen XML-Dokumente als auch der speziellen Stylesheets für deren Gestaltung und Anordnung zur HTML-Anzeige erforderlich sind. Die clientseitige Verarbeitung verringert dabei die Serverlast.
 
-Derzeit unterstützt Gecko (die Layout-Engine hinter Firefox) zwei Formen von XML-Stylesheets. Für die grundlegende Kontrolle des Aussehens — Schriftarten, Farben, Position und so weiter — verwendet Gecko [CSS](/de/docs/Web/CSS).
+Derzeit unterstützt Gecko, die Layout-Engine von Firefox, zwei Arten von XML-Stylesheets. Für die grundlegende Steuerung des Erscheinungsbilds – etwa von Schriftarten, Farben und Positionen – verwendet Gecko [CSS](/de/docs/Web/CSS).
 
-Unser Fokus liegt hier auf der zweiten Art von Stylesheet, die Gecko unterstützt: das XSLT-Stylesheet. XSLT steht für eXtensible Stylesheet Language/Transform und der Name ist treffend. XSLT erlaubt es einem Stylesheet-Autor, ein primäres XML-Dokument auf zwei wesentliche Weise zu transformieren: die Manipulation und Sortierung des Inhalts, einschließlich einer kompletten Neuordnung, falls gewünscht, und die Umwandlung des Inhalts in ein anderes Format (im Fall von Firefox liegt der Fokus darauf, es umgehend in HTML umzuwandeln, damit es vom Browser angezeigt werden kann).
+Hier geht es um die zweite von Gecko unterstützte Art von Stylesheets: XSLT-Stylesheets. XSLT steht für „eXtensible Stylesheet Language/Transform“ – eine treffende Bezeichnung. Mit XSLT können Autoren eines Stylesheets ein ursprüngliches XML-Dokument auf zwei wesentliche Arten transformieren: Sie können Inhalte bearbeiten und sortieren, bei Bedarf auch vollständig neu anordnen, und sie können die Inhalte in ein anderes Format umwandeln. Im Fall von Firefox steht dabei die unmittelbare Umwandlung in HTML im Vordergrund, das der Browser anschließend anzeigen kann.
 
 ## Was ist XSLT?
 
-Die eXtensible Stylesheet Language/Transform ist eine sehr mächtige Sprache, und eine umfassende Diskussion über sie liegt weit außerhalb des Rahmens dieses Artikels, aber eine kurze Diskussion über einige Grundkonzepte wird hilfreich sein, um die Beschreibung der Fähigkeiten von Netscape, die folgt, zu verstehen.
+Die eXtensible Stylesheet Language/Transform ist eine sehr leistungsfähige Sprache. Eine vollständige Erörterung würde den Rahmen dieses Artikels weit überschreiten. Ein kurzer Überblick über einige Grundbegriffe hilft jedoch dabei, die nachfolgende Beschreibung der Möglichkeiten von Netscape zu verstehen.
 
-Ein XSLT-Stylesheet ist ein XML-Dokument. Anders als CSS, das seine eigene spezialisierte Syntax hat, ist ein XSLT-Stylesheet ein XML-Dokument, das alle XML-Regeln einhalten muss, einschließlich der Wohlgeformtheit. Das Modell für die Transformation ist also, dass ein XML-Dokument genutzt wird, um ein anderes XML-Dokument zu transformieren.
+Ein XSLT-Stylesheet ist ein XML-Dokument. Anders als CSS, das eine eigene Syntax besitzt, muss ein XSLT-Stylesheet daher sämtliche XML-Regeln erfüllen und unter anderem wohlgeformt sein. Das Transformationsmodell besteht folglich darin, ein XML-Dokument zur Transformation eines anderen XML-Dokuments zu verwenden.
 
-Ein XSLT-Stylesheet wird durch die Aufnahme eines standardmäßigen XSLT-Headers als solches markiert. Das äußerste Element in einem XSLT-Stylesheet muss das `<xsl:stylesheet>`-Element sein (eine akzeptable Alternative ist das `<xsl:transform>`-Element). Dieses Element wird mindestens eine Namensraumdeklaration und das zwingend erforderliche Versionsattribut enthalten. Weitere Namensräume und drei optionale Attribute können auch enthalten sein.
+Ein XSLT-Stylesheet wird durch einen standardisierten XSLT-Kopfbereich als solches gekennzeichnet. Das äußerste Element eines XSLT-Stylesheets muss `<xsl:stylesheet>` sein; alternativ ist `<xsl:transform>` zulässig. Dieses Element enthält mindestens eine Namespace-Deklaration und das obligatorische version-Attribut. Weitere Namespaces und drei optionale Attribute können ebenfalls enthalten sein.
 
-## Der XSLT-Namensraum
+## Der XSLT-Namespace
 
-Der obligatorische Namensraum für XSLT ist `"http://www.w3.org/1999/XSL/Transform"`. Namensräume sind in XML oftmals Verwirrung stiftend. Trotz der Tatsache, dass sie häufig wie URIs erscheinen, beziehen sie sich in Wirklichkeit nicht auf eine Ressource an dieser Adresse. Vielmehr stellen sie eine Möglichkeit dar, einen eindeutigen Bezeichner für eine bekannte Menge von Elementen anzugeben. Die Zeichenfolge `"http://www.w3.org/1999/XSL/Transform"` ist eine Konstante, die die markierten Elemente als zu dem vom W3C in der XSLT-Empfehlung von 1999 designierten Set von Tags zugehörig bezeichnet. Eine andere Zeichenfolge, die gelegentlich in Stylesheets gesehen wird, `"http://www.w3.org/TR/WD-xsl"`, zeigt die Konformität mit einem früheren Entwurf (daher das WD) des W3C-Dokuments an. Dieser letztere Namensraum ist nicht kompatibel mit dem, den das W3C letztendlich angenommen hat, und wird von Netscape nicht unterstützt.
+Der obligatorische Namespace für XSLT lautet `"http://www.w3.org/1999/XSL/Transform"`. Namespaces sorgen in XML häufig für Verwirrung. Obwohl sie oft wie URIs aussehen, verweisen sie tatsächlich nicht auf eine Ressource unter der angegebenen Adresse. Stattdessen dienen sie als eindeutige Kennung für eine bekannte Gruppe von Elementen. Die Zeichenfolge `"http://www.w3.org/1999/XSL/Transform"` ist eine Konstante, die entsprechend gekennzeichnete Elemente der Gruppe von Tags zuordnet, die das W3C in der XSLT-Empfehlung von 1999 festgelegt hat. Eine weitere Zeichenfolge, die gelegentlich in Stylesheets vorkommt, ist `"http://www.w3.org/TR/WD-xsl"`. Sie weist auf die Übereinstimmung mit einem früheren Arbeitsentwurf des W3C-Dokuments hin – daher „WD“. Dieser ältere Namespace ist nicht mit dem schließlich vom W3C übernommenen Namespace kompatibel und wird von Netscape nicht unterstützt.
 
-Da das wiederholte Eintippen von `"http://www.w3.org/1999/XSL/Transform"` mühsam wäre und das Markup schwer lesbar machen würde, gibt es einen Standardmechanismus für die Zuweisung eines Kurznamens zum Namensraum im Stylesheet-Header. So könnte ein vollständiges Beispiel des öffnenden Stylesheet-Elements folgendermaßen aussehen.
+Die wiederholte Eingabe von `"http://www.w3.org/1999/XSL/Transform"` wäre mühsam und würde das Markup schwer lesbar machen. Deshalb gibt es einen Standardmechanismus, um dem Namespace im Kopfbereich des Stylesheets einen Kurznamen zuzuweisen. Ein vollständiges Beispiel für das öffnende stylesheet-Element könnte so aussehen:
 
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 ```
 
-Das Pseudoattribut `xmlns` ordnet den Kurznamen `xsl` dem vollständigen Namensraum zu, der im gesamten folgenden Dokument verwendet wird. Daher ist das Stylesheet-Element oben mit `xsl:` vorangestellt. Obwohl `xsl` der konventionell verwendete Kurzname (Prefix genannt) ist, ist er nicht zwingend erforderlich und es ist durchaus möglich, einen anderen zu wählen. Die Beispiele in diesem Artikel gehen alle von der Verwendung des `xsl`-Präfixes aus.
+Das `xmlns`-Pseudoattribut ordnet den Kurznamen `xsl` dem vollständigen Namespace zu, sodass er im restlichen Dokument verwendet werden kann. Deshalb steht vor dem obigen stylesheet-Element das Präfix `xsl:`. `xsl` ist zwar der übliche Kurzname, auch Präfix genannt, aber nicht vorgeschrieben; es kann ebenso ein anderer gewählt werden. Alle Beispiele in diesem Artikel setzen das Präfix `xsl` voraus.
 
 ## Wie XSLT XML-Bäume verarbeitet
 
-Die XSLT-Transformations-Engine, genannt Prozessor, arbeitet nicht direkt mit Dokumenten. Bevor die Transformation stattfinden kann, müssen das primäre XML-Dokument(e) und das Stylesheet-Dokument(e) durch einen Parser laufen, der eine abstrakte Darstellung der Struktur des Dokuments im Speicher erstellt. Diese Darstellung, genannt Baum, ist das, was vom Prozessor tatsächlich manipuliert wird. Der Baum ist ein abstrakter Datentyp, ein konzeptionelles Modell, das je nach Parser und Prozessor auf verschiedene Weise implementiert werden kann. Netscape verwendet eine Struktur, die dem W3C-DOM als Baumstruktur ähnelt, aber andere sind möglich. Die einzigen Anforderungen betreffen die Anordnung der Objekte im Baum, deren Eigenschaften und deren Beziehungen.
+Die XSLT-Transformations-Engine, der sogenannte Prozessor, arbeitet nicht unmittelbar mit Dokumenten. Bevor eine Transformation stattfinden kann, müssen die ursprünglichen XML-Dokumente und die Stylesheet-Dokumente von einem Parser verarbeitet werden. Dieser erstellt im Arbeitsspeicher eine abstrakte Darstellung der Dokumentstruktur. Diese als Baum bezeichnete Darstellung wird vom Prozessor tatsächlich bearbeitet. Der Baum ist ein abstrakter Datentyp, also ein konzeptionelles Modell, das je nach Parser und Prozessor unterschiedlich implementiert werden kann. Netscape verwendet als Baumstruktur eine dem W3C-DOM ähnliche Struktur; andere Implementierungen sind jedoch ebenfalls möglich. Vorgegeben sind lediglich die Anordnung der Objekte im Baum, ihre Eigenschaften und ihre Beziehungen zueinander.
 
-Der Baum besteht aus einem hierarchischen Framework von Knoten. Er kann aus sieben verschiedenen Knotentypen bestehen: dem einzelnen Wurzelknoten, Element-Knoten, Text-Knoten, Attribut-Knoten, Kommentar-Knoten, Verarbeitungsanweisungsknoten und Namensraum-Knoten.
+Der Baum besteht aus einer hierarchischen Struktur von Knoten. Er kann sieben verschiedene Knotentypen enthalten: den einzigen Wurzelknoten sowie Elementknoten, Textknoten, Attributknoten, Kommentarknoten, Knoten für Verarbeitungsanweisungen und Namespace-Knoten.
 
-An der Spitze des Baums steht der Wurzelknoten. Der Wurzelknoten entspricht keinem einzelnen Teil des XML-Dokuments: Er repräsentiert das Dokument als Ganzes. Unterhalb des Wurzelknotens befinden sich seine Kinder, die Elemente, Kommentare, Verarbeitungsanweisungen usw. sein können. Einige dieser Kinder können ebenfalls Kinder haben. Und dies kann sich über mehrere Ebenen erstrecken. Es gibt bestimmte Beschränkungen, welche Art von Knoten wo auftreten kann: Beispielsweise können Textknoten keine Kinder haben.
+An der Spitze des Baums steht der Wurzelknoten. Er entspricht keinem einzelnen Teil des XML-Dokuments, sondern repräsentiert das Dokument als Ganzes. Unter ihm befinden sich seine Kindknoten, bei denen es sich beispielsweise um Elemente, Kommentare oder Verarbeitungsanweisungen handeln kann. Einige dieser Kindknoten können wiederum Kindknoten besitzen. Das kann sich über mehrere Ebenen fortsetzen. Dabei gelten bestimmte Einschränkungen dafür, welche Knotentypen wo auftreten dürfen: Textknoten können beispielsweise keine Kindknoten haben.
 
-Das Ergebnis der Aktion des Prozessors ist ebenfalls ein Baum. Netscape verwendet diesen Baum, um die Inhalte im Browserfenster darzustellen.
+Auch das Ergebnis der Verarbeitung durch den Prozessor ist ein Baum. Netscape verwendet diesen Baum, um die Inhalte im Browserfenster darzustellen.
 
-## XPath und Knotenauswahl
+## XPath und die Auswahl von Knoten
 
-Im Wesentlichen ist ein XSLT-Stylesheet eine Reihe von Regeln, sogenannte Vorlagen, die erklären, dass jeder Knoten, der diesem spezifischen Muster entspricht, auf diese spezifische Weise manipuliert und an dieser speziellen Position im Ergebnisbaum enden soll. Die Einzelheiten, wie dies erreicht werden soll, werden dem Prozessor überlassen. Da die Reihenfolge der Ausführung des Stylesheets nicht garantiert werden kann, unterstützt XSLT keine Funktionalität, die Nebeneffekte erzeugt. In diesem Punkt ähnelt es Lisp oder Scheme.
+Im Wesentlichen besteht ein XSLT-Stylesheet aus einer Reihe von Regeln, den sogenannten Templates. Sie legen fest, dass jeder Knoten, der einem bestimmten Muster entspricht, auf eine bestimmte Weise bearbeitet und an einer bestimmten Stelle im Ergebnisbaum eingefügt werden soll. Wie dies im Einzelnen geschieht, bleibt dem Prozessor überlassen. Da die Ausführungsreihenfolge des Stylesheets nicht garantiert werden kann, unterstützt XSLT keine Funktionen, die Seiteneffekte erzeugen. In dieser Hinsicht ähnelt es Lisp oder Scheme.
 
-Transformationen hängen davon ab, dass der Prozessor in der Lage ist, einzelne Knoten im Baum zu identifizieren. Um dies zu erleichtern, hat das W3C beschlossen, eine separate Sprache zu verwenden, XPath, die auch außerhalb des XSLT-Kontexts Verwendung findet. Wie der Name impliziert, definiert XPath einen "Pfad", den der Prozessor durch den Baum nehmen muss, um den gewünschten Knoten zu erreichen. Dieser Pfad besteht aus XPath-spezifischen Ausdrücken, die ausgewertet werden, Ausdrücken, die eine Anzahl von zu erfüllenden Bedingungen, eine Möglichkeit zur Assoziation von Knoten und/oder eine Richtungsangabe innerhalb des Baums enthalten können. Eine umfassendere Beschreibung der in XSLT am häufigsten verwendeten Teile von XPath folgt im Referenzabschnitt.
+Für Transformationen muss der Prozessor einzelne Knoten im Baum gezielt finden können. Um dies zu ermöglichen, entschied sich das W3C für eine eigenständige Sprache: XPath, die auch außerhalb von XSLT verwendet wird. Wie der Name nahelegt, beschreibt XPath einen „Pfad“, dem der Prozessor durch den Baum zum gewünschten Knoten folgt. Dieser Pfad besteht aus XPath-spezifischen Ausdrücken, die ausgewertet werden. Sie können mehrere Bedingungen für die Übereinstimmung, Angaben zur Beziehung zwischen Knoten und/oder Richtungsangaben innerhalb des Baums enthalten. Eine ausführlichere Beschreibung der XPath-Bestandteile, die in XSLT am häufigsten verwendet werden, folgt im Referenzabschnitt.
 
-Potenzielle Konflikte bei der Vorlagenzuordnung werden durch die Verwendung eines Satzes von kaskadierenden Vorrangregeln gelöst. Im Allgemeinen hat eine spezifischere Vorlagenregel Vorrang vor einer weniger spezifischen und, bei sonst gleichen Bedingungen, eine Vorlagenregel, die später im Dokument erscheint, Vorrang vor einer, die früher erscheint.
+Mögliche Konflikte bei der Zuordnung von Templates werden anhand einer Reihe abgestufter Vorrangregeln aufgelöst. Im Allgemeinen hat eine spezifischere Template-Regel Vorrang vor einer weniger spezifischen. Sind die Regeln ansonsten gleichwertig, hat eine später im Dokument stehende Template-Regel Vorrang vor einer früheren.
 
-Stylesheets können über eine Verarbeitungsanweisung einem XML-Dokument angefügt werden. Um anzugeben, welches XSLT-Stylesheet verwendet werden soll, um ein bestimmtes XML-Dokument zu verarbeiten, fügen Sie eine Verarbeitungsanweisung in das XML-Dokument selbst ein. Wenn das Stylesheet beispielsweise inventory.xsl heißt und sich im selben Verzeichnis wie das XML-Dokument befindet, würde die Verarbeitungsanweisung im XML-Dokument so aussehen:
+Stylesheets können über eine Verarbeitungsanweisung mit einem XML-Dokument verknüpft werden. Um festzulegen, welches XSLT-Stylesheet ein bestimmtes XML-Dokument verarbeiten soll, fügen Sie dem XML-Dokument eine solche Anweisung hinzu. Wenn das Stylesheet beispielsweise inventory.xsl heißt und im selben Verzeichnis wie das XML-Dokument liegt, sieht die Verarbeitungsanweisung im XML-Dokument so aus:
 
 ```xml
 <?xml-stylesheet type="text/xml" href="inventory.xsl"?>
 ```
 
-Dies muss im Prolog-Abschnitt des XML-Dokuments platziert werden.
+Sie muss im Prolog-Abschnitt des XML-Dokuments stehen.
 
-## Grundlegendes Beispiel
+## Einfaches Beispiel
 
-Dieses erste Beispiel zeigt die Grundlagen zur Einrichtung einer XSLT-Transformation in einem Browser.
-Das Beispiel nimmt ein XML-Dokument, das Informationen über einen Artikel enthält (Titel, Liste der Autoren und Haupttext) und präsentiert es in lesbarer Form für Menschen.
+Dieses erste Beispiel zeigt die Grundlagen zum Einrichten einer XSLT-Transformation im Browser. Es verwendet ein XML-Dokument mit Informationen über einen Artikel – Titel, Autorenliste und Fließtext – und stellt diese Informationen in einer für Menschen lesbaren Form dar.
 
-Das XML-Dokument (**example.xml**) wird unten gezeigt.
+Das XML-Dokument (**example.xml**) ist nachfolgend dargestellt.
 
 ```xml
 <?xml version="1.0"?>
@@ -79,9 +78,9 @@ Das XML-Dokument (**example.xml**) wird unten gezeigt.
 </Article>
 ```
 
-Die `?xml-stylesheet` Verarbeitungsanweisung in der XML-Datei gibt im `href`-Attribut das anzuwendende XSLT-Stylesheet an.
+Die Verarbeitungsanweisung `?xml-stylesheet` in der XML-Datei gibt über ihr `href`-Attribut das anzuwendende XSLT-Stylesheet an.
 
-Diese XSL-Stylesheet-Datei (**example.xsl**) wird unten gezeigt:
+Die XSL-Stylesheet-Datei (**example.xsl**) ist nachfolgend dargestellt:
 
 ```xml
 <?xml version="1.0"?>
@@ -101,18 +100,19 @@ Diese XSL-Stylesheet-Datei (**example.xsl**) wird unten gezeigt:
 </xsl:stylesheet>
 ```
 
-Ein XSLT-Stylesheet beginnt mit dem `xsl:stylesheet`-Element, das alle _Vorlagen_ enthält, die benutzt werden, um die finale Ausgabe zu erstellen. Das obige Beispiel hat zwei Vorlagen - eine, die dem Wurzelknoten entspricht und eine, die den `Author`-Knoten entspricht. Die Vorlage, die dem Wurzelknoten entspricht, gibt den Titel des Artikels aus und sagt dann, dass alle Vorlagen (über `apply-templates`) verarbeitet werden sollen, die den `Author`-Knoten entsprechen, der Kinder des `Authors`-Knotens sind.
+Ein XSLT-Stylesheet beginnt mit dem Element `xsl:stylesheet`, das alle _Templates_ enthält, mit denen die endgültige Ausgabe erzeugt wird. Das obige Beispiel enthält zwei Templates: eines für den Wurzelknoten und eines für `Author`-Knoten. Das Template für den Wurzelknoten gibt den Titel des Artikels aus und veranlasst anschließend die Verarbeitung aller Templates (über `apply-templates`), die zu `Author`-Knoten passen, welche Kindknoten des `Authors`-Knotens sind.
 
-Um das Beispiel auszuprobieren:
+So probieren Sie das Beispiel aus:
 
-1. Erstellen Sie ein Verzeichnis in Ihrem Dateisystem und erzeugen Sie darin die Dateien `example.xml` und `example.xsl`, die oben aufgelistet sind.
-2. [Starten Sie einen lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_a_simple_local_http_server) im Verzeichnis, das die Dateien enthält. Dies ermöglicht Ihnen, die Dateien im Verzeichnis so zu durchsuchen, als ob sie im Internet gehostet wären.
+1. Erstellen Sie ein Verzeichnis in Ihrem Dateisystem und legen Sie darin die oben aufgeführten Dateien `example.xml` und `example.xsl` an.
+2. [Starten Sie einen lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_a_local_http_server) im Verzeichnis mit diesen Dateien. So können Sie die Dateien im Browser aufrufen, als würden sie im Internet gehostet.
 
    > [!WARNING]
-   > Das direkte Öffnen der XML-Datei vom Dateisystem wird nicht funktionieren, da das Laden des Stylesheets vom Dateisystem eine [Cross-Origin-Anfrage](/de/docs/Web/HTTP/Guides/CORS) darstellt und standardmäßig nicht erlaubt wird. Das Hosten von XML und Stylesheet auf demselben lokalen Server stellt sicher, dass sie denselben Ursprung haben.
+   > Wenn Sie die XML-Datei direkt aus dem Dateisystem öffnen, funktioniert das Beispiel nicht: Das Laden des Stylesheets aus dem Dateisystem ist eine [Cross-Origin-Anfrage](/de/docs/Web/HTTP/Guides/CORS) und wird standardmäßig blockiert.
+   > Wenn Sie die XML-Datei und das Stylesheet auf demselben lokalen Server bereitstellen, haben beide denselben Ursprung.
 
 3. Öffnen Sie **example.xml** im Browser.
-4. Die Browserausgabe wird dann wie unten gezeigt angezeigt:
+4. Die Ausgabe im Browser sieht dann wie folgt aus:
 
    ```plain
    Browser Output :
@@ -123,11 +123,11 @@ Um das Beispiel auszuprobieren:
        - Mr. Bar
    ```
 
-## Generierung von HTML
+## HTML erzeugen
 
-Eine häufige Anwendung von XSLT im Browser ist die Transformation von XML in HTML auf dem Client. Dieses Beispiel wird das Eingabedokument (example2.xml), das Informationen über einen Artikel enthält, in ein HTML-Dokument umwandeln.
+Eine häufige Anwendung von XSLT im Browser ist die clientseitige Umwandlung von XML in HTML. Dieses Beispiel transformiert das Eingabedokument (example2.xml), das Informationen über einen Artikel enthält, in ein HTML-Dokument.
 
-Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und `<u>`-Tag). Das XML-Dokument enthält sowohl HTML-Elemente als auch XML-Elemente, aber nur ein Namensraum ist notwendig, nämlich für die XML-Elemente. Da es keinen HTML-Namensraum gibt und die Verwendung des XHTML-Namensraums das XSL zwingen würde, ein XML-Dokument zu erstellen, das sich nicht wie ein HTML-Dokument verhält, stellt das `xsl:output` im XSL-Stylesheet sicher, dass das resultierende Dokument als HTML behandelt wird. Für die XML-Elemente benötigen wir unseren eigenen Namensraum, `http://devedge.netscape.com/2002/de`, und dieser wird mit dem Präfix myNS `(xmlns:myNS="http://devedge.netscape.com/2002/de")` versehen.
+Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und ein `<u>`-Tag). Das XML-Dokument enthält sowohl HTML- als auch XML-Elemente, benötigt aber nur einen Namespace, nämlich für die XML-Elemente. Da kein HTML-Namespace vorhanden ist und die Verwendung des XHTML-Namespace XSL dazu zwingen würde, ein XML-Dokument zu erstellen, das sich nicht wie ein HTML-Dokument verhält, sorgt `xsl:output` im XSL-Stylesheet dafür, dass das Ergebnisdokument als HTML behandelt wird. Für die XML-Elemente ist ein eigener Namespace erforderlich: `http://devedge.netscape.com/2002/de`. Ihm wird das Präfix myNS zugewiesen: `(xmlns:myNS="http://devedge.netscape.com/2002/de")`.
 
 ### XML-Datei
 
@@ -146,9 +146,9 @@ Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und `<u
   </myNS:Article>
 ```
 
-Das verwendete XSL-Stylesheet muss zwei Namensräume enthalten - einen für die XSLT-Elemente und einen für unsere eigenen XML-Elemente, die im XML-Dokument verwendet werden. Die Ausgabe des XSL-Stylesheets wird auf `HTML` gesetzt, indem das `xsl:output`-Element verwendet wird. Indem die Ausgabe auf HTML gesetzt wird und es keinen Namensraum für die resultierenden Elemente gibt (blau gefärbt), werden diese Elemente als HTML-Elemente behandelt.
+Das verwendete XSL-Stylesheet benötigt zwei Namespaces: einen für die XSLT-Elemente und einen für die eigenen XML-Elemente im XML-Dokument. Mit dem Element `xsl:output` wird das Ausgabeformat des XSL-Stylesheets auf `HTML` gesetzt. Da die Ausgabe als HTML festgelegt ist und die resultierenden Elemente (blau markiert) keinen Namespace besitzen, werden sie als HTML-Elemente behandelt.
 
-### XSL-Stylesheet mit 2 Namensräumen
+### XSL-Stylesheet mit zwei Namespaces
 
 ```xml
 <?xml version="1.0"?>
@@ -161,9 +161,9 @@ Das verwendete XSL-Stylesheet muss zwei Namensräume enthalten - einen für die 
 </xsl:stylesheet version="1.0">
 ```
 
-Eine Vorlage, die auf den Wurzelknoten des XML-Dokuments passt, wird erstellt und verwendet, um die grundlegende Struktur der HTML-Seite zu erstellen.
+Ein Template, das zum Wurzelknoten des XML-Dokuments passt, wird erstellt und zum Aufbau der Grundstruktur der HTML-Seite verwendet.
 
-### Erstellen des grundlegenden HTML-Dokuments
+### Das grundlegende HTML-Dokument erstellen
 
 ```xml
 …
@@ -203,9 +203,9 @@ Eine Vorlage, die auf den Wurzelknoten des XML-Dokuments passt, wird erstellt un
 …
 ```
 
-Drei weitere `xsl:template` sind erforderlich, um das Beispiel zu vervollständigen. Die erste `xsl:template` wird für die Author-Knoten verwendet, während die zweite den Body-Knoten verarbeitet. Die dritte Vorlage hat eine allgemeine Passregel, die auf jeden Knoten und jedes Attribut passt. Sie ist notwendig, um die HTML-Elemente im XML-Dokument zu erhalten, da sie alle von ihnen passt und in das HTML-Dokument, das die Transformation erstellt, kopiert.
+Drei weitere `xsl:template`-Elemente sind nötig, um das Beispiel zu vervollständigen. Das erste `xsl:template` wird für die Autorenknoten verwendet, während das zweite den body-Knoten verarbeitet. Das dritte Template besitzt eine allgemeine Abgleichregel, die zu jedem Knoten und jedem Attribut passt. Es wird benötigt, um die HTML-Elemente im XML-Dokument zu erhalten: Es erfasst sie alle und kopiert sie in das durch die Transformation erzeugte HTML-Dokument.
 
-### Letzte 3 Vorlagen
+### Die letzten drei Templates
 
 ```xml
 …
@@ -235,9 +235,9 @@ Drei weitere `xsl:template` sind erforderlich, um das Beispiel zu vervollständi
 …
 ```
 
-Das endgültige XSLT-Stylesheet sieht wie folgt aus:
+Das vollständige XSLT-Stylesheet sieht wie folgt aus:
 
-### Endgültiges XSLT-Stylesheet
+### Vollständiges XSLT-Stylesheet
 
 ```xml
 <?xml version="1.0"?>
@@ -305,59 +305,59 @@ Das endgültige XSLT-Stylesheet sieht wie folgt aus:
 </xsl:stylesheet>
 ```
 
-## XSLT/XPath-Referenz
+## XSLT-/XPath-Referenz
 
 - [Elemente](/de/docs/Web/XML/XSLT/Reference/Element)
 - [Achsen](/de/docs/Web/XML/XPath/Reference/Axes)
 - [Funktionen](/de/docs/Web/XML/XPath/Reference/Functions)
 
-## Für weiterführende Lektüre
+## Weiterführende Literatur
 
 ### Bücher
 
 - **XSLT: Programmer's Reference, Second Edition**
   - **Autor**: Michael H. Kay
-  - **Länge**: 992 Seiten
+  - **Umfang**: 992 Seiten
   - **Verlag**: Wrox; 2. Auflage (3. Mai 2001)
   - **ISBN**: 0764543814
-    - Michael Kay ist Mitglied der W3C XSL Working Group und der Entwickler seines eigenen Open-Source XSLT-Prozessors, Saxon. Er ist auch der Autor des einzigen Buches zu diesem Thema, das eine zweite Auflage erreicht hat. Dies ist ein sehr umfangreiches Buch, gut strukturiert und erschöpfend, manchmal ermüdend in den Details, und deckt jede mögliche Basis in der XSLT-Geschichte ab.
+    - Michael Kay ist Mitglied der W3C XSL Working Group und Entwickler des Open-Source-XSLT-Prozessors Saxon. Er ist auch Autor des einzigen Buches zu diesem Thema, das eine zweite Auflage erreicht hat. Dieses umfangreiche, gut strukturierte Buch behandelt sämtliche Aspekte von XSLT erschöpfend und bisweilen ermüdend detailliert.
 
 <https://www.amazon.com/XSLT-Programmers-Reference-Programmer/dp/0764543814>
 
 - **XSLT**
   - **Autor**: Doug Tidwell
-  - **Länge**: 473 Seiten
+  - **Umfang**: 473 Seiten
   - **Verlag**: O'Reilly Media; 1. Auflage (15. August 2001)
   - **ISBN**: 0596000537
-    - Doug Tidwell ist ein Senior-Entwickler bei IBM und ein bekannter Evangelist für XML-Technologien im Allgemeinen. Er ist Autor mehrerer Artikel und Tutorials über verschiedene Aspekte von XML auf IBMs umfangreicher XML-Entwicklerseite. Dieses Buch ist etwas weniger umfassend als das von Michael Kay, deckt die Grundlagen jedoch gut ab und bietet einige faszinierende Beispiele.
+    - Doug Tidwell ist leitender Entwickler bei IBM und ein bekannter Verfechter von XML-Technologien. Er hat mehrere Artikel und Tutorials zu verschiedenen Aspekten von XML auf der umfangreichen XML-Entwicklerwebsite von IBM veröffentlicht. Dieses Buch ist etwas weniger umfassend als das von Michael Kay, behandelt die Grundlagen aber gut und bietet einige interessante Beispiele.
 
 <https://www.amazon.com/Xslt-Doug-Tidwell/dp/0596000537>
 
 - **Learning XML, Second Edition**
   - **Autor**: Erik T. Ray
-  - **Länge**: 432 Seiten
+  - **Umfang**: 432 Seiten
   - **Verlag**: O'Reilly Media; 2. Auflage (22. September 2003)
   - **ISBN**: 0596004206
-    - Wie der Titel andeutet, bietet dies einen Überblick über XML im Allgemeinen. Kapitel 6 ist speziell XSLT gewidmet.
+    - Wie der Titel erkennen lässt, bietet dieses Buch einen allgemeinen Überblick über XML. Kapitel 6 widmet sich speziell XSLT.
 
 <https://www.amazon.com/gp/product/0596004206>
 
 ### Spezifikationen
 
-- **Die Haupt-XSL-Seite**: <https://www.w3.org/Style/XSL/>
-- **XSLT-Spezifikationsübersicht**: <https://www.w3.org/TR/xslt/>
-- **Archiv öffentlicher Stil (CSS und XSLT) Diskussionen**: [https://lists.w3.org/Archives/Public/www-style/](https://lists.w3.org/Archives/Public/www-style/)
-- **XPath-Spezifikationsübersicht**: <https://www.w3.org/TR/xpath/>
+- **Die wichtigste XSL-Seite**: <https://www.w3.org/Style/XSL/>
+- **Überblick über die XSLT-Spezifikationen**: <https://www.w3.org/TR/xslt/>
+- **Archiv öffentlicher Diskussionen zu Styles (CSS und XSLT)**: [https://lists.w3.org/Archives/Public/www-style/](https://lists.w3.org/Archives/Public/www-style/)
+- **Überblick über die XPath-Spezifikationen**: <https://www.w3.org/TR/xpath/>
 
 ### Artikel
 
-- [XSL Transformations](https://www.ibiblio.org/xml/books/bible3/chapters/ch15.html) von Elliotte Rusty Harold
-- [What is XSLT?](https://www.xml.com/pub/a/2000/08/holman/index.html) von G. Ken Holman
+- [XSL-Transformationen](https://www.ibiblio.org/xml/books/bible3/chapters/ch15.html) von Elliotte Rusty Harold
+- [Was ist XSLT?](https://www.xml.com/pub/a/2000/08/holman/index.html) von G. Ken Holman
 
-### Tutorials/Beispiele
+### Tutorials und Beispiele
 
-- [Jeni's XSLT Pages](https://www.jenitennison.com/xslt/)
+- [Jenis XSLT-Seiten](https://www.jenitennison.com/xslt/)
 - [XMLPitstop.com](https://web.archive.org/web/20211209064736/https://www.xmlpitstop.com/default_datatype_SSC.html)
-- [XPath Tutorial](https://zvon.org/xxl/XPathTutorial/General/examples.html) von Miloslav Nic, Jiri Jirat
-- [XSL Tutorial](https://nwalsh.com/docs/tutorials/xsl/) von Paul Grosso, Norman Walsh
-- [XSLT Tutorial](https://zvon.org/xxl/XSLTutorial/Books/Book1/index.html) von Miloslav Nic
+- [XPath-Tutorial](https://zvon.org/xxl/XPathTutorial/General/examples.html) von Miloslav Nic und Jiri Jirat
+- [XSL-Tutorial](https://nwalsh.com/docs/tutorials/xsl/) von Paul Grosso und Norman Walsh
+- [XSLT-Tutorial](https://zvon.org/xxl/XSLTutorial/Books/Book1/index.html) von Miloslav Nic

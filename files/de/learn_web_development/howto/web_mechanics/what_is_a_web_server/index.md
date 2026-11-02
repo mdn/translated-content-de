@@ -2,10 +2,10 @@
 title: Was ist ein Webserver?
 slug: Learn_web_development/Howto/Web_mechanics/What_is_a_web_server
 l10n:
-  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
+  sourceCommit: d50a52075711e21da27bce5ee24f6334b56cf0f3
 ---
 
-In diesem Artikel erklären wir, was Webserver sind, wie Webserver funktionieren und warum sie wichtig sind.
+In diesem Artikel erklären wir, was Webserver sind, wie sie funktionieren und warum sie wichtig sind.
 
 <table>
   <tbody>
@@ -25,7 +25,7 @@ In diesem Artikel erklären wir, was Webserver sind, wie Webserver funktionieren
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Sie werden lernen, was ein Webserver ist, und ein allgemeines Verständnis dafür bekommen, wie er funktioniert.
+        Sie erfahren, was ein Webserver ist, und gewinnen ein grundlegendes Verständnis dafür, wie er funktioniert.
       </td>
     </tr>
   </tbody>
@@ -33,86 +33,78 @@ In diesem Artikel erklären wir, was Webserver sind, wie Webserver funktionieren
 
 ## Zusammenfassung
 
-Der Begriff _Webserver_ kann sich auf Hardware oder Software oder auf beide im Zusammenspiel beziehen.
+Der Begriff _Webserver_ kann Hardware oder Software bezeichnen – oder beides im Zusammenspiel.
 
-1. Auf der Hardware-Seite ist ein Webserver ein Computer, der Webserver-Software und die Komponenten-Dateien einer Website speichert (zum Beispiel HTML-Dokumente, Bilder, CSS-Stylesheets und JavaScript-Dateien). Ein Webserver verbindet sich mit dem Internet und unterstützt den physischen Datenaustausch mit anderen Geräten, die mit dem Web verbunden sind.
-2. Auf der Software-Seite umfasst ein Webserver mehrere Teile, die steuern, wie Webbenutzer auf gehostete Dateien zugreifen. Mindestens ist dies ein _HTTP-Server_. Ein HTTP-Server ist Software, die {{Glossary("URL", "URLs")}} (Webadressen) und {{Glossary("HTTP", "HTTP")}} (das Protokoll, das Ihr Browser verwendet, um Webseiten anzuzeigen) versteht. Auf einen HTTP-Server kann über die Domainnamen der Websites zugegriffen werden, die er speichert, und er liefert den Inhalt dieser gehosteten Websites an das Endgerät des Benutzers.
+1. Auf der Hardwareseite ist ein Webserver ein Computer, auf dem Webserver-Software und die zu einer Website gehörenden Dateien gespeichert sind (beispielsweise HTML-Dokumente, Bilder, CSS-Stylesheets und JavaScript-Dateien). Ein Webserver ist mit dem Internet verbunden und ermöglicht den Datenaustausch mit anderen Geräten im Web.
+2. Auf der Softwareseite umfasst ein Webserver mehrere Komponenten, die steuern, wie Webnutzer auf gehostete Dateien zugreifen. Dazu gehört mindestens ein _HTTP-Server_. Ein HTTP-Server ist eine Software, die {{Glossary("URL", "URLs")}} (Webadressen) und {{Glossary("HTTP", "HTTP")}} (das Protokoll, mit dem Ihr Browser Webseiten abruft) versteht. Ein HTTP-Server ist über die Domainnamen der Websites erreichbar, die er hostet, und liefert deren Inhalte an die Geräte der Endnutzer.
 
-Auf der grundlegendsten Ebene, wenn ein Browser eine Datei benötigt, die auf einem Webserver gehostet wird, fordert der Browser die Datei über HTTP an. Wenn die Anfrage den richtigen (Hardware-) Webserver erreicht, akzeptiert der (Software-) _HTTP-Server_ die Anfrage, findet das angeforderte Dokument und sendet es zurück an den Browser, ebenfalls über HTTP. (Wenn der Server das angeforderte Dokument nicht findet, gibt er stattdessen eine [404](/de/docs/Web/HTTP/Reference/Status/404)-Antwort zurück.)
+Wenn ein Browser eine auf einem Webserver gehostete Datei benötigt, fordert er sie über HTTP an. Sobald die Anfrage den richtigen Webserver (die Hardware) erreicht, nimmt der _HTTP-Server_ (die Software) sie entgegen, sucht das angeforderte Dokument und sendet es ebenfalls über HTTP an den Browser zurück. (Findet der Server das Dokument nicht, gibt er stattdessen eine [404](/de/docs/Web/HTTP/Reference/Status/404)-Antwort zurück.)
 
-![Grundlegende Darstellung einer Client/Server-Verbindung über HTTP](web-server.svg)
+![Grundlegende Darstellung einer Client-Server-Verbindung über HTTP](web-server.svg)
 
 Um eine Website zu veröffentlichen, benötigen Sie entweder einen statischen oder einen dynamischen Webserver.
 
 Ein **statischer Webserver** oder Stack besteht aus einem Computer (Hardware) mit einem HTTP-Server (Software). Wir nennen ihn „statisch“, weil der Server seine gehosteten Dateien unverändert an Ihren Browser sendet.
 
-Ein **dynamischer Webserver** besteht aus einem statischen Webserver plus zusätzlicher Software, meist einem _Anwendungsserver_ und einer _Datenbank_. Wir nennen ihn „dynamisch“, weil der Anwendungsserver die gehosteten Dateien aktualisiert, bevor er Inhalte über den HTTP-Server an Ihren Browser sendet.
+Ein **dynamischer Webserver** besteht aus einem statischen Webserver und zusätzlicher Software, meist einem _Anwendungsserver_ und einer _Datenbank_. Wir nennen ihn „dynamisch“, weil der Anwendungsserver die Inhalte aufbereitet, bevor er sie über den HTTP-Server an Ihren Browser sendet.
 
-Um zum Beispiel die endgültigen Webseiten zu erzeugen, die Sie im Browser sehen, könnte der Anwendungsserver eine HTML-Vorlage mit Inhalten aus einer Datenbank füllen. Websites wie MDN oder Wikipedia haben Tausende von Webseiten. Typischerweise bestehen solche Websites aus nur wenigen HTML-Vorlagen und einer riesigen Datenbank, anstatt aus Tausenden von statischen HTML-Dokumenten. Diese Konfiguration erleichtert die Wartung und Bereitstellung der Inhalte.
+Um beispielsweise die fertigen Webseiten zu erzeugen, die Sie im Browser sehen, kann der Anwendungsserver eine HTML-Vorlage mit Inhalten aus einer Datenbank füllen. Websites wie MDN oder Wikipedia haben Tausende von Webseiten. Üblicherweise bestehen solche Websites nicht aus Tausenden statischer HTML-Dokumente, sondern aus nur wenigen HTML-Vorlagen und einer umfangreichen Datenbank. Das erleichtert die Pflege und Bereitstellung der Inhalte.
 
-## Tiefergehender Einblick
+## Vertiefung
 
-Zur Übersicht: Um eine Webseite abzurufen, sendet Ihr Browser eine Anfrage an den Webserver, der in seinem eigenen Speicher nach der angeforderten Datei sucht. Wenn er die Datei findet, liest der Server sie, verarbeitet sie nach Bedarf und sendet sie an den Browser. Schauen wir uns diese Schritte genauer an.
+Zur Erinnerung: Um eine Webseite abzurufen, sendet Ihr Browser eine Anfrage an den Webserver. Dieser sucht in seinem Speicher nach der angeforderten Datei. Wenn er sie findet, liest er sie, verarbeitet sie bei Bedarf und sendet sie an den Browser. Sehen wir uns diese Schritte genauer an.
 
 ### Dateien hosten
 
-Zunächst muss ein Webserver die Dateien der Website speichern, nämlich alle HTML-Dokumente und deren zugehörige Assets, einschließlich Bilder, CSS-Stylesheets, JavaScript-Dateien, Schriftarten und Videos.
+Zunächst muss ein Webserver die Dateien der Website speichern: sämtliche HTML-Dokumente und die zugehörigen Ressourcen, darunter Bilder, CSS-Stylesheets, JavaScript-Dateien, Schriftarten und Videos.
 
-Technisch gesehen könnten Sie all diese Dateien auf Ihrem eigenen Computer hosten, aber es ist weitaus praktischer, Dateien auf einem dedizierten Webserver zu speichern, weil:
+Technisch könnten Sie all diese Dateien auf Ihrem eigenen Computer hosten. Es ist jedoch wesentlich praktischer, sie auf einem dedizierten Webserver zu speichern, denn:
 
-- Ein dedizierter Webserver in der Regel verfügbarer ist (betriebsbereit).
-- Abgesehen von Ausfallzeiten und Systemproblemen ist ein dedizierter Webserver immer mit dem Internet verbunden.
-- Ein dedizierter Webserver immer die gleiche IP-Adresse haben kann. Dies wird als _dedicated IP address_ bezeichnet. (Nicht alle {{Glossary("ISP", "ISPs")}} bieten eine festgelegte IP-Adresse für Heimleitungen an.)
-- Ein dedizierter Webserver typischerweise von Dritten gewartet wird.
+- Ein dedizierter Webserver ist in der Regel besser verfügbar, also häufiger in Betrieb und erreichbar.
+- Von Ausfallzeiten und Systemproblemen abgesehen ist ein dedizierter Webserver ständig mit dem Internet verbunden.
+- Ein dedizierter Webserver kann dauerhaft dieselbe IP-Adresse haben. Dies wird als _dedizierte IP-Adresse_ bezeichnet. (Nicht alle {{Glossary("ISP", "ISPs")}} stellen für private Internetanschlüsse eine feste IP-Adresse bereit.)
+- Ein dedizierter Webserver wird in der Regel von einem Drittanbieter gewartet.
 
-Aus all diesen Gründen ist es ein wesentlicher Bestandteil beim Aufbau Ihrer Website, einen guten Hosting-Anbieter zu finden. Prüfen Sie die verschiedenen Dienstleistungen, die Unternehmen anbieten. Wählen Sie einen, der Ihren Bedürfnissen und Ihrem Budget entspricht. (Die Dienstleistungen reichen von kostenlos bis zu mehreren tausend Dollar pro Monat.) Sie finden mehr Details [in diesem Artikel](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost#hosting).
+Aus all diesen Gründen ist die Wahl eines guten Hosting-Anbieters ein wichtiger Teil beim Aufbau Ihrer Website. Vergleichen Sie die Angebote verschiedener Unternehmen und wählen Sie eines, das Ihren Anforderungen und Ihrem Budget entspricht. Weitere Informationen finden Sie unter [Hosting und einen Domainnamen beschaffen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website#getting_hosting_and_a_domain_name).
 
-Sobald Sie einen Webhosting-Dienst haben, müssen Sie [Ihre Dateien auf Ihren Webserver hochladen](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server).
+Sobald Sie einen Webhosting-Dienst haben, müssen Sie Ihre Dateien auf Ihren Webserver hochladen. Weitere Informationen finden Sie unter [Ihre Website veröffentlichen > Auf Ihrer Website veröffentlichen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website#publishing_to_your_website).
 
 ### Kommunikation über HTTP
 
-Zweitens stellt ein Webserver Unterstützung für {{Glossary("HTTP", "HTTP")}} (Hypertext Transfer Protocol) bereit. Wie der Name schon sagt, spezifiziert HTTP, wie Hypertext (verknüpfte Webdokumente) zwischen zwei Computern übertragen wird.
+Außerdem unterstützt ein Webserver {{Glossary("HTTP", "HTTP")}} (Hypertext Transfer Protocol). Wie der Name schon sagt, legt HTTP fest, wie Hypertext (verlinkte Webdokumente) zwischen zwei Computern übertragen wird.
 
-Ein {{Glossary("Protocol", "Protokoll")}} ist eine Menge von Regeln für die Kommunikation zwischen zwei Computern. HTTP ist ein textbasiertes, zustandsloses Protokoll.
+Ein {{Glossary("Protocol", "Protokoll")}} ist ein Regelwerk für die Kommunikation zwischen zwei Computern. HTTP ist ein textbasiertes, zustandsloses Protokoll.
 
 - Textbasiert
-  - : Alle Befehle sind im Klartext und menschlich lesbar.
+  - : Alle Befehle bestehen aus Klartext und sind für Menschen lesbar.
 - Zustandslos
-  - : Weder der Server noch der Client erinnern sich an vorherige Kommunikation. Zum Beispiel kann ein Server beim bloßen Verlassen von HTTP allein sich weder an ein eingegebenes Passwort erinnern noch Ihren Fortschritt bei einer unvollständigen Transaktion speichern. Für solche Aufgaben benötigen Sie einen Anwendungsserver. (Wir werden diese Art von Technologie in anderen Artikeln behandeln.)
+  - : Weder der Server noch der Client erinnern sich an frühere Kommunikation. Wenn sich ein Server beispielsweise nur auf HTTP stützt, kann er sich weder ein von Ihnen eingegebenes Passwort noch Ihren Fortschritt bei einem nicht abgeschlossenen Vorgang merken. Für solche Aufgaben benötigen Sie einen Anwendungsserver. (Auf diese Art von Technologie gehen wir in anderen Artikeln ein.)
 
-HTTP stellt klare Regeln für die Kommunikation zwischen einem Client und einem Server bereit.
-Wenn Sie mehr erfahren möchten, können Sie die [HTTP-Dokumentation](/de/docs/Web/HTTP) lesen.
-Für den Moment gibt es ein paar Dinge zu beachten:
+HTTP gibt klare Regeln dafür vor, wie ein Client und ein Server miteinander kommunizieren.
+Wenn Sie mehr erfahren möchten, lesen Sie die [HTTP-Dokumentation](/de/docs/Web/HTTP).
+Für den Anfang sollten Sie sich Folgendes merken:
 
-- _Clients_ stellen HTTP-Anfragen an _Server_. Server _antworten_ auf die HTTP-Anfrage eines _Clients_.
-- Bei der Anfrage einer Datei über HTTP müssen Clients die {{Glossary("URL", "URL")}} der Datei angeben.
-- Der Webserver _muss jede HTTP-Anfrage beantworten_, zumindest mit einer Fehlermeldung.
+- _Clients_ stellen HTTP-Anfragen an _Server_. Server _antworten_ auf die HTTP-Anfragen eines _Clients_.
+- Wenn Clients eine Datei über HTTP anfordern, müssen sie deren {{Glossary("URL", "URL")}} angeben.
+- Der Webserver _muss_ auf jede HTTP-Anfrage antworten, zumindest mit einer Fehlermeldung.
 
 Auf einem Webserver ist der HTTP-Server dafür zuständig, eingehende Anfragen zu verarbeiten und zu beantworten.
 
-1. Beim Empfang einer Anfrage prüft ein HTTP-Server, ob die angeforderte URL mit einer vorhandenen Datei übereinstimmt.
-2. Ist dies der Fall, sendet der Webserver den Dateiinhalt zurück an den Browser. Andernfalls prüft der Server, ob er eine Datei dynamisch für die Anfrage generieren soll (siehe [Statische vs. dynamische Inhalte](#statische_vs._dynamische_inhalte)).
-3. Wenn keine dieser Optionen möglich ist, gibt der Webserver eine Fehlermeldung an den Browser zurück, meistens {{HTTPStatus("404", "404 Not Found")}}.
-   Der 404-Fehler ist so häufig, dass einige Webdesigner beträchtliche Zeit und Mühe darauf verwenden, 404-Fehlerseiten zu gestalten.
-   ![Die MDN 404-Seite als Beispiel für eine solche Fehlerseite](mdn-404.jpg)
+1. Wenn ein HTTP-Server eine Anfrage erhält, prüft er, ob die angeforderte URL einer vorhandenen Datei entspricht.
+2. Falls ja, sendet der Webserver den Dateiinhalt an den Browser zurück. Falls nicht, prüft der Server, ob er für die Anfrage dynamisch eine Datei erzeugen soll (siehe [Statische und dynamische Inhalte](#statische_und_dynamische_inhalte)).
+3. Ist keine dieser Möglichkeiten gegeben, gibt der Webserver eine Fehlermeldung an den Browser zurück, meist {{HTTPStatus("404", "404 Not Found")}}.
+   Der 404-Fehler ist so häufig, dass manche Webdesigner viel Zeit und Mühe in die Gestaltung von 404-Fehlerseiten investieren.
+   ![Die 404-Seite von MDN als Beispiel für eine solche Fehlerseite](mdn-404.jpg)
 
-### Statische vs. dynamische Inhalte
+### Statische und dynamische Inhalte
 
-Grob gesagt kann ein Server entweder statische oder dynamische Inhalte bereitstellen. Denken Sie daran, dass der Begriff _statisch_ „unverändert bereitgestellt“ bedeutet. Statische Websites sind am einfachsten einzurichten, daher empfehlen wir, Ihre erste Seite als statische Seite zu erstellen.
+Vereinfacht gesagt kann ein Server statische oder dynamische Inhalte bereitstellen. Denken Sie daran: _Statisch_ bedeutet, dass Inhalte unverändert ausgeliefert werden. Statische Websites sind am einfachsten einzurichten. Deshalb empfehlen wir Ihnen, Ihre erste Website als statische Website zu erstellen.
 
-Der Begriff _dynamisch_ bedeutet, dass der Server die Inhalte verarbeitet oder sie sogar aus einer Datenbank dynamisch generiert. Dieser Ansatz bietet mehr Flexibilität, aber der technische Stack ist komplexer, was den Aufbau einer Website enorm herausfordernder macht.
+_Dynamisch_ bedeutet, dass der Server Inhalte verarbeitet oder sie sogar bei Bedarf aus einer Datenbank erzeugt. Dieser Ansatz bietet mehr Flexibilität. Allerdings ist der technische Stack komplexer, wodurch die Erstellung einer Website erheblich anspruchsvoller wird.
 
-Es ist unmöglich, eine einzige, serienmäßige Anwendungsserverlösung vorzuschlagen, die die richtige Lösung für jeden möglichen Anwendungsfall ist. Einige Anwendungsserver sind darauf ausgelegt, Blogs, Wikis oder E-Commerce-Lösungen zu hosten und zu verwalten, während andere eher generisch sind. Wenn Sie eine dynamische Website bauen, nehmen Sie sich die Zeit, Ihre Anforderungen zu recherchieren und die Technologie zu finden, die am besten zu Ihren Bedürfnissen passt.
+Es gibt keinen fertigen Anwendungsserver, der für jeden denkbaren Anwendungsfall die richtige Lösung ist. Manche Anwendungsserver sind darauf ausgelegt, Blogs, Wikis oder E-Commerce-Lösungen zu hosten und zu verwalten; andere sind allgemeiner einsetzbar. Wenn Sie eine dynamische Website erstellen, sollten Sie sich Zeit nehmen, Ihre Anforderungen zu prüfen und die Technologie zu finden, die am besten zu Ihren Bedürfnissen passt.
 
-Die meisten Website-Entwickler müssen keinen Anwendungsserver von Grund auf neu erstellen, da es so viele serienmäßige Lösungen gibt, von denen viele hochgradig konfigurierbar sind.
-Wenn Sie jedoch einen eigenen Server entwickeln müssen, wollen Sie wahrscheinlich ein Server-Framework verwenden, dessen vorhandenen Code und Bibliotheken nutzen und nur die Teile erweitern, die Sie benötigen, um Ihren Anwendungsfall zu erfüllen.
-Nur eine relativ kleine Anzahl von Entwicklern müsste einen Server vollständig von Grund auf entwickeln: zum Beispiel, um enge Ressourceneinschränkungen auf einem eingebetteten System zu erfüllen.
-Wenn Sie experimentieren möchten, einen Server zu bauen, schauen Sie sich die Ressourcen im [Server-seitige Website-Programmierung](/de/docs/Learn_web_development/Extensions/Server-side) Lernpfad an.
-
-## Nächste Schritte
-
-Jetzt, da Sie mit Webservern vertraut sind, könnten Sie:
-
-- mehr über [wie viel es kostet, etwas im Web zu tun](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost) herausfinden
-- mehr über [verschiedene Software erfahren, die Sie benötigen, um eine Website zu erstellen](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_software_do_I_need)
-- etwas Praktisches ausprobieren, wie [wie man Dateien auf einem Webserver hochlädt](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server).
+Die meisten Website-Entwickler müssen keinen Anwendungsserver von Grund auf neu erstellen, da es viele fertige Lösungen gibt, von denen sich zahlreiche umfassend konfigurieren lassen.
+Wenn Sie dennoch einen eigenen Server erstellen müssen, empfiehlt es sich wahrscheinlich, ein Server-Framework zu verwenden. So können Sie dessen vorhandenen Code und Bibliotheken nutzen und nur die Teile erweitern, die für Ihren Anwendungsfall erforderlich sind.
+Nur relativ wenige Entwickler dürften einen Server vollständig von Grund auf neu entwickeln müssen – beispielsweise, um die strengen Ressourcenbeschränkungen eines eingebetteten Systems einzuhalten.
+Wenn Sie mit der Entwicklung eines Servers experimentieren möchten, sehen Sie sich die Ressourcen im Lernpfad [Serverseitige Website-Programmierung](/de/docs/Learn_web_development/Extensions/Server-side) an.

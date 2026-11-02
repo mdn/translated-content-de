@@ -3,16 +3,16 @@ title: "SVGFEFloodElement: result-Eigenschaft"
 short-title: result
 slug: Web/API/SVGFEFloodElement/result
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: 607900f2b3fdd97a1c591b3dc9f6d81c8623d48c
 ---
 
 {{APIRef("SVG")}}
 
-Die **`result`** schreibgeschützte Eigenschaft des [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement)-Interfaces beschreibt den zugewiesenen Namen eines SVG-Filterprimitives als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
+Die schreibgeschützte Eigenschaft **`result`** der Schnittstelle [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement) beschreibt den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
 
-Sie spiegelt das {{SVGAttr("result")}}-Attribut des {{SVGElement("feFlood")}}-Elements wider, welches eine SVG-Filter-Unterregion mit der Farbe und Deckkraft füllt, die durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definiert sind. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitives resultieren, durch ein {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filterprimitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
+Sie spiegelt das Attribut {{SVGAttr("result")}} des Elements {{SVGElement("feFlood")}} wider. Dieses füllt einen SVG-Filterteilbereich mit der Farbe und Deckkraft, die durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} festgelegt sind. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn das Attribut angegeben ist, kann die durch die Verarbeitung dieses Filterprimitivs entstehende Grafik über ein {{SVGAttr("in")}}-Attribut eines nachfolgenden Filterprimitivs innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
 
-Wenn kein `result`-Attribut definiert ist, sind die `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feFlood>`-Filters wird nur dann für die Wiederverwendung als impliziter Eingang in das nächste Filterprimitive verfügbar sein, wenn dieses Filterprimitive keinen Wert für sein `in`-Attribut bereitstellt.
+Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen. Die Ausgabe des `<feFlood>`-Filters steht dann nur als implizite Eingabe für das nächste Filterprimitiv zur Wiederverwendung zur Verfügung, sofern dieses Filterprimitiv keinen Wert für sein `in`-Attribut angibt.
 
 ## Wert
 
@@ -36,7 +36,7 @@ console.log(filterName.baseVa); // the filter's assigned name
 
 ## Siehe auch
 
-- {{cssxref("custom-ident")}} Datentyp
-- [SVG-Filter-Tutorial](/de/docs/Web/SVG/Guides/SVG_filters)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- Datentyp {{cssxref("custom-ident")}}
+- [Effekte mit SVG-Filtern anwenden](/de/docs/Web/SVG/Guides/Filters)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

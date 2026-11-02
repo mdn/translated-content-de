@@ -1,21 +1,21 @@
 ---
-title: Wie richtet man einen lokalen Testserver ein?
+title: Wie richten Sie einen lokalen Testserver ein?
 slug: Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server
 l10n:
-  sourceCommit: b275a4cda2d6583bc065a680599cc6de5dbaa8f4
+  sourceCommit: d50a52075711e21da27bce5ee24f6334b56cf0f3
 ---
 
-Dieser Artikel erklärt, wie Sie einen einfachen lokalen Testserver auf Ihrem Rechner einrichten und die Grundlagen zu dessen Verwendung.
+Dieser Artikel erklärt, wie Sie auf Ihrem Rechner einen einfachen lokalen Testserver einrichten und verwenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten zuerst wissen
+        Sie sollten zunächst wissen,
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work"
           >wie das Internet funktioniert</a
-        >, und
+        > und
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server"
           >was ein Webserver ist</a
         >.
@@ -28,114 +28,103 @@ Dieser Artikel erklärt, wie Sie einen einfachen lokalen Testserver auf Ihrem Re
   </tbody>
 </table>
 
-## Lokale Dateien vs. entfernte Dateien
+## Lokale Dateien und Dateien auf entfernten Servern
 
-In den meisten Teilen des Lernbereichs sagen wir Ihnen, dass Sie Ihre Beispiele einfach direkt in einem Browser öffnen sollen – dies kann durch Doppelklicken auf die HTML-Datei, durch Ziehen und Ablegen in das Browserfenster oder durch Auswählen von _Datei_ > _Öffnen…_ und Navigation zur HTML-Datei geschehen. Es gibt viele Möglichkeiten, dies zu erreichen.
+In vielen Artikeln von MDN _Learn_ empfehlen wir, Beispiele direkt im Browser zu öffnen. Dafür gibt es mehrere Möglichkeiten: Sie können auf die HTML-Datei doppelklicken, sie in das Browserfenster ziehen oder über _Datei_ > _Öffnen…_ zur HTML-Datei navigieren.
 
-Wenn der Webadresse-Pfad mit `file://` gefolgt vom Pfad zur Datei auf Ihrem lokalen Festplattenlaufwerk beginnt, wird eine lokale Datei verwendet. Im Gegensatz dazu wird, wenn Sie eines unserer Beispiele auf GitHub (oder ein Beispiel auf einem anderen Remote-Server) anzeigen, die Webadresse mit `http://` oder `https://` beginnen, um zu zeigen, dass die Datei über HTTP empfangen wurde.
+Wenn die Webadresse mit `file://` beginnt und darauf der Pfad zur Datei auf Ihrer lokalen Festplatte folgt (oder wenn sie mit `localhost:` oder `http://127.0.0.1` beginnt; siehe [Einen lokalen HTTP-Server starten](#einen_lokalen_http-server_starten)), befindet sich die geladene Datei auf Ihrer lokalen Festplatte. Wenn Sie dagegen eines unserer auf GitHub (oder einem anderen entfernten Server) gehosteten Beispiele ansehen, beginnt die Webadresse mit `https://`. Das zeigt an, dass die Datei von einem entfernten Server über HTTPS übertragen wurde.
 
-## Das Problem beim Testen lokaler Dateien
+## Das Problem mit Datei-URLs
 
-Einige Beispiele funktionieren nicht, wenn Sie sie als lokale Dateien öffnen. Dies kann aus verschiedenen Gründen geschehen, wobei am wahrscheinlichsten ist:
+Manche Beispiele funktionieren nicht, wenn Sie sie über eine `file://`-URL direkt im Browser öffnen. Dafür kann es verschiedene Gründe geben. Die wahrscheinlichsten sind:
 
-- **Sie enthalten asynchrone Anfragen**. Einige Browser (einschließlich Chrome) führen asynchrone Anfragen nicht aus (siehe [Lernen: Making network requests with JavaScript](/de/docs/Learn_web_development/Core/Scripting/Network_requests)), wenn Sie das Beispiel einfach aus einer lokalen Datei ausführen. Dies liegt an Sicherheitsbeschränkungen (mehr über Web-Sicherheit finden Sie unter [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security)).
-- **Sie enthalten eine serverseitige Sprache**. Serverseitige Sprachen (wie PHP oder Python) erfordern einen speziellen Server, um den Code zu interpretieren und die Ergebnisse zu liefern.
-- **Sie beinhalten andere Dateien**. Browser behandeln Anfragen zum Laden von Ressourcen mit dem `file://` Schema oft als Cross-Origin-Anfragen. Wenn Sie also eine lokale Datei laden, die andere lokale Dateien enthält, kann dies einen {{Glossary("CORS", "CORS")}} Fehler auslösen.
+- **Sie verwenden asynchrone Anfragen.** Manche Browser (darunter Chrome) führen keine asynchronen Anfragen aus (siehe [Netzwerkanfragen mit JavaScript durchführen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)), wenn Sie ein Beispiel aus einer lokalen Datei starten. Der Grund sind Sicherheitsbeschränkungen (mehr über Websicherheit erfahren Sie unter [Sicherheit von Websites](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security)).
+- **Sie verwenden eine serverseitige Sprache.** Serverseitige Sprachen (wie PHP oder Python) benötigen einen entsprechenden Server, der den Code interpretiert und die Ergebnisse bereitstellt.
+- **Sie binden weitere Dateien ein.** Browser behandeln Anfragen zum Laden von Ressourcen über das `file://`-Schema häufig als Cross-Origin-Anfragen. Wenn Sie eine lokale Datei laden, die weitere lokale Dateien einbindet, kann dadurch ein {{Glossary("CORS", "CORS")}}-Fehler auftreten.
 
-## Einen einfachen lokalen HTTP-Server betreiben
+## Einen lokalen HTTP-Server starten
 
-Um das Problem asynchroner Anfragen zu umgehen, müssen wir solche Beispiele testen, indem wir sie über einen lokalen Webserver ausführen.
+Um Probleme beim Ausführen lokaler Dateien zu vermeiden, müssen wir solche Beispiele über einen lokalen Webserver testen. In diesem Abschnitt werden mehrere Möglichkeiten dafür beschrieben.
 
-### Verwendung einer Erweiterung in Ihrem Code-Editor
+### Eine Erweiterung für Ihren Code-Editor verwenden
 
-Wenn Sie nur HTML, CSS und JavaScript benötigen und keine serverseitige Sprache, könnte der einfachste Weg darin bestehen, nach Erweiterungen in Ihrem Code-Editor zu suchen. Diese automatisieren nicht nur die Installation und Einrichtung Ihres lokalen HTTP-Servers, sondern integrieren sich auch gut in Ihre Code-Editoren. Das Testen lokaler Dateien in einem HTTP-Server kann nur einen Klick entfernt sein.
+Wenn Sie nur HTML, CSS und JavaScript und keine serverseitige Sprache benötigen, können Sie lokale Beispiele einfach mithilfe einer Code-Editor-Erweiterung ausführen. Solche Erweiterungen automatisieren die Installation und Einrichtung des Servers und lassen sich gut in Ihren Code-Editor integrieren.
 
-Für VS Code probieren Sie die folgenden kostenlosen Erweiterungen aus:
+Suchen Sie beispielsweise in VS Code im Erweiterungsbereich nach der Erweiterung [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server). Wenn Sie eine HTML-Datei anzeigen, fügt sie oben rechts in der Benutzeroberfläche die Schaltfläche „Show Preview“ hinzu. Ein Klick darauf zeigt die gerenderte HTML-Datei und die zugehörigen Dateien in einem separaten Seitenbereich an.
 
-- [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)
-- [Preview on Web Server](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server)
+Live Preview stellt die Dateien über einen lokalen Server unter `http://127.0.0.1:3000` bereit.
 
-### Verwendung von Node.js
+### Node.js verwenden
 
-Das Node.js [`http-server`](https://www.npmjs.com/package/http-server) Modul ist eine einfache Möglichkeit, HTML-Dateien aus jedem Verzeichnis zu hosten.
+Mit dem Node.js-Modul [`http-server`](https://www.npmjs.com/package/http-server) können Sie HTML-Dateien aus einem beliebigen Verzeichnis bereitstellen.
 
-Um das Modul zu verwenden:
+So verwenden Sie das Modul:
 
-1. Führen Sie die folgenden Befehle aus, um zu überprüfen, ob Node.js bereits installiert ist:
+1. Führen Sie die folgenden Befehle auf Ihrer [Kommandozeile](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line) aus, um zu prüfen, ob Node.js (und npm, der häufig mitgelieferte Paketmanager) bereits installiert sind:
 
    ```bash
    node -v
    npm -v
-   npx -v
    ```
 
-2. Wenn Node.js nicht installiert ist, müssen Sie es installieren. Folgen Sie den [Download-Anweisungen](https://nodejs.org/en/download) in den Node.js-Dokumentationen und führen Sie dann die obigen Befehle erneut aus, um zu überprüfen, ob die Installation erfolgreich war.
+2. Falls Node.js nicht installiert ist, müssen Sie es installieren. Folgen Sie der [Download-Anleitung](https://nodejs.org/en/download) in der Node.js-Dokumentation und führen Sie anschließend die obigen Befehle erneut aus, um die Installation zu überprüfen.
 
-3. Angenommen, das Verzeichnis ist `/path/to/project`. Führen Sie den folgenden Befehl aus, um den Server zu starten:
+3. Navigieren Sie in Ihrer Eingabeaufforderung mit dem Befehl `cd` zu dem Ordner, in dem sich Ihr Beispiel befindet.
+
+4. Führen Sie den folgenden Befehl aus, um den Server zu starten:
 
    ```bash
-   npx http-server /path/to/project -o -p 9999
+   npx http-server -o -p 9999 -c-1
    ```
 
-   Dies hostet alle Dateien im `/path/to/project` Verzeichnis auf `localhost:9999`. Die Option `-o` wird die `index.html` Seite in einem Webbrowser öffnen. Wenn `index.html` nicht existiert, wird stattdessen das Verzeichnis angezeigt.
+   Dadurch werden alle Dateien im aktuellen Verzeichnis unter `localhost:9999` bereitgestellt und `index.html` wird automatisch geladen. Die Option `-o` sorgt dafür, dass die Seite sofort in einem Webbrowser geöffnet wird. Wenn `index.html` nicht vorhanden ist, wird stattdessen der Verzeichnisinhalt angezeigt, sodass Sie eine Datei zum Laden auswählen können. Die Option `-c-1` weist den Server an, keine Dateien zwischenzuspeichern. So wird bei jedem Aufruf die aktuelle Version geladen.
 
-### Verwendung von Python
+### Python verwenden
 
-Eine andere Möglichkeit ist die Verwendung des `http.server` Moduls von Python.
+Eine weitere Möglichkeit, lokale Beispiele über einen HTTP-Server auszuführen, ist das Python-Modul `http.server`.
 
 > [!NOTE]
-> Ältere Versionen von Python (bis Version 2.7) lieferten ein ähnliches Modul namens `SimpleHTTPServer`. Python 2 ist bereits End-of-Life, daher empfehlen wir die Verwendung von Python 3.
+> Ältere Python-Versionen (bis einschließlich Version 2.7) boten ein ähnliches Modul namens `SimpleHTTPServer`. Python 2 ist veraltet. Wir empfehlen daher, Python 3 zu verwenden.
 
-Um dies zu tun:
+Gehen Sie wie folgt vor:
 
-1. Führen Sie den folgenden Befehl aus, um zu überprüfen, ob Python bereits installiert ist:
+1. Führen Sie einen Befehl auf Ihrer [Kommandozeile](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line) aus, um zu prüfen, ob Python bereits installiert ist:
 
    ```bash
+   # On macOS or Linux, run
    python -V
-   # If the above fails, try:
+   # If the above fails, try
    python3 -V
-   # Or, if the "py" command is available, try:
+
+   # On Windows, run
    py -3 -V
    ```
 
-2. Wenn Python nicht installiert ist, müssen Sie es installieren. Folgen Sie den [Download-Anweisungen](https://www.python.org/downloads/) in den Python-Dokumentationen (wir haben auch detailliertere Erklärungen in unserem [Django-Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#installing_python_3)), und führen Sie dann die obigen Befehle erneut aus, um zu überprüfen, ob die Installation erfolgreich war.
+2. Falls Python nicht installiert ist, müssen Sie es installieren. Folgen Sie der [Download-Anleitung](https://www.python.org/downloads/) in der Python-Dokumentation (ausführlichere Erläuterungen finden Sie auch in unserem [Django-Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#installing_python_3)). Führen Sie anschließend den Befehl erneut aus, um die Installation zu überprüfen.
 
-3. Wenn Python eingerichtet ist, navigieren Sie zu dem Verzeichnis, das den Website-Code enthält, den Sie testen möchten, mit dem Befehl `cd`.
+3. Wenn Python eingerichtet ist, navigieren Sie mit dem Befehl `cd` zu dem Verzeichnis mit dem Website-Code, den Sie testen möchten.
 
-   ```bash
-   # include the directory name to enter it, for example
-   cd Desktop
-   # use two dots to jump up one directory level if you need to
-   cd ..
-   ```
-
-4. Geben Sie den Befehl ein, um den Server in diesem Verzeichnis zu starten:
+4. Geben Sie den folgenden Befehl ein, um den Server in diesem Verzeichnis zu starten:
 
    ```bash
-   # On Windows, try "python -m http.server" or "py -3 -m http.server"
+   # On macOS and Linux, run
    python3 -m http.server
+
+   # On Windows, run
+   py -3 -m http.server
    ```
 
-5. Standardmäßig werden damit die Inhalte des Verzeichnisses auf einem lokalen Webserver auf Port 8000 ausgeführt. Sie können zu diesem Server gehen, indem Sie in Ihrem Webbrowser die URL `localhost:8000` aufrufen. Dort sehen Sie die aufgelisteten Inhalte des Verzeichnisses — klicken Sie auf die HTML-Datei, die Sie ausführen möchten.
+   Standardmäßig werden dadurch alle Dateien im aktuellen Verzeichnis unter `localhost:8000` bereitgestellt und `index.html` wird automatisch geladen. Wenn `index.html` nicht vorhanden ist, wird stattdessen der Verzeichnisinhalt angezeigt, sodass Sie eine Datei zum Laden auswählen können.
 
-> [!NOTE]
-> Wenn bereits etwas auf Port 8000 läuft, können Sie einen anderen Port wählen, indem Sie den Serverbefehl gefolgt von einer alternativen Portnummer ausführen, z.B. `python3 -m http.server 7800`. Sie können dann auf Ihre Inhalte unter `localhost:7800` zugreifen.
+   > [!NOTE]
+   > Wenn auf Port 8000 bereits ein Server läuft, können Sie einen anderen Port wählen, indem Sie hinter dem Serverbefehl eine andere Portnummer angeben, zum Beispiel `python3 -m http.server 7800`. Ihre Inhalte sind dann unter `localhost:7800` erreichbar.
 
 ## Serverseitige Sprachen lokal ausführen
 
-Der beste Ansatz zur Arbeit mit serverseitigen Sprachen, wie Python, PHP oder JavaScript, hängt von der verwendeten serverseitigen Sprache ab und ob Sie mit einem Web-Framework oder "stand-alone" Code arbeiten.
+Wie Sie am besten mit serverseitigen Sprachen wie Python, PHP oder JavaScript arbeiten, hängt von der verwendeten Sprache und davon ab, ob Sie ein Web-Framework oder eigenständigen Code verwenden.
 
-Wenn Sie mit einem Web-Framework arbeiten, wird in der Regel das Framework seinen eigenen Entwicklungsserver bereitstellen.
-Zum Beispiel bieten die folgenden Sprachen/Frameworks einen Entwicklungsserver:
+Wenn Sie mit einem Web-Framework arbeiten, stellt dieses in der Regel einen eigenen Entwicklungsserver bereit. Die folgenden Sprachen beziehungsweise Frameworks bringen beispielsweise einen Entwicklungsserver mit:
 
-- Python-Web-Frameworks wie [Django](/de/docs/Learn_web_development/Extensions/Server-side/Django), [Flask](https://flask.palletsprojects.com/) und [Pyramid](https://trypyramid.com/).
-- Node/JavaScript-Frameworks wie [Express Web Framework (Node.js/JavaScript)](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)
-- PHP hat seinen eigenen [eingebauten Entwicklungsserver](https://www.php.net/manual/en/features.commandline.webserver.php):
-
-  ```bash
-  cd path/to/your/php/code
-  php -S localhost:8000
-  ```
-
-Wenn Sie nicht direkt mit einem serverseitigen Framework oder einer Programmiersprache arbeiten, die einen Entwicklungsserver bereitstellt, kann das `http.server` Modul von Python auch verwendet werden, um serverseitigen Code, der in Sprachen wie Python, PHP, JavaScript und so weiter geschrieben ist, zu testen, indem serverseitige Common Gateway Interface (CGI) Skripte aufgerufen werden.
-Für Beispiele, wie Sie diese Funktion nutzen können, siehe [Execute a Script Remotely Through the Common Gateway Interface (CGI)](https://realpython.com/python-http-server/#execute-a-script-remotely-through-the-common-gateway-interface-cgi) in _How to Launch an HTTP Server in One Line of Python Code_ auf realpython.com.
+- Python-Web-Frameworks wie [Django](/de/docs/Learn_web_development/Extensions/Server-side/Django) und [Flask](https://flask.palletsprojects.com/).
+- Node-/JavaScript-Frameworks wie [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs).
+- PHP verfügt über einen eigenen [integrierten Entwicklungsserver](https://www.php.net/manual/en/features.commandline.webserver.php). Alternativ können Sie einen Entwicklungsserver für PHP und Datenbanken wie [MAMP](https://www.mamp.info/en/downloads/) (macOS) oder [XAMPP](https://www.apachefriends.org/download.html) (Linux/Windows/macOS) installieren.

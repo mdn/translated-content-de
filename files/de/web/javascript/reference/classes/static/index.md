@@ -2,15 +2,15 @@
 title: static
 slug: Web/JavaScript/Reference/Classes/static
 l10n:
-  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
+  sourceCommit: 389605121ed8ea78cc1878f31bbca6759cc7417d
 ---
 
-Das **`static`** Schlüsselwort definiert eine [statische Methode oder ein statisches Feld](/de/docs/Web/JavaScript/Reference/Classes#static_methods_and_fields) für eine Klasse oder einen [statischen Initialisierungsblock](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) (siehe den Link für weitere Informationen zu dieser Verwendung). Statische Eigenschaften können nicht direkt auf Instanzen der Klasse zugegriffen werden. Stattdessen werden sie auf der Klasse selbst aufgerufen.
+Das Schlüsselwort **`static`** definiert eine [statische Methode oder ein statisches Feld](/de/docs/Web/JavaScript/Reference/Classes#static_methods_and_fields) für eine Klasse oder einen [statischen Initialisierungsblock](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) (weitere Informationen zu dieser Verwendung finden Sie unter dem Link). Auf statische Eigenschaften kann nicht direkt über Instanzen der Klasse zugegriffen werden. Stattdessen erfolgt der Zugriff über die Klasse selbst.
 
-Statische Methoden sind oft Hilfsfunktionen, wie z.B. Funktionen zum Erstellen oder Klonen von Objekten, während statische Eigenschaften nützlich für Caches, feste Konfigurationen oder andere Daten sind, die nicht über Instanzen hinweg repliziert werden müssen.
+Statische Methoden sind häufig Hilfsfunktionen, beispielsweise zum Erstellen oder Klonen von Objekten. Statische Eigenschaften eignen sich dagegen für Caches, feste Konfigurationen und andere Daten, die nicht für jede Instanz einzeln vorliegen müssen.
 
 > [!NOTE]
-> Im Kontext von Klassen verwenden die MDN Web Docs-Inhalte die Begriffe Eigenschaften und [Felder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) austauschbar.
+> Im Zusammenhang mit Klassen verwendet MDN Web Docs die Begriffe Eigenschaften und [Felder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) synonym.
 
 {{InteractiveExample("JavaScript Demo: Class static", "taller")}}
 
@@ -43,25 +43,25 @@ class ClassWithStatic {
 }
 ```
 
-Es gibt einige zusätzliche Syntaxbeschränkungen:
+Es gelten einige zusätzliche Syntaxbeschränkungen:
 
-- Der Name einer statischen Eigenschaft (Feld oder Methode) kann nicht `prototype` sein.
-- Der Name eines Klassenfeldes (statisch oder instanziiert) kann nicht `constructor` sein.
+- Der Name einer statischen Eigenschaft (eines Feldes oder einer Methode) darf nicht `prototype` sein.
+- Der Name eines Klassenfeldes (statisch oder instanzbezogen) darf nicht `constructor` sein.
 
 ## Beschreibung
 
-Diese Seite führt öffentliche statische Eigenschaften von Klassen ein, die statische Methoden, statische Zugreifer und statische Felder umfassen.
+Diese Seite beschreibt öffentliche statische Eigenschaften von Klassen. Dazu gehören statische Methoden, statische Accessors und statische Felder.
 
-- Für private statische Merkmale siehe [private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements).
-- Für Instanzenmerkmale siehe [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions), [getter](/de/docs/Web/JavaScript/Reference/Functions/get), [setter](/de/docs/Web/JavaScript/Reference/Functions/set) und [öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields).
+- Informationen zu privaten statischen Elementen finden Sie unter [private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements).
+- Informationen zu Instanzelementen finden Sie unter [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions), [getter](/de/docs/Web/JavaScript/Reference/Functions/get), [setter](/de/docs/Web/JavaScript/Reference/Functions/set) und [öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields).
 
-Öffentliche statische Merkmale werden mit dem `static` Schlüsselwort deklariert. Sie werden während der [Klassenauswertung](/de/docs/Web/JavaScript/Reference/Classes#evaluation_order) unter Verwendung der [`[[DefineOwnProperty]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty) Semantik (welches im Wesentlichen {{jsxref("Object.defineProperty()")}} ist) zum Klassenkonstruktor hinzugefügt. Sie werden erneut vom Klassenkonstruktor aus aufgerufen.
+Öffentliche statische Elemente werden mit dem Schlüsselwort `static` deklariert. Bei der [Auswertung der Klasse](/de/docs/Web/JavaScript/Reference/Classes#evaluation_order) werden sie dem Klassenkonstruktor mithilfe der [`[[DefineOwnProperty]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty)-Semantik hinzugefügt (die im Wesentlichen {{jsxref("Object.defineProperty()")}} entspricht). Anschließend erfolgt der Zugriff auf sie über den Klassenkonstruktor.
 
-Statische Methoden sind oft Hilfsfunktionen, wie z.B. Funktionen zum Erstellen oder Klonen von Instanzen. Öffentliche statische Felder sind nützlich, wenn Sie möchten, dass ein Feld nur einmal pro Klasse existiert und nicht in jeder Klasseninstanz, die Sie erstellen. Dies ist nützlich für Caches, feste Konfigurationen oder andere Daten, die nicht über Instanzen hinweg repliziert werden müssen.
+Statische Methoden sind häufig Hilfsfunktionen, beispielsweise zum Erstellen oder Klonen von Instanzen. Öffentliche statische Felder sind nützlich, wenn ein Feld nur einmal pro Klasse existieren soll und nicht auf jeder erstellten Klasseninstanz. Das eignet sich für Caches, feste Konfigurationen und andere Daten, die nicht für jede Instanz einzeln vorliegen müssen.
 
-Statische Feldnamen können [berechnet](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) werden. Der `this` Wert im berechneten Ausdruck ist das `this` der umgebenden Klassendefinition, und das Verweisen auf den Klassennamen führt zu einem {{jsxref("ReferenceError")}}, da die Klasse noch nicht initialisiert ist. {{jsxref("Operators/await", "await")}} und {{jsxref("Operators/yield", "yield")}} funktionieren wie erwartet in diesem Ausdruck.
+Die Namen statischer Felder können [berechnet werden](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names). Der Wert von `this` im berechneten Ausdruck ist das `this` der Umgebung, in der die Klasse definiert wird. Ein Verweis auf den Namen der Klasse führt zu einem {{jsxref("ReferenceError")}}, da die Klasse zu diesem Zeitpunkt noch nicht initialisiert ist. {{jsxref("Operators/await", "await")}} und {{jsxref("Operators/yield", "yield")}} verhalten sich in diesem Ausdruck wie erwartet.
 
-Statische Felder können einen Initialisierer haben. Statische Felder ohne Initialisierer werden auf `undefined` gesetzt. Öffentliche statische Felder werden in Unterklassen nicht neu initialisiert, können jedoch über die Prototypenkette aufgerufen werden.
+Statische Felder können einen Initialisierer haben. Statische Felder ohne Initialisierer werden mit `undefined` initialisiert. Öffentliche statische Felder werden in Unterklassen nicht erneut initialisiert, sind aber über die Prototypkette zugänglich.
 
 ```js
 class ClassWithStaticField {
@@ -80,7 +80,7 @@ console.log(SubclassWithStaticField.staticFieldWithInitializer); // "static fiel
 console.log(SubclassWithStaticField.subStaticField); // "subclass field"
 ```
 
-Im Feldinitialisierer bezieht sich [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf die aktuelle Klasse (die Sie auch über ihren Namen aufrufen können), und [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) bezieht sich auf den Basisklassenkonstruktor.
+Im Feldinitialisierer verweist [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf die aktuelle Klasse (auf die Sie auch über ihren Namen zugreifen können) und [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) auf den Konstruktor der Basisklasse.
 
 ```js
 class ClassWithStaticField {
@@ -100,22 +100,22 @@ console.log(ClassWithStaticField.anotherBaseStaticField); // "base static field"
 console.log(SubClassWithStaticField.subStaticField); // "base static method output"
 ```
 
-Der Ausdruck wird synchron ausgewertet. Sie können {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} nicht im Initialisiererausdruck verwenden. (Betrachten Sie den Initialisiererausdruck als implizit in eine Funktion eingewickelt.)
+Der Ausdruck wird synchron ausgewertet. Sie können {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} nicht im Initialisierungsausdruck verwenden. (Stellen Sie sich den Initialisierungsausdruck so vor, als wäre er implizit in eine Funktion eingeschlossen.)
 
-Statische Feldinitialisierer und [statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) werden nacheinander ausgewertet. Feldinitialisierer können auf Feldwerte oberhalb von ihnen verweisen, aber nicht unterhalb von ihnen. Alle statischen Methoden werden vorher hinzugefügt und können aufgerufen werden, obwohl das Aufrufen dieser Methoden möglicherweise nicht wie erwartet funktioniert, wenn sie sich auf unterhalb des beim Initialisieren befindlichen Feldes beziehen.
+Initialisierer statischer Felder und [statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) werden nacheinander ausgewertet. Feldinitialisierer können auf die Werte von Feldern verweisen, die oberhalb von ihnen stehen, nicht aber auf die Werte von Feldern unterhalb von ihnen. Alle statischen Methoden werden zuvor hinzugefügt und sind zugänglich. Ihr Aufruf verhält sich jedoch möglicherweise nicht wie erwartet, wenn sie auf Felder verweisen, die unterhalb des gerade initialisierten Feldes stehen.
 
 > [!NOTE]
-> Dies ist bei [privaten statischen Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) wichtiger, da der Zugriff auf ein nicht initialisiertes privates Feld einen {{jsxref("TypeError")}} auslöst, selbst wenn das private Feld unterhalb deklariert wird. (Wenn das private Feld nicht deklariert wird, wäre dies ein früher {{jsxref("SyntaxError")}}.)
+> Dies ist bei [privaten statischen Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) besonders wichtig: Der Zugriff auf ein noch nicht initialisiertes privates Feld löst einen {{jsxref("TypeError")}} aus, selbst wenn das private Feld weiter unten deklariert ist. (Ist das private Feld überhaupt nicht deklariert, tritt bereits frühzeitig ein {{jsxref("SyntaxError")}} auf.)
 
 ## Beispiele
 
-### Verwenden von statischen Mitgliedern in Klassen
+### Statische Mitglieder in Klassen verwenden
 
-Das folgende Beispiel demonstriert mehrere Dinge:
+Das folgende Beispiel zeigt:
 
-1. Wie ein statisches Mitglied (Methode oder Eigenschaft) auf einer Klasse definiert wird.
-2. Dass eine Klasse mit einem statischen Mitglied unterklassenfähig ist.
-3. Wie ein statisches Mitglied aufgerufen werden kann und nicht aufgerufen werden darf.
+1. Wie ein statisches Mitglied (eine Methode oder Eigenschaft) für eine Klasse definiert wird.
+2. Dass von einer Klasse mit einem statischen Mitglied eine Unterklasse abgeleitet werden kann.
+3. Wie ein statisches Mitglied aufgerufen werden kann und wie nicht.
 
 ```js
 class Triple {
@@ -149,9 +149,9 @@ console.log(SquaredTriple.customName); // 'Tripler'
 console.log(tp.calculate()); // 'tp.calculate is not a function'
 ```
 
-### Aufrufen statischer Mitglieder von einer anderen statischen Methode
+### Statische Mitglieder aus einer anderen statischen Methode aufrufen
 
-Um eine statische Methode oder Eigenschaft innerhalb einer anderen statischen Methode derselben Klasse aufzurufen, können Sie das [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) Schlüsselwort verwenden.
+Um eine statische Methode oder Eigenschaft innerhalb einer anderen statischen Methode derselben Klasse aufzurufen, können Sie das Schlüsselwort [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verwenden.
 
 ```js
 class StaticMethodCall {
@@ -170,12 +170,13 @@ StaticMethodCall.anotherStaticMethod();
 // 'Static method and static property has been called from another static method'
 ```
 
-### Aufrufen statischer Mitglieder von einem Klassenkonstruktor und anderen Methoden
+### Statische Mitglieder aus einem Klassenkonstruktor und anderen Methoden aufrufen
 
-Statische Mitglieder sind nicht direkt zugänglich über das {{jsxref("this")}} Schlüsselwort aus nicht-statischen Methoden. Sie müssen sie unter Verwendung des Klassennamens aufrufen:
-`KLASSENNAME.STATISCHE_METHODE()` /
-`KLASSENNAME.STATISCHE_EIGENSCHAFT` oder durch Aufruf der Methode als Eigenschaft des `constructor`: `this.constructor.STATISCHE_METHODE()` /
-`this.constructor.STATISCHE_EIGENSCHAFT`
+Aus nicht-statischen Methoden kann über das Schlüsselwort {{jsxref("this")}} nicht direkt auf statische Mitglieder zugegriffen werden. Sie müssen sie über den Klassennamen aufrufen:
+`CLASSNAME.STATIC_METHOD_NAME()` /
+`CLASSNAME.STATIC_PROPERTY_NAME` oder indem Sie die Methode als Eigenschaft von
+`constructor` aufrufen: `this.constructor.STATIC_METHOD_NAME()` /
+`this.constructor.STATIC_PROPERTY_NAME`
 
 ```js
 class StaticMethodCall {
@@ -203,7 +204,7 @@ class StaticMethodCall {
 
 ## Siehe auch
 
-- [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes) Leitfaden
+- Leitfaden [Klassen verwenden](/de/docs/Web/JavaScript/Guide/Using_classes)
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)
 - [Statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
 - {{jsxref("Statements/class", "class")}}

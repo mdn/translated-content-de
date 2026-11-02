@@ -3,14 +3,14 @@ title: "SVGFEFloodElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEFloodElement/height
 l10n:
-  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
+  sourceCommit: 607900f2b3fdd97a1c591b3dc9f6d81c8623d48c
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`** schreibgeschützte Eigenschaft der [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement)-Schnittstelle beschreibt die vertikale Größe eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte Eigenschaft **`height`** der Schnittstelle [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement) beschreibt die vertikale Größe eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("height")}}-Attribut des {{SVGElement("feFlood")}}-Elements wider, welches eine SVG-Filterunterregion mit der durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definierten Farbe und Deckkraft füllt. Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzersystemkoordinateneinheiten.
+Sie spiegelt das Attribut {{SVGAttr("height")}} des Elements {{SVGElement("feFlood")}} wider, das einen Teilbereich eines SVG-Filters mit der durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} festgelegten Farbe und Deckkraft füllt. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length)- oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage)-Wert, bezogen auf die Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
 ## Wert
 
@@ -35,6 +35,6 @@ console.log(verticalSize.baseVal.value); // the `height` value
 ## Siehe auch
 
 - [`SVGFEFloodElement.width`](/de/docs/Web/API/SVGFEFloodElement/width)
-- [SVG-Filter-Tutorial](/de/docs/Web/SVG/Guides/SVG_filters)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- [Effekte mit SVG-Filtern anwenden](/de/docs/Web/SVG/Guides/Filters)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

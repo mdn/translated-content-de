@@ -3,20 +3,20 @@ title: arguments.length
 short-title: length
 slug: Web/JavaScript/Reference/Functions/arguments/length
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 389605121ed8ea78cc1878f31bbca6759cc7417d
 ---
 
-Die **`arguments.length`** Dateneigenschaft enthält die Anzahl der an die Funktion übergebenen Argumente.
+Die Dateneigenschaft **`arguments.length`** enthält die Anzahl der Argumente, die an die Funktion übergeben wurden.
 
 ## Wert
 
-Eine nicht-negative ganze Zahl.
+Eine nicht negative ganze Zahl.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Die `arguments.length` Eigenschaft gibt die Anzahl der tatsächlich an eine Funktion übergebenen Argumente an. Diese kann mehr oder weniger als die definierte Anzahl der Parameter sein (siehe {{jsxref("Function.prototype.length")}}). Zum Beispiel, für die unten stehende Funktion:
+Die Eigenschaft `arguments.length` gibt die Anzahl der Argumente an, die tatsächlich an eine Funktion übergeben wurden. Diese Anzahl kann größer oder kleiner sein als die Anzahl der definierten Parameter (siehe {{jsxref("Function.prototype.length")}}). Betrachten Sie beispielsweise die folgende Funktion:
 
 ```js
 function func1(a, b, c) {
@@ -24,13 +24,13 @@ function func1(a, b, c) {
 }
 ```
 
-gibt `func1.length` den Wert `3` zurück, weil `func1` drei formale Parameter deklariert. Allerdings protokolliert `func1(1, 2, 3, 4, 5)` `5`, weil `func1` mit fünf Argumenten aufgerufen wurde. Ebenso protokolliert `func1(1)` `1`, weil `func1` mit einem Argument aufgerufen wurde.
+`func1.length` gibt `3` zurück, weil `func1` drei formale Parameter deklariert. `func1(1, 2, 3, 4, 5)` gibt dagegen `5` in der Konsole aus, weil `func1` mit fünf Argumenten aufgerufen wurde. Ebenso gibt `func1(1)` den Wert `1` in der Konsole aus, weil `func1` mit einem Argument aufgerufen wurde.
 
 ## Beispiele
 
-### Verwendung von arguments.length
+### arguments.length verwenden
 
-In diesem Beispiel definieren wir eine Funktion, die zwei oder mehr Zahlen zusammenzählen kann.
+In diesem Beispiel definieren wir eine Funktion, die zwei oder mehr Zahlen addieren kann.
 
 ```js
 function adder(base /*, num1, …, numN */) {
@@ -52,7 +52,7 @@ function adder(base /*, num1, …, numN */) {
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
+- Leitfaden zu [Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Functions/arguments", "arguments")}}
 - [`Function`: `length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)

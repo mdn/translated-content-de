@@ -3,77 +3,79 @@ title: Barrierefreiheit und räumliche Muster
 short-title: Räumliche Muster
 slug: Web/Accessibility/Guides/Accessibility_and_Spatial_Patterns
 l10n:
-  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
+  sourceCommit: 19533e5be1416cc8f68f61810a74de5f4c665697
 ---
 
-Dieses Dokument beschreibt visuelle Muster, die körperliche Symptome bei Menschen mit fotosensitiver Epilepsie, vestibulären Störungen oder anderen Wahrnehmungsproblemen hervorrufen können.
+Dieses Dokument beschreibt visuelle Muster, die bei Menschen mit photosensitiver Epilepsie, vestibulären Störungen oder anderen Wahrnehmungsproblemen körperliche Symptome auslösen können.
 
 ## Räumliche Lokalisierung
 
-Die NASA führte Forschung zur Farbwahrnehmung durch und fand heraus, dass der Helligkeitskontrast von großer Bedeutung dafür ist, wie Farben wahrgenommen werden. Die beiden untenstehenden Bilder stammen aus der NASA-Forschung, speziell aus dem Artikel "[Designing With Blue](https://web.archive.org/web/20250216024807/https://colorusage.arc.nasa.gov/blue_2.php)".
+Die NASA untersuchte die Farbwahrnehmung und stellte fest, dass der Leuchtdichtekontrast einen großen Einfluss darauf hat, wie Farben wahrgenommen werden. Die beiden folgenden Bilder stammen aus der NASA-Forschung, genauer aus dem Artikel „[Designing With Blue](https://web.archive.org/web/20250216024807/https://colorusage.arc.nasa.gov/blue_2.php)“. Sie vergleichen, wie stabil Gelb und Rot räumlich lokalisiert werden.
 
-![Vergleich der Stabilität der räumlichen Lokalisierung von Gelb vs. Rot. Beide sind in etwa gleichhell mit ihren Hintergründen. Die Fehlausrichtung und der Spalt zwischen den chromatischen Balken und schwarzen Balken ist physisch gleich für Gelb und Rot, aber viel weniger visuell offensichtlich bei Gelb.](yellow_edge_3.gif) ![Vergleich der Stabilität der räumlichen Lokalisierung von Gelb vs. Rot. Beide sind in etwa gleichhell mit ihren Hintergründen. Die Fehlausrichtung und der Spalt zwischen den chromatischen Balken und schwarzen Balken ist physisch gleich für Gelb und Rot, aber viel weniger visuell offensichtlich bei Gelb.](yellow_edge_4.gif)
+![Gelbe und schwarze vertikale Balken auf weißem Hintergrund.](yellow_edge_3.gif) ![Rote und schwarze vertikale Balken auf grauem Hintergrund.](yellow_edge_4.gif)
 
-> **Räumliche Lokalisierung.** Symbole, die die gleiche Helligkeit wie ihr Hintergrund haben, sind in Raum und Zeit wahrnehmbar weniger sicher lokalisiert als Symbole mit höherem Helligkeitskontrast. Sie neigen dazu, visuell zu "schweben" oder von angrenzenden Symbolen mit hohem Helligkeitskontrast "eingefangen" zu werden. Das Phänomen scheint besonders problematisch für Symbol/Hintergrund-Kombinationen zu sein, die sich nur im Blaukanal unterscheiden.
+Beide Farben haben ungefähr die gleiche Leuchtdichte wie ihr jeweiliger Hintergrund. Der Versatz und der Abstand zwischen den farbigen und den schwarzen Balken sind bei Gelb und Rot tatsächlich gleich, bei Gelb aber visuell deutlich weniger auffällig. Wie es in dem Artikel heißt:
+
+> Symbole, die die gleiche Leuchtdichte wie ihr Hintergrund haben, lassen sich räumlich und zeitlich weniger sicher lokalisieren als Symbole mit höherem Leuchtdichtekontrast. Sie scheinen visuell zu „schweben“ oder von benachbarten Symbolen mit hohem Leuchtdichtekontrast „angezogen“ zu werden. Dieses Phänomen scheint besonders bei Kombinationen aus Symbol und Hintergrund problematisch zu sein, die sich nur im Blaukanal unterscheiden.
 
 ## Abstand zwischen Streifen
 
-Fotosensitive Anfälle können durch statische Bilder ebenso wie durch Animation verursacht werden. Der Mechanismus hierfür ist schlecht verstanden, wird aber angenommen, mit "Gamma-Oszillationen" im Gehirn zusammenzuhängen. Diese Oszillationen im Gehirn sind eine andere Art von Reaktion als andere neurologische Reaktionen, die vermutlich fotosensitive Anfälle verursachen.
+Photosensitive Anfälle können sowohl durch statische Bilder als auch durch Animationen ausgelöst werden. Der zugrunde liegende Mechanismus ist kaum verstanden, steht aber vermutlich mit „Gamma-Oszillationen“ in Verbindung, die im Gehirn entstehen. Diese Oszillationen sind eine andere Art von Reaktion als die übrigen neurologischen Reaktionen, die als Auslöser photosensitiver Anfälle gelten.
 
-Streifen und Muster sind typisch für die Art von Bildern, die Probleme verursachen, und Streifen wurden am genauesten untersucht. Es besteht das Potenzial, Schaden zu verursachen, wenn es mehr als fünf Hell-Dunkel-Paare von Streifen in irgendeiner Ausrichtung gibt. Sie können parallel, radial, gekrümmt oder gerade sein und können durch Reihen sich wiederholender Elemente gebildet werden.
+Streifen und Muster gehören zu den typischen problematischen Bildern; Streifen wurden dabei am gründlichsten untersucht. Ein potenzielles Risiko besteht, wenn ein Bild mehr als fünf Hell-Dunkel-Streifenpaare in beliebiger Ausrichtung enthält. Die Streifen können parallel, radial, gekrümmt oder gerade sein und auch durch Reihen sich wiederholender Elemente entstehen.
 
-Im Jahr 2005 evaluierten Arnold Wilkins, John Emmett und Graham Harding die Richtlinien zur Charakterisierung von gemusterten Bildern, die Anfälle auslösen könnten. Sie überarbeiteten die Richtlinien zu ihrem grundlegenden Kern und entwickelten einen überraschend einfachen, aber wirkungsvollen [Test](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1528-1167.2005.01405.x), den sie in dem Papier **[Characterizing the Patterned Images That Precipitate Seizures and Optimizing Guidelines To Prevent Them](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1528-1167.2005.01405.x)** veröffentlichten.
+Im Jahr 2005 untersuchten Arnold Wilkins, John Emmett und Graham Harding die Richtlinien zur Beurteilung gemusterter Bilder, die Anfälle auslösen können. Sie reduzierten die Richtlinien auf ihre wesentlichen Kriterien und entwickelten einen überraschend einfachen, aber aussagekräftigen [Test](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1528-1167.2005.01405.x). Diesen veröffentlichten sie in der Arbeit **[Characterizing the Patterned Images That Precipitate Seizures and Optimizing Guidelines To Prevent Them](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1528-1167.2005.01405.x)**.
 
 > [!NOTE]
-> Die erforderlichen Schritte zur Bewertung des Materials reduzieren sich auf Folgendes:
+> Die zur Beurteilung des Materials erforderlichen Schritte lassen sich auf Folgendes reduzieren:
 >
-> Sehen Sie auf den Bildschirm:
+> Betrachten Sie den Bildschirm:
 >
-> - Gibt es mehr als fünf Streifen?
-> - Wenn ja, dauern sie länger als 0,5 s?
-> - Wenn ja, übersteigt die Helligkeit den angegebenen Grenzwert?
-> - Wenn ja, kategorisieren Sie die Bewegung des Musters.
+> - Sind mehr als fünf Streifen zu sehen?
+> - Falls ja: Sind sie länger als 0,5 Sekunden zu sehen?
+> - Falls ja: Überschreitet die Helligkeit den angegebenen Grenzwert?
+> - Falls ja: Ordnen Sie die Bewegung des Musters ein.
 > - Werden die Richtlinien verletzt?
 >
-> Wenn ja, reduzieren Sie die Helligkeit.
+> Falls ja, verringern Sie die Helligkeit.
 
-## Text und Padding
+## Text und Innenabstand
 
-Die WCAG-Standards für die Kontrastwahrnehmung berücksichtigen nicht die Wirkung von Padding. Zum Beispiel ist blauer Text auf einem grauen Hintergrund leichter wahrnehmbar, wenn er lokal von Schwarz statt von Weiß umgeben ist. Es gibt eine "lokale" Anpassung an Farben. Die Quintessenz: Padding ist wichtig.
+Die WCAG-Standards zur Kontrastwahrnehmung berücksichtigen den Einfluss des Innenabstands nicht. Beispielsweise ist blauer Text auf grauem Hintergrund leichter wahrzunehmen, wenn er unmittelbar von Schwarz statt von Weiß umgeben ist. Farben können auch „lokal“ adaptiert wahrgenommen werden. Die Schlussfolgerung: Der Innenabstand ist wichtig.
 
 ## Mathematik
 
-Räumliches Denken beeinflusst das Mathematiklernen; folglich beeinflussen räumliche Beziehungen, wie Mathematik präsentiert wird, die Kognition. Webentwickler können etwas daran ändern, wie sie Mathematik darstellen. Animation spielt in diesem Bereich eine große Rolle. Beispielsweise macht es einen Unterschied, "wie" ein Objekt aussieht, wenn es gedreht wird, aus verschiedenen Winkeln, wie es geschnitten aussieht und wie sie sich räumlich zueinander verhalten, um Mathematik in räumlichen Begriffen zu verstehen.
+Räumliches Denken beeinflusst das Erlernen von Mathematik. Folglich wirken sich die räumlichen Beziehungen in der Darstellung mathematischer Inhalte auf das Verständnis aus. Webentwickler können durch die Art der Darstellung Einfluss darauf nehmen. Animationen spielen dabei eine wichtige Rolle. Für das räumliche Verständnis mathematischer Inhalte ist beispielsweise entscheidend, wie ein Objekt aus verschiedenen Blickwinkeln aussieht, wenn es gedreht wird, wie Objekte im Querschnitt aussehen und wie sie räumlich zueinander angeordnet sind.
 
 ## Braille
 
-Moderne Technologie ermöglicht es Nicht-Experten, Braille zu drucken. Adobe Illustrator bietet beispielsweise die Möglichkeit, ADA Braille zum Ausdrucken zu setzen.
+Moderne Technologien ermöglichen es auch Menschen ohne Fachkenntnisse, Brailleschrift zu drucken. Mit Adobe Illustrator lässt sich beispielsweise ADA-Brailleschrift für den Druck setzen.
 
-Die Fähigkeit, räumliche Muster für blinde Menschen präzise darzustellen, ist entscheidend für die Barrierefreiheit. Zum Beispiel reicht das Wissen über Braille nicht aus. Die Braille-Punkte müssen räumlich so weit voneinander entfernt sein, dass sie auf "menschliche" Weise lesbar sind. Die menschliche Berührung unterscheidet mit Leichtigkeit Braille-Punkte, die zu nah oder zu weit voneinander entfernt sind.
+Räumliche Muster für blinde Menschen korrekt darzustellen, ist für die Barrierefreiheit entscheidend. Brailleschrift zu beherrschen, reicht beispielsweise nicht aus: Die Braillepunkte müssen so weit voneinander entfernt sein, dass Menschen sie ertasten und lesen können. Der menschliche Tastsinn kann Braillepunkte, die zu dicht beieinander oder zu weit auseinanderliegen, nicht ohne Weiteres unterscheiden.
 
-Der Raum muss das Braille-Zeichen umgeben. Ein Benutzer von Braille legt keinen Finger "auf" ein Braille-Zeichen, der Benutzer muss seinen Finger über das Zeichen bewegen, so wie ein sehender Mensch seine Augen über Text auf einer Seite bewegen muss.
+Auch um jedes Braillezeichen herum muss genügend Platz sein. Wer Brailleschrift liest, legt einen Finger nicht einfach „auf“ ein Zeichen, sondern bewegt ihn darüber – ähnlich wie eine sehende Person ihre Augen über den Text auf einer Seite bewegt.
 
-Die Natur des Raumes kann sich je nach verwendetem MIME-Typ und dessen Version ändern. Zum Beispiel können sich Ränder auf SVG sowohl nach innen als auch nach außen von dessen Dimensionen ausdehnen, oder bei neueren Versionen von SVG, vollständig nach außen, wodurch der Raum um das SVG reduziert wird, um die Wahrnehmung zu ermöglichen.
+Wie viel Platz zur Verfügung steht, kann vom verwendeten MIME-Typ und dessen Version abhängen. Beispielsweise können sich Rahmen bei SVG sowohl nach innen als auch nach außen über die angegebenen Abmessungen erstrecken. Bei neueren SVG-Versionen können sie vollständig nach außen verlaufen und so den Platz um das SVG verringern, der für dessen Wahrnehmung wichtig ist.
 
 ## Siehe auch
 
 ### MDN
 
-- [Barrierefreiheit: Was Benutzer tun können, um sicherer zu surfen](/de/docs/Web/Accessibility/Guides/Browsing_safely)
-- [Web-Barrierefreiheit bei Anfällen und körperlichen Reaktionen](/de/docs/Web/Accessibility/Guides/Seizure_disorders)
-- [Web-Barrierefreiheit: Farben und Helligkeit verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+- [Barrierefreiheit: Was Nutzer für sichereres Surfen tun können](/de/docs/Web/Accessibility/Guides/Browsing_safely)
+- [Barrierefreiheit im Web bei Anfällen und körperlichen Reaktionen](/de/docs/Web/Accessibility/Guides/Seizure_disorders)
+- [Barrierefreiheit im Web: Farben und Leuchtdichte verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 
 ### Braille
 
-- [Teil 3: Eine Schritt-für-Schritt-Anleitung zum korrekten Setzen von ADA Braille in Adobe Illustrator](https://www.tinkeringmonkey.com/guides/ada-signage/a-step-by-step-guide-to-typesetting-ada-braille-correctly-in-adobe-illustrator/)
+- [Teil 3: Schritt-für-Schritt-Leitfaden zum korrekten Setzen von ADA-Brailleschrift in Adobe Illustrator](https://www.tinkeringmonkey.com/guides/ada-signage/a-step-by-step-guide-to-typesetting-ada-braille-correctly-in-adobe-illustrator/)
 - [Räumliche Mathematik in BrailleBlaster (4 von 5)](https://www.youtube.com/watch?v=yz9vefDsj1g)
 
 ### Mathematik
 
-- [Räumliches Denken: Warum Mathematikgespräche mehr als nur Zahlen beinhalten](https://dreme.stanford.edu/news/spatial-reasoning-why-math-talk-is-about-more-than-numbers/)
+- [Räumliches Denken: Warum Gespräche über Mathematik mehr als Zahlen betreffen](https://dreme.stanford.edu/news/spatial-reasoning-why-math-talk-is-about-more-than-numbers/)
 
 ### Wissenschaftliche Literatur
 
-- [Farbkonstanz im Kontext: Rollen der lokalen Anpassung und Referenzebenen](https://jov.arvojournals.org/article.aspx?articleid=2192799)
-- [Gamma-Oszillationen und fotosensitive Epilepsie](https://www.sciencedirect.com/science/article/pii/S0960982217304062?via%3Dihub)
-- [Charakterisierung der gemusterten Bilder, die Anfälle auslösen, und Optimierung der Richtlinien zu ihrer Vermeidung](https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1528-1167.2005.01405.x) Arnold Wilkins, John Emmett und Graham Harding
+- [Farbkonstanz im Kontext: Die Rolle lokaler Adaptation und von Referenzniveaus](https://jov.arvojournals.org/article.aspx?articleid=2192799)
+- [Gamma-Oszillationen und photosensitive Epilepsie](https://www.sciencedirect.com/science/article/pii/S0960982217304062?via%3Dihub)
+- [Charakterisierung anfallsauslösender Musterbilder und Optimierung von Richtlinien zu ihrer Vermeidung](https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1528-1167.2005.01405.x) Arnold Wilkins, John Emmett und Graham Harding

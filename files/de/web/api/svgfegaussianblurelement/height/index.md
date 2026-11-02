@@ -3,14 +3,14 @@ title: "SVGFEGaussianBlurElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEGaussianBlurElement/height
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 607900f2b3fdd97a1c591b3dc9f6d81c8623d48c
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Eigenschaft der [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte Eigenschaft **`height`** der Schnittstelle [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement) beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("height")}}-Attribut des {{SVGElement("feGaussianBlur")}}-Elements wider, das ein Eingabebild verwischt. Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheitensystemen.
+Sie spiegelt das Attribut {{SVGAttr("height")}} des Elements {{SVGElement("feGaussianBlur")}} wider, das ein Eingabebild weichzeichnet. Das Attribut ist eine [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), bezogen auf die Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
 ## Wert
 
@@ -35,7 +35,8 @@ console.log(verticalSize.baseVal.value); // the `height` value
 ## Siehe auch
 
 - [`SVGFEGaussianBlurElement.width`](/de/docs/Web/API/SVGFEGaussianBlurElement/width)
-- [SVG-Filter-Anleitung](/de/docs/Web/SVG/Guides/SVG_filters)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("filter-function/blur", "blur()")}} Funktion
-- [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul - CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- [Effekte mit SVG-Filtern anwenden](/de/docs/Web/SVG/Guides/Filters)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Funktion {{cssxref("filter-function/blur", "blur()")}}
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

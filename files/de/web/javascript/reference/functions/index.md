@@ -2,32 +2,32 @@
 title: Funktionen
 slug: Web/JavaScript/Reference/Functions
 l10n:
-  sourceCommit: 211aa95bf8a77218591c3bf0a171ca90a53190fd
+  sourceCommit: 389605121ed8ea78cc1878f31bbca6759cc7417d
 ---
 
-Allgemein gesprochen ist eine Funktion ein „Unterprogramm“, das von Code außerhalb (oder im Fall von Rekursion innerhalb) der Funktion _aufgerufen_ werden kann. Wie das Programm selbst besteht eine Funktion aus einer Folge von Anweisungen, die als _Funktionsrumpf_ bezeichnet wird. Werte können einer Funktion als Parameter _übergeben_ werden, und die Funktion wird einen Wert _zurückgeben_.
+Allgemein ist eine Funktion ein „Unterprogramm“, das von Code außerhalb der Funktion (oder im Fall von Rekursion innerhalb der Funktion) _aufgerufen_ werden kann. Wie das Programm selbst besteht eine Funktion aus einer Folge von Anweisungen, dem _Funktionskörper_. Werte können als Parameter an eine Funktion _übergeben_ werden, und die Funktion _gibt_ einen Wert _zurück_.
 
-In JavaScript sind Funktionen {{Glossary("First-class_Function", "First-Class-Objekte")}}, weil sie an andere Funktionen übergeben, von Funktionen zurückgegeben und Variablen sowie Eigenschaften zugewiesen werden können. Sie können außerdem wie jedes andere Objekt Eigenschaften und Methoden haben. Was sie von anderen Objekten unterscheidet, ist, dass Funktionen aufgerufen werden können.
+In JavaScript sind Funktionen {{Glossary("First-class_Function", "First-Class-Objekte")}}, da sie an andere Funktionen übergeben, von Funktionen zurückgegeben sowie Variablen und Eigenschaften zugewiesen werden können. Wie jedes andere Objekt können sie außerdem Eigenschaften und Methoden haben. Von anderen Objekten unterscheiden sie sich dadurch, dass Funktionen aufgerufen werden können.
 
-Weitere Beispiele und Erklärungen finden Sie im [JavaScript-Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions).
+Weitere Beispiele und Erläuterungen finden Sie im [JavaScript-Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions).
 
 ## Beschreibung
 
-Funktionswerte sind typischerweise Instanzen von [`Function`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function). Informationen zu Eigenschaften und Methoden von `Function`-Objekten finden Sie unter {{jsxref("Function")}}. Aufrufbare Werte führen dazu, dass [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) statt `"object"` den Wert `"function"` zurückgibt.
+Funktionswerte sind normalerweise Instanzen von [`Function`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function). Informationen zu Eigenschaften und Methoden von `Function`-Objekten finden Sie unter {{jsxref("Function")}}. Bei aufrufbaren Werten gibt [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) `"function"` statt `"object"` zurück.
 
 > [!NOTE]
-> Nicht alle aufrufbaren Werte sind `instanceof Function`. Beispielsweise ist das Objekt `Function.prototype` aufrufbar, aber keine Instanz von `Function`. Sie können die [Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) Ihrer Funktion auch manuell so festlegen, dass sie nicht mehr von `Function.prototype` erbt. Solche Fälle sind jedoch äußerst selten.
+> Nicht alle aufrufbaren Werte sind `instanceof Function`. Beispielsweise ist das Objekt `Function.prototype` aufrufbar, aber keine Instanz von `Function`. Sie können auch die [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) Ihrer Funktion manuell so ändern, dass sie nicht mehr von `Function.prototype` erbt. Solche Fälle sind jedoch äußerst selten.
 
 ### Rückgabewert
 
-Wenn die Ausführung einer Funktion nicht bei einer [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung endet oder wenn auf das Schlüsselwort `return` kein Ausdruck folgt, ist der Rückgabewert standardmäßig {{jsxref("undefined")}}. Die `return`-Anweisung ermöglicht es Ihnen, einen beliebigen Wert aus der Funktion zurückzugeben. Ein Funktionsaufruf kann nur einen Wert zurückgeben, aber Sie können den Effekt der Rückgabe mehrerer Werte simulieren, indem Sie ein Objekt oder Array zurückgeben und das Ergebnis [destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
+Wenn die Ausführung einer Funktion nicht mit einer [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung endet oder wenn auf das Schlüsselwort `return` kein Ausdruck folgt, ist der Rückgabewert standardmäßig {{jsxref("undefined")}}. Mit der `return`-Anweisung können Sie einen beliebigen Wert aus der Funktion zurückgeben. Ein Funktionsaufruf kann nur einen Wert zurückgeben. Sie können jedoch die Rückgabe mehrerer Werte simulieren, indem Sie ein Objekt oder Array zurückgeben und das Ergebnis [destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
 
 > [!NOTE]
-> Konstruktoren, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, verwenden eine andere Logik zur Bestimmung ihrer Rückgabewerte.
+> Für Konstruktoren, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, gelten andere Regeln zur Bestimmung ihres Rückgabewerts.
 
-### Übergabe von Argumenten
+### Argumente übergeben
 
-[Parameter und Argumente](<https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments>) haben leicht unterschiedliche Bedeutungen, aber in der MDN-Webdokumentation verwenden wir sie häufig austauschbar. Als Kurzreferenz:
+[Parameter und Argumente](<https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments>) haben leicht unterschiedliche Bedeutungen, werden in den MDN Web Docs aber häufig synonym verwendet. Als kurze Orientierung:
 
 ```js
 function formatNumber(num) {
@@ -37,9 +37,9 @@ function formatNumber(num) {
 formatNumber(2);
 ```
 
-In diesem Beispiel wird die Variable `num` als _Parameter_ der Funktion bezeichnet: Sie wird in der von Klammern eingeschlossenen Liste der Funktionsdefinition deklariert. Die Funktion erwartet, dass der Parameter `num` eine Zahl ist — obwohl dies in JavaScript ohne das Schreiben von Laufzeitvalidierungscode nicht durchsetzbar ist. Im Aufruf `formatNumber(2)` ist die Zahl `2` das _Argument_ der Funktion: Sie ist der Wert, der beim Funktionsaufruf tatsächlich an die Funktion übergeben wird. Auf den Argumentwert kann innerhalb des Funktionsrumpfs über den entsprechenden Parameternamen oder das Objekt [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) zugegriffen werden.
+In diesem Beispiel heißt die Variable `num` _Parameter_ der Funktion: Sie wird in der von Klammern umschlossenen Liste der Funktionsdefinition deklariert. Die Funktion erwartet für den Parameter `num` eine Zahl – in JavaScript lässt sich das allerdings nur durch Code zur Laufzeitvalidierung erzwingen. Beim Aufruf `formatNumber(2)` ist die Zahl `2` das _Argument_ der Funktion: Sie ist der Wert, der beim Funktionsaufruf tatsächlich an die Funktion übergeben wird. Innerhalb des Funktionskörpers kann über den entsprechenden Parameternamen oder das Objekt [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) auf den Argumentwert zugegriffen werden.
 
-Argumente werden immer [_per Wert übergeben_](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value) und niemals [_per Referenz übergeben_](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference). Das bedeutet, dass sich der Wert außerhalb der Funktion nicht ändert, wenn eine Funktion einen Parameter neu zuweist. Genauer gesagt werden Objektargumente [_per Sharing übergeben_](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing), was bedeutet, dass sich Änderungen an den Eigenschaften des Objekts auf den Bereich außerhalb der Funktion auswirken. Zum Beispiel:
+Argumente werden immer [_als Wert übergeben_](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value) und nie [_als Referenz übergeben_](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference). Das bedeutet: Wenn eine Funktion einem Parameter einen neuen Wert zuweist, ändert sich der Wert außerhalb der Funktion nicht. Genauer gesagt werden Objektargumente [_durch Teilen übergeben_](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing). Werden Eigenschaften des Objekts verändert, wirkt sich diese Änderung also auch außerhalb der Funktion aus. Zum Beispiel:
 
 ```js
 function updateBrand(obj) {
@@ -65,18 +65,18 @@ updateBrand(car);
 console.log(car.brand); // Toyota
 ```
 
-Das Schlüsselwort [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) verweist auf das Objekt, über das auf die Funktion zugegriffen wird — es verweist nicht auf die aktuell ausgeführte Funktion. Daher müssen Sie selbst innerhalb des Funktionsrumpfs über den Namen auf den Funktionswert verweisen.
+Das Schlüsselwort [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) bezieht sich auf das Objekt, über das auf die Funktion zugegriffen wird – nicht auf die gerade ausgeführte Funktion. Daher müssen Sie auch innerhalb des Funktionskörpers über ihren Namen auf den Funktionswert verweisen.
 
-### Definieren von Funktionen
+### Funktionen definieren
 
-Allgemein gesprochen gibt es in JavaScript vier Arten von Funktionen:
+Grundsätzlich gibt es in JavaScript vier Arten von Funktionen:
 
-- Reguläre Funktion: kann beliebige Werte zurückgeben; wird nach dem Aufruf immer vollständig ausgeführt.
-- Generatorfunktion: gibt ein [`Generator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator)-Objekt zurück; kann mit dem Operator [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) angehalten und fortgesetzt werden.
-- Asynchrone Funktion: gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück; kann mit dem Operator [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) angehalten und fortgesetzt werden.
-- Asynchrone Generatorfunktion: gibt ein [`AsyncGenerator`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)-Objekt zurück; sowohl die Operatoren `await` als auch `yield` können verwendet werden.
+- Reguläre Funktion: Kann einen beliebigen Wert zurückgeben; wird nach dem Aufruf immer vollständig ausgeführt.
+- Generatorfunktion: Gibt ein [`Generator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator)-Objekt zurück; kann mit dem Operator [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) angehalten und fortgesetzt werden.
+- Asynchrone Funktion: Gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück; kann mit dem Operator [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) angehalten und fortgesetzt werden.
+- Asynchrone Generatorfunktion: Gibt ein [`AsyncGenerator`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)-Objekt zurück; sowohl der Operator `await` als auch der Operator `yield` können verwendet werden.
 
-Für jede Art von Funktion gibt es mehrere Möglichkeiten, sie zu definieren:
+Für jede Art von Funktion gibt es mehrere Möglichkeiten der Definition:
 
 - Deklaration
   - : [`function`](/de/docs/Web/JavaScript/Reference/Statements/function), [`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*), [`async function`](/de/docs/Web/JavaScript/Reference/Statements/async_function), [`async function*`](/de/docs/Web/JavaScript/Reference/Statements/async_function*)
@@ -85,7 +85,7 @@ Für jede Art von Funktion gibt es mehrere Möglichkeiten, sie zu definieren:
 - Konstruktor
   - : [`Function()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function), [`GeneratorFunction()`](/de/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction/GeneratorFunction), [`AsyncFunction()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction/AsyncFunction), [`AsyncGeneratorFunction()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGeneratorFunction/AsyncGeneratorFunction)
 
-Zusätzlich gibt es spezielle Syntaxen zum Definieren von [Arrow Functions](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) und [Methoden](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions), die präzisere Semantik für ihre Verwendung bereitstellen. [Klassen](/de/docs/Web/JavaScript/Reference/Classes) sind konzeptionell keine Funktionen (weil sie einen Fehler auslösen, wenn sie ohne `new` aufgerufen werden), aber sie erben ebenfalls von `Function.prototype` und haben `typeof MyClass === "function"`.
+Darüber hinaus gibt es spezielle Syntax für die Definition von [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) und [Methoden](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions), die eine genauere Semantik für deren Verwendung bietet. [Klassen](/de/docs/Web/JavaScript/Reference/Classes) sind konzeptionell keine Funktionen (weil ihr Aufruf ohne `new` einen Fehler auslöst). Sie erben jedoch ebenfalls von `Function.prototype`, und für sie gilt `typeof MyClass === "function"`.
 
 ```js
 // Constructor
@@ -116,27 +116,27 @@ const obj = {
 };
 ```
 
-Alle Syntaxen bewirken ungefähr dasselbe, es gibt jedoch einige feine Unterschiede im Verhalten.
+Alle Syntaxvarianten bewirken ungefähr dasselbe, weisen aber einige feine Unterschiede im Verhalten auf.
 
-- Die Syntaxen für den `Function()`-Konstruktor, den `function`-Ausdruck und die `function`-Deklaration erzeugen vollwertige Funktionsobjekte, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden können. Arrow Functions und Methoden können jedoch nicht konstruiert werden. Asynchrone Funktionen, Generatorfunktionen und asynchrone Generatorfunktionen sind unabhängig von der Syntax nicht konstruierbar.
-- Die `function`-Deklaration erzeugt Funktionen, die [_gehoistet_](/de/docs/Web/JavaScript/Guide/Functions#function_hoisting) werden. Andere Syntaxen hoisten die Funktion nicht, und der Funktionswert ist erst nach der Definition sichtbar.
-- Die Arrow-Function-Syntax und der `Function()`-Konstruktor erzeugen immer _anonyme_ Funktionen, was bedeutet, dass sie sich nicht einfach selbst rekursiv aufrufen können. Eine Möglichkeit, eine Arrow Function rekursiv aufzurufen, besteht darin, sie einer Variablen zuzuweisen.
-- Die Arrow-Function-Syntax hat keinen Zugriff auf `arguments` oder `this`.
-- Der `Function()`-Konstruktor kann auf keine lokalen Variablen zugreifen — er hat nur Zugriff auf den globalen Gültigkeitsbereich.
-- Der `Function()`-Konstruktor verursacht eine Kompilierung zur Laufzeit und ist häufig langsamer als andere Syntaxen.
+- Der Konstruktor `Function()` sowie `function`-Ausdrücke und `function`-Deklarationen erzeugen vollwertige Funktionsobjekte, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) als Konstruktor aufgerufen werden können. Pfeilfunktionen und Methoden können dagegen nicht als Konstruktor aufgerufen werden. Asynchrone Funktionen, Generatorfunktionen und asynchrone Generatorfunktionen sind unabhängig von der Syntax nicht als Konstruktor aufrufbar.
+- Die `function`-Deklaration erzeugt Funktionen, die durch [_Hoisting_](/de/docs/Web/JavaScript/Guide/Functions#function_hoisting) vorgezogen werden. Bei den anderen Syntaxvarianten findet kein Hoisting der Funktion statt; der Funktionswert ist erst nach seiner Definition verfügbar.
+- Pfeilfunktionen und der Konstruktor `Function()` erzeugen immer _anonyme_ Funktionen, die sich nicht ohne Weiteres rekursiv selbst aufrufen können. Eine Möglichkeit, eine Pfeilfunktion rekursiv aufzurufen, besteht darin, sie einer Variablen zuzuweisen.
+- Die Syntax für Pfeilfunktionen erzeugt keine eigenen Bindungen für `arguments` oder `this`.
+- Der Konstruktor `Function()` kann auf keine lokalen Variablen zugreifen – er hat nur Zugriff auf den globalen Gültigkeitsbereich.
+- Der Konstruktor `Function()` bewirkt eine Kompilierung zur Laufzeit und ist häufig langsamer als andere Syntaxvarianten.
 
-Bei `function`-Ausdrücken wird zwischen dem Funktionsnamen und der Variablen unterschieden, der die Funktion zugewiesen ist. Der Funktionsname kann nicht geändert werden, während die Variable, der die Funktion zugewiesen ist, neu zugewiesen werden kann. Der Funktionsname kann sich von der Variablen unterscheiden, der die Funktion zugewiesen ist — sie stehen in keiner Beziehung zueinander. Der Funktionsname kann nur innerhalb des Funktionsrumpfs verwendet werden. Der Versuch, ihn außerhalb des Funktionsrumpfs zu verwenden, führt zu einem Fehler (oder ergibt einen anderen Wert, wenn derselbe Name an anderer Stelle deklariert ist). Zum Beispiel:
+Bei `function`-Ausdrücken besteht ein Unterschied zwischen dem Funktionsnamen und der Variablen, der die Funktion zugewiesen wird. Der Funktionsname kann nicht geändert werden; der Variablen kann dagegen ein neuer Wert zugewiesen werden. Der Funktionsname kann sich vom Namen der Variablen unterscheiden, der die Funktion zugewiesen wird – zwischen beiden besteht keine Beziehung. Der Funktionsname kann nur innerhalb des Funktionskörpers verwendet werden. Ein Versuch, ihn außerhalb des Funktionskörpers zu verwenden, führt zu einem Fehler (oder liefert einen anderen Wert, falls derselbe Name an anderer Stelle deklariert wurde). Zum Beispiel:
 
 ```js
 const y = function x() {};
 console.log(x); // ReferenceError: x is not defined
 ```
 
-Andererseits ist die Variable, der die Funktion zugewiesen ist, nur durch ihren Gültigkeitsbereich eingeschränkt, der garantiert den Bereich einschließt, in dem die Funktion deklariert wird.
+Für die Variable, der die Funktion zugewiesen wird, gilt dagegen nur die Einschränkung ihres Gültigkeitsbereichs. Dieser umfasst garantiert den Gültigkeitsbereich, in dem die Funktion deklariert wird.
 
-Eine Funktionsdeklaration erstellt auch eine Variable mit demselben Namen wie der Funktionsname. Daher kann auf Funktionen, die durch Funktionsdeklarationen definiert werden, im Gegensatz zu solchen, die durch Funktionsausdrücke definiert werden, über ihren Namen sowohl im Gültigkeitsbereich, in dem sie definiert wurden, als auch in ihrem eigenen Rumpf zugegriffen werden.
+Eine Funktionsdeklaration erzeugt außerdem eine Variable mit demselben Namen wie die Funktion. Anders als bei Funktionen, die durch Funktionsausdrücke definiert werden, kann auf Funktionen aus Funktionsdeklarationen daher sowohl in ihrem eigenen Funktionskörper als auch über ihren Namen in dem Gültigkeitsbereich zugegriffen werden, in dem sie definiert wurden.
 
-Bei einer durch `new Function` definierten Funktion wird ihr Quelltext dynamisch zusammengesetzt, was beim Serialisieren beobachtbar ist. Beispielsweise ergibt `console.log(new Function().toString())`:
+Bei einer mit `new Function` definierten Funktion wird der Quelltext dynamisch zusammengesetzt. Das ist bei der Serialisierung der Funktion sichtbar. Beispielsweise ergibt `console.log(new Function().toString())`:
 
 ```js-nolint
 function anonymous(
@@ -145,13 +145,13 @@ function anonymous(
 }
 ```
 
-Dies ist der tatsächliche Quelltext, der zum Kompilieren der Funktion verwendet wird. Obwohl der `Function()`-Konstruktor die Funktion mit dem Namen `anonymous` erstellt, wird dieser Name jedoch nicht zum Gültigkeitsbereich des Rumpfs hinzugefügt. Der Rumpf hat ausschließlich Zugriff auf globale Variablen. Das Folgende würde beispielsweise zu einem Fehler führen:
+Dies ist der tatsächliche Quelltext, der zum Kompilieren der Funktion verwendet wird. Obwohl der Konstruktor `Function()` eine Funktion mit dem Namen `anonymous` erzeugt, wird dieser Name nicht zum Gültigkeitsbereich des Funktionskörpers hinzugefügt. Der Funktionskörper hat nur Zugriff auf globale Variablen. Das Folgende würde beispielsweise zu einem Fehler führen:
 
 ```js
 new Function("alert(anonymous);")();
 ```
 
-Eine durch einen Funktionsausdruck oder eine Funktionsdeklaration definierte Funktion erbt den aktuellen Gültigkeitsbereich. Das heißt, die Funktion bildet einen Closure. Andererseits erbt eine durch einen `Function`-Konstruktor definierte Funktion keinen anderen Gültigkeitsbereich als den globalen Gültigkeitsbereich, den alle Funktionen erben.
+Eine durch einen Funktionsausdruck oder eine Funktionsdeklaration definierte Funktion übernimmt den aktuellen Gültigkeitsbereich. Die Funktion bildet also eine Closure. Eine durch den Konstruktor `Function` definierte Funktion übernimmt dagegen außer dem globalen Gültigkeitsbereich (den alle Funktionen übernehmen) keinen weiteren Gültigkeitsbereich.
 
 ```js
 // p is a global variable
@@ -180,9 +180,9 @@ myFunc();
 // 5 (for 'cons' by Function constructor (global scope))
 ```
 
-Durch Funktionsausdrücke und Funktionsdeklarationen definierte Funktionen werden nur einmal geparst, während eine durch den `Function`-Konstruktor definierte Funktion den ihr übergebenen String bei jedem Aufruf des Konstruktors erneut parst. Obwohl ein Funktionsausdruck jedes Mal einen Closure erstellt, wird der Funktionsrumpf nicht erneut geparst, sodass Funktionsausdrücke dennoch schneller sind als `new Function(...)`. Daher sollte der `Function`-Konstruktor grundsätzlich nach Möglichkeit vermieden werden.
+Funktionen aus Funktionsausdrücken und Funktionsdeklarationen werden nur einmal geparst. Bei einer durch den Konstruktor `Function` definierten Funktion wird die übergebene Zeichenfolge hingegen bei jedem Aufruf des Konstruktors erneut geparst. Obwohl ein Funktionsausdruck jedes Mal eine Closure erzeugt, wird der Funktionskörper nicht erneut geparst. Funktionsausdrücke sind daher immer noch schneller als `new Function(...)`. Deshalb sollte der Konstruktor `Function` nach Möglichkeit generell vermieden werden.
 
-Eine Funktionsdeklaration kann unbeabsichtigt in einen Funktionsausdruck umgewandelt werden, wenn sie in einem Ausdruckskontext erscheint.
+Eine Funktionsdeklaration kann unbeabsichtigt zu einem Funktionsausdruck werden, wenn sie in einem Ausdruckskontext steht.
 
 ```js
 // A function declaration
@@ -198,7 +198,7 @@ doSomething(
 );
 ```
 
-Andererseits kann ein Funktionsausdruck auch in eine Funktionsdeklaration umgewandelt werden. Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `function` oder `async function` beginnen, was ein häufiger Fehler bei der Implementierung von {{Glossary("IIFE", "IIFEs")}} (sofort aufgerufenen Funktionsausdrücken) ist.
+Umgekehrt kann auch ein Funktionsausdruck zu einer Funktionsdeklaration werden. Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) darf nicht mit den Schlüsselwörtern `function` oder `async function` beginnen. Das ist ein häufiger Fehler bei der Implementierung von {{Glossary("IIFE", "IIFEs")}} (sofort aufgerufenen Funktionsausdrücken).
 
 ```js-nolint example-bad
 function () { // SyntaxError: Function statements require a function name
@@ -210,7 +210,7 @@ function foo() {
 }(); // SyntaxError: Unexpected token ')'
 ```
 
-Beginnen Sie die Ausdrucksanweisung stattdessen mit etwas anderem, sodass das Schlüsselwort `function` eindeutig einen Funktionsausdruck einleitet. Häufige Optionen sind [Gruppierung](/de/docs/Web/JavaScript/Reference/Operators/Grouping) und die Verwendung von [`void`](/de/docs/Web/JavaScript/Reference/Operators/void).
+Beginnen Sie die Ausdrucksanweisung stattdessen mit etwas anderem, sodass das Schlüsselwort `function` eindeutig einen Funktionsausdruck einleitet. Übliche Möglichkeiten sind die [Gruppierung](/de/docs/Web/JavaScript/Reference/Operators/Grouping) und die Verwendung von [`void`](/de/docs/Web/JavaScript/Reference/Operators/void).
 
 ```js-nolint example-good
 (function () {
@@ -234,9 +234,9 @@ function myFunc(a, b, c) {
 
 Es gibt drei spezielle Parametersyntaxen:
 
-- [_Standardparameter_](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) ermöglichen die Initialisierung formaler Parameter mit Standardwerten, wenn kein Wert oder `undefined` übergeben wird.
+- [_Standardparameter_](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) ermöglichen es, formale Parameter mit Standardwerten zu initialisieren, wenn kein Wert oder `undefined` übergeben wird.
 - Der [_Rest-Parameter_](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) ermöglicht es, eine unbestimmte Anzahl von Argumenten als Array darzustellen.
-- [_Destrukturierung_](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) ermöglicht das Entpacken von Elementen aus Arrays oder Eigenschaften aus Objekten in einzelne Variablen.
+- Durch [_Destrukturierung_](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) lassen sich Elemente aus Arrays oder Eigenschaften aus Objekten in einzelne Variablen entpacken.
 
 ```js
 function myFunc({ a, b }, c = 1, ...rest) {
@@ -244,36 +244,36 @@ function myFunc({ a, b }, c = 1, ...rest) {
 }
 ```
 
-Wenn eine der oben genannten nicht einfachen Parametersyntaxen verwendet wird, hat dies einige Folgen:
+Die Verwendung einer der oben genannten nicht einfachen Parametersyntaxen hat einige Folgen:
 
-- Sie können `"use strict"` nicht auf den Funktionsrumpf anwenden — dies verursacht einen [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params).
-- Selbst wenn die Funktion nicht im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt wird, gelten bestimmte Funktionsmerkmale des Strict Mode, einschließlich der Tatsache, dass das Objekt [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) nicht mehr mit den benannten Parametern synchronisiert wird, [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) beim Zugriff einen Fehler auslöst und doppelte Parameternamen nicht zulässig sind.
+- Sie können `"use strict"` nicht im Funktionskörper verwenden – dies führt zu einem [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params).
+- Auch wenn sich die Funktion nicht im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet, gelten bestimmte Regeln des Strict Mode für Funktionen: Das Objekt [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) wird nicht mehr mit den benannten Parametern synchronisiert, der Zugriff auf [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) löst einen Fehler aus, und doppelte Parameternamen sind nicht zulässig.
 
 ### Das arguments-Objekt
 
-Sie können innerhalb einer Funktion mithilfe des Objekts [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) auf die Argumente der Funktion verweisen.
+Innerhalb einer Funktion können Sie über das Objekt [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) auf ihre Argumente zugreifen.
 
 - [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)
-  - : Ein Array-ähnliches Objekt, das die an die aktuell ausgeführte Funktion übergebenen Argumente enthält.
+  - : Ein arrayähnliches Objekt, das die an die gerade ausgeführte Funktion übergebenen Argumente enthält.
 - [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee)
-  - : Die aktuell ausgeführte Funktion.
+  - : Die gerade ausgeführte Funktion.
 - [`arguments.length`](/de/docs/Web/JavaScript/Reference/Functions/arguments/length)
   - : Die Anzahl der an die Funktion übergebenen Argumente.
 
 ### Getter- und Setter-Funktionen
 
-Sie können Accessor-Eigenschaften auf jedem standardmäßigen eingebauten Objekt oder benutzerdefinierten Objekt definieren, das das Hinzufügen neuer Eigenschaften unterstützt. Innerhalb von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) und [Klassen](/de/docs/Web/JavaScript/Reference/Classes) können Sie spezielle Syntaxen verwenden, um den Getter und Setter einer Accessor-Eigenschaft zu definieren.
+Sie können Zugriffseigenschaften für jedes standardmäßig integrierte oder benutzerdefinierte Objekt definieren, das das Hinzufügen neuer Eigenschaften unterstützt. Innerhalb von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) und [Klassen](/de/docs/Web/JavaScript/Reference/Classes) können Sie spezielle Syntax verwenden, um Getter und Setter einer Zugriffseigenschaft zu definieren.
 
 - [get](/de/docs/Web/JavaScript/Reference/Functions/get)
-  - : Bindet eine Objekteigenschaft an eine Funktion, die aufgerufen wird, wenn diese Eigenschaft abgefragt wird.
+  - : Verknüpft eine Objekteigenschaft mit einer Funktion, die aufgerufen wird, wenn die Eigenschaft abgefragt wird.
 - [set](/de/docs/Web/JavaScript/Reference/Functions/set)
-  - : Bindet eine Objekteigenschaft an eine Funktion, die aufgerufen wird, wenn versucht wird, diese Eigenschaft festzulegen.
+  - : Verknüpft eine Objekteigenschaft mit einer Funktion, die aufgerufen wird, wenn versucht wird, die Eigenschaft zu setzen.
 
-Beachten Sie, dass diese Syntaxen eine _Objekteigenschaft_ und keine _Methode_ erstellen. Auf die Getter- und Setter-Funktionen selbst kann nur über reflektierende APIs wie {{jsxref("Object.getOwnPropertyDescriptor()")}} zugegriffen werden.
+Beachten Sie, dass diese Syntaxvarianten eine _Objekteigenschaft_ und keine _Methode_ erzeugen. Auf die Getter- und Setter-Funktionen selbst kann nur über reflektierende APIs wie {{jsxref("Object.getOwnPropertyDescriptor()")}} zugegriffen werden.
 
 ### Funktionen auf Blockebene
 
-Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionen innerhalb von Blöcken auf diesen Block beschränkt. Vor ES2015 waren Funktionen auf Blockebene im Strict Mode verboten.
+Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ist der Gültigkeitsbereich von Funktionen innerhalb eines Blocks auf diesen Block beschränkt. Vor ES2015 waren Funktionen auf Blockebene im Strict Mode nicht zulässig.
 
 ```js
 "use strict";
@@ -293,11 +293,11 @@ f() === 1; // true
 // f() === 2 in non-strict mode
 ```
 
-### Funktionen auf Blockebene in nicht-striktem Code
+### Funktionen auf Blockebene außerhalb des Strict Mode
 
-Mit einem Wort: **Nicht.**
+Kurz gesagt: **Tun Sie es nicht.**
 
-In nicht-striktem Code verhalten sich Funktionsdeklarationen innerhalb von Blöcken seltsam. Zum Beispiel:
+Außerhalb des Strict Mode verhalten sich Funktionsdeklarationen innerhalb von Blöcken ungewöhnlich. Zum Beispiel:
 
 ```js
 if (shouldDefineZero) {
@@ -308,9 +308,9 @@ if (shouldDefineZero) {
 }
 ```
 
-Die Semantik hierfür ist im Strict Mode eindeutig spezifiziert — `zero` existiert ausschließlich innerhalb dieses Gültigkeitsbereichs des `if`-Blocks. Wenn `shouldDefineZero` false ist, sollte `zero` niemals definiert werden, da der Block nie ausgeführt wird. Historisch war dies jedoch nicht spezifiziert, sodass verschiedene Browser es im nicht-strikten Modus unterschiedlich implementierten. Weitere Informationen finden Sie in der Referenz zur [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function#block-level_function_declaration).
+Im Strict Mode ist die Semantik hierfür genau festgelegt: `zero` existiert nur innerhalb des Gültigkeitsbereichs des `if`-Blocks. Wenn `shouldDefineZero` falsch ist, sollte `zero` niemals definiert werden, da der Block nie ausgeführt wird. Historisch war dieses Verhalten jedoch nicht festgelegt, sodass verschiedene Browser es außerhalb des Strict Mode unterschiedlich implementierten. Weitere Informationen finden Sie in der Referenz zur [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function#block-level_function_declaration).
 
-Eine sicherere Methode, Funktionen bedingt zu definieren, besteht darin, einen Funktionsausdruck einer Variablen zuzuweisen:
+Eine sicherere Möglichkeit, Funktionen bedingt zu definieren, besteht darin, einer Variablen einen Funktionsausdruck zuzuweisen:
 
 ```js
 // Using a var makes it available as a global variable,
@@ -327,7 +327,7 @@ if (shouldDefineZero) {
 
 ### Eine formatierte Zahl zurückgeben
 
-Die folgende Funktion gibt einen String zurück, der die formatierte Darstellung einer mit führenden Nullen aufgefüllten Zahl enthält.
+Die folgende Funktion gibt eine Zeichenfolge zurück, die eine mit führenden Nullen aufgefüllte Zahl in formatierter Darstellung enthält.
 
 ```js
 // This function returns a string padded with leading zeros
@@ -350,9 +350,9 @@ result = padZeros(42, 2); // returns "42"
 result = padZeros(5, 4); // returns "0005"
 ```
 
-### Bestimmen, ob eine Funktion existiert
+### Prüfen, ob eine Funktion existiert
 
-Sie können mithilfe des Operators [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) bestimmen, ob eine Funktion existiert. Im folgenden Beispiel wird geprüft, ob das Objekt `window` eine Eigenschaft namens `noFunc` besitzt, die eine Funktion ist. Falls ja, wird sie verwendet; andernfalls wird eine andere Aktion ausgeführt.
+Mit dem Operator [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) können Sie feststellen, ob eine Funktion existiert. Im folgenden Beispiel wird geprüft, ob das Objekt `window` eine Eigenschaft namens `noFunc` besitzt, die eine Funktion ist. Wenn ja, wird sie verwendet; andernfalls wird eine andere Aktion ausgeführt.
 
 ```js
 if (typeof window.noFunc === "function") {
@@ -362,7 +362,7 @@ if (typeof window.noFunc === "function") {
 }
 ```
 
-Beachten Sie, dass im `if`-Test ein Verweis auf `noFunc` verwendet wird — nach dem Funktionsnamen stehen keine Klammern `()`, sodass die eigentliche Funktion nicht aufgerufen wird.
+Beachten Sie, dass bei der `if`-Prüfung eine Referenz auf `noFunc` verwendet wird: Auf den Funktionsnamen folgen keine Klammern `()`, sodass die Funktion selbst nicht aufgerufen wird.
 
 ## Spezifikationen
 

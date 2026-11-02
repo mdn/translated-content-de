@@ -1,116 +1,115 @@
 ---
-title: Firefox 151 Versionshinweise für Entwickler
+title: Firefox 151 – Versionshinweise für Entwickler
 short-title: Firefox 151
 slug: Mozilla/Firefox/Releases/151
 l10n:
-  sourceCommit: 681ee4beb90b7e0d001f8938df41d5af0f602fe7
+  sourceCommit: 9126ecf140009f571300b0d083148eb31e826128
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 151, die Entwickler betreffen.
+Dieser Artikel informiert über Änderungen in Firefox 151, die für Entwickler relevant sind.
 Firefox 151 wurde am [19. Mai 2026](https://whattrainisitnow.com/release/?version=151) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-- Das [`shadowrootslotassignment`-Attribut](/de/docs/Web/HTML/Reference/Elements/template#shadowrootslotassignment) wird jetzt auf {{htmlelement("template")}}-Elementen unterstützt, wodurch eine deklarative Definition des Slot-Zuweisungsverhaltens für Shadow-Roots möglich ist.
-  Das Attribut wird in JavaScript durch [`ShadowRoot.slotAssignment`](/de/docs/Web/API/ShadowRoot/slotAssignment) oder [`HTMLTemplateElement.shadowRootSlotAssignment`](/de/docs/Web/API/HTMLTemplateElement/shadowRootSlotAssignment) widergespiegelt
+- Das [Attribut `shadowrootslotassignment`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootslotassignment) wird jetzt für {{htmlelement("template")}}-Elemente unterstützt. Damit lässt sich das Verhalten der Slot-Zuweisung für Shadow Roots deklarativ festlegen.
+  In JavaScript wird das Attribut durch [`ShadowRoot.slotAssignment`](/de/docs/Web/API/ShadowRoot/slotAssignment) oder [`HTMLTemplateElement.shadowRootSlotAssignment`](/de/docs/Web/API/HTMLTemplateElement/shadowRootSlotAssignment) abgebildet
   ([Firefox-Bug 2031295](https://bugzil.la/2031295), [Firefox-Bug 2023824](https://bugzil.la/2023824)).
 
 ### CSS
 
-- Die CSS-Regel [`@container`](/de/docs/Web/CSS/Reference/At-rules/@container) unterstützt jetzt [`style()`](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries)-Abfragen. Dies ermöglicht es Ihnen zu überprüfen, ob ein Container eine gültige CSS-Deklaration, eine CSS-Eigenschaft oder eine benutzerdefinierte Eigenschaft hat, und entsprechende Stile auf seine Kinder anzuwenden. ([Firefox-Bug 2016929](https://bugzil.la/2016929), ([Firefox-Bug 2019254](https://bugzil.la/2019254)), ([Firefox-Bug 2024601](https://bugzil.la/2024601)), [Firefox-Bug 2030645](https://bugzil.la/2030645)).
+- Die CSS-At-Regel [`@container`](/de/docs/Web/CSS/Reference/At-rules/@container) unterstützt [`style()`](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries)-Abfragen. Damit können Sie prüfen, ob ein Container eine gültige CSS-Deklaration, eine CSS-Eigenschaft oder eine benutzerdefinierte Eigenschaft besitzt, und seine Kindelemente entsprechend gestalten. ([Firefox-Bug 2016929](https://bugzil.la/2016929), ([Firefox-Bug 2019254](https://bugzil.la/2019254)), ([Firefox-Bug 2024601](https://bugzil.la/2024601)), [Firefox-Bug 2030645](https://bugzil.la/2030645)).
 
-- Die {{cssxref("position-anchor")}} CSS-Eigenschaft unterstützt jetzt den `normal` (Standard)-Wert. Dies ermöglicht das Abgleichen der {{cssxref("position-area")}}-Eigenschaft, sodass bei einer Aktualisierung der `position-area`-Eigenschaft auch die `position-anchor`-Eigenschaft aktualisiert wird. ([Firefox-Bug 2030351](https://bugzil.la/2030351)).
+- Die CSS-Eigenschaft {{cssxref("position-anchor")}} unterstützt jetzt den Wert `normal` (Standardwert). Dadurch kann sie an die Eigenschaft {{cssxref("position-area")}} angepasst werden: Wenn die Eigenschaft `position-area` aktualisiert wird, wird auch die Eigenschaft `position-anchor` aktualisiert. ([Firefox-Bug 2030351](https://bugzil.la/2030351)).
 
 ### JavaScript
 
-Keine bemerkenswerten Änderungen.
+Keine nennenswerten Änderungen.
 
 ### APIs
 
-- Die Methode [`Sanitizer.replaceElementWithChildren()`](/de/docs/Web/API/Sanitizer/replaceElementWithChildren) gibt jetzt `false` zurück, wenn das zu ersetzende Element im SVG-[Namespace](/de/docs/Web/API/Sanitizer/replaceElementWithChildren#namespace) ein {{svgelement("svg")}} oder im MathML-Namespace ein {{mathmlelement("math")}} ist (zusammen mit {{htmlelement("html")}}, das in [Firefox 150](/de/docs/Mozilla/Firefox/Releases/150#apis) untersagt wurde).
+- Die Methode [`Sanitizer.replaceElementWithChildren()`](/de/docs/Web/API/Sanitizer/replaceElementWithChildren) gibt jetzt `false` zurück, wenn das zu ersetzende Element {{svgelement("svg")}} im SVG-[Namespace](/de/docs/Web/API/Sanitizer/replaceElementWithChildren#namespace) oder {{mathmlelement("math")}} im MathML-Namespace ist. Dies gilt bereits für {{htmlelement("html")}}, das seit [Firefox 150](/de/docs/Mozilla/Firefox/Releases/150#apis) nicht mehr zulässig ist.
   ([Firefox-Bug 2032359](https://bugzil.la/2032359)).
-- Die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) wird nun auf Desktop-Plattformen unterstützt.
-  Dies ermöglicht das Öffnen eines [immer im Vordergrund befindlichen Fensters](/de/docs/Web/API/Document_Picture-in-Picture_API#how_does_it_work), das mit beliebigem HTML-Inhalt gefüllt werden kann.
-  Es kann verwendet werden, um beliebige Inhalte anzuzeigen, die ein Benutzer getrennt von der Startseite (oder sogar dem Browser) sehen möchte, wie z.B. eine Reihe von Streams, die die Teilnehmer eines Videokonferenzanrufs zeigen, ein Börsenticker oder ein Countdown-Timer.
+- Die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) wird jetzt auf Desktop-Plattformen unterstützt.
+  Damit lässt sich ein [Fenster öffnen, das stets im Vordergrund bleibt](/de/docs/Web/API/Document_Picture-in-Picture_API#how_does_it_work) und mit beliebigen HTML-Inhalten gefüllt werden kann.
+  Darin können Inhalte angezeigt werden, die Benutzer getrennt von der aufrufenden Seite (oder sogar vom Browser) sehen möchten, etwa mehrere Videostreams mit den Teilnehmern einer Videokonferenz, ein Börsenticker oder ein Countdown.
   ([Firefox-Bug 2006594](https://bugzil.la/2006594)).
-- Die [`CanvasRenderingContext2D.lang`](/de/docs/Web/API/CanvasRenderingContext2D/lang)-Eigenschaft wird jetzt unterstützt, um die Sprache des Canvas-Zeichnungskontexts festzulegen.
-  Während ein DOM-Canvas diesen Kontext vom `lang`-Attribut seines zugehörigen {{htmlelement("canvas")}}-Elements erben kann, ist dies nützlich, um den Kontext für ein offscreen Canvas festzulegen, das möglicherweise gerendert wird, bevor es mit einem `<canvas>` verbunden wird.
+- Die Eigenschaft [`CanvasRenderingContext2D.lang`](/de/docs/Web/API/CanvasRenderingContext2D/lang) wird unterstützt, um die Sprache des Canvas-Zeichenkontexts festzulegen.
+  Ein Canvas im DOM kann diese Sprache zwar vom Attribut `lang` des zugehörigen {{htmlelement("canvas")}}-Elements erben. Die Eigenschaft ist jedoch nützlich, um die Sprache für ein Offscreen-Canvas festzulegen, das möglicherweise gerendert wird, bevor es einem `<canvas>` zugeordnet wird.
   ([Firefox-Bug 1943070](https://bugzil.la/1943070)).
-- Die [`options.keyboardLock`](/de/docs/Web/API/Element/requestFullscreen#keyboardlock)-Eigenschaft kann jetzt als Option an [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) übergeben werden, sodass Websites Keyboard-Sperre anfordern können, wenn das Element im Vollbildmodus angezeigt wird.
-  Dadurch verhindert man, dass durch die <kbd>Esc</kbd>-Taste das Element den Vollbildmodus verlässt (anstattdessen ist ein langes Drücken erforderlich), und einige zuvor reservierte Browser-Hotkeys können nun abgefangen und ihre Standardaktion verhindert werden.
+- Die Eigenschaft [`options.keyboardLock`](/de/docs/Web/API/Element/requestFullscreen#keyboardlock) kann jetzt als Option an [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) übergeben werden. So können Websites eine Tastatursperre anfordern, während das Element im Vollbildmodus angezeigt wird.
+  Dadurch beendet ein kurzer Druck auf <kbd>Esc</kbd> den Vollbildmodus nicht mehr; stattdessen ist ein langer Tastendruck erforderlich. Außerdem können einige zuvor für den Browser reservierte Tastenkombinationen jetzt abgefangen und ihre Standardaktionen verhindert werden.
   ([Firefox-Bug 2032302](https://bugzil.la/2032302)).
-- Die Eigenschaften `maxStorageBuffersInFragmentStage`, `maxStorageBuffersInVertexStage`, `maxStorageTexturesInFragmentStage` und `maxStorageTexturesInVertexStage` auf [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits) werden jetzt teilweise unterstützt.
-  Diese Eigenschaften melden den Wert der `maxStorageBuffersPerShaderStage`- und `maxStorageTexturesPerShaderStage`-Grenzen.
-  Beim Erstellen eines Geräts werden angeforderte Werte für die *In*Stage-Grenzen ignoriert.
+- Die Eigenschaften `maxStorageBuffersInFragmentStage`, `maxStorageBuffersInVertexStage`, `maxStorageTexturesInFragmentStage` und `maxStorageTexturesInVertexStage` von [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits) werden jetzt teilweise unterstützt.
+  Beim Erstellen eines Geräts werden angeforderte Werte für diese Limits ignoriert. Stattdessen werden sie an die Werte der Limits `maxStorageBuffersPerShaderStage` und `maxStorageTexturesPerShaderStage` angepasst. Derzeit gibt es in Firefox jedoch einen Bug, durch den diese Anpassungen nicht in [`GPUDevice.limits`](/de/docs/Web/API/GPUDevice/limits) angezeigt werden.
   ([Firefox-Bug 2006720](https://bugzil.la/2006720)).
-- Die [`CSSContainerRule.conditions`](/de/docs/Web/API/CSSContainerRule/conditions)-Eigenschaft wird jetzt unterstützt und spiegelt die Unterstützung für die @container-At-Regel für mehrere kommagetrennte Container-Bedingungen wider.
-  Die `condition`-Eigenschaft spiegelt ein entsprechendes `@container` als ein Array von Objekten wider, wobei jedes Objekt eine einzelne Container-Bedingung darstellt.
+- Die Eigenschaft [`CSSContainerRule.conditions`](/de/docs/Web/API/CSSContainerRule/conditions) wird jetzt unterstützt. Sie entspricht der Unterstützung mehrerer kommagetrennter Container-Bedingungen durch die At-Regel [`@container`](/de/docs/Web/CSS/Reference/At-rules/@container).
+  Die Eigenschaft `condition` bildet die zugehörige `@container`-Regel als Array von Objekten ab, wobei jedes Objekt eine einzelne Container-Bedingung darstellt.
   ([Firefox-Bug 2022827](https://bugzil.la/2022827)).
 - Die [Web Serial API](/de/docs/Web/API/Web_Serial_API) wird auf Desktop-Plattformen unterstützt und ermöglicht die Steuerung von Mikrocontrollern, die serielle Kommunikation unterstützen.
-  Dies erlaubt es Ihnen beispielsweise, Mikrocontroller und Entwicklungsboards wie ESP-Geräte, BBCmicro:bit und Raspberry Pi Picos, 3D-Drucker und CNC-Maschinen und andere unterstützte Geräte zu programmieren.
-  Die Nutzung der API erfordert, dass Website-Benutzer ein [synthetisch generiertes Website-Berechtigungs-Add-on](https://support.mozilla.org/en-US/kb/site-permission-add-ons) installieren — dies ist der gleiche Ansatz, der verwendet wird, um den Zugriff auf WebMIDI sicher zu verwalten.
+  Damit können Sie beispielsweise Mikrocontroller und Entwicklungsboards wie ESP-Geräte, BBCmicro:bit und Raspberry Pi Picos sowie 3D-Drucker, CNC-Maschinen und andere unterstützte Geräte programmieren.
+  Zur Nutzung der API müssen Website-Benutzer ein [synthetisch generiertes Add-on für Website-Berechtigungen](https://support.mozilla.org/en-US/kb/site-permission-add-ons) installieren. Derselbe Ansatz wird verwendet, um den Zugriff auf WebMIDI sicher zu verwalten.
   ([Firefox-Bug 2029625](https://bugzil.la/2029625)).
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
 #### Allgemein
 
-- Unterstützung für `altitudeAngle` und `azimuthAngle` zu Pointer-Aktionen des Subtypes `touch` hinzugefügt. Diese Eigenschaften ermöglichen die Simulation von Touch-Interaktionen mit präzisen Winkelorientierungsdaten, indem sie den Winkel angeben, in dem ein Zeiger eine Oberfläche berührt, und dessen Rotationsrichtung. ([Firefox-Bug 2022644](https://bugzil.la/2022644)).
-- Ein Fehler wurde behoben, bei dem `UnknownError` DOM-Ausnahmen von Inhaltsseiten fälschlicherweise als interne WebDriver-Fehler behandelt wurden. ([Firefox-Bug 2032387](https://bugzil.la/2032387)).
+- Unterstützung für `altitudeAngle` und `azimuthAngle` bei Pointer-Aktionen des Untertyps `touch` wurde hinzugefügt. Mit diesen Eigenschaften lassen sich Berührungsinteraktionen mit präzisen Winkelangaben simulieren: Sie geben den Winkel an, in dem ein Zeiger eine Oberfläche berührt, sowie seine Drehrichtung. ([Firefox-Bug 2022644](https://bugzil.la/2022644)).
+- Ein Bug wurde behoben, durch den `UnknownError`-DOM-Ausnahmen von Inhaltsseiten fälschlicherweise als interne WebDriver-Fehler behandelt wurden. ([Firefox-Bug 2032387](https://bugzil.la/2032387)).
 
 #### WebDriver BiDi
 
-- Der Befehl `browser.setClientWindowState` wurde implementiert. Dieser Befehl erlaubt es Clients, den OS-Level-Fensterstatus eines Browser-Fensters zu ändern, z.B. maximiert, minimiert, im Vollbild oder normal. Außerdem können Fenster neu positioniert und deren Größe geändert werden. ([Firefox-Bug 1855028](https://bugzil.la/1855028)).
-- Unterstützung für Worker-Realm (für dedicated, shared und service workers) im `script.getRealms`-Befehl hinzugefügt. Der Befehl gibt jetzt Realm-Informationen für Worker-Skripte zusätzlich zu Fensterkontexten zurück. ([Firefox-Bug 2016097](https://bugzil.la/2016097)).
-- Das oberste Stack-Frame wurde für alle Console API-Nachrichten zu `log.entryAdded`-Ereignissen hinzugefügt. ([Firefox-Bug 1941813](https://bugzil.la/1941813)).
-- Das `text`-Feld des `log.entryAdded`-Ereignisses wurde verbessert, um besser mit dem Verhalten von Firefox DevTools und der Google Chrome WebDriver BiDi-Implementierung übereinzustimmen. ([Firefox-Bug 2005054](https://bugzil.la/2005054)).
-- Netzwerk-Ereignis-Cookies wurden korrigiert, um alle Eigenschaften einzuschließen, nicht nur `name` und `value`. ([Firefox-Bug 1887118](https://bugzil.la/1887118)).
-- Der Befehl `network.getData` wurde so korrigiert, dass er nicht mehr bei Umleitungen ausläuft. ([Firefox-Bug 2009916](https://bugzil.la/2009916)).
-- Der Befehl `browsingContext.reload` wurde so korrigiert, dass er die Position eines navigierten iframes zurücksetzt. ([Firefox-Bug 2023917](https://bugzil.la/2023917)).
-- Die leere `proxy`-Fähigkeit wurde aus der Antwort des `session.new`-Befehls entfernt, wenn kein Proxy angegeben ist. ([Firefox-Bug 1916463](https://bugzil.la/1916463)).
+- Der Befehl `browser.setClientWindowState` wurde implementiert. Damit können Clients den Fensterzustand eines Browserfensters auf Betriebssystemebene ändern, etwa auf maximiert, minimiert, Vollbild oder normal. Außerdem können sie das Fenster neu positionieren und seine Größe ändern. ([Firefox-Bug 1855028](https://bugzil.la/1855028)).
+- Der Befehl `script.getRealms` unterstützt jetzt Worker-Realms für Dedicated Workers, Shared Workers und Service Workers. Zusätzlich zu Fensterkontexten gibt der Befehl nun Realm-Informationen für Worker-Skripte zurück. ([Firefox-Bug 2016097](https://bugzil.la/2016097)).
+- `log.entryAdded`-Ereignisse enthalten jetzt für alle Nachrichten der Console API den obersten Stack-Frame. ([Firefox-Bug 1941813](https://bugzil.la/1941813)).
+- Das Feld `text` des Ereignisses `log.entryAdded` wurde verbessert, damit es dem Verhalten der Firefox DevTools und der WebDriver-BiDi-Implementierung von Google Chrome besser entspricht. ([Firefox-Bug 2005054](https://bugzil.la/2005054)).
+- Ein Bug wurde behoben, durch den Cookies in Netzwerkereignissen nur `name` und `value` statt aller Eigenschaften enthielten. ([Firefox-Bug 1887118](https://bugzil.la/1887118)).
+- Ein Bug wurde behoben, durch den beim Befehl `network.getData` für Weiterleitungen eine Zeitüberschreitung auftrat. ([Firefox-Bug 2009916](https://bugzil.la/2009916)).
+- Ein Bug wurde behoben, durch den der Befehl `browsingContext.reload` die Position eines navigierten iframes nicht zurücksetzte. ([Firefox-Bug 2023917](https://bugzil.la/2023917)).
+- Wenn kein Proxy angegeben ist, enthält die Antwort auf den Befehl `session.new` nicht mehr die leere Capability `proxy`. ([Firefox-Bug 1916463](https://bugzil.la/1916463)).
 
 #### Marionette
 
-- Neupositionierung von Browser-Fenstern auf Linux Wayland im Headless-Modus aktiviert. ([Firefox-Bug 2023978](https://bugzil.la/2023978)).
+- Unter Linux Wayland können Browserfenster jetzt auch im Headless-Modus neu positioniert werden. ([Firefox-Bug 2023978](https://bugzil.la/2023978)).
 
 ## Änderungen für Add-on-Entwickler
 
-- Das {{WebExtAPIRef("webRequest.onErrorOccurred")}}-Ereignis fällt jetzt auf `NS_ERROR_NET_ON_RECEIVING_FROM` zurück, anstatt auf einen String, der mit `NS_ERROR_NET_ON_` oder `NS_ERROR_NET_UNKNOWN_` beginnt. Diese Änderung ist Teil von Leistungs- und Zuverlässigkeitsverbesserungen beim `onErrorOccurred`-Ereignis. ([Firefox-Bug 1881986](https://bugzil.la/1881986))
-- {{WebExtAPIRef("tabs.group()")}} und {{WebExtAPIRef("tabs.ungroup()")}} fügen jetzt korrekt eine geteilte Ansicht hinzu und entfernen sie, wenn ein Aufruf eines der Tabs der geteilten Ansicht umfasst. Zuvor schlug ein Aufruf fehl oder trennte die geteilte Ansicht. ([Firefox-Bug 2029099](https://bugzil.la/2029099))
-- {{WebExtAPIRef("tabs.move()")}} verschiebt eine geteilte Ansicht jetzt korrekt nach rechts, wenn ein Aufruf eines der Tabs der geteilten Ansicht umfasst. Zuvor konnte ein Aufruf eine geteilte Ansicht nur nach links oder an das Ende der Tab-Liste verschieben. ([Firefox-Bug 2027855](https://bugzil.la/2027855))
+- Das Ereignis {{WebExtAPIRef("webRequest.onErrorOccurred")}} verwendet jetzt als Fallback `NS_ERROR_NET_ON_RECEIVING_FROM` anstelle einer Zeichenfolge, die mit `NS_ERROR_NET_ON_` oder `NS_ERROR_NET_UNKNOWN_` beginnt. Diese Änderung ist Teil von Verbesserungen an der Leistung und Zuverlässigkeit des Ereignisses `onErrorOccurred`. ([Firefox-Bug 1881986](https://bugzil.la/1881986))
+- {{WebExtAPIRef("tabs.group()")}} und {{WebExtAPIRef("tabs.ungroup()")}} fügen eine geteilte Ansicht jetzt korrekt zu einer Gruppe hinzu beziehungsweise entfernen sie daraus, wenn ein Aufruf einen ihrer Tabs enthält. Zuvor schlug ein solcher Aufruf fehl oder trennte die geteilte Ansicht. ([Firefox-Bug 2029099](https://bugzil.la/2029099))
+- {{WebExtAPIRef("tabs.move()")}} verschiebt eine geteilte Ansicht jetzt korrekt nach rechts, wenn ein Aufruf einen ihrer Tabs enthält. Zuvor konnte ein solcher Aufruf die geteilte Ansicht nur nach links oder an das Ende der Tab-Liste verschieben. ([Firefox-Bug 2027855](https://bugzil.la/2027855))
 
-## Experimentelle Web-Features
+## Experimentelle Webfunktionen
 
-Diese Features werden in Firefox 151 ausgeliefert, sind aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie im `about:config`-Bereich nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 151 enthalten, aber standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der jeweiligen Einstellung und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
-- **`@container style()`-Bereichssyntax-Abfragen**: `layout.css.attr.enabled`
+- **Abfragen mit Bereichssyntax für `@container style()`**: `layout.css.attr.enabled`
 
-  Die CSS-Regel [`@container`](/de/docs/Web/CSS/Reference/At-rules/@container) [`style()`](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries)-Abfragen unterstützen jetzt die _Bereichssyntax_. Dies ermöglicht Ihnen zu überprüfen, ob ein Container eine gültige benutzerdefinierte CSS-Eigenschaft hat und deren Wert mit Vergleichsoperatoren wie `>`, `<`, `>=` und `<=` zu vergleichen und entsprechende Stile auf seine Kinder anzuwenden. ([Firefox-Bug 2024601](https://bugzil.la/2024601)).
+  [`style()`](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries)-Abfragen der CSS-At-Regel [`@container`](/de/docs/Web/CSS/Reference/At-rules/@container) unterstützen jetzt die _Bereichssyntax_. Damit können Sie prüfen, ob ein Container eine gültige benutzerdefinierte CSS-Eigenschaft besitzt, ihren Wert mit Vergleichsoperatoren wie `>`, `<`, `>=` und `<=` vergleichen und seine Kindelemente entsprechend gestalten. ([Firefox-Bug 2024601](https://bugzil.la/2024601)).
 
-- **`field-sizing`-Eigenschaft**: `layout.css.field-sizing.enabled`
+- **Eigenschaft `field-sizing`**: `layout.css.field-sizing.enabled`
 
-  Die {{cssxref("field-sizing")}} CSS-Eigenschaft ermöglicht es Ihnen, das Größenverhalten von Formularsteuerelementen zu steuern. Diese Eigenschaft hat zwei Werte: `content`, sodass Elemente ihre Größe an ihren Inhalt anpassen, und `fixed`, um eine feste Größe für Elemente festzulegen. ([Firefox-Bug 1977176](https://bugzil.la/1977176)).
+  Mit der CSS-Eigenschaft {{cssxref("field-sizing")}} können Sie steuern, wie die Größe von Formularsteuerelementen bestimmt wird. Die Eigenschaft hat zwei Werte: `content` lässt Elemente ihre Größe an den Inhalt anpassen, während `fixed` eine feste Größe für Elemente festlegt. ([Firefox-Bug 1977176](https://bugzil.la/1977176)).
 
-- **Deaktivierung von MathML-`href` auf nicht-`<a>`-Elementen**: `mathml.href_link_on_non_anchor_element.disabled`
+- **MathML-`href` auf anderen Elementen als `<a>` deaktivieren**: `mathml.href_link_on_non_anchor_element.disabled`
 
-  Wenn aktiviert, erstellt das globale Attribut [`href`](/de/docs/Web/MathML/Reference/Global_attributes/href) keine Verknüpfung auf anderen MathML-Elementen als `<a>` mehr, entsprechend der [MathML Core Spezifikation](https://w3c.github.io/mathml-core/#the-a-element). ([Firefox-Bug 2026848](https://bugzil.la/2026848)).
+  Wenn diese Einstellung aktiviert ist, erzeugt das globale Attribut [`href`](/de/docs/Web/MathML/Reference/Global_attributes/href) auf anderen MathML-Elementen als `<a>` keinen Hyperlink mehr. Dies entspricht der [MathML-Core-Spezifikation](https://w3c.github.io/mathml-core/#the-a-element). ([Firefox-Bug 2026848](https://bugzil.la/2026848)).
 
-- **Behebung für verschachtelte scrollbare Bereiche**: `layout.css.fake-webkit-scrollbar.enabled`
+- **Korrektur für verschachtelte scrollbare Bereiche**: `layout.css.fake-webkit-scrollbar.enabled`
 
-  Diese Implementierung wurde hinzugefügt, um ein Problem zu beheben, bei dem scrollbar Inhalte nicht erreichbar waren. Wenn eine Scrollbar auf `display: none;` oder `width: 0;` gesetzt ist, würden die Scrollbars verschachtelter scrollbarer Bereiche aufeinander gestapelt, was bedeutet, dass einige der Inhalte möglicherweise nicht erreichbar sind. ([Firefox-Bug 1977511](https://bugzil.la/1977511)).
+  Diese Implementierung behebt ein Problem, durch das scrollbare Inhalte unerreichbar waren. Wenn eine Scrollleiste auf `display: none;` oder `width: 0;` gesetzt ist, können die Scrollleisten verschachtelter scrollbarer Bereiche übereinanderliegen. Dadurch sind möglicherweise Teile des Inhalts nicht erreichbar. ([Firefox-Bug 1977511](https://bugzil.la/1977511)).
 
 - **`<timeline-range-name>`-Werte**: `layout.css.scroll-driven-animations.enabled`
 
-  Die CSS-Eigenschaften {{cssxref("animation-range-start")}}, {{cssxref("animation-range-end")}} und die Kurzform-Eigenschaft {{cssxref("animation-range")}} unterstützen jetzt [`<timeline-range-name>`](/de/docs/Web/CSS/Reference/Values/timeline-range-name)-Werte. Diese [`<timeline-range-name>`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names#timeline_range_names)-Werte erlauben es Ihnen, genau anzugeben, in welchem Segment eine scrollgesteuerte Animation stattfinden wird. ([Firefox-Bug 1804775](https://bugzil.la/1804775)).
+  Die CSS-Eigenschaften {{cssxref("animation-range-start")}} und {{cssxref("animation-range-end")}} sowie die Kurzschreibweise {{cssxref("animation-range")}} unterstützen jetzt [`<timeline-range-name>`](/de/docs/Web/CSS/Reference/Values/timeline-range-name)-Werte. Mit diesen [`<timeline-range-name>`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names#timeline_range_names)-Werten können Sie genau festlegen, innerhalb welchen Abschnitts eine scrollgesteuerte Animation abläuft. ([Firefox-Bug 1804775](https://bugzil.la/1804775)).
 
 - **GeometryUtils-Methoden: `convertPointFromNode()`, `convertRectFromNode()` und `convertQuadFromNode()`**: `layout.css.convertFromNode.enabled`
 
-  Die GeometryUtils-Methoden: `convertPointFromNode()`, `convertRectFromNode()` und `convertQuadFromNode()` sind in Firefox Nightly standardmäßig nicht mehr aktiviert. ([Firefox-Bug 2026051](https://bugzil.la/2026051)).
+  Die GeometryUtils-Methoden `convertPointFromNode()`, `convertRectFromNode()` und `convertQuadFromNode()` sind in Firefox Nightly nicht mehr standardmäßig aktiviert. ([Firefox-Bug 2026051](https://bugzil.la/2026051)).
 
-- **GeometryUtils-Methoden: `getBoxQuads()`**: `layout.css.getBoxQuads.enabled`
+- **GeometryUtils-Methode: `getBoxQuads()`**: `layout.css.getBoxQuads.enabled`
 
-  Die GeometryUtils-Methode: `getBoxQuads()` ist in Firefox Nightly standardmäßig nicht mehr aktiviert. ([Firefox-Bug 2026051](https://bugzil.la/2026051)).
+  Die GeometryUtils-Methode `getBoxQuads()` ist in Firefox Nightly nicht mehr standardmäßig aktiviert. ([Firefox-Bug 2026051](https://bugzil.la/2026051)).
