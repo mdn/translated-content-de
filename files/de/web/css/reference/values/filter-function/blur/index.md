@@ -3,10 +3,10 @@ title: CSS-Funktion `blur()`
 short-title: blur()
 slug: Web/CSS/Reference/Values/filter-function/blur
 l10n:
-  sourceCommit: cff28ac91efd68d0809779c81902bd080f614a1d
+  sourceCommit: 35b1d907e22f58fcd01fc5d3d22f1e73089c7f3d
 ---
 
-Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`blur()`** wendet eine [gaußsche Unschärfe](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`blur()`** wendet eine [gaußsche Unschärfe](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Sie wird als Wert für die Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
 
 {{InteractiveExample("CSS Demo: blur()")}}
 
@@ -35,37 +35,25 @@ filter: blur(1.5rem);
 ## Syntax
 
 ```css
-blur()         /* No effect */
-blur(0)        /* No effect */
+/* No blur */
+blur()
+blur(0)
 
-blur(8px)      /* Blur with 8px radius */
-blur(1.17rem)  /* Blur with 1.17rem radius */
+/* Blur with 8px radius */
+blur(8px)
+
+/* Blur with 1.17rem radius */
+blur(1.17rem)
 ```
 
 ### Parameter
 
 - {{cssxref("length")}} {{Optional_Inline}}
-  - : Gibt den Radius der Unschärfe an. Der Wert definiert die Standardabweichung der Gauß-Funktion und bestimmt damit, wie viele Pixel auf dem Bildschirm ineinander übergehen. Ein größerer Wert erzeugt daher eine stärkere Unschärfe. Bei einem Wert von `0` bleibt die Eingabe unverändert. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte und negative Werte sind ungültig. Der Standardwert ist `0`.
+  - : Gibt den Radius der Unschärfe an. Er legt den Wert der Standardabweichung für die Gauß-Funktion fest, also wie viele Pixel auf dem Bildschirm ineinander übergehen. Ein größerer Wert erzeugt daher eine stärkere Unschärfe. Ein Wert von `0` lässt das Eingabebild unverändert. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte und negative Werte sind ungültig. Der Standardwert ist `0`.
 
-## SVG-Filter
+### Rückgabewert
 
-Auch das SVG-Filterelement {{SVGElement("feGaussianBlur")}} kann verwendet werden, um Inhalte unscharf darzustellen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, mit denen sich komplexere Unschärfeeffekte erzeugen lassen. Für einen gleichwertigen Unschärfeeffekt geben wir einen Wert für `stdDeviation` an. Auf diesen SVG-Effekt kann dann über seine ID verwiesen werden:
-
-```html
-<svg role="none">
-  <filter id="blur11">
-    <feGaussianBlur stdDeviation="1.1" edgeMode="duplicate" />
-  </filter>
-</svg>
-```
-
-Die folgenden Deklarationen erzeugen denselben Effekt:
-
-```css
-filter: blur(1.1px);
-filter: url("#blur11"); /* with embedded SVG */
-filter: url("folder/fileName.svg#blur11"); /* external svg filter definition */
-```
+Ein {{cssxref("filter-function")}}-Wert.
 
 ## Formale Syntax
 
@@ -73,43 +61,57 @@ filter: url("folder/fileName.svg#blur11"); /* external svg filter definition */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder: eines mit angewendeter `blur()`-Filterfunktion, eines mit der entsprechenden SVG-Unschärfefunktion und das Originalbild zum Vergleich:
+### Verwendung des SVG-Filters
 
-```css
-.filter {
-  filter: blur(3.5px);
-}
-```
+Dieses Beispiel zeigt drei Bilder zum Vergleich: ein Bild mit angewendeter `blur()`-Filterfunktion, ein Bild mit dem entsprechenden SVG-Filter und das Originalbild.
 
-```html
-<svg role="img" aria-label="Flag">
-  <filter id="blur">
-    <feGaussianBlur stdDeviation="3.5" edgeMode="duplicate" />
+#### SVG
+
+Mit dem SVG-Filterelement {{SVGElement("feGaussianBlur")}} lassen sich Inhalte ebenfalls weichzeichnen. Wir setzen `stdDeviation` auf den Unschärferadius. Anschließend können wir über die ID von {{SVGElement("filter")}} auf den SVG-Effekt verweisen:
+
+```html live-sample___svg-filter
+<svg height="0" role="none">
+  <filter id="blur35" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="3.5" />
   </filter>
-  <image
-    href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
-    xlink:href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
-    filter="url('#blur')" />
 </svg>
 ```
 
-```css hidden
-svg:not([height]) {
-  display: none;
+Die folgenden Deklarationen erzeugen denselben Effekt:
+
+```css
+filter: blur(3.5px);
+filter: url("#blur35"); /* with embedded SVG */
+filter: url("fileName.svg#blur35"); /* external SVG */
+```
+
+#### CSS
+
+Wir verwenden CSS, um Elemente anhand ihrer Klasse `css-filter` oder `svg-filter` weichzuzeichnen:
+
+```css live-sample___svg-filter
+.css-filter {
+  filter: blur(3.5px);
 }
 
+.svg-filter {
+  filter: url("#blur35");
+}
+```
+
+```css hidden live-sample___svg-filter
 th,
 td {
   padding: 5px;
 }
 ```
 
-```html hidden
+```html hidden live-sample___svg-filter
 <table>
   <thead>
     <tr>
-      <th>Live example</th>
-      <th>SVG Equivalent</th>
+      <th><code>blur()</code> filter</th>
+      <th>SVG filter equivalent</th>
       <th>Original image</th>
     </tr>
   </thead>
@@ -117,20 +119,15 @@ td {
     <tr>
       <td>
         <img
-          class="filter"
+          class="css-filter"
           src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
           alt="Pride flag" />
       </td>
       <td>
-        <svg id="svg" height="220" width="220" overflow="visible">
-          <filter id="svgBlur">
-            <feGaussianBlur stdDeviation="3.5" />
-          </filter>
-          <image
-            href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
-            xlink:href="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
-            filter="url('#svgBlur')" />
-        </svg>
+        <img
+          class="svg-filter"
+          src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
+          alt="Pride flag" />
       </td>
       <td>
         <img
@@ -142,7 +139,7 @@ td {
 </table>
 ```
 
-{{EmbedLiveSample('blur','100%','280')}}
+{{EmbedLiveSample('svg-filter','100%','280')}}
 
 ## Spezifikationen
 
@@ -155,7 +152,7 @@ td {
 ## Siehe auch
 
 - Modul [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
-- Zu den weiteren {{cssxref("filter-function")}}-Funktionen, die als Werte der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
+- Zu den weiteren {{cssxref("filter-function")}}-Funktionen, die als Werte für die Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

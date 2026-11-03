@@ -3,13 +3,13 @@ title: CSS-Funktion `saturate()`
 short-title: saturate()
 slug: Web/CSS/Reference/Values/filter-function/saturate
 l10n:
-  sourceCommit: cff28ac91efd68d0809779c81902bd080f614a1d
+  sourceCommit: 35b1d907e22f58fcd01fc5d3d22f1e73089c7f3d
 ---
 
-Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`saturate()`** erhöht oder verringert die Sättigung des Eingabebilds. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`saturate()`** erhöht oder verringert die Farbsättigung des Eingabebildes. Sie wird als Wert für die Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
 
 > [!NOTE]
-> `saturate()` ist als Matrixoperation auf RGB-Farben definiert. Die Farbe wird dabei nicht tatsächlich in das HSL-Modell umgewandelt; eine solche Umwandlung ist eine nichtlineare Operation. Daher bleiben Farbton und Helligkeit der ursprünglichen Farbe möglicherweise nicht erhalten.
+> `saturate()` ist als Matrixoperation auf RGB-Farben definiert. Die Farbe wird dabei nicht tatsächlich in das HSL-Modell umgewandelt, da dies eine nichtlineare Operation wäre. Daher bleiben Farbton und Helligkeit der ursprünglichen Farbe möglicherweise nicht erhalten.
 
 {{InteractiveExample("CSS Demo: saturate()")}}
 
@@ -42,13 +42,31 @@ filter: saturate(0);
 ## Syntax
 
 ```css
-saturate(amount)
+/* Completely unsaturated */
+saturate(0)
+
+/* No change */
+saturate()
+saturate(1)
+saturate(100%)
+
+/* 60% saturation */
+saturate(.6)
+saturate(60%)
+
+/* Double saturation */
+saturate(2)
+saturate(200%)
 ```
 
 ### Parameter
 
-- `amount` {{Optional_Inline}}
-  - : Das Ausmaß der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert die Sättigung des Bilds, während ein Wert über `100%` sie erhöht. Bei `0%` ist das Bild vollständig entsättigt; bei `100%` bleibt das Eingabebild unverändert. Negative Werte sind nicht zulässig. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
+- {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} {{Optional_Inline}}
+  - : Gibt das Ausmaß der Umwandlung an. Ein Wert unter `100%` verringert die Sättigung des Bildes, während ein Wert über `100%` sie erhöht. Bei `0%` ist das Bild vollständig entsättigt; bei `100%` bleibt die Eingabe unverändert. Negative Werte sind nicht zulässig. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
+
+### Rückgabewert
+
+Ein {{cssxref("filter-function")}}-Wert.
 
 ## Formale Syntax
 
@@ -56,19 +74,9 @@ saturate(amount)
 
 ## Beispiele
 
-### Beispiele für gültige Werte von saturate()
-
-```css
-saturate(0)     /* Completely unsaturated */
-saturate(.4)    /* 40% saturated */
-saturate()      /* No effect */
-saturate(100%)  /* No effect */
-saturate(200%)  /* Double saturation */
-```
-
 ### saturate() erhält Farbton und Helligkeit nicht
 
-Das folgende Diagramm vergleicht zwei Farbverläufe mit `hsl(0 50% 50%)` als Mittelpunkt: Der erste wird mit `saturate()` erzeugt, der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie sich Farbton und Helligkeit des mit `saturate()` erzeugten Verlaufs zu beiden Enden hin unterscheiden.
+Das folgende Diagramm vergleicht zwei Farbverläufe mit `hsl(0 50% 50%)` als Mittelpunkt: Der erste wird mit `saturate()` erzeugt, der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie sich beim `saturate()`-Farbverlauf Farbton und Helligkeit zu beiden Enden hin verändern.
 
 ```html
 <div>
@@ -113,6 +121,87 @@ for (let i = 0; i <= 200; i++) {
 
 {{EmbedLiveSample('saturate_does_not_preserve_hue_or_lightness','100%','350')}}
 
+### SVG-Filter verwenden
+
+Dieses Beispiel zeigt drei Bilder zum Vergleich: ein Bild mit angewendeter `saturate()`-Filterfunktion, ein Bild mit dem entsprechenden SVG-Filter und das Originalbild.
+
+#### SVG
+
+Das SVG-Filterelement {{SVGElement("feColorMatrix")}} kann ebenfalls verwendet werden, um die Sättigung von Inhalten anzupassen. Wir setzen `type` auf `saturate` und `values` auf den gewünschten Sättigungswert. Anschließend können wir den SVG-Effekt über die ID des {{SVGElement("filter")}} referenzieren:
+
+```html live-sample___svg-filter
+<svg height="0" role="none">
+  <filter id="saturate20" color-interpolation-filters="sRGB">
+    <feColorMatrix type="saturate" values="0.2" />
+  </filter>
+</svg>
+```
+
+Die folgenden Deklarationen erzeugen denselben Effekt:
+
+```css
+filter: saturate(0.2);
+filter: saturate(20%);
+filter: url("#saturate20"); /* with embedded SVG */
+filter: url("fileName.svg#saturate20"); /* external SVG */
+```
+
+#### CSS
+
+Wir verwenden CSS, um die Sättigung von Elementen abhängig von ihrer Klasse `css-filter` oder `svg-filter` anzupassen:
+
+```css live-sample___svg-filter
+.css-filter {
+  filter: saturate(0.2);
+}
+
+.svg-filter {
+  filter: url("#saturate20");
+}
+```
+
+```css hidden live-sample___svg-filter
+th,
+td {
+  padding: 5px;
+}
+```
+
+```html hidden live-sample___svg-filter
+<table>
+  <thead>
+    <tr>
+      <th><code>saturate()</code> filter</th>
+      <th>SVG filter equivalent</th>
+      <th>Original image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          class="css-filter"
+          src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
+          alt="Pride flag" />
+      </td>
+      <td>
+        <img
+          class="svg-filter"
+          src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
+          alt="Pride flag" />
+      </td>
+      <td>
+        <img
+          src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
+          alt="Pride flag" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+{{EmbedLiveSample('svg-filter','100%','280')}}
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -123,14 +212,14 @@ for (let i = 0; i <= 200; i++) {
 
 ## Siehe auch
 
-Zu den weiteren {{cssxref("filter-function")}}-Funktionen, die in Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
-
-- {{cssxref("filter-function/blur", "blur()")}}
-- {{cssxref("filter-function/brightness", "brightness()")}}
-- {{cssxref("filter-function/contrast", "contrast()")}}
-- {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-- {{cssxref("filter-function/grayscale", "grayscale()")}}
-- {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-- {{cssxref("filter-function/invert", "invert()")}}
-- {{cssxref("filter-function/opacity", "opacity()")}}
-- {{cssxref("filter-function/sepia", "sepia()")}}
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
+- Zu den anderen {{cssxref("filter-function")}}-Funktionen, die als Werte für die Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, gehören:
+  - {{cssxref("filter-function/blur", "blur()")}}
+  - {{cssxref("filter-function/brightness", "brightness()")}}
+  - {{cssxref("filter-function/contrast", "contrast()")}}
+  - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
+  - {{cssxref("filter-function/grayscale", "grayscale()")}}
+  - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
+  - {{cssxref("filter-function/invert", "invert()")}}
+  - {{cssxref("filter-function/opacity", "opacity()")}}
+  - {{cssxref("filter-function/sepia", "sepia()")}}
