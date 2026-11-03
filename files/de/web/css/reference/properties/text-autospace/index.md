@@ -3,12 +3,12 @@ title: "`text-autospace` CSS property"
 short-title: text-autospace
 slug: Web/CSS/Reference/Properties/text-autospace
 l10n:
-  sourceCommit: c91282d3f1f546ba4bc98a107ef97ce298846a91
+  sourceCommit: 05b21c9303964f221febe77f053e5636f230afe9
 ---
 
-Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-autospace`** können Sie festlegen, welcher Abstand zwischen chinesischen, japanischen und koreanischen (CJK) Zeichen und Nicht-CJK-Zeichen eingefügt wird.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-autospace`** können Sie den Abstand zwischen chinesischen, japanischen oder koreanischen (CJK) und anderen Zeichen festlegen.
 
-Viele typografische Konventionen für CJK-Texte erfordern einen kleinen Abstand zwischen CJK-Zeichen und westlichen Buchstaben oder Ziffern (siehe die Beschreibungen des W3C zu den Konventionen für das Textlayout im [Chinesischen](https://www.w3.org/International/clreq/#mixed_text_composition_in_horizontal_writing_mode) und [Japanischen](https://www.w3.org/TR/jlreq/#composition_of_japanese_and_western_mixed_texts)). Manche Autoren fügen dafür manuell ein Leerzeichen ein. `text-autospace` erzeugt diesen Abstand hingegen auf Ebene der Layout-Engine, ohne zusätzliche Zeichen im Textinhalt zu benötigen.
+Viele typografische Konventionen für CJK-Schriften erfordern einen kleinen Abstand zwischen CJK-Zeichen und westlichen Buchstaben oder Zahlen (siehe die Beschreibungen des W3C zu den Konventionen für den Textsatz im [Chinesischen](https://www.w3.org/International/clreq/#mixed_text_composition_in_horizontal_writing_mode) und [Japanischen](https://www.w3.org/International/jlreq/#japanese_and_western_mixed_text_composition)). Manche Autoren fügen dafür manuell ein Leerzeichen ein. `text-autospace` fügt diesen Abstand dagegen auf Ebene der Layout-Engine hinzu, ohne zusätzliche Zeichen im Textinhalt zu benötigen.
 
 {{InteractiveExample("CSS Demo: text-autospace")}}
 
@@ -77,23 +77,23 @@ text-autospace: unset;
 ### Werte
 
 - `normal`
-  - : Legt das Standardverhalten fest, bei dem automatisch Abstände zwischen CJK- und Nicht-CJK-Zeichen sowie um Satzzeichen eingefügt werden. Dieser Wert hat dieselbe Wirkung wie die gemeinsame Angabe von [`ideograph-alpha`](#ideograph-alpha) und [`ideograph-numeric`](#ideograph-numeric).
+  - : Bewirkt das Standardverhalten, bei dem Abstände zwischen CJK- und Nicht-CJK-Zeichen sowie um Satzzeichen automatisch eingefügt werden. Dieser Wert hat dieselbe Wirkung wie die gemeinsame Verwendung von [`ideograph-alpha`](#ideograph-alpha) und [`ideograph-numeric`](#ideograph-numeric).
 - `<autospace>`
-  - : Ermöglicht eine genauere Steuerung der Abstände. Akzeptiert das Schlüsselwort `no-autospace` oder eine Kombination aus einem oder mehreren der Werte `ideograph-alpha`, `ideograph-numeric` und `punctuation`, optional gefolgt von `insert` oder `replace`.
+  - : Ermöglicht eine genauere Steuerung des Abstandsverhaltens. Akzeptiert das Schlüsselwort `no-autospace` oder eine Kombination aus einem oder mehreren der Werte `ideograph-alpha`, `ideograph-numeric` und `punctuation`, optional gefolgt von `insert` oder `replace`.
     - `no-autospace`
       - : Deaktiviert automatische Abstände zwischen CJK- und Nicht-CJK-Zeichen.
     - `ideograph-alpha`
-      - : Fügt Abstände nur zwischen ideografischen Zeichen (wie Katakana und Han) und nicht ideografischen Buchstaben (wie lateinischen Buchstaben) ein. Zwischen ideografischen Zeichen und nicht ideografischen Ziffern werden keine Abstände eingefügt.
+      - : Fügt nur zwischen ideografischen Zeichen (etwa Katakana und Han) und nicht ideografischen Buchstaben (etwa lateinischen Buchstaben) einen Abstand hinzu. Zwischen ideografischen Zeichen und nicht ideografischen Zahlen wird kein Abstand hinzugefügt.
     - `ideograph-numeric`
-      - : Fügt Abstände nur zwischen ideografischen Zeichen (wie Katakana und Han) und nicht ideografischen Ziffern (wie lateinischen Ziffern) ein. Zwischen ideografischen Zeichen und nicht ideografischen Buchstaben werden keine Abstände eingefügt.
+      - : Fügt nur zwischen ideografischen Zeichen (etwa Katakana und Han) und nicht ideografischen Zahlen (etwa lateinischen Ziffern) einen Abstand hinzu. Zwischen ideografischen Zeichen und nicht ideografischen Buchstaben wird kein Abstand hinzugefügt.
     - `punctuation`
-      - : Fügt um Satzzeichen geschützte Abstände ein, sofern sprachspezifische typografische Konventionen dies erfordern.
+      - : Fügt um Satzzeichen einen geschützten Abstand hinzu, soweit dies sprachspezifische typografische Konventionen erfordern.
     - `insert`
-      - : Fügt den angegebenen Abstand nur dann ein, wenn zwischen den ideografischen und nicht ideografischen Schriftsystemen noch keine Leerzeichen vorhanden sind.
+      - : Fügt den festgelegten Abstand nur hinzu, wenn zwischen ideografischen und nicht ideografischen Schriften noch kein Abstand vorhanden ist.
     - `replace`
-      - : Ersetzt vorhandene Leerzeichen (wie {{Glossary("Whitespace", "U+0020")}}) zwischen ideografischen und nicht ideografischen Zeichen durch den angegebenen Abstand.
+      - : Ersetzt vorhandene Abstände (etwa {{Glossary("Whitespace", "U+0020")}}) zwischen ideografischen und nicht ideografischen Zeichen durch den festgelegten Abstand.
 - `auto`
-  - : Überlässt dem Browser die Wahl eines typografisch geeigneten Abstands. Der Abstand kann je nach Browser und Plattform variieren.
+  - : Überlässt dem Browser die Wahl eines typografisch geeigneten Abstands. Der Abstand kann je nach Browser und Plattform unterschiedlich sein.
 
 > [!NOTE]
 > Wenn weder `insert` noch `replace` angegeben ist, entspricht das Verhalten dem von `insert`.
@@ -122,5 +122,5 @@ text-autospace: unset;
 - {{cssxref('text-spacing-trim')}}
 - Die Einheiten [`ic`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) und [`ric`](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#root_font-relative_lengths)
 - Das Modul [CSS Text](/de/docs/Web/CSS/Guides/Text)
-- [Zusammensetzung gemischter Texte im horizontalen Schreibmodus](https://www.w3.org/International/clreq/#mixed_text_composition_in_horizontal_writing_mode) in „Requirements for Chinese Text Layout“ auf w3.org
-- [Zusammensetzung gemischter japanischer und westlicher Texte](https://www.w3.org/International/jlreq/#japanese_and_western_mixed_text_composition) in „Requirements for Japanese Text Layout“ auf w3.org
+- [Gemischter Textsatz im horizontalen Schreibmodus](https://www.w3.org/International/clreq/#mixed_text_composition_in_horizontal_writing_mode) in „Requirements for Chinese Text Layout“ auf w3.org
+- [Gemischter japanischer und westlicher Textsatz](https://www.w3.org/International/jlreq/#japanese_and_western_mixed_text_composition) in „Requirements for Japanese Text Layout“ auf w3.org

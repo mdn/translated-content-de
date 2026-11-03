@@ -1,14 +1,14 @@
 ---
-title: "FontFace: FontFace() Konstruktor"
+title: "FontFace: Konstruktor FontFace()"
 short-title: FontFace()
 slug: Web/API/FontFace/FontFace
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 106f215d6fb32a7ee0afe09f01a82323d39cd1f0
 ---
 
 {{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Der **`FontFace()`** Konstruktor erstellt ein neues [`FontFace`](/de/docs/Web/API/FontFace)-Objekt.
+Der **`FontFace()`**-Konstruktor erstellt ein neues [`FontFace`](/de/docs/Web/API/FontFace)-Objekt.
 
 ## Syntax
 
@@ -20,20 +20,20 @@ new FontFace(family, source, descriptors)
 ### Parameter
 
 - `family`
-  - : Gibt einen Schriftfamiliennamen an, der verwendet werden kann, um diese Schriftart beim Stylen von Elementen abzugleichen.
+  - : Gibt den Namen einer Schriftfamilie an, der beim Gestalten von Elementen für den Abgleich mit dieser Schrift verwendet werden kann.
 
-    Nimmt die gleichen Werttypen an wie der {{cssxref("@font-face/font-family", "font-family")}}-Deskriptor von {{cssxref("@font-face")}}.
-    Dieser Wert kann auch über die [`FontFace.family`](/de/docs/Web/API/FontFace/family)-Eigenschaft gelesen und gesetzt werden.
+    Akzeptiert dieselben Werte wie der {{cssxref("@font-face/font-family", "font-family")}}-Deskriptor von {{cssxref("@font-face")}}.
+    Dieser Wert kann auch über die Eigenschaft [`FontFace.family`](/de/docs/Web/API/FontFace/family) gelesen und festgelegt werden.
 
 - `source`
   - : Die Schriftquelle.
-    Dies kann entweder sein:
+    Dies kann Folgendes sein:
     - Eine URL zu einer Schriftdatei.
-    - Binäre Schriftartdaten in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) oder einem [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray).
+    - Binäre Schriftdaten in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) oder einem [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray).
 
 - `descriptors` {{optional_inline}}
-  - : Ein Satz optionaler Deskriptoren, die als Objekt übergeben werden.
-    Es kann jeden der Deskriptoren enthalten, die für `@font-face` verfügbar sind:
+  - : Eine Reihe optionaler Deskriptoren, die als Objekt übergeben werden.
+    Das Objekt kann jeden der für `@font-face` verfügbaren Deskriptoren enthalten:
     - `ascentOverride`
       - : Mit einem zulässigen Wert für {{cssxref("@font-face/ascent-override")}}.
     - `descentOverride`
@@ -44,6 +44,8 @@ new FontFace(family, source, descriptors)
       - : Mit einem zulässigen Wert für {{cssxref("font-feature-settings")}}.
     - `lineGapOverride`
       - : Mit einem zulässigen Wert für {{cssxref("@font-face/line-gap-override")}}.
+    - `sizeAdjust`
+      - : Mit einem zulässigen Wert für {{cssxref("@font-face/size-adjust")}}.
     - `stretch`
       - : Mit einem zulässigen Wert für {{cssxref("@font-face/font-stretch")}}.
     - `style`
@@ -58,8 +60,8 @@ new FontFace(family, source, descriptors)
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine Deskriptorzeichenfolge nicht der Grammatik des entsprechenden {{cssxref("@font-face")}}-Deskriptors entspricht oder die angegebene Binärquelle nicht geladen werden kann.
-    Dieser Fehler führt dazu, dass [`FontFace.status`](/de/docs/Web/API/FontFace/status) auf `error` gesetzt wird.
+  - : Wird ausgelöst, wenn eine Deskriptor-Zeichenfolge nicht der Syntax des entsprechenden {{cssxref("@font-face")}}-Deskriptors entspricht oder die angegebene binäre Quelle nicht geladen werden kann.
+    Bei diesem Fehler wird [`FontFace.status`](/de/docs/Web/API/FontFace/status) auf `error` gesetzt.
 
 ## Beispiele
 
