@@ -3,31 +3,31 @@ title: Symbol.asyncDispose
 short-title: asyncDispose
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose
 l10n:
-  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
+  sourceCommit: 46bc51a679f027efc49508a449f7539ee1adca22
 ---
 
-Die statische Dateneigenschaft **`Symbol.asyncDispose`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncDispose`. Die Deklaration {{jsxref("Statements/await_using", "await using")}} sucht im Initialisierungswert der Variablen nach diesem Symbol, um die Methode zu bestimmen, die aufgerufen wird, wenn die Variable ihren Gültigkeitsbereich verlässt.
+Die statische Dateneigenschaft **`Symbol.asyncDispose`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncDispose`. Die Deklaration {{jsxref("Statements/await_using", "await using")}} sucht dieses Symbol im Initialisierungswert der Variablen, um die Methode zu ermitteln, die aufgerufen wird, wenn die Variable ihren Gültigkeitsbereich verlässt.
 
 ## Wert
 
-Das bekannte Symbol `Symbol.asyncDispose`.
+Das wohlbekannte Symbol `Symbol.asyncDispose`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Ein Objekt kann asynchron freigegeben werden, wenn es über die Methode `[Symbol.asyncDispose]()` verfügt. Für diese Methode wird folgendes Verhalten erwartet:
+Ein Objekt kann asynchron freigegeben werden, wenn es über die Methode `[Symbol.asyncDispose]()` verfügt. Von dieser Methode wird folgendes Verhalten erwartet:
 
-- Ein Aufruf dieser Methode teilt dem AsyncDisposable-Objekt mit, dass der Aufrufer das Objekt nicht weiter verwenden möchte. Die Methode sollte alle erforderlichen Schritte ausführen, um die Ressource ausdrücklich freizugeben. Dazu gehören beispielsweise Dateisystem-Handles, Streams und Host-Objekte.
+- Ein Aufruf dieser Methode teilt dem AsyncDisposable-Objekt mit, dass der Aufrufer das Objekt nicht weiter verwenden möchte. Die Methode sollte alle erforderlichen Schritte ausführen, um die Ressource explizit freizugeben. Dazu gehören unter anderem Dateisystem-Handles, Streams und Host-Objekte.
 - Die Methode kann ein Promise zurückgeben, dessen Erfüllung abgewartet wird, bevor die Ausführung fortgesetzt wird.
-- Wenn diese Methode eine Ausnahme auslöst, bedeutet dies in der Regel, dass die Ressource nicht ausdrücklich freigegeben werden konnte. Ein AsyncDisposable-Objekt gilt erst dann als „freigegeben“, wenn das zurückgegebene Promise erfüllt wurde.
-- Bei mehrmaligem Aufruf für dasselbe Objekt sollte die Funktion keine Ausnahme auslösen. Diese Anforderung wird jedoch nicht erzwungen.
+- Wenn diese Methode eine Ausnahme auslöst, bedeutet das in der Regel, dass die Ressource nicht explizit freigegeben werden konnte. Ein AsyncDisposable-Objekt gilt erst dann als „freigegeben“, wenn das resultierende Promise erfüllt wurde.
+- Wird die Methode für dasselbe Objekt mehr als einmal aufgerufen, sollte sie keine Ausnahme auslösen. Diese Anforderung wird jedoch nicht erzwungen.
 
 ## Beispiele
 
 ### Benutzerdefinierte asynchron freigebbare Objekte
 
-`[Symbol.asyncDispose]` ermöglicht es, benutzerdefinierte asynchron freigebbare Objekte zu erstellen. Weitere Informationen finden Sie in der Referenz zu `await using`.
+`[Symbol.asyncDispose]` ermöglicht die Erstellung benutzerdefinierter asynchron freigebbarer Objekte. Weitere Informationen finden Sie in der Referenz zu `await using`.
 
 ```js
 class Disposable {
@@ -41,11 +41,11 @@ class Disposable {
 
   async [Symbol.asyncDispose]() {
     await this.#fileHandle.close();
-    this.disposed = true;
+    this.#disposed = true;
   }
 
   get isDisposed() {
-    return this.disposed;
+    return this.#disposed;
   }
 }
 

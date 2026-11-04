@@ -3,12 +3,12 @@ title: "`column-rule-inset-junction` CSS property"
 short-title: column-rule-inset-junction
 slug: Web/CSS/Reference/Properties/column-rule-inset-junction
 l10n:
-  sourceCommit: 1a2a5b56a689b441ebf3be91b90f15746c5a5a01
+  sourceCommit: 068c46001316cf268128ab7a26b33fd5705cde1b
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`column-rule-inset-junction`** kann verwendet werden, um sowohl den oberen als auch den unteren Endpunkt von Spaltenliniensegmenten zu versetzen, wenn diese [Endpunkte an Kreuzungen](/de/docs/Web/CSS/Reference/Properties/column-rule-inset-junction-end#understanding_junction_endpoints) sind – also Endpunkte an Kreuzungen von Zwischenräumen, an denen sich Liniensegmente schneiden.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`column-rule-inset-junction`** kann verwendet werden, um sowohl den oberen als auch den unteren Endpunkt von Spaltenliniensegmenten zu versetzen, die [Kreuzungsendpunkte](/de/docs/Web/CSS/Reference/Properties/column-rule-inset-junction-end#understanding_junction_endpoints) sind. Das sind Endpunkte an Kreuzungen von Abständen, an denen sich Liniensegmente schneiden.
 
 {{InteractiveExample("CSS Demo: column-rule-inset-junction")}}
 
@@ -66,11 +66,12 @@ column-rule-inset-junction: overlap-join 10px;
 }
 #example-element i {
   background-color: #efefef;
+  color: #333333;
   padding: 1em;
 }
 ```
 
-## Enthaltene Eigenschaften
+## Bestandteile
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -107,23 +108,23 @@ column-rule-inset-junction: unset;
 Für diese Eigenschaft werden ein oder zwei Werte aus der folgenden Liste angegeben:
 
 - `overlap-join`
-  - : Gibt an, dass sich das Segment an der Kreuzung über die Zeilenlinie erstrecken soll. Dies entspricht der Hälfte des Werts von {{cssxref("row-gap")}} plus der Hälfte des verwendeten Werts von {{cssxref("row-rule-width")}}.
+  - : Gibt an, dass sich das Kreuzungssegment über die Zeilenlinie erstrecken soll. Der Wert entspricht der Hälfte des Werts von {{cssxref("row-gap")}} plus der Hälfte des verwendeten Werts von {{cssxref("row-rule-width")}}.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Endpunkt an der Kreuzung, der dem Wert von `row-gap` entspricht.
+  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Kreuzungsendpunkt, der dem Wert von `row-gap` entspricht.
 
 ## Beschreibung
 
-Mit der Kurzschreibweise `column-rule-inset-junction` können die Eigenschaften {{cssxref("column-rule-inset-junction-start")}} und {{cssxref("column-rule-inset-junction-end")}} festgelegt werden. Dadurch werden sowohl der obere als auch der untere Endpunkt von Spaltenliniensegmenten an Kreuzungen nach innen oder außen versetzt.
+Mit der Kurzschreibweise `column-rule-inset-junction` lassen sich die Eigenschaften {{cssxref("column-rule-inset-junction-start")}} und {{cssxref("column-rule-inset-junction-end")}} festlegen. Dadurch können sowohl der obere als auch der untere Endpunkt von Spaltenliniensegmenten an Kreuzungen nach innen oder außen versetzt werden.
 
 Wird ein Wert angegeben, erhalten beide Eigenschaften diesen Wert. Werden zwei Werte angegeben, erhält `-start` den ersten und `-end` den zweiten Wert. Positive Werte verkürzen das Segment, indem sie seine Endpunkte nach innen versetzen. Negative Werte und das [Schlüsselwort `overlap-join`](/de/docs/Web/CSS/Reference/Properties/column-rule-inset-junction-end#the_overlap-join_value) verlängern es, indem sie die Endpunkte nach außen versetzen. Der Standardwert ist `0`.
 
 Die Eigenschaft `column-rule-inset-junction` ist Bestandteil mehrerer [Kurzschreibweisen](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
 
-- Um die Endpunkte von Spalten- und Zeilenliniensegmenten an Kreuzungen nach innen zu versetzen, können die Kurzschreibweisen `column-rule-inset-junction` und {{cssxref("row-rule-inset-junction")}} über die Kurzschreibweise {{cssxref("rule-inset-junction")}} festgelegt werden.
+- Um die Kreuzungsendpunkte von Spalten- und Zeilensegmenten nach innen zu versetzen, können die Kurzschreibweisen `column-rule-inset-junction` und {{cssxref("row-rule-inset-junction")}} über die Kurzschreibweise {{cssxref("rule-inset-junction")}} festgelegt werden.
 
-- Um die Endpunkte von Spaltenliniensegmenten sowohl an äußeren Abschlüssen als auch an Kreuzungen nach innen zu versetzen, können die Kurzschreibweisen `column-rule-inset-junction` und {{cssxref("column-rule-inset-cap")}} über die Kurzschreibweise {{cssxref("column-rule-inset")}} festgelegt werden.
+- Um sowohl die äußeren Endpunkte als auch die Kreuzungsendpunkte von Spaltensegmenten nach innen zu versetzen, können die Kurzschreibweisen `column-rule-inset-junction` und {{cssxref("column-rule-inset-cap")}} über die Kurzschreibweise {{cssxref("column-rule-inset")}} festgelegt werden.
 
-Alle Segmentendpunkte, einschließlich der `-cap`- und `-row`-Entsprechungen dieser Eigenschaft, können über die Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
+Alle Segmentendpunkte, einschließlich der entsprechenden `-cap`- und `-row`-Endpunkte, können mit der Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
 
 ## Formale Definition
 
@@ -137,7 +138,7 @@ Alle Segmentendpunkte, einschließlich der `-cap`- und `-row`-Entsprechungen die
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Sie mit `column-rule-inset-junction` die Endpunkte von Segmenten an Kreuzungen in Flex-Containern nach innen versetzen.
+Dieses Beispiel zeigt, wie `column-rule-inset-junction` verwendet wird, um die Endpunkte von Spaltensegmenten an Kreuzungen in Flex-Containern nach innen zu versetzen.
 
 #### HTML
 
@@ -185,7 +186,7 @@ Das Markup enthält zwei {{htmlelement("div")}}-Elemente mit jeweils sieben Kind
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine hellblaue {{cssxref("rule")}}, die sowohl die Zeilen- als auch die Spaltenzwischenräume gestaltet. Anschließend überschreiben wir {{cssxref("column-rule-color")}}, um die Linien in den Spaltenzwischenräumen auf ein dunkleres `blue` zu setzen. Außerdem setzen wir die Eigenschaft {{cssxref("rule-overlap")}} auf `column-over-row`, damit die Spaltensegmente bei Überlappungen über den Zeilensegmenten gezeichnet werden. Abschließend setzen wir `column-rule-inset-junction` auf `16px`.
+Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren mit {{cssxref("rule")}} eine hellblaue Linie für die Zeilen- und Spaltenabstände und überschreiben anschließend {{cssxref("column-rule-color")}}, um die Linien in den Spaltenabständen auf ein dunkleres `blue` zu setzen. Außerdem setzen wir die Eigenschaft {{cssxref("rule-overlap")}} auf `column-over-row`, damit Spaltensegmente über Zeilensegmenten gezeichnet werden, wenn sie sich überlappen. Schließlich setzen wir `column-rule-inset-junction` auf `16px`.
 
 ```css
 .flexbox {
@@ -201,7 +202,7 @@ Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu
 }
 ```
 
-Für den Container `.column` setzen wir außerdem {{cssxref("flex-direction")}} auf `column`. Dadurch verläuft die Hauptachse des Flex-Containers von oben nach unten, und die Elemente werden in Spalten statt in Zeilen angeordnet.
+Für den Container `.column` setzen wir außerdem {{cssxref("flex-direction")}} auf `column`. Dadurch verläuft die Hauptachse des Flex-Containers vertikal über die Seite, und die Elemente werden in Spalten statt in Zeilen angeordnet.
 
 ```css
 .column {
@@ -209,7 +210,7 @@ Für den Container `.column` setzen wir außerdem {{cssxref("flex-direction")}} 
 }
 ```
 
-Das übrige CSS ist der Kürze halber ausgeblendet.
+Der übrige CSS-Code ist der Kürze halber ausgeblendet.
 
 ```css hidden
 h1,
@@ -275,15 +276,15 @@ inset.addEventListener("input", () => {
 
 {{EmbedLiveSample("Basic usage", "", "330")}}
 
-Ändern Sie die Größe des Einzugs. Beachten Sie, dass im rechten Beispiel die Spaltenlinie aus einem einzigen Segment besteht, das von oben nach unten verläuft. Dieses Segment hat zwei äußere Endpunkte und keine Endpunkte an Kreuzungen. Daher wirkt sich eine Änderung des Werts von `column-rule-inset-junction` nicht auf dieses Beispiel aus.
+Ändern Sie die Größe des Einzugs. Beachten Sie, dass diese Eigenschaft nur Spaltenlinien betrifft, die in mehrere Segmente aufgeteilt sind. Besteht eine Spaltenlinie aus einem einzigen Segment, das sich über die Höhe des Containers erstreckt, hat dieses Segment zwei äußere Endpunkte und keine Kreuzungsendpunkte. Änderungen am Wert von `column-rule-inset-junction` wirken sich dann nicht darauf aus.
 
 ### Mit Grid-Layout
 
-Dieses Beispiel zeigt, wie Sie mit der Eigenschaft `column-rule-inset-junction` den oberen und den unteren Endpunkt von Spaltenliniensegmenten an Kreuzungen in einem Grid-Container um unterschiedliche Werte nach innen versetzen.
+Dieses Beispiel zeigt, wie Sie mit der Eigenschaft `column-rule-inset-junction` den oberen und den unteren Endpunkt von Kreuzungssegmenten in einem Grid-Container um unterschiedliche Werte nach innen versetzen.
 
 #### HTML
 
-Wir verwenden das Element {{htmlelement("ul")}} als Container mit mehreren {{htmlelement("li")}}-Kindelementen, die jeweils zu einem Grid-Element werden.
+Wir verwenden ein {{htmlelement("ul")}}-Element als Container mit mehreren {{htmlelement("li")}}-Kindelementen, die jeweils zu einem Grid-Element werden.
 
 ```html live-sample___junctions
 <ul id="ul">
@@ -324,11 +325,11 @@ Wir verwenden das Element {{htmlelement("ul")}} als Container mit mehreren {{htm
 
 #### CSS
 
-Wir machen das `<ul>`-Element zu einem Grid-Container, indem wir die Eigenschaft {{cssxref("display")}} auf `grid` setzen. Die Eigenschaft {{cssxref("grid-template-columns")}} legt fest, dass das Grid sechs Spalten hat. Mit {{cssxref("list-style-type")}} entfernen wir die Aufzählungszeichen und setzen mit der Kurzschreibweise {{cssxref("gap")}} die Zeilen- und Spaltenabstände auf `20px`. Farbe, Breite und Linienstil aller Linien legen wir mit der Kurzschreibweise {{cssxref("rule")}} fest. Anschließend ändern wir mit der Eigenschaft {{cssxref("row-rule-color")}} nur die Farbe der Zeilenlinien.
+Wir machen das `<ul>` zu einem Grid-Container, indem wir die Eigenschaft {{cssxref("display")}} auf `grid` setzen. Die Eigenschaft {{cssxref("grid-template-columns")}} legt fest, dass das Grid sechs Spalten hat. Mit {{cssxref("list-style-type")}} entfernen wir die Aufzählungszeichen und setzen die Zeilen- und Spaltenabstände mit der Kurzschreibweise {{cssxref("gap")}} auf `20px`. Farbe, Breite und Linienstil aller Linien legen wir mit der Kurzschreibweise {{cssxref("rule")}} fest. Anschließend ändern wir mit der Eigenschaft {{cssxref("row-rule-color")}} nur die Farbe der Zeilenlinien.
 
-Mit der Eigenschaft {{cssxref("column-rule-break")}} unterbrechen wir die Spaltenlinien an jeder Kreuzung. Ohne diese Unterbrechungen gäbe es keine Spaltenliniensegmente an Kreuzungen, die gestaltet werden könnten!
+Mit der Eigenschaft {{cssxref("column-rule-break")}} unterbrechen wir die Spaltenlinien an jeder Kreuzung. Würden die Spaltenlinien nicht unterbrochen, gäbe es keine Spaltensegmente an Kreuzungen, die gestaltet werden könnten!
 
-Abschließend setzen wir mit der Eigenschaft `column-rule-inset-junction` den Einzug am Anfang jeder Spaltenlinienkreuzung auf `16px` und legen fest, dass es am Ende keinen Einzug gibt.
+Schließlich setzen wir mit der Eigenschaft `column-rule-inset-junction` den Einzug am Anfang jedes Spaltensegments an einer Kreuzung auf `16px`, während das Ende nicht nach innen versetzt wird.
 
 Außerdem legen wir fest, dass sich das sechste Grid-Element über drei Spalten erstreckt.
 
@@ -350,7 +351,7 @@ li:nth-of-type(8) {
 }
 ```
 
-Das übrige CSS ist der Kürze halber ausgeblendet.
+Der übrige CSS-Code ist der Kürze halber ausgeblendet.
 
 ```css hidden live-sample___junctions
 ul {
