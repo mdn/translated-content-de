@@ -2,34 +2,33 @@
 title: GPURenderBundle
 slug: Web/API/GPURenderBundle
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: da1da9061042da9f616b8621cada4f452545700a
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPURenderBundle`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert einen Container für voraufgezeichnete Bündel von Befehlen.
+Das **`GPURenderBundle`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) stellt einen Container für vorab aufgezeichnete Befehlsbündel dar.
 
-Die Befehlsbündel werden mit einem [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) kodiert; sobald die gewünschten Befehle kodiert wurden, werden sie in eine `GPURenderBundle`-Objektinstanz mit der Methode [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) aufgezeichnet.
+Die Befehlsbündel werden mit einem [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) kodiert. Sobald die gewünschten Befehle kodiert sind, werden sie mit der Methode [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) in einer `GPURenderBundle`-Objektinstanz aufgezeichnet.
 
-Diese Befehlsbündel können dann in mehreren Render-Passes wiederverwendet werden, indem die `GPURenderBundle`-Objekte in Aufrufe von [`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) übergeben werden. Die Wiederverwendung von voraufgezeichneten Befehlen kann die App-Leistung erheblich verbessern, insbesondere in Situationen, in denen die JavaScript-Zeichenaufrufe einen Engpass darstellen. Render-Bundles sind am effektivsten in Situationen, in denen eine Reihe von Objekten auf die gleiche Weise über mehrere Ansichten oder Frames hinweg gezeichnet wird, wobei die einzigen Unterschiede die verwendeten Pufferinhalte sind (beispielsweise aktualisierte Matrix-Uniformen).
+Diese Befehlsbündel können anschließend in mehreren Render-Durchläufen wiederverwendet werden, indem die `GPURenderBundle`-Objekte an Aufrufe von [`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) übergeben werden. Die Wiederverwendung vorab aufgezeichneter Befehle kann die Leistung einer Anwendung erheblich verbessern, wenn der Overhead von JavaScript-Zeichenaufrufen einen Engpass darstellt. Render-Bundles sind besonders effektiv, wenn eine Gruppe von Objekten über mehrere Ansichten oder Frames hinweg auf dieselbe Weise gezeichnet wird und sich nur der verwendete Buffer-Inhalt unterscheidet (etwa aktualisierte Matrix-Uniforms).
 
-Ein gutes Beispiel ist das VR-Rendering. Das Rendern als Render-Bundle aufzuzeichnen und dann die Ansichtsmatrix anzupassen und es für jedes Auge erneut abzuspielen, ist eine effizientere Methode, Zeichenaufrufe für beide Rendervorgänge der Szene auszuführen.
+Ein gutes Beispiel ist das VR-Rendering. Das Rendering als Render-Bundle aufzuzeichnen, anschließend die Ansichtsmatrix anzupassen und das Bundle für jedes Auge erneut auszuführen, ist eine effizientere Möglichkeit, die Zeichenaufrufe für beide Darstellungen der Szene auszuführen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`label`](/de/docs/Web/API/GPURenderBundle/label)
-  - : Ein Zeichenkettenwert, der ein Label bereitstellt, das verwendet werden kann, um das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen zu identifizieren.
+  - : Ein String mit einer Bezeichnung, anhand derer das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen identifiziert werden kann.
 
 ## Beispiele
 
-Im WebGPU-Beispiele [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/) werden viele ähnliche Operationen gleichzeitig auf vielen unterschiedlichen Objekten ausgeführt. Ein Render-Bundle wird mit der folgenden Funktion kodiert:
+Im [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/) der WebGPU Samples werden viele gleichartige Operationen gleichzeitig an zahlreichen verschiedenen Objekten ausgeführt. Ein Render-Bundle wird mit der folgenden Funktion kodiert:
 
 ```js
-function recordRenderPass(
-  passEncoder: GPURenderBundleEncoder | GPURenderPassEncoder
-) {
+// passEncoder is a GPURenderBundleEncoder or a GPURenderPassEncoder
+function recordRenderPass(passEncoder) {
   if (settings.dynamicOffsets) {
     passEncoder.setPipeline(dynamicPipeline);
   } else {
@@ -60,7 +59,7 @@ recordRenderPass(renderBundleEncoder);
 const renderBundle = renderBundleEncoder.finish();
 ```
 
-[`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) wird dann verwendet, um die Arbeit über mehrere Render-Passes hinweg wiederzuverwenden, um die Leistung zu verbessern. Untersuchen Sie die Beispiel-Codeauflistung für den vollständigen Kontext.
+Anschließend wird [`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) verwendet, um die Arbeit über mehrere Render-Durchläufe hinweg wiederzuverwenden und so die Leistung zu verbessern. Den vollständigen Zusammenhang können Sie dem Code des Beispiels entnehmen.
 
 ```js
 // …

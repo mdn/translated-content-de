@@ -2,25 +2,25 @@
 title: GPUTextureView
 slug: Web/API/GPUTextureView
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: da1da9061042da9f616b8621cada4f452545700a
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUTextureView`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) stellt eine Ansicht auf einen Teil der von einem bestimmten [`GPUTexture`](/de/docs/Web/API/GPUTexture) definierten Texturressourcen dar.
+Die **`GPUTextureView`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) stellt eine Ansicht auf eine Teilmenge der Texturressourcen dar, die durch eine bestimmte [`GPUTexture`](/de/docs/Web/API/GPUTexture) definiert sind.
 
-Eine Instanz des `GPUTextureView`-Objekts wird mit der Methode [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) erstellt.
+Eine `GPUTextureView`-Objektinstanz wird mit der Methode [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) erstellt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`label`](/de/docs/Web/API/GPUTextureView/label)
-  - : Ein String, der eine Bezeichnung zur Verfügung stellt, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Eine Zeichenfolge mit einer Bezeichnung, anhand derer das Objekt identifiziert werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
-Im WebGPU Samples [Cubemap-Demo](https://webgpu.github.io/webgpu-samples/samples/cubemap/) sehen Sie mehrere Beispiele dafür, wie `GPUTextureView`s (erstellt durch Aufrufe von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView)) verwendet werden, sowohl als `resource` in einem Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup), als auch als bereitgestellte `view` im `depthStencilAttachment`-Objekt eines Deskriptors von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass).
+In der [Cubemap-Demo](https://webgpu.github.io/webgpu-samples/samples/cubemap/) der WebGPU Samples finden Sie mehrere Beispiele für die Verwendung von `GPUTextureView`-Objekten (erstellt durch Aufrufe von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView)): sowohl als `resource` in einem Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) als auch als `view` im `depthStencilAttachment`-Objekt eines Deskriptors für [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass).
 
 ```js
 const uniformBindGroup = device.createBindGroup({
@@ -47,7 +47,7 @@ const uniformBindGroup = device.createBindGroup({
   ],
 });
 
-const renderPassDescriptor: GPURenderPassDescriptor = {
+const renderPassDescriptor = {
   colorAttachments: [
     {
       view: undefined, // Assigned later
