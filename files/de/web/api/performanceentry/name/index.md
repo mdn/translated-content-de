@@ -3,16 +3,16 @@ title: "PerformanceEntry: Eigenschaft name"
 short-title: name
 slug: Web/API/PerformanceEntry/name
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 301b898e198a5e3afa058b3d0717f0caa6776663
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`name`** der Schnittstelle [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) ist eine Zeichenfolge, die den Namen eines Performance-Eintrags angibt. Sie dient als Bezeichner, muss aber nicht eindeutig sein. Der Wert hängt von der Unterklasse ab.
+Die schreibgeschützte Eigenschaft **`name`** der Schnittstelle [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) ist eine Zeichenfolge, die den Namen eines Performance-Eintrags angibt. Sie dient als Bezeichner, muss aber nicht eindeutig sein. Ihr Wert hängt von der Unterklasse ab.
 
 ## Wert
 
-Eine Zeichenfolge. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts ab, wie in der folgenden Tabelle dargestellt.
+Eine Zeichenfolge. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts ab, wie die folgende Tabelle zeigt.
 
 <table class="no-markdown">
   <thead>
@@ -32,7 +32,7 @@ Eine Zeichenfolge. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Ob
     </tr>
     <tr>
       <td>[`LayoutShift`](/de/docs/Web/API/LayoutShift)</td>
-      <td>Gibt immer <code>"layout-shift"</code> zurück.</td>
+      <td>Gibt immer eine leere Zeichenfolge zurück.</td>
     </tr>
     <tr>
       <td>[`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming)</td>
@@ -49,7 +49,7 @@ Eine Zeichenfolge. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Ob
     </tr>
     <tr>
       <td>[`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)</td>
-      <td>Der Typ des zugehörigen Ereignisses.</td>
+      <td>Der Typ des zugehörigen Events.</td>
     </tr>
     <tr>
       <td>[`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)</td>
@@ -129,8 +129,8 @@ Eine Zeichenfolge. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Ob
 
 ### Performance-Einträge nach Namen filtern
 
-Wenn `PerformanceEntry` ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt ist, verweist die Eigenschaft `name` auf die aufgelöste URL der angeforderten Ressource.
-In diesem Fall kann die Eigenschaft `name` hilfreich sein, um bestimmte Ressourcen herauszufiltern, beispielsweise alle SVG-Bilder.
+Wenn der `PerformanceEntry` ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt ist, bezeichnet die Eigenschaft `name` die aufgelöste URL der angeforderten Ressource.
+In diesem Fall kann die Eigenschaft `name` nützlich sein, um bestimmte Ressourcen herauszufiltern, beispielsweise alle SVG-Bilder.
 
 ```js
 // Log durations of SVG resources
@@ -141,9 +141,9 @@ performance.getEntriesByType("resource").forEach((entry) => {
 });
 ```
 
-### Performance-Einträge anhand ihres Namens abrufen
+### Performance-Einträge nach Namen abrufen
 
-Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) stellen Methoden bereit, mit denen Sie Performance-Einträge direkt anhand ihres Namens abrufen können. Dafür benötigen Sie nicht unbedingt die Eigenschaft `name`; stattdessen können Sie [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
+Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) stellen Methoden bereit, mit denen Sie Performance-Einträge direkt anhand ihres Namens abrufen können. Dafür benötigen Sie die Eigenschaft `name` nicht unbedingt. Stattdessen können Sie [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
 
 ```js
 // Log all marks named "debug-marks" at this point in time

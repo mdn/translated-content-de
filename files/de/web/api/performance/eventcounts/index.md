@@ -3,31 +3,29 @@ title: "Performance: eventCounts-Eigenschaft"
 short-title: eventCounts
 slug: Web/API/Performance/eventCounts
 l10n:
-  sourceCommit: 9548e8228e0872c244e3a0622ed0448139995ad6
+  sourceCommit: 343a52cdc2920899bce227571c6b30075937d431
 ---
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte `performance.eventCounts`-Eigenschaft ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Karte, die die Anzahl der Ereignisse enthält, die pro Ereignistyp seit dem Laden der Seite ausgelöst wurden.
+Die schreibgeschützte Eigenschaft `performance.eventCounts` ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map, die für jeden Ereignistyp die Anzahl der seit dem Laden der Seite ausgelösten Ereignisse enthält.
 
-Nicht alle Ereignistypen sind verfügbar. Sie können nur Zählungen für Ereignistypen erhalten, die von der Schnittstelle [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming) unterstützt werden.
+Nicht alle Ereignistypen werden bereitgestellt. Sie können nur die Anzahl der Ereignisse für Typen abrufen, die von der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle unterstützt werden.
 
 ## Wert
 
-Eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Karte.
-(Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()` und `set()`).
+Eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map.
+(Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()` und `set()`.)
 
 ## Beispiele
 
-### Bericht über Ereignistypen und ihre Zählungen
+### Ereignistypen und ihre Anzahl melden
 
-Wenn Sie die Ereigniszählungen an Ihre Analysen senden möchten, könnten Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen aus der `performance.eventCounts`-Karte entnimmt und dann die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
+Wenn Sie die Anzahl der Ereignisse an Ihren Analysedienst senden möchten, können Sie eine Funktion wie `sendToEventAnalytics` implementieren. Diese liest die Werte aus der `performance.eventCounts`-Map und sendet die Daten anschließend mithilfe der [Fetch API](/de/docs/Web/API/Fetch_API) an Ihren Endpunkt.
 
 ```js
 // Report all exposed events
-for (entry of performance.eventCounts.entries()) {
-  const type = entry[0];
-  const count = entry[1];
+for (const [type, count] of performance.eventCounts.entries()) {
   // sendToEventAnalytics(type, count);
 }
 

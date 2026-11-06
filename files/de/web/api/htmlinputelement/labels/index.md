@@ -1,20 +1,19 @@
 ---
-title: "HTMLInputElement: labels Eigenschaft"
+title: "HTMLInputElement: Eigenschaft labels"
 short-title: labels
 slug: Web/API/HTMLInputElement/labels
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: 9c8f3a19496e304e847124935a3ba9b8d25f0535
 ---
 
 {{APIRef("DOM")}}
 
-Die **`HTMLInputElement.labels`** schreibgeschützte Eigenschaft gibt eine
-[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die dem
-{{HTMLElement("input")}}-Element zugeordnet sind, falls das Element nicht versteckt ist. Wenn das Element den Typ `hidden` hat, gibt die Eigenschaft `null` zurück.
+Die schreibgeschützte Eigenschaft **`HTMLInputElement.labels`** gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die dem {{HTMLElement("input")}}-Element zugeordnet sind.
+Wenn das Element den Typ `hidden` hat, gibt die Eigenschaft `null` zurück.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die dem `<input>`-Element zugeordnet sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList) oder `null`, wenn der Typ des Elements `hidden` ist.
 
 ## Beispiele
 

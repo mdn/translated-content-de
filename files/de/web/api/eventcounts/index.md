@@ -2,49 +2,48 @@
 title: EventCounts
 slug: Web/API/EventCounts
 l10n:
-  sourceCommit: e18aa8e600733ebc25443075c563fd56361dfe98
+  sourceCommit: 343a52cdc2920899bce227571c6b30075937d431
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`EventCounts`**-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) liefert die Anzahl der Ereignisse, die für jeden Ereignistyp ausgelöst wurden.
+Die **`EventCounts`**-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) gibt für jeden Ereignistyp an, wie viele Ereignisse ausgelöst wurden.
 
-Eine `EventCounts`-Instanz ist ein schreibgeschütztes [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel eine Zeichenkette für einen Ereignistyp ist und der entsprechende Wert eine ganze Zahl, die die Anzahl der ausgelösten Ereignisse für diesen Ereignistyp angibt.
+Eine `EventCounts`-Instanz ist ein schreibgeschütztes [`Map`-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis). Jeder Schlüssel ist eine Zeichenfolge mit dem Namen eines Ereignistyps. Der zugehörige Wert ist eine Ganzzahl, die angibt, wie viele Ereignisse dieses Typs ausgelöst wurden.
 
 ## Konstruktor
 
-Diese Schnittstelle hat keinen Konstruktor. In der Regel erhalten Sie eine Instanz dieses Objekts über die [`performance.eventCounts`](/de/docs/Web/API/Performance/eventCounts)-Eigenschaft.
+Diese Schnittstelle hat keinen Konstruktor. Eine Instanz dieses Objekts erhalten Sie üblicherweise über die Eigenschaft [`performance.eventCounts`](/de/docs/Web/API/Performance/eventCounts).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - `size`
-  - : Siehe {{jsxref("Map.prototype.size")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.size")}}.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - `entries()`
-  - : Siehe {{jsxref("Map.prototype.entries()")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.entries()")}}.
 - `forEach()`
-  - : Siehe {{jsxref("Map.prototype.forEach()")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.forEach()")}}.
 - `get()`
-  - : Siehe {{jsxref("Map.prototype.get()")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.get()")}}.
 - `has()`
-  - : Siehe {{jsxref("Map.prototype.has()")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.has()")}}.
 - `keys()`
-  - : Siehe {{jsxref("Map.prototype.keys()")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.keys()")}}.
 - `values()`
-  - : Siehe {{jsxref("Map.prototype.values()")}} für Details.
+  - : Weitere Informationen finden Sie unter {{jsxref("Map.prototype.values()")}}.
 
 ## Beispiele
 
-### Arbeiten mit EventCount-Maps
+### Mit EventCounts-Maps arbeiten
 
-Im Folgenden finden Sie einige Beispiele, um Informationen aus einem `EventCounts`-Map zu erhalten. Beachten Sie, dass das Map schreibgeschützt ist und die Methoden `clear()`, `delete()` und `set()` nicht verfügbar sind.
+Die folgenden Beispiele zeigen, wie Sie Informationen aus einer `EventCounts`-Map abrufen. Beachten Sie, dass die Map schreibgeschützt ist und die Methoden `clear()`, `delete()` und `set()` nicht verfügbar sind.
 
 ```js
-for (entry of performance.eventCounts.entries()) {
-  const type = entry[0];
-  const count = entry[1];
+for (const [type, count] of performance.eventCounts.entries()) {
+  console.log(type, count);
 }
 
 const clickCount = performance.eventCounts.get("click");

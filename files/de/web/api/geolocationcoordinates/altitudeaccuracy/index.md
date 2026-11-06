@@ -1,18 +1,18 @@
 ---
-title: "GeolocationCoordinates: altitudeAccuracy-Eigenschaft"
+title: "GeolocationCoordinates: Eigenschaft altitudeAccuracy"
 short-title: altitudeAccuracy
 slug: Web/API/GeolocationCoordinates/altitudeAccuracy
 l10n:
-  sourceCommit: 066d55a090927fa19ba19c2a4b2417470e1a979f
+  sourceCommit: c16932d73afd08c1d5fb7743e209382f183c40c3
 ---
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte Eigenschaft **`altitudeAccuracy`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein strikt positives `double`, das die Genauigkeit mit einem Konfidenzniveau von 95 % der in Metern ausgedrückten `altitude` repräsentiert. Dieser Wert ist `null`, wenn die Implementierung die Höhenmessung nicht unterstützt.
+Die schreibgeschützte Eigenschaft **`altitudeAccuracy`** der Schnittstelle [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) ist ein strikt positiver `double`-Wert. Er gibt die Genauigkeit von `altitude` in Metern mit einem Konfidenzniveau von 68 % an. Der Wert ist `null`, wenn die Implementierung keine Höhenmessung unterstützt.
 
 ## Wert
 
-Ein positives `double`, das die Genauigkeit mit einem Konfidenzniveau von 95 % der in Metern ausgedrückten `altitude` repräsentiert.
+Ein positiver `double`-Wert, der die Genauigkeit von `altitude` in Metern mit einem Konfidenzniveau von 68 % angibt.
 
 ## Spezifikationen
 

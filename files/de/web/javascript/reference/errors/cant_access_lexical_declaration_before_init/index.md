@@ -1,14 +1,14 @@
 ---
-title: "ReferenceError: kann auf die lexikalische Deklaration 'X' vor der Initialisierung nicht zugreifen"
+title: "ReferenceError: can't access lexical declaration 'X' before initialization"
 slug: Web/JavaScript/Reference/Errors/Cant_access_lexical_declaration_before_init
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 696a0436bb4dd20eb4d30ac3f1d4fc5140d1eee9
 ---
 
-Die JavaScript-Ausnahme "can't access lexical declaration 'X' before initialization" tritt auf, wenn auf eine lexikalische Variable zugegriffen wurde, bevor sie initialisiert wurde.
-Dies geschieht in jedem Gültigkeitsbereich (global, Modul, Funktion oder Block), wenn [`let`](/de/docs/Web/JavaScript/Reference/Statements/let)- oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)-Variablen vor der Stelle, an der sie deklariert sind, ausgeführt werden.
+Die JavaScript-Ausnahme „can't access lexical declaration 'X' before initialization“ tritt auf, wenn auf eine lexikalische Variable zugegriffen wird, bevor sie initialisiert wurde.
+Dies kann in jedem Gültigkeitsbereich (global, Modul, Funktion oder Block) passieren, wenn auf eine mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklarierte Variable zugegriffen wird, bevor ihre Deklaration ausgeführt wurde.
 
-## Nachricht
+## Meldung
 
 ```plain
 ReferenceError: Cannot access 'X' before initialization (V8-based)
@@ -16,28 +16,28 @@ ReferenceError: can't access lexical declaration 'X' before initialization (Fire
 ReferenceError: Cannot access uninitialized variable. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("ReferenceError")}}
 
 ## Was ist schiefgelaufen?
 
 Auf eine lexikalische Variable wurde zugegriffen, bevor sie initialisiert wurde.
-Dies geschieht in jedem Gültigkeitsbereich (global, Modul, Funktion oder Block), wenn Variablen, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklariert sind, vor der Stelle, an der sie deklariert sind, ausgeführt werden.
+Dies kann in jedem Gültigkeitsbereich (global, Modul, Funktion oder Block) passieren, wenn auf eine mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklarierte Variable zugegriffen wird, bevor ihre Deklaration ausgeführt wurde.
 
-Beachten Sie, dass die Ausführungsreihenfolge von Zugriff und Variablendeklaration entscheidend ist, nicht die Reihenfolge, in der die Anweisungen im Code erscheinen.
+Entscheidend ist die Reihenfolge, in der der Zugriff und die Variablendeklaration ausgeführt werden, nicht die Reihenfolge, in der die Anweisungen im Code stehen.
 Weitere Informationen finden Sie in der Beschreibung der [Temporal Dead Zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz).
 
-Dieses Problem tritt nicht bei Variablen auf, die mit `var` deklariert wurden, da sie mit einem Standardwert von `undefined` initialisiert werden, wenn sie {{Glossary("Hoisting", "gehoben")}} werden.
+Bei Variablen, die mit `var` deklariert wurden, tritt dieses Problem nicht auf, da sie beim {{Glossary("Hoisting", "Hoisting")}} mit dem Standardwert `undefined` initialisiert werden.
 
-Dieser Fehler kann auch bei [zyklischen Importen](/de/docs/Web/JavaScript/Guide/Modules#cyclic_imports) auftreten, wenn ein Modul eine Variable verwendet, die davon abhängt, dass das Modul selbst ausgewertet wird.
+Dieser Fehler kann auch bei [zyklischen Importen](/de/docs/Web/JavaScript/Guide/Modules/Module_graph#cyclic_imports) auftreten, wenn ein Modul eine Variable verwendet, deren Initialisierung davon abhängt, dass das Modul selbst ausgewertet wird.
 
 ## Beispiele
 
 ### Ungültige Fälle
 
-In diesem Fall wird auf die Variable `foo` zugegriffen, bevor sie deklariert ist.
-Zu diesem Zeitpunkt wurde `foo` noch nicht mit einem Wert initialisiert, sodass der Zugriff auf die Variable einen Referenzfehler auslöst.
+In diesem Fall wird auf die Variable `foo` zugegriffen, bevor sie deklariert wird.
+Zu diesem Zeitpunkt wurde `foo` noch nicht mit einem Wert initialisiert. Deshalb löst der Zugriff auf die Variable einen ReferenceError aus.
 
 ```js example-bad
 function test() {
@@ -49,7 +49,7 @@ function test() {
 test();
 ```
 
-In diesem Beispiel wird auf die importierte Variable `a` zugegriffen, die allerdings nicht initialisiert ist, weil die Auswertung von `a.js` durch die Auswertung des aktuellen Moduls `b.js` blockiert wird.
+In diesem Beispiel wird auf die importierte Variable `a` zugegriffen, obwohl sie noch nicht initialisiert ist, da die Auswertung von `a.js` durch die Auswertung des aktuellen Moduls `b.js` blockiert wird.
 
 ```js example-bad
 // -- a.js (entry module) --
@@ -66,7 +66,7 @@ export const b = 1;
 
 ### Gültige Fälle
 
-Im folgenden Beispiel deklarieren wir korrekt eine Variable mit dem `const`-Schlüsselwort, bevor wir auf sie zugreifen.
+Im folgenden Beispiel deklarieren wir eine Variable mit dem Schlüsselwort `const`, bevor wir darauf zugreifen.
 
 ```js example-good
 function test() {
@@ -77,7 +77,7 @@ function test() {
 test();
 ```
 
-In diesem Beispiel wird auf die importierte Variable `a` asynchron zugegriffen, sodass beide Module ausgewertet werden, bevor der Zugriff auf `a` erfolgt.
+In diesem Beispiel erfolgt der Zugriff auf die importierte Variable `a` asynchron. Dadurch werden beide Module ausgewertet, bevor auf `a` zugegriffen wird.
 
 ```js example-good
 // -- a.js (entry module) --

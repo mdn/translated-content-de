@@ -3,10 +3,10 @@ title: "`row-rule-inset-junction-start` CSS property"
 short-title: row-rule-inset-junction-start
 slug: Web/CSS/Reference/Properties/row-rule-inset-junction-start
 l10n:
-  sourceCommit: 068c46001316cf268128ab7a26b33fd5705cde1b
+  sourceCommit: 2a563c927890794b513523649ccfbbe48d336465
 ---
 
-Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-rule-inset-junction-start`** lässt sich die Anfangskante von Zeilenliniensegmenten versetzen, die [Verbindungsendpunkte](#understanding_junction_start) sind. Dabei handelt es sich um Endpunkte an Schnittpunkten von Zwischenräumen, an denen sich Liniensegmente kreuzen.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-rule-inset-junction-start`** lässt sich die Startkante von Zeilenliniensegmenten versetzen, deren Endpunkte [Kreuzungsendpunkte](#understanding_junction_start) sind – also Endpunkte an Lückenkreuzungen, an denen sich Liniensegmente schneiden.
 
 {{InteractiveExample("CSS Demo: row-rule-inset-junction-start")}}
 
@@ -120,39 +120,39 @@ row-rule-inset-junction-start: unset;
 Diese Eigenschaft wird durch einen einzelnen Wert aus der folgenden Liste angegeben:
 
 - `overlap-join`
-  - : Legt fest, dass das Verbindungssegment über die Spaltenlinie hinausreichen soll. Der Wert entspricht der Hälfte des Werts von {{cssxref("column-gap")}} zuzüglich der Hälfte des verwendeten Werts von {{cssxref("column-rule-width")}}.
+  - : Gibt an, dass das Segment an der Kreuzung über die Spaltenlinie hinausreichen soll. Der Wert ergibt sich aus der Hälfte des Werts von {{cssxref("column-gap")}} plus der Hälfte des verwendeten Werts von {{cssxref("column-rule-width")}}.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Verbindungsendpunkt, dessen Position durch den Wert von `column-gap` bestimmt wird.
+  - : Gibt die Größe des Einzugs an. Prozentwerte beziehen sich auf den Kreuzungsendpunkt, dessen Bezugsgröße der Wert von `column-gap` ist.
 
 ## Beschreibung
 
-Mit der Eigenschaft `row-rule-inset-junction-start` lassen sich [Endpunkte von Verbindungssegmenten](#understanding_junction_start) am Anfang von Zeilenliniensegmenten nach innen oder außen versetzen. Der Standardwert ist `0`. Positive Werte verkürzen das Segment, während negative Werte und das [Schlüsselwort `overlap-join`](#the_overlap-join_value) es verlängern.
+Mit der Eigenschaft `row-rule-inset-junction-start` lassen sich [Kreuzungsendpunkte von Segmenten](#understanding_junction_start) am Anfang von Zeilenliniensegmenten nach innen oder außen versetzen. Der Standardwert ist `0`. Positive Werte verkürzen das Segment, während negative Werte und das [Schlüsselwort `overlap-join`](#the_overlap-join_value) es verlängern.
 
-Zeilenlinien werden innerhalb eines Zeilenzwischenraums als ein oder mehrere Segmente gezeichnet. Segmente treten zwischen folgenden Elementen auf:
+Zeilenlinien werden innerhalb einer Zeilenlücke als ein oder mehrere Segmente gezeichnet. Solche Segmente befinden sich zwischen:
 
 - Benachbarten Zeilen in CSS-Grid-Layouts.
 - Benachbarten Flex-Elementen oder Flex-Zeilen in Flex-Layouts, abhängig von `flex-direction`.
-- Benachbarten Zeilen in mehrspaltigen Layouts, die entstehen können, wenn {{cssxref("column-height")}} auf einen Wert vom Typ {{cssxref("&lt;length>")}} gesetzt ist.
+- Benachbarten Zeilen in mehrspaltigen Layouts, die auftreten können, wenn {{cssxref("column-height")}} auf einen {{cssxref("&lt;length>")}}-Wert gesetzt ist.
 
-Ob eine Zeilenlinie mehrere Spalten überspannt oder in mehrere Segmente aufgeteilt wird, legt die Eigenschaft {{cssxref("row-rule-break")}} fest. Unterbrechungen zwischen Zeilenliniensegmenten innerhalb des Layouts haben die Größe von {{cssxref("column-gap")}}. Ein Verbindungsanfang liegt am Anfang jedes Zeilensegments vor, das dort an einem Zwischenraumschnittpunkt endet, an dem weitere Zeilen- oder Liniensegmente vorhanden sind.
+Ob sich eine Zeilenlinie über mehrere Spalten erstreckt oder in mehrere Segmente aufgeteilt wird, bestimmt die Eigenschaft {{cssxref("row-rule-break")}}. Unterbrechungen zwischen Zeilenliniensegmenten haben die Größe von {{cssxref("column-gap")}}. Ein Kreuzungsanfang liegt am Anfang jedes Zeilenliniensegments vor, dessen Anfang an einer Lückenkreuzung mit weiteren Zeilen- oder Liniensegmenten liegt.
 
 Die Eigenschaft `row-rule-inset-junction-start` ist Bestandteil mehrerer [Kurzschreibweisen](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties):
 
-- Um sowohl den linken als auch den rechten Verbindungsendpunkt eines Zeilensegments nach innen zu versetzen, können `row-rule-inset-junction-start` und die Eigenschaft {{cssxref("row-rule-inset-junction-end")}} über die Kurzschreibweise {{cssxref("row-rule-inset-junction")}} festgelegt werden.
+- Um sowohl die linken als auch die rechten Kreuzungsendpunkte von Zeilenliniensegmenten einzurücken, können `row-rule-inset-junction-start` und die Eigenschaft {{cssxref("row-rule-inset-junction-end")}} über die Kurzschreibweise {{cssxref("row-rule-inset-junction")}} gesetzt werden.
 
-- Um die Anfangsendpunkte aller Zeilensegmente nach innen zu versetzen, können `row-rule-inset-junction-start` und die Eigenschaft {{cssxref("row-rule-inset-cap-start")}} über die Kurzschreibweise {{cssxref("row-rule-inset-start")}} festgelegt werden.
+- Um die Anfangsendpunkte aller Zeilenliniensegmente einzurücken, können `row-rule-inset-junction-start` und die Eigenschaft {{cssxref("row-rule-inset-cap-start")}} über die Kurzschreibweise {{cssxref("row-rule-inset-start")}} gesetzt werden.
 
-- Um die oberen, unteren, linken und rechten Verbindungsendpunkte von Segmenten nach innen zu versetzen, können die Kurzschreibweisen `row-rule-inset-junction` und {{cssxref("column-rule-inset-junction")}} über die Kurzschreibweise {{cssxref("rule-inset-junction")}} festgelegt werden.
+- Um die oberen, unteren, linken und rechten Kreuzungsendpunkte von Segmenten einzurücken, können die Kurzschreibweisen `row-rule-inset-junction` und {{cssxref("column-rule-inset-junction")}} über die Kurzschreibweise {{cssxref("rule-inset-junction")}} gesetzt werden.
 
-Alle Segmentendpunkte, einschließlich der entsprechenden Varianten dieser Eigenschaft mit `-end`, `-cap` und `column-`, können über die Kurzschreibweise {{cssxref("rule-inset")}} festgelegt werden.
+Alle Segmentendpunkte, einschließlich der entsprechenden `-end`-, `-cap`- und `column-`-Eigenschaften, können über die Kurzschreibweise {{cssxref("rule-inset")}} gesetzt werden.
 
-### Verbindungsendpunkte verstehen
+### Kreuzungsendpunkte verstehen
 
-Ein _Endpunkt eines Verbindungssegments_ ist ein Segmentendpunkt an einem inneren Zwischenraum, der an einem Schnittpunkt von Zwischenräumen beginnt, an dem weitere Spalten- oder Zeilenliniensegmente vorhanden sind. Die Eigenschaft `row-rule-inset-junction-start` steuert den Versatz der Anfangskante von Zeilen-Verbindungssegmenten, sodass sich die Segmente verkürzen oder verlängern lassen.
+Ein _Kreuzungsendpunkt eines Segments_ ist ein Segmentendpunkt an einer inneren Lücke, der an einer Lückenkreuzung beginnt, an der weitere Spalten- oder Zeilenliniensegmente vorhanden sind. Die Eigenschaft `row-rule-inset-junction-start` steuert den Einzug der Startkante von Zeilenliniensegmenten an Kreuzungen und ermöglicht es, die Segmente zu verkürzen oder zu verlängern.
 
-Längenwerte für `row-rule-inset-junction-start` versetzen Verbindungssegmente um den angegebenen Wert nach innen. Prozentwerte beziehen sich auf die Größe von {{cssxref("column-gap")}}. Negative Werte bewirken einen Versatz nach außen und verlängern damit den Anfang des Verbindungssegments. Mit `-50%` wird der Anfang des Verbindungssegments bis zur Mitte des angrenzenden Spaltenzwischenraums verlängert, unabhängig davon, wie breit dieser ist.
+Längenwerte für `row-rule-inset-junction-start` rücken Segmente an Kreuzungen um den angegebenen Wert ein. Prozentwerte beziehen sich auf die Größe von {{cssxref("column-gap")}}. Negative Werte erzeugen einen Versatz nach außen und verlängern den Anfang des Segments an der Kreuzung. Bei `-50%` reicht der Anfang des Segments bis zur Mitte der angrenzenden Spaltenlücke – unabhängig davon, wie breit diese ist.
 
-In der folgenden Demonstration beginnen die Zeilenliniensegmente in allen Spalten außer der ersten mit Verbindungsendpunkten. Bei `row-rule-inset-junction-start: 16px` wird die linke beziehungsweise Anfangskante dieser Segmente um `16px` nach innen versetzt. Ändern Sie den `<length>`-Wert des Versatzes, um besser zu erkennen, welche Zeilensegmente an Endpunkten von Verbindungssegmenten beginnen.
+In der folgenden Demonstration beginnen die Zeilenliniensegmente in allen Spalten außer der ersten mit Kreuzungsendpunkten. Mit `row-rule-inset-junction-start: 16px` wird die linke Kante beziehungsweise die Startkante dieser Segmente um `16px` eingerückt. Ändern Sie den `<length>`-Wert für den Einzug, um besser zu erkennen, welche Zeilenliniensegmente an Kreuzungsendpunkten beginnen.
 
 ```html hidden live-sample___junctions live-sample___percents
 <ul id="ul">
@@ -291,9 +291,9 @@ inset.addEventListener("input", () => {
 ```js hidden live-sample___junctions
 visibility.addEventListener("change", () => {
   ul.style.ruleVisibilityItems = `${visibility.value}`;
-  if (visibility.value == "between") {
+  if (visibility.value === "between") {
     ul.style.rowRuleStyle = "repeat(3, solid), repeat(2, double)";
-  } else if (visibility.value == "around") {
+  } else if (visibility.value === "around") {
     ul.style.rowRuleStyle = "repeat(3, solid), repeat(2, double)";
   } else {
     ul.style.rowRuleStyle = "solid";
@@ -304,9 +304,9 @@ visibility.addEventListener("change", () => {
 ```js hidden live-sample___percents
 visibility.addEventListener("change", () => {
   ul.style.ruleVisibilityItems = `${visibility.value}`;
-  if (visibility.value == "between") {
+  if (visibility.value === "between") {
     ul.style.rowRuleStyle = "repeat(2, inset), double, repeat(2, solid)";
-  } else if (visibility.value == "around") {
+  } else if (visibility.value === "around") {
     ul.style.rowRuleStyle = "repeat(3, inset), repeat(2, double)";
   } else {
     ul.style.rowRuleStyle = "solid";
@@ -316,17 +316,17 @@ visibility.addEventListener("change", () => {
 
 {{EmbedLiveSample("junctions", "", "400")}}
 
-Die Eigenschaft {{cssxref("rule-break")}} ist auf `intersection` gesetzt. Dadurch werden alle Zeilen- und Spaltenliniensegmente an jedem Zwischenraumschnittpunkt unterbrochen. Standardmäßig grenzt der Anfang jedes inneren Zeilensegments an einen Spaltenzwischenraum. Der Standardwert der Eigenschaft `row-rule-inset-junction-start` ist `0`.
+Die Eigenschaft {{cssxref("rule-break")}} ist auf `intersection` gesetzt. Dadurch werden alle Zeilen- und Spaltenliniensegmente an jeder Lückenkreuzung unterbrochen. Standardmäßig grenzt der Anfang jedes inneren Zeilenliniensegments an eine Spaltenlücke. Der Standardwert der Eigenschaft `row-rule-inset-junction-start` ist `0`.
 
-Ändern Sie den Versatzwert. Beachten Sie, dass sich beim Ändern des Eigenschaftswerts nur die Anfänge der Zeilensegmente in der Mitte des Grids ändern. Die Segmentendpunkte an den Containerrändern ändern sich nicht: Sie sind _äußere Endpunkte_ und werden von der Eigenschaft `row-rule-inset-junction-start` nicht beeinflusst.
+Ändern Sie den Einzugswert. Beachten Sie, dass sich bei einer Änderung des Eigenschaftswerts nur die Anfänge der Zeilenliniensegmente im Inneren des Grids ändern. Die Segmentendpunkte an den Containerrändern ändern sich nicht: Sie sind _äußere Endpunkte_ und werden von der Eigenschaft `row-rule-inset-junction-start` nicht beeinflusst.
 
-Wählen Sie `between` als Wert für `rule-visibility-items`. Dieser Wert bewirkt, dass Linien in Zwischenraumsegmenten nur gezeichnet werden, wenn sich in beiden angrenzenden Bereichen Elemente befinden. Das Zeilenliniensegment zwischen `18` und `24` beginnt nun an einem inneren Schnittpunkt, an dem kein weiteres Liniensegment vorhanden ist: Der Anfang dieses Zeilensegments ist ein _äußerer Segmentendpunkt_ und wird von der Eigenschaft `row-rule-inset-junction-start` nicht beeinflusst. Mit der Eigenschaft `row-rule-inset-cap-start` lässt sich dieser Segmentendpunkt nach innen versetzen.
+Wählen Sie `between` als Wert für `rule-visibility-items`. Dieser Wert bewirkt, dass Linien in Lückensegmenten nur gezeichnet werden, wenn sich in beiden angrenzenden Bereichen Elemente befinden. Das Zeilenliniensegment zwischen `18` und `24` beginnt nun an einer inneren Kreuzung, an der kein weiteres Liniensegment vorhanden ist. Der Anfang dieses Zeilenliniensegments ist daher ein _äußerer Segmentendpunkt_ und wird von der Eigenschaft `row-rule-inset-junction-start` nicht beeinflusst. Mit der Eigenschaft `row-rule-inset-cap-start` lässt sich dieser Segmentendpunkt einrücken.
 
-Der Wert `around` zeichnet Linien in Zwischenraumsegmenten, wenn sich in mindestens einem der beiden angrenzenden Bereiche ein Element befindet. In diesem Beispiel wurden keine Verbindungsendpunkte zu äußeren Segmentendpunkten, aber einige Segmente wurden nicht gezeichnet.
+Der Wert `around` zeichnet Linien in Lückensegmenten, wenn sich in mindestens einem der beiden angrenzenden Bereiche ein Element befindet. In diesem Beispiel wurden keine Kreuzungsendpunkte zu äußeren Segmentendpunkten, aber einige Segmente wurden nicht gezeichnet.
 
 ### Der Wert `overlap-join`
 
-Der Wert `overlap-join` versetzt den Anfang innerer Segmente nach außen, sodass er an der gegenüberliegenden Kante der gekreuzten Spaltenlinie ausgerichtet ist. Der Wert entspricht der Hälfte der Größe von {{cssxref("column-gap")}} – wodurch das Segment bis zur Mitte des Zwischenraums reicht – zuzüglich der Hälfte der Breite der Spaltenlinie. Wenn `row-rule-inset-junction-start` auf das Schlüsselwort `overlap-join` gesetzt ist, reichen die Segmente am Verbindungsanfang in den Spaltenzwischenraum hinein und treffen auf die gegenüberliegende Kante der dort gezeichneten Spaltenlinie.
+Der Wert `overlap-join` versetzt den Anfang innerer Segmente nach außen, sodass er an der gegenüberliegenden Kante der gekreuzten Spaltenlinie ausgerichtet ist. Der Wert ergibt sich aus der halben Größe von {{cssxref("column-gap")}} – wodurch das Segment bis zur Mitte der Lücke reicht – plus der halben Breite der Spaltenlinie. Wenn `row-rule-inset-junction-start` auf das Schlüsselwort `overlap-join` gesetzt ist, reichen die Segmentanfänge an Kreuzungen in die Spaltenlücke hinein, bis sie auf die gegenüberliegende Kante der dort gezeichneten Spaltenlinie treffen und sich mit ihr „verbinden“.
 
 Im folgenden interaktiven Beispiel ist `row-rule-inset-junction-start` auf `overlap-join` gesetzt:
 
@@ -418,7 +418,7 @@ ruleWidth.addEventListener("input", () => {
 
 {{EmbedLiveSample("the overlap-join value", "", "430")}}
 
-Ändern Sie die Werte von {{cssxref("column-rule-width")}} und {{cssxref("column-gap")}}. Beachten Sie, dass sich der Anfang des Zeilensegments unabhängig von der Größe des Zwischenraums oder der Spaltenlinie immer über die Spaltenlinie erstreckt. Der Endpunkt ist dabei an der gegenüberliegenden Kante der im Zwischenraum gezeichneten Spaltenlinie ausgerichtet.
+Ändern Sie die Werte von {{cssxref("column-rule-width")}} und {{cssxref("column-gap")}}. Beachten Sie, dass der Anfang des Zeilenliniensegments unabhängig von der Größe der Lücke oder der Spaltenlinie stets über die Spaltenlinie hinaus verlängert wird. Der Endpunkt ist dabei an der gegenüberliegenden Kante der in der Lücke gezeichneten Spaltenlinie ausgerichtet.
 
 ## Formale Definition
 
@@ -432,7 +432,7 @@ ruleWidth.addEventListener("input", () => {
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie `row-rule-inset-junction-start` festgelegt wird, um die Anfangskante von Zeilen-Verbindungssegmenten in Flex-Containern nach innen zu versetzen.
+Dieses Beispiel zeigt, wie Sie mit `row-rule-inset-junction-start` die Startkante von Zeilenliniensegmenten an Kreuzungen in Flex-Containern einrücken.
 
 #### HTML
 
@@ -480,7 +480,7 @@ Das Markup enthält zwei {{htmlelement("div")}}-Elemente mit jeweils sieben Kind
 
 #### CSS
 
-Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren eine hellblaue {{cssxref("rule")}}, die sowohl in Spalten- als auch in Zeilenzwischenräumen gezeichnet wird. Anschließend überschreiben wir {{cssxref("row-rule-color")}}, damit die Verzierungen in Zeilenzwischenräumen in einem dunkleren `blue` erscheinen. Schließlich setzen wir `row-rule-inset-junction-start` auf `16px`.
+Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu Flex-Containern. Mithilfe von {{cssxref("flex-wrap")}} und {{cssxref("flex-line-count")}} verteilen wir die Elemente auf drei Flex-Zeilen. Wir definieren mit {{cssxref("rule")}} eine hellblaue Linie für Spalten- und Zeilenlücken und überschreiben anschließend mit {{cssxref("row-rule-color")}} die Farbe der Zeilenlinien mit einem dunkleren `blue`. Schließlich setzen wir `row-rule-inset-junction-start` auf `16px`.
 
 ```css
 .flexbox {
@@ -495,7 +495,7 @@ Mit der Eigenschaft {{cssxref("display")}} machen wir die `.flexbox`-Elemente zu
 }
 ```
 
-Außerdem setzen wir {{cssxref("flex-direction")}} für den Container `.column` auf `column`. Dadurch ändert sich die Hauptachse des Flex-Containers, sodass die Elemente in Spalten statt in Zeilen angeordnet werden.
+Außerdem setzen wir {{cssxref("flex-direction")}} für den `.column`-Container auf `column`. Dadurch ändert sich die Hauptachse des Flex-Containers, sodass die Elemente in Spalten statt in Zeilen angeordnet werden.
 
 ```css
 .column {
@@ -503,7 +503,7 @@ Außerdem setzen wir {{cssxref("flex-direction")}} für den Container `.column` 
 }
 ```
 
-Der übrige CSS-Code ist der Kürze halber ausgeblendet.
+Das übrige CSS ist der Kürze halber ausgeblendet.
 
 ```css hidden
 h1,
@@ -569,7 +569,7 @@ inset.addEventListener("input", () => {
 
 {{EmbedLiveSample("Basic usage", "", "330")}}
 
-Ändern Sie die Größe des Versatzes. Beachten Sie, dass diese Eigenschaft nur Zeilenlinien beeinflusst, die in mehrere Segmente aufgeteilt sind. Besteht eine Zeilenlinie aus einem einzigen Segment, das die Breite des Containers überspannt, hat dieses Segment zwei äußere Endpunkte und keine Verbindungsendpunkte. Änderungen am Wert von `row-rule-inset-junction-start` wirken sich dann nicht darauf aus.
+Ändern Sie die Größe des Einzugs. Beachten Sie, dass diese Eigenschaft nur Zeilenlinien beeinflusst, die in mehrere Segmente aufgeteilt sind. Besteht eine Zeilenlinie aus einem einzigen Segment, das sich über die Breite des Containers erstreckt, hat dieses Segment zwei äußere Endpunkte und keine Kreuzungsendpunkte. Änderungen am Wert von `row-rule-inset-junction-start` wirken sich dann nicht darauf aus.
 
 ## Spezifikationen
 
