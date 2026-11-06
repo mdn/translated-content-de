@@ -3,14 +3,14 @@ title: "PerformanceContainerTiming: Eigenschaft identifier"
 short-title: identifier
 slug: Web/API/PerformanceContainerTiming/identifier
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`identifier`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt den Wert des Attributs [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming) auf dem Wurzelelement des Containers zurück.
+Die schreibgeschützte Eigenschaft **`identifier`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt den Wert des Attributs [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming) am Wurzelelement des Containers zurück.
 
-Damit lässt sich bestimmen, zu welchem Container-Wurzelelement ein Eintrag gehört. Dies ist nützlich, wenn mehrere Container gleichzeitig erfasst werden. Dieser Ansatz ist einfacher, als Referenzen auf [`rootElement`](/de/docs/Web/API/PerformanceContainerTiming/rootElement) zu vergleichen.
+Damit lässt sich bestimmen, zu welchem Container-Wurzelelement ein Eintrag gehört. Das ist nützlich, wenn mehrere Container gleichzeitig erfasst werden. Dieser Ansatz ist einfacher als der Vergleich von [`rootElement`](/de/docs/Web/API/PerformanceContainerTiming/rootElement)-Referenzen.
 
 ## Wert
 
@@ -18,13 +18,13 @@ Ein String.
 
 ## Beispiele
 
-### Container anhand von `identifier` unterscheiden
+### Container mit `identifier` unterscheiden
 
-Dieses Beispiel zeigt, wie Sie den betroffenen Container mithilfe von `identifier` bestimmen können.
+Dieses Beispiel zeigt, wie Sie den betreffenden Container mithilfe von `identifier` bestimmen können.
 
 #### HTML
 
-Zunächst definieren wir zwei Elemente, die mit dem Attribut `containertiming` als Container-Wurzelelemente gekennzeichnet sind. Ihre Kennungen lauten `"hero"` beziehungsweise `"product-list"`.
+Zunächst definieren wir zwei Elemente, die mit dem Attribut `containertiming` als Container-Wurzelelemente gekennzeichnet sind. Sie haben die Kennungen `"hero"` beziehungsweise `"product-list"`.
 
 ```html
 <section containertiming="hero">
@@ -35,7 +35,7 @@ Zunächst definieren wir zwei Elemente, die mit dem Attribut `containertiming` a
 </div>
 ```
 
-Beachten Sie, dass es auch ausgeblendetes HTML (und Code) zur Anzeige von Protokollinformationen gibt.
+Beachten Sie, dass es außerdem verborgenes HTML (und Code) zur Anzeige von Protokollinformationen gibt.
 
 ```html hidden
 <pre id="log"></pre>
@@ -60,7 +60,7 @@ function log(text) {
 
 #### JavaScript
 
-Der folgende Code prüft zunächst, ob der Browser `"container"`-Einträge unterstützt. Falls nicht, protokolliert er, dass die Funktion nicht unterstützt wird. Anschließend erstellt er einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der für jeden Eintrag `identifier` und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) protokolliert, sodass sich die beiden Container unterscheiden lassen.
+Der folgende Code prüft zunächst, ob der Browser Einträge vom Typ `"container"` unterstützt. Falls nicht, protokolliert er, dass die Funktion nicht unterstützt wird. Anschließend erstellt er einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der für jeden Eintrag `identifier` und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) protokolliert. So lassen sich die beiden Container unterscheiden.
 
 ```js
 if (PerformanceObserver.supportedEntryTypes.includes("container")) {
@@ -77,7 +77,7 @@ if (PerformanceObserver.supportedEntryTypes.includes("container")) {
 
 #### Ergebnis
 
-Das folgende Protokoll zeigt die für die beiden Container gemeldeten Werte von `identifier` und `startTime`. Beachten Sie, dass die Startzeit in diesem Fall gleich ist, da beide im selben Frame gezeichnet werden.
+Das folgende Protokoll zeigt die für jeden der beiden Container erfassten Werte von `identifier` und `startTime`. Beachten Sie, dass die Startzeit in diesem Fall gleich ist, da beide im selben Frame gerendert werden.
 
 {{EmbedLiveSample("Using identifier to distinguish containers", "100%", 250)}}
 

@@ -1,14 +1,14 @@
 ---
-title: "PerformanceContainerTiming: size-Eigenschaft"
+title: "PerformanceContainerTiming: Eigenschaft size"
 short-title: size
 slug: Web/API/PerformanceContainerTiming/size
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`size`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt die Gesamtfläche des kumulierten gerenderten Bereichs des Containers zurück, berechnet ab dem Zeitpunkt, an dem der Container-Root registriert wurde.
+Die schreibgeschützte Eigenschaft **`size`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt die Gesamtfläche des kumulierten gerenderten Bereichs eines Containers zurück, berechnet ab dem Zeitpunkt, zu dem die Containerwurzel registriert wurde.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Eine Ganzzahl, die eine kumulierte Fläche in CSS-Quadratpixeln angibt.
 
 ## Beschreibung
 
-`size` berücksichtigt nur die tatsächlich gerenderte Fläche innerhalb des Containers und lässt Inhalte aus, die sich zum Zeitpunkt ihres Renderns außerhalb des Viewports befanden.
-Dies unterscheidet sich von [`intersectionRect`](/de/docs/Web/API/PerformanceContainerTiming/intersectionRect): Diese Eigenschaft beschreibt ein einzelnes umschließendes Rechteck und kann daher auch Bereiche enthalten, in denen nichts gerendert wurde.
-Zusammen mit `intersectionRect` liefert `size` einen nützlichen _Anhaltspunkt_ dafür, wie viel von einem Container bisher gerendert und sichtbar geworden ist.
-Die Eigenschaft kann auch beim Debuggen verwendet werden, um zu prüfen, ob Inhalte eines Containers innerhalb des Viewports gerendert werden.
+`size` berücksichtigt nur die tatsächlich gerenderte Fläche innerhalb des Containers. Inhalte, die sich zum Zeitpunkt ihres Renderings außerhalb des Viewports befanden, werden nicht berücksichtigt.
+Darin unterscheidet sich `size` von [`intersectionRect`](/de/docs/Web/API/PerformanceContainerTiming/intersectionRect): Diese Eigenschaft beschreibt ein einzelnes umschließendes Rechteck und kann daher auch Bereiche enthalten, in denen nichts gerendert wurde.
+Zusammen mit `intersectionRect` liefert `size` einen nützlichen _Anhaltspunkt_ dafür, wie viel eines Containers bisher gerendert und sichtbar geworden ist.
+Beim Debugging lässt sich damit auch prüfen, ob Inhalte eines Containers innerhalb des Viewports gerendert werden.
 
 Weitere Informationen finden Sie unter [Wann werden Einträge erzeugt?](/de/docs/Web/API/PerformanceContainerTiming#when_are_entries_generated) in `PerformanceContainerTiming`.
 

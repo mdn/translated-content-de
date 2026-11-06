@@ -3,12 +3,12 @@ title: "HTMLElement: Eigenschaft containerTimingIgnore"
 short-title: containerTimingIgnore
 slug: Web/API/HTMLElement/containerTimingIgnore
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die Eigenschaft **`containerTimingIgnore`** der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle schließt das Element und seine Nachfahren von der Zeitmessung übergeordneter Container-Roots in der [Container Timing API](/de/docs/Web/API/PerformanceContainerTiming) aus.
+Die Eigenschaft **`containerTimingIgnore`** der Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement) schließt das Element und seine Nachkommen davon aus, zur Zeitmessung eines übergeordneten Container-Roots in der [Container Timing API](/de/docs/Web/API/PerformanceContainerTiming) beizutragen.
 
 Die Eigenschaft `containerTimingIgnore` spiegelt den Wert des Attributs [`containertimingignore`](/de/docs/Web/HTML/Reference/Global_attributes/containertimingignore) wider.
 
@@ -37,7 +37,7 @@ const el = document.getElementById("ignored");
 console.log(el.containerTimingIgnore); // true
 ```
 
-Beispiele dafür, wie Sie mit der Container Timing API Zeitmessungsinformationen abrufen, finden Sie unter [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming).
+Beispiele dafür, wie Sie mit der Container Timing API Zeitmessinformationen abrufen, finden Sie unter [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming).
 
 ## Spezifikationen
 

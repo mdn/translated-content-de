@@ -3,14 +3,14 @@ title: "TaskAttributionTiming: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/TaskAttributionTiming/toJSON
 l10n:
-  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}{{SeeCompatTable}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die Methode **`toJSON()`** der Schnittstelle [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `TaskAttributionTiming`-Objekt repräsentiert.
+Die Methode **`toJSON()`** der Schnittstelle [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `TaskAttributionTiming`-Objekt darstellt.
 
-Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `TaskAttributionTiming`-Objekt verarbeitet wird.
+Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `TaskAttributionTiming`-Objekt vorkommt.
 
 ## Syntax
 
@@ -36,11 +36,11 @@ Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 - [`containerId`](/de/docs/Web/API/TaskAttributionTiming/containerId)
 - [`containerName`](/de/docs/Web/API/TaskAttributionTiming/containerName)
 
-Der Wert jeder Eigenschaft wird unverändert kopiert.
+Der Wert jeder Eigenschaft wird unverändert übernommen.
 
 ## Beispiele
 
-### toJSON() direkt aufrufen
+### Direkter Aufruf von toJSON()
 
 Dieses Beispiel ruft ein `TaskAttributionTiming`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
@@ -59,15 +59,15 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "longtask", buffered: true });
 ```
 
-### In einen JSON-String serialisieren
+### Serialisierung als JSON-Zeichenfolge
 
-Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+Innerhalb des Callbacks aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
 
 ```js
 console.log(JSON.stringify(attribution));
 ```
 
-Dadurch würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
+Dadurch würde eine JSON-Zeichenfolge wie die folgende protokolliert (zur besseren Lesbarkeit formatiert):
 
 ```json
 {

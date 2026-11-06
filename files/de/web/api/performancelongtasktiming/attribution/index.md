@@ -1,14 +1,14 @@
 ---
-title: "PerformanceLongTaskTiming: attribution-Eigenschaft"
+title: "PerformanceLongTaskTiming: Eigenschaft attribution"
 short-title: attribution
 slug: Web/API/PerformanceLongTaskTiming/attribution
 l10n:
-  sourceCommit: 3dd7df0af3b0ada1a7c5784cc2bc5448adcda8af
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{SeeCompatTable}}{{APIRef("Performance API")}}
+{{SeeCompatTable}}{{APIRef("Performance API")}}{{non-standard_header}}
 
-Die schreibgeschützte **`attribution`**-Eigenschaft des [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Interfaces gibt ein Array von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekten zurück.
+Die schreibgeschützte Eigenschaft **`attribution`** der Schnittstelle [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming) gibt ein Array von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekten zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Array")}} von [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttri
 
 ## Beispiele
 
-### Protokollierung von Attributierungen für lange Aufgaben
+### Zuordnungen für lang andauernde Aufgaben protokollieren
 
 ```js
 const observer = new PerformanceObserver((list) => {

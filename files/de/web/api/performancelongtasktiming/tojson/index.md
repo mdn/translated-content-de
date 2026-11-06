@@ -3,14 +3,14 @@ title: "PerformanceLongTaskTiming: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PerformanceLongTaskTiming/toJSON
 l10n:
-  sourceCommit: 2f3bc982aa82fe341afb61f09f8fa1599d319c6c
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}{{SeeCompatTable}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die Methode **`toJSON()`** der Schnittstelle [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming) gibt ein einfaches, JSON-serialisierbares Objekt zurück, das das `PerformanceLongTaskTiming`-Objekt repräsentiert.
+Die Methode **`toJSON()`** der Schnittstelle [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PerformanceLongTaskTiming`-Objekt repräsentiert.
 
-Die Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PerformanceLongTaskTiming`-Objekt verarbeitet wird.
+Die Methode wird von {{jsxref("JSON.stringify()")}} automatisch aufgerufen, wenn bei der {{Glossary("JSON", "JSON")}}-Serialisierung ein `PerformanceLongTaskTiming`-Objekt gefunden wird.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein einfaches, JSON-serialisierbares Objekt mit den folgenden Eigenschaften:
+Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
 - [`name`](/de/docs/Web/API/PerformanceEntry/name)
 - [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)
@@ -33,13 +33,13 @@ Ein einfaches, JSON-serialisierbares Objekt mit den folgenden Eigenschaften:
 - [`navigationId`](/de/docs/Web/API/PerformanceEntry/navigationId)
 - [`attribution`](/de/docs/Web/API/PerformanceLongTaskTiming/attribution)
 
-Der Wert jeder Eigenschaft wird unverändert kopiert. Wenn das zurückgegebene Objekt an {{jsxref("JSON.stringify()")}} übergeben wird, werden die Objekte im Array `attribution` mithilfe von [`TaskAttributionTiming.toJSON()`](/de/docs/Web/API/TaskAttributionTiming/toJSON) weiter serialisiert.
+Der Wert jeder Eigenschaft wird unverändert kopiert. Wenn das zurückgegebene Objekt an {{jsxref("JSON.stringify()")}} übergeben wird, werden die Objekte im `attribution`-Array mithilfe von [`TaskAttributionTiming.toJSON()`](/de/docs/Web/API/TaskAttributionTiming/toJSON) weiter serialisiert.
 
 ## Beispiele
 
 ### toJSON() direkt aufrufen
 
-Dieses Beispiel ruft ein `PerformanceLongTaskTiming`-Objekt ab. Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
+Dieses Beispiel ruft ein `PerformanceLongTaskTiming`-Objekt ab. Der direkte Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -54,15 +54,15 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "longtask", buffered: true });
 ```
 
-### In einen JSON-String serialisieren
+### In eine JSON-Zeichenfolge serialisieren
 
-Innerhalb des Callbacks aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
+Innerhalb der Callback-Funktion aus dem vorherigen Beispiel kann dasselbe Objekt mit {{jsxref("JSON.stringify()")}} serialisiert werden. Dabei wird die Methode `toJSON()` automatisch aufgerufen.
 
 ```js
 console.log(JSON.stringify(entry));
 ```
 
-Dabei würde ein JSON-String wie der folgende ausgegeben (zur besseren Lesbarkeit formatiert):
+Dadurch würde eine JSON-Zeichenfolge wie die folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {

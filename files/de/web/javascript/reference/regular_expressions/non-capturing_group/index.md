@@ -1,11 +1,11 @@
 ---
-title: "Nicht speichernde Gruppe: (?:...)"
+title: "Nicht-erfassende Gruppe: (?:...)"
 slug: Web/JavaScript/Reference/Regular_expressions/Non-capturing_group
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 288e644117c29285df2acf37a2ac97f57546a146
 ---
 
-Eine **nicht speichernde Gruppe** fasst ein Teilmuster zusammen, sodass Sie einen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) auf die gesamte Gruppe anwenden oder [Disjunktionen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) darin verwenden können. Sie funktioniert wie der [Gruppierungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Grouping) in JavaScript-Ausdrücken und speichert im Gegensatz zu [speichernden Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) den passenden Text nicht, was die Leistung verbessert und Verwirrung vermeidet, wenn das Muster auch nützliche speichernde Gruppen enthält.
+Eine **nicht-erfassende Gruppe** gruppiert ein Teilmuster. So können Sie einen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) auf die gesamte Gruppe anwenden oder innerhalb der Gruppe [Alternativen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) verwenden. Sie funktioniert wie der [Gruppierungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Grouping) in JavaScript-Ausdrücken. Anders als [erfassende Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) speichert sie den übereinstimmenden Text nicht. Das kann die Leistung verbessern und Verwechslungen vermeiden, wenn das Muster auch erfassende Gruppen enthält, deren Ergebnisse benötigt werden.
 
 ## Syntax
 
@@ -16,13 +16,13 @@ Eine **nicht speichernde Gruppe** fasst ein Teilmuster zusammen, sodass Sie eine
 ### Parameter
 
 - `pattern`
-  - : Ein Muster, das alles enthalten kann, was Sie in einem Regex-Literal verwenden können, einschließlich einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
+  - : Ein Muster, das alles enthalten kann, was in einem regulären Ausdruck als Literal zulässig ist, einschließlich einer [Alternative](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
 
 ## Beispiele
 
-### Gruppierung eines Teilmusters und Anwendung eines Quantifizierers
+### Ein Teilmuster gruppieren und einen Quantifizierer anwenden
 
-Im folgenden Beispiel testen wir, ob ein Dateipfad mit `styles.css` oder `styles.[a hex hash].css` endet. Da der gesamte Teil `\.[\da-f]+` optional ist, müssen wir ihn in ein neues Atom gruppieren, um den `?` Quantifizierer darauf anzuwenden. Die Verwendung einer nicht speichernden Gruppe verbessert die Leistung, da keine zusätzlichen übereinstimmenden Informationen erstellt werden, die wir nicht benötigen.
+Im folgenden Beispiel prüfen wir, ob ein Dateipfad mit `styles.css` oder `styles.[a hex hash].css` endet. Da der gesamte Teil `\.[\da-f]+` optional ist, müssen wir ihn als neue Einheit gruppieren, um den Quantifizierer `?` darauf anzuwenden. Eine nicht-erfassende Gruppe verbessert die Leistung, weil sie keine zusätzlichen Übereinstimmungsinformationen erzeugt, die wir nicht benötigen.
 
 ```js
 function isStylesheet(path) {
@@ -35,9 +35,9 @@ isStylesheet("styles.cafe.css"); // true
 isStylesheet("styles.1234.min.css"); // false
 ```
 
-### Gruppierung einer Disjunktion
+### Alternativen gruppieren
 
-Eine Disjunktion hat in einem regulären Ausdruck die niedrigste Priorität. Wenn Sie eine Disjunktion als Teil eines größeren Musters verwenden möchten, müssen Sie sie gruppieren. Es wird empfohlen, eine nicht speichernde Gruppe zu verwenden, es sei denn, Sie sind auf den übereinstimmenden Text der Disjunktion angewiesen. Das folgende Beispiel erfasst Dateierweiterungen und verwendet denselben Code wie im Artikel über die [Eingabebereichsprüfung](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion#matching_file_extensions):
+Alternativen haben in einem regulären Ausdruck die niedrigste Priorität. Wenn Sie Alternativen als Teil eines größeren Musters verwenden möchten, müssen Sie sie gruppieren. Verwenden Sie dafür nach Möglichkeit eine nicht-erfassende Gruppe, sofern Sie den Text, mit dem die Alternativen übereinstimmen, nicht benötigen. Das folgende Beispiel erkennt Dateierweiterungen und verwendet denselben Code wie der Artikel über [Eingabegrenzen-Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion#matching_file_extensions):
 
 ```js
 function isImage(filename) {
@@ -49,11 +49,11 @@ isImage("image.jpg"); // true
 isImage("image.pdf"); // false
 ```
 
-### Vermeidung von Umbau-Hürden
+### Fehler beim Umstrukturieren vermeiden
 
-Speichernde Gruppen werden aufgrund ihrer Position im Muster abgerufen. Wenn Sie eine speichernde Gruppe hinzufügen oder entfernen, müssen Sie auch die Positionen der anderen speichernden Gruppen aktualisieren, falls Sie sie durch Übereinstimmungsergebnisse oder [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) abrufen. Dies kann eine Fehlerquelle sein, besonders wenn die meisten Gruppen rein syntaktische Zwecke erfüllen (zum Anwenden von Quantifizierern oder zum Gruppieren von Disjunktionen). Die Verwendung nicht speichernden Gruppen vermeidet dieses Problem und ermöglicht es, die Indizes der tatsächlichen speichernden Gruppen einfach zu verfolgen.
+Auf erfassende Gruppen wird über ihre Position im Muster zugegriffen. Wenn Sie eine erfassende Gruppe hinzufügen oder entfernen, müssen Sie auch die Positionen der anderen erfassenden Gruppen aktualisieren, sofern Sie über Übereinstimmungsergebnisse oder [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) auf sie zugreifen. Das kann zu Fehlern führen, insbesondere wenn die meisten Gruppen nur syntaktischen Zwecken dienen, etwa um Quantifizierer anzuwenden oder Alternativen zu gruppieren. Nicht-erfassende Gruppen vermeiden dieses Problem und erleichtern es, die Indizes der tatsächlich erfassenden Gruppen nachzuvollziehen.
 
-Zum Beispiel, nehmen wir an, wir haben eine Funktion, die das Muster `title='xxx'` in einem String abgleicht (Beispiel aus [speichernde Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group#pairing_quotes)). Um sicherzustellen, dass die Anführungszeichen übereinstimmen, verwenden wir einen Rückverweis, um auf das erste Anführungszeichen zu verweisen.
+Angenommen, wir haben eine Funktion, die das Muster `title='xxx'` in einer Zeichenfolge erkennt (Beispiel aus dem Artikel über [erfassende Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group#pairing_quotes)). Damit die Anführungszeichen übereinstimmen, verwenden wir einen Rückverweis auf das erste Anführungszeichen.
 
 ```js
 function parseTitle(metastring) {
@@ -63,7 +63,7 @@ function parseTitle(metastring) {
 parseTitle('title="foo"'); // 'foo'
 ```
 
-Falls wir später entscheiden, `name='xxx'` als Alias für `title=` hinzuzufügen, müssen wir die Disjunktion in einer anderen Gruppe gruppieren:
+Wenn wir später `name='xxx'` als Alias für `title=` hinzufügen möchten, müssen wir die Alternativen in einer weiteren Gruppe zusammenfassen:
 
 ```js example-bad
 function parseTitle(metastring) {
@@ -75,7 +75,7 @@ parseTitle('name="foo"'); // Cannot read properties of null (reading '2')
 // Because \1 now refers to the "name" string, which isn't found at the end.
 ```
 
-Anstatt alle Stellen zu suchen, an denen wir auf die Indizes der speichernden Gruppen verweisen, und sie einzeln zu aktualisieren, ist es besser, eine speichernde Gruppe zu vermeiden:
+Statt alle Stellen zu suchen, an denen wir auf die Indizes der erfassenden Gruppen zugreifen, und sie einzeln zu aktualisieren, sollten wir keine erfassende Gruppe verwenden:
 
 ```js example-good
 function parseTitle(metastring) {
@@ -87,7 +87,7 @@ function parseTitle(metastring) {
 parseTitle('name="foo"'); // 'foo'
 ```
 
-[Benannte speichernde Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) sind eine weitere Möglichkeit, Umbau-Hürden zu vermeiden. Sie ermöglichen es, dass auf speichernde Gruppen mit einem benutzerdefinierten Namen zugegriffen wird, der nicht beeinflusst wird, wenn andere speichernde Gruppen hinzugefügt oder entfernt werden.
+[Benannte erfassende Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) sind eine weitere Möglichkeit, Fehler beim Umstrukturieren zu vermeiden. Auf sie kann über einen selbst gewählten Namen zugegriffen werden, der unverändert bleibt, wenn andere erfassende Gruppen hinzugefügt oder entfernt werden.
 
 ## Spezifikationen
 
@@ -99,7 +99,7 @@ parseTitle('name="foo"'); // 'foo'
 
 ## Siehe auch
 
-- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
+- Leitfaden zu [Gruppen und Rückverweisen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Speichernde Gruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
-- [Benannte speichernde Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Erfassende Gruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
+- [Benannte erfassende Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)

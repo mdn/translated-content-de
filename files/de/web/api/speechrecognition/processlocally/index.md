@@ -1,14 +1,14 @@
 ---
-title: "SpeechRecognition: processLocally-Eigenschaft"
+title: "SpeechRecognition: Eigenschaft processLocally"
 short-title: processLocally
 slug: Web/API/SpeechRecognition/processLocally
 l10n:
-  sourceCommit: 11478c4adedc859a4fe3e3c4004fcfd96ebc1eba
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Web Speech API")}}{{SeeCompatTable}}
+{{APIRef("Web Speech API")}}
 
-Die **`processLocally`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt an, ob die Spracherkennung lokal auf dem Gerät des Benutzers durchgeführt werden muss.
+Die Eigenschaft **`processLocally`** der Schnittstelle [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) legt fest, ob die Spracherkennung lokal auf dem Gerät des Benutzers erfolgen muss.
 
 Weitere Informationen finden Sie unter [Spracherkennung auf dem Gerät](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#on-device_speech_recognition).
 
@@ -16,21 +16,21 @@ Weitere Informationen finden Sie unter [Spracherkennung auf dem Gerät](/de/docs
 
 Ein boolescher Wert.
 
-- Wenn auf `true` gesetzt, muss die Spracherkennung, die über das `SpeechRecognition`-Objekt durchgeführt wird, lokal durchgeführt werden.
-- Wenn auf `false` gesetzt (Standard), kann der Benutzeragent wählen, ob die Verarbeitung lokal oder remote durchgeführt wird.
+- Wenn der Wert auf `true` gesetzt ist, muss die Spracherkennung über das `SpeechRecognition`-Objekt lokal erfolgen.
+- Wenn der Wert auf `false` gesetzt ist (Standardeinstellung), kann der User Agent entscheiden, ob die Verarbeitung lokal oder remote erfolgt.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt eine neue `SpeechRecognition`-Objektinstanz mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktor und gibt dann an, dass die lokale Verarbeitung verwendet werden soll, indem `processLocally` auf `true` gesetzt wird:
+Der folgende Code erstellt mit dem Konstruktor [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) eine neue Instanz des `SpeechRecognition`-Objekts. Anschließend legt er durch Setzen von `processLocally` auf `true` fest, dass die Verarbeitung lokal erfolgen soll:
 
 ```js
 const recognition = new SpeechRecognition();
 recognition.processLocally = true;
 ```
 
-Dieser Codeausschnitt stammt aus unserem [on-device speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)). Eine vollständige Erklärung finden Sie unter [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API).
+Dieser Code ist ein Auszug aus unserem Beispiel [Farbwechsel per Spracherkennung auf dem Gerät](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo direkt ausprobieren](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)). Eine ausführliche Erklärung finden Sie unter [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API).
 
 ## Spezifikationen
 

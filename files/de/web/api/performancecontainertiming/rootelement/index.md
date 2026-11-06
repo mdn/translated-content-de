@@ -1,16 +1,16 @@
 ---
-title: "PerformanceContainerTiming: Eigenschaft rootElement"
+title: "PerformanceContainerTiming: rootElement-Eigenschaft"
 short-title: rootElement
 slug: Web/API/PerformanceContainerTiming/rootElement
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
 Die schreibgeschützte Eigenschaft **`rootElement`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt das Wurzelelement des Containers zurück.
-Dabei handelt es sich um das [`HTMLElement`](/de/docs/Web/API/HTMLElement), auf das das Attribut [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming) angewendet wurde.
-Der Wert kann `null` sein, wenn der Eintrag gelesen wird, nachdem das Wurzelelement aus dem Dokument entfernt und von der Garbage Collection bereinigt wurde.
+Dies ist das [`HTMLElement`](/de/docs/Web/API/HTMLElement), auf das das Attribut [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming) angewendet wurde.
+Der Wert kann `null` sein, wenn der Eintrag gelesen wird, nachdem das Wurzelelement aus dem Dokument entfernt und durch die Garbage Collection bereinigt wurde.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) oder `null`.
 
 ### Das Wurzelelement eines Containers protokollieren
 
-Dieses Beispiel zeigt, dass `rootElement` immer dasselbe Wurzelelement des Containers zurückgibt, unabhängig davon, wie viele Einträge dafür gemeldet werden.
+Dieses Beispiel zeigt, dass `rootElement` immer dasselbe Container-Wurzelelement zurückgibt, unabhängig davon, wie viele Einträge dafür gemeldet werden.
 
 #### HTML
 
@@ -34,7 +34,7 @@ Zunächst definieren wir ein {{htmlelement("section")}}-Element, das durch sein 
 ```
 
 Beachten Sie, dass es außerdem verborgenes HTML (und Code) zur Anzeige von Protokollinformationen gibt.
-Neue Protokolleinträge werden am Anfang des Protokolls hinzugefügt.
+Neue Einträge werden am Anfang des Protokolls hinzugefügt.
 
 ```html hidden
 <pre id="log"></pre>
@@ -76,9 +76,9 @@ if (PerformanceObserver.supportedEntryTypes.includes("container")) {
 }
 ```
 
-Danach verwenden wir [`setInterval()`](/de/docs/Web/API/Window/setInterval), um dem Container jede Sekunde einen neuen Absatz hinzuzufügen. Nach fünf Absätzen wird dies beendet.
+Danach verwenden wir [`setInterval()`](/de/docs/Web/API/Window/setInterval), um dem Container jede Sekunde einen neuen Absatz hinzuzufügen. Nach fünf Absätzen wird der Vorgang beendet.
 Jeder Absatz löst einen neuen Paint-Vorgang und einen neuen Timing-Eintrag aus.
-Beachten Sie, dass wir Inhalte zeitgesteuert hinzufügen und nicht, wenn der Benutzer auf eine Schaltfläche klickt, da nach einer Interaktion mit der Seite keine weiteren Einträge gemeldet werden (siehe [Die Meldung endet nach dem Scrollen oder einer Benutzereingabe](/de/docs/Web/API/PerformanceContainerTiming#reporting_stops_after_scrolling_or_user_input)).
+Beachten Sie, dass wir Inhalte zeitgesteuert hinzufügen und nicht erst, wenn der Benutzer auf eine Schaltfläche klickt, da nach einer Interaktion mit der Seite keine Einträge mehr gemeldet werden (siehe [Meldungen enden nach dem Scrollen oder einer Benutzereingabe](/de/docs/Web/API/PerformanceContainerTiming#reporting_stops_after_scrolling_or_user_input)).
 
 ```js
 const maxParagraphs = 5;
@@ -106,8 +106,8 @@ document.querySelector("#reset").addEventListener("click", () => {
 #### Ergebnis
 
 Jede Sekunde wird ein neuer Absatz hinzugefügt.
-Jeder Absatz sollte einen neuen Protokolleintrag auslösen, der bestätigt, dass `rootElement` weiterhin auf dasselbe Wurzelelement des Containers verweist.
-Klicken Sie auf die Schaltfläche **Reset**, um das Beispiel neu zu starten.
+Jeder Absatz sollte einen neuen Protokolleintrag auslösen, der bestätigt, dass `rootElement` weiterhin auf dasselbe Container-Wurzelelement verweist.
+Klicken Sie auf die Schaltfläche **Zurücksetzen**, um das Beispiel neu zu starten.
 
 {{EmbedLiveSample("Logging the root element of a container", "100%", 550)}}
 

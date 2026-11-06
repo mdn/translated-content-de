@@ -1,51 +1,50 @@
 ---
-title: "SpeechRecognition: unspokenPunctuation-Eigenschaft"
+title: "SpeechRecognition: Eigenschaft unspokenPunctuation"
 short-title: unspokenPunctuation
 slug: Web/API/SpeechRecognition/unspokenPunctuation
 l10n:
-  sourceCommit: 57a80c7a6d2174d77234cb58f536a40dd0803c4a
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Web Speech API")}}{{SeeCompatTable}}
+{{APIRef("Web Speech API")}}
 
-Die **`unspokenPunctuation`**-Eigenschaft der
-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Schnittstelle gibt an, ob die Spracherkennungs-Engine Interpunktionszeichen basierend auf den natürlichen Sprachmustern des Benutzers ableiten und einfügen wird.
+Die Eigenschaft **`unspokenPunctuation`** der Schnittstelle [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) legt fest, ob die Spracherkennungs-Engine anhand der natürlichen Sprechweise der Nutzerin oder des Nutzers Satzzeichen erschließt und einfügt.
 
 ## Wert
 
 Ein boolescher Wert.
 
-- Wenn auf `true` gesetzt, werden Interpunktionszeichen automatisch abgeleitet und eingefügt.
-- Wenn auf `false` gesetzt (Standard), werden keine Interpunktionszeichen automatisch eingefügt.
+- Bei `true` werden Satzzeichen automatisch erschlossen und eingefügt.
+- Bei `false` (dem Standardwert) werden keine Satzzeichen automatisch eingefügt.
 
 ## Beschreibung
 
-Standardmäßig ist der Text, der von der Spracherkennungs-Engine der Web Speech API ausgegeben wird, ohne Interpunktion. Um diesen Text für die Präsentation vorzubereiten, ist ein zusätzlicher Schritt erforderlich, um Interpunktion an geeigneten Stellen hinzuzufügen, zum Beispiel durch manuelle Bearbeitung oder durch die Verwendung eines Modells zur Verarbeitung natürlicher Sprache (NLP), um Interpunktion abzuleiten. Benutzer können helfen, indem sie Interpunktion manuell angeben (zum Beispiel, indem sie "Komma" oder "Fragezeichen" beim Sprechen sagen), aber dies erfordert normalerweise eine Verarbeitung und ist unpraktisch.
+Standardmäßig enthält der von der Spracherkennungs-Engine der Web Speech API ausgegebene Text keine Satzzeichen. Damit der Text angezeigt werden kann, müssen Satzzeichen an geeigneten Stellen hinzugefügt werden – beispielsweise durch manuelle Bearbeitung oder mithilfe eines Modells zur Verarbeitung natürlicher Sprache (Natural Language Processing, NLP), das Satzzeichen erschließt. Nutzerinnen und Nutzer können helfen, indem sie Satzzeichen aussprechen (etwa indem sie innehalten und „Komma“ oder „Fragezeichen“ sagen). Dies erfordert normalerweise dennoch eine Nachbearbeitung und ist umständlich.
 
-Dieser Prozess kann durch die Verwendung der `unspokenPunctuation`-Eigenschaft erheblich vereinfacht werden. Wenn sie auf `true` gesetzt wird, veranlasst sie die Spracherkennungs-Engine, automatisch Interpunktionszeichen (wie Punkte, Kommas und Fragezeichen) basierend auf den natürlichen Pausen, der grammatikalischen Struktur und der Prosodie des Benutzers abzuleiten und einzufügen.
+Die Eigenschaft `unspokenPunctuation` kann diesen Vorgang erheblich vereinfachen. Wird sie auf `true` gesetzt, erschließt die Spracherkennungs-Engine anhand natürlicher Sprechpausen, der grammatischen Struktur und der Prosodie automatisch Satzzeichen (wie Punkte, Kommas und Fragezeichen) und fügt sie ein.
 
-Zum Beispiel würde das Sprechen der Zeile
+Wird beispielsweise der folgende Satz gesprochen:
 
-"Ich habe Hunger [Pause einfügen] und ich muss bald essen."
+„Ich habe Hunger [Pause] und muss bald etwas essen.“
 
-dazu führen, dass die Engine ausgibt
+gibt die Engine Folgendes aus:
 
-"Ich habe Hunger, und ich muss bald essen."
+„Ich habe Hunger, und muss bald etwas essen.“
 
-Das Ergebnis ist nicht immer perfekt, aber es resultiert in einem Text, der viel näher an Präsentationsqualität herankommt, als wenn `unspokenPunctuation` nicht verwendet wird.
+Das Ergebnis ist nicht immer perfekt, aber der Text ist deutlich besser für die Anzeige geeignet als ohne `unspokenPunctuation`.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt eine neue Instanz eines `SpeechRecognition`-Objekts unter Verwendung des [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktors, und legt dann fest, dass Interpunktionszeichen abgeleitet werden sollen, indem `unspokenPunctuation` auf `true` gesetzt wird:
+Der folgende Code erstellt mit dem Konstruktor [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) eine neue Instanz von `SpeechRecognition` und legt anschließend durch Setzen von `unspokenPunctuation` auf `true` fest, dass Satzzeichen erschlossen werden sollen:
 
 ```js
 const recognition = new SpeechRecognition();
 recognition.unspokenPunctuation = true;
 ```
 
-Sehen Sie dies in Aktion im [Web Speech API Playground](https://speech.evanliu.com/).
+Sehen Sie sich dies im [Web Speech API Playground](https://speech.evanliu.com/) in Aktion an.
 
 ## Spezifikationen
 

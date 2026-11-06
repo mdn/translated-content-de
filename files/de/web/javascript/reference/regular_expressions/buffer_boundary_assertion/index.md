@@ -1,13 +1,13 @@
 ---
-title: "Puffergrenzen-Aussage: \\A, \\z, \\Z"
+title: "Puffergrenzen-Assertion: \\A, \\z, \\Z"
 slug: Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion
 l10n:
-  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
+  sourceCommit: 288e644117c29285df2acf37a2ac97f57546a146
 ---
 
 {{SeeCompatTable}}
 
-Eine **Puffergrenzen-Aussage** prüft, ob die aktuelle Position im String genau am Anfang oder Ende des gesamten Strings ist (`\Z` erlaubt auch ein nachgestelltes Zeilenumbruchszeichen), unabhängig von der Anwesenheit des [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) Flags (welches die Bedeutungen der `^` und `$` [Eingabebegrenzungs-Aussagen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion) ändert). Sie wird nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) unterstützt.
+Eine **Puffergrenzen-Assertion** prüft, ob sich die aktuelle Position in der Zeichenfolge genau am Anfang oder Ende der gesamten Zeichenfolge befindet (`\Z` erlaubt außerdem einen abschließenden Zeilenumbruch). Dabei spielt es keine Rolle, ob das Flag [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) gesetzt ist, das die Bedeutung der [Eingabegrenzen-Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion) `^` und `$` verändert. Puffergrenzen-Assertions werden nur im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) unterstützt.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ Eine **Puffergrenzen-Aussage** prüft, ob die aktuelle Position im String genau 
 
 ## Beschreibung
 
-`\A` stellt fest, dass die aktuelle Position der Anfang des gesamten Strings ist. `\z` stellt fest, dass die aktuelle Position das Ende des gesamten Strings ist. `\Z` ist wie `\z`, stimmt jedoch auch vor einem [Zeilenbegrenzer](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) oder einer `\r\n` (CRLF) Sequenz am Ende des Strings überein. Alle sind _Aussagen_, so dass sie keine Zeichen verbrauchen.
+`\A` stellt sicher, dass die aktuelle Position am Anfang der gesamten Zeichenfolge liegt. `\z` stellt sicher, dass sie am Ende der gesamten Zeichenfolge liegt. `\Z` verhält sich wie `\z`, stimmt aber auch mit der Position vor einem [Zeilentrennzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) oder einer `\r\n`-Sequenz (CRLF) am Ende der Zeichenfolge überein. Alle drei sind _Assertions_ und verbrauchen daher keine Zeichen.
 
-Genauer gesagt, `\A` stellt fest, dass das Zeichen links von der Grenze des Strings liegt; `\z` stellt fest, dass das Zeichen rechts von der Grenze des Strings liegt; `\Z` ist äquivalent zu `(?=(?:\r?\n?|[\u{2028}\u{2029}]?)\z)`.
+Genauer gesagt stellt `\A` sicher, dass die Position links davon außerhalb der Zeichenfolge liegt; `\z` stellt sicher, dass die Position rechts davon außerhalb der Zeichenfolge liegt; `\Z` entspricht `(?=(?:\r?\n?|[\u{2028}\u{2029}]?)\z)`.
 
-Diese Aussagen sind nur sinnvoll, wenn keine Zeichen links oder rechts von ihnen erwartet werden. Zum Beispiel passt `f\Ao` niemals, da es nicht möglich ist, dass `\A` sowohl am Anfang des Strings ist als auch ein Zeichen links von ihm steht.
+Diese Assertions sind nur sinnvoll, wenn links beziehungsweise rechts von ihnen keine Zeichen erwartet werden. Beispielsweise findet `f\Ao` nie eine Übereinstimmung, da `\A` nicht gleichzeitig am Anfang der Zeichenfolge stehen und links davon ein Zeichen haben kann.
 
-Die `\A` und `\z` Aussagen sind nur nützlich, wenn das `m` Flag verwendet wird. Ohne `m` verhalten sie sich genau wie `^` und `$`. Wenn das Muster nur den Anfang oder das Ende des gesamten Strings oder einer Zeile (und niemals eine Mischung aus beidem) erfassen muss, wird empfohlen, weiterhin die `^` und `$` Aussagen zu verwenden und das `m` Flag nach Bedarf zu setzen, da sie breiter unterstützt werden als die Puffergrenzen-Aussagen. Wenn Sie beide Arten von Grenzen im gleichen Muster erfassen müssen, können Sie technisch gesehen [Modifikatoren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier) verwenden, um das `m` Flag in verschiedenen Teilen des Musters zu aktivieren oder zu deaktivieren, aber die Verwendung dieser Escape-Sequenzen macht den Code wesentlich lesbarer.
+Die Assertions `\A` und `\z` sind nur nützlich, wenn das Flag `m` gesetzt ist. Ohne `m` verhalten sie sich genauso wie `^` und `$`. Wenn Ihr Muster nur mit dem Anfang oder Ende der gesamten Zeichenfolge oder einer Zeile übereinstimmen muss (und nie mit einer Mischung aus beidem), empfiehlt es sich, weiterhin die Assertions `^` und `$` zu verwenden und das Flag `m` nach Bedarf zu setzen. Sie werden breiter unterstützt als Puffergrenzen-Assertions. Wenn Sie beide Arten von Grenzen im selben Muster benötigen, können Sie das Flag `m` zwar mithilfe von [Modifikatoren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier) in verschiedenen Teilen des Musters aktivieren oder deaktivieren; diese Escape-Sequenzen machen den Code jedoch deutlich lesbarer.
 
 ## Beispiele
 
-### Mischung aus Puffer- und Eingabebegrenzungs-Aussagen
+### Puffergrenzen- und Eingabegrenzen-Assertions kombinieren
 
-Angenommen, Sie haben ein Muster, das entweder am Anfang des gesamten Strings oder am Anfang einer Zeile passen muss. Sie können `m` aktivieren, sodass Sie `^` verwenden können, um sich auf letzteres zu beziehen, und dann `\A` verwenden, um sich auf ersteres zu beziehen (Sie müssen auch `u` aktivieren, damit Sie `\A` verwenden können).
+Angenommen, ein Muster soll entweder am Anfang der gesamten Zeichenfolge oder am Anfang einer Zeile übereinstimmen. Sie können `m` aktivieren, um mit `^` auf den Zeilenanfang zu verweisen, und `\A` für den Anfang der gesamten Zeichenfolge verwenden. Damit Sie `\A` verwenden können, müssen Sie außerdem `u` aktivieren.
 
-Dieses Beispiel erfasst Zeilenkommentare, die sich auf eigenen Zeilen befinden, was ein [Hashbang](/de/docs/Web/JavaScript/Reference/Lexical_grammar#hashbang_comments) am Anfang einer Datei oder ein Zeilenkommentar in jeder Zeile sein kann. Es erfasst keine Zeilenkommentare am Ende einer Zeile, die Code enthält.
+Dieses Beispiel findet Zeilenkommentare, die allein in einer Zeile stehen: Das kann ein [Hashbang-Kommentar](/de/docs/Web/JavaScript/Reference/Lexical_grammar#hashbang_comments) am Anfang einer Datei oder ein Zeilenkommentar in einer beliebigen Zeile sein. Zeilenkommentare am Ende einer Zeile, die Code enthält, werden nicht gefunden.
 
 ```js
 function findLineComments(code) {
@@ -61,11 +61,11 @@ console.log(findLineComments(program));
 // ]
 ```
 
-Ein weiterer Hauptanwendungsfall für Puffergrenzen-Aussagen ist, wenn Sie die Flags nicht ändern können, wie etwa bei der Regulären Ausdrucksuche in Texteditoren. Diese Fälle aktivieren normalerweise `m` standardmäßig, sodass Sie `\A` und `\z` verwenden müssen, um sich "abzumelden".
+Ein weiterer wichtiger Anwendungsfall für Puffergrenzen-Assertions liegt vor, wenn Sie die Flags nicht ändern können, etwa bei der Suche mit regulären Ausdrücken in Texteditoren. Dort ist `m` üblicherweise standardmäßig aktiviert, sodass Sie `\A` und `\z` verwenden müssen, um dieses Verhalten zu umgehen.
 
-### Übereinstimmung mit dem Datei-Ende, aber Erlauben eines optionalen nachgestellten Zeilenumbruchs
+### Das Dateiende finden und dabei einen optionalen abschließenden Zeilenumbruch zulassen
 
-Dateiformate erlauben oft einen optionalen Zeilenumbruch am Ende der Datei. Wenn Sie ein Datei-Ende-Muster erfassen möchten, das den nachgestellten Zeilenumbruch zulässt, können Sie `\Z` verwenden. Diese Funktion ist sowohl mit als auch ohne `m`-Flag nützlich.
+Dateiformate erlauben häufig einen optionalen Zeilenumbruch am Ende der Datei. Wenn Sie ein Muster für das Dateiende verwenden möchten, das diesen abschließenden Zeilenumbruch zulässt, können Sie `\Z` verwenden. Das ist sowohl mit als auch ohne das Flag `m` nützlich.
 
 ```js
 const endOfPDF = /%%EOF\Z/u;
@@ -87,9 +87,9 @@ console.log(endOfPDF.test("%%EOF\nsomething")); // false
 
 ## Siehe auch
 
-- [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
+- [Leitfaden zu Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Eingabebegrenzungs-Aussage: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
-- [Wortgrenzen-Aussage: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
-- [Lookahead-Aussage: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
-- [Lookbehind-Aussage: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
+- [Eingabegrenzen-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Lookahead-Assertion: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
+- [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)

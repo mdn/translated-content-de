@@ -3,26 +3,29 @@ title: Sec-CH-Device-Memory header
 short-title: Sec-CH-Device-Memory
 slug: Web/HTTP/Reference/Headers/Sec-CH-Device-Memory
 l10n:
-  sourceCommit: b304d8d3c870fba028df550a51f5b4258ab3ac08
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{SecureContext_Header}}{{SeeCompatTable}}
+{{SecureContext_Header}}{{SeeCompatTable}}{{non-standard_header}}
 
-Der HTTP **`Sec-CH-Device-Memory`** {{Glossary("request_header", "Anforderungsheader")}} wird in [Geräte-Client-Hinweisen](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints) verwendet, um die ungefähre Menge des verfügbaren RAM auf dem Client-Gerät in Gigabyte anzugeben. Der Header ist Teil der [Device Memory API](/de/docs/Web/API/Device_Memory_API).
+Der HTTP-{{Glossary("request_header", "Anfrage-Header")}} **`Sec-CH-Device-Memory`** wird in [Geräte-Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints) verwendet, um die ungefähre Menge des verfügbaren Arbeitsspeichers auf dem Clientgerät in Gigabyte anzugeben.
+Der Header ist Teil der [Device Memory API](/de/docs/Web/API/Device_Memory_API).
 
-Client-Hinweise sind nur auf sicheren Ursprüngen zugänglich. Ein Server muss sich entscheiden, den `Sec-CH-Device-Memory`-Header vom Client zu erhalten, indem er zuerst den {{HTTPHeader("Accept-CH")}}-Antwortheader sendet. Server, die sich für den `Sec-CH-Device-Memory`-Client-Hinweis entscheiden, geben diesen typischerweise auch im {{HTTPHeader("Vary")}}-Header an, um Caches zu informieren, dass der Server basierend auf dem Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
+Client-Hints sind nur auf sicheren Ursprüngen verfügbar.
+Damit ein Server den Header `Sec-CH-Device-Memory` vom Client erhält, muss er sich zunächst durch Senden des Response-Headers {{HTTPHeader("Accept-CH")}} dafür anmelden.
+Server, die den Client-Hint `Sec-CH-Device-Memory` anfordern, geben ihn üblicherweise auch im Header {{HTTPHeader("Vary")}} an. So teilen sie Caches mit, dass die Antwort je nach Header-Wert der Anfrage unterschiedlich ausfallen kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungsheader")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
+        {{Glossary("Request_header", "Anfrage-Header")}},
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -37,21 +40,23 @@ Sec-CH-Device-Memory: <number>
 ## Direktiven
 
 - `<number>`
-  - : Die ungefähre Menge des Gerätespeichers (RAM).
+  - : Die ungefähre Menge des Arbeitsspeichers des Geräts.
 
-    Die Menge des Gerätespeichers kann als {{Glossary("fingerprinting", "Fingerprinting")}}-Variable verwendet werden, daher sind die Werte für den Header bewusst grob, um das Potenzial für Missbrauch zu verringern. Werte werden nur in Zweierpotenzen angegeben und sind auf einen durch die Implementierung definierten minimalen unteren Wert und einen maximalen oberen Wert begrenzt. Diese Grenzen können sich im Laufe der Zeit ändern (siehe [Browser-Kompatibilitätstabelle](#browser-kompatibilität)).
+    Die Größe des Arbeitsspeichers kann als Variable für {{Glossary("fingerprinting", "Fingerprinting")}} verwendet werden. Deshalb sind die Header-Werte bewusst grob abgestuft, um das Missbrauchspotenzial zu verringern.
+    Werte werden nur als Zweierpotenzen angegeben und auf einen von der Implementierung festgelegten Mindest- und Höchstwert begrenzt.
+    Diese Grenzen können sich im Laufe der Zeit ändern (siehe [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität)).
 
-    Beispielsweise, wenn ein Browser keine Werte unter `2` oder über `32` angibt, dann ist der Wert einer von: `2`, `4`, `8`, `16`, `32`.
+    Wenn ein Browser beispielsweise keine Werte unter `2` oder über `32` meldet, ist der Wert einer der folgenden: `2`, `4`, `8`, `16`, `32`.
 
 ## Beispiele
 
-Der Server muss zunächst zustimmen, den `Sec-CH-Device-Memory`-Header zu erhalten, indem er den {{HTTPHeader("Accept-CH")}}-Antwortheader sendet, der `Sec-CH-Device-Memory` enthält:
+Damit der Server den Header `Sec-CH-Device-Memory` erhält, muss er zunächst den Response-Header {{HTTPHeader("Accept-CH")}} mit dem Wert `Sec-CH-Device-Memory` senden:
 
 ```http
 Accept-CH: Sec-CH-Device-Memory
 ```
 
-Dann könnte der Client bei nachfolgenden Anfragen den `Sec-CH-Device-Memory`-Header zurücksenden:
+Bei nachfolgenden Anfragen kann der Client dann den Header `Sec-CH-Device-Memory` senden:
 
 ```http
 Sec-CH-Device-Memory: 1
@@ -67,11 +72,11 @@ Sec-CH-Device-Memory: 1
 
 ## Siehe auch
 
-- [Verbesserung der Privatsphäre der Nutzer und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Datenschutzes für Benutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - [Device Memory API](/de/docs/Web/API/Device_Memory_API)
 - [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory)
 - [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory)
-- Geräte- und responsive Bild-Client-Hinweise
+- Geräte- und Client-Hints für responsive Bilder
   - {{HTTPHeader("Sec-CH-DPR")}}
   - {{HTTPHeader("Sec-CH-Viewport-Height")}}
   - {{HTTPHeader("Sec-CH-Viewport-Width")}}

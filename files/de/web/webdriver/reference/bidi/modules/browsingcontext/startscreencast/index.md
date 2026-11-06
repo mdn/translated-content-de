@@ -3,10 +3,12 @@ title: Befehl `browsingContext.startScreencast`
 short-title: startScreencast
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext/startScreencast
 l10n:
-  sourceCommit: a0ec5a931fb40d9307d096de83c1d4d10f0d6ea6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-Der [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) `browsingContext.startScreencast` des Moduls [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext) startet die Aufzeichnung des Viewports des angegebenen [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) in eine Datei.
+{{SeeCompatTable}}
+
+Der [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) `browsingContext.startScreencast` des Moduls [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext) beginnt, den Viewport des angegebenen [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) in einer Datei aufzuzeichnen.
 
 ## Syntax
 
@@ -40,18 +42,18 @@ Der [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) `browsingCo
 Das Feld `params` enthält:
 
 - `context`
-  - : Eine Zeichenfolge mit der ID des aufzuzeichnenden Top-Level-Kontexts.
+  - : Eine Zeichenfolge mit der ID des Top-Level-Kontexts, der aufgezeichnet werden soll.
     Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
 - `destinationFolder` {{optional_inline}}
   - : Eine Zeichenfolge mit dem Pfad zu dem Verzeichnis, in dem die Aufzeichnung gespeichert werden soll.
-    Das Verzeichnis muss bereits vorhanden sein. Der Pfad wird vom Stammverzeichnis des Dateisystems des Browsers aus aufgelöst.
+    Das Verzeichnis muss bereits existieren. Der Pfad wird relativ zum Stammverzeichnis des Dateisystems des Browsers aufgelöst.
     Wird der Parameter weggelassen, hängt der Speicherort der Datei vom Browser ab.
 - `mimeType` {{optional_inline}}
   - : Eine Zeichenfolge, die den {{Glossary("MIME_type", "MIME-Typ")}} des Aufzeichnungsformats angibt.
     Wird der Parameter weggelassen, wählt der Browser das Format.
 - `video` {{optional_inline}}
   - : Ein Objekt, das die Einstellungen für die Videoaufzeichnung angibt.
-    Der Browser versucht, diese Werte so genau wie möglich einzuhalten, soweit Hardwaregrenzen und andere Einschränkungen dies zulassen.
+    Der Browser versucht, diese Werte unter Berücksichtigung von Hardwaregrenzen und anderen Einschränkungen so genau wie möglich einzuhalten.
     Es kann die folgenden Felder enthalten:
     - `frameRate` {{optional_inline}}
       - : Eine nicht negative Ganzzahl, die die Bildrate der Aufzeichnung in Bildern pro Sekunde angibt.
@@ -74,7 +76,7 @@ Das Objekt `result` in der Antwort enthält die folgenden Felder:
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
   - : Wird in einem der folgenden Fälle ausgelöst:
     - Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
-    - Eine Videovorgabe liegt außerhalb des zulässigen Ganzzahlbereichs.
+    - Ein Videoparameter liegt außerhalb des zulässigen Ganzzahlbereichs.
     - Der durch [`destinationFolder`](#destinationfolder) angegebene Pfad kann nicht gefunden werden.
     - Der angegebene [`context`](#context) ist kein Top-Level-Kontext.
 - `no such frame`
@@ -87,15 +89,15 @@ Das Objekt `result` in der Antwort enthält die folgenden Felder:
 ## Beschreibung
 
 Der Befehl `browsingContext.startScreencast` zeichnet den Viewport des Top-Level-Kontexts über einen Zeitraum auf.
-Die Aufzeichnung wird fortgesetzt, nachdem der Browser die Antwort gesendet hat. Währenddessen schreibt der Browser die Aufzeichnung in die Datei.
+Die Aufzeichnung läuft weiter, nachdem der Browser die Antwort gesendet hat. Währenddessen schreibt der Browser die Aufzeichnung in die Datei.
 Die Antwort enthält eine Aufzeichnungs-ID und einen Dateipfad.
 Verwenden Sie diese ID mit [`browsingContext.stopScreencast`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/stopScreencast), um die Aufzeichnung zu beenden.
 
-Der Browser erstellt und beschreibt die Datei, löscht sie jedoch nicht.
+Der Browser erstellt und beschreibt die Datei, löscht sie aber nicht.
 Der Client ist dafür verantwortlich, die Datei zu entfernen, wenn sie nicht mehr benötigt wird, sofern er über den erforderlichen Zugriff auf das Dateisystem verfügt.
 
 Wenn der Browser während der laufenden Aufzeichnung keine Daten in die Datei schreiben kann, beendet er die Aufzeichnung automatisch.
-Wenn der Client anschließend `browsingContext.stopScreencast` sendet, gibt der Browser eine Erfolgsantwort zurück, deren Objekt `result` sowohl den Dateipfad [`path`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/stopScreencast#path) als auch eine Fehlerbeschreibung unter [`error`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/stopScreencast#error) enthält.
+Wenn der Client anschließend `browsingContext.stopScreencast` sendet, gibt der Browser eine erfolgreiche Antwort zurück, deren Objekt `result` sowohl den Dateipfad [`path`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/stopScreencast#path) als auch eine Fehlerbeschreibung unter [`error`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/stopScreencast#error) enthält.
 
 ## Beispiele
 
@@ -103,9 +105,9 @@ Wenn der Client anschließend `browsingContext.stopScreencast` sendet, gibt der 
 
 Angenommen, Sie verfügen über eine [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und eine [aktive Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new).
 
-Sie haben mit [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) einen Tab erstellt und darin eine Seite aufgerufen.
+Sie haben beispielsweise mit [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) einen Tab erstellt und darin eine Seite aufgerufen.
 Der Browser hat im Feld [`context`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create#context) eine Kontext-ID zurückgegeben.
-Senden Sie die folgende Nachricht, um die Aufzeichnung des Viewports des Tabs zu starten:
+Senden Sie die folgende Nachricht, um die Aufzeichnung des Viewports dieses Tabs zu starten:
 
 ```json
 {
@@ -117,7 +119,7 @@ Senden Sie die folgende Nachricht, um die Aufzeichnung des Viewports des Tabs zu
 }
 ```
 
-Der Browser startet die Aufzeichnung und antwortet mit dem Dateipfad und der Aufzeichnungs-ID wie folgt:
+Der Browser beginnt mit der Aufzeichnung und antwortet mit dem Dateipfad und der Aufzeichnungs-ID wie folgt:
 
 ```json
 {

@@ -2,15 +2,15 @@
 title: SpeechRecognition
 slug: Web/API/SpeechRecognition
 l10n:
-  sourceCommit: 57a80c7a6d2174d77234cb58f536a40dd0803c4a
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`SpeechRecognition`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) ist das Steuerinterface für den Erkennungsdienst; es behandelt auch das [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent), das vom Erkennungsdienst gesendet wird.
+Die **`SpeechRecognition`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) ist die Steuerungsschnittstelle für den Spracherkennungsdienst. Sie verarbeitet auch die vom Spracherkennungsdienst gesendeten [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Ereignisse.
 
 > [!NOTE]
-> Bei einigen Browsern, wie Chrome, beinhaltet die Nutzung von Spracherkennung auf einer Webseite eine serverbasierte Erkennungs-Engine. Ihr Audio wird an einen Webdienst zur Verarbeitung der Erkennung gesendet, daher funktioniert es nicht offline.
+> In einigen Browsern, etwa Chrome, wird bei der Spracherkennung auf einer Webseite ein serverbasierter Spracherkennungsdienst verwendet. Ihre Audiodaten werden zur Verarbeitung an einen Webdienst gesendet. Daher funktioniert die Spracherkennung nicht offline.
 
 {{InheritanceDiagram}}
 
@@ -19,82 +19,82 @@ Das **`SpeechRecognition`**-Interface der [Web Speech API](/de/docs/Web/API/Web_
 - [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)
   - : Erstellt ein neues `SpeechRecognition`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_`SpeechRecognition` erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`SpeechRecognition` erbt außerdem Eigenschaften von seiner übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`SpeechRecognition.lang`](/de/docs/Web/API/SpeechRecognition/lang)
-  - : Gibt die Sprache der aktuellen `SpeechRecognition` zurück und legt sie fest. Wenn nicht angegeben, wird standardmäßig der HTML [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributwert verwendet, oder die Spracheinstellung des Benutzeragenten, falls diese ebenfalls nicht festgelegt ist.
+  - : Gibt die Sprache der aktuellen `SpeechRecognition` zurück und legt sie fest. Wenn sie nicht angegeben ist, wird standardmäßig der Wert des HTML-Attributs [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) verwendet. Ist auch dieses nicht festgelegt, wird die Spracheinstellung des User-Agents verwendet.
 - [`SpeechRecognition.continuous`](/de/docs/Web/API/SpeechRecognition/continuous)
-  - : Steuert, ob kontinuierliche Ergebnisse für jede Erkennung zurückgegeben werden oder nur ein einzelnes Ergebnis. Standardmäßig wird nur ein einzelnes Ergebnis zurückgegeben (`false`.)
+  - : Steuert, ob für jede Spracherkennung fortlaufend Ergebnisse oder nur ein einzelnes Ergebnis zurückgegeben werden. Standardmäßig wird ein einzelnes Ergebnis zurückgegeben (`false`).
 - [`SpeechRecognition.interimResults`](/de/docs/Web/API/SpeechRecognition/interimResults)
-  - : Steuert, ob Zwischenergebnisse zurückgegeben werden sollen (`true`) oder nicht (`false`). Zwischenergebnisse sind Ergebnisse, die noch nicht endgültig sind (z.B. ist die [`SpeechRecognitionResult.isFinal`](/de/docs/Web/API/SpeechRecognitionResult/isFinal)-Eigenschaft `false`.)
+  - : Steuert, ob vorläufige Ergebnisse zurückgegeben werden sollen (`true`) oder nicht (`false`). Vorläufige Ergebnisse sind noch nicht endgültig (beispielsweise ist die Eigenschaft [`SpeechRecognitionResult.isFinal`](/de/docs/Web/API/SpeechRecognitionResult/isFinal) `false`).
 - [`SpeechRecognition.maxAlternatives`](/de/docs/Web/API/SpeechRecognition/maxAlternatives)
-  - : Legt die maximale Anzahl von [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)s fest, die pro Ergebnis bereitgestellt werden. Der Standardwert ist 1.
-- [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases) {{experimental_inline}}
-  - : Legt ein Array von [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekten fest, die für das [kontextuelle Biasing](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) verwendet werden sollen.
-- [`SpeechRecognition.processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally) {{experimental_inline}}
-  - : Gibt an, ob die Spracherkennung lokal auf dem Gerät des Benutzers durchgeführt werden muss.
-- [`SpeechRecognition.unspokenPunctuation`](/de/docs/Web/API/SpeechRecognition/unspokenPunctuation) {{experimental_inline}}
-  - : Gibt an, ob die Spracherkennungs-Engine Interpunktionszeichen basierend auf den natürlichen Sprachmustern des Benutzers schlussfolgernd einfügen soll.
+  - : Legt die maximale Anzahl von [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekten fest, die pro Ergebnis bereitgestellt werden. Der Standardwert ist 1.
+- [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)
+  - : Legt ein Array von [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekten fest, die zur [kontextbezogenen Gewichtung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) verwendet werden.
+- [`SpeechRecognition.processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally)
+  - : Gibt an, ob die Spracherkennung lokal auf dem Gerät des Benutzers erfolgen muss.
+- [`SpeechRecognition.unspokenPunctuation`](/de/docs/Web/API/SpeechRecognition/unspokenPunctuation)
+  - : Gibt an, ob die Spracherkennungs-Engine Satzzeichen anhand der natürlichen Sprechmuster des Benutzers erschließt und einfügt.
 
 ### Veraltete Eigenschaften
 
-Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen verbleiben in der Spezifikation und werden von unterstützenden Browsern für die Rückwärtskompatibilität weiterhin erkannt, haben jedoch keinen Einfluss auf Spracherkennungsdienste.
+Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Zugehörige Funktionen sind weiterhin in der Spezifikation enthalten und werden von unterstützenden Browsern aus Gründen der Abwärtskompatibilität noch erkannt, haben aber keine Auswirkungen auf Spracherkennungsdienste.
 
 - [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars)
-  - : Gibt eine Sammlung der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte zurück und legt diese fest, die die von der aktuellen `SpeechRecognition` verstandenen Grammatiken repräsentieren.
+  - : Gibt eine Sammlung von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten zurück, die die von der aktuellen `SpeechRecognition` verstandenen Grammatiken darstellen, und legt diese Sammlung fest.
 
 ## Statische Methoden
 
-- [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static) {{experimental_inline}}
+- [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static)
   - : Prüft, ob die angegebenen Sprachen für die Spracherkennung verfügbar sind.
-- [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static) {{experimental_inline}}
-  - : Installiert die erforderlichen Sprachpakete für die geräteinterne Spracherkennung in den angegebenen Sprachen.
+- [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static)
+  - : Installiert die erforderlichen Sprachpakete für die Spracherkennung auf dem Gerät in den angegebenen Sprachen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_`SpeechRecognition` erbt auch Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`SpeechRecognition` erbt außerdem Methoden von seiner übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`SpeechRecognition.abort()`](/de/docs/Web/API/SpeechRecognition/abort)
-  - : Stoppt den Spracherkennungsdienst beim Zuhören von eingehenden Audios und versucht nicht, ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) zurückzugeben.
+  - : Beendet die Erfassung eingehender Audiodaten durch den Spracherkennungsdienst, ohne zu versuchen, ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) zurückzugeben.
 - [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start)
-  - : Startet den Spracherkennungsdienst, um auf eingehende Audiosignale (von einem Mikrofon oder einer Audiospur) zu lauschen und gibt die Ergebnisse dieser Erkennung zurück.
+  - : Startet den Spracherkennungsdienst, damit er eingehende Audiodaten (von einem Mikrofon oder einem Audiotrack) erfasst und die Ergebnisse der Erkennung zurückgibt.
 - [`SpeechRecognition.stop()`](/de/docs/Web/API/SpeechRecognition/stop)
-  - : Stoppt den Spracherkennungsdienst beim Zuhören von eingehenden Audiosignalen und versucht, basierend auf den bisher erfassten Ergebnissen ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) zurückzugeben.
+  - : Beendet die Erfassung eingehender Audiodaten durch den Spracherkennungsdienst und versucht, auf Grundlage der bis dahin erfassten Daten ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) zurückzugeben.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces.
+Sie können diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwachen oder der Eigenschaft `oneventname` dieser Schnittstelle einen Event-Listener zuweisen.
 
 - [`audiostart`](/de/docs/Web/API/SpeechRecognition/audiostart_event)
-  - : Wird ausgelöst, wenn der Benutzeragent begonnen hat, Audio aufzunehmen.
+  - : Wird ausgelöst, wenn der User-Agent mit der Audioerfassung begonnen hat.
 - [`audioend`](/de/docs/Web/API/SpeechRecognition/audioend_event)
-  - : Wird ausgelöst, wenn der Benutzeragent die Audioaufnahme beendet hat.
+  - : Wird ausgelöst, wenn der User-Agent die Audioerfassung beendet hat.
 - [`end`](/de/docs/Web/API/SpeechRecognition/end_event)
-  - : Wird ausgelöst, wenn der Spracherkennungsdienst die Verbindung getrennt hat.
+  - : Wird ausgelöst, wenn die Verbindung zum Spracherkennungsdienst getrennt wurde.
 - [`error`](/de/docs/Web/API/SpeechRecognition/error_event)
-  - : Wird ausgelöst, wenn ein Fehler in der Spracherkennung auftritt.
+  - : Wird ausgelöst, wenn bei der Spracherkennung ein Fehler auftritt.
 - [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event)
-  - : Wird ausgelöst, wenn der Spracherkennungsdienst ein endgültiges Ergebnis ohne signifikante Erkennung zurückgibt. Dies könnte eine gewisse Erkennung beinhalten, die den [`confidence`](/de/docs/Web/API/SpeechRecognitionAlternative/confidence)-Schwellenwert nicht erfüllt oder übertrifft.
+  - : Wird ausgelöst, wenn der Spracherkennungsdienst ein endgültiges Ergebnis ohne hinreichende Erkennung zurückgibt. Dabei kann ein gewisser Grad an Erkennung vorliegen, der den Schwellenwert für [`confidence`](/de/docs/Web/API/SpeechRecognitionAlternative/confidence) jedoch nicht erreicht oder überschreitet.
 - [`result`](/de/docs/Web/API/SpeechRecognition/result_event)
-  - : Wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis zurückgibt — ein Wort oder ein Satz wurde positiv erkannt und dies wurde an die App zurückgemeldet.
+  - : Wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis zurückgibt: Ein Wort oder eine Phrase wurde eindeutig erkannt und das Ergebnis an die Anwendung übermittelt.
 - [`soundstart`](/de/docs/Web/API/SpeechRecognition/soundstart_event)
-  - : Wird ausgelöst, wenn ein beliebiges Geräusch — erkennbar als Sprache oder nicht — erkannt wurde.
+  - : Wird ausgelöst, wenn ein beliebiges Geräusch erkannt wurde – unabhängig davon, ob es sich um erkennbare Sprache handelt.
 - [`soundend`](/de/docs/Web/API/SpeechRecognition/soundend_event)
-  - : Wird ausgelöst, wenn ein beliebiges Geräusch — erkennbar als Sprache oder nicht — nicht mehr erkannt wird.
+  - : Wird ausgelöst, wenn kein Geräusch mehr erkannt wird – unabhängig davon, ob es sich um erkennbare Sprache handelte.
 - [`speechstart`](/de/docs/Web/API/SpeechRecognition/speechstart_event)
-  - : Wird ausgelöst, wenn ein Geräusch, das vom Spracherkennungsdienst als Sprache erkannt wird, erkannt wurde.
+  - : Wird ausgelöst, wenn ein Geräusch erkannt wurde, das der Spracherkennungsdienst als Sprache identifiziert.
 - [`speechend`](/de/docs/Web/API/SpeechRecognition/speechend_event)
-  - : Wird ausgelöst, wenn Sprache, die vom Spracherkennungsdienst erkannt wird, nicht mehr erkannt wird.
+  - : Wird ausgelöst, wenn keine Sprache mehr erkannt wird.
 - [`start`](/de/docs/Web/API/SpeechRecognition/start_event)
-  - : Wird ausgelöst, wenn der Spracherkennungsdienst beginnt, auf Audio zu lauschen, um es zu erkennen.
+  - : Wird ausgelöst, wenn der Spracherkennungsdienst beginnt, auf zu erkennende Audiodaten zu warten.
 
 ## Beispiele
 
-In unserem [Speech color changer](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/)-Beispiel erstellen wir eine neue `SpeechRecognition`-Objektinstanz, indem wir den [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktor verwenden.
+In unserem Beispiel zum [Ändern der Farbe per Sprache](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/) erstellen wir mit dem Konstruktor [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) eine neue `SpeechRecognition`-Objektinstanz.
 
-Nachdem einige andere Werte definiert wurden, stellen wir dann sicher, dass der Erkennungsdienst startet, wenn eine Schaltfläche geklickt wird (siehe [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start)). Wenn ein Ergebnis erfolgreich erkannt wurde, wird das [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignis ausgelöst, wir extrahieren die gesprochene Farbe aus dem Ereignisobjekt und setzen dann die Hintergrundfarbe des {{htmlelement("html")}}-Elements auf diese Farbe.
+Nachdem einige weitere Werte definiert wurden, legen wir fest, dass der Spracherkennungsdienst beim Klicken auf eine Schaltfläche startet (siehe [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start)). Wenn ein Ergebnis erfolgreich erkannt wurde, wird das Ereignis [`result`](/de/docs/Web/API/SpeechRecognition/result_event) ausgelöst. Wir lesen dann die gesprochene Farbe aus dem Ereignisobjekt aus und setzen die Hintergrundfarbe des {{htmlelement("html")}}-Elements auf diese Farbe.
 
 ```js
 const recognition = new SpeechRecognition();

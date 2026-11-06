@@ -3,38 +3,38 @@ title: "PerformanceContainerTiming: Eigenschaft lastPaintedElement"
 short-title: lastPaintedElement
 slug: Web/API/PerformanceContainerTiming/lastPaintedElement
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`lastPaintedElement`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt das Element zurück, das im Frame, der diesen Eintrag erzeugt hat, die größte neu gezeichnete Fläche beigetragen hat.
+Die schreibgeschützte Eigenschaft **`lastPaintedElement`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) gibt das Element zurück, das in dem Frame, der diesen Eintrag erzeugt hat, die größte neu gezeichnete Fläche beigetragen hat.
 
 ## Wert
 
-Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) oder `null`, wenn keines vorhanden ist.
+Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) oder `null`, wenn kein solches Element vorhanden ist.
 
 ## Beschreibung
 
 Das `lastPaintedElement` wird für jeden Eintrag separat aus den Elementen ausgewählt, die in dem Rendering-Frame gezeichnet wurden, der den Eintrag erzeugt hat.
-Für jedes dieser Elemente ermittelt der Browser, wie viel _neue_ Fläche durch dessen Zeichnung zur [akkumulierten gezeichneten Region](/de/docs/Web/API/PerformanceContainerTiming#when_are_entries_generated) des Containers hinzukommt: Gemeint ist der Teil der gezeichneten Fläche, der noch nicht in der Region enthalten ist.
+Für jedes dieser Elemente ermittelt der Browser, wie viel _neue_ Fläche sein Zeichenvorgang zur [bereits gezeichneten Fläche](/de/docs/Web/API/PerformanceContainerTiming#when_are_entries_generated) des Containers hinzufügt – also den Teil der gezeichneten Fläche, der noch nicht darin enthalten ist.
 Das Element, das die größte neue Fläche hinzufügt, ist das `lastPaintedElement`.
 
-Das bedeutet, dass die Eigenschaft nicht unbedingt das zuletzt gezeichnete Element oder das größte im Frame gezeichnete Element bezeichnet.
+Die Eigenschaft bezeichnet daher nicht unbedingt das Element, das zuletzt gezeichnet wurde, oder das größte Element, das in diesem Frame gezeichnet wurde.
 
-Wenn Container-Roots verschachtelt sind, tragen Zeichnungen innerhalb der inneren Container-Root auch zur äußeren bei. Daher kann sich das `lastPaintedElement` eines Eintrags für einen äußeren Container innerhalb einer inneren Container-Root befinden.
+Wenn Container-Wurzelelemente verschachtelt sind, tragen Zeichenvorgänge innerhalb des inneren Container-Wurzelelements auch zum äußeren bei. Das `lastPaintedElement` eines Eintrags für den äußeren Container kann daher innerhalb eines inneren Container-Wurzelelements liegen.
 
-Die Eigenschaft kann beim Debuggen verwendet werden, um festzustellen, welcher konkrete Inhalt dazu führt, dass ein großer oder komplexer Container weiterhin Einträge erzeugt.
+Die Eigenschaft kann bei der Fehlersuche helfen, den konkreten Inhalt zu identifizieren, der dazu führt, dass für einen großen oder komplexen Container weiterhin Einträge erzeugt werden.
 
 ## Beispiele
 
 ### Das zuletzt gezeichnete Element eines Containers protokollieren
 
-Dieses Beispiel zeigt, wie `lastPaintedElement` das Element identifiziert, das in jedem Frame für die größte neu gezeichnete Fläche verantwortlich ist.
+Dieses Beispiel zeigt, wie `lastPaintedElement` in jedem Frame das Element mit der größten neu gezeichneten Fläche identifiziert.
 
 #### HTML
 
-Zunächst definieren wir ein {{htmlelement("section")}}-Element, das durch sein `containertiming`-Attribut als Container-Root mit der Kennung `"hero"` markiert ist, sowie einen Button zum Zurücksetzen des Beispiels.
+Zunächst definieren wir ein {{htmlelement("section")}}-Element, das durch sein `containertiming`-Attribut als Container-Wurzelelement mit der Kennung `"hero"` markiert ist. Außerdem fügen wir einen Button hinzu, mit dem sich das Beispiel zurücksetzen lässt.
 
 ```html
 <button id="reset">Reset</button>
@@ -43,8 +43,8 @@ Zunächst definieren wir ein {{htmlelement("section")}}-Element, das durch sein 
 </section>
 ```
 
-Beachten Sie, dass es außerdem ausgeblendetes HTML (und Code) zur Anzeige von Protokollinformationen gibt.
-Neue Protokolleinträge werden oben im Protokoll hinzugefügt.
+Beachten Sie, dass auch verborgenes HTML (und Code) zur Anzeige von Protokollinformationen vorhanden ist.
+Neue Protokolleinträge werden oben im Protokoll eingefügt.
 
 ```html hidden
 <pre id="log"></pre>
@@ -69,7 +69,7 @@ function log(text) {
 #### JavaScript
 
 Der folgende Code prüft zunächst, ob der Browser `"container"`-Einträge unterstützt. Falls nicht, protokolliert er, dass die Funktion nicht unterstützt wird.
-Anschließend erstellt er einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der für jeden Eintrag dessen `lastPaintedElement` protokolliert.
+Anschließend erstellt er einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der das `lastPaintedElement` jedes Eintrags protokolliert.
 
 ```js
 const container = document.querySelector("section");
@@ -88,9 +88,9 @@ if (PerformanceObserver.supportedEntryTypes.includes("container")) {
 }
 ```
 
-Danach verwenden wir [`setInterval()`](/de/docs/Web/API/Window/setInterval), um dem Container jede Sekunde einen neuen Absatz hinzuzufügen. Nach fünf Absätzen wird das Hinzufügen beendet.
-Jeder Absatz löst eine neue Zeichnung und einen neuen Timing-Eintrag aus.
-Beachten Sie, dass wir Inhalte zeitgesteuert hinzufügen und nicht, wenn der Benutzer auf einen Button klickt, da keine Einträge mehr gemeldet werden, nachdem der Benutzer mit der Seite interagiert hat (siehe [Die Meldung von Einträgen endet nach dem Scrollen oder nach einer Benutzereingabe](/de/docs/Web/API/PerformanceContainerTiming#reporting_stops_after_scrolling_or_user_input)).
+Danach verwenden wir [`setInterval()`](/de/docs/Web/API/Window/setInterval), um dem Container jede Sekunde einen neuen Absatz hinzuzufügen. Nach fünf Absätzen wird dies beendet.
+Jeder Absatz löst einen neuen Zeichenvorgang und einen neuen Timing-Eintrag aus.
+Beachten Sie, dass wir Inhalte zeitgesteuert hinzufügen und nicht erst, wenn Benutzer auf einen Button klicken, da nach einer Interaktion mit der Seite keine Einträge mehr gemeldet werden (siehe [Die Meldung endet nach dem Scrollen oder nach einer Benutzereingabe](/de/docs/Web/API/PerformanceContainerTiming#reporting_stops_after_scrolling_or_user_input)).
 
 ```js
 const maxParagraphs = 5;
@@ -118,8 +118,8 @@ document.querySelector("#reset").addEventListener("click", () => {
 #### Ergebnis
 
 Jede Sekunde wird ein neuer Absatz hinzugefügt.
-Jeder Absatz sollte einen neuen Protokolleintrag auslösen, der zeigt, dass der neu hinzugefügte Absatz das `lastPaintedElement` für diesen Eintrag ist.
-Klicken Sie auf den Button **Zurücksetzen**, um das Beispiel neu zu starten.
+Jeder Absatz sollte einen neuen Protokolleintrag auslösen, der zeigt, dass der neu hinzugefügte Absatz das `lastPaintedElement` dieses Eintrags ist.
+Klicken Sie auf den Button **Reset**, um das Beispiel neu zu starten.
 
 {{EmbedLiveSample("Logging the last painted element of a container", "100%", 550)}}
 

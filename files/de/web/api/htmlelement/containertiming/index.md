@@ -3,24 +3,24 @@ title: "HTMLElement: containerTiming-Eigenschaft"
 short-title: containerTiming
 slug: Web/API/HTMLElement/containerTiming
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`containerTiming`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle kennzeichnet das Element als Container-Root für die Beobachtung mit der [Container Timing API](/de/docs/Web/API/PerformanceContainerTiming).
+Die Eigenschaft **`containerTiming`** der Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement) kennzeichnet das Element als Container-Wurzel für die Beobachtung durch die [Container Timing API](/de/docs/Web/API/PerformanceContainerTiming).
 
-Die `containerTiming`-Eigenschaft spiegelt den Wert des [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming)-Attributs wider. Wenn Sie die Eigenschaft setzen, wird das Attribut hinzugefügt und das Element zum Container-Root. Befindet sich das Element bereits im Dokument, tragen nur nachfolgende Paints zu seinen Timing-Daten bei.
+Die Eigenschaft `containerTiming` spiegelt den Wert des Attributs [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming) wider. Wird die Eigenschaft gesetzt, wird das Attribut hinzugefügt und das Element damit zur Container-Wurzel. Befindet sich das Element bereits im Dokument, tragen nur nachfolgende Rendering-Vorgänge zu seinen Zeitmessdaten bei.
 
 ## Wert
 
-Ein String. Wenn das Attribut nicht gesetzt ist, ist der Wert der leere String (`""`).
+Ein String. Wenn das Attribut nicht gesetzt ist, ist der Wert ein leerer String (`""`).
 
 ## Beispiele
 
-### Den Wert von `containerTiming` protokollieren
+### Wert von `containerTiming` protokollieren
 
-In diesem Beispiel wird das {{htmlelement("section")}}-Element durch Hinzufügen des [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming)-Attributs zum Container-Root.
+In diesem Beispiel wird das {{htmlelement("section")}}-Element durch Hinzufügen des Attributs [`containertiming`](/de/docs/Web/HTML/Reference/Global_attributes/containertiming) als Container-Wurzel eingerichtet.
 
 ```html
 <section containertiming="hero" id="hero-section">
@@ -35,7 +35,7 @@ const el = document.getElementById("hero-section");
 console.log(el.containerTiming); // "hero"
 ```
 
-Beispiele dafür, wie Sie mit der Container Timing API Timing-Informationen abrufen, finden Sie unter [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming).
+Beispiele dafür, wie Sie mit der Container Timing API Zeitmessdaten abrufen, finden Sie unter [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming).
 
 ## Spezifikationen
 

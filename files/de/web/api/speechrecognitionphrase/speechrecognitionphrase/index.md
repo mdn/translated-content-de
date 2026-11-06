@@ -1,16 +1,16 @@
 ---
-title: "SpeechRecognitionPhrase: SpeechRecognitionPhrase() Konstruktor"
+title: "SpeechRecognitionPhrase: Konstruktor SpeechRecognitionPhrase()"
 short-title: SpeechRecognitionPhrase()
 slug: Web/API/SpeechRecognitionPhrase/SpeechRecognitionPhrase
 l10n:
-  sourceCommit: 4e4a4d32225264f565b63d6055fcac604d391edb
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Web Speech API")}}{{SeeCompatTable}}
+{{APIRef("Web Speech API")}}
 
-Der **`SpeechRecognitionPhrase()`** Konstruktor erstellt ein neues [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekt.
+Der Konstruktor **`SpeechRecognitionPhrase()`** erstellt ein neues [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekt.
 
-Ein Array von `SpeechRecognitionPhrase`-Objekten wird über die [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)-Eigenschaft für das [kontextuelle Beeinflussung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) in die Spracherkennungs-Engine eingefügt.
+Ein Array von `SpeechRecognitionPhrase`-Objekten wird über die Eigenschaft [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases) an die Spracherkennungs-Engine übergeben, um eine [kontextabhängige Gewichtung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) zu ermöglichen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ new SpeechRecognitionPhrase(phrase, boost)
 ### Parameter
 
 - `phrase`
-  - : Ein String, der ein Wort oder eine Phrase enthält, die bevorzugt werden soll.
+  - : Ein String mit einem Wort oder einer Wortgruppe, deren Erkennung Sie begünstigen möchten.
 - `boost` {{optional_inline}}
-  - : Eine Gleitkommazahl zwischen `0.0` und `10.0` (einschließlich), die das Gewicht darstellt, das Sie auf die `phrase` anwenden möchten. Dieser Wert ist ungefähr gleich dem natürlichen Logarithmus der Anzahl, wie viel wahrscheinlicher die Website denkt, dass diese Phrase erscheint, als das, was das Spracherkennungsmodell weiß. Höhere Werte machen es wahrscheinlicher, dass die `phrase` erkannt wird. Ein Wert von `0.0` bedeutet, dass die Phrase überhaupt nicht bevorzugt wird, während ein Wert von `10.0` bedeutet, dass die Phrase extrem wahrscheinlich erscheint. Wenn nicht angegeben, ist der Standardwert für `boost` `1.0`.
+  - : Eine Gleitkommazahl zwischen `0.0` und `10.0` (einschließlich), die angibt, wie stark `phrase` gewichtet werden soll. Der Wert entspricht ungefähr dem natürlichen Logarithmus des Faktors, um den die Wortgruppe nach Einschätzung der Website wahrscheinlicher vorkommt, als das Spracherkennungsmodell annimmt. Höhere Werte erhöhen die Wahrscheinlichkeit, dass `phrase` erkannt wird. Bei `0.0` wird die Erkennung der Wortgruppe nicht begünstigt; bei `10.0` wird angenommen, dass sie mit extrem hoher Wahrscheinlichkeit vorkommt. Wenn Sie keinen Wert angeben, ist der Standardwert für `boost` `1.0`.
     > [!NOTE]
-    > Ein hoher Wert wie `9.0` oder `10.0` könnte dazu führen, dass die Erkennungs-Engine irrtümlich andere Phrasen als die angegebene Phrase erkennt. Daher sollten solche Werte selten verwendet werden, wenn `SpeechRecognitionPhrase`-Objekte erstellt werden.
+    > Ein hoher Wert wie `9.0` oder `10.0` kann dazu führen, dass die Erkennungs-Engine andere Wortgruppen fälschlicherweise als die angegebene Wortgruppe erkennt. Verwenden Sie solche Werte daher beim Erstellen von `SpeechRecognitionPhrase`-Objekten nur selten.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Ein neues [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der angegebene `boost`-Wert ist kleiner als `0.0` oder größer als `10.0`.
+  - : Der angegebene Wert für `boost` ist kleiner als `0.0` oder größer als `10.0`.
 
 ## Spezifikationen
 

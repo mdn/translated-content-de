@@ -1,11 +1,11 @@
 ---
-title: "Modifier: (?ims-ims:...)"
+title: "Modifikator: (?ims-ims:...)"
 slug: Web/JavaScript/Reference/Regular_expressions/Modifier
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 288e644117c29285df2acf37a2ac97f57546a146
 ---
 
-Ein **Modifier** überschreibt die [Flag](/de/docs/Web/JavaScript/Reference/Regular_expressions#regex_flags)-Einstellungen in einem bestimmten Teil eines regulären Ausdrucks. Er kann verwendet werden, um Flags zu aktivieren oder zu deaktivieren, die die Bedeutungen bestimmter Regex-Syntaxelemente ändern. Diese Flags sind [`i`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase), [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) und [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll).
+Ein **Modifikator** überschreibt die Einstellungen von [Flags](/de/docs/Web/JavaScript/Reference/Regular_expressions#regex_flags) in einem bestimmten Teil eines regulären Ausdrucks. Damit lassen sich Flags aktivieren oder deaktivieren, die die Bedeutung bestimmter Syntaxelemente eines regulären Ausdrucks ändern. Diese Flags sind [`i`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase), [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) und [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll).
 
 ## Syntax
 
@@ -15,52 +15,52 @@ Ein **Modifier** überschreibt die [Flag](/de/docs/Web/JavaScript/Reference/Regu
 ```
 
 > [!NOTE]
-> JavaScript hat nur die "bounded" Modifier-Form, bei der das Muster innerhalb der Modifier-Gruppe platziert wird. Die meisten anderen Sprachen, die Modifier unterstützen, haben eine "unbounded" Form, bei der der Modifier bis zum Ende der am nächsten liegenden umschließenden Gruppe angewendet wird.
+> JavaScript unterstützt nur die „begrenzte“ Form des Modifikators, bei der das Muster innerhalb der Modifikatorgruppe steht. Die meisten anderen Sprachen, die Modifikatoren unterstützen, bieten auch eine „unbegrenzte“ Form, bei der der Modifikator bis zum Ende der nächstgelegenen umschließenden Gruppe gilt.
 
 ### Parameter
 
 - `flags1` {{optional_inline}}
-  - : Eine Zeichenkette von Flags, die aktiviert werden sollen. Kann jede Kombination von `i`, `m` und `s` enthalten.
+  - : Eine Zeichenfolge mit zu aktivierenden Flags. Sie kann eine beliebige Kombination aus `i`, `m` und `s` enthalten.
 - `flags2` {{optional_inline}}
-  - : Eine Zeichenkette von Flags, die deaktiviert werden sollen. Kann jede Kombination von `i`, `m` und `s` enthalten, darf jedoch keine Flags enthalten, die in `flags1` enthalten sind.
+  - : Eine Zeichenfolge mit zu deaktivierenden Flags. Sie kann eine beliebige Kombination aus `i`, `m` und `s` enthalten, darf aber keine Flags enthalten, die bereits in `flags1` vorkommen.
 - `pattern`
-  - : Ein Muster, das alles enthält, was Sie in einem Regex-Literal verwenden können, einschließlich einer [Disjunction](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
+  - : Ein Muster, das alles enthalten kann, was in einem Regex-Literal zulässig ist, einschließlich einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
 
 ## Beschreibung
 
-Einige Flags ändern die Bedeutungen von Regex-Syntaxelementen:
+Einige Flags ändern die Bedeutung von Syntaxelementen regulärer Ausdrücke:
 
-- Das [`i`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase)-Flag macht den Regex durch alle [Literalzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) und [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) implizit in Kleinbuchstaben zu deklariertem insensitive.
-- Das [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline)-Flag ändert das Verhalten von [Eingabegrenzen-Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion) `^` und `$`, um den Anfang und das Ende jeder Zeile sowie den Anfang und das Ende der Eingabezeichenkette zu erfassen.
-- Das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll)-Flag ändert das Verhalten des [Wildcard](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)-Zeichens `.` so, dass es jedes Zeichen einschließlich Zeilenendzeichen erfasst.
+- Das Flag [`i`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) macht den regulären Ausdruck unabhängig von der Groß- und Kleinschreibung, indem es die Schreibweise von [literalen Zeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) und [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) normalisiert.
+- Das Flag [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) ändert das Verhalten der [Zusicherungen für Eingabegrenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion) `^` und `$`: Sie entsprechen dann nicht nur dem Anfang und Ende der Eingabezeichenfolge, sondern auch dem Anfang und Ende jeder Zeile.
+- Das Flag [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll) ändert das Verhalten des [Platzhalters](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard) `.`: Er entspricht dann jedem Zeichen, einschließlich Zeilenumbruchzeichen.
 
-Manchmal möchten Sie, dass diese Änderungen nur in einem bestimmten Teil eines Regex-Musters wirksam werden. Sie können dies tun, indem Sie diesen Teil in einen Modifier einschließen. Zum Beispiel:
+Manchmal sollen diese Änderungen nur in einem bestimmten Teil eines Regex-Musters gelten. Dazu können Sie diesen Teil in einen Modifikator einschließen. Zum Beispiel:
 
 ```js
 /(?i:Hello) world/;
 ```
 
-In diesem Regex ist das `i`-Flag nur für den `Hello`-Teil des Musters aktiviert. Der `world`-Teil ist groß-/klein-schreibungssensitiv. Daher passt es zu `Hello world`, `hello world` und `HELLO world`, aber nicht zu `HELLO WORLD`. Das Folgende ist gleichwertig, indem das `i`-Flag global aktiviert und dann für den `world`-Teil deaktiviert wird:
+In diesem regulären Ausdruck ist das Flag `i` nur für den Teil `Hello` des Musters aktiviert. Beim Teil `world` wird zwischen Groß- und Kleinschreibung unterschieden. Daher werden `Hello world`, `hello world` und `HELLO world` erkannt, nicht aber `HELLO WORLD`. Das folgende Muster ist gleichwertig: Es aktiviert das Flag `i` für den gesamten regulären Ausdruck und deaktiviert es anschließend für den Teil `world`:
 
 ```js
 /Hello (?-i:world)/i;
 ```
 
-Die Parameter `flags1` und `flags2` können jede Kombination von `i`, `m` und `s` enthalten. Die Flags müssen jedoch eineindeutig zwischen `flags1` und `flags2` sein — Sie können ein Flag nicht doppelt aktivieren oder deaktivieren oder ein Flag aktivieren und dann sofort deaktivieren.
+Die Parameter `flags1` und `flags2` können jede beliebige Kombination aus `i`, `m` und `s` enthalten. Jedes Flag darf jedoch in `flags1` und `flags2` zusammen nur einmal vorkommen: Sie können ein Flag weder zweimal aktivieren oder deaktivieren noch es aktivieren und unmittelbar danach deaktivieren.
 
-Die Parameter `flags1` und `flags2` sind optional, aber mindestens einer muss nicht leer sein. `(?flags1-:pattern)` ist ein Modifier, der nur Flags aktiviert (äquivalent zu `(?flags1:pattern)`). `(?-flags2:pattern)` ist ein Modifier, der nur Flags deaktiviert. `(?:pattern)` ist nur eine [nicht-erfassende Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group), und `(?-:pattern)` ist ein Syntaxfehler.
+Die Parameter `flags1` und `flags2` sind optional, aber mindestens einer von ihnen darf nicht leer sein. `(?flags1-:pattern)` ist ein Modifikator, der nur Flags aktiviert (gleichwertig mit `(?flags1:pattern)`). `(?-flags2:pattern)` ist ein Modifikator, der nur Flags deaktiviert. `(?:pattern)` ist lediglich eine [nicht-erfassende Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group), und `(?-:pattern)` ist ein Syntaxfehler.
 
-Andere Flags sind in einem Modifier unsinnig und führen zu Syntaxfehlern, wenn sie eingeschlossen werden:
+Andere Flags sind in einem Modifikator nicht sinnvoll und verursachen daher einen Syntaxfehler, wenn sie darin enthalten sind:
 
-- Die Flags [`g`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) und [`y`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky) bestimmen das Verhalten mehrerer Aufrufe von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und beeinflussen das Übereinstimmungsverhalten des gesamten Regex.
-- Das [`d`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices)-Flag aktiviert zusätzliche Informationen im [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Ergebnis und beeinflusst das Übereinstimmungsverhalten des gesamten Regex.
-- Die Flags [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) und [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) ändern das Verhalten der Regex-Engine auf eine Weise, die zu komplex ist, um lokal modifiziert zu werden. Sie haben auch globale Auswirkungen auf den Regex, wie das Fortschreiten des [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex).
+- Die Flags [`g`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) und [`y`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky) bestimmen, wie sich mehrere Aufrufe von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) verhalten, und beeinflussen das Abgleichverhalten des gesamten regulären Ausdrucks.
+- Das Flag [`d`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices) aktiviert zusätzliche Informationen im Ergebnis von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und beeinflusst das Abgleichverhalten des gesamten regulären Ausdrucks.
+- Die Flags [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) und [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) ändern das Verhalten der Regex-Engine auf eine Weise, die zu komplex ist, um sie auf einen Teil des Musters zu beschränken. Sie wirken sich außerdem auf den gesamten regulären Ausdruck aus, beispielsweise darauf, wie [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) weitergesetzt wird.
 
 ## Beispiele
 
-### Übereinstimmung eines mehrzeiligen Formats nur am Anfang der Zeichenkette
+### Ein mehrzeiliges Format nur am Anfang der Zeichenfolge erkennen
 
-Der folgende Regex definiert ein Format für eine mehrzeilige Zeichenkette. Das erste `^` stellt den Anfang der gesamten Eingabezeichenkette dar, indem es sich innerhalb eines `(?-m:)`-Modifiers befindet, während alle anderen `^`-Zeichen den Anfang einer Zeile darstellen:
+Der folgende reguläre Ausdruck definiert ein Format für eine mehrzeilige Zeichenfolge. Das erste `^` steht für den Anfang der gesamten Eingabezeichenfolge, da es sich innerhalb eines `(?-m:)`-Modifikators befindet. Alle anderen `^`-Zeichen stehen dagegen für den Anfang einer Zeile:
 
 ```js
 const pattern = /(?-m:^)---\n^title:.*^slug:.*^---/ms;
@@ -78,9 +78,9 @@ const input2 = `\n${input}`;
 pattern.test(input2); // false
 ```
 
-### Bestimmte Wörter ohne Berücksichtigung der Groß-/Kleinschreibung finden
+### Bestimmte Wörter unabhängig von der Groß- und Kleinschreibung erkennen
 
-Stellen Sie sich vor, Sie suchen alle Variablendeklarationen, die `foo` oder `bar` heißen (da sie schlechte Namen sind). Das Wort kann in beliebiger Groß-/Kleinschreibung erscheinen, aber Sie wissen, dass das Schlüsselwort immer in Kleinbuchstaben ist, also können Sie das tun:
+Angenommen, Sie suchen nach allen Variablendeklarationen mit den Namen `foo` oder `bar` (weil dies schlechte Namen sind). Der Name kann in beliebiger Groß- und Kleinschreibung vorkommen, aber Sie wissen, dass das Schlüsselwort immer kleingeschrieben ist. Daher können Sie Folgendes verwenden:
 
 ```js
 const pattern = /(?:var|let|const) (?i:foo|bar)\b/;
@@ -100,6 +100,6 @@ pattern.test("Let foo be a number"); // false
 
 ## Siehe auch
 
-- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
+- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) – Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Nicht-erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)

@@ -1,14 +1,14 @@
 ---
-title: "SpeechRecognitionPhrase: phrase-Eigenschaft"
+title: "SpeechRecognitionPhrase: Eigenschaft phrase"
 short-title: phrase
 slug: Web/API/SpeechRecognitionPhrase/phrase
 l10n:
-  sourceCommit: 11478c4adedc859a4fe3e3c4004fcfd96ebc1eba
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Web Speech API")}}{{SeeCompatTable}}
+{{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`phrase`**-Eigenschaft der [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Schnittstelle gibt einen String zurück, der das Wort oder die Phrase enthält, die im Erkennungs-Engine-Kontext mit einem [kontextuellen Bias](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) verstärkt werden soll.
+Die schreibgeschützte Eigenschaft **`phrase`** der Schnittstelle [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase) gibt einen String zurück, der das Wort oder die Wortgruppe enthält, deren Erkennung durch die [kontextuelle Gewichtung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) der Spracherkennungs-Engine verbessert werden soll.
 
 ## Wert
 
@@ -18,13 +18,13 @@ Ein String.
 
 ### Grundlegende Verwendung
 
-Die [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)-Eigenschaft enthält ein Array von `SpeechRecognitionPhrase`-Objekten, die kontextuelle Biasing-Phrasen darstellen. Dieses Array kann wie ein normales JavaScript-Array modifiziert werden, indem beispielsweise dynamisch neue Phrasen hinzugefügt werden:
+Die Eigenschaft [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases) enthält ein Array von `SpeechRecognitionPhrase`-Objekten, die Wortgruppen für die kontextuelle Gewichtung darstellen. Dieses Array kann wie ein normales JavaScript-Array verändert werden, beispielsweise indem dynamisch neue Wortgruppen hinzugefügt werden:
 
 ```js
 recognition.phrases.push(new SpeechRecognitionPhrase("thistle", 5.0));
 ```
 
-Sie können dann auf diese Objekte und ihre Eigenschaften zugreifen. Um den `phrase`-Wert der hinzugefügten Phrase zurückzugeben, könnten Sie dies tun:
+Anschließend können Sie wie folgt auf diese Objekte und ihre Eigenschaften zugreifen. Um den Wert von `phrase` für die hinzugefügte Wortgruppe abzurufen, können Sie Folgendes tun:
 
 ```js
 // Should return "thistle"

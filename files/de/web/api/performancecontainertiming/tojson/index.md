@@ -3,10 +3,10 @@ title: "PerformanceContainerTiming: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PerformanceContainerTiming/toJSON
 l10n:
-  sourceCommit: 4d218f9fdff30e8e01a26402b9f9615c9527ccf6
+  sourceCommit: 076ee5b53d5e933e7fc2fd5eff68304f9691148e
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
 Die Methode **`toJSON()`** der Schnittstelle [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming) ist ein {{Glossary("Serialization", "Serializer")}}. Sie gibt eine JSON-Darstellung des [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming)-Objekts zurück.
 
@@ -24,7 +24,7 @@ Keine.
 
 Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceContainerTiming`](/de/docs/Web/API/PerformanceContainerTiming)-Objekts darstellt.
 
-Das JSON-Objekt enthält weder die Eigenschaft [`lastPaintedElement`](/de/docs/Web/API/PerformanceContainerTiming/lastPaintedElement) noch die Eigenschaft [`rootElement`](/de/docs/Web/API/PerformanceContainerTiming/rootElement), da beide vom Typ [`HTMLElement`](/de/docs/Web/API/HTMLElement) sind und dieser keine `toJSON()`-Operation bereitstellt.
+Das JSON enthält weder die Eigenschaft [`lastPaintedElement`](/de/docs/Web/API/PerformanceContainerTiming/lastPaintedElement) noch die Eigenschaft [`rootElement`](/de/docs/Web/API/PerformanceContainerTiming/rootElement). Beide sind vom Typ [`HTMLElement`](/de/docs/Web/API/HTMLElement), der keine `toJSON()`-Operation bereitstellt.
 
 ## Beispiele
 
@@ -34,8 +34,8 @@ Dieses Beispiel zeigt, wie die Methode `toJSON()` verwendet wird.
 
 #### HTML
 
-Zunächst definieren wir ein {{htmlelement("section")}}-Element, das durch sein `containertiming`-Attribut als Container-Wurzelelement mit der Kennung `"hero"` markiert ist.
-Der Abschnitt enthält zwei weitere Elemente, die gerendert werden und dadurch einen Eintrag zur Container-Performance erzeugen.
+Zunächst definieren wir ein {{htmlelement("section")}}-Element, das durch sein `containertiming`-Attribut als Container-Root mit der Kennung `"hero"` markiert ist.
+Der Abschnitt enthält zwei weitere Elemente, die gezeichnet werden und so einen Container-Performance-Eintrag erzeugen.
 
 ```html
 <section containertiming="hero">
@@ -44,7 +44,7 @@ Der Abschnitt enthält zwei weitere Elemente, die gerendert werden und dadurch e
 </section>
 ```
 
-Beachten Sie, dass es außerdem verborgenes HTML (und Code) zur Anzeige von Protokollinformationen gibt.
+Beachten Sie, dass auch verborgenes HTML (und Code) zur Anzeige von Protokollinformationen vorhanden ist.
 
 ```html hidden
 <pre id="log"></pre>
@@ -88,12 +88,12 @@ if (PerformanceObserver.supportedEntryTypes.includes("container")) {
 
 #### Ergebnis
 
-Die JSON-Ausgabe wird im Protokoll angezeigt, das auf die Elemente folgt.
+Die JSON-Ausgabe wird im Protokoll unterhalb der Elemente angezeigt.
 
 {{EmbedLiveSample("Using the toJSON method", "100%", 500)}}
 
-Beachten Sie, dass in diesem Fall nur ein Eintrag protokolliert wird, obwohl das Container-Wurzelelement zwei Kindelemente hat, da beide Elemente im ersten Frame des Containers gerendert werden.
-Der Browser erzeugt für jedes Container-Wurzelelement pro Rendering-Frame höchstens einen `PerformanceContainerTiming`-Eintrag. Dabei werden alle Elemente zusammengefasst, die während dieses Frames gerendert werden.
+Beachten Sie, dass in diesem Fall nur ein Eintrag protokolliert wird, obwohl der Container-Root zwei Kindelemente hat: Beide Elemente werden im ersten Frame des Containers gezeichnet.
+Der Browser erzeugt pro Container-Root und Rendering-Frame höchstens einen `PerformanceContainerTiming`-Eintrag. Dabei fasst er alle Elemente zusammen, die während dieses Frames gezeichnet werden.
 
 Der Eintrag sollte ungefähr so aussehen:
 
