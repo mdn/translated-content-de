@@ -2,12 +2,12 @@
 title: Beispiel 4
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_4
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 912d9d7cc46ac052cd4e9c5df3c02a7b145b9ad8
 ---
 
-Dies ist das vierte Beispiel, das erklärt, [wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
+Dies ist das vierte Beispiel, das zeigt, [wie Sie benutzerdefinierte Formularsteuerelemente erstellen](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
 
-## Statusänderungen
+## Zustände ändern
 
 ### HTML
 
@@ -242,12 +242,7 @@ selectList.forEach((select) => {
   select.addEventListener("blur", (event) => {
     deactivateSelect(select);
   });
-});
 
-const selectList = document.querySelectorAll(".select");
-
-selectList.forEach((select) => {
-  const optionList = select.querySelectorAll(".option");
   const selectedIndex = getIndex(select);
 
   select.tabIndex = 0;

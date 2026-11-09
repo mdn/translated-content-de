@@ -3,12 +3,12 @@ title: WEBGL_compressed_texture_astc-Erweiterung
 short-title: WEBGL_compressed_texture_astc
 slug: Web/API/WEBGL_compressed_texture_astc
 l10n:
-  sourceCommit: dd898d5f2411a1743936097781268b5d649acdf9
+  sourceCommit: 6ebcc8e9ef40dad788157ffeddcecd8805041f16
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Erweiterung **`WEBGL_compressed_texture_astc`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt WebGL komprimierte Texturformate der [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) zur Verfügung.
+Die **`WEBGL_compressed_texture_astc`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt WebGL komprimierte Texturformate auf Basis von [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) zur Verfügung.
 
 Weitere Informationen finden Sie im Artikel [ASTC-Texturkomprimierung für Spiel-Assets verwenden](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
 
@@ -18,14 +18,7 @@ Weitere Informationen finden Sie unter [WebGL-Erweiterungen verwenden](/de/docs/
 > [!NOTE]
 > ASTC-Komprimierung ist üblicherweise auf Mali-ARM-GPUs, Intel-GPUs und NVIDIA-Tegra-Chips verfügbar.
 >
-> Diese Erweiterung ist sowohl in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch in [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten verfügbar.
-
-## Instanzmethoden
-
-Diese Erweiterung stellt eine neue Methode bereit.
-
-- [`ext.getSupportedProfiles()`](/de/docs/Web/API/WEBGL_compressed_texture_astc/getSupportedProfiles)
-  - : Gibt ein Array von Strings mit den Namen der ASTC-Profile zurück, die von der Implementierung unterstützt werden.
+> Diese Erweiterung ist sowohl in [WebGL1-](/de/docs/Web/API/WebGLRenderingContext) als auch in [WebGL2-Kontexten](/de/docs/Web/API/WebGL2RenderingContext) verfügbar.
 
 ## Konstanten
 
@@ -226,6 +219,13 @@ Die komprimierten Texturformate werden durch 28 Konstanten bereitgestellt und k�
     </tr>
   </tbody>
 </table>
+
+## Instanzmethoden
+
+Diese Erweiterung stellt eine neue Methode bereit.
+
+- [`ext.getSupportedProfiles()`](/de/docs/Web/API/WEBGL_compressed_texture_astc/getSupportedProfiles)
+  - : Gibt ein Array von Strings zurück, das die Namen der von der Implementierung unterstützten ASTC-Profile enthält.
 
 ## Beispiele
 

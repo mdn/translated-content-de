@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: getParameter() Methode"
+title: "WebGLRenderingContext: Methode getParameter()"
 short-title: getParameter()
 slug: Web/API/WebGLRenderingContext/getParameter
 l10n:
-  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
+  sourceCommit: 4707a91d383770b89cbb38bd5c6c373a25b25790
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getParameter()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt einen Wert für den übergebenen Parameternamen zurück.
+Die Methode **`WebGLRenderingContext.getParameter()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt einen Wert für den übergebenen Parameternamen zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getParameter(pname)
 ### Parameter
 
 - `pname`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welcher Parameterwert zurückgegeben werden soll. Siehe unten für mögliche Werte.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welcher Parameterwert zurückgegeben werden soll. Mögliche Werte finden Sie weiter unten.
 
 ### Rückgabewert
 
@@ -29,13 +29,13 @@ Hängt vom Parameter ab.
 
 ### WebGL 1
 
-Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) verwenden.
+Bei Verwendung eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) können Sie die folgenden `pname`-Parameter abfragen.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th scope="col">Konstante</th>
-      <th scope="col">Zurückgegebener Typ</th>
+      <th scope="col">Rückgabetyp</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
@@ -132,8 +132,8 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGLRend
       <td><code>gl.COMPRESSED_TEXTURE_FORMATS</code></td>
       <td>{{jsxref("Uint32Array")}}</td>
       <td>
-        Gibt die Formate komprimierter Texturen zurück.<br /><br />Bei Verwendung der
-        [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc)-Erweiterung:
+        Gibt die komprimierten Texturformate zurück.<br /><br />Bei Verwendung der Erweiterung
+        [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc):
         <ul>
           <li><code>ext.COMPRESSED_RGB_S3TC_DXT1_EXT</code></li>
           <li><code>ext.COMPRESSED_RGBA_S3TC_DXT1_EXT</code></li>
@@ -141,8 +141,8 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGLRend
           <li><code>ext.COMPRESSED_RGBA_S3TC_DXT5_EXT</code></li>
         </ul>
         <p>
-          Bei Verwendung der
-          [`WEBGL_compressed_texture_s3tc_srgb`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc_srgb)-Erweiterung:
+          Bei Verwendung der Erweiterung
+          [`WEBGL_compressed_texture_s3tc_srgb`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc_srgb):
         </p>
         <ul>
           <li><code>ext.COMPRESSED_SRGB_S3TC_DXT1_EXT</code></li>
@@ -150,7 +150,7 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGLRend
           <li><code>ext.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT</code></li>
           <li><code>ext.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT</code></li>
         </ul>
-        Bei Verwendung der [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)-Erweiterung:
+        Bei Verwendung der Erweiterung [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc):
         <ul>
           <li><code>ext.COMPRESSED_R11_EAC</code></li>
           <li><code>ext.COMPRESSED_SIGNED_R11_EAC</code></li>
@@ -163,21 +163,21 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGLRend
           <li><code>ext.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2</code></li>
           <li><code>ext.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2</code></li>
         </ul>
-        Bei Verwendung der
-        [`WEBGL_compressed_texture_pvrtc`](/de/docs/Web/API/WEBGL_compressed_texture_pvrtc)-Erweiterung:
+        Bei Verwendung der Erweiterung
+        [`WEBGL_compressed_texture_pvrtc`](/de/docs/Web/API/WEBGL_compressed_texture_pvrtc):
         <ul>
           <li><code>ext.COMPRESSED_RGB_PVRTC_4BPPV1_IMG</code></li>
           <li><code>ext.COMPRESSED_RGBA_PVRTC_4BPPV1_IMG</code></li>
           <li><code>ext.COMPRESSED_RGB_PVRTC_2BPPV1_IMG</code></li>
           <li><code>ext.COMPRESSED_RGBA_PVRTC_2BPPV1_IMG</code></li>
         </ul>
-        Bei Verwendung der
-        [`WEBGL_compressed_texture_etc1`](/de/docs/Web/API/WEBGL_compressed_texture_etc1)-Erweiterung:
+        Bei Verwendung der Erweiterung
+        [`WEBGL_compressed_texture_etc1`](/de/docs/Web/API/WEBGL_compressed_texture_etc1):
         <ul>
           <li><code>ext.COMPRESSED_RGB_ETC1_WEBGL</code></li>
         </ul>
-        Bei Verwendung der
-        [`WEBGL_compressed_texture_astc`](/de/docs/Web/API/WEBGL_compressed_texture_astc)-Erweiterung:
+        Bei Verwendung der Erweiterung
+        [`WEBGL_compressed_texture_astc`](/de/docs/Web/API/WEBGL_compressed_texture_astc):
         <ul>
           <li><code>ext.COMPRESSED_RGBA_ASTC_4x4_KHR</code></li>
           <li><code>ext.COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR</code></li>
@@ -586,13 +586,13 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGLRend
 
 ### WebGL 2
 
-Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) verwenden.
+Bei Verwendung eines [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) können Sie die folgenden `pname`-Parameter abfragen.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th scope="col">Konstante</th>
-      <th scope="col">Zurückgegebener Typ</th>
+      <th scope="col">Rückgabetyp</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
@@ -974,13 +974,13 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie einen [`WebGL2Ren
 
 ### WebGL-Erweiterungen
 
-Sie können die folgenden `pname`-Parameter abfragen, wenn Sie [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) verwenden:
+Bei Verwendung von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) können Sie die folgenden `pname`-Parameter abfragen:
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th scope="col">Konstante</th>
-      <th scope="col">Zurückgegebener Typ</th>
+      <th scope="col">Rückgabetyp</th>
       <th scope="col">Erweiterung</th>
       <th scope="col">Beschreibung</th>
     </tr>
@@ -990,14 +990,14 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie [WebGL-Erweiterun
       <td><code>ext.MAX_TEXTURE_MAX_ANISOTROPY_EXT</code></td>
       <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`EXT_texture_filter_anisotropic`](/de/docs/Web/API/EXT_texture_filter_anisotropic)</td>
-      <td>Maximale verfügbare Anisotropie.</td>
+      <td>Maximal verfügbare Anisotropie.</td>
     </tr>
     <tr>
       <td><code>ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES</code></td>
       <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives)</td>
       <td>
-        Genauigkeit der Ableitungsberechnung für die GLSL-Builtin-Funktionen:
+        Genauigkeit der Ableitungsberechnung für die integrierten GLSL-Funktionen:
         <code>dFdx</code>, <code>dFdy</code> und <code>fwidth</code>.
       </td>
     </tr>
@@ -1005,13 +1005,13 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie [WebGL-Erweiterun
       <td><code>ext.MAX_COLOR_ATTACHMENTS_WEBGL</code></td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)</td>
-      <td>Die maximale Anzahl an Framebuffer-Farbanschlusspunkten.</td>
+      <td>Die maximale Anzahl von Farb-Anbindungspunkten eines Framebuffers.</td>
     </tr>
     <tr>
       <td><code>ext.MAX_DRAW_BUFFERS_WEBGL</code></td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)</td>
-      <td>Die maximale Anzahl an Zeichnungspuffern.</td>
+      <td>Die maximale Anzahl von Zeichenpuffern.</td>
     </tr>
     <tr>
       <td>
@@ -1021,7 +1021,7 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie [WebGL-Erweiterun
       </td>
       <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)</td>
-      <td>Zeichnungspuffer.</td>
+      <td>Zeichenpuffer.</td>
     </tr>
     <tr>
       <td><code>ext.VERTEX_ARRAY_BINDING_OES</code></td>
@@ -1042,14 +1042,20 @@ Sie können die folgenden `pname`-Parameter abfragen, wenn Sie [WebGL-Erweiterun
       <td>[`GLboolean`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)</td>
       <td>
-        <p>Gibt zurück, ob die GPU eine nicht zusammenhängende Operation durchgeführt hat oder nicht.</p>
+        <p>Gibt zurück, ob die GPU eine disjunkte Operation ausgeführt hat.</p>
       </td>
     </tr>
     <tr>
       <td><code>ext.MAX_VIEWS_OVR</code></td>
       <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
       <td>[`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2)</td>
-      <td>Maximale Anzahl an Ansichten.</td>
+      <td>Maximale Anzahl von Ansichten.</td>
+    </tr>
+    <tr>
+      <td><code>ext.POLYGON_OFFSET_CLAMP_EXT</code></td>
+      <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
+      <td>[`EXT_polygon_offset_clamp`](/de/docs/Web/API/EXT_polygon_offset_clamp)</td>
+      <td>Maximaler oder minimaler Tiefenversatz.</td>
     </tr>
   </tbody>
 </table>
