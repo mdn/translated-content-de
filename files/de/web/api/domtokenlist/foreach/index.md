@@ -3,12 +3,12 @@ title: "DOMTokenList: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/DOMTokenList/forEach
 l10n:
-  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
+  sourceCommit: c6a4f163003ff1a236ebd22d6d0dda79bbad0e3f
 ---
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ruft die als Parameter übergebene Callback-Funktion einmal für jeden Wert in der Liste auf, und zwar in der Reihenfolge, in der die Werte eingefügt wurden.
+Die Methode **`forEach()`** der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) ruft den übergebenen Callback einmal für jeden Wert in der Liste auf, und zwar in der Reihenfolge, in der die Werte eingefügt wurden.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ forEach(callback, thisArg)
 ### Parameter
 
 - `callback`
-  - : Die Funktion, die für jedes Element ausgeführt wird. Sie erhält bis zu drei Argumente:
+  - : Die Funktion, die für jedes Element ausgeführt wird. Sie kann drei Argumente entgegennehmen:
     - `currentValue`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `currentIndex`
@@ -29,7 +29,7 @@ forEach(callback, thisArg)
       - : Das Array, auf das `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Der Wert, der bei der Ausführung von `callback` als {{jsxref("this")}} verwendet wird.
+  - : Der Wert, der beim Ausführen von `callback` als {{jsxref("this")}} verwendet wird.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner.
 
 ## Beispiel
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die für ein {{htmlelement("pre")}}-Element festgelegt wurden. Dazu verwenden wir [`Element.classList`](/de/docs/Web/API/Element/classList), das eine `DOMTokenList` zurückgibt. Anschließend durchlaufen wir die Werte mit `forEach()` und schreiben jeden Wert innerhalb der Callback-Funktion in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<pre>`-Elements.
+Im folgenden Beispiel rufen wir die Liste der Klassen eines {{htmlelement("pre")}}-Elements mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend durchlaufen wir die Werte mit `forEach()` und schreiben jeden Wert innerhalb der Callback-Funktion in die Eigenschaft [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<pre>`-Elements.
 
 ### HTML
 

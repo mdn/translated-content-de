@@ -1,18 +1,18 @@
 ---
-title: "Element: pseudo() Methode"
+title: "Element: pseudo()-Methode"
 short-title: pseudo()
 slug: Web/API/Element/pseudo
 l10n:
-  sourceCommit: b0db98a5c5a6cc7dbc519c272ab0572f6481afc6
+  sourceCommit: 1b1802abb7dc82aba2a13c429d25a34aaa945acf
 ---
 
 {{SeeCompatTable}}
 
-{{APIRef("DOM")}}.
+{{APIRef("DOM")}}
 
-Die **`pseudo()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle gibt ein [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) Objekt zurück, das das [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) des angegebenen Typs darstellt, das dem Element zugeordnet ist.
+Die **`pseudo()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt ein [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Objekt zurück, das das dem Element zugeordnete [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) des angegebenen Typs repräsentiert.
 
-Sofern der `type`-Parameter einen gültigen Pseudo-Element-Typ enthält, gibt `pseudo()` immer eine `CSSPseudoElement` Instanz zurück, selbst wenn dieses Pseudo-Element nicht am aufrufenden Element generiert wurde.
+Wenn der Parameter `type` einen gültigen Pseudoelementtyp enthält, gibt `pseudo()` immer eine `CSSPseudoElement`-Instanz zurück – auch wenn dieses Pseudoelement für das aufrufende Element nicht generiert wurde.
 
 ## Syntax
 
@@ -23,24 +23,24 @@ pseudo(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Pseudo-Elements repräsentiert, von dem eine Repräsentation zurückgegeben werden soll. Gültige Werte sind:
+  - : Eine Zeichenfolge, die den Typ des Pseudoelements angibt, für das eine Repräsentation zurückgegeben werden soll. Gültige Werte sind:
     - {{cssxref("::after")}}
     - {{cssxref("::before")}}
     - {{cssxref("::marker")}}
 
 ### Rückgabewert
 
-Ein [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) Objekt, oder `null`, wenn `type` nicht gleich einem gültigen Pseudo-Element-Typ ist.
+Eine [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Objektinstanz oder `null`, wenn `type` keinem gültigen Pseudoelementtyp entspricht.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel demonstrieren wir die grundlegende Verwendung der `pseudo()` Methode.
+Dieses Beispiel zeigt die grundlegende Verwendung der `pseudo()`-Methode.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("p")}} Element mit Text und ein {{htmlelement("output")}} Element zum Protokollieren von Ausgaben aus JavaScript ein.
+Wir fügen ein {{htmlelement("p")}}-Element mit Text und ein {{htmlelement("output")}}-Element zur Ausgabe von JavaScript-Ergebnissen ein.
 
 ```html live-sample___basic
 <p>New York's hottest club is...</p>
@@ -49,7 +49,7 @@ Wir fügen ein {{htmlelement("p")}} Element mit Text und ein {{htmlelement("outp
 
 #### CSS
 
-Wir geben dem `<p>` Element's {{cssxref("::after")}} Pseudo-Element etwas {{cssxref("content")}} und wenden einige grundlegende Stile auf beide an.
+Wir weisen dem {{cssxref("::after")}}-Pseudoelement des `<p>`-Elements einen {{cssxref("content")}}-Wert zu und versehen beide mit einfachen Stilen.
 
 ```css hidden live-sample___basic
 body {
@@ -73,7 +73,7 @@ p::after {
 
 #### JavaScript
 
-In unserem Skript holen wir uns Referenzen zu unseren `<p>` und `<output>` Elementen und erhalten ein `CSSPseudoElement`, das das `::after` Pseudo-Element des `<p>` Elements über die `pseudo()` Methode darstellt. Wir protokollieren dann einige Details des Pseudo-Elements in unser `<output>` Element. Wir beinhalten auch eine rudimentäre Fehlerbehandlung durch eine [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) Struktur, um eine Fehlermeldung in nicht unterstützenden Browsern auszugeben.
+In unserem Skript rufen wir Referenzen auf die Elemente `<p>` und `<output>` ab. Mithilfe der `pseudo()`-Methode erhalten wir ein `CSSPseudoElement`, das das `::after`-Pseudoelement des `<p>`-Elements repräsentiert. Anschließend geben wir einige Details zum Pseudoelement im `<output>`-Element aus. Außerdem verwenden wir eine einfache Fehlerbehandlung mit einer [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Struktur, um in Browsern ohne Unterstützung eine Fehlermeldung auszugeben.
 
 ```js live-sample___basic
 const pElem = document.querySelector("p");

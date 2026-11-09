@@ -1,14 +1,14 @@
 ---
-title: "DOMTokenList: Methode entries()"
+title: "DOMTokenList: entries()-Methode"
 short-title: entries()
 slug: Web/API/DOMTokenList/entries
 l10n:
-  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
+  sourceCommit: c6a4f163003ff1a236ebd22d6d0dda79bbad0e3f
 ---
 
 {{APIRef("DOM")}}
 
-Die Methode **`entries()`** der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem Sie alle in diesem Objekt enthaltenen Schlüssel-Wert-Paare durchlaufen können. Die Werte sind {{jsxref("Array")}}s mit Paaren der Form [Schlüssel, Wert], die jeweils ein einzelnes Token repräsentieren.
+Die **`entries()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem Sie alle in diesem Objekt enthaltenen Schlüssel-Wert-Paare durchlaufen können. Die Werte sind {{jsxref("Array")}}s mit [Schlüssel, Wert]-Paaren, die jeweils ein einzelnes Token darstellen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der für ein {{htmlelement("span")}}-Element festgelegten Klassen mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend rufen wir mit `entries()` einen Iterator mit den Schlüssel-Wert-Paaren ab und durchlaufen diese mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife. Dabei schreiben wir sie in die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des `<span>`-Elements.
+Im folgenden Beispiel rufen wir die Liste der für ein {{htmlelement("span")}}-Element festgelegten Klassen mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend rufen wir mit `entries()` einen Iterator mit den Schlüssel-Wert-Paaren ab und durchlaufen diese mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife. Dabei schreiben wir sie in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`-Elements.
 
 Zuerst das HTML:
 

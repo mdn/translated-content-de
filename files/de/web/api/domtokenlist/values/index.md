@@ -3,12 +3,12 @@ title: "DOMTokenList: values()-Methode"
 short-title: values()
 slug: Web/API/DOMTokenList/values
 l10n:
-  sourceCommit: 9de14917b151f7db567a65d44c2685cea754b12a
+  sourceCommit: c6a4f163003ff1a236ebd22d6d0dda79bbad0e3f
 ---
 
 {{APIRef("DOM")}}
 
-Die Methode **`values()`** der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem sich alle in der `DOMTokenList` enthaltenen Werte durchlaufen lassen. Die einzelnen Werte sind Zeichenfolgen.
+Die **`values()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, mit dem alle in der `DOMTokenList` enthaltenen Werte durchlaufen werden können. Die einzelnen Werte sind Zeichenfolgen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der für ein {{htmlelement("span")}}-Element festgelegten Klassen mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend rufen wir mit `values()` einen Iterator für die Werte ab und durchlaufen sie mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife. Dabei schreiben wir jeden Wert in [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`-Elements.
+Im folgenden Beispiel rufen wir die Liste der für ein {{htmlelement("span")}}-Element festgelegten Klassen mithilfe von [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` ab. Anschließend rufen wir mit `values()` einen Iterator für die Werte ab und durchlaufen sie mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife. Dabei schreiben wir jeden Wert in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`-Elements.
 
 Zuerst das HTML:
 
@@ -34,7 +34,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Dann das JavaScript:
 
 ```js
 const span = document.querySelector("span");
