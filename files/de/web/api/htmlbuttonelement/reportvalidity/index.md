@@ -3,12 +3,12 @@ title: "HTMLButtonElement: reportValidity()-Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLButtonElement/reportValidity
 l10n:
-  sourceCommit: bf3b0f3217d5d5a6957e9e17f863ece19d939d20
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`reportValidity()`** der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) führt dieselben Schritte zur Gültigkeitsprüfung aus wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity). Wenn das Ereignis [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) nicht abgebrochen wird, zeigt der Browser dem Benutzer außerdem das Problem an. Die Methode gibt immer `true` zurück, wenn das {{HTMLElement("button")}}-Element kein Kandidat für die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) ist (wenn seine Eigenschaft [`willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) den Wert `false` hat).
+Die Methode **`reportValidity()`** der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) führt dieselben Schritte zur Gültigkeitsprüfung aus wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity). Wenn das Ereignis [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) nicht abgebrochen wird, zeigt der Browser das Problem außerdem der Person an, die die Seite verwendet. Die Methode gibt immer `true` zurück, wenn das Element {{HTMLElement("button")}} kein Kandidat für die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) ist (sein [`willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) ist `false`).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufwe
 
 ### Beispiele
 
-Dieses eher ungewöhnliche Beispiel zeigt, wie ein Button ungültig gemacht werden kann.
+Dieses etwas konstruierte Beispiel zeigt, wie ein Button ungültig gemacht werden kann.
 
 #### HTML
 
@@ -45,7 +45,7 @@ Wir erstellen zwei Buttons:
 
 #### CSS
 
-Wir fügen etwas CSS hinzu, darunter Stile für `:valid` und `:invalid` für unseren Button:
+Wir fügen etwas CSS hinzu, darunter `:valid`- und `:invalid`-Stile für unseren Button:
 
 ```css
 button {
@@ -113,9 +113,9 @@ function toggleButton() {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Custom error message", "100%", 220)}}
+{{EmbedLiveSample("examples", "100%", 220)}}
 
-Der Button ist standardmäßig gültig. Aktivieren Sie „THIS BUTTON“, um den Wert und den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Wenn Sie den Button „reportValidity()“ aktivieren, wird die Gültigkeit des Buttons geprüft. Falls der Button aufgrund der Meldung die Constraint-Validierung nicht besteht, wird die benutzerdefinierte Fehlermeldung angezeigt und ein `invalid`-Ereignis ausgelöst.
+Der Button ist standardmäßig gültig. Aktivieren Sie „THIS BUTTON“, um den Wert und den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Wenn Sie den Button „reportValidity()“ aktivieren, wird die Gültigkeit des Buttons geprüft. Besteht der Button aufgrund der Fehlermeldung die Constraint-Validierung nicht, wird die benutzerdefinierte Fehlermeldung angezeigt und ein `invalid`-Ereignis ausgelöst.
 
 ## Spezifikationen
 

@@ -2,44 +2,19 @@
 title: SVGFEBlendElement
 slug: Web/API/SVGFEBlendElement
 l10n:
-  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEBlendElement`**-Schnittstelle entspricht dem {{SVGElement("feBlend")}}-Element.
+Die Schnittstelle **`SVGFEBlendElement`** entspricht dem Element {{SVGElement("feBlend")}}.
 
 {{InheritanceDiagram}}
-
-## Instanzeigenschaften
-
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
-
-- [`SVGFEBlendElement.height`](/de/docs/Web/API/SVGFEBlendElement/height) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEBlendElement.in1`](/de/docs/Web/API/SVGFEBlendElement/in1) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEBlendElement.in2`](/de/docs/Web/API/SVGFEBlendElement/in2) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in2")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEBlendElement.mode`](/de/docs/Web/API/SVGFEBlendElement/mode) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("mode")}}-Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_FEBLEND_MODE_*`-Konstanten an, die in dieser Schnittstelle definiert sind.
-- [`SVGFEBlendElement.result`](/de/docs/Web/API/SVGFEBlendElement/result) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEBlendElement.width`](/de/docs/Web/API/SVGFEBlendElement/width) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEBlendElement.x`](/de/docs/Web/API/SVGFEBlendElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEBlendElement.y`](/de/docs/Web/API/SVGFEBlendElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
-
-## Instanzmethoden
-
-_Diese Schnittstelle bietet keine speziellen Methoden, implementiert jedoch die Methoden ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Statische Eigenschaften
 
 - `SVG_FEBLEND_MODE_UNKNOWN` (0)
-  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist nicht zulässig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu wechseln.
+  - : Der Typ gehört nicht zu den vordefinierten Typen. Es ist unzulässig, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert in diesen Typ zu ändern.
 - `SVG_FEBLEND_MODE_NORMAL` (1)
   - : Entspricht dem Wert `normal`.
 - `SVG_FEBLEND_MODE_MULTIPLY` (2)
@@ -50,6 +25,31 @@ _Diese Schnittstelle bietet keine speziellen Methoden, implementiert jedoch die 
   - : Entspricht dem Wert `darken`.
 - `SVG_FEBLEND_MODE_LIGHTEN` (5)
   - : Entspricht dem Wert `lighten`.
+
+## Instanzeigenschaften
+
+_Diese Schnittstelle erbt außerdem Eigenschaften von ihrer übergeordneten Schnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
+
+- [`SVGFEBlendElement.height`](/de/docs/Web/API/SVGFEBlendElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("height")}} des angegebenen Elements entspricht.
+- [`SVGFEBlendElement.in1`](/de/docs/Web/API/SVGFEBlendElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem Attribut {{SVGAttr("in")}} des angegebenen Elements entspricht.
+- [`SVGFEBlendElement.in2`](/de/docs/Web/API/SVGFEBlendElement/in2) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem Attribut {{SVGAttr("in2")}} des angegebenen Elements entspricht.
+- [`SVGFEBlendElement.mode`](/de/docs/Web/API/SVGFEBlendElement/mode) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem Attribut {{SVGAttr("mode")}} des angegebenen Elements entspricht. Sie nimmt eine der in dieser Schnittstelle definierten `SVG_FEBLEND_MODE_*`-Konstanten an.
+- [`SVGFEBlendElement.result`](/de/docs/Web/API/SVGFEBlendElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem Attribut {{SVGAttr("result")}} des angegebenen Elements entspricht.
+- [`SVGFEBlendElement.width`](/de/docs/Web/API/SVGFEBlendElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("width")}} des angegebenen Elements entspricht.
+- [`SVGFEBlendElement.x`](/de/docs/Web/API/SVGFEBlendElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("x")}} des angegebenen Elements entspricht.
+- [`SVGFEBlendElement.y`](/de/docs/Web/API/SVGFEBlendElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("y")}} des angegebenen Elements entspricht.
+
+## Instanzmethoden
+
+_Diese Schnittstelle stellt keine eigenen Methoden bereit, implementiert jedoch die Methoden ihrer übergeordneten Schnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

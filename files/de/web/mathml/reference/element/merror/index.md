@@ -2,10 +2,10 @@
 title: <merror>
 slug: Web/MathML/Reference/Element/merror
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<merror>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Inhalte als Fehlermeldungen anzuzeigen. Das Ziel dieses Elements ist es, einen standardisierten Weg bereitzustellen, wie Programme, die MathML aus anderen Eingaben erzeugen, Syntaxfehler melden können.
+Das **`<merror>`**-Element von [MathML](/de/docs/Web/MathML) wird verwendet, um Inhalte als Fehlermeldungen anzuzeigen. Es bietet Programmen, die MathML aus anderen Eingaben erzeugen, eine standardisierte Möglichkeit, Syntaxfehler zu melden.
 
 ## Attribute
 
@@ -13,7 +13,7 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Re
 
 ## Beispiele
 
-Im folgenden Beispiel wird `<merror>` verwendet, um einen Parsing-Fehler für eine LaTeX-ähnliche Eingabe anzuzeigen:
+Im folgenden Beispiel wird `<merror>` verwendet, um einen Parsing-Fehler in einer LaTeX-ähnlichen Eingabe anzuzeigen:
 
 ```html
 <math display="block">
@@ -26,7 +26,7 @@ Im folgenden Beispiel wird `<merror>` verwendet, um einen Parsing-Fehler für ei
 </math>
 ```
 
-{{ EmbedLiveSample('merror_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('examples', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 

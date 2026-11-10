@@ -1,21 +1,23 @@
 ---
-title: Buchliste-Seite
+title: Buchlisten-Seite
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_list_page
 l10n:
-  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
 
-Als Nächstes implementieren wir unsere Buchliste-Seite. Diese Seite muss eine Liste aller Bücher in der Datenbank zusammen mit ihrem Autor anzeigen, wobei jeder Buchtitel als Hyperlink auf die zugehörige Buchdetailseite dient.
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}
+
+Als Nächstes implementieren wir die Buchlisten-Seite. Sie soll alle Bücher in der Datenbank zusammen mit ihren Autoren auflisten. Jeder Buchtitel soll ein Link zur zugehörigen Buchdetailseite sein.
 
 ## Controller
 
-Die `book_list()`-Controller-Funktion muss eine Liste aller `Book`-Objekte in der Datenbank abrufen, diese sortieren und dann zur Darstellung an das Template übergeben.
+Die Controller-Funktion für die Buchliste muss alle `Book`-Objekte aus der Datenbank abrufen, sortieren und zur Darstellung an das Template übergeben.
 
-Öffnen Sie **/controllers/bookController.js**. Finden Sie die exportierte Controller-Methode `book_list()` und ersetzen Sie sie durch den folgenden Code.
+Öffnen Sie **controllers/bookController.js**. Suchen Sie die exportierte Controller-Methode `bookList()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display list of all books.
-exports.book_list = async (req, res, next) => {
+export const bookList = async (req, res, next) => {
   const allBooks = await Book.find({}, "title author")
     .sort({ title: 1 })
     .populate("author")
@@ -25,18 +27,18 @@ exports.book_list = async (req, res, next) => {
 };
 ```
 
-Der Routen-Handler ruft die `find()`-Funktion am `Book`-Modell auf und wählt, nur `title` und `author` zurückzugeben, da wir die anderen Felder nicht benötigen (es werden auch `_id` und virtuelle Felder zurückgegeben), und sortiert die Ergebnisse alphabetisch nach dem Titel mit der Methode `sort()`.
-Wir rufen auch `populate()` auf `Book` auf und geben das Feld `author` an - dies ersetzt die gespeicherte Buchautoren-ID durch die vollständigen Autordetails.
-`exec()` wird dann am Ende angehängt, um die Abfrage auszuführen und ein Versprechen zurückzugeben.
+Der Route-Handler ruft die Funktion `find()` des `Book`-Modells auf. Dabei wählt er nur `title` und `author` aus, da wir die anderen Felder nicht benötigen (auch `_id` und virtuelle Felder werden zurückgegeben). Anschließend sortiert er die Ergebnisse mit der Methode `sort()` alphabetisch nach Titel.
+Außerdem rufen wir `populate()` für `Book` auf und geben das Feld `author` an. Dadurch wird die gespeicherte ID des Buchautors durch die vollständigen Angaben zum Autor ersetzt.
+Zum Schluss wird `exec()` angehängt, um die Abfrage auszuführen und ein Promise zurückzugeben.
 
-Der Routen-Handler verwendet `await`, um auf das Versprechen zu warten und die Ausführung anzuhalten, bis es abgeschlossen ist.
-Wenn das Versprechen erfüllt ist, werden die Ergebnisse der Abfrage in der Variablen `allBooks` gespeichert und der Handler führt die Ausführung fort.
+Der Route-Handler verwendet `await`, um auf das Promise zu warten. Die Ausführung wird angehalten, bis das Promise abgeschlossen ist.
+Wenn das Promise erfüllt wird, werden die Abfrageergebnisse in der Variablen `allBooks` gespeichert und der Handler setzt seine Ausführung fort.
 
-Der letzte Teil des Routen-Handlers ruft `render()` auf, gibt das **book_list** (.pug)-Template an und übergibt Werte für `title` und `book_list` in das Template.
+Im letzten Teil ruft der Route-Handler `render()` auf. Dabei gibt er das Template **book_list** (.pug) an und übergibt die Werte für `title` und `book_list` an das Template.
 
-## View
+## Ansicht
 
-Erstellen Sie **/views/book_list.pug** und kopieren Sie den folgenden Text hinein.
+Erstellen Sie **views/book_list.pug** und fügen Sie den folgenden Text ein.
 
 ```pug
 extends layout
@@ -54,21 +56,18 @@ block content
     p There are no books.
 ```
 
-Die Ansicht erweitert das Basistemplate **layout.pug** und überschreibt den `block` namens '**content**'. Es zeigt den `title` an, den wir vom Controller über die Methode `render()` übergeben haben, und iteriert durch die Variable `book_list` mit der `each`-`in`-Syntax. Ein Listenelement wird für jedes Buch erstellt, das den Buchtitel als Link zur Buchdetailseite zusammen mit dem Autorennamen anzeigt.
-Wenn es keine Bücher in der `book_list` gibt, wird die `else`-Klausel ausgeführt und der Text 'Es gibt keine Bücher' angezeigt.
+Die Ansicht erweitert das Basistemplate **layout.pug** und überschreibt den `block` namens '**content**'. Sie zeigt den vom Controller übergebenen `title` an (über die Methode `render()`) und durchläuft die Variable `book_list` mit der `each`-`in`-Syntax. Für jedes Buch wird ein Listeneintrag erstellt, der den Buchtitel als Link zur Buchdetailseite und danach den Namen des Autors anzeigt.
+Wenn `book_list` keine Bücher enthält, wird die `else`-Klausel ausgeführt und der Text „Es sind keine Bücher vorhanden“ angezeigt.
 
 > [!NOTE]
-> Wir verwenden `book.url`, um den Link zu dem Detaildatensatz für jedes Buch bereitzustellen (diese Route haben wir implementiert, aber die Seite noch nicht). Dies ist eine virtuelle Eigenschaft des `Book`-Modells, die das `_id`-Feld der Modellinstanz verwendet, um einen eindeutigen URL-Pfad zu erzeugen.
+> Wir verwenden `book.url` als Link zum Detaileintrag jedes Buchs (die Route haben wir bereits implementiert, die Seite jedoch noch nicht). Dies ist eine virtuelle Eigenschaft des `Book`-Modells, die aus dem Feld `_id` der Modellinstanz einen eindeutigen URL-Pfad erzeugt.
 
-Interessant ist hier, dass jedes Buch als zwei Zeilen definiert ist, wobei die Pipe für die zweite Zeile verwendet wird. Dieser Ansatz ist nötig, weil der Autorenname sonst Teil des Hyperlinks wäre, wenn er in der vorherigen Zeile stünde.
+Bemerkenswert ist, dass jedes Buch auf zwei Zeilen definiert ist und für die zweite Zeile ein Pipe-Zeichen verwendet wird. Das ist nötig, weil der Name des Autors sonst in der vorherigen Zeile stehen und damit Teil des Links sein würde.
 
-## Wie sieht es aus?
+## Wie sieht das Ergebnis aus?
 
-Führen Sie die Anwendung aus (siehe [Testen der Routen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes#testing_the_routes) für die entsprechenden Befehle) und öffnen Sie Ihren Browser auf `http://localhost:3000/`. Wählen Sie dann den Link _All books_ aus. Wenn alles richtig eingerichtet ist, sollte Ihre Seite in etwa so aussehen wie der folgende Screenshot.
+Starten Sie die Anwendung (die entsprechenden Befehle finden Sie unter [Routen testen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes#testing_the_routes)) und öffnen Sie `http://localhost:3000/` in Ihrem Browser. Wählen Sie dann den Link _All books_ aus. Wenn alles richtig eingerichtet ist, sollte Ihre Website ungefähr wie im folgenden Screenshot aussehen.
 
-![Buchliste-Seite - Express Local Library Website](new_book_list.png)
+![Buchlisten-Seite der Express Local Library](new_book_list.png)
 
-## Nächste Schritte
-
-- Kehren Sie zurück zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie mit dem nächsten Unterartikel von Teil 5 fort: [BuchInstanz-Liste-Seite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page).
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}

@@ -3,10 +3,10 @@ title: "`container-type` CSS property"
 short-title: container-type
 slug: Web/CSS/Reference/Properties/container-type
 l10n:
-  sourceCommit: 892eb917bee599a9d6cae7d33ed783129dbb39b3
+  sourceCommit: c4e64810ce10fb5cb1eebfcd8b6f526866fd0982
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **container-type** legt fest, welche Art von Containerkontext in einer Container-Abfrage verwendet wird.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **container-type** legt fest, welcher Typ von Containerkontext in einer Containerabfrage verwendet wird.
 
 ## Syntax
 
@@ -31,70 +31,62 @@ container-type: unset;
 
 ### Werte
 
-Diese Eigenschaft wird mit einem oder zwei Schlüsselwortwerten aus der folgenden Liste angegeben. Bei zwei Werten muss einer `scroll-state` und der andere `inline-size` oder `size` sein:
+Diese Eigenschaft wird mit einem oder zwei Schlüsselwortwerten aus der folgenden Liste angegeben. Werden zwei Werte angegeben, muss einer davon `scroll-state` und der andere `inline-size` oder `size` sein:
 
 - `anchored`
-  - : Richtet einen Abfragecontainer für verankerte Container-Abfragen für den Container ein. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird keine [Containment](/de/docs/Web/CSS/Guides/Containment/Using) angewendet.
+  - : Richtet einen Abfragecontainer für verankerte Containerabfragen auf dem Container ein. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird keine [Containment-Begrenzung](/de/docs/Web/CSS/Guides/Containment/Using) angewendet.
 - `inline-size`
-  - : Richtet einen Abfragecontainer für dimensionsbezogene Abfragen entlang der [Inline-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) des Containers ein.
-    Wendet [Style-Containment](/de/docs/Web/CSS/Reference/Properties/contain#style) und [Inline-Size-Containment](/de/docs/Web/CSS/Reference/Properties/contain#inline-size) auf das Element an. Die Inline-Größe des Elements kann [isoliert berechnet](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) werden, ohne die Kindelemente zu berücksichtigen (siehe [CSS-Containment verwenden](/de/docs/Web/CSS/Guides/Containment/Using)).
+  - : Richtet einen Abfragecontainer für Dimensionsabfragen auf der [Inline-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) des Containers ein.
+    Wendet [Style-](/de/docs/Web/CSS/Reference/Properties/contain#style) und [Inline-Size-Containment](/de/docs/Web/CSS/Reference/Properties/contain#inline-size) auf das Element an. Die Inline-Größe des Elements kann [isoliert berechnet](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) werden, ohne die Kindelemente zu berücksichtigen (siehe [CSS-Containment verwenden](/de/docs/Web/CSS/Guides/Containment/Using)).
 
 - `normal`
-  - : Standardwert. Das Element ist kein Abfragecontainer für Containergrößen-, Scroll-State- oder verankerte Abfragen, kann aber als Abfragecontainer für [Container-Style-Abfragen](/de/docs/Web/CSS/Reference/At-rules/@container#container_style_queries) und [Container-Abfragen nur anhand des Namens](/de/docs/Web/CSS/Guides/Containment/Container_queries#name-only_container_queries) verwendet werden.
+  - : Standardwert. Das Element ist kein Abfragecontainer für Containergrößen-, Scrollzustands- oder verankerte Abfragen, kann aber als Abfragecontainer für [Containerstilabfragen](/de/docs/Web/CSS/Reference/At-rules/@container#container_style_queries) und [Containerabfragen nur anhand des Namens](/de/docs/Web/CSS/Guides/Containment/Container_queries#name-only_container_queries) verwendet werden.
 
 - `scroll-state`
-  - : Richtet einen Abfragecontainer für Scroll-State-Abfragen für den Container ein. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird keine Containment angewendet.
+  - : Richtet einen Abfragecontainer für Scrollzustandsabfragen auf dem Container ein. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird kein Containment angewendet.
 
 - `size`
-  - : Richtet einen Abfragecontainer für Containergrößen-Abfragen sowohl in der [Inline- als auch in der Blockdimension](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) ein.
-    Wendet [Style-Containment](/de/docs/Web/CSS/Reference/Properties/contain#style) und [Size-Containment](/de/docs/Web/CSS/Reference/Properties/contain#size) auf das Element an. Size-Containment wird sowohl in Inline- als auch in Blockrichtung auf das Element angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen.
-
-## Formale Definition
-
-{{CSSInfo}}
-
-## Formale Syntax
-
-{{CSSSyntax}}
+  - : Richtet einen Abfragecontainer für Containergrößenabfragen sowohl in [Inline- als auch in Blockrichtung](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) ein.
+    Wendet [Style-](/de/docs/Web/CSS/Reference/Properties/contain#style) und [Size-Containment](/de/docs/Web/CSS/Reference/Properties/contain#size) auf das Element an. Size-Containment wird sowohl in Inline- als auch in Blockrichtung auf das Element angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen.
 
 ## Beschreibung
 
-Mit Container-Abfragen können Sie Stile innerhalb eines Containers selektiv anwenden. Grundlage dafür sind Bedingungen, die für den Container geprüft werden. Die At-Regel {{cssxref("@container")}} legt fest, welche Bedingungen für einen Container geprüft werden und welche Regeln für seinen Inhalt gelten, wenn die Abfrage `true` ergibt.
+Mit Containerabfragen können Sie Stile innerhalb eines Containers gezielt anhand von Bedingungen anwenden, die für den Container geprüft werden. Die At-Regel {{cssxref("@container")}} gibt die Prüfungen für einen Container sowie die Regeln an, die auf dessen Inhalt angewendet werden, wenn die Abfrage `true` ergibt.
 
-Bestimmte Arten von Container-Abfragen können nur für Elemente ausgeführt werden, deren Eigenschaft `container-type` auf einen bestimmten Wert gesetzt ist. Diese Werte richten jeweils einen bestimmten Containerkontext ein:
+Bestimmte Arten von Containerabfragen können nur für Elemente ausgeführt werden, bei denen bestimmte Werte der Eigenschaft `container-type` festgelegt sind. Diese Werte richten die entsprechenden Containerkontexte ein:
 
-- [Größe](#containergrößen-abfragen): Ermöglicht es, CSS-Regeln anhand einer Bedingung für die allgemeine Größe oder Inline-Größe selektiv auf die Kindelemente eines Containers anzuwenden, etwa anhand eines Höchst- oder Mindestmaßes, eines Seitenverhältnisses oder einer Ausrichtung.
-- [Scroll-State](#container-scroll-state-abfragen): Ermöglicht es, CSS-Regeln anhand des Scroll-Zustands selektiv auf die Kindelemente eines Containers anzuwenden, etwa wenn der Container ein teilweise gescrollter Scroll-Container oder ein {{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} ist, das am zugehörigen Scroll-Snap-Container einrasten wird.
-- [Verankerung](#verankerte_container-abfragen): Ermöglicht es, CSS-Regeln selektiv auf die Kindelemente eines Containers anzuwenden, wenn dieser [ankerpositioniert](/de/docs/Web/CSS/Guides/Anchor_positioning) ist und eine [Position-Try-Fallback-Option](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding) auf ihn angewendet wird.
+- [Größe](#containergrößenabfragen): Ermöglicht es, CSS-Regeln gezielt auf Kindelemente eines Containers anzuwenden, abhängig von einer allgemeinen Größen- oder Inline-Größenbedingung wie einem Höchst- oder Mindestmaß, einem Seitenverhältnis oder einer Ausrichtung.
+- [Scrollzustand](#container-scrollzustandsabfragen): Ermöglicht es, CSS-Regeln gezielt auf Kindelemente eines Containers anzuwenden, abhängig von einer Scrollzustandsbedingung – etwa davon, ob der Container ein teilweise gescrollter Scrollcontainer ist oder ob er ein {{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} ist, das am zugehörigen Scroll-Snap-Container eingerastet werden soll.
+- [Verankerung](#verankerte_containerabfragen): Ermöglicht es, CSS-Regeln gezielt auf Kindelemente eines Containers anzuwenden, abhängig davon, ob der Container [ankerpositioniert](/de/docs/Web/CSS/Guides/Anchor_positioning) ist und eine [Position-try-Fallback-Option](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding) auf ihn angewendet wird.
 
-Wenn für einen Container kein `container-type` festgelegt ist, ist das Element kein Abfragecontainer für Containergrößen-, Scroll-State- oder verankerte Abfragen. Es kann jedoch weiterhin als Abfragecontainer für [Container-Style-Abfragen](/de/docs/Web/CSS/Reference/At-rules/@container#container_style_queries) und [Container-Abfragen nur anhand des Namens](/de/docs/Web/CSS/Guides/Containment/Container_queries#name-only_container_queries) verwendet werden.
+Wenn für einen Container kein `container-type` festgelegt ist, ist das Element kein Abfragecontainer für Containergrößen-, Scrollzustands- oder verankerte Abfragen. Es kann aber weiterhin als Abfragecontainer für [Containerstilabfragen](/de/docs/Web/CSS/Reference/At-rules/@container#container_style_queries) und [Containerabfragen nur anhand des Namens](/de/docs/Web/CSS/Guides/Containment/Container_queries#name-only_container_queries) verwendet werden.
 
-### Containergrößen-Abfragen
+### Containergrößenabfragen
 
-Mit [Containergrößen-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_size_queries) können Sie CSS-Regeln anhand einer Größenbedingung selektiv auf die Nachfahren eines Containers anwenden, etwa anhand eines Höchst- oder Mindestmaßes, eines Seitenverhältnisses oder einer Ausrichtung.
+Mit [Containergrößenabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_size_queries) können Sie CSS-Regeln gezielt auf Nachfahren eines Containers anwenden, abhängig von einer Größenbedingung wie einem Höchst- oder Mindestmaß, einem Seitenverhältnis oder einer Ausrichtung.
 
-Auf Größencontainer wird außerdem Size-Containment angewendet. Dadurch kann ein Element seine Größe nicht mehr aus seinem Inhalt ableiten. Für Container-Abfragen ist das wichtig, um Endlosschleifen zu vermeiden: Andernfalls könnte eine CSS-Regel innerhalb einer Container-Abfrage die Größe des Inhalts ändern. Dadurch könnte die Abfrage anschließend `false` ergeben und sich die Größe des Elternelements ändern. Dies könnte wiederum die Inhaltsgröße ändern, sodass die Abfrage erneut `true` ergibt – und so weiter.
+Auf Größencontainer wird zusätzlich Size-Containment angewendet. Dadurch kann ein Element seine Größe nicht mehr aus seinem Inhalt ableiten. Das ist für Containerabfragen wichtig, um Endlosschleifen zu vermeiden. Andernfalls könnte eine CSS-Regel innerhalb einer Containerabfrage die Größe des Inhalts ändern. Dadurch könnte die Abfrage `false` ergeben und sich die Größe des Elternelements ändern, was wiederum die Größe des Inhalts beeinflussen und die Abfrage erneut auf `true` setzen könnte. Diese Abfolge würde sich endlos wiederholen.
 
-Die Containergröße muss sich aus dem Kontext ergeben, beispielsweise bei Blockelementen, die sich über die gesamte Breite ihres Elternelements erstrecken, oder explizit festgelegt werden. Ist weder eine kontextabhängige noch eine explizite Größe verfügbar, fallen Elemente mit Size-Containment in sich zusammen.
+Die Containergröße muss sich aus dem Kontext ergeben, etwa bei Blockelementen, die sich über die gesamte Breite ihres Elternelements erstrecken, oder explizit festgelegt werden. Ist weder eine kontextabhängige noch eine explizite Größe verfügbar, fallen Elemente mit Size-Containment in sich zusammen.
 
 > [!NOTE]
-> Die Größe der Nachfahren von Größencontainern kann mit [Längeneinheiten für Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries#container_query_length_units) festgelegt werden.
+> Die Größe von Nachfahren eines Größencontainers kann mithilfe von [Längeneinheiten für Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries#container_query_length_units) festgelegt werden.
 
-### Container-Scroll-State-Abfragen
+### Container-Scrollzustandsabfragen
 
-Mit [Container-Scroll-State-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) können Sie CSS-Regeln anhand eines Scroll-Zustands selektiv auf die Kindelemente eines Containers anwenden, beispielsweise abhängig davon:
+Mit [Container-Scrollzustandsabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) können Sie CSS-Regeln gezielt auf Kindelemente eines Containers anwenden, abhängig von einer Scrollzustandsbedingung, beispielsweise:
 
-- ob der Inhalt des Containers teilweise gescrollt wurde.
-- ob der Container ein Snap-Ziel ist, das an einem Scroll-Snap-Container einrasten wird.
-- ob der Container mit [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/display) positioniert ist und an einer Grenze eines {{Glossary("scroll_container", "Scroll-Containers")}} haftet.
+- Ob der Inhalt des Containers teilweise gescrollt ist.
+- Ob der Container ein Snap-Ziel ist, das an einem Scroll-Snap-Container eingerastet werden soll.
+- Ob der Container mit [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/display) positioniert ist und an einer Grenze eines {{Glossary("scroll_container", "Scrollcontainers")}} haftet.
 
-Im ersten Fall ist der abgefragte Container der Scroll-Container selbst. In den beiden anderen Fällen ist der abgefragte Container ein Element, das von der Scroll-Position eines übergeordneten Scroll-Containers beeinflusst wird.
+Im ersten Fall ist der abgefragte Container selbst der Scrollcontainer. In den beiden anderen Fällen ist der abgefragte Container ein Element, das von der Scrollposition eines übergeordneten Scrollcontainers beeinflusst wird.
 
-### Verankerte Container-Abfragen
+### Verankerte Containerabfragen
 
-Mit [verankerten Container-Abfragen](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries) können Sie CSS-Regeln selektiv auf die Nachfahren eines ankerpositionierten Containers anwenden, wenn für ihn ein über die Eigenschaft {{cssxref("position-try-fallbacks")}} festgelegter Position-Try-Fallback aktiv ist.
+Mit [verankerten Containerabfragen](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries) können Sie CSS-Regeln gezielt auf Nachfahren eines ankerpositionierten Containers anwenden, wenn für diesen ein über die Eigenschaft {{cssxref("position-try-fallbacks")}} festgelegter Position-try-Fallback aktiv ist.
 
-Angenommen, ein ankerpositioniertes Tooltip-Element wird standardmäßig durch den {{cssxref("position-area")}}-Wert `top` oberhalb seines Ankers positioniert, während für `position-try-fallbacks` der Wert `flip-block` festgelegt ist. Sobald das Tooltip über den oberen Rand des Viewports hinausragen würde, wechselt es dadurch in Blockrichtung auf die untere Seite seines Ankers. Wenn Sie für das Tooltip `container-type: anchored` festlegen, können Sie mit einer `@container`-At-Regel erkennen, wann der Position-Try-Fallback angewendet wird, und daraufhin CSS-Regeln anwenden.
+Beispielsweise könnte ein ankerpositioniertes Tooltip-Element durch den Wert `top` der Eigenschaft {{cssxref("position-area")}} standardmäßig oberhalb seines Ankers positioniert sein, während für `position-try-fallbacks` der Wert `flip-block` festgelegt ist. Sobald das Tooltip über den oberen Rand des Viewports hinausragen würde, wird es dadurch in Blockrichtung an die Unterseite seines Ankers verschoben. Wenn wir dafür `container-type: anchored` festlegen, können wir mithilfe einer `@container`-At-Regel erkennen, wann der Position-try-Fallback angewendet wird, und daraufhin CSS-Regeln anwenden.
 
 ```css
 .tooltip {
@@ -105,6 +97,14 @@ Angenommen, ein ankerpositioniertes Tooltip-Element wird standardmäßig durch d
   container-type: anchored;
 }
 ```
+
+## Formale Definition
+
+{{CSSInfo}}
+
+## Formale Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 
@@ -134,7 +134,7 @@ Das folgende HTML-Beispiel zeigt eine Kartenkomponente mit einem Bild, einem Tit
 </div>
 ```
 
-Um einen Containerkontext für die Inline-Größe einzurichten, fügen Sie einem Element die Eigenschaft `container-type` mit dem Wert `inline-size` hinzu:
+Um einen Containerkontext mit Inline-Size-Containment einzurichten, fügen Sie einem Element die Eigenschaft `container-type` mit dem Wert `inline-size` hinzu:
 
 ```css
 .container {
@@ -170,7 +170,7 @@ h3 {
 }
 ```
 
-Eine Container-Abfrage mit der At-Regel {{Cssxref("@container")}} wendet Stile auf die Elemente des Containers an, wenn dieser breiter als `400px` ist:
+Mit einer Containerabfrage über die At-Regel {{Cssxref("@container")}} werden Stile auf die Elemente des Containers angewendet, wenn dieser breiter als `400px` ist:
 
 ```css
 @container (width > 400px) {
@@ -193,10 +193,10 @@ Eine Container-Abfrage mit der At-Regel {{Cssxref("@container")}} wendet Stile a
 
 ## Siehe auch
 
-- [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
-- [Containergrößen- und Container-Style-Abfragen verwenden](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
-- [Container-Scroll-State-Abfragen verwenden](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
-- [Verankerte Container-Abfragen verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries)
+- [CSS-Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+- [Containergrößen- und Containerstilabfragen verwenden](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- [Container-Scrollzustandsabfragen verwenden](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
+- [Verankerte Containerabfragen verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries)
 - At-Regel {{Cssxref("@container")}}
 - CSS-Kurzschreibweise {{Cssxref("container")}}
 - CSS-Eigenschaft {{Cssxref("container-name")}}

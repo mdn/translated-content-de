@@ -3,15 +3,15 @@ title: "`:-moz-first-node` CSS-Pseudoklasse"
 short-title: :-moz-first-node
 slug: Web/CSS/Reference/Selectors/:-moz-first-node
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: b4f42a2037bcb8f2daec61f6b3d92bfdd13e5386
 ---
 
 {{Non-standard_header}}{{SeeCompatTable}}
 
-Die **`:-moz-first-node`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element repräsentiert, das der erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie nicht auf ein erstes Kindelement zutrifft, vor dem Text steht, der nicht ausschließlich aus Leerraum besteht.
+Die **`:-moz-first-node`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element repräsentiert, das der erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie nicht auf ein erstes Kindelement zutrifft, vor dem Text steht, der nicht nur aus Whitespace besteht.
 
 > [!NOTE]
-> Leerraum am Anfang eines Elements wird bei der Bestimmung von `:-moz-first-node` ignoriert.
+> Whitespace am Anfang eines Elements wird bei der Bestimmung von `:-moz-first-node` ignoriert.
 
 ## Syntax
 
@@ -22,14 +22,6 @@ Die **`:-moz-first-node`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/C
 ```
 
 ## Beispiele
-
-### CSS
-
-```css
-span:-moz-first-node {
-  background-color: lime;
-}
-```
 
 ### HTML
 
@@ -45,13 +37,21 @@ span:-moz-first-node {
 </p>
 ```
 
+### CSS
+
+```css
+span:-moz-first-node {
+  background-color: lime;
+}
+```
+
 ### Ergebnis
 
 {{EmbedLiveSample("Examples")}}
 
 ## Spezifikationen
 
-Nicht Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

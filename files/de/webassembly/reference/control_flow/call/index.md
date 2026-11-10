@@ -1,52 +1,25 @@
 ---
-title: "call: Wasm-Text-Instruktion"
+title: "call: Wasm-Textinstruktion"
 short-title: call
 slug: WebAssembly/Reference/Control_flow/call
 l10n:
-  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
+  sourceCommit: ad9a2c6d7f94dd5fb7971b10677487a84c529e55
 ---
 
-**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, ebenfalls mit `return_call_indirect` als Tail-Call-Version.
+**`call`** ruft eine Funktion auf; `return_call` ist die Tail-Call-Variante davon. `call_indirect` ruft eine Funktion aus einer Tabelle auf; die entsprechende Tail-Call-Variante ist `return_call_indirect`.
 
-## Beispiele
-
-Aufrufen der Funktion `greet`, die aus JavaScript mit `call` importiert wurde:
-
-{{InteractiveExample("Wat Demo: call", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: call", "tabbed-taller")}}
 
 ```wat interactive-example
 (module
   ;; Import the `greet` function from the environment
   (import "env" "greet" (func $greet))
 
-  (func
+  (func (export "greet")
     ;; Call the imported `greet` function
     call $greet
   )
 
-  ;; Automatically run the first function when the module starts
-  (start 1)
-)
-```
-
-```js interactive-example
-const url = "{%wasm-url%}";
-await WebAssembly.instantiateStreaming(fetch(url), {
-  env: {
-    greet() {
-      console.log("Hello");
-      // Expected output: "Hello"
-    },
-  },
-});
-```
-
-Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Ergebnisses mit der exportierten Funktion `fac`:
-
-{{InteractiveExample("Wat Demo: return_call", "tabbed-standard")}}
-
-```wat interactive-example
-(module
   ;; Calculate the factorial of a number
   (func $fac (export "fac") (param $x i64) (result i64)
     ;; Call the `fac-aux` function with $x and 1 parameters
@@ -72,10 +45,18 @@ Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Er
 
 ```js interactive-example
 const url = "{%wasm-url%}";
-const { instance } = await WebAssembly.instantiateStreaming(fetch(url));
-const result = instance.exports.fac(5n);
+const { instance } = await WebAssembly.instantiateStreaming(fetch(url), {
+  env: {
+    greet() {
+      console.log("Hello");
+    },
+  },
+});
 
-console.log(result);
+instance.exports.greet();
+// Expected output: "Hello"
+
+console.log(instance.exports.fac(5n));
 // Expected output: 120n
 ```
 
@@ -102,5 +83,5 @@ call $greet
 
 ## Siehe auch
 
-- [Übersicht über den Tail Call Extension Proposal](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
-- [V8 über die Unterstützung von WebAssembly-Tail-Calls](https://v8.dev/blog/wasm-tail-call)
+- [Überblick über den Vorschlag zur Tail-Call-Erweiterung](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
+- [V8 zur Unterstützung von WebAssembly-Tail-Calls](https://v8.dev/blog/wasm-tail-call)

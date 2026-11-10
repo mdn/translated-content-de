@@ -1,29 +1,27 @@
 ---
-title: "Anforderung: Duplex-Eigenschaft"
+title: "Request: duplex-Eigenschaft"
 short-title: duplex
 slug: Web/API/Request/duplex
 l10n:
-  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{APIRef("Fetch API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`duplex`**-Eigenschaft des [`Request`](/de/docs/Web/API/Request) Interface gibt den Duplex-Modus der Anforderung zurück, der bestimmt, ob der Browser die gesamte Anforderung senden muss, bevor er die Antwort verarbeitet.
+Die schreibgeschützte Eigenschaft **`duplex`** der Schnittstelle [`Request`](/de/docs/Web/API/Request) gibt den Duplexmodus der Anfrage zurück. Dieser bestimmt, ob der Browser die gesamte Anfrage senden muss, bevor er die Antwort verarbeitet.
+
+Obwohl `duplex` beim Erstellen eines `Request` als Option übergeben werden kann, ist die Eigenschaft derzeit nicht in allen Browsern auf dem resultierenden `Request`-Objekt lesbar.
 
 ## Wert
 
 Ein String mit dem folgenden möglichen Wert:
 
 - `"half"`
-  - : Der Browser muss die gesamte Anforderung senden, bevor er die Antwort verarbeitet.
-
-## Hinweise
-
-Obwohl `duplex` beim Erstellen einer `Request` als Option übergeben werden kann, wird es derzeit nicht in allen Browsern als lesbare Eigenschaft des resultierenden `Request`-Objekts angezeigt.
+  - : Der Browser muss die gesamte Anfrage senden, bevor er die Antwort verarbeitet.
 
 ## Beispiele
 
-### Überprüfen des Duplex-Modus einer Anfrage
+### Den Duplexmodus einer Anfrage prüfen
 
 ```js
 const stream = new ReadableStream({/* ... */});
@@ -48,5 +46,5 @@ console.log(request.duplex); // "half"
 
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor
-- [`RequestInit.duplex`](/de/docs/Web/API/RequestInit#duplex) in Anfrageoptionen
-- [Verwenden eines Fetch als Stream](/de/docs/Web/API/Streams_API/Using_readable_streams#consuming_a_fetch_as_a_stream)
+- [`RequestInit.duplex`](/de/docs/Web/API/RequestInit#duplex) in den Anfrageoptionen
+- [Einen Fetch als Stream verarbeiten](/de/docs/Web/API/Streams_API/Using_readable_streams#consuming_a_fetch_as_a_stream)

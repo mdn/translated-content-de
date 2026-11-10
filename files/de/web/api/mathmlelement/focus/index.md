@@ -1,16 +1,16 @@
 ---
-title: "MathMLElement: focus() Methode"
+title: "MathMLElement: focus()-Methode"
 short-title: focus()
 slug: Web/API/MathMLElement/focus
 l10n:
-  sourceCommit: 7ef48e3e54f5003f735eafd4bd3a0c2aedb21c27
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("MathML")}}
 
-Die **`focus()`** Methode der [`MathMLElement`](/de/docs/Web/API/MathMLElement) Schnittstelle setzt den Fokus auf das angegebene MathML-Element, sofern es fokussiert werden kann. Das fokussierte Element ist das Element, das standardmäßig Tastatur- und ähnliche Ereignisse erhält.
+Die Methode **`focus()`** der Schnittstelle [`MathMLElement`](/de/docs/Web/API/MathMLElement) setzt den Fokus auf das angegebene MathML-Element, sofern es fokussiert werden kann. Das fokussierte Element empfängt standardmäßig Tastaturereignisse und ähnliche Ereignisse.
 
-Standardmäßig scrollt der Browser nach dem Fokussieren zu dem Element und kann auch eine sichtbare Kennzeichnung des fokussierten Elements bereitstellen (typischerweise durch die Anzeige eines "Fokusrahmens" um das Element). Es werden Parameteroptionen bereitgestellt, um das standardmäßige Scrollen zu deaktivieren und eine sichtbare Kennzeichnung auf Elementen zu erzwingen. Wenn Sie `focus()` aus einem `mousedown`-Ereignishandler aufrufen, müssen Sie `event.preventDefault()` aufrufen, um zu verhindern, dass der Fokus das `MathMLElement` verlässt.
+Standardmäßig scrollt der Browser das Element nach dem Fokussieren in den sichtbaren Bereich. Er kann das fokussierte Element auch visuell hervorheben (üblicherweise durch einen „Fokusring“ um das Element). Mit Optionen lässt sich das standardmäßige Scrollen deaktivieren und eine sichtbare Hervorhebung erzwingen. Wenn Sie `focus()` aus einem `mousedown`-Event-Handler aufrufen, müssen Sie `event.preventDefault()` aufrufen, damit der Fokus das `MathMLElement` nicht verlässt.
 
 ## Syntax
 
@@ -22,10 +22,10 @@ focus(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt zur Steuerung von Aspekten des Fokussierungsvorgangs.
+  - : Ein Objekt, das Aspekte des Fokussierungsvorgangs steuert.
     Dieses Objekt kann die folgenden Eigenschaften enthalten:
     - `preventScroll` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Browser das Dokument scrollen soll, um das neu fokussierte Element sichtbar zu machen. Ein Wert von `false` für `preventScroll` (der Standardwert) bedeutet, dass der Browser nach dem Fokussieren das Element in den sichtbaren Bereich scrollt. Wenn `preventScroll` auf `true` gesetzt ist, erfolgt kein Scrollen.
+      - : Ein boolescher Wert, der angibt, ob der Browser das Dokument scrollen soll, um das neu fokussierte Element in den sichtbaren Bereich zu bringen. Der Wert `false` für `preventScroll` (die Standardeinstellung) bedeutet, dass der Browser das Element nach dem Fokussieren in den sichtbaren Bereich scrollt. Ist `preventScroll` auf `true` gesetzt, wird nicht gescrollt.
 
 ### Rückgabewert
 
@@ -33,9 +33,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Fokussieren eines MathML-Elements
+### Ein MathML-Element fokussieren
 
-Dieses Beispiel verwendet einen Button, um den Fokus auf ein MathML-Kreis-Element zu setzen.
+In diesem Beispiel wird mit einem Button der Fokus auf ein MathML-Kreiselement gesetzt.
 
 #### HTML
 
@@ -63,7 +63,7 @@ document.getElementById("focusButton").addEventListener("click", () => {
 
 ### Ergebnis
 
-{{EmbedLiveSample("focus",100,100)}}
+{{EmbedLiveSample("focusing_a_mathml_element",100,100)}}
 
 ## Spezifikationen
 

@@ -3,14 +3,14 @@ title: "HTMLElement: dragend-Ereignis"
 short-title: dragend
 slug: Web/API/HTMLElement/dragend_event
 l10n:
-  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
 Das `dragend`-Ereignis wird ausgelöst, wenn ein Ziehvorgang endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
 
-Dieses Ereignis kann abgebrochen werden und zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) aufsteigen.
+Dieses Ereignis kann abgebrochen werden und sich bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) ausbreiten.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("dragend", (event) => { })
 ```
 
-Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) des Interfaces zuweisen:
+Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
 
 ```js-nolint
 ondragend = (event) => { }
@@ -36,9 +36,9 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ### Deckkraft nach dragend zurücksetzen
 
-In diesem Beispiel befindet sich ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es zu ziehen und dann loszulassen.
+In diesem Beispiel befindet sich ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element anzuklicken, zu ziehen und anschließend loszulassen.
 
-Während das Element gezogen wird, machen wir es halbtransparent. Wir lauschen auf das `dragend`-Ereignis, um die Deckkraft des Elements zurückzusetzen, sobald es losgelassen wird.
+Während des Ziehens machen wir das Element halbtransparent. Wir überwachen das `dragend`-Ereignis, um die Deckkraft des Elements zurückzusetzen, sobald es losgelassen wird.
 
 Ein vollständiges Drag-and-Drop-Beispiel finden Sie auf der Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
@@ -93,7 +93,7 @@ source.addEventListener("dragend", (event) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample('Resetting opacity on drag end')}}
+{{EmbedLiveSample('resetting_opacity_on_dragend')}}
 
 ## Spezifikationen
 

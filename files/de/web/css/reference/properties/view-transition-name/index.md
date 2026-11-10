@@ -3,10 +3,10 @@ title: "`view-transition-name` CSS property"
 short-title: view-transition-name
 slug: Web/CSS/Reference/Properties/view-transition-name
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`view-transition-name`** gibt den [View-Transition](/de/docs/Web/API/View_Transition_API)-Snapshot an, an dem ausgewählte Elemente teilnehmen. Dadurch können Sie diese Elemente getrennt vom Rest der Seite animieren, der während eines View-Transitions die standardmäßige Cross-Fade-Animation verwendet. Anschließend können Sie benutzerdefinierte Animationsstile für diese Elemente definieren.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`view-transition-name`** legt fest, an welchem Schnappschuss einer [Ansichtsübergangsanimation](/de/docs/Web/API/View_Transition_API) ausgewählte Elemente teilnehmen. So können Sie diese Elemente getrennt vom Rest der Seite animieren, für den während eines Ansichtsübergangs standardmäßig eine Überblendanimation verwendet wird. Anschließend können Sie für diese Elemente eigene Animationsstile definieren.
 
 ## Syntax
 
@@ -30,17 +30,17 @@ view-transition-name: unset;
 ### Werte
 
 - {{cssxref("custom-ident")}}
-  - : Ein identifizierender Name, der bewirkt, dass das ausgewählte Element an einem separaten Snapshot vom Root-Snapshot teilnimmt. Das `<custom-ident>` darf nicht `auto`, `match-element`, `none` oder ein Wert eines [CSS-weiten Schlüsselworts](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) sein.
+  - : Ein identifizierender Name, durch den das ausgewählte Element an einem vom Root-Schnappschuss getrennten Schnappschuss teilnimmt. `<custom-ident>` darf weder `auto`, `match-element` noch `none` oder ein Wert eines [CSS-weiten Schlüsselworts](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) sein.
 - `match-element`
-  - : Der Browser weist dem ausgewählten Element automatisch einen eindeutigen Namen zu. Dieser Name wird verwendet, um das Element getrennt von allen anderen Elementen auf der Seite als Snapshot zu erfassen. (Dieser Name ist intern und kann nicht aus dem DOM gelesen werden.)
+  - : Der Browser weist dem ausgewählten Element automatisch einen eindeutigen Namen zu. Dieser Name wird verwendet, um einen vom Rest der Seite getrennten Schnappschuss des Elements zu erstellen. (Der Name ist intern und kann nicht aus dem DOM ausgelesen werden.)
 - `none`
-  - : Das ausgewählte Element nimmt nicht an einem separaten Snapshot teil, es sei denn, es hat ein übergeordnetes Element mit festgelegtem `view-transition-name`; in diesem Fall wird es als Teil dieses Elements als Snapshot erfasst.
+  - : Das ausgewählte Element nimmt nicht an einem separaten Schnappschuss teil, es sei denn, ein übergeordnetes Element hat einen festgelegten `view-transition-name`. In diesem Fall wird es als Teil dieses Elements in den Schnappschuss aufgenommen.
 
 ## Beschreibung
 
-Wenn ein View-Transition auf eine Web-App angewendet wird, werden standardmäßig alle Änderungen an der Benutzeroberfläche, die während dieses Transitions erfolgen, gemeinsam als Snapshot erfasst und animiert. Dies ist der standardmäßige — oder `root` — Snapshot (siehe [Der Pseudo-Element-Baum für View-Transitions](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree)). Standardmäßig ist diese Animation ein sanftes Cross-Fade, das in der [View Transitions SPA-Demo](https://mdn.github.io/dom-examples/view-transitions/spa/) zu sehen ist.
+Wenn auf eine Web-App ein Ansichtsübergang angewendet wird, werden standardmäßig alle Änderungen an der Benutzeroberfläche, die während dieses Übergangs auftreten, gemeinsam als Schnappschuss erfasst und animiert. Dies ist der Standard- oder `root`-Schnappschuss (siehe [Der Pseudoelementbaum des Ansichtsübergangs](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree)). Standardmäßig ist diese Animation eine sanfte Überblendung, die Sie in der [SPA-Demo zu Ansichtsübergängen](https://mdn.github.io/dom-examples/view-transitions/spa/) sehen können.
 
-Wenn bestimmte Elemente während des View-Transitions anders als der `root`-Snapshot animiert werden sollen, können Sie ihnen einen anderen `view-transition-name` geben, zum Beispiel:
+Wenn bestimmte Elemente während des Ansichtsübergangs anders als der `root`-Schnappschuss animiert werden sollen, können Sie ihnen einen anderen `view-transition-name` zuweisen, zum Beispiel:
 
 ```css
 figcaption {
@@ -48,7 +48,7 @@ figcaption {
 }
 ```
 
-Anschließend können Sie mithilfe der relevanten View-Transition-Pseudo-Elemente — {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} — festlegen, welche Animationen für die Vorher- und Nachher-Snapshots verwendet werden sollen. Zum Beispiel:
+Anschließend können Sie mithilfe der entsprechenden Pseudoelemente für Ansichtsübergänge – {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} – festlegen, welche Animationen für die Schnappschüsse vor und nach dem Übergang verwendet werden sollen. Zum Beispiel:
 
 ```css
 ::view-transition-old(figure-caption) {
@@ -60,7 +60,7 @@ Anschließend können Sie mithilfe der relevanten View-Transition-Pseudo-Element
 }
 ```
 
-Wenn ein Element nicht getrennt als Snapshot erfasst werden soll, können Sie den Wert `none` für `view-transition-name` angeben:
+Wenn Sie nicht möchten, dass für ein Element ein separater Schnappschuss erstellt wird, können Sie für `view-transition-name` den Wert `none` angeben:
 
 ```css
 .dont-animate-me {
@@ -68,11 +68,11 @@ Wenn ein Element nicht getrennt als Snapshot erfasst werden soll, können Sie de
 }
 ```
 
-Das `view-transition-name`-`<custom-ident>` muss für jedes gerenderte Element, das am View-Transition teilnimmt, eindeutig sein. Wenn zwei gerenderte Elemente gleichzeitig denselben `view-transition-name` haben, wird das {{JSxRef("Promise")}} [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und der Transition wird übersprungen.
+Der `<custom-ident>`-Wert von `view-transition-name` muss für jedes gerenderte Element, das am Ansichtsübergang teilnimmt, eindeutig sein. Wenn zwei gerenderte Elemente gleichzeitig denselben `view-transition-name` haben, wird die {{JSxRef("Promise")}} von [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) zurückgewiesen und der Übergang übersprungen.
 
 ### `view-transition-name`-Werte automatisch festlegen
 
-Manchmal möchten Sie mehrere UI-Elemente in einem View-Transition getrennt animieren. Dies ist häufig der Fall, wenn Sie eine Liste von Elementen auf einer Seite haben und diese auf irgendeine Weise neu anordnen möchten:
+Manchmal möchten Sie mehrere Elemente der Benutzeroberfläche bei einem Ansichtsübergang getrennt animieren. Dies ist häufig der Fall, wenn Sie eine Liste von Elementen auf einer Seite haben und diese neu anordnen möchten:
 
 ```html
 <ul>
@@ -87,7 +87,7 @@ Manchmal möchten Sie mehrere UI-Elemente in einem View-Transition getrennt anim
 </ul>
 ```
 
-Jedem Element einen eindeutigen Namen zu geben, kann unpraktisch sein, insbesondere wenn die Anzahl der Elemente größer wird:
+Jedem Element einen eindeutigen Namen zu geben, kann umständlich sein, insbesondere wenn die Anzahl der Elemente wächst:
 
 ```css-nolint
 li:nth-child(1) {
@@ -110,7 +110,7 @@ li:nth-child(99) {
 }
 ```
 
-Um dieses Problem zu umgehen, können Sie den Wert `match-element` verwenden, wodurch der Browser jedem ausgewählten Element einen eindeutigen internen `view-transition-name` zuweist:
+Dieses Problem können Sie mit dem Wert `match-element` umgehen. Dadurch weist der Browser jedem ausgewählten Element einen eindeutigen internen `view-transition-name` zu:
 
 ```css
 li {
@@ -118,7 +118,7 @@ li {
 }
 ```
 
-Da `match-element` automatische `view-transition-name`-Werte anhand der Elementidentität zuweist, kann es nur für Same-Document-View-Transitions verwendet werden. Die automatisch erzeugten internen Bezeichner können nicht zwischen verschiedenen Elementen oder Dokumenten übertragen werden.
+Da `match-element` automatische `view-transition-name`-Werte anhand der Elementidentität zuweist, kann es nur für Ansichtsübergänge innerhalb desselben Dokuments verwendet werden. Die automatisch erzeugten internen Kennungen lassen sich nicht auf andere Elemente oder Dokumente übertragen.
 
 ## Formale Definition
 
@@ -132,9 +132,9 @@ Da `match-element` automatische `view-transition-name`-Werte anhand der Elementi
 
 ### Grundlegende Verwendung von `view-transition-name`
 
-Dieses Beispiel stammt aus der [View Transitions SPA-Demo](https://mdn.github.io/dom-examples/view-transitions/spa/), einer einfachen Bildergalerie. Der [grundlegende SPA-View-Transition](/de/docs/Web/API/View_Transition_API/Using#basic_spa_view_transition) enthält eine ausführlichere Erklärung dazu, wie diese Demo funktioniert.
+Dieses Beispiel stammt aus der [SPA-Demo zu Ansichtsübergängen](https://mdn.github.io/dom-examples/view-transitions/spa/), einer einfachen Bildergalerie. Unter [Einfacher SPA-Ansichtsübergang](/de/docs/Web/API/View_Transition_API/Using#basic_spa_view_transition) finden Sie eine ausführlichere Erklärung zur Funktionsweise dieser Demo.
 
-Die meisten Änderungen an der Benutzeroberfläche werden mithilfe des `root`-Transition-Snapshots animiert. Dem `<figcaption>` wird jedoch ein `view-transition-name` von `figure-caption` zugewiesen, damit es anders als der Rest der Seite animiert werden kann:
+Die meisten Änderungen an der Benutzeroberfläche werden mit dem `root`-Übergangsschnappschuss animiert. Dem Element `<figcaption>` wird jedoch der `view-transition-name` `figure-caption` zugewiesen, damit es anders als der Rest der Seite animiert werden kann:
 
 ```css
 figcaption {
@@ -142,7 +142,7 @@ figcaption {
 }
 ```
 
-Der folgende Code wendet eine benutzerdefinierte Animation nur auf `<figcaption>` an:
+Der folgende Code wendet eine benutzerdefinierte Animation ausschließlich auf das Element `<figcaption>` an:
 
 ```css
 @keyframes grow-x {
@@ -179,15 +179,15 @@ Der folgende Code wendet eine benutzerdefinierte Animation nur auf `<figcaption>
 }
 ```
 
-Wir erstellen eine benutzerdefinierte CSS-Animation und wenden sie auf die Pseudo-Elemente `::view-transition-old(figure-caption)` und `::view-transition-new(figure-caption)` an. Außerdem wenden wir weitere Stile an, damit beide an derselben Stelle bleiben und das Standard-Styling unsere benutzerdefinierten Animationen nicht beeinträchtigt.
+Wir erstellen eine benutzerdefinierte CSS-Animation und wenden sie auf die Pseudoelemente `::view-transition-old(figure-caption)` und `::view-transition-new(figure-caption)` an. Außerdem wenden wir weitere Stile an, um beide an derselben Position zu halten und zu verhindern, dass die Standardstile unsere benutzerdefinierten Animationen beeinträchtigen.
 
-### Verwendung des Werts `match-element`
+### Den Wert `match-element` verwenden
 
-Dieses Beispiel enthält eine Liste von Technologien – HTML, CSS, SVG und JS –, die in einer Seitenleiste neben einem Hauptinhaltsbereich angezeigt werden, der zunächst leer ist. Ein Klick auf die Überschrift einer Technologie animiert deren Inhalt in den angrenzenden Inhaltsbereich, der weitere Details anzeigt.
+Dieses Beispiel enthält eine Liste von Technologien – HTML, CSS, SVG und JS –, die in einer Seitenleiste neben einem zunächst leeren Hauptinhaltsbereich angezeigt werden. Wenn Sie auf die Überschrift einer Technologie klicken, wird deren Inhalt in den angrenzenden Inhaltsbereich animiert, in dem weitere Details angezeigt werden.
 
 #### HTML
 
-Das Element {{htmlelement("main")}} enthält eine [ungeordnete Liste](/de/docs/Web/HTML/Reference/Elements/ul) und ein {{htmlelement("article")}}-Element. Die mehreren untergeordneten {{htmlelement("li")}}-Elemente innerhalb der Liste enthalten jeweils ein {{htmlelement("a")}}-Element innerhalb einer [Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements).
+Das Element {{htmlelement("main")}} enthält eine [ungeordnete Liste](/de/docs/Web/HTML/Reference/Elements/ul) und ein Element {{htmlelement("article")}}. Die untergeordneten {{htmlelement("li")}}-Elemente in der Liste enthalten jeweils ein {{htmlelement("a")}}-Element innerhalb einer [Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements).
 
 ```html
 <main class="match-element-applied">
@@ -246,7 +246,7 @@ Das Element {{htmlelement("main")}} enthält eine [ungeordnete Liste](/de/docs/W
 
 #### CSS
 
-Wir verwenden [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout), um `<li>` und `<article>` nebeneinander anzuordnen und damit die Listenelemente im ersten Bereich gleich viel Platz einnehmen. Die Liste nimmt 35 % der Breite des Containers ein, während `<article>` den verbleibenden verfügbaren horizontalen Platz ausfüllt.
+Wir verwenden [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout), um die `<li>`-Elemente und das `<article>`-Element nebeneinander anzuordnen und den Listeneinträgen in der ersten Spalte gleich viel Platz zu geben. Die Liste nimmt 35 % der Breite des Containers ein, während das `<article>`-Element den verbleibenden horizontalen Platz ausfüllt.
 
 ```css hidden
 /* General styles and resets */
@@ -360,7 +360,7 @@ li {
 }
 ```
 
-Wir definieren außerdem eine Regel, die Elemente mit der Klasse `active-item` auswählt. Wenn diese Klasse auf ein Element angewendet wird, bewirkt die Regel, dass es genau über dem `<article>`-Element positioniert wird. Diese Klasse wird den Listenelementen über JavaScript zugewiesen, wenn auf ihre Links geklickt wird, wodurch ein View-Transition gestartet wird.
+Außerdem definieren wir eine Regel, die Elemente mit der Klasse `active-item` auswählt. Wenn diese Klasse auf ein Element angewendet wird, positioniert die Regel es genau über dem `<article>`-Element. Die Klasse wird den Listeneinträgen per JavaScript zugewiesen, wenn auf ihre Links geklickt wird. Dadurch wird ein Ansichtsübergang gestartet.
 
 ```css
 .active-item {
@@ -372,7 +372,7 @@ Wir definieren außerdem eine Regel, die Elemente mit der Klasse `active-item` a
 }
 ```
 
-Standardmäßig werden alle Elemente in einem View-Transition gemeinsam in einem einzigen Cross-Fade animiert. In diesem Beispiel möchten wir dies jedoch nicht — wir möchten, dass jedes Listenelement eine eigene Bewegungsanimation hat. Dies lässt sich erreichen, indem `view-transition-name: match-element` auf jedes Listenelement angewendet wird:
+Standardmäßig werden alle Elemente eines Ansichtsübergangs gemeinsam in einer einzigen Überblendung animiert. In diesem Beispiel möchten wir jedoch, dass jeder Listeneintrag eine eigene Bewegungsanimation erhält. Dazu wenden wir `view-transition-name: match-element` auf jeden Listeneintrag an:
 
 ```css
 .match-element-applied li {
@@ -380,9 +380,9 @@ Standardmäßig werden alle Elemente in einem View-Transition gemeinsam in einem
 }
 ```
 
-Die Klasse `match-element-applied` wird standardmäßig auf das `<main>`-Element angewendet, weshalb das Kontrollkästchen im Ergebnis-Frame anfangs ausgewählt ist. Wenn Sie die Auswahl aufheben, wird die Klasse entfernt und stattdessen tritt die standardmäßige Cross-Fade-Animation in Kraft. Sie können das Kontrollkästchen umschalten, um die Standardanimation mit der Animation zu vergleichen, die bei Verwendung von `view-transition-name: match-element` angewendet wird.
+Die Klasse `match-element-applied` wird standardmäßig auf das `<main>`-Element angewendet. Deshalb ist das Kontrollkästchen im Ergebnisbereich anfangs aktiviert. Wenn Sie es deaktivieren, wird die Klasse entfernt und stattdessen die standardmäßige Überblendanimation verwendet. Sie können das Kontrollkästchen umschalten, um die Standardanimation mit der Animation zu vergleichen, die bei Verwendung von `view-transition-name: match-element` angewendet wird.
 
-Als Nächstes passen wir die Animation an, indem wir das Pseudo-Element {{cssxref("::view-transition-group()")}} verwenden, um auf alle View-Transition-Gruppen (gekennzeichnet durch den Bezeichner `*`) eine {{cssxref("animation-duration")}} anzuwenden und allen alten und neuen Snapshots eine {{cssxref("height")}} von `100%` zu geben. Dadurch werden Unterschiede in den Seitenverhältnissen der alten und neuen Snapshots ausgeglichen, und die Animationen wirken flüssiger:
+Als Nächstes passen wir die Animation an: Mit dem Pseudoelement {{cssxref("::view-transition-group()")}} legen wir für alle Ansichtsübergangsgruppen (gekennzeichnet durch den Bezeichner `*`) eine {{cssxref("animation-duration")}} fest und geben allen alten und neuen Schnappschüssen eine {{cssxref("height")}} von `100%`. Dies gleicht Unterschiede zwischen den Seitenverhältnissen der alten und neuen Schnappschüsse aus und lässt die Animationen flüssiger wirken:
 
 ```css
 ::view-transition-group(*) {
@@ -397,7 +397,7 @@ html::view-transition-new(*) {
 
 #### JavaScript
 
-In diesem Beispiel wird die Klasse `active-item` auf die Listenelemente angewendet, wenn auf ihre Links geklickt wird; dies wird durch die Funktion `updateActiveItem()` erreicht:
+In diesem Beispiel wird den Listeneinträgen beim Klicken auf ihre Links die Klasse `active-item` zugewiesen. Dies geschieht über die Funktion `updateActiveItem()`:
 
 ```js
 const mainElem = document.querySelector("main");
@@ -451,15 +451,15 @@ checkboxElem.addEventListener("change", () => {
 });
 ```
 
-Das Ausführen der Funktion `updateActiveItem()` über die Funktion `startViewTransition()` animiert die Anzeige der Technologiedetails flüssig.
+Wenn die Funktion `updateActiveItem()` über die Funktion `startViewTransition()` ausgeführt wird, wird die Anzeige der Technologiedetails flüssig animiert.
 
 #### Ergebnis
 
-Klicken Sie auf eine Technologieüberschrift in der Seitenleiste und beachten Sie den Animationseffekt ihres Inhalts in den Hauptinhaltsbereich.
+Klicken Sie in der Seitenleiste auf die Überschrift einer Technologie und beobachten Sie, wie deren Inhalt in den Hauptinhaltsbereich animiert wird.
 
-Es gibt außerdem ein Kontrollkästchen, das standardmäßig ausgewählt ist, sodass `view-transition-name: match-element` angewendet wird. Heben Sie die Auswahl des Kontrollkästchens auf und klicken Sie erneut auf eine Überschrift, um zu sehen, wie der View-Transition ohne `view-transition-name: match-element` funktioniert.
+Außerdem gibt es ein standardmäßig aktiviertes Kontrollkästchen. Solange es aktiviert ist, wird `view-transition-name: match-element` angewendet. Deaktivieren Sie es und klicken Sie erneut auf eine Überschrift, um zu sehen, wie der Ansichtsübergang ohne `view-transition-name: match-element` funktioniert.
 
-{{EmbedLiveSample("using_the-match-element_value", "", "400")}}
+{{EmbedLiveSample("using_the_match-element_value", "", "400")}}
 
 ## Spezifikationen
 
@@ -476,4 +476,4 @@ Es gibt außerdem ein Kontrollkästchen, das standardmäßig ausgewählt ist, so
 - {{cssxref("::view-transition-old()")}}
 - {{cssxref("::view-transition-new()")}}
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Flüssige Transitions mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

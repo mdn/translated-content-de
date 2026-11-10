@@ -3,13 +3,13 @@ title: "`r` CSS property"
 short-title: r
 slug: Web/CSS/Reference/Properties/r
 l10n:
-  sourceCommit: d78544a841b0e266a6efc169c044573f5e0b4e7d
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`r`** definiert den Radius eines Kreises. Sie kann nur mit dem SVG-Element {{SVGElement("circle")}} verwendet werden. Wenn sie angegeben ist, überschreibt sie das Attribut {{SVGAttr("r")}} des Kreises.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`r`** definiert den Radius eines Kreises. Sie kann nur mit dem SVG-Element {{SVGElement("circle")}} verwendet werden. Ist sie angegeben, überschreibt sie das {{SVGAttr("r")}}-Attribut des Kreises.
 
 > [!NOTE]
-> Die Eigenschaft `r` gilt nur für {{SVGElement("circle")}}-Elemente innerhalb eines {{SVGElement("svg")}}-Elements. Sie gilt nicht für andere SVG- oder HTML-Elemente oder für Pseudoelemente.
+> Die Eigenschaft `r` gilt nur für {{SVGElement("circle")}}-Elemente innerhalb eines {{SVGElement("svg")}}-Elements. Sie gilt weder für andere SVG- oder HTML-Elemente noch für Pseudoelemente.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} definieren den Rad
   - : Absolute oder relative Längen können in jeder Einheit angegeben werden, die der CSS-Datentyp {{cssxref("&lt;length&gt;")}} zulässt. Negative Werte sind ungültig.
 
 - {{cssxref("percentage")}}
-  - : Prozentwerte beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports. Diese wird wie folgt berechnet: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
+  - : Prozentwerte beziehen sich auf die normierte Diagonale des aktuellen SVG-Viewports. Diese wird wie folgt berechnet: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
 
 ## Formale Definition
 
@@ -57,7 +57,7 @@ In diesem Beispiel gibt es zwei identische `<circle>`-Elemente in einem SVG. Bei
 </svg>
 ```
 
-Mit CSS gestalten wir nur den ersten Kreis. Der zweite Kreis behält die Standardstile bei ({{cssxref("fill")}} ist standardmäßig schwarz). Mit der Eigenschaft `r` überschreiben wir den Wert des SVG-Attributs {{SVGAttr("r")}} und legen außerdem `fill` und {{cssxref("stroke")}} fest. Ein SVG ist standardmäßig `300px` breit und `150px` hoch.
+Mit CSS gestalten wir nur den ersten Kreis. Der zweite Kreis verwendet die Standardstile ({{cssxref("fill")}} ist standardmäßig schwarz). Mit der Eigenschaft `r` überschreiben wir den Wert des SVG-Attributs {{SVGAttr("r")}} und legen außerdem `fill` und {{cssxref("stroke")}} fest. Ein SVG ist standardmäßig `300px` breit und `150px` hoch.
 
 ```css
 svg {
@@ -71,7 +71,7 @@ circle:first-of-type {
 }
 ```
 
-{{EmbedLiveSample("Defining a circle's radius", "300", "180")}}
+{{EmbedLiveSample("defining_the_radius_of_a_circle", "300", "180")}}
 
 ### ViewBox im Vergleich zu Viewport-Pixeln
 
@@ -105,7 +105,7 @@ circle:first-of-type {
 
 {{EmbedLiveSample("ViewBox versus viewport pixels", "300", "360")}}
 
-Da das Attribut `viewBox` die Breite des SVGs auf 200 Pixel im SVG-Koordinatensystem festlegt und das Bild auf `300px` vergrößert wird, werden die `30` Pixel im SVG-Koordinatensystem so skaliert, dass sie als `45` CSS-Pixel dargestellt werden.
+Da das Attribut `viewBox` eine Breite von 200 Pixeln im SVG-Koordinatensystem definiert und das Bild auf `300px` vergrößert wird, werden die `30` Pixel im SVG-Koordinatensystem skaliert und als `45` CSS-Pixel dargestellt.
 
 ### Den Radius eines Kreises mit Prozentwerten definieren
 
@@ -137,9 +137,9 @@ circle:first-of-type {
 
 {{EmbedLiveSample("Defining the radius of a circle using percentages", "300", "360")}}
 
-In beiden Fällen beträgt der Kreisradius `30%` der normalisierten Diagonale des SVG-Viewports. Der Radius `r` entspricht <math><mn>0.3</mn><mo>&#xd7;</mo><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>. Das erste Bild verwendet `300` und `150` CSS-Pixel, das zweite `200` und `100` SVG-ViewBox-Einheiten. Da 30 % ein proportionaler Wert sind, ist der Wert von `r` in beiden Fällen gleich: `47.43` ViewBox-Einheiten, was `71.15` CSS-Pixeln entspricht.
+In beiden Fällen beträgt der Kreisradius `30%` der normierten Diagonale des SVG-Viewports. Der Radius `r` entspricht <math><mn>0.3</mn><mo>&#xd7;</mo><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>. Das erste Bild verwendet `300` und `150` CSS-Pixel, das zweite `200` und `100` SVG-ViewBox-Einheiten. Da 30 % ein proportionaler Wert ist, ergibt sich für `r` derselbe Wert: `47.43` ViewBox-Einheiten, was `71.15` CSS-Pixeln entspricht.
 
-Obwohl `r` gleich ist, unterscheiden sich die Mittelpunkte: Das zweite SVG wird um 50 % vergrößert, wodurch sich sein Mittelpunkt um 50 % nach unten und nach rechts verschiebt.
+Obwohl `r` gleich ist, unterscheiden sich die Mittelpunkte: Das zweite SVG wird um 50 % vergrößert, wodurch sich sein Mittelpunkt um 50 % nach unten und rechts verschiebt.
 
 ## Spezifikationen
 
@@ -151,7 +151,7 @@ Obwohl `r` gleich ist, unterscheiden sich die Mittelpunkte: Das zweite SVG wird 
 
 ## Siehe auch
 
-- Geometrie-Eigenschaften: `r`, {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
+- Geometrieeigenschaften: `r`, {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("y")}}, {{cssxref("width")}}, {{cssxref("height")}}
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}

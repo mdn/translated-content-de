@@ -3,12 +3,12 @@ title: "Element: keypress-Ereignis"
 short-title: keypress
 slug: Web/API/Element/keypress_event
 l10n:
-  sourceCommit: e1b44d1e4197102da109a563f343cf41ef06ca7c
+  sourceCommit: 47def3151aadab22b9438c2eedba276d51f65f25
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`keypress`**-Ereignis wird ausgelöst, wenn eine Taste für einen [Buchstaben, eine Zahl, ein Satzzeichen oder ein Symbol](https://w3c.github.io/uievents/#unicode-character-categories) gedrückt wird oder wenn die <kbd>Enter</kbd>-Taste gedrückt wird — auch in Kombination mit der <kbd>Shift</kbd>- oder <kbd>Ctrl</kbd>-Taste. Wird hingegen eine Modifikatortaste wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Meta</kbd>, <kbd>Esc</kbd> oder <kbd>Option</kbd> allein gedrückt, wird das `keypress`-Ereignis _nicht_ ausgelöst.
+Das **`keypress`**-Ereignis wird ausgelöst, wenn eine Taste für einen [Buchstaben, eine Zahl, ein Satzzeichen oder ein Symbol](https://w3c.github.io/uievents/#unicode-character-categories) gedrückt wird oder wenn die Taste <kbd>Enter</kbd> gedrückt wird – auch in Kombination mit <kbd>Shift</kbd> oder <kbd>Ctrl</kbd>. Wird dagegen eine Modifizierertaste wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Meta</kbd>, <kbd>Esc</kbd> oder <kbd>Option</kbd> allein gedrückt, wird das `keypress`-Ereignis _nicht_ ausgelöst.
 
 > [!WARNING]
 > Da dieses Ereignis veraltet ist, sollten Sie stattdessen [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event) oder [`keydown`](/de/docs/Web/API/Element/keydown_event) verwenden.
@@ -23,7 +23,7 @@ Verwenden Sie den Ereignisnamen in [`addEventListener()`](/de/docs/Web/API/Event
 addEventListener("keypress", (event) => { })
 ```
 
-Alternativ können Sie ihn der [Event-Handler-Eigenschaft](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
+Alternativ können Sie ihn der [Event-Handler-Property](/de/docs/Web/API/Document_Object_Model/Events#using_onevent_properties) der Schnittstelle zuweisen:
 
 ```js-nolint
 onkeypress = (event) => { }
@@ -37,18 +37,18 @@ Ein [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent). Es erbt von [`UIEvent`](/
 
 ## Beispiele
 
-### Beispiel für `keypress` mit `addEventListener`
+### Beispiel für keypress mit addEventListener
 
-Dieses Beispiel protokolliert den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code), sobald Sie nach dem Fokussieren des {{htmlelement("input")}}-Elements eine Taste drücken.
+Dieses Beispiel protokolliert den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code), wenn Sie nach dem Fokussieren des {{htmlelement("input")}}-Elements eine Taste drücken.
 
-Um zu sehen, welche Tasten ein `keypress`-Ereignis auslösen und welche nicht, drücken Sie die folgenden Tasten:
+Um zu sehen, welche Tasten ein `keypress`-Ereignis auslösen und welche nicht, drücken Sie beispielsweise:
 
 - Buchstaben-, Zahlen- und Satzzeichentasten
 - Symboltasten wie <kbd>$</kbd>, <kbd>+</kbd>, <kbd>=</kbd>, <kbd>%</kbd> und <kbd>+</kbd>
-- Modifikatortasten wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Meta</kbd>, <kbd>Esc</kbd>, <kbd>Option</kbd> oder <kbd>⌘</kbd>
-- die <kbd>Enter</kbd>-Taste
-- die <kbd>Enter</kbd>-Taste in Kombination mit <kbd>Shift</kbd> oder <kbd>Ctrl</kbd>
-- die <kbd>Enter</kbd>-Taste in Kombination mit anderen Modifikatortasten als <kbd>Shift</kbd> oder <kbd>Ctrl</kbd>
+- Modifizierertasten wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Meta</kbd>, <kbd>Esc</kbd>, <kbd>Option</kbd> oder <kbd>⌘</kbd>
+- die Taste <kbd>Enter</kbd>
+- die Taste <kbd>Enter</kbd> in Kombination mit <kbd>Shift</kbd> oder <kbd>Ctrl</kbd>
+- die Taste <kbd>Enter</kbd> in Kombination mit anderen Modifizierertasten als <kbd>Shift</kbd> oder <kbd>Ctrl</kbd>
 
 ```html
 <div>
@@ -71,9 +71,9 @@ function logKey(e) {
 
 {{EmbedLiveSample("addEventListener_keypress_example")}}
 
-### Verwendung der Event-Handler-Eigenschaft `onkeypress`
+### Verwendung der Event-Handler-Property `onkeypress`
 
-Sie können auch die Event-Handler-Eigenschaft `onkeypress` verwenden. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onkeypress` hinzugefügte Event-Listener ersetzt werden:
+Sie können auch die Event-Handler-Property `onkeypress` verwenden. Beachten Sie jedoch, dass dadurch gegebenenfalls andere mit `onkeypress` hinzugefügte Event-Listener ersetzt werden:
 
 ```js
 input.onkeypress = logKey;
@@ -89,7 +89,7 @@ input.onkeypress = logKey;
 
 ## Siehe auch
 
-- Die Schnittstelle [`Document`](/de/docs/Web/API/Document), auf die sich das Ereignis ebenfalls beziehen kann.
+- Die Schnittstelle [`Document`](/de/docs/Web/API/Document), die ebenfalls Ziel des Ereignisses sein kann.
 - Verwandte Ereignisse:
   - [`input`](/de/docs/Web/API/Element/input_event)
   - [`keydown`](/de/docs/Web/API/Element/keydown_event)

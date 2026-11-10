@@ -1,27 +1,31 @@
 ---
-title: Genre-Detailseite
+title: Detailseite eines Genres
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page
 l10n:
-  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
 
-Die Genre-_Detail_-Seite muss die Informationen für eine bestimmte Genre-Instanz anzeigen, wobei das automatisch generierte `_id`-Feld als Kennzeichen verwendet wird. Die ID des benötigten Genre-Datensatzes wird am Ende der URL kodiert und basierend auf der Routen-Definition (**/genre/:id**) automatisch extrahiert. Sie wird dann im Controller über die Anfrageparameter `req.params.id` aufgerufen.
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_detail_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}
 
-Die Seite sollte den Namen des Genres und eine Liste aller Bücher des Genres mit Links zu den Detailseiten jedes Buches anzeigen.
+Die _Detailseite_ eines Genres soll die Informationen zu einem bestimmten Genre anzeigen. Als Kennung dient der Wert seines automatisch generierten Feldes `_id`.
+Die ID des gewünschten Genre-Datensatzes steht am Ende der URL und wird anhand der Routendefinition (**/genre/:id**) automatisch extrahiert.
+Im Controller ist sie über die Request-Parameter zugänglich: `req.params.id`.
+
+Die Seite soll den Namen des Genres und eine Liste aller Bücher dieses Genres anzeigen, jeweils mit einem Link zur Detailseite des Buches.
 
 ## Controller
 
-Öffnen Sie **/controllers/genreController.js** und fügen Sie am Anfang der Datei das `Book`-Modul hinzu (die Datei sollte bereits das `Genre`-Modul `require()`).
+Öffnen Sie **controllers/genreController.js** und importieren Sie das Modul `Book` am Anfang der Datei (das Modul `Genre` sollte bereits importiert sein).
 
 ```js
-const Book = require("../models/book");
+import Book from "../models/book.js";
 ```
 
-Finden Sie die exportierte `genre_detail()`-Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Suchen Sie die exportierte Controller-Methode `genreDetail()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display detail page for a specific Genre.
-exports.genre_detail = async (req, res, next) => {
+export const genreDetail = async (req, res, next) => {
   // Get details of genre and all associated books (in parallel)
   const [genre, booksInGenre] = await Promise.all([
     Genre.findById(req.params.id).exec(),
@@ -42,18 +46,23 @@ exports.genre_detail = async (req, res, next) => {
 };
 ```
 
-Wir verwenden zuerst `Genre.findById()`, um die Genre-Informationen für eine bestimmte ID zu erhalten, und `Book.find()`, um alle Buchdatensätze zu erhalten, die dieselbe Genre-ID zugeordnet haben. Da die beiden Anfragen nicht voneinander abhängig sind, verwenden wir `Promise.all()`, um die Datenbankabfragen parallel auszuführen (dieser Ansatz zur parallelen Ausführung von Abfragen wurde auf der [Startseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page#controller) demonstriert).
+Zunächst verwenden wir `Genre.findById()`, um die Genre-Informationen für eine bestimmte ID abzurufen, und `Book.find()`, um alle Buch-Datensätze mit derselben zugehörigen Genre-ID abzurufen.
+Da die beiden Abfragen nicht voneinander abhängen, verwenden wir `Promise.all()`, um sie parallel auszuführen (dieselbe Vorgehensweise wurde bereits auf der [Startseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page#controller) gezeigt).
 
-Wir `await` das zurückgegebene Promise, und sobald es sich erledigt hat, überprüfen wir die Ergebnisse. Wenn das Genre in der Datenbank nicht existiert (d.h. es könnte gelöscht worden sein), gibt `findById()` erfolgreich ohne Ergebnisse zurück. In diesem Fall möchten wir eine "nicht gefunden" Seite anzeigen, daher erstellen wir ein `Error`-Objekt und übergeben es der `next`-Middleware-Funktion in der Kette.
+Wir warten mit `await` auf die zurückgegebene Promise und prüfen die Ergebnisse, sobald sie erfüllt oder abgelehnt wurde.
+Wenn das Genre nicht in der Datenbank vorhanden ist (etwa weil es gelöscht wurde), liefert `findById()` erfolgreich ein leeres Ergebnis zurück.
+In diesem Fall möchten wir eine „Nicht gefunden“-Seite anzeigen. Dazu erstellen wir ein `Error`-Objekt und übergeben es an die nächste Middleware-Funktion `next` in der Kette.
 
 > [!NOTE]
-> Fehler, die an die `next`-Middleware-Funktion übergeben werden, propagieren sich in unseren Fehlerbehandlungscode (dies wurde eingerichtet, als wir das [App-Skelett generierten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website#app.js). Für mehr Informationen siehe [Fehlerbehandlung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction#handling_errors) und [Fehler- und Ausnahmenbehandlung in den Routenfunktionen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes#handling_errors_and_exceptions_in_the_route_functions)).
+> Fehler, die an die Middleware-Funktion `next` übergeben werden, gelangen zu unserem Code für die Fehlerbehandlung (dieser wurde beim [Erstellen des Grundgerüsts der Anwendung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website#app.js) eingerichtet). Weitere Informationen finden Sie unter [Fehler behandeln](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction#handling_errors) und [Fehler und Ausnahmen in den Routenfunktionen behandeln](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes#handling_errors_and_exceptions_in_the_route_functions).
 
-Wenn das `genre` gefunden wird, rufen wir `render()` auf, um die Ansicht darzustellen. Das View-Template ist **genre_detail** (.pug). Die Werte für den Titel, `genre` und `booksInGenre` werden mit den entsprechenden Schlüsseln (`title`, `genre` und `genre_books`) in das Template übergeben.
+Wenn das `genre` gefunden wurde, rufen wir `render()` auf, um die Ansicht anzuzeigen.
+Die Ansichtsvorlage heißt **genre_detail** (.pug).
+Die Werte für den Titel, `genre` und `booksInGenre` werden über die entsprechenden Schlüssel (`title`, `genre` und `genre_books`) an die Vorlage übergeben.
 
 ## Ansicht
 
-Erstellen Sie **/views/genre_detail.pug** und füllen Sie es mit dem unten stehenden Text:
+Erstellen Sie **views/genre_detail.pug** und füllen Sie die Datei mit folgendem Inhalt:
 
 ```pug
 extends layout
@@ -75,24 +84,22 @@ block content
       p This genre has no books.
 ```
 
-Die Ansicht ist sehr ähnlich zu all unseren anderen Templates. Der Hauptunterschied besteht darin, dass wir `title`, das für die erste Überschrift übergeben wird, nicht verwenden (obwohl es im zugrundeliegenden **layout.pug**-Template verwendet wird, um den Seitentitel festzulegen).
+Die Ansicht ähnelt unseren anderen Vorlagen sehr. Der wichtigste Unterschied besteht darin, dass wir den übergebenen `title` nicht für die erste Überschrift verwenden (er wird jedoch in der zugrunde liegenden Vorlage **layout.pug** verwendet, um den Seitentitel festzulegen).
 
-## Wie sieht es aus?
+## Wie sieht das Ergebnis aus?
 
-Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Genres_, dann wählen Sie eines der Genres aus (z. B. "Fantasy"). Wenn alles korrekt eingerichtet ist, sollte Ihre Seite ungefähr wie der folgende Screenshot aussehen.
+Starten Sie die Anwendung und öffnen Sie `http://localhost:3000/` in Ihrem Browser. Wählen Sie den Link _All genres_ und anschließend eines der Genres aus (z. B. „Fantasy“). Wenn alles richtig eingerichtet ist, sollte Ihre Seite etwa wie im folgenden Screenshot aussehen.
 
-![Genre Detail Seite - Express Local Library Seite](locallibary_express_genre_detail.png)
+![Genre-Detailseite der Express-Local-Library-Website](locallibary_express_genre_detail.png)
 
 > [!NOTE]
-> Sie könnten einen Fehler ähnlich dem unten stehenden bekommen, wenn `req.params.id` (oder eine andere ID) nicht in ein [`mongoose.Types.ObjectId()`](https://mongoosejs.com/docs/api/mongoose.html#Mongoose.prototype.Types) umgewandelt werden kann.
+> Möglicherweise erhalten Sie einen Fehler wie den folgenden, wenn `req.params.id` (oder eine andere ID) nicht in eine [`mongoose.Types.ObjectId()`](https://mongoosejs.com/docs/api/mongoose.html#Mongoose.prototype.Types) umgewandelt werden kann.
 >
 > ```bash
 > Cast to ObjectId failed for value " 59347139895ea23f9430ecbb" at path "_id" for model "Genre"
 > ```
 >
-> Die wahrscheinlichste Ursache ist, dass die in die Mongoose-Methoden übergebene ID tatsächlich keine ID ist. [`Mongoose.prototype.isValidObjectId()`](<https://mongoosejs.com/docs/api/mongoose.html#Mongoose.prototype.isValidObjectId()>) kann verwendet werden, um zu überprüfen, ob eine bestimmte ID gültig ist.
+> Die wahrscheinlichste Ursache ist, dass der an die Mongoose-Methoden übergebene Wert keine gültige ID ist.
+> Mit [`Mongoose.prototype.isValidObjectId()`](<https://mongoosejs.com/docs/api/mongoose.html#Mongoose.prototype.isValidObjectId()>) können Sie prüfen, ob eine bestimmte ID gültig ist.
 
-## Nächste Schritte
-
-- Kehren Sie zurück zu [Express Tutorial Teil 5: Anzeige von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie fort zum nächsten Unterartikel von Teil 5: [Buch-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_detail_page).
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_detail_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}

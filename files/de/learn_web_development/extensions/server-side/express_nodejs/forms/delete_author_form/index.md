@@ -1,21 +1,25 @@
 ---
-title: Formular zum Löschen von Autoren
+title: Formular zum Löschen eines Authors
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Delete_author_form
 l10n:
-  sourceCommit: b5ee197a87ea18acbc4dd9544efa8c0e46253785
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
 
-Dieser Unterartikel zeigt, wie man eine Seite zum Löschen von `Author`-Objekten definiert.
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_BookInstance_form", "Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Update_Book_form", "Learn_web_development/Extensions/Server-side/Express_Nodejs/forms")}}
 
-Wie im Abschnitt [Formular-Design](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms#form_design) besprochen, wird unsere Strategie darin bestehen, nur das Löschen von Objekten zu erlauben, die nicht von anderen Objekten referenziert werden (in diesem Fall bedeutet das, dass wir nicht erlauben, dass ein `Author` gelöscht wird, wenn er von einem `Book` referenziert wird). Bei der Umsetzung bedeutet dies, dass das Formular bestätigen muss, dass keine zugehörigen Bücher existieren, bevor der Autor gelöscht wird. Wenn es zugehörige Bücher gibt, sollte es diese anzeigen und angeben, dass sie gelöscht werden müssen, bevor das `Author`-Objekt gelöscht werden kann.
+Dieser Unterartikel zeigt, wie Sie eine Seite zum Löschen von `Author`-Objekten definieren.
 
-## Controller—GET-Route
+Wie im Abschnitt [Formulargestaltung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms#form_design) erläutert, erlauben wir das Löschen nur bei Objekten, auf die keine anderen Objekte verweisen. In diesem Fall bedeutet das: Ein `Author` kann nicht gelöscht werden, wenn ein `Book` auf ihn verweist.
+Daher muss vor dem Löschen geprüft werden, ob dem Author noch Bücher zugeordnet sind.
+Falls ja, sollen diese angezeigt werden, zusammen mit dem Hinweis, dass sie vor dem `Author`-Objekt gelöscht werden müssen.
 
-Öffnen Sie **/controllers/authorController.js**. Finden Sie die exportierte `author_delete_get()` Controller-Methode und ersetzen Sie sie mit dem folgenden Code.
+## Controller – GET-Route
+
+Öffnen Sie **controllers/authorController.js**. Suchen Sie die exportierte Controller-Methode `authorDeleteGet()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display Author delete form on GET.
-exports.author_delete_get = async (req, res, next) => {
+export const authorDeleteGet = async (req, res, next) => {
   // Get details of author and all their books (in parallel)
   const [author, allBooksByAuthor] = await Promise.all([
     Author.findById(req.params.id).exec(),
@@ -36,27 +40,29 @@ exports.author_delete_get = async (req, res, next) => {
 };
 ```
 
-Der Controller erhält die ID der zu löschenden `Author`-Instanz aus dem URL-Parameter (`req.params.id`). Er verwendet `await` für das Promise, das von `Promise.all()` zurückgegeben wird, um asynchron auf den angegebenen Autoren-Datensatz und alle zugehörigen Bücher (parallel) zu warten. Wenn beide Operationen abgeschlossen sind, rendert er die **author_delete.pug** View, wobei Variablen für den `title`, den `author` und die `author_books` übergeben werden.
+Der Controller liest die ID der zu löschenden `Author`-Instanz aus dem URL-Parameter (`req.params.id`).
+Mit `await` wartet er auf das von `Promise.all()` zurückgegebene Promise. So werden der angegebene Author-Datensatz und alle zugehörigen Bücher parallel abgerufen.
+Nachdem beide Vorgänge abgeschlossen sind, rendert er die Ansicht **author_delete.pug** und übergibt die Variablen `title`, `author` und `author_books`.
 
 > [!NOTE]
-> Wenn `findById()` keine Ergebnisse zurückgibt, ist der Autor nicht in der Datenbank.
-> In diesem Fall gibt es nichts zu löschen, daher leiten wir sofort zur Liste aller Autoren um.
+> Wenn `findById()` kein Ergebnis zurückgibt, befindet sich der Author nicht in der Datenbank.
+> In diesem Fall gibt es nichts zu löschen, daher leiten wir sofort zur Liste aller Authors weiter.
 >
 > ```js
 > if (author === null) {
->   // Keine Ergebnisse.
+>   // No results.
 >   res.redirect("/catalog/authors");
 >   return;
 > }
 > ```
 
-## Controller—POST-Route
+## Controller – POST-Route
 
-Finden Sie die exportierte `author_delete_post()` Controller-Methode und ersetzen Sie sie mit dem folgenden Code.
+Suchen Sie die exportierte Controller-Methode `authorDeletePost()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Handle Author delete on POST.
-exports.author_delete_post = async (req, res, next) => {
+export const authorDeletePost = async (req, res, next) => {
   // Get details of author and all their books (in parallel)
   const [author, allBooksByAuthor] = await Promise.all([
     Author.findById(req.params.id).exec(),
@@ -73,20 +79,22 @@ exports.author_delete_post = async (req, res, next) => {
     return;
   }
   // Author has no books. Delete object and redirect to the list of authors.
-  await Author.findByIdAndDelete(req.body.authorid);
+  await Author.findByIdAndDelete(req.params.id);
   res.redirect("/catalog/authors");
 };
 ```
 
-Zuerst validieren wir, dass eine ID bereitgestellt wurde (dies wird über die Formular-Body-Parameter gesendet, anstatt die Version in der URL zu verwenden). Dann holen wir den Autor und seine zugehörigen Bücher auf die gleiche Weise wie bei der `GET`-Route. Wenn es keine Bücher gibt, löschen wir das Autorenobjekt und leiten zur Liste aller Autoren um. Wenn es noch Bücher gibt, stellen wir das Formular einfach neu dar, wobei der Autor und die Liste der zu löschenden Bücher übergeben werden.
+Zunächst rufen wir den Author und die zugehörigen Bücher wie bei der `GET`-Route anhand der ID aus der URL ab.
+Wenn keine Bücher vorhanden sind, löschen wir das Author-Objekt und leiten zur Liste aller Authors weiter.
+Wenn noch Bücher vorhanden sind, rendern wir das Formular erneut und übergeben den Author sowie die Liste der Bücher, die zuerst gelöscht werden müssen.
 
 > [!NOTE]
-> Wir könnten prüfen, ob der Aufruf von `findById()` ein Ergebnis zurückgibt, und wenn nicht, sofort die Liste aller Autoren rendern.
-> Wir haben den Code aus Kürzegründen so gelassen, wie er oben ist (er wird immer noch die Liste der Autoren zurückgeben, wenn die ID nicht gefunden wird, aber dies geschieht nach `findByIdAndDelete()`).
+> Wir könnten prüfen, ob der Aufruf von `findById()` ein Ergebnis zurückgibt, und andernfalls sofort die Liste aller Authors anzeigen.
+> Der Kürze halber haben wir den Code jedoch wie oben belassen. Wenn die ID nicht gefunden wird, wird die Liste aller Authors weiterhin angezeigt, allerdings erst nach `findByIdAndDelete()`.
 
-## View
+## Ansicht
 
-Erstellen Sie **/views/author_delete.pug** und kopieren Sie den folgenden Text hinein.
+Erstellen Sie **views/author_delete.pug** und fügen Sie den folgenden Text ein.
 
 ```pug
 extends layout
@@ -111,55 +119,53 @@ block content
     p Do you really want to delete this Author?
 
     form(method='POST')
-      div.form-group
-        input#authorid.form-control(type='hidden', name='authorid', value=author._id )
-
       button.btn.btn-primary(type='submit') Delete
 ```
 
-Die View erweitert das Layout-Template und überschreibt den Block namens `content`. Oben werden die Autorendetails angezeigt. Dann wird eine bedingte Anweisung basierend auf der Anzahl der **`author_books`** (die `if` und `else` Klauseln) eingefügt.
+Die Ansicht erweitert das Layout-Template und überschreibt den Block `content`. Oben zeigt sie die Angaben zum Author an.
+Anschließend folgt eine bedingte Anweisung, die von der Anzahl der **`author_books`** abhängt (mit einem `if`- und einem `else`-Zweig).
 
-- Wenn _Bücher_ mit dem Autor assoziiert sind, listet die Seite die Bücher auf und gibt an, dass diese gelöscht werden müssen, bevor dieser `Author` gelöscht werden kann.
-- Wenn _keine_ Bücher da sind, zeigt die Seite eine Bestätigungsaufforderung.
-- Wenn der **Delete**-Button geklickt wird, wird die Autoren-ID in einer `POST`-Anfrage an den Server gesendet und der Datensatz dieses Autors wird gelöscht.
+- Wenn dem Author Bücher zugeordnet _sind_, werden diese aufgelistet. Außerdem wird darauf hingewiesen, dass sie gelöscht werden müssen, bevor dieser `Author` gelöscht werden kann.
+- Wenn dem Author _keine_ Bücher zugeordnet sind, zeigt die Seite eine Bestätigungsfrage an.
+- Wenn auf die Schaltfläche **Löschen** geklickt wird, sendet das Formular eine `POST`-Anfrage an dieselbe URL. Diese enthält die Author-ID; der entsprechende Author-Datensatz wird daraufhin gelöscht.
 
-## Hinzufügen einer Löschkontrolle
+## Steuerelement zum Löschen hinzufügen
 
-Als Nächstes fügen wir eine **Delete**-Kontrolle zur _Author detail_ View hinzu (die Detailseite ist ein guter Ort, um einen Datensatz zu löschen).
+Als Nächstes fügen wir der Ansicht _Author-Details_ ein Steuerelement zum **Löschen** hinzu. Die Detailseite eignet sich gut, um von dort aus einen Datensatz zu löschen.
 
 > [!NOTE]
-> In einer vollständigen Implementierung würde die Kontrolle nur autorisierten Benutzern sichtbar gemacht werden.
-> Zu diesem Zeitpunkt haben wir jedoch noch kein Autorisierungssystem implementiert!
+> In einer vollständigen Implementierung wäre das Steuerelement nur für autorisierte Benutzer sichtbar.
+> Derzeit haben wir jedoch noch kein Autorisierungssystem eingerichtet!
 
-Öffnen Sie die **author_detail.pug** View und fügen Sie unten die folgenden Zeilen hinzu.
+Öffnen Sie die Ansicht **author_detail.pug** und fügen Sie die folgenden Zeilen am Ende von `block content` hinzu. Sie sind wie der übrige Block um zwei Leerzeichen eingerückt.
 
 ```pug
-hr
-p
-  a(href=author.url+'/delete') Delete author
+  hr
+  p
+    a(href=author.url+'/delete') Delete author
 ```
 
-Die Kontrolle sollte nun als Link erscheinen, wie unten auf der _Author detail_ Seite gezeigt wird.
+Das Steuerelement sollte nun auf der Seite _Author-Details_ als Link erscheinen, wie unten gezeigt.
 
-![Der Autoren-Detailbereich der lokalen Bibliotheksanwendung. Die linke Spalte hat eine vertikale Navigationsleiste. Der rechte Abschnitt enthält die Autordetails mit einer Überschrift, die den Namen des Autors und die Lebensdaten des Autors enthält, gefolgt von einer Liste der vom Autor geschriebenen Bücher. Unten gibt es eine Schaltfläche mit der Bezeichnung "Delete Author".](locallibary_express_author_detail_delete.png)
+![Der Bereich mit den Author-Details der Anwendung Local Library. Links befindet sich eine vertikale Navigationsleiste. Rechts stehen die Angaben zum Author: eine Überschrift mit dem Namen und den Lebensdaten sowie darunter eine Liste der Bücher, die der Author geschrieben hat. Unten befindet sich ein Link mit der Beschriftung „Delete author“.](locallibary_express_author_detail_delete.png)
 
-## Wie sieht es aus?
+## Wie sieht das aus?
 
-Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie dann den Link _All authors_ und anschließend einen bestimmten Autor. Wählen Sie schließlich den Link _Delete author_.
+Starten Sie die Anwendung und öffnen Sie `http://localhost:3000/` in Ihrem Browser.
+Wählen Sie dann den Link _All authors_ und anschließend einen bestimmten Author aus. Wählen Sie zuletzt den Link _Delete author_.
 
-Wenn der Autor keine Bücher hat, wird Ihnen eine Seite wie diese angezeigt. Nach dem Drücken der Delete-Schaltfläche wird der Server den Autor löschen und zur Autorenliste umleiten.
+Wenn dem Author keine Bücher zugeordnet sind, wird eine Seite wie die folgende angezeigt.
+Nachdem Sie auf „Delete“ geklickt haben, löscht der Server den Author und leitet zur Author-Liste weiter.
 
-![Der Abschnitt 'Delete Author' der lokalen Bibliotheksanwendung eines Autors, der keine Bücher hat. Die linke Spalte hat eine vertikale Navigationsleiste. Der rechte Abschnitt enthält den Namen des Autors und die Lebensdaten. Es gibt die Frage "Möchten Sie diesen Autor wirklich löschen" mit einer Schaltfläche, die mit 'Delete' beschriftet ist.](locallibary_express_author_delete_nobooks.png)
+![Der Bereich „Delete Author“ der Anwendung Local Library für einen Author ohne Bücher. Links befindet sich eine vertikale Navigationsleiste. Rechts stehen der Name und die Lebensdaten des Authors. Darunter steht die Frage „Do you really want to delete this author“ und eine Schaltfläche mit der Beschriftung „Delete“.](locallibary_express_author_delete_nobooks.png)
 
-Wenn der Autor Bücher hat, wird Ihnen eine Ansicht wie die folgende angezeigt. Sie können dann die Bücher von ihren Detailseiten löschen (sobald dieser Code implementiert ist!).
+Wenn dem Author Bücher zugeordnet sind, wird stattdessen eine Ansicht wie die folgende angezeigt.
+Sie können die Bücher dann auf ihren jeweiligen Detailseiten löschen, sobald der entsprechende Code implementiert ist.
 
-![Der Abschnitt 'Delete Author' der lokalen Bibliotheksanwendung eines Autors, der Bücher unter seinem Namen hat. Der Abschnitt enthält den Namen des Autors und die Lebensdaten des Autors. Es gibt die Aussage "Löschen Sie die folgenden Bücher, bevor Sie versuchen, diesen Autor zu löschen", gefolgt von den Büchern des Autors. Die Liste enthält die Titel jedes Buches als Links, gefolgt von einer kurzen Beschreibung im Klartext.](locallibary_express_author_delete_withbooks.png)
+![Der Bereich „Delete Author“ der Anwendung Local Library für einen Author, dem Bücher zugeordnet sind. Er zeigt den Namen und die Lebensdaten des Authors. Darunter steht der Hinweis „Delete the following books before attempting to delete this author“, gefolgt von einer Liste seiner Bücher. Jedes Buch wird mit seinem Titel als Link und einer kurzen Beschreibung als Klartext angezeigt.](locallibary_express_author_delete_withbooks.png)
 
 > [!NOTE]
-> Die anderen Seiten zum Löschen von Objekten können auf sehr ähnliche Weise implementiert werden.
-> Wir haben das als Herausforderung belassen.
+> Die Seiten zum Löschen anderer Objekte können weitgehend auf dieselbe Weise implementiert werden.
+> Das überlassen wir Ihnen als Übung.
 
-## Nächste Schritte
-
-- Zurück zu [Express Tutorial Teil 6: Arbeiten mit Formularen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms).
-- Fahren Sie fort mit dem letzten Unterartikel von Teil 6: [Buch aktualisieren Formular](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Update_Book_form).
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_BookInstance_form", "Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Update_Book_form", "Learn_web_development/Extensions/Server-side/Express_Nodejs/forms")}}

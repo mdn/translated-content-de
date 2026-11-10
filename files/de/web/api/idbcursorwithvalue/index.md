@@ -2,33 +2,33 @@
 title: IDBCursorWithValue
 slug: Web/API/IDBCursorWithValue
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Das **`IDBCursorWithValue`** Interface der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) repräsentiert einen [Cursor](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#cursor) zum Durchlaufen oder Iterieren über mehrere Datensätze in einer Datenbank. Es ist identisch mit dem [`IDBCursor`](/de/docs/Web/API/IDBCursor), außer dass es die Eigenschaft `value` beinhaltet.
+Die Schnittstelle **`IDBCursorWithValue`** der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) stellt einen [Cursor](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#cursor) dar, mit dem mehrere Datensätze in einer Datenbank durchlaufen werden können. Sie entspricht [`IDBCursor`](/de/docs/Web/API/IDBCursor), enthält jedoch zusätzlich die Eigenschaft `value`.
 
-Der Cursor hat eine Quelle, die angibt, über welchen Index oder Objekt-Store er iteriert. Er hat eine Position innerhalb des Bereichs und bewegt sich in einer Richtung, die in aufsteigender oder absteigender Reihenfolge der Datensatzschlüssel liegt. Der Cursor ermöglicht einer Anwendung, alle Datensätze im Bereich des Cursors asynchron zu verarbeiten.
+Der Cursor hat eine Quelle, die angibt, welchen Index oder Object Store er durchläuft. Er hat eine Position innerhalb des Bereichs und bewegt sich in aufsteigender oder absteigender Reihenfolge der Datensatzschlüssel. Mit dem Cursor kann eine Anwendung alle Datensätze im Bereich des Cursors asynchron verarbeiten.
 
-Sie können eine unbegrenzte Anzahl von Cursorn gleichzeitig haben. Sie erhalten immer dasselbe `IDBCursorWithValue` Objekt, das einen gegebenen Cursor repräsentiert. Operationen werden auf dem zugrunde liegenden Index oder Objekt-Store durchgeführt.
+Sie können beliebig viele Cursor gleichzeitig verwenden. Für einen bestimmten Cursor erhalten Sie immer dasselbe `IDBCursorWithValue`-Objekt. Operationen werden auf dem zugrunde liegenden Index oder Object Store ausgeführt.
 
 {{InheritanceDiagram}}
 
-## Instanzmethoden
-
-Erbt Methoden von seinem Mutter-Interface, [`IDBCursor`](/de/docs/Web/API/IDBCursor).
-
 ## Instanzeigenschaften
 
-Erbt Eigenschaften von seinem Mutter-Interface, [`IDBCursor`](/de/docs/Web/API/IDBCursor).
+Erbt Eigenschaften von der übergeordneten Schnittstelle [`IDBCursor`](/de/docs/Web/API/IDBCursor).
 
 - [`IDBCursorWithValue.value`](/de/docs/Web/API/IDBCursorWithValue/value) {{ReadOnlyInline}}
-  - : Gibt den Wert des aktuellen Cursors zurück.
+  - : Gibt den Wert an der aktuellen Cursorposition zurück.
+
+## Instanzmethoden
+
+Erbt Methoden von der übergeordneten Schnittstelle [`IDBCursor`](/de/docs/Web/API/IDBCursor).
 
 ## Beispiel
 
-In diesem Beispiel erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen Cursor, um durch alle Datensätze im Objekt-Store zu iterieren. Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` erfassen können. Für ein vollständig funktionierendes Beispiel siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/).)
+In diesem Beispiel erstellen wir eine Transaktion, rufen einen Object Store ab und durchlaufen anschließend mit einem Cursor alle Datensätze im Object Store. Bei einem Cursor müssen wir die Daten nicht anhand eines Schlüssels auswählen; wir können einfach alle abrufen. Beachten Sie außerdem, dass Sie bei jedem Schleifendurchlauf mit `cursor.value.foo` auf Daten des Datensatzes an der aktuellen Cursorposition zugreifen können. Ein vollständiges, lauffähiges Beispiel finden Sie in unserem [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function displayData() {
@@ -60,10 +60,10 @@ function displayData() {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Cursor verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

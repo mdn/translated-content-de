@@ -2,40 +2,40 @@
 title: ReportingObserver
 slug: Web/API/ReportingObserver
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Das `ReportingObserver`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) ermöglicht es Ihnen, Berichte zu sammeln und zuzugreifen.
+Mit der `ReportingObserver`-Schnittstelle der [Reporting API](/de/docs/Web/API/Reporting_API) können Sie Berichte erfassen und darauf zugreifen.
 
 ## Konstruktor
 
 - [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)
-  - : Erstellt eine neue `ReportingObserver`-Objektinstanz, die verwendet werden kann, um Berichte zu sammeln und auf sie zuzugreifen.
+  - : Erstellt eine neue `ReportingObserver`-Objektinstanz, mit der Sie Berichte erfassen und darauf zugreifen können.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface hat keine definierten Eigenschaften._
+_Für diese Schnittstelle sind keine Eigenschaften definiert._
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`ReportingObserver.disconnect()`](/de/docs/Web/API/ReportingObserver/disconnect)
-  - : Stoppt einen Reporting Observer, der zuvor mit dem Sammeln von Berichten begonnen hatte.
+  - : Verhindert, dass ein zuvor gestarteter Reporting Observer weitere Berichte erfasst.
 - [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)
-  - : Weist einen Reporting Observer an, mit dem Sammeln von Berichten in seiner Berichtswarteschlange zu beginnen.
+  - : Weist einen Reporting Observer an, Berichte in seiner Berichtswarteschlange zu erfassen.
 - [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords)
-  - : Gibt die aktuelle Liste von Berichten in der Berichtswarteschlange des Observers zurück und leert die Warteschlange.
+  - : Gibt die aktuelle Liste der Berichte in der Berichtswarteschlange des Observers zurück und leert die Warteschlange.
 
 ## Ereignisse
 
-_Dieses Interface hat keine Ereignisse, die darauf ausgeführt werden._
+_Diese Schnittstelle löst keine Ereignisse aus._
 
 ## Beispiele
 
-### Anzeigen von Veraltungsberichten
+### Deprecation-Berichte anzeigen
 
-Dieses Beispiel zeigt, wie man `"deprecation"`-Berichte mithilfe eines `ReportingObserver` beobachtet.
+Dieses Beispiel zeigt, wie Sie mit einem `ReportingObserver` Berichte des Typs `"deprecation"` erfassen.
 
 ```html hidden
 <pre id="log"></pre>
@@ -61,7 +61,7 @@ function log(text) {
 
 #### JavaScript
 
-Zuerst konstruieren wir ein neues `ReportingObserver`-Objekt, um Berichte mit dem Typ `"deprecation"` zu empfangen, und übergeben einen Callback, der die Berichte empfängt und protokolliert.
+Zunächst erstellen wir ein neues `ReportingObserver`-Objekt, das auf Berichte des Typs `"deprecation"` wartet. Dabei übergeben wir eine Callback-Funktion, die die Berichte empfängt und protokolliert.
 
 ```js
 const options = {
@@ -80,8 +80,8 @@ const observer = new ReportingObserver((reports, observer) => {
 observer.observe();
 ```
 
-Wir rufen dann den folgenden Code auf, der synchrones XHR (veraltete API) verwendet.
-Beachten Sie, dass dies nach dem Observer definiert ist, den es auslöst, sobald der Observer läuft.
+Anschließend führen wir den folgenden Code aus, der synchrones XHR verwendet (eine veraltete API).
+Beachten Sie, dass dieser Code erst nach dem Observer definiert wird, den er auslöst, sobald der Observer aktiv ist.
 
 ```js
 const xhr = new XMLHttpRequest();
@@ -91,10 +91,10 @@ xhr.send();
 
 #### Ergebnisse
 
-In Browsern, die Veraltungsberichte unterstützen, sollte unten ein Bericht angezeigt werden.
-Beachten Sie, dass der `type` `"deprecation"` ist.
+In Browsern, die Deprecation-Berichte unterstützen, sollte unten ein Bericht angezeigt werden.
+Beachten Sie, dass `type` den Wert `"deprecation"` hat.
 
-{{EmbedLiveSample("Using the `ReportingObserver` interface", "100%", "280px")}}
+{{EmbedLiveSample("displaying_deprecation_reports", "100%", "280px")}}
 
 ## Spezifikationen
 

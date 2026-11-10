@@ -1,22 +1,23 @@
 ---
-title: BookInstance-Detailseite und Herausforderung
+title: BookInstance-Detailseite und Übungsaufgabe
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_detail_page_and_challenge
 l10n:
-  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
+
+{{PreviousMenu("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_detail_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}
 
 ## BookInstance-Detailseite
 
-Die `BookInstance`-Detailseite muss die Informationen für jede `BookInstance` anzeigen, die anhand ihres (automatisch generierten) `_id`-Feldwerts identifiziert wird. Dazu gehören der `Book`-Name (als Link zur _Buch-Detailseite_) sowie andere Informationen im Datensatz.
+Die `BookInstance`-Detailseite muss die Informationen zu jeder `BookInstance` anzeigen, die anhand des Werts ihres (automatisch generierten) `_id`-Felds identifiziert wird. Dazu gehören der Name des `Book` (als Link zur _Book-Detailseite_) sowie weitere Informationen aus dem Datensatz.
 
 ### Controller
 
-Öffnen Sie **/controllers/bookinstanceController.js**.
-Finden Sie die exportierte `bookinstance_detail()`-Controllermethode und ersetzen Sie sie durch den folgenden Code.
+Öffnen Sie **controllers/bookinstanceController.js**. Suchen Sie die exportierte Controller-Methode `bookInstanceDetail()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display detail page for a specific BookInstance.
-exports.bookinstance_detail = async (req, res, next) => {
+export const bookInstanceDetail = async (req, res, next) => {
   const bookInstance = await BookInstance.findById(req.params.id)
     .populate("book")
     .exec();
@@ -35,15 +36,11 @@ exports.bookinstance_detail = async (req, res, next) => {
 };
 ```
 
-Die Implementierung ist sehr ähnlich zu der, die für die anderen Modelldetailseiten verwendet wird.
-Die Routen-Controller-Funktion ruft `BookInstance.findById()` mit der ID einer spezifischen Buchinstanz auf, die aus der URL extrahiert wird (mittels der Route) und im Controller über die Anforderungsparameter `req.params.id` zugegriffen wird.
-Anschließend wird `populate()` aufgerufen, um die Details des zugehörigen `Book` zu erhalten.
-Wenn keine übereinstimmende `BookInstance` gefunden wird, wird ein Fehler an die Express-Middleware gesendet.
-Andernfalls werden die zurückgegebenen Daten mit der **bookinstance_detail.pug**-Ansicht gerendert.
+Die Implementierung ähnelt stark derjenigen für die anderen Model-Detailseiten. Die Route-Controller-Funktion ruft `BookInstance.findById()` mit der ID einer bestimmten Buchinstanz auf. Diese ID wird aus der URL (über die Route) extrahiert und ist im Controller über die Request-Parameter zugänglich: `req.params.id`. Anschließend ruft die Funktion `populate()` auf, um die Details des zugehörigen `Book` abzurufen. Wenn keine passende `BookInstance` gefunden wird, wird ein Fehler an die Express-Middleware weitergegeben. Andernfalls werden die zurückgegebenen Daten mit der Ansicht **bookinstance_detail.pug** gerendert.
 
 ### Ansicht
 
-Erstellen Sie **/views/bookinstance_detail.pug** und kopieren Sie den unten stehenden Inhalt hinein.
+Erstellen Sie **views/bookinstance_detail.pug** und fügen Sie den folgenden Inhalt ein.
 
 ```pug
 extends layout
@@ -68,27 +65,25 @@ block content
     p #[strong Due back:] #{bookinstance.due_back}
 ```
 
-Alles in dieser Vorlage wurde in vorherigen Abschnitten demonstriert.
+Alles in diesem Template wurde bereits in den vorherigen Abschnitten gezeigt.
 
-### Wie sieht es aus?
+### Wie sieht das Ergebnis aus?
 
-Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Buchinstanzen_, und wählen Sie dann einen der Einträge aus. Wenn alles richtig eingerichtet ist, sollte Ihre Seite ungefähr wie der folgende Screenshot aussehen.
+Starten Sie die Anwendung und öffnen Sie `http://localhost:3000/` in Ihrem Browser. Wählen Sie den Link _Alle Buchinstanzen_ und anschließend einen der Einträge aus. Wenn alles richtig eingerichtet ist, sollte Ihre Website ungefähr wie im folgenden Screenshot aussehen.
 
-![BookInstance Detailseite - Express Local Library Seite](locallibary_express_bookinstance_detail.png)
+![BookInstance-Detailseite der Express-Website „Local Library“](locallibary_express_bookinstance_detail.png)
 
-## Herausforderung
+## Übungsaufgabe
 
-Derzeit verwenden die meisten auf der Website angezeigten _Daten_ das Standardformat von JavaScript (z. B. _Tue Oct 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time))_. Die Herausforderung für diesen Artikel besteht darin, das Erscheinungsbild der Datumsanzeige für die Lebensspanne eines `Author` (Geburts- und Sterbedatum) und für _BookInstance-Detailseiten_ zu verbessern, um das Format zu verwenden: Oct 6th, 2016.
+Derzeit werden die meisten _Datumsangaben_ auf der Website im JavaScript-Standardformat angezeigt (z. B. _Tue Oct 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time))_. In dieser Übungsaufgabe sollen Sie die Darstellung der Lebensdaten von `Author` (Geburts- und Sterbedatum) sowie der Datumsangaben auf den _BookInstance-Detailseiten_ verbessern. Verwenden Sie dafür das Format: Oct 6, 2016.
 
 > [!NOTE]
-> Sie können denselben Ansatz verwenden, den wir für die _Book Instance List_ verwendet haben (Hinzufügen der virtuellen Eigenschaft für die Lebensspanne zum `Author`-Modell und Verwendung von [luxon](https://www.npmjs.com/package/luxon) zur Formatierung der Datumszeichenfolgen).
+> Sie können denselben Ansatz wie für die _Buchinstanzenliste_ verwenden: Fügen Sie dem `Author`-Modell eine virtuelle Eigenschaft für die Lebensdaten hinzu und formatieren Sie die Datumszeichenfolgen mit {{jsxref("Intl")}}.
 
-Um diese Herausforderung abzuschließen, müssen Sie:
+So lösen Sie die Aufgabe:
 
-1. Ersetzen Sie die Variable `due_back` durch `due_back_formatted` auf der _BookInstance-Detailseite_.
-2. Aktualisieren Sie das `Author`-Modell, um eine virtuelle Lebenserwartungs-Eigenschaft hinzuzufügen. Die Lebensspanne sollte folgendermaßen aussehen: _date_of_birth - date_of_death_, wobei beide Werte dasselbe Datumsformat wie `BookInstance.due_back_formatted` haben.
-3. Verwenden Sie `Author.lifespan` in allen Ansichten, in denen Sie derzeit explizit `date_of_birth` und `date_of_death` verwenden.
+1. Ersetzen Sie auf der _BookInstance-Detailseite_ die Variable `due_back` durch `due_back_formatted`.
+2. Ergänzen Sie das `Author`-Modell um eine virtuelle Eigenschaft für die Lebensdaten. Diese sollen wie folgt aussehen: _date_of_birth - date_of_death_. Beide Werte sollen dasselbe Datumsformat wie `BookInstance.due_back_formatted` haben.
+3. Verwenden Sie `Author.lifespan` in allen Ansichten, in denen Sie derzeit `date_of_birth` und `date_of_death` ausdrücklich verwenden.
 
-## Nächste Schritte
-
-- Zurückkehren zu [Express Tutorial Teil 5: Anzeigen von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data#displaying_library_data_tutorial_subarticles).
+{{PreviousMenu("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_detail_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}

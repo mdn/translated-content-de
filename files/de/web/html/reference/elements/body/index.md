@@ -1,28 +1,28 @@
 ---
-title: "`<body>`: HTML-Element für den Dokumentkörper"
+title: HTML-Element `<body>` für den Dokumentinhalt
 short-title: <body>
 slug: Web/HTML/Reference/Elements/body
 l10n:
-  sourceCommit: f44f946c49273a558b97e342e22a100780d224c8
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<body>`**-Element von [HTML](/de/docs/Web/HTML) repräsentiert den Inhalt eines HTML-Dokuments. Ein Dokument darf nur ein `<body>`-Element enthalten.
+Das [HTML](/de/docs/Web/HTML)-Element **`<body>`** enthält den Inhalt eines HTML-Dokuments. Ein Dokument darf nur ein `<body>`-Element enthalten.
 
 ## Attribute
 
-Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), Ereignisattribute und veraltete Attribute:
+Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), Event-Attribute und veraltete Attribute:
 
-### Ereignisattribute
+### Event-Attribute
 
 > [!NOTE]
-> Jeder der folgenden Namen von Ereignisattributen ist mit dem entsprechenden Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle verlinkt. Sie können diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwachen, statt dem `<body>`-Element ein `oneventname`-Attribut hinzuzufügen.
+> Jeder der folgenden Event-Attributnamen ist mit dem entsprechenden Event der Schnittstelle [`Window`](/de/docs/Web/API/Window) verlinkt. Sie können diese Events mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwachen, statt dem `<body>`-Element das Attribut `oneventname` hinzuzufügen.
 
 - [`onafterprint`](/de/docs/Web/API/Window/afterprint_event)
   - : Funktion, die aufgerufen wird, nachdem der Benutzer das Dokument gedruckt hat.
 - [`onbeforeprint`](/de/docs/Web/API/Window/beforeprint_event)
   - : Funktion, die aufgerufen wird, wenn der Benutzer das Drucken des Dokuments anfordert.
 - [`onbeforeunload`](/de/docs/Web/API/Window/beforeunload_event)
-  - : Funktion, die aufgerufen wird, wenn das Dokument entladen werden soll.
+  - : Funktion, die aufgerufen wird, wenn das Dokument gleich entladen wird.
 - [`onblur`](/de/docs/Web/API/Window/blur_event)
   - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus verliert.
 - [`onerror`](/de/docs/Web/API/Window/error_event)
@@ -30,11 +30,11 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
 - [`onfocus`](/de/docs/Web/API/Window/focus_event)
   - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus erhält.
 - [`onhashchange`](/de/docs/Web/API/Window/hashchange_event)
-  - : Funktion, die aufgerufen wird, wenn sich der Teil mit dem Fragmentbezeichner (beginnend mit dem Rautezeichen (`'#'`)) der aktuellen Adresse des Dokuments geändert hat.
+  - : Funktion, die aufgerufen wird, wenn sich der Fragmentbezeichner (beginnend mit dem Rautezeichen (`'#'`)) in der aktuellen Adresse des Dokuments geändert hat.
 - [`onlanguagechange`](/de/docs/Web/API/Window/languagechange_event)
   - : Funktion, die aufgerufen wird, wenn sich die bevorzugten Sprachen geändert haben.
 - [`onload`](/de/docs/Web/API/Window/load_event)
-  - : Funktion, die aufgerufen wird, wenn das Dokument vollständig geladen wurde.
+  - : Funktion, die aufgerufen wird, wenn das Dokument vollständig geladen ist.
 - [`onmessage`](/de/docs/Web/API/Window/message_event)
   - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht empfangen hat.
 - [`onmessageerror`](/de/docs/Web/API/Window/messageerror_event)
@@ -44,9 +44,9 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
 - [`ononline`](/de/docs/Web/API/Window/online_event)
   - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation wiederhergestellt wurde.
 - [`onpageswap`](/de/docs/Web/API/Window/pageswap_event)
-  - : Funktion, die beim Wechsel zwischen Dokumenten aufgerufen wird, wenn das vorherige Dokument entladen werden soll.
+  - : Funktion, die beim Wechsel zwischen Dokumenten aufgerufen wird, wenn das vorherige Dokument gleich entladen wird.
 - [`onpagehide`](/de/docs/Web/API/Window/pagehide_event)
-  - : Funktion, die aufgerufen wird, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
+  - : Funktion, die aufgerufen wird, wenn der Browser die aktuelle Seite ausblendet, während er eine andere Seite aus dem Sitzungsverlauf anzeigt.
 - [`onpagereveal`](/de/docs/Web/API/Window/pagereveal_event)
   - : Funktion, die aufgerufen wird, wenn ein Dokument erstmals gerendert wird – entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments.
 - [`onpageshow`](/de/docs/Web/API/Window/pageshow_event)
@@ -56,18 +56,18 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
 - [`onresize`](/de/docs/Web/API/Window/resize_event)
   - : Funktion, die aufgerufen wird, wenn die Größe des Dokuments geändert wurde.
 - [`onrejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
-  - : Funktion, die aufgerufen wird, wenn eine abgelehnte JavaScript-{{jsxref("Promise")}} verspätet behandelt wird.
+  - : Funktion, die aufgerufen wird, wenn eine JavaScript-{{jsxref("Promise")}} verspätet behandelt wird.
 - [`onstorage`](/de/docs/Web/API/Window/storage_event)
   - : Funktion, die aufgerufen wird, wenn sich der Speicherbereich geändert hat.
 - [`onunhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
-  - : Funktion, die aufgerufen wird, wenn eine JavaScript-{{jsxref("Promise")}} ohne Ablehnungsbehandlung abgelehnt wird.
+  - : Funktion, die aufgerufen wird, wenn eine JavaScript-{{jsxref("Promise")}} ohne Handler für eine Ablehnung abgelehnt wird.
 - [`onunload`](/de/docs/Web/API/Window/unload_event) {{deprecated_inline}}
-  - : Funktion, die aufgerufen wird, wenn das Dokument verlassen wird.
+  - : Funktion, die aufgerufen wird, wenn das Dokument entladen wird.
 
 ### Veraltete Attribute
 
 > [!WARNING]
-> Verwenden Sie diese veralteten Attribute nicht. Nutzen Sie stattdessen die jeweils aufgeführten CSS-Alternativen.
+> Verwenden Sie diese veralteten Attribute nicht. Nutzen Sie stattdessen die bei jedem Attribut genannten CSS-Alternativen.
 
 - `alink` {{deprecated_inline}}
   - : Textfarbe für Hyperlinks, wenn sie ausgewählt sind.
@@ -81,10 +81,10 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
 - `bottommargin` {{deprecated_inline}}
   - : Wird ignoriert.
 - `leftmargin` {{deprecated_inline}}
-  - : Der linke und rechte Außenabstand des Dokumentkörpers.
+  - : Der linke und rechte Außenabstand des Dokumentinhalts.
     Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("margin-left")}} und {{cssxref("margin-right")}} (oder die logische Eigenschaft {{cssxref("margin-inline")}}).
 - `link` {{deprecated_inline}}
-  - : Textfarbe für nicht besuchte Hypertext-Links.
+  - : Textfarbe für noch nicht besuchte Hypertext-Links.
     Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} zusammen mit der Pseudoklasse {{cssxref(":link")}}.
 - `rightmargin` {{deprecated_inline}}
   - : Wird ignoriert.
@@ -92,7 +92,7 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
   - : Vordergrundfarbe des Textes.
     Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}}.
 - `topmargin` {{deprecated_inline}}
-  - : Der obere und untere Außenabstand des Dokumentkörpers.
+  - : Der obere und untere Außenabstand des Dokumentinhalts.
     Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("margin-top")}} und {{cssxref("margin-bottom")}} (oder die logische Eigenschaft {{cssxref("margin-block")}}).
 - `vlink` {{deprecated_inline}}
   - : Textfarbe für besuchte Hypertext-Links.
@@ -117,7 +117,7 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ### Ergebnis
 
-{{EmbedLiveSample('Example')}}
+{{EmbedLiveSample('examples')}}
 
 ## Technische Zusammenfassung
 
@@ -137,7 +137,7 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
       <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
@@ -145,8 +145,8 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
       <th scope="row">Weglassen von Tags</th>
       <td>
         Das Start-Tag kann weggelassen werden, wenn das Element leer ist oder
-        wenn das erste Element darin weder ein ASCII-Leerzeichen noch ein Kommentar
-        ist. Dies gilt nicht, wenn das erste Element darin ein
+        wenn sein erster Inhalt weder ein ASCII-Leerraumzeichen noch ein
+        Kommentar ist. Dies gilt nicht, wenn sein erster Inhalt ein
         {{HTMLElement("meta")}}-, {{HTMLElement("noscript")}}-,
         {{HTMLElement("link")}}-, {{HTMLElement("script")}}-,
         {{HTMLElement("style")}}- oder {{HTMLElement("template")}}-Element ist.
@@ -181,9 +181,8 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
         [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
         <ul>
           <li>
-            Das <code>&#x3C;body></code>-Element stellt die
-            [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)-Schnittstelle
-            bereit.
+            Das <code>&#x3C;body></code>-Element stellt die Schnittstelle
+            [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement) bereit.
           </li>
           <li>
             Sie können über die Eigenschaft
@@ -208,4 +207,4 @@ Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 - {{HTMLElement("html")}}
 - {{HTMLElement("head")}}
-- [Überblick über die Ereignisbehandlung](/de/docs/Web/API/Document_Object_Model/Events#registering_event_handlers)
+- [Überblick über die Event-Behandlung](/de/docs/Web/API/Document_Object_Model/Events#registering_event_handlers)

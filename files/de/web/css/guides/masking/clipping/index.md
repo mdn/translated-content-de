@@ -1,20 +1,20 @@
 ---
-title: Einführung in CSS Clipping
+title: Einführung in CSS-Clipping
 short-title: Clipping
 slug: Web/CSS/Guides/Masking/Clipping
 l10n:
-  sourceCommit: db443a6062d0e858a62af2f9a3a7558335ffd2dd
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-CSS Clipping ermöglicht es Ihnen, sichtbare Bereiche eines Elements zu definieren und andere Teile zu verbergen, wodurch der Inhalt effektiv innerhalb einer bestimmten Form oder Fläche "beschnitten" wird. Mit Clipping sind Elemente nicht nur auf rechteckige Darstellungen beschränkt und können auf visuell ansprechende Weise gestaltet werden. Dieser Leitfaden untersucht die {{cssxref("clip-path")}} Eigenschaft zusammen mit einigen Beispielen.
+Mit CSS-Clipping können Sie die sichtbaren Bereiche eines Elements festlegen und andere Teile ausblenden. So wird der Inhalt innerhalb einer bestimmten Form oder Fläche „beschnitten“. Elemente müssen dadurch nicht auf rechteckige Darstellungen beschränkt bleiben, sondern können visuell ansprechend gestaltet werden. Dieser Leitfaden erläutert die Eigenschaft {{cssxref("clip-path")}} anhand einiger Beispiele.
 
-## CSS Clipping
+## CSS-Clipping
 
-Clipping ist eine CSS-Technik, bei der Abschnitte eines Elements ausgeblendet werden, sodass nur der Bereich des Elements angezeigt wird, der sich innerhalb eines vom Entwickler definierten Pfads befindet. Clip-Bereiche werden durch Vektorpfade erstellt; alles im Pfad ist sichtbar, während Bereiche außerhalb des Pfads ausgeblendet sind.
+Clipping ist eine CSS-Technik, mit der Bereiche eines Elements beschnitten (ausgeblendet) werden. Sichtbar bleibt nur der Bereich innerhalb eines von Entwicklern definierten Pfads. Clipping-Bereiche werden durch Vektorpfade erzeugt: Alles innerhalb des Pfads ist sichtbar, während Bereiche außerhalb verborgen bleiben.
 
-### Die `clip-path` Eigenschaft
+### Die Eigenschaft `clip-path`
 
-Die `clip-path` Eigenschaft wendet Clipping an. Der akzeptierte Wert ist ein Vektorpfad, der den sichtbaren Bereich des Elements definiert. Der Pfad kann durch Boxen, einen Verweis auf ein [SVG `<clipPath>`](#svg_als_quelle) oder CSS [Formen und Pfade](#form-funktion) definiert werden. Im folgenden Beispiel beschneiden wir ein blaues Quadrat in einem {{htmlelement("div")}}, das mit der Funktion {{cssxref("basic-shape/polygon","polygon()")}} zu einem Diamanten gestaltet wird:
+Die Eigenschaft `clip-path` wendet Clipping an. Als Wert akzeptiert sie einen Vektorpfad, der den sichtbar bleibenden Bereich des Elements definiert. Der Pfad kann durch Boxen, einen Verweis auf einen [SVG-`<clipPath>`](#svg_als_quelle) oder CSS-[Formen und Pfade](<#die_funktion_`shape()`>) definiert werden. Im folgenden Beispiel beschneiden wir ein blaues quadratisches {{htmlelement("div")}} mithilfe der Funktion {{cssxref("basic-shape/polygon","polygon()")}} als Clipping-Pfad zu einer Raute:
 
 ```html hidden live-sample__clip-path
 <div class="diamond"></div>
@@ -30,23 +30,23 @@ Die `clip-path` Eigenschaft wendet Clipping an. Der akzeptierte Wert ist ein Vek
 }
 ```
 
-{{ EmbedLiveSample('clip-path', 230, 230) }}
+{{ EmbedLiveSample('the_clip-path_property', 230, 230) }}
 
-Mit der `clip-path` Eigenschaft können Sie komplexe Formen erstellen, indem Sie ein Element auf eine `<basic-shape>` oder eine [SVG-Quelle](#svg_als_quelle) beschneiden. Sie können [animieren und Übergänge von `clip-path` Formen](#animation) erstellen, wenn die deklarierten Zustände die gleiche Anzahl von Vektorpunkten haben.
+Mit der Eigenschaft `clip-path` können Sie komplexe Formen erzeugen, indem Sie ein Element auf eine `<basic-shape>` oder eine [SVG-Quelle](#svg_als_quelle) beschneiden. Sie können `clip-path`-Formen [animieren und zwischen ihnen Übergänge erstellen](#animation), wenn die definierten Zustände dieselbe Anzahl an Vektorpunkten aufweisen.
 
-### Werte der `clip-path` Eigenschaft
+### Werte der Eigenschaft `clip-path`
 
-Um ein Element visuell zu beschneiden, wird die `clip-path` Eigenschaft entweder auf eine [`<geometry-box>`](/de/docs/Web/CSS/Reference/Properties/clip-path#geometry-box), eine {{cssxref("url_value", "url")}} zu einer {{svgElement("clipPath")}} Clip-Quelle oder auf eine mit [shape function](/de/docs/Web/CSS/Reference/Values/Functions#shape_functions) erstellte {{cssxref("basic-shape")}} gesetzt.
+Um ein Element visuell zu beschneiden, wird die Eigenschaft `clip-path` auf eine [`<geometry-box>`](/de/docs/Web/CSS/Reference/Properties/clip-path#geometry-box), einen {{cssxref("url_value", "url")}}-Verweis auf eine {{svgElement("clipPath")}}-Clipping-Quelle oder eine mit einer [Formfunktion](/de/docs/Web/CSS/Reference/Values/Functions#shape_functions) erstellte {{cssxref("basic-shape")}} gesetzt.
 
 ### Geometrie-Boxen
 
-Die `clip-path` versteckt alles, was außerhalb des beschnittenen Bereichs liegt. Das grundlegendste Clipping erfolgt über eine Geometrie-Box. Sie können ein Element basierend auf seinem Rand, Rahmen, Abstand oder Inhalt beschneiden. Die Effekte dieser visuellen Box-Werte können durch andere CSS-Eigenschaften erreicht werden, wie das Setzen der {{cssxref("border-color")}} auf transparent und der {{cssxref("background-origin")}} auf die gewünschte visuelle Box. Wir betrachten diese Werte hauptsächlich, weil diese Werte in Verbindung mit den Formfunktionen verwendet werden, auf die wir später eingehen werden, um den Ursprung des Form-Clippfads zu definieren.
+`clip-path` blendet alles außerhalb des beschnittenen Bereichs aus. Die einfachste Form des Clippings verwendet eine Geometrie-Box. Sie können ein Element anhand seines Außenabstands, Rahmens, Innenabstands oder Inhalts beschneiden. Die visuellen Effekte dieser Box-Werte lassen sich auch mit anderen CSS-Eigenschaften erzielen, etwa indem Sie {{cssxref("border-color")}} auf transparent und {{cssxref("background-origin")}} auf die gewünschte visuelle Box setzen. Wir betrachten diese Werte vor allem, weil sie zusammen mit den später erläuterten Formfunktionen verwendet werden, um den Ursprung des Clipping-Pfads einer Form festzulegen.
 
-[Das Verständnis der Referenzbox](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box), die von CSS-Formen verwendet wird, ist wichtig, wenn `clip-path` verwendet wird, insbesondere bei [Grundformen](#clipping_zu_grundformen), da die Referenzbox das Koordinatensystem einer Form definiert.
+Beim Einsatz von `clip-path`, insbesondere mit [Grundformen](#beschneiden_auf_grundformen), ist es wichtig, die von CSS-Formen verwendete [Referenz-Box](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) zu verstehen: Sie definiert das Koordinatensystem einer Form.
 
-#### Visuelle Box-Werte
+#### Werte für visuelle Boxen
 
-Dieses Live-Beispiel demonstriert die verschiedenen visuellen Box-Werte der `clip-path` Eigenschaft an einem Element, während es mit der CSS `background-origin` Eigenschaft verglichen wird. Wir haben einen {{cssxref("border")}}, eine {{cssxref("background-color")}}, ein {{cssxref("background-image")}} und {{cssxref("padding")}} auf dem {{htmlelement("blockquote")}} angewendet. Wählen Sie eine Optionsschaltfläche, um den `--value` zu einem anderen `<geometry-box>` Wert zu aktualisieren, der die {{cssxref("background-origin")}} und die {{cssxref("clip-path")}} aufgelösten Werte aktualisiert.
+Dieses interaktive Beispiel zeigt die verschiedenen Werte für visuelle Boxen der Eigenschaft `clip-path` an einem Element und vergleicht sie mit der CSS-Eigenschaft `background-origin`. Auf das {{htmlelement("blockquote")}} haben wir einen {{cssxref("border")}}, eine {{cssxref("background-color")}}, ein {{cssxref("background-image")}} und {{cssxref("padding")}} angewendet. Wählen Sie eine Optionsschaltfläche, um `--value` auf einen anderen `<geometry-box>`-Wert zu setzen. Dadurch ändern sich die berechneten Werte von {{cssxref("background-origin")}} und {{cssxref("clip-path")}}.
 
 ```css hidden
 body {
@@ -153,11 +153,11 @@ blockquote {
 
 {{ EmbedLiveSample('visual box values', 230, 430) }}
 
-Wenn eine `<geometry>` Box in Kombination mit einer `<basic-shape>` angegeben wird, definiert der Wert die Referenzbox für die Grundform. Wird sie alleine angegeben, verursacht sie, dass die Kanten der angegebenen Box, einschließlich jeder Eckgestaltung (wie `border-radius`), der Clipping-Pfad sind.
+Wenn eine `<geometry>`-Box zusammen mit einer `<basic-shape>` angegeben wird, definiert sie die Referenz-Box für die Grundform. Wird sie allein angegeben, bilden die Kanten der angegebenen Box einschließlich der Gestaltung ihrer Ecken (etwa durch `border-radius`) den Clipping-Pfad.
 
-#### Form-Ursprung
+#### Ursprung der Form
 
-Das vorherige Beispiel lässt Sie vielleicht glauben, dass die `<geometry-box>` Werte nutzlos sind, da Sie stattdessen `background-origin` verwenden können. Und das können Sie. Aber wenn Sie mit Grundformen beschneiden, definiert die `<geometry-box>`, wenn sie zusammen mit einer `<basic-shape>` als `clip-path` Wert enthalten ist, die Referenzbox für oder den Ursprung dieser Form. Wir können die beiden vorherigen Beispiele kombinieren, um dies zu demonstrieren.
+Das vorherige Beispiel könnte den Eindruck erwecken, dass `<geometry-box>`-Werte überflüssig sind, weil Sie stattdessen `background-origin` verwenden können. Das ist zwar möglich. Wenn Sie jedoch mit Grundformen beschneiden, definiert eine `<geometry-box>`, die zusammen mit einer `<basic-shape>` als Wert von `clip-path` angegeben wird, die Referenz-Box beziehungsweise den Ursprung dieser Form. Dies lässt sich durch die Kombination der beiden vorherigen Beispiele veranschaulichen.
 
 ```html hidden
 <blockquote class="clippath">
@@ -233,13 +233,13 @@ body:has([value="content-box"]:checked) {
 
 {{ EmbedLiveSample('shape origin', 230, 420) }}
 
-Ein weiteres Beispiel finden Sie unter [`clip-path` Formen und Geometrie-Boxen](/de/docs/Web/CSS/Reference/Properties/clip-path#shapes_and_geometry_boxes).
+Ein weiteres Beispiel finden Sie unter [Formen und Geometrie-Boxen bei `clip-path`](/de/docs/Web/CSS/Reference/Properties/clip-path#shapes_and_geometry_boxes).
 
-Sogar Werte wie `clip-path: margin-box` können nützlich sein. Neben kreativen visuellen Designs, die durch das Setzen des Clippfadrandes an der Randbox-Kante entstehen, führt jeder berechnete Wert für `clip-path` anders als `none` zu der Erstellung eines neuen [Stacking-Kontexts](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context), ebenso wie CSS {{cssxref("opacity")}} es für Werte anders als `1` tut.
+Auch Werte wie `clip-path: margin-box` können nützlich sein. Indem die Kante des Clipping-Pfads an der Kante der Margin-Box platziert wird, lassen sich kreative visuelle Effekte erzielen. Außerdem bewirkt jeder berechnete Wert von `clip-path` außer `none` die Erstellung eines neuen [Stapelkontexts](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) – ebenso wie CSS {{cssxref("opacity")}} bei Werten ungleich `1`.
 
-## Clipping zu Grundformen
+## Beschneiden auf Grundformen
 
-Die Unterstützung der `clip-path` Eigenschaft für {{cssxref("basic-shape")}} Werte bietet eine mächtige Möglichkeit, Elemente zu gestalten. Die verschiedenen Formfunktionen ermöglichen es, präzise Clipping-Bereiche zu definieren und Elemente in einzigartige Formen zu skulpturieren. Die Grundformfunktionen umfassen:
+Die Unterstützung von {{cssxref("basic-shape")}}-Werten durch die Eigenschaft `clip-path` bietet eine leistungsfähige Möglichkeit, Elemente zu formen. Mit den verschiedenen Formfunktionen lassen sich Clipping-Bereiche präzise definieren und Elemente so in einzigartige Formen bringen. Zu den Grundformfunktionen gehören:
 
 - {{cssxref("basic-shape/circle","circle()")}}
 - {{cssxref("basic-shape/ellipse","ellipse()")}}
@@ -250,15 +250,15 @@ Die Unterstützung der `clip-path` Eigenschaft für {{cssxref("basic-shape")}} W
 - {{cssxref("basic-shape/shape","shape()")}}
 - {{cssxref("basic-shape/xywh","xywh()")}}
 
-Die Größe und Position dieser Formen wird durch den `<geometry-box>` Wert definiert, welcher standardmäßig auf `border-box` als Referenzbox zurückgreift, wenn der `clip-path` Wert eine Form ohne `<geometry-box>`-Komponentenwert enthält.
+Größe und Position dieser Formen werden durch den `<geometry-box>`-Wert bestimmt. Enthält der Wert von `clip-path` eine Form ohne `<geometry-box>`-Komponente, wird standardmäßig die Border-Box als Referenz-Box verwendet.
 
-Einige dieser Funktionen scheinen nur grundlegende vordefinierte Clipping-Optionen zu bieten. Sie können Effekte nachahmen, die Sie mit {{cssxref("border-radius")}} erstellen können, aber wenn Sie die `border-radius` Eigenschaft im vorherigen Beispiel [umgeschaltet haben](#visuelle_box-werte), haben Sie möglicherweise die Macht des CSS-Clippings bemerkt. Formen bieten noch mehr Kontrolle. Zum Beispiel ermöglicht `inset()`, ein Rechteck mit präzisen Rändern zuzuschneiden. Die wahre Kraft und Kontrolle kommt mit `path()`, `shape()` und sogar `polygon()`, die benutzerdefinierte Mehrpunktformen ermöglichen.
+Einige dieser Funktionen scheinen nur einfache, vordefinierte Clipping-Optionen zu bieten. Möglicherweise wirken sie wie eine Nachbildung von Effekten, die Sie mit {{cssxref("border-radius")}} erzielen können. Wenn Sie jedoch im vorherigen Beispiel die Eigenschaft [`border-radius` umgeschaltet](#werte_für_visuelle_boxen) haben, ist Ihnen vielleicht das Potenzial von CSS-Clipping aufgefallen. Formen bieten noch mehr Kontrolle. Mit `inset()` können Sie beispielsweise ein Rechteck mit präzisen Abständen beschneiden. Besonders viel Kontrolle bieten `path()`, `shape()` und auch `polygon()`, mit denen sich benutzerdefinierte Formen mit mehreren Punkten erstellen lassen.
 
-### Erstellen von Polygonen
+### Polygone erstellen
 
-Mit `polygon()`, indem Paare von Koordinaten definiert werden, von denen jedes einen Eckpunkt der Form darstellt, können Sie komplexe Formen wie Sterne oder abstrakte Figuren erstellen. Die Koordinaten definieren Vektorpunkte, die durch gerade Linien verbunden sind.
+Mit `polygon()` können Sie durch die Angabe von Koordinatenpaaren, die jeweils einen Eckpunkt der Form darstellen, komplexe Formen wie Sterne oder abstrakte Figuren erstellen. Die Koordinaten definieren Vektorpunkte, die durch gerade Linien verbunden werden.
 
-Hier verwenden wir die `polygon()` Funktion, um einen Stern zu erstellen:
+Hier erstellen wir mit der Funktion `polygon()` einen Stern:
 
 ```html hidden
 <div class="star"></div>
@@ -289,7 +289,7 @@ Hier verwenden wir die `polygon()` Funktion, um einen Stern zu erstellen:
 
 ### Animation
 
-Beschnittene Formen können animiert und übergegangen werden, indem für die verschiedenen Zustände die gleiche Anzahl von Vektorpunkten deklariert wird.
+Beschnittene Formen lassen sich animieren und mit Übergängen versehen, wenn für die verschiedenen Zustände dieselbe Anzahl an Vektorpunkten angegeben wird.
 
 ```html hidden
 <div class="star"></div>
@@ -357,11 +357,11 @@ Beschnittene Formen können animiert und übergegangen werden, indem für die ve
 
 {{ EmbedLiveSample('Animation', 230, 230) }}
 
-### Die `path()` Funktion
+### Die Funktion `path()`
 
-Die `path()` Funktion ermöglicht das Zeichnen von Formen mit SVG-Befehlen. Die Funktion akzeptiert das Äquivalent des SVG {{svgattr("d")}} Attributs als Parameter der Funktion.
+Mit der Funktion `path()` lassen sich Formen mithilfe von SVG-Befehlen zeichnen. Als Parameter akzeptiert sie das Äquivalent des SVG-Attributs {{svgattr("d")}}.
 
-Der Stern aus dem vorherigen Beispiel kann mit `path()` erstellt werden:
+Der Stern aus dem vorherigen Beispiel lässt sich auch mit `path()` erstellen:
 
 ```html hidden
 <div class="star"></div>
@@ -380,9 +380,9 @@ Der Stern aus dem vorherigen Beispiel kann mit `path()` erstellt werden:
 
 {{ EmbedLiveSample('The path function', 230, 230) }}
 
-### Gebogene Linien
+### Gekrümmte Linien
 
-Mit `path()` sind wir nicht nur auf gerade Linien beschränkt. In diesem Beispiel verwenden wir die `path()` Funktion, um ein Herz zu erstellen:
+Mit `path()` sind wir nicht auf gerade Linien beschränkt. In diesem Beispiel erstellen wir mit der Funktion `path()` ein Herz:
 
 ```html hidden
 <div class="heart"></div>
@@ -403,7 +403,7 @@ Mit `path()` sind wir nicht nur auf gerade Linien beschränkt. In diesem Beispie
 
 ### SVG als Quelle
 
-Anstatt ein SVG {{svgattr("d")}} Attribut als Argument der `path()` Funktion zu übergeben, kann der Wert der `clip-path` Eigenschaft direkt auf das SVG {{svgElement("clipPath")}} Element verweisen.
+Statt der Funktion `path()` eine Zeichenfolge für das SVG-Attribut {{svgattr("d")}} als Argument zu übergeben, kann der Wert der Eigenschaft `clip-path` direkt auf das SVG-Element {{svgElement("clipPath")}} verweisen.
 
 ```html
 <div class="heart"></div>
@@ -415,7 +415,7 @@ Anstatt ein SVG {{svgattr("d")}} Attribut als Argument der `path()` Funktion zu 
 </svg>
 ```
 
-Die `id` des `<clipPath>` ist der Parameter der {{cssxref("url_function", "url()")}} Funktion.
+Die `id` des `<clipPath>` ist der Parameter der Funktion {{cssxref("url_function", "url()")}}.
 
 ```css
 .heart {
@@ -428,9 +428,9 @@ Die `id` des `<clipPath>` ist der Parameter der {{cssxref("url_function", "url()
 
 {{ EmbedLiveSample('svg as source', 230, 230) }}
 
-### Form-Funktion
+### Die Funktion `shape()`
 
-Die SVG-Pfadsyntax ist nicht die intuitivste. Aus diesem Grund bietet CSS auch eine `shape()` Funktion. Die `shape()` Funktion nimmt ebenfalls Pfadzeichenrichtlinien entgegen, jedoch mit einer lesbareren Syntax. Wir können das Herz mit deklarativerem CSS neu erstellen:
+Die SVG-Pfadsyntax ist nicht besonders intuitiv. Deshalb bietet CSS auch die Funktion `shape()`. Sie akzeptiert ebenfalls Anweisungen zum Zeichnen von Pfaden, verwendet aber eine besser lesbare Syntax. So können wir das Herz mit deklarativerem CSS nachbilden:
 
 ```css
 .heart {
@@ -444,7 +444,7 @@ Die SVG-Pfadsyntax ist nicht die intuitivste. Aus diesem Grund bietet CSS auch e
 }
 ```
 
-Die `shape()` Funktion ist robuster, da sie CSS-Werte und Einheiten akzeptiert (`path()` ist auf Koordinaten beschränkt), einschließlich der Verwendung von CSS-Mathematischen Funktionen wie `calc()`. Durch die Verwendung von Variablen können wir Formen (und Boxen) in vielen verschiedenen Größen erstellen:
+Die Funktion `shape()` ist flexibler, da sie CSS-Werte und -Einheiten akzeptiert (`path()` ist auf Koordinaten beschränkt). Dazu gehört auch die Verwendung mathematischer CSS-Funktionen wie `calc()`. Mithilfe von Variablen können wir Formen (und Boxen) in vielen verschiedenen Größen erstellen:
 
 ```css
 :root {
@@ -487,11 +487,11 @@ Die `shape()` Funktion ist robuster, da sie CSS-Werte und Einheiten akzeptiert (
 
 {{ EmbedLiveSample('shape function', 230, 270) }}
 
-### Text um Ihre beschnittenen Formen fließen lassen
+### Text um beschnittene Formen fließen lassen
 
-Beschnittene Elemente sind immer noch rechteckige Boxen. Clipping bedeutet, dass Ihr Element nicht wie eine Box aussieht; es ist aber immer noch eine Box. Um Inline-Inhalt um die nicht rechteckigen (oder rechteckigen) Formen, die Sie definieren, herumfließen zu lassen, verwenden Sie die {{cssxref("shape-outside")}} Eigenschaft. Standardmäßig fließt Inline-Inhalt um seine Rand-Box; `shape-outside` bietet eine Möglichkeit, diesen Fluss anzupassen und es möglich zu machen, Text um die Elemente, die Sie beschnitten haben, gemäß dem Clip-Pfad, den Sie repliziert haben, und nicht der rechteckigen Box des Elements zu drapieren.
+Beschnittene Elemente haben weiterhin rechteckige Boxen. Durch Clipping sieht Ihr Element zwar nicht mehr wie eine Box aus, es bleibt aber eine. Verwenden Sie die Eigenschaft {{cssxref("shape-outside")}}, um Inline-Inhalte um die von Ihnen definierten nicht rechteckigen (oder rechteckigen) Formen fließen zu lassen. Standardmäßig umfließen Inline-Inhalte die Margin-Box eines Elements. Mit `shape-outside` können Sie diesen Textfluss anpassen, sodass Text der nachgebildeten Clipping-Form statt der rechteckigen Box des Elements folgt.
 
-Der Inhalt enthält zwei Elemente, die beschnitten werden sollen, und den Inhalt, der darum geformt wird.
+Der Inhalt umfasst zwei Elemente, die beschnitten werden, sowie den Inhalt, der sie umfließen soll.
 
 ```html
 <div class="leftTriangle"></div>
@@ -522,7 +522,7 @@ cite {
 }
 ```
 
-Zusätzlich zur Anwendung derselben Form für sowohl die `clip-shape` als auch die `shape-outside` Eigenschaften muss das beschnittene Element schwebend gemacht werden, damit sich das beschnittene Element in derselben Zeile wie der Inhalt befindet.
+Zusätzlich dazu, dass für die Eigenschaften `clip-shape` und `shape-outside` dieselbe Form verwendet wird, muss das beschnittene Element als Float gesetzt werden, damit es sich auf derselben Zeile wie der Inhalt befindet.
 
 ```css
 .leftTriangle {
@@ -546,7 +546,7 @@ Zusätzlich zur Anwendung derselben Form für sowohl die `clip-shape` als auch d
 - {{cssxref("shape-margin")}}
 - [Überblick über Formen](/de/docs/Web/CSS/Guides/Shapes/Overview)
 - [Einführung in CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
-- [CSS `mask` Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
-- [Deklaration mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
-- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul
-- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
+- [CSS-Eigenschaften für `mask`](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Mehrere Masken definieren](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
+- Modul [CSS-Masking](/de/docs/Web/CSS/Guides/Masking)
+- Modul [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes)

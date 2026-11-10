@@ -3,24 +3,18 @@ title: "Document: URL-Eigenschaft"
 short-title: URL
 slug: Web/API/Document/URL
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{APIRef("DOM")}}
 
-Die **`URL`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den Dokumentenstandort als Zeichenkette zurückgibt.
+Die schreibgeschützte Eigenschaft **`URL`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt die Adresse des Dokuments als Zeichenfolge zurück.
 
 ## Wert
 
-Eine Zeichenkette, die die URL des Dokuments enthält.
+Eine Zeichenfolge, die die URL des Dokuments enthält.
 
 ## Beispiele
-
-### JavaScript
-
-```js
-document.getElementById("url").textContent = document.URL;
-```
 
 ### HTML
 
@@ -29,6 +23,12 @@ document.getElementById("url").textContent = document.URL;
   URL:<br />
   <span id="url">URL goes here</span>
 </p>
+```
+
+### JavaScript
+
+```js
+document.getElementById("url").textContent = document.URL;
 ```
 
 ### Ergebnis
@@ -45,4 +45,4 @@ document.getElementById("url").textContent = document.URL;
 
 ## Siehe auch
 
-- Die [`document.documentURI`](/de/docs/Web/API/Document/documentURI)-Eigenschaft, die denselben Wert zurückgibt.
+- Die Eigenschaft [`document.documentURI`](/de/docs/Web/API/Document/documentURI), die denselben Wert zurückgibt.

@@ -1,25 +1,25 @@
 ---
-title: Wie man einem Text einen Schatten hinzufügt
-short-title: Textschatten hinzufügen
+title: So fügen Sie Text einen Schatten hinzu
+short-title: Text einen Schatten hinzufügen
 slug: Learn_web_development/Howto/Solve_CSS_problems/Add_a_text_shadow
 l10n:
-  sourceCommit: a862f7714755b140b150bd2c724589f6f95a19a2
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-In diesem Leitfaden erfahren Sie, wie Sie jedem Text auf Ihrer Seite einen Schatten hinzufügen können.
+In diesem Leitfaden erfahren Sie, wie Sie beliebigem Text auf Ihrer Seite einen Schatten hinzufügen.
 
-## Schatten zu Text hinzufügen
+## Textschatten hinzufügen
 
-Unser [Leitfaden zum Hinzufügen eines Schattens zu Boxen](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Add_a_shadow) erklärt, wie Sie einem beliebigen Element auf Ihrer Seite einen Schatten hinzufügen können. Diese Technik fügt jedoch nur Schatten zum umgebenden Rahmen des Elements hinzu. Um einen Schlagschatten direkt dem Text hinzuzufügen, benötigen Sie eine andere CSS-Eigenschaft: {{cssxref("text-shadow")}}.
+Unser [Leitfaden zum Hinzufügen eines Schattens zu Elementen](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Add_a_shadow) erklärt, wie Sie einem beliebigen Element auf Ihrer Seite einen Schatten hinzufügen. Diese Technik fügt jedoch nur dem umgebenden Rahmen des Elements einen Schatten hinzu. Um dem Text selbst einen Schlagschatten hinzuzufügen, benötigen Sie eine andere CSS-Eigenschaft: {{cssxref("text-shadow")}}.
 
-Die Eigenschaft `text-shadow` nimmt mehrere Werte an:
+Die Eigenschaft `text-shadow` akzeptiert mehrere Werte:
 
-- Der Versatz auf der x-Achse
-- Der Versatz auf der y-Achse
-- Ein Unschärferadius
+- Den Versatz auf der x-Achse
+- Den Versatz auf der y-Achse
+- Einen Unschärferadius
 - Eine Farbe
 
-Im folgenden Beispiel haben wir den x-Achsen-Versatz auf `2px`, den y-Achsen-Versatz auf `4px`, den Unschärferadius auf `4px` und die Farbe auf ein halbtransparentes Blau gesetzt. Experimentieren Sie mit den verschiedenen Werten, um zu sehen, wie sie den Schatteneffekt verändern.
+Im folgenden Beispiel haben wir den Versatz auf der x-Achse auf `2px`, den Versatz auf der y-Achse auf `4px`, den Unschärferadius auf `4px` und die Farbe auf ein halbtransparentes Blau gesetzt. Probieren Sie verschiedene Werte aus, um zu sehen, wie sie den Schatteneffekt verändern.
 
 ```html live-sample___text-shadow
 <div class="wrapper">
@@ -34,7 +34,7 @@ h1 {
 }
 ```
 
-{{EmbedLiveSample("Text_shadow")}}
+{{EmbedLiveSample("text-shadow")}}
 
 > [!NOTE]
-> Beim Hinzufügen von Textschatten kann es möglicherweise passieren, dass der Text schwer lesbar wird. Achten Sie darauf, dass Ihre Auswahl einen ausreichenden [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) bietet, um die Lesbarkeit des Textes zu gewährleisten.
+> Wenn Sie Textschatten hinzufügen, kann der Text unbeabsichtigt schwer lesbar werden. Achten Sie bei der Auswahl der Werte auf ausreichenden [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast), damit Ihr Text lesbar bleibt.

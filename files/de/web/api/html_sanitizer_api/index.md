@@ -2,39 +2,52 @@
 title: HTML Sanitizer API
 slug: Web/API/HTML_Sanitizer_API
 l10n:
-  sourceCommit: f4c14731a1a157fc8d8f7357ac4d74d14a7d7fb5
+  sourceCommit: 933235fa4b0934142d7e235df41887dc48d2230f
 ---
 
 {{DefaultAPISidebar("HTML Sanitizer API")}}
 
-Die **HTML Sanitizer API** ermöglicht es Entwicklern, HTML-Zeichenfolgen zu filtern und unerwünschte Elemente, Attribute und andere HTML-Entitäten zu entfernen, wenn sie in den DOM oder einen Shadow-DOM eingefügt werden.
+Die **HTML Sanitizer API** ermöglicht es Entwicklern, HTML-Strings zu filtern und unerwünschte Elemente, Attribute und andere HTML-Entitäten zu entfernen, wenn die Strings in das DOM oder ein Shadow DOM eingefügt werden.
 
 ## Konzepte und Verwendung
 
-Webanwendungen müssen häufig mit nicht vertrauenswürdigem HTML auf der Clientseite arbeiten, beispielsweise als Teil einer clientseitigen Templating-Lösung, beim Rendern von nutzergenerierten Inhalten oder beim Einfügen von Daten in einen Rahmen von einer anderen Seite.
+Webanwendungen müssen häufig clientseitig mit nicht vertrauenswürdigem HTML arbeiten, beispielsweise im Rahmen einer clientseitigen Templating-Lösung, beim Rendern nutzergenerierter Inhalte oder beim Einbinden von Daten in einen Frame von einer anderen Website.
 
-Das Einfügen von nicht vertrauenswürdigem HTML kann eine Seite anfällig für verschiedene [Arten von Angriffen](/de/docs/Web/Security/Attacks) machen. Insbesondere [Cross-Site-Scripting (XSS)-Angriffe](/de/docs/Web/Security/Attacks/XSS) funktionieren, indem nicht vertrauenswürdiges HTML in den DOM eingefügt wird, das dann JavaScript im Kontext der aktuellen Quelle ausführt — wodurch bösartiger Code ausgeführt wird, als ob er von der Quelle der Website bereitgestellt wurde. Diese Angriffe können durch das Entfernen unsicherer HTML-Elemente und Attribute gemindert werden, bevor sie in den DOM eingefügt werden.
+Das Einfügen von nicht vertrauenswürdigem HTML kann eine Website für verschiedene [Angriffsarten](/de/docs/Web/Security/Attacks) anfällig machen.
+Insbesondere funktionieren [Cross-Site-Scripting-Angriffe (XSS)](/de/docs/Web/Security/Attacks/XSS), indem nicht vertrauenswürdiges HTML in das DOM eingefügt wird, das anschließend JavaScript im Kontext des aktuellen Ursprungs ausführt. Dadurch kann schädlicher Code so ausgeführt werden, als stamme er vom Ursprung der Website.
+Solche Angriffe lassen sich eindämmen, indem unsichere HTML-Elemente und -Attribute entfernt werden, bevor sie in das DOM eingefügt werden.
 
-Die HTML Sanitizer API stellt mehrere Methoden zum Entfernen unerwünschter HTML-Entitäten aus HTML-Eingaben bereit, bevor diese in den DOM eingefügt werden. Diese Methoden gibt es in XSS-sicheren Versionen, die die Entfernung aller unsicheren Elemente und Attribute erzwingen, und potenziell unsicheren Versionen, die den Entwicklern volle Kontrolle über die erlaubten HTML-Entitäten geben.
+Die HTML Sanitizer API stellt mehrere Methoden bereit, um unerwünschte HTML-Entitäten aus HTML-Eingaben zu entfernen, bevor diese in das DOM eingefügt werden.
+Es gibt XSS-sichere Varianten, die alle unsicheren Elemente und Attribute entfernen, sowie potenziell unsichere Varianten, mit denen Entwickler vollständig kontrollieren können, welche HTML-Entitäten zulässig sind.
 
-### Säuberungsmethoden
+### Bereinigungsmethoden
 
-Die HTML Sanitizer API bietet XSS-sichere und XSS-unsichere Methoden zum Einfügen von HTML-Zeichenfolgen in ein [`Element`](/de/docs/Web/API/Element) oder ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) sowie zum Parsen von HTML in ein [`Document`](/de/docs/Web/API/Document).
+Die HTML Sanitizer API stellt XSS-sichere und XSS-unsichere Methoden bereit, um HTML-Strings in ein [`Element`](/de/docs/Web/API/Element) oder eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) einzufügen und HTML in ein [`Document`](/de/docs/Web/API/Document) zu parsen.
 
 - Sichere Methoden
   - : [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML), [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) und [`Document.parseHTML()`](/de/docs/Web/API/Document/parseHTML_static).
 - Unsichere Methoden
   - : [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe), [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) und [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static).
 
-Alle Methoden akzeptieren das einzufügende HTML sowie optional einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) als Argumente. Die Sanitizer-Objekte definieren die HTML-Entitäten, die aus der Eingabe gefiltert werden, bevor sie eingefügt wird. Die [`Element`](/de/docs/Web/API/Element)-Methoden sind kontextbewusst und entfernen zusätzlich alle Elemente, die im Ziel-Element laut HTML-Spezifikation nicht erlaubt sind.
+Alle Methoden nehmen das einzufügende HTML und optional einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) als Argumente entgegen.
+Das Sanitizer-Objekt legt fest, welche HTML-Entitäten vor dem Einfügen aus der Eingabe herausgefiltert werden.
+Die Methoden von [`Element`](/de/docs/Web/API/Element) berücksichtigen den Kontext und verwerfen zusätzlich alle Elemente, die laut HTML-Spezifikation im Zielelement nicht zulässig sind.
 
-Die sicheren Methoden entfernen immer XSS-gefährliche Elemente und Attribute. Wenn kein Sanitizer als Parameter übergeben wird, verwenden sie die [Standard-Sanitizer-Konfiguration](#standard-sanitizer-konfiguration), die sowohl XSS-gefährliche Elemente als auch Attribute entfernt, wie z.B. {{htmlelement("script")}}-Elemente und `onclick`-Ereignishandler, sowie weitere, die bei Benutzereingaben in anderen Arten von Angriffen verwendet werden könnten. Wenn ein benutzerdefinierter Sanitizer mit einer sicheren Methode verwendet wird, wird er implizit aktualisiert, um alle nicht XSS-sicheren Elemente und Attribute zu entfernen (beachten Sie, dass der übergebene Sanitizer nicht verändert wird und möglicherweise weiterhin unsichere Entitäten erlaubt, wenn er mit einer unsicheren Methode verwendet wird).
+Die sicheren Methoden entfernen immer XSS-unsichere Elemente und Attribute.
+Wird kein Sanitizer als Parameter übergeben, verwenden sie die [Standardkonfiguration des Sanitizers](#standardkonfiguration_des_sanitizers). Diese entfernt XSS-unsichere Elemente und Attribute wie {{htmlelement("script")}}-Elemente und `onclick`-Event-Handler sowie weitere Entitäten, die bei einer Eingabe durch Benutzer für andere Arten von Angriffen genutzt werden könnten.
+Wird ein benutzerdefinierter Sanitizer mit einer sicheren Methode verwendet, wird er bei der Anwendung implizit so angepasst, dass alle nicht XSS-sicheren Elemente und Attribute entfernt werden. Der übergebene Sanitizer selbst wird dabei nicht verändert und könnte bei Verwendung mit einer unsicheren Methode weiterhin unsichere Entitäten zulassen.
 
-Die sicheren Methoden sollten anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML), [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML) oder [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) verwendet werden, um nicht vertrauenswürdige HTML-Inhalte einzufügen. Zum Beispiel können Sie in den meisten Fällen [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Standardsanitizer als Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwenden. Dieselben Methoden können auch verwendet werden, um vertrauenswürdige HTML-Zeichenfolgen einzufügen, die keine XSS-gefährlichen Elemente enthalten müssen.
+Zum Einfügen nicht vertrauenswürdiger HTML-Inhalte sollten die sicheren Methoden anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML), [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML) oder [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) verwendet werden.
+Beispielsweise können Sie in den meisten Fällen [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Standard-Sanitizer als direkten Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwenden.
+Dieselben Methoden eignen sich auch zum Einfügen vertrauenswürdiger HTML-Strings, die keine XSS-unsicheren Elemente enthalten müssen.
 
-Die XSS-unsicheren Methoden verwenden jede Sanitizer-Konfiguration, die als Argument übergeben wird. Wenn kein Sanitizer übergeben wird, werden alle HTML-Elemente und Attribute, die im Kontext erlaubt sind, eingefügt. Dies ähnelt der Verwendung von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML), außer dass die Methode Shadow-Roots parst, Elemente entfernt, die im Kontext nicht geeignet sind, und einige andere Eingaben erlaubt, die nicht erlaubt sind, wenn die Eigenschaft verwendet wird.
+Die XSS-unsicheren Methoden verwenden die als Argument übergebene Sanitizer-Konfiguration.
+Wird kein Sanitizer übergeben, werden alle im jeweiligen Kontext zulässigen HTML-Elemente und -Attribute eingefügt.
+Dies ähnelt der Verwendung von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML). Die Methode parst jedoch zusätzlich Shadow Roots, verwirft Elemente, die im jeweiligen Kontext unzulässig sind, und erlaubt bestimmte weitere Eingaben, die bei Verwendung der Eigenschaft nicht zulässig sind.
 
-Die unsicheren Methoden sollten nur mit nicht vertrauenswürdigem HTML verwendet werden, das einige XSS-gefährliche Elemente oder Attribute enthalten muss. Dies ist immer noch unsicher, ermöglicht es Ihnen jedoch, das Risiko zu verringern, indem Sie unsichere Entitäten auf das minimale Set beschränken. Zum Beispiel, wenn Sie unsicheres HTML injizieren möchten, aber aus irgendeinem Grund die Eingabe den `onblur`-Handler enthalten muss, könnten Sie dies sicherer tun, indem Sie den Standardsanitizer ändern und eine unsichere Methode wie folgt verwenden:
+Die unsicheren Methoden sollten nur für nicht vertrauenswürdiges HTML verwendet werden, das bestimmte XSS-unsichere Elemente oder Attribute enthalten muss.
+Dies bleibt unsicher, aber Sie können das Risiko verringern, indem Sie die zugelassenen unsicheren Entitäten auf das notwendige Minimum beschränken.
+Wenn Sie beispielsweise unsicheres HTML einfügen möchten und die Eingabe aus irgendeinem Grund den `onblur`-Handler enthalten muss, können Sie dies auf sicherere Weise tun, indem Sie den Standard-`Sanitizer` anpassen und wie gezeigt eine unsichere Methode verwenden:
 
 ```js
 const sanitizer = new Sanitizer(); // Default sanitizer
@@ -45,28 +58,33 @@ someElement.setHTMLUnsafe(untrustedString, { sanitizer });
 
 ### Sanitizer-Konfigurationen
 
-Eine Sanitizer-Konfiguration definiert, welche HTML-Entitäten erlaubt, ersetzt oder entfernt werden, wenn der Sanitizer verwendet wird, einschließlich Elemente, Attribute, `data-*` Attribute und Kommentare.
+Eine Sanitizer-Konfiguration legt fest, welche HTML-Entitäten bei Verwendung des Sanitizers zugelassen, ersetzt oder entfernt werden. Dazu gehören Elemente, Attribute, `data-*`-Attribute und Kommentare.
 
-Es gibt zwei Mechanismen zur Definition einer Sanitizer-Konfiguration, die beide an alle Säuberungsmethoden übergeben werden können:
+Es gibt zwei Möglichkeiten, eine Sanitizer-Konfiguration zu definieren. Beide können an alle Bereinigungsmethoden übergeben werden:
 
-- [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) ist ein Wörterbuch-Objekt, das Arrays für die erlaubten/nicht erlaubten Elemente und Attribute definiert und boolesche Eigenschaften, die angeben, ob Kommentare und Datenattribute erlaubt oder weggelassen werden sollen, und so weiter.
+- [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) ist ein Dictionary-Objekt, das Arrays für zugelassene und nicht zugelassene Elemente und Attribute sowie boolesche Eigenschaften definiert. Letztere geben unter anderem an, ob Kommentare und Datenattribute zugelassen oder weggelassen werden.
 
-  Nur ein Teil der möglichen Konfigurationsoptionen kann in einer bestimmten Konfiguration angegeben werden, um Redundanz und Mehrdeutigkeit zu reduzieren. Der erlaubte Teil ist im Abschnitt [Erlauben und Entfernen von Konfigurationen](#erlauben_und_entfernen_von_konfigurationen) weiter unten zusammengefasst und wird im Detail unter [Gültige Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) beschrieben.
+  In einer Konfiguration darf nur eine Teilmenge der möglichen Konfigurationsoptionen angegeben werden, um Redundanz und Mehrdeutigkeit zu vermeiden.
+  Die zulässige Teilmenge ist im Abschnitt [Zulassungs- und Entfernungskonfigurationen](#zulassungs-_und_entfernungskonfigurationen) zusammengefasst und unter [Gültige Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) ausführlich beschrieben.
 
-- [`Sanitizer`](/de/docs/Web/API/Sanitizer) ist im Wesentlichen ein Wrapper um eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die Methoden bereitstellt, um die Konfiguration ergonomisch zu ändern und sicherzustellen, dass sie gültig bleibt.
+- [`Sanitizer`](/de/docs/Web/API/Sanitizer) ist im Wesentlichen ein Wrapper um eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig). Er stellt Methoden bereit, mit denen sich die Konfiguration bequem ändern und ihre Gültigkeit sicherstellen lässt.
 
-  Zum Beispiel können Sie eine Methode verwenden, um ein erlaubtes Element hinzuzufügen, und es wird auch das Element aus dem `replaceWithChildrenElements`-Array entfernen (falls vorhanden). Die Schnittstelle bietet auch Methoden, um eine Kopie der zugrunde liegenden [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) zurückzugeben und den Sanitizer so zu aktualisieren, dass er XSS-sicher ist. Sie kann Normalisierungen der Sanitizer-Konfiguration bereitstellen, die zur Erstellung verwendet wurde, wodurch sie leichter zu verstehen und wiederzuverwenden ist.
+  Beispielsweise können Sie mit einer Methode ein zugelassenes Element hinzufügen. Dadurch wird das Element gegebenenfalls auch aus dem Array `replaceWithChildrenElements` entfernt.
+  Die Schnittstelle stellt außerdem Methoden bereit, um eine Kopie der zugrunde liegenden [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) zurückzugeben und den Sanitizer XSS-sicher zu machen.
+  Sie kann die bei ihrer Erstellung verwendete Sanitizer-Konfiguration normalisieren, sodass diese leichter zu verstehen und wiederzuverwenden ist.
 
-Obwohl Sie jede Schnittstelle in jeder der Säuberungsmethoden verwenden können, ist `Sanitizer` wahrscheinlich effizienter, um geteilt und wiederverwendet zu werden als `SanitizerConfig`.
+Sie können zwar beide Varianten in allen Bereinigungsmethoden verwenden, `Sanitizer` lässt sich aber voraussichtlich effizienter gemeinsam nutzen und wiederverwenden als `SanitizerConfig`.
 
-#### Erlauben und Entfernen von Konfigurationen
+#### Zulassungs- und Entfernungskonfigurationen
 
-Sie können eine Konfiguration auf zwei Arten aufbauen:
+Sie können eine Konfiguration auf zwei Arten erstellen:
 
-- Als _Erlauben-Konfiguration_: Festlegung der Menge an Elementen und/oder Attributen, die Sie in der Ausgabe zulassen.
-- Als _Entfernen-Konfiguration_: Festlegung der Menge, die nicht in der Ausgabe vorhanden sein darf.
+- Als _Zulassungskonfiguration_: Sie geben die Elemente und/oder Attribute an, die in der Ausgabe zulässig sein sollen.
+- Als _Entfernungskonfiguration_: Sie geben die Elemente und/oder Attribute an, die in der Ausgabe nicht vorkommen dürfen.
 
-Diese Mengen werden als Arrays in den Feldern des Konfigurationsobjekts angegeben: `elements` und `attributes`, und `removeElements` und `removeAttributes`. Sie dürfen nicht sowohl Erlauben- als auch Entfernen-Arrays für Elemente oder Attribute in derselben Konfiguration angeben, aber andere Kombinationen von Feldern sind erlaubt. Die folgende Tabelle zeigt die erlaubten Kombinationen.
+Diese Mengen werden als Arrays in den Feldern `elements` und `attributes` beziehungsweise `removeElements` und `removeAttributes` des Konfigurationsobjekts angegeben.
+Sie dürfen in derselben Konfiguration für Elemente oder Attribute nicht gleichzeitig Zulassungs- und Entfernungsarrays angeben. Andere Kombinationen von Feldern sind jedoch zulässig.
+Die folgende Tabelle zeigt die zulässigen Kombinationen.
 
 | Element-Arrays                | Attribut-Arrays                   | Gültig? |
 | ----------------------------- | --------------------------------- | ------- |
@@ -78,21 +96,27 @@ Diese Mengen werden als Arrays in den Feldern des Konfigurationsobjekts angegebe
 | `removeElements`              | `removeAttributes`                | ✔️      |
 | -                             | `attributes`                      | ✔️      |
 | -                             | `removeAttributes`                | ✔️      |
-| `elements` + `removeElements` | (anything)                        | ❌      |
-| (anything)                    | `attributes` + `removeAttributes` | ❌      |
+| `elements` + `removeElements` | (beliebig)                        | ❌      |
+| (beliebig)                    | `attributes` + `removeAttributes` | ❌      |
 | -                             | -                                 | ✔️      |
 
-Eine Erlauben-Konfiguration kann optional festlegen, ob pro Element Attribute erlaubt und/oder entfernt werden sollen, in ihrem `elements` Array. Die erlaubte Konfiguration für diese lokalen Attribute hängt davon ab, ob globale `attributes` oder `removedAttributes` definiert sind. Der Abschnitt [gültige Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) skizziert die Einschränkungen.
+Eine Zulassungskonfiguration kann in ihrem Array `elements` optional festlegen, ob Attribute für einzelne Elemente zugelassen und/oder entfernt werden sollen.
+Welche Konfigurationen für diese elementspezifischen Attribute zulässig sind, hängt davon ab, ob globale `attributes` oder `removedAttributes` definiert sind.
+Der Abschnitt [Gültige Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) beschreibt die Einschränkungen.
 
-Im Allgemeinen ist eine "Erlauben-Konfiguration" sowohl für die Elemente als auch für die Attribute sicherer, da Sie die Elemente und/oder Attribute auflisten, die Sie wünschen und von denen Sie wissen, dass sie sicher sind, anstatt alle Elemente, die gefährlich oder in Zukunft möglicherweise als gefährlich angesehen werden könnten.
+Im Allgemeinen ist eine „Zulassungskonfiguration“ sowohl für Elemente als auch für Attribute sicherer: Sie listen die Elemente und/oder Attribute auf, die Sie benötigen und für sicher halten, statt alle Einträge aufzuführen, die gefährlich sind oder künftig als gefährlich gelten könnten.
+Wenn Sie ein leeres Konfigurationsobjekt angeben, wird eine leere Zulassungskonfiguration verwendet.
 
-##### Erlauben-Konfigurationen
+##### Zulassungskonfigurationen
 
-Mit "Erlauben-Konfigurationen" spezifizieren Sie die Elemente und Attribute, die Sie _erlauben_ (oder durch Kindelemente ersetzen) möchten — alle anderen Elemente/Attribute in der Eingabe werden entfernt. Dies macht es einfach zu verstehen, welche Elemente im DOM erlaubt sein werden, wenn das HTML geparst wird. Sie sind nützlich, wenn Sie genau wissen, welche HTML-Entitäten Sie in einem bestimmten Kontext einfügen möchten.
+Bei „Zulassungskonfigurationen“ geben Sie an, welche Elemente und Attribute Sie _zulassen_ möchten oder welche Elemente durch ihre Kindelemente ersetzt werden sollen. Alle anderen Elemente und Attribute in der Eingabe werden verworfen.
+So lässt sich leicht nachvollziehen, welche Elemente nach dem Parsen des HTML im DOM zulässig sein werden.
+Sie sind nützlich, wenn Sie genau wissen, welche HTML-Entitäten Sie in einem bestimmten Kontext einfügen möchten.
 
-Erlauben-Konfigurationen werden erstellt, indem ein `Sanitizer` definiert wird, das eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) umschließt, die die Arrays [`elements`](/de/docs/Web/API/SanitizerConfig#elements) und/oder [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes) enthält (und nicht die Arrays `removeElements` oder `removeAttributes`).
+Zulassungskonfigurationen werden erstellt, indem Sie einen `Sanitizer` definieren, der eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) mit den Arrays [`elements`](/de/docs/Web/API/SanitizerConfig#elements) und/oder [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes) umschließt, jedoch ohne die Arrays `removeElements` oder `removeAttributes`.
 
-Zum Beispiel wird die folgende Konfiguration erstellt, indem eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) übergeben wird, die {{htmlelement("p")}} und {{htmlelement("div")}} Elemente sowie `cite` und `onclick` Attribute auf jedem erlaubten Element ermöglicht. Sie wird auch {{htmlelement("b")}} Elemente durch ihre Kindknoten ersetzen.
+Die folgende Konfiguration wird beispielsweise erstellt, indem eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) übergeben wird, die {{htmlelement("p")}}- und {{htmlelement("div")}}-Elemente sowie die Attribute `cite` und `onclick` für jedes zugelassene Element erlaubt.
+Außerdem ersetzt sie {{htmlelement("b")}}-Elemente durch ihre Kindknoten.
 
 ```js
 const sanitizer = new Sanitizer({
@@ -102,7 +126,8 @@ const sanitizer = new Sanitizer({
 });
 ```
 
-Die gleiche Konfiguration kann auch mithilfe von [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Methoden erstellt werden. Beachten Sie, dass im folgenden Code der `Sanitizer()`-Konstruktor ein leeres Objekt nimmt, was zu einem `Sanitizer` führt, bei dem die zugrunde liegende Konfiguration sowohl `elements`- als auch `attributes`-Arrays enthält — mit anderen Worten, eine "Erlauben-Konfiguration".
+Dieselbe Konfiguration lässt sich auch mit Methoden von [`Sanitizer`](/de/docs/Web/API/Sanitizer) erstellen.
+Beachten Sie, dass der `Sanitizer()`-Konstruktor im folgenden Code ein leeres Objekt entgegennimmt. Dadurch entsteht ein `Sanitizer`, dessen zugrunde liegende Konfiguration sowohl ein `elements`- als auch ein `attributes`-Array enthält – mit anderen Worten eine „Zulassungskonfiguration“.
 
 ```js
 // Create empty sanitizer
@@ -116,13 +141,13 @@ sanitizer.allowAttribute("cite");
 sanitizer.allowAttribute("onclick");
 ```
 
-##### Entfernen-Konfigurationen
+##### Entfernungskonfigurationen
 
-In "Entfernen-Konfigurationen" spezifizieren Sie die HTML-Elemente und Attribute, die Sie entfernen möchten: Alle anderen Elemente und Attribute sind durch den Sanitizer erlaubt (können jedoch blockiert werden, wenn Sie eine sichere Sanitizer-Methode verwenden oder wenn das Element im Kontext nicht erlaubt ist).
+Bei „Entfernungskonfigurationen“ geben Sie die HTML-Elemente und -Attribute an, die entfernt werden sollen. Alle anderen Elemente und Attribute werden vom Sanitizer zugelassen, können jedoch blockiert werden, wenn Sie eine sichere Bereinigungsmethode verwenden oder das Element im jeweiligen Kontext unzulässig ist.
 
-Entfernen-Konfigurationen werden mithilfe einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) erstellt, die die Arrays [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) und/oder [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes) enthält (und nicht die Arrays `elements` oder `attributes`).
+Entfernungskonfigurationen werden mit einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) erstellt, die die Arrays [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) und/oder [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes) enthält, jedoch nicht die Arrays `elements` oder `attributes`.
 
-Zum Beispiel würde die folgende `Sanitizer`-Konfiguration die gleichen Elemente entfernen, die im vorherigen Code erlaubt waren:
+Die folgende `Sanitizer`-Konfiguration würde beispielsweise dieselben Elemente entfernen, die im vorherigen Code zugelassen wurden:
 
 ```js
 const sanitizer = new Sanitizer({
@@ -132,7 +157,8 @@ const sanitizer = new Sanitizer({
 });
 ```
 
-Die Konfiguration kann auch mithilfe von [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Methoden erstellt werden. Um dies zu einer "Entfernen-Konfiguration" zu machen, müssen wir das `removeElements`- oder `removeAttributes`-Array beim Erstellen des Objekts deklarieren (wenn nur ein Array spezifiziert ist, wird das andere im Rahmen der Normalisierung definiert).
+Die Konfiguration kann auch mit Methoden von [`Sanitizer`](/de/docs/Web/API/Sanitizer) erstellt werden.
+Damit es sich um eine „Entfernungskonfiguration“ handelt, müssen wir beim Erstellen des Objekts das Array `removeElements` oder `removeAttributes` angeben. Wenn nur eines der Arrays angegeben wird, wird das andere im Zuge der Normalisierung definiert.
 
 ```js
 const sanitizer = new Sanitizer({
@@ -145,97 +171,129 @@ sanitizer.removeAttribute("cite");
 sanitizer.removeAttribute("onclick");
 ```
 
-#### Hinzufügen und Entfernen von `Sanitizer`-Konfigurationen
+#### Einträge in `Sanitizer`-Konfigurationen hinzufügen und entfernen
 
-[`Sanitizer`](/de/docs/Web/API/Sanitizer) wird empfohlen, wenn Sie ein Konfigurationsobjekt verwenden, das Sie möglicherweise wiederverwenden oder ändern möchten. Ob der Sanitizer eine Erlauben- oder Entfernen-Konfiguration hat, hängt von der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) ab, die beim Erstellen des Objekts übergeben wird. Wenn Sie beispielsweise ein Konfigurationsobjekt übergeben, das das `elements`- oder `attributes`-Array (oder ein leeres Objekt) enthält, hat der Sanitizer eine Erlauben-Konfiguration.
+[`Sanitizer`](/de/docs/Web/API/Sanitizer) empfiehlt sich, wenn Sie ein Konfigurationsobjekt verwenden, das Sie möglicherweise wiederverwenden oder ändern möchten.
+Ob der Sanitizer eine Zulassungs- oder Entfernungskonfiguration enthält, hängt von der bei seiner Erstellung übergebenen [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) ab.
+Wenn Sie beispielsweise ein Konfigurationsobjekt mit einem `elements`- oder `attributes`-Array oder ein leeres Objekt übergeben, erhält der Sanitizer eine Zulassungskonfiguration.
 
-In den obigen Beispielen haben wir eine Erlauben-Konfiguration erstellt und dann [`allowElement()`](/de/docs/Web/API/Sanitizer/allowElement), [`allowAttribute()`](/de/docs/Web/API/Sanitizer/allowAttribute) und [`replaceElementWithChildren()`](/de/docs/Web/API/Sanitizer/replaceElementWithChildren) aufgerufen, um zusätzliche Elemente und Attribute zu erlauben. Ebenso haben wir eine Entfernen-Konfiguration erstellt und [`removeElement()`](/de/docs/Web/API/Sanitizer/removeElement) und [`removeAttribute()`](/de/docs/Web/API/Sanitizer/removeAttribute) aufgerufen, um zusätzliche Elemente zu entfernen.
+In den obigen Beispielen haben wir eine Zulassungskonfiguration erstellt und anschließend [`allowElement()`](/de/docs/Web/API/Sanitizer/allowElement), [`allowAttribute()`](/de/docs/Web/API/Sanitizer/allowAttribute) und [`replaceElementWithChildren()`](/de/docs/Web/API/Sanitizer/replaceElementWithChildren) aufgerufen, um weitere Elemente und Attribute zuzulassen. Entsprechend haben wir eine Entfernungskonfiguration erstellt und [`removeElement()`](/de/docs/Web/API/Sanitizer/removeElement) sowie [`removeAttribute()`](/de/docs/Web/API/Sanitizer/removeAttribute) aufgerufen, um weitere zu entfernende Elemente und Attribute anzugeben.
 
-Sie können die Erlauben-Methoden auch auf einer Entfernen-Konfiguration aufrufen und die Entfernen-Methoden auf einer Erlauben-Konfiguration — aber sie verhalten sich unterschiedlich. Wenn Sie die Erlauben-Methoden auf einem Erlauben-Sanitizer aufrufen, werden die angegebenen Elemente und Attribute zum zugrunde liegenden `elements`- und `attributes`-Array hinzugefügt. Wenn Sie jedoch diese Methoden auf einem Entfernen-Sanitizer aufrufen, gibt es kein `elements`- und `attributes`-Array; stattdessen wird das angegebene Element aus dem entsprechenden `removeElements`- oder `removeAttributes`-Array entfernt, falls vorhanden. Dies funktioniert, weil das Erlauben eines Elements in einem Erlauben-Sanitizer dasselbe ist wie das "Nichtentfernen" eines Elements in einem Entfernen-Sanitizer.
+Sie können die Zulassungsmethoden auch für eine Entfernungskonfiguration und die Entfernungsmethoden für eine Zulassungskonfiguration aufrufen – ihr Verhalten unterscheidet sich jedoch.
+Wenn Sie Zulassungsmethoden für einen Sanitizer mit Zulassungskonfiguration aufrufen, werden die angegebenen Elemente und Attribute den zugrunde liegenden Arrays `elements` und `attributes` hinzugefügt.
+Bei einem Sanitizer mit Entfernungskonfiguration gibt es dagegen keine Arrays `elements` und `attributes`. Stattdessen wird der angegebene Eintrag, sofern vorhanden, aus dem entsprechenden Array `removeElements` oder `removeAttributes` _entfernt_.
+Das funktioniert, weil das Zulassen eines Elements in einer Zulassungskonfiguration dem „Nichtentfernen“ eines Elements in einer Entfernungskonfiguration entspricht.
 
-Sie können alle `Sanitizer`-Methoden sowohl auf einem Erlauben- als auch einem Entfernen-Sanitizer aufrufen, und die Methode wird alle Änderungen vornehmen, die zu einer gültigen Konfiguration führen. Zum Beispiel, wenn Sie ein Element hinzufügen, wird die Methode es entweder zu `elements` hinzufügen oder es aus `removeElements` entfernen, falls vorhanden, je nach Art des Sanitizers, und auch das gleiche Element aus dem [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) Array entfernen, falls vorhanden.
+Sie können alle `Sanitizer`-Methoden sowohl für Sanitizer mit Zulassungs- als auch für solche mit Entfernungskonfiguration aufrufen. Die Methode nimmt dann alle möglichen Änderungen vor, die zu einer gültigen Konfiguration führen.
+Wenn Sie beispielsweise ein Element hinzufügen, wird es je nach Art des Sanitizers entweder zu `elements` hinzugefügt oder gegebenenfalls aus `removeElements` entfernt. Außerdem wird dasselbe Element, sofern vorhanden, aus dem Array [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt.
 
-Einige Operationen, die für eine Erlauben-Konfiguration möglich sind, sind nicht für eine Entfernen-Konfiguration möglich. Zum Beispiel werden pro-Element-Attribute im `elements`-Array definiert, das in einem Entfernen-Sanitizer nicht vorhanden ist.
+Einige Vorgänge, die mit einer Zulassungskonfiguration möglich sind, lassen sich mit einer Entfernungskonfiguration nicht durchführen.
+Beispielsweise werden Attribute für einzelne Elemente im Array `elements` definiert, das bei einem Sanitizer mit Entfernungskonfiguration nicht vorhanden ist.
 
-Die Methoden geben `true` oder `false` zurück, um anzuzeigen, ob sie die zugrunde liegende Konfiguration modifiziert haben. Wenn Sie also `allowElement()` auf einer Erlauben-Konfiguration aufrufen und das angegebene Element nicht vorhanden ist, wird es dem `elements`-Array hinzugefügt und die Methode gibt `true` zurück. Wenn das Element jedoch bereits vorhanden ist, würde die Methode `false` zurückgeben. Beachten Sie, dass, wenn Sie die gleiche Methode aufrufen, um ein pro-Element-Attribut zu setzen, dies `false` zurückgeben wird, wenn es auf einem Entfernen-Sanitizer aufgerufen wird, da die Änderung nicht vorgenommen werden kann.
+Die Methoden geben `true` oder `false` zurück, um anzuzeigen, ob sie die zugrunde liegende Konfiguration geändert haben.
+Wenn Sie also `allowElement()` für eine Zulassungskonfiguration aufrufen und das angegebene Element noch nicht vorhanden ist, wird es dem Array `elements` hinzugefügt und die Methode gibt `true` zurück.
+Ist das Element bereits vorhanden, gibt die Methode dagegen `false` zurück.
+Beachten Sie, dass dieselbe Methode beim Festlegen eines Attributs für ein einzelnes Element `false` zurückgibt, wenn sie für einen Sanitizer mit Entfernungskonfiguration aufgerufen wird, da diese Änderung nicht möglich ist.
 
-### Eingebaute Konfigurationen
+### Integrierte Konfigurationen
 
-#### XSS-sichere Baseline-Konfiguration
+#### XSS-sichere Basiskonfiguration
 
-Die XSS-sichere Baseline-Konfiguration definiert die Elemente, die aus einer Eingabe entfernt werden müssen, um sie XSS-sicher zu machen:
+Die XSS-sichere Basiskonfiguration legt fest, welche Einträge aus einer Eingabe entfernt werden müssen, um sie XSS-sicher zu machen:
 
-- {{htmlelement("embed")}}, {{htmlelement("frame")}}, {{htmlelement("iframe")}}, {{htmlelement("object")}}, {{htmlelement("script")}}, und {{SVGElement("use")}}.
-- Alle Event-Handler-Content-Attribute, wie `onafterprint`, `onbeforeinput` usw.
+- {{htmlelement("embed")}}, {{htmlelement("frame")}}, {{htmlelement("iframe")}}, {{htmlelement("object")}}, {{htmlelement("script")}} und {{SVGElement("use")}}.
+- Alle Event-Handler-Content-Attribute wie `onafterprint`, `onbeforeinput` und weitere.
 
-Die Konfiguration wird automatisch auf [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und die anderen [sicheren Säuberungsmethoden](#säuberungsmethoden) angewendet und stellt sicher, dass XSS-gefährliche Elemente aus der Ausgabe entfernt werden, selbst wenn sie durch einen übergebenen Sanitizer erlaubt sind. Sie können auch [`removeUnsafe`](/de/docs/Web/API/Sanitizer/removeUnsafe) auf einer [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Instanz aufrufen, um diese Konfiguration anzuwenden und sie XSS-sicher zu machen.
+Die Konfiguration wird automatisch bei [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und den anderen [sicheren Bereinigungsmethoden](#bereinigungsmethoden) angewendet. Dadurch werden XSS-unsichere Einträge auch dann aus der Ausgabe entfernt, wenn ein übergebener Sanitizer sie zulässt.
+Sie können auch [`removeUnsafe`](/de/docs/Web/API/Sanitizer/removeUnsafe) für eine [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Instanz aufrufen, um diese Konfiguration anzuwenden und den Sanitizer XSS-sicher zu machen.
 
-#### Standard-Sanitizer-Konfiguration
+#### Standardkonfiguration des Sanitizers
 
-Die Standard-Sanitizer-Konfiguration ist restriktiver als die XSS-sichere Baseline. Sie definiert den Sanitizer, der verwendet wird, wenn Sie [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) oder die anderen [sicheren Säuberungsmethoden](#säuberungsmethoden) ohne einen Sanitizer-Objekt aufrufen. Es ist auch die Konfiguration, die durch den [`Sanitizer()`-Konstruktor](/de/docs/Web/API/Sanitizer/Sanitizer) zurückgegeben wird, wenn keine Konfiguration festgelegt ist.
+Die Standardkonfiguration des Sanitizers ist restriktiver als die XSS-sichere Basiskonfiguration.
+Sie definiert den Sanitizer, der verwendet wird, wenn Sie [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) oder eine andere [sichere Bereinigungsmethode](#bereinigungsmethoden) ohne Sanitizer-Objekt aufrufen.
+Sie ist außerdem die Konfiguration, die der [`Sanitizer()`-Konstruktor](/de/docs/Web/API/Sanitizer/Sanitizer) zurückgibt, wenn keine Konfiguration angegeben wird.
 
-Die Konfiguration entfernt die folgenden Arten von Elementen:
+Die Konfiguration entfernt folgende Arten von Einträgen:
 
-1. Diejenigen, die bekannt sind, XSS-gefährlich zu sein (wie in der [XSS-sicheren Baseline-Konfiguration](#xss-sichere_baseline-konfiguration) angegeben).
-2. Zusätzliche Elemente, die in Clickjacking-, Spoofing- oder anderen Angriffen verwendet werden könnten.
-3. Kommentare und `data-*` Attribute.
+1. Einträge, die bekanntermaßen XSS-unsicher sind, wie in der [XSS-sicheren Basiskonfiguration](#xss-sichere_basiskonfiguration) festgelegt.
+2. Zusätzliche Einträge, die für Clickjacking, Spoofing oder andere Angriffe verwendet werden könnten.
+3. Kommentare und `data-*`-Attribute.
 
-Daher bietet sie einen Sanitizer mit einer minimalen Angriffsoberfläche, die dennoch für die Mehrheit der Säuberungsanwendungsfälle geeignet ist.
+Damit bietet sie einen Sanitizer mit einer minimalen Angriffsfläche, der sich dennoch für die meisten Anwendungsfälle der Bereinigung eignet.
 
-Für eine Auflistung der erlaubten Elemente und Attribute siehe [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration).
+Eine Liste der zugelassenen Elemente und Attribute finden Sie unter [Standardkonfiguration des Sanitizers](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration).
 
-### Säuberung und Trusted Types
+### Bereinigung und Trusted Types
 
-Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet Mechanismen, um sicherzustellen, dass Eingaben durch eine vom Benutzer spezifizierte Transformationsfunktion laufen, bevor sie an eine API übergeben werden, die diese Eingabe ausführen könnte. Diese Transformationsfunktion wird am häufigsten verwendet, um die Eingabe zu säubern, muss es jedoch nicht: Das Ziel der API ist es hauptsächlich, Entwicklern die Audits von Säuberungscode zu erleichtern, nicht zu definieren, wie oder ob eine Säuberung durchgeführt wird.
+Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) stellt Mechanismen bereit, die sicherstellen, dass Eingaben eine benutzerdefinierte Transformationsfunktion durchlaufen, bevor sie an eine API übergeben werden, die diese Eingaben möglicherweise ausführt.
+Diese Transformationsfunktion wird meist zur Bereinigung der Eingabe verwendet, muss dies aber nicht tun. Der Hauptzweck der API besteht darin, Entwicklern die Überprüfung von Bereinigungscode zu erleichtern – nicht darin festzulegen, wie oder ob eine Bereinigung erfolgt.
 
-Die sicheren HTML-Säuberungsmethoden verwenden keine Trusted Types. Da sie immer alle XSS-gefährlichen Entitäten filtern, bevor das Eingangs-HTML eingefügt wird, besteht keine Notwendigkeit, die Eingabezeichenfolge zu säubern oder die Methoden zu auditieren.
+Die sicheren HTML-Bereinigungsmethoden verwenden keine Trusted Types.
+Da sie vor dem Einfügen des HTML immer alle XSS-unsicheren Entitäten herausfiltern, ist es nicht nötig, den Eingabe-String zusätzlich zu bereinigen oder die Methoden zu überprüfen.
 
-Die unsicheren HTML-Säuberungsmethoden können jedoch nicht vertrauenswürdiges HTML injizieren, abhängig vom Sanitizer, und werden daher mit Trusted Types arbeiten. Die Methoden können entweder eine Zeichenfolge oder ein `TrustedType` als Eingabe akzeptieren. Wenn auch ein Sanitizer bereitgestellt wird, wird zuerst die Transformationsfunktion ausgeführt und dann der Sanitizer.
+Die unsicheren HTML-Bereinigungsmethoden können dagegen je nach Sanitizer nicht vertrauenswürdiges HTML einfügen und arbeiten daher mit Trusted Types.
+Die Methoden können entweder einen String oder einen `TrustedType` als Eingabe entgegennehmen.
+Wird zusätzlich ein Sanitizer angegeben, wird zuerst die Transformationsfunktion und anschließend der Sanitizer ausgeführt.
 
-Beachten Sie, dass das Verhalten der Transformationsfunktion in diesem Fall von der Website-Politik abhängt (die möglicherweise die Nutzung der unsicheren Methoden vollständig ablehnt).
+Beachten Sie, dass das Verhalten der Transformationsfunktion in diesem Fall von der Richtlinie der Website abhängt. Diese kann beispielsweise die Verwendung sämtlicher unsicherer Methoden untersagen.
 
-### Drittanbieter-Säuberungsbibliotheken
+### Bereinigungsbibliotheken von Drittanbietern
 
-Vor der Sanitizer API filterten Entwickler typischerweise Eingabezeichenfolgen mithilfe von Drittanbieter-Bibliotheken wie [DOMPurify](https://github.com/cure53/DOMPurify), möglicherweise aufgerufen von Transformationsfunktionen in Trusted Types.
+Vor der Sanitizer API filterten Entwickler Eingabe-Strings üblicherweise mit Bibliotheken von Drittanbietern wie [DOMPurify](https://github.com/cure53/DOMPurify), gegebenenfalls aufgerufen aus Transformationsfunktionen für Trusted Types.
 
-Diese sollten nicht notwendig sein, wenn die sicheren HTML-Säuberungsmethoden verwendet werden, da die API in den Browser integriert ist und mehr über den Parsing-Kontext und was ausgeführt werden darf weiß, als externe Parser-Bibliotheken es können.
+Bei Verwendung der sicheren HTML-Bereinigungsmethoden sollten solche Bibliotheken nicht erforderlich sein: Die API ist in den Browser integriert und kann daher den Parsing-Kontext und die Frage, welcher Code ausgeführt werden darf, besser berücksichtigen als externe Parser-Bibliotheken.
 
-Sie können mit den unsicheren HTML-Methoden und Trusted Types nützlich sein, abhängig von den Trusted Type-Richtlinien der Website.
+Bei den unsicheren HTML-Methoden und Trusted Types können sie je nach Trusted-Types-Richtlinien der Website nützlich sein.
 
 ## Schnittstellen
 
 - [`Sanitizer`](/de/docs/Web/API/Sanitizer)
-  - : Ein wiederverwendbares Sanitizer-Konfigurationsobjekt, das definiert, welche Elemente und Attribute beim Säubern von nicht vertrauenswürdigen HTML-Zeichenfolgen erlaubt/entfernt werden sollen. Dies wird in den Methoden verwendet, die HTML-Zeichenfolgen in den DOM oder Document einfügen.
+  - : Ein wiederverwendbares Sanitizer-Konfigurationsobjekt, das festlegt, welche Elemente und Attribute beim Bereinigen nicht vertrauenswürdiger HTML-Strings zugelassen oder entfernt werden sollen.
+    Es wird in den Methoden verwendet, die HTML-Strings in das DOM oder ein Document einfügen.
 - [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)
-  - : Ein Wörterbuch, das eine Sanitizer-Konfiguration definiert. Dies kann an denselben Stellen wie [`Sanitizer`](/de/docs/Web/API/Sanitizer) verwendet werden, ist jedoch wahrscheinlich weniger effizient zu verwenden und wiederzuverwenden.
+  - : Ein Dictionary, das eine Sanitizer-Konfiguration definiert.
+    Es kann an denselben Stellen wie [`Sanitizer`](/de/docs/Web/API/Sanitizer) verwendet werden, ist aber bei Verwendung und Wiederverwendung wahrscheinlich weniger effizient.
 
-## Erweiterungen für andere Schnittstellen
+## Erweiterungen anderer Schnittstellen
 
 ### XSS-sichere Methoden
 
 - [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML)
-  - : Analysiert eine HTML-Zeichenfolge in einen Teilbaum von Knoten, wobei alle Elemente entfernt werden, die im Kontext des Elements ungültig sind. Dann werden alle Elemente und Attribute entfernt, die nicht durch die Sanitizer-Konfiguration zugelassen sind und alle, die als XSS-gefährlich angesehen werden (auch wenn sie durch die Konfiguration erlaubt sind). Der Teilbaum wird dann als Teilbaum des Elements in den DOM eingefügt.
+  - : Parst einen HTML-String zu einem Teilbaum aus Knoten und verwirft dabei alle Elemente, die im Kontext des Elements ungültig sind.
+    Anschließend werden alle Elemente und Attribute verworfen, die von der Sanitizer-Konfiguration nicht zugelassen werden oder als XSS-unsicher gelten – selbst wenn die Konfiguration sie zulässt.
+    Der Teilbaum wird dann als Teilbaum des Elements in das DOM eingefügt.
 - [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML)
-  - : Analysiert eine HTML-Zeichenfolge in einen Teilbaum von Knoten. Dann werden alle Elemente und Attribute entfernt, die nicht durch die Sanitizer-Konfiguration zugelassen sind, und alle, die als XSS-gefährlich angesehen werden (auch wenn sie durch die Konfiguration erlaubt sind). Der Teilbaum wird dann als Teilbaum des `ShadowRoot` eingefügt.
+  - : Parst einen HTML-String zu einem Teilbaum aus Knoten.
+    Anschließend werden alle Elemente und Attribute verworfen, die von der Sanitizer-Konfiguration nicht zugelassen werden oder als XSS-unsicher gelten – selbst wenn die Konfiguration sie zulässt.
+    Der Teilbaum wird dann als Teilbaum der `ShadowRoot` eingefügt.
 - [`Document.parseHTML()`](/de/docs/Web/API/Document/parseHTML_static)
-  - : Analysiert eine HTML-Zeichenfolge in einen Teilbaum von Knoten. Dann werden alle Elemente und Attribute entfernt, die nicht durch die Sanitizer-Konfiguration zugelassen sind, und alle, die als XSS-gefährlich angesehen werden (auch wenn sie durch die Konfiguration erlaubt sind). Der Teilbaum wird dann als Wurzel des [`Document`](/de/docs/Web/API/Document) gesetzt.
+  - : Parst einen HTML-String zu einem Teilbaum aus Knoten.
+    Anschließend werden alle Elemente und Attribute verworfen, die von der Sanitizer-Konfiguration nicht zugelassen werden oder als XSS-unsicher gelten – selbst wenn die Konfiguration sie zulässt.
+    Der Teilbaum wird dann als Wurzel des [`Document`](/de/docs/Web/API/Document) festgelegt.
 
 ### XSS-unsichere Methoden
 
 - [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe)
-  - : Analysiert eine HTML-Zeichenfolge in einen Teilbaum von Knoten, wobei alle Elemente entfernt werden, die im Kontext des Elements ungültig sind. Dann werden alle Elemente und Attribute entfernt, die nicht durch den Sanitizer erlaubt sind: Wenn kein Sanitizer angegeben ist, werden alle Elemente erlaubt. Der Teilbaum wird dann als Teilbaum des Elements in den DOM eingefügt.
+  - : Parst einen HTML-String zu einem Teilbaum aus Knoten und verwirft dabei alle Elemente, die im Kontext des Elements ungültig sind.
+    Anschließend werden alle Elemente und Attribute verworfen, die der Sanitizer nicht zulässt. Wird kein Sanitizer angegeben, sind alle Elemente zulässig.
+    Der Teilbaum wird dann als Teilbaum des Elements in das DOM eingefügt.
 - [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe)
-  - : Analysiert eine HTML-Zeichenfolge in einen Teilbaum von Knoten. Dann werden alle Elemente und Attribute entfernt, die nicht durch den Sanitizer erlaubt sind: Wenn kein Sanitizer angegeben ist, werden alle Elemente erlaubt. Der Teilbaum wird dann als Teilbaum des `ShadowRoot` eingefügt.
+  - : Parst einen HTML-String zu einem Teilbaum aus Knoten.
+    Anschließend werden alle Elemente und Attribute verworfen, die der Sanitizer nicht zulässt. Wird kein Sanitizer angegeben, sind alle Elemente zulässig.
+    Der Teilbaum wird dann als Teilbaum der `ShadowRoot` eingefügt.
 - [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static)
-  - : Analysiert eine HTML-Zeichenfolge in einen Teilbaum von Knoten. Dann werden alle Elemente und Attribute entfernt, die nicht durch den Sanitizer erlaubt sind: Wenn kein Sanitizer angegeben ist, werden alle Elemente erlaubt. Der Teilbaum wird dann als Wurzel des [`Document`](/de/docs/Web/API/Document) gesetzt.
+  - : Parst einen HTML-String zu einem Teilbaum aus Knoten.
+    Anschließend werden alle Elemente und Attribute verworfen, die der Sanitizer nicht zulässt. Wird kein Sanitizer angegeben, sind alle Elemente zulässig.
+    Der Teilbaum wird dann als Wurzel des [`Document`](/de/docs/Web/API/Document) festgelegt.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie die Sanitizer API mit dem _Standardsanitizer_ verwendet wird.
+Die folgenden Beispiele zeigen, wie die Sanitizer API mit dem _Standard-Sanitizer_ verwendet wird.
 
-### Verwendung von `Element.setHTML()` mit dem Standardsanitizer
+### `Element.setHTML()` mit dem Standard-Sanitizer verwenden
 
-In den meisten Fällen kann die Methode `Element.setHTML()` ohne Übergeben eines Sanitizers als Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden. Der untenstehende Code demonstriert, wie die Methode verwendet wird, um den HTML-Eingang zu reinigen, bevor er in ein Element mit der ID `target` eingefügt wird.
+In den meisten Fällen kann `Element.setHTML()` ohne Angabe eines Sanitizers als direkter Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden.
+Der folgende Code zeigt, wie die Methode die HTML-Eingabe bereinigt, bevor sie in ein Element mit der ID `target` eingefügt wird.
 
 ```js
 const untrustedString = "abc <script>alert(1)<" + "/script> def"; // Untrusted HTML (perhaps from user input)
@@ -247,24 +305,27 @@ someElement.setHTML(untrustedString);
 console.log(target.innerHTML); // abc def
 ```
 
-Das {{htmlelement("script")}}-Element wird nicht durch den Standardsanitizer oder durch die Methode `setHTML()` erlaubt, daher wird das `alert()` entfernt.
+Das Element `{{htmlelement("script")}}` wird weder vom Standard-Sanitizer noch von der Methode `setHTML()` zugelassen. Daher wird `alert()` entfernt.
 
-Beachten Sie, dass die Verwendung von `Element.setHTMLUnsafe()` mit dem Standardsanitizer dieselben HTML-Entitäten säubern wird. Der Hauptunterschied besteht darin, dass, wenn Sie diese Methode mit Trusted Types verwenden, sie möglicherweise immer noch auditiert wird:
+Beachten Sie, dass `Element.setHTMLUnsafe()` mit dem Standard-Sanitizer dieselben HTML-Entitäten bereinigt.
+Der wesentliche Unterschied besteht darin, dass die Verwendung dieser Methode mit Trusted Types möglicherweise weiterhin überprüft wird:
 
 ```js
 someElement.setHTMLUnsafe(untrustedString);
 ```
 
-### Verwendung einer erlaubten Sanitizer-Konfiguration
+### Eine Zulassungskonfiguration für den Sanitizer verwenden
 
-Dieser Code zeigt, wie Sie `Element.setHTMLUnsafe()` mit einem erlaubten Sanitizer verwenden könnten, der nur {{htmlelement("p")}}, {{htmlelement("b")}} und {{htmlelement("div")}} Elemente erlaubt. Alle anderen Elemente in der Eingabezeichenfolge werden entfernt.
+Dieser Code zeigt, wie Sie `Element.setHTMLUnsafe()` mit einem Sanitizer verwenden können, der ausschließlich {{htmlelement("p")}}-, {{htmlelement("b")}}- und {{htmlelement("div")}}-Elemente zulässt.
+Alle anderen Elemente im Eingabe-String würden entfernt.
 
 ```js
 const sanitizer = new Sanitizer({ elements: ["p", "b", "div"] });
 someElement.setHTMLUnsafe(untrustedString, { sanitizer });
 ```
 
-Beachten Sie, dass Sie in diesem Fall normalerweise `setHTML()` verwenden sollten. Sie sollten `Element.setHTMLUnsafe()` nur verwenden, wenn Sie XSS-gefährliche Elemente oder Attribute zulassen müssen.
+Beachten Sie, dass Sie in diesem Fall normalerweise `setHTML()` verwenden sollten.
+Verwenden Sie `Element.setHTMLUnsafe()` nur, wenn Sie XSS-unsichere Elemente oder Attribute zulassen müssen.
 
 ## Spezifikationen
 

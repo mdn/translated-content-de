@@ -2,15 +2,15 @@
 title: <svg>
 slug: Web/SVG/Reference/Element/svg
 l10n:
-  sourceCommit: e5c2cd1f1ab5e5f6b703307094d68712300162d0
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<svg>`** [SVG](/de/docs/Web/SVG)-Element ist ein Container, der ein neues Koordinatensystem und einen [viewport](/de/docs/Web/SVG/Reference/Attribute/viewBox) definiert. Es wird als äußeres Element von SVG-Dokumenten verwendet, kann aber auch genutzt werden, um ein SVG-Fragment in ein SVG- oder HTML-Dokument einzubetten.
+Das **`<svg>`**-Element von [SVG](/de/docs/Web/SVG) ist ein Container, der ein neues Koordinatensystem und einen neuen [Viewport](/de/docs/Web/SVG/Reference/Attribute/viewBox) definiert. Es wird als äußerstes Element von SVG-Dokumenten verwendet, kann aber auch dazu dienen, ein SVG-Fragment in ein SVG- oder HTML-Dokument einzubetten.
 
 Dieses Element dient zum Erstellen _neuer_ SVG-Dokumente. Wenn Sie ein vorhandenes SVG-Dokument über eine URL in ein anderes Dokument einbetten möchten, verwenden Sie {{HTMLElement("img")}}, {{HTMLElement("object")}} oder {{SVGElement("image")}}.
 
 > [!NOTE]
-> Das `xmlns`-Attribut ist nur auf dem äußersten `svg`-Element von _SVG-Dokumenten_ erforderlich oder innerhalb von HTML-Dokumenten mit XML-Serialisierung. Es ist für innere `svg`-Elemente oder innerhalb von HTML-Dokumenten mit HTML-Serialisierung nicht notwendig.
+> Das Attribut `xmlns` ist nur für das äußerste `svg`-Element von _SVG-Dokumenten_ oder innerhalb von HTML-Dokumenten mit XML-Serialisierung erforderlich. Für innere `svg`-Elemente oder innerhalb von HTML-Dokumenten mit HTML-Serialisierung ist es nicht erforderlich.
 
 ## Verwendungskontext
 
@@ -19,42 +19,42 @@ Dieses Element dient zum Erstellen _neuer_ SVG-Dokumente. Wenn Sie ein vorhanden
 ## Attribute
 
 - {{SVGAttr("baseProfile")}} {{deprecated_inline}}
-  - : Das minimale erforderliche SVG-Sprachprofil, das das Dokument benötigt.
-    _Wertetyp_: **\<string>**; _Standardwert_: keiner; _Animierbar_: **nein**
+  - : Das minimale SVG-Sprachprofil, das das Dokument benötigt.
+    _Werttyp_: **\<string>**; _Standardwert_: keiner; _Animierbar_: **nein**
 - {{SVGAttr("height")}}
   - : Die angezeigte Höhe des rechteckigen Viewports. (Nicht die Höhe seines Koordinatensystems.)
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Wie das `svg`-Fragment verformt werden muss, wenn es mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} angezeigt wird.
-    _Wertetyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
+  - : Wie das `svg`-Fragment angepasst werden muss, wenn es mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} angezeigt wird.
+    _Werttyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("version")}} {{deprecated_inline}}
-  - : Welche SVG-Version für den inneren Inhalt des Elements verwendet wird.
-    _Wertetyp_: **[\<number>](/de/docs/Web/SVG/Guides/Content_type#number)**; _Standardwert_: keiner; _Animierbar_: **nein**
+  - : Welche SVG-Version für den Inhalt des Elements verwendet wird.
+    _Werttyp_: **[\<number>](/de/docs/Web/SVG/Guides/Content_type#number)**; _Standardwert_: keiner; _Animierbar_: **nein**
 - {{SVGAttr("viewBox")}}
   - : Die SVG-Viewport-Koordinaten für das aktuelle SVG-Fragment.
-    _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keiner; _Animierbar_: **ja**
+    _Werttyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Die angezeigte Breite des rechteckigen Viewports. (Nicht die Breite seines Koordinatensystems.)
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
-  - : Die angezeigte x-Koordinate des svg-Containers. Keine Auswirkung auf äußerste `svg`-Elemente.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die angezeigte x-Koordinate des SVG-Containers. Hat keine Auswirkung auf äußerste `svg`-Elemente.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Die angezeigte y-Koordinate des svg-Containers. Keine Auswirkung auf äußerste `svg`-Elemente.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die angezeigte y-Koordinate des SVG-Containers. Hat keine Auswirkung auf äußerste `svg`-Elemente.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 
 > [!NOTE]
-> Mit SVG2 sind `x`, `y`, `width` und `height` _Geometriemerkmale_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften genutzt werden können.
+> Seit SVG2 sind `x`, `y`, `width` und `height` _Geometrie-Eigenschaften_. Das bedeutet, dass diese Attribute auch als CSS-Eigenschaften verwendet werden können.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement).
 
 ## Beispiele
 
 ### Verschachteltes `svg`-Element
 
-Dieses Beispiel zeigt, dass verschachtelte `svg`-Elemente das `xmlns`-Attribut nicht benötigen.
+Dieses Beispiel zeigt, dass verschachtelte `svg`-Elemente das Attribut `xmlns` nicht benötigen.
 
 ```css hidden
 html,
@@ -79,11 +79,11 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample('nested_svg-elements', 300, 100)}}
+{{EmbedLiveSample('nested_svg_element', 300, 100)}}
 
-### Verwendung von dynamischen Viewport-Einheiten
+### Dynamische Viewport-Einheiten verwenden
 
-In diesem Beispiel werden die `height`- und `width`-Attribute des `svg`-Elements mit dem dynamischen Viewport-Wert `60vmin` festgelegt, was 60% der Breite oder Höhe des Viewports entspricht, je nachdem, was kleiner ist.
+In diesem Beispiel werden die Attribute `height` und `width` des `svg`-Elements mit dem dynamischen Viewport-Wert `60vmin` festgelegt. Das entspricht 60 % der Breite oder Höhe des Viewports, je nachdem, welcher Wert kleiner ist.
 
 ```html hidden
 <div class="resizer">
@@ -141,9 +141,9 @@ In diesem Beispiel werden die `height`- und `width`-Attribute des `svg`-Elements
 }
 ```
 
-{{EmbedLiveSample('using_dynamic_viewport_lengths', '100%', 500)}}
+{{EmbedLiveSample('using_dynamic_viewport_units', '100%', 500)}}
 
-Um die Dimensionen des iframes zu ändern, versuchen Sie, den gepunkteten roten Rand von der unteren rechten Ecke aus zu vergrößern.
+Um die Abmessungen des iframes zu ändern, ziehen Sie den gepunkteten roten Rahmen an der unteren rechten Ecke.
 
 ## Spezifikationen
 

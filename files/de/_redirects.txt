@@ -5648,7 +5648,7 @@
 /de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page
 /de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Book_detail_page	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_detail_page
 /de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Book_list_page	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_list_page
-/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Date_formatting_using_moment	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Date_formatting_using_moment
+/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Date_formatting_using_moment	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page
 /de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page
 /de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Home_page	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page
 /de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/LocalLibrary_base_template	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/LocalLibrary_base_template
@@ -5886,6 +5886,7 @@
 /de/docs/Learn_web_development/Extensions/Performance/Resources	/de/docs/Learn_web_development/Extensions/Performance/Best_practices
 /de/docs/Learn_web_development/Extensions/Performance/Web_Performance_Basics	/de/docs/Learn_web_development/Extensions/Performance/Best_practices
 /de/docs/Learn_web_development/Extensions/Security_privacy	/de/docs/Web/Security
+/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Date_formatting_using_moment	/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page
 /de/docs/Learn_web_development/Extensions/Transform_animate	/de/docs/Learn_web_development/Extensions
 /de/docs/Learn_web_development/Getting_started/Basic_setup	/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software
 /de/docs/Learn_web_development/Getting_started/Soft_skills/Job_interviews	/de/docs/Learn_web_development/Getting_started/Soft_skills/Finding_a_job

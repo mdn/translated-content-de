@@ -1,19 +1,19 @@
 ---
-title: Verwendung von Schriftarten in SVG
+title: Schriftarten in SVG verwenden
 slug: Web/SVG/Tutorials/SVG_from_scratch/Using_fonts
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Filter_effects", "Web/SVG/Tutorials/SVG_from_scratch/Image_element") }}
 
-SVG unterstützt mehrere Möglichkeiten, Schriftarten für {{SVGElement("text")}}-Elemente anzugeben.
-Der empfohlene moderne Ansatz besteht darin, CSS zu verwenden, ähnlich wie Sie Schriftarten in HTML gestalten würden.
+SVG bietet mehrere Möglichkeiten, Schriftarten für {{SVGElement("text")}}-Elemente festzulegen.
+Der heute empfohlene Ansatz ist die Verwendung von CSS, ähnlich wie bei der Gestaltung von Schriftarten in HTML.
 
-## Anwenden und Gestalten einer Schriftart mit CSS
+## Eine Schriftart mit CSS anwenden und gestalten
 
-Der folgende Code zeigt, wie Sie das angegebene `<text>`-Element mit einer bestimmten Schriftart mithilfe von CSS gestalten könnten: in diesem Fall die Systemschriftart "Courier New".
-Beachten Sie, dass das CSS hier innerhalb eines SVG-{{SVGElement("style")}}-Elements verschachtelt ist, aber auch im einbettenden HTML angewendet werden könnte.
+Der folgende Code zeigt, wie Sie das angegebene `<text>`-Element mit CSS in einer bestimmten Schriftart darstellen können: in diesem Fall in der Systemschriftart „Courier New“.
+Beachten Sie, dass sich das CSS hier innerhalb eines SVG-{{SVGElement("style")}}-Elements befindet, aber auch im einbindenden HTML angewendet werden könnte.
 
 ```html
 <svg>
@@ -32,15 +32,15 @@ Beachten Sie, dass das CSS hier innerhalb eines SVG-{{SVGElement("style")}}-Elem
 </svg>
 ```
 
-Dies wird wie unten gezeigt gerendert:
+Das Ergebnis sieht wie folgt aus:
 
-{{EmbedLiveSample("Anwenden einer Schriftart", "100", "30px")}}
+{{EmbedLiveSample("apply_and_style_a_font_using_css", "100", "30px")}}
 
-## Verwendung von Webschriften mit `@font-face`
+## Webfonts mit `@font-face` verwenden
 
-Der vorherige Abschnitt verwendet CSS, um eine Systemschriftart anzuwenden. Sie können jedoch eine mit der {{cssxref("@font-face")}}-Regel spezifizierte Webschrift auf genau die gleiche Weise anwenden.
+Im vorherigen Abschnitt wird CSS verwendet, um eine Systemschriftart anzuwenden. Auf genau die gleiche Weise können Sie auch einen Webfont anwenden, der mit der {{cssxref("@font-face")}}-At-Regel festgelegt wurde.
 
-Das Beispiel zeigt, wie zuerst eine Schriftfamilie namens "FiraSans" definiert und dann verwendet wird:
+Das Beispiel zeigt, wie eine Schriftfamilie namens „FiraSans“ zunächst definiert und anschließend verwendet wird:
 
 ```html
 <svg
@@ -74,12 +74,12 @@ Das Beispiel zeigt, wie zuerst eine Schriftfamilie namens "FiraSans" definiert u
 </svg>
 ```
 
-{{EmbedLiveSample("Verwendung von Webschriften mit @font-face", "100", "70px")}}
+{{EmbedLiveSample("Using web fonts with @font-face", "100", "70px")}}
 
-## Referenzierung eines Stils im Text-Element
+## Einen Stil im Textelement referenzieren
 
-Sie können auch direkt auf einen Stil innerhalb eines {{SVGElement("text")}}-Elements mit dem Attribut {{SVGAttr("font-family")}} verweisen.
-Dieser Code zeigt, wie wir die benutzerdefinierte "My Font" auf das `<text>`-Element anwenden könnten.
+Sie können einen Stil auch direkt innerhalb eines {{SVGElement("text")}}-Elements über das Attribut {{SVGAttr("font-family")}} referenzieren.
+Dieser Code zeigt, wie die benutzerdefinierte Schriftart „My Font“ auf das `<text>`-Element angewendet werden kann.
 
 ```svg
 <svg>
@@ -87,7 +87,7 @@ Dieser Code zeigt, wie wir die benutzerdefinierte "My Font" auf das `<text>`-Ele
 </svg>
 ```
 
-Beachten Sie, dass dies dem Anwenden von Stil auf ein HTML-Element ähnlich ist.
-Während es Fälle gibt, in denen dies nützlich sein kann, ist es im Allgemeinen besser, CSS und CSS-Selektoren zu verwenden.
+Dies ähnelt der Anwendung eines Stils auf ein HTML-Element.
+In manchen Fällen kann das nützlich sein, im Allgemeinen ist es jedoch besser, CSS und CSS-Selektoren zu verwenden.
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Filter_effects", "Web/SVG/Tutorials/SVG_from_scratch/Image_element") }}

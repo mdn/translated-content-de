@@ -3,10 +3,10 @@ title: "`:past` CSS-Pseudoklasse"
 short-title: :past
 slug: Web/CSS/Reference/Selectors/:past
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: b4f42a2037bcb8f2daec61f6b3d92bfdd13e5386
 ---
 
-Der **`:past`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die für jedes Element zutrifft, das vollständig vor einem Element erscheint, das mit {{cssxref(":current")}} übereinstimmt. Zum Beispiel in einem Video mit Untertiteln, die von [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
+Der **`:past`**-[Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) in [CSS](/de/docs/Web/CSS) ist eine zeitbezogene Pseudoklasse. Er erfasst jedes Element, das zeitlich vollständig vor einem Element liegt, auf das {{cssxref(":current")}} zutrifft. Dies ist beispielsweise bei einem Video mit Untertiteln der Fall, die über [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
 
 ```css
 :past(p, span) {
@@ -24,14 +24,6 @@ Der **`:past`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Referen
 
 ## Beispiele
 
-### CSS
-
-```css
-:past(p, span) {
-  display: none;
-}
-```
-
 ### HTML
 
 ```html
@@ -45,6 +37,14 @@ Der **`:past`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Referen
     src="subtitles.vtt"
     default />
 </video>
+```
+
+### CSS
+
+```css
+:past(p, span) {
+  display: none;
+}
 ```
 
 ### WebVTT

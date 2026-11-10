@@ -1,27 +1,27 @@
 ---
-title: "Express Tutorial Teil 6: Arbeiten mit Formularen"
+title: "Express-Tutorial Teil 6: Arbeiten mit Formularen"
 short-title: "6: Arbeiten mit Formularen"
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/forms
 l10n:
-  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data", "Learn_web_development/Extensions/Server-side/Express_Nodejs/deployment", "Learn_web_development/Extensions/Server-side/Express_Nodejs")}}
 
-In diesem Tutorial zeigen wir Ihnen, wie Sie mit HTML-Formularen in Express unter Verwendung von Pug arbeiten. Insbesondere besprechen wir, wie man Formulare schreibt, um Dokumente in der Datenbank der Website zu erstellen, zu aktualisieren und zu löschen.
+In diesem Tutorial zeigen wir Ihnen, wie Sie mit HTML-Formularen in Express unter Verwendung von Pug arbeiten. Insbesondere erfahren Sie, wie Sie Formulare erstellen, mit denen sich Dokumente in der Datenbank der Website anlegen, aktualisieren und löschen lassen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Abschließen aller vorherigen Tutorial-Themen, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data">Express Tutorial Teil 5: Anzeigedaten der Bibliothek</a>
+        Bearbeiten Sie alle vorherigen Teile des Tutorials, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data">Express-Tutorial Teil 5: Bibliotheksdaten anzeigen</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Verstehen, wie man Formulare schreibt, um Daten von Benutzern zu erhalten und die Datenbank mit diesen Daten zu aktualisieren.
+        Verstehen, wie Sie Formulare erstellen, um Daten von Benutzern zu erhalten und damit die Datenbank zu aktualisieren.
       </td>
     </tr>
   </tbody>
@@ -29,22 +29,22 @@ In diesem Tutorial zeigen wir Ihnen, wie Sie mit HTML-Formularen in Express unte
 
 ## Überblick
 
-Ein [HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms) ist eine Gruppe von einem oder mehreren Feldern/Widgets auf einer Webseite, die verwendet werden können, um Informationen von Benutzern zu sammeln und an einen Server zu übermitteln. Formulare sind ein flexibler Mechanismus zur Sammlung von Benutzereingaben, da es geeignete Formulareingaben für viele verschiedene Datentypen gibt—Textfelder, Kontrollkästchen, Optionsfelder, Datumsauswahlfelder usw. Formulare sind auch eine relativ sichere Methode, Daten mit dem Server zu teilen, da sie es uns ermöglichen, Daten in `POST`-Anfragen mit Schutz vor Cross-Site-Request-Forgery zu senden.
+Ein [HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms) ist eine Gruppe aus einem oder mehreren Feldern beziehungsweise Steuerelementen auf einer Webseite, mit denen Informationen von Benutzern erfasst und an einen Server übermittelt werden können. Formulare bieten eine flexible Möglichkeit, Benutzereingaben zu erfassen: Für viele verschiedene Datentypen stehen passende Eingabeelemente zur Verfügung, etwa Textfelder, Kontrollkästchen, Optionsfelder und Datumsauswahlfelder. Formulare ermöglichen außerdem eine vergleichsweise sichere Datenübertragung an den Server, da sie das Senden von Daten über `POST`-Anfragen mit Schutz vor Cross-Site Request Forgery erlauben.
 
-Die Arbeit mit Formularen kann kompliziert sein! Entwickler müssen HTML für das Formular schreiben, die eingegebenen Daten auf dem Server (und möglicherweise auch im Browser) validieren und richtig bereinigen, das Formular mit Fehlermeldungen erneut senden, um Benutzer über ungültige Felder zu informieren, die Daten bei erfolgreicher Übermittlung behandeln und schließlich dem Benutzer auf irgendeine Weise mitteilen, dass die Operation erfolgreich war.
+Die Arbeit mit Formularen kann kompliziert sein! Entwickler müssen den HTML-Code für das Formular schreiben, eingegebene Daten auf dem Server validieren und ordnungsgemäß bereinigen (möglicherweise auch im Browser), das Formular bei Fehlern mit Fehlermeldungen erneut anzeigen, erfolgreich übermittelte Daten verarbeiten und den Benutzern schließlich eine Rückmeldung über den Erfolg geben.
 
-In diesem Tutorial zeigen wir Ihnen, wie die oben genannten Vorgänge in _Express_ durchgeführt werden können. Gleichzeitig erweitern wir die _LocalLibrary_ Website, um Benutzern zu ermöglichen, Elemente in der Bibliothek zu erstellen, zu bearbeiten und zu löschen.
+In diesem Tutorial zeigen wir Ihnen, wie sich diese Schritte in _Express_ umsetzen lassen. Dabei erweitern wir die Website _LocalLibrary_, sodass Benutzer Bibliothekseinträge erstellen, bearbeiten und löschen können.
 
 > [!NOTE]
-> Wir haben noch nicht untersucht, wie bestimmte Routen auf authentifizierte oder autorisierte Benutzer beschränkt werden können, sodass zu diesem Zeitpunkt jeder Benutzer Änderungen an der Datenbank vornehmen kann.
+> Wir haben noch nicht behandelt, wie bestimmte Routen auf authentifizierte oder autorisierte Benutzer beschränkt werden. Daher kann derzeit jeder Benutzer Änderungen an der Datenbank vornehmen.
 
 ### HTML-Formulare
 
-Zunächst ein kurzer Überblick über [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms). Betrachten Sie ein einfaches HTML-Formular mit einem einzigen Textfeld zum Eingeben des Namens eines "Teams" und des zugehörigen Labels:
+Zunächst ein kurzer Überblick über [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms). Betrachten wir ein einfaches HTML-Formular mit einem einzelnen Textfeld zur Eingabe des Namens eines „Teams“ und der zugehörigen Beschriftung:
 
-![Einfaches Namensfeld-Beispiel in einem HTML-Formular](form_example_name_field.png)
+![Beispiel für ein einfaches Namensfeld in einem HTML-Formular](form_example_name_field.png)
 
-Das Formular wird in HTML als Sammlung von Elementen innerhalb von `<form>…</form>`-Tags definiert, die mindestens ein `input`-Element vom Typ `submit` enthalten.
+Das Formular wird in HTML als Sammlung von Elementen innerhalb der Tags `<form>…</form>` definiert und enthält mindestens ein `input`-Element mit `type="submit"`.
 
 ```html
 <form action="/team_name_url/" method="post">
@@ -58,46 +58,46 @@ Das Formular wird in HTML als Sammlung von Elementen innerhalb von `<form>…</f
 </form>
 ```
 
-Hier haben wir nur ein (Text-)Feld zum Eingeben des Teamnamens aufgenommen, ein Formular _kann_ jedoch eine beliebige Anzahl anderer Eingabeelemente und der zugehörigen Labels enthalten. Das Attribut `type` des Feldes definiert, welche Art von Widget angezeigt wird. Der `name` und die `id` des Feldes werden verwendet, um das Feld in JavaScript/CSS/HTML zu identifizieren, während `value` den Anfangswert für das Feld definiert, wenn es zuerst angezeigt wird. Das passende Team-Label wird mit dem `label`-Tag spezifiziert (siehe "Enter name" oben), wobei ein `for`-Feld den `id`-Wert des zugehörigen `input` enthält.
+Hier haben wir nur ein Textfeld zur Eingabe des Teamnamens eingefügt. Ein Formular _kann_ jedoch beliebig viele weitere Eingabeelemente und zugehörige Beschriftungen enthalten. Das Attribut `type` eines Feldes bestimmt, welche Art von Steuerelement angezeigt wird. `name` und `id` dienen dazu, das Feld in JavaScript, CSS und HTML zu identifizieren. `value` legt den Anfangswert des Feldes fest, wenn es zum ersten Mal angezeigt wird. Die zugehörige Beschriftung für das Team wird mit dem Tag `label` angegeben (siehe „Enter name“ oben). Dessen Attribut `for` enthält den `id`-Wert des zugehörigen `input`-Elements.
 
-Das `submit`-Input wird standardmäßig als Button angezeigt—dieser kann vom Benutzer gedrückt werden, um die von den anderen Eingabeelementen enthaltenen Daten an den Server hochzuladen (in diesem Fall nur das `team_name`). Die Form Attribute definieren die HTTP-`Methode`, die zum Senden der Daten verwendet wird, und das Ziel der Daten auf dem Server (`action`):
+Das `submit`-Eingabeelement wird standardmäßig als Schaltfläche angezeigt. Benutzer können darauf klicken, um die Daten der anderen Eingabeelemente an den Server zu senden – in diesem Fall nur `team_name`. Die Formularattribute legen fest, welche HTTP-`method` zum Senden der Daten verwendet wird und an welches Ziel auf dem Server die Daten gesendet werden (`action`):
 
-- `action`: Die Ressource/URL, wohin Daten zur Verarbeitung gesendet werden, wenn das Formular übermittelt wird. Wenn dies nicht gesetzt ist (oder auf einen leeren String gesetzt ist), wird das Formular zurück an die aktuelle Seite-URL gesendet.
-- `method`: Die HTTP-Methode, die zum Senden der Daten verwendet wird: `POST` oder `GET`.
-  - Die `POST`-Methode sollte immer verwendet werden, wenn die Daten zu einer Änderung in der Datenbank des Servers führen, da dies gegen Cross-Site-Forgery-Request-Angriffe widerstandsfähiger gemacht werden kann.
-  - Die `GET`-Methode sollte nur für Formulare verwendet werden, die keine Benutzerdaten ändern (z.B. ein Suchformular). Sie wird empfohlen, wenn Sie die URL bookmarken oder teilen möchten.
+- `action`: Die Ressource beziehungsweise URL, an die die Daten beim Absenden des Formulars zur Verarbeitung gesendet werden. Ist dieses Attribut nicht gesetzt oder enthält es eine leere Zeichenfolge, wird das Formular an die URL der aktuellen Seite gesendet.
+- `method`: Die HTTP-Methode, mit der die Daten gesendet werden: `POST` oder `GET`.
+  - Die Methode `POST` sollte immer verwendet werden, wenn die Daten zu einer Änderung der Serverdatenbank führen, da sich solche Anfragen besser gegen Cross-Site-Request-Forgery-Angriffe absichern lassen.
+  - Die Methode `GET` sollte nur für Formulare verwendet werden, die keine Benutzerdaten ändern, beispielsweise ein Suchformular. Sie empfiehlt sich, wenn die URL als Lesezeichen gespeichert oder geteilt werden soll.
 
-### Formularbearbeitungsprozess
+### Ablauf der Formularverarbeitung
 
-Die Formularbearbeitung verwendet alle Techniken, die wir gelernt haben, um Informationen über unsere Modelle anzuzeigen: die Route sendet unsere Anfrage an eine Controller-Funktion, die erforderliche Datenbankaktionen ausführt, einschließlich des Lesens von Daten aus den Modellen, dann eine HTML-Seite generiert und zurückgibt. Was die Dinge komplizierter macht, ist, dass der Server auch in der Lage sein muss, die vom Benutzer bereitgestellten Daten zu verarbeiten und das Formular mit Fehlerinformationen erneut anzuzeigen, wenn es Probleme gibt.
+Bei der Formularverarbeitung kommen dieselben Techniken zum Einsatz, die wir bereits für die Anzeige von Informationen über unsere Modelle kennengelernt haben: Die Route leitet die Anfrage an eine Controller-Funktion weiter. Diese führt die erforderlichen Datenbankoperationen aus, darunter das Lesen von Daten aus den Modellen, und erzeugt anschließend eine HTML-Seite, die sie zurückgibt. Komplizierter wird es dadurch, dass der Server auch die vom Benutzer eingegebenen Daten verarbeiten und bei Problemen das Formular mit Fehlerinformationen erneut anzeigen muss.
 
-Ein Prozessablaufdiagramm für die Verarbeitung von Formularanfragen ist unten dargestellt, beginnend mit einer Anfrage nach einer Seite, die ein Formular enthält (in grün dargestellt):
+Das folgende Ablaufdiagramm zeigt die Verarbeitung von Formularanfragen. Sie beginnt mit der Anfrage nach einer Seite, die ein Formular enthält (grün dargestellt):
 
-![Webserver-Formularanfrage-Verarbeitungsflussdiagramm. Browseranfragen für die Seite, die das Formular enthält, indem eine HTTP-GET-Anfrage gesendet wird. Der Server erstellt ein leeres Standardformular und sendet es an den Benutzer. Der Benutzer füllt oder aktualisiert das Formular, übermittelt es per HTTP-POST mit Formulardaten. Der Server validiert die empfangenen Formulardaten. Wenn die vom Benutzer bereitgestellten Daten ungültig sind, erstellt der Server das Formular mit den vom Benutzer eingegebenen Daten und Fehlermeldungen neu und sendet es zur Aktualisierung zurück an den Benutzer, und dieser übermittelt es erneut per HTTP-POST, und es wird erneut validiert. Wenn die Daten gültig sind, führt der Server Aktionen auf den gültigen Daten aus und leitet den Benutzer zur Erfolgs-URL weiter.](web_server_form_handling.png)
+![Ablaufdiagramm zur Verarbeitung von Formularanfragen auf einem Webserver. Der Browser fordert die Seite mit dem Formular über eine HTTP-GET-Anfrage an. Der Server erstellt ein leeres Standardformular und sendet es an den Benutzer zurück. Der Benutzer füllt das Formular aus oder aktualisiert es und sendet es mit den Formulardaten über HTTP POST ab. Der Server validiert die empfangenen Formulardaten. Sind die eingegebenen Daten ungültig, erstellt der Server das Formular erneut mit den Benutzereingaben und Fehlermeldungen und sendet es zurück. Der Benutzer korrigiert es und sendet es erneut über HTTP POST ab; anschließend wird es erneut validiert. Sind die Daten gültig, führt der Server die entsprechenden Aktionen aus und leitet den Benutzer zur Erfolgs-URL weiter.](web_server_form_handling.png)
 
-Wie im Diagramm oben gezeigt, müssen die Hauptpunkte, die der Formularkode erledigen muss, folgende sein:
+Wie das Diagramm zeigt, muss der Code zur Formularverarbeitung vor allem Folgendes tun:
 
-1. Zeigen Sie das Standardformular an, wenn es vom Benutzer zum ersten Mal angefordert wird.
-   - Das Formular kann leere Felder (z.B. wenn Sie einen neuen Datensatz erstellen) enthalten, oder es kann mit anfänglichen Werten vorab ausgefüllt sein (z.B. wenn Sie einen Datensatz ändern oder nützliche Standardanfangswerte haben).
+1. Das Standardformular anzeigen, wenn der Benutzer es zum ersten Mal aufruft.
+   - Die Felder können leer sein, etwa beim Erstellen eines neuen Datensatzes. Sie können aber auch mit Anfangswerten vorbelegt sein, beispielsweise beim Ändern eines Datensatzes oder wenn sinnvolle Standardwerte vorhanden sind.
 
-2. Empfangen der vom Benutzer übermittelten Daten, normalerweise in einer HTTP-`POST`-Anfrage.
-3. Validieren und Bereinigen der Daten.
-4. Wenn Daten ungültig sind, zeigen Sie das Formular erneut an—diesmal mit jeglichen vom Benutzer ausgefüllten Werten und Fehlermeldungen für die Problemfelder.
-5. Wenn alle Daten gültig sind, führen Sie die erforderlichen Aktionen aus (z.B. Daten in der Datenbank speichern, Benachrichtigungs-E-Mail senden, das Ergebnis einer Suche zurückgeben, eine Datei hochladen, usw.)
-6. Nachdem alle Aktionen abgeschlossen sind, leiten Sie den Benutzer auf eine andere Seite weiter.
+2. Die vom Benutzer übermittelten Daten empfangen, üblicherweise in einer HTTP-`POST`-Anfrage.
+3. Die Daten validieren und bereinigen.
+4. Falls Daten ungültig sind, das Formular erneut anzeigen – diesmal mit den eingegebenen Werten und Fehlermeldungen für die betroffenen Felder.
+5. Falls alle Daten gültig sind, die erforderlichen Aktionen ausführen, beispielsweise die Daten in der Datenbank speichern, eine Benachrichtigungs-E-Mail senden, Suchergebnisse zurückgeben oder eine Datei hochladen.
+6. Nach Abschluss aller Aktionen den Benutzer auf eine andere Seite weiterleiten.
 
-Häufig wird der Formularkode mit einer `GET`-Route für die anfängliche Anzeige des Formulars und einer `POST`-Route zum gleichen Pfad für die Validierung und Verarbeitung der Formulardaten implementiert. Dies ist der Ansatz, der in diesem Tutorial verwendet wird.
+Häufig wird die Formularverarbeitung mit einer `GET`-Route für die erstmalige Anzeige des Formulars und einer `POST`-Route für denselben Pfad zur Validierung und Verarbeitung der Formulardaten umgesetzt. Diesen Ansatz verwenden wir auch in diesem Tutorial.
 
-Express selbst bietet keine spezifische Unterstützung für Formulareoperationen, kann jedoch Middleware verwenden, um `POST`- und `GET`-Parameter aus dem Formular zu verarbeiten und deren Werte zu validieren/bereinigen.
+Express selbst bietet keine spezielle Unterstützung für die Formularverarbeitung. Es kann jedoch Middleware verwenden, um `POST`- und `GET`-Parameter aus dem Formular zu verarbeiten und deren Werte zu validieren und zu bereinigen.
 
 ### Validierung und Bereinigung
 
-Bevor die Daten aus einem Formular gespeichert werden, müssen sie validiert und bereinigt werden:
+Bevor Formulardaten gespeichert werden, müssen sie validiert und bereinigt werden:
 
-- Validierung überprüft, ob die eingegebenen Werte für jedes Feld angemessen sind (im richtigen Bereich, Format, usw.) und dass für alle erforderlichen Felder Werte angegeben wurden.
-- Bereinigung entfernt/ersetzt Zeichen in den Daten, die möglicherweise zum Senden von schädlichem Inhalt an den Server verwendet werden könnten.
+- Bei der Validierung wird geprüft, ob die eingegebenen Werte für die jeweiligen Felder geeignet sind – etwa hinsichtlich Wertebereich und Format – und ob alle Pflichtfelder ausgefüllt wurden.
+- Bei der Bereinigung werden Zeichen in den Daten entfernt oder ersetzt, die möglicherweise dazu verwendet werden könnten, schädliche Inhalte an den Server zu senden.
 
-Für dieses Tutorial verwenden wir das beliebte [express-validator](https://www.npmjs.com/package/express-validator)-Modul, um sowohl die Validierung als auch die Bereinigung unserer Formulardaten durchzuführen.
+In diesem Tutorial verwenden wir das beliebte Modul [express-validator](https://www.npmjs.com/package/express-validator), um unsere Formulardaten zu validieren und zu bereinigen.
 
 #### Installation
 
@@ -107,24 +107,24 @@ Installieren Sie das Modul, indem Sie den folgenden Befehl im Stammverzeichnis d
 npm install express-validator
 ```
 
-#### Verwendung von express-validator
+#### express-validator verwenden
 
 > [!NOTE]
-> Der [express-validator](https://express-validator.github.io/docs/#basic-guide)-Leitfaden auf GitHub bietet eine gute Übersicht über die API. Wir empfehlen, diesen zu lesen, um einen Überblick über alle Funktionen zu erhalten (einschließlich der Verwendung von [Schema-Validierung](https://express-validator.github.io/docs/guides/schema-validation/) und dem Erstellen benutzerdefinierter Validatoren](https://express-validator.github.io/docs/guides/customizing/#custom-validators-and-sanitizers)). Im Folgenden behandeln wir nur einen Teil, der für die _LocalLibrary_ nützlich ist.
+> Der [express-validator-Leitfaden](https://express-validator.github.io/docs/#basic-guide) auf GitHub bietet einen guten Überblick über die API. Wir empfehlen Ihnen, ihn zu lesen, um die Möglichkeiten des Moduls kennenzulernen, darunter die [schemabasierte Validierung](https://express-validator.github.io/docs/guides/schema-validation/) und das [Erstellen benutzerdefinierter Validatoren](https://express-validator.github.io/docs/guides/customizing/#custom-validators-and-sanitizers). Im Folgenden behandeln wir nur einen Teil der Funktionen, die für _LocalLibrary_ nützlich sind.
 
-Um den Validator in unseren Controllern zu verwenden, geben wir die speziellen Funktionen an, die wir aus dem [express-validator](https://www.npmjs.com/package/express-validator)-Modul importieren möchten, wie unten gezeigt:
+Um den Validator in unseren Controllern zu verwenden, geben wir an, welche Funktionen wir aus dem Modul [express-validator](https://www.npmjs.com/package/express-validator) importieren möchten:
 
 ```js
-const { body, validationResult } = require("express-validator");
+import { body, validationResult } from "express-validator";
 ```
 
-Es gibt viele verfügbare Funktionen, die es erlauben, Daten aus Anfrageparametern, -körpern, -headern, -cookies, usw. oder alle auf einmal zu überprüfen und zu bereinigen. Für dieses Tutorial verwenden wir hauptsächlich `body` und `validationResult` (wie oben in "required" gezeigt).
+Es stehen viele Funktionen zur Verfügung, mit denen Sie Daten aus Anfrageparametern, dem Request-Body, Headern, Cookies und weiteren Quellen – oder aus allen gleichzeitig – prüfen und bereinigen können. In diesem Tutorial verwenden wir hauptsächlich die gerade importierten Funktionen `body` und `validationResult`.
 
 Die Funktionen sind wie folgt definiert:
 
-- [`body(fields, message)`](https://express-validator.github.io/docs/api/check/#body): Gibt eine Reihe von Feldern im Anforderungstext (ein `POST`-Parameter) zur Validierung und/oder Bereinigung zusammen mit einer optionalen Fehlermeldung an, die angezeigt werden kann, wenn die Tests fehlschlagen. Die Validierungs- und Bereinigungskriterien werden als Verkettung an die `body()`-Methode angehängt.
+- [`body(fields, message)`](https://express-validator.github.io/docs/api/check/#body): Gibt eine Gruppe von Feldern im Request-Body (einem `POST`-Parameter) an, die validiert und/oder bereinigt werden sollen. Optional kann eine Fehlermeldung angegeben werden, die bei einem fehlgeschlagenen Test angezeigt wird. Die Kriterien für Validierung und Bereinigung werden durch Methodenverkettung an `body()` angehängt.
 
-  Zum Beispiel definiert die folgende Zeile, dass wir das "name"-Feld überprüfen und dass ein Validierungsfehler eine Fehlermeldung "Empty name" auslösen wird. Danach rufen wir die Bereinigungsmethode `trim()` auf, um Leerzeichen am Anfang und Ende des Strings zu entfernen, und dann `isLength()`, um sicherzustellen, dass der resultierende String nicht leer ist. Schließlich rufen wir `escape()` auf, um HTML-Zeichen aus der Variablen zu entfernen, die in JavaScript Cross-Site-Scripting-Angriffen verwendet werden könnten.
+  In der folgenden Zeile legen wir beispielsweise zuerst fest, dass das Feld „name“ geprüft wird und bei einem Validierungsfehler die Meldung „Empty name“ ausgegeben werden soll. Anschließend rufen wir die Bereinigungsmethode `trim()` auf, um Leerzeichen am Anfang und Ende der Zeichenfolge zu entfernen. Mit `isLength()` prüfen wir dann, ob die resultierende Zeichenfolge nicht leer ist. Abschließend rufen wir `escape()` auf, um HTML-Zeichen aus dem Wert zu entfernen, die für Cross-Site-Scripting-Angriffe mit JavaScript verwendet werden könnten.
 
   ```js
   [
@@ -134,7 +134,7 @@ Die Funktionen sind wie folgt definiert:
   ];
   ```
 
-  Dieser Test überprüft, ob das Altersfeld ein gültiges Datum ist, und verwendet `optional()`, um anzugeben, dass `null` und leere Strings die Validierung nicht fehlschlagen lassen.
+  Der folgende Test prüft, ob das Altersfeld ein gültiges Datum enthält. Mit `optional()` wird festgelegt, dass `null` und leere Zeichenfolgen bei der Validierung keinen Fehler auslösen.
 
   ```js
   [
@@ -147,7 +147,7 @@ Die Funktionen sind wie folgt definiert:
   ];
   ```
 
-  Sie können auch verschiedene Validatoren verändern und Meldungen hinzufügen, die angezeigt werden, wenn die vorhergehenden Validatoren falsch sind.
+  Sie können auch verschiedene Validatoren verketten und Meldungen hinzufügen, die angezeigt werden, wenn der jeweils vorangehende Validator fehlschlägt.
 
   ```js
   [
@@ -162,7 +162,7 @@ Die Funktionen sind wie folgt definiert:
   ];
   ```
 
-- [`validationResult(req)`](https://express-validator.github.io/docs/api/validation-result/#validationresult): Führt die Validierung durch, indem Fehler in Form eines `validation`-Ergebnisobjekts verfügbar gemacht werden. Dies wird in einem separaten Callback aufgerufen, wie unten gezeigt:
+- [`validationResult(req)`](https://express-validator.github.io/docs/api/validation-result/#validationresult): Führt die Validierung aus und stellt Fehler als `validation`-Ergebnisobjekt bereit. Die Funktion wird in einem separaten Callback aufgerufen, wie unten gezeigt:
 
   ```js
   async (req, res, next) => {
@@ -178,78 +178,78 @@ Die Funktionen sind wie folgt definiert:
   };
   ```
 
-  Wir verwenden die Methode `isEmpty()` des Validierungsergebnisses, um zu prüfen, ob es Fehler gab, und die Methode `array()`, um die Fehlermeldungen abzurufen. Weitere Informationen finden Sie im Abschnitt [Fehlerbehandlung bei der Validierung](https://express-validator.github.io/docs/guides/getting-started/#handling-validation-errors).
+  Mit der Methode `isEmpty()` des Validierungsergebnisses prüfen wir, ob Fehler aufgetreten sind. Die Methode `array()` liefert die Fehlermeldungen. Weitere Informationen finden Sie im Abschnitt [Umgang mit Validierungsfehlern](https://express-validator.github.io/docs/guides/getting-started/#handling-validation-errors).
 
-Die Validierungs- und Bereinigungsketten sind Middleware, die an den Express-Route-Handler übergeben werden sollten (wir tun dies indirekt über den Controller). Wenn die Middleware ausgeführt wird, wird jeder Validator/Bereinigung in der angegebenen Reihenfolge ausgeführt.
+Die Validierungs- und Bereinigungsketten sind Middleware, die an den Express-Route-Handler übergeben werden sollte. Wir tun dies indirekt über den Controller. Bei der Ausführung der Middleware werden die einzelnen Validatoren und Bereinigungsfunktionen in der angegebenen Reihenfolge ausgeführt.
 
-Wir werden einige reale Beispiele sehen, wenn wir die _LocalLibrary_-Formulare unten umsetzen.
+Konkrete Beispiele sehen wir bei der Implementierung der _LocalLibrary_-Formulare weiter unten.
 
-### Formulardesign
+### Gestaltung der Formulare
 
-Viele der Modelle in der Bibliothek sind miteinander verbunden/abhängig—zum Beispiel erfordert ein `Book` einen `Author` und kann auch eines oder mehrere `Genres` haben. Dies wirft die Frage auf, wie wir mit dem Fall umgehen sollten, in dem ein Benutzer:
+Viele Modelle der Bibliothek stehen miteinander in Beziehung oder sind voneinander abhängig. Ein `Book` _benötigt_ beispielsweise einen `Author` und _kann_ außerdem ein oder mehrere `Genres` haben. Daraus ergibt sich die Frage, wie wir mit folgenden Fällen umgehen:
 
-- Ein Objekt erstellen möchte, wenn seine verwandten Objekte noch nicht existieren (zum Beispiel ein Buch, bei dem das Autorobjekt noch nicht definiert wurde).
-- Ein Objekt löschen möchte, das noch von einem anderen Objekt verwendet wird (zum Beispiel das Löschen eines `Genre`, das noch von einem `Book` verwendet wird).
+- Ein Benutzer möchte ein Objekt erstellen, obwohl die zugehörigen Objekte noch nicht existieren, etwa ein Buch, dessen Autor-Objekt noch nicht angelegt wurde.
+- Ein Benutzer möchte ein Objekt löschen, das noch von einem anderen Objekt verwendet wird, beispielsweise ein `Genre`, das noch einem `Book` zugeordnet ist.
 
-Für dieses Projekt werden wir die Implementierung vereinfachen, indem wir festlegen, dass ein Formular nur:
+Für dieses Projekt vereinfachen wir die Implementierung durch folgende Regeln: Ein Formular kann ein Objekt nur dann:
 
-- Ein Objekt unter Verwendung von Objekten erstellen kann, die bereits existieren (Benutzer müssen also alle erforderlichen `Author`- und `Genre`-Instanzen erstellen, bevor sie versuchen, `Book`-Objekte zu erstellen).
-- Ein Objekt löschen kann, wenn es nicht von anderen Objekten referenziert wird (Beispiel: Sie können ein `Book` erst dann löschen, wenn alle zugehörigen `BookInstance`-Objekte gelöscht wurden).
+- erstellen, wenn die dafür benötigten Objekte bereits existieren. Benutzer müssen also alle erforderlichen `Author`- und `Genre`-Instanzen erstellen, bevor sie ein `Book`-Objekt erstellen;
+- löschen, wenn keine anderen Objekte darauf verweisen. Beispielsweise können Sie ein `Book` erst löschen, nachdem alle zugehörigen `BookInstance`-Objekte gelöscht wurden.
 
 > [!NOTE]
-> Eine flexiblere Implementierung könnte es ermöglichen, die abhängigen Objekte beim Erstellen eines neuen Objekts zu erstellen und ein Objekt jederzeit zu löschen (z.B. durch Löschen abhängiger Objekte oder Entfernen von Verweisen auf das gelöschte Objekt aus der Datenbank).
+> Eine flexiblere Implementierung könnte es ermöglichen, abhängige Objekte beim Erstellen eines neuen Objekts ebenfalls anzulegen und jedes Objekt jederzeit zu löschen – etwa indem abhängige Objekte gelöscht oder Verweise auf das gelöschte Objekt aus der Datenbank entfernt werden.
 
 ### Routen
 
-Um unseren Formulareverarbeitungscode zu implementieren, benötigen wir zwei Routen mit demselben URL-Muster. Die erste (`GET`)-Route wird verwendet, um ein neues leeres Formular zum Erstellen des Objekts anzuzeigen. Die zweite Route (`POST`) wird verwendet, um die vom Benutzer eingegebenen Daten zu validieren und dann die Informationen zu speichern und zur Detailseite weiterzuleiten (wenn die Daten gültig sind) oder das Formular mit Fehlern anzuzeigen (wenn die Daten ungültig sind).
+Für die Formularverarbeitung benötigen wir zwei Routen mit demselben URL-Muster. Die erste Route (`GET`) zeigt ein neues, leeres Formular zum Erstellen des Objekts an. Die zweite Route (`POST`) validiert die eingegebenen Daten und speichert anschließend die Informationen und leitet zur Detailseite weiter (wenn die Daten gültig sind) oder zeigt das Formular mit Fehlermeldungen erneut an (wenn die Daten ungültig sind).
 
-Wir haben bereits die Routen für alle Erstellungsseiten unseres Modells in **/routes/catalog.js** (in einem [vorherigen Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes)) erstellt. Zum Beispiel sind die Genre-Routen unten gezeigt:
+Die Routen für die Erstellungsseiten aller unserer Modelle haben wir bereits in **routes/catalog.js** angelegt (in einem [früheren Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes)). Die Routen für Genres sehen beispielsweise so aus:
 
 ```js
 // GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
-router.get("/genre/create", genre_controller.genre_create_get);
+router.get("/genre/create", genreController.genreCreateGet);
 
 // POST request for creating Genre.
-router.post("/genre/create", genre_controller.genre_create_post);
+router.post("/genre/create", genreController.genreCreatePost);
 ```
 
-## Express-Formular-Unterartikel
+## Unterartikel zu Formularen in Express
 
-Die folgenden Unterartikel führen uns durch den Prozess des Hinzufügens der erforderlichen Formulare zu unserer Beispielanwendung. Sie müssen jeden Artikel lesen und durcharbeiten, bevor Sie zum nächsten übergehen.
+Die folgenden Unterartikel führen Sie durch die Erstellung der benötigten Formulare für unsere Beispielanwendung. Lesen und bearbeiten Sie sie der Reihe nach, bevor Sie mit dem jeweils nächsten Artikel fortfahren.
 
-1. [Genre-Formular erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_genre_form) — Eine Seite zum Erstellen von `Genre`-Objekten definieren.
-2. [Author-Formular erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_author_form) — Eine Seite zum Erstellen von `Author`-Objekten definieren.
-3. [Book-Formular erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_book_form) — Eine Seite/Formular zum Erstellen von `Book`-Objekten definieren.
-4. [BookInstance-Formular erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_BookInstance_form) — Eine Seite/Formular zum Erstellen von `BookInstance`-Objekten definieren.
-5. [Author-Formular löschen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Delete_author_form) — Eine Seite zum Löschen von `Author`-Objekten definieren.
-6. [Book-Formular aktualisieren](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Update_Book_form) — Eine Seite zum Aktualisieren von `Book`-Objekten definieren.
+1. [Formular zum Erstellen eines Genre](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_genre_form) – Eine Seite zum Erstellen von `Genre`-Objekten definieren.
+2. [Formular zum Erstellen eines Author](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_author_form) – Eine Seite zum Erstellen von `Author`-Objekten definieren.
+3. [Formular zum Erstellen eines Book](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_book_form) – Eine Seite und ein Formular zum Erstellen von `Book`-Objekten definieren.
+4. [Formular zum Erstellen einer BookInstance](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_BookInstance_form) – Eine Seite und ein Formular zum Erstellen von `BookInstance`-Objekten definieren.
+5. [Formular zum Löschen eines Author](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Delete_author_form) – Eine Seite zum Löschen von `Author`-Objekten definieren.
+6. [Formular zum Aktualisieren eines Book](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Update_Book_form) – Eine Seite zum Aktualisieren von `Book`-Objekten definieren.
 
-## Fordern Sie sich heraus
+## Probieren Sie es selbst aus
 
-Implementieren Sie die Löschen-Seiten für die Modelle `Book`, `BookInstance` und `Genre` und verlinken Sie sie wie bei unserer _Author delete_-Seite von den zugehörigen Detailseiten. Die Seiten sollten dem gleichen Designansatz folgen:
+Implementieren Sie Seiten zum Löschen von Objekten der Modelle `Book`, `BookInstance` und `Genre`. Verlinken Sie diese von den jeweiligen Detailseiten aus, wie bei unserer Seite zum Löschen von _Author_. Die Seiten sollten demselben Gestaltungsansatz folgen:
 
-- Wenn es Verweise von anderen Objekten auf das Objekt gibt, sollten diese anderen Objekte zusammen mit einem Hinweis darauf angezeigt werden, dass dieser Datensatz nicht gelöscht werden kann, bis die aufgelisteten Objekte gelöscht wurden.
-- Wenn es keine anderen Verweise auf das Objekt gibt, sollte die Ansicht zum Löschen auffordern. Wenn der Benutzer die **Löschen**-Taste drückt, sollte der Datensatz dann gelöscht werden.
-
-Einige Tipps:
-
-- Das Löschen eines `Genre` ist genau wie das Löschen eines `Author`, da beide Objekte Abhängigkeiten von `Book` sind (in beiden Fällen können Sie das Objekt nur löschen, wenn die zugehörigen Bücher gelöscht sind).
-- Das Löschen eines `Book` ist ebenfalls ähnlich, da Sie zuerst überprüfen müssen, ob keine zugehörigen `BookInstances` vorhanden sind.
-- Das Löschen eines `BookInstance` ist am einfachsten von allem, da es keine abhängigen Objekte gibt. In diesem Fall können Sie einfach den zugehörigen Datensatz finden und löschen.
-
-Implementieren Sie die Update-Seiten für die Modelle `BookInstance`, `Author` und `Genre` und verlinken Sie sie von den zugehörigen Detailseiten wie bei unserer _Book update_-Seite.
+- Wenn andere Objekte auf das betreffende Objekt verweisen, sollen diese Objekte zusammen mit einem Hinweis angezeigt werden, dass der Datensatz erst gelöscht werden kann, nachdem die aufgelisteten Objekte gelöscht wurden.
+- Wenn keine anderen Objekte darauf verweisen, soll die Ansicht zum Löschen auffordern. Klickt der Benutzer auf die Schaltfläche **Löschen**, soll der Datensatz gelöscht werden.
 
 Einige Tipps:
 
-- Die _Book update-Seite_, die wir gerade implementiert haben, ist die schwierigste! Die gleichen Muster können für die Update-Seiten der anderen Objekte verwendet werden.
-- Die `Author`-Geburts- und Todesfelder und das `BookInstance`-Fälligkeitsdatum-Feld sind im falschen Format, um in das Dateneingabefeld auf dem Formular eingegeben zu werden (es erfordert Daten im Format "YYYY-MM-DD"). Die einfachste Möglichkeit, dies zu umgehen, besteht darin, eine neue virtuelle Eigenschaft für die Daten zu definieren, die die Daten entsprechend formatiert, und dann dieses Feld in den zugehörigen Ansichts-Vorlagen zu verwenden.
-- Wenn Sie stecken bleiben, gibt es in [dem Beispiel hier](https://github.com/mdn/express-locallibrary-tutorial) Beispiele für die Update-Seiten.
+- Das Löschen eines `Genre` funktioniert genauso wie das Löschen eines `Author`, da beide Objekte Abhängigkeiten von `Book` sind. In beiden Fällen können Sie das Objekt erst löschen, wenn die zugehörigen Bücher gelöscht wurden.
+- Das Löschen eines `Book` ist ähnlich: Zunächst müssen Sie prüfen, ob noch zugehörige `BookInstances` vorhanden sind.
+- Das Löschen einer `BookInstance` ist am einfachsten, da keine Objekte von ihr abhängen. Sie können den zugehörigen Datensatz einfach suchen und löschen.
+
+Implementieren Sie Seiten zum Aktualisieren von Objekten der Modelle `BookInstance`, `Author` und `Genre`. Verlinken Sie diese von den jeweiligen Detailseiten aus, wie bei unserer Seite zum Aktualisieren von _Book_.
+
+Einige Tipps:
+
+- Die gerade implementierte Seite zum Aktualisieren von _Book_ ist die schwierigste! Für die Aktualisierungsseiten der anderen Objekte können Sie dieselben Muster verwenden.
+- Die Felder für Todes- und Geburtsdatum von `Author` sowie das Feld `due_back` von `BookInstance` haben nicht das richtige Format für das Datumseingabefeld des Formulars. Dieses erwartet Daten im Format „YYYY-MM-DD“. Am einfachsten lösen Sie das Problem, indem Sie für die Datumsangaben eine neue virtuelle Eigenschaft definieren, die sie entsprechend formatiert, und diese Eigenschaft dann in den zugehörigen Ansichtsvorlagen verwenden.
+- Falls Sie nicht weiterkommen, finden Sie [hier Beispielimplementierungen der Aktualisierungsseiten](https://github.com/mdn/express-locallibrary-tutorial).
 
 ## Zusammenfassung
 
-_Express_, Node und Drittanbieter-Pakete auf npm bieten alles, was Sie benötigen, um Formulare zu Ihrer Website hinzuzufügen. In diesem Artikel haben Sie gelernt, wie Sie Formulare mit _Pug_ erstellen, Eingaben mit _express-validator_ validieren und bereinigen und Datensätze in der Datenbank hinzufügen, löschen und ändern.
+_Express_, Node und Pakete von Drittanbietern auf npm bieten alles, was Sie benötigen, um Formulare zu Ihrer Website hinzuzufügen. In diesem Artikel haben Sie gelernt, wie Sie mit _Pug_ Formulare erstellen, Eingaben mit _express-validator_ validieren und bereinigen sowie Datensätze in der Datenbank hinzufügen, löschen und ändern.
 
-Sie sollten jetzt verstehen, wie Sie grundlegende Formulare und Formularbearbeitungscode zu Ihren eigenen Node-Websites hinzufügen können!
+Sie sollten jetzt verstehen, wie Sie Ihren eigenen Node-Websites einfache Formulare und Code zur Formularverarbeitung hinzufügen können!
 
 ## Siehe auch
 

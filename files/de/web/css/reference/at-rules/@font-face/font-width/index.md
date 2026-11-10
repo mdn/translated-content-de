@@ -1,19 +1,19 @@
 ---
-title: "`font-width` CSS at-rule descriptor"
+title: CSS-At-Rule-Deskriptor `font-width`
 short-title: font-width
 slug: Web/CSS/Reference/At-rules/@font-face/font-width
 l10n:
-  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{SeeCompatTable}}
 
 > [!NOTE]
-> Der `font-width` Deskriptor ist der moderne Ersatz für den {{cssxref("@font-face/font-stretch")}} Deskriptor, welcher ein veraltetes Alias darstellt. Obwohl `font-width` der bevorzugte Name in der Spezifikation ist, hat `font-stretch` aktuell eine größere Browser-Unterstützung. Lesen Sie das [Fallback-Beispiel](#bereitstellen_eines_font-stretch-fallbacks) und die [Browser-Kompatibilität](#browser-kompatibilität) Tabelle für Details.
+> Der Deskriptor `font-width` ist der moderne Ersatz für den Deskriptor {{cssxref("@font-face/font-stretch")}}, der als veralteter Alias weiterbesteht. Obwohl `font-width` der in der Spezifikation bevorzugte Name ist, wird `font-stretch` derzeit von mehr Browsern unterstützt. Weitere Informationen finden Sie im [Beispiel für einen Fallback](#einen_font-stretch-fallback_bereitstellen) und in der Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität).
 
-Der **`font-width`** [CSS](/de/docs/Web/CSS) Deskriptor ermöglicht es Autoren, ein normales, verengtes oder erweitertes Schriftbild für die Schriftarten, die in der {{cssxref("@font-face")}} At-Regel angegeben sind, zu bestimmen.
+Mit dem [CSS](/de/docs/Web/CSS)-Deskriptor **`font-width`** können Sie für die in der At-Rule {{cssxref("@font-face")}} angegebenen Schriftarten eine normale, schmale oder breite Schriftvariante festlegen.
 
-Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftbilder herunterladen, die den unterschiedlichen Stilen der gleichen Schriftfamilie entsprechen, und dann den `font-width` Deskriptor verwenden, um die Breite des Schriftbildes explizit festzulegen. Die verfügbaren `font-width` Deskriptorwerte sind die gleichen wie die der entsprechenden {{cssxref("font-width")}} Eigenschaft.
+Für eine bestimmte Schriftfamilie können Sie verschiedene Schriftvarianten herunterladen, die den unterschiedlichen Stilen derselben Schriftfamilie entsprechen. Anschließend können Sie mit dem Deskriptor `font-width` die Breite einer Schriftvariante ausdrücklich festlegen. Die verfügbaren Werte für den Deskriptor `font-width` entsprechen denen der gleichnamigen Eigenschaft {{cssxref("font-width")}}.
 
 ## Syntax
 
@@ -37,32 +37,32 @@ font-width: 75% 125%;
 font-width: condensed ultra-condensed;
 ```
 
-Der `font-width` Deskriptor kann einen einzelnen Wert aus der nachstehenden Liste annehmen.
+Der Deskriptor `font-width` akzeptiert einen einzelnen Wert aus der folgenden Liste.
 
 ### Werte
 
 - `normal`
-  - : Gibt ein normalerweise verengtes Schriftbild an.
+  - : Gibt eine Schriftvariante mit normaler Breite an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt ein stärker verengtes Schriftbild als normal an, wobei ultra-condensed das am stärksten verengte darstellt.
+  - : Gibt eine schmalere Schriftvariante als `normal` an, wobei `ultra-condensed` am schmalsten ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt ein stärker erweitertes Schriftbild als normal an, wobei ultra-expanded das am weitesten erweiterte darstellt.
+  - : Gibt eine breitere Schriftvariante als `normal` an, wobei `ultra-expanded` am breitesten ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diesen Deskriptor nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50 % und 200 % (einschließlich). Negative Werte sind für diesen Deskriptor nicht zulässig.
 
-In früheren Versionen der `font-width` Spezifikation akzeptiert der Deskriptor nur die neun Schlüsselwortwerte. CSS Fonts Level 4 erweitert die Syntax, um auch einen `<percentage>` Wert zu akzeptieren. Dies ermöglicht variablen Schriften, eine kontinuierliche Variation der Buchstabenbreiten zu bieten. Für TrueType oder OpenType variable Schriftarten wird die `wdth` Variation verwendet, um unterschiedliche Breiten zu implementieren.
+In früheren Versionen der Spezifikation für `font-width` akzeptierte der Deskriptor nur die neun Schlüsselwortwerte. CSS Fonts Level 4 erweitert die Syntax um einen `<percentage>`-Wert. Dadurch können variable Schriftarten eine kontinuierliche Abstufung der Zeichenbreiten anbieten. Bei variablen TrueType- oder OpenType-Schriftarten wird die Variation `wdth` verwendet, um unterschiedliche Breiten umzusetzen.
 
-Wenn die Schriftart kein Schriftbild bietet, das genau dem angegebenen Wert entspricht, werden Werte unter `100%` einem verengten Schriftbild zugeordnet, und Werte größer oder gleich `100%` einem erweiterten Schriftbild.
+Wenn die Schriftart keine Variante bereitstellt, die genau dem angegebenen Wert entspricht, werden Werte unter `100%` einer schmalen Variante und Werte ab `100%` einer breiten Variante zugeordnet.
 
-### Zuordnung von Schlüsselwort zu numerischem Wert
+### Zuordnung von Schlüsselwörtern zu numerischen Werten
 
-Die nachstehende Tabelle zeigt die Zuordnung zwischen Schlüsselwortwerten und numerischen Prozent:
+Die folgende Tabelle zeigt, welchen Prozentwerten die Schlüsselwörter entsprechen:
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="col">Schlüsselwort</th>
-      <th scope="col">Prozent</th>
+      <th scope="col">Prozentwert</th>
     </tr>
   </thead>
   <tbody>
@@ -105,18 +105,18 @@ Die nachstehende Tabelle zeigt die Zuordnung zwischen Schlüsselwortwerten und n
   </tbody>
 </table>
 
-### Variable Fonts
+### Variable Schriftarten
 
-Die meisten Schriftarten haben eine bestimmte Breite, die einem der Schlüsselwortwerte entspricht. Variable Schriftarten hingegen können einen Bereich von Breiten mit feiner Granularität unterstützen, was dem Designer eine größere Kontrolle über das gewählte Gewicht gibt. Dafür sind Prozentsatzbereiche nützlich.
+Die meisten Schriftarten haben eine bestimmte Breite, die einem der Schlüsselwortwerte entspricht. Variable Schriftarten können dagegen einen fein abgestuften Breitenbereich unterstützen. So haben Sie mehr Kontrolle über die gewählte Breite. Dafür eignen sich Prozentbereiche.
 
-Für TrueType oder OpenType variable Schriftarten wird die `wdth` Variation verwendet, um unterschiedliche Glyphenbreiten zu implementieren.
+Bei variablen TrueType- oder OpenType-Schriftarten wird die Variation `wdth` verwendet, um unterschiedliche Glyphenbreiten umzusetzen.
 
 ## Barrierefreiheit
 
-Personen mit Legasthenie und anderen kognitiven Bedingungen können Schwierigkeiten haben, Schriften zu lesen, die zu stark verengt sind, insbesondere wenn die Schrift ein [niedriges Farbkontrastverhältnis](/de/docs/Web/CSS/Reference/Properties/color#accessibility) hat.
+Menschen mit Legasthenie oder anderen kognitiven Beeinträchtigungen können Schwierigkeiten haben, zu schmale Schriftarten zu lesen. Das gilt insbesondere, wenn die Schrift ein [geringes Farbkontrastverhältnis](/de/docs/Web/CSS/Reference/Properties/color#accessibility) aufweist.
 
-- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN: WCAG verstehen – Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erfolgskriterium 1.4.8 verstehen | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Formale Definition
 
@@ -128,9 +128,9 @@ Personen mit Legasthenie und anderen kognitiven Bedingungen können Schwierigkei
 
 ## Beispiele
 
-### Festlegen eines Prozentsatzbereichs für font-width
+### Einen Prozentbereich für font-width festlegen
 
-Das folgende Beispiel verwendet die [League Mono](https://www.theleagueofmoveabletype.com/league-mono) Schriftart. Es synthetisiert verschiedene Schriftfamilien aus derselben Schriftdatei mit dem `font-width` Deskriptor, der mit verschiedenen Schlüsselwörtern und Prozentsätzen arbeitet.
+Das folgende Beispiel verwendet die Schriftart [League Mono](https://www.theleagueofmoveabletype.com/league-mono). Mithilfe des Deskriptors `font-width` und unterschiedlicher Schlüsselwörter und Prozentwerte erzeugt es verschiedene Schriftfamilien aus derselben Schriftdatei.
 
 ```html
 <p>League Mono</p>
@@ -170,11 +170,11 @@ p:nth-child(3) {
 }
 ```
 
-{{EmbedLiveSample("Setting font width percentages", "100%", 200)}}
+{{EmbedLiveSample("setting_a_percentage_range_for_font-width", "100%", 200)}}
 
-### Bereitstellen eines Font-Stretch-Fallbacks
+### Einen font-stretch-Fallback bereitstellen
 
-Da `font-width` derzeit noch keine breite Browser-Unterstützung hat, möchten Sie möglicherweise den alten {{cssxref("@font-face/font-stretch")}} Deskriptor als Fallback einschließen. Platzieren Sie `font-stretch` vor `font-width`, sodass unterstützende Browser den modernen Deskriptor verwenden:
+Da `font-width` noch nicht von vielen Browsern unterstützt wird, können Sie den älteren Deskriptor {{cssxref("@font-face/font-stretch")}} als Fallback einfügen. Platzieren Sie `font-stretch` vor `font-width`, damit Browser, die den modernen Deskriptor unterstützen, diesen verwenden:
 
 ```css
 @font-face {
@@ -186,7 +186,7 @@ Da `font-width` derzeit noch keine breite Browser-Unterstützung hat, möchten S
 ```
 
 > [!NOTE]
-> Sie können dieses Fallback-Muster mit dem [postcss-preset-env](https://preset-env.cssdb.org/) Plugin für PostCSS automatisieren, das die [postcss-font-width-property](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-width-property) Transformation beinhaltet, um `font-width` Deklarationen automatisch in `font-stretch` umzuwandeln.
+> Sie können dieses Fallback-Muster mit dem Plugin [postcss-preset-env](https://preset-env.cssdb.org/) für PostCSS automatisieren. Es enthält die Transformation [postcss-font-width-property](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-width-property), die `font-width`-Deklarationen automatisch in `font-stretch`-Deklarationen umwandelt.
 
 ## Spezifikationen
 
@@ -198,12 +198,12 @@ Da `font-width` derzeit noch keine breite Browser-Unterstützung hat, möchten S
 
 ## Siehe auch
 
-- Veralteter {{cssxref("@font-face/font-stretch")}} Alias Deskriptor mit besserer Browser-Unterstützung
-- {{cssxref("@font-face/font-display", "font-display")}} Deskriptor
-- {{cssxref("@font-face/font-family", "font-family")}} Deskriptor
-- {{cssxref("@font-face/font-weight", "font-weight")}} Deskriptor
-- {{cssxref("@font-face/font-style", "font-style")}} Deskriptor
-- {{cssxref("font-feature-settings", "font-feature-settings")}} Eigenschaft
-- {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}} Deskriptor
-- {{cssxref("@font-face/src", "src")}} Deskriptor
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
+- Veralteter Alias-Deskriptor {{cssxref("@font-face/font-stretch")}} mit breiterer Browser-Unterstützung
+- Deskriptor {{cssxref("@font-face/font-display", "font-display")}}
+- Deskriptor {{cssxref("@font-face/font-family", "font-family")}}
+- Deskriptor {{cssxref("@font-face/font-weight", "font-weight")}}
+- Deskriptor {{cssxref("@font-face/font-style", "font-style")}}
+- Eigenschaft {{cssxref("font-feature-settings", "font-feature-settings")}}
+- Deskriptor {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}
+- Deskriptor {{cssxref("@font-face/src", "src")}}
+- Deskriptor {{cssxref("@font-face/unicode-range", "unicode-range")}}

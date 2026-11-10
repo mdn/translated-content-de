@@ -3,15 +3,15 @@ title: "`:-moz-last-node` CSS-Pseudoklasse"
 short-title: :-moz-last-node
 slug: Web/CSS/Reference/Selectors/:-moz-last-node
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: b4f42a2037bcb8f2daec61f6b3d92bfdd13e5386
 ---
 
 {{Non-standard_header}}{{SeeCompatTable}}
 
-Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die ein beliebiges Element darstellt, das das letzte Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie kein letztes Kind-Element mit (nicht-leerzeichen) Text danach matcht.
+Die **`:-moz-last-node`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element repräsentiert, das der letzte Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie nicht auf ein letztes Kindelement zutrifft, auf das Text folgt, der nicht nur aus Leerraum besteht.
 
 > [!NOTE]
-> Alle Leerzeichen am Ende eines Elements werden bei der Bestimmung von `:-moz-last-node` ignoriert.
+> Leerraum am Ende eines Elements wird bei der Bestimmung von `:-moz-last-node` ignoriert.
 
 ## Syntax
 
@@ -22,14 +22,6 @@ Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CS
 ```
 
 ## Beispiele
-
-### CSS
-
-```css
-span:-moz-last-node {
-  background-color: lime;
-}
-```
 
 ### HTML
 
@@ -43,6 +35,14 @@ span:-moz-last-node {
   <span>This doesn't match because it's followed by text.</span>
   Blahblah.
 </p>
+```
+
+### CSS
+
+```css
+span:-moz-last-node {
+  background-color: lime;
+}
 ```
 
 ### Ergebnis

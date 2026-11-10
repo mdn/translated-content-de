@@ -3,12 +3,12 @@ title: "SVGPatternElement: patternTransform-Eigenschaft"
 short-title: patternTransform
 slug: Web/API/SVGPatternElement/patternTransform
 l10n:
-  sourceCommit: c82c597653873328e18fc45ac02f610d8f9bc1a7
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("SVG")}}
 
-Die **`patternTransform`**-Eigenschaft nur-lesbar des [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Interfaces spiegelt das {{SVGAttr("patternTransform")}}-Attribut des gegebenen {{SVGElement("pattern")}}-Elements wider. Diese Eigenschaft hält die auf das Muster selbst angewendete Transformation und ermöglicht Operationen wie `translate`, `rotate`, `scale` und `skew`.
+Die schreibgeschützte Eigenschaft **`patternTransform`** der Schnittstelle [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement) spiegelt das Attribut {{SVGAttr("patternTransform")}} des betreffenden {{SVGElement("pattern")}}-Elements wider. Diese Eigenschaft enthält die auf das Muster selbst angewendete Transformation und ermöglicht Operationen wie `translate`, `rotate`, `scale` und `skew`.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList)-Obje
 
 ## Beispiel
 
-In diesem Beispiel wird das Muster um 20 Grad gedreht, auf der X-Achse um 30 Grad geneigt und um einen Faktor von 1 horizontal und 0,5 vertikal skaliert:
+In diesem Beispiel wird das Muster um 20 Grad gedreht, entlang der X-Achse um 30 Grad geschert und horizontal mit dem Faktor 1 sowie vertikal mit dem Faktor 0,5 skaliert:
 
 ```html
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ In diesem Beispiel wird das Muster um 20 Grad gedreht, auf der X-Achse um 30 Gra
 </svg>
 ```
 
-{{EmbedLiveSample("Examples", '100%', 300)}}
+{{EmbedLiveSample("example", '100%', 300)}}
 
 ## Spezifikationen
 

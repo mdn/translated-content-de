@@ -3,10 +3,10 @@ title: "`backdrop-filter` CSS property"
 short-title: backdrop-filter
 slug: Web/CSS/Reference/Properties/backdrop-filter
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c4e64810ce10fb5cb1eebfcd8b6f526866fd0982
 ---
 
-Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, grafische Effekte wie Unschärfe oder Farbverschiebung auf den Bereich _hinter_ einem Element anzuwenden. Da sie auf alles _hinter_ dem Element angewendet wird, muss das Element oder dessen Hintergrund durchsichtig oder teilweise durchsichtig sein, um den Effekt sehen zu können.
+Mit der **CSS-Eigenschaft `backdrop-filter`** können Sie grafische Effekte wie Weichzeichnung oder Farbverschiebung auf den Bereich hinter einem Element anwenden. Da sie auf alles _hinter_ dem Element wirkt, muss das Element oder sein Hintergrund transparent oder teilweise transparent sein, damit der Effekt sichtbar wird.
 
 {{InteractiveExample("CSS Demo: backdrop-filter()")}}
 
@@ -86,29 +86,29 @@ backdrop-filter: unset;
 ### Werte
 
 - `none`
-  - : Kein Filter wird auf den Hintergrund angewendet.
+  - : Auf den Hintergrund wird kein Filter angewendet.
 - `<filter-value-list>`
-  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("filter-function")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Reference/Element/filter), der auf den Hintergrund angewendet wird. Zu den CSS-`<filter-function>`s gehören {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}} und {{CSSxRef("filter-function/sepia", "sepia()")}}.
+  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("filter-function")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Reference/Element/filter), die auf den Hintergrund angewendet werden. Zu den CSS-`<filter-function>`s gehören {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}} und {{CSSxRef("filter-function/sepia", "sepia()")}}.
 
 ## Beschreibung
 
-Die `backdrop-filter`-Eigenschaft wendet Filtereffekte auf die Pixel an, die _hinter_ einem Element gemalt sind, bis zum nächstgelegenen Vorfahren, der eine **Backdrop-Root** ist. Inhalte über der Backdrop-Root sind nicht betroffen.
+Die Eigenschaft `backdrop-filter` wendet Filtereffekte auf die Pixel an, die _hinter_ einem Element dargestellt werden, bis zum nächsten Vorfahren, der eine **Backdrop-Root** ist. Inhalte oberhalb der Backdrop-Root sind nicht betroffen.
 
 ### Backdrop-Root
 
-Eine Backdrop-Root ist ein Element, das eine Grenze für `backdrop-filter`-Effekte schafft. Die folgenden Elemente sind Backdrop-Roots:
+Eine Backdrop-Root ist ein Element, das eine Grenze für `backdrop-filter`-Effekte festlegt. Die folgenden Elemente sind Backdrop-Roots:
 
-- Das Stamm-Element ({{HTMLElement("html")}})
-- Ein Element mit einem {{cssxref("filter")}}-Wert ungleich `none`
-- Ein Element mit einem {{cssxref("opacity")}}-Wert kleiner als `1`
-- Ein Element mit einem {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-border")}}, oder {{cssxref("clip-path")}}-Wert ungleich `none`
-- Ein Element mit einem `backdrop-filter`-Wert ungleich `none`
-- Ein Element mit einem {{cssxref("mix-blend-mode")}}-Wert ungleich `normal`
-- Ein Element mit {{cssxref("will-change")}} gesetzt auf eine der oben genannten Eigenschaften
+- Das Wurzelelement ({{HTMLElement("html")}})
+- Ein Element mit einem anderen Wert für {{cssxref("filter")}} als `none`
+- Ein Element mit einem Wert für {{cssxref("opacity")}} kleiner als `1`
+- Ein Element mit einem anderen Wert für {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-border")}} oder {{cssxref("clip-path")}} als `none`
+- Ein Element mit einem anderen Wert für `backdrop-filter` als `none`
+- Ein Element mit einem anderen Wert für {{cssxref("mix-blend-mode")}} als `normal`
+- Ein Element, bei dem {{cssxref("will-change")}} auf eine der oben genannten Eigenschaften gesetzt ist
 
-Das bedeutet, wenn ein übergeordnetes Element `opacity: 0.9` hat, wird es zu einer Backdrop-Root und der `backdrop-filter` eines Kindes wird nur den Inhalt zwischen diesem übergeordneten Element und dem Kind verwischen - nicht den Inhalt hinter dem übergeordneten Element. Dies ist eine häufige Quelle der Verwirrung, wenn `backdrop-filter` keine sichtbare Wirkung zu haben scheint, obwohl es korrekt angewendet wird.
+Wenn ein Elternelement beispielsweise `opacity: 0.9` hat, wird es zur Backdrop-Root. Der `backdrop-filter` eines Kindelements zeichnet dann nur den Inhalt zwischen dem Elternelement und dem Kindelement weich – nicht den Inhalt hinter dem Elternelement. Dies führt häufig zu Verwirrung, wenn `backdrop-filter` trotz korrekter Anwendung scheinbar keinen sichtbaren Effekt hat.
 
-Das folgende Beispiel zeigt, wie Backdrop-Roots `backdrop-filter` beeinflussen. Der erste Container hat `will-change: opacity`, was ihn zu einer Backdrop-Root macht - beachten Sie, dass der Unschärfekreis nur den Text und das Quadrat innerhalb des Containers beeinflusst, nicht den karierten Hintergrund dahinter. Der zweite Container ist keine Backdrop-Root, sodass sein Unschärfekreis alles dahinter beeinflusst, einschließlich des Seitenhintergrunds.
+Das folgende Beispiel zeigt, wie sich Backdrop-Roots auf `backdrop-filter` auswirken. Der erste Container hat `will-change: opacity` und ist damit eine Backdrop-Root. Beachten Sie, dass der weichzeichnende Kreis nur den Text und das Quadrat innerhalb des Containers beeinflusst, nicht aber den karierten Hintergrund dahinter. Der zweite Container ist keine Backdrop-Root. Sein weichzeichnender Kreis beeinflusst daher alles dahinter, einschließlich des Seitenhintergrunds.
 
 ```html
 <div class="parent backdrop-root">
@@ -192,6 +192,16 @@ body {
 
 ## Beispiele
 
+### HTML
+
+```html
+<div class="container">
+  <div class="box">
+    <p>backdrop-filter: blur(10px)</p>
+  </div>
+</div>
+```
+
 ### CSS
 
 ```css
@@ -230,19 +240,9 @@ body {
 }
 ```
 
-### HTML
-
-```html
-<div class="container">
-  <div class="box">
-    <p>backdrop-filter: blur(10px)</p>
-  </div>
-</div>
-```
-
 ### Ergebnis
 
-{{EmbedLiveSample("Beispiele", 600, 400)}}
+{{EmbedLiveSample("Examples", 600, 400)}}
 
 ## Spezifikationen
 
@@ -258,4 +258,4 @@ body {
 - {{cssxref("filter-function")}}
 - {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
 - [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
-- [CSS-Compositing und -Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending)
+- [CSS-Compositing und Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending)

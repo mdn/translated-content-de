@@ -2,16 +2,16 @@
 title: Buttons
 slug: Games/Tutorials/2D_breakout_game_pure_JavaScript/Buttons
 l10n:
-  sourceCommit: a4ff34eef85ccb654c5c3af7974caba396e8adcf
+  sourceCommit: edc9ab5479d1253d9edd93bfe90dd1d100605c26
 ---
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_pure_JavaScript/Animations_and_tweens", "Games/Tutorials/2D_breakout_game_pure_JavaScript/Randomizing_gameplay")}}
 
-Dies ist der **10. Schritt** von 11 im [Tutorial zum Erstellen eines Breakout-Spiels mit reinem JavaScript](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript). Anstatt das Spiel sofort zu starten, können wir diese Entscheidung den Spielenden überlassen, indem wir einen Start-Button hinzufügen, den sie drücken können. Sehen wir uns an, wie das geht.
+Dies ist der **10. von 11 Schritten** des [Tutorials zum Erstellen eines Breakout-Spiels mit reinem JavaScript](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript). Statt das Spiel sofort zu starten, können wir diese Entscheidung den Spielenden überlassen, indem wir einen Start-Button hinzufügen. Sehen wir uns an, wie das geht.
 
 ## Neue Variablen
 
-Wir benötigen eine boolesche Variable, die angibt, ob das Spiel gestartet wurde, und einen `AbortController`, um die Event-Listener des Buttons zu entfernen, sobald das Spiel beginnt. Fügen Sie diese Zeilen unter Ihren anderen Variablen auf oberster Ebene ein:
+Wir benötigen eine boolesche Variable, die angibt, ob das Spiel gestartet wurde, sowie einen `AbortController`, um die Event-Listener des Buttons beim Spielstart zu entfernen. Fügen Sie diese Zeilen unter Ihren anderen Variablen auf oberster Ebene ein:
 
 ```js
 let playing = false;
@@ -20,7 +20,7 @@ const buttonControls = new AbortController();
 
 ## Den Button zum Spiel hinzufügen
 
-Wir können das Spritesheet des Buttons genauso laden wie die Wackelanimation des Balls. Fügen Sie nach Ihren anderen Klassen für Spielobjekte eine Klasse `Button` hinzu:
+Wir können das Spritesheet für den Button auf dieselbe Weise laden wie die Wackelanimation des Balls. Fügen Sie nach Ihren anderen Klassen für Spielobjekte eine `Button`-Klasse hinzu:
 
 ```js
 class Button extends GameObject {
@@ -33,9 +33,9 @@ class Button extends GameObject {
 }
 ```
 
-Der Button ist auf dem Canvas zentriert. Seine Eigenschaft `frame` wählt das Bild für den Normalzustand (0), den Hover-Zustand (1) oder den gedrückten Zustand (2) aus.
+Der Button ist auf dem Canvas zentriert. Seine `frame`-Eigenschaft wählt das Bild für den Normalzustand (0), den Hover-Zustand (1) oder den gedrückten Zustand (2) aus.
 
-Die Methode `draw()` berechnet die Spalte und Zeile des Frames im Spritesheet und zeichnet nur diesen Frame, wie wir es beim Ball getan haben.
+Die `draw()`-Methode berechnet die Spalte und Zeile des Frames im Spritesheet und zeichnet nur diesen Frame, wie wir es beim Ball getan haben.
 
 ```js
 class Button extends GameObject {
@@ -58,15 +58,15 @@ class Button extends GameObject {
 }
 ```
 
-Erstellen Sie den Button unter den Definitionen für Ball, Schläger und Steine:
+Erstellen Sie den Button unterhalb der Definitionen für Ball, Paddle und Bricks:
 
 ```js
 const startButton = new Button("img/button.png", ctx);
 ```
 
-Sie müssen außerdem [das Spritesheet des Buttons herunterladen](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/button.png) und in Ihrem Verzeichnis `/img` speichern.
+Sie müssen außerdem [das Spritesheet für den Button herunterladen](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/button.png) und in Ihrem Verzeichnis `/img` speichern.
 
-Fügen Sie in `update()` nach `drawStatus()` Folgendes hinzu, damit der Button angezeigt wird, bis das Spiel beginnt:
+Fügen Sie in `update()` nach `drawStatus()` Folgendes hinzu, damit der Button angezeigt wird, bis das Spiel startet:
 
 ```js
 if (!playing) {
@@ -76,9 +76,9 @@ if (!playing) {
 
 ## Eingaben für den Button verarbeiten
 
-Die Verarbeitung von Eingaben für den Button ist etwas aufwendig, weil wir es mit einem Canvas statt mit nativen HTML-Elementen zu tun haben. Wir müssen die Trefferprüfung, die Animation und die Ereignisbehandlung selbst implementieren.
+Die Verarbeitung von Eingaben für den Button ist etwas aufwendig, weil wir mit einem Canvas statt mit nativen HTML-Elementen arbeiten. Wir müssen Hitbox-Prüfung, Animation und Event-Verarbeitung selbst implementieren.
 
-Die Methode `containsPointer()` rechnet die Koordinaten des Zeigers in Canvas-Koordinaten um und prüft dann, ob sie innerhalb der Trefferfläche liegen:
+Die `containsPointer()`-Methode rechnet die Koordinaten des Pointers in Canvas-Koordinaten um und führt dann eine Hitbox-Prüfung durch:
 
 ```js
 class Button extends GameObject {
@@ -95,7 +95,7 @@ class Button extends GameObject {
 }
 ```
 
-Fügen Sie am Ende des Skripts eine Funktion `initButtonControls()` hinzu, die Pointer-Event-Listener zur Steuerung des Buttons registriert. Sofern nicht anders angegeben, wird alles Folgende in diesem Abschnitt zum Funktionskörper hinzugefügt.
+Fügen Sie am Ende des Skripts eine `initButtonControls()`-Funktion hinzu, die Pointer-Event-Listener zur Steuerung des Buttons registriert. Alles Weitere in diesem Abschnitt wird, sofern nicht anders angegeben, an den Funktionskörper angehängt.
 
 ```js
 function initButtonControls() {
@@ -103,14 +103,14 @@ function initButtonControls() {
 }
 ```
 
-Definieren Sie zunächst `options` mit dem `signal`, das zum Entfernen dieser Listener verwendet wird, sobald das Spiel beginnt. Erfassen Sie außerdem die Pointer-ID, damit nur der Zeiger, mit dem der Button gedrückt wurde, ihn aktivieren kann.
+Definieren Sie zunächst `options` mit dem `signal`, über das diese Listener beim Spielstart entfernt werden. Erfassen Sie außerdem die Pointer-ID, damit nur der Pointer, der den Button gedrückt hat, ihn aktivieren kann.
 
 ```js
 const options = { signal: buttonControls.signal };
 let pressedPointer = null;
 ```
 
-Wenn sich der Zeiger aus dem Button herausbewegt, wird der Frame-Index zurückgesetzt, wodurch der Button wieder sein Standardaussehen erhält. Wird der Zeiger außerhalb des Buttons losgelassen, wird das Drücken abgebrochen. Diese Gesten können auf verschiedene Arten erfolgen. Fügen Sie deshalb wiederverwendbare Funktionen dafür hinzu.
+Wenn sich der Pointer aus dem Button herausbewegt, wird der Frame-Index zurückgesetzt, sodass der Button wieder sein Standardaussehen erhält. Wird ein Druck außerhalb des Buttons beendet, wird er abgebrochen. Diese Gesten können auf verschiedene Arten erfolgen. Fügen Sie deshalb wiederverwendbare Funktionen dafür hinzu.
 
 ```js
 function resetFrame(event) {
@@ -126,7 +126,7 @@ function cancelPress(event) {
 }
 ```
 
-Definieren Sie als Nächstes den Handler für `pointermove`. Er setzt den Frame-Index – und ändert damit das Aussehen des Buttons –, wenn sich ein Zeiger über dem Button befindet. Wenn ein Zeiger bereits gedrückt ist, werden andere Zeiger ignoriert und lösen keinen zusätzlichen Hover-Zustand aus.
+Definieren Sie als Nächstes den `pointermove`-Handler. Er setzt den Frame-Index – und ändert damit das Aussehen des Buttons –, wenn sich ein Pointer über dem Button befindet. Wenn bereits ein Pointer gedrückt wird, werden andere Pointer ignoriert und nicht als zusätzliche Hover-Eingaben erfasst.
 
 ```js
 canvas.addEventListener(
@@ -145,7 +145,7 @@ canvas.addEventListener(
 );
 ```
 
-Definieren Sie als Nächstes den Handler für `pointerdown`. Er setzt ebenfalls den Frame-Index auf das Aussehen für den gedrückten Zustand und speichert außerdem `pressedPointer`. Das geschieht nur, wenn derzeit kein anderer Zeiger gedrückt ist und bei einer Maus oder einem ähnlichen Gerät mit der linken Taste geklickt wurde. Durch Pointer Capture empfängt der Canvas weiterhin Pointer-Events, auch wenn sich der Zeiger außerhalb seiner Grenzen bewegt.
+Definieren Sie anschließend den `pointerdown`-Handler. Er setzt den Frame-Index auf das Aussehen für den gedrückten Zustand und speichert außerdem den `pressedPointer`. Das geschieht nur, wenn derzeit kein anderer Pointer gedrückt wird und bei einer Maus oder einem ähnlichen Gerät mit der linken Taste geklickt wird. Durch Pointer Capture empfängt der Canvas weiterhin Pointer-Events, auch wenn sich der Pointer außerhalb seiner Grenzen bewegt.
 
 ```js
 canvas.addEventListener(
@@ -166,7 +166,7 @@ canvas.addEventListener(
 );
 ```
 
-Definieren Sie als Nächstes den Handler für `pointerup`. Er startet das Spiel, allerdings nur, wenn der Zeiger losgelassen wird, während er sich noch über dem Button befindet. Andernfalls gilt das Drücken als abgebrochen.
+Definieren Sie als Nächstes den `pointerup`-Handler. Er startet das Spiel, aber nur, wenn der Pointer losgelassen wird, während er sich noch über dem Button befindet. Andernfalls gilt der Druck als abgebrochen.
 
 ```js
 canvas.addEventListener(
@@ -186,7 +186,7 @@ canvas.addEventListener(
 );
 ```
 
-Wenn der Zeiger den Canvas verlässt, eine native Abbruchgeste für den Zeiger erfolgt oder die vom `pointerdown`-Listener eingerichtete Pointer Capture endet, muss ebenfalls ein Zurücksetzen beziehungsweise Abbrechen ausgelöst werden. Diese Ereignisse werden nicht anhand der Trefferfläche gefiltert, da auch ein Drücken abgebrochen werden muss, bei dem der Zeiger den Button verlässt.
+Wenn der Pointer den Canvas verlässt, eine native Pointer-Cancel-Geste erfolgt oder das vom `pointerdown`-Listener gesetzte Pointer Capture verloren geht, muss der Zustand ebenfalls zurückgesetzt beziehungsweise der Druck abgebrochen werden. Diese Events werden nicht anhand der Hitbox gefiltert, da sie auch einen Druck bereinigen müssen, bei dem der Pointer den Button verlässt.
 
 ```js
 canvas.addEventListener("pointerleave", resetFrame, options);
@@ -194,7 +194,7 @@ canvas.addEventListener("pointercancel", cancelPress, options);
 canvas.addEventListener("lostpointercapture", cancelPress, options);
 ```
 
-Wir registrieren diese Listener erst, nachdem die Assets geladen wurden. Ersetzen Sie den bisherigen Aufruf zum Vorladen durch Folgendes, das auch das Button-Bild lädt:
+Wir registrieren diese Listener erst, nachdem die Assets geladen wurden. Ersetzen Sie den bisherigen Preload-Aufruf durch Folgendes, das auch das Button-Bild lädt:
 
 ```js
 Promise.all(
@@ -209,7 +209,7 @@ Promise.all(
 
 ## Das Spiel starten
 
-Jetzt müssen wir die oben im Code verwendete Funktion `startGame()` definieren:
+Nun müssen wir die oben im Code verwendete Funktion `startGame()` definieren:
 
 ```js
 function startGame() {
@@ -220,13 +220,13 @@ function startGame() {
 }
 ```
 
-Wenn der Button gedrückt wird, entfernen wir alle Listener des Buttons, setzen die Anfangsgeschwindigkeit des Balls und setzen die Eigenschaft `playing` auf `true`. Außerdem setzen wir `lastTimestamp` zurück, damit die erste Aktualisierung der Ballbewegung nicht die Zeit vor dem Loslassen des Buttons berücksichtigt.
+Wenn der Button gedrückt wird, entfernen wir alle Event-Listener des Buttons, setzen die Anfangsgeschwindigkeit des Balls und setzen die Eigenschaft `playing` auf `true`. Außerdem setzen wir `lastTimestamp` zurück, damit beim ersten Bewegungsupdate keine Zeit vor dem Loslassen des Buttons berücksichtigt wird.
 
-Gehen Sie zum Abschluss dieses Abschnitts zurück zu Ihrer Klasse `Ball`, suchen Sie die Zeile `vel = { x: 150, y: -150 }` und ersetzen Sie sie durch `vel = { x: 0, y: 0 }`. Der Ball soll sich erst bewegen, wenn der Button gedrückt wurde!
+Kehren Sie zum Abschluss dieses Abschnitts zu Ihrer `Ball`-Klasse zurück, suchen Sie die Zeile `vel = { x: 150, y: -150 }` und ersetzen Sie sie durch `vel = { x: 0, y: 0 }`. Der Ball soll sich erst bewegen, wenn der Button gedrückt wurde!
 
-## Den Schläger vor Spielbeginn unbeweglich halten
+## Das Paddle vor Spielbeginn unbeweglich halten
 
-Das funktioniert wie erwartet, aber wir können den Schläger immer noch bewegen, bevor das Spiel begonnen hat. Das sieht etwas seltsam aus. Um das zu verhindern, können wir die Eigenschaft `playing` verwenden und den Schläger nur dann beweglich machen, wenn das Spiel begonnen hat. Fügen Sie dazu `!playing` zur Abbruchbedingung im vorhandenen `pointermove`-Listener des Schlägers hinzu:
+Alles funktioniert wie erwartet, aber wir können das Paddle noch bewegen, bevor das Spiel begonnen hat. Das wirkt etwas seltsam. Um dies zu verhindern, können wir die Eigenschaft `playing` verwenden und das Paddle nur dann beweglich machen, wenn das Spiel gestartet wurde. Fügen Sie dazu `!playing` wie folgt zur bestehenden Schutzbedingung im `pointermove`-Listener des Paddles hinzu:
 
 ```js
 if (!playing || paddle.size.w === undefined) {
@@ -234,11 +234,11 @@ if (!playing || paddle.size.w === undefined) {
 }
 ```
 
-So bleibt der Schläger unbeweglich, nachdem alles geladen und vorbereitet wurde, aber bevor das eigentliche Spiel beginnt.
+So bleibt das Paddle unbeweglich, nachdem alles geladen und vorbereitet wurde, aber bevor das eigentliche Spiel beginnt.
 
 ## Vergleichen Sie Ihren Code
 
-So sollte Ihr bisheriger Stand aussehen – hier als Live-Beispiel. Um den Quellcode anzuzeigen, klicken Sie auf den „Play“-Button.
+So sollte Ihr bisheriger Stand aussehen – hier als lauffähiges Beispiel. Um den Quellcode anzuzeigen, klicken Sie auf den „Play“-Button.
 
 ```html hidden
 <canvas id="game-canvas" width="480" height="320"></canvas>
@@ -783,6 +783,6 @@ function initButtonControls() {
 
 ## Nächste Schritte
 
-Als Letztes werden wir in dieser Artikelreihe das Spielgeschehen noch interessanter gestalten, indem wir etwas [Zufälligkeit](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Randomizing_gameplay) hinzufügen, wenn der Ball vom Schläger abprallt.
+Zum Abschluss dieser Artikelreihe machen wir das Spiel noch interessanter, indem wir dem Abprallen des Balls vom Paddle etwas [Zufall](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript/Randomizing_gameplay) hinzufügen.
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_pure_JavaScript/Animations_and_tweens", "Games/Tutorials/2D_breakout_game_pure_JavaScript/Randomizing_gameplay")}}

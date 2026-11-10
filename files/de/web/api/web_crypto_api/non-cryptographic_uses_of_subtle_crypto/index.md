@@ -1,42 +1,42 @@
 ---
-title: Nicht kryptografische Verwendungen von SubtleCrypto
+title: Nicht-kryptografische Anwendungen von SubtleCrypto
 slug: Web/API/Web_Crypto_API/Non-cryptographic_uses_of_subtle_crypto
 l10n:
-  sourceCommit: 6f5921b2634db4bd565e5e0cd38eafdadb4bb383
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{DefaultAPISidebar("Web Crypto API")}}
 
-Dieser Artikel konzentriert sich auf Verwendungen der Methode [`digest`](/de/docs/Web/API/SubtleCrypto/digest) des [SubtleCrypto-Interface](/de/docs/Web/API/SubtleCrypto). Viele andere Methoden innerhalb der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) haben sehr spezifische kryptografische Anwendungsfälle. Das Erstellen von Hashes für Inhalte (was die Methode `digest` tut) hat hingegen viele sehr nützliche Zwecke.
+Dieser Artikel befasst sich mit Anwendungen der Methode [`digest`](/de/docs/Web/API/SubtleCrypto/digest) der [SubtleCrypto-Schnittstelle](/de/docs/Web/API/SubtleCrypto). Viele andere Methoden der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) haben sehr spezifische kryptografische Anwendungsfälle. Das Erstellen von Hashes aus Inhalten – genau das tut die Methode `digest` – ist dagegen für viele Zwecke nützlich.
 
-Dieser Artikel behandelt nicht die kryptografischen Verwendungen des [SubtleCrypto-Interface](/de/docs/Web/API/SubtleCrypto). Eine wichtige Erkenntnis aus diesem Artikel ist: **Verwenden Sie diese API nicht** für kryptografische Zwecke in der Produktion, da sie leistungsfähig und niedrigschwellig ist. Um sie korrekt zu verwenden, müssen Sie viele kontextspezifische Schritte ausführen, um kryptografische Aufgaben richtig zu erledigen. Werden einige dieser Schritte falsch ausgeführt, wird Ihr Code bestenfalls nicht ausgeführt. Schlimmstenfalls _wird_ er ausgeführt, und Sie gefährden Ihre Benutzenden unwissentlich durch ein unsicheres Produkt.
+Dieser Artikel behandelt nicht die kryptografischen Anwendungen der [SubtleCrypto-Schnittstelle](/de/docs/Web/API/SubtleCrypto). Eine wichtige Erkenntnis aus diesem Artikel lautet: **Verwenden Sie diese API nicht** für kryptografische Zwecke in Produktionsumgebungen. Sie ist leistungsfähig und arbeitet auf niedriger Ebene. Um kryptografische Aufgaben damit korrekt zu lösen, müssen Sie viele kontextabhängige Schritte richtig ausführen. Wenn einer dieser Schritte fehlerhaft ist, funktioniert Ihr Code im besten Fall nicht. Im schlimmsten Fall funktioniert er _doch_, während Sie Ihre Nutzer unwissentlich durch ein unsicheres Produkt gefährden.
 
-Möglicherweise müssen Sie die [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) überhaupt nicht verwenden. Viele der Dinge, für die Sie Kryptografie einsetzen möchten, sind bereits gelöst und Teil der Webplattform. Wenn Sie beispielsweise besorgt über [Man-in-the-Middle-Angriffe (MITM)](/de/docs/Web/Security/Attacks/MITM) sind, etwa wenn WLAN-Hotspots die Informationen zwischen Client und Server auslesen, wird dies durch die korrekte Verwendung von {{Glossary("HTTPS", "HTTPS")}} gelöst. Möchten Sie Informationen sicher zwischen Benutzenden senden? Dann können Sie mit [WebRTC Data Channels](/de/docs/Web/API/WebRTC_API/Using_data_channels) eine Datenverbindung zwischen Benutzenden einrichten, die als Teil des Standards verschlüsselt ist.
+Möglicherweise benötigen Sie die [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) überhaupt nicht. Für viele Aufgaben, bei denen Sie Kryptografie einsetzen möchten, bietet die Webplattform bereits Lösungen. Wenn Sie beispielsweise befürchten, dass bei [Man-in-the-Middle-Angriffen (MITM)](/de/docs/Web/Security/Attacks/MITM) etwa an WLAN-Hotspots Informationen zwischen Client und Server mitgelesen werden, lässt sich dem durch die korrekte Verwendung von {{Glossary("HTTPS", "HTTPS")}} begegnen. Möchten Sie Informationen sicher zwischen Nutzern übertragen? Dann können Sie mithilfe von [WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels) eine Datenverbindung zwischen ihnen aufbauen. Die Verschlüsselung ist dabei Teil des Standards.
 
-Das [SubtleCrypto-Interface](/de/docs/Web/API/SubtleCrypto) stellt niedrigschwellige Primitiven für die Arbeit mit Kryptografie bereit, aber die Implementierung eines Systems mit diesen Werkzeugen ist eine komplexe Aufgabe. Fehler sind schwer zu erkennen, und die Folgen können bedeuten, dass die Daten Ihrer Benutzenden nicht so sicher sind, wie Sie denken. Dies kann katastrophale Folgen haben, wenn Ihre Benutzenden sensible oder wertvolle Daten teilen.
+Die [SubtleCrypto-Schnittstelle](/de/docs/Web/API/SubtleCrypto) stellt grundlegende Bausteine für die Arbeit mit Kryptografie bereit. Ein System mit diesen Werkzeugen zu implementieren, ist jedoch kompliziert. Fehler sind schwer zu erkennen und können dazu führen, dass die Daten Ihrer Nutzer weniger sicher sind, als Sie glauben. Wenn Ihre Nutzer sensible oder wertvolle Daten austauschen, kann das katastrophale Folgen haben.
 
-Versuchen Sie es im Zweifel nicht selbst, sondern beauftragen Sie jemanden mit Erfahrung und stellen Sie sicher, dass Ihre Software von einem Sicherheitsexperten geprüft wird.
+Wenn Sie Zweifel haben, versuchen Sie es nicht selbst: Beauftragen Sie eine erfahrene Fachkraft und lassen Sie Ihre Software von einem Sicherheitsexperten überprüfen.
 
-## Hashing einer Datei
+## Eine Datei hashen
 
-Dies ist das einfachste Nützliche, das Sie mit der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) tun können. Es erfordert weder das Generieren von Schlüsseln noch von Zertifikaten und besteht aus einem einzigen Schritt.
+Dies ist die einfachste nützliche Anwendung der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API). Sie erfordert weder Schlüssel noch Zertifikate und besteht aus nur einem Schritt.
 
-{{Glossary("Hash_function", "Hashing")}} ist eine Technik, bei der Sie eine lange Bytefolge in eine kürzere Zeichenfolge umwandeln, wobei kleine Änderungen an der langen Zeichenfolge große Änderungen in der kürzeren Zeichenfolge bewirken. Diese Technik ist nützlich, um zwei identische Dateien zu identifizieren, ohne jedes Byte beider Dateien zu prüfen. Dies ist sehr nützlich, da Sie eine einfache Zeichenfolge zum Vergleichen haben. Wichtig ist: Hashing ist eine **Einwegoperation**. Sie können die ursprüngliche Bytefolge nicht aus dem Hash erzeugen.
+{{Glossary("Hash_function", "Hashing")}} ist ein Verfahren, bei dem eine lange Bytefolge in eine kürzere Zeichenfolge umgewandelt wird. Kleine Änderungen an der ursprünglichen Bytefolge bewirken dabei große Änderungen an der kürzeren Zeichenfolge. So können Sie feststellen, ob zwei Dateien identisch sind, ohne jedes Byte beider Dateien vergleichen zu müssen. Stattdessen vergleichen Sie einfach zwei Zeichenfolgen. Wichtig ist: Hashing funktioniert **nur in eine Richtung**. Aus einem Hash lässt sich die ursprüngliche Bytefolge nicht wiederherstellen.
 
-Wenn zwei erzeugte Hashes gleich sind, die Dateien, aus denen sie erzeugt wurden, aber unterschiedlich sind, spricht man von einer _Hash-Kollision_. Dies ist ein äußerst unwahrscheinliches Ereignis, wenn es versehentlich passiert, und für eine sichere Hash-Funktion wie SHA256 nahezu unmöglich absichtlich herzustellen. Wenn die beiden Zeichenfolgen also gleich sind, können Sie mit hinreichender Sicherheit davon ausgehen, dass die beiden ursprünglichen Dateien identisch sind.
+Wenn zwei unterschiedliche Dateien denselben Hash ergeben, spricht man von einer _Hash-Kollision_. Dass dies zufällig geschieht, ist äußerst unwahrscheinlich. Bei einer sicheren Hash-Funktion wie SHA256 ist es nahezu unmöglich, eine solche Kollision gezielt herbeizuführen. Stimmen zwei Hashes überein, können Sie daher mit gutem Grund davon ausgehen, dass die ursprünglichen Dateien identisch sind.
 
-Zum Zeitpunkt der Veröffentlichung ist SHA256 die übliche Wahl für das Hashing von Dateien, aber im SubtleCrypto-Interface sind [Hash-Funktionen höherer Ordnung](/de/docs/Web/API/SubtleCrypto#supported_algorithms) verfügbar. Die häufigste Darstellung eines SHA256-Hashs ist eine Zeichenfolge aus 64 hexadezimalen Ziffern. Hexadezimal bedeutet, dass nur die Zeichen 0–9 und a–f verwendet werden, die jeweils 4 Bit Information darstellen. Kurz gesagt: Ein SHA256-Hash wandelt Daten beliebiger Länge in fast eindeutige 256 Bit Daten um.
+Zum Zeitpunkt der Veröffentlichung ist SHA256 die übliche Wahl zum Hashen von Dateien. In der SubtleCrypto-Schnittstelle stehen jedoch auch [Hash-Funktionen mit längeren Hashwerten](/de/docs/Web/API/SubtleCrypto#supported_algorithms) zur Verfügung. Ein SHA256-Hash wird meist als Zeichenfolge aus 64 hexadezimalen Ziffern dargestellt. Hexadezimal bedeutet, dass nur die Zeichen 0–9 und a–f verwendet werden; jedes davon stellt 4 Bit an Information dar. Kurz gesagt: SHA256 wandelt Daten beliebiger Länge in einen nahezu eindeutigen Wert von 256 Bit um.
 
-Diese Technik wird häufig von Websites verwendet, auf denen Sie ausführbare Dateien herunterladen können, um sicherzustellen, dass die heruntergeladene Datei der vom Autor vorgesehenen entspricht. Dadurch wird sichergestellt, dass Ihre Benutzenden keine Malware installieren. Die häufigste Vorgehensweise ist:
+Websites, auf denen ausführbare Dateien heruntergeladen werden können, verwenden dieses Verfahren häufig, um sicherzustellen, dass die heruntergeladene Datei mit der vom Anbieter vorgesehenen Datei übereinstimmt. Das hilft zu verhindern, dass Nutzer Schadsoftware installieren. Üblicherweise gehen Sie so vor:
 
-1. Notieren Sie den Namen der Datei und die von der Website bereitgestellte SHA256-Prüfsumme.
+1. Notieren Sie den Dateinamen und die auf der Website angegebene SHA256-Prüfsumme.
 2. Laden Sie die ausführbare Datei herunter.
-3. Führen Sie im Terminal `sha256sum /path/to/the/file` aus, um Ihren eigenen Code zu erzeugen. Wenn Sie einen Mac verwenden, müssen Sie es möglicherweise [separat installieren](https://unix.stackexchange.com/questions/426837/no-sha256sum-in-macos).
-4. Vergleichen Sie die beiden Zeichenfolgen – sie sollten übereinstimmen, sofern die Datei nicht kompromittiert wurde.
+3. Führen Sie im Terminal `sha256sum /path/to/the/file` aus, um die Prüfsumme selbst zu berechnen. Auf einem Mac müssen Sie das Programm möglicherweise [separat installieren](https://unix.stackexchange.com/questions/426837/no-sha256sum-in-macos).
+4. Vergleichen Sie die beiden Zeichenfolgen. Sie sollten übereinstimmen, sofern die Datei nicht manipuliert wurde.
 
-![Beispiele für SHA256 aus dem Download der Software „Blender“. Sie sehen aus wie 64 hexadezimale Ziffern, gefolgt von einem Dateinamen wie „blender.zip“.](blender-sha256-example.png)
+![Beispiele für SHA256-Prüfsummen beim Download der Software „Blender“. Sie bestehen aus 64 hexadezimalen Ziffern, gefolgt von einem Dateinamen wie „blender.zip“.](blender-sha256-example.png)
 
-Die Methode [`digest()`](/de/docs/Web/API/SubtleCrypto/digest) von SubtleCrypto ist hierfür nützlich. Sie können eine Prüfsumme für eine Datei wie folgt erzeugen:
+Dafür eignet sich die Methode [`digest()`](/de/docs/Web/API/SubtleCrypto/digest) von SubtleCrypto. So können Sie die Prüfsumme einer Datei erzeugen:
 
 Zunächst fügen wir einige HTML-Elemente hinzu, um Dateien zu laden und die SHA-256-Ausgabe anzuzeigen:
 
@@ -56,11 +56,11 @@ output {
 }
 ```
 
-Anschließend verwenden wir das SubtleCrypto-Interface, um sie zu verarbeiten. Dies funktioniert folgendermaßen:
+Anschließend verarbeiten wir die Dateien mit der SubtleCrypto-Schnittstelle. Dazu gehen wir wie folgt vor:
 
-- Lesen der Dateien in einen {{jsxref("ArrayBuffer")}} mit der Methode [`arrayBuffer()`](/de/docs/Web/API/Blob/arrayBuffer) des [`File`](/de/docs/Web/API/File)-Objekts.
-- Verwendung von `crypto.subtle.digest('SHA-256', arrayBuffer)`, um den ArrayBuffer zu hashen.
-- Umwandlung des resultierenden Hashs (eines weiteren ArrayBuffer) in eine Zeichenfolge, damit er angezeigt werden kann.
+- Wir lesen die Dateien mit der Methode [`arrayBuffer()`](/de/docs/Web/API/Blob/arrayBuffer) des [`File`](/de/docs/Web/API/File)-Objekts in einen {{jsxref("ArrayBuffer")}} ein.
+- Wir verarbeiten den ArrayBuffer mit `crypto.subtle.digest('SHA-256', arrayBuffer)`.
+- Wir wandeln den resultierenden Hash, ebenfalls ein ArrayBuffer, in eine Zeichenfolge um, damit er angezeigt werden kann.
 
 ```js
 const output = document.querySelector("output");
@@ -109,46 +109,46 @@ async function hashTheseFiles(e) {
 
 {{EmbedLiveSample("hashing_a_file")}}
 
-### Wo würden Sie dies verwenden?
+### Wo lässt sich das einsetzen?
 
-An diesem Punkt denken Sie vielleicht: „_Ich kann dies auf meiner eigenen Website verwenden, damit wir beim Herunterladen einer Datei durch Benutzende sicherstellen können, dass die Hashes übereinstimmen, und sie davon überzeugen, dass ihr Download sicher ist._“ Leider fallen dabei sofort zwei Probleme auf:
+Vielleicht denken Sie nun: „_Ich kann das auf meiner eigenen Website einsetzen und beim Herunterladen einer Datei prüfen, ob die Hashes übereinstimmen. So kann ich Nutzern bestätigen, dass ihr Download sicher ist._“ Leider gibt es dabei zwei naheliegende Probleme:
 
-- Downloads ausführbarer Dateien sollten **immer** über HTTPS erfolgen. Dies verhindert, dass zwischengeschaltete Parteien solche Angriffe ausführen können, sodass dies redundant wäre.
-- Wenn der Angreifer die Download-Datei auf dem ursprünglichen Server ersetzen kann, kann er auch einfach den Code ersetzen, der das SubtleCrypto-Interface aufruft, um es zu umgehen und lediglich anzugeben, dass alles in Ordnung ist. Beispielsweise könnte er heimlich [strikte Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#strict_equality_using) ersetzen, was in Ihrem eigenen Code schwer zu erkennen sein kann:
+- Ausführbare Dateien sollten **immer** über HTTPS heruntergeladen werden. Das verhindert solche Angriffe durch Dritte während der Übertragung, sodass die zusätzliche Prüfung überflüssig wäre.
+- Wenn ein Angreifer die herunterladbare Datei auf dem ursprünglichen Server austauschen kann, kann er auch den Code ersetzen, der die SubtleCrypto-Schnittstelle aufruft. So kann er die Prüfung umgehen und einfach behaupten, alles sei in Ordnung. Eine schwer zu entdeckende Möglichkeit wäre beispielsweise, in Ihrem Code den Operator für [strikte Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#strict_equality_using) auszutauschen:
 
   ```diff
   --- if (checksum === correctCheckSum) return true;
   +++ if (checksum = correctCheckSum) return true;
   ```
 
-Eine Stelle, an der dies sinnvoll sein kann, ist die Prüfung einer Datei aus einer Download-Quelle eines Drittanbieters, die Sie nicht kontrollieren. Dies wäre möglich, sofern der Download-Ort {{Glossary("CORS", "CORS")}}-Header aktiviert hat, damit Sie die Datei prüfen können, bevor Sie sie Ihren Benutzenden bereitstellen. Leider ist CORS auf nicht vielen Servern standardmäßig aktiviert.
+Sinnvoll könnte die Prüfung sein, wenn Sie eine Datei aus einer Downloadquelle eines Drittanbieters überprüfen möchten, die Sie nicht kontrollieren. Dafür muss der Downloadserver allerdings {{Glossary("CORS", "CORS")}}-Header bereitstellen, damit Sie die Datei prüfen können, bevor Sie sie Ihren Nutzern zur Verfügung stellen. Leider ist CORS auf vielen Servern standardmäßig nicht aktiviert.
 
 ## Was bedeutet „Salting the Hash“?
 
-Ein Ausdruck, den Sie vielleicht schon gehört haben, ist _„Salting the hash“_. Er ist für die hier behandelten Themen nicht unmittelbar relevant, aber es ist gut, ihn zu kennen.
+Vielleicht haben Sie schon einmal den Ausdruck _„Salting the Hash“_ gehört. Er ist für die bisherigen Beispiele nicht unmittelbar relevant, aber dennoch wissenswert.
 
 > [!NOTE]
-> In diesem Abschnitt geht es um Passwortsicherheit, und die von SubtleCrypto bereitgestellten Hash-Funktionen sind für diesen Anwendungsfall nicht geeignet. Für diese Zwecke benötigen Sie aufwendige, langsame Hash-Funktionen wie `scrypt` und `bcrypt`. SHA ist darauf ausgelegt, recht schnell und effizient zu sein, wodurch es für das Hashing von Passwörtern ungeeignet ist. Dieser Abschnitt dient ausschließlich Ihrer Information – verwenden Sie die Web Crypto API nicht, um Passwörter auf dem Client zu hashen.
+> In diesem Abschnitt geht es um Passwortsicherheit. Die von SubtleCrypto bereitgestellten Hash-Funktionen sind für diesen Anwendungsfall nicht geeignet. Dafür benötigen Sie rechenaufwendige, langsame Hash-Funktionen wie `scrypt` und `bcrypt`. SHA ist auf Geschwindigkeit und Effizienz ausgelegt und eignet sich deshalb nicht zum Hashen von Passwörtern. Dieser Abschnitt dient nur zur Information – verwenden Sie die Web Crypto API nicht, um Passwörter auf dem Client zu hashen.
 
-Ein häufiger Anwendungsfall für Hashing sind Passwörter. Sie sollten das Passwort eines Benutzers niemals im Klartext speichern; das ist schlicht eine schreckliche Idee. Stattdessen speichern Sie einen Hash des Benutzerpassworts, damit das ursprüngliche Passwort nicht wiederhergestellt werden kann, falls ein Hacker Ihre Datenbank mit Benutzernamen und Passwörtern erlangt. Aufmerksame Lesende könnten bemerken, dass Sie die ursprünglichen Passwörter dennoch ermitteln können, indem Sie Hashes aus Listen bekannter Passwörter mit der erlangten Liste von Passwort-Hashes vergleichen. Das Anhängen einer Zeichenfolge an die Passwörter verändert den Hash, sodass er nicht mehr übereinstimmt. Dies wird als **Salting** bezeichnet. Ein weiteres schwieriges Problem besteht darin, dass bei Verwendung desselben Salt für jedes Passwort auch Passwörter mit übereinstimmenden Hashes dasselbe ursprüngliche Passwort haben. Wenn Sie also eines kennen, kennen Sie auch alle übereinstimmenden Passwörter.
+Ein verbreiteter Anwendungsfall für Hashing sind Passwörter. Sie sollten das Passwort eines Nutzers niemals im Klartext speichern. Stattdessen speichern Sie einen Hash des Passworts. Wenn ein Angreifer Zugriff auf Ihre Datenbank mit Nutzernamen und Passwörtern erhält, kann er daraus das ursprüngliche Passwort nicht direkt wiederherstellen. Allerdings lassen sich die Hashes bekannter Passwörter berechnen und mit den erbeuteten Hashes vergleichen. Hängt man an jedes Passwort eine zusätzliche Zeichenfolge an, ändert sich der Hash, sodass dieser Vergleich nicht mehr unmittelbar funktioniert. Das wird als **Salting** bezeichnet. Wird allerdings für jedes Passwort derselbe Salt verwendet, ergeben gleiche Passwörter weiterhin gleiche Hashes. Kennt man eines dieser Passwörter, kennt man somit auch alle anderen mit demselben Hash.
 
-Um dieses Problem zu lösen, führen Sie das sogenannte _Salting the hash_ durch. Für jedes Passwort erzeugen Sie ein Salt (eine zufällige Zeichenfolge) und verketten es mit der Passwortzeichenfolge. Anschließend speichern Sie den Hash und das Salt in derselben Datenbank, damit Sie eine Übereinstimmung prüfen können, wenn sich der Benutzer später anmeldet. Das bedeutet, dass die Hashes unterschiedlich sind, wenn zwei Benutzende dasselbe Passwort verwenden. Dies ist der Grund, warum Sie eine aufwendige kryptografische Funktion benötigen: Sie soll es zu zeitaufwendig machen, Listen häufiger Passwörter zu verwenden, um die ursprünglichen Passwörter herauszufinden.
+Um dieses Problem zu lösen, verwenden Sie für jedes Passwort einen eigenen Salt, also eine zufällige Zeichenfolge, und hängen ihn an das Passwort an. Anschließend speichern Sie sowohl den Hash als auch den Salt in der Datenbank, damit Sie das Passwort bei einer späteren Anmeldung überprüfen können. Dadurch haben zwei Nutzer mit demselben Passwort unterschiedliche Hashes. Hier zeigt sich auch, warum eine rechenaufwendige kryptografische Funktion nötig ist: Sie macht es zu zeitaufwendig, Listen gebräuchlicher Passwörter durchzuprobieren, um die ursprünglichen Passwörter herauszufinden.
 
 ## Hash-Tabellen mit SHA
 
-Sie können SHA1 verwenden, um schnell kryptografisch nicht sichere Hashes zu erzeugen. Diese sind äußerst nützlich, um beliebige Daten in einen Schlüssel umzuwandeln, den Sie später nachschlagen können.
+Mit SHA1 können Sie schnell Hashes erzeugen, die keine kryptografische Sicherheit bieten. Sie sind sehr nützlich, um beliebige Daten in einen Schlüssel umzuwandeln, über den Sie sie später wiederfinden können.
 
-Angenommen, Sie möchten eine Datenbank haben, die als eines der Felder einer Zeile einen großen Daten-Blob enthält. Dies verringert die Effizienz Ihrer Datenbank, weil eines der Felder entweder eine variable Länge haben oder groß genug sein muss, um den größtmöglichen Blob zu speichern. Eine alternative Lösung besteht darin, einen Hash des Blobs zu erzeugen und ihn in einer separaten Lookup-Tabelle zu speichern, wobei der Hash als Index verwendet wird. In Ihrer ursprünglichen Datenbank können Sie dann nur den Hash speichern, der eine praktikable feste Länge hat.
+Angenommen, eine Ihrer Datenbanktabellen enthält in einer Spalte große Datenblöcke. Das verringert die Effizienz der Datenbank, weil die Spalte entweder eine variable Länge haben oder groß genug für den größtmöglichen Datenblock sein muss. Alternativ können Sie einen Hash des Datenblocks erzeugen und den Block in einer separaten Nachschlagetabelle speichern, wobei der Hash als Index dient. In der ursprünglichen Tabelle speichern Sie dann nur noch den Hash, der eine feste Länge hat.
 
-Die möglichen Varianten für einen SHA1-Hash sind außerordentlich zahlreich. So zahlreich, dass es nahezu unmöglich ist, versehentlich zwei Blobs mit demselben SHA1-Hash zu erzeugen. Es _ist_ möglich, absichtlich zwei Dateien mit demselben SHA1-Hash zu erzeugen, da SHA1 kryptografisch nicht sicher ist. Ein böswilliger Benutzer könnte theoretisch einen Daten-Blob erzeugen, der das Original in der Datenbank ersetzt und unentdeckt bleibt, weil der Hash gleich ist. Dies ist ein Angriffsvektor, dessen Sie sich bewusst sein sollten.
+Die Zahl möglicher SHA1-Hashes ist enorm. Dass zwei Datenblöcke zufällig denselben SHA1-Hash ergeben, ist daher nahezu ausgeschlossen. Es _ist_ jedoch möglich, gezielt zwei Dateien mit demselben SHA1-Hash zu erzeugen, da SHA1 kryptografisch nicht sicher ist. Ein böswilliger Nutzer könnte theoretisch einen Datenblock erzeugen, der den ursprünglichen Block in der Datenbank ersetzt. Weil der Hash gleich bleibt, könnte dies unbemerkt bleiben. Dieses mögliche Angriffsszenario sollten Sie berücksichtigen.
 
-## Wie git Dateien speichert
+## Wie Git Dateien speichert
 
-Git verwendet SHA1-Hashes und ist hier ein gutes Beispiel: Es verwendet Hashes auf zwei interessante Arten. Wenn Dateien in git gespeichert werden, werden sie durch ihren SHA1-Hash referenziert. Dadurch kann git die Daten schnell finden und Dateien wiederherstellen.
+Git verwendet SHA1-Hashes und ist hier ein gutes Beispiel, denn es nutzt Hashes auf zwei interessante Arten. Wenn Dateien in Git gespeichert werden, werden sie über ihren SHA1-Hash referenziert. So kann Git die Daten schnell finden und Dateien wiederherstellen.
 
-Es verwendet jedoch nicht nur den Dateiinhalt für den Hash, sondern stellt auch die UTF8-Zeichenfolge `"blob "` voran, gefolgt von der in Dezimaldarstellung geschriebenen Dateigröße in Bytes und dem Nullzeichen (das in JavaScript als `"\0"` geschrieben werden kann). Sie können das [TextEncoder-Interface](/de/docs/Web/API/TextEncoder) der [Encoding API](/de/docs/Web/API/Encoding_API) verwenden, um den UTF8-Text zu kodieren, da Zeichenfolgen in JavaScript UTF16 sind.
+Für den Hash verwendet Git jedoch nicht nur den Dateiinhalt. Git stellt ihm die UTF8-Zeichenfolge `"blob "` voran, gefolgt von der Dateigröße in Bytes als Dezimalzahl und einem Nullzeichen, das in JavaScript als `"\0"` geschrieben werden kann. Zum Kodieren des UTF8-Texts können Sie die [TextEncoder-Schnittstelle](/de/docs/Web/API/TextEncoder) der [Encoding API](/de/docs/Web/API/Encoding_API) verwenden, da Zeichenfolgen in JavaScript UTF16-kodiert sind.
 
-Der folgende Code kann, wie unser SHA256-Beispiel, verwendet werden, um diese Hashes aus Dateien zu erzeugen. Das HTML zum Hochladen von Dateien bleibt gleich, aber wir führen zusätzliche Schritte aus, um die Größeninformation auf dieselbe Weise wie git voranzustellen.
+Mit dem folgenden Code können Sie, ähnlich wie in unserem SHA256-Beispiel, solche Hashes aus Dateien erzeugen. Der HTML-Code zum Hochladen der Dateien bleibt gleich. Wir ergänzen jedoch die Größenangabe auf dieselbe Weise wie Git.
 
 ```html
 <h3>Demonstration of how git uses SHA1 for files</h3>
@@ -218,19 +218,19 @@ async function hashTheseFiles(e) {
 }
 ```
 
-{{EmbedLiveSample("how-git-stores-files")}}
+{{EmbedLiveSample("how_git_stores_files")}}
 
-Beachten Sie, wie die [Encoding API](/de/docs/Web/API/Encoding_API) verwendet wird, um den Header zu erzeugen, der mit dem ursprünglichen ArrayBuffer verkettet wird, um die zu hashende Zeichenfolge zu erzeugen.
+Beachten Sie, wie die [Encoding API](/de/docs/Web/API/Encoding_API) verwendet wird, um den Header zu erzeugen. Dieser wird mit dem ursprünglichen ArrayBuffer verkettet, um die zu hashenden Daten zu erhalten.
 
-## Wie git Commit-Hashes erzeugt
+## Wie Git Commit-Hashes erzeugt
 
-Interessanterweise erzeugt git auch Commit-Hashes auf ähnliche Weise, basierend auf mehreren Informationen. Dazu können der Hash des vorherigen Commits und die Commit-Nachricht gehören, die zusammen einen neuen Hash ergeben. Dies kann verwendet werden, um Commits zu referenzieren, die auf mehreren eindeutigen Kennungen basieren.
+Git erzeugt auch Commit-Hashes auf ähnliche Weise, allerdings aus mehreren Informationen. Dazu können der Hash des vorherigen Commits und die Commit-Nachricht gehören. Zusammen ergeben sie einen neuen Hash, mit dem sich der Commit anhand mehrerer Merkmale referenzieren lässt.
 
 Der Terminalbefehl lautet: `(printf "commit %s\0" $(git --no-replace-objects cat-file commit HEAD | wc -c); git cat-file commit HEAD) | sha1sum`
 
-Quelle: [How is git commit sha1 formed](https://gist.github.com/masak/2415865)
+Quelle: [Wie wird der SHA1-Hash eines Git-Commits gebildet?](https://gist.github.com/masak/2415865)
 
-Im Wesentlichen ist es die UTF8-Zeichenfolge (das Nullzeichen wird als `\0` geschrieben):
+Im Wesentlichen handelt es sich um folgende UTF8-Zeichenfolge, wobei das Nullzeichen als `\0` geschrieben wird:
 
 ```plain
 commit [size in bytes as decimal of this info]\0tree [tree hash]
@@ -241,10 +241,10 @@ committer [committer info] [timestamp]
 commit message
 ```
 
-Dies ist hilfreich, da keines der einzelnen Felder garantiert eindeutig ist, sie zusammengenommen jedoch einen eindeutigen Verweis auf einen einzelnen Commit ergeben. Die gesamte Zeichenfolge ist jedoch zu lang und unhandlich für die Verwendung. Durch das Hashing erhalten Sie daher eine neue eindeutige Zeichenfolge, die kurz genug ist, um sie bequem aus mehreren Feldern zu teilen.
+Das ist nützlich, weil keines der einzelnen Felder garantiert eindeutig ist, ihre Kombination aber einen eindeutigen Verweis auf einen bestimmten Commit ergibt. Die gesamte Zeichenfolge ist jedoch zu lang und unhandlich. Durch das Hashen erhalten Sie aus mehreren Feldern eine neue, eindeutige Zeichenfolge, die kurz genug ist, um sie bequem weiterzugeben.
 
-Deshalb ändert sich der Hash, wenn Sie Ihren Commit jemals geändert haben, selbst wenn Sie keine Änderungen an der Nachricht vornehmen. Der Zeitstempel des Commits hat sich geändert, und selbst eine Änderung um ein einzelnes Zeichen reicht aus, um den neuen Hash vollständig zu verändern.
+Deshalb ändert sich der Hash auch, wenn Sie einen Commit nachträglich ändern, selbst wenn die Commit-Nachricht unverändert bleibt. Der Zeitstempel des Commits hat sich geändert – und schon eine Änderung um ein einziges Zeichen reicht aus, um einen völlig anderen Hash zu erzeugen.
 
-Die wichtigste Erkenntnis daraus ist: Wenn Sie Daten einen Schlüssel hinzufügen möchten, aber keine einzelne Information eindeutig genug ist, dann ist das Verketten mehrerer Zeichenfolgen und anschließende Hashing eine hervorragende Möglichkeit, einen nützlichen Schlüssel zu erzeugen.
+Die Erkenntnis daraus: Wenn Sie Daten einen Schlüssel zuweisen möchten, aber keine einzelne Information eindeutig genug ist, können Sie mehrere Zeichenfolgen verketten und hashen, um einen brauchbaren Schlüssel zu erzeugen.
 
-Hoffentlich haben diese Beispiele Sie dazu ermutigt, sich diese neue leistungsfähige API anzusehen. Denken Sie daran: Versuchen Sie nicht, kryptografische Verfahren selbst nachzubauen. Es genügt zu wissen, dass die Werkzeuge vorhanden sind und dass einige davon, etwa die Funktion [`crypto.digest()`](/de/docs/Web/API/SubtleCrypto/digest), nützliche Werkzeuge für Ihre tägliche Entwicklung sind.
+Diese Beispiele haben Ihnen hoffentlich Anregungen gegeben, sich diese leistungsfähige API näher anzusehen. Denken Sie daran, kryptografische Verfahren nicht selbst nachzubauen. Es genügt zu wissen, dass diese Werkzeuge verfügbar sind und einige davon, wie die Funktion [`crypto.digest()`](/de/docs/Web/API/SubtleCrypto/digest), auch für alltägliche Entwicklungsaufgaben nützlich sind.

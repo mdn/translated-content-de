@@ -1,29 +1,29 @@
 ---
-title: "MathMLElement: tabIndex-Eigenschaft"
+title: "MathMLElement: Eigenschaft tabIndex"
 short-title: tabIndex
 slug: Web/API/MathMLElement/tabIndex
 l10n:
-  sourceCommit: 7ef48e3e54f5003f735eafd4bd3a0c2aedb21c27
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("MathML")}}
 
-Die **`tabIndex`**-Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle repräsentiert die Tab-Reihenfolge des aktuellen MathML-Elements.
+Die Eigenschaft **`tabIndex`** der Schnittstelle [`MathMLElement`](/de/docs/Web/API/MathMLElement) gibt die Position des aktuellen MathML-Elements in der Tabulatorreihenfolge an.
 
-Die Tab-Reihenfolge ist wie folgt:
+Die Tabulatorreihenfolge ist wie folgt:
 
-1. Elemente mit einem positiven `tabIndex`. Elemente, die identische `tabIndex`-Werte haben, sollten in der Reihenfolge navigiert werden, in der sie erscheinen. Die Navigation erfolgt vom niedrigsten `tabIndex` zum höchsten `tabIndex`.
-2. Elemente, die das `tabIndex`-Attribut nicht unterstützen oder es unterstützen und `tabIndex` auf `0` setzen, in der Reihenfolge, in der sie erscheinen.
+1. Elemente mit einem positiven `tabIndex`. Elemente mit identischen `tabIndex`-Werten werden in der Reihenfolge angesteuert, in der sie erscheinen. Die Navigation erfolgt vom niedrigsten zum höchsten `tabIndex`.
+2. Elemente, die das Attribut `tabIndex` nicht unterstützen, oder es unterstützen und deren `tabIndex` den Wert `0` hat, in der Reihenfolge, in der sie erscheinen.
 
-Deaktivierte Elemente nehmen nicht an der Tab-Reihenfolge teil. Werte müssen nicht sequentiell sein, noch müssen sie mit einem bestimmten Wert beginnen. Sie können sogar negativ sein, obwohl jeder Browser sehr große Werte kürzt.
+Deaktivierte Elemente nehmen nicht an der Tabulatorreihenfolge teil. Die Werte müssen weder aufeinanderfolgend sein noch mit einem bestimmten Wert beginnen. Sie können sogar negativ sein, allerdings begrenzt jeder Browser sehr große Werte.
 
 ## Wert
 
-Ein Integer.
+Eine Ganzzahl.
 
 ## Beispiele
 
-### Verwendung der tabIndex-Eigenschaft
+### Verwendung der Eigenschaft tabIndex
 
 ```html
 <math id="math1" tabindex="2">
@@ -56,7 +56,7 @@ math1.focus(); // Works, even though it is not in the tabbing order
 
 ### Ergebnis
 
-{{EmbedLiveSample("tabindex",100,100)}}
+{{EmbedLiveSample("using_the_tabindex_property",100,100)}}
 
 ## Spezifikationen
 
@@ -69,5 +69,5 @@ math1.focus(); // Works, even though it is not in the tabbing order
 ## Siehe auch
 
 - [`HTMLElement.tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex)
-- [Barrierefreiheit von tastaturnavigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets)
+- [Barrierefreiheit von JavaScript-Widgets, die mit der Tastatur bedient werden können](/de/docs/Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets)
 - [`tabindex`](/de/docs/Web/MathML/Reference/Global_attributes/tabindex)

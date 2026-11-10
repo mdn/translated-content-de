@@ -2,17 +2,17 @@
 title: <mover>
 slug: Web/MathML/Reference/Element/mover
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<mover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Akzent oder ein Limit über einem Ausdruck zu platzieren. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
+Das **`<mover>`**-Element von [MathML](/de/docs/Web/MathML) wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck zu platzieren. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie das folgende Attribut:
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie das folgende Attribut:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das `overscript` als Akzent behandelt werden soll (d.h. größer und näher an dem Basisausdruck gezeichnet werden soll).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), der angibt, ob der obere Zusatz als Akzent behandelt werden soll (d.h. größer und näher am Basisausdruck dargestellt wird).
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 </math>
 ```
 
-{{ EmbedLiveSample('mover_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('examples', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 
@@ -56,5 +56,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("munderover") }} (Unterskript-Overskript-Paar)
+- {{ MathMLElement("munder") }} (unterer Zusatz)
+- {{ MathMLElement("munderover") }} (Paar aus unterem und oberem Zusatz)

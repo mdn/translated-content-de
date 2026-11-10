@@ -2,16 +2,16 @@
 title: Das Ziegelfeld erstellen
 slug: Games/Tutorials/2D_breakout_game_pure_JavaScript/Build_the_brick_field
 l10n:
-  sourceCommit: 69937a446786abf5a58d4214b4192597d0b3cdc6
+  sourceCommit: edc9ab5479d1253d9edd93bfe90dd1d100605c26
 ---
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_breakout_game_pure_JavaScript/Track_the_score_and_win")}}
 
-Dies ist der **6. von 11 Schritten** des [Tutorials zum Erstellen eines Breakout-Spiels mit reinem JavaScript](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript). Sehen wir uns an, wie Sie eine Gruppe von Ziegeln erstellen, sie mithilfe einer Schleife auf dem Bildschirm zeichnen und entfernen, wenn der Ball sie trifft. Das Ziegelfeld zu erstellen ist etwas komplizierter, als ein einzelnes Objekt auf dem Bildschirm hinzuzufügen.
+Dies ist der **6. von 11 Schritten** im [Tutorial zum Erstellen eines Breakout-Spiels mit reinem JavaScript](/de/docs/Games/Tutorials/2D_breakout_game_pure_JavaScript). Wir sehen uns an, wie Sie eine Gruppe von Ziegeln erstellen, sie mithilfe einer Schleife auf dem Bildschirm zeichnen und entfernen, wenn der Ball sie trifft. Das Ziegelfeld zu erstellen ist etwas komplizierter, als ein einzelnes Objekt auf dem Bildschirm hinzuzufügen.
 
 ## Die Ziegel zeichnen
 
-Alle Ziegel verwenden dasselbe Bild. Daher können wir es einmal erstellen und dekodieren und anschließend für alle Ziegel verwenden. Fügen Sie `GameObject` eine statische `assets`-Map und ein `url`-Feld hinzu und ersetzen Sie den Konstruktor und die Methode `preload()`:
+Alle Ziegel verwenden dasselbe Bild. Daher können wir es einmal erstellen und decodieren und anschließend für alle Ziegel verwenden. Fügen Sie `GameObject` eine statische `assets`-Map und ein `url`-Feld hinzu und ersetzen Sie den Konstruktor und die `preload()`-Methode:
 
 ```js
 class GameObject {
@@ -41,9 +41,9 @@ class GameObject {
 }
 ```
 
-Der Cache ordnet jeder URL ein Promise zu, das mit dem dekodierten Bild erfüllt wird. Der erste `preload()`-Aufruf für eine URL erstellt das Bild und startet die Dekodierung. Spätere Aufrufe warten auf dasselbe Promise und erhalten dasselbe Bild. Jedes Objekt hat weiterhin seine eigene Position und Größe.
+Der Cache ordnet jeder URL ein Promise zu, das sich mit dem decodierten Bild erfüllt. Der erste `preload()`-Aufruf für eine URL erstellt das Bild und beginnt mit der Decodierung. Spätere Aufrufe warten auf dasselbe Promise und erhalten dasselbe Bild. Jedes Objekt hat weiterhin seine eigene Position und Größe.
 
-Wie `Ball` und `Paddle` basiert auch `Brick` auf der Klasse `GameObject`. Ein Ziegel hat keine Standardposition und -größe; beides muss im Konstruktor ausdrücklich angegeben werden. Da die Ziegel feste Abmessungen haben, können wir die zusätzlichen Parameter `dWidth` und `dHeight` von [`ctx.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwenden. Damit wird das Bild automatisch skaliert, falls es noch nicht die gewünschten Abmessungen hat.
+Wie `Ball` und `Paddle` basiert auch `Brick` auf der Klasse `GameObject`. Ein Ziegel hat keine Standardposition und -größe; beides muss im Konstruktor ausdrücklich angegeben werden. Da die Ziegel festgelegte Abmessungen haben, können wir die zusätzlichen Parameter `dWidth` und `dHeight` von [`ctx.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwenden. Damit wird das Bild automatisch skaliert, falls es noch nicht die gewünschten Abmessungen hat.
 
 ```js
 class Brick extends GameObject {
@@ -61,7 +61,7 @@ class Brick extends GameObject {
 
 Sie müssen außerdem [das Ziegelbild herunterladen](https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser/brick.png) und in Ihrem Verzeichnis `/img` speichern.
 
-Wir fügen den gesamten Code zum Zeichnen der Ziegel in eine Funktion `initBricks` ein, damit er vom übrigen Code getrennt bleibt. Fügen Sie unter `colliders.push(paddle);` einen Aufruf von `initBricks` hinzu:
+Wir fassen den gesamten Code zum Zeichnen der Ziegel in einer `initBricks`-Funktion zusammen, damit er vom übrigen Code getrennt bleibt. Fügen Sie unter `colliders.push(paddle);` einen Aufruf von `initBricks` hinzu:
 
 ```js
 // …
@@ -71,9 +71,9 @@ const bricks = initBricks();
 // …
 ```
 
-Stellen Sie außerdem sicher, dass das Spiel wartet, bis die Ziegel vorgeladen sind, bevor es startet: Fügen Sie dazu `, ...bricks` zum Array in `Promise.all()` hinzu. Diese Aufrufe verwenden dasselbe zwischengespeicherte Dekodierungs-Promise, sodass das Ziegelbild nur einmal dekodiert wird.
+Sorgen Sie außerdem dafür, dass das Spiel vor dem Start auf das Vorladen der Ziegel wartet: Fügen Sie dazu `, ...bricks` zum Array in `Promise.all()` hinzu. Diese Aufrufe verwenden gemeinsam das zwischengespeicherte Decodierungs-Promise, sodass das Ziegelbild nur einmal decodiert wird.
 
-Nun zur Funktion selbst. Fügen Sie die Funktion `initBricks` am Ende der Datei `script.js` hinzu. Zunächst definieren wir das Objekt `bricksLayout`, das wir gleich benötigen:
+Nun zur Funktion selbst. Fügen Sie die `initBricks`-Funktion am Ende der Datei `script.js` hinzu. Zunächst fügen wir das Objekt `bricksLayout` hinzu, das wir gleich benötigen:
 
 ```js
 function initBricks() {
@@ -96,9 +96,9 @@ function initBricks() {
 }
 ```
 
-`bricksLayout` enthält alle benötigten Informationen: die Breite und Höhe eines einzelnen Ziegels, die Anzahl der Ziegelreihen und -spalten auf dem Bildschirm, den Abstand vom oberen und linken Rand (also die Stelle auf dem Canvas, an der wir mit dem Zeichnen der Ziegel beginnen) sowie den Abstand zwischen den einzelnen Reihen und Spalten.
+`bricksLayout` enthält alle benötigten Informationen: die Breite und Höhe eines einzelnen Ziegels, die Anzahl der Ziegelreihen und -spalten auf dem Bildschirm, den oberen und linken Versatz (die Stelle auf dem Canvas, an der wir mit dem Zeichnen der Ziegel beginnen) sowie den Abstand zwischen den Ziegelreihen und -spalten.
 
-Erstellen wir nun die Ziegel. Wir können die Reihen und Spalten mit Schleifen durchlaufen und bei jedem Durchlauf einen neuen Ziegel erstellen. Fügen Sie die folgende verschachtelte Schleife unter der vorherigen Codezeile hinzu:
+Erstellen wir nun die Ziegel. Wir können die Reihen und Spalten mit Schleifen durchlaufen und in jedem Durchlauf einen neuen Ziegel erstellen. Fügen Sie die folgende verschachtelte Schleife unter der vorherigen Codezeile hinzu:
 
 ```js
 for (let c = 0; c < bricksLayout.count.col; c++) {
@@ -123,9 +123,9 @@ for (let c = 0; c < bricksLayout.count.col; c++) {
 }
 ```
 
-Jede `brickX`-Position ergibt sich aus `bricksLayout.width` plus `bricksLayout.padding`, multipliziert mit der Spaltennummer `c`, zuzüglich `bricksLayout.offset.left`. Die Berechnung für `brickY` funktioniert genauso, verwendet aber die Reihennummer `r`, `bricksLayout.height` und `bricksLayout.offset.top`. So lässt sich jeder Ziegel an der richtigen Stelle platzieren, mit Abstand zu den anderen Ziegeln und zu den linken und oberen Rändern des Canvas.
+Die Position `brickX` wird berechnet, indem `bricksLayout.width` und `bricksLayout.padding` addiert, mit der Spaltennummer `c` multipliziert und anschließend `bricksLayout.offset.left` hinzugefügt wird. Die Berechnung von `brickY` erfolgt genauso, verwendet aber die Reihennummer `r`, `bricksLayout.height` und `bricksLayout.offset.top`. So wird jeder Ziegel an der richtigen Stelle platziert, mit Abstand zu den anderen Ziegeln und mit einem Versatz zum linken und oberen Canvas-Rand gezeichnet.
 
-Zum Schluss zeichnen wir die Ziegel innerhalb der Funktion `update()` auf den Bildschirm. Fügen Sie Folgendes unter dem Aufruf von `paddle.draw()` hinzu:
+Schließlich können wir die Ziegel in der Funktion `update()` auf dem Bildschirm zeichnen. Fügen Sie Folgendes unter dem Aufruf von `paddle.draw()` hinzu:
 
 ```js
 for (const brick of bricks) {
@@ -133,11 +133,11 @@ for (const brick of bricks) {
 }
 ```
 
-Wenn Sie `index.html` jetzt neu laden, sollten die Ziegel in gleichmäßigen Abständen auf dem Bildschirm erscheinen.
+Wenn Sie `index.html` jetzt neu laden, sollten Sie die Ziegel in gleichmäßigen Abständen auf dem Bildschirm sehen.
 
 ## Kollisionserkennung zwischen Ziegel und Ball
 
-Die nächste Herausforderung ist die Kollisionserkennung zwischen dem Ball und den Ziegeln. Glücklicherweise haben wir bereits ein allgemeines Kollisionssystem implementiert und müssen nur noch die Ziegel daran anbinden.
+Die nächste Herausforderung ist die Kollisionserkennung zwischen dem Ball und den Ziegeln. Zum Glück haben wir bereits ein allgemeines Kollisionssystem implementiert und müssen die Ziegel nur noch daran anbinden.
 
 Registrieren Sie zunächst jeden Ziegel als Collider, direkt unter dem Aufruf von `initBricks()`:
 
@@ -148,7 +148,7 @@ for (const brick of bricks) {
 }
 ```
 
-Fügen Sie jedem Ziegel eine Methode `onCollide()` hinzu, die ihn aus den Sammlungen `bricks` und `colliders` entfernt:
+Fügen Sie jedem Ziegel eine `onCollide()`-Methode hinzu, die ihn aus den Sammlungen `bricks` und `colliders` entfernt:
 
 ```js
 class Brick extends GameObject {
@@ -160,13 +160,13 @@ class Brick extends GameObject {
 }
 ```
 
-Der Ziegel muss so schnell wie möglich entfernt werden, damit der Ball nicht an ihm abprallt.
+Der Ziegel muss so schnell wie möglich entfernt werden, damit der Ball nicht erneut von ihm abprallt.
 
-Das war’s! Laden Sie Ihren Code neu. Die neue Kollisionserkennung sollte nun wie gewünscht funktionieren.
+Das war's! Laden Sie Ihren Code neu. Die neue Kollisionserkennung sollte nun wie vorgesehen funktionieren.
 
 ## Vergleichen Sie Ihren Code
 
-So sollte Ihr bisheriger Stand aussehen – Sie können ihn hier direkt ausprobieren. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
+So sollte Ihr bisheriger Code aussehen. Das Beispiel ist direkt ausführbar. Um den Quellcode anzuzeigen, klicken Sie auf die Schaltfläche „Play“.
 
 ```html hidden
 <canvas id="game-canvas" width="480" height="320"></canvas>
@@ -478,6 +478,6 @@ function initBricks() {
 
 ## Nächste Schritte
 
-Wir können die Ziegel treffen und entfernen – das ist bereits eine schöne Erweiterung des Spiels. Noch besser wäre es, den [Punktestand zu verfolgen und das Spiel zu gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win), sobald alle Ziegel zerstört sind.
+Wir können die Ziegel nun treffen und entfernen – eine schöne Ergänzung des Spielablaufs. Noch besser wäre es, [den Punktestand zu verfolgen und zu gewinnen](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Track_the_score_and_win), sobald alle Ziegel zerstört sind.
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_pure_JavaScript/Game_over", "Games/Tutorials/2D_breakout_game_pure_JavaScript/Track_the_score_and_win")}}

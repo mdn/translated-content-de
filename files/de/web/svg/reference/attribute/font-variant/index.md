@@ -2,15 +2,15 @@
 title: font-variant
 slug: Web/SVG/Reference/Attribute/font-variant
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`font-variant`** Attribut gibt an, ob der Text unter Verwendung von Variationen der {{Glossary("glyph", "Glyphen")}} der Schriftart gerendert werden soll.
+Das Attribut **`font-variant`** gibt an, ob der Text mit Varianten der {{Glossary("glyph", "Glyphen")}} der Schriftart dargestellt werden soll.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-variant` auch ein CSS-Eigenschaftsgegenstück: {{cssxref("font-variant")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `font-variant` auch eine entsprechende CSS-Eigenschaft: {{cssxref("font-variant")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -18,7 +18,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Beispiele
 
-### Steuerung von SVG-Schriftvariationen
+### SVG-Schriftvarianten steuern
 
 ```html
 <svg viewBox="0 0 250 30" xmlns="http://www.w3.org/2000/svg">
@@ -27,9 +27,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </svg>
 ```
 
-{{EmbedLiveSample}}
+{{EmbedLiveSample("controlling_svg_font_variations")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -72,7 +72,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der [CSS `font-variant`](/de/docs/Web/CSS/Reference/Properties/font-variant#values) Eigenschaft.
+Eine Beschreibung der Werte finden Sie unter der [CSS-Eigenschaft `font-variant`](/de/docs/Web/CSS/Reference/Properties/font-variant#values).
 
 ## Spezifikationen
 
@@ -84,4 +84,4 @@ Eine Beschreibung der Werte finden Sie in der [CSS `font-variant`](/de/docs/Web/
 
 ## Siehe auch
 
-- CSS {{cssxref("font-variant")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("font-variant")}}

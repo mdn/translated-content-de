@@ -1,12 +1,12 @@
 ---
-title: "`<cite>` HTML-Zitationselement"
+title: HTML-Element `<cite>` für Werktitel
 short-title: <cite>
 slug: Web/HTML/Reference/Elements/cite
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<cite>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um den Titel eines kreativen Werks zu kennzeichnen. Der Verweis kann in einer abgekürzten Form erfolgen, entsprechend kontextuell geeigneter Konventionen in Bezug auf Zitationsmetadaten.
+Das **`<cite>`**-Element in [HTML](/de/docs/Web/HTML) dient dazu, den Titel eines kreativen Werks auszuzeichnen. Die Quellenangabe kann gemäß den im jeweiligen Kontext üblichen Zitierkonventionen in abgekürzter Form erfolgen.
 
 {{InteractiveExample("HTML Demo: &lt;cite&gt;", "tabbed-standard")}}
 
@@ -37,43 +37,43 @@ cite {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Im Kontext des `<cite>`-Elements könnte ein kreatives Werk beispielsweise eines der folgenden sein:
+Im Zusammenhang mit dem `<cite>`-Element kann ein kreatives Werk beispielsweise Folgendes sein:
 
 - Ein Buch
-- Ein Forschungsbericht
-- Ein Aufsatz
+- Eine wissenschaftliche Arbeit
+- Ein Essay
 - Ein Gedicht
 - Eine Partitur
 - Ein Lied
-- Ein Theaterstück- oder Filmskript
+- Ein Theater- oder Filmdrehbuch
 - Ein Film
 - Eine Fernsehsendung
 - Ein Spiel
 - Eine Skulptur
 - Ein Gemälde
-- Eine Theaterproduktion
-- Ein Schauspiel
+- Eine Theaterinszenierung
+- Ein Theaterstück
 - Eine Oper
 - Ein Musical
 - Eine Ausstellung
-- Ein Rechtsfallbericht
+- Ein juristischer Fallbericht
 - Ein Computerprogramm
 - Eine Website
 - Eine Webseite
-- Ein Blogbeitrag oder Kommentar
-- Ein Forenbeitrag oder Kommentar
+- Ein Blogbeitrag oder -kommentar
+- Ein Forenbeitrag oder -kommentar
 - Ein Tweet
-- Ein Facebook-Post
-- Eine schriftliche oder mündliche Aussage
+- Ein Facebook-Beitrag
+- Eine schriftliche oder mündliche Äußerung
 - Und so weiter.
 
-Um einen Hinweis auf die Quelle von zitiertem Material einzufügen, das sich innerhalb eines {{HTMLElement("blockquote")}}- oder {{HTMLElement("q")}}-Elements befindet, verwenden Sie das [`cite`](/de/docs/Web/HTML/Reference/Elements/blockquote#cite)-Attribut auf dem Element.
+Um die Quelle eines Zitats anzugeben, das sich in einem {{HTMLElement("blockquote")}}- oder {{HTMLElement("q")}}-Element befindet, verwenden Sie das Attribut [`cite`](/de/docs/Web/HTML/Reference/Elements/blockquote#cite) des jeweiligen Elements.
 
-Typischerweise stellen Browser den Inhalt eines `<cite>`-Elements standardmäßig kursiv dar. Um dies zu vermeiden, wenden Sie die CSS-{{cssxref("font-style")}}-Eigenschaft auf das `<cite>`-Element an.
+Browser stellen den Inhalt eines `<cite>`-Elements standardmäßig meist kursiv dar. Wenn Sie dies vermeiden möchten, wenden Sie die CSS-Eigenschaft {{cssxref("font-style")}} auf das `<cite>`-Element an.
 
 ## Beispiele
 
@@ -83,7 +83,7 @@ Typischerweise stellen Browser den Inhalt eines `<cite>`-Elements standardmäßi
 
 ### Ergebnis
 
-{{EmbedLiveSample("Example", 640, 80)}}
+{{EmbedLiveSample("examples", 640, 80)}}
 
 ## Technische Zusammenfassung
 
@@ -97,37 +97,37 @@ Typischerweise stellen Browser den Inhalt eines `<cite>`-Elements standardmäßi
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flow content</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
-        >, greifbarer Inhalt.
+          >phrasing content</a
+        >, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >Phrasing content</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Keines; sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >phrasing content</a
         >
-        akzeptiert.
+        zulässt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -135,14 +135,15 @@ Typischerweise stellen Browser den Inhalt eines `<cite>`-Elements standardmäßi
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
-        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        implementiert Firefox für dieses Element die Schnittstelle
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement).
       </td>
     </tr>
   </tbody>
@@ -158,5 +159,5 @@ Typischerweise stellen Browser den Inhalt eines `<cite>`-Elements standardmäßi
 
 ## Siehe auch
 
-- Das Element {{HTMLElement("blockquote")}} für lange Zitate.
-- Das Element {{HTMLElement("q")}} für Inline-Zitate und das [`cite`](/de/docs/Web/HTML/Reference/Elements/q#cite)-Attribut.
+- Das Element {{HTMLElement("blockquote")}} für längere Zitate.
+- Das Element {{HTMLElement("q")}} für Zitate im Fließtext und das Attribut [`cite`](/de/docs/Web/HTML/Reference/Elements/q#cite).

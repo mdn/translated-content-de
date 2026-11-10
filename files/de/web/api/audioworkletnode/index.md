@@ -2,15 +2,15 @@
 title: AudioWorkletNode
 slug: Web/API/AudioWorkletNode
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("Web Audio API")}}{{SecureContext_Header}}
 
 > [!NOTE]
-> Obwohl die Schnittstelle außerhalb von [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist, ist die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) es nicht, daher können benutzerdefinierte [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)s außerhalb dieser nicht definiert werden.
+> Obwohl die Schnittstelle außerhalb [sicherer Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist, gilt dies nicht für die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet). Daher können benutzerdefinierte [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Implementierungen außerhalb sicherer Kontexte nicht definiert werden.
 
-Die **`AudioWorkletNode`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) stellt eine Basisklasse für einen benutzerdefinierten [`AudioNode`](/de/docs/Web/API/AudioNode) dar, der zusammen mit anderen Knoten in ein Audio-Routing-Graph verbunden werden kann. Sie hat einen zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor), der die tatsächliche Audioverarbeitung in einem Web-Audio-Rendering-Thread durchführt.
+Die Schnittstelle **`AudioWorkletNode`** der [Web Audio API](/de/docs/Web/API/Web_Audio_API) stellt eine Basisklasse für einen benutzerdefinierten [`AudioNode`](/de/docs/Web/API/AudioNode) dar, der zusammen mit anderen Knoten mit einem Audio-Routing-Graphen verbunden werden kann. Ihr ist ein [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) zugeordnet, der die eigentliche Audioverarbeitung in einem Web-Audio-Rendering-Thread übernimmt.
 
 {{InheritanceDiagram}}
 
@@ -21,23 +21,23 @@ Die **`AudioWorkletNode`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/We
 
 ## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt außerdem Eigenschaften von der übergeordneten Schnittstelle [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
 - [`AudioWorkletNode.port`](/de/docs/Web/API/AudioWorkletNode/port) {{ReadOnlyInline}}
-  - : Gibt einen [`MessagePort`](/de/docs/Web/API/MessagePort) zurück, der für die bidirektionale Kommunikation zwischen dem Knoten und seinem zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) verwendet wird. Das andere Ende ist über die [`port`](/de/docs/Web/API/AudioWorkletProcessor/port)-Eigenschaft des Prozessors verfügbar.
+  - : Gibt einen [`MessagePort`](/de/docs/Web/API/MessagePort) zurück, der für die bidirektionale Kommunikation zwischen dem Knoten und dem zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) verwendet wird. Das andere Ende ist über die Eigenschaft [`port`](/de/docs/Web/API/AudioWorkletProcessor/port) des Prozessors verfügbar.
 - [`AudioWorkletNode.parameters`](/de/docs/Web/API/AudioWorkletNode/parameters) {{ReadOnlyInline}}
-  - : Gibt ein [`AudioParamMap`](/de/docs/Web/API/AudioParamMap) zurück — eine Sammlung von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten. Diese werden während der Erstellung des zugrundeliegenden `AudioWorkletProcessor` instanziiert. Wenn der `AudioWorkletProcessor` über einen statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static)-Getter verfügt, wird das daraus zurückgegebene [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor)-Array verwendet, um `AudioParam`-Objekte auf dem `AudioWorkletNode` zu erstellen. Mit diesem Mechanismus ist es möglich, eigene `AudioParam`-Objekte zugänglich zu machen von Ihrem `AudioWorkletNode`. Sie können dann ihre Werte im zugehörigen `AudioWorkletProcessor` verwenden.
-
-### Ereignisse
-
-- [`processorerror`](/de/docs/Web/API/AudioWorkletNode/processorerror_event)
-  - : Wird ausgelöst, wenn im zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) ein Fehler auftritt. Sobald er auftritt, wird der Prozessor und folglich der Knoten während seiner gesamten Lebensdauer Stille ausgeben.
+  - : Gibt eine [`AudioParamMap`](/de/docs/Web/API/AudioParamMap) zurück – eine Sammlung von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten. Diese werden bei der Erstellung des zugrunde liegenden `AudioWorkletProcessor` instanziiert. Wenn der `AudioWorkletProcessor` einen statischen [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static)-Getter besitzt, wird das von ihm zurückgegebene Array von [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor)-Objekten verwendet, um `AudioParam`-Objekte auf dem `AudioWorkletNode` zu erstellen. Mit diesem Mechanismus können Sie eigene `AudioParam`-Objekte über Ihren `AudioWorkletNode` zugänglich machen. Deren Werte können Sie anschließend im zugehörigen `AudioWorkletProcessor` verwenden.
 
 ## Instanzmethoden
 
-_Erbt auch Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt außerdem Methoden von der übergeordneten Schnittstelle [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
-_Die `AudioWorkletNode`-Schnittstelle definiert keine eigenen Methoden._
+_Die Schnittstelle `AudioWorkletNode` definiert keine eigenen Methoden._
+
+## Ereignisse
+
+- [`processorerror`](/de/docs/Web/API/AudioWorkletNode/processorerror_event)
+  - : Wird ausgelöst, wenn im zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) ein Fehler auftritt. Danach geben der Prozessor und damit auch der Knoten für ihre gesamte verbleibende Lebensdauer Stille aus.
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ class RandomNoiseProcessor extends AudioWorkletProcessor {
 registerProcessor("random-noise-processor", RandomNoiseProcessor);
 ```
 
-Als nächstes werden wir in unserem Hauptskript die Prozessor laden, eine Instanz von `AudioWorkletNode` erstellen, indem wir ihm den Namen des Prozessors übergeben, und den Knoten mit einem Audio-Graphen verbinden.
+Anschließend laden wir den Prozessor in unserer Hauptskriptdatei, erstellen eine Instanz von `AudioWorkletNode`, wobei wir den Namen des Prozessors übergeben, und verbinden den Knoten mit einem Audiographen.
 
 ```js
 const audioContext = new AudioContext();
@@ -86,4 +86,4 @@ randomNoiseNode.connect(audioContext.destination);
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [AudioWorklet verwenden](/de/docs/Web/API/Web_Audio_API/Using_AudioWorklet)
+- [Verwendung von AudioWorklet](/de/docs/Web/API/Web_Audio_API/Using_AudioWorklet)

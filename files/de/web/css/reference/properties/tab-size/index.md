@@ -3,10 +3,10 @@ title: "`tab-size` CSS property"
 short-title: tab-size
 slug: Web/CSS/Reference/Properties/tab-size
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
+Mit der [CSS](/de/docs/Web/CSS)-Eigenschaft **`tab-size`** können Sie die Breite von Tabulatorzeichen (U+0009) anpassen.
 
 {{InteractiveExample("CSS Demo: tab-size")}}
 
@@ -60,9 +60,9 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Voranschrittsbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet wird. Muss nicht negativ sein. Die Voranschrittsbreite bedeutet die Distanz, die ein Cursor oder Druckkopf vor dem Druck des nächsten Zeichens zurücklegt.
+  - : Ein Vielfaches der Vorschubbreite des Leerzeichens (U+0020), das als Breite von Tabulatorzeichen verwendet wird. Der Wert darf nicht negativ sein. Die Vorschubbreite ist die Entfernung, um die sich ein Cursor oder Druckkopf vor der Ausgabe des nächsten Zeichens bewegt.
 - {{CSSxRef("&lt;length&gt;")}}
-  - : Die Breite der Tabs. Muss nicht negativ sein.
+  - : Die Breite von Tabulatorzeichen. Der Wert darf nicht negativ sein.
 
 ## Formale Definition
 
@@ -74,7 +74,7 @@ tab-size: unset;
 
 ## Beispiele
 
-### Erweiterung durch Zeichenanzahl
+### Erweiterung nach Zeichenanzahl
 
 ```css
 pre {
@@ -82,7 +82,7 @@ pre {
 }
 ```
 
-### Tabs reduzieren
+### Tabulatorzeichen zusammenfallen lassen
 
 ```css
 pre {
@@ -90,9 +90,9 @@ pre {
 }
 ```
 
-### Standard-Tabgröße vs. benutzerdefinierte Größen
+### Standardmäßige und benutzerdefinierte Tabulatorbreiten
 
-Dieses Beispiel vergleicht eine Standard-Tabgröße mit einer benutzerdefinierten Tabgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass die Tabs zusammengefasst werden.
+Dieses Beispiel vergleicht die standardmäßige Tabulatorbreite mit einer benutzerdefinierten Tabulatorbreite. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, damit die Tabulatorzeichen nicht zusammenfallen.
 
 #### HTML
 
@@ -129,7 +129,7 @@ p {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Comparing_to_the_default_size", "100%", "250")}}
+{{EmbedLiveSample("default_tab_size_vs_custom_sizes", "100%", "250")}}
 
 ## Spezifikationen
 

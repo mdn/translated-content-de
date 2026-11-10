@@ -3,12 +3,12 @@ title: "MediaQueryList: media-Eigenschaft"
 short-title: media
 slug: Web/API/MediaQueryList/media
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte **`media`**-Eigenschaft der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle ist ein String, der eine serialisierte Medienabfrage darstellt.
+Die schreibgeschützte Eigenschaft **`media`** der Schnittstelle [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) ist ein String, der eine serialisierte Medienabfrage darstellt.
 
 ## Wert
 
@@ -16,17 +16,7 @@ Ein String, der eine serialisierte Medienabfrage darstellt.
 
 ## Beispiele
 
-Dieses Beispiel führt die Medienabfrage `(width <= 600px)` aus und zeigt den Wert der resultierenden `MediaQueryList`-`media`-Eigenschaft in einem {{HTMLElement("span")}} an.
-
-### JavaScript
-
-```js
-let mql = window.matchMedia("(width <= 600px)");
-
-document.querySelector(".mq-value").innerText = mql.media;
-```
-
-Der JavaScript-Code übergibt die Medienabfrage, die abgeglichen werden soll, an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu kompilieren, und setzt dann die [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der `media`-Eigenschaft des Ergebnisses.
+Dieses Beispiel führt die Medienabfrage `(width <= 600px)` aus und zeigt den Wert der Eigenschaft `media` der resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an.
 
 ### HTML
 
@@ -34,7 +24,7 @@ Der JavaScript-Code übergibt die Medienabfrage, die abgeglichen werden soll, an
 <span class="mq-value"></span>
 ```
 
-Ein `<span>`, um die Ausgabe zu erhalten.
+Ein `<span>` für die Ausgabe.
 
 ```css hidden
 .mq-value {
@@ -47,6 +37,16 @@ Ein `<span>`, um die Ausgabe zu erhalten.
   border: 1px solid #ddddee;
 }
 ```
+
+### JavaScript
+
+```js
+let mql = window.matchMedia("(width <= 600px)");
+
+document.querySelector(".mq-value").innerText = mql.media;
+```
+
+Der JavaScript-Code übergibt die zu prüfende Medienabfrage an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu kompilieren. Anschließend setzt er [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der Eigenschaft `media` des Ergebnisses.
 
 ### Ergebnis
 
@@ -63,7 +63,7 @@ Ein `<span>`, um die Ausgabe zu erhalten.
 ## Siehe auch
 
 - [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
-- [Verwendung von Medienabfragen im Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
+- [Medienabfragen im Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

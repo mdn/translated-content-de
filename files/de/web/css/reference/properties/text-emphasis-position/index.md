@@ -3,10 +3,10 @@ title: "`text-emphasis-position` CSS property"
 short-title: text-emphasis-position
 slug: Web/CSS/Reference/Properties/text-emphasis-position
 l10n:
-  sourceCommit: 09a34cfd2a50cad3d6b520027cbab56f05d4d731
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-emphasis-position`** legt fest, wo Betonungszeichen gezeichnet werden. Ähnlich wie beim Text, der durch das HTML-Element [`<ruby>`](/de/docs/Web/HTML/Reference/Elements/ruby) gerendert wird, wird die Zeilenhöhe erhöht, wenn nicht genügend Platz für Betonungszeichen vorhanden ist.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`text-emphasis-position`** legt fest, wo Hervorhebungszeichen dargestellt werden. Ähnlich wie bei Text, der mit dem HTML-Element [`<ruby>`](/de/docs/Web/HTML/Reference/Elements/ruby) dargestellt wird, erhöht sich die Zeilenhöhe, wenn nicht genügend Platz für die Hervorhebungszeichen vorhanden ist.
 
 {{InteractiveExample("CSS Demo: text-emphasis-position")}}
 
@@ -89,29 +89,29 @@ text-emphasis-position: unset;
 
 Die Eigenschaft akzeptiert einen oder zwei Werte:
 
-- Wenn nur ein Wert angegeben wird, kann er `auto`, `over` oder `under` sein. Wenn nur `over` oder `under` verwendet wird, wird `right` als Standardposition angenommen.
-- Wenn zwei Werte angegeben werden, müssen sie jeweils einen der Werte `over` oder `under` sowie einen der Werte `right` oder `left` enthalten. Ihre Reihenfolge spielt keine Rolle.
+- Wird nur ein Wert angegeben, kann dieser `auto`, `over` oder `under` sein. Wenn nur `over` oder `under` verwendet wird, gilt `right` als Standardposition.
+- Werden zwei Werte angegeben, müssen sie einen der Werte `over` oder `under` und einen der Werte `right` oder `left` enthalten. Die Reihenfolge spielt keine Rolle.
 
-Die Werte umfassen:
+Die Werte sind:
 
 - `auto`
-  - : Zeichnet Markierungen über dem Text im horizontalen Schreibmodus und rechts vom Text im vertikalen Schreibmodus.
+  - : Stellt die Zeichen bei horizontaler Schreibrichtung über dem Text und bei vertikaler Schreibrichtung rechts vom Text dar.
 - `over`
-  - : Zeichnet Markierungen über dem Text im horizontalen Schreibmodus.
+  - : Stellt die Zeichen bei horizontaler Schreibrichtung über dem Text dar.
 - `under`
-  - : Zeichnet Markierungen unter dem Text im horizontalen Schreibmodus.
+  - : Stellt die Zeichen bei horizontaler Schreibrichtung unter dem Text dar.
 - `right`
-  - : Zeichnet Markierungen rechts vom Text im vertikalen Schreibmodus.
+  - : Stellt die Zeichen bei vertikaler Schreibrichtung rechts vom Text dar.
 - `left`
-  - : Zeichnet Markierungen links vom Text im vertikalen Schreibmodus.
+  - : Stellt die Zeichen bei vertikaler Schreibrichtung links vom Text dar.
 
 ## Beschreibung
 
-Die bevorzugte Position von Betonungszeichen hängt von der Sprache ab. Im Japanischen ist beispielsweise `over right` die bevorzugte Position. Im Chinesischen hingegen ist `under right` die bevorzugte Position. Die folgende informative Tabelle fasst die bevorzugten Positionen für Betonungszeichen im Chinesischen, Mongolischen und Japanischen zusammen:
+Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im Japanischen ist beispielsweise `over right` die bevorzugte Position. Im Chinesischen ist dagegen `under right` die bevorzugte Position. Die folgende Tabelle fasst die bevorzugten Positionen von Hervorhebungszeichen für Chinesisch, Mongolisch und Japanisch zusammen:
 
 <table>
   <caption>
-    Bevorzugte Position für Betonungszeichen und ruby
+    Bevorzugte Position von Hervorhebungszeichen und Ruby-Text
   </caption>
   <thead>
     <tr>
@@ -131,16 +131,16 @@ Die bevorzugte Position von Betonungszeichen hängt von der Sprache ab. Im Japan
       <td rowspan="3">right</td>
       <td rowspan="3">
         <img
-          alt="Betonungszeichen erscheinen über jedem betonten Zeichen in horizontalem japanischem Text."
+          alt="Hervorhebungszeichen erscheinen über jedem hervorgehobenen Zeichen in horizontal geschriebenem japanischem Text."
           src="text-emphasis-ja.png"
-          title="Betonung (zur besseren Erkennbarkeit blau dargestellt), die über einem Ausschnitt japanischen Textes angewendet wird"
+          title="Hervorhebung (zur besseren Erkennbarkeit blau dargestellt) über einem japanischen Textabschnitt"
         />
       </td>
       <td rowspan="4">
         <img
-          alt="Betonungszeichen erscheinen rechts von jedem betonten Zeichen in vertikalem japanischem Text."
+          alt="Hervorhebungszeichen erscheinen rechts neben jedem hervorgehobenen Zeichen in vertikal geschriebenem japanischem Text."
           src="text-emphasis-v.gif"
-          title="Betonung, die rechts von einem Ausschnitt japanischen Textes angewendet wird"
+          title="Hervorhebung rechts neben einem japanischen Textabschnitt"
         />
       </td>
     </tr>
@@ -156,9 +156,9 @@ Die bevorzugte Position von Betonungszeichen hängt von der Sprache ab. Im Japan
       <td>right</td>
       <td>
         <img
-          alt="Betonungszeichen erscheinen unter jedem betonten Zeichen in horizontalem vereinfachtem chinesischem Text."
+          alt="Hervorhebungszeichen erscheinen unter jedem hervorgehobenen Zeichen in horizontal geschriebenem vereinfachtem Chinesisch."
           src="text-emphasis-zh.gif"
-          title="Betonung (zur besseren Erkennbarkeit blau dargestellt), die unter einem Ausschnitt chinesischen Textes angewendet wird"
+          title="Hervorhebung (zur besseren Erkennbarkeit blau dargestellt) unter einem chinesischen Textabschnitt"
         />
       </td>
     </tr>
@@ -166,7 +166,7 @@ Die bevorzugte Position von Betonungszeichen hängt von der Sprache ab. Im Japan
 </table>
 
 > [!NOTE]
-> `text-emphasis-position` kann nicht mit der Kurzform-Eigenschaft {{cssxref("text-emphasis")}} festgelegt und daher auch nicht zurückgesetzt werden.
+> `text-emphasis-position` kann nicht über die Kurzschreibweise {{cssxref("text-emphasis")}} festgelegt werden und wird daher durch sie auch nicht zurückgesetzt.
 
 ## Formale Definition
 
@@ -178,9 +178,9 @@ Die bevorzugte Position von Betonungszeichen hängt von der Sprache ab. Im Japan
 
 ## Beispiele
 
-### Positionen für Betonungszeichen hinzufügen
+### Positionen von Hervorhebungszeichen festlegen
 
-Verwenden Sie das Dropdown-Menü, um die Position der Betonungszeichen zu ändern. Dadurch wird die Klasse des `<section>`-Elements geändert, wodurch wiederum die Position der Betonungszeichen im Text aktualisiert wird.
+Verwenden Sie das Dropdown-Menü, um die Position der Hervorhebungszeichen zu ändern. Dadurch ändert sich die Klasse des `<section>`-Elements, wodurch wiederum die Position der Hervorhebungszeichen im Text aktualisiert wird.
 
 #### HTML
 
@@ -266,13 +266,13 @@ position.addEventListener("change", updateClass);
 
 #### Ergebnis
 
-Verwenden Sie das Dropdown-Menü „Betonungsposition“, um den Ort der Betonungszeichen auszuwählen. Die Option `preferred` im Dropdown-Menü verwendet die bevorzugten Positionen, wie im Abschnitt [Beschreibung](#beschreibung) erläutert.
+Verwenden Sie das Dropdown-Menü „Emphasis position“, um die Position der Hervorhebungszeichen auszuwählen. Die Option `preferred` verwendet die bevorzugten Positionen, wie im Abschnitt [Beschreibung](#beschreibung) erläutert.
 
-{{EmbedLiveSample("Emphasis_mark_positions", 450, 250)}}
+{{EmbedLiveSample("adding_emphasis_mark_positions", 450, 250)}}
 
-### ruby gegenüber Betonungszeichen bevorzugen
+### Ruby-Text gegenüber Hervorhebungszeichen bevorzugen
 
-Einige Editoren ziehen es vor, Betonungszeichen auszublenden, wenn sie mit ruby in Konflikt stehen. In HTML kann dies mit der folgenden Stilregel erfolgen:
+Manche Redaktionen ziehen es vor, Hervorhebungszeichen auszublenden, wenn sie mit Ruby-Text kollidieren. In HTML lässt sich dies mit der folgenden Stilregel erreichen:
 
 ```css
 ruby {
@@ -280,9 +280,9 @@ ruby {
 }
 ```
 
-### Betonungszeichen gegenüber ruby bevorzugen
+### Hervorhebungszeichen gegenüber Ruby-Text bevorzugen
 
-Andere Editoren ziehen es vor, ruby auszublenden, wenn es mit Betonungszeichen in Konflikt steht. In HTML kann dies mit dem folgenden Muster erfolgen:
+Andere Redaktionen ziehen es vor, Ruby-Text auszublenden, wenn er mit Hervorhebungszeichen kollidiert. In HTML lässt sich dies mit dem folgenden Muster erreichen:
 
 ```css
 em {
@@ -307,5 +307,5 @@ em rt {
 - {{cssxref("text-underline-position")}}
 - {{cssxref("text-emphasis-style")}}
 - {{cssxref("text-emphasis-color")}}
-- Kurzform-Eigenschaft {{cssxref("text-emphasis")}}
+- {{cssxref("text-emphasis")}}-Kurzschreibweise
 - {{cssxref("writing-mode")}}

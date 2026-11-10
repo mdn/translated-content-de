@@ -1,22 +1,23 @@
 ---
-title: Seite zur Liste der Buchinstanzen
+title: Liste der Buchexemplare
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_list_page
 l10n:
-  sourceCommit: 8443cb34d9944d8eb8e2c5add598bec26ed6d21f
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
 
-Als Nächstes implementieren wir unsere Liste aller Buchkopien (`BookInstance`) in der Bibliothek. Diese Seite muss den Titel des mit jeder `BookInstance` verknüpften `Book` (verlinkt mit seiner Detailseite) sowie weitere Informationen im `BookInstance` Modell enthalten, einschließlich des Status, des Druckvermerks und der eindeutigen ID jeder Kopie. Der Text der eindeutigen ID sollte mit der Detailseite der `BookInstance` verlinkt sein.
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}
+
+Als Nächstes implementieren wir die Liste aller Buchexemplare (`BookInstance`) in der Bibliothek. Die Seite soll für jedes Exemplar den Titel des zugehörigen `Book` (mit einem Link zu dessen Detailseite) sowie weitere Informationen aus dem `BookInstance`-Modell anzeigen: Status, Impressum und eindeutige ID. Die eindeutige ID soll mit der Detailseite der jeweiligen `BookInstance` verlinkt sein.
 
 ## Controller
 
-Die `BookInstance` Listen-Controller-Funktion muss eine Liste aller Buchinstanzen abrufen, die zugehörigen Buchinformationen einfügen und dann die Liste zur Template-Renderung übergeben.
+Die Controller-Funktion für die `BookInstance`-Liste muss alle Buchexemplare abrufen, die zugehörigen Buchinformationen laden und die Liste zur Darstellung an das Template übergeben.
 
-Öffnen Sie `/controllers/bookinstanceController.js`.
-Suchen Sie die exportierte `bookinstance_list()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Öffnen Sie **controllers/bookinstanceController.js**. Suchen Sie die exportierte Controller-Methode `bookInstanceList()` und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display list of all BookInstances.
-exports.bookinstance_list = async (req, res, next) => {
+export const bookInstanceList = async (req, res, next) => {
   const allBookInstances = await BookInstance.find().populate("book").exec();
 
   res.render("bookinstance_list", {
@@ -26,17 +27,15 @@ exports.bookinstance_list = async (req, res, next) => {
 };
 ```
 
-Der Routinen-Handler ruft die `find()` Funktion auf dem `BookInstance` Modell auf und reiht danach einen Aufruf von `populate()` mit dem `book` Feld ein—dies wird die im `BookInstance` gespeicherte Buch-ID durch ein vollständiges `Book` Dokument ersetzen.
-`exec()` wird dann am Ende angehängt, um die Abfrage auszuführen und ein Versprechen zurückzugeben.
+Der Route-Handler ruft `find()` für das `BookInstance`-Modell auf und verkettet anschließend einen Aufruf von `populate()` für das Feld `book`. Dadurch wird die für jede `BookInstance` gespeicherte Buch-ID durch ein vollständiges `Book`-Dokument ersetzt. Abschließend wird `exec()` angehängt, um die Abfrage auszuführen und ein Promise zurückzugeben.
 
-Der Routinen-Handler verwendet `await`, um auf das Versprechen zu warten und die Ausführung zu pausieren, bis es erfüllt ist.
-Wenn das Versprechen erfüllt wird, werden die Ergebnisse der Abfrage in der Variablen `allBookInstances` gespeichert, und der Routinen-Handler setzt die Ausführung fort.
+Der Route-Handler wartet mit `await`, bis das Promise erfüllt oder abgelehnt wurde, und hält bis dahin die Ausführung an. Wenn das Promise erfüllt wird, werden die Abfrageergebnisse in der Variablen `allBookInstances` gespeichert und der Route-Handler setzt die Ausführung fort.
 
-Der letzte Teil des Codes ruft `render()` auf, spezifiziert das **bookinstance_list** (.pug) Template und übergibt Werte für `title` und `bookinstance_list` in das Template.
+Im letzten Teil des Codes wird `render()` aufgerufen. Dabei wird das Template **bookinstance_list** (.pug) angegeben und es werden Werte für `title` und `bookinstance_list` an das Template übergeben.
 
-## Ansicht
+## View
 
-Erstellen Sie **/views/bookinstance_list.pug** und kopieren Sie den unten stehenden Text hinein.
+Erstellen Sie **views/bookinstance_list.pug** und fügen Sie den folgenden Text ein.
 
 ```pug
 extends layout
@@ -56,21 +55,54 @@ block content
           else
             span.text-warning #{val.status}
           if val.status!='Available'
-            span  (Due: #{val.due_back} )
+            span  (Due: #{val.due_back})
 
   else
     p There are no book copies in this library.
 ```
 
-Diese Ansicht ist fast wie alle anderen. Sie erweitert das Layout, ersetzt den _content_ Block, zeigt den vom Controller übernommenen `title` an und iteriert durch alle Buchkopien in `bookinstance_list`. Für jede Kopie zeigen wir ihren Status (farblich kodiert) und, wenn das Buch nicht verfügbar ist, das erwartete Rückgabedatum an. Eine neue Funktion wird eingeführt—wir können nach einem Tag Punktnotation verwenden, um eine Klasse zuzuweisen. So wird `span.text-success` zu `<span class="text-success">` kompiliert (und könnte in Pug auch als `span(class="text-success")` geschrieben werden).
+Diese View ähnelt den anderen. Sie erweitert das Layout, ersetzt den Block _content_, zeigt den vom Controller übergebenen `title` an und durchläuft alle Buchexemplare in `bookinstance_list`. Für jedes Exemplar zeigen wir den Status farblich hervorgehoben an und, falls das Buch nicht verfügbar ist, das voraussichtliche Rückgabedatum. Neu ist, dass wir einem Tag mit der Punktnotation eine Klasse zuweisen können. `span.text-success` wird beispielsweise zu `<span class="text-success">` kompiliert (und könnte in Pug auch als `span(class="text-success")` geschrieben werden).
 
-## Wie sieht es aus?
+## Datumsangaben formatieren
 
-Starten Sie die Anwendung, öffnen Sie Ihren Browser unter `http://localhost:3000/` und wählen Sie den Link _All book-instances_. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite in etwa wie der folgende Screenshot aussehen.
+Die standardmäßige Darstellung von Datumsangaben aus unseren Modellen ist wenig ansprechend: _Mon Apr 10 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time)_. In diesem Abschnitt zeigen wir, wie Sie die Seite mit der _BookInstance-Liste_ aus dem vorherigen Abschnitt so aktualisieren, dass das Feld `due_back` in einem lesefreundlicheren Format angezeigt wird: _Apr 10, 2020_.
 
-![BookInstance List Page - Express Local Library site](locallibary_express_bookinstance_list.png)
+Dazu erstellen wir in unserem `BookInstance`-Modell eine virtuelle Eigenschaft, die das formatierte Datum zurückgibt. Für die Formatierung verwenden wir {{jsxref("Intl")}}.
 
-## Nächste Schritte
+> [!NOTE]
+> Sie könnten die Zeichenfolgen auch direkt in den Pug-Templates oder an einer anderen Stelle formatieren. Mit einer virtuellen Eigenschaft können wir das formatierte Datum jedoch genauso abrufen wie bisher `due_back`.
 
-- Zurück zu [Express Tutorial Part 5: Anzeigen von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie mit dem nächsten Unterartikel von Teil 5 fort: [Datumsformatierung mit luxon](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Date_formatting_using_moment).
+Öffnen Sie **models/bookinstance.js**. Fügen Sie die virtuelle Eigenschaft `due_back_formatted` direkt nach der URL-Eigenschaft hinzu.
+
+```js
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+BookInstanceSchema.virtual("due_back_formatted").get(function () {
+  return dateFormatter.format(this.due_back);
+});
+```
+
+Datumsangaben im Format `YYYY-MM-DD` (wie sie später von unseren Formularen eingegeben werden) werden als Mitternacht in UTC gespeichert. Deshalb setzen wir die Option `timeZone` auf `"UTC"`. Andernfalls würden diese Daten in der lokalen Zeitzone des Servers angezeigt und auf Servern westlich von UTC um einen Tag zu früh erscheinen.
+
+Öffnen Sie **views/bookinstance_list.pug** und ersetzen Sie `due_back` durch `due_back_formatted`.
+
+```pug
+      if val.status != 'Available'
+        //span  (Due: #{val.due_back})
+        span  (Due: #{val.due_back_formatted})
+```
+
+Das war's. Wenn Sie in der Seitenleiste _All book-instances_ auswählen, sollten die Rückgabedaten nun deutlich ansprechender aussehen!
+
+## Wie sieht das Ergebnis aus?
+
+Starten Sie die Anwendung, öffnen Sie `http://localhost:3000/` in Ihrem Browser und wählen Sie den Link _All book-instances_. Wenn alles richtig eingerichtet ist, sollte Ihre Website ungefähr wie auf dem folgenden Screenshot aussehen.
+
+![Listenseite der Buchexemplare – Express Local Library](locallibary_express_bookinstance_list.png)
+
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Book_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_list_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}

@@ -3,12 +3,12 @@ title: "Observable: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/Observable/forEach
 l10n:
-  sourceCommit: bacd00c353f643d8f5be0ce769015b1a66b4251a
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("Observable API")}}{{SeeCompatTable}}
 
-Die **`forEach()`**-Methode des [`Observable`](/de/docs/Web/API/Observable)-Interfaces gibt ein Promise zurück, das mit {{jsxref("undefined")}} erfüllt wird, wenn das Quell-Observable abgeschlossen ist. Zuvor wird für jeden ausgegebenen Wert eine Callback-Funktion ausgeführt.
+Die **`forEach()`**-Methode der [`Observable`](/de/docs/Web/API/Observable)-Schnittstelle gibt ein Promise zurück, das mit {{jsxref("undefined")}} erfüllt wird, wenn das Quell-Observable abgeschlossen ist. Zuvor führt die Methode für jeden ausgegebenen Wert eine Callback-Funktion aus.
 
 ## Syntax
 
@@ -26,23 +26,23 @@ forEach(callback, options)
     - `index`
       - : Der Index des aktuell verarbeiteten Werts, beginnend bei `0`.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
+  - : Ein Optionsobjekt mit der folgenden Eigenschaft:
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem der Vorgang abgebrochen werden kann. Wird das Signal abgebrochen, wird das Abonnement der Quelle beendet und das Promise mit dem [`reason`](/de/docs/Web/API/AbortSignal/reason) des Signals zurückgewiesen. Ist das Signal bereits abgebrochen, wird das Promise zurückgewiesen, ohne die Quelle zu abonnieren.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem der Vorgang abgebrochen werden kann. Wenn das Signal abgebrochen wird, wird das Abonnement der Quelle beendet und das Promise mit dem [`reason`](/de/docs/Web/API/AbortSignal/reason) des Signals zurückgewiesen. Ist das Signal bereits abgebrochen, wird das Promise zurückgewiesen, ohne die Quelle zu abonnieren.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird, wenn das Quell-Observable abgeschlossen ist.
 
-Tritt bei der Quelle ein Fehler auf oder löst `callback` eine Ausnahme aus, wird das Promise mit diesem Fehler zurückgewiesen. Wird der Vorgang abgebrochen, wird das Promise mit dem Grund für den Abbruch zurückgewiesen.
+Wenn in der Quelle ein Fehler auftritt oder `callback` eine Ausnahme auslöst, wird das Promise mit diesem Fehler zurückgewiesen. Wird der Vorgang abgebrochen, wird das Promise mit dem Abbruchgrund zurückgewiesen.
 
 ## Beschreibung
 
-Wie andere Operatoren, die ein Promise zurückgeben, abonniert diese Methode die Quelle unmittelbar beim Aufruf. Ein separater Aufruf von [`subscribe()`](/de/docs/Web/API/Observable/subscribe) ist nicht erforderlich.
+Wie andere Operatoren, die ein Promise zurückgeben, abonniert diese Methode die Quelle unmittelbar beim Aufruf. Ein gesonderter Aufruf von [`subscribe()`](/de/docs/Web/API/Observable/subscribe) ist nicht erforderlich.
 
-`forEach()` ruft `callback` einmal für jeden Wert der Quelle auf. Wird die Quelle nie abgeschlossen, bleibt das Promise ausstehend, sofern kein Fehler auftritt oder der Vorgang abgebrochen wird.
+`forEach()` ruft `callback` für jeden Wert aus der Quelle einmal auf. Wenn die Quelle nie abgeschlossen wird, bleibt das Promise ausstehend, sofern kein Fehler auftritt oder der Vorgang abgebrochen wird.
 
-Der Rückgabewert von `callback` wird ignoriert. Zurückgegebene Promises werden nicht abgewartet, und ihre Zurückweisungen werden von `forEach()` nicht behandelt. Wenn Sie bei jedem Wert auf asynchrone Arbeit warten möchten, verwenden Sie [`flatMap()`](/de/docs/Web/API/Observable/flatMap), um ein Promise aus der Mapper-Funktion zurückzugeben.
+Der Rückgabewert von `callback` wird ignoriert. Auf zurückgegebene Promises wird nicht gewartet, und ihre Zurückweisungen werden von `forEach()` nicht behandelt. Um bei jedem Wert auf asynchrone Vorgänge zu warten, verwenden Sie [`flatMap()`](/de/docs/Web/API/Observable/flatMap) und geben Sie aus der Mapper-Funktion ein Promise zurück.
 
 Wenn `callback` eine Ausnahme auslöst, wird das Abonnement der Quelle beendet.
 
@@ -50,15 +50,15 @@ Wenn `callback` eine Ausnahme auslöst, wird das Abonnement der Quelle beendet.
 
 ### forEach() verwenden
 
-Dieses Beispiel zeigt die Koordinaten der ersten drei Klicks auf die Schaltfläche an und fügt anschließend eine Abschlussmeldung hinzu. Klicken Sie auf „Restart“, nachdem der Stream beendet wurde, um es erneut zu versuchen.
+Dieses Beispiel zeigt die Koordinaten der ersten drei Klicks auf die Schaltfläche an und fügt anschließend eine Abschlussmeldung hinzu. Klicken Sie nach dem Ende des Streams auf „Restart“, um es erneut zu versuchen.
 
-```html hidden live-sample___basic-forEach
+```html hidden live-sample___basic-foreach
 <button>Click me</button>
 <p>Waiting for clicks</p>
 <button id="restart" disabled>Restart</button>
 ```
 
-```js live-sample___basic-forEach
+```js live-sample___basic-foreach
 const btn = document.querySelector("button");
 const output = document.querySelector("p");
 

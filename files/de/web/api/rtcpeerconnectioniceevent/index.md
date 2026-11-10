@@ -2,34 +2,34 @@
 title: RTCPeerConnectionIceEvent
 slug: Web/API/RTCPeerConnectionIceEvent
 l10n:
-  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCPeerConnectionIceEvent`**-Schnittstelle repräsentiert Ereignisse, die im Zusammenhang mit {{Glossary("ICE", "ICE")}}-Kandidaten mit dem Ziel auftreten, normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+Die Schnittstelle **`RTCPeerConnectionIceEvent`** repräsentiert Ereignisse im Zusammenhang mit {{Glossary("ICE", "ICE")}}-Kandidaten, deren Ziel normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist.
 
-Nur ein Ereignis ist von diesem Typ: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
+Nur ein Ereignis gehört zu diesem Typ: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
 
 {{InheritanceDiagram}}
-
-## Instanz-Eigenschaften
-
-_Da ein `RTCPeerConnectionIceEvent` ein [`Event`](/de/docs/Web/API/Event) ist, implementiert dieses Ereignis auch diese Eigenschaften._
-
-- [`RTCPeerConnectionIceEvent.candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) {{ReadOnlyInline}}
-  - : Enthält den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der den mit dem Ereignis verknüpften Kandidaten enthält, oder `null`, wenn dieses Ereignis anzeigt, dass keine weiteren Kandidaten folgen werden.
-- [`RTCPeerConnectionIceEvent.url`](/de/docs/Web/API/RTCPeerConnectionIceEvent/url) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Enthält eine Zeichenkette, die die URL des {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Servers angibt, der verwendet wurde, um den Kandidaten zu sammeln, oder `null`, wenn der Kandidat nicht von einem Server gesammelt wurde.
 
 ## Konstruktoren
 
 - [`RTCPeerConnectionIceEvent()`](/de/docs/Web/API/RTCPeerConnectionIceEvent/RTCPeerConnectionIceEvent)
-  - : Gibt ein neues `RTCPeerConnectionIceEvent` zurück. Es nimmt zwei Parameter entgegen, der erste ist eine Zeichenkette, die den Typ des Ereignisses darstellt; der zweite ist ein Wörterbuch, das den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, auf den es sich bezieht.
+  - : Gibt ein neues `RTCPeerConnectionIceEvent` zurück. Der Konstruktor akzeptiert zwei Parameter: Der erste ist ein String, der den Ereignistyp angibt; der zweite ist ein Dictionary mit dem [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), auf den sich das Ereignis bezieht.
 
-## Instanz-Methoden
+## Instanzeigenschaften
 
-_Da ein `RTCPeerConnectionIceEvent` ein [`Event`](/de/docs/Web/API/Event) ist, implementiert dieses Ereignis auch diese Eigenschaften. Es gibt keine spezielle Methode für [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)._
+_Da `RTCPeerConnectionIceEvent` ein [`Event`](/de/docs/Web/API/Event) ist, verfügt es auch über dessen Eigenschaften._
+
+- [`RTCPeerConnectionIceEvent.candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) {{ReadOnlyInline}}
+  - : Enthält den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der den mit dem Ereignis verknüpften Kandidaten enthält, oder `null`, wenn dieses Ereignis anzeigt, dass keine weiteren Kandidaten folgen.
+- [`RTCPeerConnectionIceEvent.url`](/de/docs/Web/API/RTCPeerConnectionIceEvent/url) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Enthält einen String mit der URL des {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Servers, über den der Kandidat ermittelt wurde, oder `null`, wenn der Kandidat nicht über einen Server ermittelt wurde.
+
+## Instanzmethoden
+
+_Da `RTCPeerConnectionIceEvent` ein [`Event`](/de/docs/Web/API/Event) ist, verfügt es auch über dessen Methoden. Es gibt keine spezifische Methode für [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)._
 
 ## Beispiele
 
@@ -52,4 +52,4 @@ pc.onicecandidate = (ev) => {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Das übliche Ziel: [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+- Das übliche Ziel des Ereignisses: [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).

@@ -2,29 +2,29 @@
 title: Comment
 slug: Web/API/Comment
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{ ApiRef("DOM") }}
 
-Das **`Comment`**-Interface repräsentiert textuelle Notizen innerhalb von Markup; obwohl es im Allgemeinen nicht visuell angezeigt wird, sind solche Kommentare im Quellansichtsmodus lesbar.
+Die **`Comment`**-Schnittstelle repräsentiert textuelle Anmerkungen innerhalb von Markup. Obwohl sie in der Regel nicht visuell angezeigt werden, können solche Kommentare in der Quelltextansicht gelesen werden.
 
-Kommentare werden in HTML und XML als Inhalt zwischen `<!--` und `-->` dargestellt. In XML, z. B. innerhalb von SVG- oder MathML-Markup, kann die Zeichenfolge `--` nicht innerhalb eines Kommentars verwendet werden.
+In HTML und XML stehen Kommentare zwischen `<!--` und `-->`. In XML, etwa innerhalb von SVG- oder MathML-Markup, darf die Zeichenfolge `--` nicht innerhalb eines Kommentars verwendet werden.
 
 {{InheritanceDiagram}}
-
-## Instanz-Eigenschaften
-
-_Dieses Interface besitzt keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften seines Elternteils, [`CharacterData`](/de/docs/Web/API/CharacterData), und indirekt die von [`Node`](/de/docs/Web/API/Node)._
 
 ## Konstruktor
 
 - [`Comment()`](/de/docs/Web/API/Comment/Comment)
-  - : Gibt ein neues `Comment`-Objekt mit dem Parameter als seinem Textinhalt zurück. Wenn der Parameter nicht vorhanden ist, ist der Standardwert der leere String, `''`.
+  - : Gibt ein neues `Comment`-Objekt zurück, dessen Textinhalt dem übergebenen Parameter entspricht. Wird kein Parameter übergeben, ist der Standardwert die leere Zeichenfolge `''`.
 
-## Instanz-Methoden
+## Instanzeigenschaften
 
-_Dieses Interface besitzt keine spezifischen Methoden, erbt jedoch die Methoden seines Elternteils, [`CharacterData`](/de/docs/Web/API/CharacterData), und indirekt die von [`Node`](/de/docs/Web/API/Node)._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt aber die Eigenschaften ihrer übergeordneten Schnittstelle [`CharacterData`](/de/docs/Web/API/CharacterData) und mittelbar die von [`Node`](/de/docs/Web/API/Node)._
+
+## Instanzmethoden
+
+_Diese Schnittstelle hat keine eigenen Methoden, erbt aber die Methoden ihrer übergeordneten Schnittstelle [`CharacterData`](/de/docs/Web/API/CharacterData) und mittelbar die von [`Node`](/de/docs/Web/API/Node)._
 
 ## Spezifikationen
 

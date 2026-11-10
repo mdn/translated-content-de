@@ -3,12 +3,12 @@ title: "MathMLElement: blur()-Methode"
 short-title: blur()
 slug: Web/API/MathMLElement/blur
 l10n:
-  sourceCommit: 7ef48e3e54f5003f735eafd4bd3a0c2aedb21c27
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("MathML")}}
 
-Die **`blur()`**-Methode der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle entfernt den Tastaturfokus vom aktuellen MathML-Element.
+Die Methode **`blur()`** der Schnittstelle [`MathMLElement`](/de/docs/Web/API/MathMLElement) entfernt den Tastaturfokus vom aktuellen MathML-Element.
 
 ## Syntax
 
@@ -63,7 +63,7 @@ blurButton.addEventListener("click", () => {
 
 ### Ergebnis
 
-{{EmbedLiveSample("blur",100,100)}}
+{{EmbedLiveSample("remove_focus_from_a_mathml_element",100,100)}}
 
 ## Spezifikationen
 

@@ -1,24 +1,24 @@
 ---
-title: "CSSFontPaletteValuesRule: overrideColors-Eigenschaft"
+title: "CSSFontPaletteValuesRule: Eigenschaft overrideColors"
 short-title: overrideColors
 slug: Web/API/CSSFontPaletteValuesRule/overrideColors
 l10n:
-  sourceCommit: 72af34c38ae0d97bc3c9bde4998d538bcc56634a
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte Eigenschaft **`overrideColors`** der Schnittstelle [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule) ist ein String mit einer Liste von Farbindizes und Farbwerten, die stattdessen verwendet werden sollen. Sie hat dasselbe Format wie der entsprechende Deskriptor {{cssxref("@font-palette-values/override-colors", "override-colors")}}.
+Die schreibgeschützte Eigenschaft **`overrideColors`** der Schnittstelle [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule) ist ein String mit einer Liste von Paaren aus Farbindex und Farbe, die stattdessen verwendet werden sollen. Sie wird im selben Format wie der entsprechende Deskriptor {{cssxref("@font-palette-values/override-colors", "override-colors")}} angegeben.
 
 ## Wert
 
-Ein String mit einer durch Kommas getrennten Liste von Farbindizes und Farbwerten.
+Ein String mit einer durch Kommas getrennten Liste von Paaren aus Farbindex und Farbe.
 
 ## Beispiele
 
-### Überschriebene Farben auslesen
+### Die überschriebene Farbe auslesen
 
-In diesem Beispiel werden zunächst einige At-Regeln definiert, darunter zwei {{cssxref("@font-palette-values")}}-Regeln. Die MDN-Infrastruktur für [interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) fasst alle CSS-Blöcke des Beispiels zu einem einzigen Inline-Stylesheet mit der ID `css-output` zusammen. Daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
+Dieses Beispiel definiert zunächst einige At-Rules, darunter zwei {{cssxref("@font-palette-values")}}. Die Infrastruktur für [interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) von MDN fasst alle CSS-Blöcke des Beispiels in einem einzigen Inline-Stylesheet mit der ID `css-output` zusammen. Daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
 
 #### HTML
 
@@ -89,7 +89,7 @@ button.addEventListener("click", (event) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Read the overridden colors", "100", "125")}}
+{{EmbedLiveSample("read_the_overridden_color", "100", "125")}}
 
 ## Spezifikationen
 
@@ -101,5 +101,5 @@ button.addEventListener("click", (event) => {
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}}-At-Regel
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor
+- At-Rule {{cssxref("@font-palette-values")}}
+- Deskriptor {{cssxref("@font-palette-values/override-colors", "override-colors")}}

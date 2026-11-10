@@ -3,12 +3,12 @@ title: "`interactivity` CSS property"
 short-title: interactivity
 slug: Web/CSS/Reference/Properties/interactivity
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: c4e64810ce10fb5cb1eebfcd8b6f526866fd0982
 ---
 
 {{seecompattable}}
 
-Die **`interactivity`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, ob ein Element und seine Nachkommensknoten als [inert](/de/docs/Web/HTML/Reference/Global_attributes/inert) festgelegt sind.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`interactivity`** legt fest, ob ein Element und seine Nachfahren [inert](/de/docs/Web/HTML/Reference/Global_attributes/inert) sind.
 
 ## Syntax
 
@@ -27,13 +27,36 @@ interactivity: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte spezifiziert:
+Diese Eigenschaft wird mit einem der folgenden Schlüsselwortwerte angegeben:
 
 - `auto`
-  - : Ausgewählte Elemente befinden sich in ihrem Standardzustand in Bezug auf Inertheit. Dies bedeutet in der Regel, dass sie interaktiv sind, aber das ist [nicht immer der Fall](#standard-inertheit). Dies ist der Standardwert.
+  - : Ausgewählte Elemente befinden sich hinsichtlich ihrer Inertheit im Standardzustand. In der Regel bedeutet das, dass sie interaktiv sind, aber das ist [nicht immer der Fall](#standardmäßige_inertheit). Dies ist der Standardwert.
 
 - `inert`
-  - : Ausgewählte Elemente und ihre Nachkommen sind inert.
+  - : Ausgewählte Elemente und ihre Nachfahren sind inert.
+
+## Beschreibung
+
+Mit der Eigenschaft `interactivity` lässt sich festlegen, ob ein Element und seine Nachfahren inert sind. Eine ausführliche Beschreibung dieses Zustands finden Sie auf der Referenzseite zum HTML-Attribut [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert).
+
+Ein typischer Anwendungsfall für `interactivity: inert` sind seitenweise dargestellte Inhalte, etwa in Karussells, wenn nur mit den Inhalten und Steuerelementen der aktuell sichtbaren Seite interagiert werden soll. In solchen Fällen könnte es die Nutzung beeinträchtigen, wenn ein Link oder Button außerhalb des sichtbaren Bereichs unerwartet den Fokus erhält.
+
+Wenn der inerte Zustand eines Elements gleichzeitig durch HTML (das Attribut `inert` oder eine automatische Browsereinstellung) und CSS (die Eigenschaft `interactive`) festgelegt wird, hat CSS keine Wirkung – es kann die durch HTML festgelegte Inertheit nicht überschreiben.
+
+Das folgende HTML-Element ist beispielsweise inert:
+
+```html
+<button inert>You can't press me</button>
+```
+
+Wird darauf `interactive: auto` gesetzt, hat dies keine Wirkung.
+
+### Standardmäßige Inertheit
+
+Die meisten Elemente sind standardmäßig interaktiv, aber das ist nicht immer der Fall:
+
+- Ein Vorfahre eines Elements kann über die Eigenschaft `interactive` oder das Attribut `inert` in einen inerten Zustand versetzt worden sein.
+- Während ein modales {{htmlelement("dialog")}} angezeigt wird, wird der Rest der Seite automatisch in einen inerten Zustand versetzt.
 
 ## Formale Definition
 
@@ -43,34 +66,11 @@ Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte spezifiziert:
 
 {{csssyntax}}
 
-## Beschreibung
-
-Die `interactivity`-Eigenschaft kann verwendet werden, um festzulegen, ob ein Element und seine Nachkommen inert sind. Siehe die HTML-[`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)-Attributreferenzseite für eine detaillierte Beschreibung des inert-Zustands.
-
-Ein typischer Anwendungsfall für `interactivity: inert` ist bei paginierten Inhalten, wie Karussells, wenn Sie möchten, dass nur der derzeit sichtbare Inhalt und die Steuerelemente interaktiv sind. In solchen Fällen könnte das unerwartete Fokussieren auf einen nicht sichtbaren Link oder Knopf das Erlebnis beeinträchtigen.
-
-Wenn der inert-Zustand eines Elements sowohl durch HTML (das `inert`-Attribut oder eine automatische Browsereinstellung) als auch durch CSS (die `interactive`-Eigenschaft) gleichzeitig spezifiziert ist, hat das CSS keinen Einfluss – es kann die Inertheit von HTML nicht überschreiben.
-
-Zum Beispiel wird das folgende HTML-Element inert sein:
-
-```html
-<button inert>You can't press me</button>
-```
-
-Das Setzen von `interactive: auto` darauf hat keinen Effekt.
-
-### Standard-Inertheit
-
-Die meisten Elemente sind standardmäßig interaktiv, aber das ist nicht immer der Fall:
-
-- Ein Vorfahre eines Elements kann auf einen inert-Zustand gesetzt sein, über die `interactive`-Eigenschaft oder das `inert`-Attribut.
-- Während ein modales {{htmlelement("dialog")}} angezeigt wird, wird der Rest der Seite automatisch in einen inert-Zustand gesetzt.
-
 ## Beispiele
 
 ### Grundlegende Verwendung von `interactivity`
 
-In diesem Beispiel haben wir zwei {{htmlelement("input")}}-Elemente. Das zweite hat `interactivity: inert` über eine Klasse gesetzt und ist daher in unterstützten Browsern nicht fokussierbar oder bearbeitbar.
+In diesem Beispiel gibt es zwei {{htmlelement("input")}}-Elemente. Für das zweite ist über eine Klasse `interactivity: inert` festgelegt. In unterstützenden Browsern kann es daher weder den Fokus erhalten noch bearbeitet werden.
 
 ```html live-sample___basic-interactivity
 <p>
@@ -96,17 +96,17 @@ In diesem Beispiel haben wir zwei {{htmlelement("input")}}-Elemente. Das zweite 
 
 #### Ergebnis
 
-Die Ausgabe sieht folgendermaßen aus:
+Die Ausgabe sieht wie folgt aus:
 
 {{ EmbedLiveSample("basic-interactivity", "100%", "100") }}
 
-### Untersuchung der Effekte der Inertheit
+### Auswirkungen der Inertheit untersuchen
 
-In diesem Beispiel untersuchen wir die Effekte der `interactivity`-Eigenschaft.
+In diesem Beispiel untersuchen wir die Auswirkungen der Eigenschaft `interactivity`.
 
 #### HTML
 
-Das Markup enthält zwei {{htmlelement("p")}}-Elemente, von denen jedes einen Link enthält. Der zweite Absatz hat auch eine Klasse `inert` darauf gesetzt sowie ein Kind-{{htmlelement("span")}}-Element mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), um es bearbeitbar zu machen.
+Das Markup enthält zwei {{htmlelement("p")}}-Elemente, die jeweils einen Link enthalten. Dem zweiten Absatz ist außerdem die Klasse `inert` zugewiesen. Er enthält ein {{htmlelement("span")}}-Kindelement, bei dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) gesetzt ist, damit es bearbeitet werden kann.
 
 ```html-nolint live-sample___inertness-effects
 <p>
@@ -140,7 +140,7 @@ Das Markup enthält zwei {{htmlelement("p")}}-Elemente, von denen jedes einen Li
 
 #### CSS
 
-Wir setzen die `interactivity`-Eigenschaft auf dem zweiten Absatz auf einen Wert von `inert`, was ihn inert macht. Das bedeutet, dass Sie den `contenteditable`-Text im ersten Absatz bearbeiten können sollten, nicht aber im zweiten, und dass Sie im zweiten Absatz keinen Text suchen, auswählen oder mit dem Link interagieren können sollten.
+Wir setzen die Eigenschaft `interactivity` des zweiten Absatzes auf `inert`. Dadurch wird er inert. Das bedeutet, dass Sie den `contenteditable`-Text im ersten Absatz bearbeiten können sollten, nicht jedoch den im zweiten. Außerdem sollten Sie im zweiten Absatz weder nach Text suchen oder Text auswählen noch mit dem Link interagieren können.
 
 ```css live-sample___inertness-effects
 .inert {
@@ -171,7 +171,7 @@ p {
 
 #### JavaScript
 
-Wir setzen einen Ereignis-Handler auf jeden Absatz, der einen Klassennamen umschaltet, wenn darauf geklickt wird, den Klassennamen hinzufügt und dann die Klasse nach zwei Sekunden wieder entfernt.
+Wir legen für jeden Absatz einen Ereignis-Handler fest, der beim Klicken einen Klassennamen hinzufügt und die Klasse nach zwei Sekunden wieder entfernt.
 
 ```js live-sample___inertness-effects
 const paras = document.querySelectorAll("p");
@@ -193,15 +193,15 @@ for (para of paras) {
 
 {{ EmbedLiveSample("inertness-effects", "100%", "380") }}
 
-Beachten Sie, wie der zweite Absatz inert ist; daher verhält er sich nicht wie der erste. Beispielsweise kann der Link nicht geklickt oder fokussiert werden, der Text kann nicht ausgewählt oder durchsucht werden, das `contenteditable`-`<span>` ist nicht bearbeitbar, und `click`-Ereignisse werden nicht darauf registriert.
+Beachten Sie, dass der zweite Absatz inert ist und sich deshalb anders verhält als der erste. Beispielsweise kann der Link weder angeklickt werden noch den Fokus erhalten, der Text kann weder ausgewählt noch durchsucht werden, das `contenteditable`-`<span>` kann nicht bearbeitet werden und `click`-Ereignisse werden darauf nicht registriert.
 
-### Setzen von nicht sichtbaren Elementen auf inert mit einer Ansicht-Zeitachse
+### Elemente außerhalb des sichtbaren Bereichs mit einer View-Timeline inert machen
 
-Dieses Beispiel zeigt horizontal scrollenden paginierten Inhalt, bei dem jede Seite mithilfe von [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) eingerastet wird, und die Inertheit wird über eine [scroll-driven Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) gesteuert, die eine [Ansichtsfortschrittszeitachse](/de/docs/Web/CSS/Reference/Properties/view-timeline-name) verwendet. Inhalt, der im {{Glossary("scroll_container", "Scroll-Container")}} angezeigt wird, ist interaktiv; er wird inert, wenn er in den überlaufenden Inhalt hinausgeht.
+Dieses Beispiel zeigt horizontal scrollende, seitenweise dargestellte Inhalte. Jede Seite rastet mithilfe von [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) ein. Die Inertheit wird durch eine [scrollgesteuerte Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) gesteuert, die eine [View-Progress-Timeline](/de/docs/Web/CSS/Reference/Properties/view-timeline-name) verwendet. Inhalte, die im {{Glossary("scroll_container", "Scroll-Container")}} angezeigt werden, sind interaktiv. Sobald sie aus dem sichtbaren Bereich in den überlaufenden Inhalt verschoben werden, werden sie inert.
 
 #### HTML
 
-Das HTML besteht aus einer Überschrift auf oberster Ebene und einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elements/ul) mit vier [Listenelementen](/de/docs/Web/HTML/Reference/Elements/li), die jeweils den Inhalt für eine separate Seite enthalten.
+Das HTML besteht aus einer übergeordneten [Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) und einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elements/ul) mit vier [Listeneinträgen](/de/docs/Web/HTML/Reference/Elements/li), die jeweils den Inhalt einer eigenen Seite enthalten.
 
 ```html live-sample___offscreen-inert
 <h1>Pagination interactivity demo</h1>
@@ -235,7 +235,7 @@ Das HTML besteht aus einer Überschrift auf oberster Ebene und einer [ungeordnet
 
 #### CSS
 
-Ein {{cssxref("width")}} von `100vw` wird auf die ungeordnete Liste gesetzt, um sie so breit wie das Ansichtsfenster zu machen. Wir fügen eine feste {{cssxref("height")}}, etwas {{cssxref("padding")}} und einen {{cssxref("overflow-x")}}-Wert von `scroll` hinzu, damit überlaufender Inhalt scrollt. Die untergeordneten Listenelemente werden horizontal mit {{cssxref("display", "display: flex")}} angeordnet. Dieser Flex-Container erhält einen {{cssxref("scroll-snap-type")}}-Wert von `x mandatory`, um ihn in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} zu verwandeln. Das Schlüsselwort `x` verursacht, dass die {{Glossary("Scroll_snap#snap_target", "Snap-Ziele")}} des Containers horizontal eingerastet werden. Das Schlüsselwort `mandatory` bedeutet, dass der Container immer an ein Snap-Ziel am Ende einer Scroll-Aktion einrastet.
+Für die ungeordnete Liste wird eine {{cssxref("width")}} von `100vw` festgelegt, damit sie so breit wie der Viewport ist. Wir fügen eine feste {{cssxref("height")}}, etwas {{cssxref("padding")}} und für {{cssxref("overflow-x")}} den Wert `scroll` hinzu, damit überlaufende Inhalte gescrollt werden können. Die Listeneinträge werden mit {{cssxref("display", "display: flex")}} horizontal angeordnet. Dieser Flex-Container erhält für {{cssxref("scroll-snap-type")}} den Wert `x mandatory` und wird dadurch zu einem {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}. Das Schlüsselwort `x` bewirkt, dass die {{Glossary("Scroll_snap#snap_target", "Snap-Ziele")}} des Containers horizontal einrasten. Das Schlüsselwort `mandatory` bedeutet, dass der Container am Ende eines Scrollvorgangs immer an einem Snap-Ziel einrastet.
 
 ```css hidden live-sample___offscreen-inert
 * {
@@ -269,13 +269,13 @@ ul {
 }
 ```
 
-Jedes Listenelement hat die folgenden Stile angewendet:
+Auf jeden Listeneintrag werden die folgenden Stile angewendet:
 
-- Ein {{cssxref("flex")}}-Wert von `0 0 98vw`, wodurch jedes Element so groß wie der Scroll-Container minus des auf die Liste gesetzten {{cssxref("gap")}} ist (siehe die `gap`-Deklaration in der vorher gezeigten `ul`-Regel). Dies hat auch den Effekt, jede Seite im Scroll-Container zu zentrieren.
-- Ein {{cssxref("scroll-snap-align")}}-Wert von `center`, um den Scroll-Container dazu zu bringen, an der Mitte jedes Snap-Ziels einzurasten.
-- Ein {{cssxref("view-timeline")}}-Wert von `--inner-change inline`, um das Element als Subjekt der `--inner-change`-Ansichtsfortschrittszeitachse zu deklarieren und diese Zeitachse so einzustellen, dass sie im Inline-Richtung fortschreitet, während sie durch den übergeordneten Scroll-Container bewegt wird.
-- Ein {{cssxref("animation-timeline")}}-Wert mit demselben Namen wie der {{cssxref("view-timeline-name")}}, wie im `view-timeline`-Shorthand definiert, was bedeutet, dass die benannte Ansichtsfortschrittszeitachse verwendet wird, um den Fortschritt der auf das Element angewendeten Animationen zu steuern.
-- Ein {{cssxref("animation-name")}} und {{cssxref("animation-fill-mode")}}, das die auf dieses Element angewendete Animation und ihren Fill-Modus definiert. Der `both`-Wert ist erforderlich, weil Sie den Startanimationszustand auf das Element anwenden möchten, bevor die Animation beginnt, und den Endanimationszustand auf das Element anwenden möchten, nachdem die Animation endet. Wenn die Animation nicht beibehalten wird, wird die über die Animation angewendete `interactivity: inert`-Deklaration nicht auf Listenelemente angewendet, wenn sie sich außerhalb des Scroll-Containers befinden.
+- Ein {{cssxref("flex")}}-Wert von `0 0 98vw`, durch den jeder Eintrag so groß wird wie der Scroll-Container abzüglich des für die Liste festgelegten {{cssxref("gap")}} (siehe die `gap`-Deklaration in der zuvor gezeigten `ul`-Regel). Dadurch wird außerdem jede Seite im Scroll-Container zentriert.
+- Ein {{cssxref("scroll-snap-align")}}-Wert von `center`, damit der Scroll-Container an der Mitte jedes Snap-Ziels einrastet.
+- Ein {{cssxref("view-timeline")}}-Wert von `--inner-change inline`, der das Element als Subjekt der View-Progress-Timeline `--inner-change` deklariert und festlegt, dass diese Timeline in Inline-Richtung fortschreitet, während sich das Element durch den übergeordneten Scroll-Container bewegt.
+- Ein {{cssxref("animation-timeline")}}-Wert mit demselben Namen wie {{cssxref("view-timeline-name")}}, der in der Kurzschreibweise `view-timeline` definiert wurde. Damit steuert die benannte View-Progress-Timeline den Fortschritt der auf das Element angewendeten Animationen.
+- Werte für {{cssxref("animation-name")}} und {{cssxref("animation-fill-mode")}}, die die auf dieses Element angewendete Animation und deren Fill-Modus festlegen. Der Wert `both` ist erforderlich, damit der Anfangszustand der Animation bereits vor ihrem Beginn und ihr Endzustand auch nach ihrem Ende für das Element gelten. Würde der Animationszustand nicht beibehalten, gälte die durch die Animation angewendete Deklaration `interactivity: inert` nicht für Listeneinträge außerhalb des Scroll-Containers.
 
 ```css live-sample___offscreen-inert
 li {
@@ -295,35 +295,21 @@ li {
 }
 ```
 
-Schließlich werden die `@keyframes` der Animation definiert. `interactivity: inert` wird an den Positionen `entry 0%` und `exit 100%` der Ansichtszeitachse gesetzt. Kombiniert mit dem `animation-fill-mode: both`-Wert bedeutet dies, dass die Listenelemente inert sind, bevor der Beginn and nach dem Ende der Ansichtszeitachse, das heißt, wenn sie sich außerhalb des Scroll-Containers befinden. Zwischen den Positionen `entry 1%` und `exit 99%` wird `interactivity: auto` auf die Listenelemente gesetzt, was bedeutet, dass sie normalerweise interaktiv sind, wenn sie sich im Scroll-Container befinden.
+Abschließend werden die {{cssxref("@keyframes")}} der Animation definiert. An den Positionen `entry 0%` und `exit 100%` der View-Timeline wird `interactivity: inert` festgelegt. Zusammen mit dem Wert `animation-fill-mode: both` bedeutet dies, dass die Listeneinträge vor dem Beginn und nach dem Ende der View-Timeline inert sind, also wenn sie sich außerhalb des Scroll-Containers befinden. Zwischen den Positionen `entry 1%` und `exit 99%` wird für die Listeneinträge `interactivity: auto` festgelegt. Damit kann normal mit ihnen interagiert werden, wenn sie sich innerhalb des Scroll-Containers befinden.
 
-```css live-sample___offscreen-inert
-@keyframes inert-change {
-  entry 0%,
-  exit 100% {
-    interactivity: inert;
-  }
-
-  entry 1%,
-  exit 99% {
-    interactivity: auto;
-  }
-}
-```
-
-Siehe die {{cssxref("animation-range")}}-Referenzseite für eine Erklärung der Positionswerte.
+Eine Erklärung der Positionswerte finden Sie auf der Referenzseite zu {{cssxref("animation-range")}}.
 
 #### Ergebnis
 
-Scrollen Sie die ungeordnete Liste horizontal, um den Seiteneffekt zu sehen – jede Seite wird eingeblendet. Versuchen Sie, zwischen den Links und den Schaltflächen zu tabben; Sie werden feststellen, dass nur die auf dem Bildschirm interaktiv sind und angeklickt werden können.
+Scrollen Sie die ungeordnete Liste horizontal, um den Effekt der Seitennavigation zu sehen – jede Seite rastet im sichtbaren Bereich ein. Versuchen Sie, mit der Tabulatortaste zwischen den Links und Buttons zu wechseln. Sie werden feststellen, dass nur die sichtbaren interaktiv und per Tabulatortaste erreichbar sind.
 
 {{ EmbedLiveSample("offscreen-inert", "100%", "320") }}
 
 ## Barrierefreiheit
 
-Berücksichtigen Sie die Barrierefreiheit sorgfältig, wenn Sie Elemente inert machen. Standardmäßig gibt es keine visuelle Möglichkeit zu erkennen, ob ein Element oder sein Unterbaum inert ist oder nicht. Als Webentwickler liegt es in Ihrer Verantwortung, eindeutig zu kennzeichnen, welche Teile des Inhalts aktiv und welche inert sind.
+Berücksichtigen Sie die Barrierefreiheit sorgfältig, wenn Sie Elemente inert machen. Standardmäßig ist visuell nicht erkennbar, ob ein Element oder sein Teilbaum inert ist. Als Webentwickler sind Sie dafür verantwortlich, klar kenntlich zu machen, welche Inhaltsbereiche aktiv und welche inert sind.
 
-Erinnern Sie sich bei der Bereitstellung von visuellen und nicht-visuellen Hinweisen zur Inertheit des Inhalts auch daran, dass das visuelle Ansichtsfenster möglicherweise nur Abschnitte des Inhalts enthält. Benutzer könnten in einen kleinen Abschnitt des Inhalts hineingezoomt sein, oder Benutzer könnten den Inhalt überhaupt nicht sehen können. Nicht eindeutig als inert erkannte Abschnitte können zu Frustration und einer schlechten Benutzererfahrung führen.
+Denken Sie bei visuellen und nicht visuellen Hinweisen auf die Inertheit von Inhalten auch daran, dass im sichtbaren Viewport möglicherweise nur Teile des Inhalts zu sehen sind. Nutzer können einen kleinen Inhaltsbereich vergrößert haben oder den Inhalt überhaupt nicht sehen können. Wenn inerte Bereiche nicht eindeutig als solche erkennbar sind, kann dies zu Frustration und einer schlechten Nutzungserfahrung führen.
 
 ## Spezifikationen
 

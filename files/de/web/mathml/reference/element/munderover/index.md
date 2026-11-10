@@ -2,21 +2,21 @@
 title: <munderover>
 slug: Web/MathML/Reference/Element/munderover
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<munderover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um sowohl Akzente als auch Grenzen über und unter einem Ausdruck zu platzieren.
+Das [MathML](/de/docs/Web/MathML)-Element **`<munderover>`** wird verwendet, um Akzente oder Grenzen sowohl unter als auch über einem Ausdruck anzubringen.
 
 Es verwendet die folgende Syntax: `<munderover> base underscript overscript </munderover>`
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Oberskript als Akzent behandelt werden soll (d.h. größer und näher an der Basisausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), der angibt, ob das oberhalb stehende Skript als Akzent behandelt werden soll (d.h. größer und näher am Basisausdruck dargestellt wird).
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Unterskript als Akzent behandelt werden soll (d.h. größer und näher an der Basisausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), der angibt, ob das unterhalb stehende Skript als Akzent behandelt werden soll (d.h. größer und näher am Basisausdruck dargestellt wird).
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 </math>
 ```
 
-{{ EmbedLiveSample('munderover_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('examples', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 
@@ -62,5 +62,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("mover") }} (Oberskript)
+- {{ MathMLElement("munder") }} (Untergesetzter Ausdruck)
+- {{ MathMLElement("mover") }} (Übergesetzter Ausdruck)

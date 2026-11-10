@@ -2,35 +2,36 @@
 title: MediaStreamTrackGenerator
 slug: Web/API/MediaStreamTrackGenerator
 l10n:
-  sourceCommit: 62e6088450ab10db4697d190dd54d09dd9a0791a
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}{{Non-standard_Header}}
 
 > [!NOTE]
-> Ziehen Sie in Betracht, stattdessen [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator) zu verwenden.
+> Erwägen Sie stattdessen die Verwendung von [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator).
 
-Das **`MediaStreamTrackGenerator`**-Interface der [Insertable Streams for MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) erstellt einen [`WritableStream`](/de/docs/Web/API/WritableStream), der als Quelle für einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) dient. Das Objekt verbraucht einen Stream von Medienrahmen als Eingabe, die Audio- oder Videorahmen sein können.
+Die **`MediaStreamTrackGenerator`**-Schnittstelle der [Insertable Streams for MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) erstellt einen [`WritableStream`](/de/docs/Web/API/WritableStream), der als Quelle für einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) dient.
+Das Objekt verarbeitet einen Stream von Medien-Frames als Eingabe. Dabei kann es sich um Audio- oder Video-Frames handeln.
 
 ## Konstruktor
 
 - [`MediaStreamTrackGenerator()`](/de/docs/Web/API/MediaStreamTrackGenerator/MediaStreamTrackGenerator) {{Experimental_Inline}} {{Non-standard_Inline}}
-  - : Erstellt ein neues `MediaStreamTrackGenerator`-Objekt, das entweder [`VideoFrame`](/de/docs/Web/API/VideoFrame) oder [`AudioData`](/de/docs/Web/API/AudioData)-Objekte akzeptiert.
+  - : Erstellt ein neues `MediaStreamTrackGenerator`-Objekt, das entweder [`VideoFrame`](/de/docs/Web/API/VideoFrame)- oder [`AudioData`](/de/docs/Web/API/AudioData)-Objekte akzeptiert.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
+_Diese Schnittstelle erbt außerdem Eigenschaften von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
 
 - [`MediaStreamTrackGenerator.writable`](/de/docs/Web/API/MediaStreamTrackGenerator/writable) {{Experimental_Inline}} {{Non-standard_Inline}}
   - : Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Dieses Interface implementiert keine spezifischen Methoden, erbt jedoch Methoden von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
+_Diese Schnittstelle implementiert keine eigenen Methoden, erbt aber Methoden von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)._
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem Artikel [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) und demonstriert eine Barcode-Scanner-Anwendung, die Barcodes verarbeitet und sie hervorhebt, bevor sie die transformierten Rahmen in den beschreibbaren Stream von [`MediaStreamTrackGenerator.writable`](/de/docs/Web/API/MediaStreamTrackGenerator/writable) schreibt.
+Das folgende Beispiel stammt aus dem Artikel [Einfügbare Streams für MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) und zeigt eine Barcode-Scanner-Anwendung. Sie verarbeitet Barcodes und hebt sie hervor, bevor sie die transformierten Frames in den beschreibbaren Stream von [`MediaStreamTrackGenerator.writable`](/de/docs/Web/API/MediaStreamTrackGenerator/writable) schreibt.
 
 ```js
 const stream = await getUserMedia({ video: true });
@@ -53,10 +54,6 @@ trackProcessor.readable
   .pipeTo(trackGenerator.writable);
 ```
 
-## Siehe auch
-
-- [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator)
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -64,3 +61,7 @@ trackProcessor.readable
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator)

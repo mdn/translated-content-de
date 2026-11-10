@@ -3,14 +3,14 @@ title: "PublicKeyCredential: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/PublicKeyCredential/toJSON
 l10n:
-  sourceCommit: 15d531b54c7f0d96ac80ef00b494fd40743d59ce
+  sourceCommit: edc9ab5479d1253d9edd93bfe90dd1d100605c26
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
 Die Methode **`toJSON()`** der Schnittstelle [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) gibt ein JSON-serialisierbares einfaches Objekt zurück, das das `PublicKeyCredential`-Objekt repräsentiert.
 
-Die Methode wird bei der {{Glossary("JSON", "JSON")}}-Serialisierung automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `PublicKeyCredential`-Objekt angetroffen wird.
+Die Methode wird bei der {{Glossary("JSON", "JSON")}}-Serialisierung automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `PublicKeyCredential`-Objekt verarbeitet wird.
 
 ## Syntax
 
@@ -27,10 +27,10 @@ Keine.
 Ein JSON-serialisierbares einfaches Objekt mit den folgenden Eigenschaften:
 
 - [`authenticatorAttachment`](/de/docs/Web/API/PublicKeyCredential/authenticatorAttachment) {{optional_inline}}: nicht vorhanden, wenn der Wert `null` ist
-- `clientExtensionResults`: ein JSON-serialisierbares Objekt, das die von [`getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) zurückgegebenen Werte repräsentiert, wobei Pufferwerte als base64url-Zeichenfolgen codiert sind
+- `clientExtensionResults`: ein JSON-serialisierbares Objekt, das die von [`getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) zurückgegebenen Werte repräsentiert, wobei Pufferwerte als base64url-Zeichenfolgen kodiert sind
 - [`id`](/de/docs/Web/API/PublicKeyCredential/id)
-- [`rawId`](/de/docs/Web/API/PublicKeyCredential/rawId): als {{Glossary("Base64", "base64url")}}-Zeichenfolge codiert
-- [`response`](/de/docs/Web/API/PublicKeyCredential/response): ein JSON-serialisierbares Objekt, das den Wert von [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse) repräsentiert, wobei Pufferwerte als base64url-Zeichenfolgen codiert sind. Im Einzelnen:
+- [`rawId`](/de/docs/Web/API/PublicKeyCredential/rawId): als {{Glossary("Base64", "base64url")}}-Zeichenfolge kodiert
+- [`response`](/de/docs/Web/API/PublicKeyCredential/response): ein JSON-serialisierbares Objekt, das den Wert von [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse) repräsentiert, wobei Pufferwerte als base64url-Zeichenfolgen kodiert sind. Im Einzelnen:
   - Wenn es sich um eine [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) handelt, enthält es die folgenden Eigenschaften:
     - [`authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)
     - [`clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)
@@ -56,8 +56,8 @@ Sofern nicht anders angegeben, wird der Wert jeder Eigenschaft unverändert übe
 
 ### toJSON() direkt aufrufen
 
-Bei der Registrierung eines neuen Benutzers stellt der Server der Relying Party der Web-App Informationen über die erwarteten Anmeldedaten bereit.
-Die Web-App ruft [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit den empfangenen Informationen (`createCredentialOptions` unten) auf. Die Methode gibt ein Promise zurück, das mit den neuen Anmeldedaten (einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)) erfüllt wird.
+Bei der Registrierung eines neuen Benutzers stellt ein Relying-Party-Server der Webanwendung Informationen über die erwarteten Anmeldedaten bereit.
+Die Webanwendung ruft [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit den empfangenen Informationen auf (unten `createCredentialOptions`). Die Methode gibt ein Promise zurück, das mit den neuen Anmeldedaten (einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)) erfüllt wird.
 
 Ein direkter Aufruf von `toJSON()` gibt ein einfaches Objekt zurück. Dessen Eigenschaften haben dieselben Werte wie die entsprechenden Eigenschaften des ursprünglichen Objekts.
 
@@ -72,9 +72,9 @@ console.log(typeof json); // "object"
 console.log(json.id); // Same value as credential.id
 ```
 
-### Als JSON-Zeichenfolge serialisieren
+### In eine JSON-Zeichenfolge serialisieren
 
-Die zurückgegebenen Anmeldedaten werden mit {{jsxref("JSON.stringify()")}} serialisiert, wodurch die Methode `toJSON()` automatisch aufgerufen wird. Die Web-App sendet die serialisierten Anmeldedaten zurück an den Server.
+Die zurückgegebenen Anmeldedaten werden mit {{jsxref("JSON.stringify()")}} serialisiert. Dabei wird die Methode `toJSON()` automatisch aufgerufen. Die Webanwendung sendet die serialisierten Anmeldedaten an den Server zurück.
 
 ```js
 const jsonString = JSON.stringify(credential);
@@ -88,7 +88,7 @@ const apiRegOptsResp = await fetch(registrationURL, {
 });
 ```
 
-Dadurch würde eine JSON-Zeichenfolge wie die folgende protokolliert (zur besseren Lesbarkeit formatiert):
+Dadurch würde eine JSON-Zeichenfolge wie die folgende ausgegeben (zur besseren Lesbarkeit formatiert):
 
 ```json
 {
@@ -108,7 +108,7 @@ Dadurch würde eine JSON-Zeichenfolge wie die folgende protokolliert (zur besser
 }
 ```
 
-Die base64url-codierten Werte sind zur besseren Lesbarkeit als `"..."` abgekürzt.
+Die base64url-kodierten Werte sind zur besseren Lesbarkeit als `"..."` abgekürzt.
 
 ## Spezifikationen
 

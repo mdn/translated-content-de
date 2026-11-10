@@ -1,24 +1,24 @@
 ---
-title: "SVGAElement: rel-Eigenschaft"
+title: "SVGAElement: Eigenschaft rel"
 short-title: rel
 slug: Web/API/SVGAElement/rel
 l10n:
-  sourceCommit: c41febcc1658a64561687d36e5b79a89c3f7f676
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("SVG")}}
 
-Die **`rel`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interface gibt einen String zurück, der den Wert des [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel)-Attributs des SVG-Elements {{svgelement("a")}} widerspiegelt.
+Die Eigenschaft **`rel`** der Schnittstelle [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt einen String zurück, der den Wert des Attributs [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel) des SVG-Elements {{svgelement("a")}} widerspiegelt.
 
-Das `rel`-Attribut gibt die durch Leerzeichen getrennte Liste von Linktypen an, [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel), die die Beziehung zwischen dem Ziel oder der durch das {{SVGElement("a")}}-Element dargestellten Ressource und dem aktuellen Dokument angibt. Die Eigenschaft kann den Wert des `rel`-Attributs abrufen oder festlegen.
+Das Attribut `rel` gibt eine durch Leerzeichen getrennte Liste von Linktypen an, die [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel). Sie beschreibt die Beziehung zwischen dem Ziel oder der Ressource, die durch das Element {{SVGElement("a")}} repräsentiert wird, und dem aktuellen Dokument. Über die Eigenschaft kann der Wert des Attributs `rel` gelesen oder gesetzt werden.
 
 ## Wert
 
-Ein String; der Wert des `rel`-Attributs.
+Ein String, der den Wert des Attributs `rel` enthält.
 
 ## Beispiele
 
-Bei folgendem SVG:
+Gegeben sei das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ function log(text) {
 }
 ```
 
-Können wir das `rel`-Attribut abrufen und festlegen:
+Das Attribut `rel` kann gelesen und gesetzt werden:
 
 ```js
 // Select an SVG <a> element
@@ -72,7 +72,7 @@ svgLink.rel = "alternate bookmark";
 log(`New rel: "${svgLink.rel}"`); // New rel: "alternate bookmark"
 ```
 
-{{EmbedLiveSample("Example","100%","200")}}
+{{EmbedLiveSample("examples","100%","200")}}
 
 ## Spezifikationen
 

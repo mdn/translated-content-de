@@ -2,10 +2,10 @@
 title: <filter>
 slug: Web/SVG/Reference/Element/filter
 l10n:
-  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filter-Primitives gruppiert. Es wird selbst nie gerendert, muss jedoch durch das Attribut {{SVGAttr("filter")}} auf SVG-Elementen oder die {{cssxref("filter")}} {{Glossary("CSS", "CSS")}}-Eigenschaft für SVG/HTML-Elemente verwendet werden.
+Das **`<filter>`**-Element von [SVG](/de/docs/Web/SVG) definiert einen benutzerdefinierten Filtereffekt, indem es einzelne Filterprimitiven gruppiert. Es wird selbst nie gerendert, sondern muss über das Attribut {{SVGAttr("filter")}} für SVG-Elemente oder über die {{Glossary("CSS", "CSS")}}-Eigenschaft {{cssxref("filter")}} für SVG- und HTML-Elemente verwendet werden.
 
 ## Verwendungskontext
 
@@ -22,15 +22,15 @@ Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefin
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
 > [!NOTE]
-> Für `<filter>` haben die Attribute `x` und `y` standardmäßig den Wert `-10%`, und die Attribute `width` und `height` standardmäßig den Wert `120%`. Dies liegt daran, dass viele Filtereffekte, wie {{svgelement("feGaussianBlur")}}, über die Grenzen des gefilterten Elements hinausgehen. Die standardmäßige Größe stellt sicher, dass der Filtereffekt nicht abgeschnitten wird.
+> Bei `<filter>` haben die Attribute `x` und `y` standardmäßig den Wert `-10%`, die Attribute `width` und `height` den Wert `120%`. Der Grund dafür ist, dass viele Filtereffekte, etwa {{svgelement("feGaussianBlur")}}, über die Grenzen des gefilterten Elements hinausreichen. Die Standardgröße stellt sicher, dass der Filtereffekt nicht abgeschnitten wird.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement).
 
 ## Beispiele
 
-### Hinzufügen eines Weichzeichnungseffekts
+### Einen Weichzeichnungseffekt hinzufügen
 
 #### SVG
 
@@ -48,7 +48,7 @@ Dieses Element implementiert die [`SVGFilterElement`](/de/docs/Web/API/SVGFilter
 
 #### Ergebnis
 
-{{EmbedLiveSample("Example",235,150)}}
+{{EmbedLiveSample("adding_a_blur_effect",235,150)}}
 
 ## Spezifikationen
 

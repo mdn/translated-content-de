@@ -1,16 +1,16 @@
 ---
-title: "StylePropertyMapReadOnly: get()-Methode"
+title: "StylePropertyMapReadOnly: Methode get()"
 short-title: get()
 slug: Web/API/StylePropertyMapReadOnly/get
 l10n:
-  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
+  sourceCommit: edc9ab5479d1253d9edd93bfe90dd1d100605c26
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`get()`**-Methode des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces gibt ein vom [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) stammendes Objekt für den ersten Wert der angegebenen Eigenschaft zurück.
+Die Methode **`get()`** der Schnittstelle [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) gibt für den ersten Wert der angegebenen Eigenschaft ein von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) abgeleitetes Objekt zurück.
 
-Verwenden Sie [`getAll()`](/de/docs/Web/API/StylePropertyMapReadOnly/getAll), um alle Werte einer CSS-Eigenschaft zu erhalten, die mehrere Werte haben kann, wie z.B. {{cssxref("background-image")}} oder {{cssxref("transition")}}.
+Verwenden Sie [`getAll()`](/de/docs/Web/API/StylePropertyMapReadOnly/getAll), um alle Werte einer CSS-Eigenschaft abzurufen, die mehrere Werte haben kann, etwa {{cssxref("background-image")}} oder {{cssxref("transition")}}.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ get(property)
 
 - `property`
   - : Der Name der Eigenschaft.
-    Eigennamen von Eigenschaften (beginnend mit `--`) werden groß-/kleinschreibungssensitiv abgeglichen; Standard-Eigenschaftsnamen nicht.
+    Bei Namen benutzerdefinierter Eigenschaften (die mit `--` beginnen) wird zwischen Groß- und Kleinschreibung unterschieden; bei Namen von Standardeigenschaften nicht.
 
 ### Rückgabewert
 
-Ein vom [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) abgeleitetes Objekt oder {{jsxref("undefined")}}, wenn `property` keinen Wert in der Map hat.
+Ein von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) abgeleitetes Objekt oder {{jsxref("undefined")}}, wenn `property` in der Map keinen Wert hat.
 
 Der konkrete Typ des zurückgegebenen Objekts hängt von der Eigenschaft und ihrem Wert ab.
-Zum Beispiel könnte eine einem Schlüsselwort zugewiesene Eigenschaft ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) zurückgeben, während eine einem mathematischen Ergebnis zugewiesene Eigenschaft ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) zurückgeben könnte.
+Beispielsweise kann eine Eigenschaft, der ein Schlüsselwort zugewiesen wurde, ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) zurückgeben, während eine Eigenschaft, der das Ergebnis einer mathematischen Operation zugewiesen wurde, ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) zurückgeben kann.
 
 ### Ausnahmen
 
@@ -40,11 +40,11 @@ Zum Beispiel könnte eine einem Schlüsselwort zugewiesene Eigenschaft ein [`CSS
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man einige Eigenschaften und deren Werte abrufen kann.
+Dieses Beispiel zeigt, wie Sie einige Eigenschaften und ihre Werte abrufen.
 
 #### HTML
 
-Zuerst erstellen wir einen Link in einem Absatz:
+Zunächst erstellen wir einen Link innerhalb eines Absatzes:
 
 ```html
 <p>
@@ -58,7 +58,7 @@ Zuerst erstellen wir einen Link in einem Absatz:
 
 #### CSS
 
-Das CSS gestaltet das `font-weight` des Absatzes und definiert und verwendet eine benutzerdefinierte Eigenschaft für die Farbe des Links:
+Das CSS legt `font-weight` für den Absatz fest und definiert und verwendet eine benutzerdefinierte Eigenschaft für die Farbe des Links:
 
 ```css
 p {
@@ -81,8 +81,8 @@ a {
 
 #### JavaScript
 
-Zuerst rufen wir [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) auf dem Element auf, um seine Style-Map zu erhalten: ein `StylePropertyMapReadOnly`-Objekt.
-Wir erstellen ein Array von interessierenden Eigenschaften und verwenden die `get()`-Methode von `StylePropertyMapReadOnly`, um nur diese Werte zu protokollieren.
+Zunächst rufen wir [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) für das Element auf, um dessen Style-Map zu erhalten: ein `StylePropertyMapReadOnly`-Objekt.
+Wir erstellen ein Array der Eigenschaften, die uns interessieren, und verwenden die Methode `get()` von `StylePropertyMapReadOnly`, um nur deren Werte zu protokollieren.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -109,17 +109,17 @@ for (const property of properties) {
 
 {{EmbedLiveSample("Basic usage", 120, 200)}}
 
-### Abrufen verschiedener Wertetypen
+### Verschiedene Werttypen abrufen
 
-Dieses Beispiel zeigt, dass `get()` je nach Eigenschaft und Wert Objekte verschiedener Typen zurückgeben kann.
+Dieses Beispiel zeigt, dass `get()` je nach Eigenschaft und ihrem Wert Objekte unterschiedlichen Typs zurückgeben kann.
 
-Zuerst werden eine Reihe verschiedener Eigenschaften auf ein Element mit CSS angewendet.
-Dann werden sie über JavaScript zurückgelesen und der Konstruktorname und der Wert jeder Eigenschaft protokolliert.
-Der eigentliche Logcode ist nicht Teil der Demonstration, daher wird er hier ausgeblendet.
+Zunächst werden mithilfe von CSS mehrere unterschiedliche Eigenschaften auf ein Element angewendet.
+Anschließend werden sie mit JavaScript ausgelesen und der Name des Konstruktors sowie der Wert jeder Eigenschaft protokolliert.
+Der Code für die Protokollierung selbst ist nicht Teil der Demonstration und wird daher hier ausgeblendet.
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("div")}} mit der ID `demoBox`, dem wir Stile hinzufügen werden.
+Zunächst definieren wir ein {{htmlelement("div")}} mit der id `demoBox`, dem wir Stile hinzufügen.
 
 ```html
 <div id="demoBox">Text</div>
@@ -152,7 +152,7 @@ Zuerst definieren wir ein {{htmlelement("div")}} mit der ID `demoBox`, dem wir S
 
 #### JavaScript
 
-Als nächstes verwenden wir [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap), um das `StylePropertyMapReadOnly`-Objekt für den Demo-Box zu erhalten, und iterieren durch jede der hinzugefügten Eigenschaften, wobei deren Konstruktorname und Wert protokolliert werden.
+Als Nächstes verwenden wir [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap), um das `StylePropertyMapReadOnly`-Objekt für die Demo-Box zu erhalten. Dann durchlaufen wir alle hinzugefügten Eigenschaften und protokollieren jeweils den Namen des Konstruktors und den Wert.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -196,4 +196,4 @@ for (const property of properties) {
 - [`getAll()`](/de/docs/Web/API/StylePropertyMapReadOnly/getAll)
 - [`has()`](/de/docs/Web/API/StylePropertyMapReadOnly/has)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
-- [Learning Houdini: the CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Houdini kennenlernen: das CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)

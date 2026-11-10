@@ -2,7 +2,7 @@
 title: SVGFECompositeElement
 slug: Web/API/SVGFECompositeElement
 l10n:
-  sourceCommit: 5351b03470685486d841a3340c6971351058194f
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("SVG")}}
@@ -10,6 +10,23 @@ l10n:
 Die Schnittstelle **`SVGFECompositeElement`** entspricht dem Element {{SVGElement("feComposite")}}.
 
 {{InheritanceDiagram}}
+
+## Statische Eigenschaften
+
+- `SVG_FECOMPOSITE_OPERATOR_UNKNOWN` (0)
+  - : Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+- `SVG_FECOMPOSITE_OPERATOR_OVER` (1)
+  - : Entspricht dem Wert `over`.
+- `SVG_FECOMPOSITE_OPERATOR_IN` (2)
+  - : Entspricht dem Wert `in`.
+- `SVG_FECOMPOSITE_OPERATOR_OUT` (3)
+  - : Entspricht dem Wert `out`.
+- `SVG_FECOMPOSITE_OPERATOR_ATOP` (4)
+  - : Entspricht dem Wert `atop`.
+- `SVG_FECOMPOSITE_OPERATOR_XOR` (5)
+  - : Entspricht dem Wert `xor`.
+- `SVG_FECOMPOSITE_OPERATOR_ARITHMETIC` (6)
+  - : Entspricht dem Wert `arithmetic`.
 
 ## Instanzeigenschaften
 
@@ -43,23 +60,6 @@ _Diese Schnittstelle erbt außerdem Eigenschaften von ihrer übergeordneten Schn
 ## Instanzmethoden
 
 _Diese Schnittstelle stellt keine eigenen Methoden bereit, implementiert aber die Methoden ihrer übergeordneten Schnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
-
-## Statische Eigenschaften
-
-- `SVG_FECOMPOSITE_OPERATOR_UNKNOWN` (0)
-  - : Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ zu ändern.
-- `SVG_FECOMPOSITE_OPERATOR_OVER` (1)
-  - : Entspricht dem Wert `over`.
-- `SVG_FECOMPOSITE_OPERATOR_IN` (2)
-  - : Entspricht dem Wert `in`.
-- `SVG_FECOMPOSITE_OPERATOR_OUT` (3)
-  - : Entspricht dem Wert `out`.
-- `SVG_FECOMPOSITE_OPERATOR_ATOP` (4)
-  - : Entspricht dem Wert `atop`.
-- `SVG_FECOMPOSITE_OPERATOR_XOR` (5)
-  - : Entspricht dem Wert `xor`.
-- `SVG_FECOMPOSITE_OPERATOR_ARITHMETIC` (6)
-  - : Entspricht dem Wert `arithmetic`.
 
 ## Spezifikationen
 

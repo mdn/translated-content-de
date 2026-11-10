@@ -1,12 +1,12 @@
 ---
-title: "`rect()` CSS-Funktion"
+title: CSS-Funktion `rect()`
 short-title: rect()
 slug: Web/CSS/Reference/Values/basic-shape/rect
 l10n:
-  sourceCommit: cd0970bc03cf30a9a8089954cc542a17dbe9eba3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die **`rect()`**-Funktion in [CSS](/de/docs/Web/CSS) erstellt ein Rechteck in der angegebenen Entfernung von den oberen und linken Rändern des enthaltenen Blocks. Sie ist eine Grundformfunktion des {{cssxref("basic-shape")}} [Datentyps](/de/docs/Web/CSS/Reference/Values/Data_types). Sie können die `rect()`-Funktion in CSS-Eigenschaften wie {{cssxref("offset-path")}} verwenden, um den rechteckigen Pfad zu erstellen, entlang dessen sich ein Element bewegt, in {{cssxref("clip-path")}}, um die Form des Ausschnittsbereichs zu definieren, und in {{cssxref("border-shape")}}, um die Form des Randes eines Elements zu definieren.
+Die [CSS](/de/docs/Web/CSS)-Funktion **`rect()`** erstellt ein Rechteck in festgelegten Abständen von der oberen und linken Kante des umschließenden Blocks. Sie ist eine Funktion für Grundformen des [Datentyps](/de/docs/Web/CSS/Reference/Values/Data_types) {{cssxref("basic-shape")}}. Sie können `rect()` in CSS-Eigenschaften wie {{cssxref("offset-path")}} verwenden, um einen rechteckigen Pfad zu erstellen, entlang dessen sich ein Element bewegt, in {{cssxref("clip-path")}}, um die Form des Beschneidungsbereichs festzulegen, und in {{cssxref("border-shape")}}, um die Form des Rahmens eines Elements zu definieren.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ border-shape: rect(10px 500px 130px 20px round 20px);
 
 ### Werte
 
-Das eingetragene Rechteck wird definiert, indem vier Versatzwerte angegeben werden, beginnend mit dem Versatz des oberen Rands und im Uhrzeigersinn, sowie ein optionales `round`-Schlüsselwort mit dem `border-radius`-Parameter, um dem Rechteck abgerundete Ecken hinzuzufügen. Jeder Versatzwert kann entweder eine `<length>`, ein `<percentage>` oder das Schlüsselwort `auto` sein.
+Das Rechteck wird durch vier Versatzwerte definiert, beginnend an der oberen Kante und weiter im Uhrzeigersinn. Optional können Sie das Schlüsselwort `round` mit dem Parameter `border-radius` angeben, um die Ecken des Rechtecks abzurunden. Jeder Versatzwert kann ein `<length>`, ein `<percentage>` oder das Schlüsselwort `auto` sein.
 
 - `<length-percentage>`
-  - : Gibt den {{cssxref("&lt;length-percentage&gt;")}}-Wert des Abstands des oberen, rechten, unteren oder linken Rands des Rechtecks vom oberen oder linken Rand des enthaltenen Blocks an. Die ersten (oben) und dritten (unten) Werte sind Abstände vom oberen Rand des enthaltenen Blocks, und die zweiten (rechts) und vierten (links) Werte sind Abstände vom linken Rand des enthaltenen Blocks. Die zweiten (rechts) und dritten (unten) Werte werden durch die vierten (links) und ersten (oben) Werte entsprechend begrenzt, um zu verhindern, dass der untere Rand den oberen Rand kreuzt und der rechte Rand den linken Rand kreuzt. Zum Beispiel wird `rect(10px 0 0 20px)` auf `rect(10px 20px 10px 20px)` begrenzt.
+  - : Gibt als {{cssxref("&lt;length-percentage&gt;")}}-Wert den Abstand der oberen, rechten, unteren oder linken Kante des Rechtecks von der oberen oder linken Kante des umschließenden Blocks an. Der erste (obere) und der dritte (untere) Wert sind Abstände von der oberen Kante des umschließenden Blocks; der zweite (rechte) und der vierte (linke) Wert sind Abstände von dessen linker Kante. Der zweite (rechte) beziehungsweise dritte (untere) Wert wird durch den vierten (linken) beziehungsweise ersten (oberen) Wert begrenzt. Dadurch kann die untere Kante nicht oberhalb der oberen Kante und die rechte Kante nicht links von der linken Kante liegen. Beispielsweise wird `rect(10px 0 0 20px)` auf `rect(10px 20px 10px 20px)` begrenzt.
 
 - `auto`
-  - : Lässt den Rand, für den dieser Wert verwendet wird, mit dem entsprechenden Rand des enthaltenen Blocks zusammenfallen. Wenn `auto` für den ersten (oben) oder vierten (links) Wert verwendet wird, beträgt der Wert von `auto` `0`, und wenn es für den zweiten (rechts) oder dritten (unten) Wert verwendet wird, beträgt der Wert von `auto` `100%`.
+  - : Lässt die betreffende Kante mit der entsprechenden Kante des umschließenden Blocks zusammenfallen. Wird `auto` für den ersten (oberen) oder vierten (linken) Wert verwendet, entspricht es `0`. Beim zweiten (rechten) oder dritten (unteren) Wert entspricht es `100%`.
 
 - `round <'border-radius'>`
-  - : Gibt den Radius der abgerundeten Ecken des Rechtecks an, unter Verwendung derselben Syntax wie die CSS-{{cssxref("border-radius")}}-Kurzformeigenschaft. Dieser Parameter ist optional.
+  - : Gibt den Radius der abgerundeten Ecken des Rechtecks an. Dabei gilt dieselbe Syntax wie für die CSS-Kurzschreibweise {{cssxref("border-radius")}}. Dieser Parameter ist optional.
 
 ## Formale Syntax
 
@@ -35,9 +35,9 @@ Das eingetragene Rechteck wird definiert, indem vier Versatzwerte angegeben werd
 
 ## Beispiele
 
-### Erstellen eines offset-path mit rect()
+### Einen offset-path mit rect() erstellen
 
-In diesem Beispiel verwendet die {{cssxref("offset-path")}}-Eigenschaft die `rect()`-Funktion, um die Form des Pfads zu definieren, auf dem sich das Element, in diesem Fall ein rotes Kästchen, bewegt. Es werden drei verschiedene Szenarien gezeigt, die jeweils unterschiedliche Werte für die `rect()`-Funktion verwenden. Der Pfeil innerhalb der Kästen zeigt auf den rechten Rand des Kastens.
+In diesem Beispiel verwendet die Eigenschaft {{cssxref("offset-path")}} die Funktion `rect()`, um die Form des Pfads festzulegen, entlang dessen sich ein Element – hier ein rotes Kästchen – bewegt. Gezeigt werden drei Varianten mit unterschiedlichen Werten für `rect()`. Der Pfeil in den Kästchen zeigt zur rechten Kante des jeweiligen Kästchens.
 
 ```html
 <div class="container">
@@ -97,11 +97,11 @@ In diesem Beispiel verwendet die {{cssxref("offset-path")}}-Eigenschaft die `rec
 
 #### Ergebnis
 
-{{EmbedLiveSample("Creating an offset-path using rect", "100%", 400)}}
+{{EmbedLiveSample("creating_offset-path_using_rect", "100%", 400)}}
 
-- Das Rechteck des Pfads 1 gibt die Abstände der vier Ränder (oben, rechts, unten und links) vom enthaltenen Block an. Die oberen und unteren Werte sind Abstände vom oberen Rand des enthaltenen Blocks. Die rechten und linken Werte sind Abstände vom linken Rand des enthaltenen Blocks. Zusätzlich ist die Ecke des Rechtecks auf `20%` abgerundet, was dazu führt, dass das rote Box-Element den abgerundeten Ecken folgt, während es sich entlang dieses Pfads bewegt. Beachten Sie, wie der Pfeil innerhalb des Kastens der Kurve an den Ecken des rechteckigen Pfads folgt.
-- Das Rechteck des Pfads 2 ähnelt dem Rechteck des Pfads 1, mit der Ausnahme, dass der rechte Wert `auto` ist, was dem Wert `100%` entspricht. Dies bewirkt, dass der rechte Rand des Rechtecks mit dem rechten Rand des enthaltenen Blocks übereinstimmt, wodurch ein breiteres Rechteck als Pfad 1 entsteht.
-- Das Rechteck des Pfads 3 gibt sowohl die linken als auch die rechten Randparameter als `auto` an und lässt den Parameter `round <'border-radius'>` weg. Dies erzeugt ein Rechteck, das die Breite des enthaltenen Blocks hat, und rechteckige Ecken anstelle von abgerundeten Ecken wie bei den Rechtecken des Pfads 1 und 2 aufweist. Beachten Sie die Bewegung des Pfeils innerhalb dieses Kastens an den Ecken.
+- Das Rechteck von Pfad 1 legt die Abstände aller vier Kanten (oben, rechts, unten und links) vom umschließenden Block fest. Die Werte für oben und unten sind Abstände von dessen oberer Kante; die Werte für rechts und links sind Abstände von dessen linker Kante. Außerdem sind die Ecken des Rechtecks mit `20%` abgerundet, sodass das rote Kästchen beim Bewegen entlang des Pfads den abgerundeten Ecken folgt. Beachten Sie, wie der Pfeil im Kästchen an den Ecken der Kurve folgt.
+- Das Rechteck von Pfad 2 ähnelt dem von Pfad 1. Allerdings ist der rechte Wert `auto`, was `100%` entspricht. Dadurch fällt die rechte Kante des Rechtecks mit der rechten Kante des umschließenden Blocks zusammen, und das Rechteck ist breiter als bei Pfad 1.
+- Beim Rechteck von Pfad 3 sind sowohl der linke als auch der rechte Wert `auto`; der Parameter `round <'border-radius'>` fehlt. Dadurch entsteht ein Rechteck, das so breit wie der umschließende Block ist und im Gegensatz zu den Rechtecken von Pfad 1 und Pfad 2 nicht abgerundete Ecken hat. Beachten Sie, wie sich der Pfeil im Kästchen an den Ecken bewegt.
 
 ## Spezifikationen
 
@@ -113,11 +113,11 @@ In diesem Beispiel verwendet die {{cssxref("offset-path")}}-Eigenschaft die `rec
 
 ## Siehe auch
 
-- {{cssxref("basic-shape/inset","inset()")}}-Funktion
-- {{cssxref("basic-shape/xywh","xywh()")}}-Funktion
-- {{cssxref("border-shape")}}-Eigenschaft
-- {{cssxref("clip-path")}}-Eigenschaft
-- {{cssxref("offset-path")}}-Eigenschaft
-- {{cssxref("basic-shape")}}-Datentyp
-- [CSS Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
+- Funktion {{cssxref("basic-shape/inset","inset()")}}
+- Funktion {{cssxref("basic-shape/xywh","xywh()")}}
+- Eigenschaft {{cssxref("border-shape")}}
+- Eigenschaft {{cssxref("clip-path")}}
+- Eigenschaft {{cssxref("offset-path")}}
+- Datentyp {{cssxref("basic-shape")}}
+- Modul [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes)
 - [Leitfaden zu Grundformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)

@@ -2,26 +2,26 @@
 title: <mfenced>
 slug: Web/MathML/Reference/Element/mfenced
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{Non-standard_Header}}
 
-Das **`<mfenced>`** [MathML](/de/docs/Web/MathML)-Element bietet die Möglichkeit, benutzerdefinierte öffnende und schließende Klammern (wie Klammern) und Trennzeichen (wie Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
+Das **`<mfenced>`**-Element von [MathML](/de/docs/Web/MathML) ermöglicht es, einem Ausdruck benutzerdefinierte öffnende und schließende Klammern (z. B. runde Klammern) sowie Trennzeichen (z. B. Kommas oder Semikolons) hinzuzufügen.
 
 > [!NOTE]
-> Historisch wurde das `<mfenced>`-Element als Kurzform für das Schreiben von eingefassten Ausdrücken definiert und ist gleichbedeutend mit einer erweiterten Form, die {{MathMLElement("mrow")}}- und {{MathMLElement("mo")}}-Elemente beinhaltet. Heutzutage wird empfohlen, diese äquivalente Form zu verwenden.
+> Ursprünglich wurde das `<mfenced>`-Element als Kurzschreibweise für Ausdrücke mit umschließenden Zeichen definiert. Es entsprach einer ausgeschriebenen Form mit {{MathMLElement("mrow")}}- und {{MathMLElement("mo")}}-Elementen. Heute wird empfohlen, stattdessen diese ausgeschriebene Form zu verwenden.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
 
 - `close`
-  - : Ein String für das schließende Trennzeichen. Der Standardwert ist `")"` und jeglicher Leerraum wird entfernt.
+  - : Eine Zeichenfolge für das schließende Zeichen. Der Standardwert ist `")"`; führende und nachfolgende Leerzeichen werden entfernt.
 - `open`
-  - : Ein String für das öffnende Trennzeichen. Der Standardwert ist `"("` und jeglicher Leerraum wird entfernt.
+  - : Eine Zeichenfolge für das öffnende Zeichen. Der Standardwert ist `"("`; führende und nachfolgende Leerzeichen werden entfernt.
 - `separators`
-  - : Eine Folge von null oder mehr Zeichen, die für verschiedene Trennzeichen verwendet werden sollen, optional durch Leerraum getrennt, der ignoriert wird. Der Standardwert ist ",". Durch die Angabe von mehr als einem Zeichen ist es möglich, unterschiedliche Trennzeichen für jedes Argument im Ausdruck festzulegen. Wenn es zu viele Trennzeichen gibt, wird der gesamte Überschuss ignoriert. Wenn es zu wenige Trennzeichen im Ausdruck gibt, wird das zuletzt angegebene Trennzeichen wiederholt.
+  - : Eine Folge von null oder mehr Zeichen, die als Trennzeichen verwendet werden. Sie können durch Leerzeichen getrennt sein, die ignoriert werden. Der Standardwert ist „,“. Wenn Sie mehrere Zeichen angeben, können Sie für die einzelnen Argumente des Ausdrucks unterschiedliche Trennzeichen festlegen. Überzählige Trennzeichen werden ignoriert. Sind für den Ausdruck zu wenige Trennzeichen angegeben, wird das zuletzt angegebene Trennzeichen wiederholt.
 
 ## Beispiele
 
@@ -52,15 +52,15 @@ body {
 </math>
 ```
 
-Beispielhafte Darstellung:
+Beispieldarstellung:
 
 ![{a;b;c,d,e}](mfenced-repeated.svg)
 
 Darstellung in Ihrem Browser:
 
-{{ EmbedLiveSample('mfenced_example1', 700, 200, "", "") }}
+{{ EmbedLiveSample('the_last_separator_is_repeated', 700, 200, "", "") }}
 
-### Der gesamte Überschuss wird ignoriert (`,`)
+### Überzählige Trennzeichen werden ignoriert (`,`)
 
 ```css hidden
 html,
@@ -87,20 +87,20 @@ body {
 </math>
 ```
 
-Beispielhafte Darstellung:
+Beispieldarstellung:
 
 ![[a|b|c|d|e]](mfenced-ignored.svg)
 
 Darstellung in Ihrem Browser:
 
-{{ EmbedLiveSample('mfenced_example1', 700, 200, "", "") }}
+{{ EmbedLiveSample('all_excess_is_ignored', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizierte ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine
@@ -110,7 +110,7 @@ Darstellung in Ihrem Browser:
 
 ## Spezifikationen
 
-Das `<mfenced>`-Element ist in keiner browserorientierten Spezifikation definiert, aber Sie können eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#presm_mfenced) finden.
+Das `<mfenced>`-Element ist in keiner browserorientierten Spezifikation definiert. Eine Beschreibung finden Sie jedoch in [MathML 4](https://w3c.github.io/mathml/#presm_mfenced).
 
 ## Browser-Kompatibilität
 

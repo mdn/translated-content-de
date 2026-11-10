@@ -1,12 +1,12 @@
 ---
-title: "`<wbr>` HTML-Element für Zeilenumbruch-Gelegenheit"
+title: HTML-Element `<wbr>` für optionale Zeilenumbrüche
 short-title: <wbr>
 slug: Web/HTML/Reference/Elements/wbr
 l10n:
-  sourceCommit: b7de5fa065848c0d703b6763df7a15d1eb908c91
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<wbr>`**-[HTML](/de/docs/Web/HTML)-Element steht für eine Worttrennungsgelegenheit - eine Position im Text, an der der Browser optional eine Zeile brechen kann, auch wenn seine Zeilenumbruchregeln an dieser Stelle keinen Umbruch erzeugen würden.
+Das [HTML](/de/docs/Web/HTML)-Element **`<wbr>`** kennzeichnet eine Stelle innerhalb eines Textes, an der der Browser optional einen Zeilenumbruch einfügen kann, obwohl seine Regeln für Zeilenumbrüche an dieser Stelle sonst keinen Umbruch vorsehen würden.
 
 {{InteractiveExample("HTML Demo: &lt;wbr&gt;", "tabbed-shorter")}}
 
@@ -30,17 +30,17 @@ Das **`<wbr>`**-[HTML](/de/docs/Web/HTML)-Element steht für eine Worttrennungsg
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Hinweise
 
-`<wbr>` verhält sich wie der Codepunkt `U+200B ZERO-WIDTH SPACE`. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keine Auswirkungen auf die {{Glossary("bidi", "bidi")}}-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` zeigt an, wenn es nicht auf zwei Zeilen gebrochen wird, `123,456` und nicht `456,123`.
+`<wbr>` verhält sich wie der Codepunkt `U+200B ZERO-WIDTH SPACE`. Insbesondere verhält es sich wie ein Unicode-Bidi-Codepunkt der Klasse BN. Das bedeutet, dass es keinen Einfluss auf die {{Glossary("bidi", "Bidi")}}-Reihenfolge hat: Wenn `<div dir=rtl>123,<wbr>456</div>` nicht auf zwei Zeilen umgebrochen wird, erscheint `123,456` und nicht `456,123`.
 
-Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen die weiche Bindestrich-Zeichenentität (`&shy;`).
+Aus demselben Grund fügt das Element `<wbr>` an der Umbruchstelle keinen Bindestrich ein. Wenn ein Bindestrich nur am Zeilenende erscheinen soll, verwenden Sie stattdessen die Zeichenentität für einen bedingten Trennstrich (`&shy;`).
 
 ## Beispiele
 
-[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/) empfiehlt, [eine URL _vor_ einem Satzzeichen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses) zu trennen, um ein Satzzeichen am Ende der Zeile zu vermeiden, das der Leser möglicherweise für das Ende der URL hält.
+_[The Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [eine URL _vor_ einem Satzzeichen umzubrechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), damit am Zeilenende kein Satzzeichen steht, das Leser für das Ende der URL halten könnten.
 
 ```html
 <p>
@@ -50,7 +50,7 @@ Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenu
 
 ### Ergebnis
 
-{{EmbedLiveSample("Example")}}
+{{EmbedLiveSample("examples")}}
 
 ## Technische Zusammenfassung
 
@@ -72,20 +72,21 @@ Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenu
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
-      <td>Leer</td>
+      <th scope="row">Zulässiger Inhalt</th>
+      <td>Keiner</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Ein Start-Tag ist erforderlich; ein End-Tag darf nicht vorhanden sein.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Textinhalt</a
-        > akzeptiert.
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -97,8 +98,8 @@ Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenu
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Alle</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -120,4 +121,4 @@ Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenu
 - {{cssxref("overflow-wrap")}}
 - {{cssxref("word-break")}}
 - {{cssxref("hyphens")}}
-- Das {{HTMLElement("br")}}-Element
+- Das Element {{HTMLElement("br")}}

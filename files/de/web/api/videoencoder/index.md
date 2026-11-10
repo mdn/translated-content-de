@@ -2,12 +2,12 @@
 title: VideoEncoder
 slug: Web/API/VideoEncoder
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`VideoEncoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekte in [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)s.
+Die Schnittstelle **`VideoEncoder`** der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekte zu [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekten.
 
 {{InheritanceDiagram}}
 
@@ -16,39 +16,39 @@ Die **`VideoEncoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCod
 - [`VideoEncoder()`](/de/docs/Web/API/VideoEncoder/VideoEncoder)
   - : Erstellt ein neues `VideoEncoder`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Eigenschaften von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) {{ReadOnlyInline}}
-  - : Eine ganze Zahl, die die Anzahl der Kodierungswarteschlangen-Anfragen darstellt.
+  - : Eine Ganzzahl, die die Anzahl der Anfragen in der Kodierungswarteschlange angibt.
 - [`VideoEncoder.state`](/de/docs/Web/API/VideoEncoder/state) {{ReadOnlyInline}}
-  - : Repräsentiert den Zustand des zugrunde liegenden Codecs und ob er für die Kodierung konfiguriert ist.
-
-### Ereignisse
-
-- [`dequeue`](/de/docs/Web/API/VideoEncoder/dequeue_event)
-  - : Wird ausgelöst, um eine Verringerung der [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) zu signalisieren.
+  - : Gibt den Zustand des zugrunde liegenden Codecs an und ob er für die Kodierung konfiguriert ist.
 
 ## Statische Methoden
 
 - [`VideoEncoder.isConfigSupported()`](/de/docs/Web/API/VideoEncoder/isConfigSupported_static)
-  - : Gibt ein Promise zurück, das angibt, ob die bereitgestellte `VideoEncoderConfig` unterstützt wird.
+  - : Gibt ein Promise zurück, das angibt, ob die angegebene `VideoEncoderConfig` unterstützt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`VideoEncoder.configure()`](/de/docs/Web/API/VideoEncoder/configure)
-  - : Bereitet den Encoder asynchron darauf vor, Videoframes mit den angegebenen Parametern zur Kodierung zu akzeptieren.
+  - : Bereitet den Encoder asynchron darauf vor, Videoframes mit den angegebenen Parametern zur Kodierung entgegenzunehmen.
 - [`VideoEncoder.encode()`](/de/docs/Web/API/VideoEncoder/encode)
-  - : Kodiert asynchron einen [`VideoFrame`](/de/docs/Web/API/VideoFrame).
+  - : Kodiert einen [`VideoFrame`](/de/docs/Web/API/VideoFrame) asynchron.
 - [`VideoEncoder.flush()`](/de/docs/Web/API/VideoEncoder/flush)
-  - : Gibt ein Promise zurück, das aufgelöst wird, sobald alle anstehenden Kodierungen abgeschlossen sind.
+  - : Gibt ein Promise zurück, das erfüllt wird, sobald alle ausstehenden Kodierungen abgeschlossen sind.
 - [`VideoEncoder.reset()`](/de/docs/Web/API/VideoEncoder/reset)
-  - : Bricht alle anstehenden Kodierungen und Rückrufe ab.
+  - : Bricht alle ausstehenden Kodierungen und Callbacks ab.
 - [`VideoEncoder.close()`](/de/docs/Web/API/VideoEncoder/close)
-  - : Beendet alle anstehenden Arbeiten und gibt Systemressourcen frei.
+  - : Beendet alle ausstehenden Vorgänge und gibt Systemressourcen frei.
+
+## Ereignisse
+
+- [`dequeue`](/de/docs/Web/API/VideoEncoder/dequeue_event)
+  - : Wird ausgelöst, um eine Verringerung von [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) anzuzeigen.
 
 ## Spezifikationen
 

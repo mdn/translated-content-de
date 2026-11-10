@@ -2,34 +2,34 @@
 title: RTCDTMFToneChangeEvent
 slug: Web/API/RTCDTMFToneChangeEvent
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCDTMFToneChangeEvent`**-Interface repräsentiert Ereignisse, die anzeigen, dass {{Glossary("DTMF", "DTMF")}}-Töne begonnen haben zu spielen oder das Abspielen beendet haben. Dieses Interface wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet.
+Die **`RTCDTMFToneChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die anzeigen, dass die Wiedergabe von {{Glossary("DTMF", "DTMF")}}-Tönen begonnen hat oder beendet wurde. Diese Schnittstelle wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet.
 
 {{InheritanceDiagram}}
-
-## Instanz-Eigenschaften
-
-_Neben den Eigenschaften von [`Event`](/de/docs/Web/API/Event) bietet dieses Interface folgende:_
-
-- [`RTCDTMFToneChangeEvent.tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone) {{ReadOnlyInline}}
-  - : Ein String, der den Ton angibt, der zu spielen begonnen hat, oder ein leerer String (`""`), wenn der vorherige Ton das Abspielen beendet hat.
 
 ## Konstruktoren
 
 - [`RTCDTMFToneChangeEvent()`](/de/docs/Web/API/RTCDTMFToneChangeEvent/RTCDTMFToneChangeEvent)
-  - : Gibt ein neues `RTCDTMFToneChangeEvent` zurück. Es nimmt zwei Parameter: der erste ist ein String, der den Typ des Ereignisses repräsentiert (immer `"tonechange"`); der zweite ist ein Wörterbuch, das den Anfangszustand der Eigenschaften des Ereignisses enthält.
+  - : Gibt ein neues `RTCDTMFToneChangeEvent` zurück. Der Konstruktor nimmt zwei Parameter entgegen: Der erste ist ein String, der den Ereignistyp angibt (immer `"tonechange"`); der zweite ist ein Dictionary mit dem Anfangszustand der Ereigniseigenschaften.
 
-## Instanz-Methoden
+## Instanzeigenschaften
 
-_Unterstützt die im [`Event`](/de/docs/Web/API/Event) definierten Methoden. Es gibt keine zusätzlichen Methoden._
+_Zusätzlich zu den Eigenschaften von [`Event`](/de/docs/Web/API/Event) bietet diese Schnittstelle Folgendes:_
+
+- [`RTCDTMFToneChangeEvent.tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone) {{ReadOnlyInline}}
+  - : Ein String, der den Ton angibt, dessen Wiedergabe begonnen hat, oder ein leerer String (`""`), wenn die Wiedergabe des vorherigen Tons beendet wurde.
+
+## Instanzmethoden
+
+_Unterstützt die in [`Event`](/de/docs/Web/API/Event) definierten Methoden. Es gibt keine zusätzlichen Methoden._
 
 ## Beispiele
 
-Dieses Snippet ist lose abgeleitet von dem vollständigen, funktionierenden Beispiel, das Sie im Abschnitt über [Wenn ein Ton das Abspielen beendet](/de/docs/Web/API/WebRTC_API/Using_DTMF#when_a_tone_finishes_playing) finden. Es fügt jeden Ton zu einer Anzeige hinzu, während er gespielt wird, und, sobald alle Töne gesendet wurden, wird ein zuvor deaktivierter "Senden"-Button wieder aktiviert, damit die nächste DTMF-Zeichenkette eingegeben werden kann.
+Dieser Codeausschnitt basiert auf dem vollständigen, funktionsfähigen Beispiel im Abschnitt [Wenn die Wiedergabe eines Tons endet](/de/docs/Web/API/WebRTC_API/Using_DTMF#when_a_tone_finishes_playing). Er fügt jeden Ton bei seiner Wiedergabe einem Anzeigefeld hinzu. Sobald alle Töne gesendet wurden, aktiviert er eine zuvor deaktivierte „Senden“-Schaltfläche wieder, sodass die nächste DTMF-Zeichenfolge eingegeben werden kann.
 
 ```js
 dtmfSender.addEventListener("change", (event) => {
@@ -52,4 +52,4 @@ dtmfSender.addEventListener("change", (event) => {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Üblicher Ziel: [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender).
+- Das übliche Ziel: [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender).

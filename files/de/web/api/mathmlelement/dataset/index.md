@@ -3,14 +3,14 @@ title: "MathMLElement: dataset-Eigenschaft"
 short-title: dataset
 slug: Web/API/MathMLElement/dataset
 l10n:
-  sourceCommit: 5f4ef6f614202ab1b748708d3e1d95e396f6ee63
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("MathML")}}
 
-Die **`dataset`**-Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/MathML/Reference/Global_attributes/data-*) (`data-*`) auf Elementen bietet. Sie stellt eine Zeichenfolgenzuordnung ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) dar, die einen Eintrag für jedes `data-*`-Attribut enthält.
+Die schreibgeschützte Eigenschaft **`dataset`** der Schnittstelle [`MathMLElement`](/de/docs/Web/API/MathMLElement) ermöglicht den Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/MathML/Reference/Global_attributes/data-*) (`data-*`) von Elementen. Sie stellt eine Zuordnung von Zeichenfolgen ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) bereit, die für jedes `data-*`-Attribut einen Eintrag enthält.
 
-Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt beschrieben werden. Stattdessen müssen alle Schreibvorgänge an die einzelnen Eigenschaften innerhalb des `dataset` erfolgen, die wiederum die Datenattribute darstellen.
+Die Eigenschaft `dataset` selbst kann gelesen, aber nicht direkt beschrieben werden. Stattdessen müssen Schreibzugriffe auf die einzelnen Eigenschaften innerhalb von `dataset` erfolgen, die jeweils ein Datenattribut repräsentieren.
 
 ## Wert
 
@@ -42,7 +42,7 @@ console.log(el.dataset.equation); // "euler"
 
 ### Ergebnis
 
-{{EmbedLiveSample("dataset",100,100)}}
+{{EmbedLiveSample("examples",100,100)}}
 
 ## Spezifikationen
 
@@ -56,4 +56,4 @@ console.log(el.dataset.equation); // "euler"
 
 - [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)
 - [`data-*`](/de/docs/Web/MathML/Reference/Global_attributes/data-*)
-- [Verwendung von Datenattributen](/de/docs/Web/HTML/How_to/Use_data_attributes)
+- [Datenattribute verwenden](/de/docs/Web/HTML/How_to/Use_data_attributes)

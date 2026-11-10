@@ -3,12 +3,12 @@ title: "HTMLElement: drop-Ereignis"
 short-title: drop
 slug: Web/API/HTMLElement/drop_event
 l10n:
-  sourceCommit: 2f34ca590baf2d5447d42fc79002a70b9cb65e73
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das **`drop`**-Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf einem gültigen Ablageziel abgelegt wird. Damit das `drop`-Ereignis zuverlässig ausgelöst wird, sollten Sie im Code, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis verarbeitet, immer [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen.
+Das **`drop`**-Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf einem gültigen Ablageziel abgelegt wird. Damit das `drop`-Ereignis zuverlässig ausgelöst wird, sollten Sie in dem Teil Ihres Codes, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis behandelt, immer [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen.
 
 Dieses Ereignis kann abgebrochen werden und zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) aufsteigen.
 
@@ -34,15 +34,15 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiele
 
-### Ein einfaches Drag-and-Drop-Beispiel
+### Ein minimales Drag-and-Drop-Beispiel
 
-In diesem Beispiel befindet sich ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und dort loszulassen.
+In diesem Beispiel befindet sich ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und dort loszulassen.
 
 Hier verwenden wir drei Event-Handler:
 
 - Im `dragstart`-Event-Handler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat.
-- Im `dragover`-Event-Handler des Zielcontainers rufen wir `event.preventDefault()` auf. Dadurch kann der Container `drop`-Ereignisse empfangen.
-- Im `drop`-Event-Handler der Ablagezone verschieben wir das ziehbare Element vom ursprünglichen Container in die Ablagezone.
+- Im `dragover`-Event-Handler des Zielcontainers rufen wir `event.preventDefault()` auf, damit der Container `drop`-Ereignisse empfangen kann.
+- Im `drop`-Event-Handler der Ablagezone verschieben wir das ziehbare Element aus dem ursprünglichen Container in die Ablagezone.
 
 Ein ausführlicheres Drag-and-Drop-Beispiel finden Sie auf der Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
@@ -107,7 +107,7 @@ target.addEventListener("drop", (event) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample('A minimal drag and drop example')}}
+{{EmbedLiveSample('a_minimal_drag-and-drop_example')}}
 
 ## Spezifikationen
 

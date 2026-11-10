@@ -3,12 +3,12 @@ title: "`column-rule-visibility-items` CSS property"
 short-title: column-rule-visibility-items
 slug: Web/CSS/Reference/Properties/column-rule-visibility-items
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-visibility-items`** legt fest, ob ein column-rule-Segment in Lücken gezeichnet wird, die an leere Bereiche angrenzen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`column-rule-visibility-items`** legt fest, ob ein Segment einer Spaltentrennlinie in Lücken neben leeren Bereichen gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule-visibility-items")}}
 
@@ -73,25 +73,25 @@ column-rule-visibility-items: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
 
 - `all`
-  - : Die Spaltenlinie sollte in allen Lückensegmenten gezeichnet werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
+  - : Die Spaltentrennlinie wird in allen Lückensegmenten gezeichnet, unabhängig davon, ob sich in den angrenzenden Bereichen ein Element befindet.
 
 - `around`
-  - : Die Spaltenlinie sollte in einem Lückensegment gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist.
+  - : Die Spaltentrennlinie wird in einem Lückensegment gezeichnet, wenn mindestens einer der beiden angrenzenden Bereiche ein Element enthält.
 
 - `between`
-  - : Die Spaltenlinie sollte in einem Lückensegment gezeichnet werden, wenn beide angrenzenden Bereiche von Elementen belegt sind.
+  - : Die Spaltentrennlinie wird in einem Lückensegment gezeichnet, wenn beide angrenzenden Bereiche Elemente enthalten.
 
 - `normal`
-  - : Bei Grid-Containern verhält sich dieser Wert wie `all`. Im Mehrspaltenlayout verhält er sich wie `between`. Dies ist der Standardwert.
+  - : Verhält sich bei Grid-Containern wie `all` und bei mehrspaltigen Layouts wie `between`. Dies ist der Standardwert.
 
 ## Beschreibung
 
-Die Eigenschaft `column-rule-visibility-items` legt fest, ob ein column-rule-Segment in Spaltenlücken gezeichnet wird, die an leere Bereiche in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout)- und [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containern mit mehr als einer Spalte angrenzen.
+Die Eigenschaft `column-rule-visibility-items` legt fest, ob ein Segment einer Spaltentrennlinie in Spaltenlücken neben leeren Bereichen in [mehrzeiligen mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Multicol_layout) und [Grid-Containern](/de/docs/Web/CSS/Guides/Grid_layout) mit mehr als einer Spalte gezeichnet wird.
 
-Die Eigenschaften `column-rule-visibility-items` und {{cssxref("row-rule-visibility-items")}} können beide mithilfe der Kurzform {{cssxref("rule-visibility-items")}} festgelegt werden.
+Die Eigenschaften `column-rule-visibility-items` und {{cssxref("row-rule-visibility-items")}} können beide über die Kurzschreibweise {{cssxref("rule-visibility-items")}} festgelegt werden.
 
 ## Formale Definition
 
@@ -103,9 +103,9 @@ Die Eigenschaften `column-rule-visibility-items` und {{cssxref("row-rule-visibil
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-In diesem Beispiel legen wir fest, dass eine Spaltenlinie zwischen zwei Grid-Bereichen gezeichnet wird, wenn mindestens einer der angrenzenden Grid-Bereiche ein Grid-Element enthält.
+In diesem Beispiel legen wir fest, dass zwischen zwei Grid-Bereichen eine Spaltentrennlinie gezeichnet wird, wenn mindestens einer der angrenzenden Grid-Bereiche ein Grid-Element enthält.
 
 #### HTML
 
@@ -124,9 +124,9 @@ Wir fügen eine Liste dynamischer Sportduos ein:
 
 #### CSS
 
-Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container, erstellen durch Festlegen der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} auf `repeat(4, 1fr)` 4 Spalten und 4 Zeilen und verschieben das letzte Element mithilfe der Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} in den Grid-Bereich unten rechts. Wir fügen ein {{cssxref("gap")}} von `20px` hinzu, um zwischen den Spalten genügend Platz für unsere gestrichelte Linie mit `5px` zu schaffen.
+Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container und erzeugen vier Spalten und vier Zeilen, indem wir sowohl die Eigenschaft {{cssxref("grid-template-columns")}} als auch {{cssxref("grid-template-rows")}} auf `repeat(4, 1fr)` setzen. Mit den Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} verschieben wir das letzte Element in den Grid-Bereich rechts unten. Ein {{cssxref("gap")}} von `20px` schafft zwischen den Spalten ausreichend Platz für die gestrichelte Trennlinie mit einer Breite von `5px`.
 
-Schließlich setzen wir `column-rule-visibility-items` auf `between`, sodass eine Spaltenlinie nur dann in einer Spaltenlücke gezeichnet wird, wenn beide angrenzenden Grid-Bereiche ein Grid-Element enthalten.
+Schließlich setzen wir `column-rule-visibility-items` auf `between`, sodass eine Spaltentrennlinie nur dann in einer Spaltenlücke gezeichnet wird, wenn beide angrenzenden Grid-Bereiche ein Grid-Element enthalten.
 
 ```css
 ol {
@@ -163,7 +163,7 @@ li {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Basic", "", "230")}}
+{{EmbedLiveSample("basic_example", "", "230")}}
 
 ## Spezifikationen
 
@@ -175,8 +175,8 @@ li {
 
 ## Siehe auch
 
-- Kurzform {{cssxref("rule-visibility-items")}}
+- Kurzschreibweise {{cssxref("rule-visibility-items")}}
 - {{cssxref("row-rule-visibility-items")}}
-- Kurzform {{cssxref("column-rule")}}
-- Kurzform {{cssxref("rule")}}
-- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)
+- Kurzschreibweise {{cssxref("column-rule")}}
+- Kurzschreibweise {{cssxref("rule")}}
+- Modul [CSS-Lücken](/de/docs/Web/CSS/Guides/Gaps)

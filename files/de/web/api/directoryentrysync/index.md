@@ -2,34 +2,16 @@
 title: DirectoryEntrySync
 slug: Web/API/DirectoryEntrySync
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_Header}}
 
-Die `DirectoryEntrySync`-Schnittstelle repräsentiert ein Verzeichnis in einem Dateisystem. Sie beinhaltet Methoden zum Erstellen, Lesen, Suchen und rekursiven Entfernen von Dateien in einem Verzeichnis.
+Die Schnittstelle `DirectoryEntrySync` repräsentiert ein Verzeichnis in einem Dateisystem. Sie bietet Methoden zum Erstellen, Lesen, Nachschlagen und rekursiven Entfernen von Dateien in einem Verzeichnis.
 
 > [!WARNING]
-> Diese Schnittstelle ist veraltet und befindet sich nicht mehr auf dem Standardpfad.
-> _Verwenden Sie sie nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
-
-## Grundkonzepte
-
-Wenn Sie Unterverzeichnisse erstellen möchten, müssen Sie jedes Kindverzeichnis nacheinander erstellen. Wenn Sie versuchen, ein Verzeichnis mit einem vollständigen Pfad zu erstellen, der übergeordnete Verzeichnisse enthält, die noch nicht existieren, erhalten Sie einen Fehler. Erstellen Sie also die Hierarchie, indem Sie nach dem Erstellen des übergeordneten Verzeichnisses rekursiv einen neuen Pfad hinzufügen.
-
-### Beispiel
-
-Die Methode `getFile()` gibt ein `FileEntrySync` zurück, das eine Datei im Dateisystem repräsentiert. Folgendes Beispiel erstellt eine leere Datei namens `logs.txt` im Stammverzeichnis.
-
-```js
-const fileEntry = fs.root.getFile("logs.txt", { create: true });
-```
-
-Die Methode `getDirectory()` gibt ein `DirectoryEntrySync` zurück, das ein Verzeichnis im Dateisystem repräsentiert. Folgendes Beispiel erstellt ein neues Verzeichnis namens `project_dir` im Stammverzeichnis.
-
-```js
-const dirEntry = fs.root.getDirectory("project_dir", { create: true });
-```
+> Diese Schnittstelle ist veraltet und wird nicht mehr als Standard weiterentwickelt.
+> _Verwenden Sie sie nicht mehr._ Verwenden Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Methodenübersicht
 
@@ -60,16 +42,16 @@ Ein [`DirectoryReaderSync`](/de/docs/Web/API/DirectoryReaderSync)-Objekt, das ei
 
 ##### Ausnahmen
 
-Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem der folgenden Codes auslösen:
 
-| Ausnahme        | Beschreibung                                                                                         |
-| --------------- | ---------------------------------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR` | Das Verzeichnis existiert nicht.                                                                     |
-| `SECURITY_ERR`  | Der Browser hat festgestellt, dass es unsicher ist, die Metadaten abzurufen. [todo: Warum erläutern] |
+| Ausnahme        | Beschreibung                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR` | Das Verzeichnis existiert nicht.                                                                              |
+| `SECURITY_ERR`  | Der Browser hat festgestellt, dass das Nachschlagen der Metadaten nicht sicher ist. [ todo: Grund erläutern ] |
 
 ### getFile()
 
-Je nachdem, wie Sie den `options`-Parameter festgelegt haben, erstellt die Methode entweder eine Datei oder sucht eine vorhandene Datei.
+Je nachdem, wie Sie den Parameter `options` festgelegt haben, erstellt die Methode entweder eine Datei oder sucht nach einer vorhandenen Datei.
 
 #### Syntax
 
@@ -81,48 +63,48 @@ getFile(path, options)
 ##### Parameter
 
 - `path`
-  - : Entweder ein absoluter Pfad oder ein relativer Pfad vom Verzeichnis zur Datei, die gesucht oder erstellt werden soll. Sie können keine Datei erstellen, deren direktes übergeordnetes Verzeichnis nicht existiert. Erstellen Sie zuerst das übergeordnete Verzeichnis.
+  - : Entweder ein absoluter Pfad oder ein relativer Pfad vom Verzeichnis zu der Datei, die gesucht oder erstellt werden soll. Sie können keine Datei erstellen, deren direkt übergeordnetes Verzeichnis nicht existiert. Erstellen Sie zuerst das übergeordnete Verzeichnis.
 - `options`
-  - : (optional) Ein Objekt-Literal, das das Verhalten der Methode beschreibt. Wenn die Datei nicht existiert, wird sie erstellt.
+  - : (Optional) Ein Objektliteral, das das Verhalten der Methode beschreibt. Wenn die Datei nicht existiert, wird sie erstellt.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th scope="col">Objekt-Literal</th>
+      <th scope="col">Objektliteral</th>
       <th scope="col">Bedingung</th>
       <th scope="col">Ergebnis</th>
     </tr>
     <tr>
       <td><code>create: true</code><br /><code>exclusive: true</code></td>
-      <td>Pfad existiert bereits</td>
+      <td>Der Pfad existiert bereits</td>
       <td>Ein Fehler wird ausgelöst.</td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>create: true</code><br /><code>exclusive: false</code></td>
-      <td>Pfad existiert nicht und kein anderer Fehler tritt auf</td>
-      <td>Eine Datei wird erstellt. Wenn eine Datei bereits existiert, wird kein Fehler ausgelöst.</td>
+      <td>Der Pfad existiert nicht und es tritt kein anderer Fehler auf</td>
+      <td>Eine Datei wird erstellt. Wenn bereits eine Datei existiert, wird kein Fehler ausgelöst.</td>
     </tr>
     <tr>
       <td>
         <code>create: false</code><br />(<code>exclusive</code> wird ignoriert)
       </td>
-      <td>Pfad existiert</td>
+      <td>Der Pfad existiert</td>
       <td>Die Datei wird zurückgegeben.</td>
     </tr>
     <tr>
       <td>
         <code>create: false</code><br />(<code>exclusive</code> wird ignoriert)
       </td>
-      <td>Pfad existiert nicht</td>
+      <td>Der Pfad existiert nicht</td>
       <td>Ein Fehler wird ausgelöst.</td>
     </tr>
     <tr>
       <td>
         <code>create: false</code><br />(<code>exclusive</code> wird ignoriert)
       </td>
-      <td>Pfad existiert, ist aber ein Verzeichnis</td>
+      <td>Der Pfad existiert, bezeichnet aber ein Verzeichnis</td>
       <td>Ein Fehler wird ausgelöst.</td>
     </tr>
   </tbody>
@@ -134,21 +116,21 @@ Ein [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)-Objekt, das eine Datei in 
 
 ##### Ausnahmen
 
-Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem der folgenden Codes auslösen:
 
-| Ausnahme                      | Beschreibung                                                                                                         |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                                                    |
-| `NOT_FOUND_ERR`               | Der Pfad war strukturell korrekt, verweist jedoch auf eine Ressource, die nicht existiert.                           |
-| `NO_MODIFICATION_ALLOWED_ERR` | Dies ist ein Berechtigungsproblem. Das Zielverzeichnis oder die Datei ist nicht beschreibbar.                        |
-| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere mit demselben Pfad erstellen.                                  |
-| `QUOTA_EXCEEDED_ERROR`        | Der Vorgang würde dazu führen, dass die Anwendung ihr Speicherlimit überschreitet.                                   |
-| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad angegebene Element zuzugreifen. [todo: Warum erläutern] |
-| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, es handelt sich jedoch nicht um ein Verzeichnis.                                      |
+| Ausnahme                      | Beschreibung                                                                                                            |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                                                       |
+| `NOT_FOUND_ERR`               | Der Pfad ist strukturell korrekt, verweist aber auf eine Ressource, die nicht existiert.                                |
+| `NO_MODIFICATION_ALLOWED_ERR` | Es liegt ein Berechtigungsproblem vor. Das Zielverzeichnis oder die Zieldatei ist nicht beschreibbar.                   |
+| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere Datei mit demselben Pfad erstellen.                               |
+| `QUOTA_EXCEEDED_ERROR`        | Durch den Vorgang würde die Anwendung ihr Speicherkontingent überschreiten.                                             |
+| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad bezeichnete Element zuzugreifen. [ todo: Grund erläutern ] |
+| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, bezeichnet aber kein Verzeichnis.                                                        |
 
 ### getDirectory()
 
-Erstellt oder sucht ein Verzeichnis. Die Methode ist ähnlich zu `getFile()`, wobei `DirectoryEntrySync` übergeben wird.
+Erstellt ein Verzeichnis oder sucht nach einem vorhandenen Verzeichnis. Die Methode ähnelt `getFile()`, wobei ein `DirectoryEntrySync` zurückgegeben wird.
 
 #### Syntax
 
@@ -160,48 +142,50 @@ getDirectory(path, options)
 ##### Parameter
 
 - `path`
-  - : Entweder ein absoluter Pfad oder ein relativer Pfad vom Verzeichnis zur Datei, die gesucht oder erstellt werden soll. Sie können keine Datei erstellen, deren direktes übergeordnetes Verzeichnis nicht existiert. Erstellen Sie zuerst das übergeordnete Verzeichnis.
+  - : Entweder ein absoluter Pfad oder ein relativer Pfad vom Verzeichnis zu der Datei, die gesucht oder erstellt werden soll. Sie können keine Datei erstellen, deren direkt übergeordnetes Verzeichnis nicht existiert. Erstellen Sie zuerst das übergeordnete Verzeichnis.
 - `options`
-  - : (optional) Ein Objekt-Literal, das das Verhalten der Methode beschreibt, wenn die Datei nicht existiert.
+  - : (Optional) Ein Objektliteral, das das Verhalten der Methode beschreibt, falls die Datei nicht existiert.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th scope="col">Objekt-Literal</th>
+      <th scope="col">Objektliteral</th>
       <th scope="col">Bedingung</th>
       <th scope="col">Ergebnis</th>
     </tr>
     <tr>
       <td><code>create: true</code><br /><code>exclusive: true</code></td>
-      <td>Pfad existiert bereits</td>
+      <td>Der Pfad existiert bereits</td>
       <td>Ein Fehler wird ausgelöst.</td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>create: true</code><br /><code>exclusive: false</code></td>
-      <td>Pfad existiert nicht und kein anderer Fehler tritt auf</td>
-      <td>Ein Verzeichnis wird erstellt. Wenn eine Datei bereits existiert, wird kein Fehler ausgelöst.</td>
+      <td>Der Pfad existiert nicht und es tritt kein anderer Fehler auf</td>
+      <td>
+        Ein Verzeichnis wird erstellt. Wenn bereits eine Datei existiert, wird kein Fehler ausgelöst.
+      </td>
     </tr>
     <tr>
       <td>
         <code>create: false</code><br />(<code>exclusive</code> wird ignoriert)
       </td>
-      <td>Pfad existiert</td>
+      <td>Der Pfad existiert</td>
       <td>Das Verzeichnis wird zurückgegeben.</td>
     </tr>
     <tr>
       <td>
         <code>create: false</code><br />(<code>exclusive</code> wird ignoriert)
       </td>
-      <td>Pfad existiert nicht</td>
+      <td>Der Pfad existiert nicht</td>
       <td>Ein Fehler wird ausgelöst.</td>
     </tr>
     <tr>
       <td>
         <code>create: false</code><br />(<code>exclusive</code> wird ignoriert)
       </td>
-      <td>Pfad existiert, ist aber ein Verzeichnis</td>
+      <td>Der Pfad existiert, bezeichnet aber ein Verzeichnis</td>
       <td>Ein Fehler wird ausgelöst.</td>
     </tr>
   </tbody>
@@ -213,23 +197,23 @@ Ein [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryReaderSync)-Objekt, das ein
 
 ##### Ausnahmen
 
-Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem der folgenden Codes auslösen:
 
-| Ausnahme                      | Beschreibung                                                                                                         |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                                                    |
-| `NOT_FOUND_ERR`               | Der Pfad war strukturell korrekt, verweist jedoch auf eine Ressource, die nicht existiert.                           |
-| `NO_MODIFICATION_ALLOWED_ERR` | Dies ist ein Berechtigungsproblem. Das Zielverzeichnis oder die Datei ist nicht beschreibbar.                        |
-| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere mit demselben Pfad erstellen.                                  |
-| `QUOTA_EXCEEDED_ERROR`        | Der Vorgang würde dazu führen, dass die Anwendung ihr Speicherlimit überschreitet.                                   |
-| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad angegebene Element zuzugreifen. [todo: Warum erläutern] |
-| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, es handelt sich jedoch nicht um ein Verzeichnis.                                      |
+| Ausnahme                      | Beschreibung                                                                                                            |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                                                       |
+| `NOT_FOUND_ERR`               | Der Pfad ist strukturell korrekt, verweist aber auf eine Ressource, die nicht existiert.                                |
+| `NO_MODIFICATION_ALLOWED_ERR` | Es liegt ein Berechtigungsproblem vor. Das Zielverzeichnis oder die Zieldatei ist nicht beschreibbar.                   |
+| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere Datei mit demselben Pfad erstellen.                               |
+| `QUOTA_EXCEEDED_ERROR`        | Durch den Vorgang würde die Anwendung ihr Speicherkontingent überschreiten.                                             |
+| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad bezeichnete Element zuzugreifen. [ todo: Grund erläutern ] |
+| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, bezeichnet aber kein Verzeichnis.                                                        |
 
 ### removeRecursively()
 
-Löscht ein Verzeichnis und dessen gesamten Inhalt. Sie können das Stammverzeichnis eines Dateisystems nicht löschen.
+Löscht ein Verzeichnis und seinen gesamten Inhalt. Sie können das Stammverzeichnis eines Dateisystems nicht löschen.
 
-Wenn Sie ein Verzeichnis löschen, das eine Datei enthält, die nicht entfernt werden kann, oder wenn während des Löschvorgangs ein Fehler auftritt, könnte ein Teil des Inhalts nicht gelöscht werden. Erfassen Sie diese Fälle mit Fehler-Callbacks und versuchen Sie die Löschung erneut.
+Wenn Sie ein Verzeichnis löschen, das eine nicht entfernbare Datei enthält, oder während des Löschvorgangs ein Fehler auftritt, wird möglicherweise ein Teil des Inhalts nicht gelöscht. Fangen Sie solche Fälle mit Fehler-Callbacks ab und versuchen Sie erneut, das Verzeichnis zu löschen.
 
 #### Syntax
 
@@ -247,7 +231,7 @@ Keine.
 
 ##### Ausnahmen
 
-Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem der folgenden Codes auslösen:
 
 <table class="no-markdown">
   <thead>
@@ -264,28 +248,48 @@ Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) mit den f
     <tr>
       <td><code>INVALID_STATE_ERR</code></td>
       <td>
-        Dieses Verzeichnis ist aus einem anderen Grund als dem Löschen nicht mehr gültig.
-        <p>[todo: Mehr erklären]</p>
+        Dieses Verzeichnis ist aus einem anderen Grund als seiner Löschung nicht mehr gültig.
+        <p>[todo: Näher erläutern ]</p>
       </td>
     </tr>
     <tr>
       <td><code>NO_MODIFICATION_ALLOWED_ERR</code></td>
       <td>
-        Eines der folgenden Elemente ist nicht beschreibbar: das Verzeichnis, dessen übergeordnetes Verzeichnis und einige der Inhalte im Verzeichnis.
+        Mindestens eines der folgenden Elemente ist nicht beschreibbar: das Verzeichnis,
+        sein übergeordnetes Verzeichnis oder ein Teil des Inhalts des Verzeichnisses.
       </td>
     </tr>
     <tr>
       <td><code>SECURITY_ERR</code></td>
       <td>
-        Die Anwendung hat keine Berechtigung, auf das Zielverzeichnis, dessen Elternverzeichnis oder einige seiner Inhalte zuzugreifen.
+        Die Anwendung hat keine Berechtigung, auf das Zielverzeichnis, sein übergeordnetes
+        Verzeichnis oder einen Teil seines Inhalts zuzugreifen.
       </td>
     </tr>
   </tbody>
 </table>
 
+## Beschreibung
+
+Wenn Sie Unterverzeichnisse erstellen möchten, müssen Sie jedes Unterverzeichnis nacheinander erstellen. Wenn Sie versuchen, ein Verzeichnis mit einem vollständigen Pfad zu erstellen, dessen übergeordnete Verzeichnisse noch nicht existieren, erhalten Sie einen Fehler. Erstellen Sie die Hierarchie daher, indem Sie nach dem Erstellen des jeweils übergeordneten Verzeichnisses rekursiv einen neuen Pfad hinzufügen.
+
+## Beispiele
+
+Die Methode `getFile()` gibt ein `FileEntrySync` zurück, das eine Datei im Dateisystem repräsentiert. Das folgende Beispiel erstellt im Stammverzeichnis eine leere Datei namens `logs.txt`.
+
+```js
+const fileEntry = fs.root.getFile("logs.txt", { create: true });
+```
+
+Die Methode `getDirectory()` gibt ein `DirectoryEntrySync` zurück, das eine Datei im Dateisystem repräsentiert. Das folgende Beispiel erstellt im Stammverzeichnis ein neues Verzeichnis namens `project_dir`.
+
+```js
+const dirEntry = fs.root.getDirectory("project_dir", { create: true });
+```
+
 ## Spezifikationen
 
-Diese Funktion ist Teil keiner aktuellen Spezifikation und soll nicht mehr zum Standard werden.
+Dieses Feature ist nicht Teil einer aktuellen Spezifikation. Es wird nicht mehr als Standard weiterentwickelt.
 Verwenden Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Browser-Kompatibilität

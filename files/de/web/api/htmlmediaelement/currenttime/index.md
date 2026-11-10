@@ -3,45 +3,38 @@ title: "HTMLMediaElement: currentTime-Eigenschaft"
 short-title: currentTime
 slug: Web/API/HTMLMediaElement/currentTime
 l10n:
-  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`currentTime`**-Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt die aktuelle Wiedergabezeit in Sekunden an.
+Die Eigenschaft **`currentTime`** der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gibt die aktuelle Wiedergabezeit in Sekunden an.
 
-Das Ändern des Wertes von `currentTime` springt das Medium zur neuen Zeit.
+Wenn Sie den Wert von `currentTime` ändern, wird die Wiedergabeposition des Mediums auf die neue Zeit gesetzt.
 
 ## Wert
 
-Ein Gleitkomma-Doppelpräzisionswert, der die aktuelle Wiedergabezeit in Sekunden angibt.
+Ein Gleitkommawert mit doppelter Genauigkeit, der die aktuelle Wiedergabezeit in Sekunden angibt.
 
-Wenn das Medium noch nicht spielt, zeigt der Wert von `currentTime` die Zeitposition innerhalb des Mediums an, bei der die Wiedergabe beginnt, sobald die [`play()`](/de/docs/Web/API/HTMLMediaElement/play)-Methode aufgerufen wird.
+Wenn das Medium noch nicht wiedergegeben wird, gibt der Wert von `currentTime` die Zeitposition im Medium an, an der die Wiedergabe beginnt, sobald die Methode [`play()`](/de/docs/Web/API/HTMLMediaElement/play) aufgerufen wird.
 
-Das Setzen von `currentTime` auf einen neuen Wert springt das Medium zur angegebenen Zeit, sofern das Medium verfügbar ist.
+Wenn `currentTime` auf einen neuen Wert gesetzt wird, wird die Wiedergabeposition des Mediums auf die angegebene Zeit gesetzt, sofern das Medium verfügbar ist.
 
-Bei Medien ohne bekannte Dauer – wie z.B. live gestreamte Medien – ist es möglich, dass der Browser Teile des Mediums nicht mehr abrufen kann, die aus dem Mediabuffer entfernt wurden. Auch Medien, deren Zeitachse nicht bei 0 Sekunden beginnt, können nicht zu einer Zeit vor dieser frühesten Zeit der Zeitachse gesprungen werden.
+Bei Medien ohne bekannte Dauer – etwa bei Livestreams – kann der Browser möglicherweise nicht mehr auf Teile des Mediums zugreifen, die nicht mehr im Medienpuffer vorhanden sind. Außerdem kann die Wiedergabeposition bei Medien, deren Zeitleiste nicht bei 0 Sekunden beginnt, nicht auf eine Zeit vor dem Beginn der Zeitleiste gesetzt werden.
 
-Die Länge des Mediums in Sekunden kann mit der [`duration`](/de/docs/Web/API/HTMLMediaElement/duration)-Eigenschaft bestimmt werden.
-
-## Beispiele
-
-```js
-const video = document.createElement("video");
-console.log(video.currentTime);
-```
+Die Länge des Mediums in Sekunden lässt sich über die Eigenschaft [`duration`](/de/docs/Web/API/HTMLMediaElement/duration) ermitteln.
 
 ## Hinweise zur Verwendung
 
-### Zeitpräzision
+### Zeitgenauigkeit
 
-Der Browser wendet keine Timer-Rundung auf `currentTime` an, einschließlich Werte, die durch Skripte bereitgestellt werden. Das Springen kann die resultierende Wiedergabeposition dennoch auf eine von dem Medium unterstützte Position anpassen.
+Der Browser rundet Timerwerte für `currentTime` nicht, auch nicht für Werte, die von Skripten übergeben werden. Beim Setzen der Wiedergabeposition kann die resultierende Position dennoch auf eine vom Medium unterstützte Position angepasst werden.
 
-Der Wert von `currentTime` ist eine Annäherung an die aktuelle Wiedergabeposition. Der Browser aktualisiert diesen Wert, während die Wiedergabe fortschreitet. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/media.html#official-playback-position) erfordert, dass die gemeldete Wiedergabeposition stabil bleibt, während Skripte ausgeführt werden.
+Der Wert von `currentTime` ist ein Näherungswert für die aktuelle Wiedergabeposition. Der Browser aktualisiert ihn während der Wiedergabe. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/media.html#official-playback-position) verlangt, dass die gemeldete Wiedergabeposition unverändert bleibt, während Skripte ausgeführt werden.
 
-Die Aktualisierungsfrequenz hängt vom Browser und der Medienwiedergabepipeline ab. Daher können aufeinanderfolgende Abfragen denselben `currentTime` zurückgeben, auch wenn {{jsxref("Date.now()")}} vorangeschritten ist. Die Anzahl der Dezimalstellen im Wert zeigt nicht an, wie oft er aktualisiert wird oder wie genau er mit dem präsentierten Audio oder Video übereinstimmt.
+Wie häufig der Wert aktualisiert wird, hängt vom Browser und von der Verarbeitung der Medienwiedergabe ab. Daher können aufeinanderfolgende Zugriffe denselben Wert für `currentTime` zurückgeben, selbst wenn {{jsxref("Date.now()")}} inzwischen fortgeschritten ist. Die Anzahl der Nachkommastellen sagt weder aus, wie häufig der Wert aktualisiert wird, noch, wie genau er mit dem wiedergegebenen Audio oder Video übereinstimmt.
 
-Zum Beispiel könnten aufeinanderfolgende Abfragen während der Wiedergabe diese Werte liefern:
+Beispielsweise könnten aufeinanderfolgende Abfragen während der Wiedergabe diese Werte ergeben:
 
 ```js
 video.currentTime;
@@ -50,6 +43,13 @@ video.currentTime;
 // 23.404
 // 23.452
 // …
+```
+
+## Beispiele
+
+```js
+const video = document.createElement("video");
+console.log(video.currentTime);
 ```
 
 ## Spezifikationen
@@ -62,6 +62,6 @@ video.currentTime;
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Interface zur Definition der `HTMLMediaElement.currentTime`-Eigenschaft
-- [`HTMLMediaElement.fastSeek()`](/de/docs/Web/API/HTMLMediaElement/fastSeek): Eine andere Methode, um die Zeit einzustellen
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, in der die Eigenschaft `HTMLMediaElement.currentTime` definiert ist
+- [`HTMLMediaElement.fastSeek()`](/de/docs/Web/API/HTMLMediaElement/fastSeek): Eine weitere Möglichkeit, die Wiedergabeposition festzulegen
 - [`HTMLMediaElement.duration`](/de/docs/Web/API/HTMLMediaElement/duration): Die Dauer des Mediums in Sekunden

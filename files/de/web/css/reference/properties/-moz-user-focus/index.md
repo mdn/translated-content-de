@@ -3,15 +3,15 @@ title: "`-moz-user-focus` CSS property"
 short-title: -moz-user-focus
 slug: Web/CSS/Reference/Properties/-moz-user-focus
 l10n:
-  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
+  sourceCommit: 47def3151aadab22b9438c2eedba276d51f65f25
 ---
 
 {{non-standard_header}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-moz-user-focus`** wird verwendet, um anzugeben, ob ein Element den Fokus erhalten kann.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`-moz-user-focus`** gibt an, ob ein Element den Fokus erhalten kann.
 
-Indem Sie ihren Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren. Das bedeutet, dass Benutzende das Element nicht aktivieren können und das Element in der Tab-Reihenfolge übersprungen wird.
-Der Standardwert ist `none`, wodurch das Fokussieren des Elements deaktiviert und der Fokus von anderen Elementen entfernt wird, wenn versucht wird, das Element auszuwählen.
+Wenn Sie den Wert auf `ignore` setzen, verhindern Sie, dass das Element den Fokus erhält. Dadurch können Benutzer das Element nicht aktivieren, und es wird bei der Tabulatornavigation übersprungen.
+Der Standardwert ist `none`. Damit kann das Element den Fokus nicht erhalten; wird versucht, das Element auszuwählen, verlieren andere Elemente ihren Fokus.
 
 ## Syntax
 
@@ -29,15 +29,15 @@ Der Standardwert ist `none`, wodurch das Fokussieren des Elements deaktiviert un
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Diese Eigenschaft wird mit einem der folgenden Schlüsselwortwerte angegeben:
 
 - `ignore`
-  - : Das Element akzeptiert keinen Tastaturfokus und wird in der Tab-Reihenfolge übersprungen.
+  - : Das Element kann den Tastaturfokus nicht erhalten und wird bei der Tabulatornavigation übersprungen.
 - `normal`
-  - : Das Element kann Tastaturfokus akzeptieren.
+  - : Das Element kann den Tastaturfokus erhalten.
 - `none`
-  - : Das Element akzeptiert keinen Tastaturfokus.
-    Beim Versuch, das Element auszuwählen, wird der Fokus von jedem anderen Element entfernt.
+  - : Das Element kann den Tastaturfokus nicht erhalten.
+    Beim Versuch, das Element auszuwählen, verliert jedes andere fokussierte Element den Fokus.
 
 ## Formale Definition
 
@@ -65,7 +65,7 @@ Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Nicht Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

@@ -2,13 +2,13 @@
 title: font-size
 slug: Web/SVG/Reference/Attribute/font-size
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`font-size`** Attribut bezieht sich auf die Größe der Schriftart von {{Glossary("baseline/typography", "Baseline")}} zu Baseline, wenn mehrere Textzeilen in einem mehrzeiligen Layout-Umfeld durchgehend eingestellt sind.
+Das Attribut **`font-size`** gibt die Schriftgröße von einer {{Glossary("baseline/typography", "Grundlinie")}} zur nächsten an, wenn mehrere Textzeilen in einem mehrzeiligen Layout ohne zusätzlichen Zeilenabstand gesetzt werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-size` auch ein entsprechendes CSS-Property: {{cssxref("font-size")}}. Wenn beides spezifiziert ist, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `font-size` auch eine entsprechende CSS-Eigenschaft: {{cssxref("font-size")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -27,7 +27,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </svg>
 ```
 
-{{EmbedLiveSample}}
+{{EmbedLiveSample("controlling_svg_font_size")}}
 
 ## Verwendungshinweise
 
@@ -51,7 +51,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte, beachten Sie bitte die [CSS `font-size`](/de/docs/Web/CSS/Reference/Properties/font-size#values) Eigenschaft.
+Eine Beschreibung der Werte finden Sie bei der [CSS-Eigenschaft `font-size`](/de/docs/Web/CSS/Reference/Properties/font-size#values).
 
 ## Spezifikationen
 
@@ -63,4 +63,4 @@ Für eine Beschreibung der Werte, beachten Sie bitte die [CSS `font-size`](/de/d
 
 ## Siehe auch
 
-- CSS {{cssxref("font-size")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("font-size")}}

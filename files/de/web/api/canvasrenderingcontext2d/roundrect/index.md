@@ -3,17 +3,16 @@ title: "CanvasRenderingContext2D: roundRect()-Methode"
 short-title: roundRect()
 slug: Web/API/CanvasRenderingContext2D/roundRect
 l10n:
-  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.roundRect()`**-Methode der Canvas 2D API fügt dem aktuellen Pfad ein abgerundetes Rechteck hinzu.
+Die Methode **`CanvasRenderingContext2D.roundRect()`** der Canvas-2D-API fügt dem aktuellen Pfad ein abgerundetes Rechteck hinzu.
 
-Die Radien der Ecken können auf ähnliche Weise wie die CSS-Eigenschaft {{cssxref("border-radius")}} angegeben werden.
+Die Radien der Ecken können ähnlich wie bei der CSS-Eigenschaft {{cssxref("border-radius")}} angegeben werden.
 
-Wie andere Methoden, die den aktuellen Pfad modifizieren, rendert diese Methode nichts direkt.
-Um das abgerundete Rechteck auf eine Leinwand zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
+Wie andere Methoden, die den aktuellen Pfad verändern, zeichnet diese Methode selbst nichts. Um das abgerundete Rechteck auf einem Canvas zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
 
 ## Syntax
 
@@ -24,27 +23,27 @@ roundRect(x, y, width, height, radii)
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des Startpunkts des Rechtecks, in Pixeln.
+  - : Die x-Koordinate des Startpunkts des Rechtecks in Pixeln.
 - `y`
-  - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks, in Pixeln.
+  - : Die y-Koordinate des Startpunkts des Rechtecks in Pixeln.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte gehen nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte erstrecken sich nach rechts, negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte gehen nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte erstrecken sich nach unten, negative nach oben.
 - `radii`
-  - : Eine Zahl oder Liste, die die Radien des Kreisbogens angibt, der für die Ecken des Rechtecks verwendet werden soll.
-    Die Anzahl und Reihenfolge der Radien funktioniert auf die gleiche Weise wie die CSS-Eigenschaft {{cssxref("border-radius")}}, wenn `width` und `height` _positiv_ sind:
+  - : Eine Zahl oder Liste, die die Radien der Kreisbögen für die Ecken des Rechtecks angibt.
+    Anzahl und Reihenfolge der Radien entsprechen bei _positiven_ Werten für `width` und `height` denen der CSS-Eigenschaft {{cssxref("border-radius")}}:
     - `all-corners`
     - `[all-corners]`
     - `[top-left-and-bottom-right, top-right-and-bottom-left]`
     - `[top-left, top-right-and-bottom-left, bottom-right]`
     - `[top-left, top-right, bottom-right, bottom-left]`
 
-    Wenn `width` _negativ_ ist, wird das abgerundete Rechteck horizontal gespiegelt, sodass die Radiuswerte, die normalerweise für die linken Ecken gelten, rechts angewendet werden und umgekehrt.
-    Ebenso wird das abgerundete Rechteck vertikal gespiegelt, wenn `height` negativ ist.
-    Die angegebenen Radien können skaliert (verringert) werden, wenn eine der Kanten kürzer ist als die kombinierte Radiusgröße der Eckpunkte an beiden Enden.
+    Ist `width` _negativ_, wird das abgerundete Rechteck horizontal gespiegelt. Die Radiuswerte, die normalerweise für die linken Ecken gelten, werden dann für die rechten verwendet und umgekehrt.
+    Entsprechend wird das abgerundete Rechteck bei einem negativen Wert für `height` vertikal gespiegelt.
+    Die angegebenen Radien können verkleinert werden, wenn eine Kante kürzer ist als die Summe der Radien ihrer beiden Ecken.
 
-    Der `radii`-Parameter kann auch eine [`DOMPoint`](/de/docs/Web/API/DOMPoint)- oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Instanz sein, oder ein Objekt mit denselben Eigenschaften (`{x: 0, y: 0}`), oder eine Liste solcher Objekte, oder eine Liste, die Zahlen und solche Objekte mischt.
+    Der Parameter `radii` kann auch eine Instanz von [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) sein, ein Objekt mit denselben Eigenschaften (`{x: 0, y: 0}`), eine Liste solcher Objekte oder eine Liste, die Zahlen und solche Objekte kombiniert.
 
 ### Rückgabewert
 
@@ -53,14 +52,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wenn `radii` eine Liste mit null oder mehr als vier Elementen ist, oder wenn einer seiner Werte eine negative Zahl ist.
+  - : Wenn `radii` eine Liste mit keinem oder mehr als vier Elementen ist oder einer der Werte eine negative Zahl ist.
 
 ## Beispiele
 
-### Zeichnen von Rechtecken
+### Rechtecke zeichnen
 
-Dieses Beispiel erstellt eine Reihe von abgerundeten Rechteckpfaden mit der Methode `roundRect()`.
-Die Pfade werden dann mit der Methode `stroke()` gerendert.
+Dieses Beispiel erstellt mit der Methode `roundRect()` mehrere Pfade für abgerundete Rechtecke. Anschließend werden die Pfade mit der Methode `stroke()` gezeichnet.
 
 #### HTML
 
@@ -70,16 +68,16 @@ Die Pfade werden dann mit der Methode `stroke()` gerendert.
 
 #### JavaScript
 
-Zuerst erstellen wir einen Kontext zum Zeichnen unserer abgerundeten Rechtecke.
+Zunächst erstellen wir einen Kontext zum Zeichnen der abgerundeten Rechtecke.
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 ```
 
-Der folgende Code zeichnet zwei Rechtecke, die beide vom Punkt (10, 20) mit einer Breite von 150 und einer Höhe von 100 beginnen.
-Das erste Rechteck wird in Rot gezeichnet und spezifiziert einen Nullradius für alle Ecken unter Verwendung einer Zahl als Argument.
-Das zweite wird in Blau gezeichnet und spezifiziert einen Radius von 40px als einzelnes Element in einer Liste.
+Der folgende Code zeichnet zwei Rechtecke, die beide am Punkt (10, 20) beginnen und eine Breite von 150 sowie eine Höhe von 100 haben.
+Das erste Rechteck wird rot gezeichnet. Für alle Ecken wird mit einer Zahl als Argument ein Radius von null angegeben.
+Das zweite wird blau gezeichnet. Für alle Ecken wird ein Radius von 40 Pixeln als einzelnes Element einer Liste angegeben.
 
 ```js
 // Rounded rectangle with zero radius (specified as a number)
@@ -95,7 +93,7 @@ ctx.roundRect(10, 20, 150, 100, [40]);
 ctx.stroke();
 ```
 
-Unterhalb des vorherigen Rechtecks zeichnen wir ein weiteres in Orange, das die Werte der Radien der gegenüberliegenden Ecken spezifiziert.
+Unter dem vorherigen Rechteck zeichnen wir ein weiteres in Orange, für das die Radien gegenüberliegender Ecken angegeben werden.
 
 ```js
 // Rounded rectangle with 2 different radii
@@ -105,8 +103,8 @@ ctx.roundRect(10, 150, 150, 100, [10, 40]);
 ctx.stroke();
 ```
 
-Schließlich zeichnen wir zwei abgerundete Rechtecke, die vier Werte für die Radien und denselben Startpunkt haben.
-Der Unterschied hier ist, dass das zweite mit einer negativen Breite gezeichnet wird.
+Schließlich zeichnen wir zwei abgerundete Rechtecke, für die jeweils vier Radiuswerte angegeben werden und die denselben Startpunkt haben.
+Der Unterschied besteht darin, dass das zweite mit einer negativen Breite gezeichnet wird.
 
 ```js
 // Rounded rectangle with four different radii
@@ -124,10 +122,10 @@ ctx.stroke();
 
 #### Ergebnis
 
-Das Ergebnis wird unten gezeigt.
-Für die beiden Rechtecke rechts beachten Sie, wie das untere Rechteck mit negativer Breite gezeichnet wird und wie dies das Rechteck horizontal spiegelt.
+Das Ergebnis ist unten zu sehen.
+Beachten Sie bei den beiden Rechtecken rechts, dass das untere mit einer negativen Breite gezeichnet wird und dadurch horizontal gespiegelt ist.
 
-{{ EmbedLiveSample('Drawing_a_rectangle', 700, 300) }}
+{{ EmbedLiveSample('drawing_rectangles', 700, 300) }}
 
 ## Spezifikationen
 

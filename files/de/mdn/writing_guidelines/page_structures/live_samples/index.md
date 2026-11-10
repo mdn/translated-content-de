@@ -3,28 +3,28 @@ title: Live-Beispiele (EmbedLiveSample)
 short-title: Live samples
 slug: MDN/Writing_guidelines/Page_structures/Live_samples
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-MDN unterstützt das Anzeigen von Codeblöcken in den Artikeln als _Live-Beispiele_, sodass die Leser sowohl den Quellcode als auch dessen Ausgabe sehen können, wie er auf einer Webseite aussieht.
-Diese Funktion ermöglicht es den Lesern, genau zu verstehen, was der ausgeführte Code erzeugen würde, was die Dokumentation dynamisch und lehrreich macht.
-Es erlaubt auch den Autoren, absolut sicher zu sein, dass die Codeblöcke in der Dokumentation die erwartete Ausgabe haben und ordnungsgemäß funktionieren, wenn sie in verschiedenen Browsern verwendet werden.
+MDN unterstützt die Darstellung von Codeblöcken innerhalb von Artikeln als _Live-Beispiele_. So können Leserinnen und Leser sowohl den Quellcode als auch dessen Ausgabe sehen, wie sie auf einer Webseite erscheint.
+Diese Funktion macht die Dokumentation anschaulich und hilft dabei, genau zu verstehen, welche Ausgabe der ausgeführte Code erzeugt.
+Außerdem können Autorinnen und Autoren so sicherstellen, dass die Codeblöcke in der Dokumentation die erwartete Ausgabe erzeugen und in verschiedenen Browsern wie vorgesehen funktionieren.
 
-Das Live-Beispiel-System kann Codeblöcke verarbeiten, die in HTML, CSS und JavaScript geschrieben sind, unabhängig von der Reihenfolge, in der sie auf der Seite geschrieben sind.
-Dies stellt sicher, dass die Ausgabe dem kombinierten Quellcode entspricht, da das System den Code direkt innerhalb der Seite ausführt.
+Das Live-Beispiel-System kann Codeblöcke in HTML, CSS und JavaScript verarbeiten, unabhängig davon, in welcher Reihenfolge sie auf der Seite stehen.
+Es führt den Code direkt auf der Seite aus und stellt so sicher, dass die Ausgabe dem kombinierten Quellcode entspricht.
 
-Im Gegensatz zu [Interaktiven Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#what_types_of_code_example_are_on_mdn) bieten Live-Beispiele keine integrierte Unterstützung zum Erfassen von Konsolenprotokollen oder zum Zurücksetzen von Beispielen, die durch Benutzereingaben geändert wurden.
-Der Abschnitt [Beispiele](#beispiele) zeigt, wie Sie diese und andere nützliche Funktionen implementieren können.
+Anders als [interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#what_types_of_code_example_are_on_mdn) bieten Live-Beispiele keine integrierte Unterstützung dafür, Konsolenausgaben zu erfassen oder Beispiele zurückzusetzen, die durch Benutzereingaben verändert wurden.
+Der Abschnitt [Beispiele](#beispiele) zeigt, wie Sie diese und andere nützliche Funktionen selbst implementieren können.
 
 ## Wie funktionieren Live-Beispiele?
 
-Live-Beispiele gruppieren Codeblöcke, fügen sie zu HTML zusammen und rendern das HTML in einem {{HTMLElement("iframe")}}.
+Live-Beispiele fassen Codeblöcke zusammen, führen sie zu HTML zusammen und stellen das HTML in einem {{HTMLElement("iframe")}} dar.
 Ein Live-Beispiel besteht aus zwei Teilen:
 
 - Einem oder mehreren zusammengefassten Codeblöcken
-- Einem Makroaufruf, der das Ergebnis der Codeblöcke in einem {{HTMLElement("iframe")}} zeigt
+- Einem Makroaufruf, der das Ergebnis der Codeblöcke in einem {{HTMLElement("iframe")}} anzeigt
 
-Jeder [Codeblock](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks), der Code für die Ausgabe enthält, hat einen Sprachbezeichner — `html`, `css` oder `js` —, der spezifiziert, ob es sich um HTML-, CSS- oder JavaScript-Code handelt. Die Sprachbezeichner müssen auf den entsprechenden Codeblöcken angegeben sein, und ein Makroaufruf (`EmbedLiveSample`) muss auf der Seite vorhanden sein, um die Ausgabe anzuzeigen:
+Jeder [Codeblock](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks), der Code für die Ausgabe enthält, hat eine Sprachkennung – `html`, `css` oder `js`. Sie gibt an, ob es sich um HTML-, CSS- oder JavaScript-Code handelt. Die Sprachkennungen müssen an den entsprechenden Codeblöcken stehen. Außerdem muss die Seite einen Makroaufruf (`EmbedLiveSample`) enthalten, damit die Ausgabe angezeigt wird:
 
 ````md
 ## Examples
@@ -40,16 +40,16 @@ Jeder [Codeblock](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_
 \{{EmbedLiveSample("Examples")}}
 ````
 
-Das Live-Beispiel-System ermöglicht die Gruppierung von Codeblöcken auf verschiedene Arten, um die Ausgabe effektiv anzuzeigen. Der nächste Abschnitt beschreibt diese Methoden.
+Das Live-Beispiel-System bietet verschiedene Möglichkeiten, Codeblöcke zusammenzufassen und ihre Ausgabe darzustellen. Der nächste Abschnitt beschreibt diese Möglichkeiten.
 
-### Gruppierung von Codeblöcken
+### Codeblöcke zusammenfassen
 
-Codeblöcke können auf zwei Arten gruppiert werden:
+Codeblöcke lassen sich auf zwei Arten zusammenfassen:
 
-1. Verwenden der ID einer Überschrift oder eines Blockelements, das die Codeblöcke als Bezeichner enthält
-2. Angabe eines Zeichenfolgenidentifikators zusammen mit den Codeblöcken
+1. Mit der ID einer Überschrift oder eines Blockelements, das die Codeblöcke enthält, als Kennung
+2. Mit einer Zeichenfolgenkennung, die bei den Codeblöcken angegeben wird
 
-Codeblöcke, die keinen Identifikator explizit angeben, werden standardmäßig zusammen mit der ID der Überschrift oder des Blockelements gruppiert, das die Codeblöcke enthält. Der Identifikator in diesem Fall ist die ID einer Überschrift oder eines Blockelements (wie ein {{HTMLElement("div")}}). Dies wird im folgenden Beispiel gezeigt, bei dem `html`- und `css`-Codes innerhalb des Blocks "Styling a paragraph" verwendet werden, um die Ausgabe für den `EmbedLiveSample`-Makroaufruf zu generieren.
+Codeblöcke, für die keine Kennung ausdrücklich angegeben ist, werden standardmäßig über die ID der Überschrift oder des Blockelements zusammengefasst, das die Codeblöcke enthält. Die Kennung ist in diesem Fall die ID einer Überschrift oder eines Blockelements (zum Beispiel eines {{HTMLElement("div")}}). Das folgende Beispiel zeigt, wie der `html`- und der `css`-Code innerhalb des Blocks „Styling a paragraph“ verwendet werden, um die Ausgabe für den Makroaufruf `EmbedLiveSample` zu erzeugen.
 
 ````md
 ## Examples
@@ -81,11 +81,11 @@ p.fancy {
 Only the `<p>` element with `class="fancy"` will get styled `red`.
 ````
 
-- Gehört die ID zu einem Blockelement, umfasst die Gruppe alle Codeblöcke innerhalb des umschließenden Blockelements, dessen ID verwendet wird.
-- Gehört die ID zu einer Überschrift, umfasst die Gruppe alle Codeblöcke, die nach dieser Überschrift und vor der nächsten Überschrift derselben Überschriftsebene liegen. Beachten Sie, dass Codeblöcke unter Unterüberschriften der angegebenen Überschrift alle verwendet werden; wenn dies nicht der gewünschte Effekt ist, verwenden Sie eine ID auf einem Blockelement oder einen Zeichenfolgenidentifikator.
+- Gehört die ID zu einem Blockelement, umfasst die Gruppe alle Codeblöcke innerhalb dieses Blockelements.
+- Gehört die ID zu einer Überschrift, umfasst die Gruppe alle Codeblöcke nach dieser Überschrift bis zur nächsten Überschrift derselben Ebene. Auch Codeblöcke unter untergeordneten Überschriften werden verwendet. Wenn Sie das nicht möchten, verwenden Sie stattdessen die ID eines Blockelements oder eine Zeichenfolgenkennung.
 
-Um Codeblöcke mit einem Identifikator zu gruppieren, fügen Sie eine Zeichenfolge im Format `live-sample___{IDENTIFIER}` zur Infozeichenfolge des Codeblocks hinzu. Der Identifikator muss eindeutig für die Codeblöcke sein, die Sie gruppieren möchten. Zum Beispiel verwendet `live-sample___color-picker` `color-picker` als Identifikator für das Live-Beispiel-System, und alle Codeblöcke mit `live-sample___color-picker` in ihrer Infozeichenfolge werden im Live-Beispiel kombiniert.
-Das folgende Beispiel gruppiert einen CSS- und einen JavaScript-Codeblock mit dem Identifikator `color-picker`:
+Um Codeblöcke über eine Kennung zusammenzufassen, fügen Sie der Info-Zeichenfolge des Codeblocks eine Zeichenfolge im Format `live-sample___{IDENTIFIER}` hinzu. Die Kennung muss für die Codeblöcke, die Sie zusammenfassen möchten, eindeutig sein. Beispielsweise verwendet `live-sample___color-picker` die Kennung `color-picker` für das Live-Beispiel-System. Alle Codeblöcke mit `live-sample___color-picker` in ihrer Info-Zeichenfolge werden im Live-Beispiel kombiniert.
+Das folgende Beispiel fasst einen CSS- und einen JavaScript-Codeblock mithilfe der Kennung `color-picker` zusammen:
 
 ````md
 ## Examples
@@ -111,20 +111,20 @@ Only the `<p>` element with `class="fancy"` will get styled `red`:
 \{{EmbedLiveSample("paragraph-styling")}}
 ````
 
-Das Makro verwendet eine spezielle URL, die die ID enthält, um die Ausgabe für eine gegebene Gruppe von Codeblöcken abzurufen. Sie sollten diese URL niemals in Inhalt fest codieren – wenn Sie auf das Beispiel verlinken müssen, verwenden Sie das [`LiveSampleLink`](#livesamplelink-makro) Makro.
+Das Makro verwendet eine spezielle URL mit der ID, um die Ausgabe einer bestimmten Gruppe von Codeblöcken abzurufen. Tragen Sie diese URL niemals fest in den Inhalt ein. Wenn Sie auf das Beispiel verlinken möchten, verwenden Sie das Makro [`LiveSampleLink`](#livesamplelink-makro).
 
-Der resultierende Rahmen (oder die Seite) ist sandboxed, sicher und kann technisch gesehen alles ausführen, was im Web funktioniert. Natürlich sollte der Code in der Praxis relevant für den Inhalt der Seite sein; alle nicht verwandten Materialien können von der MDN-Redaktionsgemeinschaft entfernt werden.
+Der resultierende Frame (oder die Seite) ist durch eine Sandbox geschützt und kann technisch gesehen alles ausführen, was im Web funktioniert. In der Praxis sollte der Code selbstverständlich zum Inhalt der Seite passen. Material ohne Bezug zum Thema kann von der MDN-Redaktionsgemeinschaft entfernt werden.
 
-Das Live-Beispiel-System bietet viele Optionen, und wir werden versuchen, alles Schritt für Schritt zu erklären.
+Das Live-Beispiel-System bietet viele Optionen. Im Folgenden betrachten wir sie Schritt für Schritt.
 
-### Live-Beispiel-Makros
+### Makros für Live-Beispiele
 
-Es gibt zwei Makros, die Sie verwenden können, um Live-Beispiele anzuzeigen:
+Sie können zwei Makros verwenden, um Live-Beispiele anzuzeigen:
 
-- [`EmbedLiveSample`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_live_sample.rs) bettet ein Live-Beispiel in eine Seite ein
-- [`LiveSampleLink`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/live_sample_link.rs) erstellt einen Link, der das Live-Beispiel in einem neuen Fenster öffnet
+- [`EmbedLiveSample`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_live_sample.rs) bettet ein Live-Beispiel in eine Seite ein.
+- [`LiveSampleLink`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/live_sample_link.rs) erstellt einen Link, der das Live-Beispiel auf einer neuen Seite öffnet.
 
-In vielen Fällen können Sie das `EmbedLiveSample`- oder `LiveSampleLink`-Makro zu Seiten mit wenig oder keiner zusätzlichen Arbeit hinzufügen! Solange das Beispiel anhand einer Überschriften-ID identifiziert werden kann oder sich in einem Block mit einer ID befindet, die Sie verwenden können, sollte das Hinzufügen des Makros ausreichen.
+In vielen Fällen können Sie das Makro `EmbedLiveSample` oder `LiveSampleLink` ohne oder mit nur wenig zusätzlichem Aufwand zu einer Seite hinzufügen. Wenn sich das Beispiel über die ID einer Überschrift identifizieren lässt oder sich in einem Block mit einer verwendbaren ID befindet, genügt es meist, das Makro hinzuzufügen.
 
 #### EmbedLiveSample-Makro
 
@@ -133,24 +133,24 @@ In vielen Fällen können Sie das `EmbedLiveSample`- oder `LiveSampleLink`-Makro
 ```
 
 - `sample_id`
-  - : Erforderlich: Dies kann die Zeichenfolgen-ID des Beispiels oder die ID der Überschrift oder des umgebenden Blocks sein, aus dem der Code entnommen wird.
-    Um zu überprüfen, ob Sie die richtige Überschriften-ID haben, schauen Sie sich die URL des Abschnitts im Inhaltsverzeichnis der Seite an; Sie können es auch überprüfen, indem Sie den Quellcode der Seite ansehen.
+  - : Erforderlich: Dies kann die Zeichenfolgenkennung des Beispiels oder die ID der Überschrift beziehungsweise des umschließenden Blocks sein, aus dem der Code entnommen wird.
+    Um zu prüfen, ob Sie die richtige Überschriften-ID haben, sehen Sie sich die URL des Abschnitts im Inhaltsverzeichnis der Seite an. Sie können die ID auch im Quelltext der Seite nachsehen.
 - `width` {{deprecated_inline}}
-  - : Das `width`-Attribut für das {{HTMLElement("iframe")}}, angegeben in `px`. Veraltet, da es keine Auswirkung mehr hat: Live-Beispiele erstrecken sich immer über die gesamte Breite des Inhaltsbereichs.
+  - : Das `width`-Attribut für das {{HTMLElement("iframe")}}, angegeben in `px`. Veraltet, da es keine Wirkung mehr hat: Live-Beispiele nehmen immer die gesamte Breite des Inhaltsbereichs ein.
 - `height`
-  - : Das `height`-Attribut des {{HTMLElement("iframe")}}, angegeben in `px`. Muss mindestens `60` betragen. Dies ist optional; eine angemessene Standardhöhe wird verwendet, wenn Sie dies weglassen.
+  - : Das `height`-Attribut des {{HTMLElement("iframe")}}, angegeben in `px`. Der Wert muss mindestens `60` betragen. Dieser Parameter ist optional. Wenn Sie ihn weglassen, wird eine angemessene Standardhöhe verwendet.
 - `screenshot_URL` {{deprecated_inline}}
-  - : Die URL eines Screenshots, der zeigt, wie das Live-Beispiel aussehen sollte. Veraltet; fügen Sie nur Live-Beispiele hinzu, wenn eine angemessene Browserunterstützung vorhanden ist.
+  - : Die URL eines Screenshots, der zeigt, wie das Live-Beispiel aussehen soll. Veraltet; fügen Sie Live-Beispiele nur hinzu, wenn eine ausreichende Browser-Unterstützung vorhanden ist.
 - `page_slug` {{deprecated_inline}}
-  - : Der Slug der Seite, die das Beispiel enthält; dies ist optional, und wenn es nicht angegeben ist, wird das Beispiel von derselben Seite abgerufen, auf der das Makro verwendet wird. Veraltet; fügen Sie nur Live-Beispiele hinzu, wenn der Code auf derselben Seite ist.
+  - : Der Slug der Seite, die das Beispiel enthält. Dieser Parameter ist optional. Wird er nicht angegeben, wird das Beispiel von derselben Seite übernommen, auf der das Makro verwendet wird. Veraltet; fügen Sie Live-Beispiele nur hinzu, wenn sich der Code auf derselben Seite befindet.
 - `class_name` {{deprecated_inline}}
-  - : Der Klassenname, der auf das {{HTMLElement("iframe")}} angewendet wird. Veraltet; es gibt keinen Grund, einen anderen Klassennamen zu verwenden.
+  - : Der Klassenname, der dem {{HTMLElement("iframe")}} zugewiesen werden soll. Veraltet; es gibt keinen Grund, einen anderen Klassennamen zu verwenden.
 - `allow`
-  - : Das `allow`-Attribut für das {{HTMLElement("iframe")}}. Dies ist optional; standardmäßig sind keine erlaubten Funktionen enthalten.
+  - : Das `allow`-Attribut für das {{HTMLElement("iframe")}}. Dieser Parameter ist optional; standardmäßig sind keine Funktionen erlaubt.
 - `sandbox`
-  - : Ein String, der die `sandbox`-Attribute enthält, die das Beispiel enthalten sollte.
-    Erlaubte Werte sind `allow-modals`, `allow-forms` und `allow-popups`.
-    Mehrere Werte können bereitgestellt werden, wie zum Beispiel `"allow-modals allow-popups"`.
+  - : Eine Zeichenfolge mit den `sandbox`-Attributen, die das Beispiel enthalten soll.
+    Zulässige Werte sind `allow-modals`, `allow-forms` und `allow-popups`.
+    Sie können mehrere Werte angeben, zum Beispiel `"allow-modals allow-popups"`.
 
 #### LiveSampleLink-Makro
 
@@ -159,36 +159,36 @@ In vielen Fällen können Sie das `EmbedLiveSample`- oder `LiveSampleLink`-Makro
 ```
 
 - `block_ID`
-  - : Die ID der Überschrift oder des umgebenden Blocks, aus dem der Code entnommen wird. Der beste Weg, um sicherzustellen, dass Sie die richtige ID haben, besteht darin, die URL des Abschnitts im Inhaltsverzeichnis der Seite anzusehen; Sie können es auch überprüfen, indem Sie den Quellcode der Seite ansehen.
+  - : Die ID der Überschrift oder des umschließenden Blocks, aus dem der Code entnommen wird. Am zuverlässigsten prüfen Sie die ID anhand der URL des Abschnitts im Inhaltsverzeichnis der Seite. Sie können sie auch im Quelltext der Seite nachsehen.
 - `link_text`
-  - : Ein String, der als Linktext verwendet werden soll.
+  - : Eine Zeichenfolge, die als Linktext verwendet wird.
 
-## Verwendung des Live-Beispiel-Systems
+## Das Live-Beispiel-System verwenden
 
-Die folgenden Abschnitte beschreiben einige gängige Anwendungsfälle für das Live-Beispiel-System.
+Die folgenden Abschnitte beschreiben einige häufige Anwendungsfälle für das Live-Beispiel-System.
 
-### Formatierung von Live-Beispielen
+### Live-Beispiele formatieren
 
-Wenn Sie ein Live-Beispiel im Abschnitt "Beispiele" schreiben, geben Sie eine beschreibende H3-Überschrift (`###`) für dieses Live-Beispiel-Beispiel an. Idealerweise schreiben Sie eine kurze Beschreibung des Beispiels, die das Szenario erklärt und was Sie demonstrieren möchten. Fügen Sie dann Unterabschnitte mit den folgenden H4-Überschriften (`####`) in der angegebenen Reihenfolge hinzu:
+Wenn Sie ein Live-Beispiel im Abschnitt „Beispiele“ schreiben, geben Sie ihm eine aussagekräftige H3-Überschrift (`###`). Beschreiben Sie idealerweise kurz das Szenario und was Sie mit dem Beispiel demonstrieren möchten. Fügen Sie anschließend Unterabschnitte mit den folgenden H4-Überschriften (`####`) in dieser Reihenfolge hinzu:
 
 - HTML
 - CSS
 - JavaScript
 - Ergebnis
 
-Schreiben Sie die Codeblöcke in den oben aufgeführten jeweiligen Unterabschnitten.
+Schreiben Sie die Codeblöcke in die jeweiligen oben aufgeführten Unterabschnitte.
 
-Im Unterabschnitt **Ergebnis** fügen Sie den Aufruf des `EmbedLiveSample`-Makros hinzu. Fügen Sie nach Möglichkeit noch etwas mehr Text in diesen Unterabschnitt hinzu, um das Ergebnis zu beschreiben.
+Fügen Sie im Unterabschnitt **Ergebnis** den Aufruf des Makros `EmbedLiveSample` hinzu. Beschreiben Sie dort nach Möglichkeit auch das Ergebnis mit etwas zusätzlichem Text.
 
-Wenn Sie einen bestimmten Sprachtyp nicht verwenden (zum Beispiel, wenn Sie kein JavaScript verwenden) oder wenn Sie den Codeblock ausblenden, sollten Sie die entsprechende Überschrift weglassen.
+Wenn Sie einen bestimmten Sprachtyp nicht verwenden (beispielsweise JavaScript) oder den Codeblock ausblenden, lassen Sie die entsprechende Überschrift weg.
 
 ### Code ausblenden
 
-Manchmal möchten Sie nur den statischen Codeblock anzeigen, der für das auf einer Seite dargestellte Beispiel relevant ist. Sie benötigen jedoch immer noch die HTML-, CSS- und JavaScript-Codeblöcke, um ein solches Beispiel zu rendern.
+Manchmal möchten Sie nur den für das Beispiel relevanten statischen Codeblock und das auf der Seite gerenderte Ergebnis anzeigen. Für die Darstellung des Beispiels benötigen Sie dennoch die HTML-, CSS- und JavaScript-Codeblöcke.
 
-Um dies zu erreichen, können Sie alle Codeblöcke, die nicht relevant sind, ausblenden, indem Sie die Infozeichenfolge `hidden` zum Sprachbezeichner hinzufügen. Wenn Sie dies tun, lassen Sie die `### HTML/CSS/JavaScript`-Überschriften für die ausgeblendeten Codeblöcke weg.
+Dazu können Sie nicht relevante Codeblöcke ausblenden, indem Sie der Sprachkennung die Info-Zeichenfolge `hidden` hinzufügen. Lassen Sie in diesem Fall die Überschriften `### HTML/CSS/JavaScript` für die ausgeblendeten Codeblöcke weg.
 
-Das obige Beispiel, bei dem der HTML-Code ausgeblendet ist, würde wie folgt aussehen:
+Wenn Sie im obigen Beispiel den HTML-Code ausblenden, sieht das so aus:
 
 ````md
 ## Examples
@@ -218,29 +218,29 @@ Only the `<p>` element with `class="fancy"` will get styled `red`.
 \{{EmbedLiveSample("Styling a paragraph")}}
 ````
 
-### Umwandeln von Snippets in Live-Beispiele
+### Codeausschnitte in Live-Beispiele umwandeln
 
-Ein häufiger Anwendungsfall besteht darin, vorhandene Codefragmente, die bereits auf MDN gezeigt werden, in Live-Beispiele zu verwandeln.
-Der erste Schritt besteht darin, entweder Codefragmente hinzufügen oder sicherzustellen, dass vorhandene so vorbereitet sind, dass sie als Live-Beispiele verwendet werden können, was den Inhalt und die Markupstruktur betrifft. Die zusammengenommenen Codefragmente müssen ein vollständiges, lauffähiges Beispiel darstellen. Wenn das vorhandene Fragment zum Beispiel nur CSS zeigt, müssen Sie möglicherweise ein HTML-Fragment hinzufügen, auf dem das CSS angewendet werden kann.
+Ein häufiger Anwendungsfall besteht darin, bereits auf MDN gezeigte Codeausschnitte in Live-Beispiele umzuwandeln.
+Fügen Sie zunächst die benötigten Codeausschnitte hinzu oder stellen Sie sicher, dass vorhandene Ausschnitte hinsichtlich ihres Inhalts und ihrer Auszeichnung als Live-Beispiele verwendet werden können. Zusammen müssen die Codeausschnitte ein vollständiges, ausführbares Beispiel ergeben. Wenn ein vorhandener Ausschnitt beispielsweise nur CSS zeigt, müssen Sie gegebenenfalls einen HTML-Ausschnitt hinzufügen, auf den das CSS angewendet werden kann.
 
-Jedes Codefragment muss in einem Codeblock sein, mit einem separaten Block für jede Sprache, ordentlich markiert, welche Sprache es ist. Meistens wurde das bereits erledigt, aber es ist immer einen Blick wert, um sicherzustellen, dass jedes Codefragment mit der richtigen Syntax konfiguriert ist. Dies wird mit einem Sprachbezeichner am Codeblock `language-type` gemacht, wobei _language-type_ die Art der Sprache ist, die der Block enthält, z.B. `html`, `css` oder `js`.
+Jeder Teil des Codes muss in einem eigenen Codeblock für die jeweilige Sprache stehen und korrekt mit der Sprache gekennzeichnet sein. Meist ist das bereits der Fall. Es lohnt sich aber immer, zu überprüfen, ob jeder Codeteil für die richtige Syntax konfiguriert ist. Dazu dient die Sprachkennung `language-type` am Codeblock, wobei _language-type_ die Sprache des Blocks bezeichnet, zum Beispiel `html`, `css` oder `js`.
 
 > [!NOTE]
-> Sie können mehr als einen Block für jede Sprache haben; sie werden alle zusammengefügt. Dies ermöglicht es Ihnen, ein Codefragment zu haben, gefolgt von einer Erklärung, wie es funktioniert, dann ein weiteres Fragment und so weiter. Dies macht es noch einfacher, Tutorien und dergleichen zu erstellen, die Live-Beispiele mit erklärendem Text durchsetzt verwenden.
+> Sie können mehrere Blöcke für dieselbe Sprache verwenden; sie werden alle aneinandergefügt. So können Sie auf einen Codeabschnitt eine Erklärung seiner Funktionsweise folgen lassen, dann einen weiteren Codeabschnitt hinzufügen und so weiter. Das erleichtert die Erstellung von Tutorials und ähnlichen Inhalten, in denen Live-Beispiele mit erläuterndem Text abwechseln.
 
-Stellen Sie also sicher, dass die Codeblöcke für Ihren HTML-, CSS- und/oder JavaScript-Code jeweils korrekt für die Syntaxhervorhebung der jeweiligen Sprache konfiguriert sind, und Sie sind startklar.
+Stellen Sie also sicher, dass die Codeblöcke für Ihren HTML-, CSS- und/oder JavaScript-Code jeweils korrekt für die Syntaxhervorhebung der betreffenden Sprache konfiguriert sind.
 
 ## Beispiele
 
-Dieser Abschnitt enthält Beispiele, die zeigen, wie das Live-Beispiel-System verwendet werden kann, einschließlich der verschiedenen Arten von Gruppierungen der Codeblöcke, aus denen ein Beispiel besteht, und wie Protokollierungs-Ausgaben in Ihren Beispielen angezeigt werden.
+Dieser Abschnitt zeigt, wie das Live-Beispiel-System verwendet werden kann: auf welche Arten sich die Codeblöcke eines Beispiels zusammenfassen lassen und wie Sie Protokollausgaben in Ihren Beispielen anzeigen können.
 
-Beachten Sie, dass die Überschriften für Codeblöcke ("HTML", "CSS" oder "JavaScript") konventionell in den meisten MDN-Beispielen verwendet werden, aber tatsächlich nicht vom Live-Beispiel-Makro verlangt werden.
+Die Überschriften für Codeblöcke („HTML“, „CSS“ oder „JavaScript“) werden in den meisten MDN-Beispielen üblicherweise verwendet, sind für das Live-Beispiel-Makro aber nicht erforderlich.
 
-### Gruppieren von Codeblöcken nach Überschrift
+### Codeblöcke nach Überschrift zusammenfassen
 
 #### HTML
 
-Dieses HTML erstellt einen Absatz und einige Blöcke, um uns zu helfen, eine Nachricht zu positionieren und zu stylen.
+Dieses HTML erstellt einen Absatz und einige Blöcke, mit deren Hilfe wir eine Nachricht positionieren und gestalten können.
 
 ```html
 <p>A simple example of the live sample system in action.</p>
@@ -251,7 +251,7 @@ Dieses HTML erstellt einen Absatz und einige Blöcke, um uns zu helfen, eine Nac
 
 #### CSS
 
-Der CSS-Code stylt das Kästchen sowie den Text darin.
+Der CSS-Code gestaltet den Kasten und den darin enthaltenen Text.
 
 ```css
 .box {
@@ -271,7 +271,7 @@ Der CSS-Code stylt das Kästchen sowie den Text darin.
 
 #### JavaScript
 
-Im JavaScript-Beispiel wird dem "Hello world!"-Text ein Ereignishandler zugewiesen, der ihn umschaltet, wenn er geklickt wird.
+Im JavaScript-Beispiel fügen wir dem Text „Hello world!“ einen Event-Handler hinzu, der den Text beim Anklicken umschaltet.
 
 ```js
 const el = document.getElementById("item");
@@ -286,17 +286,17 @@ el.onclick = function () {
 
 #### Ergebnis
 
-Hier ist das Ergebnis der Ausführung der obigen Codeblöcke über `\{{EmbedLiveSample('grouping_code_blocks_by_heading')}}`:
+Das Ergebnis der Ausführung der obigen Codeblöcke mit `\{{EmbedLiveSample('grouping_code_blocks_by_heading')}}` sieht so aus:
 
 {{EmbedLiveSample('grouping_code_blocks_by_heading')}}
 
-Hier ist ein Link, der aus dem Aufrufen dieser Codeblöcke über `\{{LiveSampleLink('grouping_code_blocks_by_heading', 'Live sample demo link')}}` resultiert:
+Der Aufruf von `\{{LiveSampleLink('grouping_code_blocks_by_heading', 'Live sample demo link')}}` erzeugt für diese Codeblöcke den folgenden Link:
 
 {{LiveSampleLink('grouping_code_blocks_by_heading', 'Live sample demo link')}}
 
-### Gruppieren von Codeblöcken nach Identifikator
+### Codeblöcke nach Kennung zusammenfassen
 
-Dieses HTML erstellt einen Absatz und einige Blöcke, um uns zu helfen, eine Nachricht zu positionieren und zu stylen. Die Zeichenfolge `live-sample___hello-world` wurde dem `html`-Sprachbezeichner für diesen Codeblock hinzugefügt.
+Dieses HTML erstellt einen Absatz und einige Blöcke, mit deren Hilfe wir eine Nachricht positionieren und gestalten können. Die Zeichenfolge `live-sample___hello-world` wurde der Sprachkennung `html` für diesen Codeblock hinzugefügt.
 
 ```html live-sample___hello-world
 <p>A simple example of the live sample system in action.</p>
@@ -305,7 +305,7 @@ Dieses HTML erstellt einen Absatz und einige Blöcke, um uns zu helfen, eine Nac
 </div>
 ```
 
-Der CSS-Code stylt das Kästchen sowie den Text darin. Die Zeichenfolge `live-sample___hello-world` wurde dem `css`-Sprachbezeichner für diesen Codeblock hinzugefügt.
+Der CSS-Code gestaltet den Kasten und den darin enthaltenen Text. Die Zeichenfolge `live-sample___hello-world` wurde der Sprachkennung `css` für diesen Codeblock hinzugefügt.
 
 ```css live-sample___hello-world
 .box {
@@ -323,7 +323,7 @@ Der CSS-Code stylt das Kästchen sowie den Text darin. Die Zeichenfolge `live-sa
 }
 ```
 
-Dieses JavaScript-Code ordnet einen Ereignishandler dem "Hello world!"-Text zu, der ihn umschaltet, wenn er geklickt wird. Die Zeichenfolge `live-sample___hello-world` wurde dem `js`-Sprachbezeichner für diesen Codeblock ebenso hinzugefügt.
+Dieser JavaScript-Code fügt dem Text „Hello world!“ einen Event-Handler hinzu, der den Text beim Anklicken umschaltet. Die Zeichenfolge `live-sample___hello-world` wurde auch der Sprachkennung `js` für diesen Codeblock hinzugefügt.
 
 ```js live-sample___hello-world
 const el = document.getElementById("item");
@@ -336,15 +336,15 @@ el.onclick = function () {
 };
 ```
 
-Diese Ausgabe erhalten wir, indem wir die obigen Codeblöcke mit dem Zeichenfolgenidentifikator `hello-world` im `\{{EmbedLiveSample('hello-world')}}`-Makro-Aufruf ausführen:
+Die folgende Ausgabe entsteht, wenn die obigen Codeblöcke mit der Zeichenfolgenkennung `hello-world` im Makroaufruf `\{{EmbedLiveSample('hello-world')}}` ausgeführt werden:
 
 {{EmbedLiveSample("hello-world")}}
 
-### Anzeigen eines `<iframe>` einer bestimmten Größe
+### Ein `<iframe>` mit einer bestimmten Größe anzeigen
 
-Verwenden Sie den `height`-Parameter, um die Größe des `<iframe>`-Elements anzugeben, das die Ausgabe des Live-Beispiels enthält.
+Verwenden Sie den Parameter `height`, um die Höhe des `<iframe>`-Elements festzulegen, das die Ausgabe des Live-Beispiels enthält.
 
-```html
+```html live-sample___iframe_size
 <p>Just some simple text here.</p>
 ```
 
@@ -356,9 +356,9 @@ Ergebnis von `\{{EmbedLiveSample("iframe_size", "", "120")}}`:
 
 {{EmbedLiveSample("iframe_size", "", "120")}}
 
-### Zulassen von Funktionen
+### Funktionen erlauben
 
-Der `allow`-Parameter kann verwendet werden, um die Funktionen zu spezifizieren, die im `<iframe>`-Element erlaubt sind, das die Ausgabe des Live-Beispiels enthält. Die verfügbaren Werte stammen aus der [Berechtigungsrichtlinien-Syntax für Frames](/de/docs/Web/HTTP/Guides/Permissions_Policy#embedded_frame_syntax).
+Mit dem Parameter `allow` können Sie festlegen, welche Funktionen im `<iframe>`-Element erlaubt sind, das die Ausgabe des Live-Beispiels enthält. Die verfügbaren Werte sind in der [Permissions-Policy-Syntax für Frames](/de/docs/Web/HTTP/Guides/Permissions_Policy#embedded_frame_syntax) beschrieben.
 
 ```html
 <div id="fullscreen-content">
@@ -387,19 +387,19 @@ Ergebnis von `\{{EmbedLiveSample("allowing_features", "", "60")}}`:
 
 {{EmbedLiveSample("allowing_features", "", "60")}}
 
-### Anzeigen eines einzelnen Protokolleintrags
+### Ein Protokoll mit einem einzelnen Eintrag anzeigen
 
-Dieses Beispiel zeigt, wie Sie ein einfaches einzelnes Protokoll in Ihrem Live-Beispiel implementieren können, bei dem der vorherige Wert überschrieben wird, wann immer ein neuer Protokolleintrag hinzugefügt wird.
+Dieses Beispiel zeigt, wie Sie in Ihrem Live-Beispiel ein einfaches Protokoll mit einem einzelnen Eintrag implementieren. Der vorherige Wert wird ersetzt, sobald ein neuer Protokolleintrag hinzukommt.
 
-Aus Gründen der Klarheit trennt dieses Beispiel den Protokollierungscode vom Code, der ihn verwendet, und zeigt zuerst den Protokollierungscode an.
-Im Allgemeinen sollten Sie bei der Implementierung eigener Beispiele die Protokollierungselemente unterhalb anderer UI-Elemente platzieren.
+Der Übersichtlichkeit halber sind der Protokollierungscode und der Code, der ihn verwendet, in diesem Beispiel getrennt. Der Protokollierungscode wird zuerst gezeigt.
+Wenn Sie eigene Beispiele erstellen, sollten Sie Protokollelemente im Allgemeinen unterhalb anderer UI-Elemente platzieren.
 
 > [!NOTE]
-> Die Anzeige der Protokollierungsausgabe als Teil des Beispiels sorgt für ein viel besseres Benutzererlebnis als die Verwendung von `console.log()`.
+> Die Anzeige der Protokollausgabe als Teil des Beispiels bietet eine deutlich bessere Nutzererfahrung als die Verwendung von `console.log()`.
 
 #### HTML
 
-Erstellen Sie ein {{HTMLElement("pre")}}-Element mit einer `id` von `"log"` zur Anzeige der Protokollierungsausgabe.
+Erstellen Sie ein {{HTMLElement("pre")}}-Element mit der `id` `"log"`, um die Protokollausgabe anzuzeigen.
 
 ```html
 <pre id="log"></pre>
@@ -407,8 +407,8 @@ Erstellen Sie ein {{HTMLElement("pre")}}-Element mit einer `id` von `"log"` zur 
 
 #### JavaScript
 
-Definieren Sie als Nächstes die Protokollierungsfunktion `log()`.
-Diese nimmt den zu protokollierenden Text als Argument und verwendet ihn, um das bestehende Protokoll zu ersetzen.
+Definieren Sie anschließend die Protokollierungsfunktion `log()`.
+Sie nimmt den zu protokollierenden Text als Argument entgegen und ersetzt damit den vorhandenen Protokolleintrag.
 
 ```js
 const logElement = document.querySelector("#log");
@@ -417,11 +417,11 @@ function log(text) {
 }
 ```
 
-Beachten Sie, dass der Inhalt des Protokollelements mithilfe der `innerText`-Eigenschaft gesetzt wird, was sicherer ist als die Verwendung von `innerHTML`, da der protokollierte Text nicht zu HTML geparst wird (was möglicherweise bösartigen Code einschleusen könnte).
+Beachten Sie, dass der Inhalt des Protokollelements über die Eigenschaft `innerText` gesetzt wird. Das ist sicherer als die Verwendung von `innerHTML`, da der protokollierte Text nicht als HTML geparst wird (wodurch möglicherweise schädlicher Code eingeschleust werden könnte).
 
 #### CSS
 
-Das CSS setzt die Höhe des Protokollierungselements.
+Das CSS legt die Höhe des Protokollelements fest.
 
 ```css
 #log {
@@ -429,10 +429,10 @@ Das CSS setzt die Höhe des Protokollierungselements.
 }
 ```
 
-#### Protokollierungs-Testcode
+#### Testcode für die Protokollierung
 
-Dieses Beispiel soll "wie man protokolliert" zeigen, daher ist "was protokolliert wird" nicht allzu wichtig.
-Dies wird daher trivialerweise als ein Button implementiert, den der Benutzer drücken kann, um einen Wert zu inkrementieren.
+Dieses Beispiel soll zeigen, _wie_ protokolliert wird. _Was_ protokolliert wird, ist daher nicht besonders wichtig.
+Es wird deshalb einfach über eine Schaltfläche umgesetzt, mit der Benutzerinnen und Benutzer einen Wert erhöhen können.
 
 ```html
 <button id="increment" type="button">Press me many times</button>
@@ -449,26 +449,26 @@ incrementButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Drücken Sie die Schaltfläche, um neuen Protokollinhalt hinzuzufügen.
+Drücken Sie die Schaltfläche, um einen neuen Protokolleintrag hinzuzufügen.
 
 {{EmbedLiveSample("Displaying a single entry log", "100%", "80px")}}
 
-### Anzeigen eines Protokoll, das Elemente anhängt
+### Ein Protokoll anzeigen, das Einträge anfügt
 
-Dieses Beispiel zeigt, wie Sie eine einfache "Protokollkonsole" in Ihr Live-Beispiel implementieren können.
-Die Konsole fügt jedes Mal, wenn ein Protokoll hinzugefügt wird, am Ende der Ausgabe eine neue Zeile hinzu und scrollt das neue Element in den Sichtbereich.
+Dieses Beispiel zeigt, wie Sie eine einfache „Protokollierungskonsole“ in Ihrem Live-Beispiel implementieren.
+Bei jedem neuen Protokolleintrag fügt die Konsole am Ende der Ausgabe eine Zeile hinzu und scrollt sie in den sichtbaren Bereich.
 
-Aus Gründen der Klarheit trennt dieses Beispiel den Protokollierungscode von dem Code, der ihn verwendet, und zeigt zuerst den Protokollierungscode an.
-Im Allgemeinen sollten Sie bei der Implementierung eigener Beispiele die Protokollierungselemente unterhalb anderer UI-Elemente platzieren.
+Der Übersichtlichkeit halber sind der Protokollierungscode und der Code, der ihn verwendet, in diesem Beispiel getrennt. Der Protokollierungscode wird zuerst gezeigt.
+Wenn Sie eigene Beispiele erstellen, sollten Sie Protokollelemente im Allgemeinen unterhalb anderer UI-Elemente platzieren.
 
 > [!NOTE]
-> Die Anzeige der Protokollierungsausgabe als Teil des Beispiels sorgt für ein viel besseres Benutzererlebnis als die Verwendung von `console.log()`.
+> Die Anzeige der Protokollausgabe als Teil des Beispiels bietet eine deutlich bessere Nutzererfahrung als die Verwendung von `console.log()`.
 >
-> Siehe [`DataTransfer.effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed#setting_effectallowed) für ein vollständigeres Beispiel.
+> Ein ausführlicheres Beispiel finden Sie unter [`DataTransfer.effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed#setting_effectallowed).
 
 #### HTML
 
-Erstellen Sie ein {{HTMLElement("pre")}}-Element mit einer `id` von `"log"` zur Anzeige der Protokollierungsausgabe.
+Erstellen Sie ein {{HTMLElement("pre")}}-Element mit der `id` `"log"`, um die Protokollausgabe anzuzeigen.
 
 ```html
 <pre id="log"></pre>
@@ -476,9 +476,9 @@ Erstellen Sie ein {{HTMLElement("pre")}}-Element mit einer `id` von `"log"` zur 
 
 #### JavaScript
 
-Definieren Sie als Nächstes die Protokollierungsfunktion `log()`.
-Diese nimmt den zu protokollierenden Text als Argument und fügt ihn als neue Zeile dem Inhalt im Protokollelement hinzu.
-Die Funktion setzt auch das `scrollTop` des Elements auf die `scrollHeight` des Elements, wodurch die neue Zeile der Protokolltextes in den Sichtbereich scrollt.
+Definieren Sie anschließend die Protokollierungsfunktion `log()`.
+Sie nimmt den zu protokollierenden Text als Argument entgegen und hängt ihn als neue Zeile an den Inhalt des Protokollelements an.
+Die Funktion setzt außerdem `scrollTop` des Elements auf dessen `scrollHeight`. Dadurch wird die neue Zeile des Protokolls in den sichtbaren Bereich gescrollt.
 
 ```js
 const logElement = document.querySelector("#log");
@@ -488,12 +488,12 @@ function log(text) {
 }
 ```
 
-Wie im vorherigen Beispiel setzen wir den Inhalt mit der `innerText`-Eigenschaft, da dies weniger anfällig für bösartigen Code ist als die Verwendung von `innerHTML`.
+Wie im vorherigen Beispiel setzen wir den Inhalt über die Eigenschaft `innerText`, da dies weniger anfällig für schädlichen Code ist als die Verwendung von `innerHTML`.
 
 #### CSS
 
-Das CSS fügt Bildlaufleisten hinzu, wenn der Elementinhalt überläuft, setzt die Höhe des Protokollelements und fügt einen Rand hinzu.
-Beachten Sie, dass das JavaScript oben sicherstellt, dass, wenn es überläuft, das Hinzufügen eines neuen Protokolltextes den Text in den Sichtbereich scrollt.
+Das CSS fügt Scrollleisten hinzu, falls der Inhalt des Elements überläuft, legt die Höhe des Protokollelements fest und fügt einen Rahmen hinzu.
+Beachten Sie, dass der obige JavaScript-Code dafür sorgt, dass bei einem Überlauf neuer Protokolltext in den sichtbaren Bereich gescrollt wird.
 
 ```css
 #log {
@@ -504,10 +504,10 @@ Beachten Sie, dass das JavaScript oben sicherstellt, dass, wenn es überläuft, 
 }
 ```
 
-#### Protokollierungs-Testcode
+#### Testcode für die Protokollierung
 
-Dieses Beispiel soll "wie man protokolliert" zeigen, daher ist "was protokolliert wird" nicht allzu wichtig.
-Dies wird daher trivialerweise als ein Button implementiert, den der Benutzer drücken kann, um einen Wert zu inkrementieren.
+Dieses Beispiel soll zeigen, _wie_ protokolliert wird. _Was_ protokolliert wird, ist daher nicht besonders wichtig.
+Es wird deshalb einfach über eine Schaltfläche umgesetzt, mit der Benutzerinnen und Benutzer einen Wert erhöhen können.
 
 ```html
 <button id="increment" type="button">Press me many times</button>
@@ -524,21 +524,21 @@ incrementButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Drücken Sie die Schaltfläche, um neuen Protokollinhalt hinzuzufügen.
+Drücken Sie die Schaltfläche, um einen neuen Protokolleintrag hinzuzufügen.
 
 {{EmbedLiveSample("Displaying a log that appends items", "100%", "180px")}}
 
-### Anzeigen einer Rücksetz-Schaltfläche
+### Eine Zurücksetzen-Schaltfläche anzeigen
 
-Eine Rücksetz-Schaltfläche kann bei Beispielen hilfreich sein, die nicht in ihren Anfangszustand zurückgesetzt werden können, ohne die Seite neu zu laden.
-Beispielsweise braucht [das Beispiel zum "Setzen der Priorität" von `Highlight.priority`](/de/docs/Web/API/Highlight/priority#result_2) eine Rücksetz-Schaltfläche, da, wenn Sie einmal eine der Prioritäten gesetzt haben, der Anfangszustand nicht mehr verfügbar ist.
+Eine Zurücksetzen-Schaltfläche kann bei Beispielen hilfreich sein, die sich ohne erneutes Laden der Seite nicht in ihren Ausgangszustand zurückversetzen lassen.
+Beispielsweise benötigt [das Beispiel zum „Festlegen der Priorität“ von `Highlight.priority`](/de/docs/Web/API/Highlight/priority#result_2) eine Zurücksetzen-Schaltfläche, da der Ausgangszustand nicht mehr verfügbar ist, sobald Sie eine der Prioritäten festgelegt haben.
 
-Dieses Beispiel zeigt, wie Sie dem Beispiel [Anzeigen eines Protokolls, das Elemente anhängt](#anzeigen_eines_protokoll,_das_elemente_anhängt) oben eine Rücksetz-Schaltfläche hinzufügen können.
-Beachten Sie, dass der JavaScript- und CSS-Code für die Protokollierung derselbe ist wie im vorherigen Beispiel, sodass dieser Code ausgeblendet wird.
+Dieses Beispiel zeigt, wie Sie dem obigen Beispiel [Ein Protokoll anzeigen, das Einträge anfügt](#ein_protokoll_anzeigen,_das_einträge_anfügt) eine Zurücksetzen-Schaltfläche hinzufügen.
+Da JavaScript und CSS für den Protokollierungscode mit denen des vorherigen Beispiels übereinstimmen, ist dieser Code ausgeblendet.
 
 #### HTML
 
-Das HTML für das Beispiel enthält nun eine Rücksetz-Schaltfläche.
+Das HTML des Beispiels enthält jetzt eine Zurücksetzen-Schaltfläche.
 
 ```html
 <button id="increment" type="button">Press me many times</button>
@@ -548,7 +548,7 @@ Das HTML für das Beispiel enthält nun eine Rücksetz-Schaltfläche.
 
 #### JavaScript
 
-Der Code für die Schaltfläche fügt eine `click`-Ereignishandler-Funktion hinzu, die einfach den Frame neu lädt, der das aktuelle Beispiel enthält.
+Der Code für die Schaltfläche fügt eine `click`-Event-Handler-Funktion hinzu, die einfach den Frame mit dem aktuellen Beispiel neu lädt.
 
 ```js
 const reload = document.querySelector("#reset");
@@ -584,16 +584,16 @@ incrementButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Klicken Sie die Schaltfläche "Press me many times" mehrmals.
-Setzen Sie das Beispiel zurück, indem Sie die Schaltfläche "Reset" drücken.
+Klicken Sie mehrmals auf die Schaltfläche „Press me many times“.
+Setzen Sie das Beispiel anschließend mit der Schaltfläche „Reset“ zurück.
 
 {{EmbedLiveSample("Displaying a reset button", "100%", "180px")}}
 
-## Konventionen zu Live-Beispielen
+## Konventionen für Live-Beispiele
 
 - Reihenfolge der Codeblöcke
-  - : Wenn Sie ein Live-Beispiel hinzufügen, sollten die Codeblöcke so sortiert sein, dass der erste mit der Hauptsprache für dieses Beispiel übereinstimmt (wenn es eine gibt). Wenn Sie beispielsweise ein Live-Beispiel für das HTML-Referenz hinzufügen, sollte der erste Block HTML sein, wenn Sie ein Live-Beispiel für das CSS-Referenz hinzufügen, sollte er CSS sein, und so weiter.
-- Benennung der Überschriften
-  - : Wenn es keine Zweideutigkeiten gibt (z.B. befindet sich das Beispiel in einem "Examples"-Abschnitt), sollten Überschriften einfach mit dem alleinigen Namen der entsprechenden Sprache angegeben werden: HTML, CSS, JavaScript, SVG, etc. (siehe oben). Überschriften wie "HTML Content" oder "JavaScript Content" sollten nicht verwendet werden. Wenn jedoch eine solche kurze Überschrift den Inhalt unklar macht, kann ein durchdachterer Titel verwendet werden.
-- Verwendung eines "Ergebnis"-Blocks
-  - : Nach den verschiedenen Codeblöcken verwenden Sie bitte einen letzten "Ergebnis"-Block, bevor Sie das `EmbedLiveSample`-Makro verwenden (siehe oben). Auf diese Weise wird die Semantik des Beispiels sowohl für den Leser als auch für jedes Tool, das die Seite analysieren könnte (z.B. Bildschirmleser, Webcrawler), klarer gemacht.
+  - : Wenn Sie ein Live-Beispiel hinzufügen, sollten Sie die Codeblöcke so anordnen, dass der erste Block der Hauptsprache des Beispiels entspricht, sofern es eine gibt. Bei einem Live-Beispiel für die HTML-Referenz sollte der erste Block beispielsweise HTML enthalten, bei einem Live-Beispiel für die CSS-Referenz CSS und so weiter.
+- Benennung von Überschriften
+  - : Wenn keine Mehrdeutigkeit besteht (etwa weil sich das Beispiel in einem Abschnitt „Beispiele“ befindet), sollten die Überschriften nur den Namen der jeweiligen Sprache enthalten: HTML, CSS, JavaScript, SVG usw. (siehe oben). Überschriften wie „HTML-Inhalt“ oder „JavaScript-Inhalt“ sollten nicht verwendet werden. Wenn eine so kurze Überschrift den Inhalt jedoch unklar macht, können Sie einen aussagekräftigeren Titel wählen.
+- Verwendung eines Ergebnisabschnitts
+  - : Verwenden Sie nach den verschiedenen Codeblöcken bitte einen abschließenden Abschnitt „Ergebnis“, bevor Sie das Makro `EmbedLiveSample` aufrufen (siehe oben). So wird die Bedeutung des Beispiels sowohl für Leserinnen und Leser als auch für Werkzeuge, die die Seite auswerten, deutlicher (zum Beispiel Screenreader und Webcrawler).

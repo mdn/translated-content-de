@@ -3,7 +3,7 @@ title: "Observable: Methode toArray()"
 short-title: toArray()
 slug: Web/API/Observable/toArray
 l10n:
-  sourceCommit: bacd00c353f643d8f5be0ce769015b1a66b4251a
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("Observable API")}}{{SeeCompatTable}}
@@ -22,35 +22,35 @@ toArray(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt mit den folgenden Eigenschaften:
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem der Vorgang abgebrochen werden kann. Wird das Signal abgebrochen, endet das Abonnement der Quelle, und das Promise wird mit der [`reason`](/de/docs/Web/API/AbortSignal/reason) des Signals zurückgewiesen. Ist das Signal bereits abgebrochen, wird das Promise zurückgewiesen, ohne die Quelle zu abonnieren.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), mit dem der Vorgang abgebrochen werden kann. Wird das Signal abgebrochen, wird das Abonnement der Quelle beendet und das Promise mit dem [`reason`](/de/docs/Web/API/AbortSignal/reason) des Signals zurückgewiesen. Ist das Signal bereits abgebrochen, wird das Promise zurückgewiesen, ohne die Quelle zu abonnieren.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das nach Abschluss der Quelle mit einem neuen {{jsxref("Array")}} erfüllt wird. Das Array enthält alle Werte der Quelle in der Reihenfolge ihrer Ausgabe. Schließt die Quelle ab, ohne Werte auszugeben, wird das Promise mit einem leeren Array erfüllt.
+Ein {{jsxref("Promise")}}, das bei Abschluss der Quelle mit einem neuen {{jsxref("Array")}} erfüllt wird, das alle Quellwerte in der Reihenfolge ihrer Ausgabe enthält. Schließt die Quelle ab, ohne Werte auszugeben, wird das Promise mit einem leeren Array erfüllt.
 
-Tritt in der Quelle ein Fehler auf, wird das Promise mit diesem Fehler zurückgewiesen. Wird der Vorgang abgebrochen, wird das Promise mit dem Abbruchgrund zurückgewiesen.
+Tritt bei der Quelle ein Fehler auf, wird das Promise mit diesem Fehler zurückgewiesen. Wird der Vorgang abgebrochen, wird das Promise mit dem Grund für den Abbruch zurückgewiesen.
 
 ## Beschreibung
 
 Wie andere Operatoren, die ein Promise zurückgeben, abonniert diese Methode die Quelle sofort beim Aufruf. Ein separater Aufruf von [`subscribe()`](/de/docs/Web/API/Observable/subscribe) ist nicht erforderlich.
 
-`toArray()` speichert jeden Wert der Quelle, bis diese abgeschlossen ist. Wird die Quelle nie abgeschlossen, bleibt das Promise ausstehend, sofern kein Fehler auftritt und der Vorgang nicht abgebrochen wird. Das Array wächst dann mit jedem eintreffenden Wert weiter. Verwenden Sie bei Bedarf [`take()`](/de/docs/Web/API/Observable/take) oder [`takeUntil()`](/de/docs/Web/API/Observable/takeUntil), um den Stream zu begrenzen.
+`toArray()` speichert jeden Quellwert, bis die Quelle abgeschlossen ist. Wenn die Quelle nie abgeschlossen wird, bleibt das Promise ausstehend, sofern kein Fehler auftritt oder der Vorgang abgebrochen wird. Das Array wächst weiter, während Werte eintreffen. Verwenden Sie bei Bedarf [`take()`](/de/docs/Web/API/Observable/take) oder [`takeUntil()`](/de/docs/Web/API/Observable/takeUntil), um den Stream zu begrenzen.
 
-Werte der Quelle werden unverändert gespeichert. Ist ein Wert ein Promise, enthält das Array dieses Promise-Objekt und nicht den Wert, mit dem es erfüllt wird.
+Quellwerte werden unverändert gespeichert. Ist ein Wert ein Promise, enthält das Array dieses Promise-Objekt statt des Werts, mit dem es erfüllt wird.
 
 ## Beispiele
 
-### Verwendung von toArray()
+### toArray() verwenden
 
 Dieses Beispiel sammelt die Koordinaten der ersten drei Klicks auf eine Schaltfläche und zeigt sie als Array in der Reihenfolge der Klicks an. Klicken Sie nach dem Ende des Streams auf „Restart“, um es erneut zu versuchen.
 
-```html hidden live-sample___basic-toArray
+```html hidden live-sample___basic-toarray
 <button>Click me</button>
 <p>Waiting for clicks</p>
 <button id="restart" disabled>Restart</button>
 ```
 
-```js live-sample___basic-toArray
+```js live-sample___basic-toarray
 const btn = document.querySelector("button");
 const output = document.querySelector("p");
 
@@ -87,4 +87,4 @@ start();
 ## Siehe auch
 
 - [Observables verwenden](/de/docs/Web/API/Observable_API/Using_observables)
-- [Erläuterung zu Observable](https://github.com/WICG/observable/blob/master/README.md)
+- [Erläuterung zu Observables](https://github.com/WICG/observable/blob/master/README.md)

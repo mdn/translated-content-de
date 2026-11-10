@@ -1,12 +1,12 @@
 ---
-title: Pseudoklasse `:active-view-transition` in CSS
+title: CSS-Pseudoklasse `:active-view-transition`
 short-title: :active-view-transition
 slug: Web/CSS/Reference/Selectors/:active-view-transition
 l10n:
-  sourceCommit: 3064cbe8212ea919874fb21120a89657afccba25
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:active-view-transition`** trifft auf das Root-Element eines Dokuments zu, wenn ein [View Transition](/de/docs/Web/API/View_Transition_API#concepts_and_usage) ausgeführt wird (_aktiv_), und trifft nicht mehr zu, sobald der Übergang abgeschlossen ist.
+Die [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:active-view-transition`** trifft auf das Wurzelelement eines Dokuments zu, während eine [Ansichtsübergangsanimation](/de/docs/Web/API/View_Transition_API#concepts_and_usage) läuft (_aktiv_ ist). Sobald der Übergang abgeschlossen ist, trifft sie nicht mehr zu.
 
 ## Syntax
 
@@ -18,9 +18,9 @@ Die [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/
 
 ## Beispiele
 
-### Gestaltung einer aktiven View Transition
+### Einen aktiven Ansichtsübergang gestalten
 
-Dieses Beispiel erweitert das [Beispiel für eine grundlegende View Transition](/de/docs/Web/API/Document/startViewTransition#basic_usage) auf der Seite zu `startViewTransition`.
+Dieses Beispiel erweitert das [einfache Beispiel für einen Ansichtsübergang](/de/docs/Web/API/Document/startViewTransition#basic_usage) auf der Seite zu `startViewTransition`.
 
 ```html
 <main>
@@ -31,8 +31,8 @@ Dieses Beispiel erweitert das [Beispiel für eine grundlegende View Transition](
 </main>
 ```
 
-Ein `<h2>`-Element besitzt anfangs den Stil `display: none`, der mithilfe der Pseudoklasse `:active-view-transition` überschrieben wird, indem der Stil des `<h2>` auf `display: block` gesetzt wird.
-Die Schaltfläche wird mit `visibility: hidden` ausgeblendet, während die View Transition ausgeführt wird:
+Ein `<h2>`-Element hat zunächst den Stil `display: none`. Die Pseudoklasse `:active-view-transition` überschreibt diesen Stil für das `<h2>`-Element mit `display: block`.
+Während des Ansichtsübergangs wird die Schaltfläche mit `visibility: hidden` ausgeblendet:
 
 ```css hidden
 html {
@@ -91,7 +91,7 @@ changeColorButton.addEventListener("click", changeColor);
 changeColorButton.addEventListener("keypress", changeColor);
 ```
 
-{{EmbedLiveSample('showing_view_transition_is_running', '100%', '120')}}
+{{EmbedLiveSample('styling_an_active_view_transition', '100%', '120')}}
 
 ## Spezifikationen
 
@@ -107,5 +107,5 @@ changeColorButton.addEventListener("keypress", changeColor);
 - Methode [`startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)
 - [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition)
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Verwenden der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-- [Verwenden von View-Transition-Typen](/de/docs/Web/API/View_Transition_API/Using_types)
+- [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
+- [Verwendung von Ansichtsübergangstypen](/de/docs/Web/API/View_Transition_API/Using_types)

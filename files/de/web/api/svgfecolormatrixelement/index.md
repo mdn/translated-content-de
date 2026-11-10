@@ -2,44 +2,19 @@
 title: SVGFEColorMatrixElement
 slug: Web/API/SVGFEColorMatrixElement
 l10n:
-  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEColorMatrixElement`**-Schnittstelle entspricht dem {{SVGElement("feColorMatrix")}}-Element.
+Die Schnittstelle **`SVGFEColorMatrixElement`** entspricht dem Element {{SVGElement("feColorMatrix")}}.
 
 {{InheritanceDiagram}}
-
-## Instanz-Eigenschaften
-
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
-
-- [`SVGFEColorMatrixElement.height`](/de/docs/Web/API/SVGFEColorMatrixElement/height) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEColorMatrixElement.in1`](/de/docs/Web/API/SVGFEColorMatrixElement/in1) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEColorMatrixElement.result`](/de/docs/Web/API/SVGFEColorMatrixElement/result) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEColorMatrixElement.type`](/de/docs/Web/API/SVGFEColorMatrixElement/type) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("type")}}-Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_FECOLORMATRIX_TYPE_*`-Konstanten an, die in dieser Schnittstelle definiert sind.
-- [`SVGFEColorMatrixElement.values`](/de/docs/Web/API/SVGFEColorMatrixElement/values) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList), das dem {{SVGAttr("values")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEColorMatrixElement.width`](/de/docs/Web/API/SVGFEColorMatrixElement/width) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEColorMatrixElement.x`](/de/docs/Web/API/SVGFEColorMatrixElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
-- [`SVGFEColorMatrixElement.y`](/de/docs/Web/API/SVGFEColorMatrixElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
-
-## Instanz-Methoden
-
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)_.
 
 ## Statische Eigenschaften
 
 - `SVG_FECOLORMATRIX_TYPE_UNKNOWN` (0)
-  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert in diesen Typ zu wechseln.
+  - : Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
 - `SVG_FECOLORMATRIX_TYPE_MATRIX` (1)
   - : Entspricht dem Wert `matrix`.
 - `SVG_FECOLORMATRIX_TYPE_SATURATE` (2)
@@ -48,6 +23,31 @@ _Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch di
   - : Entspricht dem Wert `hueRotate`.
 - `SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA` (4)
   - : Entspricht dem Wert `luminanceToAlpha`.
+
+## Instanzeigenschaften
+
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
+
+- [`SVGFEColorMatrixElement.height`](/de/docs/Web/API/SVGFEColorMatrixElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("height")}} des jeweiligen Elements entspricht.
+- [`SVGFEColorMatrixElement.in1`](/de/docs/Web/API/SVGFEColorMatrixElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem Attribut {{SVGAttr("in")}} des jeweiligen Elements entspricht.
+- [`SVGFEColorMatrixElement.result`](/de/docs/Web/API/SVGFEColorMatrixElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem Attribut {{SVGAttr("result")}} des jeweiligen Elements entspricht.
+- [`SVGFEColorMatrixElement.type`](/de/docs/Web/API/SVGFEColorMatrixElement/type) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem Attribut {{SVGAttr("type")}} des jeweiligen Elements entspricht. Sie nimmt eine der für diese Schnittstelle definierten Konstanten `SVG_FECOLORMATRIX_TYPE_*` an.
+- [`SVGFEColorMatrixElement.values`](/de/docs/Web/API/SVGFEColorMatrixElement/values) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList), die dem Attribut {{SVGAttr("values")}} des jeweiligen Elements entspricht.
+- [`SVGFEColorMatrixElement.width`](/de/docs/Web/API/SVGFEColorMatrixElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("width")}} des jeweiligen Elements entspricht.
+- [`SVGFEColorMatrixElement.x`](/de/docs/Web/API/SVGFEColorMatrixElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("x")}} des jeweiligen Elements entspricht.
+- [`SVGFEColorMatrixElement.y`](/de/docs/Web/API/SVGFEColorMatrixElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem Attribut {{SVGAttr("y")}} des jeweiligen Elements entspricht.
+
+## Instanzmethoden
+
+_Diese Schnittstelle stellt keine eigenen Methoden bereit, implementiert jedoch die Methoden ihrer übergeordneten Schnittstelle [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

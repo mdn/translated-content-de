@@ -2,10 +2,10 @@
 title: <mn>
 slug: Web/MathML/Reference/Element/mn
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<mn>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **numerisches** Literal, das normalerweise eine Folge von Ziffern mit einem möglichen Separator (Punkt oder Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text zu enthalten, der tatsächlich eine numerische Größe ist, beispielsweise "elf".
+Das **`<mn>`**-Element von [MathML](/de/docs/Web/MathML) stellt ein **numerisches** Literal dar. Dieses besteht normalerweise aus einer Folge von Ziffern, gegebenenfalls mit einem Trennzeichen (einem Punkt oder einem Komma). Es kann jedoch auch beliebigen Text enthalten, der eine numerische Größe bezeichnet, beispielsweise „elf“.
 
 ## Attribute
 
@@ -35,7 +35,7 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Re
 </math>
 ```
 
-{{ EmbedLiveSample('mi_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('examples', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 

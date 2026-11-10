@@ -1,43 +1,43 @@
 ---
-title: CSS-Eigenschaftswert-Verarbeitung
+title: Verarbeitung von CSS-Eigenschaftswerten
 short-title: Verarbeitung von Eigenschaftswerten
 slug: Web/CSS/Guides/Cascade/Property_value_processing
 l10n:
-  sourceCommit: 6ad108adad746bd7ed79b5b32d8d3e05e5ec685a
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Für jedes Element in einem Dokumentbaum weist der Browser jedem CSS-Eigenschaftswert, der auf dieses Element zutrifft, einen Wert zu. Der gerenderte Wert jeder CSS-Eigenschaft für ein bestimmtes Element oder Box ist das Ergebnis einer Berechnung, die auf Stylesheet-Definitionen, Vererbung, dem [Kaskade-Algorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction), Abhängigkeiten, Einheitentransformation und der Anzeigeumgebung basiert. Dieser Leitfaden bietet einen Überblick über die Verarbeitungsschritte, die angewendet werden, um zu definieren, wie jeder CSS-Wert letztendlich gerendert wird, indem Schlüsselkonzepte wie spezifizierte, berechnete, verwendete und tatsächliche Werte erkundet werden.
+Für jedes Element in einem Dokumentbaum weist der Browser jeder CSS-Eigenschaft, die für dieses Element gilt, einen Wert zu. Der gerenderte Wert jeder CSS-Eigenschaft für ein bestimmtes Element oder eine bestimmte Box ergibt sich aus einer Berechnung, die Stylesheet-Definitionen, Vererbung, die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction), Abhängigkeiten, Einheitenumrechnung und die Anzeigeumgebung berücksichtigt. Dieser Leitfaden gibt einen Überblick über die Verarbeitungsschritte, die bestimmen, wie jeder CSS-Wert letztlich gerendert wird. Dabei werden zentrale Konzepte wie deklarierte, kaskadierte, festgelegte, berechnete, verwendete und tatsächliche Werte erläutert.
 
 ## Eigenschaftswerte
 
-Jeder Stil, der auf ein Element oder Pseudo-Element angewendet wird, basiert auf einer einzigen CSS-Eigenschaftsdeklaration. Jede CSS-Eigenschaft hat nur einen Wert. Der angewendete Wert wird durch die [kaskadierten Werte](#kaskadierter_wert) aller Deklarationen dieser Eigenschaft bestimmt, die auf das Element oder Pseudo-Element zutreffen. Der einzige angewendete Wert stammt aus der Eigenschaftsdeklaration, die in der [Kaskaden-Sortierreihenfolge](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order) nach dem [Kaskade-Algorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction) den höchsten Rang einnimmt.
+Jeder Stil, der auf ein Element oder Pseudoelement angewendet wird, basiert auf einer einzelnen CSS-Eigenschaftsdeklaration. Jede CSS-Eigenschaft hat nur einen Wert. Welcher Wert angewendet wird, bestimmen die [kaskadierten Werte](#kaskadierter_wert) aller Deklarationen dieser Eigenschaft, die für das Element oder Pseudoelement gelten. Der angewendete Wert stammt aus der Eigenschaftsdeklaration, die gemäß dem [Kaskadenalgorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction) in der [Sortierreihenfolge der Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order) am höchsten steht.
 
-Wenn es mehrere [deklarierten Werte](#deklarierter_wert) gibt, mit mehreren Deklarationen, die denselben oder unterschiedliche Eigenschaftswerte für dasselbe Element bereitstellen, muss jeder Eigenschaftswert dennoch aus einem einzigen Eigenschafts-Namen-Wert-Paar stammen, da nur ein einziger Wert aus jeder Eigenschaft angewendet wird, selbst wenn der Wert eine durch Kommas getrennte Liste von Werten ist.
+Wenn mehrere [deklarierte Werte](#deklarierter_wert) aus mehreren Deklarationen für dasselbe Element denselben oder unterschiedliche Eigenschaftswerte angeben, muss jeder Eigenschaftswert dennoch aus einem einzigen Paar aus Eigenschaftsname und Wert stammen. Denn von jeder Eigenschaft wird nur ein Wert angewendet – auch wenn dieser Wert eine durch Kommas getrennte Liste von Werten ist.
 
-Um zu bestimmen, welcher [deklarierte Wert](#deklarierter_wert) angewendet wird, sammelt und verarbeitet der User-Agent alle Stile aus verschiedenen Quellen, wie Inline-Stile, interne und externe Stylesheets.
+Um zu bestimmen, welcher [deklarierte Wert](#deklarierter_wert) angewendet wird, erfasst und verarbeitet der User Agent alle Stile aus verschiedenen Quellen, etwa Inline-Stile sowie interne und externe Stylesheets.
 
-Die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) bestimmt, welcher Wert angewendet werden soll, wenn mehrere widersprüchliche Stile dasselbe Element anvisieren. Der [Kaskade-Algorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order) definiert, wie User-Agents Eigenschaftswerte aus verschiedenen Quellen, Bereichen und/oder [Ebenen](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascade_layers) kombinieren. Wenn ein Selektor ein Element trifft, wird der [deklarierte Wert](#deklarierter_wert) der Eigenschaft von der [Herkunft](/de/docs/Web/CSS/Guides/Cascade/Introduction#origin_types) mit der höchsten Präzedenz angewendet, selbst wenn ein Selektor aus einer niedrigeren Präzedenz-[Herkunft](/de/docs/Web/CSS/Guides/Cascade/Introduction#origin_types) oder [Ebenen](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascade_layers) eine größere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) hat.
+Die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) bestimmt, welcher Wert angewendet wird, wenn mehrere widersprüchliche Stile dasselbe Element betreffen. Der [Kaskadenalgorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order) legt fest, wie User Agents Eigenschaftswerte aus unterschiedlichen Quellen, Gültigkeitsbereichen und/oder [Ebenen](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascade_layers) zusammenführen. Wenn ein Selektor auf ein Element zutrifft, wird der [deklarierte Wert](#deklarierter_wert) der Eigenschaft aus der [Herkunft](/de/docs/Web/CSS/Guides/Cascade/Introduction#origin_types) mit der höchsten Priorität angewendet – selbst wenn ein Selektor aus einer [Herkunft](/de/docs/Web/CSS/Guides/Cascade/Introduction#origin_types) oder [Ebene](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascade_layers) mit niedrigerer Priorität eine höhere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) aufweist.
 
-Bestimmte Eigenschaften erben Werte von ihren Elternelementen, es sei denn, sie werden ausdrücklich überschrieben. [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) kann auftreten, wenn keine Stilinformationen für eine spezifische Eigenschaft auf einem Element vorhanden sind. Wenn die Eigenschaft vererbt wird, wird der Wert auf den [berechneten Wert](#berechneter_wert) des Elternelements gesetzt. Wenn die Eigenschaft nicht vererbt wird, wird ihr Wert auf den [initialen Wert](#initialwert) für dieses Element gesetzt.
+Bestimmte Eigenschaften erben Werte von ihren Elternelementen, sofern diese nicht ausdrücklich überschrieben werden. [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) kann stattfinden, wenn für eine bestimmte Eigenschaft eines Elements keine Stilinformationen vorliegen. Ist die Eigenschaft vererbbar, wird ihr Wert auf den [berechneten Wert](#berechneter_wert) des Elternelements gesetzt. Ist sie nicht vererbbar, wird ihr Wert auf den [Initialwert](#initialwert) für dieses Element gesetzt.
 
-Nach der Anwendung der [Kaskaden](#kaskadierung)-Regeln und der Standardwerte Schritt für Schritt stellt der Browser sicher, dass die visuelle Darstellung den verarbeiteten CSS entspricht.
+Nachdem der Browser die Regeln der [Kaskadierung](#kaskadierung) und die Standardwerte schrittweise angewendet hat, stellt er sicher, dass die visuelle Darstellung dem verarbeiteten CSS entspricht.
 
-## Verarbeitungsüberblick
+## Überblick über die Verarbeitung
 
-Bevor wir in die einzelnen Wertstufen eintauchen, ist es wichtig, die drei Hauptphasen zu verstehen, die bei der Wertverarbeitung auftreten: [Filtern](#filtern), [Kaskadieren](#kaskadierung) und [Standardisieren](#standardisieren).
+Bevor die einzelnen Wertstufen näher betrachtet werden, sollten Sie die drei Hauptphasen der Wertverarbeitung kennen: [Filterung](#filterung), [Kaskadierung](#kaskadierung) und [Festlegung von Standardwerten](#festlegung_von_standardwerten).
 
-### Filtern
+### Filterung
 
-**Filtern** ist der Prozess des Identifizierens aller Deklarationen, die auf jedes Element zutreffen. Eine Deklaration gilt nur für ein Element, wenn:
+Bei der **Filterung** werden alle Deklarationen ermittelt, die für ein Element gelten. Eine Deklaration gilt nur dann für ein Element, wenn:
 
-- Die Deklaration zu einem Stylesheet gehört, das derzeit für dieses Dokument gilt.
-- Alle [bedingten Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) (wie {{cssxref("@media")}} oder {{cssxref("@supports")}}), die die Deklaration enthalten, derzeit wahr sind.
-- Die Deklaration zu einer Stilregel gehört, deren Selektor das Element trifft.
-- Die Deklaration syntaktisch gültig ist: Der Eigenschaftsname wird vom Browser erkannt und der Wert entspricht der erwarteten Syntax für die Eigenschaft.
+- die Deklaration zu einem Stylesheet gehört, das derzeit für dieses Dokument gilt;
+- alle [bedingten Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) (wie {{cssxref("@media")}} oder {{cssxref("@supports")}}), die die Deklaration enthalten, derzeit erfüllt sind;
+- die Deklaration zu einer Stilregel gehört, deren Selektor auf das Element zutrifft;
+- die Deklaration syntaktisch gültig ist: Der Browser erkennt den Eigenschaftsnamen, und der Wert entspricht der für diese Eigenschaft erwarteten Syntax.
 
-Nur gültige Deklarationen werden zu deklarierten Werten. Deklarationen mit ungültigen Eigenschaftsnamen oder ungültigen Werten werden gemäß den [CSS-Fehlerbehandlungsregeln](/de/docs/Web/CSS/Guides/Syntax/Error_handling) herausgefiltert.
+Nur gültige Deklarationen werden zu deklarierten Werten. Deklarationen mit ungültigen Eigenschaftsnamen oder Werten werden gemäß den [CSS-Regeln zur Fehlerbehandlung](/de/docs/Web/CSS/Guides/Syntax/Error_handling) herausgefiltert.
 
-In diesem Beispiel werden nur die {{cssxref("font-size")}}- und {{cssxref("font-weight")}}-Deklarationen verarbeitet. Der [CSS-Parser filtert die Fehler heraus](/de/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors), ignoriert oder „filtert“ die Deklaration mit dem ungültigen Eigenschaftsnamen aus:
+In diesem Beispiel werden nur die Deklarationen für {{cssxref("font-size")}} und {{cssxref("font-weight")}} verarbeitet. Der [CSS-Parser filtert Fehler heraus](/de/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors): Er ignoriert die Deklaration mit dem ungültigen Eigenschaftsnamen.
 
 ```css
 p {
@@ -47,13 +47,13 @@ p {
 }
 ```
 
-Nach Abschluss des Filtervorgangs hat jedes Element null oder mehr [deklarierten Werte](#deklarierter_wert) für jede CSS-Eigenschaft. Diese deklarierten Werte sind der Ausgangspunkt für die [Kaskadierung](#kaskadierung)-Verarbeitungsphase.
+Nach Abschluss der Filterung hat jedes Element für jede CSS-Eigenschaft null oder mehr [deklarierte Werte](#deklarierter_wert). Diese deklarierten Werte bilden den Ausgangspunkt für die [Kaskadierung](#kaskadierung).
 
 ### Kaskadierung
 
-Die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) löst Konflikte, wenn mehrere Deklarationen auf dieselbe Eigenschaft auf demselben Element zutreffen. Die Kaskade sortiert Deklarationen mit Hilfe des [Kaskaden-Sortierordnungs-Algorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order).
+Die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) löst Konflikte, wenn mehrere Deklarationen für dieselbe Eigenschaft desselben Elements gelten. Dazu ordnet sie die Deklarationen anhand des Algorithmus für die [Sortierreihenfolge der Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order).
 
-Zum Beispiel treffen beide {{cssxref("font-size")}}-Deklarationen auf `<p class="large">CSS is fun!</p>` zu, aber die zweite Deklaration wird angewendet, da sie eine höhere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) hat. Beide Deklarationen haben Autor-Herkunft, aber der zweite Selektor hat eine Spezifität von `0-1-1`, während der erste `0-0-1` hat:
+Beispielsweise treffen beide Deklarationen für {{cssxref("font-size")}} auf `<p class="large">CSS is fun!</p>` zu. Die zweite Deklaration wird jedoch angewendet, weil sie eine höhere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) hat. Beide Deklarationen stammen vom Autor, aber der zweite Selektor hat die Spezifität `0-1-1`, der erste dagegen `0-0-1`:
 
 ```css
 p {
@@ -65,31 +65,31 @@ p.large {
 }
 ```
 
-Nach der Kaskadierung bestimmt der Browser den [**kaskadierten Wert**](#kaskadierter_wert) für jede Eigenschaft auf jedem Element. Dies ist der Wert, der in der nächsten Verarbeitungsstufe verwendet wird; das [Standardisieren](#standardisieren).
+Nach der Kaskadierung bestimmt der Browser für jede Eigenschaft jedes Elements den [**kaskadierten Wert**](#kaskadierter_wert). Dieser Wert wird im nächsten Verarbeitungsschritt verwendet: der [Festlegung von Standardwerten](#festlegung_von_standardwerten).
 
-### Standardisieren
+### Festlegung von Standardwerten
 
-**Standardisieren** sorgt dafür, dass jede Eigenschaft auf jedem Element einen Wert hat. Dies beinhaltet die Anwendung von Standard-Eigenschaftswerten, wenn keine CSS-Deklarationen diesen Eigenschaftswert explizit setzen.
-Dies beinhaltet:
+Die **Festlegung von Standardwerten** stellt sicher, dass jede Eigenschaft jedes Elements einen Wert hat. Dazu werden Standardwerte für Eigenschaften angewendet, deren Wert nicht ausdrücklich durch CSS-Deklarationen festgelegt wurde.
+Dies umfasst:
 
-- Einstellen von **geerbten Werten** für [vererbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties)
-- Einstellen von **Initialwerten** für [nicht-vererbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#non-inherited_properties)
+- das Festlegen **geerbter Werte** für [vererbbare Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties);
+- das Festlegen von **Initialwerten** für [nicht vererbbare Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#non-inherited_properties).
 
-Als Ergebnis des Standardisierens wird garantiert, dass jede Eigenschaft einen [spezifizierten Wert](#spezifizierter_wert) hat.
+Dadurch hat jede Eigenschaft garantiert einen [festgelegten Wert](#festgelegter_wert).
 
-Beachten Sie, dass explizite Standardisierungsschlüsselwörter ({{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}}) ebenfalls in ihre entsprechenden Werte aufgelöst werden, um den [spezifizierten Wert](#spezifizierter_wert) zu bestimmen.
+Beachten Sie, dass auch explizite Schlüsselwörter für Standardwerte ({{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}}) in die entsprechenden Werte aufgelöst werden, um den [festgelegten Wert](#festgelegter_wert) zu bestimmen.
 
-## Verarbeitungsphasen
+## Verarbeitungsschritte
 
-Alle Elemente, die Teil des flachen Elementbaums des Dokuments sind, haben [deklarierten](#deklarierter_wert), [kaskadierten](#kaskadierter_wert), [spezifizierten](#spezifizierter_wert), [berechneten](#berechneter_wert), [verwendeten](#verwendeter_wert) und [tatsächlichen](#tatsächlicher_wert) Werte. Für eine spezifische Eigenschaft können diese Werte gleich oder unterschiedlich sein. Zum Beispiel: Wenn Ihr großer Code-Bestand das CSS `p { font-size: 1.25em; }` enthält und Ihr HTML `<p class="large">CSS is fun!</p>` enthält, wie groß wird der Absatz sein? Der {{cssxref("font-size")}}-Wert durchläuft einige Phasen, um vom angegebenen `em`-Wert zum gerenderten `px`-Wert zu gelangen.
+Alle Elemente im abgeflachten Elementbaum des Dokuments haben [deklarierte](#deklarierter_wert), [kaskadierte](#kaskadierter_wert), [festgelegte](#festgelegter_wert), [berechnete](#berechneter_wert), [verwendete](#verwendeter_wert) und [tatsächliche](#tatsächlicher_wert) Werte. Für eine bestimmte Eigenschaft können diese Werte gleich oder unterschiedlich sein. Angenommen, Ihre umfangreiche Codebasis enthält das CSS `p { font-size: 1.25em; }` und Ihr HTML enthält `<p class="large">CSS is fun!</p>`: Wie groß wird der Absatz dargestellt? Der Wert von {{cssxref("font-size")}} durchläuft mehrere Schritte, bevor aus dem in `em` festgelegten Wert ein in `px` gerenderter Wert wird.
 
-Die Wertverarbeitungsstufen sind [Deklarierter Wert](#deklarierter_wert), [Kaskadierter Wert](#kaskadierter_wert), [Spezifizierter Wert](#spezifizierter_wert), [Berechneter Wert](#berechneter_wert), [Verwendeter Wert](#verwendeter_wert) und [Tatsächlicher Wert](#tatsächlicher_wert). Diese Werte werden verwendet, um den endgültigen [gerenderten Wert](#gerenderte_werte) zu bestimmen.
+Die Schritte der Wertverarbeitung sind [deklarierter Wert](#deklarierter_wert), [kaskadierter Wert](#kaskadierter_wert), [festgelegter Wert](#festgelegter_wert), [berechneter Wert](#berechneter_wert), [verwendeter Wert](#verwendeter_wert) und [tatsächlicher Wert](#tatsächlicher_wert). Anhand dieser Werte wird der endgültige [gerenderte Wert](#gerenderte_werte) bestimmt.
 
 ### Deklarierter Wert
 
-Ein **deklarierter Wert** ist jeder syntaktisch gültige Wert aus einer Deklaration, die auf ein Element zutrifft. Ein Element kann null oder mehr deklarierte Werte für jede Eigenschaft haben. Diese Werte stammen aus Stylesheets (Autor, Benutzer oder User-Agent) und werden während der [Filterung](#filtern) identifiziert.
+Ein **deklarierter Wert** ist jeder syntaktisch gültige Wert aus einer Deklaration, die für ein Element gilt. Ein Element kann für jede Eigenschaft null oder mehr deklarierte Werte haben. Diese Werte stammen aus Stylesheets (des Autors, des Benutzers oder des User Agents) und werden bei der [Filterung](#filterung) ermittelt.
 
-Bleiben wir bei unserem Beispiel, in dem unser Stylesheet eine Instanz von `p { font-size: 1.25em; }` enthält und das Dokument, das mit diesem Stylesheet verlinkt ist, `<p class="large">CSS is fun!</p>` umfasst, können andere `font-size`-Deklarationen potenziell auf denselben Absatz zutreffen. Das User-Agent-Stylesheet könnte `font-size: 1em` für alle Absätze festlegen, während eine andere Autor-Deklaration `font-size: 2em` für Elemente mit der Klasse „large“ festlegt:
+In unserem Beispiel enthält das Stylesheet `p { font-size: 1.25em; }`, und das Dokument, das dieses Stylesheet einbindet, enthält `<p class="large">CSS is fun!</p>`. Es könnten weitere Deklarationen für `font-size` vorhanden sein, die möglicherweise für denselben Absatz gelten. Das Stylesheet des User Agents könnte `font-size: 1em` für alle Absätze festlegen, während eine andere Deklaration des Autors `font-size: 2em` für Elemente mit der Klasse „large“ festlegt:
 
 ```css
 /* User agent styles */
@@ -107,35 +107,35 @@ p {
 }
 ```
 
-Es könnte viele andere `font-size`-Deklarationen in unseren Stylesheets geben, aber nur Deklarationen, deren Selektoren das Element treffen, werden zu deklarierten Werten. In diesem Beispiel, da unser `<p>`-Element die Klasse `large` hat, sind alle drei Deklarationen deklarierte Werte für dieses Element.
+Unsere Stylesheets können viele weitere Deklarationen für `font-size` enthalten. Zu deklarierten Werten werden jedoch nur Deklarationen, deren Selektoren auf das Element zutreffen. Da unser `<p>`-Element in diesem Beispiel `class="large"` hat, sind alle drei Deklarationen deklarierte Werte für dieses Element.
 
 ### Kaskadierter Wert
 
-Der **kaskadierte Wert** ist der deklarierte Wert, der die [Kaskade](#kaskadierung) gewinnt. Es gibt höchstens einen kaskadierten Wert pro Eigenschaft und Element.
+Der **kaskadierte Wert** ist der deklarierte Wert, der sich in der [Kaskade](#kaskadierung) durchsetzt. Pro Eigenschaft und Element gibt es höchstens einen kaskadierten Wert.
 
-Von unseren deklarierten Werten gewinnen Autorenstile gegenüber User-Agent-Stilen. Innerhalb desselben Ursprungs gewinnen Stile mit höherer Spezifität gegenüber Stilen mit niedrigerer Spezifität. In diesem Fall wäre der kaskadierte Wert `font-size: 2em`, aus dem Autor-Ursprung mit der Spezifität `0-1-1`:
-
-```css
-font-size: 2em;
-```
-
-Wenn es keine deklarierten Werte für eine Eigenschaft gibt, gibt es keinen kaskadierten Wert, was bedeutet, dass der [spezifizierte Wert](#spezifizierter_wert) für diese Eigenschaft durch den [Standardisierungsprozess](#standardisieren) bestimmt wird.
-
-### Spezifizierter Wert
-
-Der **spezifizierte Wert** ist das Ergebnis des [Standardisierungsprozesses](#standardisieren). Für jede Eigenschaft auf jedem Element ist garantiert, dass es existiert. Der spezifizierte Wert wird wie folgt bestimmt:
-
-1. Wenn es einen [kaskadierten Wert](#kaskadierter_wert) gibt, ist der kaskadierte Wert der spezifizierte Wert.
-2. Wenn es _keinen_ kaskadierten Wert gibt und die Eigenschaft [vererbt](/de/docs/Web/CSS/Guides/Cascade/Inheritance) wird, ist der spezifizierte Wert der [berechnete Wert](#berechneter_wert) des Elternelements.
-3. Wenn es _keinen_ kaskadierten Wert gibt und die Eigenschaft _nicht_ vererbt wird, ist der spezifizierte Wert der [Initialwert](#initialwert) der Eigenschaft.
-
-In unserem Beispiel, da wir einen [kaskadierten Wert](#kaskadierter_wert) von `2em` haben, wird dies der spezifizierte Wert:
+Von unseren deklarierten Werten setzen sich Stile des Autors gegenüber Stilen des User Agents durch. Innerhalb derselben Herkunft setzen sich Stile mit höherer Spezifität gegenüber solchen mit niedrigerer Spezifität durch. In diesem Fall ist `font-size: 2em` der kaskadierte Wert: Er stammt vom Autor und hat die Spezifität `0-1-1`.
 
 ```css
 font-size: 2em;
 ```
 
-Für Eigenschaften ohne kaskadierte Werte bestimmt der Standardisierungsprozess den Wert. Wenn beispielsweise `color` nicht angegeben ist, wird `color` vom berechneten Wert des Elternelements geerbt, da es eine vererbte Eigenschaft ist. Wenn `margin` nicht angegeben ist, wird der `initial`-Wert von `0` verwendet, da `margin` keine [vererbte Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) ist:
+Wenn es für eine Eigenschaft keine deklarierten Werte gibt, gibt es auch keinen kaskadierten Wert. Der [festgelegte Wert](#festgelegter_wert) dieser Eigenschaft wird dann bei der [Festlegung von Standardwerten](#festlegung_von_standardwerten) bestimmt.
+
+### Festgelegter Wert
+
+Der **festgelegte Wert** ist das Ergebnis der [Festlegung von Standardwerten](#festlegung_von_standardwerten). Er existiert garantiert für jede Eigenschaft jedes Elements. Er wird wie folgt bestimmt:
+
+1. Gibt es einen [kaskadierten Wert](#kaskadierter_wert), ist dieser der festgelegte Wert.
+2. Gibt es _keinen_ kaskadierten Wert und ist die Eigenschaft [vererbbar](/de/docs/Web/CSS/Guides/Cascade/Inheritance), ist der [berechnete Wert](#berechneter_wert) des Elternelements der festgelegte Wert.
+3. Gibt es _keinen_ kaskadierten Wert und ist die Eigenschaft _nicht_ vererbbar, ist der [Initialwert](#initialwert) der Eigenschaft der festgelegte Wert.
+
+In unserem Beispiel haben wir einen [kaskadierten Wert](#kaskadierter_wert) von `2em`. Dieser wird daher zum festgelegten Wert:
+
+```css
+font-size: 2em;
+```
+
+Für Eigenschaften ohne kaskadierten Wert wird der Wert bei der Festlegung von Standardwerten bestimmt. Wenn beispielsweise `color` nicht festgelegt ist, wird `color` vom berechneten Wert des Elternelements geerbt, da die Eigenschaft vererbbar ist. Wenn `margin` nicht festgelegt ist, wird der `initial`-Wert `0` verwendet, da `margin` keine [vererbbare Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) ist:
 
 ```css
 color: inherit;
@@ -144,38 +144,38 @@ margin: 0;
 
 #### Initialwert
 
-Der **Initialwert** einer Eigenschaft ist der Standardwert, wie er in ihrer Definitionstabelle in der Spezifikation aufgeführt ist. Der Initialwert wird während des Standardisierens verwendet, wenn:
+Der **Initialwert** einer Eigenschaft ist der Standardwert, der in der Definitionstabelle der Eigenschaft in der Spezifikation aufgeführt ist. Der Initialwert wird bei der Festlegung von Standardwerten in folgenden Fällen verwendet:
 
-- Für [vererbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) wird der Initialwert nur auf dem _Wurzelelement_ verwendet, das kein Elternelement hat, wenn kein kaskadierter Wert existiert.
-- Für [nicht-vererbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#non-inherited_properties) wird der Initialwert auf _alle Elemente_ angewendet, wenn kein kaskadierter Wert existiert.
+- Bei [vererbbaren Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) wird der Initialwert nur für das _Wurzelelement_ verwendet, das kein Elternelement hat, wenn kein kaskadierter Wert existiert.
+- Bei [nicht vererbbaren Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#non-inherited_properties) wird der Initialwert für _alle Elemente_ verwendet, wenn kein kaskadierter Wert existiert.
 
-Sie können den Initialwert explizit festlegen, indem Sie das {{cssxref("initial")}}-Schlüsselwort verwenden.
+Sie können den Initialwert ausdrücklich mit dem Schlüsselwort {{cssxref("initial")}} festlegen.
 
 > [!NOTE]
-> Der Initialwert kann im Abschnitt zur formellen Syntax auf jeder CSS-Eigenschaftsreferenzseite gefunden werden. Zum Beispiel ist der [Initialwert von `font-size` `medium`](/de/docs/Web/CSS/Reference/Properties/font-size#formal_definition). Der Initialwert sollte nicht mit dem Wert verwechselt werden, der vom Stylesheet des Browsers angegeben wird.
+> Den Initialwert finden Sie im Abschnitt zur formalen Syntax auf der Referenzseite der jeweiligen CSS-Eigenschaft. Beispielsweise ist [der Initialwert von `font-size` `medium`](/de/docs/Web/CSS/Reference/Properties/font-size#formal_definition). Der Initialwert darf nicht mit dem Wert verwechselt werden, den das Stylesheet des Browsers festlegt.
 
 ### Berechneter Wert
 
-Der **berechnete Wert** einer Eigenschaft ist der Wert, der von Eltern zu Kind während der Vererbung weitergegeben wird. Es ist das Ergebnis nach der Auflösung von Dingen wie relativen Einheiten und benutzerdefinierten Eigenschaften in absolute Werte, jedoch bevor layout-spezifische Informationen berücksichtigt werden.
+Der **berechnete Wert** einer Eigenschaft ist der Wert, der bei der Vererbung vom Eltern- an das Kindelement übertragen wird. Er ergibt sich, nachdem beispielsweise relative Einheiten und benutzerdefinierte Eigenschaften in absolute Werte aufgelöst wurden, aber bevor layoutspezifische Informationen berücksichtigt werden.
 
-Der berechnete Wert wird aus dem [spezifizierten Wert](#spezifizierter_wert) berechnet, indem:
+Der berechnete Wert wird aus dem [festgelegten Wert](#festgelegter_wert) ermittelt, indem:
 
-1. Die speziellen Werte {{cssxref("inherit")}}, {{cssxref("initial")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}} und {{cssxref("unset")}} behandelt werden.
-2. Die Berechnung durchgeführt wird, die erforderlich ist, um den Wert zu erreichen, der in der Zeile "Berechneter Wert" in der Definitionstabelle der Eigenschaft beschrieben ist.
+1. die speziellen Werte {{cssxref("inherit")}}, {{cssxref("initial")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}} und {{cssxref("unset")}} verarbeitet werden;
+2. die Berechnungen durchgeführt werden, die nötig sind, um den in der Zeile „Computed value“ der Definitionstabelle der Eigenschaft beschriebenen Wert zu erhalten.
 
-Die Berechnung, die zur Erreichung eines berechneten Werts einer Eigenschaft erforderlich ist, umfasst typischerweise die Umwandlung relativer Werte (wie beispielsweise die in `em`-Einheiten oder Prozentsätzen) in absolute Werte. Wenn beispielsweise ein Element angegebene Werte `font-size: 16px` und `padding-top: 2em` hat, dann ist der berechnete Wert von `padding-top` `32px` (doppelt so groß wie die Schriftgröße).
+Um den berechneten Wert einer Eigenschaft zu ermitteln, werden in der Regel relative Werte (etwa Werte in `em` oder Prozentangaben) in absolute Werte umgerechnet. Wenn für ein Element beispielsweise `font-size: 16px` und `padding-top: 2em` festgelegt sind, ist der berechnete Wert von `padding-top` `32px` (das Doppelte der Schriftgröße).
 
-Allerdings werden bei einigen Eigenschaften (solche, bei denen Prozentsätze sich auf etwas beziehen, das Layout zur Bestimmung erfordern kann, wie `width`, `margin-right`, `text-indent` und `top`) prozentual spezifizierte Werte in anteilig berechnete Werte umgewandelt. Darüber hinaus wird die Einheitlose-Zahl bei der `line-height`-Eigenschaft als berechneter Wert, wie angegeben, verwendet. Die relativen Werte, die im berechneten Wert verbleiben, werden absolut, wenn der [verwendete Wert](#verwendeter_wert) bestimmt wird.
+Bei einigen Eigenschaften – solchen, deren Prozentangaben sich auf eine Größe beziehen, die möglicherweise erst durch das Layout bestimmt werden kann, etwa `width`, `margin-right`, `text-indent` und `top` – bleiben als Prozentangaben festgelegte Werte jedoch auch berechnete Prozentwerte. Außerdem werden einheitenlose Zahlen, die für `line-height` festgelegt wurden, unverändert zum berechneten Wert. Relative Werte, die im berechneten Wert erhalten bleiben, werden bei der Ermittlung des [verwendeten Werts](#verwendeter_wert) zu absoluten Werten.
 
 ### Verwendeter Wert
 
-Der **verwendete Wert** ist der Wert der Eigenschaft, nachdem alle Berechnungen am [berechneten Wert](#berechneter_wert) durchgeführt wurden und er mit layout-spezifischen Details verfeinert wurde (z. B. Prozentsätze in tatsächliche Pixelwerte umgewandelt).
+Der **verwendete Wert** ist der Wert einer Eigenschaft, nachdem alle Berechnungen am [berechneten Wert](#berechneter_wert) durchgeführt und layoutspezifische Details berücksichtigt wurden (z. B. wenn Prozentangaben in konkrete Pixelwerte aufgelöst werden).
 
-Jede CSS-Eigenschaft hat einen verwendeten Wert. Die verwendeten Werte von Dimensionen (z. B. {{cssxref("width")}} oder {{cssxref("line-height")}}) sind in Pixel. Die verwendeten Werte von Kurzeigenschaften (z. B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenteneigenschaften (z. B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) und mit {{cssxref("position")}} und {{cssxref("float")}}.
+Jede CSS-Eigenschaft hat einen verwendeten Wert. Die verwendeten Werte von Größenangaben (z. B. {{cssxref("width")}} oder {{cssxref("line-height")}}) werden in Pixeln angegeben. Die verwendeten Werte von Kurzschreibweisen (z. B. {{cssxref("background")}}) stimmen mit denen ihrer einzelnen Eigenschaften (z. B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) sowie mit {{cssxref("position")}} und {{cssxref("float")}} überein.
 
-Der verwendete Wert für die {{cssxref("width")}} oder {{cssxref("inline-size")}} eines Elements ist ein Pixelwert, selbst wenn der angegebene Wert der Eigenschaft mit Prozentsätzen oder Schlüsselwortwerten gesetzt wurde.
+Der verwendete Wert für {{cssxref("width")}} oder {{cssxref("inline-size")}} eines Elements ist ein Pixelwert, selbst wenn der festgelegte Wert der Eigenschaft eine Prozentangabe oder ein Schlüsselwort ist.
 
-Wenn wir drei Containerelemente haben, deren Breite auf `auto`, `50%` und `inherit` gesetzt ist:
+Angenommen, wir haben drei Containerelemente, deren Breite auf `auto`, `50%` beziehungsweise `inherit` gesetzt ist:
 
 ```html hidden
 <div id="no-width">
@@ -232,9 +232,9 @@ updateAllUsedWidths();
 window.addEventListener("resize", updateAllUsedWidths);
 ```
 
-Obwohl die drei spezifizierten Werte, `auto`, `50%` und `inherit`, Schlüsselwort- und {{cssxref("Prozent")}}werte sind, gibt das Abrufen der `width` mit `window.getComputedStyle(el)["width"];` einen [absoluten Längen](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units) `px`-Wert zurück:
+Obwohl die drei festgelegten Werte `auto`, `50%` und `inherit` Schlüsselwörter beziehungsweise ein {{cssxref("percentage")}}-Wert sind, liefert das Auslesen von `width` mit `window.getComputedStyle(el)["width"];` einen [absoluten Längenwert](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units) in `px`:
 
-{{ EmbedLiveSample('Example', '80%', 372) }}
+{{ EmbedLiveSample('used_value', '80%', 372) }}
 
 Ändern Sie die Fenstergröße oder drehen Sie Ihr Mobilgerät, um die Größe und die verwendeten Werte zu ändern.
 
@@ -244,24 +244,24 @@ Der gerenderte Wert wird als [tatsächlicher Wert](#tatsächlicher_wert) bezeich
 
 ### Tatsächlicher Wert
 
-Der **tatsächliche Wert** einer Eigenschaft ist der [verwendeten Wert](#verwendeter_wert) dieser Eigenschaft, nachdem notwendige Näherungen angewendet wurden. Es ist der endgültige gerenderte Wert, wie er vom Browser implementiert wurde, einschließlich Anpassungen für Rendering-Besonderheiten oder -Einschränkungen. Beispielsweise kann ein {{Glossary("user_agent", "User-Agent")}}, der nur Ränder mit einer ganzen Anzahl von Pixeln rendern kann, die Dicke des Randes auf die nächste ganze Zahl runden.
+Der **tatsächliche Wert** einer Eigenschaft ist ihr [verwendeter Wert](#verwendeter_wert), nachdem gegebenenfalls erforderliche Näherungen vorgenommen wurden. Er ist der endgültige gerenderte Wert, wie ihn der Browser umsetzt, einschließlich Anpassungen aufgrund von Besonderheiten oder Einschränkungen beim Rendering. Beispielsweise kann ein {{Glossary("user_agent", "User Agent")}}, der Rahmen nur mit einer ganzzahligen Pixelbreite rendern kann, die Rahmenstärke auf die nächste ganze Zahl runden.
 
-Die Berechnung umfasst diese Schritte:
+Die Berechnung umfasst folgende Schritte:
 
-1. Zuerst wird der [spezifizierte Wert](#spezifizierter_wert) basierend auf dem Ergebnis der [Kaskadierung](/de/docs/Web/CSS/Guides/Cascade/Introduction), [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) oder unter Verwendung des [Initialwerts](#initialwert) bestimmt.
-2. Als nächstes wird der [berechnete Wert](#berechneter_wert) gemäß der Spezifikation berechnet (zum Beispiel wird bei einem `span` mit `position: absolute` das berechnete `display` in `block` geändert).
-3. Dann wird das Layout berechnet, was zu dem [verwendeten Wert](#verwendeter_wert) führt.
-4. Schließlich wird der verwendete Wert gemäß den Einschränkungen der lokalen Umgebung transformiert, was zum tatsächlichen Wert führt.
+1. Zunächst wird der [festgelegte Wert](#festgelegter_wert) anhand des Ergebnisses der [Kaskadierung](/de/docs/Web/CSS/Guides/Cascade/Introduction), der [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) oder mithilfe des [Initialwerts](#initialwert) bestimmt.
+2. Anschließend wird der [berechnete Wert](#berechneter_wert) gemäß der Spezifikation ermittelt (beispielsweise ändert sich bei einem `span` mit `position: absolute` der berechnete Wert von `display` zu `block`).
+3. Danach wird das Layout berechnet. Daraus ergibt sich der [verwendete Wert](#verwendeter_wert).
+4. Schließlich wird der verwendete Wert entsprechend den Einschränkungen der lokalen Umgebung angepasst. Daraus ergibt sich der tatsächliche Wert.
 
 ### Aufgelöster Wert
 
-Der **aufgelöste Wert** einer Eigenschaft ist der Wert nach der Anwendung aktiver Stylesheets und der Auflösung grundlegender Berechnungen dieser Werte. Die Methode [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt ein live [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurück, das die aufgelösten Werte aller auf ein bestimmtes Element angewendeten CSS-Eigenschaften enthält. Jeder aufgelöste Wert ist entweder der [berechnete Wert](#berechneter_wert) oder der [verwendete Wert](#verwendeter_wert), abhängig von der Eigenschaft.
+Der **aufgelöste Wert** einer Eigenschaft ist der Wert, der sich nach der Anwendung der aktiven Stylesheets und der Auflösung grundlegender Berechnungen ergibt, die in diesen Werten enthalten sein können. Die Methode [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt ein aktuelles [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurück, das die aufgelösten Werte aller CSS-Eigenschaften enthält, die auf ein bestimmtes Element angewendet werden. Je nach Eigenschaft ist der aufgelöste Wert entweder der [berechnete Wert](#berechneter_wert) oder der [verwendete Wert](#verwendeter_wert).
 
-Historisch gesehen gab `getComputedStyle()` den berechneten Wert eines Elements oder Pseudo-Elements zurück. Mit der Entwicklung von CSS entwickelte sich auch das Konzept des „berechneten Werts“, aber die von `getComputedStyle()` zurückgegebenen Werte mussten für die Rückwärtskompatibilität mit bereits vorhandenen Skripten gleich bleiben. Diese Werte sind die "aufgelösten Werte".
+Ursprünglich gab `getComputedStyle()` den berechneten Wert eines Elements oder Pseudoelements zurück. Mit der Weiterentwicklung von CSS änderte sich auch das Konzept des „berechneten Werts“. Aus Gründen der Abwärtskompatibilität mit bereits eingesetzten Skripten mussten die von `getComputedStyle()` zurückgegebenen Werte jedoch gleich bleiben. Diese Werte werden als „aufgelöste Werte“ bezeichnet.
 
-Für die meisten Eigenschaften ist der aufgelöste Wert der berechnete Wert, aber für einige wenige Legacy-Eigenschaften (einschließlich {{cssxref("width")}} und {{cssxref("height")}}) ist es der verwendete Wert. Die [CSSOM-Spezifikation](https://drafts.csswg.org/cssom/#resolved_values) bietet detailspezifische Angaben.
+Bei den meisten Eigenschaften ist der aufgelöste Wert der berechnete Wert. Bei einigen älteren Eigenschaften (darunter {{cssxref("width")}} und {{cssxref("height")}}) ist er jedoch der verwendete Wert. Die [CSSOM-Spezifikation](https://drafts.csswg.org/cssom/#resolved_values) enthält Einzelheiten zu den jeweiligen Eigenschaften.
 
-CSS 2.0 definierte den _berechneten Wert_ als den letzten Schritt in der Berechnung einer Eigenschaft. CSS 2.1 führte die separate Definition des „verwendeten Werts“ ein. Ein Element konnte dann die Breite/Höhe seines Elternteils explizit erben, dessen berechneter Wert ein Prozentsatz war. Für CSS-Eigenschaften, die nicht von Layout abhängen (z. B. `display`, `font-size` oder `line-height`), sind die berechneten Werte und verwendeten Werte gleich. Die folgende Liste enthält die CSS 2.1-Eigenschaften, die _doch_ von Layout abhängen und daher einen unterschiedlichen berechneten und verwendeten Wert haben (entnommen aus den [CSS 2.1-Änderungen: Spezifizierte, berechnete und tatsächliche Werte](https://www.w3.org/TR/CSS2/changes.html#q21.36)):
+CSS 2.0 definierte den _berechneten Wert_ als letzten Schritt bei der Berechnung einer Eigenschaft. CSS 2.1 führte eine eigenständige Definition des „verwendeten Werts“ ein. Damit konnte ein Element die Breite oder Höhe seines Elternelements ausdrücklich erben, obwohl dessen berechneter Wert eine Prozentangabe ist. Bei CSS-Eigenschaften, die nicht vom Layout abhängen (z. B. `display`, `font-size` oder `line-height`), sind der berechnete und der verwendete Wert gleich. Die folgende Liste enthält die CSS-2.1-Eigenschaften, die _vom Layout abhängen_ und daher unterschiedliche berechnete und verwendete Werte haben (aus [CSS 2.1 Changes: Specified, computed, and actual values](https://www.w3.org/TR/CSS2/changes.html#q21.36)):
 
 - {{cssxref("background-position")}}
 - {{cssxref("bottom")}}, {{cssxref("left")}}, {{cssxref("right")}}, {{cssxref("top")}}
@@ -273,6 +273,6 @@ CSS 2.0 definierte den _berechneten Wert_ als den letzten Schritt in der Berechn
 
 ## Siehe auch
 
-- CSS-Werte zur Steuerung der Vererbung: {{cssxref("inherit")}}, {{cssxref("initial")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}}, und {{cssxref("unset")}}
-- [CSS-Kaskadierungs- und Vererbungsmodul](/de/docs/Web/CSS/Guides/Cascade)
-- [CSS-Syntaxmodul](/de/docs/Web/CSS/Guides/Syntax)
+- CSS-Werte zur Steuerung der Vererbung: {{cssxref("inherit")}}, {{cssxref("initial")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}} und {{cssxref("unset")}}
+- Modul [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade)
+- Modul [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax)

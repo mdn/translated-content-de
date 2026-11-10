@@ -3,28 +3,16 @@ title: "`::part()` CSS pseudo-element"
 short-title: ::part()
 slug: Web/CSS/Reference/Selectors/::part
 l10n:
-  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
+  sourceCommit: e8551ed116f8be8684765108079bed2c2f876132
 ---
 
-Das **`::part`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert jedes Element innerhalb eines [Shadow-DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM), das ein passendes [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut hat.
+Das **`::part`**-[CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert jedes Element innerhalb eines [Shadow-Baums](/de/docs/Web/API/Web_components/Using_shadow_DOM), das ein passendes [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut hat.
 
 ```css
 custom-element::part(foo) {
   /* Styles to apply to the `foo` part */
 }
 ```
-
-## Beschreibung
-
-Das globale [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut macht ein Element des Shadow-DOMs für sein übergeordnetes DOM sichtbar. Die mit dem `part`-Attribut deklarierten Part-Namen werden als Parameter des `::part()`-Pseudoelements verwendet. Auf diese Weise können Sie CSS-Stile auf Elemente im Shadow-DOM von außen anwenden.
-
-Part-Namen ähneln CSS-Klassen: Mehrere Elemente können denselben Part-Namen haben, und ein einzelnes Element kann mehrere Part-Namen besitzen. Alle Part-Namen, die im `::part()`-Pseudoelement verwendet werden, müssen im `part`-Wert deklariert sein, der auf das Shadow-DOM-Element angewendet wird, aber die Reihenfolge der Part-Namen spielt keine Rolle, d.h. die Selektoren `::part(tab active)` und `::part(active tab)` sind gleich.
-
-Das `::part()`-Pseudoelement ist nur für das übergeordnete DOM sichtbar. Das bedeutet, dass wenn ein Shadow-DOM verschachtelt ist, die Teile für keine anderen Vorfahren außer dem direkten übergeordneten DOM sichtbar sind. Das [`exportparts`](/de/docs/Web/HTML/Reference/Global_attributes/exportparts)-Attribut löst diese Einschränkung, indem es bereits definierte `part`-Namen explizit exportiert und sie global stilbar macht.
-
-[Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) (wie `::part(label):hover`) können an den `::part()`-Selektor angehängt werden, aber [strukturelle Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#tree-structural_pseudo-classes), die basierend auf Bauminformationen übereinstimmen, wie `:empty` und `:last-child`, können nicht angehängt werden.
-
-Weitere Pseudoelemente, wie `::before`, können an den `::part()`-Selektor angehängt werden, aber zusätzliche `::part()`-Elemente können nicht angehängt werden. Zum Beispiel `::part(confirm-button)::part(active)` stimmt niemals mit etwas überein, d.h. es ist nicht dasselbe wie `::part(confirm-button active)`. Dies liegt daran, dass auf diese Weise mehr strukturelle Informationen offengelegt würden, als beabsichtigt ist.
 
 ## Syntax
 
@@ -33,6 +21,18 @@ Weitere Pseudoelemente, wie `::before`, können an den `::part()`-Selektor angeh
   /* ... */
 }
 ```
+
+## Beschreibung
+
+Das globale [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut macht ein Element eines Shadow-Baums für dessen übergeordnetes DOM sichtbar. Die mit dem `part`-Attribut deklarierten Part-Namen werden als Parameter des Pseudoelements `::part()` verwendet. So können Sie von außerhalb des Shadow-Baums CSS-Stile auf Elemente darin anwenden.
+
+Part-Namen ähneln CSS-Klassen: Mehrere Elemente können denselben Part-Namen haben, und ein einzelnes Element kann mehrere Part-Namen haben. Alle im Pseudoelement `::part()` verwendeten Part-Namen müssen im `part`-Wert des Elements im Shadow-Baum enthalten sein. Die Reihenfolge der Part-Namen spielt jedoch keine Rolle: Die Selektoren `::part(tab active)` und `::part(active tab)` sind gleichwertig.
+
+Das Pseudoelement `::part()` ist nur für das übergeordnete DOM sichtbar. Das bedeutet, dass bei verschachtelten Shadow-Bäumen die Parts für keine anderen Vorfahren als das direkt übergeordnete DOM sichtbar sind. Das Attribut [`exportparts`](/de/docs/Web/HTML/Reference/Global_attributes/exportparts) behebt diese Einschränkung, indem es bereits definierte `part`-Namen ausdrücklich exportiert und sie so von außen formatierbar macht.
+
+[Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) (wie in `::part(label):hover`) können an den `::part()`-Selektor angehängt werden. [Strukturelle Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#tree-structural_pseudo-classes), die anhand der Baumstruktur übereinstimmen, wie `:empty` und `:last-child`, können dagegen nicht angehängt werden.
+
+Weitere Pseudoelemente wie `::before` können an den `::part()`-Selektor angehängt werden, ein weiteres `::part()`-Pseudoelement jedoch nicht. Beispielsweise stimmt `::part(confirm-button)::part(active)` mit keinem Element überein; es ist also nicht dasselbe wie `::part(confirm-button active)`. Der Grund dafür ist, dass andernfalls mehr Informationen über die Struktur offengelegt würden als beabsichtigt.
 
 ## Beispiele
 
@@ -106,6 +106,6 @@ globalThis.customElements.define(
 ## Siehe auch
 
 - [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut
-- {{CSSxRef(":state",":state()")}} Pseudoklassen-Funktion
+- {{CSSxRef(":state",":state()")}}-Pseudoklassenfunktion
 - [`exportparts`](/de/docs/Web/HTML/Reference/Global_attributes/exportparts)-Attribut
-- [CSS Shadow Parts](/de/docs/Web/CSS/Guides/Shadow_parts)-Modul
+- Modul [CSS Shadow Parts](/de/docs/Web/CSS/Guides/Shadow_parts)

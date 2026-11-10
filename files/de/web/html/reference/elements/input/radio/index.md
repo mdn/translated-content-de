@@ -1,14 +1,14 @@
 ---
-title: '`<input type="radio">` HTML-Attributwert'
+title: HTML-Attributwert `<input type="radio">`
 short-title: <input type="radio">
 slug: Web/HTML/Reference/Elements/input/radio
 l10n:
-  sourceCommit: 46afd57950146568819d0bf98175a2ffdbe079d7
+  sourceCommit: 29f7a9f90986462f6b3df9ee8e25cf4ecf3a12f7
 ---
 
-{{htmlelement("input")}}-Elemente vom Typ **`radio`** werden üblicherweise in **Radio-Gruppen** verwendet – Gruppen von Radio-Buttons, die zusammengehörige Optionen darstellen.
+{{htmlelement("input")}}-Elemente vom Typ **`radio`** werden üblicherweise in **Radiobutton-Gruppen** verwendet – Gruppen von Radiobuttons, die zusammengehörige Optionen darstellen.
 
-In einer Gruppe kann jeweils nur ein Radio-Button ausgewählt sein. Radio-Buttons werden normalerweise als kleine Kreise dargestellt, die bei Auswahl ausgefüllt oder hervorgehoben werden.
+In einer Gruppe kann jeweils nur ein Radiobutton ausgewählt sein. Radiobuttons werden in der Regel als kleine Kreise dargestellt, die bei Auswahl ausgefüllt oder hervorgehoben werden.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;radio&quot;&gt;", "tabbed-standard")}}
 
@@ -48,15 +48,15 @@ input {
 
 ## Wert
 
-Das Attribut `value` ist eine Zeichenfolge, die den Wert des Radio-Buttons enthält. Der {{Glossary("user_agent", "User Agent")}} zeigt diesen Wert den Nutzern nicht an. Stattdessen wird er verwendet, um festzustellen, welcher Radio-Button einer Gruppe ausgewählt ist.
+Das Attribut `value` ist eine Zeichenfolge, die den Wert des Radiobuttons enthält. Dieser Wert wird den Benutzern vom {{Glossary("user_agent", "User Agent")}} nicht angezeigt. Stattdessen dient er dazu, den ausgewählten Radiobutton einer Gruppe zu identifizieren.
 
-### Eine Radio-Gruppe definieren
+### Eine Radiobutton-Gruppe definieren
 
-Eine Radio-Gruppe wird definiert, indem jeder Radio-Button der Gruppe denselben Wert für [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) erhält. Sobald eine Radio-Gruppe festgelegt ist, wird durch die Auswahl eines Radio-Buttons automatisch jeder zuvor ausgewählte Radio-Button derselben Gruppe abgewählt.
+Eine Radiobutton-Gruppe wird definiert, indem alle Radiobuttons der Gruppe denselben Wert für [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) erhalten. Sobald eine Radiobutton-Gruppe festgelegt ist, wird bei Auswahl eines Radiobuttons ein zuvor ausgewählter Radiobutton derselben Gruppe automatisch abgewählt.
 
-Sie können auf einer Seite beliebig viele Radio-Gruppen verwenden, solange jede einen eigenen, eindeutigen Wert für `name` hat.
+Sie können beliebig viele Radiobutton-Gruppen auf einer Seite verwenden, solange jede einen eindeutigen `name` hat.
 
-Wenn Sie beispielsweise in einem Formular nach der bevorzugten Kontaktmethode fragen möchten, könnten Sie drei Radio-Buttons erstellen. Bei allen ist die Eigenschaft `name` auf `contact` gesetzt; die Werte lauten `email`, `phone` und `mail`. Die Nutzer sehen weder `value` noch `name`, sofern Sie keinen Code hinzufügen, der diese Werte ausdrücklich anzeigt.
+Wenn Ihr Formular beispielsweise nach der bevorzugten Kontaktmethode fragt, könnten Sie drei Radiobuttons erstellen, deren `name`-Eigenschaft jeweils auf `contact` gesetzt ist. Die Werte wären `email`, `phone` beziehungsweise `mail`. Die Benutzer sehen weder `value` noch `name`, sofern Sie nicht ausdrücklich Code hinzufügen, der diese Werte anzeigt.
 
 Das resultierende HTML sieht so aus:
 
@@ -76,24 +76,24 @@ Das resultierende HTML sieht so aus:
 </fieldset>
 ```
 
-Hier sehen Sie drei Radio-Buttons, bei denen `name` jeweils auf `contact` gesetzt ist. Jeder hat einen eigenen `value`-Wert, der ihn innerhalb der Gruppe eindeutig identifiziert. Außerdem hat jeder eine eindeutige [`id`](/de/docs/Web/API/Element/id). Diese wird vom Attribut [`for`](/de/docs/Web/HTML/Reference/Elements/label#for) des {{HTMLElement("label")}}-Elements verwendet, um die Beschriftung mit dem jeweiligen Radio-Button zu verknüpfen.
+Hier sehen Sie drei Radiobuttons, bei denen `name` jeweils auf `contact` gesetzt ist. Jeder hat einen eigenen `value`, der ihn innerhalb der Gruppe eindeutig identifiziert. Außerdem hat jeder eine eindeutige [`id`](/de/docs/Web/API/Element/id). Über diese verknüpft das Attribut [`for`](/de/docs/Web/HTML/Reference/Elements/label#for) des {{HTMLElement("label")}}-Elements die Beschriftungen mit den Radiobuttons.
 
 Sie können dieses Beispiel hier ausprobieren:
 
 {{EmbedLiveSample('Defining_a_radio_group', 600, 130)}}
 
-### Datendarstellung einer Radio-Gruppe
+### Darstellung der Daten einer Radiobutton-Gruppe
 
-Wenn ein Formular mit den oben gezeigten Steuerelementen übermittelt wird und ein Radio-Button ausgewählt ist, enthalten die Formulardaten einen Eintrag in der Form `contact=value`. Wenn die Nutzer beispielsweise den Radio-Button „Phone“ auswählen und das Formular absenden, ist `contact=phone` in den übermittelten Formulardaten enthalten.
+Wenn ein Formular mit den obigen Steuerelementen abgeschickt wird und ein Radiobutton ausgewählt ist, enthalten die Formulardaten einen Eintrag der Form `contact=value`. Wenn die Benutzer beispielsweise den Radiobutton „Phone“ auswählen und das Formular abschicken, enthalten die übermittelten Formulardaten `contact=phone`.
 
-Wenn Sie das Attribut `value` im HTML weglassen, wird der Gruppe in den übermittelten Formulardaten der Wert `on` zugewiesen. Wenn die Nutzer in diesem Fall „Phone“ auswählen und das Formular absenden, lauten die resultierenden Formulardaten `contact=on` – das ist wenig hilfreich. Vergessen Sie daher nicht, Ihre `value`-Attribute festzulegen!
+Wenn Sie das Attribut `value` im HTML weglassen, wird der Gruppe in den übermittelten Formulardaten der Wert `on` zugewiesen. Wenn die Benutzer in diesem Fall die Option „Phone“ auswählen und das Formular abschicken, lauten die resultierenden Formulardaten `contact=on`. Das ist wenig hilfreich. Vergessen Sie also nicht, die `value`-Attribute festzulegen!
 
 > [!NOTE]
-> Wenn beim Absenden des Formulars kein Radio-Button ausgewählt ist, wird die Radio-Gruppe überhaupt nicht in die übermittelten Formulardaten aufgenommen, da kein Wert übermittelt werden kann.
+> Wenn beim Abschicken des Formulars kein Radiobutton ausgewählt ist, erscheint die Radiobutton-Gruppe nicht in den übermittelten Formulardaten, da kein Wert übermittelt werden kann.
 
-In der Regel soll ein Formular nicht abgesendet werden können, ohne dass in einer Gruppe ein Radio-Button ausgewählt ist. Daher ist es meist sinnvoll, einen Radio-Button standardmäßig auf `checked` zu setzen. Weitere Informationen finden Sie unten unter [Einen Radio-Button standardmäßig auswählen](#einen_radio-button_standardmäßig_auswählen).
+Meist ist es nicht erwünscht, dass ein Formular abgeschickt werden kann, ohne dass ein Radiobutton einer Gruppe ausgewählt ist. Daher ist es in der Regel sinnvoll, einen Radiobutton standardmäßig mit `checked` auszuwählen. Siehe [Einen Radiobutton standardmäßig auswählen](#einen_radiobutton_standardmäßig_auswählen) weiter unten.
 
-Ergänzen wir unser Beispiel um etwas Code, damit wir die von diesen Steuerelementen erzeugten Daten untersuchen können. Das HTML wird so angepasst, dass die Steuerelemente in ein {{HTMLElement("form")}} eingeschlossen werden. Außerdem fügen wir einen Absende-Button und einen {{HTMLElement("pre")}}-Block zur Ausgabe der Formulardaten hinzu:
+Ergänzen wir unser Beispiel um etwas Code, damit wir die von diesen Steuerelementen erzeugten Daten untersuchen können. Das HTML wird so angepasst, dass die Steuerelemente von einem {{HTMLElement("form")}} umschlossen sind. Außerdem werden ein Button zum Abschicken und ein {{HTMLElement("pre")}}-Block zur Ausgabe der Formulardaten hinzugefügt:
 
 ```html
 <form>
@@ -115,7 +115,7 @@ Ergänzen wir unser Beispiel um etwas Code, damit wir die von diesen Steuereleme
 <pre id="log"></pre>
 ```
 
-Anschließend fügen wir etwas [JavaScript](/de/docs/Web/JavaScript) hinzu, um einen Event-Listener für das Ereignis [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event) einzurichten. Dieses Ereignis wird ausgelöst, wenn die Nutzer auf den Button „Submit“ klicken:
+Anschließend fügen wir etwas [JavaScript](/de/docs/Web/JavaScript) hinzu, um einen Event-Listener für das Ereignis [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event) einzurichten, das ausgelöst wird, wenn die Benutzer auf den Button „Submit“ klicken:
 
 ```js
 const form = document.querySelector("form");
@@ -132,38 +132,38 @@ form.addEventListener("submit", (event) => {
 });
 ```
 
-Probieren Sie das Beispiel aus: Für die Gruppe `contact` gibt es nie mehr als ein Ergebnis.
+Probieren Sie das Beispiel aus. Für die Gruppe `contact` gibt es nie mehr als ein Ergebnis.
 
 {{EmbedLiveSample("Data_representation_of_a_radio_group", 600, 130)}}
 
 ## Zusätzliche Attribute
 
-Neben den gemeinsamen Attributen aller {{HTMLElement("input")}}-Elemente unterstützen Eingabefelder vom Typ `radio` die folgenden Attribute.
+Zusätzlich zu den gemeinsamen Attributen aller {{HTMLElement("input")}}-Elemente unterstützen `radio`-Inputs die folgenden Attribute.
 
 - `checked`
-  - : Ein boolesches Attribut, das angibt, dass dieser Radio-Button standardmäßig innerhalb der Gruppe ausgewählt ist, wenn es vorhanden ist.
+  - : Ein boolesches Attribut, das bei Vorhandensein angibt, dass dieser Radiobutton in der Gruppe standardmäßig ausgewählt ist.
 
-    Anders als andere Browser [speichert Firefox standardmäßig den dynamischen Auswahlzustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über das erneute Laden der Seite hinweg. Verwenden Sie das Attribut [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete), um dieses Verhalten zu steuern.
+    Anders als andere Browser [speichert Firefox standardmäßig den dynamischen `checked`-Zustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über das erneute Laden der Seite hinweg. Verwenden Sie das Attribut [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete), um dieses Verhalten zu steuern.
 
 - `value`
-  - : Das Attribut `value` ist allen {{HTMLElement("input")}}-Elementen gemeinsam. Für Eingabefelder vom Typ `radio` erfüllt es jedoch einen besonderen Zweck: Beim Absenden eines Formulars werden nur die derzeit ausgewählten Radio-Buttons an den Server übermittelt. Als Wert wird dabei der Wert des Attributs `value` übermittelt. Wenn `value` nicht angegeben ist, lautet der Standardwert `on`. Dies wird oben im Abschnitt [Wert](#wert) gezeigt.
+  - : Das Attribut `value` ist allen {{HTMLElement("input")}}-Elementen gemeinsam. Bei Inputs vom Typ `radio` erfüllt es jedoch einen besonderen Zweck: Beim Abschicken eines Formulars werden nur die aktuell ausgewählten Radiobuttons an den Server übermittelt. Der übermittelte Wert entspricht dem Wert des Attributs `value`. Wenn `value` nicht anderweitig festgelegt ist, wird standardmäßig die Zeichenfolge `on` verwendet. Dies wird oben im Abschnitt [Wert](#wert) gezeigt.
 
 - [`required`](/de/docs/Web/HTML/Reference/Attributes/required)
-  - : Das Attribut `required` wird von den meisten {{HTMLElement("input")}}-Elementen unterstützt. Wenn ein Radio-Button in einer Gruppe mit demselben `name`-Wert das Attribut `required` besitzt, muss ein Radio-Button dieser Gruppe ausgewählt sein. Es muss nicht derjenige sein, der das Attribut trägt.
+  - : Das Attribut `required` wird von den meisten {{HTMLElement("input")}}-Elementen unterstützt. Wenn ein Radiobutton in einer Gruppe mit demselben `name` das Attribut `required` hat, muss ein Radiobutton dieser Gruppe ausgewählt sein. Das muss nicht der Radiobutton sein, der das Attribut trägt.
 
-## Radio-Buttons verwenden
+## `radio`-Inputs verwenden
 
-Radio-Buttons sehen den Drucktasten älterer Radios ähnlich und funktionieren auf vergleichbare Weise, wie das folgende Bild zeigt.
+Radiobuttons ähneln in Aussehen und Funktionsweise den Drucktasten älterer Radios, wie dem unten abgebildeten.
 
-![Zeigt, wie Radio-Buttons früher aussahen.](old-radio.jpg)
+![Zeigt, wie Radiobuttons früher aussahen.](old-radio.jpg)
 
-Radio-Buttons ähneln [Checkboxen](/de/docs/Web/HTML/Reference/Elements/input/checkbox), unterscheiden sich aber in einem wichtigen Punkt: Mit Radio-Buttons wird ein Wert aus einer Gruppe ausgewählt, während sich mit Checkboxen einzelne Werte unabhängig voneinander ein- und ausschalten lassen. Bei mehreren Steuerelementen erlauben Radio-Buttons nur eine Auswahl, Checkboxen dagegen mehrere.
+Radiobuttons ähneln [Checkboxen](/de/docs/Web/HTML/Reference/Elements/input/checkbox), unterscheiden sich aber in einem wichtigen Punkt: Mit Radiobuttons wählen Sie einen Wert aus einer Gruppe aus, während Sie mit Checkboxen einzelne Werte unabhängig voneinander aktivieren und deaktivieren können. Bei mehreren Steuerelementen erlauben Radiobuttons also nur eine Auswahl, Checkboxen dagegen mehrere.
 
-Die Grundlagen von Radio-Buttons haben wir bereits behandelt. Sehen wir uns nun weitere häufig verwendete Funktionen und Techniken an, die für Sie nützlich sein könnten.
+Die Grundlagen von Radiobuttons wurden oben bereits behandelt. Sehen wir uns nun weitere häufig benötigte Funktionen und Techniken an.
 
-### Einen Radio-Button standardmäßig auswählen
+### Einen Radiobutton standardmäßig auswählen
 
-Damit ein Radio-Button standardmäßig ausgewählt ist, fügen Sie das Attribut `checked` hinzu, wie in dieser überarbeiteten Version des vorherigen Beispiels:
+Damit ein Radiobutton standardmäßig ausgewählt ist, fügen Sie das Attribut `checked` hinzu, wie in dieser überarbeiteten Version des vorherigen Beispiels:
 
 ```html
 <fieldset>
@@ -188,24 +188,24 @@ Damit ein Radio-Button standardmäßig ausgewählt ist, fügen Sie das Attribut 
 
 {{EmbedLiveSample('Selecting_a_radio_button_by_default', 600, 130)}}
 
-In diesem Fall ist der erste Radio-Button nun standardmäßig ausgewählt.
+In diesem Fall ist nun der erste Radiobutton standardmäßig ausgewählt.
 
 > [!NOTE]
-> Wenn Sie das Attribut `checked` mehreren Radio-Buttons zuweisen, überschreiben spätere Vorkommen die früheren. Der letzte Radio-Button mit `checked` ist also ausgewählt. Der Grund dafür ist, dass in einer Gruppe immer nur ein Radio-Button ausgewählt sein kann. Der User Agent wählt daher jedes Mal die anderen ab, wenn ein neuer als ausgewählt markiert wird.
+> Wenn Sie das Attribut `checked` mehreren Radiobuttons zuweisen, überschreiben spätere Vorkommen die früheren. Der letzte Radiobutton mit `checked` ist dann ausgewählt. Der Grund dafür ist, dass in einer Gruppe jeweils nur ein Radiobutton ausgewählt sein kann. Der User Agent wählt die anderen automatisch ab, sobald ein neuer Radiobutton als ausgewählt markiert wird.
 
-### Die anklickbare Fläche Ihrer Radio-Buttons vergrößern
+### Die anklickbare Fläche Ihrer Radiobuttons vergrößern
 
-In den obigen Beispielen haben Sie möglicherweise bemerkt, dass Sie einen Radio-Button nicht nur durch Klicken auf den Button selbst auswählen können, sondern auch durch Klicken auf das zugehörige {{htmlelement("label")}}-Element. Diese nützliche Funktion von HTML-Formularbeschriftungen erleichtert es Nutzern, die gewünschte Option anzuklicken – insbesondere auf Geräten mit kleinen Bildschirmen wie Smartphones.
+In den obigen Beispielen haben Sie vielleicht bemerkt, dass Sie einen Radiobutton nicht nur durch Klicken auf ihn selbst auswählen können, sondern auch durch Klicken auf das zugehörige {{htmlelement("label")}}-Element. Diese nützliche Funktion von HTML-Formularbeschriftungen erleichtert es Benutzern, die gewünschte Option anzuklicken – besonders auf Geräten mit kleinen Bildschirmen wie Smartphones.
 
-Neben der Barrierefreiheit ist dies ein weiterer guter Grund, `<label>`-Elemente in Ihren Formularen korrekt einzurichten.
+Neben der Barrierefreiheit ist dies ein weiterer guter Grund, `<label>`-Elemente in Ihren Formularen richtig einzurichten.
 
 ## Validierung
 
-Wenn ein Radio-Button das Attribut [`required`](/de/docs/Web/HTML/Reference/Attributes/required) besitzt oder wenn mindestens ein Radio-Button einer Gruppe mit demselben `name`-Wert dieses Attribut besitzt, muss ein Radio-Button ausgewählt sein, damit das Steuerelement als gültig gilt. Ist kein Radio-Button ausgewählt, gibt die Eigenschaft [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) eines [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts bei der Validierung `true` zurück, und der Browser fordert die Nutzer auf, eine Option auszuwählen.
+Wenn ein Radiobutton das Attribut [`required`](/de/docs/Web/HTML/Reference/Attributes/required) hat oder mindestens ein Radiobutton in einer Gruppe mit demselben `name` mit `required` versehen ist, muss ein Radiobutton ausgewählt sein, damit das Steuerelement als gültig gilt. Ist kein Radiobutton ausgewählt, gibt die Eigenschaft [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) eines [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts bei der Validierung `true` zurück. Der Browser fordert die Benutzer dann auf, eine Option auszuwählen.
 
-## Radio-Buttons gestalten
+## `radio`-Inputs gestalten
 
-Das folgende Beispiel ist eine etwas ausführlichere Version des Beispiels, das wir im Artikel verwendet haben. Es enthält zusätzliche Gestaltung und verwendet spezialisierte Elemente für eine bessere Semantik. Das HTML sieht so aus:
+Das folgende Beispiel zeigt eine etwas ausführlichere Version des Beispiels, das wir im gesamten Artikel verwendet haben. Es enthält zusätzliche Formatierungen und verbessert durch spezielle Elemente die Semantik. Das HTML sieht so aus:
 
 ```html
 <fieldset>
@@ -228,7 +228,7 @@ Das folgende Beispiel ist eine etwas ausführlichere Version des Beispiels, das 
 </fieldset>
 ```
 
-Das CSS in diesem Beispiel ist etwas umfangreicher:
+Das CSS dieses Beispiels ist etwas umfangreicher:
 
 ```css
 html {
@@ -275,14 +275,14 @@ legend {
 }
 ```
 
-Besonders hervorzuheben ist die Verwendung der Eigenschaft {{cssxref("appearance")}} (mit Präfixen, die für die Unterstützung einiger Browser erforderlich sind). Standardmäßig werden Radio-Buttons (und [Checkboxen](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) mit den nativen Darstellungsstilen des Betriebssystems gestaltet. Mit `appearance: none` können Sie diese native Darstellung vollständig entfernen und eigene Stile festlegen. Hier verwenden wir {{cssxref("border")}} zusammen mit {{cssxref("border-radius")}} und {{cssxref("transition")}}, um eine ansprechend animierte Radio-Button-Auswahl zu gestalten. Beachten Sie auch, wie die Pseudoklasse {{cssxref(":checked")}} verwendet wird, um das Erscheinungsbild eines ausgewählten Radio-Buttons festzulegen.
+Besonders erwähnenswert ist die Verwendung der Eigenschaft {{cssxref("appearance")}} (mit Präfixen zur Unterstützung einiger Browser). Standardmäßig werden Radiobuttons und [Checkboxen](/de/docs/Web/HTML/Reference/Elements/input/checkbox) mit den nativen Formatierungen des Betriebssystems für diese Steuerelemente dargestellt. Mit `appearance: none` können Sie die native Darstellung vollständig entfernen und eigene Formatierungen erstellen. Hier werden {{cssxref("border")}}, {{cssxref("border-radius")}} und {{cssxref("transition")}} verwendet, um eine ansprechende Animation beim Auswählen eines Radiobuttons zu erzeugen. Beachten Sie auch, wie die Pseudoklasse {{cssxref(":checked")}} verwendet wird, um die Darstellung des Radiobuttons im ausgewählten Zustand festzulegen.
 
 > [!NOTE]
-> Wenn Sie die Eigenschaft {{cssxref("appearance")}} verwenden möchten, sollten Sie sie sorgfältig testen. Zwar wird sie von den meisten modernen Browsern unterstützt, ihre Implementierung unterscheidet sich jedoch erheblich. In älteren Browsern hat selbst das Schlüsselwort `none` nicht überall dieselbe Wirkung; manche unterstützen es überhaupt nicht. In neueren Browsern sind die Unterschiede geringer.
+> Wenn Sie die Eigenschaft {{cssxref("appearance")}} verwenden möchten, sollten Sie sie sorgfältig testen. Obwohl sie von den meisten modernen Browsern unterstützt wird, unterscheidet sich ihre Implementierung erheblich. In älteren Browsern hat selbst das Schlüsselwort `none` nicht überall dieselbe Wirkung; einige unterstützen es überhaupt nicht. In neueren Browsern sind die Unterschiede geringer.
 
 {{EmbedLiveSample('Styling_radio_inputs', 600, 120)}}
 
-Wenn Sie auf einen Radio-Button klicken, werden die beiden Auswahlzustände sanft überblendet. Auch Stil und Farbe der Legende sind angepasst, um einen starken Kontrast zu erzielen. Für eine echte Webanwendung würden Sie möglicherweise eine andere Gestaltung wählen, doch das Beispiel zeigt die Möglichkeiten deutlich.
+Wenn Sie auf einen Radiobutton klicken, sehen Sie einen gleichmäßigen Überblendeffekt, während die beiden Buttons ihren Zustand ändern. Außerdem wurden Gestaltung und Farbe der Legende für einen starken Kontrast angepasst. Für eine echte Webanwendung würden Sie vielleicht eine andere Gestaltung wählen, aber das Beispiel zeigt die Möglichkeiten deutlich.
 
 ## Technische Zusammenfassung
 
@@ -291,8 +291,7 @@ Wenn Sie auf einen Radio-Button klicken, werden die beiden Auswahlzustände sanf
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Eine Zeichenfolge, die den Wert des Radio-Buttons
-        darstellt.
+        Eine Zeichenfolge, die den Wert des Radiobuttons darstellt.
       </td>
     </tr>
     <tr>
@@ -300,7 +299,7 @@ Wenn Sie auf einen Radio-Button klicken, werden die beiden Auswahlzustände sanf
       <td>[`change`](/de/docs/Web/API/HTMLElement/change_event) und [`input`](/de/docs/Web/API/Element/input_event)</td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td>
         <code><a href="#checked">checked</a></code
         >, <code><a href="#value">value</a></code> und
@@ -337,4 +336,4 @@ Wenn Sie auf einen Radio-Button klicken, werden die beiden Auswahlzustände sanf
 ## Siehe auch
 
 - {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
-- [`RadioNodeList`](/de/docs/Web/API/RadioNodeList): die Schnittstelle, die eine Liste von Radio-Buttons beschreibt
+- [`RadioNodeList`](/de/docs/Web/API/RadioNodeList): die Schnittstelle, die eine Liste von Radiobuttons beschreibt

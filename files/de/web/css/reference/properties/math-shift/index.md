@@ -3,10 +3,10 @@ title: "`math-shift` CSS property"
 short-title: math-shift
 slug: Web/CSS/Reference/Properties/math-shift
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die `math-shift`-Eigenschaft gibt an, ob die Hochstellungen in MathML-Formeln mit einer normalen oder kompakten Verschiebung gehoben werden sollen.
+Die Eigenschaft `math-shift` legt fest, ob Hochstellungen innerhalb von MathML-Formeln um einen normalen oder einen kompakteren Abstand angehoben werden.
 
 ## Syntax
 
@@ -25,12 +25,12 @@ math-shift: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Für diese Eigenschaft kann einer der folgenden Schlüsselwortwerte angegeben werden:
 
 - `normal`
-  - : Der Anfangswert, der normales Rendering anzeigt. Hochstellungen in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup)-Parameter aus der OpenType MATH-Tabelle.
+  - : Der Ausgangswert. Er gibt die normale Darstellung an. Hochstellungen in MathML-Formeln verwenden den Parameter [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup) aus der OpenType-MATH-Tabelle.
 - `compact`
-  - : Zeigt kompaktes Rendering an. Hochstellungen in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped)-Parameter aus der OpenType MATH-Tabelle, welcher im Allgemeinen kleiner ist.
+  - : Gibt eine kompakte Darstellung an. Hochstellungen in MathML-Formeln verwenden den Parameter [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped) aus der OpenType-MATH-Tabelle, der in der Regel kleiner ist.
 
 ## Formale Definition
 
@@ -42,10 +42,10 @@ Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 ## Beispiele
 
-### Normale und kompakte Verschiebung
+### Normale und kompakte Anhebung
 
-Das folgende MathML zeigt zwei Versionen von "x hoch zwei" mit einer Schriftart, die eine OpenType MATH-Tabelle aufweist.
-Die `math-shift`-Eigenschaft wird verwendet, um die Hochstellungen mit der `normal`- und `compact`-Verschiebung zu heben.
+Das folgende MathML zeigt zwei Versionen von „x zum Quadrat“ mit einer Schriftart, die über eine OpenType-MATH-Tabelle verfügt.
+Die Eigenschaft `math-shift` wird verwendet, um die Hochstellungen mit der Anhebung `normal` beziehungsweise `compact` darzustellen.
 
 #### CSS
 
@@ -77,9 +77,9 @@ math {
 
 #### Ergebnisse
 
-Beachten Sie, dass die zweite "2" eine kompaktere (niedrigere) Verschiebung aufweist.
+Beachten Sie, dass die zweite „2“ weniger stark angehoben ist.
 
-{{EmbedLiveSample("math-shift-example", "100%", "150px")}}
+{{EmbedLiveSample("normal_and_compact_shift", "100%", "150px")}}
 
 ## Spezifikationen
 

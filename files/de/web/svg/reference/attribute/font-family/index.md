@@ -2,13 +2,13 @@
 title: font-family
 slug: Web/SVG/Reference/Attribute/font-family
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`font-family`**-Attribut gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird. Es wird als priorisierte Liste von Schriftfamiliennamen und/oder generischen Familiennamen angegeben.
+Das Attribut **`font-family`** gibt an, welche Schriftfamilie zum Rendern des Textes verwendet wird. Es wird als nach Priorität geordnete Liste von Namen von Schriftfamilien und/oder generischen Schriftfamilien angegeben.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-family` auch ein entsprechendes CSS-Property: {{cssxref("font-family")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `font-family` auch eine entsprechende CSS-Eigenschaft: {{cssxref("font-family")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -18,7 +18,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Beispiele
 
-### Steuerung der SVG-Schriftfamilie
+### Die Schriftfamilie in SVG steuern
 
 ```html
 <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </svg>
 ```
 
-{{EmbedLiveSample}}
+{{EmbedLiveSample("controlling_svg_font_family")}}
 
 ## Verwendungshinweise
 
@@ -39,7 +39,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Hängt vom Benutzeragenten ab</td>
+      <td>Hängt vom User-Agent ab</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -48,7 +48,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte, lesen Sie bitte die [CSS `font-family`](/de/docs/Web/CSS/Reference/Properties/font-family#values) Eigenschaft.
+Eine Beschreibung der Werte finden Sie bei der [CSS-Eigenschaft `font-family`](/de/docs/Web/CSS/Reference/Properties/font-family#values).
 
 ## Spezifikationen
 
@@ -60,4 +60,4 @@ Für eine Beschreibung der Werte, lesen Sie bitte die [CSS `font-family`](/de/do
 
 ## Siehe auch
 
-- CSS {{cssxref("font-family")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("font-family")}}

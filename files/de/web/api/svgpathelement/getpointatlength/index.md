@@ -1,14 +1,14 @@
 ---
-title: "SVGPathElement: getPointAtLength() Methode"
+title: "SVGPathElement: Methode getPointAtLength()"
 short-title: getPointAtLength()
 slug: Web/API/SVGPathElement/getPointAtLength
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("SVG")}}
 
-Die **`getPointAtLength()`** Methode des [`SVGPathElement`](/de/docs/Web/API/SVGPathElement) Interfaces gibt den Punkt an einer gegebenen Entfernung entlang des Pfades zurück.
+Die Methode **`getPointAtLength()`** der Schnittstelle [`SVGPathElement`](/de/docs/Web/API/SVGPathElement) gibt den Punkt in einem bestimmten Abstand entlang des Pfads zurück.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ getPointAtLength(distance)
 ### Parameter
 
 - `distance`
-  - : Eine Zahl, die die Entfernung entlang des Pfades angibt
+  - : Eine Zahl, die den Abstand entlang des Pfads angibt.
 
 ### Rückgabewert
 
-Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der den Punkt an einer gegebenen Entfernung entlang des Pfades angibt.
+Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der den Punkt in einem bestimmten Abstand entlang des Pfads angibt.
 
 ### Beispiele
 
 #### Den Mittelpunkt eines `<path>` ermitteln
 
-In diesem Beispiel bestimmen wir den Mittelpunkt eines Pfades, indem wir den Punkt ermitteln, der sich auf halber Länge des Pfades befindet.
+In diesem Beispiel bestimmen wir den Mittelpunkt eines Pfads, indem wir den Punkt auf halber Länge des Pfads ermitteln.
 
-Wir definieren ein SVG, das zwei Pfade enthält: eine einfache Linie und eine komplexe Herzform.
+Wir definieren ein SVG mit zwei Pfaden: einer einfachen Linie und einer komplexen Herzform.
 
-Der Pfad, der das Herz erzeugt, ist ungefähr 275 Einheiten lang.
+Der Pfad, der das Herz bildet, ist ungefähr 275 Einheiten lang.
 
 ```html
 <svg width="200" height="100">
@@ -49,7 +49,7 @@ Der Pfad, der das Herz erzeugt, ist ungefähr 275 Einheiten lang.
 </svg>
 ```
 
-Die Linie ist horizontal, beginnt bei `0, 30` und ist 100 Einheiten lang.
+Die Linie verläuft horizontal, beginnt bei `0, 30` und ist 100 Einheiten lang.
 Der Pfad des Herzens beginnt bei `10, 30` und ist ungefähr 275 Einheiten lang.
 
 ```html hidden
@@ -73,10 +73,10 @@ function log(text) {
 }
 ```
 
-Wir wissen, dass die Länge der Linie 100 Einheiten beträgt, und daher `50` der Mittelpunkt ist.
-Wir verwenden die [`SVGPathElement.getTotalLength()`](/de/docs/Web/API/SVGPathElement/getTotalLength) Methode, um die Länge des Herzpfades zu erhalten und teilen sie durch `2`, um den Abstand zum Mittelpunkt zu ermitteln.
-Dann verwenden wir die `getPointAtLength()` Methode, um den Mittelpunkt als `DOMPoint` zurückzugeben.
-Wir zeigen die `x`- und `y`-Koordinaten für jeden Mittelpunkt an.
+Wir wissen, dass die Linie 100 Einheiten lang ist und `50` daher die Hälfte ihrer Länge bezeichnet.
+Mit der Methode [`SVGPathElement.getTotalLength()`](/de/docs/Web/API/SVGPathElement/getTotalLength) ermitteln wir die Länge des Herzpfads und teilen sie durch `2`, um den Abstand bis zur Hälfte des Pfads zu erhalten.
+Anschließend verwenden wir die Methode `getPointAtLength()`, um diesen Punkt als `DOMPoint` zurückzugeben.
+Wir zeigen die Koordinaten `x` und `y` für beide Punkte an.
 
 ```js
 const basicPath = document.getElementById("line");
@@ -94,7 +94,7 @@ log(`Line mid point: ${basicMidPoint.x}, ${basicMidPoint.y}`);
 log(`Heart mid point: ${complexMidPoint.x}, ${complexMidPoint.y}`);
 ```
 
-{{EmbedLiveSample('Getting the total length of a `<path>`',"100%","220px")}}
+{{EmbedLiveSample('getting_the_midpoint_of_a_path',"100%","220px")}}
 
 ## Spezifikationen
 

@@ -2,19 +2,19 @@
 title: letter-spacing
 slug: Web/SVG/Reference/Attribute/letter-spacing
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`letter-spacing`**-Attribut steuert den Abstand zwischen Textzeichen.
+Das Attribut **`letter-spacing`** steuert den Abstand zwischen Textzeichen.
 
-Wenn der Attributwert eine einheitenlose Zahl ist (wie `128`), behandelt der Browser diesen Wert als ein {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
+Wenn der Attributwert eine Zahl ohne Einheit ist (z. B. `128`), verarbeitet der Browser ihn als {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
 
-Wenn der Attributwert eine Einheitskennung hat, wie `.25em` oder `1%`, wandelt der Browser das \<length> in seinen entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
+Wenn der Attributwert eine Einheit enthält, etwa `.25em` oder `1%`, rechnet der Browser die `<length>` in den entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `letter-spacing` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("letter-spacing")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `letter-spacing` auch eine entsprechende CSS-Eigenschaft: {{cssxref("letter-spacing")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -22,7 +22,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Beispiele
 
-### Steuerung des Buchstabenabstands in SVG
+### Zeichenabstand in SVG steuern
 
 ```html
 <svg viewBox="0 0 400 30" xmlns="http://www.w3.org/2000/svg">
@@ -31,9 +31,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </svg>
 ```
 
-{{EmbedLiveSample}}
+{{EmbedLiveSample("controlling_svg_letter_spacing")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -52,7 +52,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte, lesen Sie bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing#values) Eigenschaft.
+Eine Beschreibung der Werte finden Sie bei der [CSS-Eigenschaft `letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing#values).
 
 ## Spezifikationen
 
@@ -64,4 +64,4 @@ Für eine Beschreibung der Werte, lesen Sie bitte die [CSS `letter-spacing`](/de
 
 ## Siehe auch
 
-- CSS {{cssxref("letter-spacing")}}-Eigenschaft
+- CSS-Eigenschaft {{cssxref("letter-spacing")}}

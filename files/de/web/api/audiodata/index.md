@@ -2,62 +2,62 @@
 title: AudioData
 slug: Web/API/AudioData
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`AudioData`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert eine Audio-Probe.
+Die **`AudioData`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert ein Audio-Sample.
 
 `AudioData` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
-
-## Beschreibung
-
-Eine Audiospur besteht aus einem Strom von Audio-Proben, wobei jede Probe einen aufgenommenen Moment des Tons darstellt. Ein `AudioData`-Objekt ist eine Darstellung einer solchen Probe. In Verbindung mit den Schnittstellen der [Insertable Streams API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) können Sie einen Strom in einzelne `AudioData`-Objekte zerlegen, z. B. mit dem [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor), oder eine Audiospur aus einem Strom von Frames mit dem [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) erstellen.
-
-> [!NOTE]
-> Erfahren Sie mehr über Audio im Web in [Digital Audio Concepts](/de/docs/Web/Media/Guides/Formats/Audio_concepts).
-
-### Die Medienressource
-
-Ein `AudioData`-Objekt enthält eine Referenz zu einer angehängten **Medienressource**. Diese Medienressource enthält die tatsächlich von dem Objekt beschriebenen Audiodaten. Eine Medienressource wird vom Benutzeragenten verwaltet, bis sie nicht mehr von einem `AudioData`-Objekt referenziert wird, zum Beispiel, wenn [`AudioData.close()`](/de/docs/Web/API/AudioData/close) aufgerufen wird.
-
-### Ebenen und Audioformat
-
-Um das Format der Probe eines `AudioData` zurückzugeben, verwenden Sie die Eigenschaft [`AudioData.format`](/de/docs/Web/API/AudioData/format). Das Format kann als **interleaved** oder **planar** beschrieben werden. In interleaved Formaten sind die Audiosamples der verschiedenen Kanäle in einem einzigen Puffer angeordnet, der als **Ebene** beschrieben wird. Diese Ebene enthält eine Anzahl von Elementen, die gleich der Anzahl von [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) \* [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels) ist.
-
-Im planaren Format ist die Anzahl der Ebenen gleich der Anzahl von [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels), und jede Ebene ist ein Puffer, der eine Anzahl von Elementen enthält, die gleich der Anzahl von [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) ist.
 
 ## Konstruktor
 
 - [`AudioData()`](/de/docs/Web/API/AudioData/AudioData)
   - : Erstellt ein neues `AudioData`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`AudioData.format`](/de/docs/Web/API/AudioData/format) {{ReadOnlyInline}}
-  - : Gibt das Format der Audio-Probe zurück.
+  - : Gibt das Sample-Format der Audiodaten zurück.
 - [`AudioData.sampleRate`](/de/docs/Web/API/AudioData/sampleRate) {{ReadOnlyInline}}
-  - : Gibt die Samplerate des Audios in Hz zurück.
+  - : Gibt die Abtastrate der Audiodaten in Hz zurück.
 - [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Frames zurück.
 - [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Audiokanäle zurück.
 - [`AudioData.duration`](/de/docs/Web/API/AudioData/duration) {{ReadOnlyInline}}
-  - : Gibt die Dauer des Audios in Mikrosekunden zurück.
+  - : Gibt die Dauer der Audiodaten in Mikrosekunden zurück.
 - [`AudioData.timestamp`](/de/docs/Web/API/AudioData/timestamp) {{ReadOnlyInline}}
-  - : Gibt den Zeitstempel des Audios in Mikrosekunden zurück.
+  - : Gibt den Zeitstempel der Audiodaten in Mikrosekunden zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`AudioData.allocationSize()`](/de/docs/Web/API/AudioData/allocationSize)
-  - : Gibt die Anzahl der Bytes zurück, die benötigt werden, um die Probe entsprechend den in die Methode übergebenen Optionen zu halten.
+  - : Gibt die Anzahl der Bytes zurück, die zum Speichern des Samples unter Berücksichtigung der an die Methode übergebenen Optionen erforderlich sind.
 - [`AudioData.copyTo()`](/de/docs/Web/API/AudioData/copyTo)
-  - : Kopiert die Samples von der angegebenen Ebene des `AudioData`-Objekts zum Ziel.
+  - : Kopiert die Samples aus der angegebenen Ebene des `AudioData`-Objekts in das Ziel.
 - [`AudioData.clone()`](/de/docs/Web/API/AudioData/clone)
-  - : Erstellt ein neues `AudioData`-Objekt mit Verweis auf dieselbe Medienressource wie das Original.
+  - : Erstellt ein neues `AudioData`-Objekt, das auf dieselbe Medienressource wie das Original verweist.
 - [`AudioData.close()`](/de/docs/Web/API/AudioData/close)
-  - : Löscht alle Zustände und gibt die Referenz zur Medienressource frei.
+  - : Löscht sämtliche Zustände und gibt die Referenz auf die Medienressource frei.
+
+## Beschreibung
+
+Eine Audiospur besteht aus einem Strom von Audio-Samples, von denen jedes einen aufgenommenen Moment des Schalls repräsentiert. Ein `AudioData`-Objekt stellt ein solches Sample dar. In Verbindung mit den Schnittstellen der [Insertable Streams API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) können Sie einen Strom mithilfe von [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) in einzelne `AudioData`-Objekte zerlegen oder mithilfe von [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) aus einem Strom von Frames eine Audiospur erstellen.
+
+> [!NOTE]
+> Weitere Informationen zu Audio im Web finden Sie unter [Grundlagen digitaler Audiodaten](/de/docs/Web/Media/Guides/Formats/Audio_concepts).
+
+### Die Medienressource
+
+Ein `AudioData`-Objekt enthält eine Referenz auf eine zugehörige **Medienressource**. Diese Medienressource enthält die eigentlichen Audio-Sample-Daten, die das Objekt beschreibt. Der User-Agent verwaltet eine Medienressource, solange ein `AudioData`-Objekt auf sie verweist, beispielsweise bis [`AudioData.close()`](/de/docs/Web/API/AudioData/close) aufgerufen wird.
+
+### Ebenen und Audioformat
+
+Um das Sample-Format eines `AudioData`-Objekts abzurufen, verwenden Sie die Eigenschaft [`AudioData.format`](/de/docs/Web/API/AudioData/format). Das Format kann als **interleaved** (verschachtelt) oder **planar** (ebenenbasiert) beschrieben werden. Bei interleaved-Formaten liegen die Audio-Samples der verschiedenen Kanäle in einem einzigen Puffer, der als **Ebene** bezeichnet wird. Diese Ebene enthält eine Anzahl von Elementen, die [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) \* [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels) entspricht.
+
+Beim planaren Format entspricht die Anzahl der Ebenen [`AudioData.numberOfChannels`](/de/docs/Web/API/AudioData/numberOfChannels). Jede Ebene ist ein Puffer, dessen Elementanzahl [`AudioData.numberOfFrames`](/de/docs/Web/API/AudioData/numberOfFrames) entspricht.
 
 ## Spezifikationen
 

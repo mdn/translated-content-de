@@ -3,12 +3,12 @@ title: "`row-rule-visibility-items` CSS property"
 short-title: row-rule-visibility-items
 slug: Web/CSS/Reference/Properties/row-rule-visibility-items
 l10n:
-  sourceCommit: 880c2c4b113c6fe127ca3ae3603a56ef7a2eb9a6
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{SeeCompatTable}}
 
-Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-rule-visibility-items`** definiert, ob ein Zeilenliniensegment in Lücken gezeichnet wird, die an leere Bereiche angrenzen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`row-rule-visibility-items`** legt fest, ob ein Zeilenliniensegment in Zwischenräumen neben leeren Bereichen gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: row-rule-visibility-items")}}
 
@@ -73,25 +73,25 @@ row-rule-visibility-items: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Für diese Eigenschaft wird einer der folgenden Schlüsselwortwerte angegeben:
 
 - `all`
-  - : Die Zeilenlinie sollte in allen Lückensegmenten gezeichnet werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
+  - : Die Zeilenlinie wird in allen Zwischenraumsegmenten gezeichnet, unabhängig davon, ob die angrenzenden Bereiche ein Element enthalten.
 
 - `around`
-  - : Die Zeilenlinie sollte in einem Lückensegment gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist.
+  - : Die Zeilenlinie wird in einem Zwischenraumsegment gezeichnet, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist.
 
 - `between`
-  - : Die Zeilenlinie sollte in einem Lückensegment gezeichnet werden, wenn beide angrenzenden Bereiche von Elementen belegt sind.
+  - : Die Zeilenlinie wird in einem Zwischenraumsegment gezeichnet, wenn beide angrenzenden Bereiche von Elementen belegt sind.
 
 - `normal`
-  - : Verhält sich genauso wie `all`. Dies ist der Standardwert.
+  - : Verhält sich wie `all`. Dies ist der Standardwert.
 
 ## Beschreibung
 
-Die Eigenschaft `row-rule-visibility-items` definiert, ob in [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout)-Containern mit mehr als einer Zeile Zeilenliniensegmente in den Lücken zwischen zwei angrenzenden Bereichen gezeichnet werden, wenn einer oder beide Bereiche leer sind.
+Die Eigenschaft `row-rule-visibility-items` legt fest, ob in [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout)Containern mit mehr als einer Zeile Zeilenliniensegmente in den Zwischenräumen zwischen zwei angrenzenden Bereichen gezeichnet werden, wenn einer oder beide Bereiche leer sind.
 
-Die Eigenschaften `row-rule-visibility-items` und {{cssxref("column-rule-visibility-items")}} können beide über die Kurzform {{cssxref("rule-visibility-items")}} auf dieselben Werte gesetzt werden.
+Mit der Kurzschreibweise {{cssxref("rule-visibility-items")}} können die Eigenschaften `row-rule-visibility-items` und {{cssxref("column-rule-visibility-items")}} beide auf dieselben Werte gesetzt werden.
 
 ## Formale Definition
 
@@ -103,9 +103,9 @@ Die Eigenschaften `row-rule-visibility-items` und {{cssxref("column-rule-visibil
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-In diesem Beispiel definieren wir, dass Zeilenlinien zwischen zwei Grid-Bereichen gezeichnet werden, wenn mindestens ein angrenzender Grid-Bereich Grid-Elemente enthält.
+In diesem Beispiel legen wir fest, dass zwischen zwei Grid-Bereichen eine Zeilenlinie gezeichnet wird, wenn mindestens einer der angrenzenden Grid-Bereiche Grid-Elemente enthält.
 
 #### HTML
 
@@ -124,9 +124,9 @@ Wir fügen eine Liste dynamischer Sportduos ein:
 
 #### CSS
 
-Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container, erstellen 4 Zeilen und 4 Spalten, indem wir sowohl die Eigenschaft {{cssxref("grid-template-rows")}} als auch {{cssxref("grid-template-columns")}} auf `repeat(4, 1fr)` setzen, und verschieben das letzte Element mithilfe von {{cssxref("grid-row")}} und {{cssxref("grid-column")}} in den Grid-Bereich unten rechts. Wir fügen einen {{cssxref("gap")}} von `20px` ein, um zwischen den Zeilen ausreichend Platz für unsere gestrichelte `5px`-Linie bereitzustellen.
+Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Grid-Container und erstellen vier Zeilen und vier Spalten, indem wir sowohl {{cssxref("grid-template-rows")}} als auch {{cssxref("grid-template-columns")}} auf `repeat(4, 1fr)` setzen. Mit {{cssxref("grid-row")}} und {{cssxref("grid-column")}} verschieben wir das letzte Element in den Grid-Bereich unten rechts. Mit einem {{cssxref("gap")}} von `20px` schaffen wir zwischen den Zeilen genug Platz für unsere gestrichelte Linie mit einer Stärke von `5px`.
 
-Abschließend setzen wir `row-rule-visibility-items` auf `around`, sodass ein Zeilenliniensegment nur in einer Zeilenlücke gezeichnet wird, wenn einer oder beide angrenzenden Grid-Bereiche ein Grid-Element enthalten.
+Schließlich setzen wir `row-rule-visibility-items` auf `around`, sodass ein Zeilenliniensegment nur dann in einem Zwischenraum zwischen Zeilen gezeichnet wird, wenn einer oder beide angrenzenden Grid-Bereiche ein Grid-Element enthalten.
 
 ```css
 ol {
@@ -163,7 +163,7 @@ li {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Basic", "", "230")}}
+{{EmbedLiveSample("basic_example", "", "230")}}
 
 ## Spezifikationen
 
@@ -175,8 +175,8 @@ li {
 
 ## Siehe auch
 
-- Kurzform {{cssxref("rule-visibility-items")}}
+- Kurzschreibweise {{cssxref("rule-visibility-items")}}
 - {{cssxref("column-rule-visibility-items")}}
-- Kurzform {{cssxref("row-rule")}}
-- Kurzform {{cssxref("rule")}}
-- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)
+- Kurzschreibweise {{cssxref("row-rule")}}
+- Kurzschreibweise {{cssxref("rule")}}
+- Modul [CSS-Zwischenräume](/de/docs/Web/CSS/Guides/Gaps)

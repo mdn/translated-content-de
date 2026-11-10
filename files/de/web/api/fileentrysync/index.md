@@ -2,20 +2,16 @@
 title: FileEntrySync
 slug: Web/API/FileEntrySync
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("File and Directory Entries API")}} {{Non-standard_header}}
 
-Das `FileEntrySync`-Interface repräsentiert eine Datei in einem Dateisystem. Es erlaubt Ihnen, Inhalte in eine Datei zu schreiben.
+Die Schnittstelle `FileEntrySync` repräsentiert eine Datei in einem Dateisystem. Mit ihr können Sie Inhalte in eine Datei schreiben.
 
 > [!WARNING]
-> Dieses Interface ist veraltet und befindet sich nicht mehr auf dem Standardpfad.
-> _Verwenden Sie es nicht mehr._ Verwenden Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
-
-## Grundkonzepte
-
-Um Inhalte in eine Datei zu schreiben, erstellen Sie ein `FileWriter`-Objekt, indem Sie [`createWriter()`](#createwriter) aufrufen.
+> Diese Schnittstelle ist veraltet und wird nicht mehr als Standard weiterentwickelt.
+> _Verwenden Sie sie nicht mehr._ Verwenden Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Methodenübersicht
 
@@ -38,7 +34,7 @@ Um Inhalte in eine Datei zu schreiben, erstellen Sie ein `FileWriter`-Objekt, in
 
 ### createWriter()
 
-Erstellt einen neuen `FileWriter`, der mit der Datei assoziiert ist, die das `FileEntry` repräsentiert.
+Erstellt einen neuen `FileWriter`, der mit der Datei verknüpft ist, die der `FileEntry` repräsentiert.
 
 ```js-nolint
 createWriter()
@@ -54,16 +50,16 @@ Ein `FileWriterSync`-Objekt.
 
 #### Ausnahmen
 
-Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit einem der folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                              |
-| ------------------- | ------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                |
-| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig. |
+| Ausnahme            | Beschreibung                                                                |
+| ------------------- | --------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                  |
+| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als ihrer Löschung nicht mehr gültig. |
 
 ### file()
 
-Gibt eine Datei zurück, die den aktuellen Zustand der Datei darstellt, die dieses `FileEntry` repräsentiert.
+Gibt ein File zurück, das den aktuellen Zustand der Datei repräsentiert, die dieser `FileEntry` repräsentiert.
 
 ```js-nolint
 file()
@@ -79,16 +75,20 @@ Ein `File`-Objekt.
 
 #### Ausnahmen
 
-Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit einem der folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                              |
-| ------------------- | ------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                |
-| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig. |
+| Ausnahme            | Beschreibung                                                                |
+| ------------------- | --------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                  |
+| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als ihrer Löschung nicht mehr gültig. |
+
+## Beschreibung
+
+Um Inhalte in eine Datei zu schreiben, erstellen Sie durch Aufrufen von [`createWriter()`](#createwriter) ein FileWriter-Objekt.
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation. Es befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist nicht mehr Bestandteil einer Spezifikation. Es wird nicht mehr als Standard weiterentwickelt.
 
 ## Browser-Kompatibilität
 

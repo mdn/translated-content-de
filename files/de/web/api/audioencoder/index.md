@@ -2,12 +2,12 @@
 title: AudioEncoder
 slug: Web/API/AudioEncoder
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`AudioEncoder`**-Interface der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert [`AudioData`](/de/docs/Web/API/AudioData)-Objekte.
+Die **`AudioEncoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert [`AudioData`](/de/docs/Web/API/AudioData)-Objekte.
 
 {{InheritanceDiagram}}
 
@@ -18,37 +18,37 @@ Das **`AudioEncoder`**-Interface der [WebCodecs API](/de/docs/Web/API/WebCodecs_
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Eigenschaften von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) {{ReadOnlyInline}}
-  - : Eine Ganzzahl, die die Anzahl der Anfragen in der Kodierungswarteschlange darstellt.
+  - : Eine Ganzzahl, die die Anzahl der Anfragen in der Kodierungswarteschlange angibt.
 - [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) {{ReadOnlyInline}}
-  - : Repräsentiert den Status des zugrunde liegenden Codec und ob er für die Kodierung konfiguriert ist.
-
-### Ereignisse
-
-- [`dequeue`](/de/docs/Web/API/AudioEncoder/dequeue_event)
-  - : Wird ausgelöst, um eine Verringerung der [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) zu signalisieren.
+  - : Gibt den Zustand des zugrunde liegenden Codecs an und ob er für die Kodierung konfiguriert ist.
 
 ## Statische Methoden
 
 - [`AudioEncoder.isConfigSupported()`](/de/docs/Web/API/AudioEncoder/isConfigSupported_static)
-  - : Gibt ein Promise zurück, das anzeigt, ob die bereitgestellte `AudioEncoderConfig` unterstützt wird.
+  - : Gibt ein Promise zurück, das angibt, ob die angegebene `AudioEncoderConfig` unterstützt wird.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von der übergeordneten Schnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AudioEncoder.configure()`](/de/docs/Web/API/AudioEncoder/configure)
-  - : Stellt eine Steuerungsnachricht in die Warteschlange, um den Audio-Encoder zur Kodierung von Chunks zu konfigurieren.
+  - : Reiht eine Steuernachricht ein, um den Audio-Encoder für die Kodierung von Chunks zu konfigurieren.
 - [`AudioEncoder.encode()`](/de/docs/Web/API/AudioEncoder/encode)
-  - : Stellt eine Steuerungsnachricht in die Warteschlange, um gegebene [`AudioData`](/de/docs/Web/API/AudioData)-Objekte zu kodieren.
+  - : Reiht eine Steuernachricht ein, um ein angegebenes [`AudioData`](/de/docs/Web/API/AudioData)-Objekt zu kodieren.
 - [`AudioEncoder.flush()`](/de/docs/Web/API/AudioEncoder/flush)
-  - : Gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
+  - : Gibt ein Promise zurück, das erfüllt wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgearbeitet wurden.
 - [`AudioEncoder.reset()`](/de/docs/Web/API/AudioEncoder/reset)
-  - : Setzt alle Zustände einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichten-Warteschlange und alle ausstehenden Rückrufe zurück.
+  - : Setzt sämtliche Zustände zurück, einschließlich der Konfiguration, der Steuernachrichten in der Steuernachrichtenwarteschlange und aller ausstehenden Callbacks.
 - [`AudioEncoder.close()`](/de/docs/Web/API/AudioEncoder/close)
   - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
+
+## Ereignisse
+
+- [`dequeue`](/de/docs/Web/API/AudioEncoder/dequeue_event)
+  - : Wird ausgelöst, um eine Verringerung von [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) zu signalisieren.
 
 ## Spezifikationen
 

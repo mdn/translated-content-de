@@ -2,50 +2,54 @@
 title: HTMLAudioElement
 slug: Web/API/HTMLAudioElement
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: f74ea09f0510e670be74f76dc86d6e17e063d063
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLAudioElement`**-Interface bietet Zugriff auf die Eigenschaften von {{HTMLElement("audio")}}-Elementen sowie Methoden zu deren Manipulation.
+Die **`HTMLAudioElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{HTMLElement("audio")}}-Elementen sowie Methoden, um sie zu bearbeiten.
 
-Dieses Element basiert auf dem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interface und erbt von diesem Eigenschaften und Methoden.
+Diese Schnittstelle basiert auf der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und erbt deren Eigenschaften und Methoden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`Audio()`](/de/docs/Web/API/HTMLAudioElement/Audio)
-  - : Erstellt und gibt ein neues `HTMLAudioElement`-Objekt zurück. Optional kann der Ladevorgang einer Audio-Datei in das Objekt gestartet werden, wenn die Dateiadresse angegeben ist.
+  - : Erstellt ein neues `HTMLAudioElement`-Objekt und gibt es zurück. Wenn eine Datei-URL angegeben wird, beginnt optional das Laden der Audiodatei.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinem Elterninterface [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und vom [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine eigenen Eigenschaften; erbt Eigenschaften von der übergeordneten Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und von [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elterninterface [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und vom [`HTMLElement`](/de/docs/Web/API/HTMLElement). Es bietet keine eigenen Methoden an._
+_Erbt Methoden von der übergeordneten Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und von [`HTMLElement`](/de/docs/Web/API/HTMLElement). Die Schnittstelle bietet keine eigenen Methoden._
+
+## Ereignisse
+
+_Erbt Methoden von der übergeordneten Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und von der Vorfahrenschnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement)._ Sie können Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwachen oder der Eigenschaft `oneventname` dieser Schnittstelle einen Event-Listener zuweisen.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Sie können ein `HTMLAudioElement` vollständig mit JavaScript unter Verwendung des [`Audio()`](/de/docs/Web/API/HTMLAudioElement/Audio)-Konstruktors erstellen:
+Sie können ein `HTMLAudioElement` vollständig mit JavaScript erstellen, indem Sie den Konstruktor [`Audio()`](/de/docs/Web/API/HTMLAudioElement/Audio) verwenden:
 
 ```js
 const audioElement = new Audio("car_horn.wav");
 ```
 
-dann können Sie die `play()`-Methode auf dem Element aufrufen
+Anschließend können Sie die Methode `play()` für das Element aufrufen:
 
 ```js
 audioElement.play();
 ```
 
 > [!NOTE]
-> Ein häufiger Fehler ist der Versuch, ein Audio-Element direkt beim Laden der Seite abzuspielen. Die Standard-Autoplay-Richtlinie moderner Browser wird dies blockieren. Weitere Informationen finden Sie bei [Firefox](https://hacks.mozilla.org/2019/02/firefox-66-to-block-automatically-playing-audible-video-and-audio/) und [Chrome](https://developer.chrome.com/blog/autoplay/) für bewährte Verfahren und Umgehungen.
+> Eine häufige Fehlerquelle ist der Versuch, ein Audioelement unmittelbar beim Laden der Seite abzuspielen. Die standardmäßigen Autoplay-Richtlinien moderner Browser verhindern dies. Empfehlungen und mögliche Lösungen finden Sie in den Artikeln zu [Firefox](https://hacks.mozilla.org/2019/02/firefox-66-to-block-automatically-playing-audible-video-and-audio/) und [Chrome](https://developer.chrome.com/blog/autoplay/).
 
-Einige der am häufigsten verwendeten Eigenschaften des Audio-Elements sind [`src`](/de/docs/Web/API/HTMLMediaElement/src), [`currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime), [`duration`](/de/docs/Web/API/HTMLMediaElement/duration), [`paused`](/de/docs/Web/API/HTMLMediaElement/paused), [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) und [`volume`](/de/docs/Web/API/HTMLMediaElement/volume). Dieses Snippet kopiert die Dauer der Audiodatei in eine Variable:
+Zu den häufig verwendeten Eigenschaften des Audioelements gehören [`src`](/de/docs/Web/API/HTMLMediaElement/src), [`currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime), [`duration`](/de/docs/Web/API/HTMLMediaElement/duration), [`paused`](/de/docs/Web/API/HTMLMediaElement/paused), [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) und [`volume`](/de/docs/Web/API/HTMLMediaElement/volume). Der folgende Codeausschnitt speichert die Dauer der Audiodatei in einer Variablen:
 
 ```js
 const audioElement = new Audio("car_horn.wav");
@@ -54,10 +58,6 @@ audioElement.addEventListener("loadeddata", () => {
   // The duration variable now holds the duration (in seconds) of the audio clip
 });
 ```
-
-## Events
-
-_Erbt Methoden von seinem Elterninterface [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und von seinem Vorfahren [`HTMLElement`](/de/docs/Web/API/HTMLElement)._ Sie können Events mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwachen oder einen Event-Listener an die `oneventname`-Eigenschaft dieses Interfaces zuweisen.
 
 ## Spezifikationen
 
@@ -70,5 +70,5 @@ _Erbt Methoden von seinem Elterninterface [`HTMLMediaElement`](/de/docs/Web/API/
 ## Siehe auch
 
 - [Web-Medientechnologien](/de/docs/Web/Media)
-- [Audio- und Video-Bereitstellung](/de/docs/Web/Media/Guides/Audio_and_video_delivery)
-- HTML-Element, das dieses Interface implementiert: {{HTMLElement("audio")}}.
+- [Bereitstellung von Audio und Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery)
+- HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("audio")}}.

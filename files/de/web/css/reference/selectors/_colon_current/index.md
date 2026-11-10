@@ -1,14 +1,14 @@
 ---
-title: "`:current` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:current`
 short-title: :current
 slug: Web/CSS/Reference/Selectors/:current
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{SeeCompatTable}}
 
-Der **`:current`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor repräsentiert ein Element oder ein Vorfahren eines Elements, das derzeit angezeigt oder hervorgehoben wird.
+Der [CSS](/de/docs/Web/CSS)-[Pseudoklassenselektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) **`:current`** repräsentiert ein Element oder ein übergeordnetes Element eines Elements, das gerade angezeigt oder hervorgehoben wird.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Der **`:current`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Refe
 
 ## Beschreibung
 
-Die `:current` Pseudoklasse wird verwendet, um das "derzeit angezeigte" Element aus einer Reihe von Elementen darzustellen.
+Die Pseudoklasse `:current` wird verwendet, um das „gerade angezeigte“ Element aus einer Reihe von Elementen auszuwählen.
 
-Das kann "aktuell" im Sinne der Zeit bedeuten: `:current` kann verwendet werden, um die derzeit angezeigten Untertitel oder Beschriftungen zu markieren (dargestellt mit [WebVTT](/de/docs/Web/API/WebVTT_API)), die mit einem abspielenden Video verbunden sind.
+„Aktuell“ kann sich dabei auf die Zeit beziehen: Mit `:current` lassen sich die gerade angezeigten Untertitel (dargestellt mit [WebVTT](/de/docs/Web/API/WebVTT_API)) eines abgespielten Videos auswählen.
 
-Es kann sich auch auf das derzeit hervorgehobene Element in einer Serie beziehen. Zum Beispiel kann `:current` mit dem `::search-text` [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) kombiniert werden, um bestimmte Stile für das aktuell fokussierte Suchergebnis aus der Textsuchfunktion "Im Dokument suchen" des Browsers bereitzustellen.
+Die Pseudoklasse kann sich auch auf das gerade hervorgehobene Element einer Reihe beziehen. Beispielsweise lässt sich `:current` mit dem [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) `::search-text` kombinieren, um das aktuell ausgewählte Suchergebnis der Browserfunktion „Auf Seite suchen“ gezielt zu gestalten.
 
 Zum Beispiel:
 
@@ -47,11 +47,11 @@ p::search-text:current {
 
 ### Benutzerdefinierte Stile für Textsuchergebnisse
 
-Dieses Beispiel zeigt, wie `::search-text` und `:current` verwendet werden, um benutzerdefinierte Stile für die Suchergebnisse "Im Dokument suchen" Ihres Browsers zu erstellen.
+Dieses Beispiel zeigt, wie Sie mit `::search-text` und `:current` benutzerdefinierte Stile für die Suchergebnisse der Browserfunktion „Auf Seite suchen“ erstellen.
 
 #### HTML
 
-Das HTML besteht aus einem einfachen Textabsatz. Wir zeigen den HTML-Quellcode nicht an, sowohl aus Gründen der Kürze als auch damit es einfacher ist, die Suchergebnisse im gerenderten Beispiel zu navigieren.
+Das HTML besteht aus einem einfachen Textabsatz. Der HTML-Quelltext wird hier nicht gezeigt, um das Beispiel kurz zu halten und die Navigation zwischen den Suchergebnissen im dargestellten Beispiel zu erleichtern.
 
 ```html hidden live-sample___custom-search-results
 <p>
@@ -73,7 +73,7 @@ Das HTML besteht aus einem einfachen Textabsatz. Wir zeigen den HTML-Quellcode n
 
 #### CSS
 
-In unserem CSS beginnen wir mit der Gestaltung des `::search-text`-Pseudoelements. Wir geben ihm benutzerdefinierte {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("text-shadow")}} Stile.
+In unserem CSS gestalten wir zunächst das Pseudoelement `::search-text`. Wir geben ihm benutzerdefinierte Stile für {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("text-shadow")}}.
 
 ```css hidden live-sample___custom-search-results
 html {
@@ -115,7 +115,7 @@ p {
 }
 ```
 
-Schließlich gestalten wir das derzeit fokussierte Suchergebnis über `::search-text:current`, indem wir ihm eine andere `background-color` und einige {{cssxref("text-decoration")}}-Stile geben, sodass es sich von den anderen Ergebnissen unterscheidet.
+Abschließend gestalten wir mit `::search-text:current` das aktuell ausgewählte Suchergebnis. Es erhält eine andere `background-color` und einige Stile für {{cssxref("text-decoration")}}, damit es sich von den übrigen Ergebnissen unterscheidet.
 
 ```css live-sample___custom-search-results
 ::search-text:current {
@@ -128,13 +128,13 @@ Schließlich gestalten wir das derzeit fokussierte Suchergebnis über `::search-
 
 #### Ergebnis
 
-Das Beispiel rendert wie folgt:
+Das Beispiel wird wie folgt dargestellt:
 
-{{EmbedLiveSample("live-sample___custom-search-results", "100%", 300)}}
+{{EmbedLiveSample("custom-search-results", "100%", 300)}}
 
-Versuchen Sie, die Suchfunktion des Browsers zu verwenden, um ein Wort zu finden, das mehrmals im Beispieltext vorkommt, wie "aliquam", "amet" oder "tortor". Bewegen Sie sich zwischen den vorherigen und nächsten Ergebnissen, um die `:current`-Stilierung zu überprüfen.
+Verwenden Sie die Suchfunktion des Browsers, um ein Wort zu finden, das im Beispieltext mehrfach vorkommt, etwa „aliquam“, „amet“ oder „tortor“. Wechseln Sie zwischen den vorherigen und nächsten Ergebnissen, um die Gestaltung durch `:current` zu sehen.
 
-### Stil für derzeit angezeigte WebVTT-Untertitel
+### Gerade angezeigte WebVTT-Untertitel gestalten
 
 #### CSS
 
@@ -190,4 +190,4 @@ This is the third caption
 - [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
 - {{cssxref(":past")}}
 - {{cssxref(":future")}}
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- Modul [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)

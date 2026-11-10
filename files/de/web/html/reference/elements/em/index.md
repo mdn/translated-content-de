@@ -1,12 +1,12 @@
 ---
-title: "`<em>` HTML Hervorhebungselement"
+title: HTML-Element `<em>` zur Betonung
 short-title: <em>
 slug: Web/HTML/Reference/Elements/em
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<em>`** [HTML](/de/docs/Web/HTML) Element markiert Text, der betont werden soll. Das `<em>` Element kann geschachtelt werden, wobei jede Ebene der Verschachtelung einen stärkeren Grad der Betonung anzeigt.
+Das **`<em>`**-Element von [HTML](/de/docs/Web/HTML) kennzeichnet Text, der betont werden soll. Das `<em>`-Element kann verschachtelt werden, wobei jede Verschachtelungsebene eine stärkere Betonung anzeigt.
 
 {{InteractiveExample("HTML Demo: &lt;em&gt;", "tabbed-shorter")}}
 
@@ -26,21 +26,21 @@ em {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-Das `<em>` Element wird für Wörter verwendet, die eine betonte Betonung im Vergleich zum umgebenden Text haben, was oft auf ein Wort oder Wörter eines Satzes beschränkt ist und die Bedeutung des Satzes selbst beeinflusst.
+Das `<em>`-Element dient dazu, Wörter gegenüber dem umgebenden Text hervorzuheben. Die Betonung beschränkt sich häufig auf ein oder mehrere Wörter eines Satzes und beeinflusst die Bedeutung des Satzes selbst.
 
-Typischerweise wird dieses Element kursiv dargestellt. Es sollte jedoch nicht verwendet werden, um eine kursive Formatierung anzuwenden; verwenden Sie dafür die CSS-Eigenschaft {{cssxref("font-style")}}. Verwenden Sie das {{HTMLElement("cite")}} Element, um den Titel eines Werks (Buch, Theaterstück, Lied usw.) zu markieren. Verwenden Sie das {{HTMLElement("i")}} Element, um Text zu markieren, der in einem alternativen Ton oder Stimmung ist, was viele gängige Situationen für Kursivschrift abdeckt, wie wissenschaftliche Namen oder Wörter in anderen Sprachen. Verwenden Sie das {{HTMLElement("strong")}} Element, um Text zu markieren, der eine größere Bedeutung als der umgebende Text hat.
+Dieses Element wird üblicherweise kursiv dargestellt. Es sollte jedoch nicht verwendet werden, um Text lediglich kursiv zu formatieren; verwenden Sie dafür die CSS-Eigenschaft {{cssxref("font-style")}}. Verwenden Sie das Element {{HTMLElement("cite")}}, um den Titel eines Werks (Buch, Theaterstück, Lied usw.) zu kennzeichnen. Verwenden Sie das Element {{HTMLElement("i")}}, um Text in einem anderen Tonfall oder einer anderen Stimmung zu kennzeichnen. Dazu gehören viele typische Anwendungsfälle für Kursivschrift, etwa wissenschaftliche Namen oder Wörter in anderen Sprachen. Verwenden Sie das Element {{HTMLElement("strong")}}, um Text zu kennzeichnen, der wichtiger ist als der umgebende Text.
 
-### \<i> vs. \<em>
+### \<i> gegenüber \<em>
 
-Einige Entwickler könnten verwirrt sein, wie mehrere Elemente scheinbar ähnliche visuelle Ergebnisse erzielen. `<em>` und `<i>` sind ein häufiges Beispiel, da beide Text kursiv darstellen. Was ist der Unterschied? Welche sollten Sie verwenden?
+Für manche Entwickler ist möglicherweise unklar, warum mehrere Elemente scheinbar ähnliche visuelle Ergebnisse erzeugen. `<em>` und `<i>` sind ein häufiges Beispiel, da beide Text kursiv darstellen. Was ist der Unterschied? Welches sollten Sie verwenden?
 
-Standardmäßig ist das visuelle Ergebnis gleich. Der semantische Unterschied liegt jedoch darin, dass das `<em>` Element angibt, dass der Inhalt betont hervorgehoben wird, während das `<i>` Element Text darstellt, der von der normalen Prosa abgesetzt ist, wie ein fremdes Wort, Gedanken einer fiktiven Figur oder wenn der Text sich auf die Definition eines Wortes bezieht, anstatt seine semantische Bedeutung darzustellen. (Der Titel eines Werks, wie der Name eines Buches oder Films, sollte `<cite>` verwenden.)
+Standardmäßig ist das visuelle Ergebnis gleich. Die semantische Bedeutung ist jedoch unterschiedlich. Das Element `<em>` steht für eine Betonung seines Inhalts, während das Element `<i>` Text kennzeichnet, der sich vom normalen Fließtext abhebt, etwa ein fremdsprachiges Wort, Gedanken einer fiktiven Figur oder einen Fall, in dem sich der Text auf die Definition eines Wortes statt auf dessen Bedeutung bezieht. (Für den Titel eines Werks, etwa den Namen eines Buchs oder Films, sollte `<cite>` verwendet werden.)
 
-Das bedeutet, dass die richtige Verwendung vom Kontext abhängt. Keins der beiden ist für rein dekorative Zwecke gedacht, dafür ist CSS-Styling gedacht.
+Welches Element das richtige ist, hängt also vom jeweiligen Fall ab. Keines der beiden dient rein dekorativen Zwecken; dafür ist die Formatierung mit CSS vorgesehen.
 
 Beispiele für `<em>` könnten sein:
 
@@ -51,7 +51,7 @@ Beispiele für `<em>` könnten sein:
 
 {{EmbedLiveSample('em-example', "", 85)}}
 
-Eine Person oder Software, die den Text liest, würde die kursiven Wörter mit Betonung aussprechen, indem sie verbalen Stress verwenden.
+Eine Person oder Software, die den Text vorliest, würde die kursiv dargestellten Wörter durch stärkere Betonung hervorheben.
 
 Beispiele für `<i>` könnten sein:
 
@@ -62,11 +62,11 @@ Beispiele für `<i>` könnten sein:
 
 {{EmbedLiveSample('i-example', "", 85)}}
 
-Hier gibt es keine zusätzliche Betonung oder Wichtigkeit bei dem Wort "Queen Mary". Es wird lediglich angezeigt, dass es sich bei dem Objekt nicht um eine Königin namens Mary, sondern um ein Schiff namens "Queen Mary" handelt.
+Hier erhält „Queen Mary“ keine zusätzliche Betonung oder Bedeutung. Es wird lediglich angezeigt, dass es sich bei dem betreffenden Objekt nicht um eine Königin namens Mary, sondern um ein Schiff namens „Queen Mary“ handelt.
 
 ## Beispiele
 
-In diesem Beispiel wird das `<em>` Element verwendet, um einen impliziten oder expliziten Kontrast zwischen zwei Zutatenlisten hervorzuheben:
+In diesem Beispiel wird das Element `<em>` verwendet, um einen impliziten oder expliziten Gegensatz zwischen zwei Zutatenlisten hervorzuheben:
 
 ```html
 <p>
@@ -77,7 +77,7 @@ In diesem Beispiel wird das `<em>` Element verwendet, um einen impliziten oder e
 
 ### Ergebnis
 
-{{EmbedLiveSample("Example")}}
+{{EmbedLiveSample("examples")}}
 
 ## Technische Zusammenfassung
 
@@ -85,28 +85,38 @@ In diesem Beispiel wird das `<em>` Element verwendet, um einen impliziten oder e
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierender Inhalt</a>, wahrnehmbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Flow content</a
+        >,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >phrasing content</a
+        >, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierender Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasing content</a
+        >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind erforderlich.</td>
+      <th scope="row">Auslassen von Tags</th>
+      <td>Keines; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasierenden Inhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >phrasing content</a
+        > zulässt.
       </td>
     </tr>
     <tr>
@@ -119,15 +129,15 @@ In diesem Beispiel wird das `<em>` Element verwendet, um einen impliziten oder e
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
-        implementiert Firefox die
-        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement) Schnittstelle für dieses Element.
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement). Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        implementiert Firefox für dieses Element die Schnittstelle
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement).
       </td>
     </tr>
   </tbody>

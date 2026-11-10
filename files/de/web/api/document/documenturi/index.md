@@ -1,26 +1,20 @@
 ---
-title: "Document: documentURI-Eigenschaft"
+title: "Dokument: documentURI-Eigenschaft"
 short-title: documentURI
 slug: Web/API/Document/documentURI
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte **`documentURI`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt den Speicherort des Dokuments als Zeichenfolge zurück.
+Die schreibgeschützte Eigenschaft **`documentURI`** der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt den Speicherort des Dokuments als Zeichenfolge zurück.
 
 ## Wert
 
 Eine Zeichenfolge.
 
 ## Beispiele
-
-### JavaScript
-
-```js
-document.getElementById("url").textContent = document.documentURI;
-```
 
 ### HTML
 
@@ -29,6 +23,12 @@ document.getElementById("url").textContent = document.documentURI;
   URL:<br />
   <span id="url">URL goes here</span>
 </p>
+```
+
+### JavaScript
+
+```js
+document.getElementById("url").textContent = document.documentURI;
 ```
 
 ### Ergebnis
@@ -45,4 +45,4 @@ document.getElementById("url").textContent = document.documentURI;
 
 ## Siehe auch
 
-- Die [`document.URL`](/de/docs/Web/API/Document/URL)-Eigenschaft, die denselben Wert zurückgibt.
+- Die Eigenschaft [`document.URL`](/de/docs/Web/API/Document/URL), die denselben Wert zurückgibt.

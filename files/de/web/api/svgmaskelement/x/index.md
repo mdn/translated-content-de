@@ -3,19 +3,19 @@ title: "SVGMaskElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGMaskElement/x
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`x`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("x")}}-Attributs des {{SVGElement("mask")}} enthält. Sie repräsentiert die x-Achsen-Koordinate der _oberen linken_ Ecke des Maskierungsbereichs.
+Die schreibgeschützte Eigenschaft **`x`** der Schnittstelle [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des Attributs {{SVGattr("x")}} des Elements {{SVGElement("mask")}} enthält. Sie gibt die x-Koordinate der _oberen linken_ Ecke des Maskierungsbereichs an.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, dient sie lediglich als Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt im Koordinatensystem, das durch [`SVGMaskElement.maskUnits`](/de/docs/Web/API/SVGMaskElement/maskUnits) definiert ist. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den ursprünglichen `x`-Wert zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt im Koordinatensystem, das durch [`SVGMaskElement.maskUnits`](/de/docs/Web/API/SVGMaskElement/maskUnits) definiert wird. Die Eigenschaft `baseVal` dieses Objekts gibt einen [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert der ursprüngliche `x`-Wert ist.
 
 ## Beispiele
 
@@ -67,7 +67,7 @@ function displayLog() {
 displayLog();
 ```
 
-{{EmbedLiveSample('Example', 100, 160)}}
+{{EmbedLiveSample('examples', 100, 160)}}
 
 ## Spezifikationen
 

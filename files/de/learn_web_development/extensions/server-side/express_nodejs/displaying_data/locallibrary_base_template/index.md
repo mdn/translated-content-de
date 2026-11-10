@@ -1,13 +1,15 @@
 ---
-title: LocalLibrary Basis-Template
+title: LocalLibrary-Basisvorlage
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/LocalLibrary_base_template
 l10n:
-  sourceCommit: 4c58f4735f986a91bee1b77e336143630df727a2
+  sourceCommit: d775e1249487f1a7ab9a8a031c70ca71bc892d63
 ---
 
-Nun, da wir verstanden haben, wie man Vorlagen mit Pug erweitert, beginnen wir mit der Erstellung einer Basisvorlage für das Projekt. Diese wird eine Seitenleiste mit Links zu den Seiten enthalten, die wir im Verlauf der Tutorial-Artikel erstellen möchten (z. B. um Bücher, Genres, Autoren anzuzeigen und zu erstellen) sowie einen Hauptinhaltsbereich, den wir in unseren Einzelseiten überschreiben werden.
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}
 
-Öffnen Sie **/views/layout.pug** und ersetzen Sie den Inhalt mit dem untenstehenden Code.
+Nachdem wir verstanden haben, wie sich Vorlagen mit Pug erweitern lassen, erstellen wir nun eine Basisvorlage für das Projekt. Sie enthält eine Seitenleiste mit Links zu den Seiten, die wir im Verlauf dieses Tutorials erstellen möchten (z. B. zum Anzeigen und Erstellen von Büchern, Genres und Autoren), sowie einen Hauptinhaltsbereich, den wir auf jeder einzelnen Seite überschreiben.
+
+Öffnen Sie **views/layout.pug** und ersetzen Sie den Inhalt durch den folgenden Code.
 
 ```pug
 doctype html
@@ -15,7 +17,7 @@ html(lang='en')
   head
     title= title
     meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css", integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr", crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js", integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -50,15 +52,15 @@ html(lang='en')
           block content
 ```
 
-Die Vorlage verwendet (und inkludiert) JavaScript und CSS von [Bootstrap](https://getbootstrap.com/), um das Layout und die Präsentation der HTML-Seite zu verbessern. Die Verwendung von Bootstrap oder einem anderen clientseitigen Web-Framework ist eine schnelle Möglichkeit, eine ansprechende Seite zu erstellen, die gut auf verschiedenen Browsergrößen skaliert und es uns auch erlaubt, uns um die Seitendarstellung zu kümmern, ohne die Details kennen zu müssen—wir möchten uns hier nur auf den serverseitigen Code konzentrieren!
+Die Vorlage verwendet (und bindet) JavaScript und CSS von [Bootstrap](https://getbootstrap.com/) ein, um das Layout und die Darstellung der HTML-Seite zu verbessern. Mit Bootstrap oder einem anderen clientseitigen Web-Framework lässt sich schnell eine ansprechende Seite erstellen, die sich gut an unterschiedliche Browsergrößen anpasst. Außerdem können wir uns so um die Darstellung kümmern, ohne uns mit deren Einzelheiten befassen zu müssen – hier möchten wir uns auf den serverseitigen Code konzentrieren!
 
 > [!NOTE]
-> Die Skripte werden Cross-Origin geladen, daher müssen wir später im Tutorial, wenn wir Sicherheits-Middleware hinzufügen, explizit erlauben, dass diese Dateien geladen werden.
-> Weitere Informationen finden Sie unter [Bereitstellung > Helmet verwenden, um sich gegen bekannte Sicherheitslücken zu schützen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/deployment#use_helmet_to_protect_against_well_known_vulnerabilities).
+> Die Skripte werden von einer anderen Origin geladen. Wenn wir später im Tutorial Sicherheits-Middleware hinzufügen, müssen wir das Laden dieser Dateien daher ausdrücklich erlauben.
+> Weitere Informationen finden Sie unter [Bereitstellung > Helmet zum Schutz vor bekannten Sicherheitslücken verwenden](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/deployment#use_helmet_to_protect_against_well_known_vulnerabilities).
 
-Das Layout sollte relativ klar sein, wenn Sie unser obenstehendes [Vorlagen-Grundlagen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer) gelesen haben. Beachten Sie die Verwendung von `block content` als Platzhalter für den Inhalt unserer Einzelseiten.
+Wenn Sie die obige [Einführung in Vorlagen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer) gelesen haben, sollte das Layout recht verständlich sein. Beachten Sie, dass `block content` als Platzhalter für den Inhalt der einzelnen Seiten dient.
 
-Die Basisvorlage verweist auch auf eine lokale CSS-Datei (**style.css**), die ein wenig zusätzliche Gestaltung bietet. Öffnen Sie **/public/stylesheets/style.css** und ersetzen Sie deren Inhalt mit dem folgenden CSS-Code:
+Die Basisvorlage verweist außerdem auf eine lokale CSS-Datei (**style.css**), die einige zusätzliche Formatierungen enthält. Öffnen Sie **public/stylesheets/style.css** (die bisher leer war) und fügen Sie Folgendes hinzu:
 
 ```css
 .sidebar-nav {
@@ -68,9 +70,6 @@ Die Basisvorlage verweist auch auf eine lokale CSS-Datei (**style.css**), die ei
 }
 ```
 
-Jetzt haben wir eine Basisvorlage, um Seiten mit einer Seitenleiste zu erstellen. In den nächsten Abschnitten werden wir diese verwenden, um die einzelnen Seiten zu definieren.
+Damit haben wir eine Basisvorlage für Seiten mit einer Seitenleiste. In den nächsten Abschnitten verwenden wir sie, um die einzelnen Seiten zu definieren.
 
-## Nächste Schritte
-
-- Kehren Sie zurück zu [Express Tutorial Teil 5: Anzeigeben von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie mit dem nächsten Unterartikel von Teil 5 fort: [Startseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page).
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page", "Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data")}}

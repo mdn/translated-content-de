@@ -3,12 +3,12 @@ title: "`animation-timing-function` CSS property"
 short-title: animation-timing-function
 slug: Web/CSS/Reference/Properties/animation-timing-function
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Die **`animation-timing-function`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie eine Animation während der Dauer jedes Zyklus fortschreitet.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`animation-timing-function`** legt fest, wie eine Animation im Verlauf jedes Zyklus voranschreitet.
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
+Häufig ist es praktisch, mit der Kurzschreibweise {{cssxref("animation")}} alle Animationseigenschaften auf einmal festzulegen.
 
 {{InteractiveExample("CSS Demo: animation-timing-function")}}
 
@@ -133,57 +133,57 @@ animation-timing-function: unset;
 ### Werte
 
 - {{cssxref("easing-function")}}
-  - : Die Easing-Funktion, die einer gegebenen Animation entspricht, wie durch {{cssxref("animation-name")}} bestimmt.
+  - : Die durch {{cssxref("animation-name")}} bestimmte Beschleunigungsfunktion für eine Animation.
 
-    Die Nicht-Step-Schlüsselwortwerte (`ease`, `linear`, `ease-in-out` usw.) repräsentieren jeweils kubische Bézier-Kurven mit festen Vier-Punkt-Werten, während der `cubic-bezier()`-Funktionswert nicht vordefinierte Werte spezifizieren lässt. Die `steps()`-Easing-Funktion teilt die Eingabezeit in eine angegebene Anzahl gleich langer Intervalle. Ihre Parameter umfassen eine Anzahl von Schritten und eine Schrittposition.
+    Die Schlüsselwörter ohne Stufen (`ease`, `linear`, `ease-in-out` usw.) stehen jeweils für kubische Bézierkurven mit vier festgelegten Punktwerten. Mit der Funktion `cubic-bezier()` lassen sich dagegen eigene Werte angeben. Die Beschleunigungsfunktion `steps()` unterteilt die Eingabezeit in eine angegebene Anzahl gleich langer Intervalle. Ihre Parameter umfassen die Anzahl der Schritte und eine Schrittposition.
     - `linear`
-      - : Entspricht `cubic-bezier(0.0, 0.0, 1.0, 1.0)`, animiert mit gleichmäßiger Geschwindigkeit.
+      - : Entspricht `cubic-bezier(0.0, 0.0, 1.0, 1.0)`; die Animation läuft mit gleichmäßiger Geschwindigkeit.
     - `ease`
-      - : Entspricht `cubic-bezier(0.25, 0.1, 0.25, 1.0)`, der Standardwert, erhöht die Geschwindigkeit in der Mitte der Animation und verlangsamt sich am Ende wieder.
+      - : Entspricht `cubic-bezier(0.25, 0.1, 0.25, 1.0)` und ist der Standardwert. Die Geschwindigkeit nimmt bis zur Mitte der Animation zu und gegen Ende wieder ab.
     - `ease-in`
-      - : Entspricht `cubic-bezier(0.42, 0, 1.0, 1.0)`, beginnt langsam, wobei die Geschwindigkeit des Übergangs der animierenden Eigenschaft zunimmt, bis sie abgeschlossen ist.
+      - : Entspricht `cubic-bezier(0.42, 0, 1.0, 1.0)`; die Animation beginnt langsam, und die Geschwindigkeit des Übergangs der animierten Eigenschaft nimmt bis zum Ende zu.
     - `ease-out`
-      - : Entspricht `cubic-bezier(0, 0, 0.58, 1.0)`, beginnt schnell, verlangsamt sich, während die Animation fortschreitet.
+      - : Entspricht `cubic-bezier(0, 0, 0.58, 1.0)`; die Animation beginnt schnell und wird im weiteren Verlauf langsamer.
     - `ease-in-out`
-      - : Entspricht `cubic-bezier(0.42, 0, 0.58, 1.0)`, wobei die animierenden Eigenschaften langsam übergehen, beschleunigen und dann wieder langsamer werden.
+      - : Entspricht `cubic-bezier(0.42, 0, 0.58, 1.0)`; der Übergang der animierten Eigenschaften beginnt langsam, wird schneller und verlangsamt sich dann wieder.
 
     - `cubic-bezier(<number [0,1]> , <number> , <number [0,1]> , <number>)`
-      - : Eine vom Autor definierte kubische Bézier-Kurve, wobei die ersten und dritten Werte im Bereich von 0 bis 1 liegen müssen.
+      - : Eine benutzerdefinierte kubische Bézierkurve, bei der der erste und der dritte Wert zwischen 0 und 1 liegen müssen.
 
     - `linear(<number> <percentage>{1,2}, …)`
-      - : Die Funktion interpoliert linear zwischen den bereitgestellten Easing-Stoppunkten. Ein Stoppunkt ist ein Paar aus einem Ausgabefortschritt und einem Eingabeprozentsatz. Der Eingabeprozentsatz ist optional und wird abgeleitet, wenn er nicht angegeben wird. Wenn kein Eingabeprozentsatz angegeben wird, werden die ersten und letzten Stoppunkte auf `0%` und `100%` gesetzt, und die mittleren Stoppunkte erhalten Prozentsatzwerte, die durch lineare Interpolation zwischen den nächstgelegenen vorherigen und nächsten Punkten mit einem Prozentsatzwert abgeleitet werden.
+      - : Die Funktion interpoliert linear zwischen den angegebenen Stützpunkten der Beschleunigungsfunktion. Ein Stützpunkt besteht aus einem Ausgabefortschritt und einem Eingabeprozentwert. Der Eingabeprozentwert ist optional und wird abgeleitet, wenn er nicht angegeben wird. Fehlt ein Eingabeprozentwert, werden für den ersten und den letzten Stützpunkt `0%` beziehungsweise `100%` festgelegt. Die Prozentwerte der dazwischenliegenden Stützpunkte werden durch lineare Interpolation zwischen dem jeweils nächstgelegenen vorherigen und nachfolgenden Stützpunkt mit einem Prozentwert ermittelt.
 
     - `steps(<integer>, <step-position>)`
-      - : Zeigt eine Animationsiteration entlang _n_ Stopps entlang des Übergangs an, wobei jeder Stopp für gleiche Zeitlängen angezeigt wird. Wenn _n_ beispielsweise 5 ist, gibt es 5 Schritte. Ob die Animation vorübergehend bei 0%, 20%, 40%, 60% und 80% hält, auf den 20%, 40%, 60%, 80% und 100%, oder 5 Stopps zwischen den 0% und 100% entlang der Animation macht, oder 5 Stopps einschließlich der 0% und 100% Marken macht (auf den 0%, 25%, 50%, 75% und 100%) hängt davon ab, welche der folgenden Schrittpositionen verwendet wird:
+      - : Stellt einen Animationsdurchlauf mit _n_ Stufen dar, wobei jede Stufe gleich lange angezeigt wird. Wenn _n_ beispielsweise 5 ist, gibt es 5 Stufen. Von der verwendeten Schrittposition hängt ab, ob die Animation bei 0 %, 20 %, 40 %, 60 % und 80 % oder bei 20 %, 40 %, 60 %, 80 % und 100 % verweilt, ob sie zwischen 0 % und 100 % fünf Stufen durchläuft oder ob sie fünf Stufen einschließlich der Marken bei 0 % und 100 % durchläuft (bei 0 %, 25 %, 50 %, 75 % und 100 %):
         - `jump-start`
-          - : Bezeichnet eine linksstetige Funktion, sodass der erste Sprung erfolgt, wenn die Animation beginnt.
+          - : Bezeichnet eine linksstetige Funktion, bei der der erste Sprung zu Beginn der Animation erfolgt.
         - `jump-end`
-          - : Bezeichnet eine rechtsstetige Funktion, sodass der letzte Sprung erfolgt, wenn die Animation endet. Dies ist der Standardwert.
+          - : Bezeichnet eine rechtsstetige Funktion, bei der der letzte Sprung am Ende der Animation erfolgt. Dies ist der Standardwert.
         - `jump-none`
-          - : Es gibt keinen Sprung an beiden Enden, wodurch ein Schritt während der Interpolationsiteration effektiv entfernt wird. Stattdessen hält es sowohl bei der 0%-Marke als auch der 100%-Marke, jeweils für 1/n der Dauer.
+          - : An keinem der beiden Enden erfolgt ein Sprung. Dadurch entfällt effektiv eine Stufe während des Animationsdurchlaufs. Stattdessen verweilt die Animation sowohl bei 0 % als auch bei 100 % jeweils für 1/n der Dauer.
         - `jump-both`
-          - : Beinhaltet Pausen sowohl bei der 0% als auch bei der 100%-Marke und fügt effektiv einen Schritt während der Animationiteration hinzu.
+          - : Umfasst Pausen sowohl bei 0 % als auch bei 100 %. Dadurch kommt während des Animationsdurchlaufs effektiv eine Stufe hinzu.
         - `start`
           - : Entspricht `jump-start`.
         - `end`
           - : Entspricht `jump-end`.
 
     - `step-start`
-      - : Entspricht `steps(1, jump-start)`
+      - : Entspricht `steps(1, jump-start)`.
     - `step-end`
-      - : Entspricht `steps(1, jump-end)`
+      - : Entspricht `steps(1, jump-end)`.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationseigenschaftswerte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+> Wenn Sie für eine `animation-*`-Eigenschaft mehrere durch Kommas getrennte Werte angeben, werden diese den Animationen in der Reihenfolge zugeordnet, in der die Werte von {{cssxref("animation-name")}} erscheinen. Was geschieht, wenn die Anzahl der Animationen und der Werte einer `animation-*`-Eigenschaft nicht übereinstimmt, erfahren Sie unter [Mehrere Werte für Animationseigenschaften festlegen](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> `animation-timing-function` hat denselben Effekt bei der Erstellung von [Scroll-gesteuerten CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) wie bei regulären zeitbasierten Animationen.
+> `animation-timing-function` hat beim Erstellen [scrollgesteuerter CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) dieselbe Wirkung wie bei herkömmlichen zeitbasierten Animationen.
 
 ## Beschreibung
 
-Easing-Funktionen können auf einzelne Keyframes in einer {{cssxref("@keyframes")}}-Regel spezifiziert werden. Wenn kein **`animation-timing-function`** auf einem Keyframe angegeben ist, wird der entsprechende Wert von **`animation-timing-function`** von dem Element verwendet, auf das die Animation angewendet wird.
+Beschleunigungsfunktionen können für einzelne Keyframes innerhalb einer {{cssxref("@keyframes")}}-Regel angegeben werden. Wenn für ein Keyframe keine **`animation-timing-function`** angegeben ist, wird für dieses Keyframe der entsprechende Wert von **`animation-timing-function`** des Elements verwendet, auf das die Animation angewendet wird.
 
-Innerhalb eines Keyframes ist `animation-timing-function` ein at-rule-spezifischer Deskriptor, nicht die Eigenschaft mit demselben Namen. Das Timing wird nicht animiert. Vielmehr wird eine Easing-Funktion eines Keyframes auf einer Eigenschaft-für-Eigenschaft-Basis von dem Keyframe, auf dem sie angegeben ist, bis zum nächsten Keyframe, der diese Eigenschaft spezifiziert, oder bis zum Ende der Animation angewendet, wenn es keinen nachfolgenden Keyframe gibt, der diese Eigenschaft spezifiziert. Infolgedessen wird eine auf dem **`100%`** oder **`to`** Keyframe spezifizierte **`animation-timing-function`** niemals verwendet.
+Innerhalb eines Keyframes ist `animation-timing-function` ein für diese At-Regel spezifischer Deskriptor und nicht die gleichnamige Eigenschaft. Der zeitliche Verlauf selbst wird nicht animiert. Stattdessen wird die Beschleunigungsfunktion eines Keyframes für jede Eigenschaft einzeln angewendet: vom Keyframe, in dem sie angegeben ist, bis zum nächsten Keyframe, das diese Eigenschaft angibt, oder bis zum Ende der Animation, wenn kein weiteres Keyframe diese Eigenschaft angibt. Daher wird eine im Keyframe **`100%`** oder **`to`** angegebene **`animation-timing-function`** niemals verwendet.
 
 ## Formale Definition
 
@@ -195,11 +195,11 @@ Innerhalb eines Keyframes ist `animation-timing-function` ein at-rule-spezifisch
 
 ## Beispiele
 
-Alle Beispiele in diesem Abschnitt animieren die `width`- und `background-color`-Eigenschaften mehrerer `<div>`-Elemente mit unterschiedlichen `animation-timing-function`-Werten. Die Breite wird von `0` bis `100%` animiert und die Hintergrundfarbe von Lime zu Magenta.
+Alle Beispiele in diesem Abschnitt animieren die Eigenschaften `width` und `background-color` mehrerer `<div>`-Elemente mit unterschiedlichen Werten für `animation-timing-function`. Die Breite wird von `0` bis `100%` und die Hintergrundfarbe von Limettengrün bis Magenta animiert.
 
-### Beispiele für lineare Funktionen
+### Beispiele für die Funktion `linear()`
 
-Das Beispiel demonstriert die Effekte verschiedener `linear()`-Easing-Funktionswerte.
+Das Beispiel zeigt die Auswirkungen verschiedener Werte der Beschleunigungsfunktion `linear()`.
 
 ```html hidden
 <div class="parent">
@@ -317,15 +317,15 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample("Linear function examples", 600, 300)}}
 
-Das folgende Bild zeigt Graphen aller in diesem Beispiel verwendeten `linear()`-Funktionswerte. Der Eingabefortschritt (Zeit) wird auf der x-Achse und der Ausgabefortschritt auf der y-Achse dargestellt. Laut der Syntax reicht der Eingabefortschritt von 0 bis 100%, und die Ausgabe reicht von 0 bis 1.
+Die folgende Abbildung zeigt die Graphen aller in diesem Beispiel verwendeten Werte der Funktion `linear()`. Auf der x-Achse ist der Eingabefortschritt (die Zeit) und auf der y-Achse der Ausgabefortschritt dargestellt. Gemäß der Syntax reicht der Eingabefortschritt von 0 bis 100 % und der Ausgabefortschritt von 0 bis 1.
 
-![Ein Bild, das 'linear'-Funktionsgraphen zeigt](https://mdn.github.io/shared-assets/images/diagrams/css/animation-easing/linear-function-graphs.png)
+![Abbildung mit Graphen der Funktion „linear“](https://mdn.github.io/shared-assets/images/diagrams/css/animation-easing/linear-function-graphs.png)
 
-Beachten Sie, dass die Ausgabe vorwärts oder rückwärts gehen kann.
+Beachten Sie, dass sich der Ausgabefortschritt vorwärts oder rückwärts bewegen kann.
 
-### Kubische Bézier-Beispiele
+### Beispiele für kubische Bézierkurven
 
-Das Beispiel demonstriert die Effekte verschiedener Bézier-Kurven-Easing-Funktionen.
+Das Beispiel zeigt die Auswirkungen verschiedener Beschleunigungsfunktionen mit Bézierkurven.
 
 ```html hidden
 <div class="parent">
@@ -425,15 +425,15 @@ btn.addEventListener("click", () => {
 }
 ```
 
-{{EmbedLiveSample("Cubic-Bezier_examples", 600, 250)}}
+{{EmbedLiveSample("cubic-bézier_examples", 600, 250)}}
 
-Das folgende Bild zeigt Graphen aller in diesem Beispiel verwendeten kubischen Bézier-Funktionswerte. Der Eingabefortschritt (Zeit) reicht von 0 bis 1 und der Ausgabefortschritt reicht von 0 bis 1.
+Die folgende Abbildung zeigt die Graphen aller in diesem Beispiel verwendeten Werte der kubischen Bézierfunktion. Der Eingabefortschritt (die Zeit) und der Ausgabefortschritt reichen jeweils von 0 bis 1.
 
-![Ein Bild, das 'cubic-bezier'-Funktionsgraphen zeigt](https://mdn.github.io/shared-assets/images/diagrams/css/animation-easing/cubic-bezier-function-graphs.png)
+![Abbildung mit Graphen der Funktion „cubic-bezier“](https://mdn.github.io/shared-assets/images/diagrams/css/animation-easing/cubic-bezier-function-graphs.png)
 
-### Schritt-Beispiele
+### Beispiele für Stufenfunktionen
 
-Dieses Beispiel zeigt die Effekte mehrerer Schritt-Easing-Funktionswerte.
+Dieses Beispiel zeigt die Auswirkungen verschiedener Werte von Stufen-Beschleunigungsfunktionen.
 
 ```html hidden
 <div class="parent">
@@ -558,9 +558,9 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample("Step_examples", 600, 350)}}
 
-Das folgende Bild zeigt Graphen aller in diesem Beispiel verwendeten `step()`-Funktionswerte. Der Eingabefortschritt (Zeit) und der Ausgabefortschritt reichen von 0 bis 1.
+Die folgende Abbildung zeigt die Graphen aller in diesem Beispiel verwendeten Werte der Funktion `step()`. Der Eingabefortschritt (die Zeit) und der Ausgabefortschritt reichen jeweils von 0 bis 1.
 
-![Bild mit 'steps'-Funktionsgrafiken](https://mdn.github.io/shared-assets/images/diagrams/css/animation-easing/step-function-graphs.png)
+![Abbildung mit Graphen der Funktion „steps“](https://mdn.github.io/shared-assets/images/diagrams/css/animation-easing/step-function-graphs.png)
 
 ## Spezifikationen
 
@@ -572,9 +572,9 @@ Das folgende Bild zeigt Graphen aller in diesem Beispiel verwendeten `step()`-Fu
 
 ## Siehe auch
 
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
 - {{cssxref('easing-function')}}
-- [CSS Easing-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions) Modul
-- JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
-- [Tool zur Erstellung kubischer Bézier-Kurven](https://cubic-bezier.com/)
-- Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}
+- Modul [CSS-Beschleunigungsfunktionen](/de/docs/Web/CSS/Guides/Easing_functions)
+- JavaScript-API [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
+- [Werkzeug zum Erstellen kubischer Bézierkurven](https://cubic-bezier.com/)
+- Weitere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}

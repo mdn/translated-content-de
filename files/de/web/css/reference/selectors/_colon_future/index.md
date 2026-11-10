@@ -1,12 +1,12 @@
 ---
-title: "`:future` CSS-Pseudoklasse"
+title: CSS-Pseudoklasse `:future`
 short-title: :future
 slug: Web/CSS/Reference/Selectors/:future
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: b4f42a2037bcb8f2daec61f6b3d92bfdd13e5386
 ---
 
-Der **`:future`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)-Selektor ist eine zeitdimensionale Pseudoklasse, die jedes Element abgleicht, das vollständig nach einem Element erscheint, das zur {{cssxref(":current")}} passt. Zum Beispiel in einem Video mit Untertiteln, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
+Der **`:future`**-[CSS](/de/docs/Web/CSS)-[Pseudoklassenselektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine zeitbezogene Pseudoklasse, die auf jedes Element zutrifft, das zeitlich vollständig nach einem Element liegt, auf das {{cssxref(":current")}} zutrifft. Ein Beispiel sind Untertitel in einem Video, die mit [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
 
 ```css
 :future(p, span) {
@@ -24,14 +24,6 @@ Der **`:future`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Refer
 
 ## Beispiele
 
-### CSS
-
-```css
-:future(p, span) {
-  display: none;
-}
-```
-
 ### HTML
 
 ```html
@@ -45,6 +37,14 @@ Der **`:future`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Refer
     src="subtitles.vtt"
     default />
 </video>
+```
+
+### CSS
+
+```css
+:future(p, span) {
+  display: none;
+}
 ```
 
 ### WebVTT

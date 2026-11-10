@@ -3,22 +3,22 @@ title: "SVGAElement: relList-Eigenschaft"
 short-title: relList
 slug: Web/API/SVGAElement/relList
 l10n:
-  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`relList`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt eine Live-Instanz von [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die die durch Leerzeichen getrennte Zeichenkettenwerte [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel) des `rel`-Attributs des SVG-{{svgelement("a")}}-Elements widerspiegelt.
+Die schreibgeschützte Eigenschaft **`relList`** von [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt eine aktuelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die die durch Leerzeichen getrennten [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel)-Werte des [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel)-Attributs des SVG-Elements {{svgelement("a")}} widerspiegelt.
 
 ## Wert
 
-Eine Live-Instanz von [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
+Eine aktuelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
 
-Obwohl die `relList`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `DOMTokenList`-Objekt nicht ersetzen können, können Sie dennoch direkt auf die `relList`-Eigenschaft zuweisen, was gleichbedeutend mit einer Zuweisung zu ihrer [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft ist. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) ändern.
+Die Eigenschaft `relList` ist insofern schreibgeschützt, als Sie das `DOMTokenList`-Objekt nicht ersetzen können. Sie können `relList` jedoch direkt einen Wert zuweisen; dies entspricht einer Zuweisung an die Eigenschaft [`value`](/de/docs/Web/API/DOMTokenList/value). Außerdem können Sie das `DOMTokenList`-Objekt mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) ändern.
 
 ## Beispiele
 
-Gegeben sei folgendes SVG:
+Gegeben sei das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ function log(text) {
 }
 ```
 
-Wir können jeden Linktyp abrufen, der durch das `rel`-Attribut des `<a>`-Elements definiert ist:
+Sie können jeden Link-Typ abrufen, der durch das `rel`-Attribut des `<a>`-Elements definiert ist:
 
 ```js
 // Select an SVG <a> element
@@ -68,7 +68,7 @@ relations.forEach((relValue) => {
 });
 ```
 
-{{EmbedLiveSample("Example","100%","200")}}
+{{EmbedLiveSample("examples","100%","200")}}
 
 ## Spezifikationen
 

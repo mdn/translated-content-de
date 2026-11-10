@@ -1,12 +1,12 @@
 ---
-title: "`<q>` HTML Inline-Zitat-Element"
+title: HTML-Element `<q>` für kurze Zitate im Fließtext
 short-title: <q>
 slug: Web/HTML/Reference/Elements/q
 l10n:
-  sourceCommit: b0a05c1384211e0eff34e9917c84086eedf9e909
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<q>`**-[HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein kurzes Inline-Zitat ist. Die meisten modernen Browser setzen dies um, indem sie den Text in Anführungszeichen setzen. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für lange Zitate verwenden Sie das {{HTMLElement("blockquote")}}-Element.
+Das **`<q>`**-Element von [HTML](/de/docs/Web/HTML) kennzeichnet ein kurzes Zitat im Fließtext. Die meisten modernen Browser setzen den Text dazu in Anführungszeichen. Dieses Element ist für kurze Zitate gedacht, die keinen Absatzumbruch erfordern. Verwenden Sie für längere Zitate das Element {{HTMLElement("blockquote")}}.
 
 {{InteractiveExample("HTML Demo: &lt;q&gt;", "tabbed-shorter")}}
 
@@ -28,10 +28,10 @@ q {
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element unterstützt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Der Wert dieses Attributs ist eine URL, die ein Quellendokument oder eine Nachricht kennzeichnet, die die zitierte Information enthält. Dieses Attribut soll auf Informationen hinweisen, die den Kontext oder die Referenz für das Zitat erklären.
+  - : Der Wert dieses Attributs ist eine URL, die ein Quelldokument oder eine Nachricht für die zitierten Informationen angibt. Das Attribut soll auf Informationen verweisen, die den Kontext oder die Quelle des Zitats erläutern.
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ### Ergebnis
 
-{{EmbedLiveSample('Example')}}
+{{EmbedLiveSample('examples')}}
 
 ## Technische Zusammenfassung
 
@@ -64,11 +64,11 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Textinhalt</a
-        >, greifbarer Inhalt.
+        >, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Textinhalt</a
@@ -76,16 +76,17 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Ausschluss</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Keines; sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Textinhalt</a
-        > akzeptiert.
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -93,14 +94,14 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Alle</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -119,5 +120,5 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ## Siehe auch
 
-- Das {{HTMLElement("blockquote")}}-Element für lange Zitate.
-- Das {{HTMLElement("cite")}}-Element für Quellenangaben.
+- Das Element {{HTMLElement("blockquote")}} für längere Zitate.
+- Das Element {{HTMLElement("cite")}} für Quellenangaben.

@@ -3,12 +3,12 @@ title: "`::search-text` CSS pseudo-element"
 short-title: ::search-text
 slug: Web/CSS/Reference/Selectors/::search-text
 l10n:
-  sourceCommit: b3cd597b58940518a7712487ce94efc0881cb549
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
 {{SeeCompatTable}}
 
-Das **`::search-text`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wendet Stilvorlagen auf Suchergebnisse an, die durch die Textsuchfunktion "Suchen" oder "Auf der Seite suchen" des Benutzeragenten identifiziert werden.
+Das **`::search-text`**-[CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wendet Stile auf Suchergebnisse an, die über die Textsuchfunktion „Suchen“ oder „Auf Seite suchen“ des Browsers gefunden wurden.
 
 {{InteractiveExample("CSS Demo: ::search-text", "tabbed-shorter")}}
 
@@ -27,6 +27,21 @@ p::search-text {
 </p>
 ```
 
+## Zulässige Eigenschaften
+
+Mit `::search-text` kann nur eine begrenzte Auswahl an CSS-Eigenschaften verwendet werden:
+
+- {{CSSxRef("color")}}
+- {{CSSxRef("background-color")}}
+- Die Kurzschreibweise {{CSSxRef("text-decoration")}} und die zugehörigen Einzeleigenschaften:
+  - {{CSSxRef("text-decoration-line")}}: nur die Werte `grammar-error`, `spelling-error`, `line-through`, `none` und `underline`.
+  - {{CSSxRef("text-decoration-color")}}
+  - {{CSSxRef("text-decoration-style")}}
+  - {{CSSxRef("text-decoration-thickness")}}
+  - {{CSSxRef("text-decoration-skip-ink")}}
+- {{CSSxRef("text-underline-offset")}}
+- {{CSSxRef("text-shadow")}}
+
 ## Syntax
 
 ```css
@@ -37,13 +52,13 @@ p::search-text {
 
 ## Beschreibung
 
-Die meisten Browser beinhalten irgendeine Art von Textsuchfunktion auf der Seite, üblicherweise bezeichnet als "Suchen" oder "Auf der Seite suchen". Das `::search-text`-Pseudo-Element, eines der [Highlight-Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements), erlaubt es Ihnen, einen [begrenzten Satz von Stilen](#erlaubte_eigenschaften) auf die Text-Ergebnisse anzuwenden, die durch die Browsersuchfunktion hervorgehoben werden.
+Die meisten Browser verfügen über eine Textsuchfunktion innerhalb der Seite, die üblicherweise „Suchen“ oder „Auf Seite suchen“ heißt. Mit dem Pseudoelement `::search-text`, einem der [Hervorhebungs-Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements), können Sie eine [begrenzte Auswahl an Stilen](#zulässige-eigenschaften) auf die von der Browsersuche hervorgehobenen Textstellen anwenden.
 
-Nicht alle Browser und Browserversionen heben Suchergebnisse durch hervorhebende Stile auf der Seite hervor, die durch CSS stilisiert werden können. In solchen Fällen könnte `::search-text` nicht implementiert oder einfach ignoriert werden.
+Nicht alle Browser und Browserversionen heben Suchergebnisse innerhalb der Seite so hervor, dass sie mit CSS gestaltet werden können. In solchen Fällen ist `::search-text` möglicherweise nicht implementiert oder wird ignoriert.
 
-Die Verwendung von `::search-text` allein als Selektor wird Browsersuchergebnisse _überall_ auf einer Seite stylen. Wenn Sie nur Browsersuchergebnisse innerhalb bestimmter Elemente stylen möchten, können Sie `::search-text` mit anderen Selektoren kombinieren, zum Beispiel `section::search-text`.
+Wenn Sie `::search-text` allein als Selektor verwenden, werden Suchergebnisse des Browsers _überall_ auf der Seite gestaltet. Wenn Sie nur Suchergebnisse innerhalb bestimmter Elemente gestalten möchten, können Sie `::search-text` mit anderen Selektoren kombinieren, beispielsweise `section::search-text`.
 
-Zusätzlich kann `::search-text` mit der {{cssxref(":current")}} [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) kombiniert werden, um spezielle Stile für das derzeit fokussierte Suchergebnis bereitzustellen, beispielsweise:
+Außerdem können Sie `::search-text` mit der [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) {{cssxref(":current")}} kombinieren, um das aktuell fokussierte Suchergebnis gezielt zu gestalten, beispielsweise:
 
 ```css
 p::search-text {
@@ -58,38 +73,23 @@ p::search-text:current {
 
 ### Vererbungsmodell
 
-Das `::search-text`-Pseudo-Element folgt einem speziellen Vererbungsmodell, das allen Highlight-Pseudo-Elementen gemeinsam ist, bei dem Stile sowohl von ihren Eltern-Elementen als auch den Pseudo-Elementen ihrer Eltern geerbt werden. Für weitere Details zur Funktionsweise dieser Vererbung siehe den Abschnitt [Highlight-Pseudo-Elemente Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
-
-### Erlaubte Eigenschaften
-
-Ein begrenzter Satz von CSS-Eigenschaften kann mit `::search-text` verwendet werden:
-
-- {{CSSxRef("color")}}
-- {{CSSxRef("background-color")}}
-- Die {{CSSxRef("text-decoration")}} Kurzschreibweise und verwandte langschreibige Eigenschaften:
-  - {{CSSxRef("text-decoration-line")}}: nur die Werte `grammar-error`, `spelling-error`, `line-through`, `none`, und `underline`.
-  - {{CSSxRef("text-decoration-color")}}
-  - {{CSSxRef("text-decoration-style")}}
-  - {{CSSxRef("text-decoration-thickness")}}
-  - {{CSSxRef("text-decoration-skip-ink")}}
-- {{CSSxRef("text-underline-offset")}}
-- {{CSSxRef("text-shadow")}}
+Das Pseudoelement `::search-text` folgt einem besonderen Vererbungsmodell, das allen Hervorhebungs-Pseudoelementen gemeinsam ist: Stile werden sowohl von den Elternelementen als auch von deren Pseudoelementen geerbt. Weitere Einzelheiten finden Sie im Abschnitt [Vererbung von Hervorhebungs-Pseudoelementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
 ## Barrierefreiheit
 
-**Überschreiben Sie die Stilvorlagen von Textsuchergebnissen nur sparsam**, insbesondere wenn dies aus rein ästhetischen Gründen geschieht. Für Personen mit kognitiven Einschränkungen oder geringerer Technologiekompetenz könnten unerwartete Änderungen dieser Stile das Verständnis der Funktionalität beeinträchtigen.
+**Überschreiben Sie die Stile von Textsuchergebnissen nur zurückhaltend**, insbesondere wenn Sie dies aus rein ästhetischen Gründen tun. Für Menschen mit kognitiven Einschränkungen oder geringer technischer Erfahrung können unerwartete Änderungen dieser Stile das Verständnis der Suchfunktion erschweren.
 
-Ein primärer Anwendungsfall von `::search-text` ist die Erhöhung des Farbkontrasts im Vergleich zur Standard-Browser-Stilierung. Wenn Sie hervorgehobenen Text anpassen, ist es wichtig sicherzustellen, dass das [Kontrastverhältnis zwischen den Vorder- und Hintergrundfarben](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) groß genug ist, damit die Inhalte des hervorgehobenen Textes wahrgenommen werden können.
+Ein wichtiger Anwendungsfall für `::search-text` ist die Erhöhung des Farbkontrasts gegenüber der Standarddarstellung des Browsers. Wenn Sie hervorgehobenen Text anpassen, achten Sie darauf, dass das [Kontrastverhältnis zwischen Vordergrund- und Hintergrundfarbe](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) hoch genug ist, damit der hervorgehobene Text gut erkennbar bleibt.
 
 ## Beispiele
 
 ### Benutzerdefinierte Stile für Textsuchergebnisse
 
-Dieses Beispiel zeigt, wie `::search-text` und `:current` verwendet werden, um benutzerdefinierte Stile für Ihre Browserfunktion "Auf der Seite suchen" zu erstellen.
+Dieses Beispiel zeigt, wie Sie mit `::search-text` und `:current` die Ergebnisse der Browserfunktion „Auf Seite suchen“ individuell gestalten können.
 
 #### HTML
 
-Das HTML besteht aus einem einfachen Absatz von Text. Wir zeigen den HTML-Quelltext nicht, sowohl aus Gründen der Kürze, als auch damit es einfacher ist, die Suchergebnisse im gerenderten Beispiel zu navigieren.
+Das HTML besteht aus einem einfachen Textabsatz. Wir zeigen den HTML-Quelltext nicht, um das Beispiel kurz zu halten und die Navigation durch die Suchergebnisse im gerenderten Beispiel zu erleichtern.
 
 ```html hidden live-sample___custom-search-results
 <p>
@@ -111,7 +111,7 @@ Das HTML besteht aus einem einfachen Absatz von Text. Wir zeigen den HTML-Quellt
 
 #### CSS
 
-In unserem CSS beginnen wir damit, das `::search-text`-Pseudo-Element zu stylen. Wir geben ihm benutzerdefinierte {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("text-shadow")}} Stile.
+Im CSS gestalten wir zunächst das Pseudoelement `::search-text`. Wir legen dafür eigene Werte für {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("text-shadow")}} fest.
 
 ```css hidden live-sample___custom-search-results
 html {
@@ -152,7 +152,7 @@ p {
 }
 ```
 
-Schließlich stylen wir das derzeit fokussierte Suchergebnis über `::search-text:current`, indem wir ihm eine andere `background-color` und einige {{cssxref("text-decoration")}} Stile geben, sodass es sich von den anderen Ergebnissen unterscheidet.
+Abschließend gestalten wir das aktuell fokussierte Suchergebnis über `::search-text:current`. Dafür legen wir eine andere `background-color` und einige Werte für {{cssxref("text-decoration")}} fest, damit es sich von den übrigen Ergebnissen unterscheidet.
 
 ```css live-sample___custom-search-results
 ::search-text:current {
@@ -165,11 +165,11 @@ Schließlich stylen wir das derzeit fokussierte Suchergebnis über `::search-tex
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt gerendert:
+Das Beispiel wird wie folgt dargestellt:
 
-{{EmbedLiveSample("live-sample___custom-search-results", "100%", 300)}}
+{{EmbedLiveSample("custom-search-results", "100%", 300)}}
 
-Versuchen Sie, die "Auf der Seite suchen"-Schnittstelle des Browsers zu verwenden, um ein Wort zu finden, das mehrmals im Beispieltext vorkommt, wie "aliquam", "amet" oder "tortor". Bewegen Sie sich zwischen den vorherigen und nächsten Ergebnissen, um das `:current`-Styling zu überprüfen.
+Suchen Sie über die Suchfunktion Ihres Browsers nach einem Wort, das im Beispieltext mehrfach vorkommt, etwa „aliquam“, „amet“ oder „tortor“. Wechseln Sie zwischen den vorherigen und nächsten Treffern, um die Gestaltung mit `:current` zu sehen.
 
 ## Spezifikationen
 
@@ -182,5 +182,5 @@ Versuchen Sie, die "Auf der Seite suchen"-Schnittstelle des Browsers zu verwende
 ## Siehe auch
 
 - {{cssxref(":current")}}
-- [Highlight-Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements)
-- [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
+- [Hervorhebungs-Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements)
+- Modul [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements)

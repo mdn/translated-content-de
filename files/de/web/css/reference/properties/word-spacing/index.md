@@ -3,7 +3,7 @@ title: "`word-spacing` CSS property"
 short-title: word-spacing
 slug: Web/CSS/Reference/Properties/word-spacing
 l10n:
-  sourceCommit: 91e08923c809ca8deded3e3294f49bbe1a4a00b3
+  sourceCommit: c4e64810ce10fb5cb1eebfcd8b6f526866fd0982
 ---
 
 Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`word-spacing`** legt den Abstand zwischen Wörtern und zwischen Tags fest.
@@ -75,31 +75,39 @@ word-spacing: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als Schlüsselwort `normal` oder als `<length-percentage>` angegeben:
+Diese Eigenschaft wird durch das Schlüsselwort `normal` oder einen `<length-percentage>`-Wert angegeben:
 
 - `normal`
   - : Der normale Wortabstand, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
 - {{cssxref("length-percentage")}}
-  - : Gibt zusätzlichen Abstand zusätzlich zum durch die Schriftart definierten intrinsischen Wortabstand an. Prozentwerte werden relativ zur {{cssxref("font-size")}} des Textes berechnet.
+  - : Gibt einen zusätzlichen Abstand zum durch die Schriftart definierten Wortabstand an. Prozentwerte werden relativ zur {{cssxref("font-size")}} des Textes berechnet.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer `word-spacing`-Wert macht die Sätze, auf die das Styling angewendet wird, unlesbar. Bei Text, der mit einem sehr großen positiven Wert formatiert ist, liegen die Wörter so weit auseinander, dass er nicht mehr wie ein Satz erscheint. Bei Text, der mit einem großen negativen Wert formatiert ist, können sich die Wörter so weit überlappen, dass Anfang und Ende jedes Wortes nicht mehr erkennbar sind.
+Ein sehr großer positiver oder negativer `word-spacing`-Wert macht die Sätze, auf die er angewendet wird, unlesbar. Bei einem sehr großen positiven Wert stehen die Wörter so weit auseinander, dass der Text nicht mehr wie ein Satz wirkt. Bei einem großen negativen Wert können sich die Wörter so stark überlappen, dass Anfang und Ende der einzelnen Wörter nicht mehr zu erkennen sind.
 
-Lesbare `word-spacing`-Werte müssen von Fall zu Fall bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen einzelnen Wert, der sicherstellen kann, dass alle Schriftfamilien ihre Lesbarkeit automatisch beibehalten.
+Ein lesbarer `word-spacing`-Wert muss im Einzelfall bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen einzelnen Wert, der die Lesbarkeit für alle Schriftfamilien automatisch gewährleistet.
 
-- [MDN: WCAG verstehen, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Erfolgskriterium 1.4.8 verstehen | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN-Erläuterungen zu WCAG, Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erläuterung des Erfolgskriteriums 1.4.8 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+
+## Formale Definition
+
+{{CSSInfo}}
+
+## Formale Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel demonstriert die grundlegende Verwendung von `word-spacing`.
+Dieses Beispiel zeigt die grundlegende Verwendung von `word-spacing`.
 
 #### HTML
 
-Unser HTML enthält zwei Textabsätze:
+Das HTML enthält zwei Textabsätze:
 
 ```html live-sample___basic-usage
 <p id="mozdiv1">Lorem ipsum dolor sit amet.</p>
@@ -108,7 +116,7 @@ Unser HTML enthält zwei Textabsätze:
 
 #### CSS
 
-Unser CSS wendet auf jeden Absatz einen unterschiedlichen `word-spacing` an:
+Das CSS weist jedem Absatz einen anderen `word-spacing`-Wert zu:
 
 ```css live-sample___basic-usage
 #mozdiv1 {
@@ -124,17 +132,17 @@ Unser CSS wendet auf jeden Absatz einen unterschiedlichen `word-spacing` an:
 
 Das Beispiel wird wie folgt dargestellt:
 
-{{ EmbedLiveSample("live-sample___basic-usage", "100%", "100") }}
+{{ EmbedLiveSample("basic-usage", "100%", "100") }}
 
-### Vergleich von mit Länge und Prozentwert festgelegtem word-spacing
+### Vergleich von Längen- und Prozentwerten für word-spacing
 
-Dieses Beispiel demonstriert, dass prozentuale `word-spacing`-Werte für responsive Textgrößen nützlich sind.
+Dieses Beispiel zeigt, dass Prozentwerte für `word-spacing` bei responsiven Textgrößen nützlich sind.
 
-Der Code zeigt mehrere Absätze an, die denselben `word-spacing` auf Text mit zunehmender Schriftgröße angewendet haben. Wir stellen eine Funktion bereit, um zwischen einem Längen- und einem prozentualen `word-spacing`-Wert umzuschalten, sodass Sie die responsiven Eigenschaften der Verwendung eines Prozentwerts beobachten können.
+Der Code zeigt mehrere Absätze, bei denen für Text mit zunehmender Schriftgröße jeweils derselbe `word-spacing`-Wert festgelegt ist. Sie können zwischen einem Längen- und einem Prozentwert für `word-spacing` wechseln, um zu sehen, wie sich der Prozentwert an die Schriftgröße anpasst.
 
 #### HTML
 
-Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Textinhalt sowie ein [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), das wir verwenden, um zwischen einem Längen-`word-spacing` und einem prozentualen `word-spacing`-Wert umzuschalten.
+Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Text sowie ein [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), mit dem Sie zwischen einem Längen- und einem Prozentwert für `word-spacing` wechseln können.
 
 ```html live-sample___percentage-versus-length
 <p class="x-small">X-small font-size (0.8em)</p>
@@ -154,7 +162,7 @@ Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Textinhalt sowie ein
 
 #### CSS
 
-Unser CSS beginnt damit, auf jeden aufeinanderfolgenden Absatz zunehmende {{cssxref("font-size")}}-Werte anzuwenden:
+Zunächst weist das CSS jedem folgenden Absatz einen höheren {{cssxref("font-size")}}-Wert zu:
 
 ```css hidden live-sample___percentage-versus-length
 html {
@@ -184,7 +192,7 @@ html {
 }
 ```
 
-Standardmäßig wenden wir auf alle Absätze einen `word-spacing`-Wert von `10px` an. Wenn das Kontrollkästchen aktiviert ist, ändern wir den `word-spacing`-Wert jedoch in `15%`:
+Standardmäßig weisen wir allen Absätzen einen `word-spacing`-Wert von `10px` zu. Wenn die Checkbox aktiviert ist, ändern wir den `word-spacing`-Wert auf `15%`:
 
 ```css live-sample___percentage-versus-length
 p {
@@ -198,19 +206,11 @@ p:has(~ form > input:checked) {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das dargestellte Ergebnis sieht so aus:
 
 {{ EmbedLiveSample("percentage-versus-length", "100%", 460) }}
 
-Beachten Sie zunächst, dass der anfängliche Buchstabenabstandswert als Länge bei den größeren Schriftgrößen gut aussieht, bei den kleineren Schriftgrößen jedoch nicht gut aussieht. Aktivieren Sie nun das Kontrollkästchen und beachten Sie, dass der prozentuale Buchstabenabstand auf allen Zeilen angemessen aussieht, da er mit der Schriftgröße skaliert.
-
-## Formale Definition
-
-{{CSSInfo}}
-
-## Formale Syntax
-
-{{CSSSyntax}}
+Beachten Sie zunächst, dass der anfängliche Längenwert für den Wortabstand bei größeren Schriftgrößen gut aussieht, bei kleineren jedoch nicht. Aktivieren Sie nun die Checkbox: Der prozentuale Wortabstand wirkt in allen Zeilen angemessen, da er mit der Schriftgröße skaliert.
 
 ## Spezifikationen
 

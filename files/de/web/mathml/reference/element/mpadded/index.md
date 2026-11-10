@@ -2,41 +2,41 @@
 title: <mpadded>
 slug: Web/MathML/Reference/Element/mpadded
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<mpadded>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um zusätzlichen Abstand hinzuzufügen und die allgemeine Anpassung von Position und Größe der eingeschlossenen Inhalte festzulegen.
+Das **`<mpadded>`**-Element von [MathML](/de/docs/Web/MathML) wird verwendet, um zusätzlichen Abstand hinzuzufügen und die Position und Größe des eingeschlossenen Inhalts anzupassen.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
 
 - `depth`
-  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Tiefe (unterhalb der Grundlinie) des `<mpadded>` Elements angibt.
+  - : Eine {{cssxref("length-percentage")}}, die die gewünschte Tiefe (unterhalb der Grundlinie) des `<mpadded>`-Elements angibt.
 - `height`
-  - : Ein {{cssxref("length-percentage")}}, das die gewünschte Höhe (oberhalb der Grundlinie) des `<mpadded>` Elements angibt.
+  - : Eine {{cssxref("length-percentage")}}, die die gewünschte Höhe (oberhalb der Grundlinie) des `<mpadded>`-Elements angibt.
 - `lspace`
-  - : Ein {{cssxref("length-percentage")}}, das die horizontale Position des Positionierungspunkts des Kindinhalts in Bezug auf den Positionierungspunkt des `<mpadded>` Elements angibt.
+  - : Eine {{cssxref("length-percentage")}}, die die horizontale Lage des Positionierungspunkts des untergeordneten Inhalts relativ zum Positionierungspunkt des `<mpadded>`-Elements angibt.
 - `voffset`
-  - : Ein {{cssxref("length-percentage")}}, das die vertikale Position des Positionierungspunkts des Kindinhalts in Bezug auf den Positionierungspunkt des `<mpadded>` Elements angibt.
+  - : Eine {{cssxref("length-percentage")}}, die die vertikale Lage des Positionierungspunkts des untergeordneten Inhalts relativ zum Positionierungspunkt des `<mpadded>`-Elements angibt.
 - `width`
-  - : Ein {{cssxref("length-percentage")}}, das die gewünschte horizontale Länge des `<mpadded>` Elements angibt.
+  - : Eine {{cssxref("length-percentage")}}, die die gewünschte horizontale Ausdehnung des `<mpadded>`-Elements angibt.
 
 ### Veraltete Syntax
 
-Für die Attribute `depth`, `height`, `lspace`, `voffset` und `width` akzeptieren einige Browser möglicherweise stattdessen eine komplexere Syntax:
+Für die Attribute `depth`, `height`, `lspace`, `voffset` und `width` akzeptieren manche Browser stattdessen möglicherweise eine komplexere Syntax:
 
-1. Ein optionales `+` oder `-` Zeichen als Präfix, das eine Erhöhung oder Verringerung der entsprechenden Dimension angibt (wenn nicht vorhanden, wird die entsprechende Dimension direkt auf den angegebenen Wert gesetzt).
-2. Gefolgt von einer [`<unsigned-number>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types) (wir nennen es α unten).
-3. Optional gefolgt von einem Wert (wenn nicht vorhanden, wird der angegebene Wert als "100 mal α Prozent" interpretiert).
-   - Eine [Einheit](/de/docs/Web/MathML/Reference/Values#units). Der angegebene Wert wird wie [veraltete MathML-Längen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths) interpretiert.
-   - Eine [namedspace Konstante](/de/docs/Web/MathML/Reference/Values#constants). Der angegebene Wert wird als α mal die Konstante interpretiert.
-   - Eine Pseudo-Einheit `width`, `height` oder `depth`. Der angegebene Wert wird als α mal die entsprechende Dimension des Inhalts interpretiert.
-   - Ein Prozentzeichen gefolgt von einer Pseudo-Einheit `width`, `height` oder `depth`. Der angegebene Wert wird als α% der entsprechenden Dimension des Inhalts interpretiert.
+1. Optional ein vorangestelltes `+`- oder `-`-Zeichen, das eine Vergrößerung oder Verkleinerung der entsprechenden Abmessung festlegt. Fehlt das Zeichen, wird die entsprechende Abmessung direkt auf den angegebenen Wert gesetzt.
+2. Darauf folgt eine [`<unsigned-number>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types) (im Folgenden α genannt).
+3. Optional folgt darauf eine Angabe. Fehlt sie, wird der angegebene Wert als „100 × α Prozent“ interpretiert.
+   - Eine [Einheit](/de/docs/Web/MathML/Reference/Values#units). Der angegebene Wert wird wie bei [veralteten MathML-Längenangaben](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths) interpretiert.
+   - Eine [namedspace-Konstante](/de/docs/Web/MathML/Reference/Values#constants). Der angegebene Wert wird als α-faches der Konstante interpretiert.
+   - Eine Pseudoeinheit `width`, `height` oder `depth`. Der angegebene Wert wird als α-faches der entsprechenden Abmessung des Inhalts interpretiert.
+   - Ein Prozentzeichen, gefolgt von einer Pseudoeinheit `width`, `height` oder `depth`. Der angegebene Wert wird als α % der entsprechenden Abmessung des Inhalts interpretiert.
 
 ## Beispiele
 
-### Dimensionen und Versätze
+### Abmessungen und Versatz
 
 ```html
 <math display="block">
@@ -54,7 +54,7 @@ mpadded {
 }
 ```
 
-{{ EmbedLiveSample('dimensions_and_offsets_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('dimensions_and_offsets', 700, 200, "", "") }}
 
 ### Veraltete Syntax
 
@@ -97,7 +97,7 @@ mpadded:nth-child(4) {
 }
 ```
 
-{{ EmbedLiveSample('legacy_syntax_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('legacy_syntax_2', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 

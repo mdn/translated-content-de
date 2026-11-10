@@ -1,57 +1,57 @@
 ---
-title: CSS und JavaScript Zugänglichkeits-Best-Praktiken
-short-title: Zugängliches CSS und JS
+title: Best Practices für barrierefreies CSS und JavaScript
+short-title: Barrierefreies CSS und JavaScript
 slug: Learn_web_development/Core/Accessibility/CSS_and_JavaScript
 l10n:
-  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
+  sourceCommit: 47def3151aadab22b9438c2eedba276d51f65f25
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Accessibility/Test_your_skills/HTML","Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}
 
-CSS und JavaScript können, wenn sie richtig verwendet werden, zugängliche Web-Erlebnisse ermöglichen oder die Zugänglichkeit erheblich beeinträchtigen, wenn sie falsch verwendet werden. Dieser Artikel skizziert einige Best-Praktiken für CSS und JavaScript, die in Betracht gezogen werden sollten, um sicherzustellen, dass selbst komplexe Inhalte so zugänglich wie möglich sind.
+CSS und JavaScript können bei richtiger Verwendung zu barrierefreien Webangeboten beitragen. Werden sie falsch eingesetzt, können sie die Barrierefreiheit jedoch erheblich beeinträchtigen. Dieser Artikel beschreibt einige Best Practices für CSS und JavaScript, mit denen sich auch komplexe Inhalte möglichst barrierefrei gestalten lassen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, ein <a href="/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility">grundlegendes Verständnis von Zugänglichkeitskonzepten</a>.</td>
+      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> sowie ein <a href="/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility">grundlegendes Verständnis von Barrierefreiheit</a>.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Zugängliche Textgrößen und Layout.</li>
+          <li>Barrierefreie Textgrößen und Layouts.</li>
           <li>Farbkontrast.</li>
-          <li>Die Wichtigkeit von <code>:focus</code> und <code>:hover</code> Styles.</li>
-          <li>Verantwortungsvolle Nutzung von Animationen — Animationen dezent einsetzen und Kontrollen bereitstellen, um sie abzuschalten.</li>
-          <li>Best-Praktiken zum Verstecken von Inhalten, damit sie nicht unzugänglich werden.</li>
-          <li>Das Bewusstsein, dass es so etwas wie zu viel JavaScript gibt, und den Wert von unaufdringlichem JavaScript.</li>
-          <li>Verwendung von Ereignissen sinnvoll gestalten, damit Sie bestimmte Steuerungstypen nicht ausschließen.</li>
+          <li>Die Bedeutung von Stilen für <code>:focus</code> und <code>:hover</code>.</li>
+          <li>Ein sinnvoller Einsatz von Animationen: Setzen Sie Animationen dezent ein und bieten Sie eine Möglichkeit, sie auszuschalten.</li>
+          <li>Best Practices zum Ausblenden von Inhalten, ohne sie unzugänglich zu machen.</li>
+          <li>Warum zu viel JavaScript problematisch sein kann und welchen Wert unaufdringliches JavaScript hat.</li>
+          <li>Ein sinnvoller Einsatz von Events, damit bestimmte Bedienungsarten nicht ausgeschlossen werden.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Sind CSS und JavaScript zugänglich?
+## Sind CSS und JavaScript barrierefrei?
 
-CSS und JavaScript haben nicht die gleiche unmittelbare Bedeutung für die Zugänglichkeit wie HTML, aber sie können dennoch die Zugänglichkeit unterstützen oder schädigen, abhängig davon, wie sie verwendet werden. Anders ausgedrückt ist es wichtig, einige Best-Practice-Ratschläge zu berücksichtigen, um sicherzustellen, dass die Nutzung von CSS und JavaScript die Zugänglichkeit Ihrer Dokumente nicht beeinträchtigt.
+CSS und JavaScript sind für die Barrierefreiheit nicht so unmittelbar wichtig wie HTML. Je nachdem, wie sie verwendet werden, können sie die Barrierefreiheit aber verbessern oder beeinträchtigen. Anders gesagt: Beachten Sie einige Best Practices, damit Ihr Einsatz von CSS und JavaScript die Barrierefreiheit Ihrer Dokumente nicht verschlechtert.
 
 ## CSS
 
-Beginnen wir mit einem Blick auf CSS.
+Sehen wir uns zunächst CSS an.
 
-### Korrekte Semantik und Benutzererwartung
+### Korrekte Semantik und Erwartungen der Nutzenden
 
-Es ist möglich, mit CSS jedes HTML-Element wie _irgendetwas_ aussehen zu lassen, aber das bedeutet nicht, dass Sie das tun sollten. Wie wir häufig in unserem Artikel [HTML: Eine gute Basis für Zugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility/HTML) erwähnt haben, sollten Sie, wann immer möglich, das geeignete semantische Element für die jeweilige Aufgabe verwenden. Andernfalls kann es zu Verwirrung und Usability-Problemen für alle führen, insbesondere aber für Benutzer mit Behinderungen. Die Verwendung korrekter Semantik hat viel mit Benutzererwartungen zu tun – Elemente sehen gemäß ihrer Funktionalität aus und verhalten sich so, wie die Benutzer es erwarten.
+Mit CSS lässt sich jedes HTML-Element so gestalten, dass es wie _etwas Beliebiges_ aussieht. Das bedeutet jedoch nicht, dass Sie das auch tun sollten. Wie wir in unserem Artikel [HTML: Eine gute Grundlage für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML) mehrfach erwähnt haben, sollten Sie nach Möglichkeit das passende semantische Element für die jeweilige Aufgabe verwenden. Andernfalls kann dies bei allen Nutzenden zu Verwirrung und Problemen bei der Bedienung führen, insbesondere aber bei Menschen mit Behinderungen. Korrekte Semantik hängt eng mit den Erwartungen der Nutzenden zusammen: Elemente sehen entsprechend ihrer Funktion auf bestimmte Weise aus und verhalten sich entsprechend. Nutzende erwarten diese etablierten Konventionen.
 
-Ein Beispiel: Ein Benutzer eines Bildschirmlesers kann eine Seite nicht über Überschriftenelemente navigieren, wenn der Entwickler die Inhaltsmarkierung nicht mit Überschriftenelementen richtig implementiert hat. Ebenso verliert eine Überschrift ihren visuellen Zweck, wenn Sie sie so gestalten, dass sie nicht wie eine Überschrift aussieht.
+Wenn ein Entwickler beispielsweise den Inhalt nicht mit passenden Überschriftenelementen ausgezeichnet hat, können Personen, die einen Screenreader verwenden, nicht über die Überschriften durch die Seite navigieren. Umgekehrt verliert eine Überschrift ihren visuellen Zweck, wenn Sie sie so gestalten, dass sie nicht mehr wie eine Überschrift aussieht.
 
-Letztlich können Sie das Styling einer Seitenfunktion so anpassen, dass sie zu Ihrem Design passt, aber verändern Sie es nicht so sehr, dass es nicht mehr aussieht oder sich nicht mehr verhält wie erwartet. Die folgenden Abschnitte fassen die wichtigsten HTML-Funktionen zusammen, die beachtet werden sollten.
+Kurz gesagt: Sie können die Gestaltung eines Seitenelements an Ihr Design anpassen. Verändern Sie es aber nicht so stark, dass es nicht mehr wie erwartet aussieht oder funktioniert. Die folgenden Abschnitte fassen die wichtigsten HTML-Merkmale zusammen, die Sie berücksichtigen sollten.
 
-#### "Standard"-Textinhaltsstruktur
+#### Struktur von „normalem“ Textinhalt
 
-Überschriften, Absätze, Listen — der Kerninhalt Ihrer Seite:
+Überschriften, Absätze und Listen bilden den Kern des Textinhalts Ihrer Seite:
 
 ```html
 <h1>Heading</h1>
@@ -64,7 +64,7 @@ Letztlich können Sie das Styling einer Seitenfunktion so anpassen, dass sie zu 
 </ul>
 ```
 
-Ein typisches CSS könnte so aussehen:
+Typisches CSS könnte so aussehen:
 
 ```css
 h1 {
@@ -80,15 +80,15 @@ li {
 
 Sie sollten:
 
-- Sinnvolle Schriftgrößen, Zeilenhöhen, Buchstabenabstände usw. auswählen, um Ihren Text logisch, leserlich und angenehm zu gestalten.
-- Sicherstellen, dass Ihre Überschriften sich vom Fließtext abheben, typischerweise groß und fett wie das Standard-Styling. Ihre Listen sollten wie Listen aussehen.
-- Ihre Textfarbe sollte gut mit Ihrer Hintergrundfarbe kontrastieren.
+- Sinnvolle Schriftgrößen, Zeilenhöhen, Zeichenabstände usw. wählen, damit Ihr Text logisch aufgebaut, gut lesbar und angenehm zu lesen ist.
+- Dafür sorgen, dass sich Überschriften vom Fließtext abheben – üblicherweise sind sie wie in der Standarddarstellung groß und fett. Ihre Listen sollten als Listen erkennbar sein.
+- Darauf achten, dass sich Ihre Textfarbe deutlich von der Hintergrundfarbe abhebt.
 
-Weitere Informationen finden Sie unter [Überschriften und Absätze in HTML](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs) und [CSS Textstyling](/de/docs/Learn_web_development/Core/Text_styling).
+Weitere Informationen finden Sie unter [Überschriften und Absätze in HTML](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs) und [Textgestaltung mit CSS](/de/docs/Learn_web_development/Core/Text_styling).
 
-#### Betonter Text
+#### Hervorgehobener Text
 
-Inline-Markup, das dem umgebenden Text spezifischen Nachdruck verleiht:
+Inline-Markup, das den umschlossenen Text auf bestimmte Weise hervorhebt:
 
 ```html
 <p>The water is <em>very hot</em>.</p>
@@ -98,7 +98,7 @@ Inline-Markup, das dem umgebenden Text spezifischen Nachdruck verleiht:
 </p>
 ```
 
-Möglicherweise möchten Sie Ihrem betonten Text eine einfache Färbung hinzufügen:
+Möglicherweise möchten Sie hervorgehobenen Text zusätzlich einfach einfärben:
 
 ```css
 strong,
@@ -107,11 +107,11 @@ em {
 }
 ```
 
-In der Regel benötigen Sie jedoch selten ein bedeutendes Styling von Betonelementen. Die Standardkonventionen von fettem und kursivem Text sind sehr gut erkennbar, und das Ändern des Stils kann Verwirrung stiften. Weitere Informationen zu Betonung finden Sie unter [Betonung und Wichtigkeit](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance).
+In der Regel müssen Sie Hervorhebungselemente jedoch nicht wesentlich anders gestalten. Die üblichen Darstellungen als fett oder kursiv sind gut erkennbar; eine Änderung dieser Darstellung kann Verwirrung stiften. Weitere Informationen finden Sie unter [Hervorhebung und Wichtigkeit](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance).
 
 #### Abkürzungen
 
-Ein Element, das eine Abkürzung, ein Akronym oder eine Initialisierung mit seiner Erweiterung assoziiert:
+Ein Element, mit dem einer Abkürzung, einem Akronym oder einem Initialwort seine ausgeschriebene Form zugeordnet werden kann:
 
 ```html
 <p>
@@ -120,7 +120,7 @@ Ein Element, das eine Abkürzung, ein Akronym oder eine Initialisierung mit sein
 </p>
 ```
 
-Wiederum möchten Sie es vielleicht auf eine einfache Weise gestalten:
+Auch hier können Sie eine einfache Gestaltung ergänzen:
 
 ```css
 abbr {
@@ -128,17 +128,17 @@ abbr {
 }
 ```
 
-Die anerkannte Styling-Konvention für Abkürzungen ist ein gepunkteter Unterstrich, und es ist unklug, davon erheblich abzuweichen. Weitere Informationen zu Abkürzungen finden Sie unter [Abkürzungen](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations).
+Die etablierte Darstellung von Abkürzungen ist eine gepunktete Unterstreichung. Es ist nicht ratsam, deutlich davon abzuweichen. Weitere Informationen finden Sie unter [Abkürzungen](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations).
 
 #### Links
 
-Hyperlinks — der Weg zu neuen Orten im Web:
+Hyperlinks ermöglichen die Navigation zu anderen Stellen im Web:
 
 ```html
 <p>Visit the <a href="https://www.mozilla.org">Mozilla homepage</a>.</p>
 ```
 
-Ein sehr einfaches Link-Styling wird unten gezeigt:
+Ein sehr einfaches Beispiel für die Gestaltung von Links sehen Sie hier:
 
 ```css
 a {
@@ -158,17 +158,17 @@ a:active {
 }
 ```
 
-Die Standard-Link-Konventionen sind unterstrichen und in einer anderen Farbe (Standard: Blau) in ihrem Standardzustand, eine weitere Farbvariation, wenn der Link zuvor besucht wurde (Standard: Lila), und noch eine andere Farbe, wenn der Link aktiviert wird (Standard: Rot). Zusätzlich ändert sich das Mauszeigersymbol zu einem Zeiger, wenn Links übermalt werden, und der Link erhält eine Hervorhebung, wenn er fokussiert (z. B. über die Tabulatortaste) oder aktiviert wird. Das folgende Bild zeigt die Hervorhebung sowohl in Firefox (eine gepunktete Umrandung) als auch in Chrome (eine blaue Umrandung):
+Üblicherweise sind Links im Ausgangszustand unterstrichen und haben eine andere Farbe (standardmäßig Blau). Bereits besuchte Links haben eine weitere Farbvariante (standardmäßig Violett), aktivierte Links eine dritte (standardmäßig Rot). Außerdem wird der Mauszeiger zu einem Zeigersymbol, wenn er sich über einem Link befindet. Wenn ein Link den Fokus erhält, etwa durch Navigation mit der Tabulatortaste, oder aktiviert wird, erscheint eine Hervorhebung. Die folgenden Bilder zeigen diese Hervorhebung in Firefox (eine gepunktete Umrandung) und Chrome (eine blaue Umrandung):
 
-![Screenshot einer Liste von Links im Firefox-Browser. Die Liste enthält 4 Elemente. Das zweite Listenelement ist hervorgehoben durch eine blaue gepunktete Umrandung, wenn es über Tabben fokussiert wird.](focus-highlight-firefox.png)
+![Screenshot einer Linkliste im Browser Firefox. Die Liste enthält vier Einträge. Der zweite Eintrag ist mit einer blauen gepunkteten Umrandung hervorgehoben, weil er durch Navigation mit der Tabulatortaste den Fokus erhalten hat.](focus-highlight-firefox.png)
 
-![Screenshot einer Liste von Links im Chrome-Browser. Die Liste enthält 4 Elemente. Das dritte Listenelement ist hervorgehoben durch eine blaue Umrandung, wenn es über Tabben fokussiert wird.](focus-highlight-chrome.png)
+![Screenshot einer Linkliste im Browser Chrome. Die Liste enthält vier Einträge. Der dritte Eintrag ist mit einer blauen Umrandung hervorgehoben, weil er durch Navigation mit der Tabulatortaste den Fokus erhalten hat.](focus-highlight-chrome.png)
 
-Sie können kreativ mit Link-Stilen sein, solange Sie den Benutzern eine Rückmeldung geben, wenn sie mit den Links interagieren. Es sollte auf jeden Fall etwas passieren, wenn sich die Zustände ändern, und Sie sollten den Zeiger-Cursor oder die Umrandung nicht entfernen – beide sind sehr wichtige Zugänglichkeitshelfer für Benutzer, die Tastatursteuerungen verwenden.
+Bei der Gestaltung von Links können Sie kreativ sein, solange Nutzende eine Rückmeldung erhalten, wenn sie mit den Links interagieren. Bei einem Zustandswechsel sollte sich erkennbar etwas ändern. Entfernen Sie weder den Zeiger-Cursor noch die Fokusumrandung – beides sind wichtige Hilfen für Menschen, die die Tastatur verwenden.
 
 #### Formularelemente
 
-Elemente, um Benutzern das Eingeben von Daten in Websites zu ermöglichen:
+Elemente, mit denen Nutzende Daten auf Websites eingeben können:
 
 ```html
 <div>
@@ -177,100 +177,98 @@ Elemente, um Benutzern das Eingeben von Daten in Websites zu ermöglichen:
 </div>
 ```
 
-Sie können einige gute Beispiel-CSS in unserem [form-css.html](https://github.com/mdn/learning-area/blob/main/accessibility/css/form-css.html) Beispiel sehen (auch [live ansehen](https://mdn.github.io/learning-area/accessibility/css/form-css.html)).
+Gutes Beispiel-CSS finden Sie in unserem Beispiel [form-css.html](https://github.com/mdn/learning-area/blob/main/accessibility/css/form-css.html) ([Live-Version ansehen](https://mdn.github.io/learning-area/accessibility/css/form-css.html)).
 
-Das meiste der CSS, das Sie für Formulare schreiben, wird dafür sein, die Elemente zu dimensionieren, Beschriftungen und Eingaben auszurichten und sie ordentlich und aufgeräumt aussehen zu lassen.
+Das meiste CSS, das Sie für Formulare schreiben, dient dazu, die Größe der Elemente festzulegen, Beschriftungen und Eingabefelder auszurichten und für ein ordentliches Erscheinungsbild zu sorgen.
 
-Sie sollten jedoch nicht zu sehr von dem erwarteten visuellen Feedback abweichen, das Formularelemente erhalten, wenn sie fokussiert sind, was im Grunde das gleiche ist wie bei Links (siehe oben). Sie könnten Fokus-/Hover-Zustände der Formulare gestalten, um dieses Verhalten über Browser hinweg einheitlicher zu machen oder besser zu Ihrem Seitendesign zu passen, aber entfernen Sie es nicht vollständig – wieder einmal verlassen sich Menschen auf diese Hinweise, um zu wissen, was passiert.
+Sie sollten jedoch nicht zu stark von der erwarteten visuellen Rückmeldung abweichen, die Formularelemente erhalten, wenn sie den Fokus haben. Diese entspricht im Wesentlichen der von Links (siehe oben). Sie können die Fokus- und Hover-Zustände von Formularelementen gestalten, um das Verhalten browserübergreifend einheitlicher zu machen oder besser an Ihr Seitendesign anzupassen. Entfernen Sie diese Rückmeldung aber nicht vollständig: Menschen sind auf solche Hinweise angewiesen, um zu erkennen, was gerade passiert.
 
 #### Tabellen
 
-Tabellen zur Darstellung tabellarischer Daten.
+Tabellen dienen zur Darstellung tabellarischer Daten.
 
-Sie können ein gutes, einfaches Beispiel für HTML und CSS einer Tabelle in unserem [table-css.html](https://github.com/mdn/learning-area/blob/main/accessibility/css/table-css.html) Beispiel sehen (auch [live ansehen](https://mdn.github.io/learning-area/accessibility/css/table-css.html)).
+Ein gutes, einfaches Beispiel für HTML und CSS einer Tabelle finden Sie in [table-css.html](https://github.com/mdn/learning-area/blob/main/accessibility/css/table-css.html) ([Live-Version ansehen](https://mdn.github.io/learning-area/accessibility/css/table-css.html)).
 
-Tabellen-CSS dient meist dazu, die Tabelle besser in Ihr Design einzufügen und weniger hässlich aussehen zu lassen. Es ist eine gute Idee, sicherzustellen, dass sich die Tabellenüberschriften deutlich abheben (normalerweise durch Fett), und Zebrastreifen zu verwenden, um verschiedene Zeilen leichter lesbar zu machen.
+CSS für Tabellen dient im Allgemeinen dazu, sie besser in das Design einzufügen und ansprechender zu gestalten. Achten Sie darauf, dass Tabellenüberschriften hervorstechen (normalerweise durch Fettdruck). Alternierende Zeilenfarben erleichtern es außerdem, die einzelnen Zeilen zu erfassen.
 
-### Farbe und Farbkontrast
+### Farben und Farbkontrast
 
-Wenn Sie ein Farbschema für Ihre Website wählen, stellen Sie sicher, dass die Textfarbe (Vordergrund) gut mit der Hintergrundfarbe kontrastiert. Ihr Design mag cool aussehen, aber es ist nutzlos, wenn Menschen mit Sehbehinderungen wie Farbenblindheit Ihre Inhalte nicht lesen können.
+Achten Sie bei der Wahl eines Farbschemas für Ihre Website darauf, dass sich die Textfarbe (Vordergrundfarbe) deutlich von der Hintergrundfarbe abhebt. Ihr Design mag gut aussehen – wenn Menschen mit Sehbeeinträchtigungen wie Farbenblindheit Ihre Inhalte nicht lesen können, erfüllt es jedoch seinen Zweck nicht.
 
-Es gibt einen einfachen Weg, um zu überprüfen, ob der Kontrast groß genug ist, um keine Probleme zu verursachen. Es gibt eine Reihe von Kontrast-Tools online, in die Sie Ihre Vordergrund- und Hintergrundfarben eingeben können, um sie zu überprüfen. Zum Beispiel ist WebAIMs [Color Contrast Checker](https://webaim.org/resources/contrastchecker/) einfach zu verwenden und bietet eine Erklärung, was Sie tun müssen, um den WCAG-Kriterien in Bezug auf Farbkontrast gerecht zu werden.
-
-> [!NOTE]
-> Ein hoher Kontrast wird auch jedem Smartphone oder Tablet-Benutzer mit einem glänzenden Display helfen, Seiten in einer hellen Umgebung, wie Sonnenlicht, besser zu lesen.
-
-Ein weiterer Tipp ist, sich nicht allein auf Farbe für Wegweiser/Informationen zu verlassen, da dies für diejenigen, die die Farbe nicht sehen können, nutzlos sein wird. Anstatt zum Beispiel erforderliche Formularfelder rot zu markieren, markieren Sie sie mit einem Sternchen und in Rot.
-
-### Dinge verstecken
-
-Es gibt viele Fälle, in denen ein visuelles Design erfordert, dass nicht alle Inhalte auf einmal angezeigt werden. Zum Beispiel in unserem [Tabellierte Informationsbox-Beispiel](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/tabbed-info-box.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html)) haben wir drei Informationspaneele, aber wir positionieren sie [übereinander](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) und bieten Registerkarten an, die angeklickt werden können, um jedes davon zu zeigen (es ist auch tastaturzugänglich – Sie können alternativ Tab und Enter/Return verwenden, um sie auszuwählen).
-
-![Drei Registerkarten-Benutzeroberfläche mit ausgewähltem Tab 1 und nur dessen Inhalte werden angezeigt. Die Inhalte anderer Registerkarten sind verborgen. Wenn eine Registerkarte ausgewählt ist, ändert sich ihre Textfarbe von Schwarz zu Weiß und die Hintergrundfarbe wechselt von Orangerot zu Sattbraun.](tabbed-info-box.png)
-
-Bildschirmleser-Benutzer interessieren sich dafür nicht – sie sind mit dem Inhalt zufrieden, solange die Quellreihenfolge sinnvoll ist und sie auf alles zugreifen können. Absolute Positionierung (wie in diesem Beispiel verwendet) wird allgemein als einer der besten Mechanismen zum Verstecken von Inhalten für visuelle Effekte angesehen, da es Bildschirmlesern nicht den Zugriff darauf verwehrt.
-
-Andererseits sollten Sie nicht {{cssxref("visibility", "visibility: hidden")}} oder {{cssxref("display", "display: none")}} verwenden, da sie den Inhalt vor Bildschirmlesern verbergen. Es sei denn, es gibt einen guten Grund, warum Sie möchten, dass dieser Inhalt vor Bildschirmlesern verborgen bleibt.
+Ob der Kontrast ausreicht, lässt sich leicht überprüfen. Es gibt verschiedene Online-Tools, in die Sie Ihre Vorder- und Hintergrundfarben eingeben können. Der [Color Contrast Checker](https://webaim.org/resources/contrastchecker/) von WebAIM ist beispielsweise einfach zu bedienen und erklärt, welche Anforderungen Sie erfüllen müssen, um den WCAG-Kriterien zum Farbkontrast zu entsprechen.
 
 > [!NOTE]
-> [Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/) enthält viele nützliche Details zu diesem Thema.
+> Ein hohes Kontrastverhältnis hilft auch allen, die ein Smartphone oder Tablet mit glänzendem Bildschirm verwenden, Seiten in einer hellen Umgebung – etwa bei Sonnenlicht – besser zu lesen.
 
-### Akzeptieren, dass Benutzer Styles überschreiben können
+Verlassen Sie sich außerdem bei Hinweisen und Informationen nicht allein auf Farben. Für Menschen, die die Farbe nicht erkennen können, wäre das nicht hilfreich. Kennzeichnen Sie beispielsweise Pflichtfelder in einem Formular nicht nur rot, sondern zusätzlich mit einem Sternchen.
 
-Es ist möglich für Benutzer, Ihre Styles mit ihren eigenen benutzerdefinierten Styles zu überschreiben, zum Beispiel:
+### Inhalte ausblenden
 
-- Siehe Sarah Maddox' [Wie man ein benutzerdefiniertes Stylesheet (CSS) mit Firefox verwendet](https://www.itsupportguides.com/knowledge-base/computer-accessibility/how-to-use-a-custom-style-sheet-css-with-firefox/) für einen nützlichen Leitfaden, der erklärt, wie man das manuell in Firefox macht.
-- Es ist wahrscheinlich einfacher, es mit einer Erweiterung zu tun. Zum Beispiel ist die Stylus-Erweiterung für [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) verfügbar, wobei Stylish ein [Chrome](https://chromewebstore.google.com/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) Äquivalent ist.
+Bei vielen visuellen Designs sollen nicht alle Inhalte gleichzeitig sichtbar sein. In unserem [Beispiel einer Infobox mit Tabs](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/tabbed-info-box.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html)) gibt es beispielsweise drei Informationsbereiche. Wir [positionieren](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) sie übereinander und stellen anklickbare Tabs bereit, mit denen sich jeder Bereich anzeigen lässt. Die Tabs sind auch per Tastatur zugänglich: Sie können sie alternativ mit der Tabulatortaste und der Eingabe- oder Return-Taste auswählen.
 
-Benutzer könnten dies aus verschiedenen Gründen tun. Ein sehbehinderter Benutzer möchte vielleicht den Text auf allen besuchten Websites vergrößern, oder ein Benutzer mit schwerer Farbsehschwäche möchte vielleicht alle Websites in hohen Kontrastfarben darstellen, die für ihn leicht zu sehen sind. Was auch immer das Bedürfnis ist, Sie sollten damit einverstanden sein und Ihre Designs flexibel gestalten, damit solche Änderungen in Ihrem Design funktionieren. Zum Beispiel könnten Sie sicherstellen, dass Ihr Hauptinhaltsbereich größere Texte verarbeiten kann (vielleicht beginnt er dann zu scrollen, damit alles sichtbar ist) und den Text nicht einfach verborgen oder komplett kaputt gemacht wird.
+![Oberfläche mit drei Tabs, bei der Tab 1 ausgewählt ist und nur dessen Inhalt angezeigt wird. Die Inhalte der anderen Tabs sind ausgeblendet. Wenn ein Tab ausgewählt wird, ändert sich seine Textfarbe von Schwarz zu Weiß und seine Hintergrundfarbe von Orangerot zu Sattelbraun.](tabbed-info-box.png)
+
+Für Personen, die einen Screenreader verwenden, ist diese visuelle Darstellung unerheblich. Entscheidend ist, dass die Reihenfolge im Quellcode sinnvoll ist und alle Inhalte erreichbar sind. Absolute Positionierung, wie sie in diesem Beispiel verwendet wird, gilt allgemein als eine der besten Möglichkeiten, Inhalte aus visuellen Gründen auszublenden, da sie Screenreader nicht daran hindert, auf die Inhalte zuzugreifen.
+
+Dagegen sollten Sie {{cssxref("visibility", "visibility: hidden")}} oder {{cssxref("display", "display: none")}} nicht verwenden, wenn die Inhalte für Screenreader zugänglich bleiben sollen: Diese Eigenschaften verbergen Inhalte auch vor Screenreadern. Eine Ausnahme ist natürlich, wenn es einen guten Grund gibt, die Inhalte auch vor Screenreadern zu verbergen.
+
+> [!NOTE]
+> [Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/) bietet viele weitere nützliche Informationen zu diesem Thema.
+
+### Akzeptieren Sie, dass Nutzende Stile überschreiben können
+
+Nutzende können Ihre Stile durch eigene benutzerdefinierte Stile überschreiben. Zum Beispiel:
+
+- Sarah Maddox beschreibt in [How to use a custom style sheet (CSS) with Firefox](https://www.itsupportguides.com/knowledge-base/computer-accessibility/how-to-use-a-custom-style-sheet-css-with-firefox/), wie sich das in Firefox manuell einrichten lässt.
+- Mit einer Erweiterung ist es wahrscheinlich einfacher. Die Erweiterung Stylus ist beispielsweise für [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) verfügbar; Stylish ist ein entsprechendes Angebot für [Chrome](https://chromewebstore.google.com/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe).
+
+Dafür kann es verschiedene Gründe geben. Eine Person mit Sehbeeinträchtigung möchte vielleicht den Text auf allen besuchten Websites vergrößern. Eine Person mit stark eingeschränktem Farbsehvermögen möchte möglicherweise alle Websites mit kontrastreichen Farben darstellen, die sie gut erkennen kann. Welcher Bedarf auch immer dahintersteht: Sie sollten solche Anpassungen zulassen und Ihre Designs so flexibel gestalten, dass sie weiterhin funktionieren. Stellen Sie beispielsweise sicher, dass Ihr Hauptinhaltsbereich größeren Text aufnehmen kann – gegebenenfalls durch Scrollen –, statt ihn einfach auszublenden oder das Layout vollständig zu zerstören.
 
 ## JavaScript
 
-JavaScript kann auch die Zugänglichkeit beeinträchtigen, je nachdem, wie es verwendet wird.
+Auch JavaScript kann die Barrierefreiheit beeinträchtigen, je nachdem, wie es verwendet wird.
 
-Modernes JavaScript ist eine leistungsstarke Sprache, und wir können heutzutage sehr viel damit tun, von einfachen Inhalts- und UI-Aktualisierungen bis hin zu vollwertigen 2D- und 3D-Spielen. Es gibt keine Regel, die besagt, dass alle Inhalte zu 100% für alle Menschen zugänglich sein müssen – Sie müssen nur das tun, was Sie können, und Ihre Apps so zugänglich wie möglich machen.
+Modernes JavaScript ist eine leistungsfähige Sprache. Heute können wir damit von einfachen Aktualisierungen von Inhalten und Benutzeroberflächen bis hin zu vollwertigen 2D- und 3D-Spielen vieles umsetzen. Es gibt keine Regel, nach der alle Inhalte für alle Menschen zu 100 % barrierefrei sein müssen. Sie sollten jedoch tun, was Ihnen möglich ist, um Ihre Anwendungen so barrierefrei wie möglich zu gestalten.
 
-Einfache Inhalte und Funktionen sind wohl einfach zugänglich zu machen – etwa Text, Bilder, Tabellen, Formulare und Schaltflächen, die Funktionen aktivieren. Wie wir in unserem Artikel [HTML: Eine gute Basis für Zugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility/HTML) untersucht haben, sind die zentralen Überlegungen:
+Einfache Inhalte und Funktionen lassen sich vergleichsweise leicht barrierefrei gestalten – beispielsweise Text, Bilder, Tabellen, Formulare und Schaltflächen, die Funktionen auslösen. Wie wir im Artikel [HTML: Eine gute Grundlage für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML) erläutert haben, sind dabei vor allem folgende Punkte wichtig:
 
-- Gute Semantik: Verwenden Sie das richtige Element für die jeweilige Aufgabe. Zum Beispiel, achten Sie darauf, Überschriften und Absätze sowie {{htmlelement("button")}} und {{htmlelement("a")}} Elemente zu verwenden.
-- Sicherstellen, dass Inhalte als Text verfügbar sind, entweder direkt als Textinhalt, gute Textbeschriftungen für Formularelemente oder [Textalternativen](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives), z.B. Alt-Text für Bilder.
+- **Gute Semantik:** Verwenden Sie für jede Aufgabe das richtige Element. Dazu gehören beispielsweise Überschriften und Absätze sowie {{htmlelement("button")}}- und {{htmlelement("a")}}-Elemente.
+- **Textliche Verfügbarkeit von Inhalten:** Stellen Sie Inhalte entweder direkt als Text, über aussagekräftige Beschriftungen von Formularelementen oder als [Textalternativen](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) bereit, etwa als Alternativtext für Bilder.
 
-Wir haben auch ein Beispiel angesehen, wie man JavaScript verwendet, um Funktionalität dort einzubauen, wo sie fehlt – siehe [Wieder Einbauen von Tastaturzugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in). Dies ist nicht ideal – Sie sollten wirklich einfach das richtige Element für die richtige Aufgabe verwenden – aber es zeigt, dass es in Situationen, in denen Sie aus irgendeinem Grund die zu verwendende Markup nicht kontrollieren können, möglich ist. Eine andere Möglichkeit, die Zugänglichkeit für nicht-semantische, JavaScript-gesteuerte Widgets zu verbessern, ist die Verwendung von WAI-ARIA, um zusätzlichen Semantik für Benutzer von Bildschirmlesern bereitzustellen. Der nächste Artikel wird dies ebenfalls ausführlich behandeln.
+Wir haben uns auch ein Beispiel dafür angesehen, wie sich fehlende Funktionen mit JavaScript ergänzen lassen – siehe [Tastaturzugänglichkeit nachträglich herstellen](/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in). Das ist nicht ideal: Eigentlich sollten Sie einfach das richtige Element für die jeweilige Aufgabe verwenden. Es zeigt jedoch, dass dies möglich ist, wenn Sie aus irgendeinem Grund keinen Einfluss auf das verwendete Markup haben. Eine weitere Möglichkeit, die Barrierefreiheit nicht semantischer, JavaScript-gesteuerter Widgets zu verbessern, ist WAI-ARIA. Damit können Sie zusätzliche Semantik für Personen bereitstellen, die einen Screenreader verwenden. Der nächste Artikel behandelt dies ausführlich.
 
-Komplexe Funktionen wie 3D-Spiele sind nicht so einfach zugänglich zu machen – ein komplexes 3D-Spiel, das mit [WebGL](/de/docs/Web/API/WebGL_API) erstellt wurde, wird auf einem {{htmlelement("canvas")}} Element gerendert, das derzeit keine Möglichkeit bietet, Textalternativen oder andere Informationen bereitzustellen, die schwer sehbeeinträchtigte Benutzer nutzen können. Es ist argumentierbar, dass ein solches Spiel diese Benutzergruppe nicht wirklich als Teil seiner Hauptzielgruppe hat, und es wäre unrealistisch, von Ihnen zu erwarten, dass Sie es zu 100 % zugänglich für blinde Menschen machen. Sie könnten jedoch [Tastatursteuerungen](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) implementieren, damit es von Nicht-Maus-Benutzern bedienbar ist, und das Farbschema kontrastreich genug gestalten, um von Personen mit Farbfehlsichtigkeiten genutzt zu werden.
+Komplexe Funktionen wie 3D-Spiele sind nicht so leicht barrierefrei zu gestalten. Ein komplexes 3D-Spiel, das mit [WebGL](/de/docs/Web/API/WebGL_API) erstellt wurde, wird auf einem {{htmlelement("canvas")}}-Element gerendert. Dieses bietet derzeit keine Möglichkeit, Textalternativen oder andere Informationen bereitzustellen, die Menschen mit starken Sehbeeinträchtigungen nutzen könnten. Man könnte argumentieren, dass diese Personengruppe nicht zur Hauptzielgruppe eines solchen Spiels gehört und es unangemessen wäre, von Ihnen eine hundertprozentige Zugänglichkeit für blinde Menschen zu erwarten. Sie könnten jedoch eine [Tastatursteuerung](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) implementieren, damit das Spiel auch ohne Maus bedienbar ist, und ein ausreichend kontrastreiches Farbschema wählen, damit Menschen mit eingeschränktem Farbsehvermögen es nutzen können.
 
 ### Das Problem mit zu viel JavaScript
 
-Das Problem tritt oft auf, wenn Menschen zu sehr auf JavaScript vertrauen. Manchmal sehen Sie eine Website, bei der alles mit JavaScript gemacht wurde – das HTML wurde von JavaScript generiert, das CSS wurde von JavaScript generiert usw. Dies hat alle möglichen Zugänglichkeits- und andere Probleme, die damit verbunden sind, also wird es nicht empfohlen.
+Probleme entstehen häufig, wenn man sich zu stark auf JavaScript verlässt. Manchmal begegnen Sie Websites, auf denen alles mit JavaScript umgesetzt wurde: Das HTML wird durch JavaScript erzeugt, das CSS ebenfalls usw. Das bringt unterschiedliche Probleme mit sich, unter anderem bei der Barrierefreiheit, und ist daher nicht empfehlenswert.
 
-Neben der Verwendung des richtigen Elements für
+Verwenden Sie nicht nur das richtige Element für die jeweilige Aufgabe, sondern auch die richtige Technologie! Überlegen Sie genau, ob Sie wirklich eine aufwendige, JavaScript-gesteuerte 3D-Infobox brauchen oder ob einfacher Text ausreicht. Überlegen Sie, ob ein komplexes, nicht standardisiertes Formular-Widget nötig ist oder ein Texteingabefeld genügt. Und erzeugen Sie nach Möglichkeit nicht Ihren gesamten HTML-Inhalt mit JavaScript.
 
-die richtige Aufgabe, sollten Sie auch darauf achten, die richtige Technologie für die richtige Aufgabe zu verwenden! Denken Sie sorgfältig darüber nach, ob Sie diese schicke, JavaScript-gesteuerte 3D-Informationsbox wirklich benötigen oder ob einfacher Text ausreicht. Überlegen Sie sorgfältig, ob Sie ein komplexes, nicht standardmäßiges Formular-Widget benötigen oder ob ein Texteingabefeld ausreicht. Und generieren Sie nach Möglichkeit nicht Ihren gesamten HTML-Inhalt mit JavaScript.
+### JavaScript unaufdringlich einsetzen
 
-### Es unaufdringlich halten
+Behalten Sie beim Erstellen Ihrer Inhalte das Prinzip des **unaufdringlichen JavaScript** im Blick. Dahinter steht die Idee, JavaScript möglichst zur Erweiterung von Funktionen einzusetzen, statt grundlegende Funktionen vollständig damit zu erstellen. Idealerweise funktionieren diese auch ohne JavaScript – auch wenn das nicht immer möglich ist. Ein wesentlicher Teil dieses Ansatzes besteht darin, nach Möglichkeit integrierte Browserfunktionen zu nutzen.
 
-Sie sollten **unaufdringliches JavaScript** im Auge behalten, wenn Sie Ihre Inhalte erstellen. Die Idee von unaufdringlichem JavaScript ist, dass es, wo immer möglich, zur Verbesserung der Funktionalität verwendet werden sollte, nicht um sie vollständig zu integrieren – grundlegende Funktionen sollten idealerweise ohne JavaScript funktionieren, auch wenn dies nicht immer möglich ist. Aber wiederum geht ein großer Teil davon darauf zurück, die im Browser integrierte Funktionalität wann immer möglich zu nutzen.
+Gute Beispiele für unaufdringliches JavaScript sind:
 
-Gute Beispiele für die Verwendung von unaufdringlichem JavaScript sind:
+- Eine clientseitige Formularvalidierung, die Nutzende schnell auf Probleme mit ihren Eingaben hinweist, ohne auf eine Prüfung der Daten durch den Server warten zu müssen. Ist sie nicht verfügbar, funktioniert das Formular weiterhin; die Validierung kann dann lediglich länger dauern.
+- Benutzerdefinierte Steuerelemente für HTML-`<video>`-Elemente, die auch mit der Tastatur zugänglich sind, zusammen mit einem direkten Link zum Video für den Fall, dass JavaScript nicht verfügbar ist. Die standardmäßigen Browser-Steuerelemente für `<video>` sind in den meisten Browsern nicht per Tastatur zugänglich.
 
-- Bereitstellung von clientseitiger Formularvalidierung, die Benutzer schnell auf Probleme mit ihren Formulareingaben hinweist, ohne auf die Serverprüfung der Daten warten zu müssen. Wenn diese nicht verfügbar ist, funktioniert das Formular weiterhin, aber die Validierung kann langsamer sein.
-- Bereitstellung von benutzerdefinierten Steuerelementen für HTML `<video>`s, die für Tastatur-only-Benutzer zugänglich sind, zusammen mit einem direkten Link zum Video, der verwendet werden kann, um darauf zuzugreifen, wenn JavaScript nicht verfügbar ist (die Standard-`<video>`-Browsersteuerungen sind in den meisten Browsern nicht tastaturzugänglich).
+Als Beispiel haben wir eine einfache clientseitige Formularvalidierung erstellt: [form-validation.html](https://github.com/mdn/learning-area/blob/main/accessibility/css/form-validation.html) ([Live-Demo ansehen](https://mdn.github.io/learning-area/accessibility/css/form-validation.html)). Dort sehen Sie ein einfaches Formular. Wenn Sie versuchen, es abzusenden, während eines oder beide Felder leer sind, wird das Absenden verhindert und ein Feld mit einer Fehlermeldung angezeigt, die das Problem beschreibt.
 
-Als Beispiel haben wir eine schnelle und simple clientseitige Formularvalidierungs-Beispiel geschrieben – siehe [form-validation.html](https://github.com/mdn/learning-area/blob/main/accessibility/css/form-validation.html) (siehe auch [die Demo live](https://mdn.github.io/learning-area/accessibility/css/form-validation.html)). Hier sehen Sie ein einfaches Formular; wenn Sie versuchen, das Formular einzureichen, während eines oder beide Felder leer sind, schlägt die Einreichung fehl und ein Fehlermeldung erscheint, um Ihnen zu sagen, was falsch ist.
-
-Diese Art der Formularvalidierung ist unaufdringlich – Sie können das Formular weiterhin problemlos nutzen, auch wenn JavaScript nicht verfügbar ist, und jede vernünftige Formulareinführung wird auch eine serverseitige Validierung aktiv haben, da es zu einfach ist für bösartige Benutzer, clientseitige Validierung zu umgehen (zum Beispiel durch Deaktivieren von JavaScript im Browser). Die clientseitige Validierung ist dennoch sehr nützlich für die Fehlerberichterstattung — Benutzer können sofort über Fehler, die sie machen, informiert werden, statt auf einen Roundtrip zum Server und einen Seitenreload warten zu müssen. Das ist ein deutlicher Usability-Vorteil.
+Diese Art der Formularvalidierung ist unaufdringlich: Das Formular lässt sich auch ohne JavaScript verwenden. Eine sinnvolle Formularimplementierung führt zusätzlich eine serverseitige Validierung durch, da böswillige Nutzende die clientseitige Validierung leicht umgehen können, indem sie beispielsweise JavaScript im Browser deaktivieren. Die clientseitige Validierung ist dennoch sehr nützlich, um Fehler zu melden: Nutzende erfahren sofort von ihren Eingabefehlern, statt auf eine Anfrage an den Server und das erneute Laden der Seite warten zu müssen. Das ist ein klarer Vorteil für die Bedienbarkeit.
 
 > [!NOTE]
-> Serverseitige Validierung wurde in diesem einfachen Demo nicht implementiert.
+> In dieser einfachen Demo wurde keine serverseitige Validierung implementiert.
 
-Wir haben diese Formularvalidierung auch ziemlich zugänglich gemacht. Wir haben {{htmlelement("label")}} Elemente verwendet, um sicherzustellen, dass die Formularbeschriftungen eindeutig mit ihren Eingaben verknüpft sind, sodass Bildschirmleser sie zusammen mit der Eingabe lesen können:
+Wir haben auch darauf geachtet, diese Formularvalidierung möglichst barrierefrei zu gestalten. Mit {{htmlelement("label")}}-Elementen stellen wir sicher, dass die Beschriftungen eindeutig mit den zugehörigen Eingabefeldern verknüpft sind, sodass Screenreader sie zusammen vorlesen können:
 
 ```html
 <label for="name">Enter your name:</label>
 <input type="text" name="name" id="name" />
 ```
 
-Wir führen die Validierung nur durch, wenn das Formular eingereicht wird — das ist, um die UI nicht zu oft zu aktualisieren und möglicherweise Bildschirmleser (und möglicherweise andere) Benutzer zu verwirren:
+Die Validierung erfolgt erst beim Absenden des Formulars. So wird die Benutzeroberfläche nicht zu häufig aktualisiert, was Personen, die einen Screenreader verwenden, und möglicherweise auch andere Nutzende verwirren könnte:
 
 ```js
 form.onsubmit = validate;
@@ -291,13 +289,13 @@ function validate(e) {
 ```
 
 > [!NOTE]
-> In diesem Beispiel blenden wir die Fehlermeldungsbox ein und aus, indem wir absolute Positionierung statt einer anderen Methode wie Sichtbarkeit oder Anzeige verwenden, weil es dem Bildschirmleser nicht im Weg steht, den Inhalt darin zu lesen.
+> In diesem Beispiel blenden wir das Feld mit der Fehlermeldung durch absolute Positionierung ein und aus, statt eine andere Methode wie visibility oder display zu verwenden. So bleibt sein Inhalt für Screenreader lesbar.
 
-Reale Formularvalidierung wäre viel komplexer als dies — Sie möchten sicherstellen, dass der eingegebene Name tatsächlich wie ein Name aussieht, dass das eingegebene Alter tatsächlich eine Zahl ist und realistisch ist (z.B. nicht negativ und weniger als 4 Ziffern). Hier haben wir nur eine einfache Überprüfung implementiert, dass ein Wert in jedes Eingabefeld eingegeben wurde (`if (testItem.input.value === '')`).
+Eine echte Formularvalidierung wäre deutlich komplexer. Sie würden beispielsweise prüfen, ob der eingegebene Name tatsächlich wie ein Name aussieht und ob das eingegebene Alter eine Zahl und plausibel ist (etwa nicht negativ und mit weniger als vier Ziffern). Hier prüfen wir lediglich, ob jedes Eingabefeld einen Wert enthält (`if (testItem.input.value === '')`).
 
-Wenn die Validierung durchgeführt wurde, wird das Formular eingereicht, wenn die Tests bestanden werden. Wenn es Fehler gibt (`if (errorList.hasChildNodes())`), verhindern wir das Senden des Formulars (mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault)) und zeigen alle angeführten Fehlermeldungen an (siehe unten). Dieser Mechanismus sorgt dafür, dass die Fehler nur dann angezeigt werden, wenn es tatsächlich Fehler gibt, was besser für die Benutzerfreundlichkeit ist.
+Nach der Validierung wird das Formular abgesendet, wenn alle Prüfungen erfolgreich waren. Wenn Fehler vorliegen (`if (errorList.hasChildNodes())`), verhindern wir das Absenden des Formulars mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) und zeigen die erzeugten Fehlermeldungen an (siehe unten). Dadurch werden Fehlermeldungen nur angezeigt, wenn tatsächlich Fehler vorliegen – das verbessert die Bedienbarkeit.
 
-Für jedes Eingabefeld, das keinen Wert enthält, wenn das Formular eingereicht wird, erstellen wir ein Listenelement mit einem Link und fügen es in die `errorList` ein.
+Für jedes Eingabefeld, das beim Absenden des Formulars leer ist, erstellen wir einen Listeneintrag mit einem Link und fügen ihn in `errorList` ein.
 
 ```js
 function createLink(testItem) {
@@ -312,11 +310,11 @@ function createLink(testItem) {
 }
 ```
 
-Jeder Link hat eine doppelte Funktion — er teilt Ihnen mit, was der Fehler ist, und Sie können ihn anklicken/aktivieren, um sofort zum betreffenden Eingabeelement zu springen und Ihre Eingabe zu korrigieren.
+Jeder Link erfüllt zwei Zwecke: Er beschreibt den Fehler und lässt sich anklicken oder aktivieren, um direkt zum betreffenden Eingabefeld zu springen und die Eingabe zu korrigieren.
 
-Zusätzlich wird das `errorField` am Anfang der Quellreihenfolge platziert (auch wenn es in der Benutzeroberfläche anders positioniert ist), was bedeutet, dass Benutzer, nachdem sie die Eingabefehler bemerkt haben, sofort zu den betreffenden Eingabeelementen springen können, indem sie direkt an den Anfang der Seite zurückkehren.
+Außerdem steht `errorField` am Anfang der Reihenfolge im Quellcode, obwohl es in der Benutzeroberfläche mithilfe von CSS an anderer Stelle positioniert ist. So können Nutzende zum Seitenanfang zurückkehren, genau erfahren, was beim Absenden ihres Formulars schiefgegangen ist, und die betreffenden Eingabefelder erreichen.
 
-Als abschließende Anmerkung haben wir einige WAI-ARIA-Attribute in unseren Demo verwendet, um Zugänglichkeitsprobleme zu lösen, die durch ständiges Aktualisieren von Inhaltsbereichen ohne Seiten-Reload verursacht werden (Bildschirmleser bemerken dies standardmäßig nicht oder benachrichtigen die Benutzer darüber):
+Abschließend haben wir in unserer Demo einige WAI-ARIA-Attribute verwendet. Sie helfen bei Problemen mit der Barrierefreiheit, die entstehen, wenn Inhaltsbereiche ohne erneutes Laden der Seite laufend aktualisiert werden: Screenreader erkennen solche Aktualisierungen standardmäßig nicht und weisen Nutzende nicht darauf hin.
 
 ```html
 <div class="errors" role="alert" aria-relevant="all">
@@ -324,27 +322,27 @@ Als abschließende Anmerkung haben wir einige WAI-ARIA-Attribute in unseren Demo
 </div>
 ```
 
-Wir werden diese Attribute in unserem nächsten Artikel erklären, der [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) viel detaillierter behandelt.
+Diese Attribute erläutern wir im nächsten Artikel, der [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) ausführlicher behandelt.
 
 > [!NOTE]
-> Einige von Ihnen werden vermutlich darüber nachdenken, dass HTML-Formulare eingebettete Validierungsmechanismen wie die `required`, `min`/`minlength` und `max`/`maxlength` Attribute haben (siehe den {{htmlelement("input")}} Element-Referenz für mehr Informationen). Wir haben diese im Demo nicht verwendet, weil der übergreifende Browser-Support dafür uneinheitlich ist (zum Beispiel IE10 und darüber).
+> Einige von Ihnen denken wahrscheinlich daran, dass HTML-Formulare über integrierte Validierungsmechanismen verfügen, etwa die Attribute `required`, `min`/`minlength` und `max`/`maxlength` (weitere Informationen finden Sie in der Referenz zum {{htmlelement("input")}}-Element). Wir haben sie in der Demo nicht verwendet, weil die browserübergreifende Unterstützung dafür uneinheitlich ist (beispielsweise erst ab IE10).
 
 > [!NOTE]
-> WebAIM’s [Verwendbare und zugängliche Formularvalidierung und Fehlerbehebung](https://webaim.org/techniques/formvalidation/) bietet weitere nützliche Informationen über zugängliche Formularvalidierung.
+> WebAIMs [Usable and Accessible Form Validation and Error Recovery](https://webaim.org/techniques/formvalidation/) bietet weitere nützliche Informationen zur barrierefreien Formularvalidierung.
 
-### Andere JavaScript Zugänglichkeitsbedenken
+### Weitere Aspekte der Barrierefreiheit bei JavaScript
 
-Es gibt weitere Dinge, auf die Sie achten sollten, wenn Sie JavaScript implementieren und über Zugänglichkeit nachdenken. Wir werden weitere hinzufügen, während wir sie finden.
+Bei der Implementierung von JavaScript und der Berücksichtigung der Barrierefreiheit gibt es noch weitere Punkte zu beachten. Wir werden diesen Abschnitt ergänzen, sobald wir weitere finden.
 
-#### maus-spezifische Ereignisse
+#### Mausspezifische Events
 
-Wie Sie wissen, werden die meisten Benutzerinteraktionen in clientseitigem JavaScript mithilfe von Ereignisbehandlern implementiert, die es uns ermöglichen, Funktionen als Reaktion auf bestimmte Ereignisse zu implementieren. Einige Ereignisse können Zugänglichkeitsprobleme haben. Das Hauptbeispiel, auf das Sie stoßen werden, sind maus-spezifische Ereignisse wie [mouseover](/de/docs/Web/API/Element/mouseover_event), [mouseout](/de/docs/Web/API/Element/mouseout_event), [dblclick](/de/docs/Web/API/Element/dblclick_event) usw. Funktionalität, die als Reaktion auf diese Ereignisse läuft, ist möglicherweise nicht über andere Mechanismen wie Tastatursteuerungen zugänglich.
+Die meisten Nutzerinteraktionen werden in clientseitigem JavaScript mithilfe von Event-Handlern umgesetzt. Mit ihnen können wir Funktionen ausführen, wenn bestimmte Events auftreten. Manche Events können Probleme mit der Barrierefreiheit verursachen. Besonders häufig begegnen Ihnen mausspezifische Events wie [mouseover](/de/docs/Web/API/Element/mouseover_event), [mouseout](/de/docs/Web/API/Element/mouseout_event), [dblclick](/de/docs/Web/API/Element/dblclick_event) usw. Funktionen, die nur auf diese Events reagieren, sind über andere Bedienungsarten wie die Tastatur nicht zugänglich.
 
-Um solche Probleme zu mindern, sollten Sie diese Ereignisse mit ähnlichen Ereignissen, die durch andere Mittel aktiviert werden können (sogenannte geräteunabhängige Ereignisbehandler), kombinieren – [focus](/de/docs/Web/API/Element/focus_event) und [blur](/de/docs/Web/API/Element/blur_event) bieten Zugang für Tastaturbenutzer.
+Um solche Probleme zu vermeiden, sollten Sie diese Events durch ähnliche Events ergänzen, die sich auf andere Weise auslösen lassen (sogenannte geräteunabhängige Event-Handler). [focus](/de/docs/Web/API/Element/focus_event) und [blur](/de/docs/Web/API/Element/blur_event) würden beispielsweise die Zugänglichkeit für Tastaturnutzende ermöglichen.
 
-Schauen wir uns ein Beispiel an, das darauf hinweist, wann dies nützlich sein könnte. Vielleicht möchten Sie ein Thumbnail-Bild bereitstellen, das eine größere Version des Bildes anzeigt, wenn es gemoust oder fokussiert wird (wie Sie es in einem E-Commerce-Produktkatalog sehen würden).
+Sehen wir uns ein Beispiel an, bei dem das nützlich ist. Angenommen, wir möchten ein Vorschaubild bereitstellen, das eine größere Version des Bildes anzeigt, sobald sich der Mauszeiger darüber befindet oder das Bild den Fokus erhält – wie in einem Produktkatalog eines Onlineshops.
 
-Wir haben ein sehr einfaches Beispiel erstellt, das Sie unter [mouse-and-keyboard-events.html](https://mdn.github.io/learning-area/accessibility/css/mouse-and-keyboard-events.html) finden (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/accessibility/css/mouse-and-keyboard-events.html)). Der Code enthält zwei Funktionen, die das vergrößerte Bild zeigen und ausblenden; diese werden durch die folgenden Zeilen, die sie als Ereignisbehandler festlegen, ausgeführt:
+Ein sehr einfaches Beispiel finden Sie unter [mouse-and-keyboard-events.html](https://mdn.github.io/learning-area/accessibility/css/mouse-and-keyboard-events.html) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/accessibility/css/mouse-and-keyboard-events.html)). Der Code enthält zwei Funktionen, die das vergrößerte Bild ein- und ausblenden. Die folgenden Zeilen registrieren diese Funktionen als Event-Handler:
 
 ```js
 imgThumb.onmouseover = showImg;
@@ -354,14 +352,14 @@ imgThumb.onfocus = showImg;
 imgThumb.onblur = hideImg;
 ```
 
-Die ersten beiden Zeilen führen die Funktionen aus, wenn der Mauszeiger über das Miniaturbild fährt und aufhört, darüber zu fahren. Dadurch können wir jedoch nicht auf die vergrößerte Ansicht durch die Tastatur zugreifen – um dies zu ermöglichen, haben wir die letzten beiden Zeilen eingefügt, die die Funktionen ausführen, wenn das Bild fokussiert und unscharf wird (wenn der Fokus stoppt). Dies kann durch Über-Tabben des Bildes geschehen, weil wir `tabindex="0"` darauf gesetzt haben.
+Die ersten beiden Zeilen führen die Funktionen aus, wenn sich der Mauszeiger über dem Vorschaubild befindet beziehungsweise es wieder verlässt. Damit wäre die vergrößerte Ansicht jedoch nicht per Tastatur erreichbar. Deshalb haben wir die letzten beiden Zeilen ergänzt: Sie führen die Funktionen aus, wenn das Bild den Fokus erhält oder verliert. Da wir `tabindex="0"` für das Bild angegeben haben, kann es mit der Tabulatortaste fokussiert werden.
 
-Das [klick](/de/docs/Web/API/Element/click_event) Ereignis ist interessant – es klingt maus-abhängig, aber die meisten Browser aktivieren [onclick](/de/docs/Web/API/Element/click_event) Ereignisbehandler, nachdem Enter/Return auf einem Link oder Formularelement gedrückt wird, das im Fokus ist, oder wenn solch ein Element auf einem Touchscreen-Gerät angetippt wird. Standardmäßig funktioniert dies jedoch nicht, wenn Sie einem nicht standardmäßig fokussierbaren Element Fokus mit tabindex gewähren – in solchen Fällen müssen Sie erkennen, wann genau diese Taste gedrückt wird (siehe [Wieder Einbauen von Tastaturzugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in)).
+Das [click](/de/docs/Web/API/Element/click_event)-Event ist interessant: Es klingt nach einer Abhängigkeit von der Maus, aber die meisten Browser lösen [onclick](/de/docs/Web/API/Element/click_event)-Event-Handler auch aus, wenn bei einem fokussierten Link oder Formularelement die Eingabe- oder Return-Taste gedrückt wird oder wenn ein solches Element auf einem Touchscreen angetippt wird. Das funktioniert jedoch standardmäßig nicht, wenn Sie ein normalerweise nicht fokussierbares Element mithilfe von tabindex fokussierbar machen. In solchen Fällen müssen Sie ausdrücklich erkennen, wann die entsprechende Taste gedrückt wird (siehe [Tastaturzugänglichkeit nachträglich herstellen](/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in)).
 
 ## Zusammenfassung
 
-Wir hoffen, dieser Artikel hat Ihnen eine gute Menge an Detail und Verständnis über die Zugänglichkeitsprobleme gegeben, die mit der Verwendung von CSS und JavaScript auf Webseiten verbunden sind.
+Wir hoffen, dass Ihnen dieser Artikel einen guten Überblick über die Probleme mit der Barrierefreiheit gegeben hat, die beim Einsatz von CSS und JavaScript auf Webseiten auftreten können.
 
-Im nächsten Artikel werden wir Ihnen einige Tests geben, die Sie verwenden können, um zu überprüfen, wie gut Sie all diese Informationen verstanden und behalten haben.
+Im nächsten Artikel stellen wir Ihnen einige Aufgaben vor, mit denen Sie überprüfen können, wie gut Sie diese Informationen verstanden und behalten haben.
 
 {{PreviousMenuNext("Learn_web_development/Core/Accessibility/Test_your_skills/HTML","Learn_web_development/Core/Accessibility/Test_your_skills/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}

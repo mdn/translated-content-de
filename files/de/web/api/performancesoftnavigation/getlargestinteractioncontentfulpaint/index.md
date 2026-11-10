@@ -1,20 +1,20 @@
 ---
-title: "PerformanceSoftNavigation: getLargestInteractionContentfulPaint() Methode"
+title: "PerformanceSoftNavigation: Methode getLargestInteractionContentfulPaint()"
 short-title: getLargestInteractionContentfulPaint()
 slug: Web/API/PerformanceSoftNavigation/getLargestInteractionContentfulPaint
 l10n:
-  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
+  sourceCommit: edc9ab5479d1253d9edd93bfe90dd1d100605c26
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die Methode **`getLargestInteractionContentfulPaint()`** des [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation) Interfaces gibt das derzeit größte [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) zurück, das für diese Soft-Navigation relevant ist.
+Die Methode **`getLargestInteractionContentfulPaint()`** der Schnittstelle [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation) gibt den aktuell größten [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Eintrag zurück, der für diese Soft Navigation relevant ist.
 
-Einige {{Glossary("SPA", "Single Page Applications (SPAs)")}} könnten zuerst rendern und danach die URL aktualisieren. Dennoch möchten Entwickler, dass diese Renderings in die Messung des {{Glossary("Largest_contentful_paint", "Largest Contentful Paint (LCP)")}} für {{Glossary("Soft_navigation", "Soft-Navigations")}} einbezogen werden. Da die Interaktion mit jedem Rendering auch zu einer URL-Aktualisierung und somit zu einer Soft-Navigation zu einem späteren Zeitpunkt führen könnte, könnte es schwierig sein, dies zu messen, ohne möglicherweise eine temporäre Referenz zu jedem Interaktions-LCP zu speichern, falls sie benötigt wird.
+Einige {{Glossary("SPA", "Single-Page-Anwendungen (SPAs)")}} zeichnen möglicherweise zuerst Inhalte und aktualisieren erst danach die URL. Dennoch möchten Entwickler diese Zeichenvorgänge berücksichtigen, wenn sie den {{Glossary("Largest_contentful_paint", "Largest Contentful Paint (LCP)")}} für {{Glossary("Soft_navigation", "Soft Navigations")}} messen. Da eine Interaktion mit gezeichneten Inhalten auch erst zu einem beliebigen späteren Zeitpunkt eine URL-Aktualisierung und damit eine Soft Navigation auslösen kann, wäre dies schwer zu messen, ohne vorsorglich eine temporäre Referenz auf den LCP jeder Interaktion zu speichern.
 
-Die Methode `getLargestInteractionContentfulPaint()` erspart es den Entwicklern, dies zu tun, indem sie eine Möglichkeit bietet, das neueste und größte `InteractionContentfulPaint` für die Soft-Navigation abzurufen.
+Die Methode `getLargestInteractionContentfulPaint()` erspart Entwicklern dies, indem sie den neuesten und größten `InteractionContentfulPaint`-Eintrag für die Soft Navigation bereitstellt.
 
-Sie ist als Methode und nicht als statische Eigenschaft definiert, da sie den neuesten und größten Eintrag zurückgibt und daher im Laufe der Zeit unterschiedliche Ergebnisse liefern kann, wenn nach der Soft-Navigation größere `InteractionContentfulPaint`-Einträge aufgezeichnet werden.
+Sie ist als Methode und nicht als statische Eigenschaft definiert, weil sie den neuesten und größten Eintrag zurückgibt. Daher kann sie im Laufe der Zeit unterschiedliche Ergebnisse liefern, wenn nach der Soft Navigation größere `InteractionContentfulPaint`-Einträge erfasst werden.
 
 ## Syntax
 
@@ -28,13 +28,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) Objekt, das das größte `InteractionContentfulPaint` für diese Soft-Navigation darstellt.
+Ein [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekt, das den größten `InteractionContentfulPaint`-Eintrag für diese Soft Navigation darstellt.
 
 ## Beispiele
 
-### Verwendung der Methode `getLargestInteractionContentfulPaint`
+### Die Methode `getLargestInteractionContentfulPaint` verwenden
 
-In diesem Beispiel liefert der Aufruf von `entry.getLargestInteractionContentfulPaint()` eine JSON-Darstellung des `LargestContentfulPaint`-Objekts.
+In diesem Beispiel gibt der Aufruf von `entry.getLargestInteractionContentfulPaint()` eine JSON-Darstellung des `LargestContentfulPaint`-Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -49,7 +49,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "soft-navigation", buffered: true });
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
+Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; dabei wird `toJSON()` automatisch aufgerufen.
 
 ## Spezifikationen
 

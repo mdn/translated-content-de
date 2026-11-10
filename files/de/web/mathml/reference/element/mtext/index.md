@@ -2,12 +2,12 @@
 title: <mtext>
 slug: Web/MathML/Reference/Element/mtext
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Das **`<mtext>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um beliebigen Text ohne notationale Bedeutung darzustellen, wie Kommentare oder Anmerkungen.
+Das **`<mtext>`**-Element von [MathML](/de/docs/Web/MathML) wird verwendet, um beliebigen Text _ohne_ mathematische Bedeutung darzustellen, beispielsweise Kommentare oder Anmerkungen.
 
-Um Text mit notationaler Bedeutung darzustellen, verwenden Sie stattdessen {{ MathMLElement("mi") }}, {{ MathMLElement("mn") }}, {{ MathMLElement("mo") }} oder {{ MathMLElement("ms") }}.
+Um Text _mit_ mathematischer Bedeutung darzustellen, verwenden Sie stattdessen {{ MathMLElement("mi") }}, {{ MathMLElement("mn") }}, {{ MathMLElement("mo") }} oder {{ MathMLElement("ms") }}.
 
 ## Attribute
 
@@ -25,7 +25,7 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Re
 </math>
 ```
 
-{{ EmbedLiveSample('mtext_example', 700, 200, "", "") }}
+{{ EmbedLiveSample('examples', 700, 200, "", "") }}
 
 ## Technische Zusammenfassung
 

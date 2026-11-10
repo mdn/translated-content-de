@@ -3,10 +3,10 @@ title: "`background-repeat` CSS property"
 short-title: background-repeat
 slug: Web/CSS/Reference/Properties/background-repeat
 l10n:
-  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
+  sourceCommit: c4e64810ce10fb5cb1eebfcd8b6f526866fd0982
 ---
 
-Die **`background-repeat`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt fest, wie Hintergrundbilder wiederholt werden. Ein Hintergrundbild kann entlang der horizontalen und vertikalen Achse wiederholt werden oder gar nicht.
+Die [CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) **`background-repeat`** legt fest, wie Hintergrundbilder wiederholt werden. Ein Hintergrundbild kann entlang der horizontalen und vertikalen Achse oder überhaupt nicht wiederholt werden.
 
 {{InteractiveExample("CSS Demo: background-repeat")}}
 
@@ -49,7 +49,7 @@ background-repeat: space repeat;
 }
 ```
 
-## Bestandteile
+## Zugehörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -81,48 +81,48 @@ background-repeat: revert-layer;
 background-repeat: unset;
 ```
 
-## Beschreibung
+### Werte
 
-Die Eigenschaft akzeptiert eine durch Kommas getrennte Liste von zwei [`<repeat-style>`](#werte) Schlüsselbegriffen oder einen Schlüsselbegriff als Kurzform für die beiden Werte. Wenn zwei Werte angegeben sind, definiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten. Eigenschaftswerte können verwendet werden, um nur horizontal, vertikal oder gar nicht zu wiederholen.
-
-Der Standardwert ist `repeat repeat`. Mit diesem Wert behält das Hintergrundbild sein intrinsisches {{Glossary("aspect_ratio", "Seitenverhältnis")}} bei und wird sowohl horizontal als auch vertikal wiederholt, um den gesamten Hintergrundbereich abzudecken, wobei Randbilder auf die Größe des Elements zugeschnitten werden. Welche Ränder zugeschnitten werden, hängt vom Wert der entsprechenden {{cssxref("background-position")}} ab. Wie oft sie wiederholt werden und wie stark die Bilder an den Rändern zugeschnitten werden, hängt von der Größe des Hintergrundbereichs und dem entsprechenden {{cssxref("background-size")}} Wert ab.
-
-Die sich wiederholenden Bilder können gleichmäßig beabstandet sein, um sicherzustellen, dass das wiederholte Bild sein Seitenverhältnis beibehält, ohne zugeschnitten zu werden. Mit dem Wert `space`, wenn der Hintergrundbereich ein anderes Seitenverhältnis als das Bild hat oder ansonsten keine Größe, die ein Vielfaches der Hintergrundgröße in beide Richtungen ist, gibt es Bereiche, die nicht vom Hintergrundbild abgedeckt sind.
-
-Alternativ kann das wiederholte Hintergrundbild ohne Zuschnitt gestreckt werden, um den gesamten Bereich abzudecken. Mit `round` wird das wiederholte Bild so gestreckt, dass es den gesamten verfügbaren Raum füllt, bis Platz für ein zusätzliches wiederholtes Bild ist, wenn das Seitenverhältnis des Hintergrundbilds nicht mit dem des Malbereichs übereinstimmt. Zum Beispiel, bei einem Hintergrundbild von 100px x 100px und einem Hintergrundbereich von 1099px x 750px wird das Bild 10 Mal in horizontaler Richtung und 7 Mal vertikal wiederholt, was insgesamt 70 Wiederholungen ergibt, wobei jedes Bild in beide Richtungen auf 109,9px x 105px gedehnt wird, das Seitenverhältnis des Bildes ändert und es möglicherweise verzerrt. Wenn die Breite des Malbereichs um 1px zunimmt und 1100px breit wird, passt ein 11. Bild horizontal, was insgesamt 77 Bildwiederholungen ergibt, wobei jedes Bild nur in vertikaler Richtung auf 100px Breite und 105px Höhe gestreckt wird.
-
-## Werte
-
-Die Eigenschaft akzeptiert eine durch Kommas getrennte Liste von zwei `<repeat-style>` Schlüsselbegriffen oder einen Schlüsselbegriff als Kurzform für die beiden Werte. Der erste Wert ist die horizontale Wiederholung. Der zweite Wert ist das vertikale Verhalten. Wenn nur ein einzelner Wert auf einen anderen Wert als `repeat-x` oder `repeat-y` gesetzt ist, wird dieser Wert auf beide Richtungen angewendet. Die Werte umfassen:
+Die Eigenschaft akzeptiert zwei durch ein Komma getrennte `<repeat-style>`-Schlüsselwörter oder ein Schlüsselwort als Kurzschreibweise für beide Werte. Der erste Wert bestimmt die horizontale, der zweite die vertikale Wiederholung. Wird nur ein einzelner Wert angegeben, der weder `repeat-x` noch `repeat-y` ist, gilt er für beide Richtungen. Folgende Werte sind möglich:
 
 - `repeat`
-  - : Der Standardwert. Das Bild wird so oft wie nötig wiederholt, um den gesamten Hintergrundbild-Malbereich abzudecken, wobei das Randbild zugeschnitten wird, wenn die Dimension des Malbereichs kein Vielfaches der Dimension Ihres Hintergrundbilds ist.
+  - : Der Standardwert. Das Bild wird so oft wie nötig wiederholt, um den gesamten Zeichenbereich des Hintergrundbilds abzudecken. Bilder am Rand werden abgeschnitten, wenn die Abmessung des Zeichenbereichs kein Vielfaches der entsprechenden Abmessung des Hintergrundbilds ist.
 
 - `no-repeat`
-  - : Das Bild wird nicht wiederholt (und daher wird der Hintergrundbild-Malbereich möglicherweise nicht vollständig abgedeckt). Die Position des nicht wiederholten Hintergrundbildes wird durch die CSS-Eigenschaft {{cssxref("background-position")}} definiert.
+  - : Das Bild wird nicht wiederholt. Daher wird der Zeichenbereich des Hintergrundbilds möglicherweise nicht vollständig abgedeckt. Die Position des nicht wiederholten Hintergrundbilds wird durch die CSS-Eigenschaft {{cssxref("background-position")}} festgelegt.
 
 - `space`
-  - : Das Bild wird so oft wie möglich wiederholt, ohne zugeschnitten zu werden. Die ersten und letzten Bilder werden an beiden Seiten des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("background-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Zuschnitt angezeigt werden. Das einzige Szenario, in dem mit `space` zugeschnitten wird, ist, wenn nicht genug Platz ist, um ein Bild anzuzeigen.
+  - : Das Bild wird so oft wie möglich wiederholt, ohne abgeschnitten zu werden. Das erste und das letzte Bild liegen an den gegenüberliegenden Seiten des Elements; der freie Raum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("background-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Abschneiden angezeigt werden. Bei `space` wird ein Bild nur dann abgeschnitten, wenn nicht genügend Platz für ein einziges Bild vorhanden ist.
 
 - `round`
-  - : Wenn der verfügbare Platz größer wird, werden die wiederholten Bilder (ohne Lücken) gedehnt, bis Platz für ein zusätzliches hinzugefügt werden kann. Dies ist der einzige `<repeat-style>` Wert, der zur Verzerrung des Hintergrundbildes führen kann {{Glossary("aspect_ratio", "Seitenverhältnis")}}, was der Fall sein wird, wenn das Seitenverhältnis des Hintergrundbilds von dem des Malbereichs abweicht.
+  - : Wenn der verfügbare Platz größer wird, werden die wiederholten Bilder gestreckt, sodass keine Lücken entstehen, bis Platz für ein weiteres Bild vorhanden ist. Dies ist der einzige `<repeat-style>`-Wert, der das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Hintergrundbilds verändern kann. Das geschieht, wenn das Seitenverhältnis des Hintergrundbilds vom Seitenverhältnis des Zeichenbereichs abweicht.
 
 - `repeat-x`
-  - : Kurzform für `repeat no-repeat`, das Hintergrundbild wird nur horizontal wiederholt, wobei das Randbild zugeschnitten wird, wenn die Breite des Malbereichs kein Vielfaches der Breite des Hintergrundbilds ist.
+  - : Kurzschreibweise für `repeat no-repeat`: Das Hintergrundbild wird nur horizontal wiederholt. Das Bild am Rand wird abgeschnitten, wenn die Breite des Zeichenbereichs kein Vielfaches der Breite des Hintergrundbilds ist.
 
 - `repeat-y`
-  - : Kurzform für `no-repeat repeat`, das Hintergrundbild wird nur vertikal wiederholt, wobei das Randbild zugeschnitten wird, wenn die Höhe des Malbereichs kein Vielfaches der Höhe des Hintergrundbilds ist.
+  - : Kurzschreibweise für `no-repeat repeat`: Das Hintergrundbild wird nur vertikal wiederholt. Das Bild am Rand wird abgeschnitten, wenn die Höhe des Zeichenbereichs kein Vielfaches der Höhe des Hintergrundbilds ist.
 
-Wenn ein `<repeat-style>` Schlüsselbegriff angegeben ist, ist der Wert eine Kurzform für die folgende Zweifach-Wertsatz-Syntax:
+Wird ein einzelnes `<repeat-style>`-Schlüsselwort angegeben, entspricht der Wert der folgenden Schreibweise mit zwei Werten:
 
-| Einzelwert  | Zweifach-Wert-Äquivalent |
-| ----------- | ------------------------ |
-| `repeat-x`  | `repeat no-repeat`       |
-| `repeat-y`  | `no-repeat repeat`       |
-| `repeat`    | `repeat repeat`          |
-| `space`     | `space space`            |
-| `round`     | `round round`            |
-| `no-repeat` | `no-repeat no-repeat`    |
+| Einzelner Wert | Entsprechung mit zwei Werten |
+| -------------- | ---------------------------- |
+| `repeat-x`     | `repeat no-repeat`           |
+| `repeat-y`     | `no-repeat repeat`           |
+| `repeat`       | `repeat repeat`              |
+| `space`        | `space space`                |
+| `round`        | `round round`                |
+| `no-repeat`    | `no-repeat no-repeat`        |
+
+## Beschreibung
+
+Die Eigenschaft akzeptiert zwei durch ein Komma getrennte [`<repeat-style>`](#werte)-Schlüsselwörter oder ein Schlüsselwort als Kurzschreibweise für beide Werte. Bei zwei Werten bestimmt der erste das horizontale und der zweite das vertikale Wiederholungsverhalten. Mit den Eigenschaftswerten lässt sich das Bild nur horizontal, nur vertikal oder überhaupt nicht wiederholen.
+
+Der Standardwert ist `repeat repeat`. Dabei behält das Hintergrundbild sein ursprüngliches {{Glossary("aspect_ratio", "Seitenverhältnis")}} bei und wird horizontal und vertikal wiederholt, um den gesamten Zeichenbereich des Hintergrunds abzudecken. Bilder am Rand werden an den Grenzen des Elements abgeschnitten. Welche Ränder abgeschnitten werden, hängt vom entsprechenden Wert von {{cssxref("background-position")}} ab. Wie oft das Bild wiederholt wird und wie stark Bilder am Rand abgeschnitten werden, hängt von der Größe des Zeichenbereichs des Hintergrunds und dem entsprechenden Wert von {{cssxref("background-size")}} ab.
+
+Wiederholte Bilder können gleichmäßig voneinander beabstandet werden, sodass sie ihr Seitenverhältnis beibehalten und nicht abgeschnitten werden. Bei `space` bleiben Bereiche frei, wenn der Zeichenbereich des Hintergrunds ein anderes Seitenverhältnis als das Bild hat oder seine Abmessungen in einer der beiden Richtungen kein Vielfaches der entsprechenden Hintergrundbildgröße sind.
+
+Alternativ kann das wiederholte Hintergrundbild gestreckt werden, um den gesamten Bereich ohne Abschneiden abzudecken. Bei `round` wird das wiederholte Bild so gestreckt, dass es den verfügbaren Platz ausfüllt, bis Platz für ein weiteres Bild vorhanden ist. Wenn das Seitenverhältnis des Hintergrundbilds nicht mit dem des Zeichenbereichs übereinstimmt, kann sich dadurch das Seitenverhältnis des Bilds ändern. Angenommen, ein Hintergrundbild ist 100px × 100px groß und der Zeichenbereich des Hintergrunds misst 1099px × 750px. Das Bild wird dann horizontal 10-mal und vertikal 7-mal wiederholt, insgesamt also 70-mal. Jedes Bild wird dabei in beide Richtungen auf 109,9px × 105px gestreckt, wodurch sich sein Seitenverhältnis ändert und es möglicherweise verzerrt wird. Erhöht sich die Breite des Zeichenbereichs um 1px auf 1100px, passt horizontal ein elftes Bild hinein. Dadurch ergeben sich insgesamt 77 Bildwiederholungen. Jedes Bild wird dann mit einer Breite von 100px und einer Höhe von 105px dargestellt und nur vertikal gestreckt.
 
 ## Formale Definition
 
@@ -220,7 +220,7 @@ div {
 
 #### Ergebnis
 
-In diesem Beispiel wird jeder Listeneintrag mit einem anderen Wert von `background-repeat` abgeglichen.
+In diesem Beispiel erhält jedes Listenelement einen anderen Wert für `background-repeat`.
 
 {{EmbedLiveSample('Setting_background-repeat', 240, 560)}}
 
@@ -234,7 +234,7 @@ In diesem Beispiel wird jeder Listeneintrag mit einem anderen Wert von `backgrou
 
 ## Siehe auch
 
-- Die anderen {{cssxref("background")}} Kurzformkomponenten: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}} ({{cssxref("background-position-x")}} und {{cssxref("background-position-y")}}), und {{cssxref("background-size")}}
-- [Verwenden mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
-- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+- Die anderen Bestandteile der {{cssxref("background")}}-Kurzschreibweise: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}} ({{cssxref("background-position-x")}} und {{cssxref("background-position-y")}}) und {{cssxref("background-size")}}
+- [Mehrere Hintergründe verwenden](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
+- Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [Seitenverhältnisse verstehen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)

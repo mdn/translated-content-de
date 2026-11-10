@@ -3,14 +3,18 @@ title: "GamepadButton: value-Eigenschaft"
 short-title: value
 slug: Web/API/GamepadButton/value
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`GamepadButton.value`**-Eigenschaft der [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Schnittstelle gibt einen double-Wert zurück, der den aktuellen Zustand von analogen Tasten auf vielen modernen Gamepads, wie z.B. den Triggern, darstellt.
+Die Eigenschaft **`GamepadButton.value`** der Schnittstelle [`GamepadButton`](/de/docs/Web/API/GamepadButton) gibt einen Double-Wert zurück, der den aktuellen Zustand analoger Tasten vieler moderner Gamepads darstellt, beispielsweise der Trigger.
 
-Die Werte sind auf den Bereich `0.0` — `1.0` normalisiert, wobei `0.0` eine nicht gedrückte Taste und `1.0` eine vollständig gedrückte Taste repräsentiert.
+Die Werte sind auf den Bereich von `0.0` bis `1.0` normiert. Dabei steht `0.0` für eine nicht gedrückte Taste und `1.0` für eine vollständig gedrückte Taste.
+
+## Wert
+
+Ein Double-Wert.
 
 ## Beispiele
 
@@ -22,10 +26,6 @@ if (gp.buttons[0].value > 0) {
 }
 ```
 
-## Wert
-
-Ein double.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -36,4 +36,4 @@ Ein double.
 
 ## Siehe auch
 
-[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

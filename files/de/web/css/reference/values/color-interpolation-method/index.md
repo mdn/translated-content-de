@@ -3,16 +3,16 @@ title: "`<color-interpolation-method>` CSS-Typ"
 short-title: <color-interpolation-method>
 slug: Web/CSS/Reference/Values/color-interpolation-method
 l10n:
-  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
+  sourceCommit: 7cabe7010a0ccfcf587ddac1571963eba102090d
 ---
 
-Der **`<color-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert den {{Glossary("Color_space", "Farbraum")}}, der zur Interpolation zwischen {{CSSXref("&lt;color&gt;")}}-Werten verwendet wird. Er kann verwendet werden, um den Standard-Interpolationsfarbraum für farbbezogene funktionale Notationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
+Der **`<color-interpolation-method>`**-[CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) beschreibt den {{Glossary("Color_space", "Farbraum")}}, der für die Interpolation zwischen {{CSSXref("&lt;color&gt;")}}-Werten verwendet wird. Mit ihm lässt sich der standardmäßige Interpolationsfarbraum für farbbezogene funktionale Notationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} überschreiben.
 
-Bei der Interpolation von `<color>`-Werten ist der Standard-Interpolationsfarbraum Oklab.
+Bei der Interpolation von `<color>`-Werten wird standardmäßig Oklab als Farbraum verwendet.
 
 ## Syntax
 
-Der `<color-interpolation-method>` gibt an, ob die Interpolation einen rechteckigen Farbraum oder einen polaren Farbraum mit einer optionalen Farbton-Interpolationsmethode verwenden soll:
+`<color-interpolation-method>` legt fest, ob für die Interpolation ein rechteckiger Farbraum oder ein polarer Farbraum mit einer optionalen Methode zur Farbtoninterpolation verwendet wird:
 
 ```plain
 in <rectangular-color-space>
@@ -29,10 +29,10 @@ in <polar-color-space>[ <hue-interpolation method>]
   - : Eines der Schlüsselwörter `hsl`, `hwb`, `lch` oder `oklch`.
 
 - {{CSSXref("&lt;hue-interpolation-method&gt;")}} {{optional_inline}}
-  - : Der Algorithmus für die Farbton-Interpolation. Standardmäßig wird `shorter hue` verwendet.
+  - : Der Algorithmus für die Farbtoninterpolation. Der Standardwert ist `shorter hue`.
 
 - `<custom-color-space>`
-  - : Ein [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident#using_with_color-profile), der auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/Reference/At-rules/@color-profile) verweist.
+  - : Ein [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident#using_with_color-profile), das auf ein benutzerdefiniertes [@color-Profil](/de/docs/Web/CSS/Reference/At-rules/@color-profile) verweist.
 
 ## Formale Syntax
 
@@ -40,9 +40,9 @@ in <polar-color-space>[ <hue-interpolation method>]
 
 ## Beispiele
 
-### Vergleich von Interpolationsfarbräumen mithilfe von Verläufen
+### Interpolationsfarbräume anhand von Farbverläufen vergleichen
 
-Das folgende Beispiel zeigt die Wirkung der Verwendung unterschiedlicher Interpolationsfarbräume für {{CSSXref("gradient/linear-gradient", "linear-gradient()")}}.
+Das folgende Beispiel zeigt, wie sich unterschiedliche Interpolationsfarbräume auf {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} auswirken.
 
 #### HTML
 
@@ -77,12 +77,12 @@ Das folgende Beispiel zeigt die Wirkung der Verwendung unterschiedlicher Interpo
 
 {{EmbedLiveSample("comparing_interpolation_color_spaces_using_gradients", "100%", 250)}}
 
-### Farbinterpolation in wiederholenden Verläufen
+### Farbinterpolation in sich wiederholenden Farbverläufen
 
-Das folgende Beispiel zeigt, wie man einen Farbraum spezifiziert, wenn Farben in wiederholenden Verläufen interpoliert werden.
-Drei Boxen zeigen verschiedene Arten von wiederholenden Verläufen mit den Funktionen [`repeating-conic-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-conic-gradient), [`repeating-linear-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient) und [`repeating-radial-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-radial-gradient).
-Die erste Box verwendet den Lab-Farbraum, um zwischen zwei Farbwerten zu interpolieren.
-Die zweite und dritte Box verwenden OkLCh und geben zusätzlich eine {{cssxref("hue-interpolation-method")}} an, um zu spezifizieren, wie zwischen den Farbtonwerten interpoliert werden soll.
+Das folgende Beispiel zeigt, wie Sie einen Farbraum für die Interpolation von Farben in sich wiederholenden Farbverläufen angeben.
+Drei Felder zeigen unterschiedliche Arten sich wiederholender Farbverläufe mit den Funktionen [`repeating-conic-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-conic-gradient), [`repeating-linear-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient) und [`repeating-radial-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-radial-gradient).
+Das erste Feld verwendet den Lab-Farbraum, um zwischen zwei Farbwerten zu interpolieren.
+Das zweite und dritte Feld verwenden OkLCh und geben zusätzlich eine {{cssxref("hue-interpolation-method")}} an, um festzulegen, wie zwischen Farbtonwerten interpoliert wird.
 
 #### HTML
 
@@ -94,7 +94,7 @@ Die zweite und dritte Box verwenden OkLCh und geben zusätzlich eine {{cssxref("
 
 #### CSS
 
-Wir haben in jedem Verlauf dieselben zwei Farben verwendet, um die unterschiedlichen Effekte von {{cssxref("hue-interpolation-method")}} und {{Glossary("color_space", "Farbraum")}} auf die Farbinterpolation in Verläufen zu demonstrieren.
+Wir haben in jedem Farbverlauf dieselben zwei Farben verwendet, um die unterschiedlichen Auswirkungen von {{cssxref("hue-interpolation-method")}} und {{Glossary("color_space", "Farbraum")}} auf die Farbinterpolation in Farbverläufen zu veranschaulichen.
 
 ```css hidden
 .gradient {
@@ -135,10 +135,10 @@ Wir haben in jedem Verlauf dieselben zwei Farben verwendet, um die unterschiedli
 
 #### Ergebnis
 
-{{EmbedLiveSample("hue_interpolation_in_repeating_gradients", "100%", 250)}}
+{{EmbedLiveSample("color_interpolation_in_repeating_gradients", "100%", 250)}}
 
-Der Vergleich der ersten und der zweiten Box zeigt den Unterschied der Interpolation zwischen zwei Farben in verschiedenen Farbräumen.
-Der Vergleich der zweiten und der dritten Box zeigt den Unterschied zwischen {{cssxref("hue-interpolation-method")}}s, wobei der lineare Verlauf die kürzere Methode (Standard) verwendet und der radiale Verlauf die längere Methode verwendet.
+Ein Vergleich des ersten und zweiten Feldes verdeutlicht den Unterschied zwischen der Interpolation zweier Farben in unterschiedlichen Farbräumen.
+Ein Vergleich des zweiten und dritten Feldes zeigt den Unterschied zwischen den {{cssxref("hue-interpolation-method")}}-Methoden: Der lineare Farbverlauf verwendet die kürzere Methode (Standard), der radiale Farbverlauf die längere Methode.
 
 ## Spezifikationen
 

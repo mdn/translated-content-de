@@ -1,28 +1,50 @@
 ---
-title: "PerformanceElementTiming: Eigenschaft renderTime"
+title: "PerformanceElementTiming: renderTime-Eigenschaft"
 short-title: renderTime
 slug: Web/API/PerformanceElementTiming/renderTime
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`renderTime`** schreibgeschützte Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt die Renderzeit des zugehörigen Elements zurück.
+Die schreibgeschützte Eigenschaft **`renderTime`** der Schnittstelle [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) gibt den Zeitpunkt zurück, zu dem das zugehörige Element gerendert wurde.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit der Renderzeit des Elements.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, zu dem das Element gerendert wurde.
 
-Für Bilder ist dies der **Bild-Renderzeitstempel**. Dieser wird als der nächste Zeichenvorgang definiert, der nach dem vollständigen Laden des Bildes auftritt. Wenn die Timing-Erlaubnisprüfung fehlschlägt (wie durch den [Timing-Allow-Origin](/de/docs/Web/HTTP/Reference/Headers/Timing-Allow-Origin)-Header definiert), wird `0` zurückgegeben.
+Bei Bildern ist dies der **Zeitstempel für das Rendern des Bildes**. Er entspricht dem nächsten Zeichenvorgang, nachdem das Bild vollständig geladen wurde. Wenn die Timing-Allow-Prüfung fehlschlägt (wie durch den Header [Timing-Allow-Origin](/de/docs/Web/HTTP/Reference/Headers/Timing-Allow-Origin) definiert), wird `0` zurückgegeben.
 
-Für Textknoten ist dies der **Text-Renderzeitstempel**. Dieser wird definiert als der Zeitpunkt, an dem das Element als Text gerendert wird.
+Bei Textknoten ist dies der **Zeitstempel für das Rendern des Textes**. Er gibt an, wann der Text des Elements gezeichnet wird.
+
+### Renderzeit von Bildern aus anderen Ursprüngen
+
+Aus Sicherheitsgründen war der Wert der Eigenschaft `renderTime` ursprünglich `0`, wenn die Ressource über eine ursprungsübergreifende Anfrage geladen wurde. Stattdessen sollte die Eigenschaft `loadTime` als Ersatzwert verwendet werden.
+
+Browser [können in diesen Fällen inzwischen eine etwas weniger genaue Renderzeit bereitstellen](https://github.com/w3c/paint-timing/issues/104). Prüfen Sie die [Browser-Unterstützung](#browser-kompatibilität).
+
+Um genauere Informationen zur Renderzeit von Ressourcen aus anderen Ursprüngen bereitzustellen, muss der HTTP-Antwortheader {{HTTPHeader("Timing-Allow-Origin")}} gesetzt werden.
+
+Damit beispielsweise `https://developer.mozilla.org` einen genauen `renderTime`-Wert sehen kann, sollte die Ressource aus einem anderen Ursprung Folgendes senden:
+
+```http
+Timing-Allow-Origin: https://developer.mozilla.org
+```
+
+Alternativ können Sie [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) verwenden. Diese Eigenschaft gibt den `renderTime`-Wert des Eintrags zurück, sofern er nicht `0` ist, andernfalls den Wert von [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime). Es wird jedoch empfohlen, den Header {{HTTPHeader("Timing-Allow-Origin")}} zu setzen, damit die Messwerte genauer sind.
+
+Wenn Sie `startTime` verwenden, können Sie mögliche Ungenauigkeiten kennzeichnen, indem Sie prüfen, ob `renderTime` verwendet wurde:
+
+```js
+const isRenderTime = Boolean(entry.renderTime);
+```
 
 ## Beispiele
 
-### Protokollierung von `renderTime`
+### `renderTime` protokollieren
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das Attribut [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungsdaten von Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Beobachters existieren. Durch Aufrufen von `entry.renderTime` wird die Renderzeit des Bildelements zurückgegeben.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element mithilfe des Attributs [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) beobachtet. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge vom Typ `"element"` abzurufen. Mit dem Flag `buffered` können auch Daten aus der Zeit vor der Erstellung des Observers abgerufen werden. Der Aufruf von `entry.renderTime` gibt den Zeitpunkt zurück, zu dem das Bildelement gerendert wurde.
 
 ```html
 <img
@@ -41,28 +63,6 @@ const observer = new PerformanceObserver((list) => {
   });
 });
 observer.observe({ type: "element", buffered: true });
-```
-
-### Renderzeit von Cross-Origin-Bildern
-
-Aus Sicherheitsgründen war der Wert der `renderTime`-Eigenschaft ursprünglich `0`, wenn die Ressource eine Cross-Origin-Anfrage ist. Stattdessen sollte die `loadTime`-Eigenschaft als Fallback verwendet werden.
-
-Browser [können jetzt eine leicht gröbere Renderzeit](https://github.com/w3c/paint-timing/issues/104) in diesen Situationen offenlegen. Überprüfen Sie die [Browser-Unterstützung](#browser-kompatibilität).
-
-Um genauere Cross-Origin-Renderzeit-Informationen offenzulegen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
-
-Ein Beispiel: Um `https://developer.mozilla.org` zu erlauben, eine genaue `renderTime` zu sehen, sollte die Cross-Origin-Ressource senden:
-
-```http
-Timing-Allow-Origin: https://developer.mozilla.org
-```
-
-Alternativ können Sie [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) verwenden, welche den Wert von `renderTime` zurückgibt, falls dieser nicht `0` ist, und ansonsten den Wert von [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime). Es wird jedoch empfohlen, den {{HTTPHeader("Timing-Allow-Origin")}}-Header zu setzen, damit die Metriken genauer sind.
-
-Wenn Sie `startTime` verwenden, können Sie Ungenauigkeiten kennzeichnen, indem Sie prüfen, ob `renderTime` benutzt wurde:
-
-```js
-const isRenderTime = Boolean(entry.renderTime);
 ```
 
 ## Spezifikationen

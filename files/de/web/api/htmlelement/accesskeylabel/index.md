@@ -3,14 +3,20 @@ title: "HTMLElement: accessKeyLabel-Eigenschaft"
 short-title: accessKeyLabel
 slug: Web/API/HTMLElement/accessKeyLabel
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: b9569fcd65bb09ea7e032ef0938185eccdc2d9c4
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte **`HTMLElement.accessKeyLabel`**-Eigenschaft gibt einen String zurück, der den vom Browser zugewiesenen Zugriffsschlüssel des Elements enthält (falls vorhanden); andernfalls wird ein leerer String zurückgegeben.
+Die schreibgeschützte Eigenschaft **`HTMLElement.accessKeyLabel`** gibt eine Zeichenfolge mit der vom Browser zugewiesenen Zugriffstaste des Elements zurück, sofern eine vorhanden ist. Andernfalls gibt sie eine leere Zeichenfolge zurück.
 
 ## Beispiel
+
+### HTML
+
+```html
+<button accesskey="h" title="Caption" id="btn1">Hover me</button>
+```
 
 ### JavaScript
 
@@ -24,12 +30,6 @@ btn.onclick = () => {
   feedback.textContent = "Pressed!";
   btn.insertAdjacentElement("afterend", feedback);
 };
-```
-
-### HTML
-
-```html
-<button accesskey="h" title="Caption" id="btn1">Hover me</button>
 ```
 
 ### Ergebnis
@@ -47,4 +47,4 @@ btn.onclick = () => {
 ## Siehe auch
 
 - [`HTMLElement.accessKey`](/de/docs/Web/API/HTMLElement/accessKey)
-- Das globale [accesskey](/de/docs/Web/HTML/Reference/Global_attributes/accesskey)-Attribut.
+- Das globale Attribut [accesskey](/de/docs/Web/HTML/Reference/Global_attributes/accesskey).
