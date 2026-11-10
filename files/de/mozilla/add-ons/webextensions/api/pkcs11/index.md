@@ -2,57 +2,56 @@
 title: pkcs11
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 3116241f515352d336d2edb460cebfe99d43aea7
 ---
 
-Die `pkcs11` API ermöglicht einer Erweiterung, [PKCS #11](https://en.wikipedia.org/wiki/PKCS_11) Sicherheitsmodule aufzulisten und sie dem Browser als Quellen für Schlüssel und Zertifikate zugänglich zu machen.
+Die `pkcs11`-API ermöglicht es einer Erweiterung, [PKCS #11](https://en.wikipedia.org/wiki/PKCS_11)-Sicherheitsmodule aufzulisten und sie dem Browser als Quellen für Schlüssel und Zertifikate zugänglich zu machen.
 
-Um diese API nutzen zu können, benötigen Sie die "pkcs11" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Um diese API zu verwenden, benötigen Sie die [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) „pkcs11“.
 
-## Verwendung des Firefox-Einstellungsdialogs zur Installation von PKCS #11-Modulen
+## PKCS #11-Module über die Firefox-Einstellungen installieren
 
-Führen Sie die folgenden Schritte aus:
+Gehen Sie wie folgt vor:
 
-1. Speichern Sie das PKCS #11-Modul an einem permanenten Ort auf Ihrem lokalen Computer.
-2. Wählen Sie **Werkzeuge > Einstellungen** oder wählen Sie das **Firefox-Menü** und dann **Einstellungen**.
-3. Sobald sich die Einstellungsseite öffnet, wählen Sie **Datenschutz & Sicherheit**.
-4. Scrollen Sie zum unteren Rand der Seite und klicken oder tippen Sie unter **Zertifikate** auf **Sicherheitsgeräte…**.
-   ![Sicherheitsmodule und -geräte](device_manager.png)
-5. Klicken oder tippen Sie auf die Schaltfläche **Laden**.
-   ![PKCS#11 Gerätetreiber laden](load_device_driver.png)
-6. Geben Sie einen Namen für das Sicherheitsmodul ein, wie zum Beispiel "_Meine Kundendatenbank_".
+1. Speichern Sie das PKCS #11-Modul an einem dauerhaften Speicherort auf Ihrem Computer.
+2. Öffnen Sie die Firefox-Einstellungen.
+3. Wählen Sie auf der Einstellungsseite **Datenschutz & Sicherheit** und klicken Sie unter „Verbindungs- und Softwaresicherheit“ auf **Erweiterte Einstellungen**.
+4. Suchen Sie den Abschnitt „Zertifikate“ und klicken Sie auf **Sicherheitsgeräte verwalten**.
+   ![Das Dialogfeld zur Geräteverwaltung mit einer Liste der Sicherheitsmodule und Geräte](device_manager.png)
 
-   > [!WARNING]
-   > Seien Sie vorsichtig bei der Verwendung von internationalen Zeichen, da es derzeit einen Fehler in Firefox gibt, bei dem internationale Zeichen Probleme verursachen können.
+5. Klicken Sie auf **Laden**.
+   ![Das Dialogfeld zum Laden eines PKCS#11-Gerätetreibers](load_device_driver.png)
 
-7. Wählen Sie **Durchsuchen…**, um den Speicherort des PKCS #11-Moduls auf Ihrem lokalen Computer zu finden, und klicken oder tippen Sie dann auf **OK**, um zu bestätigen.
+6. Geben Sie einen Namen für das Sicherheitsmodul ein, beispielsweise „_Meine Client-Datenbank_“.
 
-## Bereitstellung von PKCS #11-Modulen
+7. Klicken Sie auf **Durchsuchen…**, um das PKCS #11-Modul auf Ihrem Computer zu finden, und bestätigen Sie anschließend mit **OK**.
+
+## PKCS #11-Module bereitstellen
 
 > [!NOTE]
-> Ab Firefox 58 können Erweiterungen diese API verwenden, um PKCS #11-Module aufzulisten und sie dem Browser als Quellen für Schlüssel und Zertifikate verfügbar zu machen.
+> Ab Firefox 58 können Erweiterungen diese API verwenden, um PKCS #11-Module aufzulisten und sie dem Browser als Quellen für Schlüssel und Zertifikate zugänglich zu machen.
 
-Es gibt zwei Umgebungsanforderungen für die Verwendung dieser **API**:
+Für die Verwendung dieser **API** müssen zwei Voraussetzungen in der Umgebung erfüllt sein:
 
-- Ein oder mehrere `PKCS #11` Module müssen auf dem Computer des Benutzers installiert sein.
-- Für jedes installierte `PKCS #11` Modul muss eine [native Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests) Datei vorhanden sein, die dem Browser erlaubt, das Modul zu finden.
+- Auf dem Computer des Benutzers muss mindestens ein `PKCS #11`-Modul installiert sein.
+- Für jedes installierte `PKCS #11`-Modul muss eine [Native-Manifest-Datei](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests) vorhanden sein, über die der Browser das Modul finden kann.
 
-Höchstwahrscheinlich würde der Benutzer oder Geräteadministrator das `PKCS #11` Modul installieren, und der Installer würde gleichzeitig die native Manifest-Datei installieren.
+In der Regel installiert der Benutzer oder der Geräteadministrator das `PKCS #11`-Modul. Das Installationsprogramm installiert dabei gleichzeitig die Native-Manifest-Datei.
 
-Jedoch können das Modul und das Manifest nicht als Teil des Installationsprozesses der Erweiterung installiert werden.
+Das Modul und die Manifest-Datei können jedoch nicht im Rahmen der Installation der Erweiterung selbst installiert werden.
 
-Für Details zu Inhalt und Speicherort der Manifestdatei siehe [Native manifests](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests).
+Einzelheiten zum Inhalt und Speicherort der Manifest-Datei finden Sie unter [Native Manifests](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests).
 
 ## Funktionen
 
 - {{WebExtAPIRef("pkcs11.getModuleSlots()")}}
-  - : Für jeden Slot in einem Modul dessen Namen erhalten und ob es ein Token enthält.
+  - : Ruft für jeden Slot eines Moduls dessen Namen ab und gibt an, ob er ein Token enthält.
 - {{WebExtAPIRef("pkcs11.installModule()")}}
-  - : Installiert das benannte PKCS #11 Modul.
+  - : Installiert das angegebene PKCS #11-Modul.
 - {{WebExtAPIRef("pkcs11.isModuleInstalled()")}}
-  - : Überprüft, ob das benannte PKCS #11 Modul installiert ist.
+  - : Prüft, ob das angegebene PKCS #11-Modul installiert ist.
 - {{WebExtAPIRef("pkcs11.uninstallModule()")}}
-  - : Deinstalliert das benannte PKCS #11 Modul.
+  - : Deinstalliert das angegebene PKCS #11-Modul.
 
 {{WebExtExamples("h2")}}
 

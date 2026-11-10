@@ -1,25 +1,25 @@
 ---
-title: Einen Button zur Symbolleiste hinzufügen
+title: Eine Schaltfläche zur Symbolleiste hinzufügen
 slug: Mozilla/Add-ons/WebExtensions/Add_a_button_to_the_toolbar
 l10n:
-  sourceCommit: 5310a5bff0e1f3e2dfafa44bc2aadbb39e1c4673
+  sourceCommit: 3116241f515352d336d2edb460cebfe99d43aea7
 ---
 
-Symbolleisten-Buttons sind eine der wichtigsten UI-Komponenten, die Erweiterungen zur Verfügung stehen. Symbolleisten-Buttons befinden sich in der Haupt-Symbolleiste des Browsers und enthalten ein Symbol. Wenn der Benutzer auf das Symbol klickt, kann eines von zwei Dingen passieren:
+Schaltflächen in der Symbolleiste gehören zu den wichtigsten UI-Komponenten für Erweiterungen. Sie befinden sich in der Hauptsymbolleiste des Browsers und enthalten ein Symbol. Wenn Benutzer auf das Symbol klicken, geschieht eines von zwei Dingen:
 
-- Wenn Sie ein Popup für das Symbol festgelegt haben, wird das Popup angezeigt. Popups sind temporäre Dialoge, die mittels HTML, CSS und JavaScript definiert werden.
-- Wenn Sie kein Popup festgelegt haben, wird ein Klick-Ereignis generiert, das Sie in Ihrem Code abhören können, um daraufhin eine andere Aktion auszuführen.
+- Wenn Sie für das Symbol ein Popup festgelegt haben, wird es angezeigt. Popups sind temporäre Dialoge, die mit HTML, CSS und JavaScript erstellt werden.
+- Wenn Sie kein Popup festgelegt haben, wird ein Klickereignis ausgelöst. Sie können in Ihrem Code darauf reagieren und eine andere Aktion ausführen.
 
-Mit den WebExtension-APIs werden diese Art von Buttons als "browser actions" bezeichnet und wie folgt eingerichtet:
+In den WebExtension-APIs heißen solche Schaltflächen „browser actions“. Sie werden wie folgt eingerichtet:
 
-- Der Schlüssel `browser_action` im `manifest.json` wird verwendet, um den Button zu definieren.
-- Die JavaScript-API [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) wird genutzt, um Klicks abzuhören und den Button zu ändern oder Aktionen über Ihren Code auszuführen.
+- Mit dem Schlüssel [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in manifest.json wird die Schaltfläche definiert.
+- Mit der JavaScript-API [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) können Sie auf Klicks reagieren, die Schaltfläche ändern oder andere Aktionen ausführen.
 
-## Ein einfacher Button
+## Eine einfache Schaltfläche
 
-In diesem Abschnitt erstellen wir eine Erweiterung, die einen Button zur Symbolleiste hinzufügt. Wenn der Benutzer auf den Button klickt, öffnen wir <https://developer.mozilla.org> in einem neuen Tab.
+In diesem Abschnitt erstellen wir eine Erweiterung, die der Symbolleiste eine Schaltfläche hinzufügt. Wenn Benutzer darauf klicken, öffnen wir <https://developer.mozilla.org> in einem neuen Tab.
 
-Erstellen Sie zuerst ein neues Verzeichnis namens "button" und legen Sie darin eine Datei namens "manifest.json" mit folgendem Inhalt an:
+Erstellen Sie zunächst ein neues Verzeichnis namens „button“ und darin eine Datei namens „manifest.json“ mit folgendem Inhalt:
 
 ```json
 {
@@ -41,24 +41,24 @@ Erstellen Sie zuerst ein neues Verzeichnis namens "button" und legen Sie darin e
 }
 ```
 
-Dies gibt an, dass wir ein [Hintergrundskript](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) mit dem Namen "background.js" haben werden und eine Browseraktion (Button), dessen Symbole im Verzeichnis "icons" gespeichert werden.
+Damit legen wir ein [Hintergrundskript](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) namens „background.js“ und eine browser action (Schaltfläche) fest, deren Symbole sich im Verzeichnis „icons“ befinden.
 
-Erstellen Sie als Nächstes das Verzeichnis "icons" im Verzeichnis "buttons" und speichern Sie die beiden unten gezeigten Symbole darin:
+Erstellen Sie als Nächstes im Verzeichnis „buttons“ das Verzeichnis „icons“ und speichern Sie darin die beiden folgenden Symbole:
 
-**"page-16.png":**
+**„page-16.png“:**
 
-!["16 Pixel-Symbol eines linierten Blattes Papier"](page-16.png)
+![16 Pixel großes Symbol eines linierten Blatts Papier](page-16.png)
 
-**"page-32.png":**
+**„page-32.png“:**
 
-!["32 Pixel-Symbol eines linierten Blattes Papier"](page-32.png)
+![32 Pixel großes Symbol eines linierten Blatts Papier](page-32.png)
 
 > [!NOTE]
-> Diese Symbole stammen aus dem "bitsies!" Iconset auf iconfinder.com, erstellt von Recep Kütük.
+> Diese Symbole stammen aus dem von Recep Kütük erstellten Iconset „bitsies!“ auf iconfinder.com.
 
-Wir haben zwei Symbole, sodass wir das größere in hochauflösenden Displays verwenden können. Der Browser kümmert sich darum, das beste Symbol für das aktuelle Display auszuwählen.
+Wir verwenden zwei Symbole, damit auf Displays mit hoher Pixeldichte das größere angezeigt werden kann. Der Browser wählt das für das jeweilige Display am besten geeignete Symbol aus.
 
-Erstellen Sie als Nächstes "background.js" im Root-Verzeichnis der Erweiterung und geben Sie ihm den folgenden Inhalt:
+Erstellen Sie als Nächstes im Stammverzeichnis der Erweiterung die Datei „background.js“ mit folgendem Inhalt:
 
 ```js
 function openPage() {
@@ -70,9 +70,9 @@ function openPage() {
 browser.browserAction.onClicked.addListener(openPage);
 ```
 
-Dies hört auf das Klick-Ereignis der Browseraktion; wenn das Ereignis ausgelöst wird, wird die Funktion `openPage()` ausgeführt, die die angegebene Seite mithilfe der [`tabs`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs) API öffnet.
+Dieser Code reagiert auf das Klickereignis der browser action. Wenn das Ereignis ausgelöst wird, wird die Funktion `openPage()` ausgeführt. Sie öffnet die angegebene Seite mithilfe der API [`tabs`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs).
 
-Zu diesem Zeitpunkt sollte die vollständige Erweiterung wie folgt aussehen:
+Die vollständige Erweiterung sollte nun so aussehen:
 
 ```plain
 button/
@@ -83,13 +83,13 @@ button/
     manifest.json
 ```
 
-Installieren Sie nun [die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) und klicken Sie auf den Button:
+[Installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/). Klicken Sie in der Symbolleiste auf die Schaltfläche „Erweiterungen“ (Puzzleteil-Symbol) und suchen Sie die Erweiterung. Öffnen Sie das Menü mit den drei Punkten der Erweiterung und wählen Sie **An Symbolleiste anheften**. Klicken Sie nun auf die Schaltfläche in der Symbolleiste:
 
-![Der durch die Erweiterung hinzugefügte Symbolleisten-Button](toolbar_button.png)
+![Die von der Erweiterung hinzugefügte Schaltfläche in der Symbolleiste, hervorgehoben](toolbar_button.png)
 
 ## Ein Popup hinzufügen
 
-Lassen Sie uns versuchen, dem Button ein Popup hinzuzufügen. Ersetzen Sie die manifest.json mit folgender:
+Fügen wir der Schaltfläche nun ein Popup hinzu. Ersetzen Sie den Inhalt von manifest.json durch Folgendes:
 
 ```json
 {
@@ -108,12 +108,12 @@ Lassen Sie uns versuchen, dem Button ein Popup hinzuzufügen. Ersetzen Sie die m
 }
 ```
 
-Wir haben zwei Änderungen vom Original vorgenommen:
+Wir haben gegenüber der ursprünglichen Version zwei Änderungen vorgenommen:
 
-- die Referenz zu "background.js" entfernt, da wir jetzt die Logik der Erweiterung im Skript des Popups behandeln (es ist erlaubt, sowohl background.js als auch ein Popup zu haben, nur brauchen wir es in diesem Fall nicht).
-- `"default_popup": "popup/choose_page.html"` hinzugefügt, was dem Browser sagt, dass diese Browseraktion jetzt ein Popup anzeigen wird, wenn darauf geklickt wird. Das Dokument dafür befindet sich in "popup/choose_page.html".
+- Wir haben den Verweis auf „background.js“ entfernt, weil wir die Logik der Erweiterung nun im Skript des Popups verarbeiten. Ein Hintergrundskript und ein Popup können auch gleichzeitig verwendet werden; in diesem Fall benötigen wir das Hintergrundskript jedoch nicht.
+- Wir haben `"default_popup": "popup/choose_page.html"` hinzugefügt. Damit teilen wir dem Browser mit, dass diese browser action beim Anklicken ein Popup anzeigen soll, dessen Dokument sich unter „popup/choose_page.html“ befindet.
 
-Nun müssen wir dieses Popup erstellen. Erstellen Sie ein Verzeichnis namens "popup" und dann eine Datei namens "choose_page.html" darin. Geben Sie ihr folgenden Inhalt:
+Nun müssen wir das Popup erstellen. Erstellen Sie ein Verzeichnis namens „popup“ und darin eine Datei namens „choose_page.html“ mit folgendem Inhalt:
 
 ```html
 <!doctype html>
@@ -131,9 +131,9 @@ Nun müssen wir dieses Popup erstellen. Erstellen Sie ein Verzeichnis namens "po
 </html>
 ```
 
-Sie sehen, dass dies eine normale HTML-Seite ist, die drei {{htmlelement("div")}} Elemente enthält, jeweils mit dem Namen einer Mozilla-Seite. Es beinhaltet auch eine CSS- und eine JavaScript-Datei, die wir als Nächstes hinzufügen werden.
+Wie Sie sehen, handelt es sich um eine normale HTML-Seite mit drei {{htmlelement("div")}}-Elementen, die jeweils den Namen einer Mozilla-Website enthalten. Sie bindet außerdem eine CSS-Datei und eine JavaScript-Datei ein, die wir als Nächstes hinzufügen.
 
-Erstellen Sie eine Datei namens "choose_page.css" im "popup"-Verzeichnis und geben Sie ihr diesen Inhalt:
+Erstellen Sie im Verzeichnis „popup“ eine Datei namens „choose_page.css“ mit folgendem Inhalt:
 
 ```css
 html,
@@ -154,9 +154,9 @@ body {
 }
 ```
 
-Dies ist nur ein bisschen Styling für unser Popup.
+Damit gestalten wir das Popup.
 
-Erstellen Sie als Nächstes eine "choose_page.js"-Datei im "popup"-Verzeichnis und geben Sie ihr diesen Inhalt:
+Erstellen Sie als Nächstes im Verzeichnis „popup“ eine Datei namens „choose_page.js“ mit folgendem Inhalt:
 
 ```js
 document.addEventListener("click", (event) => {
@@ -171,9 +171,9 @@ document.addEventListener("click", (event) => {
 });
 ```
 
-In unserem JavaScript horchen wir auf Klicks auf die Popup-Auswahlen. Wir prüfen zuerst, ob der Klick auf eine der Seiten-Auswahlen gelandet ist; wenn nicht, machen wir nichts weiter. Wenn der Klick auf einer Seiten-Auswahl gelandet ist, konstruieren wir eine URL daraus und öffnen einen neuen Tab mit der entsprechenden Seite. Beachten Sie, dass wir WebExtension-APIs in Popup-Skripten genau wie in Hintergrund-Skripten verwenden können.
+In unserem JavaScript-Code reagieren wir auf Klicks auf die Auswahlmöglichkeiten im Popup. Zunächst prüfen wir, ob auf eine der auswählbaren Seiten geklickt wurde. Falls nicht, geschieht nichts weiter. Andernfalls erstellen wir daraus eine URL und öffnen die entsprechende Seite in einem neuen Tab. Beachten Sie, dass wir WebExtension-APIs in Popup-Skripten genauso verwenden können wie in Hintergrundskripten.
 
-Die endgültige Struktur der Erweiterung sollte wie folgt aussehen:
+Die endgültige Verzeichnisstruktur der Erweiterung sollte so aussehen:
 
 ```plain
 button/
@@ -187,27 +187,27 @@ button/
     manifest.json
 ```
 
-Laden Sie nun [die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading-a-temporary-extension), klicken Sie erneut auf den Button und probieren Sie die Auswahlen im Popup aus:
+[Laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading-a-temporary-extension) und klicken Sie auf die Schaltfläche, um das Popup zu öffnen:
 
-![Der durch die Erweiterung hinzugefügte Symbolleisten-Button mit einem Popup](toolbar_button_with_popup.png)
+![Die von der Erweiterung hinzugefügte Schaltfläche in der Symbolleiste mit geöffnetem Popup, hervorgehoben](toolbar_button_with_popup.png)
 
 ## Page actions
 
-[Page actions](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) ähneln Browseraktionen, außer dass sie für Aktionen gedacht sind, die nur für bestimmte Seiten relevant sind, nicht für den gesamten Browser.
+[Page actions](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) funktionieren ähnlich wie browser actions. Sie sind jedoch für Aktionen vorgesehen, die nur für bestimmte Seiten relevant sind, statt für den Browser insgesamt.
 
-Während Browseraktionen immer angezeigt werden, werden Page Actions nur in Tabs angezeigt, in denen sie relevant sind. Page Action-Buttons werden in der URL-Leiste angezeigt, anstatt in der Browser-Symbolleiste.
+Während browser actions immer angezeigt werden, erscheinen page actions nur in Tabs, in denen sie relevant sind. Schaltflächen für page actions werden in der URL-Leiste statt in der Browser-Symbolleiste angezeigt.
 
-## Mehr erfahren
+## Weitere Informationen
 
-- [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) Manifest-Schlüssel
-- [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) API
-- Beispiele für Browseraktionen:
+- Manifest-Schlüssel [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)
+- API [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction)
+- Beispiele für browser actions:
   - [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify)
   - [Bookmark it!](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it)
   - [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour)
   - [open-my-page-button](https://github.com/mdn/webextensions-examples/tree/main/open-my-page-button)
 
-- [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Manifest-Schlüssel
-- [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction) API
-- Beispiele für Page Actions:
+- Manifest-Schlüssel [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)
+- API [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction)
+- Beispiele für page actions:
   - [chill-out](https://github.com/mdn/webextensions-examples/tree/main/chill-out)

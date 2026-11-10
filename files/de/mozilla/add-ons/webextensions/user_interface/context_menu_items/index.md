@@ -1,33 +1,33 @@
 ---
-title: Kontextmenü-Elemente
+title: Kontextmenüeinträge
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Context_menu_items
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: 3116241f515352d336d2edb460cebfe99d43aea7
 ---
 
-Diese Benutzeroberflächenoption fügt einem Browser-Kontextmenü ein oder mehrere Elemente hinzu. Dies ist das Menü, das verfügbar ist, wenn ein Benutzer mit der rechten Maustaste auf eine Webseite klickt. Registerkarten und Lesezeichen können ebenfalls Kontextmenüs haben, die über die {{WebExtAPIRef("menus")}} API verfügbar sind.
+Mit dieser Benutzeroberflächenoption fügen Sie einem Browser-Kontextmenü einen oder mehrere Einträge hinzu. Dieses Menü erscheint, wenn ein Benutzer mit der rechten Maustaste auf eine Webseite klickt. Auch Tabs und Lesezeichen können Kontextmenüs haben, die über die {{WebExtAPIRef("menus")}} API verfügbar sind.
 
-![Beispiel für durch eine WebExtension hinzugefügte Menüeinträge, aus dem Beispiel context-menu-demo](context_menu_example.png)
+![Beispiel für Kontextmenüeinträge, die vom Beispiel menu-demo hinzugefügt wurden](context_menu_example.png)
 
-Sie verwenden diese Option, um Funktionen bereitzustellen, die für bestimmte Browser- oder Webseiten-Kontexte relevant sind. Beispielsweise können Sie Funktionen zum Öffnen eines Grafikeditors anzeigen, wenn der Benutzer auf ein Bild klickt, oder eine Funktion zum Speichern von Seiteninhalten anbieten, wenn ein Teil einer Seite ausgewählt wurde. Sie können einfache Menüelemente, Kontrollkästchen, Radiobutton-Gruppen und Trennstriche zu Menüs hinzufügen. Sobald ein Kontextmenü-Element mit {{WebExtAPIRef("menus.create")}} hinzugefügt wurde, wird es in allen Browser-Tabs angezeigt, kann jedoch mit {{WebExtAPIRef("menus.remove")}} wieder entfernt werden.
+Mit dieser Option stellen Sie Funktionen bereit, die für bestimmte Kontexte im Browser oder auf einer Webseite relevant sind. Beispielsweise können Sie eine Funktion zum Öffnen eines Grafikeditors anzeigen, wenn der Benutzer auf ein Bild klickt, oder eine Funktion zum Speichern von Seiteninhalten anbieten, wenn ein Teil der Seite ausgewählt ist. Sie können einfache Menüeinträge, Kontrollkästchen, Optionsfeldgruppen und Trennlinien zu Menüs hinzufügen. Sobald ein Kontextmenüeintrag mit {{WebExtAPIRef("menus.create")}} hinzugefügt wurde, wird er in allen Browser-Tabs angezeigt. Sie können ihn jedoch ausblenden, indem Sie ihn mit {{WebExtAPIRef("menus.remove")}} entfernen.
 
-Die vollständige Liste der unterstützten Kontexte finden Sie unter {{WebExtAPIRef("menus.ContextType")}} und enthält Kontexte außerhalb einer Webseite, wie beispielsweise Lesezeichenelemente in der Browser-Benutzeroberfläche. Ein Beispiel ist die Erweiterung "[Open bookmark in Container Tab](https://github.com/Rob--W/bookmark-container-tab)", die ein Menüelement hinzufügt, mit dem der Benutzer eine Lesezeichen-URL in einem neuen Container-Tab öffnen kann.
+Die vollständige Liste der unterstützten Kontexte finden Sie unter {{WebExtAPIRef("menus.ContextType")}}. Sie umfasst auch Kontexte außerhalb einer Webseite, etwa Lesezeicheneinträge in der Browseroberfläche. Die Erweiterung „[Open bookmark in Container Tab](https://github.com/Rob--W/bookmark-container-tab)“ fügt beispielsweise einen Menüeintrag hinzu, mit dem Benutzer die URL eines Lesezeichens in einem neuen Container-Tab öffnen können.
 
-![Ein Kontextmenü mit dem hervorgehobenen Untermenü "Open in new container tab". Das Untermenü zeigt persönliche, arbeitsbezogene, Bank-, Einkaufs- und Facebook-Kontextidentitäten. Oben im Untermenü gibt es eine Option, um keinen Container auszuwählen.](extension_context_menu.png)
+![Ein Lesezeichen-Kontextmenü in der Lesezeichen-Seitenleiste von Firefox, in dem das Untermenü „Open in a New Container Tab“ der Erweiterung hervorgehoben ist. Das Untermenü zeigt die kontextuellen Identitäten „Privat“, „Arbeit“, „Banking“ und „Einkaufen“ sowie oben eine Option, keinen Container auszuwählen.](extension_context_menu.png)
 
-Sie können auch die Kontextmenüs, die in Erweiterungsseiten angezeigt werden, wie z. B. benutzerdefinierte Seitenleisten und Popups, überschreiben, um entweder die Tab- oder Lesezeichen-Kontextmenüs anstelle des standardmäßigen Kontextmenüs zu verwenden, mit {{WebExtAPIRef("menus.overrideContext")}}. Diese Methode ist hilfreich, wenn Ihre Erweiterung eine benutzerdefinierte Darstellung von Tabs oder Lesezeichen bietet. Das Menü enthält automatisch Menüelemente für alle anderen Erweiterungen, die Tab- oder Lesezeichen-Kontextmenüelemente definiert haben. Sie können entscheiden, ob die standardmäßigen Kontextmenüelemente einbezogen werden sollen. Das Ausblenden der Standardelemente gibt der Erweiterung die vollständige Kontrolle über die im gerenderten nativen Kontextmenü angezeigten Elemente, wie im Bild unten für die Tree Style Tab-Erweiterung gezeigt.
+Sie können auch die Kontextmenüs überschreiben, die auf Erweiterungsseiten wie benutzerdefinierten Seitenleisten und Pop-ups angezeigt werden. Mit {{WebExtAPIRef("menus.overrideContext")}} können Sie dort statt des Standard-Kontextmenüs das Tab- oder Lesezeichen-Kontextmenü verwenden. Das ist hilfreich, wenn Ihre Erweiterung Tabs oder Lesezeichen auf eigene Weise darstellt. Das Menü enthält automatisch auch Menüeinträge anderer Erweiterungen, die Tab- oder Lesezeichen-Kontextmenüeinträge definiert haben. Sie können festlegen, ob die Standard-Kontextmenüeinträge enthalten sein sollen. Wenn Sie die Standardeinträge ausblenden, hat Ihre Erweiterung die vollständige Kontrolle über die Einträge im angezeigten nativen Kontextmenü, wie das folgende Bild für die Erweiterung Tree Style Tab zeigt.
 
-![Ein Tab-Kontextmenü, das für ein Tab-Element in der Seitenleiste der Tree Style Tab-Erweiterung angezeigt wird. Das Menü zeigt benutzerdefinierte Tab-Aktionen, ein Menüelement für die Erweiterung und ein Menüelement für die Simple Tab Group-Erweiterung.](custom_sidebar_tab_menu.png)
+![Ein Tab-Kontextmenü für einen Tab-Eintrag in der Seitenleiste der Erweiterung Tree Style Tab. Das Menü zeigt Tab-Aktionen, einen Menüeintrag „Tree of tabs“ für die Erweiterung und einen Menüeintrag „Move tab to group“ für die Erweiterung Simple Tab Groups.](custom_sidebar_tab_menu.png)
 
-## Kontextmenü-Elemente spezifizieren
+## Kontextmenüeinträge festlegen
 
-Sie verwalten Kontextmenü-Elemente programmgesteuert mit der {{WebExtAPIRef("contextMenus")}} API. Sie müssen jedoch die `contextMenus` Berechtigung in Ihrer manifest.json anfordern, um die API nutzen zu können.
+Sie verwalten Kontextmenüeinträge programmatisch mit der {{WebExtAPIRef("contextMenus")}} API. Um die API nutzen zu können, müssen Sie jedoch in Ihrer manifest.json die Berechtigung `contextMenus` anfordern.
 
 ```json
 "permissions": ["contextMenus"]
 ```
 
-Anschließend können Sie die Kontextmenü-Elemente im Hintergrundskript Ihrer Erweiterung hinzufügen (und aktualisieren oder löschen). Um ein Menüelement zu erstellen, spezifizieren Sie eine ID, dessen Titel und die Kontextmenüs, in denen es erscheinen soll:
+Anschließend können Sie Kontextmenüeinträge im Hintergrundskript Ihrer Erweiterung hinzufügen, aktualisieren oder löschen. Zum Erstellen eines Menüeintrags geben Sie eine ID, einen Titel und die Kontextmenüs an, in denen er erscheinen soll:
 
 ```js
 browser.contextMenus.create(
@@ -40,7 +40,7 @@ browser.contextMenus.create(
 );
 ```
 
-Ihre Erweiterung lauscht dann auf Klicks auf die Menüelemente. Die übergebenen Informationen über das angeklickte Element, den Kontext, in dem der Klick stattfand, und Details des Tabs, in dem der Klick erfolgte, können dann verwendet werden, um die entsprechende Erweiterungsfunktionalität aufzurufen.
+Ihre Erweiterung reagiert dann auf Klicks auf die Menüeinträge. Anhand der übergebenen Informationen zum angeklickten Eintrag, zum Kontext des Klicks und zum Tab, in dem der Klick stattfand, können Sie die entsprechende Funktion der Erweiterung aufrufen.
 
 ```js
 browser.contextMenus.onClicked.addListener((info, tab) => {
@@ -53,13 +53,13 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 });
 ```
 
-## Symbole
+## Icons
 
-Informationen dazu, wie Sie Symbole erstellen, die Sie mit Ihrem Kontextmenü verwenden können, finden Sie unter [Iconography](https://acorn.firefox.com/latest/foundations/styles/iconography-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
+Wie Sie Icons für Ihr Kontextmenü erstellen, erfahren Sie unter [Ikonografie](https://acorn.firefox.com/latest/foundations/styles/iconography-QEDMXQqj) in der Dokumentation des [Acorn Design System](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält zwei Beispiele für Erweiterungen, die Kontextmenüeinträge implementieren:
+Das Repository [webextensions-examples](https://github.com/mdn/webextensions-examples) auf GitHub enthält zwei Beispiele für Erweiterungen, die Kontextmenüeinträge implementieren:
 
-- [menu-demo](https://github.com/mdn/webextensions-examples/tree/main/menu-demo) fügt mehrere Elemente zum Kontextmenü des Browsers hinzu.
-- [context-menu-copy-link-with-types](https://github.com/mdn/webextensions-examples/tree/main/context-menu-copy-link-with-types) fügt einem Kontextmenüeintrag für Links hinzu, der die Link-URL in die Zwischenablage kopiert, als Klartext und reichhaltiges HTML.
+- [menu-demo](https://github.com/mdn/webextensions-examples/tree/main/menu-demo) fügt dem Kontextmenü des Browsers mehrere Einträge hinzu.
+- [context-menu-copy-link-with-types](https://github.com/mdn/webextensions-examples/tree/main/context-menu-copy-link-with-types) fügt für Links einen Kontextmenüeintrag hinzu, der die Link-URL als einfachen Text und als Rich HTML in die Zwischenablage kopiert.

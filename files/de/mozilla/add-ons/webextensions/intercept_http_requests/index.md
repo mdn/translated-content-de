@@ -2,29 +2,29 @@
 title: HTTP-Anfragen abfangen
 slug: Mozilla/Add-ons/WebExtensions/Intercept_HTTP_requests
 l10n:
-  sourceCommit: 6d0f39cf8d43b264b732d3056cea62a2e31fbca2
+  sourceCommit: 3116241f515352d336d2edb460cebfe99d43aea7
 ---
 
-Zwei APIs stehen zur Verfügung, um HTTP-Anfragen abzufangen: {{WebExtAPIRef("webRequest")}} und {{WebExtAPIRef("declarativeNetRequest")}}.
+Zum Abfangen von HTTP-Anfragen stehen zwei APIs zur Verfügung: {{WebExtAPIRef("webRequest")}} und {{WebExtAPIRef("declarativeNetRequest")}}.
 
-Die {{WebExtAPIRef("webRequest")}} API fängt Anfragen ab, indem Ereignislistener zu den verschiedenen Phasen einer HTTP-Anfrage hinzugefügt werden. Die Listener der Erweiterung können Anfragen programmatisch inspizieren und modifizieren: Zugriff auf Anfrage- und Antwort-Header sowie -Körper, Abbrechen von Anfragen und Umleiten von Anfragen. Verwenden Sie `webRequest`, wenn Ihre Erweiterung Anfragen auf eine Weise behandeln muss, die Sie im Voraus nicht bestimmen können, z.B. wenn die Logik vom Inhalt einer vorherigen Anfrage oder vom dynamischen Zustand der Erweiterung abhängt.
+Die {{WebExtAPIRef("webRequest")}}-API fängt Anfragen ab, indem sie Event-Listener für die verschiedenen Phasen einer HTTP-Anfrage registriert. Die Listener der Erweiterung können Anfragen programmatisch untersuchen und ändern: Sie können auf Anfrage- und Antwort-Header sowie deren Inhalte zugreifen, Anfragen abbrechen und sie umleiten. Verwenden Sie `webRequest`, wenn Ihre Erweiterung Anfragen auf eine Weise verarbeiten muss, die sich nicht im Voraus festlegen lässt – etwa wenn die Logik vom Inhalt einer vorherigen Anfrage oder vom dynamischen Zustand der Erweiterung abhängt.
 
-Die {{WebExtAPIRef("declarativeNetRequest")}} API fängt Anfragen mithilfe deklarativer Regeln ab, die Bedingungen und Aktionen spezifizieren. Der Browser bewertet diese Regeln und behandelt Anfragen direkt, ohne die Erweiterung über einzelne Anfragen zu benachrichtigen. Dieses Verhalten macht `declarativeNetRequest` leistungsfähiger und datenschutzfreundlicher als `webRequest`, da Erweiterungen keinen Zugriff auf die Inhalte einzelner Anfragen haben. `declarativeNetRequest` benötigt zudem keine Hintergrundseite und kann Anfragen ohne [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) blockieren oder erweitern. Verwenden Sie `declarativeNetRequest`, wenn die Logik der Anfrageverarbeitung Ihrer Erweiterung als ein festgelegter Satz von Regeln ausgedrückt werden kann, beispielsweise bei Inhaltsblockern.
+Die {{WebExtAPIRef("declarativeNetRequest")}}-API fängt Anfragen anhand deklarativer Regeln ab, die Bedingungen und Aktionen festlegen. Der Browser wertet diese Regeln aus und verarbeitet Anfragen direkt, ohne die Erweiterung über einzelne Anfragen zu benachrichtigen. Dadurch ist `declarativeNetRequest` leistungsfähiger und datenschutzfreundlicher als `webRequest`, da Erweiterungen keinen Zugriff auf den Inhalt einzelner Anfragen haben. `declarativeNetRequest` benötigt außerdem keine Hintergrundseite und kann Anfragen ohne [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) blockieren oder auf eine sichere Verbindung umstellen. Verwenden Sie `declarativeNetRequest`, wenn sich die Logik zur Verarbeitung von Anfragen in Ihrer Erweiterung als fester Regelsatz ausdrücken lässt, beispielsweise bei Inhaltsblockern.
 
-Dieser Artikel betrachtet Beispiele zur Verwendung beider APIs.
+Dieser Artikel zeigt Beispiele für die Verwendung beider APIs.
 
-## Verwendung der webRequest API
+## Die webRequest-API verwenden
 
-Dieser Abschnitt enthält Beispiele, die die `webRequest` API verwenden, um:
+Dieser Abschnitt enthält Beispiele dafür, wie Sie mit der `webRequest`-API:
 
-- Anfragen-URLs zu protokollieren.
-- Anfragen umzuleiten.
-- Anfragen-Header zu modifizieren.
+- Anfrage-URLs protokollieren.
+- Anfragen umleiten.
+- Anfrage-Header ändern.
 
-### Protokollierung von Anfragen-URLs
+### Anfrage-URLs protokollieren
 
-Um zu sehen, wie Sie `webRequest` verwenden können, um Anfragen zu protokollieren, erstellen Sie ein neues Verzeichnis namens "requests".
-Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" und fügen Sie hinzu:
+Um zu sehen, wie Sie mit `webRequest` Anfragen protokollieren können, erstellen Sie ein neues Verzeichnis namens „requests“.
+Erstellen Sie darin eine Datei namens „manifest.json“ und fügen Sie Folgendes ein:
 
 ```json
 {
@@ -42,7 +42,7 @@ Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" und fügen
 }
 ```
 
-Erstellen Sie als Nächstes eine Datei namens "background.js" und fügen Sie hinzu:
+Erstellen Sie anschließend eine Datei namens „background.js“ und fügen Sie Folgendes ein:
 
 ```js
 function logURL(requestDetails) {
@@ -54,23 +54,23 @@ browser.webRequest.onBeforeRequest.addListener(logURL, {
 });
 ```
 
-Verwenden Sie {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} um die Funktion `logURL()` direkt vor dem Start der Anfrage aufzurufen. Die Funktion `logURL()` erfasst die URL der Anfrage aus dem Ereignisobjekt und protokolliert sie in der Browser-Konsole.
-Das `{urls: ["<all_urls>"]}` [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) bedeutet, dass Sie HTTP-Anfragen an alle URLs abfangen.
+Mit {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} rufen Sie die Funktion `logURL()` unmittelbar vor dem Beginn der Anfrage auf. Die Funktion `logURL()` liest die URL der Anfrage aus dem Event-Objekt und gibt sie in der Browserkonsole aus.
+Das [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) `{urls: ["<all_urls>"]}` bedeutet, dass Sie HTTP-Anfragen an alle URLs abfangen.
 
-Um es zu testen:
+So testen Sie es:
 
-- [Installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
-- In `about:debugging`, **Dieses Firefox** (oder **Dieses Nightly**), klicken Sie neben der Erweiterung auf **Untersuchen**.
+- [Installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/).
+- Klicken Sie unter `about:debugging` im Bereich **Dieser Firefox** (oder **Dieser Nightly**) neben der Erweiterung auf **Untersuchen**.
 - Öffnen Sie einige Webseiten.
 
-In der Konsolenansicht der Entwicklertools sehen Sie die URLs für jegliche Ressourcen, die der Browser anfragt.
-Zum Beispiel zeigt dieser Screenshot die URLs vom Laden einer Wikipedia-Seite:
+In der Konsole der Entwicklertools sehen Sie die URLs aller Ressourcen, die der Browser anfordert.
+Der folgende Screenshot zeigt beispielsweise die URLs, die beim Laden einer Wikipedia-Seite protokolliert wurden:
 
-![Die Entwicklertools-Konsole zeigt protokollierte Aufruf-URLs.](browser_console_url_from_extension.png)
+![Die Konsole der Entwicklertools für die Erweiterung zeigt die beim Laden einer Wikipedia-Seite protokollierten URLs.](browser_console_url_from_extension.png)
 
-### Umleiten von Anfragen
+### Anfragen umleiten
 
-Verwenden Sie nun `webRequest`, um HTTP-Anfragen umzuleiten. Ersetzen Sie zuerst "manifest.json" durch das Folgende:
+Verwenden Sie nun `webRequest`, um HTTP-Anfragen umzuleiten. Ersetzen Sie zunächst den Inhalt von „manifest.json“ durch Folgendes:
 
 ```json
 {
@@ -88,13 +88,13 @@ Verwenden Sie nun `webRequest`, um HTTP-Anfragen umzuleiten. Ersetzen Sie zuerst
 }
 ```
 
-Die Änderungen hier:
+Die Änderungen im Einzelnen:
 
-- Fügen Sie die Berechtigung `webRequestBlocking` hinzu, wie in der [`permission`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) beschrieben.
-  Diese zusätzliche Berechtigung ist erforderlich, wenn eine Erweiterung eine Anfrage modifizieren möchte.
-- Ersetzen Sie die Berechtigung `<all_urls>` durch einzelne [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), da dies eine gute Praxis ist, um die Anzahl der angeforderten Berechtigungen zu minimieren.
+- Fügen Sie die [`permission`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) `webRequestBlocking` hinzu.
+  Diese zusätzliche Berechtigung ist erforderlich, wenn eine Erweiterung eine Anfrage ändern soll.
+- Ersetzen Sie die Berechtigung `<all_urls>` durch einzelne [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions). So halten Sie die Anzahl der angeforderten Berechtigungen möglichst gering.
 
-Ersetzen Sie als Nächstes "background.js" durch Folgendes:
+Ersetzen Sie anschließend den Inhalt von „background.js“ durch Folgendes:
 
 ```js
 let pattern = "https://developer.mozilla.org/*";
@@ -118,26 +118,26 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Wieder verwenden Sie den {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} Ereignislistener, um eine Funktion direkt vor jeder Anfrage auszuführen.
-Diese Funktion ersetzt die `redirectUrl` durch die Ziel-URL, die in der Funktion angegeben ist. In diesem Fall das Froschbild aus dem [Ihrem zweiten Erweiterungstutorial](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension).
+Auch hier verwenden Sie den Event-Listener {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}}, um unmittelbar vor jeder Anfrage eine Funktion auszuführen.
+Diese Funktion ersetzt `redirectUrl` durch die in der Funktion angegebene Ziel-URL – in diesem Fall die URL des Froschbilds aus dem [Tutorial zu Ihrer zweiten Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension).
 
-Diesmal fangen Sie nicht jede Anfrage ab: die Option `{urls:[pattern], types:["image"]}` gibt an, dass Sie nur Anfragen (1) an URLs unter "https\://developer.mozilla.org/" und (2) für Bildressourcen abfangen.
-Lesen Sie {{WebExtAPIRef("webRequest.RequestFilter")}} für weitere Informationen hierzu.
+Diesmal fangen Sie nicht jede Anfrage ab: Die Option `{urls:[pattern], types:["image"]}` legt fest, dass Sie nur Anfragen (1) an URLs unter „https\://developer.mozilla.org/“ und (2) für Bildressourcen abfangen.
+Weitere Informationen finden Sie unter {{WebExtAPIRef("webRequest.RequestFilter")}}.
 
-Beachten Sie auch, dass Sie eine Option namens `"blocking"` übergeben: Sie müssen dies immer dann verwenden, wenn Sie die Anfrage modifizieren möchten.
-Es bewirkt, dass die Listener-Funktion die Netzwerk-Anfrage blockiert, sodass der Browser wartet, bis der Listener zurückkehrt, bevor er fortfährt.
-Lesen Sie die {{WebExtAPIRef("webRequest.onBeforeRequest")}} Dokumentation für mehr über `"blocking"`.
+Beachten Sie außerdem, dass Sie die Option `"blocking"` übergeben: Sie müssen sie immer angeben, wenn Sie die Anfrage ändern möchten.
+Sie sorgt dafür, dass die Listener-Funktion die Netzwerkanfrage blockiert, sodass der Browser auf ihre Rückgabe wartet, bevor er fortfährt.
+Weitere Informationen zu `"blocking"` finden Sie in der Dokumentation zu {{WebExtAPIRef("webRequest.onBeforeRequest")}}.
 
-Um es auszuprobieren, öffnen Sie eine Seite auf MDN, die Bilder enthält (z.B. [die Seite, die Benutzeroberflächenkomponenten der Erweiterung auflistet](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface)), [laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on), und dann laden Sie die MDN-Seite neu. Sie sehen so etwas:
+Öffnen Sie zum Testen eine MDN-Seite mit Bildern (beispielsweise [die Seite mit den Komponenten der Benutzeroberfläche von Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface)), [laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on) und laden Sie anschließend die MDN-Seite neu. Sie sehen ungefähr Folgendes:
 
-![Bilder auf einer Seite durch ein Froschbild ersetzt](beastify_by_redirect.png)
+![Eine MDN-Seite, deren Bilder durch ein Froschbild ersetzt wurden](beastify_by_redirect.png)
 
-### Modifizierung von Anfragen-Headern
+### Anfrage-Header ändern
 
-Schließlich verwenden Sie `webRequest`, um Anfragen-Header zu modifizieren.
-In diesem Beispiel ändern Sie den "User-Agent"-Header, sodass der Browser sich als Opera 12.16 identifiziert, aber nur beim Besuch von Seiten unter "https\://useragentstring.com/".
+Verwenden Sie `webRequest` abschließend, um Anfrage-Header zu ändern.
+In diesem Beispiel ändern Sie den „User-Agent“-Header so, dass sich der Browser als Opera 12.16 ausgibt – allerdings nur beim Aufruf von Seiten unter „https\://useragentstring.com/“.
 
-Aktualisieren Sie "manifest.json", um `https://useragentstring.com/` einzuschließen, wie folgt:
+Ergänzen Sie „manifest.json“ wie folgt um `https://useragentstring.com/`:
 
 ```json
 {
@@ -155,7 +155,7 @@ Aktualisieren Sie "manifest.json", um `https://useragentstring.com/` einzuschlie
 }
 ```
 
-Ersetzen Sie "background.js" durch diesen Code:
+Ersetzen Sie den Inhalt von „background.js“ durch Code wie diesen:
 
 ```js
 let targetPage = "https://useragentstring.com/*";
@@ -179,29 +179,29 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 );
 ```
 
-Verwenden Sie den {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} Ereignislistener, um eine Funktion auszuführen, bevor die Anfrage-Header gesendet werden.
+Mit dem Event-Listener {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} führen Sie unmittelbar vor dem Senden der Anfrage-Header eine Funktion aus.
 
-Die Listener-Funktion wird nur für Anfragen zu URLs aufgerufen, die mit dem `targetPage` [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) übereinstimmen.
-Beachten Sie auch, dass Sie erneut `"blocking"` als Option übergeben. Sie übergeben auch `"requestHeaders"`, was bedeutet, dass dem Listener ein Array mit den Anfrage-Headern, die Sie senden möchten, übergeben wird.
-Lesen Sie {{WebExtAPIRef("webRequest.onBeforeSendHeaders")}} für weitere Informationen zu diesen Optionen.
+Die Listener-Funktion wird nur für Anfragen an URLs aufgerufen, die dem [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) `targetPage` entsprechen.
+Beachten Sie auch, dass Sie erneut `"blocking"` als Option übergeben. Zusätzlich übergeben Sie `"requestHeaders"`. Dadurch erhält der Listener ein Array mit den Anfrage-Headern, die gesendet werden sollen.
+Weitere Informationen zu diesen Optionen finden Sie unter {{WebExtAPIRef("webRequest.onBeforeSendHeaders")}}.
 
-Die Listener-Funktion sucht den "User-Agent"-Header im Array der Anfrage-Header, ersetzt dessen Wert mit dem Wert der `ua`-Variable und gibt das modifizierte Array zurück.
-Dieses modifizierte Array wird an den Server gesendet.
+Die Listener-Funktion sucht im Array der Anfrage-Header nach dem „User-Agent“-Header, ersetzt dessen Wert durch den Wert der Variablen `ua` und gibt das geänderte Array zurück.
+Dieses geänderte Array wird an den Server gesendet.
 
-Um es zu testen, öffnen Sie [useragentstring.com](https://useragentstring.com/) und überprüfen Sie, dass es den Browser als Firefox identifiziert.
-Laden Sie dann die Erweiterung neu, laden Sie [useragentstring.com](https://useragentstring.com/) neu und sehen Sie, dass Firefox nun als Opera identifiziert wird.
+Öffnen Sie zum Testen [useragentstring.com](https://useragentstring.com/) und prüfen Sie, ob die Website den Browser als Firefox erkennt.
+Laden Sie dann die Erweiterung und [useragentstring.com](https://useragentstring.com/) neu. Nun sollte Firefox als Opera erkannt werden.
 
-![useragentstring.com zeigt Details der modifizierten User-Agent-Zeichenfolge](modified_request_header.png)
+![useragentstring.com zeigt Details zum geänderten User-Agent-String](modified_request_header.png)
 
-## Verwendung der declarativeNetRequest API
+## Die declarativeNetRequest-API verwenden
 
-Um die Verwendung der `declarativeNetRequest` API zu veranschaulichen, enthält dieser Abschnitt Beispiele, die zeigen, wie Anfragen mittels deklarativer Regeln umgeleitet und Anfragen-Header modifiziert werden können.
+Dieser Abschnitt veranschaulicht die Verwendung der `declarativeNetRequest`-API anhand von Beispielen, die zeigen, wie Sie Anfragen mit deklarativen Regeln umleiten und Anfrage-Header ändern.
 
-Im Gegensatz zu `webRequest` benachrichtigt `declarativeNetRequest` die Erweiterung nicht über einzelne Netzwerk-Anfragen, sodass es kein Äquivalent zu dem [Protokollierungsbeispiel](#protokollierung_von_anfragen-urls) gibt.
+Anders als `webRequest` benachrichtigt `declarativeNetRequest` die Erweiterung nicht über einzelne Netzwerkanfragen. Daher gibt es keine Entsprechung zum [Beispiel für die Protokollierung](#anfrage-urls_protokollieren).
 
-### Umleiten von Anfragen
+### Anfragen umleiten
 
-Verwenden Sie `declarativeNetRequest`, um HTTP-Anfragen umzuleiten. Erstellen Sie ein Verzeichnis namens "requests". Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" und fügen Sie hinzu:
+Verwenden Sie `declarativeNetRequest`, um HTTP-Anfragen umzuleiten. Erstellen Sie ein Verzeichnis namens „requests“. Erstellen Sie darin eine Datei namens „manifest.json“ und fügen Sie Folgendes ein:
 
 ```json
 {
@@ -225,9 +225,9 @@ Verwenden Sie `declarativeNetRequest`, um HTTP-Anfragen umzuleiten. Erstellen Si
 }
 ```
 
-Die Berechtigung `"declarativeNetRequest"` ermöglicht die API. Der Eintrag `"host_permissions"` ist erforderlich, da die Regeln Anfragen umleiten. Der [`"declarative_net_request"`-Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) registriert die Regelset-Datei, die definiert, wie Anfragen behandelt werden sollen.
+Die Berechtigung `"declarativeNetRequest"` aktiviert die API. Der Eintrag `"host_permissions"` ist erforderlich, da die Regeln Anfragen umleiten. Der [Manifest-Schlüssel `"declarative_net_request"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) registriert die Datei mit dem Regelsatz, die festlegt, wie Anfragen verarbeitet werden.
 
-Erstellen Sie als Nächstes eine Datei namens "rules.json" und fügen Sie hinzu:
+Erstellen Sie anschließend eine Datei namens „rules.json“ und fügen Sie Folgendes ein:
 
 ```json
 [
@@ -257,24 +257,24 @@ Erstellen Sie als Nächstes eine Datei namens "rules.json" und fügen Sie hinzu:
 ]
 ```
 
-Dieses Regelset enthält zwei Regeln:
+Dieser Regelsatz enthält zwei Regeln:
 
-- Regel 1 leitet alle Bildanfragen an URLs unter `https://developer.mozilla.org/` zu dem Froschbild aus dem [Ihrem zweiten Erweiterungstutorial](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension) um.
-- Regel 2 verwendet die "allow"-Aktion mit einer höheren Priorität, um zu verhindern, dass das Froschbild selbst umgeleitet wird, was sonst eine endlose Umleitungsschleife verursachen würde.
+- Regel 1 leitet alle Bildanfragen an URLs unter `https://developer.mozilla.org/` auf das Froschbild aus dem [Tutorial zu Ihrer zweiten Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension) um.
+- Regel 2 verwendet die Aktion „allow“ mit höherer Priorität, damit das Froschbild selbst nicht umgeleitet wird. Andernfalls entstünde eine Endlosschleife von Weiterleitungen.
 
-Siehe {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}} und {{WebExtAPIRef("declarativeNetRequest.RuleAction")}} für weitere Informationen zu Bedingungen und Aktionen, und [Matching precedence](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedence) für Details zur Funktionsweise der Regelpriorität.
+Weitere Informationen zu Bedingungen und Aktionen finden Sie unter {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}} und {{WebExtAPIRef("declarativeNetRequest.RuleAction")}}. Wie die Priorität von Regeln funktioniert, erläutert der Abschnitt [Reihenfolge bei übereinstimmenden Regeln](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedence).
 
-Im Gegensatz zur `webRequest`-Version dieses Beispiels benötigt die Erweiterung kein Hintergrundskript. Der Browser bewertet die Regeln direkt.
+Anders als bei der `webRequest`-Version dieses Beispiels benötigt die Erweiterung kein Hintergrundskript. Der Browser wertet die Regeln direkt aus.
 
-Um es auszuprobieren, öffnen Sie eine Seite auf MDN, die Bilder enthält (zum Beispiel [die Seite, die Benutzeroberflächenkomponenten der Erweiterung auflistet](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface)), [installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/), und laden Sie dann die MDN-Seite. Sie sehen so etwas:
+Öffnen Sie zum Testen eine MDN-Seite mit Bildern (beispielsweise [die Seite mit den Komponenten der Benutzeroberfläche von Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface)), [installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) und laden Sie anschließend die MDN-Seite. Sie sehen ungefähr Folgendes:
 
-![Bilder auf einer Seite durch ein Froschbild ersetzt](beastify_by_redirect.png)
+![Bilder auf einer Seite wurden durch ein Froschbild ersetzt](beastify_by_redirect.png)
 
-### Modifizierung von Anfragen-Headern
+### Anfrage-Header ändern
 
-Verwenden Sie `declarativeNetRequest`, um Anfragen-Header zu modifizieren. In diesem Beispiel ändern Sie den "User-Agent"-Header, sodass der Browser sich als Opera 12.16 identifiziert, aber nur für Anfragen an "https\://useragentstring.com/".
+Verwenden Sie `declarativeNetRequest`, um Anfrage-Header zu ändern. In diesem Beispiel ändern Sie den „User-Agent“-Header so, dass sich der Browser als Opera 12.16 ausgibt – allerdings nur bei Anfragen an „https\://useragentstring.com/“.
 
-Ersetzen Sie "manifest.json" durch das Folgende:
+Ersetzen Sie den Inhalt von „manifest.json“ durch Folgendes:
 
 ```json
 {
@@ -298,7 +298,7 @@ Ersetzen Sie "manifest.json" durch das Folgende:
 }
 ```
 
-Ersetzen Sie "rules.json" durch Folgendes:
+Ersetzen Sie den Inhalt von „rules.json“ durch Folgendes:
 
 ```json
 [
@@ -323,28 +323,28 @@ Ersetzen Sie "rules.json" durch Folgendes:
 ]
 ```
 
-Die Bedingung der Regel (`condition`) passt zu `main_frame`-Anfragen an `useragentstring.com`. Die Aktion (`action`) verwendet `"modifyHeaders"` mit einer `"operation"` des Typs `"set"`, um den Wert des `User-Agent`-Headers zu ersetzen. Siehe {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}} für das vollständige Set an Optionen zur Header-Modifizierung.
+Die `condition` der Regel trifft auf `main_frame`-Anfragen an `useragentstring.com` zu. Die `action` verwendet `"modifyHeaders"` mit der `"operation"` `"set"`, um den Wert des `User-Agent`-Headers zu ersetzen. Alle Optionen zum Ändern von Headern finden Sie unter {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}}.
 
-Host-Berechtigungen für `useragentstring.com` sind erforderlich, um Header bei Anfragen an diese Domain zu modifizieren.
+Zum Ändern von Headern bei Anfragen an `useragentstring.com` sind Host-Berechtigungen für diese Domain erforderlich.
 
-Um es auszuprobieren, öffnen Sie [useragentstring.com](https://useragentstring.com/) und überprüfen Sie, dass es den Browser als Firefox identifiziert. Laden Sie dann die Erweiterung neu, aktualisieren Sie [useragentstring.com](https://useragentstring.com/), und sehen Sie, dass die Seite den Browser nun als Opera identifiziert.
+Öffnen Sie zum Testen [useragentstring.com](https://useragentstring.com/) und prüfen Sie, ob die Website den Browser als Firefox erkennt. [Laden Sie dann die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on) und aktualisieren Sie [useragentstring.com](https://useragentstring.com/). Nun sollte die Website den Browser als Opera erkennen.
 
-![useragentstring.com zeigt Details der modifizierten User-Agent-Zeichenfolge](modified_request_header.png)
+![useragentstring.com zeigt Details zum geänderten User-Agent-String](modified_request_header.png)
 
-Um die Bedeutung von Host-Berechtigungen zu sehen, öffnen Sie `about:addons`, suchen Sie nach Ihrer Erweiterung, und wählen Sie im Menü **Verwalten**. Öffnen Sie den Reiter Berechtigungen und Daten und deaktivieren Sie "Zugriff auf Ihre Daten für https://useragentstring.com". Aktualisieren Sie [useragentstring.com](https://useragentstring.com/), und Sie werden sehen, dass die Seite jetzt den Browser als Firefox identifiziert, ohne die Berechtigung zum Zugriff auf die Daten der Seite.
+Um zu sehen, wie wichtig Host-Berechtigungen sind, öffnen Sie `about:addons`, suchen Sie Ihre Erweiterung und wählen Sie in ihrem Hamburger-Menü **Verwalten**. Öffnen Sie den Tab „Berechtigungen und Daten“ und deaktivieren Sie „Auf Ihre Daten für https://useragentstring.com zugreifen“. Laden Sie [useragentstring.com](https://useragentstring.com/) neu. Ohne die Berechtigung zum Zugriff auf Daten dieser Website erkennt sie den Browser wieder als Firefox.
 
-## Mehr erfahren
+## Weitere Informationen
 
-Um mehr über diese APIs zu erfahren, siehe die {{WebExtAPIRef("webRequest")}} und {{WebExtAPIRef("declarativeNetRequest")}} Referenzdokumentationen.
+Weitere Informationen zu diesen APIs finden Sie in der Referenzdokumentation zu {{WebExtAPIRef("webRequest")}} und {{WebExtAPIRef("declarativeNetRequest")}}.
 
-Für `webRequest` Beispiele, siehe:
+Beispiele für `webRequest` finden Sie hier:
 
 - [http-response](https://github.com/mdn/webextensions-examples/tree/main/http-response)
 - [root-cert-stats](https://github.com/mdn/webextensions-examples/tree/main/root-cert-stats)
 - [stored-credentials](https://github.com/mdn/webextensions-examples/tree/main/stored-credentials)
 - [user-agent-rewriter](https://github.com/mdn/webextensions-examples/tree/main/user-agent-rewriter)
 
-Für `declarativeNetRequest` Beispiele, siehe:
+Beispiele für `declarativeNetRequest` finden Sie hier:
 
 - [dnr-block-only](https://github.com/mdn/webextensions-examples/tree/main/dnr-block-only)
 - [dnr-dynamic-with-options](https://github.com/mdn/webextensions-examples/tree/main/dnr-dynamic-with-options)

@@ -3,12 +3,12 @@ title: "Testen Sie Ihre Fähigkeiten: Audio und Video"
 short-title: "Test: Audio und Video"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 l10n:
-  sourceCommit: 22f3449c84d562b561a284cd2cebf5410ea98e6c
+  sourceCommit: 22768e84571c850f2bb67083868cd8577d5de27c
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_video_and_audio", "Learn_web_development/Core/Structuring_content/Splash_page", "Learn_web_development/Core/Structuring_content")}}
 
-Mit diesem Kompetenztest können Sie überprüfen, ob Sie verstanden haben, wie Sie [Video- und Audioinhalte in HTML einbetten](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
+Mit diesem Fähigkeitstest können Sie überprüfen, ob Sie verstanden haben, wie Sie [Video- und Audioinhalte in HTML einbetten](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
 
 > [!NOTE]
 > Wenn Sie Hilfe benötigen, lesen Sie unseren Leitfaden zur Verwendung von [„Testen Sie Ihre Fähigkeiten“](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
@@ -20,9 +20,9 @@ In dieser Aufgabe sollen Sie eine Audiodatei in die Seite einbetten.
 So lösen Sie die Aufgabe:
 
 1. Fügen Sie den Pfad zur Audiodatei in ein geeignetes Attribut ein, um sie auf der Seite einzubetten. Die Datei heißt `audio.mp3` und ist unter `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/audio-video/audio.mp3` verfügbar.
-2. Fügen Sie ein Attribut hinzu, damit Browser einige Standardsteuerelemente anzeigen.
+2. Fügen Sie ein Attribut hinzu, damit Browser standardmäßige Steuerelemente anzeigen.
 
-Der Ausgangspunkt für die Aufgabe sieht so aus:
+Der Ausgangspunkt der Aufgabe sieht so aus:
 
 {{ EmbedLiveSample('audio-1', "100%", 150) }}
 
@@ -59,7 +59,7 @@ video {
 }
 ```
 
-Das aktualisierte Ergebnis sollte so aussehen:
+Der aktualisierte Inhalt sollte so aussehen:
 
 {{ EmbedLiveSample('audio-1-finished', "100%", 180) }}
 
@@ -84,19 +84,19 @@ In dieser Aufgabe sollen Sie einen etwas komplexeren Videoplayer mit mehreren Qu
 
 So lösen Sie die Aufgabe:
 
-1. Fügen Sie ein Attribut hinzu, damit Browser einige Standardsteuerelemente anzeigen.
+1. Fügen Sie ein Attribut hinzu, damit Browser standardmäßige Steuerelemente anzeigen.
 2. Fügen Sie mehrere Quellen mit den Pfaden zu den Videodateien hinzu. Die Dateien heißen `video.mp4` und `video.webm` und sind unter den folgenden Pfaden verfügbar:
    1. `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/audio-video/video.mp4`
    2. `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/audio-video/video.webm`
-3. Teilen Sie dem Browser vorab mit, welche Videoformate die Quellen enthalten, damit er entscheiden kann, welche Datei er herunterladen soll.
-4. Geben Sie dem `<video>`-Element eine Breite und Höhe entsprechend der Originalgröße des Videos (320 × 240 Pixel).
-5. Schalten Sie das Video standardmäßig stumm.
-6. Zeigen Sie bei der Wiedergabe des Videos die Textspuren aus der Datei `subtitles_en.vtt` an. Legen Sie den Typ ausdrücklich auf Untertitel und die Untertitelsprache auf Englisch fest. Setzen Sie außerdem das Attribut `default`, damit die Textspur standardmäßig angezeigt wird.
+3. Teilen Sie dem Browser im Voraus mit, auf welche Videoformate die Quellen verweisen, damit er entscheiden kann, welche Datei er vorab herunterladen soll.
+4. Geben Sie dem `<video>`-Element eine Breite und Höhe entsprechend seinen intrinsischen Abmessungen (320 × 240 Pixel).
+5. Stellen Sie das Video standardmäßig stumm.
+6. Zeigen Sie während der Videowiedergabe die Textspuren aus der Datei `subtitles_en.vtt` an. Legen Sie den Typ ausdrücklich als Untertitel und die Untertitelsprache als Englisch fest. Setzen Sie außerdem das Attribut `default`, damit die Textspur standardmäßig angezeigt wird.
    > [!NOTE]
-   > Eine Kopie der Untertiteldatei befindet sich im selben Verzeichnis wie diese Seite, um Probleme mit [Cross-Origin-Anfragen](/de/docs/Web/HTTP/Guides/CORS) zu vermeiden: Wenn Sie die Aufgabe direkt auf MDN im MDN Playground bearbeiten, benötigen Sie lediglich den Pfad `subtitles_en.vtt`. Wenn Sie das Beispiel auf Ihrem lokalen Dateisystem nachbilden möchten, finden Sie eine Kopie unter `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/audio-video/subtitles_en.vtt`.
-7. Stellen Sie sicher, dass Benutzer die Untertitelsprache erkennen können, wenn sie die Standardsteuerelemente verwenden.
+   > Wenn Sie die Aufgabe direkt auf MDN im MDN Playground bearbeiten, benötigen Sie den Pfad `/shared-assets/misc/subtitles_en.vtt`. Wenn Sie das Beispiel auf Ihrem lokalen Dateisystem nachbilden möchten, finden Sie eine Kopie unter `https://mdn.github.io/shared-assets/misc/subtitles_en.vtt`.
+7. Stellen Sie sicher, dass Leser die Untertitelsprache erkennen können, wenn sie die standardmäßigen Steuerelemente verwenden.
 
-Der Ausgangspunkt für die Aufgabe sieht so aus:
+Der Ausgangspunkt der Aufgabe sieht so aus:
 
 {{EmbedLiveSample('video-1', "100%", 300)}}
 
@@ -108,7 +108,7 @@ Dies ist der zugrunde liegende Code für diesen Ausgangspunkt:
 <video></video>
 ```
 
-Das aktualisierte Ergebnis sollte so aussehen:
+Der aktualisierte Inhalt sollte so aussehen:
 
 {{EmbedLiveSample('video-1-finished', "100%", 380)}}
 
@@ -129,7 +129,7 @@ Ihr fertiger HTML-Code sollte so aussehen:
     type="video/webm" />
   <track
     kind="subtitles"
-    src="subtitles_en.vtt"
+    src="/shared-assets/misc/subtitles_en.vtt"
     srclang="en"
     label="English"
     default />

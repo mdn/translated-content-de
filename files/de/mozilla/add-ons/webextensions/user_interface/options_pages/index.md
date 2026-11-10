@@ -2,22 +2,22 @@
 title: Optionsseite
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Options_pages
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 3116241f515352d336d2edb460cebfe99d43aea7
 ---
 
-Eine Optionsseite ermöglicht es Ihnen, Präferenzen für Ihre Erweiterung festzulegen, die von Ihren Nutzern geändert werden können. Nutzer können auf die Optionsseite einer Erweiterung über den Add-ons-Manager des Browsers zugreifen:
+Auf einer Optionsseite können Sie Einstellungen für Ihre Erweiterung festlegen, die Ihre Nutzer ändern können.
 
-{{EmbedYouTube("eODy24csH5M")}}
+Wie Nutzer auf die Seite zugreifen und wie sie in die Benutzeroberfläche des Browsers integriert ist, unterscheidet sich je nach Browser. In Firefox öffnen Nutzer die Optionsseite einer Erweiterung über den Add-ons-Manager.
 
-Die Art und Weise, wie Nutzer auf die Seite zugreifen, und wie sie in die Benutzeroberfläche des Browsers integriert ist, variiert von Browser zu Browser.
+![Die Optionsseite des Beispiels „favourite-colour“ auf dem Tab „Einstellungen“ seines Eintrags im Firefox-Add-ons-Manager](options_page.png)
 
-Sie können die Seite programmatisch öffnen, indem Sie [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) aufrufen.
+Ihre Erweiterung kann die Seite programmatisch öffnen, indem sie [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) aufruft.
 
-Optionsseiten haben eine Content Security Policy, die die Quellen einschränkt, von denen sie Ressourcen laden können, und einige unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) verbietet. Siehe [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy) für weitere Details.
+Für Optionsseiten gilt eine Content Security Policy, die einschränkt, aus welchen Quellen sie Ressourcen laden können, und bestimmte unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) untersagt. Weitere Informationen finden Sie unter [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy).
 
-## Festlegen der Optionsseite
+## Optionsseite festlegen
 
-Um eine Optionsseite zu erstellen, schreiben Sie eine HTML-Datei, die die Seite definiert. Diese Seite kann CSS- und JavaScript-Dateien enthalten, wie eine normale Webseite. Diese Seite, aus dem [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) Beispiel, enthält eine JavaScript-Datei:
+Um eine Optionsseite zu erstellen, schreiben Sie eine HTML-Datei, die die Seite definiert. Wie eine normale Webseite kann sie CSS- und JavaScript-Dateien einbinden. Diese Seite aus dem Beispiel [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) bindet eine JavaScript-Datei ein:
 
 ```html
 <!doctype html>
@@ -39,13 +39,13 @@ Um eine Optionsseite zu erstellen, schreiben Sie eine HTML-Datei, die die Seite 
 </html>
 ```
 
-Beachten Sie die Verwendung von `<meta name="color-scheme" content="dark light">`. Dies ermöglicht das automatische Umschalten zwischen hellen und dunklen Themes in der eingebetteten Benutzeroberfläche basierend auf den Einstellungen des Nutzers im Browser. Für weitere Informationen siehe [`<meta name="color-scheme">`](/de/docs/Web/HTML/Reference/Elements/meta/name/color-scheme).
+Beachten Sie die Verwendung von `<meta name="color-scheme" content="dark light">`. Dadurch kann die eingebettete Benutzeroberfläche anhand der Browsereinstellungen des Nutzers automatisch zwischen einem hellen und einem dunklen Design wechseln. Weitere Informationen finden Sie unter [`<meta name="color-scheme">`](/de/docs/Web/HTML/Reference/Elements/meta/name/color-scheme).
 
-JavaScript, das auf der Seite läuft, kann alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, für die das Add-on [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat. Insbesondere können Sie die [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) API verwenden, um Präferenzen zu speichern.
+JavaScript, das auf der Seite ausgeführt wird, kann alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, für die das Add-on [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzt. Insbesondere können Sie mit der [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage)-API Einstellungen dauerhaft speichern.
 
-Packen Sie die Dateien der Seite in Ihre Erweiterung.
+Nehmen Sie die Dateien der Seite in Ihre Erweiterung auf.
 
-Sie müssen auch den [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) Schlüssel in Ihrer manifest.json Datei einfügen und ihm die URL zur Seite geben.
+Außerdem müssen Sie den Schlüssel [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) in Ihre manifest.json-Datei aufnehmen und darin die URL der Seite angeben.
 
 ```json
 "options_ui": {
@@ -53,12 +53,12 @@ Sie müssen auch den [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manif
 },
 ```
 
-Siehe die [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) Seite für **Sharing-Optionen** zwischen Ihrer Optionsseite und Hintergrund- oder Inhalts-Skripten.
+Wie Sie **Optionen zwischen Ihrer Optionsseite und Hintergrund- oder Content-Skripten gemeinsam nutzen**, erfahren Sie auf der Seite zu [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui).
 
-## Design des Optionsinhalts
+## Gestaltung der Optionsseite
 
-Für Details, wie Sie Ihren Optionsinhalt gestalten, um dem Stil von Firefox zu entsprechen, siehe das [Acorn Design System](https://acorn.firefox.com/latest).
+Wie Sie den Inhalt Ihrer Optionsseite passend zum Stil von Firefox gestalten, erfahren Sie im [Acorn Design System](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour) Beispiel, das die Optionseiten-Funktionen implementiert.
+Das Repository [webextensions-examples](https://github.com/mdn/webextensions-examples) auf GitHub enthält das Beispiel [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour), das Funktionen einer Optionsseite implementiert.

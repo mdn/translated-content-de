@@ -2,58 +2,58 @@
 title: Was sind Erweiterungen?
 slug: Mozilla/Add-ons/WebExtensions/What_are_WebExtensions
 l10n:
-  sourceCommit: ee33efab7300d7bf7319921a22f2eb2b60df91da
+  sourceCommit: 3116241f515352d336d2edb460cebfe99d43aea7
 ---
 
 > [!NOTE]
-> Wenn Sie bereits mit den grundlegenden Konzepten von Erweiterungen vertraut sind, können Sie diesen Abschnitt überspringen und sich stattdessen anschauen, [wie Erweiterungsdateien organisiert sind](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension). Nutzen Sie dann die [Referenzdokumentation](/de/docs/Mozilla/Add-ons/WebExtensions#reference), um mit der Erstellung Ihrer Erweiterung zu beginnen. Besuchen Sie [Firefox Extension Workshop](https://extensionworkshop.com/?utm_source=developer.mozilla.org&utm_medium=documentation&utm_campaign=your-first-extension), um mehr über den Workflow zur Entwicklung, zum Testen, zur Veröffentlichung und für Erweiterungen für Firefox zu erfahren.
+> Wenn Sie bereits mit den grundlegenden Konzepten von Erweiterungen vertraut sind, können Sie diesen Abschnitt überspringen und [nachlesen, wie die Dateien einer Erweiterung organisiert sind](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension). Nutzen Sie anschließend die [Referenzdokumentation](/de/docs/Mozilla/Add-ons/WebExtensions#reference), um mit der Entwicklung Ihrer Erweiterung zu beginnen. Im [Firefox Extension Workshop](https://extensionworkshop.com/?utm_source=developer.mozilla.org&utm_medium=documentation&utm_campaign=your-first-extension) erfahren Sie mehr über den Ablauf beim Entwickeln, Testen und Veröffentlichen von Erweiterungen für Firefox.
 
-Eine Erweiterung fügt einem Browser Funktionen und Eigenschaften hinzu. Sie erstellen eine mit bekannten, webbasierten Technologien: HTML, CSS und JavaScript. Eine Erweiterung kann die gleichen Web-APIs verwenden wie JavaScript auf einer Webseite, hat jedoch auch Zugriff auf einen zusätzlichen Satz von JavaScript-APIs.
+Eine Erweiterung fügt einem Browser Funktionen hinzu. Sie erstellen sie mit vertrauten Webtechnologien: HTML, CSS und JavaScript. Eine Erweiterung kann dieselben Web-APIs wie JavaScript auf einer Webseite verwenden, hat aber zusätzlich Zugriff auf weitere JavaScript-APIs.
 
-Der zusätzliche Satz von JavaScript-APIs, die [WebExtensions APIs](/de/docs/Mozilla/Add-ons/WebExtensions), ist weitgehend kompatibel mit den wichtigsten Browsern: Google Chrome, Apple Safari, Microsoft Edge und Opera. Erweiterungen, die für Firefox geschrieben wurden, werden in den meisten Fällen auch in anderen Browsern mit wenigen oder gar keinen [Änderungen](https://extensionworkshop.com/documentation/develop/porting-a-google-chrome-extension/) laufen.
+Diese zusätzlichen JavaScript-APIs, die [WebExtensions APIs](/de/docs/Mozilla/Add-ons/WebExtensions), sind weitgehend mit den wichtigsten Browsern kompatibel: Google Chrome, Apple Safari, Microsoft Edge und Opera. Für Firefox geschriebene Erweiterungen funktionieren in den meisten Fällen auch in den anderen Browsern und erfordern dafür nur wenige oder gar keine [Änderungen](https://extensionworkshop.com/documentation/develop/porting-a-google-chrome-extension/).
 
-Die WebExtensions APIs ermöglichen es, in einer Erweiterung viel mehr zu tun als mit Code auf einer Webseite. Hier sind nur einige Beispiele für das, was Sie tun können:
+Dank der WebExtensions APIs können Sie mit einer Erweiterung viel mehr tun als mit Code auf einer Webseite. Hier sind einige Beispiele:
 
-**Eine Website erweitern oder ergänzen**: Verwenden Sie eine Erweiterung, um zusätzliche In-Browser-Funktionen oder Informationen von Ihrer Website zu liefern. Ermöglichen Sie Nutzern, Details von besuchten Seiten zu sammeln, um den von Ihnen angebotenen Service zu verbessern.
+**Eine Website verbessern oder ergänzen**: Nutzen Sie eine Erweiterung, um zusätzliche Funktionen oder Informationen Ihrer Website direkt im Browser bereitzustellen. Ermöglichen Sie Benutzern, Informationen von besuchten Seiten zu sammeln, um Ihren Dienst zu verbessern.
 
-Beispiele: [Grammarly für Firefox](https://addons.mozilla.org/en-US/firefox/addon/grammarly-1/) und [Control Panel für Twitter](https://addons.mozilla.org/en-US/firefox/addon/control-panel-for-twitter/).
+Beispiele: [Enhancer for YouTube](https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/) und [Control Panel for Twitter](https://addons.mozilla.org/en-US/firefox/addon/control-panel-for-twitter/).
 
-![Die Grammarly-Erweiterung zeigt einen Bearbeitungshinweis im GitHub-Editor.](grammarly-in-github-editor.png)
+![Eine YouTube-Videoseite mit der Steuerleiste von Enhancer for YouTube unterhalb des Videoplayers. Der Mauszeiger befindet sich über einer Schaltfläche der Steuerleiste und zeigt den Tooltip für den Kinomodus an.](enhancer_for_youtube.png)
 
-**Nutzern ermöglichen, ihre Persönlichkeit zu zeigen**: Erweiterungen können den Inhalt von Webseiten manipulieren; beispielsweise können Nutzer ihr Lieblingslogo oder -bild als Hintergrund für jede besuchte Seite hinzufügen. Erweiterungen können Nutzern auch ermöglichen, das Aussehen der Firefox-Oberfläche zu aktualisieren, wie eigenständige [Themen-Add-ons](https://extensionworkshop.com/documentation/themes/).
+**Benutzern ermöglichen, ihre Persönlichkeit auszudrücken**: Erweiterungen können den Inhalt von Webseiten verändern. So können Benutzer beispielsweise ihr Lieblingslogo oder ein Bild als Hintergrund für jede besuchte Seite festlegen. Erweiterungen können es Benutzern auch ermöglichen, das Erscheinungsbild der Firefox-Benutzeroberfläche anzupassen, wie es eigenständige [Theme-Add-ons](https://extensionworkshop.com/documentation/themes/) tun.
 
 Beispiele: [Tabliss](https://addons.mozilla.org/en-US/firefox/addon/tabliss/), [Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) und [Emoji](https://addons.mozilla.org/en-US/firefox/addon/emoji-sav/).
 
-![Eine durch die Tabliss-Erweiterung gestylte neue Registerkarte zeigt ein Waldlandschaftsbild mit der Uhrzeit und einer Begrüßungsnachricht.](tabliss_new_tab.png)
+![Ein von der Tabliss-Erweiterung gestalteter neuer Tab zeigt ein Bild sowie die Uhrzeit und eine Begrüßung.](tabliss_new_tab.png)
 
-**Inhalte zu Webseiten hinzufügen oder entfernen**: Sie können Nutzern helfen, aufdringliche Werbung zu blockieren, Zugang zu einem Reiseführer zu bieten, wann immer eine Seite ein Land oder eine Stadt erwähnt, oder Seiteninhalte neu formatieren, um ein konsistentes Leseerlebnis zu bieten. Mit der Fähigkeit, auf das HTML und CSS einer Seite zuzugreifen und zu aktualisieren, können Erweiterungen Nutzern helfen, das Web so zu sehen, wie sie es möchten.
+**Inhalte auf Webseiten hinzufügen oder entfernen**: Sie können Benutzern helfen, aufdringliche Werbung zu blockieren, einen Reiseführer bereitzustellen, sobald auf einer Seite ein Land oder eine Stadt erwähnt wird, oder Seiteninhalte für ein einheitliches Leseerlebnis neu zu formatieren. Da Erweiterungen auf HTML und CSS einer Seite zugreifen und beides ändern können, helfen sie Benutzern, das Web so zu sehen, wie sie es möchten.
 
 Beispiele: [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/), [Return YouTube Dislike](https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/) und [LeechBlock NG](https://addons.mozilla.org/en-US/firefox/addon/leechblock-ng/).
 
-![Das uBlock Origin-Popup zeigt blockierte Tracker-Statistiken.](ublock_origin_add_on.png)
+![Das Pop-up von uBlock Origin zeigt Statistiken zu blockierten Trackern.](ublock_origin_add_on.png)
 
-**Werkzeuge und neue Browsing-Funktionen hinzufügen**: Fügen Sie einem Taskboard neue Funktionen hinzu oder generieren Sie QR-Code-Bilder aus URLs, Hyperlinks oder Seitentext. Mit flexiblen UI-Optionen und der Power der [WebExtensions APIs](/de/docs/Mozilla/Add-ons/WebExtensions) können Sie leicht neue Funktionen zu einem Browser hinzufügen. Und Sie können Funktionen oder Funktionalitäten nahezu jeder Website verbessern; es muss nicht Ihre eigene Website sein.
+**Werkzeuge und neue Funktionen zum Surfen hinzufügen**: Ergänzen Sie ein Taskboard um neue Funktionen oder erzeugen Sie QR-Code-Bilder aus URLs, Hyperlinks oder Seitentext. Dank flexibler Möglichkeiten für die Benutzeroberfläche und der Leistungsfähigkeit der [WebExtensions APIs](/de/docs/Mozilla/Add-ons/WebExtensions) können Sie einem Browser problemlos neue Funktionen hinzufügen. Außerdem können Sie die Funktionen nahezu jeder Website verbessern – es muss nicht Ihre eigene sein.
 
 Beispiele: [Worldwide Radio](https://addons.mozilla.org/en-US/firefox/addon/worldwide-radio/), [Flagfox](https://addons.mozilla.org/en-US/firefox/addon/flagfox/) und [Tomato Clock](https://addons.mozilla.org/en-US/firefox/addon/tomato-clock/).
 
-![Die Worldwide Radio-Erweiterung zeigt eine Liste von Radiostationen für Kanada, wobei RadioOne zum Abspielen ausgewählt ist.](worldwide_radio_extension.png)
+![Die Erweiterung Worldwide Radio zeigt eine Liste von Radiosendern für Kanada. Ein Sender ist zur Wiedergabe ausgewählt.](worldwide_radio_extension.png)
 
-**Spiele**: Bieten Sie traditionelle Computerspiele mit Offline-Spiel-Features an oder erkunden Sie neue Spielmöglichkeiten, wie z.B. das Integrieren von Gameplay in das alltägliche Browsen.
+**Spiele**: Bieten Sie klassische Computerspiele mit Offline-Funktionen an oder erkunden Sie neue Spielmöglichkeiten, etwa indem Sie Spielelemente in das alltägliche Surfen einbinden.
 
-Beispiele: [RPG Game - Dedalium by Loycom Games](https://addons.mozilla.org/en-US/firefox/addon/rpg-game-online-dedalium/), [Solitaire Kartenspiel](https://addons.mozilla.org/en-US/firefox/addon/solitaire-spider-freecell/) und [2048 Prime](https://addons.mozilla.org/en-US/firefox/addon/2048-prime/).
+Beispiele: [RPG Game - Dedalium by Loycom Games](https://addons.mozilla.org/en-US/firefox/addon/rpg-game-online-dedalium/), [Solitaire Card Game](https://addons.mozilla.org/en-US/firefox/addon/solitaire-spider-freecell/) und [Boxel 3D](https://addons.mozilla.org/en-US/firefox/addon/boxel-3d-game/).
 
-![Das Dedalium-Popup zeigt den Spielstatus und bietet Optionen, um einen Kampf oder ein Abenteuer zu starten.](dedalium_popup.png)
+![Das Pop-up von Dedalium zeigt den Bildschirm „Build your Network Guardian“ mit Optionen zur Auswahl von Ausrüstung und zum Erstellen einer Spielfigur.](dedalium_popup.png)
 
-**Entwicklungswerkzeuge hinzufügen**: Sie können Webentwicklungstools als Ihr Geschäft bereitstellen oder eine nützliche Technik oder einen Ansatz zur Webentwicklung entwickelt haben, den Sie teilen möchten. Wie auch immer, Sie können die integrierten Entwicklerwerkzeuge von Firefox verbessern, indem Sie der Entwicklertoolbar einen neuen Tab hinzufügen.
+**Entwicklungswerkzeuge hinzufügen**: Vielleicht bieten Sie Werkzeuge für die Webentwicklung als Teil Ihres Geschäfts an oder haben eine nützliche Technik oder Herangehensweise für die Webentwicklung entwickelt, die Sie teilen möchten. In beiden Fällen können Sie die integrierten Firefox-Entwicklerwerkzeuge um einen neuen Tab in der Entwickler-Symbolleiste ergänzen.
 
 Beispiele: [aXe Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/), [Web Developer](https://addons.mozilla.org/en-US/firefox/addon/web-developer/) und [Web React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/).
 
-![Die Axe-Barrierefreiheitstest-Erweiterung zeigt gefundene Barrierefreiheitsprobleme auf einer Webseite.](axe_developer_tools_add_on.png)
+![Die Erweiterung axe DevTools zeigt in den Firefox-Entwicklerwerkzeugen eine Zusammenfassung der auf einer Webseite gefundenen Barrierefreiheitsprobleme und darunter eine Liste der Probleme.](axe_developer_tools_add_on.png)
 
-Wenn Sie Ideen oder Fragen haben, können Sie uns im [Add-ons Discourse](https://discourse.mozilla.org/c/add-ons/35) oder im [Add-ons Raum](https://chat.mozilla.org/#/room/#addons:mozilla.org) auf [Matrix](https://wiki.mozilla.org/Matrix) erreichen.
+Wenn Sie Ideen oder Fragen haben, erreichen Sie uns im [Add-ons Discourse](https://discourse.mozilla.org/c/add-ons/35) oder im [Add-ons-Raum](https://chat.mozilla.org/#/room/#addons:mozilla.org) auf [Matrix](https://wiki.mozilla.org/Matrix).
 
-## Was kommt als nächstes?
+## Wie geht es weiter?
 
-- Machen Sie sich mit der Entwicklung einer Erweiterung in [Ihre erste Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) vertraut.
-- Erfahren Sie mehr über die Struktur einer Erweiterung in [Anatomie einer Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension).
-- Probieren Sie einige Beispielerweiterungen in [Beispielerweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples) aus.
+- Gehen Sie die Entwicklung einer Erweiterung unter [Ihre erste Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) Schritt für Schritt durch.
+- Erfahren Sie unter [Aufbau einer Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension) mehr über die Struktur einer Erweiterung.
+- Probieren Sie unter [Beispielerweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples) einige Erweiterungsbeispiele aus.
