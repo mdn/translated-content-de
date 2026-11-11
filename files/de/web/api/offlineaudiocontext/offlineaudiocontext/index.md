@@ -1,43 +1,59 @@
 ---
-title: "OfflineAudioContext: OfflineAudioContext() Konstruktor"
+title: "OfflineAudioContext: Konstruktor OfflineAudioContext()"
 short-title: OfflineAudioContext()
 slug: Web/API/OfflineAudioContext/OfflineAudioContext
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 64d2a33125b048766fa69bba398e750e29ffa875
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`OfflineAudioContext()`** Konstruktor—Teil der [Web Audio API](/de/docs/Web/API/Web_Audio_API)—erstellt und gibt eine neue Instanz eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Objektes zurück, das dann verwendet werden kann, um Audio in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) statt in ein Audio-Ausgabegerät zu rendern.
+Der Konstruktor **`OfflineAudioContext()`** erstellt eine neue Objektinstanz von [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) und gibt sie zurück. Mit ihr kann Audio in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) statt an ein Audioausgabegerät gerendert werden.
 
 ## Syntax
 
 ```js-nolint
 new OfflineAudioContext(options)
-
 new OfflineAudioContext(numberOfChannels, length, sampleRate)
 ```
 
 ### Parameter
 
-Sie können die Parameter für den `OfflineAudioContext()` Konstruktor entweder als dasselbe Set von Parametern angeben, die als Eingaben in die Methode [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer) verwendet werden, oder indem Sie diese Parameter in einem `options`-Objekt übergeben. In beiden Fällen sind die einzelnen Parameter dieselben.
-
 - `numberOfChannels`
-  - : Ein ganzzahliger Wert, der die Anzahl der Kanäle spezifiziert, die der resultierende [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) haben soll.
+  - : Eine Ganzzahl, die angibt, wie viele Kanäle der resultierende [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) haben soll. Der Wert kann zwischen 1 und der maximalen Anzahl von Kanälen liegen, die die Implementierung unterstützt, einschließlich beider Grenzwerte. Bei Chrome und Firefox beträgt dieser Höchstwert 32. Die Spezifikation verlangt, dass Browser mindestens 32 Kanäle unterstützen.
 - `length`
-  - : Ein ganzzahliger Wert, der die Größe des Puffers spezifiziert, der für den Audio-Kontext erstellt werden soll, in Sample-Frames, wobei ein Sample-Frame eine Einheit ist, die eine einzelne Audio-Datenprobe für jeden Kanal in den Audiodaten enthalten kann. Zum Beispiel hätte ein 5-Sekunden-Puffer mit einer `sampleRate` von 48000Hz eine Länge von `5 * 48000 = 240000` Sample-Frames.
-- `sampleRate`
-  - : Die Abtastrate der linearen Audiodaten in Sample-Frames pro Sekunde. Alle Benutzeragenten müssen einen Bereich von 8000Hz bis 96000Hz unterstützen und können einen breiteren Bereich unterstützen. Die am häufigsten verwendete Rate ist 44100Hz, die Abtastrate, die von CD-Audio verwendet wird.
+  - : Eine Ganzzahl, die die Größe des für den Audiokontext zu erstellenden Puffers in Sample-Frames angibt. Ein Sample-Frame ist eine Einheit, die für jeden Kanal der Audiodaten ein einzelnes Sample enthalten kann. Beispielsweise hätte ein Puffer für 5 Sekunden Audio mit einer `sampleRate` von 48000 Hz eine Länge von `5 * 48000 = 240000` Sample-Frames. `length` muss größer als `0` sein; die Obergrenze wird nur durch den verfügbaren Arbeitsspeicher des Systems bestimmt.
+- `renderSizeHint` {{optional_inline}} {{experimental_inline}}
+  - : Fordert eine Render-Quantum-Größe für den Audiokontext als Anzahl von Audio-[Sample-Frames](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_graphs:~:text=sample%20frame) an (weitere Informationen finden Sie unter [`BaseAudioContext.renderQuantumSize`](/de/docs/Web/API/BaseAudioContext/renderQuantumSize)). Mögliche Werte sind:
+    - `default`
+      - : Verwendet den Standardwert `128`.
+    - `hardware`
+      - : Fordert den Browser auf, eine geeignete Größe für die zugrunde liegende Hardware zu wählen. Ein `OfflineAudioContext` rendert Audio in einen Audiopuffer. Daher spielen Hardware-Timing und Latenz keine Rolle, sodass `hardware` in diesem Fall `default` entspricht.
+    - Eine Ganzzahl
+      - : Eine bestimmte Anzahl von Frames zwischen `1` und dem Sechsfachen der `sampleRate` des Kontexts (abgerundet, falls das Ergebnis keine Ganzzahl ist), einschließlich beider Grenzwerte. Der angeforderte Wert wird möglicherweise nicht exakt übernommen. Sie können `renderQuantumSize` des Kontexts abfragen, um den tatsächlich ausgewählten Wert zu prüfen.
 
-Es ist wichtig zu beachten, dass, während Sie einen neuen [`AudioContext`](/de/docs/Web/API/AudioContext) mit dem [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext) Konstruktor ohne Argumente erstellen können, der `OfflineAudioContext()` Konstruktor drei Argumente erfordert, da er einen `AudioBuffer` erstellen muss. Dies funktioniert genau so, wie wenn Sie einen neuen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) mit der [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer) Methode erstellen. Weitere Details finden Sie im Abschnitt [Audiodatenpuffer: Frames, Samples und Kanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_buffers_frames_samples_and_channels) aus unserem [Grundlegende Konzepte](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API) Leitfaden.
+    Wenn `renderSizeHint` weggelassen wird, ist der Standardwert `128`.
+- `sampleRate`
+  - : Die Abtastrate der linearen Audiodaten in Sample-Frames pro Sekunde. Sie kann zwischen 3000 und 768000 Hz liegen, einschließlich beider Grenzwerte. Die gebräuchlichste Rate ist 44100 Hz; dies ist die Abtastrate von CD-Audio.
+
+Sie können die Parameter für den Konstruktor `OfflineAudioContext()` als Positionsargumente oder als Eigenschaften eines `options`-Objekts angeben. Beachten Sie, dass Sie `renderSizeHint` nur in einem `options`-Objekt angeben können. Bei Positionsargumenten können Sie nur `numberOfChannels`, `length` und `sampleRate` angeben.
+
+Anders als der Konstruktor [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext), der keine erforderlichen Argumente hat, benötigt der Konstruktor `OfflineAudioContext()` ein `options`-Objekt oder drei Positionsargumente, da er einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erstellen muss. Intern entspricht dies dem Erstellen eines neuen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) mit der Methode [`BaseAudioContext.createBuffer()`](/de/docs/Web/API/BaseAudioContext/createBuffer).
 
 ### Rückgabewert
 
-Ein neues [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) Objekt, dessen zugehöriger `AudioBuffer` wie gewünscht konfiguriert ist.
+Ein neues [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Objekt, dessen zugehöriger `AudioBuffer` wie angefordert konfiguriert ist.
 
-Wie ein regulärer `AudioContext` kann ein `OfflineAudioContext` das Ziel von Ereignissen sein, daher implementiert er das [`EventTarget`](/de/docs/Web/API/EventTarget) Interface.
+### Ausnahmen
+
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die angegebenen Werte für [`numberOfChannels`](#numberofchannels), [`length`](#length), [`renderSizeHint`](#rendersizehint) oder [`sampleRate`](#samplerate) außerhalb des zulässigen Bereichs liegen.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 const offlineCtx = new OfflineAudioContext({
@@ -49,7 +65,7 @@ const source = offlineCtx.createBufferSource();
 // …
 ```
 
-Für ein vollständig funktionierendes Beispiel sehen Sie sich unser [offline-audio-context-promise](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/) GitHub Repository an (siehe auch den [Quellcode](https://github.com/mdn/webaudio-examples/blob/main/offline-audio-context-promise/index.html).)
+Ein vollständiges, funktionsfähiges Beispiel finden Sie in unserem GitHub-Repository [offline-audio-context-promise](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/) (siehe auch den [Quellcode](https://github.com/mdn/webaudio-examples/blob/main/offline-audio-context-promise/index.html)).
 
 ## Spezifikationen
 
@@ -58,3 +74,7 @@ Für ein vollständig funktionierendes Beispiel sehen Sie sich unser [offline-au
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [Audiopuffer: Frames, Samples und Kanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_buffers_frames_samples_and_channels)

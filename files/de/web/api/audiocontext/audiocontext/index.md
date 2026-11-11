@@ -1,14 +1,14 @@
 ---
-title: "AudioContext: AudioContext() Konstruktor"
+title: "AudioContext: Konstruktor AudioContext()"
 short-title: AudioContext()
 slug: Web/API/AudioContext/AudioContext
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 64d2a33125b048766fa69bba398e750e29ffa875
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`AudioContext()`** Konstruktor erstellt ein neues [`AudioContext`](/de/docs/Web/API/AudioContext) Objekt, das einen Audioverarbeitungsgraphen darstellt. Dieser wird aus Audio-Modulen gebildet, die miteinander verbunden sind, wobei jedes durch ein [`AudioNode`](/de/docs/Web/API/AudioNode) repräsentiert ist.
+Der Konstruktor **`AudioContext()`** erstellt ein neues [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekt. Es repräsentiert einen Graphen zur Audioverarbeitung, der aus miteinander verbundenen Audiomodulen besteht, die jeweils durch einen [`AudioNode`](/de/docs/Web/API/AudioNode) repräsentiert werden.
 
 ## Syntax
 
@@ -22,45 +22,67 @@ new AudioContext(options)
 - `options` {{optional_inline}}
   - : Ein Objekt zur Konfiguration des Kontexts. Die verfügbaren Eigenschaften sind:
     - `latencyHint` {{optional_inline}}
-      - : Der Typ der Wiedergabe, für die der Kontext verwendet wird, als vordefinierter String (`"balanced"`, `"interactive"` oder `"playback"`) oder als Gleitkommawert mit doppelter Genauigkeit, der die bevorzugte maximale Latenz des Kontexts in Sekunden angibt. Der Benutzeragent kann diese Anforderung möglicherweise nicht erfüllen; prüfen Sie den Wert von [`AudioContext.baseLatency`](/de/docs/Web/API/AudioContext/baseLatency), um die tatsächliche Latenz nach Erstellung des Kontexts zu bestimmen.
-        - `"balanced"`: Der Browser balanciert Audioausgabe-Latenz und Energieverbrauch, wenn er einen Latenzwert auswählt.
-        - `"interactive"` (Standardwert): Das Audio ist an interaktiven Elementen beteiligt, z.B. bei Reaktionen auf Nutzeraktionen oder wenn es mit visuellen Hinweisen wie einem Video oder einer Spielaktion übereinstimmen muss. Der Browser wählt die niedrigste mögliche Latenz, die keine Audioaussetzer verursacht. Dies erfordert wahrscheinlich einen erhöhten Energieverbrauch.
-        - `"playback"`: Der Browser wählt eine Latenz, die die Wiedergabezeit maximiert, indem der Energieverbrauch auf Kosten der Latenz minimiert wird. Nützlich für nicht-interaktive Wiedergabe, wie z.B. Musik.
+      - : Gibt einen Hinweis darauf, welche Latenz der Browser für die Art der Wiedergabe wählen soll, für die der Kontext verwendet wird. Der User Agent kann dieser Vorgabe entsprechen, muss es aber nicht. Prüfen Sie nach dem Erstellen des Kontexts den Wert von [`AudioContext.baseLatency`](/de/docs/Web/API/AudioContext/baseLatency), um die tatsächliche Latenz zu ermitteln. Mögliche Werte sind:
+        - `balanced`
+          - : Der Browser wägt bei der Wahl des Latenzwerts zwischen der Latenz der Audioausgabe und dem Stromverbrauch ab.
+        - `interactive`
+          - : Das Audio ist Teil interaktiver Elemente, etwa wenn es auf Benutzeraktionen reagieren oder mit visuellen Signalen wie einem Video oder einer Spielaktion zusammenfallen muss. Der Browser wählt die niedrigstmögliche Latenz, bei der keine Audioaussetzer auftreten. Dies erfordert wahrscheinlich einen höheren Stromverbrauch.
+        - `playback`
+          - : Der Browser wählt eine Latenz, die durch einen geringeren Stromverbrauch eine möglichst lange Wiedergabedauer ermöglicht, auch wenn dadurch die Latenz steigt. Dies eignet sich für nicht interaktive Wiedergabe, etwa von Musik.
+        - Eine Gleitkommazahl
+          - : Ein Gleitkommawert mit doppelter Genauigkeit, der die bevorzugte maximale Latenz des Kontexts in Sekunden angibt.
+
+        Wenn `latencyHint` weggelassen wird, ist der Standardwert `interactive`.
+
+    - `renderSizeHint` {{optional_inline}} {{experimental_inline}}
+      - : Fordert für Ihren Audiokontext eine Render-Quantum-Größe an, angegeben als Anzahl von Audio-[Sample-Frames](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_graphs:~:text=sample%20frame) (weitere Informationen finden Sie unter [`renderQuantumSize`](/de/docs/Web/API/BaseAudioContext/renderQuantumSize)). Mögliche Werte sind:
+        - `default`
+          - : Verwendet den Standardwert `128`.
+        - `hardware`
+          - : Fordert den Browser auf, eine geeignete Größe für die zugrunde liegende Hardware zu wählen. Wenn `hardware` angegeben ist, gibt `renderQuantumSize` für die erzeugte `AudioContext`-Instanz zunächst `0` zurück, bis ihr [`state`](/de/docs/Web/API/BaseAudioContext/state) den Wert `running` hat. Dies dient dem Schutz vor Fingerprinting.
+        - Eine Ganzzahl
+          - : Eine bestimmte Anzahl von Frames zwischen `1` und dem Sechsfachen des `sampleRate`-Werts des Kontexts (abgerundet, falls das Ergebnis keine Ganzzahl ist), einschließlich der Grenzwerte. Der angeforderte Wert wird möglicherweise nicht exakt übernommen. Sie können den `renderQuantumSize`-Wert des Kontexts abfragen, um den tatsächlich gewählten Wert zu prüfen.
+
+        Wenn `renderSizeHint` weggelassen wird, ist der Standardwert `128`.
     - `sampleRate` {{optional_inline}}
-      - : Gibt die Abtastrate an, die für den neuen Kontext verwendet werden soll. Der Wert muss ein Gleitkommawert sein, der die Abtastrate in Abtastungen pro Sekunde angibt, um den neuen Kontext zu konfigurieren; zusätzlich muss der Wert von [`AudioBuffer.sampleRate`](/de/docs/Web/API/AudioBuffer/sampleRate) unterstützt werden. Der Wert wird typischerweise zwischen 8.000 Hz und 96.000 Hz liegen; der Standardwert variiert je nach Ausgabegerät, aber die Abtastrate 44.100 Hz ist die häufigste. Wenn die Eigenschaft `sampleRate` nicht in den Optionen enthalten ist oder die Optionen beim Erstellen des Audiokontexts nicht angegeben werden, wird standardmäßig die bevorzugte Abtastrate des Ausgabegeräts des neuen Kontexts verwendet.
+      - : Eine Gleitkommazahl, die die für den neuen Kontext zu verwendende Abtastrate angibt. Sie kann zwischen 3000 und 768000 Hz einschließlich liegen. Der gebräuchlichste Wert ist 44100 Hz, die Abtastrate von CD-Audio. Wenn die Eigenschaft `sampleRate` nicht in den Optionen enthalten ist oder beim Erstellen des Audiokontexts keine Optionen angegeben werden, wird standardmäßig die bevorzugte Abtastrate des Ausgabegeräts des neuen Kontexts verwendet.
     - `sinkId` {{optional_inline}} {{Experimental_Inline}}
-      - : Gibt die Sink-ID des Audioausgabegeräts an, das für den `AudioContext` verwendet werden soll. Dies kann einen der folgenden Wertetypen annehmen:
-        - Ein String, der die Sink-ID darstellt, z.B. abgerufen über die `deviceId` Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekte, die von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben werden.
-        - Ein Objekt, das verschiedene Optionen für eine Sink-ID darstellt. Derzeit nimmt dies eine einzige Eigenschaft, `type`, mit einem Wert von `none` an. Wenn dieser Parameter gesetzt ist, wird das Audio verarbeitet, ohne dass es über ein Audioausgabegerät abgespielt wird.
+      - : Gibt die Sink-ID des Audioausgabegeräts an, das für den `AudioContext` verwendet werden soll. Folgende Werttypen sind möglich:
+        - Ein String, der die Sink-ID repräsentiert und beispielsweise über die Eigenschaft `deviceId` der von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegebenen [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekte abgerufen wird.
+        - Ein Objekt, das Optionen für eine Sink-ID repräsentiert. Derzeit unterstützt es eine einzige Eigenschaft, `type`, mit dem Wert `none`. Wird dieser Parameter so festgelegt, wird das Audio verarbeitet, ohne über ein Audioausgabegerät wiedergegeben zu werden.
 
 ### Rückgabewert
 
-Eine neue Instanz von [`AudioContext`](/de/docs/Web/API/AudioContext).
+Eine neue [`AudioContext`](/de/docs/Web/API/AudioContext)-Instanz.
 
 ### Ausnahmen
 
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angegebene `sampleRate` vom Kontext nicht unterstützt wird.
+  - : Wird ausgelöst, wenn:
+    - Die angegebene [`sampleRate`](#samplerate) vom Kontext nicht unterstützt wird.
+    - Der angegebene [`renderSizeHint`](#rendersizehint) eine Ganzzahl außerhalb des Bereichs von `1` bis zum Sechsfachen des `sampleRate`-Werts des Kontexts ist.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Die Spezifikation geht nicht detailliert auf Themen wie die Anzahl der Audiokontexte ein, die ein Benutzeragent unterstützen sollte, oder auf Mindest- oder Höchstanforderungen an die Latenz (falls vorhanden), sodass sich diese Details von Browser zu Browser unterscheiden können. Achten Sie darauf, die Werte zu überprüfen, wenn sie für Sie wichtig sind.
+Die Spezifikation enthält nur wenige Details dazu, wie viele Audiokontexte ein User Agent unterstützen sollte oder welche Mindest- oder Höchstwerte für die Latenz gelten (falls es solche gibt). Diese Einzelheiten können sich daher von Browser zu Browser unterscheiden. Prüfen Sie die Werte, wenn sie für Ihre Anwendung wichtig sind.
 
-Insbesondere gibt die Spezifikation keine maximale oder minimale Anzahl an Audiokontexten an, die gleichzeitig geöffnet sein müssen, dies wird den Browser-Implementierungen überlassen.
+Insbesondere legt die Spezifikation weder eine Höchst- noch eine Mindestanzahl gleichzeitig geöffneter Audiokontexte fest. Diese Entscheidung bleibt den Browserimplementierungen überlassen.
 
 ### Google Chrome
 
 #### Beschränkung der Audiokontexte pro Tab in Chrome
 
-Vor Version 66 unterstützte Google Chrome nur bis zu sechs Audiokontexte _pro Tab_ gleichzeitig.
+Vor Version 66 unterstützte Google Chrome höchstens sechs Audiokontexte gleichzeitig _pro Tab_.
 
-#### Nicht-standardisierte Ausnahmen in Chrome
+#### Nicht standardisierte Ausnahmen in Chrome
 
-Wenn der Wert der `latencyHint` Eigenschaft nicht gültig ist, wirft Chrome eine {{jsxref("TypeError")}} Ausnahme mit der Nachricht "The provided value '...' is not a valid enum value of type AudioContextLatencyCategory".
+Wenn der Wert der Eigenschaft `latencyHint` ungültig ist, löst Chrome eine {{jsxref("TypeError")}}-Ausnahme mit der Meldung „The provided value '...' is not a valid enum value of type AudioContextLatencyCategory“ aus.
 
 ## Beispiel
 
-Dieses Beispiel erstellt einen neuen [`AudioContext`](/de/docs/Web/API/AudioContext) für interaktives Audio (optimiert für Latenz) mit einer Abtastrate von 44,1 kHz und einer spezifischen Audioausgabe.
+Dieses Beispiel erstellt einen neuen [`AudioContext`](/de/docs/Web/API/AudioContext) für interaktives Audio (mit Optimierung auf geringe Latenz), einer Abtastrate von 44,1 kHz und einem bestimmten Audioausgabegerät.
 
 ```js
 const audioCtx = new AudioContext({
@@ -80,4 +102,4 @@ const audioCtx = new AudioContext({
 
 ## Siehe auch
 
-- [`OfflineAudioContext()`](/de/docs/Web/API/OfflineAudioContext/OfflineAudioContext) Konstruktor
+- Konstruktor [`OfflineAudioContext()`](/de/docs/Web/API/OfflineAudioContext/OfflineAudioContext)
