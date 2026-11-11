@@ -1566,7 +1566,7 @@
 /de/docs/DOM/RotationRate.gamma	/de/docs/Web/API/DeviceMotionEvent/rotationRate
 /de/docs/DOM/SVGAElement	/de/docs/Web/API/SVGAElement
 /de/docs/DOM/SVGAngle	/de/docs/Web/API/SVGAngle
-/de/docs/DOM/SVGAnimateColorElement	/de/docs/Web/API/SVGAnimateColorElement
+/de/docs/DOM/SVGAnimateColorElement	/de/docs/Web/API/SVGAnimationElement
 /de/docs/DOM/SVGAnimateElement	/de/docs/Web/API/SVGAnimateElement
 /de/docs/DOM/SVGAnimateMotionElement	/de/docs/Web/API/SVGAnimateMotionElement
 /de/docs/DOM/SVGAnimateTransformElement	/de/docs/Web/API/SVGAnimateTransformElement
@@ -2882,7 +2882,7 @@
 /de/docs/Document_Object_Model_(DOM)/RotationRate.gamma	/de/docs/Web/API/DeviceMotionEvent/rotationRate
 /de/docs/Document_Object_Model_(DOM)/SVGAElement	/de/docs/Web/API/SVGAElement
 /de/docs/Document_Object_Model_(DOM)/SVGAngle	/de/docs/Web/API/SVGAngle
-/de/docs/Document_Object_Model_(DOM)/SVGAnimateColorElement	/de/docs/Web/API/SVGAnimateColorElement
+/de/docs/Document_Object_Model_(DOM)/SVGAnimateColorElement	/de/docs/Web/API/SVGAnimationElement
 /de/docs/Document_Object_Model_(DOM)/SVGAnimateElement	/de/docs/Web/API/SVGAnimateElement
 /de/docs/Document_Object_Model_(DOM)/SVGAnimateMotionElement	/de/docs/Web/API/SVGAnimateMotionElement
 /de/docs/Document_Object_Model_(DOM)/SVGAnimateTransformElement	/de/docs/Web/API/SVGAnimateTransformElement
@@ -10291,6 +10291,7 @@
 /de/docs/Web/API/RotationRate.gamma	/de/docs/Web/API/DeviceMotionEvent/rotationRate
 /de/docs/Web/API/SVGAElement/SVGAlement.target	/de/docs/Web/API/SVGAElement/target
 /de/docs/Web/API/SVGAElement/text	/de/docs/Web/API/Node/textContent
+/de/docs/Web/API/SVGAnimateColorElement	/de/docs/Web/API/SVGAnimationElement
 /de/docs/Web/API/SVGAnimatedPoints	/de/docs/Web/API/SVGPolygonElement
 /de/docs/Web/API/SVGAnimationElement/onbegin	/de/docs/Web/API/SVGAnimationElement/beginEvent_event
 /de/docs/Web/API/SVGAnimationElement/onend	/de/docs/Web/API/SVGAnimationElement/endEvent_event

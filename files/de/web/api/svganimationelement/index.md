@@ -2,55 +2,55 @@
 title: SVGAnimationElement
 slug: Web/API/SVGAnimationElement
 l10n:
-  sourceCommit: 226ac33eb70ed5411dd2d68bd602c80cafd780b6
+  sourceCommit: bf9b4bff68f6fb57e1184f196792029a1f8b0739
 ---
 
 {{APIRef("SVG")}}
 
-Das **`SVGAnimationElement`**-Interface ist das Basis-Interface für alle Animations-Element-Interfaces: [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement), [`SVGSetElement`](/de/docs/Web/API/SVGSetElement), [`SVGAnimateColorElement`](/de/docs/Web/API/SVGAnimateColorElement), [`SVGAnimateMotionElement`](/de/docs/Web/API/SVGAnimateMotionElement) und [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement).
+Das **`SVGAnimationElement`**-Interface ist das Basis-Interface für alle Interfaces von Animationselementen: [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement), [`SVGSetElement`](/de/docs/Web/API/SVGSetElement), [`SVGAnimateMotionElement`](/de/docs/Web/API/SVGAnimateMotionElement) und [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem Eltern-Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGAnimationElement.requiredExtensions`](/de/docs/Web/API/SVGAnimationElement/requiredExtensions) {{ReadOnlyInline}}
-  - : Eine [`SVGStringList`](/de/docs/Web/API/SVGStringList), die das {{SVGAttr("requiredExtensions")}}-Attribut des gegebenen Elements widerspiegelt.
+  - : Eine [`SVGStringList`](/de/docs/Web/API/SVGStringList), die das Attribut {{SVGAttr("requiredExtensions")}} des betreffenden Elements widerspiegelt.
 - [`SVGAnimationElement.systemLanguage`](/de/docs/Web/API/SVGAnimationElement/systemLanguage) {{ReadOnlyInline}}
-  - : Eine [`SVGStringList`](/de/docs/Web/API/SVGStringList), die das {{SVGAttr("systemLanguage")}}-Attribut des gegebenen Elements widerspiegelt.
+  - : Eine [`SVGStringList`](/de/docs/Web/API/SVGStringList), die das Attribut {{SVGAttr("systemLanguage")}} des betreffenden Elements widerspiegelt.
 - [`SVGAnimationElement.targetElement`](/de/docs/Web/API/SVGAnimationElement/targetElement) {{ReadOnlyInline}}
-  - : Ein [`SVGElement`](/de/docs/Web/API/SVGElement), das das Element darstellt, welches animiert wird. Wenn kein Ziel-Element animiert wird (zum Beispiel, weil das {{SVGAttr("href")}} ein unbekanntes Element spezifiziert), ist der zurückgegebene Wert `null`.
+  - : Ein [`SVGElement`](/de/docs/Web/API/SVGElement), das das animierte Element repräsentiert. Wenn kein Zielelement animiert wird, beispielsweise weil {{SVGAttr("href")}} ein unbekanntes Element angibt, wird `null` zurückgegeben.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Dieses Interface erbt auch Methoden von seinem Eltern-Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface erbt auch Methoden von seinem übergeordneten Interface [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGAnimationElement.getStartTime()`](/de/docs/Web/API/SVGAnimationElement/getStartTime)
-  - : Gibt einen Float-Wert zurück, der die Startzeit, in Sekunden, für das aktuelle Intervall dieses Animations-Elements darstellt, falls es existiert, unabhängig davon, ob das Intervall bereits begonnen hat. Wenn kein aktuelles Intervall vorhanden ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `INVALID_STATE_ERR` geworfen.
+  - : Gibt eine Gleitkommazahl zurück, die die Startzeit des aktuellen Intervalls dieses Animationselements in Sekunden angibt, sofern ein solches Intervall existiert – unabhängig davon, ob es bereits begonnen hat. Wenn kein aktuelles Intervall existiert, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `INVALID_STATE_ERR` ausgelöst.
 - [`SVGAnimationElement.getCurrentTime()`](/de/docs/Web/API/SVGAnimationElement/getCurrentTime)
-  - : Gibt einen Float-Wert zurück, der die aktuelle Zeit in Sekunden relativ zur Zeit Null des gegebenen Zeitcontainers darstellt.
+  - : Gibt eine Gleitkommazahl zurück, die die aktuelle Zeit in Sekunden relativ zum Zeitnullpunkt des betreffenden Zeitcontainers angibt.
 - [`SVGAnimationElement.getSimpleDuration()`](/de/docs/Web/API/SVGAnimationElement/getSimpleDuration)
-  - : Gibt einen Float-Wert zurück, der die Anzahl der Sekunden für die einfache Dauer dieser Animation darstellt. Wenn die einfache Dauer undefiniert ist (z.B. die Endzeit ist unbestimmt), wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NOT_SUPPORTED_ERR` ausgelöst.
+  - : Gibt eine Gleitkommazahl zurück, die die einfache Dauer dieser Animation in Sekunden angibt. Wenn die einfache Dauer nicht definiert ist, beispielsweise weil die Endzeit unbegrenzt ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NOT_SUPPORTED_ERR` ausgelöst.
 - [`SVGAnimationElement.beginElement()`](/de/docs/Web/API/SVGAnimationElement/beginElement)
-  - : Erstellt eine Anfangszeitinstanz für die aktuelle Zeit. Die neue Zeitinstanz wird zur Liste der Anfangszeiten hinzugefügt. Das Verhalten dieser Methode entspricht `beginElementAt(0)`.
+  - : Erzeugt einen Startzeitpunkt für die aktuelle Zeit. Der neue Zeitpunkt wird der Liste der Startzeitpunkte hinzugefügt. Das Verhalten dieser Methode entspricht `beginElementAt(0)`.
 - [`SVGAnimationElement.beginElementAt()`](/de/docs/Web/API/SVGAnimationElement/beginElementAt)
-  - : Erstellt eine Anfangszeitinstanz für die aktuelle Zeit plus den angegebenen Offset. Die neue Zeitinstanz wird zur Liste der Anfangszeiten hinzugefügt.
+  - : Erzeugt einen Startzeitpunkt für die aktuelle Zeit zuzüglich des angegebenen Offsets. Der neue Zeitpunkt wird der Liste der Startzeitpunkte hinzugefügt.
 - [`SVGAnimationElement.endElement()`](/de/docs/Web/API/SVGAnimationElement/endElement)
-  - : Erstellt eine Endzeitinstanz für die aktuelle Zeit. Die neue Zeitinstanz wird zur Liste der Endzeiten hinzugefügt. Das Verhalten dieser Methode entspricht `endElementAt(0)`.
+  - : Erzeugt einen Endzeitpunkt für die aktuelle Zeit. Der neue Zeitpunkt wird der Liste der Endzeitpunkte hinzugefügt. Das Verhalten dieser Methode entspricht `endElementAt(0)`.
 - [`SVGAnimationElement.endElementAt()`](/de/docs/Web/API/SVGAnimationElement/endElementAt)
-  - : Erstellt eine Endzeitinstanz für die aktuelle Zeit plus den angegebenen Offset. Die neue Zeitinstanz wird zur Liste der Endzeiten hinzugefügt.
+  - : Erzeugt einen Endzeitpunkt für die aktuelle Zeit zuzüglich des angegebenen Offsets. Der neue Zeitpunkt wird der Liste der Endzeitpunkte hinzugefügt.
 
 ## Ereignisse
 
-Verwenden Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `on...` Handler-Eigenschaft dieses Interfaces zuweisen.
+Sie können auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) reagieren oder der `on...`-Handler-Eigenschaft dieses Interfaces einen Event-Listener zuweisen.
 
 - [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event)
-  - : Wird ausgelöst, wenn die lokale Zeitachse des Elements beginnt zu spielen.
+  - : Wird ausgelöst, wenn die lokale Zeitleiste des Elements zu laufen beginnt.
 - [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)
-  - : Wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
+  - : Wird ausgelöst, wenn das aktive Ende der Animation erreicht wird.
 - [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)
-  - : Wird ausgelöst, wenn die lokale Zeitachse des Elements sich wiederholt. Es wird jedes Mal ausgelöst, wenn das Element sich wiederholt, nach der ersten Iteration.
+  - : Wird ausgelöst, wenn sich die lokale Zeitleiste des Elements wiederholt. Das Ereignis wird nach dem ersten Durchlauf bei jeder Wiederholung des Elements ausgelöst.
 
 ## Spezifikationen
 
